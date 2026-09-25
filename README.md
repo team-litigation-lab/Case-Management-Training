@@ -87,7 +87,7 @@ This portal is the main LSH training portal. The job platforms are embedded in i
 
 This repository is its own Worker, separate from the EA/PA portal (EA-PA-TRAINING).
 
-1. In Cloudflare → Workers & Pages → Create → import this repository (leave the root directory as the repository root). The Worker name comes from `wrangler.json` (`cm-training`).
+1. In Cloudflare → Workers & Pages → Create → import this repository (leave the root directory as the repository root). The Worker is `case-management-training` (the name in `wrangler.json` must match the Worker name in Cloudflare), so the course is at `https://case-management-training.legalsupporthelp.workers.dev`.
 2. KV: the Worker binds the same `LSH_KV` namespace as EA/PA. **All CM keys are stored under a `cm:` prefix**, so CM trainees, progress and settings never mix with EA/PA data. To use a separate namespace instead, change the `id` in `wrangler.json`.
 3. Secrets (Settings → Variables and Secrets), the same as EA/PA:
    - `ADMIN_PASSPHRASE`: admin sign-in; switches on secure mode.
