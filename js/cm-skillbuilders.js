@@ -108,7 +108,7 @@ const scenario = (html)=> `<div class="cm-scn">${html}</div>`;
    ================================================================ */
 const CM_TOOL_DEFAULTS = [
   {id:"cms", icon:"🗂", name:"LSH Case Management System", short:"CMS", status:"live",
-   url:"https://cm-training-activity.pages.dev",
+   url:"https://lshcasemanagementtraining-trainingcrm.pages.dev",
    desc:"Where the case work actually happens: start the case, key the intake facts, upload each document by category, and log Tasks, Notes, Liens, Chronology and the Financial Ledger.",
    evidence:"CMS Case ID", idHint:"CMS Case ID (e.g. LSH-2026-PI-000123)"},
   {id:"docket", icon:"📅", name:"Docket Entry System", short:"Docket", status:"coming", url:"",

@@ -43,7 +43,7 @@ This portal is the main LSH training portal. The job platforms are embedded in i
 
 | Tool | Status | Default address |
 |---|---|---|
-| 🗂 LSH Case Management System | Live | `https://cm-training-activity.pages.dev` |
+| 🗂 LSH Case Management System | Live | `https://lshcasemanagementtraining-trainingcrm.pages.dev` |
 | 📅 Docket Entry System | Coming soon | set by admin |
 | 📨 Medical Records Request Platform (ChartSwap-style) | Coming soon | set by admin |
 
@@ -66,6 +66,6 @@ This folder is a **separate Worker** from the EA/PA portal.
    - `ADMIN_PASSPHRASE`: admin sign-in; switches on secure mode.
    - `GEMINI_API_KEY` (or `ANTHROPIC_API_KEY`): AI grading and roleplays.
    - `SESSION_SECRET`: optional.
-4. After the first deploy, sign in as admin → **🧰 Tools** to check the CMS address (default `https://cm-training-activity.pages.dev`). Add the Docket and Records addresses and switch them to Live when those apps are deployed.
+4. After the first deploy, sign in as admin → **🧰 Tools** to check the CMS address (default `https://lshcasemanagementtraining-trainingcrm.pages.dev`, the CaseManagementTraining app). Add the Docket and Records addresses and switch them to Live when those apps are deployed.
 
 The EA/PA site deploys the repository root, so a root `.assetsignore` now excludes `cm-training/`. Without it, the EA/PA Worker would also publish a copy of this portal wired to EA/PA storage.
