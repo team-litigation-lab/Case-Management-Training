@@ -7360,7 +7360,7 @@ const mem = {}; // in-memory fallback if window.storage is unavailable
 const PERSONAL_KEYS = ["day-progress","practice-progress","lab-attempts-global","notes","completed-lab-actions",
   "day10-window","submissions","roleplayHistory","slide-progress","last-slide","attn-detail-findings",
   "calendar-custom","calendar-edits","call-log","inbox-filing","inbox-interactions","inbox-labels","trainee-batch",
-  "quick-check-answers","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","cms-log","callHistory"];
+  "quick-check-answers","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","cms-log"];
 const PERSONAL_KEY_SET = new Set(PERSONAL_KEYS);
 let cloudSaveTimer = null;
 function scheduleCloudSave(){
@@ -7395,7 +7395,7 @@ async function cloudRestore(traineeId){
   try{
     for(const k of PERSONAL_KEYS){
       if(!(k in snap.data)) continue;
-      if(k==="submissions" || k==="roleplayHistory" || k==="callHistory"){
+      if(k==="submissions" || k==="roleplayHistory"){
         // never let a snapshot shrink these lists below what the ledger already restored
         const cur = await storeGet(k);
         if(Array.isArray(cur) && Array.isArray(snap.data[k]) && cur.length > snap.data[k].length) continue;
@@ -7609,7 +7609,6 @@ async function syncToLedger(allowCreate){
     practiceProgress: state.practiceProgress,
     submissions: state.submissions||[],
     roleplayHistory: state.roleplayHistory||[],
-    callHistory: state.callHistory||[],
     completedLabActions: state.completedLabActions||{},
     lastActive: new Date().toISOString(),
     approved: existing ? existing.approved : false,
@@ -7951,7 +7950,7 @@ function orientSlides(){
      </div>`},
    {k:"Navigation", h:"Getting around", body:`
      <div class="or-nav">
-       ${[["Dashboard","Your home: progress, days, stats."],["🎲 Tasks","Surprise tasks from your trainer — acknowledge, plan and resolve before the timer ends. Graded."],["Case File","John Doe v. Apex — the working case. Read it first."],["📁 Case Documents","Every record, bill, lien letter and pleading — with its CMS upload category."],["Skill Builders","Hands-on exercises from the Skill Building slides — each opens with its day."],["📞 Calls","Phone practice on demand: reception, intake, client calls, attorney reports, adjusters and providers — scored after every call."],["🧰 Tools","The LSH Case Management System, Docket and Records platforms, built into the portal. This is where you do the file work."],["🔥 Live Roleplay","Voice calls with realistic clients and crises."],["My Notes","Your private notes — download them as a PDF."],["Handouts","Printable checklists and Excel templates for each day."],["🎯 Focus","Your trainer's feedback and what to work on next."],["💬 Feedback","Tell us what's working and what isn't — anonymously if you like."]].map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join("")}
+       ${[["Dashboard","Your home: progress, days, stats."],["🎲 Tasks","Surprise tasks from your trainer — acknowledge, plan and resolve before the timer ends. Graded."],["Case File","John Doe v. Apex — the working case. Read it first."],["📁 Case Documents","Every record, bill, lien letter and pleading — with its CMS upload category."],["Skill Builders","Hands-on exercises from the Skill Building slides — each opens with its day."],["📞 Calls","The LSH Training Portal's Call Simulator and Calendaring, opened with the Case Management calls: reception, intake, client calls, attorney reports, adjusters and providers."],["🧰 Tools","The LSH Case Management System, Docket and Records platforms, built into the portal. This is where you do the file work."],["🔥 Live Roleplay","Voice calls with realistic clients and crises."],["My Notes","Your private notes — download them as a PDF."],["Handouts","Printable checklists and Excel templates for each day."],["🎯 Focus","Your trainer's feedback and what to work on next."],["💬 Feedback","Tell us what's working and what isn't — anonymously if you like."]].map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join("")}
      </div>
      <p class="or-foot">On a phone, everything is under <b>☰ Menu</b>. Search (top bar) finds any topic or tool.</p>`},
    {k:"Client", h:"Meet the case: John Doe v. Apex Delivery Services", body:`
@@ -9869,7 +9868,7 @@ function dayRow(d){
 function goto(view, id){
   state.mobileNavOpen = false;
   state.searchQuery = "";
-  if(VoiceCall.active && view!==(VoiceCall.active.key==="call"?"calls":"openroleplay")) VoiceCall.hangup(true);
+  if(VoiceCall.active && view!=="openroleplay") VoiceCall.hangup(true);
   state.view=view;
   if(view==="dashboard"){ state.surpriseTaskChecked = false; }
   if(view==="day"){ state.dayId=id; state.quizAnswers={}; state.quizQuestionIndex=0; state.quizSubmitted=false; state.slideDir="next"; state.slideInterstitial=null; state.dayViewMode="slides"; state.maxSlideReached=(state.slideProgress&&state.slideProgress[id])||0; state.lessonSlide=resumeSlideFor(id); }
@@ -10196,8 +10195,6 @@ async function submitLoginInner(){
       // trainee's saved submissions / roleplay history with an empty list.
       state.submissions = Array.isArray(existing.submissions) ? existing.submissions : [];
       state.roleplayHistory = Array.isArray(existing.roleplayHistory) ? existing.roleplayHistory : [];
-      state.callHistory = Array.isArray(existing.callHistory) ? existing.callHistory : [];
-      await storeSet("callHistory", state.callHistory);
       await storeSet("submissions", state.submissions);
       await storeSet("roleplayHistory", state.roleplayHistory);
       await storeSet("day-progress", state.progress);
@@ -10277,9 +10274,7 @@ async function resetTraineeSessionData(){
   state.completedLabActions = {};
   state.submissions = [];
   state.roleplayHistory = [];
-  state.callHistory = [];
   state.cmsLog = {};
-  state.callSim = null;
   state.assignedRoleplay = null;
   state.day10Window = null;
   state.traineeBatch = "";
@@ -10287,7 +10282,6 @@ async function resetTraineeSessionData(){
   await storeSet("completed-lab-actions", {});
   await storeSet("submissions", []);
   await storeSet("roleplayHistory", []);
-  await storeSet("callHistory", []);
   await storeSet("cms-log", {});
   await storeSet("day10-window", null);
   await storeSet("trainee-batch", "");
@@ -19175,7 +19169,6 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 
 </script>
 <script src="/js/cm-documents.js?v=1"></script>
-<script src="/js/cm-skillbuilders.js?v=3"></script>
-<script src="/js/cm-calls.js?v=1"></script>
+<script src="/js/cm-skillbuilders.js?v=4"></script>
 </body>
 </html>

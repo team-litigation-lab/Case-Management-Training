@@ -12,6 +12,7 @@ The Case Management version of the LSH EA/PA Upskill portal. It runs on the same
 | **Random Tasks** (retained) | Admin → Surprise Task, generated from the day's CM lessons and the John Doe case file |
 | **📁 Case Documents** | `documents/`: the John Doe v. Apex file, the Jordan Davies file (Day 5), templates, and the handout repository |
 | **🧰 Training Tools** | The hub for the LSH training platforms, built into the portal (see below) |
+| **📞 Calls** | Opens the LSH Training Portal's shared **Call Simulator** (Case Management pack: 27 calls on the John Doe file) and **Calendaring** simulator (see below) |
 
 ### Skill Builders
 
@@ -46,12 +47,15 @@ This portal is the main LSH training portal. The job platforms are embedded in i
 | 🗂 LSH Case Management System | Live | `https://lshcasemanagementtraining-trainingcrm.pages.dev` |
 | 📅 Docket Entry System | Coming soon | set by admin |
 | 📨 Medical Records Request Platform (ChartSwap-style) | Coming soon | set by admin |
+| 📞 Call Simulator (LSH Training Portal) | Live | `https://cm-training-activity.pages.dev/simulators/call.html` |
+| 🗓 Calendaring Simulator (LSH Training Portal) | Live | `https://cm-training-activity.pages.dev/simulators/calendar.html` |
 
 - **Open in portal** shows the tool full-screen inside the portal. The frame lives outside the portal's page renders, so the tool keeps its session and unsaved work while the trainee goes back to a lesson. A "Return to CMS" button brings it back. **New tab ↗** opens the tool on its own.
 - Skill Builders include "Do this in the …" steps for each tool. The trainee does the work in the tool, then logs the ID it gives them (e.g. the CMS Case ID `LSH-2026-PI-000123`). The log appears under 🧰 Tools → *My tool work log*.
   - CMS steps: every Skill Builder.
   - Docket steps: Litigation Deadlines (Part A) and the Calendar tool (Part D).
   - Records-request steps: Intake Decision Challenge and Pre-Demand Audit.
+- **Shared simulators:** the Call Simulator and Calendaring live on the LSH Training Portal (Training-Portal repo), so every program uses the same ones. The CM course opens them with `?program=CM&name=…&batch=…`, so they start on the Case Management calls and results carry the trainee's name and batch. The Case Management calls are in the portal's `simulators/call-pack-cm.js`. Trainers see results on the portal's Simulators page when signed in there as admin. The embedded frame allows the microphone, so trainees can answer calls by voice.
 - While a tool is *coming soon*, its steps tell the trainee to log the work as a Task in the CMS, so no exercise is blocked.
 - **Admin → 🧰 Tools → Admin: tool addresses** sets each tool's address and switches it between Live and Coming soon, for everyone (shared key `settings:tools`).
 - **Sign-in inside the portal:** browsers only send a site's login cookie to an embedded page if the cookie allows it. The CMS (CaseManagementTraining) sets `lsh_session` with `SameSite=Lax`, so sign-in may not stick inside the portal frame and trainees would need **New tab ↗**. To let it work embedded, the CMS cookie needs `SameSite=None; Secure; Partitioned` (in `functions/_utils.js`, `sessionCookie` and `clearSessionCookie`). The docket and records apps need the same if they use cookie sign-in.

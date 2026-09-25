@@ -49,6 +49,7 @@ const st = document.createElement("style"); st.id = "cm-skillbuilders-css"; st.t
 .cm-badge.live{background:#E3F4EA;color:#1D6B3C}.cm-badge.soon{background:#FFF1DE;color:#9A5B00}
 .cm-tool-act{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
 .cm-tool-url{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);word-break:break-all}
+.cl-lines-mini{display:flex;flex-wrap:wrap;gap:6px}.cl-lines-mini span{font-size:11.5px;background:#EEF0F6;color:var(--navy);border-radius:999px;padding:3px 9px}
 .cm-tool-note{font-size:12.3px!important;margin-top:auto!important}
 .cm-tool-admin{display:grid;grid-template-columns:90px minmax(0,1fr) 150px;gap:8px;align-items:center;margin-bottom:8px;font-size:13px}
 .cm-tool-admin input,.cm-tool-admin select{font:inherit;padding:7px 9px;border:1px solid var(--line);border-radius:8px;min-width:0}
@@ -116,7 +117,17 @@ const CM_TOOL_DEFAULTS = [
    evidence:"Docket entry ID", idHint:"Docket entry ID (or your CMS Case ID)"},
   {id:"chartswap", icon:"📨", name:"Medical Records Request Platform", short:"Records", status:"coming", url:"",
    desc:"A ChartSwap-style records portal: request medical records and itemized bills from providers, attach the signed HIPAA, track fulfilment and fees.",
-   evidence:"Records request ID", idHint:"Request ID (or your CMS Case ID)"}
+   evidence:"Records request ID", idHint:"Request ID (or your CMS Case ID)"},
+  // Shared simulators on the LSH Training Portal (used by every program). The course
+  // opens them with ?program=CM and the trainee's name and batch, so results carry them.
+  {id:"calls", icon:"📞", name:"Call Simulator (LSH Training Portal)", short:"Call Simulator", status:"live",
+   url:"https://cm-training-activity.pages.dev/simulators/call.html", portalSim:true,
+   desc:"Live practice calls, spoken aloud: the Case Management pack has 27 calls on the John Doe file across reception, intake, client calls, attorney reporting, adjusters and providers. Each call ends with the note it requires, and both are scored.",
+   evidence:"Score", idHint:"Score (e.g. 82%)"},
+  {id:"calendaring", icon:"🗓", name:"Calendaring Simulator (LSH Training Portal)", short:"Calendaring", status:"live",
+   url:"https://cm-training-activity.pages.dev/simulators/calendar.html", portalSim:true,
+   desc:"A CM litigation week to fix: move, shorten, remove and add events, checked against the real rules (overlaps, fixed court times, prep and travel time, deadlines).",
+   evidence:"Score", idHint:"Score"}
 ];
 function cmTool(id){
   const d = CM_TOOL_DEFAULTS.find(t=>t.id===id); if(!d) return null;
@@ -126,6 +137,14 @@ function cmTool(id){
   return Object.assign({}, d, {url, status, live: status==="live" && /^https:\/\//i.test(url)});
 }
 window.cmTool = cmTool;
+function toolHref(t){
+  if(!t.portalSim) return t.url;
+  const q = new URLSearchParams({program:"CM"});
+  const name = String(state.certName || state.traineeName || "").trim(), batch = String(state.traineeBatch || "").trim();
+  if(name && !state.isAdmin) q.set("name", name);
+  if(batch && !state.isAdmin) q.set("batch", batch);
+  return t.url + (t.url.includes("?") ? "&" : "?") + q.toString();
+}
 window.cmCmsUrl = function(){ return cmTool("cms").url; };
 async function loadToolSettings(){
   try{ const s = await sharedGet("settings:tools"); if(s && typeof s==="object") state.toolSettings = s.tools || s; }catch(e){}
@@ -162,13 +181,15 @@ window.openTool = function(id, mode){
   const t = cmTool(id);
   if(!t){ return; }
   if(!t.live){ toast(`${t.icon} ${t.name} is coming soon. For now, log this step as a Task in the CMS.`); return; }
-  if(mode==="tab"){ window.open(t.url, "_blank", "noopener"); return; }
+  const href = toolHref(t);
+  if(mode==="tab"){ window.open(href, "_blank", "noopener"); return; }
   ensureShell();
-  if(!frames[id] || frames[id].dataset.src !== t.url){
+  if(!frames[id] || frames[id].dataset.src !== href){
     if(frames[id]) frames[id].remove();
     const f = document.createElement("iframe");
-    f.src = t.url; f.dataset.src = t.url; f.title = t.name;
-    f.setAttribute("allow", "clipboard-read; clipboard-write; fullscreen");
+    f.src = href; f.dataset.src = href; f.title = t.name;
+    // microphone: the Call Simulator listens when trainees answer by voice
+    f.setAttribute("allow", "microphone; autoplay; clipboard-read; clipboard-write; fullscreen");
     f.setAttribute("referrerpolicy", "no-referrer-when-downgrade");
     frameShell.querySelector(".cm-tf-body").appendChild(f);
     frames[id] = f;
@@ -941,6 +962,22 @@ window.renderTrainingTools = function(){
       <button class="btn btn-navy btn-sm" style="margin-top:8px" onclick="saveToolSettings()">Save tool settings</button></div>` : ""}`;
 };
 window.renderCmsSimulator = window.renderTrainingTools;
+
+/* 📞 Calls: the shared simulators on the LSH Training Portal, opened for CM. */
+window.renderCallSimulator = function(){
+  const calls = cmTool("calls"), cal = cmTool("calendaring");
+  const lines = [["☎","Reception & Front Desk","5 calls"],["📥","Intake Calls","5 calls"],["🤝","Client Communication","5 calls"],["⚖","Attorney Reporting","5 calls"],["🛡","Adjusters & Carriers","4 calls"],["🏥","Providers & Records","3 calls"]];
+  const card = (t, extra)=> `<div class="card cm-tool${t.live?"":" soon"}">
+      <div class="cm-tool-h"><span class="cm-tool-ic">${t.icon}</span><div><b>${E(t.name.replace(/ \(LSH Training Portal\)$/,""))}</b><div><span class="cm-badge ${t.live?"live":"soon"}">${t.live?"● Live on the LSH Training Portal":"Coming soon"}</span></div></div></div>
+      <p>${E(t.desc)}</p>${extra||""}
+      ${t.live?`<div class="cm-tool-act"><button class="btn btn-primary btn-sm" onclick="openTool('${t.id}')">Open here</button><button class="btn btn-ghost btn-sm" onclick="openTool('${t.id}','tab')">New tab ↗</button></div>`:""}
+    </div>`;
+  return `<p class="eyebrow">Call Simulator</p>
+    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">📞 Practice calls</h1>
+    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">Phone practice lives on the <b>LSH Training Portal</b>, shared by every program. It opens here already set to the <b>Case Management</b> calls and carrying your name and batch, so your scores reach your trainer. The caller speaks; answer by voice (Chrome or Edge, allow the microphone) or by typing. Most calls end with the note the call requires, graded with the call.</p>
+    <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span>${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(cal)}</div>
+    <div class="card" style="padding:14px 18px;font-size:12.8px;color:var(--ink-soft)">Want more? Live Roleplay (🔥) has the crisis calls from the lessons, and the Calendar Skill Builder (Day 4) has the John Doe docket.${state.isAdmin?` <b>Admin:</b> results appear on the Training Portal's Simulators page when you're signed in there as admin. Addresses are set in 🧰 Tools.`:""}</div>`;
+};
 window.saveToolSettings = async function(){
   const out = {};
   for(const d of CM_TOOL_DEFAULTS){
