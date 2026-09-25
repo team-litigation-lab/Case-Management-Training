@@ -124,6 +124,10 @@ const CM_TOOL_DEFAULTS = [
    url:"https://cm-training-activity.pages.dev/simulators/call.html", portalSim:true,
    desc:"Live practice calls, spoken aloud: the Case Management pack has 27 calls on the John Doe file across reception, intake, client calls, attorney reporting, adjusters and providers. Each call ends with the note it requires, and both are scored.",
    evidence:"Score", idHint:"Score (e.g. 82%)"},
+  {id:"email", icon:"✉️", name:"Email Practice (LSH Training Portal)", short:"Email Practice", status:"live",
+   url:"https://cm-training-activity.pages.dev/simulators/email.html", portalSim:true,
+   desc:"Real correspondence from the John Doe file: the client, the adjuster, a lienholder, defense counsel, your attorney, plus a phishing attempt. Reply on the portal, or have it sent to your own inbox and reply from there. Scored with a model reply.",
+   evidence:"Score", idHint:"Score"},
   {id:"calendaring", icon:"🗓", name:"Calendaring Simulator (LSH Training Portal)", short:"Calendaring", status:"live",
    url:"https://cm-training-activity.pages.dev/simulators/calendar.html", portalSim:true,
    desc:"A CM litigation week to fix: move, shorten, remove and add events, checked against the real rules (overlaps, fixed court times, prep and travel time, deadlines).",
@@ -963,19 +967,19 @@ window.renderTrainingTools = function(){
 };
 window.renderCmsSimulator = window.renderTrainingTools;
 
-/* 📞 Calls: the shared simulators on the LSH Training Portal, opened for CM. */
+/* 🛠 Simulators: the shared simulators on the LSH Training Portal (calls, email, calendaring), opened for CM. */
 window.renderCallSimulator = function(){
-  const calls = cmTool("calls"), cal = cmTool("calendaring");
+  const calls = cmTool("calls"), mail = cmTool("email"), cal = cmTool("calendaring");
   const lines = [["☎","Reception & Front Desk","5 calls"],["📥","Intake Calls","5 calls"],["🤝","Client Communication","5 calls"],["⚖","Attorney Reporting","5 calls"],["🛡","Adjusters & Carriers","4 calls"],["🏥","Providers & Records","3 calls"]];
   const card = (t, extra)=> `<div class="card cm-tool${t.live?"":" soon"}">
       <div class="cm-tool-h"><span class="cm-tool-ic">${t.icon}</span><div><b>${E(t.name.replace(/ \(LSH Training Portal\)$/,""))}</b><div><span class="cm-badge ${t.live?"live":"soon"}">${t.live?"● Live on the LSH Training Portal":"Coming soon"}</span></div></div></div>
       <p>${E(t.desc)}</p>${extra||""}
       ${t.live?`<div class="cm-tool-act"><button class="btn btn-primary btn-sm" onclick="openTool('${t.id}')">Open here</button><button class="btn btn-ghost btn-sm" onclick="openTool('${t.id}','tab')">New tab ↗</button></div>`:""}
     </div>`;
-  return `<p class="eyebrow">Call Simulator</p>
-    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">📞 Practice calls</h1>
-    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">Phone practice lives on the <b>LSH Training Portal</b>, shared by every program. It opens here already set to the <b>Case Management</b> calls and carrying your name and batch, so your scores reach your trainer. The caller speaks; answer by voice (Chrome or Edge, allow the microphone) or by typing. Most calls end with the note the call requires, graded with the call.</p>
-    <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span>${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(cal)}</div>
+  return `<p class="eyebrow">Simulators</p>
+    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🛠 Simulators</h1>
+    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">Phone, email and calendar practice live on the <b>LSH Training Portal</b>, shared by every program. They open here already set to <b>Case Management</b> and carrying your name and batch, so your scores reach your trainer. On calls the caller speaks: answer by voice (Chrome or Edge, allow the microphone) or by typing. Most calls end with the note the call requires, graded with the call.</p>
+    <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span>${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(mail)}${card(cal)}</div>
     <div class="card" style="padding:14px 18px;font-size:12.8px;color:var(--ink-soft)">Want more? Live Roleplay (🔥) has the crisis calls from the lessons, and the Calendar Skill Builder (Day 4) has the John Doe docket.${state.isAdmin?` <b>Admin:</b> results appear on the Training Portal's Simulators page when you're signed in there as admin. Addresses are set in 🧰 Tools.`:""}</div>`;
 };
 window.saveToolSettings = async function(){

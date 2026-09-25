@@ -7950,7 +7950,7 @@ function orientSlides(){
      </div>`},
    {k:"Navigation", h:"Getting around", body:`
      <div class="or-nav">
-       ${[["Dashboard","Your home: progress, days, stats."],["🎲 Tasks","Surprise tasks from your trainer — acknowledge, plan and resolve before the timer ends. Graded."],["Case File","John Doe v. Apex — the working case. Read it first."],["📁 Case Documents","Every record, bill, lien letter and pleading — with its CMS upload category."],["Skill Builders","Hands-on exercises from the Skill Building slides — each opens with its day."],["📞 Calls","The LSH Training Portal's Call Simulator and Calendaring, opened with the Case Management calls: reception, intake, client calls, attorney reports, adjusters and providers."],["🧰 Tools","The LSH Case Management System, Docket and Records platforms, built into the portal. This is where you do the file work."],["🔥 Live Roleplay","Voice calls with realistic clients and crises."],["My Notes","Your private notes — download them as a PDF."],["Handouts","Printable checklists and Excel templates for each day."],["🎯 Focus","Your trainer's feedback and what to work on next."],["💬 Feedback","Tell us what's working and what isn't — anonymously if you like."]].map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join("")}
+       ${[["Dashboard","Your home: progress, days, stats."],["🎲 Tasks","Surprise tasks from your trainer — acknowledge, plan and resolve before the timer ends. Graded."],["Case File","John Doe v. Apex — the working case. Read it first."],["📁 Case Documents","Every record, bill, lien letter and pleading — with its CMS upload category."],["Skill Builders","Hands-on exercises from the Skill Building slides — each opens with its day."],["🛠 Simulators","The LSH Training Portal's Call Simulator, Email Practice and Calendaring, opened for Case Management: practice calls, correspondence and a litigation week."],["🧰 Tools","The LSH Case Management System, Docket and Records platforms, built into the portal. This is where you do the file work."],["🔥 Live Roleplay","Voice calls with realistic clients and crises."],["My Notes","Your private notes — download them as a PDF."],["Handouts","Printable checklists and Excel templates for each day."],["🎯 Focus","Your trainer's feedback and what to work on next."],["💬 Feedback","Tell us what's working and what isn't — anonymously if you like."]].map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join("")}
      </div>
      <p class="or-foot">On a phone, everything is under <b>☰ Menu</b>. Search (top bar) finds any topic or tool.</p>`},
    {k:"Client", h:"Meet the case: John Doe v. Apex Delivery Services", body:`
@@ -8234,7 +8234,7 @@ function dismissNotifBanner(){ state.notifDismissed = true; render(); }
 window.dismissNotifBanner = dismissNotifBanner;
 
 function renderTopbar(){
-  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","Skill Builders"],["calls","📞 Calls"],["tools","🧰 Tools"],["crisisroleplay","🔥 Roleplay"],["notes","Notes"],["handouts","Handouts"]];
+  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","Skill Builders"],["calls","🛠 Simulators"],["tools","🧰 Tools"],["crisisroleplay","🔥 Roleplay"],["notes","Notes"],["handouts","Handouts"]];
   if(state.isAdmin){
     // Admin is a trainer monitoring dashboard, not a trainee workspace — hide
     // the trainee-facing-only views that have no role here.
@@ -10061,7 +10061,7 @@ window.addEventListener("resize", ()=>{ clearTimeout(window.__heroFitT); window.
 if(document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", ()=>fitHeroText());
 
 /* ---------- Uniform page heroes: every page title gets the dashboard hero look ---------- */
-const PAGE_EYEBROWS = {clientprofile:"Case File", casedocs:"Case Documents", tools:"Training Tools", cms:"Training Tools", calls:"Call Simulator", practice:"Skill Builders", notes:"My Notes", handouts:"Reference Library", crisisroleplay:"Live Roleplay", facilitatorguide:"For Trainers", admin:"Admin Dashboard"};
+const PAGE_EYEBROWS = {clientprofile:"Case File", casedocs:"Case Documents", tools:"Training Tools", cms:"Training Tools", calls:"Simulators", practice:"Skill Builders", notes:"My Notes", handouts:"Reference Library", crisisroleplay:"Live Roleplay", facilitatorguide:"For Trainers", admin:"Admin Dashboard"};
 function applyPageHero(){
   if(["dashboard","day","login","pendingApproval","registrationDenied","orientation","tool"].includes(state.view)) return;
   const main = document.querySelector("#app > main"); if(!main) return;
@@ -19169,6 +19169,6 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 
 </script>
 <script src="/js/cm-documents.js?v=1"></script>
-<script src="/js/cm-skillbuilders.js?v=5"></script>
+<script src="/js/cm-skillbuilders.js?v=6"></script>
 </body>
 </html>
