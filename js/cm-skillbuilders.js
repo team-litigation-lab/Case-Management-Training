@@ -124,9 +124,13 @@ const CM_TOOL_DEFAULTS = [
    url:"https://cm-training-activity.pages.dev/simulators/call.html", portalSim:true,
    desc:"Live practice calls, spoken aloud: the Case Management pack has 27 calls on the John Doe file across reception, intake, client calls, attorney reporting, adjusters and providers. Each call ends with the note it requires, and both are scored.",
    evidence:"Score", idHint:"Score (e.g. 82%)"},
-  {id:"email", icon:"✉️", name:"Email Practice (LSH Training Portal)", short:"Email Practice", status:"live",
+  {id:"email", icon:"✉️", name:"Email Workspace (LSH Training Portal)", short:"Email Workspace", status:"live",
    url:"https://cm-training-activity.pages.dev/simulators/email.html", portalSim:true,
-   desc:"Real correspondence from the John Doe file: the client, the adjuster, a lienholder, defense counsel, your attorney, plus a phishing attempt. Reply on the portal, or have it sent to your own inbox and reply from there. Scored with a model reply.",
+   desc:"A Gmail-style practice inbox with the CM inbox: create labels, clear the inbox with one decision per email, reply, forward and report phishing. Graded on filing, security, triage and writing.",
+   evidence:"Score", idHint:"Score"},
+  {id:"replies", icon:"📨", name:"Email Replies (LSH Training Portal)", short:"Email Replies", status:"live",
+   url:"https://cm-training-activity.pages.dev/simulators/email-replies.html", portalSim:true,
+   desc:"One email at a time from the John Doe file: the client, the adjuster, a lienholder, defense counsel, your attorney, plus a phishing attempt. Reply on the portal, or have it sent to your own inbox and reply from there. Scored with a model reply.",
    evidence:"Score", idHint:"Score"},
   {id:"calendaring", icon:"🗓", name:"Calendaring Simulator (LSH Training Portal)", short:"Calendaring", status:"live",
    url:"https://cm-training-activity.pages.dev/simulators/calendar.html", portalSim:true,
@@ -967,9 +971,9 @@ window.renderTrainingTools = function(){
 };
 window.renderCmsSimulator = window.renderTrainingTools;
 
-/* 🛠 Simulators: the shared simulators on the LSH Training Portal (calls, email, calendaring), opened for CM. */
+/* 🛠 Simulators: the shared simulators on the LSH Training Portal (calls, email workspace, email replies, calendaring), opened for CM. */
 window.renderCallSimulator = function(){
-  const calls = cmTool("calls"), mail = cmTool("email"), cal = cmTool("calendaring");
+  const calls = cmTool("calls"), mail = cmTool("email"), replies = cmTool("replies"), cal = cmTool("calendaring");
   const lines = [["☎","Reception & Front Desk","5 calls"],["📥","Intake Calls","5 calls"],["🤝","Client Communication","5 calls"],["⚖","Attorney Reporting","5 calls"],["🛡","Adjusters & Carriers","4 calls"],["🏥","Providers & Records","3 calls"]];
   const card = (t, extra)=> `<div class="card cm-tool${t.live?"":" soon"}">
       <div class="cm-tool-h"><span class="cm-tool-ic">${t.icon}</span><div><b>${E(t.name.replace(/ \(LSH Training Portal\)$/,""))}</b><div><span class="cm-badge ${t.live?"live":"soon"}">${t.live?"● Live on the LSH Training Portal":"Coming soon"}</span></div></div></div>
@@ -979,7 +983,7 @@ window.renderCallSimulator = function(){
   return `<p class="eyebrow">Simulators</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🛠 Simulators</h1>
     <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">Phone, email and calendar practice live on the <b>LSH Training Portal</b>, shared by every program. They open here already set to <b>Case Management</b> and carrying your name and batch, so your scores reach your trainer. On calls the caller speaks: answer by voice (Chrome or Edge, allow the microphone) or by typing. Most calls end with the note the call requires, graded with the call.</p>
-    <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span>${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(mail)}${card(cal)}</div>
+    <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span>${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(mail)}${card(replies)}${card(cal)}</div>
     <div class="card" style="padding:14px 18px;font-size:12.8px;color:var(--ink-soft)">Want more? Live Roleplay (🔥) has the crisis calls from the lessons, and the Calendar Skill Builder (Day 4) has the John Doe docket.${state.isAdmin?` <b>Admin:</b> results appear on the Training Portal's Simulators page when you're signed in there as admin. Addresses are set in 🧰 Tools.`:""}</div>`;
 };
 window.saveToolSettings = async function(){
