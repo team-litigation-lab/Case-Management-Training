@@ -11,7 +11,7 @@ The Case Management version of the LSH EA/PA Upskill portal. It runs on the same
 | **Calendar** (retained) | Rebuilt as a Case Manager docket: conflicts, attorney docket briefing, proactive tasks, and the arbitration Scheduling Order dates |
 | **Random Tasks** (retained) | Admin → Surprise Task, generated from the day's CM lessons and the John Doe case file |
 | **📁 Case Documents** | `documents/`: the John Doe v. Apex file, the Jordan Davies file (Day 5), templates, and the handout repository |
-| **🗂 CMS Simulator** | Links out to the LSH Case Management System (CaseManagementTraining repo). Trainees do the file work there and log the CMS Case ID back here |
+| **🧰 Training Tools** | The hub for the LSH training platforms, built into the portal (see below) |
 
 ### Skill Builders
 
@@ -35,7 +35,26 @@ Auto-graded parts check the trainee's answers against keys drawn from the docume
 - `templates/LSH_Net_Sheet_v2_FIXED.xlsx`: the original Net Sheet calculated the attorney fee from an empty cell (`L11 = L7*I11`), so the fee was always **$0**. Fixed to `L7*C11`, with a John Doe practice tab added.
 - **Trainer audit key:** signed in as admin, every document shows a red 🔑 note listing its planted discrepancies. Trainees never see these notes.
 
-Document metadata lives in `js/cm-documents.js`. The Skill Builders are in `js/cm-skillbuilders.js`.
+Document metadata lives in `js/cm-documents.js`. The Skill Builders and the Training Tools hub are in `js/cm-skillbuilders.js`.
+
+### Training Tools hub
+
+This portal is the main LSH training portal. The job platforms are embedded in it, and each one can still be opened on its own at its own address.
+
+| Tool | Status | Default address |
+|---|---|---|
+| 🗂 LSH Case Management System | Live | `https://cm-training-activity.pages.dev` |
+| 📅 Docket Entry System | Coming soon | set by admin |
+| 📨 Medical Records Request Platform (ChartSwap-style) | Coming soon | set by admin |
+
+- **Open in portal** shows the tool full-screen inside the portal. The frame lives outside the portal's page renders, so the tool keeps its session and unsaved work while the trainee goes back to a lesson. A "Return to CMS" button brings it back. **New tab ↗** opens the tool on its own.
+- Skill Builders include "Do this in the …" steps for each tool. The trainee does the work in the tool, then logs the ID it gives them (e.g. the CMS Case ID `LSH-2026-PI-000123`). The log appears under 🧰 Tools → *My tool work log*.
+  - CMS steps: every Skill Builder.
+  - Docket steps: Litigation Deadlines (Part A) and the Calendar tool (Part D).
+  - Records-request steps: Intake Decision Challenge and Pre-Demand Audit.
+- While a tool is *coming soon*, its steps tell the trainee to log the work as a Task in the CMS, so no exercise is blocked.
+- **Admin → 🧰 Tools → Admin: tool addresses** sets each tool's address and switches it between Live and Coming soon, for everyone (shared key `settings:tools`).
+- **Sign-in inside the portal:** browsers only send a site's login cookie to an embedded page if the cookie allows it. The CMS (CaseManagementTraining) sets `lsh_session` with `SameSite=Lax`, so sign-in may not stick inside the portal frame and trainees would need **New tab ↗**. To let it work embedded, the CMS cookie needs `SameSite=None; Secure; Partitioned` (in `functions/_utils.js`, `sessionCookie` and `clearSessionCookie`). The docket and records apps need the same if they use cookie sign-in.
 
 ## Deploy (Cloudflare Workers)
 
@@ -47,6 +66,6 @@ This folder is a **separate Worker** from the EA/PA portal.
    - `ADMIN_PASSPHRASE`: admin sign-in; switches on secure mode.
    - `GEMINI_API_KEY` (or `ANTHROPIC_API_KEY`): AI grading and roleplays.
    - `SESSION_SECRET`: optional.
-4. After the first deploy, sign in as admin → **🗂 CMS** → set the CMS address. The default is `https://case-management-training.pages.dev`; change it if your CMS lives elsewhere.
+4. After the first deploy, sign in as admin → **🧰 Tools** to check the CMS address (default `https://cm-training-activity.pages.dev`). Add the Docket and Records addresses and switch them to Live when those apps are deployed.
 
 The EA/PA site deploys the repository root, so a root `.assetsignore` now excludes `cm-training/`. Without it, the EA/PA Worker would also publish a copy of this portal wired to EA/PA storage.

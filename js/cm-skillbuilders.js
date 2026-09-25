@@ -1,6 +1,6 @@
 /* ============================================================
    LSH Case Management Training — Skill Builders, Case Documents,
-   CMS Simulator link, Handouts and Case File.
+   the Training Tools hub (CMS, Docket, Records), Handouts and Case File.
    Loaded after the main portal script: anything assigned to window
    here replaces the portal function of the same name.
    ============================================================ */
@@ -38,6 +38,36 @@ const st = document.createElement("style"); st.id = "cm-skillbuilders-css"; st.t
 .cm-cms b{color:var(--navy)}
 .cm-cms .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px}
 .cm-cms input{font:inherit;padding:7px 9px;border:1px solid var(--line);border-radius:8px;min-width:200px}
+.cm-soon{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;background:#FFF1DE;color:#9A5B00;border-radius:999px;padding:2px 8px;margin-left:6px}
+.cm-tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-bottom:16px}
+.cm-tool{padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.cm-tool.soon{opacity:.82}
+.cm-tool p{margin:0;font-size:13px;color:var(--ink-soft)}
+.cm-tool-h{display:flex;gap:12px;align-items:center}.cm-tool-h b{color:var(--navy);font-size:15px}
+.cm-tool-ic{font-size:26px;width:46px;height:46px;border-radius:12px;background:#EEF0F6;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cm-badge{display:inline-block;font-size:11px;font-weight:700;border-radius:999px;padding:2px 9px;margin-top:3px}
+.cm-badge.live{background:#E3F4EA;color:#1D6B3C}.cm-badge.soon{background:#FFF1DE;color:#9A5B00}
+.cm-tool-act{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+.cm-tool-url{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);word-break:break-all}
+.cm-tool-note{font-size:12.3px!important;margin-top:auto!important}
+.cm-tool-admin{display:grid;grid-template-columns:90px minmax(0,1fr) 150px;gap:8px;align-items:center;margin-bottom:8px;font-size:13px}
+.cm-tool-admin input,.cm-tool-admin select{font:inherit;padding:7px 9px;border:1px solid var(--line);border-radius:8px;min-width:0}
+@media (max-width:600px){.cm-tool-admin{grid-template-columns:1fr}}
+#cm-toolframe{position:fixed;inset:0;z-index:9000;background:var(--paper,#F7F6F2);display:flex;flex-direction:column}
+#cm-toolframe[hidden]{display:none}
+.cm-tf-bar{display:flex;gap:8px;align-items:center;padding:8px 12px;background:var(--navy);flex-wrap:wrap}
+.cm-tf-bar .btn-ghost{background:#fff}
+.cm-tf-tabs{display:flex;gap:6px;flex:1;min-width:0;overflow-x:auto}
+.cm-tf-tab{font:inherit;font-size:13px;font-weight:600;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;white-space:nowrap}
+.cm-tf-tab.on{background:#fff;color:var(--navy)}
+.cm-tf-hint{font-size:11.5px;color:rgba(255,255,255,.8)}.cm-tf-hint b{color:#fff}
+.cm-tf-newtab{background:var(--orange)!important;border-color:var(--orange)!important}
+.cm-tf-body{flex:1;position:relative}
+.cm-tf-body iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
+body.cm-tf-open{overflow:hidden}
+#cm-toolpill{position:fixed;right:18px;bottom:18px;z-index:8999;box-shadow:0 6px 22px rgba(0,0,0,.25);border-radius:999px}
+#cm-toolpill[hidden]{display:none}
+@media (max-width:760px){.cm-tf-hint,.cm-tf-long{display:none}}
 .cm-radio{display:flex;flex-direction:column;gap:6px;margin:6px 0 10px}
 .cm-radio label{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:9px;padding:8px 10px;font-size:13px;background:#fff;cursor:pointer}
 .cm-skill-cta{margin-top:14px;border:1.5px solid var(--orange);background:#FFF6EC;border-radius:12px;padding:12px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
@@ -69,13 +99,120 @@ async function scorePart(key, score){ await bumpPracticeProgress(toolOfKey(key),
 const part = (title, intro, inner)=> `<div class="cm-part"><h3>${E(title)}</h3>${intro?`<p class="cm-intro">${intro}</p>`:""}${inner}</div>`;
 const scenario = (html)=> `<div class="cm-scn">${html}</div>`;
 
-/* ---------------- CMS link ---------------- */
-const CM_CMS_DEFAULT = "https://case-management-training.pages.dev";
-window.cmCmsUrl = function(){ return (state.cmsUrl || CM_CMS_DEFAULT).replace(/\/+$/,""); };
-async function loadCmsSettings(){
-  try{ const s = await sharedGet("settings:cms"); if(s && s.url) state.cmsUrl = s.url; }catch(e){}
+/* ================================================================
+   TRAINING TOOLS HUB — the portal embeds every LSH training platform.
+   Each tool can be opened inside the portal (a persistent frame that
+   keeps its session while you move around the lessons) or on its own
+   in a new tab. Admins set each tool's address and status for everyone
+   (shared key settings:tools).
+   ================================================================ */
+const CM_TOOL_DEFAULTS = [
+  {id:"cms", icon:"🗂", name:"LSH Case Management System", short:"CMS", status:"live",
+   url:"https://cm-training-activity.pages.dev",
+   desc:"Where the case work actually happens: start the case, key the intake facts, upload each document by category, and log Tasks, Notes, Liens, Chronology and the Financial Ledger.",
+   evidence:"CMS Case ID", idHint:"CMS Case ID (e.g. LSH-2026-PI-000123)"},
+  {id:"docket", icon:"📅", name:"Docket Entry System", short:"Docket", status:"coming", url:"",
+   desc:"Enter court and ADR deadlines, hearings and depositions on the firm docket: the deadline chain, reminder alerts and the attorney's calendar.",
+   evidence:"Docket entry ID", idHint:"Docket entry ID (or your CMS Case ID)"},
+  {id:"chartswap", icon:"📨", name:"Medical Records Request Platform", short:"Records", status:"coming", url:"",
+   desc:"A ChartSwap-style records portal: request medical records and itemized bills from providers, attach the signed HIPAA, track fulfilment and fees.",
+   evidence:"Records request ID", idHint:"Request ID (or your CMS Case ID)"}
+];
+function cmTool(id){
+  const d = CM_TOOL_DEFAULTS.find(t=>t.id===id); if(!d) return null;
+  const o = ((state.toolSettings||{})[id])||{};
+  const url = String(o.url!=null ? o.url : d.url || "").trim().replace(/\/+$/,"");
+  const status = o.status || d.status;
+  return Object.assign({}, d, {url, status, live: status==="live" && /^https:\/\//i.test(url)});
 }
-window.openCms = function(){ window.open(cmCmsUrl(), "_blank", "noopener"); };
+window.cmTool = cmTool;
+window.cmCmsUrl = function(){ return cmTool("cms").url; };
+async function loadToolSettings(){
+  try{ const s = await sharedGet("settings:tools"); if(s && typeof s==="object") state.toolSettings = s.tools || s; }catch(e){}
+}
+
+/* ---- the persistent in-portal frame (lives outside #app, so render() never reloads it) ---- */
+const frames = {};                  // tool id → iframe
+let frameShell = null, currentFrame = null;
+function ensureShell(){
+  if(frameShell) return frameShell;
+  frameShell = document.createElement("div");
+  frameShell.id = "cm-toolframe"; frameShell.hidden = true;
+  frameShell.innerHTML = `<div class="cm-tf-bar"><button class="btn btn-ghost btn-sm" onclick="closeToolFrame()">← Back<span class="cm-tf-long"> to training</span></button>
+    <div class="cm-tf-tabs"></div>
+    <span class="cm-tf-hint">Sign-in won't stay? Use <b>Open in new tab</b>.</span>
+    <button class="btn btn-navy btn-sm cm-tf-newtab" onclick="openTool(null,'tab')">New tab ↗</button></div>
+    <div class="cm-tf-body"></div>`;
+  document.body.appendChild(frameShell);
+  const pill = document.createElement("button");
+  pill.id = "cm-toolpill"; pill.hidden = true; pill.className = "btn btn-navy";
+  pill.onclick = ()=> openTool(currentFrame);
+  document.body.appendChild(pill);
+  document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !frameShell.hidden) closeToolFrame(); });
+  return frameShell;
+}
+function paintShell(){
+  const tabs = frameShell.querySelector(".cm-tf-tabs");
+  tabs.innerHTML = CM_TOOL_DEFAULTS.map(d=>cmTool(d.id)).filter(t=>t.live).map(t=>
+    `<button class="cm-tf-tab${t.id===currentFrame?" on":""}" onclick="openTool('${t.id}')">${t.icon} ${E(t.short)}</button>`).join("");
+  Object.entries(frames).forEach(([id,f])=>{ f.style.display = id===currentFrame ? "block" : "none"; });
+}
+window.openTool = function(id, mode){
+  id = id || currentFrame || "cms";
+  const t = cmTool(id);
+  if(!t){ return; }
+  if(!t.live){ toast(`${t.icon} ${t.name} is coming soon. For now, log this step as a Task in the CMS.`); return; }
+  if(mode==="tab"){ window.open(t.url, "_blank", "noopener"); return; }
+  ensureShell();
+  if(!frames[id] || frames[id].dataset.src !== t.url){
+    if(frames[id]) frames[id].remove();
+    const f = document.createElement("iframe");
+    f.src = t.url; f.dataset.src = t.url; f.title = t.name;
+    f.setAttribute("allow", "clipboard-read; clipboard-write; fullscreen");
+    f.setAttribute("referrerpolicy", "no-referrer-when-downgrade");
+    frameShell.querySelector(".cm-tf-body").appendChild(f);
+    frames[id] = f;
+  }
+  currentFrame = id; paintShell();
+  frameShell.hidden = false; document.body.classList.add("cm-tf-open");
+  document.getElementById("cm-toolpill").hidden = true;
+};
+window.closeToolFrame = function(){
+  if(!frameShell) return;
+  frameShell.hidden = true; document.body.classList.remove("cm-tf-open");
+  const t = cmTool(currentFrame), pill = document.getElementById("cm-toolpill");
+  if(t && pill){ pill.textContent = `${t.icon} Return to ${t.short}`; pill.hidden = false; }
+};
+window.openCms = function(mode){ openTool("cms", mode); };
+
+/* Tool step: the trainee does the work in a training platform, then logs the ID here.
+   A tool that isn't live yet falls back to a CMS Task so no step is ever blocked. */
+function toolStep(toolId, key, what){
+  const t = cmTool(toolId), saved = ((state.cmsLog||{})[key]||{}), k = key.replace(/\W/g,"_");
+  const fallback = !t.live && toolId!=="cms";
+  return `<div class="cm-cms"><b>${t.icon} Do this in the ${E(t.name)}</b>${t.live?"":` <span class="cm-soon">coming soon</span>`}
+    <p style="font-size:12.8px;margin:6px 0 0;color:#37394A">${what}</p>
+    ${fallback?`<p style="font-size:12.3px;margin:6px 0 0;color:var(--ink-soft)">Until the ${E(t.short)} platform is live, add this as a <b>Task</b> in the CMS case and log your CMS Case ID below.</p>`:""}
+    <div class="row">
+      ${t.live?`<button class="btn btn-navy btn-sm" onclick="openTool('${toolId}')">Open ${E(t.short)}</button><button class="btn btn-ghost btn-sm" onclick="openTool('${toolId}','tab')" title="Open in a new tab">↗</button>`
+              :`<button class="btn btn-navy btn-sm" onclick="openTool('cms')">Open CMS</button>`}
+      <input id="cmsId_${k}" placeholder="${E(fallback?cmTool("cms").idHint:t.idHint)}" value="${E(saved.caseId||"")}">
+      <button class="btn btn-ghost btn-sm" onclick="cmLogCms('${key}','${fallback?"cms":toolId}')">Log my work</button>
+      <span id="cmsLogged_${k}" style="font-size:12px;color:var(--success)">${saved.at?`✓ Logged ${fmtDate(saved.at)}`:""}</span>
+    </div></div>`;
+}
+const cmsStep = (key, what)=> toolStep("cms", key, what);
+window.cmLogCms = async function(key, platform){
+  const el = document.getElementById("cmsId_"+key.replace(/\W/g,"_"));
+  const v = (el && el.value || "").trim();
+  const t = cmTool(platform||"cms");
+  if(v.length < 3){ toast(`Enter the ${t.evidence} the ${t.short} gave you when you saved.`); return; }
+  state.cmsLog = state.cmsLog || {};
+  state.cmsLog[key] = {caseId:v, at:new Date().toISOString(), tool:toolOfKey(key), platform:t.id};
+  await storeSet("cms-log", state.cmsLog);
+  const s = document.getElementById("cmsLogged_"+key.replace(/\W/g,"_")); if(s) s.textContent = "✓ Logged just now";
+  toast(`Logged. Your trainer can check it in the ${t.short}.`);
+};
 
 /* A document packet: the exact files a Skill Builder part is built on. */
 function docPacket(ids, title){
@@ -87,29 +224,6 @@ function docPacket(ids, title){
   </div>`;
 }
 window.cmDocPacket = docPacket;
-
-/* CMS step: trainee does the work in the CMS, then logs the Case ID here. */
-function cmsStep(key, what){
-  const saved = ((state.cmsLog||{})[key]||{});
-  return `<div class="cm-cms"><b>🗂 Do this in the CMS (training interface)</b>
-    <p style="font-size:12.8px;margin:6px 0 0;color:#37394A">${what}</p>
-    <div class="row">
-      <button class="btn btn-navy btn-sm" onclick="openCms()">Open CMS ↗</button>
-      <input id="cmsId_${key.replace(/\W/g,"_")}" placeholder="CMS Case ID (e.g. PI-2026-0001)" value="${E(saved.caseId||"")}">
-      <button class="btn btn-ghost btn-sm" onclick="cmLogCms('${key}')">Log my CMS work</button>
-      <span id="cmsLogged_${key.replace(/\W/g,"_")}" style="font-size:12px;color:var(--success)">${saved.at?`✓ Logged ${fmtDate(saved.at)}`:""}</span>
-    </div></div>`;
-}
-window.cmLogCms = async function(key){
-  const el = document.getElementById("cmsId_"+key.replace(/\W/g,"_"));
-  const v = (el && el.value || "").trim();
-  if(v.length < 3){ toast("Enter the Case ID the CMS assigned when you saved the case."); return; }
-  state.cmsLog = state.cmsLog || {};
-  state.cmsLog[key] = {caseId:v, at:new Date().toISOString(), tool:toolOfKey(key)};
-  await storeSet("cms-log", state.cmsLog);
-  const s = document.getElementById("cmsLogged_"+key.replace(/\W/g,"_")); if(s) s.textContent = "✓ Logged just now";
-  toast("CMS work logged — your trainer can check it in the CMS.");
-};
 
 /* ---------------- building block: flag table ---------------- */
 function flagTable(key, rows, options){
@@ -275,7 +389,7 @@ TOOLS.cmIntake1 = ()=>[
       exercise:"Applied Case Manager Actions — intake bottleneck root cause",
       context:"Intake problems found: data entered into the CMS inconsistently (occupation, report number); provider records carry a different DOB; HIPAA sent unsigned; passenger not screened; prior counsel lien discovered late; two health-plan names. Bottleneck categories from the lesson: incomplete client information, delayed follow-up, conflict check delays, intake form errors, eligibility uncertainty, communication gaps.",
       criteria:"Must (1) name the specific slow points, (2) identify real root causes (e.g., no source-document verification step, no signature checklist, no passenger/household screening question, no single source of truth), (3) give immediate actions with owners and dates, (4) give prevention measures (checklists, CMS required fields, handoff rule). Generic advice without reference to the John Doe documents should score low on Accuracy."
-    })) + cmsStep("cmIntake1:cms", "Create John Doe's case in the CMS with the corrected facts (DOB 08/14/1980, occupation Senior Logistics Manager, Police Report 2026-0214-AX). Upload the intake packet under <b>Case Files</b> and the police report under <b>Police</b>. Optional: fill in the <b>Blank PI Client Intake Form</b> from 📁 Case Documents → Templates and upload it too.")}
+    })) + cmsStep("cmIntake1:cms", "Create John Doe's case in the CMS with the corrected facts (DOB 08/14/1980, occupation Senior Logistics Manager, Police Report 2026-0214-AX). Upload the intake packet under <b>Case Files</b> and the police report under <b>Police</b>. Optional: fill in the <b>Blank PI Client Intake Form</b> from 📁 Case Documents → Templates and upload it too.") + toolStep("chartswap", "cmIntake1:records", "Request John's prior records flagged at intake (the 2021 migraine records and the 2018 records). Attach the claim-specific HIPAA authorization, which must be <b>signed</b> first, and give the provider the correct DOB, 08/14/1980.")}
 ];
 
 /* ---------- DAY 1 · Treatment Phase ---------- */
@@ -352,7 +466,7 @@ TOOLS.cmPreDemand2 = ()=>[
     + aiTask("cmPreDemand2:tasks", {label:"Assign the fixes (who does what, by when, which document)", exercise:"Demand audit — task assignment", rows:140,
       context:"Defects found in the draft demand's specials and narrative (wrong EMS/ER/MRI/chiro amounts and entities, unsupported plastic-surgery line, future-care inconsistency, MRI date/size, omitted surgeon/anesthesia/facility/PT/EMC bills, hospital lien conflict).",
       criteria:"Each task must name the defect, the owner (demand specialist, records team, CM), the exact document to obtain or correct, and a due date that keeps the 30-day policy-limit clock safe. Tasks should be logged in the CMS. Vague 'fix the numbers' scores low."})
-    + cmsStep("cmPreDemand2:cms", "Log each demand fix as a <b>Task</b> in John's CMS case (the <b>+ Add Task</b> button), and upload the corrected bills under <b>Bills</b> / <b>Invoices</b>."))}
+    + cmsStep("cmPreDemand2:cms", "Log each demand fix as a <b>Task</b> in John's CMS case (the <b>+ Add Task</b> button), and upload the corrected bills under <b>Bills</b> / <b>Invoices</b>.") + toolStep("chartswap", "cmPreDemand2:records", "Request the itemized bills and records for every special missing from the demand draft (Dr. Spine EMC, the surgeon's fee, anesthesiologist Dr. Vapor, the surgical facility, PT), so each figure in the demand has a bill behind it."))}
 ];
 
 /* ---------- DAY 2 · Negotiation Math & BI Settlement ---------- */
@@ -592,7 +706,7 @@ TOOLS.cmLitigation5 = ()=>[
       {type:"date", label:"Defendant hand-served 06/15/2026 — federal Answer deadline (21 days)", answer:"2026-07-06", hint:"Mon 07/06/2026"},
       {type:"date", label:"Motion to Compel e-served 07/01/2026 — 14-day response + 3 (local e-service rule)", answer:"2026-07-20", hint:"Day 17 is Sat 07/18 → rolls to Mon 07/20/2026"},
       {type:"date", label:"Statute of Limitations for the 02/14/2026 collision (2 years, per the Master Case Summary)", answer:"2028-02-14", hint:"Mon 02/14/2028"}
-    ]))},
+    ]) + toolStep("docket", "cmLitigation5:docket", "Docket every deadline you just calculated: the RFA responses, the service deadline, the Answer, the Motion to Compel response and the SOL (02/14/2028). Give each one a 7-day and a 48-hour warning alert, and assign the handling attorney."))},
   {label:"File Architecture", html: part("B. Litigation File Architecture — route incoming documents",
     "Every litigated file uses the same five sub-folders under <b>[DOE, JOHN - CASE FILE]</b>. Route each incoming document within 48 hours.",
     sorter("cmLitigation5:folders", [
@@ -623,7 +737,7 @@ TOOLS.cmLitigation5 = ()=>[
     "Run the pre-deposition audit, then rehearse. The AI plays John (nervous) — or the defense attorney trying the “Is That All?” and silent traps.",
     docPacket(["JD22","JD02","JD39","JD18"], "Pre-deposition audit: landmines")
     + renderCrisisRoleplaySection("cmLitigation5", "Live deposition prep")
-    + cmsStep("cmLitigation5:cms", "In John's CMS case: log the calculated deadlines as <b>Litigation Tasks</b>, add the deposition date, and note the prep session in <b>Case Notes</b>."))}
+    + cmsStep("cmLitigation5:cms", "In John's CMS case: log the calculated deadlines as <b>Tasks</b>, add the deposition date, note the prep session in <b>Case Notes</b>, and upload the pleadings under <b>Litigation</b>."))}
 ];
 
 /* ---------- DAY 5 · Jordan Davies ---------- */
@@ -678,7 +792,7 @@ window.renderCalendarBody = function(body){
       {type:"date", label:"Exhibit & witness lists exchanged", answer:"2026-06-17"},
       {type:"date", label:"Arbitration Brief deadline (5:00 PM)", answer:"2026-06-18"},
       {type:"date", label:"Arbitration Hearing (9:00 AM)", answer:"2026-06-20"}
-    ]));
+    ]) + toolStep("docket", "calendar:docket", "Enter the five Scheduling Order dates on the firm docket with their times: the strike list, the retainer deposit, the exhibit and witness list exchange, the brief (5:00 PM) and the hearing (9:00 AM). Add a warning alert before each one."));
   const labs = ["Calendar Conflict Resolver","Docket Briefing for the Attorney","Proactive CM Tasks","Hard-Code the Arbitration Dates"];
   toolState.wizardLabels = labs;
   body.querySelectorAll(".wizard-dot").forEach((d,i)=>{ if(labs[i]) d.title = labs[i]; });
@@ -777,13 +891,13 @@ window.renderLessonCard = function(l, i, d, unused, part){
   if(l.skill){
     const t = PRACTICE_TOOLS.find(x=>x.id===l.skill.tool);
     if(t) extra += `<div class="cm-skill-cta"><div><b>🧪 Skill Builder: ${E(t.title)}</b><p>Practice this with the real case documents${l.skill.cms?" and log your work in the CMS":""}.</p></div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-navy btn-sm" onclick="goto('tool','${t.id}')">Open Skill Builder</button>${l.skill.cms?`<button class="btn btn-ghost btn-sm" onclick="openCms()">Open CMS ↗</button>`:""}</div></div>`;
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-navy btn-sm" onclick="goto('tool','${t.id}')">Open Skill Builder</button>${l.skill.cms?`<button class="btn btn-ghost btn-sm" onclick="openCms()">Open CMS</button>`:""}</div></div>`;
   }
   return _origLessonCard(Object.assign({}, l, {svgDiagram: extra}), i, d, unused, part);
 };
 
 /* ================================================================
-   VIEWS: Case Documents · CMS Simulator · Handouts · Case File
+   VIEWS: Case Documents · Training Tools · Handouts · Case File
    ================================================================ */
 window.renderCaseDocuments = function(){
   const f = state.docFilter || "all";
@@ -791,38 +905,54 @@ window.renderCaseDocuments = function(){
   const byFolder = CM_DOC_FOLDERS.filter(fo=>fo.id!=="handouts").map(fo=>({fo, items:docs.filter(d=>d.folder===fo.id)})).filter(x=>x.items.length);
   return `<p class="eyebrow">Case Documents</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">📁 Case Document Library</h1>
-    <p style="color:var(--ink-soft);font-size:14px;max-width:78ch;margin:0 0 14px">Real case handling runs on paperwork. These are the working files for <b>John Doe v. Apex Delivery Services</b> (Days 1–4) and <b>Jordan Davies</b> (Day 5). Every Skill Builder points to the exact documents it uses. Each file shows the <b>CMS upload category</b> to use when you add it to your case in the CMS Simulator. They are simulated training documents — and some contain deliberate errors you are expected to catch.</p>
+    <p style="color:var(--ink-soft);font-size:14px;max-width:78ch;margin:0 0 14px">Real case handling runs on paperwork. These are the working files for <b>John Doe v. Apex Delivery Services</b> (Days 1–4) and <b>Jordan Davies</b> (Day 5). Every Skill Builder points to the exact documents it uses. Each file shows the <b>CMS upload category</b> to use when you add it to your case in the CMS. They are simulated training documents — and some contain deliberate errors you are expected to catch.</p>
     <div class="cm-filter">${[["all","All"],["jd","John Doe"],["jdv","Jordan Davies"],["templates","Templates"]].map(([k,lab])=>`<button class="btn btn-sm ${f===k?"btn-navy":"btn-ghost"}" onclick="state.docFilter='${k}';render()">${lab}</button>`).join("")}
-      <button class="btn btn-sm btn-ghost" onclick="openCms()">🗂 Open CMS ↗</button></div>
+      <button class="btn btn-sm btn-ghost" onclick="openCms()">🗂 Open CMS</button></div>
     ${state.isAdmin ? `<div class="card" style="padding:12px 16px;margin-bottom:16px;border-left:4px solid var(--danger);font-size:12.8px">🔑 <b>Trainer view:</b> the red notes under each document are the audit key — planted discrepancies and what a strong trainee should catch. Trainees don't see them.</div>` : ""}
     ${byFolder.map(({fo,items})=>`<div class="card cm-lib-folder" style="padding:14px 18px"><h3>${fo.icon} ${E(fo.label)} <span style="font-weight:500;color:var(--ink-soft);font-size:12px">(${items.length})</span></h3>
       ${items.map(d=>`<div class="cm-doc-row"><div><span class="t">${E(d.title)}</span> <span style="font-size:11px;color:var(--ink-soft)">· Day ${d.day}</span><div class="d">${E(d.desc)}</div>${state.isAdmin && d.key ? `<div class="cm-key">🔑 ${E(d.key)}</div>` : ""}</div>
         <div style="display:flex;gap:6px;align-items:center"><span class="cms">CMS: ${E(d.cms)}</span><a class="btn btn-ghost btn-sm" href="${cmDocUrl(d)}" target="_blank" rel="noopener">${/\.(docx|xlsx)$/i.test(d.file)?"Download":"Open"}</a></div></div>`).join("")}</div>`).join("")}`;
 };
 
-window.renderCmsSimulator = function(){
+window.renderTrainingTools = function(){
   const log = Object.entries(state.cmsLog||{});
   const toolTitle = (id)=> (PRACTICE_TOOLS.find(t=>t.id===id)||{}).title || id;
-  return `<p class="eyebrow">CMS Simulator</p>
-    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🗂 Case Management System — Training Interface</h1>
-    <p style="color:var(--ink-soft);font-size:14px;max-width:78ch;margin:0 0 16px">The LSH CMS is where the case work actually happens: creating the case file, keying intake facts, uploading documents by category, logging tasks, liens, chronology and financials, and exporting your calendar. Skill Builders tell you exactly what to do in the CMS, then ask for the Case ID so your trainer can review your file.</p>
-    <div class="card" style="padding:18px 20px;margin-bottom:16px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-      <div><b style="color:var(--navy);font-size:15px">Open the CMS in a new tab</b><p style="margin:4px 0 0;font-size:12.8px;color:var(--ink-soft)">Sign in with your CMS username and password (registered and approved in the CMS). Your training portal stays open here.</p></div>
-      <button class="btn btn-primary" onclick="openCms()">Open CMS ↗</button></div>
-    <div class="card" style="padding:16px 20px;margin-bottom:16px"><b style="color:var(--navy)">How the two platforms work together</b>
-      <ol style="font-size:13px;margin:8px 0 0;padding-left:20px"><li>Learn it in the day's lessons here.</li><li>Open the Skill Builder — it gives you the case documents and the exercise.</li><li>Do the file work in the CMS: <b>Start a New Case</b>, key the facts, upload each document with the <b>CMS category</b> shown in 📁 Case Documents (Medical · Police · Case Files · Invoices · Bills · PD · Litigation · Others), add Tasks / Notes / Liens / Chronology, then <b>Save Case</b> to get a permanent Case ID.</li><li>Come back and log that Case ID in the Skill Builder. Your trainer reviews the file in the CMS's Master Control.</li></ol></div>
-    <div class="card" style="padding:16px 20px;margin-bottom:16px"><b style="color:var(--navy)">My CMS work log</b>
-      ${log.length ? `<table class="cm-table"><thead><tr><th>Skill Builder</th><th>CMS Case ID</th><th>Logged</th></tr></thead><tbody>${log.map(([k,v])=>`<tr><td>${E(toolTitle(v.tool||k.split(":")[0]))}</td><td><b>${E(v.caseId)}</b></td><td>${fmtDate(v.at)}</td></tr>`).join("")}</tbody></table>` : `<p style="font-size:13px;color:var(--ink-soft);margin:6px 0 0">Nothing logged yet — Skill Builders will ask for your CMS Case ID.</p>`}</div>
-    ${state.isAdmin ? `<div class="card" style="padding:16px 20px;border-left:4px solid var(--orange)"><b style="color:var(--navy)">Admin — CMS address</b>
-      <p style="font-size:12.8px;color:var(--ink-soft);margin:4px 0 8px">Where “Open CMS” sends trainees. Default: ${E(CM_CMS_DEFAULT)}</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap"><input id="cmsUrlInput" value="${E(cmCmsUrl())}" style="flex:1;min-width:260px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font:inherit">
-      <button class="btn btn-navy btn-sm" onclick="saveCmsUrl()">Save</button></div></div>` : ""}`;
+  const tools = CM_TOOL_DEFAULTS.map(d=>cmTool(d.id));
+  return `<p class="eyebrow">Training Tools</p>
+    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🧰 LSH Training Tools</h1>
+    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">This portal is your home base. The platforms you'll use on the job are built in here: open one <b>inside the portal</b> and it stays signed in while you go back and forth between lessons and Skill Builders. You can also open it on its own in a new tab. Skill Builders tell you exactly what to do in each tool, then ask for the ID it gives you so your trainer can review your work.</p>
+    <div class="cm-tools">${tools.map(t=>`<div class="card cm-tool${t.live?"":" soon"}">
+      <div class="cm-tool-h"><span class="cm-tool-ic">${t.icon}</span><div><b>${E(t.name)}</b><div><span class="cm-badge ${t.live?"live":"soon"}">${t.live?"● Live":"Coming soon"}</span></div></div></div>
+      <p>${E(t.desc)}</p>
+      ${t.live?`<div class="cm-tool-act"><button class="btn btn-primary btn-sm" onclick="openTool('${t.id}')">Open in portal</button><button class="btn btn-ghost btn-sm" onclick="openTool('${t.id}','tab')">New tab ↗</button></div>
+        <div class="cm-tool-url">${E(t.url.replace(/^https:\/\//,""))}</div>`
+      :`<p class="cm-tool-note">Until it's live, Skill Builder steps for this tool are logged as <b>Tasks</b> in the CMS.</p>`}
+    </div>`).join("")}</div>
+    <div class="card" style="padding:16px 20px;margin-bottom:16px"><b style="color:var(--navy)">How the portal and the tools work together</b>
+      <ol style="font-size:13px;margin:8px 0 0;padding-left:20px"><li>Learn it in the day's lessons here.</li><li>Open the Skill Builder. It gives you the case documents and the exercise.</li><li>Do the file work in the tool. In the CMS: <b>Start a New Case</b>, key the facts, upload each document under the <b>CMS category</b> shown in 📁 Documents (Medical · Police · Case Files · Invoices · Bills · PD · Litigation · Others), and add Tasks, Notes, Liens and Chronology. Then <b>Save Case</b> to get your permanent Case ID.</li><li>Come back and log that ID in the Skill Builder. Your trainer reviews your file in the tool.</li></ol>
+      <p style="font-size:12.3px;color:var(--ink-soft);margin:10px 0 0">Signed in, but the tool asks you to sign in again inside the portal? Some browsers block sign-in inside an embedded page. Use <b>New tab ↗</b>. Your training portal stays open here.</p></div>
+    <div class="card" style="padding:16px 20px;margin-bottom:16px"><b style="color:var(--navy)">My tool work log</b>
+      ${log.length ? `<table class="cm-table"><thead><tr><th>Skill Builder</th><th>Tool</th><th>ID</th><th>Logged</th></tr></thead><tbody>${log.map(([k,v])=>`<tr><td>${E(toolTitle(v.tool||k.split(":")[0]))}</td><td>${E((cmTool(v.platform||"cms")||{}).short||"CMS")}</td><td><b>${E(v.caseId)}</b></td><td>${fmtDate(v.at)}</td></tr>`).join("")}</tbody></table>` : `<p style="font-size:13px;color:var(--ink-soft);margin:6px 0 0">Nothing logged yet. Skill Builders will ask for your Case ID.</p>`}</div>
+    ${state.isAdmin ? `<div class="card" style="padding:16px 20px;border-left:4px solid var(--orange)"><b style="color:var(--navy)">Admin: tool addresses</b>
+      <p style="font-size:12.8px;color:var(--ink-soft);margin:4px 0 10px">Saved for every trainee. Switch a tool to <b>Live</b> once its address works. Each tool also stays reachable on its own at its address.</p>
+      ${tools.map(t=>`<div class="cm-tool-admin"><span>${t.icon} <b>${E(t.short)}</b></span>
+        <input id="toolUrl_${t.id}" value="${E(t.url)}" placeholder="https://…">
+        <select id="toolStatus_${t.id}"><option value="live"${t.status==="live"?" selected":""}>Live</option><option value="coming"${t.status!=="live"?" selected":""}>Coming soon</option></select></div>`).join("")}
+      <button class="btn btn-navy btn-sm" style="margin-top:8px" onclick="saveToolSettings()">Save tool settings</button></div>` : ""}`;
 };
-window.saveCmsUrl = async function(){
-  const v = (document.getElementById("cmsUrlInput")||{}).value.trim();
-  if(!/^https:\/\/[^\s]+$/i.test(v)){ toast("Enter the full https:// address of the CMS."); return; }
-  state.cmsUrl = v; await sharedSet("settings:cms", {url:v, at:new Date().toISOString()});
-  toast("CMS address saved for everyone.");
+window.renderCmsSimulator = window.renderTrainingTools;
+window.saveToolSettings = async function(){
+  const out = {};
+  for(const d of CM_TOOL_DEFAULTS){
+    const url = ((document.getElementById("toolUrl_"+d.id)||{}).value||"").trim().replace(/\/+$/,"");
+    const status = (document.getElementById("toolStatus_"+d.id)||{}).value || d.status;
+    if(url && !/^https:\/\/[^\s]+$/i.test(url)){ toast(`${d.short}: enter the full https:// address.`); return; }
+    if(status==="live" && !url){ toast(`${d.short}: add its address before switching it to Live.`); return; }
+    out[d.id] = {url, status};
+  }
+  state.toolSettings = out;
+  await sharedSet("settings:tools", {tools:out, at:new Date().toISOString()});
+  toast("Tool settings saved for everyone."); render();
 };
 
 window.renderHandouts = function(){
@@ -842,7 +972,7 @@ window.renderClientProfile = function(){
     <p>The working case for Days 1–4 (Day 5 adds the Jordan Davies file). Every fact below comes from the documents in 📁 Case Documents — when a Skill Builder asks you to verify something, verify it against the document, not this summary.</p>
     <div class="client-intro-banner"><div class="cib-tag">📌 Read This First</div><h2>One case, from intake to closing</h2>
       <p>Like a real caseload, the file grows as you go: intake and treatment records on Day 1, the demand and negotiation on Day 2, liens and disbursement on Day 3, mediation and arbitration on Day 4, and litigation on Day 5. The same documents keep coming back — the discrepancies you catch early are the ones that decide the case later.</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-navy btn-sm" onclick="goto('casedocs')">📁 Open the Case Documents</button><button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS ↗</button></div></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-navy btn-sm" onclick="goto('casedocs')">📁 Open the Case Documents</button><button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS</button></div></div>
     <div class="profile-grid">${CLIENT_PROFILE_DOC.map(sec=>`<div class="card profile-section"><h3>${E(sec.section)}</h3><ul>${sec.items.map(i=>`<li>${E(i)}</li>`).join("")}</ul></div>`).join("")}</div>`;
 };
 window.clientAvatarSvg = function(){ return `<div class="client-photo-img" style="display:flex;align-items:center;justify-content:center;font-size:42px;background:#EEF0F6">📂</div>`; };
@@ -861,7 +991,7 @@ const _origRender = window.render;
 window.addEventListener("load", ()=>{
   setTimeout(async ()=>{
     try{ state.cmsLog = (await storeGet("cms-log")) || state.cmsLog || {}; }catch(e){}
-    await loadCmsSettings();
+    await loadToolSettings(); if(typeof render==="function" && (state.view==="tools"||state.view==="cms")) render();
   }, 300);
 });
 })();
