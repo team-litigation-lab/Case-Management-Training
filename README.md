@@ -46,7 +46,7 @@ This portal is the main LSH training portal. The job platforms are embedded in i
 |---|---|---|
 | 🗂 LSH Case Management System | Live | `https://lshcasemanagementtraining-trainingcrm.pages.dev` |
 | 📅 Docket Entry System | Coming soon | set by admin |
-| 📨 Medical Records Request Platform (ChartSwap-style) | Coming soon | set by admin |
+| 📨 Medical Records Request Platform | Coming soon | set by admin |
 | 📞 Call Simulator (LSH Training Portal) | Live | `https://cm-training-activity.pages.dev/simulators/call.html` |
 | 🗓 Calendaring Simulator (LSH Training Portal) | Live | `https://cm-training-activity.pages.dev/simulators/calendar.html` |
 

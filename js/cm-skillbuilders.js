@@ -115,8 +115,8 @@ const CM_TOOL_DEFAULTS = [
   {id:"docket", icon:"📅", name:"Docket Entry System", short:"Docket", status:"coming", url:"",
    desc:"Enter court and ADR deadlines, hearings and depositions on the firm docket: the deadline chain, reminder alerts and the attorney's calendar.",
    evidence:"Docket entry ID", idHint:"Docket entry ID (or your CMS Case ID)"},
-  {id:"chartswap", icon:"📨", name:"Medical Records Request Platform", short:"Records", status:"coming", url:"",
-   desc:"A ChartSwap-style records portal: request medical records and itemized bills from providers, attach the signed HIPAA, track fulfilment and fees.",
+  {id:"records", icon:"📨", name:"Medical Records Request Platform", short:"Records", status:"coming", url:"",
+   desc:"A medical records request platform: request medical records and itemized bills from providers, attach the signed HIPAA, track fulfilment and fees.",
    evidence:"Records request ID", idHint:"Request ID (or your CMS Case ID)"},
   // Shared simulators on the LSH Training Portal (used by every program). The course
   // opens them with ?program=CM and the trainee's name and batch, so results carry them.
@@ -410,7 +410,7 @@ TOOLS.cmIntake1 = ()=>[
       exercise:"Applied Case Manager Actions — intake bottleneck root cause",
       context:"Intake problems found: data entered into the CMS inconsistently (occupation, report number); provider records carry a different DOB; HIPAA sent unsigned; passenger not screened; prior counsel lien discovered late; two health-plan names. Bottleneck categories from the lesson: incomplete client information, delayed follow-up, conflict check delays, intake form errors, eligibility uncertainty, communication gaps.",
       criteria:"Must (1) name the specific slow points, (2) identify real root causes (e.g., no source-document verification step, no signature checklist, no passenger/household screening question, no single source of truth), (3) give immediate actions with owners and dates, (4) give prevention measures (checklists, CMS required fields, handoff rule). Generic advice without reference to the John Doe documents should score low on Accuracy."
-    })) + cmsStep("cmIntake1:cms", "Create John Doe's case in the CMS with the corrected facts (DOB 08/14/1980, occupation Senior Logistics Manager, Police Report 2026-0214-AX). Upload the intake packet under <b>Case Files</b> and the police report under <b>Police</b>. Optional: fill in the <b>Blank PI Client Intake Form</b> from 📁 Case Documents → Templates and upload it too.") + toolStep("chartswap", "cmIntake1:records", "Request John's prior records flagged at intake (the 2021 migraine records and the 2018 records). Attach the claim-specific HIPAA authorization, which must be <b>signed</b> first, and give the provider the correct DOB, 08/14/1980.")}
+    })) + cmsStep("cmIntake1:cms", "Create John Doe's case in the CMS with the corrected facts (DOB 08/14/1980, occupation Senior Logistics Manager, Police Report 2026-0214-AX). Upload the intake packet under <b>Case Files</b> and the police report under <b>Police</b>. Optional: fill in the <b>Blank PI Client Intake Form</b> from 📁 Case Documents → Templates and upload it too.") + toolStep("records", "cmIntake1:records", "Request John's prior records flagged at intake (the 2021 migraine records and the 2018 records). Attach the claim-specific HIPAA authorization, which must be <b>signed</b> first, and give the provider the correct DOB, 08/14/1980.")}
 ];
 
 /* ---------- DAY 1 · Treatment Phase ---------- */
@@ -487,7 +487,7 @@ TOOLS.cmPreDemand2 = ()=>[
     + aiTask("cmPreDemand2:tasks", {label:"Assign the fixes (who does what, by when, which document)", exercise:"Demand audit — task assignment", rows:140,
       context:"Defects found in the draft demand's specials and narrative (wrong EMS/ER/MRI/chiro amounts and entities, unsupported plastic-surgery line, future-care inconsistency, MRI date/size, omitted surgeon/anesthesia/facility/PT/EMC bills, hospital lien conflict).",
       criteria:"Each task must name the defect, the owner (demand specialist, records team, CM), the exact document to obtain or correct, and a due date that keeps the 30-day policy-limit clock safe. Tasks should be logged in the CMS. Vague 'fix the numbers' scores low."})
-    + cmsStep("cmPreDemand2:cms", "Log each demand fix as a <b>Task</b> in John's CMS case (the <b>+ Add Task</b> button), and upload the corrected bills under <b>Bills</b> / <b>Invoices</b>.") + toolStep("chartswap", "cmPreDemand2:records", "Request the itemized bills and records for every special missing from the demand draft (Dr. Spine EMC, the surgeon's fee, anesthesiologist Dr. Vapor, the surgical facility, PT), so each figure in the demand has a bill behind it."))}
+    + cmsStep("cmPreDemand2:cms", "Log each demand fix as a <b>Task</b> in John's CMS case (the <b>+ Add Task</b> button), and upload the corrected bills under <b>Bills</b> / <b>Invoices</b>.") + toolStep("records", "cmPreDemand2:records", "Request the itemized bills and records for every special missing from the demand draft (Dr. Spine EMC, the surgeon's fee, anesthesiologist Dr. Vapor, the surgical facility, PT), so each figure in the demand has a bill behind it."))}
 ];
 
 /* ---------- DAY 2 · Negotiation Math & BI Settlement ---------- */
