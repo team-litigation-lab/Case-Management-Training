@@ -7360,7 +7360,7 @@ const mem = {}; // in-memory fallback if window.storage is unavailable
 const PERSONAL_KEYS = ["day-progress","practice-progress","lab-attempts-global","notes","completed-lab-actions",
   "day10-window","submissions","roleplayHistory","slide-progress","last-slide","attn-detail-findings",
   "calendar-custom","calendar-edits","call-log","inbox-filing","inbox-interactions","inbox-labels","trainee-batch",
-  "quick-check-answers","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log"];
+  "quick-check-answers","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","cms-log","callHistory"];
 const PERSONAL_KEY_SET = new Set(PERSONAL_KEYS);
 let cloudSaveTimer = null;
 function scheduleCloudSave(){
@@ -7395,7 +7395,7 @@ async function cloudRestore(traineeId){
   try{
     for(const k of PERSONAL_KEYS){
       if(!(k in snap.data)) continue;
-      if(k==="submissions" || k==="roleplayHistory"){
+      if(k==="submissions" || k==="roleplayHistory" || k==="callHistory"){
         // never let a snapshot shrink these lists below what the ledger already restored
         const cur = await storeGet(k);
         if(Array.isArray(cur) && Array.isArray(snap.data[k]) && cur.length > snap.data[k].length) continue;
@@ -7609,6 +7609,7 @@ async function syncToLedger(allowCreate){
     practiceProgress: state.practiceProgress,
     submissions: state.submissions||[],
     roleplayHistory: state.roleplayHistory||[],
+    callHistory: state.callHistory||[],
     completedLabActions: state.completedLabActions||{},
     lastActive: new Date().toISOString(),
     approved: existing ? existing.approved : false,
@@ -7950,7 +7951,7 @@ function orientSlides(){
      </div>`},
    {k:"Navigation", h:"Getting around", body:`
      <div class="or-nav">
-       ${[["Dashboard","Your home: progress, days, stats."],["🎲 Tasks","Surprise tasks from your trainer — acknowledge, plan and resolve before the timer ends. Graded."],["Case File","John Doe v. Apex — the working case. Read it first."],["📁 Case Documents","Every record, bill, lien letter and pleading — with its CMS upload category."],["Skill Builders","Hands-on exercises from the Skill Building slides — each opens with its day."],["🧰 Tools","The LSH Case Management System, Docket and Records platforms, built into the portal. This is where you do the file work."],["🔥 Live Roleplay","Voice calls with realistic clients and crises."],["My Notes","Your private notes — download them as a PDF."],["Handouts","Printable checklists and Excel templates for each day."],["🎯 Focus","Your trainer's feedback and what to work on next."],["💬 Feedback","Tell us what's working and what isn't — anonymously if you like."]].map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join("")}
+       ${[["Dashboard","Your home: progress, days, stats."],["🎲 Tasks","Surprise tasks from your trainer — acknowledge, plan and resolve before the timer ends. Graded."],["Case File","John Doe v. Apex — the working case. Read it first."],["📁 Case Documents","Every record, bill, lien letter and pleading — with its CMS upload category."],["Skill Builders","Hands-on exercises from the Skill Building slides — each opens with its day."],["📞 Calls","Phone practice on demand: reception, intake, client calls, attorney reports, adjusters and providers — scored after every call."],["🧰 Tools","The LSH Case Management System, Docket and Records platforms, built into the portal. This is where you do the file work."],["🔥 Live Roleplay","Voice calls with realistic clients and crises."],["My Notes","Your private notes — download them as a PDF."],["Handouts","Printable checklists and Excel templates for each day."],["🎯 Focus","Your trainer's feedback and what to work on next."],["💬 Feedback","Tell us what's working and what isn't — anonymously if you like."]].map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join("")}
      </div>
      <p class="or-foot">On a phone, everything is under <b>☰ Menu</b>. Search (top bar) finds any topic or tool.</p>`},
    {k:"Client", h:"Meet the case: John Doe v. Apex Delivery Services", body:`
@@ -8234,7 +8235,7 @@ function dismissNotifBanner(){ state.notifDismissed = true; render(); }
 window.dismissNotifBanner = dismissNotifBanner;
 
 function renderTopbar(){
-  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","Skill Builders"],["tools","🧰 Tools"],["crisisroleplay","🔥 Roleplay"],["notes","Notes"],["handouts","Handouts"]];
+  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","Skill Builders"],["calls","📞 Calls"],["tools","🧰 Tools"],["crisisroleplay","🔥 Roleplay"],["notes","Notes"],["handouts","Handouts"]];
   if(state.isAdmin){
     // Admin is a trainer monitoring dashboard, not a trainee workspace — hide
     // the trainee-facing-only views that have no role here.
@@ -8580,7 +8581,7 @@ window.rpLaunchRoleplay = rpLaunchRoleplay;
 // situations only — excludes the Legal category and any fixed-opening,
 // deliberately high-intensity crisis topics, since those are meant to be
 // chosen deliberately, not landed on randomly for quick practice.
-const QUICK_PRACTICE_TOPIC_IDS = ["inboxtriage","boardgatekeeping","investorupdate","calendarcollision","vendornegotiation","domesticstaff","traveldisruption","coldobjections","bantqualifying"];
+const QUICK_PRACTICE_TOPIC_IDS = ["transportwall","treatmentdebt","deponerves","firstcall","umconsent","lopreduction","recordsdelay","mediationsched","extension"];
 function rpLaunchQuickPractice(){
   const pool = [];
   ROLEPLAY_CATEGORIES.forEach(c=>{
@@ -8607,7 +8608,7 @@ function rpLaunchQuickPractice(){
 window.rpLaunchQuickPractice = rpLaunchQuickPractice;
 
 async function runQuickPracticeSummary(scenario, transcript){
-  const prompt = `You are an automated evaluator giving quick, informal feedback on a trainee Executive/Personal Assistant's performance in a short, casual practice call. This is lower-stakes quick practice, not a formal graded assessment — keep the tone encouraging and the feedback concise.
+  const prompt = `You are an automated evaluator giving quick, informal feedback on a trainee personal-injury Case Manager's performance in a short, casual practice call. This is lower-stakes quick practice, not a formal graded assessment — keep the tone encouraging and the feedback concise.
 
 SITUATION TYPE: ${scenario.topic.label} (category: ${scenario.category.label})
 ${scenario.topic.context}
@@ -8938,8 +8939,8 @@ async function rpSendMessage(){
   s.chatHistory.push({role:"client", text:"…thinking…", pending:true});
   rpRenderChatWindow();
   VoiceCall.thinking("rp");
-  const transcript = s.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"CALLER: ":"EA: ")+m.text).join("\n");
-  const prompt = `You are roleplaying as the caller/contact in a live, unscripted training call for an Executive/Personal Assistant. Stay fully in character. No meta-commentary.
+  const transcript = s.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"CALLER: ":"CASE MANAGER: ")+m.text).join("\n");
+  const prompt = `You are roleplaying as the caller/contact in a live, unscripted training call for a personal-injury Case Manager. Stay fully in character. No meta-commentary.
 
 CLIENT BACKGROUND:
 ${CLIENT_DOSSIER_MD}
@@ -8989,7 +8990,7 @@ async function rpEndDebrief(){
   if((s.chatHistory||[]).filter(m=>m.role==="ea").length < 1){ toast("Say or type at least one reply before ending the call."); return; }
   VoiceCall.hangup();
   el.innerHTML = `<div class="ai-loading">Reviewing the exchange…</div>`;
-  const transcript = s.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"CALLER: ":"EA: ")+m.text).join("\n");
+  const transcript = s.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"CALLER: ":"CASE MANAGER: ")+m.text).join("\n");
   try{
     if(s.isQuickPractice){
       const summary = await runQuickPracticeSummary(s, transcript);
@@ -9034,7 +9035,7 @@ window.rpAdvanceToPart2 = rpAdvanceToPart2;
 
 async function rpGenerateRapidTasks(){
   const s = state.rpSession;
-  const prompt = `Generate exactly 4 short, unrelated, back-to-back task requests that would realistically drop on an Executive/Personal Assistant's desk in quick succession — the kind of rapid-fire context-switching moment where several different people all need something at once. Keep loose thematic proximity to this general category: ${s.category.label}, but the 4 tasks should be clearly distinct from each other and from this scenario: ${s.topic.label}.
+  const prompt = `Generate exactly 4 short, unrelated, back-to-back task requests that would realistically drop on a personal-injury Case Manager's desk in quick succession — the kind of rapid-fire context-switching moment where several different people all need something at once. Keep loose thematic proximity to this general category: ${s.category.label}, but the 4 tasks should be clearly distinct from each other and from this scenario: ${s.topic.label}.
 
 Return ONLY a JSON array of 4 strings, each a short, realistic incoming request (1-2 sentences), nothing else — no markdown, no explanation.`;
   try{
@@ -9043,10 +9044,10 @@ Return ONLY a JSON array of 4 strings, each a short, realistic incoming request 
     s.rapidTasks = JSON.parse(cleaned).slice(0,4);
   }catch(e){
     s.rapidTasks = [
-      "A vendor just texted asking for same-day payment confirmation on an overdue invoice.",
+      "Metro Radiology's records department calls: John Doe's authorization has the wrong DOB and they won't release the MRI.",
       "John Doe's wife Jane calls asking whether she needs her own claim for her neck pain.",
-      "A colleague needs the quarterly report reformatted and resent in the next 10 minutes.",
-      "The building manager left a voicemail about an access badge issue for tomorrow."
+      "The attorney needs the updated lien totals for the Doe file in the next 10 minutes.",
+      "A court clerk leaves a voicemail: the Answer in another matter was rejected for a missing signature page."
     ];
   }
   render();
@@ -9868,7 +9869,7 @@ function dayRow(d){
 function goto(view, id){
   state.mobileNavOpen = false;
   state.searchQuery = "";
-  if(VoiceCall.active && view!=="openroleplay") VoiceCall.hangup(true);
+  if(VoiceCall.active && view!==(VoiceCall.active.key==="call"?"calls":"openroleplay")) VoiceCall.hangup(true);
   state.view=view;
   if(view==="dashboard"){ state.surpriseTaskChecked = false; }
   if(view==="day"){ state.dayId=id; state.quizAnswers={}; state.quizQuestionIndex=0; state.quizSubmitted=false; state.slideDir="next"; state.slideInterstitial=null; state.dayViewMode="slides"; state.maxSlideReached=(state.slideProgress&&state.slideProgress[id])||0; state.lessonSlide=resumeSlideFor(id); }
@@ -9962,6 +9963,7 @@ function render(){
   else if(state.view==="tasks") body=renderTasksPage();
   else if(state.view==="casedocs") body=renderCaseDocuments();
   else if(state.view==="tools"||state.view==="cms") body=renderTrainingTools();
+  else if(state.view==="calls") body=renderCallSimulator();
   else if(state.view==="orientation") body = state.isAdmin ? renderOrientation() : renderDashboard();
   const presenterView = false;   // the presenter now lives inside the lesson stage
   app.innerHTML = renderTopbar() + `<main class="${state.view==="dashboard"?"main-dash":""}${presenterView?" has-presenter":""}">${body}</main>` + (presenterView ? `<img class="slide-presenter" src="${PRESENTER_IMG}" alt="" aria-hidden="true">` : "")
@@ -10060,7 +10062,7 @@ window.addEventListener("resize", ()=>{ clearTimeout(window.__heroFitT); window.
 if(document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", ()=>fitHeroText());
 
 /* ---------- Uniform page heroes: every page title gets the dashboard hero look ---------- */
-const PAGE_EYEBROWS = {clientprofile:"Case File", casedocs:"Case Documents", tools:"Training Tools", cms:"Training Tools", practice:"Skill Builders", notes:"My Notes", handouts:"Reference Library", crisisroleplay:"Live Roleplay", facilitatorguide:"For Trainers", admin:"Admin Dashboard"};
+const PAGE_EYEBROWS = {clientprofile:"Case File", casedocs:"Case Documents", tools:"Training Tools", cms:"Training Tools", calls:"Call Simulator", practice:"Skill Builders", notes:"My Notes", handouts:"Reference Library", crisisroleplay:"Live Roleplay", facilitatorguide:"For Trainers", admin:"Admin Dashboard"};
 function applyPageHero(){
   if(["dashboard","day","login","pendingApproval","registrationDenied","orientation","tool"].includes(state.view)) return;
   const main = document.querySelector("#app > main"); if(!main) return;
@@ -10194,6 +10196,8 @@ async function submitLoginInner(){
       // trainee's saved submissions / roleplay history with an empty list.
       state.submissions = Array.isArray(existing.submissions) ? existing.submissions : [];
       state.roleplayHistory = Array.isArray(existing.roleplayHistory) ? existing.roleplayHistory : [];
+      state.callHistory = Array.isArray(existing.callHistory) ? existing.callHistory : [];
+      await storeSet("callHistory", state.callHistory);
       await storeSet("submissions", state.submissions);
       await storeSet("roleplayHistory", state.roleplayHistory);
       await storeSet("day-progress", state.progress);
@@ -10273,6 +10277,9 @@ async function resetTraineeSessionData(){
   state.completedLabActions = {};
   state.submissions = [];
   state.roleplayHistory = [];
+  state.callHistory = [];
+  state.cmsLog = {};
+  state.callSim = null;
   state.assignedRoleplay = null;
   state.day10Window = null;
   state.traineeBatch = "";
@@ -10280,6 +10287,8 @@ async function resetTraineeSessionData(){
   await storeSet("completed-lab-actions", {});
   await storeSet("submissions", []);
   await storeSet("roleplayHistory", []);
+  await storeSet("callHistory", []);
+  await storeSet("cms-log", {});
   await storeSet("day10-window", null);
   await storeSet("trainee-batch", "");
 }
@@ -15538,7 +15547,7 @@ async function draftDayFeedback(id, dayId, silent){
   return finishDraft(id, work, dayId, fb, silent);
 }
 function feedbackPrompt(rec, ev, dayId){
-  return `You are an experienced trainer at Legal Support Help (LSH) reviewing one trainee's work for Day ${dayId} ("${ev.d.title}") of a 10-day Legal Executive/Personal Assistant program. Write specific, encouraging, honest feedback based ONLY on the evidence below — do not invent work they didn't do. If evidence is thin, say what's missing.
+  return `You are an experienced trainer at Legal Support Help (LSH) reviewing one trainee's work for Day ${dayId} ("${ev.d.title}") of the 5-day LSH Case Management program. Write specific, encouraging, honest feedback based ONLY on the evidence below — do not invent work they didn't do. If evidence is thin, say what's missing.
 
 TRAINEE: ${rec.name}
 EVIDENCE:
@@ -17605,7 +17614,7 @@ async function crSendChat(){
   toolState.cr.chatHistory.push({role:"client", text:"…thinking…", pending:true});
   crRenderChatWindow();
   const s = crCurrentScenario();
-  const transcript = toolState.cr.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"CLIENT: ":"EA: ")+m.text).join("\n");
+  const transcript = toolState.cr.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"CLIENT: ":"CASE MANAGER: ")+m.text).join("\n");
   const prompt = `You are roleplaying as a crisis contact (Elias Thorne, or the relevant person who opened this scenario — David Reyes, a vendor account manager, a school administrator, etc., staying consistent with who spoke first) in a high-pressure crisis training scenario for an Executive Assistant. Stay fully in character. Do not break the fourth wall or offer meta-commentary.
 
 CLIENT BACKGROUND:
@@ -17638,7 +17647,7 @@ async function crEndDebrief(){
   if(!(await useLabAttempt(toolIdToDayId(toolState.cr.setKey), "crEndDebrief_"+toolState.cr.setKey))) return;
   el.innerHTML = `<div class="ai-loading">Preparing your debrief…</div>`;
   const s = crCurrentScenario();
-  const transcript = toolState.cr.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"CLIENT: ":"EA: ")+m.text).join("\n");
+  const transcript = toolState.cr.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"CLIENT: ":"CASE MANAGER: ")+m.text).join("\n");
   try{
     const report = await runRubricEvaluation(
       "Crisis Roleplay Debrief",
@@ -17813,7 +17822,7 @@ async function d6crSendChat(){
   toolState.c6cr.chatHistory.push({role:"client", text:"…thinking…", pending:true});
   d6crRenderChatWindow();
   const s = d6crCurrentScenario();
-  const transcript = toolState.c6cr.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"EXECUTIVE/STAKEHOLDER: ":"EA: ")+m.text).join("\n");
+  const transcript = toolState.c6cr.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"EXECUTIVE/STAKEHOLDER: ":"CASE MANAGER: ")+m.text).join("\n");
   const prompt = `You are roleplaying as the executive or stakeholder who opened this scenario (Elias Thorne, David Reyes, or a client's Chief of Staff, staying consistent with who spoke first) in a high-pressure business-compliance training scenario for an Executive Assistant. Stay fully in character. Do not break the fourth wall or offer meta-commentary.
 
 CLIENT BACKGROUND:
@@ -17846,7 +17855,7 @@ async function d6crEndDebrief(){
   if(!(await useLabAttempt(6, "d6crEndDebrief"))) return;
   el.innerHTML = `<div class="ai-loading">Preparing your debrief…</div>`;
   const s = d6crCurrentScenario();
-  const transcript = toolState.c6cr.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"EXECUTIVE/STAKEHOLDER: ":"EA: ")+m.text).join("\n");
+  const transcript = toolState.c6cr.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"EXECUTIVE/STAKEHOLDER: ":"CASE MANAGER: ")+m.text).join("\n");
   try{
     const report = await runRubricEvaluation(
       "Business-Compliance Crisis Roleplay Debrief",
@@ -19167,5 +19176,6 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 </script>
 <script src="/js/cm-documents.js?v=1"></script>
 <script src="/js/cm-skillbuilders.js?v=2"></script>
+<script src="/js/cm-calls.js?v=1"></script>
 </body>
 </html>
