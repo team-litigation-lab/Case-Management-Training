@@ -27,7 +27,13 @@ The CM course has the same trainer features as the EA/PA portal. They live in `j
 - **👁 Trainee view:** an admin switches to the trainee experience (every day unlocked) and back without signing out.
 - **Other features:** standard-size centred slides (long topics continue on a second page), Skill Builder pages in the platform page style, and the task log with archiving.
 
-`index.html` is generated from the EA/PA portal's `index.html` (currently `main` after #10) by the course build script, and `js/cm-updates.js` from `js/eapa-updates.js`. When EA/PA ships new portal features, rebuild from the new source so the CM course picks them up.
+`index.html` is generated from the EA/PA portal's `index.html` (EA-PA-TRAINING, last built from its `main` after #10) by `build/build.py`, and `js/cm-updates.js` is a CM copy of EA/PA's `js/eapa-updates.js`. When EA/PA ships new portal features, rebuild so the CM course picks them up:
+
+```
+python3 build/build.py ../EA-PA-TRAINING/index.html
+```
+
+The script applies the CM edits to the EA/PA page and inserts the CM content from `build/` (`day1.js`–`day5.js` for the lessons, and the `cm_*.js` files for the case file, calendar, roleplays and practice tools). Every edit checks that its anchor exists, so it stops with an error if EA/PA changed that part; update the anchor in `build.py` and run it again. Carry new features from `js/eapa-updates.js` into `js/cm-updates.js` by hand.
 
 ### Skill Builders
 
@@ -79,9 +85,9 @@ This portal is the main LSH training portal. The job platforms are embedded in i
 
 ## Deploy (Cloudflare Workers)
 
-This folder is a **separate Worker** from the EA/PA portal.
+This repository is its own Worker, separate from the EA/PA portal (EA-PA-TRAINING).
 
-1. In Cloudflare → Workers & Pages → Create → import this repository and set the **root directory to `cm-training`**. The Worker name comes from `wrangler.json` (`cm-training`).
+1. In Cloudflare → Workers & Pages → Create → import this repository (leave the root directory as the repository root). The Worker name comes from `wrangler.json` (`cm-training`).
 2. KV: the Worker binds the same `LSH_KV` namespace as EA/PA. **All CM keys are stored under a `cm:` prefix**, so CM trainees, progress and settings never mix with EA/PA data. To use a separate namespace instead, change the `id` in `wrangler.json`.
 3. Secrets (Settings → Variables and Secrets), the same as EA/PA:
    - `ADMIN_PASSPHRASE`: admin sign-in; switches on secure mode.
@@ -89,4 +95,4 @@ This folder is a **separate Worker** from the EA/PA portal.
    - `SESSION_SECRET`: optional.
 4. After the first deploy, sign in as admin → **🧰 Tools** to check the CMS address (default `https://lshcasemanagementtraining-trainingcrm.pages.dev`, the CaseManagementTraining app). Add the Docket and Records addresses and switch them to Live when those apps are deployed.
 
-The EA/PA site deploys the repository root, so a root `.assetsignore` now excludes `cm-training/`. Without it, the EA/PA Worker would also publish a copy of this portal wired to EA/PA storage.
+`.assetsignore` keeps `worker.js`, `wrangler.json`, the Markdown files and `build/` out of the published site.
