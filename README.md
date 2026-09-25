@@ -14,6 +14,21 @@ The Case Management version of the LSH EA/PA Upskill portal. It runs on the same
 | **🧰 Training Tools** | The hub for the LSH training platforms, built into the portal (see below) |
 | **🛠 Simulators** | Opens the LSH Training Portal's shared **Call Simulator** (Case Management pack: 27 calls on the John Doe file), **Email Workspace** (a practice inbox to triage and file), **Email Replies** (John Doe correspondence, answered on the portal or from the trainee's own inbox) and **Calendaring** (see below) |
 
+### Trainer tools (from the EA/PA portal)
+
+The CM course has the same trainer features as the EA/PA portal. They live in `js/cm-updates.js`, a CM copy of EA/PA's `js/eapa-updates.js` with the EA/PA-only exercises left out and the text adapted.
+
+- **SOP Reference** (Admin → SOP Reference):
+  - **🧭 Program flow:** kick-off, the daily rhythm, between sessions, program close, an "I want to… → go here" map and the 5 days at a glance.
+  - **For each day:** a timed **Run of show** (Do / Say / Watch for; printable), built from that day's live content: topics, Quick Checks, every Skill Builder and its parts, the discussion question and the Knowledge Check.
+  - **Detailed script:** follows the run of show, with a **🎤 Present** mode for the room.
+  - The SOP is generated from the lessons, so it stays in step with Content Studio edits.
+- **🖥 Presenter view:** share only the slides in Google Meet while the trainer sees the cues, discussion case and script for each slide. On Day 1, the "Meet the Case" slide has a trainer guide.
+- **👁 Trainee view:** an admin switches to the trainee experience (every day unlocked) and back without signing out.
+- **Other features:** standard-size centred slides (long topics continue on a second page), Skill Builder pages in the platform page style, and the task log with archiving.
+
+`index.html` is generated from the EA/PA portal's `index.html` (currently `main` after #10) by the course build script, and `js/cm-updates.js` from `js/eapa-updates.js`. When EA/PA ships new portal features, rebuild from the new source so the CM course picks them up.
+
 ### Skill Builders
 
 | Day | Skill Builder |
@@ -70,7 +85,7 @@ This folder is a **separate Worker** from the EA/PA portal.
 2. KV: the Worker binds the same `LSH_KV` namespace as EA/PA. **All CM keys are stored under a `cm:` prefix**, so CM trainees, progress and settings never mix with EA/PA data. To use a separate namespace instead, change the `id` in `wrangler.json`.
 3. Secrets (Settings → Variables and Secrets), the same as EA/PA:
    - `ADMIN_PASSPHRASE`: admin sign-in; switches on secure mode.
-   - `GEMINI_API_KEY` (or `ANTHROPIC_API_KEY`): AI grading and roleplays.
+   - `GEMINI_API_KEY`: AI grading and roleplays (Gemini is the only AI provider, as in EA/PA).
    - `SESSION_SECRET`: optional.
 4. After the first deploy, sign in as admin → **🧰 Tools** to check the CMS address (default `https://lshcasemanagementtraining-trainingcrm.pages.dev`, the CaseManagementTraining app). Add the Docket and Records addresses and switch them to Live when those apps are deployed.
 
