@@ -89,8 +89,9 @@ This portal is the main LSH training portal. The job platforms are embedded in i
 | Tool | Status | Default address |
 |---|---|---|
 | 🗂 LSH Case Management System | Live | `https://lshcasemanagementtraining-trainingcrm.pages.dev` |
-| 📅 Docket Entry System | Coming soon | set by admin |
-| 📨 Medical Records Request Platform | Coming soon | set by admin |
+| ⚖️ Docket System (LSH Training Portal) | Live | `https://cm-training-activity.pages.dev/simulators/docket.html` |
+| 🗂 Medical Records Requests (LSH Training Portal) | Live | `https://cm-training-activity.pages.dev/simulators/records.html` |
+| 🏛 Court E-Filing (LSH Training Portal) | Live | `https://cm-training-activity.pages.dev/simulators/efiling.html` |
 | 📞 Call Simulator (LSH Training Portal) | Live | `https://cm-training-activity.pages.dev/simulators/call.html` |
 | ✉️ Email Workspace (LSH Training Portal) | Live | `https://cm-training-activity.pages.dev/simulators/email.html` |
 | 📨 Email Replies (LSH Training Portal) | Live | `https://cm-training-activity.pages.dev/simulators/email-replies.html` |
@@ -99,12 +100,12 @@ This portal is the main LSH training portal. The job platforms are embedded in i
 - **Open in portal** shows the tool full-screen inside the portal. The frame lives outside the portal's page renders, so the tool keeps its session and unsaved work while the trainee goes back to a lesson. A "Return to CMS" button brings it back. **New tab ↗** opens the tool on its own.
 - Skill Builders include "Do this in the …" steps for each tool. The trainee does the work in the tool, then logs the ID it gives them (e.g. the CMS Case ID `LSH-2026-PI-000123`). The log appears under 🧰 Tools → *My tool work log*.
   - CMS steps: every Skill Builder.
-  - Docket steps: Litigation Deadlines (Part A) and the Calendar tool (Part D).
-  - Records-request steps: Intake Decision Challenge and Pre-Demand Audit.
-- **Shared simulators:** the Call Simulator, Email Workspace, Email Replies and Calendaring live on the LSH Training Portal (Training-Portal repo), so every program uses the same ones. The CM course opens them with `?program=CM&name=…&batch=…`, so they start on the Case Management calls and results carry the trainee's name and batch. The Case Management calls are in the portal's `simulators/call-pack-cm.js`. Trainers see results on the portal's Simulators page when signed in there as admin. The embedded frame allows the microphone, so trainees can answer calls by voice.
+  - Docket steps: Litigation Deadlines (Part A) and the Calendar tool (Part D). The Docket System's John Doe assignment has the same deadlines, counted the same way.
+  - Records-request steps: Intake Decision Challenge and Pre-Demand Audit. The Medical Records simulator covers both (prior 2018/2021 records, and every missing bill).
+- **Shared simulators:** the Call Simulator, Email Workspace, Email Replies, Calendaring, Docket System, Medical Records Requests and Court E-Filing live on the LSH Training Portal (Training-Portal repo), so every program uses the same ones. The CM course opens them with `?program=CM&name=…&batch=…`, so they start on the Case Management calls and results carry the trainee's name and batch. The Case Management calls are in the portal's `simulators/call-pack-cm.js`. Trainers see results on the portal's Simulators page when signed in there as admin. The embedded frame allows the microphone, so trainees can answer calls by voice.
 - While a tool is *coming soon*, its steps tell the trainee to log the work as a Task in the CMS, so no exercise is blocked.
 - **Admin → 🧰 Tools → Admin: tool addresses** sets each tool's address and switches it between Live and Coming soon, for everyone (shared key `settings:tools`).
-- **Sign-in inside the portal:** the CMS (CaseManagementTraining) sets its `lsh_session` cookie with `SameSite=None; Secure; Partitioned`, so trainees stay signed in to the CMS inside the portal frame. The CMS also refuses cross-site write requests (`functions/_middleware.js`). Safari blocks sign-in inside another site's frame whatever the cookie says, so Safari users use **New tab ↗**. The docket and records apps need the same cookie attributes if they use cookie sign-in.
+- **Sign-in inside the portal:** the CMS (CaseManagementTraining) sets its `lsh_session` cookie with `SameSite=None; Secure; Partitioned`, so trainees stay signed in to the CMS inside the portal frame. The CMS also refuses cross-site write requests (`functions/_middleware.js`). Safari blocks sign-in inside another site's frame whatever the cookie says, so Safari users use **New tab ↗**.
 
 ## Deploy (Cloudflare Workers)
 
@@ -116,6 +117,6 @@ This repository is its own Worker, separate from the EA/PA portal (EA-PA-TRAININ
    - `ADMIN_PASSPHRASE`: admin sign-in; switches on secure mode.
    - `GEMINI_API_KEY`: AI grading and roleplays (Gemini is the only AI provider, as in EA/PA).
    - `SESSION_SECRET`: optional.
-4. After the first deploy, sign in as admin → **🧰 Tools** to check the CMS address (default `https://lshcasemanagementtraining-trainingcrm.pages.dev`, the CaseManagementTraining app). Add the Docket and Records addresses and switch them to Live when those apps are deployed.
+4. After the first deploy, sign in as admin → **🧰 Tools** to check the CMS address (default `https://lshcasemanagementtraining-trainingcrm.pages.dev`, the CaseManagementTraining app). The Docket System, Medical Records Requests and Court E-Filing are Live by default and point at the LSH Training Portal. If an admin saved tool addresses before they went live, open **Admin: tool addresses** once and set them to Live with their portal addresses.
 
 `.assetsignore` keeps `worker.js`, `wrangler.json`, the Markdown files and `build/` out of the published site.
