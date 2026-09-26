@@ -70,7 +70,7 @@ The top bar has a single **🧪 Practice** item. It replaces the separate Skill 
 | **Day 4** | Mediation Binder · Arbitration Audit | **ADR Communication Lab** *(new)* · roleplay: mediation scheduling, the arbitrator's question | Calendar Conflict Resolver · Calendaring Simulator · Docket System |
 | **Day 5** | Litigation Deadlines · Jordan Davies | roleplay: deposition nerves, adjuster called the client, extension by phone · Email Workspace | Court E-Filing · Docket System · Jordan Davies's file in the CMS |
 
-Filters narrow the page to one day or one category, each item shows where it runs (this portal, the LSH Training Portal, the CMS or live roleplay) and whether it's done, and a day's items open when that day unlocks. An "Any day" row links the case documents, quick roleplay, the full Call Simulator, the CMS Training Library and 🧰 Tools.
+Filters narrow the page to one day or one category, each item shows where it runs (this portal, the LSH Training Portal, the CMS or live roleplay) and whether it's done, and a day's items open when that day unlocks. An "Any day" row links the case documents, quick roleplay, the full Call Simulator, the CMS Training Library, the CMS's scored Front Desk Drill and 🧰 Tools.
 
 The four new tools (`js/cm-practice.js`):
 - **Front Desk Case Lookup** (Day 1 · Systems): eight calls answered from the CMS **Training Library** mock cases (each button opens that case in the CMS with `?mock=MC-xx`): verify the caller, check who is authorized, find the appointment or check status, route urgent calls. Then an AI-reviewed phone message for a time-limited offer, logged as a Note in a practice copy of MC-04.
