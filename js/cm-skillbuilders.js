@@ -112,12 +112,18 @@ const CM_TOOL_DEFAULTS = [
    url:"https://lshcasemanagementtraining-trainingcrm.pages.dev",
    desc:"Where the case work actually happens: start the case, key the intake facts, upload each document by category, and log Tasks, Notes, Liens, Chronology and the Financial Ledger.",
    evidence:"CMS Case ID", idHint:"CMS Case ID (e.g. LSH-2026-PI-000123)"},
-  {id:"docket", icon:"📅", name:"Docket Entry System", short:"Docket", status:"coming", url:"",
-   desc:"Enter court and ADR deadlines, hearings and depositions on the firm docket: the deadline chain, reminder alerts and the attorney's calendar.",
-   evidence:"Docket entry ID", idHint:"Docket entry ID (or your CMS Case ID)"},
-  {id:"records", icon:"📨", name:"Medical Records Request Platform", short:"Records", status:"coming", url:"",
-   desc:"A medical records request platform: request medical records and itemized bills from providers, attach the signed HIPAA, track fulfilment and fees.",
-   evidence:"Records request ID", idHint:"Request ID (or your CMS Case ID)"},
+  {id:"docket", icon:"⚖️", name:"Docket System (LSH Training Portal)", short:"Docket", status:"live",
+   url:"https://cm-training-activity.pages.dev/simulators/docket.html", portalSim:true,
+   desc:"Law-firm docketing: court notices and mail arrive in an inbox. Put what belongs on the court docket there and calendar every deadline it triggers, with a responsible attorney and reminders. The John Doe assignment uses this course's counting rules; a federal case teaches FRCP 6.",
+   evidence:"Docket reference", idHint:"Docket reference (e.g. DKT-DOE-1234)"},
+  {id:"records", icon:"🗂", name:"Medical Records Requests (LSH Training Portal)", short:"Records", status:"live",
+   url:"https://cm-training-activity.pages.dev/simulators/records.html", portalSim:true,
+   desc:"A medical records request platform on the John Doe file: fix the HIPAA authorization, request records and itemized bills from the right departments, handle rejections, fees and follow-ups, and review and log what comes back before the attorney's date.",
+   evidence:"Request number", idHint:"Request number (e.g. MRR-2026-00012)"},
+  {id:"efiling", icon:"🏛", name:"Court E-Filing (LSH Training Portal)", short:"E-Filing", status:"live",
+   url:"https://cm-training-activity.pages.dev/simulators/efiling.html", portalSim:true,
+   desc:"File with the court: a federal filing through electronic case filing, and state filings through an e-filing provider (including John Doe's First Amended Complaint). Fix each document first, then handle service and fees, and see whether the clerk accepts it.",
+   evidence:"Filing reference", idHint:"Filing reference (e.g. ENV-88213407)"},
   // Shared simulators on the LSH Training Portal (used by every program). The course
   // opens them with ?program=CM and the trainee's name and batch, so results carry them.
   {id:"calls", icon:"📞", name:"Call Simulator (LSH Training Portal)", short:"Call Simulator", status:"live",
@@ -974,7 +980,7 @@ window.renderCmsSimulator = window.renderTrainingTools;
 
 /* 🛠 Simulators: the shared simulators on the LSH Training Portal (calls, email workspace, email replies, calendaring), opened for CM. */
 window.renderCallSimulator = function(){
-  const calls = cmTool("calls"), mail = cmTool("email"), replies = cmTool("replies"), cal = cmTool("calendaring");
+  const calls = cmTool("calls"), mail = cmTool("email"), replies = cmTool("replies"), cal = cmTool("calendaring"), dk = cmTool("docket"), rec = cmTool("records"), ef = cmTool("efiling");
   const lines = [["☎","Reception & Front Desk","5 calls"],["📥","Intake Calls","5 calls"],["🤝","Client Communication","5 calls"],["⚖","Attorney Reporting","5 calls"],["🛡","Adjusters & Carriers","4 calls"],["🏥","Providers & Records","3 calls"]];
   const card = (t, extra)=> `<div class="card cm-tool${t.live?"":" soon"}">
       <div class="cm-tool-h"><span class="cm-tool-ic">${t.icon}</span><div><b>${E(t.name.replace(/ \(LSH Training Portal\)$/,""))}</b><div><span class="cm-badge ${t.live?"live":"soon"}">${t.live?"● Live on the LSH Training Portal":"Coming soon"}</span></div></div></div>
@@ -983,8 +989,8 @@ window.renderCallSimulator = function(){
     </div>`;
   return `<p class="eyebrow">Simulators</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🛠 Simulators</h1>
-    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">Phone, email and calendar practice live on the <b>LSH Training Portal</b>, shared by every program. They open here already set to <b>Case Management</b> and carrying your name and batch, so your scores reach your trainer. On calls the caller speaks: answer by voice (Chrome or Edge, allow the microphone) or by typing. Most calls end with the note the call requires, graded with the call.</p>
-    <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span>${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(mail)}${card(replies)}${card(cal)}</div>
+    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">Phone, email, calendar, docketing, medical records and court e-filing practice live on the <b>LSH Training Portal</b>, shared by every program. They open here already set to <b>Case Management</b> and carrying your name and batch, so your scores reach your trainer. On calls the caller speaks: answer by voice (Chrome or Edge, allow the microphone) or by typing. Most calls end with the note the call requires, graded with the call.</p>
+    <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span>${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(mail)}${card(replies)}${card(cal)}${card(dk)}${card(rec)}${card(ef)}</div>
     <div class="card" style="padding:14px 18px;font-size:12.8px;color:var(--ink-soft)">Want more? Live Roleplay (🔥) has the crisis calls from the lessons, and the Calendar Skill Builder (Day 4) has the John Doe docket.${state.isAdmin?` <b>Admin:</b> results appear on the Training Portal's Simulators page when you're signed in there as admin. Addresses are set in 🧰 Tools.`:""}</div>`;
 };
 window.saveToolSettings = async function(){
