@@ -58,6 +58,30 @@ The Case File page (`js/cm-mindset.js`) trains the Case Manager mindset rather t
 - **For trainers**: admins see the key under every question and the full case summary (`CLIENT_PROFILE_DOC`, which also feeds the AI tasks). They can open any trainee's checkpoint answers, scores and feedback.
 - Answers are saved in the trainee's progress (`cm-mindset`), so they follow the trainee across devices.
 
+### 🧪 Practice (one page, three categories)
+
+The top bar has a single **🧪 Practice** item. It replaces the separate Skill Builders, 🛠 Simulators, 🧰 Tools and 🔥 Roleplay items, which are all still reachable from it. Every day has the same three categories:
+
+| | 🧠 Skill Builders | 🗣 Communication | 🗂 Systems |
+|---|---|---|---|
+| **Day 1** | Intake Decision Challenge · Treatment Phase | Call Simulator (reception, intake) · roleplay: Transportation Wall, MIA client | Build John Doe's case in the CMS · Medical Records Requests · **Front Desk Case Lookup** *(new)* |
+| **Day 2** | Pre-Demand & Demand Audit · Negotiation Math & BI Pincer | roleplay: first call on the demand, low-ball & stalls · Email Replies · Call Simulator (adjusters) | **Demand Package Builder** *(new)* · Medical Records Requests (missing bills) |
+| **Day 3** | UM & Lien Reduction · Disbursement & Closing | roleplay: hospital lien, ERISA, "why is my check so small?" · Call Simulator (providers) | **Trust Ledger & Disbursement** *(new)* · CMS liens and finance |
+| **Day 4** | Mediation Binder · Arbitration Audit | **ADR Communication Lab** *(new)* · roleplay: mediation scheduling, the arbitrator's question | Calendar Conflict Resolver · Calendaring Simulator · Docket System |
+| **Day 5** | Litigation Deadlines · Jordan Davies | roleplay: deposition nerves, adjuster called the client, extension by phone · Email Workspace | Court E-Filing · Docket System · Jordan Davies's file in the CMS |
+
+Filters narrow the page to one day or one category, each item shows where it runs (this portal, the LSH Training Portal, the CMS or live roleplay) and whether it's done, and a day's items open when that day unlocks. An "Any day" row links the case documents, quick roleplay, the full Call Simulator, the CMS Training Library and 🧰 Tools.
+
+The four new tools (`js/cm-practice.js`):
+- **Front Desk Case Lookup** (Day 1 · Systems): eight calls answered from the CMS **Training Library** mock cases (each button opens that case in the CMS with `?mock=MC-xx`): verify the caller, check who is authorized, find the appointment or check status, route urgent calls. Then an AI-reviewed phone message for a time-limited offer, logged as a Note in a practice copy of MC-04.
+- **Demand Package Builder** (Day 2 · Systems): mark each bill Include / Request the bill first / Leave out, total the verified specials ($21,660), build the exhibit index, then the send steps and the 30-day clock with reminders.
+- **Trust Ledger & Disbursement** (Day 3 · Systems): ten disbursement requests on the cleared $150,000; release or hold each (expired payoff, verbal-only reduction, suspicious wire instructions) with live trust totals ($134,600 released, $15,400 held), trust-account rules, and an AI-reviewed hold memo.
+- **ADR Communication Lab** (Day 4 · Communication): three live roleplay calls (a mediation date past the court's deadline, the arbitrator's question at the break, John and the mediator's proposal) plus written follow-ups.
+
+The new tools don't change how days unlock: the next day still opens when the original Skill Builders have been submitted (any score).
+
+The CMS opens with `?program=cm`, so its Training Library lists the Case Management cases and saved cases are tagged with the program.
+
 ### Skill Builders
 
 | Day | Skill Builder |
