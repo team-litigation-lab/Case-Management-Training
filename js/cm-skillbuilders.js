@@ -152,6 +152,8 @@ function cmTool(id){
 }
 window.cmTool = cmTool;
 function toolHref(t){
+  // The CMS serves every LSH program: ?program=cm opens it in the CM context (its Training Library filter and the tag on saved cases).
+  if(t.id==="cms") return t.url + (t.url.includes("?") ? "&" : "?") + "program=cm";
   if(!t.portalSim) return t.url;
   const q = new URLSearchParams({program:"CM"});
   const name = String(state.certName || state.traineeName || "").trim(), batch = String(state.traineeBatch || "").trim();
@@ -190,12 +192,14 @@ function paintShell(){
     `<button class="cm-tf-tab${t.id===currentFrame?" on":""}" onclick="openTool('${t.id}')">${t.icon} ${E(t.short)}</button>`).join("");
   Object.entries(frames).forEach(([id,f])=>{ f.style.display = id===currentFrame ? "block" : "none"; });
 }
-window.openTool = function(id, mode){
+// extra: an optional query string for this opening, e.g. "mock=MC-04" opens that CMS Training Library case.
+window.openTool = function(id, mode, extra){
   id = id || currentFrame || "cms";
   const t = cmTool(id);
   if(!t){ return; }
   if(!t.live){ toast(`${t.icon} ${t.name} is coming soon. For now, log this step as a Task in the CMS.`); return; }
-  const href = toolHref(t);
+  let href = toolHref(t);
+  if(extra) href += (href.includes("?") ? "&" : "?") + extra;
   if(mode==="tab"){ window.open(href, "_blank", "noopener"); return; }
   ensureShell();
   if(!frames[id] || frames[id].dataset.src !== href){
@@ -1037,6 +1041,9 @@ window.renderMeetClientSlide = function(){
     ${docPacket(["JD01","JD07","JD05"], "Start here")}
     <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-navy btn-sm" onclick="goto('clientprofile')">Read the Case File</button><button class="btn btn-ghost btn-sm" onclick="goto('casedocs')">📁 All documents</button></div></div>`;
 };
+
+/* The building blocks, for js/cm-practice.js (the 🧪 Practice hub and the tools it adds). */
+window.__cmKit = {TOOLS, part, scenario, flagTable, sorter, checklist, calc, choice, choiceText, aiTask, docPacket, toolStep, cmsStep, E, money, scorePart, cmState, CM_UI, toolOfKey, dayOfTool};
 
 /* ---------- startup ---------- */
 const _origRender = window.render;

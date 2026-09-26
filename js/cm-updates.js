@@ -197,8 +197,10 @@ function narratorAfterRender(pageOnly){
   const key = state.dayId+":"+(state.lessonSlide||0)+":"+(state.slidePage||0)+":"+state.dayViewMode;
   if(key!==__lastNarrKey){ __lastNarrKey = key; Narrator.afterSlideChange(); } else Narrator.paint();
 }
+// Skill Builders, Simulators, Tools and Roleplay all live under 🧪 Practice (js/cm-practice.js).
+const PRACTICE_SUBVIEWS = ["tool","calls","tools","crisisroleplay"];
 function renderTopbar(){
-  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","Skill Builders"],["calls","🛠 Simulators"],["tools","🧰 Tools"],["crisisroleplay","🔥 Roleplay"],["notes","Notes"],["handouts","Handouts"]];
+  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","Notes"],["handouts","Handouts"]];
   if(state.isAdmin){
     // Admin is a trainer monitoring dashboard, not a trainee workspace — hide
     // the trainee-facing-only views that have no role here.
@@ -222,7 +224,7 @@ function renderTopbar(){
           ${state.searchQuery ? `<div class="search-results" id="searchResultsWrap">${renderSearchResults(state.searchQuery)}</div>` : ""}
         </div>
         <div class="nav">
-          ${views.map(([id,label])=>`<button class="${state.view===id?'active':''}" onclick="goto('${id}')">${label}${id==="tasks" && openTasksCount() ? `<span class="nav-badge">${openTasksCount()}</span>` : ""}</button>`).join("")}
+          ${views.map(([id,label])=>`<button class="${(state.view===id || (id==="practice" && PRACTICE_SUBVIEWS.includes(state.view)))?'active':''}" onclick="goto('${id}')">${label}${id==="tasks" && openTasksCount() ? `<span class="nav-badge">${openTasksCount()}</span>` : ""}</button>`).join("")}
           ${(state.traineeId && !state.isAdmin) ? `<button type="button" class="nav-focus" onclick="openFocusPanel()" title="My Focus — trainer feedback and what to work on next">🎯 Focus${focusNewCount()?`<span class="nav-badge">${focusNewCount()}</span>`:""}</button>` : ""}
           ${state.adminPreview
             ? `<button type="button" class="nav-viewswitch" onclick="setAdminViewMode('admin')" title="Return to the admin (trainer) view">🛡 Back to Admin view</button>`
@@ -934,10 +936,10 @@ window.afterRender = function(){
 window.toolHead = function(t){
   const d = t.relates ? parseInt(String(t.relates).replace(/[^0-9]/g,""), 10) : null;
   return `
-    <a class="back-link" onclick="goto('practice')">&larr; Back to Skill Builders</a>
+    <a class="back-link" onclick="goto('practice')">&larr; Back to Practice</a>
     <section class="page-hero lab-hero">
       <div class="lab-hero-top">
-        <p class="eyebrow">${d ? `Day ${d} · Skill Builder` : "Skill Builder"}</p>
+        <p class="eyebrow">${(()=>{ const c = window.cmToolCategory ? cmToolCategory(t.id) : null, lab = c ? `${c.icon} ${c.short}` : "Skill Builder"; return d ? `Day ${d} · ${lab}` : lab; })()}</p>
         <div class="lab-hero-actions">
           <span class="lab-save-status" id="labSaveStatus">💾 Auto-save on</span>
           <button class="btn btn-sm lab-hbtn" onclick="saveLabNow()">💾 Save</button>
@@ -1089,7 +1091,7 @@ function sopRunOfShow(dRaw){
   tools.forEach((tool, ti)=>{
     const parts = SOP_LAB_ACTIVITIES[tool.id] || [];
     add(Math.max(20, parts.length*10), {opt: ti>0, title:`Skill Builder — ${esc(tool.title)}`, do:[
-      `Trainees open it from the Skill Builders slide (or <b>Skill Builders</b> in the top bar). They work in their own portal with the case documents; stop presenting or leave the Skill Builders slide up.`,
+      `Trainees open it from the Skill Builders slide (or <b>🧪 Practice</b> in the top bar). They work in their own portal with the case documents; stop presenting or leave the Skill Builders slide up.`,
       parts.length ? `Parts (≈10 min each): ${parts.map((a,k)=>`<b>${k+1}. ${esc(a)}</b>`).join(" · ")}.` : "",
       ti>0 ? `If time is short, trainees finish this one after the session; debrief it at the start of tomorrow.` : "",
       /Roleplay|The Call|Transportation Wall|Break the Adjuster|Deposition Prep/i.test(parts.join(" ")) ? `The live roleplay part can be run by you, or trainees rehearse solo first.` : "",

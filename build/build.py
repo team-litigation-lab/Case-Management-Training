@@ -140,7 +140,8 @@ rep('"Elias\'s spouse is calling about a scheduling conflict with tonight\'s din
 
 # ---------- 8b. orientation, dashboard hero, content studio ----------
 rep('["Client Profile","Everything about your client, Elias Thorne. Read it first."],["Practice Lab","All hands-on tools — each opens with its day."]',
-    '["Case File","John Doe v. Apex — the working case. Read it first."],["📁 Case Documents","Every record, bill, lien letter and pleading — with its CMS upload category."],["Skill Builders","Hands-on exercises from the Skill Building slides — each opens with its day."],["🛠 Simulators","The LSH Training Portal\'s Call Simulator, Email Workspace, Email Replies and Calendaring, opened for Case Management: practice calls, an inbox to triage, one-at-a-time email replies and a litigation week."],["🧰 Tools","The LSH Case Management System, Docket and Records platforms, built into the portal. This is where you do the file work."]')
+    '["Case File","John Doe v. Apex — the working case. Read it first."],["📁 Case Documents","Every record, bill, lien letter and pleading — with its CMS upload category."],["🧪 Practice","Every practice tool, organized the same way for each day: 🧠 Skill Builders on the case documents, 🗣 Communication (live calls, roleplay, email) and 🗂 Systems (the CMS, docket, medical records, e-filing, calendar and trust ledger). Each day\'s tools open with that day."]')
+rep('["🔥 Live Roleplay","Voice calls with realistic clients and crises."],', '')
 _i = s.index('{k:"Client", h:"Meet your client: Elias Thorne", body:`')
 _j = s.index('</div>`},', _i) + len('</div>`},')
 CLIENT_SLIDE = ('{k:"Client", h:"Meet the case: John Doe v. Apex Delivery Services", body:`\n'
@@ -163,7 +164,7 @@ rep('"a 2-sentence discussion case involving Elias Thorne"', '"a 2-sentence disc
 s = s.replace("Practice Labs", "Skill Builders").replace("Practice Lab", "Skill Builders")
 
 # ---------- 9. scripts ----------
-rep('<script src="/js/eapa-updates.js?v=z"></script>', '<script src="/js/cm-updates.js?v=1"></script>\n<script src="/js/cm-documents.js?v=1"></script>\n<script src="/js/cm-skillbuilders.js?v=8"></script>\n<script src="/js/cm-mindset.js?v=1"></script>')
+rep('<script src="/js/eapa-updates.js?v=z"></script>', '<script src="/js/cm-updates.js?v=2"></script>\n<script src="/js/cm-documents.js?v=1"></script>\n<script src="/js/cm-skillbuilders.js?v=9"></script>\n<script src="/js/cm-mindset.js?v=1"></script>\n<script src="/js/cm-practice.js?v=1"></script>')
 
 # ---------- 10. Call Simulator + Live Roleplay CM fixes ----------
 rep('["practice","Skill Builders"],["tools","🧰 Tools"]', '["practice","Skill Builders"],["calls","🛠 Simulators"],["tools","🧰 Tools"]')
