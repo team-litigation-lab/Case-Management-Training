@@ -35,6 +35,29 @@ python3 build/build.py ../EA-PA-TRAINING/index.html
 
 The script applies the CM edits to the EA/PA page and inserts the CM content from `build/` (`day1.js`–`day5.js` for the lessons, and the `cm_*.js` files for the case file, calendar, roleplays and practice tools). Every edit checks that its anchor exists, so it stops with an error if EA/PA changed that part; update the anchor in `build.py` and run it again. Carry new features from `js/eapa-updates.js` into `js/cm-updates.js` by hand.
 
+### Case File: CM Mindset & critical thinking
+
+The Case File page (`js/cm-mindset.js`) trains the Case Manager mindset rather than handing out a finished summary.
+
+- **Case Snapshot only**: parties, file and claim numbers, client contact, case type, date and place of loss, and the retainer date. Injuries, treatment, coverage, deadlines and problems are left for trainees to find in the documents, verify and cite.
+- **The CM Mindset**: five questions to ask of every document:
+  - What does it prove?
+  - What doesn't match?
+  - What could hurt the case?
+  - What's due and what's missing?
+  - What's next, and who needs to know?
+- **Build the File in the CMS**: trainees create John Doe's case in the CMS from the documents, correct the planted errors with a note, upload each document to the right folder, calendar every deadline, add parties, carriers and lienholders, and log a task for every next step. They log their CMS Case ID on the page.
+- **Critical-thinking checkpoints**: one per day (two on Day 1), each opening with its day. Each has a situation, the source documents and five questions answered in the trainee's own words, citing documents:
+  - Intake: what do we really have?
+  - Treatment: does the medical story hold together?
+  - The demand: would you send this?
+  - Liens and the release: protect the client's net.
+  - Mediation and arbitration: is the file trial-ready?
+  - Jordan Davies: find the money, protect the case.
+- **Answer key and feedback**: the key appears after the trainee submits, next to their answers. The AI reviewer (Gemini) marks each key point found or missed and scores each question and the checkpoint. It also names strengths and blind spots, with a note on how the trainee thinks. If the reviewer isn't available, the key still shows for self-checking. Trainees can try again; the best score is kept.
+- **For trainers**: admins see the key under every question and the full case summary (`CLIENT_PROFILE_DOC`, which also feeds the AI tasks). They can open any trainee's checkpoint answers, scores and feedback.
+- Answers are saved in the trainee's progress (`cm-mindset`), so they follow the trainee across devices.
+
 ### Skill Builders
 
 | Day | Skill Builder |
