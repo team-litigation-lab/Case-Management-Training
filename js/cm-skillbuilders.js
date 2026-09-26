@@ -231,6 +231,7 @@ function toolStep(toolId, key, what){
     </div></div>`;
 }
 const cmsStep = (key, what)=> toolStep("cms", key, what);
+window.cmToolStep = toolStep;
 window.cmLogCms = async function(key, platform){
   const el = document.getElementById("cmsId_"+key.replace(/\W/g,"_"));
   const v = (el && el.value || "").trim();
