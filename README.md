@@ -121,7 +121,7 @@ This portal is the main LSH training portal. The job platforms are embedded in i
 | 📨 Email Replies (LSH Training Portal) | Live | `https://cm-training-activity.pages.dev/simulators/email-replies.html` |
 | 🗓 Calendaring Simulator (LSH Training Portal) | Live | `https://cm-training-activity.pages.dev/simulators/calendar.html` |
 
-- **Open in portal** shows the tool full-screen inside the portal. The frame lives outside the portal's page renders, so the tool keeps its session and unsaved work while the trainee goes back to a lesson. A "Return to CMS" button brings it back. **New tab ↗** opens the tool on its own.
+- **🧰 Tools** in the course's top bar lists every live tool (CMS, Docket, Records, E-Filing, Call Simulator, Email Workspace, Email Replies, Calendaring). Picking one opens it inside the course, under the course's own top bar, so the course navigation and the Tools menu stay on screen and switch tools. The frame lives outside the portal's page renders, so the tool keeps its session and unsaved work while the trainee goes back to a lesson; a "Return to …" button brings it back. **New tab ↗** opens the tool on its own.
 - Skill Builders include "Do this in the …" steps for each tool. The trainee does the work in the tool, then logs the ID it gives them (e.g. the CMS Case ID `LSH-2026-PI-000123`). The log appears under 🧰 Tools → *My tool work log*.
   - CMS steps: every Skill Builder.
   - Docket steps: Litigation Deadlines (Part A) and the Calendar tool (Part D). The Docket System's John Doe assignment has the same deadlines, counted the same way.
