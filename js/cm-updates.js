@@ -224,7 +224,7 @@ function renderTopbar(){
           ${state.searchQuery ? `<div class="search-results" id="searchResultsWrap">${renderSearchResults(state.searchQuery)}</div>` : ""}
         </div>
         <div class="nav">
-          ${views.map(([id,label])=>`<button class="${(state.view===id || (id==="practice" && PRACTICE_SUBVIEWS.includes(state.view)))?'active':''}" onclick="goto('${id}')">${label}${id==="tasks" && openTasksCount() ? `<span class="nav-badge">${openTasksCount()}</span>` : ""}</button>`).join("")}
+          ${views.map(([id,label])=>`<button class="${(state.view===id || (id==="practice" && PRACTICE_SUBVIEWS.includes(state.view)))?'active':''}" onclick="goto('${id}')">${label}${id==="tasks" && openTasksCount() ? `<span class="nav-badge">${openTasksCount()}</span>` : ""}</button>${id==="practice" && window.cmToolsMenuHTML ? cmToolsMenuHTML() : ""}`).join("")}
           ${(state.traineeId && !state.isAdmin) ? `<button type="button" class="nav-focus" onclick="openFocusPanel()" title="My Focus — trainer feedback and what to work on next">🎯 Focus${focusNewCount()?`<span class="nav-badge">${focusNewCount()}</span>`:""}</button>` : ""}
           ${state.adminPreview
             ? `<button type="button" class="nav-viewswitch" onclick="setAdminViewMode('admin')" title="Return to the admin (trainer) view">🛡 Back to Admin view</button>`
@@ -1214,3 +1214,18 @@ window.renderMeetClientTrainerGuide = function(){
 
 /* if the portal already drew itself before this file loaded, redraw with the updates */
 if(document.querySelector(".topbar")) render();
+
+/* 🧰 Tools menu in the top bar (items come from js/cm-skillbuilders.js) */
+(function(){ const s = document.createElement("style"); s.textContent = `
+.nav-tools{position:relative;display:flex}
+.nav-tools-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:230px;background:#fff;border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.22);padding:6px;z-index:60;flex-direction:column;gap:2px}
+.nav-tools.open .nav-tools-menu{display:flex}
+.nav .nav-tools-menu button{color:var(--navy);background:transparent;text-align:left;border-radius:8px;padding:9px 12px;font-size:13.5px;white-space:nowrap}
+.nav .nav-tools-menu button:hover{background:#F3F4F9;color:var(--navy)}
+.nav .nav-tools-menu button.on{background:#FFF1DE;color:#9A5B00}
+.nav .nav-tools-menu button.more{border-top:1px solid var(--line);border-radius:0 0 8px 8px;font-size:12.5px;color:var(--ink-soft);margin-top:4px}
+.topbar.nav-open .nav-tools{flex-direction:column}
+.topbar.nav-open .nav-tools-menu{position:static;box-shadow:none;background:rgba(255,255,255,.06);min-width:0;margin-top:4px}
+.topbar.nav-open .nav .nav-tools-menu button{color:#fff}
+.topbar.nav-open .nav .nav-tools-menu button:hover{background:rgba(255,255,255,.09)}
+`; document.head.appendChild(s); })();

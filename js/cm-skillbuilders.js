@@ -54,14 +54,18 @@ const st = document.createElement("style"); st.id = "cm-skillbuilders-css"; st.t
 .cm-tool-admin{display:grid;grid-template-columns:90px minmax(0,1fr) 150px;gap:8px;align-items:center;margin-bottom:8px;font-size:13px}
 .cm-tool-admin input,.cm-tool-admin select{font:inherit;padding:7px 9px;border:1px solid var(--line);border-radius:8px;min-width:0}
 @media (max-width:600px){.cm-tool-admin{grid-template-columns:1fr}}
-#cm-toolframe{position:fixed;inset:0;z-index:9000;background:var(--paper,#F7F6F2);display:flex;flex-direction:column}
+#cm-toolframe{position:fixed;left:0;right:0;bottom:0;top:0;z-index:9000;background:var(--paper,#F7F6F2);display:flex;flex-direction:column}
 #cm-toolframe[hidden]{display:none}
-.cm-tf-bar{display:flex;gap:8px;align-items:center;padding:8px 12px;background:var(--navy);flex-wrap:wrap}
+.cm-tf-bar{display:flex;gap:10px;align-items:center;padding:6px 14px;background:#F3F4F9;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.cm-tf-name{flex:1;min-width:0;font-size:13px;font-weight:700;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cm-tf-hint{font-size:11.5px;color:var(--ink-soft)}.cm-tf-hint b{color:var(--navy)}
 .cm-tf-bar .btn-ghost{background:#fff}
-.cm-tf-tabs{display:flex;gap:6px;flex:1;min-width:0;overflow-x:auto}
-.cm-tf-tab{font:inherit;font-size:13px;font-weight:600;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;white-space:nowrap}
-.cm-tf-tab.on{background:#fff;color:var(--navy)}
-.cm-tf-hint{font-size:11.5px;color:rgba(255,255,255,.8)}.cm-tf-hint b{color:#fff}
+/* the course's top bar (with its 🧰 Tools menu) stays above the tool frame: #app is its own
+   stacking layer, so lift it and hide everything in it but the top bar while a tool is open */
+body.cm-tf-open #app{z-index:9001}
+body.cm-tf-open #app > :not(.topbar):not(.view-mode-strip){visibility:hidden}
+/* while a tool is open, only 🧰 Tools is highlighted in the nav */
+body.cm-tf-open .nav > button.active{background:transparent;color:#D7DAEC}
 .cm-tf-newtab{background:var(--orange)!important;border-color:var(--orange)!important}
 .cm-tf-body{flex:1;position:relative}
 .cm-tf-body iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
@@ -173,10 +177,12 @@ function ensureShell(){
   if(frameShell) return frameShell;
   frameShell = document.createElement("div");
   frameShell.id = "cm-toolframe"; frameShell.hidden = true;
-  frameShell.innerHTML = `<div class="cm-tf-bar"><button class="btn btn-ghost btn-sm" onclick="closeToolFrame()">← Back<span class="cm-tf-long"> to training</span></button>
-    <div class="cm-tf-tabs"></div>
-    <span class="cm-tf-hint">Sign-in won't stay? Use <b>Open in new tab</b>.</span>
-    <button class="btn btn-navy btn-sm cm-tf-newtab" onclick="openTool(null,'tab')">New tab ↗</button></div>
+  // The tool list lives in the course's top bar (🧰 Tools menu); the frame opens under it,
+  // so the course navigation stays on screen while a tool is open.
+  frameShell.innerHTML = `<div class="cm-tf-bar"><span class="cm-tf-name"></span>
+    <span class="cm-tf-hint">Sign-in won't stay? Use <b>New tab</b>.</span>
+    <button class="btn btn-navy btn-sm cm-tf-newtab" onclick="openTool(null,'tab')">New tab ↗</button>
+    <button class="btn btn-ghost btn-sm" onclick="closeToolFrame()">✕ Close<span class="cm-tf-long"> and back to training</span></button></div>
     <div class="cm-tf-body"></div>`;
   document.body.appendChild(frameShell);
   const pill = document.createElement("button");
@@ -184,12 +190,19 @@ function ensureShell(){
   pill.onclick = ()=> openTool(currentFrame);
   document.body.appendChild(pill);
   document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !frameShell.hidden) closeToolFrame(); });
+  window.addEventListener("resize", placeFrame);
   return frameShell;
 }
+// Start the frame just under the course's top bar.
+function placeFrame(){
+  if(!frameShell || frameShell.hidden) return;
+  const tb = document.querySelector(".topbar");
+  const top = tb ? Math.max(0, Math.round(tb.getBoundingClientRect().bottom)) : 0;
+  frameShell.style.top = top + "px";
+}
 function paintShell(){
-  const tabs = frameShell.querySelector(".cm-tf-tabs");
-  tabs.innerHTML = CM_TOOL_DEFAULTS.map(d=>cmTool(d.id)).filter(t=>t.live).map(t=>
-    `<button class="cm-tf-tab${t.id===currentFrame?" on":""}" onclick="openTool('${t.id}')">${t.icon} ${E(t.short)}</button>`).join("");
+  const t = cmTool(currentFrame);
+  frameShell.querySelector(".cm-tf-name").textContent = t ? `${t.icon} ${t.name.replace(/ \(LSH Training Portal\)$/,"")}` : "";
   Object.entries(frames).forEach(([id,f])=>{ f.style.display = id===currentFrame ? "block" : "none"; });
 }
 // extra: an optional query string for this opening, e.g. "mock=MC-04" opens that CMS Training Library case.
@@ -214,11 +227,14 @@ window.openTool = function(id, mode, extra){
   }
   currentFrame = id; paintShell();
   frameShell.hidden = false; document.body.classList.add("cm-tf-open");
+  window.scrollTo(0, 0); placeFrame();
   document.getElementById("cm-toolpill").hidden = true;
+  if(typeof render==="function") repaintToolsMenu();
 };
 window.closeToolFrame = function(){
   if(!frameShell) return;
   frameShell.hidden = true; document.body.classList.remove("cm-tf-open");
+  repaintToolsMenu();
   const t = cmTool(currentFrame), pill = document.getElementById("cm-toolpill");
   if(t && pill){ pill.textContent = `${t.icon} Return to ${t.short}`; pill.hidden = false; }
 };
@@ -1041,6 +1057,35 @@ window.renderMeetClientSlide = function(){
     ${docPacket(["JD01","JD07","JD05"], "Start here")}
     <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-navy btn-sm" onclick="goto('clientprofile')">Read the Case File</button><button class="btn btn-ghost btn-sm" onclick="goto('casedocs')">📁 All documents</button></div></div>`;
 };
+
+/* ---- 🧰 Tools menu in the course's top bar (rendered by renderTopbar in cm-updates.js) ---- */
+window.cmToolsMenuHTML = function(){
+  const tools = CM_TOOL_DEFAULTS.map(d=>cmTool(d.id)).filter(t=>t.live);
+  const open = currentFrame && frameShell && !frameShell.hidden;
+  return `<div class="nav-tools" id="navTools">
+    <button type="button" class="${open?"active":""}" aria-haspopup="true" onclick="cmToggleToolsMenu(event)">🧰 Tools ▾</button>
+    <div class="nav-tools-menu" role="menu">${tools.map(t=>`<button type="button" role="menuitem" class="${open && t.id===currentFrame?"on":""}" onclick="cmPickTool('${t.id}')">${t.icon} ${E(t.short)}</button>`).join("")}
+      <button type="button" class="more" onclick="cmPickTool(null)">All tools, sign-in help &amp; my work log</button></div></div>`;
+};
+window.cmToggleToolsMenu = function(e){ if(e) e.stopPropagation(); const n = document.getElementById("navTools"); if(n) n.classList.toggle("open"); };
+window.cmPickTool = function(id){
+  const n = document.getElementById("navTools"); if(n) n.classList.remove("open");
+  if(state.mobileNavOpen && typeof toggleMobileNav==="function") toggleMobileNav();
+  if(id) openTool(id); else goto("tools");
+};
+document.addEventListener("click", e=>{ const n = document.getElementById("navTools"); if(n && !n.contains(e.target)) n.classList.remove("open"); });
+function repaintToolsMenu(){
+  const n = document.getElementById("navTools"); if(!n) return;
+  const wasOpen = n.classList.contains("open");
+  n.outerHTML = cmToolsMenuHTML();
+  if(wasOpen){ const m = document.getElementById("navTools"); if(m) m.classList.add("open"); }
+}
+// Going anywhere in the course closes the tool (its session is kept; "Return to …" reopens it).
+const _gotoForFrame = window.goto;
+window.goto = function(){ if(frameShell && !frameShell.hidden) closeToolFrame(); return _gotoForFrame.apply(this, arguments); };
+// A re-render can change the top bar's height.
+const _renderForFrame = window.render;
+window.render = function(){ const r = _renderForFrame.apply(this, arguments); placeFrame(); return r; };
 
 /* The building blocks, for js/cm-practice.js (the 🧪 Practice hub and the tools it adds). */
 window.__cmKit = {TOOLS, part, scenario, flagTable, sorter, checklist, calc, choice, choiceText, aiTask, docPacket, toolStep, cmsStep, E, money, scorePart, cmState, CM_UI, toolOfKey, dayOfTool};
