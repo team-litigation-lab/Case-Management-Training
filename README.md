@@ -131,6 +131,25 @@ This portal is the main LSH training portal. The job platforms are embedded in i
 - **Admin → 🧰 Tools → Admin: tool addresses** sets each tool's address and switches it between Live and Coming soon, for everyone (shared key `settings:tools`).
 - **Sign-in inside the portal:** the CMS (CaseManagementTraining) sets its `lsh_session` cookie with `SameSite=None; Secure; Partitioned`, so trainees stay signed in to the CMS inside the portal frame. The CMS also refuses cross-site write requests (`functions/_middleware.js`). Safari blocks sign-in inside another site's frame whatever the cookie says, so Safari users use **New tab ↗**.
 
+## Checks (GitHub Actions)
+
+`.github/workflows/checks.yml` runs on every pull request and every push to `main`. A red **Checks** status means something is broken, and the log says what:
+
+- **Syntax, files and build:**
+  - every JavaScript file and inline `<script>` must parse;
+  - every local file `index.html` loads must exist;
+  - every case document and handout in `js/cm-documents.js` must exist in `documents/`, and every `docPacket([...])` id must be a real document (`.github/scripts/check-data.mjs`);
+  - the Worker must build (`wrangler deploy --dry-run`; nothing is deployed).
+- **Smoke test in a browser:** serves the site through `worker.js` with an in-memory KV store, signs in as a trainee, and renders every lesson slide, knowledge check, page and practice tool (every part) at desktop and phone width. It fails on any page error or a page that scrolls sideways.
+
+To run them locally: `node .github/scripts/check-site.mjs`, `node .github/scripts/check-data.mjs`, then `node .github/scripts/server.mjs 8787 &` and `node .github/scripts/smoke.cjs http://localhost:8787/` (needs Playwright).
+
+**About the "Workers Builds: case-management-training" check on pull requests:** Cloudflare's preview build for non-`main` branches fails instantly and posts no log. The code builds (the dry run above passes) and `main` deploys normally. Fix or turn it off in the Cloudflare dashboard → Workers & Pages → case-management-training → Settings → Build:
+- open the failed build's log to see the reason;
+- or turn off **Builds for non-production branches**.
+
+Until then, go by **Checks**.
+
 ## Deploy (Cloudflare Workers)
 
 This repository is its own Worker, separate from the EA/PA portal (EA-PA-TRAINING).
