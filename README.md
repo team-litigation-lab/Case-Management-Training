@@ -163,3 +163,7 @@ This repository is its own Worker, separate from the EA/PA portal (EA-PA-TRAININ
 4. After the first deploy, sign in as admin → **🧰 Tools** to check the CMS address (default `https://lshcasemanagementtraining-trainingcrm.pages.dev`, the CaseManagementTraining app). The Docket System, Medical Records Requests and Court E-Filing are Live by default and point at the LSH Training Portal. If an admin saved tool addresses before they went live, open **Admin: tool addresses** once and set them to Live with their portal addresses.
 
 `.assetsignore` keeps `worker.js`, `wrangler.json`, the Markdown files and `build/` out of the published site.
+
+## Daily Activities and the facilitator's feedback style
+
+`js/daily-activities.js` is the same file as in EA-PA-TRAINING (copy it over when it changes there): a **📋 Activities** tab where trainers publish each day's activities (Admin → 📋 Activities) and review submissions, and **Admin → 🗣 Feedback Style**, which learns the facilitator's feedback voice and applies it to all AI feedback (Skill Builder grading, daily reviews, activity drafts). The storage rules for its keys (`activities:dayN`, `actfile:*`, `actsub:<trainee>`, `actup:<trainee>:*`, `actadmin:rubrics`, `settings:feedback-style`, `admin:fbstyle-samples`) are in `worker.js`; see the EA-PA-TRAINING README for details.

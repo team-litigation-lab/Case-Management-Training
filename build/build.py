@@ -166,7 +166,7 @@ s = s.replace("Practice Labs", "Skill Builders").replace("Practice Lab", "Skill 
 # EA/PA's hand-written speaker notes are EA/PA content; the CM course keeps its own trainer cues.
 s = re.sub(r'<script src="/js/presenter-notes\.js[^"]*"></script>\n?', '', s)
 s = re.sub(r'<script src="/js/eapa-updates\.js\?v=[^"]*"></script>', '<script src="/js/eapa-updates.js?v=z"></script>', s, count=1)
-rep('<script src="/js/eapa-updates.js?v=z"></script>', '<script src="/js/cm-updates.js?v=5"></script>\n<script src="/js/cm-documents.js?v=1"></script>\n<script src="/js/cm-skillbuilders.js?v=10"></script>\n<script src="/js/cm-mindset.js?v=1"></script>\n<script src="/js/cm-practice.js?v=1"></script>')
+rep('<script src="/js/eapa-updates.js?v=z"></script>', '<script src="/js/cm-updates.js?v=6"></script>\n<script src="/js/cm-documents.js?v=1"></script>\n<script src="/js/cm-skillbuilders.js?v=10"></script>\n<script src="/js/cm-mindset.js?v=1"></script>\n<script src="/js/cm-practice.js?v=1"></script>')
 
 # ---------- 10. Call Simulator + Live Roleplay CM fixes ----------
 rep('["practice","Skill Builders"],["tools","🧰 Tools"]', '["practice","Skill Builders"],["calls","🛠 Simulators"],["tools","🧰 Tools"]')

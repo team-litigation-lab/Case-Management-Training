@@ -36,8 +36,11 @@ const IGNORE = /Failed to load resource|ERR_|net::|favicon/;
                 state.dayViewMode = 'knowledgeCheck'; try { render(); } catch (e) { errs.push(`Day ${d.id} knowledge check: ${e.message}`); }
                 out.push(`Day ${d.id}: ${n} slides`);
             }
-            for (const v of ['dashboard', 'practice', 'casedocs', 'clientprofile', 'handouts', 'tasks', 'crisisroleplay', 'notes', 'tools', 'calls', 'orientation', 'facilitatorguide', 'admin']) {
+            for (const v of ['dashboard', 'practice', 'casedocs', 'clientprofile', 'handouts', 'tasks', 'crisisroleplay', 'notes', 'activities', 'tools', 'calls', 'orientation', 'facilitatorguide', 'admin']) {
                 try { goto(v); await sleep(60); } catch (e) { errs.push(`page ${v}: ${e.message}`); }
+            }
+            for (const t of ['audit', 'activities', 'fbstyle']) {   // admin tabs (state.isAdmin is on)
+                try { goto('admin'); setAdminTab(t); await sleep(400); render(); } catch (e) { errs.push(`admin tab ${t}: ${e.message}`); }
             }
             for (const t of (typeof PRACTICE_TOOLS !== 'undefined' ? PRACTICE_TOOLS : [])) {
                 try { goto('tool', t.id); await sleep(150); (toolState.wizardLabels || []).forEach((_, i) => wizardGoTo(i)); out.push(`tool ${t.id}: ${(toolState.wizardLabels || []).length} parts`); }
