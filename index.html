@@ -7618,11 +7618,13 @@ function cleanName(n){
 // on the trainee record. Apply it on this device as soon as we see it: take the trainer's
 // count and remember which reset we applied (kept across reloads). Returns true for a
 // reset this device hadn't applied yet.
+const LAB_PAGE_LOADED_AT = Date.now();
 async function applyLabAttemptReset(rec){
   if(!rec || !rec.labAttemptsResetAt || rec.labAttemptsResetAt === state.labAttemptsResetSeen) return false;
-  // Nothing remembered yet (older build or a new device): only adopt the record's
-  // count if it is lower, so a reset from long ago can't wipe newer local usage.
-  const first = !state.labAttemptsResetSeen;
+  // Nothing remembered yet (older build or a new device) and the reset is older than
+  // this page: only adopt the record's count if it is lower, so a reset from long ago
+  // can't wipe newer local usage. A reset made while the page is open is always new.
+  const first = !state.labAttemptsResetSeen && new Date(rec.labAttemptsResetAt).getTime() < LAB_PAGE_LOADED_AT;
   state.labAttemptsResetSeen = rec.labAttemptsResetAt;
   await storeSet("lab-attempts-reset-seen", rec.labAttemptsResetAt);
   if(first && (state.labAttemptsGlobal||0) <= (rec.labAttemptsGlobal||0)) return false;
@@ -19323,7 +19325,7 @@ window.downloadProjectCompliance6Pdf = downloadProjectCompliance6Pdf;
    that was clicked, and any failure is shown on screen instead of
    disappearing silently in the browser console.
    ============================================================ */
-var APP_BUILD = "cm-2026.09.28-e";
+var APP_BUILD = "cm-2026.09.28-f";
 console.info("LSH EA/PA portal build", APP_BUILD);
 let busyDepth = 0;
 function showActionError(e, label){
