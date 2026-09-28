@@ -9176,7 +9176,7 @@ window.rpSubmitRapidTask = rpSubmitRapidTask;
 /* ---------- dashboard ---------- */
 
 /* ---------- Trainee-facing ranking (dashboard sidebar) ----------
-   Same scoring as Admin → Rankings: 40% completion + 30% Knowledge Check
+   Admin → Rankings uses this same score: 40% completion + 30% Knowledge Check
    average + 30% Skill Builders average, within the trainee's own batch.
    Other trainees are shown as first name + last initial only. */
 function taskAvgOf(rec){
@@ -15711,17 +15711,16 @@ function renderAdminRankings(onlyBatch){
   const scoreOf = rec=>{
     const day = adminDayStats(rec);
     const practice = adminPracticeStats(rec);
-    const completionPct = day.total ? (day.done/day.total)*100 : 0;
-    // Overall ranking score: weighted blend of how far they've progressed and
-    // how well they're actually performing — progress alone would rank a
-    // fast-but-sloppy trainee above a careful one who's slightly behind.
-    const overall = Math.round(completionPct*0.4 + day.avg*0.3 + practice.avg*0.3);
-    return {rec, day, practice, overall};
+    // Same score the trainee's dashboard ranking card uses (rankOverall), so both show the same rank.
+    const overall = rankOverall(rec);
+    const task = taskAvgOf(rec);
+    return {rec, day, practice, overall, task: task===null ? null : Math.round(task)};
   };
   // One group per batch, ranked within the batch. A batch counts as archived
   // once every trainee in it is archived (📦 Archive batch).
   const groups = new Map();
   state.adminData.forEach(rec=>{
+    if(rec.approved!==true) return;   // like the trainee view, only approved trainees are ranked
     const b = batchKey(rec);
     if(!groups.has(b)) groups.set(b, []);
     groups.get(b).push(rec);
@@ -15743,7 +15742,7 @@ function renderAdminRankings(onlyBatch){
   const header = onlyBatch ? "" : `
     <p class="eyebrow">Admin Dashboard</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 4px;">Rankings</h1>
-    <p style="color:var(--ink-soft);font-size:13px;max-width:70ch;margin:0 0 20px;">Trainees are ranked within their own batch by a blended score — 40% program completion, 30% average quiz score, 30% average Skill Builders competency. Meant as a coaching signal, not a formal evaluation.</p>`;
+    <p style="color:var(--ink-soft);font-size:13px;max-width:70ch;margin:0 0 20px;">Approved trainees are ranked within their own batch by a blended score — 40% program completion, 30% average quiz score, 30% average Skill Builders competency. Once a trainee has graded random tasks, it becomes 35% completion, 25% quiz, 25% Skill Builders and 15% random tasks. Trainees see the same score and rank on their dashboard. Meant as a coaching signal, not a formal evaluation.</p>`;
   const toolbar = onlyBatch ? "" : `
     <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:14px;">
       <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
@@ -15780,7 +15779,7 @@ function renderAdminRankings(onlyBatch){
   const fullyDone = rankedAll.filter(r=>r.day.done===r.day.total).length;
 
   const medals = ["🥇","🥈","🥉"];
-  const cols = "56px minmax(0,1fr) 100px 100px 100px 110px";
+  const cols = "56px minmax(0,1fr) 90px 80px 90px 90px 100px";
   const batchTable = g=>{
     const avg = Math.round(g.ranked.reduce((a,r)=>a+r.overall,0)/g.ranked.length);
     return `
@@ -15801,8 +15800,9 @@ function renderAdminRankings(onlyBatch){
         <div style="font-size:11px;color:var(--ink-soft);font-weight:700;text-transform:uppercase;">Days</div>
         <div style="font-size:11px;color:var(--ink-soft);font-weight:700;text-transform:uppercase;">Quiz Avg</div>
         <div style="font-size:11px;color:var(--ink-soft);font-weight:700;text-transform:uppercase;">Lab Avg</div>
+        <div style="font-size:11px;color:var(--ink-soft);font-weight:700;text-transform:uppercase;">Random Tasks</div>
       </div>
-      ${g.ranked.map(({rec,day,practice,overall},i)=>`
+      ${g.ranked.map(({rec,day,practice,overall,task},i)=>`
         <div class="admin-rank-grid" style="display:grid;grid-template-columns:${cols};gap:12px;align-items:center;padding:12px 18px;border-bottom:1px solid var(--line);">
           <div style="font-size:${i<3?'20px':'14px'};font-weight:700;color:${i<3?'inherit':'var(--ink-soft)'};">${medals[i] || `#${i+1}`}</div>
           <div>
@@ -15812,6 +15812,7 @@ function renderAdminRankings(onlyBatch){
           <div style="font-size:13px;">${day.done}/${day.total}</div>
           <div style="font-size:13px;">${day.avg}%</div>
           <div style="font-size:13px;">${practice.avg}%</div>
+          <div style="font-size:13px;${task===null?"color:var(--ink-soft);":""}">${task===null ? "—" : task+"%"}</div>
         </div>`).join("")}
     </div>`;
   };
