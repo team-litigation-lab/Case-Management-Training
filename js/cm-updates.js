@@ -199,6 +199,7 @@ function narratorAfterRender(pageOnly){
 }
 // Skill Builders, Simulators, Tools and Roleplay all live under 🧪 Practice (js/cm-practice.js).
 const PRACTICE_SUBVIEWS = ["tool","calls","tools","crisisroleplay"];
+window.EXTRA_ROUTE_VIEWS = ["casedocs"];   // CM-only page gets its own address (#/casedocs)
 function renderTopbar(){
   let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","Notes"],["handouts","Handouts"]];
   if(state.isAdmin){
@@ -230,6 +231,7 @@ function renderTopbar(){
             ? `<button type="button" class="nav-viewswitch" onclick="setAdminViewMode('admin')" title="Return to the admin (trainer) view">🛡 Back to Admin view</button>`
             : `<button class="${state.view==='admin'?'active':''}" onclick="openAdmin()">🛡 Admin</button>`}
           ${state.isAdmin ? `<button type="button" class="nav-viewswitch" onclick="setAdminViewMode('trainee')" title="See the portal exactly as a trainee does — no trainer tools or admin pages">👁 Trainee view</button>` : ""}
+          <button type="button" class="nav-fs" onclick="openInNewTab()" title="Open this page in a new tab (e.g. to review a lesson while you work)">⧉</button>
           <button type="button" class="nav-fs" onclick="togglePageFullscreen()" title="Full screen (Esc to exit)">⛶</button>
         </div>
         <div class="trainee-chip" onclick="promptName()">

@@ -1416,6 +1416,12 @@ rect.svg-callout-badge{animation:none;}
 .ai-result b{color:var(--navy);font-size:var(--font-sub);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:8px;}
 /* Inbox Zero — Eisenhower Matrix */
 .iz-pool{border:1px solid var(--line);border-radius:12px;padding:12px;min-height:80px;background:#fff;margin-bottom:14px;display:flex;flex-direction:column;gap:8px;max-height:280px;overflow-y:auto;}
+.iz-board{display:grid;grid-template-columns:minmax(240px,1fr) 2fr;gap:14px;align-items:start;}
+.iz-board .iz-pool{margin-bottom:0;max-height:calc(100vh - 170px);position:sticky;top:84px;}
+.iz-board .iz-quad-grid{position:sticky;top:84px;}
+.iz-board .iz-quad > div{max-height:calc((100vh - 300px) / 2);min-height:40px;overflow-y:auto;}
+.iz-move{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;} .iz-mv{font:inherit;font-size:11px;font-weight:700;border:1px solid var(--line);background:#F6F7FB;color:var(--navy);border-radius:6px;padding:2px 7px;cursor:pointer;} .iz-mv:hover{border-color:var(--orange);} .iz-mv.on{background:var(--navy);color:#fff;border-color:var(--navy);}
+@media(max-width:900px){.iz-board{grid-template-columns:1fr;} .iz-board .iz-pool{position:static;max-height:320px;} .iz-board .iz-quad-grid{position:static;} .iz-board .iz-quad > div{max-height:none;}}
 .iz-quad-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 @media(max-width:720px){.iz-quad-grid{grid-template-columns:1fr;}}
 .iz-quad{border-radius:12px;padding:12px;min-height:100px;border:2px dashed var(--line);background:var(--bg);transition:border-color .15s ease, background .15s ease;}
@@ -2221,6 +2227,8 @@ em.warn{font-style:normal;color:var(--danger);}
 .di-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:6px 0 12px;}
 .di-strip > div{background:#F3F5FB;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:2px;} .di-strip span{font-size:22px;} .di-strip b{color:var(--navy);font-size:14px;} .di-strip em{font-style:normal;font-size:12.5px;color:var(--ink-soft);}
 .di-warm{background:#FFF8EF;border:1px solid #F0D2AE;border-radius:12px;padding:12px 16px;} .di-warm > span{font-size:12.5px;color:var(--ink-soft);}
+.quiz-key-locked{background:#FFF8EF;border:1px solid #F0D2AE;border-radius:12px;padding:12px 16px;font-size:14px;color:var(--ink);margin:0 0 14px;}
+.di-wq{margin-top:10px;} .di-wq-q{font-weight:700;font-size:14px;color:var(--navy);margin-bottom:6px;} .di-wq-opts{display:flex;flex-direction:column;gap:6px;} .di-wq-opt{display:flex;gap:8px;align-items:flex-start;text-align:left;font:inherit;font-size:13.5px;background:#fff;border:1px solid #E6D6C2;border-radius:9px;padding:7px 10px;cursor:pointer;color:var(--ink);} .di-wq-opt span{font-weight:800;color:var(--ink-soft);min-width:14px;} .di-wq-opt:hover:not([disabled]){border-color:var(--orange);background:#FFFDF9;} .di-wq-opt[disabled]{cursor:default;} .di-wq-opt.ok{border-color:#3F7D58;background:#EEF7F1;color:#2E6546;font-weight:700;} .di-wq-opt.no{border-color:#C9544A;background:#FCEFEE;color:#9B3A32;} .di-wq-opt.dim{opacity:.6;} .di-wq-fb{font-size:13px;margin-top:6px;color:var(--ink-soft);} .di-wq-fb.ok b{color:#3F7D58;} .di-wq-fb.no b{color:#9B3A32;} .di-wq-hint{font-size:12px;color:var(--ink-soft);margin-top:4px;font-style:italic;}
 .di-warm details{margin-top:8px;} .di-warm summary{cursor:pointer;font-weight:700;font-size:14px;color:var(--navy);} .di-warm ol{margin:6px 0 0;padding-left:22px;} .di-warm li{font-size:13.5px;} .di-warm li.ok{font-weight:800;color:#3F7D58;} .di-warm p{font-size:13px;color:var(--ink-soft);margin:6px 0 0;}
 @media(max-width:900px){.di-grid{grid-template-columns:1fr;} .di-strip{grid-template-columns:1fr 1fr;}}
 
@@ -8272,6 +8280,7 @@ function renderTopbar(){
           ${views.map(([id,label])=>`<button class="${state.view===id?'active':''}" onclick="goto('${id}')">${label}${id==="tasks" && openTasksCount() ? `<span class="nav-badge">${openTasksCount()}</span>` : ""}</button>`).join("")}
           ${(state.traineeId && !state.isAdmin) ? `<button type="button" class="nav-focus" onclick="openFocusPanel()" title="My Focus — trainer feedback and what to work on next">🎯 Focus${focusNewCount()?`<span class="nav-badge">${focusNewCount()}</span>`:""}</button>` : ""}
           <button class="${state.view==='admin'?'active':''}" onclick="openAdmin()">🛡 Admin</button>
+          <button type="button" class="nav-fs" onclick="openInNewTab()" title="Open this page in a new tab (e.g. to review a lesson while you work)">⧉</button>
           <button type="button" class="nav-fs" onclick="togglePageFullscreen()" title="Full screen (Esc to exit)">⛶</button>
         </div>
         <div class="trainee-chip" onclick="promptName()">
@@ -10029,6 +10038,70 @@ function bookmarkView(){
   if(prev && prev.view===bm.view && prev.dayId===bm.dayId && prev.toolId===bm.toolId && prev.wizardIndex===bm.wizardIndex) return;
   state.lastView = bm; storeSet("last-view", bm);
 }
+/* ============================================================
+   OPEN IN A NEW TAB
+   Every page has its own address (#/day/3, #/tool/<id>, #/notes …), so a
+   trainee can duplicate the tab (or use ⧉ in the top bar) and review a lesson
+   while answering a Knowledge Check, the Client Profile or a Skill Builders.
+   Tabs stay in sync: when one tab saves, the others pick the change up (the
+   browser's "storage" event), so an older tab never overwrites newer progress.
+   ============================================================ */
+const ROUTE_VIEWS = ["dashboard","practice","notes","clientprofile","handouts","tasks","crisisroleplay","orientation","facilitatorguide"];
+const routeViews = ()=>ROUTE_VIEWS.concat(window.EXTRA_ROUTE_VIEWS||[]);   // a course build can add its own pages
+function routeHash(){
+  if(state.view==="day" && state.dayId) return "#/day/"+state.dayId;
+  if(state.view==="tool" && state.toolId) return "#/tool/"+encodeURIComponent(state.toolId);
+  if(routeViews().includes(state.view)) return "#/"+state.view;
+  return "";
+}
+function syncRouteHash(){
+  const h = routeHash();
+  if(!h){
+    // A page without its own address: drop the old one so a duplicated tab doesn't open the wrong page.
+    if(String(location.hash).indexOf("#/")===0 && !state.resumePending && (state.traineeId || state.isAdmin) && !["login","pendingApproval","registrationDenied"].includes(state.view)){
+      try{ history.replaceState(history.state, "", location.pathname + location.search); }catch(e){}
+    }
+    return;
+  }
+  if(location.hash===h) return;
+  try{ history.replaceState(history.state, "", location.pathname + location.search + h); }catch(e){}
+}
+function parseRouteHash(){
+  const m = String(location.hash||"").match(/^#\/([a-z]+)(?:\/([^/?#]+))?/i);
+  if(!m) return null;
+  const view = m[1], id = m[2] ? decodeURIComponent(m[2]) : null;
+  if(view==="day"){ const n = parseInt(id,10); return DAYS.some(d=>d.id===n) ? {view, id:n} : null; }
+  if(view==="tool") return PRACTICE_TOOLS.some(t=>t.id===id) ? {view, id} : null;
+  return routeViews().includes(view) ? {view, id:null} : null;
+}
+function openRouteFromHash(){
+  const r = parseRouteHash();
+  if(!r) return false;
+  if(r.view==="day" && !state.isAdmin && typeof dayUnlocked==="function" && !dayUnlocked(r.id)) return false;
+  goto(r.view, r.id);
+  return true;
+}
+function openInNewTab(){ syncRouteHash(); window.open(location.href, "_blank"); }
+function openRouteInNewTab(hash){ window.open(location.pathname + location.search + hash, "_blank"); }
+window.addEventListener("hashchange", ()=>{
+  if(!(state.traineeId || state.isAdmin) || ["login","pendingApproval","registrationDenied"].includes(state.view)) return;
+  if(location.hash && location.hash!==routeHash()) openRouteFromHash();
+});
+const TAB_SYNC_KEYS = {"day-progress":"progress","practice-progress":"practiceProgress","lab-attempts-global":"labAttemptsGlobal",
+  "notes":"notes","completed-lab-actions":"completedLabActions","submissions":"submissions","roleplayHistory":"roleplayHistory",
+  "slide-progress":"slideProgress","last-slide":"lastSlide","quick-check-answers":"qcAnswers","intro-seen":"introSeen",
+  "work-log":"workLog","lab-drafts":"labDrafts","task-log":"taskLog","task-day-since":"taskDaySince","day10-window":"day10Window"};
+window.addEventListener("storage", (e)=>{
+  if(!e.key || e.key.indexOf("lsh_")!==0) return;
+  const key = e.key.slice(4), field = TAB_SYNC_KEYS[key];
+  if(!field || e.newValue===null) return;
+  let val; try{ val = JSON.parse(e.newValue); }catch(err){ return; }
+  mem[key] = val;
+  state[field] = val;
+  if(key==="slide-progress" && state.view==="day" && state.dayId && !state.isAdmin) state.maxSlideReached = Math.max(state.maxSlideReached||0, val[state.dayId]||0);
+  if(key==="notes" && state.view==="notes" && !(typeof isTyping==="function" && isTyping())) render();
+});
+Object.assign(window, {openInNewTab, openRouteInNewTab});
 function resumeLabel(){
   const lv = state.lastView; if(!lv) return "";
   if(lv.view==="day" && lv.dayId){ const idx = resumeSlideFor(lv.dayId); const d = DAYS.find(x=>x.id===lv.dayId); const sl = buildDaySlides(d)[idx]; return `Day ${lv.dayId} · ${sl ? daySlideTitle(d, sl) : "Lesson"}`; }
@@ -10111,6 +10184,7 @@ function applyPageHero(){
   hero.appendChild(eyebrow); hero.appendChild(h1); if(sub) hero.appendChild(sub);
 }
 function afterRender(){
+  syncRouteHash();
   applyPageHero();
   narratorAfterRender();
   bookmarkView();
@@ -10576,7 +10650,9 @@ window.applyUpdate = applyUpdate;
     const status = await getApprovalStatus(state.traineeId);
     if(status==="approved"){
       // Returning trainee: reopen the page they were on (refresh / closed tab).
-      if(state.lastView && RESUMABLE_VIEWS.includes(state.lastView.view) && state.lastView.view!=="clientprofile"){ const lv = state.lastView; state.resumePending = true; setTimeout(()=>resumeWhereLeftOff(lv), 0); }
+      // A page address in the URL (a duplicated tab, or ⧉ "open in new tab") wins over the bookmark.
+      if(parseRouteHash()){ state.resumePending = true; setTimeout(()=>{ state.resumePending = false; if(!openRouteFromHash()) resumeWhereLeftOff(state.lastView); }, 0); }
+      else if(state.lastView && RESUMABLE_VIEWS.includes(state.lastView.view) && state.lastView.view!=="clientprofile"){ const lv = state.lastView; state.resumePending = true; setTimeout(()=>resumeWhereLeftOff(lv), 0); }
       try{
         const rec = await sharedGet("trainee:"+state.traineeId);
         if(rec) state.assignedRoleplay = rec.assignedRoleplay || null;
@@ -10676,6 +10752,7 @@ function renderDay(id){
       ${prog&&prog.done ? `<div class="card" style="padding:16px 20px;margin-bottom:16px;font-size:13.5px;color:var(--ink-soft);">You already passed this check on ${fmtDate(prog.date)} with a score of <b style="color:var(--navy);">${prog.score}%</b>. You can retake it any time — your best score is kept.</div>`:""}
       <div id="quizWrap">${renderQuiz(d)}</div>
       <button class="btn btn-ghost btn-sm" style="margin-top:16px;" onclick="backToSlidesFromKnowledgeCheck()">&larr; Back to lessons</button>
+      <button class="btn btn-ghost btn-sm" style="margin-top:16px;" onclick="openRouteInNewTab('#/day/${d.id}')" title="Keep this Knowledge Check open and review the lesson slides side by side">📑 Review lessons in a new tab</button>
     `;
   }
 
@@ -10815,7 +10892,8 @@ function renderDayIntro(d){
   const n = d.lessons.length, slides = buildDaySlides(d).length;
   const mins = Math.round(n*2.5 + 25);
   const outcomes = String(d.objective||"").split(/,\s*(?:and\s+)?|;\s*|\.\s+/).map(x=>x.trim().replace(/\.$/,"")).filter(x=>x.length>8).slice(0,4);
-  const warm = (d.quiz||[]).slice(0,2);
+  // Warm-up uses the day's ungraded Quick Checks, never the Knowledge Check (so it can't leak the graded answers).
+  const warm = (d.quickChecks||[]).slice(0,2);
   return `
     <div class="lesson-stage day-intro">
       <div class="lesson-slide"><div class="card lesson-card">
@@ -10833,11 +10911,33 @@ function renderDayIntro(d){
           <div><span>⏱</span><b>About ${Math.round(mins/10)*10} min</b><em>at your own pace</em></div>
         </div>
         ${warm.length ? `<div class="di-warm"><b>🧠 Warm-up — what do you already know?</b> <span>Not graded. Just notice what you're unsure about.</span>
-          ${warm.map((q,k)=>`<details><summary>${k+1}. ${esc(q.q)}</summary><ol type="A">${q.opts.map((o,oi)=>`<li class="${oi===q.a?"ok":""}">${esc(o)}${oi===q.a?" ✓":""}</li>`).join("")}</ol>${q.r?`<p>${esc(q.r)}</p>`:""}</details>`).join("")}</div>` : ""}
+          ${warm.map((q,k)=>warmupQuestionHtml(d.id,q,k)).join("")}</div>` : ""}
       </div></div>
       <div class="slide-nav"><button class="btn btn-ghost" onclick="goto('dashboard')">← Dashboard</button><span class="slide-counter">Objectives</span><button class="btn btn-primary" onclick="startDayFromIntro(${d.id})">Start Day ${d.id} →</button></div>
     </div>`;
 }
+/* Warm-up: the trainee picks an answer first; only then do we show whether it was right
+   (and the correct option + why). Nothing is highlighted before they choose. */
+function warmupQuestionHtml(dayId, q, k){
+  const picked = ((state.warmupPicks||{})[dayId]||{})[k];
+  const done = typeof picked==="number";
+  return `<div class="di-wq" id="diwq_${dayId}_${k}"><div class="di-wq-q">${k+1}. ${esc(q.q)}</div>
+    <div class="di-wq-opts">${q.opts.map((o,oi)=>{
+      const cls = !done ? "" : oi===q.a ? " ok" : oi===picked ? " no" : " dim";
+      return `<button type="button" class="di-wq-opt${cls}" ${done?"disabled":""} onclick="pickWarmup(${dayId},${k},${oi})"><span>${String.fromCharCode(65+oi)}</span>${esc(o)}${done&&oi===q.a?" ✓":""}${done&&oi===picked&&oi!==q.a?" ✗":""}</button>`;
+    }).join("")}</div>
+    ${done ? `<div class="di-wq-fb ${picked===q.a?"ok":"no"}"><b>${picked===q.a?"✓ Correct.":"Not quite — you'll cover this today."}</b>${q.r?` ${esc(q.r)}`:""}</div>` : `<div class="di-wq-hint">Pick an answer to check yourself.</div>`}
+  </div>`;
+}
+function pickWarmup(dayId, k, oi){
+  state.warmupPicks = state.warmupPicks||{}; state.warmupPicks[dayId] = state.warmupPicks[dayId]||{};
+  if(typeof state.warmupPicks[dayId][k]==="number") return;
+  state.warmupPicks[dayId][k] = oi;
+  const d = DAYS.find(x=>x.id===dayId); const q = d && (d.quickChecks||[])[k];
+  const el = document.getElementById(`diwq_${dayId}_${k}`);
+  if(q && el) el.outerHTML = warmupQuestionHtml(dayId, q, k);
+}
+window.pickWarmup = pickWarmup;
 async function startDayFromIntro(dayId){ await markIntroSeen(dayId); state.dayViewMode = "slides"; render(); }
 function showDayIntro(){ state.dayViewMode = "intro"; render(); }
 Object.assign(window, {startDayFromIntro, showDayIntro});
@@ -11467,7 +11567,7 @@ function renderQuizNextStep(d, passed){
 function renderQuizResult(d){
   const {lastScore, lastCorrect, lastTotal, lastPassed} = state;
   const passMsgs = ["Nice work — well done.", "Sharp — you've got this down.", "Solid pass. On to the next one.", "That's a wrap on Day "+d.id+" — well done."];
-  const failMsgs = ["Not quite 70% yet — review below, retake if you like, or keep going.", "Close, but not there yet — a quick review below should help. You can still move on.", "So close! Look over the answers below — a retake is optional."];
+  const failMsgs = ["Not quite 70% yet. See which questions you missed below, retake if you like, or keep going.", "Close, but not there yet. Review the topics you missed (marked below). You can still move on.", "So close! Check which questions you missed below. A retake is optional."];
   const msg = lastPassed ? passMsgs[Math.floor(Math.random()*passMsgs.length)] : failMsgs[Math.floor(Math.random()*failMsgs.length)];
   const history = (state.progress[d.id] && state.progress[d.id].history) || [];
   return `
@@ -11511,12 +11611,16 @@ async function downloadQuizResultPdf(dayId){
     history.forEach((h,i)=>lines.push(`   Attempt ${i+1}: ${h.score}% — ${h.passed?"Passed":"Not yet"} — ${new Date(h.date).toLocaleDateString()}`));
     lines.push("---");
   }
+  const reveal = quizKeyUnlocked(d);
+  if(!reveal) lines.push("The answer key unlocks once you pass this Knowledge Check (70%+).", "---");
   d.quiz.forEach((q,i)=>{
     const picked = state.quizAnswers[i];
     lines.push(`Q${i+1}: ${q.q}`);
-    lines.push(`   Your answer: ${typeof picked==="number" ? q.opts[picked] : "(not answered)"}`);
-    lines.push(`   Correct answer: ${q.opts[q.a]}`);
-    lines.push(`   Why: ${q.r}`);
+    lines.push(`   Your answer: ${typeof picked==="number" ? q.opts[picked] : "(not answered)"}${picked===q.a ? " (correct)" : " (incorrect)"}`);
+    if(reveal){
+      lines.push(`   Correct answer: ${q.opts[q.a]}`);
+      lines.push(`   Why: ${q.r}`);
+    }
   });
   buildAndSavePdf("LSH Case Management Training", `Day ${dayId} Knowledge Check — Results`, lines, `LSH_Day${dayId}_Knowledge_Check`);
 }
@@ -11538,14 +11642,33 @@ function retakeQuiz(dayId){
 }
 window.retakeQuiz = retakeQuiz;
 
+/* The full answer key (correct option + rationale) is shown only once the trainee
+   has passed this day's Knowledge Check. Before that, the review shows which
+   questions they got right or wrong, but not the right answers. Otherwise a failed
+   attempt would give away the key for the retake. */
+function quizKeyUnlocked(d){ return !!(state.lastPassed || (state.progress[d.id]||{}).done || state.isAdmin); }
+window.quizKeyUnlocked = quizKeyUnlocked;
 function renderAnswerFeedback(d){
   const el = document.getElementById("answerFeedback");
   if(!el) return;
+  const reveal = quizKeyUnlocked(d);
+  const missed = d.quiz.filter((q,i)=>state.quizAnswers[i]!==q.a).length;
   el.innerHTML = `
     <h2 class="section-title" style="margin-top:34px;">Answer Review</h2>
+    ${reveal ? "" : `<div class="quiz-key-locked">🔒 <b>The answer key unlocks when you pass (70%+).</b> You missed ${missed} question${missed===1?"":"s"}: they're marked ❌ below. Review those topics in the lesson slides, then retake the check.</div>`}
     ${d.quiz.map((q,i)=>{
       const picked = state.quizAnswers[i];
       const isCorrect = picked===q.a;
+      if(!reveal){
+        return `
+      <div class="card quiz-card">
+        <p class="quiz-q">${i+1}. ${esc(q.q)}</p>
+        <div class="quiz-opts">
+          <div class="quiz-opt ${isCorrect?"correct":"incorrect"}">${isCorrect?"✅":"❌"} Your answer: ${typeof picked==="number" ? esc(q.opts[picked]) : "(not answered)"}</div>
+        </div>
+        ${isCorrect ? `<div class="quiz-rationale show">${esc(q.r)}</div>` : `<div class="quiz-rationale show">Not quite. Revisit this topic before you retake.</div>`}
+      </div>`;
+      }
       return `
       <div class="card quiz-card">
         <p class="quiz-q">${i+1}. ${esc(q.q)}</p>
@@ -17286,7 +17409,8 @@ function renderInboxZeroSection(){
     </div>` : ""}
     <div class="card" id="izSortCard" style="padding:16px 18px;display:${hasInbox?'block':'none'};">
       <b style="font-size:13px;color:var(--navy);">Step 2 — Sort with the Eisenhower Matrix</b>
-      <p style="font-size:12.5px;color:var(--ink-soft);margin:6px 0 10px;">Drag each email out of the pool below into the quadrant where it belongs.</p>
+      <p style="font-size:12.5px;color:var(--ink-soft);margin:6px 0 10px;">Drag each email from the list into the quadrant where it belongs, or use the Do / Schedule / Delegate / Delete buttons on the email. All four quadrants stay on screen while you work.</p>
+      <div class="iz-board">
       <div class="iz-pool" id="izPool" ondragover="event.preventDefault()" ondrop="izDropInto(event,null)"></div>
       <div class="iz-quad-grid">
         ${["1","2","3","4"].map(q=>`
@@ -17294,6 +17418,7 @@ function renderInboxZeroSection(){
             <h5>${IZ_QUAD_LABELS[q]} <span class="iz-tag">${IZ_QUAD_TAGS[q]}</span></h5>
             <div id="izQlist${q}"></div>
           </div>`).join("")}
+      </div>
       </div>
       <button class="btn btn-navy btn-sm" style="margin-top:16px;" onclick="izSubmitSort()">Submit for Grading</button>
       <div id="izSortResult" style="margin-top:14px;"></div>
@@ -17358,12 +17483,22 @@ Return ONLY a JSON array of exactly 5 objects — no preamble, no markdown fence
 window.izGenerateInbox = izGenerateInbox;
 
 function izCardHtml(e){
+  const at = (toolState.iz && toolState.iz.placements || {})[e.id];
+  const ida = esc(JSON.stringify(String(e.id)));
   return `<div class="iz-card" draggable="true" ondragstart="event.dataTransfer.setData('text/plain','${e.id}')">
     <div class="iz-from">${esc(e.from)}</div>
     <div class="iz-subj">${esc(e.subject)}</div>
     <div class="iz-preview">${esc(e.preview)}</div>
+    <div class="iz-move">${["1","2","3","4"].map(q=>`<button type="button" class="iz-mv iz-mv${q} ${at===q?"on":""}" title="${IZ_QUAD_LABELS[q]}" onclick="izPlace(${ida},'${q}')">${IZ_QUAD_TAGS[q]}</button>`).join("")}${at?`<button type="button" class="iz-mv" title="Back to the unsorted list" onclick="izPlace(${ida},null)">↩</button>`:""}</div>
   </div>`;
 }
+/* Button alternative to drag-and-drop (works on phones and when a quadrant is off screen). */
+function izPlace(id, q){
+  if(!toolState.iz) return;
+  if(q===null) delete toolState.iz.placements[id]; else toolState.iz.placements[id] = q;
+  izRenderBoard();
+}
+window.izPlace = izPlace;
 function izRenderBoard(){
   const { inbox, placements } = toolState.iz;
   const pool = document.getElementById("izPool");
@@ -19176,7 +19311,7 @@ window.downloadProjectCompliance6Pdf = downloadProjectCompliance6Pdf;
    that was clicked, and any failure is shown on screen instead of
    disappearing silently in the browser console.
    ============================================================ */
-var APP_BUILD = "cm-2026.09.26-z";
+var APP_BUILD = "cm-2026.09.28-a";
 console.info("LSH EA/PA portal build", APP_BUILD);
 let busyDepth = 0;
 function showActionError(e, label){
@@ -19219,7 +19354,7 @@ window.addEventListener("unhandledrejection", (ev)=>{ const e = ev.reason; if(e 
 window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message && !/ResizeObserver|Script error/.test(ev.message)) showActionError(new Error(ev.message), ""); });
 
 </script>
-<script src="/js/cm-updates.js?v=3"></script>
+<script src="/js/cm-updates.js?v=4"></script>
 <script src="/js/cm-documents.js?v=1"></script>
 <script src="/js/cm-skillbuilders.js?v=10"></script>
 <script src="/js/cm-mindset.js?v=1"></script>
