@@ -77,7 +77,7 @@ rep('<span class="dhc-eyebrow">Day ${d.id} of 10</span>', '<span class="dhc-eyeb
 rep("${d.id<10 ? (dayUnlocked(d.id+1)", "${d.id<DAYS.length ? (dayUnlocked(d.id+1)")
 rep("(d.id===10 && lastPassed", "(d.id===DAYS.length && lastPassed")
 rep("Array.from({length:10},(_,i)=>i+1).map(n=>{", "Array.from({length:DAYS.length},(_,i)=>i+1).map(n=>{")
-rep('<div class="lbl">Finished all 10 days</div>', '<div class="lbl">Finished all ${DAYS.length} days</div>', min_count=2)
+rep('<div class="lbl">Finished all 10 days</div>', '<div class="lbl">Finished all ${DAYS.length} days</div>', min_count=1)
 
 # ---------- 6. day slides / task overview wording ----------
 rep('if(slide.type==="taskOverview") return "Legal EA Task Overview";', 'if(slide.type==="taskOverview") return "Case Manager Task Overview";')
