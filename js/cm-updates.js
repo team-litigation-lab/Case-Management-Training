@@ -970,7 +970,7 @@ function labChipsHtml(t){
   const left = typeof labAttemptsRemaining==="function" ? labAttemptsRemaining() : null;
   return (n ? `<span>🧩 ${n} activities</span>` : "")
     + (p ? `<span class="ok">✓ Best score ${p.bestScore}% · ${p.runs} run${p.runs===1?"":"s"}</span>` : `<span>◻ Not started</span>`)
-    + (left!=null ? `<span>🔁 ${left} of ${LAB_ATTEMPT_CAP} repeat attempts left</span>` : "")
+    + (left!=null ? `<span>🔁 ${left} of ${LAB_ATTEMPT_CAP} repeats left for this day</span>` : "")
     + `<span>🆓 First try of each exercise is free</span>`;
 }
 const LAB_CTA = /^\s*(check|submit|get review|get evaluation|get feedback|finish|evaluate|grade|review my|send for review)/i;
