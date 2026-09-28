@@ -100,6 +100,7 @@ body.cm-tf-open{overflow:hidden}
   .topbar .nav>*+*{margin-left:2px}  /* margins, not column-gap: Chrome leaves the gap out of a wrapping row's width */
   .topbar-search{flex-shrink:100000}  /* then the search box, down to its minimum */
   .trainee-chip{flex-shrink:0}
+  .topbar-search .search-results{min-width:320px}
 }
 @container (max-width:170px){.topbar .brand-text{display:none !important}}
 /* CM has two more nav items than EA/PA: on laptop widths the search box is just its icon
@@ -113,7 +114,6 @@ body.cm-tf-open{overflow:hidden}
   .topbar-search:focus-within,.topbar-search:has(.search-results){flex-basis:260px !important;max-width:260px !important;margin-right:-222px;padding:8px 14px !important;gap:8px !important;justify-content:flex-start;background:#3B4058;z-index:61;box-shadow:0 6px 18px rgba(0,0,0,.25)}
   .topbar-search:focus-within input,.topbar-search:has(.search-results) input{flex:1 1 auto;width:100%;opacity:1}
   .topbar-search:focus-within .sicon,.topbar-search:has(.search-results) .sicon{position:static;cursor:text}
-  .topbar-search .search-results{min-width:320px}
 }
 @media(max-width:700px){.cm-calc{grid-template-columns:1fr}.cm-doc-row{flex-wrap:wrap}}
 `; document.head.appendChild(st);
