@@ -127,7 +127,7 @@ rep('"purpose": 2-3 sentences on why it matters to an EA/PA and the firm,', '"pu
 rep("<b>What a strong EA/PA does:</b>", "<b>What a strong Case Manager does:</b>")
 rep("(short realistic situations with Elias Thorne)", "(short realistic situations from the John Doe v. Apex file)")
 rep("Elias Thorne scenarios are realistic.", "John Doe case scenarios are realistic.")
-rep("ASK: (1 question to the room, ideally about Elias)", "ASK: (1 question to the room, ideally about the John Doe file)")
+# (The AI speaker-script prompt was removed from the EA/PA engine: scripts are no longer written by AI.)
 rep('"If Elias handed you this exact situation today, what would your first move be?"', '"If this landed on your John Doe file today, what would your first move be?"')
 rep("Apply the Day ${id} concepts to real EA/PA work for Elias Thorne.", "Apply the Day ${id} concepts to the John Doe v. Apex case file.")
 rep("Welcome to LSH EA PA Upskill Training Day ${id}.", "Welcome to LSH Case Management Training Day ${id}.")
@@ -156,7 +156,6 @@ rep('{k:"Practice", h:"Practice Labs: how grading works", body:`', '{k:"Practice
 s = re.sub(r'Executive Assistant/ Personal Assistant Professional Development Wo[^<]*', 'Case Management Professional Development Workshop', s, count=1)
 rep("Unlock your full potential as a Strategic Go-To Person to your Attorney. Minimize cognitive load, streamline execution, and act as a true force multiplier.",
     "Run a personal-injury file from intake to disbursement: verify every document, keep treatment on the map, audit before demand, negotiate the net, and stay trial-ready.")
-rep("for this topic in the Legal Support Help EA/PA program.", "for this topic in the Legal Support Help Case Management program.")
 rep("Running client case: Elias Thorne, Managing Owner & CEO of Thorne & Partners Law Group.", "Running case: John Doe v. Apex Delivery Services (commercial T-bone, facial scarring, L4-L5 microdiscectomy).")
 rep('"a 2-sentence discussion case involving Elias Thorne"', '"a 2-sentence discussion case from the John Doe v. Apex file"')
 
@@ -164,6 +163,8 @@ rep('"a 2-sentence discussion case involving Elias Thorne"', '"a 2-sentence disc
 s = s.replace("Practice Labs", "Skill Builders").replace("Practice Lab", "Skill Builders")
 
 # ---------- 9. scripts ----------
+# EA/PA's hand-written speaker notes are EA/PA content; the CM course keeps its own trainer cues.
+s = re.sub(r'<script src="/js/presenter-notes\.js[^"]*"></script>\n?', '', s)
 s = re.sub(r'<script src="/js/eapa-updates\.js\?v=[^"]*"></script>', '<script src="/js/eapa-updates.js?v=z"></script>', s, count=1)
 rep('<script src="/js/eapa-updates.js?v=z"></script>', '<script src="/js/cm-updates.js?v=4"></script>\n<script src="/js/cm-documents.js?v=1"></script>\n<script src="/js/cm-skillbuilders.js?v=10"></script>\n<script src="/js/cm-mindset.js?v=1"></script>\n<script src="/js/cm-practice.js?v=1"></script>')
 

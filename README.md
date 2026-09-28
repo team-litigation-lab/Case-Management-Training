@@ -27,7 +27,7 @@ The CM course has the same trainer features as the EA/PA portal. They live in `j
 - **👁 Trainee view:** an admin switches to the trainee experience (every day unlocked) and back without signing out.
 - **Other features:** standard-size centred slides (long topics continue on a second page), Skill Builder pages in the platform page style, and the task log with archiving.
 
-`index.html` is generated from the EA/PA portal's `index.html` (EA-PA-TRAINING, last built from its `main` after #10) by `build/build.py`, and `js/cm-updates.js` is a CM copy of EA/PA's `js/eapa-updates.js`. When EA/PA ships new portal features, rebuild so the CM course picks them up:
+`index.html` is generated from the EA/PA portal's `index.html` (EA-PA-TRAINING, last built from its `main` after #19 plus the new-tab fix) by `build/build.py`, and `js/cm-updates.js` is a CM copy of EA/PA's `js/eapa-updates.js`. When EA/PA ships new portal features, rebuild so the CM course picks them up:
 
 ```
 python3 build/build.py ../EA-PA-TRAINING/index.html
