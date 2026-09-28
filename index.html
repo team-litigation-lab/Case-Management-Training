@@ -7614,9 +7614,41 @@ function cleanName(n){
   const v = String(n||"").trim().replace(/\s+/g," ");
   return (v.length<=60 && /^[\p{L}][\p{L}\p{M} .'’\-]*$/u.test(v)) ? v : "";
 }
+// A trainer's "↺ Reset Attempts" writes labAttemptsGlobal=0 plus a new labAttemptsResetAt
+// on the trainee record. Apply it on this device as soon as we see it: take the trainer's
+// count and remember which reset we applied (kept across reloads). Returns true for a
+// reset this device hadn't applied yet.
+async function applyLabAttemptReset(rec){
+  if(!rec || !rec.labAttemptsResetAt || rec.labAttemptsResetAt === state.labAttemptsResetSeen) return false;
+  // Nothing remembered yet (older build or a new device): only adopt the record's
+  // count if it is lower, so a reset from long ago can't wipe newer local usage.
+  const first = !state.labAttemptsResetSeen;
+  state.labAttemptsResetSeen = rec.labAttemptsResetAt;
+  await storeSet("lab-attempts-reset-seen", rec.labAttemptsResetAt);
+  if(first && (state.labAttemptsGlobal||0) <= (rec.labAttemptsGlobal||0)) return false;
+  state.labAttemptsGlobal = rec.labAttemptsGlobal||0;
+  await storeSet("lab-attempts-global", state.labAttemptsGlobal);
+  return !first;
+}
+// Show a reset on the open page right away: re-render unless the trainee is typing
+// or has a pop-up open, in which case the next live tick re-renders.
+async function showLabAttemptReset(){
+  state.labResetRenderPending = true;
+  toast(`🔁 Your trainer reset your Skill Builders attempts — you have ${LAB_ATTEMPT_CAP} again.`);
+  await renderLabResetIfSafe();
+}
+async function renderLabResetIfSafe(){
+  if(!state.labResetRenderPending || isTyping() || document.querySelector(".overlay")) return;
+  if(typeof VoiceCall!=="undefined" && VoiceCall.active) return;
+  state.labResetRenderPending = false;
+  if(state.view==="tool" && state.labDrafts){ try{ await storeSet("lab-drafts", state.labDrafts); }catch(e){} }
+  const scroll = window.scrollY; render(); window.scrollTo(0, scroll);
+}
 async function syncToLedger(allowCreate){
   if(!state.traineeId) return;
   const existing = await sharedGet("trainee:"+state.traineeId);
+  // Take a pending trainer reset first, so this save never writes the old count back over it.
+  if(existing && await applyLabAttemptReset(existing)) showLabAttemptReset();
   // A missing record after registration means an admin revoked/deleted it —
   // don't silently re-create it from this device. Only login may create one.
   if(!existing && !allowCreate) return;
@@ -7705,6 +7737,8 @@ async function loadAll(){
       state.labAttemptsGlobal = 0;
     }
   }
+  const lrs = await storeGet("lab-attempts-reset-seen");
+  state.labAttemptsResetSeen = lrs || undefined;
   const nt = await storeGet("notes");
   state.notes = nt || [];
   const cla = await storeGet("completed-lab-actions");
@@ -9191,7 +9225,13 @@ function workOnNextItems(){
    focus:<traineeId> = {items:[{id,text,day,priority,by,createdAt,seenAt,doneAt}]}
    Trainers add them in Trainee Audit → View Detail; trainees see them
    pinned at the top of 🎯 Focus and can tick them off. */
-async function loadFocusItems(id){ const v = await sharedGet("focus:"+id).catch(()=>null); return (v && Array.isArray(v.items)) ? v : {items:[]}; }
+async function loadFocusItems(id){
+  const v = await sharedGet("focus:"+id).catch(()=>null);
+  const f = (v && Array.isArray(v.items)) ? v : {items:[]};
+  // the trainee's own items: keep what they've already opened on this page, even if the save hasn't landed yet
+  if(id===state.traineeId && !state.isAdmin && state.focusSeenLocal) f.items.forEach(x=>{ if(!x.seenAt && state.focusSeenLocal[x.id]) x.seenAt = state.focusSeenLocal[x.id]; });
+  return f;
+}
 async function adminAddFocus(id){
   const sid = cssId(id);
   const text = (document.getElementById(`focusText_${sid}`)||{}).value || "";
@@ -9267,9 +9307,12 @@ async function loadMyFocus(){
 async function markFocusSeen(){
   const f = state.myFocus; if(!f || !f.items.some(x=>!x.seenAt)) return;
   const now = new Date().toISOString();
-  const fresh = await loadFocusItems(state.traineeId);
-  fresh.items.forEach(x=>{ if(!x.seenAt) x.seenAt = now; });
-  await sharedSet("focus:"+state.traineeId, fresh); state.myFocus = fresh; render();
+  state.focusSeenLocal = state.focusSeenLocal || {};
+  f.items.forEach(x=>{ if(!x.seenAt){ x.seenAt = now; state.focusSeenLocal[x.id] = now; } });
+  refreshFocusBadge();                                  // the badge updates straight away
+  const fresh = await loadFocusItems(state.traineeId);  // then save (only the items the trainee actually saw)
+  await sharedSet("focus:"+state.traineeId, fresh); state.myFocus = fresh;
+  if(!document.querySelector(".overlay")) render(); else refreshFocusBadge();
 }
 async function toggleFocusDone(fid){
   const fresh = await loadFocusItems(state.traineeId);
@@ -9293,6 +9336,16 @@ function renderTrainerFocusCards(hasNext){
     ${hasNext ? `<div class="won-sub">✨ Suggested from your work</div>` : ""}`;
 }
 function focusNewCount(){ return Object.values(state.myFeedback||{}).filter(f=>!f.readAt).length + ((state.myFocus||{}).items||[]).filter(x=>!x.seenAt).length; }
+// Updates the 🎯 Focus badge in place, on whatever page the trainee is on.
+function refreshFocusBadge(){
+  const n = focusNewCount();
+  document.querySelectorAll(".nav-focus").forEach(btn=>{
+    let b = btn.querySelector(".nav-badge");
+    if(n){ if(!b){ b = document.createElement("span"); b.className = "nav-badge"; btn.appendChild(b); } b.textContent = n; }
+    else if(b) b.remove();
+  });
+}
+window.refreshFocusBadge = refreshFocusBadge;
 function openFocusPanel(){
   if(!state.feedbackLoadedAt){ state.feedbackLoadedAt = Date.now(); loadMyFeedback(); }
   const body = renderWorkOnNextPanel() || `<section class="won-panel"><div class="won-head"><h3>🎯 My Focus</h3></div><p style="font-size:13.5px;color:var(--ink-soft);margin:0;">Nothing flagged yet — keep going. Your trainer's feedback and personal focus areas will appear here as your work is reviewed.</p></section>`;
@@ -9306,7 +9359,7 @@ function openFocusPanel(){
   // opening feedback from inside the panel closes the panel first
   overlay.querySelectorAll("[onclick*='openDayFeedback'],[onclick*='goto(']").forEach(b=>b.addEventListener("click",()=>overlay.remove()));
   document.body.appendChild(overlay);
-  setTimeout(()=>markFocusSeen(), 1200);
+  markFocusSeen();
 }
 window.openFocusPanel = openFocusPanel;
 function renderWorkOnNextPanel(){
@@ -10400,6 +10453,8 @@ async function resetTraineeSessionData(){
   state.day10Window = null;
   state.traineeBatch = "";
   await storeSet("lab-attempts-global", 0);
+  state.labAttemptsResetSeen = undefined; state.labResetRenderPending = false;
+  await storeSet("lab-attempts-reset-seen", null);
   await storeSet("completed-lab-actions", {});
   await storeSet("submissions", []);
   await storeSet("roleplayHistory", []);
@@ -10477,15 +10532,7 @@ function startApprovalPolling(traineeId){
     }catch(e){ /* transient network issue — try again next interval, don't force a logout on a fetch failure */ }
     try{
       const me = await sharedGet("trainee:"+traineeId);
-      if(me && me.labAttemptsResetAt && me.labAttemptsResetAt !== state.labAttemptsResetSeen){
-        const first = state.labAttemptsResetSeen === undefined;
-        state.labAttemptsResetSeen = me.labAttemptsResetAt;
-        if(!first || (state.labAttemptsGlobal||0) > (me.labAttemptsGlobal||0)){
-          state.labAttemptsGlobal = me.labAttemptsGlobal||0;
-          await storeSet("lab-attempts-global", state.labAttemptsGlobal);
-          if(!first) toast("Your trainer reset your Skill Builders attempts.");
-        }
-      }
+      if(await applyLabAttemptReset(me)) await showLabAttemptReset();
     }catch(e){ /* best-effort */ }
     if(state.view==="dashboard" && !state.surpriseGrading){
       try{
@@ -10504,8 +10551,8 @@ function startApprovalPolling(traineeId){
    LIVE UPDATES — the page refreshes itself, no reload needed.
    • Waiting for approval: checks every 8s; opens the portal the
      moment an admin approves (or shows the decision if declined).
-   • Trainees: new trainer feedback, Focus items and attempt resets
-     appear within ~45s.
+   • Trainees: new trainer feedback and Focus items appear within
+     ~45s; a Skill Builders attempt reset within ~10s.
    • Admins: Trainee Audit / Rankings / Trainee Feedback pick up new
      registrations and progress every 30s (never while you're typing).
    Polling pauses while the tab is hidden and catches up on return.
@@ -10529,6 +10576,12 @@ async function liveTick(){
     }
     // 2) signed-in trainee: trainer feedback + focus items
     if(state.traineeId && !state.isAdmin && state.view!=="login"){
+      await renderLabResetIfSafe();
+      if(!state.liveResetAt || Date.now()-state.liveResetAt > 10000){
+        state.liveResetAt = Date.now();
+        const me = await sharedGet("trainee:"+state.traineeId);
+        if(await applyLabAttemptReset(me)) await showLabAttemptReset();
+      }
       if(!state.liveFbAt || Date.now()-state.liveFbAt > 45000){
         state.liveFbAt = Date.now();
         const beforeFb = JSON.stringify(state.myFeedback||{}), beforeFo = JSON.stringify((state.myFocus||{}).items||[]);
@@ -10572,7 +10625,7 @@ async function loadAdminLedgerQuiet(){
 function startLiveUpdates(){
   if(liveTimer) return;
   liveTimer = setInterval(liveTick, 8000);
-  document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState==="visible"){ state.liveFbAt = 0; state.liveAdminAt = 0; liveTick(); } });
+  document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState==="visible"){ state.liveFbAt = 0; state.liveAdminAt = 0; state.liveResetAt = 0; liveTick(); } });
 }
 
 /* ============================================================
@@ -15571,7 +15624,7 @@ async function resetTraineeLabAttempts(traineeId){
     if(idx!==-1) state.adminData[idx] = rec;
     const wrap = document.getElementById("adminRowsWrap"); if(wrap) wrap.innerHTML = renderAdminRows();
   }
-  toast(`Skill Builders attempts reset for ${rec.name||"trainee"}. It applies on their next check-in (within ~90 seconds) or next login.`);
+  toast(`Skill Builders attempts reset for ${rec.name||"trainee"}. Their open page updates within about 10 seconds.`);
 }
 window.resetTraineeLabAttempts = resetTraineeLabAttempts;
 async function generateAiReview(traineeId){
@@ -16009,6 +16062,7 @@ async function loadMyFeedbackCore(){
   const fb = await sharedGet("feedback:"+state.traineeId).catch(()=>null);
   const sent = {};
   if(fb && fb.days) Object.entries(fb.days).forEach(([k,v])=>{ if(v && v.status==="sent" && (!v.auto || v.editedByTrainer)) sent[k]=v; });
+  Object.entries(state.fbReadLocal||{}).forEach(([k,t])=>{ if(sent[k] && !sent[k].readAt) sent[k].readAt = t; });
   const newOnes = Object.entries(sent).filter(([k,v])=>!v.readAt).map(([k])=>k);
   const changed = JSON.stringify(sent) !== JSON.stringify(state.myFeedback||{});
   state.myFeedback = sent; state.myFeedbackRaw = fb;
@@ -16042,6 +16096,8 @@ async function openDayFeedback(dayId){
   document.body.appendChild(overlay);
   if(!f.readAt){
     f.readAt = new Date().toISOString();
+    (state.fbReadLocal = state.fbReadLocal || {})[dayId] = f.readAt;
+    refreshFocusBadge();
     try{ const raw = await sharedGet("feedback:"+state.traineeId); if(raw && raw.days && raw.days[dayId]){ raw.days[dayId].readAt = f.readAt; await sharedSet("feedback:"+state.traineeId, raw); } }catch(e){}
     if(state.view==="dashboard") render();
   }
@@ -19267,7 +19323,7 @@ window.downloadProjectCompliance6Pdf = downloadProjectCompliance6Pdf;
    that was clicked, and any failure is shown on screen instead of
    disappearing silently in the browser console.
    ============================================================ */
-var APP_BUILD = "cm-2026.09.28-c";
+var APP_BUILD = "cm-2026.09.28-e";
 console.info("LSH EA/PA portal build", APP_BUILD);
 let busyDepth = 0;
 function showActionError(e, label){
