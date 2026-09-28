@@ -11,6 +11,8 @@
      Day 2 · Systems        Demand Package Builder
      Day 3 · Systems        Trust Ledger & Disbursement
      Day 4 · Communication  ADR Communication Lab
+   and an ➕ Extra Practice section for optional labs (they don't gate days):
+     Property Damage Claims Lab (John Doe's totaled Tesla; opens with Day 2)
    Loaded after cm-skillbuilders.js (uses window.__cmKit).
    ============================================================ */
 (function(){
@@ -77,7 +79,10 @@ const NEW_TOOLS = [
   {id:"cmTrust3", icon:"🏦", title:"Trust Ledger & Disbursement", relates:"Day 3", cat:"do", isNew:true,
    desc:"The $150,000 settlement has cleared the trust account. Work the disbursement queue: release what is ready, hold what isn't (an expired payoff letter, a reduction that's only verbal, suspicious wire instructions), balance the ledger to the penny and document the holds."},
   {id:"cmADR4", icon:"🤝", title:"ADR Communication Lab", relates:"Day 4", cat:"talk", isNew:true,
-   desc:"The calls around mediation and arbitration: defense counsel's office pushes a mediation date past the court's deadline, the arbitrator asks you a question at the break, and John calls about the mediator's proposal. Practice each live, then put it in writing."}
+   desc:"The calls around mediation and arbitration: defense counsel's office pushes a mediation date past the court's deadline, the arbitrator asks you a question at the break, and John calls about the mediator's proposal. Practice each live, then put it in writing."},
+  // Extra Practice: optional, listed in its own section of the Practice page.
+  {id:"cmPD2", icon:"🚗", title:"Property Damage Claims Lab", relates:"Day 2", cat:"think", isNew:true, extra:true,
+   desc:"John's Tesla is a $42,500 total loss and Apex's carrier denied property damage. Send each loss to the right coverage, audit the total-loss valuation, run the settlement and loan-payoff numbers, work the PD file, and write the valuation dispute."}
 ];
 NEW_TOOLS.forEach(t=>{ t.gate = false; if(!PRACTICE_TOOLS.some(x=>x.id===t.id)) PRACTICE_TOOLS.push(t); });
 /* The next day still unlocks on the original Skill Builders (any score), so adding these
@@ -362,6 +367,75 @@ TOOLS.cmADR4 = ()=>[
     + toolStep("calendaring", "cmADR4:cal", "Practice the week this lands in: the Calendaring Simulator's CM week has the hearing, the brief deadline and the prep time to fit around a Friday 5 PM response."))}
 ];
 
+/* ---------- EXTRA PRACTICE · Property Damage Claims Lab (John Doe's Tesla) ----------
+   From the file: Aggressive Casualty's dec page lists PD liability "$0.00 DENIED (Refer to Excl. 4.b)";
+   John's Local Farm Mutual policy has Collision (ACV, $1,000 deductible) and no rental coverage;
+   the Master Case Summary has Local Farm Mutual subrogating against Apex for the deductible.
+   The valuation report, settlement letter, loan payoff and receipts below are simulated for the lab. */
+TOOLS.cmPD2 = ()=>[
+  {label:"Who Pays for What", html: part("A. Who pays for what?",
+    "Aggressive Casualty (Apex's carrier) lists property damage liability as <b>$0.00, DENIED (Refer to Excl. 4.b)</b>. John's own Local Farm Mutual policy has <b>Collision at actual cash value with a $1,000 deductible</b> and no rental coverage. A carrier's denial doesn't erase Apex's responsibility: a loss no policy pays is still damage Apex caused, and the attorney decides how to pursue it. Send each loss where it belongs.",
+    docPacket(["JD27","JD28","JD04","JD26"], "Dec pages, the Master Case Summary and the PIP log")
+    + sorter("cmPD2:route", [
+      {t:"The Tesla itself: a total loss, actual cash value $42,500", z:"Local Farm Mutual collision claim (now)", why:"Apex's carrier denied property damage, so John's own collision coverage pays the car now. Don't make him wait on the injury case."},
+      {t:"Tow from the scene and storage at the tow yard", z:"Local Farm Mutual collision claim (now)", why:"Towing and reasonable storage are part of the collision claim. Get the car moved before storage piles up."},
+      {t:"John's $1,000 collision deductible", z:"Recover from Apex (subrogation or the attorney's claim)", why:"Local Farm Mutual is subrogating against Apex and includes the deductible (Master Case Summary §IV). Track it so John gets it back."},
+      {t:"Rental car while John had no car (receipts: 18 days × $65)", z:"Recover from Apex (subrogation or the attorney's claim)", why:"John's policy has no rental coverage. Loss of use is damage Apex's driver caused: keep every receipt for the attorney."},
+      {t:"John's personal laptop, destroyed in the crash (receipt $1,300)", z:"Recover from Apex (subrogation or the attorney's claim)", why:"Collision covers the car, not what was in it. Document the item (receipt, photo) as a loss against Apex, and ask whether John's homeowner's or renter's policy covers it."},
+      {t:"Metro General ER bill ($12,700)", z:"Not property damage (injury claim)", why:"Medical bills belong to the injury claim: PIP, health insurance and the bodily-injury demand."},
+      {t:"Apex's Medical Payments coverage ($5,000, secondary)", z:"Not property damage (injury claim)", why:"MedPay pays medical bills, not the car."},
+      {t:"Using John's PIP ($10,000) to pay for the car", z:"Doesn't apply to this loss", why:"PIP pays medical bills and lost wages, never vehicle damage, and John's PIP is already exhausted (JD26)."},
+      {t:"A diminished value claim on the Tesla", z:"Doesn't apply to this loss", why:"Diminished value is the resale value a repaired car loses. A total loss is paid at actual cash value, so there's nothing to diminish."}
+    ], ["Local Farm Mutual collision claim (now)","Recover from Apex (subrogation or the attorney's claim)","Not property damage (injury claim)","Doesn't apply to this loss"], "Loss"))},
+  {label:"Audit the Valuation", html: part("B. Audit the total-loss valuation",
+    "The valuation report sets what John is paid for the car. Carriers get the trim, the comparables and the adjustments wrong, and every error comes out of the client's pocket. Check each line against John's own documents.",
+    scenario(`<b>This week's PD mail:</b> Local Farm Mutual's total-loss adjuster, <b>Dana Price</b>, sent the valuation behind the $42,500 figure (claim <b>LFM-99210-JD</b>, collision). John has sent you his <b>registration and window sticker</b> (2023 Model Y <b>Long Range AWD</b>), a <b>tow-yard odometer photo</b> (18,420 miles) and a <b>tire receipt</b> (four new tires, 01/28/2026, $1,480). He says the car had <b>no prior damage</b>. The carrier moved the car from the tow yard on <b>03/09/2026</b>.`)
+    + sysScreen("LOCAL FARM MUTUAL · TOTAL LOSS VALUATION", "Claim LFM-99210-JD · 2023 Tesla Model Y · Training: simulated",
+      flagTable("cmPD2:valuation", [
+        {item:"Vehicle description", shows:"Report: 2023 Tesla Model Y Standard Range RWD. John's registration and window sticker: Long Range AWD.", answer:"Dispute it", why:"The wrong trim understates the value by thousands. Send the registration and window sticker and ask for a corrected valuation."},
+        {item:"Mileage", shows:"Report: 18,420 miles. Tow-yard odometer photo: 18,420.", answer:"Accept", why:"Matches the photo."},
+        {item:"Comparable #3", shows:"A 2021 Model Y with 44,800 miles, at a dealer 310 miles away.", answer:"Dispute it", why:"Two model years older, more than twice the miles and outside John's market. Ask for local 2023 Long Range AWD comparables."},
+        {item:"Condition adjustment", shows:"−$1,200 for “prior damage, rear bumper”. No photo or record attached; John says there was no prior damage.", answer:"Ask for proof", why:"An adjustment needs evidence. Ask for the photo or record it's based on; if there is none, it comes off."},
+        {item:"Tires", shows:"No credit. John's receipt: four new tires on 01/28/2026, $1,480.", answer:"Dispute it", why:"Recent new tires are a documented condition credit. Send the receipt."},
+        {item:"Sales tax and fees", shows:"Settlement letter adds 6% sales tax on the actual cash value plus $185 title and registration fees.", answer:"Accept", why:"Tax and fees on a total loss are included, and the math is right."},
+        {item:"Owner-retained salvage", shows:"If John keeps the car, $6,800 salvage value is deducted.", answer:"Accept", why:"Standard. It's John's choice; explain it, and let the attorney weigh in before the car goes anywhere."},
+        {item:"Storage", shows:"Carrier pays yard storage “through 03/02/2026 only”. The yard billed through 03/09/2026, the day the carrier moved the car.", answer:"Dispute it", why:"The week's delay was the carrier's. Ask it to pay storage through 03/09 so the yard doesn't bill John."}
+      ], ["Accept","Dispute it","Ask for proof"])))},
+  {label:"Run the Numbers", html: part("C. Run the numbers",
+    "Before you explain the offer to John, check its math and know where every dollar goes.",
+    scenario(`<b>Local Farm Mutual's settlement letter (as written):</b> actual cash value <b>$42,500</b> + sales tax 6% <b>$2,550</b> + title and registration <b>$185</b> − deductible <b>$1,000</b>.<br>
+      <b>Tesla Finance</b> holds a lien on the title: payoff <b>$28,760</b>, good through 03/31/2026. The carrier pays the lienholder first and sends John the rest.<br>
+      <b>John's losses no policy has paid:</b> the $1,000 deductible, the rental (18 days × $65) and the laptop ($1,300).<br>
+      <b>Practice the Day 5 “lesser of” rule</b> on a different, repairable car: value before the crash $12,000, value after the crash $2,000, repairs $11,500.`)
+    + calc("cmPD2:math", [
+      {label:"Total-loss settlement in the letter", answer:44235, tol:1, hint:"42,500 + 2,550 + 185 − 1,000"},
+      {label:"Check to John after Tesla Finance is paid", answer:15475, tol:1, hint:"44,235 − 28,760"},
+      {label:"John's unpaid losses to recover from Apex", answer:3470, tol:1, hint:"Deductible 1,000 + rental 1,170 (18 × 65) + laptop 1,300"},
+      {label:"“Lesser of” practice: what the law awards for the repairable car", answer:10000, tol:1, hint:"The lesser of the repairs ($11,500) and the drop in value ($12,000 − $2,000 = $10,000)"}
+    ], `<span style="font-size:12.5px;color:var(--ink-soft)">If a loan payoff is ever <b>more</b> than the settlement, the shortfall is GAP coverage's job (if the client bought it). Flag it to the attorney the day you see it; don't promise the client it's covered.</span>`))},
+  {label:"Work the PD File", html: part("D. Work the property damage file",
+    "Property damage is its own claim with its own clock, and it's evidence for the injury case. Select everything a Case Manager should do on John's PD file this week.",
+    docPacket(["JD40","JD07","JD33"], "Photos, police report and the proposed release")
+    + checklist("cmPD2:file", [
+      {t:"Ask Aggressive Casualty for its denial in writing and the full text of Exclusion 4.b, and send both to the attorney.", ok:true, why:"A $0 property damage line on a $1,000,000 combined single limit policy is unusual. The attorney decides whether to challenge it; you get the paper."},
+      {t:"Open John's collision claim with Local Farm Mutual now, without waiting for the injury case.", ok:true, why:"John needs a car. The collision claim doesn't depend on who pays in the end."},
+      {t:"Replace the grayscale fax photos (JD40) with the investigator's color originals: the B-pillar intrusion, the deployed airbags and the interior.", ok:true, why:"Property damage photos are evidence of how hard the impact was (Day 2 PD Deep Dive)."},
+      {t:"Before the Tesla leaves for the salvage auction, tell the attorney so they can decide whether to preserve it or download its crash data and camera footage.", ok:true, why:"Once the car is sold for salvage, the evidence in it is gone."},
+      {t:"Get the car out of the tow yard quickly, and ask the carrier to pay storage through the day it moved the car.", ok:true, why:"Storage runs every day, and the client shouldn't pay for the carrier's delay."},
+      {t:"Keep John's rental and laptop receipts and log them as losses against Apex.", ok:true, why:"No policy pays them; they're part of what Apex owes."},
+      {t:"Before any bodily-injury release is signed, check that it releases bodily injury only, so the open property damage losses aren't signed away.", ok:true, why:"A general release can wipe out an open PD claim (Day 2). The proposed release on file (JD33) is a “global” release."},
+      {t:"Tell John the denial is final and the $1,000 deductible is his loss.", ok:false, why:"Local Farm Mutual is subrogating against Apex for the deductible, and the attorney may challenge the denial."},
+      {t:"Have John sign the title and the carrier's release the day the offer arrives, so storage stops.", ok:false, why:"Not until the valuation disputes are resolved and the attorney confirms nothing needs preserving. Once the title is signed, the leverage is gone."},
+      {t:"Mention the injury claim's value to the total-loss adjuster to speed up the car.", ok:false, why:"Keep the property damage conversation about the car. Injury negotiations belong to the attorney."}
+    ], "Check my PD file steps"))},
+  {label:"Dispute & Update", html: part("E. Write the valuation dispute and update John",
+    "Write the email to Dana Price at Local Farm Mutual disputing the valuation (copy the handling attorney), then a short update for John.",
+    aiTaskX("cmPD2:letter", {label:"Your dispute email to Local Farm Mutual + your update for John", exercise:"Property damage: total-loss valuation dispute and client update", rows:190,
+      context:"Property damage claim on John Doe's 2023 Tesla Model Y (total loss). Aggressive Casualty (Apex) denied PD liability under Excl. 4.b; the car goes through John's Local Farm Mutual collision coverage (policy LFM-4412-JD, claim LFM-99210-JD, total-loss adjuster Dana Price; ACV basis, $1,000 deductible; Local Farm Mutual is subrogating against Apex for the deductible). The valuation report values the car at $42,500 but lists the wrong trim (Standard Range RWD; John's registration and window sticker show Long Range AWD), uses a 2021 comparable with 44,800 miles from 310 miles away, deducts $1,200 for 'prior damage, rear bumper' with no photo or record (John says there was none), gives no credit for four new tires bought 01/28/2026 ($1,480 receipt), and pays storage only through 03/02/2026 although the carrier didn't move the car until 03/09/2026. Settlement letter as written: $42,500 + 6% tax $2,550 + $185 fees − $1,000 deductible = $44,235; Tesla Finance payoff $28,760; about $15,475 to John. John's unpaid losses: deductible $1,000, rental $1,170, laptop $1,300.",
+      criteria:"Dispute email: addressed to Dana Price with the claim and policy numbers; professional and specific; disputes each error with the supporting document (registration and window sticker for the trim, the tire receipt), asks for local 2023 Long Range AWD comparables in place of comparable #3, asks for the basis of the $1,200 condition adjustment or its removal, asks the carrier to pay storage through 03/09/2026; requests a corrected valuation by a stated date; says John won't sign the title or release until it's resolved; copies the attorney. Client update: plain language; explains the total-loss process and what's being disputed; lists what John should send or keep (receipts, photos); explains the deductible is being pursued from Apex through subrogation; no promised dollar figure; tells John not to sign anything from the carrier without talking to the firm. Penalize accepting the valuation as is, threats or accusations of bad faith, mentioning the injury claim's value to the PD adjuster, legal advice, or promising a number."})
+    + cmsStep("cmPD2:cms", "In John's CMS case: upload the valuation report, settlement letter, tow and storage invoices, receipts and color photos under <b>PD</b>; add a <b>Note</b> summarizing the property damage claim; and add <b>Tasks</b> for the valuation follow-up (7 days), the attorney's preservation decision, the loss-of-use receipts, and checking that any release excludes property damage."))}
+];
+
 /* ================================================================
    THE PLAN: every day, three categories
    ================================================================ */
@@ -438,12 +512,20 @@ window.renderPracticeHub = function(){
       <div class="px-grid${cats.length===1?" one":""}">${cats.map(c=>`<div class="px-col ${c}"><h3>${CATS[c].icon} ${CATS[c].label}</h3>
         ${views[c].map(v=>itemHTML(v, !unlocked)).join("") || `<p style="font-size:12px;color:var(--ink-soft)">—</p>`}</div>`).join("")}</div></div>`;
   }).join("");
+  // Extra Practice: optional labs on the course's cases (they never hold up the next day).
+  const extraViews = PRACTICE_TOOLS.filter(t=>t.extra && (pf.cat==="all" || pf.cat===t.cat) && (pf.day==="all" || String(toolDayOf(t))===String(pf.day)))
+    .map(t=>{ const v = itemView(t.id); if(v) v.where = `In this portal · opens with Day ${toolDayOf(t)}`; return v; }).filter(Boolean);
+  const extraBlock = extraViews.length ? `<div class="card px-day" id="px-extra"><div class="px-day-h"><div><h2>➕ Extra Practice</h2>
+      <div class="sub">Optional labs on the course's cases. They open with their day and don't affect when the next day unlocks.</div></div>
+      <span class="px-prog">${extraViews.filter(v=>v.done).length} of ${extraViews.length} done</span></div>
+    <div class="px-grid">${extraViews.map(v=>itemHTML(v)).join("")}</div></div>` : "";
   return `<p class="eyebrow">Practice</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🧪 Practice</h1>
     <p style="color:var(--ink-soft);font-size:14px;max-width:84ch;margin:0 0 14px">Every practice tool in one place, organized the same way for every day. Each day has all three kinds of practice: <b>think</b> it through on the documents, <b>say</b> it on a call or in an email, and <b>do</b> it in the system. Each day's tools open when you reach that day${state.isAdmin ? " (as an admin you can open all of them)" : ""}.</p>
     <div class="px-cats">${["think","talk","do"].map(c=>`<div class="px-cat ${c}"><span class="ic">${CATS[c].icon}</span><b>${CATS[c].label}</b><p>${CATS[c].blurb}</p></div>`).join("")}</div>
     <div class="px-bar">${chip("day","all","All days")}${[1,2,3,4,5].map(n=>chip("day",n,"Day "+n)).join("")}<span class="sep"></span>${chip("cat","all","All")}${["think","talk","do"].map(c=>chip("cat",c,CATS[c].icon+" "+CATS[c].label)).join("")}</div>
     ${blocks}
+    ${extraBlock}
     <div class="card" style="padding:14px 18px;margin-bottom:14px"><b style="color:var(--navy)">Any day</b>
       <div class="px-grid" style="margin-top:10px">
         <div class="px-col think"><h3>${CATS.think.icon} Review</h3>${itemHTML({icon:"📁", title:"Case Documents", desc:"Every John Doe and Jordan Davies document the tools use.", where:"In this portal", act:"goto('casedocs')"})}</div>

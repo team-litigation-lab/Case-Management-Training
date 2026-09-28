@@ -78,6 +78,16 @@ The four new tools (`js/cm-practice.js`):
 - **Trust Ledger & Disbursement** (Day 3 · Systems): ten disbursement requests on the cleared $150,000; release or hold each (expired payoff, verbal-only reduction, suspicious wire instructions) with live trust totals ($134,600 released, $15,400 held), trust-account rules, and an AI-reviewed hold memo.
 - **ADR Communication Lab** (Day 4 · Communication): three live roleplay calls (a mediation date past the court's deadline, the arbitrator's question at the break, John and the mediator's proposal) plus written follow-ups.
 
+**➕ Extra Practice** (a section of the Practice page, after Day 5): optional labs on the course's cases. Each opens with its day and never affects unlocking.
+- **Property Damage Claims Lab** (opens with Day 2): John Doe's 2023 Tesla Model Y is a $42,500 total loss and Aggressive Casualty denied property damage (Excl. 4.b), so the car goes through John's Local Farm Mutual collision coverage ($1,000 deductible) while Local Farm Mutual subrogates against Apex. Five parts:
+  - *Who pays for what*: route nine losses (the car, tow and storage, the deductible, rental, a laptop, medical bills, MedPay, PIP, diminished value).
+  - *Audit the valuation*: accept, dispute or ask for proof on each line of a simulated total-loss valuation (wrong trim, an out-of-market comparable, an unsupported condition adjustment, uncredited tires, short-paid storage).
+  - *Run the numbers*: settlement $44,235, $15,475 to John after the $28,760 loan payoff, $3,470 in unpaid losses to recover from Apex, and the Day 5 "lesser of" rule ($10,000).
+  - *Work the PD file*: denial letter and exclusion text, color photos, preserving the car before salvage, the storage clock, receipts, and a bodily-injury-only release.
+  - *Dispute and update*: an AI-reviewed valuation dispute email to the carrier and an update for John, then the PD documents, Note and Tasks in the CMS.
+
+  The valuation report, settlement letter, loan payoff and receipts are simulated for the lab; the coverage facts come from JD04, JD27 and JD28.
+
 The new tools don't change how days unlock: the next day still opens when the original Skill Builders have been submitted (any score).
 
 The CMS opens with `?program=cm`, so its Training Library lists the Case Management cases and saved cases are tagged with the program.
