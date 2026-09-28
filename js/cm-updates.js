@@ -413,8 +413,15 @@ const __eapaGoto = window.goto;
 window.goto = function(view, id){ __eapaGoto(view, id); if(view==="day" && state.adminPreview && state.maxSlideReached !== 9999){ state.maxSlideReached = 9999; render(); } };
 const __eapaOpenAdmin = window.openAdmin;
 window.openAdmin = function(){ if(state.adminPreview){ setAdminViewMode("admin"); return; } return __eapaOpenAdmin(); };
-const __eapaAdminLogout = window.adminLogout;
-window.adminLogout = function(){ state.adminPreview = false; try{ sessionStorage.removeItem("lsh_admin_preview"); }catch(e){} return __eapaAdminLogout(); };
+// Logging out of Admin returns to the course's sign-in (landing) page, not the trainee dashboard.
+// A trainee signed in on the same browser is logged out too (their progress is saved first).
+window.adminLogout = async function(){
+  state.adminPreview = false; try{ sessionStorage.removeItem("lsh_admin_preview"); }catch(e){}
+  setAdminToken(""); state.isAdmin = false; state.adminData = null;
+  try{ history.replaceState(null, "", location.pathname + location.search); }catch(e){}   // drop the #/admin address
+  if(state.traineeId || state.traineeName) await window.logout(); else goto("login");
+  toast("Logged out of Admin");
+};
 const __eapaLogout = window.logout;
 window.logout = function(){ state.adminPreview = false; return __eapaLogout.apply(this, arguments); };
 const __eapaForceLogout = window.forceRevokedLogout;

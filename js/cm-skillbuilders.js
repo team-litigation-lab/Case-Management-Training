@@ -61,9 +61,11 @@ const st = document.createElement("style"); st.id = "cm-skillbuilders-css"; st.t
 .cm-tf-hint{font-size:11.5px;color:var(--ink-soft)}.cm-tf-hint b{color:var(--navy)}
 .cm-tf-bar .btn-ghost{background:#fff}
 /* the course's top bar (with its 🧰 Tools menu) stays above the tool frame: #app is its own
-   stacking layer, so lift it and hide everything in it but the top bar while a tool is open */
-body.cm-tf-open #app{z-index:9001}
+   stacking layer, so lift it and hide everything in it but the top bar while a tool is open.
+   #app's own box still covers the page, so let clicks and scrolling pass through it to the tool. */
+body.cm-tf-open #app{z-index:9001;pointer-events:none}
 body.cm-tf-open #app > :not(.topbar):not(.view-mode-strip){visibility:hidden}
+body.cm-tf-open #app > .topbar,body.cm-tf-open #app > .view-mode-strip{pointer-events:auto}
 /* while a tool is open, only 🧰 Tools is highlighted in the nav */
 body.cm-tf-open .nav > button.active{background:transparent;color:#D7DAEC}
 .cm-tf-newtab{background:var(--orange)!important;border-color:var(--orange)!important}
