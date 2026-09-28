@@ -200,6 +200,8 @@ function narratorAfterRender(pageOnly){
 // Skill Builders, Simulators, Tools and Roleplay all live under 🧪 Practice (js/cm-practice.js).
 const PRACTICE_SUBVIEWS = ["tool","calls","tools","crisisroleplay"];
 window.EXTRA_ROUTE_VIEWS = ["casedocs"];   // CM-only page gets its own address (#/casedocs)
+// Page names for the "← Back to …" button, matching this top bar.
+window.EXTRA_ROUTE_LABELS = {clientprofile:"Case File", casedocs:"Documents", practice:"Practice", notes:"Notes"};
 function renderTopbar(){
   let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","Notes"],["handouts","Handouts"]];
   if(state.isAdmin){

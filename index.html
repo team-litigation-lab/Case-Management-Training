@@ -2230,6 +2230,7 @@ em.warn{font-style:normal;color:var(--danger);}
 .di-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:6px 0 12px;}
 .di-strip > div{background:#F3F5FB;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:2px;} .di-strip span{font-size:22px;} .di-strip b{color:var(--navy);font-size:14px;} .di-strip em{font-style:normal;font-size:12.5px;color:var(--ink-soft);}
 .di-warm{background:#FFF8EF;border:1px solid #F0D2AE;border-radius:12px;padding:12px 16px;} .di-warm > span{font-size:12.5px;color:var(--ink-soft);}
+.nav-back-row{margin:0 0 12px;} .nav-back{font:inherit;font-size:13px;font-weight:700;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;box-shadow:0 1px 2px rgba(20,30,60,.06);} .nav-back:hover{border-color:var(--orange);color:var(--orange);}
 .quiz-key-locked{background:#FFF8EF;border:1px solid #F0D2AE;border-radius:12px;padding:12px 16px;font-size:14px;color:var(--ink);margin:0 0 14px;}
 .di-wq{margin-top:10px;} .di-wq-q{font-weight:700;font-size:14px;color:var(--navy);margin-bottom:6px;} .di-wq-opts{display:flex;flex-direction:column;gap:6px;} .di-wq-opt{display:flex;gap:8px;align-items:flex-start;text-align:left;font:inherit;font-size:13.5px;background:#fff;border:1px solid #E6D6C2;border-radius:9px;padding:7px 10px;cursor:pointer;color:var(--ink);} .di-wq-opt span{font-weight:800;color:var(--ink-soft);min-width:14px;} .di-wq-opt:hover:not([disabled]){border-color:var(--orange);background:#FFFDF9;} .di-wq-opt[disabled]{cursor:default;} .di-wq-opt.ok{border-color:#3F7D58;background:#EEF7F1;color:#2E6546;font-weight:700;} .di-wq-opt.no{border-color:#C9544A;background:#FCEFEE;color:#9B3A32;} .di-wq-opt.dim{opacity:.6;} .di-wq-fb{font-size:13px;margin-top:6px;color:var(--ink-soft);} .di-wq-fb.ok b{color:#3F7D58;} .di-wq-fb.no b{color:#9B3A32;} .di-wq-hint{font-size:12px;color:var(--ink-soft);margin-top:4px;font-style:italic;}
 .di-warm details{margin-top:8px;} .di-warm summary{cursor:pointer;font-weight:700;font-size:14px;color:var(--navy);} .di-warm ol{margin:6px 0 0;padding-left:22px;} .di-warm li{font-size:13.5px;} .di-warm li.ok{font-weight:800;color:#3F7D58;} .di-warm p{font-size:13px;color:var(--ink-soft);margin:6px 0 0;}
@@ -10069,7 +10070,7 @@ function render(){
   else if(state.view==="calls") body=renderCallSimulator();
   else if(state.view==="orientation") body = state.isAdmin ? renderOrientation() : renderDashboard();
   const presenterView = false;   // the presenter now lives inside the lesson stage
-  app.innerHTML = renderTopbar() + `<main class="${state.view==="dashboard"?"main-dash":""}${presenterView?" has-presenter":""}">${body}</main>` + (presenterView ? `<img class="slide-presenter" src="${PRESENTER_IMG}" alt="" aria-hidden="true">` : "")
+  app.innerHTML = renderTopbar() + `<main class="${state.view==="dashboard"?"main-dash":""}${presenterView?" has-presenter":""}"><div id="navBackSlot"></div>${body}</main>` + (presenterView ? `<img class="slide-presenter" src="${PRESENTER_IMG}" alt="" aria-hidden="true">` : "")
     + ((state.traineeId && !state.isAdmin && !["login","pendingApproval","registrationDenied","dashboard","day"].includes(state.view)) ? `<button type="button" class="tfb-fab" onclick="openTraineeFeedback(${state.view==="day"?state.dayId:"null"})" title="Share feedback about the platform, lessons or facilitator" aria-label="Share feedback">💬<span class="fab-label"> Feedback</span></button>` : "")
     + renderFooter();
   afterRender();
@@ -10130,8 +10131,51 @@ function syncRouteHash(){
     return;
   }
   if(location.hash===h) return;
-  try{ history.replaceState(history.state, "", location.pathname + location.search + h); }catch(e){}
+  // Moving from one course page to another adds a browser history entry, so the browser's
+  // Back / Forward buttons (and the in-page "← Back to …" button) return to the previous page.
+  const from = String(location.hash||""), depth = routeDepth();
+  try{
+    if(from.indexOf("#/")===0 && !state.resumePending){
+      routeTrailSet(depth+1, h);
+      history.pushState({lshDepth:depth+1}, "", location.pathname + location.search + h);
+    }else{
+      routeTrailSet(depth, h);
+      history.replaceState(Object.assign({}, history.state||{}, {lshDepth:depth}), "", location.pathname + location.search + h);
+    }
+  }catch(e){}
 }
+/* ---------- page history: "← Back to …" ---------- */
+function routeDepth(){ const st = history.state; return (st && typeof st.lshDepth==="number") ? st.lshDepth : 0; }
+function routeTrail(){ try{ const t = JSON.parse(sessionStorage.getItem("lsh_route_trail")||"[]"); return Array.isArray(t) ? t : []; }catch(e){ return []; } }
+function routeTrailSet(depth, h){ const t = routeTrail().slice(0, depth); t[depth] = h; try{ sessionStorage.setItem("lsh_route_trail", JSON.stringify(t.slice(-60))); }catch(e){} }
+const ROUTE_LABELS = {dashboard:"Dashboard", practice:"Skill Builders", notes:"My Notes", clientprofile:"Client Profile", handouts:"Handouts",
+  tasks:"Tasks", crisisroleplay:"Live Roleplay", orientation:"Orientation", facilitatorguide:"Facilitator Guide"};
+function routeLabel(h){
+  const m = String(h||"").match(/^#\/([a-z]+)(?:\/([^/?#]+))?/i);
+  if(!m) return "";
+  const view = m[1], id = m[2] ? decodeURIComponent(m[2]) : null;
+  if(view==="day") return "Day "+parseInt(id,10);
+  if(view==="tool"){ const t = PRACTICE_TOOLS.find(x=>x.id===id); return t ? t.title : "the previous activity"; }
+  return (window.EXTRA_ROUTE_LABELS||{})[view] || ROUTE_LABELS[view] || "";
+}
+function navBackTarget(){
+  const d = routeDepth(); if(d<1) return "";
+  const prev = routeTrail()[d-1] || "";
+  if(!prev || prev===routeHash()) return "";
+  // The page already has a link back to this place (Day → roadmap, activity → Skill Builders).
+  if(state.view==="day" && prev==="#/dashboard") return "";
+  if(state.view==="tool" && prev==="#/practice") return "";
+  return prev;
+}
+// Filled in after the page's history entry is recorded (afterRender), so it names the right page.
+function fillNavBack(){
+  const slot = document.getElementById("navBackSlot"); if(!slot) return;
+  const prev = ["login","pendingApproval","registrationDenied","dashboard"].includes(state.view) ? "" : navBackTarget();
+  const label = prev && routeLabel(prev);
+  slot.innerHTML = label ? `<div class="nav-back-row"><button type="button" class="nav-back" onclick="navBack()" title="Go back to the page you were on">← Back to ${esc(label)}</button></div>` : "";
+}
+function navBack(){ if(routeDepth()>0) history.back(); else goto("dashboard"); }
+window.navBack = navBack;
 function parseRouteHash(){
   const m = String(location.hash||"").match(/^#\/([a-z]+)(?:\/([^/?#]+))?/i);
   if(!m) return null;
@@ -10251,6 +10295,7 @@ function applyPageHero(){
 }
 function afterRender(){
   syncRouteHash();
+  fillNavBack();
   applyPageHero();
   narratorAfterRender();
   bookmarkView();
@@ -10714,7 +10759,7 @@ window.applyUpdate = applyUpdate;
   if(state.traineeId && await cloudRestore(state.traineeId)) await loadAll();
   loadPublishedContent().then(()=>{ if(["day","dashboard","admin"].includes(state.view)) render(); });
   if(sessionStorage.getItem("lsh_resume_after_update") && (state.isAdmin || state.traineeId)) setTimeout(()=>restoreAfterUpdate(), 400);
-  if(state.isAdmin){ restoreBootRouteHash(); if(parseRouteHash()){ state.resumePending = true; setTimeout(()=>{ state.resumePending = false; openRouteFromHash(); state.routeReady = true; syncRouteHash(); }, 0); } }
+  if(state.isAdmin){ restoreBootRouteHash(); if(parseRouteHash()){ state.resumePending = true; setTimeout(()=>{ state.resumePending = false; openRouteFromHash(); state.routeReady = true; syncRouteHash(); fillNavBack(); }, 0); } }
   if(!state.traineeName){
     state.view = "login";
   }else if(state.traineeId){
@@ -10723,8 +10768,8 @@ window.applyUpdate = applyUpdate;
       // Returning trainee: reopen the page they were on (refresh / closed tab).
       // A page address in the URL (a duplicated tab, or ⧉ "open in new tab") wins over the bookmark.
       restoreBootRouteHash();
-      if(parseRouteHash()){ state.resumePending = true; setTimeout(()=>{ state.resumePending = false; if(!openRouteFromHash()) resumeWhereLeftOff(state.lastView); state.routeReady = true; syncRouteHash(); }, 0); }
-      else if(state.lastView && RESUMABLE_VIEWS.includes(state.lastView.view) && state.lastView.view!=="clientprofile"){ const lv = state.lastView; state.resumePending = true; setTimeout(()=>{ resumeWhereLeftOff(lv); state.routeReady = true; syncRouteHash(); }, 0); }
+      if(parseRouteHash()){ state.resumePending = true; setTimeout(()=>{ state.resumePending = false; if(!openRouteFromHash()) resumeWhereLeftOff(state.lastView); state.routeReady = true; syncRouteHash(); fillNavBack(); }, 0); }
+      else if(state.lastView && RESUMABLE_VIEWS.includes(state.lastView.view) && state.lastView.view!=="clientprofile"){ const lv = state.lastView; state.resumePending = true; setTimeout(()=>{ resumeWhereLeftOff(lv); state.routeReady = true; syncRouteHash(); fillNavBack(); }, 0); }
       try{
         const rec = await sharedGet("trainee:"+state.traineeId);
         if(rec) state.assignedRoleplay = rec.assignedRoleplay || null;
@@ -16527,9 +16572,24 @@ function presenterNote(d, l, part){
   if(part===1 || l.singleSlide) return {cue, say: unq(sc.open), ask: unq(sc.ask), wrap: l.singleSlide ? unq(sc.wrap) : "", scenario: l.singleSlide ? scen : ""};
   return {say: sc.correct || "", wrap: unq(sc.wrap), scenario: scen};
 }
-function renderPresenterNote(d, l, part){
+// Section scripts: PRESENTER_NOTES["day::title"].s1 … s4 = {on, say, ask} for ① Core Principles,
+// ② Step-by-Step, ③ Best Practices & Pitfalls, ④ Go Deeper. When the slide is split over pages,
+// the presenter sees only the sections on the current page; Wrap and Scenario come with the last one.
+const PN_SECTION_NAMES = {1:"Core Principles", 2:"Step-by-Step Framework", 3:"Best Practices & Pitfalls", 4:"Go Deeper"};
+function renderPresenterNote(d, l, part, secs, allSecs){
   const n = presenterNote(d, l, part);
   const row = (k, v)=> v ? `<div class="script-row"><b>${k}</b><p>${esc(v)}</p></div>` : "";
+  const all = (window.PRESENTER_NOTES || {})[`${d.id}::${l.h}`] || {};
+  const split = secs && secs.length && allSecs && secs.length < allSecs.length;
+  if(split && secs.every(s=>all["s"+s])){
+    const last = secs.includes(Math.max(...allSecs));
+    return `<div class="pn">
+      ${secs.map(s=>{ const x = all["s"+s]; if(!x) return ""; return `
+        <div class="pn-on"><b>On this page · ${esc(PN_SECTION_NAMES[s]||"")}</b><p>${esc(x.on||"")}</p></div>
+        <div class="script-block"><div class="script-head"><span>🎙 Script</span></div>${row("Say", x.say)}${row("Ask", x.ask)}</div>`; }).join("")}
+      ${last ? `${n.wrap ? `<div class="script-block"><div class="script-head"><span>🎙 Close</span></div>${row("Wrap", n.wrap)}</div>` : ""}${n.scenario ? `<div class="pn-scen"><b>🎬 Scenario</b><p>${esc(n.scenario)}</p></div>` : ""}` : ""}
+    </div>`;
+  }
   return `<div class="pn">
     ${n.on ? `<div class="pn-on"><b>On this slide</b><p>${esc(n.on)}</p></div>` : ""}
     ${n.cue ? `<div class="pn-on"><b>Trainer note</b><p>${esc(n.cue)}</p></div>` : ""}
@@ -19448,7 +19508,7 @@ window.downloadProjectCompliance6Pdf = downloadProjectCompliance6Pdf;
    that was clicked, and any failure is shown on screen instead of
    disappearing silently in the browser console.
    ============================================================ */
-var APP_BUILD = "cm-2026.09.28-h";
+var APP_BUILD = "cm-2026.09.28-j";
 console.info("LSH EA/PA portal build", APP_BUILD);
 let busyDepth = 0;
 function showActionError(e, label){
@@ -19491,7 +19551,7 @@ window.addEventListener("unhandledrejection", (ev)=>{ const e = ev.reason; if(e 
 window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message && !/ResizeObserver|Script error/.test(ev.message)) showActionError(new Error(ev.message), ""); });
 
 </script>
-<script src="/js/cm-updates.js?v=4"></script>
+<script src="/js/cm-updates.js?v=5"></script>
 <script src="/js/cm-documents.js?v=1"></script>
 <script src="/js/cm-skillbuilders.js?v=10"></script>
 <script src="/js/cm-mindset.js?v=1"></script>
