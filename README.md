@@ -25,6 +25,7 @@ The CM course has the same trainer features as the EA/PA portal. They live in `j
   - The SOP is generated from the lessons, so it stays in step with Content Studio edits.
 - **🖥 Presenter view:** share only the slides in Google Meet while the trainer sees the cues, discussion case and script for each slide. On Day 1, the "Meet the Case" slide has a trainer guide.
 - **👁 Trainee view:** an admin switches to the trainee experience (every day unlocked) and back without signing out.
+- **🏠 Main Portal (admins):** while an admin is signed in, the top bar has **🏠 Main Portal** and the Admin screen has **← Back to Main Portal** (next to Log out). Both open the LSH Training Portal's Training Directory (`https://cm-training-activity.pages.dev/programs.html`), where admins open each program. Trainees and the 👁 Trainee view don't show them. It's `js/portal-link.js`, the same file in every LSH course repo (EA-PA-TRAINING, Case-Management-Training, propertydamageclaimstraining, Foundational-Training); change it in all of them.
 - **Other features:** standard-size centred slides (long topics continue on a second page), Skill Builder pages in the platform page style, and the task log with archiving.
 
 `index.html` is generated from the EA/PA portal's `index.html` (EA-PA-TRAINING, last built from its `main` after #19 plus the new-tab fix) by `build/build.py`, and `js/cm-updates.js` is a CM copy of EA/PA's `js/eapa-updates.js`. When EA/PA ships new portal features, rebuild so the CM course picks them up:
