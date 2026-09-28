@@ -659,7 +659,7 @@ rect.svg-callout-badge{animation:none;}
   display:flex;align-items:center;justify-content:center;margin-right:10px;margin-bottom:0;flex-shrink:0;
 }
 .quiz-grid-opt.selected .quiz-grid-letter{background:var(--orange-deep);}
-.quiz-grid-text{font-size:var(--font-sub);color:#37394A;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.quiz-grid-text{font-size:var(--font-sub);color:#37394A;line-height:1.35;overflow-wrap:anywhere;}   /* full answer text, never cut off */
 .quiz-nav{
   display:flex;align-items:center;justify-content:space-between;margin-top:22px;
 }
@@ -7402,7 +7402,7 @@ const mem = {}; // in-memory fallback if window.storage is unavailable
    this browser. Any change is saved within ~1.5s; logging in on
    any device restores it; logging out flushes it first.
    ============================================================ */
-const PERSONAL_KEYS = ["day-progress","practice-progress","lab-attempts-global","notes","completed-lab-actions",
+const PERSONAL_KEYS = ["day-progress","practice-progress","lab-attempts-global","lab-attempts-by-day","notes","completed-lab-actions",
   "day10-window","submissions","roleplayHistory","slide-progress","last-slide","attn-detail-findings",
   "calendar-custom","calendar-edits","call-log","inbox-filing","inbox-interactions","inbox-labels","trainee-batch",
   "quick-check-answers","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log"];
@@ -7651,15 +7651,14 @@ async function applyLabAttemptReset(rec){
   state.labAttemptsResetSeen = rec.labAttemptsResetAt;
   await storeSet("lab-attempts-reset-seen", rec.labAttemptsResetAt);
   if(first && (state.labAttemptsGlobal||0) <= (rec.labAttemptsGlobal||0)) return false;
-  state.labAttemptsGlobal = rec.labAttemptsGlobal||0;
-  await storeSet("lab-attempts-global", state.labAttemptsGlobal);
+  await setLabAttemptsByDay(rec.labAttemptsByDay && typeof rec.labAttemptsByDay==="object" ? rec.labAttemptsByDay : {});
   return !first;
 }
 // Show a reset on the open page right away: re-render unless the trainee is typing
 // or has a pop-up open, in which case the next live tick re-renders.
 async function showLabAttemptReset(){
   state.labResetRenderPending = true;
-  toast(`🔁 Your trainer reset your Skill Builders attempts — you have ${LAB_ATTEMPT_CAP} again.`);
+  toast(`🔁 Your trainer reset your Skill Builders attempts — you have ${LAB_ATTEMPT_CAP} repeats per day again.`);
   await renderLabResetIfSafe();
 }
 async function renderLabResetIfSafe(){
@@ -7695,6 +7694,7 @@ async function syncToLedger(allowCreate){
     archived: existing ? (existing.archived||false) : false,
     aiReview: existing ? existing.aiReview : null,
     labAttemptsGlobal: (typeof state.labAttemptsGlobal === "number") ? state.labAttemptsGlobal : (existing ? (existing.labAttemptsGlobal||0) : 0),
+    labAttemptsByDay: state.labAttemptsByDay || (existing && existing.labAttemptsByDay) || {},
     labAttemptsResetAt: existing ? (existing.labAttemptsResetAt||null) : null
   });
   const strip = (o)=>{ const c = Object.assign({}, o||{}); delete c.lastActive; return JSON.stringify(c); };
@@ -7762,6 +7762,11 @@ async function loadAll(){
       state.labAttemptsGlobal = 0;
     }
   }
+  // Per-day repeat counts. Older counts were one shared pool, so they don't carry
+  // over — everyone starts with a fresh 3 repeats per day.
+  const laByDay = await storeGet("lab-attempts-by-day");
+  state.labAttemptsByDay = (laByDay && typeof laByDay==="object") ? laByDay : {};
+  state.labAttemptsGlobal = labAttemptsTotal(state.labAttemptsByDay);
   const lrs = await storeGet("lab-attempts-reset-seen");
   state.labAttemptsResetSeen = lrs || undefined;
   const nt = await storeGet("notes");
@@ -8043,7 +8048,7 @@ function orientSlides(){
         <ul class="or-list"><li>Read the <b>Case File</b> before Day 1, then open the documents in <b>📁 Case Documents</b>.</li><li>The documents contain real-world inconsistencies — catching them is the job.</li><li>Treat everything as confidential, like a real client file.</li></ul></div>
       </div>`},
    {k:"Practice", h:"Skill Builders: how grading works", body:`
-     <div class="or-3">${pill("🆓","First try is free","Your first submission of each exercise never uses an attempt.")}${pill("🔁",`${LAB_ATTEMPT_CAP} repeat attempts`,"Shared across the whole program — use them wisely. Your trainer can reset them.")}${pill("💾","Auto-saves","Close the tab or switch devices — your work is still there.")}</div>
+     <div class="or-3">${pill("🆓","First try is free","Your first submission of each exercise never uses an attempt.")}${pill("🔁",`${LAB_ATTEMPT_CAP} repeats per day`,"Each day's Skill Builders have their own repeats. Your trainer can reset them.")}${pill("💾","Auto-saves","Close the tab or switch devices — your work is still there.")}</div>
      <div class="or-note"><b>Feedback, not just a score:</b> every graded submission shows strengths, what to change (“not this way — here's the better way”) and next steps. Nonsense or copy-paste answers aren't graded.</div>`},
    {k:"Calls", h:"Live calls & roleplays", body:`
      <ul class="or-list big"><li>🎧 Use a headset. The caller <b>speaks</b>; you answer out loud (Chrome/Edge) or type.</li><li>🔊 Can't hear the caller? Check your volume and press <b>↻ Replay</b>.</li><li>🙋 Hands-free mode listens automatically after the caller finishes.</li><li>📞 <b>Hang Up</b> ends the call and gives you your evaluation.</li></ul>`},
@@ -10220,7 +10225,7 @@ window.addEventListener("hashchange", ()=>{
   if(!(state.traineeId || state.isAdmin) || ["login","pendingApproval","registrationDenied"].includes(state.view)) return;
   if(location.hash && location.hash!==routeHash()) openRouteFromHash();
 });
-const TAB_SYNC_KEYS = {"day-progress":"progress","practice-progress":"practiceProgress","lab-attempts-global":"labAttemptsGlobal",
+const TAB_SYNC_KEYS = {"day-progress":"progress","practice-progress":"practiceProgress","lab-attempts-global":"labAttemptsGlobal","lab-attempts-by-day":"labAttemptsByDay",
   "notes":"notes","completed-lab-actions":"completedLabActions","submissions":"submissions","roleplayHistory":"roleplayHistory",
   "slide-progress":"slideProgress","last-slide":"lastSlide","quick-check-answers":"qcAnswers","intro-seen":"introSeen",
   "work-log":"workLog","lab-drafts":"labDrafts","task-log":"taskLog","task-day-since":"taskDaySince","day10-window":"day10Window"};
@@ -10437,6 +10442,9 @@ async function submitLoginInner(){
       }else{
         state.labAttemptsGlobal = 0;
       }
+      state.labAttemptsByDay = (existing.labAttemptsByDay && typeof existing.labAttemptsByDay === "object") ? existing.labAttemptsByDay : {};
+      state.labAttemptsGlobal = labAttemptsTotal(state.labAttemptsByDay);
+      await storeSet("lab-attempts-by-day", state.labAttemptsByDay);
       state.completedLabActions = (existing.completedLabActions && typeof existing.completedLabActions === "object") ? existing.completedLabActions : {};
       // Restore these too — otherwise the sync below would overwrite the
       // trainee's saved submissions / roleplay history with an empty list.
@@ -10518,6 +10526,8 @@ async function resetTraineeSessionData(){
   // Everything that belongs to ONE trainee and must not leak to the next
   // person who logs in on the same device.
   state.labAttemptsGlobal = 0;
+  state.labAttemptsByDay = {};
+  await storeSet("lab-attempts-by-day", {});
   state.completedLabActions = {};
   state.submissions = [];
   state.roleplayHistory = [];
@@ -11952,12 +11962,25 @@ async function bumpPracticeProgress(toolId, score){
 /* ============================================================
    PRACTICE LAB USAGE CAP — 3 AI-graded attempts per day's module.
    ============================================================ */
-const LAB_ATTEMPT_CAP = 3; // program-wide cap, shared across all 10 days combined, no exceptions
-function labAttemptsUsed(){
-  return state.labAttemptsGlobal || 0;
+const LAB_ATTEMPT_CAP = 3; // repeat attempts per day's Practice Lab (first tries are free)
+// Repeats are counted per day in state.labAttemptsByDay; labAttemptsGlobal is kept as the
+// total across all days (shown to admins, and used by the trainer-reset check).
+function currentLabDay(){
+  return (typeof toolState!=="undefined" && toolState && toolState.wizardDayId) || (state.view==="tool" && state.toolId ? toolIdToDayId(state.toolId) : null) || null;
 }
-function labAttemptsRemaining(){
-  return Math.max(0, LAB_ATTEMPT_CAP - labAttemptsUsed());
+function labAttemptsTotal(byDay){ return Object.values(byDay||{}).reduce((a,n)=>a+(n||0),0); }
+function labAttemptsUsed(dayId){
+  const d = dayId || currentLabDay();
+  return d ? ((state.labAttemptsByDay||{})[d] || 0) : 0;
+}
+function labAttemptsRemaining(dayId){
+  return Math.max(0, LAB_ATTEMPT_CAP - labAttemptsUsed(dayId));
+}
+async function setLabAttemptsByDay(byDay){
+  state.labAttemptsByDay = byDay || {};
+  state.labAttemptsGlobal = labAttemptsTotal(state.labAttemptsByDay);
+  await storeSet("lab-attempts-by-day", state.labAttemptsByDay);
+  await storeSet("lab-attempts-global", state.labAttemptsGlobal);
 }
 /* ============================================================
    INPUT QUALITY GATE — blocks key-mashing / placeholder text from
@@ -12010,7 +12033,7 @@ function refundLastLabAttempt(){
   state.lastLabAttempt = null;
   // Only refund an attempt spent moments ago by this same submission.
   if(!la || Date.now() - (la.at||0) > 15000) return;
-  if(la.wasRepeat){ state.labAttemptsGlobal = Math.max(0, labAttemptsUsed()-1); storeSet("lab-attempts-global", state.labAttemptsGlobal); }
+  if(la.wasRepeat && la.dayId){ const b = Object.assign({}, state.labAttemptsByDay||{}); b[la.dayId] = Math.max(0, (b[la.dayId]||0)-1); setLabAttemptsByDay(b); }
   else if(la.actionId && state.completedLabActions){ delete state.completedLabActions[la.actionId]; storeSet("completed-lab-actions", state.completedLabActions); }
   state.lastLabAttempt = null;
   syncToLedger();
@@ -12026,14 +12049,15 @@ async function useLabAttempt(dayId, actionId){
   // action is ever submitted, it's free — only a second-or-later submission
   // of that SAME action consumes one of the 3 global attempts.
   const isRepeat = actionId ? !!state.completedLabActions[actionId] : false;
-  state.lastLabAttempt = {actionId, wasRepeat:isRepeat, at:Date.now()};
+  dayId = dayId || currentLabDay();
+  state.lastLabAttempt = {actionId, dayId, wasRepeat:isRepeat, at:Date.now()};
   if(isRepeat){
-    if(labAttemptsRemaining() <= 0){
-      toast(`No repeat attempts left (all ${LAB_ATTEMPT_CAP} used). Ask your trainer to reset your Skill Builders attempts.`);
+    if(labAttemptsRemaining(dayId) <= 0){
+      toast(`No repeat attempts left for Day ${dayId} (all ${LAB_ATTEMPT_CAP} used). Ask your trainer to reset your Skill Builders attempts.`);
       return false;
     }
-    state.labAttemptsGlobal = labAttemptsUsed() + 1;
-    await storeSet("lab-attempts-global", state.labAttemptsGlobal);
+    const b = Object.assign({}, state.labAttemptsByDay||{}); b[dayId] = (b[dayId]||0) + 1;
+    await setLabAttemptsByDay(b);
   }
   if(actionId && !isRepeat){
     state.completedLabActions[actionId] = true;
@@ -12313,7 +12337,7 @@ function renderEvaluationReport(report, dayId){
       </div>` : ""}
       ${dayId ? `
       <div class="eval-action-row">
-        <button class="btn btn-ghost btn-sm" onclick="repeatActivity()" ${labAttemptsRemaining()<=0 ? 'disabled title="No Skill Builders attempts remaining"' : ''}>🔁 Repeat Activity</button>
+        <button class="btn btn-ghost btn-sm" onclick="repeatActivity()" ${labAttemptsRemaining(dayId)<=0 ? `disabled title="No repeat attempts left for Day ${dayId} — ask your trainer to reset them"` : ''}>🔁 Repeat Activity${labAttemptsRemaining(dayId)<=0 ? "" : ` (${labAttemptsRemaining(dayId)} left)`}</button>
         <button class="btn btn-navy btn-sm" onclick="retainScoreAndAdvance()">✅ Retain Score &amp; Advance</button>
       </div>
       <div class="eval-action-row" style="border-top:none;padding-top:0;margin-top:8px;">
@@ -13921,7 +13945,7 @@ function renderIntakeCallSection(){
 function startIntakeVoiceCall(){
   const ic = toolState.intakeCall;
   const persona = INTAKE_CALL_PERSONAS.find(p=>p.id===ic.personaId);
-  const readOnly = labAttemptsRemaining() <= 0 && !!(state.completedLabActions||{}).endIntakeCallDebrief;
+  const readOnly = labAttemptsRemaining(4) <= 0 && !!(state.completedLabActions||{}).endIntakeCallDebrief;
   VoiceCall.start("intake", {name:persona.name, subtitle:`Incoming call · ${persona.matter}`, inputId:"intakeCallInput", readOnly,
     send:()=>sendIntakeCallMessage(), onHangup:()=>endIntakeCallDebrief()});
 }
@@ -13964,7 +13988,7 @@ function renderIntakeCallChatWindow(){
 function renderIntakeCallChat(){
   const ic = toolState.intakeCall;
   const persona = INTAKE_CALL_PERSONAS.find(p=>p.id===ic.personaId);
-  const locked = labAttemptsRemaining() <= 0 && !!(state.completedLabActions||{}).endIntakeCallDebrief;
+  const locked = labAttemptsRemaining(4) <= 0 && !!(state.completedLabActions||{}).endIntakeCallDebrief;
   return `
     <button class="btn btn-ghost btn-sm" style="margin-bottom:12px;" onclick="backToIntakePersonaPicker()">&larr; Choose a Different Caller</button>
     <div class="rp-session-header">
@@ -15943,7 +15967,7 @@ function renderAdminRow(rec, day, practice){
           <button class="btn btn-sm btn-ghost" onclick="toggleAdminDetail('${rec.id}')">${expanded?"Hide":"View"} Detail</button>
           <button class="btn btn-sm btn-primary" onclick="openFeedbackFor('${rec.id}')" title="Write and send feedback to this trainee">✍ Feedback</button>
           <button class="btn btn-sm btn-ghost" onclick="adminOpenCertificate('${rec.id}')" title="Preview / download this trainee's Certificate of Completion">🎓 Certificate</button>
-          <button class="btn btn-sm btn-ghost" title="Give this trainee a fresh set of ${LAB_ATTEMPT_CAP} Skill Builders repeat attempts" onclick="resetTraineeLabAttempts('${rec.id}')">↺ Reset Attempts${typeof rec.labAttemptsGlobal==="number" ? ` (${Math.max(0,LAB_ATTEMPT_CAP-rec.labAttemptsGlobal)} left)` : ""}</button>
+          <button class="btn btn-sm btn-ghost" title="Give this trainee a fresh ${LAB_ATTEMPT_CAP} Skill Builders repeat attempts on every day" onclick="resetTraineeLabAttempts('${rec.id}')">↺ Reset Attempts${rec.labAttemptsGlobal ? ` (${rec.labAttemptsGlobal} used)` : ""}</button>
           <button class="btn btn-sm btn-ghost" style="color:var(--danger);" onclick="confirmRevokeTrainee('${rec.id}', '${esc(rec.name||"this trainee").replace(/'/g,"\\'")}')">Revoke</button>
         </div>
       </div>
@@ -15956,6 +15980,7 @@ async function resetTraineeLabAttempts(traineeId){
   const rec = await sharedGet("trainee:"+traineeId);
   if(!rec) return;
   rec.labAttemptsGlobal = 0;
+  rec.labAttemptsByDay = {};
   rec.labAttemptsResetAt = new Date().toISOString();
   await sharedSet("trainee:"+traineeId, rec);
   if(state.adminData){
