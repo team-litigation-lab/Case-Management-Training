@@ -78,13 +78,15 @@ function candidateIds(name, batch) {
 }
 
 /* ---------- what a trainee may touch ---------- */
-const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|cms|tools)$/, /^surprise-task-day\d+$/, /^extralessons:day\d+$/, /^lessonx:day\d+$/, /^extraquiz:day\d+$/, /^handouts:links$/];
-const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`];
+// Daily Activities: activities:dayN and their attachments (actfile:*) are published by admins for everyone;
+// settings:feedback-style is the facilitator voice the portal's AI feedback is written in.
+const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|cms|tools|feedback-style)$/, /^activities:day\d+$/, /^actfile:[a-z0-9]{1,40}$/, /^surprise-task-day\d+$/, /^extralessons:day\d+$/, /^lessonx:day\d+$/, /^extraquiz:day\d+$/, /^handouts:links$/];
+const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`, `actsub:${id}`];
 const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "registeredAt"];
 
 function canRead(tok, key) {
   if (tok.role === "a") return true;
-  return OWN(tok.id).includes(key) || PUBLIC_READ.some((re) => re.test(key));
+  return OWN(tok.id).includes(key) || key.startsWith(`actup:${tok.id}:`) || PUBLIC_READ.some((re) => re.test(key));
 }
 async function traineeWrite(env, tok, key, value) {
   const kv = kvOf(env);
@@ -119,6 +121,34 @@ async function traineeWrite(env, tok, key, value) {
     const byId = Object.fromEntries(((incoming && incoming.items) || []).map((x) => [x.id, x]));
     out.items.forEach((x) => { const u = byId[x.id]; if (u) { x.seenAt = u.seenAt || x.seenAt || null; x.doneAt = u.doneAt || null; } });
     await kv.put(key, JSON.stringify(out)); return null;
+  }
+  if (key === `actsub:${id}`) {
+    // Daily Activities submissions: a trainee writes their own answers and marks feedback read;
+    // the trainer's feedback is never theirs to change. A new submission retires the old feedback.
+    const out = existing && existing.items ? existing : { items: {} };
+    for (const [aid, v] of Object.entries((incoming && incoming.items) || {})) {
+      if (!/^[a-z0-9]{1,40}$/.test(aid) || !v || typeof v !== "object") continue;
+      const cur = out.items[aid] || {};
+      const next = Object.assign({}, cur);
+      if (typeof v.answer === "string") next.answer = v.answer.slice(0, 20000);
+      if ("file" in v) next.file = v.file && typeof v.file === "object" ? { name: String(v.file.name || "").slice(0, 200), type: String(v.file.type || "").slice(0, 100), size: Number(v.file.size) || 0 } : null;
+      if (v.submittedAt && v.submittedAt !== cur.submittedAt) {
+        next.submittedAt = String(v.submittedAt).slice(0, 40);
+        next.attempts = (cur.attempts || 0) + 1;
+        if (cur.feedback && cur.feedback.status === "sent") next.prevFeedback = cur.feedback;
+        delete next.feedback; delete next.readAt;
+      }
+      if (v.readAt && cur.feedback && cur.feedback.status === "sent" && !cur.readAt) next.readAt = String(v.readAt).slice(0, 40);
+      out.items[aid] = next;
+    }
+    const outStr = JSON.stringify(out);
+    if (outStr.length > 1000000) return "Too large";
+    await kv.put(key, outStr); return null;
+  }
+  if (key.startsWith(`actup:${id}:`) && /^actup:.+:[a-z0-9]{1,40}$/.test(key)) {
+    // A file a trainee attached to an activity answer (a data URL, about 4 MB at most).
+    if (String(value).length > 6000000) return "File too large";
+    await kv.put(key, value); return null;
   }
   if (/^tfeedback:[a-z0-9]+$/.test(key) || /^cert:LSH-CM-\d{4}-[A-Z0-9]{6}$/.test(key)) {
     if (existing && /^tfeedback:/.test(key)) return "Already submitted";
