@@ -163,8 +163,8 @@ rep('"a 2-sentence discussion case involving Elias Thorne"', '"a 2-sentence disc
 s = s.replace("Practice Labs", "Skill Builders").replace("Practice Lab", "Skill Builders")
 
 # ---------- 9. scripts ----------
-# EA/PA's hand-written speaker notes are EA/PA content; the CM course keeps its own trainer cues.
-s = re.sub(r'<script src="/js/presenter-notes\.js[^"]*"></script>\n?', '', s)
+# Presenter notes ("On this slide"): the CM course has its own js/presenter-notes.js (same name, CM content).
+s = re.sub(r'<script src="/js/presenter-notes\.js[^"]*"></script>', '<script src="/js/presenter-notes.js?v=1"></script>', s)
 # Slide scripts: the CM course has its own js/slide-scripts/day1.js–day5.js (same names, CM content).
 s = re.sub(r'<script src="/js/slide-scripts/day(?:[6-9]|10)\.js[^"]*"></script>\n?', '', s)
 s = re.sub(r'<script src="/js/eapa-updates\.js\?v=[^"]*"></script>', '<script src="/js/eapa-updates.js?v=z"></script>', s, count=1)

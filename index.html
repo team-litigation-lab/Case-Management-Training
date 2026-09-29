@@ -16968,7 +16968,8 @@ function buildDiscussionScript(d, l, i){
    No AI writes these while a session runs. */
 function presenterNote(d, l, part){
   const n = (window.PRESENTER_NOTES || {})[`${d.id}::${l.h}`];
-  if(n) return l.singleSlide ? Object.assign({}, n.p1, {wrap: n.p2 && n.p2.wrap, scenario: n.p2 && n.p2.scenario}) : (part===2 ? n.p2 : n.p1) || {};
+  // (CM: the deck's own speaker note stays with slide 1 as the trainer note, as it does without a written note.)
+  if(n) return Object.assign({cue: part===1 || l.singleSlide ? (l.trainerCue || "") : ""}, l.singleSlide ? Object.assign({}, n.p1, {wrap: n.p2 && n.p2.wrap, scenario: n.p2 && n.p2.scenario}) : (part===2 ? n.p2 : n.p1) || {});
   // A topic added later in the Content Studio has no written note yet: use the lesson's own lines.
   const sc = buildDiscussionScript(d, l, d.lessons.indexOf(l)), unq = t=>String(t||"").replace(/^"|"$/g,"");
   const scen = (l.fourPart && l.fourPart.discussionCase) || "";
@@ -20126,7 +20127,7 @@ window.downloadProjectCompliance6Pdf = downloadProjectCompliance6Pdf;
    that was clicked, and any failure is shown on screen instead of
    disappearing silently in the browser console.
    ============================================================ */
-var APP_BUILD = "cm-2026.09.29-b";
+var APP_BUILD = "cm-2026.09.29-d";
 console.info("LSH EA/PA portal build", APP_BUILD);
 let busyDepth = 0;
 function showActionError(e, label){
@@ -20169,6 +20170,7 @@ window.addEventListener("unhandledrejection", (ev)=>{ const e = ev.reason; if(e 
 window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message && !/ResizeObserver|Script error/.test(ev.message)) showActionError(new Error(ev.message), ""); });
 
 </script>
+<script src="/js/presenter-notes.js?v=1"></script>
 <script src="/js/slide-scripts/day1.js?v=2"></script>
 <script src="/js/slide-scripts/day2.js?v=2"></script>
 <script src="/js/slide-scripts/day3.js?v=2"></script>
