@@ -91,7 +91,7 @@ The four new tools (`js/cm-practice.js`):
 
 The new tools don't change how days unlock: the next day still opens when the original Skill Builders have been submitted (any score).
 
-The CMS opens with `?program=cm`, so its Training Library lists the Case Management cases and saved cases are tagged with the program.
+The CMS opens with `?program=cm`, so its Training Library lists the Case Management cases and saved cases are tagged with the program. The link also sends `from=cm` and the trainee's name and batch, so the CMS signs them in with just their name (no CMS account); a CMS opened on its own asks them to register.
 
 ### Skill Builders
 
