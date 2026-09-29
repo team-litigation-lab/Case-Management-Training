@@ -6845,6 +6845,20 @@ const LABEL_LEGEND = [
 
 /* ---------- 2. Legal Calendar Conflict Resolver (week view) ---------- */
 const DAY_ORDER = ["Mon","Tue","Wed","Thu","Fri"];
+/* The lab's week is this working week (the coming one on a weekend), so every day shows its date:
+   calDayDate("Wed") → "Wed, Sep 30". */
+function calWeekMonday(){
+  const t = new Date(); t.setHours(0,0,0,0);
+  const dow = t.getDay();
+  t.setDate(t.getDate() + (dow===0 ? 1 : dow===6 ? 2 : 1-dow));
+  return t;
+}
+function calDayDate(day){
+  const i = DAY_ORDER.indexOf(day); if(i < 0) return day;
+  const d = calWeekMonday(); d.setDate(d.getDate()+i);
+  return `${day}, ${d.toLocaleDateString("en-US", {month:"short", day:"numeric"})}`;
+}
+window.calDayDate = calDayDate;
 const CAL_EVENTS = [
   {t:"Intake Verification Call — New Referral (Rivera)", day:"Mon", s:9, e:10, p:"High", loc:"Phone", type:"Intake"},
   {t:"Team Case Standup", day:"Mon", s:9.5, e:10.5, p:"Medium", loc:"Virtual", type:"Internal"},
@@ -12705,7 +12719,7 @@ function renderCalendarBody(body){
     return dayEvents.map(e=>{
       const n = widthOf.get(e)||1, li = laneOf.get(e)||0;
       const laneStyle = n>1 ? `left:calc(${(li/n*100).toFixed(3)}% + 3px);right:auto;width:calc(${(100/n).toFixed(3)}% - 6px);` : "";
-      const tip = `${e.t}\n${e.day} · ${fmtHr12(e.s)}–${fmtHr12(e.e)}\n${e.p} priority · ${e.type}${e.loc && e.loc!=="—" ? "\n📍 "+e.loc : ""}\n(Drag to move, or use ⇄)`;
+      const tip = `${e.t}\n${calDayDate(e.day)} · ${fmtHr12(e.s)}–${fmtHr12(e.e)}\n${e.p} priority · ${e.type}${e.loc && e.loc!=="—" ? "\n📍 "+e.loc : ""}\n(Drag to move, or use ⇄)`;
       const top = (e.s-CAL_DAY_START)*CAL_PX_PER_HR;
       const h = Math.max((e.e-e.s)*CAL_PX_PER_HR, 30);
       const isConflict = conflictIdx.has(e.idx);
@@ -12719,7 +12733,7 @@ function renderCalendarBody(body){
         <button class="cal-move-btn" onclick="event.stopPropagation(); openMoveDialog(${e.idx})" title="Move this to a different day/time">⇄</button>
         <button class="cal-del-btn" onclick="event.stopPropagation(); calDeleteEvent(${e.idx})" title="Remove this event">✕</button>
         <b>${esc(e.t)}</b><span class="cal-sub">${e.loc!=="—"?esc(e.loc)+" · ":""}${esc(e.type)}</span>
-        <div class="cal-hover"><b>${esc(e.t)}</b><span>${esc(e.day)} · ${fmtHr12(e.s)}–${fmtHr12(e.e)}</span><span>${esc(e.p)} priority · ${esc(e.type)}</span>${e.loc && e.loc!=="—" ? `<span>📍 ${esc(e.loc)}</span>` : ""}</div>
+        <div class="cal-hover"><b>${esc(e.t)}</b><span>${esc(calDayDate(e.day))} · ${fmtHr12(e.s)}–${fmtHr12(e.e)}</span><span>${esc(e.p)} priority · ${esc(e.type)}</span>${e.loc && e.loc!=="—" ? `<span>📍 ${esc(e.loc)}</span>` : ""}</div>
       </div>`;
     }).join("");
   }
@@ -12739,7 +12753,7 @@ function renderCalendarBody(body){
       </div>
       ${DAY_ORDER.map(day=>`
         <div class="week-col" ondragover="calDragOver(event,'${day}')" ondragleave="calDragLeave(event,'${day}')" ondrop="calDrop(event,'${day}')">
-          <div class="week-day-header">${day}</div>
+          <div class="week-day-header">${calDayDate(day)}</div>
           <div class="week-col-body" id="colBody-${cssId(day)}" style="height:${colH}px;position:relative;">
             <div class="cal-drop-ghost" id="ghost-${cssId(day)}" style="display:none;"></div>
             ${colFor(day)}
@@ -12755,7 +12769,7 @@ function renderCalendarBody(body){
             if(!ei||!ej) return "";
             return `
           <div class="decision-row" style="grid-template-columns:1fr;">
-            <div class="lbl"><b>${esc(ei.t)}</b> (${ei.p}, ${ei.day}) overlaps <b>${esc(ej.t)}</b> (${ej.p}, ${ej.day})</div>
+            <div class="lbl"><b>${esc(ei.t)}</b> (${ei.p} · ${calDayDate(ei.day)}, ${fmtHr12(ei.s)}–${fmtHr12(ei.e)}) overlaps <b>${esc(ej.t)}</b> (${ej.p} · ${calDayDate(ej.day)}, ${fmtHr12(ej.s)}–${fmtHr12(ej.e)})</div>
           </div>`;
           }).join("")}
     </div>
@@ -12934,7 +12948,7 @@ function openMoveDialog(idx){
       <p>Pick exactly where this should go — no dragging required.</p>
       <label style="font-size:12.5px;color:var(--ink-soft);display:block;margin-bottom:4px;">Day</label>
       <select id="moveDaySelect" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);font-size:14px;margin-bottom:14px;">
-        ${DAY_ORDER.map(d=>`<option value="${d}" ${d===e.day?"selected":""}>${d}</option>`).join("")}
+        ${DAY_ORDER.map(d=>`<option value="${d}" ${d===e.day?"selected":""}>${calDayDate(d)}</option>`).join("")}
       </select>
       <label style="font-size:12.5px;color:var(--ink-soft);display:block;margin-bottom:4px;">Start Time</label>
       <select id="moveTimeSelect" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);font-size:14px;margin-bottom:14px;">
@@ -12998,7 +13012,7 @@ function openAddEventDialog(){
       <input type="text" id="addTitleInput" placeholder="e.g. Pre-hearing prep buffer" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);font-size:14px;margin-bottom:12px;">
       <label style="font-size:12.5px;color:var(--ink-soft);display:block;margin-bottom:4px;">Day</label>
       <select id="addDaySelect" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);font-size:14px;margin-bottom:12px;">
-        ${DAY_ORDER.map(d=>`<option value="${d}">${d}</option>`).join("")}
+        ${DAY_ORDER.map(d=>`<option value="${d}">${calDayDate(d)}</option>`).join("")}
       </select>
       <label style="font-size:12.5px;color:var(--ink-soft);display:block;margin-bottom:4px;">Start Time</label>
       <select id="addStartSelect" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);font-size:14px;margin-bottom:12px;">
@@ -13058,7 +13072,7 @@ async function checkCalendarPrompt(btn){
   const scheduleSummary = DAY_ORDER.map(day=>{
     const dayEvents = events.filter(e=>e.day===day).sort((a,b)=>a.s-b.s);
     if(!dayEvents.length) return null;
-    return `${day}: ` + dayEvents.map(e=>`${fmtHr(e.s)}–${fmtHr(e.e)} ${e.t} (${e.p})`).join("; ");
+    return `${calDayDate(day)}: ` + dayEvents.map(e=>`${fmtHr(e.s)}–${fmtHr(e.e)} ${e.t} (${e.p})`).join("; ");
   }).filter(Boolean).join("\n");
   btn.disabled = true; btn.textContent = "Reviewing…";
   const resultEl = document.getElementById("calPromptResult");
@@ -13088,7 +13102,7 @@ async function generateProactiveTasks(){
   const el = document.getElementById("proactiveResult");
   el.innerHTML = `<div class="ai-loading">Reviewing the calendar for gaps…</div>`;
   const events = calMergedEvents();
-  const calendarSummary = events.map(e=>`- ${e.day} ${fmtHr12(e.s)}-${fmtHr12(e.e)} [${e.p} priority] ${e.t}${e.loc&&e.loc!=="—"?" — "+e.loc:""}`).join("\n");
+  const calendarSummary = events.map(e=>`- ${calDayDate(e.day)} ${fmtHr12(e.s)}-${fmtHr12(e.e)} [${e.p} priority] ${e.t}${e.loc&&e.loc!=="—"?" — "+e.loc:""}`).join("\n");
   const prompt = `You are an expert Executive Assistant reviewing your principal's calendar for a training exercise.
 
 CASE FILE CONTEXT:
@@ -13116,9 +13130,9 @@ Return ONLY a JSON array of objects like: [{"task":"...", "why":"..."}]`;
     // Never leave the trainee stuck: show calendar-based starter tasks and the real reason.
     const starter = [];
     events.forEach(ev=>{
-      if(/flight|travel|airport|trip/i.test(ev.t+ev.type)) starter.push({task:`Confirm itinerary, seats and ground transport for “${ev.t}” (${ev.day})`, why:"Travel details change often — confirm 24–48 hours ahead."});
-      else if(/court|hearing|deposition|filing/i.test(ev.t+ev.type)) starter.push({task:`Prepare and double-check materials for “${ev.t}” (${ev.day})`, why:"Legal deadlines can't slip — have everything ready the day before."});
-      else if(/client|board|meeting/i.test(ev.t+ev.type)) starter.push({task:`Send an agenda / confirmation for “${ev.t}” (${ev.day} ${fmtHr12(ev.s)})`, why:"Confirmed attendees and a clear agenda keep meetings on time."});
+      if(/flight|travel|airport|trip/i.test(ev.t+ev.type)) starter.push({task:`Confirm itinerary, seats and ground transport for “${ev.t}” (${calDayDate(ev.day)})`, why:"Travel details change often — confirm 24–48 hours ahead."});
+      else if(/court|hearing|deposition|filing/i.test(ev.t+ev.type)) starter.push({task:`Prepare and double-check materials for “${ev.t}” (${calDayDate(ev.day)})`, why:"Legal deadlines can't slip — have everything ready the day before."});
+      else if(/client|board|meeting/i.test(ev.t+ev.type)) starter.push({task:`Send an agenda / confirmation for “${ev.t}” (${calDayDate(ev.day)} ${fmtHr12(ev.s)})`, why:"Confirmed attendees and a clear agenda keep meetings on time."});
     });
     const uniq = [...new Map(starter.map(x=>[x.task,x])).values()].slice(0,5);
     el.innerHTML = renderAiErrorBlock(e, "Couldn't generate tasks") + (uniq.length ? `<div class="task-fallback"><b>Starter tasks from your calendar (no attempt used):</b>${uniq.map(t=>`
@@ -13147,7 +13161,7 @@ async function submitCalendar(){
   DAY_ORDER.forEach(day=>{
     const dayEvents = events.filter(e=>e.day===day).sort((a,b)=>a.s-b.s);
     if(!dayEvents.length) return;
-    lines.push(`${day}:`);
+    lines.push(`${calDayDate(day)}:`);
     dayEvents.forEach(e=>lines.push(`  ${fmtHr(e.s)}–${fmtHr(e.e)}  ${e.t} (${e.p}, ${e.type})`));
   });
   toolState.calReport = lines;
@@ -13166,7 +13180,7 @@ async function downloadCalendarPdf(){
   DAY_ORDER.forEach(day=>{
     const dayEvents = events.filter(e=>e.day===day).sort((a,b)=>a.s-b.s);
     if(!dayEvents.length) return;
-    lines.push(`${day}:`);
+    lines.push(`${calDayDate(day)}:`);
     dayEvents.forEach(e=>lines.push(`   ${fmtHr(e.s)}–${fmtHr(e.e)}  ${e.t}  (${e.p} priority, ${e.type})`));
   });
   lines.push("---", "## Daily Briefing Prompt", document.getElementById("calPromptInput")?.value.trim() || "(not written)");
@@ -20101,7 +20115,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 </script>
 <script src="/js/cm-updates.js?v=10"></script>
 <script src="/js/cm-documents.js?v=1"></script>
-<script src="/js/cm-skillbuilders.js?v=12"></script>
+<script src="/js/cm-skillbuilders.js?v=13"></script>
 <script src="/js/cm-mindset.js?v=1"></script>
 <script src="/js/cm-practice.js?v=2"></script>
 <script src="/js/daily-activities.js?v=1"></script>
