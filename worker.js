@@ -231,7 +231,9 @@ export default {
         const page = await env.ASSETS.fetch(new Request(new URL("/", request.url)));
         const html = await page.text();
         const m = html.match(/APP_BUILD = "([^"]+)"/);
-        return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nWorker: secure-mode worker.js\nSecure mode: ${env.ADMIN_PASSPHRASE ? "ON" : "OFF"}\nAI provider: ${env.GEMINI_API_KEY ? "Google Gemini (" + (env.GEMINI_MODEL || "gemini-3.8-flash") + ")" : "none — add GEMINI_API_KEY"}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
+        // Changes on every Cloudflare deploy; open pages use it to pick up a new version.
+        const deployment = (env.CF_VERSION_METADATA && env.CF_VERSION_METADATA.id) || "unknown";
+        return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nDeployment: ${deployment}\nWorker: secure-mode worker.js\nSecure mode: ${env.ADMIN_PASSPHRASE ? "ON" : "OFF"}\nAI provider: ${env.GEMINI_API_KEY ? "Google Gemini (" + (env.GEMINI_MODEL || "gemini-3.8-flash") + ")" : "none — add GEMINI_API_KEY"}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
       }
       if (!path.startsWith("/api/")) {
         const res = await env.ASSETS.fetch(request);

@@ -10744,11 +10744,37 @@ function startLiveUpdates(){
    offers "Update now". After reloading, the user lands where they were.
    ============================================================ */
 let updateTimer = null, updatePendingBuild = null;
+let loadedDeployment = "", candidateDeployment = "";
+// Safety net against reload loops: at most 2 automatic reloads per 10 minutes in a tab, and never
+// twice for the same version. After that the banner's Update now button is the only way to reload.
+const AUTO_RELOAD_KEY = "lsh_auto_reloads";
+function autoReloadAllowed(target){
+  try{
+    const recent = (JSON.parse(sessionStorage.getItem(AUTO_RELOAD_KEY) || "[]") || []).filter(x=>x && Date.now()-x.at < 10*60*1000);
+    return recent.length < 2 && !recent.some(x=>x.target===target);
+  }catch(e){ return false; }
+}
+function noteAutoReload(target){
+  try{
+    const recent = (JSON.parse(sessionStorage.getItem(AUTO_RELOAD_KEY) || "[]") || []).filter(x=>x && Date.now()-x.at < 10*60*1000);
+    recent.push({target, at:Date.now()});
+    sessionStorage.setItem(AUTO_RELOAD_KEY, JSON.stringify(recent));
+  }catch(e){}
+}
 async function checkForUpdate(){
   try{
     const r = await fetch("/version?ts="+Date.now(), {cache:"no-store"});
     if(!r.ok) return;
     const txt = await r.text();
+    // Every Cloudflare deploy gets a new deployment id, so open pages notice any update on their
+    // own — nobody has to remember to bump APP_BUILD. The first id this page sees is its own.
+    const dep = (txt.match(/^Deployment:\s*(\S+)/mi) || [])[1];
+    if(dep && dep !== "unknown"){
+      if(!loadedDeployment){ loadedDeployment = dep; }
+      else if(dep === loadedDeployment){ candidateDeployment = ""; }
+      else if(dep !== candidateDeployment){ candidateDeployment = dep; }   // seen once: wait for the next check to confirm
+      else { updatePendingBuild = dep; showUpdateBanner(); tryAutoUpdate(); return; }
+    }
     const m = txt.match(/Portal build deployed:\s*([0-9.]+-[a-z0-9]+)/i);
     if(!m || m[1]===APP_BUILD) return;
     updatePendingBuild = m[1];
@@ -10767,6 +10793,7 @@ function updateIsSafe(){
   if(document.querySelector(".overlay")) return false;
   if(state.loginBusy || state.studioBusy) return false;
   if(document.querySelector('[data-busy="1"]')) return false;
+  if(state.presenting) return false;   // reloading would close Presenter view mid-session: the banner's Update now is there instead
   return true;
 }
 async function applyUpdate(){
@@ -10779,12 +10806,15 @@ async function applyUpdate(){
 }
 function tryAutoUpdate(){
   if(!updatePendingBuild) return;
-  if(updateIsSafe()) applyUpdate();
+  if(!autoReloadAllowed(updatePendingBuild)) return;   // already reloaded for this (or twice recently): wait for Update now
+  if(updateIsSafe()){ noteAutoReload(updatePendingBuild); applyUpdate(); }
 }
 function showUpdateBanner(){
   if(document.getElementById("updateBanner")) return;
   const b = document.createElement("div"); b.id = "updateBanner"; b.className = "update-banner";
-  b.innerHTML = `<span>✨ A new version of the portal is ready. It will update automatically in a moment — your progress is saved.</span><button type="button" onclick="applyUpdate()">Update now</button>`;
+  b.innerHTML = state.presenting
+    ? `<span>✨ A new version of the portal is ready (e.g. updated speaker notes). Click Update now between slides — Presenter view will need reopening.</span><button type="button" onclick="applyUpdate()">Update now</button>`
+    : `<span>✨ A new version of the portal is ready. It will update automatically in a moment — your progress is saved.</span><button type="button" onclick="applyUpdate()">Update now</button>`;
   document.body.appendChild(b);
 }
 function restoreAfterUpdate(){
@@ -10804,6 +10834,7 @@ function startUpdateChecks(){
   updateTimer = setInterval(()=>{ if(updatePendingBuild) tryAutoUpdate(); else checkForUpdate(); }, 45000);
   setInterval(()=>{ if(updatePendingBuild) tryAutoUpdate(); }, 15000);
   document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState==="visible"){ if(updatePendingBuild) tryAutoUpdate(); else checkForUpdate(); } });
+  checkForUpdate();   // records this page's deployment id straight away
   setTimeout(checkForUpdate, 20000);
 }
 window.applyUpdate = applyUpdate;
@@ -19816,7 +19847,7 @@ window.downloadProjectCompliance6Pdf = downloadProjectCompliance6Pdf;
    that was clicked, and any failure is shown on screen instead of
    disappearing silently in the browser console.
    ============================================================ */
-var APP_BUILD = "cm-2026.09.28-o";
+var APP_BUILD = "cm-2026.09.29-a";
 console.info("LSH EA/PA portal build", APP_BUILD);
 let busyDepth = 0;
 function showActionError(e, label){
