@@ -1,6 +1,6 @@
 /* Day 2 — hand-written spoken scripts, one per slide (see slideScript() in index.html).
    p1 = the topic's first slide, p2 = its second slide. Each follows four beats:
-   why (the punchline) · talk (plain spoken explanation) · walk (the points in order: first, next, then, finally) · ask (an action or question). */
+   why (the punchline) · talk (plain spoken explanation) · walk (the points in order: first, next, then, finally) · ask (an action or question) · scenario (a short case situation to work through with the room). */
 window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
  "2::Training Agenda: From Pre-Demand to Settlement": {
   "p1": {
@@ -11,7 +11,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, the BI Demand, BI meaning bodily injury. Adjusters don't read 400-page record dumps out of goodwill. They respond to clear liability, hard-coded injury baselines and strict policy-limit deadlines, so we turn the documentation into a narrative with teeth.",
     "Finally, BI Settlement: closing, lien mitigation and ethical escrow management. Escrow is the account where settlement money is held until it's paid out. If a case settles for $100,000 but bills and statutory subrogation eat $70,000, the client walks away frustrated."
    ],
-   "ask": "Which of these three phases do you feel most confident in today, and which one makes you a little nervous?"
+   "ask": "Which of these three phases do you feel most confident in today, and which one makes you a little nervous?",
+   "scenario": "Two Case Managers have similar files: rear-end crashes, neck injuries and $18,000 in medical bills. One settles for $35,000 and the other for $60,000. The only difference is what happened before the demand went out. What do you think the second Case Manager did in pre-demand that the first didn't?"
   },
   "p2": {
    "why": "The case isn't finished when the release is signed; it's finished when the client actually gets paid.",
@@ -20,7 +21,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, signing the release is only half the battle. The release is the document where the client settles the claim. Our duty at closing is aggressive lien mitigation, meaning we push to reduce what the lienholders take, so more of the money reaches the client.",
     "Finally, the trap here: treating the gross settlement as the finish line. The client doesn't live on the gross; they live on what's left after the bills and liens, and that's the number they'll judge us by."
    ],
-   "ask": "Here's the question to carry through today: why is pre-demand where most of the value is won or lost? Think about what's in the file, or missing from it, before we ever ask for money."
+   "ask": "Here's the question to carry through today: why is pre-demand where most of the value is won or lost? Think about what's in the file, or missing from it, before we ever ask for money.",
+   "scenario": "A client, Angela Reyes, signed her release three weeks ago and calls asking where her money is. The settlement check arrived, but two lien payoffs haven't been confirmed, so nothing has been disbursed. What do you tell her, and what has to happen before she's paid?"
   }
  },
  "2::Pre-Demand Case Auditing: Core Objectives": {
@@ -33,7 +35,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, risk assessment. Find the weak spots where the defense could argue comparative negligence, that's partial fault, meaning the client was partly to blame. Better we find them now than hear about them in negotiation.",
     "Finally, compliance. Make sure the case meets its statutory requirements, like the Statute of Limitations, the legal deadline to file a lawsuit, before the demand goes out. A beautiful demand can't fix a missed legal requirement."
    ],
-   "ask": "Quick check on the four: which one would catch crash photos that don't match the police report, and which one would catch a Statute of Limitations problem?"
+   "ask": "Quick check on the four: which one would catch crash photos that don't match the police report, and which one would catch a Statute of Limitations problem?",
+   "scenario": "You're auditing a file before the demand goes out. The client says she was stopped at a red light, but the police report puts the crash in a parking lot. Two ER bills aren't on the ledger, and the SOL is in four months. Which audit objective does each problem fall under, and which do you fix first?"
   },
   "p2": {
    "why": "We want to find every problem in this file before the defense does.",
@@ -43,7 +46,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, remember that discrepancies destroy credibility, so find them first. Once an adjuster catches one mismatch, they start doubting everything else in the packet.",
     "Finally, the trap here: sending the demand and hoping nobody checks the math. Somebody always checks the math, and it's the person deciding what to pay."
    ],
-   "ask": "Of the four objectives, verification, valuation, risk assessment and compliance, which one is most often skipped? And why do you think that's the one that slips?"
+   "ask": "Of the four objectives, verification, valuation, risk assessment and compliance, which one is most often skipped? And why do you think that's the one that slips?",
+   "scenario": "A colleague is ready to send a demand and says, 'The adjuster won't check the ledger that closely.' The total on the cover letter is $3,200 higher than the bills in the packet. What will the adjuster do with that mistake, and what should the audit have caught?"
   }
  },
  "2::The Auditing Checklist: The Trinity of Case Alignment": {
@@ -56,7 +60,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, confirm the medicals: the diagnoses, the treatment and the objective injuries. Objective means something an exam or a test shows, not only what the client reports.",
     "Finally, ask the audit question that ties them together: do the property damage photos support the mechanism of injury in the medical records? Mechanism of injury just means how the body got hurt. If the answer is no, we deal with it before we send."
    ],
-   "ask": "Think about a file you've worked: which of the three pillars was hardest to line up with the other two?"
+   "ask": "Think about a file you've worked: which of the three pillars was hardest to line up with the other two?",
+   "scenario": "Your client says she was hit at highway speed. The photos show a cracked bumper cover, and her medical records show a herniated disc needing injections. Do the narrative, the physical damage and the medicals tell the same story? What would you look for to connect them?"
   },
   "p2": {
    "why": "One mismatch between the pillars is all the defense needs.",
@@ -65,7 +70,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, picture this: the photos show a minor scratch, but the medicals claim a severe spinal impact. The defense will pick that apart in seconds, and the whole demand loses credibility with it.",
     "Finally, the pitfall to watch: auditing each pillar separately without cross-checking them. Three pillars can each pass on their own and still tell three different stories."
    ],
-   "ask": "Your turn: give me an example where the narrative and the physicality don't match. What would the adjuster say about it, and what would you go back and check?"
+   "ask": "Your turn: give me an example where the narrative and the physicality don't match. What would the adjuster say about it, and what would you go back and check?",
+   "scenario": "An adjuster points out that your client's photos show only a small scratch, but her demand claims a severe spinal injury. Nobody on your team cross-checked the three pillars before the demand went out. How do you respond now, and what extra evidence might explain the gap?"
   }
  },
  "2::Master Audit Checklist: Financial & Lien Verification": {
@@ -79,7 +85,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "After that, identify the consensual liens, the medical provider liens, often called LOPs, letters of protection. That's where a provider agrees to treat the client now and get paid out of the settlement.",
     "Finally, identify every subrogation interest. Subrogation is when someone who paid for the client's losses has the right to be paid back out of the recovery. Miss one, and it shows up later and takes money from the client."
    ],
-   "ask": "Quick check: what three things add up to the special damages? And who can name one statutory lien without looking at the slide?"
+   "ask": "Quick check: what three things add up to the special damages? And who can name one statutory lien without looking at the slide?",
+   "scenario": "Your client's specials are $42,000 in medical bills and $6,500 in lost wages. She's on Medicaid, her ER bill went to her health plan, and her chiropractor treated her on a Letter of Protection. List every lien you need to identify before the demand, and how you'd confirm each one."
   },
   "p2": {
    "why": "The worst time to learn about a lien is after the client has signed.",
@@ -88,7 +95,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, lock in the total damages, then protect them by identifying the liens before the demand. That way the ask is built on real numbers, and nobody's claim comes as a surprise.",
     "Finally, the pitfall to watch: discovering a statutory lien after the settlement is signed. By then the number is fixed, and the lien still has to be paid out of it."
    ],
-   "ask": "Your turn: what two documents make a lost wage claim stick? And what does the adjuster usually do if one of them is missing?"
+   "ask": "Your turn: what two documents make a lost wage claim stick? And what does the adjuster usually do if one of them is missing?",
+   "scenario": "A settlement was signed last week. Now a letter arrives from the client's employer-sponsored health plan claiming a $14,000 ERISA lien that nobody knew about. What does that do to the client's net, and what step in the audit would have caught it?"
   }
  },
  "2::Master Audit Checklist: Liability & Liability Proof": {
@@ -100,7 +108,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, the witness statements. Confirm each witness's contact info still works, and audit for statement drift, that's when a witness's story changes over time. A witness we can't reach, or who tells it differently now, can't carry liability for us.",
     "Finally, the scene audit. Review Google Earth or dashcam footage to make sure the physics of the claim are actually possible. If the crash couldn't have happened the way we describe it, the defense will show that."
    ],
-   "ask": "Who here has had a witness who couldn't be reached, or whose story changed? When did you find out, and how?"
+   "ask": "Who here has had a witness who couldn't be reached, or whose story changed? When did you find out, and how?",
+   "scenario": "Your file has a one-page exchange-of-information slip from the scene, a witness's phone number that goes to voicemail, and no photos of the intersection. What do you request or check to build liability proof the adjuster can't break?"
   },
   "p2": {
    "why": "Report, witnesses and physical reality, all pointing the same way: that's a case the adjuster can't break.",
@@ -109,7 +118,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, remember the formula: official report, plus solid witness testimony, plus physical reality, equals a case the adjuster can't break. Each piece covers the weak spots of the others.",
     "Finally, the pitfall to watch: relying on the preliminary exchange-of-information form. It isn't the final report, so it won't show us the citations or fault notes that can change the whole liability picture."
    ],
-   "ask": "Your turn: how do you detect statement drift? Walk me through what you'd compare, and what you'd do if a witness's story has changed."
+   "ask": "Your turn: how do you detect statement drift? Walk me through what you'd compare, and what you'd do if a witness's story has changed.",
+   "scenario": "The demand went out with only the preliminary police slip. The final report, released a month later, lists a second witness who says your client was speeding. How could that have been avoided, and what do you do now?"
   }
  },
  "2::Master Audit Checklist: Property Damage (PD) Deep Dive": {
@@ -121,7 +131,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, compare the estimate to the actuals, the insurance estimate against the final body shop bill. Look for supplementals, the extra repairs added after the first estimate, because they prove hidden structural damage.",
     "Finally, if the vehicle was totaled, verify the CCC One or valuation report, that's the report that sets what the vehicle was worth. Make sure the client isn't being lowballed on the value of their car."
    ],
-   "ask": "When PD photos land in a file, what do you look at first? Honestly, would you have noticed that the frame photos were missing?"
+   "ask": "When PD photos land in a file, what do you look at first? Honestly, would you have noticed that the frame photos were missing?",
+   "scenario": "The only car photos in your file are two dark phone pictures taken at night. The insurer's estimate was $1,900, but the body shop's final bill was $5,400 after they found frame damage. How do you use these documents to push back on a 'low-impact' argument?"
   },
   "p2": {
    "why": "The initial estimate is only part of the damage story; the supplementals show what was hidden.",
@@ -130,7 +141,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, supplementals are often the best proof of hidden structural damage. Damage nobody can see in a bumper photo still shows up on the final bill.",
     "Finally, the pitfall to watch: only using the initial estimate. It makes the crash look smaller than it was, and that feeds straight into the low-impact argument."
    ],
-   "ask": "Your turn: why do undercarriage and frame photos matter for injury value? Explain it the way you'd explain it to a new colleague."
+   "ask": "Your turn: why do undercarriage and frame photos matter for injury value? Explain it the way you'd explain it to a new colleague.",
+   "scenario": "The adjuster calls your client's crash 'a minor fender-bender' based on the first $1,200 estimate. You later find two supplementals that brought the repair to $6,800, including structural work. What do you send, and how do you describe it in the demand?"
   }
  },
  "2::Master Audit Checklist: Medical & Billing Audit": {
@@ -142,7 +154,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, the coding audit. Scan the bills for unbundling, that's billing one service as several separate charges, and for duplicate CPT codes, the codes providers use to bill each service. Either one makes the bill look inflated, or even fraudulent.",
     "Finally, review the client's medical history from the past 5 to 10 years to spot pre-existing conditions. We want to find them before the defense does, so they can't use them to surprise us."
    ],
-   "ask": "Has anyone seen the same charge billed twice on a file? How was it caught, and who caught it first?"
+   "ask": "Has anyone seen the same charge billed twice on a file? How was it caught, and who caught it first?",
+   "scenario": "Building a treatment chronology, you find a 21-day gap in March, a bill that charges separately for services usually billed together, and a note mentioning 'prior neck pain' from a 2019 visit. What do you do about each one before the demand goes out?"
   },
   "p2": {
    "why": "Nothing in the medical file should surprise us once the defense has it.",
@@ -151,7 +164,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, every gap in the chronology gets a documented reason. Not a guess, not a note in someone's head, but a reason written in the file.",
     "Finally, the trap here: letting the defense be the first to find a prior injury. If they find it first, it looks like we were hiding it."
    ],
-   "ask": "Your turn, on the John Doe file: what would you write in the chronology for John's 14-day gap? Say it the way it would actually appear in the timeline."
+   "ask": "Your turn, on the John Doe file: what would you write in the chronology for John's 14-day gap? Say it the way it would actually appear in the timeline.",
+   "scenario": "Two weeks after the demand is sent, the adjuster sends back records showing your client had a back injury four years ago, something your team never mentioned. How does that hurt the demand, and how should the audit have handled it?"
   }
  },
  "2::The “Defense-Eye” Audit (Red Flag Detection)": {
@@ -163,7 +177,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, the MIST designation. If property damage is under $1,000 to $2,000, classify the case as Minor Impact Soft Tissue, and give it stronger medical narratives to counter the \"low damage means no injury\" bias.",
     "Finally, the venue audit. Confirm where suit would be filed, and whether that jury pool is conservative or liberal, because that affects the pain-and-suffering multiplier, the factor used to value the pain side of the claim."
    ],
-   "ask": "Be honest: how often do you look at a client's public social media before a demand goes out?"
+   "ask": "Be honest: how often do you look at a client's public social media before a demand goes out?",
+   "scenario": "Your client claims she can no longer enjoy hiking. Her public Instagram shows her on a mountain trail last month. The property damage was $1,400, and the case would be filed in a county known for conservative juries. Read the file as the defense would. What are the value killers, and what do you do about each?"
   },
   "p2": {
    "why": "The defense will find the value killers either way; the only question is whether we find them first.",
@@ -172,7 +187,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, addressing value killers early keeps the demand realistic and compelling. We adjust the story or the number now, on our terms, not mid-negotiation on theirs.",
     "Finally, the pitfall to watch: ignoring the client's public social media. If it's public, assume the adjuster has already seen it."
    ],
-   "ask": "Your turn: a client posted gym photos last week. What now? Who do you talk to first, and does anything change in the demand?"
+   "ask": "Your turn: a client posted gym photos last week. What now? Who do you talk to first, and does anything change in the demand?",
+   "scenario": "The client says her social media is 'private anyway.' You check and find her profile is public, with photos from a beach vacation two weeks after the crash. How do you raise this with her and the attorney, and what do you tell her going forward?"
   }
  },
  "2::Pre-Demand: Final Package Readiness": {
@@ -184,7 +200,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, the exhibit index. Every bill, record and PD photo gets labeled, so anyone can find any document fast.",
     "Finally, the ask. That's a calculated demand range, based on the policy limits and the total specials, meaning the total of the special damages. Calculated, not guessed."
    ],
-   "ask": "When you hand a file to an attorney, what do they usually ask you for first? Which of these three pieces would have answered it?"
+   "ask": "When you hand a file to an attorney, what do they usually ask you for first? Which of these three pieces would have answered it?",
+   "scenario": "The attorney has ten minutes to review your demand package before a call. Build the one-page summary memo for a file with clear liability, $38,000 in specials, a $100,000 policy and one treatment gap. What goes at the top, and what's your suggested demand range?"
   },
   "p2": {
    "why": "Audit the policy limits one last time; a demand built on the wrong limit falls apart mid-negotiation.",
@@ -193,7 +210,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the pro tip: always audit the policy limits one last time. There's nothing worse than sending a $100,000 demand and realizing mid-negotiation that the defendant has a $25,000 step-down policy, one whose limit drops lower in certain situations.",
     "Finally, the pitfall to watch: an exhibit index that doesn't match the page numbers. The attorney goes looking for a record, lands on the wrong page, and their trust in the whole packet drops."
    ],
-   "ask": "Your turn: what goes in the one-page summary memo? Give me the headings you'd use, in order."
+   "ask": "Your turn: what goes in the one-page summary memo? Give me the headings you'd use, in order.",
+   "scenario": "During negotiation, the adjuster says the policy limit is $50,000, not the $100,000 your demand was based on. The dec page in your file turns out to be from the previous year. What should the final check have included, and how do you recover the negotiation?"
   }
  },
  "2::Skill Building: Pre-Demand Audit Challenges (John Doe File)": {
@@ -205,7 +223,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, challenge two: reframe the 14-day gap in the demand letter so it increases the value instead of losing it. The gap has a reason, and your job is to show that reason is part of what this crash did to John.",
     "Finally, run the full pre-demand audit on the John Doe file and record your findings in the CMS, our case management system. If it isn't in the CMS, the next person on the file never sees it."
    ],
-   "ask": "Before you open the file: what kind of detail on an intake sheet would prove a crash wasn't low-speed?"
+   "ask": "Before you open the file: what kind of detail on an intake sheet would prove a crash wasn't low-speed?",
+   "scenario": "The Aggressive Casualty adjuster says John Doe's injuries 'can't be serious' because of the 14-day gap before his first chiropractic visit. John's intake sheet shows he was taken from the scene by ambulance and his van was totaled. Use those facts to rebut the argument in two sentences."
   },
   "p2": {
    "why": "Facts win this argument; adjectives lose it.",
@@ -214,7 +233,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, use objective facts, like extrication, a total loss or EMS transport, not adjectives. \"A severe crash\" is an opinion; \"transported by EMS\" is a fact the adjuster can't wave away.",
     "Finally, the trap here: apologizing for the gap instead of explaining it with documentation. An apology tells the adjuster the gap hurts us; a documented explanation shows why it happened."
    ],
-   "ask": "Groups, share your findings. What did your group find that the others missed?"
+   "ask": "Groups, share your findings. What did your group find that the others missed?",
+   "scenario": "A draft of John Doe's demand says, 'We apologize for the delay in treatment, which was unfortunate.' Rewrite that sentence so it explains the 14-day gap with documented facts instead of apologizing for it."
   }
  },
  "2::Case Phase: Demand — The Legal & Procedural Foundation": {
@@ -226,7 +246,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, confirm the liability framework and the evidence: who is responsible, and how we prove it. Without that, there's nothing to demand.",
     "Finally, confirm coverage and limits: which insurance policies apply, and how much each one can pay. That tells us what's realistically on the table."
    ],
-   "ask": "Quick check: of these three, which would you confirm first on a brand-new file, and why that one?"
+   "ask": "Quick check: of these three, which would you confirm first on a brand-new file, and why that one?",
+   "scenario": "You're about to start a demand on a file where the crash was 20 months ago in a two-year SOL state. The police report cites the other driver, and there's one $30,000 policy. What do you confirm first, and what date goes on the calendar today?"
   },
   "p2": {
    "why": "A demand is only as strong as the value-drivers it leads with.",
@@ -235,7 +256,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, know which value-drivers your demand leads with. The strongest facts should be the first thing the adjuster sees, not buried in the middle of the packet.",
     "Finally, the pitfall to watch: sending paperwork without understanding why each piece is there. That's how a key document gets left out, or a weak one ends up front and center."
    ],
-   "ask": "Your turn: what is a value-driver in the John Doe file? Name one, and tell me why it pushes the value up."
+   "ask": "Your turn: what is a value-driver in the John Doe file? Name one, and tell me why it pushes the value up.",
+   "scenario": "A draft demand opens with three paragraphs about the crash location and weather, and doesn't mention until page four that the other driver was drunk. How would you reorder it so the strongest value-drivers come first?"
   }
  },
  "2::Demand: The Policy Limit Mindset": {
@@ -246,7 +268,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, Maximum Medical Improvement, MMI. That's when the client has completed treatment, or has a clear future care plan. Make sure we're there before the demand, or we're asking for money before we know the full cost of the injury.",
     "Finally, the gap check. Identify and explain any gaps in treatment before the adjuster uses them to devalue the case. If we explain it first, it's our story; if they find it first, it's theirs."
    ],
-   "ask": "What's the difference between reactive and proactive on a demand? Give me one thing a proactive case manager does before the adjuster ever asks."
+   "ask": "What's the difference between reactive and proactive on a demand? Give me one thing a proactive case manager does before the adjuster ever asks.",
+   "scenario": "Your client finished physical therapy last month, but her surgeon still hasn't said whether she'll need surgery later. There's also an unexplained three-week gap in March. The attorney wants to send the demand this week. What do you recommend, and why?"
   },
   "p2": {
    "why": "An adjuster doesn't fear a stack of records; they fear a case that's clearly presented.",
@@ -255,7 +278,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, present, don't just compile. A packet of records makes the adjuster do the work; a presentation shows them what a jury would see.",
     "Finally, the trap here: demanding before MMI or a future care plan exists. We'd be putting a number on the injury before anyone knows what it will really cost the client."
    ],
-   "ask": "Your turn: what would make an adjuster afraid of a jury on the John Doe file? Give me one fact, and how you'd put it in front of them."
+   "ask": "Your turn: what would make an adjuster afraid of a jury on the John Doe file? Give me one fact, and how you'd put it in front of them.",
+   "scenario": "The adjuster tells you, 'You sent me 400 pages and I still don't know why this case is worth the limit.' What should the demand have done differently, and how would you present the key facts now?"
   }
  },
  "2::Treatment Gaps in the Demand Phase": {
@@ -268,7 +292,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, get supporting documents whenever they're available. A reason backed by paper is much harder to argue with than a reason on its own.",
     "Finally, put the explanations right into the demand package timeline. The adjuster should read the reason at the exact moment they see the gap."
    ],
-   "ask": "What reasons for treatment gaps have you seen on your own files? And how many of them were actually documented?"
+   "ask": "What reasons for treatment gaps have you seen on your own files? And how many of them were actually documented?",
+   "scenario": "Reviewing records for a demand, you find a five-week gap in treatment in the middle of the client's care. When you call her, she explains her daughter was in the hospital during that time. What do you ask for, and how will it appear in the demand timeline?"
   },
   "p2": {
    "why": "A well-explained gap is less damaging than an unexplained one.",
@@ -278,7 +303,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, remember the rule of thumb: a well-explained treatment gap is less damaging than an unexplained one. The gap is there either way; the explanation is the part we control.",
     "Finally, the pitfall to watch: leaving the gap out of the timeline and hoping it's missed. The adjuster will see it anyway, and a gap we left out looks far worse than a gap we explained."
    ],
-   "ask": "Your turn: write the demand-timeline entry for a 14-day gap caused by trauma-induced withdrawal. Keep it short, then read it out to the room."
+   "ask": "Your turn: write the demand-timeline entry for a 14-day gap caused by trauma-induced withdrawal. Keep it short, then read it out to the room.",
+   "scenario": "A colleague leaves a four-week treatment gap out of the demand timeline, hoping the adjuster won't notice. The adjuster notices and reduces the offer by $15,000, saying the injury must have healed. How should the gap have been handled instead?"
   }
  },
  "2::The Demand Packet Checklist: The “Big Four”": {
@@ -291,7 +317,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, the liability proof: the police report, the photos, the witness statements and any dashcam or scene evidence. This is how we show who caused it.",
     "Finally, the special damages: lost wages, backed by the employer letter and the disability slip, plus property damage and out-of-pocket costs. These are hard numbers, so each one needs its proof attached."
    ],
-   "ask": "Quick check: which of the Big Four needs the employer letter and the disability slip? And which one has to stay consistent with the records?"
+   "ask": "Quick check: which of the Big Four needs the employer letter and the disability slip? And which one has to stay consistent with the records?",
+   "scenario": "Your demand packet has an itemized medical ledger and the police report, but no employer letter for lost wages, and the narrative is two sentences long. Walk through the Big Four. What's missing, and what would you ask for or write?"
   },
   "p2": {
    "why": "Precision now prevents setbacks later in the case.",
@@ -300,7 +327,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, precision here prevents setbacks in case progression. A clean packet moves from our desk to the attorney to the adjuster without bouncing back.",
     "Finally, the pitfall to watch: sending the attorney a demand with an unverified ledger. If the balances haven't been verified, the demand amount may be wrong, and it's the attorney's name that goes on it."
    ],
-   "ask": "Your turn, on the John Doe demand draft: which of the Big Four is weakest? Tell me what's missing and what you'd do to fix it."
+   "ask": "Your turn, on the John Doe demand draft: which of the Big Four is weakest? Tell me what's missing and what you'd do to fix it.",
+   "scenario": "The attorney reviews your demand and finds the ledger total doesn't match the bills: two providers are counted twice. The demand was supposed to go out today. What do you do now, and what check would have caught it earlier?"
   }
  },
  "2::Demand: Quality Control — The “Final Scrub”": {
@@ -312,7 +340,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, pre-existing conditions. Don't try to hide a previous injury; highlight how the accident aggravated it. Hiding it only hands the defense a bigger argument later.",
     "Finally, balance verification. Call every provider and get the final balance, so the demand amount is 100% accurate. A balance sitting in the file isn't the same as a balance confirmed today."
    ],
-   "ask": "Who here has had to call a provider for a final balance? What was the hardest part of getting a straight answer?"
+   "ask": "Who here has had to call a provider for a final balance? What was the hardest part of getting a straight answer?",
+   "scenario": "In the final scrub, you notice two providers billed for the same MRI on the same day. The client also has a 2017 shoulder injury, and the ledger balances are from four months ago. What do you do about each before the demand goes out?"
   },
   "p2": {
    "why": "Diligence in the final scrub is what gets us a strong demand and favorable negotiations.",
@@ -321,7 +350,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, diligence here leads to a strong demand package and favorable negotiations. Every error we catch now is one the adjuster can't use.",
     "Finally, the pitfall to watch: using stale balances from months ago. Balances change as bills get paid or adjusted, so an old number can make the whole demand wrong."
    ],
-   "ask": "Your turn: the client had a prior injury in 2018. How do you present it in the demand so it works for us, not for the defense?"
+   "ask": "Your turn: the client had a prior injury in 2018. How do you present it in the demand so it works for us, not for the defense?",
+   "scenario": "The demand used a balance of $4,200 for the chiropractor, but when the settlement comes through, the real balance is $6,900 because of new charges. Who pays the difference, and how would a final scrub have prevented it?"
   }
  },
  "2::Negotiating the “First Call” (For Senior CMs)": {
@@ -332,7 +362,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the anchor technique. The anchor is our demand number, the reference point the whole negotiation moves around. Never apologize for a high demand; stay firm on the value drivers that justify it.",
     "Finally, note-taking. Document every excuse the adjuster gives, like \"low impact\" or \"delayed treatment.\" That's the ammunition the attorney needs for litigation."
    ],
-   "ask": "Senior CMs in the room: how do you open a first call? Everyone else: what would make you most nervous about that call?"
+   "ask": "Senior CMs in the room: how do you open a first call? Everyone else: what would make you most nervous about that call?",
+   "scenario": "On the first call, the adjuster says, 'This is a low-impact crash, and your client waited a week to see a doctor.' Your demand is $85,000. How do you hold your anchor, and what exactly do you write in the CMS after the call?"
   },
   "p2": {
    "why": "The first call sets the tone, so don't give ground just to sound reasonable.",
@@ -341,7 +372,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, write the adjuster's exact words into the CMS right after the call. Their exact words, not your summary, because that's what the attorney can use later.",
     "Finally, the trap here: softening the demand to seem reasonable. The moment we apologize for the number, we've told the adjuster it's negotiable before they've even pushed."
    ],
-   "ask": "Your turn: practice an anchor statement for a $150,000 demand. Say it out loud, no apologies, and lead with the value drivers."
+   "ask": "Your turn: practice an anchor statement for a $150,000 demand. Say it out loud, no apologies, and lead with the value drivers.",
+   "scenario": "On a first call, a newer Case Manager says, 'I know our number is a bit high, sorry about that.' The adjuster immediately offers half. What went wrong, and what should she have said instead?"
   }
  },
  "2::Demand: Best Practices": {
@@ -353,7 +385,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, photo impact. Always lead the demand with the most graphic photo, of the property damage or the injury, to set the tone. The first thing the adjuster sees frames everything they read after it.",
     "Finally, the why factor. Every medical bill in the demand needs a matching why: why was this treatment necessary for the client's recovery? A bill without a reason is just a number the adjuster can cut."
    ],
-   "ask": "Think about how you talk to adjusters today. Does it sound more like asking for a favor, or collecting a debt?"
+   "ask": "Think about how you talk to adjusters today. Does it sound more like asking for a favor, or collecting a debt?",
+   "scenario": "Your client reached MMI on the 3rd of the month. It's now the 28th and the demand hasn't been started. The best photo in the file shows a crushed door, but the draft demand opens with the medical bills. What do you change, and what deadline are you up against?"
   },
   "p2": {
    "why": "The 30-day clock starts the moment MMI is confirmed, so the date goes on the calendar right then.",
@@ -362,7 +395,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, docket the MMI date plus 30 days the moment MMI is confirmed. If the deadline isn't on the calendar, it depends on somebody remembering it.",
     "Finally, the pitfall to watch: bills in the demand with no medical-necessity explanation, meaning nothing says why the treatment was needed. Without it, the adjuster can argue the treatment wasn't needed at all."
    ],
-   "ask": "Your turn, on the John Doe file: which photo would you lead the demand with, and what tone do you want it to set?"
+   "ask": "Your turn, on the John Doe file: which photo would you lead the demand with, and what tone do you want it to set?",
+   "scenario": "The adjuster rejects $6,000 in massage therapy bills because nothing in the demand explains why massage was needed. What should the demand have included, and where would you find that explanation now?"
   }
  },
  "2::Skill Building: Demand Phase Challenge — Real-Time Demand Audit": {
@@ -374,7 +408,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, list every deficiency you find, big or small. A written list means nothing gets lost between finding it and fixing it.",
     "Finally, if you find deficiencies, assign tasks in the CMS to fix the documentation and finalize the demand. The task in the CMS is what makes sure the fix actually happens, and shows who owns it."
    ],
-   "ask": "Before you start, a quick check: what are the Big Four, and what are the three checks in the final scrub? Let's hear them from the room."
+   "ask": "Before you start, a quick check: what are the Big Four, and what are the three checks in the final scrub? Let's hear them from the room.",
+   "scenario": "You have 20 minutes to audit a draft demand. You find a missing employer letter, one unexplained two-week gap, balances that are three months old and a narrative that never mentions the client's lost promotion. List the deficiencies in priority order, and who you'd assign each one to."
   },
   "p2": {
    "why": "A thorough audit makes the demand stronger and gets the client to a favorable settlement faster.",
@@ -383,7 +418,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, a thorough audit strengthens the demand and speeds up a favorable settlement. Every loophole we close now is one less reason for the adjuster to dispute or delay.",
     "Finally, the pitfall to watch: fixing issues yourself without assigning and tracking them. It feels faster, but nobody else can see what was fixed, and the file has no record of it."
    ],
-   "ask": "Your turn: what was the single biggest loophole in the draft? Tell us what it was, and what task you assigned to close it."
+   "ask": "Your turn: what was the single biggest loophole in the draft? Tell us what it was, and what task you assigned to close it.",
+   "scenario": "Instead of assigning the fixes in the CMS, a colleague quietly corrects everything herself over the weekend. On Monday, the attorney can't tell what changed or why the demand is late. What should she have done differently?"
   }
  },
  "2::Settlement Negotiations: The Pitch & the Negotiation Battle Map": {
@@ -396,7 +432,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, anticipate the adjuster's response. Identify your top two weaknesses and be ready to justify them, ideally with documentation.",
     "Finally, prepare the rebuttal. Have the argument ready before they bring it up, so you're answering, not scrambling."
    ],
-   "ask": "Quick check: what sets the floor on a net sheet, and what happens to the client if we settle below it?"
+   "ask": "Quick check: what sets the floor on a net sheet, and what happens to the client if we settle below it?",
+   "scenario": "Your client's liens and costs total $28,000, and the attorney's fee is a third. The adjuster's first offer is $45,000. Build the net sheet: what does the client take home at that number? What are your three value drivers, and what's the biggest weakness you expect to hear?"
   },
   "p2": {
    "why": "A generic letter gets treated like a template, and it gets undervalued.",
@@ -405,7 +442,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, personalization is key, because a generic letter is undervalued. The value drivers are this client's facts, so the demand should read like it's about this client and nobody else.",
     "Finally, the trap here: negotiating without knowing the client's net floor. You could agree to a number that sounds good and leaves the client with nothing."
    ],
-   "ask": "Your turn: name three value drivers in John Doe's file. Which one would you lead with, and why?"
+   "ask": "Your turn: name three value drivers in John Doe's file. Which one would you lead with, and why?",
+   "scenario": "A demand letter reads like a template: 'our client suffered injuries and damages.' It never mentions that she's a single mom who couldn't lift her toddler for three months. How would you personalize it, and why does that change the adjuster's valuation?"
   }
  },
  "2::The Valuation Baseline: PIP Set-Off (The Credit)": {
@@ -416,7 +454,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the logic. The law generally prevents double recovery, meaning getting paid twice for the same loss. If PIP already paid the hospital $10,000, the defendant shouldn't have to pay that same $10,000 again.",
     "Finally, the calculation: gross settlement value, minus the PIP paid amount, equals the defendant's remaining liability. That remaining liability is what the BI claim is really about."
    ],
-   "ask": "Quick check: in your own words, why does the defendant's carrier get credit for what PIP already paid?"
+   "ask": "Quick check: in your own words, why does the defendant's carrier get credit for what PIP already paid?",
+   "scenario": "Your client's total damages are $60,000, and her PIP carrier has already paid $10,000 of her medical bills. The BI adjuster offers $50,000 and says it's 'full value.' Walk through the set-off math. Is the adjuster right, and what's the client's real position?"
   },
   "p2": {
    "why": "Know the PIP paid amount before you do any BI math, or the ask is wrong from the start.",
@@ -425,7 +464,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, always know the PIP paid amount before you calculate the BI ask. Every number after it depends on it, so get it first.",
     "Finally, the pitfall to watch: counting PIP-paid bills as unpaid in the BI demand. The carrier is entitled to the credit anyway, so all we do is make our demand look inflated."
    ],
-   "ask": "Your turn: the gross value is $60,000, and PIP paid $10,000. What's the defendant's remaining liability? Walk me through the calculation."
+   "ask": "Your turn: the gross value is $60,000, and PIP paid $10,000. What's the defendant's remaining liability? Walk me through the calculation.",
+   "scenario": "A demand lists $22,000 in unpaid medical bills, but $10,000 of them were already paid by PIP. The adjuster catches it and questions every other number in the demand. How do you correct it, and what check should come before any BI math?"
   }
  },
  "2::The Valuation Baseline: PIP as a Severity Signal": {
@@ -436,7 +476,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, speed of exhaustion. Exhausting PIP means the coverage is completely used up. If a client exhausts a $10,000 PIP limit in 48 hours, like John Doe did with his ER and EMS bills, that signals a high-severity case.",
     "Finally, special damages. The total medical bills, the specials, are usually much higher than what PIP pays. So we argue that although PIP covered $10,000, the total value of the bills, $41,400 in John's case, is the true anchor for pain-and-suffering multipliers."
    ],
-   "ask": "Why would an adjuster read a fast PIP exhaustion as a sign of severity? What does it tell them about the first 48 hours after the crash?"
+   "ask": "Why would an adjuster read a fast PIP exhaustion as a sign of severity? What does it tell them about the first 48 hours after the crash?",
+   "scenario": "Your client used up her full $10,000 PIP benefit within 19 days, mostly on the ER and an MRI. Her total medical bills are now $48,000. How would you use those two facts in the demand to show how serious her injuries are?"
   },
   "p2": {
    "why": "Lead with severity, and anchor on the total specials, never on the PIP amount.",
@@ -445,7 +486,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, lead with speed of exhaustion as evidence of severity. It's a fact, not an opinion, and it points to a serious case from the very start.",
     "Finally, the trap here: anchoring on the PIP amount instead of the total specials. If we anchor on $10,000, we've told the adjuster the case is smaller than it really is."
    ],
-   "ask": "Your turn: how would you phrase John's 48-hour PIP exhaustion in the demand? Give me the sentence you'd actually write."
+   "ask": "Your turn: how would you phrase John's 48-hour PIP exhaustion in the demand? Give me the sentence you'd actually write.",
+   "scenario": "In negotiation, the adjuster keeps saying, 'Your client's PIP was only $10,000, so this is a $10,000 case.' How do you move the conversation from the PIP amount to the total specials?"
   }
  },
  "2::The Valuation Baseline: The EMC and the Benefit Ceiling": {
@@ -457,7 +499,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, if there is an EMC, the full PIP benefit is available. Check the PIP ledger, that's the running record of what PIP has paid, and make sure it reflects the full benefit.",
     "Finally, if there's no EMC, flag it. More bills will fall to the BI settlement, so start planning the lien reductions now, not at the end of the case when the client's net is already shrinking."
    ],
-   "ask": "Quick check: in John Doe's file, where would you look to confirm the EMC, and whose name would you expect to see on it?"
+   "ask": "Quick check: in John Doe's file, where would you look to confirm the EMC, and whose name would you expect to see on it?",
+   "scenario": "Your Florida client has been treated for six weeks, but no doctor has documented an Emergency Medical Condition. The PIP ledger shows $2,300 already paid. What happens when she hits $2,500, and what do you do this week?"
   },
   "p2": {
    "why": "Asking for the EMC early protects the client's net; assuming it is how that money quietly disappears.",
@@ -466,7 +509,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, request the EMC determination early in treatment. The sooner it's documented, the sooner we know which pot of money is paying the bills.",
     "Finally, the pitfall to watch: assuming the full PIP limit without an EMC. If it was never documented, the client may only get the capped amount, and everything above it lands on the BI settlement."
    ],
-   "ask": "Your turn: why does an EMC protect the client's net? Use the two sides of the comparison, with and without, to explain it in your own words."
+   "ask": "Your turn: why does an EMC protect the client's net? Use the two sides of the comparison, with and without, to explain it in your own words.",
+   "scenario": "A colleague builds a settlement projection assuming the full $10,000 of PIP. At closing, you discover no EMC was ever documented, so PIP stopped paying at $2,500. What does that do to the client's net, and when should the EMC have been requested?"
   }
  },
  "2::The Valuation Baseline: Subrogation vs. Non-Subrogation": {
@@ -478,7 +522,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, if it's subrogation, log the lien right away and plan the reduction negotiation with the PIP adjuster. A lien we know about early is a lien we can work on.",
     "Finally, if it's non-subrogation, document in the file that no PIP reimbursement is owed. That note stops the next person from guessing, and protects the client's money."
    ],
-   "ask": "Quick check: which one is the win for the client, subrogation or non-subrogation? And what does the CM have to do in the other one?"
+   "ask": "Quick check: which one is the win for the client, subrogation or non-subrogation? And what does the CM have to do in the other one?",
+   "scenario": "Your client's PIP carrier paid $8,000. You don't know yet whether her state and policy allow the carrier to be paid back from the settlement. What do you find out, how do you confirm it, and what goes in the file for each possible answer?"
   },
   "p2": {
    "why": "A PIP lien you find before settlement is a negotiation; a PIP lien you find after disbursement is a crisis.",
@@ -487,7 +532,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, confirm the subrogation status in writing from the PIP carrier. A phone answer isn't proof, and we'll need that written record if anyone ever questions the numbers.",
     "Finally, the pitfall to watch: finding a PIP lien after disbursement, that's after the settlement money has been paid out. By then the client has their check, and fixing it is far harder than negotiating it up front."
    ],
-   "ask": "Your turn: how does a PIP lien change the net sheet? Walk me through what moves when the carrier has a lien on the settlement."
+   "ask": "Your turn: how does a PIP lien change the net sheet? Walk me through what moves when the carrier has a lien on the settlement.",
+   "scenario": "Two weeks after disbursement, the PIP carrier sends a reimbursement demand for $8,000. The file only has a note saying 'called PIP, no subro.' What went wrong, and what do you do now?"
   }
  },
  "2::The Valuation Baseline: Strategic PIP “Exhaustion”": {
@@ -499,7 +545,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, the leverage. LOP providers are often more willing to reduce their bills at the end of a case than a hospital is. That's room to negotiate that a hospital bill just doesn't give us.",
     "Finally, by spending the PIP money on the non-negotiable hospital bills, we preserve the BI settlement funds for the client. Same money, used in the right order, leaves the client with more."
    ],
-   "ask": "Quick check: why is a hospital ER bill a better use of PIP than a chiropractor's bill? Who can answer that in one sentence?"
+   "ask": "Quick check: why is a hospital ER bill a better use of PIP than a chiropractor's bill? Who can answer that in one sentence?",
+   "scenario": "Your client has $10,000 in PIP. Her hospital bill is $7,500 and won't be reduced, and her chiropractor has already agreed to treat on a Letter of Protection. Which bills should PIP pay first, and why does that choice matter at settlement?"
   },
   "p2": {
    "why": "Know exactly what PIP has already paid before you say a single number to an adjuster.",
@@ -508,7 +555,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, always verify the PIP ledger before starting BI negotiations. If you tell an adjuster the specials, that's the medical bills, are $40k, and forget PIP already paid $10k of that, your credibility and your demand get cut down instantly.",
     "Finally, the pitfall to watch: using PIP on negotiable treatment while the hospital bills stay unpaid. That burns the benefit on bills we could have reduced, and leaves us stuck with the ones we can't."
    ],
-   "ask": "Your turn: open John's file. Which of his bills should PIP have covered first, and why those?"
+   "ask": "Your turn: open John's file. Which of his bills should PIP have covered first, and why those?",
+   "scenario": "PIP is exhausted, and the $9,000 hospital bill is still unpaid because PIP went to chiropractic visits instead. The hospital won't reduce its bill. What's the effect on the client's net, and what would you do differently next time?"
   }
  },
  "2::Negotiations Initiated: The “Battle” — First Call to Low-Ball": {
@@ -521,7 +569,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, the ask. If they haven't made an offer, ask for one: \"Based on the clear liability and the $40k in specials, what is your opening evaluation?\" Let them put the first number on the table.",
     "Finally, the response to the low-ball. Never get angry. Use the Professional Pause: count to five, then say, \"I'm struggling to see how that number accounts for the permanent nature of the injury. What data are you using to get there?\""
    ],
-   "ask": "Has anyone been low-balled, in any setting, maybe selling a car? What was your first instinct, and how would a five-second pause have changed it?"
+   "ask": "Has anyone been low-balled, in any setting, maybe selling a car? What was your first instinct, and how would a five-second pause have changed it?",
+   "scenario": "It's day 32 after you sent a $90,000 demand. You call the adjuster, who confirms receipt but hasn't made an offer. Walk through your four moves on the call. What do you say if she then offers $12,000?"
   },
   "p2": {
    "why": "Whoever stays calm and asks for the data controls the call.",
@@ -530,7 +579,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, make them justify their number with data. If their evaluation can't account for the MRI or the permanent injury, that gap becomes our argument.",
     "Finally, the pitfall to watch: reacting emotionally to a low offer. The moment we get angry, the conversation is about us, not about the injury, and their number doesn't move."
    ],
-   "ask": "Your turn: pair up. One of you is the adjuster with a low number, the other practices the Professional Pause. Count to five in silence, then deliver the line. Then switch."
+   "ask": "Your turn: pair up. One of you is the adjuster with a low number, the other practices the Professional Pause. Count to five in silence, then deliver the line. Then switch.",
+   "scenario": "The adjuster offers $9,000 on a case with $30,000 in medical bills and says, 'That's what our system valued it at.' How do you respond calmly, and what data do you ask her to justify?"
   }
  },
  "2::Settlement Negotiations: The Bracketing Technique": {
@@ -542,7 +592,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, check authority. If they say, \"I don't have that much,\" ask, \"Who does?\" If we can't get into the $50s, we're wasting each other's time and should just file the complaint.",
     "Finally, close the bracket. Once we're both inside the $50k to $80k range, we negotiate the middle, for example $65k."
    ],
-   "ask": "Quick check: in that example, how far did each side move to get into the bracket? What does that tell the adjuster about us?"
+   "ask": "Quick check: in that example, how far did each side move to get into the bracket? What does that tell the adjuster about us?",
+   "scenario": "You're at $120,000 and the adjuster is at $50,000. She says, 'I can't go anywhere near your number.' Propose a bracket. What range do you suggest, and what do you do if she says she doesn't have the authority?"
   },
   "p2": {
    "why": "A bracket only works if the person across the table can say yes, and every move we make gets matched.",
@@ -551,7 +602,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, make sure the decision-makers with authority are involved. If the adjuster can't approve the number, the bracket is just a wish.",
     "Finally, the pitfall to watch: moving our bracket without a reciprocal move, that's a matching move from their side. Every step we give away for free teaches them to wait us out."
    ],
-   "ask": "Your turn: our demand is $120k and their offer is $35k. Build the bracket. How far apart are we, what ranges do you propose, and where's the middle?"
+   "ask": "Your turn: our demand is $120k and their offer is $35k. Build the bracket. How far apart are we, what ranges do you propose, and where's the middle?",
+   "scenario": "You moved your bracket down from $100,000 to $90,000, and the adjuster says, 'Thanks, I'll get back to you,' without moving her number. What's the problem, and what do you say next time before you move?"
   }
  },
  "2::Common Adjuster “Stall Tactics” and Rebuttals": {
@@ -564,7 +616,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, answer with facts, not emotion. On low property damage: physics doesn't work that way. Low-velocity impacts often cause high-torque injuries to the spine, and we have the MRI to prove it.",
     "Finally, insist on an in-good-faith offer on the undisputed injuries. Records from five years ago aren't relevant to this acute injury, so if they want them, fine, but the offer on the current injuries comes today."
    ],
-   "ask": "Which of these three stalls do you think would be hardest to answer on the spot, and why?"
+   "ask": "Which of these three stalls do you think would be hardest to answer on the spot, and why?",
+   "scenario": "An adjuster has said 'I'm waiting on authority from my supervisor' three weeks in a row. She also claims the low property damage means the injuries must be minor. Name each stall, and give your response with a firm deadline."
   },
   "p2": {
    "why": "A stall with no deadline attached can drag on forever, and our client waits the whole time.",
@@ -573,7 +626,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, stay firm, focused on the facts, and professional. The stall is designed to wear us down; calm facts give it nothing to push against.",
     "Finally, the trap here: accepting an open-ended \"I'll get back to you.\" Without a specific day and time, there's no reason for them to ever call back. Set the deadline before you hang up."
    ],
-   "ask": "Your turn: which stall have you heard most, in this job or any other, and how did you respond? What would you say now?"
+   "ask": "Your turn: which stall have you heard most, in this job or any other, and how did you respond? What would you say now?",
+   "scenario": "It's been six weeks of 'I'll get back to you' from an adjuster, and your client calls every few days asking what's going on. What do you send the adjuster today, and what do you tell the client?"
   }
  },
  "2::Close the Deal: The “Final-Final” and the Paper Trail": {
@@ -585,7 +639,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, confirm the terms before hanging up. Is it Bodily Injury only, so Property Damage is saved for later if it isn't settled? Does it include all liens? When will the check be mailed?",
     "Finally, the paper trail. Immediately email the adjuster: \"Per our conversation, we have settled the John Doe matter for $45,000. Please send the release.\" A verbal deal is only as good as the email that confirms it."
    ],
-   "ask": "Quick check: what are the three questions you ask before you hang up on a settlement call?"
+   "ask": "Quick check: what are the three questions you ask before you hang up on a settlement call?",
+   "scenario": "You're at $62,000 and the adjuster is at $54,000. She says she might be able to 'meet in the middle.' Before you hang up, what must you confirm about the agreement, and what email do you send in the next ten minutes?"
   },
   "p2": {
    "why": "A settlement isn't real until the terms are confirmed and the email is sent.",
@@ -594,7 +649,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, never end the call without confirming the scope, the liens and the check timing. Those three answers decide what the client actually walks away with.",
     "Finally, the pitfall to watch: a verbal settlement with no confirming email. If the adjuster later remembers a different number or a different scope, we have nothing to point to."
    ],
-   "ask": "Your turn: draft the confirming email for a $45,000 BI-only settlement on the John Doe file. What has to be in it, and why does \"BI-only\" matter?"
+   "ask": "Your turn: draft the confirming email for a $45,000 BI-only settlement on the John Doe file. What has to be in it, and why does \"BI-only\" matter?",
+   "scenario": "You agreed to $45,000 on a call last week but didn't send a confirming email. Now the adjuster's release says $40,000 and includes the property damage claim. What can you do, and what would have prevented it?"
   }
  },
  "2::Settlement Negotiations: The “Never” Rule": {
@@ -606,7 +662,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, never bid against yourself. If we drop our price, the adjuster has to raise theirs before we move again. Otherwise we're just negotiating with ourselves.",
     "Finally, never accept \"That's all I have\" as the final answer on the first day. Every adjuster has a supervisor with a bigger checkbook."
    ],
-   "ask": "Which of the three nevers do you think will be hardest for you personally, and why?"
+   "ask": "Which of the three nevers do you think will be hardest for you personally, and why?",
+   "scenario": "On day one, the adjuster says, 'That's all I have,' at $30,000. Your demand was $75,000. A newer Case Manager wants to drop to $55,000 right away to 'keep things moving.' Which of the three rules is she about to break, and what should she say instead?"
   },
   "p2": {
    "why": "Patience is a negotiating tool; the side that rushes usually pays for it.",
@@ -615,7 +672,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, be patient on day one. It usually gets better results, because the adjuster's first answer is rarely their last.",
     "Finally, the pitfall to watch: making two moves in a row. If we lower our number and then lower it again before they've moved, we've just bid against ourselves."
    ],
-   "ask": "Your turn: what does bidding against yourself actually sound like on a call? Give me the exact words someone might say without even noticing."
+   "ask": "Your turn: what does bidding against yourself actually sound like on a call? Give me the exact words someone might say without even noticing.",
+   "scenario": "You lowered your number from $80,000 to $70,000. The adjuster didn't move, so you lowered it again to $65,000. What message have you sent, and how do you recover your position on the next call?"
   }
  },
  "2::Skill Building: The Math Check — Your Slam-Dunk Liability Case": {
@@ -627,7 +685,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, Task 2, break the adjuster. If the offer fails your audit, you can't accept it, so you keep negotiating. A take-it-or-leave-it label doesn't change the math.",
     "Finally, the adjuster claims a strict $75,000 ceiling. Use the Eggshell Plaintiff Doctrine, the idea that the defendant takes the victim as they find them, and the Trauma-Induced Dissociative Withdrawal argument to push them toward our true target of $180,000 to $220,000."
    ],
-   "ask": "Before anyone calculates: gut reaction to $45,000? Thumbs up if you'd take it, thumbs down if you wouldn't. Now let's see if the math agrees with you."
+   "ask": "Before anyone calculates: gut reaction to $45,000? Thumbs up if you'd take it, thumbs down if you wouldn't. Now let's see if the math agrees with you.",
+   "scenario": "Liability is clear in John Doe's case, and Aggressive Casualty offers $40,000. His medical liens total $26,000, costs are $1,800 and the fee is a third. Run the net math. What does John take home, and can you recommend accepting that offer?"
   },
   "p2": {
    "why": "We never accept or reject a number until we know what the client actually takes home.",
@@ -636,7 +695,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, calculate the total fees and liens, and the client's net recovery, before you say a word to the adjuster. The math tells you whether you're negotiating or just talking.",
     "Finally, the pitfall to watch: accepting a gross number that nets the client below zero. A settlement that leaves the client with nothing, or owing money, isn't a win for anyone."
    ],
-   "ask": "Your turn: calculate the total fees and liens if we accept this $45,000 offer, and the client's final net recovery. When I count down to one, everyone hits enter at the same time. 3, 2, 1, go!"
+   "ask": "Your turn: calculate the total fees and liens if we accept this $45,000 offer, and the client's final net recovery. When I count down to one, everyone hits enter at the same time. 3, 2, 1, go!",
+   "scenario": "An adjuster offers $30,000, and the client, eager to be done, says, 'Just take it.' When you run the numbers, the fee and liens total $33,000. What do you tell the client, and what's your next move with the adjuster?"
   }
  },
  "2::BI Settlement — Phase II: The UM/UIM “Safety Check”": {
@@ -647,7 +707,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, send the 30-Day Letter. That's a formal notice to the UM carrier telling them about the offer. It puts the client's own insurer on notice before anything gets signed.",
     "Finally, secure a written Waiver of Subrogation from the UM carrier. It proves they've given up their right to sue the driver, which lets us settle the liability claim and still go ahead with the UM claim."
    ],
-   "ask": "Quick check: in your own words, why would the client's own insurer care whether we settle with the at-fault driver?"
+   "ask": "Quick check: in your own words, why would the client's own insurer care whether we settle with the at-fault driver?",
+   "scenario": "The at-fault driver's carrier is offering its full $25,000 policy limit, but your client's damages are over $90,000 and she has $100,000 of UM/UIM coverage. What must you send to her UM carrier before she signs anything, and what do you need back from them?"
   },
   "p2": {
    "why": "One signature in the wrong order can wipe out the client's UM claim.",
@@ -656,7 +717,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, never sign the BI release before the UM waiver is in hand. Not promised, not on its way: in hand.",
     "Finally, the pitfall to watch: settling BI and then discovering the UM claim is barred. At that point the client's own coverage may be gone, and a signed release can't be taken back."
    ],
-   "ask": "Your turn: who must receive the 30-Day Letter, and what goes in it?"
+   "ask": "Your turn: who must receive the 30-Day Letter, and what goes in it?",
+   "scenario": "A colleague sent the BI release for signature before the UM carrier's written waiver arrived. The UM carrier now says its subrogation rights were harmed and denies the claim. How could this have been avoided, and what's the risk to the client now?"
   }
  },
  "2::BI Settlement: Key Laws & Doctrines": {
@@ -668,7 +730,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, the Common Fund Doctrine. Lienholders reduce their bill by the attorney's fee percentage, usually 33.3%. The logic: they shouldn't get a free ride on the work the firm did to recover the money.",
     "Finally, the Statute of Limitations, the SOL. It's the death date for a case. We track it religiously, because missing it is an automatic malpractice event."
    ],
-   "ask": "Quick check: a lienholder wants full payment from a small settlement on a badly injured client. Which doctrine do you reach for first?"
+   "ask": "Quick check: a lienholder wants full payment from a small settlement on a badly injured client. Which doctrine do you reach for first?",
+   "scenario": "Your client's health plan paid $20,000 and wants full reimbursement from a $50,000 settlement. The client's total damages are $150,000. Which doctrines could you use to reduce the lien, and how would you word the request?"
   },
   "p2": {
    "why": "Doctrines only work when we use them by name, and the SOL keeps running while we negotiate.",
@@ -677,7 +740,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, cite the doctrine by name in every lien reduction request. Naming the Made Whole or Common Fund Doctrine shows the lienholder the request has a legal basis; it isn't just a favor.",
     "Finally, the pitfall to watch: letting settlement talks run past the SOL without a filed complaint. The adjuster can keep talking as long as they like, but the deadline won't wait."
    ],
-   "ask": "Your turn: apply the Common Fund Doctrine to a $9,000 lien at the usual 33.3% fee. How much comes off, and what does the lienholder end up accepting?"
+   "ask": "Your turn: apply the Common Fund Doctrine to a $9,000 lien at the usual 33.3% fee. How much comes off, and what does the lienholder end up accepting?",
+   "scenario": "Settlement talks have been dragging for months, and the SOL is five weeks away. The adjuster promises an offer 'soon.' What do you do this week to protect the client, and who do you tell?"
   }
  },
  "2::The Execution: The Release of All Claims (The “Exit” Document)": {
@@ -689,7 +753,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, non-admission of liability. Standard releases say the insurer is paying to avoid further litigation, not because they admit their driver was at fault. That's normal, and a client may need us to explain it.",
     "Finally, the indemnity and hold harmless clause. The claimant, and the CM and attorney, are responsible for paying all the medical liens. If a hospital later sues the insurer over an unpaid bill, the claimant has to indemnify, that means pay back, the insurer."
    ],
-   "ask": "Has anyone signed something where the fine print surprised you later? How would you walk a client through this release so that doesn't happen to them?"
+   "ask": "Has anyone signed something where the fine print surprised you later? How would you walk a client through this release so that doesn't happen to them?",
+   "scenario": "The release for a $60,000 BI settlement arrives. It says 'release of all claims arising from the incident,' and the client's property damage claim is still open. It also has an indemnity clause. What do you check, and what do you ask the adjuster to change?"
   },
   "p2": {
    "why": "One careless line in a release can cost the client a claim they never meant to give up.",
@@ -698,7 +763,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, read the release scope line by line before it goes to the client. The scope is what's being released, and it has to match what was actually settled.",
     "Finally, the pitfall to watch: a general release that wipes out an open PD claim. If Property Damage is still being negotiated, a general release can end it without anyone meaning to."
    ],
-   "ask": "Your turn: what does the indemnity clause mean for lien tracking? If one lien slips through the cracks, who ends up paying for it?"
+   "ask": "Your turn: what does the indemnity clause mean for lien tracking? If one lien slips through the cracks, who ends up paying for it?",
+   "scenario": "A client signed a general release for her injury claim. Three weeks later, the carrier refuses to pay her car repair bill, saying the release covered everything. What went wrong, and how should the release have been reviewed?"
   }
  },
  "2::The Execution: Settlement Disclosure Statement (The “Truth” Document)": {
@@ -709,7 +775,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, full and final. Even if the claimant's back starts hurting again next year, they can't come back for more money. The client has to hear that clearly before they sign, not after.",
     "Finally, the cooling-off period. Some states have a rescission period, for example 2 to 3 business days, when the claimant can change their mind after signing. The CM tracks that date before any checks are cut."
    ],
-   "ask": "Why do you think a client might change their mind in the first few days after signing? What might they be feeling?"
+   "ask": "Why do you think a client might change their mind in the first few days after signing? What might they be feeling?",
+   "scenario": "Your client signed the settlement disclosure yesterday. Today she calls to say her back is hurting again and asks whether she can still get more money if it gets worse. What do you explain, and does the cooling-off period apply?"
   },
   "p2": {
    "why": "While the client can still change their mind, the money doesn't move.",
@@ -718,7 +785,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, docket the rescission deadline, that means putting it on the calendar in our system, and don't disburse before it passes.",
     "Finally, the pitfall to watch: cutting checks during the cooling-off period. If the client changes their mind after the money has gone out, we've created a serious problem to unwind."
    ],
-   "ask": "Your turn: how would you explain \"full and final\" to a nervous client? Say it out loud, the way you'd say it on the phone."
+   "ask": "Your turn: how would you explain \"full and final\" to a nervous client? Say it out loud, the way you'd say it on the phone.",
+   "scenario": "Accounting wants to cut the client's check the day after she signed, but your state has a three-day rescission period. What do you tell accounting, and what should already be on the calendar?"
   }
  },
  "2::The Execution: Lien Payoff Letters (The “Verification” Paperwork)": {
@@ -729,7 +797,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the Medicare Final Demand. If the claimant is 65 or older, or on SSDI, CMS issues a final demand. Here CMS means the Centers for Medicare & Medicaid Services, not our case system. It can take 60 days or more, so keep the file pended, on hold, until it's in hand.",
     "Finally, the Satisfaction of Lien. Once a provider, like a chiropractor or surgeon, is paid, get a signed letter stating the lien is satisfied. That stops the provider from sending the client to collections later."
    ],
-   "ask": "Quick check: why can't we just pay the balance on the latest medical bill and call it done?"
+   "ask": "Quick check: why can't we just pay the balance on the latest medical bill and call it done?",
+   "scenario": "Your 68-year-old client's settlement is final. You have a Medicare conditional payment letter from two months ago and a chiropractor's itemized statement, but no final payoff letters. What do you request, and why can't you pay from what you have?"
   },
   "p2": {
    "why": "No payoff letter, no payment. It's that simple.",
@@ -738,7 +807,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, no payoff letter, no payment. We don't send money to a lienholder until we have their formal payoff figure in writing.",
     "Finally, the pitfall to watch: paying from a statement instead of a final payoff figure. If the numbers don't match, the lien may not be fully cleared, and the client could end up chased for the difference."
    ],
-   "ask": "Your turn: what language must a Satisfaction of Lien include? What words would you need to see before you close that lien in the file?"
+   "ask": "Your turn: what language must a Satisfaction of Lien include? What words would you need to see before you close that lien in the file?",
+   "scenario": "A lien was paid from a monthly statement, not a final payoff letter. Two weeks later, the provider says another $1,100 is owed for late charges. Who's responsible now, and what's the rule going forward?"
   }
  },
  "2::The Execution: The Settlement Statement (The “Net” Sheet)": {
@@ -749,7 +819,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, cost verification. Every case cost, like $50 for police reports or $200 for medical records, has to be backed by a receipt. If we can't prove it, it doesn't belong on the statement.",
     "Finally, the net to client. That's the final number the client actually receives. Check that it's enough to cover any future medical needs that were discussed during the treatment phase."
    ],
-   "ask": "If you were the client, which line on this statement would you look at first, and what's the first question you'd ask?"
+   "ask": "If you were the client, which line on this statement would you look at first, and what's the first question you'd ask?",
+   "scenario": "Preparing a settlement statement, you find $340 in case costs with no receipts, including a records fee and a courier charge. The client's net is $18,600. What do you do about the costs before the statement goes to the client?"
   },
   "p2": {
    "why": "Every dollar on the net sheet has to be one we can explain and prove.",
@@ -758,7 +829,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, accurate financial detail builds client trust. When the numbers are clean and explained, the client believes the rest of the work was careful too.",
     "Finally, the pitfall to watch: costs on the statement with no receipt. That's the client's money coming out, and we need proof for every cost we take."
    ],
-   "ask": "Your turn: what would you do if the net doesn't cover the future care discussed during treatment? Who do you raise it with, and when?"
+   "ask": "Your turn: what would you do if the net doesn't cover the future care discussed during treatment? Who do you raise it with, and when?",
+   "scenario": "A client questions a $250 'administrative fee' on her settlement statement, and nobody can find what it was for. How do you handle her question, and what does that tell you about how costs should be recorded?"
   }
  },
  "2::The Execution: The Dismissal (The “Court” Filing)": {
@@ -770,7 +842,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, prepare the Stipulation to Dismiss for the attorneys' signatures. A stipulation is simply a written agreement between the two sides.",
     "Finally, verify the language says \"with prejudice\". That's what gives us total file closure, so the same case can never come back."
    ],
-   "ask": "Quick check: what's the difference between dismissal with prejudice and without prejudice? One sentence each."
+   "ask": "Quick check: what's the difference between dismissal with prejudice and without prejudice? One sentence each.",
+   "scenario": "A case settled after a lawsuit was filed. The stipulation of dismissal draft says 'without prejudice.' What's the risk of that wording, and what do you change before it goes to the attorneys to sign?"
   },
   "p2": {
    "why": "A settled case with a lawsuit still open in court isn't closed.",
@@ -779,7 +852,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, docket the dismissal filing and confirm the court entry. We don't close our file until the court shows the case as dismissed.",
     "Finally, the pitfall to watch: forgetting to dismiss a pending suit after settlement. The lawsuit stays open in court even though everyone thinks it's over."
    ],
-   "ask": "Your turn: why does \"with prejudice\" matter to the defense? Think about what they're paying for with the settlement money."
+   "ask": "Your turn: why does \"with prejudice\" matter to the defense? Think about what they're paying for with the settlement money.",
+   "scenario": "Three months after a case settled, the court sends a notice of a status hearing because the lawsuit was never dismissed. What happened, and what steps would have made sure the file was truly closed?"
   }
  },
  "2::The Execution: W-9 & Comparison of Key Post-Settlement Documents": {
@@ -791,7 +865,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, match each document to its signer. The claimant signs the release, the lienholder, Medicare or the hospital, gives the final demand, the payee signs the W-9, and the attorneys sign the Stipulation to Dismiss.",
     "Finally, track every document to \"received\" in the CMS, our case management system. If it isn't marked received, it's still out there, so we chase it."
    ],
-   "ask": "Quick check: I'll name a document, you tell me who signs it. Release? Final Demand? W-9? Stipulation to Dismiss?"
+   "ask": "Quick check: I'll name a document, you tell me who signs it. Release? Final Demand? W-9? Stipulation to Dismiss?",
+   "scenario": "The adjuster agrees to settle on a Friday afternoon call. The release will take a week to draft. Which documents do you request right away, who signs each one, and how do you track them in the CMS?"
   },
   "p2": {
    "why": "A missing W-9 can leave a settlement check sitting in accounting for no good reason.",
@@ -800,7 +875,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, send the W-9 together with the signed release. That way accounting has everything at once, and there's nothing to put the check on hold.",
     "Finally, the pitfall to watch: waiting until the carrier asks for the W-9. By the time they ask, the delay has already started."
    ],
-   "ask": "Your turn: which post-settlement document do you think is most often late, and why? What would you do on day one to stop that happening?"
+   "ask": "Your turn: which post-settlement document do you think is most often late, and why? What would you do on day one to stop that happening?",
+   "scenario": "The signed release was sent in two weeks ago, but the settlement check still hasn't arrived. The carrier's accounting says they've been waiting on a W-9 that nobody sent. What do you do now, and how do you prevent this on the next case?"
   }
  },
  "2::Finalized Settlement: Boots-on-the-Ground Tasks — Administrative Document Control": {
@@ -812,7 +888,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, notary coordination. If the release needs a notary, which is common for high-value BI claims, check that the notary's stamp is current and the ID matches the claimant exactly.",
     "Finally, W-9 procurement. Collect the W-9 from the claimant or the firm right away, so the carrier's accounting department doesn't flag the payment."
    ],
-   "ask": "Who's been through an e-signature or a notary appointment before, in any job or in life? What went wrong, or nearly did?"
+   "ask": "Who's been through an e-signature or a notary appointment before, in any job or in life? What went wrong, or nearly did?",
+   "scenario": "A $250,000 release needs a notarized signature. Your client lives two hours away and works night shifts. Plan the signature chase: how do you get the release signed and notarized quickly, and what do you check before it goes back?"
   },
   "p2": {
    "why": "One wrong letter in a name or one expired stamp can send the release back and stall the whole closing.",
@@ -821,7 +898,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, check the name spelling on the release against the claimant's ID. They have to match exactly, letter for letter.",
     "Finally, the pitfall to watch: an expired notary stamp that voids the release. Then the client has to sign all over again, and the check waits."
    ],
-   "ask": "Your turn: what could make a notarized release get rejected? Give me as many reasons as you can."
+   "ask": "Your turn: what could make a notarized release get rejected? Give me as many reasons as you can.",
+   "scenario": "The carrier rejects a signed release because the client signed 'Jon Smith' but the release says 'Jonathan Smith,' and the notary's commission expired last month. What do you do now, and what checks would have caught both problems?"
   }
  },
  "2::Finalized Settlement: Final Lien Mitigation (The “Reduction”)": {
@@ -833,7 +911,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, update the ledger. Put every saving or reduction into the Settlement Statement right away, so the client can see their net recovery going up.",
     "Finally, Medicare and Medicaid finalization. Log into the MSPRP, the Medicare Secondary Payer Recovery Portal, and make sure the Final Demand matches our internal ledger."
    ],
-   "ask": "How do you feel about asking a hospital to take 50%? What makes a request like that hard to say out loud?"
+   "ask": "How do you feel about asking a hospital to take 50%? What makes a request like that hard to say out loud?",
+   "scenario": "Your client's liens total $31,000 on a $90,000 settlement. The chiropractor is owed $8,000 and the hospital $12,000, and Medicare shows a conditional payment of $11,000. How do you approach each lienholder, and where do you record the savings?"
   },
   "p2": {
    "why": "A reduction nobody wrote down didn't happen, and a saving the client never sees doesn't earn their trust.",
@@ -842,7 +921,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, be transparent about savings. It builds trust and shows the client the value of what we're doing for them.",
     "Finally, the pitfall to watch: agreeing to a reduction verbally with no written confirmation. If the billing rep changes or forgets, we have nothing to prove the reduction was ever agreed."
    ],
-   "ask": "Your turn: pair up. One of you is a hospital billing rep, the other runs the 50% reduction script. Rep, push back once. Then switch."
+   "ask": "Your turn: pair up. One of you is a hospital billing rep, the other runs the 50% reduction script. Rep, push back once. Then switch.",
+   "scenario": "A hospital billing office agreed on the phone to cut its $12,000 lien to $7,000. When you send payment, they say they have no record of the agreement and want the full amount. What should you have done after the call?"
   }
  },
  "2::Skill Building: BI Settlement — Caught in an Operational Pincer Movement": {
@@ -855,7 +935,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, the plan to mitigate a pending malpractice lawsuit. Think about how the file got here, and what has to be documented from this moment on.",
     "Finally, the precise statutory measure to counter the adjuster's 5-minute revocation threat. Your group needs to name the exact measure, not a general idea, and explain how it answers the threat."
    ],
-   "ask": "Before you split into groups: what's the very first sentence you'd say to John, and the very first sentence you'd say to the adjuster?"
+   "ask": "Before you split into groups: what's the very first sentence you'd say to John, and the very first sentence you'd say to the adjuster?",
+   "scenario": "John Doe is furious and threatening to report the firm. At the same moment, the adjuster says her $85,000 offer expires in five minutes. You've also just received a new report giving John a permanent impairment rating. What do you do in the next five minutes, and what do you say to John?"
   },
   "p2": {
    "why": "New evidence of a permanent injury changes the case, and a 5-minute ultimatum doesn't change that.",
@@ -865,7 +946,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, document every communication and decision. Every call, every email, every piece of advice to John goes in the file, because that record is what protects the client and the firm.",
     "Finally, the trap here: anchoring to the old conservative target after the WPI rating arrives. Apex had a $1,000,000 commercial policy, and with Apex out of business, that policy is all there is. The case just changed, so we prepare to file suit."
    ],
-   "ask": "Your turn: each group, present your action plan. Then let's put the statutory measures you chose side by side. Which one best answers the 5-minute threat, and why?"
+   "ask": "Your turn: each group, present your action plan. Then let's put the statutory measures you chose side by side. Which one best answers the 5-minute threat, and why?",
+   "scenario": "After the five-minute deadline passes, the adjuster withdraws her offer. Your notes from the call are scattered across sticky notes, and John is asking what happens now. How do you document what happened, and how does the new impairment rating change your target?"
   }
  }
 });

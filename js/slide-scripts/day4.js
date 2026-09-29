@@ -1,6 +1,6 @@
 /* Day 4 — hand-written spoken scripts, one per slide (see slideScript() in index.html).
    p1 = the topic's first slide, p2 = its second slide. Each follows four beats:
-   why (the punchline) · talk (plain spoken explanation) · walk (the points in order: first, next, then, finally) · ask (an action or question). */
+   why (the punchline) · talk (plain spoken explanation) · walk (the points in order: first, next, then, finally) · ask (an action or question) · scenario (a short case situation to work through with the room). */
 window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
  "4::Welcome to Day 4: When Pre-Suit Negotiations Stall": {
   "p1": {
@@ -11,7 +11,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, arbitration. That means a trial-ready mindset, hard calendar rules, UPL boundaries and evidentiary binders. UPL is the unauthorized practice of law, the line between what we can do and what only a lawyer can do.",
     "Finally, the common bottlenecks in mediation and arbitration. We'll learn to spot them early and get rid of them before they slow the case down."
    ],
-   "ask": "Raise your hand if you can tell me the core operational difference between mediation and arbitration."
+   "ask": "Raise your hand if you can tell me the core operational difference between mediation and arbitration.",
+   "scenario": "Negotiations on the Warren case have stalled at $40,000 against your $95,000 demand, and the adjuster won't move. The attorney says, 'Let's go to mediation, and if that fails, arbitration.' What changes in your job from this moment, and what's the first thing you'd put on the calendar?"
   },
   "p2": {
    "why": "In mediation and arbitration, a small slip isn't a hold-up anymore; it can cost us evidence or our leverage.",
@@ -21,7 +22,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, today is about a shift in how we work: from passively tracking the file to proactive, airtight operational auditing. We don't wait for a problem to show up; we go looking for it.",
     "Finally, the pitfall to watch: treating mediation and arbitration as the same thing. One is a negotiation where the client decides whether to settle; the other ends in a binding decision. They need very different prep."
    ],
-   "ask": "So why do cases get routed to mediation or arbitration instead of going straight to a jury trial? What do you think the courts look like right now?"
+   "ask": "So why do cases get routed to mediation or arbitration instead of going straight to a jury trial? What do you think the courts look like right now?",
+   "scenario": "Before a mediation, a Case Manager sends the updated medical ledger two days late, 'because that was fine during negotiations.' The defense uses the late ledger to argue the damages aren't verified. Why does a small delay matter more now than it did before?"
   }
  },
  "4::Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background": {
@@ -32,7 +34,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the mediator's skill is people and negotiation. They find common ground, defuse emotion, and spot the weak links in a defense argument. They specialize in negotiation dynamics, lien resolution and realistic case valuations, so they're thinking about what the case is worth.",
     "Finally, the arbitrator's skill is strictly judicial. They evaluate the raw evidence, apply state tort law and decide who wins. Their mastery is evidentiary rules, liability standards and medical causation, so they're asking what the evidence actually proves."
    ],
-   "ask": "Picture a mediator and an arbitrator reading the same case file. What do you think each one looks for first?"
+   "ask": "Picture a mediator and an arbitrator reading the same case file. What do you think each one looks for first?",
+   "scenario": "Your client asks, 'Is the mediator going to decide who's right?' Next month, a different case goes to arbitration. How would you explain the difference between the two neutrals to a nervous client, in plain words?"
   },
   "p2": {
    "why": "Know who's reading the binder, because a mediator and an arbitrator are looking for different things.",
@@ -41,7 +44,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, tailor the binder's emphasis to the neutral. For a mediator, lead with valuation: what the case is worth and why. For an arbitrator, lead with evidence: what we can actually prove.",
     "Finally, the pitfall to watch: preparing an arbitration binder like a negotiation packet. The arbitrator isn't there to help anyone compromise; they're ruling on the evidence. A packet built for settlement talk leaves them without the proof they need."
    ],
-   "ask": "Your turn: how does the neutral's background change your binder prep? Give me one thing you'd put up front for a mediator, and one for an arbitrator."
+   "ask": "Your turn: how does the neutral's background change your binder prep? Give me one thing you'd put up front for a mediator, and one for an arbitrator.",
+   "scenario": "You're building two binders this week: one for a mediation and one for an arbitration hearing. What would you put at the front of each binder, and why do they need different emphasis?"
   }
  },
  "4::Introducing the Neutral: Assignment & Selection Workflows": {
@@ -54,7 +58,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, help the attorney review the resumes. You're gathering each candidate's background so the attorney can rank preferences with real information, not guesswork.",
     "Finally, submit the strike list. Both sides strike the names they don't want until a neutral is appointed. Our goal is to eliminate arbitrators with a history of bias toward insurance companies."
    ],
-   "ask": "Quick check: who usually picks a mediator, and what often decides that a UM claim goes to arbitration?"
+   "ask": "Quick check: who usually picks a mediator, and what often decides that a UM claim goes to arbitration?",
+   "scenario": "JAMS sends a panel of seven arbitrators for your case. The attorney is in trial all week and asks you to research them. What do you look for in each resume, and how do you present it so she can decide in ten minutes?"
   },
   "p2": {
    "why": "The strike list only protects the client if it goes in on time.",
@@ -63,7 +68,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, docket the strike-list deadline the day the panel arrives. Not when you get to it; the same day, so it's on the calendar before anything else can bury it.",
     "Finally, the trap here: missing the strike deadline and accepting a default appointment. The arbitrator gets chosen without our input, and it could be exactly the one we would have struck."
    ],
-   "ask": "Your turn: a panel list just landed for a UM arbitration. What would you research about a proposed arbitrator before the attorney ranks them?"
+   "ask": "Your turn: a panel list just landed for a UM arbitration. What would you research about a proposed arbitrator before the attorney ranks them?",
+   "scenario": "The strike list was due Friday, but it sat in the attorney's inbox, and the provider appointed an arbitrator by default: one known for low awards in injury cases. What went wrong, and what should have happened the day the panel arrived?"
   }
  },
  "4::Introducing the Neutral: Extent of Decision-Making Power": {
@@ -75,7 +81,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, set the client's expectations for arbitration: it ends with a binding number. They need to hear that before the hearing, because whatever the arbitrator awards is what they live with.",
     "Finally, prepare arbitration binders to be flawless the first time. The arbitrator can exclude evidence and decide damages, and there's no second chance to fix our mistake after the award."
    ],
-   "ask": "If you had to explain this difference to a nervous client in one sentence, what would you say?"
+   "ask": "If you had to explain this difference to a nervous client in one sentence, what would you say?",
+   "scenario": "Your client asks, 'If mediation doesn't work, can we just try again?' And for her arbitration next month, 'If I don't like the number, can we appeal?' How do you answer each question, and why does it matter to set these expectations now?"
   },
   "p2": {
    "why": "The arbitrator's word is final and enforced by the court, so our prep has to be right the first time.",
@@ -84,7 +91,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, binder preparation for arbitration has to be flawless. The arbitrator's word is final and the court enforces it, so every page, every figure and every exhibit gets checked before it goes in.",
     "Finally, the pitfall to watch: assuming an arbitration math error can be appealed. If a number is wrong going in, it may be wrong in the award, and we don't get to fix it later."
    ],
-   "ask": "Here's the case: the award comes in $20,000 short because the arbitrator got the math wrong. Can our attorney appeal it? Why or why not?"
+   "ask": "Here's the case: the award comes in $20,000 short because the arbitrator got the math wrong. Can our attorney appeal it? Why or why not?",
+   "scenario": "After an arbitration hearing, you discover the damages summary in the binder added up $6,000 less than the real bills. The award is based on that summary. What can be done now, and what does that tell you about checking the binder beforehand?"
   }
  },
  "4::Mediation Protocols for CMs: Logistics & Scheduling": {
@@ -97,7 +105,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, for a virtual session, set up the private breakout rooms ahead of time. Our strategy talks with the client have to stay protected, and you don't want to be building rooms while everyone waits.",
     "Finally, check whether the client needs an interpreter, confirm a 2-hour pre-mediation buffer for the attorney, and launch Zoom 15 minutes early to brief the client. Those small steps are what keep the day calm."
    ],
-   "ask": "Who here has tried to schedule something with four busy people? What's the first thing that usually goes wrong?"
+   "ask": "Who here has tried to schedule something with four busy people? What's the first thing that usually goes wrong?",
+   "scenario": "You're scheduling a mediation. The client works weekdays, the attorney has trial the first two weeks of next month, opposing counsel prefers Fridays and the mediator books up fast. The client also speaks mainly Spanish. Plan it: what do you collect, and what do you set up?"
   },
   "p2": {
    "why": "A quick yes to the wrong date can cost us the prep we need, so every proposal gets checked first.",
@@ -107,7 +116,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, if opposing counsel rejects all our windows, log the pushback in the CMS, our case management system, immediately. Then escalate to the handling attorney for an attorney-to-attorney call. The log shows exactly what we offered and when.",
     "Finally, the pitfall to watch: scheduling before you've collected everyone's availability. It feels efficient, but it usually means rescheduling, and that wastes everyone's time."
    ],
-   "ask": "Opposing counsel just rejected every window we proposed. Walk me through what you do next, and who you tell."
+   "ask": "Opposing counsel just rejected every window we proposed. Walk me through what you do next, and who you tell.",
+   "scenario": "Opposing counsel emails, 'Let's do a quick Zoom mediation next Tuesday.' Your binder isn't ready, the client hasn't been prepped and the attorney has a deposition that morning. What do you reply, and what goes in the CMS?"
   }
  },
  "4::Preparing Mediation Binders: Organized Case Summaries": {
@@ -120,7 +130,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, include the liability reports and the pivotal case exhibits, the documents that show who's at fault and why.",
     "Finally, index and bookmark everything meticulously, so any piece of evidence can be found in seconds. A great document the attorney can't find in the moment doesn't help the client."
    ],
-   "ask": "Think about the last time you had to find one document fast in a big file. What made it easy, or hard?"
+   "ask": "Think about the last time you had to find one document fast in a big file. What made it easy, or hard?",
+   "scenario": "You have a stack of 300 pages for a mediation: medical records, bills, the police report, photos and emails. How do you organize it so the attorney can find any document in seconds? What goes first?"
   },
   "p2": {
    "why": "In a fast-paced session, the attorney has about five seconds to find the proof.",
@@ -130,7 +141,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, here's what that looks like. The defense claims the client only saw the chiropractor three times. Because you bookmarked the treatment ledger, the attorney flips to Tab 5 and shows 24 verified physical therapy sessions. The argument is over in seconds.",
     "Finally, the pitfall to watch: handing the attorney an unorganized file right before the session. They lose momentum, look unprepared, and may concede a point they could have won."
    ],
-   "ask": "So what happens if the attorney gets an unorganized file right before mediation? What could that cost the client in the room?"
+   "ask": "So what happens if the attorney gets an unorganized file right before mediation? What could that cost the client in the room?",
+   "scenario": "During mediation, the defense says the client only went to the chiropractor twice. The attorney turns to the binder, but the chiropractic records are mixed in with the hospital records and aren't tabbed. What should the binder have looked like, and what would the attorney have said in five seconds?"
   }
  },
  "4::Mediation Binder Section 1: Executive Summary & Administrative Details": {
@@ -142,7 +154,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, the Mediation Order or Agreement. That's the formal court order for mediation, or the private contract that sets out the rules and how the fees are split.",
     "Finally, the Schedule: the date, the start time, the location or the Zoom link and breakout room, and the mediator's name. If the attorney has to hunt for any of that on the day, Section 1 hasn't done its job."
    ],
-   "ask": "Quick check: what are the three items in Section 1, and which one will the attorney reach for first on mediation morning?"
+   "ask": "Quick check: what are the three items in Section 1, and which one will the attorney reach for first on mediation morning?",
+   "scenario": "Build the one-page snapshot for a mediation: client Keisha Warren, a rear-end crash, $62,000 in specials, a $100,000 policy and a mediator from JAMS. What goes on the page, and what schedule details does the attorney need beside it?"
   },
   "p2": {
    "why": "Section 1 looks like paperwork, but a wrong detail here trips the attorney up on the day.",
@@ -151,7 +164,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the fee split details are in the formal Mediation Order or Stipulation, the agreement signed by both parties. It's typically a 50/50 split of the mediator's hourly rate, but check the document instead of assuming.",
     "Finally, the pitfall to watch: a snapshot sheet with outdated opposing counsel contacts. If the attorney needs to reach the other side and the number is wrong, we lose time exactly when it matters."
    ],
-   "ask": "Your turn: the attorney asks you, \"Where do I find the fee split details?\" Where do you look, and who signed that document?"
+   "ask": "Your turn: the attorney asks you, \"Where do I find the fee split details?\" Where do you look, and who signed that document?",
+   "scenario": "On the morning of mediation, the attorney tries to call opposing counsel using the number on the snapshot sheet. It's disconnected, because the defense firm changed lawyers two months ago. What's the lesson, and what do you check before every mediation?"
   }
  },
  "4::Mediation Binder Section 2: The Mediation Briefs": {
@@ -162,7 +176,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, our Confidential Mediation Brief. Case Managers prepare it and the handling attorney approves it. It outlines our strongest arguments, our key evidence and our settlement positions, which is exactly why it stays confidential.",
     "Finally, opposing counsel's mediation brief, the one the defense sends us. It goes side by side with ours, so the attorney can see each defense argument and have a rebuttal ready."
    ],
-   "ask": "Why do you think our brief is prepared by the Case Manager but approved by the attorney before it goes anywhere?"
+   "ask": "Why do you think our brief is prepared by the Case Manager but approved by the attorney before it goes anywhere?",
+   "scenario": "The defense sends its mediation brief two days before the session. It argues your client's injuries are pre-existing and that she waited ten days to see a doctor. Where do you put it in the binder, and what do you prepare to help the attorney respond?"
   },
   "p2": {
    "why": "A brief the mediator hasn't had time to read can't do its job.",
@@ -171,7 +186,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, deliver our brief to the mediator well before the session. That gives them time to actually read it and think about our arguments.",
     "Finally, the pitfall to watch: sending the brief ten minutes before the session starts. At that point nobody reads it carefully, and our best arguments never get the attention they deserve."
    ],
-   "ask": "Your turn: what goes in our confidential brief that never goes to the defense? Name two things."
+   "ask": "Your turn: what goes in our confidential brief that never goes to the defense? Name two things.",
+   "scenario": "Your team's confidential brief was finished the night before, and it reached the mediator ten minutes before the session. The mediator starts the day unfamiliar with your strongest points. What should the timeline have been?"
   }
  },
  "4::Mediation Binder Section 3: Core Pleadings (The Legal Framework)": {
@@ -182,7 +198,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the Active Complaint. That's the operative complaint, meaning the current version, detailing our client's allegations. It's the official record of what we say happened.",
     "Finally, the Answer and Affirmative Defenses. That's the other side's formal response, including the legal defenses they use to shield themselves from liability. What's in there, and what isn't, both matter."
    ],
-   "ask": "Quick check: in your own words, what's the difference between the Complaint and the Answer?"
+   "ask": "Quick check: in your own words, what's the difference between the Complaint and the Answer?",
+   "scenario": "Your case has an original complaint and an amended complaint that added the employer as a defendant, plus the defense's answer listing three affirmative defenses. Which documents go in Section 3, and why does it matter which complaint you include?"
   },
   "p2": {
    "why": "If a defense wasn't pleaded, the attorney can object, but only if we can show it in seconds.",
@@ -191,7 +208,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the scenario: at mediation, the defense argues our client didn't wear a seatbelt. Cross-reference Section 3. If a seatbelt or comparative negligence defense, that's the claim the client was partly at fault, wasn't pleaded in the Answer, the attorney can object to unpled defenses.",
     "Finally, the pitfall to watch: including a superseded complaint, one that's been replaced by a newer version. If the attorney works from the old one, they could be arguing about allegations that aren't in the case anymore."
    ],
-   "ask": "Your turn: why does it matter whether a defense was pleaded? What does that give our attorney in the room?"
+   "ask": "Your turn: why does it matter whether a defense was pleaded? What does that give our attorney in the room?",
+   "scenario": "At mediation, the defense argues your client wasn't wearing a seatbelt. The attorney wants to point out that this defense was never pleaded. How quickly can she find the answer in your binder, and what should Section 3 look like so she can?"
   }
  },
  "4::Mediation Binder Section 4: Key Evidence & Liability Exhibits": {
@@ -204,7 +222,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, photographs and video stills. That's visual proof of property damage, the scene layout or the physical injuries. A photo can show in a second what takes a page to describe.",
     "Finally, deposition summaries. A deposition is sworn testimony taken outside court. We include a high-level summary of the key testimony plus the exact transcript pages, highlighted, so the attorney can go straight from the point to the proof."
    ],
-   "ask": "Which kind of evidence do you think lands hardest with a mediator: the report, the photos or the testimony? Why?"
+   "ask": "Which kind of evidence do you think lands hardest with a mediator: the report, the photos or the testimony? Why?",
+   "scenario": "For Section 4, you have the police report, 40 photos, a dashcam clip and two deposition transcripts. What do you include, how do you present the photos and video, and what goes with the deposition summaries?"
   },
   "p2": {
    "why": "A summary tells the attorney what was said; the highlighted page proves it.",
@@ -213,7 +232,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, highlight the exact transcript lines the attorney will quote. When they need the line, they turn to the page and it's already marked.",
     "Finally, the pitfall to watch: summaries without the supporting transcript pages. A summary is only our description. If the defense challenges it, the attorney needs the actual words in front of them."
    ],
-   "ask": "Your turn: think about the John Doe file. Which exhibit is John Doe's strongest smoking gun, and why?"
+   "ask": "Your turn: think about the John Doe file. Which exhibit is John Doe's strongest smoking gun, and why?",
+   "scenario": "The attorney wants to quote the defendant's admission that he 'looked down at his phone.' Your deposition summary mentions it, but the transcript page isn't in the binder. What happens when the defense says, 'That's not what he said'?"
   }
  },
  "4::Mediation Binder Section 5: Damages, Financials & Expert Reports": {
@@ -225,7 +245,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, proof of financial loss: tax returns, pay stubs, or profit-and-loss statements that prove lost wages or business disruption. Without the paperwork, lost wages are just a claim.",
     "Finally, expert witness reports. These are summaries or declarations from experts we've retained, like accident reconstructionists, medical experts or economists. They explain the facts and the numbers with an expert's authority behind them."
    ],
-   "ask": "Have you ever seen someone struggle to prove their income on paper? What documents were hardest to get?"
+   "ask": "Have you ever seen someone struggle to prove their income on paper? What documents were hardest to get?",
+   "scenario": "Your client is self-employed and claims $30,000 in lost income. She also has $58,000 in medical bills and a life-care planner's report. What documents go in Section 5 to support every dollar?"
   },
   "p2": {
    "why": "If the ledger doesn't match the invoices, the defense gets to question our whole damages number.",
@@ -234,7 +255,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the ledger total must match the facility invoices dollar for dollar. Not roughly, not close: exactly. Check it line by line.",
     "Finally, the pitfall to watch: an unverified ledger. The defense will call the damages unsubstantiated, meaning not backed by proof, and then we're arguing about our own numbers instead of the client's injuries."
    ],
-   "ask": "Your turn: what proves lost wages for a self-employed client, someone with no employer handing them a pay stub?"
+   "ask": "Your turn: what proves lost wages for a self-employed client, someone with no employer handing them a pay stub?",
+   "scenario": "At mediation, the defense adds up your ledger and finds it's $2,800 more than the invoices behind it. They then argue your whole damages claim is unreliable. What should have been done before the binder went out?"
   }
  },
  "4::Mediation Binder Section 6: Settlement History & Draft Agreements": {
@@ -245,7 +267,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the negotiation log: a chronological list of every demand we made and every counter-offer we received. It prevents confusion over the current baseline number, so nobody in the room argues about where we left off.",
     "Finally, the draft settlement agreement or release template. It's a pre-drafted terms sheet, so the attorney can get signatures before anyone leaves the room. A release is the document where the client agrees to end the claim in exchange for the settlement."
    ],
-   "ask": "Quick check: in the middle of the session, the attorney asks, \"What was our last demand?\" Where in the binder do they look?"
+   "ask": "Quick check: in the middle of the session, the attorney asks, \"What was our last demand?\" Where in the binder do they look?",
+   "scenario": "Before mediation, build the negotiation log for a case with three demands and two counter-offers over five months. What does each entry need, and what draft document should sit behind it?"
   },
   "p2": {
    "why": "When a deal is reached, the paperwork has to be ready before anyone leaves the room.",
@@ -255,7 +278,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, for virtual mediation, make sure the PDF binder is OCR-scanned. OCR turns a scanned image into searchable text, so the attorney can hit Control F and jump straight to a keyword.",
     "Finally, the trap here: no draft release on hand when a deal is reached. Everyone agrees, and then there's nothing ready to sign."
    ],
-   "ask": "Your turn: why have a draft release ready before the session even starts? What could happen between the handshake and the signature?"
+   "ask": "Your turn: why have a draft release ready before the session even starts? What could happen between the handshake and the signature?",
+   "scenario": "The case settles at mediation at 6 p.m. But there's no draft release, the mediator is leaving and the defense attorney says, 'We'll paper it next week.' What's the risk, and what should have been ready?"
   }
  },
  "4::Mediation: Quality Assurance & Logistics Auditor": {
@@ -267,7 +291,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, OCR every digital file with a deep scan, so every piece of evidence is searchable with Control F. If it isn't searchable, it's just a picture of a page.",
     "Finally, apply the six numbered divider tabs, lined up with the firm's master index. They match the six binder sections we just covered, so everyone knows exactly where to look."
    ],
-   "ask": "Who here has been the person everyone counted on to check things before they went out? What did you check that nobody else did?"
+   "ask": "Who here has been the person everyone counted on to check things before they went out? What did you check that nobody else did?",
+   "scenario": "It's the day before an in-person mediation. You have one printed binder and a PDF that was scanned as images. What else do you need to prepare, and how do you check everything lines up with the index?"
   },
   "p2": {
    "why": "The binder only works if it matches the index and every page can be searched.",
@@ -276,7 +301,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, QA the binder against the index the day before. QA is quality assurance: go tab by tab and check that every item on the index is really there. Doing it the day before leaves time to fix what's missing.",
     "Finally, the pitfall to watch: a scanned PDF that isn't text-searchable. It looks fine on screen, but when the attorney hits Control F, nothing comes up."
    ],
-   "ask": "Your turn: what's your final QA check before you hand the binder to the attorney? Walk me through it."
+   "ask": "Your turn: what's your final QA check before you hand the binder to the attorney? Walk me through it.",
+   "scenario": "During a virtual mediation, the attorney searches the PDF binder for 'MRI' and gets zero results, even though the MRI report is in there. What went wrong, and what would the day-before QA check have caught?"
   }
  },
  "4::Skill Building: Create Your Mediation Binders": {
@@ -292,7 +318,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "After that, build Section 6, settlement history and draft agreements, with the negotiation log and a draft release.",
     "Finally, upload the binder to the case in the CMS for attorney approval. It isn't done until it's in the system where the attorney can review it."
    ],
-   "ask": "Before you start: which section do you expect to take you the longest, and why?"
+   "ask": "Before you start: which section do you expect to take you the longest, and why?",
+   "scenario": "You have three days to build a full mediation binder for the Warren case. The medical records are complete, but the defense brief hasn't arrived and the settlement history is in scattered emails. How do you plan the three days, and what can you build now while you wait?"
   },
   "p2": {
    "why": "A binder is only as good as its index: every document in one place, and nothing missing.",
@@ -301,7 +328,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, every document should sit in exactly one section, and be indexed. If a document is in two places, or in none, the attorney wastes time looking for it.",
     "Finally, the pitfall to watch: missing the negotiation log. Without it, nobody in the room is sure what the current baseline number is."
    ],
-   "ask": "Your turn: when you're done, trade binders with a partner and QA each other's index. Is every document where the index says it is?"
+   "ask": "Your turn: when you're done, trade binders with a partner and QA each other's index. Is every document where the index says it is?",
+   "scenario": "The attorney reviews your binder and asks, 'What was our last demand, and when did we send it?' The answer is in an email chain, not the binder. Which section is incomplete, and how do you fix it?"
   }
  },
  "4::Skill Building: The LSH Critical Thinking Challenge — The Pre-Mediation Audit": {
@@ -313,7 +341,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, Problem 2. Metro General Hospital has asserted a formal medical lien for $45,000. At the same time, BlueCross Recovery Services has filed an ERISA health insurance subrogation lien for $20,000. A lien is a claim on the settlement money; subrogation means the insurer wants back what it paid.",
     "Finally, write your audit memo, in a Google Doc for example, with your fix for each landmine. The attorney is stuck in court, so the memo has to make sense on its own."
    ],
-   "ask": "Before you dig in: which landmine feels more urgent to you, and why?"
+   "ask": "Before you dig in: which landmine feels more urgent to you, and why?",
+   "scenario": "Forty-eight hours before mediation, defense counsel calls: 'Your medical ledger is completely wrong. Our records show BlueCross paid most of these bills.' At the same time, Metro General Hospital asserts a $45,000 lien. What do you do first for each problem?"
   },
   "p2": {
    "why": "Both landmines are solved the same way: go back to the raw records and prove every dollar.",
@@ -323,7 +352,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, the fix for Problem 2: cross-reference the payments. If BlueCross already paid Metro General at a reduced contractual rate, Metro General can't double-recover from the settlement, and its lien must be stripped down.",
     "Finally, the trap here: accepting both liens at face value. That could mean paying twice for the same treatment, out of the client's settlement."
    ],
-   "ask": "Your turn: how do you prove BlueCross already paid Metro General? What would you look for in the file?"
+   "ask": "Your turn: how do you prove BlueCross already paid Metro General? What would you look for in the file?",
+   "scenario": "You find that BlueCross paid Metro General $18,000 at a negotiated rate, yet the hospital is still claiming a $45,000 lien. What do you ask the hospital for, and what does the correct ledger look like?"
   }
  },
  "4::Case Phase: Arbitration — The Anatomy of a PI Arbitration": {
@@ -335,7 +365,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, log directives. Anything the arbitrator orders from the bench, like a timeline for post-hearing briefs or a ruling on evidence, gets written down immediately. Those are deadlines and rules we'll have to follow.",
     "Finally, update the CMS. As soon as you're back at the office, log the new deadlines in the digital case profile and draft an internal summary memo for the handling attorney."
    ],
-   "ask": "Who here has taken notes in a meeting and later realized you'd missed the one thing that mattered? What would have helped?"
+   "ask": "Who here has taken notes in a meeting and later realized you'd missed the one thing that mattered? What would have helped?",
+   "scenario": "You're attending a virtual arbitration hearing. The arbitrator tells both attorneys, 'I want supplemental billing records within ten days, and briefs on the lost wage issue in 20.' What do you write down, and what do you do as soon as the hearing ends?"
   },
   "p2": {
    "why": "Your hearing notes become the attorney's roadmap for everything that comes after.",
@@ -344,7 +375,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, your notes at the hearing become the attorney's post-hearing roadmap. They'll plan the next steps from them, so write them for the attorney, not just for yourself.",
     "Finally, the pitfall to watch: logging bench directives the next day from memory. Memory drops details, and one wrong date on a post-hearing deadline is a problem we created ourselves."
    ],
-   "ask": "Your turn: what's the difference between a CSL policy and split limits? And why does it change what an award can actually collect?"
+   "ask": "Your turn: what's the difference between a CSL policy and split limits? And why does it change what an award can actually collect?",
+   "scenario": "After a long hearing, you plan to update the CMS the next morning from memory. Overnight, you forget one of the arbitrator's deadlines. What could it cost the client, and what's the right habit?"
   }
  },
  "4::Arbitration: Operational Mindset — From Compromise to Trial-Ready": {
@@ -356,7 +388,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, audit every exhibit for completeness and quality. A missing page or a poor copy can't be fixed after the Award, because the door to an appeal is mostly closed.",
     "Finally, lock every deadline on the master calendar. In a binding process there's no second pass, so every date gets locked in, not just noted somewhere."
    ],
-   "ask": "Think about a mediation file you've prepped, or watched someone prep. What would you have had to redo before you'd be comfortable handing it to a judge?"
+   "ask": "Think about a mediation file you've prepped, or watched someone prep. What would you have had to redo before you'd be comfortable handing it to a judge?",
+   "scenario": "Your case is moving from mediation to binding arbitration in six weeks. The mediation binder had a few missing pages and some grainy photos, but 'it was good enough.' What do you change now, and why?"
   },
   "p2": {
    "why": "Trial-ready means that on hearing day, there's nothing left to fix.",
@@ -365,7 +398,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, trial-ready means nothing is left to fix on the day. If you're still printing, hunting for an exhibit or confirming a date on hearing morning, the file wasn't ready.",
     "Finally, the pitfall to watch: bringing a mediation-quality binder to an arbitration. A binder that was good enough to negotiate with isn't automatically good enough for an Arbitrator who's about to make a final decision."
    ],
-   "ask": "Here's the case: a file just moved from mediation to arbitration. What changes operationally for you? Give me one thing about the binder and one thing about the calendar."
+   "ask": "Here's the case: a file just moved from mediation to arbitration. What changes operationally for you? Give me one thing about the binder and one thing about the calendar.",
+   "scenario": "It's the morning of the arbitration hearing, and you're still printing exhibits and waiting on one provider's records. What does 'trial-ready' mean, and when should the binder have been finished?"
   }
  },
  "4::Arbitration Operational Track 1: Critical Timelines & Calendar Hard Rules": {
@@ -377,7 +411,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, the Arbitration Brief Deadline. That's the absolute cutoff to submit the final factual claims, legal arguments, exhibit index and witness list to the arbitrator and opposing counsel. Absolute means there's no late version.",
     "Finally, the Neutral Arbitrator Selection Cutoff. That's the deadline to review, vet and strike names from the AAA, the American Arbitration Association, or JAMS panels. Striking a name means ruling that person out. Once the cutoff passes, we've lost our chance to shape who hears the case."
    ],
-   "ask": "Be honest: where do hard dates like these live on your files today? The master calendar, your own calendar, or somewhere in your inbox?"
+   "ask": "Be honest: where do hard dates like these live on your files today? The master calendar, your own calendar, or somewhere in your inbox?",
+   "scenario": "A case was just routed to arbitration. The order sets a hearing date, a brief deadline and a date to select the arbitrator. Put all three on the master calendar. What warning alerts do you add for each, and how far ahead?"
   },
   "p2": {
    "why": "A hard date only protects the case if someone sees it coming.",
@@ -386,7 +421,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, add warning alerts ahead of each hard date. The alert is what buys you time to chase a missing exhibit or flag the attorney before the cutoff, instead of on it.",
     "Finally, the pitfall to watch: a brief deadline that lives only in an email. Emails get buried, and nobody else on the team can see yours. If it's not on the master calendar, as far as the firm's concerned, it doesn't exist."
    ],
-   "ask": "Your turn: of the three dates, the hearing, the brief deadline and the arbitrator selection cutoff, which one is the most dangerous to miss, and why?"
+   "ask": "Your turn: of the three dates, the hearing, the brief deadline and the arbitrator selection cutoff, which one is the most dangerous to miss, and why?",
+   "scenario": "The arbitration brief deadline was mentioned only in an email from opposing counsel. Nobody put it on the calendar, and it passed yesterday. What are the consequences, and what's the rule going forward?"
   }
  },
  "4::Arbitration Operational Track 2: Logistics & Setup Protocols": {
@@ -398,7 +434,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, retain the neutral, that's the arbitrator. Vet the one who's been chosen, confirm their daily or hourly fee schedule, and route the retainer deposit to accounting for immediate payment.",
     "Finally, manage the logistics. Send calendar invitations to everyone internal, then either reserve a firm conference room or set up a secure Zoom layout with clear breakout parameters, meaning everyone knows which breakout room they go to and when."
    ],
-   "ask": "Who here has scheduled something with three or more busy parties? What made it drag on, and how would lining up the options first have helped?"
+   "ask": "Who here has scheduled something with three or more busy parties? What made it drag on, and how would lining up the options first have helped?",
+   "scenario": "You need to schedule an arbitration. The arbitrator is selected but not yet paid, opposing counsel's assistant is slow to reply and the client needs a virtual option. Plan the order of your steps: coordinate, retain and set up."
   },
   "p2": {
    "why": "An unpaid retainer or a clumsy first contact can delay a hearing before it's even set.",
@@ -407,7 +444,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, confirm the retainer payment in writing. Unpaid retainers delay hearings, and \"I sent it to accounting\" isn't the same as \"it's been paid.\" Get the written confirmation and keep it on the file.",
     "Finally, the pitfall to watch: contacting the arbitrator before availability is aligned with the other side. The arbitrator offers dates nobody's checked, and we're back to square one, with the neutral watching us scramble."
    ],
-   "ask": "Your turn: build the internal calendar invite for the hearing out loud. What goes in it so nobody on our team has to come back with a question?"
+   "ask": "Your turn: build the internal calendar invite for the hearing out loud. What goes in it so nobody on our team has to come back with a question?",
+   "scenario": "The hearing was postponed three weeks because the arbitrator's retainer was never paid and nobody confirmed it in writing. The client is upset. What should have happened, and how do you explain the delay to her?"
   }
  },
  "4::Ethics & Boundaries: What You Can and Cannot Do at Hearings (UPL)": {
@@ -420,7 +458,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, update the CMS and draft a summary memo for the attorney, so what happened at the hearing is on the file, not just in your notebook.",
     "Finally, if the arbitrator asks you about a medical bill, don't answer it. Politely say you're the case manager providing administrative assistance, defer to the handling attorney on the record, and hand the document to your attorney."
    ],
-   "ask": "Where do you think this line gets blurry in real life? Have you ever felt pulled to answer something that wasn't yours to answer?"
+   "ask": "Where do you think this line gets blurry in real life? Have you ever felt pulled to answer something that wasn't yours to answer?",
+   "scenario": "You're sitting in on an arbitration hearing. The arbitrator turns to you and asks, 'Can you tell me why this $4,000 MRI bill is so high?' You know the answer. What do you say, and what do you do instead?"
   },
   "p2": {
    "why": "The most dangerous thing you can do at a hearing is be helpful in the wrong way.",
@@ -429,7 +468,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, remember the stakes: violating UPL rules puts both you and the firm at risk. This isn't a style preference; it's an ethics boundary.",
     "Finally, the trap here: \"helpfully\" answering the arbitrator directly. You might know that bill better than anyone in the room, but the answer has to come from the attorney."
    ],
-   "ask": "Let's practice. I'm the arbitrator, and during the hearing I turn to you and ask, \"What's this charge on the medical bill?\" Tell me exactly what you say and what you do."
+   "ask": "Let's practice. I'm the arbitrator, and during the hearing I turn to you and ask, \"What's this charge on the medical bill?\" Tell me exactly what you say and what you do.",
+   "scenario": "During a break, opposing counsel asks you casually, 'So what's your client really willing to settle for?' It feels friendly and harmless. What's the risk, and how do you respond?"
   }
  },
  "4::Arbitration Binders: Section 1 — The Arbitration Submissions": {
@@ -442,7 +482,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, the Governing Arbitration Order or Agreement. That's the signed stipulation or court directive sending the case to binding arbitration, plus the scheduling order. It's the paper that says why we're here and on what timeline.",
     "Finally, the Arbitrator Fee Disclosures: the hourly and daily rates, how the fees are split between the sides, and confirmation that the retainer deposits were received."
    ],
-   "ask": "Quick check: if someone asked, \"Are we actually bound by this arbitration?\", which of these four documents would you pull first?"
+   "ask": "Quick check: if someone asked, \"Are we actually bound by this arbitration?\", which of these four documents would you pull first?",
+   "scenario": "Build Section 1 of an arbitration binder. You have a snapshot sheet, the final arbitration brief, the signed arbitration agreement and an invoice from the arbitrator showing a $3,000 unpaid deposit. What's ready, and what do you do about the invoice?"
   },
   "p2": {
    "why": "Section 1 is the first thing the arbitrator opens, so it has to be final and paid up.",
@@ -451,7 +492,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the QC check: confirm the arbitrator's retainer deposits are paid in full. Unpaid retainers delay hearings, so the fee disclosure should show payment, not just an invoice.",
     "Finally, the pitfall to watch: a draft brief in the binder instead of the final. A draft can carry old numbers or arguments the attorney has dropped, and the arbitrator will read whatever we give them."
    ],
-   "ask": "Your turn: why is the fee disclosure in the binder at all? What does it show, and who needs to see it?"
+   "ask": "Your turn: why is the fee disclosure in the binder at all? What does it show, and who needs to see it?",
+   "scenario": "The binder given to the arbitrator contains a draft of the brief with tracked comments, not the final version. What's the risk, and what check would have caught it?"
   }
  },
  "4::Arbitration Binders: Section 2 — Core Litigation Pleadings": {
@@ -462,7 +504,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the Operative Amended Complaint. Operative means the one that's active now, with the specific counts we're pursuing. Old complaints come out, so the arbitrator isn't reading claims we've already changed.",
     "Finally, the Answer and Affirmative Defenses. That's the defense's response, explaining how they plan to avoid liability or argue comparative fault, meaning the client was partly to blame. It shows the arbitrator what's really in dispute."
    ],
-   "ask": "Has anyone worked a file where the complaint was amended? How did you tell which version was the current one?"
+   "ask": "Has anyone worked a file where the complaint was amended? How did you tell which version was the current one?",
+   "scenario": "Your file has the original complaint, a first amended complaint and a second amended complaint that corrected the defendant's name. Which goes in Section 2, and what do you do with the others?"
   },
   "p2": {
    "why": "One complaint in the binder, and it's the right one.",
@@ -471,7 +514,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the QC rule: trash or exclude outdated, superseded complaints. If it's been replaced, it doesn't belong in front of the arbitrator.",
     "Finally, the pitfall to watch: two complaints in the binder. Now the arbitrator has to work out which counts are live, and that confusion is exactly what this section is supposed to prevent."
    ],
-   "ask": "Your turn: before you print Section 2, how do you confirm which complaint is operative? Where would you check, and who would you ask?"
+   "ask": "Your turn: before you print Section 2, how do you confirm which complaint is operative? Where would you check, and who would you ask?",
+   "scenario": "During the hearing, the arbitrator asks, 'Which complaint am I supposed to be looking at?' because the binder contains two. What does that do to the attorney's credibility, and how do you prevent it?"
   }
  },
  "4::Arbitration Binders: Section 3 — Liabilities & Biomechanical Evidence": {
@@ -482,7 +526,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the official incident and police reports, unredacted. That's the officer's narrative, the diagrams and any citations from the scene, with nothing blacked out.",
     "Finally, the high-resolution color exhibits: photos of the vehicle damage and the scene layout. These are what make the impact real for the arbitrator, so print quality matters as much as the photo itself."
    ],
-   "ask": "When you look at a crash photo in a file, what tells you how serious the impact was? Now picture that same photo in black and white."
+   "ask": "When you look at a crash photo in a file, what tells you how serious the impact was? Now picture that same photo in black and white.",
+   "scenario": "You have the police report with the witness names blacked out, and a set of vehicle photos printed in black and white to save toner. What do you replace before these go into an arbitration binder, and why?"
   },
   "p2": {
    "why": "The arbitrator can only weigh the crash they can actually see.",
@@ -491,7 +536,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the QC rule: reject grayscale and black-and-white prints. They don't show how intense the crash impact was, so insist on high-resolution color every time.",
     "Finally, the pitfall to watch: a redacted police report when the unredacted version is available. Redacted means parts are blacked out, and we don't want the arbitrator missing any part of what the officer recorded."
    ],
-   "ask": "Your turn: explain to a new colleague why color matters for crash-intrusion photos, that's how far the crash pushed into the vehicle. What does color show that grayscale hides?"
+   "ask": "Your turn: explain to a new colleague why color matters for crash-intrusion photos, that's how far the crash pushed into the vehicle. What does color show that grayscale hides?",
+   "scenario": "The defense argues the crash was 'minor.' The arbitrator looks at your grayscale photos and can't see the crushed frame that's obvious in color. What does that cost the case, and what's the rule for next time?"
   }
  },
  "4::Arbitration Binders: Section 4 — Proving Bodily Accident Medical Damages": {
@@ -504,7 +550,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, the Diagnostic Imaging Reports. These are specialist evaluations, like MRIs or X-rays, confirming objective trauma, meaning an injury that shows up on a scan, not just one the client describes.",
     "Finally, the Emergency Medical Condition declarations, EMC for short. They document that the treatment was medically necessary, so the defense can't wave it off as optional."
    ],
-   "ask": "Quick check: the ledger shows a bill from a clinic. Where in this section should the arbitrator find the proof behind that line?"
+   "ask": "Quick check: the ledger shows a bill from a clinic. Where in this section should the arbitrator find the proof behind that line?",
+   "scenario": "Build Section 4 for a client with ER, orthopedic, physical therapy and imaging bills totaling $71,000. What documents support each bill, and how do you organize them so the arbitrator can follow the treatment in order?"
   },
   "p2": {
    "why": "A total nobody can trace is a total nobody has to believe.",
@@ -513,7 +560,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the QC rule: verify the billing ledger matches the facility invoices dollar for dollar. Not roughly, not close; exactly.",
     "Finally, the pitfall to watch: a ledger total nobody can trace to an invoice. The defense will find that gap, and it makes the whole damages number look unreliable."
    ],
-   "ask": "Your turn: what's the fastest way to reconcile the ledger to the invoices? Walk me through how you'd do it on a file with lots of providers."
+   "ask": "Your turn: what's the fastest way to reconcile the ledger to the invoices? Walk me through how you'd do it on a file with lots of providers.",
+   "scenario": "The defense attorney asks, 'Where does this $71,000 total come from?' Nobody can match it to the invoices in the binder. How does that affect the arbitrator's view of your damages, and what should have been checked?"
   }
  },
  "4::Arbitration Binders: Section 5 — The Prior Medical Shield": {
@@ -524,7 +572,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the prior injury records and work history files. Document the past injuries, like John Doe's 2018 strain, which resolved in four weeks without pre-existing defects. We tell that story before the defense tells their version of it.",
     "Finally, the retained expert reports. These are official statements from accident reconstructionists or medical experts that counter the defense's medical claims. The record shows what happened; the expert explains what it means."
    ],
-   "ask": "Why do you think a defense attorney would love to find a prior injury in our file? What story do they want to tell with it?"
+   "ask": "Why do you think a defense attorney would love to find a prior injury in our file? What story do they want to tell with it?",
+   "scenario": "The defense plans to argue your client's back pain comes from a 2016 injury. You have her 2016 records showing she recovered fully, and an expert who reviewed them. How do you put Section 5 together so it works as a shield?"
   },
   "p2": {
    "why": "A prior injury we explain is a shield; a prior injury the defense reveals is a weapon.",
@@ -533,7 +582,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the QC rule: pair the prior record with an expert opinion proving the past injury fully resolved before the crash. The record shows it happened; the expert shows it was over.",
     "Finally, the pitfall to watch: leaving the prior record out and letting the defense introduce it. Then it looks like we were hiding it, and they get to frame it first."
    ],
-   "ask": "Your turn: why include the prior injury record yourself, when at first glance it seems to help the defense? Convince me in two sentences."
+   "ask": "Your turn: why include the prior injury record yourself, when at first glance it seems to help the defense? Convince me in two sentences.",
+   "scenario": "A colleague leaves the client's prior shoulder injury out of the binder 'so it doesn't draw attention.' At the hearing, the defense produces the records and says your side hid them. What went wrong, and what should Section 5 have contained?"
   }
  },
  "4::Arbitration Binders: Section 6 — Economic Losses & Lien Reconciliations": {
@@ -545,7 +595,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, the Chronological Negotiation Ledger. It's a master table of the demands and counter-offers over time, so the arbitrator can see the whole history of the negotiation at a glance.",
     "Finally, the audited lien payout sheets: the statutory health insurance holds and subrogation demands, all reconciled. Every lien we accept here comes out of the client's money, so each one gets checked."
    ],
-   "ask": "Has anyone seen a client surprised by how much came off their settlement for liens? What could have caught it earlier?"
+   "ask": "Has anyone seen a client surprised by how much came off their settlement for liens? What could have caught it earlier?",
+   "scenario": "Build Section 6 for a client claiming $18,000 in lost wages, with a hospital lien of $45,000 and a health insurer that paid the hospital $17,000. What do you verify before the numbers go into the binder?"
   },
   "p2": {
    "why": "Every dollar of lien we don't challenge comes straight out of the client's pocket.",
@@ -554,7 +605,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, cross-reference provider liens against what health insurance paid. If the insurer already paid the hospital at a reduced rate, that cuts off the hospital's right to double-recover the full face value from the client's recovery.",
     "Finally, the pitfall to watch: listing both a hospital lien and the insurer's payment of the same bill. That's one charge counted twice, and it's the client who pays for it."
    ],
-   "ask": "Your turn: how do EOBs, the Explanation of Benefits from the health insurer, help you strip out a double-dipping lien? What exactly are you looking for on them?"
+   "ask": "Your turn: how do EOBs, the Explanation of Benefits from the health insurer, help you strip out a double-dipping lien? What exactly are you looking for on them?",
+   "scenario": "Your binder lists both the hospital's full $45,000 lien and the health insurer's $17,000 payment for the same treatment. The defense points out the double count. How do you fix the ledger, and what does it do to your credibility?"
   }
  },
  "4::Skill Building: The PI Critical Thinking Audit Challenge (Arbitration)": {
@@ -565,7 +617,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, read the defense position carefully. They say John had a 2018 lumbar strain, a lower-back strain, and since we haven't provided a baseline pre-accident MRI, the arbitrator must treat the current L4–L5 protrusions as a continuation of a pre-existing degenerative condition. Notice what their argument rests on: a gap in our proof.",
     "Finally, the critical thinking test. Dig into the \"Prior Neck/Back Issues\" data in the client's intake records. What explicit, specific facts do you need to pull and package into the Arbitration Brief to defeat this argument? Don't guess; point to the document."
    ],
-   "ask": "Take two minutes with the person next to you. Which specific facts from the intake records would you pull, and which document proves each one?"
+   "ask": "Take two minutes with the person next to you. Which specific facts from the intake records would you pull, and which document proves each one?",
+   "scenario": "The defense says John Doe's back pain is just his 2018 lumbar strain. His intake notes mention 'prior neck/back issues.' Which specific facts would you pull from his file to answer that argument in the arbitration brief?"
   },
   "p2": {
    "why": "In arbitration, arguments don't beat arguments; documents do.",
@@ -574,7 +627,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the answer: pull the 2018 discharge notes proving the strain fully resolved in four weeks, with zero treatment for eight years. Pair them with the post-crash MRI showing an acute traumatic herniation caused by the impact. Acute and traumatic means new, and caused by force.",
     "Finally, the pitfall to watch: arguing without the documents that prove resolution. Saying \"it healed years ago\" carries no weight unless the discharge notes are there to show it."
    ],
-   "ask": "Your turn: name the two documents that defeat the pre-existing argument, and tell me in one sentence what each one proves."
+   "ask": "Your turn: name the two documents that defeat the pre-existing argument, and tell me in one sentence what each one proves.",
+   "scenario": "A colleague's draft brief says, 'The prior injury is irrelevant.' There are no documents attached. How would you rewrite that argument using John's 2018 discharge notes and his treatment history since the crash?"
   }
  },
  "4::Skill Building: The Arbitration Audit & Binder Build": {
@@ -588,7 +642,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "After that, resolve Landmine 2, the double-dipping lien mirage. Metro General's hospital lien is $45,000, BlueCross has a $20,000 ERISA lien, and the BlueCross EOB shows $15,000 satisfied the $45,000 bill. Read that EOB before you accept either number.",
     "Finally, upload your binders in the CMS, so the attorney and the rest of the team are working from the same finished version."
    ],
-   "ask": "Before you start: which of the six tabs do you expect to give you the most trouble, and why?"
+   "ask": "Before you start: which of the six tabs do you expect to give you the most trouble, and why?",
+   "scenario": "You have twelve documents and two days to build an arbitration binder on a file that's already behind. Among them are a grayscale photo set, a superseded complaint and a $45,000 Metro General lien. Sort the documents into the six tabs, and name which QC rule applies to each problem document."
   },
   "p2": {
    "why": "The landmines are where a fast binder turns into a wrong binder.",
@@ -597,7 +652,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, strip Metro General's $45,000 direct lien from the active ledger, and log BlueCross's $20,000 subrogation lien in Tab 6. The EOB shows that $45,000 bill was already satisfied with $15,000, so the hospital's lien doesn't come out of John's recovery.",
     "Finally, the pitfall to watch: sorting documents without applying QC. Every document can be in the right tab and the binder can still fail, because the old complaint or a grayscale photo is sitting in it."
    ],
-   "ask": "Your turn: which document is the trap that must be excluded from the binder, and which QC rule catches it?"
+   "ask": "Your turn: which document is the trap that must be excluded from the binder, and which QC rule catches it?",
+   "scenario": "Rushing to finish, a colleague sorted all twelve documents into the right tabs but didn't apply any QC rules. The grayscale photos and the unverified $45,000 lien are still in. What problems will that cause at the hearing?"
   }
  },
  "4::Common Bottlenecks: Mediation (The Compromise Traps)": {
@@ -609,7 +665,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, missing decision-makers. That's an adjuster or defense representative who shows up without full settlement authority, the amount they're allowed to agree to, or without parameters negotiated ahead of time. They can talk all day, but they can't say yes.",
     "Finally, lack of confidential brief alignment. When the brief is late or missing critical exhibits, like MRIs or crash diagrams, the mediator can't prepare, and the session stalls before it starts."
    ],
-   "ask": "Have you ever been in a meeting, in any job, where everyone showed up but nothing could actually be decided? What was missing?"
+   "ask": "Have you ever been in a meeting, in any job, where everyone showed up but nothing could actually be decided? What was missing?",
+   "scenario": "At a mediation, the adjuster arrives with authority to settle for only $30,000, your ledger has two unreconciled hospital bills and your brief reached the mediator this morning. Name each bottleneck, and what you could have done weeks earlier to prevent it."
   },
   "p2": {
    "why": "Most mediation bottlenecks are built weeks earlier, by what we did or didn't send.",
@@ -618,7 +675,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the single biggest mediation bottleneck is an unverified medical ledger. If the numbers aren't verified, everything built on top of them is up for debate.",
     "Finally, the pitfall to watch: a brief that reaches the mediator ten minutes before the session. The mediator walks in unprepared, and time that should go to negotiating goes to catching up."
    ],
-   "ask": "Your turn: an adjuster arrives with only $10,000 of authority on a $100,000 policy case. What failed earlier? Think about what we should have sent, and when."
+   "ask": "Your turn: an adjuster arrives with only $10,000 of authority on a $100,000 policy case. What failed earlier? Think about what we should have sent, and when.",
+   "scenario": "Looking back at a failed mediation, the team realizes the medical ledger was never verified and the defense spent the whole morning questioning it. What should the timeline have looked like to avoid this?"
   }
  },
  "4::Common Bottlenecks: Arbitration (The Trial-Ready Landmines)": {
@@ -630,7 +688,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, unaddressed pre-existing defense traps. That's failing to shield prior injury records, like a past strain, with an expert medical declaration. Leave that gap open and the defense walks right through it.",
     "Finally, calendar and deadline misses: scheduling windows with the arbitrator that aren't synchronized, or a hard brief cutoff that slips by. These are the quiet ones, because nothing looks wrong until the date is gone."
    ],
-   "ask": "Think back to the six binder tabs. Which QC rule do you think protects against the most landmines at once?"
+   "ask": "Think back to the six binder tabs. Which QC rule do you think protects against the most landmines at once?",
+   "scenario": "At an arbitration, the arbitrator refuses to admit a key medical record because it wasn't exchanged on time, the defense raises a prior injury you didn't address, and a hearing date was set that conflicts with the expert's schedule. Which landmine is each, and how could each have been avoided?"
   },
   "p2": {
    "why": "These landmines don't just cost us an argument; they can cost the client part of the award.",
@@ -639,7 +698,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, package the prior discharge notes with an expert declaration. Without that pairing, the arbitrator may reduce the award.",
     "Finally, the pitfall to watch: printing damage photos in grayscale. It's one of the easiest mistakes on the list to make, and one of the most expensive, because the photo can be thrown out for good."
    ],
-   "ask": "Your turn: which arbitration landmine is the hardest to recover from, the exclusion, the pre-existing trap, or the missed deadline? Make your case."
+   "ask": "Your turn: which arbitration landmine is the hardest to recover from, the exclusion, the pre-existing trap, or the missed deadline? Make your case.",
+   "scenario": "An arbitrator reduces the award, noting that 'the photographs do not show significant damage' and 'the prior injury was not addressed.' Both were fixable. What would you have done differently in the binder?"
   }
  },
  "4::Case Manager Operational Countermeasures: The 48-Hour Mandate": {
@@ -651,7 +711,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, proactive lien reconciliation. Audit the health insurance EOBs, the Explanation of Benefits, early, so we can eliminate double-dipping hospital liens before they ever reach the payout.",
     "Finally, scan the digital binders with OCR, that's the technology that turns a scanned page into searchable text. Then the attorney can search the binder for any word instead of flipping through pages."
    ],
-   "ask": "Be honest: how far ahead of a deadline do you usually do your final check today? What would it take to make it 48 hours?"
+   "ask": "Be honest: how far ahead of a deadline do you usually do your final check today? What would it take to make it 48 hours?",
+   "scenario": "It's 48 hours before mediation. You run your audit and find the hospital hasn't sent its final ledger, two EOBs show the health plan paid bills the provider is still claiming, and the PDF binder isn't searchable. What do you do today about each?"
   },
   "p2": {
    "why": "Forty-eight hours out, you escalate what's missing; you don't wait for perfect.",
@@ -660,7 +721,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, if a provider hasn't sent the final ledger 48 hours before mediation, escalate to the attorney, mark the treatment \"Pending Final Verification,\" put the interim bills in the binder, and let the attorney set expectations in opening remarks. The gap gets handled openly instead of discovered at the table.",
     "Finally, the pitfall to watch: waiting for perfect records instead of escalating. Every hour spent quietly waiting is an hour the attorney could have used to plan around the gap."
    ],
-   "ask": "Your turn: it's 48 hours out and a provider's final ledger still hasn't come in. Walk me through exactly what you do, in order."
+   "ask": "Your turn: it's 48 hours out and a provider's final ledger still hasn't come in. Walk me through exactly what you do, in order.",
+   "scenario": "A Case Manager keeps waiting for a provider's final ledger, hoping it arrives before mediation. It doesn't, and the attorney finds out the morning of the session. What should she have done 48 hours earlier, and who should she have told?"
   }
  }
 });
