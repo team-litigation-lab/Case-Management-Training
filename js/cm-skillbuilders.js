@@ -889,7 +889,7 @@ window.checkCalendarPrompt = async function(btn){
   if(!(await useLabAttempt(4, "calendarBriefing"))) return;
   if(btn){ btn.disabled = true; }
   out.innerHTML = `<div class="ai-loading">Reviewing your docket briefing…</div>`;
-  const week = calMergedEvents().sort((a,b)=>DAY_ORDER.indexOf(a.day)-DAY_ORDER.indexOf(b.day)||a.s-b.s).map(e=>`${e.day} ${fmtHr(e.s)}–${fmtHr(e.e)} ${e.t} (${e.p}, ${e.type})`).join("\n");
+  const week = calMergedEvents().sort((a,b)=>DAY_ORDER.indexOf(a.day)-DAY_ORDER.indexOf(b.day)||a.s-b.s).map(e=>`${typeof calDayDate==="function" ? calDayDate(e.day) : e.day} ${fmtHr(e.s)}–${fmtHr(e.e)} ${e.t} (${e.p}, ${e.type})`).join("\n");
   try{
     const report = await runRubricEvaluation("Weekly docket briefing for the handling attorney", `THE TRAINEE'S RESOLVED WEEK:\n${week}`, text,
       "BLUF first; hard legal deadlines (arbitration brief deadline, SOL complaint filing, RFA response review, strike list, case plan filing) listed first with dates/times; conflicts resolved without moving hard deadlines, depositions or the mediation; what moved and why; decisions needed from the attorney; concise.");
@@ -901,7 +901,7 @@ window.checkCalendarPrompt = async function(btn){
 window.generateProactiveTasks = async function(){
   const out = document.getElementById("proactiveResult");
   out.innerHTML = `<div class="ai-loading">Reading your calendar…</div>`;
-  const week = calMergedEvents().map(e=>`${e.day} ${fmtHr(e.s)} ${e.t} (${e.type})`).join("\n");
+  const week = calMergedEvents().map(e=>`${typeof calDayDate==="function" ? calDayDate(e.day) : e.day} ${fmtHr(e.s)} ${e.t} (${e.type})`).join("\n");
   try{
     const txt = await callAIText(`You are a senior personal-injury Case Manager coaching a trainee. Here is the trainee's week:\n${week}\n\nList 6 specific proactive tasks that are MISSING from this calendar (e.g., 30/14/7-day alerts before hard dates, preservation letters, payoff-letter follow-ups, 30-day client pulses, subpoena audits, W-9 requests, deposition prep packets). One line each: the task, the day to schedule it, and why. Plain text, numbered.`, 600);
     out.innerHTML = `<div class="card" style="padding:14px 18px;white-space:pre-wrap;font-size:13px">${E(txt)}</div>`;

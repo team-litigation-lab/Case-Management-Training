@@ -151,12 +151,7 @@ body.audience-mode > *:not(#audienceRoot):not(.aud-hint){display:none !important
 `; document.head.appendChild(s); })();
 
 /* ---------- 1. standard-size slides ---------- */
-function goToSlide(i){
-  const maxReached = state.maxSlideReached||0;
-  if(i > maxReached){
-    toast("Complete the current topic before jumping ahead.");
-    return;
-  }
+function goToSlide(i){   // any slide can be opened — nothing is locked
   state.slideDir = i>(state.lessonSlide||0) ? "next" : "prev";
   state.lessonSlide = i; state.slidePage = 0;
   refreshLessonSlide();
@@ -1109,7 +1104,7 @@ function sopRunOfShow(dRaw){
       ti>0 ? `If time is short, trainees finish this one after the session; debrief it at the start of tomorrow.` : "",
       /Roleplay|The Call|Transportation Wall|Break the Adjuster|Deposition Prep/i.test(parts.join(" ")) ? `The live roleplay part can be run by you, or trainees rehearse solo first.` : "",
       `Steps marked <b>Do this in the CMS</b> are done in the LSH Case Management System (🧰 Tools); trainees log the Case ID.`,
-      `First submission of each exercise is free; repeats use one of 3 program-wide attempts (reset in Trainee Audit if someone is blocked by a technical issue).`].filter(Boolean),
+      `First submission of each exercise is free; repeats use one of 3 attempts per day (reset in Trainee Audit if someone is blocked by a technical issue).`].filter(Boolean),
       watch:"Anyone stuck on the same part for more than 10 minutes — nudge them to submit and move on; the debrief is where the learning lands."});
   });
   if(tools.length) add(10, {title:"Skill Builders debrief", do:[`Ask 2–3 trainees to walk through what they did and why, and where their judgment differed from the answer key or model answer.`, `Point to the Evaluation Report's “Not this way — what to change” section: it's the next step, not a verdict.`]});
