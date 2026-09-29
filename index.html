@@ -1696,6 +1696,7 @@ body.tap-moving [ondrop]{outline:2px dashed rgba(219,132,55,.55);outline-offset:
 .script-head{display:flex;justify-content:space-between;align-items:center;font-weight:800;color:var(--navy);font-size:13px;margin-bottom:6px;}
 .script-time{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--orange-deep);background:#FFF1E2;border-radius:20px;padding:2px 8px;}
 .script-row{margin-top:8px;}
+.script-say{margin:6px 0 0;font-size:14px;line-height:1.6;} .script-say.script-ask{margin-top:10px;font-weight:600;color:var(--navy);} .script-next{margin:10px 0 0;font-size:12px;color:var(--orange-deep);font-weight:700;} .pn-cue{margin-top:10px;} .pn-cue p{font-size:12.5px;}
 .script-row b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--orange-deep);margin-bottom:2px;}
 .script-row p{margin:0;font-size:13px;line-height:1.5;white-space:pre-line;}   /* numbered step scripts keep their lines */
 .script-row ul{margin:2px 0 0;padding-left:18px;} .script-row li{font-size:13px;margin-bottom:3px;}
@@ -17139,13 +17140,13 @@ function scriptWalk(items){
 function slideScript(d, l, part){
   const key = (part===2 && !l.singleSlide) ? "p2" : "p1";
   const hand = ((window.SLIDE_SCRIPTS || {})[`${d.id}::${l.h}`] || {})[key];
-  if(hand) return {why: hand.why||"", talk: hand.talk||"", walk: hand.walk||[], ask: hand.ask||"", hand: true};
+  if(hand) return {why: hand.why||"", talk: hand.talk||"", walk: hand.walk||[], ask: hand.ask||"", scenario: hand.scenario||"", hand: true};
   const n = presenterNote(d, l, part), secs = slideScriptSections(d, l, part);
   let walk = [];
   if(secs[2]) walk = scriptWalk(secs[2].split("\n").slice(1));
   const talk = [secs[1], secs[3], secs[4]].filter(Boolean).join("\n\n");
   const ask = key==="p1" ? (n.ask || (l.singleSlide ? n.wrap : "")) : (n.wrap || n.ask || "");
-  return {why: n.say || "", talk, walk, ask, hand: false};
+  return {why: n.say || "", talk, walk, ask, scenario: (key==="p2" || l.singleSlide) ? (n.scenario || "") : "", hand: false};
 }
 function slideScriptText(d, l, part){
   const s = slideScript(d, l, part);
@@ -17168,7 +17169,7 @@ function slideScriptForPage(s, l, part, pg){
   let walk = [];
   let from = 0;
   if(pos >= 0){ from = Math.round(n*pos/wp.length); const to = Math.round(n*(pos+1)/wp.length); walk = s.walk.slice(from, to); }
-  return {why: k===0 ? s.why : "", talk: k===0 ? s.talk : "", walk, ask: k===P-1 ? s.ask : "",
+  return {why: k===0 ? s.why : "", talk: k===0 ? s.talk : "", walk, ask: k===P-1 ? s.ask : "", scenario: k===P-1 ? s.scenario : "",
     more: k < P-1, cont: from > 0, hand: s.hand, page: k, pages: P};
 }
 /* The deck's Trainer Cue (from the Canva speaker notes) stays on screen as a Trainer note unless the
@@ -17179,29 +17180,27 @@ function cueInScript(cue, s){
   const cw = words(cue), said = new Set(words(s.why + " " + s.talk));
   return cw.length > 0 && cw.filter(w=>said.has(w)).length / cw.length >= 0.7;
 }
+/* The script reads like speaker notes: one flowing paragraph the trainer can say out loud (the
+   why, the explanation and the points in order), then the question on its own line, then a short
+   scenario to work through with the room. */
+function scriptProse(s){
+  const body = [s.why, String(s.talk||"").replace(/\s*\n+\s*/g, " "), (s.walk||[]).join(" ")].filter(Boolean).join(" ");
+  return [body, s.ask].filter(Boolean);
+}
 function renderPresenterNote(d, l, part, secs, allSecs, pg){
   const n = presenterNote(d, l, part);
-  const row = (k, v)=> v ? `<div class="script-row"><b>${k}</b><p>${esc(v)}</p></div>` : "";
-  const all = (window.PRESENTER_NOTES || {})[`${d.id}::${l.h}`] || {};
-  const split = !!(secs && secs.length && allSecs && secs.length < allSecs.length);
-  const onText = split ? secs.map(k=>all["s"+k] && all["s"+k].on).filter(Boolean).join(" ") || n.on : n.on;
   const full = slideScript(d, l, part);
   const s = slideScriptForPage(full, l, part, pg);
-  const lastSlide = l.singleSlide || part===2;
   const where = (l.singleSlide ? "" : ` · slide ${part===2 ? 2 : 1} of 2`) + (s.pages > 1 ? ` · page ${s.page+1} of ${s.pages}` : "");
-  const empty = !s.why && !s.talk && !s.walk.length && !s.ask;
+  let paras = scriptProse(s);
+  if(!paras.length) paras = ["Give the room a moment to read this page, then ask which point here matters most in their own work."];
   return `<div class="pn">
-    ${onText ? `<div class="pn-on"><b>${split ? "On this page" : "On this slide"}</b><p>${esc(onText)}</p></div>` : ""}
-    ${n.cue && !split && !cueInScript(n.cue, full) ? `<div class="pn-on"><b>Trainer note</b><p>${esc(n.cue)}</p></div>` : ""}
     <div class="script-block"><div class="script-head"><span>🎙 Script — read aloud${where}</span></div>
-      ${row("① The why", s.why)}
-      ${row("② Talk it through", s.talk)}
-      ${row(s.cont ? "③ Walk through it (continued)" : "③ Walk through it", s.walk.join("\n"))}
-      ${row(lastSlide ? "④ Your turn" : "④ Ask the room", s.ask)}
-      ${empty ? row("This page", "Give the room a moment to read this page, then ask which point here matters most in their own work.") : ""}
-      ${s.more ? `<div class="script-row"><b>Next page</b><p>The script continues on the next page →</p></div>` : ""}
+      ${paras.map((x,i)=>`<p class="script-say${i && s.ask && i===paras.length-1 ? " script-ask" : ""}">${esc(x)}</p>`).join("")}
+      ${s.more ? `<p class="script-next">Continues on the next page →</p>` : ""}
     </div>
-    ${lastSlide && !s.more && n.scenario && !s.hand ? `<div class="pn-scen"><b>🎬 Scenario</b><p>${esc(n.scenario)}</p></div>` : ""}
+    ${s.scenario ? `<div class="pn-scen"><b>🎬 Scenario — work through it with the room</b><p>${esc(s.scenario)}</p></div>` : ""}
+    ${n.cue && !s.page && !cueInScript(n.cue, full) ? `<div class="pn-on pn-cue"><b>Trainer note — not read aloud</b><p>${esc(n.cue)}</p></div>` : ""}
   </div>`;
 }
 function buildDayScriptLines(d){
@@ -17212,13 +17211,11 @@ function buildDayScriptLines(d){
     parts.forEach(p=>{
       const n = presenterNote(d, l, p), s = slideScript(d, l, p);
       if(parts.length > 1) lines.push(`SLIDE ${p} OF 2`);
-      if(n.on) lines.push(`ON THIS SLIDE: ${n.on}`);
       if(n.cue && p===1 && !cueInScript(n.cue, s)) lines.push(`TRAINER NOTE: ${n.cue}`);
-      if(s.why) lines.push(`THE WHY: ${s.why}`);
-      if(s.talk){ lines.push("TALK IT THROUGH:"); s.talk.split("\n").filter(Boolean).forEach(x=>lines.push(x)); }
-      if(s.walk.length){ lines.push("WALK THROUGH IT:"); s.walk.forEach(x=>lines.push(x)); }
-      if(s.ask) lines.push(`${(l.singleSlide || p===2) ? "YOUR TURN" : "ASK THE ROOM"}: ${s.ask}`);
-      if((l.singleSlide || p===2) && n.scenario && !s.hand) lines.push(`SCENARIO: ${n.scenario}`);
+      const paras = scriptProse(s);
+      if(paras[0]) lines.push(paras[0]);
+      if(paras[1]) lines.push(`ASK: ${paras[1]}`);
+      if(s.scenario) lines.push(`SCENARIO: ${s.scenario}`);
     });
     lines.push("---");
   });
@@ -20172,11 +20169,11 @@ window.addEventListener("unhandledrejection", (ev)=>{ const e = ev.reason; if(e 
 window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message && !/ResizeObserver|Script error/.test(ev.message)) showActionError(new Error(ev.message), ""); });
 
 </script>
-<script src="/js/slide-scripts/day1.js?v=1"></script>
-<script src="/js/slide-scripts/day2.js?v=1"></script>
-<script src="/js/slide-scripts/day3.js?v=1"></script>
-<script src="/js/slide-scripts/day4.js?v=1"></script>
-<script src="/js/slide-scripts/day5.js?v=1"></script>
+<script src="/js/slide-scripts/day1.js?v=2"></script>
+<script src="/js/slide-scripts/day2.js?v=2"></script>
+<script src="/js/slide-scripts/day3.js?v=2"></script>
+<script src="/js/slide-scripts/day4.js?v=2"></script>
+<script src="/js/slide-scripts/day5.js?v=2"></script>
 <script src="/js/cm-updates.js?v=11"></script>
 <script src="/js/cm-documents.js?v=1"></script>
 <script src="/js/cm-skillbuilders.js?v=13"></script>

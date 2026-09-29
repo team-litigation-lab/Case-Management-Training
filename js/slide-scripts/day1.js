@@ -1,6 +1,6 @@
 /* Day 1 — hand-written spoken scripts, one per slide (see slideScript() in index.html).
    p1 = the topic's first slide, p2 = its second slide. Each follows four beats:
-   why (the punchline) · talk (plain spoken explanation) · walk (the points in order: first, next, then, finally) · ask (an action or question). */
+   why (the punchline) · talk (plain spoken explanation) · walk (the points in order: first, next, then, finally) · ask (an action or question) · scenario (a short case situation to work through with the room). */
 window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
  "1::Training Agenda & What Case Management Is": {
   "p1": {
@@ -11,7 +11,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, proper documentation and compliance. Meticulous records create accountability. If it isn't written down in the file, nobody can prove it happened or see who owns it.",
     "Finally, effective communication. The client, the providers, the attorney and the adjuster all need to be working from the same picture, and we're the ones who keep them aligned."
    ],
-   "ask": "Before we dive in, what do you picture when you hear case management? Is it mostly paperwork, or mostly people? Hold on to your answer; we'll come back to it."
+   "ask": "Before we dive in, what do you picture when you hear case management? Is it mostly paperwork, or mostly people? Hold on to your answer; we'll come back to it.",
+   "scenario": "It's Monday morning and you've just inherited 40 files from a Case Manager who left on Friday. There are no handover notes. One client has left three voicemails asking why nobody has called her back. Before you open a single file, what three things do you want to know about each case, and where would you look for them?"
   },
   "p2": {
    "why": "Case management isn't data entry. It's coordination and ownership, from start to finish.",
@@ -21,7 +22,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, learn where bottlenecks usually form in each phase. When you know where files tend to get stuck, you can get ahead of it instead of reacting after the delay has already happened.",
     "Finally, the pitfall to watch: thinking of case management as data entry. Typing information into the system isn't the job. The job is coordinating the case and owning it from start to finish."
    ],
-   "ask": "So, back to your answer from a minute ago. What's one delay you've seen in a case that better coordination would have prevented?"
+   "ask": "So, back to your answer from a minute ago. What's one delay you've seen in a case that better coordination would have prevented?",
+   "scenario": "A new colleague spends her whole first week typing records into the system. Every field is filled in, but when the attorney asks where the Martinez case stands, she can't say what happens next or who's waiting on whom. What is she missing about the job, and what would you tell her to do differently next week?"
   }
  },
  "1::The General Case Management Process": {
@@ -37,7 +39,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, Billing and Documentation Support: bills, ledgers, liens and the order the payers get paid in. A lien is a claim someone has on the settlement, so if we lose track of one, the numbers at the end don't add up.",
     "Finally, Case Resolution and Closing: settlement, disbursement and archiving the file. Disbursement is paying out the settlement money, and it only goes cleanly if every stage before it was done properly."
    ],
-   "ask": "Quick check before we move on: which three stages run the whole time, not just once? And why does that matter for how you plan your day?"
+   "ask": "Quick check before we move on: which three stages run the whole time, not just once? And why does that matter for how you plan your day?",
+   "scenario": "Dana Price was rear-ended three months ago. Her file shows intake complete and treatment ongoing, but there's no ledger of medical bills, no note of the last adjuster contact and no treatment update in five weeks. Which stages have quietly stopped running, and what's the first thing you'd fix today?"
   },
   "p2": {
    "why": "If you don't know which stage a file is in, you can't know what it needs next.",
@@ -47,7 +50,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, remember that documentation, communication and monitoring run continuously. They're not boxes you tick once; they keep going from the day the file opens until the day it closes.",
     "Finally, the pitfall to watch: jumping to resolution before the file has been properly documented and billed. Resolution rests on that work being complete, so rushing ahead just moves the problem to the very end of the case."
    ],
-   "ask": "Let's make it concrete. Pick any one of the seven stages. Who'll volunteer to tell us what done looks like for that stage?"
+   "ask": "Let's make it concrete. Pick any one of the seven stages. Who'll volunteer to tell us what done looks like for that stage?",
+   "scenario": "A supervisor asks you in the hallway, 'Where is the Okafor case?' You open the file and see a settlement offer came in yesterday, but two medical bills were never requested. Which stage is the file really in, and what has to happen before anyone talks about closing it?"
   }
  },
  "1::Key Duties of a Case Manager": {
@@ -61,7 +65,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "After that, monitor task compliance and case progress against the deadlines. That means checking the tasks are actually done, not just that they're on the list.",
     "Finally, analyze the case's health, put resources where they're needed, and make a recommendation. This is where you stop reporting on the case and start guiding it."
    ],
-   "ask": "Which of these nine duties have you done before, in any job? And which one feels the most new to you?"
+   "ask": "Which of these nine duties have you done before, in any job? And which one feels the most new to you?",
+   "scenario": "The attorney is heading into a meeting in five minutes and asks you, 'Give me the Rivera case in one minute.' Rivera is two months into chiropractic care, the adjuster hasn't replied in three weeks and the client missed her last two appointments. What do you say, and what do you recommend?"
   },
   "p2": {
    "why": "A recommendation without reasons is just an opinion, and a task on a list isn't a task done.",
@@ -71,7 +76,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, case health analysis is proactive. Look for the weak spots in the file before an adjuster finds them, because it's far better that we find them first.",
     "Finally, the pitfall to watch: tracking tasks without confirming they were completed correctly. A task marked done that was done wrong is worse than one that's still open, because nobody's looking at it anymore."
    ],
-   "ask": "Here's the question for the room: which of the nine duties do new Case Managers most often under-do, and why do you think that is?"
+   "ask": "Here's the question for the room: which of the nine duties do new Case Managers most often under-do, and why do you think that is?",
+   "scenario": "Your task list shows 'request ER records: done' on the Castillo file. Two weeks later, the demand writer finds the hospital sent the wrong patient's records and nobody opened them. What went wrong, and what habit would have caught it the day they arrived?"
   }
  },
  "1::Understanding Case Phases": {
@@ -88,7 +94,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "After that, Disbursement. We pay everyone out and reconcile the numbers, so every dollar is accounted for.",
     "Finally, Litigation, for cases that need further action. That's the path we take when negotiation fails, not a normal next step."
    ],
-   "ask": "Quick check without looking back: which phase comes right before Demand, and what do we do in it?"
+   "ask": "Quick check without looking back: which phase comes right before Demand, and what do we do in it?",
+   "scenario": "Three files land on your desk. In the first, the client is still in physical therapy twice a week. In the second, treatment ended last month and you're collecting final bills. In the third, the insurer has just rejected the demand outright. Name the phase each file is in, and the next thing each one needs."
   },
   "p2": {
    "why": "A phase isn't finished because time has passed; it's finished when its deliverables are done.",
@@ -98,7 +105,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, record the phase in the CMS, our case management system, every time it changes. That way the whole team sees the same status, and nobody works from an old picture.",
     "Finally, the pitfall to watch: treating litigation as a normal next step. It isn't. Litigation is the path for cases that couldn't resolve earlier."
    ],
-   "ask": "Which phase transition do you think is most likely to be rushed? And when it is rushed, what breaks?"
+   "ask": "Which phase transition do you think is most likely to be rushed? And when it is rushed, what breaks?",
+   "scenario": "A colleague moves a file into Demand because 'it's been six months.' But the client's MRI results aren't in, and two providers still haven't sent their bills. What's the risk of moving it forward now, and what should the file show before it changes phase?"
   }
  },
  "1::Case Phase: Intake — Establishing Control": {
@@ -111,7 +119,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, assess whether the case is viable and eligible. Not every inquiry is a case we can take, and it's far better to know that now than three phases in.",
     "Finally, set up a properly structured case file. A clean, organized file from day one is what lets everyone who touches it later find what they need."
    ],
-   "ask": "Think about a time you inherited someone else's messy work, a file, a project, anything. How much time did it cost you to fix what should have been right at the start?"
+   "ask": "Think about a time you inherited someone else's messy work, a file, a project, anything. How much time did it cost you to fix what should have been right at the start?",
+   "scenario": "A new client, Luis Ortega, calls the day after a crash. He gives his name, a phone number and 'the guy in the red truck hit me.' He doesn't know the other driver's name or insurer, and he hasn't seen a doctor. What must you capture on this first call, and what can safely wait until tomorrow?"
   },
   "p2": {
    "why": "What we do carefully at intake, we don't have to fix later.",
@@ -121,7 +130,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, careful attention at intake raises the likelihood of a successful outcome. Small mistakes caught now don't grow into big problems further down the line.",
     "Finally, the pitfall to watch: moving a case forward before the conflict check is complete. If there's a conflict, we can't take the case, and finding that out after we've started means undoing all of it."
    ],
-   "ask": "Your turn. What does a properly structured case file look like in our CMS on day one? What's in it, and how is it named and organized?"
+   "ask": "Your turn. What does a properly structured case file look like in our CMS on day one? What's in it, and how is it named and organized?",
+   "scenario": "An eager colleague opens a new file and starts requesting medical records before the conflict check comes back. That afternoon, the check shows the firm has represented the other driver's company. What problems has that created, and how should the order of steps have gone?"
   }
  },
  "1::The Real Intake Workflow": {
@@ -136,7 +146,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, set up a complete and organized case file in the system, with the proper naming conventions, so anyone on the team can find it and trust what's inside.",
     "Finally, communicate the next steps clearly, to the client or to the internal team. A decision nobody hears about doesn't move the case."
    ],
-   "ask": "Of these six steps, which one do you think will take you the longest while you're new, and why?"
+   "ask": "Of these six steps, which one do you think will take you the longest while you're new, and why?",
+   "scenario": "On the intake call, the client says the crash happened on the 14th. The online form she submitted last week says the 12th, and the police report number she gives doesn't match either date. Walk through the intake steps. Where do you pause, and what do you ask her?"
   },
   "p2": {
    "why": "Own the workflow from start to finish, because nobody else is standing behind you to catch what slips through.",
@@ -146,7 +157,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, be proactive about inconsistencies. Don't wait for someone else to catch them, because by the time someone else does, the error is already in the file.",
     "Finally, the pitfall to watch: creating the file before the conflict check is documented. The check comes first, every time. A file that exists before we know we can take the case is a file we might have to undo."
    ],
-   "ask": "Let's walk through the example workflow with a live intake. As we go, tell me: where do you personally slow down, and what would help you move through that step?"
+   "ask": "Let's walk through the example workflow with a live intake. As we go, tell me: where do you personally slow down, and what would help you move through that step?",
+   "scenario": "Intake passed a file to you with a note saying 'mostly done.' The conflict check isn't documented, the client's email is missing, and the case summary is two lines long. Nobody else is going to catch this. What do you do before the file goes any further, and who do you tell?"
   }
  },
  "1::Intake & Initial Client Contact — Gatekeepers of Case Quality": {
@@ -159,7 +171,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, confirm it's properly documented, so anyone who opens the file can see what was gathered and where it came from.",
     "Finally, confirm it's ready for case activation. Only when all four checks pass does the case move into active case management."
    ],
-   "ask": "Who here has had a job where you checked someone else's work before it went out? What did you learn to look for first?"
+   "ask": "Who here has had a job where you checked someone else's work before it went out? What did you learn to look for first?",
+   "scenario": "An intake packet arrives for activation. The client's name, the date of loss and the police report are all there, but the signed retainer is missing and the insurance card photo is too blurry to read. Run the four checks: complete, accurate, documented, ready. Does it pass, and what goes back?"
   },
   "p2": {
    "why": "The standard we hold at the gate protects the integrity of the entire process.",
@@ -169,7 +182,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, remember that keeping high standards here protects the integrity of the entire process. If weak cases get through the gate, everything after it is built on weak ground.",
     "Finally, the pitfall to watch: accepting a case because intake mostly looks fine. Mostly fine means something's missing, and that something tends to surface when it's hardest to fix."
    ],
-   "ask": "What's the single missing item that would make you send an intake packet back? Let's hear a few answers."
+   "ask": "What's the single missing item that would make you send an intake packet back? Let's hear a few answers.",
+   "scenario": "It's the end of the month and your manager wants five new cases activated today. One packet is almost complete but is missing the HIPAA authorization, and the client is hard to reach. Do you activate it and chase the form later, or send it back? How do you explain your choice to your manager?"
   }
  },
  "1::Case Acceptance Determination": {
@@ -182,7 +196,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, assess whether the case fits the firm's strategic goals. A case can be real and still not be the right fit for us.",
     "Finally, record the decision, Accepted, Escalated or Declined, together with the reason. Without the reason, nobody can follow or check the decision later."
    ],
-   "ask": "Quick check: what are the three possible decisions, and what's the one thing every decision must have attached to it?"
+   "ask": "Quick check: what are the three possible decisions, and what's the one thing every decision must have attached to it?",
+   "scenario": "A potential client slipped on a wet floor at a grocery store eight months ago. There were no photos and no incident report, and she only saw a doctor last week. Using the firm's criteria, walk through verification, completeness and fit, and decide: Accept, Escalate or Decline. Write the one-line reason."
   },
   "p2": {
    "why": "Only qualified cases get through, and that's what protects both the quality of our work and the firm's reputation.",
@@ -192,7 +207,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, every decision needs a documented reason someone else can follow. If you're out tomorrow, a colleague should be able to read the file and understand exactly why.",
     "Finally, the pitfall to watch: gathering more information at this stage instead of making the determination. The gathering is done. This stage is for deciding."
    ],
-   "ask": "So, before you'd ever mark a case Accepted, what facts must be verified? Let's build that list together."
+   "ask": "So, before you'd ever mark a case Accepted, what facts must be verified? Let's build that list together.",
+   "scenario": "You've been gathering information on a borderline case for two weeks, asking the client for more and more documents. The attorney asks why the case still has no decision. What should you have done by now, and what does the decision note need to say?"
   }
  },
  "1::Common Intake Bottlenecks — Overview": {
@@ -206,7 +222,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "After that, verification or conflict check delays. Nothing moves until these are done, so any hold-up here holds up everything.",
     "Finally, unclear case eligibility decisions. When nobody's sure whether we're taking the case, it just sits."
    ],
-   "ask": "Before we go deeper: which of these five have you already run into, even in a different kind of job?"
+   "ask": "Before we go deeper: which of these five have you already run into, even in a different kind of job?",
+   "scenario": "Five intake files have been stuck for over a week. One is waiting on the client to call back, one is missing a police report, one has an unclear eligibility decision, one is waiting on the conflict check and one has a summary nobody can follow. Sort them by bottleneck, and pick which one you'd clear first."
   },
   "p2": {
    "why": "Name a bottleneck precisely and catch it early, and intake runs smoother and clients are happier.",
@@ -216,7 +233,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, deal with them early. The sooner we address a bottleneck, the smoother intake runs and the more satisfied the client is.",
     "Finally, the pitfall to watch: blaming the client for delays that are really process gaps. Sometimes the client is slow because we asked unclearly, or made it hard to answer."
    ],
-   "ask": "Let's hear from you: which of the five causes is the most common in your experience?"
+   "ask": "Let's hear from you: which of the five causes is the most common in your experience?",
+   "scenario": "In the team meeting, someone says, 'Our intake is slow because clients never respond.' You look at the last ten stalled files and find that six were actually waiting on internal steps. How do you raise that without blaming anyone, and what would you suggest changing?"
   }
  },
  "1::Bottleneck: Incomplete Client Information": {
@@ -228,7 +246,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, no supporting documents attached. Documents are what we build a strong case on, so a file without them is really just a story.",
     "Finally, vague or unclear case summaries. They lead to misunderstandings and a string of unnecessary follow-ups that could have been one clear conversation."
    ],
-   "ask": "When you get a vague case summary, what's the first question you'd ask the client to make it clear?"
+   "ask": "When you get a vague case summary, what's the first question you'd ask the client to make it clear?",
+   "scenario": "A new file has the client's name and 'car accident last month.' There's no phone number that works, no location and no documents attached. The intake note says 'client upset, will call back.' What exactly is missing, and how will you get it in one attempt rather than five?"
   },
   "p2": {
    "why": "Every missing piece costs us a follow-up, so we ask for everything once, clearly, with a deadline.",
@@ -238,7 +257,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, request missing documents in one consolidated message, with a deadline. One clear request gets answered; three separate ones get lost.",
     "Finally, the trap here: rewriting a vague summary from memory instead of confirming the facts with the client. Memory isn't evidence, and a wrong fact in the file is harder to fix than a missing one."
    ],
-   "ask": "Your turn. Draft the one message you'd send a client who's missing three items. Keep it short, make it clear what you need, and give them a deadline."
+   "ask": "Your turn. Draft the one message you'd send a client who's missing three items. Keep it short, make it clear what you need, and give them a deadline.",
+   "scenario": "You need a police report, photos of the car, the client's health insurance card and the other driver's details. Draft the single message you'd send the client, including what you need, why you need it and the date you need it by."
   }
  },
  "1::Bottleneck: Delayed Client Follow-Up": {
@@ -250,7 +270,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, missing confirmations from the verification call. If the client never confirms, we can't verify the facts.",
     "Finally, slow submission of the documents we need. Every day they're late is a day intake sits still."
    ],
-   "ask": "Why do you think a client goes quiet after reaching out to us for help? Let's hear a few reasons."
+   "ask": "Why do you think a client goes quiet after reaching out to us for help? Let's hear a few reasons.",
+   "scenario": "You asked a client, Tanya Brooks, to confirm her treating doctor's name and send her ER discharge papers. It's been nine days and she hasn't replied to two emails. What do you try next, and how do you make it easier for her to answer?"
   },
   "p2": {
    "why": "Waiting on the client can be a reason, but it's never an excuse to stop tracking the file.",
@@ -260,7 +281,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, give the client an easy way to respond: a call window, a text, or an upload link. The easier it is to answer, the faster the answer comes.",
     "Finally, the pitfall to watch: letting a file sit because we're waiting on the client, without logging the attempts. If the attempts aren't logged, nobody can tell whether we followed up or just forgot."
    ],
-   "ask": "Here's the discussion: how many follow-up attempts, over what period, before you escalate?"
+   "ask": "Here's the discussion: how many follow-up attempts, over what period, before you escalate?",
+   "scenario": "Your supervisor opens a file that's been untouched for three weeks. Your note says 'waiting on client.' There's no record of when you asked, how or whether you followed up. What should the file show, and what would you set up today so this doesn't happen again?"
   }
  },
  "1::Bottleneck: Conflict Check Delays": {
@@ -272,7 +294,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, incomplete conflict check entries. When names or details are missing, it turns into a time-consuming back-and-forth just to run the check properly.",
     "Finally, unclear opposing party information. If we don't know exactly who's on the other side, we can't check them, and the delay compounds."
    ],
-   "ask": "Why do you think the conflict check has to be finished before anything else happens? What could go wrong if it wasn't?"
+   "ask": "Why do you think the conflict check has to be finished before anything else happens? What could go wrong if it wasn't?",
+   "scenario": "A conflict check has been sitting in the queue for four days. When you look, the entry only says 'client hit by delivery truck.' It doesn't name the driver or the company. What information is missing, and how do you get the check moving today?"
   },
   "p2": {
    "why": "A conflict check is only as good as the names we put into it.",
@@ -282,7 +305,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, document the date and result of every conflict check in the file, so anyone can see it was done and what it found.",
     "Finally, the pitfall to watch: running the check on a nickname or a partial name. It can come back clear when the real person or company is actually a conflict."
    ],
-   "ask": "Think about a trucking case. What details about the opposing party would you need to run a clean conflict check?"
+   "ask": "Think about a trucking case. What details about the opposing party would you need to run a clean conflict check?",
+   "scenario": "The conflict check on a new case came back clear, but it was run on 'Mike' and 'the trucking company.' Later you learn the driver is Michael Andersen of Harlow Freight, a company the firm defended last year. What went wrong, and what does a proper check entry look like?"
   }
  },
  "1::Bottleneck: Intake Form Errors": {
@@ -294,7 +318,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, missing signatures or authorization forms. They halt progress, because without them we can't act for the client.",
     "Finally, duplicate or misfiled records. They waste time, and sooner or later someone works from the wrong version."
    ],
-   "ask": "Have you ever found a wrong date in something that had already gone out? How did you catch it, and what did it take to fix?"
+   "ask": "Have you ever found a wrong date in something that had already gone out? How did you catch it, and what did it take to fix?",
+   "scenario": "Reviewing an intake, you notice the form says the client was the driver, but the police report lists her as a passenger. The retainer is signed, but the medical authorization isn't. There are also two copies of the file in the system under slightly different names. Which problem do you fix first, and how?"
   },
   "p2": {
    "why": "A wrong date caught before activation is a quick fix; the same date caught later is a credibility problem.",
@@ -304,7 +329,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, check every signature and authorization before the file is activated. A missing one found later stops the case right when it needs to move.",
     "Finally, the pitfall to watch: correcting an inconsistency silently. Confirm it, then document the correction, so anyone reading the file knows what changed and why."
    ],
-   "ask": "Here's one to work through. The CMS intake lists the police report number as 1104, and the provider bills show a date of birth of 02/14/1980. What do you do before this case is activated?"
+   "ask": "Here's one to work through. The CMS intake lists the police report number as 1104, and the provider bills show a date of birth of 02/14/1980. What do you do before this case is activated?",
+   "scenario": "You spot that the date of loss in the intake form is off by a month. It's clearly a typo, and it would be quicker to just change it. What's the right way to correct it, and why does it matter to document the correction?"
   }
  },
  "1::Bottleneck: Case Eligibility Uncertainty": {
@@ -316,7 +342,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, it needs attorney review before a decision can be made. That's not a call we make on our own.",
     "Finally, the facts of loss or liability are ambiguous. Liability means who's legally responsible, and when that's unclear, eligibility is too."
    ],
-   "ask": "Be honest: why is it tempting to hold on to an uncertain file instead of escalating it?"
+   "ask": "Be honest: why is it tempting to hold on to an uncertain file instead of escalating it?",
+   "scenario": "A client was hit while crossing the street, but she admits she wasn't in the crosswalk and the driver says she ran out suddenly. There's no witness and no attorney has reviewed the case yet. What makes this file uncertain, and what do you need before anyone can decide on it?"
   },
   "p2": {
    "why": "An uncertain file needs a decision, and our job is to get it in front of the right person, fast.",
@@ -326,7 +353,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, when you can, clarify the facts of loss with the client before escalating. Often one conversation clears up the uncertainty.",
     "Finally, the pitfall to watch: letting an uncertain file sit in limbo instead of escalating it. Limbo doesn't resolve anything; it just costs the client time."
    ],
-   "ask": "Your turn. Write the two-line escalation note you'd send an attorney on an ambiguous-liability case. Then we'll read a few out."
+   "ask": "Your turn. Write the two-line escalation note you'd send an attorney on an ambiguous-liability case. Then we'll read a few out.",
+   "scenario": "That same pedestrian file has been sitting untouched for ten days because nobody is sure whether the firm will take it. Write the three-line escalation note you'd send the attorney, covering what's known, what's unclear and what decision you need."
   }
  },
  "1::Bottleneck: Communication Gaps": {
@@ -338,7 +366,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, the Case Manager doesn't receive the complete intake packet, and ends up working with half the picture.",
     "Finally, miscommunication between departments, where each side thinks the other one has it handled."
    ],
-   "ask": "Where have you seen a handoff go wrong between two teams? What got lost on the way?"
+   "ask": "Where have you seen a handoff go wrong between two teams? What got lost on the way?",
+   "scenario": "A client calls you, upset, saying she sent her medical records to intake two weeks ago and nobody has contacted her. You check the file: no records, and no note from intake. What do you say to the client right now, and who do you talk to after the call?"
   },
   "p2": {
    "why": "If it isn't in the CMS, the rest of the team can't see it.",
@@ -348,7 +377,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, use the CMS as the single source of truth, not side emails. A side email only helps the people who are on it.",
     "Finally, the pitfall to watch: assuming the intake team sent everything. Check the packet against what should be there before you start."
    ],
-   "ask": "Let's design one together. What's a simple handoff rule between intake and case management that would close these gaps?"
+   "ask": "Let's design one together. What's a simple handoff rule between intake and case management that would close these gaps?",
+   "scenario": "Intake emailed you directly about a change in a client's phone number, but the CMS still has the old one. A week later, a colleague covering for you can't reach the client. What should have happened, and what rule would you suggest for the team?"
   }
  },
  "1::Skill Building: Intake Decision Challenge & Applied Case Manager Actions": {
@@ -363,7 +393,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, Applied Action three: take immediate action to move the file forward today.",
     "Finally, Applied Action four: prevent it from happening again, so the next file doesn't hit the same bottleneck."
    ],
-   "ask": "Before you start: what's your gut call on John Doe right now, Accept, Escalate or Decline? Hold on to it, and see whether it changes once you've worked through the file."
+   "ask": "Before you start: what's your gut call on John Doe right now, Accept, Escalate or Decline? Hold on to it, and see whether it changes once you've worked through the file.",
+   "scenario": "John Doe's intake is on your desk. He was hit by an Apex Delivery Services van, and the police report says the van ran a red light. His retainer is signed, but his health insurance card is missing and he's only seen a chiropractor so far. Accept, Escalate or Decline? State your reason and your next step."
   },
   "p2": {
    "why": "Mastering this process makes the whole legal process more efficient, and it starts with a decision that's logged and explained.",
@@ -373,7 +404,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, better training, communication or technology is how we stop bottlenecks coming back. Fixing today's file is good; fixing the process is better.",
     "Finally, the pitfall to watch: deciding without documenting the reason. An undocumented decision can't be reviewed, defended or learned from."
    ],
-   "ask": "Let's hear two sides. I need two volunteers who reached different decisions on the John Doe intake. Each of you, defend your call and the reason you documented."
+   "ask": "Let's hear two sides. I need two volunteers who reached different decisions on the John Doe intake. Each of you, defend your call and the reason you documented.",
+   "scenario": "After you decide on John Doe's case, you notice his intake took eleven days, and six of them were spent waiting on a conflict check that had a misspelled company name. Walk through the four applied actions: where it slowed, the root cause, what you do today and how you prevent it next time."
   }
  },
  "1::Tools for Case Planning & the PI Case Lifecycle Strategy": {
@@ -386,7 +418,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, document management systems, so every document is stored, named and easy to find when someone needs it.",
     "Finally, workflow automation tools. They take care of the repeat steps and reminders, so nothing depends on somebody remembering."
    ],
-   "ask": "Which of these tools have you used before, and what did it catch for you that you'd have missed on your own?"
+   "ask": "Which of these tools have you used before, and what did it catch for you that you'd have missed on your own?",
+   "scenario": "It's your first day with a new caseload of 30 files. Some deadlines are written on sticky notes, some are in the previous Case Manager's personal calendar and some are nowhere. Which tools do you set up first, and what goes into each one?"
   },
   "p2": {
    "why": "Deadlines and treatment gaps are what sink PI cases, so the system watches both from day one.",
@@ -396,7 +429,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, use task trackers so a gap in treatment is visible the day it starts, not when the insurance company points it out.",
     "Finally, the pitfall to watch: relying on memory instead of the system for deadlines. Memory fails on a busy day; the system doesn't."
    ],
-   "ask": "Think about a missed deadline you've seen, in any job. Which of these tools would have caught it?"
+   "ask": "Think about a missed deadline you've seen, in any job. Which of these tools would have caught it?",
+   "scenario": "A client's crash was 22 months ago in a state with a two-year Statute of Limitations. The file has no docketed SOL date, and she hasn't had treatment for seven weeks. What do you do today about each problem, and in what order?"
   }
  },
  "1::Claim Set-Up: Coverage Determination & Liability Assessment": {
@@ -410,7 +444,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "After that, establish who caused the incident, and whether liability is clear, shared or disputed.",
     "Finally, list the evidence that supports fault, and any comparative negligence factors. Comparative negligence is when the client might share part of the blame, and we need to know that early."
    ],
-   "ask": "Look at the two columns. Which is harder to answer early on: is there valid coverage, or who caused the incident? Why?"
+   "ask": "Look at the two columns. Which is harder to answer early on: is there valid coverage, or who caused the incident? Why?",
+   "scenario": "Your client was hit by a driver who was using his employer's car on a work errand. The driver has a personal auto policy, the employer has a commercial policy and your client has her own UM coverage. List every policy you'd check, and what you need to confirm about each."
   },
   "p2": {
    "why": "Coverage and liability are the foundation of the claim, and that foundation is only as strong as its sources.",
@@ -420,7 +455,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, record the source of every coverage fact: the dec page, that's the declarations page summarizing the policy, the adjuster's letter, or the police report. If we can't say where a fact came from, we can't rely on it.",
     "Finally, the pitfall to watch: assuming coverage exists because the defendant is a business. Being a company doesn't prove there's a valid policy that applies. We confirm it."
    ],
-   "ask": "Say it's a commercial vehicle claim. What documents would you request first to verify coverage?"
+   "ask": "Say it's a commercial vehicle claim. What documents would you request first to verify coverage?",
+   "scenario": "A colleague tells a client, 'Don't worry, it's a big company, they'll have plenty of insurance.' A month later, you learn the company's policy excludes drivers under 25, and the driver was 23. What should have been done differently, and what do you say to the client now?"
   }
  },
  "1::Claim Set-Up: Case Projection — Why the Three Work Together": {
@@ -434,7 +470,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "After that, treatment expectations: what care the client is likely to need, and how it's expected to go.",
     "Finally, documentation quality. A projection is only as good as the records behind it."
    ],
-   "ask": "Quick check: if liability looks strong but coverage isn't confirmed yet, how confident should we be in the projection? Why?"
+   "ask": "Quick check: if liability looks strong but coverage isn't confirmed yet, how confident should we be in the projection? Why?",
+   "scenario": "Two cases look similar: both clients have neck and back injuries. In one, liability is clear and there's a $1 million commercial policy. In the other, fault is disputed and the other driver has a $25,000 minimum policy. How would you project each case differently, and why?"
   },
   "p2": {
    "why": "A projection is a working estimate, not a promise, and it has to change when the facts do.",
@@ -444,7 +481,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, write the projection down with its assumptions, so others can see what would change it. If the attorney knows what it's assuming, they know what to watch.",
     "Finally, the pitfall to watch: projecting value before coverage is confirmed. Everything else in the estimate leans on that answer."
    ],
-   "ask": "Here's the question: how would a confirmed one-million-dollar commercial policy change the projection, compared with the same policy still unverified?"
+   "ask": "Here's the question: how would a confirmed one-million-dollar commercial policy change the projection, compared with the same policy still unverified?",
+   "scenario": "Three months ago, the projection on a file assumed a soft-tissue injury. This week, the client's MRI shows a herniated disc and her surgeon recommends surgery. What needs to change in the projection, and who needs to know?"
   }
  },
  "1::Case Study: John Doe v. Apex — Coverage Analysis": {
@@ -457,7 +495,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, request the declarations page to confirm the limits. The dec page is the summary page of a policy, and it's what shows the real numbers in writing.",
     "Finally, hold the projection as preliminary until coverage is confirmed. We can plan around an expected number, but we don't finalize anything on it."
    ],
-   "ask": "Quick check: which of these coverages sit on the defendant's side of the file, and which sit on John's side?"
+   "ask": "Quick check: which of these coverages sit on the defendant's side of the file, and which sit on John's side?",
+   "scenario": "For John Doe v. Apex, you've identified Apex's commercial auto policy with Aggressive Casualty, and John's own PIP, health insurance and UM/UIM. The Aggressive Casualty adjuster says on the phone that 'the limit is probably a million.' What do you request, and how do you record the projection in the meantime?"
   },
   "p2": {
    "why": "Coverage looks strong on the defendant's side, but confirmation comes before the projection is finalized.",
@@ -466,7 +505,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the insight: coverage appears strong on the defendant's side, but it still has to be confirmed before we finalize the projection. Likely and confirmed are two different things.",
     "Finally, the pitfall to watch: quoting a likely limit to the client before it's confirmed in writing. Once a client hears a number, that's the number they remember, even if the real one turns out different."
    ],
-   "ask": "Your turn on the John Doe file. Open both dec pages in Case Documents. Then tell me: what's the fastest way to confirm Apex's policy limits?"
+   "ask": "Your turn on the John Doe file. Open both dec pages in Case Documents. Then tell me: what's the fastest way to confirm Apex's policy limits?",
+   "scenario": "John Doe calls and asks, 'So how much is my case worth? My friend said trucking companies pay millions.' The dec page hasn't arrived yet. What do you tell him, and what do you avoid saying?"
   }
  },
  "1::Case Study: John Doe v. Apex — Liability Determination": {
@@ -479,7 +519,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, the driver statement: what Smith himself says happened. If his account is different, we need to know now, not later.",
     "Finally, dashcam footage or other evidence. Video can confirm who had the signal in a way a statement can't."
    ],
-   "ask": "Based on these facts, how confident would you be in liability right now? And what would you want to see before telling the attorney it's confirmed?"
+   "ask": "Based on these facts, how confident would you be in liability right now? And what would you want to see before telling the attorney it's confirmed?",
+   "scenario": "In John Doe's case, the police report cites the Apex driver, Smith, for running the red light. But Smith's written statement says the light was yellow, and Apex hasn't said whether the van had a dashcam. What do you request next, and how would you describe liability in your case notes?"
   },
   "p2": {
    "why": "Favorable isn't final: our job is to confirm liability before anyone treats it as settled.",
@@ -489,7 +530,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, diligence in confirming it builds a robust case before we move forward. Every confirmed piece makes the case harder to argue with.",
     "Finally, the pitfall to watch: telling the client liability is a sure thing before the police report is in. If the facts shift, we've set an expectation we can't keep."
    ],
-   "ask": "Here's the question for the room: what single piece of evidence would most change this liability assessment?"
+   "ask": "Here's the question for the room: what single piece of evidence would most change this liability assessment?",
+   "scenario": "Before the dashcam footage comes in, John's wife calls and asks whether it's 'a sure win' because the police gave the other driver a ticket. How do you answer her honestly without worrying her, and what do you note in the file?"
   }
  },
  "1::Case Planning Framework: Regulatory Intake & Verification": {
@@ -501,7 +543,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, Medicare and Medicaid reporting. If the client is 65 or older, or on SSDI, that's Social Security Disability, we report the case to the Benefits Coordination and Recovery Center, the BCRC, under a law called MMSEA. Skip it, and we risk severe federal penalties and a frozen settlement.",
     "Finally, subrogation management, starting with who the primary payer is. Subrogation is a payer's right to be paid back out of the case. So we identify the payor order: PIP or MedPay first, then private health insurance, then LOPs and provider liens."
    ],
-   "ask": "Which of these three checks do you think is easiest to forget on a busy day? And what would it cost the client if we did?"
+   "ask": "Which of these three checks do you think is easiest to forget on a busy day? And what would it cost the client if we did?",
+   "scenario": "Your new client is 67 years old and on Medicare. She was injured when a store shelf fell on her. Her file has a general medical release from her doctor's office but nothing else. Walk through the triple-check: what's missing for HIPAA, Medicare reporting and subrogation, and what do you do first?"
   },
   "p2": {
    "why": "Skip the triple-check and we either aren't authorized to act, or we're facing federal penalties and a frozen settlement.",
@@ -511,7 +554,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, log the BCRC report date in the file. If anyone ever asks whether the case was reported, the answer, and the date, is right there.",
     "Finally, the pitfall to watch: a generic medical release that doesn't name the incident date. It may not be adequate for a PI case, and then we can't get what we need when we need it."
    ],
-   "ask": "A 67-year-old client is referred to us. What's the first regulatory action you take, and why that one?"
+   "ask": "A 67-year-old client is referred to us. What's the first regulatory action you take, and why that one?",
+   "scenario": "A settlement is close on a case, but the file has no record of Medicare reporting, even though the client started receiving SSDI last year. What could happen to the settlement, and what do you do this week?"
   }
  },
  "1::Case Planning Framework: The Three-Pillar Case Plan": {
@@ -523,7 +567,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, Functional: activities of daily living, ADLs, the everyday things like getting dressed or cooking, and the client's Return to Work status, RTW. This is how the injury shows up in real life.",
     "Finally, Financial: the primary payer order, PIP or MedPay, then private health insurance, then LOPs and provider liens, along with subrogation management and MMSEA compliance. In short, who pays, in what order, and who has to be paid back."
    ],
-   "ask": "Of the three pillars, which one do you think gets forgotten most often, and why?"
+   "ask": "Of the three pillars, which one do you think gets forgotten most often, and why?",
+   "scenario": "Maria Lopez broke her wrist in a crash. She's a hairdresser, lives alone with two children and has no health insurance, but she does have PIP. Build a quick three-pillar plan: one clinical goal, one functional goal and the payer order for her bills."
   },
   "p2": {
    "why": "A plan that only covers clinical care misses how the client is living and who's paying the bills.",
@@ -533,7 +578,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, give each pillar measurable goals. If we can't measure it, we can't show progress, or spot when it stalls.",
     "Finally, the pitfall to watch: a plan that only covers clinical care. Without the functional and financial pillars, it's a treatment list, not a case plan."
    ],
-   "ask": "Your turn on the John Doe file. Draft one goal for each pillar, Clinical, Functional and Financial, and make each one measurable."
+   "ask": "Your turn on the John Doe file. Draft one goal for each pillar, Clinical, Functional and Financial, and make each one measurable.",
+   "scenario": "A colleague's case plan lists physical therapy three times a week and an orthopedic follow-up, and nothing else. The client can't drive, has missed two shifts at work and is getting collection calls from the ER. What's missing from the plan, and why does it matter for the case?"
   }
  },
  "1::Case Planning Framework: Mandatory Disclosure & Compliance Tracking": {
@@ -545,7 +591,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, state-specific timelines. In No-Fault states, like New York or Florida, the carrier will require IMEs, Independent Medical Examinations, early in set-up, so our framework needs a timeline for them.",
     "Finally, Letter of Protection management. An LOP is a provider agreeing to treat now and be paid from the case later. If the client is uninsured, we track every LOP provider, so there are no surprise medical bills that exceed the policy limits."
    ],
-   "ask": "Has anyone worked somewhere where records had an audit trail? How did it change the way people wrote their notes?"
+   "ask": "Has anyone worked somewhere where records had an audit trail? How did it change the way people wrote their notes?",
+   "scenario": "Your client lives in Florida, a No-Fault state, and the PIP carrier has just scheduled an IME for next Tuesday. The client says she can't go because of work. What does the file need to show, and what do you tell her about the appointment?"
   },
   "p2": {
    "why": "Write every note as if defense counsel will read it, because one day they might.",
@@ -555,7 +602,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, keep the LOP provider list current, with balances. That's how we protect the client from financial surprises.",
     "Finally, the pitfall to watch: editing records in a way that breaks the audit trail. If a record looks altered, the whole file loses credibility."
    ],
-   "ask": "Here's the discussion: what makes a file clean, rather than just complete? Where's the line between the two?"
+   "ask": "Here's the discussion: what makes a file clean, rather than just complete? Where's the line between the two?",
+   "scenario": "Reviewing an old file, you find a note that says 'client seems to be exaggerating her pain, probably wants a bigger settlement.' The case is heading toward litigation. What's the risk of that note, and how should notes like it be written from now on?"
   }
  },
  "1::The “Golden Rule” of US Claim Set-Up": {
@@ -567,7 +615,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, keep medical notes factual and clinical: what happened, what the provider said, what the client reported. A note that sticks to the facts is hard to turn against us.",
     "Finally, keep legal strategy in the legal track only. Anything about strategy belongs with the attorney, not in a treatment note that could end up in front of the defense."
    ],
-   "ask": "Think about the notes you wrote last week. Is there a sentence in there you wouldn't want read aloud by defense counsel?"
+   "ask": "Think about the notes you wrote last week. Is there a sentence in there you wouldn't want read aloud by defense counsel?",
+   "scenario": "After a treatment check-in, you're writing the note. The client said her back pain is 6 out of 10, down from 8, and her attorney thinks the case is strong because of her lost wages. Which parts go in the medical note, which go in the legal track, and how would you word the medical note?"
   },
   "p2": {
    "why": "One careless sentence in a treatment note can cost us our neutrality in front of the defense.",
@@ -576,7 +625,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, avoid offering legal opinions in medical notes. Defense counsel often uses them to impeach the case manager's neutrality. To impeach means to attack our credibility, and a legal opinion in a clinical note hands them the tool.",
     "Finally, the pitfall to watch: writing “this will help the case” in a treatment note. It feels harmless when you type it, but it tells the defense the treatment was about the lawsuit, not the client's recovery."
    ],
-   "ask": "Your turn: take a note that mixes legal opinion with medical facts and rewrite it. Keep only what's factual and clinical, and tell me where the legal part should go instead."
+   "ask": "Your turn: take a note that mixes legal opinion with medical facts and rewrite it. Keep only what's factual and clinical, and tell me where the legal part should go instead.",
+   "scenario": "A treatment note in the file reads, 'Client will keep going to PT because it will help the case value.' In a deposition, defense counsel reads it aloud. What does it suggest to a jury, and how should the note have been written?"
   }
  },
  "1::The Treatment Phase — Core Objectives": {
@@ -588,7 +638,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, coordination: keep every provider aligned on one treatment approach. The therapist, the doctor and the social worker shouldn't be working at cross-purposes, and we're the ones who notice when they are.",
     "Finally, advocacy: step in when services are denied. When the client hits a bureaucratic wall, we intervene, because most clients won't know how to push back on their own."
    ],
-   "ask": "Which of these three pillars do you find yourself doing most, and which one do you tend to leave until it's already a problem?"
+   "ask": "Which of these three pillars do you find yourself doing most, and which one do you tend to leave until it's already a problem?",
+   "scenario": "Your client, Derek Hall, has been told to see a pain specialist, but the clinic's first opening is six weeks away. He also has no ride to physical therapy on Thursdays. Which of the three objectives, facilitation, coordination or advocacy, does each problem call for, and what would you do?"
   },
   "p2": {
    "why": "We're not here to record treatment; we're here to steer it.",
@@ -597,7 +648,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, ask “Is the plan working?” at every contact. Not once a month, every time. That habit is what catches a stalled plan early, while there's still time to fix it.",
     "Finally, the pitfall to watch: passively recording treatment instead of steering it. A file full of notes saying the client attended PT, with nobody asking whether it's helping, is a file that drifts."
    ],
-   "ask": "Your turn: give me an example of each pillar, facilitation, coordination and advocacy, from a real file you've worked on or one you can picture."
+   "ask": "Your turn: give me an example of each pillar, facilitation, coordination and advocacy, from a real file you've worked on or one you can picture.",
+   "scenario": "A file's treatment notes for the last two months all say 'client attending PT, no issues.' Meanwhile, the client's pain scores haven't changed at all. What should the Case Manager have been asking, and what would steering the treatment look like here?"
   }
  },
  "1::Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention": {
@@ -611,7 +663,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "After that, look for external barriers, the ones in the client's life: housing loss, childcare shortages, an insurance lapse. Any one of these can stop treatment cold, however motivated the client is.",
     "Finally, crisis intervention. If the client hits a crisis, like an eviction, a medical emergency, a service denial or a bureaucratic obstacle, we pause or adjust the treatment plan to deal with the immediate issue first."
    ],
-   "ask": "What's one question you could ask at a check-in that gets you a better answer than “How are you?”"
+   "ask": "What's one question you could ask at a check-in that gets you a better answer than “How are you?”",
+   "scenario": "On a check-in call, your client says she's 'doing okay.' When you ask specific questions, you learn she's missed two therapy sessions, she's sleeping on her sister's couch after losing her apartment and she's stopped taking her medication. Sort the barriers into internal and external. Which is the crisis?"
   },
   "p2": {
    "why": "Vague questions get vague answers, and a plan that ignores a crisis stops being a plan.",
@@ -620,7 +673,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, specific questions get specific answers. Ask about attendance, pain scores and function. Those answers show whether treatment is working, and they're something we can actually document.",
     "Finally, the pitfall to watch: continuing the plan unchanged during a client crisis. If we carry on as if nothing happened, the client quietly drops off, and we find out weeks later."
    ],
-   "ask": "Your turn: name one internal barrier and one external barrier you'd ask about at every single check-in, and tell me how you'd phrase the question."
+   "ask": "Your turn: name one internal barrier and one external barrier you'd ask about at every single check-in, and tell me how you'd phrase the question.",
+   "scenario": "A client tells you his wife was hospitalized last week, and he can't make his physical therapy appointments while he looks after the kids. His treatment plan still says three sessions a week. What do you change, and who do you tell?"
   }
  },
  "1::Treatment Phase: Essential Client Communication Strategies": {
@@ -632,7 +686,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, evaluate efficacy: is the intervention working? Efficacy just means whether it does what it's meant to do.",
     "Finally, adjust the intervention: course-correct the plan. Then the cycle starts again with assessing the response, because one adjustment is rarely the last."
    ],
-   "ask": "When a client starts losing interest in treatment, what do you usually say to them? Does it sound more like guiding, or more like taking over?"
+   "ask": "When a client starts losing interest in treatment, what do you usually say to them? Does it sound more like guiding, or more like taking over?",
+   "scenario": "Your client has been doing home exercises for a month, but her range of motion hasn't improved. On the phone, she admits the exercise sheet is confusing and she's been skipping half of it. Walk through assess, evaluate and adjust. What do you change?"
   },
   "p2": {
    "why": "When a client stalls, look at the plan before you look at the person.",
@@ -642,7 +697,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, modifying the plan is proactive management, not a misstep in the first evaluation. Nobody should be embarrassed to revise a plan; that's what monitoring is for.",
     "Finally, the pitfall to watch: blaming the client instead of revising the plan. Once we label a client as difficult, we stop problem-solving, and the case stays stalled."
    ],
-   "ask": "Think of a stalled case you've seen. When did a change in the plan, not a change in the client, get it moving again?"
+   "ask": "Think of a stalled case you've seen. When did a change in the plan, not a change in the client, get it moving again?",
+   "scenario": "A colleague writes in a file, 'Client is non-compliant and difficult.' Looking closer, you see the client works nights and every appointment has been booked for 8 a.m. How would you reframe the problem, and what would you do about it?"
   }
  },
  "1::Handling the Treatment Phase: Clinical Documentation (GIRP)": {
@@ -655,7 +711,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, Response: record how the client reacted to your intervention. That's our evidence of whether it's working.",
     "Finally, Plan: set the next step before the next meeting. A note that ends without a plan leaves the file with no direction."
    ],
-   "ask": "Quick check: what do the four letters of GIRP stand for, and which one do you think gets left out most often?"
+   "ask": "Quick check: what do the four letters of GIRP stand for, and which one do you think gets left out most often?",
+   "scenario": "You just finished a call with a client who's anxious about going back to driving after her crash. You talked her through the counselor referral and she agreed to book an appointment. Write the GIRP note: goal, intervention, response and plan."
   },
   "p2": {
    "why": "A note that describes feelings but shows no intervention or plan doesn't prove anything to anyone.",
@@ -664,7 +721,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, re-engage clients at the midpoint plateau to renew their motivation. When the excitement wears off, that's when motivational interviewing earns its keep, before the client starts missing sessions.",
     "Finally, the pitfall to watch: notes that describe feelings but no intervention or plan. “Client frustrated today” tells the reader nothing about what we did or what happens next."
    ],
-   "ask": "Your turn: write a four-line GIRP note for a client who missed two PT sessions. One line each for Goal, Intervention, Response and Plan."
+   "ask": "Your turn: write a four-line GIRP note for a client who missed two PT sessions. One line each for Goal, Intervention, Response and Plan.",
+   "scenario": "Halfway through a 12-week program, your client says, 'I don't see the point anymore, it's not getting better fast enough.' The last note in the file just says 'client frustrated today.' What would you do on this call, and how would you document it properly?"
   }
  },
  "1::Handling the Treatment Phase: Proactive Resource Coordination": {
@@ -676,7 +734,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, manage boundaries by empowering: coach the client through it instead of doing it for them. The goal is to eventually make us unnecessary, and a client who learns to do it keeps going after we step back.",
     "Finally, manage boundaries by prioritizing. Ask, “Does this need to be solved to achieve our primary goal, or is it a distraction?” That one question is our protection against mission creep."
    ],
-   "ask": "Have you ever handed a client a phone number and found out later they never called? What would a warm handoff have looked like instead?"
+   "ask": "Have you ever handed a client a phone number and found out later they never called? What would a warm handoff have looked like instead?",
+   "scenario": "Your client needs a food bank referral and help applying for temporary disability. You could email her a list of phone numbers, or set up a three-way call with the agency. Which do you choose, and why? What does a warm handoff sound like?"
   },
   "p2": {
    "why": "The Pro-Tip question forces clients to identify obstacles before they happen.",
@@ -685,7 +744,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the pro-tip: always end a treatment-phase contact by asking, “What is the one thing that might get in the way of you reaching your goal this week?” The client names the obstacle while we still have time to help.",
     "Finally, the pitfall to watch: mission creep, taking on every new problem. Each one feels urgent, but if we chase them all, the primary treatment goal quietly slips."
    ],
-   "ask": "Your turn: pair up and role-play a warm handoff to a transportation resource. One of you is the client, one is the case manager, and you make the call together, right now."
+   "ask": "Your turn: pair up and role-play a warm handoff to a transportation resource. One of you is the client, one is the case manager, and you make the call together, right now.",
+   "scenario": "In one week, a client asks you to help with a landlord dispute, a parking ticket, her son's school enrollment and a problem with her car insurance renewal. Which of these do you take on, and how do you say no to the rest without damaging the relationship?"
   }
  },
  "1::Case Planning — Treatment: The Assessment Phase": {
@@ -698,7 +758,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, pre-morbid status. Pre-morbid means before the injury. We establish the client's baseline so we can tell pre-existing conditions apart from accident-related injuries.",
     "Finally, the vocational and educational outlook: can the client return to their previous role, or will they need retraining? That shapes the goals we set in the plan."
    ],
-   "ask": "Of these four areas, which one do you think gets skipped most often when someone's in a hurry?"
+   "ask": "Of these four areas, which one do you think gets skipped most often when someone's in a hurry?",
+   "scenario": "Before the crash, your client, a 45-year-old warehouse supervisor, lifted boxes all day and coached his son's soccer team. Now he can't lift more than ten pounds. What would you document for each area of the assessment, and why does his life before the crash matter so much?"
   },
   "p2": {
    "why": "If we don't know who the client was before the accident, the other side will tell that story for us.",
@@ -707,7 +768,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the pre-morbid baseline is our defense against the “pre-existing condition” argument. When we can show where the client was before the accident, the change the accident caused becomes clear.",
     "Finally, the pitfall to watch: building the plan from medical records only. We'd miss the housing, the family and the work picture, and those are often what derail treatment."
    ],
-   "ask": "Your turn: John Doe has a 2018 lumbar strain in his history. What does that mean for his pre-morbid baseline, and what would you want to find out about it?"
+   "ask": "Your turn: John Doe has a 2018 lumbar strain in his history. What does that mean for his pre-morbid baseline, and what would you want to find out about it?",
+   "scenario": "The insurer argues your client's back pain is from an old injury, pointing to a doctor's visit five years ago. Your file has no information about how she was doing before the crash. What should the assessment have captured, and how do you gather it now?"
   }
  },
  "1::Case Planning — Treatment: SMART Goal Setting": {
@@ -721,7 +783,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "After that, tie it to recovery and legal outcomes, like activities of daily living or return to work. That's what makes it relevant to both audiences.",
     "Finally, set the deadline and the review date. Without a date, nobody can tell whether we're on track."
    ],
-   "ask": "Quick check: what does each letter of SMART stand for, and which one do you think an adjuster cares about most?"
+   "ask": "Quick check: what does each letter of SMART stand for, and which one do you think an adjuster cares about most?",
+   "scenario": "A treatment plan says, 'Client will feel better and get back to normal.' Your client is a nurse who hurt her shoulder. Rewrite that as a SMART goal: specific, measurable, attainable, relevant and time-bound."
   },
   "p2": {
    "why": "A goal with no measure and no date can't be tracked, adjusted or defended.",
@@ -731,7 +794,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, the time-bound element is what makes it possible to track progress and adjust. When the date comes, we know whether we hit it and whether the plan needs to change.",
     "Finally, the pitfall to watch: goals like “reduce pain” with no measure or date. Nobody can prove it was met, and nobody can prove it wasn't."
    ],
-   "ask": "Your turn: take “help John get back to work” and convert it into a SMART goal. Make sure every letter is in there."
+   "ask": "Your turn: take “help John get back to work” and convert it into a SMART goal. Make sure every letter is in there.",
+   "scenario": "Two months ago you set a goal to improve your client's knee range of motion by 30 percent. At the review date, it has improved by 10 percent. What does the goal tell you to do now, and what would you record?"
   }
  },
  "1::Case Planning — Treatment: The Care Coordination Strategy": {
@@ -744,7 +808,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, durable medical equipment, DME: sourcing wheelchairs, ramps or assistive technology. If the equipment isn't there when the client needs it, recovery at home stalls.",
     "Finally, rehabilitation milestones: the move from inpatient to outpatient or home-based care. Each move is a handoff, and handoffs are where things fall through."
    ],
-   "ask": "Quick check: a client is going home next week in a wheelchair. Which of the four groups does that touch?"
+   "ask": "Quick check: a client is going home next week in a wheelchair. Which of the four groups does that touch?",
+   "scenario": "Your client had hip surgery and is being discharged from the hospital on Friday. She lives in a second-floor apartment with no elevator and will need a walker and outpatient physical therapy. What do you need to arrange before Friday so there's no gap in her care?"
   },
   "p2": {
    "why": "A missing category or a clumsy transition leaves the client with a gap in care.",
@@ -753,7 +818,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, monitor milestones so transitions don't create treatment gaps. The move from inpatient to outpatient or home care is exactly when an appointment gets missed or equipment isn't ready.",
     "Finally, the pitfall to watch: ignoring psychological support until the demand phase. By then the client has struggled without help for months, and the need looks like an afterthought."
    ],
-   "ask": "Your turn: which of the four categories is most often missing from personal injury care plans, and why do you think that is?"
+   "ask": "Your turn: which of the four categories is most often missing from personal injury care plans, and why do you think that is?",
+   "scenario": "Six months into a case, the client mentions she's been having nightmares since the crash and avoids driving. Nobody has referred her for counseling. What's the risk to her recovery and to the case, and what do you do this week?"
   }
  },
  "1::The Standard Treatment Map": {
@@ -767,7 +833,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "After that, surgical interventions: surgery and pain management, depending on severity. In the restorative phase, months 2 to 6, alongside work hardening and injections, our focus is identifying barriers to return to work.",
     "Finally, long-term care: sustaining recovery and preventing relapse. From six months on, that's a home exercise program and as-needed visits, and our focus is determining MMI, maximum medical improvement."
    ],
-   "ask": "Quick check: a client is in week 5 of active PT. Which phase are they in, and what should we be watching?"
+   "ask": "Quick check: a client is in week 5 of active PT. Which phase are they in, and what should we be watching?",
+   "scenario": "Two weeks after a crash, your client has been to the ER and has started chiropractic care. She asks why her doctor hasn't ordered an MRI or talked about surgery yet. Using the treatment map, how would you explain where she is and what usually comes next?"
   },
   "p2": {
    "why": "If we don't know where a client is on the map, we can't tell when they've gone off it.",
@@ -776,7 +843,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, know which phase of the map every client is in. That tells you what treatment to expect and what your focus should be this week.",
     "Finally, the pitfall to watch: treatment that skips steps, like surgery before conservative care, with no documented reason. Conservative care means the non-surgical options, like PT. A skipped step with no reason in the file is an easy target."
    ],
-   "ask": "Your turn: place John Doe on the map today and name the next step you'd expect for him. Then we'll move on to causation and MedPay."
+   "ask": "Your turn: place John Doe on the map today and name the next step you'd expect for him. Then we'll move on to causation and MedPay.",
+   "scenario": "Reviewing a file, you see the client went straight from the ER to a surgeon who recommended a spinal fusion, with no physical therapy or injections in between. What red flag does the map raise, and what should the file contain to support that path?"
   }
  },
  "1::Treatment Road Map Mastery & the Clinical Pathway Flowchart": {
@@ -790,7 +858,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "After that, in phase 3, the restorative phase, consider an FCE, a Functional Capacity Evaluation, and whether surgery is really necessary.",
     "Finally, in phase 4, MMI and discharge, get the permanent impairment rating and move to final lien resolution. A lien is a claim to be paid back out of the settlement, so clearing them supports the settlement."
    ],
-   "ask": "Quick check: what's the one question we ask at every check-in in phase 2, and what happens when the answer is no?"
+   "ask": "Quick check: what's the one question we ask at every check-in in phase 2, and what happens when the answer is no?",
+   "scenario": "At eight weeks, your client's physical therapy notes show no improvement in pain or movement. According to the flowchart, a variance has been detected. What options does the map point to, and what do you need to confirm with the provider?"
   },
   "p2": {
    "why": "A client who drifts off the map without a documented reason is a denial waiting to happen.",
@@ -799,7 +868,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the glossary. MMI is Maximum Medical Improvement. MOI is the Mechanics of Injury, how it happened. PT is Physical Therapy, Chiro is Chiropractic Care, and FCE is the Functional Capacity Evaluation.",
     "Finally, the pitfall to watch: letting the client drift off the map without documenting why. Deviations are the main trigger for denials and IMEs, so an undocumented one leaves us with nothing to answer with."
    ],
-   "ask": "Your turn: a client is in week 6. What would trigger the variance loop for them? Give me the sign you'd look for and your first step."
+   "ask": "Your turn: a client is in week 6. What would trigger the variance loop for them? Give me the sign you'd look for and your first step.",
+   "scenario": "A client stopped physical therapy a month ago and switched to massage therapy on a friend's recommendation. Nobody wrote down why. The adjuster is now questioning whether the massage bills are related to the crash. What should the file have shown, and what can you do now?"
   }
  },
  "1::Variance Analysis: Why the Map Fails": {
@@ -811,7 +881,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, psychosocial variance, the yellow flags: fear-avoidance behavior, depression, or no transportation to therapy. Fear-avoidance means the client avoids moving because they're afraid it'll hurt. These are about the person and their life, not the injury itself.",
     "Finally, systemic variance: delays in insurance authorization for an MRI or a specialist referral. Here the client may be doing everything right; it's the system that's stuck."
    ],
-   "ask": "Think of a client whose treatment stalled. Which of these three types was it: clinical, psychosocial or systemic?"
+   "ask": "Think of a client whose treatment stalled. Which of these three types was it: clinical, psychosocial or systemic?",
+   "scenario": "Three clients are off track. One developed shooting leg pain after a back injury. One is too scared to exercise and has stopped going out. And one has been waiting five weeks for the insurer to approve an MRI. Name the type of variance for each, and the right fix."
   },
   "p2": {
    "why": "Get the variance type wrong and we apply the wrong fix, or blame the wrong person.",
@@ -820,7 +891,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, identify the variance type before anything else, because the fix depends on it. The same missed session can come from a new complication, a client who's afraid to move, or an authorization stuck with the insurer.",
     "Finally, the pitfall to watch: treating a systemic delay as client non-compliance. If the MRI is stuck in authorization and we note the client as non-compliant, we've written the defense's argument for them."
    ],
-   "ask": "Your turn: take three real delays you've seen or heard about and classify each one: clinical, psychosocial or systemic."
+   "ask": "Your turn: take three real delays you've seen or heard about and classify each one: clinical, psychosocial or systemic.",
+   "scenario": "A colleague labels a client 'non-compliant' because she hasn't had her MRI. When you check, the insurer still hasn't approved the scan after four weeks. What kind of variance is this really, and why does getting the label right matter?"
   }
  },
  "1::Treatment Red Flags: PT & Conservative Care, Surgical Protocols": {
@@ -836,7 +908,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, a surgical red flag: a client told to “just wait until the follow-up” for fever or redness. That advice raises malpractice concerns.",
     "Finally, a surgical red flag: sharp or mechanical pain after surgery. It may signal a loose screw or a retained surgical sponge, so it can't wait for the calendar."
    ],
-   "ask": "Seven red flags. Which one do you think is easiest to miss in a busy week, and why?"
+   "ask": "Seven red flags. Which one do you think is easiest to miss in a busy week, and why?",
+   "scenario": "Your client has had 16 physical therapy sessions. Every note lists heat packs, massage and a TENS unit, with no exercises, and her pain scores haven't changed. She's also missed three appointments this month. Which red flags do you see, and what do you do about each?"
   },
   "p2": {
    "why": "Passive care, a swapped left and right, or a dismissed symptom can each quietly damage a case.",
@@ -846,7 +919,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, proofread laterality, that's left and right, in every record summary. One swapped side is enough to damage credibility at trial.",
     "Finally, the pitfall to watch: ignoring post-operative symptoms because the next visit is soon. Fever, redness or sharp pain doesn't wait for the follow-up, and neither should we."
    ],
-   "ask": "Your turn: which PT red flag do you think damages case value the most, and why?"
+   "ask": "Your turn: which PT red flag do you think damages case value the most, and why?",
+   "scenario": "Reviewing a surgical report, you notice it says 'left knee,' while every other record says 'right knee.' Separately, the client tells you her incision is red and warm, and the clinic said to wait for her follow-up next week. What do you do about each problem, and in what order?"
   }
  },
  "1::Treatment Red Flags: Pain Management, Medication & Behavioral Health / TBI": {
@@ -860,7 +934,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "After that, no memory loss mentioned at the ER, then significant TBI symptoms three months later when the lawsuit starts. That needs immediate neurological validation to rule out malingering, which means faking or exaggerating symptoms.",
     "Finally, behavioral health notes focused on general life stress rather than the specific trauma of the accident. That's rarely covered, and it's a huge red flag for unreasonable costs."
    ],
-   "ask": "These flags all mean sensitive conversations. Which one would you find hardest to raise, and who would you raise it with?"
+   "ask": "These flags all mean sensitive conversations. Which one would you find hardest to raise, and who would you raise it with?",
+   "scenario": "A pain clinic has your client on an opioid, a muscle relaxant and a sleeping pill, and the doses have gone up twice with no change in diagnosis. Her last drug screen didn't show the opioid at all. What red flags do you see, and who needs to hear about them?"
   },
   "p2": {
    "why": "Medication and brain-injury red flags carry the most risk, so we escalate them, document them and validate them.",
@@ -870,7 +945,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, keep behavioral-health notes tied to accident-related trauma. Notes about general life stress are the ones that get challenged as unreasonable.",
     "Finally, the pitfall to watch: treating late-onset TBI symptoms as proof without validation. Until a neurological validation rules out malingering, they're a question, not evidence."
    ],
-   "ask": "Your turn: a UDS comes back showing the client isn't taking their prescribed medication. How would you raise that with the provider without accusing the client?"
+   "ask": "Your turn: a UDS comes back showing the client isn't taking their prescribed medication. How would you raise that with the provider without accusing the client?",
+   "scenario": "Four months after a crash, your client says she's been forgetting things and getting headaches. Her ER notes say 'no loss of consciousness, alert and oriented.' The attorney is excited about a possible brain injury claim. What do you recommend before anyone treats this as a TBI case?"
   }
  },
  "1::Communication Loops: The “Stakeholder Triad”": {
@@ -882,7 +958,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, the legal loop. Give the attorney status reports that translate medical jargon into functional evidence. They need to know what the client can't do, the activities of daily living, to calculate pain and suffering damages.",
     "Finally, the financial loop. Send the adjuster proactive updates before the six-week physician referral expires. A lapsed referral means a gap in treatment, and the defense can frame that gap as non-compliance."
    ],
-   "ask": "Of these three loops, which one do you think breaks down most often, and what's usually behind it?"
+   "ask": "Of these three loops, which one do you think breaks down most often, and what's usually behind it?",
+   "scenario": "The physical therapist's notes say your client is '90 percent recovered,' but her surgeon's latest letter says she's 'totally disabled.' The adjuster has both documents. What do you do about the conflict, and who do you contact first?"
   },
   "p2": {
    "why": "Conflicting records and raw paperwork help nobody; our job is to reconcile and translate.",
@@ -891,7 +968,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, reconcile conflicting provider statements immediately. Every day a “90% recovered” sits next to a “Total Disability” in the file, that documentation crisis gets harder to explain.",
     "Finally, the pitfall to watch: sending the attorney raw medical records with no functional summary. The attorney needs to know what the client can't do, and a stack of records doesn't say that on its own."
    ],
-   "ask": "Your turn: the PT and the orthopedist disagree on disability. Who do you call first, and what do you ask them?"
+   "ask": "Your turn: the PT and the orthopedist disagree on disability. Who do you call first, and what do you ask them?",
+   "scenario": "The attorney asks for an update on a client's treatment, and a colleague forwards 60 pages of medical records with no summary. The attorney calls you, frustrated. What should the update have looked like? Draft its first three lines."
   }
  },
  "1::The “Golden Standard”: Reasonable and Necessary": {
@@ -904,7 +982,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, the red flag rule: if there's no change in the Oswestry Disability Index, the ODI score, after 12 weeks of PT, the treatment map says the client has plateaued.",
     "Finally, seek a specialist or a second opinion instead of persisting with treatment that isn't working. More of the same won't pass the necessary test."
    ],
-   "ask": "Quick check: a client says PT makes them feel better, but their scores haven't moved. Does that meet reasonable, necessary, both or neither?"
+   "ask": "Quick check: a client says PT makes them feel better, but their scores haven't moved. Does that meet reasonable, necessary, both or neither?",
+   "scenario": "Your client has been having acupuncture twice a week for four months. Her pain is 'a little better,' but her Oswestry score hasn't moved in 12 weeks. The adjuster has asked whether the treatment is reasonable and necessary. How would you assess it, and what would you recommend?"
   },
   "p2": {
    "why": "If we don't measure it, we can't show it's necessary.",
@@ -913,7 +992,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, document objective measures, like the ODI and range of motion, not just pain reports. Those numbers are what show the treatment is necessary.",
     "Finally, the pitfall to watch: continuing ineffective treatment because it's already scheduled. Twelve weeks with no change is a plateau, not a reason to book more of the same."
    ],
-   "ask": "Your turn: which objective measure would you track for a lumbar injury, and why that one?"
+   "ask": "Your turn: which objective measure would you track for a lumbar injury, and why that one?",
+   "scenario": "A provider wants to schedule another eight weeks of the same treatment 'because it's already on the calendar,' even though nothing has changed in three months. What do you ask the provider, and what do you tell the attorney?"
   }
  },
  "1::Immediate Action Protocol: A-C-T for Red Flags": {
@@ -925,7 +1005,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, clarify: call the provider's medical assistant and ask a direct question, like “The client has had 15 PT sessions with no progress; is the doctor considering an orthopedic referral?”",
     "Finally, track: document the red flag and your attempt to fix it. If the attorney ever needs to drop a provider because they're damaging the case, your documentation provides the why."
    ],
-   "ask": "Quick check: a provider's notes are generic and copy-pasted from visit to visit. Is that a medical danger or a legal danger?"
+   "ask": "Quick check: a provider's notes are generic and copy-pasted from visit to visit. Is that a medical danger or a legal danger?",
+   "scenario": "Your client calls to say she's had a fever for two days since her shoulder surgery. In the same call, she mentions she hasn't been to physical therapy in three weeks because she 'didn't feel like it.' Walk through assess, clarify and track for each problem."
   },
   "p2": {
    "why": "As far as the file's concerned, a problem we fixed but didn't write down never happened.",
@@ -934,7 +1015,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, medical dangers go to the provider immediately; legal dangers go to the attorney. Getting that routing right means the person who can actually act hears about it first.",
     "Finally, the pitfall to watch: fixing a problem without documenting it. We might save the day, but without a note, nobody can show what happened or why."
    ],
-   "ask": "Your turn: a client reports sharp pain after surgery. Run A-C-T out loud: how do you assess it, who do you call to clarify, and what do you track?"
+   "ask": "Your turn: a client reports sharp pain after surgery. Run A-C-T out loud: how do you assess it, who do you call to clarify, and what do you track?",
+   "scenario": "Last month, you called a clinic and got a stalled referral moving, but you never wrote it down. Now the attorney wants to change providers and asks for proof the clinic was causing delays. What does the file show, and what would you do differently next time?"
   }
  },
  "1::Illustration & Course Correction: The 6-Week Rule and Objective Metrics": {
@@ -947,7 +1029,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, don't wait for the adjuster to deny the next six sessions. By the time a denial arrives, we're reacting instead of leading.",
     "Finally, use standard US tools in your monitoring notes: Oswestry or DASH every 30 days for daily-living disability, gait analysis for lower-extremity injuries, PHQ-9 or GAD-7 for depression and anxiety when physical progress stalls, and an FCE before return to work or MMI."
    ],
-   "ask": "Take a moment with this one. Think of a client who plateaued. Which of these metrics would have shown it first?"
+   "ask": "Take a moment with this one. Think of a client who plateaued. Which of these metrics would have shown it first?",
+   "scenario": "Six weeks into physical therapy, your client's pain is still 9 out of 10 and her range of motion hasn't improved at all. The insurer's next approval review is in two weeks. What does the six-week rule tell you to do, and what do you send the adjuster?"
   },
   "p2": {
    "why": "Objective numbers in every update, and a pivot before the denial, keep the plan in our hands.",
@@ -956,7 +1039,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, put objective metric results in every status update to the insurer. That keeps the loop tight and shows the treatment is reasonable and necessary.",
     "Finally, the pitfall to watch: waiting for a denial before course-correcting. The six-week mark is our warning; the denial is what happens when we ignore it."
    ],
-   "ask": "Your turn: it's week 6 and range of motion has improved 5%. Take a moment to think, then tell me: what do you do?"
+   "ask": "Your turn: it's week 6 and range of motion has improved 5%. Take a moment to think, then tell me: what do you do?",
+   "scenario": "Your status updates to the insurer have said 'client continues treatment, progressing' for three months. Then the adjuster denies further PT, citing 'no documented improvement.' What should those updates have included, and how do you respond now?"
   }
  },
  "1::The “Yellow Flag” Warning System": {
@@ -969,7 +1053,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, iatrogenic factors. Iatrogenic means caused by the treatment itself, like dependency on opioids, or too much passive care like ice and heat instead of active care like exercise.",
     "Finally, when you communicate with the attorney and the insurer, use the map to justify your plan. Saying where the client is on the map, and why, turns a concern into a recommendation."
    ],
-   "ask": "Have you heard a client say something like “I'll never walk again”? How did you respond then, and how might you respond now?"
+   "ask": "Have you heard a client say something like “I'll never walk again”? How did you respond then, and how might you respond now?",
+   "scenario": "Your client's MRI shows only a mild strain, but she keeps saying, 'I'll never be able to work again.' She's also taking more pain medication than prescribed and is very stressed about the lawsuit. Which yellow flags do you see, and how would you raise them with the attorney?"
   },
   "p2": {
    "why": "A yellow flag reported without a plan is just a worry; with the map behind it, it's a recommendation.",
@@ -978,7 +1063,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, the model language: “Client is currently in Phase 2, Sub-Acute. We have noted a Clinical Variance: physical therapy has not reduced radicular pain. Per the Standard Treatment Map, I am recommending an MRI and Neurosurgical consult to rule out surgical necessity before proceeding to Phase 3. This ensures treatment remains Reasonable and Necessary.”",
     "Finally, the pitfall to watch: reporting yellow flags without a recommended plan. The attorney and the insurer are left with a problem and no direction, and that's how cases stall."
    ],
-   "ask": "Your turn: take a vague status update, something like “client still struggling,” and rewrite it using the model language."
+   "ask": "Your turn: take a vague status update, something like “client still struggling,” and rewrite it using the model language.",
+   "scenario": "You've noticed yellow flags in a client's file and want to tell the insurer why her treatment plan is changing. Using the treatment map, draft the two sentences you'd send: where she is, what the variance is and what you recommend."
   }
  },
  "1::Handling Treatment Gaps During the Treatment Phase": {
@@ -993,7 +1079,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, communicate with providers about any interruption in care, so the treatment records and our notes tell the same story.",
     "Finally, document every client explanation and every follow-up effort. If a gap does happen, the file shows why and what we did about it."
    ],
-   "ask": "Of the common causes we just listed, which one do you think you'll run into most often, and what's your first move?"
+   "ask": "Of the common causes we just listed, which one do you think you'll run into most often, and what's your first move?",
+   "scenario": "Your client has missed her last two physical therapy sessions, and the clinic just called to say they'll close her referral if she misses one more. When you reach her, she says she felt better and didn't think she needed to go. What do you say, and what do you do next?"
   },
   "p2": {
    "why": "Gaps are easiest to fix when they're a few days old, and hardest when they turn up in the demand.",
@@ -1005,7 +1092,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "After that, escalate prolonged or unexplained gaps to supervising staff or the attorney. Don't carry a growing gap on your own.",
     "Finally, remember why this matters: consistent treatment documentation strengthens both the medical support and our future negotiation leverage."
    ],
-   "ask": "Your turn: a client missed two weeks after “feeling better.” Script your call. What do you say first, and what do you document afterwards?"
+   "ask": "Your turn: a client missed two weeks after “feeling better.” Script your call. What do you say first, and what do you document afterwards?",
+   "scenario": "Preparing a demand, you find a 45-day gap in your client's treatment in the middle of her care. There's no note explaining it, and the adjuster will certainly point to it. What can you do now to explain it, and what should have been in place to prevent it?"
   }
  },
  "1::Common Bottlenecks: Escalation Protocol & the Escalation Ladder": {
@@ -1020,7 +1108,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, step B, the adjuster: send a status update stating that the delay is increasing total claim cost by extending temporary disability. That frames the delay in terms of cost.",
     "Finally, step C, the attorney: if step B fails, the attorney issues a 30-Day Demand or switches the provider to an LOP basis, which gets around the authorization wait."
    ],
-   "ask": "Quick check: which level of the ladder is the office manager, and which level is the Notice of Delay?"
+   "ask": "Quick check: which level of the ladder is the office manager, and which level is the Notice of Delay?",
+   "scenario": "Your client's MRI authorization has been pending with the insurer for five weeks. The provider's office says it's 'with the adjuster,' and the adjuster isn't returning calls. Walk up the escalation ladder. What's your first step, what's your second, and when does the attorney get involved?"
   },
   "p2": {
    "why": "Climb one rung at a time, and leave a record on every rung.",
@@ -1029,7 +1118,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, climb one rung at a time and document each attempt. When we do reach the attorney, they'll need to see what's already been tried.",
     "Finally, the pitfall to watch: jumping straight to the attorney before the clinical and administrative steps. It skips fixes that might have worked, and leaves the attorney without the record they need."
    ],
-   "ask": "Your turn: an MRI authorization has been pending for three weeks. Walk the ladder for me, rung by rung, and tell me what you'd document at each one."
+   "ask": "Your turn: an MRI authorization has been pending for three weeks. Walk the ladder for me, rung by rung, and tell me what you'd document at each one.",
+   "scenario": "A frustrated colleague wants to ask the attorney to file a Motion to Compel after one unanswered email to the adjuster. What would you suggest instead, and why does climbing the ladder one rung at a time strengthen the attorney's position later?"
   }
  },
  "1::Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain": {
@@ -1042,7 +1132,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Then, escalate the MRI stall using the escalation ladder: the peer-to-peer, the status update, and the LOP if we need it. The carrier's stalling isn't a reason for us to wait.",
     "Finally, write the aggravation argument for the attorney: the baseline, the change, and the evidence for it, in plain words they can use."
    ],
-   "ask": "Before we work it: when you see a prior injury in a file, what's your first instinct? To explain it, or to hope nobody notices?"
+   "ask": "Before we work it: when you see a prior injury in a file, what's your first instinct? To explain it, or to hope nobody notices?",
+   "scenario": "The Aggressive Casualty adjuster tells you John Doe's back pain is 'just his old 2018 injury.' Your file shows he had a lumbar strain in 2018, finished treatment within three months and had no treatment for five years. What records do you pull, and how do you show what changed after the Apex crash?"
   },
   "p2": {
    "why": "The prior injury isn't the problem; failing to prove what changed is.",
@@ -1051,7 +1142,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, highlight how the accident aggravated the prior injury, and never hide the prior record. The carrier has already seen it, so hiding it would only cost us credibility.",
     "Finally, the pitfall to watch: arguing the prior injury “doesn't matter” instead of proving the change. The eggshell rule covers the increase in disability, so we have to show how much worse John got."
    ],
-   "ask": "Your turn: in the John Doe file, what single document best proves aggravation here? Tell me which one, and why."
+   "ask": "Your turn: in the John Doe file, what single document best proves aggravation here? Tell me which one, and why.",
+   "scenario": "A colleague suggests leaving John's 2018 records out of the demand package 'so the adjuster doesn't get ideas.' Why is that a mistake, and how would you use those same records to make John's case stronger?"
   }
  },
  "1::Skill Building: Handling Client Treatment — “The Transportation Wall”": {
@@ -1065,7 +1157,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "After that, option C, the clinical pivot: contact the clinic to arrange temporary telehealth or home-program sessions while the car issue gets sorted. Treatment continues, just in a different form.",
     "Finally, create a case file in the training interface, the CMS, and update it with your plan. If it isn't in the file, the plan doesn't exist."
    ],
-   "ask": "Take a minute. Which option would you pick first: A, B or C? Hold on to that answer; we'll debrief the trade-offs next."
+   "ask": "Take a minute. Which option would you pick first: A, B or C? Hold on to that answer; we'll debrief the trade-offs next.",
+   "scenario": "John Doe is four weeks into a 12-week chiropractic program and improving. He calls to say his car's transmission died, the clinic is 45 minutes away, and he's thinking of quitting until next year. Choose option A, B or C, or a mix of them, and explain what you'd do before the end of the day."
   },
   "p2": {
    "why": "A treatment gap now becomes a demand-phase problem later, so we act today.",
@@ -1074,7 +1167,8 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "First, a treatment gap now becomes a demand-phase problem later, so act today. John's call is the moment to intervene, not next week.",
     "Finally, the pitfall to watch: accepting “I'll quit and try again next year” without a plan. If we just note it and move on, we've agreed to the gap."
    ],
-   "ask": "Your turn: which option best balances empowerment with keeping treatment on track? Talk me through the trade-offs, then update John's case file in the CMS with your plan."
+   "ask": "Your turn: which option best balances empowerment with keeping treatment on track? Talk me through the trade-offs, then update John's case file in the CMS with your plan.",
+   "scenario": "It's a week later and you haven't heard from John since his car broke down. His chiropractor's office says he hasn't been in for eight days. What do you do today, what goes in the file, and what would you tell the attorney about the risk to the case?"
   }
  }
 });
