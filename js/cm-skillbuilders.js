@@ -182,10 +182,10 @@ function cmTool(id){
 }
 window.cmTool = cmTool;
 function toolHref(t){
-  // The CMS serves every LSH program: ?program=cm opens it in the CM context (its Training Library filter and the tag on saved cases).
-  if(t.id==="cms") return t.url + (t.url.includes("?") ? "&" : "?") + "program=cm";
-  if(!t.portalSim) return t.url;
-  const q = new URLSearchParams({program:"CM"});
+  if(t.id!=="cms" && !t.portalSim) return t.url;
+  // The CMS serves every LSH program: ?program=cm opens it in the CM context (its Training Library filter and the tag on saved cases),
+  // and from=cm lets a registered trainee in with just their name (no CMS account).
+  const q = new URLSearchParams(t.id==="cms" ? {program:"cm", from:"cm"} : {program:"CM"});
   const name = String(state.certName || state.traineeName || "").trim(), batch = String(state.traineeBatch || "").trim();
   if(name && !state.isAdmin) q.set("name", name);
   if(batch && !state.isAdmin) q.set("batch", batch);
