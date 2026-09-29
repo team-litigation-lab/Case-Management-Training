@@ -7402,7 +7402,7 @@ const mem = {}; // in-memory fallback if window.storage is unavailable
    this browser. Any change is saved within ~1.5s; logging in on
    any device restores it; logging out flushes it first.
    ============================================================ */
-const PERSONAL_KEYS = ["day-progress","practice-progress","lab-attempts-global","lab-attempts-by-day","notes","completed-lab-actions",
+const PERSONAL_KEYS = ["day-progress","practice-progress","lab-attempts-global","lab-attempts-by-day","admin-unlocked-days","notes","completed-lab-actions",
   "day10-window","submissions","roleplayHistory","slide-progress","last-slide","attn-detail-findings",
   "calendar-custom","calendar-edits","call-log","inbox-filing","inbox-interactions","inbox-labels","trainee-batch",
   "quick-check-answers","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log"];
@@ -7654,6 +7654,21 @@ async function applyLabAttemptReset(rec){
   await setLabAttemptsByDay(rec.labAttemptsByDay && typeof rec.labAttemptsByDay==="object" ? rec.labAttemptsByDay : {});
   return !first;
 }
+// A trainer can open days for a trainee (Admin → Trainee Audit → 🔓 Unlock days), e.g. after an
+// absence. The list lives on the trainee record as unlockedDays (the server keeps trainees from
+// changing it). Apply it as soon as this device sees a change, and redraw so the day opens.
+async function applyAdminUnlocks(rec){
+  if(!rec) return;
+  const next = (Array.isArray(rec.unlockedDays) ? rec.unlockedDays : []).map(Number).filter(n=>n>1).sort((a,b)=>a-b);
+  const prev = state.adminUnlockedDays || [];
+  if(JSON.stringify(next)===JSON.stringify(prev)) return;
+  state.adminUnlockedDays = next;
+  await storeSet("admin-unlocked-days", next);
+  const added = next.filter(n=>!prev.includes(n));
+  if(added.length) toast(`🔓 Your trainer unlocked Day${added.length>1?"s":""} ${added.join(", ")} for you.`);
+  state.labResetRenderPending = true;
+  await renderLabResetIfSafe();
+}
 // Show a reset on the open page right away: re-render unless the trainee is typing
 // or has a pop-up open, in which case the next live tick re-renders.
 async function showLabAttemptReset(){
@@ -7673,6 +7688,7 @@ async function syncToLedger(allowCreate){
   const existing = await sharedGet("trainee:"+state.traineeId);
   // Take a pending trainer reset first, so this save never writes the old count back over it.
   if(existing && await applyLabAttemptReset(existing)) showLabAttemptReset();
+  if(existing) await applyAdminUnlocks(existing);
   // A missing record after registration means an admin revoked/deleted it —
   // don't silently re-create it from this device. Only login may create one.
   if(!existing && !allowCreate) return;
@@ -7767,6 +7783,8 @@ async function loadAll(){
   const laByDay = await storeGet("lab-attempts-by-day");
   state.labAttemptsByDay = (laByDay && typeof laByDay==="object") ? laByDay : {};
   state.labAttemptsGlobal = labAttemptsTotal(state.labAttemptsByDay);
+  const aud = await storeGet("admin-unlocked-days");
+  state.adminUnlockedDays = Array.isArray(aud) ? aud : [];
   const lrs = await storeGet("lab-attempts-reset-seen");
   state.labAttemptsResetSeen = lrs || undefined;
   const nt = await storeGet("notes");
@@ -7930,6 +7948,7 @@ function dayLabDone(dayId){
 function dayUnlocked(id){
   if(id <= 1) return true;
   if(state.isAdmin) return true;   // locks are for trainees only
+  if((state.adminUnlockedDays||[]).includes(id)) return true;   // opened by a trainer (e.g. the trainee was absent)
   // Never re-lock a day a trainee has already started under the old rule.
   const own = state.progress[id];
   if(own && (own.done || typeof own.score==="number")) return true;
@@ -10225,7 +10244,7 @@ window.addEventListener("hashchange", ()=>{
   if(!(state.traineeId || state.isAdmin) || ["login","pendingApproval","registrationDenied"].includes(state.view)) return;
   if(location.hash && location.hash!==routeHash()) openRouteFromHash();
 });
-const TAB_SYNC_KEYS = {"day-progress":"progress","practice-progress":"practiceProgress","lab-attempts-global":"labAttemptsGlobal","lab-attempts-by-day":"labAttemptsByDay",
+const TAB_SYNC_KEYS = {"day-progress":"progress","practice-progress":"practiceProgress","lab-attempts-global":"labAttemptsGlobal","lab-attempts-by-day":"labAttemptsByDay","admin-unlocked-days":"adminUnlockedDays",
   "notes":"notes","completed-lab-actions":"completedLabActions","submissions":"submissions","roleplayHistory":"roleplayHistory",
   "slide-progress":"slideProgress","last-slide":"lastSlide","quick-check-answers":"qcAnswers","intro-seen":"introSeen",
   "work-log":"workLog","lab-drafts":"labDrafts","task-log":"taskLog","task-day-since":"taskDaySince","day10-window":"day10Window"};
@@ -10443,6 +10462,8 @@ async function submitLoginInner(){
         state.labAttemptsGlobal = 0;
       }
       state.labAttemptsByDay = (existing.labAttemptsByDay && typeof existing.labAttemptsByDay === "object") ? existing.labAttemptsByDay : {};
+      state.adminUnlockedDays = Array.isArray(existing.unlockedDays) ? existing.unlockedDays.map(Number).filter(n=>n>1) : [];
+      await storeSet("admin-unlocked-days", state.adminUnlockedDays);
       state.labAttemptsGlobal = labAttemptsTotal(state.labAttemptsByDay);
       await storeSet("lab-attempts-by-day", state.labAttemptsByDay);
       state.completedLabActions = (existing.completedLabActions && typeof existing.completedLabActions === "object") ? existing.completedLabActions : {};
@@ -10528,6 +10549,8 @@ async function resetTraineeSessionData(){
   state.labAttemptsGlobal = 0;
   state.labAttemptsByDay = {};
   await storeSet("lab-attempts-by-day", {});
+  state.adminUnlockedDays = [];
+  await storeSet("admin-unlocked-days", []);
   state.completedLabActions = {};
   state.submissions = [];
   state.roleplayHistory = [];
@@ -10616,6 +10639,7 @@ function startApprovalPolling(traineeId){
     try{
       const me = await sharedGet("trainee:"+traineeId);
       if(await applyLabAttemptReset(me)) await showLabAttemptReset();
+      await applyAdminUnlocks(me);
     }catch(e){ /* best-effort */ }
     if(state.view==="dashboard" && !state.surpriseGrading){
       try{
@@ -10664,6 +10688,7 @@ async function liveTick(){
         state.liveResetAt = Date.now();
         const me = await sharedGet("trainee:"+state.traineeId);
         if(await applyLabAttemptReset(me)) await showLabAttemptReset();
+        await applyAdminUnlocks(me);
       }
       if(!state.liveFbAt || Date.now()-state.liveFbAt > 45000){
         state.liveFbAt = Date.now();
@@ -15963,11 +15988,12 @@ function renderAdminRow(rec, day, practice){
         <div style="font-size:13px;">${day.avg}% avg</div>
         <div style="font-size:13px;">${practice.runs} runs</div>
         <div style="font-size:11.5px;color:var(--ink-soft);">${rec.lastActive?fmtDate(rec.lastActive):"—"}</div>
-        <div style="display:flex;gap:6px;">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:520px;">
           <button class="btn btn-sm btn-ghost" onclick="toggleAdminDetail('${rec.id}')">${expanded?"Hide":"View"} Detail</button>
           <button class="btn btn-sm btn-primary" onclick="openFeedbackFor('${rec.id}')" title="Write and send feedback to this trainee">✍ Feedback</button>
           <button class="btn btn-sm btn-ghost" onclick="adminOpenCertificate('${rec.id}')" title="Preview / download this trainee's Certificate of Completion">🎓 Certificate</button>
           <button class="btn btn-sm btn-ghost" title="Give this trainee a fresh ${LAB_ATTEMPT_CAP} Skill Builders repeat attempts on every day" onclick="resetTraineeLabAttempts('${rec.id}')">↺ Reset Attempts${rec.labAttemptsGlobal ? ` (${rec.labAttemptsGlobal} used)` : ""}</button>
+          ${renderUnlockDaysControl(rec)}
           <button class="btn btn-sm btn-ghost" style="color:var(--danger);" onclick="confirmRevokeTrainee('${rec.id}', '${esc(rec.name||"this trainee").replace(/'/g,"\\'")}')">Revoke</button>
         </div>
       </div>
@@ -15975,6 +16001,36 @@ function renderAdminRow(rec, day, practice){
       ${expanded?renderAdminDetail(rec):""}
     </div>`;
 }
+
+/* Admin: open days for a trainee who missed a session. "Unlock up to Day N" opens Days 2..N
+   whether or not the earlier Practice Labs are done; "Remove manual unlocks" returns the
+   trainee to the normal rule (days they've already started stay open). */
+function renderUnlockDaysControl(rec){
+  const cur = (Array.isArray(rec.unlockedDays) ? rec.unlockedDays : []).map(Number);
+  const top = cur.length ? Math.max(...cur) : 0;
+  return `<select class="btn btn-sm btn-ghost" style="padding:4px 8px;" title="Open days for a trainee who missed a session" onchange="adminUnlockDays('${rec.id}', this.value); this.selectedIndex=0;">
+      <option value="">🔓 ${top ? `Unlocked to Day ${top}` : "Unlock days"}</option>
+      ${DAYS.filter(d=>d.id>1).map(d=>`<option value="${d.id}">Unlock up to Day ${d.id}</option>`).join("")}
+      ${top ? `<option value="0">Remove manual unlocks</option>` : ""}
+    </select>`;
+}
+async function adminUnlockDays(traineeId, value){
+  const n = parseInt(value, 10); if(isNaN(n)) return;
+  const rec = await sharedGet("trainee:"+traineeId);
+  if(!rec){ toast("Couldn't load that trainee — refresh and try again."); return; }
+  const who = cleanName(rec.name) || "this trainee";
+  if(n > 1 && !confirm(`Unlock Days 2–${n} for ${who}? They can open those lessons and Skill Builders right away, even if earlier ones aren't done.`)) return;
+  rec.unlockedDays = n > 1 ? DAYS.map(d=>d.id).filter(id=>id>1 && id<=n) : [];
+  rec.unlockedDaysAt = new Date().toISOString();
+  await sharedSet("trainee:"+traineeId, rec);
+  if(state.adminData){
+    const idx = state.adminData.findIndex(x=>x.id===traineeId);
+    if(idx!==-1) state.adminData[idx] = rec;
+    const wrap = document.getElementById("adminRowsWrap"); if(wrap) wrap.innerHTML = renderAdminRows();
+  }
+  toast(n > 1 ? `Days 2–${n} unlocked for ${who}. Their open page updates within about 10 seconds.` : `Manual unlocks removed for ${who}.`);
+}
+window.adminUnlockDays = adminUnlockDays;
 
 async function resetTraineeLabAttempts(traineeId){
   const rec = await sharedGet("trainee:"+traineeId);
