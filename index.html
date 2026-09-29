@@ -9728,7 +9728,9 @@ function closeSurpriseResult(){
 }
 window.closeSurpriseResult = closeSurpriseResult;
 async function checkSurpriseTask(){
-  const dayId = nextDayId();
+  // A trainer sends a task to a day. Check every day this trainee has unlocked (not just the
+  // furthest one), so a trainee who is a day ahead or behind the batch still gets it.
+  const dayIds = DAYS.map(d=>d.id).filter(id=>dayUnlocked(id));
   try{
     // Registration time is fetched once per session and cached — it's what
     // keeps newly-registered trainees from inheriting an older broadcast.
@@ -9736,27 +9738,31 @@ async function checkSurpriseTask(){
       const me = await sharedGet("trainee:"+state.traineeId);
       state.traineeRegisteredAt = (me && me.registeredAt) || new Date().toISOString();
     }
-    const rec = await sharedGet("surprise-task-day"+dayId);
-    state.activeSurpriseTask = surpriseTaskIsLive(rec) ? rec : null;
-    if(state.activeSurpriseTask) syncTaskFromBroadcast(state.activeSurpriseTask);
-    // Every task sent to this day since the trainee reached it is logged — including
-    // ones replaced by a newer task or whose timer ran out while they were away
-    // (those land under Missed). Tasks the trainer ended early before the trainee
-    // ever saw them are not held against anyone.
-    state.taskDaySince = state.taskDaySince || {};
-    if(!state.taskDaySince[dayId]){ state.taskDaySince[dayId] = new Date().toISOString(); storeSet("task-day-since", state.taskDaySince); }
-    const since = new Date(state.taskDaySince[dayId]).getTime();
-    const reg = state.traineeRegisteredAt ? new Date(state.traineeRegisteredAt).getTime() : 0;
-    const seen = new Set(taskLog().map(x=>x.id));
-    ((rec && rec.history) || []).concat(rec && rec.generatedAt ? [rec] : []).forEach(t=>{
-      if(!t || !t.generatedAt || seen.has(t.generatedAt)) return;
-      const g = new Date(t.generatedAt).getTime();
-      if(g < since || g < reg || t.endedAt) return;
-      syncTaskFromBroadcast(t); seen.add(t.generatedAt);
-    });
+    const recs = await Promise.all(dayIds.map(id=>sharedGet("surprise-task-day"+id).catch(()=>null)));
+    const live = recs.filter(r=>surpriseTaskIsLive(r)).sort((a,b)=>new Date(b.generatedAt||0)-new Date(a.generatedAt||0));
+    state.activeSurpriseTask = live[0] || null;
+    live.forEach(t=>syncTaskFromBroadcast(t));
+    dayIds.forEach((dayId, k)=>logDayTaskHistory(dayId, recs[k]));
   }catch(e){
     state.activeSurpriseTask = null;
   }
+}
+function logDayTaskHistory(dayId, rec){
+  // Every task sent to this day since the trainee reached it is logged — including
+  // ones replaced by a newer task or whose timer ran out while they were away
+  // (those land under Missed). Tasks the trainer ended early before the trainee
+  // ever saw them are not held against anyone.
+  state.taskDaySince = state.taskDaySince || {};
+  if(!state.taskDaySince[dayId]){ state.taskDaySince[dayId] = new Date().toISOString(); storeSet("task-day-since", state.taskDaySince); }
+  const since = new Date(state.taskDaySince[dayId]).getTime();
+  const reg = state.traineeRegisteredAt ? new Date(state.traineeRegisteredAt).getTime() : 0;
+  const seen = new Set(taskLog().map(x=>x.id));
+  ((rec && rec.history) || []).concat(rec && rec.generatedAt ? [rec] : []).forEach(t=>{
+    if(!t || !t.generatedAt || seen.has(t.generatedAt)) return;
+    const g = new Date(t.generatedAt).getTime();
+    if(g < since || g < reg || t.endedAt) return;
+    syncTaskFromBroadcast(t); seen.add(t.generatedAt);
+  });
 }
 function surpriseTaskSignature(){
   const t = state.activeSurpriseTask;
@@ -10021,7 +10027,7 @@ function goto(view, id){
   state.searchQuery = "";
   if(VoiceCall.active && view!=="openroleplay") VoiceCall.hangup(true);
   state.view=view;
-  if(view==="dashboard"){ state.surpriseTaskChecked = false; }
+  if(view==="dashboard" || view==="tasks"){ state.surpriseTaskChecked = false; }
   if(view==="day"){ state.dayId=id; state.quizAnswers={}; state.quizQuestionIndex=0; state.quizSubmitted=false; state.slideDir="next"; state.slideInterstitial=null; state.dayViewMode="slides"; state.maxSlideReached=(state.slideProgress&&state.slideProgress[id])||0; state.lessonSlide=resumeSlideFor(id); }
   if(view==="tool"){
     const t = PRACTICE_TOOLS.find(x=>x.id===id);
@@ -10357,9 +10363,10 @@ function afterRender(){
     setTimeout(()=>restoreLabFields(), 80);
   }
   if(state.view==="admin" && state.isAdmin && !state.adminData && !state.adminLoading) loadAdminLedger();
-  if(state.view==="dashboard" && state.traineeId && !state.isAdmin && !state.surpriseTaskChecked){
+  if((state.view==="dashboard" || state.view==="tasks") && state.traineeId && !state.isAdmin && !state.surpriseTaskChecked){
     state.surpriseTaskChecked = true;
-    checkSurpriseTask().then(()=>{ if(state.activeSurpriseTask && state.view==="dashboard") render(); });
+    const beforeCount = taskLog().length;
+    checkSurpriseTask().then(()=>{ if((state.activeSurpriseTask && state.view==="dashboard") || (state.view==="tasks" && taskLog().length!==beforeCount)) render(); });
   }
   if(state.view==="login"){
     const input = document.getElementById("loginLastInput") || document.getElementById("loginNameInput");
@@ -10641,13 +10648,16 @@ function startApprovalPolling(traineeId){
       if(await applyLabAttemptReset(me)) await showLabAttemptReset();
       await applyAdminUnlocks(me);
     }catch(e){ /* best-effort */ }
-    if(state.view==="dashboard" && !state.surpriseGrading){
+    // New tasks are picked up on every page (trainees are usually in a lesson or lab when one is
+    // sent); the dashboard and 🎲 Tasks redraw, elsewhere the "New task assigned" alert shows.
+    if(!state.surpriseGrading){
       try{
-        const before = surpriseTaskSignature();
+        const before = surpriseTaskSignature(), beforeCount = taskLog().length;
         await checkSurpriseTask();
         const ae = document.activeElement;
         const typing = ae && (ae.tagName==="TEXTAREA" || ae.tagName==="INPUT");
-        if(before !== surpriseTaskSignature() && !typing && state.view==="dashboard") render();
+        const changed = before !== surpriseTaskSignature() || beforeCount !== taskLog().length;
+        if(changed && !typing && (state.view==="dashboard" || state.view==="tasks")) render();
       }catch(e){ /* best-effort */ }
     }
   }, 45000);
