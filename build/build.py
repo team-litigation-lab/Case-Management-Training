@@ -165,6 +165,8 @@ s = s.replace("Practice Labs", "Skill Builders").replace("Practice Lab", "Skill 
 # ---------- 9. scripts ----------
 # EA/PA's hand-written speaker notes are EA/PA content; the CM course keeps its own trainer cues.
 s = re.sub(r'<script src="/js/presenter-notes\.js[^"]*"></script>\n?', '', s)
+# Slide scripts: the CM course has its own js/slide-scripts/day1.js–day5.js (same names, CM content).
+s = re.sub(r'<script src="/js/slide-scripts/day(?:[6-9]|10)\.js[^"]*"></script>\n?', '', s)
 s = re.sub(r'<script src="/js/eapa-updates\.js\?v=[^"]*"></script>', '<script src="/js/eapa-updates.js?v=z"></script>', s, count=1)
 rep('<script src="/js/eapa-updates.js?v=z"></script>', '<script src="/js/cm-updates.js?v=8"></script>\n<script src="/js/cm-documents.js?v=1"></script>\n<script src="/js/cm-skillbuilders.js?v=12"></script>\n<script src="/js/cm-mindset.js?v=1"></script>\n<script src="/js/cm-practice.js?v=2"></script>')
 
