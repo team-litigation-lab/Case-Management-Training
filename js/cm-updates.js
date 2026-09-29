@@ -736,6 +736,7 @@ function renderPresenterConsole(d){
           <div class="pv-mirror" id="pvMirror"><iframe class="pv-frame" id="pvFrame" src="/?audience=mirror&day=${d.id}" tabindex="-1" inert title="Live copy of the slides window"></iframe></div>
           <div class="pv-nav">
             <button class="btn btn-ghost" onclick="presenterStep(-1)">← Previous</button>
+            <button class="btn btn-ghost btn-sm" onclick="presenterJump(0)" title="Go back to the first slide">⏮ Slide 1</button>
             <select id="pvJump" onchange="presenterJump(this.value)" title="Jump to a slide">${slides.map((s,i)=>`<option value="${i}" ${i===idx?"selected":""}>${i+1}. ${esc(daySlideTitle(d,s))}</option>`).join("")}</select>
             <button class="btn btn-primary" onclick="presenterStep(1)">Next →</button>
           </div>
