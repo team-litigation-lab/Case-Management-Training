@@ -695,6 +695,9 @@ function presenterCues(d, slide){
     const pageInfo = state.presentSecsFor === (state.lessonSlide||0);
     out.push(renderPresenterNote(d, l, slide.part, pageInfo ? state.presentSecs : null, pageInfo ? state.presentAllSecs : null,
       pageInfo ? {page: state.presentPage||0, pages: state.presentPages||1, secsByPage: state.presentSecsByPage} : null));
+  }else if(slide.type==="divider"){
+    const l = d.lessons[slide.lessonIndex];
+    out.push(`<h3>Topic ${slide.lessonIndex+1} of ${d.lessons.length}: ${esc(l.h)}</h3><p>${l.section ? `Section: ${esc(l.section)}. ` : ""}Name the topic, then move on to its first slide.</p>`);
   }else if(slide.type==="quickCheck"){
     out.push(`<h3>Quick Check</h3><p>Let the room answer first — then reveal and use the rationale.</p>`);
     (d.quickChecks||[]).filter(c=>c.afterIndex===slide.lessonIndex).forEach(c=>{
@@ -1113,7 +1116,7 @@ function sopRunOfShow(dRaw){
     if(block===midBlock+1) add(0, taskStep);   // right after the break, as teaching resumes
     const inBlock = qcs.filter(q=>q.afterIndex>=i && q.afterIndex<j);
     add(Math.round((j-i)*perTopic + inBlock.length*1.5), {title:`Teach topics ${i+1}–${j} of ${n}`, do:[
-      `Present each topic's two parts (principles & steps, then best practices & pitfalls). Longer topics continue on a second page — press Next.`,
+      `Each topic opens with a divider slide: name the topic, then present its two parts (principles & steps, then best practices & pitfalls). Longer topics continue on a second page — press Next.`,
       `Use your notes for each slide: the Trainer Cue, Applied Discussion Case and the Say / Ask / Listen for / If quiet script. Take one or two answers per topic, not a round-robin.`,
       inBlock.length ? `Quick Check${inBlock.length>1?"s":""} after topic${inBlock.length>1?"s":""} ${inBlock.map(q=>q.afterIndex+1).join(", ")}: let the room answer first, then reveal (the answer and rationale are in your notes).` : "",
       `Topics: ${d.lessons.slice(i,j).map((l,k)=>`${i+k+1}. ${esc(l.h)}`).join(" · ")}`].filter(Boolean),
