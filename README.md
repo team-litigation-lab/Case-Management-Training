@@ -26,6 +26,7 @@ The CM course has the same trainer features as the EA/PA portal. They live in `j
 - **🖥 Presenter view:** share only the slides in Google Meet while the trainer reads a script for each slide, in the EA/PA format: ① the why, ② talk it through, ③ walk through it (the slide's steps or practices in order: first, next, finally), ④ ask the room / your turn. The scripts are hand-written in `js/slide-scripts/day1.js`–`day5.js` (`window.SLIDE_SCRIPTS["<day>::<topic title>"].p1` / `.p2`, one per slide); the Speaker Notes PDF uses the same scripts. Above each script, as in the EA/PA course, the trainer sees **On this slide** (what the room is looking at, from `js/presenter-notes.js`) and, on a topic's first slide, the deck's own speaker note as the **Trainer note** (unless the script already says it). On Day 1, the "Meet the Case" slide has a trainer guide. The shared slides window never flickers: slides and pages cut straight in (no slide-in or fade animation), the slide on screen isn't drawn again when the console re-draws, a long slide's next page shows in place, and the window never reloads itself for a new version mid-class. The console's **Update now** banner is there instead; after updating, press ↗ Re-open slides window.
 - **👁 Trainee view:** an admin switches to the trainee experience (every day unlocked) and back without signing out.
 - **🏠 Main Portal (admins):** while an admin is signed in, the top bar has **🏠 Main Portal** and the Admin screen has **← Back to Main Portal** (next to Log out). Both open the LSH Training Portal's Training Directory (`https://cm-training-activity.pages.dev/programs.html`), where admins open each program. Trainees and the 👁 Trainee view don't show them. It's `js/portal-link.js`, the same file in every LSH course repo (EA-PA-TRAINING, Case-Management-Training, propertydamageclaimstraining, Foundational-Training); change it in all of them.
+- **Topic dividers:** every topic opens with a divider slide, as in the EA/PA course. It shows *Day N · section*, *Topic N of M* and the topic's title (`renderTopicDivider`); Presenter view's cue names the topic. Saved places are slide positions, so when the dividers arrived each trainee's "resume here" and "furthest reached" moved once to the same slide (`migrateDayOrder`, flag `dividers-migrated`).
 - **Other features:** standard-size centred slides (long topics continue on a second page), Skill Builder pages in the platform page style, and the task log with archiving.
 
 `index.html` is generated from the EA/PA portal's `index.html` (EA-PA-TRAINING, last built from its `main` after #19 plus the new-tab fix) by `build/build.py`, and `js/cm-updates.js` is a CM copy of EA/PA's `js/eapa-updates.js`. When EA/PA ships new portal features, rebuild so the CM course picks them up:
@@ -170,8 +171,13 @@ Trainers take each day's attendance in **Admin → 🕘 Attendance** (`js/attend
   - A long slide's next and previous pages change in place.
   - A resize lays the slide out again without animation.
   - The slides window never reloads itself for an update.
+- **Topic dividers** (`.github/scripts/dividers.cjs`):
+  - every day has one divider per topic, just before its Part 1;
+  - all 192 fit on one page at 1280×720 and show their number and section;
+  - Presenter view's cue names the topic;
+  - a trainee's saved place, from before the dividers and from before the topics were regrouped, reopens on the same slide, and "furthest reached" moves with it.
 
-To run them locally: `node .github/scripts/check-site.mjs`, `node .github/scripts/check-data.mjs`, then `node .github/scripts/server.mjs 8787 &` and `node .github/scripts/smoke.cjs http://localhost:8787/` and `node .github/scripts/presenter.cjs http://localhost:8787/` (needs Playwright).
+To run them locally: `node .github/scripts/check-site.mjs`, `node .github/scripts/check-data.mjs`, then `node .github/scripts/server.mjs 8787 &` and `node .github/scripts/smoke.cjs http://localhost:8787/` and `node .github/scripts/presenter.cjs http://localhost:8787/` and `node .github/scripts/dividers.cjs http://localhost:8787/` (needs Playwright).
 
 **About the "Workers Builds: case-management-training" check on pull requests:** Cloudflare's preview build for non-`main` branches fails instantly and posts no log. The code builds (the dry run above passes) and `main` deploys normally. Fix or turn it off in the Cloudflare dashboard → Workers & Pages → case-management-training → Settings → Build:
 - open the failed build's log to see the reason;
