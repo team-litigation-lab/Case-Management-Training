@@ -142,6 +142,17 @@ This portal is the main LSH training portal. The job platforms are embedded in i
 - **Admin → 🧰 Tools → Admin: tool addresses** sets each tool's address and switches it between Live and Coming soon, for everyone (shared key `settings:tools`).
 - **Sign-in inside the portal:** the CMS (CaseManagementTraining) sets its `lsh_session` cookie with `SameSite=None; Secure; Partitioned`, so trainees stay signed in to the CMS inside the portal frame. The CMS also refuses cross-site write requests (`functions/_middleware.js`). Safari blocks sign-in inside another site's frame whatever the cookie says, so Safari users use **New tab ↗**.
 
+## 🕘 Attendance
+
+Trainers take each day's attendance in **Admin → 🕘 Attendance** (`js/attendance.js`). Trainees don't see it. It's the same file in every LSH course repo (EA-PA-TRAINING, Case-Management-Training, propertydamageclaimstraining, Foundational-Training); change it in all of them. The LSH Training Portal's admin **🕘 Attendance** page shows and edits the same records, for every program.
+
+- **By batch:** one section per batch (newest first), listing its approved, active trainees, with a count of each status.
+- **The day:** today's date in Pacific time. ◀ ▶ step through the training days, and the date picker opens any day. The batch's **Day N** counts its days already logged; the trainer can change it.
+- **Each trainee's row:** Name; **Training** (the lesson, "Day N: title": for the batch it starts as the day most of the batch is on, from their progress, and it can be changed for the batch or one trainee); **Time In / Time Out** in Pacific time (typed, or ⏱ Now); **Status**, tagged from the attendance sheet's dropdown in its colors (Present, Late, Late with Notif, Early Out - POC Approved, Undertime - POC Approved, Undertime - No Approval, NCNS, Sick Leave, RL, EOP, Absent with Notif; **✓ Mark the rest Present** tags everyone not yet tagged); and Notes.
+- **Saving:** each change saves as you go. A save re-reads the day and writes only the rows changed on that screen, so two trainers can take one batch's attendance at the same time.
+- **📊 Summary** (per batch): each trainee's count of every status over the batch's logged days, with the last 10 days as colored squares. **⬇ CSV** downloads a day (every batch) or a batch's history.
+- **Storage:** `attendance:<batch key>:<YYYY-MM-DD>` (`_none` for no batch) = `{batch, date, day, training, rows:{<trainee id>:{name, training, timeIn, timeOut, status, note, at}}}`, under the Worker's `cm:` prefix. Only admins can read or write these records.
+
 ## Checks (GitHub Actions)
 
 `.github/workflows/checks.yml` runs on every pull request and every push to `main`. A red **Checks** status means something is broken, and the log says what:
