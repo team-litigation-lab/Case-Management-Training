@@ -5,9 +5,11 @@
 //   - a long slide's next page: shown in place, not drawn again;
 //   - the slides window resized: laid out again, still without animation;
 //   - the slides window never reloads itself for an update.
-// Usage: node .github/scripts/presenter.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs `npm i playwright`)
+// Usage: node .github/scripts/presenter.cjs [baseUrl] [day]   (with .github/scripts/server.mjs running; needs `npm i playwright`;
+//        day: a day with several ordinary slides, default 1)
 const { chromium } = require('playwright');
 const BASE = process.argv[2] || 'http://localhost:8787/';
+const DAY = Number(process.argv[3] || 1);
 (async () => {
     const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
     const ctx = await browser.newContext({ viewport: { width: 1360, height: 900 } });
@@ -25,7 +27,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
         await fetch('/api/storage/set', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key, value: JSON.stringify(rec) }) });
     });
     await page.reload({ waitUntil: 'load' }); await sleep(1500);
-    await page.evaluate(() => { state.isAdmin = true; goto('day', 1); state.dayViewMode = 'slides'; state.lessonSlide = 2; render(); });
+    await page.evaluate((day) => { state.isAdmin = true; goto('day', day); state.dayViewMode = 'slides'; state.lessonSlide = 2; render(); }, DAY);
     await sleep(400);
     const popup = ctx.waitForEvent('page');
     await page.evaluate(() => presenterStart());
@@ -64,9 +66,9 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
         await page.evaluate((i) => presenterJump(i), i); await sleep(250);
         if ((await aud.evaluate(() => state.slidePages || 1)) > 1) paged = i;
     }
-    if (paged < 0) fail('no slide in Day 1 is long enough to split into pages at this window size (the page test was skipped)');
+    await take();   // the jumps above drew the window; count from here
+    if (paged < 0) fail(`no slide in Day ${DAY} is long enough to split into pages at this window size (the page test was skipped)`);
     else {
-        await take();
         await page.evaluate(() => presenterStep(1)); await sleep(600);
         r = await take();
         const badge = await aud.evaluate(() => ((document.querySelector('#lessonSlideWrap .pg-badge') || {}).textContent || ''));
