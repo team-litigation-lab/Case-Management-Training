@@ -1499,13 +1499,42 @@ rect.svg-callout-badge{animation:none;}
 }
 .lab-attempt-banner{display:none !important;}
 
-/* ---------- dashboard v2 (sidebar layout — structure only, original colours) ---------- */
+/* ---------- dashboard v2 (stats band under the days — structure only, original colours; same as the EA/PA portal) ---------- */
 main.main-dash{max-width:1600px;}
-.dash-layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:18px;align-items:stretch;}
+.dash-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:stretch;}
 .dash-main{min-width:0;}
 .dash-main .module-grid{margin-bottom:0;}
-.dash-side{background:linear-gradient(180deg, var(--navy) 0%, var(--navy-soft) 100%);border-radius:14px;padding:16px;box-shadow:var(--shadow);}
-.dash-side-inner{display:flex;flex-direction:column;gap:14px;position:sticky;top:84px;}
+/* the progress stats run across the page in one small navy band, under the Day cards */
+.dash-main > .dash-side{margin-top:18px;}
+.dash-side{background:linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);border-radius:14px;padding:16px;box-shadow:var(--shadow);}
+.dash-side-inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;align-items:stretch;}
+.dash-side-inner > .card{margin:0;}
+@media(max-width:1100px){.dash-side-inner > .card.tfb-dash, .dash-side-inner > .card.rank-card{grid-column:span 2;}}   /* two columns wide on a tablet or phone */
+.dash-side-inner > .card.stat:not(.tfb-dash):not(.rank-card){display:flex;flex-direction:column;justify-content:center;}
+.dash-side .tfb-dash .tfb-dash-stars{margin-bottom:8px;}
+/* laptop and desktop: one compact row (the four numbers, then the wider Feedback and Ranking cards) */
+@media(min-width:761px){
+  .dash-layout{gap:12px;}
+  .dash-side{padding:10px 12px;}
+  .dash-side-inner{grid-template-columns:repeat(4,minmax(0,1fr)) repeat(2,minmax(0,1.7fr));gap:10px;position:static;}
+  .dash-side-inner > *{margin:0 !important;}
+  .dash-side-inner > .card.stat{padding:8px 12px;}
+  .dash-side .stat .num{font-size:18px;line-height:1.1;}
+  .dash-side .stat .lbl{font-size:9.5px;letter-spacing:.05em;line-height:1.3;margin-top:3px;}
+  .dash-side .stat .lbl span{font-size:9.5px;text-transform:none;letter-spacing:0;margin-top:2px !important;}
+  .dash-side .tfb-dash, .dash-side .rank-card, .dash-side .cert-dash, .dash-side .comp-card{padding:8px 12px;}
+  .dash-side .tfb-dash .sub, .dash-side .rank-card .sub, .dash-side .comp-card .sub, .dash-side .cert-dash .sub{font-size:10.5px;line-height:1.35;margin:3px 0 6px;}
+  .dash-side .tfb-dash .btn, .dash-side .cert-dash .btn{padding:4px 10px;font-size:11.5px;}
+  .dash-side .rank-list{margin:3px 0 0;}
+  .dash-side .rank-list li{padding:2px 6px;font-size:11.5px;}
+  .dash-side .rank-card .num{font-size:15px;}
+  .dash-side .rank-card .sub{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:3px 0 0;}
+  .dash-side .tfb-dash .sub{margin:2px 0 4px !important;}
+  .dash-side .tfb-dash-stars{margin-bottom:4px !important;}
+  .dash-side .tfb-dash-stars button{font-size:17px;}
+  .dash-main > .dash-side{margin-top:12px;}
+}
+@media(min-width:761px) and (max-width:1100px){.dash-side-inner{grid-template-columns:repeat(4,minmax(0,1fr));}}
 .dash-side .card.stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);box-shadow:none;}
 .dash-side .stat .num{color:#fff;}
 .dash-side .stat .lbl{color:#C9CCDD;}
@@ -1529,7 +1558,6 @@ main.main-dash{padding-top:18px;}
 @media(max-width:1500px){.dash-main .module-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));}}
 @media(max-width:1000px){
   .dash-layout{grid-template-columns:1fr;}
-  .dash-side{order:-1;}
   .dash-side-inner{position:static;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}
   .dash-logo{grid-column:1/-1;}
   .dash-hero{grid-template-columns:1fr;}
@@ -2012,7 +2040,7 @@ main:not(.main-dash){padding-bottom:84px;} /* room for the 💬 Feedback button 
   .tfb-fab .fab-label{display:none;}
 }
 
-/* bottom action bar lines up with the bottom of the stats panel */
+/* bottom action bar sits at the bottom of the Day cards column */
 @media(min-width:1001px){
   .dash-layout{align-items:stretch;}
   .dash-main{display:flex;flex-direction:column;}
@@ -9567,6 +9595,15 @@ function renderDashboard(){
       <div class="module-grid">
         ${DAYS.map(d=>moduleCard(d)).join("")}
       </div>
+      <!-- progress stats: a small band right under the day cards -->
+      <aside class="dash-side"><div class="dash-side-inner">
+        <div class="card stat"><div class="num">${pct}%</div><div class="lbl">Program complete</div></div>
+        <div class="card stat"><div class="num">${ocs.score}%</div><div class="lbl">${ocs.tier ? `Best Competency — ${esc(displayTier(ocs.tier))}` : "Best Competency Score"}<span style="display:block;font-weight:400;margin-top:2px;">Avg across all attempts: ${avgC}%</span></div></div>
+        <div class="card stat"><div class="num">${avgScore()}%</div><div class="lbl">Average quiz score</div></div>
+        <div class="card stat"><div class="num">${done} / ${DAYS.length}</div><div class="lbl">Days completed</div></div>
+        ${renderFeedbackDashCard()}
+        ${renderRankingCard()}
+      </div></aside>
           <div class="hero-actions bottom-actions">${[
             resumeLabel() ? `<button class="btn btn-primary resume-btn" onclick="resumeWhereLeftOff()">▶ Resume where you left off <span>${esc(resumeLabel())}</span></button>` : "",
             (()=>{ if(!state.traineeId) return ""; const c = certData();
@@ -9576,15 +9613,6 @@ function renderDashboard(){
           ].join("")}</div>
           ${renderCompetencyStrip()}
     </div>
-
-    <aside class="dash-side"><div class="dash-side-inner">
-      <div class="card stat"><div class="num">${pct}%</div><div class="lbl">Program complete</div></div>
-      <div class="card stat"><div class="num">${ocs.score}%</div><div class="lbl">${ocs.tier ? `Best Competency — ${esc(displayTier(ocs.tier))}` : "Best Competency Score"}<span style="display:block;font-weight:400;margin-top:2px;">Avg across all attempts: ${avgC}%</span></div></div>
-      <div class="card stat"><div class="num">${avgScore()}%</div><div class="lbl">Average quiz score</div></div>
-      <div class="card stat"><div class="num">${done} / ${DAYS.length}</div><div class="lbl">Days completed</div></div>
-      ${renderFeedbackDashCard()}
-      ${renderRankingCard()}
-    </div></aside>
   </div>
   `;
 }
@@ -20221,7 +20249,7 @@ window.downloadProjectCompliance6Pdf = downloadProjectCompliance6Pdf;
    that was clicked, and any failure is shown on screen instead of
    disappearing silently in the browser console.
    ============================================================ */
-var APP_BUILD = "cm-2026.09.29-e";
+var APP_BUILD = "cm-2026.09.30-a";
 console.info("LSH EA/PA portal build", APP_BUILD);
 let busyDepth = 0;
 function showActionError(e, label){
