@@ -1321,6 +1321,109 @@ window.renderMeetClientTrainerGuide = function(){
     </div>`;
 };
 
+/* ================= Dashboard day cards: clean cards, topics in a pop-up card =================
+   A day card shows its day and title, Start and short buttons (as in the Foundational course). Its topics
+   open in a pop-up card from "☰ Topics" (showDayTopics), grouped by section. */
+(function(){
+  if(typeof moduleCard !== "function" || moduleCard.__clean) return;
+  const __card = moduleCard;
+  moduleCard = function(d){
+    const html = __card(d), t = document.createElement("template"); t.innerHTML = html.trim();
+    const card = t.content.firstElementChild; if(!card) return html;
+    card.querySelectorAll(".module-icon, .module-topic-list, .module-more").forEach(n=>n.remove());
+    const n = (d.lessons||[]).length, start = card.querySelector(".module-start-btn");
+    if(n && start) start.insertAdjacentHTML("afterend", `<button type="button" class="btn btn-ghost btn-sm module-finish-btn module-topics-btn" onclick="event.stopPropagation(); showDayTopics(${d.id})">☰ Topics <span>· ${n}</span></button>`);
+    card.classList.add("mc-clean");
+    return card.outerHTML;
+  };
+  moduleCard.__clean = true;
+  const st = document.createElement("style"); st.id = "clean-day-cards"; st.textContent = `
+.module-card.mc-clean .module-body{flex:1 1 auto;min-height:12px;padding:10px 16px 4px;}
+.module-card.mc-clean .module-body:empty{padding:0;}
+.module-card.mc-clean .module-topics-btn span{color:var(--ink-soft);font-weight:700;margin-left:2px;}
+.topics-modal{overflow-y:auto;}
+.topics-modal-head{position:sticky;top:0;z-index:1;flex-shrink:0;}
+.topics-modal-foot{position:sticky;bottom:0;flex-shrink:0;}
+.topics-modal-sec{padding:14px 22px 2px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-deep);}
+.topics-modal-list{flex:none;overflow:visible;padding:4px 22px 6px 42px;}
+.topics-modal-sec ~ .topics-modal-list{padding-top:2px;}
+.topics-modal-list li{list-style:disc;}
+.topics-modal-list li::marker{color:var(--orange);}
+.topics-modal-list li:last-child{border-bottom:none;}
+`; document.head.appendChild(st);
+})();
+
+/* ================= Bullet lists on a slide: every bullet starts on the same line =================
+   The list sits centred as a block, and its items are left-aligned with the bullet hanging on the left, so
+   the bullets line up one under the other (they used to follow each centred line). */
+(function(){
+  const L = ".lesson-stage #lessonSlideWrap ul:not([class]), .lesson-stage #lessonSlideWrap .lesson-card ul, .lesson-stage #lessonSlideWrap .meet-client-card ul";
+  const LI = ".lesson-stage #lessonSlideWrap .lesson-card ul > li, .lesson-stage #lessonSlideWrap .meet-client-card ul > li";
+  const B = ".lesson-stage #lessonSlideWrap .lesson-card ul > li::before, .lesson-stage #lessonSlideWrap .meet-client-card ul > li::before";
+  const st = document.createElement("style"); st.id = "slide-bullets"; st.textContent = `
+${L}{width:fit-content;max-width:100%;margin-left:auto;margin-right:auto;text-align:left;}
+.lesson-stage #lessonSlideWrap ul:not([class]) > li{text-align:left;}
+${LI}{text-align:left;padding-left:22px;position:relative;}
+${B}{position:absolute;left:1px;top:.6em;margin:0;}
+.lesson-stage #lessonSlideWrap .meet-client-card ul{list-style:disc;padding-left:22px;}
+.lesson-stage #lessonSlideWrap .meet-client-card ul > li{padding-left:4px;}
+.lesson-stage #lessonSlideWrap .meet-client-card ul > li::marker{color:var(--orange);}
+`; document.head.appendChild(st);
+})();
+
+/* ================= The ☰ Topics pop-up fits on one screen =================
+   A long list gets a wider card with its sections side by side in columns; if it still doesn't fit the
+   window, the type steps down a little, so nothing in the card scrolls. (fitTopicsModal runs on each
+   topics card as it opens, and again on resize.) */
+function fitTopicsModal(overlay){
+  const modal = overlay && overlay.querySelector(".topics-modal"); if(!modal) return;
+  let cols = modal.querySelector(".topics-cols");
+  if(!cols){
+    const head = modal.querySelector(".topics-modal-head"), foot = modal.querySelector(".topics-modal-foot");
+    cols = document.createElement("div"); cols.className = "topics-cols";
+    let group = null;
+    [...modal.children].filter(n=>n !== head && n !== foot).forEach(n=>{
+      if(n.classList.contains("topics-modal-sec")){ group = document.createElement("div"); group.className = "tm-group"; cols.appendChild(group); group.appendChild(n); }
+      else if(group && n.classList.contains("topics-modal-list")){ group.appendChild(n); group = null; }
+      else { cols.appendChild(n); group = null; }
+    });
+    if(foot) modal.insertBefore(cols, foot); else modal.appendChild(cols);
+  }
+  const head = modal.querySelector(".topics-modal-head"), foot = modal.querySelector(".topics-modal-foot");
+  let fs = 13.5; cols.style.fontSize = "";
+  const fit = ()=>{
+    // the room the list has: the window's height, less the card's title and buttons
+    const room = Math.min(window.innerHeight*0.92, 900) - (head ? head.offsetHeight : 0) - (foot ? foot.offsetHeight : 0);
+    cols.style.height = "";
+    if(cols.scrollHeight > room) cols.style.height = Math.floor(room) + "px";   // columns fill this height, then overflow sideways
+    return cols.scrollHeight <= cols.clientHeight + 1 && cols.scrollWidth <= cols.clientWidth + 1;
+  };
+  // one column while the list fits; a wider card with columns when it doesn't; smaller type as a last resort
+  modal.classList.remove("tm-wide");
+  if(!fit()) modal.classList.add("tm-wide");
+  while(!fit() && fs > 9.5){ fs -= 0.5; cols.style.fontSize = fs + "px"; }
+}
+window.fitTopicsModal = fitTopicsModal;
+(function(){
+  if(typeof showDayTopics === "function" && !showDayTopics.__fit){
+    const __show = showDayTopics;
+    showDayTopics = function(id){ const r = __show(id); fitTopicsModal(document.querySelector(".overlay.topics-overlay:last-of-type")); return r; };
+    showDayTopics.__fit = true; window.showDayTopics = showDayTopics;
+  }
+  window.addEventListener("resize", ()=>{ const o = document.querySelector(".overlay.topics-overlay"); if(o) fitTopicsModal(o); });
+  const st = document.createElement("style"); st.id = "topics-fit"; st.textContent = `
+.overlay .card.topics-modal{max-height:min(92vh,900px);overflow:hidden;}
+.overlay .card.topics-modal.tm-wide{width:min(1100px,94vw);max-width:none;}
+.topics-cols{flex:1 1 auto;min-height:0;overflow:hidden;padding:14px 24px 10px;font-size:13.5px;}
+.tm-wide .topics-cols{column-width:240px;column-gap:28px;}
+.topics-cols .tm-group{break-inside:avoid;margin:0 0 10px;}
+.topics-cols .topics-modal-sec{padding:0 0 3px;margin:0;font-size:.82em;}
+.topics-cols .topics-modal-list{padding:0 0 0 18px;margin:0;}
+.topics-cols .topics-modal-list li{font-size:1em;line-height:1.35;padding:3px 0;border-bottom:none;break-inside:avoid;}
+.topics-cols .tm-pages{font-size:.82em;}
+`; document.head.appendChild(st);
+})();
+
 /* if the portal already drew itself before this file loaded, redraw with the updates */
 if(document.querySelector(".topbar")) render();
 
