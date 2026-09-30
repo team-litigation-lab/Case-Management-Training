@@ -56,7 +56,7 @@ jobs:
       - name: Presenter view (the slides window shared in Meet never flickers)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/presenter.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+        run: node .github/scripts/presenter.cjs http://localhost:8787/ 2 || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: Topic dividers (one per topic, fit one page, saved places move)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules

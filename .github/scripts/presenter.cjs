@@ -6,7 +6,7 @@
 //   - the slides window resized: laid out again, still without animation;
 //   - the slides window never reloads itself for an update.
 // Usage: node .github/scripts/presenter.cjs [baseUrl] [day]   (with .github/scripts/server.mjs running; needs `npm i playwright`;
-//        day: a day with several ordinary slides, default 1)
+//        day: a day with a slide long enough to split into pages, default 1; CI uses Day 2, since the deck pages never split)
 const { chromium } = require('playwright');
 const BASE = process.argv[2] || 'http://localhost:8787/';
 const DAY = Number(process.argv[3] || 1);
