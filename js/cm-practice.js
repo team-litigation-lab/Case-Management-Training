@@ -192,7 +192,7 @@ TOOLS.cmLookup1 = ()=>[
   {label:"Take the Message", html: part("B. The message that can't be missed",
     "Write the message you would log for Greg Hollis's call on MC-04 (the $65,000 offer open until Friday at 5) as it will appear in the CMS Note and in the attorney's inbox.",
     aiTaskX("cmLookup1:message", {label:"Your phone message and routing (as logged in the CMS)", exercise:"Front desk: message for a time-limited settlement offer", rows:150,
-      caseText:"MOCK CASE MC-04 (CMS Training Library): client Robert \"Bobby\" Chen, MVA 11/18/2025, phase Bi Demand. Attorney: Atty. Marcus Reyes (ext 201). Case manager: Grace Kim (ext 313). BI carrier Liberty Crest Insurance, adjuster Greg Hollis, (555) 010-7755, claim LC-25-99812, limits $100,000/$300,000. Policy-limits demand ($100,000) sent 09/08/2026, response due 10/08/2026. Client prefers calls before 9 AM. Firm rules: offers with time limits are URGENT (reach the attorney or CM live; otherwise priority message); the front desk never reacts to an offer, never relays it to the client, never gives an opinion; complete message = date/time, caller name and role, company, callback number, best time, case name, what they need, urgency, initials; log as a Note and route to the person on the file.",
+      caseText:"MOCK CASE MC-04 (CMS Training Library): client Robert \"Bobby\" Chen, MVA 11/18/2025, status BI Demanded. Attorney: Atty. Marcus Reyes (ext 201). Case manager: Grace Kim (ext 313). BI carrier Liberty Crest Insurance, adjuster Greg Hollis, (555) 010-7755, claim LC-25-99812, limits $100,000/$300,000. Policy-limits demand ($100,000) sent 09/08/2026, response due 10/08/2026. Client prefers calls before 9 AM. Firm rules: offers with time limits are URGENT (reach the attorney or CM live; otherwise priority message); the front desk never reacts to an offer, never relays it to the client, never gives an opinion; complete message = date/time, caller name and role, company, callback number, best time, case name, what they need, urgency, initials; log as a Note and route to the person on the file.",
       context:"Greg Hollis called the front desk: \"I have an offer on Chen: $65,000, and it's only open until Friday at 5.\"",
       criteria:"Must include: date and time of the call; caller name, role and company; direct callback number; case name and the carrier's claim number; the exact offer amount and the exact deadline (Friday 5 PM); marked URGENT; routed to Atty. Reyes and Grace Kim (with extensions) and a live attempt noted; what the front desk said (nothing about the offer's merits); initials. Penalize any reaction to or opinion on the offer, contacting the client directly, a missing deadline or amount, or a vague 'please call him back'."})
     + toolStep("cms", "cmLookup1:cms", "Open <b>MC-04</b> from the CMS <b>📚 Training Library</b>, choose <b>✍ Work on a practice copy</b>, add your message as a <b>Note</b> (Staff: Receptionist / Front Desk) and a <b>Task</b> for Atty. Reyes due before Friday 5 PM, then <b>Save Case</b> and log your Case ID here."))}
@@ -241,7 +241,7 @@ TOOLS.cmDemand2 = ()=>[
       {t:"The attorney signs the final demand letter before it goes out.", ok:true, why:"Demands go out over the attorney's signature."},
       {t:"Send by a trackable method (certified mail, return receipt, plus email to the adjuster) and file the proof of delivery.", ok:true, why:"The time limit runs from receipt; you must be able to prove it."},
       {t:"State the time limit for a response in the letter and calendar the due date with 14-, 7- and 3-day reminders.", ok:true, why:"A policy-limits deadline that isn't calendared is a missed deadline."},
-      {t:"Move the CMS phase to “Bi Demand” and log the send (date, method, recipient) as a Note.", ok:true, why:"The file must show where the case is."},
+      {t:"Move the CMS status to “BI Demanded” and log the send (date, method, recipient) as a Note.", ok:true, why:"The file must show where the case is."},
       {t:"Tell John the demand went out and what happens next, without predicting a value.", ok:true, why:"Client communication, no promises."},
       {t:"Copy the lienholders on the demand so they know a settlement is coming.", ok:false, why:"The demand is a confidential negotiation document. Lien notices are handled separately."},
       {t:"Attach our internal net sheet so the adjuster can see the math.", ok:false, why:"Internal valuation never goes to the other side."},
@@ -253,7 +253,7 @@ TOOLS.cmDemand2 = ()=>[
       {label:"14-day reminder", type:"date", answer:"2026-05-14"},
       {label:"7-day reminder", type:"date", answer:"2026-05-21"}
     ])
-    + cmsStep("cmDemand2:cms", "In John's CMS case: set the phase to <b>Bi Demand</b>, upload the final demand under <b>Case Files</b>, add a <b>Task</b> for each of the four missing bills, and add the response deadline with its reminders as Tasks."))}
+    + cmsStep("cmDemand2:cms", "In John's CMS case: set the status to <b>BI Demanded</b>, upload the final demand under <b>Case Files</b>, add a <b>Task</b> for each of the four missing bills, and add the response deadline with its reminders as Tasks."))}
 ];
 
 /* ---------- DAY 3 · Systems · Trust Ledger & Disbursement ---------- */
