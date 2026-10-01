@@ -61,6 +61,12 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/requests.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: Server request meter (admins only; every level; sparing)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: |
+          node .github/scripts/request-meter-widget.cjs js/request-budget.js
+          node .github/scripts/request-meter.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: Topic dividers (one per topic, fit one page, saved places move)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
