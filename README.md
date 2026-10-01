@@ -156,6 +156,27 @@ Trainers take each day's attendance in **Admin → 🕘 Attendance** (`js/attend
 - **Google Sheet:** the LSH Training Portal keeps the attendance Google Sheet's **Platform Attendance** tab in step, both ways: everything here (automatic Time Ins included) goes to the sheet every 15 minutes, and edits made in the sheet to Training, Time In, Time Out, Status or Notes come back here straight away. See the Training Portal's README.
 - **Storage:** `attendance:<batch key>:<YYYY-MM-DD>` (`_none` for no batch) = `{batch, date, day, training, rows:{<trainee id>:{name, training, timeIn, timeOut, status, note, at, by}}}`, under the Worker's `cm:` prefix. The Worker's `/api/checkin` records the automatic Time In: `checkin:<YYYY-MM-DD>:<trainee id>` = `{timeIn, at, name, batch, training}` is the automatic Time In (each trainee's own key, so a room signing in at once never overwrites one another; its KV metadata carries the same for the portal; kept 40 days). Only admins can read or write these records.
 
+## 📉 Staying under Cloudflare's monthly request allowance
+
+The Cloudflare account is on Workers Paid: **10 million requests a month for the whole account**, shared by every LSH site (the courses, the CMS, the Training Portal and the rest). This course's Worker counts for everything under `/api/` and `/version`; static files (the page, `js/`, `decks/`, `documents/`) are free and don't count. Before the account reaches the allowance, EA-PA-TRAINING's **Request budget** workflow switches the sites' servers off until the next billing month (see its README): pages would still load, but sign-in, saving and the trainer's screens wouldn't work. Usage is under **Workers & Pages** in the Cloudflare dashboard.
+
+So an open page asks the server sparingly (`POLL` in `index.html`), and not at all while its tab is in the background. When it's back, whatever came due runs then; a quick look at another tab (Google Meet) asks nothing:
+
+| What | How often | Before |
+|---|---|---|
+| A trainee's access and new tasks (`startApprovalPolling`) | every minute: their record, and the tasks for every unlocked day in one request | every 45 s: their record twice and one request per day, also in the background |
+| A Skill Builders attempt reset (`liveTick`) | every minute (the minute check above counts) | every 10 s |
+| Trainer feedback and Focus items | every 2 minutes | every 45 s |
+| Waiting for approval | every 15 s | every 8 s |
+| Admin: Trainee Audit, Rankings, Trainee Feedback | every minute, every trainee in one request | every 30 s, one request per trainee |
+| Admin: the Trainee Audit's progress, feedback and Focus columns | one request for up to 33 trainees | three requests per trainee |
+| A new version (`/version`) | every 3 minutes (a change is confirmed 20 s later) | every 45 s, also in the background |
+| Opening the page: lesson add-ons and Daily Activities | one request each | 15 and 6 requests |
+
+A trainee's page in view now asks about 3 times a minute (it was about 17) and nothing in the background (about 11). An admin on the Trainee Audit with 30 trainees: about 3 a minute (60 to 150).
+
+Lists of records (the Trainee Audit, attendance, trainee feedback, activity submissions, tasks) are read with `/api/storage/get-many` (up to 100 keys, the same rules and `cm:` prefix as `/api/storage/get` for each key), not one request per record. A trainee is signed out as revoked only when the server answers that their record is gone or not approved: a server that doesn't answer (offline, or switched off for the month) no longer signs anyone out or clears their notes.
+
 ## Checks (GitHub Actions)
 
 `.github/workflows/checks.yml` runs on every pull request and every push to `main`. A red **Checks** status means something is broken, and the log says what:
@@ -177,8 +198,13 @@ Trainers take each day's attendance in **Admin → 🕘 Attendance** (`js/attend
   - all 192 fit on one page at 1280×720 and show their number and section;
   - Presenter view's cue names the topic;
   - a trainee's saved place from before the deck pages reopens on the page that covers the same topic; "furthest reached" and Quick Check answers move with it, once.
+- **Server requests** (`.github/scripts/requests.cjs`):
+  - `get-many` gives a trainee only their own and public records and an Admin every one, refuses more than 100 keys, and reads under the `cm:` prefix like `get` (never an EA/PA record);
+  - with the checks sped up, a trainee's page reads the tasks for every day in one request and their record about once per check, checks for a new version rarely, and asks nothing while the tab is in the background (catching up when it's back) or on a quick switch to another tab and back;
+  - a server that doesn't answer doesn't sign the trainee out; a revoke does;
+  - the Trainee Audit reads every trainee in two requests, and its progress columns in one.
 
-To run them locally: `node .github/scripts/check-site.mjs`, `node .github/scripts/check-data.mjs`, then `node .github/scripts/server.mjs 8787 &` and `node .github/scripts/smoke.cjs http://localhost:8787/` and `node .github/scripts/presenter.cjs http://localhost:8787/` and `node .github/scripts/dividers.cjs http://localhost:8787/` (needs Playwright).
+To run them locally: `node .github/scripts/check-site.mjs`, `node .github/scripts/check-data.mjs`, then `node .github/scripts/server.mjs 8787 &` and `node .github/scripts/smoke.cjs http://localhost:8787/` and `node .github/scripts/presenter.cjs http://localhost:8787/` and `node .github/scripts/dividers.cjs http://localhost:8787/` and `node .github/scripts/requests.cjs http://localhost:8787/` (needs Playwright).
 
 **About the "Workers Builds: case-management-training" check on pull requests:** Cloudflare's preview build for non-`main` branches fails instantly and posts no log. The code builds (the dry run above passes) and `main` deploys normally. Fix or turn it off in the Cloudflare dashboard → Workers & Pages → case-management-training → Settings → Build:
 - open the failed build's log to see the reason;
