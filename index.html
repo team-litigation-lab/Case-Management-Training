@@ -8097,10 +8097,10 @@ function orientSlides(){
   const pill = (i,t,d)=>`<div class="or-pill"><div>${i}</div><b>${t}</b><span>${d}</span></div>`;
   return [
    {k:"Welcome", h:"Welcome to the LSH Case Management Training", body:`
-     <p class="or-lead">Ten days to work like a strategic, trusted Executive &amp; Personal Assistant to an attorney — built around one realistic client, from Day 1 to Day 10.</p>
-     <div class="or-3">${pill("📚","Learn",`${topics} short topics across 10 days`)}${pill("🧪","Practice",`${PRACTICE_TOOLS.length} hands-on Skill Builders & live calls`)}${pill("✅","Prove","A Knowledge Check each day — and a certificate at the end")}</div>
+     <p class="or-lead">Five days to work like a confident, organized Case Manager — built around one realistic case, John Doe v. Apex Delivery Services, from Day 1 to Day 5.</p>
+     <div class="or-3">${pill("📚","Learn",`${topics} short topics across ${DAYS.length} days`)}${pill("🧪","Practice",`${PRACTICE_TOOLS.length} hands-on Skill Builders & live calls`)}${pill("✅","Prove","A Knowledge Check each day — and a certificate at the end")}</div>
      <div class="or-note"><b>You'll need:</b> Chrome or Edge on a computer, a headset with a microphone for the live calls, and a stable connection. Your progress saves to your account automatically.</div>`},
-   {k:"Roadmap", h:"Your 10-day roadmap", body:`<div class="or-days">${DAYS.map(dayTile).join("")}</div>
+   {k:"Roadmap", h:`Your ${DAYS.length}-day roadmap`, body:`<div class="or-days">${DAYS.map(dayTile).join("")}</div>
      <p class="or-foot">Days open one at a time — each builds on the one before.</p>`},
    {k:"A day", h:"How every day works", body:`
      <div class="or-flow">${step(1,"🖥","Lesson slides","One topic at a time. Next / Previous at the bottom; your place is saved.")}<i>→</i>${step(2,"✔","Quick Checks","Short questions between topics. Pick, change your mind, then Check Answer.")}<i>→</i>${step(3,"🧪","Skill Builders","Do the real task. Graded with written feedback. Auto-saves as you type.")}<i>→</i>${step(4,"📝","Knowledge Check","Pass at 70% to mark the day complete ✓.")}<i>→</i>${step(5,"🔓","Next day opens","Finishing the Skill Builders unlocks tomorrow.")}</div>
@@ -8108,7 +8108,7 @@ function orientSlides(){
    {k:"Dashboard", h:"Your dashboard at a glance", body:`
      <div class="or-bp">
        <div class="or-bp-main">
-         <div class="or-box or-hero"><span class="or-num">1</span><b>Progress track</b><em>Days 1–10 · ✓ = passed · every day is open</em></div>
+         <div class="or-box or-hero"><span class="or-num">1</span><b>Progress track</b><em>Days 1–${DAYS.length} · ✓ = passed · every day is open</em></div>
          <div class="or-box or-cards"><span class="or-num">2</span><b>Day cards</b><em>Start / Review a day · 💬 trainer feedback appears here</em></div>
          <div class="or-box"><span class="or-num">3</span><b>Resume &amp; certificate</b><em>Jump back to where you left off · download your certificate when earned</em></div>
          <div class="or-box"><span class="or-num">4</span><b>Competency profile</b><em>Eight skills that grow as your work is graded</em></div>
@@ -14614,7 +14614,7 @@ function renderHandouts(){
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 10px;">Handouts &amp; Templates</h1>
     <p style="color:var(--ink-soft);font-size:14.5px;max-width:72ch;margin:0 0 16px;">Printable checklists, scripts and ready-to-use templates for each day. Download the PDF to print or fill in, or grab the ready-made Excel workbook for any tracker (opens in Excel or Google Sheets).</p>
     <input class="ho-search" placeholder="Search handouts…" value="${esc(state.hoQuery||"")}" oninput="state.hoQuery=this.value; clearTimeout(window.__hoT); window.__hoT=setTimeout(()=>{render(); const el=document.querySelector('.ho-search'); if(el){ el.focus(); el.setSelectionRange(el.value.length, el.value.length);} },250)">
-    <div class="card ho-bp"><div class="ho-bp-i">📘</div><div><b>Platform Blueprint (PDF)</b><span>How the portal works — the 10-day roadmap, how each day runs, grading, certificate and ground rules. Always the latest version.</span></div><a class="btn btn-primary btn-sm" href="/blueprint.pdf" target="_blank" rel="noopener">⬇ Open PDF</a></div>
+    <div class="card ho-bp"><div class="ho-bp-i">📘</div><div><b>Platform Blueprint (PDF)</b><span>How the portal works: the 5-day roadmap, how each day runs, the Case File, practice, grading, the certificate and the ground rules. Always the latest version.</span></div><a class="btn btn-primary btn-sm" href="/blueprint.pdf" target="_blank" rel="noopener">⬇ Open PDF</a></div>
     <div class="ho-grid">
     ${list.map(h=>{ const link = handoutLink(h.day); return `
       <div class="card ho-card ${h.day===cur?"current":""}">
@@ -20326,6 +20326,10 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/daily-activities.js?v=2"></script>
 <script src="/js/attendance.js?v=3"></script>
 <script src="/js/portal-link.js?v=1"></script>
+<!-- 🧭 Blueprints: the Trainer blueprint (blueprint-content.js) and the Trainee blueprint (Orientation, /blueprint.pdf) rebuilt after every deploy -->
+<script src="/js/blueprint-content.js?v=1"></script>
+<script src="/js/lsh-blueprint-course.js?v=1"></script>
+<script src="/js/lsh-blueprint.js?v=1"></script>
 <script src="/js/lsh-dashboard.js?v=3"></script>
 <script src="/js/request-budget.js?v=1"></script>
 <script>
