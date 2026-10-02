@@ -166,7 +166,7 @@ Trainers take each day's attendance in **Admin → 🕘 Attendance** (`js/attend
 
 ## 📉 Staying under Cloudflare's monthly request allowance
 
-The Cloudflare account is on Workers Paid: **10 million requests a month for the whole account**, shared by every LSH site (the courses, the CMS, the Training Portal and the rest). This course's Worker counts for everything under `/api/` and `/version`; static files (the page, `js/`, `decks/`, `documents/`) are free and don't count. Before the account reaches the allowance, EA-PA-TRAINING's **Request budget** workflow switches the sites' servers off until the next billing month (see its README): pages would still load, but sign-in, saving and the trainer's screens wouldn't work. Usage is under **Workers & Pages** in the Cloudflare dashboard.
+The Cloudflare account is on Workers Paid: **10 million requests a month for the whole account**, shared by every LSH site (the courses, the CMS, the Training Portal and the rest). This course's Worker counts for everything under `/api/` and `/version`; static files (the page, `js/`, `decks/`, `documents/`) are free and don't count. Past the allowance, Cloudflare charges for every extra million requests. Usage is under **Workers & Pages** in the Cloudflare dashboard.
 
 So an open page asks the server sparingly (`POLL` in `index.html`), and not at all while its tab is in the background. When it's back, whatever came due runs then; a quick look at another tab (Google Meet) asks nothing:
 
@@ -185,15 +185,6 @@ A trainee's page in view now asks about 3 times a minute (it was about 17) and n
 
 Lists of records (the Trainee Audit, attendance, trainee feedback, activity submissions, tasks) are read with `/api/storage/get-many` (up to 100 keys, the same rules and `cm:` prefix as `/api/storage/get` for each key), not one request per record. A trainee is signed out as revoked only when the server answers that their record is gone or not approved: a server that doesn't answer (offline, or switched off for the month) no longer signs anyone out or clears their notes.
 
-## 📊 Server request meter
-
-Admins see how much of the month's server requests is used, on every LSH site's admin side: a small chip in the bottom-left corner once signed in to 🛡 Admin. 🟢 on track; 🟠 from 75%, or when this month's pace reaches the limit before the allowance resets; 🔴 from 90%; 🟥 paused (the limit was reached); ⚪ not set up yet, or no recent numbers. When it's amber or red, a note appears above the chip; click the chip for the total, the projection, each day and each site.
-
-- The numbers come from the Request budget workflow in EA-PA-TRAINING (README there → *Monthly request budget* and *Server request meter*), which saves them to KV (`_request-usage`, the same key for every LSH site, so it's read without this course's key prefix).
-- This site's server answers its admins with them: `POST /api/request-budget` (admins only, `worker.js`).
-- The meter is `js/request-budget.js`, **the same file in every LSH platform** (change it in EA-PA-TRAINING and copy it here). It asks once when an admin opens the page, then every 15 minutes while the tab is in view.
-- `index.html` loads it next to the other scripts at the end of the page. If `index.html` is rebuilt from a page that doesn't load it yet, carry those lines over again: `request-meter.cjs` fails until you do.
-- Tests: `.github/scripts/request-meter-widget.cjs` (the meter itself; the same test in every platform) and `.github/scripts/request-meter.cjs` (this site: admins only, one request).
 
 ## Checks (GitHub Actions)
 
@@ -221,9 +212,8 @@ Admins see how much of the month's server requests is used, on every LSH site's 
   - with the checks sped up, a trainee's page reads the tasks for every day in one request and their record about once per check, checks for a new version rarely, and asks nothing while the tab is in the background (catching up when it's back) or on a quick switch to another tab and back;
   - a server that doesn't answer doesn't sign the trainee out; a revoke does;
   - the Trainee Audit reads every trainee in two requests, and its progress columns in one.
-- **Server request meter** (`.github/scripts/request-meter-widget.cjs`, `request-meter.cjs`): only admins see it and only their pages ask for it, once on opening; `/api/request-budget` refuses trainees; every level of the meter shows as it should; a background tab asks nothing.
 
-To run them locally: `node .github/scripts/check-site.mjs`, `node .github/scripts/check-data.mjs`, then `node .github/scripts/server.mjs 8787 &` and `node .github/scripts/smoke.cjs http://localhost:8787/` and `node .github/scripts/presenter.cjs http://localhost:8787/` and `node .github/scripts/dividers.cjs http://localhost:8787/` and `node .github/scripts/requests.cjs http://localhost:8787/` and `node .github/scripts/request-meter-widget.cjs js/request-budget.js` and `node .github/scripts/request-meter.cjs http://localhost:8787/` (needs Playwright).
+To run them locally: `node .github/scripts/check-site.mjs`, `node .github/scripts/check-data.mjs`, then `node .github/scripts/server.mjs 8787 &` and `node .github/scripts/smoke.cjs http://localhost:8787/` and `node .github/scripts/presenter.cjs http://localhost:8787/` and `node .github/scripts/dividers.cjs http://localhost:8787/` and `node .github/scripts/requests.cjs http://localhost:8787/` and (needs Playwright).
 
 **About the "Workers Builds: case-management-training" check on pull requests:** Cloudflare's preview build for non-`main` branches fails instantly and posts no log. The code builds (the dry run above passes) and `main` deploys normally. Fix or turn it off in the Cloudflare dashboard → Workers & Pages → case-management-training → Settings → Build:
 - open the failed build's log to see the reason;
