@@ -14573,7 +14573,7 @@ function renderHandouts(){
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 10px;">Handouts &amp; Templates</h1>
     <p style="color:var(--ink-soft);font-size:14.5px;max-width:72ch;margin:0 0 16px;">Printable checklists, scripts and ready-to-use templates for each day. Download the PDF to print or fill in, or grab the ready-made Excel workbook for any tracker (opens in Excel or Google Sheets).</p>
     <input class="ho-search" placeholder="Search handouts…" value="${esc(state.hoQuery||"")}" oninput="state.hoQuery=this.value; clearTimeout(window.__hoT); window.__hoT=setTimeout(()=>{render(); const el=document.querySelector('.ho-search'); if(el){ el.focus(); el.setSelectionRange(el.value.length, el.value.length);} },250)">
-    <div class="card ho-bp"><div class="ho-bp-i">📘</div><div><b>Platform Blueprint (PDF)</b><span>How the portal works — the 10-day roadmap, how each day runs, grading, certificate and ground rules. Always the latest version.</span></div><a class="btn btn-primary btn-sm" href="/blueprint.pdf" target="_blank" rel="noopener">⬇ Open PDF</a></div>
+    <div class="card ho-bp"><div class="ho-bp-i">📘</div><div><b>Platform Blueprint (PDF)</b><span>How the portal works: the 5-day roadmap, how each day runs, the Case File, practice, grading, the certificate and the ground rules. Always the latest version.</span></div><a class="btn btn-primary btn-sm" href="/blueprint.pdf" target="_blank" rel="noopener">⬇ Open PDF</a></div>
     <div class="ho-grid">
     ${list.map(h=>{ const link = handoutLink(h.day); return `
       <div class="card ho-card ${h.day===cur?"current":""}">
@@ -20280,5 +20280,9 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/daily-activities.js?v=1"></script>
 <script src="/js/attendance.js?v=2"></script>
 <script src="/js/portal-link.js?v=1"></script>
+<!-- 🧭 Blueprints: the Trainer blueprint (blueprint-content.js) and the Trainee blueprint (Orientation, /blueprint.pdf) rebuilt after every deploy -->
+<script src="/js/blueprint-content.js?v=1"></script>
+<script src="/js/lsh-blueprint-course.js?v=1"></script>
+<script src="/js/lsh-blueprint.js?v=1"></script>
 </body>
 </html>

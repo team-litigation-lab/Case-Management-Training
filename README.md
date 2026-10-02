@@ -38,6 +38,14 @@ python3 build/build.py ../EA-PA-TRAINING/index.html
 
 The script applies the CM edits to the EA/PA page and inserts the CM content from `build/` (`day1.js`–`day5.js` for the lessons, and the `cm_*.js` files for the case file, calendar, roleplays and practice tools). Every edit checks that its anchor exists, so it stops with an error if EA/PA changed that part; update the anchor in `build.py` and run it again. Carry new features from `js/eapa-updates.js` into `js/cm-updates.js` by hand.
 
+- **🧭 Orientation and the Blueprints:** Orientation has two tabs.
+  - **🧭 Trainee blueprint:** the Orientation deck. It's also `/blueprint.pdf`, in trainees' Handouts.
+    - **It republishes itself after every deploy.** The published copy is matched against `APP_BUILD` and the Worker's deployment id (`/version`). The first admin page open after a deploy rebuilds it.
+  - **🛠 Trainer blueprint** (admins only, never at a public address): a cover and 12 slides on running the course. It covers signing in, the Trainee Audit, day feedback, surprise tasks, the Case File's checkpoints and keys, the documents' 🔑 audit key, Practice and the simulators, SOP Reference, Presenter view, Batch Folders, Rankings and Content Studio, Activities and the feedback style, Attendance and Trainee view.
+    - **⬇ Download PDF:** a landscape PDF, one page per slide, stamped with the build and the deployment.
+    - **Files:** the slides are in `js/blueprint-content.js`. `js/lsh-blueprint.js` is the same file on every LSH platform, and `js/lsh-blueprint-course.js` is the same on every LSH course: copy them from EA-PA-TRAINING when they change there.
+    - **Test:** `.github/scripts/blueprint.cjs`.
+
 ### Case File: CM Mindset & critical thinking
 
 The Case File page (`js/cm-mindset.js`) trains the Case Manager mindset rather than handing out a finished summary.
