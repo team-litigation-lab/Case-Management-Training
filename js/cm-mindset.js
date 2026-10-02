@@ -288,7 +288,7 @@ function renderTraineeWork(t){
 window.cmmLoadTrainees = async function(){
   try{
     const keys = await sharedList("trainee:");
-    const recs = (await Promise.all(keys.map(k=>sharedGet(k).catch(()=>null)))).filter(r=>r && !r.archived);
+    const recs = (await sharedGetMany(keys)).filter(r=>r && !r.archived);
     state.cmmTrainees = recs.map(r=>({id:r.id, name:r.name||"Trainee", batch:r.batch||""})).sort((a,b)=>a.name.localeCompare(b.name));
   }catch(e){ toast("Couldn't load trainees: " + ((e&&e.message)||e)); }
   render();

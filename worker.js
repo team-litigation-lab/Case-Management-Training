@@ -162,6 +162,37 @@ async function traineeWrite(env, tok, key, value) {
    {messages, system, max_tokens} request; this translates it to Gemini's
    generateContent and the reply back. Model: GEMINI_MODEL (default gemini-3.8-flash),
    falling back to gemini-3.5-flash-lite / gemini-3.5-flash if busy or unavailable. */
+/* Gemini refuses some regions ("User location is not supported for the API use"). The Worker is placed in
+   the US (wrangler.json), but placement is best-effort: a request can still run near the trainee. A refused
+   call is sent again from GeminiRelay, a Durable Object pinned to western North America, and that Worker
+   instance keeps using the relay from then on. */
+let geminiViaRelay = false;
+async function geminiFetch(env, url, init) {
+  const viaRelay = () => {
+    const ns = env.GEMINI_RELAY, id = ns.idFromName("gemini-relay-" + Math.floor(Math.random() * 4));
+    return ns.get(id, { locationHint: "wnam" }).fetch("https://relay/", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url, headers: init.headers, body: init.body })
+    });
+  };
+  if (geminiViaRelay && env.GEMINI_RELAY) return viaRelay();
+  const r = await fetch(url, init);
+  if (r.status !== 400 || !env.GEMINI_RELAY) return r;
+  const text = await r.text();
+  if (!/location is not supported/i.test(text)) return new Response(text, { status: r.status, headers: { "Content-Type": "application/json" } });
+  geminiViaRelay = true;
+  return viaRelay();
+}
+export class GeminiRelay {
+  constructor(state, env) {}
+  async fetch(request) {
+    const { url, headers, body } = await request.json();
+    if (!/^https:\/\/generativelanguage\.googleapis\.com\//.test(String(url))) return new Response("Not allowed", { status: 403 });
+    const r = await fetch(url, { method: "POST", headers, body });
+    return new Response(await r.text(), { status: r.status, headers: { "Content-Type": "application/json" } });
+  }
+}
+
 async function callGemini(env, rawBody) {
   let req; try { req = JSON.parse(rawBody); } catch (e) { return json({ error: "Invalid request" }, 400); }
   const toText = (c) => typeof c === "string" ? c : (Array.isArray(c) ? c.map((p) => p && p.text ? p.text : "").join("\n") : "");
@@ -179,7 +210,7 @@ async function callGemini(env, rawBody) {
     const p = JSON.parse(JSON.stringify(payload));
     if (/2\.5-flash/.test(model)) p.generationConfig.thinkingConfig = { thinkingBudget: 0 };   // 2.5: thinking off
     else p.generationConfig.thinkingConfig = { thinkingLevel: "low" };                         // 3.x: think briefly → much faster replies
-    const send = (body) => fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
+    const send = (body) => geminiFetch(env, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
       method: "POST",
       headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
       body: JSON.stringify(body)
@@ -231,6 +262,15 @@ async function checkIn(kv, id, training) {
   const v = { timeIn: et.time, at: now.toISOString(), name: String(rec.name || id).slice(0, 80), batch: String(rec.batch || "").slice(0, 24), training: String(training || "").slice(0, 160) };
   await kv.put(key, JSON.stringify(v), { expirationTtl: 40 * 86400, metadata: { t: v.timeIn, at: v.at, n: v.name, b: v.batch, tr: v.training } });
   return { ok: true, date: et.date, timeIn: v.timeIn };
+}
+
+/* The month's server requests for the admin pages' meter (js/request-budget.js), as the Request budget
+   workflow (EA-PA-TRAINING) saved them to KV under "_request-usage": the same key for every LSH site, so
+   it's read without this course's key prefix. null until the workflow has run. */
+async function requestMeter(kv) {
+  const raw = kv ? await kv.get("_request-usage") : null;
+  if (!raw) return null;
+  try { const u = JSON.parse(raw); delete u.cache; return u; } catch (e) { return null; }
 }
 
 export default {
@@ -297,6 +337,12 @@ export default {
       const tok = secure ? await readToken(env, request) : { role: "a", id: "open-mode" };
       if (!tok) return json({ error: "Sign-in required" }, 401);
 
+      /* ---------- 📊 server request meter (admins; README → Server request meter) ---------- */
+      if (path === "/api/request-budget") {
+        if (tok.role !== "a") return json({ error: "Admins only" }, 403);
+        return json({ ok: true, usage: await requestMeter(env.LSH_KV) });
+      }
+
       /* ---------- 🕘 automatic Time In: a trainee's first visit today (see checkIn) ---------- */
       if (path === "/api/checkin") {
         const b = await request.json().catch(() => ({}));
@@ -337,6 +383,17 @@ export default {
         if (!key) return json({ error: "Missing key" }, 400);
         if (!canRead(tok, key)) return json({ error: "Not allowed" }, 403);
         return json({ value: await kv.get(key) });
+      }
+      if (path === "/api/storage/get-many") {
+        // Several records in one request (the admin ledger, attendance, a trainee's tasks for every
+        // day): every Worker request counts toward Cloudflare's request allowance for the whole
+        // account, so lists aren't fetched one request per record. The same rule as /get for each
+        // key (and the same "cm:" prefix); a key this user may not read is left out.
+        const keys = Array.isArray(body.keys) ? body.keys.map((k) => String(k || "")) : [];
+        if (!keys.length || keys.length > 100) return json({ error: "Send 1 to 100 keys" }, 400);
+        const values = {};
+        await Promise.all(keys.map(async (k) => { if (k && canRead(tok, k)) values[k] = await kv.get(k); }));
+        return json({ values });
       }
       if (path === "/api/storage/set") {
         if (!key) return json({ error: "Missing key" }, 400);
