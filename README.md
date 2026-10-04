@@ -51,6 +51,7 @@ The script applies the CM edits to the EA/PA page and inserts the CM content fro
     - **It republishes itself after every deploy.** The published copy is matched against `APP_BUILD` and the Worker's deployment id (`/version`). The first admin page open after a deploy rebuilds it.
   - **🛠 Trainer blueprint** (admins only, never at a public address): a cover and 12 slides on running the course. It covers signing in, the Trainee Audit, day feedback, surprise tasks, the Case File's checkpoints and keys, the documents' 🔑 audit key, Practice and the simulators, SOP Reference, Presenter view, Batch Folders, Rankings and Content Studio, Activities and the feedback style, Attendance and Trainee view.
     - **⬇ Download PDF:** a landscape PDF, one page per slide, stamped with the build and the deployment.
+    - **Numbering:** the cover is the Cover (★), then slides 1 to 12, the same everywhere: the contents buttons, the counter under the slides ("Cover · 12 slides", then "1 / 12" to "12 / 12"), each slide's header and footer, and the PDF's page footers.
     - **Files:** the slides are in `js/blueprint-content.js`. `js/lsh-blueprint.js` is the same file on every LSH platform, and `js/lsh-blueprint-course.js` is the same on every LSH course: copy them from EA-PA-TRAINING when they change there.
     - **Test:** `.github/scripts/blueprint.cjs`.
 
