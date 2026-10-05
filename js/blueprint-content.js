@@ -10,7 +10,7 @@ window.LSH_BLUEPRINT = {
     sub: 'Running the 5-day Case Management course: the trainer side of the portal',
     slides: [
       { icon: '🔑', title: 'Signing in as a trainer', points: [
-          'Admin sign-in with the trainer passphrase. The server checks it, and every request after it needs your signed session.',
+          'Admin sign-in with the admin password. The server checks it, and every request after it needs your signed session.',
           'Your top bar adds 🧭 Orientation, the Facilitator Guide, 👁 Trainee view and 🏠 Main Portal (back to the Training Portal\'s Training Directory).',
           'Admin is your trainer dashboard: Trainee Audit, 📁 Batch Folders, Rankings, SOP Reference, Trainer Cues, Content Studio, Trainee Feedback, 📋 Activities, 🗣 Feedback Style and 🕘 Attendance.',
           'Every day is open to you, so you can preview it before you teach it.'],
