@@ -61,6 +61,10 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/requests.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: Graded calls from the CMS Call Simulator (read only by the trainee; the dashboard's Graded calls card)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/graded-calls.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: Topic dividers (one per topic, fit one page, saved places move)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
