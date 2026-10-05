@@ -168,15 +168,16 @@ const CM_TOOL_DEFAULTS = [
    url:"https://cm-training-activity.pages.dev/simulators/email-replies.html", portalSim:true,
    desc:"One email at a time from the John Doe file: the client, the adjuster, a lienholder, defense counsel, your attorney, plus a phishing attempt. Reply on the portal, or have it sent to your own inbox and reply from there. Scored with a model reply.",
    evidence:"Score", idHint:"Score"},
-  {id:"calendaring", icon:"🗓", name:"Calendaring Simulator (LSH Training Portal)", short:"Calendaring", status:"live",
-   url:"https://cm-training-activity.pages.dev/simulators/calendar.html", portalSim:true,
-   desc:"A CM litigation week to fix: move, shorten, remove and add events, checked against the real rules (overlaps, fixed court times, prep and travel time, deadlines).",
+  {id:"calendaring", icon:"🗓", name:"Calendaring Simulators (LSH Training Portal)", short:"Calendaring", status:"live",
+   url:"https://cm-training-activity.pages.dev/simulators/calsim.html?track=litigation", portalSim:true,
+   desc:"The Litigation Week: a deposition, a hearing and a mediation are fixed, and the prep, debrief, client and expert calls have to fall in the right order around them. Build it on the calendar, run the automated review under the attorney's rules, then submit it for your trainer's score and feedback. It opens in its own tab on the Training Portal.",
    evidence:"Score", idHint:"Score"}
 ];
 function cmTool(id){
   const d = CM_TOOL_DEFAULTS.find(t=>t.id===id); if(!d) return null;
   const o = ((state.toolSettings||{})[id])||{};
-  const url = String(o.url!=null ? o.url : d.url || "").trim().replace(/\/+$/,"");
+  let url = String(o.url!=null ? o.url : d.url || "").trim().replace(/\/+$/,"");
+  if(id==="calendaring" && /\/simulators\/calendar\.html$/i.test(url)) url = d.url;   // a saved address from before the Calendaring Simulators moved
   const status = o.status || d.status;
   return Object.assign({}, d, {url, status, live: status==="live" && /^https:\/\//i.test(url)});
 }
@@ -239,7 +240,7 @@ window.openTool = function(id, mode, extra){
   if(!t.live){ toast(`${t.icon} ${t.name} is coming soon. For now, log this step as a Task in the CMS.`); return; }
   let href = toolHref(t);
   if(extra) href += (href.includes("?") ? "&" : "?") + extra;
-  if(mode==="tab"){ window.open(href, "_blank", "noopener"); return; }
+  if(mode==="tab" || id==="calendaring"){ window.open(href, "_blank", "noopener"); return; }   // the Calendaring Simulators use the Portal's sign-in cookie, which a frame doesn't send
   ensureShell();
   if(!frames[id] || frames[id].dataset.src !== href){
     if(frames[id]) frames[id].remove();
@@ -1036,7 +1037,7 @@ window.renderCallSimulator = function(){
   return `<p class="eyebrow">Simulators</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🛠 Simulators</h1>
     <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">Phone, email, calendar, docketing, medical records and court e-filing practice live on the <b>LSH Training Portal</b>, shared by every program. They open here already set to <b>Case Management</b> and carrying your name and batch, so your scores reach your trainer. On calls the caller speaks: answer by voice (Chrome or Edge, allow the microphone) or by typing. Most calls end with the note the call requires, graded with the call.</p>
-    <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span>${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(mail)}${card(replies)}${card(cal)}${card(dk)}${card(rec)}${card(ef)}</div>
+    <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span>${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(mail)}${card(replies)}${card(cal, state.isAdmin ? `<p style="font-size:12.5px;margin:6px 0 0"><button class="btn btn-navy btn-sm" onclick="openTool('calendaring','tab','view=scores')">📊 Calendar Scores (Litigation Week) ↗</button> Grade and give feedback there; scores also show on the Portal's Progress page under this program.</p>` : "")}${card(dk)}${card(rec)}${card(ef)}</div>
     <div class="card" style="padding:14px 18px;font-size:12.8px;color:var(--ink-soft)">Want more? Live Roleplay (🔥) has the crisis calls from the lessons, and the Calendar Skill Builder (Day 4) has the John Doe docket.${state.isAdmin?` <b>Admin:</b> results appear on the Training Portal's Simulators page when you're signed in there as admin. Addresses are set in 🧰 Tools.`:""}</div>`;
 };
 window.saveToolSettings = async function(){
