@@ -1,5 +1,5 @@
 /* LSH course — graded calls from the CMS Call Simulator (the main Call Simulator).
-   A graded call taken there (a random caller, unknown until the debrief) counts in this course: the Training Portal keeps
+   A graded call taken there (Graded call 1, 2… on a line; the caller is unknown until the debrief) counts in this course: the Training Portal keeps
    the trainee's graded calls in callsim:<id> (its /api/call-results), by the Call Simulator line they were taken on, and
    the Worker lets the trainee read it (never write it). The dashboard band shows a "Graded calls" card: the best graded
    call on each line, averaged, with the lines and calls taken (each line's best in its tooltip). Read once a page load,
