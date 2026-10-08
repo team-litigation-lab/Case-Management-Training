@@ -319,9 +319,10 @@ function collectSlideUnits(root, bigH){
   walk(root);
   return units.filter(u=>u.getClientRects().length);
 }
-// Every slide fits on one screen: the frame is sized to the room left on the lesson page (fitSlideFrame),
-// what doesn't fit continues on the next page (paginateSlideUnits), and a block too big for one page is
-// scaled down a little (fitSlideZoom), so the frame never scrolls.
+// Every slide fits on one screen: the frame is sized to the room left on the lesson page (fitSlideFrame), and
+// a slide that's too long for it is scaled to fit (fitSlideZoom, down to half size), the way the deck pages
+// are. Only a slide that would have to shrink further continues on a next page (paginateSlideUnits), so the
+// frame never scrolls.
 function paginateLessonSlide(){
   const wrap = document.getElementById("lessonSlideWrap");
   trimTeamHeaders(wrap);
@@ -351,16 +352,19 @@ function fitSlideFrame(wrap){
     window.__fitBarRO = new ResizeObserver(()=>{ const h = bar.offsetHeight; if(h !== h0){ h0 = h; if(state.view==="day" && document.getElementById("lessonSlideWrap")) paginateLessonSlide(); } });   // before the next paint: no jump
     window.__fitBarRO.observe(bar);
   }
-  wrap.style.height = Math.max(320, Math.floor(window.innerHeight - (r.top + window.scrollY) - below - 12)) + "px";
+  wrap.style.height = Math.max(240, Math.floor(window.innerHeight - (r.top + window.scrollY) - below - 12)) + "px";
 }
 function slideZoomParts(wrap){ return [...wrap.children].filter(n=>!n.classList.contains("pg-badge")); }
+const SLIDE_ZOOM_MIN = 0.5;   // the smallest a slide is scaled to before it continues on a next page
+// Scales the slide down until it fits its frame; true when it fits.
 function fitSlideZoom(wrap){
-  if(!wrap || !wrap.isConnected || window.innerWidth <= 760 || wrap.querySelector(".cs-page")) return;   // deck pages size themselves
+  if(!wrap || !wrap.isConnected || window.innerWidth <= 760 || wrap.querySelector(".cs-page")) return false;   // deck pages size themselves
   // a picture that hasn't loaded yet has no height: lay the slide out again once it has
   wrap.querySelectorAll("img").forEach(img=>{ if(!img.complete && !img.dataset.fitWait){ img.dataset.fitWait = "1"; img.addEventListener("load", repaginateSoon, {once:true}); } });
   const parts = slideZoomParts(wrap); let z = 1;
   parts.forEach(n=>n.style.zoom = "");
-  while(wrap.scrollHeight > wrap.clientHeight + 2 && z > 0.6){ z = Math.round((z - 0.05)*100)/100; parts.forEach(n=>n.style.zoom = String(z)); }
+  while(wrap.scrollHeight > wrap.clientHeight + 2 && z > SLIDE_ZOOM_MIN){ z = Math.round((z - 0.05)*100)/100; parts.forEach(n=>n.style.zoom = String(z)); }
+  return wrap.scrollHeight <= wrap.clientHeight + 2;
 }
 function paginateSlideUnits(){
   const wrap = document.getElementById("lessonSlideWrap");
@@ -373,6 +377,9 @@ function paginateSlideUnits(){
   wrap.querySelectorAll("ol[data-pg-start]").forEach(ol=>{ ol.removeAttribute("start"); ol.style.counterReset = ""; ol.removeAttribute("data-pg-start"); });
   wrap.classList.remove("pg-later", "pg-roomy");
   if(window.innerWidth <= 760){ state.slidePage = 0; updateSlidePageUi(); return; }   // phones: the page scrolls instead
+  // the whole slide on one screen, scaled to fit, before anything is split onto a next page
+  if(fitSlideZoom(wrap)){ state.slidePage = 0; updateSlidePageUi(); return; }
+  slideZoomParts(wrap).forEach(n=>n.style.zoom = "");   // too long even at half size: measure it full size to split it
   const cs = getComputedStyle(wrap);
   const padT = parseFloat(cs.paddingTop)||0, padB = parseFloat(cs.paddingBottom)||0;
   const avail = wrap.clientHeight - padT - padB;
@@ -985,10 +992,14 @@ window.orientSlides = function(){
   const slides = __eapaOrientSlides();
   const i = slides.findIndex(x=>x.k==="A day");
   if(i >= 0){
-    slides[i] = Object.assign({}, slides[i], {body: slides[i].body.replace("One topic at a time. Next / Previous at the bottom; your place is saved.", "One topic at a time, every slide the same size. Longer topics continue on a second page — watch for the PAGE 1 / 2 badge. Your place is saved.")});
+    slides[i] = Object.assign({}, slides[i], {body: slides[i].body
+      // no Quick Checks between topics any more (the process questions are in the Knowledge Check): the steps renumber
+      .replace(/<div class="or-step"><div class="or-step-n">2<\/div><div class="or-step-i">✔<\/div><b>Quick Checks<\/b><span>[^<]*<\/span><\/div><i>→<\/i>/, "")
+      .replace(/<div class="or-step-n">([3-9])<\/div>/g, (m, n)=> slides[i].body.includes("<b>Quick Checks</b>") ? `<div class="or-step-n">${n-1}</div>` : m)
+      .replace("One topic at a time. Next / Previous at the bottom; your place is saved.", "One topic at a time, every slide the same size and whole on one screen (a long one is scaled to fit). Your place is saved.")});
     const pill = (ic,t,d)=>`<div class="or-pill"><div>${ic}</div><b>${t}</b><span>${d}</span></div>`;
     slides.splice(i+1, 0, {k:"Live sessions", h:"Live sessions with your trainer", body:`
-     <div class="or-3">${pill("🖥","Follow the shared slides","Your trainer presents the day's slides in Google Meet. They're the same slides you have in the portal — nothing extra to install.")}${pill("💬","Talk it through","At each checkpoint your trainer pauses for discussion. Answer out loud — a first answer is never wrong, it's where the learning starts.")}${pill("📄","Pages & pace","Longer topics have a second page (PAGE 1 / 2). On your own, use Next or the ← → keys, 🔊 Listen, or ⛶ Full screen.")}</div>
+     <div class="or-3">${pill("🖥","Follow the shared slides","Your trainer presents the day's slides in Google Meet. They're the same slides you have in the portal — nothing extra to install.")}${pill("💬","Talk it through","At each checkpoint your trainer pauses for discussion. Answer out loud — a first answer is never wrong, it's where the learning starts.")}${pill("📄","One screen, your pace","Every slide fits on one screen (a long one is scaled to fit). On your own, use Next or the ← → keys, 🔊 Listen, or ⛶ Full screen.")}</div>
      <div class="or-note"><b>Missed something live?</b> Every slide stays in your portal — reopen the day any time and pick up exactly where you left off.</div>`});
   }
   return slides;
@@ -1169,7 +1180,7 @@ function sopRunOfShow(dRaw){
   const d = DAYS.find(x=>x.id===dRaw.id); if(!d) return "";
   const tools = relatedTools(d.id), lab = tools[0];
   const acts = lab ? (SOP_LAB_ACTIVITIES[lab.id] || []) : [];
-  const n = d.lessons.length, qcs = (d.quickChecks||[]).slice().sort((a,b)=>a.afterIndex-b.afterIndex);
+  const n = d.lessons.length, qcs = d.cmDeck ? [] : (d.quickChecks||[]).slice().sort((a,b)=>a.afterIndex-b.afterIndex);   // (the deck slides have no Quick Checks: js/cm-decks.js)
   const kc = (d.quiz||[]).length;
   const steps = []; let t = 0;
   const add = (mins, s)=>{ steps.push(Object.assign({from:t, to:t+mins}, s)); t += mins; };
@@ -1194,7 +1205,7 @@ function sopRunOfShow(dRaw){
     if(block===midBlock+1) add(0, taskStep);   // right after the break, as teaching resumes
     const inBlock = qcs.filter(q=>q.afterIndex>=i && q.afterIndex<j);
     add(Math.round((j-i)*perTopic + inBlock.length*1.5), {title:`Teach topics ${i+1}–${j} of ${n}`, do:[
-      `Each topic opens with a divider slide: name the topic, then present its two parts (principles & steps, then best practices & pitfalls). Longer topics continue on a second page — press Next.`,
+      `Each topic opens with a divider slide: name the topic, then present its two parts (principles & steps, then best practices & pitfalls). Every slide fits on one screen (a long one is scaled to fit), so press Next once per slide.`,
       `Use your notes for each slide: the Trainer Cue, Applied Discussion Case and the Say / Ask / Listen for / If quiet script. Take one or two answers per topic, not a round-robin.`,
       inBlock.length ? `Quick Check${inBlock.length>1?"s":""} after topic${inBlock.length>1?"s":""} ${inBlock.map(q=>q.afterIndex+1).join(", ")}: let the room answer first, then reveal (the answer and rationale are in your notes).` : "",
       `Topics: ${d.lessons.slice(i,j).map((l,k)=>`${i+k+1}. ${esc(l.h)}`).join(" · ")}`].filter(Boolean),
@@ -1265,7 +1276,7 @@ function sopProgramFlow(){
       <section class="card sopf-card"><h3>3 · Every day, the same rhythm</h3><ol>
         <li><b>Before:</b> approvals, unlocks, open Presenter view (≈15 min early).</li>
         <li><b>Open:</b> recap + today's objectives (5 min).</li>
-        <li><b>Teach:</b> topics in ~45-minute blocks with breaks; Quick Checks where they fall; one random task mid-way.</li>
+        <li><b>Teach:</b> topics in ~45-minute blocks with breaks; one random task mid-way (the process questions are in the Knowledge Check).</li>
         <li><b>Practise:</b> the day's Skill Builders (with the CMS steps), then a live debrief.</li>
         <li><b>Discuss:</b> the end-of-day question.</li>
         <li><b>Assess:</b> Knowledge Check (70% = day complete).</li>
