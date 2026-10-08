@@ -7439,7 +7439,7 @@ const mem = {}; // in-memory fallback if window.storage is unavailable
 const PERSONAL_KEYS = ["day-progress","practice-progress","lab-attempts-global","lab-attempts-by-day","admin-unlocked-days","notes","completed-lab-actions",
   "day10-window","submissions","roleplayHistory","slide-progress","last-slide","attn-detail-findings",
   "calendar-custom","calendar-edits","call-log","inbox-filing","inbox-interactions","inbox-labels","trainee-batch",
-  "quick-check-answers","day-order-migrated","dividers-migrated","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log"];
+  "quick-check-answers","day-order-migrated","dividers-migrated","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log","lab-subs"];
 const PERSONAL_KEY_SET = new Set(PERSONAL_KEYS);
 let cloudSaveTimer = null;
 function scheduleCloudSave(){
@@ -10597,6 +10597,8 @@ async function resetTraineeSessionData(){
   state.submissions = [];
   state.roleplayHistory = [];
   state.cmsLog = {};
+  state.labSubs = {};
+  state.labReviews = null;
   state.assignedRoleplay = null;
   state.day10Window = null;
   state.traineeBatch = "";
@@ -10607,6 +10609,7 @@ async function resetTraineeSessionData(){
   await storeSet("submissions", []);
   await storeSet("roleplayHistory", []);
   await storeSet("cms-log", {});
+  await storeSet("lab-subs", {});
   await storeSet("day10-window", null);
   await storeSet("trainee-batch", "");
 }
@@ -19965,9 +19968,10 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-decks-data.js?v=1"></script>
 <script src="/js/cm-decks.js?v=2"></script>
 <script src="/js/cm-documents.js?v=1"></script>
-<script src="/js/cm-skillbuilders.js?v=18"></script>
+<script src="/js/cm-skillbuilders.js?v=19"></script>
+<script src="/js/cm-lab.js?v=1"></script>
 <script src="/js/cm-mindset.js?v=2"></script>
-<script src="/js/cm-practice.js?v=3"></script>
+<script src="/js/cm-practice.js?v=4"></script>
 <script src="/js/daily-activities.js?v=2"></script>
 <script src="/js/attendance.js?v=3"></script>
 <script src="/js/portal-link.js?v=2"></script>

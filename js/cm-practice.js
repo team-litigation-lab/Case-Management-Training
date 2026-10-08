@@ -440,48 +440,127 @@ TOOLS.cmPD2 = ()=>[
    THE PLAN: every day, three categories
    ================================================================ */
 const SIM = (id, extra)=> Object.assign({kind:"sim", id}, extra||{});
-const RP = (categoryId, topicId)=> ({kind:"rp", categoryId, topicId});
+const RP = (categoryId, topicId, lab)=> ({kind:"rp", categoryId, topicId, lab});
+/* Every activity below sends the trainee to do the work in the CMS (or the Training Portal tool it runs on,
+   then the CMS) with its steps beside the tool, and takes the result back for review (js/cm-lab.js).
+   lab: {key, title, extra (the tool's address for this activity), steps, keys (what a full summary names),
+   caseRef ("jd": the trainee's own John Doe case)}. */
+const CMS = (t)=> ({t, open:{tool:"cms"}});
+const LINE = (line)=> `line=${encodeURIComponent(line)}&mode=graded`;
+const CALL = (line, t)=> ({t, open:{tool:"calls", extra:LINE(line)}});
+const rpLab = (day, topicId, cmsStep, keys)=> ({key:`px${day}:rp-${topicId}`, tool:"cms", caseRef:"jd", keys,
+  steps:[{t:"Take the live call here (the AI plays the caller). Stay in role: no legal advice, no promises.", rp:true}, CMS(cmsStep)]});
 const PLAN = {
   1:{think:["cmIntake1","cmTreatment1"],
-     talk:[SIM("calls",{note:"Reception & Front Desk · Intake Calls lines"}), RP("client","transportwall"), RP("client","miaclient")],
-     do:[SIM("cms",{title:"Build John Doe's case in the CMS", note:"From the Case File snapshot: key the intake, upload by category", go:"clientprofile"}), SIM("records",{note:"Prior records flagged at intake (2018, 2021)"}), "cmLookup1"]},
+     talk:[SIM("calls",{note:"Reception & Front Desk · Intake Calls lines", lab:{key:"px1:calls", title:"Call Simulator: Reception & Front Desk and Intake Calls (graded)", extra:LINE("Reception & Front Desk"), caseRef:"jd", keys:["verify","Note","Task"],
+        steps:[CALL("Reception & Front Desk", "Take <b>Graded call 1</b> on the Reception &amp; Front Desk line: verify the caller before you share anything, then write the note the call asks for."),
+               CALL("Intake Calls", "Take <b>Graded call 1</b> on the Intake Calls line: who, what, when, where, how, and the conflict check before anything moves."),
+               CMS("In your John Doe case in the CMS, log each call as a <b>Note</b> (caller, reason, what you said, next step) and add a <b>Task</b> for any follow-up.")]}}),
+       RP("client","transportwall", rpLab(1, "transportwall", "In your John Doe case in the CMS, add the <b>GIRP</b> note under Notes (Goal, Intervention, Response, Plan) and a <b>Task</b> for the ride or telehealth follow-up.", ["Goal","Intervention","Response","Plan","Task"])),
+       RP("client","miaclient", rpLab(1, "miaclient", "In your John Doe case in the CMS, add a <b>Note</b> of every contact attempt (date, method, result) and a <b>Task</b> for the next attempt and the attorney's notice.", ["attempt","Note","Task","attorney"]))],
+     do:[SIM("cms",{title:"Build John Doe's case in the CMS", note:"From the Case File snapshot: key the intake, upload by category", lab:{key:"px1:cms-build", legacy:"cmIntake1:cms", extra:"intake=1", keys:["intake","Case Files","Police","parties","Task"],
+        steps:[{t:"<b>📝 New intake</b> in the CMS: key John Doe's intake from the documents with the corrected facts (DOB 08/14/1980, Senior Logistics Manager, police report 2026-0214-AX) and save it as a case.", open:{tool:"cms", extra:"intake=1"}},
+               {t:"Upload each document under its CMS category (📁 Case Documents shows the category on every file): the intake packet under <b>Case Files</b>, the police report under <b>Police</b>."},
+               {t:"Add the <b>parties</b>, the carriers (Aggressive Casualty, Local Farm Mutual) and the lienholders."},
+               {t:"Calendar every deadline and add a <b>Task</b> for every next step: the signed HIPAA authorization, the prior records, the passenger's conflict check, prior counsel's lien."}]}}),
+       SIM("records",{note:"Prior records flagged at intake (2018, 2021)", lab:{key:"px1:records", legacy:"cmIntake1:records", caseRef:"jd", keys:["2018","2021","HIPAA","DOB","Task"],
+        steps:[{t:"Request John's prior records flagged at intake (the <b>2021</b> migraine records and the <b>2018</b> records). Attach the claim-specific <b>HIPAA</b> authorization, which must be signed first, and give the provider the correct <b>DOB</b>, 08/14/1980.", open:{tool:"records"}},
+               CMS("Log each request number as a <b>Task</b> in your John Doe case with its follow-up date.")]}}),
+       "cmLookup1"]},
   2:{think:["cmPreDemand2","cmNegotiate2"],
-     talk:[RP("insurance","firstcall"), RP("insurance","lowball"), SIM("replies",{note:"The adjuster and client emails"}), SIM("calls",{note:"Adjusters & Carriers line"})],
-     do:["cmDemand2", SIM("records",{note:"The bills missing from the demand"})]},
+     talk:[RP("insurance","firstcall", rpLab(2, "firstcall", "In your John Doe case in the CMS, add a <b>Note</b> of the adjuster call (who, claim number, what was said, any offer and its deadline) and a <b>Task</b> for the attorney.", ["claim","Note","Task","attorney"])),
+       RP("insurance","lowball", rpLab(2, "lowball", "In your John Doe case in the CMS, add a <b>Note</b> of the offer and the stall tactic, and a <b>Task</b> for the attorney with the response deadline.", ["offer","deadline","Note","Task"])),
+       SIM("replies",{note:"The adjuster and client emails", lab:{key:"px2:replies", caseRef:"jd", keys:["Note","Task"],
+        steps:[{t:"Answer the John Doe emails on Email Replies (the client, the adjuster, a lienholder, defense counsel, your attorney) and report the phishing attempt.", open:{tool:"replies"}},
+               CMS("Log each reply in your John Doe case as a <b>Note</b>, and a <b>Task</b> for anything you promised.")]}}),
+       SIM("calls",{note:"Adjusters & Carriers line", lab:{key:"px2:calls", title:"Call Simulator: Adjusters & Carriers (graded)", extra:LINE("Adjusters & Carriers"), caseRef:"jd", keys:["claim","Note","Task"],
+        steps:[CALL("Adjusters & Carriers", "Take <b>Graded call 1</b> on the Adjusters &amp; Carriers line: claim number first, no admissions, nothing promised."),
+               CMS("Log the call in your John Doe case as a <b>Note</b> and add a <b>Task</b> for the follow-up.")]}})],
+     do:["cmDemand2", SIM("records",{note:"The bills missing from the demand", lab:{key:"px2:records", caseRef:"jd", keys:["chiro","UB-04","surgeon","anesthesiologist","Task"],
+        steps:[{t:"Request the itemized bills missing from the demand: the complete <b>chiro</b> ledger, the surgical facility's <b>UB-04</b>, the <b>surgeon</b>'s bill and the <b>anesthesiologist</b>'s bill.", open:{tool:"records"}},
+               CMS("Log each request number as a <b>Task</b> in your John Doe case with its follow-up date.")]}})]},
   3:{think:["cmLien3","cmClosing3"],
-     talk:[RP("liens","hospitallien"), RP("liens","erisa"), RP("client","netcheck"), SIM("calls",{note:"Providers & Records line"})],
-     do:["cmTrust3", SIM("cms",{title:"Update John's CMS ledger", note:"Liens tab and Finance tab after disbursement"})]},
+     talk:[RP("liens","hospitallien", rpLab(3, "hospitallien", "In your John Doe case in the CMS, <b>Liens</b> tab: add Metro General's lien with the asserted and the negotiated amounts, and a <b>Note</b> of the call.", ["Liens","asserted","negotiated","Note"])),
+       RP("liens","erisa", rpLab(3, "erisa", "In your John Doe case in the CMS, <b>Liens</b> tab: add the BlueCross ERISA lien, and a <b>Task</b> to request the plan document (SPD) and the itemized payment ledger.", ["Liens","ERISA","SPD","Task"])),
+       RP("client","netcheck", rpLab(3, "netcheck", "In your John Doe case in the CMS, add a <b>Note</b> of what you told John about his net (plain language, no new figures) and a <b>Task</b> for the attorney's call.", ["net","Note","Task","attorney"])),
+       SIM("calls",{note:"Providers & Records line", lab:{key:"px3:calls", title:"Call Simulator: Providers & Records (graded)", extra:LINE("Providers & Records"), caseRef:"jd", keys:["Note","Task"],
+        steps:[CALL("Providers & Records", "Take <b>Graded call 1</b> on the Providers &amp; Records line."),
+               CMS("Log the call in your John Doe case as a <b>Note</b> and add a <b>Task</b> for the follow-up.")]}})],
+     do:["cmTrust3", SIM("cms",{title:"Update John's CMS ledger", note:"Liens tab and Finance tab after disbursement", lab:{key:"px3:cms-ledger", caseRef:"jd", keys:["Liens","Finance","settlement statement","Task"],
+        steps:[{t:"<b>Liens</b> tab: each lien with its asserted, negotiated and paid amounts.", open:{tool:"cms"}},
+               {t:"<b>Finance</b> tab: each released payment and each hold, with its reason."},
+               {t:"Upload the signed <b>settlement statement</b> under Case Files, and add a <b>Task</b> for each hold."}]}})]},
   4:{think:["cmMediation4","cmArbitration4"],
-     talk:["cmADR4", RP("litigation","mediationsched"), RP("litigation","uplarbitrator")],
-     do:["calendar", SIM("calendaring"), SIM("docket",{note:"The John Doe assignment (course counting rules)"})]},
+     talk:["cmADR4", RP("litigation","mediationsched", rpLab(4, "mediationsched", "In your John Doe case in the CMS, add a <b>Note</b> of the call and a <b>Task</b> to confirm the mediation date in writing before the court's deadline.", ["deadline","Note","Task"])),
+       RP("litigation","uplarbitrator", rpLab(4, "uplarbitrator", "In your John Doe case in the CMS, add a <b>Note</b> of what was asked, by whom, and what you said, and a <b>Task</b> to brief the attorney.", ["Note","Task","attorney"]))],
+     do:["calendar", SIM("calendaring",{lab:{key:"px4:calendaring", caseRef:"jd", keys:["Task","reminder"],
+        steps:[{t:"Build the Litigation Week in the Calendaring Simulator (it opens in its own tab) and submit it for your score.", open:{tool:"calendaring"}},
+               CMS("Put the week's hard dates on your John Doe case as <b>Task</b>s, each with a <b>reminder</b>.")]}}),
+       SIM("docket",{note:"The John Doe assignment (course counting rules)", lab:{key:"px4:docket", caseRef:"jd", keys:["docket","Task"],
+        steps:[{t:"Work the John Doe assignment in the Docket System: put what belongs on the court <b>docket</b> there, with every deadline it triggers.", open:{tool:"docket"}},
+               CMS("Add each deadline to your John Doe case as a <b>Task</b> with its warning alerts.")]}})]},
   5:{think:["cmLitigation5","cmJordan5"],
-     talk:[RP("client","deponerves"), RP("litigation","adjusterdirect"), RP("litigation","extension"), SIM("email",{note:"Clear the CM inbox"})],
-     do:[SIM("efiling",{note:"John Doe's First Amended Complaint and more"}), SIM("docket"), SIM("cms",{title:"Build Jordan Davies's file in the CMS", note:"The Day 5 case, documented in the CMS"})]}
+     talk:[RP("client","deponerves", rpLab(5, "deponerves", "In your John Doe case in the CMS, add a <b>Note</b> of the prep call and a <b>Task</b> for the deposition-day checklist.", ["deposition","Note","Task"])),
+       RP("litigation","adjusterdirect", rpLab(5, "adjusterdirect", "In your John Doe case in the CMS, add a <b>Note</b> that the adjuster contacted the represented client, and a <b>Task</b> for the attorney's letter to the carrier.", ["Note","Task","attorney"])),
+       RP("litigation","extension", rpLab(5, "extension", "In your John Doe case in the CMS, add a <b>Note</b> of the extension call and a <b>Task</b> to confirm it in writing and calendar the new date.", ["extension","Note","Task"])),
+       SIM("email",{note:"Clear the CM inbox", lab:{key:"px5:email", caseRef:"jd", keys:["Note","Task"],
+        steps:[{t:"Clear the Case Management inbox in the Email Workspace: one decision per email, labels, replies, and report the phishing.", open:{tool:"email"}},
+               CMS("Log every email that needs case action in your John Doe case as a <b>Note</b> or a <b>Task</b>.")]}})],
+     do:[SIM("efiling",{note:"John Doe's First Amended Complaint and more", lab:{key:"px5:efiling", caseRef:"jd", keys:["Litigation","service","Task"],
+        steps:[{t:"File John Doe's First Amended Complaint (fix the document first, then service and fees).", open:{tool:"efiling"}},
+               CMS("Upload the filed copy to your John Doe case under <b>Litigation</b> and add a <b>Task</b> for the <b>service</b> deadline.")]}}),
+       SIM("docket",{lab:{key:"px5:docket", caseRef:"jd", keys:["RFA","Answer","Task"],
+        steps:[{t:"Docket the litigation deadlines (the <b>RFA</b> responses, the service deadline, the <b>Answer</b>, the SOL) with warning alerts.", open:{tool:"docket"}},
+               CMS("Add each deadline to your John Doe case as a <b>Task</b>.")]}}),
+       SIM("cms",{title:"Build Jordan Davies's file in the CMS", note:"The Day 5 case, documented in the CMS", lab:{key:"px5:cms-jordan", legacy:"cmJordan5:cms", extra:"intake=1", caseRef:"jdv", keys:["dec pages","police report","UIM","preservation","Task"],
+        steps:[{t:"<b>📝 New intake</b>: create Jordan Davies's case (a separate file from John Doe).", open:{tool:"cms", extra:"intake=1"}},
+               {t:"Upload the <b>dec pages</b> and the <b>police report</b>, and record the coverage stack (the at-fault BI, Jordan's <b>UIM</b>, his mother's stacked UIM; not his brother's)."},
+               {t:"Add a <b>Task</b> for every evidence request (the DOT camera, the gas-station CCTV <b>preservation</b> letter, the transit authority) and every UIM notice letter."}]}})]}
 };
+// Each activity's steps and review (js/cm-lab.js), defined once.
+Object.entries(PLAN).forEach(([day, cats])=> Object.values(cats).forEach(list=> list.forEach(it=>{
+  if(!it || typeof it !== "object" || !it.lab || !window.cmLabDefine) return;
+  const t = it.kind === "sim" ? cmTool(it.id) : null, r = it.kind === "rp" ? rpLabel(it) : null;
+  const steps = it.lab.steps.map(s=> s.rp === true ? Object.assign({}, s, {rp:{categoryId:it.categoryId, topicId:it.topicId}}) : s);
+  cmLabDefine(it.lab.key, Object.assign({day:Number(day), tool: it.kind === "rp" ? "cms" : it.id,
+    title: it.lab.title || it.title || (r ? `Live call: ${r.title}` : t ? t.name.replace(/ \((LSH Training Portal|LSH CMS)\)$/,"") : it.id),
+    html: it.note && it.kind === "sim" ? `${E(it.note)}. Do the steps below, then submit what the tool gave you for review.` : "Do the steps below, then submit what the CMS gave you for review."}, it.lab, {steps}));
+})));
+// The Practice page's activities, day by day (the trainer's review list in js/cm-lab.js).
+window.cmPracticePlan = ()=> [1,2,3,4,5].map(day=>({day, items: ["think","talk","do"].flatMap(c=> (PLAN[day][c]||[]).map(it=>{
+  if(typeof it === "string"){ const t = PRACTICE_TOOLS.find(x=>x.id===it); return t ? {id:t.id, title:t.title, cat:CATS[c].label, tool:true} : null; }
+  if(!it.lab) return null;
+  const def = window.cmLabDef ? cmLabDef(it.lab.key) : null;
+  return {id:it.lab.key, title:(def && def.title) || it.lab.key, cat:CATS[c].label, rp: it.kind === "rp" ? {topicId:it.topicId} : null, legacy:it.lab.legacy};
+}).filter(Boolean)).concat(PRACTICE_TOOLS.filter(t=>t.extra && toolDayOf(t)===day).map(t=>({id:t.id, title:t.title, cat:"Extra Practice", tool:true})))}));
 
 function rpLabel(it){
   const c = (typeof ROLEPLAY_CATEGORIES!=="undefined" ? ROLEPLAY_CATEGORIES : []).find(x=>x.id===it.categoryId);
   const t = c && c.topics.find(x=>x.id===it.topicId);
   return t ? {title:t.label, desc:t.context, cat:c.label} : null;
 }
+const reviewed = (keys)=> keys.some(k=> window.cmLabReview && cmLabReview(k));
 function itemView(it, day){
   if(typeof it==="string"){
     const t = PRACTICE_TOOLS.find(x=>x.id===it); if(!t) return null;
     const p = (state.practiceProgress||{})[t.id];
-    return {icon:t.icon, title:t.title, desc:t.desc, done:!!p, doneLabel: p ? `✓ Best ${p.bestScore}%` : "", isNew:!!t.isNew,
+    const subKeys = Object.keys(state.labSubs||{}).filter(k=>k.indexOf(t.id+":")===0);
+    return {icon:t.icon, title:t.title, desc:t.desc, done:!!p, doneLabel: p ? `✓ Best ${p.bestScore}%` : "", isNew:!!t.isNew, reviewed: reviewed([t.id].concat(subKeys)),
       where:"In this portal", act:`goto('tool','${t.id}')`, unlocked: toolUnlocked(t)};
   }
   if(it.kind==="rp"){
     const r = rpLabel(it); if(!r) return null;
-    return {icon:"🔥", title:r.title, desc:r.desc, where:`Live roleplay · ${r.cat}`, act:`pxRoleplay('${it.categoryId}','${it.topicId}')`};
+    const k = it.lab && it.lab.key, done = !!(k && window.cmLabDone && cmLabDone(k));
+    return {icon:"🔥", title:r.title, desc:r.desc, where:`Live roleplay · then the CMS`, done, doneLabel:"✓ Submitted", reviewed: k ? reviewed([k]) : false,
+      act: k ? `cmLabOpen('${k}')` : `pxRoleplay('${it.categoryId}','${it.topicId}')`};
   }
   if(it.kind==="sim"){
     const t = cmTool(it.id); if(!t) return null;
-    const logged = Object.values(state.cmsLog||{}).some(v=>(v.platform||"cms")===it.id);
-    const name = it.title || t.name.replace(/ \(LSH Training Portal\)$/,"");
-    return {icon:t.icon, title:name, desc:it.note || t.desc, where: it.id==="cms" ? "LSH CMS" : "LSH Training Portal",
-      done: logged && it.id!=="cms", doneLabel:"✓ Work logged", live:t.live,
-      act: it.go ? `goto('${it.go}')` : `openTool('${it.id}')`};
+    const k = it.lab && it.lab.key, done = !!(k && window.cmLabDone && cmLabDone(k));
+    const name = it.title || t.name.replace(/ \((LSH Training Portal|LSH CMS)\)$/,"");
+    return {icon:t.icon, title:name, desc:it.note || t.desc, where: it.id==="cms" || t.cmsHosted ? "LSH CMS" : "LSH Training Portal · then the CMS",
+      done, doneLabel:"✓ Submitted", live:t.live, reviewed: k ? reviewed([k]) : false,
+      act: k ? `cmLabOpen('${k}')` : it.go ? `goto('${it.go}')` : `openTool('${it.id}')`};
   }
   return null;
 }
@@ -494,7 +573,7 @@ function itemHTML(v, locked){
   return `<div class="px-item${lk?" locked":""}" ${lk?`title="Opens when this day unlocks"`:`onclick="${v.act}"`} role="button" tabindex="0">
     <span class="ic">${lk?"🔒":v.icon}</span>
     <div style="min-width:0"><div class="t">${E(v.title)}</div><div class="d">${E(v.desc.length>150 ? v.desc.slice(0,147).replace(/\s+\S*$/,"")+"…" : v.desc)}</div>
-      <div class="tags"><span class="px-tag where">${E(v.where)}</span>${v.isNew?`<span class="px-tag new">New</span>`:""}${v.done?`<span class="px-tag done">${E(v.doneLabel)}</span>`:""}${v.live===false?`<span class="px-tag">Coming soon</span>`:""}</div></div></div>`;
+      <div class="tags"><span class="px-tag where">${E(v.where)}</span>${v.isNew?`<span class="px-tag new">New</span>`:""}${v.done?`<span class="px-tag done">${E(v.doneLabel)}</span>`:""}${v.reviewed?`<span class="px-tag done">💬 Reviewed</span>`:""}${v.live===false?`<span class="px-tag">Coming soon</span>`:""}</div></div></div>`;
 }
 
 window.renderPracticeHub = function(){
@@ -524,6 +603,7 @@ window.renderPracticeHub = function(){
     <p style="color:var(--ink-soft);font-size:14px;max-width:84ch;margin:0 0 14px">Every practice tool in one place, organized the same way for every day. Each day has all three kinds of practice: <b>think</b> it through on the documents, <b>say</b> it on a call or in an email, and <b>do</b> it in the system. Each day's tools open when you reach that day${state.isAdmin ? " (as an admin you can open all of them)" : ""}.</p>
     <div class="px-cats">${["think","talk","do"].map(c=>`<div class="px-cat ${c}"><span class="ic">${CATS[c].icon}</span><b>${CATS[c].label}</b><p>${CATS[c].blurb}</p></div>`).join("")}</div>
     <div class="px-bar">${chip("day","all","All days")}${[1,2,3,4,5].map(n=>chip("day",n,"Day "+n)).join("")}<span class="sep"></span>${chip("cat","all","All")}${["think","talk","do"].map(c=>chip("cat",c,CATS[c].icon+" "+CATS[c].label)).join("")}</div>
+    ${window.cmLabTrainerHTML ? cmLabTrainerHTML() : ""}
     ${blocks}
     ${extraBlock}
     <div class="card" style="padding:14px 18px;margin-bottom:14px"><b style="color:var(--navy)">Any day</b>
