@@ -1497,3 +1497,40 @@ function trimTeamHeaders(root){
 window.trimTeamHeaders = trimTeamHeaders;
 const __teamAfterRender = window.afterRender;
 window.afterRender = function(){ const r = __teamAfterRender.apply(this, arguments); trimTeamHeaders(document.querySelector("main")); return r; };
+
+/* Dashboard band (trainees): the five numbers, then 💬 Your feedback and Ranking side by side on the same line,
+   with the certificate notice as one short line right under them (it was a separate pill under the band, and the
+   Graded calls card had pushed Ranking onto a row of its own). Wraps the dashboard before js/lsh-dashboard.js
+   moves the band under the day cards and js/graded-calls.js adds its card. */
+if(typeof renderDashboard === "function" && !renderDashboard.__cmBand){
+  const __cmDash = renderDashboard;
+  renderDashboard = function(){
+    const html = __cmDash.apply(this, arguments);
+    if(!state.traineeId || state.isAdmin) return html;
+    const t = document.createElement("template"); t.innerHTML = html;
+    const side = t.content.querySelector(".dash-side"), inner = side && side.querySelector(".dash-side-inner");
+    if(!inner) return html;
+    side.classList.add("cm-band");   // (on the band, not its inner box: js/graded-calls.js finds that by its exact class)
+    const locked = t.content.querySelector(".bottom-actions .cert-hero-locked");
+    if(locked && typeof certData === "function"){
+      const c = certData();
+      side.insertAdjacentHTML("beforeend", `<div class="cm-cert-line" title="Pass all ${c.total} Knowledge Checks (70%+) to unlock">🎓 Your certificate unlocks when all ${c.total} Knowledge Checks are passed — ${c.passed}/${c.total} so far.</div>`);
+      locked.remove();
+    }
+    return t.innerHTML;
+  };
+  renderDashboard.__cmBand = true;
+  const st = document.createElement("style"); st.id = "cm-dash-band"; st.textContent = `
+.dash-side .cm-cert-line{font-size:11.5px;font-weight:600;color:var(--ink-soft);text-align:right;margin:5px 4px 0;line-height:1.3;}
+@media(min-width:761px){
+  .dash-side.cm-band > .dash-side-inner{display:grid !important;grid-template-columns:repeat(5,minmax(0,1fr)) !important;}
+  .dash-side.cm-band > .dash-side-inner > .tfb-dash{grid-column:1 / span 3;}
+  .dash-side.cm-band > .dash-side-inner > .rank-card{grid-column:4 / span 2;}
+}
+@media(min-width:1101px){
+  .dash-side.cm-band > .dash-side-inner{grid-template-columns:repeat(5,minmax(0,1fr)) minmax(0,1.6fr) minmax(0,1.6fr) !important;}
+  .dash-side.cm-band > .dash-side-inner > .tfb-dash, .dash-side.cm-band > .dash-side-inner > .rank-card{grid-column:auto;}
+}
+@media(max-width:760px){ .dash-side .cm-cert-line{text-align:center;} }
+`; document.head.appendChild(st);
+}
