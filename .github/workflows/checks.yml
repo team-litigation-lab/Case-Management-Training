@@ -75,6 +75,10 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/fit.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: Every page fits one screen (the window never scrolls; a long page scrolls inside its body)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/one-screen.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: Blueprints (the Trainer blueprint and its PDF; the Trainee blueprint republished after every deploy)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
