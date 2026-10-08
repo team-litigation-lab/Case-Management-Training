@@ -324,6 +324,7 @@ function collectSlideUnits(root, bigH){
 // scaled down a little (fitSlideZoom), so the frame never scrolls.
 function paginateLessonSlide(){
   const wrap = document.getElementById("lessonSlideWrap");
+  trimTeamHeaders(wrap);
   fitSlideFrame(wrap);
   paginateSlideUnits();
   fitSlideZoom(wrap);
@@ -1472,3 +1473,27 @@ if(document.querySelector(".topbar")) render();
 .topbar.nav-open .nav .nav-tools-menu button{color:#fff}
 .topbar.nav-open .nav .nav-tools-menu button:hover{background:rgba(255,255,255,.09)}
 `; document.head.appendChild(s); })();
+
+/* Day 1 · Meet the Training Team: the team members' sub-headers (each name and title) never end with a period.
+   The section isn't in build/day1.js (it's added content), so it's tidied wherever it shows: on the lesson
+   page, in full screen and in the shared slides window (paginateLessonSlide), and on any other page (afterRender). */
+const TEAM_SECTION = /\bmeet\s+(?:the|our|your)\s+(?:training\s+)?team\b/i;
+const TEAM_SUBHEADS = "h1, h2, h3, h4, h5, h6, .fp-label, .topic-separator, .vis-card-top b, .vis-card b, .vis-step b, .mc-tag, .tc-tag, dt, th, figcaption, li > b:first-child, li > strong:first-child, p > b:only-child, p > strong:only-child, .lx-sec > b";
+function trimTeamHeaders(root){
+  if(!root || !root.querySelectorAll) return;
+  const heads = [...root.querySelectorAll("h1, h2, h3, h4, .topic-separator, .lesson-title, .slide-title")].filter(h=>TEAM_SECTION.test(h.textContent||""));
+  if(!heads.length && !(root.id === "lessonSlideWrap" && TEAM_SECTION.test((root.querySelector(".topic-separator, h2, h3")||{}).textContent||""))) return;
+  const scopes = new Set(heads.map(h=>h.closest("#lessonSlideWrap, .lesson-card, .or-slide, section, .card") || root));
+  if(!heads.length) scopes.add(root);
+  scopes.forEach(sc=>sc.querySelectorAll(TEAM_SUBHEADS).forEach(el=>{
+    const text = (el.textContent||"").trim();
+    if(!text.endsWith(".") || text.endsWith("..") || text.length > 120) return;
+    // the last piece of text in the sub-header loses its final period
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let last = null, n;
+    while((n = walker.nextNode())) if(n.textContent.trim()) last = n;
+    if(last) last.textContent = last.textContent.replace(/\.(\s*)$/, "$1");
+  }));
+}
+window.trimTeamHeaders = trimTeamHeaders;
+const __teamAfterRender = window.afterRender;
+window.afterRender = function(){ const r = __teamAfterRender.apply(this, arguments); trimTeamHeaders(document.querySelector("main")); return r; };
