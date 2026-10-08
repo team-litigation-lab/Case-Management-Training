@@ -10,6 +10,8 @@
      Day 1 · Systems        Front Desk Case Lookup (CMS Training Library)
      Day 2 · Systems        Demand Package Builder
      Day 3 · Systems        Trust Ledger & Disbursement
+     Day 3 · Systems        Settlement Documents: BI and UM (with the Net Sheet Ledger in Disbursement & Closing)
+     Day 3 · Communication  Drafting a Closing Letter (from the trainee's Net Sheet)
      Day 4 · Communication  ADR Communication Lab
    and an ➕ Extra Practice section for optional labs (they don't gate days):
      Property Damage Claims Lab (John Doe's totaled Tesla; opens with Day 2)
@@ -78,6 +80,10 @@ const NEW_TOOLS = [
    desc:"Build the John Doe demand package the way the system needs it: decide which bills support the specials, total what's verified, index the exhibits, then send it with a time limit, calendar the response date and update the CMS."},
   {id:"cmTrust3", icon:"🏦", title:"Trust Ledger & Disbursement", relates:"Day 3", cat:"do", isNew:true,
    desc:"The $150,000 settlement has cleared the trust account. Work the disbursement queue: release what is ready, hold what isn't (an expired payoff letter, a reduction that's only verbal, suspicious wire instructions), balance the ledger to the penny and document the holds."},
+  {id:"cmCloseLetter3", icon:"✉", title:"Drafting a Closing Letter (from your Net Sheet)", relates:"Day 3", cat:"talk", isNew:true,
+   desc:"Write the letter John receives with his check, from the figures on your own Net Sheet Ledger: the gross, each deduction, the liens paid, the net, what happens next. Checked against your net sheet, then reviewed."},
+  {id:"cmSettleDocs3", icon:"🖋", title:"Settlement Documents: BI and UM", relates:"Day 3", cat:"do", isNew:true,
+   desc:"Complete the settlement paperwork on the platform: the BI release and disbursement statement for the $150,000 settlement, then the UM waiver and consent to settle and the UM disbursement statement. Each form is checked field by field, then reviewed."},
   {id:"cmADR4", icon:"🤝", title:"ADR Communication Lab", relates:"Day 4", cat:"talk", isNew:true,
    desc:"The calls around mediation and arbitration: defense counsel's office pushes a mediation date past the court's deadline, the arbitrator asks you a question at the break, and John calls about the mediator's proposal. Practice each live, then put it in writing."},
   // Extra Practice: optional, listed in its own section of the Practice page.
@@ -307,6 +313,277 @@ TOOLS.cmTrust3 = ()=>{ setTimeout(()=>window.pxTrustPaint && pxTrustPaint(), 0);
     + cmsStep("cmTrust3:cms", "In John's CMS case, <b>Finance</b> tab: add each released payment and each hold (with its reason) as a ledger entry, upload the signed settlement statement under <b>Case Files</b>, and add a <b>Task</b> for each hold."))}
 ]; };
 
+/* ---------- DAY 3 · the Net Sheet Ledger (Disbursement & Closing a Case, part A) ----------
+   The LSH Net Sheet (documents/templates/LSH_Net_Sheet_v2_FIXED.xlsx) on the platform, same rows and columns:
+   1. Settlement recovery · 2. Attorney fees & advanced case expenses · 3. Medical provider ledger & lien reductions
+   (Total Charges − PIP − Health − Med Pay − Adjustments = Balance Owed; Max / Low Offer; Reduced Bill) · 4. Final
+   client disbursement. Everything adds up as the trainee types. It saves to their record (js/cm-lab.js) with a
+   rule-based check of the math and the required lines, and the trainer reviews it like any Practice Lab work. */
+const NS_COSTS = [["filing","Filing fees & Summons"],["process","Process Server"],["mediation","Mediation"],["cme","CME Videographer"],["depo","Deposition"],["postage","Postage"],["records","Medical records/bills req."],["storage","File Storage fee"]];
+const NS_ROWS = [["ER/Hospital","Metro General Hospital (ER + CT)"],["Health plan (ERISA)","BlueCross ERISA plan"],["EMC/Spine (LOP)","Dr. Sarah Spine, MD"],["MRI","Metro Radiology & Imaging"],["Chiro (LOP)","City Chiropractic & Rehab"],["PT","Metro Physical Therapy"],["",""],["",""],["Pre-Settlement Funding","None reported"],["Prior Attorney","Barry Slow, Esq."]];
+const NS_COLS = [["charges","Total Charges"],["pip","PIP Payments"],["health","Health Payments"],["medpay","Med Pay"],["adj","Adjustments"],["bal","Balance Owed"],["max","Max Offer"],["low","Low Offer"],["reduced","Reduced Bill"]];
+// The answer key: the John Doe settlement (scenario in TOOLS.cmClosing3, part A).
+const NS_KEY = {gross:150000, feePct:40, basis:"net", costs:{filing:435, process:150, mediation:1200, postage:40, records:265}, costTotal:2090,
+  liens:[["Metro General",4900],["BlueCross",9500],["Spine",6000],["Radiology",3500],["Chiro",2400],["Physical Therapy",1100],["Slow",600]], lienTotal:28000, fee:59164, net:60746};
+const num = (v)=>{ const n = parseFloat(String(v==null?"":v).replace(/[$,\s]/g,"")); return isNaN(n) ? 0 : n; };
+function nsCompute(d){
+  const costs = NS_COSTS.reduce((s,[k])=>s + num((d.costs||{})[k]), 0);
+  const gross = num(d.gross), pct = num(d.feePct);
+  const fee = Math.round((d.basis === "net" ? gross - costs : gross) * pct) / 100;
+  const rows = (d.rows||[]).map(r=>Object.assign({}, r, {bal: num(r.charges) - num(r.pip) - num(r.health) - num(r.medpay) - num(r.adj)}));
+  const sum = (k)=> rows.reduce((s,r)=>s + (k === "bal" ? r.bal : num(r[k])), 0);
+  const liens = sum("reduced");
+  return {costs, fee, feesAndCosts: fee + costs, bal: sum("bal"), max: sum("max"), low: sum("low"), liens, net: gross - fee - costs - liens, rows};
+}
+function nsRead(key){
+  const k = key.replace(/\W/g,"_"), v = (id)=> (document.getElementById(`ns_${k}_${id}`)||{}).value || "";
+  return {gross:v("gross"), ref:v("ref"), feePct:v("feePct"), basis:v("basis"),
+    costs:Object.fromEntries(NS_COSTS.map(([c])=>[c, v("c_"+c)])),
+    rows:NS_ROWS.map((_,i)=>Object.fromEntries([["type",v(`r${i}_type`)],["name",v(`r${i}_name`)]].concat(NS_COLS.filter(([c])=>c!=="bal").map(([c])=>[c, v(`r${i}_${c}`)]))))};
+}
+function nsReview(sub){
+  const d = sub.data || {}, c = nsCompute(d), notes = [], ok = [];
+  let score = 0; const near = (a,b,t)=> Math.abs(a-b) <= (t==null?1:t);
+  if(near(num(d.gross), NS_KEY.gross)){ score += 10; ok.push("Gross settlement $150,000."); } else notes.push("Gross settlement: use the settlement amount, $150,000.");
+  if(near(num(d.feePct), NS_KEY.feePct, 0.01)){ score += 15; ok.push("Fee tier 40% (suit was filed)."); } else notes.push("Attorney fee %: check the retainer — suit was filed, so the post-suit tier (40%) applies.");
+  if(d.basis === NS_KEY.basis){ score += 10; ok.push("Fee on gross minus case costs (retainer §4)."); } else notes.push("The retainer (§4) deducts case costs before the fee is calculated: the template's fee-on-gross must be changed.");
+  const costHits = Object.entries(NS_KEY.costs).filter(([k,a])=>near(num((d.costs||{})[k]), a)).length;
+  score += Math.round(15 * costHits / Object.keys(NS_KEY.costs).length);
+  if(near(c.costs, NS_KEY.costTotal)) ok.push("Advanced case costs total $2,090."); else notes.push(`Advanced case costs come to ${money(c.costs)}; the receipts total $2,090 (filing $435, process server $150, mediation $1,200, records $265, postage $40).`);
+  const rows = c.rows.filter(r=>r.name || r.type);
+  const lienHits = NS_KEY.liens.filter(([n,a])=>rows.some(r=>(r.name+" "+r.type).toLowerCase().includes(n.toLowerCase()) && near(num(r.reduced), a)));
+  score += Math.round(30 * lienHits.length / NS_KEY.liens.length);
+  const missing = NS_KEY.liens.filter(x=>!lienHits.includes(x)).map(([n,a])=>`${n} ${money(a)}`);
+  if(missing.length) notes.push(`Reduced Bill (the final payoff letters) missing or wrong for: ${missing.join(" · ")}.`); else ok.push("Every lienholder carries its final payoff ($28,000).");
+  if(near(c.net, NS_KEY.net, 3)){ score += 20; ok.push(`Net to client ${money(c.net)}.`); } else notes.push(`Net client disbursement is ${money(c.net)}; with the right fee, costs and liens it is $60,746.`);
+  return {score: Math.min(100, score), notes, ok};
+}
+function nsTableHTML(d){
+  const c = nsCompute(d||{});
+  return `<table class="cm-table"><tbody><tr><th>Gross settlement</th><td>${money(num(d.gross))}</td></tr><tr><th>Attorney fee (${num(d.feePct)}% on ${d.basis==="net"?"gross − costs":"gross"})</th><td>${money(c.fee)}</td></tr>
+    <tr><th>Advanced case expenses</th><td>${money(c.costs)}</td></tr><tr><th>Liens (reduced)</th><td>${money(c.liens)}${c.rows.filter(r=>num(r.reduced)).map(r=>`<span class="cm-why">${E(r.name||r.type)}: ${money(num(r.reduced))}</span>`).join("")}</td></tr>
+    <tr><th>Net client disbursement</th><td><b>${money(c.net)}</b></td></tr></tbody></table>`;
+}
+cmLabDefine("cmClosing3:netsheet", {title:"Net Sheet Ledger · John Doe ($150,000)", day:3, tool:"none", parentTool:"cmClosing3", review:nsReview, renderData:(d)=>nsTableHTML(d)});
+window.pxNetSheetHTML = function(key){
+  const k = key.replace(/\W/g,"_"), saved = ((window.cmLabSub && cmLabSub(key))||{}).data || {};
+  const val = (v)=> E(v==null?"":v);
+  const inp = (id, v, w, ph)=> `<input id="ns_${k}_${id}" type="text" inputmode="decimal" value="${val(v)}" placeholder="${ph==null?"0.00":ph}" oninput="pxNetCalc('${key}')" style="width:${w||100}px">`;
+  const out = (id)=> `<b id="nso_${k}_${id}" style="white-space:nowrap">$0.00</b>`;
+  const rows = NS_ROWS.map(([type,name],i)=>{ const r = (saved.rows||[])[i] || {};
+    return `<tr><td>${inp(`r${i}_type`, r.type!=null?r.type:type, 130, "Provider type")}</td><td>${inp(`r${i}_name`, r.name!=null?r.name:name, 190, "Provider name")}</td>${NS_COLS.map(([col])=> col==="bal" ? `<td>${out(`r${i}_bal`)}</td>` : `<td>${inp(`r${i}_${col}`, r[col], 90)}</td>`).join("")}</tr>`; }).join("");
+  setTimeout(()=>pxNetCalc(key), 0);
+  return sysScreen("LSH NET SHEET LEDGER", "Mirrors LSH Net Sheet v2 (📁 Case Documents → Templates)", `
+    <h4 style="margin:4px 0 6px;color:var(--navy)">1. Settlement recovery summary</h4>
+    <table class="cm-table"><thead><tr><th>Description</th><th>Reference</th><th>Amount</th></tr></thead><tbody>
+      <tr><td><b>Gross Settlement</b></td><td>${inp("ref", saved.ref!=null?saved.ref:"Aggressive Casualty Insurance (Claim 2026-0214-AX)", 280, "Carrier / claim")}</td><td>${inp("gross", saved.gross, 120)}</td></tr></tbody></table>
+    <h4 style="margin:12px 0 6px;color:var(--navy)">2. Attorney fees &amp; advanced case expenses</h4>
+    <table class="cm-table"><thead><tr><th>Expense type</th><th>Details</th><th>Amount</th></tr></thead><tbody>
+      <tr><td><b>Attorney Fees</b></td><td>${inp("feePct", saved.feePct, 60, "%")} % on <select id="ns_${k}_basis" onchange="pxNetCalc('${key}')"><option value="gross" ${saved.basis!=="net"?"selected":""}>the gross settlement</option><option value="net" ${saved.basis==="net"?"selected":""}>the gross minus case costs</option></select></td><td>${out("fee")}</td></tr>
+      ${NS_COSTS.map(([c,label])=>`<tr><td>${E(label)}</td><td></td><td>${inp("c_"+c, (saved.costs||{})[c], 120)}</td></tr>`).join("")}
+      <tr><td><b>Total Attorney Costs</b></td><td></td><td>${out("costs")}</td></tr><tr><td><b>Total Fees &amp; Costs</b></td><td></td><td>${out("feesAndCosts")}</td></tr></tbody></table>
+    <h4 style="margin:12px 0 6px;color:var(--navy)">3. Medical provider ledger &amp; lien reductions</h4>
+    <div style="overflow-x:auto"><table class="cm-table" style="min-width:1180px"><thead><tr><th>Provider Type</th><th>Provider Name</th>${NS_COLS.map(([,l])=>`<th>${l}</th>`).join("")}</tr></thead><tbody>${rows}
+      <tr><td colspan="2"><b>Total Liens &amp; Reductions</b></td><td colspan="5"></td><td>${out("bal")}</td><td>${out("max")}</td><td>${out("low")}</td><td>${out("liens")}</td></tr></tbody></table></div>
+    <h4 style="margin:12px 0 6px;color:var(--navy)">4. Final client disbursement calculation</h4>
+    <div class="px-ledger-sum"><div><span>Gross settlement</span><b id="nso_${k}_gross">$0.00</b></div><div><span>Less fees, costs &amp; liens</span><b id="nso_${k}_less">$0.00</b></div><div><span>Net client disbursement</span><b id="nso_${k}_net">$0.00</b></div></div>
+    <button class="btn btn-navy btn-sm" onclick="pxNetSubmit('${key}', this)">Save and submit for review</button>
+    <button class="btn btn-ghost btn-sm" onclick="pxNetAI('${key}', this)">Review</button>
+    ${window.cmLabResultHTML ? cmLabResultHTML(key) : ""}<div id="nsai_${k}" style="margin-top:10px"></div>`);
+};
+window.pxNetCalc = function(key){
+  const k = key.replace(/\W/g,"_"), d = nsRead(key), c = nsCompute(d);
+  const set = (id, v)=>{ const el = document.getElementById(`nso_${k}_${id}`); if(el) el.textContent = money(v); };
+  ["fee","costs","feesAndCosts","bal","max","low","liens","net"].forEach(x=>set(x, c[x]));
+  set("gross", num(d.gross)); set("less", -(c.fee + c.costs + c.liens));
+  c.rows.forEach((r,i)=>set(`r${i}_bal`, r.bal));
+  return {d, c};
+};
+window.pxNetSubmit = async function(key, btn){
+  const {d, c} = pxNetCalc(key);
+  if(!num(d.gross)){ toast("Enter the gross settlement first."); return; }
+  if(btn){ btn.disabled = true; btn.textContent = "Reviewing…"; }
+  const sub = await cmLabSave(key, {data: Object.assign(d, {computed:{fee:c.fee, costs:c.costs, liens:c.liens, net:c.net}})});
+  await scorePart(key, sub.auto.score);
+  if(window.cmLabPaintResults) cmLabPaintResults(key);
+  toast(`Net Sheet saved. Automatic review: ${sub.auto.score}/100. Your trainer reviews it too.`);
+  if(btn){ btn.disabled = false; btn.textContent = "Save and submit for review"; }
+};
+// The written AI review of the net sheet (the same rubric and button as the Skill Builders' writing parts).
+window.pxNetAI = async function(key, btn){
+  const {d, c} = pxNetCalc(key), out = document.getElementById("nsai_" + key.replace(/\W/g,"_"));
+  if(!num(d.gross)){ toast("Enter the gross settlement first."); return; }
+  const tool = K.toolOfKey(key), day = K.dayOfTool(tool);
+  if(!(await useLabAttempt(day, key + ":ai"))) return;
+  if(btn){ btn.disabled = true; btn.textContent = "Reviewing…"; }
+  out.innerHTML = `<div class="ai-loading">Reviewing your net sheet…</div>`;
+  const text = [`Gross settlement ${money(num(d.gross))} (${d.ref||""})`, `Attorney fee ${num(d.feePct)}% on ${d.basis==="net"?"gross minus case costs":"the gross"} = ${money(c.fee)}`,
+    ...NS_COSTS.filter(([k2])=>num((d.costs||{})[k2])).map(([k2,l])=>`${l}: ${money(num(d.costs[k2]))}`), `Total case costs ${money(c.costs)}`,
+    ...c.rows.filter(r=>r.name||r.type).map(r=>`${r.type||""} ${r.name||""}: charges ${money(num(r.charges))}, PIP ${money(num(r.pip))}, health ${money(num(r.health))}, MedPay ${money(num(r.medpay))}, adjustments ${money(num(r.adj))}, balance ${money(r.bal)}, reduced bill ${money(num(r.reduced))}`),
+    `Total liens (reduced) ${money(c.liens)}`, `NET CLIENT DISBURSEMENT ${money(c.net)}`].join("\n");
+  try{
+    const report = await runRubricEvaluation("Net sheet (LSH Net Sheet Ledger) for the John Doe settlement",
+      `CASE FILE (John Doe v. Apex Delivery Services):\n${CLIENT_DOSSIER_MD}\n\nEXERCISE CONTEXT:\nSettled for $150,000 after the First Amended Complaint was filed. Retainer: 33⅓% pre-suit / 40% post-suit; §4 deducts case costs before the fee. Receipts: filing $435, process server $150, mediation $1,200, records $265, postage $40. Final payoffs: Metro General $4,900, BlueCross ERISA $9,500, Dr. Sarah Spine (LOP) $6,000, Metro Radiology & Imaging $3,500, City Chiropractic (LOP) $2,400, Metro PT $1,100, Barry Slow (prior counsel) $600.`,
+      text, "Correct fee tier and basis (40% on gross minus costs), every documented cost and no invented ones, every lienholder at its final written payoff (no asserted amounts), balances computed correctly from charges and payments, and a net that follows from the lines. Penalize the template's fee-on-gross, a missing lien or cost, or a net that doesn't add up.");
+    out.innerHTML = renderEvaluationReport(report, day);
+    await bumpPracticeProgress(tool, report.totalScore);
+  }catch(e){ out.innerHTML = renderAiErrorBlock(e, "Couldn't review this yet"); }
+  if(btn){ btn.disabled = false; btn.textContent = "Review"; }
+};
+// The trainee's own Net Sheet figures (saved, or what's typed now), for the closing letter.
+function nsMine(){
+  const s = window.cmLabSub ? cmLabSub("cmClosing3:netsheet") : null;
+  return s && s.data ? Object.assign({}, s.data, {computed: nsCompute(s.data)}) : null;
+}
+
+/* ---------- DAY 3 · Communication · Drafting a Closing Letter (from the trainee's Net Sheet) ---------- */
+const lettersOf = (d)=> (d && d.computed ? d.computed.rows : []).filter(r=>num(r.reduced) && (r.name||r.type));
+cmLabDefine("cmCloseLetter3:letter", {title:"Closing letter to John (from your Net Sheet)", day:3, tool:"none", parentTool:"cmCloseLetter3",
+  review:(sub)=>{
+    const d = sub.data && sub.data.ns, t = String(sub.text||""), notes = [], ok = []; let score = 0;
+    if(!d){ return {score:null, notes:["Save your Net Sheet Ledger first: the letter is checked against its figures."], ok}; }
+    const c = d.computed || nsCompute(d);
+    const has = (n)=> { const v = Math.round(Math.abs(n)); const plain = v.toLocaleString("en-US"); return t.replace(/\.\d{2}\b/g,"").includes(plain) || t.includes(String(v)); };
+    [["the gross settlement", num(d.gross)],["the attorney fee", c.fee],["the case costs", c.costs],["the liens total", c.liens],["your net", c.net]].forEach(([lab,v])=>{
+      if(has(v)){ score += 12; ok.push(`States ${lab} (${money(v)}).`); } else notes.push(`Doesn't state ${lab} from your Net Sheet (${money(v)}).`); });
+    const named = lettersOf(d).filter(r=>(r.name||r.type).toLowerCase().split(/[^a-z]+/).filter(w=>w.length>3).some(w=>t.toLowerCase().includes(w)));
+    score += Math.round(20 * (lettersOf(d).length ? named.length/lettersOf(d).length : 1));
+    if(named.length < lettersOf(d).length) notes.push(`Name every lienholder paid from the settlement (${lettersOf(d).length - named.length} missing).`); else ok.push("Names every lienholder paid.");
+    if(/dismiss|close[sd]? (the|your) (case|file)|records? (are|will be) kept|retain/i.test(t)){ score += 10; ok.push("Says what happens next (dismissal, file closing, records)."); } else notes.push("Say what happens next: the dismissal, closing the file, how long records are kept.");
+    if(/call|contact|reach|questions/i.test(t)){ score += 10; ok.push("Tells John who to contact."); } else notes.push("Tell John who to contact with questions.");
+    if(/guarantee|promise|you should sue|legal advice/i.test(t)){ score = Math.max(0, score - 15); notes.push("No promises or new legal advice in a closing letter."); }
+    return {score: Math.min(100, score), notes, ok};
+  },
+  renderData:(d)=> d && d.ns ? nsTableHTML(d.ns) : ""});
+TOOLS.cmCloseLetter3 = ()=>{
+  const d = nsMine();
+  return [
+  {label:"Your Net Sheet", html: part("A. Start from your Net Sheet",
+    "A closing letter explains the money the way the net sheet shows it: gross, each deduction, the net. These are the figures from <b>your</b> Net Sheet Ledger (Disbursement &amp; Closing a Case, part A). Fix the net sheet first if they're wrong.",
+    (d ? nsTableHTML(d) : `<div class="cm-scn">You haven't saved a Net Sheet yet. Open <b>Disbursement &amp; Closing a Case</b> → <b>Reconcile the $150,000</b>, fill in the Net Sheet Ledger and press <b>Save and submit for review</b>, then come back.</div>`)
+    + `<button class="btn btn-ghost btn-sm" onclick="goto('tool','cmClosing3')">Open the Net Sheet Ledger</button>`)},
+  {label:"Draft the Letter", html: part("B. Draft the closing letter to John",
+    "Write the letter John receives with his check: plain language, the gross and each deduction from your net sheet, the net, the liens paid in full (and the proof the file holds), what happens next and who to call. The automatic check matches your figures against your Net Sheet; <b>Review</b> adds the written feedback.",
+    docPacket(["TPL3","JD05"], "Templates and the retainer")
+    + aiTaskX("cmCloseLetter3:letter", {label:"Your closing letter to John Doe", exercise:"Closing letter from the net sheet", rows:240,
+        extra: ()=>{ const n = nsMine(); return n ? `Trainee's Net Sheet: gross ${money(num(n.gross))}; fee ${n.feePct}% on ${n.basis==="net"?"gross − costs":"gross"} = ${money(n.computed.fee)}; case costs ${money(n.computed.costs)}; liens ${money(n.computed.liens)} (${lettersOf(n).map(r=>`${r.name||r.type} ${money(num(r.reduced))}`).join(", ")}); net ${money(n.computed.net)}.` : "(no net sheet saved)"; },
+        context:"John Doe v. Apex settled for $150,000 after the First Amended Complaint was filed. The closing letter must follow the trainee's own net sheet (given below) and the retainer (40% post-suit, costs deducted before the fee).",
+        criteria:"Plain-language summary of gross → each deduction → net that matches the trainee's net sheet figures exactly; every lien paid named with its amount and the proof (payoff letter, Satisfaction of Lien); what happens next (dismissal with prejudice, closing the file, records retention); who to contact; warm, professional tone; no promises and no new legal advice. Penalize figures that don't match the net sheet.",
+        placeholder:"Dear Mr. Doe, …"})
+    + `<div><button class="btn btn-navy btn-sm" style="margin-top:8px" onclick="pxLetterSubmit('cmCloseLetter3:letter', this)">Submit for review</button></div>`
+    + (window.cmLabResultHTML ? cmLabResultHTML("cmCloseLetter3:letter") : ""))}
+  ];
+};
+window.pxLetterSubmit = async function(key, btn){
+  const ta = document.getElementById("ta_" + key.replace(/\W/g,"_")), text = (ta && ta.value || "").trim();
+  if(text.length < 200){ toast("Write the full letter first."); return; }
+  if(btn){ btn.disabled = true; btn.textContent = "Reviewing…"; }
+  const sub = await cmLabSave(key, {text, data:{ns: nsMine()}});
+  if(sub.auto.score != null) await scorePart(key, sub.auto.score);
+  if(window.cmLabPaintResults) cmLabPaintResults(key);
+  toast(sub.auto.score != null ? `Submitted. Automatic review: ${sub.auto.score}/100. Your trainer reviews it too.` : "Submitted. Save your Net Sheet so the letter can be checked against it.");
+  if(btn){ btn.disabled = false; btn.textContent = "Submit for review"; }
+};
+
+/* ---------- DAY 3 · Systems · Settlement Documents: BI and UM ----------
+   The trainee completes the settlement paperwork on the platform, field by field, as on the sample forms in
+   📁 Case Documents → Templates (TPL3: BI release + disbursement statement; TPL4: UM waiver & consent to settle).
+   Each form is checked field by field when submitted, and the trainer reviews it (js/cm-lab.js). */
+const normTxt = (v)=> String(v==null?"":v).toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
+function fieldOk(f, v){
+  if(f.num != null) return Math.abs(num(v) - f.num) <= (f.tol==null ? 1 : f.tol) && String(v).trim() !== "";
+  if(f.all) return f.all.every(w=>normTxt(v).includes(normTxt(w)));
+  if(f.any) return f.any.some(w=>normTxt(v).includes(normTxt(w)));
+  return normTxt(v) === normTxt(f.eq);
+}
+const fieldAnswer = (f)=> f.num != null ? money(f.num) : f.all ? f.all.join(" + ") : f.any ? f.any[0] : f.eq;
+function docForm(key, title, sheet, fields){
+  const k = key.replace(/\W/g,"_"), saved = ((window.cmLabSub && cmLabSub(key))||{}).data || {};
+  cmLabDefine(key, {title, day:3, tool:"none", parentTool:K.toolOfKey(key), fields,
+    review:(sub)=>{ const d = sub.data||{}, bad = fields.filter(f=>!fieldOk(f, d[f.id]));
+      return {score: Math.round(100*(fields.length-bad.length)/fields.length), ok: bad.length ? [`${fields.length-bad.length} of ${fields.length} fields right.`] : ["Every field is right."],
+        notes: bad.map(f=>`${f.label.replace(/<[^>]+>/g,"")}: ${f.why || "expected " + fieldAnswer(f)}`)}; },
+    renderData:(d)=>`<table class="cm-table"><tbody>${fields.map(f=>`<tr class="${fieldOk(f, d[f.id])?"ok":"bad"}"><th>${f.label}</th><td>${E(d[f.id]||"")}</td></tr>`).join("")}</tbody></table>`});
+  return sysScreen(sheet, "Complete every field from the file, then submit", `<table class="cm-table" id="tbl_${k}"><thead><tr><th>Field</th><th style="width:46%">Your entry</th></tr></thead><tbody>
+    ${fields.map(f=>`<tr id="dfr_${k}_${f.id}"><td><b>${f.label}</b>${f.help?`<span class="cm-why">${f.help}</span>`:""}<span class="cm-why" id="dfw_${k}_${f.id}"></span></td><td>${f.opts
+      ? `<select id="df_${k}_${f.id}"><option value="">— choose —</option>${f.opts.map(o=>`<option ${saved[f.id]===o?"selected":""}>${E(o)}</option>`).join("")}</select>`
+      : `<input id="df_${k}_${f.id}" value="${E(saved[f.id]||"")}" placeholder="${E(f.ph||"")}" style="width:100%;box-sizing:border-box">`}</td></tr>`).join("")}</tbody></table>
+    <button class="btn btn-navy btn-sm" onclick="pxDocSubmit('${key}', this)">Submit for review</button>
+    ${window.cmLabResultHTML ? cmLabResultHTML(key) : ""}`);
+}
+window.pxDocSubmit = async function(key, btn){
+  const def = cmLabDef(key), k = key.replace(/\W/g,"_"), data = {};
+  def.fields.forEach(f=>{ data[f.id] = ((document.getElementById(`df_${k}_${f.id}`)||{}).value || "").trim(); });
+  if(def.fields.filter(f=>data[f.id]).length < Math.ceil(def.fields.length/2)){ toast("Fill in the form first."); return; }
+  if(btn){ btn.disabled = true; btn.textContent = "Reviewing…"; }
+  const sub = await cmLabSave(key, {data});
+  def.fields.forEach(f=>{ const good = fieldOk(f, data[f.id]); const tr = document.getElementById(`dfr_${k}_${f.id}`); if(tr){ tr.classList.toggle("ok", good); tr.classList.toggle("bad", !good); }
+    const w = document.getElementById(`dfw_${k}_${f.id}`); if(w) w.textContent = good ? "✓" : "✗ " + (f.why || "Expected: " + fieldAnswer(f)); });
+  await scorePart(key, sub.auto.score);
+  if(window.cmLabPaintResults) cmLabPaintResults(key);
+  toast(`Submitted. Automatic review: ${sub.auto.score}/100. Your trainer reviews it too.`);
+  if(btn){ btn.disabled = false; btn.textContent = "Submit for review"; }
+};
+TOOLS.cmSettleDocs3 = ()=>[
+  {label:"BI Release", html: part("A. BI settlement: the Release of All Claims (Bodily Injury)",
+    "John Doe v. Apex settled for <b>$150,000</b> (Aggressive Casualty Insurance, Claim # 2026-0214-AX). Prepare the release for John's signature the way the sample form lays it out. Remember Day 2: the release is <b>bodily injury only</b> (the property damage claim is still open) and it never waives UM.",
+    docPacket(["TPL3","TPL5","JD33","JD07","JD27"], "Sample forms, the defective release, the police report and the dec page")
+    + docForm("cmSettleDocs3:birelease", "BI release · John Doe", "RELEASE OF ALL CLAIMS (BODILY INJURY)", [
+      {id:"words", label:"The sum of ______ DOLLARS (in words)", all:["one hundred fifty thousand"], ph:"In words", why:"One Hundred Fifty Thousand"},
+      {id:"amount", label:"($ ______)", num:150000},
+      {id:"releasor", label:"Releasor", all:["john","doe"]},
+      {id:"releasee", label:"Releasee (who is released)", all:["apex","smith"], help:"The owner and the driver", why:"Apex Delivery Services, Inc. and Robert W. Smith"},
+      {id:"carrier", label:"Their insurance carrier", all:["aggressive casualty"]},
+      {id:"dol", label:"Accident date (the ____ day of ______, 20__)", any:["14th day of february 2026","february 14 2026","02 14 2026","2 14 2026","14 february 2026"], ph:"e.g. 14th day of February, 2026", why:"the 14th day of February, 2026"},
+      {id:"pd", label:"1. Scope: it ___ include claims for Property Damage", opts:["does include","does NOT include"], eq:"does NOT include", why:"BI only: the property damage claim is still open (Day 2 PD file)."},
+      {id:"um", label:"Does this release waive John's UM/UIM rights?", opts:["Yes: all UM/UIM claims are released","No: UM/UIM rights are preserved"], eq:"No: UM/UIM rights are preserved", why:"Never waive UM in a BI release (the defective release's §III)."},
+      {id:"notary", label:"Notary acknowledgment", opts:["Not needed","Required: signed before a notary"], eq:"Required: signed before a notary", why:"High-value BI releases are notarized, ID matched to the claimant."}
+    ]))},
+  {label:"BI Disbursement Statement", html: part("B. BI settlement: the Settlement Disbursement Statement",
+    "Complete the statement John signs before any money moves. Use the retainer and the final payoff letters (the same figures as your Net Sheet Ledger).",
+    docPacket(["TPL3","JD05"], "Sample statement and the retainer")
+    + scenario(`<b>Case costs (receipts):</b> filing $435 · process server $150 · mediation $1,200 · records $265 · postage $40.<br><b>Final payoffs:</b> Metro General $4,900 · BlueCross ERISA $9,500 · Dr. Sarah Spine (LOP) $6,000 · Metro Radiology $3,500 · City Chiropractic $2,400 · Metro PT $1,100 · Barry Slow (prior counsel) $600. No Medicare or Medicaid interest.`)
+    + docForm("cmSettleDocs3:bistatement", "BI disbursement statement · John Doe", "SETTLEMENT DISBURSEMENT STATEMENT", [
+      {id:"client", label:"Client Name", all:["john","doe"]},
+      {id:"claim", label:"Claim Number", all:["2026","0214","ax"], why:"2026-0214-AX"},
+      {id:"gross", label:"GROSS SETTLEMENT AMOUNT (credit +)", num:150000},
+      {id:"feepct", label:"Attorney's Fees (___%)", num:40, tol:0.01, why:"40%: suit was filed (post-suit tier)."},
+      {id:"fee", label:"Attorney's Fees ($, debit)", num:59164, tol:2, why:"40% × (150,000 − 2,090) = $59,164 (retainer §4: costs before the fee)."},
+      {id:"costs", label:"Case Costs ($, debit)", num:2090},
+      {id:"liens", label:"Medical liens / reimbursements, total of the negotiated payoffs ($, debit)", num:28000},
+      {id:"medicare", label:"Medicare/Medicaid Final Demand ($, debit)", num:0, tol:0, why:"$0: no Medicare or Medicaid interest."},
+      {id:"net", label:"NET RECOVERY TO CLIENT", num:60746, tol:3}
+    ]))},
+  {label:"UM Consent to Settle", html: part("C. UM settlement: Waiver of Subrogation & Consent to Settle",
+    "The Day 3 UM practice variation: Apex's carrier tenders its <b>$100,000</b> limits for a full release, and John has underinsured motorist coverage with Local Farm Mutual (policy <b>LFM-4412-JD</b>, UM/UIM $250,000/$500,000; UIM claim <b>LFM-UM-0214-JD</b> opened for this exercise). Before John signs anything, his UM carrier must consent in writing and waive subrogation. Complete the request.",
+    docPacket(["TPL4","JD28","JD27"], "Sample waiver and the dec pages")
+    + docForm("cmSettleDocs3:umconsent", "UM waiver & consent to settle · John Doe", "WAIVER OF SUBROGATION RIGHTS & CONSENT TO SETTLE (UIM)", [
+      {id:"to", label:"TO: (UM/UIM carrier)", all:["local farm mutual"]},
+      {id:"from", label:"FROM: (insured / claimant)", all:["john","doe"]},
+      {id:"claim", label:"RE: Claim Number", all:["lfm","um","0214"], why:"LFM-UM-0214-JD"},
+      {id:"policy", label:"RE: Policy Number", all:["lfm","4412"], why:"LFM-4412-JD"},
+      {id:"tortfeasor", label:"1. Adverse party / tortfeasor", any:["smith","apex"], why:"Robert W. Smith and Apex Delivery Services, Inc."},
+      {id:"insurer", label:"1. …and their insurer", all:["aggressive casualty"]},
+      {id:"limits", label:"1. Full policy limits offered ($)", num:100000},
+      {id:"consentfrom", label:"2. Written consent requested from (UM carrier)", all:["local farm mutual"]},
+      {id:"when", label:"When does this go out?", opts:["After the BI release is signed","Before John signs the BI release: wait for written consent","Only if the UM carrier asks"], eq:"Before John signs the BI release: wait for written consent", why:"Settling without written consent can forfeit the UIM claim (the insured's acknowledgment)."},
+      {id:"reserve", label:"4. Reservation of the UIM claim", opts:["John waives his UIM claim","John reserves his UIM claim up to the UIM limits"], eq:"John reserves his UIM claim up to the UIM limits"}
+    ]))},
+  {label:"UM Disbursement Statement", html: part("D. UM settlement: the disbursement statement",
+    "Local Farm Mutual later pays <b>$60,000</b> of UIM benefits. No suit was filed on the UM claim (the pre-suit tier, 33⅓%), costs on the UM claim were <b>$300</b> (records and postage), and the liens were paid from the BI settlement. Complete John's UM statement.",
+    docPacket(["TPL3","JD05"], "Sample statement and the retainer")
+    + docForm("cmSettleDocs3:umstatement", "UM disbursement statement · John Doe", "SETTLEMENT DISBURSEMENT STATEMENT (UIM)", [
+      {id:"client", label:"Client Name", all:["john","doe"]},
+      {id:"claim", label:"Claim Number", all:["lfm","um","0214"], why:"LFM-UM-0214-JD"},
+      {id:"gross", label:"GROSS SETTLEMENT AMOUNT (UIM payment)", num:60000},
+      {id:"feepct", label:"Attorney's Fees (___%)", any:["33.33","33 1 3","33.3","33"], why:"33⅓%: no suit on the UM claim (pre-suit tier)."},
+      {id:"fee", label:"Attorney's Fees ($, debit)", num:19900, tol:2, why:"33⅓% × (60,000 − 300) = $19,900."},
+      {id:"costs", label:"Case Costs ($, debit)", num:300},
+      {id:"liens", label:"Medical liens / reimbursements ($, debit)", num:0, tol:0, why:"$0: the liens were paid from the BI settlement."},
+      {id:"net", label:"NET RECOVERY TO CLIENT", num:39800, tol:2}
+    ]))}
+];
+
 /* ---------- DAY 4 · Communication · ADR Communication Lab ---------- */
 if(typeof CRISIS_SCENARIO_SETS !== "undefined" && !CRISIS_SCENARIO_SETS.cmADR4){
   CRISIS_SCENARIO_SETS.cmADR4 = [
@@ -481,13 +758,13 @@ const PLAN = {
         steps:[{t:"Request the itemized bills missing from the demand: the complete <b>chiro</b> ledger, the surgical facility's <b>UB-04</b>, the <b>surgeon</b>'s bill and the <b>anesthesiologist</b>'s bill.", open:{tool:"records"}},
                CMS("Log each request number as a <b>Task</b> in your John Doe case with its follow-up date.")]}})]},
   3:{think:["cmLien3","cmClosing3"],
-     talk:[RP("liens","hospitallien", rpLab(3, "hospitallien", "In your John Doe case in the CMS, <b>Liens</b> tab: add Metro General's lien with the asserted and the negotiated amounts, and a <b>Note</b> of the call.", ["Liens","asserted","negotiated","Note"])),
+     talk:["cmCloseLetter3", RP("liens","hospitallien", rpLab(3, "hospitallien", "In your John Doe case in the CMS, <b>Liens</b> tab: add Metro General's lien with the asserted and the negotiated amounts, and a <b>Note</b> of the call.", ["Liens","asserted","negotiated","Note"])),
        RP("liens","erisa", rpLab(3, "erisa", "In your John Doe case in the CMS, <b>Liens</b> tab: add the BlueCross ERISA lien, and a <b>Task</b> to request the plan document (SPD) and the itemized payment ledger.", ["Liens","ERISA","SPD","Task"])),
        RP("client","netcheck", rpLab(3, "netcheck", "In your John Doe case in the CMS, add a <b>Note</b> of what you told John about his net (plain language, no new figures) and a <b>Task</b> for the attorney's call.", ["net","Note","Task","attorney"])),
        SIM("calls",{note:"Providers & Records line", lab:{key:"px3:calls", title:"Call Simulator: Providers & Records (graded)", extra:LINE("Providers & Records"), caseRef:"jd", keys:["Note","Task"],
         steps:[CALL("Providers & Records", "Take <b>Graded call 1</b> on the Providers &amp; Records line."),
                CMS("Log the call in your John Doe case as a <b>Note</b> and add a <b>Task</b> for the follow-up.")]}})],
-     do:["cmTrust3", SIM("cms",{title:"Update John's CMS ledger", note:"Liens tab and Finance tab after disbursement", lab:{key:"px3:cms-ledger", caseRef:"jd", keys:["Liens","Finance","settlement statement","Task"],
+     do:["cmTrust3", "cmSettleDocs3", SIM("cms",{title:"Update John's CMS ledger", note:"Liens tab and Finance tab after disbursement", lab:{key:"px3:cms-ledger", caseRef:"jd", keys:["Liens","Finance","settlement statement","Task"],
         steps:[{t:"<b>Liens</b> tab: each lien with its asserted, negotiated and paid amounts.", open:{tool:"cms"}},
                {t:"<b>Finance</b> tab: each released payment and each hold, with its reason."},
                {t:"Upload the signed <b>settlement statement</b> under Case Files, and add a <b>Task</b> for each hold."}]}})]},

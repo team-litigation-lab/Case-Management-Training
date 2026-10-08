@@ -664,7 +664,7 @@ TOOLS.cmLien3 = ()=>{
       context:"BlueCross notice (03/10/2026): self-funded ERISA plan, first-priority reimbursement, no made-whole, no common fund, $20,000 'to date'. Separate 'Global Health Blue-Shield' statutory lien itemizes $11,200 for ER $4,200, MRI $850, surgical facility $6,150. Client's plan: BCBS ERISA Group BC-441-A. Gross settlement (exercise) $50,000; client has permanent injuries and $57,000 future care.",
       criteria:"Top answers: request the plan document (SPD) and itemized payment ledger; confirm whether the plan is truly self-funded (if insured, state law and Made Whole/Common Fund may apply); challenge the $20,000 vs the $11,200 itemization and possible duplication with the Global Health lien; strip unrelated charges; propose a specific reduced figure with hardship/procurement-cost reasoning; ask for written agreement and a final payoff letter before disbursement; professional tone. Relying only on Made Whole without addressing ERISA should score low on Accuracy."})
     + `<div style="margin-top:18px">${renderCrisisRoleplaySection("cmLien3", "Live lien negotiation — the AI plays the lienholder")}</div>`
-    + cmsStep("cmLien3:cms", "Upload the lien letters under <b>Others</b> in John's CMS case, add a <b>Lien Entry</b> for each lienholder with the asserted and negotiated amounts, and attach your net sheet (use <b>LSH Net Sheet v2</b> from 📁 Case Documents → Templates).")) }
+    + cmsStep("cmLien3:cms", "Upload the lien letters under <b>Others</b> in John's CMS case, add a <b>Lien Entry</b> for each lienholder with the asserted and negotiated amounts, and record the net from your <b>Net Sheet Ledger</b> (Disbursement &amp; Closing a Case → Reconcile the $150,000, on this platform).")) }
   ];
 };
 window.cmLienCalc = function(){
@@ -696,16 +696,17 @@ window.cmLienCheck = async function(){
 /* ---------- DAY 3 · Disbursement & Closing ---------- */
 TOOLS.cmClosing3 = ()=>[
   {label:"Reconcile the $150,000", html: part("A. Reconcile the gross settlement against every lien and cost",
-    "John's case settled for <b>$150,000</b> after the First Amended Complaint was filed. Read the retainer before you calculate: the fee tier changed when suit was filed, and §4 deducts costs <i>before</i> the fee is calculated.",
+    "John's case settled for <b>$150,000</b> after the First Amended Complaint was filed. Fill in the <b>Net Sheet Ledger</b> below (the LSH Net Sheet, on the platform: it adds up as you type). Read the retainer first: the fee tier changed when suit was filed, and §4 deducts costs <i>before</i> the fee is calculated.",
     docPacket(["JD05","JD35","TPL3","TPL2"], "Rules & templates")
     + scenario(`<b>Advanced case costs (receipts on file):</b> filing fee & summons $435 · process server $150 · mediation share $1,200 · medical records $265 · postage $40.<br>
       <b>Final payoff letters received:</b> Metro General $4,900 · BlueCross ERISA $9,500 · Dr. Sarah Spine (LOP) $6,000 · Metro Radiology & Imaging $3,500 · City Chiropractic (LOP, reduced) $2,400 · Metro Physical Therapy $1,100 · Barry Slow (agreed) $600.`)
-    + calc("cmClosing3:recon", [
+    // the real LSH Net Sheet, on the platform (js/cm-practice.js: pxNetSheetHTML); the calculator stays as a fallback
+    + (window.pxNetSheetHTML ? pxNetSheetHTML("cmClosing3:netsheet") : calc("cmClosing3:recon", [
       {label:"Total advanced case costs", answer:2090, tol:1},
       {label:"Attorney fee (retainer tier after suit is filed, on gross − costs)", answer:59164, tol:2, hint:"40% × (150,000 − 2,090). If you used 33⅓%, check the retainer — suit was filed."},
       {label:"Total liens per final payoff letters", answer:28000, tol:1},
       {label:"Net to client", answer:60746, tol:3, hint:"150,000 − 2,090 − 59,164 − 28,000"}
-    ]))},
+    ])))},
   {label:"Audit-Ready?", html: part("B. Is the file “Audit Ready”? Final Case Reconciliation Checklist",
     "Before a case is marked Archived, all four document sets must be present. Here is the file inventory — select every item that <b>blocks archiving</b> until it's fixed.",
     checklist("cmClosing3:audit", [
