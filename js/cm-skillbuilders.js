@@ -69,11 +69,7 @@ body.cm-tf-open #app > .topbar,body.cm-tf-open #app > .view-mode-strip{pointer-e
 /* while a tool is open, only 🧰 Tools is highlighted in the nav */
 body.cm-tf-open .nav > button.active{background:transparent;color:#D7DAEC}
 .cm-tf-newtab{background:var(--orange)!important;border-color:var(--orange)!important}
-.cm-tf-main{flex:1;display:flex;min-height:0}
 .cm-tf-body{flex:1;position:relative}
-.cm-tf-side{width:380px;max-width:42vw;flex:0 0 auto;overflow:auto;background:#fff;border-left:1px solid var(--line);padding:14px 16px 24px;box-sizing:border-box}
-.cm-tf-side[hidden],body.cm-tf-side-off .cm-tf-side{display:none}
-@media (max-width:760px){.cm-tf-main{position:relative}.cm-tf-side{position:absolute;inset:0;width:auto;max-width:none;z-index:2;border-left:0}}
 .cm-tf-body iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
 body.cm-tf-open{overflow:hidden}
 #cm-toolpill{position:fixed;right:18px;bottom:18px;z-index:8999;box-shadow:0 6px 22px rgba(0,0,0,.25);border-radius:999px}
@@ -213,7 +209,7 @@ async function loadToolSettings(){
 /* ---- the persistent in-portal frame (lives outside #app, so render() never reloads it) ---- */
 const frames = {};                  // tool id → iframe
 let frameShell = null, currentFrame = null;
-let currentAct = null;              // the Practice Lab activity whose steps show beside the tool (js/cm-lab.js), if any
+let currentAct = null;              // the Practice Lab activity the tool was opened for (js/cm-lab.js), if any: its Return pill
 function ensureShell(){
   if(frameShell) return frameShell;
   frameShell = document.createElement("div");
@@ -222,10 +218,9 @@ function ensureShell(){
   // so the course navigation stays on screen while a tool is open.
   frameShell.innerHTML = `<div class="cm-tf-bar"><span class="cm-tf-name"></span>
     <span class="cm-tf-hint">Sign-in won't stay? Use <b>New tab</b>.</span>
-    <button class="btn btn-ghost btn-sm cm-tf-steps" onclick="cmToggleSteps()" hidden>📋 Steps</button>
     <button class="btn btn-navy btn-sm cm-tf-newtab" onclick="openTool(null,'tab')">New tab ↗</button>
     <button class="btn btn-ghost btn-sm" onclick="closeToolFrame()">✕ Close<span class="cm-tf-long"> and back to training</span></button></div>
-    <div class="cm-tf-main"><div class="cm-tf-body"></div><aside class="cm-tf-side" hidden></aside></div>`;
+    <div class="cm-tf-body"></div>`;
   document.body.appendChild(frameShell);
   const pill = document.createElement("button");
   pill.id = "cm-toolpill"; pill.hidden = true; pill.className = "btn btn-navy";
@@ -246,20 +241,7 @@ function paintShell(){
   const t = cmTool(currentFrame);
   frameShell.querySelector(".cm-tf-name").textContent = t ? `${t.icon} ${t.name.replace(/ \((LSH Training Portal|LSH CMS)\)$/,"")}` : "";
   Object.entries(frames).forEach(([id,f])=>{ f.style.display = id===currentFrame ? "block" : "none"; });
-  paintSide();
 }
-// The activity's steps and its "Submit for review" beside the tool (js/cm-lab.js draws them).
-function paintSide(){
-  if(!frameShell) return;
-  const side = frameShell.querySelector(".cm-tf-side"), btn = frameShell.querySelector(".cm-tf-steps");
-  const html = currentAct && window.cmLabPanelHTML ? cmLabPanelHTML(currentAct) : "";
-  side.hidden = !html; btn.hidden = !html;
-  if(html && side.dataset.act !== currentAct){ side.innerHTML = html; side.dataset.act = currentAct; side.scrollTop = 0; }
-  else if(html && window.cmLabResultHTML){ const res = side.querySelector('[id^="labres_"]'); if(res) res.outerHTML = cmLabResultHTML(currentAct); }   // same activity: what was typed stays, the reviews update
-  if(!html){ side.innerHTML = ""; delete side.dataset.act; }
-}
-window.cmFrameRepaintSide = function(){ if(frameShell) paintSide(); };
-window.cmToggleSteps = function(){ document.body.classList.toggle("cm-tf-side-off"); };
 // "↩ Return to …" shows only on the Practice pages, and only while the activity it came from isn't finished.
 function syncPill(){
   const pill = document.getElementById("cm-toolpill"); if(!pill) return;
@@ -270,7 +252,7 @@ function syncPill(){
 }
 window.cmFrameSyncPill = syncPill;
 // extra: an optional query string for this opening, e.g. "mock=MC-04" opens that CMS Training Library case.
-// act: the Practice Lab activity whose steps show beside the tool (js/cm-lab.js); left out, the tool opens on its own.
+// act: the Practice Lab activity the tool is opened for (js/cm-lab.js): the Return pill shows while it isn't submitted.
 window.openTool = function(id, mode, extra, act){
   id = id || currentFrame || "cms";
   const t = cmTool(id);
@@ -312,7 +294,7 @@ window.openCms = function(mode){ openTool("cms", mode); };
 /* Tool step: the trainee does the work in a training platform, then logs the ID here.
    A tool that isn't live yet falls back to a CMS Task so no step is ever blocked. */
 function toolStep(toolId, key, what){
-  if(window.cmLabStepHTML) return cmLabStepHTML(key, toolId, what);   // the step beside the tool, submitted for review (js/cm-lab.js)
+  if(window.cmLabStepHTML) return cmLabStepHTML(key, toolId, what);   // the step, done in the tool and submitted for review (js/cm-lab.js)
   const t = cmTool(toolId), saved = ((state.cmsLog||{})[key]||{}), k = key.replace(/\W/g,"_");
   const fallback = !t.live && toolId!=="cms";
   return `<div class="cm-cms"><b>${t.icon} Do this in the ${E(t.name)}</b>${t.live?"":` <span class="cm-soon">coming soon</span>`}

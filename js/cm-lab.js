@@ -2,7 +2,7 @@
    LSH Case Management Training — 🧪 PRACTICE LAB: the work done in the CMS, reviewed
    Every Practice Lab activity (Days 1–5) sends the trainee to do the work in the CMS (or the
    LSH Training Portal tool it runs on, then the CMS) on the matching case, with the activity's
-   steps in a panel beside the tool, and takes the result back here for review:
+   steps on the activity's page, and takes the result back here for review:
      • Submit for review: the ID the tool gave (CMS Case ID, request number, score), what was
        done and the steps ticked. Saved in the trainee's progress ("lab-subs", synced to the
        cloud like the rest), so it follows them across devices.
@@ -113,7 +113,6 @@ function loadMyReviews(force){
     if(simWas !== JSON.stringify(state.simResults) && ["practice","tool"].includes(state.view) && !(typeof isTyping==="function" && isTyping())) setTimeout(render, 0);
     const items = (v && v.items) || {}, was = JSON.stringify((state.labReviews||{}).items || {});
     state.labReviews = {items, at: Date.now()};
-    if(was !== JSON.stringify(items) && window.cmFrameRepaintSide) cmFrameRepaintSide(true);
     if(was !== JSON.stringify(items) && ["practice","tool"].includes(state.view) && !(typeof isTyping==="function" && isTyping())) render();
   }).catch(()=>{ revLoading = null; });
 }
@@ -146,7 +145,7 @@ window.cmLabAutoBox = (key)=> autoBoxHTML(subs()[key]);
 // What the trainee sees under a submission: the automatic review, then the trainer's.
 window.cmLabResultHTML = (key)=> `<div id="labres_${kid(key)}">${autoBoxHTML(subs()[key])}${reviewBoxHTML(myReview(key))}</div>`;
 
-/* ---------------- the submission form (beside the tool, and inline on a Skill Builder) ---------------- */
+/* ---------------- the submission form (on the activity's page, and inline on a Skill Builder) ---------------- */
 function caseLine(def){
   const log = state.cmsLog || {}, s = subs();
   const pick = (keys)=> keys.map(k=>(s[k] && s[k].evidence) || (log[k] && log[k].caseId)).find(v=>v && ID_RULES.cms.re.test(v));
@@ -188,21 +187,12 @@ window.cmLabSubmit = async function(key, where, btn){
 // every place this activity's result shows (the panel, the inline step, the Practice card) is brought up to date
 function paintResults(key){
   document.querySelectorAll(`#labres_${kid(key)}`).forEach(el=>{ el.outerHTML = cmLabResultHTML(key); });
-  if(window.cmFrameRepaintSide) cmFrameRepaintSide(true);
   if(window.cmFrameSyncPill) cmFrameSyncPill();
 }
 window.cmLabPaintResults = paintResults;
 
-/* ---------------- beside the tool: the steps panel in the tool frame (js/cm-skillbuilders.js) ---------------- */
-window.cmLabPanelHTML = function(key){
-  const def = DEFS[key]; if(!def) return "";
-  return `<div class="cm-part"><p class="eyebrow">${def.day?`Day ${def.day} · `:""}Practice Lab</p><h3>${E(def.title)}</h3>
-    ${caseLine(def)}
-    ${def.html ? `<p class="cm-intro">${def.html}</p>` : ""}
-    <div class="cm-cms">${formHTML(key, "lp")}</div>
-    ${cmLabResultHTML(key)}</div>`;
-};
-// Open an activity: its tool in the frame (or the CMS, for a tool that opens in its own tab) with the steps beside it.
+/* ---------------- opening the activity's tool (the in-portal frame, js/cm-skillbuilders.js) ---------------- */
+// Open an activity: its tool in the frame (or the CMS, for a tool that opens in its own tab). The steps and Submit for review stay on the activity's page.
 window.cmLabOpen = function(key){
   const def = DEFS[key]; if(!def){ return; }
   let tool = def.tool || "cms", extra = def.extra || null;
@@ -210,7 +200,7 @@ window.cmLabOpen = function(key){
   if(!t || !t.live || tool === "calendaring"){ tool = "cms"; extra = def.cmsExtra || null; }
   openTool(tool, null, extra, key);
 };
-// A step's own button: another tool (or another line of the Call Simulator), same activity, steps still beside it.
+// A step's own button: another tool (or another line of the Call Simulator), same activity.
 window.cmLabGo = function(key, tool, extra){
   if(tool === "calendaring"){ openTool("calendaring", "tab", extra || null); return; }
   openTool(tool, null, extra || null, key);
@@ -229,7 +219,7 @@ window.cmLabStepHTML = function(key, toolId, what){
   return `<div class="cm-cms lab-step"><b>${t0.icon} Do this in the ${E(t0.name)}</b>${t0.live?"":` <span class="cm-soon">coming soon</span>`}
     <p style="font-size:12.8px;margin:6px 0 0;color:#37394A">${what}</p>
     ${fallback?`<p style="font-size:12.3px;margin:6px 0 0;color:var(--ink-soft)">Until the ${E(t0.short)} platform is live, add this as a <b>Task</b> in the CMS case.</p>`:""}
-    <div class="row"><button class="btn btn-navy btn-sm" onclick="cmLabOpen('${key}')">Open ${E(t.short)} beside these steps</button><button class="btn btn-ghost btn-sm" onclick="openTool('${t.id}','tab')" title="Open in a new tab">↗</button></div>
+    <div class="row"><button class="btn btn-navy btn-sm" onclick="cmLabOpen('${key}')">Open ${E(t.short)}</button><button class="btn btn-ghost btn-sm" onclick="openTool('${t.id}','tab')" title="Open in a new tab">↗</button></div>
     ${formHTML(key, "li")}
     ${cmLabResultHTML(key)}</div>`;
 };

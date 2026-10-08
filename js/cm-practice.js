@@ -719,7 +719,7 @@ TOOLS.cmPD2 = ()=>[
 const SIM = (id, extra)=> Object.assign({kind:"sim", id}, extra||{});
 const RP = (categoryId, topicId, lab)=> ({kind:"rp", categoryId, topicId, lab});
 /* Every activity below sends the trainee to do the work in the CMS (or the Training Portal tool it runs on,
-   then the CMS) with its steps beside the tool, and takes the result back for review (js/cm-lab.js).
+   then the CMS), with its steps on the activity's page, and takes the result back for review (js/cm-lab.js).
    lab: {key, title, extra (the tool's address for this activity), steps, keys (what a full summary names),
    caseRef ("jd": the trainee's own John Doe case)}. */
 const CMS = (t)=> ({t, open:{tool:"cms"}});
