@@ -168,7 +168,7 @@ s = re.sub(r'<script src="/js/presenter-notes\.js[^"]*"></script>', '<script src
 # Slide scripts: the CM course has its own js/slide-scripts/day1.js–day5.js (same names, CM content).
 s = re.sub(r'<script src="/js/slide-scripts/day(?:[6-9]|10)\.js[^"]*"></script>\n?', '', s)
 s = re.sub(r'<script src="/js/eapa-updates\.js\?v=[^"]*"></script>', '<script src="/js/eapa-updates.js?v=z"></script>', s, count=1)
-rep('<script src="/js/eapa-updates.js?v=z"></script>', '<script src="/js/cm-updates.js?v=8"></script>\n<script src="/js/cm-documents.js?v=1"></script>\n<script src="/js/cm-skillbuilders.js?v=19"></script>\n<script src="/js/cm-lab.js?v=1"></script>\n<script src="/js/cm-mindset.js?v=1"></script>\n<script src="/js/cm-practice.js?v=2"></script>')
+rep('<script src="/js/eapa-updates.js?v=z"></script>', '<script src="/js/cm-updates.js?v=8"></script>\n<script src="/js/cm-documents.js?v=1"></script>\n<script src="/js/cm-skillbuilders.js?v=20"></script>\n<script src="/js/cm-lab.js?v=1"></script>\n<script src="/js/cm-mindset.js?v=1"></script>\n<script src="/js/cm-practice.js?v=2"></script>')
 
 # ---------- 10. Call Simulator + Live Roleplay CM fixes ----------
 rep('["practice","Skill Builders"],["tools","🧰 Tools"]', '["practice","Skill Builders"],["calls","🛠 Simulators"],["tools","🧰 Tools"]')
