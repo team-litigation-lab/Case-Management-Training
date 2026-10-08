@@ -1510,8 +1510,8 @@ const __teamAfterRender = window.afterRender;
 window.afterRender = function(){ const r = __teamAfterRender.apply(this, arguments); trimTeamHeaders(document.querySelector("main")); return r; };
 
 /* Dashboard band (trainees): the five numbers, then 💬 Your feedback and Ranking side by side on the same line,
-   with the certificate notice as one short line right under them (it was a separate pill under the band, and the
-   Graded calls card had pushed Ranking onto a row of its own). Wraps the dashboard before js/lsh-dashboard.js
+   with the certificate notice (the same pill) right under them, instead of on its own under the band (the Graded
+   calls card had pushed Ranking onto a row of its own). Only the arrangement changes; every card keeps its look. Wraps the dashboard before js/lsh-dashboard.js
    moves the band under the day cards and js/graded-calls.js adds its card. */
 if(typeof renderDashboard === "function" && !renderDashboard.__cmBand){
   const __cmDash = renderDashboard;
@@ -1522,17 +1522,14 @@ if(typeof renderDashboard === "function" && !renderDashboard.__cmBand){
     const side = t.content.querySelector(".dash-side"), inner = side && side.querySelector(".dash-side-inner");
     if(!inner) return html;
     side.classList.add("cm-band");   // (on the band, not its inner box: js/graded-calls.js finds that by its exact class)
+    // the certificate notice (the same pill, as it was) moves right under Feedback and Ranking
     const locked = t.content.querySelector(".bottom-actions .cert-hero-locked");
-    if(locked && typeof certData === "function"){
-      const c = certData();
-      side.insertAdjacentHTML("beforeend", `<div class="cm-cert-line" title="Pass all ${c.total} Knowledge Checks (70%+) to unlock">🎓 Your certificate unlocks when all ${c.total} Knowledge Checks are passed — ${c.passed}/${c.total} so far.</div>`);
-      locked.remove();
-    }
+    if(locked) side.appendChild(locked);
     return t.innerHTML;
   };
   renderDashboard.__cmBand = true;
   const st = document.createElement("style"); st.id = "cm-dash-band"; st.textContent = `
-.dash-side .cm-cert-line{font-size:11.5px;font-weight:600;color:var(--ink-soft);text-align:right;margin:5px 4px 0;line-height:1.3;}
+.dash-side.cm-band > .cert-hero-locked{display:table;margin:6px 0 0 auto;}
 @media(min-width:761px){
   .dash-side.cm-band > .dash-side-inner{display:grid !important;grid-template-columns:repeat(5,minmax(0,1fr)) !important;}
   .dash-side.cm-band > .dash-side-inner > .tfb-dash{grid-column:1 / span 3;}
@@ -1542,6 +1539,6 @@ if(typeof renderDashboard === "function" && !renderDashboard.__cmBand){
   .dash-side.cm-band > .dash-side-inner{grid-template-columns:repeat(5,minmax(0,1fr)) minmax(0,1.6fr) minmax(0,1.6fr) !important;}
   .dash-side.cm-band > .dash-side-inner > .tfb-dash, .dash-side.cm-band > .dash-side-inner > .rank-card{grid-column:auto;}
 }
-@media(max-width:760px){ .dash-side .cm-cert-line{text-align:center;} }
+@media(max-width:760px){ .dash-side.cm-band > .cert-hero-locked{margin:6px auto 0;} }
 `; document.head.appendChild(st);
 }
