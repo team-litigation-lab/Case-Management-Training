@@ -150,10 +150,13 @@ const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus
 const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "registeredAt", "unlockedDays", "unlockedDaysAt"];
 
 // callsim:<id>: the trainee's graded calls from the CMS Call Simulator, kept by the Training Portal (its /api/call-results).
-// The trainee reads it (js/graded-calls.js), but never writes it (traineeWrite refuses keys it doesn't know).
+// labreview:<id>: the trainer's reviews of the trainee's Practice Lab (score, rating, comment per activity; js/cm-lab.js),
+// written by admins only. simresults:<id>: the trainee's LSH Training Portal simulator results, written by the Portal
+// ({traineeId, updatedAt, results, best:{<simulator>:{score, count, at}}}). The trainee reads all three, but never
+// writes them (traineeWrite refuses keys it doesn't know).
 function canRead(tok, key) {
   if (tok.role === "a") return true;
-  return OWN(tok.id).includes(key) || key === `callsim:${tok.id}` || key.startsWith(`actup:${tok.id}:`) || PUBLIC_READ.some((re) => re.test(key));
+  return OWN(tok.id).includes(key) || key === `callsim:${tok.id}` || key === `labreview:${tok.id}` || key === `simresults:${tok.id}` || key.startsWith(`actup:${tok.id}:`) || PUBLIC_READ.some((re) => re.test(key));
 }
 async function traineeWrite(env, tok, key, value) {
   const kv = kvOf(env);
@@ -484,6 +487,22 @@ export default {
 
       const tok = secure ? await readToken(env, request) : { role: "a", id: "open-mode" };
       if (!tok) return json({ error: "Sign-in required" }, 401);
+
+      /* ---------- training tools open signed in (js/lsh-tool-links.js) ----------
+         A fresh Portal-style ticket for the trainee signed in here, so the CMS (which takes the Portal's
+         ticket, signed with the same PORTAL_SSO_SECRET) opens without its log-in page. Trainees only:
+         an admin's ticket never signs anyone in. Good for 5 minutes. */
+      if (path === "/api/auth/tool-ticket") {
+        if (tok.role !== "t" || !portalSecret(env)) return json({ error: "not-available" }, tok.role !== "t" ? 403 : 501);
+        const rec = JSON.parse((await kv.get(`trainee:${tok.id}`)) || "null");
+        if (!rec || rec.approved !== true || rec.archived) return json({ error: "not-approved" }, 403);
+        const words = String(rec.name || "").trim().split(/\s+/).filter(Boolean);
+        const first = String(rec.firstName || words[0] || "").trim(), last = String(rec.lastName || words.slice(1).join(" ") || "").trim();
+        if (!first || !last) return json({ error: "no-name" }, 400);
+        const payload = btoa(String.fromCharCode(...enc.encode(JSON.stringify({ first, last, b: String(rec.batch || ""), exp: Date.now() + 5 * 60 * 1000 }))))
+          .replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+        return json({ ticket: `${payload}.${await hmac("portal-sso:" + portalSecret(env), payload)}` });
+      }
 
       /* ---------- 🕘 automatic Time In: a trainee's first visit today (see checkIn) ---------- */
       if (path === "/api/checkin") {

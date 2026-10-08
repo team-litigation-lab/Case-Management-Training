@@ -162,8 +162,10 @@ const CM_TOOL_DEFAULTS = [
    evidence:"Filing reference", idHint:"Filing reference (e.g. ENV-88213407)"},
   // Shared simulators on the LSH Training Portal (used by every program). The course
   // opens them with ?program=CM and the trainee's name and batch, so results carry them.
-  {id:"calls", icon:"📞", name:"Call Simulator (LSH Training Portal)", short:"Call Simulator", status:"live",
-   url:"https://cm-training-activity.pages.dev/simulators/call.html", portalSim:true,
+  // The Call Simulator is the CMS's (every Call Simulator link opens it directly, so the trainee's sign-in ticket
+  // applies): ?calls=1 opens it, &program=CM picks this program's lines, &line= and &mode=graded a line's graded calls.
+  {id:"calls", icon:"📞", name:"Call Simulator (LSH CMS)", short:"Call Simulator", status:"live",
+   url:"https://lshcasemanagementtraining-trainingcrm.pages.dev/?calls=1", cmsHosted:true,
    desc:"Live practice calls, spoken aloud: the Case Management pack has 27 calls on the John Doe file across reception, intake, client calls, attorney reporting, adjusters and providers. Each call ends with the note it requires, and both are scored.",
    evidence:"Score", idHint:"Score (e.g. 82%)"},
   {id:"email", icon:"✉️", name:"Email Workspace (LSH Training Portal)", short:"Email Workspace", status:"live",
@@ -184,15 +186,16 @@ function cmTool(id){
   const o = ((state.toolSettings||{})[id])||{};
   let url = String(o.url!=null ? o.url : d.url || "").trim().replace(/\/+$/,"");
   if(id==="calendaring" && /\/simulators\/calendar\.html$/i.test(url)) url = d.url;   // a saved address from before the Calendaring Simulators moved
+  if(id==="calls" && /\/simulators\/call\.html$|\/api\/launch/i.test(url)) url = d.url;      // the Portal's Call Simulator page (or its launch link) → the CMS's, directly
   const status = o.status || d.status;
   return Object.assign({}, d, {url, status, live: status==="live" && /^https:\/\//i.test(url)});
 }
 window.cmTool = cmTool;
 function toolHref(t){
-  if(t.id!=="cms" && !t.portalSim) return t.url;
+  if(t.id!=="cms" && !t.portalSim && !t.cmsHosted) return t.url;
   // The CMS serves every LSH program: ?program=cm opens it in the CM context (its Training Library filter and the tag on saved cases),
-  // and from=cm lets a registered trainee in with just their name (no CMS account).
-  const q = new URLSearchParams(t.id==="cms" ? {program:"cm", from:"cm"} : {program:"CM"});
+  // and from=cm lets a registered trainee in with just their name (no CMS account). The Call Simulator in the CMS takes program=CM.
+  const q = new URLSearchParams(t.id==="cms" ? {program:"cm", from:"cm"} : t.cmsHosted ? {program:"CM", from:"cm"} : {program:"CM"});
   const name = String(state.certName || state.traineeName || "").trim(), batch = String(state.traineeBatch || "").trim();
   if(name && !state.isAdmin) q.set("name", name);
   if(batch && !state.isAdmin) q.set("batch", batch);
@@ -206,6 +209,7 @@ async function loadToolSettings(){
 /* ---- the persistent in-portal frame (lives outside #app, so render() never reloads it) ---- */
 const frames = {};                  // tool id → iframe
 let frameShell = null, currentFrame = null;
+let currentAct = null;              // the Practice Lab activity the tool was opened for (js/cm-lab.js), if any: its Return pill
 function ensureShell(){
   if(frameShell) return frameShell;
   frameShell = document.createElement("div");
@@ -220,7 +224,7 @@ function ensureShell(){
   document.body.appendChild(frameShell);
   const pill = document.createElement("button");
   pill.id = "cm-toolpill"; pill.hidden = true; pill.className = "btn btn-navy";
-  pill.onclick = ()=> openTool(currentFrame);
+  pill.onclick = ()=> openTool(currentFrame, null, null, currentAct);
   document.body.appendChild(pill);
   document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !frameShell.hidden) closeToolFrame(); });
   window.addEventListener("resize", placeFrame);
@@ -235,11 +239,21 @@ function placeFrame(){
 }
 function paintShell(){
   const t = cmTool(currentFrame);
-  frameShell.querySelector(".cm-tf-name").textContent = t ? `${t.icon} ${t.name.replace(/ \(LSH Training Portal\)$/,"")}` : "";
+  frameShell.querySelector(".cm-tf-name").textContent = t ? `${t.icon} ${t.name.replace(/ \((LSH Training Portal|LSH CMS)\)$/,"")}` : "";
   Object.entries(frames).forEach(([id,f])=>{ f.style.display = id===currentFrame ? "block" : "none"; });
 }
+// "↩ Return to …" shows only on the Practice pages, and only while the activity it came from isn't finished.
+function syncPill(){
+  const pill = document.getElementById("cm-toolpill"); if(!pill) return;
+  const t = cmTool(currentFrame), open = frameShell && !frameShell.hidden;
+  const pending = !!currentAct && !(window.cmLabDone && cmLabDone(currentAct));
+  pill.hidden = !(t && !open && pending && ["practice","tool"].includes(state.view));
+  if(!pill.hidden) pill.textContent = `${t.icon} Return to ${t.short}`;
+}
+window.cmFrameSyncPill = syncPill;
 // extra: an optional query string for this opening, e.g. "mock=MC-04" opens that CMS Training Library case.
-window.openTool = function(id, mode, extra){
+// act: the Practice Lab activity the tool is opened for (js/cm-lab.js): the Return pill shows while it isn't submitted.
+window.openTool = function(id, mode, extra, act){
   id = id || currentFrame || "cms";
   const t = cmTool(id);
   if(!t){ return; }
@@ -248,13 +262,17 @@ window.openTool = function(id, mode, extra){
   if(extra) href += (href.includes("?") ? "&" : "?") + extra;
   if(mode==="tab" || id==="calendaring"){ window.open(href, "_blank", "noopener"); return; }   // the Calendaring Simulators use the Portal's sign-in cookie, which a frame doesn't send
   ensureShell();
-  if(!frames[id] || frames[id].dataset.src !== href){
+  currentAct = act || null;
+  // reopening a tool without a new address keeps it as it was (its session and the page it's on)
+  if(!frames[id] || (extra && frames[id].dataset.src !== href) || (!extra && frames[id].dataset.base !== toolHref(t))){
     if(frames[id]) frames[id].remove();
     const f = document.createElement("iframe");
-    f.src = href; f.dataset.src = href; f.title = t.name;
+    f.dataset.src = href; f.dataset.base = toolHref(t); f.title = t.name;
     // microphone: the Call Simulator listens when trainees answer by voice
     f.setAttribute("allow", "microphone; autoplay; clipboard-read; clipboard-write; fullscreen");
     f.setAttribute("referrerpolicy", "no-referrer-when-downgrade");
+    // the CMS opens signed in, with no log-in page: a trainee's address gets a fresh ticket (js/lsh-tool-links.js)
+    if(window.LSHToolLinks) LSHToolLinks.ticketed(href).then(u=>{ if(f.dataset.src === href) f.src = u; }); else f.src = href;
     frameShell.querySelector(".cm-tf-body").appendChild(f);
     frames[id] = f;
   }
@@ -269,13 +287,14 @@ window.closeToolFrame = function(){
   frameShell.hidden = true; document.body.classList.remove("cm-tf-open");
   repaintToolsMenu();
   const t = cmTool(currentFrame), pill = document.getElementById("cm-toolpill");
-  if(t && pill){ pill.textContent = `${t.icon} Return to ${t.short}`; pill.hidden = false; }
+  syncPill();
 };
 window.openCms = function(mode){ openTool("cms", mode); };
 
 /* Tool step: the trainee does the work in a training platform, then logs the ID here.
    A tool that isn't live yet falls back to a CMS Task so no step is ever blocked. */
 function toolStep(toolId, key, what){
+  if(window.cmLabStepHTML) return cmLabStepHTML(key, toolId, what);   // the step, done in the tool and submitted for review (js/cm-lab.js)
   const t = cmTool(toolId), saved = ((state.cmsLog||{})[key]||{}), k = key.replace(/\W/g,"_");
   const fallback = !t.live && toolId!=="cms";
   return `<div class="cm-cms"><b>${t.icon} Do this in the ${E(t.name)}</b>${t.live?"":` <span class="cm-soon">coming soon</span>`}
@@ -413,7 +432,7 @@ function aiTask(key, cfg){
   CM_UI[key] = Object.assign({type:"ai"}, cfg);
   return `<label style="font-size:12.8px;font-weight:700;color:var(--navy);display:block;margin:4px 0 5px">${E(cfg.label)}</label>
     <textarea class="cm-ta" id="ta_${key.replace(/\W/g,"_")}" style="min-height:${cfg.rows||150}px" placeholder="${E(cfg.placeholder||"Write it exactly as you would send or file it…")}"></textarea>
-    <button class="btn btn-navy btn-sm" style="margin-top:8px" onclick="cmGrade('${key}', this)">Get AI review</button>
+    <button class="btn btn-navy btn-sm" style="margin-top:8px" onclick="cmGrade('${key}', this)">Review</button>
     <div id="ai_${key.replace(/\W/g,"_")}" style="margin-top:10px"></div>`;
 }
 window.cmGrade = async function(key, btn){
@@ -433,7 +452,7 @@ window.cmGrade = async function(key, btn){
     out.innerHTML = renderEvaluationReport(report, day);
     await bumpPracticeProgress(tool, report.totalScore);
   }catch(e){ out.innerHTML = renderAiErrorBlock(e, "Couldn't review this yet"); }
-  if(btn){ btn.disabled = false; btn.textContent = "Get AI review"; }
+  if(btn){ btn.disabled = false; btn.textContent = "Review"; }
 };
 
 /* ================================================================
@@ -478,7 +497,7 @@ TOOLS.cmIntake1 = ()=>[
       exercise:"Applied Case Manager Actions — intake bottleneck root cause",
       context:"Intake problems found: data entered into the CMS inconsistently (occupation, report number); provider records carry a different DOB; HIPAA sent unsigned; passenger not screened; prior counsel lien discovered late; two health-plan names. Bottleneck categories from the lesson: incomplete client information, delayed follow-up, conflict check delays, intake form errors, eligibility uncertainty, communication gaps.",
       criteria:"Must (1) name the specific slow points, (2) identify real root causes (e.g., no source-document verification step, no signature checklist, no passenger/household screening question, no single source of truth), (3) give immediate actions with owners and dates, (4) give prevention measures (checklists, CMS required fields, handoff rule). Generic advice without reference to the John Doe documents should score low on Accuracy."
-    })) + cmsStep("cmIntake1:cms", "Create John Doe's case in the CMS with the corrected facts (DOB 08/14/1980, occupation Senior Logistics Manager, Police Report 2026-0214-AX). Upload the intake packet under <b>Case Files</b> and the police report under <b>Police</b>. Optional: fill in the <b>Blank PI Client Intake Form</b> from 📁 Case Documents → Templates and upload it too.") + toolStep("records", "cmIntake1:records", "Request John's prior records flagged at intake (the 2021 migraine records and the 2018 records). Attach the claim-specific HIPAA authorization, which must be <b>signed</b> first, and give the provider the correct DOB, 08/14/1980.")}
+    })) + cmsStep("cmIntake1:cms", "Create John Doe's case in the CMS with the corrected facts (DOB 08/14/1980, occupation Senior Logistics Manager, Police Report 2026-0214-AX). Upload the intake packet under <b>Case Files</b> and the police report under <b>Police</b>. Optional: fill in the <b>Blank PI Client Intake Form</b> from 📁 Case Documents → Templates and upload it too.")}   // (the prior-records request is in the Day 2 Practice Lab, Treatment Phase: js/cm-practice.js)
 ];
 
 /* ---------- DAY 1 · Treatment Phase ---------- */
@@ -627,7 +646,7 @@ TOOLS.cmLien3 = ()=>{
       context:"BlueCross notice (03/10/2026): self-funded ERISA plan, first-priority reimbursement, no made-whole, no common fund, $20,000 'to date'. Separate 'Global Health Blue-Shield' statutory lien itemizes $11,200 for ER $4,200, MRI $850, surgical facility $6,150. Client's plan: BCBS ERISA Group BC-441-A. Gross settlement (exercise) $50,000; client has permanent injuries and $57,000 future care.",
       criteria:"Top answers: request the plan document (SPD) and itemized payment ledger; confirm whether the plan is truly self-funded (if insured, state law and Made Whole/Common Fund may apply); challenge the $20,000 vs the $11,200 itemization and possible duplication with the Global Health lien; strip unrelated charges; propose a specific reduced figure with hardship/procurement-cost reasoning; ask for written agreement and a final payoff letter before disbursement; professional tone. Relying only on Made Whole without addressing ERISA should score low on Accuracy."})
     + `<div style="margin-top:18px">${renderCrisisRoleplaySection("cmLien3", "Live lien negotiation — the AI plays the lienholder")}</div>`
-    + cmsStep("cmLien3:cms", "Upload the lien letters under <b>Others</b> in John's CMS case, add a <b>Lien Entry</b> for each lienholder with the asserted and negotiated amounts, and attach your net sheet (use <b>LSH Net Sheet v2</b> from 📁 Case Documents → Templates).")) }
+    + cmsStep("cmLien3:cms", "Upload the lien letters under <b>Others</b> in John's CMS case, add a <b>Lien Entry</b> for each lienholder with the asserted and negotiated amounts, and record the net from your <b>Net Sheet Ledger</b> (Disbursement &amp; Closing a Case → Reconcile the $150,000, on this platform).")) }
   ];
 };
 window.cmLienCalc = function(){
@@ -659,16 +678,17 @@ window.cmLienCheck = async function(){
 /* ---------- DAY 3 · Disbursement & Closing ---------- */
 TOOLS.cmClosing3 = ()=>[
   {label:"Reconcile the $150,000", html: part("A. Reconcile the gross settlement against every lien and cost",
-    "John's case settled for <b>$150,000</b> after the First Amended Complaint was filed. Read the retainer before you calculate: the fee tier changed when suit was filed, and §4 deducts costs <i>before</i> the fee is calculated.",
+    "John's case settled for <b>$150,000</b> after the First Amended Complaint was filed. Fill in the <b>Net Sheet Ledger</b> below (the LSH Net Sheet, on the platform: it adds up as you type). Read the retainer first: the fee tier changed when suit was filed, and §4 deducts costs <i>before</i> the fee is calculated.",
     docPacket(["JD05","JD35","TPL3","TPL2"], "Rules & templates")
     + scenario(`<b>Advanced case costs (receipts on file):</b> filing fee & summons $435 · process server $150 · mediation share $1,200 · medical records $265 · postage $40.<br>
       <b>Final payoff letters received:</b> Metro General $4,900 · BlueCross ERISA $9,500 · Dr. Sarah Spine (LOP) $6,000 · Metro Radiology & Imaging $3,500 · City Chiropractic (LOP, reduced) $2,400 · Metro Physical Therapy $1,100 · Barry Slow (agreed) $600.`)
-    + calc("cmClosing3:recon", [
+    // the real LSH Net Sheet, on the platform (js/cm-practice.js: pxNetSheetHTML); the calculator stays as a fallback
+    + (window.pxNetSheetHTML ? pxNetSheetHTML("cmClosing3:netsheet") : calc("cmClosing3:recon", [
       {label:"Total advanced case costs", answer:2090, tol:1},
       {label:"Attorney fee (retainer tier after suit is filed, on gross − costs)", answer:59164, tol:2, hint:"40% × (150,000 − 2,090). If you used 33⅓%, check the retainer — suit was filed."},
       {label:"Total liens per final payoff letters", answer:28000, tol:1},
       {label:"Net to client", answer:60746, tol:3, hint:"150,000 − 2,090 − 59,164 − 28,000"}
-    ]))},
+    ])))},
   {label:"Audit-Ready?", html: part("B. Is the file “Audit Ready”? Final Case Reconciliation Checklist",
     "Before a case is marked Archived, all four document sets must be present. Here is the file inventory — select every item that <b>blocks archiving</b> until it's fixed.",
     checklist("cmClosing3:audit", [
@@ -869,7 +889,7 @@ window.renderCalendarBody = function(body){
   screens[1].innerHTML = part("Weekly Docket Briefing for the Handling Attorney",
     "Using your resolved week, write the BLUF briefing the attorney reads on Monday: hard deadlines first (brief deadline, SOL filing, RFA responses, strike list), what moved and why, what needs a decision.",
     `<textarea id="calPromptInput" class="cm-ta" style="min-height:170px" placeholder="BLUF: … &#10;Hard deadlines this week: … &#10;Moved: … &#10;Decisions needed: …"></textarea>
-     <button class="btn btn-navy btn-sm" style="margin-top:10px" onclick="checkCalendarPrompt(this)">Get AI review</button><div id="calPromptResult" style="margin-top:10px"></div>`);
+     <button class="btn btn-navy btn-sm" style="margin-top:10px" onclick="checkCalendarPrompt(this)">Review</button><div id="calPromptResult" style="margin-top:10px"></div>`);
   screens[2].innerHTML = part("Proactive Case Manager Tasks",
     "A strong Case Manager spots what is missing from the calendar: warning alerts before hard dates, 30-day client pulses, subpoena audits, payoff-letter follow-ups. Generate an AI read of your current week.",
     `<button class="btn btn-orange btn-sm" onclick="generateProactiveTasks()">Generate proactive tasks</button><div id="proactiveResult" style="margin-top:14px"></div>`);
@@ -1036,14 +1056,14 @@ window.renderCallSimulator = function(){
   const calls = cmTool("calls"), mail = cmTool("email"), replies = cmTool("replies"), cal = cmTool("calendaring"), dk = cmTool("docket"), rec = cmTool("records"), ef = cmTool("efiling");
   const lines = [["☎","Reception & Front Desk","5 calls"],["📥","Intake Calls","5 calls"],["🤝","Client Communication","5 calls"],["⚖","Attorney Reporting","5 calls"],["🛡","Adjusters & Carriers","4 calls"],["🏥","Providers & Records","3 calls"]];
   const card = (t, extra)=> `<div class="card cm-tool${t.live?"":" soon"}">
-      <div class="cm-tool-h"><span class="cm-tool-ic">${t.icon}</span><div><b>${E(t.name.replace(/ \(LSH Training Portal\)$/,""))}</b><div><span class="cm-badge ${t.live?"live":"soon"}">${t.live?"● Live on the LSH Training Portal":"Coming soon"}</span></div></div></div>
+      <div class="cm-tool-h"><span class="cm-tool-ic">${t.icon}</span><div><b>${E(t.name.replace(/ \((LSH Training Portal|LSH CMS)\)$/,""))}</b><div><span class="cm-badge ${t.live?"live":"soon"}">${t.live?(t.cmsHosted?"● Live in the LSH CMS":"● Live on the LSH Training Portal"):"Coming soon"}</span></div></div></div>
       <p>${E(t.desc)}</p>${extra||""}
       ${t.live?`<div class="cm-tool-act"><button class="btn btn-primary btn-sm" onclick="openTool('${t.id}')">Open here</button><button class="btn btn-ghost btn-sm" onclick="openTool('${t.id}','tab')">New tab ↗</button></div>`:""}
     </div>`;
   return `<p class="eyebrow">Simulators</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🛠 Simulators</h1>
-    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">Phone, email, calendar, docketing, medical records and court e-filing practice live on the <b>LSH Training Portal</b>, shared by every program. They open here already set to <b>Case Management</b> and carrying your name and batch, so your scores reach your trainer. On calls the caller speaks: answer by voice (Chrome or Edge, allow the microphone) or by typing. Most calls end with the note the call requires, graded with the call.</p>
-    <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span>${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(mail)}${card(replies)}${card(cal, state.isAdmin ? `<p style="font-size:12.5px;margin:6px 0 0"><button class="btn btn-navy btn-sm" onclick="openTool('calendaring','tab','view=scores')">📊 Calendar Scores (Litigation Week) ↗</button> Grade and give feedback there; scores also show on the Portal's Progress page under this program.</p>` : "")}${card(dk)}${card(rec)}${card(ef)}</div>
+    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">The <b>Call Simulator</b> is in the LSH CMS (it opens already signed in, on the Case Management lines; pick a line below for its graded calls). Email, calendar, docketing, medical records and court e-filing practice live on the <b>LSH Training Portal</b>, shared by every program. They open here already set to <b>Case Management</b> and carrying your name and batch, so your scores reach your trainer. On calls the caller speaks: answer by voice (Chrome or Edge, allow the microphone) or by typing. Most calls end with the note the call requires, graded with the call.</p>
+    <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span role="button" tabindex="0" style="cursor:pointer" title="Open this line's graded calls" onclick="openTool('calls',null,'line=${encodeURIComponent(l)}&mode=graded')">${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(mail)}${card(replies)}${card(cal, state.isAdmin ? `<p style="font-size:12.5px;margin:6px 0 0"><button class="btn btn-navy btn-sm" onclick="openTool('calendaring','tab','view=scores')">📊 Calendar Scores (Litigation Week) ↗</button> Grade and give feedback there; scores also show on the Portal's Progress page under this program.</p>` : "")}${card(dk)}${card(rec)}${card(ef)}</div>
     <div class="card" style="padding:14px 18px;font-size:12.8px;color:var(--ink-soft)">Want more? Live Roleplay (🔥) has the crisis calls from the lessons, and the Calendar Skill Builder (Day 4) has the John Doe docket.${state.isAdmin?` <b>Admin:</b> results appear on the Training Portal's Simulators page when you're signed in there as admin. Addresses are set in 🧰 Tools.`:""}</div>`;
 };
 window.saveToolSettings = async function(){
@@ -1118,7 +1138,7 @@ const _gotoForFrame = window.goto;
 window.goto = function(){ if(frameShell && !frameShell.hidden) closeToolFrame(); return _gotoForFrame.apply(this, arguments); };
 // A re-render can change the top bar's height.
 const _renderForFrame = window.render;
-window.render = function(){ const r = _renderForFrame.apply(this, arguments); placeFrame(); return r; };
+window.render = function(){ const r = _renderForFrame.apply(this, arguments); placeFrame(); syncPill(); return r; };
 
 /* The building blocks, for js/cm-practice.js (the 🧪 Practice hub and the tools it adds). */
 window.__cmKit = {TOOLS, part, scenario, flagTable, sorter, checklist, calc, choice, choiceText, aiTask, docPacket, toolStep, cmsStep, E, money, scorePart, cmState, CM_UI, toolOfKey, dayOfTool};

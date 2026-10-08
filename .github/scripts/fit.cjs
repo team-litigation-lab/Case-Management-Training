@@ -1,6 +1,6 @@
 // Every slide fits on one screen: on the lesson page, the slide and its Previous / Next bar end inside the
-// window (no scrolling), and nothing inside the slide frame is cut off or scrolls — every slide, every page
-// of every day, on a laptop and on a large screen. On a desktop the lesson's controls sit to the right of
+// window (no scrolling), nothing inside the slide frame is cut off or scrolls, and no slide is split onto a
+// second page (a long one is scaled to fit) — every slide of every day, on a laptop and on a large screen. On a desktop the lesson's controls sit to the right of
 // the slide; on a narrower window (under 1000px) they stay above it, and the slide still never scrolls inside
 // (the page itself may: the site's top bar alone wraps to three rows there).
 // Usage: node .github/scripts/fit.cjs [baseUrl] [days]   (with .github/scripts/server.mjs running; needs `npm i playwright`;
@@ -35,6 +35,7 @@ const SIZES = [[1366, 768], [1920, 1080]];
                     state.lessonSlide = i; state.slidePage = 0; render(); await sleep(8); await loaded();
                     window.scrollTo(0, 0); await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
                     const n = state.slidePages || 1; counts.slides++;
+                    if (n > 1) out.push(`Day ${d.id} slide ${i + 1} (${slides[i].type}): split onto ${n} pages (a slide is scaled to fit one screen)`);
                     for (let p = 0; p < n; p++) {
                         if (p) { showSlidePage(p); await sleep(5); }
                         counts.pages++;

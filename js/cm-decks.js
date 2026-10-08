@@ -3,8 +3,8 @@
    Canva's PDF by build/decks.py (decks/dayN/NN.webp, js/cm-decks-data.js). Each topic is a run of pages that
    follows the deck's own sections, and opens with its divider; the deck's title and agenda open the day and
    its Thank You page closes it. Everything around the pages stays: the Task Overview, Meet the Case, the
-   Quick Checks (after the topic that now covers them), the Video Recap, the Skill Builders and the Knowledge
-   Check.
+   Video Recap, the Skill Builders and the Knowledge Check. There are no Quick Check slides: the process
+   questions are in the Knowledge Check (their data stays, for moving saved places).
 
    The topics written for the course before (d.oldLessons) are matched to the pages that cover them (the words
    they share), so each page's Presenter view, trainer cue and read-aloud script are the ones written for that
@@ -15,6 +15,7 @@
   const DK = window.CM_DECKS;
   if(!DK || typeof DAYS === "undefined") return;
   let off = false;   // while true, the functions below behave as before (the old layout, for moving saved places)
+  let withQc = false;   // while true, the deck layout still has its Quick Check slides (for moving saved places once)
 
   // ---------- which pages cover each topic written before ----------
   const STOP = new Set(("the and for are you your with that this from not but all can will has have into what when where who how its it's " +
@@ -94,7 +95,8 @@
       if(!d.noDividers) s.push({type:"divider", lessonIndex:i});
       if(l.pages) l.pages.forEach((n,j)=>s.push({type:"topic", lessonIndex:i, part:j+1}));
       else { s.push({type:"topic", lessonIndex:i, part:1}); if(!l.singleSlide) s.push({type:"topic", lessonIndex:i, part:2}); }
-      if((d.quickChecks||[]).some(q=>q.afterIndex === i)) s.push({type:"quickCheck", lessonIndex:i});
+      // No Quick Check slides: the process questions are in the day's Knowledge Check (the data stays, for moving saved places).
+      if(withQc && (d.quickChecks||[]).some(q=>q.afterIndex === i)) s.push({type:"quickCheck", lessonIndex:i});
     });
     if(d.recapVideo) s.push({type:"video"});
     if(relatedTools(d.id).length) s.push({type:"practiceLab"});
@@ -220,10 +222,32 @@
       }
     });
     ls._cmDecks = true; sp._cmDecks = true;   // (the mark travels with the saved places, e.g. into the cloud copy)
+    ls._cmNoQc = true; sp._cmNoQc = true;     // (moved straight to the layout without Quick Check slides)
     return {qaMoved};
   }
+  // When the Quick Check slides left the decks, every later slide moved up: a saved place on the deck pages moves with
+  // its slide, once (a place on a Quick Check goes to the slide before it). Marked like the move above.
+  function moveNoQc(){
+    const ls = state.lastSlide, sp = state.slideProgress;
+    const todo = [ls, sp].filter(o=>o && typeof o === "object" && o._cmDecks && !o._cmNoQc);
+    if(!todo.length) return false;
+    DAYS.forEach(d=>{
+      if(!d.cmDeck) return;
+      withQc = true; const before = buildDaySlides(d); withQc = false;
+      const after = buildDaySlides(d);
+      const same = (a,b)=> a.type === b.type && a.lessonIndex === b.lessonIndex && a.part === b.part && a.page === b.page;
+      const map = i=>{ for(let j=Math.min(i, before.length-1); j>=0; j--){ const x = before[j]; if(x.type === "quickCheck") continue; const k = after.findIndex(y=>same(x,y)); if(k >= 0) return k; } return 0; };
+      todo.forEach(o=>{ if(typeof o[d.id] === "number" && o[d.id] > 0) o[d.id] = map(o[d.id]); });
+    });
+    todo.forEach(o=>{ o._cmNoQc = true; });
+    return true;
+  }
   async function moveSavedAndStore(){
-    const r = moveSaved(); if(!r) return;
+    const r = moveSaved();
+    if(!r){
+      if(moveNoQc()){ if(state.lastSlide) await storeSet("last-slide", state.lastSlide); if(state.slideProgress) await storeSet("slide-progress", state.slideProgress); }
+      return;
+    }
     await storeSet("last-slide", state.lastSlide);
     await storeSet("slide-progress", state.slideProgress);
     if(r.qaMoved) await storeSet("quick-check-answers", state.qcAnswers);
@@ -250,6 +274,8 @@
 .cm-deck-page img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 14px 34px -20px rgba(22,24,41,.55);background:#262B45;}
 .cm-deck-words{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
 .pv-also{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+/* no process questions on the slides: the objectives page has no Quick Check warm-up either (they're in the Knowledge Check) */
+.day-intro .di-warm{display:none;}
 @media(max-width:760px){ .lesson-stage #lessonSlideWrap:has(> .cm-deck-page){padding:6px;} #lessonSlideWrap > .cm-deck-page{height:auto;} .cm-deck-page img{max-height:none;width:100%;} }
 `; document.head.appendChild(st);
 })();

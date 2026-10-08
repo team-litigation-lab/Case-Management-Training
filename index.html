@@ -88,7 +88,7 @@ button{font-family:inherit;cursor:pointer;}
   box-shadow:0 2px 16px rgba(0,0,0,.15);
 }
 .topbar-inner{
-  max-width:1400px;margin:0 auto;padding:10px 20px;
+  max-width:1400px;margin:0 auto;padding:14px 20px;
   display:flex;align-items:center;justify-content:space-between;gap:16px;
   flex-wrap:wrap;row-gap:10px;
 }
@@ -122,7 +122,7 @@ button{font-family:inherit;cursor:pointer;}
 .search-results .sr-empty{padding:14px;font-size:var(--font-sub);color:var(--ink-soft);text-align:center;}
 
 .brand{display:flex;align-items:center;gap:12px;cursor:pointer;flex:0 0 auto;min-width:0;}
-.brand-mark{width:40px;height:40px;flex:0 0 auto;object-fit:contain;background:#fff;padding:3px;border-radius:7px;box-sizing:border-box;box-shadow:0 1px 3px rgba(0,0,0,.25);}
+.brand-mark{width:48px;height:48px;flex:0 0 auto;object-fit:contain;background:#fff;padding:3px;border-radius:7px;box-sizing:border-box;box-shadow:0 1px 3px rgba(0,0,0,.25);}
 .brand-text{display:flex;flex-direction:column;line-height:1.15;min-width:0;}
 .brand-text b{font-family:'Fraunces';font-size:var(--font-body);letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:240px;}
 .brand-text span{font-size:var(--font-sub);color:#B9BEDA;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:240px;}
@@ -1615,10 +1615,10 @@ main.has-presenter{padding-right:calc(clamp(170px,16vw,250px) + 16px);}
   html{-webkit-text-size-adjust:100%;}
   body{font-size:15px;}
   /* compact top bar with a Menu button */
-  .topbar-inner{padding:8px 12px;flex-wrap:nowrap;gap:10px;}
+  .topbar-inner{padding:10px 12px;flex-wrap:nowrap;gap:10px;}
   .brand-text span{display:none;}
   .brand-text b{font-size:14px;max-width:170px;}
-  .brand-mark{width:34px;height:34px;}
+  .brand-mark{width:40px;height:40px;}
   .mobile-menu-btn{display:flex;align-items:center;gap:6px;margin-left:auto;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#fff;border-radius:10px;padding:8px 12px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;}
   .mobile-menu-btn span{font-size:13px;}
   .topbar .topbar-right{display:none;}
@@ -7439,7 +7439,7 @@ const mem = {}; // in-memory fallback if window.storage is unavailable
 const PERSONAL_KEYS = ["day-progress","practice-progress","lab-attempts-global","lab-attempts-by-day","admin-unlocked-days","notes","completed-lab-actions",
   "day10-window","submissions","roleplayHistory","slide-progress","last-slide","attn-detail-findings",
   "calendar-custom","calendar-edits","call-log","inbox-filing","inbox-interactions","inbox-labels","trainee-batch",
-  "quick-check-answers","day-order-migrated","dividers-migrated","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log"];
+  "quick-check-answers","day-order-migrated","dividers-migrated","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log","lab-subs"];
 const PERSONAL_KEY_SET = new Set(PERSONAL_KEYS);
 let cloudSaveTimer = null;
 function scheduleCloudSave(){
@@ -10597,6 +10597,8 @@ async function resetTraineeSessionData(){
   state.submissions = [];
   state.roleplayHistory = [];
   state.cmsLog = {};
+  state.labSubs = {};
+  state.labReviews = null;
   state.assignedRoleplay = null;
   state.day10Window = null;
   state.traineeBatch = "";
@@ -10607,6 +10609,7 @@ async function resetTraineeSessionData(){
   await storeSet("submissions", []);
   await storeSet("roleplayHistory", []);
   await storeSet("cms-log", {});
+  await storeSet("lab-subs", {});
   await storeSet("day10-window", null);
   await storeSet("trainee-batch", "");
 }
@@ -19961,13 +19964,14 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/slide-scripts/day3.js?v=2"></script>
 <script src="/js/slide-scripts/day4.js?v=2"></script>
 <script src="/js/slide-scripts/day5.js?v=2"></script>
-<script src="/js/cm-updates.js?v=16-a"></script>
+<script src="/js/cm-updates.js?v=21"></script>
 <script src="/js/cm-decks-data.js?v=1"></script>
-<script src="/js/cm-decks.js?v=1"></script>
+<script src="/js/cm-decks.js?v=2"></script>
 <script src="/js/cm-documents.js?v=1"></script>
-<script src="/js/cm-skillbuilders.js?v=16"></script>
+<script src="/js/cm-skillbuilders.js?v=cm-2026.10.08-nopanel"></script>
+<script src="/js/cm-lab.js?v=cm-2026.10.08-nopanel"></script>
 <script src="/js/cm-mindset.js?v=2"></script>
-<script src="/js/cm-practice.js?v=2"></script>
+<script src="/js/cm-practice.js?v=cm-2026.10.08-nopanel"></script>
 <script src="/js/daily-activities.js?v=2"></script>
 <script src="/js/attendance.js?v=3"></script>
 <script src="/js/portal-link.js?v=3"></script>
@@ -19979,6 +19983,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/graded-calls.js?v=1"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=3"></script>
+<script src="/js/lsh-tool-links.js?v=cm-2026.10.08-portal"></script>
 <script src="/js/lsh-topbar.js?v=2"></script>
 </body>
 </html>

@@ -6,7 +6,8 @@
 //   - the slides window resized: laid out again, still without animation;
 //   - the slides window never reloads itself for an update.
 // Usage: node .github/scripts/presenter.cjs [baseUrl] [day]   (with .github/scripts/server.mjs running; needs `npm i playwright`;
-//        day: a day with a slide long enough to split into pages, default 1; CI uses Day 2, since the deck pages never split)
+//        day: a day with a slide long enough to split into pages, default 1; CI uses Day 2, since the deck pages never split;
+//        slides are scaled to fit before they split, so the page test may shrink the slides window to make one split)
 const { chromium } = require('playwright');
 const BASE = process.argv[2] || 'http://localhost:8787/';
 const DAY = Number(process.argv[3] || 1);
@@ -59,15 +60,20 @@ const DAY = Number(process.argv[3] || 1);
     if (!r.msgs.includes('hello') || !r.msgs.includes('show')) fail(`the console's live copy didn't reconnect as expected (${r.msgs.join(', ')})`);
     if (r.draws !== 0) fail(`the console re-drawing made the slides window redraw the same slide ${r.draws} time(s): that's the flicker`);
 
-    // a long slide split into pages: the next page is shown in place
+    // a long slide split into pages: the next page is shown in place. Every slide is scaled to fit its window
+    // (down to half size) before it splits, so if none splits at this size, a very short window makes one.
     const total = await page.evaluate(() => buildDaySlides(DAYS.find(d => d.id === state.dayId)).length);
     let paged = -1;
-    for (let i = 0; i < total && paged < 0; i++) {
-        await page.evaluate((i) => presenterJump(i), i); await sleep(250);
-        if ((await aud.evaluate(() => state.slidePages || 1)) > 1) paged = i;
-    }
+    const findPaged = async () => {
+        for (let i = 0; i < total && paged < 0; i++) {
+            await page.evaluate((i) => presenterJump(i), i); await sleep(250);
+            if ((await aud.evaluate(() => state.slidePages || 1)) > 1) paged = i;
+        }
+    };
+    await findPaged();
+    if (paged < 0) { await aud.setViewportSize({ width: 1280, height: 330 }); await sleep(800); await findPaged(); }
     await take();   // the jumps above drew the window; count from here
-    if (paged < 0) fail(`no slide in Day ${DAY} is long enough to split into pages at this window size (the page test was skipped)`);
+    if (paged < 0) fail(`no slide in Day ${DAY} is long enough to split into pages, even in a short window (the page test was skipped)`);
     else {
         await page.evaluate(() => presenterStep(1)); await sleep(600);
         r = await take();

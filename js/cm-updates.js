@@ -201,6 +201,13 @@ function nextSlide(){
 function goToKnowledgeCheckWithInterstitial(){
   if((state.slidePages||1) > 1 && (state.slidePage||0) < state.slidePages-1){ showSlidePage((state.slidePage||0)+1); return; }
   state.dayViewMode = "knowledgeCheck";
+  // In full screen (⛶ Present full screen / Full screen) render() only redraws the slide inside the stage,
+  // so the Knowledge Check never showed: leave full screen first, then draw the page.
+  if(document.fullscreenElement && document.exitFullscreen){
+    const show = ()=>{ render(); window.scrollTo({top:0, behavior:"smooth"}); };
+    Promise.resolve(document.exitFullscreen()).then(show, show);
+    return;
+  }
   render();
   window.scrollTo({top:0, behavior:"smooth"});
 }
@@ -225,7 +232,7 @@ window.EXTRA_ROUTE_VIEWS = ["casedocs"];   // CM-only page gets its own address 
 // Page names for the "← Back to …" button, matching this top bar.
 window.EXTRA_ROUTE_LABELS = {clientprofile:"Case File", casedocs:"Documents", practice:"Practice", notes:"Notes"};
 function renderTopbar(){
-  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["activities","📋 Activities"],["notes","Notes"],["handouts","Handouts"]];
+  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","Notes"],["handouts","Handouts"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
   if(state.isAdmin){
     // Admin is a trainer monitoring dashboard, not a trainee workspace — hide
     // the trainee-facing-only views that have no role here.
@@ -312,11 +319,13 @@ function collectSlideUnits(root, bigH){
   walk(root);
   return units.filter(u=>u.getClientRects().length);
 }
-// Every slide fits on one screen: the frame is sized to the room left on the lesson page (fitSlideFrame),
-// what doesn't fit continues on the next page (paginateSlideUnits), and a block too big for one page is
-// scaled down a little (fitSlideZoom), so the frame never scrolls.
+// Every slide fits on one screen: the frame is sized to the room left on the lesson page (fitSlideFrame), and
+// a slide that's too long for it is scaled to fit (fitSlideZoom, down to half size), the way the deck pages
+// are. Only a slide that would have to shrink further continues on a next page (paginateSlideUnits), so the
+// frame never scrolls.
 function paginateLessonSlide(){
   const wrap = document.getElementById("lessonSlideWrap");
+  trimTeamHeaders(wrap);
   fitSlideFrame(wrap);
   paginateSlideUnits();
   fitSlideZoom(wrap);
@@ -343,16 +352,19 @@ function fitSlideFrame(wrap){
     window.__fitBarRO = new ResizeObserver(()=>{ const h = bar.offsetHeight; if(h !== h0){ h0 = h; if(state.view==="day" && document.getElementById("lessonSlideWrap")) paginateLessonSlide(); } });   // before the next paint: no jump
     window.__fitBarRO.observe(bar);
   }
-  wrap.style.height = Math.max(320, Math.floor(window.innerHeight - (r.top + window.scrollY) - below - 12)) + "px";
+  wrap.style.height = Math.max(240, Math.floor(window.innerHeight - (r.top + window.scrollY) - below - 12)) + "px";
 }
 function slideZoomParts(wrap){ return [...wrap.children].filter(n=>!n.classList.contains("pg-badge")); }
+const SLIDE_ZOOM_MIN = 0.5;   // the smallest a slide is scaled to before it continues on a next page
+// Scales the slide down until it fits its frame; true when it fits.
 function fitSlideZoom(wrap){
-  if(!wrap || !wrap.isConnected || window.innerWidth <= 760 || wrap.querySelector(".cs-page")) return;   // deck pages size themselves
+  if(!wrap || !wrap.isConnected || window.innerWidth <= 760 || wrap.querySelector(".cs-page")) return false;   // deck pages size themselves
   // a picture that hasn't loaded yet has no height: lay the slide out again once it has
   wrap.querySelectorAll("img").forEach(img=>{ if(!img.complete && !img.dataset.fitWait){ img.dataset.fitWait = "1"; img.addEventListener("load", repaginateSoon, {once:true}); } });
   const parts = slideZoomParts(wrap); let z = 1;
   parts.forEach(n=>n.style.zoom = "");
-  while(wrap.scrollHeight > wrap.clientHeight + 2 && z > 0.6){ z = Math.round((z - 0.05)*100)/100; parts.forEach(n=>n.style.zoom = String(z)); }
+  while(wrap.scrollHeight > wrap.clientHeight + 2 && z > SLIDE_ZOOM_MIN){ z = Math.round((z - 0.05)*100)/100; parts.forEach(n=>n.style.zoom = String(z)); }
+  return wrap.scrollHeight <= wrap.clientHeight + 2;
 }
 function paginateSlideUnits(){
   const wrap = document.getElementById("lessonSlideWrap");
@@ -365,6 +377,9 @@ function paginateSlideUnits(){
   wrap.querySelectorAll("ol[data-pg-start]").forEach(ol=>{ ol.removeAttribute("start"); ol.style.counterReset = ""; ol.removeAttribute("data-pg-start"); });
   wrap.classList.remove("pg-later", "pg-roomy");
   if(window.innerWidth <= 760){ state.slidePage = 0; updateSlidePageUi(); return; }   // phones: the page scrolls instead
+  // the whole slide on one screen, scaled to fit, before anything is split onto a next page
+  if(fitSlideZoom(wrap)){ state.slidePage = 0; updateSlidePageUi(); return; }
+  slideZoomParts(wrap).forEach(n=>n.style.zoom = "");   // too long even at half size: measure it full size to split it
   const cs = getComputedStyle(wrap);
   const padT = parseFloat(cs.paddingTop)||0, padB = parseFloat(cs.paddingBottom)||0;
   const avail = wrap.clientHeight - padT - padB;
@@ -977,10 +992,14 @@ window.orientSlides = function(){
   const slides = __eapaOrientSlides();
   const i = slides.findIndex(x=>x.k==="A day");
   if(i >= 0){
-    slides[i] = Object.assign({}, slides[i], {body: slides[i].body.replace("One topic at a time. Next / Previous at the bottom; your place is saved.", "One topic at a time, every slide the same size. Longer topics continue on a second page — watch for the PAGE 1 / 2 badge. Your place is saved.")});
+    slides[i] = Object.assign({}, slides[i], {body: slides[i].body
+      // no Quick Checks between topics any more (the process questions are in the Knowledge Check): the steps renumber
+      .replace(/<div class="or-step"><div class="or-step-n">2<\/div><div class="or-step-i">✔<\/div><b>Quick Checks<\/b><span>[^<]*<\/span><\/div><i>→<\/i>/, "")
+      .replace(/<div class="or-step-n">([3-9])<\/div>/g, (m, n)=> slides[i].body.includes("<b>Quick Checks</b>") ? `<div class="or-step-n">${n-1}</div>` : m)
+      .replace("One topic at a time. Next / Previous at the bottom; your place is saved.", "One topic at a time, every slide the same size and whole on one screen (a long one is scaled to fit). Your place is saved.")});
     const pill = (ic,t,d)=>`<div class="or-pill"><div>${ic}</div><b>${t}</b><span>${d}</span></div>`;
     slides.splice(i+1, 0, {k:"Live sessions", h:"Live sessions with your trainer", body:`
-     <div class="or-3">${pill("🖥","Follow the shared slides","Your trainer presents the day's slides in Google Meet. They're the same slides you have in the portal — nothing extra to install.")}${pill("💬","Talk it through","At each checkpoint your trainer pauses for discussion. Answer out loud — a first answer is never wrong, it's where the learning starts.")}${pill("📄","Pages & pace","Longer topics have a second page (PAGE 1 / 2). On your own, use Next or the ← → keys, 🔊 Listen, or ⛶ Full screen.")}</div>
+     <div class="or-3">${pill("🖥","Follow the shared slides","Your trainer presents the day's slides in Google Meet. They're the same slides you have in the portal — nothing extra to install.")}${pill("💬","Talk it through","At each checkpoint your trainer pauses for discussion. Answer out loud — a first answer is never wrong, it's where the learning starts.")}${pill("📄","One screen, your pace","Every slide fits on one screen (a long one is scaled to fit). On your own, use Next or the ← → keys, 🔊 Listen, or ⛶ Full screen.")}</div>
      <div class="or-note"><b>Missed something live?</b> Every slide stays in your portal — reopen the day any time and pick up exactly where you left off.</div>`});
   }
   return slides;
@@ -1070,7 +1089,7 @@ function labChipsHtml(t){
     + (left!=null ? `<span>🔁 ${left} of ${LAB_ATTEMPT_CAP} repeats left for this day</span>` : "")
     + `<span>🆓 First try of each exercise is free</span>`;
 }
-const LAB_CTA = /^\s*(check|submit|get review|get evaluation|get feedback|finish|evaluate|grade|review my|send for review)/i;
+const LAB_CTA = /^\s*(check|submit|review|get review|get evaluation|get feedback|finish|evaluate|grade|send for review)/i;
 function labPolish(){
   const body = document.getElementById("toolBody"); if(!body) return;
   const screens = [...body.querySelectorAll(".wizard-screen")];
@@ -1161,7 +1180,7 @@ function sopRunOfShow(dRaw){
   const d = DAYS.find(x=>x.id===dRaw.id); if(!d) return "";
   const tools = relatedTools(d.id), lab = tools[0];
   const acts = lab ? (SOP_LAB_ACTIVITIES[lab.id] || []) : [];
-  const n = d.lessons.length, qcs = (d.quickChecks||[]).slice().sort((a,b)=>a.afterIndex-b.afterIndex);
+  const n = d.lessons.length, qcs = d.cmDeck ? [] : (d.quickChecks||[]).slice().sort((a,b)=>a.afterIndex-b.afterIndex);   // (the deck slides have no Quick Checks: js/cm-decks.js)
   const kc = (d.quiz||[]).length;
   const steps = []; let t = 0;
   const add = (mins, s)=>{ steps.push(Object.assign({from:t, to:t+mins}, s)); t += mins; };
@@ -1186,7 +1205,7 @@ function sopRunOfShow(dRaw){
     if(block===midBlock+1) add(0, taskStep);   // right after the break, as teaching resumes
     const inBlock = qcs.filter(q=>q.afterIndex>=i && q.afterIndex<j);
     add(Math.round((j-i)*perTopic + inBlock.length*1.5), {title:`Teach topics ${i+1}–${j} of ${n}`, do:[
-      `Each topic opens with a divider slide: name the topic, then present its two parts (principles & steps, then best practices & pitfalls). Longer topics continue on a second page — press Next.`,
+      `Each topic opens with a divider slide: name the topic, then present its two parts (principles & steps, then best practices & pitfalls). Every slide fits on one screen (a long one is scaled to fit), so press Next once per slide.`,
       `Use your notes for each slide: the Trainer Cue, Applied Discussion Case and the Say / Ask / Listen for / If quiet script. Take one or two answers per topic, not a round-robin.`,
       inBlock.length ? `Quick Check${inBlock.length>1?"s":""} after topic${inBlock.length>1?"s":""} ${inBlock.map(q=>q.afterIndex+1).join(", ")}: let the room answer first, then reveal (the answer and rationale are in your notes).` : "",
       `Topics: ${d.lessons.slice(i,j).map((l,k)=>`${i+k+1}. ${esc(l.h)}`).join(" · ")}`].filter(Boolean),
@@ -1257,7 +1276,7 @@ function sopProgramFlow(){
       <section class="card sopf-card"><h3>3 · Every day, the same rhythm</h3><ol>
         <li><b>Before:</b> approvals, unlocks, open Presenter view (≈15 min early).</li>
         <li><b>Open:</b> recap + today's objectives (5 min).</li>
-        <li><b>Teach:</b> topics in ~45-minute blocks with breaks; Quick Checks where they fall; one random task mid-way.</li>
+        <li><b>Teach:</b> topics in ~45-minute blocks with breaks; one random task mid-way (the process questions are in the Knowledge Check).</li>
         <li><b>Practise:</b> the day's Skill Builders (with the CMS steps), then a live debrief.</li>
         <li><b>Discuss:</b> the end-of-day question.</li>
         <li><b>Assess:</b> Knowledge Check (70% = day complete).</li>
@@ -1465,3 +1484,61 @@ if(document.querySelector(".topbar")) render();
 .topbar.nav-open .nav .nav-tools-menu button{color:#fff}
 .topbar.nav-open .nav .nav-tools-menu button:hover{background:rgba(255,255,255,.09)}
 `; document.head.appendChild(s); })();
+
+/* Day 1 · Meet the Training Team: the team members' sub-headers (each name and title) never end with a period.
+   The section isn't in build/day1.js (it's added content), so it's tidied wherever it shows: on the lesson
+   page, in full screen and in the shared slides window (paginateLessonSlide), and on any other page (afterRender). */
+const TEAM_SECTION = /\bmeet\s+(?:the|our|your)\s+(?:training\s+)?team\b/i;
+const TEAM_SUBHEADS = "h1, h2, h3, h4, h5, h6, .fp-label, .topic-separator, .vis-card-top b, .vis-card b, .vis-step b, .mc-tag, .tc-tag, dt, th, figcaption, li > b:first-child, li > strong:first-child, p > b:only-child, p > strong:only-child, .lx-sec > b";
+function trimTeamHeaders(root){
+  if(!root || !root.querySelectorAll) return;
+  const heads = [...root.querySelectorAll("h1, h2, h3, h4, .topic-separator, .lesson-title, .slide-title")].filter(h=>TEAM_SECTION.test(h.textContent||""));
+  if(!heads.length && !(root.id === "lessonSlideWrap" && TEAM_SECTION.test((root.querySelector(".topic-separator, h2, h3")||{}).textContent||""))) return;
+  const scopes = new Set(heads.map(h=>h.closest("#lessonSlideWrap, .lesson-card, .or-slide, section, .card") || root));
+  if(!heads.length) scopes.add(root);
+  scopes.forEach(sc=>sc.querySelectorAll(TEAM_SUBHEADS).forEach(el=>{
+    const text = (el.textContent||"").trim();
+    if(!text.endsWith(".") || text.endsWith("..") || text.length > 120) return;
+    // the last piece of text in the sub-header loses its final period
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let last = null, n;
+    while((n = walker.nextNode())) if(n.textContent.trim()) last = n;
+    if(last) last.textContent = last.textContent.replace(/\.(\s*)$/, "$1");
+  }));
+}
+window.trimTeamHeaders = trimTeamHeaders;
+const __teamAfterRender = window.afterRender;
+window.afterRender = function(){ const r = __teamAfterRender.apply(this, arguments); trimTeamHeaders(document.querySelector("main")); return r; };
+
+/* Dashboard band (trainees): the five numbers, then 💬 Your feedback and Ranking side by side on the same line,
+   with the certificate notice (the same pill) right under them, instead of on its own under the band (the Graded
+   calls card had pushed Ranking onto a row of its own). Only the arrangement changes; every card keeps its look. Wraps the dashboard before js/lsh-dashboard.js
+   moves the band under the day cards and js/graded-calls.js adds its card. */
+if(typeof renderDashboard === "function" && !renderDashboard.__cmBand){
+  const __cmDash = renderDashboard;
+  renderDashboard = function(){
+    const html = __cmDash.apply(this, arguments);
+    if(!state.traineeId || state.isAdmin) return html;
+    const t = document.createElement("template"); t.innerHTML = html;
+    const side = t.content.querySelector(".dash-side"), inner = side && side.querySelector(".dash-side-inner");
+    if(!inner) return html;
+    side.classList.add("cm-band");   // (on the band, not its inner box: js/graded-calls.js finds that by its exact class)
+    // the certificate notice (the same pill, as it was) moves right under Feedback and Ranking
+    const locked = t.content.querySelector(".bottom-actions .cert-hero-locked");
+    if(locked) side.appendChild(locked);
+    return t.innerHTML;
+  };
+  renderDashboard.__cmBand = true;
+  const st = document.createElement("style"); st.id = "cm-dash-band"; st.textContent = `
+.dash-side.cm-band > .cert-hero-locked{display:table;margin:6px 0 0 auto;}
+@media(min-width:761px){
+  .dash-side.cm-band > .dash-side-inner{display:grid !important;grid-template-columns:repeat(5,minmax(0,1fr)) !important;}
+  .dash-side.cm-band > .dash-side-inner > .tfb-dash{grid-column:1 / span 3;}
+  .dash-side.cm-band > .dash-side-inner > .rank-card{grid-column:4 / span 2;}
+}
+@media(min-width:1101px){
+  .dash-side.cm-band > .dash-side-inner{grid-template-columns:repeat(5,minmax(0,1fr)) minmax(0,1.6fr) minmax(0,1.6fr) !important;}
+  .dash-side.cm-band > .dash-side-inner > .tfb-dash, .dash-side.cm-band > .dash-side-inner > .rank-card{grid-column:auto;}
+}
+@media(max-width:760px){ .dash-side.cm-band > .cert-hero-locked{margin:6px auto 0;} }
+`; document.head.appendChild(st);
+}
