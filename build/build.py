@@ -191,6 +191,12 @@ rep('of a 10-day Legal Executive/Personal Assistant program.', 'of the 5-day LSH
 n = s.count('"EA: "'); assert n >= 4, n
 s = s.replace('"EA: "', '"CASE MANAGER: "')
 
+# Training tools open signed in (js/lsh-tool-links.js, the same file in every LSH course repo: CMS links and frames
+# get a fresh sign-in ticket from /api/auth/tool-ticket), last of all, after every other script. Once, here.
+s = re.sub(r'<script src="/js/lsh-tool-links\.js\?v=[^"]*"></script>\n?', '', s)
+k = s.rfind("</body>")
+s = s[:k] + '<script src="/js/lsh-tool-links.js?v=cm-2026.10.08-tools"></script>\n' + s[k:]
+
 open(OUT, "w", encoding="utf8").write(s)
 left = {w: len(re.findall(w, s)) for w in ["Elias", "Thorne", "EA/PA", "EA / PA", "10-Day", "Executive Assistant"]}
 print("wrote", OUT, f"{len(s)/1e6:.2f} MB", "leftovers:", left)

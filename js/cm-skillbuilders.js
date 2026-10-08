@@ -162,8 +162,10 @@ const CM_TOOL_DEFAULTS = [
    evidence:"Filing reference", idHint:"Filing reference (e.g. ENV-88213407)"},
   // Shared simulators on the LSH Training Portal (used by every program). The course
   // opens them with ?program=CM and the trainee's name and batch, so results carry them.
-  {id:"calls", icon:"📞", name:"Call Simulator (LSH Training Portal)", short:"Call Simulator", status:"live",
-   url:"https://cm-training-activity.pages.dev/simulators/call.html", portalSim:true,
+  // The Call Simulator is the CMS's (every Call Simulator link opens it directly, so the trainee's sign-in ticket
+  // applies): ?calls=1 opens it, &program=CM picks this program's lines, &line= and &mode=graded a line's graded calls.
+  {id:"calls", icon:"📞", name:"Call Simulator (LSH CMS)", short:"Call Simulator", status:"live",
+   url:"https://lshcasemanagementtraining-trainingcrm.pages.dev/?calls=1", cmsHosted:true,
    desc:"Live practice calls, spoken aloud: the Case Management pack has 27 calls on the John Doe file across reception, intake, client calls, attorney reporting, adjusters and providers. Each call ends with the note it requires, and both are scored.",
    evidence:"Score", idHint:"Score (e.g. 82%)"},
   {id:"email", icon:"✉️", name:"Email Workspace (LSH Training Portal)", short:"Email Workspace", status:"live",
@@ -184,15 +186,16 @@ function cmTool(id){
   const o = ((state.toolSettings||{})[id])||{};
   let url = String(o.url!=null ? o.url : d.url || "").trim().replace(/\/+$/,"");
   if(id==="calendaring" && /\/simulators\/calendar\.html$/i.test(url)) url = d.url;   // a saved address from before the Calendaring Simulators moved
+  if(id==="calls" && /\/simulators\/call\.html$|\/api\/launch/i.test(url)) url = d.url;      // the Portal's Call Simulator page (or its launch link) → the CMS's, directly
   const status = o.status || d.status;
   return Object.assign({}, d, {url, status, live: status==="live" && /^https:\/\//i.test(url)});
 }
 window.cmTool = cmTool;
 function toolHref(t){
-  if(t.id!=="cms" && !t.portalSim) return t.url;
+  if(t.id!=="cms" && !t.portalSim && !t.cmsHosted) return t.url;
   // The CMS serves every LSH program: ?program=cm opens it in the CM context (its Training Library filter and the tag on saved cases),
-  // and from=cm lets a registered trainee in with just their name (no CMS account).
-  const q = new URLSearchParams(t.id==="cms" ? {program:"cm", from:"cm"} : {program:"CM"});
+  // and from=cm lets a registered trainee in with just their name (no CMS account). The Call Simulator in the CMS takes program=CM.
+  const q = new URLSearchParams(t.id==="cms" ? {program:"cm", from:"cm"} : t.cmsHosted ? {program:"CM", from:"cm"} : {program:"CM"});
   const name = String(state.certName || state.traineeName || "").trim(), batch = String(state.traineeBatch || "").trim();
   if(name && !state.isAdmin) q.set("name", name);
   if(batch && !state.isAdmin) q.set("batch", batch);
@@ -251,10 +254,12 @@ window.openTool = function(id, mode, extra){
   if(!frames[id] || frames[id].dataset.src !== href){
     if(frames[id]) frames[id].remove();
     const f = document.createElement("iframe");
-    f.src = href; f.dataset.src = href; f.title = t.name;
+    f.dataset.src = href; f.title = t.name;
     // microphone: the Call Simulator listens when trainees answer by voice
     f.setAttribute("allow", "microphone; autoplay; clipboard-read; clipboard-write; fullscreen");
     f.setAttribute("referrerpolicy", "no-referrer-when-downgrade");
+    // the CMS opens signed in, with no log-in page: a trainee's address gets a fresh ticket (js/lsh-tool-links.js)
+    if(window.LSHToolLinks) LSHToolLinks.ticketed(href).then(u=>{ if(f.dataset.src === href) f.src = u; }); else f.src = href;
     frameShell.querySelector(".cm-tf-body").appendChild(f);
     frames[id] = f;
   }
@@ -1036,14 +1041,14 @@ window.renderCallSimulator = function(){
   const calls = cmTool("calls"), mail = cmTool("email"), replies = cmTool("replies"), cal = cmTool("calendaring"), dk = cmTool("docket"), rec = cmTool("records"), ef = cmTool("efiling");
   const lines = [["☎","Reception & Front Desk","5 calls"],["📥","Intake Calls","5 calls"],["🤝","Client Communication","5 calls"],["⚖","Attorney Reporting","5 calls"],["🛡","Adjusters & Carriers","4 calls"],["🏥","Providers & Records","3 calls"]];
   const card = (t, extra)=> `<div class="card cm-tool${t.live?"":" soon"}">
-      <div class="cm-tool-h"><span class="cm-tool-ic">${t.icon}</span><div><b>${E(t.name.replace(/ \(LSH Training Portal\)$/,""))}</b><div><span class="cm-badge ${t.live?"live":"soon"}">${t.live?"● Live on the LSH Training Portal":"Coming soon"}</span></div></div></div>
+      <div class="cm-tool-h"><span class="cm-tool-ic">${t.icon}</span><div><b>${E(t.name.replace(/ \((LSH Training Portal|LSH CMS)\)$/,""))}</b><div><span class="cm-badge ${t.live?"live":"soon"}">${t.live?(t.cmsHosted?"● Live in the LSH CMS":"● Live on the LSH Training Portal"):"Coming soon"}</span></div></div></div>
       <p>${E(t.desc)}</p>${extra||""}
       ${t.live?`<div class="cm-tool-act"><button class="btn btn-primary btn-sm" onclick="openTool('${t.id}')">Open here</button><button class="btn btn-ghost btn-sm" onclick="openTool('${t.id}','tab')">New tab ↗</button></div>`:""}
     </div>`;
   return `<p class="eyebrow">Simulators</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🛠 Simulators</h1>
-    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">Phone, email, calendar, docketing, medical records and court e-filing practice live on the <b>LSH Training Portal</b>, shared by every program. They open here already set to <b>Case Management</b> and carrying your name and batch, so your scores reach your trainer. On calls the caller speaks: answer by voice (Chrome or Edge, allow the microphone) or by typing. Most calls end with the note the call requires, graded with the call.</p>
-    <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span>${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(mail)}${card(replies)}${card(cal, state.isAdmin ? `<p style="font-size:12.5px;margin:6px 0 0"><button class="btn btn-navy btn-sm" onclick="openTool('calendaring','tab','view=scores')">📊 Calendar Scores (Litigation Week) ↗</button> Grade and give feedback there; scores also show on the Portal's Progress page under this program.</p>` : "")}${card(dk)}${card(rec)}${card(ef)}</div>
+    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">The <b>Call Simulator</b> is in the LSH CMS (it opens already signed in, on the Case Management lines; pick a line below for its graded calls). Email, calendar, docketing, medical records and court e-filing practice live on the <b>LSH Training Portal</b>, shared by every program. They open here already set to <b>Case Management</b> and carrying your name and batch, so your scores reach your trainer. On calls the caller speaks: answer by voice (Chrome or Edge, allow the microphone) or by typing. Most calls end with the note the call requires, graded with the call.</p>
+    <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span role="button" tabindex="0" style="cursor:pointer" title="Open this line's graded calls" onclick="openTool('calls',null,'line=${encodeURIComponent(l)}&mode=graded')">${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(mail)}${card(replies)}${card(cal, state.isAdmin ? `<p style="font-size:12.5px;margin:6px 0 0"><button class="btn btn-navy btn-sm" onclick="openTool('calendaring','tab','view=scores')">📊 Calendar Scores (Litigation Week) ↗</button> Grade and give feedback there; scores also show on the Portal's Progress page under this program.</p>` : "")}${card(dk)}${card(rec)}${card(ef)}</div>
     <div class="card" style="padding:14px 18px;font-size:12.8px;color:var(--ink-soft)">Want more? Live Roleplay (🔥) has the crisis calls from the lessons, and the Calendar Skill Builder (Day 4) has the John Doe docket.${state.isAdmin?` <b>Admin:</b> results appear on the Training Portal's Simulators page when you're signed in there as admin. Addresses are set in 🧰 Tools.`:""}</div>`;
 };
 window.saveToolSettings = async function(){
