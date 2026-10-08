@@ -54,6 +54,15 @@ s = re.sub(r'const ELIAS_VOICE_NOTE_AUDIO_DATAURI = "[^"]*";', 'const ELIAS_VOIC
 s = re.sub(r'const CLIENT_AVATAR_SRC = \(.*?\n', 'const CLIENT_AVATAR_SRC = "";\n', s, count=1)
 
 # ---------- 4. branding ----------
+# The standardized LSH logo (the same files as the Training Portal's): the full logo, js/lsh-logo-dark.png, and the
+# square mark, favicon.png. Both have a white outline, so they read on navy and on white.
+import base64
+def data_uri(path):
+    return "data:image/png;base64," + base64.b64encode(open(os.path.join(os.path.dirname(B), path), "rb").read()).decode()
+s, n1 = re.subn(r'const LOGO_FULL_DATAURI = "data:image/png;base64,[^"]*";', lambda m: f'const LOGO_FULL_DATAURI = "{data_uri("js/lsh-logo-dark.png")}";', s, count=1)
+s, n2 = re.subn(r'const LOGO_ICON_DATAURI = "data:image/png;base64,[^"]*";', lambda m: f'const LOGO_ICON_DATAURI = "{data_uri("favicon.png")}";', s, count=1)
+if not (n1 and n2):
+    sys.exit(f"MISSING logo anchors: {n1} {n2}")
 rep("<title>LSH EA/PA Upskill Program</title>", "<title>LSH Case Management Training</title>")
 rep('<b>LSH EA/PA Upskill Program</b><span>10-Day Interactive Training</span>', '<b>LSH Case Management Training</b><span>5-Day Interactive Training</span>')
 rep("LSH EA / PA Upskill Program", "LSH Case Management Training")
