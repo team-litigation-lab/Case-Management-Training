@@ -133,7 +133,7 @@ function aiTaskX(key, cfg){
   const k = key.replace(/\W/g,"_");
   return `<label style="font-size:12.8px;font-weight:700;color:var(--navy);display:block;margin:10px 0 5px">${E(cfg.label)}</label>
     <textarea class="cm-ta" id="ta_${k}" style="min-height:${cfg.rows||150}px" placeholder="${E(cfg.placeholder||"Write it exactly as you would send or log it…")}"></textarea>
-    <button class="btn btn-navy btn-sm" style="margin-top:8px" onclick="pxGrade('${key}', this)">Get AI review</button>
+    <button class="btn btn-navy btn-sm" style="margin-top:8px" onclick="pxGrade('${key}', this)">Review</button>
     <div id="ai_${k}" style="margin-top:10px"></div>`;
 }
 window.pxGrade = async function(key, btn){
@@ -153,7 +153,7 @@ window.pxGrade = async function(key, btn){
     out.innerHTML = renderEvaluationReport(report, day);
     await bumpPracticeProgress(tool, report.totalScore);
   }catch(e){ out.innerHTML = renderAiErrorBlock(e, "Couldn't review this yet"); }
-  if(btn){ btn.disabled = false; btn.textContent = "Get AI review"; }
+  if(btn){ btn.disabled = false; btn.textContent = "Review"; }
 };
 
 const sysScreen = (title, right, inner)=> `<div class="px-sys"><div class="px-sys-h"><b>${title}</b><span>${right||""}</span></div><div class="px-sys-b">${inner}</div></div>`;

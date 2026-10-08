@@ -413,7 +413,7 @@ function aiTask(key, cfg){
   CM_UI[key] = Object.assign({type:"ai"}, cfg);
   return `<label style="font-size:12.8px;font-weight:700;color:var(--navy);display:block;margin:4px 0 5px">${E(cfg.label)}</label>
     <textarea class="cm-ta" id="ta_${key.replace(/\W/g,"_")}" style="min-height:${cfg.rows||150}px" placeholder="${E(cfg.placeholder||"Write it exactly as you would send or file it…")}"></textarea>
-    <button class="btn btn-navy btn-sm" style="margin-top:8px" onclick="cmGrade('${key}', this)">Get AI review</button>
+    <button class="btn btn-navy btn-sm" style="margin-top:8px" onclick="cmGrade('${key}', this)">Review</button>
     <div id="ai_${key.replace(/\W/g,"_")}" style="margin-top:10px"></div>`;
 }
 window.cmGrade = async function(key, btn){
@@ -433,7 +433,7 @@ window.cmGrade = async function(key, btn){
     out.innerHTML = renderEvaluationReport(report, day);
     await bumpPracticeProgress(tool, report.totalScore);
   }catch(e){ out.innerHTML = renderAiErrorBlock(e, "Couldn't review this yet"); }
-  if(btn){ btn.disabled = false; btn.textContent = "Get AI review"; }
+  if(btn){ btn.disabled = false; btn.textContent = "Review"; }
 };
 
 /* ================================================================
@@ -869,7 +869,7 @@ window.renderCalendarBody = function(body){
   screens[1].innerHTML = part("Weekly Docket Briefing for the Handling Attorney",
     "Using your resolved week, write the BLUF briefing the attorney reads on Monday: hard deadlines first (brief deadline, SOL filing, RFA responses, strike list), what moved and why, what needs a decision.",
     `<textarea id="calPromptInput" class="cm-ta" style="min-height:170px" placeholder="BLUF: … &#10;Hard deadlines this week: … &#10;Moved: … &#10;Decisions needed: …"></textarea>
-     <button class="btn btn-navy btn-sm" style="margin-top:10px" onclick="checkCalendarPrompt(this)">Get AI review</button><div id="calPromptResult" style="margin-top:10px"></div>`);
+     <button class="btn btn-navy btn-sm" style="margin-top:10px" onclick="checkCalendarPrompt(this)">Review</button><div id="calPromptResult" style="margin-top:10px"></div>`);
   screens[2].innerHTML = part("Proactive Case Manager Tasks",
     "A strong Case Manager spots what is missing from the calendar: warning alerts before hard dates, 30-day client pulses, subpoena audits, payoff-letter follow-ups. Generate an AI read of your current week.",
     `<button class="btn btn-orange btn-sm" onclick="generateProactiveTasks()">Generate proactive tasks</button><div id="proactiveResult" style="margin-top:14px"></div>`);

@@ -201,6 +201,13 @@ function nextSlide(){
 function goToKnowledgeCheckWithInterstitial(){
   if((state.slidePages||1) > 1 && (state.slidePage||0) < state.slidePages-1){ showSlidePage((state.slidePage||0)+1); return; }
   state.dayViewMode = "knowledgeCheck";
+  // In full screen (⛶ Present full screen / Full screen) render() only redraws the slide inside the stage,
+  // so the Knowledge Check never showed: leave full screen first, then draw the page.
+  if(document.fullscreenElement && document.exitFullscreen){
+    const show = ()=>{ render(); window.scrollTo({top:0, behavior:"smooth"}); };
+    Promise.resolve(document.exitFullscreen()).then(show, show);
+    return;
+  }
   render();
   window.scrollTo({top:0, behavior:"smooth"});
 }
@@ -225,7 +232,7 @@ window.EXTRA_ROUTE_VIEWS = ["casedocs"];   // CM-only page gets its own address 
 // Page names for the "← Back to …" button, matching this top bar.
 window.EXTRA_ROUTE_LABELS = {clientprofile:"Case File", casedocs:"Documents", practice:"Practice", notes:"Notes"};
 function renderTopbar(){
-  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["activities","📋 Activities"],["notes","Notes"],["handouts","Handouts"]];
+  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","Notes"],["handouts","Handouts"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
   if(state.isAdmin){
     // Admin is a trainer monitoring dashboard, not a trainee workspace — hide
     // the trainee-facing-only views that have no role here.
@@ -1070,7 +1077,7 @@ function labChipsHtml(t){
     + (left!=null ? `<span>🔁 ${left} of ${LAB_ATTEMPT_CAP} repeats left for this day</span>` : "")
     + `<span>🆓 First try of each exercise is free</span>`;
 }
-const LAB_CTA = /^\s*(check|submit|get review|get evaluation|get feedback|finish|evaluate|grade|review my|send for review)/i;
+const LAB_CTA = /^\s*(check|submit|review|get review|get evaluation|get feedback|finish|evaluate|grade|send for review)/i;
 function labPolish(){
   const body = document.getElementById("toolBody"); if(!body) return;
   const screens = [...body.querySelectorAll(".wizard-screen")];
