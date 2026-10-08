@@ -91,17 +91,23 @@ body.cm-tf-open{overflow:hidden}
 .topbar-search .sicon{flex:0 0 auto;display:flex;align-items:center;color:#fff;cursor:text}
 .topbar-search .sicon svg{width:15px;height:15px;display:block}
 @media(min-width:761px) and (max-width:1600px){.nav button{padding:7px 7px;font-size:12.5px}}
-/* Top bar on laptops and desktops: nothing overlaps. The course title gives way first (down to the logo;
-   the text hides when there's no room to read it), then the nav wraps its last buttons onto a second line. */
+/* Top bar on laptops and desktops: nothing overlaps. The course title gives way first, as a whole: it shows in
+   full or not at all (when it doesn't fit beside the logo it wraps below it, out of sight), never cut to "…";
+   then the nav wraps its last buttons onto a second line. */
 @media(min-width:1181px){
-  .topbar .brand{flex:0 1000000 320px;min-width:40px;container-type:inline-size}  /* a huge shrink factor: the title takes all of the squeeze before the nav wraps */
+  .topbar .brand{flex:0 1000000 auto;min-width:74px;flex-wrap:wrap;height:46px;overflow:hidden}  /* a huge shrink factor: the title takes all of the squeeze before the nav wraps */
+  .topbar .brand-text{flex:0 0 auto;overflow:visible}
   .topbar-right{min-width:auto}
   .topbar .nav{flex:0 1 auto;min-width:0;flex-wrap:wrap;column-gap:0;row-gap:4px}
   .topbar .nav>*+*{margin-left:2px}  /* margins, not column-gap: Chrome leaves the gap out of a wrapping row's width */
   .topbar-search{flex-shrink:100000}  /* then the search box, down to its minimum */
   .trainee-chip{flex-shrink:0}
 }
-@container (max-width:170px){.topbar .brand-text{display:none !important}}
+/* Tablets and phones: the full course name too (tablets: the search box has its own row; phones: the title alone,
+   on a second line if it needs one, as index.html's phone styles intend) */
+.topbar .brand-text b,.topbar .brand-text span{max-width:none;text-overflow:clip}
+@media(min-width:761px) and (max-width:1180px){.topbar .brand{flex:0 0 auto}}
+@media(max-width:760px){.topbar .brand-text span{display:none}.topbar .brand-text b{white-space:normal;line-height:1.2}}
 /* CM has two more nav items than EA/PA: on laptop widths the search box is just its icon
    (on tablets it has its own row, full width).
    Clicking it opens the box over the start of the nav (the nav doesn't move); it stays open while
