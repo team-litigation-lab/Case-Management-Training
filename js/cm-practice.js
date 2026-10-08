@@ -809,7 +809,7 @@ window.cmPracticePlan = ()=> [1,2,3,4,5].map(day=>({day, items: ["think","talk",
   if(typeof it === "string"){ const t = PRACTICE_TOOLS.find(x=>x.id===it); return t ? {id:t.id, title:t.title, cat:CATS[c].label, tool:true} : null; }
   if(!it.lab) return null;
   const def = window.cmLabDef ? cmLabDef(it.lab.key) : null;
-  return {id:it.lab.key, title:(def && def.title) || it.lab.key, cat:CATS[c].label, rp: it.kind === "rp" ? {topicId:it.topicId} : null, legacy:it.lab.legacy};
+  return {id:it.lab.key, title:(def && def.title) || it.lab.key, cat:CATS[c].label, rp: it.kind === "rp" ? {topicId:it.topicId} : null, legacy:it.lab.legacy, sim: it.kind === "sim" ? it.id : null};
 }).filter(Boolean)).concat(PRACTICE_TOOLS.filter(t=>t.extra && toolDayOf(t)===day).map(t=>({id:t.id, title:t.title, cat:"Extra Practice", tool:true})))}));
 
 function rpLabel(it){
@@ -836,8 +836,9 @@ function itemView(it, day){
     const t = cmTool(it.id); if(!t) return null;
     const k = it.lab && it.lab.key, done = !!(k && window.cmLabDone && cmLabDone(k));
     const name = it.title || t.name.replace(/ \((LSH Training Portal|LSH CMS)\)$/,"");
+    const sb = window.cmSimBest ? cmSimBest(it.id) : null;   // the Portal's best result on this simulator (simresults:<id>)
     return {icon:t.icon, title:name, desc:it.note || t.desc, where: it.id==="cms" || t.cmsHosted ? "LSH CMS" : "LSH Training Portal · then the CMS",
-      done, doneLabel:"✓ Submitted", live:t.live, reviewed: k ? reviewed([k]) : false,
+      done, doneLabel:"✓ Submitted", live:t.live, reviewed: k ? reviewed([k]) : false, simBest: sb ? sb.score : null,
       act: k ? `cmLabOpen('${k}')` : it.go ? `goto('${it.go}')` : `openTool('${it.id}')`};
   }
   return null;
@@ -851,7 +852,7 @@ function itemHTML(v, locked){
   return `<div class="px-item${lk?" locked":""}" ${lk?`title="Opens when this day unlocks"`:`onclick="${v.act}"`} role="button" tabindex="0">
     <span class="ic">${lk?"🔒":v.icon}</span>
     <div style="min-width:0"><div class="t">${E(v.title)}</div><div class="d">${E(v.desc.length>150 ? v.desc.slice(0,147).replace(/\s+\S*$/,"")+"…" : v.desc)}</div>
-      <div class="tags"><span class="px-tag where">${E(v.where)}</span>${v.isNew?`<span class="px-tag new">New</span>`:""}${v.done?`<span class="px-tag done">${E(v.doneLabel)}</span>`:""}${v.reviewed?`<span class="px-tag done">💬 Reviewed</span>`:""}${v.live===false?`<span class="px-tag">Coming soon</span>`:""}</div></div></div>`;
+      <div class="tags"><span class="px-tag where">${E(v.where)}</span>${v.isNew?`<span class="px-tag new">New</span>`:""}${v.done?`<span class="px-tag done">${E(v.doneLabel)}</span>`:""}${v.reviewed?`<span class="px-tag done">💬 Reviewed</span>`:""}${v.simBest!=null?`<span class="px-tag done">Best ${E(v.simBest)}%</span>`:""}${v.live===false?`<span class="px-tag">Coming soon</span>`:""}</div></div></div>`;
 }
 
 window.renderPracticeHub = function(){

@@ -151,10 +151,12 @@ const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemp
 
 // callsim:<id>: the trainee's graded calls from the CMS Call Simulator, kept by the Training Portal (its /api/call-results).
 // labreview:<id>: the trainer's reviews of the trainee's Practice Lab (score, rating, comment per activity; js/cm-lab.js),
-// written by admins only. The trainee reads both, but never writes them (traineeWrite refuses keys it doesn't know).
+// written by admins only. simresults:<id>: the trainee's LSH Training Portal simulator results, written by the Portal
+// ({traineeId, updatedAt, results, best:{<simulator>:{score, count, at}}}). The trainee reads all three, but never
+// writes them (traineeWrite refuses keys it doesn't know).
 function canRead(tok, key) {
   if (tok.role === "a") return true;
-  return OWN(tok.id).includes(key) || key === `callsim:${tok.id}` || key === `labreview:${tok.id}` || key.startsWith(`actup:${tok.id}:`) || PUBLIC_READ.some((re) => re.test(key));
+  return OWN(tok.id).includes(key) || key === `callsim:${tok.id}` || key === `labreview:${tok.id}` || key === `simresults:${tok.id}` || key.startsWith(`actup:${tok.id}:`) || PUBLIC_READ.some((re) => re.test(key));
 }
 async function traineeWrite(env, tok, key, value) {
   const kv = kvOf(env);

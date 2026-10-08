@@ -105,14 +105,27 @@ function loadMyReviews(force){
   if(!trainee() || revLoading || typeof sharedGet !== "function") return;
   const r = state.labReviews;
   if(!force && r && Date.now() - r.at < 2*60*1000) return;   // every Worker request counts: at most every 2 minutes
-  revLoading = sharedGet("labreview:" + state.traineeId).then(v=>{
+  // the trainer's reviews and the Portal's simulator results (simresults:<id>), in one request
+  revLoading = sharedGetMany(["labreview:" + state.traineeId, "simresults:" + state.traineeId]).then(([v, sim])=>{
     revLoading = null;
+    const simWas = JSON.stringify(state.simResults || null);
+    state.simResults = sim && typeof sim === "object" ? sim : null;
+    if(simWas !== JSON.stringify(state.simResults) && ["practice","tool"].includes(state.view) && !(typeof isTyping==="function" && isTyping())) setTimeout(render, 0);
     const items = (v && v.items) || {}, was = JSON.stringify((state.labReviews||{}).items || {});
     state.labReviews = {items, at: Date.now()};
     if(was !== JSON.stringify(items) && window.cmFrameRepaintSide) cmFrameRepaintSide(true);
     if(was !== JSON.stringify(items) && ["practice","tool"].includes(state.view) && !(typeof isTyping==="function" && isTyping())) render();
   }).catch(()=>{ revLoading = null; });
 }
+/* The best Training Portal simulator result for a tool (the Portal names its simulators in simresults:<id>.best). */
+const SIM_NAMES = {replies:["repl"], email:["email","inbox"], records:["record","medical"], docket:["docket"], efiling:["filing"], calendaring:["calendar","calsim"]};
+function simBest(sim, toolId){
+  const best = (sim && sim.best) || {}, names = SIM_NAMES[toolId]; if(!names) return null;
+  const keys = Object.keys(best).filter(k=>{ const n = k.toLowerCase(); return names.some(w=>n.includes(w)) && !(toolId === "email" && n.includes("repl")); });
+  const top = keys.map(k=>best[k]).filter(b=>b && typeof b.score === "number").sort((a,b)=>b.score - a.score)[0];
+  return top ? Object.assign({count: keys.reduce((n,k)=>n + ((best[k]||{}).count||0), 0)}, top) : null;
+}
+window.cmSimBest = (toolId)=> simBest(state.simResults, toolId);
 const myReview = (key)=> ((state.labReviews||{}).items||{})[key] || null;
 window.cmLabReview = myReview;
 const band = (n)=> n>=85 ? "good" : n>=70 ? "mid" : "low";   // the Case File checkpoint score colours
@@ -263,9 +276,10 @@ window.cmLabAdminPick = async function(id){
   const r = (state.labAdmin.list||[]).find(x=>x.id===id) || {id, name:id};
   state.labAdmin.trainee = {id, name:r.name, loading:true}; render();
   let snap = null, rev = null;
-  try{ [snap, rev] = await sharedGetMany(["progress:"+id, "labreview:"+id]); }catch(e){}
+  let sim = null;
+  try{ [snap, rev, sim] = await sharedGetMany(["progress:"+id, "labreview:"+id, "simresults:"+id]); }catch(e){}
   const data = (snap && snap.data) || {};
-  state.labAdmin.trainee = {id, name:r.name, subs:data["lab-subs"]||{}, log:data["cms-log"]||{}, drafts:data["lab-drafts"]||{}, pp:data["practice-progress"]||{}, rp:data.roleplayHistory||[], reviews:(rev && rev.items)||{}};
+  state.labAdmin.trainee = {id, name:r.name, subs:data["lab-subs"]||{}, log:data["cms-log"]||{}, drafts:data["lab-drafts"]||{}, pp:data["practice-progress"]||{}, rp:data.roleplayHistory||[], reviews:(rev && rev.items)||{}, sim};
   render();
 };
 // What the activity list holds for one trainee: the Practice page's items, day by day (js/cm-practice.js: cmPracticePlan).
@@ -279,12 +293,14 @@ function adminTraineeHTML(t){
     const p = it.tool ? t.pp[it.id] : null;
     const w = it.tool ? written(it.id) : [];
     const rps = it.rp ? t.rp.filter(x=>x.topicId===it.rp.topicId) : [];
+    const sb = it.sim ? simBest(t.sim, it.sim) : null;
     const legacy = Object.entries(t.log).filter(([k])=>it.tool ? k.indexOf(it.id+":")===0 && !t.subs[k] : (it.legacy && k===it.legacy));
-    const has = keys.length || p || w.length || rps.length || legacy.length;
+    const has = keys.length || p || w.length || rps.length || legacy.length || sb;
     const reviewed = t.reviews[it.id] || keys.some(k=>t.reviews[k]);
     if(!has && !reviewed){ empty++; return ""; }
     return `<details class="cmm-twrow"${state.labAdminOpen===it.id?" open":""}><summary><span class="cmm-day">Day ${day.day}</span> <b>${E(it.title)}</b> <span class="cmm-hint">${E(it.cat)}</span>
         ${p?`<span class="cmm-score ${band(p.bestScore)}">best ${p.bestScore}%</span>`:""}${keys.length?`<span class="px-tag">${keys.length} submitted</span>`:""}${reviewed?`<span class="px-tag done">Reviewed</span>`:""}${has?"":`<span class="cmm-todo">Nothing yet</span>`}</summary>
+      ${sb?`<p class="cmm-hint">Training Portal simulator: best ${sb.score}%${sb.count?` · ${sb.count} result${sb.count===1?"":"s"}`:""}${sb.at?` · ${fmtDate(sb.at)}`:""}</p>`:""}
       ${rps.length?`<p class="cmm-hint">Live roleplay: ${rps.length} call${rps.length===1?"":"s"}, best ${Math.max(...rps.map(x=>x.score||0))}%.</p>`:""}
       ${w.map(([k,v])=>`<p class="cmm-hint" style="margin:8px 0 4px">✍ ${E(k.replace(/^ta_/,"").replace(/^[^_]+_/,""))}</p><div class="cmm-ans">${E(v)}</div>`).join("")}
       ${legacy.map(([k,v])=>`<p class="cmm-hint">Logged before reviews: ${E((cmTool(v.platform||"cms")||{}).short||"CMS")} ${E(v.caseId)} · ${fmtDate(v.at)}</p>`).join("")}
