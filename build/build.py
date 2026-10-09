@@ -246,6 +246,8 @@ rep('<script src="/js/eapa-updates.js?v=z"></script>', tags(
     "cm-lab.js?v=2",
     "cm-mindset.js?v=2",
     "cm-practice.js?v=7",
+    "cm-lor-data.js?v=1", "cm-hipaa-data.js?v=1", "cm-medprov-data.js?v=1",   # Drafting Tools' data
+    "cm-lor.js?v=1", "cm-hipaa.js?v=1", "cm-medprov.js?v=1", "cm-drafting.js?v=1",
     "daily-activities.js?v=2"))
 rep('<script src="/js/attendance.js?v=2"></script>', '<script src="/js/attendance.js?v=3"></script>')
 
@@ -294,6 +296,8 @@ for need in ["cm-updates.js", "cm-decks.js", "cm-decks-data.js", "cm-documents.j
              "cm-lab.js", "cm-mindset.js", "cm-practice.js", "presenter-notes.js", "daily-activities.js",
              "lsh-dashboard.js", "lsh-one-screen.js", "lsh-tool-links.js", "lsh-topbar.js",
              "graded-calls.js", "show-password.js", "attendance.js", "portal-link.js", "portal-gate.js",
+             "cm-lor-data.js", "cm-hipaa-data.js", "cm-medprov-data.js",
+             "cm-lor.js", "cm-hipaa.js", "cm-medprov.js", "cm-drafting.js",
              *[f"slide-scripts/day{i}.js" for i in range(1, 6)]]:
     if f'src="/js/{need}' not in s:
         sys.exit(f"MISSING SCRIPT: /js/{need} is not loaded by the built page")
