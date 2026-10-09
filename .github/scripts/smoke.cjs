@@ -14,7 +14,7 @@ const IGNORE = /Failed to load resource|ERR_|net::|favicon/;
         page.on('console', m => { if (m.type() === 'error' && !IGNORE.test(m.text())) failures.push(`[${vp.name}] console error: ${m.text()}`); });
         await page.goto(BASE, { waitUntil: 'load' });
         await page.waitForTimeout(800);
-        await page.fill('#loginFirstInput', 'Smoke'); await page.fill('#loginLastInput', 'Test'); await page.fill('#loginBatchInput', 'CI' + vp.name);
+        await page.fill('#loginFirstInput', 'Smoke'); await page.fill('#loginLastInput', 'Test ' + vp.name); await page.fill('#loginBatchInput', 'B100926');
         await page.click('#loginSubmitBtn'); await page.waitForTimeout(1200);
         // approve the trainee (the storage API is the same one the admin screen uses)
         await page.evaluate(async () => {

@@ -14,7 +14,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
     const sleep = (ms) => new Promise(r => setTimeout(r, ms));
     page.on('pageerror', e => fail(`page error: ${e.message}`));
     await page.goto(BASE, { waitUntil: 'load' }); await sleep(800);
-    await page.fill('#loginFirstInput', 'Divider'); await page.fill('#loginLastInput', 'Test'); await page.fill('#loginBatchInput', 'CIDV');
+    await page.fill('#loginFirstInput', 'Divider'); await page.fill('#loginLastInput', 'Test'); await page.fill('#loginBatchInput', 'B100926');
     await page.click('#loginSubmitBtn'); await sleep(1200);
     await page.evaluate(async () => {   // approve the trainee, as the admin screen does
         const key = 'trainee:' + state.traineeId;

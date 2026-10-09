@@ -69,7 +69,7 @@ async function workerChecks() {
     });
     const since = (t, f) => log.filter(x => x.at >= t && (!f || f(x)));
     await page.goto(BASE, { waitUntil: 'load' }); await page.waitForTimeout(800);
-    await page.fill('#loginFirstInput', 'Req'); await page.fill('#loginLastInput', 'Count'); await page.fill('#loginBatchInput', 'CIREQ');
+    await page.fill('#loginFirstInput', 'Req'); await page.fill('#loginLastInput', 'Count'); await page.fill('#loginBatchInput', 'B100926');
     await page.click('#loginSubmitBtn'); await page.waitForTimeout(1200);
     const setApproved = (on) => page.evaluate(async (on) => {
         const key = 'trainee:' + state.traineeId;

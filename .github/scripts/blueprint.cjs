@@ -39,7 +39,7 @@ async function open(browser, viewport, admin) {
     await page.route(/cdnjs\.cloudflare\.com\/ajax\/libs\/jspdf\/4\.2\.1\/jspdf\.umd\.min\.js/, r => r.fulfill({ contentType: 'text/javascript', body: JSPDF }));
     await page.route(/\/version$/, r => r.fulfill({ contentType: 'text/plain', body: `Portal build deployed: test\nDeployment: ${deployment}\n` }));
     await page.goto(BASE, { waitUntil: 'load' }); await page.waitForTimeout(800);
-    await page.fill('#loginFirstInput', 'Blue'); await page.fill('#loginLastInput', admin ? 'Trainer' : 'Print'); await page.fill('#loginBatchInput', 'CIBP');
+    await page.fill('#loginFirstInput', 'Blue'); await page.fill('#loginLastInput', admin ? 'Trainer' : 'Print'); await page.fill('#loginBatchInput', 'B100926');
     await page.click('#loginSubmitBtn'); await page.waitForTimeout(1200);
     if (admin) await page.evaluate(() => { state.isAdmin = true; goto('orientation'); render(); });
     await page.waitForTimeout(300);

@@ -19,7 +19,7 @@ const DAY = Number(process.argv[3] || 1);
     const sleep = (ms) => new Promise(r => setTimeout(r, ms));
     page.on('pageerror', e => fail(`console tab page error: ${e.message}`));
     await page.goto(BASE, { waitUntil: 'load' }); await sleep(800);
-    await page.fill('#loginFirstInput', 'Presenter'); await page.fill('#loginLastInput', 'Test'); await page.fill('#loginBatchInput', 'CIPV');
+    await page.fill('#loginFirstInput', 'Presenter'); await page.fill('#loginLastInput', 'Test'); await page.fill('#loginBatchInput', 'B100926');
     await page.click('#loginSubmitBtn'); await sleep(1200);
     await page.evaluate(async () => {   // approve the trainee, as the admin screen does
         const key = 'trainee:' + state.traineeId;

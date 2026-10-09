@@ -39,7 +39,7 @@ async function workerChecks() {
     page.on('pageerror', e => fail(`page error: ${e.message}`));
     const put = (key, value) => page.evaluate(([key, value]) => fetch('/api/storage/set', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key, value: JSON.stringify(value) }) }), [key, value]);
     await page.goto(BASE, { waitUntil: 'load' }); await page.waitForTimeout(800);
-    await page.fill('#loginFirstInput', 'Gina'); await page.fill('#loginLastInput', 'Grade'); await page.fill('#loginBatchInput', 'CIG' + String(Date.now()).slice(-6));   // a new trainee each run
+    await page.fill('#loginFirstInput', 'Gina'); await page.fill('#loginLastInput', 'Grade' + String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d])); await page.fill('#loginBatchInput', 'B100926');   // a new trainee each run (letters only: a name takes no digits)
     await page.click('#loginSubmitBtn'); await page.waitForTimeout(1200);
     const id = await page.evaluate(() => state.traineeId);
     const rec = await page.evaluate(async (key) => JSON.parse((await fetch('/api/storage/get', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key }) }).then(r => r.json())).value || '{}'), 'trainee:' + id);

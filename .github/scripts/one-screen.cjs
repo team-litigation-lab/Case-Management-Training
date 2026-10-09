@@ -22,7 +22,7 @@ const sleep = (ms) => new Promise(r => setTimeout(r, ms));
         const page = await browser.newPage({ viewport: { width: W, height: H } });
         page.on('pageerror', e => fail(`${W}x${H} page error: ${e.message}`));
         await page.goto(BASE, { waitUntil: 'load' }); await sleep(800);
-        await page.fill('#loginFirstInput', 'One'); await page.fill('#loginLastInput', 'Screen'); await page.fill('#loginBatchInput', 'CI1S');
+        await page.fill('#loginFirstInput', 'One'); await page.fill('#loginLastInput', 'Screen'); await page.fill('#loginBatchInput', 'B100926');
         await page.click('#loginSubmitBtn'); await sleep(1200);
         const r = await page.evaluate(async (views) => {
             const sleep = (ms) => new Promise(r => setTimeout(r, ms));
