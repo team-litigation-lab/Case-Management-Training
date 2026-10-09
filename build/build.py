@@ -59,6 +59,11 @@ replace_block("const ROLEPLAY_CATEGORIES = [", "\n];\n", cats_personas.split("co
 replace_block("const ROLEPLAY_PERSONAS = [", "\n];\n", "const ROLEPLAY_PERSONAS" + cats_personas.split("const ROLEPLAY_PERSONAS")[1].strip() + "\n")
 replace_block("const CRISIS_SCENARIO_SETS = {", "\n};\n", "const CRISIS_SCENARIO_SETS = " + crisis.strip() + "\n")
 replace_block("const SOP_DATA = [", "\n];\n", "const SOP_DATA = []; // CM: SOP is generated from the live day content (sopForDay)\n")
+# EA/PA records its own topic-order history in DAY_LAYOUTS so a trainee's saved place follows a topic
+# that moved. Those are EA/PA's topic titles and layout ids ("email-management", "credibility-day1"),
+# meaningless for a CM day: applied to CM they move saved places to the wrong slide. The CM course's
+# own moves live in js/cm-decks.js (moveSaved / moveNoQc), so the list is emptied here.
+replace_block("const DAY_LAYOUTS = [", "\n];\n", "const DAY_LAYOUTS = [];   // CM: its own saved-place moves are in js/cm-decks.js\n")
 
 # ---------- 3. drop EA-only heavy assets / keyed content ----------
 s = "\n".join(l for l in s.split("\n") if not l.startswith('LESSON_DIAGRAMS["'))
