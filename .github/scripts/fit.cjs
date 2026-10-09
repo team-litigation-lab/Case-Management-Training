@@ -17,7 +17,7 @@ const SIZES = [[1366, 768], [1920, 1080]];
         const page = await browser.newPage({ viewport: { width: W, height: H } });
         page.on('pageerror', e => fail(`${W}x${H} page error: ${e.message}`));
         await page.goto(BASE, { waitUntil: 'load' }); await sleep(800);
-        await page.fill('#loginFirstInput', 'Fit'); await page.fill('#loginLastInput', 'Screen'); await page.fill('#loginBatchInput', 'CIFS');
+        await page.fill('#loginFirstInput', 'Fit'); await page.fill('#loginLastInput', 'Screen'); await page.fill('#loginBatchInput', 'B100926');
         await page.click('#loginSubmitBtn'); await sleep(1200);
         const r = await page.evaluate(async (only) => {
             const sleep = (ms) => new Promise(r => setTimeout(r, ms));
@@ -62,7 +62,7 @@ const SIZES = [[1366, 768], [1920, 1080]];
     // a narrower window keeps the controls above the slide, and nothing in the slide is cut off
     const page = await browser.newPage({ viewport: { width: 900, height: 800 } });
     await page.goto(BASE, { waitUntil: 'load' }); await sleep(800);
-    await page.fill('#loginFirstInput', 'Fit'); await page.fill('#loginLastInput', 'Narrow'); await page.fill('#loginBatchInput', 'CIFS');
+    await page.fill('#loginFirstInput', 'Fit'); await page.fill('#loginLastInput', 'Narrow'); await page.fill('#loginBatchInput', 'B100926');
     await page.click('#loginSubmitBtn'); await sleep(1200);
     const narrow = await page.evaluate(async (day) => {
         state.isAdmin = true; goto('day', day); state.dayViewMode = 'slides'; state.lessonSlide = 1; render();
