@@ -1,0 +1,51 @@
+# The CM page still builds from the EA/PA portal.
+#
+# build/build.py turns EA-PA-TRAINING's index.html into this course's. Nothing used to run it, so
+# when EA/PA moved its day data into js/days/dayN/lessons.js the script broke and stayed broken:
+# every rebuild would have produced EA/PA's ten-day course in CM styling, and nobody would have
+# known until someone tried. This runs the build against EA/PA's current main so that drift is a
+# red check, not a surprise.
+#
+# When this goes red, EA/PA has changed something build/build.py edits. The log names the anchor.
+# Nothing is broken for trainees by it on its own — the deployed page is the committed index.html,
+# not a fresh build — but the course can't pick up EA/PA's features until the edit is updated.
+#
+# It runs on its own, not inside Checks, for two reasons: the whole suite doesn't need to run daily,
+# and EA/PA drifting shouldn't turn an unrelated CM pull request red. Pull requests that touch the
+# build itself do get it.
+name: Builds from the EA/PA portal
+
+on:
+  pull_request:
+    paths:
+      - 'build/**'
+      - '.github/scripts/build-from-eapa.mjs'
+      - '.github/workflows/build-from-eapa.yml'
+  schedule:
+    - cron: '41 6 * * *'   # daily, a few minutes off the hour so it isn't queued with everything else
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-from-eapa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: build/build.py still turns the EA/PA page into this course
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Check out the EA/PA portal (the page this course is built from)
+        uses: actions/checkout@v5
+        with:
+          repository: team-litigation-lab/EA-PA-TRAINING
+          path: .eapa
+      - name: Build the CM page from it (to a temp file; index.html is not touched)
+        run: node .github/scripts/build-from-eapa.mjs .eapa/index.html

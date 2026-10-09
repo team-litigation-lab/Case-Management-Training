@@ -265,6 +265,14 @@ The document-heavy folders (`decks/`, `documents/`) are kept in **Cloudflare R2*
 
 To run them locally: `node .github/scripts/check-site.mjs`, `node .github/scripts/tool-links.cjs`, `node .github/scripts/check-data.mjs`, then `node .github/scripts/server.mjs 8787 &` and `node .github/scripts/smoke.cjs http://localhost:8787/` and `node .github/scripts/presenter.cjs http://localhost:8787/` and `node .github/scripts/dividers.cjs http://localhost:8787/` and `node .github/scripts/requests.cjs http://localhost:8787/` and (needs Playwright).
 
+## Checks: Builds from the EA/PA portal
+
+`.github/workflows/build-from-eapa.yml` runs `build/build.py` against EA-PA-TRAINING's current `main` (`.github/scripts/build-from-eapa.mjs`), writing the page to a temp file — `index.html` is never touched. It fails when an anchor the script edits has moved, and also when the build finishes but the output isn't this course: a missing or extra `/js/` script against the committed page, the five CM days not inlined, no John Doe content, or a size more than 15% off.
+
+That last part matters, because this is exactly how the build rotted unnoticed: EA/PA moved each day's lessons into `js/days/dayN/lessons.js`, six anchors stopped resolving, and with the failures suppressed the script still emitted a plausible 1.79 MB page — EA/PA's ten-day course in CM styling, missing twelve of this course's own scripts.
+
+It runs daily, on `workflow_dispatch`, and on pull requests that touch `build/`; it is deliberately **not** part of **Checks**, so EA/PA drifting doesn't turn an unrelated pull request red. A red run here breaks nothing for trainees on its own — the deployed page is the committed `index.html`, not a fresh build — but the course can't pick up EA/PA's new features until the edit named in the log is updated. `CM_BUILD_OUT` is what lets the build write somewhere other than `index.html`.
+
 **About the "Workers Builds: case-management-training" check on pull requests:** Cloudflare's preview build for non-`main` branches fails instantly and posts no log. The code builds (the dry run above passes) and `main` deploys normally. Fix or turn it off in the Cloudflare dashboard → Workers & Pages → case-management-training → Settings → Build:
 - open the failed build's log to see the reason;
 - or turn off **Builds for non-production branches**.
