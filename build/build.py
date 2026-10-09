@@ -29,12 +29,25 @@ def rep(old, new, count=None, min_count=1):
         sys.exit(f"MISSING ({n}): {old[:90]!r}")
     s = s.replace(old, new) if count is None else s.replace(old, new, count)
 
+def gone(old, why):
+    """An edit EA/PA has since made for itself. If the old text comes back, the edit is needed
+    again, so stop rather than quietly skipping it."""
+    if old in s:
+        sys.exit(f"BACK: {old[:90]!r} — EA/PA carries this text again; restore the edit ({why})")
+
 # ---------- 1. day data ----------
+# EA/PA keeps each day in js/days/dayN/lessons.js and assembles DAYS from window.EA_DAY_FILES
+# (ten files, with a "didn't load" banner). The CM course has five days of its own in
+# build/day1.js-day5.js, inlined here, so none of those files is loaded and DAYS is a plain list.
 days = "\n\n".join(rd(f"day{i}.js") for i in range(1, 6))
-i = s.index("const DAY1 = {")
-j = s.index("const DAYS = [DAY1")
-j2 = s.index("\n", j)
-s = s[:i] + days + "\n\nconst DAYS = [DAY1, DAY2, DAY3, DAY4, DAY5];" + s[j2:]
+s, n = re.subn(r'<script src="/js/days/day(?:[1-9]|10)/lessons\.js[^"]*"></script>\n?', "", s)
+if n != 10:
+    sys.exit(f"MISSING: expected 10 js/days/dayN/lessons.js tags, removed {n}")
+DAY_FILES_START = "const DAY_FILES = window.EA_DAY_FILES || {};"
+if DAY_FILES_START not in s:
+    sys.exit(f"MISSING: {DAY_FILES_START!r} — EA/PA changed how DAYS is assembled")
+i, j = block(DAY_FILES_START, "\n}\n", s)          # through the MISSING_DAYS banner
+s = s[:i] + days + "\n\nconst DAYS = [DAY1, DAY2, DAY3, DAY4, DAY5];\n" + s[j:]
 
 # ---------- 2. data blocks ----------
 replace_block("const PRACTICE_TOOLS = [", "\n];\n", rd("cm_practice_tools.js") + "\n")
@@ -46,10 +59,17 @@ replace_block("const ROLEPLAY_CATEGORIES = [", "\n];\n", cats_personas.split("co
 replace_block("const ROLEPLAY_PERSONAS = [", "\n];\n", "const ROLEPLAY_PERSONAS" + cats_personas.split("const ROLEPLAY_PERSONAS")[1].strip() + "\n")
 replace_block("const CRISIS_SCENARIO_SETS = {", "\n};\n", "const CRISIS_SCENARIO_SETS = " + crisis.strip() + "\n")
 replace_block("const SOP_DATA = [", "\n];\n", "const SOP_DATA = []; // CM: SOP is generated from the live day content (sopForDay)\n")
+# EA/PA records its own topic-order history in DAY_LAYOUTS so a trainee's saved place follows a topic
+# that moved. Those are EA/PA's topic titles and layout ids ("email-management", "credibility-day1"),
+# meaningless for a CM day: applied to CM they move saved places to the wrong slide. The CM course's
+# own moves live in js/cm-decks.js (moveSaved / moveNoQc), so the list is emptied here.
+replace_block("const DAY_LAYOUTS = [", "\n];\n", "const DAY_LAYOUTS = [];   // CM: its own saved-place moves are in js/cm-decks.js\n")
 
 # ---------- 3. drop EA-only heavy assets / keyed content ----------
 s = "\n".join(l for l in s.split("\n") if not l.startswith('LESSON_DIAGRAMS["'))
-s = re.sub(r'const LESSON_EXTRA_LEARNING = \{.*?\};\n', 'const LESSON_EXTRA_LEARNING = {};\n', s, count=1, flags=re.S)
+# The extra-learning boxes are keyed per day and live in the day files above, which CM doesn't load.
+rep("const LESSON_EXTRA_LEARNING = Object.assign({}, ...DAYS.map(d=>DAY_FILES[d.id].extraLearning || {}));",
+    "const LESSON_EXTRA_LEARNING = {};   // CM: the per-day files these came from are not loaded")
 s = re.sub(r'const ELIAS_VOICE_NOTE_AUDIO_DATAURI = "[^"]*";', 'const ELIAS_VOICE_NOTE_AUDIO_DATAURI = "";', s, count=1)
 s = re.sub(r'const CLIENT_AVATAR_SRC = \(.*?\n', 'const CLIENT_AVATAR_SRC = "";\n', s, count=1)
 
@@ -79,9 +99,11 @@ rep('"EA/PA Trainee"', '"Case Management Trainee"')
 rep("Eligible when all 10 Knowledge Checks are passed (70%+).", "Eligible when all 5 Knowledge Checks are passed (70%+).")
 
 # ---------- 5. 10-day → DAYS.length ----------
-rep('const msg = done===10', 'const msg = done===DAYS.length')
-rep('"🎉 You\'ve completed all 10 days — congratulations on finishing the program."', '`🎉 You\'ve completed all ${DAYS.length} days — congratulations on finishing the program.`')
-rep("You're on <b>Day ${nextDayId()} of 10</b>", "You're on <b>Day ${nextDayId()} of ${DAYS.length}</b>")
+# These three were hardcoded "10" when this script was written; EA/PA now writes DAYS.length (or has
+# rewritten the copy), so there is nothing to change. gone() stops the build if the old text returns.
+gone('const msg = done===10', "day-count copy")
+gone('"🎉 You\'ve completed all 10 days — congratulations on finishing the program."', "day-count copy")
+gone("You're on <b>Day ${nextDayId()} of 10</b>", "day-count copy")
 rep('<span class="dhc-eyebrow">Day ${d.id} of 10</span>', '<span class="dhc-eyebrow">Day ${d.id} of ${DAYS.length}</span>')
 rep("${d.id<10 ? (dayUnlocked(d.id+1)", "${d.id<DAYS.length ? (dayUnlocked(d.id+1)")
 rep("(d.id===10 && lastPassed", "(d.id===DAYS.length && lastPassed")
@@ -102,8 +124,8 @@ rep('else if(state.view==="tasks") body=renderTasksPage();',
 rep('const PAGE_EYEBROWS = {clientprofile:"Your Client", practice:"Practice Lab",', 'const PAGE_EYEBROWS = {clientprofile:"Case File", casedocs:"Case Documents", tools:"Training Tools", cms:"Training Tools", practice:"Skill Builders",')
 rep('<p class="eyebrow">Practice Lab</p>\n    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 10px;">Let\'s Practice the Principles</h1>',
     '<p class="eyebrow">Skill Builders</p>\n    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 10px;">Skill Builders — Practice on the Real Case File</h1>')
-rep("Hands-on tools for the skills that show up every day on the job. Each day's Practice Lab opens when you reach that day",
-    "Every Skill Builder comes from the Skill Building slides and runs on the actual case documents — then sends you into the CMS to do the file work. Each day's Skill Builders open when you reach that day")
+rep("Hands-on tools for the skills that show up every day on the job. Every day's Practice Lab is open — start any of them at any time.",
+    "Every Skill Builder comes from the Skill Building slides and runs on the actual case documents — then sends you into the CMS to do the file work. Every day's Skill Builders are open — start any of them at any time.")
 
 # ---------- 8. AI prompts: EA → Case Manager ----------
 rep("You are an automated competency evaluator grading a trainee Executive Assistant's submission for a legal-industry EA training program.",
@@ -198,19 +220,52 @@ rep('''  state.adminLoading = true;
   const keys = (await sharedList("trainee:")).map''')
 
 # ---------- 9. scripts ----------
-# Presenter notes ("On this slide"): the CM course has its own js/presenter-notes.js (same name, CM content).
-s = re.sub(r'<script src="/js/presenter-notes\.js[^"]*"></script>', '<script src="/js/presenter-notes.js?v=1"></script>', s)
-# Slide scripts: the CM course has its own js/slide-scripts/day1.js–day5.js (same names, CM content).
-s = re.sub(r'<script src="/js/slide-scripts/day(?:[6-9]|10)\.js[^"]*"></script>\n?', '', s)
+# The CM course loads its own set. None of these files exists in EA/PA, so each one is INSERTED here:
+# if a tag is left out, the feature it carries disappears from the course silently (the deck lessons,
+# the one-screen layout, Presenter view's notes and scripts, Activities, the dashboard band).
+def tags(*names):
+    return "\n".join(f'<script src="/js/{n}"></script>' for n in names)
+
+# EA/PA's per-day trainer notes and slide scripts → the CM course's own (same job, CM content).
+s, n = re.subn(r'<script src="/js/days/day(?:[1-9]|10)/(?:notes|scripts)\.js[^"]*"></script>\n?', "", s)
+if n != 20:
+    sys.exit(f"MISSING: expected 20 js/days/dayN/(notes|scripts).js tags, removed {n}")
+
+# One hook — eapa-updates.js — becomes the CM run, in load order.
 s = re.sub(r'<script src="/js/eapa-updates\.js\?v=[^"]*"></script>', '<script src="/js/eapa-updates.js?v=z"></script>', s, count=1)
-rep('<script src="/js/eapa-updates.js?v=z"></script>', '<script src="/js/cm-updates.js?v=21"></script>\n<script src="/js/cm-documents.js?v=1"></script>\n<script src="/js/cm-skillbuilders.js?v=21"></script>\n<script src="/js/cm-lab.js?v=2"></script>\n<script src="/js/cm-mindset.js?v=2"></script>\n<script src="/js/cm-practice.js?v=7"></script>')
+rep('<script src="/js/eapa-updates.js?v=z"></script>', tags(
+    "presenter-notes.js?v=1",
+    *[f"slide-scripts/day{i}.js?v=2" for i in range(1, 6)],
+    "cm-updates.js?v=21",
+    "cm-decks-data.js?v=1",            # the decks' page data
+    "cm-decks.js?v=3",                 # lessons are the decks' own pages (no process questions)
+    "cm-documents.js?v=1",
+    "cm-skillbuilders.js?v=21",
+    "cm-lab.js?v=2",
+    "cm-mindset.js?v=2",
+    "cm-practice.js?v=7",
+    "daily-activities.js?v=2"))
+rep('<script src="/js/attendance.js?v=2"></script>', '<script src="/js/attendance.js?v=3"></script>')
+
+# graded-calls moves down beside the dashboard band; lsh-dashboard and show-password are CM-only.
+rep('<script src="/js/graded-calls.js?v=1"></script>\n', "")
+rep('<script src="/js/lsh-card-frame.js?v=3"></script>', tags(
+    "lsh-dashboard.js?v=4", "graded-calls.js?v=1", "show-password.js?v=1", "lsh-card-frame.js?v=3"))
+
+# Training tools open signed in (js/lsh-tool-links.js, the same file in every LSH course repo: CMS
+# links and frames get a fresh ticket from /api/auth/tool-ticket). Then the top bar, then the
+# one-screen layout last of all, because it measures the bar and the footer it has to fit between.
+s = re.sub(r'<script src="/js/lsh-tool-links\.js\?v=[^"]*"></script>\n?', "", s)
+rep('<script src="/js/lsh-topbar.js?v=2"></script>', tags(
+    "lsh-tool-links.js?v=cm-2026.10.08-portal", "lsh-topbar.js?v=2", "lsh-one-screen.js?v=1"))
 
 # ---------- 10. Call Simulator + Live Roleplay CM fixes ----------
 rep('["practice","Skill Builders"],["tools","🧰 Tools"]', '["practice","Skill Builders"],["calls","🛠 Simulators"],["tools","🧰 Tools"]')
 rep('else if(state.view==="tools"||state.view==="cms") body=renderTrainingTools();', 'else if(state.view==="tools"||state.view==="cms") body=renderTrainingTools();\n  else if(state.view==="calls") body=renderCallSimulator();')
 rep('tools:"Training Tools", cms:"Training Tools",', 'tools:"Training Tools", cms:"Training Tools", calls:"Simulators",')
 # personal keys sync to the cloud (cms-log was missing) + keep the lists from shrinking
-rep('"quick-check-answers","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since"];', '"quick-check-answers","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log","lab-subs"];')
+# The keys synced to the cloud: drop EA/PA's own two, add the CM course's (cms-log, lab-subs).
+rep('"task-day-since","outbound-calls","c6-audit"];', '"task-day-since","cms-log","lab-subs"];')
 rep('  state.roleplayHistory = [];\n  state.assignedRoleplay = null;', '  state.roleplayHistory = [];\n  state.cmsLog = {};\n  state.labSubs = {};\n  state.labReviews = null;\n  state.assignedRoleplay = null;')
 rep('  await storeSet("roleplayHistory", []);\n  await storeSet("day10-window", null);', '  await storeSet("roleplayHistory", []);\n  await storeSet("cms-log", {});\n  await storeSet("lab-subs", {});\n  await storeSet("day10-window", null);')
 # Live Roleplay: Quick Practice drew from EA topic ids (empty pool in CM → crash)
@@ -226,11 +281,27 @@ rep('of a 10-day Legal Executive/Personal Assistant program.', 'of the 5-day LSH
 n = s.count('"EA: "'); assert n >= 4, n
 s = s.replace('"EA: "', '"CASE MANAGER: "')
 
-# Training tools open signed in (js/lsh-tool-links.js, the same file in every LSH course repo: CMS links and frames
-# get a fresh sign-in ticket from /api/auth/tool-ticket), last of all, after every other script. Once, here.
-s = re.sub(r'<script src="/js/lsh-tool-links\.js\?v=[^"]*"></script>\n?', '', s)
-k = s.rfind("</body>")
-s = s[:k] + '<script src="/js/lsh-tool-links.js?v=cm-2026.10.08-portal"></script>\n' + s[k:]
+# ---------- guards: the output really is the five-day CM course ----------
+# Ten-day copy that survived means an edit above stopped matching. (The Elias client-profile
+# paragraph is EA/PA content CM replaces wholesale on its own Case File page, so it is not listed.)
+for bad in ["of 10</b>", "done===10", "{length:10}", "Finished all 10 days", "Day ${d.id} of 10"]:
+    if bad in s:
+        sys.exit(f"LEFTOVER: {bad!r} — ten-day copy survived; the edit for it no longer matches")
+# Every script the CM course needs must be in the page; a missing one loses its feature silently.
+for need in ["cm-updates.js", "cm-decks.js", "cm-decks-data.js", "cm-documents.js", "cm-skillbuilders.js",
+             "cm-lab.js", "cm-mindset.js", "cm-practice.js", "presenter-notes.js", "daily-activities.js",
+             "lsh-dashboard.js", "lsh-one-screen.js", "lsh-tool-links.js", "lsh-topbar.js",
+             "graded-calls.js", "show-password.js", "attendance.js", "portal-link.js", "portal-gate.js",
+             *[f"slide-scripts/day{i}.js" for i in range(1, 6)]]:
+    if f'src="/js/{need}' not in s:
+        sys.exit(f"MISSING SCRIPT: /js/{need} is not loaded by the built page")
+# and none of EA/PA's own day files should be
+if "/js/days/day" in s:
+    sys.exit("LEFTOVER: the page still loads EA/PA's js/days/dayN files")
+if "EA_DAY_FILES" in s:
+    sys.exit("LEFTOVER: the page still references window.EA_DAY_FILES")
+if s.count("const DAYS = [DAY1, DAY2, DAY3, DAY4, DAY5];") != 1:
+    sys.exit("the five CM days were not inlined exactly once")
 
 open(OUT, "w", encoding="utf8").write(s)
 left = {w: len(re.findall(w, s)) for w in ["Elias", "Thorne", "EA/PA", "EA / PA", "10-Day", "Executive Assistant"]}

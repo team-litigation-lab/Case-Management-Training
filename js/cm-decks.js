@@ -265,7 +265,12 @@
     await moveSavedAndStore();
   };
   // (the saved places may already be loaded by the time this file runs)
-  if(state.dayOrderMigrated !== undefined && state.dividersMigrated !== undefined) moveSavedAndStore();
+  // The engine used to keep a second flag, state.dividersMigrated, alongside dayOrderMigrated; EA/PA
+  // has since folded that migration into dayOrderMigrated + DAY_LAYOUTS and dropped the flag, so
+  // waiting for it meant this never ran on a page built from the current engine. moveSaved() and
+  // moveNoQc() mark the saved places they move (_cmDecks / _cmNoQc) and return false afterwards, so
+  // running this once more than needed costs nothing.
+  if(state.dayOrderMigrated !== undefined) moveSavedAndStore();
 
   // ---------- look: the page fills the slide frame ----------
   const st = document.createElement("style"); st.id = "cm-decks"; st.textContent = `
