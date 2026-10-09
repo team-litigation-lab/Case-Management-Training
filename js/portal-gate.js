@@ -9,9 +9,11 @@
    with a button back to the Portal instead of a form. Admins sign in on the
    Portal too, but every platform asks an admin for the admin password: no
    ticket signs an admin in (the Admin Portal tab on that note).
-   It turns on when the Worker has PORTAL_SSO_SECRET (/api/auth/status
-   says portalOnly); until then the old name + batch form stays, so
-   nothing locks anyone out before the secret is set on both sides.
+   Single sign-on is how every LSH platform works now: there is no name +
+   batch form on a program's own site any more, whatever the Worker is
+   configured with. The Worker needs PORTAL_SSO_SECRET (the Portal's value)
+   to check a ticket; until it is set, this screen tells an administrator so
+   in as many words, instead of a trainee meeting a dead end.
    Existing registrations and saved sessions are untouched.
    The same file is in every LSH course repo; change it in all of them.
    ============================================================ */
@@ -37,19 +39,36 @@ function uncover(delay){
 if(ticket){
   try{
     cover = document.createElement("div");
-    cover.style.cssText = "position:fixed;inset:0;z-index:2147483000;background:#eef1f6;display:flex;align-items:center;justify-content:center;font:600 15px Arial,Helvetica,sans-serif;color:#0f2148";
-    cover.textContent = "Opening your training…";
+    cover.style.cssText = "position:fixed;inset:0;z-index:2147483000;background:#eef1f6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;font:600 15px Arial,Helvetica,sans-serif;color:#0f2148";
+    // A spinner and a line that moves on, so a slow sign-in reads as "working"
+    // rather than a frozen grey screen. The program is a large page and the
+    // sign-in is a few calls to the server, so this can be a few seconds on a
+    // slow connection.
+    cover.innerHTML = '<style>@keyframes lsh-spin{to{transform:rotate(360deg)}}</style>'
+      + '<div style="width:34px;height:34px;border:3px solid #d3d9e6;border-top-color:#DB8437;border-radius:50%;animation:lsh-spin .8s linear infinite"></div>'
+      + '<div id="portal-cover-msg">Opening your training…</div>';
     document.documentElement.appendChild(cover);
+    var steps = [
+      [3500, "Signing you in…"],
+      [7000, "Almost there — loading your program…"]
+    ];
+    steps.forEach(function(s){
+      setTimeout(function(){
+        var m = cover && cover.querySelector("#portal-cover-msg");
+        if(m) m.textContent = s[1];
+      }, s[0]);
+    });
     setTimeout(function(){ uncover(0); }, 10000);   // never leave the cover on if something goes wrong
   }catch(e){ cover = null; }
 }
 var pending = null;     // the trainee the Portal vouched for, until their registration has been processed
 var notice = "";
+var secretMissing = false;   // single sign-on is on but this Worker has no PORTAL_SSO_SECRET: nobody can be signed in
 
 function esc(t){ return String(t==null?"":t).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 
 window.portalGate = {
-  active: function(){ return typeof state !== "undefined" && state.portalOnly === true; },
+  active: function(){ return true; },
   // Headers for the trainee sign-in call: a signed-in trainee's own token lets the Worker renew their session.
   headers: function(){
     var h = {"Content-Type":"application/json"};
@@ -59,11 +78,15 @@ window.portalGate = {
   // Runs at boot, once the engine has loaded: learns whether the Portal is the only way in, then signs in whoever arrived with a ticket.
   init: async function(){
     try{ await authStatus(); }catch(e){}
+    try{
+      var st = await fetch("/api/auth/status").then(function(r){ return r.json(); });
+      secretMissing = !!(st && st.portalOnly && st.portalSecret === false);
+    }catch(e){}
     // The Portal sends an administrator here as /?admin=1 (no ticket: admins type the admin password). A trainee session
     // saved in this browser (an earlier test, a shared computer) is signed out first, so the admin password prompt shows
     // instead of that trainee's dashboard.
     if(wantAdmin && state.traineeId && !state.adminToken){ try{ await logout(); }catch(e){} }
-    if(!ticket || !state.portalOnly){ uncover(150); return; }
+    if(!ticket){ uncover(150); return; }
     var t = ticket; ticket = "";
     // Arriving from the Portal lands on the dashboard (it has its own "Resume where you left off" button) instead of
     // jumping straight into the last slide: the engine's automatic resume is skipped once, then restored for that button.
@@ -135,7 +158,7 @@ window.portalGate = {
         + '<button id="loginSubmitBtn" class="btn btn-primary" style="display:none"></button>'
         + '</div></div>';
     }
-    var startTab = wantAdmin ? "admin" : "trainee"; wantAdmin = false;   // /?admin=1 (and the Portal's admin launch): the Admin Portal tab
+    wantAdmin = false;   // /?admin=1 (and the Portal's admin launch) is handled above; the gate itself always opens on its own tabs
     var msg = notice; notice = "";
     var program = esc(String(document.title||"Training Program").replace(/^LSH\s+/,""));
     return '<style>'
@@ -160,21 +183,16 @@ window.portalGate = {
       + '#gate-box .go{display:block;width:100%;box-sizing:border-box;padding:12px;border-radius:6px;border:0;background:var(--acc);color:#0f2148;font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.05em;text-align:center;text-decoration:none;cursor:pointer}'
       + '#gate-box .go:hover{background:var(--acc-h)}'
       + '</style>'
-      + '<div id="gate-box" class="'+(startTab === "admin" ? "admin" : "")+'"><div class="gb">'
+      + '<div id="gate-box" class="admin"><div class="gb">'
       +   '<div class="brand"><img src="/favicon.png" alt="" onerror="this.style.display=\'none\'"><div><h1>Legal Support Help</h1><span>Training Interface Access</span></div></div>'
-      +   '<div class="tabs"><button type="button" class="tab'+(startTab === "admin" ? "" : " on")+'" data-t="trainee" onclick="portalGate.tab(\'trainee\')">Trainee Portal</button>'
-      +   '<button type="button" class="tab'+(startTab === "admin" ? " on" : "")+'" data-t="admin" onclick="portalGate.tab(\'admin\')">Admin Portal</button></div>'
-      +   '<div class="pane'+(startTab === "admin" ? "" : " on")+'" data-p="trainee">'
-      +     '<p style="font-weight:700;color:#fff;margin-bottom:6px">'+program+'</p>'
+      +   '<div class="pane on" data-p="admin">'
       +     (msg ? '<p class="err">'+esc(msg)+'</p>' : '')
-      +     '<p>You sign in once, on the LSH Training Portal, and open this training from there. There is no separate sign-in here.</p>'
-      +     '<a class="go" href="'+PORTAL_HOME+'">Go to the LSH Training Portal</a>'
-      +   '</div>'
-      +   '<div class="pane'+(startTab === "admin" ? " on" : "")+'" data-p="admin">'
-      +     '<p>Trainers and administrators sign in here with the admin password, on every platform.</p>'
+      +     '<p>Administrators sign in with the admin password. Trainees are signed in automatically when they open this training from the LSH Training Portal.</p>'
+      +     (secretMissing ? '<p class="err">This program isn\'t connected to the LSH Training Portal yet: set PORTAL_SSO_SECRET on its Worker, to the same value as the Portal\'s. Until then no trainee can be signed in.</p>' : '')
       +     '<div id="gate-aerr" class="err" style="display:none;margin:0 0 10px;font-size:12px"></div>'
       +     '<label for="gate-apass">Admin password</label><input id="gate-apass" type="password" autocomplete="off" onkeydown="if(event.key===\'Enter\')portalGate.admin()">'
       +     '<button type="button" class="go" onclick="portalGate.admin()">Sign in</button>'
+      +     '<p style="margin:14px 0 0;font-size:12px;text-align:center"><a href="'+PORTAL_HOME+'" style="color:#94a3b8">Trainee? Open this from the LSH Training Portal</a></p>'
       +   '</div>'
       + '</div></div>';
   }
