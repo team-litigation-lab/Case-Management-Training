@@ -178,6 +178,25 @@ s = s.replace("Practice Labs", "Skill Builders").replace("Practice Lab", "Skill 
 rep('''id="aiBtn_${n.id}">✨ Get Review</button>''', '''id="aiBtn_${n.id}">Review</button>''')
 rep('btn.disabled = false; btn.textContent = "✨ Get Feedback";', 'btn.disabled = false; btn.textContent = "Review";')
 
+# ---------- 8e. the Trainee Audit isn't read twice when the Admin screen opens ----------
+# liveTick's admin branch refreshes the ledger as soon as state.liveAdminAt is unset, so opening the
+# Admin screen read the whole ledger twice in a row (a /api/storage/list + a get-many each time).
+# The explicit loaders now stamp liveAdminAt, so the live check waits a full interval.
+# This is an EA/PA engine bug: fix it upstream in EA-PA-TRAINING too, then these edits become no-ops
+# (rep() will fail loudly if the upstream text changes, which is the signal to drop them).
+rep('''async function loadAdminLedgerQuiet(){
+  const keys = await sharedList("trainee:");''', '''async function loadAdminLedgerQuiet(){
+  // The Trainee Audit was just read, so the live check waits a full interval instead of reading it
+  // again straight away (liveTick's admin branch runs at once while state.liveAdminAt is unset).
+  state.liveAdminAt = Date.now();
+  const keys = await sharedList("trainee:");''')
+rep('''  state.adminLoading = true;
+  const keys = (await sharedList("trainee:")).map''', '''  state.adminLoading = true;
+  // As in loadAdminLedgerQuiet: opening the Admin screen reads the ledger here, so the live check
+  // doesn't repeat the same list + get-many a moment later.
+  state.liveAdminAt = Date.now();
+  const keys = (await sharedList("trainee:")).map''')
+
 # ---------- 9. scripts ----------
 # Presenter notes ("On this slide"): the CM course has its own js/presenter-notes.js (same name, CM content).
 s = re.sub(r'<script src="/js/presenter-notes\.js[^"]*"></script>', '<script src="/js/presenter-notes.js?v=1"></script>', s)
