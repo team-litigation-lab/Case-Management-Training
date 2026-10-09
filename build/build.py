@@ -8,7 +8,9 @@ B = os.path.dirname(os.path.abspath(__file__))
 if len(sys.argv) != 2:
     sys.exit("usage: python3 build/build.py <EA-PA-TRAINING/index.html>")
 SRC = sys.argv[1]
-OUT = os.path.join(os.path.dirname(B), "index.html")
+# Where the built page goes. CM_BUILD_OUT sends it somewhere else, so a check can run the build
+# without overwriting the committed page (.github/scripts/build-from-eapa, in Checks).
+OUT = os.environ.get("CM_BUILD_OUT") or os.path.join(os.path.dirname(B), "index.html")
 s = open(SRC, encoding="utf8").read()
 rd = lambda f: open(os.path.join(B, f), encoding="utf8").read().strip()
 
