@@ -171,6 +171,13 @@ rep('"a 2-sentence discussion case involving Elias Thorne"', '"a 2-sentence disc
 # ---------- 8c. "Practice Lab" → "Skill Builders" in user-facing text ----------
 s = s.replace("Practice Labs", "Skill Builders").replace("Practice Lab", "Skill Builders")
 
+# ---------- 8d. the AI-reviewed writing buttons read "Review" ----------
+# Every button that sends written work to the AI reviewer says "Review" (js/cm-practice.js,
+# js/cm-skillbuilders.js and labPolish in js/cm-updates.js do it for the labs). The Notes page is
+# drawn here, and said "✨ Get Review" before the review and "✨ Get Feedback" after it.
+rep('''id="aiBtn_${n.id}">✨ Get Review</button>''', '''id="aiBtn_${n.id}">Review</button>''')
+rep('btn.disabled = false; btn.textContent = "✨ Get Feedback";', 'btn.disabled = false; btn.textContent = "Review";')
+
 # ---------- 9. scripts ----------
 # Presenter notes ("On this slide"): the CM course has its own js/presenter-notes.js (same name, CM content).
 s = re.sub(r'<script src="/js/presenter-notes\.js[^"]*"></script>', '<script src="/js/presenter-notes.js?v=1"></script>', s)

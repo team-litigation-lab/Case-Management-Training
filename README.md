@@ -141,7 +141,7 @@ The CMS opens with `?program=cm`, so its Training Library lists the Case Managem
 | 4 | Mediation Binder Builder & Pre-Mediation Audit · Arbitration Audit & 6-Tab Binder Build · Case Docket & Calendar Conflict Resolver |
 | 5 | Litigation Deadlines, File Architecture & Deposition Prep · The Ultimate Case Management: Jordan Davies |
 
-Auto-graded parts check the trainee's answers against keys drawn from the documents. The written parts use the same 100-point AI rubric as the EA/PA portal; their button is **Review** (it shows "Reviewing…" while the reviewer works).
+Auto-graded parts check the trainee's answers against keys drawn from the documents. The written parts use the same 100-point AI rubric as the EA/PA portal; their button is **Review** (it shows "Reviewing…" while the reviewer works). Every button that sends written work to the reviewer says the same thing, the Notes page's included (it said "✨ Get Review", then "✨ Get Feedback" once a review came back); `build/build.py` renames the Notes one, so a rebuild from the EA/PA page keeps it.
 
 ### Case documents
 
