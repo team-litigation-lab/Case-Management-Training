@@ -14949,7 +14949,7 @@ function renderNoteCard(n){
       <textarea class="note-textarea" rows="7" placeholder="Write your action plan or notes here..." oninput="onNoteChange('${n.id}','content',this.value)">${esc(n.content)}</textarea>
       <div class="note-foot">
         <span class="note-saved" id="saved_${n.id}">${n.updatedAt?('Saved '+fmtDate(n.updatedAt)):'Not saved yet'}</span>
-        <button class="btn btn-sm btn-navy" onclick="getAIFeedback('${n.id}')" id="aiBtn_${n.id}">✨ Get Review</button>
+        <button class="btn btn-sm btn-navy" onclick="getAIFeedback('${n.id}')" id="aiBtn_${n.id}">Review</button>
       </div>
       <div class="ai-feedback" id="aifeedback_${n.id}" style="display:none;"></div>
     </div>
@@ -15026,7 +15026,7 @@ ${n.content}
   }catch(e){
     fb.innerHTML = `<div class="ai-result ai-error"><b>Couldn't get feedback</b><div class="ai-result-body">The review service didn't respond. Check your connection and try again.</div></div>`;
   }finally{
-    btn.disabled = false; btn.textContent = "✨ Get Feedback";
+    btn.disabled = false; btn.textContent = "Review";
   }
 }
 window.getAIFeedback = getAIFeedback;
@@ -19992,7 +19992,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/slide-scripts/day5.js?v=2"></script>
 <script src="/js/cm-updates.js?v=21"></script>
 <script src="/js/cm-decks-data.js?v=1"></script>
-<script src="/js/cm-decks.js?v=2"></script>
+<script src="/js/cm-decks.js?v=3"></script>
 <script src="/js/cm-documents.js?v=1"></script>
 <script src="/js/cm-skillbuilders.js?v=cm-2026.10.08-nopanel"></script>
 <script src="/js/cm-lab.js?v=cm-2026.10.08-nopanel"></script>

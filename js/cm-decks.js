@@ -274,8 +274,27 @@
 .cm-deck-page img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 14px 34px -20px rgba(22,24,41,.55);background:#262B45;}
 .cm-deck-words{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
 .pv-also{font-size:13px;color:var(--ink-soft);margin-top:10px;}
-/* no process questions on the slides: the objectives page has no Quick Check warm-up either (they're in the Knowledge Check) */
+/* no process questions on the slides: the objectives page has no Quick Check warm-up either (they're in the
+   Knowledge Check). It isn't drawn at all (see below); this keeps it out of sight if anything else draws one. */
 .day-intro .di-warm{display:none;}
 @media(max-width:760px){ .lesson-stage #lessonSlideWrap:has(> .cm-deck-page){padding:6px;} #lessonSlideWrap > .cm-deck-page{height:auto;} .cm-deck-page img{max-height:none;width:100%;} }
 `; document.head.appendChild(st);
+
+  /* ---------- no process questions on the slides ----------
+     The Quick Check slides are gone (buildDaySlides above) and the objectives page's Quick Check warm-up
+     goes with them: the process questions are asked in the day's graded Knowledge Check. Hiding the
+     warm-up left its questions, options and rationale in the page (findable with Ctrl-F, read out by a
+     screen reader, printed), so the block isn't drawn at all. The questions stay in the day's data
+     (d.quickChecks), which the Knowledge Check and the moves above still need. */
+  if(typeof renderDayIntro === "function" && !renderDayIntro.__cmNoWarm){
+    const __intro = renderDayIntro;
+    renderDayIntro = function(){
+      const html = __intro.apply(this, arguments);
+      if(typeof html !== "string" || html.indexOf("di-warm") < 0) return html;
+      const t = document.createElement("template"); t.innerHTML = html;
+      t.content.querySelectorAll(".di-warm").forEach(el=>el.remove());
+      return t.innerHTML;
+    };
+    renderDayIntro.__cmNoWarm = true;
+  }
 })();
