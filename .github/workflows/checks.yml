@@ -32,6 +32,8 @@ jobs:
         run: node .github/scripts/batch-id.cjs
       - name: Single sign-on (the Portal is the only way a trainee gets in; a missing PORTAL_SSO_SECRET says so)
         run: node .github/scripts/sso.cjs
+      - name: Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's)
+        run: node .github/scripts/tool-links.cjs
       - name: Case documents and handouts exist, document references resolve
         run: node .github/scripts/check-data.mjs
       - name: Documents served from R2 (ranges, 304s, static assets as the fallback)
