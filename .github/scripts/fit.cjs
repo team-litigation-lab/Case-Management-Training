@@ -6,6 +6,7 @@
 // Usage: node .github/scripts/fit.cjs [baseUrl] [days]   (with .github/scripts/server.mjs running; needs `npm i playwright`;
 //        days: e.g. 1,4,7 — default every day)
 const { chromium } = require('playwright');
+const signIn = require('./sign-in.cjs');   // the name + batch form is gone: trainees arrive from the Portal
 const BASE = process.argv[2] || 'http://localhost:8787/';
 const ONLY = process.argv[3] ? process.argv[3].split(',').map(Number) : null;
 const SIZES = [[1366, 768], [1920, 1080]];
@@ -17,8 +18,7 @@ const SIZES = [[1366, 768], [1920, 1080]];
         const page = await browser.newPage({ viewport: { width: W, height: H } });
         page.on('pageerror', e => fail(`${W}x${H} page error: ${e.message}`));
         await page.goto(BASE, { waitUntil: 'load' }); await sleep(800);
-        await page.fill('#loginFirstInput', 'Fit'); await page.fill('#loginLastInput', 'Screen'); await page.fill('#loginBatchInput', 'B100926');
-        await page.click('#loginSubmitBtn'); await sleep(1200);
+        await signIn(page, 'Fit', 'Screen', 'B100926');
         const r = await page.evaluate(async (only) => {
             const sleep = (ms) => new Promise(r => setTimeout(r, ms));
             const out = [], counts = { slides: 0, pages: 0, shrunk: 0 };
@@ -62,8 +62,7 @@ const SIZES = [[1366, 768], [1920, 1080]];
     // a narrower window keeps the controls above the slide, and nothing in the slide is cut off
     const page = await browser.newPage({ viewport: { width: 900, height: 800 } });
     await page.goto(BASE, { waitUntil: 'load' }); await sleep(800);
-    await page.fill('#loginFirstInput', 'Fit'); await page.fill('#loginLastInput', 'Narrow'); await page.fill('#loginBatchInput', 'B100926');
-    await page.click('#loginSubmitBtn'); await sleep(1200);
+    await signIn(page, 'Fit', 'Narrow', 'B100926');
     const narrow = await page.evaluate(async (day) => {
         state.isAdmin = true; goto('day', day); state.dayViewMode = 'slides'; state.lessonSlide = 1; render();
         await new Promise(r => setTimeout(r, 300)); window.scrollTo(0, 0);

@@ -9,6 +9,7 @@
 // scrolls as it always did, and this check only makes sure nothing is cut off.
 // Usage: node .github/scripts/one-screen.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs `npm i playwright`)
 const { chromium } = require('playwright');
+const signIn = require('./sign-in.cjs');   // the name + batch form is gone: trainees arrive from the Portal
 const BASE = process.argv[2] || 'http://localhost:8787/';
 const SIZES = [[1366, 768], [1920, 1080], [1280, 720], [900, 800]];
 const PAGES = ['dashboard', 'practice', 'tasks', 'handouts', 'notes', 'clientprofile', 'crisisroleplay',
@@ -22,8 +23,7 @@ const sleep = (ms) => new Promise(r => setTimeout(r, ms));
         const page = await browser.newPage({ viewport: { width: W, height: H } });
         page.on('pageerror', e => fail(`${W}x${H} page error: ${e.message}`));
         await page.goto(BASE, { waitUntil: 'load' }); await sleep(800);
-        await page.fill('#loginFirstInput', 'One'); await page.fill('#loginLastInput', 'Screen'); await page.fill('#loginBatchInput', 'B100926');
-        await page.click('#loginSubmitBtn'); await sleep(1200);
+        await signIn(page, 'One', 'Screen', 'B100926');
         const r = await page.evaluate(async (views) => {
             const sleep = (ms) => new Promise(r => setTimeout(r, ms));
             const out = [], counts = { pages: 0, scrolling: 0 };

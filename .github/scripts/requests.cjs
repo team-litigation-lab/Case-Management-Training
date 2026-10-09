@@ -11,6 +11,7 @@
 //    (the list, then get-many).
 // Usage: node .github/scripts/requests.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
+const signIn = require('./sign-in.cjs');   // the name + batch form is gone: trainees arrive from the Portal
 const path = require('path'); const { pathToFileURL } = require('url');
 const BASE = process.argv[2] || 'http://localhost:8787/';
 const failures = []; const fail = (m) => failures.push(m);
@@ -25,7 +26,9 @@ async function workerChecks() {
         ['surprise-task-day2', JSON.stringify({ title: 'An EA/PA task' })]
     ]);
     const env = {
-        MASTER_ADMIN_PASSWORD: 'ci-pass', SESSION_SECRET: 'ci-secret',
+        // PORTAL_ONLY=off so this test can mint a trainee token by name + batch; trainees really come in
+        // from the LSH Training Portal (sso.cjs). What's checked here is the storage rules, not the sign-in.
+        MASTER_ADMIN_PASSWORD: 'ci-pass', SESSION_SECRET: 'ci-secret', PORTAL_ONLY: 'off',
         LSH_KV: { get: async (k) => store.has(k) ? store.get(k) : null, put: async (k, v) => store.set(k, v), delete: async (k) => store.delete(k), list: async ({ prefix = '' } = {}) => ({ keys: [...store.keys()].filter(k => k.startsWith(prefix)).map(name => ({ name })), list_complete: true }) }
     };
     const call = async (p, body, token) => {
@@ -69,8 +72,7 @@ async function workerChecks() {
     });
     const since = (t, f) => log.filter(x => x.at >= t && (!f || f(x)));
     await page.goto(BASE, { waitUntil: 'load' }); await page.waitForTimeout(800);
-    await page.fill('#loginFirstInput', 'Req'); await page.fill('#loginLastInput', 'Count'); await page.fill('#loginBatchInput', 'B100926');
-    await page.click('#loginSubmitBtn'); await page.waitForTimeout(1200);
+    await signIn(page, 'Req', 'Count', 'B100926');
     const setApproved = (on) => page.evaluate(async (on) => {
         const key = 'trainee:' + state.traineeId;
         const r = await fetch('/api/storage/get', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key }) }).then(r => r.json());

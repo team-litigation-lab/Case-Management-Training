@@ -6,6 +6,7 @@
 //     covers the same topic, "furthest reached" and Quick Check answers move with it, once.
 // Usage: node .github/scripts/dividers.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs `npm i playwright`)
 const { chromium } = require('playwright');
+const signIn = require('./sign-in.cjs');   // the name + batch form is gone: trainees arrive from the Portal
 const BASE = process.argv[2] || 'http://localhost:8787/';
 (async () => {
     const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
@@ -14,8 +15,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
     const sleep = (ms) => new Promise(r => setTimeout(r, ms));
     page.on('pageerror', e => fail(`page error: ${e.message}`));
     await page.goto(BASE, { waitUntil: 'load' }); await sleep(800);
-    await page.fill('#loginFirstInput', 'Divider'); await page.fill('#loginLastInput', 'Test'); await page.fill('#loginBatchInput', 'B100926');
-    await page.click('#loginSubmitBtn'); await sleep(1200);
+    await signIn(page, 'Divider', 'Test', 'B100926');
     await page.evaluate(async () => {   // approve the trainee, as the admin screen does
         const key = 'trainee:' + state.traineeId;
         const r = await fetch('/api/storage/get', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key }) }).then(r => r.json());
