@@ -10817,6 +10817,9 @@ async function liveTick(){
   }catch(e){ /* network blips are fine — next tick retries */ }
 }
 async function loadAdminLedgerQuiet(){
+  // The Trainee Audit was just read, so the live check waits a full interval instead of reading it
+  // again straight away (liveTick's admin branch runs at once while state.liveAdminAt is unset).
+  state.liveAdminAt = Date.now();
   const keys = await sharedList("trainee:");
   state.adminData = (await sharedGetMany(keys)).filter(Boolean);
 }
@@ -15118,6 +15121,9 @@ window.adminLogout = adminLogout;
 
 async function loadAdminLedger(){
   state.adminLoading = true;
+  // As in loadAdminLedgerQuiet: opening the Admin screen reads the ledger here, so the live check
+  // doesn't repeat the same list + get-many a moment later.
+  state.liveAdminAt = Date.now();
   const keys = (await sharedList("trainee:")).map(k=>typeof k === "string" ? k : k.key);
   const all = await sharedGetMany(keys);
   const records = [];
