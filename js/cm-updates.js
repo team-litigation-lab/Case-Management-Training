@@ -228,11 +228,15 @@ function narratorAfterRender(pageOnly){
 }
 // Skill Builders, Simulators, Tools and Roleplay all live under 🧪 Practice (js/cm-practice.js).
 const PRACTICE_SUBVIEWS = ["tool","calls","tools","crisisroleplay"];
-window.EXTRA_ROUTE_VIEWS = ["casedocs"];   // CM-only page gets its own address (#/casedocs)
+// The three Drafting Tools (js/cm-lor.js, js/cm-hipaa.js, js/cm-medprov.js) each get their own address;
+// "drafting" is the hub page that links to all three (js/cm-drafting.js).
+const DRAFTING_SUBVIEWS = ["lor","hipaa","medprov"];
+window.EXTRA_ROUTE_VIEWS = ["casedocs", "drafting"].concat(DRAFTING_SUBVIEWS);
 // Page names for the "← Back to …" button, matching this top bar.
-window.EXTRA_ROUTE_LABELS = {clientprofile:"Case File", casedocs:"Documents", practice:"Practice", notes:"Notes"};
+window.EXTRA_ROUTE_LABELS = {clientprofile:"Case File", casedocs:"Documents", practice:"Practice", notes:"Notes",
+  drafting:"Drafting Tools", lor:"Drafting Tools", hipaa:"Drafting Tools", medprov:"Drafting Tools"};
 function renderTopbar(){
-  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","Notes"],["handouts","Handouts"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
+  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["drafting","📄 Drafting Tools"],["notes","Notes"],["handouts","Handouts"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
   if(state.isAdmin){
     // Admin is a trainer monitoring dashboard, not a trainee workspace — hide
     // the trainee-facing-only views that have no role here.
@@ -256,7 +260,7 @@ function renderTopbar(){
           ${state.searchQuery ? `<div class="search-results" id="searchResultsWrap">${renderSearchResults(state.searchQuery)}</div>` : ""}
         </div>
         <div class="nav">
-          ${views.map(([id,label])=>`<button class="${(state.view===id || (id==="practice" && PRACTICE_SUBVIEWS.includes(state.view)))?'active':''}" onclick="goto('${id}')">${label}${id==="tasks" && openTasksCount() ? `<span class="nav-badge">${openTasksCount()}</span>` : ""}${id==="activities" && typeof daUnreadCount==="function" && daUnreadCount() ? `<span class="nav-badge nav-badge-act">${daUnreadCount()}</span>` : ""}</button>${id==="practice" && window.cmToolsMenuHTML ? cmToolsMenuHTML() : ""}`).join("")}
+          ${views.map(([id,label])=>`<button class="${(state.view===id || (id==="practice" && PRACTICE_SUBVIEWS.includes(state.view)) || (id==="drafting" && DRAFTING_SUBVIEWS.includes(state.view)))?'active':''}" onclick="goto('${id}')">${label}${id==="tasks" && openTasksCount() ? `<span class="nav-badge">${openTasksCount()}</span>` : ""}${id==="activities" && typeof daUnreadCount==="function" && daUnreadCount() ? `<span class="nav-badge nav-badge-act">${daUnreadCount()}</span>` : ""}</button>${id==="practice" && window.cmToolsMenuHTML ? cmToolsMenuHTML() : ""}`).join("")}
           ${(state.traineeId && !state.isAdmin) ? `<button type="button" class="nav-focus" onclick="openFocusPanel()" title="My Focus — trainer feedback and what to work on next">🎯 Focus${focusNewCount()?`<span class="nav-badge">${focusNewCount()}</span>`:""}</button>` : ""}
           ${state.adminPreview
             ? `<button type="button" class="nav-viewswitch" onclick="setAdminViewMode('admin')" title="Return to the admin (trainer) view">🛡 Back to Admin view</button>`
