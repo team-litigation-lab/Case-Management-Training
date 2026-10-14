@@ -80,7 +80,7 @@ window.LSH_BLUEPRINT = {
           '🕘 Attendance: Time In fills in by itself when a trainee opens the course; tag each status and add notes.',
           'It stays in step with the attendance Google Sheet, through the Training Portal.',
           '👁 Trainee view shows the portal exactly as trainees see it.',
-          '🧭 Orientation is the Trainee blueprint to share on day one; it\'s also /blueprint.pdf, in trainees\' Handouts.'],
+          '🧭 Orientation is the deck to share with trainees on day one. The blueprints themselves live on the Main Portal\'s 🧭 Blueprint page, never inside the program.'],
         where: 'Admin → 🕘 Attendance · 👁 Trainee view · 🧭 Orientation.',
         tip: 'The Trainee blueprint PDF republishes itself after every update; nothing to do by hand.' }
     ]
