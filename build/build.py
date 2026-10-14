@@ -254,7 +254,12 @@ rep('<script src="/js/attendance.js?v=2"></script>', '<script src="/js/attendanc
 # graded-calls moves down beside the dashboard band; lsh-dashboard and show-password are CM-only.
 rep('<script src="/js/graded-calls.js?v=1"></script>\n', "")
 rep('<script src="/js/lsh-card-frame.js?v=3"></script>', tags(
-    "lsh-dashboard.js?v=4", "graded-calls.js?v=1", "show-password.js?v=1", "lsh-card-frame.js?v=3"))
+    "lsh-dashboard.js?v=4", "graded-calls.js?v=1",
+    # The 5-Day Case Management Flow (John Doe v. Robert Smith): after graded-calls.js, because its
+    # dashboard wrapper must run on the finished page, and after cm-skillbuilders.js, whose
+    # renderLessonCard it wraps.
+    "cm-case-flow-data.js?v=1", "cm-case-flow.js?v=1",
+    "show-password.js?v=1", "lsh-card-frame.js?v=3"))
 
 # Training tools open signed in (js/lsh-tool-links.js, the same file in every LSH course repo: CMS
 # links and frames get a fresh ticket from /api/auth/tool-ticket). Then the top bar, then the
@@ -269,7 +274,7 @@ rep('else if(state.view==="tools"||state.view==="cms") body=renderTrainingTools(
 rep('tools:"Training Tools", cms:"Training Tools",', 'tools:"Training Tools", cms:"Training Tools", calls:"Simulators",')
 # personal keys sync to the cloud (cms-log was missing) + keep the lists from shrinking
 # The keys synced to the cloud: drop EA/PA's own two, add the CM course's (cms-log, lab-subs).
-rep('"task-day-since","outbound-calls","c6-audit"];', '"task-day-since","cms-log","lab-subs"];')
+rep('"task-day-since","outbound-calls","c6-audit"];', '"task-day-since","cms-log","lab-subs","case-flow"];')   # case-flow: the Case Flow track's Self-Summaries, self-ratings and scores
 rep('  state.roleplayHistory = [];\n  state.assignedRoleplay = null;', '  state.roleplayHistory = [];\n  state.cmsLog = {};\n  state.labSubs = {};\n  state.labReviews = null;\n  state.assignedRoleplay = null;')
 rep('  await storeSet("roleplayHistory", []);\n  await storeSet("day10-window", null);', '  await storeSet("roleplayHistory", []);\n  await storeSet("cms-log", {});\n  await storeSet("lab-subs", {});\n  await storeSet("day10-window", null);')
 # Live Roleplay: Quick Practice drew from EA topic ids (empty pool in CM → crash)
@@ -297,7 +302,7 @@ for need in ["cm-updates.js", "cm-decks.js", "cm-decks-data.js", "cm-documents.j
              "lsh-dashboard.js", "lsh-one-screen.js", "lsh-tool-links.js", "lsh-topbar.js",
              "graded-calls.js", "show-password.js", "attendance.js", "portal-link.js", "portal-gate.js",
              "cm-lor-data.js", "cm-hipaa-data.js", "cm-medprov-data.js",
-             "cm-lor.js", "cm-hipaa.js", "cm-medprov.js", "cm-drafting.js",
+             "cm-lor.js", "cm-hipaa.js", "cm-medprov.js", "cm-drafting.js", "cm-case-flow-data.js", "cm-case-flow.js",
              *[f"slide-scripts/day{i}.js" for i in range(1, 6)]]:
     if f'src="/js/{need}' not in s:
         sys.exit(f"MISSING SCRIPT: /js/{need} is not loaded by the built page")

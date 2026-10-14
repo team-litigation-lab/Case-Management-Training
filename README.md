@@ -21,6 +21,7 @@ The Case Management version of the LSH EA/PA Upskill portal. It runs on the same
 | **📁 Case Documents** | `documents/`: the John Doe v. Apex file, the Jordan Davies file (Day 5), templates, and the handout repository |
 | **🧰 Training Tools** | The hub for the LSH training platforms, built into the portal (see below) |
 | **🛠 Simulators** | Opens the LSH Training Portal's shared **Call Simulator** (Case Management pack: 27 calls on the John Doe file), **Email Workspace** (a practice inbox to triage and file), **Email Replies** (John Doe correspondence, answered on the portal or from the trainee's own inbox) and **Calendaring** (see below) |
+| **🗂 5-Day Legal Case Management Flow** (new track, Day 1 of 5 written) | One file, *John Doe v. Robert Smith* (Atty. Elijah Thone; $10k BI / $20k Host UM / $10k Relative UM; a 14-day treatment gap), from intake to deposition. Every module runs Lesson → Skill Activity → Lesson → Skill Activity → Knowledge Check, as Tell Them / Show Them / Let Them, with a Self-Summary & Skill Scale per module (AI-reviewed) and a 60% automated / 40% trainer rubric. Its own row on the dashboard, under Days 1–5, which it doesn't change or count (days 11–15, found by id but not in `DAYS`). Content: `js/cm-case-flow-data.js` (the source of truth); wiring: `js/cm-case-flow.js`; blueprint, spec and the theory map of all 192 existing topics: `curriculum/5-day-flow/` (`node build/case-flow/blueprint.cjs` regenerates and validates them). |
 
 ### Trainer tools (from the EA/PA portal)
 
