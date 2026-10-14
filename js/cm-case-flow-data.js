@@ -5,8 +5,8 @@
    The SINGLE SOURCE OF TRUTH for the Case Flow track. Generated from it,
    never written separately:
      • the slides, in this course's own lesson format    js/cm-case-flow.js
-     • the per-block blueprint and the theory map         curriculum/5-day-flow/
-                                                           (build/case-flow/blueprint.cjs)
+     • the per-block curriculum spec and the theory map  curriculum/5-day-flow/
+                                                           (build/case-flow/curriculum.cjs)
    Spec: curriculum/5-day-flow/00-architecture.md
 
    A separate training file from "John Doe v. Apex Delivery Services" (Days 1–5),
@@ -19,7 +19,7 @@
    ── BLOCK SCHEMA ───────────────────────────────────────────
    Every module is five blocks: lesson → activity → lesson → activity → check.
    { kind, id, title, topic,
-     visual:   Visual Layout Description (blueprint; for whoever designs the slide)
+     visual:   Visual Layout Description (curriculum spec; for whoever designs the slide)
      tell:     {why, rules[], upl[]}                         lesson
      act:      {scenario, prompt, tool, output, checkpoints[]} activity
      check:    {questions[], summary[], scale[]}             check
@@ -102,7 +102,7 @@ window.CM_CASE_FLOW = {
   ],
 
   /* ---------- where every existing topic lands in the 5-day flow ----------
-     The theory traceability map (build/case-flow/blueprint.cjs) checks every one of
+     The theory traceability map (build/case-flow/curriculum.cjs) checks every one of
      the course's 192 topics against this plan and the blocks' `sources`: a topic is
      BUILT once a block cites it, SCHEDULED while its day is still to be written, and
      UNPLACED only if nothing below names it. Ranges are topic numbers, inclusive. */

@@ -8,8 +8,8 @@
 |---|---|
 | `js/cm-case-flow-data.js` | **The source of truth.** Case file, days, modules, blocks, quizzes, the theory plan. |
 | `js/cm-case-flow.js` | Turns the data into this course's own day and lesson objects and wires them in. |
-| `build/case-flow/blueprint.cjs` | Writes `dayN.md` and `traceability.md` from the data, and validates the curriculum's rules. |
-| `curriculum/5-day-flow/day1.md` | The per-block blueprint (generated). |
+| `build/case-flow/curriculum.cjs` | Writes `dayN.md` and `traceability.md` from the data, and validates the curriculum's rules. |
+| `curriculum/5-day-flow/day1.md` | The per-block curriculum spec (generated). |
 | `curriculum/5-day-flow/traceability.md` | Where every existing topic's theory lives now (generated). |
 
 ---
@@ -101,12 +101,12 @@ The same block also fills the course's native fields (`fourPart`, `layout`, `tra
 
 | Component | On the trainee's slide | Elsewhere |
 |---|---|---|
-| Slide Title & Topic | Header, separator (day · module · block · part) | Blueprint |
-| Visual Layout Description | — | Blueprint, for whoever designs the slide |
-| Slide Body: Tell / Show / Let | ✓ | Blueprint |
-| Knowledge Check & CM Summary | ✓ (module's check block + the day's quiz) | Blueprint |
-| Assessment Criteria (AI + Trainer) | ✓ (collapsed) | Blueprint |
-| Speaker Notes | — (never on the shared screen) | **Presenter view** (`SLIDE_SCRIPTS`) and the blueprint |
+| Slide Title & Topic | Header, separator (day · module · block · part) | Curriculum spec |
+| Visual Layout Description | — | Curriculum spec, for whoever designs the slide |
+| Slide Body: Tell / Show / Let | ✓ | Curriculum spec |
+| Knowledge Check & CM Summary | ✓ (module's check block + the day's quiz) | Curriculum spec |
+| Assessment Criteria (AI + Trainer) | ✓ (collapsed) | Curriculum spec |
+| Speaker Notes | — (never on the shared screen) | **Presenter view** (`SLIDE_SCRIPTS`) and the curriculum spec |
 
 ### Operational mapping
 

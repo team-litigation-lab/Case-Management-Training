@@ -6,7 +6,7 @@
 
 **Gate to the next day.** CMS initialized · policy stack verified at $40,000 · Regulatory Triple-Check cleared · case plan routed to Atty. Thone
 
-> Generated from `js/cm-case-flow-data.js` by `build/case-flow/blueprint.cjs`. Edit the data and regenerate; never edit this file by hand. Spec: `00-architecture.md`. Theory map: `traceability.md`.
+> Generated from `js/cm-case-flow-data.js` by `build/case-flow/curriculum.cjs`. Edit the data and regenerate; never edit this file by hand. Spec: `00-architecture.md`. Theory map: `traceability.md`.
 
 ## Case continuity anchors
 

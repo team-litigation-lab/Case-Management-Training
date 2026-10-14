@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-/* The 5-Day Case Management Flow's written blueprint and theory map, generated from
+/* The 5-Day Case Management Flow's curriculum spec and theory map, generated from
    js/cm-case-flow-data.js so they can never drift from the slides:
 
-       node build/case-flow/blueprint.cjs           writes curriculum/5-day-flow/dayN.md + traceability.md
-       node build/case-flow/blueprint.cjs --check   validates only; writes nothing
+       node build/case-flow/curriculum.cjs           writes curriculum/5-day-flow/dayN.md + traceability.md
+       node build/case-flow/curriculum.cjs --check   validates only; writes nothing
 
    Validation (exit 1 on any breach): every module runs Lesson → Activity → Lesson →
    Activity → Knowledge Check; every block has all six components; every rubric is
@@ -180,7 +180,7 @@ function dayMd(day){
     `# Case Flow Day ${day.n} — ${day.title.replace(/^Case Flow Day \d+ · /, "")}`, "",
     `**Phase:** ${day.phase} · **Focus case:** ${c.style} · **Lead Counsel:** ${c.counsel}`, "",
     `**Objective.** ${day.objective}`, "", `**Gate to the next day.** ${day.gate}`, "",
-    "> Generated from `js/cm-case-flow-data.js` by `build/case-flow/blueprint.cjs`. Edit the data and regenerate; never edit this file by hand. Spec: `00-architecture.md`. Theory map: `traceability.md`.", "",
+    "> Generated from `js/cm-case-flow-data.js` by `build/case-flow/curriculum.cjs`. Edit the data and regenerate; never edit this file by hand. Spec: `00-architecture.md`. Theory map: `traceability.md`.", "",
     "## Case continuity anchors", "", "| | |", "|---|---|",
     `| **Case** | ${c.style} (${c.no}) — ${c.type} |`, `| **Lead Counsel** | ${c.counsel} |`,
     `| **Date of loss** | ${c.dol} · **SOL** ${c.sol} (${c.solNote}) |`, `| **Client** | ${c.client.name} — ${c.client.position} |`,
@@ -211,7 +211,7 @@ function traceMd(){
   const n = s => rows.filter(r => r.status === s).length;
   const lsh = [...new Set(CF.days.flatMap(d => d.modules.flatMap(m => m.blocks.flatMap(b => b.sources.filter(s => !/^D\d#\d+$/.test(s))))))];
   const L = ["# Theory Traceability Map", "",
-    "Every topic of the existing *Case Management Training (5-Day)* course, and where its theory lives in the 5-Day Legal Case Management Flow. The theory is relocated into the new flow, not removed: a topic is **BUILT** once a block cites it, and **SCHEDULED** while the day it is planned for is still to be written. A topic that is neither would fail `build/case-flow/blueprint.cjs`, so nothing can be dropped silently.", "",
+    "Every topic of the existing *Case Management Training (5-Day)* course, and where its theory lives in the 5-Day Legal Case Management Flow. The theory is relocated into the new flow, not removed: a topic is **BUILT** once a block cites it, and **SCHEDULED** while the day it is planned for is still to be written. A topic that is neither would fail `build/case-flow/curriculum.cjs`, so nothing can be dropped silently.", "",
     "> Generated from `js/cm-case-flow-data.js` (block `sources` and the `plan`) against `build/day1.js`–`day5.js`. Do not edit by hand.", "",
     `**${rows.length} topics** · ✅ ${n("✅ BUILT")} built · 🗓 ${n("🗓 SCHEDULED")} scheduled · ❌ 0 unplaced · Case Flow days written: ${[...built].sort().join(", ")} of 5`, ""];
   for(let d = 1; d <= 5; d++){
