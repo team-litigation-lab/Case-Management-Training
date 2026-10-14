@@ -86,7 +86,7 @@ s, n2 = re.subn(r'const LOGO_ICON_DATAURI = "data:image/png;base64,[^"]*";', lam
 if not (n1 and n2):
     sys.exit(f"MISSING logo anchors: {n1} {n2}")
 rep("<title>LSH EA/PA Upskill Program</title>", "<title>LSH Case Management Training</title>")
-rep('<b>LSH EA/PA Upskill Program</b><span>10-Day Interactive Training</span>', '<b>LSH Case Management Training</b><span>5-Day Interactive Training</span>')
+rep('<b>EA/PA UPSKILL PROGRAM</b>', '<b>CASE MANAGEMENT TRAINING</b>')   # the universal page header: the program's name in capitals, nothing beside it
 rep("LSH EA / PA Upskill Program", "LSH Case Management Training")
 rep("LSH EA/PA — Platform Orientation", "LSH Case Management — Platform Orientation")
 rep("Legal Support Help · EA/PA Upskill Program", "Legal Support Help · Case Management Training")
