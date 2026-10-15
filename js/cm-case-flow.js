@@ -418,7 +418,11 @@ window.cmCaseFlow = {
   }
 };
 
-/* ---------- the dashboard: the track's own row of day cards, under Days 1–5 ---------- */
+/* ---------- the dashboard: the track's own row of day cards, under Days 1–5 ----------
+   On a laptop or desktop the dashboard fills exactly one screen (js/lsh-dashboard.js grows the
+   day cards into the height that's left). So the row goes after that layout, not inside it: the
+   banner and Days 1–5 are wrapped in .cf-first, one screen tall, and the Case Flow row is a scroll
+   below, so the first screen looks exactly as it does without the track. */
 if(typeof renderDashboard === "function"){
   const __dash = renderDashboard;
   renderDashboard = function(){
@@ -438,7 +442,15 @@ if(typeof renderDashboard === "function"){
         <p>One file from intake to deposition: <b>${E(c.style)}</b> · ${E(c.counsel)} · ${E(money(c.total))} stack · ${E(c.gapDays)}-Day Treatment Gap. Every module runs Lesson → Skill Activity → Lesson → Skill Activity → Knowledge Check.</p>
         ${window.cmCaseFlow.profile ? `<p><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.profile(true)">📂 Case profile: ${E(c.style)}</button></p>` : ""}</div>
       <div class="module-grid">${cards}</div>`;
-    main.appendChild(sec);
+    const layout = main.closest(".dash-layout");
+    if(layout && layout.parentNode === t.content){
+      const first = document.createElement("div"); first.className = "cf-first";
+      const top = layout.previousElementSibling && layout.previousElementSibling.classList.contains("dash-top") ? layout.previousElementSibling : null;
+      layout.before(first);
+      if(top) first.appendChild(top);
+      first.appendChild(layout);
+      first.after(sec);
+    } else main.appendChild(sec);
     return t.innerHTML;
   };
 }
@@ -577,6 +589,12 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cf-ai{margin-top:8px;font-size:13px;background:#FFFBF3;border:1px solid var(--orange-soft);border-radius:12px;padding:9px 12px;}
 .cf-ai p{margin:4px 0 0;}
 .cf-dash{margin-top:22px;}
+@media(min-width:1001px){
+  main.main-dash > .cf-first{flex:0 0 auto;min-height:100%;display:flex;flex-direction:column;}
+  main.main-dash > .cf-first > .dash-top{flex:0 0 auto;}
+  main.main-dash > .cf-first > .dash-layout{flex:1 1 auto;display:flex !important;flex-direction:column;}
+  main.main-dash > .cf-dash{flex:0 0 auto;}
+}
 .cf-tr-wrap{margin-top:14px;}
 .cf-tr summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
 .cf-tr-chips{display:inline-flex;flex-wrap:wrap;gap:4px;}
