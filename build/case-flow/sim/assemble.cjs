@@ -65,11 +65,12 @@ sim.fallout.forEach((f, j) => {
   if(!(f.if.check >= 0 && f.if.check < checks.length)) err(`${at}.if.check: ${f.if.check} (${a} has ${checks.length} checks)`);
   event(`${at}.then.event`, Object.assign({date: (sim.events[b] || {}).date || "01/01/2026"}, f.then.event), 45);
 });
-if(sim.timeline.length < 15 || sim.timeline.length > 30) err(`timeline: ${sim.timeline.length} milestones (want 15–30)`);
+if(sim.timeline.length < 15 || sim.timeline.length > 34) err(`timeline: ${sim.timeline.length} milestones (want 15–34)`);
 sim.timeline.forEach((t, j) => {
   if(!date(t.date)) err(`timeline[${j}].date`);
   text(`timeline[${j}].label`, t.label, 6);
   if(!["", "A", "B"].includes(t.track || "")) err(`timeline[${j}].track`);
+  if(!["", "claims", "care"].includes(t.lane || "")) err(`timeline[${j}].lane: "${t.lane}" (claims, care or "")`);
   if(j && date(t.date) && date(sim.timeline[j - 1].date) && toTime(t.date) < toTime(sim.timeline[j - 1].date)) err(`timeline[${j}]: out of date order`);
 });
 

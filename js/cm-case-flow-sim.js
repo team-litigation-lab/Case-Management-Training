@@ -1077,147 +1077,188 @@ window.CM_CF_SIM = {
   {
    "date": "02/06/2026",
    "label": "Collision · date of loss",
-   "track": ""
+   "track": "",
+   "lane": ""
   },
   {
    "date": "02/09/2026",
    "label": "Intake · retainer and HIPAA signed",
-   "track": ""
+   "track": "",
+   "lane": ""
+  },
+  {
+   "date": "02/16/2026",
+   "label": "John goes quiet · No Contact Protocol",
+   "track": "",
+   "lane": "care"
   },
   {
    "date": "02/17/2026",
    "label": "LORs out · PD liability accepted",
-   "track": ""
+   "track": "",
+   "lane": "claims"
   },
   {
    "date": "02/20/2026",
    "label": "First treatment · urgent care",
-   "track": ""
+   "track": "",
+   "lane": "care"
   },
   {
    "date": "02/23/2026",
    "label": "LOP · Riverton Spine & Rehab",
-   "track": ""
+   "track": "",
+   "lane": "care"
   },
   {
    "date": "02/27/2026",
    "label": "Peach State reimbursement notice",
-   "track": ""
+   "track": "",
+   "lane": "claims"
+  },
+  {
+   "date": "03/02/2026",
+   "label": "Harbor Point confirms coverage in writing",
+   "track": "",
+   "lane": "claims"
   },
   {
    "date": "03/13/2026",
    "label": "Cervical MRI · C5-C6 herniation",
-   "track": ""
+   "track": "",
+   "lane": "care"
   },
   {
    "date": "03/20/2026",
    "label": "BI limit confirmed in writing",
-   "track": ""
+   "track": "",
+   "lane": "claims"
   },
   {
    "date": "04/02/2026",
    "label": "Care disrupted · 19 days",
-   "track": ""
+   "track": "",
+   "lane": "care"
   },
   {
    "date": "05/15/2026",
    "label": "Cervical epidural steroid injection",
-   "track": ""
+   "track": "",
+   "lane": "care"
   },
   {
    "date": "06/12/2026",
    "label": "MMI · Lakeside Orthopedics",
-   "track": ""
+   "track": "",
+   "lane": "care"
   },
   {
    "date": "06/19/2026",
    "label": "Causation Letter · Dr. Reyes",
-   "track": ""
+   "track": "",
+   "lane": "care"
   },
   {
    "date": "07/20/2026",
    "label": "BI time-limited demand served",
-   "track": ""
+   "track": "",
+   "lane": ""
   },
   {
    "date": "08/05/2026",
    "label": "Keystone offers $3,500 · the fork",
-   "track": ""
+   "track": "",
+   "lane": ""
   },
   {
    "date": "08/12/2026",
    "label": "Keystone tenders $10,000 BI limits",
-   "track": "A"
+   "track": "A",
+   "lane": ""
   },
   {
    "date": "08/21/2026",
    "label": "Demand lapses unaccepted",
-   "track": "B"
+   "track": "B",
+   "lane": ""
   },
   {
    "date": "09/08/2026",
    "label": "Impasse memo to Atty. Thorne",
-   "track": "B"
+   "track": "B",
+   "lane": ""
   },
   {
    "date": "09/24/2026",
    "label": "Complaint filed · 26-CV-04417",
-   "track": "B"
+   "track": "B",
+   "lane": ""
   },
   {
    "date": "09/29/2026",
    "label": "Harbor Point pays $20,000",
-   "track": "A"
+   "track": "A",
+   "lane": ""
   },
   {
    "date": "10/06/2026",
    "label": "Cardinal State tenders $10,000",
-   "track": "A"
+   "track": "A",
+   "lane": ""
   },
   {
    "date": "10/14/2026",
    "label": "Smith served after skip-trace",
-   "track": "B"
+   "track": "B",
+   "lane": ""
   },
   {
    "date": "10/22/2026",
    "label": "Disbursement to John Doe",
-   "track": "A"
+   "track": "A",
+   "lane": ""
   },
   {
    "date": "10/30/2026",
    "label": "Closing memo · file closed",
-   "track": "A"
+   "track": "A",
+   "lane": ""
   },
   {
    "date": "11/12/2026",
    "label": "Answer filed · Mercer & Hale",
-   "track": "B"
+   "track": "B",
+   "lane": ""
   },
   {
    "date": "01/04/2027",
    "label": "Discovery responses due",
-   "track": "B"
+   "track": "B",
+   "lane": ""
   },
   {
    "date": "02/18/2027",
    "label": "John Doe deposed",
-   "track": "B"
+   "track": "B",
+   "lane": ""
   },
   {
    "date": "03/18/2027",
    "label": "Mediation · BI limits tendered",
-   "track": "B"
+   "track": "B",
+   "lane": ""
   },
   {
    "date": "06/22/2027",
    "label": "UM arbitration hearing",
-   "track": "B"
+   "track": "B",
+   "lane": ""
   },
   {
    "date": "02/06/2028",
    "label": "Statute of limitations",
-   "track": ""
+   "track": "",
+   "lane": ""
   }
  ]
 };

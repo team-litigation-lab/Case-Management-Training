@@ -104,9 +104,12 @@ The trainee ticks each "Check Your Work" item on an activity's last slide. A rul
 ## timeline — the case's milestones (`days12.json` only, the whole case)
 
 ```json
-{ "date": "02/06/2026", "label": "Collision · date of loss", "track": "" }   // track: "" (both), "A" or "B"
+{ "date": "02/06/2026", "label": "Collision · date of loss", "track": "", "lane": "" }   // track: "" (both), "A" or "B"; lane: "" (shared), "claims" or "care"
 ```
-15–30 milestones from `case-file.md`, in date order, labels ≤ 6 words: the collision, intake, claims opened,
+The case runs on two parallel workstreams: `claims` (Claims & Coverage: claims, LORs, coverage, Dec Pages) and
+`care` (Client & Treatment: client contact, treatment, LOPs, the gap). Shared milestones (the collision, intake,
+the demand and after) carry `"lane": ""`.
+15–34 milestones from `case-file.md`, in date order, labels ≤ 6 words: the collision, intake, claims opened,
 LORs, first treatment, LOPs, the MRI, the disruption, MMI, the Causation Letter, the demand, settlement (Track A),
 the fork, suit filed, discovery, mediation, deposition, the SOL. Track A and Track B milestones carry their track.
 
