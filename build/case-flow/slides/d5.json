@@ -3,16 +3,16 @@
     "image": "courthouse",
     "hook": "An adjuster's deadline bends; **a court's does not**, so the log proves nothing slipped.",
     "points": [
-      "Unserved at day 14: **escalate for skip-trace authority**",
+      "Unserved at day 14: **escalate for Skip-Trace authority**",
       "An unanswered RFA may be **deemed admitted**; flag it red",
       "Calendar discovery the day it lands, **arithmetic in the row**",
       "Read the Answer as **a roadmap**: each defense is evidence to pull"
     ],
-    "upl": "You track and draft; Atty. Thone decides; never tell John Doe how to answer",
+    "upl": "You track and draft; Atty. Thorne decides; never tell John Doe how to answer",
     "job": [
-      ["Atty. Thone authorizes suit", "Verify filing date and legal name", "CMS → Litigation → Pleadings log", "Filed 09/24/2026, inside 02/04/2028 hard date"],
+      ["Atty. Thorne authorizes suit", "Verify filing date and legal name", "CMS → Litigation → Pleadings Log", "Filed 09/24/2026, inside 02/04/2028 hard date"],
       ["A service attempt fails", "Log it; escalate at day 14", "CMS → Tasks → Escalate", "Each attempt logged, date and address"],
-      ["Discovery or RFAs land", "Calendar; alert Atty. Thone on RFAs", "CMS → Calendar · Docket System", "Weekend rolled; RFA alert time-stamped"]
+      ["Discovery or RFAs land", "Calendar; alert Atty. Thorne on RFAs", "CMS → Calendar · Docket System", "Weekend rolled; RFA alert time-stamped"]
     ],
     "dos": [
       "Write **trigger, service method, arithmetic** into every entry",
@@ -27,20 +27,20 @@
   },
   "d5m1-a1": {
     "image": "data-entry",
-    "situation": "01/05/2027: the pleadings log for 26-CV-04417 was never reconciled to the calendar. The **15 RFAs** have no row; **their 01/04/2027 deadline** passed. A 01/04/2027 certificate of service sits unlogged.",
+    "situation": "01/05/2027: the Pleadings Log for 26-CV-04417 was never reconciled to the calendar. The **15 RFAs** have no row; **their 01/04/2027 deadline** passed. A 01/04/2027 Certificate of Service sits unlogged.",
     "steps": [
       "Add every missing row; **recompute each response date** with arithmetic",
       "File each document in its **numbered sub-folder** under the convention",
-      "Calendar the **scheduling order's six dates**",
-      "**Prove RFA compliance** from the certificate of service",
-      "Record both misses honestly; **report them to Atty. Thone** today"
+      "Calendar the **Scheduling Order's six dates**",
+      "**Prove RFA compliance** from the Certificate of Service",
+      "Record both misses honestly; **report them to Atty. Thorne** today"
     ],
     "deliver": "A **corrected, source-linked log** and calendar, RFA compliance proved, misses reported the same day",
     "checks": [
       "Interrogatories and RFPs corrected **from 12/31/2026 to 01/04/2027**",
       "RFA row (15) added with a **red deemed-admission flag**",
-      "**Certificate of service** logged, its 01/04/2027 date checked",
-      "Escalated to Atty. Thone 01/05/2027; **no call to Atty. Mercer**",
+      "**Certificate of Service** logged, its 01/04/2027 date checked",
+      "Escalated to Atty. Thorne 01/05/2027; **no call to Atty. Mercer**",
       "Late filings **logged as misses**, not back-dated"
     ],
     "dos": [
@@ -48,28 +48,28 @@
       "Link every row to **its source document**"
     ],
     "donts": [
-      "**Quietly fixing a passed deadline** instead of telling Atty. Thone",
+      "**Quietly fixing a passed deadline** instead of telling Atty. Thorne",
       "Forgetting **the 3 mail days**, or adding them to e-service"
     ]
   },
   "d5m1-l2": {
     "image": "checklist-qa",
-    "hook": "The scheduling order's **dates are absolute**; the checklist and KPIs keep every task ahead.",
+    "hook": "The Scheduling Order's **dates are absolute**; the checklist and KPIs keep every task ahead.",
     "points": [
       "Give every order date **30-, 14- and 7-day alerts**",
-      "Confirm every extension **in writing**, over Atty. Thone's signature",
-      "Defense reaches John Doe: end it, **tell Atty. Thone that day**",
+      "Confirm every extension **in writing**, over Atty. Thorne's signature",
+      "Defense reaches John Doe: end it, **tell Atty. Thorne that day**",
       "Prepare **the process, never the testimony**"
     ],
     "upl": "You schedule, assemble, track and relay; never agree an extension or coach testimony",
     "job": [
-      ["Scheduling order entered 12/10/2026", "Calendar six dates, three alerts each", "CMS → Calendar · Docket System", "18 alerts; order in 01_PLEADINGS"],
-      ["Extension agreed by phone", "Draft confirmation for Atty. Thone's signature", "Email Workspace · CMS → Calendar", "Sent the same day"],
+      ["Scheduling Order entered 12/10/2026", "Calendar six dates, three alerts each", "CMS → Calendar · Docket System", "18 alerts; order in 01_PLEADINGS"],
+      ["Extension agreed by phone", "Draft confirmation for Atty. Thorne's signature", "Email Workspace · CMS → Calendar", "Sent the same day"],
       ["Deposition noticed", "Book reporter, link, technology check", "CMS → Calendar · Communications Log", "Packet sent by 02/11/2027"]
     ],
     "dos": [
       "Call every litigation client **at least every 30 days**",
-      "Subpoena only **the witnesses Atty. Thone names**",
+      "Subpoena only **the witnesses Atty. Thorne names**",
       "Put the subpoena audit on a **recurring 10-day reminder**"
     ],
     "donts": [
@@ -86,7 +86,7 @@
       "Add the 02/18/2027 **deposition logistics and prep documents**",
       "Build the tracker: **nine KPIs**, formula, target, sourced reading, status",
       "Set one task per **review lens**: coverage, treatment, liability",
-      "Name **the two items** you route to Atty. Thone first, and why"
+      "Name **the two items** you route to Atty. Thorne first, and why"
     ],
     "deliver": "A checklist matching **the order date for date**, and a complete KPI tracker",
     "checks": [
@@ -109,7 +109,7 @@
     "image": "knowledge-check",
     "questions": [
       "Discovery mailed 12/01/2026: compute the **response date**. What changes for e-service, and why confirm the court's rule?",
-      "Name the Answer's **three defenses** and the file evidence you would pull for Atty. Thone against each.",
+      "Name the Answer's **three defenses** and the file evidence you would pull for Atty. Thorne against each.",
       "File the affidavit, 12/01/2026 RFAs and scheduling order: **where, under what names**? What happens to the order's dates?",
       "Define **three litigation KPIs** as formulas with targets; give this file's reading for one, with its source.",
       "On 01/20/2027, name one litigation task under each **review lens** (coverage, treatment, liability) and whose decision it feeds.",
@@ -138,26 +138,26 @@
     ],
     "donts": [
       "Claiming **the 30 paid rental days** again",
-      "Treating property damage as **“just the car”**"
+      "Treating Property Damage as **“just the car”**"
     ]
   },
   "d5m2-a1": {
     "image": "money-ledger",
-    "situation": "12/2026: RFPs ask for every PD document, **due 01/04/2027**. The PD screen tests total loss on the $6,940.00 estimate and claims **78 days, $3,276.00**. Keystone offers $0 for loss of use.",
+    "situation": "12/2026: RFPs ask for every PD document, **due 01/04/2027**. The PD screen tests Total Loss on the $6,940.00 estimate and claims **78 days, $3,276.00**. Keystone offers $0 for Loss of Use.",
     "steps": [
       "Re-run the total-loss check on **the final repair**",
-      "List what to verify in **Keystone's valuation report**",
-      "Rebuild loss of use **day by day**, each day once",
+      "List what to verify in **Keystone's Valuation Report**",
+      "Rebuild Loss of Use **day by day**, each day once",
       "Evidence each period; **index the severity set**",
-      "Flag Keystone's two arguments for Atty. Thone, **without answering them**"
+      "Flag Keystone's two arguments for Atty. Thorne, **without answering them**"
     ],
     "deliver": "A corrected PD worksheet: repairable at 52.6%, **48 days, $2,016.00 claimed**, defenses flagged",
     "checks": [
       "**$9,255.00 is 52.6%** of $17,600.00: repairable",
       "Stale 39.4% check corrected **with a dated note**",
       "78 days allocated once: **12 + 30 + 36**",
-      "Loss of use corrected to **48 × $42.00 = $2,016.00**",
-      "Escalated to Atty. Thone **on or before 12/28/2026**"
+      "Loss of Use corrected to **48 × $42.00 = $2,016.00**",
+      "Escalated to Atty. Thorne **on or before 12/28/2026**"
     ],
     "dos": [
       "Evidence each period, **not just the total**",
@@ -172,20 +172,20 @@
     "image": "negotiation",
     "hook": "$792.00 is a formula, $3,600.00 a market appraisal: **you build the evidence**.",
     "points": [
-      "Diminished value is **market value lost** after a proper repair",
+      "Diminished Value is **market value lost** after a proper repair",
       "Keystone's “17c” is **a carrier formula**, not a legal measure",
       "The 10% cap: **never above $1,760.00**, however severe the damage",
-      "PD settles only on a **property-damage-only release** Atty. Thone reviewed"
+      "PD settles only on a **property-damage-only release** Atty. Thorne reviewed"
     ],
     "upl": "Calculate, critique and recommend; never make, accept, reject or counter a PD figure",
     "job": [
-      ["Keystone states diminished-value figure", "Draft input request for Atty. Thone", "CMS → Property Damage → Correspondence", "Base, multipliers, ACV on file"],
+      ["Keystone states diminished-value figure", "Draft input request for Atty. Thorne", "CMS → Property Damage → Correspondence", "Base, multipliers, ACV on file"],
       ["Appraisal received 05/06/2026", "Audit method, data, credentials", "CMS → Property Damage", "Audit note dated; appraisal indexed"],
-      ["Keystone sends a release or check", "Hold it; route to Atty. Thone", "CMS → Tasks → Escalate", "Reviewed before John Doe sees it"]
+      ["Keystone sends a release or check", "Hold it; route to Atty. Thorne", "CMS → Tasks → Escalate", "Reviewed before John Doe sees it"]
     ],
     "dos": [
       "Make Keystone show **its formula's inputs in writing**",
-      "Put **the critique on paper** for Atty. Thone"
+      "Put **the critique on paper** for Atty. Thorne"
     ],
     "donts": [
       "Telling John Doe his car **“lost $3,600.00”**",
@@ -195,21 +195,21 @@
   },
   "d5m2-a2": {
     "image": "phone-call",
-    "situation": "12/10/2026: Leah Moran (Keystone PD) says **$792.00 and $0 final**, sends an **“all claims” release** for John Doe, and asks if he'll take it. Atty. Thone wants your recommendation.",
+    "situation": "12/10/2026: Leah Moran (Keystone PD) says **$792.00 and $0 final**, sends an **“all claims” release** for John Doe, and asks if he'll take it. Atty. Thorne wants your recommendation.",
     "steps": [
       "Rebuild Keystone's “17c” figure from **the $17,600.00 ACV**",
       "Critique its **10% cap and both multipliers**",
       "Set out claimed against offered; recommend **a top and a floor**",
       "Answer Leah Moran **without accepting, rejecting or countering**",
-      "Route the release; send the range **to Atty. Thone for authority**"
+      "Route the release; send the range **to Atty. Thorne for authority**"
     ],
-    "deliver": "A one-page PD memo: **a recommended range**, release flagged, routed to Atty. Thone",
+    "deliver": "A one-page PD memo: **a recommended range**, release flagged, routed to Atty. Thorne",
     "checks": [
       "“17c” rebuilt: **$1,760.00 × 0.75 × 0.60** = $792.00",
       "Dispute totalled: **$5,616.00 claimed** against $792.00 offered",
       "Floor **sits above $792.00**; weakest item named",
       "Release flagged; **nothing sent to John Doe** to sign",
-      "Leah Moran told only the **offer is with Atty. Thone**"
+      "Leah Moran told only the **offer is with Atty. Thorne**"
     ],
     "dos": [
       "Recommend with arithmetic: every number **traces to a document**"
@@ -222,25 +222,25 @@
   "d5m2-kc": {
     "image": "knowledge-check",
     "questions": [
-      "Is the Civic a **total loss**? Show the final repair, ACV, Keystone's threshold and percentage, with the arithmetic.",
+      "Is the Civic a **Total Loss**? Show the final repair, ACV, Keystone's threshold and percentage, with the arithmetic.",
       "Allocate **the 78 days**: which are claimed, at what rate, for how much? Why exclude rental days?",
-      "Name **the three damage types**; place repair, loss of use, diminished value. Punitive damages require what conduct?",
-      "Rebuild Keystone's $792.00 and give **three reasons** the “17c” formula understates John Doe's diminished value.",
-      "State **the lesser-of rule**; with the make-whole principle, show repair plus diminished value doesn't over-compensate John Doe.",
+      "Name **the three damage types**; place repair, Loss of Use, Diminished Value. Punitive damages require what conduct?",
+      "Rebuild Keystone's $792.00 and give **three reasons** the “17c” formula understates John Doe's Diminished Value.",
+      "State **the lesser-of rule**; with the make-whole principle, show repair plus Diminished Value doesn't over-compensate John Doe.",
       "Atty. Mercer's office wants the Civic inspected and $792.00 accepted **by 5 p.m. today**. Your steps, whose authority?",
-      "How does the PD record help Atty. Thone against **the 14-Day Gap**? Where does your role stop?"
+      "How does the PD record help Atty. Thorne against **the 14-Day Gap**? Where does your role stop?"
     ]
   },
   "d5m3-l1": {
     "image": "deposition-video",
-    "hook": "Atty. Thone prepares the substance; you prepare **the person and the setting**.",
+    "hook": "Atty. Thorne prepares the substance; you prepare **the person and the setting**.",
     "points": [
-      "Audit for landmines **before 02/04/2027**; route them to Atty. Thone",
-      "Alignment comes from **reviewing records with Atty. Thone**, never a script",
+      "Audit for landmines **before 02/04/2027**; route them to Atty. Thorne",
+      "Alignment comes from **reviewing records with Atty. Thorne**, never a script",
       "Three pillars: **de-escalate, guidelines, dress and demeanor**",
       "Test with John **on 02/16/2027**: same device, same room"
     ],
-    "upl": "Run the process; never tell John what to say. Substance goes to Atty. Thone",
+    "upl": "Run the process; never tell John what to say. Substance goes to Atty. Thorne",
     "job": [
       ["Notice served 01/20/2027", "Calendar sessions, packet, day-before checklist", "Docket System · CMS → Calendar", "02/04, 02/11, 02/16, 02/17, 02/18/2027 calendared"],
       ["Test call, 02/16/2027", "Technology check on John's device", "CMS → Case Notes", "Each item logged pass or fail"],
@@ -259,13 +259,13 @@
   },
   "d5m3-a1": {
     "image": "client-call",
-    "situation": "02/04/2027: John, reached through Margaret yesterday, has **a new number**. He's anxious about his **02/18/2027 video deposition**, expecting a TV cross-examination. You run the first segment; Atty. Thone takes the substance after.",
+    "situation": "02/04/2027: John, reached through Margaret yesterday, has **a new number**. He's anxious about his **02/18/2027 video deposition**, expecting a TV cross-examination. You run the first segment; Atty. Thorne takes the substance after.",
     "steps": [
       "Confirm his **new number**, with Margaret as backup",
       "Confirm logistics and **a 02/16/2027 test call**",
       "Deliver **the three pillars** and in-room rules; drill the pause",
       "Answer no substance: log each question **in his words**",
-      "Have **Atty. Thone's gap set** ready to share"
+      "Have **Atty. Thorne's gap set** ready to share"
     ],
     "deliver": "A delivered segment, a logistics record, and **substantive questions routed** in John's words",
     "checks": [
@@ -295,7 +295,7 @@
     "upl": "Explain the rules and objections; never tell John how to answer a trap",
     "job": [
       ["Answer served 11/12/2026", "Map each defense to predicted questions", "Deposition prep log", "Each defense mapped to a trap"],
-      ["Trap map complete", "Confirm records in Atty. Thone's set", "CMS → Documents", "EMS, MRI, causation letter, EDR present"],
+      ["Trap map complete", "Confirm records in Atty. Thorne's set", "CMS → Documents", "EMS, MRI, Causation Letter, EDR present"],
       ["John asks how to answer", "Log in his words; route it", "CMS → Tasks → Escalate", "Routed same day; no wording offered"]
     ],
     "dos": [
@@ -310,15 +310,15 @@
   },
   "d5m3-a2": {
     "image": "checklist-qa",
-    "situation": "02/16/2027, the second prep session: Atty. Thone runs a mock cross-examination. AI Mercer questions AI John; **your microphone is muted**. Atty. Thone **debriefs from your log**.",
+    "situation": "02/16/2027, the second prep session: Atty. Thorne runs a mock cross-examination. AI Mercer questions AI John; **your microphone is muted**. Atty. Thorne **debriefs from your log**.",
     "steps": [
-      "Open the trap log; **start the clock** at the first question",
+      "Open the Trap Log; **start the clock** at the first question",
       "Log time, **exact words**, category, trap type and rules",
       "Put **the record fact and source** beside every mischaracterisation",
       "Log each objection and **whether John stopped talking**",
-      "**Coach nothing**; route the log to Atty. Thone"
+      "**Coach nothing**; route the log to Atty. Thorne"
     ],
-    "deliver": "A **timestamped trap log**, scored against the seven golden rules, routed before the debrief",
+    "deliver": "A **timestamped Trap Log**, scored against the seven golden rules, routed before the debrief",
     "checks": [
       "All **six assigned traps** logged",
       "Gap entry: **14 days**, 02/06/2026 to 02/20/2026",
@@ -357,7 +357,7 @@
     ],
     "upl": "Gather, authenticate and index; never tell John his share of fault",
     "job": [
-      ["Answer filed 11/12/2026", "Log each defense separately", "CMS → Litigation → Pleadings log", "Three lines, each dated 11/12/2026"],
+      ["Answer filed 11/12/2026", "Log each defense separately", "CMS → Litigation → Pleadings Log", "Three lines, each dated 11/12/2026"],
       ["Defenses logged", "Map evidence to each allegation", "CMS → Litigation → Liability counter-package", "Every item: source and named witness"],
       ["Item lacks foundation", "Flag for subpoena duces tecum", "CMS → Tasks → Escalate", "Foundation gap and holder named"]
     ],
@@ -378,7 +378,7 @@
       "Give each item **source, witness, custody** and foundation gaps",
       "Write **the video's chain** from 02/17/2026 to 02/19/2026",
       "Draft **a narrow Exhibit A** for any needed custodian",
-      "Close with questions **only Atty. Thone can answer**"
+      "Close with questions **only Atty. Thorne can answer**"
     ],
     "deliver": "An **allegation-by-allegation counter-package** with full foundation, a draft Exhibit A, questions routed",
     "checks": [
@@ -401,14 +401,14 @@
     "image": "skip-trace",
     "hook": "Two people went missing on this file; **the record proves diligence**.",
     "points": [
-      "Stale address? **Skip-trace first**, permissible purpose only",
+      "Stale address? **Skip-Trace first**, permissible purpose only",
       "Follow up with the process server **every 5 days**",
       "Subpoena duces tecum: **notice opposing counsel first**, then serve",
-      "The Step 4 letter: **certified mail AND email**, Atty. Thone's signature"
+      "The Step 4 letter: **certified mail AND email**, Atty. Thorne's signature"
     ],
     "upl": "Run authorized skip-traces and draft notices; never decide alternative service or threaten withdrawal",
     "job": [
-      ["Third failed attempt, 10/08/2026", "Escalate for skip-trace authority", "CMS → Tasks → Escalate", "Result logged 10/09/2026"],
+      ["Third failed attempt, 10/08/2026", "Escalate for Skip-Trace authority", "CMS → Tasks → Escalate", "Result logged 10/09/2026"],
       ["Affidavit filed 10/16/2026", "Docket answer date; weekly check", "Docket System · CMS → Calendar", "Answer due 11/13/2026 calendared"],
       ["Client unreachable from 01/22/2027", "Run Steps 1–3; draft Step 4", "CMS → Communications Log", "Response date before 02/04/2027"]
     ],
@@ -427,19 +427,19 @@
     "image": "email-outreach",
     "situation": "10/08/2026: **a third failed attempt** at 118 Larkspur Ln; a neighbor says Smith moved in August. 01/22/2027: calls to John Doe go unanswered, **deposition 02/18/2027**, prep 02/04 and 02/16/2027.",
     "steps": [
-      "Escalate for **skip-trace authority**",
+      "Escalate for **Skip-Trace authority**",
       "Pick the address on **recency and two corroborating sources**",
       "Re-instruct the server; log service and affidavit; **docket the answer date**",
       "Run Steps 1–3; draft **the Step 4 certified notice**",
-      "Assess John's **skip-trace gate** on Day 1's three criteria"
+      "Assess John's **Skip-Trace gate** on Day 1's three criteria"
     ],
     "deliver": "A service record through the answer date; **a certified notice dispatched**, both deliveries logged",
     "checks": [
       "4410 Quarry Ridge Ct, Millbrook chosen on **two current sources**",
       "**Answer due 11/13/2026** docketed (10/14 + 30)",
       "Response date before 02/04/2027: **sent by 01/27/2027**",
-      "**Certified mail AND email**, signed by Atty. Thone",
-      "**Gate not met**: deadline not expired; no skip-trace"
+      "**Certified mail AND email**, signed by Atty. Thorne",
+      "**Gate not met**: deadline not expired; no Skip-Trace"
     ],
     "dos": [
       "Calendar the response date **beside the deposition**"
@@ -452,13 +452,13 @@
   "d5m4-kc": {
     "image": "knowledge-check",
     "questions": [
-      "List the **recovery stack in order**, limits and total; name three coverages outside it, then the payer order.",
+      "List the **Recovery Stack in order**, limits and total; name three coverages outside it, then the Payer Order.",
       "When did **the 07/20/2026 demand's window** close? Why? Track A: what must UM carriers give before BI release?",
       "Track A: $40,000.00 **nets $20,359.92**. Name each deduction's figure and how costs and liens split by stream.",
       "Why did Keystone's stonewall **freeze the stack**? Which binds, mediation or arbitration? Internal SOL cutoff and brief date?",
-      "Match the 11/12/2026 Answer's **three allegations** to file evidence; name each one's question only Atty. Thone can answer.",
-      "John unreachable 01/22–02/03/2027: which **No Contact steps** apply, which calls are Atty. Thone's? His gap question: what now?",
-      "Civic: $2,016.00 loss of use; $3,600.00 vs $792.00 diminished value. Your **routed recommendation**? What may Leah Moran hear?"
+      "Match the 11/12/2026 Answer's **three allegations** to file evidence; name each one's question only Atty. Thorne can answer.",
+      "John unreachable 01/22–02/03/2027: which **No Contact steps** apply, which calls are Atty. Thorne's? His gap question: what now?",
+      "Civic: $2,016.00 Loss of Use; $3,600.00 vs $792.00 Diminished Value. Your **routed recommendation**? What may Leah Moran hear?"
     ]
   }
 }

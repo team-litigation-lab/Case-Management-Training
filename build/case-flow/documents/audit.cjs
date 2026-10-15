@@ -21,7 +21,7 @@ const has = (id, re) => re.test((text[id] || "").replace(/\s+/g, " "));
 const T = id => (text[id] || "").replace(/\s+/g, " ");
 
 // 1. every page carries the footer; no other case, no "blueprint"
-const BANNED = [/\bApex\b/i, /Aggressive Casualty/i, /\bL4-L5\b/, /Metro General/i, /Jordan Davies/i, /\bblueprint\b/i, /Elias|Thorne\b/i, /Local Farm Mutual/i];
+const BANNED = [/\bApex\b/i, /Aggressive Casualty/i, /\bL4-L5\b/, /Metro General/i, /Jordan Davies/i, /\bblueprint\b/i, /\bElias\b/i, /Local Farm Mutual/i];
 for (const [id, t] of Object.entries(text)) {
   const pages = t.split("\f").filter(p => p.trim());
   pages.forEach((p, i) => { if (!/SIMULATED DOCUMENT/.test(p) && !/\.docx$/.test(DOCS.find(d => d.id === id).file)) fails.push(`${id}: page ${i + 1} has no training footer`); });

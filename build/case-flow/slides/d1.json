@@ -3,14 +3,14 @@
     "image": "intake-interview",
     "hook": "A file opened wrong stays wrong: **a mis-mapped party** is a lost coverage layer.",
     "points": [
-      "Run the **conflict check first**, on every party's full legal name",
-      "Confirm the date of loss against the police report; **docket SOL 02/06/2028**",
+      "Run the **Conflict Check first**, on every party's full legal name",
+      "Confirm the date of loss against the Police Report; **docket SOL 02/06/2028**",
       "Map **all six roles**: “unknown” is a coverage layer not yet found",
       "Record the client's position: it decides **which policies can be reached**"
     ],
-    "upl": "Confirm facts, explain the process; worth and merits are Atty. Thone's call",
+    "upl": "Confirm facts, explain the process; worth and merits are Atty. Thorne's call",
     "job": [
-      ["Raw file received", "Conflict check, then verify DOL", "CMS → New Case", "DOL matches the police report"],
+      ["Raw file received", "Conflict Check, then verify DOL", "CMS → New Case", "DOL matches the Police Report"],
       ["Matter created", "Docket SOL; log retainer and HIPAA", "CMS → Calendar · Documents", "SOL 02/06/2028 on the calendar"],
       ["Parties identified", "Map six roles; record position", "CMS → Parties", "None “unknown”; position = passenger"]
     ],
@@ -20,14 +20,14 @@
       "Keep the CMS as **the single source of truth**"
     ],
     "donts": [
-      "Creating the file **before the conflict check**",
-      "Running the conflict check on **a nickname or partial name**",
+      "Creating the file **before the Conflict Check**",
+      "Running the Conflict Check on **a nickname or partial name**",
       "Accepting a case because intake **“mostly” looks fine**"
     ]
   },
   "d1m1-a1": {
     "image": "insurance-stack",
-    "situation": "All three carriers reported limits **on the set-up calls**. **No declarations page** has arrived yet; Keystone wants authorizations first. Nothing is in the CMS Insurance tab.",
+    "situation": "All three carriers reported limits **on the set-up calls**. **No Declaration Page** has arrived yet; Keystone wants authorizations first. Nothing is in the CMS Insurance tab.",
     "steps": [
       "Enter all three layers in **order of operations**",
       "Record carrier, policy and claim numbers, limit and **adjuster for each**",
@@ -35,7 +35,7 @@
       "In Comments: carrier's name, differing driver, adjuster or **“none assigned yet”**",
       "Verify the total, record the pursuit order, **mark the projection preliminary**"
     ],
-    "deliver": "A three-layer coverage matrix **totalling $40,000**, each layer classified, ordered and attributed",
+    "deliver": "A three-layer Coverage Matrix **totalling $40,000**, each layer classified, ordered and attributed",
     "checks": [
       "Limits **$10,000 / $20,000 / $10,000**; total $40,000",
       "Order recorded: **BI → Host UM → Relative UM**",
@@ -50,9 +50,9 @@
     "image": "money-ledger",
     "hook": "A reimbursement claim found after the demand comes out of **the client's net**.",
     "points": [
-      "Clear the Triple-Check first: **HIPAA, BCRC, payer order**",
+      "Clear the Triple-Check first: **HIPAA, BCRC, Payer Order**",
       "Payer order: PIP/MedPay, private health insurance, **then LOP/provider liens**",
-      "The payer order pays the bills; **the $40,000 stack** pays the claim",
+      "The Payer Order pays the bills; **the $40,000 stack** pays the claim",
       "Flag the plan's reimbursement right **before the first demand**"
     ],
     "upl": "Report what a plan asserts; never judge enforceability or compromise without counsel",
@@ -86,7 +86,7 @@
       "**PSH-55017742 and GRP-41208** both entered",
       "Position: **after PIP/MedPay, before LOP/provider liens**",
       "Flag dated **before any demand** is drafted",
-      "Compromise needs **Atty. Thone's authority**"
+      "Compromise needs **Atty. Thorne's authority**"
     ],
     "dos": ["Registering a lien **is not conceding it**"],
     "donts": ["Finding the lien **at disbursement**"]
@@ -97,7 +97,7 @@
       "List the **three coverage layers** in pursuit order, with each limit and the total.",
       "How does John Doe being a **front-seat passenger** change the recovery? What if he'd driven his own car?",
       "Why can't Host UM be demanded **before BI is exhausted** or tendered? What does the wrong order cost?",
-      "Set out John Doe's **payer order**, and explain why it differs from the recovery stack.",
+      "Set out John Doe's **Payer Order**, and explain why it differs from the Recovery Stack.",
       "Name the three parts of the **Regulatory Triple-Check**, what each requires, and what you verify for the BCRC.",
       "An **unregistered health lien** surfaces the morning the demand is due. Your steps, in order, and whose authority?"
     ]
@@ -115,7 +115,7 @@
     "job": [
       ["Client misses a contact", "Step 1: review status, deadlines", "CMS → Case Summary", "Live deadlines identified first"],
       ["Review complete", "Step 2: work the channel ladder", "CMS → Communications Log", "Date, time, channel, outcome logged"],
-      ["Ladder exhausted", "Step 3: notify Atty. Thone", "CMS → Tasks → Escalate", "SOL 02/06/2028 impact assessed"]
+      ["Ladder exhausted", "Step 3: notify Atty. Thorne", "CMS → Tasks → Escalate", "SOL 02/06/2028 impact assessed"]
     ],
     "dos": [
       "Set a **follow-up reminder** as each request goes out",
@@ -156,7 +156,7 @@
     "points": [
       "Step 4: send by **certified mail AND email**, to a confirmed address",
       "State earlier attempts, **a 7–14 day deadline**, and notice of potential withdrawal",
-      "Skip-trace needs **all three**: ladder exhausted, letter sent, deadline passed",
+      "Skip-Trace needs **all three**: ladder exhausted, letter sent, deadline passed",
       "Withdrawal and skip-tracing are **counsel's decisions**; keep the file moving"
     ],
     "upl": "Never judge the claim or advise on rights; only the attorney ends representation",
@@ -176,13 +176,13 @@
   },
   "d1m2-a2": {
     "image": "email-outreach",
-    "situation": "John Doe, unreachable **eleven days**: phone, email, texts and emergency contact all tried, logged. Step 3 escalation made to Atty. Thone. **Treatment still hasn't begun**.",
+    "situation": "John Doe, unreachable **eleven days**: phone, email, texts and emergency contact all tried, logged. Step 3 escalation made to Atty. Thorne. **Treatment still hasn't begun**.",
     "steps": [
       "Itemize **the earlier attempts** with dates",
       "Set a response deadline **inside 7–14 days**, as a date",
       "Give **notice of potential withdrawal** and how to respond",
       "Keep every line **inside the UPL boundary**",
-      "Record the skip-trace criteria and **Atty. Thone's Step 5 authority**"
+      "Record the Skip-Trace criteria and **Atty. Thorne's Step 5 authority**"
     ],
     "deliver": "A **send-ready Final Warning Letter**, both deliveries logged, escalation recorded",
     "checks": [
@@ -204,9 +204,9 @@
       "Set out all **six No Contact Protocol steps** in order, with each step's required action.",
       "State the protocol's **three purposes**. Which one protects the firm rather than the client?",
       "A colleague calls **three voicemails to one mobile** an exhausted ladder. What's wrong; what should the log show?",
-      "State the **three skip-trace criteria**, and why starting on fewer hurts the firm and the record.",
+      "State the **three Skip-Trace criteria**, and why starting on fewer hurts the firm and the record.",
       "Eleven days unreachable, **treatment not begun**: name every risk now building, and what you do about each.",
-      "At Step 5, still no response. What may you do, and what may **only Atty. Thone** do?",
+      "At Step 5, still no response. What may you do, and what may **only Atty. Thorne** do?",
       "Bring **inside the UPL boundary**: “Call back this week or you will lose your case and we'll withdraw.”"
     ]
   },
@@ -214,24 +214,24 @@
     "image": "privacy-shield",
     "hook": "Most self-inflicted claim damage happens **in the first two weeks**, before the client is told.",
     "points": [
-      "**No recorded statement** to the adverse carrier; route contact through the firm",
+      "**No Recorded Statement** to the adverse carrier; route contact through the firm",
       "Start treatment and **keep every appointment**",
       "**Post nothing**, sign nothing from a carrier until the firm reviews it",
       "Rental: confirm authorization, **rate cap and duration** before collection"
     ],
-    "upl": "Give the instruction; route questions about claim value to Atty. Thone",
+    "upl": "Give the instruction; route questions about claim value to Atty. Thorne",
     "job": [
       ["Retainer signed", "Deliver standing instructions; log delivery", "CMS → Onboarding", "Date and method logged"],
       ["Client asks about a rental", "Confirm policy, authorization, cap, duration", "CMS → Property Damage", "Recorded before collection"],
-      ["Adverse carrier calls client", "Route to the firm; log contact", "CMS → Communications Log", "No recorded statement; logged"]
+      ["Adverse carrier calls client", "Route to the firm; log contact", "CMS → Communications Log", "No Recorded Statement; logged"]
     ],
     "dos": [
       "Explain **why consistent treatment matters**",
       "Use **active listening**; heard clients follow instructions"
     ],
     "donts": [
-      "Explaining why a recorded statement hurts: **that's legal advice**",
-      "Letting a carrier's property damage call **drift into injuries**"
+      "Explaining why a Recorded Statement hurts: **that's legal advice**",
+      "Letting a carrier's Property Damage call **drift into injuries**"
     ]
   },
   "d1m3-a1": {
@@ -240,7 +240,7 @@
     "steps": [
       "Build **all six packet sections**",
       "Fill each with the **firm's standing instructions**",
-      "Make the **property damage section** specific to this file",
+      "Make the **Property Damage section** specific to this file",
       "Name **the most urgent instruction** and how you'll confirm understanding",
       "**Log delivery** with date and method"
     ],
@@ -248,8 +248,8 @@
     "checks": [
       "**All six sections** present and populated",
       "Treatment direction stated: **treatment hasn't begun**",
-      "Property damage section names **the rental parameters**",
-      "Atty. Elijah Thone listed as **lead counsel**",
+      "Property Damage section names **the rental parameters**",
+      "Atty. Elijah Thorne listed as **Lead Counsel**",
       "Adverse-contact instruction made urgent, **with a confirmation step**"
     ],
     "dos": ["Plan how you'll know **he read it**"],
@@ -257,26 +257,26 @@
   },
   "d1m3-l2": {
     "image": "repair-shop",
-    "hook": "Property damage is the client's first test of the firm, and **physical evidence of impact**.",
+    "hook": "Property Damage is the client's first test of the firm, and **physical evidence of impact**.",
     "points": [
-      "Get **the written repair estimate** before discussing any outcome",
+      "Get **the written Repair Estimate** before discussing any outcome",
       "Total loss: confirm the carrier's **threshold basis in writing**",
       "ACV is **pre-loss market value**: not the loan balance, not a replacement",
-      "Loss of use is **claimed separately**, per day without a vehicle"
+      "Loss of Use is **claimed separately**, per day without a vehicle"
     ],
     "upl": "Report figures; never advise on accepting a valuation or the vehicle's legal worth",
     "job": [
-      ["Repair estimate received", "Log; compare with ACV, final bill", "CMS → Property Damage", "Comparison recorded"],
-      ["Carrier states a disposition", "Confirm threshold basis, valuation report", "CMS → Property Damage → Correspondence", "Basis confirmed, not assumed"],
+      ["Repair Estimate received", "Log; compare with ACV, final bill", "CMS → Property Damage", "Comparison recorded"],
+      ["Carrier states a disposition", "Confirm threshold basis, Valuation Report", "CMS → Property Damage → Correspondence", "Basis confirmed, not assumed"],
       ["Client is without a vehicle", "Record dates; open loss-of-use claim", "CMS → Property Damage", "Dates recorded; claimed separately"]
     ],
     "dos": [
       "Check supplementals: often the best proof of **hidden damage**",
-      "Verify the valuation report so **the client isn't lowballed**"
+      "Verify the Valuation Report so **the client isn't lowballed**"
     ],
     "donts": [
       "Working only from **the initial estimate**",
-      "Treating property damage as **“just the car”**"
+      "Treating Property Damage as **“just the car”**"
     ]
   },
   "d1m3-a2": {
@@ -306,25 +306,25 @@
       "List the firm's **standing instructions** for a new client, and the harm each prevents.",
       "Before a rental: what must be confirmed, **whose policy is usually primary**, and what happens to uncovered days?",
       "What does **actual cash value** mean and not mean, and why does the loan-balance mix-up mislead clients?",
-      "Robert Smith's carrier asks John Doe for **a recorded statement**. What do you instruct and log?",
+      "Robert Smith's carrier asks John Doe for **a Recorded Statement**. What do you instruct and log?",
       "Beyond **the repair or ACV payment**, what else may John Doe be owed, and how is each documented?",
       "A delivered direction **never became a tracked task**. Why is that a failure, and what's the cost here?"
     ]
   },
   "d1m4-l1": {
     "image": "treatment-plan",
-    "hook": "The plan is **the file's operating instruction**, and what Atty. Thone sets strategy from.",
+    "hook": "The plan is **the file's operating instruction**, and what Atty. Thorne sets strategy from.",
     "points": [
       "**Decide acceptance**: Accepted, Escalated or Declined, with a reason",
       "State coverage, liability and projection together; projection **preliminary until coverage confirmed**",
       "Give Clinical, Functional and Financial pillars **measurable goals**",
       "**Flag adverse facts prominently**; a buried risk isn't disclosed"
     ],
-    "upl": "State facts, flag risks; legal conclusions, value and posture are Atty. Thone's",
+    "upl": "State facts, flag risks; legal conclusions, value and posture are Atty. Thorne's",
     "job": [
       ["Verification call complete", "Record acceptance decision and reason", "CMS → Case Notes", "Reason a colleague can follow"],
       ["Coverage verified, triple-check cleared", "Draft all five bands", "Action Plan Editor", "Risks band populated"],
-      ["Plan drafted", "Docket window; route to Atty. Thone", "Route for review · Calendar", "Routed before any position-committing action"]
+      ["Plan drafted", "Docket window; route to Atty. Thorne", "Route for review · Calendar", "Routed before any position-committing action"]
     ],
     "dos": [
       "Give each pillar **measurable goals**",
@@ -344,7 +344,7 @@
       "Record the initial gap **and the later disruption**",
       "In the risks band, state how each is **used against the claim**",
       "List **likely causes** and the steps to explain them",
-      "**Route the flag** to Atty. Thone"
+      "**Route the flag** to Atty. Thorne"
     ],
     "deliver": "A **precisely computed, prominently flagged** and routed treatment-gap record",
     "checks": [
@@ -352,7 +352,7 @@
       "Initial gap **and later disrupted care** recorded",
       "**Defense uses named**: not serious, recovered early, unnecessary, other causes",
       "Investigation steps: **client's explanation, documents, provider confirmation**",
-      "Flag prominent in risks band; **routed to Atty. Thone**"
+      "Flag prominent in risks band; **routed to Atty. Thorne**"
     ],
     "dos": ["**Document the reason** for every interruption"],
     "donts": [
@@ -369,9 +369,9 @@
       "Address every comment and re-route; run on **the approved version**",
       "Re-route when **a material fact changes**"
     ],
-    "upl": "Legal strategy is counsel's: review comments needing legal judgment go to Atty. Thone",
+    "upl": "Legal strategy is counsel's: review comments needing legal judgment go to Atty. Thorne",
     "job": [
-      ["Five bands drafted", "Route to Atty. Thone", "Action Plan Editor", "Routing timestamp recorded"],
+      ["Five bands drafted", "Route to Atty. Thorne", "Action Plan Editor", "Routing timestamp recorded"],
       ["Returned with comments", "Address every comment; re-route", "Action Plan Editor → Revisions", "No comment unaddressed"],
       ["Material fact changes", "Mark superseded; re-route", "Action Plan Editor → Version", "Approved version kept; new one routed"]
     ],
@@ -386,13 +386,13 @@
   },
   "d1m4-a2": {
     "image": "cms-screen",
-    "situation": "Day 1's work is in: parties mapped, **$40,000 stack verified**, triple-check cleared, packet tracked, **14-Day Treatment Gap** identified. Atty. Thone awaits the case plan.",
+    "situation": "Day 1's work is in: parties mapped, **$40,000 stack verified**, triple-check cleared, packet tracked, **14-Day Treatment Gap** identified. Atty. Thorne awaits the Case Plan.",
     "steps": [
       "Snapshot: record **the acceptance decision** and its reason",
       "Coverage stack and order, liability, **preliminary projection**, triple-check results",
       "Pillars: **measurable goals**; each action item with owner and date",
       "Risks: **14-Day Gap and later disruption**, prominently, with consequences",
-      "Docket the filing window, then **route to Atty. Thone**"
+      "Docket the filing window, then **route to Atty. Thorne**"
     ],
     "deliver": "A complete, routed plan counsel could **set strategy from** without a follow-up question",
     "checks": [
@@ -400,7 +400,7 @@
       "Coverage **$10,000 / $20,000 / $10,000**, total $40,000",
       "Order **BI → Host UM → Relative UM**; projection preliminary",
       "Risks band: **14-Day Gap and disrupted care**, with consequences",
-      "Plan **routed to Atty. Elijah Thone** with a timestamp"
+      "Plan **routed to Atty. Elijah Thorne** with a timestamp"
     ],
     "dos": ["If counsel must ask a question, **it isn't finished**"],
     "donts": ["A projection stated as a number **before coverage is confirmed**"]
@@ -408,12 +408,12 @@
   "d1m4-kc": {
     "image": "knowledge-check",
     "questions": [
-      "Set out the **five bands** of the case plan and what belongs in each, including the three pillars.",
+      "Set out the **five bands** of the Case Plan and what belongs in each, including the three pillars.",
       "Why has **an adverse fact buried** in a plan's body not really been disclosed to counsel?",
       "State John Doe's coverage as the plan should: layers, limits, total, **order of operations**, projection status.",
-      "**Compute John Doe's treatment gap** from the record dates. How will an adjuster use it?",
+      "**Compute John Doe's Treatment Gap** from the record dates. How will an adjuster use it?",
       "The gap investigation changes the picture after approval. What is **the approval's status**, and what do you do?",
-      "Draw the line: one thing the plan may state, and one that **must come from Atty. Thone**.",
+      "Draw the line: one thing the plan may state, and one that **must come from Atty. Thorne**.",
       "List the **four Day 1 gate conditions**. What breaks if treatment work starts with the stack unverified?"
     ]
   }

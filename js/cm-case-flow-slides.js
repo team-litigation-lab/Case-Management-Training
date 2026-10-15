@@ -6,18 +6,18 @@ window.CM_CF_SLIDES = {
   "image": "intake-interview",
   "hook": "A file opened wrong stays wrong: **a mis-mapped party** is a lost coverage layer.",
   "points": [
-   "Run the **conflict check first**, on every party's full legal name",
-   "Confirm the date of loss against the police report; **docket SOL 02/06/2028**",
+   "Run the **Conflict Check first**, on every party's full legal name",
+   "Confirm the date of loss against the Police Report; **docket SOL 02/06/2028**",
    "Map **all six roles**: “unknown” is a coverage layer not yet found",
    "Record the client's position: it decides **which policies can be reached**"
   ],
-  "upl": "Confirm facts, explain the process; worth and merits are Atty. Thone's call",
+  "upl": "Confirm facts, explain the process; worth and merits are Atty. Thorne's call",
   "job": [
    [
     "Raw file received",
-    "Conflict check, then verify DOL",
+    "Conflict Check, then verify DOL",
     "CMS → New Case",
-    "DOL matches the police report"
+    "DOL matches the Police Report"
    ],
    [
     "Matter created",
@@ -38,14 +38,14 @@ window.CM_CF_SLIDES = {
    "Keep the CMS as **the single source of truth**"
   ],
   "donts": [
-   "Creating the file **before the conflict check**",
-   "Running the conflict check on **a nickname or partial name**",
+   "Creating the file **before the Conflict Check**",
+   "Running the Conflict Check on **a nickname or partial name**",
    "Accepting a case because intake **“mostly” looks fine**"
   ]
  },
  "d1m1-a1": {
   "image": "insurance-stack",
-  "situation": "All three carriers reported limits **on the set-up calls**. **No declarations page** has arrived yet; Keystone wants authorizations first. Nothing is in the CMS Insurance tab.",
+  "situation": "All three carriers reported limits **on the set-up calls**. **No Declaration Page** has arrived yet; Keystone wants authorizations first. Nothing is in the CMS Insurance tab.",
   "steps": [
    "Enter all three layers in **order of operations**",
    "Record carrier, policy and claim numbers, limit and **adjuster for each**",
@@ -53,7 +53,7 @@ window.CM_CF_SLIDES = {
    "In Comments: carrier's name, differing driver, adjuster or **“none assigned yet”**",
    "Verify the total, record the pursuit order, **mark the projection preliminary**"
   ],
-  "deliver": "A three-layer coverage matrix **totalling $40,000**, each layer classified, ordered and attributed",
+  "deliver": "A three-layer Coverage Matrix **totalling $40,000**, each layer classified, ordered and attributed",
   "checks": [
    "Limits **$10,000 / $20,000 / $10,000**; total $40,000",
    "Order recorded: **BI → Host UM → Relative UM**",
@@ -72,9 +72,9 @@ window.CM_CF_SLIDES = {
   "image": "money-ledger",
   "hook": "A reimbursement claim found after the demand comes out of **the client's net**.",
   "points": [
-   "Clear the Triple-Check first: **HIPAA, BCRC, payer order**",
+   "Clear the Triple-Check first: **HIPAA, BCRC, Payer Order**",
    "Payer order: PIP/MedPay, private health insurance, **then LOP/provider liens**",
-   "The payer order pays the bills; **the $40,000 stack** pays the claim",
+   "The Payer Order pays the bills; **the $40,000 stack** pays the claim",
    "Flag the plan's reimbursement right **before the first demand**"
   ],
   "upl": "Report what a plan asserts; never judge enforceability or compromise without counsel",
@@ -123,7 +123,7 @@ window.CM_CF_SLIDES = {
    "**PSH-55017742 and GRP-41208** both entered",
    "Position: **after PIP/MedPay, before LOP/provider liens**",
    "Flag dated **before any demand** is drafted",
-   "Compromise needs **Atty. Thone's authority**"
+   "Compromise needs **Atty. Thorne's authority**"
   ],
   "dos": [
    "Registering a lien **is not conceding it**"
@@ -138,7 +138,7 @@ window.CM_CF_SLIDES = {
    "List the **three coverage layers** in pursuit order, with each limit and the total.",
    "How does John Doe being a **front-seat passenger** change the recovery? What if he'd driven his own car?",
    "Why can't Host UM be demanded **before BI is exhausted** or tendered? What does the wrong order cost?",
-   "Set out John Doe's **payer order**, and explain why it differs from the recovery stack.",
+   "Set out John Doe's **Payer Order**, and explain why it differs from the Recovery Stack.",
    "Name the three parts of the **Regulatory Triple-Check**, what each requires, and what you verify for the BCRC.",
    "An **unregistered health lien** surfaces the morning the demand is due. Your steps, in order, and whose authority?"
   ]
@@ -168,7 +168,7 @@ window.CM_CF_SLIDES = {
    ],
    [
     "Ladder exhausted",
-    "Step 3: notify Atty. Thone",
+    "Step 3: notify Atty. Thorne",
     "CMS → Tasks → Escalate",
     "SOL 02/06/2028 impact assessed"
    ]
@@ -214,7 +214,7 @@ window.CM_CF_SLIDES = {
   "points": [
    "Step 4: send by **certified mail AND email**, to a confirmed address",
    "State earlier attempts, **a 7–14 day deadline**, and notice of potential withdrawal",
-   "Skip-trace needs **all three**: ladder exhausted, letter sent, deadline passed",
+   "Skip-Trace needs **all three**: ladder exhausted, letter sent, deadline passed",
    "Withdrawal and skip-tracing are **counsel's decisions**; keep the file moving"
   ],
   "upl": "Never judge the claim or advise on rights; only the attorney ends representation",
@@ -249,13 +249,13 @@ window.CM_CF_SLIDES = {
  },
  "d1m2-a2": {
   "image": "email-outreach",
-  "situation": "John Doe, unreachable **eleven days**: phone, email, texts and emergency contact all tried, logged. Step 3 escalation made to Atty. Thone. **Treatment still hasn't begun**.",
+  "situation": "John Doe, unreachable **eleven days**: phone, email, texts and emergency contact all tried, logged. Step 3 escalation made to Atty. Thorne. **Treatment still hasn't begun**.",
   "steps": [
    "Itemize **the earlier attempts** with dates",
    "Set a response deadline **inside 7–14 days**, as a date",
    "Give **notice of potential withdrawal** and how to respond",
    "Keep every line **inside the UPL boundary**",
-   "Record the skip-trace criteria and **Atty. Thone's Step 5 authority**"
+   "Record the Skip-Trace criteria and **Atty. Thorne's Step 5 authority**"
   ],
   "deliver": "A **send-ready Final Warning Letter**, both deliveries logged, escalation recorded",
   "checks": [
@@ -279,9 +279,9 @@ window.CM_CF_SLIDES = {
    "Set out all **six No Contact Protocol steps** in order, with each step's required action.",
    "State the protocol's **three purposes**. Which one protects the firm rather than the client?",
    "A colleague calls **three voicemails to one mobile** an exhausted ladder. What's wrong; what should the log show?",
-   "State the **three skip-trace criteria**, and why starting on fewer hurts the firm and the record.",
+   "State the **three Skip-Trace criteria**, and why starting on fewer hurts the firm and the record.",
    "Eleven days unreachable, **treatment not begun**: name every risk now building, and what you do about each.",
-   "At Step 5, still no response. What may you do, and what may **only Atty. Thone** do?",
+   "At Step 5, still no response. What may you do, and what may **only Atty. Thorne** do?",
    "Bring **inside the UPL boundary**: “Call back this week or you will lose your case and we'll withdraw.”"
   ]
  },
@@ -289,12 +289,12 @@ window.CM_CF_SLIDES = {
   "image": "privacy-shield",
   "hook": "Most self-inflicted claim damage happens **in the first two weeks**, before the client is told.",
   "points": [
-   "**No recorded statement** to the adverse carrier; route contact through the firm",
+   "**No Recorded Statement** to the adverse carrier; route contact through the firm",
    "Start treatment and **keep every appointment**",
    "**Post nothing**, sign nothing from a carrier until the firm reviews it",
    "Rental: confirm authorization, **rate cap and duration** before collection"
   ],
-  "upl": "Give the instruction; route questions about claim value to Atty. Thone",
+  "upl": "Give the instruction; route questions about claim value to Atty. Thorne",
   "job": [
    [
     "Retainer signed",
@@ -312,7 +312,7 @@ window.CM_CF_SLIDES = {
     "Adverse carrier calls client",
     "Route to the firm; log contact",
     "CMS → Communications Log",
-    "No recorded statement; logged"
+    "No Recorded Statement; logged"
    ]
   ],
   "dos": [
@@ -320,8 +320,8 @@ window.CM_CF_SLIDES = {
    "Use **active listening**; heard clients follow instructions"
   ],
   "donts": [
-   "Explaining why a recorded statement hurts: **that's legal advice**",
-   "Letting a carrier's property damage call **drift into injuries**"
+   "Explaining why a Recorded Statement hurts: **that's legal advice**",
+   "Letting a carrier's Property Damage call **drift into injuries**"
   ]
  },
  "d1m3-a1": {
@@ -330,7 +330,7 @@ window.CM_CF_SLIDES = {
   "steps": [
    "Build **all six packet sections**",
    "Fill each with the **firm's standing instructions**",
-   "Make the **property damage section** specific to this file",
+   "Make the **Property Damage section** specific to this file",
    "Name **the most urgent instruction** and how you'll confirm understanding",
    "**Log delivery** with date and method"
   ],
@@ -338,8 +338,8 @@ window.CM_CF_SLIDES = {
   "checks": [
    "**All six sections** present and populated",
    "Treatment direction stated: **treatment hasn't begun**",
-   "Property damage section names **the rental parameters**",
-   "Atty. Elijah Thone listed as **lead counsel**",
+   "Property Damage section names **the rental parameters**",
+   "Atty. Elijah Thorne listed as **Lead Counsel**",
    "Adverse-contact instruction made urgent, **with a confirmation step**"
   ],
   "dos": [
@@ -351,24 +351,24 @@ window.CM_CF_SLIDES = {
  },
  "d1m3-l2": {
   "image": "repair-shop",
-  "hook": "Property damage is the client's first test of the firm, and **physical evidence of impact**.",
+  "hook": "Property Damage is the client's first test of the firm, and **physical evidence of impact**.",
   "points": [
-   "Get **the written repair estimate** before discussing any outcome",
+   "Get **the written Repair Estimate** before discussing any outcome",
    "Total loss: confirm the carrier's **threshold basis in writing**",
    "ACV is **pre-loss market value**: not the loan balance, not a replacement",
-   "Loss of use is **claimed separately**, per day without a vehicle"
+   "Loss of Use is **claimed separately**, per day without a vehicle"
   ],
   "upl": "Report figures; never advise on accepting a valuation or the vehicle's legal worth",
   "job": [
    [
-    "Repair estimate received",
+    "Repair Estimate received",
     "Log; compare with ACV, final bill",
     "CMS → Property Damage",
     "Comparison recorded"
    ],
    [
     "Carrier states a disposition",
-    "Confirm threshold basis, valuation report",
+    "Confirm threshold basis, Valuation Report",
     "CMS → Property Damage → Correspondence",
     "Basis confirmed, not assumed"
    ],
@@ -381,11 +381,11 @@ window.CM_CF_SLIDES = {
   ],
   "dos": [
    "Check supplementals: often the best proof of **hidden damage**",
-   "Verify the valuation report so **the client isn't lowballed**"
+   "Verify the Valuation Report so **the client isn't lowballed**"
   ],
   "donts": [
    "Working only from **the initial estimate**",
-   "Treating property damage as **“just the car”**"
+   "Treating Property Damage as **“just the car”**"
   ]
  },
  "d1m3-a2": {
@@ -419,21 +419,21 @@ window.CM_CF_SLIDES = {
    "List the firm's **standing instructions** for a new client, and the harm each prevents.",
    "Before a rental: what must be confirmed, **whose policy is usually primary**, and what happens to uncovered days?",
    "What does **actual cash value** mean and not mean, and why does the loan-balance mix-up mislead clients?",
-   "Robert Smith's carrier asks John Doe for **a recorded statement**. What do you instruct and log?",
+   "Robert Smith's carrier asks John Doe for **a Recorded Statement**. What do you instruct and log?",
    "Beyond **the repair or ACV payment**, what else may John Doe be owed, and how is each documented?",
    "A delivered direction **never became a tracked task**. Why is that a failure, and what's the cost here?"
   ]
  },
  "d1m4-l1": {
   "image": "treatment-plan",
-  "hook": "The plan is **the file's operating instruction**, and what Atty. Thone sets strategy from.",
+  "hook": "The plan is **the file's operating instruction**, and what Atty. Thorne sets strategy from.",
   "points": [
    "**Decide acceptance**: Accepted, Escalated or Declined, with a reason",
    "State coverage, liability and projection together; projection **preliminary until coverage confirmed**",
    "Give Clinical, Functional and Financial pillars **measurable goals**",
    "**Flag adverse facts prominently**; a buried risk isn't disclosed"
   ],
-  "upl": "State facts, flag risks; legal conclusions, value and posture are Atty. Thone's",
+  "upl": "State facts, flag risks; legal conclusions, value and posture are Atty. Thorne's",
   "job": [
    [
     "Verification call complete",
@@ -449,7 +449,7 @@ window.CM_CF_SLIDES = {
    ],
    [
     "Plan drafted",
-    "Docket window; route to Atty. Thone",
+    "Docket window; route to Atty. Thorne",
     "Route for review · Calendar",
     "Routed before any position-committing action"
    ]
@@ -472,7 +472,7 @@ window.CM_CF_SLIDES = {
    "Record the initial gap **and the later disruption**",
    "In the risks band, state how each is **used against the claim**",
    "List **likely causes** and the steps to explain them",
-   "**Route the flag** to Atty. Thone"
+   "**Route the flag** to Atty. Thorne"
   ],
   "deliver": "A **precisely computed, prominently flagged** and routed treatment-gap record",
   "checks": [
@@ -480,7 +480,7 @@ window.CM_CF_SLIDES = {
    "Initial gap **and later disrupted care** recorded",
    "**Defense uses named**: not serious, recovered early, unnecessary, other causes",
    "Investigation steps: **client's explanation, documents, provider confirmation**",
-   "Flag prominent in risks band; **routed to Atty. Thone**"
+   "Flag prominent in risks band; **routed to Atty. Thorne**"
   ],
   "dos": [
    "**Document the reason** for every interruption"
@@ -499,11 +499,11 @@ window.CM_CF_SLIDES = {
    "Address every comment and re-route; run on **the approved version**",
    "Re-route when **a material fact changes**"
   ],
-  "upl": "Legal strategy is counsel's: review comments needing legal judgment go to Atty. Thone",
+  "upl": "Legal strategy is counsel's: review comments needing legal judgment go to Atty. Thorne",
   "job": [
    [
     "Five bands drafted",
-    "Route to Atty. Thone",
+    "Route to Atty. Thorne",
     "Action Plan Editor",
     "Routing timestamp recorded"
    ],
@@ -531,13 +531,13 @@ window.CM_CF_SLIDES = {
  },
  "d1m4-a2": {
   "image": "cms-screen",
-  "situation": "Day 1's work is in: parties mapped, **$40,000 stack verified**, triple-check cleared, packet tracked, **14-Day Treatment Gap** identified. Atty. Thone awaits the case plan.",
+  "situation": "Day 1's work is in: parties mapped, **$40,000 stack verified**, triple-check cleared, packet tracked, **14-Day Treatment Gap** identified. Atty. Thorne awaits the Case Plan.",
   "steps": [
    "Snapshot: record **the acceptance decision** and its reason",
    "Coverage stack and order, liability, **preliminary projection**, triple-check results",
    "Pillars: **measurable goals**; each action item with owner and date",
    "Risks: **14-Day Gap and later disruption**, prominently, with consequences",
-   "Docket the filing window, then **route to Atty. Thone**"
+   "Docket the filing window, then **route to Atty. Thorne**"
   ],
   "deliver": "A complete, routed plan counsel could **set strategy from** without a follow-up question",
   "checks": [
@@ -545,7 +545,7 @@ window.CM_CF_SLIDES = {
    "Coverage **$10,000 / $20,000 / $10,000**, total $40,000",
    "Order **BI → Host UM → Relative UM**; projection preliminary",
    "Risks band: **14-Day Gap and disrupted care**, with consequences",
-   "Plan **routed to Atty. Elijah Thone** with a timestamp"
+   "Plan **routed to Atty. Elijah Thorne** with a timestamp"
   ],
   "dos": [
    "If counsel must ask a question, **it isn't finished**"
@@ -557,12 +557,12 @@ window.CM_CF_SLIDES = {
  "d1m4-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Set out the **five bands** of the case plan and what belongs in each, including the three pillars.",
+   "Set out the **five bands** of the Case Plan and what belongs in each, including the three pillars.",
    "Why has **an adverse fact buried** in a plan's body not really been disclosed to counsel?",
    "State John Doe's coverage as the plan should: layers, limits, total, **order of operations**, projection status.",
-   "**Compute John Doe's treatment gap** from the record dates. How will an adjuster use it?",
+   "**Compute John Doe's Treatment Gap** from the record dates. How will an adjuster use it?",
    "The gap investigation changes the picture after approval. What is **the approval's status**, and what do you do?",
-   "Draw the line: one thing the plan may state, and one that **must come from Atty. Thone**.",
+   "Draw the line: one thing the plan may state, and one that **must come from Atty. Thorne**.",
    "List the **four Day 1 gate conditions**. What breaks if treatment work starts with the stack unverified?"
   ]
  },
@@ -575,7 +575,7 @@ window.CM_CF_SLIDES = {
    "**Notice, not demand**: no UM payment request before the documented BI tender",
    "Keystone gets **John Doe's name only**: no phone, address, birth date, employer"
   ],
-  "upl": "You draft and send; Atty. Thone signs. Never value the claim or argue fault.",
+  "upl": "You draft and send; Atty. Thorne signs. Never value the claim or argue fault.",
   "job": [
    [
     "Claims opened 02/16–02/17/2026",
@@ -599,7 +599,7 @@ window.CM_CF_SLIDES = {
   "dos": [
    "Confirm **claim number and adjuster** on every claim call",
    "Keep claim-opening facts **general and verifiable**",
-   "Treat other coverage as **a question for Atty. Thone**"
+   "Treat other coverage as **a question for Atty. Thorne**"
   ],
   "donts": [
    "A UM letter that **reads as a demand**",
@@ -613,8 +613,8 @@ window.CM_CF_SLIDES = {
   "steps": [
    "Draft **five letters** on the firm template: three LORs, two notices",
    "Give each its **Attn line, insured, number** and date of loss",
-   "Request **limits, declarations pages**, additional coverage and preservation",
-   "Route the set to **Atty. Thone for signature**",
+   "Request **limits, Declaration Pages**, additional coverage and preservation",
+   "Route the set to **Atty. Thorne for signature**",
    "Send by preferred method; **calendar the acknowledgement checks**"
   ],
   "deliver": "Five letters **signed, sent and logged**, each correctly addressed, follow-ups calendared",
@@ -638,12 +638,12 @@ window.CM_CF_SLIDES = {
   "image": "coverage-check",
   "hook": "An unverified coverage fact is a guess: put **a source behind every “confirmed”**.",
   "points": [
-   "Limits stay **preliminary until a declarations page** or coverage letter",
+   "Limits stay **preliminary until a Declaration Page** or Coverage Letter",
    "Get each UM carrier's form **in writing**: add-on or reduced",
    "Stack **three layers to $40,000**; MedPay and PD are tracked, never added",
    "Every open item carries **a dated next follow-up**"
   ],
-  "upl": "You record and chase; applying terms or alleging bad faith is Atty. Thone's call.",
+  "upl": "You record and chase; applying terms or alleging bad faith is Atty. Thorne's call.",
   "job": [
    [
     "Written coverage confirmation arrives",
@@ -671,24 +671,24 @@ window.CM_CF_SLIDES = {
   ],
   "donts": [
    "**Adding MedPay or PD** to the stack total",
-   "Confirming a limit **from a phone call** or police report",
+   "Confirming a limit **from a phone call** or Police Report",
    "An open request with **no next date**"
   ]
  },
  "d2m1-a2": {
   "image": "insurance-stack",
-  "situation": "File date 03/11/2026. A colleague's coverage matrix **totals $45,000**. The file holds Harbor Point's 03/02/2026 confirmation, Cardinal State's 03/09/2026 letter and **no Keystone declarations page** yet.",
+  "situation": "File date 03/11/2026. A colleague's Coverage Matrix **totals $45,000**. The file holds Harbor Point's 03/02/2026 confirmation, Cardinal State's 03/09/2026 letter and **no Keystone Declaration Page** yet.",
   "steps": [
    "Check **every row against its document**",
    "Correct each error, **citing document and date**",
    "Restore the **$40,000 stack total**; leave correct rows alone",
    "Clear each **past-due follow-up**: act, then set a date",
-   "Route a **three-line audit note** to Atty. Thone"
+   "Route a **three-line audit note** to Atty. Thorne"
   ],
   "deliver": "A corrected matrix **totalling $40,000**, every status sourced, open items dated, note routed",
   "checks": [
-   "BI: **still preliminary**; declarations page not until 03/20/2026",
-   "**MedPay moved out** of the stack into the payer order",
+   "BI: **still preliminary**; Declaration Page not until 03/20/2026",
+   "**MedPay moved out** of the stack into the Payer Order",
    "Stack total **$45,000 corrected to $40,000**",
    "BI follow-up **logged 03/11/2026**; next by 03/13/2026",
    "Bluewater's “UM: none” chased: **signed rejection form** (03/14/2024)"
@@ -715,20 +715,20 @@ window.CM_CF_SLIDES = {
  },
  "d2m2-l1": {
   "image": "treatment-plan",
-  "hook": "An LOP **out of payer order** turns a payable bill into a lien on his net.",
+  "hook": "An LOP **out of Payer Order** turns a payable bill into a lien on his net.",
   "points": [
    "Run the payer order: **MedPay → Peach State → LOP**",
    "Use an LOP **only where earlier payers can't**",
-   "Atty. Thone sets LOP terms; **never promise payment** amounts, reductions or dates",
+   "Atty. Thorne sets LOP terms; **never promise payment** amounts, reductions or dates",
    "Be the hub: **warm handoffs**, not phone numbers"
   ],
   "upl": "You prepare and route LOPs; never set terms, sign, promise payment or explain liability.",
   "job": [
    [
     "Provider asks for an LOP",
-    "Run payer order; prepare if needed",
+    "Run Payer Order; prepare if needed",
     "CMS → Documents → Outgoing",
-    "Nothing sent without Atty. Thone's approval"
+    "Nothing sent without Atty. Thorne's approval"
    ],
    [
     "MedPay pays a bill",
@@ -758,7 +758,7 @@ window.CM_CF_SLIDES = {
   "image": "medical-visit",
   "situation": "02/23/2026. Urgent care's $685.00 went to MedPay. Riverton Spine & Rehab, **out of network** for Peach State, starts care 02/24/2026. On 03/11/2026 Summit Imaging asks for **an LOP for the MRI**.",
   "steps": [
-   "Run and record **the payer order** for each provider",
+   "Run and record **the Payer Order** for each provider",
    "Prepare Riverton Spine & Rehab's LOP; **route it for signature**",
    "Transmit with the HIPAA authorization; ask for **a missed-visit alert**",
    "Record the assessment and **the 2021 pre-morbid baseline**",
@@ -766,14 +766,14 @@ window.CM_CF_SLIDES = {
   ],
   "deliver": "One **counsel-approved LOP** sent, one declined with payer named, ledger and baseline recorded",
   "checks": [
-   "Signed by John Doe and Atty. Thone **before 02/24/2026**",
+   "Signed by John Doe and Atty. Thorne **before 02/24/2026**",
    "Baseline: 2021 visits **low back, resolved**; no prior neck",
    "Rental ends 03/19/2026: **calendared as a treatment risk**",
    "Decline proved: **$3,675.00 left**, enough for the $2,395.00 MRI",
    "**No payment promised** to either provider"
   ],
   "dos": [
-   "Run the payer order **before the LOP template**, every time",
+   "Run the Payer Order **before the LOP template**, every time",
    "Highlight prior history: **never hide it**"
   ],
   "donts": [
@@ -806,7 +806,7 @@ window.CM_CF_SLIDES = {
    ],
    [
     "Barrier survives the clinical rung",
-    "Notice the carrier; copy Atty. Thone",
+    "Notice the carrier; copy Atty. Thorne",
     "CMS → Tasks → Escalate",
     "Each rung dated in log"
    ]
@@ -819,7 +819,7 @@ window.CM_CF_SLIDES = {
   "donts": [
    "**Continuing the plan unchanged** through a crisis",
    "**Blaming the client** for a systemic delay",
-   "Jumping to Atty. Thone **before the first two rungs**"
+   "Jumping to Atty. Thorne **before the first two rungs**"
   ]
  },
  "d2m2-a2": {
@@ -829,7 +829,7 @@ window.CM_CF_SLIDES = {
    "Assess: call John Doe **on 04/08/2026**; classify the variance",
    "Coordinate: request **a rental extension** from Keystone PD in writing",
    "Build the transport plan from one **Transportation Wall option**, saying why",
-   "Track: write **the GIRP note**; report to Atty. Thone",
+   "Track: write **the GIRP note**; report to Atty. Thorne",
    "Confirm **attendance once care resumes**"
   ],
   "deliver": "A complete A-C-T record, with **attendance confirmed 04/21 and 04/23/2026**",
@@ -852,11 +852,11 @@ window.CM_CF_SLIDES = {
  "d2m2-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Using **the payer order**, explain Riverton's LOP and Summit's decline, and what you may tell each provider.",
+   "Using **the Payer Order**, explain Riverton's LOP and Summit's decline, and what you may tell each provider.",
    "Post the MedPay ledger: which visit exhausts **the $5,000.00**, and what happens to the next bill?",
    "On 04/08/2026 and 06/12/2026, place John Doe on the Standard Treatment Map and name **the Case Manager's focus**.",
    "Turn “get through his shifts” into **a SMART goal**; which objective measures show care is reasonable and necessary?",
-   "Keystone cites the 2021 visits. State **the pre-morbid baseline**, its proof, the post-crash change, and Atty. Thone's part.",
+   "Keystone cites the 2021 visits. State **the pre-morbid baseline**, its proof, the post-crash change, and Atty. Thorne's part.",
    "04/21/2026: Riverton demands **written confirmation of full payment** before John Doe's visit. What do you do, in order?",
    "In pain management, name two medication or **behavioral-health red flags**, and who hears about each."
   ]
@@ -870,7 +870,7 @@ window.CM_CF_SLIDES = {
    "**Never lead**: a suggested reason gets agreement, not information",
    "Record **only with his spoken consent**; protect privilege"
   ],
-  "upl": "Never say what the gap does to his case; route that to Atty. Thone.",
+  "upl": "Never say what the gap does to his case; route that to Atty. Thorne.",
   "job": [
    [
     "Records show the 14-day gap",
@@ -885,10 +885,10 @@ window.CM_CF_SLIDES = {
     "Consent before first substantive question"
    ],
    [
-    "Carrier asks for recorded statement",
-    "Refer to firm; tell Atty. Thone",
+    "Carrier asks for Recorded Statement",
+    "Refer to firm; tell Atty. Thorne",
     "CMS → Communications Log",
-    "No statement without Atty. Thone"
+    "No statement without Atty. Thorne"
    ]
   ],
   "dos": [
@@ -935,7 +935,7 @@ window.CM_CF_SLIDES = {
   "points": [
    "Read every history for **mechanism, onset and body region**",
    "**Never request** a change, back-date or excuse note to order",
-   "Flag conflicting histories **to Atty. Thone**; never resolve them yourself",
+   "Flag conflicting histories **to Atty. Thorne**; never resolve them yourself",
    "Never hide an interruption: **show its dates**, same complaints before and after"
   ],
   "upl": "You collect, compare and flag; never tell a provider what to write.",
@@ -948,7 +948,7 @@ window.CM_CF_SLIDES = {
    ],
    [
     "Histories conflict",
-    "Flag to Atty. Thone; change nothing",
+    "Flag to Atty. Thorne; change nothing",
     "CMS → Tasks → Escalate",
     "Same day; no wording requests"
    ],
@@ -971,19 +971,19 @@ window.CM_CF_SLIDES = {
  },
  "d2m3-a2": {
   "image": "calendar-gap",
-  "situation": "06/22/2026. MMI reached 06/12/2026; Dr. Reyes's **06/19/2026 causation letter** is in. Atty. Thone wants **the gap justification record** before the pre-demand strategy session.",
+  "situation": "06/22/2026. MMI reached 06/12/2026; Dr. Reyes's **06/19/2026 Causation Letter** is in. Atty. Thorne wants **the Gap Justification Record** before the pre-demand strategy session.",
   "steps": [
    "Cover both: 14-day gap and **19-day disruption**, exact dates",
    "Pair every reason with **a dated document**",
    "Tag reasons with no document **“account only”**",
    "Write **facts and citations only**; nothing from the privileged call",
-   "Run **a defense-eye pass**, then route to Atty. Thone"
+   "Run **a defense-eye pass**, then route to Atty. Thorne"
   ],
   "deliver": "A routed record of **both interruptions**, every reason beside a dated document",
   "checks": [
    "14 days, 02/06/2026 → 02/20/2026; **19 days**, 04/02/2026 → 04/21/2026",
    "Escalation quoted exactly: **“onset at MVA 02/06/2026”**",
-   "Continuity: EMS report, call-outs, **06/19/2026 causation letter**",
+   "Continuity: EMS report, call-outs, **06/19/2026 Causation Letter**",
    "Carpool ending and Escape in shop: **“account only”**",
    "Social media checked; **nothing deleted or advised deleted**"
   ],
@@ -1002,7 +1002,7 @@ window.CM_CF_SLIDES = {
    "Name the **four reasons** for the 14-day gap and, beside each, its corroborating document and date.",
    "Rewrite “Was it because you had no car?” **without suggesting the reason**. What does the leading version cost?",
    "“Is this gap going to wreck my case?” Give **your exact answer**, then what you do next.",
-   "Compare the 03/04/2026 call with **a Keystone recorded statement**: who, consent, privilege, and what the firm does.",
+   "Compare the 03/04/2026 call with **a Keystone Recorded Statement**: who, consent, privilege, and what the firm does.",
    "List **five continuity records** for the 14-day gap, and two things never done to strengthen the record.",
    "Riverton offers to **“add a line”** to its 04/21/2026 note explaining the missed visits. Your steps, in order?",
    "Why must the record cover **the 19-day disruption**? Give its dates, missed visits, reasons and documents."
@@ -1013,11 +1013,11 @@ window.CM_CF_SLIDES = {
   "hook": "Most value is won or lost here: Day 3's demands spend only **what this audit proves**.",
   "points": [
    "MMI is **a medical determination**; record it from the 06/12/2026 note",
-   "BI specials are **medical plus wages**; the Civic runs separately",
-   "Show **billed beside paid**; which one to claim is Atty. Thone's call",
+   "BI Specials are **medical plus wages**; the Civic runs separately",
+   "Show **billed beside paid**; which one to claim is Atty. Thorne's call",
    "Future care ($3,400–$6,800) stays **out of the audited total**"
   ],
-  "upl": "You audit and flag; valuing, billed-or-paid and the demand figure are Atty. Thone's.",
+  "upl": "You audit and flag; valuing, billed-or-paid and the demand figure are Atty. Thorne's.",
   "job": [
    [
     "MMI note received 06/12/2026",
@@ -1027,14 +1027,14 @@ window.CM_CF_SLIDES = {
    ],
    [
     "Final bills and records in",
-    "Build and reconcile specials ledger",
+    "Build and reconcile Specials ledger",
     "CMS → Financial Ledger → Specials",
     "Medical total $14,817.40"
    ],
    [
     "Before the ask",
     "Re-verify each limit, in order",
-    "CMS → Coverage matrix",
+    "CMS → Coverage Matrix",
     "$40,000, each with written source"
    ]
   ],
@@ -1045,13 +1045,13 @@ window.CM_CF_SLIDES = {
   ],
   "donts": [
    "Sending the demand and **hoping nobody checks**",
-   "**Adding future care** to the specials",
+   "**Adding future care** to the Specials",
    "Discovering a lien **after the release** is signed"
   ]
  },
  "d2m4-a1": {
   "image": "money-ledger",
-  "situation": "Early July 2026, after MMI 06/12/2026. Medical bills **total $15,002.40**; Riverton Spine & Rehab bills **34 lines × $185.00**; Northgate verifies 9 missed shifts at 8 h × $22.00.",
+  "situation": "Early July 2026, after MMI 06/12/2026. Medical Bills **total $15,002.40**; Riverton Spine & Rehab bills **34 lines × $185.00**; Northgate verifies 9 missed shifts at 8 h × $22.00.",
   "steps": [
    "Enter each provider's **charges, dates and payer**",
    "Reconcile Riverton Spine & Rehab's lines **against its visit notes**",
@@ -1063,8 +1063,8 @@ window.CM_CF_SLIDES = {
   "checks": [
    "**05/04/2026 duplicate removed**: $6,290.00 → $6,105.00",
    "**Specials $16,401.40**: $14,817.40 medical + $1,584.00 wages",
-   "**Five pre-treatment shifts flagged**, with Northgate's attendance record",
-   "Billed-vs-paid choice **routed to Atty. Thone**",
+   "**Five pre-treatment shifts flagged**, with Northgate's Attendance Record",
+   "Billed-vs-paid choice **routed to Atty. Thorne**",
    "**Liens listed**: Peach State $1,860.00, LOP $6,105.00"
   ],
   "dos": [
@@ -1078,14 +1078,14 @@ window.CM_CF_SLIDES = {
  },
  "d2m4-l2": {
   "image": "binder-exhibits",
-  "hook": "Atty. Thone decides from your brief: lead with **the decision, not the chronology**.",
+  "hook": "Atty. Thorne decides from your brief: lead with **the decision, not the chronology**.",
   "points": [
    "**Bottom line first**: where the file stands, what you need",
    "Facts next, **audited and sourced**; the trinity must agree",
    "Name each risk **with its answering document**, or say none",
    "Frame decisions as **questions only he can answer**"
   ],
-  "upl": "Recommend on operations only; the demand, billed-or-paid and the UM timing are Atty. Thone's.",
+  "upl": "Recommend on operations only; the demand, billed-or-paid and the UM timing are Atty. Thorne's.",
   "job": [
    [
     "Audit complete",
@@ -1119,7 +1119,7 @@ window.CM_CF_SLIDES = {
  },
  "d2m4-a2": {
   "image": "strategy-session",
-  "situation": "Early July 2026, before any demand. Your audit: MMI 06/12/2026, **specials $16,401.40**, liens $1,860.00 and $6,105.00, targets **$10,000 → $20,000 → $10,000**. Atty. Thone has called the strategy session.",
+  "situation": "Early July 2026, before any demand. Your audit: MMI 06/12/2026, **Specials $16,401.40**, liens $1,860.00 and $6,105.00, targets **$10,000 → $20,000 → $10,000**. Atty. Thorne has called the strategy session.",
   "steps": [
    "Brief in protocol order: **bottom line first**",
    "Then audited facts, **risks with their documents**, decisions, options",
@@ -1127,7 +1127,7 @@ window.CM_CF_SLIDES = {
    "Recommend only on operations; **ask for his decision** on everything legal",
    "**Read back each decision**; record and task it; re-route the plan"
   ],
-  "deliver": "A recorded session and dated decision record, each **attributed to Atty. Thone**, tasked",
+  "deliver": "A recorded session and dated decision record, each **attributed to Atty. Thorne**, tasked",
   "checks": [
    "Low-speed challenge: **about 28 mph**, $2,315.00 A-pillar supplement, C5-C6 herniation",
    "Gap met **with documents, not apology**",
@@ -1150,14 +1150,14 @@ window.CM_CF_SLIDES = {
    "Who **determines MMI**, when was John Doe's, and why must the demand wait? Where does $3,400–$6,800 go?",
    "Name **the four audit objectives** and one finding each produced on this file.",
    "Run the defense-eye audit: name **four risks Keystone will raise** and the document answering each.",
-   "Crescent billed $3,400.00; Peach State paid $1,860.00. Explain **billed vs paid**, what Atty. Thone sees, why he chooses.",
+   "Crescent billed $3,400.00; Peach State paid $1,860.00. Explain **billed vs paid**, what Atty. Thorne sees, why he chooses.",
    "07/20/2026: the exhibit index **still lists Riverton at $6,290.00**. Your steps, in order, and whose authority?",
-   "**Draw the line**: one recommendation you may make, one decision you must leave to Atty. Thone, and why."
+   "**Draw the line**: one recommendation you may make, one decision you must leave to Atty. Thorne, and why."
   ]
  },
  "d3m1-l1": {
   "image": "demand-letter",
-  "hook": "A clear, timed **$10,000 limits demand** makes Keystone decide on the record.",
+  "hook": "A clear, timed **$10,000 Limits Demand** makes Keystone decide on the record.",
   "points": [
    "Demand **within limits**: $10,000, Keystone's full BI limit",
    "Make **every term acceptable as written**; release Smith and Keystone only",
@@ -1180,7 +1180,7 @@ window.CM_CF_SLIDES = {
    ],
    [
     "Keystone writes or calls",
-    "Log verbatim; route to Atty. Thone",
+    "Log verbatim; route to Atty. Thorne",
     "CMS → Communications Log",
     "Same day; the CM changes nothing"
    ]
@@ -1198,7 +1198,7 @@ window.CM_CF_SLIDES = {
  },
  "d3m1-a1": {
   "image": "checklist-qa",
-  "situation": "File date 07/20/2026. MMI reached; specials $16,401.40. Atty. Thone approved **$10,000 limits**, a limited release of Smith and Keystone, Smith's affidavit, 30 days from receipt. The draft awaits **your final audit**.",
+  "situation": "File date 07/20/2026. MMI reached; Specials $16,401.40. Atty. Thorne approved **$10,000 limits**, a Limited Release of Smith and Keystone, Smith's affidavit, 30 days from receipt. The draft awaits **your final audit**.",
   "steps": [
    "Audit the draft against **the Big Four** and the Final Scrub",
    "Log each deficiency as **an assigned CMS task**",
@@ -1208,11 +1208,11 @@ window.CM_CF_SLIDES = {
   ],
   "deliver": "An audited, served demand with **proof of delivery** and 08/21/2026 docketed",
   "checks": [
-   "**$10,000 BI limit**; terms match Atty. Thone's approval exactly",
-   "Big Four complete; **specials total $16,401.40**",
+   "**$10,000 BI limit**; terms match Atty. Thorne's approval exactly",
+   "Big Four complete; **Specials total $16,401.40**",
    "Gap answered **on page one**; each deficiency an assigned task",
    "Served by **certified mail AND email**; 08/21/2026 docketed",
-   "Any extension request **routed to Atty. Thone** same day"
+   "Any extension request **routed to Atty. Thorne** same day"
   ],
   "dos": [
    "Re-verify **every provider balance** in the week of service"
@@ -1265,19 +1265,19 @@ window.CM_CF_SLIDES = {
  },
  "d3m1-a2": {
   "image": "binder-exhibits",
-  "situation": "File date 08/31/2026. Keystone tendered $10,000 limits 08/12; consents came 08/24 and 08/26; the **limited release was signed** 08/28. Keystone's **check hasn't arrived**. Keystone had called the MRI “degenerative.”",
+  "situation": "File date 08/31/2026. Keystone tendered $10,000 limits 08/12; consents came 08/24 and 08/26; the **Limited Release was signed** 08/28. Keystone's **check hasn't arrived**. Keystone had called the MRI “degenerative.”",
   "steps": [
    "Draft **Host UM to Harbor Point** for the $20,000 limit",
    "Draft **Relative UM to Cardinal State**: $10,000, excess over Host UM",
    "Put **exhaustion proof on page one**; show damages above collections",
    "Answer the gap and “degenerative” **with the MRI**",
-   "**Leave the response deadline** blank for Atty. Thone; route both"
+   "**Leave the response deadline** blank for Atty. Thorne; route both"
   ],
   "deliver": "Two attorney-ready UM drafts, **exhaustion proof first**, routed for review",
   "checks": [
    "Two separate packages, **HP-26-7741 and CS-26-20355**",
    "Relative UM claimed for **damages above $30,000**",
-   "**Exhaustion on page one**: tender, dec page, affidavit, consents, release",
+   "**Exhaustion on page one**: tender, Dec Page, affidavit, consents, release",
    "Check copy listed **to follow, with a task**",
    "**Response deadline left blank**; nothing served"
   ],
@@ -1293,7 +1293,7 @@ window.CM_CF_SLIDES = {
   "image": "knowledge-check",
   "questions": [
    "State the BI demand's terms, how it was served, and **the date its window closed**. Show your count.",
-   "Name **the five elements** of an answerable time-limited demand, with this file's examples. Who decides bad faith?",
+   "Name **the five elements** of an answerable Time-Limited Demand, with this file's examples. Who decides bad faith?",
    "Keystone calls the MRI degenerative, citing the 14-day gap. **Which documents answer each**, and where?",
    "08/25/2026: **Cardinal State hasn't consented**; John Doe wants to sign today. Your move, and what does consent protect?",
    "Explain the $40,000 stack, what Host UM pays **under an offset form**, and why Relative UM is excess.",
@@ -1307,7 +1307,7 @@ window.CM_CF_SLIDES = {
   "points": [
    "Build **the battle map** first: net floor, value drivers, attacks, rebuttals",
    "Net floor: **$12,677.63 gross**, above Keystone's $10,000 limit",
-   "Anchor on **$16,401.40 total specials**, not MedPay's $5,000",
+   "Anchor on **$16,401.40 total Specials**, not MedPay's $5,000",
    "Restate the approved demand and name each stall; **make no moves**"
   ],
   "upl": "Present the record, relay offers; never counter, move number or deadline, or value offers.",
@@ -1326,7 +1326,7 @@ window.CM_CF_SLIDES = {
    ],
    [
     "Call ends",
-    "Log verbatim; report to Atty. Thone",
+    "Log verbatim; report to Atty. Thorne",
     "Communications Log · Escalate",
     "Logged and reported same day"
    ]
@@ -1344,19 +1344,19 @@ window.CM_CF_SLIDES = {
  },
  "d3m2-a1": {
   "image": "phone-call",
-  "situation": "File date 08/05/2026. Acceptance runs to 08/21/2026. Dana Whitfield **calls with $3,500**: John Doe “waited two weeks,” the MRI is “degenerative.” Atty. Thone's authority: restate the demand, **no counter**.",
+  "situation": "File date 08/05/2026. Acceptance runs to 08/21/2026. Dana Whitfield **calls with $3,500**: John Doe “waited two weeks,” the MRI is “degenerative.” Atty. Thorne's authority: restate the demand, **no counter**.",
   "steps": [
    "Run **the math check on $3,500** before dialing",
    "Pause after her number; **ask what data supports it**",
    "Name each stall; answer **the gap and “degenerative”** from the record",
-   "Log her exact words; **report to Atty. Thone** the same day",
+   "Log her exact words; **report to Atty. Thorne** the same day",
    "Draft **the 08/06/2026 rebuttal** for his approval"
   ],
-  "deliver": "A call **held inside Atty. Thone's authority**, logged offer, same-day report, drafted rebuttal",
+  "deliver": "A call **held inside Atty. Thorne's authority**, logged offer, same-day report, drafted rebuttal",
   "checks": [
    "$3,500 **nets John Doe $0.00** after fee, costs and liens",
    "Pause used; **asked what data supports $3,500**",
-   "Gap answered with **the gap justification record** and dated documents",
+   "Gap answered with **the Gap Justification Record** and dated documents",
    "“Degenerative” answered **with Dr. Park's words**",
    "**No counter**; terms and 08/21/2026 deadline unchanged"
   ],
@@ -1381,8 +1381,8 @@ window.CM_CF_SLIDES = {
   "job": [
    [
     "UM offer received (09/14/2026)",
-    "Log and report to Atty. Thone",
-    "Negotiation log · Escalate",
+    "Log and report to Atty. Thorne",
+    "Negotiation Log · Escalate",
     "Logged and reported 09/14/2026"
    ],
    [
@@ -1414,12 +1414,12 @@ window.CM_CF_SLIDES = {
   "situation": "File date 09/14/2026. Keystone's $10,000 is in trust; UM demands went out 08/31. Marcus Bell offers **$8,000 for Harbor Point**, citing the gap and **“BI already compensated him.”**",
   "steps": [
    "Log the **$8,000 and its reasons**; report it same day",
-   "Assemble **the 09/16 counter-package** for Atty. Thone's approval",
-   "Log **every later move** in the negotiation log",
-   "Record **John Doe's decision** through Atty. Thone, then draft the acceptance",
+   "Assemble **the 09/16 counter-package** for Atty. Thorne's approval",
+   "Log **every later move** in the Negotiation Log",
+   "Record **John Doe's decision** through Atty. Thorne, then draft the acceptance",
    "Prove **$40,000 gross** on the Recovery Ledger"
   ],
-  "deliver": "A complete negotiation log, approved counter-package, confirming emails, Recovery Ledger at **$40,000.00 gross**",
+  "deliver": "A complete Negotiation Log, approved counter-package, confirming emails, Recovery Ledger at **$40,000.00 gross**",
   "checks": [
    "Offset answered with **the 03/02/2026 add-on letter**",
    "Counter-package approved, sent 09/16/2026; **no figure below limits**",
@@ -1442,8 +1442,8 @@ window.CM_CF_SLIDES = {
    "Dana Whitfield cites the 14-Day Gap and a degenerative MRI. Answer both: **four documents** and the radiologist's words.",
    "No PIP here. What does MedPay's $5,000, **exhausted and non-subrogated**, mean for valuation? What changes where PIP applies?",
    "Why doesn't **the offset rule** cut Host UM, and why must Cardinal State's file show damages above $30,000?",
-   "Name **three stall tactics** and your answer to each. What is the “Never” rule on a limits demand?",
-   "Marcus Bell: accept $8,000 verbally or it's withdrawn. Atty. Thone is flying. **What do you say** and log?",
+   "Name **three stall tactics** and your answer to each. What is the “Never” rule on a Limits Demand?",
+   "Marcus Bell: accept $8,000 verbally or it's withdrawn. Atty. Thorne is flying. **What do you say** and log?",
    "Cardinal State tenders $10,000 (10/06/2026). What do you confirm, what does the email say, and **what precedes deposit**?"
   ]
  },
@@ -1456,7 +1456,7 @@ window.CM_CF_SLIDES = {
    "**Funding decides the law**: Peach State is fully insured",
    "Common fund, fee share: **$1,860.00 – $620.00 = $1,240.00**"
   ],
-  "upl": "Classify and draft; no lien is compromised without Atty. Thone's express authority.",
+  "upl": "Classify and draft; no lien is compromised without Atty. Thorne's express authority.",
   "job": [
    [
     "Gross reaches $40,000.00 (10/06/2026)",
@@ -1465,13 +1465,13 @@ window.CM_CF_SLIDES = {
     "Two liens open; every “none” sourced"
    ],
    [
-    "Health plan lien classified",
+    "Health Plan lien classified",
     "Get plan documents; route funding status",
     "CMS → Tasks → Escalate",
     "Fully insured; governing law his call"
    ],
    [
-    "Atty. Thone chooses the basis",
+    "Atty. Thorne chooses the basis",
     "Draft request: doctrine named, math shown",
     "CMS → Documents → Outgoing",
     "$1,240.00 shown; held for his approval"
@@ -1492,9 +1492,9 @@ window.CM_CF_SLIDES = {
   "situation": "File date 10/06/2026; **gross is $40,000.00**. Peach State **asserts $1,860.00**, its payment for the 05/15/2026 injection at Crescent Pain & Spine. Plan documents show a fully insured group plan.",
   "steps": [
    "Match **the plan's payments** to the treatment record",
-   "Classify it, record funding, and **escalate governing law** to Atty. Thone",
+   "Classify it, record funding, and **escalate governing law** to Atty. Thorne",
    "Draft the request: doctrine named, **one-third math to $1,240.00**",
-   "Flag **made whole** for Atty. Thone to argue",
+   "Flag **made whole** for Atty. Thorne to argue",
    "Record **every absent claimant** as a verified “none”"
   ],
   "deliver": "A signature-ready request, absent claimants cleared, $1,240.00 recorded **once confirmed in writing**",
@@ -1502,7 +1502,7 @@ window.CM_CF_SLIDES = {
    "Lien is **what the plan paid**: $1,860.00, not $3,400.00 billed",
    "Classified **contractual, not statutory**; fully insured recorded",
    "Math shown: **$1,860.00 – $620.00 = $1,240.00**",
-   "Request held **until Atty. Thone's written approval**",
+   "Request held **until Atty. Thorne's written approval**",
    "Acceptance logged 10/09/2026 **only with written confirmation**"
   ],
   "dos": [
@@ -1510,7 +1510,7 @@ window.CM_CF_SLIDES = {
    "Record **absent liens** with the same care"
   ],
   "donts": [
-   "Arguing a doctrine **Atty. Thone hasn't chosen**",
+   "Arguing a doctrine **Atty. Thorne hasn't chosen**",
    "Logging “we'll take a third off” **as a final figure**"
   ]
  },
@@ -1521,9 +1521,9 @@ window.CM_CF_SLIDES = {
    "Audit first: drop the 05/04/2026 duplicate, **negotiate from $6,105.00**",
    "Pro rata: equal-priority liens **share in proportion** to their amounts",
    "Argue **on true facts only**: a coverage-capped recovery, payment now",
-   "**No payoff letter, no payment**; pay from the payoff figure"
+   "**No Payoff Letter, no payment**; pay from the payoff figure"
   ],
-  "upl": "Ask only inside Atty. Thone's written authority; never accept outside it or promise payment.",
+  "upl": "Ask only inside Atty. Thorne's written authority; never accept outside it or promise payment.",
   "job": [
    [
     "Provider's final ledger received",
@@ -1539,7 +1539,7 @@ window.CM_CF_SLIDES = {
    ],
    [
     "Reduction agreed",
-    "Get signed payoff letter; update tabs",
+    "Get signed Payoff Letter; update tabs",
     "Financial Ledger → Net Sheet",
     "Full-and-final language; net recomputed same day"
    ]
@@ -1557,20 +1557,20 @@ window.CM_CF_SLIDES = {
  },
  "d3m3-a2": {
   "image": "negotiation",
-  "situation": "10/09/2026: Peach State accepted $1,240.00. Riverton Spine & Rehab's ledger bills **34 lines × $185.00 = $6,290.00**. Atty. Thone set a written target; **no lien is paid** until resolved in writing.",
+  "situation": "10/09/2026: Peach State accepted $1,240.00. Riverton Spine & Rehab's ledger bills **34 lines × $185.00 = $6,290.00**. Atty. Thorne set a written target; **no lien is paid** until resolved in writing.",
   "steps": [
    "Audit the ledger; **request a written correction** first",
-   "Draft the reduction request; **send it once approved**",
-   "Call the billing manager **inside Atty. Thone's authority**",
+   "Draft the Reduction Request; **send it once approved**",
+   "Call the billing manager **inside Atty. Thorne's authority**",
    "State the audited balance, recovery and math; ask for **payment in full**",
-   "When the manager agrees to $4,580.00, say **it goes to Atty. Thone**"
+   "When the manager agrees to $4,580.00, say **it goes to Atty. Thorne**"
   ],
-  "deliver": "Audited $6,105.00, a logged call, **a signed $4,580.00 payoff letter**, recomputed Net Sheet",
+  "deliver": "Audited $6,105.00, a logged call, **a signed $4,580.00 Payoff Letter**, recomputed Net Sheet",
   "checks": [
    "34 billed lines **against 33 documented visits**",
    "Correction first: **$6,290.00 – $185.00 = $6,105.00**",
    "**$4,580.00 not accepted** on the call",
-   "**Signed payoff letter**: full and final, no balance billing",
+   "**Signed Payoff Letter**: full and final, no balance billing",
    "Net Sheet recomputed: **net $20,359.92**"
   ],
   "dos": [
@@ -1579,7 +1579,7 @@ window.CM_CF_SLIDES = {
   ],
   "donts": [
    "**Agreeing on the phone** because it sounds good",
-   "A payoff letter **without full-and-final language**"
+   "A Payoff Letter **without full-and-final language**"
   ]
  },
  "d3m3-kc": {
@@ -1596,7 +1596,7 @@ window.CM_CF_SLIDES = {
  },
  "d3m4-l1": {
   "image": "cms-screen",
-  "hook": "The net sheet shows **every dollar's origin and destination** before a cent leaves trust.",
+  "hook": "The Net Sheet shows **every dollar's origin and destination** before a cent leaves trust.",
   "points": [
    "Keep **two streams apart**: BI $10,000.00, UM $30,000.00",
    "Price **the fee per stream**: $3,333.33 + $10,000.00 = $13,333.33",
@@ -1621,7 +1621,7 @@ window.CM_CF_SLIDES = {
     "Both tabs complete",
     "Tie to trust; route for review",
     "CMS → Financial Ledger → Trust",
-    "Net $20,359.92; Atty. Thone reviews first"
+    "Net $20,359.92; Atty. Thorne reviews first"
    ]
   ],
   "dos": [
@@ -1632,7 +1632,7 @@ window.CM_CF_SLIDES = {
   "donts": [
    "**Mixing BI and UM money** on one line",
    "Charging **the same cost** to both streams",
-   "A lien figure **with no payoff letter**"
+   "A lien figure **with no Payoff Letter**"
   ]
  },
  "d3m4-a1": {
@@ -1643,15 +1643,15 @@ window.CM_CF_SLIDES = {
    "Apply **the 33⅓% fee per stream** and receipted costs",
    "Split costs and liens **25% / 75%** down to net",
    "Complete the Lien Tracker: **asserted, audited, reduced**, payoff status",
-   "**Tie both tabs** to the trust ledger"
+   "**Tie both tabs** to the Trust Ledger"
   ],
-  "deliver": "A two-tab net sheet reaching **$20,359.92 both ways**, routed to Atty. Thone",
+  "deliver": "A two-tab Net Sheet reaching **$20,359.92 both ways**, routed to Atty. Thorne",
   "checks": [
    "Pre-suit fee: **$3,333.33 + $10,000.00 = $13,333.33**",
    "Costs **$486.75, split $121.69 / $365.06**, charged once",
    "Net: **$5,089.98 + $15,269.94 = $20,359.92**",
    "MedPay and Crescent's write-off **kept off the payables**",
-   "**Future ESIs flagged** to Atty. Thone before John Doe signs"
+   "**Future ESIs flagged** to Atty. Thorne before John Doe signs"
   ],
   "dos": [
    "Compute the UM share **as the remainder** of each split"
@@ -1697,28 +1697,28 @@ window.CM_CF_SLIDES = {
    "**Cross-reference invoice numbers** before approving payment"
   ],
   "donts": [
-   "A general release that **wipes out the UM claims**",
+   "A General Release that **wipes out the UM claims**",
    "Cutting checks **against uncleared funds**",
    "Paying from emailed instructions **without verifying by phone**"
   ]
  },
  "d3m4-a2": {
   "image": "settlement-check",
-  "situation": "Two file dates. 08/14/2026: Keystone's draft release arrives; **UM consents still pending**. 10/21/2026: $40,000.00 cleared by 10/20, statement signed, payoff letters in. **Disbursement is 10/22**.",
+  "situation": "Two file dates. 08/14/2026: Keystone's draft release arrives; **UM consents still pending**. 10/21/2026: $40,000.00 cleared by 10/20, statement signed, Payoff Letters in. **Disbursement is 10/22**.",
   "steps": [
    "Part 1: audit Keystone's draft **line by line**",
    "Flag every line that reaches **past Smith, Keystone or BI**",
    "State its cost to John Doe; **route a redline memo**",
    "Part 2: **confirm every condition precedent**",
-   "Queue **one command per net sheet line**; show $0.00"
+   "Queue **one command per Net Sheet line**; show $0.00"
   ],
   "deliver": "A redline memo before John Doe sees the draft; **five commands to $0.00**",
   "checks": [
    "**“All other … insurers”** quoted: $30,000 of the $40,000 stack",
    "Memo routed 08/14; **draft withheld from John Doe**",
-   "Five commands **match the net sheet** exactly",
+   "Five commands **match the Net Sheet** exactly",
    "Ledger arithmetic shown, **$40,000.00 to $0.00**",
-   "**None released by the CM**; all for Atty. Thone's signature"
+   "**None released by the CM**; all for Atty. Thorne's signature"
   ],
   "dos": [
    "**Quote the over-broad words** exactly in the memo"
@@ -1733,7 +1733,7 @@ window.CM_CF_SLIDES = {
   "questions": [
    "Take $40,000.00 to $20,359.92 **stream by stream**: fee, costs, liens. Why the 25% / 75% split?",
    "Name **the four document sets** needed before archive, the file's item for each, and the retention period.",
-   "The trust ledger reads $0.00 after 10/22/2026. **Which records prove it**, and what would a leftover balance mean?",
+   "The Trust Ledger reads $0.00 after 10/22/2026. **Which records prove it**, and what would a leftover balance mean?",
    "Write the closing memo's discrepancy note: $3,500, $8,000, $6,000 became $10,000, $20,000, $10,000. **What answered the 14-Day Gap**?",
    "No suit on Track A. When would **a dismissal** be needed, what kind, signed by whom, confirmed how?",
    "John Doe angrily forwards Crescent's $1,540.00 bill. **What do you check first**? Who's accountable? What do you say?",
@@ -1744,9 +1744,9 @@ window.CM_CF_SLIDES = {
   "image": "insurance-stack",
   "hook": "One $10,000 carrier now holds **the whole $40,000 stack**; prove the impasse with dates.",
   "points": [
-   "Document impasse on **its triggers**, not frustration; Atty. Thone calls it",
+   "Document impasse on **its triggers**, not frustration; Atty. Thorne calls it",
    "Work the dispute path first; litigation only when **nothing moves the carrier**",
-   "Never **bid against yourself**; any new number is Atty. Thone's",
+   "Never **bid against yourself**; any new number is Atty. Thorne's",
    "Filing is counsel's decision; **its inputs are yours** to verify"
   ],
   "upl": "Document the impasse and ask; never recommend suit or value the claim.",
@@ -1788,19 +1788,19 @@ window.CM_CF_SLIDES = {
    "Build a **dated chronology** from the 07/20/2026 demand to 09/04",
    "Tie each event to **its proof** in the Communications Log",
    "State Keystone's grounds and the **unanswered rebuttal evidence**",
-   "Show the **frozen stack**, the specials, then SOL and internal dates",
+   "Show the **frozen stack**, the Specials, then SOL and internal dates",
    "End with the decision needed, **framed as questions**"
   ],
-  "deliver": "A dated, sourced memo to Atty. Thone: **asks for a decision**, recommends none",
+  "deliver": "A dated, sourced memo to Atty. Thorne: **asks for a decision**, recommends none",
   "checks": [
    "Nine events, **07/20 to 09/04**, each tied to proof",
    "Keystone's grounds **in Keystone's words**: 14-Day Gap, “degenerative” MRI",
    "Frozen stack: **$30,000 of $40,000** unreachable behind $10,000 BI",
    "SOL 02/06/2028, internal hard date 02/04/2028, **cutoff 11/05/2027**",
-   "Questions for Atty. Thone; **no sentence recommends suit**"
+   "Questions for Atty. Thorne; **no sentence recommends suit**"
   ],
   "dos": [
-   "Write it so Atty. Thone decides **in five minutes**",
+   "Write it so Atty. Thorne decides **in five minutes**",
    "When the escalation window closes, **escalate with what you have**"
   ],
   "donts": [
@@ -1812,15 +1812,15 @@ window.CM_CF_SLIDES = {
   "image": "legal-filing",
   "hook": "Once suit is authorized, **a court clock** replaces the adjuster's: status, fields, folders, calendar change together.",
   "points": [
-   "Change status only on **Atty. Thone's dated authorization** to sue",
+   "Change status only on **Atty. Thorne's dated authorization** to sue",
    "Fill court fields from the record; **never guess a number**",
    "Build the **five litigation sub-folders** before the 09/24/2026 filing",
-   "Seed the litigation calendar **the day status changes**"
+   "Seed the Litigation Calendar **the day status changes**"
   ],
-  "upl": "Tell John Doe what happens next; what it means is Atty. Thone's.",
+  "upl": "Tell John Doe what happens next; what it means is Atty. Thorne's.",
   "job": [
    [
-    "Atty. Thone authorizes suit",
+    "Atty. Thorne authorizes suit",
     "Change status; open court fields",
     "CMS → Litigation",
     "Cites dated authorization; number “Pending”"
@@ -1851,15 +1851,15 @@ window.CM_CF_SLIDES = {
  },
  "d4m1-a2": {
   "image": "cms-screen",
-  "situation": "File date 09/10/2026, Track B. On 09/09 Atty. Thone **authorized suit** in the State Court of Riverton County, filing target **09/24/2026**. Harbor Point's UM policy has an arbitration clause.",
+  "situation": "File date 09/10/2026, Track B. On 09/09 Atty. Thorne **authorized suit** in the State Court of Riverton County, filing target **09/24/2026**. Harbor Point's UM policy has an arbitration clause.",
   "steps": [
    "Set status on the 09/09 authorization; **never guess a case number**",
    "Record the fee tier **as the retainer sets it**",
    "Build the **five litigation folders** to the firm standard",
    "Draft UM notices and preservation requests **for his approval**",
-   "Seed the litigation calendar **with 48-hour audits**"
+   "Seed the Litigation Calendar **with 48-hour audits**"
   ],
-  "deliver": "Litigation status with every field, folder, notice and date **on Atty. Thone's authority**",
+  "deliver": "Litigation status with every field, folder, notice and date **on Atty. Thorne's authority**",
   "checks": [
    "Status dated 09/10/2026, **citing the 09/09/2026 authorization**",
    "Case number reads **“Pending — assigned on filing”**",
@@ -1881,11 +1881,11 @@ window.CM_CF_SLIDES = {
   "questions": [
    "What is the same as Track A, what changes 08/12/2026, and why does **one $10,000 carrier freeze $40,000**?",
    "List John Doe's impasse triggers by 09/04/2026, each with **its date and proof**.",
-   "08/12: Keystone calls $3,500 “final”. Using **the “Never” rule**, what's next, and what needs Atty. Thone's authority?",
+   "08/12: Keystone calls $3,500 “final”. Using **the “Never” rule**, what's next, and what needs Atty. Thorne's authority?",
    "What changes at transition? Name **the five sub-folders**, and where an incoming Request for Admission is filed.",
    "Compare this file's mediator and arbitrator: background, selection, **what each can decide**, and the binder.",
-   "John Doe asks about taking $3,500 and the fee. What do you say, withhold, **send Atty. Thone today**?",
-   "Arbitration award short: a bill missing from your binder. **Can Atty. Thone appeal?** How must you build binders?"
+   "John Doe asks about taking $3,500 and the fee. What do you say, withhold, **send Atty. Thorne today**?",
+   "Arbitration award short: a bill missing from your binder. **Can Atty. Thorne appeal?** How must you build binders?"
   ]
  },
  "d4m2-l1": {
@@ -1897,10 +1897,10 @@ window.CM_CF_SLIDES = {
    "Forward counts roll later; **backward counts roll earlier**",
    "Docket the SOL to **internal dates**: 02/04/2028 and 11/05/2027"
   ],
-  "upl": "You compute, docket and flag; which rule governs, and extensions, are Atty. Thone's.",
+  "upl": "You compute, docket and flag; which rule governs, and extensions, are Atty. Thorne's.",
   "job": [
    [
-    "Scheduling order entered 12/10/2026",
+    "Scheduling Order entered 12/10/2026",
     "Enter every date; read each verb",
     "Docket System",
     "“Completed by” entered as deadline"
@@ -1930,15 +1930,15 @@ window.CM_CF_SLIDES = {
  },
  "d4m2-a1": {
   "image": "calendar-gap",
-  "situation": "12/10/2026: the scheduling order in No. 26-CV-04417 was entered. Discovery, including **15 RFAs**, was mailed 12/01/2026. SOL 02/06/2028. A colleague re-keyed the calendar: **unverified, no alerts**.",
+  "situation": "12/10/2026: the Scheduling Order in No. 26-CV-04417 was entered. Discovery, including **15 RFAs**, was mailed 12/01/2026. SOL 02/06/2028. A colleague re-keyed the calendar: **unverified, no alerts**.",
   "steps": [
    "Recompute every entry **from its trigger document**",
    "Exclude the trigger day; **add 3 mail days**",
    "Move forward counts later, **backward counts earlier**",
    "Fix errors, add missing entries, **leave correct ones alone**",
-   "Rank errors by risk; **route the log** to Atty. Thone"
+   "Rank errors by risk; **route the log** to Atty. Thorne"
   ],
-  "deliver": "A verified calendar and **a ranked correction log** routed to Atty. Thone",
+  "deliver": "A verified calendar and **a ranked correction log** routed to Atty. Thorne",
   "checks": [
    "Responses corrected to **01/04/2027 (Mon)**",
    "RFA entry added: **“deemed admitted if unanswered”**",
@@ -1980,13 +1980,13 @@ window.CM_CF_SLIDES = {
    ],
    [
     "Directive from the bench",
-    "Log, calendar, memo Atty. Thone",
+    "Log, calendar, memo Atty. Thorne",
     "CMS → Case Notes · Calendar",
     "Dated and calendared same day"
    ]
   ],
   "dos": [
-   "Your hearing notes become Atty. Thone's **post-hearing roadmap**",
+   "Your hearing notes become Atty. Thorne's **post-hearing roadmap**",
    "Confirm the retainer payment **in writing**"
   ],
   "donts": [
@@ -2003,15 +2003,15 @@ window.CM_CF_SLIDES = {
    "Hard-code the arbitration dates today, **counting back from the hearing**",
    "Map **the UPL boundary** for the hearing",
    "Script your exact words **if asked about a bill**",
-   "Route both **to Atty. Thone**"
+   "Route both **to Atty. Thorne**"
   ],
-  "deliver": "A two-forum matrix, **dates hard-coded**, and a UPL map, routed to Atty. Thone",
+  "deliver": "A two-forum matrix, **dates hard-coded**, and a UPL map, routed to Atty. Thorne",
   "checks": [
    "Mediation: Hon. Carla Benton (Ret.) **facilitates only**; non-binding",
    "Arbitration: Laura Whitcomb, Esq. **acts as judge**; binding",
    "Limits: **$30,000 UM**, opened by the $10,000 BI tender",
    "Exhibits 06/02/2027; **brief 06/11/2027 (Fri)**, never 06/14/2027",
-   "Deferral scripted, **document handed to Atty. Thone**"
+   "Deferral scripted, **document handed to Atty. Thorne**"
   ],
   "dos": [
    "Build it **for the colleague** staffing the hearing",
@@ -2036,7 +2036,7 @@ window.CM_CF_SLIDES = {
  },
  "d4m3-l1": {
   "image": "binder-exhibits",
-  "hook": "At the 03/18/2027 mediation Atty. Thone has minutes: every record **in a known place**.",
+  "hook": "At the 03/18/2027 mediation Atty. Thorne has minutes: every record **in a known place**.",
   "points": [
    "Find any exhibit **in five seconds**: indexed and bookmarked",
    "**Six numbered sections** in fixed order; each document in one",
@@ -2054,19 +2054,19 @@ window.CM_CF_SLIDES = {
    [
     "Pleadings and evidence indexed",
     "Check each pleaded defense against exhibits",
-    "CMS → Litigation → Pleadings log",
+    "CMS → Litigation → Pleadings Log",
     "Each defense answered or flagged"
    ],
    [
     "Binder assembled",
     "OCR, bookmark, QA; route for approval",
-    "CMS → Documents → Mediation binder",
+    "CMS → Documents → Mediation Binder",
     "Approved, delivered by 03/11/2027"
    ]
   ],
   "dos": [
-   "Start from **the 07/20/2026 demand package**",
-   "Bookmark to the page **Atty. Thone will quote**"
+   "Start from **the 07/20/2026 Demand Package**",
+   "Bookmark to the page **Atty. Thorne will quote**"
   ],
   "donts": [
    "An unorganized file **the morning of the session**",
@@ -2082,15 +2082,15 @@ window.CM_CF_SLIDES = {
    "Map every pleaded defense **to the exhibit answering it**",
    "Rebuild the ledger from certified bills **to $16,401.40**",
    "Cross-check balances **against MedPay and Peach State**",
-   "Add negotiation log, release, consent requests; **route to Atty. Thone**"
+   "Add Negotiation Log, release, consent requests; **route to Atty. Thorne**"
   ],
-  "deliver": "Indexed, OCR-searchable binder with **an audited ledger**, routed to Atty. Thone, ready by 03/11/2027",
+  "deliver": "Indexed, OCR-searchable binder with **an audited ledger**, routed to Atty. Thorne, ready by 03/11/2027",
   "checks": [
    "Riverton audited: 33 visits × $185.00 = **$6,105.00**",
    "Crescent's bill **satisfied by Peach State's $1,860.00**",
    "Open liens: $1,860.00 + $6,105.00 = **$7,965.00**",
    "Section 3: **operative pleadings only**, all three defenses listed",
-   "Routed to Atty. Thone; **nothing about value** to Atty. Mercer"
+   "Routed to Atty. Thorne; **nothing about value** to Atty. Mercer"
   ],
   "dos": [
    "Answer every pleaded defense **with a page**",
@@ -2098,14 +2098,14 @@ window.CM_CF_SLIDES = {
   ],
   "donts": [
    "Carrying **the $6,290.00 bill** into Section 5",
-   "No negotiation log, so **Keystone's last number** is unclear"
+   "No Negotiation Log, so **Keystone's last number** is unclear"
   ]
  },
  "d4m3-l2": {
   "image": "documents-audit",
-  "hook": "An arbitration binder is the record **a binding award rests on**.",
+  "hook": "An Arbitration Binder is the record **a binding award rests on**.",
   "points": [
-   "Lead with **the BI exhaustion record**, never the mediation statement",
+   "Lead with **the BI exhaustion record**, never the Mediation Statement",
    "Authenticate every exhibit with **a business-records certification**",
    "Keep video native and unaltered; **print stills in color**",
    "**Nothing from the confidential mediation** crosses over"
@@ -2138,22 +2138,22 @@ window.CM_CF_SLIDES = {
   "donts": [
    "**A grayscale print** of a crash still",
    "A draft brief or **superseded complaint** in the set",
-   "The confidential mediation statement **in the arbitration binder**"
+   "The Confidential Mediation Statement **in the Arbitration Binder**"
   ]
  },
  "d4m3-a2": {
   "image": "checklist-qa",
-  "situation": "It is 05/17/2027. **Exchange 06/02/2027**, hearing 06/22/2027. The folder holds a pre-filing draft complaint, grayscale stills, the impasse memo and **a lien sheet** listing Harbor Point MedPay and Summit Imaging.",
+  "situation": "It is 05/17/2027. **Exchange 06/02/2027**, hearing 06/22/2027. The folder holds a pre-filing draft complaint, grayscale stills, the impasse memo and **a Lien Sheet** listing Harbor Point MedPay and Summit Imaging.",
   "steps": [
    "Sort into six tabs, **applying each QC rule** as you go",
    "Lead with **the BI exhaustion record**",
    "Number exhibits **C-1 onward** with Bates ranges; log authentication",
    "Build Tab 5's **prior medical shield**",
-   "Strip liens **to what is owed**; flag privileged items for Atty. Thone"
+   "Strip liens **to what is owed**; flag privileged items for Atty. Thorne"
   ],
-  "deliver": "A six-tab, C-numbered binder, authentication log and audited lien sheet, **routed to Atty. Thone**",
+  "deliver": "A six-tab, C-numbered binder, authentication log and audited Lien Sheet, **routed to Atty. Thorne**",
   "checks": [
-   "Threshold exhibits first, **nothing from the mediation statement**",
+   "Threshold exhibits first, **nothing from the Mediation Statement**",
    "Tab 5 shields **the 2021 low-back visits** with answering records",
    "Doorbell stills **reprinted in color** from the native file",
    "Liens: $1,860.00 + $6,105.00 = **$7,965.00**; Crescent holds none",
@@ -2171,12 +2171,12 @@ window.CM_CF_SLIDES = {
  "d4m3-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Name the six mediation binder sections **in order**, with one document from this file for each.",
+   "Name the six Mediation Binder sections **in order**, with one document from this file for each.",
    "What does the master index record per exhibit, and why does it **outrank the printed binder**?",
    "The 11/12/2026 answer pleads John Doe was unbelted. Which section shows it, and **which exhibits answer it**?",
-   "Why does the arbitration binder lead with **Keystone's $10,000 tender**, and exclude the confidential mediation statement?",
+   "Why does the Arbitration Binder lead with **Keystone's $10,000 tender**, and exclude the Confidential Mediation Statement?",
    "What does **a business-records certification** do here, and what does a relaxed evidence rule change, or not?",
-   "Crescent billed $3,400.00; Peach State paid $1,860.00. What does **the attorney's-set lien sheet** show, and what proves it?",
+   "Crescent billed $3,400.00; Peach State paid $1,860.00. What does **the attorney's-set Lien Sheet** show, and what proves it?",
    "The evening before the 06/02/2027 exchange, Riverton's certified records stop at 04/02/2026. Your steps in order? **Who decides?**"
   ]
  },
@@ -2200,12 +2200,12 @@ window.CM_CF_SLIDES = {
    [
     "Second follow-up goes unanswered",
     "Open a bottleneck entry",
-    "Case File → Bottleneck log",
+    "Case File → Bottleneck Log",
     "Start date: first unanswered request"
    ],
    [
     "Dependency open 10 days out",
-    "Red-flag it; tell Atty. Thone",
+    "Red-flag it; tell Atty. Thorne",
     "Case File → Risk Flags",
     "Flag dated 03/01/2027 for 03/11/2027"
    ]
@@ -2235,7 +2235,7 @@ window.CM_CF_SLIDES = {
    "Rule 2 fires 02/22/2027: **Notice of Delay** sent",
    "Red flags **03/01/2027 and 03/08/2027**",
    "Audits **03/09/2027 and 03/16/2027**, both weekdays",
-   "Subpoena flagged **as Atty. Thone's decision**"
+   "Subpoena flagged **as Atty. Thorne's decision**"
   ],
   "dos": [
    "Calibrate on **a known record** before trusting a rule",
@@ -2250,12 +2250,12 @@ window.CM_CF_SLIDES = {
   "image": "escalation-alert",
   "hook": "The ladder decides who hears; **the report decides** whether they can act in one read.",
   "points": [
-   "Climb **one rung at a time**: source, supervisor, Atty. Thone",
+   "Climb **one rung at a time**: source, supervisor, Atty. Thorne",
    "A Notice of Delay **states facts**; it never argues bad faith",
    "Every report carries **five fields**, nearest hard date first",
    "Zero defaults: ready by the hard date, marked **“Pending Final Verification”**"
   ],
-  "upl": "Escalate and ask; Atty. Thone chooses, signs and sends any legal tool.",
+  "upl": "Escalate and ask; Atty. Thorne chooses, signs and sends any legal tool.",
   "job": [
    [
     "Rung 1 unanswered on cadence",
@@ -2271,8 +2271,8 @@ window.CM_CF_SLIDES = {
    ],
    [
     "Weekly reporting day",
-    "Send the bottleneck log",
-    "Case File → Bottleneck log",
+    "Send the Bottleneck Log",
+    "Case File → Bottleneck Log",
     "Every item: owner, age, hard date"
    ]
   ],
@@ -2281,7 +2281,7 @@ window.CM_CF_SLIDES = {
    "Write the ask as **one decision and a date**"
   ],
   "donts": [
-   "Going **straight to Atty. Thone** before the lower rungs",
+   "Going **straight to Atty. Thorne** before the lower rungs",
    "“Please advise” **with no dates**",
    "Letting a deadline pass **because a record was late**"
   ]
@@ -2292,7 +2292,7 @@ window.CM_CF_SLIDES = {
   "steps": [
    "Triage each: **hard date, rung**, countermeasure",
    "Write one report: **five fields, one ask** per item",
-   "Send it first: items needing **Atty. Thone's decision**",
+   "Send it first: items needing **Atty. Thorne's decision**",
    "Fix what you own **the same day**",
    "Date **the 48-hour audit** before the exchange"
   ],
@@ -2302,7 +2302,7 @@ window.CM_CF_SLIDES = {
    "Items 1–3 in **one report**, nearest hard date first",
    "Items 4 and 5 **fixed same day**, no escalation",
    "Audit **Fri 05/28/2027**: Memorial Day moves it earlier",
-   "Nothing decided that is **Atty. Thone's**"
+   "Nothing decided that is **Atty. Thorne's**"
   ],
   "dos": [
    "**Longest lead first**: send others' decisions before your fixes",
@@ -2317,7 +2317,7 @@ window.CM_CF_SLIDES = {
   "image": "knowledge-check",
   "questions": [
    "Name **the three bottleneck families**, with this file's example of each and the hard date threatened.",
-   "Walk Rule 1 on Keystone: follow-ups, **the 48-Hour Mandate escalation**, the hand-off to Atty. Thone, every date.",
+   "Walk Rule 1 on Keystone: follow-ups, **the 48-Hour Mandate escalation**, the hand-off to Atty. Thorne, every date.",
    "Keystone's representative arrives on 03/18/2027 **without authority to pay $10,000**. What failed earlier, and your countermeasure?",
    "Name **the three arbitration landmines** and each countermeasure before the 06/02/2027 exhibit exchange.",
    "03/09/2027: binder due in 48 hours; Riverton's ledger hasn't arrived. Your steps in order? **What don't you do?**",
@@ -2329,17 +2329,17 @@ window.CM_CF_SLIDES = {
   "image": "courthouse",
   "hook": "An adjuster's deadline bends; **a court's does not**, so the log proves nothing slipped.",
   "points": [
-   "Unserved at day 14: **escalate for skip-trace authority**",
+   "Unserved at day 14: **escalate for Skip-Trace authority**",
    "An unanswered RFA may be **deemed admitted**; flag it red",
    "Calendar discovery the day it lands, **arithmetic in the row**",
    "Read the Answer as **a roadmap**: each defense is evidence to pull"
   ],
-  "upl": "You track and draft; Atty. Thone decides; never tell John Doe how to answer",
+  "upl": "You track and draft; Atty. Thorne decides; never tell John Doe how to answer",
   "job": [
    [
-    "Atty. Thone authorizes suit",
+    "Atty. Thorne authorizes suit",
     "Verify filing date and legal name",
-    "CMS → Litigation → Pleadings log",
+    "CMS → Litigation → Pleadings Log",
     "Filed 09/24/2026, inside 02/04/2028 hard date"
    ],
    [
@@ -2350,7 +2350,7 @@ window.CM_CF_SLIDES = {
    ],
    [
     "Discovery or RFAs land",
-    "Calendar; alert Atty. Thone on RFAs",
+    "Calendar; alert Atty. Thorne on RFAs",
     "CMS → Calendar · Docket System",
     "Weekend rolled; RFA alert time-stamped"
    ]
@@ -2368,20 +2368,20 @@ window.CM_CF_SLIDES = {
  },
  "d5m1-a1": {
   "image": "data-entry",
-  "situation": "01/05/2027: the pleadings log for 26-CV-04417 was never reconciled to the calendar. The **15 RFAs** have no row; **their 01/04/2027 deadline** passed. A 01/04/2027 certificate of service sits unlogged.",
+  "situation": "01/05/2027: the Pleadings Log for 26-CV-04417 was never reconciled to the calendar. The **15 RFAs** have no row; **their 01/04/2027 deadline** passed. A 01/04/2027 Certificate of Service sits unlogged.",
   "steps": [
    "Add every missing row; **recompute each response date** with arithmetic",
    "File each document in its **numbered sub-folder** under the convention",
-   "Calendar the **scheduling order's six dates**",
-   "**Prove RFA compliance** from the certificate of service",
-   "Record both misses honestly; **report them to Atty. Thone** today"
+   "Calendar the **Scheduling Order's six dates**",
+   "**Prove RFA compliance** from the Certificate of Service",
+   "Record both misses honestly; **report them to Atty. Thorne** today"
   ],
   "deliver": "A **corrected, source-linked log** and calendar, RFA compliance proved, misses reported the same day",
   "checks": [
    "Interrogatories and RFPs corrected **from 12/31/2026 to 01/04/2027**",
    "RFA row (15) added with a **red deemed-admission flag**",
-   "**Certificate of service** logged, its 01/04/2027 date checked",
-   "Escalated to Atty. Thone 01/05/2027; **no call to Atty. Mercer**",
+   "**Certificate of Service** logged, its 01/04/2027 date checked",
+   "Escalated to Atty. Thorne 01/05/2027; **no call to Atty. Mercer**",
    "Late filings **logged as misses**, not back-dated"
   ],
   "dos": [
@@ -2389,30 +2389,30 @@ window.CM_CF_SLIDES = {
    "Link every row to **its source document**"
   ],
   "donts": [
-   "**Quietly fixing a passed deadline** instead of telling Atty. Thone",
+   "**Quietly fixing a passed deadline** instead of telling Atty. Thorne",
    "Forgetting **the 3 mail days**, or adding them to e-service"
   ]
  },
  "d5m1-l2": {
   "image": "checklist-qa",
-  "hook": "The scheduling order's **dates are absolute**; the checklist and KPIs keep every task ahead.",
+  "hook": "The Scheduling Order's **dates are absolute**; the checklist and KPIs keep every task ahead.",
   "points": [
    "Give every order date **30-, 14- and 7-day alerts**",
-   "Confirm every extension **in writing**, over Atty. Thone's signature",
-   "Defense reaches John Doe: end it, **tell Atty. Thone that day**",
+   "Confirm every extension **in writing**, over Atty. Thorne's signature",
+   "Defense reaches John Doe: end it, **tell Atty. Thorne that day**",
    "Prepare **the process, never the testimony**"
   ],
   "upl": "You schedule, assemble, track and relay; never agree an extension or coach testimony",
   "job": [
    [
-    "Scheduling order entered 12/10/2026",
+    "Scheduling Order entered 12/10/2026",
     "Calendar six dates, three alerts each",
     "CMS → Calendar · Docket System",
     "18 alerts; order in 01_PLEADINGS"
    ],
    [
     "Extension agreed by phone",
-    "Draft confirmation for Atty. Thone's signature",
+    "Draft confirmation for Atty. Thorne's signature",
     "Email Workspace · CMS → Calendar",
     "Sent the same day"
    ],
@@ -2425,7 +2425,7 @@ window.CM_CF_SLIDES = {
   ],
   "dos": [
    "Call every litigation client **at least every 30 days**",
-   "Subpoena only **the witnesses Atty. Thone names**",
+   "Subpoena only **the witnesses Atty. Thorne names**",
    "Put the subpoena audit on a **recurring 10-day reminder**"
   ],
   "donts": [
@@ -2442,7 +2442,7 @@ window.CM_CF_SLIDES = {
    "Add the 02/18/2027 **deposition logistics and prep documents**",
    "Build the tracker: **nine KPIs**, formula, target, sourced reading, status",
    "Set one task per **review lens**: coverage, treatment, liability",
-   "Name **the two items** you route to Atty. Thone first, and why"
+   "Name **the two items** you route to Atty. Thorne first, and why"
   ],
   "deliver": "A checklist matching **the order date for date**, and a complete KPI tracker",
   "checks": [
@@ -2465,7 +2465,7 @@ window.CM_CF_SLIDES = {
   "image": "knowledge-check",
   "questions": [
    "Discovery mailed 12/01/2026: compute the **response date**. What changes for e-service, and why confirm the court's rule?",
-   "Name the Answer's **three defenses** and the file evidence you would pull for Atty. Thone against each.",
+   "Name the Answer's **three defenses** and the file evidence you would pull for Atty. Thorne against each.",
    "File the affidavit, 12/01/2026 RFAs and scheduling order: **where, under what names**? What happens to the order's dates?",
    "Define **three litigation KPIs** as formulas with targets; give this file's reading for one, with its source.",
    "On 01/20/2027, name one litigation task under each **review lens** (coverage, treatment, liability) and whose decision it feeds.",
@@ -2509,26 +2509,26 @@ window.CM_CF_SLIDES = {
   ],
   "donts": [
    "Claiming **the 30 paid rental days** again",
-   "Treating property damage as **“just the car”**"
+   "Treating Property Damage as **“just the car”**"
   ]
  },
  "d5m2-a1": {
   "image": "money-ledger",
-  "situation": "12/2026: RFPs ask for every PD document, **due 01/04/2027**. The PD screen tests total loss on the $6,940.00 estimate and claims **78 days, $3,276.00**. Keystone offers $0 for loss of use.",
+  "situation": "12/2026: RFPs ask for every PD document, **due 01/04/2027**. The PD screen tests Total Loss on the $6,940.00 estimate and claims **78 days, $3,276.00**. Keystone offers $0 for Loss of Use.",
   "steps": [
    "Re-run the total-loss check on **the final repair**",
-   "List what to verify in **Keystone's valuation report**",
-   "Rebuild loss of use **day by day**, each day once",
+   "List what to verify in **Keystone's Valuation Report**",
+   "Rebuild Loss of Use **day by day**, each day once",
    "Evidence each period; **index the severity set**",
-   "Flag Keystone's two arguments for Atty. Thone, **without answering them**"
+   "Flag Keystone's two arguments for Atty. Thorne, **without answering them**"
   ],
   "deliver": "A corrected PD worksheet: repairable at 52.6%, **48 days, $2,016.00 claimed**, defenses flagged",
   "checks": [
    "**$9,255.00 is 52.6%** of $17,600.00: repairable",
    "Stale 39.4% check corrected **with a dated note**",
    "78 days allocated once: **12 + 30 + 36**",
-   "Loss of use corrected to **48 × $42.00 = $2,016.00**",
-   "Escalated to Atty. Thone **on or before 12/28/2026**"
+   "Loss of Use corrected to **48 × $42.00 = $2,016.00**",
+   "Escalated to Atty. Thorne **on or before 12/28/2026**"
   ],
   "dos": [
    "Evidence each period, **not just the total**",
@@ -2543,16 +2543,16 @@ window.CM_CF_SLIDES = {
   "image": "negotiation",
   "hook": "$792.00 is a formula, $3,600.00 a market appraisal: **you build the evidence**.",
   "points": [
-   "Diminished value is **market value lost** after a proper repair",
+   "Diminished Value is **market value lost** after a proper repair",
    "Keystone's “17c” is **a carrier formula**, not a legal measure",
    "The 10% cap: **never above $1,760.00**, however severe the damage",
-   "PD settles only on a **property-damage-only release** Atty. Thone reviewed"
+   "PD settles only on a **property-damage-only release** Atty. Thorne reviewed"
   ],
   "upl": "Calculate, critique and recommend; never make, accept, reject or counter a PD figure",
   "job": [
    [
     "Keystone states diminished-value figure",
-    "Draft input request for Atty. Thone",
+    "Draft input request for Atty. Thorne",
     "CMS → Property Damage → Correspondence",
     "Base, multipliers, ACV on file"
    ],
@@ -2564,14 +2564,14 @@ window.CM_CF_SLIDES = {
    ],
    [
     "Keystone sends a release or check",
-    "Hold it; route to Atty. Thone",
+    "Hold it; route to Atty. Thorne",
     "CMS → Tasks → Escalate",
     "Reviewed before John Doe sees it"
    ]
   ],
   "dos": [
    "Make Keystone show **its formula's inputs in writing**",
-   "Put **the critique on paper** for Atty. Thone"
+   "Put **the critique on paper** for Atty. Thorne"
   ],
   "donts": [
    "Telling John Doe his car **“lost $3,600.00”**",
@@ -2581,21 +2581,21 @@ window.CM_CF_SLIDES = {
  },
  "d5m2-a2": {
   "image": "phone-call",
-  "situation": "12/10/2026: Leah Moran (Keystone PD) says **$792.00 and $0 final**, sends an **“all claims” release** for John Doe, and asks if he'll take it. Atty. Thone wants your recommendation.",
+  "situation": "12/10/2026: Leah Moran (Keystone PD) says **$792.00 and $0 final**, sends an **“all claims” release** for John Doe, and asks if he'll take it. Atty. Thorne wants your recommendation.",
   "steps": [
    "Rebuild Keystone's “17c” figure from **the $17,600.00 ACV**",
    "Critique its **10% cap and both multipliers**",
    "Set out claimed against offered; recommend **a top and a floor**",
    "Answer Leah Moran **without accepting, rejecting or countering**",
-   "Route the release; send the range **to Atty. Thone for authority**"
+   "Route the release; send the range **to Atty. Thorne for authority**"
   ],
-  "deliver": "A one-page PD memo: **a recommended range**, release flagged, routed to Atty. Thone",
+  "deliver": "A one-page PD memo: **a recommended range**, release flagged, routed to Atty. Thorne",
   "checks": [
    "“17c” rebuilt: **$1,760.00 × 0.75 × 0.60** = $792.00",
    "Dispute totalled: **$5,616.00 claimed** against $792.00 offered",
    "Floor **sits above $792.00**; weakest item named",
    "Release flagged; **nothing sent to John Doe** to sign",
-   "Leah Moran told only the **offer is with Atty. Thone**"
+   "Leah Moran told only the **offer is with Atty. Thorne**"
   ],
   "dos": [
    "Recommend with arithmetic: every number **traces to a document**"
@@ -2608,25 +2608,25 @@ window.CM_CF_SLIDES = {
  "d5m2-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Is the Civic a **total loss**? Show the final repair, ACV, Keystone's threshold and percentage, with the arithmetic.",
+   "Is the Civic a **Total Loss**? Show the final repair, ACV, Keystone's threshold and percentage, with the arithmetic.",
    "Allocate **the 78 days**: which are claimed, at what rate, for how much? Why exclude rental days?",
-   "Name **the three damage types**; place repair, loss of use, diminished value. Punitive damages require what conduct?",
-   "Rebuild Keystone's $792.00 and give **three reasons** the “17c” formula understates John Doe's diminished value.",
-   "State **the lesser-of rule**; with the make-whole principle, show repair plus diminished value doesn't over-compensate John Doe.",
+   "Name **the three damage types**; place repair, Loss of Use, Diminished Value. Punitive damages require what conduct?",
+   "Rebuild Keystone's $792.00 and give **three reasons** the “17c” formula understates John Doe's Diminished Value.",
+   "State **the lesser-of rule**; with the make-whole principle, show repair plus Diminished Value doesn't over-compensate John Doe.",
    "Atty. Mercer's office wants the Civic inspected and $792.00 accepted **by 5 p.m. today**. Your steps, whose authority?",
-   "How does the PD record help Atty. Thone against **the 14-Day Gap**? Where does your role stop?"
+   "How does the PD record help Atty. Thorne against **the 14-Day Gap**? Where does your role stop?"
   ]
  },
  "d5m3-l1": {
   "image": "deposition-video",
-  "hook": "Atty. Thone prepares the substance; you prepare **the person and the setting**.",
+  "hook": "Atty. Thorne prepares the substance; you prepare **the person and the setting**.",
   "points": [
-   "Audit for landmines **before 02/04/2027**; route them to Atty. Thone",
-   "Alignment comes from **reviewing records with Atty. Thone**, never a script",
+   "Audit for landmines **before 02/04/2027**; route them to Atty. Thorne",
+   "Alignment comes from **reviewing records with Atty. Thorne**, never a script",
    "Three pillars: **de-escalate, guidelines, dress and demeanor**",
    "Test with John **on 02/16/2027**: same device, same room"
   ],
-  "upl": "Run the process; never tell John what to say. Substance goes to Atty. Thone",
+  "upl": "Run the process; never tell John what to say. Substance goes to Atty. Thorne",
   "job": [
    [
     "Notice served 01/20/2027",
@@ -2660,13 +2660,13 @@ window.CM_CF_SLIDES = {
  },
  "d5m3-a1": {
   "image": "client-call",
-  "situation": "02/04/2027: John, reached through Margaret yesterday, has **a new number**. He's anxious about his **02/18/2027 video deposition**, expecting a TV cross-examination. You run the first segment; Atty. Thone takes the substance after.",
+  "situation": "02/04/2027: John, reached through Margaret yesterday, has **a new number**. He's anxious about his **02/18/2027 video deposition**, expecting a TV cross-examination. You run the first segment; Atty. Thorne takes the substance after.",
   "steps": [
    "Confirm his **new number**, with Margaret as backup",
    "Confirm logistics and **a 02/16/2027 test call**",
    "Deliver **the three pillars** and in-room rules; drill the pause",
    "Answer no substance: log each question **in his words**",
-   "Have **Atty. Thone's gap set** ready to share"
+   "Have **Atty. Thorne's gap set** ready to share"
   ],
   "deliver": "A delivered segment, a logistics record, and **substantive questions routed** in John's words",
   "checks": [
@@ -2703,9 +2703,9 @@ window.CM_CF_SLIDES = {
    ],
    [
     "Trap map complete",
-    "Confirm records in Atty. Thone's set",
+    "Confirm records in Atty. Thorne's set",
     "CMS → Documents",
-    "EMS, MRI, causation letter, EDR present"
+    "EMS, MRI, Causation Letter, EDR present"
    ],
    [
     "John asks how to answer",
@@ -2726,15 +2726,15 @@ window.CM_CF_SLIDES = {
  },
  "d5m3-a2": {
   "image": "checklist-qa",
-  "situation": "02/16/2027, the second prep session: Atty. Thone runs a mock cross-examination. AI Mercer questions AI John; **your microphone is muted**. Atty. Thone **debriefs from your log**.",
+  "situation": "02/16/2027, the second prep session: Atty. Thorne runs a mock cross-examination. AI Mercer questions AI John; **your microphone is muted**. Atty. Thorne **debriefs from your log**.",
   "steps": [
-   "Open the trap log; **start the clock** at the first question",
+   "Open the Trap Log; **start the clock** at the first question",
    "Log time, **exact words**, category, trap type and rules",
    "Put **the record fact and source** beside every mischaracterisation",
    "Log each objection and **whether John stopped talking**",
-   "**Coach nothing**; route the log to Atty. Thone"
+   "**Coach nothing**; route the log to Atty. Thorne"
   ],
-  "deliver": "A **timestamped trap log**, scored against the seven golden rules, routed before the debrief",
+  "deliver": "A **timestamped Trap Log**, scored against the seven golden rules, routed before the debrief",
   "checks": [
    "All **six assigned traps** logged",
    "Gap entry: **14 days**, 02/06/2026 to 02/20/2026",
@@ -2776,7 +2776,7 @@ window.CM_CF_SLIDES = {
    [
     "Answer filed 11/12/2026",
     "Log each defense separately",
-    "CMS → Litigation → Pleadings log",
+    "CMS → Litigation → Pleadings Log",
     "Three lines, each dated 11/12/2026"
    ],
    [
@@ -2809,7 +2809,7 @@ window.CM_CF_SLIDES = {
    "Give each item **source, witness, custody** and foundation gaps",
    "Write **the video's chain** from 02/17/2026 to 02/19/2026",
    "Draft **a narrow Exhibit A** for any needed custodian",
-   "Close with questions **only Atty. Thone can answer**"
+   "Close with questions **only Atty. Thorne can answer**"
   ],
   "deliver": "An **allegation-by-allegation counter-package** with full foundation, a draft Exhibit A, questions routed",
   "checks": [
@@ -2832,16 +2832,16 @@ window.CM_CF_SLIDES = {
   "image": "skip-trace",
   "hook": "Two people went missing on this file; **the record proves diligence**.",
   "points": [
-   "Stale address? **Skip-trace first**, permissible purpose only",
+   "Stale address? **Skip-Trace first**, permissible purpose only",
    "Follow up with the process server **every 5 days**",
    "Subpoena duces tecum: **notice opposing counsel first**, then serve",
-   "The Step 4 letter: **certified mail AND email**, Atty. Thone's signature"
+   "The Step 4 letter: **certified mail AND email**, Atty. Thorne's signature"
   ],
   "upl": "Run authorized skip-traces and draft notices; never decide alternative service or threaten withdrawal",
   "job": [
    [
     "Third failed attempt, 10/08/2026",
-    "Escalate for skip-trace authority",
+    "Escalate for Skip-Trace authority",
     "CMS → Tasks → Escalate",
     "Result logged 10/09/2026"
    ],
@@ -2873,19 +2873,19 @@ window.CM_CF_SLIDES = {
   "image": "email-outreach",
   "situation": "10/08/2026: **a third failed attempt** at 118 Larkspur Ln; a neighbor says Smith moved in August. 01/22/2027: calls to John Doe go unanswered, **deposition 02/18/2027**, prep 02/04 and 02/16/2027.",
   "steps": [
-   "Escalate for **skip-trace authority**",
+   "Escalate for **Skip-Trace authority**",
    "Pick the address on **recency and two corroborating sources**",
    "Re-instruct the server; log service and affidavit; **docket the answer date**",
    "Run Steps 1–3; draft **the Step 4 certified notice**",
-   "Assess John's **skip-trace gate** on Day 1's three criteria"
+   "Assess John's **Skip-Trace gate** on Day 1's three criteria"
   ],
   "deliver": "A service record through the answer date; **a certified notice dispatched**, both deliveries logged",
   "checks": [
    "4410 Quarry Ridge Ct, Millbrook chosen on **two current sources**",
    "**Answer due 11/13/2026** docketed (10/14 + 30)",
    "Response date before 02/04/2027: **sent by 01/27/2027**",
-   "**Certified mail AND email**, signed by Atty. Thone",
-   "**Gate not met**: deadline not expired; no skip-trace"
+   "**Certified mail AND email**, signed by Atty. Thorne",
+   "**Gate not met**: deadline not expired; no Skip-Trace"
   ],
   "dos": [
    "Calendar the response date **beside the deposition**"
@@ -2898,13 +2898,13 @@ window.CM_CF_SLIDES = {
  "d5m4-kc": {
   "image": "knowledge-check",
   "questions": [
-   "List the **recovery stack in order**, limits and total; name three coverages outside it, then the payer order.",
+   "List the **Recovery Stack in order**, limits and total; name three coverages outside it, then the Payer Order.",
    "When did **the 07/20/2026 demand's window** close? Why? Track A: what must UM carriers give before BI release?",
    "Track A: $40,000.00 **nets $20,359.92**. Name each deduction's figure and how costs and liens split by stream.",
    "Why did Keystone's stonewall **freeze the stack**? Which binds, mediation or arbitration? Internal SOL cutoff and brief date?",
-   "Match the 11/12/2026 Answer's **three allegations** to file evidence; name each one's question only Atty. Thone can answer.",
-   "John unreachable 01/22–02/03/2027: which **No Contact steps** apply, which calls are Atty. Thone's? His gap question: what now?",
-   "Civic: $2,016.00 loss of use; $3,600.00 vs $792.00 diminished value. Your **routed recommendation**? What may Leah Moran hear?"
+   "Match the 11/12/2026 Answer's **three allegations** to file evidence; name each one's question only Atty. Thorne can answer.",
+   "John unreachable 01/22–02/03/2027: which **No Contact steps** apply, which calls are Atty. Thorne's? His gap question: what now?",
+   "Civic: $2,016.00 Loss of Use; $3,600.00 vs $792.00 Diminished Value. Your **routed recommendation**? What may Leah Moran hear?"
   ]
  }
 };

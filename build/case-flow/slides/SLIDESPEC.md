@@ -65,8 +65,8 @@ lesson. Vary them: avoid the same image on consecutive blocks unless the topic i
   the figure, the action) in double asterisks: `"Verify **every limit in writing** before you rely on it."` Exactly one
   highlight per line (two only in a `situation`). The slide shows it as a highlighter mark, so pick what a trainee
   must remember.
-- **Capitalize proper nouns and defined terms** as the course does (Host UM, Relative UM, Letter of Protection,
-  Knowledge Check, Case Manager, Atty. Thone, the CMS). Lines themselves are sentences: sentence case, ending
+- **Capitalize proper nouns and defined terms** as the course does (Host UM, Relative UM, Letter of Protection, Police Report,
+  Knowledge Check, Case Manager, Atty. Thorne, the CMS). Lines themselves are sentences: sentence case, ending
   without a period unless they are full sentences of more than one clause.
 - Plain, energetic, second person where natural ("you"). Short words. No jargon the block itself doesn't use.
 - Numbers, dates, names, claim numbers exactly as in the block (and `curriculum/5-day-flow/case-file.md`).

@@ -1,6 +1,6 @@
 # 5-Day Legal Case Management Flow — Architecture & Continuity Spine
 
-**Focus case:** *John Doe v. Robert Smith* · **Lead Counsel:** Attorney Elijah Thone
+**Focus case:** *John Doe v. Robert Smith* · **Lead Counsel:** Attorney Elijah Thorne
 **Course:** LSH Case Management Training (5-Day). The Case Flow is the course; the earlier *John Doe v. Apex Delivery Services* days are archived (kept as they were, off the trainees' dashboard).
 **Status:** the spec every Case Flow block conforms to. All five days are written: 20 modules, 100 blocks.
 
@@ -36,7 +36,7 @@ The existing course teaches the right doctrine on 192 topics, but as slide-by-sl
 | | |
 |---|---|
 | Case | *John Doe v. Robert Smith* · LSH-2026-MVA-770412 · MVA, passenger injury |
-| Lead Counsel | Atty. Elijah Thone — approves all strategy, demands and filings |
+| Lead Counsel | Atty. Elijah Thorne — approves all strategy, demands and filings |
 | Client | John Doe — **front-seat passenger in the host vehicle** |
 | Date of loss / SOL | 02/06/2026 · 02/06/2028 (two-year limitation assumed for training; confirm the governing statute) |
 | Health plan | Peach State Health Plan · PSH-55017742 · GRP-41208 — asserts reimbursement |
@@ -113,7 +113,9 @@ Each block is one topic in this course's own lesson shape, drawn as a short run 
 |---|---|
 | Lesson | **Why It Matters** (the hook, from Tell Them's why) · **The Rules** (3–4 rules, the UPL boundary boxed) · **See It** (Show Them's visual) · **On the Job** (Trigger ➔ Task ➔ Tool ➔ Checkpoint) · **Do & Don't** (Best Practices & Pitfalls) |
 | Skill Activity | **Your Case** (Let Them's scenario) · **Your Task** (the steps, the tool to open, the documents, what to deliver) · **See It** (the reference model, if any) · **Check Your Work** (the verification checkpoints, as a tick list) |
-| Knowledge Check | **Knowledge Check** (the questions) · **Self-Summary** (saved, AI-reviewed) · **Skill Scale** (and Submit for review) |
+| Knowledge Check | **Knowledge Check** (the questions, four to a slide, each with an answer box) · **Self-Summary** (saved, AI-reviewed with the answers) · **Skill Scale** (and Submit for review) |
+
+**On screen, each Case Phase (module) is taught in three parts:** its lessons back to back as one uninterrupted discussion, then its Skill Activities and real-time practice, then its Learning Check — each opened by a part slide naming the phase. The blocks themselves keep the rhythm above; only the order on screen changes.
 
 The words on these slides are a distillation of the block, never new content: written to `build/case-flow/slides/SLIDESPEC.md` (word limits per field, one highlight per line, an image per block) in `build/case-flow/slides/dN.json`, and assembled into `js/cm-case-flow-slides.js` by `build/case-flow/slides/assemble.cjs` (`--check` in CI). The block's full text — and its rubric — stay behind **📖 Full text** on every slide, and in Presenter view, which carries one script per slide. The illustrations are inline SVGs in `js/cm-case-flow-art.js`.
 
