@@ -3,7 +3,7 @@
   <div class="lh-right">Federal Tax ID 00-0004417<br>Statement no. 26-03-02281</div>
 </div>
 <div class="title" style="color:#0d5c63">Patient Account Statement</div>
-<div class="subtitle">This statement shows all activity on the account through the statement date.</div>
+<div class="subtitle" style="margin-bottom:6px">All activity on the account through the statement date</div>
 
 <div class="grid">
   <div class="sec" style="background:#0d5c63">Account</div>
@@ -14,48 +14,50 @@
   <div class="f s2"><label>Patient</label><div class="v">John Doe · DOB 08/14/1991</div></div>
   <div class="f s2"><label>Mailing address</label><div class="v">2214 Maple Hollow Rd, Riverton</div></div>
   <div class="f s2"><label>Rendering provider</label><div class="v">Nina Patel, PA-C</div></div>
-  <div class="f s2"><label>Visit type / reason</label><div class="v">Walk-in · motor vehicle accident 02/06/2026</div></div>
+  <div class="f s2"><label>Visit type / reason</label><div class="v">Walk-in · auto accident 02/06/2026</div></div>
 
   <div class="sec" style="background:#0d5c63">Insurance on file</div>
-  <div class="f s2"><label>Primary payer</label><div class="v">Harbor Point Insurance — Medical Payments (MedPay)</div></div>
+  <div class="f s2"><label>Primary payer</label><div class="v">Harbor Point Insurance — MedPay</div></div>
   <div class="f"><label>Claim no.</label><div class="v">HP-26-7741</div></div>
-  <div class="f"><label>Policy / insured</label><div class="v">HPA-4402917 · Kevin Alvarez</div></div>
-  <div class="f s2"><label>Payer address</label><div class="v">77 Harbor Point Blvd, Riverton</div></div>
-  <div class="f s2"><label>Secondary payer</label><div class="v">Peach State Health Plan · PSH-55017742 · GRP-41208 (not billed)</div></div>
+  <div class="f"><label>Policy</label><div class="v">HPA-4402917</div></div>
+  <div class="f s2"><label>Insured / payer address</label><div class="v">Kevin Alvarez · 77 Harbor Point Blvd</div></div>
+  <div class="f s2"><label>Secondary payer</label><div class="v">Peach State · PSH-55017742 (not billed)</div></div>
 </div>
 
 <table class="ledger">
-  <thead><tr><th style="width:13%">Date</th><th>Description</th><th style="width:10%">Code</th><th style="width:9%">Units</th><th class="num" style="width:13%">Charges</th><th class="num" style="width:15%">Payments / Adj.</th><th class="num" style="width:12%">Balance</th></tr></thead>
+  <thead><tr><th style="width:13%">Date</th><th>Description</th><th style="width:8%">Code</th><th style="width:6%">Units</th><th class="num" style="width:13%">Charges</th><th class="num" style="width:14%">Pmts / Adj.</th><th class="num" style="width:12%">Balance</th></tr></thead>
   <tbody>
     <tr><td>02/20/2026</td><td>Office visit, new patient, level 4 — N. Patel, PA-C</td><td>99204</td><td>1</td><td class="num">$485.00</td><td class="num"></td><td class="num">$485.00</td></tr>
     <tr><td>02/20/2026</td><td>Services provided in urgent care center</td><td>S9088</td><td>1</td><td class="num">$200.00</td><td class="num"></td><td class="num">$685.00</td></tr>
-    <tr><td>02/23/2026</td><td>Claim submitted — Harbor Point Insurance (MedPay), claim HP-26-7741</td><td></td><td></td><td class="num"></td><td class="num"></td><td class="num">$685.00</td></tr>
-    <tr><td>03/09/2026</td><td>Insurance payment — Harbor Point Insurance (MedPay), check no. 7740-118263</td><td>PMT</td><td></td><td class="num"></td><td class="num">($685.00)</td><td class="num">$0.00</td></tr>
+    <tr><td>02/23/2026</td><td>Claim submitted to Harbor Point MedPay (HP-26-7741)</td><td></td><td></td><td class="num"></td><td class="num"></td><td class="num">$685.00</td></tr>
+    <tr><td>03/09/2026</td><td>Payment — Harbor Point MedPay, chk 7740-118263</td><td>PMT</td><td></td><td class="num"></td><td class="num">($685.00)</td><td class="num">$0.00</td></tr>
     <tr class="total"><td colspan="4">Totals — date of service 02/20/2026</td><td class="num">$685.00</td><td class="num">($685.00)</td><td class="num">$0.00</td></tr>
   </tbody>
 </table>
 
-<table class="ledger" style="width:62%;margin-left:auto">
-  <tbody>
-    <tr><td>Previous balance</td><td class="num">$0.00</td></tr>
-    <tr><td>New charges</td><td class="num">$685.00</td></tr>
-    <tr><td>Insurance payments</td><td class="num">($685.00)</td></tr>
-    <tr><td>Patient payments</td><td class="num">$0.00</td></tr>
-    <tr><td>Adjustments</td><td class="num">$0.00</td></tr>
-    <tr class="total"><td>Patient balance due</td><td class="num">$0.00</td></tr>
-  </tbody>
-</table>
+<div style="display:flex;gap:16px;align-items:flex-start">
+  <div style="flex:1">
+    <div style="margin:10px 0 10px 10px"><span class="stamp" style="border-color:#0d5c63;color:#0d5c63">Paid in full · 03/09/2026</span></div>
+    <div class="note">Your account has been paid in full by your insurance. No payment is due. Please keep this statement for your
+    records. Questions: Patient Billing, (555) 010-6120, Monday–Friday 8:00 a.m.–4:30 p.m.</div>
+  </div>
+  <table class="ledger" style="width:46%">
+    <tbody>
+      <tr><td>Previous balance</td><td class="num">$0.00</td></tr>
+      <tr><td>New charges</td><td class="num">$685.00</td></tr>
+      <tr><td>Insurance payments</td><td class="num">($685.00)</td></tr>
+      <tr><td>Patient payments</td><td class="num">$0.00</td></tr>
+      <tr><td>Adjustments</td><td class="num">$0.00</td></tr>
+      <tr class="total"><td>Patient balance due</td><td class="num">$0.00</td></tr>
+    </tbody>
+  </table>
+</div>
 
-<div style="margin:8px 0 4px"><span class="stamp" style="border-color:#0d5c63;color:#0d5c63">Paid in full · 03/09/2026</span></div>
-
-<div class="note">Your account has been paid in full by your insurance. No payment is due. Please keep this statement for your
-records. Questions about this statement: Patient Billing, (555) 010-6120, Monday–Friday 8:00 a.m.–4:30 p.m.</div>
-
-<div style="border-top:1.5px dashed #555;margin-top:26px;padding-top:4px" class="small muted center">✂ Please detach and return this portion with any payment. Make checks payable to Riverton Urgent Care.</div>
+<div style="border-top:1.5px dashed #555;margin-top:14px;padding-top:4px" class="small muted center">✂ Please detach and return this portion with any payment. Make checks payable to Riverton Urgent Care.</div>
 <div class="grid c3" style="margin-top:6px">
   <div class="f"><label>Patient / account no.</label><div class="v">John Doe · RUC-0441876</div></div>
   <div class="f"><label>Statement date</label><div class="v">03/12/2026</div></div>
   <div class="f"><label>Amount due</label><div class="v">$0.00</div></div>
-  <div class="f s2"><label>Remit to</label><div class="v">Riverton Urgent Care · Patient Billing · 1450 Birch Ave, Riverton</div></div>
+  <div class="f s2"><label>Remit to</label><div class="v">Riverton Urgent Care · 1450 Birch Ave, Riverton</div></div>
   <div class="f"><label>Amount enclosed</label><div class="v">$ ________</div></div>
 </div>

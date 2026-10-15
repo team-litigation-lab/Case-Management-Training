@@ -1,0 +1,99 @@
+<style>
+  .ev .hash { font-family: "Liberation Mono", "Courier New", monospace; font-size: 8.4pt; word-break: break-all; }
+  .ev .frames { gap: 12px; }
+  .ev .frame { height: 160px; background: #3a3a3a; overflow: hidden; }
+  .ev .frame svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .ev .frame .frame-label { top: auto; bottom: 22px; transform: none; font-size: 8.4pt; }
+  .ev .frame .frame-stamp { position: absolute; left: 6px; top: 4px; font-family: "Liberation Mono", monospace; font-size: 7.5pt; color: #fff; background: rgba(0,0,0,.55); padding: 1px 4px; }
+  .ev .cap { font-family: "Liberation Sans", Arial, sans-serif; font-size: 8pt; color: #333; margin-top: 2px; }
+</style>
+<div class="ev">
+
+<div class="letterhead">
+  <div><div class="lh-name">LSH LAW GROUP</div><div class="lh-sub">Personal Injury · 500 Commerce St, Suite 1200, Riverton · (555) 010-4000</div></div>
+  <div class="lh-right">Form EV-200 (rev. 01/2026)<br>Matter LSH-2026-MVA-770412</div>
+</div>
+<div class="title">Evidence Preservation &amp; Chain of Custody Log</div>
+<div class="subtitle">Item EV-001 · Residential doorbell-camera video · <i>John Doe v. Robert Smith</i></div>
+
+<div class="grid">
+  <div class="sec">Item</div>
+  <div class="f"><label>Evidence item no.</label><div class="v">EV-001</div></div>
+  <div class="f"><label>Date of incident</label><div class="v">02/06/2026</div></div>
+  <div class="f s2"><label>Related report</label><div class="v">Riverton PD RPD-26-018842</div></div>
+  <div class="f s2"><label>Description</label><div class="v">Doorbell-camera video of the collision at Maple Hollow Rd &amp; Birch Ave</div></div>
+  <div class="f s2"><label>Source / custodian</label><div class="v">Margaret Doe (owner of camera), 2214 Maple Hollow Rd, Riverton</div></div>
+  <div class="f s2"><label>Device</label><div class="v">Front-door video doorbell, NE corner lot, facing the intersection</div></div>
+  <div class="f s2"><label>Camera app cloud retention</label><div class="v">30 days (auto-delete after 03/08/2026)</div></div>
+  <div class="sec">Original file</div>
+  <div class="f s2"><label>File name</label><div class="v">FRONTDOOR_20260206_070941.mp4</div></div>
+  <div class="f"><label>Clip (camera clock)</label><div class="v">07:09:41–07:10:26</div></div>
+  <div class="f"><label>Length</label><div class="v">00:00:45</div></div>
+  <div class="f"><label>Format</label><div class="v">MP4 · H.264 · 1920×1080 · 15 fps</div></div>
+  <div class="f"><label>File size</label><div class="v">38,612,404 bytes</div></div>
+  <div class="f s2"><label>Audio</label><div class="v">Yes (mono)</div></div>
+  <div class="f s4"><label>SHA-256 (computed on receipt 02/19/2026)</label><div class="v hash">4f58fc85c32607a581bee11a9599b0af39dec41c1777b7ca4c7a4525c270bd1a</div></div>
+  <div class="f s2"><label>Original media</label><div class="v">USB flash drive, 32 GB, labeled "EV-001", sealed in evidence envelope E-0412</div></div>
+  <div class="f s2"><label>Storage location</label><div class="v">Evidence cabinet B-2 (locked), LSH Law Group · working copy: firm evidence share \LSH-2026-MVA-770412\EV-001\</div></div>
+</div>
+
+<h3 class="sans">Chain of custody</h3>
+<table class="ledger compact">
+  <tr><th style="width:15%">Date / time</th><th>Action</th><th style="width:16%">Released by</th><th style="width:16%">Received by</th><th style="width:10%">Ref.</th></tr>
+  <tr><td>02/17/2026 10:15</td><td>Preservation instruction to client by phone: ask Margaret Doe not to delete or trim the recording; save the full clip from the camera app to a USB drive before the 30-day cloud deletion; do not edit, rename or re-record it.</td><td>—</td><td>John Doe (by phone)</td><td>Call note CN-0217-02</td></tr>
+  <tr><td>02/19/2026 08:30</td><td>Margaret Doe downloads the original clip from the camera app to a USB drive at 2214 Maple Hollow Rd (no editing; original file name kept).</td><td>Camera app (cloud)</td><td>Margaret Doe</td><td>Custodian decl.</td></tr>
+  <tr><td>02/19/2026 16:40</td><td>USB drive delivered in person to LSH Law Group reception; custodian declaration signed by Margaret Doe.</td><td>Margaret Doe</td><td>Case Manager, LSH Law Group</td><td>Receipt R-0219-07</td></tr>
+  <tr><td>02/19/2026 16:55</td><td>SHA-256 computed on the USB file; working copy written to the firm evidence share; working-copy hash matches. USB sealed in envelope E-0412, initialed across the seal, placed in cabinet B-2.</td><td>Case Manager</td><td>Evidence cabinet B-2</td><td>Hash log HL-001</td></tr>
+  <tr><td>02/20/2026 09:10</td><td>Working copy opened for review (read-only); hash re-verified (match). Four stills exported from the working copy (page 2).</td><td>Evidence share</td><td>Case Manager</td><td>Hash log HL-001</td></tr>
+</table>
+
+<h3 class="sans" style="break-before: page; margin-top:0;">Still frames on file (EV-001-S1 to S4)</h3>
+<p class="small sans" style="margin:0 0 6px;"><b>Export for binder:</b> stills exported 02/20/2026 (grayscale, 150 dpi) for the file — EV-001-S1 to EV-001-S4 (PNG), saved to \EV-001\stills\.</p>
+<div class="frames">
+  <div>
+    <div class="frame">
+      <svg viewBox="0 0 300 160" preserveAspectRatio="none"><rect width="300" height="160" fill="#4a4a4a"/><path d="M0 70 L300 62 L300 120 L0 128 Z" fill="#6b6b6b"/><path d="M135 20 L175 20 L210 160 L90 160 Z" fill="#6b6b6b"/><path d="M0 98 L300 91" stroke="#8a8a8a" stroke-dasharray="8 6"/><rect x="62" y="88" width="46" height="22" rx="3" fill="#bdbdbd"/><path d="M114 82 L114 132" stroke="#e0e0e0" stroke-width="2"/></svg>
+      <div class="frame-stamp">02/06/2026 07:10:02</div>
+      <div class="frame-label">S1 — Escape (eastbound) stopped at the stop line</div>
+      <div class="frame-time">07:10:02</div>
+    </div>
+    <div class="cap">EV-001-S1 · source time 00:00:21 · 1200×640 · grayscale · 150 dpi</div>
+  </div>
+  <div>
+    <div class="frame">
+      <svg viewBox="0 0 300 160" preserveAspectRatio="none"><rect width="300" height="160" fill="#4a4a4a"/><path d="M0 70 L300 62 L300 120 L0 128 Z" fill="#6b6b6b"/><path d="M135 20 L175 20 L210 160 L90 160 Z" fill="#6b6b6b"/><path d="M0 98 L300 91" stroke="#8a8a8a" stroke-dasharray="8 6"/><rect x="112" y="86" width="46" height="22" rx="3" fill="#bdbdbd"/><path d="M114 82 L114 132" stroke="#e0e0e0" stroke-width="2"/></svg>
+      <div class="frame-stamp">02/06/2026 07:10:05</div>
+      <div class="frame-label">S2 — Escape proceeding into the intersection</div>
+      <div class="frame-time">07:10:05</div>
+    </div>
+    <div class="cap">EV-001-S2 · source time 00:00:24 · 1200×640 · grayscale · 150 dpi</div>
+  </div>
+  <div>
+    <div class="frame">
+      <svg viewBox="0 0 300 160" preserveAspectRatio="none"><rect width="300" height="160" fill="#4a4a4a"/><path d="M0 70 L300 62 L300 120 L0 128 Z" fill="#6b6b6b"/><path d="M135 20 L175 20 L210 160 L90 160 Z" fill="#6b6b6b"/><path d="M0 98 L300 91" stroke="#8a8a8a" stroke-dasharray="8 6"/><rect x="128" y="85" width="46" height="22" rx="3" fill="#bdbdbd"/><rect x="168" y="118" width="28" height="40" rx="3" fill="#262626"/><path d="M114 82 L114 132" stroke="#e0e0e0" stroke-width="2"/></svg>
+      <div class="frame-stamp">02/06/2026 07:10:06</div>
+      <div class="frame-label">S3 — Silverado (northbound) entering without stopping</div>
+      <div class="frame-time">07:10:06</div>
+    </div>
+    <div class="cap">EV-001-S3 · source time 00:00:25 · 1200×640 · grayscale · 150 dpi</div>
+  </div>
+  <div>
+    <div class="frame">
+      <svg viewBox="0 0 300 160" preserveAspectRatio="none"><rect width="300" height="160" fill="#4a4a4a"/><path d="M0 70 L300 62 L300 120 L0 128 Z" fill="#6b6b6b"/><path d="M135 20 L175 20 L210 160 L90 160 Z" fill="#6b6b6b"/><path d="M0 98 L300 91" stroke="#8a8a8a" stroke-dasharray="8 6"/><rect x="140" y="82" width="46" height="22" rx="3" fill="#bdbdbd"/><rect x="160" y="96" width="28" height="40" rx="3" fill="#262626"/><path d="M114 82 L114 132" stroke="#e0e0e0" stroke-width="2"/></svg>
+      <div class="frame-stamp">02/06/2026 07:10:07</div>
+      <div class="frame-label">S4 — Impact, Escape front passenger door</div>
+      <div class="frame-time">07:10:07</div>
+    </div>
+    <div class="cap">EV-001-S4 · source time 00:00:26 · 1200×640 · grayscale · 150 dpi</div>
+  </div>
+</div>
+
+<h3 class="sans">Custodian declaration (summary)</h3>
+<p class="small">Margaret Doe states that she owns and controls the doorbell camera at 2214 Maple Hollow Rd; that the camera records automatically on motion and stamps each recording with the date and time from its own clock; that on 02/19/2026 she downloaded the recording of 02/06/2026 beginning 07:09:41 from the camera app to the USB drive she delivered to LSH Law Group the same day; and that she did not edit, trim or alter the recording in any way. Signed declaration on file (EV-001-D).</p>
+
+<div class="sig"><div class="sig-line"><span class="handwritten">Margaret Doe</span></div><div class="sig-name">Margaret Doe, custodian · 02/19/2026</div></div>
+<div class="sig"><div class="sig-line"><span class="handwritten">CM</span></div><div class="sig-name">Case Manager, LSH Law Group · received 02/19/2026</div></div>
+
+<p class="small muted sans" style="margin-top:14px;">Access to EV-001 is logged. Any copy, export or transfer is entered on this log with date, time, person and hash check.</p>
+
+</div>
