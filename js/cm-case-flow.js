@@ -204,6 +204,18 @@ if(typeof routeLabel === "function"){
   };
 }
 
+/* "▶ Resume where you left off" names a Case Flow day by its label too, and isn't offered for a
+   Case Flow day the trainee can't open (the Case Flow isn't assigned to them). */
+if(typeof resumeLabel === "function"){
+  const __resume = resumeLabel;
+  resumeLabel = function(){
+    const lv = state.lastView, d = lv && lv.view === "day" && cfDay(lv.dayId);
+    if(d && !dayUnlocked(d.id)) return "";
+    const r = __resume.apply(this, arguments);
+    return d ? relabel(r, d) : r;
+  };
+}
+
 /* ---------- the continuity strip on every block ---------- */
 function strip(){
   const c = CF.case, L = stackLayers();
@@ -489,7 +501,7 @@ if(typeof renderDashboard === "function"){
         <h2>5-Day Legal Case Management Flow</h2>
         <p>One file from intake to deposition: <b>${E(c.style)}</b> · ${E(c.counsel)} · ${E(money(c.total))} stack · ${E(c.gapDays)}-Day Treatment Gap. Every module runs Lesson → Skill Activity → Lesson → Skill Activity → Knowledge Check.</p>
         ${isTrainer() ? `<p class="cf-note">Trainees see this track only when you assign it: Admin → the trainee's panel → Course version. Unassigned trainees take John Doe v. Apex.</p>` : ""}
-        ${window.cmCaseFlow.profile ? `<p><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.profile(true)">📂 Case profile: ${E(c.style)}</button></p>` : ""}</div>
+        ${window.cmCaseFlow.profile ? `<p><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.profile()">📂 Case profile: ${E(c.style)}</button></p>` : ""}</div>
       <div class="module-grid">${cards}</div>`;
     const layout = main.closest(".dash-layout");
     if(layout && layout.parentNode === t.content){
@@ -563,47 +575,52 @@ if(typeof renderFeedbackAdmin === "function"){
   renderFeedbackAdmin = function(rec){ const html = __fbAdmin.apply(this, arguments); try{ return html + trainerPanel(rec); }catch(e){ return html; } };
 }
 
-/* ---------- the Case File page: the Apex file and this file's case profile ----------
-   The Case File page keeps the John Doe v. Apex file exactly as it is and gains a
-   switch to this file's profile (CF.profile). Each section opens with its Case Flow day
-   (`opens`) or once that day is passed (`passed`), so the profile never gives away a
-   day's answers; trainers see every section. */
+/* ---------- the Case File page: John Doe v. Robert Smith ----------
+   The client profile is this file's (CF.profile), for trainers and every trainee assigned the
+   Case Flow ("caseflow" or "both"). The John Doe v. Apex case file is archived, not deleted:
+   it stays whole for trainees on the Apex version, and the others reach it from the
+   "Archived" link at the foot of the page (it holds the Apex days' Case File checkpoints).
+   Each section opens with its Case Flow day (`opens`) or once that day is passed (`passed`),
+   so the profile never gives away a day's answers; trainers see every section. */
 const cfIdOf = n => (cfDayByN(n) || {}).id;
 const profileOpen = sec => !!(state.isAdmin || state.adminPreview) ||
   (sec.opens ? dayUnlocked(cfIdOf(sec.opens)) : !!((state.progress || {})[cfIdOf(sec.passed)] || {}).done);
 const lockLabel = sec => sec.opens ? `Opens with Case Flow Day ${sec.opens}` : `Opens when you pass Case Flow Day ${sec.passed}`;
-function caseFlowProfile(){
+function caseFlowProfile(archiveLink){
   const c = CF.case, secs = CF.profile || [], shown = secs.filter(profileOpen), locked = secs.filter(x => !profileOpen(x));
   const gates = [];
   locked.forEach(x => { const k = lockLabel(x), g = gates.find(y => y.k === k); g ? g.t.push(x.title) : gates.push({k, t: [x.title]}); });
   const pos = dayUnlocked(cfIdOf(5)) ? 5 : [4, 3, 2, 1].find(n => dayUnlocked(cfIdOf(n))) || 1;
   return `<h1 style="color:var(--navy);font-size:28px;margin:0 0 10px">📂 Case File: ${E(c.style)}</h1>
-    <div class="client-intro-banner"><div class="cib-tag">🧭 Case Flow File</div><h2>One file, from intake to deposition</h2>
-      <p>The file you work in the 5-Day Legal Case Management Flow: ${E(c.no)} · ${E(c.counsel)} · ${E(money(c.total))} stack · ${E(c.gapDays)}-Day Treatment Gap. It is a separate training file from John Doe v. Apex Delivery Services.</p>
+    <div class="client-intro-banner"><div class="cib-tag">📌 Your Client</div><h2>One file, from intake to deposition</h2>
+      <p>${E(c.client.name)}, ${E(c.client.position.toLowerCase())}, is your client for the whole course: ${E(c.no)} · Lead Counsel ${E(c.counsel)} · ${E(money(c.total))} recovery stack · ${E(c.gapDays)}-Day Treatment Gap.</p>
       <p>This profile grows with the file. Each section opens with the day it belongs to, and what a day's work produces (the audited specials, the reasons for the gap, the net sheet, the calendar) opens once you pass that day, so work it out from the documents first.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-navy btn-sm" onclick="goto('day',${cfIdOf(pos)})">Open Case Flow Day ${pos}</button></div></div>
     <div class="profile-grid">${shown.map(x => `<div class="card profile-section"><h3>${E(x.title)}</h3><ul>${x.items.map(i => `<li>${E(i)}</li>`).join("")}</ul></div>`).join("")}
-      ${gates.map(g => `<div class="card profile-section cf-prof-lock"><h3>🔒 ${E(g.k)}</h3><ul>${g.t.map(t => `<li>${E(t)}</li>`).join("")}</ul></div>`).join("")}</div>`;
+      ${gates.map(g => `<div class="card profile-section cf-prof-lock"><h3>🔒 ${E(g.k)}</h3><ul>${g.t.map(t => `<li>${E(t)}</li>`).join("")}</ul></div>`).join("")}</div>
+    ${archiveLink ? `<div class="cf-archived-link"><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.archived(true)">🗄 Archived: the John Doe v. Apex case file</button>
+      <span class="cf-note">The earlier version's case file and its Case File checkpoints, kept for the Apex days.</span></div>` : ""}`;
 }
-function profileSwitch(){
-  const on = !!state.cfProfile;
-  return `<div class="cf-prof-switch" role="tablist" aria-label="Case files">
-    <button role="tab" aria-selected="${!on}" class="${on ? "" : "on"}" onclick="cmCaseFlow.profile(false)">📂 John Doe v. Apex Delivery <small>Days 1–5</small></button>
-    <button role="tab" aria-selected="${on}" class="${on ? "on" : ""}" onclick="cmCaseFlow.profile(true)">🧭 John Doe v. Robert Smith <small>Case Flow</small></button></div>`;
+function archivedBar(){
+  return `<div class="cf-archived-bar"><span><b>🗄 Archived</b> · the John Doe v. Apex case file, kept for the earlier version's days. Your client is John Doe v. Robert Smith.</span>
+    <button class="btn btn-navy btn-sm" onclick="cmCaseFlow.archived(false)">← John Doe v. Robert Smith</button></div>`;
 }
 if(typeof window.renderClientProfile === "function"){
   const __profile = window.renderClientProfile;
   window.renderClientProfile = function(){
     const v = track();
     if(v === "classic" || !Array.isArray(CF.profile)) return __profile.apply(this, arguments);   // the Apex Case File, as it was
-    if(v === "caseflow") return caseFlowProfile();   // the Apex Case File is archived for this trainee
-    return profileSwitch() + (state.cfProfile ? caseFlowProfile() : __profile.apply(this, arguments));
+    if(v === "caseflow") return caseFlowProfile(false);   // the Apex case file isn't theirs at all
+    // both versions (and trainers): Robert Smith is the Case File; the Apex case file is one click away, archived
+    return state.cfArchived ? archivedBar() + __profile.apply(this, arguments) : caseFlowProfile(true);
   };
-  window.cmCaseFlow.profile = function(on){
-    state.cfProfile = !!on;
+  const show = archived => {
+    state.cfArchived = !!archived;
     if(state.view !== "clientprofile" && typeof goto === "function") return goto("clientprofile");
     render(); window.scrollTo(0, 0);
   };
+  window.cmCaseFlow.profile = () => show(false);   // the dashboard's "Case profile" button
+  window.cmCaseFlow.archived = show;
 }
 
 /* ---------- styles: only what the course's own classes don't already give ---------- */
@@ -677,10 +694,10 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cf-dash-head h2{margin:2px 0 6px;color:var(--navy);font-size:22px;}
 .cf-dash-head p:not(.eyebrow){margin:0 0 12px;max-width:90ch;color:var(--ink-soft);font-size:14px;}
 .cf-soon .module-body{opacity:.8;}
-.cf-prof-switch{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;margin:0 0 14px;background:#F6F7FB;border:1px solid var(--line);border-radius:12px;max-width:100%;}
-.cf-prof-switch button{border:0;background:transparent;border-radius:9px;padding:7px 12px;font:700 13px var(--font-ui);color:var(--navy);cursor:pointer;}
-.cf-prof-switch button small{font-weight:500;color:var(--ink-soft);margin-left:4px;}
-.cf-prof-switch button.on{background:#fff;box-shadow:0 1px 3px rgba(20,30,60,.12);}
+.cf-archived-link{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin:18px 0 4px;}
+.cf-archived-link .cf-note{margin:0;}
+.cf-archived-bar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;margin:0 0 14px;padding:10px 14px;background:#F6F7FB;border:1px dashed #B9BFD0;border-radius:12px;font-size:13.5px;color:var(--ink-soft);}
+.cf-archived-bar b{color:var(--navy);}
 .cf-prof-lock{background:#F6F7FB;}
 .cf-prof-lock h3{color:var(--ink-soft);}
 .cf-prof-lock li{color:var(--ink-soft);}
