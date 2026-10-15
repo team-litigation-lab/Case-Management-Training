@@ -277,7 +277,7 @@ function card(l, i, d, part){
         + S(3, "Best Practices & Pitfalls", renderPracticeCards(b.best))
         + rubricHtml(b.rubric);
   }
-  return `<div class="topic-separator">CASE FLOW DAY ${day.n} &middot; MODULE ${mod.n} OF ${day.modules.length} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; PART ${p} OF 2</div>
+  return `<div class="topic-separator">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; MODULE ${mod.n} OF ${day.modules.length} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; PART ${p} OF 2</div>
     <div class="card lesson-card density-m cf-card" data-part="${p}">
       <h4><span class="lnum">${mod.n}.${k + 1}</span>${E(b.title)}</h4>
       <p class="cf-topic">${E(mod.title)} · ${E(b.topic)}</p>
@@ -371,18 +371,19 @@ window.cmCaseFlow = {
     m.savedAt = new Date().toISOString(); await persist();
     if(typeof runRubricEvaluation !== "function"){ status(modId, "Saved. The AI reviewer isn't available here; your trainer will review it."); return; }
     status(modId, "Reviewing…");
-    const c = CF.case;
+    const c = CF.case, day = CF.days.find(x => x.id === dayId);
     const label = `Day ${dayId} · Case Flow Day ${d.cf.n} · Module ${mod.n} — CM Self-Summary`;   // "Day <id>" files it under this day, not under Apex Day ${d.cf.n}
     const ctx = `Case: ${c.style}, ${c.type}. Lead counsel ${c.counsel}. DOL ${c.dol}; SOL ${c.sol}. Client ${c.client.name}, ${c.client.position}. `
       + `Coverage stack (in order): ${stackLayers().map(l => `${l.tag} ${money(l.limit)} (${l.carrier})`).join(" → ")} = ${money(c.total)}. `
       + `Health plan ${c.health.carrier} (${c.health.memberId}). Critical fact: ${c.critical}\n`
+      + (day && (day.fileState || []).length ? `Where the file stands on Case Flow Day ${day.n} (${day.phase}): ${day.fileState.join(" ")}\n` : "")
       + `Module: ${mod.title} — ${mod.about}\nThe module's knowledge-verification questions were:\n- ${b.check.questions.join("\n- ")}`;
     const text = b.check.summary.map((q, j) => `${q}\n${m.answers[j] || ""}`).join("\n\n")
       + `\n\nSelf-ratings (1–5): ${b.check.scale.map((s, j) => `${s}: ${m.scale[j]}`).join("; ")}`;
     const notes = `Grade against this module's rubric. AI criteria: ${b.rubric.ai.map(r => `${r[0]} (${r[1]}%): ${r[2]}`).join("; ")}. `
       + `A trainer separately assesses: ${b.rubric.trainer.map(r => r[0]).join(", ")}. `
       + `UPL is a gate: if the trainee proposes giving the client legal advice (case value, merits, what silence does to their rights, announcing withdrawal), score Risk Mitigation 0 and say so. `
-      + `Use the case facts above; numbers that contradict them (limits, dates, order of the stack, the 14-day gap) are accuracy errors.`;
+      + `Use the case facts above; numbers that contradict them (limits, dates, order of the stack, the 14-day gap, the figures for this day) are accuracy errors.`;
     try{
       const rep = await runRubricEvaluation(label, ctx, text, notes);
       m.ai = {score: Math.round(rep.totalScore), tier: rep.gradeTier || "", strengths: (rep.strengths || []).slice(0, 3),

@@ -47,7 +47,7 @@ The existing course teaches the right doctrine on 192 topics, but as slide-by-sl
 | 2 | **Host UM** — the host vehicle's policy | first-party | $20,000 | Harbor Point |
 | 3 | **Relative UM** — resident relative's policy | first-party | $10,000 | Cardinal State Mutual |
 
-**Order of operations:** BI exhausts → Host UM opens → Relative UM stacks. The passenger fact is what opens both UM layers: as a driver John Doe would reach $10,000.
+**Order of operations:** BI exhausts → Host UM opens → Relative UM stacks. The passenger fact is what opens both UM layers: driving his own car, John Doe would reach $10,000 (he rejected UM on his own policy, and the relative policy excludes a car he owns).
 
 **Not to be confused with the payer order** for medical bills while the claim is open (the Regulatory Triple-Check): PIP/MedPay → private health insurance → LOP/provider liens.
 

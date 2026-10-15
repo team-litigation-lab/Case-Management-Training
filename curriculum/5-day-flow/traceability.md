@@ -77,7 +77,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D2#13` | Treatment Gaps in the Demand Phase | ✅ BUILT | d1m4-a1, d1m4-kc |
 | `D2#14` | The Demand Packet Checklist: The “Big Four” | 🗓 SCHEDULED | Day 3 · Module 1 |
 | `D2#15` | Demand: Quality Control — The “Final Scrub” | 🗓 SCHEDULED | Day 3 · Module 1 |
-| `D2#16` | Negotiating the “First Call” (For Senior CMs) | 🗓 SCHEDULED | Day 3 · Module 1 |
+| `D2#16` | Negotiating the “First Call” (For Senior CMs) | 🗓 SCHEDULED | Day 3 · Module 2 |
 | `D2#17` | Demand: Best Practices | 🗓 SCHEDULED | Day 3 · Module 1 |
 | `D2#18` | Skill Building: Demand Phase Challenge — Real-Time Demand Audit | 🗓 SCHEDULED | Day 3 · Module 1 |
 | `D2#19` | Settlement Negotiations: The Pitch & the Negotiation Battle Map | 🗓 SCHEDULED | Day 3 · Module 2 |
@@ -92,8 +92,8 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D2#28` | Close the Deal: The “Final-Final” and the Paper Trail | 🗓 SCHEDULED | Day 3 · Module 2 |
 | `D2#29` | Settlement Negotiations: The “Never” Rule | 🗓 SCHEDULED | Day 3 · Module 2 |
 | `D2#30` | Skill Building: The Math Check — Your Slam-Dunk Liability Case | 🗓 SCHEDULED | Day 3 · Module 2 |
-| `D2#31` | BI Settlement — Phase II: The UM/UIM “Safety Check” | 🗓 SCHEDULED | Day 3 · Module 4 |
-| `D2#32` | BI Settlement: Key Laws & Doctrines | 🗓 SCHEDULED | Day 3 · Module 4 |
+| `D2#31` | BI Settlement — Phase II: The UM/UIM “Safety Check” | 🗓 SCHEDULED | Day 3 · Module 1 |
+| `D2#32` | BI Settlement: Key Laws & Doctrines | 🗓 SCHEDULED | Day 3 · Module 1 |
 | `D2#33` | The Execution: The Release of All Claims (The “Exit” Document) | 🗓 SCHEDULED | Day 3 · Module 4 |
 | `D2#34` | The Execution: Settlement Disclosure Statement (The “Truth” Document) | 🗓 SCHEDULED | Day 3 · Module 4 |
 | `D2#35` | The Execution: Lien Payoff Letters (The “Verification” Paperwork) | 🗓 SCHEDULED | Day 3 · Module 4 |
@@ -101,7 +101,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D2#37` | The Execution: The Dismissal (The “Court” Filing) | 🗓 SCHEDULED | Day 3 · Module 4 |
 | `D2#38` | The Execution: W-9 & Comparison of Key Post-Settlement Documents | 🗓 SCHEDULED | Day 3 · Module 4 |
 | `D2#39` | Finalized Settlement: Boots-on-the-Ground Tasks — Administrative Document Control | 🗓 SCHEDULED | Day 3 · Module 4 |
-| `D2#40` | Finalized Settlement: Final Lien Mitigation (The “Reduction”) | 🗓 SCHEDULED | Day 3 · Module 4 |
+| `D2#40` | Finalized Settlement: Final Lien Mitigation (The “Reduction”) | 🗓 SCHEDULED | Day 3 · Module 3 |
 | `D2#41` | Skill Building: BI Settlement — Caught in an Operational Pincer Movement | 🗓 SCHEDULED | Day 3 · Module 4 |
 
 ## Existing Day 3 — UM Demand, UM Settlement, Lien Reduction & Disbursement
@@ -114,17 +114,17 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D3#4` | The UM Demand Package: Turning Risk Management Against the Insurer | 🗓 SCHEDULED | Day 3 · Module 1 |
 | `D3#5` | UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap | 🗓 SCHEDULED | Day 3 · Module 1 |
 | `D3#6` | UM Demand: The Demand Packet — Document Inclusions | 🗓 SCHEDULED | Day 3 · Module 1 |
-| `D3#7` | UM Settlement: How the Settlement Is Calculated | 🗓 SCHEDULED | Day 3 · Module 1 |
-| `D3#8` | UM Settlement: Negotiation & Settlement | 🗓 SCHEDULED | Day 3 · Module 1 |
-| `D3#9` | UM Settlement: The “Offset” Rule & the Timeline | 🗓 SCHEDULED | Day 3 · Module 1 |
-| `D3#10` | UM Settlement: Challenges | 🗓 SCHEDULED | Day 3 · Module 1 |
-| `D3#11` | UM Settlement: The Final Payout Process | 🗓 SCHEDULED | Day 3 · Module 1 |
+| `D3#7` | UM Settlement: How the Settlement Is Calculated | 🗓 SCHEDULED | Day 3 · Module 2 |
+| `D3#8` | UM Settlement: Negotiation & Settlement | 🗓 SCHEDULED | Day 3 · Module 2 |
+| `D3#9` | UM Settlement: The “Offset” Rule & the Timeline | 🗓 SCHEDULED | Day 3 · Module 2 |
+| `D3#10` | UM Settlement: Challenges | 🗓 SCHEDULED | Day 3 · Module 2 |
+| `D3#11` | UM Settlement: The Final Payout Process | 🗓 SCHEDULED | Day 3 · Module 2 |
 | `D3#12` | Documents that Matter: Threshold & Coverage Documents | 🗓 SCHEDULED | Day 3 · Module 1 |
 | `D3#13` | Documents that Matter: Liability & Causation Documents | 🗓 SCHEDULED | Day 3 · Module 1 |
 | `D3#14` | Documents that Matter: Special Damages Documents (Economic Hard Costs) | 🗓 SCHEDULED | Day 3 · Module 1 |
 | `D3#15` | Documents that Matter: General Damages Documents (Non-Economic Value) | 🗓 SCHEDULED | Day 3 · Module 1 |
 | `D3#16` | Documents that Matter: Final Pleading & Release Documents (Closing Phase) | 🗓 SCHEDULED | Day 3 · Module 1 |
-| `D3#17` | Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit | 🗓 SCHEDULED | Day 3 · Module 1 |
+| `D3#17` | Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit | 🗓 SCHEDULED | Day 3 · Module 2 |
 | `D3#18` | Lien Negotiations/Reduction: Common Types of Liens | 🗓 SCHEDULED | Day 3 · Module 3 |
 | `D3#19` | Key Legal Doctrines Used for Reduction | 🗓 SCHEDULED | Day 3 · Module 3 |
 | `D3#20` | Quantum Meruit Principle — Prior Attorney Liens | 🗓 SCHEDULED | Day 3 · Module 3 |
@@ -155,22 +155,22 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D4#2` | Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background | 🗓 SCHEDULED | Day 4 · Module 1 |
 | `D4#3` | Introducing the Neutral: Assignment & Selection Workflows | 🗓 SCHEDULED | Day 4 · Module 1 |
 | `D4#4` | Introducing the Neutral: Extent of Decision-Making Power | 🗓 SCHEDULED | Day 4 · Module 1 |
-| `D4#5` | Mediation Protocols for CMs: Logistics & Scheduling | 🗓 SCHEDULED | Day 4 · Module 2 and Module 3 |
-| `D4#6` | Preparing Mediation Binders: Organized Case Summaries | 🗓 SCHEDULED | Day 4 · Module 2 and Module 3 |
-| `D4#7` | Mediation Binder Section 1: Executive Summary & Administrative Details | 🗓 SCHEDULED | Day 4 · Module 2 and Module 3 |
-| `D4#8` | Mediation Binder Section 2: The Mediation Briefs | 🗓 SCHEDULED | Day 4 · Module 2 and Module 3 |
-| `D4#9` | Mediation Binder Section 3: Core Pleadings (The Legal Framework) | 🗓 SCHEDULED | Day 4 · Module 2 and Module 3 |
-| `D4#10` | Mediation Binder Section 4: Key Evidence & Liability Exhibits | 🗓 SCHEDULED | Day 4 · Module 2 and Module 3 |
-| `D4#11` | Mediation Binder Section 5: Damages, Financials & Expert Reports | 🗓 SCHEDULED | Day 4 · Module 2 and Module 3 |
-| `D4#12` | Mediation Binder Section 6: Settlement History & Draft Agreements | 🗓 SCHEDULED | Day 4 · Module 2 and Module 3 |
-| `D4#13` | Mediation: Quality Assurance & Logistics Auditor | 🗓 SCHEDULED | Day 4 · Module 2 and Module 3 |
-| `D4#14` | Skill Building: Create Your Mediation Binders | 🗓 SCHEDULED | Day 4 · Module 2 and Module 3 |
-| `D4#15` | Skill Building: The LSH Critical Thinking Challenge — The Pre-Mediation Audit | 🗓 SCHEDULED | Day 4 · Module 2 and Module 3 |
-| `D4#16` | Case Phase: Arbitration — The Anatomy of a PI Arbitration | 🗓 SCHEDULED | Day 4 · Module 2 and Module 3 |
-| `D4#17` | Arbitration: Operational Mindset — From Compromise to Trial-Ready | 🗓 SCHEDULED | Day 4 · Module 2 and Module 3 |
-| `D4#18` | Arbitration Operational Track 1: Critical Timelines & Calendar Hard Rules | 🗓 SCHEDULED | Day 4 · Module 2 and Module 3 |
-| `D4#19` | Arbitration Operational Track 2: Logistics & Setup Protocols | 🗓 SCHEDULED | Day 4 · Module 2 and Module 3 |
-| `D4#20` | Ethics & Boundaries: What You Can and Cannot Do at Hearings (UPL) | 🗓 SCHEDULED | Day 4 · Module 2 and Module 3 |
+| `D4#5` | Mediation Protocols for CMs: Logistics & Scheduling | 🗓 SCHEDULED | Day 4 · Module 2 |
+| `D4#6` | Preparing Mediation Binders: Organized Case Summaries | 🗓 SCHEDULED | Day 4 · Module 3 |
+| `D4#7` | Mediation Binder Section 1: Executive Summary & Administrative Details | 🗓 SCHEDULED | Day 4 · Module 3 |
+| `D4#8` | Mediation Binder Section 2: The Mediation Briefs | 🗓 SCHEDULED | Day 4 · Module 3 |
+| `D4#9` | Mediation Binder Section 3: Core Pleadings (The Legal Framework) | 🗓 SCHEDULED | Day 4 · Module 3 |
+| `D4#10` | Mediation Binder Section 4: Key Evidence & Liability Exhibits | 🗓 SCHEDULED | Day 4 · Module 3 |
+| `D4#11` | Mediation Binder Section 5: Damages, Financials & Expert Reports | 🗓 SCHEDULED | Day 4 · Module 3 |
+| `D4#12` | Mediation Binder Section 6: Settlement History & Draft Agreements | 🗓 SCHEDULED | Day 4 · Module 3 |
+| `D4#13` | Mediation: Quality Assurance & Logistics Auditor | 🗓 SCHEDULED | Day 4 · Module 3 |
+| `D4#14` | Skill Building: Create Your Mediation Binders | 🗓 SCHEDULED | Day 4 · Module 3 |
+| `D4#15` | Skill Building: The LSH Critical Thinking Challenge — The Pre-Mediation Audit | 🗓 SCHEDULED | Day 4 · Module 3 |
+| `D4#16` | Case Phase: Arbitration — The Anatomy of a PI Arbitration | 🗓 SCHEDULED | Day 4 · Module 2 |
+| `D4#17` | Arbitration: Operational Mindset — From Compromise to Trial-Ready | 🗓 SCHEDULED | Day 4 · Module 2 |
+| `D4#18` | Arbitration Operational Track 1: Critical Timelines & Calendar Hard Rules | 🗓 SCHEDULED | Day 4 · Module 2 |
+| `D4#19` | Arbitration Operational Track 2: Logistics & Setup Protocols | 🗓 SCHEDULED | Day 4 · Module 2 |
+| `D4#20` | Ethics & Boundaries: What You Can and Cannot Do at Hearings (UPL) | 🗓 SCHEDULED | Day 4 · Module 2 |
 | `D4#21` | Arbitration Binders: Section 1 — The Arbitration Submissions | 🗓 SCHEDULED | Day 4 · Module 3 |
 | `D4#22` | Arbitration Binders: Section 2 — Core Litigation Pleadings | 🗓 SCHEDULED | Day 4 · Module 3 |
 | `D4#23` | Arbitration Binders: Section 3 — Liabilities & Biomechanical Evidence | 🗓 SCHEDULED | Day 4 · Module 3 |
@@ -207,19 +207,19 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D5#18` | The 7 Golden Rules for Testifying (Rules 6–7) | 🗓 SCHEDULED | Day 5 · Module 3 |
 | `D5#19` | Professional Presentation: Dress Code & Demeanor | 🗓 SCHEDULED | Day 5 · Module 3 |
 | `D5#20` | What Happens When Your Lawyer Objects? | 🗓 SCHEDULED | Day 5 · Module 3 |
-| `D5#21` | The Litigation Toolkit: The Litigation Document Index | 🗓 SCHEDULED | Day 5 · Module 1 and Module 4 |
-| `D5#22` | Critical Litigation Processes: Service of Process & E-Filing/Docketing | 🗓 SCHEDULED | Day 5 · Module 1 and Module 4 |
-| `D5#23` | Critical Litigation Process 3: Third-Party Evidence Subpoenas | 🗓 SCHEDULED | Day 5 · Module 1 and Module 4 |
-| `D5#24` | The 3 Golden Rules of Litigation File Maintenance | 🗓 SCHEDULED | Day 5 · Module 1 and Module 4 |
-| `D5#25` | Key Performance Indicators (KPIs) for Document Management | 🗓 SCHEDULED | Day 5 · Module 1 and Module 4 |
-| `D5#26` | Advanced Workflow Deep-Dive: The Complaint / Petition | 🗓 SCHEDULED | Day 5 · Module 1 and Module 4 |
-| `D5#27` | Written Discovery: Interrogatories, RFPs & RFAs | 🗓 SCHEDULED | Day 5 · Module 1 and Module 4 |
-| `D5#28` | Master Timeline & Deadline Calculations | 🗓 SCHEDULED | Day 5 · Module 1 and Module 4 |
-| `D5#29` | The Process Server & Evading Defendant Protocol | 🗓 SCHEDULED | Day 5 · Module 1 and Module 4 |
-| `D5#30` | Subpoena Duces Tecum: Execution Strategy | 🗓 SCHEDULED | Day 5 · Module 1 and Module 4 |
-| `D5#31` | Litigation File Architecture | 🗓 SCHEDULED | Day 5 · Module 1 and Module 4 |
-| `D5#32` | Advanced KPIs for Litigation Case Managers | 🗓 SCHEDULED | Day 5 · Module 1 and Module 4 |
-| `D5#33` | Skill Building: The Ultimate Case Management — Jordan Davies | 🗓 SCHEDULED | Day 5 · Module 1 and Module 4 |
+| `D5#21` | The Litigation Toolkit: The Litigation Document Index | 🗓 SCHEDULED | Day 5 · Module 1 |
+| `D5#22` | Critical Litigation Processes: Service of Process & E-Filing/Docketing | 🗓 SCHEDULED | Day 5 · Module 4 |
+| `D5#23` | Critical Litigation Process 3: Third-Party Evidence Subpoenas | 🗓 SCHEDULED | Day 5 · Module 4 |
+| `D5#24` | The 3 Golden Rules of Litigation File Maintenance | 🗓 SCHEDULED | Day 5 · Module 1 |
+| `D5#25` | Key Performance Indicators (KPIs) for Document Management | 🗓 SCHEDULED | Day 5 · Module 1 |
+| `D5#26` | Advanced Workflow Deep-Dive: The Complaint / Petition | 🗓 SCHEDULED | Day 5 · Module 1 |
+| `D5#27` | Written Discovery: Interrogatories, RFPs & RFAs | 🗓 SCHEDULED | Day 5 · Module 1 |
+| `D5#28` | Master Timeline & Deadline Calculations | 🗓 SCHEDULED | Day 5 · Module 1 |
+| `D5#29` | The Process Server & Evading Defendant Protocol | 🗓 SCHEDULED | Day 5 · Module 4 |
+| `D5#30` | Subpoena Duces Tecum: Execution Strategy | 🗓 SCHEDULED | Day 5 · Module 4 |
+| `D5#31` | Litigation File Architecture | 🗓 SCHEDULED | Day 5 · Module 1 |
+| `D5#32` | Advanced KPIs for Litigation Case Managers | 🗓 SCHEDULED | Day 5 · Module 1 |
+| `D5#33` | Skill Building: The Ultimate Case Management — Jordan Davies | 🗓 SCHEDULED | Day 5 · Module 1 |
 | `D5#34` | Property Damage in Litigation: Types of Damages You Can Recover | ✅ BUILT | d1m3-l2 |
 | `D5#35` | Property Damage: Calculating the Value of the Claim | ✅ BUILT | d1m3-l2, d1m3-kc |
 
@@ -244,7 +244,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 
 Where neither source had the theory, it was written for this flow and is marked here so it can be reviewed:
 
-- **The $40,000 host-passenger stack** (Host UM and Relative UM behind a $10,000 BI) and its order of operations — the case facts this brief specifies.
-- **Recovery stack vs. payer order** as two separate questions (Module 1, Lesson 2), built on the Regulatory Triple-Check's payer order.
-- **The three-criteria skip-trace gate** (Module 2): the No Contact Protocol has the steps; the trigger rule is new.
-- **The five-band case plan** wrapping the Three-Pillar Plan (Module 4), and the review-loop states.
+- **The $40,000 host-passenger stack and its order of operations** — Day 1 · Module 1 — the case facts the brief specifies (Host UM and Relative UM behind a $10,000 BI)
+- **Recovery stack vs. payer order as two separate questions** — Day 1 · Module 1, Lesson 2 — built on the Regulatory Triple-Check's payer order
+- **The three-criteria skip-trace gate** — Day 1 · Module 2 — the No Contact Protocol has the steps; the trigger rule is new
+- **The five-band case plan wrapping the Three-Pillar Plan, and the review-loop states** — Day 1 · Module 4

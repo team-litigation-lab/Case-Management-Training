@@ -31,6 +31,11 @@
      notes:    speaker notes (Presenter view) }
    Each module also carries `quiz` — its auto-graded share of the day's
    Knowledge Check ({q, opts, a, r}, the course's own quiz shape).
+   Each day carries `fileState` — where the file stands as the day opens (the AI
+   reviewer reads it, and the curriculum spec prints it). Day 3 is Track A (the file
+   settles); Days 4–5 are Track B (the same file from 08/05/2026, where the BI
+   carrier stonewalls and the case goes to suit). Those days carry `track`, which
+   each block's header line shows.
 
    SHOW TYPES: process {steps:[[label, desc]]} · table {head, rows} ·
    threebox {items:[[label, desc]]} · compare {boxes:[{head, items}]} ·
@@ -112,20 +117,43 @@ window.CM_CASE_FLOW = {
     {from: "D1", topics: [44, 44], to: "Day 1 · Module 4 and Day 2 · Module 3", note: "Treatment gaps: flagged on Day 1, investigated on Day 2"},
     {from: "D1", topics: [45, 47], to: "Day 2 · Module 2", note: "Escalation ladder and the treatment Skill Builders"},
     {from: "D2", topics: [1, 10], to: "Day 2 · Module 4", note: "Pre-demand auditing"},
-    {from: "D2", topics: [11, 18], to: "Day 3 · Module 1", note: "BI demand"},
+    {from: "D2", topics: [11, 15], to: "Day 3 · Module 1", note: "The BI demand"},
+    {from: "D2", topics: [16, 16], to: "Day 3 · Module 2", note: "Negotiating the first call"},
+    {from: "D2", topics: [17, 18], to: "Day 3 · Module 1", note: "Demand best practices and the real-time demand audit"},
     {from: "D2", topics: [19, 30], to: "Day 3 · Module 2", note: "Negotiation, the valuation baseline, stall tactics"},
-    {from: "D2", topics: [31, 41], to: "Day 3 · Module 4", note: "BI settlement execution and closing paperwork"},
-    {from: "D3", topics: [1, 17], to: "Day 3 · Module 1", note: "UM demand and UM settlement"},
+    {from: "D2", topics: [31, 32], to: "Day 3 · Module 1", note: "The UM/UIM safety check and the key laws before BI closes"},
+    {from: "D2", topics: [33, 39], to: "Day 3 · Module 4", note: "BI settlement execution and closing paperwork"},
+    {from: "D2", topics: [40, 40], to: "Day 3 · Module 3", note: "Final lien mitigation"},
+    {from: "D2", topics: [41, 41], to: "Day 3 · Module 4", note: "The operational-pincer Skill Builder"},
+    {from: "D3", topics: [1, 6], to: "Day 3 · Module 1", note: "UM demand strategy, BI exhaustion and consent, the UM package"},
+    {from: "D3", topics: [7, 11], to: "Day 3 · Module 2", note: "UM settlement: calculation, negotiation, offsets, payout"},
+    {from: "D3", topics: [12, 16], to: "Day 3 · Module 1", note: "The documents that matter"},
+    {from: "D3", topics: [17, 17], to: "Day 3 · Module 2", note: "The bad-faith arbitrage and the permanent deficit"},
     {from: "D3", topics: [18, 22], to: "Day 3 · Module 3", note: "Lien reduction"},
     {from: "D3", topics: [23, 38], to: "Day 3 · Module 4", note: "Net sheet, disbursement, reconciliation"},
     {from: "D4", topics: [1, 4], to: "Day 4 · Module 1", note: "When pre-suit negotiation stalls; the neutral"},
-    {from: "D4", topics: [5, 20], to: "Day 4 · Module 2 and Module 3", note: "Mediation vs. arbitration, hard rules, UPL at hearings, mediation binders"},
+    {from: "D4", topics: [5, 5], to: "Day 4 · Module 2", note: "Mediation logistics and scheduling"},
+    {from: "D4", topics: [6, 15], to: "Day 4 · Module 3", note: "Mediation binders"},
+    {from: "D4", topics: [16, 20], to: "Day 4 · Module 2", note: "Arbitration, its hard rules, and the UPL line at hearings"},
     {from: "D4", topics: [21, 28], to: "Day 4 · Module 3", note: "Arbitration binders"},
     {from: "D4", topics: [29, 31], to: "Day 4 · Module 4", note: "Bottlenecks and the 48-Hour Mandate"},
     {from: "D5", topics: [1, 7], to: "Day 5 · Module 1", note: "Litigation lifecycle and KPIs"},
     {from: "D5", topics: [8, 20], to: "Day 5 · Module 3", note: "Deposition preparation"},
-    {from: "D5", topics: [21, 33], to: "Day 5 · Module 1 and Module 4", note: "Litigation file work, service, skip-trace and process servers"},
+    {from: "D5", topics: [21, 21], to: "Day 5 · Module 1", note: "The litigation document index"},
+    {from: "D5", topics: [22, 23], to: "Day 5 · Module 4", note: "Service of process and third-party subpoenas"},
+    {from: "D5", topics: [24, 28], to: "Day 5 · Module 1", note: "File maintenance, document KPIs, the complaint, written discovery, the master timeline"},
+    {from: "D5", topics: [29, 30], to: "Day 5 · Module 4", note: "Process servers, evading defendants, subpoenas duces tecum"},
+    {from: "D5", topics: [31, 33], to: "Day 5 · Module 1", note: "Litigation file architecture, advanced KPIs, the litigation Skill Builder"},
     {from: "D5", topics: [34, 35], to: "Day 1 · Module 3 and Day 5 · Module 2", note: "Property damage: introduced on Day 1, disputed on Day 5"}
+  ],
+
+  /* ---------- theory written for this flow (in neither the course nor the firm curriculum) ----------
+     Listed in traceability.md so it can be reviewed: [what, where]. */
+  authored: [
+    ["The $40,000 host-passenger stack and its order of operations", "Day 1 · Module 1 — the case facts the brief specifies (Host UM and Relative UM behind a $10,000 BI)"],
+    ["Recovery stack vs. payer order as two separate questions", "Day 1 · Module 1, Lesson 2 — built on the Regulatory Triple-Check's payer order"],
+    ["The three-criteria skip-trace gate", "Day 1 · Module 2 — the No Contact Protocol has the steps; the trigger rule is new"],
+    ["The five-band case plan wrapping the Three-Pillar Plan, and the review-loop states", "Day 1 · Module 4"]
   ],
 
   /* ---------- the days still to be written, in order (the dashboard shows them as upcoming) ---------- */
@@ -164,6 +192,12 @@ window.CM_CASE_FLOW = {
     objective: "Open John Doe's file correctly: every party mapped, all three coverage layers verified to $40,000, the Regulatory Triple-Check cleared with the health plan's reimbursement right flagged before any demand, and an attorney-ready case plan that names the 14-Day Gap.",
     gate: "CMS initialized · policy stack verified at $40,000 · Regulatory Triple-Check cleared · case plan routed to Atty. Thone",
     discussion: "John Doe has gone quiet for eleven days, has not started treatment, and Robert Smith's carrier has already called him. Which three actions do you take today, in what order, and what goes in the case plan's risks band?",
+    fileState: [
+      "A raw file from “On the Records”: date of loss 02/06/2026, statute of limitations 02/06/2028, John Doe a front-seat passenger in the host vehicle.",
+      "Three coverage layers to verify: $10,000 BI (Keystone Mutual), $20,000 Host UM (Harbor Point), $10,000 Relative UM (Cardinal State Mutual).",
+      "Peach State Health Plan has asserted a reimbursement right on first notice.",
+      "John Doe has not started treatment; the 14-Day Gap is forming."
+    ],
     modules: [
 
     /* ---------- DAY 1 · MODULE 1 ---------- */
@@ -177,7 +211,7 @@ window.CM_CASE_FLOW = {
          a: 1, r: "BI pays first. Host UM opens once BI is exhausted or tendered, and Relative UM stacks behind Host UM."},
         {q: "Why can John Doe reach the $20,000 Host UM layer?",
          opts: ["He owns the host vehicle", "He was a passenger in the host vehicle", "Robert Smith has no insurance", "His health plan assigns it to him"],
-         a: 1, r: "He reaches the host vehicle's UM because he was riding in that car. As a driver he would have reached $10,000."},
+         a: 1, r: "He reaches the host vehicle's UM because he was riding in that car. Had he been driving his own car he would have reached $10,000: he rejected UM on his own policy, and the relative policy excludes a car he owns."},
         {q: "The correct payer order for John Doe's medical bills is:",
          opts: ["Health plan → PIP/MedPay → LOP/provider liens", "PIP/MedPay → private health insurance → LOP/provider liens", "LOP/provider liens → health plan → PIP/MedPay", "Robert Smith's BI carrier pays each bill as it arrives"],
          a: 1, r: "The Regulatory Triple-Check payer order: PIP/MedPay, then private health insurance, then LOP/provider liens."},
@@ -255,7 +289,7 @@ window.CM_CASE_FLOW = {
         },
         notes: [
           "Open by asking the room: “What is the single most expensive mistake you can make in the first hour of a file?” Let them answer, then show the passenger field.",
-          "The passenger fact is the whole lesson. As a driver on this loss John Doe reaches $10,000. As a passenger he reaches $40,000. Same crash, same injuries, four times the recovery, decided by one field.",
+          "The passenger fact is the whole lesson. Driving his own car on this loss, John Doe would reach $10,000: he rejected UM on his own policy, and the relative policy excludes a car he owns. As a passenger in the host vehicle he reaches $40,000. Same crash, same injuries, four times the recovery, decided by one field.",
           "Stress that “On the Records” files arrive unverified. A trainee who treats the intake note as fact carries its errors into the demand.",
           "Name the UPL line now. It comes back every day of this program."
         ]
@@ -447,7 +481,7 @@ window.CM_CASE_FLOW = {
         check: {
           questions: [
             "List the three coverage layers on John Doe v. Robert Smith in the order they must be pursued, with each layer's limit and the total available.",
-            "John Doe was a front-seat passenger. Explain how that single fact changes the available recovery, and what it would have been had he been the driver of the host vehicle.",
+            "John Doe was a front-seat passenger. Explain how that single fact changes the available recovery, and what it would have been had he been driving his own car.",
             "Why must the Host UM layer not be demanded before the BI layer is exhausted or tendered? State the consequence of getting the order wrong.",
             "Set out the payer order for John Doe's medical bills, and explain why it is a different question from the recovery stack.",
             "Name the three parts of the Regulatory Triple-Check and what each requires on this file, including what you verify for the BCRC.",
@@ -475,7 +509,7 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Stack accuracy", 20, "Three layers, correct limits, $40,000 total, correct order"],
-            ["Passenger reasoning", 15, "Passenger status opens both UM layers; $10,000 named as the driver counterfactual"],
+            ["Passenger reasoning", 15, "Passenger status opens both UM layers; $10,000 named as the counterfactual had he driven his own car"],
             ["Payer order & triple-check", 15, "Payer order correct and kept separate from the stack; all three checks named"],
             ["Completeness", 10, "Every question answered substantively"]
           ],

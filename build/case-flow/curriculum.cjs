@@ -42,6 +42,9 @@ const errors = [];
 const cited = new Map();   // "D1#18" → [block ids]
 CF.days.forEach(day => {
   if(day.modules.length !== 4) errors.push(`Day ${day.n}: ${day.modules.length} modules, expected 4`);
+  ["title", "phase", "objective", "gate", "discussion"].forEach(k => { if(!day[k]) errors.push(`Day ${day.n}: missing ${k}`); });
+  if(!(day.fileState || []).length) errors.push(`Day ${day.n}: missing fileState (where the file stands as the day opens)`);
+  if(/blueprint/i.test(JSON.stringify(day))) errors.push(`Day ${day.n}: says "blueprint"; the program never uses the word`);
   day.modules.forEach(mod => {
     const kinds = mod.blocks.map(b => b.kind);
     if(kinds.join(",") !== RHYTHM.join(",")) errors.push(`${mod.id}: rhythm is ${kinds.join(" → ")}`);
@@ -180,6 +183,7 @@ function dayMd(day){
     `# Case Flow Day ${day.n} — ${day.title.replace(/^Case Flow Day \d+ · /, "")}`, "",
     `**Phase:** ${day.phase} · **Focus case:** ${c.style} · **Lead Counsel:** ${c.counsel}`, "",
     `**Objective.** ${day.objective}`, "", `**Gate to the next day.** ${day.gate}`, "",
+    "**The file as this day opens.**", "", ...(day.fileState || []).map(x => `- ${x}`), "",
     "> Generated from `js/cm-case-flow-data.js` by `build/case-flow/curriculum.cjs`. Edit the data and regenerate; never edit this file by hand. Spec: `00-architecture.md`. Theory map: `traceability.md`.", "",
     "## Case continuity anchors", "", "| | |", "|---|---|",
     `| **Case** | ${c.style} (${c.no}) — ${c.type} |`, `| **Lead Counsel** | ${c.counsel} |`,
@@ -224,10 +228,7 @@ function traceMd(){
     ...lsh.map(s => `- ${s}`), "",
     "## Newly authored", "",
     "Where neither source had the theory, it was written for this flow and is marked here so it can be reviewed:", "",
-    "- **The $40,000 host-passenger stack** (Host UM and Relative UM behind a $10,000 BI) and its order of operations — the case facts this brief specifies.",
-    "- **Recovery stack vs. payer order** as two separate questions (Module 1, Lesson 2), built on the Regulatory Triple-Check's payer order.",
-    "- **The three-criteria skip-trace gate** (Module 2): the No Contact Protocol has the steps; the trigger rule is new.",
-    "- **The five-band case plan** wrapping the Three-Pillar Plan (Module 4), and the review-loop states.", "");
+    ...(CF.authored || []).map(([what, where]) => `- **${md(what)}** — ${md(where)}`), "");
   return L.join("\n");
 }
 

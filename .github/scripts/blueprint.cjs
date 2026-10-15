@@ -3,8 +3,8 @@
 // node_modules in place of cdnjs; /version is answered by the test so the deployment can change.
 // Checks:
 // - a trainee has no Trainer blueprint (it doesn't open, and Orientation isn't theirs);
-// - the Case Flow never mentions a blueprint: its dashboard row, every block's two slides, the day's text and
-//   Knowledge Check, and its Presenter notes;
+// - the Case Flow never mentions a blueprint: its dashboard row and, on every day, each block's two slides,
+//   the day's text and Knowledge Check, and its Presenter notes;
 // - a trainer's 🧭 Orientation has the Trainee / Trainer blueprint tabs; 🛠 Trainer blueprint opens the
 //   trainer deck with both tabs, ◀ ▶ and the keys go through every slide, each fits on a laptop and on a
 //   phone, Esc closes it, and the Trainee tab goes back to Orientation;
@@ -89,20 +89,28 @@ async function walk(page, label) {
     let page = await open(browser, { width: 1366, height: 768 }, false);
     const t = await page.evaluate(() => ({ opened: LSHBlueprint.open('trainer'), isOpen: LSHBlueprint.isOpen(), tabs: !!document.querySelector('.lbp-or-tabs') }));
     if (t.opened || t.isOpen || t.tabs) fail(`a trainee could reach the Trainer blueprint: ${JSON.stringify(t)}`);
-    // No Blueprint in the Case Flow either: its dashboard row, both slides of every block, the day's own text and
-    // Knowledge Check, and its Presenter notes never say "blueprint" (the design document is the curriculum spec)
+    // No Blueprint in the Case Flow either: on every one of its days, the dashboard row, both slides of every block,
+    // the day's own text and Knowledge Check, and its Presenter notes never say "blueprint" (the design document is
+    // the curriculum spec)
     await page.evaluate(() => goto('dashboard')); await page.waitForTimeout(500);
     const cf = await page.evaluate(() => {
-        const d = DAYS.find(x => x.id === 11);
-        if (!d || !d.cf) return null;
+        const days = window.CM_CASE_FLOW_DAYS || [];
+        if (!days.length) return null;
         const row = (document.querySelector('.cf-dash') || {}).textContent || '';
-        const slides = d.lessons.map((l, i) => renderLessonCard(l, i, d, null, 1) + renderLessonCard(l, i, d, null, 2)).join(' ');
-        const day = JSON.stringify([d.title, d.theme, d.objective, d.taskOverview, d.discussionQuestion, d.quickChecks, d.quiz]);
-        const notes = JSON.stringify(Object.keys(window.SLIDE_SCRIPTS || {}).filter(k => k.startsWith('11::')).map(k => window.SLIDE_SCRIPTS[k]));
-        return { row: !!row, slides: d.lessons.length, hits: [row, slides, day, notes].map(s => (s.match(/blueprint/gi) || []).length) };
+        const count = s => (s.match(/blueprint/gi) || []).length;
+        const perDay = days.map(d => {
+            const slides = d.lessons.map((l, i) => renderLessonCard(l, i, d, null, 1) + renderLessonCard(l, i, d, null, 2)).join(' ');
+            const text = JSON.stringify([d.title, d.theme, d.objective, d.taskOverview, d.discussionQuestion, d.quickChecks, d.quiz]);
+            const notes = JSON.stringify(Object.keys(window.SLIDE_SCRIPTS || {}).filter(k => k.startsWith(`${d.id}::`)).map(k => window.SLIDE_SCRIPTS[k]));
+            return { n: d.cf.n, slides: count(slides), text: count(text), notes: count(notes) };
+        });
+        return { row: !!row, days: days.length, blocks: days.reduce((s, d) => s + d.lessons.length, 0), rowHits: count(row), perDay };
     });
     if (!cf || !cf.row) fail(`the Case Flow isn't on the dashboard: ${JSON.stringify(cf)}`);
-    else if (cf.hits.some(n => n)) fail(`the Case Flow mentions a blueprint (dashboard row, slides, day text, Presenter notes): ${cf.hits.join(', ')}`);
+    else {
+        if (cf.rowHits) fail(`the Case Flow's dashboard row mentions a blueprint (${cf.rowHits}x)`);
+        cf.perDay.filter(d => d.slides || d.text || d.notes).forEach(d => fail(`Case Flow Day ${d.n} mentions a blueprint: slides ${d.slides}, day text and Knowledge Check ${d.text}, Presenter notes ${d.notes}`));
+    }
     await page.context().close();
 
     // ---- a trainer, on a laptop ----
@@ -159,5 +167,5 @@ async function walk(page, label) {
 
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-    console.log(`Blueprint test passed (Trainer blueprint: the cover and ${w.n} slides, numbered Cover then 1 to ${w.n} on the page and in its PDF, build and deployment stamped; trainees can't open it; the Case Flow's ${cf.slides} blocks never mention a blueprint; the Trainee blueprint republished once per deploy).`);
+    console.log(`Blueprint test passed (Trainer blueprint: the cover and ${w.n} slides, numbered Cover then 1 to ${w.n} on the page and in its PDF, build and deployment stamped; trainees can't open it; the Case Flow's ${cf.days} day${cf.days === 1 ? '' : 's'} and ${cf.blocks} blocks never mention a blueprint; the Trainee blueprint republished once per deploy).`);
 })().catch(e => { console.error(e); process.exit(1); });

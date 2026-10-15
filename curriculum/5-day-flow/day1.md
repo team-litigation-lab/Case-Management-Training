@@ -6,6 +6,13 @@
 
 **Gate to the next day.** CMS initialized · policy stack verified at $40,000 · Regulatory Triple-Check cleared · case plan routed to Atty. Thone
 
+**The file as this day opens.**
+
+- A raw file from “On the Records”: date of loss 02/06/2026, statute of limitations 02/06/2028, John Doe a front-seat passenger in the host vehicle.
+- Three coverage layers to verify: $10,000 BI (Keystone Mutual), $20,000 Host UM (Harbor Point), $10,000 Relative UM (Cardinal State Mutual).
+- Peach State Health Plan has asserted a reimbursement right on first notice.
+- John Doe has not started treatment; the 14-Day Gap is forming.
+
 > Generated from `js/cm-case-flow-data.js` by `build/case-flow/curriculum.cjs`. Edit the data and regenerate; never edit this file by hand. Spec: `00-architecture.md`. Theory map: `traceability.md`.
 
 ## Case continuity anchors
@@ -150,7 +157,7 @@ Verified in this module's Knowledge Check (block 1.1.5) and the day's auto-grade
 #### 5 · Speaker Notes
 
 - Open by asking the room: “What is the single most expensive mistake you can make in the first hour of a file?” Let them answer, then show the passenger field.
-- The passenger fact is the whole lesson. As a driver on this loss John Doe reaches $10,000. As a passenger he reaches $40,000. Same crash, same injuries, four times the recovery, decided by one field.
+- The passenger fact is the whole lesson. Driving his own car on this loss, John Doe would reach $10,000: he rejected UM on his own policy, and the relative policy excludes a car he owns. As a passenger in the host vehicle he reaches $40,000. Same crash, same injuries, four times the recovery, decided by one field.
 - Stress that “On the Records” files arrive unverified. A trainee who treats the intake note as fact carries its errors into the demand.
 - Name the UPL line now. It comes back every day of this program.
 
@@ -409,7 +416,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 #### 2 · Slide Body — Knowledge verification
 
 1. List the three coverage layers on John Doe v. Robert Smith in the order they must be pursued, with each layer's limit and the total available.
-2. John Doe was a front-seat passenger. Explain how that single fact changes the available recovery, and what it would have been had he been the driver of the host vehicle.
+2. John Doe was a front-seat passenger. Explain how that single fact changes the available recovery, and what it would have been had he been driving his own car.
 3. Why must the Host UM layer not be demanded before the BI layer is exhausted or tendered? State the consequence of getting the order wrong.
 4. Set out the payer order for John Doe's medical bills, and explain why it is a different question from the recovery stack.
 5. Name the three parts of the Regulatory Triple-Check and what each requires on this file, including what you verify for the BCRC.
@@ -448,7 +455,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
    *BI pays first. Host UM opens once BI is exhausted or tendered, and Relative UM stacks behind Host UM.*
 2. Why can John Doe reach the $20,000 Host UM layer?  
    He owns the host vehicle · **✓ He was a passenger in the host vehicle** · Robert Smith has no insurance · His health plan assigns it to him  
-   *He reaches the host vehicle's UM because he was riding in that car. As a driver he would have reached $10,000.*
+   *He reaches the host vehicle's UM because he was riding in that car. Had he been driving his own car he would have reached $10,000: he rejected UM on his own policy, and the relative policy excludes a car he owns.*
 3. The correct payer order for John Doe's medical bills is:  
    Health plan → PIP/MedPay → LOP/provider liens · **✓ PIP/MedPay → private health insurance → LOP/provider liens** · LOP/provider liens → health plan → PIP/MedPay · Robert Smith's BI carrier pays each bill as it arrives  
    *The Regulatory Triple-Check payer order: PIP/MedPay, then private health insurance, then LOP/provider liens.*
@@ -461,7 +468,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Stack accuracy | Three layers, correct limits, $40,000 total, correct order |
-| 🤖 AI | **15%** | Passenger reasoning | Passenger status opens both UM layers; $10,000 named as the driver counterfactual |
+| 🤖 AI | **15%** | Passenger reasoning | Passenger status opens both UM layers; $10,000 named as the counterfactual had he driven his own car |
 | 🤖 AI | **15%** | Payer order & triple-check | Payer order correct and kept separate from the stack; all three checks named |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
