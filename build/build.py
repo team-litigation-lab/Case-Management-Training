@@ -252,11 +252,11 @@ rep('<script src="/js/eapa-updates.js?v=z"></script>', tags(
 rep('<script src="/js/attendance.js?v=2"></script>', '<script src="/js/attendance.js?v=3"></script>')
 
 # graded-calls moves down beside the dashboard band; lsh-dashboard and show-password are CM-only.
-# EA/PA's Orientation script is EA/PA's own; this course has cm-orientation.js, after the dashboard.
+# EA/PA's Orientation script is EA/PA's own; this course has none (every blueprint is on the Main Portal).
 rep('<script src="/js/graded-calls.js?v=1"></script>\n', "")
 s = re.sub(r'<script src="/js/eapa-orientation\.js\?v=[^"]*"></script>\n?', "", s)
 rep('<script src="/js/lsh-card-frame.js?v=3"></script>', tags(
-    "lsh-dashboard.js?v=4", "cm-orientation.js?v=1", "graded-calls.js?v=1",
+    "lsh-dashboard.js?v=4", "graded-calls.js?v=1",
     # The 5-Day Case Management Flow (John Doe v. Robert Smith): after graded-calls.js, because its
     # dashboard wrapper must run on the finished page, and after cm-skillbuilders.js, whose
     # renderLessonCard it wraps.
