@@ -187,7 +187,7 @@ const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|cms|to
 const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`, `actsub:${id}`];
 const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "registeredAt", "unlockedDays", "unlockedDaysAt"];
 
-// callsim:<id>: the trainee's graded calls from the CMS Call Simulator, kept by the Training Portal (its /api/call-results).
+// callsim:<id>: the trainee's graded calls from the Call Simulator (☎ LSH Ring Channel), kept by the Training Portal (its /api/call-results).
 // labreview:<id>: the trainer's reviews of the trainee's Practice Lab (score, rating, comment per activity; js/cm-lab.js),
 // written by admins only. simresults:<id>: the trainee's LSH Training Portal simulator results, written by the Portal
 // ({traineeId, updatedAt, results, best:{<simulator>:{score, count, at}}}). The trainee reads all three, but never
