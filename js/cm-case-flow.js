@@ -108,30 +108,34 @@ const cfDay = id => BY_ID[Number(id)] || null;
 const cfDayByN = n => MODULES.find(d => d.cf.n === n) || null;
 window.CM_CASE_FLOW_DAYS = MODULES;
 
+let SWAP_KEEP = null;   // the archived days, while withCaseFlowDays() runs
 /* ---------- found by id like a day, not counted as one (the js/ft-rules.js pattern) ----------
    Chains off whatever DAYS.find / DAYS.some already are, so it composes with any other patch. */
 const __find = DAYS.find, __some = DAYS.some;
 Object.defineProperty(DAYS, "find", {configurable: true, writable: true, value: function(fn, that){
   const r = __find.call(this, fn, that);
-  return r !== undefined ? r : MODULES.find(m => fn.call(that, m, this.length, this));
+  if(r !== undefined) return r;
+  const m = MODULES.find(x => fn.call(that, x, this.length, this));
+  return m !== undefined || !SWAP_KEEP ? m : SWAP_KEEP.find(x => fn.call(that, x, this.length, this));   // while the Case Flow days stand in for DAYS, the archived days still resolve by id
 }});
 Object.defineProperty(DAYS, "some", {configurable: true, writable: true, value: function(fn, that){
   return __some.call(this, fn, that) || MODULES.some(m => fn.call(that, m, this.length, this));
 }});
 if(typeof DAY_ICONS !== "undefined") MODULES.forEach((m, i) => { if(!DAY_ICONS[m.id]) DAY_ICONS[m.id] = ["🗂", "📨", "💵", "⚖️", "🏛"][i] || "📘"; });
 
-/* ---------- which version a trainee takes: the trainer assigns it ----------
-   The John Doe v. Apex days are the course's established version; the Case Flow is still being
-   built. A trainer sets each trainee's version on the Admin page (their panel → Course version):
-     classic   John Doe v. Apex, Days 1–5 (the default: a trainee nobody has assigned gets this)
-     caseflow  the Case Flow only; the Apex days are archived for them (off their dashboard and
-               Case File, still there, and their Skill Builders untouched)
-     both      both versions, the Apex days first
-   It is stored with the trainee's feedback (feedback:<id>, `track`): the trainer writes it, the
-   trainee can only read it (worker.js keeps everything but `days` when a trainee writes). Trainers
-   and Trainee view always see both. */
-const TRACKS = {classic: "John Doe v. Apex (Days 1–5)", caseflow: "Case Flow: John Doe v. Robert Smith", both: "Both versions"};
-const DEFAULT_TRACK = "classic";
+/* ---------- the course is the Case Flow; John Doe v. Apex is archived ----------
+   Every trainee takes the Case Flow unless a trainer assigns them otherwise (Admin → the
+   trainee's panel → Course version):
+     caseflow  the Case Flow (the default): its days are the program on the dashboard, the
+               Knowledge Checks and certificate count them, the Case File is John Doe v. Robert Smith
+     both      the Case Flow, plus the archived Apex days in a row below
+     classic   the archived John Doe v. Apex version (Days 1–5) only, as it was
+   Nothing of the Apex version is deleted: its days stay reachable (their Skill Builders keep
+   working), and trainers see it in an "Archived version" row. The choice is stored with the
+   trainee's feedback (feedback:<id>, `track`): the trainer writes it, the trainee can only read it
+   (worker.js keeps everything but `days` when a trainee writes). */
+const TRACKS = {caseflow: "Case Flow: John Doe v. Robert Smith", both: "Case Flow + the archived Apex days", classic: "Archived: John Doe v. Apex (Days 1–5)"};
+const DEFAULT_TRACK = "caseflow";
 const isTrainer = () => !!(state.isAdmin || state.adminPreview);
 let FB = {id: null, p: null};
 const traineeFeedback = () => {   // one read of feedback:<id> per trainee, shared by the version and the trainer scores
@@ -154,10 +158,35 @@ function ensureTrack(){
 const track = () => { if(isTrainer()) return "both"; ensureTrack(); return (state.cfTrackFor === state.traineeId && state.cfTrack) || DEFAULT_TRACK; };
 const seesCaseFlow = () => track() !== "classic";
 
-/* Program counts stay with the trainee's version (Days 1–5 unless a trainer assigned the Case Flow
-   only): a passed Case Flow day must not push "Program complete" past 100% or move the program's
-   average. (The certificate counts DAYS only.) */
-const programIds = () => new Set(track() === "caseflow" ? MODULES.map(d => d.id) : Array.prototype.map.call(DAYS, d => d.id));   // a Case Flow-only trainee's program is the Case Flow
+/* The trainer side reads each trainee's version from their feedback record, which the Admin page
+   already fetches (one get-many for the Trainee Audit, one get when a panel opens): no extra requests. */
+state.cfTrackOf = state.cfTrackOf || {};
+const noteTracks = (keys, vals) => (keys || []).forEach((k, i) => {
+  const key = typeof k === "string" ? k : (k && k.key), m = /^feedback:(.+)$/.exec(key || "");
+  if(m) state.cfTrackOf[m[1]] = (vals[i] && TRACKS[vals[i].track]) ? vals[i].track : DEFAULT_TRACK;
+});
+if(typeof sharedGetMany === "function"){
+  const __many = sharedGetMany;
+  sharedGetMany = async function(keys){ const r = await __many.apply(this, arguments); try{ noteTracks(keys, r || []); }catch(e){} return r; };
+}
+const trackOf = id => { const w = (state.traineeWork || {})[id], t = w && w.feedback && w.feedback.track; return TRACKS[t] ? t : (state.cfTrackOf[id] || DEFAULT_TRACK); };
+
+/* Run one of the engine's (synchronous) functions with the Case Flow days as the program: the
+   functions that count, list or certify "the days" read DAYS, so for the length of the call DAYS
+   holds the Case Flow days, and is put back before anything else runs. */
+function withCaseFlowDays(fn){
+  if(DAYS.__cfSwap) return fn();
+  const keep = SWAP_KEEP = Array.prototype.slice.call(DAYS);
+  Array.prototype.splice.call(DAYS, 0, DAYS.length, ...MODULES);
+  Object.defineProperty(DAYS, "__cfSwap", {configurable: true, value: true});
+  try{ return fn(); }
+  finally{ Array.prototype.splice.call(DAYS, 0, DAYS.length, ...keep); delete DAYS.__cfSwap; SWAP_KEEP = null; }
+}
+const relabelAll = html => relabel(html, MODULES[0]);
+
+/* Program counts follow the trainee's version (the Case Flow, or the archived Apex days): a day of
+   the other version never moves "Program complete" or the average. */
+const programIds = () => new Set(track() !== "classic" ? MODULES.map(d => d.id) : Array.prototype.map.call(DAYS, d => d.id));   // the program is the Case Flow, unless the trainee is on the archived version
 if(typeof completedCount === "function"){
   completedCount = function(){ const ids = programIds(); return Object.entries(state.progress || {}).filter(([k, p]) => ids.has(Number(k)) && p && p.done).length; };
 }
@@ -183,7 +212,7 @@ if(typeof dayLockReason === "function"){
   const __reason = dayLockReason;
   dayLockReason = function(id){
     const d = cfDay(id); if(!d) return __reason.apply(this, arguments);
-    if(!seesCaseFlow()) return "The Case Flow is still being built. Your trainer assigns it when it's ready for you.";
+    if(!seesCaseFlow()) return "You're on the archived version of the course. Ask your trainer to move you to the Case Flow.";
     const prev = cfDayByN(d.cf.n - 1);
     return `Pass the Case Flow Day ${d.cf.n - 1} Knowledge Check (70%) to open Case Flow Day ${d.cf.n}. ${prev ? "Gate: " + prev.cf.gate + "." : ""}`;
   };
@@ -211,6 +240,7 @@ if(typeof resumeLabel === "function"){
   resumeLabel = function(){
     const lv = state.lastView, d = lv && lv.view === "day" && cfDay(lv.dayId);
     if(d && !dayUnlocked(d.id)) return "";
+    if(lv && lv.view === "day" && !d && track() === "caseflow") return "";   // an archived Apex day isn't theirs to resume
     const r = __resume.apply(this, arguments);
     return d ? relabel(r, d) : r;
   };
@@ -468,51 +498,71 @@ window.cmCaseFlow = {
   }
 };
 
-/* ---------- the dashboard: the track's own row of day cards, under Days 1–5 ----------
-   On a laptop or desktop the dashboard fills exactly one screen (js/lsh-dashboard.js grows the
-   day cards into the height that's left). So the row goes after that layout, not inside it: the
-   banner and Days 1–5 are wrapped in .cf-first, one screen tall, and the Case Flow row is a scroll
-   below, so the first screen looks exactly as it does without the track. */
+/* ---------- the dashboard: the Case Flow is the program ----------
+   The engine draws the dashboard with the Case Flow days as DAYS, so the day cards, the banner's
+   day circles, the stats band and the certificate are all the Case Flow's. Trainers (and trainees on
+   "both") get the archived Apex days in a row below. On a laptop the dashboard fills exactly one
+   screen (js/lsh-dashboard.js grows the day cards into the height that's left), so that row goes
+   after the one-screen block (.cf-first), a scroll below, never squeezing it. */
 if(typeof renderDashboard === "function"){
   const __dash = renderDashboard;
   renderDashboard = function(){
-    const html = __dash.apply(this, arguments), v = track();
-    if(v === "classic") return html;   // the Case Flow isn't assigned: the dashboard stays as it was
-    const t = document.createElement("template"); t.innerHTML = html;
-    const main = t.content.querySelector(".dash-main");
-    if(!main || typeof moduleCard !== "function") return html;
-    const c = CF.case;
-    if(v === "caseflow"){
-      // Case Flow only: its days take the Apex days' place on the first screen; the Apex days are archived for this trainee
-      const grid = main.querySelector(".module-grid");
-      if(!grid) return html;
-      grid.innerHTML = MODULES.map(d => relabel(moduleCard(d), d)).join("");
-      t.content.querySelectorAll(".step-timeline, .cert-hero-locked, .cert-hero-btn, .cert-hero-view").forEach(n => n.remove());   // the day circles and the certificate belong to the Apex days
-      t.content.querySelectorAll(".resume-btn").forEach(b => { if(!/Case Flow/.test(b.textContent)) b.remove(); });
-      return t.innerHTML;
-    }
-    const cards = MODULES.map(d => relabel(moduleCard(d), d)).join("")
-      + (CF.upcoming || []).filter(u => !cfDayByN(u.n)).map(u => `<div class="module-card mc-locked cf-soon">
-          <div class="module-head"><div class="mh-day">Case Flow Day ${u.n} · In development</div><div class="mh-title">${E(u.title)}</div></div>
-          <div class="module-body"><ul class="module-topic-list">${u.modules.map(m => `<li>${E(m)}</li>`).join("")}</ul></div></div>`).join("");
+    const v = track();
+    if(v === "classic") return __dash.apply(this, arguments);   // the archived version, as it was
+    const t = document.createElement("template");
+    t.innerHTML = relabelAll(withCaseFlowDays(() => __dash.apply(this, arguments)));
+    t.content.querySelectorAll(".step-circle").forEach(c => { const d = cfDay(c.textContent.trim()); if(d) c.textContent = String(d.cf.n); });   // the circles show 1–5, not the ids
+    if(v === "caseflow" || typeof moduleCard !== "function") return t.innerHTML;
+    const main = t.content.querySelector(".dash-main"), layout = main && main.closest(".dash-layout");
+    if(!layout || layout.parentNode !== t.content) return t.innerHTML;
     const sec = document.createElement("section");
-    sec.className = "cf-dash";
-    sec.innerHTML = `<div class="cf-dash-head"><p class="eyebrow">New track</p>
-        <h2>5-Day Legal Case Management Flow</h2>
-        <p>One file from intake to deposition: <b>${E(c.style)}</b> · ${E(c.counsel)} · ${E(money(c.total))} stack · ${E(c.gapDays)}-Day Treatment Gap. Every module runs Lesson → Skill Activity → Lesson → Skill Activity → Knowledge Check.</p>
-        ${isTrainer() ? `<p class="cf-note">Trainees see this track only when you assign it: Admin → the trainee's panel → Course version. Unassigned trainees take John Doe v. Apex.</p>` : ""}
-        ${window.cmCaseFlow.profile ? `<p><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.profile()">📂 Case profile: ${E(c.style)}</button></p>` : ""}</div>
-      <div class="module-grid">${cards}</div>`;
-    const layout = main.closest(".dash-layout");
-    if(layout && layout.parentNode === t.content){
-      const first = document.createElement("div"); first.className = "cf-first";
-      const top = layout.previousElementSibling && layout.previousElementSibling.classList.contains("dash-top") ? layout.previousElementSibling : null;
-      layout.before(first);
-      if(top) first.appendChild(top);
-      first.appendChild(layout);
-      first.after(sec);
-    } else main.appendChild(sec);
+    sec.className = "cf-dash cf-archive";
+    sec.innerHTML = `<div class="cf-dash-head"><p class="eyebrow">🗄 Archived version</p>
+        <h2>John Doe v. Apex Delivery Services (Days 1–5)</h2>
+        <p>The course's earlier version, kept as it was. ${isTrainer() ? "Trainees don't see it unless you assign it: Admin → the trainee's panel → Course version." : "Your trainer has given you access to it alongside the Case Flow."}</p></div>
+      <div class="module-grid">${Array.prototype.map.call(DAYS, d => moduleCard(d)).join("")}</div>`;
+    const first = document.createElement("div"); first.className = "cf-first";
+    const top = layout.previousElementSibling && layout.previousElementSibling.classList.contains("dash-top") ? layout.previousElementSibling : null;
+    layout.before(first);
+    if(top) first.appendChild(top);
+    first.appendChild(layout);
+    first.after(sec);
     return t.innerHTML;
+  };
+}
+/* The certificate counts the trainee's own program (the Case Flow days, unless they're on the archived version). */
+if(typeof certData === "function"){
+  const __cert = certData;
+  certData = function(src){
+    const archived = src ? trackOf(src.traineeId) === "classic" : track() === "classic";
+    return archived ? __cert.apply(this, arguments) : withCaseFlowDays(() => __cert.apply(this, arguments));
+  };
+}
+
+/* ---------- the Admin page: each trainee's progress, audit and day feedback follow their version ---------- */
+const onCaseFlow = rec => !!rec && trackOf(rec.id) !== "classic";
+if(typeof adminDayStats === "function"){
+  const __stats = adminDayStats;
+  adminDayStats = function(rec){
+    // the engine counts every day on the record; count only the trainee's own version's days
+    const dp = rec.dayProgress || {}, ps = (onCaseFlow(rec) ? MODULES : Array.prototype.slice.call(DAYS)).map(d => dp[d.id]).filter(Boolean);
+    const scores = ps.filter(p => typeof p.score === "number").map(p => p.score);
+    return {done: ps.filter(p => p.done).length, total: onCaseFlow(rec) ? MODULES.length : __stats.apply(this, arguments).total, avg: scores.length ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : 0};
+  };
+}
+if(typeof auditSummary === "function"){
+  const __audit = auditSummary;
+  auditSummary = function(rec){ return onCaseFlow(rec) ? withCaseFlowDays(() => __audit.apply(this, arguments)) : __audit.apply(this, arguments); };
+}
+if(typeof renderAuditStrip === "function"){
+  const __strip = renderAuditStrip;
+  renderAuditStrip = function(rec){
+    if(!onCaseFlow(rec)) return __strip.apply(this, arguments);
+    // the strip's day cells show the day's number (11–15 inside); on screen they're Case Flow Days 1–5
+    const html = withCaseFlowDays(() => __strip.apply(this, arguments))
+      .replace(/\bDay ((?:1[1-5])(?:, 1[1-5])+)\b/g, (m, list) => "Case Flow Day " + list.split(", ").map(x => cfDay(x).cf.n).join(", "))   // "below 70%: Day 11, 12"
+      .replace(/(<span class="ad-cell[^"]*" title="[^"]*">)(1[1-5])/g, (m, a, id) => a + cfDay(id).cf.n);
+    return relabelAll(html);
   };
 }
 
@@ -539,7 +589,7 @@ function trainerPanel(rec){
   const cur = TRACKS[work.feedback.track] ? work.feedback.track : DEFAULT_TRACK;
   const version = `<div class="cf-track"><label><b>Course version</b>
       <select onchange="cmCaseFlow.setTrack('${rec.id}', this.value)">${Object.entries(TRACKS).map(([k, l]) => `<option value="${k}" ${k === cur ? "selected" : ""}>${E(l)}${k === DEFAULT_TRACK ? " (default)" : ""}</option>`).join("")}</select></label>
-      <span class="cf-note">What this trainee sees. John Doe v. Apex is the established version; the Case Flow is still being built. Choosing the Case Flow only archives the Apex days for them (nothing is deleted, and you can switch back at any time).</span></div>`;
+      <span class="cf-note">What this trainee sees. The course is the Case Flow; John Doe v. Apex is archived (nothing of it is deleted, and you can change this at any time).</span></div>`;
   if(cur === "classic") return `<div class="fb-admin cf-tr-wrap">${version}</div>`;
   return `<div class="fb-admin cf-tr-wrap">${version}<div class="sidebar-section-lbl" style="padding-left:0;">Case Flow — trainer assessment (40%)</div>
     <p class="cf-note">The trainee's quiz share and AI review make the automated 60%. Your score here makes the 40%; the composite appears on their Knowledge Check once both are in.</p>${rows}</div>`;
@@ -572,14 +622,20 @@ window.cmCaseFlow.trainerSave = async function(id, modId){
 };
 if(typeof renderFeedbackAdmin === "function"){
   const __fbAdmin = renderFeedbackAdmin;
-  renderFeedbackAdmin = function(rec){ const html = __fbAdmin.apply(this, arguments); try{ return html + trainerPanel(rec); }catch(e){ return html; } };
+  renderFeedbackAdmin = function(rec){
+    // Day-by-Day Feedback lists the trainee's own days: the Case Flow's, unless they're on the archived version
+    const html = onCaseFlow(rec)
+      ? relabelAll(withCaseFlowDays(() => __fbAdmin.apply(this, arguments))).replace(/Case Flow Day (\d)(<\/b>)? — Case Flow Day \1 · /g, "Case Flow Day $1$2 — ")   // not "Case Flow Day 1 — Case Flow Day 1 · …"
+      : __fbAdmin.apply(this, arguments);
+    try{ return html + trainerPanel(rec); }catch(e){ return html; }
+  };
 }
 
 /* ---------- the Case File page: John Doe v. Robert Smith ----------
-   The client profile is this file's (CF.profile), for trainers and every trainee assigned the
-   Case Flow ("caseflow" or "both"). The John Doe v. Apex case file is archived, not deleted:
-   it stays whole for trainees on the Apex version, and the others reach it from the
-   "Archived" link at the foot of the page (it holds the Apex days' Case File checkpoints).
+   The client profile is this file's (CF.profile), for every trainee on the Case Flow and for
+   trainers. The John Doe v. Apex case file is archived, not deleted: it stays whole for a trainee
+   on the archived version, and trainers (and trainees given the archived days too) reach it from
+   the "Archived" link at the foot of the page (it holds the Apex days' Case File checkpoints).
    Each section opens with its Case Flow day (`opens`) or once that day is passed (`passed`),
    so the profile never gives away a day's answers; trainers see every section. */
 const cfIdOf = n => (cfDayByN(n) || {}).id;
@@ -610,8 +666,8 @@ if(typeof window.renderClientProfile === "function"){
   window.renderClientProfile = function(){
     const v = track();
     if(v === "classic" || !Array.isArray(CF.profile)) return __profile.apply(this, arguments);   // the Apex Case File, as it was
-    if(v === "caseflow") return caseFlowProfile(false);   // the Apex case file isn't theirs at all
-    // both versions (and trainers): Robert Smith is the Case File; the Apex case file is one click away, archived
+    if(v === "caseflow") return caseFlowProfile(false);   // the archived Apex case file isn't theirs
+    // trainers, and trainees given the archived days too: Robert Smith is the Case File; the Apex case file is one click away
     return state.cfArchived ? archivedBar() + __profile.apply(this, arguments) : caseFlowProfile(true);
   };
   const show = archived => {
@@ -680,6 +736,8 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
   main.main-dash > .cf-first{flex:0 0 auto;min-height:100%;display:flex;flex-direction:column;}
   main.main-dash > .cf-first > .dash-top{flex:0 0 auto;}
   main.main-dash > .cf-first > .dash-layout{flex:1 1 auto;display:flex !important;flex-direction:column;}
+  /* the page scrolls to the Case Flow row anyway, so a short laptop screen never crushes the day cards' icon and topics */
+  main.main-dash > .cf-first .module-card.mc-clean .module-body{min-height:118px;}
   main.main-dash > .cf-dash{flex:0 0 auto;}
 }
 .cf-tr-wrap{margin-top:14px;}
