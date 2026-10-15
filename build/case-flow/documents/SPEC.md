@@ -286,7 +286,7 @@ The five payments (spec list), running balance to $0.00, "MedPay limit exhausted
 
 **RS32 · Keystone Mutual — Claim Correspondence (Feb–Apr 2026)** · Day 2 · Others · `RS_32_Keystone_Claim_Correspondence.pdf`
 02/17/2026 Leah Moran: PD liability accepted; 02/18 rental authorized at Rivergate Rentals, $42.00/day, max 30 days;
-02/24 Dana Whitfield: BI acknowledgment, limits not disclosed without a written request and signed authorizations;
+02/24 Dana Whitfield: BI acknowledgment; the $10,000 limit given on the set-up call will be confirmed in writing (declarations page) only on a written request with signed authorizations;
 03/16 Leah Moran: rental ends 03/19 (30 days); 04/10 Leah Moran: extension refused ("shop delay is not covered").
 *Key:* The rental cutoff starts the disruption (A-C-T). The limits request is how the BI layer was verified.
 

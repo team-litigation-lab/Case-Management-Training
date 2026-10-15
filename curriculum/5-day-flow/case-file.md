@@ -86,7 +86,7 @@ passenger door at about 28 mph; the Escape was pushed into John's Civic, parked 
   Harbor Point confirmed in writing (03/02/2026): **no reimbursement right** on MedPay against John's recovery;
   its UM is **add-on (excess)** — not reduced by the BI payment — and has **no MedPay non-duplication reduction**.
 - Cardinal State confirmed in writing (03/09/2026) that John is covered as a resident relative occupying a non-owned vehicle.
-- Keystone would not disclose limits before a written request with authorizations; BI limit $10,000 confirmed by Keystone's declarations page on 03/20/2026.
+- Keystone gave its $10,000 BI limit verbally on the set-up call but would not confirm it in writing (no declarations page) before a written request with signed authorizations; BI limit $10,000 confirmed in writing by Keystone's declarations page on 03/20/2026.
 
 **Medical specials** billed: $15,002.40 before audit → **$14,817.40** after removing the duplicate.
 **Lost wages**: 9 missed shifts (02/09–02/13, 03/05, 03/13, 05/15, 05/18) × 8 h × $22.00 = **$1,584.00**,
