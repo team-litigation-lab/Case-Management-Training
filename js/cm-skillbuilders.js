@@ -149,11 +149,13 @@ const CM_TOOL_DEFAULTS = [
    evidence:"Filing reference", idHint:"Filing reference (e.g. ENV-88213407)"},
   // Shared simulators on the LSH Training Portal (used by every program). The course
   // opens them with ?program=CM and the trainee's name and batch, so results carry them.
-  // The Call Simulator is the CMS's (every Call Simulator link opens it directly, so the trainee's sign-in ticket
-  // applies): ?calls=1 opens it, &program=CM picks this program's lines, &line= and &mode=graded a line's graded calls.
-  {id:"calls", icon:"📞", name:"Call Simulator (LSH CMS)", short:"Call Simulator", status:"live",
-   url:"https://lshcasemanagementtraining-trainingcrm.pages.dev/?calls=1", cmsHosted:true,
-   desc:"Live practice calls, spoken aloud: the Case Management pack has 27 calls on the John Doe file across reception, intake, client calls, attorney reporting, adjusters and providers. Each call ends with the note it requires, and both are scored.",
+  // The Call Simulator is ☎ LSH Ring Channel's (the training phone): the Main Portal's /simulators/call.html opens it
+  // signed in (→ /api/launch?tool=ringchannel&to=calls), &program=CM says the course the call counts in, and &line= and
+  // &mode=graded the line and its graded call. It opens in its own tab (the Portal's sign-in cookie, like the
+  // Calendaring Simulators), and a graded call is reported to the Portal's /api/call-results, so it still counts here.
+  {id:"calls", icon:"📞", name:"Call Simulator (☎ LSH Ring Channel)", short:"Call Simulator", status:"live",
+   url:"https://cm-training-activity.pages.dev/simulators/call.html", portalSim:true,
+   desc:"Live practice calls on the training phone, spoken aloud: the phone rings on the line the step names, you answer with a headset and use its own keys (mute, hold, transfer) and 🔎 Case lookup. Each call ends with the note it requires, and both are scored on the line's Mock Calls Metrics. Take a graded call, practice with an 🤖 AI caller, or answer a trainer-led mock call on the same phone.",
    evidence:"Score", idHint:"Score (e.g. 82%)"},
   {id:"email", icon:"✉️", name:"Email Workspace (LSH Training Portal)", short:"Email Workspace", status:"live",
    url:"https://cm-training-activity.pages.dev/simulators/email.html", portalSim:true,
@@ -173,7 +175,7 @@ function cmTool(id){
   const o = ((state.toolSettings||{})[id])||{};
   let url = String(o.url!=null ? o.url : d.url || "").trim().replace(/\/+$/,"");
   if(id==="calendaring" && /\/simulators\/calendar\.html$/i.test(url)) url = d.url;   // a saved address from before the Calendaring Simulators moved
-  if(id==="calls" && /\/simulators\/call\.html$|\/api\/launch/i.test(url)) url = d.url;      // the Portal's Call Simulator page (or its launch link) → the CMS's, directly
+  if(id==="calls" && /calls=1|trainingcrm\.pages\.dev/i.test(url)) url = d.url;      // a saved address from before the Call Simulator moved to ☎ LSH Ring Channel
   const status = o.status || d.status;
   return Object.assign({}, d, {url, status, live: status==="live" && /^https:\/\//i.test(url)});
 }
@@ -226,7 +228,7 @@ function placeFrame(){
 }
 function paintShell(){
   const t = cmTool(currentFrame);
-  frameShell.querySelector(".cm-tf-name").textContent = t ? `${t.icon} ${t.name.replace(/ \((LSH Training Portal|LSH CMS)\)$/,"")}` : "";
+  frameShell.querySelector(".cm-tf-name").textContent = t ? `${t.icon} ${t.name.replace(/ \((LSH Training Portal|LSH CMS|☎ LSH Ring Channel)\)$/,"")}` : "";
   Object.entries(frames).forEach(([id,f])=>{ f.style.display = id===currentFrame ? "block" : "none"; });
 }
 // "↩ Return to …" shows only on the Practice pages, and only while the activity it came from isn't finished.
@@ -247,7 +249,7 @@ window.openTool = function(id, mode, extra, act){
   if(!t.live){ toast(`${t.icon} ${t.name} is coming soon. For now, log this step as a Task in the CMS.`); return; }
   let href = toolHref(t);
   if(extra) href += (href.includes("?") ? "&" : "?") + extra;
-  if(mode==="tab" || id==="calendaring"){ window.open(href, "_blank", "noopener"); return; }   // the Calendaring Simulators use the Portal's sign-in cookie, which a frame doesn't send
+  if(mode==="tab" || id==="calendaring" || id==="calls"){ window.open(href, "_blank", "noopener"); return; }   // the Calendaring Simulators and the Call Simulator (☎ LSH Ring Channel, through the Portal) use the Portal's sign-in cookie, which a frame doesn't send
   ensureShell();
   currentAct = act || null;
   // reopening a tool without a new address keeps it as it was (its session and the page it's on)
@@ -1043,7 +1045,7 @@ window.renderCallSimulator = function(){
   const calls = cmTool("calls"), mail = cmTool("email"), replies = cmTool("replies"), cal = cmTool("calendaring"), dk = cmTool("docket"), rec = cmTool("records"), ef = cmTool("efiling");
   const lines = [["☎","Reception & Front Desk","5 calls"],["📥","Intake Calls","5 calls"],["🤝","Client Communication","5 calls"],["⚖","Attorney Reporting","5 calls"],["🛡","Adjusters & Carriers","4 calls"],["🏥","Providers & Records","3 calls"]];
   const card = (t, extra)=> `<div class="card cm-tool${t.live?"":" soon"}">
-      <div class="cm-tool-h"><span class="cm-tool-ic">${t.icon}</span><div><b>${E(t.name.replace(/ \((LSH Training Portal|LSH CMS)\)$/,""))}</b><div><span class="cm-badge ${t.live?"live":"soon"}">${t.live?(t.cmsHosted?"● Live in the LSH CMS":"● Live on the LSH Training Portal"):"Coming soon"}</span></div></div></div>
+      <div class="cm-tool-h"><span class="cm-tool-ic">${t.icon}</span><div><b>${E(t.name.replace(/ \((LSH Training Portal|LSH CMS)\)$/,""))}</b><div><span class="cm-badge ${t.live?"live":"soon"}">${t.live?(t.cmsHosted?"● Live in the LSH CMS":t.id==="calls"?"● Live on ☎ LSH Ring Channel":"● Live on the LSH Training Portal"):"Coming soon"}</span></div></div></div>
       <p>${E(t.desc)}</p>${extra||""}
       ${t.live?`<div class="cm-tool-act"><button class="btn btn-primary btn-sm" onclick="openTool('${t.id}')">Open here</button><button class="btn btn-ghost btn-sm" onclick="openTool('${t.id}','tab')">New tab ↗</button></div>`:""}
     </div>`;
