@@ -322,7 +322,26 @@ async function load(){
   if(loaded || typeof storeGet !== "function") return;
   loaded = true;
   try{ const v = await storeGet(KEY); if(v && typeof v === "object" && v.modules) REC = v; }catch(e){}
+  keepCaseYear();
   await loadTrainerScores();
+}
+/* The case's dates roll forward with the calendar (js/cm-case-dates.js), but a trainee stays on the case year
+   they started on: it's kept on their record (caseYear, set with their first saved work) and on this device. If
+   this page was built on another year (a new device, or the last trainee's year), it reloads once on theirs. */
+const DATES = window.CM_CASE_DATES;
+function keepCaseYear(){
+  if(!DATES || DATES.preview) return;
+  const want = DATES.yearForRecord(REC);
+  DATES.pin(want);
+  if(want === DATES.year) return;
+  try{ if(sessionStorage.getItem("lsh_case-year-reload") === String(want)) return; sessionStorage.setItem("lsh_case-year-reload", String(want)); }catch(e){ return; }
+  location.reload();
+}
+/* After sign-in restores a trainee's progress from the cloud, read their Case Flow record again: the one loaded
+   at startup was this device's, and saving over the restored one would lose their work. */
+if(typeof loadAll === "function"){
+  const __loadAll = loadAll;
+  loadAll = async function(){ const r = await __loadAll.apply(this, arguments); loaded = false; await load(); return r; };
 }
 /* The trainer's 40% lives with the trainee's feedback (the trainer writes it, the trainee reads it). */
 async function loadTrainerScores(){
@@ -332,7 +351,7 @@ async function loadTrainerScores(){
     Object.entries((fb && fb.caseFlow) || {}).forEach(([id, t]) => { if(t && typeof t.score === "number") rec(id).trainer = t; });
   }catch(e){}
 }
-const persist = () => { REC.updatedAt = new Date().toISOString(); return typeof storeSet === "function" ? storeSet(KEY, REC) : Promise.resolve(); };
+const persist = () => { REC.updatedAt = new Date().toISOString(); if(DATES && !DATES.preview && !REC.caseYear) REC.caseYear = DATES.year; return typeof storeSet === "function" ? storeSet(KEY, REC) : Promise.resolve(); };
 load();
 
 function composite(m){
@@ -865,6 +884,12 @@ if(typeof renderAuditStrip === "function"){
 const allMods = () => CF.days.flatMap(day => day.modules.map(m => ({day, m})));
 /* each module's Learning Check, in the order the course teaches them: {n: the day, phase, m: its module, b: the check} */
 const checksTaught = () => MODULES.flatMap(d => d.lessons.filter(l => l.cf.block.kind === "check").map(l => ({n: d.cf.n, phase: l.cf.phase, m: l.cf.mod, b: l.cf.block})));
+/* the trainee's case year (js/cm-case-dates.js): their answers quote that year's dates */
+function caseYearNote(mine){
+  if(!DATES) return "";
+  const y = DATES.yearForRecord(mine);
+  return `<p class="cf-note">📅 <b>Case year ${E(y)}</b>: this trainee's file has the collision on ${E(DATES.text("02/06/2026", DATES.shiftFor(y)))}, and their answers quote that year's dates.${y !== DATES.year ? ` You are seeing ${E(DATES.year)}: <a href="?caseYear=${E(y)}">see the course in ${E(y)}</a>.` : ""}</p>`;
+}
 function trainerPanel(rec){
   const work = (state.traineeWork || {})[rec.id];
   if(!work || work.loading || !work.feedback) return "";
@@ -889,7 +914,7 @@ function trainerPanel(rec){
       <span class="cf-note">What this trainee sees. The course is the Case Flow; John Doe v. Apex is archived (nothing of it is deleted, and you can change this at any time).</span></div>`;
   if(cur === "classic") return `<div class="fb-admin cf-tr-wrap">${version}</div>`;
   return `<div class="fb-admin cf-tr-wrap">${version}<div class="sidebar-section-lbl" style="padding-left:0;">Case Flow — trainer assessment (40%)</div>
-    <p class="cf-note">The trainee's quiz share and AI review make the automated 60%. Your score here makes the 40%; the composite appears on their Knowledge Check once both are in.</p>${rows}</div>`;
+    <p class="cf-note">The trainee's quiz share and AI review make the automated 60%. Your score here makes the 40%; the composite appears on their Knowledge Check once both are in.</p>${caseYearNote(mine)}${rows}</div>`;
 }
 window.cmCaseFlow.setTrack = async function(id, value){
   const work = (state.traineeWork || {})[id];
@@ -971,6 +996,7 @@ function caseFlowProfile(archiveLink){
   return `<h1 style="color:var(--navy);font-size:28px;margin:0 0 10px">📂 Case File: ${E(c.style)}</h1>
     <div class="client-intro-banner"><div class="cib-tag">📌 Your Client</div><h2>One File, From Intake to Deposition</h2>
       <p>${E(c.client.name)}, ${E(c.client.position.toLowerCase())}, is your client for the whole course: ${E(c.no)} · Lead Counsel ${E(c.counsel)} · ${E(money(c.total))} Recovery Stack · ${E(c.gapDays)}-Day Treatment Gap.</p>
+      ${DATES ? `<p class="cf-case-year">📅 <b>Dates are kept current.</b> On your file the collision is ${E(DATES.dol())}; every date, weekday and deadline on the case moves with it, and the two-year SOL stays exact. You keep this case year until you finish.${DATES.preview ? ` <b>Trainer preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end the preview</a>.` : ""}</p>` : ""}
       <p>This profile grows with the file. Each section opens with the day it belongs to, and what a day's work produces (the audited Specials, the reasons for the gap, the Net Sheet, the calendar) opens once you pass that day, so work it out from the documents first.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-navy btn-sm" onclick="goto('day',${cfIdOf(pos)})">Open Case Flow Day ${pos}</button><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.docsArchived ? cmCaseFlow.docsArchived(false) : goto('casedocs')">📁 Open the Case Documents</button>${typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS</button>` : ""}</div></div>
     ${caseTimeline(pos)}
@@ -1011,7 +1037,10 @@ if(typeof window.cmDoc === "function"){
   const __doc = window.cmDoc;
   window.cmDoc = id => __doc(id) || CF_DOCS.find(d => d.id === id);
 }
-const docUrl = d => typeof cmDocUrl === "function" ? cmDocUrl(d) : "documents/" + d.file;
+/* Once the case has rolled forward a year (js/cm-case-dates.js), a document opens in case-doc.html, which shows
+   it with that year's dates (print it or save it as a PDF there); in the case's own year, the PDF as rendered. */
+const docUrl = d => DATES && DATES.shift && /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}&year=${DATES.year}`
+  : typeof cmDocUrl === "function" ? cmDocUrl(d) : "documents/" + d.file;
 function docLine(blockId){
   const docs = (CF_PACKETS[blockId] || []).map(id => CF_DOCS.find(d => d.id === id)).filter(Boolean);
   if(!docs.length) return "";

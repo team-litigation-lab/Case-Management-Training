@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* Renders the Operational Conflict Resolution training handout:
-   build/case-flow/documents/handouts/OPERATIONAL_CONFLICT_RESOLUTION_INTAKE_PLANNING_TREATMENT.html (styled with ../doc.css)
+   build/case-flow/documents/handouts/OPERATIONAL_CONFLICT_RESOLUTION_INTAKE_PLANNING_TREATMENT.html (styled with documents/case-flow/html/doc.css)
    → documents/handouts/OPERATIONAL_CONFLICT_RESOLUTION_INTAKE_PLANNING_TREATMENT.pdf
      NODE_PATH=<playwright node_modules> CHROMIUM_PATH=<chrome> node build/case-flow/documents/handouts/render-handout.cjs */
 const path = require("path"), {pathToFileURL} = require("url");
