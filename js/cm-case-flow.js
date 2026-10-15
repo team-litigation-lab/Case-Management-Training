@@ -179,7 +179,7 @@ function ladder(){
       <span class="cf-rung-meta">${E(l.carrier)} · ${E(l.claim)} · ${E(l.adjuster)}</span></div>`).join("")}</div>
     <div class="cf-brace"><span class="cf-total">${E(money(CF.case.total))}</span><span class="cf-total-l">TOTAL AVAILABLE</span></div>
   </div>
-  <p class="cf-order">Order of operations: <b>${E(L.map(l => l.tag).join(" → "))}</b>. Demanding out of order forfeits the stack.</p>`;
+  <p class="cf-order">Order of operations: <b>${E(L.map(l => l.tag).join(" → "))}</b>. UM pays only after BI is exhausted, and releasing BI without the UM carriers' consent can forfeit the stack.</p>`;
 }
 const visual = (l, b) => !b.show ? "" : (b.show.type === "stack" ? ladder() : renderLessonVisual(l));
 const showLabel = (b, head) => head + (b.show && b.show.caption ? ` — ${b.show.caption}` : "");

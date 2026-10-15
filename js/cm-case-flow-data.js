@@ -344,7 +344,7 @@ window.CM_CASE_FLOW = {
         },
         notes: [
           "Walk the ladder bottom-up out loud: “BI pays first, and only once it is exhausted does Host UM open.”",
-          "The common error is entering the layers as three equal parallel claims. Stop it at once: demanding UM before documenting the BI tender forfeits the stack.",
+          "The common error is entering the layers as three equal parallel claims. Stop it at once: UM owes nothing until BI is exhausted, so a UM demand before the BI tender is premature, and settling or releasing BI without the UM carriers' written consent can forfeit the stack.",
           "Ask: “Whose policy is the Host UM?” Trainees often say John Doe's. It is the host driver's; John Doe reaches it because he was riding in that car.",
           "Have two trainees read their total aloud. Anything other than $40,000 means a layer is on the wrong rung."
         ]
@@ -1000,7 +1000,7 @@ window.CM_CASE_FLOW = {
             "Actual cash value is the pre-loss market value: not what is owed on the loan, and not the cost of a new replacement. Verify the valuation report (e.g. CCC One) so the client isn't lowballed.",
             "Courts value property damage on the “lesser of” rule: the cost of repair, or the drop in market value from before to after the loss.",
             "Storage and towing accrue daily. Settle the disposition quickly or the charges eat the recovery.",
-            "Loss of use is claimable for each day the client is without a vehicle, measured by a comparable rental, separately from the repair or ACV payment. The authority is state law (for example, Nevada: Dugan v. Gotsopoulos); confirm the governing rule for the file.",
+            "Loss of use is claimable for each day the client is without a vehicle, measured by a comparable rental, separately from the repair or ACV payment. The authority is state law (for example, Nevada: Dugan v. Gotsopoulos, 117 Nev. 285 (2001), cited in the firm's own LOR template); confirm the governing rule for the file.",
             "Document and escalate a disputed valuation; don't argue it ad hoc with the adjuster."
           ],
           upl: [

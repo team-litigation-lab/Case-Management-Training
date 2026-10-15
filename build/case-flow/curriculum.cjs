@@ -126,7 +126,7 @@ function showMd(s){
     case "stack":
       o.push("| # | Layer | Party | Limit | Carrier | Claim | Adjuster |", "|---|---|---|---|---|---|---|");
       stack().forEach(l => o.push(`| ${l.order} | **${l.tag}** — ${md(l.name)} | ${l.party} | ${money(l.limit)} | ${md(l.carrier)} | ${l.claim} | ${md(l.adjuster)} |`));
-      o.push(`| | | | **${money(CF.case.total)}** | | | |`, "", `**Order of operations:** ${stack().map(l => l.tag).join(" → ")}. Demanding out of order forfeits the stack.`);
+      o.push(`| | | | **${money(CF.case.total)}** | | | |`, "", `**Order of operations:** ${stack().map(l => l.tag).join(" → ")}. UM pays only after BI is exhausted, and releasing BI without the UM carriers\' consent can forfeit the stack.`);
       break;
   }
   return o.join("\n");

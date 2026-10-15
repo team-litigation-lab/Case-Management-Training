@@ -196,7 +196,7 @@ A vertical three-rung ladder in the centre of the slide, built bottom-up so the 
 | 3 | **REL UM** — Underinsured Motorist — resident relative policy | first-party | $10,000 | Cardinal State Mutual | CS-26-20355 | Not yet assigned |
 | | | | **$40,000** | | | |
 
-**Order of operations:** BI → HOST UM → REL UM. Demanding out of order forfeits the stack.
+**Order of operations:** BI → HOST UM → REL UM. UM pays only after BI is exhausted, and releasing BI without the UM carriers' consent can forfeit the stack.
 
 **Verification checkpoints**
 
@@ -245,7 +245,7 @@ Verified in this module's Knowledge Check (block 1.1.5) and the day's auto-grade
 #### 5 · Speaker Notes
 
 - Walk the ladder bottom-up out loud: “BI pays first, and only once it is exhausted does Host UM open.”
-- The common error is entering the layers as three equal parallel claims. Stop it at once: demanding UM before documenting the BI tender forfeits the stack.
+- The common error is entering the layers as three equal parallel claims. Stop it at once: UM owes nothing until BI is exhausted, so a UM demand before the BI tender is premature, and settling or releasing BI without the UM carriers' written consent can forfeit the stack.
 - Ask: “Whose policy is the Host UM?” Trainees often say John Doe's. It is the host driver's; John Doe reaches it because he was riding in that car.
 - Have two trainees read their total aloud. Anything other than $40,000 means a layer is on the wrong rung.
 
@@ -1058,7 +1058,7 @@ A horizontal threshold gauge dominates: a long bar running from pale on the left
 6. Actual cash value is the pre-loss market value: not what is owed on the loan, and not the cost of a new replacement. Verify the valuation report (e.g. CCC One) so the client isn't lowballed.
 7. Courts value property damage on the “lesser of” rule: the cost of repair, or the drop in market value from before to after the loss.
 8. Storage and towing accrue daily. Settle the disposition quickly or the charges eat the recovery.
-9. Loss of use is claimable for each day the client is without a vehicle, measured by a comparable rental, separately from the repair or ACV payment. The authority is state law (for example, Nevada: Dugan v. Gotsopoulos); confirm the governing rule for the file.
+9. Loss of use is claimable for each day the client is without a vehicle, measured by a comparable rental, separately from the repair or ACV payment. The authority is state law (for example, Nevada: Dugan v. Gotsopoulos, 117 Nev. 285 (2001), cited in the firm's own LOR template); confirm the governing rule for the file.
 10. Document and escalate a disputed valuation; don't argue it ad hoc with the adjuster.
 
 > ⚠️ **UPL boundary.** You may gather estimates, report figures and explain the process. You may not advise the client whether to accept a valuation or tell them what their vehicle is legally worth. Asserting the loss-of-use claim is counsel's position.
