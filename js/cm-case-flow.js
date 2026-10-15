@@ -149,10 +149,20 @@ if(typeof dayLockReason === "function"){
   };
 }
 
-/* "Day 11" is an internal id: on screen it is "Case Flow Day 1". */
-const relabel = (html, d) => !d ? html : String(html)
-  .replace(new RegExp(`\\bDay ${d.id}\\b`, "g"), `Case Flow Day ${d.cf.n}`)
-  .replace(new RegExp(`\\bDAY ${d.id}\\b`, "g"), `CASE FLOW DAY ${d.cf.n}`);
+/* "Day 11"–"Day 15" are internal ids: on screen they are "Case Flow Day 1"–"5" (the day's own
+   id, and any other Case Flow day it links to, such as "Back to Day 13"). */
+const relabel = (html, d) => !d ? html : MODULES.reduce((h, m) => h
+  .replace(new RegExp(`\\bDay ${m.id}\\b`, "g"), `Case Flow Day ${m.cf.n}`)
+  .replace(new RegExp(`\\bDAY ${m.id}\\b`, "g"), `CASE FLOW DAY ${m.cf.n}`), String(html));
+
+/* The "← Back to …" button names a Case Flow day by its label, not its id. */
+if(typeof routeLabel === "function"){
+  const __route = routeLabel;
+  routeLabel = function(h){
+    const r = __route.apply(this, arguments), m = /^Day (\d+)$/.exec(r || "");
+    return m && cfDay(m[1]) ? `Case Flow Day ${cfDay(m[1]).cf.n}` : r;
+  };
+}
 
 /* ---------- the continuity strip on every block ---------- */
 function strip(){
