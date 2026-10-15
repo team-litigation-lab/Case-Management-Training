@@ -296,7 +296,7 @@ function rubricHtml(r){
                            quiz:{correct,total,pct,at}, trainer:{score,comment,at}}}} */
 const KEY = "case-flow";
 let REC = {v: 1, modules: {}}, loaded = false;
-const rec = id => (REC.modules[id] = REC.modules[id] || {answers: [], scale: []});
+const rec = id => { const m = (REC.modules[id] = REC.modules[id] || {answers: [], scale: []}); m.kc = m.kc || []; return m; };   // kc: the Knowledge Check answers
 async function load(){
   if(loaded || typeof storeGet !== "function") return;
   loaded = true;
@@ -374,12 +374,13 @@ function fullText(l, d){
    Presenter view. A block with no concise copy yet is condensed from its full text. */
 const SLIDES = window.CM_CF_SLIDES || {}, ART = window.CM_CF_ART || {};
 const VIEW_LABEL = {why: "Why It Matters", rules: "The Rules", model: "See It", job: "On the Job", dodont: "Do & Don't",
-  case: "Your Case", task: "Your Task", check: "Check Your Work", questions: "Knowledge Check", summary: "Self-Summary", scale: "Skill Scale"};
-const VIEW_ICON = {why: "💡", rules: "📏", model: "🔍", job: "🛠", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", summary: "📝", scale: "📊"};
+  case: "Your Case", task: "Your Task", check: "Check Your Work", questions: "Knowledge Check", questions2: "Knowledge Check, Continued", summary: "Self-Summary", scale: "Skill Scale"};
+const VIEW_ICON = {why: "💡", rules: "📏", model: "🔍", job: "🛠", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
+const KC_PER = 4;   // Knowledge Check questions on one slide
 function viewsOf(b){
   if(b.kind === "lesson") return ["why", "rules"].concat(b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length ? ["dodont"] : []);
   if(b.kind === "activity") return ["case", "task"].concat(b.show ? ["model"] : [], ["check"]);
-  return ["questions", "summary", "scale"];
+  return (copyOf(b).questions.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
 }
 const SMALL = new Set(["a", "an", "the", "and", "or", "but", "nor", "of", "to", "in", "on", "for", "at", "by", "with", "from", "as", "per", "vs.", "v.", "via", "into"]);
 const titleCase = t => String(t || "").split(/(\s+|—|–|\/)/).map((w, i, a) => {
@@ -428,10 +429,12 @@ function slideBody(view, l, d){
         <div class="cfx-deliver"><b>📤 Deliver</b><span>${hl(c.deliver)}</span></div></aside></div>`;
     case "check": return `<div class="cfx-check">${c.checks.map(x => `<label class="cfx-tick"><input type="checkbox"><span>${hl(x)}</span></label>`).join("")}</div>
       ${c.donts.length ? `<div class="cfx-watch"><b>⚠️ Watch For</b>${c.donts.map(x => `<span>${hl(x)}</span>`).join("")}</div>` : ""}`;
-    case "questions": return c.questions.length > 4   // a long check takes the full width, in two columns
-        ? `<ol class="cfx-points cfx-qs cfx-qs-2">${c.questions.map(q => `<li><span>${hl(q)}</span></li>`).join("")}</ol>`
-        : `<div class="cfx-split"><ol class="cfx-points cfx-qs">${c.questions.map(q => `<li><span>${hl(q)}</span></li>`).join("")}</ol>${art(c.image, "small")}</div>
-      <p class="cf-note">Answer in your own words, from the file. The day's auto-graded questions are in the Knowledge Check at the end of Case Flow Day ${day.n}.</p>`;
+    case "questions": case "questions2": {   // each question with its answer box; answers save as they're typed
+      const from = view === "questions2" ? KC_PER : 0, m = rec(mod.id), last = from + KC_PER >= c.questions.length;
+      return `<ol class="cfx-points cfx-qs cfx-qs-2 cfx-kc" style="counter-reset:cfx ${from}">${c.questions.slice(from, from + KC_PER).map((q, j) => `<li><span>${hl(q)}
+          <textarea class="cfx-kc-a" id="cfkc_${mod.id}_${from + j}" rows="2" placeholder="Your answer, from the file" aria-label="Answer ${from + j + 1}" oninput="cmCaseFlow.kcDraft('${mod.id}',${from + j},this.value)">${E(m.kc[from + j] || "")}</textarea></span></li>`).join("")}</ol>
+        <p class="cf-note">${last ? "Your answers save as you type and go to review with your Self-Summary (next)." : "More questions on the next slide."} The day's auto-graded quiz comes at the end of Case Flow Day ${day.n}.</p>`;
+    }
     case "summary": return `<div class="cfx-summary">${selfSummary(b, day, mod, "qs")}</div>`;
     case "scale": return `<div class="cfx-summary">${selfSummary(b, day, mod, "scale")}</div>`;
   }
@@ -469,19 +472,47 @@ if(typeof buildDaySlides === "function"){
   buildDaySlides = function(d){
     const s = __build.apply(this, arguments);
     if(!cfDay(d && d.id)) return s;
-    const out = [];
+    // each Case Phase (module) runs as: its lessons, uninterrupted → its activities and practice → its Learning Check
+    const head = [], tail = [], phases = [];
+    let seen = false;
     s.forEach(sl => {
-      if(sl.type !== "topic") return out.push(sl);
+      if(sl.type !== "topic"){ (seen ? tail : head).push(sl); return; }
+      seen = true;
       if(sl.part !== 1) return;
-      const l = d.lessons[sl.lessonIndex];
-      viewsOf(l.cf.block).forEach((v, j) => out.push({type: "topic", lessonIndex: sl.lessonIndex, part: j + 1}));
+      const {block: b, mod} = d.lessons[sl.lessonIndex].cf;
+      let ph = phases.find(x => x.mod === mod.id); if(!ph) phases.push(ph = {mod: mod.id, lesson: [], activity: [], check: []});
+      viewsOf(b).forEach((v, j) => ph[b.kind].push({type: "topic", lessonIndex: sl.lessonIndex, part: j + 1}));
     });
-    return out;
+    const out = head.slice();
+    phases.forEach(ph => PARTS.forEach(([kind], n) => { if(ph[kind].length) out.push({type: "cfPart", kind, n: n + 1, mod: ph.mod}, ...ph[kind]); }));
+    return out.concat(tail);
+  };
+}
+const PARTS = [["lesson", "The Lessons", "One uninterrupted discussion: this phase's lessons, in order.", "team-huddle"],
+  ["activity", "Activities & Real-Time Practice", "Now do it on the live file: this phase's Skill Activities, in the tools.", "cms-screen"],
+  ["check", "Learning Check", "Show what you learned: answer each Knowledge Check, then your Self-Summary and Skill Scale.", "knowledge-check"]];
+function partSlide(d, slide){
+  const [kind, name, line, image] = PARTS[slide.n - 1];
+  const items = d.lessons.map((l, i) => ({l, i})).filter(x => x.l.cf.block.kind === kind && x.l.cf.mod.id === slide.mod);
+  if(!items.length) return "";
+  const {mod, day} = items[0].l.cf;
+  return `<div class="topic-separator">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; CASE PHASE ${mod.n} OF ${day.modules.length} &middot; PART ${slide.n} OF ${PARTS.length}</div>
+    <div class="card lesson-card cf-card cfx cfx-part cfx-part-${kind}">
+      <div class="cfx-hero"><div class="cfx-hero-text"><span class="cfx-chip">Case Phase ${mod.n} · ${E(titleCase(mod.title))}</span>
+        <h2 class="cfx-part-title">${E(name)}</h2><p class="cfx-part-line">${E(line)}</p></div>${art(image, "small")}</div>
+      <ol class="cfx-part-list">${items.map(x => `<li><span class="cfx-part-n">${x.l.cf.mod.n}.${x.l.cf.k + 1}</span>${E(titleCase(x.l.cf.block.title))}</li>`).join("")}</ol>
+    </div>`;
+}
+if(typeof renderDaySlideContent === "function"){
+  const __content = renderDaySlideContent;
+  renderDaySlideContent = function(d, slide){
+    return (slide && slide.type === "cfPart" && cfDay(d && d.id)) ? partSlide(d, slide) : __content.apply(this, arguments);
   };
 }
 if(typeof daySlideTitle === "function"){
   const __title = daySlideTitle;
   daySlideTitle = function(d, slide){
+    if(cfDay(d && d.id) && slide && slide.type === "cfPart"){ const l = d.lessons.find(x => x.cf.mod.id === slide.mod), m = (l && l.cf.mod) || {}; return `Case Phase ${m.n}: ${PARTS[slide.n - 1][1]} · ${titleCase(m.title || "")}`; }
     if(cfDay(d && d.id) && slide && slide.type === "topic"){ const l = d.lessons[slide.lessonIndex]; const v = viewsOf(l.cf.block)[(slide.part || 1) - 1]; return `${l.h} — ${VIEW_LABEL[v] || ""}`; }
     return __title.apply(this, arguments);
   };
@@ -508,7 +539,8 @@ MODULES.forEach(d => d.lessons.forEach(l => {
     case: {why: b.act && b.act.scenario, talk: n[0] || ""},
     task: {why: b.act && b.act.prompt, walk: b.act ? [`Tool: ${b.act.tool}`, `Output: ${b.act.output}`] : [], ask: n[1] || ""},
     check: {why: "Check the work against the verification checkpoints.", talk: n.slice(2).join(" "), walk: ((b.act && b.act.checkpoints) || []).concat(best)},
-    questions: {why: "Knowledge check: answers come from this file, in the trainee's own words.", walk: (b.check && b.check.questions) || [], talk: n[0] || ""},
+    questions: {why: "Knowledge check: answers come from this file, in the trainee's own words, typed under each question.", walk: ((b.check && b.check.questions) || []).slice(0, KC_PER), talk: n[0] || ""},
+    questions2: {why: "Knowledge check, continued.", walk: ((b.check && b.check.questions) || []).slice(KC_PER)},
     summary: {why: "Self-Summary: the principles, in the trainee's own words.", talk: n.slice(1).join(" "), scenario: d.discussionQuestion || ""},
     scale: {why: "Skill Scale: rate each competency 1–5, then submit for review.", ask: "Compare each trainee's self-rating with their score, and talk through any wide gap."}
   };
@@ -570,6 +602,7 @@ const status = (modId, t) => { const el = document.getElementById(`cfss_st_${mod
 window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
   draft(modId){ readForm(modId); clearTimeout(draftTimer); draftTimer = setTimeout(() => { persist(); status(modId, "Draft saved"); }, 900); },
   rate(modId, j, n){ rec(modId).scale[j] = n; persist(); },
+  kcDraft(modId, j, v){ rec(modId).kc[j] = v; clearTimeout(draftTimer); draftTimer = setTimeout(() => { persist(); status(modId, "Draft saved"); }, 900); },
   async save(modId){ const m = readForm(modId); m.savedAt = new Date().toISOString(); await persist(); status(modId, "Saved " + new Date(m.savedAt).toLocaleString()); },
   async review(dayId, modId){
     const d = cfDay(dayId), m = readForm(modId);
@@ -579,6 +612,9 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
       if(typeof toast === "function") toast("Answer each Self-Summary prompt in a few sentences first."); return;
     }
     if(b.check.scale.some((_, j) => !m.scale[j])){ if(typeof toast === "function") toast("Rate yourself 1–5 on every competency first."); return; }
+    if(b.check.questions.some((_, j) => String(m.kc[j] || "").trim().split(/\s+/).filter(Boolean).length < 3)){
+      if(typeof toast === "function") toast("Answer each Knowledge Check question first (the slides before the Self-Summary)."); return;
+    }
     m.savedAt = new Date().toISOString(); await persist();
     if(typeof runRubricEvaluation !== "function"){ status(modId, "Saved. The AI reviewer isn't available here; your trainer will review it."); return; }
     status(modId, "Reviewing…");
@@ -589,7 +625,8 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
       + `Health Plan ${c.health.carrier} (${c.health.memberId}). Critical fact: ${c.critical}\n`
       + (day && (day.fileState || []).length ? `Where the file stands on Case Flow Day ${day.n} (${day.phase}): ${day.fileState.join(" ")}\n` : "")
       + `Module: ${mod.title} — ${mod.about}\nThe module's knowledge-verification questions were:\n- ${b.check.questions.join("\n- ")}`;
-    const text = b.check.summary.map((q, j) => `${q}\n${m.answers[j] || ""}`).join("\n\n")
+    const text = `Knowledge Check answers:\n${b.check.questions.map((q, j) => `${j + 1}. ${q}\n${m.kc[j] || ""}`).join("\n\n")}\n\nSelf-Summary:\n`
+      + b.check.summary.map((q, j) => `${q}\n${m.answers[j] || ""}`).join("\n\n")
       + `\n\nSelf-ratings (1–5): ${b.check.scale.map((s, j) => `${s}: ${m.scale[j]}`).join("; ")}`;
     const notes = `Grade against this module's rubric. AI criteria: ${b.rubric.ai.map(r => `${r[0]} (${r[1]}%): ${r[2]}`).join("; ")}. `
       + `A trainer separately assesses: ${b.rubric.trainer.map(r => r[0]).join(", ")}. `
@@ -688,7 +725,7 @@ function trainerPanel(rec){
     const answered = (r.answers || []).some(a => String(a || "").trim());
     return `<details class="cf-tr"><summary><b>Case Flow Day ${day.n} · ${m.n}</b> ${E(m.title)}
         <span class="cf-tr-chips">${r.quiz ? `<span class="fb-chip sent">Quiz ${E(r.quiz.pct)}%</span>` : ""}${r.ai ? `<span class="fb-chip sent">AI ${E(r.ai.score)}%</span>` : ""}${typeof t.score === "number" ? `<span class="fb-chip sent">Trainer ${E(t.score)}%</span>` : (answered ? `<span class="fb-chip draft">To score</span>` : `<span class="fb-chip none">No summary yet</span>`)}${c.c != null ? `<span class="fb-chip sent">Composite ${E(c.c)}%</span>` : ""}</span></summary>
-      ${answered ? `<div class="fb-evidence">${b.check.summary.map((q, j) => `<div><b>${E(q)}</b><br>${E((r.answers || [])[j] || "—")}</div>`).join("")}
+      ${answered ? `<div class="fb-evidence">${(r.kc || []).some(Boolean) ? b.check.questions.map((q, j) => `<div><b>KC ${j + 1}. ${E(q)}</b><br>${E((r.kc || [])[j] || "—")}</div>`).join("") : ""}${b.check.summary.map((q, j) => `<div><b>${E(q)}</b><br>${E((r.answers || [])[j] || "—")}</div>`).join("")}
         <div><b>Self-ratings:</b> ${b.check.scale.map((x, j) => `${E(x)}: ${E((r.scale || [])[j] || "—")}`).join(" · ")}</div></div>` : ""}
       <div class="cf-tr-rubric"><b>Assess against:</b> ${b.rubric.trainer.map(x => `${E(x[0])} (${E(x[1])})`).join(" · ")} — UPL is a gate, not a weighting.</div>
       <div class="fbc-row"><label>Trainer score (0–100)<input type="number" min="0" max="100" id="cftr_${sid}_${m.id}" value="${typeof t.score === "number" ? E(t.score) : ""}"></label></div>
@@ -954,6 +991,15 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfx-side .cfx-docs{background:#F6F7FB;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:15px;}
 .cfx-docs summary{cursor:pointer;color:var(--ink-soft);}.cfx-docs .cf-docline > b{display:none;}.cfx-docs[open] summary{margin-bottom:6px;}
 .cfx-qs-2{display:grid;grid-template-columns:1fr 1fr;gap:16px 28px;}.cfx-qs-2 li{font-size:21px;}
+.cfx-kc li{font-size:19px;}.cfx-kc li > span{display:flex;flex-direction:column;gap:8px;}
+.cfx-kc-a{width:100%;box-sizing:border-box;font:500 16px/1.4 var(--font-ui);padding:10px 12px;border:1.5px solid var(--line);border-radius:12px;background:#fff;resize:vertical;min-height:64px;}
+.cfx-kc-a:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(224,122,47,.15);}
+.cfx-part .cfx-hero{align-items:center;}
+.cfx-part-title{margin:6px 0 8px;font:700 46px/1.1 'Fraunces',Georgia,serif;color:var(--navy);}
+.cfx-part-line{margin:0;font:500 24px/1.4 var(--font-ui);color:var(--ink);}
+.cfx-part-list{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;}
+.cfx-part-list li{display:flex;gap:12px;align-items:baseline;font:600 18px/1.35 var(--font-ui);color:var(--ink);background:#F6F7FB;border:1px solid var(--line);border-radius:12px;padding:10px 14px;animation:cfxIn .3s ease-out both;}
+.cfx-part-n{font:700 13px 'IBM Plex Mono',monospace;color:var(--orange-deep);flex:0 0 auto;}
 .cfx-summary .cf-ss-q > span{font:500 19px/1.4 var(--font-ui);}.cfx-summary textarea{font-size:16px;min-height:96px;}
 .cfx-summary .cf-scale{font-size:16px;}.cfx-summary .cf-scale td,.cfx-summary .cf-scale th{padding:10px 8px;}.cfx-summary .cf-scale input{width:20px;height:20px;}
 .cfx-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
@@ -972,7 +1018,7 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 @media(max-width:760px){
   .cfx{padding:16px 16px 18px !important;}
   .cfx-title{font-size:26px !important;}.cfx-of{display:block;font-size:15px;margin-top:4px;}.cfx-sep{display:none;}
-  .cfx-hero,.cfx-split,.cfx-task,.cfx-dd,.cfx-qs-2{grid-template-columns:minmax(0,1fr);}
+  .cfx-hero,.cfx-split,.cfx-task,.cfx-dd,.cfx-qs-2,.cfx-part-list{grid-template-columns:minmax(0,1fr);}.cfx-part-title{font-size:32px;}.cfx-part-line{font-size:19px;}
   .cfx-hook{font-size:24px;}.cfx-situation{font-size:19px;}
   .cfx-points li{font-size:19px;grid-template-columns:36px 1fr;}.cfx-points li::before{width:32px;height:32px;font-size:16px;}
   .cfx-flow{grid-template-columns:minmax(0,1fr);}.cfx-arrow{transform:rotate(90deg);justify-self:center;}
