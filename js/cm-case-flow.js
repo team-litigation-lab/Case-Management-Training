@@ -95,7 +95,8 @@ SEQUENCE.forEach(seq => {
         h: `${phase.n}.${k + 1} ${b.title}`,
         fourPart: Object.assign(fp, {bestPractices: b.best || [], discussionCase: ""}),
         trainerCue: (b.notes || [])[0] || "",
-        cf: {day, mod, block: b, k, phase}   // day: where it is taught; mod: its unit of scoring
+        cf: {day, mod, block: b, k, phase,   // day: where it is taught; mod: its unit of scoring
+             heading: (ph.headings || {})[id] || (b.kind === "lesson" ? "Case Phase: " : b.kind === "activity" ? "Skill Building: " : "Learning Check: ") + ph.title}
       }, layoutOf(b.show)));
       if(b.kind === "check") (mod.quiz || []).forEach(q => { quiz.push(q); quizMod.push(mod.id); });
     });
@@ -442,7 +443,13 @@ function slideBody(view, l, d){
     case "job": return `<div class="cfx-job">${c.job.map(r => `<div class="cfx-flow">${r.map((x, j) => `<div class="cfx-step"><small>${["Trigger", "Task", "Tool", "Checkpoint"][j]}</small><span>${hl(x)}</span></div>`).join('<span class="cfx-arrow">➔</span>')}</div>`).join("")}</div>`;
     case "dodont": return `<div class="cfx-dd"><div class="cfx-do"><h3>✅ Do</h3><ul>${c.dos.map(x => `<li>${hl(x)}</li>`).join("")}</ul></div>
       <div class="cfx-dont"><h3>⚠️ Don't</h3><ul>${c.donts.map(x => `<li>${hl(x)}</li>`).join("")}</ul></div></div>`;
-    case "case": return `<div class="cfx-hero"><div class="cfx-hero-text"><span class="cfx-chip">📂 ${E(CF.case.style)}</span><p class="cfx-situation">${hl(c.situation)}</p></div>${art(c.image)}</div>`;
+    case "case": {
+      const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(Boolean).slice(0, 4);
+      return `<div class="cfx-sb">
+        ${docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image)}
+        <div class="cfx-challenge"><span>“${E(b.title.toUpperCase())}”</span></div>
+        <div class="cfx-task-card"><span class="cfx-chip">📂 ${E(CF.case.style)}</span><p class="cfx-situation">${hl(c.situation)}</p></div></div>`;
+    }
     case "task": return `<div class="cfx-task"><ol class="cfx-points">${c.steps.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>
       <aside class="cfx-side"><div><b>🛠 Where</b><span>${E(b.act.tool)}</span><div class="cfx-btns">${toolButtons(b.act.tool)}</div></div>
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}</details>` : ""}
@@ -463,13 +470,22 @@ function slideBody(view, l, d){
 function card(l, i, d, part){
   const {day, mod, block: b, k, phase} = l.cf, vs = viewsOf(b), p = Math.min(Math.max(part || 1, 1), vs.length), view = vs[p - 1];
   const dots = vs.map((v, j) => `<span class="cfx-dot${j === p - 1 ? " on" : j < p - 1 ? " done" : ""}" title="${E(VIEW_LABEL[v])}"></span>`).join("");
-  return `<div class="topic-separator">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; CASE PHASE ${phase.n} OF ${phase.of} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
-    <div class="card lesson-card cf-card cfx cfx-${view} cfx-${b.kind}" data-part="${p}">
-      <div class="cfx-top"><span class="cfx-kicker">${phase.n}.${k + 1} · ${E(KIND[b.kind])}</span><span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span>
+  const logo = typeof LOGO_FULL_SRC !== "undefined" ? `<img class="cfx-logo" src="${LOGO_FULL_SRC}" alt="Legal Support Help">` : "";
+  const onNavy = view === "case";   // a Skill Building opener sits on the slide itself, like the deck's
+  return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; CASE PHASE ${phase.n} OF ${phase.of} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
+    <div class="card lesson-card cf-card cfx cfx-deck cfx-${view} cfx-${b.kind}" data-part="${p}">
+      <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">${E(l.cf.heading)}</h2></div>
+      <div class="cfx-ribbon"><span>${E(titleCase(b.title))}</span></div>
+      <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}</span>
+        <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.n}.${k + 1} · ${E(KIND[b.kind])}</span>
         <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Full text</button></div>
-      <h2 class="cfx-title"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}<span class="cfx-of"><span class="cfx-sep"> · </span>${E(titleCase(b.title))}</span></h2>
-      ${slideBody(view, l, d)}
+      ${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}
     </div>`;
+}
+if(!document.getElementById("cfx-deck-font")){
+  const f = document.createElement("link"); f.id = "cfx-deck-font"; f.rel = "stylesheet";
+  f.href = "https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap";
+  document.head.appendChild(f);
 }
 window.cmCaseFlow = window.cmCaseFlow || {};
 window.cmCaseFlow.full = function(dayId, i){
@@ -503,9 +519,31 @@ if(typeof buildDaySlides === "function"){
     return out;
   };
 }
+function agendaSlide(d){
+  const logo = typeof LOGO_FULL_SRC !== "undefined" ? `<img class="cfx-logo" src="${LOGO_FULL_SRC}" alt="Legal Support Help">` : "";
+  const src = CF.days.find(x => x.n === d.cf.n) || {};
+  const rows = d.cf.phases.map(ph => {
+    const ls = d.lessons.filter(l => l.cf.phase === ph), n = kind => ls.filter(l => l.cf.block.kind === kind).length;
+    return `<li><span class="cfx-ag-n">${String(ph.n).padStart(2, "0")}</span><div><b>${E(ph.title)}</b>
+      <small>${n("lesson")} lessons · Skill Building: ${n("activity")} activities in the CMS · Learning Check</small></div></li>`;
+  }).join("");
+  return `<div class="card lesson-card cf-card cfx cfx-deck cfx-agenda">
+      <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">Case Management Training</h2></div>
+      <div class="cfx-ribbon"><span>Day ${d.cf.n} · Training Agenda</span></div>
+      <div class="cfx-ag"><ol class="cfx-ag-list">${rows}</ol>
+        <div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div></div>
+    </div>`;
+}
+if(typeof renderDaySlideContent === "function"){
+  const __content = renderDaySlideContent;
+  renderDaySlideContent = function(d, slide){
+    return (slide && slide.type === "taskOverview" && cfDay(d && d.id)) ? agendaSlide(d) : __content.apply(this, arguments);
+  };
+}
 if(typeof daySlideTitle === "function"){
   const __title = daySlideTitle;
   daySlideTitle = function(d, slide){
+    if(cfDay(d && d.id) && slide && slide.type === "taskOverview") return "Training Agenda";
     if(cfDay(d && d.id) && slide && slide.type === "topic"){ const l = d.lessons[slide.lessonIndex]; const v = viewsOf(l.cf.block)[(slide.part || 1) - 1]; return `${l.h} — ${VIEW_LABEL[v] || ""}`; }
     return __title.apply(this, arguments);
   };
@@ -991,7 +1029,7 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfx-kc-a{width:100%;box-sizing:border-box;font:500 16px/1.4 var(--font-ui);padding:10px 12px;border:1.5px solid var(--line);border-radius:12px;background:#fff;resize:vertical;min-height:64px;}
 .cfx-kc-a:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(224,122,47,.15);}
 .cfx-summary .cf-ss-q > span{font:500 19px/1.4 var(--font-ui);}.cfx-summary textarea{font-size:16px;min-height:96px;}
-.cfx-summary .cf-scale{font-size:16px;}.cfx-summary .cf-scale td,.cfx-summary .cf-scale th{padding:10px 8px;}.cfx-summary .cf-scale input{width:20px;height:20px;}
+.cfx-summary .cf-scale{font-size:16px;}.cfx-summary .cf-scale td,.cfx-summary .cf-scale th{padding:6px 8px;}.cfx-summary .cf-scale input{width:20px;height:20px;}
 .cfx-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
 .cfx-deliver{background:#FBF1E6 !important;border-color:#F0D2AE !important;}
 .cfx-deliver span{font:600 18px/1.4 var(--font-ui);color:var(--ink);}
@@ -1002,6 +1040,61 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfx-watch{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;font:500 18px/1.4 var(--font-ui);color:var(--ink);background:#FFF6EC;border-radius:12px;padding:10px 16px;}
 .cfx-watch b{color:var(--orange-deep);font-size:14px;text-transform:uppercase;letter-spacing:.05em;}
 .cfx-summary .cf-ss-q{font-size:16px;}
+/* ---------- executed like the original deck: navy slide, logo + outlined phase title, the topic ribbon, white cards ---------- */
+.cfx-sepline{display:none !important;}
+.cfx.cfx-deck{background:#262B45 !important;color:#fff;border:0 !important;padding:16px 28px 22px !important;}
+.lesson-stage #lessonSlideWrap:has(.cfx-deck){background:#262B45 !important;}
+.lesson-stage #lessonSlideWrap:has(.cfx-deck) .cfx.cfx-deck{background:transparent !important;padding:0 !important;}
+.lesson-stage #lessonSlideWrap:has(.cfx-deck)::before{content:"";inset:auto;top:0;right:0;left:auto;width:min(300px,30%);height:84px;border-radius:0 16px 0 100%;background:#DB8437;opacity:.95;}
+.lesson-stage #lessonSlideWrap:has(.cfx-deck)::after{content:"";position:absolute;left:0;bottom:0;width:min(180px,18%);height:52px;border-radius:0 100% 0 16px;background:#DB8437;opacity:.9;pointer-events:none;}
+.cfx-deck > *{position:relative;z-index:1;}
+.cfx-deck-head{display:flex;align-items:center;gap:20px;padding:0 0 8px;margin:0 0 10px;border-bottom:2px solid rgba(255,255,255,.88);}
+.cfx-logo{height:48px;width:auto;flex:0 0 auto;}
+.cfx-deck-title{margin:0 !important;font:800 33px/1.1 'Poppins','Inter',sans-serif !important;color:#fff !important;letter-spacing:.005em;
+  text-shadow:-2px -2px 0 #DB8437,2px -2px 0 #DB8437,-2px 2px 0 #DB8437,2px 2px 0 #DB8437,0 -2px 0 #DB8437,0 2px 0 #DB8437,-2px 0 0 #DB8437,2px 0 0 #DB8437,0 4px 0 rgba(0,0,0,.18);}
+.cfx-ribbon{margin:0 0 10px -28px;max-width:calc(100% + 28px);}
+.lesson-stage #lessonSlideWrap .cfx-ribbon{margin-left:-40px;max-width:calc(100% + 40px);}
+.cfx-ribbon span{display:inline-block;background:#5B6579;color:#fff;font:700 21px/1.25 'Poppins','Inter',sans-serif;padding:7px 54px 7px 40px;clip-path:polygon(0 0,calc(100% - 28px) 0,100% 50%,calc(100% - 28px) 100%,0 100%);}
+.cfx-deck .cfx-top{margin:0 0 10px;}
+.cfx-deck .cfx-title.cfx-pill{display:inline-flex;align-items:center;gap:8px;margin:0 !important;background:#ECEEF3;color:#262B45 !important;border-radius:8px;padding:6px 16px;font:700 17px/1.2 'Poppins','Inter',sans-serif !important;letter-spacing:.06em;}
+.cfx-deck .cfx-vi{margin:0;}
+.cfx-deck .cfx-kicker{background:transparent;border-color:rgba(255,255,255,.35);color:#F4B77A;}
+.cfx-deck .cfx-dot{background:rgba(255,255,255,.25);}.cfx-deck .cfx-dot.done{background:#AEB6CC;}
+.cfx-deck .cfx-full{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.35);color:#fff;}
+.cfx-sheet{background:#FFFDF8;color:var(--ink);border:3px solid #DB8437;border-radius:22px;padding:18px 24px;box-shadow:0 8px 22px rgba(0,0,0,.18);}
+.cfx-sheet .cfx-art.small svg{max-height:200px;}
+/* Skill Building opener: the case documents, the challenge ribbon, the situation */
+.cfx-docs-row{display:flex;gap:14px;justify-content:center;margin:0 0 12px;}
+.cfx-thumb{flex:0 1 150px;display:flex;flex-direction:column;gap:6px;text-decoration:none;color:#fff;}
+.cfx-thumb img{width:100%;aspect-ratio:300/388;object-fit:cover;object-position:top;background:#fff;border:3px solid #DB8437;border-radius:6px;box-shadow:0 6px 16px rgba(0,0,0,.3);transition:transform .2s ease;}
+.cfx-thumb:hover img{transform:translateY(-3px);}
+.cfx-thumb span{font:600 12.5px/1.3 'Inter',sans-serif;color:#DDE2EE;text-align:center;}
+.cfx-challenge{margin:4px -28px 12px;background:linear-gradient(90deg,#5B6579 0%,#4C5568 100%);clip-path:polygon(0 0,calc(100% - 34px) 0,100% 50%,calc(100% - 34px) 100%,0 100%);text-align:center;}
+.cfx-challenge span{display:block;padding:9px 48px;font:800 22px/1.25 'Poppins','Inter',sans-serif;letter-spacing:.03em;color:#fff;}
+.cfx-task-card{background:#C9CDD8;color:#1F2433;border-radius:22px;padding:14px 22px;border:3px solid #E9EBF0;}
+.cfx-task-card .cfx-chip{background:#262B45;color:#fff;}
+.cfx-task-card .cfx-situation{margin:8px 0 0;font-size:22px;color:#1F2433;}
+/* the day's Training Agenda */
+.cfx-ag{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:22px;align-items:start;}
+.cfx-ag-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
+.cfx-ag-list li{text-align:left;display:flex;gap:16px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 16px;}
+.cfx-ag-list li::before{display:none !important;content:none !important;}
+.cfx-ag-n{flex:0 0 auto;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:#DB8437;color:#fff;font:800 18px 'Poppins','Inter',sans-serif;}
+.cfx-ag-list b{display:block;font:700 21px/1.25 'Poppins','Inter',sans-serif;color:#fff;}
+.cfx-ag-list small{display:block;margin-top:3px;font:500 14px/1.35 'Inter',sans-serif;color:#C9CFDD;}
+.cfx-ag-side{background:#FFFDF8;color:var(--ink);border:3px solid #DB8437;border-radius:20px;padding:16px 20px;font:500 16px/1.5 'Inter',sans-serif;}
+.cfx-ag-side .cfx-ag-day{margin:0 0 8px;font:800 22px/1.25 'Poppins','Inter',sans-serif;color:#262B45;}
+.cfx-ag-side p{margin:0;}
+@media(max-width:760px){
+  .cfx.cfx-deck{padding:14px 16px 18px !important;}
+  .cfx-deck-head{gap:12px;}.cfx-logo{height:38px;}.cfx-deck-title{font-size:23px !important;}
+  .cfx-ribbon,.lesson-stage #lessonSlideWrap .cfx-ribbon{margin-left:0;max-width:100%;}.cfx-ribbon span{font-size:17px;padding:6px 34px 6px 14px;}
+  .cfx-deck .cfx-top{flex-wrap:wrap;gap:8px 10px;}.cfx-deck .cfx-title.cfx-pill{white-space:nowrap;font-size:15px !important;padding:5px 12px;}
+  .cfx-deck .cfx-kicker{display:none;}.cfx-thumb:nth-child(n+3){display:none;}
+  .cfx-docs-row{flex-wrap:wrap;}.cfx-thumb{flex-basis:44%;}
+  .cfx-challenge{margin:4px -16px 12px;}.cfx-challenge span{font-size:16px;padding:8px 30px;}
+  .cfx-ag{grid-template-columns:minmax(0,1fr);}
+}
 .cfx-modal{position:fixed;inset:0;z-index:9999;background:rgba(20,26,44,.55);display:flex;align-items:flex-start;justify-content:center;padding:4vh 16px;overflow:auto;}
 .cfx-modal-in{max-width:980px;width:100%;padding:18px 24px !important;}
 .cfx-modal-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;font-size:17px;color:var(--navy);}
