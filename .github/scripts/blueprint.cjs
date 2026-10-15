@@ -7,6 +7,8 @@
 // - no blueprint opens inside the program for a trainer either, and 🧭 Orientation is gone from it: the old
 //   #/blueprint and #/orientation addresses both forward to the Portal's 🧭 Blueprint page, where every
 //   blueprint lives;
+// - the Case Flow never mentions a blueprint: its dashboard row and, on every day, each block's two slides,
+//   the day's text and Knowledge Check, and its Presenter notes;
 // - the Trainee blueprint (/blueprint.pdf) is republished after every deploy: once for a new deployment
 //   id, not again for the same one, and again when the deployment changes with APP_BUILD left as it was.
 //   It is built from this course's trainee slides (LSH_BLUEPRINT.trainee), on the same cover and the same
@@ -100,6 +102,28 @@ async function walk(page, label) {
     const dash = await page.evaluate(() => { goto('dashboard'); render(); const b = document.querySelector('.nav-blueprint'); return { cards: [...document.querySelectorAll('.fts-banner')].map(x => x.textContent.trim().slice(0, 40)), btn: b ? b.getAttribute('onclick') : null }; });
     if (dash.cards.length) fail(`a trainee's landing page still shows the Blueprint or Simulators card: ${JSON.stringify(dash.cards)}`);
     if (dash.btn) fail(`a trainee's top bar still has the 📘 Platform Blueprint button: ${dash.btn}`);
+    // No Blueprint in the Case Flow either: on every one of its days, the dashboard row, both slides of every block,
+    // the day's own text and Knowledge Check, and its Presenter notes never say "blueprint" (the design document is
+    // the curriculum spec)
+    await page.evaluate(() => goto('dashboard')); await page.waitForTimeout(500);
+    const cf = await page.evaluate(() => {
+        const days = window.CM_CASE_FLOW_DAYS || [];
+        if (!days.length) return null;
+        const row = (document.querySelector('.cf-dash') || {}).textContent || '';
+        const count = s => (s.match(/blueprint/gi) || []).length;
+        const perDay = days.map(d => {
+            const slides = d.lessons.map((l, i) => renderLessonCard(l, i, d, null, 1) + renderLessonCard(l, i, d, null, 2)).join(' ');
+            const text = JSON.stringify([d.title, d.theme, d.objective, d.taskOverview, d.discussionQuestion, d.quickChecks, d.quiz]);
+            const notes = JSON.stringify(Object.keys(window.SLIDE_SCRIPTS || {}).filter(k => k.startsWith(`${d.id}::`)).map(k => window.SLIDE_SCRIPTS[k]));
+            return { n: d.cf.n, slides: count(slides), text: count(text), notes: count(notes) };
+        });
+        return { row: !!row, days: days.length, blocks: days.reduce((s, d) => s + d.lessons.length, 0), rowHits: count(row), perDay };
+    });
+    if (!cf || !cf.row) fail(`the Case Flow isn't on the dashboard: ${JSON.stringify(cf)}`);
+    else {
+        if (cf.rowHits) fail(`the Case Flow's dashboard row mentions a blueprint (${cf.rowHits}x)`);
+        cf.perDay.filter(d => d.slides || d.text || d.notes).forEach(d => fail(`Case Flow Day ${d.n} mentions a blueprint: slides ${d.slides}, day text and Knowledge Check ${d.text}, Presenter notes ${d.notes}`));
+    }
     await page.context().close();
 
     // ---- a trainer, on a laptop ----
@@ -168,5 +192,5 @@ async function walk(page, label) {
 
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-    console.log('Blueprint test passed (no blueprint inside the program: no tab, card or link, no deck for a trainee or a trainer, and #/blueprint forwards to the Portal\'s Blueprint page; the Trainee blueprint republished once per deploy and served at /blueprint.pdf).');
+    console.log('Blueprint test passed (no blueprint inside the program: no tab, card or link, no deck for a trainee or a trainer, and #/blueprint forwards to the Portal\'s Blueprint page; the Case Flow\'s ' + cf.days + ' days and ' + cf.blocks + ' blocks never mention a blueprint; the Trainee blueprint republished once per deploy and served at /blueprint.pdf).');
 })().catch(e => { console.error(e); process.exit(1); });

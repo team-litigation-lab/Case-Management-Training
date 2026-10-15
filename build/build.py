@@ -86,7 +86,7 @@ s, n2 = re.subn(r'const LOGO_ICON_DATAURI = "data:image/png;base64,[^"]*";', lam
 if not (n1 and n2):
     sys.exit(f"MISSING logo anchors: {n1} {n2}")
 rep("<title>LSH EA/PA Upskill Program</title>", "<title>LSH Case Management Training</title>")
-rep('<b>LSH EA/PA Upskill Program</b><span>10-Day Interactive Training</span>', '<b>LSH Case Management Training</b><span>5-Day Interactive Training</span>')
+rep('<b>EA/PA UPSKILL PROGRAM</b>', '<b>CASE MANAGEMENT TRAINING</b>')   # the universal page header: the program's name in capitals, nothing beside it
 rep("LSH EA / PA Upskill Program", "LSH Case Management Training")
 rep("LSH EA/PA — Platform Orientation", "LSH Case Management — Platform Orientation")
 rep("Legal Support Help · EA/PA Upskill Program", "Legal Support Help · Case Management Training")
@@ -252,9 +252,16 @@ rep('<script src="/js/eapa-updates.js?v=z"></script>', tags(
 rep('<script src="/js/attendance.js?v=2"></script>', '<script src="/js/attendance.js?v=3"></script>')
 
 # graded-calls moves down beside the dashboard band; lsh-dashboard and show-password are CM-only.
+# EA/PA's Orientation script is EA/PA's own; this course has none (every blueprint is on the Main Portal).
 rep('<script src="/js/graded-calls.js?v=1"></script>\n', "")
+s = re.sub(r'<script src="/js/eapa-orientation\.js\?v=[^"]*"></script>\n?', "", s)
 rep('<script src="/js/lsh-card-frame.js?v=3"></script>', tags(
-    "lsh-dashboard.js?v=4", "graded-calls.js?v=1", "show-password.js?v=1", "lsh-card-frame.js?v=3"))
+    "lsh-dashboard.js?v=4", "graded-calls.js?v=1",
+    # The 5-Day Case Management Flow (John Doe v. Robert Smith): after graded-calls.js, because its
+    # dashboard wrapper must run on the finished page, and after cm-skillbuilders.js, whose
+    # renderLessonCard it wraps.
+    "cm-case-flow-data.js?v=4", "cm-case-flow.js?v=5",
+    "show-password.js?v=1", "lsh-card-frame.js?v=3"))
 
 # Training tools open signed in (js/lsh-tool-links.js, the same file in every LSH course repo: CMS
 # links and frames get a fresh ticket from /api/auth/tool-ticket). Then the top bar, then the
@@ -269,7 +276,7 @@ rep('else if(state.view==="tools"||state.view==="cms") body=renderTrainingTools(
 rep('tools:"Training Tools", cms:"Training Tools",', 'tools:"Training Tools", cms:"Training Tools", calls:"Simulators",')
 # personal keys sync to the cloud (cms-log was missing) + keep the lists from shrinking
 # The keys synced to the cloud: drop EA/PA's own two, add the CM course's (cms-log, lab-subs).
-rep('"task-day-since","outbound-calls","c6-audit"];', '"task-day-since","cms-log","lab-subs"];')
+rep('"task-day-since","outbound-calls","c6-audit"];', '"task-day-since","cms-log","lab-subs","case-flow"];')   # case-flow: the Case Flow track's Self-Summaries, self-ratings and scores
 rep('  state.roleplayHistory = [];\n  state.assignedRoleplay = null;', '  state.roleplayHistory = [];\n  state.cmsLog = {};\n  state.labSubs = {};\n  state.labReviews = null;\n  state.assignedRoleplay = null;')
 rep('  await storeSet("roleplayHistory", []);\n  await storeSet("day10-window", null);', '  await storeSet("roleplayHistory", []);\n  await storeSet("cms-log", {});\n  await storeSet("lab-subs", {});\n  await storeSet("day10-window", null);')
 # Live Roleplay: Quick Practice drew from EA topic ids (empty pool in CM → crash)
@@ -297,7 +304,7 @@ for need in ["cm-updates.js", "cm-decks.js", "cm-decks-data.js", "cm-documents.j
              "lsh-dashboard.js", "lsh-one-screen.js", "lsh-tool-links.js", "lsh-topbar.js",
              "graded-calls.js", "show-password.js", "attendance.js", "portal-link.js", "portal-gate.js",
              "cm-lor-data.js", "cm-hipaa-data.js", "cm-medprov-data.js",
-             "cm-lor.js", "cm-hipaa.js", "cm-medprov.js", "cm-drafting.js",
+             "cm-lor.js", "cm-hipaa.js", "cm-medprov.js", "cm-drafting.js", "cm-case-flow-data.js", "cm-case-flow.js",
              *[f"slide-scripts/day{i}.js" for i in range(1, 6)]]:
     if f'src="/js/{need}' not in s:
         sys.exit(f"MISSING SCRIPT: /js/{need} is not loaded by the built page")
