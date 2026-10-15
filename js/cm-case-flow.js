@@ -484,35 +484,13 @@ if(typeof buildDaySlides === "function"){
       viewsOf(b).forEach((v, j) => ph[b.kind].push({type: "topic", lessonIndex: sl.lessonIndex, part: j + 1}));
     });
     const out = head.slice();
-    phases.forEach(ph => PARTS.forEach(([kind], n) => { if(ph[kind].length) out.push({type: "cfPart", kind, n: n + 1, mod: ph.mod}, ...ph[kind]); }));
+    phases.forEach(ph => out.push(...ph.lesson, ...ph.activity, ...ph.check));
     return out.concat(tail);
-  };
-}
-const PARTS = [["lesson", "The Lessons", "One uninterrupted discussion: this phase's lessons, in order.", "team-huddle"],
-  ["activity", "Activities & Real-Time Practice", "Now do it on the live file: this phase's Skill Activities, in the tools.", "cms-screen"],
-  ["check", "Learning Check", "Show what you learned: answer each Knowledge Check, then your Self-Summary and Skill Scale.", "knowledge-check"]];
-function partSlide(d, slide){
-  const [kind, name, line, image] = PARTS[slide.n - 1];
-  const items = d.lessons.map((l, i) => ({l, i})).filter(x => x.l.cf.block.kind === kind && x.l.cf.mod.id === slide.mod);
-  if(!items.length) return "";
-  const {mod, day} = items[0].l.cf;
-  return `<div class="topic-separator">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; CASE PHASE ${mod.n} OF ${day.modules.length} &middot; PART ${slide.n} OF ${PARTS.length}</div>
-    <div class="card lesson-card cf-card cfx cfx-part cfx-part-${kind}">
-      <div class="cfx-hero"><div class="cfx-hero-text"><span class="cfx-chip">Case Phase ${mod.n} · ${E(titleCase(mod.title))}</span>
-        <h2 class="cfx-part-title">${E(name)}</h2><p class="cfx-part-line">${E(line)}</p></div>${art(image, "small")}</div>
-      <ol class="cfx-part-list">${items.map(x => `<li><span class="cfx-part-n">${x.l.cf.mod.n}.${x.l.cf.k + 1}</span>${E(titleCase(x.l.cf.block.title))}</li>`).join("")}</ol>
-    </div>`;
-}
-if(typeof renderDaySlideContent === "function"){
-  const __content = renderDaySlideContent;
-  renderDaySlideContent = function(d, slide){
-    return (slide && slide.type === "cfPart" && cfDay(d && d.id)) ? partSlide(d, slide) : __content.apply(this, arguments);
   };
 }
 if(typeof daySlideTitle === "function"){
   const __title = daySlideTitle;
   daySlideTitle = function(d, slide){
-    if(cfDay(d && d.id) && slide && slide.type === "cfPart"){ const l = d.lessons.find(x => x.cf.mod.id === slide.mod), m = (l && l.cf.mod) || {}; return `Case Phase ${m.n}: ${PARTS[slide.n - 1][1]} · ${titleCase(m.title || "")}`; }
     if(cfDay(d && d.id) && slide && slide.type === "topic"){ const l = d.lessons[slide.lessonIndex]; const v = viewsOf(l.cf.block)[(slide.part || 1) - 1]; return `${l.h} — ${VIEW_LABEL[v] || ""}`; }
     return __title.apply(this, arguments);
   };
@@ -994,13 +972,6 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfx-kc li{font-size:19px;}.cfx-kc li > span{display:flex;flex-direction:column;gap:8px;}
 .cfx-kc-a{width:100%;box-sizing:border-box;font:500 16px/1.4 var(--font-ui);padding:10px 12px;border:1.5px solid var(--line);border-radius:12px;background:#fff;resize:vertical;min-height:64px;}
 .cfx-kc-a:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(224,122,47,.15);}
-.cfx-part .cfx-hero{align-items:center;}
-.cfx-part-title{margin:6px 0 8px;font:700 46px/1.1 'Fraunces',Georgia,serif;color:var(--navy);}
-.cfx-part-line{margin:0;font:500 24px/1.4 var(--font-ui);color:var(--ink);}
-.cfx-part-list{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;}
-.cfx .cfx-part-list li::before{display:none !important;content:none !important;}
-.cfx-part-list li{text-align:left;display:flex;gap:12px;align-items:baseline;font:600 18px/1.35 var(--font-ui);color:var(--ink);background:#F6F7FB;border:1px solid var(--line);border-radius:12px;padding:10px 14px;animation:cfxIn .3s ease-out both;}
-.cfx-part-n{font:700 13px 'IBM Plex Mono',monospace;color:var(--orange-deep);flex:0 0 auto;}
 .cfx-summary .cf-ss-q > span{font:500 19px/1.4 var(--font-ui);}.cfx-summary textarea{font-size:16px;min-height:96px;}
 .cfx-summary .cf-scale{font-size:16px;}.cfx-summary .cf-scale td,.cfx-summary .cf-scale th{padding:10px 8px;}.cfx-summary .cf-scale input{width:20px;height:20px;}
 .cfx-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
@@ -1019,7 +990,7 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 @media(max-width:760px){
   .cfx{padding:16px 16px 18px !important;}
   .cfx-title{font-size:26px !important;}.cfx-of{display:block;font-size:15px;margin-top:4px;}.cfx-sep{display:none;}
-  .cfx-hero,.cfx-split,.cfx-task,.cfx-dd,.cfx-qs-2,.cfx-part-list{grid-template-columns:minmax(0,1fr);}.cfx-part-title{font-size:32px;}.cfx-part-line{font-size:19px;}
+  .cfx-hero,.cfx-split,.cfx-task,.cfx-dd,.cfx-qs-2{grid-template-columns:minmax(0,1fr);}
   .cfx-hook{font-size:24px;}.cfx-situation{font-size:19px;}
   .cfx-points li{font-size:19px;grid-template-columns:36px 1fr;}.cfx-points li::before{width:32px;height:32px;font-size:16px;}
   .cfx-flow{grid-template-columns:minmax(0,1fr);}.cfx-arrow{transform:rotate(90deg);justify-self:center;}
