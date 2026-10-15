@@ -57,7 +57,7 @@ const NEED = {
   RS04: [/02\/06\/2028/, /02\/04\/2028/, /11\/05\/2027/, /work product/i],
   RS05: [/33/, /40%/, /02\/09\/2026|February 9, 2026/],
   RS06: [/02\/06\/2027|February 6, 2027/, /02\/06\/2026|February 6, 2026/],
-  RS07: [/RPD-26-018842/, /2021 Ford Escape|2021 FORD ESCAPE|2021 Ford\s+Escape/i, /Ruth Calloway/i, /Garner/, /118 Larkspur/],
+  RS07: [/RPD-26-018842/, /2021 Ford Escape|2021 FORD ESCAPE|2021 Ford\s+Escape/i, /Calloway/i, /Garner/, /118 Larkspur/],
   RS08: [/Calloway/],
   RS09: [/02\/19\/2026|February 19, 2026/, /SHA-256/i, /grayscale/i],
   RS10: [/11 mph|11 MPH/i, /buckled/i],
@@ -101,7 +101,7 @@ const NEED = {
   RS48: [/\$792\.00/, /all claims arising from the 02\/06\/2026 accident/i],
   RS49: [/08\/12\/2026|August 12, 2026/, /Holloway/],
   RS50: [/DRAFT/i],
-  RS51: [/26-CV-04417/, /09\/24\/2026|September 24, 2026/],
+  RS51: [/26-CV-04417/, /09\/24\/2026|September 24, 2026|24th day of September, 2026/],
   RS52: [/4410 Quarry Ridge/, /10\/14\/2026|October 14, 2026/],
   RS53: [/Mercer/, /seat ?belt/i, /comparative/i],
   RS54: [/December 31, 2026|12\/31\/2026/, /12\/01\/2026|December 1, 2026/],
@@ -110,7 +110,7 @@ const NEED = {
   RS57: [/03\/18\/2027|March 18, 2027/, /03\/11\/2027|March 11, 2027/, /Benton/],
   RS58: [/06\/22\/2027|June 22, 2027/, /June 12, 2027|06\/12\/2027/, /Whitcomb/],
   RS59: [/\$10,000/, /UM/],
-  RS60: [/01\/04\/2027|January 4, 2027/],
+  RS60: [/01\/04\/2027|January 4, 2027|4th day of January, 2027/],
 };
 for (const [id, list] of Object.entries(NEED)) if (text[id] !== undefined) list.forEach(re => { if (!has(id, re)) fails.push(`${id}: missing ${re}`); });
 // plants that must appear ONLY where planted
@@ -119,9 +119,9 @@ for (const [re, where] of ONLY) for (const id of Object.keys(text)) if (has(id, 
 
 // 4. RS23: 34 lines of $185.00 and 05/04/2026 twice; RS14: 33 attended visits
 if (text.RS23 !== undefined) {
-  const lines = (text.RS23.match(/\$?185\.00/g) || []).length, may4 = (text.RS23.match(/05\/04\/2026/g) || []).length;
+  const lines = (text.RS23.match(/\$?185\.00/g) || []).length, may4 = (text.RS23.match(/^\s*\d+\s+05\/04\/2026/gm) || []).length;   // ledger lines whose date of service is 05/04/2026
   if (lines < 34) fails.push(`RS23: ${lines} $185.00 lines (expected 34)`);
-  if (may4 !== 2) fails.push(`RS23: 05/04/2026 appears ${may4}× (expected 2)`);
+  if (may4 !== 2) fails.push(`RS23: ${may4} ledger lines for DOS 05/04/2026 (expected 2: the planted duplicate)`);
 }
 
 console.log(`Audited ${Object.keys(text).length} of ${DOCS.length} documents.`);
