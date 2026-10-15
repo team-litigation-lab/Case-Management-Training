@@ -176,7 +176,7 @@ A vertical three-rung ladder in the centre of the slide, built bottom-up so the 
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** The declarations pages for all three policies have landed in John Doe's file. Nothing has been entered in the CMS Insurance tab yet.
+**Scenario.** All three carriers have opened claims and reported their limits on the set-up calls. The declarations pages have been requested in writing and none has arrived yet; Keystone, the third-party carrier, wants authorizations first. Nothing has been entered in the CMS Insurance tab.
 
 **Execution prompt.** Build the complete policy stack for John Doe v. Robert Smith. Enter all three layers in the CMS in their order of operations, with carrier, policy number, claim number, limit and adjuster for each. Classify each layer as first-party or third-party. In the Comments box record the carrier's actual name, the driver's name where it differs from the owner, and the adjuster's details, or state expressly that none is assigned yet. Then verify the total, record the order the layers must be pursued in, and mark the projection preliminary until each limit is confirmed in writing.
 
@@ -207,14 +207,14 @@ A vertical three-rung ladder in the centre of the slide, built bottom-up so the 
 - [ ] BI classified as third-party; both UM layers as first-party
 - [ ] Policy number and claim number completed for every layer
 - [ ] Relative UM adjuster recorded as “No adjuster assigned yet”, not left blank
-- [ ] Source of each limit recorded (dec page)
+- [ ] Source of each limit recorded (set-up call for now; declarations page requested)
 - [ ] Projection marked preliminary until each limit is confirmed in writing
 
 **Operational mapping**
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Declarations pages received | Enter each layer with its limits and identifiers | CMS → Insurance tab | Three layers, each with policy number, claim number and adjuster (or “none yet”) |
+| Limits reported on the set-up calls | Enter each layer with its limits and identifiers | CMS → Insurance tab | Three layers, each with policy number, claim number and adjuster (or “none yet”) |
 | All layers entered | Verify the total and record the order of operations | CMS → Insurance tab → Comments | $40,000; BI → Host UM → Relative UM |
 | A limit is unconfirmed | Hold the projection as preliminary | CMS → Case Notes | No limit quoted to the client before written confirmation |
 
@@ -238,7 +238,7 @@ Verified in this module's Knowledge Check (block 1.1.5) and the day's auto-grade
 | 🤖 AI | **15%** | Order of operations | BI → Host UM → Relative UM |
 | 🤖 AI | **10%** | Field completeness | Policy number, claim number and adjuster (or “none yet”) on every layer |
 | 🧑‍🏫 Trainer | **25%** | Understands stacking | Can explain why the passenger fact opens two UM layers, not just that it does |
-| 🧑‍🏫 Trainer | **15%** | Verification habit | Checked limits against the declarations pages, and held the projection until confirmed |
+| 🧑‍🏫 Trainer | **15%** | Verification habit | Recorded where each limit came from, and held the projection until each is confirmed by its declarations page |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 

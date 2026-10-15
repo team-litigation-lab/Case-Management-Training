@@ -301,7 +301,7 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 1 — build the ladder to $40,000",
         visual: "A vertical three-rung ladder in the centre of the slide, built bottom-up so the stacking order reads physically. Rung 1 (bottom, navy): BI $10,000. Rung 2 (navy-soft): HOST UM $20,000. Rung 3 (top, orange): RELATIVE UM $10,000. Each rung is a rounded bar carrying its carrier, claim number and adjuster in small mono type on the right. To the right, a vertical orange brace spans all three rungs with the total, $40,000, set large in Fraunces. Below, one empty verification checkbox per layer in an orange-bordered card headed VERIFY EACH LAYER. The rungs are numbered 1-2-3 bottom to top and never reordered.",
         act: {
-          scenario: "The declarations pages for all three policies have landed in John Doe's file. Nothing has been entered in the CMS Insurance tab yet.",
+          scenario: "All three carriers have opened claims and reported their limits on the set-up calls. The declarations pages have been requested in writing and none has arrived yet; Keystone, the third-party carrier, wants authorizations first. Nothing has been entered in the CMS Insurance tab.",
           prompt: "Build the complete policy stack for John Doe v. Robert Smith. Enter all three layers in the CMS in their order of operations, with carrier, policy number, claim number, limit and adjuster for each. Classify each layer as first-party or third-party. In the Comments box record the carrier's actual name, the driver's name where it differs from the owner, and the adjuster's details, or state expressly that none is assigned yet. Then verify the total, record the order the layers must be pursued in, and mark the projection preliminary until each limit is confirmed in writing.",
           tool: "CMS → Insurance tab",
           output: "A three-layer coverage matrix totalling $40,000, each layer classified, ordered and fully attributed.",
@@ -313,13 +313,13 @@ window.CM_CASE_FLOW = {
             "BI classified as third-party; both UM layers as first-party",
             "Policy number and claim number completed for every layer",
             "Relative UM adjuster recorded as “No adjuster assigned yet”, not left blank",
-            "Source of each limit recorded (dec page)",
+            "Source of each limit recorded (set-up call for now; declarations page requested)",
             "Projection marked preliminary until each limit is confirmed in writing"
           ]
         },
         show: {caption: "The stack, and the order it must be worked in", type: "stack"},
         ops: [
-          ["Declarations pages received", "Enter each layer with its limits and identifiers", "CMS → Insurance tab", "Three layers, each with policy number, claim number and adjuster (or “none yet”)"],
+          ["Limits reported on the set-up calls", "Enter each layer with its limits and identifiers", "CMS → Insurance tab", "Three layers, each with policy number, claim number and adjuster (or “none yet”)"],
           ["All layers entered", "Verify the total and record the order of operations", "CMS → Insurance tab → Comments", "$40,000; BI → Host UM → Relative UM"],
           ["A limit is unconfirmed", "Hold the projection as preliminary", "CMS → Case Notes", "No limit quoted to the client before written confirmation"]
         ],
@@ -339,7 +339,7 @@ window.CM_CASE_FLOW = {
           ],
           trainer: [
             ["Understands stacking", 25, "Can explain why the passenger fact opens two UM layers, not just that it does"],
-            ["Verification habit", 15, "Checked limits against the declarations pages, and held the projection until confirmed"]
+            ["Verification habit", 15, "Recorded where each limit came from, and held the projection until each is confirmed by its declarations page"]
           ]
         },
         notes: [
