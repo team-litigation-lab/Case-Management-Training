@@ -105,7 +105,8 @@ async function walk(page, label) {
     // No Blueprint in the Case Flow either: on every one of its days, the dashboard row, both slides of every block,
     // the day's own text and Knowledge Check, and its Presenter notes never say "blueprint" (the design document is
     // the curriculum spec)
-    await page.evaluate(() => goto('dashboard')); await page.waitForTimeout(500);
+    // (the Case Flow shows to a trainee a trainer has assigned it to: assign both versions, as the Admin page would)
+    await page.evaluate(() => { state.cfTrack = 'both'; state.cfTrackFor = state.traineeId; goto('dashboard'); }); await page.waitForTimeout(500);
     const cf = await page.evaluate(() => {
         const days = window.CM_CASE_FLOW_DAYS || [];
         if (!days.length) return null;

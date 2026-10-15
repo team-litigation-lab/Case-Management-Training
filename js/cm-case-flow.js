@@ -120,9 +120,44 @@ Object.defineProperty(DAYS, "some", {configurable: true, writable: true, value: 
 }});
 if(typeof DAY_ICONS !== "undefined") MODULES.forEach((m, i) => { if(!DAY_ICONS[m.id]) DAY_ICONS[m.id] = ["🗂", "📨", "💵", "⚖️", "🏛"][i] || "📘"; });
 
-/* Program counts stay with Days 1–5: a passed Case Flow day must not push "Program complete"
-   past 100% or move the program's average. (The certificate already counts DAYS only.) */
-const programIds = () => new Set(Array.prototype.map.call(DAYS, d => d.id));
+/* ---------- which version a trainee takes: the trainer assigns it ----------
+   The John Doe v. Apex days are the course's established version; the Case Flow is still being
+   built. A trainer sets each trainee's version on the Admin page (their panel → Course version):
+     classic   John Doe v. Apex, Days 1–5 (the default: a trainee nobody has assigned gets this)
+     caseflow  the Case Flow only; the Apex days are archived for them (off their dashboard and
+               Case File, still there, and their Skill Builders untouched)
+     both      both versions, the Apex days first
+   It is stored with the trainee's feedback (feedback:<id>, `track`): the trainer writes it, the
+   trainee can only read it (worker.js keeps everything but `days` when a trainee writes). Trainers
+   and Trainee view always see both. */
+const TRACKS = {classic: "John Doe v. Apex (Days 1–5)", caseflow: "Case Flow: John Doe v. Robert Smith", both: "Both versions"};
+const DEFAULT_TRACK = "classic";
+const isTrainer = () => !!(state.isAdmin || state.adminPreview);
+let FB = {id: null, p: null};
+const traineeFeedback = () => {   // one read of feedback:<id> per trainee, shared by the version and the trainer scores
+  const id = state && state.traineeId;
+  if(!id || typeof sharedGet !== "function") return Promise.resolve(null);
+  if(FB.id !== id) FB = {id, p: Promise.resolve().then(() => sharedGet("feedback:" + id)).catch(() => null)};
+  return FB.p;
+};
+function ensureTrack(){
+  const id = state && state.traineeId;
+  if(!id || isTrainer() || state.cfTrackFor === id || state.cfTrackLoading === id) return;
+  state.cfTrackLoading = id;
+  traineeFeedback().then(fb => {
+    if(state.traineeId !== id || state.cfTrackFor === id) return;   // switched trainee, or already known
+    const prev = state.cfTrack || DEFAULT_TRACK, t = fb && fb.track;
+    state.cfTrack = TRACKS[t] ? t : DEFAULT_TRACK; state.cfTrackFor = id; state.cfTrackLoading = null;
+    if(state.cfTrack !== prev && typeof render === "function" && !(typeof isTyping === "function" && isTyping())) render();
+  });
+}
+const track = () => { if(isTrainer()) return "both"; ensureTrack(); return (state.cfTrackFor === state.traineeId && state.cfTrack) || DEFAULT_TRACK; };
+const seesCaseFlow = () => track() !== "classic";
+
+/* Program counts stay with the trainee's version (Days 1–5 unless a trainer assigned the Case Flow
+   only): a passed Case Flow day must not push "Program complete" past 100% or move the program's
+   average. (The certificate counts DAYS only.) */
+const programIds = () => new Set(track() === "caseflow" ? MODULES.map(d => d.id) : Array.prototype.map.call(DAYS, d => d.id));   // a Case Flow-only trainee's program is the Case Flow
 if(typeof completedCount === "function"){
   completedCount = function(){ const ids = programIds(); return Object.entries(state.progress || {}).filter(([k, p]) => ids.has(Number(k)) && p && p.done).length; };
 }
@@ -138,7 +173,9 @@ if(typeof avgScore === "function"){
 const __unlocked = window.dayUnlocked;
 window.dayUnlocked = function(id){
   const d = cfDay(id); if(!d) return __unlocked.apply(this, arguments);
-  if(state.isAdmin || state.adminPreview || d.cf.n === 1) return true;
+  if(state.isAdmin || state.adminPreview) return true;
+  if(!seesCaseFlow()) return false;
+  if(d.cf.n === 1) return true;
   const prev = cfDayByN(d.cf.n - 1), p = prev && (state.progress || {})[prev.id];
   return !!(p && p.done);
 };
@@ -146,6 +183,7 @@ if(typeof dayLockReason === "function"){
   const __reason = dayLockReason;
   dayLockReason = function(id){
     const d = cfDay(id); if(!d) return __reason.apply(this, arguments);
+    if(!seesCaseFlow()) return "The Case Flow is still being built. Your trainer assigns it when it's ready for you.";
     const prev = cfDayByN(d.cf.n - 1);
     return `Pass the Case Flow Day ${d.cf.n - 1} Knowledge Check (70%) to open Case Flow Day ${d.cf.n}. ${prev ? "Gate: " + prev.cf.gate + "." : ""}`;
   };
@@ -227,7 +265,7 @@ async function load(){
 async function loadTrainerScores(){
   if(typeof sharedGet !== "function" || !state || !state.traineeId || state.isAdmin) return;
   try{
-    const fb = await sharedGet("feedback:" + state.traineeId);
+    const fb = await traineeFeedback();
     Object.entries((fb && fb.caseFlow) || {}).forEach(([id, t]) => { if(t && typeof t.score === "number") rec(id).trainer = t; });
   }catch(e){}
 }
@@ -426,11 +464,21 @@ window.cmCaseFlow = {
 if(typeof renderDashboard === "function"){
   const __dash = renderDashboard;
   renderDashboard = function(){
-    const html = __dash.apply(this, arguments);
+    const html = __dash.apply(this, arguments), v = track();
+    if(v === "classic") return html;   // the Case Flow isn't assigned: the dashboard stays as it was
     const t = document.createElement("template"); t.innerHTML = html;
     const main = t.content.querySelector(".dash-main");
     if(!main || typeof moduleCard !== "function") return html;
     const c = CF.case;
+    if(v === "caseflow"){
+      // Case Flow only: its days take the Apex days' place on the first screen; the Apex days are archived for this trainee
+      const grid = main.querySelector(".module-grid");
+      if(!grid) return html;
+      grid.innerHTML = MODULES.map(d => relabel(moduleCard(d), d)).join("");
+      t.content.querySelectorAll(".step-timeline, .cert-hero-locked, .cert-hero-btn, .cert-hero-view").forEach(n => n.remove());   // the day circles and the certificate belong to the Apex days
+      t.content.querySelectorAll(".resume-btn").forEach(b => { if(!/Case Flow/.test(b.textContent)) b.remove(); });
+      return t.innerHTML;
+    }
     const cards = MODULES.map(d => relabel(moduleCard(d), d)).join("")
       + (CF.upcoming || []).filter(u => !cfDayByN(u.n)).map(u => `<div class="module-card mc-locked cf-soon">
           <div class="module-head"><div class="mh-day">Case Flow Day ${u.n} · In development</div><div class="mh-title">${E(u.title)}</div></div>
@@ -440,6 +488,7 @@ if(typeof renderDashboard === "function"){
     sec.innerHTML = `<div class="cf-dash-head"><p class="eyebrow">New track</p>
         <h2>5-Day Legal Case Management Flow</h2>
         <p>One file from intake to deposition: <b>${E(c.style)}</b> · ${E(c.counsel)} · ${E(money(c.total))} stack · ${E(c.gapDays)}-Day Treatment Gap. Every module runs Lesson → Skill Activity → Lesson → Skill Activity → Knowledge Check.</p>
+        ${isTrainer() ? `<p class="cf-note">Trainees see this track only when you assign it: Admin → the trainee's panel → Course version. Unassigned trainees take John Doe v. Apex.</p>` : ""}
         ${window.cmCaseFlow.profile ? `<p><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.profile(true)">📂 Case profile: ${E(c.style)}</button></p>` : ""}</div>
       <div class="module-grid">${cards}</div>`;
     const layout = main.closest(".dash-layout");
@@ -475,9 +524,27 @@ function trainerPanel(rec){
       <div class="fbc-actions"><button class="btn btn-primary btn-sm" onclick="cmCaseFlow.trainerSave('${rec.id}','${m.id}')">Save trainer score</button></div>
     </details>`;
   }).join("");
-  return `<div class="fb-admin cf-tr-wrap"><div class="sidebar-section-lbl" style="padding-left:0;">Case Flow — trainer assessment (40%)</div>
+  const cur = TRACKS[work.feedback.track] ? work.feedback.track : DEFAULT_TRACK;
+  const version = `<div class="cf-track"><label><b>Course version</b>
+      <select onchange="cmCaseFlow.setTrack('${rec.id}', this.value)">${Object.entries(TRACKS).map(([k, l]) => `<option value="${k}" ${k === cur ? "selected" : ""}>${E(l)}${k === DEFAULT_TRACK ? " (default)" : ""}</option>`).join("")}</select></label>
+      <span class="cf-note">What this trainee sees. John Doe v. Apex is the established version; the Case Flow is still being built. Choosing the Case Flow only archives the Apex days for them (nothing is deleted, and you can switch back at any time).</span></div>`;
+  if(cur === "classic") return `<div class="fb-admin cf-tr-wrap">${version}</div>`;
+  return `<div class="fb-admin cf-tr-wrap">${version}<div class="sidebar-section-lbl" style="padding-left:0;">Case Flow — trainer assessment (40%)</div>
     <p class="cf-note">The trainee's quiz share and AI review make the automated 60%. Your score here makes the 40%; the composite appears on their Knowledge Check once both are in.</p>${rows}</div>`;
 }
+window.cmCaseFlow.setTrack = async function(id, value){
+  const work = (state.traineeWork || {})[id];
+  if(!work || !TRACKS[value]) return;
+  const latest = (await sharedGet("feedback:" + id).catch(() => null)) || work.feedback || {days: {}};   // re-read so nothing else is clobbered
+  latest.days = latest.days || {};
+  latest.track = value;
+  latest.trackSetAt = new Date().toISOString();
+  const ok = await sharedSet("feedback:" + id, latest);
+  if(!ok){ if(typeof toast === "function") toast("Couldn't save the course version — try again."); return; }
+  work.feedback = latest;
+  if(typeof toast === "function") toast(`Course version: ${TRACKS[value]}. The trainee sees it the next time their page loads.`);
+  const wrap = document.getElementById("adminRowsWrap"); if(wrap && typeof renderAdminRows === "function") wrap.innerHTML = renderAdminRows();
+};
 window.cmCaseFlow.trainerSave = async function(id, modId){
   const sid = cssId(id), work = (state.traineeWork || {})[id];
   const v = Number((document.getElementById(`cftr_${sid}_${modId}`) || {}).value);
@@ -527,7 +594,10 @@ function profileSwitch(){
 if(typeof window.renderClientProfile === "function"){
   const __profile = window.renderClientProfile;
   window.renderClientProfile = function(){
-    return profileSwitch() + (state.cfProfile && Array.isArray(CF.profile) ? caseFlowProfile() : __profile.apply(this, arguments));
+    const v = track();
+    if(v === "classic" || !Array.isArray(CF.profile)) return __profile.apply(this, arguments);   // the Apex Case File, as it was
+    if(v === "caseflow") return caseFlowProfile();   // the Apex Case File is archived for this trainee
+    return profileSwitch() + (state.cfProfile ? caseFlowProfile() : __profile.apply(this, arguments));
   };
   window.cmCaseFlow.profile = function(on){
     state.cfProfile = !!on;
@@ -596,6 +666,10 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
   main.main-dash > .cf-dash{flex:0 0 auto;}
 }
 .cf-tr-wrap{margin-top:14px;}
+.cf-track{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin:0 0 10px;padding:10px 12px;background:#F6F7FB;border:1px solid var(--line);border-radius:12px;}
+.cf-track label{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.cf-track select{max-width:100%;}
+.cf-track .cf-note{margin:0;flex:1 1 260px;}
 .cf-tr summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
 .cf-tr-chips{display:inline-flex;flex-wrap:wrap;gap:4px;}
 .cf-tr-rubric{font-size:12.5px;color:var(--ink-soft);margin:6px 0;}
