@@ -31,7 +31,7 @@
 
 Each Case Phase is taught as one uninterrupted discussion of its lessons, then its Skill Activities and real-time practice on John Doe's file in the CMS, then its Learning Check.
 
-**Case Phase 1 — BI & UM Demand Execution**
+**Case Phase 1 — Demand**
 
 1. *Lesson* — Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup
 2. *Lesson* — Secondary UM Demand Structuring & Policy Stacking Rules
@@ -39,7 +39,7 @@ Each Case Phase is taught as one uninterrupted discussion of its lessons, then i
 4. *Skill Activity* — Drafting the $20,000 Host UM and $10,000 Relative UM Demands
 5. *Knowledge Check* — Demand Execution Audit
 
-**Case Phase 2 — Adjuster Negotiation & Stall Countermeasures**
+**Case Phase 2 — Settlement Negotiations**
 
 1. *Lesson* — Countering Adjuster Delay Tactics & Gap Pushback
 2. *Lesson* — Securing Maximum Gross Policy-Limit Settlements
@@ -47,7 +47,7 @@ Each Case Phase is taught as one uninterrupted discussion of its lessons, then i
 4. *Skill Activity* — Closing the $40,000 Gross Recovery
 5. *Knowledge Check* — Negotiation Mastery Check
 
-**Case Phase 3 — Combined Lien Negotiations & Practice Lab**
+**Case Phase 3 — Lien Negotiations & Reduction**
 
 1. *Lesson* — Statutory Liens, Health Subrogation & Provider Balances
 2. *Lesson* — Pro-Rata Distribution & Medical Bill Reduction
@@ -55,7 +55,7 @@ Each Case Phase is taught as one uninterrupted discussion of its lessons, then i
 4. *Skill Activity* — Provider Balance Negotiation Exercises
 5. *Knowledge Check* — Lien Reduction Verification
 
-**Case Phase 4 — Net Sheet Completion & Final Case Closing**
+**Case Phase 4 — Disbursement & Closing a Case**
 
 1. *Lesson* — The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker
 2. *Lesson* — Release Audits, Trust Accounting & Disbursement Commands
@@ -67,13 +67,13 @@ Each Case Phase is taught as one uninterrupted discussion of its lessons, then i
 
 ---
 
-## Case Phase 1 — BI & UM Demand Execution
+## Case Phase 1 — Demand
 
 **Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check
 
 ### 3.1.1 Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup
 
-> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 1: BI & UM Demand Execution · scored with Demand Execution Audit (`d3m1`)  
+> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 1: Demand · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** What makes a $10,000 demand one Keystone has to answer  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#11` Case Phase: Demand — The Legal & Procedural Foundation · `D2#12` Demand: The Policy Limit Mindset · `D2#13` Treatment Gaps in the Demand Phase · `D2#17` Demand: Best Practices · Newly authored: the elements of a Time-Limited Demand that can support a later failure-to-settle claim (within limits, clear and reasonable terms, sufficient documentation, a stated window with proof of delivery)
@@ -157,7 +157,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ### 3.1.2 Secondary UM Demand Structuring & Policy Stacking Rules
 
-> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 1: BI & UM Demand Execution · scored with Demand Execution Audit (`d3m1`)  
+> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 1: Demand · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Locking the escape hatches before Host UM and Relative UM open  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#31` BI Settlement — Phase II: The UM/UIM “Safety Check” · `D2#32` BI Settlement: Key Laws & Doctrines · `D3#1` Training Agenda & Why the UM Phase Matters · `D3#2` Beyond Organization: The UM Demand Strategy · `D3#3` BI Exhaustion & Consent — Mechanic 1: Locking the Escape Hatches · `D3#4` The UM Demand Package: Turning Risk Management Against the Insurer · `D3#5` UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#12` Documents that Matter: Threshold & Coverage Documents · Newly authored: the UM carrier's right to substitute its own check for the BI tender; a General Release (“all other … insurers”) as a threat to the UM claims; Relative UM as excess over Host UM
@@ -240,7 +240,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ### 3.1.3 Serving the $10,000 BI Time-Limit Demand Package
 
-> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 1: BI & UM Demand Execution · scored with Demand Execution Audit (`d3m1`)  
+> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 1: Demand · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 1 — audit it, serve it, prove it  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#13` Treatment Gaps in the Demand Phase · `D2#14` The Demand Packet Checklist: The “Big Four” · `D2#15` Demand: Quality Control — The “Final Scrub” · `D2#17` Demand: Best Practices · `D2#18` Skill Building: Demand Phase Challenge — Real-Time Demand Audit
@@ -320,7 +320,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ### 3.1.4 Drafting the $20,000 Host UM and $10,000 Relative UM Demands
 
-> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 1: BI & UM Demand Execution · scored with Demand Execution Audit (`d3m1`)  
+> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 1: Demand · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 2 — two packages, exhaustion proof on page one  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#4` The UM Demand Package: Turning Risk Management Against the Insurer · `D3#5` UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap · `D3#6` UM Demand: The Demand Packet — Document Inclusions · `D3#12` Documents that Matter: Threshold & Coverage Documents · `D3#13` Documents that Matter: Liability & Causation Documents · `D3#14` Documents that Matter: Special Damages Documents (Economic Hard Costs) · `D3#15` Documents that Matter: General Damages Documents (Non-Economic Value) · `D3#16` Documents that Matter: Final Pleading & Release Documents (Closing Phase)
@@ -400,7 +400,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ### 3.1.5 Demand Execution Audit
 
-> **Knowledge Check** · Day 3 — Demands & settlement — Track A · Case Phase 1: BI & UM Demand Execution · scored with Demand Execution Audit (`d3m1`)  
+> **Knowledge Check** · Day 3 — Demands & settlement — Track A · Case Phase 1: Demand · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Demand Execution Audit + CM Learning Summary & Self-Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#13` Treatment Gaps in the Demand Phase · `D2#15` Demand: Quality Control — The “Final Scrub” · `D2#18` Skill Building: Demand Phase Challenge — Real-Time Demand Audit · `D2#31` BI Settlement — Phase II: The UM/UIM “Safety Check” · `D3#3` BI Exhaustion & Consent — Mechanic 1: Locking the Escape Hatches · `D3#6` UM Demand: The Demand Packet — Document Inclusions · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#12` Documents that Matter: Threshold & Coverage Documents · `D3#15` Documents that Matter: General Damages Documents (Non-Economic Value)
@@ -484,13 +484,13 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-## Case Phase 2 — Adjuster Negotiation & Stall Countermeasures
+## Case Phase 2 — Settlement Negotiations
 
 **Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check
 
 ### 3.2.1 Countering Adjuster Delay Tactics & Gap Pushback
 
-> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 2: Adjuster Negotiation & Stall Countermeasures · scored with Negotiation Mastery Check (`d3m2`)  
+> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 2: Settlement Negotiations · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** The battle map, the first call, and the stall rebuttals  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#16` Negotiating the “First Call” (For Senior CMs) · `D2#19` Settlement Negotiations: The Pitch & the Negotiation Battle Map · `D2#21` The Valuation Baseline: PIP as a Severity Signal · `D2#24` The Valuation Baseline: Strategic PIP “Exhaustion” · `D2#25` Negotiations Initiated: The “Battle” — First Call to Low-Ball · `D2#27` Common Adjuster “Stall Tactics” and Rebuttals · `D2#29` Settlement Negotiations: The “Never” Rule
@@ -573,7 +573,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 3.2.2 Securing Maximum Gross Policy-Limit Settlements
 
-> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 2: Adjuster Negotiation & Stall Countermeasures · scored with Negotiation Mastery Check (`d3m2`)  
+> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 2: Settlement Negotiations · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** The UM gap, the reductions that don't apply, and closing at limits  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#20` The Valuation Baseline: PIP Set-Off (The Credit) · `D2#22` The Valuation Baseline: The EMC and the Benefit Ceiling · `D2#23` The Valuation Baseline: Subrogation vs. Non-Subrogation · `D2#26` Settlement Negotiations: The Bracketing Technique · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D3#7` UM Settlement: How the Settlement Is Calculated · `D3#8` UM Settlement: Negotiation & Settlement · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#10` UM Settlement: Challenges · `D3#11` UM Settlement: The Final Payout Process · `D3#17` Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit
@@ -657,7 +657,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 3.2.3 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
 
-> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 2: Adjuster Negotiation & Stall Countermeasures · scored with Negotiation Mastery Check (`d3m2`)  
+> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 2: Settlement Negotiations · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 1 — hold the Limits Demand on a recorded call  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#16` Negotiating the “First Call” (For Senior CMs) · `D2#25` Negotiations Initiated: The “Battle” — First Call to Low-Ball · `D2#27` Common Adjuster “Stall Tactics” and Rebuttals · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D2#29` Settlement Negotiations: The “Never” Rule · `D2#30` Skill Building: The Math Check — Your Slam-Dunk Liability Case · LSH Claims Specialist: review the case reference sheet before any adjuster call; no backdoor contact with the client
@@ -746,7 +746,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 3.2.4 Closing the $40,000 Gross Recovery
 
-> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 2: Adjuster Negotiation & Stall Countermeasures · scored with Negotiation Mastery Check (`d3m2`)  
+> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 2: Settlement Negotiations · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 2 — work both UM layers to limits, on the record  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#26` Settlement Negotiations: The Bracketing Technique · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D3#7` UM Settlement: How the Settlement Is Calculated · `D3#8` UM Settlement: Negotiation & Settlement · `D3#10` UM Settlement: Challenges · `D3#11` UM Settlement: The Final Payout Process · `D3#17` Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit
@@ -824,7 +824,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 3.2.5 Negotiation Mastery Check
 
-> **Knowledge Check** · Day 3 — Demands & settlement — Track A · Case Phase 2: Adjuster Negotiation & Stall Countermeasures · scored with Negotiation Mastery Check (`d3m2`)  
+> **Knowledge Check** · Day 3 — Demands & settlement — Track A · Case Phase 2: Settlement Negotiations · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Knowledge Check + CM Learning Summary & Self-Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#19` Settlement Negotiations: The Pitch & the Negotiation Battle Map · `D2#20` The Valuation Baseline: PIP Set-Off (The Credit) · `D2#23` The Valuation Baseline: Subrogation vs. Non-Subrogation · `D2#27` Common Adjuster “Stall Tactics” and Rebuttals · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D2#29` Settlement Negotiations: The “Never” Rule · `D2#30` Skill Building: The Math Check — Your Slam-Dunk Liability Case · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#11` UM Settlement: The Final Payout Process · `D3#17` Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit
@@ -908,13 +908,13 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-## Case Phase 3 — Combined Lien Negotiations & Practice Lab
+## Case Phase 3 — Lien Negotiations & Reduction
 
 **Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check
 
 ### 3.3.1 Statutory Liens, Health Subrogation & Provider Balances
 
-> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 3: Combined Lien Negotiations & Practice Lab · scored with Lien Reduction Verification (`d3m3`)  
+> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 3: Lien Negotiations & Reduction · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Not all liens are created equal: classify before you negotiate  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#18` Lien Negotiations/Reduction: Common Types of Liens · `D3#19` Key Legal Doctrines Used for Reduction · `D3#20` Quantum Meruit Principle — Prior Attorney Liens · Newly authored: plan funding status (self-funded vs. fully insured) decides the law that governs a health-plan reduction; the verified-none inventory of absent lienholders
@@ -1000,7 +1000,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 3) and that day
 
 ### 3.3.2 Pro-Rata Distribution & Medical Bill Reduction
 
-> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 3: Combined Lien Negotiations & Practice Lab · scored with Lien Reduction Verification (`d3m3`)  
+> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 3: Lien Negotiations & Reduction · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Audit first, then show the lienholder the math  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#21` Increasing the Client's Net · `D3#22` Auditing the Billing Before Asking for a Discount · `D2#40` Finalized Settlement: Final Lien Mitigation (The “Reduction”) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · Newly authored: the pro-rata distribution rule worked on the BI-only illustration; the pro-rata argument restated on true facts for a fund that covers every lien
@@ -1082,7 +1082,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 3) and that day
 
 ### 3.3.3 Health Subrogation & Statutory Lien Reduction Lab
 
-> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 3: Combined Lien Negotiations & Practice Lab · scored with Lien Reduction Verification (`d3m3`)  
+> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 3: Lien Negotiations & Reduction · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Skill Activity 1 — reduce Peach State, clear the statutory side  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#18` Lien Negotiations/Reduction: Common Types of Liens · `D3#19` Key Legal Doctrines Used for Reduction · `D2#40` Finalized Settlement: Final Lien Mitigation (The “Reduction”) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork)
@@ -1169,7 +1169,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 3) and that day
 
 ### 3.3.4 Provider Balance Negotiation Exercises
 
-> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 3: Combined Lien Negotiations & Practice Lab · scored with Lien Reduction Verification (`d3m3`)  
+> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 3: Lien Negotiations & Reduction · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Skill Activity 2 — the reduction call to the chiropractor  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#21` Increasing the Client's Net · `D3#22` Auditing the Billing Before Asking for a Discount · `D2#40` Finalized Settlement: Final Lien Mitigation (The “Reduction”) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork)
@@ -1246,7 +1246,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 3) and that day
 
 ### 3.3.5 Lien Reduction Verification
 
-> **Knowledge Check** · Day 3 — Demands & settlement — Track A · Case Phase 3: Combined Lien Negotiations & Practice Lab · scored with Lien Reduction Verification (`d3m3`)  
+> **Knowledge Check** · Day 3 — Demands & settlement — Track A · Case Phase 3: Lien Negotiations & Reduction · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#18` Lien Negotiations/Reduction: Common Types of Liens · `D3#19` Key Legal Doctrines Used for Reduction · `D3#20` Quantum Meruit Principle — Prior Attorney Liens · `D3#21` Increasing the Client's Net · `D3#22` Auditing the Billing Before Asking for a Discount · `D2#40` Finalized Settlement: Final Lien Mitigation (The “Reduction”)
@@ -1330,13 +1330,13 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-## Case Phase 4 — Net Sheet Completion & Final Case Closing
+## Case Phase 4 — Disbursement & Closing a Case
 
 **Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check
 
 ### 3.4.1 The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker
 
-> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 4: Net Sheet Completion & Final Case Closing · scored with Final Accounting Check (`d3m4`)  
+> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 4: Disbursement & Closing a Case · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** One Net Sheet, two streams, every dollar's origin visible  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · `D2#36` The Execution: The Settlement Statement (The “Net” Sheet) · `D3#23` The Net Sheet: Purpose of a Combined BI/UM Net Sheet · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · `D3#27` Key Takeaway — The Value of a Case Manager
@@ -1422,7 +1422,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 3) and that day's au
 
 ### 3.4.2 Release Audits, Trust Accounting & Disbursement Commands
 
-> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 4: Net Sheet Completion & Final Case Closing · scored with Final Accounting Check (`d3m4`)  
+> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 4: Disbursement & Closing a Case · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** No money moves until every gate behind it is closed  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D2#34` The Execution: Settlement Disclosure Statement (The “Truth” Document) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · `D2#36` The Execution: The Settlement Statement (The “Net” Sheet) · `D2#37` The Execution: The Dismissal (The “Court” Filing) · `D2#38` The Execution: W-9 & Comparison of Key Post-Settlement Documents · `D2#39` Finalized Settlement: Boots-on-the-Ground Tasks — Administrative Document Control · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · `D3#29` Case Phase: Disbursement — Core Objectives · `D3#30` Disbursement: The Workflow · `D3#32` Disbursement: Common Challenges & Mitigation · Newly authored: trust-account handling (same-day IOLTA deposit once the release is signed, client endorsement, no disbursement against uncleared funds, disputed shares held in trust); the contingent-fee Settlement Statement (ABA Model Rule 1.5(c) as an example); the UM release's Medicare and confidentiality terms
@@ -1505,7 +1505,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 3) and that day's au
 
 ### 3.4.3 Completing the Final Dual-Tab Net Sheet
 
-> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 4: Net Sheet Completion & Final Case Closing · scored with Final Accounting Check (`d3m4`)  
+> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 4: Disbursement & Closing a Case · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity 1 — take $40,000.00 to $20,359.92, and prove every line  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · `D2#36` The Execution: The Settlement Statement (The “Net” Sheet) · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D3#27` Key Takeaway — The Value of a Case Manager · `D3#28` Skill Building: The “Doe v. Apex” Final Net Challenge
@@ -1584,7 +1584,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 3) and that day's au
 
 ### 3.4.4 Release Audit & Disbursement Command Triggering
 
-> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 4: Net Sheet Completion & Final Case Closing · scored with Final Accounting Check (`d3m4`)  
+> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 4: Disbursement & Closing a Case · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity 2 — catch the line that costs $30,000, then move the money  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · `D2#38` The Execution: W-9 & Comparison of Key Post-Settlement Documents · `D2#41` Skill Building: BI Settlement — Caught in an Operational Pincer Movement · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · `D3#29` Case Phase: Disbursement — Core Objectives · `D3#30` Disbursement: The Workflow · `D3#31` Disbursement: Documentation Checklist · `D3#32` Disbursement: Common Challenges & Mitigation · `D3#34` Final Case Reconciliation Checklist: Proof of Delivery/Completion
@@ -1663,7 +1663,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 3) and that day's au
 
 ### 3.4.5 Final Accounting Check
 
-> **Knowledge Check** · Day 3 — Demands & settlement — Track A · Case Phase 4: Net Sheet Completion & Final Case Closing · scored with Final Accounting Check (`d3m4`)  
+> **Knowledge Check** · Day 3 — Demands & settlement — Track A · Case Phase 4: Disbursement & Closing a Case · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#37` The Execution: The Dismissal (The “Court” Filing) · `D2#41` Skill Building: BI Settlement — Caught in an Operational Pincer Movement · `D3#23` The Net Sheet: Purpose of a Combined BI/UM Net Sheet · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D3#27` Key Takeaway — The Value of a Case Manager · `D3#33` Final Case Reconciliation Checklist: Net Sheet (The “Money Trail”) · `D3#34` Final Case Reconciliation Checklist: Proof of Delivery/Completion · `D3#35` Final Case Reconciliation Checklist: Compliance & Identity Verification · `D3#36` Final Case Reconciliation Checklist: The Internal “Closing Memo” · `D3#37` Final Case Reconciliation: Retention & Disposition Schedule · `D3#38` Skill Building: Closing a Case — John Doe v. Apex Delivery Final Tasks

@@ -7426,34 +7426,36 @@ window.CM_CASE_FLOW = {
      taught as one uninterrupted discussion of its lessons, then its Skill Activities and real-time
      practice (all of it on John Doe's file in the CMS), then its Learning Check. The modules above stay
      the units of scoring (each Knowledge Check, its quiz share, the Self-Summary and the trainer's 40%);
-     the sequence only sets where each block is taught. Every block appears exactly once. */
+     the sequence only sets where each block is taught. Every block appears exactly once.
+     A phase's title is its name in the original deck: lessons show "Case Phase: <title>" (or the
+     block's own entry in `headings`), activities "Skill Building: <title>", checks "Learning Check: <title>". */
   sequence: [
     {n: 1, phases: [
-      {title: "Your Role, Your Case, Intake & Property Damage", blocks: ["d1m1-role", "d1m1-case", "d1m1-l1", "d1m4-l1", "d1m3-l1", "d1m3-l2", "d1m1-open", "d1m3-a1", "d1m3-a2", "d1m3-kc"]},
-      {title: "Claims & the CM Case Strategy", blocks: ["d2m1-l1", "d2m1-l2", "d1m1-l2", "d1m4-l2", "d2m1-a1", "d1m1-a1", "d2m1-a2", "d1m1-a2", "d1m4-a1", "d1m4-a2", "d1m1-kc", "d2m1-kc", "d1m4-kc"]}
+      {title: "Intake & Property Damage", blocks: ["d1m1-role", "d1m1-case", "d1m1-l1", "d1m4-l1", "d1m3-l1", "d1m3-l2", "d1m1-open", "d1m3-a1", "d1m3-a2", "d1m3-kc"], headings: {"d1m1-role": "Case Management Fundamentals", "d1m1-case": "Case Management Fundamentals", "d1m1-l1": "Case Phase: Intake", "d1m4-l1": "Case Phase: Intake", "d1m3-l1": "Case Phase: Property Damage", "d1m3-l2": "Case Phase: Property Damage"}},
+      {title: "Claim Set Up & Case Strategy", blocks: ["d2m1-l1", "d2m1-l2", "d1m1-l2", "d1m4-l2", "d2m1-a1", "d1m1-a1", "d2m1-a2", "d1m1-a2", "d1m4-a1", "d1m4-a2", "d1m1-kc", "d2m1-kc", "d1m4-kc"], headings: {"d2m1-l1": "Case Phase: Claim Set Up", "d2m1-l2": "Case Phase: Claim Set Up", "d1m1-l2": "Case Phase: Claim Set Up", "d1m4-l2": "Case Phase: Case Strategy"}}
     ]},
     {n: 2, phases: [
       {title: "Client Communications", blocks: ["d2m3-l1", "d1m2-l1", "d1m2-l2", "d1m2-a1", "d1m2-a2", "d1m2-kc"]},
-      {title: "Treatment & Provider Communications", blocks: ["d2m2-l2", "d2m2-l1", "d2m3-l2", "d2m2-a1", "d2m3-a1", "d2m2-a2", "d2m3-a2", "d2m2-kc", "d2m3-kc"]},
-      {title: "Pre-Demand Audit & Strategy", blocks: ["d2m4-l1", "d2m4-l2", "d2m4-a1", "d2m4-a2", "d2m4-kc"]}
+      {title: "Treatment", blocks: ["d2m2-l2", "d2m2-l1", "d2m3-l2", "d2m2-a1", "d2m3-a1", "d2m2-a2", "d2m3-a2", "d2m2-kc", "d2m3-kc"]},
+      {title: "Pre-Demand Case Auditing", blocks: ["d2m4-l1", "d2m4-l2", "d2m4-a1", "d2m4-a2", "d2m4-kc"]}
     ]},
     {n: 3, phases: [
-      {title: "BI & UM Demand Execution", blocks: ["d3m1-l1", "d3m1-l2", "d3m1-a1", "d3m1-a2", "d3m1-kc"]},
-      {title: "Adjuster Negotiation & Stall Countermeasures", blocks: ["d3m2-l1", "d3m2-l2", "d3m2-a1", "d3m2-a2", "d3m2-kc"]},
-      {title: "Combined Lien Negotiations & Practice Lab", blocks: ["d3m3-l1", "d3m3-l2", "d3m3-a1", "d3m3-a2", "d3m3-kc"]},
-      {title: "Net Sheet Completion & Final Case Closing", blocks: ["d3m4-l1", "d3m4-l2", "d3m4-a1", "d3m4-a2", "d3m4-kc"]}
+      {title: "Demand", blocks: ["d3m1-l1", "d3m1-l2", "d3m1-a1", "d3m1-a2", "d3m1-kc"]},
+      {title: "Settlement Negotiations", blocks: ["d3m2-l1", "d3m2-l2", "d3m2-a1", "d3m2-a2", "d3m2-kc"]},
+      {title: "Lien Negotiations & Reduction", blocks: ["d3m3-l1", "d3m3-l2", "d3m3-a1", "d3m3-a2", "d3m3-kc"]},
+      {title: "Disbursement & Closing a Case", blocks: ["d3m4-l1", "d3m4-l2", "d3m4-a1", "d3m4-a2", "d3m4-kc"]}
     ]},
     {n: 4, phases: [
-      {title: "The Litigation Fork & Contextual Shift", blocks: ["d4m1-l1", "d4m1-l2", "d4m1-a1", "d4m1-a2", "d4m1-kc"]},
-      {title: "Mediation vs. Arbitration & Calendar Hard Rules", blocks: ["d4m2-l1", "d4m2-l2", "d4m2-a1", "d4m2-a2", "d4m2-kc"]},
-      {title: "Evidentiary Binder Assembly", blocks: ["d4m3-l1", "d4m3-l2", "d4m3-a1", "d4m3-a2", "d4m3-kc"]},
-      {title: "Administrative Bottlenecks & CMS Countermeasures", blocks: ["d4m4-l1", "d4m4-l2", "d4m4-a1", "d4m4-a2", "d4m4-kc"]}
+      {title: "The Litigation Fork", blocks: ["d4m1-l1", "d4m1-l2", "d4m1-a1", "d4m1-a2", "d4m1-kc"]},
+      {title: "Mediation, Arbitration & the Calendar", blocks: ["d4m2-l1", "d4m2-l2", "d4m2-a1", "d4m2-a2", "d4m2-kc"]},
+      {title: "Mediation & Arbitration Binders", blocks: ["d4m3-l1", "d4m3-l2", "d4m3-a1", "d4m3-a2", "d4m3-kc"]},
+      {title: "Common Bottlenecks", blocks: ["d4m4-l1", "d4m4-l2", "d4m4-a1", "d4m4-a2", "d4m4-kc"]}
     ]},
     {n: 5, phases: [
-      {title: "Tactical Case Manager Support in Litigation", blocks: ["d5m1-l1", "d5m1-l2", "d5m1-a1", "d5m1-a2", "d5m1-kc"]},
-      {title: "Interactive Property Damage Practice Lab", blocks: ["d5m2-l1", "d5m2-l2", "d5m2-a1", "d5m2-a2", "d5m2-kc"]},
-      {title: "Deposition Preparation Protocols", blocks: ["d5m3-l1", "d5m3-l2", "d5m3-a1", "d5m3-a2", "d5m3-kc"]},
-      {title: "Complex Liability Disputes, Comparative Negligence & MIA Client Skip-Tracing", blocks: ["d5m4-l1", "d5m4-l2", "d5m4-a1", "d5m4-a2", "d5m4-kc"]}
+      {title: "Litigation", blocks: ["d5m1-l1", "d5m1-l2", "d5m1-a1", "d5m1-a2", "d5m1-kc"]},
+      {title: "Property Damage in Litigation", blocks: ["d5m2-l1", "d5m2-l2", "d5m2-a1", "d5m2-a2", "d5m2-kc"]},
+      {title: "Deposition Preparation", blocks: ["d5m3-l1", "d5m3-l2", "d5m3-a1", "d5m3-a2", "d5m3-kc"]},
+      {title: "Liability Disputes & Skip-Tracing", blocks: ["d5m4-l1", "d5m4-l2", "d5m4-a1", "d5m4-a2", "d5m4-kc"]}
     ]}
   ]
 };

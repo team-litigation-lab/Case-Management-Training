@@ -40,7 +40,7 @@ Each Case Phase is taught as one uninterrupted discussion of its lessons, then i
 5. *Skill Activity* — Final Warning Letter Drafting
 6. *Knowledge Check* — MIA Escalation Knowledge Check
 
-**Case Phase 2 — Treatment & Provider Communications**
+**Case Phase 2 — Treatment**
 
 1. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
 2. *Lesson* — LOP Issuance Guidelines, Provider Coordination & MedPay Limits
@@ -52,7 +52,7 @@ Each Case Phase is taught as one uninterrupted discussion of its lessons, then i
 8. *Knowledge Check* — Treatment Monitoring Review
 9. *Knowledge Check* — UPL & Investigation Review
 
-**Case Phase 3 — Pre-Demand Audit & Strategy**
+**Case Phase 3 — Pre-Demand Case Auditing**
 
 1. *Lesson* — MMI, Special Damages & Policy-Limits Targets
 2. *Lesson* — Strategy Briefing Protocols with Lead Counsel
@@ -539,13 +539,13 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-## Case Phase 2 — Treatment & Provider Communications
+## Case Phase 2 — Treatment
 
 **Order:** Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check
 
 ### 2.2.1 A-C-T Crisis Protocol & Treatment Monitoring Principles
 
-> **Lesson** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment & Provider Communications · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Is the plan working, and what you do the day it isn't  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#27` Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention · `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#31` Treatment Red Flags: PT & Conservative Care, Surgical Protocols · `D1#36` The Standard Treatment Map · `D1#37` Treatment Road Map Mastery & the Clinical Pathway Flowchart · `D1#38` Variance Analysis: Why the Map Fails · `D1#40` The “Golden Standard”: Reasonable and Necessary · `D1#41` Immediate Action Protocol: A-C-T for Red Flags · `D1#42` Illustration & Course Correction: The 6-Week Rule and Objective Metrics · `D1#43` The “Yellow Flag” Warning System · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder
@@ -628,7 +628,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 2.2.2 LOP Issuance Guidelines, Provider Coordination & MedPay Limits
 
-> **Lesson** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment & Provider Communications · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays which bill, and what only counsel may promise  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · `D1#26` The Treatment Phase — Core Objectives · `D1#30` Handling the Treatment Phase: Proactive Resource Coordination · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · `D1#39` Communication Loops: The “Stakeholder Triad” · LSH Claims Specialist: MedPay vs. PIP (Medical Bills regardless of fault, no lost wages) · Newly authored: LOP issuance guidelines and the MedPay exhaustion ledger
@@ -713,7 +713,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 2.2.3 Medical Excuse Notes & Continuous-Care Documentation Rules
 
-> **Lesson** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment & Provider Communications · scored with UPL & Investigation Review (`d2m3`)  
+> **Lesson** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** What proves the care was continuous, and what never happens  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#44` Handling Treatment Gaps During the Treatment Phase · `D2#13` Treatment Gaps in the Demand Phase · `D1#39` Communication Loops: The “Stakeholder Triad” · LSH Claims Specialist: attention to detail — cross-referencing facts and dates across documents · Newly authored: continuous-care documentation tests and record integrity (no altered, back-dated or to-order records; excuse notes cover only what the author saw)
@@ -797,7 +797,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 2) and that day'
 
 ### 2.2.4 Transmitting LOPs to Medical Providers
 
-> **Skill Activity** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment & Provider Communications · scored with Treatment Monitoring Review (`d2m2`)  
+> **Skill Activity** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 1 — one LOP issued, one declined  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · `D1#33` Case Planning — Treatment: The Assessment Phase · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · `D1#46` Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain · Newly authored: LOP issuance guidelines and the MedPay exhaustion ledger
@@ -874,7 +874,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 2.2.5 Probe the 14-Day Treatment Gap with AI John Doe
 
-> **Skill Activity** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment & Provider Communications · scored with UPL & Investigation Review (`d2m3`)  
+> **Skill Activity** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 1 — Call Simulator: the 14-Day Gap, in his words  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#44` Handling Treatment Gaps During the Treatment Phase · `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · LSH Claims Specialist: communication skills and professionalism — clarity without jargon, empathy, active listening, paraphrasing, calm reassurance · Newly authored: non-leading investigative interview technique (the funnel); recording consent and privilege on a client call
@@ -963,7 +963,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 2) and that day'
 
 ### 2.2.6 Executing the A-C-T Crisis Protocol for Disrupted Care
 
-> **Skill Activity** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment & Provider Communications · scored with Treatment Monitoring Review (`d2m2`)  
+> **Skill Activity** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — the Transportation Wall, 04/08/2026  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#26` The Treatment Phase — Core Objectives · `D1#27` Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#30` Handling the Treatment Phase: Proactive Resource Coordination · `D1#38` Variance Analysis: Why the Map Fails · `D1#41` Immediate Action Protocol: A-C-T for Red Flags · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder · `D1#47` Skill Building: Handling Client Treatment — “The Transportation Wall”
@@ -1051,7 +1051,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 2.2.7 Gap Justification Record Creation
 
-> **Skill Activity** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment & Provider Communications · scored with UPL & Investigation Review (`d2m3`)  
+> **Skill Activity** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 2 — every reason beside its proof, for both interruptions  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#44` Handling Treatment Gaps During the Treatment Phase · `D2#13` Treatment Gaps in the Demand Phase · `D2#8` The “Defense-Eye” Audit (Red Flag Detection) · LSH Claims Specialist: attention to detail — cross-referencing facts and dates across documents
@@ -1140,7 +1140,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 2) and that day'
 
 ### 2.2.8 Treatment Monitoring Review
 
-> **Knowledge Check** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment & Provider Communications · scored with Treatment Monitoring Review (`d2m2`)  
+> **Knowledge Check** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#32` Treatment Red Flags: Pain Management, Medication & Behavioral Health / TBI · `D1#33` Case Planning — Treatment: The Assessment Phase · `D1#34` Case Planning — Treatment: SMART Goal Setting · `D1#36` The Standard Treatment Map · `D1#37` Treatment Road Map Mastery & the Clinical Pathway Flowchart · `D1#40` The “Golden Standard”: Reasonable and Necessary · `D1#42` Illustration & Course Correction: The 6-Week Rule and Objective Metrics · `D1#46` Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain
@@ -1226,7 +1226,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 
 ### 2.2.9 UPL & Investigation Review
 
-> **Knowledge Check** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment & Provider Communications · scored with UPL & Investigation Review (`d2m3`)  
+> **Knowledge Check** · Day 2 — Client contact, treatment & pre-demand · Case Phase 2: Treatment · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#44` Handling Treatment Gaps During the Treatment Phase · `D2#13` Treatment Gaps in the Demand Phase · `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP)
@@ -1310,13 +1310,13 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 ---
 
-## Case Phase 3 — Pre-Demand Audit & Strategy
+## Case Phase 3 — Pre-Demand Case Auditing
 
 **Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check
 
 ### 2.3.1 MMI, Special Damages & Policy-Limits Targets
 
-> **Lesson** · Day 2 — Client contact, treatment & pre-demand · Case Phase 3: Pre-Demand Audit & Strategy · scored with Pre-Demand Audit & Day 2 Gate (`d2m4`)  
+> **Lesson** · Day 2 — Client contact, treatment & pre-demand · Case Phase 3: Pre-Demand Case Auditing · scored with Pre-Demand Audit & Day 2 Gate (`d2m4`)  
 > **Topic:** The audit that decides what the demand can claim  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#1` Training Agenda: From Pre-Demand to Settlement · `D2#2` Pre-Demand Case Auditing: Core Objectives · `D2#4` Master Audit Checklist: Financial & Lien Verification · `D2#7` Master Audit Checklist: Medical & Billing Audit · `D2#9` Pre-Demand: Final Package Readiness · `D2#12` Demand: The Policy Limit Mindset · `D1#40` The “Golden Standard”: Reasonable and Necessary · LSH Claims Specialist: policy limits (per person vs. per accident) · Newly authored: billed vs. paid and the collateral-source routing; future medical kept out of the Specials total
@@ -1399,7 +1399,7 @@ Verified in Pre-Demand Audit & Day 2 Gate (taught on Case Flow Day 2) and that d
 
 ### 2.3.2 Strategy Briefing Protocols with Lead Counsel
 
-> **Lesson** · Day 2 — Client contact, treatment & pre-demand · Case Phase 3: Pre-Demand Audit & Strategy · scored with Pre-Demand Audit & Day 2 Gate (`d2m4`)  
+> **Lesson** · Day 2 — Client contact, treatment & pre-demand · Case Phase 3: Pre-Demand Case Auditing · scored with Pre-Demand Audit & Day 2 Gate (`d2m4`)  
 > **Topic:** Briefing Atty. Thorne, live or in the AI strategy session  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#3` The Auditing Checklist: The Trinity of Case Alignment · `D2#5` Master Audit Checklist: Liability & Liability Proof · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · `D2#8` The “Defense-Eye” Audit (Red Flag Detection) · `D2#9` Pre-Demand: Final Package Readiness · LSH Claims Specialist: communication skills — clear, professional, no jargon; well-organized files for attorneys · Newly authored: the strategy briefing protocol (bottom line, facts, risks, decisions, options, record)
@@ -1484,7 +1484,7 @@ Verified in Pre-Demand Audit & Day 2 Gate (taught on Case Flow Day 2) and that d
 
 ### 2.3.3 Calculating Total Specials & the Special Damages Audit
 
-> **Skill Activity** · Day 2 — Client contact, treatment & pre-demand · Case Phase 3: Pre-Demand Audit & Strategy · scored with Pre-Demand Audit & Day 2 Gate (`d2m4`)  
+> **Skill Activity** · Day 2 — Client contact, treatment & pre-demand · Case Phase 3: Pre-Demand Case Auditing · scored with Pre-Demand Audit & Day 2 Gate (`d2m4`)  
 > **Topic:** Skill Activity 1 — audit $15,002.40 down to the number that holds  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#4` Master Audit Checklist: Financial & Lien Verification · `D2#7` Master Audit Checklist: Medical & Billing Audit · `D2#9` Pre-Demand: Final Package Readiness · `D1#40` The “Golden Standard”: Reasonable and Necessary · LSH Claims Specialist: attention to detail — cross-reference documents, double-check calculations and dates
@@ -1563,7 +1563,7 @@ Verified in Pre-Demand Audit & Day 2 Gate (taught on Case Flow Day 2) and that d
 
 ### 2.3.4 Pre-Demand Strategy Session with AI Atty. Elijah Thorne
 
-> **Skill Activity** · Day 2 — Client contact, treatment & pre-demand · Case Phase 3: Pre-Demand Audit & Strategy · scored with Pre-Demand Audit & Day 2 Gate (`d2m4`)  
+> **Skill Activity** · Day 2 — Client contact, treatment & pre-demand · Case Phase 3: Pre-Demand Case Auditing · scored with Pre-Demand Audit & Day 2 Gate (`d2m4`)  
 > **Topic:** Skill Activity 2 — present the audit; record his decisions  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#3` The Auditing Checklist: The Trinity of Case Alignment · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · `D2#8` The “Defense-Eye” Audit (Red Flag Detection) · `D2#9` Pre-Demand: Final Package Readiness · `D2#10` Skill Building: Pre-Demand Audit Challenges (John Doe File) · `D2#12` Demand: The Policy Limit Mindset
@@ -1643,7 +1643,7 @@ Verified in Pre-Demand Audit & Day 2 Gate (taught on Case Flow Day 2) and that d
 
 ### 2.3.5 Pre-Demand Audit & Day 2 Gate
 
-> **Knowledge Check** · Day 2 — Client contact, treatment & pre-demand · Case Phase 3: Pre-Demand Audit & Strategy · scored with Pre-Demand Audit & Day 2 Gate (`d2m4`)  
+> **Knowledge Check** · Day 2 — Client contact, treatment & pre-demand · Case Phase 3: Pre-Demand Case Auditing · scored with Pre-Demand Audit & Day 2 Gate (`d2m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#2` Pre-Demand Case Auditing: Core Objectives · `D2#4` Master Audit Checklist: Financial & Lien Verification · `D2#7` Master Audit Checklist: Medical & Billing Audit · `D2#8` The “Defense-Eye” Audit (Red Flag Detection) · `D2#9` Pre-Demand: Final Package Readiness · `D2#12` Demand: The Policy Limit Mindset
