@@ -727,6 +727,60 @@ if(typeof window.renderCaseDocuments === "function" && CF_DOCS.length){
   window.cmCaseFlow.docsArchived = function(on){ state.cfDocsArchived = !!on; if(state.view !== "casedocs" && typeof goto === "function") return goto("casedocs"); render(); window.scrollTo(0, 0); };
 }
 
+/* ---------- 🧪 Practice: the Case Flow's Skill Activities ----------
+   For a trainee on the Case Flow, Practice is the Case Flow's own hands-on work: every Skill Activity,
+   day by day and module by module, with its tool, its expected output and the documents it works from,
+   opening straight on its slide. The Apex Skill Builders (built on the archived Apex documents) are
+   archived: whole for a trainee on the archived version, one click away for trainers. */
+window.cmCaseFlow.openBlock = function(dayId, lessonIndex){
+  if(typeof goto !== "function") return;
+  goto("day", dayId);
+  const d = cfDay(dayId), slides = d && typeof buildDaySlides === "function" ? buildDaySlides(d) : [];
+  const idx = slides.findIndex(sl => sl.lessonIndex === lessonIndex && sl.part === 1);
+  if(idx >= 0 && typeof goToSlide === "function") setTimeout(() => { state.dayViewMode = "slides"; goToSlide(idx); }, 0);
+};
+function caseFlowPractice(archiveLink){
+  const kcDone = d => !!((state.progress || {})[d.id] || {}).done;
+  const days = MODULES.map(d => {
+    const open = dayUnlocked(d.id), day = CF.days.find(x => x.n === d.cf.n);
+    const mods = day.modules.map(m => {
+      const acts = m.blocks.map(b => ({b, li: d.lessons.findIndex(l => l.cf.block === b)})).filter(x => x.b.kind === "activity");
+      return `<div class="cf-px-mod"><div class="cf-px-mh">${d.cf.n}.${m.n} · ${E(m.title)}</div>
+        ${acts.map(({b, li}) => `<div class="cf-px-act"><div><b>${E(b.title)}</b>
+            <div class="cf-px-meta"><span>🛠 ${E(b.act.tool)}</span><span>📤 ${E(b.act.output)}</span>${(CF_PACKETS[b.id] || []).length ? `<span>📁 ${CF_PACKETS[b.id].length} documents</span>` : ""}</div></div>
+          ${open ? `<button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.openBlock(${d.id},${li})">Open</button>` : `<span class="cf-px-lock">🔒</span>`}</div>`).join("")}</div>`;
+    }).join("");
+    return `<div class="card px-day"><div class="px-day-h"><div><h2>Case Flow Day ${d.cf.n}${open ? "" : " · 🔒"}${day.track ? ` <span class="cf-px-track">${E(day.track)}</span>` : ""}</h2><div class="sub">${E(day.phase)}</div></div>
+        <span class="px-prog">${kcDone(d) ? "Knowledge Check passed ✓" : open ? "In progress" : "Opens when the day before is passed"}</span></div>
+      <div class="cf-px-mods">${mods}</div></div>`;
+  }).join("");
+  const any = [
+    `<button class="btn btn-ghost btn-sm" onclick="${window.cmCaseFlow.docsArchived ? "cmCaseFlow.docsArchived(false)" : "goto('casedocs')"}">📁 Case Documents</button>`,
+    typeof rpLaunchQuickPractice === "function" ? `<button class="btn btn-ghost btn-sm" onclick="rpLaunchQuickPractice()">🎲 Quick roleplay call</button>` : "",
+    typeof openTool === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openTool('cms',null,'library=1')">📚 CMS Training Library</button>` : "",
+    typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS</button>` : ""].join("");
+  return `<p class="eyebrow">Practice</p>
+    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🧪 Practice: the Case Flow Skill Activities</h1>
+    <p style="color:var(--ink-soft);font-size:14px;max-width:84ch;margin:0 0 14px">Every hands-on exercise of the 5-Day Legal Case Management Flow, on the live file <b>${E(CF.case.style)}</b>: two Skill Activities a module, each done in the tool it names (the CMS, the Call Simulator, the email workspace) from the documents it lists. Each opens with its day and goes straight to its slide.</p>
+    ${days}
+    <div class="card" style="padding:14px 18px;margin-bottom:14px"><b style="color:var(--navy)">Any day</b><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">${any}</div></div>
+    ${archiveLink ? `<div class="cf-archived-link"><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.practiceArchived(true)">🗄 Archived: the John Doe v. Apex Skill Builders</button>
+      <span class="cf-note">The earlier version's practice tools, on the archived Apex and Jordan Davies documents.</span></div>` : ""}`;
+}
+if(typeof window.renderPracticeHub === "function"){
+  const __px = window.renderPracticeHub;
+  window.renderPracticeHub = function(){
+    const v = track();
+    if(v === "classic") return __px.apply(this, arguments);   // the archived version's Practice, as it was
+    if(v === "caseflow") return caseFlowPractice(false);
+    return state.cfPxArchived
+      ? `<div class="cf-archived-bar"><span><b>🗄 Archived</b> · the John Doe v. Apex Skill Builders, kept for the earlier version's days.</span>
+          <button class="btn btn-navy btn-sm" onclick="cmCaseFlow.practiceArchived(false)">← The Case Flow Skill Activities</button></div>` + __px.apply(this, arguments)
+      : caseFlowPractice(true);
+  };
+  window.cmCaseFlow.practiceArchived = function(on){ state.cfPxArchived = !!on; render(); window.scrollTo(0, 0); };
+}
+
 /* ---------- styles: only what the course's own classes don't already give ---------- */
 const st = document.createElement("style"); st.id = "cm-case-flow"; st.textContent = `
 .cf-card .cf-topic{margin:-4px 0 10px;font:600 13px/1.4 var(--font-ui);color:var(--ink-soft);}
@@ -804,6 +858,16 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cf-docline b{font-size:12px;color:var(--navy);}
 .cf-docline a{color:var(--navy-soft);text-decoration:underline;text-decoration-color:var(--orange-soft);text-underline-offset:2px;}
 .cf-docline a:not(:last-child)::after{content:" ·";color:var(--ink-soft);}
+.cf-px-mods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+.cf-px-mod{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff;}
+.cf-px-mh{font:700 13px var(--font-ui);color:var(--navy);margin-bottom:6px;}
+.cf-px-act{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:7px 0;border-top:1px dashed var(--line);}
+.cf-px-act b{font-size:13.5px;color:var(--ink);}
+.cf-px-act > .btn{flex:0 0 auto;white-space:nowrap;}
+.cf-px-meta{display:flex;flex-direction:column;gap:2px;margin-top:3px;font-size:12px;color:var(--ink-soft);}
+.cf-px-lock{font-size:14px;opacity:.7;}
+.cf-px-track{font:700 11px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--orange-deep);margin-left:6px;}
+@media(max-width:760px){.cf-px-mods{grid-template-columns:minmax(0,1fr);}}
 .cf-archived-link{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin:18px 0 4px;}
 .cf-archived-link .cf-note{margin:0;}
 .cf-archived-bar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;margin:0 0 14px;padding:10px 14px;background:#F6F7FB;border:1px dashed #B9BFD0;border-radius:12px;font-size:13.5px;color:var(--ink-soft);}
