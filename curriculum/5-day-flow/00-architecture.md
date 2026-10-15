@@ -107,13 +107,15 @@ Day 3's pre-litigation settlement always comes before Day 4's litigation fork: t
 
 Every module, every day: **Lesson → Skill Activity → Lesson → Skill Activity → Knowledge Check.** Five blocks, four modules, 20 blocks a day. The build rejects a module that breaks it.
 
-Each block is one topic in this course's own lesson shape, drawn over two slides:
+Each block is one topic in this course's own lesson shape, drawn as a short run of slides — **one idea per slide, in big type**, with the key phrase of each line highlighted and an illustration that fits the topic:
 
-| Block | Slide 1 | Slide 2 |
-|---|---|---|
-| Lesson | **Tell Them** (why + rules + UPL boundary) · **Show Them** (the visual) | Trigger ➔ Task ➔ Tool ➔ Checkpoint · Best Practices & Pitfalls · rubric |
-| Skill Activity | **Let Them** (scenario, prompt, tool, expected output) · reference model | Verification checkpoints · operational mapping · Best Practices & Pitfalls · rubric |
-| Knowledge Check | Knowledge verification questions | **Self-Summary & Skill Scale** (saved, AI-reviewed) · rubric |
+| Block | Its slides |
+|---|---|
+| Lesson | **Why It Matters** (the hook, from Tell Them's why) · **The Rules** (3–4 rules, the UPL boundary boxed) · **See It** (Show Them's visual) · **On the Job** (Trigger ➔ Task ➔ Tool ➔ Checkpoint) · **Do & Don't** (Best Practices & Pitfalls) |
+| Skill Activity | **Your Case** (Let Them's scenario) · **Your Task** (the steps, the tool to open, the documents, what to deliver) · **See It** (the reference model, if any) · **Check Your Work** (the verification checkpoints, as a tick list) |
+| Knowledge Check | **Knowledge Check** (the questions) · **Self-Summary** (saved, AI-reviewed) · **Skill Scale** (and Submit for review) |
+
+The words on these slides are a distillation of the block, never new content: written to `build/case-flow/slides/SLIDESPEC.md` (word limits per field, one highlight per line, an image per block) in `build/case-flow/slides/dN.json`, and assembled into `js/cm-case-flow-slides.js` by `build/case-flow/slides/assemble.cjs` (`--check` in CI). The block's full text — and its rubric — stay behind **📖 Full text** on every slide, and in Presenter view, which carries one script per slide. The illustrations are inline SVGs in `js/cm-case-flow-art.js`.
 
 The same block also fills the course's native fields (`fourPart`, `layout`, `trainerCue`), so search, the SOP and Presenter view read it like any other topic.
 
@@ -121,11 +123,11 @@ The same block also fills the course's native fields (`fourPart`, `layout`, `tra
 
 | Component | On the trainee's slide | Elsewhere |
 |---|---|---|
-| Slide Title & Topic | Header, separator (day · module · block · part) | Curriculum spec |
+| Slide Title & Topic | Header, separator (day · module · block · slide) | Curriculum spec |
 | Visual Layout Description | — | Curriculum spec, for whoever designs the slide |
 | Slide Body: Tell / Show / Let | ✓ | Curriculum spec |
 | Knowledge Check & CM Summary | ✓ (module's check block + the day's quiz) | Curriculum spec |
-| Assessment Criteria (AI + Trainer) | ✓ (collapsed) | Curriculum spec |
+| Assessment Criteria (AI + Trainer) | ✓ (behind 📖 Full text) | Curriculum spec |
 | Speaker Notes | — (never on the shared screen) | **Presenter view** (`SLIDE_SCRIPTS`) and the curriculum spec |
 
 ### Operational mapping
