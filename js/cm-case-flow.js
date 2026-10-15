@@ -431,7 +431,7 @@ function slideBody(view, l, d){
       ${c.donts.length ? `<div class="cfx-watch"><b>⚠️ Watch For</b>${c.donts.map(x => `<span>${hl(x)}</span>`).join("")}</div>` : ""}`;
     case "questions": case "questions2": {   // each question with its answer box; answers save as they're typed
       const from = view === "questions2" ? KC_PER : 0, m = rec(mod.id), last = from + KC_PER >= c.questions.length;
-      return `<ol class="cfx-points cfx-qs cfx-qs-2 cfx-kc" style="counter-reset:cfx ${from}">${c.questions.slice(from, from + KC_PER).map((q, j) => `<li><span>${hl(q)}
+      return `<ol class="cfx-points cfx-qs cfx-qs-2 cfx-kc" style="counter-reset:cfx ${from}">${c.questions.slice(from, from + KC_PER).map((q, j) => `<li><span><span class="cfx-kc-q">${hl(q)}</span>
           <textarea class="cfx-kc-a" id="cfkc_${mod.id}_${from + j}" rows="2" placeholder="Your answer, from the file" aria-label="Answer ${from + j + 1}" oninput="cmCaseFlow.kcDraft('${mod.id}',${from + j},this.value)">${E(m.kc[from + j] || "")}</textarea></span></li>`).join("")}</ol>
         <p class="cf-note">${last ? "Your answers save as you type and go to review with your Self-Summary (next)." : "More questions on the next slide."} The day's auto-graded quiz comes at the end of Case Flow Day ${day.n}.</p>`;
     }
@@ -443,7 +443,7 @@ function slideBody(view, l, d){
 function card(l, i, d, part){
   const {day, mod, block: b, k} = l.cf, vs = viewsOf(b), p = Math.min(Math.max(part || 1, 1), vs.length), view = vs[p - 1];
   const dots = vs.map((v, j) => `<span class="cfx-dot${j === p - 1 ? " on" : j < p - 1 ? " done" : ""}" title="${E(VIEW_LABEL[v])}"></span>`).join("");
-  return `<div class="topic-separator">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; MODULE ${mod.n} OF ${day.modules.length} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
+  return `<div class="topic-separator">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; CASE PHASE ${mod.n} OF ${day.modules.length} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
     <div class="card lesson-card cf-card cfx cfx-${view} cfx-${b.kind}" data-part="${p}">
       <div class="cfx-top"><span class="cfx-kicker">${mod.n}.${k + 1} · ${E(KIND[b.kind])}</span><span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span>
         <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Full text</button></div>
@@ -998,7 +998,8 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfx-part-title{margin:6px 0 8px;font:700 46px/1.1 'Fraunces',Georgia,serif;color:var(--navy);}
 .cfx-part-line{margin:0;font:500 24px/1.4 var(--font-ui);color:var(--ink);}
 .cfx-part-list{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;}
-.cfx-part-list li{display:flex;gap:12px;align-items:baseline;font:600 18px/1.35 var(--font-ui);color:var(--ink);background:#F6F7FB;border:1px solid var(--line);border-radius:12px;padding:10px 14px;animation:cfxIn .3s ease-out both;}
+.cfx .cfx-part-list li::before{display:none !important;content:none !important;}
+.cfx-part-list li{text-align:left;display:flex;gap:12px;align-items:baseline;font:600 18px/1.35 var(--font-ui);color:var(--ink);background:#F6F7FB;border:1px solid var(--line);border-radius:12px;padding:10px 14px;animation:cfxIn .3s ease-out both;}
 .cfx-part-n{font:700 13px 'IBM Plex Mono',monospace;color:var(--orange-deep);flex:0 0 auto;}
 .cfx-summary .cf-ss-q > span{font:500 19px/1.4 var(--font-ui);}.cfx-summary textarea{font-size:16px;min-height:96px;}
 .cfx-summary .cf-scale{font-size:16px;}.cfx-summary .cf-scale td,.cfx-summary .cf-scale th{padding:10px 8px;}.cfx-summary .cf-scale input{width:20px;height:20px;}

@@ -113,7 +113,9 @@ Each block is one topic in this course's own lesson shape, drawn as a short run 
 |---|---|
 | Lesson | **Why It Matters** (the hook, from Tell Them's why) · **The Rules** (3–4 rules, the UPL boundary boxed) · **See It** (Show Them's visual) · **On the Job** (Trigger ➔ Task ➔ Tool ➔ Checkpoint) · **Do & Don't** (Best Practices & Pitfalls) |
 | Skill Activity | **Your Case** (Let Them's scenario) · **Your Task** (the steps, the tool to open, the documents, what to deliver) · **See It** (the reference model, if any) · **Check Your Work** (the verification checkpoints, as a tick list) |
-| Knowledge Check | **Knowledge Check** (the questions) · **Self-Summary** (saved, AI-reviewed) · **Skill Scale** (and Submit for review) |
+| Knowledge Check | **Knowledge Check** (the questions, four to a slide, each with an answer box) · **Self-Summary** (saved, AI-reviewed with the answers) · **Skill Scale** (and Submit for review) |
+
+**On screen, each Case Phase (module) is taught in three parts:** its lessons back to back as one uninterrupted discussion, then its Skill Activities and real-time practice, then its Learning Check — each opened by a part slide naming the phase. The blocks themselves keep the rhythm above; only the order on screen changes.
 
 The words on these slides are a distillation of the block, never new content: written to `build/case-flow/slides/SLIDESPEC.md` (word limits per field, one highlight per line, an image per block) in `build/case-flow/slides/dN.json`, and assembled into `js/cm-case-flow-slides.js` by `build/case-flow/slides/assemble.cjs` (`--check` in CI). The block's full text — and its rubric — stay behind **📖 Full text** on every slide, and in Presenter view, which carries one script per slide. The illustrations are inline SVGs in `js/cm-case-flow-art.js`.
 
