@@ -135,7 +135,7 @@ The same block also fills the course's native fields (`fourPart`, `layout`, `tra
 | Channel | What feeds it | Where it is stored |
 |---|---|---|
 | **Automated (60%)** | The module's share of the day's Knowledge Check (multiple choice, auto-scored; the day needs 70%) and the AI evaluator's score of the Self-Summary against the module's rubric (`runRubricEvaluation`) | `case-flow` personal key, synced to the cloud with the trainee's progress |
-| **Trainer (40%)** | Qualitative performance, strategy, tone, UPL, the self-summary | The same record (`trainer: {score, comment}`) — **an admin screen to enter it is not built yet** |
+| **Trainer (40%)** | Qualitative performance, strategy, tone, UPL, the self-summary | The trainee's feedback record (`feedback:<id>`, `caseFlow.<module>`), entered on the **Admin page** in each trainee's panel ("Case Flow — trainer assessment"), beside their self-summary, self-ratings, quiz share and AI score; read back into the trainee's composite |
 
 **Composite** = automated × 0.60 + trainer × 0.40, shown once both are in. **UPL is a gate, not a weighting:** legal advice fails the UPL criterion whatever the composite, and the AI evaluator is told to score Risk Mitigation 0 when it sees it.
 

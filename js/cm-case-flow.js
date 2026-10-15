@@ -26,7 +26,9 @@
      with the rest of their progress) and can be sent to the course's AI evaluator
      (runRubricEvaluation) against that module's rubric. The record has a slot for
      the trainer's 40% (trainer: {score, comment}); the composite shows once it is
-     filled. An admin screen for entering it is not built yet.
+     filled. The trainer enters it on the Admin page, in each trainee's panel
+     ("Case Flow — trainer assessment"); it is stored with the trainee's feedback
+     (feedback:<id>, caseFlow.<module>) and read back into the trainee's record.
    • Order. Case Flow Day N opens once the Day N-1 Knowledge Check is passed.
 
    Loads after js/graded-calls.js (its dashboard wrapper must run last, on the
@@ -219,6 +221,15 @@ async function load(){
   if(loaded || typeof storeGet !== "function") return;
   loaded = true;
   try{ const v = await storeGet(KEY); if(v && typeof v === "object" && v.modules) REC = v; }catch(e){}
+  await loadTrainerScores();
+}
+/* The trainer's 40% lives with the trainee's feedback (the trainer writes it, the trainee reads it). */
+async function loadTrainerScores(){
+  if(typeof sharedGet !== "function" || !state || !state.traineeId || state.isAdmin) return;
+  try{
+    const fb = await sharedGet("feedback:" + state.traineeId);
+    Object.entries((fb && fb.caseFlow) || {}).forEach(([id, t]) => { if(t && typeof t.score === "number") rec(id).trainer = t; });
+  }catch(e){}
 }
 const persist = () => { REC.updatedAt = new Date().toISOString(); return typeof storeSet === "function" ? storeSet(KEY, REC) : Promise.resolve(); };
 load();
@@ -431,6 +442,47 @@ if(typeof renderDashboard === "function"){
   };
 }
 
+/* ---------- the trainer's 40%: entered in each trainee's Admin panel ---------- */
+const allMods = () => CF.days.flatMap(day => day.modules.map(m => ({day, m})));
+function trainerPanel(rec){
+  const work = (state.traineeWork || {})[rec.id];
+  if(!work || work.loading || !work.feedback) return "";
+  const mine = (work.snap || {})[KEY] || {modules: {}}, given = work.feedback.caseFlow || {}, sid = cssId(rec.id);
+  const rows = allMods().map(({day, m}) => {
+    const r = mine.modules[m.id] || {}, t = given[m.id] || {}, b = m.blocks.find(x => x.kind === "check");
+    const c = composite(Object.assign({}, r, {trainer: t}));
+    const answered = (r.answers || []).some(a => String(a || "").trim());
+    return `<details class="cf-tr"><summary><b>Case Flow Day ${day.n} · ${m.n}</b> ${E(m.title)}
+        <span class="cf-tr-chips">${r.quiz ? `<span class="fb-chip sent">Quiz ${E(r.quiz.pct)}%</span>` : ""}${r.ai ? `<span class="fb-chip sent">AI ${E(r.ai.score)}%</span>` : ""}${typeof t.score === "number" ? `<span class="fb-chip sent">Trainer ${E(t.score)}%</span>` : (answered ? `<span class="fb-chip draft">To score</span>` : `<span class="fb-chip none">No summary yet</span>`)}${c.c != null ? `<span class="fb-chip sent">Composite ${E(c.c)}%</span>` : ""}</span></summary>
+      ${answered ? `<div class="fb-evidence">${b.check.summary.map((q, j) => `<div><b>${E(q)}</b><br>${E((r.answers || [])[j] || "—")}</div>`).join("")}
+        <div><b>Self-ratings:</b> ${b.check.scale.map((x, j) => `${E(x)}: ${E((r.scale || [])[j] || "—")}`).join(" · ")}</div></div>` : ""}
+      <div class="cf-tr-rubric"><b>Assess against:</b> ${b.rubric.trainer.map(x => `${E(x[0])} (${E(x[1])})`).join(" · ")} — UPL is a gate, not a weighting.</div>
+      <div class="fbc-row"><label>Trainer score (0–100)<input type="number" min="0" max="100" id="cftr_${sid}_${m.id}" value="${typeof t.score === "number" ? E(t.score) : ""}"></label></div>
+      <label class="fbc-full">Comment for the trainee<textarea id="cftc_${sid}_${m.id}" rows="2">${E(t.comment || "")}</textarea></label>
+      <div class="fbc-actions"><button class="btn btn-primary btn-sm" onclick="cmCaseFlow.trainerSave('${rec.id}','${m.id}')">Save trainer score</button></div>
+    </details>`;
+  }).join("");
+  return `<div class="fb-admin cf-tr-wrap"><div class="sidebar-section-lbl" style="padding-left:0;">Case Flow — trainer assessment (40%)</div>
+    <p class="cf-note">The trainee's quiz share and AI review make the automated 60%. Your score here makes the 40%; the composite appears on their Knowledge Check once both are in.</p>${rows}</div>`;
+}
+window.cmCaseFlow.trainerSave = async function(id, modId){
+  const sid = cssId(id), work = (state.traineeWork || {})[id];
+  const v = Number((document.getElementById(`cftr_${sid}_${modId}`) || {}).value);
+  if(!work || !(v >= 0 && v <= 100) || String((document.getElementById(`cftr_${sid}_${modId}`) || {}).value).trim() === ""){ if(typeof toast === "function") toast("Enter a score from 0 to 100."); return; }
+  const latest = (await sharedGet("feedback:" + id).catch(() => null)) || work.feedback || {days: {}};   // re-read so a trainee's read-receipt isn't clobbered
+  latest.days = latest.days || {};
+  latest.caseFlow = Object.assign({}, latest.caseFlow, {[modId]: {score: Math.round(v), comment: String((document.getElementById(`cftc_${sid}_${modId}`) || {}).value || "").trim(), at: new Date().toISOString()}});
+  const ok = await sharedSet("feedback:" + id, latest);
+  if(!ok){ if(typeof toast === "function") toast("Couldn't save the trainer score — try again."); return; }
+  work.feedback = latest;
+  if(typeof toast === "function") toast("Trainer score saved — the trainee sees it on their Knowledge Check.");
+  const wrap = document.getElementById("adminRowsWrap"); if(wrap && typeof renderAdminRows === "function") wrap.innerHTML = renderAdminRows();
+};
+if(typeof renderFeedbackAdmin === "function"){
+  const __fbAdmin = renderFeedbackAdmin;
+  renderFeedbackAdmin = function(rec){ const html = __fbAdmin.apply(this, arguments); try{ return html + trainerPanel(rec); }catch(e){ return html; } };
+}
+
 /* ---------- styles: only what the course's own classes don't already give ---------- */
 const st = document.createElement("style"); st.id = "cm-case-flow"; st.textContent = `
 .cf-card .cf-topic{margin:-4px 0 10px;font:600 13px/1.4 var(--font-ui);color:var(--ink-soft);}
@@ -484,6 +536,11 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cf-ai{margin-top:8px;font-size:13px;background:#FFFBF3;border:1px solid var(--orange-soft);border-radius:12px;padding:9px 12px;}
 .cf-ai p{margin:4px 0 0;}
 .cf-dash{margin-top:22px;}
+.cf-tr-wrap{margin-top:14px;}
+.cf-tr summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+.cf-tr-chips{display:inline-flex;flex-wrap:wrap;gap:4px;}
+.cf-tr-rubric{font-size:12.5px;color:var(--ink-soft);margin:6px 0;}
+.cf-tr input[type=number]{width:90px;}
 .cf-dash-head h2{margin:2px 0 6px;color:var(--navy);font-size:22px;}
 .cf-dash-head p:not(.eyebrow){margin:0 0 12px;max-width:90ch;color:var(--ink-soft);font-size:14px;}
 .cf-soon .module-body{opacity:.8;}
