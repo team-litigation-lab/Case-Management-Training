@@ -435,7 +435,8 @@ if(typeof renderDashboard === "function"){
     sec.className = "cf-dash";
     sec.innerHTML = `<div class="cf-dash-head"><p class="eyebrow">New track</p>
         <h2>5-Day Legal Case Management Flow</h2>
-        <p>One file from intake to deposition: <b>${E(c.style)}</b> · ${E(c.counsel)} · ${E(money(c.total))} stack · ${E(c.gapDays)}-Day Treatment Gap. Every module runs Lesson → Skill Activity → Lesson → Skill Activity → Knowledge Check.</p></div>
+        <p>One file from intake to deposition: <b>${E(c.style)}</b> · ${E(c.counsel)} · ${E(money(c.total))} stack · ${E(c.gapDays)}-Day Treatment Gap. Every module runs Lesson → Skill Activity → Lesson → Skill Activity → Knowledge Check.</p>
+        ${window.cmCaseFlow.profile ? `<p><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.profile(true)">📂 Case profile: ${E(c.style)}</button></p>` : ""}</div>
       <div class="module-grid">${cards}</div>`;
     main.appendChild(sec);
     return t.innerHTML;
@@ -481,6 +482,46 @@ window.cmCaseFlow.trainerSave = async function(id, modId){
 if(typeof renderFeedbackAdmin === "function"){
   const __fbAdmin = renderFeedbackAdmin;
   renderFeedbackAdmin = function(rec){ const html = __fbAdmin.apply(this, arguments); try{ return html + trainerPanel(rec); }catch(e){ return html; } };
+}
+
+/* ---------- the Case File page: the Apex file and this file's case profile ----------
+   The Case File page keeps the John Doe v. Apex file exactly as it is and gains a
+   switch to this file's profile (CF.profile). Each section opens with its Case Flow day
+   (`opens`) or once that day is passed (`passed`), so the profile never gives away a
+   day's answers; trainers see every section. */
+const cfIdOf = n => (cfDayByN(n) || {}).id;
+const profileOpen = sec => !!(state.isAdmin || state.adminPreview) ||
+  (sec.opens ? dayUnlocked(cfIdOf(sec.opens)) : !!((state.progress || {})[cfIdOf(sec.passed)] || {}).done);
+const lockLabel = sec => sec.opens ? `Opens with Case Flow Day ${sec.opens}` : `Opens when you pass Case Flow Day ${sec.passed}`;
+function caseFlowProfile(){
+  const c = CF.case, secs = CF.profile || [], shown = secs.filter(profileOpen), locked = secs.filter(x => !profileOpen(x));
+  const gates = [];
+  locked.forEach(x => { const k = lockLabel(x), g = gates.find(y => y.k === k); g ? g.t.push(x.title) : gates.push({k, t: [x.title]}); });
+  const pos = dayUnlocked(cfIdOf(5)) ? 5 : [4, 3, 2, 1].find(n => dayUnlocked(cfIdOf(n))) || 1;
+  return `<h1 style="color:var(--navy);font-size:28px;margin:0 0 10px">📂 Case File: ${E(c.style)}</h1>
+    <div class="client-intro-banner"><div class="cib-tag">🧭 Case Flow File</div><h2>One file, from intake to deposition</h2>
+      <p>The file you work in the 5-Day Legal Case Management Flow: ${E(c.no)} · ${E(c.counsel)} · ${E(money(c.total))} stack · ${E(c.gapDays)}-Day Treatment Gap. It is a separate training file from John Doe v. Apex Delivery Services.</p>
+      <p>This profile grows with the file. Each section opens with the day it belongs to, and what a day's work produces (the audited specials, the reasons for the gap, the net sheet, the calendar) opens once you pass that day, so work it out from the documents first.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-navy btn-sm" onclick="goto('day',${cfIdOf(pos)})">Open Case Flow Day ${pos}</button></div></div>
+    <div class="profile-grid">${shown.map(x => `<div class="card profile-section"><h3>${E(x.title)}</h3><ul>${x.items.map(i => `<li>${E(i)}</li>`).join("")}</ul></div>`).join("")}
+      ${gates.map(g => `<div class="card profile-section cf-prof-lock"><h3>🔒 ${E(g.k)}</h3><ul>${g.t.map(t => `<li>${E(t)}</li>`).join("")}</ul></div>`).join("")}</div>`;
+}
+function profileSwitch(){
+  const on = !!state.cfProfile;
+  return `<div class="cf-prof-switch" role="tablist" aria-label="Case files">
+    <button role="tab" aria-selected="${!on}" class="${on ? "" : "on"}" onclick="cmCaseFlow.profile(false)">📂 John Doe v. Apex Delivery <small>Days 1–5</small></button>
+    <button role="tab" aria-selected="${on}" class="${on ? "on" : ""}" onclick="cmCaseFlow.profile(true)">🧭 John Doe v. Robert Smith <small>Case Flow</small></button></div>`;
+}
+if(typeof window.renderClientProfile === "function"){
+  const __profile = window.renderClientProfile;
+  window.renderClientProfile = function(){
+    return profileSwitch() + (state.cfProfile && Array.isArray(CF.profile) ? caseFlowProfile() : __profile.apply(this, arguments));
+  };
+  window.cmCaseFlow.profile = function(on){
+    state.cfProfile = !!on;
+    if(state.view !== "clientprofile" && typeof goto === "function") return goto("clientprofile");
+    render(); window.scrollTo(0, 0);
+  };
 }
 
 /* ---------- styles: only what the course's own classes don't already give ---------- */
@@ -544,6 +585,13 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cf-dash-head h2{margin:2px 0 6px;color:var(--navy);font-size:22px;}
 .cf-dash-head p:not(.eyebrow){margin:0 0 12px;max-width:90ch;color:var(--ink-soft);font-size:14px;}
 .cf-soon .module-body{opacity:.8;}
+.cf-prof-switch{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;margin:0 0 14px;background:#F6F7FB;border:1px solid var(--line);border-radius:12px;max-width:100%;}
+.cf-prof-switch button{border:0;background:transparent;border-radius:9px;padding:7px 12px;font:700 13px var(--font-ui);color:var(--navy);cursor:pointer;}
+.cf-prof-switch button small{font-weight:500;color:var(--ink-soft);margin-left:4px;}
+.cf-prof-switch button.on{background:#fff;box-shadow:0 1px 3px rgba(20,30,60,.12);}
+.cf-prof-lock{background:#F6F7FB;}
+.cf-prof-lock h3{color:var(--ink-soft);}
+.cf-prof-lock li{color:var(--ink-soft);}
 @media(max-width:760px){
   .cf-ladder{grid-template-columns:minmax(0,1fr);}
   .cf-brace{border-left:0;border-top:4px solid var(--orange);border-radius:0 0 12px 12px;padding:10px 0;}

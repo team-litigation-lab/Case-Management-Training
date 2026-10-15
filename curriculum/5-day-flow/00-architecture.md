@@ -62,6 +62,7 @@ The existing course teaches the right doctrine on 192 topics, but as slide-by-sl
 | Outside the stack | MedPay (pays bills, first in the payer order), Keystone's PD coverage (the Civic's repair, loss of use and diminished value) and John's own policy are never part of the $40,000 |
 
 The full case file the content is written against (providers, bills, dates, the net sheet, the litigation calendar) is `case-file.md`; every figure on a slide comes from it.
+Trainees read the file on the **📁 Case File page** (the John Doe v. Robert Smith switch beside the Apex file), from `profile` in `js/cm-case-flow-data.js`. It grows with the file: `opens: N` sections show once Case Flow Day N is open (the facts the day starts from), `passed: N` sections once Day N's Knowledge Check is passed (what that day's work produces), so the profile never gives away an activity's answer. Trainers see every section. A fact changed in `case-file.md` is changed there too.
 
 ### Two tracks: the litigation fork
 

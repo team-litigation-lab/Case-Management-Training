@@ -40,6 +40,14 @@ const stack = () => CF.case.stack.slice().sort((a, b) => a.order - b.order);
 /* ---------- validation ---------- */
 const errors = [];
 const cited = new Map();   // "D1#18" → [block ids]
+// The case profile (the Case File page): every section opens with a day (`opens`) or once a day is passed (`passed`)
+(CF.profile || []).forEach((sec, i) => {
+  const n = sec.opens || sec.passed, at = `profile[${i}] "${sec.title || ""}"`;
+  if(!sec.title || !(sec.items || []).length) errors.push(`${at}: needs a title and items`);
+  if(!!sec.opens === !!sec.passed || !CF.days.some(d => d.n === n)) errors.push(`${at}: needs exactly one of opens / passed, naming a Case Flow day`);
+  if(/blueprint/i.test(JSON.stringify(sec))) errors.push(`${at}: says "blueprint"; the program never uses the word`);
+});
+if(!(CF.profile || []).some(x => x.opens === 1)) errors.push("profile: nothing opens on Case Flow Day 1");
 CF.days.forEach(day => {
   if(day.modules.length !== 4) errors.push(`Day ${day.n}: ${day.modules.length} modules, expected 4`);
   ["title", "phase", "objective", "gate", "discussion"].forEach(k => { if(!day[k]) errors.push(`Day ${day.n}: missing ${k}`); });
