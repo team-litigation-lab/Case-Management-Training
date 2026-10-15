@@ -227,7 +227,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 
 Theory the course does not carry, taken from the LSH firm curriculum and cited on the blocks that use it:
 
-- LSH Claims Specialist: pre-claim data set, declarations page, coverage asymmetry
+- LSH Claims Specialist: pre-claim data set, Declaration Page, coverage asymmetry
 - LSH Claims Specialist: CMS Insurance tab SOP, first- and third-party coverage
 - D1 Task Overview: Billing, Resolution & Closing
 - LSH Claims Specialist: No Contact Protocol, Steps 1–3
@@ -236,21 +236,21 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: No Contact Protocol, Steps 4–6; withdrawal letters
 - LSH Claims Specialist: Final Warning Letter; sample unresponsive-client letters
 - LSH Claims Specialist: No Contact Protocol
-- LSH Claims Specialist: LOR property damage carve-out, rental coverage hierarchy, documents to support the claim
+- LSH Claims Specialist: LOR Property Damage carve-out, rental coverage hierarchy, documents to support the claim
 - LSH Claims Specialist: client communication protocol
-- LSH Claims Specialist: 5-day inspection window, loss of use, tow and storage
+- LSH Claims Specialist: 5-day inspection window, Loss of Use, tow and storage
 - LSH Claims Specialist: LOR purpose, recipients, drafting components and delivery
 - LSH Claims Specialist: claim set-up call, information protection on third-party claims, LOR acknowledgement and limits disclosure
 - Newly authored: UM notice at set-up (notice, not demand)
 - LSH Claims Specialist: LOR drafting, contents, recipients and delivery
 - LSH Claims Specialist: information protection on third-party claims, LOR acknowledgement
-- LSH Claims Specialist: declarations pages, certified copy of policy, policy limits and limit types
+- LSH Claims Specialist: Declaration Pages, certified copy of policy, policy limits and limit types
 - LSH Claims Specialist: follow-up cadence, LOR acknowledgement, statement of insurance disclosure
 - Newly authored: verifying the UM form and MedPay terms at set-up; the regulatory and policy deadline backstop
-- LSH Claims Specialist: declarations pages, coverage verification and follow-up
+- LSH Claims Specialist: Declaration Pages, coverage verification and follow-up
 - Newly authored: verifying the UM form and MedPay terms at set-up
 - LSH Claims Specialist: LOR components, information protection, acknowledgement and limits disclosure
-- LSH Claims Specialist: MedPay vs. PIP (medical bills regardless of fault, no lost wages)
+- LSH Claims Specialist: MedPay vs. PIP (Medical Bills regardless of fault, no lost wages)
 - Newly authored: LOP issuance guidelines and the MedPay exhaustion ledger
 - LSH Claims Specialist: communication skills and professionalism — clarity without jargon, empathy, active listening, paraphrasing, calm reassurance
 - LSH Claims Specialist: LOR — all carrier communication through the firm
@@ -259,16 +259,16 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: attention to detail — cross-referencing facts and dates across documents
 - Newly authored: continuous-care documentation tests and record integrity (no altered, back-dated or to-order records; excuse notes cover only what the author saw)
 - LSH Claims Specialist: policy limits (per person vs. per accident)
-- Newly authored: billed vs. paid and the collateral-source routing; future medical kept out of the specials total
+- Newly authored: billed vs. paid and the collateral-source routing; future medical kept out of the Specials total
 - LSH Claims Specialist: attention to detail — cross-reference documents, double-check calculations and dates
 - LSH Claims Specialist: communication skills — clear, professional, no jargon; well-organized files for attorneys
 - Newly authored: the strategy briefing protocol (bottom line, facts, risks, decisions, options, record)
-- Newly authored: the elements of a time-limited demand that can support a later failure-to-settle claim (within limits, clear and reasonable terms, sufficient documentation, a stated window with proof of delivery)
-- Newly authored: the UM carrier's right to substitute its own check for the BI tender; a general release (“all other … insurers”) as a threat to the UM claims; Relative UM as excess over Host UM
+- Newly authored: the elements of a Time-Limited Demand that can support a later failure-to-settle claim (within limits, clear and reasonable terms, sufficient documentation, a stated window with proof of delivery)
+- Newly authored: the UM carrier's right to substitute its own check for the BI tender; a General Release (“all other … insurers”) as a threat to the UM claims; Relative UM as excess over Host UM
 - LSH Claims Specialist: review the case reference sheet before any adjuster call; no backdoor contact with the client
 - Newly authored: plan funding status (self-funded vs. fully insured) decides the law that governs a health-plan reduction; the verified-none inventory of absent lienholders
 - Newly authored: the pro-rata distribution rule worked on the BI-only illustration; the pro-rata argument restated on true facts for a fund that covers every lien
-- Newly authored: trust-account handling (same-day IOLTA deposit once the release is signed, client endorsement, no disbursement against uncleared funds, disputed shares held in trust); the contingent-fee settlement statement (ABA Model Rule 1.5(c) as an example); the UM release's Medicare and confidentiality terms
+- Newly authored: trust-account handling (same-day IOLTA deposit once the release is signed, client endorsement, no disbursement against uncleared funds, disputed shares held in trust); the contingent-fee Settlement Statement (ABA Model Rule 1.5(c) as an example); the UM release's Medicare and confidentiality terms
 - LSH Claims Specialist: liability denial and disputes — the dispute path to litigation; duty, breach, causation and damages; ask for the denial's reasons and evidence in writing
 - Newly authored: the five impasse triggers, each proved from the file
 - LSH Claims Specialist: liability decisions — the escalation protocol: supervisor, dated contact, file flagged for legal review
@@ -276,7 +276,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: Letter for Preservation of Evidence
 - Newly authored: a UM notice is not a demand; status, fields, folders and calendar changed together
 - Newly authored: weekend roll direction (forward count → next business day; backward count → earlier business day)
-- Newly authored: SOL internal hard date and 90-day internal filing cutoff (firm rule configured for this training file), kept live after filing until Atty. Thone releases them
+- Newly authored: SOL internal hard date and 90-day internal filing cutoff (firm rule configured for this training file), kept live after filing until Atty. Thorne releases them
 - Newly authored: scheduling-order entry (read each verb) and RFAs docketed separately for the deemed-admission risk
 - Newly authored: calendar-error risk (later or missing costs rights; earlier costs time)
 - Newly authored: court-ordered mediation compels attendance, not agreement
@@ -289,11 +289,11 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: liability acceptance post-lawsuit (the defense pivots to causation and damages)
 - Newly authored: a scheduling-order date moves only by court order
 - Newly authored: the last day to serve written discovery, counted back from the discovery cutoff
-- LSH Claims Specialist: property damage and collision coverage, loss of use, tow and storage
-- Newly authored: a carrier's rental cap against the reasonable-repair-time measure of loss of use (Restatement (Second) of Torts § 928(b) as an example)
-- LSH Claims Specialist: property damage coverage, loss of use, tow and storage
+- LSH Claims Specialist: Property Damage and collision coverage, Loss of Use, tow and storage
+- Newly authored: a carrier's rental cap against the reasonable-repair-time measure of Loss of Use (Restatement (Second) of Torts § 928(b) as an example)
+- LSH Claims Specialist: Property Damage coverage, Loss of Use, tow and storage
 - LSH Claims Specialist: liability disputes — written basis, stronger evidence, escalation to the attorney
-- Newly authored: diminished value, the repair-plus-residual-loss measure (Restatement (Second) of Torts § 928 as an example), the 17c formula and its critique, the PD-only release
+- Newly authored: Diminished Value, the repair-plus-residual-loss measure (Restatement (Second) of Torts § 928 as an example), the 17c formula and its critique, the PD-only release
 - Newly authored: the 17c critique and the recommended negotiating range
 - Newly authored: remote-deposition room protocol; refreshed-memory documents; social-media preservation
 - Newly authored: remote-deposition room protocol
@@ -313,15 +313,15 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 Where neither source had the theory, it was written for this flow and is marked here so it can be reviewed:
 
 - **The $40,000 host-passenger stack and its order of operations** — Day 1 · Module 1 — the case facts the brief specifies (Host UM and Relative UM behind a $10,000 BI)
-- **Recovery stack vs. payer order as two separate questions** — Day 1 · Module 1, Lesson 2 — built on the Regulatory Triple-Check's payer order
-- **The three-criteria skip-trace gate** — Day 1 · Module 2 — the No Contact Protocol has the steps; the trigger rule is new
-- **The five-band case plan wrapping the Three-Pillar Plan, and the review-loop states** — Day 1 · Module 4
+- **Recovery Stack vs. Payer Order as two separate questions** — Day 1 · Module 1, Lesson 2 — built on the Regulatory Triple-Check's Payer Order
+- **The three-criteria Skip-Trace gate** — Day 1 · Module 2 — the No Contact Protocol has the steps; the trigger rule is new
+- **The five-band Case Plan wrapping the Three-Pillar Plan, and the review-loop states** — Day 1 · Module 4
 - **The two-track fork: one file settling on Day 3 (Track A) and going to suit on Days 4–5 (Track B) from the same 08/05/2026 negotiation** — Days 3–5 — the brief's day order, made one coherent file
 - **UM notice at claim set-up (notice is not a demand) and verifying each UM form and MedPay's terms in writing** — Day 2 · Module 1
 - **LOP issuance guidelines and the MedPay exhaustion ledger** — Day 2 · Module 2
-- **The non-leading gap interview, recording a client call with consent stated, and the gap justification record format** — Day 2 · Module 3
-- **Billed vs. paid specials routed to counsel, and the strategy-briefing protocol for lead counsel** — Day 2 · Module 4
-- **The five elements of a time-limited demand that holds up, and the limited release as the guard on the UM claims** — Day 3 · Module 1
+- **The non-leading gap interview, recording a client call with consent stated, and the Gap Justification Record format** — Day 2 · Module 3
+- **Billed vs. paid Specials routed to counsel, and the strategy-briefing protocol for Lead Counsel** — Day 2 · Module 4
+- **The five elements of a Time-Limited Demand that holds up, and the Limited Release as the guard on the UM claims** — Day 3 · Module 1
 - **The net-floor gross-up for a percentage fee, and PIP valuation doctrine carried over to MedPay** — Day 3 · Module 2
 - **The 'verified none' lien inventory and pro-rata distribution worked on the BI-only illustration** — Day 3 · Module 3
 - **Trust handling (cleared funds, disputed shares held) and the UM release audit points** — Day 3 · Module 4

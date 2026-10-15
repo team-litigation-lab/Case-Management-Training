@@ -30,7 +30,7 @@ overrides it**. A fact a document needs that is in neither is added to case-file
 
 ## Fixed details used across documents
 
-- **Firm:** LSH Law Group, 500 Commerce St, Suite 1200, Riverton · (555) 010-4000 · Lead Counsel Atty. Elijah Thone ·
+- **Firm:** LSH Law Group, 500 Commerce St, Suite 1200, Riverton · (555) 010-4000 · Lead Counsel Atty. Elijah Thorne ·
   file LSH-2026-MVA-770412. Case Manager signatures read "Case Manager, LSH Law Group" (no personal name).
 - **Riverton Spine & Rehab visits** ($185.00 each, one ledger line per visit date):
   02/24, 02/26, 03/02, 03/03, 03/05, 03/09, 03/10, 03/12, 03/16, 03/17, 03/19, 03/23, 03/24, 03/26, 03/31, 04/02 (16);
@@ -44,7 +44,7 @@ overrides it**. A fact a document needs that is in neither is added to case-file
   03/25 Summit Imaging $2,395.00 · 04/10 Lakeside 03/27 visit $640.00 · 06/26 Lakeside 06/12 visit $640.00 (exhausted).
 - **Peach State EOB (Crescent Pain & Spine, DOS 05/15/2026):** billed $3,400.00 · allowed $1,860.00 · paid $1,860.00 (06/03/2026) ·
   contractual adjustment $1,540.00 · member responsibility $0.00.
-- **Case costs ($486.75):** police report $25.00 (02/18/2026) · medical records and billing $214.75 · certified mail $72.00 ·
+- **Case costs ($486.75):** Police Report $25.00 (02/18/2026) · medical records and billing $214.75 · certified mail $72.00 ·
   MRI images on disc $25.00 · postage and copies $150.00.
 
 ## The documents
@@ -61,11 +61,11 @@ lives with his mother Margaret Doe (emergency contact, same address, phone (555)
 passenger in Kevin Alvarez's 2020 Ford Escape (coworker carpool). Employer Northgate Distribution, shift lead,
 $22.00/h, started 01/12/2026. Health plan Peach State (member/group). Own car 2019 Civic LX, Bluewater (UM
 "rejected? — client unsure"). Collision summary (all-way stop, Smith rolled through, passenger-door impact, Escape
-pushed into the parked Civic). Police report number, injuries reported ("neck stiffness, sore; declined ambulance;
+pushed into the parked Civic). Police Report number, injuries reported ("neck stiffness, sore; declined ambulance;
 no treatment yet"), carriers as known at intake (Keystone for Smith; Harbor Point for Kevin; Cardinal State for
 Margaret — limits unknown). Intake notes: no treatment yet; told to seek care and keep receipts; preserve the
 doorbell video (Margaret's camera); Keystone has already called John once.
-*Plant:* the police report number is written **RPD-26-018824** (transposed; the report is RPD-26-018842).
+*Plant:* the Police Report number is written **RPD-26-018824** (transposed; the report is RPD-26-018842).
 *Key:* Verify every reference number against its source: the report is RPD-26-018842. Passenger status opens Host
 UM and Relative UM. No treatment yet: the 14-day gap is already running (first care 02/20/2026).
 
@@ -87,7 +87,7 @@ employment, incident narrative, parties, vehicles, insurance, health plan, emerg
 DOB is 08/14/1991 (driver's license copy and RS01). Every downstream letter (LORs, HIPAA requests) inherits these.
 
 **RS04 · Master Case Summary — Attorney Only** · Day 1 · Case Files · `RS_04_Master_Case_Summary_ATTORNEY_ONLY.pdf`
-Atty. Thone's internal summary (02/10/2026): liability (stop-sign citation, witness, doorbell video), coverage
+Atty. Thorne's internal summary (02/10/2026): liability (stop-sign citation, witness, doorbell video), coverage
 stack and order of operations (UM opens only after BI is exhausted; consent before any BI release), passenger-status
 analysis, health plan reimbursement, the treatment-gap risk, SOL 02/06/2028 (Sunday — internal hard date
 02/04/2028, internal filing cutoff 11/05/2027), case plan priorities. Marked "PRIVILEGED & CONFIDENTIAL — ATTORNEY
@@ -115,7 +115,7 @@ the plan has paid and may pay accident-related claims; asserts its reimbursement
 the carriers, the attorney, accident details; asks to be notified before any settlement; encloses a questionnaire.
 States the plan is a **fully insured group health plan issued to Northgate Distribution**.
 *Plant:* none. *Key:* Flag the lien on Day 1; fully insured (not self-funded ERISA) means state law governs reduction —
-Atty. Thone's call. Paid-to-date will be itemized later (RS41).
+Atty. Thorne's call. Paid-to-date will be itemized later (RS41).
 
 ### Police, witness, video (folder `police`)
 
@@ -175,7 +175,7 @@ orthopedics, recommend chiropractic/PT), payer: Harbor Point MedPay (claim HP-26
 **RS13 · Riverton Spine & Rehab — Initial Evaluation & LOP** · Day 2 · Medical · `RS_13_Spine_Rehab_Initial_Eval_and_LOP.pdf`
 Dr. Mark Ellison, DC and Sara Lin, DPT, 02/24/2026. History (collision, urgent care), past history ("2021 chiropractic
 care for low-back stiffness, 3 visits, resolved; no prior neck complaints"), exam, plan (chiro + PT 2–3×/week, 12
-weeks). Page 2: Letter of Protection signed 02/23/2026 by Atty. Elijah Thone for LSH Law Group (provider to be paid
+weeks). Page 2: Letter of Protection signed 02/23/2026 by Atty. Elijah Thorne for LSH Law Group (provider to be paid
 from recovery; patient remains responsible; acknowledgment by Tammy Greer, office manager).
 *Plant:* none. *Key:* Out of network for Peach State — the LOP is why. The provider's own history says the 2021 care
 was low back (contrast RS02).
@@ -213,7 +213,7 @@ within 24 months at $3,400 each.
 *Plant:* none. *Key:* MMI = the demand clock. Future medical $3,400–$6,800 is narrative, not specials.
 
 **RS19 · Dr. Alana Reyes — Causation Letter (06/19/2026)** · Day 2 · Medical · `RS_19_Reyes_Causation_Letter.pdf`
-To Atty. Thone. Records reviewed; opinion to a reasonable degree of medical probability: delayed presentation is
+To Atty. Thorne. Records reviewed; opinion to a reasonable degree of medical probability: delayed presentation is
 clinically consistent with a disc injury whose radicular symptoms evolve over days to weeks; the C5-C6 herniation
 was more likely than not caused by the 02/06/2026 collision; the 2021 low-back care is unrelated.
 *Plant:* none. *Key:* The causation answer to the gap and to the 2021 visits; the centrepiece of the gap justification
@@ -294,7 +294,7 @@ The five payments (spec list), running balance to $0.00, "MedPay limit exhausted
 The demand specialist's draft (dated 07/20/2026) to Dana Whitfield, KM-26-440871, by certified mail and email:
 liability, injuries and treatment, the gap addressed up front (EMS report, causation letter), specials table
 (medical $14,817.40 audited by line, wages $1,584.00), the offer to settle for the $10,000 limits. Marked "DRAFT —
-for Case Manager audit before Atty. Thone signs".
+for Case Manager audit before Atty. Thorne signs".
 *Plants:* (1) acceptance deadline "**30 days from the date of this letter (08/19/2026)**" — the window runs 30 days
 from **receipt** (07/22 → 08/21/2026); (2) release term "**a full and final release of all claims**" — must be a
 limited release of Robert Smith and Keystone only; (3) the specials total reads **$16,410.40** (the lines add to
@@ -310,7 +310,7 @@ USPS certified mail receipt (mailed 07/20/2026) and return receipt (green card) 
 Dana Whitfield: $3,500 to resolve the BI claim; reasons: "your client waited two weeks to seek any treatment" and
 "the MRI findings are degenerative in nature"; asks for the remaining records.
 *Key:* The adjuster's own words for the offer log. Answer with the MRI impression (RS16), the causation letter (RS19),
-the EMS report (RS11) and the gap record — no counter without Atty. Thone's authority.
+the EMS report (RS11) and the gap record — no counter without Atty. Thorne's authority.
 
 **RS36 · Track A — Smith Affidavit & Keystone Tender** · Day 3 · Others · `RS_36_Smith_Affidavit_and_Keystone_Tender.pdf`
 Robert Smith's affidavit of no other insurance (notarized 08/10/2026: no other policy, not in the course of
@@ -324,7 +324,7 @@ corporations and insurers**" from all claims arising from the 02/06/2026 collisi
 and lien indemnity by the claimant; signature lines.
 *Plant:* the release language reaches "all other ... insurers" (Harbor Point and Cardinal State).
 *Key:* Signing this releases the UM claims. Redline to a limited release of Robert Smith and Keystone only, preserving
-all UM/UIM claims, and route to Atty. Thone before the client sees it. Revised limited release signed 08/28/2026.
+all UM/UIM claims, and route to Atty. Thorne before the client sees it. Revised limited release signed 08/28/2026.
 
 **RS38 · UM Consents to Settle** · Day 3 · Others · `RS_38_UM_Consents_to_Settle.pdf`
 Harbor Point 08/24/2026 (Marcus Bell) and Cardinal State 08/26/2026 (Teresa Okafor): consent to the $10,000 BI
@@ -386,7 +386,7 @@ Leah Moran: diminished value $792.00 by the "17c" formula (10% of $17,600.00 = $
 accident**" for John's signature.
 *Plant:* the PD release reaches **all claims** from the accident — it would release the bodily-injury claim in suit.
 *Key:* Never let John sign a PD release that isn't limited to property damage. 17c caps at 10% and multiplies it down;
-the appraisal is $3,600.00. Route to Atty. Thone with a recommendation.
+the appraisal is $3,600.00. Route to Atty. Thorne with a recommendation.
 
 ### Litigation & ADR — Track B (folder `litigation`)
 
@@ -403,7 +403,7 @@ An earlier draft: no case number, "DRAFT 09/15/2026", unsigned, damages paragrap
 **RS51 · Complaint (filed 09/24/2026)** · Day 4 · Litigation · `RS_51_Complaint_Filed.pdf`
 State Court of Riverton County, *John Doe v. Robert Smith*, Civil Action No. 26-CV-04417; filed stamp 09/24/2026;
 negligence (failure to stop), damages: medical specials, lost wages, future medical, pain and suffering, property
-damage (loss of use and diminished value); jury demand; signed by Atty. Elijah Thone.
+damage (loss of use and diminished value); jury demand; signed by Atty. Elijah Thorne.
 
 **RS52 · Service of Process — Non-Service, Skip-Trace & Affidavit of Service** · Day 5 · Litigation · `RS_52_Service_Skip_Trace_and_Affidavit.pdf`
 Allied Process Services (Miguel Santos): non-service reports 10/01, 10/05, 10/08/2026 at 118 Larkspur Ln (neighbor:
@@ -420,7 +420,7 @@ failure to mitigate (missed treatment), plus standard reservations.
 
 **RS54 · Defendant's First Discovery Requests (12/01/2026)** · Day 4 · Litigation · `RS_54_Defendants_First_Discovery_Requests.pdf`
 Interrogatories (25), Requests for Production (30) and Requests for Admission (15), served by U.S. mail on Atty.
-Thone 12/01/2026, with certificate of service. Include all 25 / 30 / 15 (short realistic items: prior injuries,
+Thorne 12/01/2026, with certificate of service. Include all 25 / 30 / 15 (short realistic items: prior injuries,
 the 2021 care, social media, employment, the gap, seatbelt, PD documents...). Cover letter from Mercer's paralegal.
 *Plant:* the cover letter says "**responses are due December 31, 2026**".
 *Key:* Served by mail: 30 days + 3 = 01/03/2027, a Sunday → due 01/04/2027 (as configured for this training file;
@@ -456,6 +456,6 @@ released; UM consents attached.
 *Key:* BI exhausted on Track B — Host UM and Relative UM open (and go to arbitration).
 
 **RS60 · Certificate of Service — Plaintiff's Discovery Responses (01/04/2027)** · Day 5 · Litigation · `RS_60_Certificate_of_Service_Discovery_Responses.pdf`
-Atty. Thone's certificate: John Doe's verified answers to interrogatories, responses to requests for production and
+Atty. Thorne's certificate: John Doe's verified answers to interrogatories, responses to requests for production and
 responses to requests for admission served by U.S. mail on Atty. Grant Mercer 01/04/2027.
 *Key:* Proves the RFA responses were timely (due 01/04/2027).

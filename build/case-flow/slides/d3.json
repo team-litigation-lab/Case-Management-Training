@@ -1,7 +1,7 @@
 {
   "d3m1-l1": {
     "image": "demand-letter",
-    "hook": "A clear, timed **$10,000 limits demand** makes Keystone decide on the record.",
+    "hook": "A clear, timed **$10,000 Limits Demand** makes Keystone decide on the record.",
     "points": [
       "Demand **within limits**: $10,000, Keystone's full BI limit",
       "Make **every term acceptable as written**; release Smith and Keystone only",
@@ -12,7 +12,7 @@
     "job": [
       ["MMI declared (06/12/2026)", "Docket MMI + 30", "Docket System · CMS → Tasks", "07/12/2026 Sunday: work it Fri 07/10"],
       ["Return receipt shows 07/22/2026", "Docket the acceptance deadline", "Docket System", "08/21/2026, from receipt, not mailing"],
-      ["Keystone writes or calls", "Log verbatim; route to Atty. Thone", "CMS → Communications Log", "Same day; the CM changes nothing"]
+      ["Keystone writes or calls", "Log verbatim; route to Atty. Thorne", "CMS → Communications Log", "Same day; the CM changes nothing"]
     ],
     "dos": [
       "Docket from the **return receipt date**, never the mailing date",
@@ -27,7 +27,7 @@
   },
   "d3m1-a1": {
     "image": "checklist-qa",
-    "situation": "File date 07/20/2026. MMI reached; specials $16,401.40. Atty. Thone approved **$10,000 limits**, a limited release of Smith and Keystone, Smith's affidavit, 30 days from receipt. The draft awaits **your final audit**.",
+    "situation": "File date 07/20/2026. MMI reached; Specials $16,401.40. Atty. Thorne approved **$10,000 limits**, a Limited Release of Smith and Keystone, Smith's affidavit, 30 days from receipt. The draft awaits **your final audit**.",
     "steps": [
       "Audit the draft against **the Big Four** and the Final Scrub",
       "Log each deficiency as **an assigned CMS task**",
@@ -37,11 +37,11 @@
     ],
     "deliver": "An audited, served demand with **proof of delivery** and 08/21/2026 docketed",
     "checks": [
-      "**$10,000 BI limit**; terms match Atty. Thone's approval exactly",
-      "Big Four complete; **specials total $16,401.40**",
+      "**$10,000 BI limit**; terms match Atty. Thorne's approval exactly",
+      "Big Four complete; **Specials total $16,401.40**",
       "Gap answered **on page one**; each deficiency an assigned task",
       "Served by **certified mail AND email**; 08/21/2026 docketed",
-      "Any extension request **routed to Atty. Thone** same day"
+      "Any extension request **routed to Atty. Thorne** same day"
     ],
     "dos": [
       "Re-verify **every provider balance** in the week of service"
@@ -79,19 +79,19 @@
   },
   "d3m1-a2": {
     "image": "binder-exhibits",
-    "situation": "File date 08/31/2026. Keystone tendered $10,000 limits 08/12; consents came 08/24 and 08/26; the **limited release was signed** 08/28. Keystone's **check hasn't arrived**. Keystone had called the MRI “degenerative.”",
+    "situation": "File date 08/31/2026. Keystone tendered $10,000 limits 08/12; consents came 08/24 and 08/26; the **Limited Release was signed** 08/28. Keystone's **check hasn't arrived**. Keystone had called the MRI “degenerative.”",
     "steps": [
       "Draft **Host UM to Harbor Point** for the $20,000 limit",
       "Draft **Relative UM to Cardinal State**: $10,000, excess over Host UM",
       "Put **exhaustion proof on page one**; show damages above collections",
       "Answer the gap and “degenerative” **with the MRI**",
-      "**Leave the response deadline** blank for Atty. Thone; route both"
+      "**Leave the response deadline** blank for Atty. Thorne; route both"
     ],
     "deliver": "Two attorney-ready UM drafts, **exhaustion proof first**, routed for review",
     "checks": [
       "Two separate packages, **HP-26-7741 and CS-26-20355**",
       "Relative UM claimed for **damages above $30,000**",
-      "**Exhaustion on page one**: tender, dec page, affidavit, consents, release",
+      "**Exhaustion on page one**: tender, Dec Page, affidavit, consents, release",
       "Check copy listed **to follow, with a task**",
       "**Response deadline left blank**; nothing served"
     ],
@@ -107,7 +107,7 @@
     "image": "knowledge-check",
     "questions": [
       "State the BI demand's terms, how it was served, and **the date its window closed**. Show your count.",
-      "Name **the five elements** of an answerable time-limited demand, with this file's examples. Who decides bad faith?",
+      "Name **the five elements** of an answerable Time-Limited Demand, with this file's examples. Who decides bad faith?",
       "Keystone calls the MRI degenerative, citing the 14-day gap. **Which documents answer each**, and where?",
       "08/25/2026: **Cardinal State hasn't consented**; John Doe wants to sign today. Your move, and what does consent protect?",
       "Explain the $40,000 stack, what Host UM pays **under an offset form**, and why Relative UM is excess.",
@@ -121,14 +121,14 @@
     "points": [
       "Build **the battle map** first: net floor, value drivers, attacks, rebuttals",
       "Net floor: **$12,677.63 gross**, above Keystone's $10,000 limit",
-      "Anchor on **$16,401.40 total specials**, not MedPay's $5,000",
+      "Anchor on **$16,401.40 total Specials**, not MedPay's $5,000",
       "Restate the approved demand and name each stall; **make no moves**"
     ],
     "upl": "Present the record, relay offers; never counter, move number or deadline, or value offers.",
     "job": [
       ["Keystone receives demand (07/22/2026)", "Build battle map; compute net floor", "Net Sheet · Case Notes", "Floor $12,677.63; attacks matched to documents"],
       ["Adjuster calls with an offer", "Pause, ask her data, restate demand", "Call Simulator → AI Adjuster", "No counter; 08/21/2026 unchanged"],
-      ["Call ends", "Log verbatim; report to Atty. Thone", "Communications Log · Escalate", "Logged and reported same day"]
+      ["Call ends", "Log verbatim; report to Atty. Thorne", "Communications Log · Escalate", "Logged and reported same day"]
     ],
     "dos": [
       "Make the adjuster **justify her number with data**",
@@ -143,19 +143,19 @@
   },
   "d3m2-a1": {
     "image": "phone-call",
-    "situation": "File date 08/05/2026. Acceptance runs to 08/21/2026. Dana Whitfield **calls with $3,500**: John Doe “waited two weeks,” the MRI is “degenerative.” Atty. Thone's authority: restate the demand, **no counter**.",
+    "situation": "File date 08/05/2026. Acceptance runs to 08/21/2026. Dana Whitfield **calls with $3,500**: John Doe “waited two weeks,” the MRI is “degenerative.” Atty. Thorne's authority: restate the demand, **no counter**.",
     "steps": [
       "Run **the math check on $3,500** before dialing",
       "Pause after her number; **ask what data supports it**",
       "Name each stall; answer **the gap and “degenerative”** from the record",
-      "Log her exact words; **report to Atty. Thone** the same day",
+      "Log her exact words; **report to Atty. Thorne** the same day",
       "Draft **the 08/06/2026 rebuttal** for his approval"
     ],
-    "deliver": "A call **held inside Atty. Thone's authority**, logged offer, same-day report, drafted rebuttal",
+    "deliver": "A call **held inside Atty. Thorne's authority**, logged offer, same-day report, drafted rebuttal",
     "checks": [
       "$3,500 **nets John Doe $0.00** after fee, costs and liens",
       "Pause used; **asked what data supports $3,500**",
-      "Gap answered with **the gap justification record** and dated documents",
+      "Gap answered with **the Gap Justification Record** and dated documents",
       "“Degenerative” answered **with Dr. Park's words**",
       "**No counter**; terms and 08/21/2026 deadline unchanged"
     ],
@@ -178,7 +178,7 @@
     ],
     "upl": "Assemble evidence and relay offers; never accept, reject, counter or advise settling.",
     "job": [
-      ["UM offer received (09/14/2026)", "Log and report to Atty. Thone", "Negotiation log · Escalate", "Logged and reported 09/14/2026"],
+      ["UM offer received (09/14/2026)", "Log and report to Atty. Thorne", "Negotiation Log · Escalate", "Logged and reported 09/14/2026"],
       ["Carrier offers its limits", "Confirm terms without accepting; report", "Email Workspace · Case Notes", "Acceptance only after John Doe decides"],
       ["UM check arrives", "Confirm release signed; deposit same day", "CMS → Financial Ledger → Trust", "Deposited 10/05 and 10/13/2026"]
     ],
@@ -198,12 +198,12 @@
     "situation": "File date 09/14/2026. Keystone's $10,000 is in trust; UM demands went out 08/31. Marcus Bell offers **$8,000 for Harbor Point**, citing the gap and **“BI already compensated him.”**",
     "steps": [
       "Log the **$8,000 and its reasons**; report it same day",
-      "Assemble **the 09/16 counter-package** for Atty. Thone's approval",
-      "Log **every later move** in the negotiation log",
-      "Record **John Doe's decision** through Atty. Thone, then draft the acceptance",
+      "Assemble **the 09/16 counter-package** for Atty. Thorne's approval",
+      "Log **every later move** in the Negotiation Log",
+      "Record **John Doe's decision** through Atty. Thorne, then draft the acceptance",
       "Prove **$40,000 gross** on the Recovery Ledger"
     ],
-    "deliver": "A complete negotiation log, approved counter-package, confirming emails, Recovery Ledger at **$40,000.00 gross**",
+    "deliver": "A complete Negotiation Log, approved counter-package, confirming emails, Recovery Ledger at **$40,000.00 gross**",
     "checks": [
       "Offset answered with **the 03/02/2026 add-on letter**",
       "Counter-package approved, sent 09/16/2026; **no figure below limits**",
@@ -226,8 +226,8 @@
       "Dana Whitfield cites the 14-Day Gap and a degenerative MRI. Answer both: **four documents** and the radiologist's words.",
       "No PIP here. What does MedPay's $5,000, **exhausted and non-subrogated**, mean for valuation? What changes where PIP applies?",
       "Why doesn't **the offset rule** cut Host UM, and why must Cardinal State's file show damages above $30,000?",
-      "Name **three stall tactics** and your answer to each. What is the “Never” rule on a limits demand?",
-      "Marcus Bell: accept $8,000 verbally or it's withdrawn. Atty. Thone is flying. **What do you say** and log?",
+      "Name **three stall tactics** and your answer to each. What is the “Never” rule on a Limits Demand?",
+      "Marcus Bell: accept $8,000 verbally or it's withdrawn. Atty. Thorne is flying. **What do you say** and log?",
       "Cardinal State tenders $10,000 (10/06/2026). What do you confirm, what does the email say, and **what precedes deposit**?"
     ]
   },
@@ -240,11 +240,11 @@
       "**Funding decides the law**: Peach State is fully insured",
       "Common fund, fee share: **$1,860.00 – $620.00 = $1,240.00**"
     ],
-    "upl": "Classify and draft; no lien is compromised without Atty. Thone's express authority.",
+    "upl": "Classify and draft; no lien is compromised without Atty. Thorne's express authority.",
     "job": [
       ["Gross reaches $40,000.00 (10/06/2026)", "Run final inventory; classify each claim", "Net Sheet → Lien Tracker", "Two liens open; every “none” sourced"],
-      ["Health plan lien classified", "Get plan documents; route funding status", "CMS → Tasks → Escalate", "Fully insured; governing law his call"],
-      ["Atty. Thone chooses the basis", "Draft request: doctrine named, math shown", "CMS → Documents → Outgoing", "$1,240.00 shown; held for his approval"]
+      ["Health Plan lien classified", "Get plan documents; route funding status", "CMS → Tasks → Escalate", "Fully insured; governing law his call"],
+      ["Atty. Thorne chooses the basis", "Draft request: doctrine named, math shown", "CMS → Documents → Outgoing", "$1,240.00 shown; held for his approval"]
     ],
     "dos": [
       "Record a verified “none” **with its source and date**",
@@ -261,9 +261,9 @@
     "situation": "File date 10/06/2026; **gross is $40,000.00**. Peach State **asserts $1,860.00**, its payment for the 05/15/2026 injection at Crescent Pain & Spine. Plan documents show a fully insured group plan.",
     "steps": [
       "Match **the plan's payments** to the treatment record",
-      "Classify it, record funding, and **escalate governing law** to Atty. Thone",
+      "Classify it, record funding, and **escalate governing law** to Atty. Thorne",
       "Draft the request: doctrine named, **one-third math to $1,240.00**",
-      "Flag **made whole** for Atty. Thone to argue",
+      "Flag **made whole** for Atty. Thorne to argue",
       "Record **every absent claimant** as a verified “none”"
     ],
     "deliver": "A signature-ready request, absent claimants cleared, $1,240.00 recorded **once confirmed in writing**",
@@ -271,7 +271,7 @@
       "Lien is **what the plan paid**: $1,860.00, not $3,400.00 billed",
       "Classified **contractual, not statutory**; fully insured recorded",
       "Math shown: **$1,860.00 – $620.00 = $1,240.00**",
-      "Request held **until Atty. Thone's written approval**",
+      "Request held **until Atty. Thorne's written approval**",
       "Acceptance logged 10/09/2026 **only with written confirmation**"
     ],
     "dos": [
@@ -279,7 +279,7 @@
       "Record **absent liens** with the same care"
     ],
     "donts": [
-      "Arguing a doctrine **Atty. Thone hasn't chosen**",
+      "Arguing a doctrine **Atty. Thorne hasn't chosen**",
       "Logging “we'll take a third off” **as a final figure**"
     ]
   },
@@ -290,13 +290,13 @@
       "Audit first: drop the 05/04/2026 duplicate, **negotiate from $6,105.00**",
       "Pro rata: equal-priority liens **share in proportion** to their amounts",
       "Argue **on true facts only**: a coverage-capped recovery, payment now",
-      "**No payoff letter, no payment**; pay from the payoff figure"
+      "**No Payoff Letter, no payment**; pay from the payoff figure"
     ],
-    "upl": "Ask only inside Atty. Thone's written authority; never accept outside it or promise payment.",
+    "upl": "Ask only inside Atty. Thorne's written authority; never accept outside it or promise payment.",
     "job": [
       ["Provider's final ledger received", "Audit each line; request written correction", "Medical Records Requests · Lien Tracker", "33 visits; duplicate out; $6,105.00"],
       ["Audited balance confirmed", "Draft request; get written authority", "CMS → Documents → Outgoing", "Authority logged before any call"],
-      ["Reduction agreed", "Get signed payoff letter; update tabs", "Financial Ledger → Net Sheet", "Full-and-final language; net recomputed same day"]
+      ["Reduction agreed", "Get signed Payoff Letter; update tabs", "Financial Ledger → Net Sheet", "Full-and-final language; net recomputed same day"]
     ],
     "dos": [
       "**Corrections first**, reductions second",
@@ -311,20 +311,20 @@
   },
   "d3m3-a2": {
     "image": "negotiation",
-    "situation": "10/09/2026: Peach State accepted $1,240.00. Riverton Spine & Rehab's ledger bills **34 lines × $185.00 = $6,290.00**. Atty. Thone set a written target; **no lien is paid** until resolved in writing.",
+    "situation": "10/09/2026: Peach State accepted $1,240.00. Riverton Spine & Rehab's ledger bills **34 lines × $185.00 = $6,290.00**. Atty. Thorne set a written target; **no lien is paid** until resolved in writing.",
     "steps": [
       "Audit the ledger; **request a written correction** first",
-      "Draft the reduction request; **send it once approved**",
-      "Call the billing manager **inside Atty. Thone's authority**",
+      "Draft the Reduction Request; **send it once approved**",
+      "Call the billing manager **inside Atty. Thorne's authority**",
       "State the audited balance, recovery and math; ask for **payment in full**",
-      "When the manager agrees to $4,580.00, say **it goes to Atty. Thone**"
+      "When the manager agrees to $4,580.00, say **it goes to Atty. Thorne**"
     ],
-    "deliver": "Audited $6,105.00, a logged call, **a signed $4,580.00 payoff letter**, recomputed Net Sheet",
+    "deliver": "Audited $6,105.00, a logged call, **a signed $4,580.00 Payoff Letter**, recomputed Net Sheet",
     "checks": [
       "34 billed lines **against 33 documented visits**",
       "Correction first: **$6,290.00 – $185.00 = $6,105.00**",
       "**$4,580.00 not accepted** on the call",
-      "**Signed payoff letter**: full and final, no balance billing",
+      "**Signed Payoff Letter**: full and final, no balance billing",
       "Net Sheet recomputed: **net $20,359.92**"
     ],
     "dos": [
@@ -333,7 +333,7 @@
     ],
     "donts": [
       "**Agreeing on the phone** because it sounds good",
-      "A payoff letter **without full-and-final language**"
+      "A Payoff Letter **without full-and-final language**"
     ]
   },
   "d3m3-kc": {
@@ -350,7 +350,7 @@
   },
   "d3m4-l1": {
     "image": "cms-screen",
-    "hook": "The net sheet shows **every dollar's origin and destination** before a cent leaves trust.",
+    "hook": "The Net Sheet shows **every dollar's origin and destination** before a cent leaves trust.",
     "points": [
       "Keep **two streams apart**: BI $10,000.00, UM $30,000.00",
       "Price **the fee per stream**: $3,333.33 + $10,000.00 = $13,333.33",
@@ -361,7 +361,7 @@
     "job": [
       ["Each settlement check received", "Post it to its stream", "Net Sheet → Recovery Ledger", "BI $10,000.00 · UM $30,000.00"],
       ["Cost incurred", "Attach receipt; post it once", "Recovery Ledger", "Five receipts = $486.75"],
-      ["Both tabs complete", "Tie to trust; route for review", "CMS → Financial Ledger → Trust", "Net $20,359.92; Atty. Thone reviews first"]
+      ["Both tabs complete", "Tie to trust; route for review", "CMS → Financial Ledger → Trust", "Net $20,359.92; Atty. Thorne reviews first"]
     ],
     "dos": [
       "Every reduction carries **its reason**: audit finding or named basis",
@@ -371,7 +371,7 @@
     "donts": [
       "**Mixing BI and UM money** on one line",
       "Charging **the same cost** to both streams",
-      "A lien figure **with no payoff letter**"
+      "A lien figure **with no Payoff Letter**"
     ]
   },
   "d3m4-a1": {
@@ -382,15 +382,15 @@
       "Apply **the 33⅓% fee per stream** and receipted costs",
       "Split costs and liens **25% / 75%** down to net",
       "Complete the Lien Tracker: **asserted, audited, reduced**, payoff status",
-      "**Tie both tabs** to the trust ledger"
+      "**Tie both tabs** to the Trust Ledger"
     ],
-    "deliver": "A two-tab net sheet reaching **$20,359.92 both ways**, routed to Atty. Thone",
+    "deliver": "A two-tab Net Sheet reaching **$20,359.92 both ways**, routed to Atty. Thorne",
     "checks": [
       "Pre-suit fee: **$3,333.33 + $10,000.00 = $13,333.33**",
       "Costs **$486.75, split $121.69 / $365.06**, charged once",
       "Net: **$5,089.98 + $15,269.94 = $20,359.92**",
       "MedPay and Crescent's write-off **kept off the payables**",
-      "**Future ESIs flagged** to Atty. Thone before John Doe signs"
+      "**Future ESIs flagged** to Atty. Thorne before John Doe signs"
     ],
     "dos": [
       "Compute the UM share **as the remainder** of each split"
@@ -421,28 +421,28 @@
       "**Cross-reference invoice numbers** before approving payment"
     ],
     "donts": [
-      "A general release that **wipes out the UM claims**",
+      "A General Release that **wipes out the UM claims**",
       "Cutting checks **against uncleared funds**",
       "Paying from emailed instructions **without verifying by phone**"
     ]
   },
   "d3m4-a2": {
     "image": "settlement-check",
-    "situation": "Two file dates. 08/14/2026: Keystone's draft release arrives; **UM consents still pending**. 10/21/2026: $40,000.00 cleared by 10/20, statement signed, payoff letters in. **Disbursement is 10/22**.",
+    "situation": "Two file dates. 08/14/2026: Keystone's draft release arrives; **UM consents still pending**. 10/21/2026: $40,000.00 cleared by 10/20, statement signed, Payoff Letters in. **Disbursement is 10/22**.",
     "steps": [
       "Part 1: audit Keystone's draft **line by line**",
       "Flag every line that reaches **past Smith, Keystone or BI**",
       "State its cost to John Doe; **route a redline memo**",
       "Part 2: **confirm every condition precedent**",
-      "Queue **one command per net sheet line**; show $0.00"
+      "Queue **one command per Net Sheet line**; show $0.00"
     ],
     "deliver": "A redline memo before John Doe sees the draft; **five commands to $0.00**",
     "checks": [
       "**“All other … insurers”** quoted: $30,000 of the $40,000 stack",
       "Memo routed 08/14; **draft withheld from John Doe**",
-      "Five commands **match the net sheet** exactly",
+      "Five commands **match the Net Sheet** exactly",
       "Ledger arithmetic shown, **$40,000.00 to $0.00**",
-      "**None released by the CM**; all for Atty. Thone's signature"
+      "**None released by the CM**; all for Atty. Thorne's signature"
     ],
     "dos": [
       "**Quote the over-broad words** exactly in the memo"
@@ -457,7 +457,7 @@
     "questions": [
       "Take $40,000.00 to $20,359.92 **stream by stream**: fee, costs, liens. Why the 25% / 75% split?",
       "Name **the four document sets** needed before archive, the file's item for each, and the retention period.",
-      "The trust ledger reads $0.00 after 10/22/2026. **Which records prove it**, and what would a leftover balance mean?",
+      "The Trust Ledger reads $0.00 after 10/22/2026. **Which records prove it**, and what would a leftover balance mean?",
       "Write the closing memo's discrepancy note: $3,500, $8,000, $6,000 became $10,000, $20,000, $10,000. **What answered the 14-Day Gap**?",
       "No suit on Track A. When would **a dismissal** be needed, what kind, signed by whom, confirmed how?",
       "John Doe angrily forwards Crescent's $1,540.00 bill. **What do you check first**? Who's accountable? What do you say?",

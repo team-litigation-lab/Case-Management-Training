@@ -57,7 +57,7 @@ window.LSH_BLUEPRINT = {
         where: 'The top bar. On a phone, everything is under ☰ Menu; Search finds any topic or tool.',
         tip: "Each day's tools open with that day, so you never have to hunt for the right one." },
       { icon: '📂', title: 'The case: John Doe v. Robert Smith', points: [
-          'John Doe, a front-seat passenger, hurt when Robert Smith ran an all-way stop — a $40,000 recovery stack (BI → Host UM → Relative UM), Atty. Elijah Thone, and a 14-day treatment gap.',
+          'John Doe, a front-seat passenger, hurt when Robert Smith ran an all-way stop — a $40,000 recovery stack (BI → Host UM → Relative UM), Atty. Elijah Thorne, and a 14-day treatment gap.',
           'Every lesson and Skill Activity works this one file. Day 3 settles it (Track A); Days 4–5 take the same file to suit (Track B).',
           'Read the Case File before Day 1, then open the documents in 📁 Case Documents.',
           'The documents contain real-world inconsistencies — catching them is the job.',

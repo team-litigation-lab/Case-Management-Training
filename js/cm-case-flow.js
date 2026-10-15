@@ -1,6 +1,6 @@
 /* ============================================================
    5-DAY LEGAL CASE MANAGEMENT FLOW — the track's days, slides and wiring
-   Focus case: John Doe v. Robert Smith · Lead Counsel: Atty. Elijah Thone
+   Focus case: John Doe v. Robert Smith · Lead Counsel: Atty. Elijah Thorne
 
    Content: js/cm-case-flow-data.js (window.CM_CASE_FLOW), the single source of
    truth. This file only turns it into this course's own day and lesson objects
@@ -584,9 +584,9 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
     status(modId, "Reviewing…");
     const c = CF.case, day = CF.days.find(x => x.id === dayId);
     const label = `Day ${dayId} · Case Flow Day ${d.cf.n} · Module ${mod.n} — CM Self-Summary`;   // "Day <id>" files it under this day, not under Apex Day ${d.cf.n}
-    const ctx = `Case: ${c.style}, ${c.type}. Lead counsel ${c.counsel}. DOL ${c.dol}; SOL ${c.sol}. Client ${c.client.name}, ${c.client.position}. `
+    const ctx = `Case: ${c.style}, ${c.type}. Lead Counsel ${c.counsel}. DOL ${c.dol}; SOL ${c.sol}. Client ${c.client.name}, ${c.client.position}. `
       + `Coverage stack (in order): ${stackLayers().map(l => `${l.tag} ${money(l.limit)} (${l.carrier})`).join(" → ")} = ${money(c.total)}. `
-      + `Health plan ${c.health.carrier} (${c.health.memberId}). Critical fact: ${c.critical}\n`
+      + `Health Plan ${c.health.carrier} (${c.health.memberId}). Critical fact: ${c.critical}\n`
       + (day && (day.fileState || []).length ? `Where the file stands on Case Flow Day ${day.n} (${day.phase}): ${day.fileState.join(" ")}\n` : "")
       + `Module: ${mod.title} — ${mod.about}\nThe module's knowledge-verification questions were:\n- ${b.check.questions.join("\n- ")}`;
     const text = b.check.summary.map((q, j) => `${q}\n${m.answers[j] || ""}`).join("\n\n")
@@ -742,8 +742,8 @@ if(typeof renderFeedbackAdmin === "function"){
 }
 
 /* ---------- the Case File page: John Doe v. Robert Smith ----------
-   The client profile is this file's (CF.profile), for every trainee on the Case Flow and for
-   trainers. The John Doe v. Apex case file is archived, not deleted: it stays whole for a trainee
+   The Client Profile is this file's (CF.profile), for every trainee on the Case Flow and for
+   trainers. The John Doe v. Apex Case File is archived, not deleted: it stays whole for a trainee
    on the archived version, and trainers (and trainees given the archived days too) reach it from
    the "Archived" link at the foot of the page (it holds the Apex days' Case File checkpoints).
    Each section opens with its Case Flow day (`opens`) or once that day is passed (`passed`),
@@ -759,16 +759,16 @@ function caseFlowProfile(archiveLink){
   const pos = dayUnlocked(cfIdOf(5)) ? 5 : [4, 3, 2, 1].find(n => dayUnlocked(cfIdOf(n))) || 1;
   return `<h1 style="color:var(--navy);font-size:28px;margin:0 0 10px">📂 Case File: ${E(c.style)}</h1>
     <div class="client-intro-banner"><div class="cib-tag">📌 Your Client</div><h2>One File, From Intake to Deposition</h2>
-      <p>${E(c.client.name)}, ${E(c.client.position.toLowerCase())}, is your client for the whole course: ${E(c.no)} · Lead Counsel ${E(c.counsel)} · ${E(money(c.total))} recovery stack · ${E(c.gapDays)}-Day Treatment Gap.</p>
-      <p>This profile grows with the file. Each section opens with the day it belongs to, and what a day's work produces (the audited specials, the reasons for the gap, the net sheet, the calendar) opens once you pass that day, so work it out from the documents first.</p>
+      <p>${E(c.client.name)}, ${E(c.client.position.toLowerCase())}, is your client for the whole course: ${E(c.no)} · Lead Counsel ${E(c.counsel)} · ${E(money(c.total))} Recovery Stack · ${E(c.gapDays)}-Day Treatment Gap.</p>
+      <p>This profile grows with the file. Each section opens with the day it belongs to, and what a day's work produces (the audited Specials, the reasons for the gap, the Net Sheet, the calendar) opens once you pass that day, so work it out from the documents first.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-navy btn-sm" onclick="goto('day',${cfIdOf(pos)})">Open Case Flow Day ${pos}</button><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.docsArchived ? cmCaseFlow.docsArchived(false) : goto('casedocs')">📁 Open the Case Documents</button>${typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS</button>` : ""}</div></div>
     <div class="profile-grid">${shown.map(x => `<div class="card profile-section"><h3>${E(x.title)}</h3><ul>${x.items.map(i => `<li>${E(i)}</li>`).join("")}</ul></div>`).join("")}
       ${gates.map(g => `<div class="card profile-section cf-prof-lock"><h3>🔒 ${E(g.k)}</h3><ul>${g.t.map(t => `<li>${E(t)}</li>`).join("")}</ul></div>`).join("")}</div>
     ${archiveLink ? `<div class="cf-archived-link"><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.archived(true)">🗄 Archived: The John Doe v. Apex Case File</button>
-      <span class="cf-note">The earlier version's case file and its Case File checkpoints, kept for the Apex days.</span></div>` : ""}`;
+      <span class="cf-note">The earlier version's Case File and its Case File checkpoints, kept for the Apex days.</span></div>` : ""}`;
 }
 function archivedBar(){
-  return `<div class="cf-archived-bar"><span><b>🗄 Archived</b> · the John Doe v. Apex case file, kept for the earlier version's days. Your client is John Doe v. Robert Smith.</span>
+  return `<div class="cf-archived-bar"><span><b>🗄 Archived</b> · the John Doe v. Apex Case File, kept for the earlier version's days. Your client is John Doe v. Robert Smith.</span>
     <button class="btn btn-navy btn-sm" onclick="cmCaseFlow.archived(false)">← John Doe v. Robert Smith</button></div>`;
 }
 if(typeof window.renderClientProfile === "function"){
@@ -776,8 +776,8 @@ if(typeof window.renderClientProfile === "function"){
   window.renderClientProfile = function(){
     const v = track();
     if(v === "classic" || !Array.isArray(CF.profile)) return __profile.apply(this, arguments);   // the Apex Case File, as it was
-    if(v === "caseflow") return caseFlowProfile(false);   // the archived Apex case file isn't theirs
-    // trainers, and trainees given the archived days too: Robert Smith is the Case File; the Apex case file is one click away
+    if(v === "caseflow") return caseFlowProfile(false);   // the archived Apex Case File isn't theirs
+    // trainers, and trainees given the archived days too: Robert Smith is the Case File; the Apex Case File is one click away
     return state.cfArchived ? archivedBar() + __profile.apply(this, arguments) : caseFlowProfile(true);
   };
   const show = archived => {
@@ -814,7 +814,7 @@ function caseFlowDocuments(archiveLink){
   const folders = CF_FOLDERS.map(fo => ({fo, items: shown.filter(d => d.folder === fo.id), later: locked.filter(d => d.folder === fo.id).length})).filter(x => x.items.length || x.later);
   return `<p class="eyebrow">Case Documents</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">📁 Case Documents: ${E(CF.case.style)}</h1>
-    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 14px">The working file for John Doe v. Robert Smith: intake, police and video, medical records and bills, the carriers' policies and letters, liens, the Civic's property damage, and (Track B) the lawsuit. Each document opens with its Case Flow day, and each Skill Activity lists the ones it works from. Each shows the <b>CMS upload category</b> to use when you add it to the case in the CMS. Read them the way a Case Manager does: verify every fact against its source, and flag what doesn't match.</p>
+    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 14px">The working file for John Doe v. Robert Smith: intake, police and video, Medical Records and bills, the carriers' policies and letters, liens, the Civic's Property Damage, and (Track B) the lawsuit. Each document opens with its Case Flow day, and each Skill Activity lists the ones it works from. Each shows the <b>CMS upload category</b> to use when you add it to the case in the CMS. Read them the way a Case Manager does: verify every fact against its source, and flag what doesn't match.</p>
     <div class="cm-filter"><button class="btn btn-sm btn-ghost" onclick="openCms()">🗂 Open CMS</button></div>
     ${state.isAdmin ? `<div class="card" style="padding:12px 16px;margin-bottom:16px;border-left:4px solid var(--danger);font-size:12.8px">🔑 <b>Trainer view:</b> the red notes under each document are the audit key: planted discrepancies and what a strong trainee should catch. Trainees don't see them. Every document's plants are listed in build/case-flow/documents/SPEC.md.</div>` : ""}
     ${folders.map(({fo, items, later}) => `<div class="card cm-lib-folder" style="padding:14px 18px"><h3>${fo.icon} ${E(fo.label)} <span style="font-weight:500;color:var(--ink-soft);font-size:12px">(${items.length})</span></h3>

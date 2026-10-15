@@ -1,6 +1,6 @@
 # 5-Day Legal Case Management Flow — Architecture & Continuity Spine
 
-**Focus case:** *John Doe v. Robert Smith* · **Lead Counsel:** Attorney Elijah Thone
+**Focus case:** *John Doe v. Robert Smith* · **Lead Counsel:** Attorney Elijah Thorne
 **Course:** LSH Case Management Training (5-Day). The Case Flow is the course; the earlier *John Doe v. Apex Delivery Services* days are archived (kept as they were, off the trainees' dashboard).
 **Status:** the spec every Case Flow block conforms to. All five days are written: 20 modules, 100 blocks.
 
@@ -36,7 +36,7 @@ The existing course teaches the right doctrine on 192 topics, but as slide-by-sl
 | | |
 |---|---|
 | Case | *John Doe v. Robert Smith* · LSH-2026-MVA-770412 · MVA, passenger injury |
-| Lead Counsel | Atty. Elijah Thone — approves all strategy, demands and filings |
+| Lead Counsel | Atty. Elijah Thorne — approves all strategy, demands and filings |
 | Client | John Doe — **front-seat passenger in the host vehicle** |
 | Date of loss / SOL | 02/06/2026 · 02/06/2028 (two-year limitation assumed for training; confirm the governing statute) |
 | Health plan | Peach State Health Plan · PSH-55017742 · GRP-41208 — asserts reimbursement |
