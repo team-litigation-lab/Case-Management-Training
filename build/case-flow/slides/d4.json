@@ -1,0 +1,467 @@
+{
+  "d4m1-l1": {
+    "image": "insurance-stack",
+    "hook": "One $10,000 carrier now holds **the whole $40,000 stack**; prove the impasse with dates.",
+    "points": [
+      "Document impasse on **its triggers**, not frustration; Atty. Thone calls it",
+      "Work the dispute path first; litigation only when **nothing moves the carrier**",
+      "Never **bid against yourself**; any new number is Atty. Thone's",
+      "Filing is counsel's decision; **its inputs are yours** to verify"
+    ],
+    "upl": "Document the impasse and ask; never recommend suit or value the claim.",
+    "job": [
+      ["Offer repeated or deadline passes", "Log the trigger with proof", "CMS → Communications Log", "Every trigger dated and documented"],
+      ["Follow-ups unanswered", "Escalate to supervisor; no new number", "Email Workspace", "Dated; asks for written position"],
+      ["Escalation window closes unanswered", "Assemble impasse record for counsel", "CMS → Tasks → Escalate", "Routed with SOL and internal dates"]
+    ],
+    "dos": [
+      "Date every contact **the day it happens**",
+      "Ask for the carrier's reasons and evidence **in writing**",
+      "Escalate a silent adjuster **to the supervisor** first"
+    ],
+    "donts": [
+      "Treating silence as negotiation and **waiting another month**",
+      "Sending a UM demand **before BI is exhausted**",
+      "Telling John Doe it “will have to go **to court**”"
+    ]
+  },
+  "d4m1-a1": {
+    "image": "escalation-alert",
+    "situation": "File date 09/08/2026, Track B. Keystone called $3,500 **“final” on 08/12**; the demand lapsed 08/21. Follow-ups 08/24 and 08/31 and the 09/02 escalation: **no answer**. SOL 02/06/2028.",
+    "steps": [
+      "Build a **dated chronology** from the 07/20/2026 demand to 09/04",
+      "Tie each event to **its proof** in the Communications Log",
+      "State Keystone's grounds and the **unanswered rebuttal evidence**",
+      "Show the **frozen stack**, the specials, then SOL and internal dates",
+      "End with the decision needed, **framed as questions**"
+    ],
+    "deliver": "A dated, sourced memo to Atty. Thone: **asks for a decision**, recommends none",
+    "checks": [
+      "Nine events, **07/20 to 09/04**, each tied to proof",
+      "Keystone's grounds **in Keystone's words**: 14-Day Gap, “degenerative” MRI",
+      "Frozen stack: **$30,000 of $40,000** unreachable behind $10,000 BI",
+      "SOL 02/06/2028, internal hard date 02/04/2028, **cutoff 11/05/2027**",
+      "Questions for Atty. Thone; **no sentence recommends suit**"
+    ],
+    "dos": [
+      "Write it so Atty. Thone decides **in five minutes**",
+      "When the escalation window closes, **escalate with what you have**"
+    ],
+    "donts": [
+      "Waiting another follow-up cycle **instead of escalating**",
+      "A memo that ends **“we should file suit”**"
+    ]
+  },
+  "d4m1-l2": {
+    "image": "legal-filing",
+    "hook": "Once suit is authorized, **a court clock** replaces the adjuster's: status, fields, folders, calendar change together.",
+    "points": [
+      "Change status only on **Atty. Thone's dated authorization** to sue",
+      "Fill court fields from the record; **never guess a number**",
+      "Build the **five litigation sub-folders** before the 09/24/2026 filing",
+      "Seed the litigation calendar **the day status changes**"
+    ],
+    "upl": "Tell John Doe what happens next; what it means is Atty. Thone's.",
+    "job": [
+      ["Atty. Thone authorizes suit", "Change status; open court fields", "CMS → Litigation", "Cites dated authorization; number “Pending”"],
+      ["Status changed", "Build master directory and five sub-folders", "CMS → Documents → Litigation folders", "Five sub-folders, named to standard"],
+      ["Folders built", "Seed calendar with 48-hour audits", "CMS → Calendar · Docket System", "SOL, hard date, cutoff, audits calendared"]
+    ],
+    "dos": [
+      "Change status, fields, folders and calendar **in one sitting**",
+      "Audit deadlines and exhibits; **don't just track** them",
+      "Tailor the binder **to the neutral**"
+    ],
+    "donts": [
+      "Leaving “scan001.pdf” **in a litigation folder**",
+      "Treating mediation and arbitration **as the same thing**",
+      "Assuming an arbitration error **can be appealed**"
+    ]
+  },
+  "d4m1-a2": {
+    "image": "cms-screen",
+    "situation": "File date 09/10/2026, Track B. On 09/09 Atty. Thone **authorized suit** in the State Court of Riverton County, filing target **09/24/2026**. Harbor Point's UM policy has an arbitration clause.",
+    "steps": [
+      "Set status on the 09/09 authorization; **never guess a case number**",
+      "Record the fee tier **as the retainer sets it**",
+      "Build the **five litigation folders** to the firm standard",
+      "Draft UM notices and preservation requests **for his approval**",
+      "Seed the litigation calendar **with 48-hour audits**"
+    ],
+    "deliver": "Litigation status with every field, folder, notice and date **on Atty. Thone's authority**",
+    "checks": [
+      "Status dated 09/10/2026, **citing the 09/09/2026 authorization**",
+      "Case number reads **“Pending — assigned on filing”**",
+      "Fee tier: 33⅓% until filing, **40% from the filing date**",
+      "Notices: HP-26-7741, CS-26-20355; **no demand or figure**",
+      "Filing target 09/24/2026, **48-hour audit 09/22/2026**"
+    ],
+    "dos": [
+      "A notice to a UM carrier **is not a demand**",
+      "Flag Harbor Point's **arbitration clause now**"
+    ],
+    "donts": [
+      "Recording the 40% tier **from the status date**",
+      "Calling Keystone or Robert Smith **to announce the suit**"
+    ]
+  },
+  "d4m1-kc": {
+    "image": "knowledge-check",
+    "questions": [
+      "What is the same as Track A, what changes 08/12/2026, and why does **one $10,000 carrier freeze $40,000**?",
+      "List John Doe's impasse triggers by 09/04/2026, each with **its date and proof**.",
+      "08/12: Keystone calls $3,500 “final”. Using **the “Never” rule**, what's next, and what needs Atty. Thone's authority?",
+      "What changes at transition? Name **the five sub-folders**, and where an incoming Request for Admission is filed.",
+      "Compare this file's mediator and arbitrator: background, selection, **what each can decide**, and the binder.",
+      "John Doe asks about taking $3,500 and the fee. What do you say, withhold, **send Atty. Thone today**?",
+      "Arbitration award short: a bill missing from your binder. **Can Atty. Thone appeal?** How must you build binders?"
+    ]
+  },
+  "d4m2-l1": {
+    "image": "clock-deadline",
+    "hook": "From 09/24/2026 the dates are set by rule, and **one mis-counted day** can end a claim.",
+    "points": [
+      "Count the court's way: **exclude the trigger day**, include the last",
+      "Served by mail? **Add 3 days**; e-service adds nothing",
+      "Forward counts roll later; **backward counts roll earlier**",
+      "Docket the SOL to **internal dates**: 02/04/2028 and 11/05/2027"
+    ],
+    "upl": "You compute, docket and flag; which rule governs, and extensions, are Atty. Thone's.",
+    "job": [
+      ["Scheduling order entered 12/10/2026", "Enter every date; read each verb", "Docket System", "“Completed by” entered as deadline"],
+      ["Discovery mailed 12/01/2026", "Count 30 + 3; RFAs separately", "Case Docket & Calendar Conflict Resolver", "Responses and RFAs due 01/04/2027"],
+      ["SOL review", "Set internal hard date and cutoff", "CMS → Calendar", "02/04/2028 and 11/05/2027 docketed"]
+    ],
+    "dos": [
+      "Record **trigger, rule and arithmetic** on every entry",
+      "Calendar **the conservative date**, and flag it"
+    ],
+    "donts": [
+      "Counting **the trigger day** as day one",
+      "Rolling a backward deadline **forward to Monday**",
+      "Relying on **the SOL's weekend roll-forward**"
+    ]
+  },
+  "d4m2-a1": {
+    "image": "calendar-gap",
+    "situation": "12/10/2026: the scheduling order in No. 26-CV-04417 was entered. Discovery, including **15 RFAs**, was mailed 12/01/2026. SOL 02/06/2028. A colleague re-keyed the calendar: **unverified, no alerts**.",
+    "steps": [
+      "Recompute every entry **from its trigger document**",
+      "Exclude the trigger day; **add 3 mail days**",
+      "Move forward counts later, **backward counts earlier**",
+      "Fix errors, add missing entries, **leave correct ones alone**",
+      "Rank errors by risk; **route the log** to Atty. Thone"
+    ],
+    "deliver": "A verified calendar and **a ranked correction log** routed to Atty. Thone",
+    "checks": [
+      "Responses corrected to **01/04/2027 (Mon)**",
+      "RFA entry added: **“deemed admitted if unanswered”**",
+      "Expert disclosures un-swapped: **plaintiff's 03/15/2027**",
+      "Mediation entered as **“completed by 03/31/2027”**",
+      "Cutoff corrected **to 11/05/2027**, hard date 02/04/2028 added"
+    ],
+    "dos": [
+      "Recompute from **the trigger document**, never the entry",
+      "Mark correct entries **as verified**"
+    ],
+    "donts": [
+      "Missing **what isn't on the screen**, like the RFAs",
+      "Rolling 11/06/2027 **forward to Monday**"
+    ]
+  },
+  "d4m2-l2": {
+    "image": "mediation-table",
+    "hook": "Hon. Carla Benton (Ret.) helps parties agree; **Laura Whitcomb, Esq. decides**, with almost no appeal.",
+    "points": [
+      "Court-ordered mediation means John Doe **must attend, not agree**",
+      "Binding arbitration: **the arbitrator acts as judge**; court review is narrow",
+      "Collect **3–4 windows** from everyone before contacting the mediator",
+      "Golden Rule: **never argue**, speak on the record or represent John Doe"
+    ],
+    "upl": "Run logistics, exhibits and notes; never argue, negotiate or advise on a number.",
+    "job": [
+      ["Mediation required by 03/31/2027", "Collect 3–4 windows, then contact mediator", "Calendaring Simulators", "Windows logged before mediator contacted"],
+      ["Opposing counsel rejects every window", "Log pushback; escalate same day", "CMS → Tasks → Escalate", "Logged and escalated same day"],
+      ["Directive from the bench", "Log, calendar, memo Atty. Thone", "CMS → Case Notes · Calendar", "Dated and calendared same day"]
+    ],
+    "dos": [
+      "Your hearing notes become Atty. Thone's **post-hearing roadmap**",
+      "Confirm the retainer payment **in writing**"
+    ],
+    "donts": [
+      "A mediation-quality binder **at an arbitration**",
+      "**“Helpfully” answering the arbitrator** directly",
+      "Logging bench directives **the next day from memory**"
+    ]
+  },
+  "d4m2-a2": {
+    "image": "arbitration",
+    "situation": "It is 04/05/2027. Keystone tendered **$10,000 BI** at mediation; Harbor Point invokes arbitration, Cardinal State joins. Hearing before Laura Whitcomb, Esq. **06/22/2027 (Tue)**; exhibits 20 days before, brief 10.",
+    "steps": [
+      "Build the matrix: a column each for **mediation and arbitration**",
+      "Hard-code the arbitration dates today, **counting back from the hearing**",
+      "Map **the UPL boundary** for the hearing",
+      "Script your exact words **if asked about a bill**",
+      "Route both **to Atty. Thone**"
+    ],
+    "deliver": "A two-forum matrix, **dates hard-coded**, and a UPL map, routed to Atty. Thone",
+    "checks": [
+      "Mediation: Hon. Carla Benton (Ret.) **facilitates only**; non-binding",
+      "Arbitration: Laura Whitcomb, Esq. **acts as judge**; binding",
+      "Limits: **$30,000 UM**, opened by the $10,000 BI tender",
+      "Exhibits 06/02/2027; **brief 06/11/2027 (Fri)**, never 06/14/2027",
+      "Deferral scripted, **document handed to Atty. Thone**"
+    ],
+    "dos": [
+      "Build it **for the colleague** staffing the hearing",
+      "Write the deferral script and **say it aloud once**"
+    ],
+    "donts": [
+      "A brief deadline that **lives only in an email**",
+      "Treating the UM carriers **as friendly**"
+    ]
+  },
+  "d4m2-kc": {
+    "image": "knowledge-check",
+    "questions": [
+      "Discovery mailed 12/01/2026: compute the response date step by step. What can happen **to an unanswered RFA**?",
+      "SOL 02/06/2028: give the **internal hard date and cutoff** with arithmetic. Why never rely on a weekend roll-forward?",
+      "Explain **forward versus backward counting** using the 01/04/2027 deadline and the 06/22/2027 arbitration brief.",
+      "From 04/05/2027, what logistics do you own before 06/22/2027? What do you log **from the bench**, when?",
+      "Laura Whitcomb, Esq. asks why Riverton Spine & Rehab's bill shows 34 lines. **Your exact words**, actions, log?",
+      "Counsel rejects every window, offering “a quick video mediation next Tuesday.” Order: **by 03/31/2027**. What's checked, logged, escalated?",
+      "At the 06/22/2027 hearing: two things you do, two **you never do**, and who does them instead?"
+    ]
+  },
+  "d4m3-l1": {
+    "image": "binder-exhibits",
+    "hook": "At the 03/18/2027 mediation Atty. Thone has minutes: every record **in a known place**.",
+    "points": [
+      "Find any exhibit **in five seconds**: indexed and bookmarked",
+      "**Six numbered sections** in fixed order; each document in one",
+      "The CMS master index is **the single source of truth**",
+      "Section 5's ledger ties **line by line** to certified invoices"
+    ],
+    "upl": "Build and audit; never discuss value with the mediator, Atty. Mercer or John Doe.",
+    "job": [
+      ["Mediation set for 03/18/2027", "Seat each document in one section", "CMS → Documents → Master index", "Section, exhibit number, Bates, source"],
+      ["Pleadings and evidence indexed", "Check each pleaded defense against exhibits", "CMS → Litigation → Pleadings log", "Each defense answered or flagged"],
+      ["Binder assembled", "OCR, bookmark, QA; route for approval", "CMS → Documents → Mediation binder", "Approved, delivered by 03/11/2027"]
+    ],
+    "dos": [
+      "Start from **the 07/20/2026 demand package**",
+      "Bookmark to the page **Atty. Thone will quote**"
+    ],
+    "donts": [
+      "An unorganized file **the morning of the session**",
+      "A snapshot sheet with **stale opposing-counsel contacts**",
+      "The confidential statement sent **ten minutes before the session**"
+    ]
+  },
+  "d4m3-a1": {
+    "image": "money-ledger",
+    "situation": "It is 03/04/2027; binder due **03/11/2027** for the 03/18/2027 mediation. The draft carries Riverton Spine & Rehab at **$6,290.00** and Crescent's $3,400.00 as open. Riverton's certified ledger is outstanding.",
+    "steps": [
+      "Build six sections from **the master index**",
+      "Map every pleaded defense **to the exhibit answering it**",
+      "Rebuild the ledger from certified bills **to $16,401.40**",
+      "Cross-check balances **against MedPay and Peach State**",
+      "Add negotiation log, release, consent requests; **route to Atty. Thone**"
+    ],
+    "deliver": "Indexed, OCR-searchable binder with **an audited ledger**, routed to Atty. Thone, ready by 03/11/2027",
+    "checks": [
+      "Riverton audited: 33 visits × $185.00 = **$6,105.00**",
+      "Crescent's bill **satisfied by Peach State's $1,860.00**",
+      "Open liens: $1,860.00 + $6,105.00 = **$7,965.00**",
+      "Section 3: **operative pleadings only**, all three defenses listed",
+      "Routed to Atty. Thone; **nothing about value** to Atty. Mercer"
+    ],
+    "dos": [
+      "Answer every pleaded defense **with a page**",
+      "Pull **certified billing records**, not portal printouts"
+    ],
+    "donts": [
+      "Carrying **the $6,290.00 bill** into Section 5",
+      "No negotiation log, so **Keystone's last number** is unclear"
+    ]
+  },
+  "d4m3-l2": {
+    "image": "documents-audit",
+    "hook": "An arbitration binder is the record **a binding award rests on**.",
+    "points": [
+      "Lead with **the BI exhaustion record**, never the mediation statement",
+      "Authenticate every exhibit with **a business-records certification**",
+      "Keep video native and unaltered; **print stills in color**",
+      "**Nothing from the confidential mediation** crosses over"
+    ],
+    "upl": "Assemble, index and audit; never argue an exhibit to the arbitrator or carriers.",
+    "job": [
+      ["Arbitration invoked 04/05/2027", "Open exhibit index; calendar exchange, brief", "CMS → Litigation → Exhibit index", "06/02/2027 exchange, 06/11/2027 brief calendared"],
+      ["Provider records gathered", "Request each custodian's certification", "Medical Records Requests", "One per provider, every date covered"],
+      ["Exchange set assembled", "Route set and flagged items", "CMS → Tasks → Escalate", "Approved before 06/02/2027; nothing privileged"]
+    ],
+    "dos": [
+      "Build to **the strict evidence standard** anyway",
+      "Request certifications **the week arbitration is invoked**"
+    ],
+    "donts": [
+      "**A grayscale print** of a crash still",
+      "A draft brief or **superseded complaint** in the set",
+      "The confidential mediation statement **in the arbitration binder**"
+    ]
+  },
+  "d4m3-a2": {
+    "image": "checklist-qa",
+    "situation": "It is 05/17/2027. **Exchange 06/02/2027**, hearing 06/22/2027. The folder holds a pre-filing draft complaint, grayscale stills, the impasse memo and **a lien sheet** listing Harbor Point MedPay and Summit Imaging.",
+    "steps": [
+      "Sort into six tabs, **applying each QC rule** as you go",
+      "Lead with **the BI exhaustion record**",
+      "Number exhibits **C-1 onward** with Bates ranges; log authentication",
+      "Build Tab 5's **prior medical shield**",
+      "Strip liens **to what is owed**; flag privileged items for Atty. Thone"
+    ],
+    "deliver": "A six-tab, C-numbered binder, authentication log and audited lien sheet, **routed to Atty. Thone**",
+    "checks": [
+      "Threshold exhibits first, **nothing from the mediation statement**",
+      "Tab 5 shields **the 2021 low-back visits** with answering records",
+      "Doorbell stills **reprinted in color** from the native file",
+      "Liens: $1,860.00 + $6,105.00 = **$7,965.00**; Crescent holds none",
+      "Draft removed; **impasse memo flagged**, not exchanged"
+    ],
+    "dos": [
+      "Apply the QC rule **the moment a document lands**",
+      "Pair every damaging record **with the record answering it**"
+    ],
+    "donts": [
+      "Conceding a reimbursement right **the carrier gave up**",
+      "**An internal memo** in an exchanged set"
+    ]
+  },
+  "d4m3-kc": {
+    "image": "knowledge-check",
+    "questions": [
+      "Name the six mediation binder sections **in order**, with one document from this file for each.",
+      "What does the master index record per exhibit, and why does it **outrank the printed binder**?",
+      "The 11/12/2026 answer pleads John Doe was unbelted. Which section shows it, and **which exhibits answer it**?",
+      "Why does the arbitration binder lead with **Keystone's $10,000 tender**, and exclude the confidential mediation statement?",
+      "What does **a business-records certification** do here, and what does a relaxed evidence rule change, or not?",
+      "Crescent billed $3,400.00; Peach State paid $1,860.00. What does **the attorney's-set lien sheet** show, and what proves it?",
+      "The evening before the 06/02/2027 exchange, Riverton's certified records stop at 04/02/2026. Your steps in order? **Who decides?**"
+    ]
+  },
+  "d4m4-l1": {
+    "image": "bottleneck",
+    "hook": "Anticipate bottlenecks and clear them **before they cost a deadline**.",
+    "points": [
+      "Log each bottleneck **the day it starts**, with its hard date",
+      "Follow up **every 5 business days**; log date, time, method, outcome",
+      "Record silence as dated facts, **never “adjuster busy”**",
+      "A record request unanswered **after 14 days** is a bottleneck"
+    ],
+    "upl": "Chase and report; never choose a remedy, discuss value or explain Keystone's silence.",
+    "job": [
+      ["A follow-up goes unanswered", "Log it; date the next follow-up", "CMS → Communications Log", "Date, time, method, outcome logged"],
+      ["Second follow-up goes unanswered", "Open a bottleneck entry", "Case File → Bottleneck log", "Start date: first unanswered request"],
+      ["Dependency open 10 days out", "Red-flag it; tell Atty. Thone", "Case File → Risk Flags", "Flag dated 03/01/2027 for 03/11/2027"]
+    ],
+    "dos": [
+      "A bottleneck found **at the deadline** was found too late",
+      "Follow up **in writing** as well as by phone"
+    ],
+    "donts": [
+      "Logging silence as **“adjuster busy”** instead of dates",
+      "Stills printed **in grayscale** for a binding hearing"
+    ]
+  },
+  "d4m4-a1": {
+    "image": "cms-screen",
+    "situation": "File date 02/22/2027. Binder due **03/11/2027**, mediation 03/18/2027. Riverton Spine & Rehab's ledger, requested 02/08/2027, **hasn't arrived**. Keystone's representative and authority are unconfirmed.",
+    "steps": [
+      "Rule 1: follow-ups every 5 business days, **then 48-hour escalations**",
+      "Rule 2: **no record in 14 days** → second request, subpoena flag",
+      "Rule 3: open dependency **10 days out** → red flag",
+      "Rule 4: **48-Hour Mandate audit** before every hard date",
+      "Calibrate on Keystone, then **fire all four** on the mediation calendar"
+    ],
+    "deliver": "Four calibrated rules; every firing **dated, actioned and owned**",
+    "checks": [
+      "Calibration: Rule 1 fires **09/02/2026 and 09/04/2026**",
+      "Rule 2 fires 02/22/2027: **Notice of Delay** sent",
+      "Red flags **03/01/2027 and 03/08/2027**",
+      "Audits **03/09/2027 and 03/16/2027**, both weekdays",
+      "Subpoena flagged **as Atty. Thone's decision**"
+    ],
+    "dos": [
+      "Calibrate on **a known record** before trusting a rule",
+      "Move a weekend audit **earlier, never later**"
+    ],
+    "donts": [
+      "Waiting **for the perfect ledger** instead of escalating",
+      "A trigger firing into **an inbox nobody owns**"
+    ]
+  },
+  "d4m4-l2": {
+    "image": "escalation-alert",
+    "hook": "The ladder decides who hears; **the report decides** whether they can act in one read.",
+    "points": [
+      "Climb **one rung at a time**: source, supervisor, Atty. Thone",
+      "A Notice of Delay **states facts**; it never argues bad faith",
+      "Every report carries **five fields**, nearest hard date first",
+      "Zero defaults: ready by the hard date, marked **“Pending Final Verification”**"
+    ],
+    "upl": "Escalate and ask; Atty. Thone chooses, signs and sends any legal tool.",
+    "job": [
+      ["Rung 1 unanswered on cadence", "Send a written Notice of Delay", "Email Workspace", "Item, start date, hard date named"],
+      ["Rung 2 unanswered 48 hours", "Escalate with the five-field report", "CMS → Tasks → Escalate", "Five fields; one ask per blocker"],
+      ["Weekly reporting day", "Send the bottleneck log", "Case File → Bottleneck log", "Every item: owner, age, hard date"]
+    ],
+    "dos": [
+      "Lead the report with **the nearest hard date**",
+      "Write the ask as **one decision and a date**"
+    ],
+    "donts": [
+      "Going **straight to Atty. Thone** before the lower rungs",
+      "“Please advise” **with no dates**",
+      "Letting a deadline pass **because a record was late**"
+    ]
+  },
+  "d4m4-a2": {
+    "image": "clock-deadline",
+    "situation": "Mon 05/24/2027. Exhibit exchange **06/02/2027**, brief 06/11/2027, hearing 06/22/2027. **Five problems**: Crescent's missing records, Dr. Reyes away until 06/01/2027, Cardinal State's silence, Riverton's restored duplicate, a grayscale non-OCR set.",
+    "steps": [
+      "Triage each: **hard date, rung**, countermeasure",
+      "Write one report: **five fields, one ask** per item",
+      "Send it first: items needing **Atty. Thone's decision**",
+      "Fix what you own **the same day**",
+      "Date **the 48-hour audit** before the exchange"
+    ],
+    "deliver": "Sequenced triage of all five, and **one five-field report** sent 05/24/2027",
+    "checks": [
+      "All five mapped to **the 06/02/2027 exchange**",
+      "Items 1–3 in **one report**, nearest hard date first",
+      "Items 4 and 5 **fixed same day**, no escalation",
+      "Audit **Fri 05/28/2027**: Memorial Day moves it earlier",
+      "Nothing decided that is **Atty. Thone's**"
+    ],
+    "dos": [
+      "**Longest lead first**: send others' decisions before your fixes",
+      "Protect **the exhibit exchange** first"
+    ],
+    "donts": [
+      "Escalating the grayscale reprint **while sitting on the certification**",
+      "Holding the whole exchange **for one late record**"
+    ]
+  },
+  "d4m4-kc": {
+    "image": "knowledge-check",
+    "questions": [
+      "Name **the three bottleneck families**, with this file's example of each and the hard date threatened.",
+      "Walk Rule 1 on Keystone: follow-ups, **the 48-Hour Mandate escalation**, the hand-off to Atty. Thone, every date.",
+      "Keystone's representative arrives on 03/18/2027 **without authority to pay $10,000**. What failed earlier, and your countermeasure?",
+      "Name **the three arbitration landmines** and each countermeasure before the 06/02/2027 exhibit exchange.",
+      "03/09/2027: binder due in 48 hours; Riverton's ledger hasn't arrived. Your steps in order? **What don't you do?**",
+      "Lakeside: 05/05/2027 request unanswered by 05/19/2027. Who hears, when? What does **the Notice of Delay** say, never say?",
+      "Citing the 14-Day Gap, Teresa Okafor asks: less than limits? **What do you say**, do, log?"
+    ]
+  }
+}

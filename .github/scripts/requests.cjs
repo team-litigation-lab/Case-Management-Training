@@ -145,6 +145,9 @@ async function workerChecks() {
     await page.evaluate(async () => { await loadAdminLedger(); });
     if (since(t0, x => x.path === '/api/storage/get').length) fail('opening the Trainee Audit still reads the trainees one at a time');
     // its progress, feedback and Focus columns: up to 33 trainees a request, not three requests each
+    // (rendering the rows starts a background load on a timer; let it finish, or the forced load below finds one in flight and returns)
+    await page.waitForTimeout(300);
+    await page.waitForFunction(() => !state.auditExtraLoading, null, { timeout: 15000 });
     t0 = Date.now();
     const rows = await page.evaluate(async () => { await loadAuditExtras(true); return state.adminData.length; });
     const extras = since(t0, x => x.path.startsWith('/api/storage/'));
