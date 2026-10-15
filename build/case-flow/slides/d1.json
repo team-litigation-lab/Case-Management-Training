@@ -1,4 +1,77 @@
 {
+  "d1m1-role": {
+    "image": "team-huddle",
+    "hook": "You own **the file's movement**; Atty. Thorne owns every legal judgment.",
+    "points": [
+      "Coordinate the case **from intake to resolution**, end to end",
+      "Log every contact, deadline and decision **in the CMS**",
+      "Each phase has **its own goals and deliverables**",
+      "Flag risk to Atty. Thorne **the day you see it**"
+    ],
+    "upl": "Explain the process and confirm facts; never value, merits or settlement advice",
+    "job": [
+      ["New matter assigned", "Read the raw file first", "CMS → Case File", "Parties, dates, carriers noted"],
+      ["Client asks a legal question", "Log it; route it same day", "CMS → Communications Log", "Routed; no opinion given"],
+      ["Deadline or risk appears", "Docket, flag, recommend next step", "CMS → Calendar · Risk Flags", "Nothing lives only in email"]
+    ],
+    "dos": [
+      "Keep **a dated next step** on every file",
+      "Answer process questions; **route the legal ones**"
+    ],
+    "donts": [
+      "Guessing **what the case is worth**",
+      "Keeping the status **in your inbox**, not the CMS"
+    ]
+  },
+  "d1m1-case": {
+    "image": "property-damage",
+    "hook": "One file for five days: know **its facts cold** before you touch the CMS.",
+    "points": [
+      "02/06/2026: Robert Smith **ran the stop**; John Doe was the passenger",
+      "The stack, in order: **BI → Host UM → Relative UM**, $40,000",
+      "Passenger status opens **both UM layers**",
+      "First treatment 02/20/2026: **the 14-Day Treatment Gap**"
+    ],
+    "upl": "Share facts and the process; never value, or how the gap will play",
+    "job": [
+      ["Course begins", "Read the Case File and intake", "Case File · Documents", "DOL, stack, gap from memory"],
+      ["Matter opens in the CMS", "Trace each fact to its document", "CMS → Case File", "No fact from memory alone"],
+      ["A fact changes", "Update the CMS the same day", "CMS → Case Notes", "The CMS matches the file"]
+    ],
+    "dos": [
+      "Trace every fact **to its document**",
+      "Say the stack **in order**, every time"
+    ],
+    "donts": [
+      "Repeating facts **from memory** alone",
+      "Treating the gap as **the client's fault**"
+    ]
+  },
+  "d1m1-open": {
+    "image": "data-entry",
+    "situation": "02/09/2026. The raw file is in and a colleague keyed **a draft intake record** into the CMS. Atty. Thorne wants the matter **active today**.",
+    "steps": [
+      "Run and log **the Conflict Check** on full legal names",
+      "Verify every draft field **against its source document**",
+      "Correct each error **with its source**, never silently",
+      "Docket **SOL 02/06/2028**, map six roles, file intake documents",
+      "Route **a correction note** to Atty. Thorne in Case Notes"
+    ],
+    "deliver": "An active matter, **every field verified**, corrections noted to Atty. Thorne",
+    "checks": [
+      "Conflict Check logged **before the matter existed**",
+      "Position corrected to **front-seat passenger**",
+      "Date of birth and **report number** corrected, with sources",
+      "SOL docketed; **six roles** mapped; documents filed",
+      "Correction note **routed to Atty. Thorne**"
+    ],
+    "dos": [
+      "Verify against **signed documents**, not the draft"
+    ],
+    "donts": [
+      "Accepting **a pre-filled field** unchecked"
+    ]
+  },
   "d1m1-l1": {
     "image": "intake-interview",
     "hook": "A file opened wrong stays wrong: **a mis-mapped party** is a lost coverage layer.",
@@ -308,7 +381,9 @@
       "What does **actual cash value** mean and not mean, and why does the loan-balance mix-up mislead clients?",
       "Robert Smith's carrier asks John Doe for **a Recorded Statement**. What do you instruct and log?",
       "Beyond **the repair or ACV payment**, what else may John Doe be owed, and how is each documented?",
-      "A delivered direction **never became a tracked task**. Why is that a failure, and what's the cost here?"
+      "A delivered direction **never became a tracked task**. Why is that a failure, and what's the cost here?",
+      "What does **the Case Manager own** on John Doe's file, and what does Atty. Thorne own?",
+      "Which errors did you find **in the draft record** and intake sheet, and which documents proved them?"
     ]
   },
   "d1m4-l1": {
