@@ -153,9 +153,11 @@ function loadToolLinks(stateObj, fetchImpl) {
         for (const [k, v] of had) if (q.get(k) !== v) fail(`${t.id}: ${k}=${v} was lost when the ticket was added (${out})`);
     }
     if (asked !== 1) fail(`the ticket should be asked for once and reused, not ${asked} times`);
-    // a Call Simulator line's graded calls, and a Training Library case, keep their query too
-    const deep = await links.ticketed('https://lshcasemanagementtraining-trainingcrm.pages.dev/?calls=1&program=CM&line=Adjusters%20%26%20Carriers&mode=graded');
+    // a Call Simulator line's graded calls (the Portal's page, which opens ☎ LSH Ring Channel), and a Training Library case, keep their query too
+    const deep = await links.ticketed('https://cm-training-activity.pages.dev/simulators/call.html?program=CM&line=Adjusters%20%26%20Carriers&mode=graded');
     if (!/[?&]ticket=TESTTICKET/.test(deep) || !/mode=graded/.test(deep)) fail(`a graded call link should keep its query and get the ticket: ${deep}`);
+    const cmsDeep = await links.ticketed('https://lshcasemanagementtraining-trainingcrm.pages.dev/?program=CM&mock=MC-04');
+    if (!/[?&]ticket=TESTTICKET/.test(cmsDeep) || !/mock=MC-04/.test(cmsDeep)) fail(`a Training Library case link should keep its query and get the ticket: ${cmsDeep}`);
 
     // anything that isn't a training tool is left alone
     for (const other of ['https://cm-training-activity.pages.dev/programs.html', 'https://example.com/?x=1', '/js/cm-updates.js']) {
