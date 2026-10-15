@@ -8362,7 +8362,6 @@ function renderTopbar(){
     // Admin is a trainer monitoring dashboard, not a trainee workspace — hide
     // the trainee-facing-only views that have no role here.
     views = views.filter(([id]) => !["crisisroleplay","notes","handouts","tasks"].includes(id));
-    views.push(["orientation","🧭 Orientation"]);
     views.push(["facilitatorguide","Facilitator Guide"]);
   }
   return `
@@ -10083,7 +10082,7 @@ function bookmarkView(){
    Tabs stay in sync: when one tab saves, the others pick the change up (the
    browser's "storage" event), so an older tab never overwrites newer progress.
    ============================================================ */
-const ROUTE_VIEWS = ["dashboard","practice","activities","notes","clientprofile","handouts","tasks","crisisroleplay","orientation","facilitatorguide"];
+const ROUTE_VIEWS = ["dashboard","practice","activities","notes","clientprofile","handouts","tasks","crisisroleplay","facilitatorguide"];
 const routeViews = ()=>ROUTE_VIEWS.concat(window.EXTRA_ROUTE_VIEWS||[]);   // a course build can add its own pages
 function routeHash(){
   if(state.view==="day" && state.dayId) return "#/day/"+state.dayId;
@@ -19815,7 +19814,7 @@ window.downloadProjectCompliance6Pdf = downloadProjectCompliance6Pdf;
    that was clicked, and any failure is shown on screen instead of
    disappearing silently in the browser console.
    ============================================================ */
-var APP_BUILD = "cm-2026.10.15-blueprint";
+var APP_BUILD = "cm-2026.10.15-portal-blueprint";
 console.info("LSH EA/PA portal build", APP_BUILD);
 let busyDepth = 0;
 function showActionError(e, label){
@@ -19887,7 +19886,6 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/lsh-blueprint-course.js?v=2"></script>
 <script src="/js/lsh-blueprint.js?v=2"></script>
 <script src="/js/lsh-dashboard.js?v=4"></script>
-<script src="/js/cm-orientation.js?v=1"></script>
 <script src="/js/graded-calls.js?v=1"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=3"></script>
