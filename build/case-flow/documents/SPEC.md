@@ -450,7 +450,9 @@ configured for this training file; confirm the forum's rules).
 
 **RS59 · Mediated Settlement Term Sheet (03/18/2027)** · Day 4 · Litigation · `RS_59_Mediated_Settlement_Term_Sheet.pdf`
 Signed at mediation: Keystone pays its $10,000 BI limits; limited release of Robert Smith and Keystone only,
-expressly preserving all UM/UIM claims; dismissal of Robert Smith with prejudice on payment; UM consents attached.
+expressly preserving all UM/UIM claims; dismissal of the bodily-injury claims against Robert Smith with prejudice on
+payment, the property-damage claims (loss of use, diminished value; KM-26-440871-PD) expressly excluded and not
+released; UM consents attached.
 *Key:* BI exhausted on Track B — Host UM and Relative UM open (and go to arbitration).
 
 **RS60 · Certificate of Service — Plaintiff's Discovery Responses (01/04/2027)** · Day 5 · Litigation · `RS_60_Certificate_of_Service_Discovery_Responses.pdf`
