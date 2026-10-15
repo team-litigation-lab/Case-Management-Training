@@ -41,7 +41,6 @@ if(!CF || !Array.isArray(CF.days) || !CF.days.length || typeof DAYS === "undefin
 const E = v => (typeof esc === "function" ? esc(v) : String(v == null ? "" : v).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])));
 const money = n => "$" + Number(n).toLocaleString("en-US");
 const KIND = {lesson: "Lesson", activity: "Skill Activity", check: "Knowledge Check"};
-const RHYTHM = "lesson,activity,lesson,activity,check";
 const stackLayers = () => CF.case.stack.slice().sort((a, b) => a.order - b.order);
 const sum = rows => (rows || []).reduce((a, r) => a + r[1], 0);
 
@@ -64,42 +63,63 @@ function layoutOf(s){
 const MODULES = [];   // the day objects, in order
 const BY_ID = {};
 
-CF.days.forEach(day => {
-  const lessons = [], quiz = [], quizMod = [];
-  day.modules.forEach(mod => {
-    if(mod.blocks.map(b => b.kind).join(",") !== RHYTHM)
-      console.warn(`[case-flow] ${mod.id} breaks the Lesson → Activity → Lesson → Activity → Knowledge Check rhythm`);
-    mod.blocks.forEach((b, k) => {
+/* Where each block is stored: its module is its unit of scoring (the Knowledge Check, its quiz share,
+   the Self-Summary and Skill Scale, the trainer's 40%). Where it is taught is the sequence below. */
+const STORED = {};
+CF.days.forEach(day => day.modules.forEach(mod => {
+  if(mod.blocks.filter(b => b.kind === "check").length !== 1 || mod.blocks[mod.blocks.length - 1].kind !== "check")
+    console.warn(`[case-flow] ${mod.id} should end in exactly one Knowledge Check`);
+  mod.blocks.forEach((b, k) => { STORED[b.id] = {day, mod, block: b}; });
+}));
+/* The order the course teaches: CF.sequence (each day's Case Phases), or each module as a phase */
+const SEQUENCE = Array.isArray(CF.sequence) && CF.sequence.length ? CF.sequence
+  : CF.days.map(day => ({n: day.n, phases: day.modules.map(m => ({title: m.title, blocks: ["lesson", "activity", "check"].flatMap(kind => m.blocks.filter(b => b.kind === kind).map(b => b.id))}))}));
+
+SEQUENCE.forEach(seq => {
+  const day = CF.days.find(x => x.n === seq.n);
+  if(!day) return;
+  const lessons = [], quiz = [], quizMod = [], phases = [];
+  seq.phases.forEach((ph, pi) => {
+    const phase = {n: pi + 1, of: seq.phases.length, title: ph.title, count: ph.blocks.length};
+    phases.push(phase);
+    ph.blocks.forEach((id, k) => {
+      const at = STORED[id];
+      if(!at){ console.warn(`[case-flow] the sequence names ${id}, which isn't a block`); return; }
+      const {block: b, mod} = at;
       const fp = b.kind === "lesson"
         ? {corePrinciples: [b.tell.why].concat(b.tell.rules), howTo: (b.ops || []).map(o => `${o[1]} (${o[2]}).`)}
         : b.kind === "activity"
         ? {corePrinciples: [b.act.scenario, b.act.prompt], howTo: b.act.checkpoints}
         : {corePrinciples: b.check.questions, howTo: b.check.summary};
       lessons.push(Object.assign({
-        h: `${mod.n}.${k + 1} ${b.title}`,
+        h: `${phase.n}.${k + 1} ${b.title}`,
         fourPart: Object.assign(fp, {bestPractices: b.best || [], discussionCase: ""}),
         trainerCue: (b.notes || [])[0] || "",
-        cf: {day, mod, block: b, k}
+        cf: {day, mod, block: b, k, phase}   // day: where it is taught; mod: its unit of scoring
       }, layoutOf(b.show)));
+      if(b.kind === "check") (mod.quiz || []).forEach(q => { quiz.push(q); quizMod.push(mod.id); });
     });
-    (mod.quiz || []).forEach(q => { quiz.push(q); quizMod.push(mod.id); });
   });
+  const blocksOf = ph => ph.blocks.map(id => STORED[id]).filter(Boolean).map(x => x.block);
   const d = {
     id: day.id,
     title: day.title,
-    theme: day.modules.map(m => m.title).join(" · "),
+    theme: phases.map(p => p.title).join(" · "),
     objective: day.objective,
-    taskOverview: day.modules.map(m => ({
-      label: `Module ${m.n} · ${m.title}`,
-      tasks: m.blocks.filter(b => b.kind === "activity").map(b => b.title).concat([m.blocks[4].title]),
-      sample: `Sample task: ${m.blocks.find(b => b.kind === "activity").act.prompt.split(". ")[0]}.`
-    })),
+    taskOverview: seq.phases.map((ph, pi) => {
+      const bs = blocksOf(ph), act = bs.find(b => b.kind === "activity");
+      return {
+        label: `Case Phase ${pi + 1} · ${ph.title}`,
+        tasks: bs.filter(b => b.kind !== "lesson").map(b => b.title),
+        sample: act ? `Sample task: ${act.act.prompt.split(". ")[0]}.` : ""
+      };
+    }),
     lessons,
     quickChecks: [],
     quiz,
     discussionQuestion: day.discussion,
-    noDividers: true,           // each block opens with its own module/block header
-    cf: {n: day.n, gate: day.gate, quizMod}
+    noDividers: true,           // each block opens with its own phase/block header
+    cf: {n: day.n, gate: day.gate, quizMod, phases}
   };
   MODULES.push(d);
   BY_ID[d.id] = d;
@@ -441,11 +461,11 @@ function slideBody(view, l, d){
   return "";
 }
 function card(l, i, d, part){
-  const {day, mod, block: b, k} = l.cf, vs = viewsOf(b), p = Math.min(Math.max(part || 1, 1), vs.length), view = vs[p - 1];
+  const {day, mod, block: b, k, phase} = l.cf, vs = viewsOf(b), p = Math.min(Math.max(part || 1, 1), vs.length), view = vs[p - 1];
   const dots = vs.map((v, j) => `<span class="cfx-dot${j === p - 1 ? " on" : j < p - 1 ? " done" : ""}" title="${E(VIEW_LABEL[v])}"></span>`).join("");
-  return `<div class="topic-separator">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; CASE PHASE ${mod.n} OF ${day.modules.length} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
+  return `<div class="topic-separator">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; CASE PHASE ${phase.n} OF ${phase.of} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
     <div class="card lesson-card cf-card cfx cfx-${view} cfx-${b.kind}" data-part="${p}">
-      <div class="cfx-top"><span class="cfx-kicker">${mod.n}.${k + 1} · ${E(KIND[b.kind])}</span><span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span>
+      <div class="cfx-top"><span class="cfx-kicker">${phase.n}.${k + 1} · ${E(KIND[b.kind])}</span><span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span>
         <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Full text</button></div>
       <h2 class="cfx-title"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}<span class="cfx-of"><span class="cfx-sep"> · </span>${E(titleCase(b.title))}</span></h2>
       ${slideBody(view, l, d)}
@@ -472,20 +492,15 @@ if(typeof buildDaySlides === "function"){
   buildDaySlides = function(d){
     const s = __build.apply(this, arguments);
     if(!cfDay(d && d.id)) return s;
-    // each Case Phase (module) runs as: its lessons, uninterrupted → its activities and practice → its Learning Check
-    const head = [], tail = [], phases = [];
-    let seen = false;
+    // the day's lessons are already in the order the course teaches them (CF.sequence): each Case Phase's
+    // lessons, uninterrupted → its activities and practice → its Learning Check; each block is one slide per view
+    const out = [];
     s.forEach(sl => {
-      if(sl.type !== "topic"){ (seen ? tail : head).push(sl); return; }
-      seen = true;
+      if(sl.type !== "topic") return out.push(sl);
       if(sl.part !== 1) return;
-      const {block: b, mod} = d.lessons[sl.lessonIndex].cf;
-      let ph = phases.find(x => x.mod === mod.id); if(!ph) phases.push(ph = {mod: mod.id, lesson: [], activity: [], check: []});
-      viewsOf(b).forEach((v, j) => ph[b.kind].push({type: "topic", lessonIndex: sl.lessonIndex, part: j + 1}));
+      viewsOf(d.lessons[sl.lessonIndex].cf.block).forEach((v, j) => out.push({type: "topic", lessonIndex: sl.lessonIndex, part: j + 1}));
     });
-    const out = head.slice();
-    phases.forEach(ph => out.push(...ph.lesson, ...ph.activity, ...ph.check));
-    return out.concat(tail);
+    return out;
   };
 }
 if(typeof daySlideTitle === "function"){
@@ -584,7 +599,7 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
   async save(modId){ const m = readForm(modId); m.savedAt = new Date().toISOString(); await persist(); status(modId, "Saved " + new Date(m.savedAt).toLocaleString()); },
   async review(dayId, modId){
     const d = cfDay(dayId), m = readForm(modId);
-    const mod = CF.days.find(x => x.id === dayId).modules.find(x => x.id === modId);
+    const mod = allMods().map(x => x.m).find(x => x.id === modId);
     const b = mod.blocks.find(x => x.kind === "check");
     if(m.answers.filter(a => String(a || "").trim().split(/\s+/).length >= 12).length < b.check.summary.length){
       if(typeof toast === "function") toast("Answer each Self-Summary prompt in a few sentences first."); return;
@@ -597,7 +612,7 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
     if(typeof runRubricEvaluation !== "function"){ status(modId, "Saved. The AI reviewer isn't available here; your trainer will review it."); return; }
     status(modId, "Reviewing…");
     const c = CF.case, day = CF.days.find(x => x.id === dayId);
-    const label = `Day ${dayId} · Case Flow Day ${d.cf.n} · Module ${mod.n} — CM Self-Summary`;   // "Day <id>" files it under this day, not under Apex Day ${d.cf.n}
+    const label = `Day ${dayId} · Case Flow Day ${d.cf.n} · ${b.title} — CM Self-Summary`;   // "Day <id>" files it under this day, not under Apex Day ${d.cf.n}
     const ctx = `Case: ${c.style}, ${c.type}. Lead Counsel ${c.counsel}. DOL ${c.dol}; SOL ${c.sol}. Client ${c.client.name}, ${c.client.position}. `
       + `Coverage stack (in order): ${stackLayers().map(l => `${l.tag} ${money(l.limit)} (${l.carrier})`).join(" → ")} = ${money(c.total)}. `
       + `Health Plan ${c.health.carrier} (${c.health.memberId}). Critical fact: ${c.critical}\n`
@@ -693,15 +708,17 @@ if(typeof renderAuditStrip === "function"){
 
 /* ---------- the trainer's 40%: entered in each trainee's Admin panel ---------- */
 const allMods = () => CF.days.flatMap(day => day.modules.map(m => ({day, m})));
+/* each module's Learning Check, in the order the course teaches them: {n: the day, phase, m: its module, b: the check} */
+const checksTaught = () => MODULES.flatMap(d => d.lessons.filter(l => l.cf.block.kind === "check").map(l => ({n: d.cf.n, phase: l.cf.phase, m: l.cf.mod, b: l.cf.block})));
 function trainerPanel(rec){
   const work = (state.traineeWork || {})[rec.id];
   if(!work || work.loading || !work.feedback) return "";
   const mine = (work.snap || {})[KEY] || {modules: {}}, given = work.feedback.caseFlow || {}, sid = cssId(rec.id);
-  const rows = allMods().map(({day, m}) => {
-    const r = mine.modules[m.id] || {}, t = given[m.id] || {}, b = m.blocks.find(x => x.kind === "check");
+  const rows = checksTaught().map(({n, phase, m, b}) => {
+    const r = mine.modules[m.id] || {}, t = given[m.id] || {};
     const c = composite(Object.assign({}, r, {trainer: t}));
     const answered = (r.answers || []).some(a => String(a || "").trim());
-    return `<details class="cf-tr"><summary><b>Case Flow Day ${day.n} · ${m.n}</b> ${E(m.title)}
+    return `<details class="cf-tr"><summary><b>Case Flow Day ${n} · Case Phase ${phase.n}</b> ${E(b.title)}
         <span class="cf-tr-chips">${r.quiz ? `<span class="fb-chip sent">Quiz ${E(r.quiz.pct)}%</span>` : ""}${r.ai ? `<span class="fb-chip sent">AI ${E(r.ai.score)}%</span>` : ""}${typeof t.score === "number" ? `<span class="fb-chip sent">Trainer ${E(t.score)}%</span>` : (answered ? `<span class="fb-chip draft">To score</span>` : `<span class="fb-chip none">No summary yet</span>`)}${c.c != null ? `<span class="fb-chip sent">Composite ${E(c.c)}%</span>` : ""}</span></summary>
       ${answered ? `<div class="fb-evidence">${(r.kc || []).some(Boolean) ? b.check.questions.map((q, j) => `<div><b>KC ${j + 1}. ${E(q)}</b><br>${E((r.kc || [])[j] || "—")}</div>`).join("") : ""}${b.check.summary.map((q, j) => `<div><b>${E(q)}</b><br>${E((r.answers || [])[j] || "—")}</div>`).join("")}
         <div><b>Self-ratings:</b> ${b.check.scale.map((x, j) => `${E(x)}: ${E((r.scale || [])[j] || "—")}`).join(" · ")}</div></div>` : ""}
@@ -868,9 +885,10 @@ function caseFlowPractice(archiveLink){
   const kcDone = d => !!((state.progress || {})[d.id] || {}).done;
   const days = MODULES.map(d => {
     const open = dayUnlocked(d.id), day = CF.days.find(x => x.n === d.cf.n);
-    const mods = day.modules.map(m => {
-      const acts = m.blocks.map(b => ({b, li: d.lessons.findIndex(l => l.cf.block === b)})).filter(x => x.b.kind === "activity");
-      return `<div class="cf-px-mod"><div class="cf-px-mh">${d.cf.n}.${m.n} · ${E(m.title)}</div>
+    const mods = d.cf.phases.map(ph => {
+      const acts = d.lessons.map((l, li) => ({b: l.cf.block, li, ph: l.cf.phase})).filter(x => x.ph === ph && x.b.kind === "activity");
+      if(!acts.length) return "";
+      return `<div class="cf-px-mod"><div class="cf-px-mh">${d.cf.n}.${ph.n} · ${E(ph.title)}</div>
         ${acts.map(({b, li}) => `<div class="cf-px-act"><div><b>${E(b.title)}</b>
             <div class="cf-px-meta"><span>🛠 ${E(b.act.tool)}</span><span>📤 ${E(b.act.output)}</span>${(CF_PACKETS[b.id] || []).length ? `<span>📁 ${CF_PACKETS[b.id].length} documents</span>` : ""}</div></div>
           ${open ? `<button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.openBlock(${d.id},${li})">Open</button>` : `<span class="cf-px-lock">🔒</span>`}</div>`).join("")}</div>`;
@@ -886,7 +904,7 @@ function caseFlowPractice(archiveLink){
     typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS</button>` : ""].join("");
   return `<p class="eyebrow">Practice</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🧪 Practice: The Case Flow Skill Activities</h1>
-    <p style="color:var(--ink-soft);font-size:14px;max-width:84ch;margin:0 0 14px">Every hands-on exercise of the 5-Day Legal Case Management Flow, on the live file <b>${E(CF.case.style)}</b>: two Skill Activities a module, each done in the tool it names (the CMS, the Call Simulator, the email workspace) from the documents it lists. Each opens with its day and goes straight to its slide.</p>
+    <p style="color:var(--ink-soft);font-size:14px;max-width:84ch;margin:0 0 14px">Every hands-on exercise of the 5-Day Legal Case Management Flow, on the live file <b>${E(CF.case.style)}</b>: each Case Phase's Skill Activities, every one worked on John Doe's file in the CMS (with the Call Simulator or the email workspace where it names them), from the documents it lists. Each opens with its day and goes straight to its slide.</p>
     ${days}
     <div class="card" style="padding:14px 18px;margin-bottom:14px"><b style="color:var(--navy)">Any day</b><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">${any}</div></div>
     ${archiveLink ? `<div class="cf-archived-link"><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.practiceArchived(true)">🗄 Archived: the John Doe v. Apex Skill Builders</button>

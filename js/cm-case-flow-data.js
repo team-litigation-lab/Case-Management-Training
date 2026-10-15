@@ -118,7 +118,7 @@ window.CM_CASE_FLOW = {
       "Peach State Health Plan · member PSH-55017742 · group GRP-41208 · reimbursement right asserted on first notice",
       "Payer Order (who pays the Medical Bills while the claim is open) is a different question from the stack: PIP/MedPay → private health insurance → LOP/provider liens"
     ]},
-    {opens: 2, title: "People and Vehicles", items: [
+    {opens: 1, title: "People and Vehicles", items: [
       "Host driver: Kevin Alvarez, John's coworker (separate household); they carpool on alternate weeks and 02/06/2026 was Kevin's week. He owns the host vehicle, a 2020 Ford Escape, insured by Harbor Point (Host UM $20,000; MedPay $5,000).",
       "Resident relative: Margaret Doe, John's mother; John lives with her at 2214 Maple Hollow Rd. Her car is insured by Cardinal State Mutual (UM $10,000). Emergency contact on the file.",
       "John's own car: 2019 Honda Civic LX, 52,300 miles, owned outright, insured by Bluewater Auto Insurance (liability + collision, $500 deductible). UM/UIM rejected in writing (03/14/2024).",
@@ -126,7 +126,7 @@ window.CM_CASE_FLOW = {
       "Defendant: Robert Smith, driving a 2017 Chevrolet Silverado · Keystone Mutual BI $10,000 per person; PD liability $25,000 (separate, outside the $40,000 stack) · address on the Police Report: 118 Larkspur Ln, Riverton",
       "Employer: Northgate Distribution · warehouse shift lead since 01/12/2026 · $22.00/hour, 8-hour shifts · Peach State coverage through Northgate, effective 02/01/2026"
     ]},
-    {opens: 2, title: "The Collision: 02/06/2026, about 7:10 a.m.", items: [
+    {opens: 1, title: "The Collision: 02/06/2026, about 7:10 a.m.", items: [
       "All-way stop at Maple Hollow Rd & Birch Ave. Kevin stopped eastbound and proceeded; Robert Smith, northbound on Birch Ave, didn't stop and struck the Escape's front passenger door at about 28 mph, pushing it into John's parked Civic.",
       "Riverton PD report RPD-26-018842: Smith cited for failure to stop at a stop sign",
       "Independent witness: Ruth Calloway, 2209 Maple Hollow Rd",
@@ -146,7 +146,7 @@ window.CM_CASE_FLOW = {
       "06/12/2026 Lakeside Orthopedics: MMI · residual intermittent right-arm paresthesia · possible 1–2 repeat ESIs within 24 months ($3,400–$6,800 future medical) · $640.00 (MedPay, now exhausted)",
       "02/07–06/2026 Riverton Drug: prescriptions and OTC · $312.40, John out of pocket"
     ]},
-    {opens: 2, title: "Coverage Confirmations", items: [
+    {opens: 1, title: "Coverage Confirmations", items: [
       "Harbor Point (03/02/2026, in writing): no reimbursement right on MedPay; its UM is add-on (excess), not reduced by the BI payment, with no MedPay non-duplication reduction",
       "Cardinal State: Teresa Okafor assigned as adjuster 03/03/2026; John confirmed in writing (03/09/2026) as a resident relative occupying a non-owned vehicle",
       "Keystone disclosed nothing before a written request with authorizations; BI $10,000 confirmed by its Declaration Page 03/20/2026"
@@ -155,7 +155,7 @@ window.CM_CASE_FLOW = {
       "Keystone ended John's rental 03/19/2026 (30-day cap) while the Civic waited for parts; Kevin's shift changed 04/01/2026, ending the carpool.",
       "John missed PT visits from 04/03; the CM learned of it 04/08/2026 from Riverton Spine & Rehab's missed-visit alert."
     ]},
-    {opens: 2, title: "Property Damage: John's Civic", items: [
+    {opens: 1, title: "Property Damage: John's Civic", items: [
       "A separate claim with Keystone PD (adjuster Leah Moran), outside the $40,000 stack · PD liability accepted 02/17/2026",
       "Tow $185.00 + 6 days' storage at $45.00 = $455.00 (Keystone paid)",
       "Estimate $6,940.00 (Riverton Collision Center, 02/16) + teardown supplement $2,315.00 (03/02) = $9,255.00 repair, paid to the shop 04/24/2026 · ACV $17,600.00, so repair is 52.6% of ACV: repairable, not a Total Loss",
@@ -163,7 +163,7 @@ window.CM_CASE_FLOW = {
       "Disputed: Loss of Use for 48 days without a car or a paid rental (02/06–02/17 and 03/20–04/24) × $42.00 = $2,016.00; Keystone offers $0",
       "Disputed: Diminished Value · independent appraisal $3,600.00 (05/06/2026) vs Keystone's \"17c\" offer $792.00"
     ]},
-    {opens: 2, title: "Retainer and Costs", items: [
+    {opens: 1, title: "Retainer and Costs", items: [
       "Contingency fee: 33⅓% pre-suit; 40% once suit is filed",
       "Case costs through settlement: $486.75 (Police Report $25.00; Medical Records and billing $214.75; certified mail $72.00; MRI disc $25.00; postage and copies $150.00)"
     ]},
@@ -284,6 +284,7 @@ window.CM_CASE_FLOW = {
   /* ---------- theory written for this flow (in neither the course nor the firm curriculum) ----------
      Listed in traceability.md so it can be reviewed: [what, where]. */
   authored: [
+    ["The Case Manager's Role, Meet Your Case, and Opening John Doe's File in the CMS", "Case Flow Day 1 · Case Phase 1 — written for the case-lifecycle sequence, from D1#1–#7, D1#12–#13 and the case file"],
     ["The $40,000 host-passenger stack and its order of operations", "Day 1 · Module 1 — the case facts the brief specifies (Host UM and Relative UM behind a $10,000 BI)"],
     ["Recovery Stack vs. Payer Order as two separate questions", "Day 1 · Module 1, Lesson 2 — built on the Regulatory Triple-Check's Payer Order"],
     ["The three-criteria Skip-Trace gate", "Day 1 · Module 2 — the No Contact Protocol has the steps; the trigger rule is new"],
@@ -314,11 +315,11 @@ window.CM_CASE_FLOW = {
      ========================================================== */
   {
     n: 1, id: 11,
-    title: "Case Flow Day 1 · Fundamentals & Intake",
-    phase: "File opening",
-    objective: "Open John Doe's file correctly: every party mapped, all three coverage layers verified to $40,000, the Regulatory Triple-Check cleared with the Health Plan's reimbursement right flagged before any demand, and an attorney-ready Case Plan that names the 14-Day Gap.",
-    gate: "CMS initialized · Policy Stack verified at $40,000 · Regulatory Triple-Check cleared · Case Plan routed to Atty. Thorne",
-    discussion: "John Doe has gone quiet for eleven days, has not started treatment, and Robert Smith's carrier has already called him. Which three actions do you take today, in what order, and what goes in the Case Plan's risks band?",
+    title: "Case Flow Day 1 · Opening the File & the Case Strategy",
+    phase: "File opening & case strategy",
+    objective: "Know the Case Manager's role and John Doe's case, open the file correctly in the CMS (intake and Property Damage), put all three carriers on notice and verify the $40,000 stack in writing, clear the Regulatory Triple-Check with the Health Plan's reimbursement right flagged, and turn it into an attorney-ready Case Plan that names the 14-Day Gap.",
+    gate: "Matter opened in the CMS · PD onboarding tracked · LORs out and the Policy Stack verified at $40,000 · Regulatory Triple-Check cleared · Case Plan routed to Atty. Thorne",
+    discussion: "Robert Smith's carrier has already called John Doe, Keystone hasn't confirmed its limit in writing, and Peach State has asserted a reimbursement right. Which three actions do you take today, in what order, and what goes in the Case Plan's risks band?",
     fileState: [
       "A raw file from “On the Records”: date of loss 02/06/2026, statute of limitations 02/06/2028, John Doe a front-seat passenger in the host vehicle.",
       "Three coverage layers to verify: $10,000 BI (Keystone Mutual), $20,000 Host UM (Harbor Point), $10,000 Relative UM (Cardinal State Mutual).",
@@ -344,9 +345,141 @@ window.CM_CASE_FLOW = {
          a: 1, r: "The Regulatory Triple-Check payer order: PIP/MedPay, then private health insurance, then LOP/provider liens."},
         {q: "Which of these is NOT part of the Regulatory Triple-Check?",
          opts: ["A claim-specific HIPAA authorization that names the incident date", "Medicare/Medicaid (BCRC) reporting where the client is 65+ or on SSDI", "Payer Order and subrogation management", "The Time-Limit Demand"],
-         a: 3, r: "The triple-check is HIPAA, Medicare/Medicaid reporting, and the Payer Order. Demands come on Day 3."}
+         a: 3, r: "The triple-check is HIPAA, Medicare/Medicaid reporting, and the Payer Order. Demands come on Day 3."},
+        {q: "John Doe asks what his case is worth. Who answers?",
+         opts: ["The Case Manager, from the Specials", "Atty. Thorne", "Dana Whitfield, the BI adjuster", "Nobody until the demand"],
+         a: 1, r: "Value, merits and strategy are Atty. Thorne's calls. The Case Manager logs the question and routes it the same day."},
+        {q: "Opening John Doe's matter in the CMS, what comes first?",
+         opts: ["Docketing the SOL", "Creating the matter", "The Conflict Check on every party's full legal name", "Calling Keystone Mutual"],
+         a: 2, r: "Nothing moves until the Conflict Check is documented, on full legal names."}
       ],
       blocks: [
+
+      {
+        kind: "lesson", id: "d1m1-role",
+        title: "The Case Manager's Role",
+        topic: "Owning the file from intake to resolution",
+        visual: "A single horizontal case-lifecycle track across the slide: eight rounded stations left to right — Intake, Claim Set-Up, Treatment, Pre-Demand, Demand, Settlement & Liens, Disbursement, Litigation (the last drawn dashed, as the fork). Above the track a navy band, THE CASE MANAGER OWNS THE MOVEMENT, runs the full width; below it a thinner orange band, ATTY. THORNE OWNS EVERY LEGAL JUDGMENT. A small CMS monitor icon sits under the first station, captioned: if it isn't in the CMS, it didn't happen.",
+        tell: {
+          why: "Every phase of this course runs through one person: you, the Case Manager. Knowing exactly what the role owns, and where it stops, is what lets you move John Doe's file fast without crossing into legal advice.",
+          rules: [
+            "Case management is the end-to-end coordination, tracking and handling of a case from intake to resolution: timely progression, proper documentation and compliance, and effective communication between all parties.",
+            "You own the file's movement: deadlines, documents, carriers, providers and the client's updates. Atty. Thorne owns every legal judgment: value, merits, strategy and settlement authority.",
+            "A case moves through phases (intake, claim set-up, treatment, pre-demand, demand, settlement and liens, disbursement, and litigation if it forks), and each phase has its own goals and deliverables.",
+            "Your key duties: client communication, case progress monitoring, task compliance, case updates and summaries, document drafting and filing, case health analysis, and planning recommendations to counsel.",
+            "The CMS is the single source of truth. Every contact, document, deadline and decision is logged there the same day; if it isn't in the CMS, it didn't happen.",
+            "Flag risk early. A missed deadline, a silent client or a gap in treatment goes to Atty. Thorne the day you see it, with the facts and a recommended next step."
+          ],
+          upl: [
+            "You may explain the process and confirm facts. You may not tell a client what the case is worth, whether to settle, or what the law means for them. Those are Atty. Thorne's calls."
+          ]
+        },
+        show: {
+          caption: "Who owns what on John Doe's file",
+          type: "compare",
+          boxes: [
+            {head: "The Case Manager owns", items: ["Opening and structuring the file in the CMS", "Every deadline, docketed with reminders", "Carrier, provider and client communication, logged", "Documents requested, named and filed", "The Case Plan draft and its risk flags", "Recommendations to counsel"]},
+            {head: "Atty. Thorne owns", items: ["Accepting the case", "Case value and merits", "Demand strategy and amounts", "Settlement authority", "Lien compromises", "Every filing and court decision"]}
+          ]
+        },
+        ops: [
+          ["A new matter is assigned", "Read the raw file end to end before contacting anyone", "CMS → Case File", "Every party, date and carrier noted before the first call"],
+          ["The client asks a legal question", "Log it and route it to Atty. Thorne the same day", "CMS → Communications Log · Tasks", "Question routed with the facts; no opinion given"],
+          ["A deadline or risk appears", "Docket it, flag it and recommend a next step", "CMS → Calendar · Case File → Risk Flags", "Nothing lives only in an email or in memory"]
+        ],
+        best: [
+          "Own the next step: no file sits without a dated task.",
+          "Log every client contact in the CMS the same day.",
+          "Answer process questions yourself; route legal questions to the attorney.",
+          "Pitfall: answering “what's my case worth?”, even as a guess.",
+          "Pitfall: keeping the file's real status in your inbox instead of the CMS.",
+          "Pitfall: waiting to flag a risk until you have fixed it yourself."
+        ],
+        sources: ["D1#1", "D1#2", "D1#3", "D1#4"],
+        rubric: {
+          ai: [
+            ["Role definition", 20, "Defines case management as end-to-end ownership of the file's movement, not data entry"],
+            ["Ownership split", 25, "Separates the Case Manager's work from Atty. Thorne's legal judgments correctly"],
+            ["System discipline", 15, "Treats the CMS as the single source of truth for every contact and deadline"]
+          ],
+          trainer: [
+            ["Professional judgment", 25, "Knows when to act and when to route to counsel"],
+            ["UPL boundary", 15, "No value, merits or strategy opinion offered, even informally"]
+          ]
+        },
+        notes: [
+          "Open with: “Whose file is it?” Let the room argue, then land it: the client's case, the attorney's judgment, your movement.",
+          "Walk the lifecycle track once, left to right. Every day of this course sits on one or two of these stations.",
+          "Name the UPL line now and keep naming it. The fastest way to hurt a case is a well-meant guess about its value.",
+          "Point at the CMS icon: from today, everything the trainees do on John Doe's file happens in the CMS."
+        ]
+      },
+
+      {
+        kind: "lesson", id: "d1m1-case",
+        title: "Meet Your Case: John Doe v. Robert Smith",
+        topic: "The one file you will work for five days",
+        visual: "A case card filling the slide like a file folder: top-left the style JOHN DOE v. ROBERT SMITH in Fraunces with the matter number LSH-2026-MVA-770412 in mono beneath. Left column: a small diagram of the all-way stop at Maple Hollow Rd & Birch Ave, the pickup's arrow running the stop into the Escape's passenger door. Right column: three stacked navy-to-orange bars for the $40,000 stack (BI $10,000, Host UM $20,000, Relative UM $10,000). Along the bottom, an orange timeline strip from DOL 02/06/2026 to first treatment 02/20/2026, labelled 14-DAY TREATMENT GAP.",
+        tell: {
+          why: "Every lesson, activity and Learning Check in this course works one file: John Doe v. Robert Smith. Knowing its facts cold (who, when, which policies, what is at risk) is what makes every step you take in the CMS make sense.",
+          rules: [
+            "The collision: 02/06/2026, about 7:10 a.m., at the all-way stop at Maple Hollow Rd & Birch Ave. Robert Smith ran the stop and struck the passenger door of Kevin Alvarez's 2020 Ford Escape; Riverton PD cited him (RPD-26-018842).",
+            "Your client: John Doe, 34, a warehouse shift lead at Northgate Distribution, the front-seat passenger. Lead Counsel: Atty. Elijah Thorne. Case Manager: you.",
+            "The Recovery Stack is $40,000, worked in order: $10,000 BI (Keystone Mutual) → $20,000 Host UM (Harbor Point) → $10,000 Relative UM (Cardinal State Mutual).",
+            "John Doe reaches both UM layers because he was a passenger. Driving his own Civic he would reach $10,000: he rejected UM on his own policy.",
+            "Health: Peach State Health Plan asserted a reimbursement right on first notice; Harbor Point carries $5,000 MedPay on the Escape.",
+            "The critical fact: EMS found neck stiffness and he declined transport. His first treatment was 02/20/2026, a 14-Day Treatment Gap the defense will use.",
+            "The statute of limitations is docketed for 02/06/2028. Every deadline on the file counts from the date of loss."
+          ],
+          upl: [
+            "You may share facts and explain the process to John Doe. You may not tell him what his case is worth or how the gap will play. That is Atty. Thorne's call."
+          ]
+        },
+        show: {
+          caption: "John Doe's file at a glance",
+          type: "table",
+          head: ["", "On this file"],
+          rows: [
+            ["Case", "John Doe v. Robert Smith · LSH-2026-MVA-770412 · MVA, passenger injury"],
+            ["Date of loss / SOL", "02/06/2026 · SOL 02/06/2028"],
+            ["Client", "John Doe, front-seat passenger in the host vehicle"],
+            ["Defendant", "Robert Smith, cited for failure to stop (RPD-26-018842)"],
+            ["Lead Counsel", "Atty. Elijah Thorne"],
+            ["Recovery Stack", "$10,000 BI → $20,000 Host UM → $10,000 Relative UM = $40,000"],
+            ["Health Plan", "Peach State · reimbursement right asserted"],
+            ["Critical fact", "14-Day Treatment Gap: first treatment 02/20/2026"]
+          ]
+        },
+        ops: [
+          ["The course begins", "Read the Case File profile and the intake documents", "Case File · Case Documents", "Can state the DOL, the stack and the critical fact from memory"],
+          ["The matter opens in the CMS", "Check every case fact against its source document", "CMS → Case File · Documents", "Each fact traced to a document, none to memory"],
+          ["A fact changes", "Update the CMS and tell the team the same day", "CMS → Case Notes", "The CMS matches the file, always"]
+        ],
+        best: [
+          "Know the stack, the dates and the critical fact before the first call.",
+          "Trace every fact to its document: Police Report, Declaration Page, medical record.",
+          "Pitfall: repeating a fact from memory that the documents don't support.",
+          "Pitfall: treating the 14-day gap as the client's fault rather than a fact to document."
+        ],
+        sources: ["D1#16", "D1#19", "curriculum/5-day-flow/case-file.md §1–2: the file at intake, people and vehicles, the collision"],
+        rubric: {
+          ai: [
+            ["Case facts", 25, "DOL, SOL, parties and John Doe's position stated correctly"],
+            ["Recovery Stack", 20, "$40,000 in the order BI → Host UM → Relative UM"],
+            ["Critical fact", 15, "Names the 14-Day Treatment Gap and why it matters"]
+          ],
+          trainer: [
+            ["Fact discipline", 25, "Traces facts to documents rather than memory"],
+            ["UPL boundary", 15, "Shares facts, never value or merits"]
+          ]
+        },
+        notes: [
+          "Hand out nothing yet. Ask the room what they would want to know about a new file in the first five minutes, then show the case card.",
+          "Say the stack out loud in order, twice: BI, Host UM, Relative UM. It is the spine of Days 1 to 3.",
+          "Land the critical fact without blame: a 14-day gap is ordinary life (work, waiting it out), and the Case Manager's job is to document it, not judge it.",
+          "Close: “From the next slide on, every fact you use comes from a document in the file, not from this card.”"
+        ]
+      },
 
       {
         kind: "lesson", id: "d1m1-l1",
@@ -419,6 +552,58 @@ window.CM_CASE_FLOW = {
           "The passenger fact is the whole lesson. Driving his own car on this loss, John Doe would reach $10,000: he rejected UM on his own policy, and the relative policy excludes a car he owns. As a passenger in the host vehicle he reaches $40,000. Same crash, same injuries, four times the recovery, decided by one field.",
           "Stress that “On the Records” files arrive unverified. A trainee who treats the intake note as fact carries its errors into the demand.",
           "Name the UPL line now. It comes back every day of this program."
+        ]
+      },
+
+      {
+        kind: "activity", id: "d1m1-open",
+        title: "Opening John Doe's File in the CMS",
+        topic: "Skill Activity — from raw file to an active matter",
+        visual: "The CMS New Case screen as a large mock-up on the left two-thirds: a Conflict Check panel at the top with a green LOGGED stamp, then the matter fields (DOL, SOL, client position) with two fields outlined in orange where the draft was wrong. On the right, a vertical checklist of the intake documents (intake sheet, supplement, CMS record, retainer, HIPAA, Police Report), each with a filed tick and its CMS category in mono type.",
+        act: {
+          scenario: "02/09/2026. The raw file from “On the Records” is in: the New Client Intake Sheet, the intake supplement, the signed retainer and claim-specific HIPAA authorization, and the Riverton PD crash report. A colleague keyed a draft intake record into the CMS. Atty. Thorne wants the matter active today.",
+          prompt: "Open John Doe's matter in the CMS. Run and document the Conflict Check on every party's full legal name before anything else. Verify the draft intake record field by field against the source documents (date of loss, names and roles, John Doe's position, date of birth, report number) and correct each error with its source, never silently. Docket the SOL (02/06/2028) with reminders, map all six roles, log the retainer and the HIPAA authorization, and file every intake document under its CMS category, named to the firm's convention. Route a short note of what you corrected to Atty. Thorne.",
+          tool: "CMS → New Case · Parties · Calendar · Documents · Case Notes",
+          output: "An active matter: Conflict Check logged first, every field verified against its source, six roles mapped, SOL docketed, intake documents filed, corrections noted to Atty. Thorne.",
+          checkpoints: [
+            "Conflict Check documented before the matter was created, on full legal names",
+            "Date of loss 02/06/2026 confirmed against the Police Report; SOL 02/06/2028 docketed with reminders",
+            "John Doe recorded as the front-seat passenger, not the driver",
+            "Errors caught and corrected with their source: the position and the date of birth in the draft record, the transposed report number on the intake sheet",
+            "All six roles mapped; none left “unknown”",
+            "Retainer and HIPAA authorization logged with their signing date (02/09/2026)",
+            "Every intake document filed under its CMS category and named to convention",
+            "Corrections summarized to Atty. Thorne in Case Notes"
+          ]
+        },
+        ops: [
+          ["Raw file received", "Run and document the Conflict Check on full legal names", "CMS → New Case", "Conflict Check logged before the matter exists"],
+          ["Draft record keyed", "Verify every field against its source document and correct with the source", "CMS → Case File · Documents", "No field accepted from the draft unchecked"],
+          ["Matter active", "Docket the SOL, map the parties, file the intake documents", "CMS → Calendar · Parties · Documents", "SOL 02/06/2028 with reminders; six roles; every document filed"]
+        ],
+        best: [
+          "Verify against the Police Report and signed documents, not the draft.",
+          "Note every correction and its source in Case Notes.",
+          "Pitfall: accepting “Driver” in the position field because it was pre-filled.",
+          "Pitfall: filing documents before naming them to the convention."
+        ],
+        sources: ["D1#5", "D1#6", "D1#7", "D1#12", "D1#13"],
+        rubric: {
+          ai: [
+            ["Conflict Check first", 15, "Documented before the matter was created, on full legal names"],
+            ["Field verification", 25, "Position, date of birth and report number corrected with their sources"],
+            ["Matter set-up", 20, "SOL docketed with reminders, six roles mapped, intake documents filed by category"]
+          ],
+          trainer: [
+            ["Verification discipline", 25, "Checked every field against a document rather than the draft"],
+            ["Communication", 15, "Corrections routed to Atty. Thorne in a short, factual note"]
+          ]
+        },
+        notes: [
+          "Give the room ten minutes in the CMS before you say anything about the planted errors.",
+          "Ask who changed the position field and on what evidence. The answer must be a document: the Police Report and the intake sheet.",
+          "If someone corrects the date of birth without noting the source, stop them: an unexplained change is a new error.",
+          "Close by opening the Case Notes: the note to Atty. Thorne is part of the work, not an extra."
         ]
       },
 
@@ -1239,7 +1424,9 @@ window.CM_CASE_FLOW = {
             "Explain what actual cash value means, what it does not mean, and why confusing it with the loan balance misleads the client.",
             "Robert Smith's carrier calls John Doe directly and asks for a Recorded Statement. Set out exactly what you instruct him to do, and what you log.",
             "Identify everything John Doe may be owed on the Property Damage side beyond the repair or ACV payment, and what must be documented for each.",
-            "A direction was delivered to the client but never assigned as a tracked task. Explain why that is a failure and what it costs on this file."
+            "A direction was delivered to the client but never assigned as a tracked task. Explain why that is a failure and what it costs on this file.",
+            "What does the Case Manager own on John Doe's file, and what does Atty. Thorne own? Give two examples of each.",
+            "Opening the matter in the CMS, which errors did you find in the draft record and the intake sheet, and which documents proved them?"
           ],
           summary: [
             "Summarize what you learned about protecting a claim in its first two weeks, and whose job that protection is.",
@@ -1612,10 +1799,10 @@ window.CM_CASE_FLOW = {
      ========================================================== */
   {
     n: 2, id: 12,
-    title: "Case Flow Day 2 · Claims & Pre-Demand",
-    phase: "Claims, treatment & pre-demand",
-    objective: "Put all three carriers on notice and verify every coverage fact in writing, keep John Doe's treatment moving through the disruption, probe and document the 14-Day Gap with him on a recorded call, and audit the file to MMI and $16,401.40 in Specials for Atty. Thorne's pre-demand strategy session.",
-    gate: "LORs acknowledged by all three carriers · Coverage Matrix verified in writing · treatment documented to MMI · Gap Justification Record complete · Specials audited at $16,401.40 · demand strategy approved by Atty. Thorne",
+    title: "Case Flow Day 2 · Client, Treatment & Pre-Demand",
+    phase: "Client contact, treatment & pre-demand",
+    objective: "Keep John Doe reachable and informed (the No Contact Protocol, the Final Warning Letter), get him into treatment and keep it moving through the disruption with LOPs and provider contact, probe and document the 14-Day Gap with him on a recorded call, and audit the file to MMI and $16,401.40 in Specials for Atty. Thorne's pre-demand strategy session.",
+    gate: "No Contact Protocol run and logged · LOPs out and providers coordinated · treatment documented to MMI · Gap Justification Record complete · Specials audited at $16,401.40 · demand strategy approved by Atty. Thorne",
     discussion: "It is 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits, Keystone ended his rental on 03/19 and his carpool ended 04/01, and Dana Whitfield has asked John for a Recorded Statement. What do you do first, second and third, and what does each protect?",
     fileState: [
       "Claims open with Keystone Mutual (BI, and PD for John's Civic), Harbor Point (Host UM, MedPay $5,000) and Cardinal State (Relative UM); Peach State and Bluewater on notice.",
@@ -4889,8 +5076,8 @@ window.CM_CASE_FLOW = {
         visual: "The Case Docket & Calendar Conflict Resolver fills the slide: a white table card with a navy header bar, one row per staged entry, the as-keyed date in a mono pill and a blank status chip at the right of each row (VERIFIED · CORRECTED · ADDED) for the trainee to set. A single dashed-orange ADD ENTRY row sits at the bottom, unlabelled, so the slide reveals neither what is missing nor how much. Down the right edge runs a vertical two-band risk gauge: an upper red band, COSTS RIGHTS — LATER OR MISSING, and a lower grey band, COSTS TIME — EARLIER. The trainee drags each error onto the gauge. The red band sits on top: rights before time.",
         act: {
           scenario: "It is 12/10/2026. The Scheduling Order in No. 26-CV-04417 was entered today. The defendant's Interrogatories (25), Requests for Production (30) and Requests for Admission (15), served on his counsel, Atty. Thorne, by U.S. mail on 12/01/2026, are in the file. The order reads: plaintiff's expert disclosure 03/15/2027; defense expert disclosure 04/15/2027; mediation to be completed by 03/31/2027; discovery closes 05/28/2027; pretrial conference 08/12/2027; trial calendar 09/13/2027. While you were out, a covering colleague re-keyed the calendar from the paper file instead of carrying over the 09/10/2026 transition entries: unverified; no alerts.",
-          prompt: "Audit John Doe's calendar in the Case Docket & Calendar Conflict Resolver against the 12/10/2026 Scheduling Order, the discovery mailed 12/01/2026 and the 02/06/2028 SOL. Recompute every entry from its trigger document: trigger day out, 3 mail days in, forward counts to the next business day, backward to the earlier. Correct errors, add missing entries, leave correct ones alone. Give every entry its trigger, rule, arithmetic, owner and alerts. Rank errors by risk; route a correction log to Atty. Thorne.",
-          tool: "Case Docket & Calendar Conflict Resolver · Docket System",
+          prompt: "Audit John Doe's calendar in the Case Docket & Calendar Conflict Resolver against the 12/10/2026 Scheduling Order, the discovery mailed 12/01/2026 and the 02/06/2028 SOL. Recompute every entry from its trigger document: trigger day out, 3 mail days in, forward counts to the next business day, backward to the earlier. Correct errors, add missing entries, leave correct ones alone. Give every entry its trigger, rule, arithmetic, owner and alerts. Mirror every corrected entry to John Doe's CMS Calendar. Rank errors by risk; log the corrections in CMS Case Notes and route them to Atty. Thorne.",
+          tool: "Case Docket & Calendar Conflict Resolver · Docket System · CMS → Calendar · Case Notes",
           output: "A verified Litigation Calendar with every planted error corrected, the missing entries added, and a ranked correction log routed to Atty. Thorne.",
           checkpoints: [
             "Responses corrected to 01/04/2027 (Mon): 12/01/2026 + 30 = 12/31/2026, + 3 for mail = 01/03/2027, a Sunday → next business day",
@@ -4901,6 +5088,7 @@ window.CM_CASE_FLOW = {
             "Filing cutoff corrected from 11/08/2027 to 11/05/2027: 90 days before 02/04/2028 is 11/06/2027 (Sat) → earlier business day",
             "Answer, discovery-close, pretrial and trial-calendar entries verified and left unchanged",
             "Every entry carries its trigger document, rule, arithmetic, owner and warning alerts",
+            "Every corrected entry mirrored to the CMS Calendar; the correction log in CMS Case Notes",
             "Errors ranked: the missing and later-than-correct entries ahead of the early 12/31/2026 entry",
             "Correction log routed to Atty. Thorne with rule questions flagged “confirm the court's rules”; no extension discussed with opposing counsel"
           ]
@@ -7232,5 +7420,40 @@ window.CM_CASE_FLOW = {
     ]
   }
 
+  ],
+
+  /* The order the course teaches the blocks in, day by day. Each day is a run of Case Phases; a phase is
+     taught as one uninterrupted discussion of its lessons, then its Skill Activities and real-time
+     practice (all of it on John Doe's file in the CMS), then its Learning Check. The modules above stay
+     the units of scoring (each Knowledge Check, its quiz share, the Self-Summary and the trainer's 40%);
+     the sequence only sets where each block is taught. Every block appears exactly once. */
+  sequence: [
+    {n: 1, phases: [
+      {title: "Your Role, Your Case, Intake & Property Damage", blocks: ["d1m1-role", "d1m1-case", "d1m1-l1", "d1m4-l1", "d1m3-l1", "d1m3-l2", "d1m1-open", "d1m3-a1", "d1m3-a2", "d1m3-kc"]},
+      {title: "Claims & the CM Case Strategy", blocks: ["d2m1-l1", "d2m1-l2", "d1m1-l2", "d1m4-l2", "d2m1-a1", "d1m1-a1", "d2m1-a2", "d1m1-a2", "d1m4-a1", "d1m4-a2", "d1m1-kc", "d2m1-kc", "d1m4-kc"]}
+    ]},
+    {n: 2, phases: [
+      {title: "Client Communications", blocks: ["d2m3-l1", "d1m2-l1", "d1m2-l2", "d1m2-a1", "d1m2-a2", "d1m2-kc"]},
+      {title: "Treatment & Provider Communications", blocks: ["d2m2-l2", "d2m2-l1", "d2m3-l2", "d2m2-a1", "d2m3-a1", "d2m2-a2", "d2m3-a2", "d2m2-kc", "d2m3-kc"]},
+      {title: "Pre-Demand Audit & Strategy", blocks: ["d2m4-l1", "d2m4-l2", "d2m4-a1", "d2m4-a2", "d2m4-kc"]}
+    ]},
+    {n: 3, phases: [
+      {title: "BI & UM Demand Execution", blocks: ["d3m1-l1", "d3m1-l2", "d3m1-a1", "d3m1-a2", "d3m1-kc"]},
+      {title: "Adjuster Negotiation & Stall Countermeasures", blocks: ["d3m2-l1", "d3m2-l2", "d3m2-a1", "d3m2-a2", "d3m2-kc"]},
+      {title: "Combined Lien Negotiations & Practice Lab", blocks: ["d3m3-l1", "d3m3-l2", "d3m3-a1", "d3m3-a2", "d3m3-kc"]},
+      {title: "Net Sheet Completion & Final Case Closing", blocks: ["d3m4-l1", "d3m4-l2", "d3m4-a1", "d3m4-a2", "d3m4-kc"]}
+    ]},
+    {n: 4, phases: [
+      {title: "The Litigation Fork & Contextual Shift", blocks: ["d4m1-l1", "d4m1-l2", "d4m1-a1", "d4m1-a2", "d4m1-kc"]},
+      {title: "Mediation vs. Arbitration & Calendar Hard Rules", blocks: ["d4m2-l1", "d4m2-l2", "d4m2-a1", "d4m2-a2", "d4m2-kc"]},
+      {title: "Evidentiary Binder Assembly", blocks: ["d4m3-l1", "d4m3-l2", "d4m3-a1", "d4m3-a2", "d4m3-kc"]},
+      {title: "Administrative Bottlenecks & CMS Countermeasures", blocks: ["d4m4-l1", "d4m4-l2", "d4m4-a1", "d4m4-a2", "d4m4-kc"]}
+    ]},
+    {n: 5, phases: [
+      {title: "Tactical Case Manager Support in Litigation", blocks: ["d5m1-l1", "d5m1-l2", "d5m1-a1", "d5m1-a2", "d5m1-kc"]},
+      {title: "Interactive Property Damage Practice Lab", blocks: ["d5m2-l1", "d5m2-l2", "d5m2-a1", "d5m2-a2", "d5m2-kc"]},
+      {title: "Deposition Preparation Protocols", blocks: ["d5m3-l1", "d5m3-l2", "d5m3-a1", "d5m3-a2", "d5m3-kc"]},
+      {title: "Complex Liability Disputes, Comparative Negligence & MIA Client Skip-Tracing", blocks: ["d5m4-l1", "d5m4-l2", "d5m4-a1", "d5m4-a2", "d5m4-kc"]}
+    ]}
   ]
 };

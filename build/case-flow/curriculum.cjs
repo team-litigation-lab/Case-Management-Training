@@ -31,7 +31,6 @@ for(let n = 1; n <= 5; n++){
   m.exports.lessons.forEach((l, i) => { LEGACY[`D${n}#${i + 1}`] = {day: n, i: i + 1, h: l.h, title: m.exports.title}; });
 }
 
-const RHYTHM = ["lesson", "activity", "lesson", "activity", "check"];
 const KIND = {lesson: "Lesson", activity: "Skill Activity", check: "Knowledge Check"};
 const money = n => "$" + Number(n).toLocaleString("en-US");
 const md = s => String(s == null ? "" : s).replace(/\|/g, "\\|");
@@ -55,7 +54,9 @@ CF.days.forEach(day => {
   if(/blueprint/i.test(JSON.stringify(day))) errors.push(`Day ${day.n}: says "blueprint"; the program never uses the word`);
   day.modules.forEach(mod => {
     const kinds = mod.blocks.map(b => b.kind);
-    if(kinds.join(",") !== RHYTHM.join(",")) errors.push(`${mod.id}: rhythm is ${kinds.join(" → ")}`);
+    // a module is a unit of scoring: its lessons and activities, then exactly one Knowledge Check, last
+    if(!kinds.includes("lesson") || !kinds.includes("activity") || kinds.filter(k => k === "check").length !== 1 || kinds[kinds.length - 1] !== "check")
+      errors.push(`${mod.id}: needs lessons and activities, then exactly one Knowledge Check, last (it is ${kinds.join(" → ")})`);
     if(!(mod.quiz || []).length) errors.push(`${mod.id}: no quiz questions`);
     (mod.quiz || []).forEach((q, i) => {
       if(!q.q || !Array.isArray(q.opts) || q.opts.length < 2 || !(q.a >= 0 && q.a < q.opts.length) || !q.r)
@@ -86,6 +87,36 @@ CF.days.forEach(day => {
     });
   });
 });
+/* The sequence: each day's Case Phases, each taught as its lessons → its activities → its Learning Check.
+   Every block exactly once, and each module's Knowledge Check no earlier than the blocks it checks. */
+const STORED = {};
+CF.days.forEach(day => day.modules.forEach(mod => mod.blocks.forEach(b => { STORED[b.id] = {day, mod, b}; })));
+const TAUGHT = {};   // block id → [day n, phase index, position]
+if(!Array.isArray(CF.sequence)) errors.push("sequence: missing (the order the course teaches the blocks)");
+else {
+  if(CF.sequence.map(d => d.n).join(",") !== CF.days.map(d => d.n).join(",")) errors.push("sequence: needs one entry per Case Flow day, in order");
+  CF.sequence.forEach(sd => (sd.phases || []).forEach((ph, pi) => {
+    const at = `sequence Day ${sd.n} phase ${pi + 1} "${ph.title || ""}"`;
+    if(!ph.title || !(ph.blocks || []).length) errors.push(`${at}: needs a title and blocks`);
+    const rank = {lesson: 0, activity: 1, check: 2};
+    let last = -1;
+    (ph.blocks || []).forEach((id, k) => {
+      const x = STORED[id];
+      if(!x) return errors.push(`${at}: ${id} is not a block`);
+      if(TAUGHT[id]) errors.push(`${at}: ${id} is already taught on Day ${TAUGHT[id][0]}`);
+      TAUGHT[id] = [sd.n, pi, k];
+      if(rank[x.b.kind] < last) errors.push(`${at}: ${id} (${x.b.kind}) comes after a later part; a phase runs lessons → activities → Learning Check`);
+      last = Math.max(last, rank[x.b.kind]);
+    });
+    if(!(ph.blocks || []).some(id => STORED[id] && STORED[id].b.kind === "check")) errors.push(`${at}: ends without a Learning Check`);
+  }));
+  Object.keys(STORED).forEach(id => { if(!TAUGHT[id]) errors.push(`sequence: ${id} is never taught`); });
+  const before = (a, b) => a[0] - b[0] || a[1] - b[1] || a[2] - b[2];
+  CF.days.forEach(day => day.modules.forEach(mod => {
+    const kc = mod.blocks.find(b => b.kind === "check"), t = kc && TAUGHT[kc.id];
+    if(t) mod.blocks.forEach(b => { if(b !== kc && TAUGHT[b.id] && before(TAUGHT[b.id], t) > 0) errors.push(`sequence: ${kc.id} is taught before ${b.id}, which it checks`); });
+  }));
+}
 const planFor = key => {
   const {day, i} = LEGACY[key];
   return (CF.plan || []).filter(p => p.from === `D${day}` && i >= p.topics[0] && i <= p.topics[1]);
@@ -147,9 +178,10 @@ const rubricMd = r => ["| Channel | Weight | Dimension | What is graded |", "|--
 const srcMd = s => s.map(x => LEGACY[x] ? `\`${x}\` ${md(LEGACY[x].h)}` : md(x)).join(" · ");
 
 /* ---------- a block ---------- */
-function blockMd(b, day, mod, k){
-  const L = [`### ${day.n}.${mod.n}.${k + 1} ${md(b.title)}`, "",
-    `> **${KIND[b.kind]}** · Day ${day.n} — ${day.phase} · Module ${mod.n}: ${md(mod.title)}  `,
+function blockMd(b, day, phase, k, mod){
+  const kc = mod.blocks.find(x => x.kind === "check");
+  const L = [`### ${day.n}.${phase.n}.${k + 1} ${md(b.title)}`, "",
+    `> **${KIND[b.kind]}** · Day ${day.n} — ${day.phase} · Case Phase ${phase.n}: ${md(phase.title)} · scored with ${md(kc.title)} (\`${mod.id}\`)  `,
     `> **Topic:** ${md(b.topic)}  `,
     `> **Continuity:** ${CF.case.style} · ${CF.case.counsel} · ${stack().map(l => money(l.limit) + " " + l.tag).join(" / ")} · ${CF.case.gapDays}-Day Gap  `,
     `> **Theory extracted from:** ${srcMd(b.sources)}`, "",
@@ -178,7 +210,7 @@ function blockMd(b, day, mod, k){
       `**Auto-graded share of the day's Knowledge Check** (${mod.quiz.length} questions):`, "",
       ...mod.quiz.map((q, i) => `${i + 1}. ${q.q}  \n   ${q.opts.map((o, j) => j === q.a ? `**✓ ${o}**` : o).join(" · ")}  \n   *${q.r}*`), "");
   }else{
-    L.push(`Verified in this module's Knowledge Check (block ${day.n}.${mod.n}.5) and the day's auto-graded questions.`, "");
+    L.push(`Verified in ${md(kc.title)} (taught on Case Flow Day ${TAUGHT[kc.id][0]}) and that day's auto-graded questions.`, "");
   }
   L.push("#### 4 · Assessment Criteria (AI + Trainer Rubric)", "", rubricMd(b.rubric), "",
     "#### 5 · Speaker Notes", "", ...b.notes.map(n => `- ${n}`), "", "---", "");
@@ -198,14 +230,16 @@ function dayMd(day){
     `| **Date of loss** | ${c.dol} · **SOL** ${c.sol} (${c.solNote}) |`, `| **Client** | ${c.client.name} — ${c.client.position} |`,
     `| **Policy stack** | ${stack().map(l => `${money(l.limit)} ${l.tag}`).join(" / ")} = **${money(c.total)}** |`,
     `| **Health plan** | ${c.health.carrier} · ${c.health.memberId} · ${c.health.group} |`, `| **Critical fact** | ${c.critical} |`, "",
-    "## This day's modules", ""];
-  day.modules.forEach(m => {
-    L.push(`**Module ${m.n} — ${m.title}**  `, m.about, "", ...m.blocks.map((b, i) => `${i + 1}. *${KIND[b.kind]}* — ${b.title}`), "");
+    "## This day's Case Phases", "",
+    "Each Case Phase is taught as one uninterrupted discussion of its lessons, then its Skill Activities and real-time practice on John Doe's file in the CMS, then its Learning Check.", ""];
+  const phases = CF.sequence.find(x => x.n === day.n).phases.map((ph, i) => ({n: i + 1, title: ph.title, blocks: ph.blocks.map(id => STORED[id])}));
+  phases.forEach(ph => {
+    L.push(`**Case Phase ${ph.n} — ${ph.title}**`, "", ...ph.blocks.map((x, i) => `${i + 1}. *${KIND[x.b.kind]}* — ${x.b.title}`), "");
   });
   L.push(`**End-of-day discussion (trainer):** ${day.discussion}`, "", "---", "");
-  day.modules.forEach(mod => {
-    L.push(`## Module ${mod.n} — ${mod.title}`, "", mod.about, "", `**Rhythm:** ${mod.blocks.map(b => KIND[b.kind]).join(" ➔ ")}`, "");
-    mod.blocks.forEach((b, k) => L.push(blockMd(b, day, mod, k)));
+  phases.forEach(ph => {
+    L.push(`## Case Phase ${ph.n} — ${ph.title}`, "", `**Order:** ${ph.blocks.map(x => KIND[x.b.kind]).join(" ➔ ")}`, "");
+    ph.blocks.forEach((x, k) => L.push(blockMd(x.b, day, ph, k, x.mod)));
   });
   return L.join("\n");
 }
@@ -252,4 +286,4 @@ if(!CHECK_ONLY){
   fs.writeFileSync(path.join(OUT, "traceability.md"), traceMd());
   console.log("wrote curriculum/5-day-flow/traceability.md");
 }
-console.log(`Case Flow: ${CF.days.length} of 5 days · ${blocks} blocks · rhythm, six components, 60/40 rubrics, quizzes and sources verified · ${Object.keys(LEGACY).length} existing topics, 0 unplaced`);
+console.log(`Case Flow: ${CF.days.length} of 5 days · ${blocks} blocks · sequence, six components, 60/40 rubrics, quizzes and sources verified · ${Object.keys(LEGACY).length} existing topics, 0 unplaced`);

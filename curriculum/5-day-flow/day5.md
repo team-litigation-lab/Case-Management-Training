@@ -27,41 +27,39 @@
 | **Health plan** | Peach State Health Plan · PSH-55017742 · GRP-41208 |
 | **Critical fact** | Initial 14-Day Treatment Gap, then disrupted care mid-treatment. |
 
-## This day's modules
+## This day's Case Phases
 
-**Module 1 — Tactical Case Manager Support in Litigation**  
-From the filed complaint to the trial calendar: the Pleadings Log, the Discovery Calendar, the litigation file, the trial-prep checklist and the KPIs that prove nothing slipped.
+Each Case Phase is taught as one uninterrupted discussion of its lessons, then its Skill Activities and real-time practice on John Doe's file in the CMS, then its Learning Check.
+
+**Case Phase 1 — Tactical Case Manager Support in Litigation**
 
 1. *Lesson* — Litigation Tracking: the Pleadings Log & the Discovery Calendar
-2. *Skill Activity* — Pleadings & Discovery Log Maintenance
-3. *Lesson* — Trial Preparation Checklists & Litigation KPIs
+2. *Lesson* — Trial Preparation Checklists & Litigation KPIs
+3. *Skill Activity* — Pleadings & Discovery Log Maintenance
 4. *Skill Activity* — Trial Prep Checklist Audit & KPI Update
 5. *Knowledge Check* — Litigation Support Assessment
 
-**Module 2 — Interactive Property Damage Practice Lab**  
-John Doe's Civic in suit: the repair against ACV and the total-loss line, Loss of Use allocated day by day, and the diminished-value dispute worked from Keystone's 17c offer to a recommended range for Atty. Thorne.
+**Case Phase 2 — Interactive Property Damage Practice Lab**
 
 1. *Lesson* — Repair Estimates vs. ACV & Loss-of-Use Allocations
-2. *Skill Activity* — Evaluating Repair Estimates vs. ACV & Loss-of-Use
-3. *Lesson* — Diminished Value & PD Dispute Resolution
+2. *Lesson* — Diminished Value & PD Dispute Resolution
+3. *Skill Activity* — Evaluating Repair Estimates vs. ACV & Loss-of-Use
 4. *Skill Activity* — Diminished Value Calculation & Negotiation Lab
 5. *Knowledge Check* — PD Dispute Evaluation
 
-**Module 3 — Deposition Preparation Protocols**  
-John Doe's virtual deposition: the pre-deposition audit, the three prep pillars, the seven golden rules, opposing counsel's traps, and the substance left to Atty. Thorne.
+**Case Phase 3 — Deposition Preparation Protocols**
 
 1. *Lesson* — Client Prep for a Virtual Deposition & Injury Narrative Alignment
-2. *Skill Activity* — Virtual Deposition Prep Roleplay
-3. *Lesson* — Opposing Counsel's Traps & Defending Key Testimony
+2. *Lesson* — Opposing Counsel's Traps & Defending Key Testimony
+3. *Skill Activity* — Virtual Deposition Prep Roleplay
 4. *Skill Activity* — Mock Deposition Cross-Examination Handling
 5. *Knowledge Check* — Deposition Readiness Audit
 
-**Module 4 — Complex Liability Disputes, Comparative Negligence & MIA Client Skip-Tracing**  
-The comparative-fault defense answered allegation by allegation from the file's own evidence, a defendant found and served after he moved, a client reached before his deposition, and the final check across all five days.
+**Case Phase 4 — Complex Liability Disputes, Comparative Negligence & MIA Client Skip-Tracing**
 
 1. *Lesson* — Comparative Negligence & the Liability Counter-Package
-2. *Skill Activity* — Building the Comparative Liability Counter-Package
-3. *Lesson* — Skip-Tracing, Process Servers & Certified Notice
+2. *Lesson* — Skip-Tracing, Process Servers & Certified Notice
+3. *Skill Activity* — Building the Comparative Liability Counter-Package
 4. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch
 5. *Knowledge Check* — Final Comprehensive Knowledge Check
 
@@ -69,15 +67,13 @@ The comparative-fault defense answered allegation by allegation from the file's 
 
 ---
 
-## Module 1 — Tactical Case Manager Support in Litigation
+## Case Phase 1 — Tactical Case Manager Support in Litigation
 
-From the filed complaint to the trial calendar: the Pleadings Log, the Discovery Calendar, the litigation file, the trial-prep checklist and the KPIs that prove nothing slipped.
-
-**Rhythm:** Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check
 
 ### 5.1.1 Litigation Tracking: the Pleadings Log & the Discovery Calendar
 
-> **Lesson** · Day 5 — Litigation — Track B · Module 1: Tactical Case Manager Support in Litigation  
+> **Lesson** · Day 5 — Litigation — Track B · Case Phase 1: Tactical Case Manager Support in Litigation · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Managing litigation tracking systems, pleadings logs & discovery calendars  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#1` Welcome to Day 5: Stepping into Litigation · `D5#2` The Case Manager's Tactical Role in Litigation: The Litigation Lifecycle · `D5#3` Phase 1: The Pleadings & Service Stage · `D5#4` Phase 2: Discovery — A. Interrogatories & Requests for Production · `D5#21` The Litigation Toolkit: The Litigation Document Index · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#26` Advanced Workflow Deep-Dive: The Complaint / Petition · `D5#27` Written Discovery: Interrogatories, RFPs & RFAs · `D5#28` Master Timeline & Deadline Calculations · `D5#31` Litigation File Architecture · Newly authored: whether e-service adds days (none on this file's rule set; the federal example)
@@ -137,7 +133,7 @@ A full-width horizontal court timeline on a navy rail runs from 09/24/2026 to 01
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 5.1.5) and the day's auto-graded questions.
+Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -162,88 +158,9 @@ Verified in this module's Knowledge Check (block 5.1.5) and the day's auto-grade
 
 ---
 
-### 5.1.2 Pleadings & Discovery Log Maintenance
+### 5.1.2 Trial Preparation Checklists & Litigation KPIs
 
-> **Skill Activity** · Day 5 — Litigation — Track B · Module 1: Tactical Case Manager Support in Litigation  
-> **Topic:** Skill Activity 1 — repair the log before it costs the case  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D5#3` Phase 1: The Pleadings & Service Stage · `D5#4` Phase 2: Discovery — A. Interrogatories & Requests for Production · `D5#21` The Litigation Toolkit: The Litigation Document Index · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#27` Written Discovery: Interrogatories, RFPs & RFAs · `D5#28` Master Timeline & Deadline Calculations · `D5#31` Litigation File Architecture · `D5#32` Advanced KPIs for Litigation Case Managers
-
-#### 1 · Visual Layout Description
-
-A CMS Pleadings Log screen fills the left two-thirds: a white card with a navy header bar and eight rows in mono type (Event · Trigger · Method · Due · Filed · Source). Three rows carry orange numbered badges in the left margin: ① a dashed empty slot where the affidavit-of-service row should be; ② a due date, 12/31/2026, struck through in red with 01/04/2027 in a mono pill beside it and the arithmetic under it; ③ an empty RFA slot carrying a red flag. Right third: the file tree DOE, JOHN - CASE FILE with its five numbered sub-folders, and a scan_1210.pdf chip being renamed and dropped into 01_PLEADINGS. Bottom: a red callout, “Passed and unproven = escalate today.” The argument: the row nobody added is the deadline nobody kept.
-
-#### 2 · Slide Body — Let Them
-
-**Scenario.** 01/05/2027 · Track B. Civil Action No. 26-CV-04417 is three months old, and the docket calendar was audited and corrected on 12/10/2026, but the CMS Pleadings Log was never reconciled to it. As found: complaint 09/24/2026; service 10/14/2026, but no affidavit row (the executed affidavit, filed 10/16/2026, sits in an Allied Process Services email); Answer due 11/13/2026, filed 11/12/2026; Defendant's First Interrogatories (25) and RFPs (30), mailed 12/01/2026, logged as one row still carrying the pre-audit “due 12/31/2026”; no separate row for the 15 RFAs served with them; the 12/10/2026 Scheduling Order still saved as scan_1210.pdf with no log rows; our set e-served on Smith 12/14/2026, due 01/13/2027. CMS → Documents holds a Certificate of Service dated 01/04/2027 for John Doe's verified responses to the Interrogatories, RFPs and RFAs, served by mail on Atty. Mercer; no log row was ever made for it.
-
-**Execution prompt.** Repair the Pleadings Log and Discovery Calendar for 26-CV-04417. Add every missing row, recompute each response date from its trigger and method of service, and write the arithmetic into the row. File each document in its numbered sub-folder under the naming convention, and calendar the Scheduling Order's six dates. Then make the graded call: the RFA deadline never had its own log row and has passed. Prove compliance from that Certificate of Service, record the RFA Priority Check and 48-Hour Docket misses honestly, and report both to Atty. Thorne today. Do not contact opposing counsel.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Litigation → Pleadings Log · CMS → Calendar · CMS → Documents |
-| **Expected output** | A corrected, source-linked Pleadings Log and Discovery Calendar, every document in its sub-folder, and RFA compliance proved from the certificate and the misses reported the same day. |
-
-**Verification checkpoints**
-
-- [ ] Affidavit-of-service row added: personal service 10/14/2026 by Allied Process Services at 4410 Quarry Ridge Ct, Millbrook; affidavit filed 10/16/2026; saved to 02_SERVICE_DOCS as Affidavit_of_Service_Executed.pdf
-- [ ] Answer row confirmed: due 11/13/2026 (10/14/2026 + 30 days), filed 11/12/2026 by Atty. Grant Mercer, Mercer & Hale LLP; its three defenses recorded as the roadmap
-- [ ] Interrogatories (25) and RFPs (30) corrected from 12/31/2026 to 01/04/2027: 12/01/2026 + 30 = 12/31/2026; + 3 for mail = 01/03/2027, a Sunday → Monday 01/04/2027
-- [ ] RFA row (15) added as its own entry with the same 01/04/2027 deadline and a red deemed-admission flag
-- [ ] Certificate of Service for John Doe's responses (dated 01/04/2027, by mail on Atty. Mercer) logged and filed to 04_DISCOVERY_DEFENDANT_TO_PLAINTIFF as Final_Verified_Responses_Served.pdf, its date checked against 01/04/2027 and the signed verification page confirmed attached
-- [ ] Report to Atty. Thorne through CMS → Tasks → Escalate on 01/05/2027: compliance proved by the 01/04/2027 certificate, and the RFA Priority Check and 48-Hour Docket misses named; no call to Atty. Mercer
-- [ ] Smith's responses calendared for 01/13/2027 (12/14/2026 + 30; e-service by consent adds no days on this file's rule set) with a follow-up task for the day after
-- [ ] Scheduling Order renamed Scheduling_Order_Entered.pdf, saved to 01_PLEADINGS, and its six dates logged and reconciled to the audited calendar: 03/15/2027, 04/15/2027, 03/31/2027, 05/28/2027, 08/12/2027, 09/13/2027
-- [ ] No scan names left; every document filed in one of the five numbered sub-folders under DOE, JOHN - CASE FILE
-- [ ] Late filings recorded honestly: the affidavit, the RFA row and the scheduling-order rows logged as misses of the 48-hour docket rule, not back-dated
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Anything arrives from the court, opposing counsel or the process server | File it in its numbered sub-folder under the convention and add or update its log row | CMS → Documents · Pleadings Log | Filed and docketed within 48 hours; source document linked to the row |
-| Discovery served on John Doe | Log each set as its own row and compute its response date | CMS → Calendar | 12/01/2026 by mail → 01/04/2027, arithmetic in the row; RFA row flagged red |
-| A deadline found passed without proof of compliance | Escalate to Atty. Thorne the same day; contact no one on the other side | CMS → Tasks → Escalate | Escalation dated 01/05/2027 and names the missing document |
-
-**Best practices & pitfalls**
-
-- One row per discovery set, so no deadline hides inside another.
-- Link every row to its source document, so the log can be re-checked without you.
-- Record a late filing as late. A log that hides its own misses can't be audited.
-- ⚠️ Pitfall: logging three discovery sets as one row, so the RFA deadline disappears.
-- ⚠️ Pitfall: forgetting the 3 mail days, or adding them to e-service by habit.
-- ⚠️ Pitfall: quietly fixing a passed deadline instead of telling Atty. Thorne.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in this module's Knowledge Check (block 5.1.5) and the day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Date arithmetic | 01/04/2027 and 01/13/2027 computed with the arithmetic shown; 11/13/2026 confirmed |
-| 🤖 AI | **15%** | Log completeness | Affidavit, RFA and scheduling-order rows added; every event from the Complaint to the 12/14/2026 e-service logged |
-| 🤖 AI | **15%** | File architecture | Five numbered sub-folders, convention names, no scan names |
-| 🤖 AI | **10%** | RFA control | Separate RFA row, red flag, compliance proved from the certificate, report dated 01/05/2027 |
-| 🧑‍🏫 Trainer | **20%** | Judgment on the passed deadline | Proved compliance from the certificate and reported the misses the same day; did not paper over them |
-| 🧑‍🏫 Trainer | **10%** | UPL and authority boundary | No contact with opposing counsel; deemed admissions and any motion left to Atty. Thorne |
-| 🧑‍🏫 Trainer | **10%** | Documentation quality | Another Case Manager could audit the log cold |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Put the log as found on screen and give the room 90 seconds to name what is wrong before anyone touches it.
-- Ask: “The log said 12/31/2026, which was too early. Why fix a date that could only have made us early?” Because the same habit that produced it will one day produce a date that is too late, and every KPI reads from the log.
-- Watch for trainees who log the 15 RFAs inside the Interrogatories row, or who add 3 days to the e-served set. The arithmetic written into the row is what is graded.
-- Legal nuance: in many courts a deemed admission can be withdrawn or amended only by motion. Whether to seek that is Atty. Thorne's decision; the Case Manager's job is to make sure he knows today.
-
----
-
-### 5.1.3 Trial Preparation Checklists & Litigation KPIs
-
-> **Lesson** · Day 5 — Litigation — Track B · Module 1: Tactical Case Manager Support in Litigation  
+> **Lesson** · Day 5 — Litigation — Track B · Case Phase 1: Tactical Case Manager Support in Litigation · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Trial preparation checklists & tracking litigation KPIs  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#2` The Case Manager's Tactical Role in Litigation: The Litigation Lifecycle · `D5#5` Phase 2: Discovery — B. Deposition Coordination & Preparation · `D5#6` Phase 3: The Trial & Mediation Preparation Stage · `D5#7` The Litigation Mindset: Critical Traps & KPIs · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#32` Advanced KPIs for Litigation Case Managers · LSH Claims Specialist: liability acceptance post-lawsuit (the defense pivots to causation and damages) · Newly authored: a scheduling-order date moves only by court order
@@ -299,7 +216,7 @@ Upper half: a horizontal trial-prep runway on a navy line from 01/20/2027 to 09/
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 5.1.5) and the day's auto-graded questions.
+Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -323,9 +240,88 @@ Verified in this module's Knowledge Check (block 5.1.5) and the day's auto-grade
 
 ---
 
+### 5.1.3 Pleadings & Discovery Log Maintenance
+
+> **Skill Activity** · Day 5 — Litigation — Track B · Case Phase 1: Tactical Case Manager Support in Litigation · scored with Litigation Support Assessment (`d5m1`)  
+> **Topic:** Skill Activity 1 — repair the log before it costs the case  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D5#3` Phase 1: The Pleadings & Service Stage · `D5#4` Phase 2: Discovery — A. Interrogatories & Requests for Production · `D5#21` The Litigation Toolkit: The Litigation Document Index · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#27` Written Discovery: Interrogatories, RFPs & RFAs · `D5#28` Master Timeline & Deadline Calculations · `D5#31` Litigation File Architecture · `D5#32` Advanced KPIs for Litigation Case Managers
+
+#### 1 · Visual Layout Description
+
+A CMS Pleadings Log screen fills the left two-thirds: a white card with a navy header bar and eight rows in mono type (Event · Trigger · Method · Due · Filed · Source). Three rows carry orange numbered badges in the left margin: ① a dashed empty slot where the affidavit-of-service row should be; ② a due date, 12/31/2026, struck through in red with 01/04/2027 in a mono pill beside it and the arithmetic under it; ③ an empty RFA slot carrying a red flag. Right third: the file tree DOE, JOHN - CASE FILE with its five numbered sub-folders, and a scan_1210.pdf chip being renamed and dropped into 01_PLEADINGS. Bottom: a red callout, “Passed and unproven = escalate today.” The argument: the row nobody added is the deadline nobody kept.
+
+#### 2 · Slide Body — Let Them
+
+**Scenario.** 01/05/2027 · Track B. Civil Action No. 26-CV-04417 is three months old, and the docket calendar was audited and corrected on 12/10/2026, but the CMS Pleadings Log was never reconciled to it. As found: complaint 09/24/2026; service 10/14/2026, but no affidavit row (the executed affidavit, filed 10/16/2026, sits in an Allied Process Services email); Answer due 11/13/2026, filed 11/12/2026; Defendant's First Interrogatories (25) and RFPs (30), mailed 12/01/2026, logged as one row still carrying the pre-audit “due 12/31/2026”; no separate row for the 15 RFAs served with them; the 12/10/2026 Scheduling Order still saved as scan_1210.pdf with no log rows; our set e-served on Smith 12/14/2026, due 01/13/2027. CMS → Documents holds a Certificate of Service dated 01/04/2027 for John Doe's verified responses to the Interrogatories, RFPs and RFAs, served by mail on Atty. Mercer; no log row was ever made for it.
+
+**Execution prompt.** Repair the Pleadings Log and Discovery Calendar for 26-CV-04417. Add every missing row, recompute each response date from its trigger and method of service, and write the arithmetic into the row. File each document in its numbered sub-folder under the naming convention, and calendar the Scheduling Order's six dates. Then make the graded call: the RFA deadline never had its own log row and has passed. Prove compliance from that Certificate of Service, record the RFA Priority Check and 48-Hour Docket misses honestly, and report both to Atty. Thorne today. Do not contact opposing counsel.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → Litigation → Pleadings Log · CMS → Calendar · CMS → Documents |
+| **Expected output** | A corrected, source-linked Pleadings Log and Discovery Calendar, every document in its sub-folder, and RFA compliance proved from the certificate and the misses reported the same day. |
+
+**Verification checkpoints**
+
+- [ ] Affidavit-of-service row added: personal service 10/14/2026 by Allied Process Services at 4410 Quarry Ridge Ct, Millbrook; affidavit filed 10/16/2026; saved to 02_SERVICE_DOCS as Affidavit_of_Service_Executed.pdf
+- [ ] Answer row confirmed: due 11/13/2026 (10/14/2026 + 30 days), filed 11/12/2026 by Atty. Grant Mercer, Mercer & Hale LLP; its three defenses recorded as the roadmap
+- [ ] Interrogatories (25) and RFPs (30) corrected from 12/31/2026 to 01/04/2027: 12/01/2026 + 30 = 12/31/2026; + 3 for mail = 01/03/2027, a Sunday → Monday 01/04/2027
+- [ ] RFA row (15) added as its own entry with the same 01/04/2027 deadline and a red deemed-admission flag
+- [ ] Certificate of Service for John Doe's responses (dated 01/04/2027, by mail on Atty. Mercer) logged and filed to 04_DISCOVERY_DEFENDANT_TO_PLAINTIFF as Final_Verified_Responses_Served.pdf, its date checked against 01/04/2027 and the signed verification page confirmed attached
+- [ ] Report to Atty. Thorne through CMS → Tasks → Escalate on 01/05/2027: compliance proved by the 01/04/2027 certificate, and the RFA Priority Check and 48-Hour Docket misses named; no call to Atty. Mercer
+- [ ] Smith's responses calendared for 01/13/2027 (12/14/2026 + 30; e-service by consent adds no days on this file's rule set) with a follow-up task for the day after
+- [ ] Scheduling Order renamed Scheduling_Order_Entered.pdf, saved to 01_PLEADINGS, and its six dates logged and reconciled to the audited calendar: 03/15/2027, 04/15/2027, 03/31/2027, 05/28/2027, 08/12/2027, 09/13/2027
+- [ ] No scan names left; every document filed in one of the five numbered sub-folders under DOE, JOHN - CASE FILE
+- [ ] Late filings recorded honestly: the affidavit, the RFA row and the scheduling-order rows logged as misses of the 48-hour docket rule, not back-dated
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Anything arrives from the court, opposing counsel or the process server | File it in its numbered sub-folder under the convention and add or update its log row | CMS → Documents · Pleadings Log | Filed and docketed within 48 hours; source document linked to the row |
+| Discovery served on John Doe | Log each set as its own row and compute its response date | CMS → Calendar | 12/01/2026 by mail → 01/04/2027, arithmetic in the row; RFA row flagged red |
+| A deadline found passed without proof of compliance | Escalate to Atty. Thorne the same day; contact no one on the other side | CMS → Tasks → Escalate | Escalation dated 01/05/2027 and names the missing document |
+
+**Best practices & pitfalls**
+
+- One row per discovery set, so no deadline hides inside another.
+- Link every row to its source document, so the log can be re-checked without you.
+- Record a late filing as late. A log that hides its own misses can't be audited.
+- ⚠️ Pitfall: logging three discovery sets as one row, so the RFA deadline disappears.
+- ⚠️ Pitfall: forgetting the 3 mail days, or adding them to e-service by habit.
+- ⚠️ Pitfall: quietly fixing a passed deadline instead of telling Atty. Thorne.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Date arithmetic | 01/04/2027 and 01/13/2027 computed with the arithmetic shown; 11/13/2026 confirmed |
+| 🤖 AI | **15%** | Log completeness | Affidavit, RFA and scheduling-order rows added; every event from the Complaint to the 12/14/2026 e-service logged |
+| 🤖 AI | **15%** | File architecture | Five numbered sub-folders, convention names, no scan names |
+| 🤖 AI | **10%** | RFA control | Separate RFA row, red flag, compliance proved from the certificate, report dated 01/05/2027 |
+| 🧑‍🏫 Trainer | **20%** | Judgment on the passed deadline | Proved compliance from the certificate and reported the misses the same day; did not paper over them |
+| 🧑‍🏫 Trainer | **10%** | UPL and authority boundary | No contact with opposing counsel; deemed admissions and any motion left to Atty. Thorne |
+| 🧑‍🏫 Trainer | **10%** | Documentation quality | Another Case Manager could audit the log cold |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Put the log as found on screen and give the room 90 seconds to name what is wrong before anyone touches it.
+- Ask: “The log said 12/31/2026, which was too early. Why fix a date that could only have made us early?” Because the same habit that produced it will one day produce a date that is too late, and every KPI reads from the log.
+- Watch for trainees who log the 15 RFAs inside the Interrogatories row, or who add 3 days to the e-served set. The arithmetic written into the row is what is graded.
+- Legal nuance: in many courts a deemed admission can be withdrawn or amended only by motion. Whether to seek that is Atty. Thorne's decision; the Case Manager's job is to make sure he knows today.
+
+---
+
 ### 5.1.4 Trial Prep Checklist Audit & KPI Update
 
-> **Skill Activity** · Day 5 — Litigation — Track B · Module 1: Tactical Case Manager Support in Litigation  
+> **Skill Activity** · Day 5 — Litigation — Track B · Case Phase 1: Tactical Case Manager Support in Litigation · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Skill Activity 2 — audit against the order, measure against the target  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#5` Phase 2: Discovery — B. Deposition Coordination & Preparation · `D5#6` Phase 3: The Trial & Mediation Preparation Stage · `D5#7` The Litigation Mindset: Critical Traps & KPIs · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#28` Master Timeline & Deadline Calculations · `D5#32` Advanced KPIs for Litigation Case Managers · `D5#33` Skill Building: The Ultimate Case Management — Jordan Davies · LSH Claims Specialist: liability acceptance post-lawsuit (the defense pivots to causation and damages) · Newly authored: the last day to serve written discovery, counted back from the discovery cutoff
@@ -388,7 +384,7 @@ Split slide. Left 55%: the trial-prep checklist as a cream clipboard card with o
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 5.1.5) and the day's auto-graded questions.
+Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -415,7 +411,7 @@ Verified in this module's Knowledge Check (block 5.1.5) and the day's auto-grade
 
 ### 5.1.5 Litigation Support Assessment
 
-> **Knowledge Check** · Day 5 — Litigation — Track B · Module 1: Tactical Case Manager Support in Litigation  
+> **Knowledge Check** · Day 5 — Litigation — Track B · Case Phase 1: Tactical Case Manager Support in Litigation · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#7` The Litigation Mindset: Critical Traps & KPIs · `D5#21` The Litigation Toolkit: The Litigation Document Index · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#28` Master Timeline & Deadline Calculations · `D5#31` Litigation File Architecture · `D5#32` Advanced KPIs for Litigation Case Managers · `D5#33` Skill Building: The Ultimate Case Management — Jordan Davies
@@ -500,15 +496,13 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 
 ---
 
-## Module 2 — Interactive Property Damage Practice Lab
+## Case Phase 2 — Interactive Property Damage Practice Lab
 
-John Doe's Civic in suit: the repair against ACV and the total-loss line, Loss of Use allocated day by day, and the diminished-value dispute worked from Keystone's 17c offer to a recommended range for Atty. Thorne.
-
-**Rhythm:** Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check
 
 ### 5.2.1 Repair Estimates vs. ACV & Loss-of-Use Allocations
 
-> **Lesson** · Day 5 — Litigation — Track B · Module 2: Interactive Property Damage Practice Lab  
+> **Lesson** · Day 5 — Litigation — Track B · Case Phase 2: Interactive Property Damage Practice Lab · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Repairable or total, and what each day without the Civic is worth  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · `D5#35` Property Damage: Calculating the Value of the Claim · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · LSH Claims Specialist: Property Damage and collision coverage, Loss of Use, tow and storage · Newly authored: a carrier's rental cap against the reasonable-repair-time measure of Loss of Use (Restatement (Second) of Torts § 928(b) as an example)
@@ -565,7 +559,7 @@ A horizontal threshold gauge across the top half, the same instrument as Day 1's
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 5.2.5) and the day's auto-graded questions.
+Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -588,87 +582,9 @@ Verified in this module's Knowledge Check (block 5.2.5) and the day's auto-grade
 
 ---
 
-### 5.2.2 Evaluating Repair Estimates vs. ACV & Loss-of-Use
+### 5.2.2 Diminished Value & PD Dispute Resolution
 
-> **Skill Activity** · Day 5 — Litigation — Track B · Module 2: Interactive Property Damage Practice Lab  
-> **Topic:** Skill Activity 1 — audit the Civic's numbers before discovery does  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D5#35` Property Damage: Calculating the Value of the Claim · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · LSH Claims Specialist: Property Damage coverage, Loss of Use, tow and storage
-
-#### 1 · Visual Layout Description
-
-An annotated CMS Property Damage worksheet fills the left two-thirds: a white card with a navy header bar and two staged entries struck through in red, the 39.4% total-loss check on the $6,940.00 estimate and the 78-day, $3,276.00 loss-of-use line, each with an orange numbered badge pointing to its corrected value in the margin (52.6% on $9,255.00; 48 days, $2,016.00). The right third is an evidence column of three cream cards, one per period (12 · 30 · 36 days), each listing its proof as mono pills. A red-bordered strip along the bottom reads PRODUCED WRONG = IMPEACHED. The argument: fix the record before the defense reads it.
-
-#### 2 · Slide Body — Let Them
-
-**Scenario.** File date 12/2026: the requests mailed 12/01/2026 have arrived. Defendant's First Requests for Production, served on John Doe by U.S. mail, ask for every document supporting the Property Damage claim (responses due 01/04/2027). The total-loss and loss-of-use entries on the CMS Property Damage screen, untouched since April, show a total-loss check run on the $6,940.00 estimate (39.4% of ACV) and a loss-of-use line of 78 days × $42.00 = $3,276.00. Keystone still offers $0 for Loss of Use.
-
-**Execution prompt.** Audit and correct the Civic's numbers before anything is produced. Re-run the total-loss check on the final repair against the $17,600.00 ACV and Keystone's 75% threshold, and list what you would verify in Keystone's Valuation Report. Rebuild the loss-of-use ledger day by day from 02/06 to 04/24/2026, allocating each day once, and correct the claim. Attach the evidence for each period, and index the severity set: the photos and the estimate against the final bill. Then flag for Atty. Thorne the two arguments Keystone will make against the unpaid days, without answering them, and date the task ahead of the response deadline.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Property Damage → Loss of Use · CMS → Documents · CMS → Tasks → Escalate |
-| **Expected output** | A corrected PD worksheet (repairable at 52.6% of ACV; 48 days and $2,016.00 claimed) with each period evidenced and Keystone's defenses flagged for Atty. Thorne. |
-
-**Verification checkpoints**
-
-- [ ] Final repair recomputed: $6,940.00 + $2,315.00 = $9,255.00
-- [ ] Threshold run on the final repair: $9,255.00 is 52.6% of $17,600.00, under $13,200.00 (75%) → repairable
-- [ ] The stale 39.4% check corrected with a dated note, not silently overwritten
-- [ ] Valuation-report checks listed: comparables, the LX trim, 52,300 miles, condition
-- [ ] Severity set indexed: point-of-impact, frame and A-pillar photos, and the 02/16/2026 estimate set against the final bill
-- [ ] 78 days allocated once: 12 (02/06–02/17) + 30 (02/18–03/19) + 36 (03/20–04/24)
-- [ ] Loss of Use corrected from $3,276.00 to 48 × $42.00 = $2,016.00; the 30 paid days ($1,260.00) excluded
-- [ ] Each period evidenced: tow and storage record and Keystone's 02/17/2026 acceptance for the 12; the 02/18/2026 rental authorization for the 30; the 04/10/2026 extension refusal and 04/24/2026 completion for the 36
-- [ ] Tow and storage ($455.00) and the rental recorded as paid by Keystone, not claimed again
-- [ ] Keystone's two defenses flagged, not argued: days before it accepted liability, and “shop delay”
-- [ ] Escalation to Atty. Thorne dated on or before 12/28/2026 (the Discovery Countdown, 7 days before 01/04/2027); nothing produced without his review
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Requests for Production ask for the PD documents | Audit the PD screen and correct stale figures with dated notes | CMS → Property Damage | Threshold on $9,255.00; Loss of Use $2,016.00; each correction dated |
-| Keystone's defenses identified | Flag them to Atty. Thorne with each period's evidence | CMS → Tasks → Escalate | Task dated on or before 12/28/2026 |
-| Worksheet corrected | Assemble the PD evidence set for Atty. Thorne's production review | CMS → Documents | Every period evidenced; nothing produced before his review |
-
-**Best practices & pitfalls**
-
-- Correct a wrong figure with a dated note; never overwrite the history.
-- Evidence each period, not just the total: the defense attacks periods.
-- ⚠️ Pitfall: producing a worksheet that still says $3,276.00; one double count lets the defense attack every other number.
-- ⚠️ Pitfall: arguing “shop delay” with the adjuster yourself.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in this module's Knowledge Check (block 5.2.5) and the day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **15%** | Threshold | $9,255.00 = 52.6% of $17,600.00, under $13,200.00; the 39.4% entry corrected |
-| 🤖 AI | **15%** | Day allocation | 12 + 30 + 36 = 78 days, each counted once |
-| 🤖 AI | **15%** | Loss-of-use figure | 48 × $42.00 = $2,016.00; $3,276.00 corrected; $1,260.00 and $455.00 not claimed again |
-| 🤖 AI | **15%** | Evidence and deadline | Each period evidenced; severity photos and supplement indexed; escalation dated on or before 12/28/2026 |
-| 🧑‍🏫 Trainer | **20%** | Audit judgment | Found both staged errors and explained what producing them would cost |
-| 🧑‍🏫 Trainer | **10%** | Record vs. argument | Flagged Keystone's defenses with the evidence, without arguing them |
-| 🧑‍🏫 Trainer | **10%** | UPL boundary | Nothing sent to Keystone or produced without Atty. Thorne's review |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Don't tell them there are two staged errors. The trainee who re-runs the threshold on $9,255.00 and catches the 78-day double count is doing the job; the one who tidies the formatting isn't.
-- Ask the room: “If the defense receives a worksheet claiming $3,276.00, what happens to the credibility of the $3,600.00 appraisal?” That is why the audit comes before production.
-- Grade the evidence column hardest. The 12 pre-rental days are proved by the tow and storage record and Keystone's own 02/17/2026 acceptance, not by John Doe's word.
-- What is produced, and how discovery is answered, is Atty. Thorne's decision. The CM prepares the set; the responses go out over his signature.
-
----
-
-### 5.2.3 Diminished Value & PD Dispute Resolution
-
-> **Lesson** · Day 5 — Litigation — Track B · Module 2: Interactive Property Damage Practice Lab  
+> **Lesson** · Day 5 — Litigation — Track B · Case Phase 2: Interactive Property Damage Practice Lab · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** What a repaired car still loses, and how the dispute gets resolved  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#35` Property Damage: Calculating the Value of the Claim · `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · LSH Claims Specialist: liability disputes — written basis, stronger evidence, escalation to the attorney · Newly authored: Diminished Value, the repair-plus-residual-loss measure (Restatement (Second) of Torts § 928 as an example), the 17c formula and its critique, the PD-only release
@@ -722,7 +638,7 @@ A balanced two-column face-off. Left, a navy card headed KEYSTONE'S 17c: the for
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 5.2.5) and the day's auto-graded questions.
+Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -745,9 +661,87 @@ Verified in this module's Knowledge Check (block 5.2.5) and the day's auto-grade
 
 ---
 
+### 5.2.3 Evaluating Repair Estimates vs. ACV & Loss-of-Use
+
+> **Skill Activity** · Day 5 — Litigation — Track B · Case Phase 2: Interactive Property Damage Practice Lab · scored with PD Dispute Evaluation (`d5m2`)  
+> **Topic:** Skill Activity 1 — audit the Civic's numbers before discovery does  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D5#35` Property Damage: Calculating the Value of the Claim · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · LSH Claims Specialist: Property Damage coverage, Loss of Use, tow and storage
+
+#### 1 · Visual Layout Description
+
+An annotated CMS Property Damage worksheet fills the left two-thirds: a white card with a navy header bar and two staged entries struck through in red, the 39.4% total-loss check on the $6,940.00 estimate and the 78-day, $3,276.00 loss-of-use line, each with an orange numbered badge pointing to its corrected value in the margin (52.6% on $9,255.00; 48 days, $2,016.00). The right third is an evidence column of three cream cards, one per period (12 · 30 · 36 days), each listing its proof as mono pills. A red-bordered strip along the bottom reads PRODUCED WRONG = IMPEACHED. The argument: fix the record before the defense reads it.
+
+#### 2 · Slide Body — Let Them
+
+**Scenario.** File date 12/2026: the requests mailed 12/01/2026 have arrived. Defendant's First Requests for Production, served on John Doe by U.S. mail, ask for every document supporting the Property Damage claim (responses due 01/04/2027). The total-loss and loss-of-use entries on the CMS Property Damage screen, untouched since April, show a total-loss check run on the $6,940.00 estimate (39.4% of ACV) and a loss-of-use line of 78 days × $42.00 = $3,276.00. Keystone still offers $0 for Loss of Use.
+
+**Execution prompt.** Audit and correct the Civic's numbers before anything is produced. Re-run the total-loss check on the final repair against the $17,600.00 ACV and Keystone's 75% threshold, and list what you would verify in Keystone's Valuation Report. Rebuild the loss-of-use ledger day by day from 02/06 to 04/24/2026, allocating each day once, and correct the claim. Attach the evidence for each period, and index the severity set: the photos and the estimate against the final bill. Then flag for Atty. Thorne the two arguments Keystone will make against the unpaid days, without answering them, and date the task ahead of the response deadline.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → Property Damage → Loss of Use · CMS → Documents · CMS → Tasks → Escalate |
+| **Expected output** | A corrected PD worksheet (repairable at 52.6% of ACV; 48 days and $2,016.00 claimed) with each period evidenced and Keystone's defenses flagged for Atty. Thorne. |
+
+**Verification checkpoints**
+
+- [ ] Final repair recomputed: $6,940.00 + $2,315.00 = $9,255.00
+- [ ] Threshold run on the final repair: $9,255.00 is 52.6% of $17,600.00, under $13,200.00 (75%) → repairable
+- [ ] The stale 39.4% check corrected with a dated note, not silently overwritten
+- [ ] Valuation-report checks listed: comparables, the LX trim, 52,300 miles, condition
+- [ ] Severity set indexed: point-of-impact, frame and A-pillar photos, and the 02/16/2026 estimate set against the final bill
+- [ ] 78 days allocated once: 12 (02/06–02/17) + 30 (02/18–03/19) + 36 (03/20–04/24)
+- [ ] Loss of Use corrected from $3,276.00 to 48 × $42.00 = $2,016.00; the 30 paid days ($1,260.00) excluded
+- [ ] Each period evidenced: tow and storage record and Keystone's 02/17/2026 acceptance for the 12; the 02/18/2026 rental authorization for the 30; the 04/10/2026 extension refusal and 04/24/2026 completion for the 36
+- [ ] Tow and storage ($455.00) and the rental recorded as paid by Keystone, not claimed again
+- [ ] Keystone's two defenses flagged, not argued: days before it accepted liability, and “shop delay”
+- [ ] Escalation to Atty. Thorne dated on or before 12/28/2026 (the Discovery Countdown, 7 days before 01/04/2027); nothing produced without his review
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Requests for Production ask for the PD documents | Audit the PD screen and correct stale figures with dated notes | CMS → Property Damage | Threshold on $9,255.00; Loss of Use $2,016.00; each correction dated |
+| Keystone's defenses identified | Flag them to Atty. Thorne with each period's evidence | CMS → Tasks → Escalate | Task dated on or before 12/28/2026 |
+| Worksheet corrected | Assemble the PD evidence set for Atty. Thorne's production review | CMS → Documents | Every period evidenced; nothing produced before his review |
+
+**Best practices & pitfalls**
+
+- Correct a wrong figure with a dated note; never overwrite the history.
+- Evidence each period, not just the total: the defense attacks periods.
+- ⚠️ Pitfall: producing a worksheet that still says $3,276.00; one double count lets the defense attack every other number.
+- ⚠️ Pitfall: arguing “shop delay” with the adjuster yourself.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Threshold | $9,255.00 = 52.6% of $17,600.00, under $13,200.00; the 39.4% entry corrected |
+| 🤖 AI | **15%** | Day allocation | 12 + 30 + 36 = 78 days, each counted once |
+| 🤖 AI | **15%** | Loss-of-use figure | 48 × $42.00 = $2,016.00; $3,276.00 corrected; $1,260.00 and $455.00 not claimed again |
+| 🤖 AI | **15%** | Evidence and deadline | Each period evidenced; severity photos and supplement indexed; escalation dated on or before 12/28/2026 |
+| 🧑‍🏫 Trainer | **20%** | Audit judgment | Found both staged errors and explained what producing them would cost |
+| 🧑‍🏫 Trainer | **10%** | Record vs. argument | Flagged Keystone's defenses with the evidence, without arguing them |
+| 🧑‍🏫 Trainer | **10%** | UPL boundary | Nothing sent to Keystone or produced without Atty. Thorne's review |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Don't tell them there are two staged errors. The trainee who re-runs the threshold on $9,255.00 and catches the 78-day double count is doing the job; the one who tidies the formatting isn't.
+- Ask the room: “If the defense receives a worksheet claiming $3,276.00, what happens to the credibility of the $3,600.00 appraisal?” That is why the audit comes before production.
+- Grade the evidence column hardest. The 12 pre-rental days are proved by the tow and storage record and Keystone's own 02/17/2026 acceptance, not by John Doe's word.
+- What is produced, and how discovery is answered, is Atty. Thorne's decision. The CM prepares the set; the responses go out over his signature.
+
+---
+
 ### 5.2.4 Diminished Value Calculation & Negotiation Lab
 
-> **Skill Activity** · Day 5 — Litigation — Track B · Module 2: Interactive Property Damage Practice Lab  
+> **Skill Activity** · Day 5 — Litigation — Track B · Case Phase 2: Interactive Property Damage Practice Lab · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Skill Activity 2 — from $792.00 to a recommended range for Atty. Thorne  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#35` Property Damage: Calculating the Value of the Claim · `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · LSH Claims Specialist: liability disputes — written basis, stronger evidence, escalation to the attorney · Newly authored: the 17c critique and the recommended negotiating range
@@ -810,7 +804,7 @@ A negotiation board across the slide. Left: a vertical number line from $0 to $5
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 5.2.5) and the day's auto-graded questions.
+Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -837,7 +831,7 @@ Verified in this module's Knowledge Check (block 5.2.5) and the day's auto-grade
 
 ### 5.2.5 PD Dispute Evaluation
 
-> **Knowledge Check** · Day 5 — Litigation — Track B · Module 2: Interactive Property Damage Practice Lab  
+> **Knowledge Check** · Day 5 — Litigation — Track B · Case Phase 2: Interactive Property Damage Practice Lab · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · `D5#35` Property Damage: Calculating the Value of the Claim · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive
@@ -921,15 +915,13 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 
 ---
 
-## Module 3 — Deposition Preparation Protocols
+## Case Phase 3 — Deposition Preparation Protocols
 
-John Doe's virtual deposition: the pre-deposition audit, the three prep pillars, the seven golden rules, opposing counsel's traps, and the substance left to Atty. Thorne.
-
-**Rhythm:** Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check
 
 ### 5.3.1 Client Prep for a Virtual Deposition & Injury Narrative Alignment
 
-> **Lesson** · Day 5 — Litigation — Track B · Module 3: Deposition Preparation Protocols  
+> **Lesson** · Day 5 — Litigation — Track B · Case Phase 3: Deposition Preparation Protocols · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The audit, the three pillars, and the room John testifies from  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#8` Preparing Your Client for a Deposition: The Pre-Deposition Audit · `D5#9` Discovery Intake Meeting — Pillar 1: De-escalating Anxiety · `D5#10` Discovery Intake Meeting — Pillar 2: The Essential Testimony Guidelines · `D5#11` Discovery Intake Meeting — Pillar 3: Dress Code & Professional Demeanor · `D5#14` Case Manager Checklist: The Day Before the Deposition · `D5#19` Professional Presentation: Dress Code & Demeanor · Newly authored: remote-deposition room protocol; refreshed-memory documents; social-media preservation
@@ -988,7 +980,7 @@ A two-lane calendar runs left to right across the slide in six date columns, AUD
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 5.3.5) and the day's auto-graded questions.
+Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1011,9 +1003,92 @@ Verified in this module's Knowledge Check (block 5.3.5) and the day's auto-grade
 
 ---
 
-### 5.3.2 Virtual Deposition Prep Roleplay
+### 5.3.2 Opposing Counsel's Traps & Defending Key Testimony
 
-> **Skill Activity** · Day 5 — Litigation — Track B · Module 3: Deposition Preparation Protocols  
+> **Lesson** · Day 5 — Litigation — Track B · Case Phase 3: Deposition Preparation Protocols · scored with Deposition Readiness Audit (`d5m3`)  
+> **Topic:** The four categories, the seven golden rules, and what an objection means  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D5#10` Discovery Intake Meeting — Pillar 2: The Essential Testimony Guidelines · `D5#12` Navigating the Silent Traps — Drill A: The “Is That All?” Trap · `D5#13` Navigating the Silent Traps — Drill B: The Thoughtful Silence · `D5#15` What Will the Defense Attorney Ask Me? The Four Categories · `D5#16` The 7 Golden Rules for Testifying (Rules 1–3) · `D5#17` The 7 Golden Rules for Testifying (Rules 4–5) · `D5#18` The 7 Golden Rules for Testifying (Rules 6–7) · `D5#20` What Happens When Your Lawyer Objects? · Newly authored: compound and loaded-question traps
+
+#### 1 · Visual Layout Description
+
+A wide trap map in three columns. Left: seven red-bordered trap cards stacked vertically, each with a mono label — IS THAT ALL? · COMPOUND · “DEGENERATIVE” · GAP MISCHARACTERISED · SEATBELT · 2021 PRIOR · SILENT STARE. Centre: seven navy rule chips with orange numbered badges ①–⑦ (TRUTH · PAUSE · SAY IT · NO GUESSING · SHORT · SILENCE · DON'T ARGUE), each trap joined to its rule by a thin orange leader. Right: one tall navy shield, ATTY. THORNE · PREPARES · OBJECTS, that every leader ends in. No card anywhere holds a scripted answer; that empty space is deliberate. Footer strip in red: OBJECTION → STOP TALKING.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Atty. Mercer doesn't need John to lie: a hurried “yes” to a narrowed list, a guess or an argument does the same damage. His Answer and the records show where he will dig: the gap, the disruption, the 2021 visits, the seatbelt. Seven general rules and Atty. Thorne's objections meet every trap; a script meets none.
+
+1. Defense questions fall into four categories: personal background (work, homes, earlier lawsuits), the crash mechanics, medical history (this injury and anything before it), daily life. Clients underreport the third most; here, the 2021 low-back visits.
+2. Rule 1, the absolute truth. A damaged case can be saved; a lied-about one cannot. The prior-injury question is the Liar's Trap: counsel usually already has the records and is testing honesty.
+3. Rules 2 and 3: pause two full seconds (time to think, a clean transcript, a window for Atty. Thorne to object; on video it also absorbs the lag), then answer in words. The reporter cannot type a nod or “uh-huh.”
+4. Rules 4 and 5: never guess or speculate. An honest estimate is fine; a guess dressed as fact is not, and “I don't know” or “I don't recall” is a complete answer. Answer only what was asked, then stop: the smallest target.
+5. Rules 6 and 7: after a short answer, hold the silence and wait for the next question, eyes on the camera. Don't try to win: a deposition is information gathering, and the legal battle is Atty. Thorne's.
+6. The “Is that all?” trap: “So it was just the neck stiffness. Is that all?” A flat “yes” to a list from memory can later fence off the hand numbness and arm symptoms. Atty. Thorne drills it: the complete medical record, not memory, is the full list.
+7. Compound and loaded questions fold two facts, or a false premise, into one “yes”: “You waited three weeks because you felt fine?” General rule: if a question has two parts or is unclear, say so. The record says 14 days.
+8. Objections: “Objection, form” is a routine flag on the record. John stops and lets the objection finish. Then he answers the question unless Atty. Thorne instructs him not to; often he will hear “You can answer.”
+9. The gap and the seatbelt are not won in the deposition. The EMS report, the MRI's “no significant degenerative change at the adjacent levels”, Dr. Reyes's Causation Letter and the EDR are Atty. Thorne's to use: in his set, never a script for John.
+
+> ⚠️ **UPL boundary.** You may explain the seven rules, what an objection is and how the day runs. You may not tell John how to answer any trap, rehearse his wording on the gap, the disruption, the 2021 visits or the seatbelt, or signal him while he testifies. Atty. Thorne prepares and defends the testimony.
+
+#### 2 · Slide Body — Show Them
+
+*Seven traps on John's file, and what meets each*
+
+| Trap | How it may sound | Rule it tests · Atty. Thorne's protection |
+|---|---|---|
+| “Is that all?” | “Just neck stiffness. Is that all?” | 4 · the complete medical record |
+| Compound | “You waited, and felt fine?” | 2 · objection to form |
+| “Degenerative” | “Your MRI showed wear and tear?” | 4 · the 03/13/2026 MRI report |
+| Gap mischaracterised | “Three weeks with no doctor?” | 2 · the record: 14 days |
+| Seatbelt | “You weren't buckled, were you?” | 1 · the EMS report and the EDR |
+| 2021 prior | “You'd treated your neck before?” | 1 · the 2021 records: low back |
+| Silent stare | A long pause after a short answer | 6 · hold the silence |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Answer served 11/12/2026 | Map each pleaded defense to the questions it predicts | CMS → Litigation → Deposition prep log | Comparative fault, causation and failure to mitigate each mapped to at least one trap |
+| Trap map complete | Confirm the record that meets each trap is in Atty. Thorne's set | CMS → Documents | EMS report, MRI report (03/13/2026), Causation Letter (06/19/2026), EDR download and Northgate Attendance Record all present |
+| John asks how to answer a trap | Log it in his words and route it | CMS → Tasks → Escalate | Routed the same day; no wording offered |
+
+**Best practices & pitfalls**
+
+- A deposition is information gathering; the records win the argument later.
+- Explain objections ahead of time so John doesn't freeze.
+- Silence is safe; rambling is not.
+- ⚠️ Pitfall: a “yes” to a list from memory that narrows the case.
+- ⚠️ Pitfall: a client who argues with defense counsel or talks over an objection.
+- ⚠️ Pitfall: preparing only the crash mechanics and missing the medical history.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Golden rules | All seven stated correctly, with the reason for each |
+| 🤖 AI | **20%** | Trap map | Each trap matched to the rule it tests and the pleaded defense behind it |
+| 🤖 AI | **20%** | Record anchors | 14 days (02/06–02/20/2026), 19 days (04/02–04/21/2026), the MRI wording, the EMS report and the EDR |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | No wording offered for any trap; substance routed to Atty. Thorne |
+| 🧑‍🏫 Trainer | **20%** | Strategic grasp | Explains why the deposition is not where the gap is won |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open with “Defense attorneys love psychological traps,” and spring one on the room: “So it was just the neck stiffness. Is that all?” Count the hands that would say yes, then point to the hand numbness in the 02/20/2026 urgent-care note.
+- Ask: “Which of the four categories do clients underreport?” It is medical history before the accident; on this file, the 2021 low-back visits.
+- Legal nuance on objections: in many courts, form objections must be made at the deposition or are waived, and the witness then answers. Instructions not to answer are narrow: the federal rule, FRCP 30(c)(2), for example, allows them only to preserve a privilege, enforce a court-ordered limit or present a motion. Confirm the governing rule.
+- On the seatbelt: whether seatbelt evidence is admissible at all, and for what, varies sharply by state. That is Atty. Thorne's analysis. The CM's part is that the EMS report and the EDR download are in his set.
+
+---
+
+### 5.3.3 Virtual Deposition Prep Roleplay
+
+> **Skill Activity** · Day 5 — Litigation — Track B · Case Phase 3: Deposition Preparation Protocols · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 1 — client injury & 14-Day Gap defense: your segment, his substance  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#9` Discovery Intake Meeting — Pillar 1: De-escalating Anxiety · `D5#10` Discovery Intake Meeting — Pillar 2: The Essential Testimony Guidelines · `D5#11` Discovery Intake Meeting — Pillar 3: Dress Code & Professional Demeanor · `D5#14` Case Manager Checklist: The Day Before the Deposition · `D5#19` Professional Presentation: Dress Code & Demeanor · Newly authored: remote-deposition room protocol
@@ -1075,7 +1150,7 @@ A video-call frame fills the left two-thirds: AI John Doe's tile large, the trai
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 5.3.5) and the day's auto-graded questions.
+Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1100,92 +1175,9 @@ Verified in this module's Knowledge Check (block 5.3.5) and the day's auto-grade
 
 ---
 
-### 5.3.3 Opposing Counsel's Traps & Defending Key Testimony
-
-> **Lesson** · Day 5 — Litigation — Track B · Module 3: Deposition Preparation Protocols  
-> **Topic:** The four categories, the seven golden rules, and what an objection means  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D5#10` Discovery Intake Meeting — Pillar 2: The Essential Testimony Guidelines · `D5#12` Navigating the Silent Traps — Drill A: The “Is That All?” Trap · `D5#13` Navigating the Silent Traps — Drill B: The Thoughtful Silence · `D5#15` What Will the Defense Attorney Ask Me? The Four Categories · `D5#16` The 7 Golden Rules for Testifying (Rules 1–3) · `D5#17` The 7 Golden Rules for Testifying (Rules 4–5) · `D5#18` The 7 Golden Rules for Testifying (Rules 6–7) · `D5#20` What Happens When Your Lawyer Objects? · Newly authored: compound and loaded-question traps
-
-#### 1 · Visual Layout Description
-
-A wide trap map in three columns. Left: seven red-bordered trap cards stacked vertically, each with a mono label — IS THAT ALL? · COMPOUND · “DEGENERATIVE” · GAP MISCHARACTERISED · SEATBELT · 2021 PRIOR · SILENT STARE. Centre: seven navy rule chips with orange numbered badges ①–⑦ (TRUTH · PAUSE · SAY IT · NO GUESSING · SHORT · SILENCE · DON'T ARGUE), each trap joined to its rule by a thin orange leader. Right: one tall navy shield, ATTY. THORNE · PREPARES · OBJECTS, that every leader ends in. No card anywhere holds a scripted answer; that empty space is deliberate. Footer strip in red: OBJECTION → STOP TALKING.
-
-#### 2 · Slide Body — Tell Them
-
-*Why:* Atty. Mercer doesn't need John to lie: a hurried “yes” to a narrowed list, a guess or an argument does the same damage. His Answer and the records show where he will dig: the gap, the disruption, the 2021 visits, the seatbelt. Seven general rules and Atty. Thorne's objections meet every trap; a script meets none.
-
-1. Defense questions fall into four categories: personal background (work, homes, earlier lawsuits), the crash mechanics, medical history (this injury and anything before it), daily life. Clients underreport the third most; here, the 2021 low-back visits.
-2. Rule 1, the absolute truth. A damaged case can be saved; a lied-about one cannot. The prior-injury question is the Liar's Trap: counsel usually already has the records and is testing honesty.
-3. Rules 2 and 3: pause two full seconds (time to think, a clean transcript, a window for Atty. Thorne to object; on video it also absorbs the lag), then answer in words. The reporter cannot type a nod or “uh-huh.”
-4. Rules 4 and 5: never guess or speculate. An honest estimate is fine; a guess dressed as fact is not, and “I don't know” or “I don't recall” is a complete answer. Answer only what was asked, then stop: the smallest target.
-5. Rules 6 and 7: after a short answer, hold the silence and wait for the next question, eyes on the camera. Don't try to win: a deposition is information gathering, and the legal battle is Atty. Thorne's.
-6. The “Is that all?” trap: “So it was just the neck stiffness. Is that all?” A flat “yes” to a list from memory can later fence off the hand numbness and arm symptoms. Atty. Thorne drills it: the complete medical record, not memory, is the full list.
-7. Compound and loaded questions fold two facts, or a false premise, into one “yes”: “You waited three weeks because you felt fine?” General rule: if a question has two parts or is unclear, say so. The record says 14 days.
-8. Objections: “Objection, form” is a routine flag on the record. John stops and lets the objection finish. Then he answers the question unless Atty. Thorne instructs him not to; often he will hear “You can answer.”
-9. The gap and the seatbelt are not won in the deposition. The EMS report, the MRI's “no significant degenerative change at the adjacent levels”, Dr. Reyes's Causation Letter and the EDR are Atty. Thorne's to use: in his set, never a script for John.
-
-> ⚠️ **UPL boundary.** You may explain the seven rules, what an objection is and how the day runs. You may not tell John how to answer any trap, rehearse his wording on the gap, the disruption, the 2021 visits or the seatbelt, or signal him while he testifies. Atty. Thorne prepares and defends the testimony.
-
-#### 2 · Slide Body — Show Them
-
-*Seven traps on John's file, and what meets each*
-
-| Trap | How it may sound | Rule it tests · Atty. Thorne's protection |
-|---|---|---|
-| “Is that all?” | “Just neck stiffness. Is that all?” | 4 · the complete medical record |
-| Compound | “You waited, and felt fine?” | 2 · objection to form |
-| “Degenerative” | “Your MRI showed wear and tear?” | 4 · the 03/13/2026 MRI report |
-| Gap mischaracterised | “Three weeks with no doctor?” | 2 · the record: 14 days |
-| Seatbelt | “You weren't buckled, were you?” | 1 · the EMS report and the EDR |
-| 2021 prior | “You'd treated your neck before?” | 1 · the 2021 records: low back |
-| Silent stare | A long pause after a short answer | 6 · hold the silence |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Answer served 11/12/2026 | Map each pleaded defense to the questions it predicts | CMS → Litigation → Deposition prep log | Comparative fault, causation and failure to mitigate each mapped to at least one trap |
-| Trap map complete | Confirm the record that meets each trap is in Atty. Thorne's set | CMS → Documents | EMS report, MRI report (03/13/2026), Causation Letter (06/19/2026), EDR download and Northgate Attendance Record all present |
-| John asks how to answer a trap | Log it in his words and route it | CMS → Tasks → Escalate | Routed the same day; no wording offered |
-
-**Best practices & pitfalls**
-
-- A deposition is information gathering; the records win the argument later.
-- Explain objections ahead of time so John doesn't freeze.
-- Silence is safe; rambling is not.
-- ⚠️ Pitfall: a “yes” to a list from memory that narrows the case.
-- ⚠️ Pitfall: a client who argues with defense counsel or talks over an objection.
-- ⚠️ Pitfall: preparing only the crash mechanics and missing the medical history.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in this module's Knowledge Check (block 5.3.5) and the day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Golden rules | All seven stated correctly, with the reason for each |
-| 🤖 AI | **20%** | Trap map | Each trap matched to the rule it tests and the pleaded defense behind it |
-| 🤖 AI | **20%** | Record anchors | 14 days (02/06–02/20/2026), 19 days (04/02–04/21/2026), the MRI wording, the EMS report and the EDR |
-| 🧑‍🏫 Trainer | **20%** | UPL boundary | No wording offered for any trap; substance routed to Atty. Thorne |
-| 🧑‍🏫 Trainer | **20%** | Strategic grasp | Explains why the deposition is not where the gap is won |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Open with “Defense attorneys love psychological traps,” and spring one on the room: “So it was just the neck stiffness. Is that all?” Count the hands that would say yes, then point to the hand numbness in the 02/20/2026 urgent-care note.
-- Ask: “Which of the four categories do clients underreport?” It is medical history before the accident; on this file, the 2021 low-back visits.
-- Legal nuance on objections: in many courts, form objections must be made at the deposition or are waived, and the witness then answers. Instructions not to answer are narrow: the federal rule, FRCP 30(c)(2), for example, allows them only to preserve a privilege, enforce a court-ordered limit or present a motion. Confirm the governing rule.
-- On the seatbelt: whether seatbelt evidence is admissible at all, and for what, varies sharply by state. That is Atty. Thorne's analysis. The CM's part is that the EMS report and the EDR download are in his set.
-
----
-
 ### 5.3.4 Mock Deposition Cross-Examination Handling
 
-> **Skill Activity** · Day 5 — Litigation — Track B · Module 3: Deposition Preparation Protocols  
+> **Skill Activity** · Day 5 — Litigation — Track B · Case Phase 3: Deposition Preparation Protocols · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 2 — observe, log and route; never coach  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#12` Navigating the Silent Traps — Drill A: The “Is That All?” Trap · `D5#13` Navigating the Silent Traps — Drill B: The Thoughtful Silence · `D5#15` What Will the Defense Attorney Ask Me? The Four Categories · `D5#16` The 7 Golden Rules for Testifying (Rules 1–3) · `D5#17` The 7 Golden Rules for Testifying (Rules 4–5) · `D5#18` The 7 Golden Rules for Testifying (Rules 6–7) · `D5#20` What Happens When Your Lawyer Objects? · Newly authored: compound and loaded-question traps
@@ -1245,7 +1237,7 @@ Split screen. Left 60%: a mock video deposition — AI ATTY. GRANT MERCER questi
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 5.3.5) and the day's auto-graded questions.
+Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1271,7 +1263,7 @@ Verified in this module's Knowledge Check (block 5.3.5) and the day's auto-grade
 
 ### 5.3.5 Deposition Readiness Audit
 
-> **Knowledge Check** · Day 5 — Litigation — Track B · Module 3: Deposition Preparation Protocols  
+> **Knowledge Check** · Day 5 — Litigation — Track B · Case Phase 3: Deposition Preparation Protocols · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#8` Preparing Your Client for a Deposition: The Pre-Deposition Audit · `D5#14` Case Manager Checklist: The Day Before the Deposition · `D5#15` What Will the Defense Attorney Ask Me? The Four Categories · `D5#16` The 7 Golden Rules for Testifying (Rules 1–3) · `D5#17` The 7 Golden Rules for Testifying (Rules 4–5) · `D5#18` The 7 Golden Rules for Testifying (Rules 6–7) · `D5#20` What Happens When Your Lawyer Objects?
@@ -1355,15 +1347,13 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-## Module 4 — Complex Liability Disputes, Comparative Negligence & MIA Client Skip-Tracing
+## Case Phase 4 — Complex Liability Disputes, Comparative Negligence & MIA Client Skip-Tracing
 
-The comparative-fault defense answered allegation by allegation from the file's own evidence, a defendant found and served after he moved, a client reached before his deposition, and the final check across all five days.
-
-**Rhythm:** Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check
 
 ### 5.4.1 Comparative Negligence & the Liability Counter-Package
 
-> **Lesson** · Day 5 — Litigation — Track B · Module 4: Complex Liability Disputes, Comparative Negligence & MIA Client Skip-Tracing  
+> **Lesson** · Day 5 — Litigation — Track B · Case Phase 4: Complex Liability Disputes, Comparative Negligence & MIA Client Skip-Tracing · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Three allegations in the 11/12/2026 Answer, and the evidence that answers each  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: liability determination — accepted, partial, denied; written confirmation; pure and modified comparative negligence · LSH Claims Specialist: liability disputes — strengthening the evidence, damage patterns, the post-suit pivot to causation and damages · Newly authored: seatbelt-evidence and citation admissibility as state-variable questions; authentication and chain of custody in the counter-package
@@ -1419,7 +1409,7 @@ Two zones. Left 60%: the four-row regime table on a cream card, regime names in 
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 5.4.5) and the day's auto-graded questions.
+Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1442,86 +1432,9 @@ Verified in this module's Knowledge Check (block 5.4.5) and the day's auto-grade
 
 ---
 
-### 5.4.2 Building the Comparative Liability Counter-Package
+### 5.4.2 Skip-Tracing, Process Servers & Certified Notice
 
-> **Skill Activity** · Day 5 — Litigation — Track B · Module 4: Complex Liability Disputes, Comparative Negligence & MIA Client Skip-Tracing  
-> **Topic:** Skill Activity 1 — answer each allegation from the file  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D5#23` Critical Litigation Process 3: Third-Party Evidence Subpoenas · `D5#30` Subpoena Duces Tecum: Execution Strategy · LSH Claims Specialist: handling liability disputes — written basis, stronger evidence, witness statements, escalation to the legal team · Newly authored: authentication and chain of custody in the counter-package
-
-#### 1 · Visual Layout Description
-
-A three-row counter-package matrix across the full slide width on a white card with a navy header bar. Columns: Allegation · Answering evidence · Source · Authenticating witness · Chain of custody. Each row opens with an orange numbered badge and a red allegation chip; evidence cells hold mono pills (EDR, EMS, RPD-26-018842, VIDEO). Cells with an open foundation gap are outlined in orange dashes until filled. Beneath, a slim custody timeline for the doorbell video: 02/06/2026 recorded → 02/17/2026 preservation request → 02/19/2026 copy secured → counter-package. Bottom-right, a navy card headed FOR ATTY. THORNE lists the open legal questions. The argument: a row is finished only when its evidence can come in.
-
-#### 2 · Slide Body — Let Them
-
-**Scenario.** File date 11/12/2026, Track B. Atty. Grant Mercer of Mercer & Hale LLP has filed Robert Smith's Answer in Civil Action No. 26-CV-04417. It denies liability and pleads comparative negligence (the Escape entered the all-way stop out of turn; John was unbelted), causation (the gap; a “degenerative” MRI) and failure to mitigate. In the file: report RPD-26-018842, Ruth Calloway's details, the doorbell video, the 10/2026 EDR download, the EMS Run Report and the A-C-T record.
-
-**Execution prompt.** Build the liability counter-package for Atty. Thorne. For each of the three allegations, list the file evidence that answers it, its source document, the witness who can authenticate it, its chain of custody, and any gap in its foundation. Write out the doorbell video's chain from the 02/17/2026 preservation request to the 02/19/2026 copy. For any record that will need a custodian, draft a narrow Exhibit A for a subpoena duces tecum, for his review. Close with the questions only he can answer: the governing fault rule, seatbelt and citation admissibility, and whether fault on Kevin Alvarez touches coverage.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Litigation → Liability counter-package · Action Plan Editor → Subpoena template |
-| **Expected output** | An allegation-by-allegation counter-package with foundation for every item, a draft Exhibit A, and the open legal questions routed to Atty. Thorne. |
-
-**Verification checkpoints**
-
-- [ ] Two comparative-fault allegations and the failure-to-mitigate defense listed as separate rows: out of turn, unbelted, failure to mitigate
-- [ ] Out of turn answered by report RPD-26-018842 (Smith cited for failure to stop), Ruth Calloway of 2209 Maple Hollow Rd, the doorbell video and the point of impact, with the EDR's 11 mph as corroboration only
-- [ ] Unbelted answered by the EDR (front-passenger belt buckled) and the EMS Run Report (“restrained front-seat passenger”)
-- [ ] Failure to mitigate answered by the A-C-T record: alert and call 04/08/2026, extension refused 04/10, evening slots from 04/21, attendance confirmed 04/21 and 04/23
-- [ ] Disruption stated exactly: 19 days without visits, 04/02 → 04/21/2026, four missed visits, caused by the rental ending and the carpool ending
-- [ ] Video chain of custody: Margaret Doe's camera, preservation 02/17/2026, copy secured 02/19/2026, native file unaltered, each transfer logged
-- [ ] An authenticating witness named for every item (for example Margaret Doe or Ruth Calloway for the video, a records custodian for the EMS report); whether a signed statement from Ruth Calloway exists is recorded, and taking one is routed to Atty. Thorne
-- [ ] Draft Exhibit A limited to John Doe's 02/06/2026 Riverton Fire EMS run and named record types, never “all records”; routing note: notice to Atty. Grant Mercer before the custodian is served
-- [ ] Open questions routed to Atty. Thorne: fault regime, seatbelt and citation admissibility, Kevin Alvarez and coverage
-- [ ] Stack stated as $40,000 (BI → Host UM → Relative UM); no layer added
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Answer received 11/12/2026 | Open the counter-package, one row per allegation | CMS → Litigation → Liability counter-package | Three rows, each with evidence, source, witness and custody |
-| A record will need a custodian | Draft the subpoena duces tecum with a narrow Exhibit A | Action Plan Editor → Subpoena template | Exhibit A names John Doe, 02/06/2026 and specific record types |
-| Package complete | Route to Atty. Thorne with the open legal questions | CMS → Tasks → Escalate | Every question listed; no conclusion drafted as advice |
-
-**Best practices & pitfalls**
-
-- One allegation, one row: a reviewer should find the answer to each in seconds.
-- Record foundation now; a document no one can authenticate may never reach the jury.
-- The EMS report does double duty: “restrained” answers the seatbelt, and the neck complaint on 02/06/2026 answers the gap.
-- ⚠️ Pitfall: an Exhibit A asking for “all records of any kind”; it invites a Motion to Quash as a fishing expedition.
-- ⚠️ Pitfall: calling the EDR's 11 mph proof of the right-of-way; it corroborates the witness and the video, it doesn't replace them.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in this module's Knowledge Check (block 5.4.5) and the day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Allegation coverage | All three allegations answered with the right file evidence |
-| 🤖 AI | **15%** | Fact accuracy | RPD-26-018842, 2209 Maple Hollow Rd, buckled and 11 mph, “restrained”, 04/02 → 04/21/2026 and the A-C-T dates exact |
-| 🤖 AI | **15%** | Foundation and custody | Source, witness and chain for every item; video chain 02/17 → 02/19/2026 |
-| 🤖 AI | **10%** | Exhibit A scope | Narrow: John Doe, the 02/06/2026 run, named record types |
-| 🧑‍🏫 Trainer | **20%** | Strategic judgment | Weights the evidence sensibly; doesn't rest liability on the citation or the EDR's speed |
-| 🧑‍🏫 Trainer | **20%** | UPL boundary | Fault rule, admissibility and coverage all routed to Atty. Thorne; nothing framed as legal advice |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Hand out the Answer's three allegations as three blank rows. Tell the room the package is graded row by row, and a row without an authenticating witness is not finished.
-- Ask: “Which single document answers two defenses?” The EMS run report: “restrained” answers the seatbelt, and the neck complaint on the day of the crash answers the causation defense on the gap.
-- Read the Exhibit A drafts. Anything that says “all records” goes back: one patient, one date, named record types.
-- Legal nuance: the EDR's 11 mph is consistent with a car pulling away from a stop, but speed alone does not prove who had the right-of-way. Let Ruth Calloway and the video carry that.
-
----
-
-### 5.4.3 Skip-Tracing, Process Servers & Certified Notice
-
-> **Lesson** · Day 5 — Litigation — Track B · Module 4: Complex Liability Disputes, Comparative Negligence & MIA Client Skip-Tracing  
+> **Lesson** · Day 5 — Litigation — Track B · Case Phase 4: Complex Liability Disputes, Comparative Negligence & MIA Client Skip-Tracing · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Finding the defendant who moved and the client who went quiet  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#22` Critical Litigation Processes: Service of Process & E-Filing/Docketing · `D5#23` Critical Litigation Process 3: Third-Party Evidence Subpoenas · `D5#29` The Process Server & Evading Defendant Protocol · `D5#30` Subpoena Duces Tecum: Execution Strategy · LSH Claims Specialist: No Contact Protocol, Steps 1–6; Final Warning Letter; withdrawal letters · Newly authored: the No Contact Protocol compressed against a deposition date; the emergency contact gets the request, never the case
@@ -1578,7 +1491,7 @@ Two parallel swimlanes, left to right. Upper lane, navy, ROBERT SMITH — DEFEND
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 5.4.5) and the day's auto-graded questions.
+Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1602,9 +1515,86 @@ Verified in this module's Knowledge Check (block 5.4.5) and the day's auto-grade
 
 ---
 
+### 5.4.3 Building the Comparative Liability Counter-Package
+
+> **Skill Activity** · Day 5 — Litigation — Track B · Case Phase 4: Complex Liability Disputes, Comparative Negligence & MIA Client Skip-Tracing · scored with Final Comprehensive Knowledge Check (`d5m4`)  
+> **Topic:** Skill Activity 1 — answer each allegation from the file  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D5#23` Critical Litigation Process 3: Third-Party Evidence Subpoenas · `D5#30` Subpoena Duces Tecum: Execution Strategy · LSH Claims Specialist: handling liability disputes — written basis, stronger evidence, witness statements, escalation to the legal team · Newly authored: authentication and chain of custody in the counter-package
+
+#### 1 · Visual Layout Description
+
+A three-row counter-package matrix across the full slide width on a white card with a navy header bar. Columns: Allegation · Answering evidence · Source · Authenticating witness · Chain of custody. Each row opens with an orange numbered badge and a red allegation chip; evidence cells hold mono pills (EDR, EMS, RPD-26-018842, VIDEO). Cells with an open foundation gap are outlined in orange dashes until filled. Beneath, a slim custody timeline for the doorbell video: 02/06/2026 recorded → 02/17/2026 preservation request → 02/19/2026 copy secured → counter-package. Bottom-right, a navy card headed FOR ATTY. THORNE lists the open legal questions. The argument: a row is finished only when its evidence can come in.
+
+#### 2 · Slide Body — Let Them
+
+**Scenario.** File date 11/12/2026, Track B. Atty. Grant Mercer of Mercer & Hale LLP has filed Robert Smith's Answer in Civil Action No. 26-CV-04417. It denies liability and pleads comparative negligence (the Escape entered the all-way stop out of turn; John was unbelted), causation (the gap; a “degenerative” MRI) and failure to mitigate. In the file: report RPD-26-018842, Ruth Calloway's details, the doorbell video, the 10/2026 EDR download, the EMS Run Report and the A-C-T record.
+
+**Execution prompt.** Build the liability counter-package for Atty. Thorne. For each of the three allegations, list the file evidence that answers it, its source document, the witness who can authenticate it, its chain of custody, and any gap in its foundation. Write out the doorbell video's chain from the 02/17/2026 preservation request to the 02/19/2026 copy. For any record that will need a custodian, draft a narrow Exhibit A for a subpoena duces tecum, for his review. Close with the questions only he can answer: the governing fault rule, seatbelt and citation admissibility, and whether fault on Kevin Alvarez touches coverage.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → Litigation → Liability counter-package · Action Plan Editor → Subpoena template |
+| **Expected output** | An allegation-by-allegation counter-package with foundation for every item, a draft Exhibit A, and the open legal questions routed to Atty. Thorne. |
+
+**Verification checkpoints**
+
+- [ ] Two comparative-fault allegations and the failure-to-mitigate defense listed as separate rows: out of turn, unbelted, failure to mitigate
+- [ ] Out of turn answered by report RPD-26-018842 (Smith cited for failure to stop), Ruth Calloway of 2209 Maple Hollow Rd, the doorbell video and the point of impact, with the EDR's 11 mph as corroboration only
+- [ ] Unbelted answered by the EDR (front-passenger belt buckled) and the EMS Run Report (“restrained front-seat passenger”)
+- [ ] Failure to mitigate answered by the A-C-T record: alert and call 04/08/2026, extension refused 04/10, evening slots from 04/21, attendance confirmed 04/21 and 04/23
+- [ ] Disruption stated exactly: 19 days without visits, 04/02 → 04/21/2026, four missed visits, caused by the rental ending and the carpool ending
+- [ ] Video chain of custody: Margaret Doe's camera, preservation 02/17/2026, copy secured 02/19/2026, native file unaltered, each transfer logged
+- [ ] An authenticating witness named for every item (for example Margaret Doe or Ruth Calloway for the video, a records custodian for the EMS report); whether a signed statement from Ruth Calloway exists is recorded, and taking one is routed to Atty. Thorne
+- [ ] Draft Exhibit A limited to John Doe's 02/06/2026 Riverton Fire EMS run and named record types, never “all records”; routing note: notice to Atty. Grant Mercer before the custodian is served
+- [ ] Open questions routed to Atty. Thorne: fault regime, seatbelt and citation admissibility, Kevin Alvarez and coverage
+- [ ] Stack stated as $40,000 (BI → Host UM → Relative UM); no layer added
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Answer received 11/12/2026 | Open the counter-package, one row per allegation | CMS → Litigation → Liability counter-package | Three rows, each with evidence, source, witness and custody |
+| A record will need a custodian | Draft the subpoena duces tecum with a narrow Exhibit A | Action Plan Editor → Subpoena template | Exhibit A names John Doe, 02/06/2026 and specific record types |
+| Package complete | Route to Atty. Thorne with the open legal questions | CMS → Tasks → Escalate | Every question listed; no conclusion drafted as advice |
+
+**Best practices & pitfalls**
+
+- One allegation, one row: a reviewer should find the answer to each in seconds.
+- Record foundation now; a document no one can authenticate may never reach the jury.
+- The EMS report does double duty: “restrained” answers the seatbelt, and the neck complaint on 02/06/2026 answers the gap.
+- ⚠️ Pitfall: an Exhibit A asking for “all records of any kind”; it invites a Motion to Quash as a fishing expedition.
+- ⚠️ Pitfall: calling the EDR's 11 mph proof of the right-of-way; it corroborates the witness and the video, it doesn't replace them.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Allegation coverage | All three allegations answered with the right file evidence |
+| 🤖 AI | **15%** | Fact accuracy | RPD-26-018842, 2209 Maple Hollow Rd, buckled and 11 mph, “restrained”, 04/02 → 04/21/2026 and the A-C-T dates exact |
+| 🤖 AI | **15%** | Foundation and custody | Source, witness and chain for every item; video chain 02/17 → 02/19/2026 |
+| 🤖 AI | **10%** | Exhibit A scope | Narrow: John Doe, the 02/06/2026 run, named record types |
+| 🧑‍🏫 Trainer | **20%** | Strategic judgment | Weights the evidence sensibly; doesn't rest liability on the citation or the EDR's speed |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | Fault rule, admissibility and coverage all routed to Atty. Thorne; nothing framed as legal advice |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Hand out the Answer's three allegations as three blank rows. Tell the room the package is graded row by row, and a row without an authenticating witness is not finished.
+- Ask: “Which single document answers two defenses?” The EMS run report: “restrained” answers the seatbelt, and the neck complaint on the day of the crash answers the causation defense on the gap.
+- Read the Exhibit A drafts. Anything that says “all records” goes back: one patient, one date, named record types.
+- Legal nuance: the EDR's 11 mph is consistent with a car pulling away from a stop, but speed alone does not prove who had the right-of-way. Let Ruth Calloway and the video carry that.
+
+---
+
 ### 5.4.4 Skip-Tracing Execution & Certified Notice Dispatch
 
-> **Skill Activity** · Day 5 — Litigation — Track B · Module 4: Complex Liability Disputes, Comparative Negligence & MIA Client Skip-Tracing  
+> **Skill Activity** · Day 5 — Litigation — Track B · Case Phase 4: Complex Liability Disputes, Comparative Negligence & MIA Client Skip-Tracing · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 2 — find the defendant, reach the client, prove both  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#22` Critical Litigation Processes: Service of Process & E-Filing/Docketing · `D5#29` The Process Server & Evading Defendant Protocol · LSH Claims Specialist: No Contact Protocol; Final Warning Letter; sending withdrawal letters (current address, certified mail, dispatch recorded)
@@ -1656,7 +1646,7 @@ Split slide. Left half, PART 1 — SERVICE: a vertical log card (date · time ·
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 5.4.5) and the day's auto-graded questions.
+Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1683,7 +1673,7 @@ Verified in this module's Knowledge Check (block 5.4.5) and the day's auto-grade
 
 ### 5.4.5 Final Comprehensive Knowledge Check
 
-> **Knowledge Check** · Day 5 — Litigation — Track B · Module 4: Complex Liability Disputes, Comparative Negligence & MIA Client Skip-Tracing  
+> **Knowledge Check** · Day 5 — Litigation — Track B · Case Phase 4: Complex Liability Disputes, Comparative Negligence & MIA Client Skip-Tracing · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Knowledge Check (all five days) + CM Learning Summary & Self-Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#44` Handling Treatment Gaps During the Treatment Phase · `D3#3` BI Exhaustion & Consent — Mechanic 1: Locking the Escape Hatches · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D4#1` Welcome to Day 4: When Pre-Suit Negotiations Stall · `D5#15` What Will the Defense Attorney Ask Me? The Four Categories · LSH Claims Specialist: liability determination and disputes

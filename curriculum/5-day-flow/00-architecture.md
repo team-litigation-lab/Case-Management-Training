@@ -93,8 +93,8 @@ Case Flow Day N opens when the Day N-1 Knowledge Check is passed (70%), for trai
 
 | Day | Gate to the next |
 |---|---|
-| 1 Fundamentals & Intake | CMS initialized · stack verified at $40,000 · Regulatory Triple-Check cleared · case plan routed |
-| 2 Claims & Pre-Demand | LORs acknowledged by all three carriers · coverage verified in writing · treatment documented to MMI · gap justification record · specials audited at $16,401.40 · demand strategy approved |
+| 1 Opening the File & the Case Strategy | Matter opened in the CMS · PD onboarding tracked · LORs out and the stack verified at $40,000 · Regulatory Triple-Check cleared · Case Plan routed |
+| 2 Client, Treatment & Pre-Demand | No Contact Protocol run and logged · LOPs out and providers coordinated · treatment documented to MMI · Gap Justification Record · Specials audited at $16,401.40 · demand strategy approved |
 | 3 Demands & Settlements (Track A) | BI tender, UM consents and limited release · $40,000 gross · liens resolved · net sheet and trust ledger reconciled · closing memo |
 | 4 Litigation Fork (Track B) | impasse documented and suit authorized · Litigation status · hard-rule calendar audited · mediation and arbitration binders verified · bottleneck log current |
 | 5 Dispute Resolution & Litigation (Track B) | pleadings and discovery log · trial-prep checklist and KPIs · PD recommendation · deposition readiness · liability counter-package |
@@ -105,7 +105,9 @@ Day 3's pre-litigation settlement always comes before Day 4's litigation fork: t
 
 ## 4. The rhythm and the block
 
-Every module, every day: **Lesson → Skill Activity → Lesson → Skill Activity → Knowledge Check.** Five blocks, four modules, 20 blocks a day. The build rejects a module that breaks it.
+A module is a unit of scoring: its lessons and Skill Activities, then exactly one Knowledge Check (with its quiz share, Self-Summary, Skill Scale and the trainer's 40%). Four modules a day; the build rejects a module without one Knowledge Check, last.
+
+**The teaching order is the `sequence`** (in `js/cm-case-flow-data.js`): each day is a run of Case Phases, following the case's life. Day 1: the Case Manager's role, the case, the raw file, intake and Property Damage, then opening the file in the CMS; then claims and the CM Case Strategy, then creating the action plan. Day 2: client communications; treatment and provider communications (LOPs); the pre-demand audit. Days 3–5: one Case Phase per module. A block keeps its id, rubric, documents and saved work wherever it is taught; the build checks every block is taught exactly once, each phase runs lessons → activities → Learning Check, and no Knowledge Check is taught before the blocks it checks.
 
 Each block is one topic in this course's own lesson shape, drawn as a short run of slides — **one idea per slide, in big type**, with the key phrase of each line highlighted and an illustration that fits the topic:
 
@@ -115,7 +117,7 @@ Each block is one topic in this course's own lesson shape, drawn as a short run 
 | Skill Activity | **Your Case** (Let Them's scenario) · **Your Task** (the steps, the tool to open, the documents, what to deliver) · **See It** (the reference model, if any) · **Check Your Work** (the verification checkpoints, as a tick list) |
 | Knowledge Check | **Knowledge Check** (the questions, four to a slide, each with an answer box) · **Self-Summary** (saved, AI-reviewed with the answers) · **Skill Scale** (and Submit for review) |
 
-**On screen, each Case Phase (module) is taught in three parts:** its lessons back to back as one uninterrupted discussion, then its Skill Activities and real-time practice, then its Learning Check. The blocks themselves keep the rhythm above; only the order on screen changes.
+**On screen, each Case Phase is taught in three parts:** its lessons back to back as one uninterrupted discussion, then its Skill Activities and real-time practice, then its Learning Check. The blocks themselves keep the rhythm above; only the order on screen changes.
 
 The words on these slides are a distillation of the block, never new content: written to `build/case-flow/slides/SLIDESPEC.md` (word limits per field, one highlight per line, an image per block) in `build/case-flow/slides/dN.json`, and assembled into `js/cm-case-flow-slides.js` by `build/case-flow/slides/assemble.cjs` (`--check` in CI). The block's full text — and its rubric — stay behind **📖 Full text** on every slide, and in Presenter view, which carries one script per slide. The illustrations are inline SVGs in `js/cm-case-flow-art.js`.
 

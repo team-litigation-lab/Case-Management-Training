@@ -50,7 +50,10 @@ for (const d of CM_CF_DOCS) {
     if (!d.title || !d.desc || !d.cms) problems.push(`Case Flow document ${d.id}: needs a title, desc and cms`);
     if (!d.file || !fs.existsSync(path.join(ROOT, 'documents', d.file))) problems.push(`Case Flow document ${d.id} "${d.title}": documents/${d.file} is missing`);
 }
-const activities = (CM_CASE_FLOW ? CM_CASE_FLOW.days : []).flatMap(day => day.modules.flatMap(m => m.blocks.filter(b => b.kind === 'activity').map(b => ({ id: b.id, day: day.n }))));
+// an activity's day is the day the course teaches it (CM_CASE_FLOW.sequence), not the module it is stored in
+const taughtOn = {};
+((CM_CASE_FLOW && CM_CASE_FLOW.sequence) || []).forEach(d => d.phases.forEach(ph => ph.blocks.forEach(id => { taughtOn[id] = d.n; })));
+const activities = (CM_CASE_FLOW ? CM_CASE_FLOW.days : []).flatMap(day => day.modules.flatMap(m => m.blocks.filter(b => b.kind === 'activity').map(b => ({ id: b.id, day: taughtOn[b.id] || day.n }))));
 for (const a of activities) {
     const ids = CM_CF_DOC_PACKETS[a.id];
     if (!ids || !ids.length) { problems.push(`Case Flow activity ${a.id}: no documents (CM_CF_DOC_PACKETS)`); continue; }

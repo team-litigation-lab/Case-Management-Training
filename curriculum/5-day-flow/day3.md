@@ -27,41 +27,39 @@
 | **Health plan** | Peach State Health Plan · PSH-55017742 · GRP-41208 |
 | **Critical fact** | Initial 14-Day Treatment Gap, then disrupted care mid-treatment. |
 
-## This day's modules
+## This day's Case Phases
 
-**Module 1 — BI & UM Demand Execution**  
-From a $10,000 time-limited BI demand that Keystone has to answer, to the Host UM and Relative UM demands behind it: clear terms, proven delivery, BI exhaustion, written consents and a Limited Release.
+Each Case Phase is taught as one uninterrupted discussion of its lessons, then its Skill Activities and real-time practice on John Doe's file in the CMS, then its Learning Check.
+
+**Case Phase 1 — BI & UM Demand Execution**
 
 1. *Lesson* — Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup
-2. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package
-3. *Lesson* — Secondary UM Demand Structuring & Policy Stacking Rules
+2. *Lesson* — Secondary UM Demand Structuring & Policy Stacking Rules
+3. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package
 4. *Skill Activity* — Drafting the $20,000 Host UM and $10,000 Relative UM Demands
 5. *Knowledge Check* — Demand Execution Audit
 
-**Module 2 — Adjuster Negotiation & Stall Countermeasures**  
-From a $3,500 low-ball to a $40,000 gross: the battle map and net floor, gap rebuttals and stall countermeasures, the UM gap and the reductions that don't apply, and a paper trail for every offer.
+**Case Phase 2 — Adjuster Negotiation & Stall Countermeasures**
 
 1. *Lesson* — Countering Adjuster Delay Tactics & Gap Pushback
-2. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
-3. *Lesson* — Securing Maximum Gross Policy-Limit Settlements
+2. *Lesson* — Securing Maximum Gross Policy-Limit Settlements
+3. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
 4. *Skill Activity* — Closing the $40,000 Gross Recovery
 5. *Knowledge Check* — Negotiation Mastery Check
 
-**Module 3 — Combined Lien Negotiations & Practice Lab**  
-Every claim on John Doe's $40,000 found and classified, and both liens audited and reduced on Atty. Thorne's authority: Peach State to $1,240.00, Riverton Spine & Rehab to $4,580.00, each confirmed in writing before disbursement.
+**Case Phase 3 — Combined Lien Negotiations & Practice Lab**
 
 1. *Lesson* — Statutory Liens, Health Subrogation & Provider Balances
-2. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab
-3. *Lesson* — Pro-Rata Distribution & Medical Bill Reduction
+2. *Lesson* — Pro-Rata Distribution & Medical Bill Reduction
+3. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab
 4. *Skill Activity* — Provider Balance Negotiation Exercises
 5. *Knowledge Check* — Lien Reduction Verification
 
-**Module 4 — Net Sheet Completion & Final Case Closing**  
-From $40,000.00 gross to $20,359.92 in John Doe's hands: the dual-tab Net Sheet, the release audit, trust-account disbursement, and the reconciliation that lets the file close at $0.00.
+**Case Phase 4 — Net Sheet Completion & Final Case Closing**
 
 1. *Lesson* — The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker
-2. *Skill Activity* — Completing the Final Dual-Tab Net Sheet
-3. *Lesson* — Release Audits, Trust Accounting & Disbursement Commands
+2. *Lesson* — Release Audits, Trust Accounting & Disbursement Commands
+3. *Skill Activity* — Completing the Final Dual-Tab Net Sheet
 4. *Skill Activity* — Release Audit & Disbursement Command Triggering
 5. *Knowledge Check* — Final Accounting Check
 
@@ -69,15 +67,13 @@ From $40,000.00 gross to $20,359.92 in John Doe's hands: the dual-tab Net Sheet,
 
 ---
 
-## Module 1 — BI & UM Demand Execution
+## Case Phase 1 — BI & UM Demand Execution
 
-From a $10,000 time-limited BI demand that Keystone has to answer, to the Host UM and Relative UM demands behind it: clear terms, proven delivery, BI exhaustion, written consents and a Limited Release.
-
-**Rhythm:** Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check
 
 ### 3.1.1 Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup
 
-> **Lesson** · Day 3 — Demands & settlement — Track A · Module 1: BI & UM Demand Execution  
+> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 1: BI & UM Demand Execution · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** What makes a $10,000 demand one Keystone has to answer  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#11` Case Phase: Demand — The Legal & Procedural Foundation · `D2#12` Demand: The Policy Limit Mindset · `D2#13` Treatment Gaps in the Demand Phase · `D2#17` Demand: Best Practices · Newly authored: the elements of a Time-Limited Demand that can support a later failure-to-settle claim (within limits, clear and reasonable terms, sufficient documentation, a stated window with proof of delivery)
@@ -136,7 +132,7 @@ Left half: a Time-Limited Demand Letter on navy-banded letterhead, five orange n
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 3.1.5) and the day's auto-graded questions.
+Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -159,89 +155,9 @@ Verified in this module's Knowledge Check (block 3.1.5) and the day's auto-grade
 
 ---
 
-### 3.1.2 Serving the $10,000 BI Time-Limit Demand Package
+### 3.1.2 Secondary UM Demand Structuring & Policy Stacking Rules
 
-> **Skill Activity** · Day 3 — Demands & settlement — Track A · Module 1: BI & UM Demand Execution  
-> **Topic:** Skill Activity 1 — audit it, serve it, prove it  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D2#13` Treatment Gaps in the Demand Phase · `D2#14` The Demand Packet Checklist: The “Big Four” · `D2#15` Demand: Quality Control — The “Final Scrub” · `D2#17` Demand: Best Practices · `D2#18` Skill Building: Demand Phase Challenge — Real-Time Demand Audit
-
-#### 1 · Visual Layout Description
-
-A three-column assembly board. Left: the Demand Package as five tabbed cream folders in reading order — TERMS · THE GAP, ANSWERED · MEDICAL SPECIALS · LIABILITY · SPECIAL DAMAGES — each tab carrying an orange numbered badge. Centre: a navy service card with two chips joined by a bold AND, CERTIFIED MAIL (RETURN RECEIPT) and EMAIL, and beneath it a return-receipt icon stamped 07/22/2026 in a mono pill. Right: a docket card with 08/21/2026 set large in orange and two reminder pills above it. Along the bottom, a red danger strip: “Counted from the mailing date = the wrong deadline.” The eye travels left to right: build, serve, prove.
-
-#### 2 · Slide Body — Let Them
-
-**Scenario.** File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) and the Gap Justification Record are on file; the Day 2 pre-demand audit put the Specials at $16,401.40. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.
-
-**Execution prompt.** Audit the draft against the Big Four and the Final Scrub, log each deficiency as an assigned CMS task, and assemble the package with the gap answered on page one of the timeline. Once Atty. Thorne has signed, serve it on Keystone by certified mail with return receipt AND by email, and log both. When the return receipt comes back dated 07/22/2026, docket the acceptance deadline from it, with reminders. Graded judgment: what starts the clock, and what you do if Keystone asks for more time.
-
-| | |
-|---|---|
-| **Tool / interface** | Action Plan Editor → Demand Package · CMS → Documents → Outgoing · Email Workspace · Docket System |
-| **Expected output** | An audited, served Time-Limited Demand with proof of delivery on file and 08/21/2026 docketed. |
-
-**Verification checkpoints**
-
-- [ ] Amount $10,000, Keystone's BI limit per its Dec Page (03/20/2026); nothing demanded above limits
-- [ ] Terms match Atty. Thorne's approval word for word: Limited Release of Robert Smith and Keystone only; Smith's affidavit of no other insurance; 30 days from receipt of the certified mailing
-- [ ] Big Four complete: medical Specials $14,817.40; the narrative (mechanism, pain, work and life impact, consistent with the records); liability proof (RPD-26-018842 citation, Ruth Calloway, doorbell video); special damages $1,584.00 wages (Northgate HR letter), the $312.40 Riverton Drug receipts counted once, inside the medical Specials. Total $16,401.40 (billed figures; whether billed or paid amounts are the measure under the governing collateral-source or paid-versus-incurred rule is Atty. Thorne's call; confirm the governing rule)
-- [ ] Final Scrub: the 05/04/2026 duplicate removed (Riverton Spine & Rehab $6,290.00 → $6,105.00), every final balance re-verified with the provider, the 2021 low-back visits disclosed as resolved and a different region
-- [ ] Gap answered on page one: 02/06 → 02/20/2026 with its reasons, the EMS report, the 02/20 urgent-care onset note and the 06/19/2026 Causation Letter; the 19-day disruption (04/02–04/21/2026) explained too
-- [ ] Every bill paired with its medical-necessity why; future ESIs ($3,400–$6,800) in the narrative, not the Specials; the Civic's PD claim (Leah Moran) kept out
-- [ ] Each deficiency logged as a dated, assigned CMS task, not fixed silently
-- [ ] Signed by Atty. Thorne; served 07/20/2026 by certified mail (return receipt) AND email; both logged
-- [ ] Return receipt filed; deadline docketed 08/21/2026 (07/22 + 30 days) with reminders
-- [ ] Any extension request or response from Keystone routed to Atty. Thorne the same day, never answered by the CM
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Draft package on file | Audit against the Big Four and the Final Scrub; assign each fix | CMS → Tasks | Every deficiency is a dated, assigned task |
-| Atty. Thorne signs | Serve by certified mail with return receipt and by email | CMS → Documents → Outgoing · Email Workspace | Both channels logged 07/20/2026 |
-| Return receipt dated 07/22/2026 | Docket the acceptance deadline and reminders | Docket System | 08/21/2026 on the docket, counted from receipt |
-
-**Best practices & pitfalls**
-
-- Order the package the way the adjuster should read it: the terms, the gap answered, then the proof.
-- Lead with the strongest image of impact on the file (a still from the doorbell-camera video), as Atty. Thorne chooses.
-- Re-verify every provider balance in the week of service; a stale balance makes a wrong demand.
-- Disclose a prior condition, never hide it: in the same region, show aggravation; John Doe's 2021 visits were low back, resolved, with no neck history.
-- ⚠️ Pitfall: fixing the draft yourself without assigning and tracking the fix.
-- ⚠️ Pitfall: counting the window from the mailing date instead of the receipt date.
-- ⚠️ Pitfall: answering Dana Whitfield's request for more time yourself.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in this module's Knowledge Check (block 3.1.5) and the day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Package completeness | Big Four present; $14,817.40 + $1,584.00 = $16,401.40; the 05/04/2026 duplicate removed |
-| 🤖 AI | **15%** | Terms fidelity | Amount, release scope, affidavit and window exactly as approved |
-| 🤖 AI | **15%** | Service and proof | Certified mail with return receipt and email, both logged; return receipt filed |
-| 🤖 AI | **10%** | Deadline | 08/21/2026 docketed from the 07/22/2026 receipt |
-| 🧑‍🏫 Trainer | **20%** | Audit judgment | Found the faults that matter (the gap's placement, the duplicate, stale balances) and assigned each |
-| 🧑‍🏫 Trainer | **10%** | Gap presentation | Gap acknowledged plainly with its corroboration; not hidden, not over-argued |
-| 🧑‍🏫 Trainer | **10%** | UPL / authority boundary | Terms, extensions and replies left to Atty. Thorne; nothing signed for him |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Hand out the draft with three planted faults: the 05/04/2026 duplicate still in the draft's billing exhibit (the CMS ledger was corrected on Day 2), the gap in an appendix, and a deadline of “30 days from the date of this letter.” Nobody mails anything until the audit is logged.
-- Ask the room: “Suppose Dana Whitfield emails on day 25 asking for two more weeks. Who answers?” Atty. Thorne. The CM logs it word for word and routes it the same hour.
-- Grade the deadline from the return receipt. A trainee who docketed from the mailing date has the right idea and the wrong day.
-- Watch the narrative's prior: three 2021 chiropractic visits for the low back, resolved, and no neck history. Disclosed and distinguished, never hidden.
-
----
-
-### 3.1.3 Secondary UM Demand Structuring & Policy Stacking Rules
-
-> **Lesson** · Day 3 — Demands & settlement — Track A · Module 1: BI & UM Demand Execution  
+> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 1: BI & UM Demand Execution · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Locking the escape hatches before Host UM and Relative UM open  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#31` BI Settlement — Phase II: The UM/UIM “Safety Check” · `D2#32` BI Settlement: Key Laws & Doctrines · `D3#1` Training Agenda & Why the UM Phase Matters · `D3#2` Beyond Organization: The UM Demand Strategy · `D3#3` BI Exhaustion & Consent — Mechanic 1: Locking the Escape Hatches · `D3#4` The UM Demand Package: Turning Risk Management Against the Insurer · `D3#5` UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#12` Documents that Matter: Threshold & Coverage Documents · Newly authored: the UM carrier's right to substitute its own check for the BI tender; a General Release (“all other … insurers”) as a threat to the UM claims; Relative UM as excess over Host UM
@@ -299,7 +215,7 @@ A six-station horizontal timeline across the slide, stations numbered in orange 
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 3.1.5) and the day's auto-graded questions.
+Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -322,9 +238,89 @@ Verified in this module's Knowledge Check (block 3.1.5) and the day's auto-grade
 
 ---
 
+### 3.1.3 Serving the $10,000 BI Time-Limit Demand Package
+
+> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 1: BI & UM Demand Execution · scored with Demand Execution Audit (`d3m1`)  
+> **Topic:** Skill Activity 1 — audit it, serve it, prove it  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D2#13` Treatment Gaps in the Demand Phase · `D2#14` The Demand Packet Checklist: The “Big Four” · `D2#15` Demand: Quality Control — The “Final Scrub” · `D2#17` Demand: Best Practices · `D2#18` Skill Building: Demand Phase Challenge — Real-Time Demand Audit
+
+#### 1 · Visual Layout Description
+
+A three-column assembly board. Left: the Demand Package as five tabbed cream folders in reading order — TERMS · THE GAP, ANSWERED · MEDICAL SPECIALS · LIABILITY · SPECIAL DAMAGES — each tab carrying an orange numbered badge. Centre: a navy service card with two chips joined by a bold AND, CERTIFIED MAIL (RETURN RECEIPT) and EMAIL, and beneath it a return-receipt icon stamped 07/22/2026 in a mono pill. Right: a docket card with 08/21/2026 set large in orange and two reminder pills above it. Along the bottom, a red danger strip: “Counted from the mailing date = the wrong deadline.” The eye travels left to right: build, serve, prove.
+
+#### 2 · Slide Body — Let Them
+
+**Scenario.** File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) and the Gap Justification Record are on file; the Day 2 pre-demand audit put the Specials at $16,401.40. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.
+
+**Execution prompt.** Audit the draft against the Big Four and the Final Scrub, log each deficiency as an assigned CMS task, and assemble the package with the gap answered on page one of the timeline. Once Atty. Thorne has signed, serve it on Keystone by certified mail with return receipt AND by email, and log both. When the return receipt comes back dated 07/22/2026, docket the acceptance deadline from it, with reminders. Graded judgment: what starts the clock, and what you do if Keystone asks for more time.
+
+| | |
+|---|---|
+| **Tool / interface** | Action Plan Editor → Demand Package · CMS → Documents → Outgoing · Email Workspace · Docket System |
+| **Expected output** | An audited, served Time-Limited Demand with proof of delivery on file and 08/21/2026 docketed. |
+
+**Verification checkpoints**
+
+- [ ] Amount $10,000, Keystone's BI limit per its Dec Page (03/20/2026); nothing demanded above limits
+- [ ] Terms match Atty. Thorne's approval word for word: Limited Release of Robert Smith and Keystone only; Smith's affidavit of no other insurance; 30 days from receipt of the certified mailing
+- [ ] Big Four complete: medical Specials $14,817.40; the narrative (mechanism, pain, work and life impact, consistent with the records); liability proof (RPD-26-018842 citation, Ruth Calloway, doorbell video); special damages $1,584.00 wages (Northgate HR letter), the $312.40 Riverton Drug receipts counted once, inside the medical Specials. Total $16,401.40 (billed figures; whether billed or paid amounts are the measure under the governing collateral-source or paid-versus-incurred rule is Atty. Thorne's call; confirm the governing rule)
+- [ ] Final Scrub: the 05/04/2026 duplicate removed (Riverton Spine & Rehab $6,290.00 → $6,105.00), every final balance re-verified with the provider, the 2021 low-back visits disclosed as resolved and a different region
+- [ ] Gap answered on page one: 02/06 → 02/20/2026 with its reasons, the EMS report, the 02/20 urgent-care onset note and the 06/19/2026 Causation Letter; the 19-day disruption (04/02–04/21/2026) explained too
+- [ ] Every bill paired with its medical-necessity why; future ESIs ($3,400–$6,800) in the narrative, not the Specials; the Civic's PD claim (Leah Moran) kept out
+- [ ] Each deficiency logged as a dated, assigned CMS task, not fixed silently
+- [ ] Signed by Atty. Thorne; served 07/20/2026 by certified mail (return receipt) AND email; both logged
+- [ ] Return receipt filed; deadline docketed 08/21/2026 (07/22 + 30 days) with reminders
+- [ ] Any extension request or response from Keystone routed to Atty. Thorne the same day, never answered by the CM
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Draft package on file | Audit against the Big Four and the Final Scrub; assign each fix | CMS → Tasks | Every deficiency is a dated, assigned task |
+| Atty. Thorne signs | Serve by certified mail with return receipt and by email | CMS → Documents → Outgoing · Email Workspace | Both channels logged 07/20/2026 |
+| Return receipt dated 07/22/2026 | Docket the acceptance deadline and reminders | Docket System | 08/21/2026 on the docket, counted from receipt |
+
+**Best practices & pitfalls**
+
+- Order the package the way the adjuster should read it: the terms, the gap answered, then the proof.
+- Lead with the strongest image of impact on the file (a still from the doorbell-camera video), as Atty. Thorne chooses.
+- Re-verify every provider balance in the week of service; a stale balance makes a wrong demand.
+- Disclose a prior condition, never hide it: in the same region, show aggravation; John Doe's 2021 visits were low back, resolved, with no neck history.
+- ⚠️ Pitfall: fixing the draft yourself without assigning and tracking the fix.
+- ⚠️ Pitfall: counting the window from the mailing date instead of the receipt date.
+- ⚠️ Pitfall: answering Dana Whitfield's request for more time yourself.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Package completeness | Big Four present; $14,817.40 + $1,584.00 = $16,401.40; the 05/04/2026 duplicate removed |
+| 🤖 AI | **15%** | Terms fidelity | Amount, release scope, affidavit and window exactly as approved |
+| 🤖 AI | **15%** | Service and proof | Certified mail with return receipt and email, both logged; return receipt filed |
+| 🤖 AI | **10%** | Deadline | 08/21/2026 docketed from the 07/22/2026 receipt |
+| 🧑‍🏫 Trainer | **20%** | Audit judgment | Found the faults that matter (the gap's placement, the duplicate, stale balances) and assigned each |
+| 🧑‍🏫 Trainer | **10%** | Gap presentation | Gap acknowledged plainly with its corroboration; not hidden, not over-argued |
+| 🧑‍🏫 Trainer | **10%** | UPL / authority boundary | Terms, extensions and replies left to Atty. Thorne; nothing signed for him |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Hand out the draft with three planted faults: the 05/04/2026 duplicate still in the draft's billing exhibit (the CMS ledger was corrected on Day 2), the gap in an appendix, and a deadline of “30 days from the date of this letter.” Nobody mails anything until the audit is logged.
+- Ask the room: “Suppose Dana Whitfield emails on day 25 asking for two more weeks. Who answers?” Atty. Thorne. The CM logs it word for word and routes it the same hour.
+- Grade the deadline from the return receipt. A trainee who docketed from the mailing date has the right idea and the wrong day.
+- Watch the narrative's prior: three 2021 chiropractic visits for the low back, resolved, and no neck history. Disclosed and distinguished, never hidden.
+
+---
+
 ### 3.1.4 Drafting the $20,000 Host UM and $10,000 Relative UM Demands
 
-> **Skill Activity** · Day 3 — Demands & settlement — Track A · Module 1: BI & UM Demand Execution  
+> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 1: BI & UM Demand Execution · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 2 — two packages, exhaustion proof on page one  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#4` The UM Demand Package: Turning Risk Management Against the Insurer · `D3#5` UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap · `D3#6` UM Demand: The Demand Packet — Document Inclusions · `D3#12` Documents that Matter: Threshold & Coverage Documents · `D3#13` Documents that Matter: Liability & Causation Documents · `D3#14` Documents that Matter: Special Damages Documents (Economic Hard Costs) · `D3#15` Documents that Matter: General Damages Documents (Non-Economic Value) · `D3#16` Documents that Matter: Final Pleading & Release Documents (Closing Phase)
@@ -377,7 +373,7 @@ Two demand letters side by side on white letterhead: left HOST UM · HARBOR POIN
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 3.1.5) and the day's auto-graded questions.
+Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -404,7 +400,7 @@ Verified in this module's Knowledge Check (block 3.1.5) and the day's auto-grade
 
 ### 3.1.5 Demand Execution Audit
 
-> **Knowledge Check** · Day 3 — Demands & settlement — Track A · Module 1: BI & UM Demand Execution  
+> **Knowledge Check** · Day 3 — Demands & settlement — Track A · Case Phase 1: BI & UM Demand Execution · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Demand Execution Audit + CM Learning Summary & Self-Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#13` Treatment Gaps in the Demand Phase · `D2#15` Demand: Quality Control — The “Final Scrub” · `D2#18` Skill Building: Demand Phase Challenge — Real-Time Demand Audit · `D2#31` BI Settlement — Phase II: The UM/UIM “Safety Check” · `D3#3` BI Exhaustion & Consent — Mechanic 1: Locking the Escape Hatches · `D3#6` UM Demand: The Demand Packet — Document Inclusions · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#12` Documents that Matter: Threshold & Coverage Documents · `D3#15` Documents that Matter: General Damages Documents (Non-Economic Value)
@@ -488,15 +484,13 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-## Module 2 — Adjuster Negotiation & Stall Countermeasures
+## Case Phase 2 — Adjuster Negotiation & Stall Countermeasures
 
-From a $3,500 low-ball to a $40,000 gross: the battle map and net floor, gap rebuttals and stall countermeasures, the UM gap and the reductions that don't apply, and a paper trail for every offer.
-
-**Rhythm:** Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check
 
 ### 3.2.1 Countering Adjuster Delay Tactics & Gap Pushback
 
-> **Lesson** · Day 3 — Demands & settlement — Track A · Module 2: Adjuster Negotiation & Stall Countermeasures  
+> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 2: Adjuster Negotiation & Stall Countermeasures · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** The battle map, the first call, and the stall rebuttals  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#16` Negotiating the “First Call” (For Senior CMs) · `D2#19` Settlement Negotiations: The Pitch & the Negotiation Battle Map · `D2#21` The Valuation Baseline: PIP as a Severity Signal · `D2#24` The Valuation Baseline: Strategic PIP “Exhaustion” · `D2#25` Negotiations Initiated: The “Battle” — First Call to Low-Ball · `D2#27` Common Adjuster “Stall Tactics” and Rebuttals · `D2#29` Settlement Negotiations: The “Never” Rule
@@ -553,7 +547,7 @@ A battle map across the full slide width: four orange-numbered stations on a nav
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 3.2.5) and the day's auto-graded questions.
+Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -577,9 +571,93 @@ Verified in this module's Knowledge Check (block 3.2.5) and the day's auto-grade
 
 ---
 
-### 3.2.2 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
+### 3.2.2 Securing Maximum Gross Policy-Limit Settlements
 
-> **Skill Activity** · Day 3 — Demands & settlement — Track A · Module 2: Adjuster Negotiation & Stall Countermeasures  
+> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 2: Adjuster Negotiation & Stall Countermeasures · scored with Negotiation Mastery Check (`d3m2`)  
+> **Topic:** The UM gap, the reductions that don't apply, and closing at limits  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D2#20` The Valuation Baseline: PIP Set-Off (The Credit) · `D2#22` The Valuation Baseline: The EMC and the Benefit Ceiling · `D2#23` The Valuation Baseline: Subrogation vs. Non-Subrogation · `D2#26` Settlement Negotiations: The Bracketing Technique · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D3#7` UM Settlement: How the Settlement Is Calculated · `D3#8` UM Settlement: Negotiation & Settlement · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#10` UM Settlement: Challenges · `D3#11` UM Settlement: The Final Payout Process · `D3#17` Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit
+
+#### 1 · Visual Layout Description
+
+Three rungs build left to right: BI $10,000 (navy, ticked TENDERED 08/12), HOST UM $20,000 (navy-soft), RELATIVE UM $10,000 (orange), with a running-total pill above each ($10,000 → $30,000 → $40,000) ending in a large Fraunces $40,000 GROSS. Under the Host UM rung sit three struck-through red chips, the reductions that do not apply here (BI OFFSET · MEDPAY NON-DUPLICATION · MEDPAY LIEN), tied by one mono pill: HARBOR POINT LETTER 03/02/2026. A grey chip, NO PIP ON THIS FILE, sits apart. Bottom strip: a cream card, CONFIRM SCOPE · RELEASE · LIENS · PAYEE · CHECK DATE → CONFIRMING EMAIL. The argument: the gross is protected by documents checked before the negotiation.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Once Keystone tenders, the money that makes John Doe whole sits with two first-party carriers that insure him, and both will argue against him. $40,000 is reached by proving the gap above each layer, closing every reduction in writing first, and papering every move.
+
+1. UM pays the gap: damages, as Atty. Thorne values them, minus the BI, up to its limit. Relative UM is excess over Host UM, so Cardinal State's file must show damages above $30,000. Never demand a limit without showing the gap.
+2. Check the offset rule first: a reduction policy cuts UM by the BI; add-on pays on top. Harbor Point's 03/02/2026 letter answers the limit half of “BI already compensated him.” The damages half needs proof: its full $20,000 needs damages of at least $30,000.
+3. These are first-party contract claims, yet each carrier turns adversarial at evaluation. The first offer is rarely the last.
+4. Expect value, MMI and lien challenges. Answer value with the MRI, the injection, residuals at MMI (06/12/2026) and future care of $3,400–$6,800. MMI is reached; work the liens now.
+5. Bracketing is Atty. Thorne's tool: he sets the range and makes every move; you relay a bracket only on his written, word-for-word instruction. Against a documented gap, he may simply hold.
+6. When a carrier offers limits, confirm its terms (coverage, release scope, liens, payee, check date) without accepting; report to Atty. Thorne that day. Only after John Doe decides, on his advice, does the acceptance go out: you draft it, he approves and sends it.
+7. A first-party carrier owes its insured good faith. Never accept verbally under pressure: log the words, put new evidence in writing under Atty. Thorne's deadline, escalate. Bad faith is his call.
+8. Payout: release → check (to John Doe and the firm; he endorses, never the CM) → IOLTA → liens, fee, costs → net. Log each check the day it arrives; deposit it that day if its release is signed, else secure it and expedite signing under Atty. Thorne.
+9. MedPay is not PIP: in most states a collateral source, not a credit to Keystone (confirm the rule). Exhausted and non-subrogated, it creates no lien and no UM cut here. Where PIP applies, set-off, the EMC ceiling and subrogation change the ask.
+
+> ⚠️ **UPL boundary.** You may assemble the evidence, log and relay offers, and paper what John Doe decided through Atty. Thorne. You may not accept, reject or counter, tell John Doe whether to settle, explain a policy's offset or release language to him, or accuse a carrier of bad faith.
+
+#### 2 · Slide Body — Show Them
+
+*What can shrink the gross, and where this file stands*
+
+| Reduction | Where it bites | On this file |
+|---|---|---|
+| PIP set-off | No-fault states: value – PIP paid = what the defendant still owes. | No PIP. MedPay is not PIP: usually a collateral source, not a credit to Keystone (confirm the rule). Exhausted, non-subrogated: no lien, no UM cut. |
+| EMC ceiling | In PIP states, some cap benefits lower without an emergency-medical-condition finding (confirm the rule); this file has no PIP. | MedPay paid its full $5,000.00; the rest of the care became Peach State and LOP liens. |
+| Subrogation | A subrogated carrier liens the settlement: log it, plan the reduction. | Harbor Point, 03/02/2026: no reimbursement right. |
+| UM offset | A reduction policy subtracts the BI from the UM limit. | Add-on: $20,000 of room, not $20,000 – $10,000 = $10,000. |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| UM offer received (Harbor Point, 09/14/2026) | Log the offer and its stated reasons; report to Atty. Thorne | CMS → Insurance tab → Negotiation Log · CMS → Tasks → Escalate | Offer, date and quoted reasons logged and reported 09/14/2026 |
+| Offer cites the BI payment or the gap | Assemble the counter-package for approval: the 03/02/2026 letter, MRI read, Causation Letter, MMI residuals, future care | Action Plan Editor · CMS → Documents → Outgoing | Approved by Atty. Thorne and sent 09/16/2026 |
+| Carrier offers its limits | Confirm scope, release, liens, payee and check date without accepting; report to Atty. Thorne; draft the acceptance email | Email Workspace · CMS → Case Notes | Acceptance email sent only after John Doe's decision is logged and Atty. Thorne approves it |
+| UM check arrives | Confirm its UM release is signed, then deposit to trust the same day; if not, secure the check and route it to Atty. Thorne | CMS → Financial Ledger → Trust | Each UM release signed before its check; deposited the day received (10/05 and 10/13/2026) |
+
+**Best practices & pitfalls**
+
+- Look for every stacking and resident-relative policy; it is why this file reaches $40,000.
+- Confirm offset and reimbursement status in writing from each carrier, as Harbor Point's 03/02/2026 letter does.
+- Set John Doe's expectations on the UM timeline (demand, evaluation, possibly an IME, negotiation; usually faster than BI because the records are already collected); never promise him a limit.
+- ⚠️ Pitfall: accepting the first offer because “it's his own coverage.”
+- ⚠️ Pitfall: promising a full UM limit before the offset rule is checked.
+- ⚠️ Pitfall: a bracket move with no reciprocal move from the carrier (a move for Atty. Thorne to make or refuse, never yours).
+- ⚠️ Pitfall: a verbal settlement with no confirming email.
+- ⚠️ Pitfall: finding a benefit-carrier lien after disbursement.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Gap and layer logic | UM pays the gap above BI; Relative UM excess over Host UM; $10,000 + $20,000 + $10,000 = $40,000 |
+| 🤖 AI | **20%** | Reductions closed | Offset, MedPay non-duplication and MedPay reimbursement each tied to the 03/02/2026 letter; no PIP on the file; PIP rules stated as where they apply |
+| 🤖 AI | **15%** | Close and paper trail | Coverage, release, liens, payee and check date confirmed; same-day email |
+| 🤖 AI | **10%** | Payout sequence | Release → check → trust → liens, fee and costs → net |
+| 🧑‍🏫 Trainer | **20%** | Strategic judgment | Explains why the gross is protected before the negotiation, and when bracketing does and doesn't fit |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | No acceptance, valuation, policy interpretation or bad-faith accusation by the CM; every acceptance John Doe's, through Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open on Harbor Point's 03/02/2026 letter. Ask which sentence in it is worth $10,000 to John Doe. It is the add-on clause: on a reduction policy, Keystone's $10,000 would have come off the top of the $20,000.
+- Put to the room: “Harbor Point insures Kevin Alvarez's car. Why does it owe John Doe anything, and why will it still fight him?”
+- Watch for trainees who treat the UM carriers as friendly because they are first-party. They turn adversarial at evaluation, and Harbor Point's 09/14 offer proves it. Teach PIP as the doctrine where it applies, not as a fact of this file: where PIP applies, the set-off, the EMC ceiling and a subrogation lien each change the BI ask and the net.
+- Bad faith is a legal conclusion. New medical evidence changes a valuation, and on this file it is the residual paresthesia Dr. Reyes documented at MMI; don't call it permanent unless a physician has. The CM's contribution is a dated record of what each carrier knew and said, and anyone who writes “bad faith” to an adjuster has crossed the line.
+
+---
+
+### 3.2.3 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
+
+> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 2: Adjuster Negotiation & Stall Countermeasures · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 1 — hold the Limits Demand on a recorded call  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#16` Negotiating the “First Call” (For Senior CMs) · `D2#25` Negotiations Initiated: The “Battle” — First Call to Low-Ball · `D2#27` Common Adjuster “Stall Tactics” and Rebuttals · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D2#29` Settlement Negotiations: The “Never” Rule · `D2#30` Skill Building: The Math Check — Your Slam-Dunk Liability Case · LSH Claims Specialist: review the case reference sheet before any adjuster call; no backdoor contact with the client
@@ -642,7 +720,7 @@ A call-simulator screen across two-thirds of the slide: a navy header bar readin
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 3.2.5) and the day's auto-graded questions.
+Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -666,93 +744,9 @@ Verified in this module's Knowledge Check (block 3.2.5) and the day's auto-grade
 
 ---
 
-### 3.2.3 Securing Maximum Gross Policy-Limit Settlements
-
-> **Lesson** · Day 3 — Demands & settlement — Track A · Module 2: Adjuster Negotiation & Stall Countermeasures  
-> **Topic:** The UM gap, the reductions that don't apply, and closing at limits  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D2#20` The Valuation Baseline: PIP Set-Off (The Credit) · `D2#22` The Valuation Baseline: The EMC and the Benefit Ceiling · `D2#23` The Valuation Baseline: Subrogation vs. Non-Subrogation · `D2#26` Settlement Negotiations: The Bracketing Technique · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D3#7` UM Settlement: How the Settlement Is Calculated · `D3#8` UM Settlement: Negotiation & Settlement · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#10` UM Settlement: Challenges · `D3#11` UM Settlement: The Final Payout Process · `D3#17` Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit
-
-#### 1 · Visual Layout Description
-
-Three rungs build left to right: BI $10,000 (navy, ticked TENDERED 08/12), HOST UM $20,000 (navy-soft), RELATIVE UM $10,000 (orange), with a running-total pill above each ($10,000 → $30,000 → $40,000) ending in a large Fraunces $40,000 GROSS. Under the Host UM rung sit three struck-through red chips, the reductions that do not apply here (BI OFFSET · MEDPAY NON-DUPLICATION · MEDPAY LIEN), tied by one mono pill: HARBOR POINT LETTER 03/02/2026. A grey chip, NO PIP ON THIS FILE, sits apart. Bottom strip: a cream card, CONFIRM SCOPE · RELEASE · LIENS · PAYEE · CHECK DATE → CONFIRMING EMAIL. The argument: the gross is protected by documents checked before the negotiation.
-
-#### 2 · Slide Body — Tell Them
-
-*Why:* Once Keystone tenders, the money that makes John Doe whole sits with two first-party carriers that insure him, and both will argue against him. $40,000 is reached by proving the gap above each layer, closing every reduction in writing first, and papering every move.
-
-1. UM pays the gap: damages, as Atty. Thorne values them, minus the BI, up to its limit. Relative UM is excess over Host UM, so Cardinal State's file must show damages above $30,000. Never demand a limit without showing the gap.
-2. Check the offset rule first: a reduction policy cuts UM by the BI; add-on pays on top. Harbor Point's 03/02/2026 letter answers the limit half of “BI already compensated him.” The damages half needs proof: its full $20,000 needs damages of at least $30,000.
-3. These are first-party contract claims, yet each carrier turns adversarial at evaluation. The first offer is rarely the last.
-4. Expect value, MMI and lien challenges. Answer value with the MRI, the injection, residuals at MMI (06/12/2026) and future care of $3,400–$6,800. MMI is reached; work the liens now.
-5. Bracketing is Atty. Thorne's tool: he sets the range and makes every move; you relay a bracket only on his written, word-for-word instruction. Against a documented gap, he may simply hold.
-6. When a carrier offers limits, confirm its terms (coverage, release scope, liens, payee, check date) without accepting; report to Atty. Thorne that day. Only after John Doe decides, on his advice, does the acceptance go out: you draft it, he approves and sends it.
-7. A first-party carrier owes its insured good faith. Never accept verbally under pressure: log the words, put new evidence in writing under Atty. Thorne's deadline, escalate. Bad faith is his call.
-8. Payout: release → check (to John Doe and the firm; he endorses, never the CM) → IOLTA → liens, fee, costs → net. Log each check the day it arrives; deposit it that day if its release is signed, else secure it and expedite signing under Atty. Thorne.
-9. MedPay is not PIP: in most states a collateral source, not a credit to Keystone (confirm the rule). Exhausted and non-subrogated, it creates no lien and no UM cut here. Where PIP applies, set-off, the EMC ceiling and subrogation change the ask.
-
-> ⚠️ **UPL boundary.** You may assemble the evidence, log and relay offers, and paper what John Doe decided through Atty. Thorne. You may not accept, reject or counter, tell John Doe whether to settle, explain a policy's offset or release language to him, or accuse a carrier of bad faith.
-
-#### 2 · Slide Body — Show Them
-
-*What can shrink the gross, and where this file stands*
-
-| Reduction | Where it bites | On this file |
-|---|---|---|
-| PIP set-off | No-fault states: value – PIP paid = what the defendant still owes. | No PIP. MedPay is not PIP: usually a collateral source, not a credit to Keystone (confirm the rule). Exhausted, non-subrogated: no lien, no UM cut. |
-| EMC ceiling | In PIP states, some cap benefits lower without an emergency-medical-condition finding (confirm the rule); this file has no PIP. | MedPay paid its full $5,000.00; the rest of the care became Peach State and LOP liens. |
-| Subrogation | A subrogated carrier liens the settlement: log it, plan the reduction. | Harbor Point, 03/02/2026: no reimbursement right. |
-| UM offset | A reduction policy subtracts the BI from the UM limit. | Add-on: $20,000 of room, not $20,000 – $10,000 = $10,000. |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| UM offer received (Harbor Point, 09/14/2026) | Log the offer and its stated reasons; report to Atty. Thorne | CMS → Insurance tab → Negotiation Log · CMS → Tasks → Escalate | Offer, date and quoted reasons logged and reported 09/14/2026 |
-| Offer cites the BI payment or the gap | Assemble the counter-package for approval: the 03/02/2026 letter, MRI read, Causation Letter, MMI residuals, future care | Action Plan Editor · CMS → Documents → Outgoing | Approved by Atty. Thorne and sent 09/16/2026 |
-| Carrier offers its limits | Confirm scope, release, liens, payee and check date without accepting; report to Atty. Thorne; draft the acceptance email | Email Workspace · CMS → Case Notes | Acceptance email sent only after John Doe's decision is logged and Atty. Thorne approves it |
-| UM check arrives | Confirm its UM release is signed, then deposit to trust the same day; if not, secure the check and route it to Atty. Thorne | CMS → Financial Ledger → Trust | Each UM release signed before its check; deposited the day received (10/05 and 10/13/2026) |
-
-**Best practices & pitfalls**
-
-- Look for every stacking and resident-relative policy; it is why this file reaches $40,000.
-- Confirm offset and reimbursement status in writing from each carrier, as Harbor Point's 03/02/2026 letter does.
-- Set John Doe's expectations on the UM timeline (demand, evaluation, possibly an IME, negotiation; usually faster than BI because the records are already collected); never promise him a limit.
-- ⚠️ Pitfall: accepting the first offer because “it's his own coverage.”
-- ⚠️ Pitfall: promising a full UM limit before the offset rule is checked.
-- ⚠️ Pitfall: a bracket move with no reciprocal move from the carrier (a move for Atty. Thorne to make or refuse, never yours).
-- ⚠️ Pitfall: a verbal settlement with no confirming email.
-- ⚠️ Pitfall: finding a benefit-carrier lien after disbursement.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in this module's Knowledge Check (block 3.2.5) and the day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **15%** | Gap and layer logic | UM pays the gap above BI; Relative UM excess over Host UM; $10,000 + $20,000 + $10,000 = $40,000 |
-| 🤖 AI | **20%** | Reductions closed | Offset, MedPay non-duplication and MedPay reimbursement each tied to the 03/02/2026 letter; no PIP on the file; PIP rules stated as where they apply |
-| 🤖 AI | **15%** | Close and paper trail | Coverage, release, liens, payee and check date confirmed; same-day email |
-| 🤖 AI | **10%** | Payout sequence | Release → check → trust → liens, fee and costs → net |
-| 🧑‍🏫 Trainer | **20%** | Strategic judgment | Explains why the gross is protected before the negotiation, and when bracketing does and doesn't fit |
-| 🧑‍🏫 Trainer | **20%** | UPL boundary | No acceptance, valuation, policy interpretation or bad-faith accusation by the CM; every acceptance John Doe's, through Atty. Thorne |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Open on Harbor Point's 03/02/2026 letter. Ask which sentence in it is worth $10,000 to John Doe. It is the add-on clause: on a reduction policy, Keystone's $10,000 would have come off the top of the $20,000.
-- Put to the room: “Harbor Point insures Kevin Alvarez's car. Why does it owe John Doe anything, and why will it still fight him?”
-- Watch for trainees who treat the UM carriers as friendly because they are first-party. They turn adversarial at evaluation, and Harbor Point's 09/14 offer proves it. Teach PIP as the doctrine where it applies, not as a fact of this file: where PIP applies, the set-off, the EMC ceiling and a subrogation lien each change the BI ask and the net.
-- Bad faith is a legal conclusion. New medical evidence changes a valuation, and on this file it is the residual paresthesia Dr. Reyes documented at MMI; don't call it permanent unless a physician has. The CM's contribution is a dated record of what each carrier knew and said, and anyone who writes “bad faith” to an adjuster has crossed the line.
-
----
-
 ### 3.2.4 Closing the $40,000 Gross Recovery
 
-> **Skill Activity** · Day 3 — Demands & settlement — Track A · Module 2: Adjuster Negotiation & Stall Countermeasures  
+> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 2: Adjuster Negotiation & Stall Countermeasures · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 2 — work both UM layers to limits, on the record  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#26` Settlement Negotiations: The Bracketing Technique · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D3#7` UM Settlement: How the Settlement Is Calculated · `D3#8` UM Settlement: Negotiation & Settlement · `D3#10` UM Settlement: Challenges · `D3#11` UM Settlement: The Final Payout Process · `D3#17` Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit
@@ -804,7 +798,7 @@ A Negotiation Log fills the slide: two carrier swimlanes on a shared date axis f
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 3.2.5) and the day's auto-graded questions.
+Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -830,7 +824,7 @@ Verified in this module's Knowledge Check (block 3.2.5) and the day's auto-grade
 
 ### 3.2.5 Negotiation Mastery Check
 
-> **Knowledge Check** · Day 3 — Demands & settlement — Track A · Module 2: Adjuster Negotiation & Stall Countermeasures  
+> **Knowledge Check** · Day 3 — Demands & settlement — Track A · Case Phase 2: Adjuster Negotiation & Stall Countermeasures · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Knowledge Check + CM Learning Summary & Self-Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#19` Settlement Negotiations: The Pitch & the Negotiation Battle Map · `D2#20` The Valuation Baseline: PIP Set-Off (The Credit) · `D2#23` The Valuation Baseline: Subrogation vs. Non-Subrogation · `D2#27` Common Adjuster “Stall Tactics” and Rebuttals · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D2#29` Settlement Negotiations: The “Never” Rule · `D2#30` Skill Building: The Math Check — Your Slam-Dunk Liability Case · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#11` UM Settlement: The Final Payout Process · `D3#17` Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit
@@ -914,15 +908,13 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-## Module 3 — Combined Lien Negotiations & Practice Lab
+## Case Phase 3 — Combined Lien Negotiations & Practice Lab
 
-Every claim on John Doe's $40,000 found and classified, and both liens audited and reduced on Atty. Thorne's authority: Peach State to $1,240.00, Riverton Spine & Rehab to $4,580.00, each confirmed in writing before disbursement.
-
-**Rhythm:** Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check
 
 ### 3.3.1 Statutory Liens, Health Subrogation & Provider Balances
 
-> **Lesson** · Day 3 — Demands & settlement — Track A · Module 3: Combined Lien Negotiations & Practice Lab  
+> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 3: Combined Lien Negotiations & Practice Lab · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Not all liens are created equal: classify before you negotiate  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#18` Lien Negotiations/Reduction: Common Types of Liens · `D3#19` Key Legal Doctrines Used for Reduction · `D3#20` Quantum Meruit Principle — Prior Attorney Liens · Newly authored: plan funding status (self-funded vs. fully insured) decides the law that governs a health-plan reduction; the verified-none inventory of absent lienholders
@@ -982,7 +974,7 @@ A reducibility ladder fills the left two-thirds: horizontal bars stacked from MO
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 3.3.5) and the day's auto-graded questions.
+Verified in Lien Reduction Verification (taught on Case Flow Day 3) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1006,9 +998,91 @@ Verified in this module's Knowledge Check (block 3.3.5) and the day's auto-grade
 
 ---
 
-### 3.3.2 Health Subrogation & Statutory Lien Reduction Lab
+### 3.3.2 Pro-Rata Distribution & Medical Bill Reduction
 
-> **Skill Activity** · Day 3 — Demands & settlement — Track A · Module 3: Combined Lien Negotiations & Practice Lab  
+> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 3: Combined Lien Negotiations & Practice Lab · scored with Lien Reduction Verification (`d3m3`)  
+> **Topic:** Audit first, then show the lienholder the math  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D3#21` Increasing the Client's Net · `D3#22` Auditing the Billing Before Asking for a Discount · `D2#40` Finalized Settlement: Final Lien Mitigation (The “Reduction”) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · Newly authored: the pro-rata distribution rule worked on the BI-only illustration; the pro-rata argument restated on true facts for a fund that covers every lien
+
+#### 1 · Visual Layout Description
+
+Top half: the pro-rata illustration as one long horizontal bar, the $6,179.92 fund, split 23.35% navy (PEACH STATE · $1,443.15) and 76.65% orange (RIVERTON SPINE & REHAB · $4,736.77). A bracket beneath it shows $7,965.00 of liens overhanging the bar's right end in hatched red. At the far right a small card in red: JOHN DOE NETS $0.00. Bottom half: a five-step strip of orange numbered badges, ① Audit ② Correct ③ Calculate ④ Ask with authority ⑤ Confirm in writing, ending in a navy ledger chip, NET SHEET UPDATED. The argument: the math is the leverage, and the audit comes before the ask.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Half the job is getting money from the carriers; the other half is keeping it from the lienholders. Every dollar a lien gives up lands in John Doe's net. An honest audit and the pro-rata math move a provider further than any plea for a favor.
+
+1. Audit before you ask. Compare the records to the bill line by line: corrections first, reductions second. Never negotiate a percentage off an inflated bill.
+2. Riverton Spine & Rehab billed 34 lines × $185.00 = $6,290.00. The records show 33 visits (16 + 17); the 05/04/2026 line is a duplicate. You negotiate from $6,105.00.
+3. Match each line's code to that day's treatment note. Upcoding, unbundling and duplicate dates get a demand for correction, not a request for a favor. No line may fall between 04/02 and 04/21/2026, the disruption.
+4. Pro rata: when a fund cannot pay every lien in full and no statute or agreement sets an order, liens of equal priority share what is left after fee and costs in proportion to their amounts. Medicare, a statutory hospital lien or some Medicaid recoveries may take priority; confirm the governing rule. Here: two contractual claims.
+5. Had only the $10,000 BI been recovered: $10,000.00 – $3,333.33 – $486.75 = $6,179.92 against $7,965.00 of liens. Peach State $1,860.00 ÷ $7,965.00 (23.35%) → $1,443.15; Riverton $6,105.00 ÷ $7,965.00 (76.65%) → $4,736.77. Compute from the fraction, not the rounded percentage. John Doe nets nothing.
+6. Argue on true facts only. On Track A the fund covers both liens: never tell a provider it would take only a share, or that the client will refuse the settlement. The true case: a coverage-capped recovery, fee and costs paid from it, a certain payment now.
+7. Common fund (procurement costs): in many states a lienholder must reduce by its proportional share of the fee and costs that created the fund: the retainer's fee percentage (33⅓% pre-suit, 40% once suit is filed) plus its pro rata share of costs. It binds some and persuades others; confirm the rule. Atty. Thorne argues it.
+8. Ask with authority: send the written request Atty. Thorne approved, then call billing with his target (never a stock 50%), asking for payment in full in the interest of global resolution. A counter outside it goes back to him.
+9. No Payoff Letter, no payment. A signed letter states the payment is full and final satisfaction and that John Doe will not be balance-billed or sent to collections. Pay from the payoff figure, never a statement.
+10. Update the ledger the day a reduction is confirmed and show John Doe the savings: $1,860.00 + $6,105.00 = $7,965.00 audited → $1,240.00 + $4,580.00 = $5,820.00 paid ($2,145.00 negotiated), plus the $185.00 duplicate removed at audit.
+
+> ⚠️ **UPL boundary.** You audit, calculate, draft and, inside Atty. Thorne's written authority, make the ask. You never offer or accept a figure outside it, never promise a provider payment, and never tell John Doe a bill is invalid. A reduction is final only on his approval and a signed Payoff Letter.
+
+#### 2 · Slide Body — Show Them
+
+*The pro-rata illustration: BI only, $6,179.92 left after fee and costs*
+
+| Lienholder | Audited lien | Share (lien ÷ $7,965.00) | Paid pro rata |
+|---|---|---|---|
+| Peach State Health Plan | $1,860.00 | 23.35% | $1,443.15 |
+| Riverton Spine & Rehab | $6,105.00 | 76.65% | $4,736.77 |
+| Total | $7,965.00 | 100% | $6,179.92 |
+| John Doe's net | — | — | $0.00 |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Provider's final ledger received | Audit each line against the visit records; request a written correction of any error | Medical Records Requests · CMS → Financial Ledger → Net Sheet → Lien Tracker | 33 visits matched; 05/04/2026 duplicate removed; $6,105.00 |
+| Audited balance confirmed | Draft the Reduction Request with the math and obtain Atty. Thorne's written authority | CMS → Documents → Outgoing · CMS → Tasks → Escalate | Authority logged before the request goes or any call is made |
+| Reduction agreed | Obtain the signed Payoff Letter; update the Lien Tracker and the Net Sheet | CMS → Financial Ledger → Net Sheet | Full-and-final language on file; net recomputed the same day |
+
+**Best practices & pitfalls**
+
+- Corrections first, reductions second.
+- Transparency about savings builds trust: show John Doe his net rising.
+- Get every reduction in writing before disbursement.
+- ⚠️ Pitfall: negotiating a percentage off an inflated bill.
+- ⚠️ Pitfall: agreeing to a reduction verbally with no written confirmation.
+- ⚠️ Pitfall: paying from a statement instead of the final payoff figure, or without the full-and-final language.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Lien Reduction Verification (taught on Case Flow Day 3) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Audit accuracy | 34 lines against 33 visits; the 05/04/2026 duplicate; $6,105.00 |
+| 🤖 AI | **20%** | Pro-rata math | Shares computed from each lien ÷ $7,965.00; $1,443.15 + $4,736.77 = $6,179.92 |
+| 🤖 AI | **10%** | Payoff-letter terms | Full and final satisfaction; no balance billing or collections |
+| 🤖 AI | **10%** | Ledger update | $7,965.00 audited → $5,820.00 paid ($2,145.00 negotiated); net $20,359.92 |
+| 🧑‍🏫 Trainer | **20%** | Negotiation ethics | Argument made on true facts; no bluff about the fund or the client's intentions |
+| 🧑‍🏫 Trainer | **20%** | Authority boundary | Every ask inside Atty. Thorne's written authority; nothing final without him |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open with the BI-only table and cover the last row. Ask: “What does John Doe take home?” Then uncover $0.00. That is why this lesson exists.
+- Ask the room: “Riverton billed $6,290.00. What number do you negotiate from?” Anyone who says $6,290.00 has skipped the audit.
+- Watch for the old script, “reduce or the client refuses the settlement.” It is a threat, and on Track A it is false: all three layers have tendered their limits (Cardinal State's check arrives 10/13), and after fee and costs $40,000.00 – $13,333.33 – $486.75 = $26,179.92 remains against $7,965.00 of liens. Make them rewrite it on true facts: a coverage-capped recovery, the audited balance, a certain payment now.
+- The legal nuance: the common-fund rule binds some lienholders by statute or case law and only persuades others, and an LOP provider is often outside it. Which it is here is Atty. Thorne's call; confirm the governing rule.
+
+---
+
+### 3.3.3 Health Subrogation & Statutory Lien Reduction Lab
+
+> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 3: Combined Lien Negotiations & Practice Lab · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Skill Activity 1 — reduce Peach State, clear the statutory side  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#18` Lien Negotiations/Reduction: Common Types of Liens · `D3#19` Key Legal Doctrines Used for Reduction · `D2#40` Finalized Settlement: Final Lien Mitigation (The “Reduction”) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork)
@@ -1069,7 +1143,7 @@ A two-panel lab bench. Left panel: a white CMS Lien Tracker card with a navy hea
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 3.3.5) and the day's auto-graded questions.
+Verified in Lien Reduction Verification (taught on Case Flow Day 3) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1093,91 +1167,9 @@ Verified in this module's Knowledge Check (block 3.3.5) and the day's auto-grade
 
 ---
 
-### 3.3.3 Pro-Rata Distribution & Medical Bill Reduction
-
-> **Lesson** · Day 3 — Demands & settlement — Track A · Module 3: Combined Lien Negotiations & Practice Lab  
-> **Topic:** Audit first, then show the lienholder the math  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D3#21` Increasing the Client's Net · `D3#22` Auditing the Billing Before Asking for a Discount · `D2#40` Finalized Settlement: Final Lien Mitigation (The “Reduction”) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · Newly authored: the pro-rata distribution rule worked on the BI-only illustration; the pro-rata argument restated on true facts for a fund that covers every lien
-
-#### 1 · Visual Layout Description
-
-Top half: the pro-rata illustration as one long horizontal bar, the $6,179.92 fund, split 23.35% navy (PEACH STATE · $1,443.15) and 76.65% orange (RIVERTON SPINE & REHAB · $4,736.77). A bracket beneath it shows $7,965.00 of liens overhanging the bar's right end in hatched red. At the far right a small card in red: JOHN DOE NETS $0.00. Bottom half: a five-step strip of orange numbered badges, ① Audit ② Correct ③ Calculate ④ Ask with authority ⑤ Confirm in writing, ending in a navy ledger chip, NET SHEET UPDATED. The argument: the math is the leverage, and the audit comes before the ask.
-
-#### 2 · Slide Body — Tell Them
-
-*Why:* Half the job is getting money from the carriers; the other half is keeping it from the lienholders. Every dollar a lien gives up lands in John Doe's net. An honest audit and the pro-rata math move a provider further than any plea for a favor.
-
-1. Audit before you ask. Compare the records to the bill line by line: corrections first, reductions second. Never negotiate a percentage off an inflated bill.
-2. Riverton Spine & Rehab billed 34 lines × $185.00 = $6,290.00. The records show 33 visits (16 + 17); the 05/04/2026 line is a duplicate. You negotiate from $6,105.00.
-3. Match each line's code to that day's treatment note. Upcoding, unbundling and duplicate dates get a demand for correction, not a request for a favor. No line may fall between 04/02 and 04/21/2026, the disruption.
-4. Pro rata: when a fund cannot pay every lien in full and no statute or agreement sets an order, liens of equal priority share what is left after fee and costs in proportion to their amounts. Medicare, a statutory hospital lien or some Medicaid recoveries may take priority; confirm the governing rule. Here: two contractual claims.
-5. Had only the $10,000 BI been recovered: $10,000.00 – $3,333.33 – $486.75 = $6,179.92 against $7,965.00 of liens. Peach State $1,860.00 ÷ $7,965.00 (23.35%) → $1,443.15; Riverton $6,105.00 ÷ $7,965.00 (76.65%) → $4,736.77. Compute from the fraction, not the rounded percentage. John Doe nets nothing.
-6. Argue on true facts only. On Track A the fund covers both liens: never tell a provider it would take only a share, or that the client will refuse the settlement. The true case: a coverage-capped recovery, fee and costs paid from it, a certain payment now.
-7. Common fund (procurement costs): in many states a lienholder must reduce by its proportional share of the fee and costs that created the fund: the retainer's fee percentage (33⅓% pre-suit, 40% once suit is filed) plus its pro rata share of costs. It binds some and persuades others; confirm the rule. Atty. Thorne argues it.
-8. Ask with authority: send the written request Atty. Thorne approved, then call billing with his target (never a stock 50%), asking for payment in full in the interest of global resolution. A counter outside it goes back to him.
-9. No Payoff Letter, no payment. A signed letter states the payment is full and final satisfaction and that John Doe will not be balance-billed or sent to collections. Pay from the payoff figure, never a statement.
-10. Update the ledger the day a reduction is confirmed and show John Doe the savings: $1,860.00 + $6,105.00 = $7,965.00 audited → $1,240.00 + $4,580.00 = $5,820.00 paid ($2,145.00 negotiated), plus the $185.00 duplicate removed at audit.
-
-> ⚠️ **UPL boundary.** You audit, calculate, draft and, inside Atty. Thorne's written authority, make the ask. You never offer or accept a figure outside it, never promise a provider payment, and never tell John Doe a bill is invalid. A reduction is final only on his approval and a signed Payoff Letter.
-
-#### 2 · Slide Body — Show Them
-
-*The pro-rata illustration: BI only, $6,179.92 left after fee and costs*
-
-| Lienholder | Audited lien | Share (lien ÷ $7,965.00) | Paid pro rata |
-|---|---|---|---|
-| Peach State Health Plan | $1,860.00 | 23.35% | $1,443.15 |
-| Riverton Spine & Rehab | $6,105.00 | 76.65% | $4,736.77 |
-| Total | $7,965.00 | 100% | $6,179.92 |
-| John Doe's net | — | — | $0.00 |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Provider's final ledger received | Audit each line against the visit records; request a written correction of any error | Medical Records Requests · CMS → Financial Ledger → Net Sheet → Lien Tracker | 33 visits matched; 05/04/2026 duplicate removed; $6,105.00 |
-| Audited balance confirmed | Draft the Reduction Request with the math and obtain Atty. Thorne's written authority | CMS → Documents → Outgoing · CMS → Tasks → Escalate | Authority logged before the request goes or any call is made |
-| Reduction agreed | Obtain the signed Payoff Letter; update the Lien Tracker and the Net Sheet | CMS → Financial Ledger → Net Sheet | Full-and-final language on file; net recomputed the same day |
-
-**Best practices & pitfalls**
-
-- Corrections first, reductions second.
-- Transparency about savings builds trust: show John Doe his net rising.
-- Get every reduction in writing before disbursement.
-- ⚠️ Pitfall: negotiating a percentage off an inflated bill.
-- ⚠️ Pitfall: agreeing to a reduction verbally with no written confirmation.
-- ⚠️ Pitfall: paying from a statement instead of the final payoff figure, or without the full-and-final language.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in this module's Knowledge Check (block 3.3.5) and the day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Audit accuracy | 34 lines against 33 visits; the 05/04/2026 duplicate; $6,105.00 |
-| 🤖 AI | **20%** | Pro-rata math | Shares computed from each lien ÷ $7,965.00; $1,443.15 + $4,736.77 = $6,179.92 |
-| 🤖 AI | **10%** | Payoff-letter terms | Full and final satisfaction; no balance billing or collections |
-| 🤖 AI | **10%** | Ledger update | $7,965.00 audited → $5,820.00 paid ($2,145.00 negotiated); net $20,359.92 |
-| 🧑‍🏫 Trainer | **20%** | Negotiation ethics | Argument made on true facts; no bluff about the fund or the client's intentions |
-| 🧑‍🏫 Trainer | **20%** | Authority boundary | Every ask inside Atty. Thorne's written authority; nothing final without him |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Open with the BI-only table and cover the last row. Ask: “What does John Doe take home?” Then uncover $0.00. That is why this lesson exists.
-- Ask the room: “Riverton billed $6,290.00. What number do you negotiate from?” Anyone who says $6,290.00 has skipped the audit.
-- Watch for the old script, “reduce or the client refuses the settlement.” It is a threat, and on Track A it is false: all three layers have tendered their limits (Cardinal State's check arrives 10/13), and after fee and costs $40,000.00 – $13,333.33 – $486.75 = $26,179.92 remains against $7,965.00 of liens. Make them rewrite it on true facts: a coverage-capped recovery, the audited balance, a certain payment now.
-- The legal nuance: the common-fund rule binds some lienholders by statute or case law and only persuades others, and an LOP provider is often outside it. Which it is here is Atty. Thorne's call; confirm the governing rule.
-
----
-
 ### 3.3.4 Provider Balance Negotiation Exercises
 
-> **Skill Activity** · Day 3 — Demands & settlement — Track A · Module 3: Combined Lien Negotiations & Practice Lab  
+> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 3: Combined Lien Negotiations & Practice Lab · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Skill Activity 2 — the reduction call to the chiropractor  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#21` Increasing the Client's Net · `D3#22` Auditing the Billing Before Asking for a Discount · `D2#40` Finalized Settlement: Final Lien Mitigation (The “Reduction”) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork)
@@ -1228,7 +1220,7 @@ A phone-call storyboard in three frames across the slide, each a cream card with
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 3.3.5) and the day's auto-graded questions.
+Verified in Lien Reduction Verification (taught on Case Flow Day 3) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1254,7 +1246,7 @@ Verified in this module's Knowledge Check (block 3.3.5) and the day's auto-grade
 
 ### 3.3.5 Lien Reduction Verification
 
-> **Knowledge Check** · Day 3 — Demands & settlement — Track A · Module 3: Combined Lien Negotiations & Practice Lab  
+> **Knowledge Check** · Day 3 — Demands & settlement — Track A · Case Phase 3: Combined Lien Negotiations & Practice Lab · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#18` Lien Negotiations/Reduction: Common Types of Liens · `D3#19` Key Legal Doctrines Used for Reduction · `D3#20` Quantum Meruit Principle — Prior Attorney Liens · `D3#21` Increasing the Client's Net · `D3#22` Auditing the Billing Before Asking for a Discount · `D2#40` Finalized Settlement: Final Lien Mitigation (The “Reduction”)
@@ -1338,15 +1330,13 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-## Module 4 — Net Sheet Completion & Final Case Closing
+## Case Phase 4 — Net Sheet Completion & Final Case Closing
 
-From $40,000.00 gross to $20,359.92 in John Doe's hands: the dual-tab Net Sheet, the release audit, trust-account disbursement, and the reconciliation that lets the file close at $0.00.
-
-**Rhythm:** Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check
 
 ### 3.4.1 The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker
 
-> **Lesson** · Day 3 — Demands & settlement — Track A · Module 4: Net Sheet Completion & Final Case Closing  
+> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 4: Net Sheet Completion & Final Case Closing · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** One Net Sheet, two streams, every dollar's origin visible  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · `D2#36` The Execution: The Settlement Statement (The “Net” Sheet) · `D3#23` The Net Sheet: Purpose of a Combined BI/UM Net Sheet · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · `D3#27` Key Takeaway — The Value of a Case Manager
@@ -1405,7 +1395,7 @@ A wide two-tab spreadsheet card fills the slide, cream with a navy header bar ca
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 3.4.5) and the day's auto-graded questions.
+Verified in Final Accounting Check (taught on Case Flow Day 3) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1430,88 +1420,9 @@ Verified in this module's Knowledge Check (block 3.4.5) and the day's auto-grade
 
 ---
 
-### 3.4.2 Completing the Final Dual-Tab Net Sheet
+### 3.4.2 Release Audits, Trust Accounting & Disbursement Commands
 
-> **Skill Activity** · Day 3 — Demands & settlement — Track A · Module 4: Net Sheet Completion & Final Case Closing  
-> **Topic:** Skill Activity 1 — take $40,000.00 to $20,359.92, and prove every line  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · `D2#36` The Execution: The Settlement Statement (The “Net” Sheet) · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D3#27` Key Takeaway — The Value of a Case Manager · `D3#28` Skill Building: The “Doe v. Apex” Final Net Challenge
-
-#### 1 · Visual Layout Description
-
-Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns ASSERTED · AUDITED · REDUCED · PAYOFF LETTER. The Riverton Spine & Rehab row reads $6,290.00 → $6,105.00 → $4,580.00, with an orange strike through the 05/04/2026 duplicate; Peach State reads $1,860.00 → $1,860.00 → $1,240.00. Beneath, three grey zero-balance rows (MedPay, Crescent, the MedPay-paid providers), each with a NOT PAYABLE chip. Right 40%: a navy stream card with two stacked bars, BI 25% and UM 75%, feeding a large orange NET $20,359.92. A red callout at the foot: “No Payoff Letter, no payment.”
-
-#### 2 · Slide Body — Let Them
-
-**Scenario.** File date 10/13/2026. Cardinal State's $10,000 check arrived today, joining Keystone's (received 09/04) and Harbor Point's (10/05) in the IOLTA trust account, each deposited only after its release was signed (Keystone 08/28; each UM release before its check): $40,000.00 received; the last check has not cleared. Peach State accepted $1,240.00 on 10/09 and Riverton Spine & Rehab accepted $4,580.00 on 10/12; both written acceptances are in Documents. Costs stand at $486.75. Both Net Sheet tabs are half-built from the demand phase.
-
-**Execution prompt.** Complete John Doe's Net Sheet in both tabs. Recovery Ledger: each check by carrier and stream, the 33⅓% fee per stream, the five receipted costs, and costs and liens split 25% / 75%, down to the net per stream and in total. Lien Tracker: every provider and payer with charges, payments, adjustments and balance owed, then each lien's asserted, audited and reduced figure, the basis of each reduction and its payoff-letter status. Tie both tabs to the Trust Ledger. Graded judgment: what stays off the payables, and what you flag for Atty. Thorne before John signs.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Financial Ledger → Net Sheet (Recovery Ledger · Lien Tracker) |
-| **Expected output** | A two-tab Net Sheet that reaches $20,359.92 down both streams and across the total, with every lien figure proved and routed to Atty. Thorne. |
-
-**Verification checkpoints**
-
-- [ ] Gross by check: Keystone $10,000.00 to Stream 1; Harbor Point $20,000.00 + Cardinal State $10,000.00 = $30,000.00 to Stream 2
-- [ ] Fee at the pre-suit 33⅓% (no suit filed): $3,333.33 + $10,000.00 = $13,333.33
-- [ ] Costs receipted: $25.00 + $214.75 + $72.00 + $25.00 + $150.00 = $486.75, split $121.69 / $365.06 and charged once
-- [ ] Liens split 25% / 75%: Peach State $310.00 / $930.00; Riverton Spine & Rehab $1,145.00 / $3,435.00
-- [ ] Net both ways: $5,089.98 + $15,269.94 = $20,359.92, and $40,000.00 – $13,333.33 – $486.75 – $1,240.00 – $4,580.00 = $20,359.92
-- [ ] Peach State row: asserted $1,860.00, audited $1,860.00 (matches its payment for Crescent's 05/15/2026 injection), reduced $1,240.00 (one-third procurement-cost reduction, $620.00), accepted 10/09/2026
-- [ ] Riverton Spine & Rehab row: billed $6,290.00, audited $6,105.00 (duplicate 05/04/2026 line, $185.00), reduced $4,580.00, accepted 10/12/2026
-- [ ] Zero-balance lines kept off the payables with their source: MedPay $5,000.00 (no reimbursement right, 03/02/2026); Crescent $3,400.00 – $1,860.00 = $1,540.00 written off; Riverton Urgent Care, Lakeside Orthopedics and Summit Imaging paid in full by MedPay
-- [ ] Payoff status recorded per lien: written figure and date logged, satisfaction of lien marked “to obtain at payment”; no line final on a phone call
-- [ ] Future medical ($3,400–$6,800 in possible repeat ESIs) flagged to Atty. Thorne before John Doe signs: the settlement is full and final, and no carrier pays more
-- [ ] Ties out: trust deposits $40,000.00 = Recovery Ledger gross; liens audited $1,860.00 + $6,105.00 = $7,965.00, paid $1,240.00 + $4,580.00 = $5,820.00 ($2,145.00 negotiated, plus the $185.00 duplicate removed at audit)
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Last UM check received (10/13/2026) | Post the deposit and complete the Recovery Ledger by stream | CMS → Financial Ledger → Net Sheet → Recovery Ledger | Streams $10,000.00 / $30,000.00; net $20,359.92 |
-| Lien reduction accepted in writing | Complete the Lien Tracker row and log the Payoff Letter | CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Documents | Peach State $1,240.00 (10/09); Riverton Spine & Rehab $4,580.00 (10/12) |
-| Both tabs tie to the Trust Ledger | Route the draft Settlement Statement with the future-medical flag | CMS → Tasks → Escalate | Routed to Atty. Thorne before John Doe sees the statement |
-
-**Best practices & pitfalls**
-
-- Every reduction needs a named basis or an audit finding, written on its line.
-- Record zero-balance lines with their source document, so no one later pays what isn't owed.
-- Compute the UM share as the remainder of each split so the streams add back to the cent.
-- ⚠️ Pitfall: marking a lien final from an email or a phone call instead of a written payoff figure.
-- ⚠️ Pitfall: adding MedPay's $5,000.00 or Crescent's write-off to the payables and paying John Doe's money away.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in this module's Knowledge Check (block 3.4.5) and the day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Stream arithmetic | Fee, costs and liens split correctly; $5,089.98 + $15,269.94 = $20,359.92 |
-| 🤖 AI | **15%** | Lien Tracker accuracy | Asserted, audited and reduced figures and dates for Peach State and Riverton Spine & Rehab |
-| 🤖 AI | **10%** | Cost verification | Five receipted costs = $486.75, charged once |
-| 🤖 AI | **15%** | Zero-balance discipline | MedPay, Crescent and the MedPay-paid providers kept off the payables with sources |
-| 🧑‍🏫 Trainer | **15%** | Judgment on payables | Can explain why each zero-balance line is not owed, citing the document |
-| 🧑‍🏫 Trainer | **10%** | Future-care flag | Flags the full-and-final consequence to Atty. Thorne rather than raising it with John Doe |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | No view offered to John Doe on sufficiency, enforceability or acceptance |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Start with the zero-balance rows. Ask why MedPay's $5,000.00 isn't paid back and why Crescent's write-off isn't owed. A trainee who adds either to the payables has paid John Doe's money away.
-- Ask the room: “If Riverton Spine & Rehab had accepted $4,580.00 only on a phone call, could the line be marked final?” No: no Payoff Letter, no payment.
-- Grade the arithmetic both ways, down each stream and across the total: $13,333.33 + $486.75 + $1,240.00 + $4,580.00 = $19,640.08, and $40,000.00 – $19,640.08 = $20,359.92. A one-cent drift means a stream was rounded on its own.
-- The future-medical flag is the judgment call. Up to $6,800 in possible repeat injections lies ahead, and the settlement is full and final; the CM flags it, and Atty. Thorne has that conversation with John Doe.
-
----
-
-### 3.4.3 Release Audits, Trust Accounting & Disbursement Commands
-
-> **Lesson** · Day 3 — Demands & settlement — Track A · Module 4: Net Sheet Completion & Final Case Closing  
+> **Lesson** · Day 3 — Demands & settlement — Track A · Case Phase 4: Net Sheet Completion & Final Case Closing · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** No money moves until every gate behind it is closed  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D2#34` The Execution: Settlement Disclosure Statement (The “Truth” Document) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · `D2#36` The Execution: The Settlement Statement (The “Net” Sheet) · `D2#37` The Execution: The Dismissal (The “Court” Filing) · `D2#38` The Execution: W-9 & Comparison of Key Post-Settlement Documents · `D2#39` Finalized Settlement: Boots-on-the-Ground Tasks — Administrative Document Control · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · `D3#29` Case Phase: Disbursement — Core Objectives · `D3#30` Disbursement: The Workflow · `D3#32` Disbursement: Common Challenges & Mitigation · Newly authored: trust-account handling (same-day IOLTA deposit once the release is signed, client endorsement, no disbursement against uncleared funds, disputed shares held in trust); the contingent-fee Settlement Statement (ABA Model Rule 1.5(c) as an example); the UM release's Medicare and confidentiality terms
@@ -1567,7 +1478,7 @@ A horizontal six-gate money path across the slide, each gate a navy card with an
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 3.4.5) and the day's auto-graded questions.
+Verified in Final Accounting Check (taught on Case Flow Day 3) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1592,9 +1503,88 @@ Verified in this module's Knowledge Check (block 3.4.5) and the day's auto-grade
 
 ---
 
+### 3.4.3 Completing the Final Dual-Tab Net Sheet
+
+> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 4: Net Sheet Completion & Final Case Closing · scored with Final Accounting Check (`d3m4`)  
+> **Topic:** Skill Activity 1 — take $40,000.00 to $20,359.92, and prove every line  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · `D2#36` The Execution: The Settlement Statement (The “Net” Sheet) · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D3#27` Key Takeaway — The Value of a Case Manager · `D3#28` Skill Building: The “Doe v. Apex” Final Net Challenge
+
+#### 1 · Visual Layout Description
+
+Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns ASSERTED · AUDITED · REDUCED · PAYOFF LETTER. The Riverton Spine & Rehab row reads $6,290.00 → $6,105.00 → $4,580.00, with an orange strike through the 05/04/2026 duplicate; Peach State reads $1,860.00 → $1,860.00 → $1,240.00. Beneath, three grey zero-balance rows (MedPay, Crescent, the MedPay-paid providers), each with a NOT PAYABLE chip. Right 40%: a navy stream card with two stacked bars, BI 25% and UM 75%, feeding a large orange NET $20,359.92. A red callout at the foot: “No Payoff Letter, no payment.”
+
+#### 2 · Slide Body — Let Them
+
+**Scenario.** File date 10/13/2026. Cardinal State's $10,000 check arrived today, joining Keystone's (received 09/04) and Harbor Point's (10/05) in the IOLTA trust account, each deposited only after its release was signed (Keystone 08/28; each UM release before its check): $40,000.00 received; the last check has not cleared. Peach State accepted $1,240.00 on 10/09 and Riverton Spine & Rehab accepted $4,580.00 on 10/12; both written acceptances are in Documents. Costs stand at $486.75. Both Net Sheet tabs are half-built from the demand phase.
+
+**Execution prompt.** Complete John Doe's Net Sheet in both tabs. Recovery Ledger: each check by carrier and stream, the 33⅓% fee per stream, the five receipted costs, and costs and liens split 25% / 75%, down to the net per stream and in total. Lien Tracker: every provider and payer with charges, payments, adjustments and balance owed, then each lien's asserted, audited and reduced figure, the basis of each reduction and its payoff-letter status. Tie both tabs to the Trust Ledger. Graded judgment: what stays off the payables, and what you flag for Atty. Thorne before John signs.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → Financial Ledger → Net Sheet (Recovery Ledger · Lien Tracker) |
+| **Expected output** | A two-tab Net Sheet that reaches $20,359.92 down both streams and across the total, with every lien figure proved and routed to Atty. Thorne. |
+
+**Verification checkpoints**
+
+- [ ] Gross by check: Keystone $10,000.00 to Stream 1; Harbor Point $20,000.00 + Cardinal State $10,000.00 = $30,000.00 to Stream 2
+- [ ] Fee at the pre-suit 33⅓% (no suit filed): $3,333.33 + $10,000.00 = $13,333.33
+- [ ] Costs receipted: $25.00 + $214.75 + $72.00 + $25.00 + $150.00 = $486.75, split $121.69 / $365.06 and charged once
+- [ ] Liens split 25% / 75%: Peach State $310.00 / $930.00; Riverton Spine & Rehab $1,145.00 / $3,435.00
+- [ ] Net both ways: $5,089.98 + $15,269.94 = $20,359.92, and $40,000.00 – $13,333.33 – $486.75 – $1,240.00 – $4,580.00 = $20,359.92
+- [ ] Peach State row: asserted $1,860.00, audited $1,860.00 (matches its payment for Crescent's 05/15/2026 injection), reduced $1,240.00 (one-third procurement-cost reduction, $620.00), accepted 10/09/2026
+- [ ] Riverton Spine & Rehab row: billed $6,290.00, audited $6,105.00 (duplicate 05/04/2026 line, $185.00), reduced $4,580.00, accepted 10/12/2026
+- [ ] Zero-balance lines kept off the payables with their source: MedPay $5,000.00 (no reimbursement right, 03/02/2026); Crescent $3,400.00 – $1,860.00 = $1,540.00 written off; Riverton Urgent Care, Lakeside Orthopedics and Summit Imaging paid in full by MedPay
+- [ ] Payoff status recorded per lien: written figure and date logged, satisfaction of lien marked “to obtain at payment”; no line final on a phone call
+- [ ] Future medical ($3,400–$6,800 in possible repeat ESIs) flagged to Atty. Thorne before John Doe signs: the settlement is full and final, and no carrier pays more
+- [ ] Ties out: trust deposits $40,000.00 = Recovery Ledger gross; liens audited $1,860.00 + $6,105.00 = $7,965.00, paid $1,240.00 + $4,580.00 = $5,820.00 ($2,145.00 negotiated, plus the $185.00 duplicate removed at audit)
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Last UM check received (10/13/2026) | Post the deposit and complete the Recovery Ledger by stream | CMS → Financial Ledger → Net Sheet → Recovery Ledger | Streams $10,000.00 / $30,000.00; net $20,359.92 |
+| Lien reduction accepted in writing | Complete the Lien Tracker row and log the Payoff Letter | CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Documents | Peach State $1,240.00 (10/09); Riverton Spine & Rehab $4,580.00 (10/12) |
+| Both tabs tie to the Trust Ledger | Route the draft Settlement Statement with the future-medical flag | CMS → Tasks → Escalate | Routed to Atty. Thorne before John Doe sees the statement |
+
+**Best practices & pitfalls**
+
+- Every reduction needs a named basis or an audit finding, written on its line.
+- Record zero-balance lines with their source document, so no one later pays what isn't owed.
+- Compute the UM share as the remainder of each split so the streams add back to the cent.
+- ⚠️ Pitfall: marking a lien final from an email or a phone call instead of a written payoff figure.
+- ⚠️ Pitfall: adding MedPay's $5,000.00 or Crescent's write-off to the payables and paying John Doe's money away.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Final Accounting Check (taught on Case Flow Day 3) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Stream arithmetic | Fee, costs and liens split correctly; $5,089.98 + $15,269.94 = $20,359.92 |
+| 🤖 AI | **15%** | Lien Tracker accuracy | Asserted, audited and reduced figures and dates for Peach State and Riverton Spine & Rehab |
+| 🤖 AI | **10%** | Cost verification | Five receipted costs = $486.75, charged once |
+| 🤖 AI | **15%** | Zero-balance discipline | MedPay, Crescent and the MedPay-paid providers kept off the payables with sources |
+| 🧑‍🏫 Trainer | **15%** | Judgment on payables | Can explain why each zero-balance line is not owed, citing the document |
+| 🧑‍🏫 Trainer | **10%** | Future-care flag | Flags the full-and-final consequence to Atty. Thorne rather than raising it with John Doe |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | No view offered to John Doe on sufficiency, enforceability or acceptance |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Start with the zero-balance rows. Ask why MedPay's $5,000.00 isn't paid back and why Crescent's write-off isn't owed. A trainee who adds either to the payables has paid John Doe's money away.
+- Ask the room: “If Riverton Spine & Rehab had accepted $4,580.00 only on a phone call, could the line be marked final?” No: no Payoff Letter, no payment.
+- Grade the arithmetic both ways, down each stream and across the total: $13,333.33 + $486.75 + $1,240.00 + $4,580.00 = $19,640.08, and $40,000.00 – $19,640.08 = $20,359.92. A one-cent drift means a stream was rounded on its own.
+- The future-medical flag is the judgment call. Up to $6,800 in possible repeat injections lies ahead, and the settlement is full and final; the CM flags it, and Atty. Thorne has that conversation with John Doe.
+
+---
+
 ### 3.4.4 Release Audit & Disbursement Command Triggering
 
-> **Skill Activity** · Day 3 — Demands & settlement — Track A · Module 4: Net Sheet Completion & Final Case Closing  
+> **Skill Activity** · Day 3 — Demands & settlement — Track A · Case Phase 4: Net Sheet Completion & Final Case Closing · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity 2 — catch the line that costs $30,000, then move the money  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · `D2#38` The Execution: W-9 & Comparison of Key Post-Settlement Documents · `D2#41` Skill Building: BI Settlement — Caught in an Operational Pincer Movement · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · `D3#29` Case Phase: Disbursement — Core Objectives · `D3#30` Disbursement: The Workflow · `D3#31` Disbursement: Documentation Checklist · `D3#32` Disbursement: Common Challenges & Mitigation · `D3#34` Final Case Reconciliation Checklist: Proof of Delivery/Completion
@@ -1646,7 +1636,7 @@ Two panels joined by a dated orange arrow, 08/14 → 10/21. Left: Keystone's dra
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in this module's Knowledge Check (block 3.4.5) and the day's auto-graded questions.
+Verified in Final Accounting Check (taught on Case Flow Day 3) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1673,7 +1663,7 @@ Verified in this module's Knowledge Check (block 3.4.5) and the day's auto-grade
 
 ### 3.4.5 Final Accounting Check
 
-> **Knowledge Check** · Day 3 — Demands & settlement — Track A · Module 4: Net Sheet Completion & Final Case Closing  
+> **Knowledge Check** · Day 3 — Demands & settlement — Track A · Case Phase 4: Net Sheet Completion & Final Case Closing · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#37` The Execution: The Dismissal (The “Court” Filing) · `D2#41` Skill Building: BI Settlement — Caught in an Operational Pincer Movement · `D3#23` The Net Sheet: Purpose of a Combined BI/UM Net Sheet · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D3#27` Key Takeaway — The Value of a Case Manager · `D3#33` Final Case Reconciliation Checklist: Net Sheet (The “Money Trail”) · `D3#34` Final Case Reconciliation Checklist: Proof of Delivery/Completion · `D3#35` Final Case Reconciliation Checklist: Compliance & Identity Verification · `D3#36` Final Case Reconciliation Checklist: The Internal “Closing Memo” · `D3#37` Final Case Reconciliation: Retention & Disposition Schedule · `D3#38` Skill Building: Closing a Case — John Doe v. Apex Delivery Final Tasks

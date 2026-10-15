@@ -10,25 +10,25 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 
 | # | Topic | Status | Where it lives now |
 |---|---|---|---|
-| `D1#1` | Training Agenda & What Case Management Is | ✅ BUILT | d1m1-l1 |
-| `D1#2` | The General Case Management Process | ✅ BUILT | d1m4-l2 |
-| `D1#3` | Key Duties of a Case Manager | ✅ BUILT | d1m1-l1, d1m3-a2 |
-| `D1#4` | Understanding Case Phases | ✅ BUILT | d1m1-l1 |
-| `D1#5` | Case Phase: Intake — Establishing Control | ✅ BUILT | d1m1-l1 |
-| `D1#6` | The Real Intake Workflow | ✅ BUILT | d1m1-l1 |
-| `D1#7` | Intake & Initial Client Contact — Gatekeepers of Case Quality | ✅ BUILT | d1m1-l1 |
+| `D1#1` | Training Agenda & What Case Management Is | ✅ BUILT | d1m1-role, d1m1-l1 |
+| `D1#2` | The General Case Management Process | ✅ BUILT | d1m1-role, d1m4-l2 |
+| `D1#3` | Key Duties of a Case Manager | ✅ BUILT | d1m1-role, d1m1-l1, d1m3-a2 |
+| `D1#4` | Understanding Case Phases | ✅ BUILT | d1m1-role, d1m1-l1 |
+| `D1#5` | Case Phase: Intake — Establishing Control | ✅ BUILT | d1m1-l1, d1m1-open |
+| `D1#6` | The Real Intake Workflow | ✅ BUILT | d1m1-l1, d1m1-open |
+| `D1#7` | Intake & Initial Client Contact — Gatekeepers of Case Quality | ✅ BUILT | d1m1-l1, d1m1-open |
 | `D1#8` | Case Acceptance Determination | ✅ BUILT | d1m4-l1, d1m4-a2, d1m4-kc |
 | `D1#9` | Common Intake Bottlenecks — Overview | ✅ BUILT | d1m2-l1 |
 | `D1#10` | Bottleneck: Incomplete Client Information | ✅ BUILT | d1m1-l1 |
 | `D1#11` | Bottleneck: Delayed Client Follow-Up | ✅ BUILT | d1m2-l1, d1m2-a1, d1m2-kc |
-| `D1#12` | Bottleneck: Conflict Check Delays | ✅ BUILT | d1m1-l1 |
-| `D1#13` | Bottleneck: Intake Form Errors | ✅ BUILT | d1m1-l1 |
+| `D1#12` | Bottleneck: Conflict Check Delays | ✅ BUILT | d1m1-l1, d1m1-open |
+| `D1#13` | Bottleneck: Intake Form Errors | ✅ BUILT | d1m1-l1, d1m1-open |
 | `D1#14` | Bottleneck: Case Eligibility Uncertainty | ✅ BUILT | d1m4-l1 |
 | `D1#15` | Bottleneck: Communication Gaps | ✅ BUILT | d1m1-l1 |
-| `D1#16` | Tools for Case Planning & the PI Case Lifecycle Strategy | ✅ BUILT | d1m1-l1, d1m3-a2, d1m4-a1 |
+| `D1#16` | Tools for Case Planning & the PI Case Lifecycle Strategy | ✅ BUILT | d1m1-case, d1m1-l1, d1m3-a2, d1m4-a1 |
 | `D1#17` | Skill Building: Intake Decision Challenge & Applied Case Manager Actions | ✅ BUILT | d1m4-l1 |
 | `D1#18` | Claim Set-Up: Coverage Determination & Liability Assessment | ✅ BUILT | d1m1-l1, d1m1-a1, d1m1-kc, d1m4-a2, d2m1-l2, d2m1-a2, d2m1-kc, d5m4-kc |
-| `D1#19` | Claim Set-Up: Case Projection — Why the Three Work Together | ✅ BUILT | d1m1-a1, d1m1-kc, d1m4-l1, d1m4-a2, d2m1-l2 |
+| `D1#19` | Claim Set-Up: Case Projection — Why the Three Work Together | ✅ BUILT | d1m1-case, d1m1-a1, d1m1-kc, d1m4-l1, d1m4-a2, d2m1-l2 |
 | `D1#20` | Case Study: John Doe v. Apex — Coverage Analysis | ✅ BUILT | d1m1-a1, d1m1-kc, d2m1-l2, d2m1-a2, d2m1-kc |
 | `D1#21` | Case Study: John Doe v. Apex — Liability Determination | ✅ BUILT | d1m4-l1, d2m1-l1, d2m1-a1 |
 | `D1#22` | Case Planning Framework: Regulatory Intake & Verification | ✅ BUILT | d1m1-l2, d1m1-a2, d1m1-kc, d1m4-l1, d1m4-a2, d5m4-kc |
@@ -227,6 +227,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 
 Theory the course does not carry, taken from the LSH firm curriculum and cited on the blocks that use it:
 
+- curriculum/5-day-flow/case-file.md §1–2: the file at intake, people and vehicles, the collision
 - LSH Claims Specialist: pre-claim data set, Declaration Page, coverage asymmetry
 - LSH Claims Specialist: CMS Insurance tab SOP, first- and third-party coverage
 - D1 Task Overview: Billing, Resolution & Closing
@@ -312,6 +313,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 
 Where neither source had the theory, it was written for this flow and is marked here so it can be reviewed:
 
+- **The Case Manager's Role, Meet Your Case, and Opening John Doe's File in the CMS** — Case Flow Day 1 · Case Phase 1 — written for the case-lifecycle sequence, from D1#1–#7, D1#12–#13 and the case file
 - **The $40,000 host-passenger stack and its order of operations** — Day 1 · Module 1 — the case facts the brief specifies (Host UM and Relative UM behind a $10,000 BI)
 - **Recovery Stack vs. Payer Order as two separate questions** — Day 1 · Module 1, Lesson 2 — built on the Regulatory Triple-Check's Payer Order
 - **The three-criteria Skip-Trace gate** — Day 1 · Module 2 — the No Contact Protocol has the steps; the trigger rule is new
