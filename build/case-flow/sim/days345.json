@@ -1,225 +1,347 @@
 {
   "events": {
     "d3m1-a1": {
-      "date": "07/20/2026", "time": "8:05 a.m.",
+      "date": "07/20/2026",
+      "time": "8:05 a.m.",
       "channel": "memo",
       "from": "Atty. Elijah Thorne",
       "to": "Case Manager",
       "subject": "Keystone BI demand: final audit, then serve today",
       "body": "Terms are approved for Dana Whitfield: the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from receipt. The specialist's draft is attached. Audit it against the Big Four and the Final Scrub, log every deficiency as a task, and bring it back for my signature. It goes out today.",
-      "attachments": ["RS33", "RS16", "RS19"]
+      "attachments": [
+        "RS33",
+        "RS16",
+        "RS19"
+      ]
     },
     "d3m1-a2": {
-      "date": "08/31/2026", "time": "8:20 a.m.",
+      "date": "08/31/2026",
+      "time": "8:20 a.m.",
       "channel": "memo",
       "from": "Atty. Elijah Thorne",
       "to": "Case Manager",
       "subject": "Host UM and Relative UM demands: drafts for my review",
       "body": "BI is done: Keystone tendered $10,000 on 08/12, both consents are in, and the Limited Release was signed 08/28. The check isn't here yet. Draft the Host UM demand to Harbor Point for $20,000 and the Relative UM demand to Cardinal State for $10,000, as excess. Exhaustion on page one of each. Leave the response deadline blank for me.",
-      "attachments": ["RS36", "RS38", "RS28", "RS29", "RS35"]
+      "attachments": [
+        "RS36",
+        "RS38",
+        "RS28",
+        "RS29",
+        "RS35"
+      ]
     },
     "d3m2-a1": {
-      "date": "08/05/2026", "time": "10:12 a.m.",
+      "date": "08/05/2026",
+      "time": "10:12 a.m.",
       "channel": "email",
       "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
       "to": "Case Manager, LSH Law Group",
       "subject": "KM-26-440871 / John Doe: settlement offer",
       "body": "Following review of your time-limited demand, Keystone offers $3,500.00 to resolve the bodily injury claim. Your client waited two weeks before seeking any treatment, and the MRI findings are degenerative in nature. Our letter is attached. I'll call you this afternoon to discuss.",
-      "attachments": ["RS35"]
+      "attachments": [
+        "RS35"
+      ]
     },
     "d3m2-a2": {
-      "date": "09/14/2026", "time": "11:40 a.m.",
+      "date": "09/14/2026",
+      "time": "11:40 a.m.",
       "channel": "email",
       "from": "Marcus Bell <marcus.bell@harborpointins.example>",
       "to": "Case Manager, LSH Law Group",
       "subject": "HP-26-7741 / John Doe: Host UM offer",
       "body": "We have reviewed your Host UM demand. Harbor Point offers $8,000.00. Your client did not treat for two weeks after the accident, and the BI payment has already compensated him for much of this loss. Offer letter attached. Please let me know your client's position.",
-      "attachments": ["RS39"]
+      "attachments": [
+        "RS39"
+      ]
     },
     "d3m3-a1": {
-      "date": "10/06/2026", "time": "9:15 a.m.",
+      "date": "10/06/2026",
+      "time": "9:15 a.m.",
       "channel": "email",
       "from": "Dion Carver <dcarver@peachstatehealth.example>",
       "to": "Case Manager, LSH Law Group",
       "subject": "PSH-55017742 / John Doe: reimbursement claim status",
       "body": "Peach State Health Plan asserts its reimbursement right of $1,860.00, paid for the 05/15/2026 epidural injection at Crescent Pain & Spine. Please advise the status of any settlement and confirm our claim will be protected from the proceeds. Our notice of rights and the EOB are attached.",
-      "attachments": ["RS40", "RS26"]
+      "attachments": [
+        "RS40",
+        "RS26"
+      ]
     },
     "d3m3-a2": {
-      "date": "10/09/2026", "time": "2:30 p.m.",
+      "date": "10/09/2026",
+      "time": "2:30 p.m.",
       "channel": "email",
       "from": "Tammy Greer <tgreer@rivertonspinerehab.example>",
       "to": "Case Manager, LSH Law Group",
       "subject": "John Doe: final LOP ledger and balance due",
       "body": "Attached is John Doe's final itemized ledger under the 02/23/2026 Letter of Protection: 34 visits at $185.00, balance $6,290.00. We understand the case is settling. Please confirm when we can expect payment in full. Visit notes are attached for your records.",
-      "attachments": ["RS23", "RS14"]
+      "attachments": [
+        "RS23",
+        "RS14"
+      ]
     },
     "d3m4-a1": {
-      "date": "10/13/2026", "time": "4:02 p.m.",
+      "date": "10/13/2026",
+      "time": "4:02 p.m.",
       "channel": "alert",
       "from": "CMS",
       "to": "Case Manager",
       "subject": "Trust deposit posted: Cardinal State Mutual $10,000.00",
       "body": "IOLTA deposit logged: Cardinal State Mutual, CS-26-20355, $10,000.00, not yet cleared. Trust received to date: $40,000.00. Net Sheet: Recovery Ledger incomplete; Lien Tracker incomplete. Written acceptances on file: Peach State $1,240.00 (10/09), Riverton Spine & Rehab $4,580.00 (10/12). Complete both tabs before the Settlement Statement is drafted.",
-      "attachments": ["RS41", "RS42", "RS44"]
+      "attachments": [
+        "RS41",
+        "RS42",
+        "RS44"
+      ]
     },
     "d3m4-a2": {
-      "date": "08/14/2026", "time": "3:18 p.m.",
+      "date": "08/14/2026",
+      "time": "3:18 p.m.",
       "channel": "email",
       "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
       "to": "Case Manager, LSH Law Group",
       "subject": "KM-26-440871 / John Doe: release for signature",
       "body": "Attached is the release to conclude the bodily injury claim on Keystone's $10,000.00 tender. Please have Mr. Doe sign before a notary and return the original to me. The check will be issued once we receive the executed release.",
-      "attachments": ["RS37"]
+      "attachments": [
+        "RS37"
+      ]
     },
-
     "d4m1-a1": {
-      "date": "09/08/2026", "time": "8:10 a.m.",
+      "date": "09/08/2026",
+      "time": "8:10 a.m.",
       "channel": "memo",
       "from": "Atty. Elijah Thorne",
       "to": "Case Manager",
       "subject": "Keystone impasse: full memo today",
       "body": "Got your 09/04 escalation task. Keystone has said nothing since the 09/02 supervisor escalation. Before I decide anything, send me the full impasse memo today: every event since the 07/20 demand with its proof, Keystone's grounds, the stack as it stands, the SOL and our internal dates, and the questions you need me to answer.",
-      "attachments": ["RS49", "RS35", "RS04"]
+      "attachments": [
+        "RS49",
+        "RS35",
+        "RS04"
+      ]
     },
     "d4m1-a2": {
-      "date": "09/10/2026", "time": "8:00 a.m.",
+      "date": "09/10/2026",
+      "time": "8:00 a.m.",
       "channel": "memo",
       "from": "Atty. Elijah Thorne",
       "to": "Case Manager",
       "subject": "John Doe: suit authorized; move the file to Litigation",
       "body": "Yesterday I authorized suit against Robert Smith in the State Court of Riverton County, filing target 09/24/2026, and went over the fee tier with John. Transition the file today. Draft impasse notices to Harbor Point and Cardinal State, and preservation requests for the doorbell video and the Escape's data recorder, for my signature.",
-      "attachments": ["RS05", "RS28", "RS09"]
+      "attachments": [
+        "RS05",
+        "RS28",
+        "RS09"
+      ]
     },
     "d4m2-a1": {
-      "date": "12/10/2026", "time": "3:45 p.m.",
+      "date": "12/10/2026",
+      "time": "3:45 p.m.",
       "channel": "email",
       "from": "Atty. Elijah Thorne <ethorne@lshlawgroup.example>",
       "to": "Case Manager",
       "subject": "26-CV-04417: Scheduling Order entered; audit the calendar",
       "body": "The Scheduling Order was entered today; it's attached with the discovery Mercer mailed us on 12/01. While you were out, the calendar was re-keyed from the paper file: nothing verified, no alerts. Audit every entry against the order, the discovery and the SOL, correct what's wrong, and send me the correction log.",
-      "attachments": ["RS55", "RS54", "RS04"]
+      "attachments": [
+        "RS55",
+        "RS54",
+        "RS04"
+      ]
     },
     "d4m2-a2": {
-      "date": "04/05/2027", "time": "4:30 p.m.",
+      "date": "04/05/2027",
+      "time": "4:30 p.m.",
       "channel": "memo",
       "from": "Atty. Elijah Thorne",
       "to": "Case Manager",
       "subject": "UM arbitration invoked: rules matrix and your role",
       "body": "Harbor Point and Cardinal State dispute damages, citing the gap. Harbor Point has invoked its UM arbitration clause and Cardinal State joins: one binding arbitration before Laura Whitcomb, Esq., hearing 06/22/2027. Build me the ADR rules matrix, mediation against arbitration, docket the exhibit and brief dates today, and map what you do at the hearing.",
-      "attachments": ["RS58", "RS59", "RS57", "RS28"]
+      "attachments": [
+        "RS58",
+        "RS59",
+        "RS57",
+        "RS28"
+      ]
     },
     "d4m3-a1": {
-      "date": "03/04/2027", "time": "9:05 a.m.",
+      "date": "03/04/2027",
+      "time": "9:05 a.m.",
       "channel": "email",
       "from": "Atty. Elijah Thorne <ethorne@lshlawgroup.example>",
       "to": "Case Manager",
       "subject": "Mediation binder: due to Hon. Carla Benton (Ret.) 03/11",
       "body": "Mercer writes that Keystone “will not put a real number on the table” while our medical ledger is unverified. The draft binder carries Riverton at $6,290.00 and Crescent as an open balance. Rebuild it from the master index and audit it. Statement and binder go to Hon. Carla Benton (Ret.) by 03/11/2027; route everything to me first.",
-      "attachments": ["RS57", "RS23", "RS26", "RS53"]
+      "attachments": [
+        "RS57",
+        "RS23",
+        "RS26",
+        "RS53"
+      ]
     },
     "d4m3-a2": {
-      "date": "05/17/2027", "time": "7:30 a.m.",
+      "date": "05/17/2027",
+      "time": "7:30 a.m.",
       "channel": "alert",
       "from": "CMS",
       "to": "Case Manager",
       "subject": "Exhibit exchange in 16 days: Arbitration Binder not started",
       "body": "Hard date: exhibit exchange 06/02/2027 (Laura Whitcomb, Esq.; HP-26-7741, CS-26-20355). Arbitration Binder: 0 of 6 tabs built. Unsorted exhibit folder holds a Complaint draft, doorbell stills, the 09/08/2026 impasse memo and a Lien Sheet. Crescent Pain & Spine certified records: requested 05/05/2027, not received.",
-      "attachments": ["RS58", "RS50", "RS09", "RS31", "RS25"]
+      "attachments": [
+        "RS58",
+        "RS50",
+        "RS09",
+        "RS31",
+        "RS25"
+      ]
     },
     "d4m4-a1": {
-      "date": "02/22/2027", "time": "8:00 a.m.",
+      "date": "02/22/2027",
+      "time": "8:00 a.m.",
       "channel": "alert",
       "from": "CMS",
       "to": "Case Manager",
       "subject": "Record overdue 14 days: Riverton Spine & Rehab final ledger",
       "body": "Riverton Spine & Rehab's final itemized ledger, requested 02/08/2027, has not been received. It is a dependency for the Mediation Binder due 03/11/2027 (Hon. Carla Benton (Ret.), session 03/18/2027). Keystone's session attendee and authority: unconfirmed. No countermeasure rules are configured on this file.",
-      "attachments": ["RS23", "RS57", "RS49", "RS26"]
+      "attachments": [
+        "RS23",
+        "RS57",
+        "RS49",
+        "RS26"
+      ]
     },
     "d4m4-a2": {
-      "date": "05/24/2027", "time": "7:45 a.m.",
+      "date": "05/24/2027",
+      "time": "7:45 a.m.",
       "channel": "alert",
       "from": "CMS",
       "to": "Case Manager",
       "subject": "Bottleneck Log: 5 open items against the 06/02/2027 exchange",
       "body": "Open: (1) Crescent certified records, second request 05/19, not received. (2) Dr. Reyes's declaration: Lakeside says she is away until 06/01. (3) Cardinal State: hearing format and exchange method unconfirmed; supervisor escalation 05/21 unanswered. (4) Riverton's refreshed ledger shows $6,290.00. (5) Copy set: grayscale stills, no OCR.",
-      "attachments": ["RS58", "RS26", "RS23", "RS09", "RS20"]
+      "attachments": [
+        "RS58",
+        "RS26",
+        "RS23",
+        "RS09",
+        "RS20"
+      ]
     },
-
     "d5m1-a1": {
-      "date": "01/05/2027", "time": "7:30 a.m.",
+      "date": "01/05/2027",
+      "time": "7:30 a.m.",
       "channel": "alert",
       "from": "CMS",
       "to": "Case Manager",
       "subject": "Pleadings Log does not match the docket: 26-CV-04417",
       "body": "Reconciliation check, Pleadings Log against Docket Calendar: 5 mismatches. Unlogged: Affidavit of Service (Allied Process Services email, 10/16/2026); Certificate of Service (01/04/2027). Unfiled scan: scan_1210.pdf. Row “Interrogatories/RFPs” shows due 12/31/2026; calendar shows 01/04/2027. No row for Requests for Admission.",
-      "attachments": ["RS60", "RS52", "RS55", "RS54"]
+      "attachments": [
+        "RS60",
+        "RS52",
+        "RS55",
+        "RS54"
+      ]
     },
     "d5m1-a2": {
-      "date": "01/20/2027", "time": "11:20 a.m.",
+      "date": "01/20/2027",
+      "time": "11:20 a.m.",
       "channel": "email",
       "from": "Atty. Grant Mercer <gmercer@mercerhale.example>",
       "to": "Atty. Elijah Thorne; cc: Case Manager",
       "subject": "Doe v. Smith, 26-CV-04417: Notice of Deposition of Plaintiff",
       "body": "Please see the attached Notice of Videoconference Deposition of Plaintiff John Doe, set for 02/18/2027 at 10:00 a.m. with Riverton Court Reporting. The link will issue from the reporter. Please confirm your client's attendance.",
-      "attachments": ["RS56"]
+      "attachments": [
+        "RS56"
+      ]
     },
     "d5m2-a1": {
-      "date": "12/03/2026", "time": "9:40 a.m.",
+      "date": "12/03/2026",
+      "time": "9:40 a.m.",
       "channel": "memo",
       "from": "Atty. Elijah Thorne",
       "to": "Case Manager",
       "subject": "RFPs ask for every PD document: audit the Civic first",
       "body": "Mercer's requests came in the mail today; responses are due 01/04/2027. They ask for every document supporting the Property Damage claim, and the PD screen hasn't been touched since April. Audit the Civic's numbers before anything is produced, and flag what Keystone will argue about the unpaid days. Nothing goes out without my review.",
-      "attachments": ["RS54", "RS45", "RS46"]
+      "attachments": [
+        "RS54",
+        "RS45",
+        "RS46"
+      ]
     },
     "d5m2-a2": {
-      "date": "12/10/2026", "time": "10:05 a.m.",
+      "date": "12/10/2026",
+      "time": "10:05 a.m.",
       "channel": "email",
       "from": "Leah Moran <leah.moran@keystonemutual.example>",
       "to": "Case Manager, LSH Law Group",
       "subject": "KM-26-440871-PD / John Doe: final property damage position",
       "body": "Keystone's position is final: $792.00 for diminished value under our valuation formula and $0 for loss of use. The attached release covers all claims arising from the 02/06/2026 accident; please have Mr. Doe sign and return it and I'll issue payment. I'll call this afternoon to see if he'll take it.",
-      "attachments": ["RS48"]
+      "attachments": [
+        "RS48"
+      ]
     },
     "d5m3-a1": {
-      "date": "02/04/2027", "time": "8:30 a.m.",
+      "date": "02/04/2027",
+      "time": "8:30 a.m.",
       "channel": "memo",
       "from": "Atty. Elijah Thorne",
       "to": "Case Manager",
       "subject": "John Doe prep session 1 today: you open",
       "body": "John's first prep session is at 1:00 p.m. You take the first segment: his new number, the 02/18 logistics, the test call, the three pillars and the room rules. I'll listen, then take the substance. Have my gap set ready to share on screen. He's nervous; calm him with the process, not predictions.",
-      "attachments": ["RS56", "RS11", "RS12", "RS43", "RS19"]
+      "attachments": [
+        "RS56",
+        "RS11",
+        "RS12",
+        "RS43",
+        "RS19"
+      ]
     },
     "d5m3-a2": {
-      "date": "02/16/2027", "time": "9:00 a.m.",
+      "date": "02/16/2027",
+      "time": "9:00 a.m.",
       "channel": "memo",
       "from": "Atty. Elijah Thorne",
       "to": "Case Manager",
       "subject": "Mock cross at 2:00 p.m.: keep the Trap Log",
       "body": "Second prep session today. I'm running a mock cross: AI Mercer questions John, I defend and object. Your microphone stays muted. Log every trap with its time, Mercer's exact words and the record fact beside any mischaracterisation, plus each objection. I debrief John from your log, so route it to me before we finish.",
-      "attachments": ["RS53", "RS16", "RS20", "RS12", "RS10", "RS11"]
+      "attachments": [
+        "RS53",
+        "RS16",
+        "RS20",
+        "RS12",
+        "RS10",
+        "RS11"
+      ]
     },
     "d5m4-a1": {
-      "date": "11/12/2026", "time": "4:15 p.m.",
+      "date": "11/12/2026",
+      "time": "4:15 p.m.",
       "channel": "email",
       "from": "Atty. Elijah Thorne <ethorne@lshlawgroup.example>",
       "to": "Case Manager",
       "subject": "Smith's Answer filed: build the liability counter-package",
       "body": "Mercer filed Smith's Answer today (attached). It denies liability and pleads comparative negligence (out of turn, unbelted), causation (the gap, a “degenerative” MRI) and failure to mitigate. For each allegation, give me the evidence that answers it, its source, its authenticating witness and its chain of custody. Then list the questions only I can answer.",
-      "attachments": ["RS53", "RS07", "RS08", "RS09", "RS10", "RS11", "RS14"]
+      "attachments": [
+        "RS53",
+        "RS07",
+        "RS08",
+        "RS09",
+        "RS10",
+        "RS11",
+        "RS14"
+      ]
     },
     "d5m4-a2": {
-      "date": "10/08/2026", "time": "7:52 p.m.",
+      "date": "10/08/2026",
+      "time": "7:52 p.m.",
       "channel": "email",
       "from": "Miguel Santos, Allied Process Services <msantos@alliedprocess.example>",
       "to": "Case Manager, LSH Law Group",
       "subject": "Doe v. Smith, 26-CV-04417: non-service at 118 Larkspur Ln",
       "body": "Third attempt at 118 Larkspur Ln, Riverton, tonight at 6:40 p.m.: no answer, no vehicle. Prior attempts 10/01 and 10/05. A neighbor says Robert Smith moved out in August and left no forwarding address. Affidavit of non-service attached. Please advise how you want to proceed.",
-      "attachments": ["RS52"]
+      "attachments": [
+        "RS52"
+      ]
     }
   },
-
   "calls": {
     "d3m1-a1": {
       "who": "Dana Whitfield",
@@ -250,7 +372,7 @@
       "line": "The CM never accepts, rejects, counters or values; the offer goes to Atty. Thorne to convey."
     },
     "d3m3-a2": {
-      "who": "Tammy Greer, office manager (billing and LOP), Riverton Spine & Rehab",
+      "who": "Tammy Greer, Riverton Spine & Rehab",
       "role": "lienholder",
       "persona": "Office manager who runs billing and LOPs; protective of the practice's money; brisk; will deal if the math is fair and in writing.",
       "context": "10/09/2026. Riverton Spine & Rehab treated John Doe under an LOP signed 02/23/2026. Tammy's ledger shows 34 lines × $185.00 = $6,290.00; the 05/04/2026 line is a duplicate (33 visits, $6,105.00). The firm's approved Reduction Request is in her inbox. Recovery is capped at $40,000 of coverage. She defends the ledger first, concedes the duplicate when shown the dates, then agrees to $4,580.00 and asks, “So we have a deal?”",
@@ -292,7 +414,7 @@
       "line": "Filing, exposure and value are Atty. Thorne's calls; the CM documents and asks."
     },
     "d4m2-a1": {
-      "who": "Jenna Price, paralegal to Atty. Grant Mercer, Mercer & Hale LLP",
+      "who": "Jenna Price, Atty. Mercer's paralegal",
       "role": "paralegal",
       "persona": "Friendly, informal defense paralegal; trades favors; offers an extension “off the record” and hopes for one back.",
       "context": "12/10/2026, Track B, No. 26-CV-04417. Defendant's Interrogatories (25), RFPs (30) and RFAs (15) were mailed to Atty. Thorne 12/01/2026; responses due 01/04/2027 (30 days, plus 3 for mail, Sunday rolls to Monday). Unanswered RFAs may be deemed admitted. Jenna says Grant is fine with mid-January, “no need to put it in writing,” and asks the firm to return the favor on Smith's responses. She bristles at a written stipulation, then agrees to pass the request along.",
@@ -334,7 +456,7 @@
       "line": "The CM handles logistics only; damages, the gap and value are Atty. Thorne's."
     },
     "d5m1-a1": {
-      "who": "Jenna Price, paralegal to Atty. Grant Mercer, Mercer & Hale LLP",
+      "who": "Jenna Price, Atty. Mercer's paralegal",
       "role": "paralegal",
       "persona": "Polite but pointed defense paralegal; fishing for a concession that the Requests for Admission are deemed admitted.",
       "context": "01/05/2027, No. 26-CV-04417. Defendant's discovery, including 15 Requests for Admission, was mailed 12/01/2026; responses were due 01/04/2027. The firm's Certificate of Service shows John Doe's verified responses mailed to Atty. Mercer 01/04/2027; they have not arrived there yet. Jenna says nothing came in, calls the RFAs “deemed admitted,” and asks the CM to “just confirm” they were late. She accepts being told Atty. Thorne will respond today.",
@@ -404,63 +526,126 @@
       "line": "Margaret is not the client: the CM shares nothing on the case and never advises."
     }
   },
-
   "fallout": [
     {
-      "if": {"activity": "d3m1-a1", "check": 3},
-      "then": {"activity": "d3m2-a1",
-               "event": {"channel": "alert", "from": "CMS",
-                         "subject": "Calendar audit: no acceptance deadline on the BI demand",
-                         "body": "Keystone KM-26-440871: no service log, no return receipt filed and no 08/21/2026 deadline docketed. Dana Whitfield is calling with an offer, and the file cannot prove when her 30 days started. Atty. Thorne must be told before the call."}}
+      "if": {
+        "activity": "d3m1-a1",
+        "check": 3
+      },
+      "then": {
+        "activity": "d3m2-a1",
+        "event": {
+          "channel": "alert",
+          "from": "CMS",
+          "subject": "Calendar audit: no acceptance deadline on the BI demand",
+          "body": "Keystone KM-26-440871: no service log, no return receipt filed and no 08/21/2026 deadline docketed. Dana Whitfield is calling with an offer, and the file cannot prove when her 30 days started. Atty. Thorne must be told before the call."
+        }
+      }
     },
     {
-      "if": {"activity": "d3m2-a2", "check": 4},
-      "then": {"activity": "d3m4-a1",
-               "event": {"channel": "alert", "from": "CMS",
-                         "subject": "Trust reconciliation exception: Harbor Point check",
-                         "body": "Harbor Point's $20,000.00 check (received 10/05/2026) has no signed UM release filed before receipt and no same-day deposit entry. The Recovery Ledger cannot tie to the Trust Ledger; the Net Sheet is held for Atty. Thorne's review."}}
+      "if": {
+        "activity": "d3m2-a2",
+        "check": 4
+      },
+      "then": {
+        "activity": "d3m4-a1",
+        "event": {
+          "channel": "alert",
+          "from": "CMS",
+          "subject": "Trust reconciliation exception: Harbor Point check",
+          "body": "Harbor Point's $20,000.00 check (received 10/05/2026) has no signed UM release filed before receipt and no same-day deposit entry. The Recovery Ledger cannot tie to the Trust Ledger; the Net Sheet is held for Atty. Thorne's review."
+        }
+      }
     },
     {
-      "if": {"activity": "d3m3-a2", "check": 3},
-      "then": {"activity": "d3m4-a2",
-               "event": {"channel": "alert", "from": "CMS",
-                         "subject": "Disbursement hold: Riverton Spine & Rehab payoff unsigned",
-                         "body": "The $4,580.00 command to Riverton Spine & Rehab rests on a phone note, with no signed Payoff Letter. It cannot be queued, the 10/22/2026 disbursement waits, and nothing yet stops Riverton from balance-billing John Doe."}}
+      "if": {
+        "activity": "d3m3-a2",
+        "check": 3
+      },
+      "then": {
+        "activity": "d3m4-a2",
+        "event": {
+          "channel": "alert",
+          "from": "CMS",
+          "subject": "Disbursement hold: Riverton Spine & Rehab payoff unsigned",
+          "body": "The $4,580.00 command to Riverton Spine & Rehab rests on a phone note, with no signed Payoff Letter. It cannot be queued, the 10/22/2026 disbursement waits, and nothing yet stops Riverton from balance-billing John Doe."
+        }
+      }
     },
     {
-      "if": {"activity": "d3m4-a1", "check": 4},
-      "then": {"activity": "d3m4-a2",
-               "event": {"channel": "call", "from": "John Doe",
-                         "subject": "Client call before disbursement: future injections",
-                         "body": "John Doe: “Dr. Reyes said I might need more shots. Who pays for those after this?” No flag on the $3,400–$6,800 future care reached Atty. Thorne before John signed a full-and-final statement. Atty. Thorne must speak with him before funds move."}}
+      "if": {
+        "activity": "d3m4-a1",
+        "check": 4
+      },
+      "then": {
+        "activity": "d3m4-a2",
+        "event": {
+          "channel": "call",
+          "from": "John Doe",
+          "subject": "Client call before disbursement: future injections",
+          "body": "John Doe: “Dr. Reyes said I might need more shots. Who pays for those after this?” No flag on the $3,400–$6,800 future care reached Atty. Thorne before John signed a full-and-final statement. Atty. Thorne must speak with him before funds move."
+        }
+      }
     },
     {
-      "if": {"activity": "d4m2-a1", "check": 1},
-      "then": {"activity": "d5m1-a1",
-               "event": {"channel": "alert", "from": "CMS",
-                         "subject": "Discovery Countdown: no RFA entry ever existed",
-                         "body": "The 15 Requests for Admission never had a calendar entry, so no warning fired before 01/04/2027. Whether they were answered in time now rests on one unlogged Certificate of Service; unanswered RFAs may be deemed admitted."}}
+      "if": {
+        "activity": "d4m2-a1",
+        "check": 1
+      },
+      "then": {
+        "activity": "d5m1-a1",
+        "event": {
+          "channel": "alert",
+          "from": "CMS",
+          "subject": "Discovery Countdown: no RFA entry ever existed",
+          "body": "The 15 Requests for Admission never had a calendar entry, so no warning fired before 01/04/2027. Whether they were answered in time now rests on one unlogged Certificate of Service; unanswered RFAs may be deemed admitted."
+        }
+      }
     },
     {
-      "if": {"activity": "d4m3-a1", "check": 0},
-      "then": {"activity": "d4m4-a1",
-               "event": {"channel": "alert", "from": "CMS",
-                         "subject": "Binder audit: Riverton Spine & Rehab still at $6,290.00",
-                         "body": "Mediation Binder Section 4 still carries Riverton Spine & Rehab at $6,290.00, the 05/04/2026 duplicate included: medical $15,002.40 against the audited $14,817.40. The binder is due 03/11/2027, and Keystone already calls the ledger unverified."}}
+      "if": {
+        "activity": "d4m3-a1",
+        "check": 0
+      },
+      "then": {
+        "activity": "d4m4-a1",
+        "event": {
+          "channel": "alert",
+          "from": "CMS",
+          "subject": "Binder audit: Riverton Spine & Rehab still at $6,290.00",
+          "body": "Mediation Binder Section 4 still carries Riverton Spine & Rehab at $6,290.00, the 05/04/2026 duplicate included: medical $15,002.40 against the audited $14,817.40. The binder is due 03/11/2027, and Keystone already calls the ledger unverified."
+        }
+      }
     },
     {
-      "if": {"activity": "d4m3-a2", "check": 3},
-      "then": {"activity": "d4m4-a2",
-               "event": {"channel": "alert", "from": "CMS",
-                         "subject": "Exchange set audit: Lien Sheet overstated",
-                         "body": "The attorney's-set Lien Sheet still lists Harbor Point MedPay $5,000.00 and Summit Imaging $2,395.00, and Crescent as open. Liens actually owed: $7,965.00. A $7,395.00 overstatement sits nine days before the 06/02/2027 exchange."}}
+      "if": {
+        "activity": "d4m3-a2",
+        "check": 3
+      },
+      "then": {
+        "activity": "d4m4-a2",
+        "event": {
+          "channel": "alert",
+          "from": "CMS",
+          "subject": "Exchange set audit: Lien Sheet overstated",
+          "body": "The attorney's-set Lien Sheet still lists Harbor Point MedPay $5,000.00 and Summit Imaging $2,395.00, and Crescent as open. Liens actually owed: $7,965.00. A $7,395.00 overstatement sits nine days before the 06/02/2027 exchange."
+        }
+      }
     },
     {
-      "if": {"activity": "d5m3-a1", "check": 4},
-      "then": {"activity": "d5m3-a2",
-               "event": {"channel": "memo", "from": "Atty. Elijah Thorne",
-                         "subject": "Mock stopped: what did John review?",
-                         "body": "AI Mercer asked what John reviewed to prepare. John: “The notes the Case Manager gave me.” I stopped the mock. Anything you handed him may have to be disclosed. Send me every word you gave him before we resume."}}
+      "if": {
+        "activity": "d5m3-a1",
+        "check": 4
+      },
+      "then": {
+        "activity": "d5m3-a2",
+        "event": {
+          "channel": "memo",
+          "from": "Atty. Elijah Thorne",
+          "subject": "Mock stopped: what did John review?",
+          "body": "AI Mercer asked what John reviewed to prepare. John: “The notes the Case Manager gave me.” I stopped the mock. Anything you handed him may have to be disclosed. Send me every word you gave him before we resume."
+        }
+      }
     }
   ]
 }

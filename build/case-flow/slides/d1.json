@@ -413,10 +413,10 @@
   },
   "d1m4-a1": {
     "image": "calendar-gap",
-    "situation": "John Doe's treatment records have arrived. **DOL 02/06/2026**; **first treatment 02/20/2026**. Treatment thins out again partway through care.",
+    "situation": "John Doe's first treatment records have arrived. **DOL 02/06/2026**; **first treatment 02/20/2026**; chiropractic care began 02/24/2026.",
     "steps": [
       "Compute **the gap exactly** from DOL to first treatment",
-      "Record the initial gap **and the later disruption**",
+      "Record the gap; **watch for a later break** in care",
       "In the risks band, state how each is **used against the claim**",
       "List **likely causes** and the steps to explain them",
       "**Route the flag** to Atty. Thorne"
@@ -424,7 +424,7 @@
     "deliver": "A **precisely computed, prominently flagged** and routed treatment-gap record",
     "checks": [
       "Gap: **14 days, 02/06/2026 to 02/20/2026**",
-      "Initial gap **and later disrupted care** recorded",
+      "Gap recorded; **a watch set** for later breaks",
       "**Defense uses named**: not serious, recovered early, unnecessary, other causes",
       "Investigation steps: **client's explanation, documents, provider confirmation**",
       "Flag prominent in risks band; **routed to Atty. Thorne**"
@@ -432,7 +432,7 @@
     "dos": ["**Document the reason** for every interruption"],
     "donts": [
       "Writing **“about two weeks”** instead of exact dates",
-      "Recording the first gap but **not the later disruption**"
+      "Recording the gap but **setting no watch** for the next"
     ]
   },
   "d1m4-l2": {
@@ -466,7 +466,7 @@
       "Snapshot: record **the acceptance decision** and its reason",
       "Coverage stack and order, liability, **preliminary projection**, triple-check results",
       "Pillars: **measurable goals**; each action item with owner and date",
-      "Risks: **14-Day Gap and later disruption**, prominently, with consequences",
+      "Risks: **14-Day Gap and later breaks in care**, prominently, with consequences",
       "Docket the filing window, then **route to Atty. Thorne**"
     ],
     "deliver": "A complete, routed plan counsel could **set strategy from** without a follow-up question",
@@ -474,7 +474,7 @@
       "Snapshot: DOL 02/06/2026, SOL 02/06/2028, **client a passenger**",
       "Coverage **$10,000 / $20,000 / $10,000**, total $40,000",
       "Order **BI → Host UM → Relative UM**; projection preliminary",
-      "Risks band: **14-Day Gap and disrupted care**, with consequences",
+      "Risks band: **14-Day Gap and later breaks**, with consequences",
       "Plan **routed to Atty. Elijah Thorne** with a timestamp"
     ],
     "dos": ["If counsel must ask a question, **it isn't finished**"],

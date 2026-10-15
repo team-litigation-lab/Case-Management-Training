@@ -1,0 +1,576 @@
+{
+  "events": {
+    "d1m1-open": {
+      "date": "02/09/2026",
+      "time": "1:12 p.m.",
+      "channel": "email",
+      "from": "On the Records Intake (intake@ontherecords.example)",
+      "to": "Case Manager",
+      "subject": "New matter: John Doe — MVA 02/06/2026 (passenger)",
+      "body": "New file for LSH Law Group: John Doe, front-seat passenger, collision 02/06/2026 at Maple Hollow Rd and Birch Ave. Attached: the New Client Intake Sheet, intake supplement, the retainer and HIPAA authorization he signed here this morning, and the Riverton PD crash report. A colleague keyed a draft intake record into the CMS. Atty. Thorne wants the matter active today.",
+      "attachments": [
+        "RS01",
+        "RS02",
+        "RS05",
+        "RS06",
+        "RS07"
+      ]
+    },
+    "d1m3-a1": {
+      "date": "02/10/2026",
+      "time": "8:47 a.m.",
+      "channel": "voicemail",
+      "from": "John Doe (555) 010-2288",
+      "to": "Case Manager, ext. 214",
+      "subject": "Voicemail: John Doe — call from the other driver's insurance",
+      "body": "Hey, it's John Doe. I signed with Mr. Thorne yesterday. Somebody from Keystone Mutual, the other guy's insurance, called me last night asking what happened and if they could record it. I didn't know what to tell them. I haven't gotten anything from you guys yet. My neck's still stiff. Can you call me back? I'm on my mobile."
+    },
+    "d1m3-a2": {
+      "date": "02/11/2026",
+      "time": "8:05 a.m.",
+      "channel": "alert",
+      "from": "CMS",
+      "to": "Case Manager",
+      "subject": "Onboarding directions staged as task cards: review before activation",
+      "body": "LSH-2026-MVA-770412. John Doe's Direction Packet was delivered and logged 02/10/2026. Its directions are staged as draft task cards; a card cannot activate without an owner, a due date and a verification method. No treatment start is recorded, and no follow-up is on the calendar."
+    },
+    "d2m1-a1": {
+      "date": "02/17/2026",
+      "time": "8:20 a.m.",
+      "channel": "email",
+      "from": "Atty. Elijah Thorne (ethorne@lshlawgroup.example)",
+      "to": "Case Manager",
+      "subject": "John Doe: letters of representation go out today",
+      "body": "Claims are open: Keystone BI KM-26-440871 (Dana Whitfield) and PD (Leah Moran, who accepted PD liability this morning), Harbor Point HP-26-7741 (Marcus Bell, Host UM and MedPay), Cardinal State CS-26-20355, no adjuster yet. I want the three LORs, plus notices to Bluewater and Peach State, on my desk for signature today. Preferred delivery methods are in the Communications Log.",
+      "attachments": [
+        "RS01",
+        "RS07",
+        "RS32"
+      ]
+    },
+    "d1m1-a1": {
+      "date": "02/24/2026",
+      "time": "11:30 a.m.",
+      "channel": "letter",
+      "from": "Dana Whitfield, Keystone Mutual BI Claims",
+      "to": "Atty. Elijah Thorne, attn. Case Manager",
+      "subject": "Acknowledgment of bodily injury claim KM-26-440871 — insured Robert Smith",
+      "body": "Keystone Mutual acknowledges your representation of John Doe. Our insured's BI limit of $10,000.00 each person was discussed with your office by telephone at set-up. We will confirm that limit in writing, by a copy of the declarations page, on receipt of a written request with your client's signed authorizations, including form KM-BI 114, enclosed.",
+      "attachments": [
+        "RS32",
+        "RS01",
+        "RS07"
+      ]
+    },
+    "d2m1-a2": {
+      "date": "03/11/2026",
+      "time": "8:02 a.m.",
+      "channel": "alert",
+      "from": "CMS",
+      "to": "Case Manager",
+      "subject": "Past due: Keystone BI follow-up (03/05/2026) · Coverage Matrix flags",
+      "body": "LSH-2026-MVA-770412. Follow-up “Keystone BI: Declaration Page” was due 03/05/2026; nothing logged. The Coverage Matrix total reads $45,000; the Case Plan target is $40,000. New in Documents since the matrix was last edited: Harbor Point letter 03/02/2026, Cardinal State assignment 03/03/2026 and Coverage Letter 03/09/2026.",
+      "attachments": [
+        "RS28",
+        "RS29",
+        "RS32"
+      ]
+    },
+    "d1m1-a2": {
+      "date": "03/12/2026",
+      "time": "9:40 a.m.",
+      "channel": "email",
+      "from": "Dion Carver, Peach State Health Plan (dcarver@peachstatehealth.example)",
+      "to": "Case Manager",
+      "subject": "Member PSH-55017742 / GRP-41208 — accident-related claims",
+      "body": "Following our 02/27/2026 notice of reimbursement rights: Peach State Health Plan is processing accident-related claims for John Doe under the plan and will assert reimbursement from any recovery. Please confirm our claim is noted on your file, return the accident questionnaire, and notify this office before any settlement. Recovery file SRU-26-03318.",
+      "attachments": [
+        "RS40"
+      ]
+    },
+    "d1m4-a1": {
+      "date": "03/13/2026",
+      "time": "2:15 p.m.",
+      "channel": "alert",
+      "from": "CMS",
+      "to": "Case Manager",
+      "subject": "Records indexed: Riverton Urgent Care and first Riverton Spine & Rehab visits",
+      "body": "LSH-2026-MVA-770412. Riverton Urgent Care's 02/20/2026 note and Riverton Spine & Rehab's visits since 02/24/2026 are indexed to the treatment timeline beside the 02/06/2026 EMS run report. First treatment falls 14 days after the date of loss. Risk Flags: none recorded.",
+      "attachments": [
+        "RS12",
+        "RS11"
+      ]
+    },
+    "d1m4-a2": {
+      "date": "03/16/2026",
+      "time": "8:30 a.m.",
+      "channel": "memo",
+      "from": "Atty. Elijah Thorne",
+      "to": "Case Manager",
+      "subject": "Doe v. Smith: Case Plan to me today",
+      "body": "I need the full Case Plan on John Doe, all five bands, routed to me by end of day: the acceptance decision and why, the stack in order with a preliminary projection, liability, the triple-check, the three pillars with owners and dates, and the risks band. Docket the filing window. If I have to ask a question, it isn't finished.",
+      "attachments": [
+        "RS04",
+        "RS40"
+      ]
+    },
+    "d1m2-a1": {
+      "date": "02/16/2026",
+      "time": "9:00 a.m.",
+      "channel": "alert",
+      "from": "CMS",
+      "to": "Case Manager",
+      "subject": "No client contact: John Doe, 6 days",
+      "body": "LSH-2026-MVA-770412. Last logged contact with John Doe: 02/10/2026. Check-in call scheduled 02/13/2026: missed. Phone system shows two calls to his mobile ending in voicemail, neither in the Communications Log. No treatment start recorded. Emergency contact on file: Margaret Doe, (555) 010-2291. No Contact Protocol Step 1 due today."
+    },
+    "d1m2-a2": {
+      "date": "02/21/2026",
+      "time": "10:14 a.m.",
+      "channel": "email",
+      "from": "Atty. Elijah Thorne (ethorne@lshlawgroup.example)",
+      "to": "Case Manager",
+      "subject": "RE: Step 3 — John Doe, no contact",
+      "body": "Read your Step 3 note. Eleven days and no word from John, and no treatment that we know of. Draft the Final Warning Letter for my review Monday morning: every attempt with its date, a response date, how to reach us. Certified mail and email. Withdrawal is possible, not decided, and the letter says nothing about his claim.",
+      "attachments": [
+        "RS05"
+      ]
+    },
+    "d2m2-a1": {
+      "date": "02/23/2026",
+      "time": "8:52 a.m.",
+      "channel": "email",
+      "from": "Tammy Greer, Riverton Spine & Rehab (tgreer@rivertonspine.example)",
+      "to": "Case Manager",
+      "subject": "New patient John Doe, evaluation 02/24 — LOP needed",
+      "body": "John Doe is booked for his chiropractic and PT evaluation tomorrow, 02/24. We're out of network with Peach State, so before we see him we'll need a signed Letter of Protection and your HIPAA authorization. Can you get them to me today? Tammy Greer, Office Manager"
+    },
+    "d2m3-a1": {
+      "date": "03/04/2026",
+      "time": "8:15 a.m.",
+      "channel": "email",
+      "from": "Atty. Elijah Thorne (ethorne@lshlawgroup.example)",
+      "to": "Case Manager",
+      "subject": "John Doe: why 14 days?",
+      "body": "Urgent care's 02/20 note is in: onset at the MVA, numbness to the right hand since 02/18. EMS has neck stiffness on 02/06. Nobody has asked John why he waited 14 days. Get him on a recorded call today. Open questions, nothing suggested, and no opinions on what it means. GIRP note to me when you're done.",
+      "attachments": [
+        "RS12",
+        "RS11"
+      ]
+    },
+    "d2m2-a2": {
+      "date": "04/08/2026",
+      "time": "10:52 a.m.",
+      "channel": "email",
+      "from": "Tammy Greer, Riverton Spine & Rehab (tgreer@rivertonspine.example)",
+      "to": "Case Manager",
+      "subject": "Missed-visit alert: John Doe, LOP account RSR-26-0412",
+      "body": "Per your LOP dated 02/23/2026: John Doe missed 04/03 (no call) and 04/07. He told our front desk his rental ended and his ride is no longer available. He's booked 04/09 and 04/14 at 4:15 PM. Our 6:00 PM evening schedule is full until the week of 04/20; he's on the wait list. Please contact your client.",
+      "attachments": [
+        "RS14"
+      ]
+    },
+    "d2m3-a2": {
+      "date": "06/22/2026",
+      "time": "9:05 a.m.",
+      "channel": "memo",
+      "from": "Atty. Elijah Thorne",
+      "to": "Case Manager",
+      "subject": "Gap Justification Record before the pre-demand session",
+      "body": "Dr. Reyes's causation letter of 06/19 is in, and John reached MMI on 06/12. Before our pre-demand session I want the Gap Justification Record: both interruptions with exact dates, every reason beside the dated document that proves it, “account only” where there isn't one. Facts and citations, no argument. Run your defense-eye pass first.",
+      "attachments": [
+        "RS19",
+        "RS11",
+        "RS12",
+        "RS21"
+      ]
+    },
+    "d2m4-a1": {
+      "date": "07/01/2026",
+      "time": "8:40 a.m.",
+      "channel": "alert",
+      "from": "CMS",
+      "to": "Case Manager",
+      "subject": "Billing complete: Special Damages Audit due",
+      "body": "LSH-2026-MVA-770412. All billing indexed: Riverton Urgent Care, Riverton Spine & Rehab (34 lines), Lakeside Orthopedics, Summit Imaging, Crescent Pain & Spine with Peach State's EOB, Riverton Drug. Northgate HR's wage-and-attendance letter (06/30/2026) received. Task “Special Damages Audit and lien list” is due before the pre-demand session.",
+      "attachments": [
+        "RS22",
+        "RS23",
+        "RS24",
+        "RS25",
+        "RS26",
+        "RS21",
+        "RS43"
+      ]
+    },
+    "d2m4-a2": {
+      "date": "07/08/2026",
+      "time": "9:10 a.m.",
+      "channel": "email",
+      "from": "Atty. Elijah Thorne (ethorne@lshlawgroup.example)",
+      "to": "Case Manager",
+      "subject": "Doe v. Smith: pre-demand strategy session, 2:00 p.m. today",
+      "body": "I've read your audit. Strategy session on John Doe today at 2:00 p.m., my office. Bottom line first. Expect me to push the way Keystone will: low speed, the 14 days, the “degenerative” read. Bring the facts, the documents and the operational options. The decisions on the demand are mine.",
+      "attachments": [
+        "RS04",
+        "RS16",
+        "RS19",
+        "RS18"
+      ]
+    }
+  },
+  "calls": {
+    "d1m3-a1": {
+      "who": "John Doe",
+      "role": "client",
+      "persona": "Polite, tired and sore; rattled by the Keystone call. Wants plain answers. Will ask whether to talk to Keystone, whose fault it was, and what his case is worth.",
+      "context": "02/10/2026. Retainer signed 02/09; the matter is open; no onboarding packet has reached him. John, 34, a Northgate warehouse shift lead, was the front-seat passenger in coworker Kevin Alvarez's Escape on 02/06. Last night a Keystone Mutual caller asked to record his account; he said he'd think about it, and she said she'd call back. His neck is stiff; he hasn't seen anyone. His Civic was towed from the scene and he has no car. Calms with clear steps; repeats instructions back if asked.",
+      "opening": "Hey, it's John Doe, returning your call. So the other guy's insurance called me last night, a lady from Keystone, wanting to record what happened. She said she'd call back. What do I tell her?",
+      "goals": [
+        "Route all Keystone contact to the firm; no recorded statement",
+        "Confirm he understood by having him repeat the instruction",
+        "State the packet's treatment direction, since treatment hasn't begun",
+        "Confirm Property Damage details and the packet's delivery method"
+      ],
+      "line": "Give the firm's instructions only; fault, claim value and legal effect go to Atty. Thorne."
+    },
+    "d2m1-a2": {
+      "who": "Dana Whitfield",
+      "role": "adjuster",
+      "persona": "Seasoned BI adjuster, brisk and guarded. Considers the limit question answered. Fishes for treatment details and a demand number; commits to nothing in writing without being pinned.",
+      "context": "03/11/2026. Keystone BI claim KM-26-440871, insured Robert Smith, policy KMI-PA-7731045, DOL 02/06/2026. She gave the $10,000 per-person limit by phone at set-up, and her 02/24/2026 letter promised the declarations page once the firm's written request and signed authorizations arrived. They have been sent; nothing has come back. She says it is with underwriting. Asked for a specific date, she commits to sending it by 03/20/2026. She asks how John is treating and what the firm will demand.",
+      "opening": "Dana Whitfield. I've got about five minutes. If this is the dec page again, I gave your office the limit on the first call. Ten thousand per person. What else do you need?",
+      "goals": [
+        "Confirm Keystone received the written request and signed authorizations",
+        "Get a firm date for the Declaration Page in writing",
+        "Share no treatment detail or demand figure",
+        "Log the call and set the next follow-up by 03/13/2026"
+      ],
+      "line": "Verify coverage only: no demand figure, liability argument or treatment detail without Atty. Thorne's approval."
+    },
+    "d1m2-a1": {
+      "who": "Margaret Doe",
+      "role": "family",
+      "persona": "Warm, protective mother, wary of a law office calling. Worried about John. Will ask what is going on with his case and whether her own insurance is involved.",
+      "context": "02/16/2026. Margaret Doe, John's mother, is the emergency contact collected at intake; John lives with her at 2214 Maple Hollow Rd. The firm has not reached John since 02/10: a missed check-in call and two voicemails. He called out of work last week with his neck and has been texting her about the pain; as far as she knows he hasn't seen a doctor. She doesn't know why he hasn't called back. Her Cardinal State policy is on the file. She'll pass a message.",
+      "opening": "Hello? This is Margaret. You said you're with a law office, calling about John? Is he all right? He's not in some kind of trouble, is he?",
+      "goals": [
+        "Identify yourself and confirm she is the emergency contact on file",
+        "Ask her to have John call the firm by a set date",
+        "Confirm John's best phone number and current address",
+        "Disclose no case details; log date, time, channel and outcome"
+      ],
+      "line": "Share nothing about John's case and no advice on her policy; refer her questions to Atty. Thorne."
+    },
+    "d2m2-a2": {
+      "who": "John Doe",
+      "role": "client",
+      "persona": "Embarrassed and frustrated; short answers at first. In pain and defensive about the missed visits. Will ask if this ruins his case. Opens up when not judged.",
+      "context": "04/08/2026. Riverton Spine & Rehab reports John missed 04/03 and 04/07; last visit 04/02. Keystone ended his rental on 03/19 at its 30-day cap; his Civic is still waiting on parts; Kevin Alvarez's shift changed 04/01, ending the carpool. He has no ride to his 4:15 PM appointments. His neck and right arm still bother him. His mother Margaret works a day shift and could drive him in the evenings, but he only says so if asked who could help.",
+      "opening": "Yeah, I know, I missed a couple. I'm not blowing it off, I swear. I just don't have a way to get there anymore. Is this going to mess up my case?",
+      "goals": [
+        "Find the barrier and ask about his current symptoms",
+        "Build a transport plan from the options, saying why",
+        "Book evening slots with the clinic while John is on the line",
+        "No treatment advice and nothing on what missed visits mean"
+      ],
+      "line": "No advice to add, skip or stop care; questions about his claim go to Atty. Thorne."
+    },
+    "d2m3-a1": {
+      "who": "John Doe",
+      "role": "client",
+      "persona": "Guarded and expecting blame for the delay. Clipped answers to yes-or-no questions; talks freely to open ones. Agrees with any reason suggested to him. Asks if the gap hurts.",
+      "context": "03/04/2026, recorded call. John first treated 02/20/2026, 14 days after the collision. Asked openly, he gives four reasons in his own words: no car (Civic towed, Kevin's Escape in the shop, no rental until 02/18); thought it was soreness, took ibuprofen and lidocaine patches; unsure his new Peach State plan was active, never heard of MedPay; right-hand numbness from 02/18, worked 02/18–02/19, went in on his first day off. He texted his mother about it 02/07–02/15, called out of work 02/09–02/13, kept the 02/07 pharmacy receipt.",
+      "opening": "Hey, it's John. I'm on my break, sitting in the rental, so I've got about twenty minutes. What did you need to go over?",
+      "goals": [
+        "Open on record: date, parties, role, his consent, privacy confirmed",
+        "Draw out all four reasons with open, non-leading questions",
+        "Surface the texts, the call-outs and the 02/07 receipt",
+        "Read back his account; confirm 03/05 consult and post-03/19 transport"
+      ],
+      "line": "Never suggest a reason or say what the gap does to his case; route that to Atty. Thorne."
+    },
+    "d2m4-a2": {
+      "who": "Atty. Elijah Thorne",
+      "role": "attorney",
+      "persona": "Exacting senior trial lawyer, short on time. Plays the adjuster to test you. Wants facts, not adjectives; bristles at any valuation from staff.",
+      "context": "07/08/2026, before any demand. MMI 06/12; Specials $16,401.40 ($14,817.40 medical after the 05/04 duplicate came out, plus $1,584.00 wages); liens $1,860.00 Peach State and $6,105.00 LOP; targets $10,000 BI, $20,000 Host UM, $10,000 Relative UM. He pushes: low-speed impact, the 14-day gap, the “degenerative” MRI, and asks what the case is worth. Briefed well, he decides: a time-limited BI demand served 07/20/2026, the gap addressed up front, no UM demand before a documented BI tender, billed-vs-paid his call.",
+      "opening": "I've got twenty minutes. Bottom line first. Then tell me why Keystone shouldn't call this a low-speed bump with a guy who waited two weeks to see a doctor.",
+      "goals": [
+        "Lead with the bottom line: MMI, $16,401.40 Specials, $10,000 BI limit",
+        "Meet each challenge with dated documents, not adjectives",
+        "Get his decisions: demand, the gap, UM consents, billed-vs-paid",
+        "Read back each decision; task it with an owner and date"
+      ],
+      "line": "Recommend operations only; propose no demand figure and leave every legal decision to Atty. Thorne."
+    }
+  },
+  "fallout": [
+    {
+      "if": {
+        "activity": "d1m1-open",
+        "check": 1
+      },
+      "then": {
+        "activity": "d2m1-a1",
+        "event": {
+          "channel": "alert",
+          "from": "CMS",
+          "subject": "Letter merge blocked: client role reads “Driver”",
+          "body": "The Harbor Point and Cardinal State LORs will not generate: the matter record still lists John Doe as the driver. As driver of his own Civic he would reach neither Host UM nor Relative UM. Correct it from the Police Report before today's letters go."
+        }
+      }
+    },
+    {
+      "if": {
+        "activity": "d1m3-a1",
+        "check": 4
+      },
+      "then": {
+        "activity": "d2m1-a2",
+        "event": {
+          "channel": "email",
+          "from": "Dana Whitfield (dana.whitfield@keystonemutual.example)",
+          "subject": "RE: KM-26-440871 — your client's statement",
+          "body": "For your file: before your letter reached us, Mr. Doe told our caller on 02/11 that he “felt fine, just sore” and had no plans to see a doctor. That is in our claim notes and will be weighed against the treatment you are presenting."
+        }
+      }
+    },
+    {
+      "if": {
+        "activity": "d1m1-a1",
+        "check": 4
+      },
+      "then": {
+        "activity": "d1m4-a2",
+        "event": {
+          "channel": "memo",
+          "from": "Atty. Elijah Thorne",
+          "subject": "Case Plan returned: coverage band",
+          "body": "Your coverage band carries $40,000 with no source for any limit and no “preliminary” mark. I can't set strategy on numbers I can't trace. Put the document and date behind each limit, mark the projection preliminary where one is missing, and route it again."
+        }
+      }
+    },
+    {
+      "if": {
+        "activity": "d1m1-open",
+        "check": 3
+      },
+      "then": {
+        "activity": "d1m2-a1",
+        "event": {
+          "channel": "alert",
+          "from": "CMS",
+          "subject": "Calendar audit: no statute of limitations docketed",
+          "body": "Step 1 review cannot list live deadlines: LSH-2026-MVA-770412 has no SOL on the calendar and two roles still read “unknown”. SOL 02/06/2028 must be docketed with reminders before outreach continues; the gap is reported to Atty. Thorne."
+        }
+      }
+    },
+    {
+      "if": {
+        "activity": "d1m3-a2",
+        "check": 4
+      },
+      "then": {
+        "activity": "d1m2-a1",
+        "event": {
+          "channel": "alert",
+          "from": "CMS",
+          "subject": "Task audit: no treatment-start follow-up",
+          "body": "No task tracks whether John Doe has started treatment. His silence since 02/10/2026 surfaced only through today's no-contact flag, and six days have run with no provider, no first visit and no date to check against."
+        }
+      }
+    },
+    {
+      "if": {
+        "activity": "d2m2-a1",
+        "check": 2
+      },
+      "then": {
+        "activity": "d2m2-a2",
+        "event": {
+          "channel": "alert",
+          "from": "CMS",
+          "subject": "Treatment risk missed: rental end never calendared",
+          "body": "The rental's 03/19/2026 end date was recorded in John Doe's assessment but never calendared as a treatment risk. He lost his transport three weeks ago with no plan in place, and the firm is learning of it from the clinic's missed-visit alert."
+        }
+      }
+    },
+    {
+      "if": {
+        "activity": "d2m3-a1",
+        "check": 2
+      },
+      "then": {
+        "activity": "d2m3-a2",
+        "event": {
+          "channel": "alert",
+          "from": "CMS",
+          "subject": "Gap record: corroboration never requested",
+          "body": "No tasks exist for John Doe's texts to his mother, the 02/07/2026 Riverton Drug receipt or Northgate's call-out records. Those gap reasons stand as “account only” until the documents are chased, with the pre-demand session days away."
+        }
+      }
+    },
+    {
+      "if": {
+        "activity": "d1m1-a2",
+        "check": 3
+      },
+      "then": {
+        "activity": "d2m4-a1",
+        "event": {
+          "channel": "alert",
+          "from": "CMS",
+          "subject": "Lien Tracker: Peach State missing from the pre-demand list",
+          "body": "The pre-demand lien list pulls only dated, flagged liens. Peach State's $1,860.00 reimbursement claim, asserted 02/27/2026, never got a dated flag and is missing. The Net Sheet projection overstates John Doe's share by $1,860.00 until the record is fixed."
+        }
+      }
+    }
+  ],
+  "timeline": [
+    {
+      "date": "02/06/2026",
+      "label": "Collision · date of loss",
+      "track": ""
+    },
+    {
+      "date": "02/09/2026",
+      "label": "Intake · retainer and HIPAA signed",
+      "track": ""
+    },
+    {
+      "date": "02/17/2026",
+      "label": "LORs out · PD liability accepted",
+      "track": ""
+    },
+    {
+      "date": "02/20/2026",
+      "label": "First treatment · urgent care",
+      "track": ""
+    },
+    {
+      "date": "02/23/2026",
+      "label": "LOP · Riverton Spine & Rehab",
+      "track": ""
+    },
+    {
+      "date": "02/27/2026",
+      "label": "Peach State reimbursement notice",
+      "track": ""
+    },
+    {
+      "date": "03/13/2026",
+      "label": "Cervical MRI · C5-C6 herniation",
+      "track": ""
+    },
+    {
+      "date": "03/20/2026",
+      "label": "BI limit confirmed in writing",
+      "track": ""
+    },
+    {
+      "date": "04/02/2026",
+      "label": "Care disrupted · 19 days",
+      "track": ""
+    },
+    {
+      "date": "05/15/2026",
+      "label": "Cervical epidural steroid injection",
+      "track": ""
+    },
+    {
+      "date": "06/12/2026",
+      "label": "MMI · Lakeside Orthopedics",
+      "track": ""
+    },
+    {
+      "date": "06/19/2026",
+      "label": "Causation Letter · Dr. Reyes",
+      "track": ""
+    },
+    {
+      "date": "07/20/2026",
+      "label": "BI time-limited demand served",
+      "track": ""
+    },
+    {
+      "date": "08/05/2026",
+      "label": "Keystone offers $3,500 · the fork",
+      "track": ""
+    },
+    {
+      "date": "08/12/2026",
+      "label": "Keystone tenders $10,000 BI limits",
+      "track": "A"
+    },
+    {
+      "date": "08/21/2026",
+      "label": "Demand lapses unaccepted",
+      "track": "B"
+    },
+    {
+      "date": "09/08/2026",
+      "label": "Impasse memo to Atty. Thorne",
+      "track": "B"
+    },
+    {
+      "date": "09/24/2026",
+      "label": "Complaint filed · 26-CV-04417",
+      "track": "B"
+    },
+    {
+      "date": "09/29/2026",
+      "label": "Harbor Point pays $20,000",
+      "track": "A"
+    },
+    {
+      "date": "10/06/2026",
+      "label": "Cardinal State tenders $10,000",
+      "track": "A"
+    },
+    {
+      "date": "10/14/2026",
+      "label": "Smith served after skip-trace",
+      "track": "B"
+    },
+    {
+      "date": "10/22/2026",
+      "label": "Disbursement to John Doe",
+      "track": "A"
+    },
+    {
+      "date": "10/30/2026",
+      "label": "Closing memo · file closed",
+      "track": "A"
+    },
+    {
+      "date": "11/12/2026",
+      "label": "Answer filed · Mercer & Hale",
+      "track": "B"
+    },
+    {
+      "date": "01/04/2027",
+      "label": "Discovery responses due",
+      "track": "B"
+    },
+    {
+      "date": "02/18/2027",
+      "label": "John Doe deposed",
+      "track": "B"
+    },
+    {
+      "date": "03/18/2027",
+      "label": "Mediation · BI limits tendered",
+      "track": "B"
+    },
+    {
+      "date": "06/22/2027",
+      "label": "UM arbitration hearing",
+      "track": "B"
+    },
+    {
+      "date": "02/06/2028",
+      "label": "Statute of limitations",
+      "track": ""
+    }
+  ]
+}

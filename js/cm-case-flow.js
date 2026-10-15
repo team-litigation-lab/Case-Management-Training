@@ -488,10 +488,11 @@ function slideBody(view, l, d){
       return `<div class="cfx-sb">
         ${ev ? timelineStrip(ev.date, trackOfDay(day)) : ""}
         <div class="cfx-challenge"><span>“${E(b.title.toUpperCase())}”</span></div>
-        ${fall.map(x => `<div class="cfx-fall">${eventCard(x.f.then.event, "cfx-ev-fall")}${isTrainer() ? `<small class="cfx-fall-why">${x.done ? "Not shown to this trainee: they confirmed" : "Shown because this wasn't confirmed"}: “${E(x.what)}” (${E(x.f.if.activity)})</small>` : ""}</div>`).join("")}
+        ${fall.map(x => { const e = x.f.then.event, [icon] = CHANNEL[e.channel] || ["⚠️"];
+          return `<details class="cfx-fall"><summary><span class="cfx-fall-i">⚠️</span><b>${E(e.subject)}</b><span class="cfx-fall-from">${icon} ${E(e.from || "")}</span></summary>
+            <p>${E(e.body)}</p>${isTrainer() ? `<small class="cfx-fall-why">${x.done ? "Not shown to this trainee: they confirmed" : "Shown because this wasn't confirmed"}: “${E(x.what)}” (${E(x.f.if.activity)})</small>` : ""}</details>`; }).join("")}
         <div class="cfx-sb-grid">
-          <div class="cfx-sb-main">${ev ? eventCard(ev) : ""}
-            <div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div></div>
+          <div class="cfx-sb-main">${ev ? eventCard(ev) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}</div>
           <div class="cfx-sb-docs">${thumbs}</div>
         </div></div>`;
     }
@@ -1231,18 +1232,23 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfx-tl small{font:500 10.5px 'IBM Plex Mono',monospace;color:#9AA3BA;}
 .cfx-sb-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,.9fr);gap:16px;align-items:start;}
 .cfx-sb-main{display:flex;flex-direction:column;gap:10px;}
-.cfx-sb-docs .cfx-docs-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0;}
+.cfx-sb-docs .cfx-docs-row{display:grid;grid-template-columns:repeat(2,minmax(0,100px));justify-content:center;gap:10px 12px;margin:0;}
 .cfx-sb-docs .cfx-thumb{flex:none;}
-.cfx-sb-docs .cfx-thumb span{font-size:11px;}
+.cfx-sb-docs .cfx-thumb span{font-size:11px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .cfx-ev{background:#fff;color:#1F2433;border-radius:14px;border:2px solid #DB8437;padding:10px 14px;box-shadow:0 6px 18px rgba(0,0,0,.25);text-align:left;}
 .cfx-ev-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font:600 12.5px 'Inter',sans-serif;color:#5B6579;}
 .cfx-ev-i{font-size:16px;}.cfx-ev-ch{font:800 11px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#B5651F;}
 .cfx-ev-from{color:#262B45;}.cfx-ev-when{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11.5px;}
-.cfx-ev-subj{margin:4px 0 2px;font:800 17px/1.3 'Poppins','Inter',sans-serif;color:#262B45;}
-.cfx-ev-body{margin:0;font:500 15.5px/1.45 'Inter',sans-serif;color:#2C3142;}
+.cfx-ev-subj{margin:4px 0 4px;font:800 20px/1.3 'Poppins','Inter',sans-serif;color:#262B45;}
+.cfx-ev-body{margin:0;font:500 17px/1.5 'Inter',sans-serif;color:#2C3142;}
 .cfx-ev-att{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;}
 .cfx-ev-att a{font:600 12px 'Inter',sans-serif;color:#262B45;background:#F1F3F8;border-radius:999px;padding:3px 10px;text-decoration:none;}
-.cfx-fall{margin:0 0 10px;}
+.cfx-fall{margin:0 0 8px;background:#FFF5F2;border:2px solid #E0533D;border-radius:12px;color:#3A1D17;}
+.cfx-fall summary{cursor:pointer;display:flex;align-items:center;gap:10px;padding:7px 12px;font:700 15.5px/1.3 'Inter',sans-serif;list-style:none;}
+.cfx-fall summary::-webkit-details-marker{display:none;}
+.cfx-fall summary b{color:#9E2A1C;}.cfx-fall-from{margin-left:auto;font:600 12px 'Inter',sans-serif;color:#7A4A40;white-space:nowrap;}
+.cfx-fall p{margin:0;padding:0 14px 10px 40px;font:500 15.5px/1.45 'Inter',sans-serif;}
+.cfx-fall .cfx-fall-why{display:block;padding:0 14px 8px 40px;color:#B5651F;}
 .cfx-ev.cfx-ev-fall{border-color:#E0533D;background:#FFF5F2;}
 .cfx-ev-fall .cfx-ev-ch{color:#C0392B;}
 .cfx-fall-why{display:block;margin-top:4px;color:#F4B77A;font:600 12px 'Inter',sans-serif;}

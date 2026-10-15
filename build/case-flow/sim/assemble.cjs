@@ -22,7 +22,7 @@ const errors = [], err = m => errors.push(m);
 const wc = s => String(s || "").trim().split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)).length;
 const date = s => /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/20\d\d$/.test(s || "");
 const toTime = s => { const [m, d, y] = s.split("/").map(Number); return Date.UTC(y, m - 1, d); };
-const text = (at, s, max) => { if(typeof s !== "string" || !s.trim()) return err(`${at}: missing`); if(wc(s) > max) err(`${at}: ${wc(s)} words (max ${max})`); if(/<[a-z][^>]*>|blueprint/i.test(s)) err(`${at}: HTML or "blueprint"`); };
+const text = (at, s, max) => { if(typeof s !== "string" || !s.trim()) return err(`${at}: missing`); if(wc(s) > max) err(`${at}: ${wc(s)} words (max ${max})`); if(/<\/?(a|b|i|p|br|div|span|strong|em|img|script|style|ul|ol|li|table)\b[^>]*>|blueprint/i.test(s)) err(`${at}: HTML or "blueprint"`); };
 const CHANNELS = ["email", "call", "voicemail", "letter", "fax", "alert", "portal", "text", "memo"];
 const ROLES = ["client", "family", "adjuster", "provider", "attorney", "counsel", "paralegal", "lienholder", "mediator"];
 

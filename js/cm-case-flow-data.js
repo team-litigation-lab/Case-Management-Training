@@ -1564,15 +1564,15 @@ window.CM_CASE_FLOW = {
         kind: "activity", id: "d1m4-a1",
         title: "Identifying & Flagging the 14-Day Gap",
         topic: "Skill Activity 1 — find the fact that will decide this case",
-        visual: "A horizontal treatment timeline is the whole slide. Far left, a navy node: DOL · 02/06/2026. From it runs a conspicuous empty span, a hatched hollow orange band with no event markers, fourteen day-ticks wide, labelled NO TREATMENT · 14 DAYS. At its right end a node, FIRST TREATMENT · 02/20/2026, after which markers resume and then thin out again at a second, smaller hollow span labelled DISRUPTED CARE. Beneath, three consequence cards fan out from the hollow band on orange leader lines: CAUSATION CHALLENGE · VALUATION PRESSURE · CREDIBILITY ATTACK. The emptiness of the band is the message; never fill it with decoration.",
+        visual: "A horizontal treatment timeline is the whole slide. Far left, a navy node: DOL · 02/06/2026. From it runs a conspicuous empty span, a hatched hollow orange band with no event markers, fourteen day-ticks wide, labelled NO TREATMENT · 14 DAYS. At its right end a node, FIRST TREATMENT · 02/20/2026, after which visit markers begin, running into a dashed span ahead labelled WATCH: ANY LATER BREAK IN CARE. Beneath, three consequence cards fan out from the hollow band on orange leader lines: CAUSATION CHALLENGE · VALUATION PRESSURE · CREDIBILITY ATTACK. The emptiness of the band is the message; never fill it with decoration.",
         act: {
-          scenario: "John Doe's treatment records have arrived. The date of loss is 02/06/2026. The first treatment record is dated 02/20/2026. Treatment thins out again partway through the course of care.",
-          prompt: "Identify and flag the Treatment Gap in John Doe's file. Compute it exactly, record both the initial gap and the later disruption, and state in the risks band what each will be used for against the claim. List the likely causes you will investigate, and the steps needed before the gap can be explained. Then route the flag to Atty. Thorne.",
+          scenario: "John Doe's first treatment records have arrived. The date of loss is 02/06/2026. The first treatment record is dated 02/20/2026; chiropractic care at Riverton Spine & Rehab began on 02/24/2026.",
+          prompt: "Identify and flag the Treatment Gap in John Doe's file. Compute it exactly, record the initial gap, set the file to catch any later break in care, and state in the risks band what the gap will be used for against the claim. List the likely causes you will investigate, and the steps needed before the gap can be explained. Then route the flag to Atty. Thorne.",
           tool: "CMS → Case File → Risk Flags · Action Plan Editor → Risks",
           output: "A precisely computed, prominently flagged and routed treatment-gap record.",
           checkpoints: [
             "Gap computed as 14 days, 02/06/2026 to 02/20/2026",
-            "Both the initial gap and the later disrupted care recorded",
+            "Initial gap recorded, and a watch set for any later break in care",
             "Defense uses stated: injuries not serious; recovered earlier than claimed; treatment unnecessary; other causes",
             "Likely causes listed to investigate: missed appointments, transportation, cost or co-pays, work schedule, stopping after temporary relief, delayed referrals, imaging or authorizations",
             "Investigation steps recorded: the client's own explanation, supporting documents, provider confirmation",
@@ -1589,13 +1589,13 @@ window.CM_CASE_FLOW = {
           "Identify gaps early during record review, and document the reason for every interruption.",
           "A well-explained gap is less damaging than an unexplained one.",
           "Pitfall: “about two weeks” instead of the exact dates.",
-          "Pitfall: recording the first gap but not the later disruption."
+          "Pitfall: recording the gap but setting no watch for a later break in care."
         ],
         sources: ["D1#16", "D1#44", "D2#13"],
         rubric: {
           ai: [
             ["Gap computation", 25, "Exactly 14 days, dates correct"],
-            ["Both events recorded", 15, "Initial gap and later disruption both captured"],
+            ["Gap and watch", 15, "Initial gap captured and a later break in care watched for"],
             ["Defense uses and causes", 10, "The adjuster's arguments and the likely causes both named"],
             ["Routed", 10, "Flag routed to Atty. Thorne"]
           ],
@@ -1608,7 +1608,7 @@ window.CM_CASE_FLOW = {
           "This is Day 1's most consequential activity. Everything on Days 2 to 5 turns on this flag existing and being accurate.",
           "Insist on the exact count. “About two weeks” is not a flag; 02/06 to 02/20 is.",
           "Ask the room what the adjuster will say when they see this. Their answers become the Day 3 negotiation.",
-          "Trainees often record the gap but not the later disruption. Both matter; the second undercuts the “he got better” explanation for the first."
+          "Trainees often record the gap but set no watch for the next break in care. It comes in April (Case Flow Day 2), and a second break undercuts the “he got better” explanation for the first."
         ]
       },
 
@@ -1683,7 +1683,7 @@ window.CM_CASE_FLOW = {
         visual: "A full-slide editor canvas showing the live plan with all five bands stubbed and their required fields outlined in orange. A completion meter runs across the top in five segments that fill as each band is completed. The risks band carries a red required marker so it can't be skipped silently. Bottom-right, the ROUTE FOR REVIEW control is greyed out and locked until all five segments are filled, with a label: “all five bands required.” The lock is the argument: the tool won't let an incomplete plan reach counsel.",
         act: {
           scenario: "Everything from Day 1 is in the file: parties mapped, the $40,000 stack verified, the Regulatory Triple-Check cleared with the Health Plan's reimbursement right flagged, the onboarding packet delivered and tracked, and the 14-Day Treatment Gap identified. Atty. Thorne is waiting on the Case Plan.",
-          prompt: "Draft the complete Case Plan for John Doe v. Robert Smith. Fill all five bands from today's work: the acceptance decision with its reason; coverage as a stack with its order of operations, liability, and a preliminary projection; the triple-check results; Clinical, Functional and Financial pillars with measurable goals, each action item with an owner and a date; and the risks band with the 14-Day Gap and the later disruption, prominently, with their consequences. Docket the filing window, then route the plan to Atty. Thorne.",
+          prompt: "Draft the complete Case Plan for John Doe v. Robert Smith. Fill all five bands from today's work: the acceptance decision with its reason; coverage as a stack with its order of operations, liability, and a preliminary projection; the triple-check results; Clinical, Functional and Financial pillars with measurable goals, each action item with an owner and a date; and the risks band with the 14-Day Gap and the risk of a later break in care, prominently, with their consequences. Docket the filing window, then route the plan to Atty. Thorne.",
           tool: "Action Plan Editor",
           output: "A complete, routed Case Plan that counsel could set strategy from without asking a follow-up question.",
           checkpoints: [
@@ -1695,7 +1695,7 @@ window.CM_CASE_FLOW = {
             "Triple-check: HIPAA authorization, BCRC answer, Payer Order",
             "Clinical, Functional and Financial pillars each with a measurable goal",
             "Every action item has an owner and a date",
-            "Risks band: 14-Day Gap and later disrupted care, prominent, with consequences",
+            "Risks band: 14-Day Gap and the risk of a later break in care, prominent, with consequences",
             "Filing window docketed",
             "Plan routed to Atty. Elijah Thorne with a timestamp"
           ]
@@ -1714,7 +1714,7 @@ window.CM_CASE_FLOW = {
           ai: [
             ["Snapshot accuracy", 15, "Parties, DOL, SOL and client position all correct"],
             ["Coverage accuracy", 15, "Correct limits, total and order of operations"],
-            ["Risk flagging", 15, "The 14-day gap and the disruption both recorded with consequences"],
+            ["Risk flagging", 15, "The 14-day gap and the risk of a later break recorded with consequences"],
             ["Item discipline", 10, "No action item without an owner and a date"],
             ["Routing", 5, "Routed to Atty. Thorne with timestamp"]
           ],
