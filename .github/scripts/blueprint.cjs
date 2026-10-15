@@ -5,7 +5,8 @@
 // - a trainee has no Trainer blueprint (it doesn't open, and Orientation isn't theirs);
 // - a trainer's 🧭 Orientation has the Trainee / Trainer blueprint tabs; 🛠 Trainer blueprint opens the
 //   trainer deck with both tabs, ◀ ▶ and the keys go through every slide, each fits on a laptop and on a
-//   phone, Esc closes it, and the Trainee tab goes back to Orientation;
+//   phone, Esc closes it, and the Trainee tab swaps to the trainee deck in place (both decks are drawn by
+//   the same engine, on the same cover and the same slide layout);
 // - the numbering: the cover, then 1 to N (N slides, not counting the cover), the same everywhere. The counter
 //   under the slides reads "Cover · N slides" on the cover and "k / N" on slide k, the slide's footer "k / N",
 //   the contents buttons ★, 1 … N; the last slide reads "N / N", never N+1;
@@ -112,9 +113,13 @@ async function walk(page, label) {
     const titles = await page.evaluate(() => LSHBlueprint.decks().trainer.slides.map(s => s.title.replace(/[^\x00-\xff]/g, '').trim()));
     const missing = titles.filter(x => !pdf.text.includes(x)); if (missing.length) fail(`the Trainer blueprint PDF is missing: ${missing.join(' | ')}`);
     if (/chartswap|casepeer/i.test(pdf.text)) fail('the Trainer blueprint names another product');
+    // the Trainee blueprint is a deck of its own now, on the same cover and the same slide layout:
+    // its tab swaps the deck in place rather than leaving for Orientation
     await page.click('#lbp-tabs button[data-deck="trainee"]'); await page.waitForTimeout(300);
-    const back = await page.evaluate(() => ({ open: LSHBlueprint.isOpen(), view: state.view }));
-    if (back.open || back.view !== 'orientation') fail(`the Trainee blueprint tab should go back to Orientation: ${JSON.stringify(back)}`);
+    const tr = await page.evaluate(() => ({ open: LSHBlueprint.isOpen(), deck: document.getElementById('lbp-slide').dataset.deck, n: (LSHBlueprint.decks().trainee || { slides: [] }).slides.length, count: document.getElementById('lbp-count').textContent.trim() }));
+    if (!tr.open || tr.deck !== 'trainee' || !tr.n) fail(`the Trainee blueprint tab should open the trainee deck in place: ${JSON.stringify(tr)}`);
+    if (tr.count !== `Cover · ${tr.n} slides`) fail(`the Trainee blueprint opened with the counter reading "${tr.count}", not "Cover · ${tr.n} slides"`);
+    (await walk(page, 'trainee 1366px')).out.forEach(fail);
     await page.evaluate(() => { location.hash = '#/orientation'; location.hash = '#/blueprint'; }); await page.waitForTimeout(400); await page.keyboard.press('Escape');
     if (await page.evaluate(() => LSHBlueprint.isOpen())) fail('Esc didn\'t close the Trainer blueprint');
 
@@ -123,7 +128,7 @@ async function walk(page, label) {
         const sets = [];
         const realSet = window.sharedSet;
         window.sharedSet = async (k, v) => { if (k === 'blueprint:pdf') sets.push(v.deploy || ''); return realSet(k, v); };
-        window.buildOrientationPdfDoc = async () => ({ output: () => 'data:application/pdf;base64,JVBERi0xLjQK' });
+        LSHBlueprint.doc = async () => ({ output: () => 'data:application/pdf;base64,JVBERi0xLjQK', getNumberOfPages: () => 1 });
         const run = async () => { lshBlueprintDeployment.reset(); state.blueprintJob = false; await autoPublishBlueprint(); return sets.length; };
         const r = { first: await run(), same: await run() };
         return r;
