@@ -1,0 +1,76 @@
+/* The case documents' shared look (John Doe v. Robert Smith). Letter size; the renderer adds the
+   training footer on every page. Classes:
+   .letterhead (.lh-name, .lh-sub, .lh-right)  · .title · .subtitle · .meta (key: value rows)
+   .caption (court caption: .court, .parties, .caseno)  · .grid (form fields: .f > label + .v)
+   table.ledger (th, td.num, tr.total) · .box · .note · .stamp (.stamp.red, .stamp.blue)
+   .sig (signature block: .sig-line, .sig-name)  · .handwritten · .small · .muted · .page-break
+   .frame (a drawn photo / video still: .frame-label, .frame-time) · .redact */
+@page { size: Letter; margin: 0.7in 0.75in 0.85in; }
+* { box-sizing: border-box; }
+body { font-family: "Liberation Serif", "Times New Roman", Times, serif; font-size: 11pt; line-height: 1.38; color: #111; margin: 0; }
+.sans, .form, .grid, table.ledger, .letterhead .lh-sub, .meta { font-family: "Liberation Sans", Arial, Helvetica, sans-serif; }
+h1, h2, h3 { margin: 0.6em 0 0.3em; line-height: 1.2; }
+h1 { font-size: 15pt; } h2 { font-size: 12.5pt; } h3 { font-size: 11pt; }
+p { margin: 0 0 0.6em; }
+ul, ol { margin: 0 0 0.6em; padding-left: 1.3em; }
+.small { font-size: 9pt; } .muted { color: #555; } .center { text-align: center; } .right { text-align: right; }
+.page-break { page-break-after: always; break-after: page; height: 0; }
+
+/* letterheads */
+.letterhead { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.5px solid #1f2a44; padding-bottom: 6px; margin-bottom: 14px; }
+.letterhead .lh-name { font-family: "Liberation Sans", Arial, sans-serif; font-weight: 700; font-size: 16pt; letter-spacing: .02em; color: #1f2a44; }
+.letterhead .lh-sub { font-size: 8.5pt; color: #333; }
+.letterhead .lh-right { text-align: right; font-family: "Liberation Sans", Arial, sans-serif; font-size: 8.5pt; color: #333; }
+.letterhead.green { border-color: #1d5c3a; } .letterhead.green .lh-name { color: #1d5c3a; }
+.letterhead.red { border-color: #8a1c1c; } .letterhead.red .lh-name { color: #8a1c1c; }
+.letterhead.teal { border-color: #0d5c63; } .letterhead.teal .lh-name { color: #0d5c63; }
+.letterhead.plain { border-color: #000; } .letterhead.plain .lh-name { color: #000; }
+
+.title { font-family: "Liberation Sans", Arial, sans-serif; font-size: 14pt; font-weight: 700; text-align: center; text-transform: uppercase; letter-spacing: .03em; margin: 6px 0 2px; }
+.subtitle { text-align: center; font-size: 10pt; color: #333; margin-bottom: 12px; }
+.meta { font-size: 9.5pt; margin: 0 0 10px; }
+.meta div { display: flex; gap: 8px; } .meta b { min-width: 120px; display: inline-block; }
+
+/* court caption */
+.caption { margin: 4px 0 14px; }
+.caption .court { text-align: center; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+.caption .row { display: flex; }
+.caption .parties { flex: 1 1 60%; border-right: 1px solid #000; padding-right: 12px; }
+.caption .caseno { flex: 1 1 40%; padding-left: 14px; display: flex; flex-direction: column; justify-content: center; }
+.caption .doc-title { text-align: center; font-weight: 700; text-transform: uppercase; margin: 14px 0 10px; }
+
+/* forms */
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #555; border-bottom: 0; border-right: 0; font-size: 9pt; margin: 6px 0 10px; }
+.grid.c2 { grid-template-columns: repeat(2, 1fr); } .grid.c3 { grid-template-columns: repeat(3, 1fr); } .grid.c6 { grid-template-columns: repeat(6, 1fr); }
+.grid .f { border-right: 1px solid #555; border-bottom: 1px solid #555; padding: 3px 5px 4px; min-height: 30px; }
+.grid .f.s2 { grid-column: span 2; } .grid .f.s3 { grid-column: span 3; } .grid .f.s4 { grid-column: span 4; } .grid .f.s6 { grid-column: span 6; }
+.grid .f label { display: block; font-size: 6.8pt; text-transform: uppercase; letter-spacing: .04em; color: #444; }
+.grid .f .v { font-family: "Liberation Mono", "Courier New", monospace; font-size: 9.5pt; }
+.grid .sec { grid-column: 1 / -1; background: #1f2a44; color: #fff; font-weight: 700; font-size: 8pt; letter-spacing: .06em; text-transform: uppercase; padding: 2px 6px; border-right: 1px solid #555; border-bottom: 1px solid #555; }
+.check::before { content: "☐ "; } .checked::before { content: "☒ "; }
+
+/* tables */
+table.ledger { width: 100%; border-collapse: collapse; font-size: 9pt; margin: 6px 0 10px; }
+table.ledger th { background: #e9ecf3; text-align: left; font-weight: 700; border: 1px solid #888; padding: 3px 5px; }
+table.ledger td { border: 1px solid #aaa; padding: 2.5px 5px; vertical-align: top; }
+table.ledger td.num, table.ledger th.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+table.ledger tr.total td { font-weight: 700; border-top: 2px solid #333; background: #f6f7fa; }
+table.ledger.compact td, table.ledger.compact th { padding: 1.5px 4px; font-size: 8.5pt; }
+
+.box { border: 1px solid #333; padding: 8px 10px; margin: 8px 0; }
+.note { background: #f4f4f4; border-left: 3px solid #888; padding: 6px 9px; font-size: 9.5pt; margin: 8px 0; }
+.stamp { display: inline-block; border: 2.5px solid #1f2a44; color: #1f2a44; font-family: "Liberation Sans", Arial, sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 3px 9px; transform: rotate(-4deg); font-size: 10pt; opacity: .85; }
+.stamp.red { border-color: #a11; color: #a11; } .stamp.blue { border-color: #1d4fa0; color: #1d4fa0; }
+.handwritten { font-family: "URW Chancery L", "Z003", "Comic Sans MS", cursive; font-size: 13pt; color: #0b2a6b; }
+
+/* signatures */
+.sig { margin-top: 22px; display: inline-block; min-width: 240px; margin-right: 36px; vertical-align: top; }
+.sig .sig-line { border-bottom: 1px solid #000; height: 26px; display: flex; align-items: flex-end; }
+.sig .sig-name { font-size: 9.5pt; margin-top: 2px; }
+
+/* drawn photos / video stills */
+.frames { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 8px 0; }
+.frame { border: 1px solid #333; height: 150px; position: relative; background: repeating-linear-gradient(135deg, #d9d9d9 0 8px, #cfcfcf 8px 16px); }
+.frame .frame-label { position: absolute; left: 8px; right: 8px; top: 50%; transform: translateY(-50%); text-align: center; font-family: "Liberation Sans", Arial, sans-serif; font-size: 9pt; background: rgba(255,255,255,.85); padding: 4px; }
+.frame .frame-time { position: absolute; right: 6px; bottom: 4px; font-family: "Liberation Mono", monospace; font-size: 8pt; background: #000; color: #fff; padding: 1px 4px; }
+.redact { background: #000; color: #000; }

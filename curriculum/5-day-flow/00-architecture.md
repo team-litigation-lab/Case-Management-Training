@@ -11,6 +11,7 @@
 | `build/case-flow/curriculum.cjs` | Writes `dayN.md` and `traceability.md` from the data, and validates the curriculum's rules. |
 | `curriculum/5-day-flow/day1.md` … `day5.md` | The per-block curriculum spec, one file a day (generated). |
 | `curriculum/5-day-flow/case-file.md` | The canonical case file: every party, date, bill, offer, lien and deadline the five days use. |
+| `build/case-flow/documents/` | The case documents (60, `documents/case-flow/`): `SPEC.md` (each document's facts, plants and trainer key), the sources, the renderer and the audit. Metadata and each activity's documents: `js/cm-case-flow-docs.js`. |
 | `curriculum/5-day-flow/traceability.md` | Where every existing topic's theory lives now (generated). |
 
 ---

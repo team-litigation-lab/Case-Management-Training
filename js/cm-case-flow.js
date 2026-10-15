@@ -361,7 +361,7 @@ function card(l, i, d, part){
         + rubricHtml(b.rubric);
   }else if(b.kind === "activity"){
     body = p === 1
-      ? S(1, "Let Them — the scenario", `<div class="scenario-card"><div class="stag">John Doe v. Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
+      ? S(1, "Let Them — the scenario", `<div class="scenario-card"><div class="stag">John Doe v. Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>${docLine(b.id)}`)
         + S(2, "Let Them — execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p>
             <div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div>
             ${/CMS/.test(b.act.tool) && typeof openCms === "function" ? `<button type="button" class="btn btn-navy btn-sm" onclick="openCms()">Open CMS</button>` : ""}</div>`)
@@ -651,7 +651,7 @@ function caseFlowProfile(archiveLink){
     <div class="client-intro-banner"><div class="cib-tag">📌 Your Client</div><h2>One file, from intake to deposition</h2>
       <p>${E(c.client.name)}, ${E(c.client.position.toLowerCase())}, is your client for the whole course: ${E(c.no)} · Lead Counsel ${E(c.counsel)} · ${E(money(c.total))} recovery stack · ${E(c.gapDays)}-Day Treatment Gap.</p>
       <p>This profile grows with the file. Each section opens with the day it belongs to, and what a day's work produces (the audited specials, the reasons for the gap, the net sheet, the calendar) opens once you pass that day, so work it out from the documents first.</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-navy btn-sm" onclick="goto('day',${cfIdOf(pos)})">Open Case Flow Day ${pos}</button></div></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-navy btn-sm" onclick="goto('day',${cfIdOf(pos)})">Open Case Flow Day ${pos}</button><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.docsArchived ? cmCaseFlow.docsArchived(false) : goto('casedocs')">📁 Open the Case Documents</button>${typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS</button>` : ""}</div></div>
     <div class="profile-grid">${shown.map(x => `<div class="card profile-section"><h3>${E(x.title)}</h3><ul>${x.items.map(i => `<li>${E(i)}</li>`).join("")}</ul></div>`).join("")}
       ${gates.map(g => `<div class="card profile-section cf-prof-lock"><h3>🔒 ${E(g.k)}</h3><ul>${g.t.map(t => `<li>${E(t)}</li>`).join("")}</ul></div>`).join("")}</div>
     ${archiveLink ? `<div class="cf-archived-link"><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.archived(true)">🗄 Archived: the John Doe v. Apex case file</button>
@@ -677,6 +677,54 @@ if(typeof window.renderClientProfile === "function"){
   };
   window.cmCaseFlow.profile = () => show(false);   // the dashboard's "Case profile" button
   window.cmCaseFlow.archived = show;
+}
+
+/* ---------- the case documents: John Doe v. Robert Smith (js/cm-case-flow-docs.js) ----------
+   The Documents page is this file's document set for every trainee on the Case Flow, each document
+   opening with its Case Flow day (trainers see them all). The John Doe v. Apex and Jordan Davies
+   documents are archived: whole for a trainee on the archived version, one click away for trainers
+   (and trainees given the archived days too). Each Skill Activity names the documents it works from. */
+const CF_DOCS = window.CM_CF_DOCS || [], CF_FOLDERS = window.CM_CF_DOC_FOLDERS || [], CF_PACKETS = window.CM_CF_DOC_PACKETS || {};
+if(typeof window.cmDoc === "function"){
+  const __doc = window.cmDoc;
+  window.cmDoc = id => __doc(id) || CF_DOCS.find(d => d.id === id);
+}
+const docUrl = d => typeof cmDocUrl === "function" ? cmDocUrl(d) : "documents/" + d.file;
+function docLine(blockId){
+  const docs = (CF_PACKETS[blockId] || []).map(id => CF_DOCS.find(d => d.id === id)).filter(Boolean);
+  if(!docs.length) return "";
+  return `<div class="cf-docline"><b>📁 Work from</b>${docs.map(d => `<a href="${E(docUrl(d))}" target="_blank" rel="noopener" title="${E(d.desc)}">${E(d.title)}</a>`).join("")}</div>`;
+}
+const docOpen = d => !!(state.isAdmin || state.adminPreview) || dayUnlocked(cfIdOf(d.day));
+function caseFlowDocuments(archiveLink){
+  const shown = CF_DOCS.filter(docOpen), locked = CF_DOCS.filter(d => !docOpen(d));
+  const tpl = (window.CM_DOCS || []).filter(d => d.folder === "templates");
+  const row = d => `<div class="cm-doc-row"><div><span class="t">${E(d.title)}</span> <span style="font-size:11px;color:var(--ink-soft)">· ${d.folder === "templates" ? "Any day" : "Case Flow Day " + d.day}</span><div class="d">${E(d.desc)}</div>${state.isAdmin && d.key ? `<div class="cm-key">🔑 ${E(d.key)}</div>` : ""}</div>
+      <div style="display:flex;gap:6px;align-items:center"><span class="cms">CMS: ${E(d.cms)}</span><a class="btn btn-ghost btn-sm" href="${E(docUrl(d))}" target="_blank" rel="noopener">${/\.(docx|xlsx)$/i.test(d.file) ? "Download" : "Open"}</a></div></div>`;
+  const folders = CF_FOLDERS.map(fo => ({fo, items: shown.filter(d => d.folder === fo.id), later: locked.filter(d => d.folder === fo.id).length})).filter(x => x.items.length || x.later);
+  return `<p class="eyebrow">Case Documents</p>
+    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">📁 Case Documents: ${E(CF.case.style)}</h1>
+    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 14px">The working file for John Doe v. Robert Smith: intake, police and video, medical records and bills, the carriers' policies and letters, liens, the Civic's property damage, and (Track B) the lawsuit. Each document opens with its Case Flow day, and each Skill Activity lists the ones it works from. Each shows the <b>CMS upload category</b> to use when you add it to the case in the CMS. Read them the way a Case Manager does: verify every fact against its source, and flag what doesn't match.</p>
+    <div class="cm-filter"><button class="btn btn-sm btn-ghost" onclick="openCms()">🗂 Open CMS</button></div>
+    ${state.isAdmin ? `<div class="card" style="padding:12px 16px;margin-bottom:16px;border-left:4px solid var(--danger);font-size:12.8px">🔑 <b>Trainer view:</b> the red notes under each document are the audit key: planted discrepancies and what a strong trainee should catch. Trainees don't see them. Every document's plants are listed in build/case-flow/documents/SPEC.md.</div>` : ""}
+    ${folders.map(({fo, items, later}) => `<div class="card cm-lib-folder" style="padding:14px 18px"><h3>${fo.icon} ${E(fo.label)} <span style="font-weight:500;color:var(--ink-soft);font-size:12px">(${items.length})</span></h3>
+      ${items.map(row).join("")}${later ? `<div class="cf-note">🔒 ${later} more open with later Case Flow days.</div>` : ""}</div>`).join("")}
+    ${tpl.length ? `<div class="card cm-lib-folder" style="padding:14px 18px"><h3>📝 Templates &amp; Blank Forms <span style="font-weight:500;color:var(--ink-soft);font-size:12px">(${tpl.length})</span></h3>${tpl.map(row).join("")}</div>` : ""}
+    ${archiveLink ? `<div class="cf-archived-link"><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.docsArchived(true)">🗄 Archived: the John Doe v. Apex and Jordan Davies documents</button>
+      <span class="cf-note">The earlier version's document set, kept for the Apex days and their Skill Builders.</span></div>` : ""}`;
+}
+if(typeof window.renderCaseDocuments === "function" && CF_DOCS.length){
+  const __docs = window.renderCaseDocuments;
+  window.renderCaseDocuments = function(){
+    const v = track();
+    if(v === "classic") return __docs.apply(this, arguments);   // the archived version's documents, as they were
+    if(v === "caseflow") return caseFlowDocuments(false);
+    return state.cfDocsArchived
+      ? `<div class="cf-archived-bar"><span><b>🗄 Archived</b> · the John Doe v. Apex and Jordan Davies documents, kept for the earlier version's days.</span>
+          <button class="btn btn-navy btn-sm" onclick="cmCaseFlow.docsArchived(false)">← John Doe v. Robert Smith documents</button></div>` + __docs.apply(this, arguments)
+      : caseFlowDocuments(true);
+  };
+  window.cmCaseFlow.docsArchived = function(on){ state.cfDocsArchived = !!on; if(state.view !== "casedocs" && typeof goto === "function") return goto("casedocs"); render(); window.scrollTo(0, 0); };
 }
 
 /* ---------- styles: only what the course's own classes don't already give ---------- */
@@ -752,6 +800,10 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cf-dash-head h2{margin:2px 0 6px;color:var(--navy);font-size:22px;}
 .cf-dash-head p:not(.eyebrow){margin:0 0 12px;max-width:90ch;color:var(--ink-soft);font-size:14px;}
 .cf-soon .module-body{opacity:.8;}
+.cf-docline{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;margin:8px 0 0;font-size:12.5px;}
+.cf-docline b{font-size:12px;color:var(--navy);}
+.cf-docline a{color:var(--navy-soft);text-decoration:underline;text-decoration-color:var(--orange-soft);text-underline-offset:2px;}
+.cf-docline a:not(:last-child)::after{content:" ·";color:var(--ink-soft);}
 .cf-archived-link{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin:18px 0 4px;}
 .cf-archived-link .cf-note{margin:0;}
 .cf-archived-bar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;margin:0 0 14px;padding:10px 14px;background:#F6F7FB;border:1px dashed #B9BFD0;border-radius:12px;font-size:13.5px;color:var(--ink-soft);}

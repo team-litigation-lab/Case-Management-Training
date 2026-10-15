@@ -146,12 +146,20 @@ Auto-graded parts check the trainee's answers against keys drawn from the docume
 
 ### Case documents
 
+**John Doe v. Robert Smith (the Case Flow's document set, `documents/case-flow/`).** 60 simulated documents, `RS01`–`RS60`, in nine folders: intake & retainer, police / witness / video, medical records, bills, insurance and the demands, liens, wages & costs, the Civic's property damage, and the Track B lawsuit and ADR. Every page carries the *SIMULATED DOCUMENT — FICTIONAL PARTIES* footer.
+- **What trainees see:** the 📁 Documents page lists them by folder with the CMS upload category; each opens with its Case Flow day (trainers see all), and every Case Flow Skill Activity names the documents it works from ("📁 Work from" on its slide).
+- **Planted discrepancies, like the Apex set's:** a transposed police report number on the intake sheet, "Driver" and a wrong DOB in the CMS record, a duplicate ledger line, a wrong date of injury on the MRI report, an in-network provider billing the patient, a draft demand with four errors, releases that reach too far, a discovery deadline and a brief date that are wrong. Signed in as admin, each document's red 🔑 note says what is planted and what to catch.
+- **Source and rebuild:** `build/case-flow/documents/` — `SPEC.md` (what each document holds and plants, written against `curriculum/5-day-flow/case-file.md`), `src/RSNN.html` (each document), `doc.css`, `render.cjs` (HTML → PDF with headless Chromium; the CMS record also to .docx with LibreOffice) and `audit.cjs` (reads every PDF back and checks the footer, the identifiers, each document's facts and that each plant is where it belongs and nowhere else). Metadata: `js/cm-case-flow-docs.js` (also each activity's documents). CI checks every file exists and every activity's documents are real and open by its day (`.github/scripts/check-data.mjs`).
+- **Archived:** the John Doe v. Apex and Jordan Davies documents below stay as they were, for trainees on the archived version; trainers reach them from the Documents page's "Archived" link.
+
+**John Doe v. Apex (archived):**
+
 - The original document set, renamed by phase and numbered `JD_01` to `JD_33`.
 - **Added to complete the exercises** (every page marked *TRAINING — SIMULATED DOCUMENT*):
   - `JD_34`–`JD_41`: pleadings and ADR documents (original and amended complaints, the Answer, the Arbitration/Scheduling Order, the AAA fee statement, RFAs, a grayscale fax exhibit, and a draft brief).
   - `JD_42`: the post-closing radiology bill.
   - The Jordan Davies packet (`JDV_01`–`JDV_08`).
-- `templates/LSH_Net_Sheet_v2_FIXED.xlsx`: the original Net Sheet calculated the attorney fee from an empty cell (`L11 = L7*I11`), so the fee was always **$0**. Fixed to `L7*C11`, with a John Doe practice tab added. Trainees now fill the same net sheet on the platform (the **Net Sheet Ledger**, Day 3); the file stays as the reference.
+- `templates/LSH_Net_Sheet_v2_FIXED.xlsx`: the original Net Sheet calculated the attorney fee from an empty cell (`L11 = L7*I11`), so the fee was always **$0**. Fixed to `L7*C11`, with a John Doe v. Robert Smith practice tab (the Apex practice tab is kept, archived). Trainees now fill the same net sheet on the platform (the **Net Sheet Ledger**, Day 3); the file stays as the reference.
 - **Trainer audit key:** signed in as admin, every document shows a red 🔑 note listing its planted discrepancies. Trainees never see these notes.
 
 Document metadata lives in `js/cm-documents.js`. The Skill Builders and the Training Tools hub are in `js/cm-skillbuilders.js`.
