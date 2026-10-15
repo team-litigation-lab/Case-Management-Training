@@ -80,7 +80,7 @@ SEQUENCE.forEach(seq => {
   if(!day) return;
   const lessons = [], quiz = [], quizMod = [], phases = [];
   seq.phases.forEach((ph, pi) => {
-    const phase = {n: pi + 1, of: seq.phases.length, title: ph.title, count: ph.blocks.length};
+    const phase = {n: pi + 1, of: seq.phases.length, title: ph.title, count: ph.blocks.length, lane: ph.workstream || ""};
     phases.push(phase);
     ph.blocks.forEach((id, k) => {
       const at = STORED[id];
@@ -412,16 +412,24 @@ function eventCard(e, extra){
       ${att.length ? `<div class="cfx-ev-att">${att.map(x => `<a href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}">📎 ${E(x.title)}</a>`).join("")}</div>` : ""}
     </div>`;
 }
-/* the case's milestones around a date, with "you are here" */
-function timelineStrip(at, track){
-  const t = dayMs(at), all = (SIM.timeline || []).filter(m => !m.track || !track || m.track === track);
+const LANES = {claims: "Claims & Coverage", care: "Client & Treatment"};
+/* where a workstream stands for a trainee on Case Flow Day n: the first event it has on that day, else its last before */
+function laneAt(lane, n){
+  const evs = MODULES.filter(d => d.cf.n <= n).flatMap(d => d.lessons.filter(l => l.cf.block.kind === "activity" && l.cf.phase.lane === lane && SIM.events[l.cf.block.id]).map(l => ({n: d.cf.n, e: SIM.events[l.cf.block.id], title: l.cf.block.title})));
+  return evs.find(x => x.n === n) || evs[evs.length - 1] || null;
+}
+/* the case's milestones around a date, with "you are here"; on a workstream, that lane's milestones */
+function timelineStrip(at, track, lane, n){
+  const t = dayMs(at), all = (SIM.timeline || []).filter(m => (!m.track || !track || m.track === track) && (!lane || !m.lane || m.lane === lane));
   if(!all.length || isNaN(t)) return "";
   let k = all.findIndex(m => dayMs(m.date) > t); if(k < 0) k = all.length;
   const show = all.slice(Math.max(0, k - 3), Math.min(all.length, k + 3)), cut = show.findIndex(m => dayMs(m.date) > t);
   const dot = (m, past) => `<li class="${past ? "past" : "next"}"><i></i><b>${E(m.label)}</b><small>${E(m.date)}</small></li>`;
   const here = `<li class="here"><i></i><b>You are here</b><small>${E(at)}</small></li>`;
   const items = show.map((m, j) => (j === cut ? here : "") + dot(m, cut < 0 || j < cut)).join("") + (cut < 0 ? here : "");
-  return `<ol class="cfx-tl">${items}</ol>`;
+  const other = lane && laneAt(lane === "claims" ? "care" : "claims", n);
+  const head = lane ? `<div class="cfx-lane"><span class="cfx-lane-on cfx-lane-${lane}">${E(LANES[lane])} workstream</span>${other ? `<span class="cfx-lane-off">${E(LANES[lane === "claims" ? "care" : "claims"])} runs in parallel: last at ${E(other.e.date)}, ${E(other.title)}</span>` : ""}</div>` : "";
+  return `${head}<ol class="cfx-tl">${items}</ol>`;
 }
 /* fallout: a later activity shows what a skipped check costs, for a trainee who didn't tick it */
 function falloutFor(blockId){
@@ -486,7 +494,7 @@ function slideBody(view, l, d){
       const ev = SIM.events[b.id], fall = falloutFor(b.id);
       const thumbs = docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
       return `<div class="cfx-sb">
-        ${ev ? timelineStrip(ev.date, trackOfDay(day)) : ""}
+        ${ev ? timelineStrip(ev.date, trackOfDay(day), l.cf.phase.lane, d.cf.n) : ""}
         <div class="cfx-challenge"><span>“${E(b.title.toUpperCase())}”</span></div>
         ${fall.map(x => { const e = x.f.then.event, [icon] = CHANNEL[e.channel] || ["⚠️"];
           return `<details class="cfx-fall"><summary><span class="cfx-fall-i">⚠️</span><b>${E(e.subject)}</b><span class="cfx-fall-from">${icon} ${E(e.from || "")}</span></summary>
@@ -931,19 +939,29 @@ const cfIdOf = n => (cfDayByN(n) || {}).id;
 const profileOpen = sec => !!(state.isAdmin || state.adminPreview) ||
   (sec.opens ? dayUnlocked(cfIdOf(sec.opens)) : !!((state.progress || {})[cfIdOf(sec.passed)] || {}).done);
 const lockLabel = sec => sec.opens ? `Opens with Case Flow Day ${sec.opens}` : `Opens when you pass Case Flow Day ${sec.passed}`;
-/* the whole case, milestone by milestone, with "you are here" at the first thing that lands on the trainee's current day */
+/* the whole case: the shared file, the two workstreams that run in parallel (each with "you are here"), then the file again */
 function caseTimeline(n){
-  const d = cfDayByN(n), first = d && d.lessons.find(l => l.cf.block.kind === "activity" && SIM.events[l.cf.block.id]);
-  const at = first ? SIM.events[first.cf.block.id].date : "";
   if(!(SIM.timeline || []).length) return "";
-  const t = dayMs(at), track = n >= 4 ? "B" : n === 3 ? "A" : "";
+  const track = n >= 4 ? "B" : n === 3 ? "A" : "";
   const items = SIM.timeline.filter(m => !m.track || !track || m.track === track);
-  let placed = false;
-  const li = items.map(m => {
-    const past = !isNaN(t) && dayMs(m.date) <= t, pre = !placed && !isNaN(t) && dayMs(m.date) > t ? (placed = true, `<li class="here"><i></i><b>You are here</b><small>${E(at)}</small></li>`) : "";
-    return pre + `<li class="${past ? "past" : "next"}"><i></i><b>${E(m.label)}</b><small>${E(m.date)}${m.track ? " · Track " + E(m.track) : ""}</small></li>`;
-  }).join("") + (!placed && at ? `<li class="here"><i></i><b>You are here</b><small>${E(at)}</small></li>` : "");
-  return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3><ol class="cfx-tl cfx-tl-full">${li}</ol></div>`;
+  const first = cfDayByN(n) && cfDayByN(n).lessons.find(l => l.cf.block.kind === "activity" && SIM.events[l.cf.block.id]);
+  const here = {"": first ? SIM.events[first.cf.block.id].date : ""};
+  Object.keys(LANES).forEach(k => { const x = laneAt(k, n); here[k] = x ? x.e.date : ""; });
+  const row = (list, at, mark = true) => {   // mark: show "you are here" in this row (else only colour what's past)
+    const t = dayMs(at); let placed = !mark;
+    const li = list.map(m => {
+      const past = !isNaN(t) && dayMs(m.date) <= t, pre = !placed && !isNaN(t) && dayMs(m.date) > t ? (placed = true, `<li class="here"><i></i><b>You are here</b><small>${E(at)}</small></li>`) : "";
+      return pre + `<li class="${past ? "past" : "next"}"><i></i><b>${E(m.label)}</b><small>${E(m.date)}${m.track ? " · Track " + E(m.track) : ""}</small></li>`;
+    }).join("");
+    return li + (!placed && at && !isNaN(t) ? `<li class="here"><i></i><b>You are here</b><small>${E(at)}</small></li>` : "");
+  };
+  const laned = items.filter(m => m.lane), lo = Math.min(...laned.map(m => dayMs(m.date))), hi = Math.max(...laned.map(m => dayMs(m.date)));
+  const before = items.filter(m => !m.lane && dayMs(m.date) < lo), after = items.filter(m => !m.lane && dayMs(m.date) > hi);
+  const lastShared = dayMs(here[""]) > hi ? here[""] : "";
+  return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3>
+    <ol class="cfx-tl cfx-tl-full">${row(before, here[""], dayMs(here[""]) < lo)}</ol>
+    <div class="cf-lanes">${Object.entries(LANES).map(([k, name]) => `<div class="cf-lane cf-lane-${k}"><div class="cf-lane-h">${E(name)}</div><ol class="cfx-tl cfx-tl-full">${row(laned.filter(m => m.lane === k), dayMs(here[""]) > hi ? "" : here[k])}</ol></div>`).join("")}</div>
+    <ol class="cfx-tl cfx-tl-full">${row(after, lastShared)}</ol></div>`;
 }
 function caseFlowProfile(archiveLink){
   const c = CF.case, secs = CF.profile || [], shown = secs.filter(profileOpen), locked = secs.filter(x => !profileOpen(x));
@@ -1259,6 +1277,16 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cf-call-bar b{color:#fff;}
 .cf-timeline{padding:16px 20px;margin:0 0 16px;background:#262B45 !important;color:#fff;border:0 !important;}
 .cfx-tl-full{flex-wrap:wrap;row-gap:14px;}.cfx-tl-full li{flex:0 0 calc(100% / 8);}.cfx-tl-full::before{display:none;}
+.cfx-lane{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:0 0 6px;}
+.cfx-lane-on{font:800 11.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:999px;color:#262B45;background:#F4B77A;}
+.cfx-lane-on.cfx-lane-care{background:#9BE0B4;}
+.cfx-lane-off{font:500 12px 'Inter',sans-serif;color:#AEB6CC;}
+.cf-lanes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;}
+.cf-lane{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:10px 12px;}
+.cf-lane-h{font:800 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#F4B77A;margin:0 0 10px;}
+.cf-lane-care .cf-lane-h{color:#9BE0B4;}
+.cf-lane .cfx-tl-full li{flex:0 0 calc(100% / 4);}
+@media(max-width:760px){.cf-lanes{grid-template-columns:minmax(0,1fr);}}
 .cf-timeline h3{margin:0 0 12px;font:800 20px 'Poppins','Inter',sans-serif;color:#fff;}
 @media(max-width:760px){
   .cfx-sb-grid{grid-template-columns:minmax(0,1fr);}
