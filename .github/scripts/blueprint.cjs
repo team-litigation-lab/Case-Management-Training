@@ -109,7 +109,8 @@ async function walk(page, label) {
     const cf = await page.evaluate(() => {
         const days = window.CM_CASE_FLOW_DAYS || [];
         if (!days.length) return null;
-        const row = (document.querySelector('.cf-dash') || {}).textContent || '';
+        // the Case Flow is the trainee's program: its day cards are the dashboard's
+        const grid = document.querySelector('.dash-layout .module-grid'), row = grid && /Case Flow Day 1/.test(grid.textContent) ? grid.textContent : '';
         const count = s => (s.match(/blueprint/gi) || []).length;
         const perDay = days.map(d => {
             const slides = d.lessons.map((l, i) => renderLessonCard(l, i, d, null, 1) + renderLessonCard(l, i, d, null, 2)).join(' ');

@@ -108,21 +108,85 @@ const cfDay = id => BY_ID[Number(id)] || null;
 const cfDayByN = n => MODULES.find(d => d.cf.n === n) || null;
 window.CM_CASE_FLOW_DAYS = MODULES;
 
+let SWAP_KEEP = null;   // the archived days, while withCaseFlowDays() runs
 /* ---------- found by id like a day, not counted as one (the js/ft-rules.js pattern) ----------
    Chains off whatever DAYS.find / DAYS.some already are, so it composes with any other patch. */
 const __find = DAYS.find, __some = DAYS.some;
 Object.defineProperty(DAYS, "find", {configurable: true, writable: true, value: function(fn, that){
   const r = __find.call(this, fn, that);
-  return r !== undefined ? r : MODULES.find(m => fn.call(that, m, this.length, this));
+  if(r !== undefined) return r;
+  const m = MODULES.find(x => fn.call(that, x, this.length, this));
+  return m !== undefined || !SWAP_KEEP ? m : SWAP_KEEP.find(x => fn.call(that, x, this.length, this));   // while the Case Flow days stand in for DAYS, the archived days still resolve by id
 }});
 Object.defineProperty(DAYS, "some", {configurable: true, writable: true, value: function(fn, that){
   return __some.call(this, fn, that) || MODULES.some(m => fn.call(that, m, this.length, this));
 }});
 if(typeof DAY_ICONS !== "undefined") MODULES.forEach((m, i) => { if(!DAY_ICONS[m.id]) DAY_ICONS[m.id] = ["🗂", "📨", "💵", "⚖️", "🏛"][i] || "📘"; });
 
-/* Program counts stay with Days 1–5: a passed Case Flow day must not push "Program complete"
-   past 100% or move the program's average. (The certificate already counts DAYS only.) */
-const programIds = () => new Set(Array.prototype.map.call(DAYS, d => d.id));
+/* ---------- the course is the Case Flow; John Doe v. Apex is archived ----------
+   Every trainee takes the Case Flow unless a trainer assigns them otherwise (Admin → the
+   trainee's panel → Course version):
+     caseflow  the Case Flow (the default): its days are the program on the dashboard, the
+               Knowledge Checks and certificate count them, the Case File is John Doe v. Robert Smith
+     both      the Case Flow, plus the archived Apex days in a row below
+     classic   the archived John Doe v. Apex version (Days 1–5) only, as it was
+   Nothing of the Apex version is deleted: its days stay reachable (their Skill Builders keep
+   working), and trainers see it in an "Archived version" row. The choice is stored with the
+   trainee's feedback (feedback:<id>, `track`): the trainer writes it, the trainee can only read it
+   (worker.js keeps everything but `days` when a trainee writes). */
+const TRACKS = {caseflow: "Case Flow: John Doe v. Robert Smith", both: "Case Flow + the archived Apex days", classic: "Archived: John Doe v. Apex (Days 1–5)"};
+const DEFAULT_TRACK = "caseflow";
+const isTrainer = () => !!(state.isAdmin || state.adminPreview);
+let FB = {id: null, p: null};
+const traineeFeedback = () => {   // one read of feedback:<id> per trainee, shared by the version and the trainer scores
+  const id = state && state.traineeId;
+  if(!id || typeof sharedGet !== "function") return Promise.resolve(null);
+  if(FB.id !== id) FB = {id, p: Promise.resolve().then(() => sharedGet("feedback:" + id)).catch(() => null)};
+  return FB.p;
+};
+function ensureTrack(){
+  const id = state && state.traineeId;
+  if(!id || isTrainer() || state.cfTrackFor === id || state.cfTrackLoading === id) return;
+  state.cfTrackLoading = id;
+  traineeFeedback().then(fb => {
+    if(state.traineeId !== id || state.cfTrackFor === id) return;   // switched trainee, or already known
+    const prev = state.cfTrack || DEFAULT_TRACK, t = fb && fb.track;
+    state.cfTrack = TRACKS[t] ? t : DEFAULT_TRACK; state.cfTrackFor = id; state.cfTrackLoading = null;
+    if(state.cfTrack !== prev && typeof render === "function" && !(typeof isTyping === "function" && isTyping())) render();
+  });
+}
+const track = () => { if(isTrainer()) return "both"; ensureTrack(); return (state.cfTrackFor === state.traineeId && state.cfTrack) || DEFAULT_TRACK; };
+const seesCaseFlow = () => track() !== "classic";
+
+/* The trainer side reads each trainee's version from their feedback record, which the Admin page
+   already fetches (one get-many for the Trainee Audit, one get when a panel opens): no extra requests. */
+state.cfTrackOf = state.cfTrackOf || {};
+const noteTracks = (keys, vals) => (keys || []).forEach((k, i) => {
+  const key = typeof k === "string" ? k : (k && k.key), m = /^feedback:(.+)$/.exec(key || "");
+  if(m) state.cfTrackOf[m[1]] = (vals[i] && TRACKS[vals[i].track]) ? vals[i].track : DEFAULT_TRACK;
+});
+if(typeof sharedGetMany === "function"){
+  const __many = sharedGetMany;
+  sharedGetMany = async function(keys){ const r = await __many.apply(this, arguments); try{ noteTracks(keys, r || []); }catch(e){} return r; };
+}
+const trackOf = id => { const w = (state.traineeWork || {})[id], t = w && w.feedback && w.feedback.track; return TRACKS[t] ? t : (state.cfTrackOf[id] || DEFAULT_TRACK); };
+
+/* Run one of the engine's (synchronous) functions with the Case Flow days as the program: the
+   functions that count, list or certify "the days" read DAYS, so for the length of the call DAYS
+   holds the Case Flow days, and is put back before anything else runs. */
+function withCaseFlowDays(fn){
+  if(DAYS.__cfSwap) return fn();
+  const keep = SWAP_KEEP = Array.prototype.slice.call(DAYS);
+  Array.prototype.splice.call(DAYS, 0, DAYS.length, ...MODULES);
+  Object.defineProperty(DAYS, "__cfSwap", {configurable: true, value: true});
+  try{ return fn(); }
+  finally{ Array.prototype.splice.call(DAYS, 0, DAYS.length, ...keep); delete DAYS.__cfSwap; SWAP_KEEP = null; }
+}
+const relabelAll = html => relabel(html, MODULES[0]);
+
+/* Program counts follow the trainee's version (the Case Flow, or the archived Apex days): a day of
+   the other version never moves "Program complete" or the average. */
+const programIds = () => new Set(track() !== "classic" ? MODULES.map(d => d.id) : Array.prototype.map.call(DAYS, d => d.id));   // the program is the Case Flow, unless the trainee is on the archived version
 if(typeof completedCount === "function"){
   completedCount = function(){ const ids = programIds(); return Object.entries(state.progress || {}).filter(([k, p]) => ids.has(Number(k)) && p && p.done).length; };
 }
@@ -138,7 +202,9 @@ if(typeof avgScore === "function"){
 const __unlocked = window.dayUnlocked;
 window.dayUnlocked = function(id){
   const d = cfDay(id); if(!d) return __unlocked.apply(this, arguments);
-  if(state.isAdmin || state.adminPreview || d.cf.n === 1) return true;
+  if(state.isAdmin || state.adminPreview) return true;
+  if(!seesCaseFlow()) return false;
+  if(d.cf.n === 1) return true;
   const prev = cfDayByN(d.cf.n - 1), p = prev && (state.progress || {})[prev.id];
   return !!(p && p.done);
 };
@@ -146,6 +212,7 @@ if(typeof dayLockReason === "function"){
   const __reason = dayLockReason;
   dayLockReason = function(id){
     const d = cfDay(id); if(!d) return __reason.apply(this, arguments);
+    if(!seesCaseFlow()) return "You're on the archived version of the course. Ask your trainer to move you to the Case Flow.";
     const prev = cfDayByN(d.cf.n - 1);
     return `Pass the Case Flow Day ${d.cf.n - 1} Knowledge Check (70%) to open Case Flow Day ${d.cf.n}. ${prev ? "Gate: " + prev.cf.gate + "." : ""}`;
   };
@@ -163,6 +230,19 @@ if(typeof routeLabel === "function"){
   routeLabel = function(h){
     const r = __route.apply(this, arguments), m = /^Day (\d+)$/.exec(r || "");
     return m && cfDay(m[1]) ? `Case Flow Day ${cfDay(m[1]).cf.n}` : r;
+  };
+}
+
+/* "▶ Resume where you left off" names a Case Flow day by its label too, and isn't offered for a
+   Case Flow day the trainee can't open (the Case Flow isn't assigned to them). */
+if(typeof resumeLabel === "function"){
+  const __resume = resumeLabel;
+  resumeLabel = function(){
+    const lv = state.lastView, d = lv && lv.view === "day" && cfDay(lv.dayId);
+    if(d && !dayUnlocked(d.id)) return "";
+    if(lv && lv.view === "day" && !d && track() === "caseflow") return "";   // an archived Apex day isn't theirs to resume
+    const r = __resume.apply(this, arguments);
+    return d ? relabel(r, d) : r;
   };
 }
 
@@ -227,7 +307,7 @@ async function load(){
 async function loadTrainerScores(){
   if(typeof sharedGet !== "function" || !state || !state.traineeId || state.isAdmin) return;
   try{
-    const fb = await sharedGet("feedback:" + state.traineeId);
+    const fb = await traineeFeedback();
     Object.entries((fb && fb.caseFlow) || {}).forEach(([id, t]) => { if(t && typeof t.score === "number") rec(id).trainer = t; });
   }catch(e){}
 }
@@ -281,7 +361,7 @@ function card(l, i, d, part){
         + rubricHtml(b.rubric);
   }else if(b.kind === "activity"){
     body = p === 1
-      ? S(1, "Let Them — the scenario", `<div class="scenario-card"><div class="stag">John Doe v. Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
+      ? S(1, "Let Them — the scenario", `<div class="scenario-card"><div class="stag">John Doe v. Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>${docLine(b.id)}`)
         + S(2, "Let Them — execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p>
             <div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div>
             ${/CMS/.test(b.act.tool) && typeof openCms === "function" ? `<button type="button" class="btn btn-navy btn-sm" onclick="openCms()">Open CMS</button>` : ""}</div>`)
@@ -418,28 +498,71 @@ window.cmCaseFlow = {
   }
 };
 
-/* ---------- the dashboard: the track's own row of day cards, under Days 1–5 ---------- */
+/* ---------- the dashboard: the Case Flow is the program ----------
+   The engine draws the dashboard with the Case Flow days as DAYS, so the day cards, the banner's
+   day circles, the stats band and the certificate are all the Case Flow's. Trainers (and trainees on
+   "both") get the archived Apex days in a row below. On a laptop the dashboard fills exactly one
+   screen (js/lsh-dashboard.js grows the day cards into the height that's left), so that row goes
+   after the one-screen block (.cf-first), a scroll below, never squeezing it. */
 if(typeof renderDashboard === "function"){
   const __dash = renderDashboard;
   renderDashboard = function(){
-    const html = __dash.apply(this, arguments);
-    const t = document.createElement("template"); t.innerHTML = html;
-    const main = t.content.querySelector(".dash-main");
-    if(!main || typeof moduleCard !== "function") return html;
-    const c = CF.case;
-    const cards = MODULES.map(d => relabel(moduleCard(d), d)).join("")
-      + (CF.upcoming || []).filter(u => !cfDayByN(u.n)).map(u => `<div class="module-card mc-locked cf-soon">
-          <div class="module-head"><div class="mh-day">Case Flow Day ${u.n} · In development</div><div class="mh-title">${E(u.title)}</div></div>
-          <div class="module-body"><ul class="module-topic-list">${u.modules.map(m => `<li>${E(m)}</li>`).join("")}</ul></div></div>`).join("");
+    const v = track();
+    if(v === "classic") return __dash.apply(this, arguments);   // the archived version, as it was
+    const t = document.createElement("template");
+    t.innerHTML = relabelAll(withCaseFlowDays(() => __dash.apply(this, arguments)));
+    t.content.querySelectorAll(".step-circle").forEach(c => { const d = cfDay(c.textContent.trim()); if(d) c.textContent = String(d.cf.n); });   // the circles show 1–5, not the ids
+    if(v === "caseflow" || typeof moduleCard !== "function") return t.innerHTML;
+    const main = t.content.querySelector(".dash-main"), layout = main && main.closest(".dash-layout");
+    if(!layout || layout.parentNode !== t.content) return t.innerHTML;
     const sec = document.createElement("section");
-    sec.className = "cf-dash";
-    sec.innerHTML = `<div class="cf-dash-head"><p class="eyebrow">New track</p>
-        <h2>5-Day Legal Case Management Flow</h2>
-        <p>One file from intake to deposition: <b>${E(c.style)}</b> · ${E(c.counsel)} · ${E(money(c.total))} stack · ${E(c.gapDays)}-Day Treatment Gap. Every module runs Lesson → Skill Activity → Lesson → Skill Activity → Knowledge Check.</p>
-        ${window.cmCaseFlow.profile ? `<p><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.profile(true)">📂 Case profile: ${E(c.style)}</button></p>` : ""}</div>
-      <div class="module-grid">${cards}</div>`;
-    main.appendChild(sec);
+    sec.className = "cf-dash cf-archive";
+    sec.innerHTML = `<div class="cf-dash-head"><p class="eyebrow">🗄 Archived version</p>
+        <h2>John Doe v. Apex Delivery Services (Days 1–5)</h2>
+        <p>The course's earlier version, kept as it was. ${isTrainer() ? "Trainees don't see it unless you assign it: Admin → the trainee's panel → Course version." : "Your trainer has given you access to it alongside the Case Flow."}</p></div>
+      <div class="module-grid">${Array.prototype.map.call(DAYS, d => moduleCard(d)).join("")}</div>`;
+    const first = document.createElement("div"); first.className = "cf-first";
+    const top = layout.previousElementSibling && layout.previousElementSibling.classList.contains("dash-top") ? layout.previousElementSibling : null;
+    layout.before(first);
+    if(top) first.appendChild(top);
+    first.appendChild(layout);
+    first.after(sec);
     return t.innerHTML;
+  };
+}
+/* The certificate counts the trainee's own program (the Case Flow days, unless they're on the archived version). */
+if(typeof certData === "function"){
+  const __cert = certData;
+  certData = function(src){
+    const archived = src ? trackOf(src.traineeId) === "classic" : track() === "classic";
+    return archived ? __cert.apply(this, arguments) : withCaseFlowDays(() => __cert.apply(this, arguments));
+  };
+}
+
+/* ---------- the Admin page: each trainee's progress, audit and day feedback follow their version ---------- */
+const onCaseFlow = rec => !!rec && trackOf(rec.id) !== "classic";
+if(typeof adminDayStats === "function"){
+  const __stats = adminDayStats;
+  adminDayStats = function(rec){
+    // the engine counts every day on the record; count only the trainee's own version's days
+    const dp = rec.dayProgress || {}, ps = (onCaseFlow(rec) ? MODULES : Array.prototype.slice.call(DAYS)).map(d => dp[d.id]).filter(Boolean);
+    const scores = ps.filter(p => typeof p.score === "number").map(p => p.score);
+    return {done: ps.filter(p => p.done).length, total: onCaseFlow(rec) ? MODULES.length : __stats.apply(this, arguments).total, avg: scores.length ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : 0};
+  };
+}
+if(typeof auditSummary === "function"){
+  const __audit = auditSummary;
+  auditSummary = function(rec){ return onCaseFlow(rec) ? withCaseFlowDays(() => __audit.apply(this, arguments)) : __audit.apply(this, arguments); };
+}
+if(typeof renderAuditStrip === "function"){
+  const __strip = renderAuditStrip;
+  renderAuditStrip = function(rec){
+    if(!onCaseFlow(rec)) return __strip.apply(this, arguments);
+    // the strip's day cells show the day's number (11–15 inside); on screen they're Case Flow Days 1–5
+    const html = withCaseFlowDays(() => __strip.apply(this, arguments))
+      .replace(/\bDay ((?:1[1-5])(?:, 1[1-5])+)\b/g, (m, list) => "Case Flow Day " + list.split(", ").map(x => cfDay(x).cf.n).join(", "))   // "below 70%: Day 11, 12"
+      .replace(/(<span class="ad-cell[^"]*" title="[^"]*">)(1[1-5])/g, (m, a, id) => a + cfDay(id).cf.n);
+    return relabelAll(html);
   };
 }
 
@@ -463,9 +586,27 @@ function trainerPanel(rec){
       <div class="fbc-actions"><button class="btn btn-primary btn-sm" onclick="cmCaseFlow.trainerSave('${rec.id}','${m.id}')">Save trainer score</button></div>
     </details>`;
   }).join("");
-  return `<div class="fb-admin cf-tr-wrap"><div class="sidebar-section-lbl" style="padding-left:0;">Case Flow — trainer assessment (40%)</div>
+  const cur = TRACKS[work.feedback.track] ? work.feedback.track : DEFAULT_TRACK;
+  const version = `<div class="cf-track"><label><b>Course version</b>
+      <select onchange="cmCaseFlow.setTrack('${rec.id}', this.value)">${Object.entries(TRACKS).map(([k, l]) => `<option value="${k}" ${k === cur ? "selected" : ""}>${E(l)}${k === DEFAULT_TRACK ? " (default)" : ""}</option>`).join("")}</select></label>
+      <span class="cf-note">What this trainee sees. The course is the Case Flow; John Doe v. Apex is archived (nothing of it is deleted, and you can change this at any time).</span></div>`;
+  if(cur === "classic") return `<div class="fb-admin cf-tr-wrap">${version}</div>`;
+  return `<div class="fb-admin cf-tr-wrap">${version}<div class="sidebar-section-lbl" style="padding-left:0;">Case Flow — trainer assessment (40%)</div>
     <p class="cf-note">The trainee's quiz share and AI review make the automated 60%. Your score here makes the 40%; the composite appears on their Knowledge Check once both are in.</p>${rows}</div>`;
 }
+window.cmCaseFlow.setTrack = async function(id, value){
+  const work = (state.traineeWork || {})[id];
+  if(!work || !TRACKS[value]) return;
+  const latest = (await sharedGet("feedback:" + id).catch(() => null)) || work.feedback || {days: {}};   // re-read so nothing else is clobbered
+  latest.days = latest.days || {};
+  latest.track = value;
+  latest.trackSetAt = new Date().toISOString();
+  const ok = await sharedSet("feedback:" + id, latest);
+  if(!ok){ if(typeof toast === "function") toast("Couldn't save the course version — try again."); return; }
+  work.feedback = latest;
+  if(typeof toast === "function") toast(`Course version: ${TRACKS[value]}. The trainee sees it the next time their page loads.`);
+  const wrap = document.getElementById("adminRowsWrap"); if(wrap && typeof renderAdminRows === "function") wrap.innerHTML = renderAdminRows();
+};
 window.cmCaseFlow.trainerSave = async function(id, modId){
   const sid = cssId(id), work = (state.traineeWork || {})[id];
   const v = Number((document.getElementById(`cftr_${sid}_${modId}`) || {}).value);
@@ -481,47 +622,163 @@ window.cmCaseFlow.trainerSave = async function(id, modId){
 };
 if(typeof renderFeedbackAdmin === "function"){
   const __fbAdmin = renderFeedbackAdmin;
-  renderFeedbackAdmin = function(rec){ const html = __fbAdmin.apply(this, arguments); try{ return html + trainerPanel(rec); }catch(e){ return html; } };
+  renderFeedbackAdmin = function(rec){
+    // Day-by-Day Feedback lists the trainee's own days: the Case Flow's, unless they're on the archived version
+    const html = onCaseFlow(rec)
+      ? relabelAll(withCaseFlowDays(() => __fbAdmin.apply(this, arguments))).replace(/Case Flow Day (\d)(<\/b>)? — Case Flow Day \1 · /g, "Case Flow Day $1$2 — ")   // not "Case Flow Day 1 — Case Flow Day 1 · …"
+      : __fbAdmin.apply(this, arguments);
+    try{ return html + trainerPanel(rec); }catch(e){ return html; }
+  };
 }
 
-/* ---------- the Case File page: the Apex file and this file's case profile ----------
-   The Case File page keeps the John Doe v. Apex file exactly as it is and gains a
-   switch to this file's profile (CF.profile). Each section opens with its Case Flow day
-   (`opens`) or once that day is passed (`passed`), so the profile never gives away a
-   day's answers; trainers see every section. */
+/* ---------- the Case File page: John Doe v. Robert Smith ----------
+   The client profile is this file's (CF.profile), for every trainee on the Case Flow and for
+   trainers. The John Doe v. Apex case file is archived, not deleted: it stays whole for a trainee
+   on the archived version, and trainers (and trainees given the archived days too) reach it from
+   the "Archived" link at the foot of the page (it holds the Apex days' Case File checkpoints).
+   Each section opens with its Case Flow day (`opens`) or once that day is passed (`passed`),
+   so the profile never gives away a day's answers; trainers see every section. */
 const cfIdOf = n => (cfDayByN(n) || {}).id;
 const profileOpen = sec => !!(state.isAdmin || state.adminPreview) ||
   (sec.opens ? dayUnlocked(cfIdOf(sec.opens)) : !!((state.progress || {})[cfIdOf(sec.passed)] || {}).done);
 const lockLabel = sec => sec.opens ? `Opens with Case Flow Day ${sec.opens}` : `Opens when you pass Case Flow Day ${sec.passed}`;
-function caseFlowProfile(){
+function caseFlowProfile(archiveLink){
   const c = CF.case, secs = CF.profile || [], shown = secs.filter(profileOpen), locked = secs.filter(x => !profileOpen(x));
   const gates = [];
   locked.forEach(x => { const k = lockLabel(x), g = gates.find(y => y.k === k); g ? g.t.push(x.title) : gates.push({k, t: [x.title]}); });
   const pos = dayUnlocked(cfIdOf(5)) ? 5 : [4, 3, 2, 1].find(n => dayUnlocked(cfIdOf(n))) || 1;
   return `<h1 style="color:var(--navy);font-size:28px;margin:0 0 10px">📂 Case File: ${E(c.style)}</h1>
-    <div class="client-intro-banner"><div class="cib-tag">🧭 Case Flow File</div><h2>One file, from intake to deposition</h2>
-      <p>The file you work in the 5-Day Legal Case Management Flow: ${E(c.no)} · ${E(c.counsel)} · ${E(money(c.total))} stack · ${E(c.gapDays)}-Day Treatment Gap. It is a separate training file from John Doe v. Apex Delivery Services.</p>
+    <div class="client-intro-banner"><div class="cib-tag">📌 Your Client</div><h2>One file, from intake to deposition</h2>
+      <p>${E(c.client.name)}, ${E(c.client.position.toLowerCase())}, is your client for the whole course: ${E(c.no)} · Lead Counsel ${E(c.counsel)} · ${E(money(c.total))} recovery stack · ${E(c.gapDays)}-Day Treatment Gap.</p>
       <p>This profile grows with the file. Each section opens with the day it belongs to, and what a day's work produces (the audited specials, the reasons for the gap, the net sheet, the calendar) opens once you pass that day, so work it out from the documents first.</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-navy btn-sm" onclick="goto('day',${cfIdOf(pos)})">Open Case Flow Day ${pos}</button></div></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-navy btn-sm" onclick="goto('day',${cfIdOf(pos)})">Open Case Flow Day ${pos}</button><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.docsArchived ? cmCaseFlow.docsArchived(false) : goto('casedocs')">📁 Open the Case Documents</button>${typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS</button>` : ""}</div></div>
     <div class="profile-grid">${shown.map(x => `<div class="card profile-section"><h3>${E(x.title)}</h3><ul>${x.items.map(i => `<li>${E(i)}</li>`).join("")}</ul></div>`).join("")}
-      ${gates.map(g => `<div class="card profile-section cf-prof-lock"><h3>🔒 ${E(g.k)}</h3><ul>${g.t.map(t => `<li>${E(t)}</li>`).join("")}</ul></div>`).join("")}</div>`;
+      ${gates.map(g => `<div class="card profile-section cf-prof-lock"><h3>🔒 ${E(g.k)}</h3><ul>${g.t.map(t => `<li>${E(t)}</li>`).join("")}</ul></div>`).join("")}</div>
+    ${archiveLink ? `<div class="cf-archived-link"><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.archived(true)">🗄 Archived: the John Doe v. Apex case file</button>
+      <span class="cf-note">The earlier version's case file and its Case File checkpoints, kept for the Apex days.</span></div>` : ""}`;
 }
-function profileSwitch(){
-  const on = !!state.cfProfile;
-  return `<div class="cf-prof-switch" role="tablist" aria-label="Case files">
-    <button role="tab" aria-selected="${!on}" class="${on ? "" : "on"}" onclick="cmCaseFlow.profile(false)">📂 John Doe v. Apex Delivery <small>Days 1–5</small></button>
-    <button role="tab" aria-selected="${on}" class="${on ? "on" : ""}" onclick="cmCaseFlow.profile(true)">🧭 John Doe v. Robert Smith <small>Case Flow</small></button></div>`;
+function archivedBar(){
+  return `<div class="cf-archived-bar"><span><b>🗄 Archived</b> · the John Doe v. Apex case file, kept for the earlier version's days. Your client is John Doe v. Robert Smith.</span>
+    <button class="btn btn-navy btn-sm" onclick="cmCaseFlow.archived(false)">← John Doe v. Robert Smith</button></div>`;
 }
 if(typeof window.renderClientProfile === "function"){
   const __profile = window.renderClientProfile;
   window.renderClientProfile = function(){
-    return profileSwitch() + (state.cfProfile && Array.isArray(CF.profile) ? caseFlowProfile() : __profile.apply(this, arguments));
+    const v = track();
+    if(v === "classic" || !Array.isArray(CF.profile)) return __profile.apply(this, arguments);   // the Apex Case File, as it was
+    if(v === "caseflow") return caseFlowProfile(false);   // the archived Apex case file isn't theirs
+    // trainers, and trainees given the archived days too: Robert Smith is the Case File; the Apex case file is one click away
+    return state.cfArchived ? archivedBar() + __profile.apply(this, arguments) : caseFlowProfile(true);
   };
-  window.cmCaseFlow.profile = function(on){
-    state.cfProfile = !!on;
+  const show = archived => {
+    state.cfArchived = !!archived;
     if(state.view !== "clientprofile" && typeof goto === "function") return goto("clientprofile");
     render(); window.scrollTo(0, 0);
   };
+  window.cmCaseFlow.profile = () => show(false);   // the dashboard's "Case profile" button
+  window.cmCaseFlow.archived = show;
+}
+
+/* ---------- the case documents: John Doe v. Robert Smith (js/cm-case-flow-docs.js) ----------
+   The Documents page is this file's document set for every trainee on the Case Flow, each document
+   opening with its Case Flow day (trainers see them all). The John Doe v. Apex and Jordan Davies
+   documents are archived: whole for a trainee on the archived version, one click away for trainers
+   (and trainees given the archived days too). Each Skill Activity names the documents it works from. */
+const CF_DOCS = window.CM_CF_DOCS || [], CF_FOLDERS = window.CM_CF_DOC_FOLDERS || [], CF_PACKETS = window.CM_CF_DOC_PACKETS || {};
+if(typeof window.cmDoc === "function"){
+  const __doc = window.cmDoc;
+  window.cmDoc = id => __doc(id) || CF_DOCS.find(d => d.id === id);
+}
+const docUrl = d => typeof cmDocUrl === "function" ? cmDocUrl(d) : "documents/" + d.file;
+function docLine(blockId){
+  const docs = (CF_PACKETS[blockId] || []).map(id => CF_DOCS.find(d => d.id === id)).filter(Boolean);
+  if(!docs.length) return "";
+  return `<div class="cf-docline"><b>📁 Work from</b>${docs.map(d => `<a href="${E(docUrl(d))}" target="_blank" rel="noopener" title="${E(d.desc)}">${E(d.title)}</a>`).join("")}</div>`;
+}
+const docOpen = d => !!(state.isAdmin || state.adminPreview) || dayUnlocked(cfIdOf(d.day));
+function caseFlowDocuments(archiveLink){
+  const shown = CF_DOCS.filter(docOpen), locked = CF_DOCS.filter(d => !docOpen(d));
+  const tpl = (window.CM_DOCS || []).filter(d => d.folder === "templates");
+  const row = d => `<div class="cm-doc-row"><div><span class="t">${E(d.title)}</span> <span style="font-size:11px;color:var(--ink-soft)">· ${d.folder === "templates" ? "Any day" : "Case Flow Day " + d.day}</span><div class="d">${E(d.desc)}</div>${state.isAdmin && d.key ? `<div class="cm-key">🔑 ${E(d.key)}</div>` : ""}</div>
+      <div style="display:flex;gap:6px;align-items:center"><span class="cms">CMS: ${E(d.cms)}</span><a class="btn btn-ghost btn-sm" href="${E(docUrl(d))}" target="_blank" rel="noopener">${/\.(docx|xlsx)$/i.test(d.file) ? "Download" : "Open"}</a></div></div>`;
+  const folders = CF_FOLDERS.map(fo => ({fo, items: shown.filter(d => d.folder === fo.id), later: locked.filter(d => d.folder === fo.id).length})).filter(x => x.items.length || x.later);
+  return `<p class="eyebrow">Case Documents</p>
+    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">📁 Case Documents: ${E(CF.case.style)}</h1>
+    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 14px">The working file for John Doe v. Robert Smith: intake, police and video, medical records and bills, the carriers' policies and letters, liens, the Civic's property damage, and (Track B) the lawsuit. Each document opens with its Case Flow day, and each Skill Activity lists the ones it works from. Each shows the <b>CMS upload category</b> to use when you add it to the case in the CMS. Read them the way a Case Manager does: verify every fact against its source, and flag what doesn't match.</p>
+    <div class="cm-filter"><button class="btn btn-sm btn-ghost" onclick="openCms()">🗂 Open CMS</button></div>
+    ${state.isAdmin ? `<div class="card" style="padding:12px 16px;margin-bottom:16px;border-left:4px solid var(--danger);font-size:12.8px">🔑 <b>Trainer view:</b> the red notes under each document are the audit key: planted discrepancies and what a strong trainee should catch. Trainees don't see them. Every document's plants are listed in build/case-flow/documents/SPEC.md.</div>` : ""}
+    ${folders.map(({fo, items, later}) => `<div class="card cm-lib-folder" style="padding:14px 18px"><h3>${fo.icon} ${E(fo.label)} <span style="font-weight:500;color:var(--ink-soft);font-size:12px">(${items.length})</span></h3>
+      ${items.map(row).join("")}${later ? `<div class="cf-note">🔒 ${later} more open with later Case Flow days.</div>` : ""}</div>`).join("")}
+    ${tpl.length ? `<div class="card cm-lib-folder" style="padding:14px 18px"><h3>📝 Templates &amp; Blank Forms <span style="font-weight:500;color:var(--ink-soft);font-size:12px">(${tpl.length})</span></h3>${tpl.map(row).join("")}</div>` : ""}
+    ${archiveLink ? `<div class="cf-archived-link"><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.docsArchived(true)">🗄 Archived: the John Doe v. Apex and Jordan Davies documents</button>
+      <span class="cf-note">The earlier version's document set, kept for the Apex days and their Skill Builders.</span></div>` : ""}`;
+}
+if(typeof window.renderCaseDocuments === "function" && CF_DOCS.length){
+  const __docs = window.renderCaseDocuments;
+  window.renderCaseDocuments = function(){
+    const v = track();
+    if(v === "classic") return __docs.apply(this, arguments);   // the archived version's documents, as they were
+    if(v === "caseflow") return caseFlowDocuments(false);
+    return state.cfDocsArchived
+      ? `<div class="cf-archived-bar"><span><b>🗄 Archived</b> · the John Doe v. Apex and Jordan Davies documents, kept for the earlier version's days.</span>
+          <button class="btn btn-navy btn-sm" onclick="cmCaseFlow.docsArchived(false)">← John Doe v. Robert Smith documents</button></div>` + __docs.apply(this, arguments)
+      : caseFlowDocuments(true);
+  };
+  window.cmCaseFlow.docsArchived = function(on){ state.cfDocsArchived = !!on; if(state.view !== "casedocs" && typeof goto === "function") return goto("casedocs"); render(); window.scrollTo(0, 0); };
+}
+
+/* ---------- 🧪 Practice: the Case Flow's Skill Activities ----------
+   For a trainee on the Case Flow, Practice is the Case Flow's own hands-on work: every Skill Activity,
+   day by day and module by module, with its tool, its expected output and the documents it works from,
+   opening straight on its slide. The Apex Skill Builders (built on the archived Apex documents) are
+   archived: whole for a trainee on the archived version, one click away for trainers. */
+window.cmCaseFlow.openBlock = function(dayId, lessonIndex){
+  if(typeof goto !== "function") return;
+  goto("day", dayId);
+  const d = cfDay(dayId), slides = d && typeof buildDaySlides === "function" ? buildDaySlides(d) : [];
+  const idx = slides.findIndex(sl => sl.lessonIndex === lessonIndex && sl.part === 1);
+  if(idx >= 0 && typeof goToSlide === "function") setTimeout(() => { state.dayViewMode = "slides"; goToSlide(idx); }, 0);
+};
+function caseFlowPractice(archiveLink){
+  const kcDone = d => !!((state.progress || {})[d.id] || {}).done;
+  const days = MODULES.map(d => {
+    const open = dayUnlocked(d.id), day = CF.days.find(x => x.n === d.cf.n);
+    const mods = day.modules.map(m => {
+      const acts = m.blocks.map(b => ({b, li: d.lessons.findIndex(l => l.cf.block === b)})).filter(x => x.b.kind === "activity");
+      return `<div class="cf-px-mod"><div class="cf-px-mh">${d.cf.n}.${m.n} · ${E(m.title)}</div>
+        ${acts.map(({b, li}) => `<div class="cf-px-act"><div><b>${E(b.title)}</b>
+            <div class="cf-px-meta"><span>🛠 ${E(b.act.tool)}</span><span>📤 ${E(b.act.output)}</span>${(CF_PACKETS[b.id] || []).length ? `<span>📁 ${CF_PACKETS[b.id].length} documents</span>` : ""}</div></div>
+          ${open ? `<button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.openBlock(${d.id},${li})">Open</button>` : `<span class="cf-px-lock">🔒</span>`}</div>`).join("")}</div>`;
+    }).join("");
+    return `<div class="card px-day"><div class="px-day-h"><div><h2>Case Flow Day ${d.cf.n}${open ? "" : " · 🔒"}${day.track ? ` <span class="cf-px-track">${E(day.track)}</span>` : ""}</h2><div class="sub">${E(day.phase)}</div></div>
+        <span class="px-prog">${kcDone(d) ? "Knowledge Check passed ✓" : open ? "In progress" : "Opens when the day before is passed"}</span></div>
+      <div class="cf-px-mods">${mods}</div></div>`;
+  }).join("");
+  const any = [
+    `<button class="btn btn-ghost btn-sm" onclick="${window.cmCaseFlow.docsArchived ? "cmCaseFlow.docsArchived(false)" : "goto('casedocs')"}">📁 Case Documents</button>`,
+    typeof rpLaunchQuickPractice === "function" ? `<button class="btn btn-ghost btn-sm" onclick="rpLaunchQuickPractice()">🎲 Quick roleplay call</button>` : "",
+    typeof openTool === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openTool('cms',null,'library=1')">📚 CMS Training Library</button>` : "",
+    typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS</button>` : ""].join("");
+  return `<p class="eyebrow">Practice</p>
+    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🧪 Practice: the Case Flow Skill Activities</h1>
+    <p style="color:var(--ink-soft);font-size:14px;max-width:84ch;margin:0 0 14px">Every hands-on exercise of the 5-Day Legal Case Management Flow, on the live file <b>${E(CF.case.style)}</b>: two Skill Activities a module, each done in the tool it names (the CMS, the Call Simulator, the email workspace) from the documents it lists. Each opens with its day and goes straight to its slide.</p>
+    ${days}
+    <div class="card" style="padding:14px 18px;margin-bottom:14px"><b style="color:var(--navy)">Any day</b><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">${any}</div></div>
+    ${archiveLink ? `<div class="cf-archived-link"><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.practiceArchived(true)">🗄 Archived: the John Doe v. Apex Skill Builders</button>
+      <span class="cf-note">The earlier version's practice tools, on the archived Apex and Jordan Davies documents.</span></div>` : ""}`;
+}
+if(typeof window.renderPracticeHub === "function"){
+  const __px = window.renderPracticeHub;
+  window.renderPracticeHub = function(){
+    const v = track();
+    if(v === "classic") return __px.apply(this, arguments);   // the archived version's Practice, as it was
+    if(v === "caseflow") return caseFlowPractice(false);
+    return state.cfPxArchived
+      ? `<div class="cf-archived-bar"><span><b>🗄 Archived</b> · the John Doe v. Apex Skill Builders, kept for the earlier version's days.</span>
+          <button class="btn btn-navy btn-sm" onclick="cmCaseFlow.practiceArchived(false)">← The Case Flow Skill Activities</button></div>` + __px.apply(this, arguments)
+      : caseFlowPractice(true);
+  };
+  window.cmCaseFlow.practiceArchived = function(on){ state.cfPxArchived = !!on; render(); window.scrollTo(0, 0); };
 }
 
 /* ---------- styles: only what the course's own classes don't already give ---------- */
@@ -577,7 +834,19 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cf-ai{margin-top:8px;font-size:13px;background:#FFFBF3;border:1px solid var(--orange-soft);border-radius:12px;padding:9px 12px;}
 .cf-ai p{margin:4px 0 0;}
 .cf-dash{margin-top:22px;}
+@media(min-width:1001px){
+  main.main-dash > .cf-first{flex:0 0 auto;min-height:100%;display:flex;flex-direction:column;}
+  main.main-dash > .cf-first > .dash-top{flex:0 0 auto;}
+  main.main-dash > .cf-first > .dash-layout{flex:1 1 auto;display:flex !important;flex-direction:column;}
+  /* the page scrolls to the Case Flow row anyway, so a short laptop screen never crushes the day cards' icon and topics */
+  main.main-dash > .cf-first .module-card.mc-clean .module-body{min-height:118px;}
+  main.main-dash > .cf-dash{flex:0 0 auto;}
+}
 .cf-tr-wrap{margin-top:14px;}
+.cf-track{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin:0 0 10px;padding:10px 12px;background:#F6F7FB;border:1px solid var(--line);border-radius:12px;}
+.cf-track label{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.cf-track select{max-width:100%;}
+.cf-track .cf-note{margin:0;flex:1 1 260px;}
 .cf-tr summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
 .cf-tr-chips{display:inline-flex;flex-wrap:wrap;gap:4px;}
 .cf-tr-rubric{font-size:12.5px;color:var(--ink-soft);margin:6px 0;}
@@ -585,10 +854,24 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cf-dash-head h2{margin:2px 0 6px;color:var(--navy);font-size:22px;}
 .cf-dash-head p:not(.eyebrow){margin:0 0 12px;max-width:90ch;color:var(--ink-soft);font-size:14px;}
 .cf-soon .module-body{opacity:.8;}
-.cf-prof-switch{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;margin:0 0 14px;background:#F6F7FB;border:1px solid var(--line);border-radius:12px;max-width:100%;}
-.cf-prof-switch button{border:0;background:transparent;border-radius:9px;padding:7px 12px;font:700 13px var(--font-ui);color:var(--navy);cursor:pointer;}
-.cf-prof-switch button small{font-weight:500;color:var(--ink-soft);margin-left:4px;}
-.cf-prof-switch button.on{background:#fff;box-shadow:0 1px 3px rgba(20,30,60,.12);}
+.cf-docline{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;margin:8px 0 0;font-size:12.5px;}
+.cf-docline b{font-size:12px;color:var(--navy);}
+.cf-docline a{color:var(--navy-soft);text-decoration:underline;text-decoration-color:var(--orange-soft);text-underline-offset:2px;}
+.cf-docline a:not(:last-child)::after{content:" ·";color:var(--ink-soft);}
+.cf-px-mods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+.cf-px-mod{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff;}
+.cf-px-mh{font:700 13px var(--font-ui);color:var(--navy);margin-bottom:6px;}
+.cf-px-act{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:7px 0;border-top:1px dashed var(--line);}
+.cf-px-act b{font-size:13.5px;color:var(--ink);}
+.cf-px-act > .btn{flex:0 0 auto;white-space:nowrap;}
+.cf-px-meta{display:flex;flex-direction:column;gap:2px;margin-top:3px;font-size:12px;color:var(--ink-soft);}
+.cf-px-lock{font-size:14px;opacity:.7;}
+.cf-px-track{font:700 11px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--orange-deep);margin-left:6px;}
+@media(max-width:760px){.cf-px-mods{grid-template-columns:minmax(0,1fr);}}
+.cf-archived-link{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin:18px 0 4px;}
+.cf-archived-link .cf-note{margin:0;}
+.cf-archived-bar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;margin:0 0 14px;padding:10px 14px;background:#F6F7FB;border:1px dashed #B9BFD0;border-radius:12px;font-size:13.5px;color:var(--ink-soft);}
+.cf-archived-bar b{color:var(--navy);}
 .cf-prof-lock{background:#F6F7FB;}
 .cf-prof-lock h3{color:var(--ink-soft);}
 .cf-prof-lock li{color:var(--ink-soft);}

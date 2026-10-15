@@ -1,7 +1,7 @@
 # 5-Day Legal Case Management Flow — Architecture & Continuity Spine
 
 **Focus case:** *John Doe v. Robert Smith* · **Lead Counsel:** Attorney Elijah Thone
-**Course:** LSH Case Management Training (5-Day) — a new track beside the existing *John Doe v. Apex Delivery Services* days, which are unchanged.
+**Course:** LSH Case Management Training (5-Day). The Case Flow is the course; the earlier *John Doe v. Apex Delivery Services* days are archived (kept as they were, off the trainees' dashboard).
 **Status:** the spec every Case Flow block conforms to. All five days are written: 20 modules, 100 blocks.
 
 | File | What it is |
@@ -11,6 +11,7 @@
 | `build/case-flow/curriculum.cjs` | Writes `dayN.md` and `traceability.md` from the data, and validates the curriculum's rules. |
 | `curriculum/5-day-flow/day1.md` … `day5.md` | The per-block curriculum spec, one file a day (generated). |
 | `curriculum/5-day-flow/case-file.md` | The canonical case file: every party, date, bill, offer, lien and deadline the five days use. |
+| `build/case-flow/documents/` | The case documents (60, `documents/case-flow/`): `SPEC.md` (each document's facts, plants and trainer key), the sources, the renderer and the audit. Metadata and each activity's documents: `js/cm-case-flow-docs.js`. |
 | `curriculum/5-day-flow/traceability.md` | Where every existing topic's theory lives now (generated). |
 
 ---
@@ -62,7 +63,9 @@ The existing course teaches the right doctrine on 192 topics, but as slide-by-sl
 | Outside the stack | MedPay (pays bills, first in the payer order), Keystone's PD coverage (the Civic's repair, loss of use and diminished value) and John's own policy are never part of the $40,000 |
 
 The full case file the content is written against (providers, bills, dates, the net sheet, the litigation calendar) is `case-file.md`; every figure on a slide comes from it.
-Trainees read the file on the **📁 Case File page** (the John Doe v. Robert Smith switch beside the Apex file), from `profile` in `js/cm-case-flow-data.js`. It grows with the file: `opens: N` sections show once Case Flow Day N is open (the facts the day starts from), `passed: N` sections once Day N's Knowledge Check is passed (what that day's work produces), so the profile never gives away an activity's answer. Trainers see every section. A fact changed in `case-file.md` is changed there too.
+**Who sees it.** Every trainee: the Case Flow is the course. Its five days are the dashboard's day cards, banner circles, stats and certificate, and the Admin page's Trainee Audit, progress and Day-by-Day Feedback follow them. John Doe v. Apex is archived: off the trainees' dashboard, in an "Archived version" row for trainers, its days still reachable and its case file behind the Case File page's "Archived" link. On the Admin page, in the trainee's panel, **Course version** can put one trainee on the archived version, or give them both. The choice is stored as `track` in the trainee's `feedback:<id>` (the trainer writes it; the Worker keeps it when the trainee writes their own review receipts).
+
+Trainees read the file on the **📁 Case File page**, which is John Doe v. Robert Smith's client profile for trainers and every trainee assigned the Case Flow (the Apex case file is archived behind a link at its foot, and stays the Case File for trainees on the Apex version), from `profile` in `js/cm-case-flow-data.js`. It grows with the file: `opens: N` sections show once Case Flow Day N is open (the facts the day starts from), `passed: N` sections once Day N's Knowledge Check is passed (what that day's work produces), so the profile never gives away an activity's answer. Trainers see every section. A fact changed in `case-file.md` is changed there too.
 
 ### Two tracks: the litigation fork
 

@@ -86,7 +86,7 @@ passenger door at about 28 mph; the Escape was pushed into John's Civic, parked 
   Harbor Point confirmed in writing (03/02/2026): **no reimbursement right** on MedPay against John's recovery;
   its UM is **add-on (excess)** — not reduced by the BI payment — and has **no MedPay non-duplication reduction**.
 - Cardinal State confirmed in writing (03/09/2026) that John is covered as a resident relative occupying a non-owned vehicle.
-- Keystone would not disclose limits before a written request with authorizations; BI limit $10,000 confirmed by Keystone's declarations page on 03/20/2026.
+- Keystone gave its $10,000 BI limit verbally on the set-up call but would not confirm it in writing (no declarations page) before a written request with signed authorizations; BI limit $10,000 confirmed in writing by Keystone's declarations page on 03/20/2026.
 
 **Medical specials** billed: $15,002.40 before audit → **$14,817.40** after removing the duplicate.
 **Lost wages**: 9 missed shifts (02/09–02/13, 03/05, 03/13, 05/15, 05/18) × 8 h × $22.00 = **$1,584.00**,
@@ -235,3 +235,32 @@ before any negotiated reduction, leaving John Doe nothing — which is why the l
 | 3 | Used by the adjuster as a causation defense; countered with the MRI |
 | 4 | The adjuster's stonewall on it triggers the litigation fork |
 | 5 | Defended in deposition prep against opposing counsel's causation trap |
+
+## 6. Document details (the case documents)
+
+The details the case documents (`documents/case-flow/`, spec in `build/case-flow/documents/SPEC.md`) need beyond
+the facts above. Fictional throughout; no real carrier, provider or firm.
+
+| | |
+|---|---|
+| Firm | **LSH Law Group**, 500 Commerce St, Suite 1200, Riverton · (555) 010-4000 · Case Manager line ext. 214 · file LSH-2026-MVA-770412 |
+| Intake | Intake call **02/09/2026 (Mon)**; retainer and HIPAA authorization signed in the office the same day |
+| Keystone Mutual Insurance | Claims, P.O. Box 4100, Riverton · Robert Smith's policy **KMI-PA-7731045** · BI claim KM-26-440871 (Dana Whitfield, BI adjuster; **Greg Holloway**, claims supervisor) · PD claim KM-26-440871-PD (Leah Moran) |
+| Harbor Point Insurance | 77 Harbor Point Blvd, Riverton · Kevin Alvarez's policy **HPA-4402917** (2020 Ford Escape) · claim HP-26-7741 (Marcus Bell) · UM $20,000 / $40,000; MedPay $5,000 |
+| Cardinal State Mutual | 1200 Cardinal Way, Millbrook · Margaret Doe's policy **CSM-AU-5580213** (2018 Toyota Camry) · claim CS-26-20355 (Teresa Okafor) · UM $10,000 / $20,000 |
+| Bluewater Auto Insurance | John Doe's policy **BWA-209-66184** (2019 Honda Civic LX) · liability 25/50/25 + collision ($500 deductible) · UM/UIM rejected in writing 03/14/2024 |
+| Peach State Health Plan | Subrogation & Recovery Unit, P.O. Box 2210, Riverton · member PSH-55017742 · group GRP-41208 (Northgate Distribution; **fully insured** group plan) · recovery analyst **Dion Carver** · first notice of reimbursement rights **02/27/2026** |
+| Riverton PD | Officer **Thomas Garner #2217** · report RPD-26-018842 |
+| Riverton Fire EMS | Medic 7 · run RF-26-0206-114 · paramedic **J. Ortiz** · on scene 07:18 |
+| Riverton Urgent Care | 1450 Birch Ave · **Nina Patel, PA-C** |
+| Riverton Spine & Rehab | 300 Mill St · **Dr. Mark Ellison, DC** (chiropractic) · **Sara Lin, DPT** (PT) · billing and LOP: **Tammy Greer**, office manager · $185.00 per visit (chiro + PT, one line per visit date) |
+| Lakeside Orthopedics | 2 Lakeside Dr · **Dr. Alana Reyes, MD** · $640.00 per visit (03/05, 03/27, 06/12/2026) |
+| Summit Imaging Center | 88 Summit Pkwy · radiologist **Dr. Helen Park, MD** · $2,395.00 cervical MRI without contrast |
+| Crescent Pain & Spine | 41 Crescent Ct · **Dr. Omar Haddad, MD** · in network with Peach State |
+| Prior care (2021) | **Birch Avenue Chiropractic**, Dr. Lena Ford, DC · three visits 05/04, 05/11, 05/18/2021 · low-back stiffness, resolved, released to full activity |
+| Riverton Drug | 1500 Birch Ave · total $312.40 (OTC receipt 02/07/2026 $38.60; prescriptions and OTC through 06/2026) |
+| Northgate Distribution | 900 Industrial Pkwy, Riverton · HR: **Angela Ruiz**, HR manager · wage-and-attendance letter 06/30/2026 |
+| Witness | **Ruth Calloway**, 2209 Maple Hollow Rd · signed statement to Officer Garner on scene |
+| Doorbell video | Margaret Doe's camera at 2214 Maple Hollow Rd · clip 07:09:41–07:10:26 · copy secured 02/19/2026 (USB, SHA-256 logged) |
+| Property damage | **Riverton Collision Center** (estimator Paul Diaz) · tow and storage **Riverton Towing** · rental **Rivergate Rentals** · DV appraisal **Riverton Auto Appraisal** (Carl Benning) |
+| Litigation | Process server **Allied Process Services** (Miguel Santos) · skip-trace **TraceLine Investigations** · defense **Atty. Grant Mercer, Mercer & Hale LLP**, 10 Court Sq, Riverton · court reporter **Riverton Court Reporting** |
