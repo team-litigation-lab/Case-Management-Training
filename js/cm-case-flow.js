@@ -394,6 +394,44 @@ function fullText(l, d){
    (js/cm-case-flow-art.js). The block's full curriculum text stays one tap away (📖 Full text) and in
    Presenter view. A block with no concise copy yet is condensed from its full text. */
 const SLIDES = window.CM_CF_SLIDES || {}, ART = window.CM_CF_ART || {};
+/* The simulation (js/cm-case-flow-sim.js): what lands on the file to start each Skill Activity, the live
+   call in every Case Phase, what a skipped step costs later, and the case's milestones. */
+const SIM = Object.assign({events: {}, calls: {}, fallout: [], timeline: []}, window.CM_CF_SIM || {});
+const CHANNEL = {email: ["✉️", "Email"], call: ["📞", "Phone call"], voicemail: ["📳", "Voicemail"], letter: ["📨", "Letter"], fax: ["📠", "Fax"],
+  alert: ["🔔", "CMS alert"], portal: ["🌐", "Portal message"], text: ["💬", "Text message"], memo: ["📝", "Internal memo"]};
+const dayMs = v => { const [m, d, y] = String(v || "").split("/").map(Number); return y ? Date.UTC(y, m - 1, d) : NaN; };
+const trackOfDay = day => (/Track ([AB])/.exec((day && day.track) || "") || [])[1] || "";
+function eventCard(e, extra){
+  const [icon, label] = CHANNEL[e.channel] || ["📌", "Message"];
+  const att = (e.attachments || []).map(id => CF_DOCS.find(x => x.id === id)).filter(Boolean);
+  return `<div class="cfx-ev cfx-ev-${E(e.channel)}${extra ? " " + extra : ""}">
+      <div class="cfx-ev-h"><span class="cfx-ev-i">${icon}</span><span class="cfx-ev-ch">${E(label)}</span><span class="cfx-ev-from">${E(e.from || "")}</span>
+        <span class="cfx-ev-when">${E(e.date || "")}${e.time ? " · " + E(e.time) : ""}</span></div>
+      <div class="cfx-ev-subj">${E(e.subject || "")}</div>
+      <p class="cfx-ev-body">${E(e.body || "")}</p>
+      ${att.length ? `<div class="cfx-ev-att">${att.map(x => `<a href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}">📎 ${E(x.title)}</a>`).join("")}</div>` : ""}
+    </div>`;
+}
+/* the case's milestones around a date, with "you are here" */
+function timelineStrip(at, track){
+  const t = dayMs(at), all = (SIM.timeline || []).filter(m => !m.track || !track || m.track === track);
+  if(!all.length || isNaN(t)) return "";
+  let k = all.findIndex(m => dayMs(m.date) > t); if(k < 0) k = all.length;
+  const show = all.slice(Math.max(0, k - 3), Math.min(all.length, k + 3)), cut = show.findIndex(m => dayMs(m.date) > t);
+  const dot = (m, past) => `<li class="${past ? "past" : "next"}"><i></i><b>${E(m.label)}</b><small>${E(m.date)}</small></li>`;
+  const here = `<li class="here"><i></i><b>You are here</b><small>${E(at)}</small></li>`;
+  const items = show.map((m, j) => (j === cut ? here : "") + dot(m, cut < 0 || j < cut)).join("") + (cut < 0 ? here : "");
+  return `<ol class="cfx-tl">${items}</ol>`;
+}
+/* fallout: a later activity shows what a skipped check costs, for a trainee who didn't tick it */
+function falloutFor(blockId){
+  const ticks = (REC.ticks || {});
+  return (SIM.fallout || []).filter(f => f.then && f.then.activity === blockId).map(f => {
+    const done = !!((ticks[f.if.activity] || [])[f.if.check]);
+    const what = ((SLIDES[f.if.activity] || {}).checks || [])[f.if.check] || "";
+    return {f, done, what: String(what).replace(/\*\*/g, "")};
+  }).filter(x => isTrainer() || !x.done);
+}
 const VIEW_LABEL = {why: "Why It Matters", rules: "The Rules", model: "See It", job: "On the Job", dodont: "Do & Don't",
   case: "Your Case", task: "Your Task", check: "Check Your Work", questions: "Knowledge Check", questions2: "Knowledge Check, Continued", summary: "Self-Summary", scale: "Skill Scale"};
 const VIEW_ICON = {why: "💡", rules: "📏", model: "🔍", job: "🛠", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
@@ -445,16 +483,26 @@ function slideBody(view, l, d){
       <div class="cfx-dont"><h3>⚠️ Don't</h3><ul>${c.donts.map(x => `<li>${hl(x)}</li>`).join("")}</ul></div></div>`;
     case "case": {
       const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(Boolean).slice(0, 4);
+      const ev = SIM.events[b.id], fall = falloutFor(b.id);
+      const thumbs = docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
       return `<div class="cfx-sb">
-        ${docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image)}
+        ${ev ? timelineStrip(ev.date, trackOfDay(day)) : ""}
         <div class="cfx-challenge"><span>“${E(b.title.toUpperCase())}”</span></div>
-        <div class="cfx-task-card"><span class="cfx-chip">📂 ${E(CF.case.style)}</span><p class="cfx-situation">${hl(c.situation)}</p></div></div>`;
+        ${fall.map(x => { const e = x.f.then.event, [icon] = CHANNEL[e.channel] || ["⚠️"];
+          return `<details class="cfx-fall"><summary><span class="cfx-fall-i">⚠️</span><b>${E(e.subject)}</b><span class="cfx-fall-from">${icon} ${E(e.from || "")}</span></summary>
+            <p>${E(e.body)}</p>${isTrainer() ? `<small class="cfx-fall-why">${x.done ? "Not shown to this trainee: they confirmed" : "Shown because this wasn't confirmed"}: “${E(x.what)}” (${E(x.f.if.activity)})</small>` : ""}</details>`; }).join("")}
+        <div class="cfx-sb-grid">
+          <div class="cfx-sb-main">${ev ? eventCard(ev) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}</div>
+          <div class="cfx-sb-docs">${thumbs}</div>
+        </div></div>`;
     }
     case "task": return `<div class="cfx-task"><ol class="cfx-points">${c.steps.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>
       <aside class="cfx-side"><div><b>🛠 Where</b><span>${E(b.act.tool)}</span><div class="cfx-btns">${toolButtons(b.act.tool)}</div></div>
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}</details>` : ""}
+        ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}</span>
+          <button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
         <div class="cfx-deliver"><b>📤 Deliver</b><span>${hl(c.deliver)}</span></div></aside></div>`;
-    case "check": return `<div class="cfx-check">${c.checks.map(x => `<label class="cfx-tick"><input type="checkbox"><span>${hl(x)}</span></label>`).join("")}</div>
+    case "check": return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${hl(x)}</span></label>`).join("")}</div>
       ${c.donts.length ? `<div class="cfx-watch"><b>⚠️ Watch For</b>${c.donts.map(x => `<span>${hl(x)}</span>`).join("")}</div>` : ""}`;
     case "questions": case "questions2": {   // each question with its answer box; answers save as they're typed
       const from = view === "questions2" ? KC_PER : 0, m = rec(mod.id), last = from + KC_PER >= c.questions.length;
@@ -534,6 +582,66 @@ function agendaSlide(d){
         <div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div></div>
     </div>`;
 }
+/* ---------- the live call: the course's own roleplay engine, on John Doe v. Robert Smith ---------- */
+function caseDossier(){
+  const c = CF.case;
+  return [`CASE: ${c.style} (${c.no}) — ${c.type}. Lead Counsel: ${c.counsel}. The Case Manager is the trainee.`,
+    `Client: ${c.client.name}, ${c.client.position}. Date of loss ${c.dol}; SOL ${c.sol}.`,
+    `Coverage, in order: ${stackLayers().map(l => `${l.tag} ${money(l.limit)} (${l.carrier}${l.adjuster ? ", adjuster " + l.adjuster : ""})`).join(" → ")} = ${money(c.total)}.`,
+    `Health Plan: ${c.health.carrier}. Critical fact: ${c.critical}`,
+    ...(CF.profile || []).flatMap(sec => [`${sec.title}:`, ...sec.items.map(x => `- ${x}`)])].join("\n");
+}
+window.cmCaseFlow = window.cmCaseFlow || {};
+window.cmCaseFlow.call = function(blockId){
+  const c = SIM.calls[blockId], at = MODULES.flatMap(d => d.lessons.map((l, i) => ({d, l, i}))).find(x => x.l.cf.block.id === blockId);
+  if(!c || !at || typeof goto !== "function" || typeof ROLEPLAY_MODES === "undefined") return;
+  const back = {dayId: at.d.id, slide: typeof state.lessonSlide === "number" ? state.lessonSlide : null, blockId};
+  const ev = SIM.events[blockId] || {};
+  state.rpSession = {
+    category: {id: "caseflow", icon: "📞", label: `Case Flow Day ${at.d.cf.n}`},
+    topic: {id: "cf-" + blockId, label: `${c.who}: ${at.l.cf.block.title}`, fixedOpening: c.opening,
+      context: `${ev.date ? "Date on the file: " + ev.date + ". " : ""}${c.context}\nThe Case Manager must: ${c.goals.join("; ")}.\nUPL line on this call: ${c.line}`},
+    mode: ROLEPLAY_MODES.find(m => m.id === "guided") || ROLEPLAY_MODES[0],
+    persona: {id: "cf-" + c.role, label: c.who, desc: c.persona},
+    chatHistory: [], startedAt: Date.now(), part: 1, rapidTasks: [], rapidIndex: 0, rapidResponses: [],
+    cf: back
+  };
+  goto("openroleplay");
+  if(typeof rpGenerateOpening === "function") rpGenerateOpening();
+};
+window.cmCaseFlow.callBack = function(){
+  const s = state.rpSession, cf = s && s.cf;
+  if(cf && (s.chatHistory || []).some(m => m.role === "ea")){ REC.calls = REC.calls || {}; REC.calls[cf.blockId] = {at: new Date().toISOString(), lines: s.chatHistory.length}; persist(); }
+  try{ if(typeof VoiceCall !== "undefined") VoiceCall.hangup(true); }catch(e){}
+  state.rpSession = null;
+  if(!cf){ goto("dashboard"); return; }
+  goto("day", cf.dayId);
+  setTimeout(() => { state.dayViewMode = "slides"; if(typeof goToSlide === "function" && cf.slide != null) goToSlide(cf.slide); }, 0);
+};
+/* while a Case Flow call is live, the caller and the reviewer know John Doe v. Robert Smith, not the archived file */
+if(typeof window.callAIText === "function"){
+  const __ai = window.callAIText;
+  window.callAIText = function(prompt){
+    const s = typeof state !== "undefined" && state.rpSession;
+    if(s && s.cf && typeof prompt === "string"){
+      let p = typeof CLIENT_DOSSIER_MD === "string" ? prompt.split(CLIENT_DOSSIER_MD).join(caseDossier()) : prompt;
+      p = p.replace(/John Doe v\. Apex[^\n)]*/g, "John Doe v. Robert Smith");
+      arguments[0] = p;
+    }
+    return __ai.apply(this, arguments);
+  };
+}
+if(typeof window.renderOpenRoleplay === "function" || typeof renderOpenRoleplay === "function"){
+  const __rp = renderOpenRoleplay;
+  renderOpenRoleplay = function(){
+    const s = state.rpSession, html = __rp.apply(this, arguments);
+    if(!s || !s.cf) return html;
+    const d = cfDay(s.cf.dayId);
+    return `<div class="cf-call-bar"><button class="btn btn-navy btn-sm" onclick="cmCaseFlow.callBack()">← Back to Case Flow Day ${d ? d.cf.n : ""}</button>
+      <span>📞 A live call on <b>${E(CF.case.style)}</b>. Speak or type as the Case Manager, then <b>End &amp; Get Debrief</b>; your call counts once you've replied.</span></div>`
+      + html.replace(/<button class="btn btn-ghost btn-sm" style="margin-bottom:14px;" onclick="rpExitToHub\(\)">&larr; Back to Dashboard<\/button>/, "");
+  };
+}
 if(typeof renderDaySlideContent === "function"){
   const __content = renderDaySlideContent;
   renderDaySlideContent = function(d, slide){
@@ -567,8 +675,8 @@ MODULES.forEach(d => d.lessons.forEach(l => {
     model: {why: (b.show && b.show.caption) || "The model to follow.", talk: b.visual || ""},
     job: {why: "Trigger ➔ Task ➔ Tool ➔ Checkpoint: how it runs on the job.", walk: (b.ops || []).map(r => r.join(" ➔ "))},
     dodont: {why: "How this block is graded, and what to watch for.", talk: n.slice(2).join(" "), walk: best},
-    case: {why: b.act && b.act.scenario, talk: n[0] || ""},
-    task: {why: b.act && b.act.prompt, walk: b.act ? [`Tool: ${b.act.tool}`, `Output: ${b.act.output}`] : [], ask: n[1] || ""},
+    case: {why: b.act && b.act.scenario, talk: [SIM.events[b.id] ? `What just landed on the file (${SIM.events[b.id].date}): ${SIM.events[b.id].subject}. ${SIM.events[b.id].body}` : "", n[0] || ""].filter(Boolean).join(" ")},
+    task: {why: b.act && b.act.prompt, walk: b.act ? [`Tool: ${b.act.tool}`, `Output: ${b.act.output}`].concat(SIM.calls[b.id] ? [`Live call: ${SIM.calls[b.id].who}. The trainee must: ${SIM.calls[b.id].goals.join("; ")}.`] : []) : [], ask: n[1] || ""},
     check: {why: "Check the work against the verification checkpoints.", talk: n.slice(2).join(" "), walk: ((b.act && b.act.checkpoints) || []).concat(best)},
     questions: {why: "Knowledge check: answers come from this file, in the trainee's own words, typed under each question.", walk: ((b.check && b.check.questions) || []).slice(0, KC_PER), talk: n[0] || ""},
     questions2: {why: "Knowledge check, continued.", walk: ((b.check && b.check.questions) || []).slice(KC_PER)},
@@ -633,6 +741,7 @@ const status = (modId, t) => { const el = document.getElementById(`cfss_st_${mod
 window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
   draft(modId){ readForm(modId); clearTimeout(draftTimer); draftTimer = setTimeout(() => { persist(); status(modId, "Draft saved"); }, 900); },
   rate(modId, j, n){ rec(modId).scale[j] = n; persist(); },
+  tick(blockId, j, on){ REC.ticks = REC.ticks || {}; (REC.ticks[blockId] = REC.ticks[blockId] || [])[j] = !!on; persist(); },
   kcDraft(modId, j, v){ rec(modId).kc[j] = v; clearTimeout(draftTimer); draftTimer = setTimeout(() => { persist(); status(modId, "Draft saved"); }, 900); },
   async save(modId){ const m = readForm(modId); m.savedAt = new Date().toISOString(); await persist(); status(modId, "Saved " + new Date(m.savedAt).toLocaleString()); },
   async review(dayId, modId){
@@ -822,6 +931,20 @@ const cfIdOf = n => (cfDayByN(n) || {}).id;
 const profileOpen = sec => !!(state.isAdmin || state.adminPreview) ||
   (sec.opens ? dayUnlocked(cfIdOf(sec.opens)) : !!((state.progress || {})[cfIdOf(sec.passed)] || {}).done);
 const lockLabel = sec => sec.opens ? `Opens with Case Flow Day ${sec.opens}` : `Opens when you pass Case Flow Day ${sec.passed}`;
+/* the whole case, milestone by milestone, with "you are here" at the first thing that lands on the trainee's current day */
+function caseTimeline(n){
+  const d = cfDayByN(n), first = d && d.lessons.find(l => l.cf.block.kind === "activity" && SIM.events[l.cf.block.id]);
+  const at = first ? SIM.events[first.cf.block.id].date : "";
+  if(!(SIM.timeline || []).length) return "";
+  const t = dayMs(at), track = n >= 4 ? "B" : n === 3 ? "A" : "";
+  const items = SIM.timeline.filter(m => !m.track || !track || m.track === track);
+  let placed = false;
+  const li = items.map(m => {
+    const past = !isNaN(t) && dayMs(m.date) <= t, pre = !placed && !isNaN(t) && dayMs(m.date) > t ? (placed = true, `<li class="here"><i></i><b>You are here</b><small>${E(at)}</small></li>`) : "";
+    return pre + `<li class="${past ? "past" : "next"}"><i></i><b>${E(m.label)}</b><small>${E(m.date)}${m.track ? " · Track " + E(m.track) : ""}</small></li>`;
+  }).join("") + (!placed && at ? `<li class="here"><i></i><b>You are here</b><small>${E(at)}</small></li>` : "");
+  return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3><ol class="cfx-tl cfx-tl-full">${li}</ol></div>`;
+}
 function caseFlowProfile(archiveLink){
   const c = CF.case, secs = CF.profile || [], shown = secs.filter(profileOpen), locked = secs.filter(x => !profileOpen(x));
   const gates = [];
@@ -832,6 +955,7 @@ function caseFlowProfile(archiveLink){
       <p>${E(c.client.name)}, ${E(c.client.position.toLowerCase())}, is your client for the whole course: ${E(c.no)} · Lead Counsel ${E(c.counsel)} · ${E(money(c.total))} Recovery Stack · ${E(c.gapDays)}-Day Treatment Gap.</p>
       <p>This profile grows with the file. Each section opens with the day it belongs to, and what a day's work produces (the audited Specials, the reasons for the gap, the Net Sheet, the calendar) opens once you pass that day, so work it out from the documents first.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-navy btn-sm" onclick="goto('day',${cfIdOf(pos)})">Open Case Flow Day ${pos}</button><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.docsArchived ? cmCaseFlow.docsArchived(false) : goto('casedocs')">📁 Open the Case Documents</button>${typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS</button>` : ""}</div></div>
+    ${caseTimeline(pos)}
     <div class="profile-grid">${shown.map(x => `<div class="card profile-section"><h3>${E(x.title)}</h3><ul>${x.items.map(i => `<li>${E(i)}</li>`).join("")}</ul></div>`).join("")}
       ${gates.map(g => `<div class="card profile-section cf-prof-lock"><h3>🔒 ${E(g.k)}</h3><ul>${g.t.map(t => `<li>${E(t)}</li>`).join("")}</ul></div>`).join("")}</div>
     ${archiveLink ? `<div class="cf-archived-link"><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.archived(true)">🗄 Archived: The John Doe v. Apex Case File</button>
@@ -1094,6 +1218,52 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
   .cfx-docs-row{flex-wrap:wrap;}.cfx-thumb{flex-basis:44%;}
   .cfx-challenge{margin:4px -16px 12px;}.cfx-challenge span{font-size:16px;padding:8px 30px;}
   .cfx-ag{grid-template-columns:minmax(0,1fr);}
+}
+/* ---------- the simulation: what landed on the file, the case timeline, fallout, the live call ---------- */
+.cfx-tl{list-style:none;margin:0 0 10px;padding:0;display:flex;gap:0;align-items:flex-start;position:relative;}
+.cfx-tl::before{content:"";position:absolute;left:8px;right:8px;top:8px;height:2px;background:rgba(255,255,255,.3);}
+.cfx-tl li{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;gap:3px;position:relative;}
+.cfx-tl li::before{display:none !important;content:none !important;}
+.cfx-tl i{width:14px;height:14px;border-radius:50%;border:2px solid #AEB6CC;background:#262B45;z-index:1;}
+.cfx-tl li.past i{background:#AEB6CC;}
+.cfx-tl li.here i{width:18px;height:18px;margin-top:-2px;background:#DB8437;border-color:#fff;box-shadow:0 0 0 4px rgba(219,132,55,.35);}
+.cfx-tl b{font:600 11.5px/1.25 'Inter',sans-serif;color:#DDE2EE;padding:0 4px;}
+.cfx-tl li.here b{color:#F4B77A;font-weight:800;text-transform:uppercase;letter-spacing:.06em;}
+.cfx-tl small{font:500 10.5px 'IBM Plex Mono',monospace;color:#9AA3BA;}
+.cfx-sb-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,.9fr);gap:16px;align-items:start;}
+.cfx-sb-main{display:flex;flex-direction:column;gap:10px;}
+.cfx-sb-docs .cfx-docs-row{display:grid;grid-template-columns:repeat(2,minmax(0,100px));justify-content:center;gap:10px 12px;margin:0;}
+.cfx-sb-docs .cfx-thumb{flex:none;}
+.cfx-sb-docs .cfx-thumb span{font-size:11px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.cfx-ev{background:#fff;color:#1F2433;border-radius:14px;border:2px solid #DB8437;padding:10px 14px;box-shadow:0 6px 18px rgba(0,0,0,.25);text-align:left;}
+.cfx-ev-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font:600 12.5px 'Inter',sans-serif;color:#5B6579;}
+.cfx-ev-i{font-size:16px;}.cfx-ev-ch{font:800 11px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#B5651F;}
+.cfx-ev-from{color:#262B45;}.cfx-ev-when{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11.5px;}
+.cfx-ev-subj{margin:4px 0 4px;font:800 20px/1.3 'Poppins','Inter',sans-serif;color:#262B45;}
+.cfx-ev-body{margin:0;font:500 17px/1.5 'Inter',sans-serif;color:#2C3142;}
+.cfx-ev-att{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;}
+.cfx-ev-att a{font:600 12px 'Inter',sans-serif;color:#262B45;background:#F1F3F8;border-radius:999px;padding:3px 10px;text-decoration:none;}
+.cfx-fall{margin:0 0 8px;background:#FFF5F2;border:2px solid #E0533D;border-radius:12px;color:#3A1D17;}
+.cfx-fall summary{cursor:pointer;display:flex;align-items:center;gap:10px;padding:7px 12px;font:700 15.5px/1.3 'Inter',sans-serif;list-style:none;}
+.cfx-fall summary::-webkit-details-marker{display:none;}
+.cfx-fall summary b{color:#9E2A1C;}.cfx-fall-from{margin-left:auto;font:600 12px 'Inter',sans-serif;color:#7A4A40;white-space:nowrap;}
+.cfx-fall p{margin:0;padding:0 14px 10px 40px;font:500 15.5px/1.45 'Inter',sans-serif;}
+.cfx-fall .cfx-fall-why{display:block;padding:0 14px 8px 40px;color:#B5651F;}
+.cfx-ev.cfx-ev-fall{border-color:#E0533D;background:#FFF5F2;}
+.cfx-ev-fall .cfx-ev-ch{color:#C0392B;}
+.cfx-fall-why{display:block;margin-top:4px;color:#F4B77A;font:600 12px 'Inter',sans-serif;}
+.cfx-sb .cfx-task-card{padding:10px 16px;}.cfx-sb .cfx-task-card .cfx-situation{font-size:18px;margin-top:6px;}
+.cfx-side .cfx-call{background:#262B45 !important;border-color:#262B45 !important;color:#fff;}
+.cfx-side .cfx-call b{color:#F4B77A;}.cfx-side .cfx-call span{color:#DDE2EE;font-size:14px;}.cfx-side .cfx-call em{color:#9BE0B4;font-style:normal;}
+.cf-call-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:0 0 14px;padding:10px 14px;background:#262B45;color:#DDE2EE;border-radius:12px;font-size:14px;}
+.cf-call-bar b{color:#fff;}
+.cf-timeline{padding:16px 20px;margin:0 0 16px;background:#262B45 !important;color:#fff;border:0 !important;}
+.cfx-tl-full{flex-wrap:wrap;row-gap:14px;}.cfx-tl-full li{flex:0 0 calc(100% / 8);}.cfx-tl-full::before{display:none;}
+.cf-timeline h3{margin:0 0 12px;font:800 20px 'Poppins','Inter',sans-serif;color:#fff;}
+@media(max-width:760px){
+  .cfx-sb-grid{grid-template-columns:minmax(0,1fr);}
+  .cfx-tl li:nth-child(1),.cfx-tl li:nth-child(7){display:none;}
+  .cfx-tl b{font-size:10.5px;}
 }
 .cfx-modal{position:fixed;inset:0;z-index:9999;background:rgba(20,26,44,.55);display:flex;align-items:flex-start;justify-content:center;padding:4vh 16px;overflow:auto;}
 .cfx-modal-in{max-width:980px;width:100%;padding:18px 24px !important;}

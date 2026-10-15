@@ -40,6 +40,8 @@ jobs:
         run: node build/case-flow/curriculum.cjs --check
       - name: Case Flow slides (concise copy in the spec's limits, the assembled file in step)
         run: node build/case-flow/slides/assemble.cjs --check
+      - name: Case Flow simulation (an event for every activity, a call in every Case Phase, fallout, the timeline; the assembled file in step)
+        run: node build/case-flow/sim/assemble.cjs --check
       - name: Documents served from R2 (ranges, 304s, static assets as the fallback)
         run: node .github/scripts/r2-docs.mjs
       - name: Build the Worker without deploying (wrangler dry run)
