@@ -1021,15 +1021,70 @@ window.cmCaseFlow.back = function(){
   goto("day", r.dayId);
   setTimeout(() => { state.dayViewMode = "slides"; if(typeof goToSlide === "function" && r.slide != null) goToSlide(r.slide); }, 0);
 };
-/* the way back: a pill on the course page a step opened, until the trainee goes back or elsewhere in the Case Flow */
+/* the way back: a pill on the course page a step opened, until the trainee goes back or elsewhere in the Case Flow;
+   after an activity worked in the Action Plan Editor, a second one carries on to the next step */
 function syncReturn(){
-  let pill = document.getElementById("cf-return");
+  let pill = document.getElementById("cf-return"), go = document.getElementById("cf-return-next");
   const r = state.cfReturn, show = !!r && state.view !== "day";
   if(r && state.view === "day") state.cfReturn = null;
-  if(!show){ if(pill) pill.hidden = true; return; }
+  if(!show){ if(pill) pill.hidden = true; if(go) go.hidden = true; return; }
   if(!pill){ pill = document.createElement("button"); pill.id = "cf-return"; pill.type = "button"; pill.onclick = () => cmCaseFlow.back(); document.body.appendChild(pill); }
   pill.textContent = r.view === "day" ? `← Back to Case Flow Day ${r.n}` : "← Back to the Case Flow";
   pill.hidden = false;
+  if(r.next == null){ if(go) go.hidden = true; return; }
+  if(!go){ go = document.createElement("button"); go.id = "cf-return-next"; go.type = "button"; go.onclick = () => cmCaseFlow.onward(); document.body.appendChild(go); }
+  go.textContent = `Next: ${r.nextLabel} →`;
+  go.hidden = false;
+}
+/* ---------- Next after an Action Plan activity: the live draft in the editor, then the next step ----------
+   On the last slide of a Skill Activity worked in the Action Plan Editor (the Live Case Plan Draft, the warning
+   letter, the demand and memo drafts), Next opens the editor, where "Next: …" carries on to the activity after it
+   (or the day's Knowledge Check). Presenting, the console does it only on the day's last slide, so the shared
+   slides window isn't closed mid-day; there, with no draft to open, Next goes on to the Knowledge Check. */
+const PLAN_TOOL = /^\s*Action Plan Editor/i;
+function planStop(d, idx){
+  const slides = buildDaySlides(d), x = slides[idx], nx = slides[idx + 1]; if(!x) return null;
+  const l = d.lessons[x.lessonIndex], b = l && l.cf && l.cf.block;
+  if(!b || b.kind !== "activity" || !PLAN_TOOL.test((b.act && b.act.tool) || "") || (nx && nx.lessonIndex === x.lessonIndex)) return null;
+  return {b, next: nx ? idx + 1 : "kc", nextLabel: nx ? String(daySlideTitle(d, nx)).replace(/<[^>]+>/g, "") : "Knowledge Check"};
+}
+function openPlanStop(d, idx, stop){
+  state.cfReturn = {dayId: d.id, n: d.cf.n, slide: idx, view: "day", next: stop.next, nextLabel: stop.nextLabel};
+  goto.apply(null, PAGE.plan);
+  if(typeof toast === "function") toast(`📝 ${stop.b.title}: draft it here, then Next.`);
+}
+window.cmCaseFlow.onward = function(){
+  const r = state.cfReturn; state.cfReturn = null; syncReturn();
+  if(!r) return;
+  goto("day", r.dayId);
+  setTimeout(() => {
+    if(r.next === "kc"){ state.dayViewMode = "knowledgeCheck"; render(); window.scrollTo({top: 0}); }
+    else { state.dayViewMode = "slides"; if(typeof goToSlide === "function") goToSlide(r.next); }
+  }, 0);
+};
+const onLastPage = () => !((state.slidePages || 1) > 1 && (state.slidePage || 0) < state.slidePages - 1);
+["nextSlide", "goToKnowledgeCheckWithInterstitial"].forEach(fn => {
+  const orig = window[fn]; if(typeof orig !== "function") return;
+  window[fn] = function(){
+    const d = cfDay(state.dayId), idx = state.lessonSlide || 0, stop = d && state.view === "day" && onLastPage() && planStop(d, idx);
+    if(stop){ openPlanStop(d, idx, stop); return; }
+    return orig.apply(this, arguments);
+  };
+});
+if(typeof window.presenterStep === "function"){
+  const __step = window.presenterStep;
+  window.presenterStep = function(dir){
+    const d = cfDay(state.dayId);
+    if(dir > 0 && d){
+      const total = buildDaySlides(d).length, idx = state.lessonSlide || 0, lastPage = (state.presentPage || 0) >= (state.presentPages || 1) - 1;
+      if(lastPage && idx === total - 1){
+        const stop = planStop(d, idx);
+        if(stop){ openPlanStop(d, idx, stop); return; }
+        if(typeof goToKnowledgeCheckWithInterstitial === "function"){ if(typeof presenterEnd === "function") presenterEnd(true); goToKnowledgeCheckWithInterstitial(); return; }
+      }
+    }
+    return __step.apply(this, arguments);
+  };
 }
 /* The presenter: a Case Manager in the course's illustration style (navy blazer, LSH badge, tablet), gesturing to the slide. */
 const PRESENTER_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 430" role="presentation">'
@@ -1171,6 +1226,7 @@ if(typeof slideScript === "function"){   // Presenter view: each slide has its o
 
 /* ---------- Presenter view: the speaker notes, as this course's slide scripts ---------- */
 window.SLIDE_SCRIPTS = window.SLIDE_SCRIPTS || {};
+window.cmCaseFlow = window.cmCaseFlow || {}; window.cmCaseFlow.viewsOf = b => viewsOf(b);   // a block's slides, in order (the scripts' keys)
 MODULES.forEach(d => d.lessons.forEach(l => {
   const b = l.cf.block, n = b.notes || [], vs = viewsOf(b), best = (b.best || []).map(x => String(x).replace(/^pitfall:\s*/i, "Watch for this: "));
   const per = {   // one script per slide (view); the block's speaker notes spread across its slides
@@ -1190,10 +1246,186 @@ MODULES.forEach(d => d.lessons.forEach(l => {
     summary: {why: "Self-Summary: the principles, in the trainee's own words.", talk: n.slice(1).join(" "), scenario: d.discussionQuestion || ""},
     scale: {why: "Skill Scale: rate each competency 1–5, then submit for review.", ask: "Compare each trainee's self-rating with their score, and talk through any wide gap."}
   };
-  const sc = {};
-  vs.forEach((v, j) => { const x = per[v] || {}; sc["p" + (j + 1)] = {why: x.why || "", talk: x.talk || "", walk: x.walk || [], ask: x.ask || "", scenario: x.scenario || ""}; });
+  // the trainer's own words for each slide (build/case-flow/scripts: js/cm-case-flow-scripts.js), said out loud;
+  // a slide without one falls back to the script built above from the block
+  const said = (window.CM_CF_SCRIPTS || {})[b.id] || {}, sc = {};
+  vs.forEach((v, j) => {
+    const x = per[v] || {}, h = said[v];
+    sc["p" + (j + 1)] = h ? {why: "", talk: h.say, walk: [], ask: h.ask || "", scenario: x.scenario || ""}
+      : {why: x.why || "", talk: x.talk || "", walk: x.walk || [], ask: x.ask || "", scenario: x.scenario || ""};
+  });
   window.SLIDE_SCRIPTS[`${d.id}::${l.h}`] = sc;
 }));
+
+/* ---------- the SOP's run of show: the Case Flow day, as the trainer runs it ----------
+   Admin → SOP Reference → a day: the day's Training Agenda turned into a timed plan (its Case Phases with each
+   topic's discussion and the phase's Skill Activities and live call, the day's Knowledge Check game; a break and
+   the end-of-day discussion when the agenda's spare minutes allow them),
+   with what the trainer says at each step in their own words. The engine's run of show described the old course
+   (dividers, Quick Checks, Skill Builders); the rest of the SOP page is unchanged. */
+const lc1 = t => String(t || "").replace(/\.$/, "").replace(/^[A-Z](?=[a-z])/, c => c.toLowerCase());
+const firstAim = d => lc1(String(d.objective || d.title).replace(/\s*\([^)]*\)/g, "").split(/,\s|;\s/)[0]);   // the objective's opening clause, said aloud
+const andList = xs => xs.length < 2 ? (xs[0] || "") : xs.slice(0, -1).join(", ") + " and " + xs[xs.length - 1];
+if(typeof window.sopRunOfShow === "function"){
+  const __ros = window.sopRunOfShow;
+  window.sopRunOfShow = function(dRaw){
+    const d = cfDay(dRaw && dRaw.id); if(!d) return __ros.apply(this, arguments);
+    const sc = daySchedule(d), n = d.cf.n, game = GAMES[GAME_DAY[n]] || GAMES.millionaire, next = cfDayByN(n + 1);
+    const titles = sc.phases.map(x => x.ph.title);
+    const steps = []; let t = 0;
+    const add = (mins, x) => { steps.push(Object.assign({from: t, to: t + mins}, x)); t += mins; };
+    add(15, {pre: true, title: "Before trainees join", do: [
+      `Admin → <b>Trainee Audit</b>: approve anyone new and check everyone has Case Flow Day ${n} open (yesterday's Knowledge Check submitted).`,
+      `Open Case Flow Day ${n} → slides → <b>🖥 Presenter view</b>, allow pop-ups, and in Google Meet share <b>“LSH Slides — share this window”</b>. Every slide has its read-aloud script in the console.`,
+      `Keep John Doe's 📂 Case File and the CMS open in another tab: the room will ask where things are on the file.`]});
+    add(5, {title: "Welcome and the Training Agenda", do: [`Put the Training Agenda slide up: it lists today's Case Phases with their topics, activities and minutes.`, n > 1 ? `Recap yesterday in a minute: where John Doe's file stood when we stopped, and the one thing most people found hard (check the Knowledge Check scores).` : `Introduce the file: John Doe v. Robert Smith, Atty. Elijah Thorne's case, the one file the whole week works.`],
+      say: n === 1 ? `“Welcome, everyone. For the next five days you're the Case Manager on one real-looking file, John Doe v. Robert Smith. Today we work through ${andList(titles)}. By the end of the day you'll ${firstAim(d)}, and you'll have done it on the file yourselves.”`
+        : `“Morning, everyone. Let's pick John Doe's file up where we left it. Today it's ${andList(titles)}. By the time we finish you'll ${firstAim(d)}.”`,
+      watch: "Anyone who hasn't opened today's day yet: ask them to open it now so they can follow along."});
+    const mid = Math.ceil(sc.phases.length / 2);
+    sc.phases.forEach((x, i) => {
+      const ls = d.lessons.filter(l => l.cf.phase === x.ph), topics = ls.filter(l => l.cf.block.kind === "lesson"), acts = ls.filter(l => l.cf.block.kind === "activity");
+      const calls = acts.map(l => SIM.calls[l.cf.block.id]).filter(Boolean);
+      if(topics.length) add(x.discuss, {title: `Case Phase ${x.ph.n}: ${E(x.ph.title)}`, do: [
+        `${topics.length} topic${topics.length > 1 ? "s" : ""}, about ${sc.per} minutes each (tap a slide's 💬 chip for a countdown): ${topics.map(l => `<b>${E(titleCase(l.cf.block.title))}</b>`).join(" · ")}.`,
+        `Each topic runs Why It Matters, The Theory, The Framework, The Rules, See It, On the Job, then Do &amp; Don't: play <b>3 Clues, 1 Rule</b> with the room and let them call it before you reveal.`,
+        `Read the script in Presenter view as written or in your own words; take one or two answers per question, not a round of the room.`],
+        say: `“Now we're into ${x.ph.title}. Keep John Doe's file in your head the whole way through: everything on these slides is something you'll do on it in a few minutes.”`,
+        watch: "Silence usually means it's too abstract: bring it back to John Doe's file and ask what they'd do next on it."});
+      if(acts.length) add(x.practice, {title: `Skill Activities: ${E(x.ph.title)}`, do: [
+        acts.map(l => `<b>${E(l.cf.block.title)}</b> <span style="color:var(--ink-soft)">(${E(String(l.cf.block.act.tool || "").split("·")[0].trim())})</span>`).join(" · "),
+        `Trainees work it on John Doe's file in the CMS or the tool the step names, beside the slide (⧉ Side by side), then tick Check Your Work and log the reference.`,
+        calls.length ? `📞 Live call${calls.length > 1 ? "s" : ""}: ${andList(calls.map(c => E(c.who)))}. It starts from “Take the call” on the Your Task slide; let one trainee take it while the room listens, or everyone takes it at their desk.` : "",
+        acts.some(l => PLAN_TOOL.test(l.cf.block.act.tool || "")) ? `The Action Plan drafts: Next on the activity's last slide opens the editor, and “Next” there carries on.` : ""].filter(Boolean),
+        say: acts.length === 1 ? `“Your turn. Open John Doe's file and do this the way you would at your desk. I'm around, so shout if you get stuck, and log what you did before you move on.”`
+          : `“Your turn. There are ${acts.length} of these, so pace yourselves. Work them on John Doe's file the way you would at your desk, and shout if you get stuck.”`,
+        watch: "Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands."});
+      if(i === mid - 1 && sc.phases.length > 1 && sc.buffer >= 20) add(10, {brk: true, title: "Break", do: ["Ten minutes. Tell the room the exact time you'll restart."], say: "“Let's take ten. We're back at the time on the screen, and we'll pick John Doe's file up right where we stopped.”"});
+    });
+    if(d.discussionQuestion && sc.buffer >= 28) add(8, {title: "End-of-day discussion", say: `“Before the Knowledge Check, let's step back and talk about this together: ${E(d.discussionQuestion)}”`, do: ["Take two or three answers and connect each one to a moment on John Doe's file from today."]});
+    add(sc.kc, {title: `Knowledge Check · ${game.icon} ${E(game.name)}`, do: [
+      `Trainees open the Knowledge Check from the last slide: ① today's game, ${E(game.name)}, then ② each Case Phase's Learning Check (3 written questions, the Self-Summary and the Skill Scale), and one Submit.`,
+      `70% marks the day complete. Below that it's a “not yet”: they can move on and retake it, and their best score counts.`],
+      say: `“Last stretch for today. The Knowledge Check is a game, ${game.name}, and then three written questions for each Case Phase. Answer from the file, in your own words. No looking at each other's screens.”`,
+      watch: "Stop presenting while they answer, so nobody reads answers off the shared screen."});
+    add(5, {title: "Close", do: [`Ask everyone to send quick feedback with the 💬 Feedback button.`, `Click <b>■ End</b> in Presenter view.`],
+      say: next ? `“That's Case Flow Day ${n}. Tomorrow we pick John Doe's file up at ${E(String(next.title).replace(/^Case Flow Day \d+ · /, ""))}. Before you go, hit Feedback and tell me one thing that worked today and one thing that didn't.”`
+        : `“That's the file, start to finish. You've carried John Doe's case from intake to the end. Before you go, hit Feedback and tell me one thing that worked this week and one thing that didn't.”`});
+    add(20, {pre: true, title: "After the session", do: [
+      `<b>Trainee Audit → View Detail</b>: review each trainee's Case Flow Day ${n} Learning Checks with the AI review, add the 40% trainer score and your comment, and send their Day-by-Day Feedback.`,
+      `Look at the CMS Case IDs and references they logged: open one or two in the CMS and check the work is really there.`,
+      `Read today's Trainee Feedback and note one thing to change tomorrow.`]});
+    const start = sopStartMin(), live = steps.filter(x => !x.pre), liveMins = live.reduce((a, x) => a + (x.to - x.from), 0);
+    const rows = steps.map(x => {
+      const from = x.pre && x.title === "Before trainees join" ? -15 : x.from - 15;
+      const when = x.pre && x.title === "After the session" ? `After<small>≈20 min</small>` : `${sopClock(start, from)}<small>${x.to - x.from} min</small>`;
+      return `<li><div class="sopf-time">${when}</div><div class="sopf-step ${x.brk ? "brk" : ""}"><h4><span class="n"></span>${x.title}</h4><div class="sopf-rows">
+        ${x.do && x.do.length ? `<div><b>Do</b><ul>${x.do.map(y => `<li>${y}</li>`).join("")}</ul></div>` : ""}
+        ${x.say ? `<div><b>Say</b><span>${x.say}</span></div>` : ""}
+        ${x.watch ? `<div><b>Watch for</b><span>${E(x.watch)}</span></div>` : ""}
+      </div></div></li>`;
+    }).join("");
+    const acts = d.lessons.filter(l => l.cf.block.kind === "activity").length;
+    return `<section class="card sopf">
+      <div class="sopf-head"><div><div class="sopx-kicker">Case Flow Day ${n} · How to run this session</div><h2>Run of show</h2></div>
+        <label class="sopf-start">Session starts at <input type="time" value="${E(state.sopStart || "09:00")}" onchange="setSopStart(this.value)"> <button class="btn btn-ghost btn-sm" onclick="window.print()">🖨 Print</button></label></div>
+      <div class="sopf-meta"><span>⏱ About ${Math.round(liveMins / 60 * 10) / 10} hours live · ends ≈ ${sopClock(start, liveMins)}</span><span>🗂 ${sc.phases.length} Case Phases</span><span>📚 ${sc.topics} topics</span><span>🧪 ${acts} Skill Activities</span><span>${game.icon} ${E(game.short)}</span></div>
+      <ol class="sopf-steps">${rows}</ol>
+      <p style="font-size:12.5px;color:var(--ink-soft);margin:12px 0 0;">Built from the day's Training Agenda (the same minutes as the slides' chips). Every slide's read-aloud script is in Presenter view, and the day's Trainer Speaker Notes PDF prints them all.</p>
+    </section>`;
+  };
+}
+/* the program page's few lines about the old course, in the Case Flow's words */
+if(typeof window.sopProgramFlow === "function"){
+  const __flow = window.sopProgramFlow;
+  window.sopProgramFlow = function(){
+    return [
+      [/every Skill Builder is graded against those documents/g, "every Skill Activity works from those documents"],
+      [/<li><b>Teach:<\/b>[^<]*<\/li>/, "<li><b>Teach:</b> each Case Phase's topics, about 15–20 minutes of discussion each, with Do &amp; Don't played as 3 Clues, 1 Rule.</li>"],
+      [/<li><b>Practise:<\/b>[^<]*(<[^/][^>]*>[^<]*<\/[^>]+>[^<]*)*<\/li>/, "<li><b>Practise:</b> the phase's Skill Activities on John Doe's file in the CMS, with its live call.</li>"],
+      [/<li>Reset <b>Skill Builder attempts<\/b>[^<]*<\/li>/, ""],
+      [/\(trainees log their Case ID in each Skill Builder\)/, "(trainees log their CMS Case ID once, and each activity's reference)"],
+      [/<th>Skill Builders<\/th>/, "<th>Skill Activities</th>"]
+    ].reduce((h, [a, b]) => h.replace(a, b), __flow.apply(this, arguments));
+  };
+}
+
+/* Presenter view's script header counts the block's own slides (the engine's topics had two) */
+if(typeof window.renderPresenterNote === "function"){
+  const __note = window.renderPresenterNote;
+  window.renderPresenterNote = function(d, l, part){
+    const h = __note.apply(this, arguments);
+    if(!l || !l.cf) return h;
+    const k = viewsOf(l.cf.block).length;
+    return h.replace(/ · slide \d+ of 2/, k > 1 ? ` · slide ${part || 1} of ${k}` : "");
+  };
+}
+/* ---------- Admin → Trainer Cues, and the day's Speaker Notes PDF: every slide's script ----------
+   The engine's pages listed each topic's two parts (and the old course's answer keys); a Case Flow block has up to
+   eight slides, so these list them all, by Case Phase, each under its slide's name, in the trainer's own words. */
+const slideName = v => `${VIEW_ICON[v] || ""} ${VIEW_LABEL[v] || v}`.trim();
+if(typeof window.renderAdminTrainerCues === "function"){
+  const __cues = window.renderAdminTrainerCues;
+  window.renderAdminTrainerCues = function(){
+    const d = cfDay(state.cuesDay) || DAYS[0]; if(!d || !d.cf) return __cues.apply(this, arguments);
+    let k = -1;
+    const phases = d.cf.phases.map(ph => {
+      const items = d.lessons.map((l, i) => [l, i]).filter(([l]) => l.cf.phase === ph).map(([l, i]) => { k++; const vs = viewsOf(l.cf.block);
+        return `<details class="cue-item" ${k === 0 ? "open" : ""}>
+          <summary><span class="cue-num">${String(i + 1).padStart(2, "0")}</span>${E(titleCase(l.cf.block.title))}<span class="cue-steps">${slideLabel(d, i)}</span></summary>
+          <div class="cue-body">${vs.map((v, j) => `<div class="pn-part">${slideName(v)}</div>${renderPresenterNote(d, l, j + 1)}`).join("")}</div>
+        </details>`; }).join("");
+      return items ? `<h3 style="font:700 15px var(--font-ui);color:var(--navy);margin:14px 18px 6px;">Case Phase ${ph.n}: ${E(ph.title)}</h3>${items}` : "";
+    }).join("");
+    return `
+      <p class="eyebrow">Admin Only</p>
+      <h1 style="color:var(--navy);font-size:26px;margin:6px 0 4px;">Trainer Cues &amp; Scripts</h1>
+      <p style="color:var(--ink-soft);font-size:13px;max-width:75ch;margin:0 0 18px;">What you say on every slide, in your own voice, plus the questions to put to the room. Trainees (and your screen-share) never see this. Keep it open in a second window, or use 🖥 Presenter view, which shows the same script beside each slide.</p>
+      <div class="cues-day-tabs">${DAYS.map(x => `<button class="${x.id === d.id ? "active" : ""}" onclick="setCuesDay(${x.id})">Case Flow Day ${x.cf.n}</button>`).join("")}</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:16px 0 10px;">
+        <h2 style="color:var(--navy);font-size:19px;margin:0;">${E(d.title)}</h2>
+        <button class="btn btn-navy btn-sm" onclick="downloadDayScriptsPdf(${d.id})">⬇ Download the Speaker Notes (PDF)</button>
+      </div>
+      ${d.cf.n === 1 && typeof renderMeetClientTrainerGuide === "function" ? `<div class="card" style="padding:14px 18px;margin-bottom:12px;">${renderMeetClientTrainerGuide()}</div>` : ""}
+      ${d.discussionQuestion ? `<div class="card discussion-card" style="margin-bottom:12px;">
+        <div class="discussion-tag">💬 End-of-Day Discussion</div>
+        <p class="discussion-q">${E(d.discussionQuestion)}</p>
+        <p class="discussion-note"><b>Say:</b> “Before the Knowledge Check, let's step back and talk about this together.” Then ask the question above, take two or three answers, and tie each one to a moment on John Doe's file from today.</p>
+      </div>` : ""}
+      <div class="card" style="padding:6px 0;margin-bottom:18px;">${phases || `<p style="padding:14px 18px;color:var(--ink-soft);">No scripts for this day.</p>`}</div>`;
+  };
+}
+if(typeof window.downloadDayScriptsPdf === "function"){
+  const __pdf = window.downloadDayScriptsPdf;
+  window.downloadDayScriptsPdf = function(dayId){
+    const d = cfDay(dayId); if(!d || typeof buildAndSavePdf !== "function") return __pdf.apply(this, arguments);
+    buildAndSavePdf("LSH Case Management Training", `Case Flow Day ${d.cf.n}: Trainer Speaker Notes`, buildDayScriptLines(d), `LSH_Case_Flow_Day${d.cf.n}_Speaker_Notes`);
+  };
+}
+if(typeof window.buildDayScriptLines === "function"){
+  const __lines = window.buildDayScriptLines;
+  window.buildDayScriptLines = function(d){
+    if(!d || !d.cf) return __lines.apply(this, arguments);
+    const lines = [`## ${d.title}: Trainer Speaker Notes`];
+    d.cf.phases.forEach(ph => {
+      const ls = d.lessons.map((l, i) => [l, i]).filter(([l]) => l.cf.phase === ph); if(!ls.length) return;
+      lines.push(`## Case Phase ${ph.n}: ${ph.title}`);
+      ls.forEach(([l, i]) => {
+        lines.push(`## ${String(i + 1).padStart(2, "0")}. ${titleCase(l.cf.block.title)}  ·  ${slideLabel(d, i)}`);
+        viewsOf(l.cf.block).forEach((v, j) => {
+          const sc = slideScript(d, l, j + 1), paras = scriptProse(sc);
+          lines.push(`SLIDE ${j + 1}: ${(VIEW_LABEL[v] || v).toUpperCase()}`);
+          if(paras[0]) lines.push(paras[0]);
+          if(paras[1]) lines.push(`ASK: ${paras[1]}`);
+          if(sc.scenario) lines.push(`SCENARIO: ${sc.scenario}`);
+        });
+        lines.push("---");
+      });
+    });
+    if(d.discussionQuestion){ lines.push("## End-of-Day Discussion"); lines.push(`SAY: “Before the Knowledge Check, let's step back and talk about this together.”`); lines.push(`ASK: “${d.discussionQuestion}”`); lines.push(`WRAP: “Thanks, everyone. Hold onto those examples: we'll pick John Doe's file up from here tomorrow.”`); }
+    return lines;
+  };
+}
 
 /* ---------- the day page: labels, and the next step after the Knowledge Check ---------- */
 if(typeof renderDay === "function"){
@@ -2399,7 +2631,8 @@ main > .cf-side-presenter{display:none;}
 .cf-vm-tx{font-size:13.5px;background:#fff;border:1px solid #E1E4EC;border-radius:10px;padding:8px 12px;}
 .cf-vm-tx summary{cursor:pointer;font-weight:700;color:#262B45;}
 #cf-return{position:fixed;left:16px;bottom:16px;z-index:60;font:700 13px 'Inter',sans-serif;padding:10px 16px;border:0;border-radius:999px;background:#262B45;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer;}
-#cf-return[hidden]{display:none;}
+#cf-return[hidden],#cf-return-next[hidden]{display:none;}
+#cf-return-next{position:fixed;right:16px;bottom:16px;z-index:60;font:800 14px 'Inter',sans-serif;padding:11px 20px;border:0;border-radius:999px;background:var(--orange,#E87722);color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer;}
 /* the sub-header: a full-width bar, the topic centred in capitals and quotes, on a lighter navy with an orange rule */
 .cfx-ribbon span{display:block;text-align:center;background:linear-gradient(90deg,#343C66 0%,#46508A 50%,#343C66 100%);border-bottom:3px solid #DB8437;border-radius:6px;color:#fff;font:800 20px/1.25 'Poppins','Inter',sans-serif;letter-spacing:.04em;text-transform:uppercase;padding:8px 24px;}
 .cfx-ribbon span::before{content:"“";color:#F4B77A;margin-right:2px;}.cfx-ribbon span::after{content:"”";color:#F4B77A;margin-left:2px;}

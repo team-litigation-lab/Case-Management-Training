@@ -40,6 +40,8 @@ jobs:
         run: node build/case-flow/curriculum.cjs --check
       - name: Case Flow slides (concise copy in the spec's limits, the assembled file in step)
         run: node build/case-flow/slides/assemble.cjs --check
+      - name: Trainer scripts (every slide, said out loud; js/cm-case-flow-scripts.js in step)
+        run: node build/case-flow/scripts/assemble.cjs --check
       - name: Case Flow simulation (an event for every activity, a call in every Case Phase, fallout, the timeline; the assembled file in step)
         run: node build/case-flow/sim/assemble.cjs --check
       - name: Case Flow dates roll forward exactly (weekdays, the two-year SOL, holidays; no date left behind)

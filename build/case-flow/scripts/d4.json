@@ -1,0 +1,422 @@
+{
+  "d4m1-l1": {
+    "why": {
+      "say": "Same file, same 08/05/2026 offer. On Day 3, Keystone tendered. Today it doesn't. That's Track B, and it's where we live for the rest of the day. Keystone Mutual is sitting on the 14-Day Gap and it won't move. Now, remember the order of operations from Day 1: BI has to be exhausted before UM opens. So one carrier with a $10,000 limit is holding the entire $40,000 stack behind it. That little padlock on the slide is the whole problem. And here's your part in it. You're the engine room. Your job isn't to decide what happens next; it's to prove the impasse with dates and put a decision-ready record in front of Atty. Thorne.",
+      "ask": "If one $10,000 carrier can freeze $40,000, what does that tell you about how carefully we have to document every date?"
+    },
+    "theory": {
+      "say": "Let's get our vocabulary straight, because an impasse isn't a feeling. It's a stall the record proves. It starts with the stall itself, the adjuster's delay line, something like \"I'm waiting on authority.\" It's meant to wear you down. You log it; you never accept it. Every stall gets a rebuttal: a factual answer and a firm reply date. And a rebuttal that goes unanswered? That becomes evidence of impasse. Always ask the carrier to put its reasons in writing, because a named ground can be rebutted and a vague one can't. Finally, keep the four elements in your head: duty, breach, causation and damages. Any suit has to prove all four, so each one needs a verified exhibit behind it.",
+      "ask": "Which of these have you met before, and where would it show up on John Doe's file?"
+    },
+    "frame": {
+      "say": "These are the three stalls you'll hear most, so let's practice answering them. First, \"I'm waiting on my manager's authority.\" Fine. You set a firm reply date, and once it passes, the file goes to counsel. Second, \"We need records from five years ago.\" Ask why they matter, and make clear you expect a good-faith offer on the undisputed injuries now, not after a fishing trip. Third, the classic: \"The property damage was too low for this injury.\" Low-velocity impacts can still injure the spine, and you point them straight to the imaging. Notice the pattern. Every answer is calm, factual, and moves the clock forward.",
+      "ask": "Looking at John Doe's file, which of these stalls is Keystone using right now, and how did we answer it?"
+    },
+    "rules": {
+      "say": "Here's where Track B splits. Keystone holds at $3,500, calls it \"final\" on 08/12 and lets the demand lapse 08/21. We work the dispute path first, with evidence, new findings and the 09/02 supervisor escalation, and we document impasse on its triggers, not on frustration. By 09/04/2026 all five are on this file. Never bid against yourself. And know the cost: $40,000 frozen behind a $10,000 carrier, though exhaustion rules vary, so Atty. Thorne confirms. Filing is his decision; the inputs are yours: RPD-26-018842, Ruth Calloway, the doorbell video, the MRI, $16,401.40 in Specials, SOL 02/06/2028, cutoff 11/05/2027. Record the lapse, don't interpret it. You document and ask; you never recommend suit, value the claim, assess Robert Smith's exposure, or advise John Doe on the $3,500. A new number from Keystone goes to Atty. Thorne the same day.",
+      "ask": "Keystone hasn't said no. It has said nothing. When does silence become an impasse, and who decides that it has?"
+    },
+    "model": {
+      "say": "Take a look at this fork. On the left there's one trunk: same file, 08/05/2026, a $3,500 offer. The top branch, grayed out, is Track A from Day 3, the tender that opened UM. The bottom branch in orange is today. Follow the stations along it: 08/12 \"final,\" the 08/21 lapse, the follow-ups on 08/24 and 08/31, the 09/02 escalation, and silence on 09/04. It ends at the impasse memo on 09/08, and Atty. Thorne decides. Now look underneath at the three rungs of the stack, $10,000, $20,000 and $10,000, with a red padlock on the BI rung. That's $40,000 frozen behind a $10,000 carrier. The padlock is the argument.",
+      "ask": "Which station on that orange branch would you point to as the moment the record started to prove impasse?"
+    },
+    "job": {
+      "say": "Let me walk you through how this actually runs on a Tuesday. An offer gets repeated, or a demand deadline passes without acceptance. That's a trigger, so you log it in the CMS Communications Log with its date and its proof; every trigger dated and tied to a document. Then the follow-ups go unanswered. You escalate to the adjuster's supervisor through the Email Workspace, and you send no new number. That escalation asks for Keystone's written position and evidence, and it reopens no deadline unless Atty. Thorne approved the wording. When the escalation window closes in silence, you assemble the impasse record and the filing inputs, and route it to him through Tasks, Escalate, with the SOL and internal dates on it.",
+      "ask": "When the supervisor escalation goes unanswered, why do we route the record to counsel instead of trying one more follow-up?"
+    },
+    "dodont": {
+      "say": "Time for 3 Clues, 1 Rule. I'll reveal three clues, you call it Do or Don't, and then name the rule. This round's rules: date every contact the day it happens, ask the carrier for its reasons and evidence in writing, and escalate a silent adjuster to the supervisor before you call impasse. Watch for the traps too: waiting another month on a silent carrier, sending a UM demand before BI is exhausted, or telling John Doe the case \"will have to go to court.\" That UM one is Day 1's order-of-operations error in new clothes. And if the 08/21 lapse might matter to Robert Smith's exposure, that's Atty. Thorne's analysis, never ours to write or say.",
+      "ask": "Someone wants to just demand the UM limits while BI stalls. Do or Don't, and which rule decides it?"
+    }
+  },
+  "d4m1-l2": {
+    "why": {
+      "say": "Look at that dashed pill that says PENDING. Here's my question: on 09/10/2026, what goes in the case-number field? Anything but \"Pending\" is a guess, and a guessed number ends up on a pleading. That's why this lesson matters. Once Atty. Thorne authorizes suit, a court clock replaces the adjuster's clock. Status, court fields, folders and calendar all have to change together. If they don't, you get a pre-lit file running on pre-lit habits while real court deadlines tick away. And later on, this file is going to meet two neutrals with very different power, so we'll start building that picture today too.",
+      "ask": "On 09/10/2026, before anything is filed, what do you type in the case-number field?"
+    },
+    "theory": {
+      "say": "Filing the Complaint is what formally starts the lawsuit. From that moment the file moves out of negotiation and into court procedure, and later it'll meet a neutral the parties select or a court appoints. Counsel drafts the legal arguments in the Complaint; you verify the factual foundation underneath them. It has five sections you'll check against the file: caption, jurisdiction, factual allegations, causes of action and the prayer for relief. Before counsel signs, you confirm the Statute Date, the defendant's exact legal name, and for a business, its Registered Agent. And when we get to arbitration, AAA or JAMS sends a panel strike list. Each side vets, ranks and strikes names before a docketed cutoff.",
+      "ask": "Which of these pre-filing checks have you seen before, and where would John Doe's file need one?"
+    },
+    "frame": {
+      "say": "Let's open up a Complaint and go section by section. Up top is the caption: the court name, the parties and the official case number. Next comes jurisdiction, the legal basis for the court's authority to rule at all. Then the factual allegations, which is the story: the date, the location and the mechanics of the crash. Here's where your file work really shows, because every fact in there has to match what you've verified. After that, the causes of action, the legal claims, like negligence. And it closes with the prayer for relief, the explicit demand for remedies and money damages. Five sections, and you should be able to trace each one back to the file.",
+      "ask": "For John Doe, which of these five sections leans hardest on facts you personally verified?"
+    },
+    "rules": {
+      "say": "Status changes to Litigation only on Atty. Thorne's dated authorization, and it cites it. The fee follows the filing: 33⅓% pre-suit, 40% once suit is filed. Fill court fields only from the record; until filing, the number reads \"Pending.\" Build the litigation directory at transition, DOE, JOHN - CASE FILE with folders 01 through 05, ready for the 09/24/2026 filing. Name every PDF properly, never scan001.pdf, and docket deadlines the day a document arrives. Seed the calendar: SOL 02/06/2028, hard date 02/04/2028, cutoff 11/05/2027, 48-hour audits. Notify the UM carriers in writing as Atty. Thorne directs, with no figure. Preserve the doorbell video unaltered and request preservation of what others hold. A binding award generally can't be appealed. You run fields, folders and logistics; what anything means for John Doe is Atty. Thorne's to explain, and at a hearing you never speak for him.",
+      "ask": "Which moves John Doe to the 40% tier: the status change or the filing?"
+    },
+    "model": {
+      "say": "This is a before-and-after. On the left, in muted gray, is the pre-lit file: a claim folder, an adjuster-response clock and a 33⅓% chip. A thick orange arrow crosses the middle, and it's labeled status to litigation, on counsel's authority. On the right, crisp navy, is the litigation and ADR file: a directory tree with the five numbered sub-folders, a court-fields card where the civil action number is still a dashed Pending pill, a calendar strip with a 48-hour audit flag before each hard date, and a 40% chip that says on filing. Underneath are the two neutrals: the mediator, with no power to decide, and the arbitrator, binding, with a red final seal.",
+      "ask": "What's the single biggest difference between those two neutral cards at the bottom?"
+    },
+    "job": {
+      "say": "So how does this play out at your desk? Atty. Thorne authorizes suit, and that's your trigger. You change the status and open the court fields in Case Summary and Litigation, citing his dated authorization, with the case number still \"Pending.\" Once status changes, you build the master directory and all five sub-folders under Documents, named exactly to the standard. With folders built, you seed the Litigation Calendar, making sure the SOL, the internal hard date, the cutoff and the 48-hour audits are all there. Later, when a panel list or a proposed neutral arrives, you pull resumes and prior-award history for Atty. Thorne and docket any strike deadline the same day. The strikes themselves are his call.",
+      "ask": "A panel strike list lands on your desk. What do you do before the end of that day?"
+    },
+    "dodont": {
+      "say": "Let's play 3 Clues, 1 Rule. Three clues go up one at a time; you call Do or Don't and name the rule. Here's what's in play: change status, fields, folders and calendar in one sitting; audit, don't just track; tailor the binder to the neutral, valuation for a mediator, evidence for an arbitrator; and leave expectations to Atty. Thorne. Traps include scan001.pdf in a litigation folder, treating mediation and arbitration as the same thing, missing a strike deadline, and assuming an arbitration error can be appealed. On that last one, there's no appeal on the merits, only a narrow motion for an evident miscalculation, on a short deadline. Prep has to be right the first time, because Module 2 and Day 5 run on what you build today.",
+      "ask": "Can Atty. Thorne appeal an arbitration award that came in short because of a math error?"
+    }
+  },
+  "d4m1-a1": {
+    "case": {
+      "say": "Here's what just landed on the file, dated 09/08/2026. It's from Atty. Thorne: \"Got your 09/04 escalation task. Keystone has said nothing since the 09/02 supervisor escalation. Before I decide anything, send me the full impasse memo today.\" Here's the background. Keystone, Dana Whitfield on claim KM-26-440871, offered $3,500 on 08/05, citing the 14-Day Gap and a \"degenerative\" MRI. Our 08/06 rebuttal sent Dr. Helen Park's read, Dr. Reyes's 06/19/2026 Causation Letter, the EMS report and the Gap Justification Record. On 08/12 Keystone called $3,500 \"final.\" The demand lapsed 08/21. Follow-ups on 08/24 and 08/31 got nothing, and so did the 09/02 escalation. Before you write a single sentence, build your chronology. The dates are the memo.",
+      "ask": "Before you draft anything, which event on this chronology are you least sure you can prove?"
+    },
+    "task": {
+      "say": "You're drafting the impasse memo to Atty. Elijah Thorne in the Action Plan Editor, pulling proof from the Communications Log and routing it through Tasks, Escalate. Start with a dated chronology from the 07/20/2026 demand through 09/04, every event tied to its proof. State Keystone's grounds and the rebuttal evidence it never answered. Show the frozen stack layer by layer, $30,000 of the $40,000 locked behind BI, with the documented Specials. Then the clock: SOL 02/06/2028, hard date 02/04/2028, cutoff 11/05/2027. End with the decisions you need from him, framed as questions. That's the graded judgment here. The memo documents and asks; it recommends nothing, because filing is his call.",
+      "ask": "What is the one thing this memo must not contain?"
+    },
+    "check": {
+      "say": "Before you log this, check it hard. Your chronology runs 07/20 through 09/04 in order, and every event has a receipt, sent email or log entry behind it. An attempt with no proof is an assertion, not a record. Quote Keystone's grounds as Keystone gave them, and list the unanswered rebuttal. Show the whole stack: $10,000 BI unexhausted, $20,000 Host UM and $10,000 Relative UM closed. If your memo says \"$10,000 available, UM pending,\" fix it. Specials are $14,817.40 plus $1,584.00, so $16,401.40. Clock dates are right, routed Tuesday 09/08 after Labor Day. Your decisions are questions, with no recommendation and no new number to Keystone. Could he decide from it in five minutes?",
+      "ask": "Does any sentence in your memo read like advice instead of a question for Atty. Thorne?"
+    }
+  },
+  "d4m1-a2": {
+    "case": {
+      "say": "This one landed on 09/10/2026, from Atty. Thorne: \"Yesterday I authorized suit against Robert Smith in the State Court of Riverton County, filing target 09/24/2026, and went over the fee tier with John. Transition the file today.\" He wants impasse notices drafted to Harbor Point, that's Marcus Bell on HP-26-7741, and to Cardinal State, Teresa Okafor on CS-26-20355, plus preservation requests for the doorbell video and the Escape's data recorder, all for his signature. Keep in mind Harbor Point's UM policy has an arbitration clause, the video copy was secured 02/19/2026, and the 2020 Ford Escape is Kevin Alvarez's. We'll run this as a live CMS session, and as you make each change, I want to hear the authority behind it out loud.",
+      "ask": "When you change the status, what exactly will you say is the authority behind it?"
+    },
+    "task": {
+      "say": "You're working live in the CMS: Case Summary, Litigation, Documents, Outgoing, and the Calendar. Set the status on the 09/09 authorization. Open the court fields without guessing a case number. Record the fee tier exactly as the retainer sets it. Build the five litigation folders to firm standard. Draft both UM notices and the preservation requests for the doorbell video and the Escape's event data recorder, all for his approval. Open the ADR fields and seed the Litigation Calendar with 48-hour audits. When you're done, you hand in a file in Litigation status where every field, folder, notice, preservation step and date rests on Atty. Thorne's authority. The graded part is what those notices may and may not say.",
+      "ask": "Marcus Bell calls after reading your notice and asks what you're demanding. What do you say?"
+    },
+    "check": {
+      "say": "Run down your work before you log it. Status is Litigation dated 09/10/2026, citing the 09/09 authorization. The court is the State Court of Riverton County, case number \"Pending, assigned on filing.\" Fee tier: 40% from the filing date, not 09/10, and you note his discussion with John Doe without explaining it. Five folders, named exactly. Both notices state impasse and intended suit, carry their own claim number, have no figure, and go for approval. Now preservation, the step people skip because the video was secured in February. Request that Margaret Doe keep what she still holds, and draft the data recorder request to Kevin Alvarez and Harbor Point. Flag the arbitration clause and UM deadlines as questions. Calendar: 09/24 filing, 09/22 audit, plus the SOL dates.",
+      "ask": "What does Margaret Doe still hold today, and who holds the Escape's event data recorder?"
+    }
+  },
+  "d4m1-kc": {
+    "questions": {
+      "say": "Okay, time for the Learning Check. Answer each question from this file, in your own words, and type your answer right under the question. Start with question 1, because it's the foundation: explain the fork, what's the same on Track B as on Track A, what changes on 08/12/2026, and why a $10,000 carrier freezes all $40,000. If you can't explain that last part in plain words, flag me, and we'll revisit Day 1's order of operations together before moving on.",
+      "ask": "Can you explain, in one sentence, why $10,000 freezes $40,000?"
+    },
+    "summary": {
+      "say": "Next is your Self-Summary. Put the principles in your own words, not mine. Then work the scenario. It's 09/04/2026, Keystone has ignored two follow-ups and the 48-hour escalation, and John Doe calls asking why nothing's happening and whether he should just take the $3,500. Tell me what you say, what you don't say, and what goes to Atty. Thorne today. The strong answer takes the question down, tells John it's going to Atty. Thorne today, and gives no view on the $3,500 and no explanation of the fee.",
+      "ask": "When John asks if he should take the $3,500, what are the first words out of your mouth?"
+    },
+    "scale": {
+      "say": "Last step: the Skill Scale. Rate yourself on each competency from 1 to 5, honestly, and then submit it for review. I'll be comparing your self-rating against your score, and if there's a wide gap either way, we'll talk it through. One thing to remember, though: UPL is a gate. A strong score doesn't survive an ethics breach.",
+      "ask": "Where do you expect your self-rating and your score to disagree most?"
+    }
+  },
+  "d4m2-l1": {
+    "why": {
+      "say": "I'm writing a date on the board: 02/06/2028. That's John Doe's statute of limitations. Quick, what day of the week is it? It's a Sunday, and that matters more than you'd think. Here's the bigger picture. Keystone's stonewall on the 14-Day Gap pushed this file onto court time. From 09/24/2026 on, its dates are set by rule, order and statute, and they don't move because a carrier goes quiet or a client can't be reached. One miscounted day can concede a fact or end a claim. That's why you'll see two orange pins stepping back from that Sunday. Those are the dates we actually live by.",
+      "ask": "What day of the week is 02/06/2028, and why should that make us nervous?"
+    },
+    "theory": {
+      "say": "Once suit is filed, the whole game changes. Statute, rule and order set the dates, and your documents stop being administrative tracking and start being evidence. A missing or misfiled page isn't a clerical slip anymore; it can jeopardize a trial. Litigation runs on recurring court processes you'll execute every single week, each one driven by the calendar. Lots of steps carry a built-in wait, like the notice to opposing counsel before a third-party subpoena, and you docket that wait just like a deadline. And even when the deadline belongs to someone else, say a records office, you still check in days ahead. Their miss becomes your problem.",
+      "ask": "Which of these court habits will feel most different from how you ran the file pre-suit?"
+    },
+    "frame": {
+      "say": "Let's walk a subpoena from start to finish, because it shows how waiting periods work. You start by drafting the court-approved Subpoena Duces Tecum, which is a command to produce documents. Before it goes anywhere, you serve the defense a copy. Most states require 5 to 10 days' notice to opposing counsel, and that wait goes on your calendar. Then comes formal service, where a process server delivers it to the facility's Registered Agent. And finally, you track compliance. Five days before the deadline, you call the facility's legal or records department. Don't wait to discover on the due date that nothing's coming.",
+      "ask": "If John Doe's file needed records from a new provider today, which step would you be on first?"
+    },
+    "rules": {
+      "say": "A hard rule is a date fixed by statute, court rule, order or a forum's rules; miss one and the claim can go. Every date here is configured for this training file, and Atty. Thorne confirms the real rule. Exclude the trigger day, include the last: Robert Smith was served 10/14/2026, so his answer was due 11/13/2026. Watch the mailbox trap: this file's rules add 3 days for mail, though e-service adds nothing. Forward counts roll to the next business day; backward counts roll earlier. RFAs get their own entry, since unanswered ones may be deemed admitted. The Sunday SOL becomes an internal hard date of 02/04/2028 and a cutoff of 11/05/2027, both live until he releases them. Read every verb in the Scheduling Order. When unsure, docket the conservative date and flag it. You compute and docket; you never pick the rule or agree an extension.",
+      "ask": "Discovery was mailed to us on 12/01/2026. Walk me through every step: when are John Doe's responses due?"
+    },
+    "model": {
+      "say": "Here's this file's master calendar, laid out as one ribbon from 10/2026 to 02/2028. Above it, in navy, are the court's hard rules: 11/13/2026, 01/04/2027, 03/31/2027 and 05/28/2027. Hanging below, in orange, are the forum dates: 03/11, 03/18, 06/02, 06/11 and 06/22/2027. Way out on the right there's a red flag on 02/06/2028 that says it's a Sunday, never rely on it, and two orange pins stepping back: the 02/04/2028 internal hard date and the 11/05/2027 filing cutoff. Underneath are two chips pointing opposite ways, forward counts go to the next business day, backward counts to the earlier one. Notice the pattern: what we docket always sits earlier than what the law allows.",
+      "ask": "Why do you think the firm insists the dates we docket sit earlier than the law requires?"
+    },
+    "job": {
+      "say": "Picture the week of 12/10/2026. The Scheduling Order gets entered, and that same day you enter every date in the Docket System with its trigger, rule, owner and alerts, reading each verb, so \"completed by\" goes in as a deadline. The discovery that came by mail on 12/01/2026? You count 30 plus 3, see it lands on a Sunday, move it forward, and enter the RFAs separately in the Conflict Resolver, so responses and RFAs both sit at 01/04/2027 with the deemed-admitted flag set. On SOL review, 02/04/2028 and 11/05/2027 go on the CMS Calendar, and nothing relies on 02/06/2028. Then when arbitration is invoked on 04/05/2027, you hard-code 06/02, 06/11 and 06/22/2027 with alerts the same day.",
+      "ask": "Why do the RFAs get their own entry instead of riding along with the rest of the discovery?"
+    },
+    "dodont": {
+      "say": "Let's play 3 Clues, 1 Rule. I'll reveal three clues, you shout Do or Don't, then name the rule behind it. The rules in play this time: record the trigger, the rule and the arithmetic on every entry so anyone can re-check it, add warning alerts ahead of each hard date, and calendar the conservative date when a rule's unclear, then flag it. The traps: counting the trigger day as day one, rolling a backward-counted deadline forward to Monday, and docketing the SOL on its Sunday and trusting the roll-forward. Direction is the one people miss most. Roll the 06/12/2027 brief to Monday and it's filed late. And remember, you compute and docket; you never agree an extension.",
+      "ask": "The brief's backward count lands on Saturday 06/12/2027. Do you move it to Monday, and which rule says so?"
+    }
+  },
+  "d4m2-l2": {
+    "why": {
+      "say": "Two names, side by side: Hon. Carla Benton (Ret.) and Laura Whitcomb, Esq. Tell me what each one can do to John Doe's case. Judge Benton is our mediator, and she can't decide anything. She can only help the parties agree, and any deal needs John's agreement, through Atty. Thorne. Laura Whitcomb is the arbitrator, and she decides. Her award stands with almost no appeal. These two sessions are three months apart, and here's the danger. If you prepare for both the same way, you'll walk a compromise file into a trial-ready hearing. That's the mistake this lesson is built to prevent.",
+      "ask": "What can Hon. Carla Benton do to John Doe's case that Laura Whitcomb can't, and the other way around?"
+    },
+    "theory": {
+      "say": "Here's the core distinction. Mediation is negotiation toward compromise, and it's non-binding. Arbitration is an adversarial hearing where the neutral acts as a judge and issues a binding Award. The mediator has zero decision power. She facilitates and negotiates, but she can't rule, so the parties keep control over whether to sign. The arbitrator has absolute decision power. She's a private judge and finder of fact who can exclude evidence and award damages. Since appeal is so limited, we treat that hearing with a multi-day trial's precision. And through all of it, remember: arguing, speaking on the record or representing John Doe is practicing law. Without a license, that's UPL.",
+      "ask": "Where have you already seen the difference between helping someone agree and deciding for them?"
+    },
+    "frame": {
+      "say": "Let's line the two up row by row. The mediator's role is facilitator and negotiator; the arbitrator is a private judge and finder of fact. On decision authority, the mediator has zero. She can't force a settlement, rule or order a payout. The arbitrator has total authority and issues a binding Arbitration Award. Control of the outcome stays with the parties at mediation, since they decide whether to sign, while the arbitrator decides liability and damages and can exclude evidence. Review afterward? Mediation needs none because there's no ruling; arbitration gets court review on narrow grounds only. And that sets your standard: compromise focus for one, trial-ready for the other.",
+      "ask": "On John Doe's file, which of these two columns is he heading into next, and how do you know?"
+    },
+    "rules": {
+      "say": "Mediation is facilitated compromise: non-binding and confidential under the governing rule. Court-ordered means John Doe must attend, not agree. Binding arbitration, like Harbor Point's clause, makes the arbitrator the judge, with narrow court review. Here, BI settled at mediation on 03/18/2027, and the UM carriers' dispute over the gap went to a decision. Know the limits: damages are reduced first by the $10,000 BI paid, Harbor Point pays above that up to $20,000, Cardinal State's $10,000 behind it, and how an award applies is Atty. Thorne's analysis. For mediation, collect 3 to 4 windows first, book a private room, check the interpreter, hold his 2-hour buffer. For arbitration, contact the arbitrator's office only as he directs, and confirm the retainer in writing. And the Golden Rule: you never argue, speak on the record or represent John Doe. Asked about a bill, you defer and hand him the document.",
+      "ask": "The mediation was court-ordered. Did John Doe have to settle?"
+    },
+    "model": {
+      "say": "Here are the two forums on John Doe's file, facing each other. On the left, the lighter card: mediation, 03/18/2027, Hon. Carla Benton (Ret.), tagged non-binding, confidential, facilitates. On the right, the heavier navy card: binding arbitration, 06/22/2027, Laura Whitcomb, Esq., tagged acts as judge, binding award, appeal limited, with its hard dates underneath, 06/02, 06/11 and 06/22/2027. An orange arrow joins them, compromise to trial-ready. Across the bottom runs the red-bordered UPL bar. What you can do: observe, log directives, update the CMS. What you never do: argue, speak on the record, speak for John Doe, negotiate. That bar spans both cards on purpose. The line is the same at both tables.",
+      "ask": "Why do you think that UPL bar runs under both cards instead of just the arbitration one?"
+    },
+    "job": {
+      "say": "Let's run the real sequence. The order requires mediation by 03/31/2027, so before you ever contact the mediator's office, you collect 3 to 4 windows from Atty. Thorne, John Doe and opposing counsel in the Calendaring Simulators, and you make sure the session lands inside 03/31/2027. Opposing counsel rejects every window? You log the pushback and escalate the same day for an attorney-to-attorney call. Later, the arbitrator's fee schedule and retainer request arrive. You confirm the schedule, route the retainer to accounting, send the internal invites, and get payment confirmed in writing before the hearing. And when a directive comes from the bench, you log it as given in Case Notes, calendar it and memo Atty. Thorne that same day.",
+      "ask": "Opposing counsel says no to every window you offered. What's your very next move?"
+    },
+    "dodont": {
+      "say": "It's 3 Clues, 1 Rule time. Three clues come up, you call Do or Don't, then tell me the rule. This round covers: your hearing notes become Atty. Thorne's post-hearing roadmap; collect every party's windows before the neutral's office hears from you; and confirm the retainer payment in writing, because unpaid retainers delay hearings. Traps include a mediation-quality binder at an arbitration, helpfully answering the arbitrator directly, and logging bench directives the next day from memory. Logistics aren't clerical. The private room, the 2-hour buffer and the interpreter check are what let Atty. Thorne and John Doe think clearly. Here's the Golden Rule once more: violating UPL rules puts both the Case Manager and the firm at risk.",
+      "ask": "The arbitrator turns to you and asks about a bill. Do or Don't answer, and what do you actually say?"
+    }
+  },
+  "d4m2-a1": {
+    "case": {
+      "say": "It's 12/10/2026, and here's what landed from Atty. Thorne: \"The Scheduling Order was entered today; it's attached with the discovery Mercer mailed us on 12/01. While you were out, the calendar was re-keyed from the paper file: nothing verified, no alerts. Audit every entry against the order, the discovery and the SOL, correct what's wrong, and send me the correction log.\" The case is No. 26-CV-04417. The discovery is 25 Interrogatories, 30 Requests for Production and 15 RFAs. The order sets plaintiff's expert disclosure 03/15/2027, defense 04/15/2027, mediation completed by 03/31/2027, discovery closing 05/28/2027, pretrial 08/12/2027, trial 09/13/2027. I'm handing you the staged calendar. Before you recompute anything, initial the entries you'd sign your name to.",
+      "ask": "How many errors do you think are hiding on this calendar?"
+    },
+    "task": {
+      "say": "You'll audit John Doe's calendar in the Case Docket and Calendar Conflict Resolver, against the 12/10/2026 order, the discovery mailed 12/01/2026 and the 02/06/2028 SOL. Recompute every entry from its trigger document: trigger day out, 3 mail days in, forward counts to the next business day, backward to the earlier one. Correct the errors, add what's missing, leave correct entries alone. Each entry gets its trigger, rule, arithmetic, owner and alerts, mirrored to the CMS Calendar. Rank errors by risk, log corrections in Case Notes and route them to Atty. Thorne. Heads up: Jenna Price, Atty. Mercer's paralegal, will call. Agree to nothing, log her words verbatim, and route it today.",
+      "ask": "12/31/2026 is wrong and 11/08/2027 is wrong. Which one could cost John Doe his claim?"
+    },
+    "model": {
+      "say": "This is the staged calendar exactly as it was keyed: unverified, no alerts. Every row has its as-keyed date and a blank status chip on the right. You'll set each one to verified, corrected or added. At the bottom there's a single dashed add-entry row, and notice it doesn't tell you what's missing or how much. That's on purpose. Down the right edge is a risk gauge with two bands. The red band on top is costs rights, for dates that are later than they should be or missing entirely. The gray band below is costs time, for dates that are too early. You'll drag each error onto that gauge, and the red band sits on top for a reason: rights before time.",
+      "ask": "Why does a missing entry belong in the red band rather than the gray one?"
+    },
+    "check": {
+      "say": "Here's what your audit should show before you log it. Responses corrected to Monday 01/04/2027, since 12/01 plus 30 plus 3 lands on Sunday 01/03. The RFA entry added, all 15 due 01/04/2027, flagged deemed admitted if unanswered. People fix what's on the screen and miss what isn't, and that's the nearest, most severe deadline here. Expert disclosures un-swapped. Mediation entered as completed by 03/31/2027. Internal hard date 02/04/2028 added. Filing cutoff corrected from 11/08/2027 to 11/05/2027, rolled earlier, never forward. Correct entries verified and left alone. Errors ranked, rights ahead of time. Many courts accept a Monday filing after a Sunday deadline, but the firm won't rely on it, and calling opposing counsel about an extension fails the authority row.",
+      "ask": "Did you recompute each date from its trigger document, or from the entry you were checking?"
+    }
+  },
+  "d4m2-a2": {
+    "case": {
+      "say": "Fast-forward to 04/05/2027. The 03/18/2027 mediation before Hon. Carla Benton (Ret.) produced Keystone's $10,000 BI tender. BI is exhausted, the UM consents are in, and Robert Smith is dismissed. Now Atty. Thorne writes: \"Harbor Point and Cardinal State dispute damages, citing the gap. Harbor Point has invoked its UM arbitration clause and Cardinal State joins: one binding arbitration before Laura Whitcomb, Esq., hearing 06/22/2027.\" He wants the rules matrix, the exhibit and brief dates docketed today, and a map of what you do at the hearing. As configured for this file, exhibits are exchanged 20 days before the hearing and the brief is due 10 days before. Before anyone opens the editor, let's build two columns on the board.",
+      "ask": "What changes operationally when a file moves from mediation to arbitration?"
+    },
+    "task": {
+      "say": "In the Action Plan Editor, you'll build the ADR rules matrix with two columns, the 03/18/2027 mediation and the 06/22/2027 arbitration. The rows cover the neutral and her power, binding effect and appeal, confidentiality, the opposing parties, the limits in play, the preparation standard, your hard dates and the logistics. Today you'll also hard-code the arbitration dates on the CMS Calendar, counting back from the hearing, with alerts. Then map the UPL boundary for the hearing: what you do, what you never do, and the exact words you'd say if Laura Whitcomb, Esq. asks you about a bill. You'll hand in the matrix, the docketed dates and a one-page boundary map, all routed to Atty. Thorne.",
+      "ask": "On 03/18/2027 the other side was Robert Smith. Who is it on 06/22/2027, and what are they disputing?"
+    },
+    "model": {
+      "say": "Here's your canvas. Two-thirds of the slide is the matrix: row labels down the left for neutral and power, binding and appeal, confidentiality, opposing parties, limits in play, standard, hard dates and logistics. There's a lighter mediation column and a solid navy arbitration column, and every cell is empty and outlined in orange, waiting for you. The right third is a bird's-eye view of the hearing table. Atty. Thorne's seat is at the table edge with a speech mark. Yours sits behind his, with a speech mark struck through in red, and an orange arrow that says hand him the document. That struck-through speech mark is the whole point of the slide.",
+      "ask": "Which cell in this matrix do you expect to be hardest to fill in correctly, and why?"
+    },
+    "check": {
+      "say": "Check your matrix before you log it. Mediation: Hon. Carla Benton facilitates only, non-binding, held 03/18/2027 inside 03/31/2027. Arbitration: Laura Whitcomb acts as judge, binding award, narrow review, under Harbor Point's clause with Cardinal State joined. Opposing parties went from Robert Smith to the UM carriers, who are now the other side. Limits in play: $20,000 plus $10,000, so $30,000. Exhibits 06/02/2027. The brief is the trap: 10 days back is Saturday 06/12, so it moves to Friday 06/11, never Monday 06/14. Logistics and your UPL map are in. And your deferral: \"I'm the Case Manager providing administrative assistance; Atty. Thorne will address that.\" If you audited the Riverton Spine & Rehab bill, you'll want to answer. Don't.",
+      "ask": "Say your deferral line out loud once: what are the exact words you'll use at the hearing?"
+    }
+  },
+  "d4m2-kc": {
+    "questions": {
+      "say": "Let's move into the Learning Check. Answer from this file, in your own words, typed under each question. You'll compute John Doe's discovery response date step by step, work out the SOL's internal dates with the arithmetic, and explain forward versus backward counting off a weekend. Question 3 is the direction test, so take your time on it. And for question 5, I'm going to play Laura Whitcomb, Esq. and put the bill question to one of you across the table. I'm grading the very first sentence you say.",
+      "ask": "If the brief lands on Monday 06/14/2027 in your answer, what went wrong in your count?"
+    },
+    "summary": {
+      "say": "Now write your Self-Summary: the principles from this module in your own words. Then take the scenario on the slide. It's 09/04/2026, Keystone has ignored two follow-ups and the 48-hour escalation, and John Doe calls asking why nothing's happening and whether he should just take the $3,500. Write what you say, what you don't say, and what goes to Atty. Thorne today. While you're writing, think about one date on this file you'd always check twice.",
+      "ask": "Which single date on this file would you check twice, and why?"
+    },
+    "scale": {
+      "say": "To finish, fill in the Skill Scale. Rate each competency from 1 to 5, honestly, and submit it for review. I'll put your self-rating next to your score, and where there's a wide gap, we'll talk it through. Same as every day, UPL is a gate. A strong score doesn't survive an answer that speaks for John Doe at the hearing or tells him whether to take a number.",
+      "ask": "Which competency here are you least sure you could perform under pressure at a live hearing?"
+    }
+  },
+  "d4m3-l1": {
+    "why": {
+      "say": "Let me start with a question. What happens if Atty. Thorne gets an unorganized file the morning of the mediation? Think about it for a second. He loses momentum. He looks unprepared in front of the mediator. And he may concede a point simply because he couldn't find the proof in time. Remember, Keystone's stonewall on the 14-Day Gap is the reason John Doe's file is in suit at all. At the 03/18/2027 mediation, Atty. Thorne will have minutes to answer that argument. So every record, every figure, every quote has to sit in a known place. A binder he has to hunt through costs momentum, and it can cost a concession.",
+      "ask": "What happens if Atty. Thorne gets an unorganized file the morning of the mediation?"
+    },
+    "theory": {
+      "say": "Think of the Mediation Binder as the attorney's cheat sheet. It holds the case's most critical documents, compiled so counsel never fumbles during a fast-paced compromise session. It opens with the executive summary and administration, a one-page snapshot that sets the framework: the parties, the order, the schedule. That's the first thing Atty. Thorne sees. Next come the mediation briefs, both sides' arguments read side by side, so he can prepare rebuttals before anyone sits down. Then the core pleadings, the filed documents that define what this suit is actually about. Those first three sections set the stage, and we'll pick up the other three on the next slide.",
+      "ask": "Which of these first three sections have you already started building on John Doe's file without realizing it?"
+    },
+    "theory2": {
+      "say": "Picking up where we left off, the back half of the binder is where the case gets proved. Section four is key evidence and liability, the smoking guns: raw evidence of liability, from reports to video stills to highlighted deposition pages. Section five is damages, financials and experts. That's the section that justifies counsel's dollar figure, with the records, the bills, the wage proof and the expert reports. And section six, settlement history and drafts, closes it out. It's there so Atty. Thorne can finalize any deal that's reached before anyone leaves the room. If a deal comes together at four in the afternoon, you don't want to be drafting from scratch.",
+      "ask": "Why do you think settlement drafts belong in the binder before the session even starts?"
+    },
+    "frame": {
+      "say": "Here's the six-section binder in its fixed order. Section one holds the snapshot sheet, the mediation order or agreement, and the session schedule. Section two, our confidential statement and the defense's brief, if they exchanged one. Section three, the operative complaint and the answer with its affirmative defenses. Section four, the police report, photos and video stills, and deposition summaries with the key pages highlighted. Section five, the medical chart and bills ledger, the wage-loss proof and the expert reports. And section six, the negotiation log of every demand and offer, plus a draft release. Same order, every time, so Atty. Thorne's hand goes to the right tab without thinking.",
+      "ask": "On John Doe's file, which of these six sections do you think will take the most work to get right?"
+    },
+    "rules": {
+      "say": "The binder is Atty. Thorne's and the mediator's road map, indexed so any document is found in five seconds. Six numbered sections, fixed order, each tab matching one master index in the CMS, the single source of truth. The binder prints from the index, never the reverse. Exhibit numbers belong to the proceeding, Bates numbers to the page. Section three holds only the 09/24/2026 complaint and 11/12/2026 answer, which pleads comparative negligence, causation and failure to mitigate. Section five's ledger ties to the certified invoices, with the duplicate removed, $6,290.00 down to $6,105.00, for $16,401.40 total. Section six fixes Keystone's $3,500 baseline and holds a draft Limited Release. You're the QA auditor: OCR-searchable, statement delivered by 03/11/2027, audited 48 hours out. Arguments, positions and every number are his, and you never discuss value with anyone.",
+      "ask": "Where do you find the mediator's fee split, and why can't you just assume it's 50/50?"
+    },
+    "model": {
+      "say": "Here's John Doe's binder, open and seen from above. Six navy divider tabs step down the right edge, each with its orange number and section name, and beside each one a card listing this file's documents: RPD-26-018842, the EDR, the 03/13/2026 MRI, the $16,401.40 in Specials. Across the top runs the master index, one source of truth, with columns for exhibit, Bates, source and status. See those thin orange lines? They run from the index rows down into the tabs. On the right there's a stopwatch reading five seconds, and a red warning that drafts and superseded pleadings never enter the binder. The lines only run one way, from index to binder, never back.",
+      "ask": "If the printed binder and the CMS index disagree, which one wins?"
+    },
+    "job": {
+      "say": "Here's the flow once the mediation is set for 03/18/2027. You open the master index under Documents and seat each document in exactly one section, so every entry has its section, exhibit number, Bates range and source. Once the pleadings and evidence are indexed, you go to the Pleadings Log and check each defense pleaded in the answer against sections four and five. Every pleaded defense needs an answering exhibit, or a flag to Atty. Thorne. Then, with the binder assembled, you OCR it, bookmark it, QA it against the index and route it for approval. It has to be text-searchable, approved, and delivered by 03/11/2027.",
+      "ask": "A pleaded defense has no answering exhibit in sections four or five. What do you do with it?"
+    },
+    "dodont": {
+      "say": "Let's play 3 Clues, 1 Rule. I'll show three clues, you call Do or Don't and name the rule. In play: start from the 07/20/2026 demand package, since most of sections four and five already exist there, and bookmark to the page Atty. Thorne will quote, not the cover. The traps: an unorganized file the morning of, a snapshot sheet with stale opposing-counsel contacts, and the confidential statement sent ten minutes early or to the wrong person. Remember, the product is the index, and when two copies disagree, the index decides. And Dr. Reyes's causation opinion may need disclosure by 03/15/2027. You flag it to Atty. Thorne now, and how it's disclosed is his call.",
+      "ask": "You bookmark Dr. Reyes's Causation Letter to its cover page. Do or Don't, and what's the rule?"
+    }
+  },
+  "d4m3-l2": {
+    "why": {
+      "say": "I'm holding up the mediation binder. This one persuaded. The next one is evidence. And I'm writing a date on the board: 06/02/2027. Everything in this lesson counts back from that exchange. Here's why it matters. On 04/05/2027, Harbor Point and Cardinal State picked up Keystone's gap argument, and Laura Whitcomb, Esq. is going to decide damages, bindingly. The Arbitration Binder is the record her award rests on. A page that's missing, illegible or not exchanged by 06/02/2027 may simply not count. No second chances.",
+      "ask": "What's the difference between a binder that persuades and a binder that's evidence?"
+    },
+    "theory": {
+      "say": "The Arbitration Binder isn't a reference packet. It's a trial-ready evidentiary record, handed straight to a private judge who decides. Your role here is operational: timelines, scheduling and documents, run with rigid precision. The arbitration brief deadline is the absolute cutoff for claims, exhibit indexes and witness lists, and it goes to the arbitrator and opposing counsel. The arbitration submissions are the foundational paperwork that sets the ground rules for the whole proceeding, which is why they lead the binder. And here's the scary part: a missing page or a grayscale print can be excluded, and with a binding award, there's no second chance to fix it.",
+      "ask": "Which of these four ideas feels most different from how we built the mediation binder?"
+    },
+    "frame": {
+      "say": "Six tabs again, but with a different job. Tab one, arbitration submissions: the snapshot sheet, the final brief, the governing order or agreement and fee disclosures. Tab two, arbitration pleadings: the operative demand and each party's written position, with no superseded versions. Tab three, liability and biomechanics: the certified police report, diagrams, and photos and stills in color, never grayscale. Tab four, medical damages: the consolidated ledger, provider records and bills, imaging, the causation opinion. Tab five is the prior medical shield, prior injury records and work history paired with a medical opinion. And tab six is economic losses, wage-loss proof only.",
+      "ask": "Looking at John Doe's file, which tab is going to carry the gap fight that the carriers are pressing?"
+    },
+    "rules": {
+      "say": "A binding award rests on the exhibits, with very limited review, so apply each tab's QC rule as you sort. The threshold leads: UM opens only because BI is exhausted, so prove it with Keystone's $10,000 tender, the consents, the Limited Release and Robert Smith's dismissal, never the Mediation Statement. Authenticate everything with business-records certifications from each provider, Riverton Fire, Riverton PD and Northgate HR. Keep video native, with the 02/19/2026 chain of custody, and print stills in color. Even if the forum relaxes evidence rules, build to the strict standard; admitted isn't persuasive. Number exhibits C-1 onward and freeze the set once exchanged. Nothing crosses over from mediation, and the Lien Sheet stays in Atty. Thorne's set. He decides what's argued, exchanged or withheld. You never argue an exhibit.",
+      "ask": "Who can say the doorbell video is what we say it is?"
+    },
+    "model": {
+      "say": "Look at the two panels. On the left, small and grayed out, is the mediation binder, captioned persuades, non-binding. A heavy orange arrow says the gap dispute carries over. On the right, much bigger, are the six arbitration tabs, each with a card stating its QC rule. Over tab one sits a threshold chip: BI exhausted, $10,000 tendered 03/18/2027. Under the tabs runs an authentication rail: custodian certification, native file, chain of custody. Bottom right is a red warning, not exchanged by 06/02/2027 means it may not count, with a reminder to confirm the forum's rules. That size difference is the message. This record is the one that decides.",
+      "ask": "Why does the BI exhaustion proof sit on top of tab one, ahead of everything else?"
+    },
+    "job": {
+      "say": "Here's how it unfolds. Arbitration's invoked on 04/05/2027, so you open the claimant exhibit index and put the 06/02/2027 exchange and the 06/11/2027 brief on the Docket System that day. As the provider records come in, you go through Medical Records Requests and ask each custodian for a business-records certification, one per provider, covering every date you're exhibiting. Custodians are slow, so don't wait. Once the exchange set is assembled, you route the set and every flagged item to Atty. Thorne through Tasks, Escalate. It has to be approved before 06/02/2027, with no privileged item anywhere in it.",
+      "ask": "Why do we request certifications the same week the arbitration is invoked rather than once the binder's built?"
+    },
+    "dodont": {
+      "say": "3 Clues, 1 Rule, arbitration edition. Clues come up one at a time; you call Do or Don't and name the rule. Rules in play: build to the strict evidence standard even where the forum relaxes it, keep native video and data untouched and work from copies, and request certifications the week arbitration is invoked. Traps: a grayscale print of a crash still, a draft brief or superseded complaint in the exchanged set, or the Confidential Mediation Statement carried over. Say it back to me: relaxed admission is not full weight, and the clause may relax nothing at all. And on privilege, you flag and Atty. Thorne decides, because an internal memo in an exchanged set can't be unsent.",
+      "ask": "The forum relaxes the rules of evidence, so you skip the custodian certification. Do or Don't, and why?"
+    }
+  },
+  "d4m3-a1": {
+    "case": {
+      "say": "It's 03/04/2027, and this just came from Atty. Thorne: \"Mercer writes that Keystone will not put a real number on the table while our medical ledger is unverified. The draft binder carries Riverton at $6,290.00 and Crescent as an open balance. Rebuild it from the master index and audit it.\" The statement and binder go to Hon. Carla Benton (Ret.) by 03/11/2027, routed to him first, for the 03/18/2027 mediation. John Doe was deposed 02/18/2027, and the certified transcript's in the file. Riverton Spine & Rehab's final itemized ledger, requested 02/08/2027, followed up 02/22 and red-flagged 03/01, still hasn't arrived. Now, see those two red landmine chips? Who spotted them in the draft before I pointed?",
+      "ask": "Who spotted those two landmines in the draft before I pointed them out, and what tipped you off?"
+    },
+    "task": {
+      "say": "You'll assemble the six-section Mediation Binder in the CMS, working from the master index and starting with the 07/20/2026 Demand Package. Seat each document in one section with its exhibit number and Bates range, and map every allegation in the 11/12/2026 answer to the exhibit that answers it. Then run the pre-mediation audit. Rebuild the ledger from the certified bills you have to $16,401.40, and cross-check each provider balance against what MedPay and Peach State already paid. Add the Negotiation Log, a draft Limited Release and the UM consent requests. You'll hand in an indexed, searchable binder with an audited ledger, a lien summary and a short memo on both landmines, routed to Atty. Thorne.",
+      "ask": "Atty. Mercer says the ledger is unverified. Is he wrong?"
+    },
+    "check": {
+      "say": "Before you log this, run your checks. Section one's snapshot has LSH-2026-MVA-770412, No. 26-CV-04417, Atty. Mercer's verified contacts, and the fee split read from the order. Section three, only the filed complaint and answer. Your defense map gets graded hard: five allegations, five answers, each with an exhibit number, so \"see Medical Records\" isn't a map. Landmine one: Riverton audited to 33 visits at $185.00, $6,105.00, duplicate removed, pending final verification, for $16,401.40. Landmine two: Crescent's $3,400.00 satisfied by Peach State's $1,860.00, with open liens of $7,965.00. Section six's log runs from the 07/20/2026 demand to suit. The release and consent requests are drafts, so leave every term to Atty. Thorne. Then swap binders with your partner and QA each other's index.",
+      "ask": "When you swap with your partner, which exhibit number in their defense map will you check first?"
+    }
+  },
+  "d4m3-a2": {
+    "case": {
+      "say": "Here's what landed on 05/17/2027: exhibit exchange in 16 days, and the Arbitration Binder isn't started. Zero of six tabs. The hard date is 06/02/2027, before Laura Whitcomb, Esq., on HP-26-7741 and CS-26-20355. Robert Smith was dismissed after Keystone tendered its $10,000 at the 03/18/2027 mediation, and the carriers are disputing damages over the gap. The unsorted folder holds a pre-filing draft of the Complaint, grayscale doorbell stills, the 09/08/2026 impasse memo, and a Lien Sheet listing Harbor Point MedPay at $5,000.00 and Summit Imaging at $2,395.00. Crescent Pain & Spine's certified records, requested 05/05/2027, haven't come in. I'm putting four red traps on the board, then covering them before anyone sorts.",
+      "ask": "Before I cover them, which of those four traps do you think you'd have missed on your own?"
+    },
+    "task": {
+      "say": "You'll sort that folder into the six-tab Arbitration Binder using the Exhibit index, Medical Records Requests and the Lien Tracker, applying each tab's QC rule as you go. Lead with the BI exhaustion record, number every exhibit C-1 onward with its Bates range, and log each record's authentication. Then defuse both landmines. Build tab five's prior medical shield against the 2021 low-back visits defense counsel pressed at the 02/18/2027 deposition and the \"degenerative\" MRI reading from 08/05/2026, and strip the Lien Sheet to what's owed. Flag anything privileged for Atty. Thorne. You'll also take a call from Lori Banks at Crescent: identify the blockers, get a firm delivery date in writing, and log it.",
+      "ask": "Harbor Point is the other side now. Our attorney's-set Lien Sheet says it is owed $5,000.00. What goes wrong?"
+    },
+    "check": {
+      "say": "Check before you log. Tab one has the snapshot and the 06/11/2027 brief slot, never a draft. Threshold exhibits come first, the $10,000 tender, consents, Limited Release, dismissal and both Coverage Letters. Tab two holds operative versions only, with the pre-filing draft gone. Tab three has the certified RPD-26-018842 and color stills from the native file. Tab four ties $14,817.40 to certified bills, with certifications requested from each provider. On tab five, pull and pair the 2021 records with the MRI read and Causation Letter, but don't argue causation; a supplemental opinion from Dr. Reyes is Atty. Thorne's call. The Lien Sheet drops Harbor Point and Summit, leaving $7,965.00. Tab six is wages, $1,584.00. And the impasse memo is the privilege test. It never goes in tab six.",
+      "ask": "Where did you put the 09/08/2026 impasse memo, and who decides whether it's ever exchanged?"
+    }
+  },
+  "d4m3-kc": {
+    "questions": {
+      "say": "Time for the Learning Check, and I want you to put your two master indexes side by side before you start. This check is about the binders you actually built, not your memory of my slides. Answer from the file, in your own words, typed right under each question. You'll name the six mediation sections with a document for each, explain what the master index records and why it's the source of truth, and trace the unbelted defense to the exhibits that answer it.",
+      "ask": "Looking at your two indexes side by side, where do they differ most in how they're organized?"
+    },
+    "summary": {
+      "say": "Now your Self-Summary: write the principles in your own words. Then take the scenario on the slide, John Doe on 09/04/2026 asking whether he should just take the $3,500, and write what you'd say, what you wouldn't, and what goes to Atty. Thorne. On question 7, the pressure scenario, the strong answer requests the missing records and a certification covering all 33 visits at once, tells Atty. Thorne that evening, and leaves the exchange to him. Never exchange a ledger its records don't support.",
+      "ask": "Which document would hurt John Doe most if it were missing from these binders, and which would hurt most if it were included?"
+    },
+    "scale": {
+      "say": "Last piece: the Skill Scale. Rate each competency from 1 to 5, honestly, then submit it for review. I'll put your rating next to your score, and if they're far apart, we'll talk about why. And remember, UPL is a gate here too. A strong score doesn't survive a privileged memo landing in an exchanged set.",
+      "ask": "Which binder skill would you rate yourself lowest on right now, and what would move it up a point?"
+    }
+  },
+  "d4m4-l1": {
+    "why": {
+      "say": "Put two numbers side by side for me: $10,000 and $40,000. How much of John Doe's coverage did Keystone's silence lock? All of it. That's what one unmanaged bottleneck costs. On Track B, Keystone held at $3,500 on the 14-Day Gap, then went quiet, and a $10,000 carrier froze the whole $40,000 stack and forked the file into suit. Here's the tricky part. Bottlenecks rarely look dramatic. They look like a quiet inbox, a record that's \"on its way,\" a date nobody's confirmed. Our job this module is to anticipate them and clear them before they cost us a deadline or an exhibit.",
+      "ask": "How much of John Doe's coverage did Keystone's silence lock?"
+    },
+    "theory": {
+      "say": "Bottlenecks come in two families, and they hurt in different ways. Compromise traps stall a mediation: an unverified ledger, a representative with no authority, a late brief. Each one hands the defense a reason to stall. Trial-ready landmines are worse, because they sink a binding arbitration: excluded exhibits, unshielded priors, missed cutoffs. That's evidence you can't get back. One landmine deserves its own name, the prior medical shield. The defense will use prior records to argue a pre-existing degenerative condition, and the shield answers with records and expert opinion. The good news? Two habits clear most bottlenecks early: the 48-hour audit, and reconciling liens against the EOBs.",
+      "ask": "On John Doe's file, which of these bottleneck types have we already tripped over once?"
+    },
+    "frame": {
+      "say": "Here are the six bottlenecks you'll see most, three on each side. On the mediation side, there's the unverified ledger, where unreconciled bills or missing treatment logs make damages look unsupported. There's the missing decision-maker, a representative who shows up without full settlement authority. And there's the misaligned confidential brief, late or missing critical exhibits, which stalls the mediator's prep. On the arbitration side, there's evidentiary exclusion, missing documents or grayscale prints thrown out. There's the pre-existing defense trap, prior injury records left without an expert declaration. And calendar misses, whether unsynced windows for the neutral or a blown brief cutoff.",
+      "ask": "Pick one mediation bottleneck and one arbitration bottleneck. Where has John Doe's file faced each?"
+    },
+    "rules": {
+      "say": "A bottleneck is any dependency that can stop the file reaching a hard date. Log it the day it starts, with the date it threatens, and age it daily. Follow up a silent adjuster every 5 business days: Keystone left 08/24 and 08/31/2026 unanswered, then the 09/02 escalation. Silence is a position, so record it as dated facts, never \"adjuster busy.\" A record unanswered after 14 days is a bottleneck, and the biggest mediation one is an unverified ledger: $16,401.40, Riverton at $6,105.00, Peach State at $1,860.00. Get verified ledgers to Keystone in time for an authority raise, the brief to Hon. Carla Benton by 03/11/2027, and stills printed in color. Shield the 2021 low-back visits as Atty. Thorne directs. Sync windows before offering dates. You chase, document and flag; legal remedies and value talk are his.",
+      "ask": "When did the Keystone bottleneck start: 08/21, 08/24 or 09/04?"
+    },
+    "model": {
+      "say": "Here's the Track B timeline across a navy rail, with the hard dates in pills: 08/21/2026, 03/11/2027, 03/18/2027, 03/31/2027, 06/02/2027 and 06/22/2027. Above it are three cards: non-responsive party, delayed record, and scheduling. Each one drops an orange line to the date it threatens. The non-responsive party card is the biggest, and underneath it there's a red callout: $10,000 carrier, $40,000 frozen. On the right edge are two chips. Mediation, where a gap costs leverage. Arbitration, where a gap costs evidence. Here's the takeaway: you measure a bottleneck by the hard date it threatens, not by how irritating it is.",
+      "ask": "Why should the size of a bottleneck be measured by the date it threatens rather than how annoying it feels?"
+    },
+    "job": {
+      "say": "Let's run it like a real week. A follow-up goes unanswered, so you log it in the Communications Log with date, time, method and outcome, and you date the next follow-up five business days out. When the second one goes unanswered, you open an entry in the Bottleneck Log with the blocker, the start date and the hard date it threatens. For Keystone, the start date is the first unanswered request, 08/24/2026. When a proposed ADR date comes in, you run it through the Conflict Resolver against every party's window, so no mediation date after 03/31/2027 ever reaches Atty. Thorne as available. And when a binder dependency is still open 10 days out, you red-flag it, like the 03/01/2027 flag for the 03/11/2027 binder.",
+      "ask": "Why does the bottleneck's start date go back to the first unanswered request instead of the day it started hurting?"
+    },
+    "dodont": {
+      "say": "Here comes 3 Clues, 1 Rule. Three clues, one at a time; you call Do or Don't and name the rule. This round: anticipate and eliminate, because a bottleneck found at the deadline was found too late; the single biggest mediation bottleneck is an unverified ledger; and follow up in writing as well as by phone, because a call alone proves nothing. Traps: a confidential statement reaching the mediator ten minutes before the session, grayscale stills for a binding hearing, and logging silence as \"adjuster busy.\" Don't treat mediation and arbitration gaps alike. One costs leverage; the other can get evidence excluded. And remember, Keystone tendered $10,000 at mediation on 03/18/2027 because someone in that room could pay it.",
+      "ask": "Keystone's adjuster arrives at mediation with authority well below the limits. What failed earlier, and which rule would have caught it?"
+    }
+  },
+  "d4m4-l2": {
+    "why": {
+      "say": "Here's an escalation I see far too often: \"Keystone still not responding, please advise.\" Look at that and tell me what Atty. Thorne has to go look up before he can do anything with it. When was the last contact? What deadline is at risk? What's been tried? What does he need to decide? Every one of your answers is a field that report should have carried. An escalation without the dates, the threatened deadline and a clear ask makes him do your research before he can decide. The ladder decides who hears about a bottleneck and when. The report decides whether they can act on it in one read.",
+      "ask": "What does Atty. Thorne have to look up before he can act on \"Keystone still not responding, please advise\"?"
+    },
+    "theory": {
+      "say": "Think of escalation as a variance loop. You monitor each item against its expected course, and when progress stalls, you route it up before the date is lost. The trigger is the variance itself, the moment something departs from its expected course. Not frustration, not a hunch. Then the escalation ladder sends each problem to the lowest rung that can actually fix it, so counsel's time goes to decisions only he can make. What you send up is a decision-ready report, built so the supervisor can act in one read without redoing your work. And before every hard date, you run a critical thinking audit, testing the file against the defense's stated position and escalating any gap.",
+      "ask": "Can you think of a time a problem reached the boss before anyone at a lower level had a chance to fix it?"
+    },
+    "frame": {
+      "say": "This is the three-step protocol, and it's simpler than it sounds. Level one is the source. You follow up with whoever owes the item, on the cadence, and log the date, method and result every time. Level two is the notice of delay. That's written notice to the supervisor or office manager stating what's outstanding, since when, and the hard date it threatens. Level three is Atty. Thorne. You send him the five-field report, and if a motion to compel or a subpoena is on the table, that choice is his. Three rungs, in order, documented the whole way up.",
+      "ask": "With Riverton Spine & Rehab's overdue ledger, which rung would you be on by 02/22/2027?"
+    },
+    "rules": {
+      "say": "Climb one rung at a time and log each attempt: the source, then its supervisor with a written Notice of Delay, then Atty. Thorne. That notice states facts only and never argues bad faith or exposure. The 48-Hour Mandate times the climb. For Keystone, the second follow-up was 08/31, the supervisor got it 09/02, silence on 09/04 sent it to Atty. Thorne, and the impasse memo followed 09/08/2026. It also audits ledgers, binders and OCR 48 hours before every hard date. Rung three is where the legal tools live; you can name one as a question, but he decides, signs and sends. Don't skip, don't sit. Every report carries five fields: blocker, start date, hard date, what was tried, and the ask. Zero defaults: by the hard date, file what you have marked pending, or he holds a docketed extension. Report up weekly, never out.",
+      "ask": "Who should have heard about the Keystone silence first: Dana Whitfield's supervisor or Atty. Thorne?"
+    },
+    "model": {
+      "say": "On the left, there's a three-rung ladder, drawn bottom-up. Rung one is the source, rung two is the supervisor with a notice of delay, and rung three is Atty. Thorne, with a 48-hour pill between each pair. Under it, a red strip: don't skip, don't sit. On the right is the bottleneck report itself, filled in for Keystone exactly as it reached Atty. Thorne on 09/08/2026. Five fields, each with an orange badge: the blocker, when it started, what it threatens, what was tried, and the ask. The ask is boxed in orange and it's the only thing in bold. That's the point. Escalation is a sequence, and the report is what lets counsel act in one read.",
+      "ask": "Why do you think the ask is the only field in bold on that report?"
+    },
+    "job": {
+      "say": "Here's the rhythm on the job. When rung one goes unanswered on its cadence, you send a written Notice of Delay to the supervisor or office manager from the Email Workspace, naming the item, its start date and the hard date, and you log it. If rung two sits unanswered for 48 hours, you escalate to Atty. Thorne through Tasks, Escalate, with all five fields complete and one ask per blocker. Every week, on reporting day, you send him the Bottleneck Log, each item with its age and days to its hard date. And if a hard date arrives with the blocker still open, you prepare the filing with what you have, marked pending, or you confirm his extension is docketed. Zero defaults.",
+      "ask": "A hard date arrives and one record is still missing. What are your only two acceptable options?"
+    },
+    "dodont": {
+      "say": "Let's play 3 Clues, 1 Rule. I'll reveal three clues; you call Do or Don't and name the rule. The rules this round: climb one rung at a time and document each attempt, lead the report with the nearest hard date, and write the ask as one decision with the date it's needed by. Traps: going straight to Atty. Thorne before the source and supervisor have been tried, \"Keystone still isn't responding, please advise\" with no dates, and letting a deadline pass because a record was late. That last one's where people slip under pressure. Send what you have, marked pending, or have his extension docketed. Never neither. And subpoenas or motions to compel? You can name them; he decides.",
+      "ask": "You hold the whole exhibit exchange to wait for one late record. Do or Don't, and which rule does it break?"
+    }
+  },
+  "d4m4-a1": {
+    "case": {
+      "say": "This landed on 02/22/2027: record overdue 14 days, Riverton Spine & Rehab's final ledger. It was requested 02/08/2027 and still isn't here, and it's a dependency for the Mediation Binder due to Hon. Carla Benton (Ret.) on 03/11/2027, ahead of the 03/18/2027 session. Keystone's attendee and their authority are unconfirmed, and there are no countermeasure rules on this file yet. The demand-stage audit holds Riverton at $6,105.00, 33 visits at $185.00, and Peach State's EOB shows $1,860.00 paid on Crescent's $3,400.00 bill. Before we touch the live dates, we'll calibrate. Let's enter the Keystone dates together and watch Rule 1 fire on 09/02 and 09/04. If a rule can't reproduce a known record, we can't trust it on a live one.",
+      "ask": "If Rule 1 doesn't fire on 09/02 and 09/04 during calibration, what would that tell you?"
+    },
+    "task": {
+      "say": "You'll configure four countermeasure rules in the CMS under Tasks, Countermeasure rules, with the Calendar and Risk Flags. Rule one handles silence: follow-ups every 5 business days, then 48 hours after the second unanswered one it goes to the supervisor, and 48 more to Atty. Thorne. Rule two: a record not received 14 days after request gets a second request and a subpoena flag for him. Rule three: a hard date 10 days out with an open dependency gets a red flag. Rule four is the 48-Hour Mandate audit before every hard date, with its contents and a fallback. Calibrate rule one on Keystone, then fire all four on the mediation calendar with a date, action and owner each.",
+      "ask": "The ledger is still missing at the 03/09/2027 audit. Do you hold the binder?"
+    },
+    "check": {
+      "say": "Let's check your dates, because every firing date is arithmetic from the file. Calibration fires 09/02/2026 and 09/04/2026, with the memo following 09/08. Rule two fires 02/22/2027, 02/08 plus 14, with a second request that day. Your subpoena flag should read as a question for Atty. Thorne, never as if it's decided. Rule three flags 03/01/2027 for the ledger and 03/08/2027 for Keystone's attendee with authority, the one people forget. Rule four audits 03/09 and 03/16/2027. Peach State's $1,860.00 closes Crescent's bill, so the $1,540.00 written off is never a lien. Your fallback includes the $6,105.00 interim ledger. Every firing has a date, action and owner, and no rule messages anyone outside on its own.",
+      "ask": "Which of your firing dates would you double-check first, and why that one?"
+    }
+  },
+  "d4m4-a2": {
+    "case": {
+      "say": "It's Monday, 05/24/2027, nine days to the 06/02/2027 exhibit exchange before Laura Whitcomb, Esq. Five open items. One, Crescent Pain & Spine's certified records for the 05/15/2026 injection: requested 05/05, second request 05/19, nothing yet. Two, Dr. Reyes's declaration shielding the 2021 low-back visits, and Lakeside says she's away until 06/01/2027. Three, Cardinal State's Teresa Okafor hasn't confirmed the hearing format or exchange method, and the 05/21 supervisor escalation is unanswered. Four, Riverton's refreshed ledger shows $6,290.00, the old duplicate restored. Five, the copy set prints the doorbell stills in grayscale with no OCR. Show of hands: which do you tackle first? Most people pick the grayscale reprint because it's easy. Easy isn't first.",
+      "ask": "Which of these five do you tackle first, and what's your reason?"
+    },
+    "task": {
+      "say": "You'll triage all five in the CMS, using the Conflict Resolver, the Bottleneck Log and Tasks, Escalate. For each one, name the hard date it threatens, the rung it's reached and the countermeasure that applies. Then put them in order: what goes to Atty. Thorne first, what you fix yourself today, and what the 48-hour audit verifies and when. You'll hand in one bottleneck report, sent 05/24/2027, carrying every item that needs his decision, five fields and one ask each. And there's a live call with Teresa Okafor. Ask whether Cardinal State has counsel, get format and exchange method confirmed in writing, and decline any talk of the gap or value.",
+      "ask": "Which of these can still hurt John Doe after 06/22/2027?"
+    },
+    "check": {
+      "say": "Check your triage before you log it. Every item maps to the 06/02/2027 exchange, inside the red-flag window. Items one, two and three go to Atty. Thorne first, in one report on 05/24/2027, because each needs his decision. On item three, check CMS Parties for counsel first, and never email the arbitrator. That goes through Atty. Thorne. Its 48 hours ran out on a Sunday, so it's at rung three today. Item four you fix yourself: the set keeps $6,105.00 with the duplicate documented, because $6,290.00 invites the carriers to doubt every number, and Riverton's ledger also records the 19-day disruption. Item five, reprint in color and OCR. The audit lands Friday 05/28/2027, ahead of Memorial Day. And item one's root cause was our own late request.",
+      "ask": "Why does the 48-hour audit move to Friday 05/28/2027 instead of the following Tuesday?"
+    }
+  },
+  "d4m4-kc": {
+    "questions": {
+      "say": "Let's wrap the module with the Learning Check. Answer from this file, in your own words, typed under each question. You'll name the three bottleneck families with this file's examples, walk Rule 1 on the Keystone record with every date, and explain what failed if Keystone's representative shows up without authority. Question 5 is the pressure scenario, and it's really the whole module in one question. If you'd hold the binder there, you've failed the 48-Hour Mandate.",
+      "ask": "In question 5, what are the four things you do when the ledger still hasn't arrived?"
+    },
+    "summary": {
+      "say": "Now your Self-Summary, the principles in your own words, plus the scenario on the slide. Before you write, think about question 7: Teresa Okafor calls. The compliant answer takes the message, says Atty. Thorne will respond, and logs it, without touching the gap argument or the offer. And question 6 tests the ladder: 14 days unanswered on 05/19/2027 sends a Notice of Delay to Lakeside's office manager that day, and 48 hours of silence moves it to Atty. Thorne on 05/21/2027.",
+      "ask": "Teresa Okafor calls and wants to talk about the gap. What do you say to her?"
+    },
+    "scale": {
+      "say": "Finally, the Skill Scale. Rate each competency from 1 to 5, honestly, then submit it for review. I'll compare your self-rating with your score, and where there's a big gap, we'll sit down and talk it through. And one last reminder: UPL is a gate. A strong score doesn't survive a value conversation with a carrier, no matter how well everything else went.",
+      "ask": "Which escalation skill from today do you most want to practice again before Day 5?"
+    }
+  }
+}

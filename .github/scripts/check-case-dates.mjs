@@ -14,7 +14,7 @@ const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "../.
 const ctx = {window: {}, location: {search: ""}, URLSearchParams,
   sessionStorage: {getItem: () => null, setItem() {}, removeItem() {}}, localStorage: {getItem: () => null, setItem() {}}};
 vm.createContext(ctx);
-for (const f of ["cm-case-flow-docs.js", "cm-case-flow-slides.js", "cm-case-flow-sim.js", "cm-case-flow-data.js", "cm-case-dates.js"])
+for (const f of ["cm-case-flow-docs.js", "cm-case-flow-slides.js", "cm-case-flow-scripts.js", "cm-case-flow-sim.js", "cm-case-flow-data.js", "cm-case-dates.js"])
   vm.runInContext(fs.readFileSync(path.join(ROOT, "js", f), "utf8"), ctx, {filename: f});
 const W = ctx.window, D = W.CM_CASE_DATES;
 const fails = [];
@@ -22,7 +22,7 @@ const fails = [];
 // every string of the course content, and every case document
 const strings = [];
 const walk = (o, at) => { if (typeof o === "string") strings.push([at, o]); else if (o && typeof o === "object") for (const [k, v] of Object.entries(o)) if (!["id", "file", "folder", "image", "kind", "cms", "tool"].includes(k)) walk(v, at + "." + k); };
-for (const k of ["CM_CASE_FLOW", "CM_CF_SLIDES", "CM_CF_SIM", "CM_CF_DOCS"]) walk(W[k], k);
+for (const k of ["CM_CASE_FLOW", "CM_CF_SLIDES", "CM_CF_SIM", "CM_CF_DOCS", "CM_CF_SCRIPTS"]) walk(W[k], k);
 const HTML = path.join(ROOT, "documents/case-flow/html");
 for (const f of fs.readdirSync(HTML).filter(f => /^RS\d\d\.html$/.test(f))) strings.push([f, fs.readFileSync(path.join(HTML, f), "utf8")]);
 if (strings.filter(([a]) => /^RS/.test(a)).length !== W.CM_CF_DOCS.length) fails.push(`documents/case-flow/html has ${strings.filter(([a]) => /^RS/.test(a)).length} documents; the manifest lists ${W.CM_CF_DOCS.length}`);

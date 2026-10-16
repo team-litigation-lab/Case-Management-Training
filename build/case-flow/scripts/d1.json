@@ -1,0 +1,513 @@
+{
+  "d1m1-role": {
+    "why": {
+      "say": "I want to start with a question, and I want you to argue about it a little: whose file is it? Is it the client's? The attorney's? Yours? Go ahead, make your case. Here's where I land. It's the client's case, it's the attorney's judgment, and it's your movement. Every phase of this course runs through one person, and that person is you, the Case Manager. Once you know exactly what the role owns, and exactly where it stops, you can move John Doe's file fast without ever drifting into legal advice. That balance is what we'll practise all week.",
+      "ask": "So, whose file is it: the client's, Atty. Thorne's, or yours?"
+    },
+    "theory": {
+      "say": "Let's put a definition on the table. Case Management is the end-to-end coordination of a case, from intake to resolution: tracking it, handling it and moving it, phase by phase. Every task on the file has to pass three tests. Is it moving on time? Is it properly documented and compliant? Is everyone hearing about it clearly? You'll carry the file through seven stages, from Intake and Case Opening all the way to Resolution and Closing. Along the way you build the Case Plan and recommend next steps, but the strategy itself stays with Atty. Thorne. And you're always doing case health analysis, which just means reading the whole file for risk, not one task at a time, so you spot the weak point before it costs the client.",
+      "ask": "Which of these have you met before, and where do you think it'll show up on John Doe's file?"
+    },
+    "frame": {
+      "say": "Here's the general process laid out end to end. It starts with intake and case opening: you verify the facts, run the Conflict Check and open the file in the CMS. Then planning, where you draft the Case Plan and recommend next steps while Atty. Thorne sets strategy. Documentation runs the whole way through; you request, name and file every document, because the CMS is the single source of truth. Communication means keeping the client, the carriers and the providers updated, and logging every contact the same day. Monitoring means every deadline is docketed and every risk goes to counsel the day you see it. And at the end, you support billing and the lien records through resolution, then close a complete file.",
+      "ask": "Looking at John Doe's file today, which of these stages is he sitting in right now?"
+    },
+    "rules": {
+      "say": "Now the rules, and where your role ends. You own the file's movement: deadlines, documents, carriers, providers, and keeping the client updated. Atty. Thorne owns every legal judgment: value, merits, strategy and settlement authority. A case moves through phases, intake, claim set-up, treatment, pre-demand, demand, settlement and liens, disbursement, and litigation if it forks, and each phase has its own goals and deliverables. Every contact, document, deadline and decision goes in the CMS the same day; if it isn't in the CMS, it didn't happen. If you see a missed deadline, a silent client or a gap in treatment, it goes to Atty. Thorne that day, with the facts and a recommended next step. You can explain the process and confirm facts. You can't tell a client what the case is worth, whether to settle, or what the law means for them.",
+      "ask": "A client asks you, “Should I take what they're offering?” What do you say, and what do you do next?"
+    },
+    "model": {
+      "say": "This is the picture I want you to carry all week. Across the slide is the case lifecycle, eight stations left to right: Intake, Claim Set-Up, Treatment, Pre-Demand, Demand, Settlement and Liens, Disbursement, and Litigation, drawn dashed because it's the fork, the road the case only takes if it doesn't settle. Every day of this course sits on one or two of these stations. Above the track, the navy band reads: the Case Manager owns the movement. Below it, the orange band: Atty. Thorne owns every legal judgment. And see that little CMS monitor under the first station? From today, everything you do on John Doe's file happens in the CMS. If it isn't in the CMS, it didn't happen.",
+      "ask": "Which station on this track do you think is the easiest place to lose a client's trust?"
+    },
+    "job": {
+      "say": "Here's how this actually runs on the job. A new matter gets assigned to you. Before you call anyone, you read the raw file end to end in the CMS Case File, and you don't pick up the phone until every party, date and carrier is noted. Then, a week in, the client asks you a legal question. You log it in the Communications Log, create a task, and route it to Atty. Thorne the same day, with the facts and no opinion from you. And when a deadline or a risk shows up, you docket it on the Calendar, flag it under Risk Flags in the Case File, and recommend a next step. The test every time is simple: nothing lives only in an email or in your memory."
+    },
+    "dodont": {
+      "say": "Time for a game we'll play at the end of every lesson. It's called 3 Clues, 1 Rule. Behind each round is one of this lesson's Dos or Don'ts. I'll reveal three clues, one at a time, and as soon as you think you've got it, call it: Do or Don't, and name the rule. Get it on the first clue and that's three points, second clue two, third clue one. On this one, keep the UPL line in your head, because I'm going to keep naming it all week: the fastest way to hurt a case is a well-meant guess about its value. And remember, from today, everything you do on John Doe's file happens in the CMS."
+    }
+  },
+  "d1m1-case": {
+    "why": {
+      "say": "I'm not handing you anything yet. First, imagine a brand-new file just landed on your desk. What would you want to know in the first five minutes? Call them out. Who got hurt? When did it happen? Who's insured, and for how much? What could go wrong? Hold onto that list, because every lesson, activity and Learning Check in this course works one single file: John Doe v. Robert Smith. If you know its facts cold, who, when, which policies and what's at risk, every step you take in the CMS is going to make sense. Let's meet the case.",
+      "ask": "What's the first thing you'd want to know about a brand-new file in its first five minutes?"
+    },
+    "theory": {
+      "say": "Every file is worked from its verified facts: who was hurt, how, which policies apply, and what could weaken the claim. Four ideas help here. The Case Snapshot puts the parties, the date of loss, the statute of limitations, the client's position and the coverage on one card, and every task reads from it. The Facts of Loss are how, where and when the collision happened, confirmed by the Police Report and witnesses; if there's ambiguity there, that's a conversation for counsel. Then there's the Critical Case Event, the one fact the defense will build on. You name it early so Atty. Thorne can plan around it. And finally the source documents: the intake sheet, the supplement and the Police Report. You quote the document, never your memory.",
+      "ask": "Which of these four have you run into before, and how did it go?"
+    },
+    "frame": {
+      "say": "Let's run the structured intake questions on John Doe. Who? John Doe is our client, the passenger; Robert Smith is the defendant; Kevin Alvarez was the host driver. What? A collision into the Escape's passenger door, and EMS noted neck stiffness. When? 02/06/2026, at about 7:10 in the morning, which puts the statute of limitations, already docketed, at 02/06/2028. Where? The all-way stop at Maple Hollow Rd and Birch Ave. And how? Robert Smith ran the stop, and Riverton PD cited him, report number RPD-26-018842. Five questions, five answers, and every one of them traces back to a document in the file.",
+      "ask": "Which of these five answers would you double-check first against the Police Report, and why?"
+    },
+    "rules": {
+      "say": "Here are the facts you'll live with. On 02/06/2026, around 7:10 a.m., Robert Smith ran the all-way stop at Maple Hollow Rd and Birch Ave and hit the passenger door of Kevin Alvarez's 2020 Ford Escape. Our client, John Doe, is 34, a warehouse shift lead at Northgate Distribution, and he was the front-seat passenger. Atty. Elijah Thorne is Lead Counsel; you're the Case Manager. The Recovery Stack is $40,000: $10,000 BI with Keystone Mutual, then $20,000 Host UM with Harbor Point, then $10,000 Relative UM with Cardinal State Mutual. Say it with me, twice: BI, Host UM, Relative UM. He reaches both UM layers because he was a passenger; in his own Civic he'd reach $10,000, since he rejected UM. Peach State Health Plan asserted a reimbursement right; Harbor Point carries $5,000 MedPay. He declined transport, and first treated 02/20/2026: a 14-Day Treatment Gap.",
+      "ask": "Can someone say the stack back to me, in order, with the limits, without looking?"
+    },
+    "model": {
+      "say": "This is John Doe's file at a glance, laid out like a folder. Top left, the style of the case, John Doe v. Robert Smith, with matter number LSH-2026-MVA-770412 underneath. On the left, a little diagram of the all-way stop at Maple Hollow Rd and Birch Ave, with the pickup's arrow running the stop and into the Escape's passenger door. On the right, three stacked bars for the $40,000: BI $10,000, Host UM $20,000, Relative UM $10,000. And along the bottom, that orange strip runs from the date of loss, 02/06/2026, to his first treatment on 02/20/2026, labelled the 14-Day Treatment Gap. Keep this card in your head, but don't work from it.",
+      "ask": "Looking at this card, which single fact do you think the defense will lean on hardest?"
+    },
+    "job": {
+      "say": "Here's how this plays out for real. The course begins, and your first job is to read the Case File profile and the intake documents until you can state the date of loss, the stack and the critical fact from memory. Then the matter opens in the CMS, and now memory isn't good enough: you check every case fact against its source document in the Case File and Documents, so each fact traces to a document and none of them to what you think you remember. And when a fact changes later, and it will, you update the CMS Case Notes and tell the team the same day. The CMS has to match the file. Always."
+    },
+    "dodont": {
+      "say": "Let's play 3 Clues, 1 Rule for this lesson. Each round hides a Do or a Don't about knowing your case. Three clues come up one at a time; call it the moment you know it, Do or Don't, and name the rule. First-clue answers score three, second two, third one. One thought while you play: that 14-day gap isn't anybody's failing. People work, they wait it out, they hope it gets better. Your job is to document it, not to judge it. And here's the line I'll leave you with: from the next slide on, every fact you use comes from a document in the file, not from this card."
+    }
+  },
+  "d1m1-l1": {
+    "why": {
+      "say": "Here's a question for you: what's the single most expensive mistake you can make in the first hour of a file? Think about it for a second, and give me your answers. Now let me show you one field, the client's position in the vehicle. Intake is where you establish control, structure and clarity. It's not just data collection. A file opened wrong stays wrong, because every later deadline, every demand and every lien check reads from the fields you set in that first hour. So a mis-mapped party isn't a typo. It's a lost coverage layer.",
+      "ask": "What's the single most expensive mistake you could make in the first hour of a new file?"
+    },
+    "theory": {
+      "say": "Intake means verifying facts and mapping every party to the policy it unlocks, so let's get the vocabulary straight. The Recovery Stack is every policy that can pay the claim, layered in the order it pays, and you find every layer at intake. Bodily Injury Liability is the at-fault driver's coverage for injuries he causes others; it pays first, and it's a third-party claim. UM and UIM coverage is first-party cover for when that BI is missing or too small, and you reach it through the vehicle or the household. And then exclusions and rejections. A signed UM rejection or an owned-vehicle exclusion closes a layer, and when that happens, you record the document that did it.",
+      "ask": "Which of these terms is new to you, and which one have you seen trip people up?"
+    },
+    "theory2": {
+      "say": "A few more terms, and these are the ones people mix up. MedPay and PIP are first-party medical coverage paid regardless of fault; they pay bills first, while the claim's still open. Property Damage liability repairs what the at-fault driver damaged, and collision is the owner's own cover, but neither one joins the injury stack. Next, limits. A split limit caps each injured person at the first figure and the whole accident at the second, so you read both numbers. And the Declaration Page is the carrier's own statement of the named insured, the covered vehicles, the coverages and the limits. That's your written proof of coverage, not someone's summary of it.",
+      "ask": "On a split limit, which of the two figures caps one injured person's claim?"
+    },
+    "frame": {
+      "say": "This is the intake workflow, five steps. The raw file comes in from On the Records, and you read it end to end before anything else. Then you review and verify the details, the date of loss, the parties and the signatures, against the Police Report, not the intake note. Next, the Conflict Check, run on every party's full legal name, with its date and result logged. Then a decision: complete intake moves to acceptance, incomplete intake goes back, and uncertain eligibility goes to Atty. Thorne. Only then is the file created and logged in the CMS, with six roles mapped, the SOL docketed, and documents named.",
+      "ask": "On John Doe's file right now, which of these five steps has actually been completed?"
+    },
+    "rules": {
+      "say": "You're the gatekeeper of case quality, so intake that's incomplete goes back, not forward. Run the Conflict Check before the file exists, on the full legal name of every party: Robert Smith, the host driver, the resident relative. Record its date and result. Confirm the date of loss against the Police Report, because the SOL and every carrier deadline count from it, and docket the SOL on day one: 02/06/2028. Compare the narrative with the Police Report and the client's statement, check every signature, and never fix an inconsistency silently. Map all six roles; an “unknown” party is a layer you haven't found. Record the client's position in the vehicle. Get the emergency contact. Read coverage off the Declaration Page and note every source, and expect the BI carrier to ask for documents first. Name documents to convention. And you never tell the client what the case is worth.",
+      "ask": "Why does the Conflict Check have to happen before the file is created, not just soon after?"
+    },
+    "model": {
+      "say": "Look at the contrast on this slide. On the left, a grey, deliberately messy stack labelled raw intake. In the middle, three numbered gates: verify, map, structure. On the right, a clean CMS matter card with six role rows, each with a green tick. Underneath runs a strip with the case's four continuity anchors. Here's why it matters. Had John Doe been driving his own car, he'd reach $10,000: he rejected UM on his own policy, and the relative policy excludes a car he owns. As a passenger in the host vehicle, he reaches $40,000. Same crash, same injuries, four times the recovery, decided by one field.",
+      "ask": "What would have happened to John Doe's recovery if someone had left his position as “driver”?"
+    },
+    "job": {
+      "say": "Let's follow it through a real day. The raw file arrives from On the Records. Before the file even exists, you run and document the Conflict Check in CMS New Case, then verify the date of loss, parties and signatures against the source documents, so the date matches the Police Report. Once the matter's created, you docket the SOL on the Calendar and log the retainer and the claim-specific HIPAA authorization in Documents; 02/06/2028 is on the calendar and both signatures are logged. As parties are identified, you map all six roles in Parties and record his position as passenger, nobody left “unknown”. And as documents arrive, you name each to the firm's convention and file it, so anyone can find it by name."
+    },
+    "dodont": {
+      "say": "Round time: 3 Clues, 1 Rule. Each round hides one of this lesson's Dos or Don'ts about intake. Clues appear one by one; call Do or Don't and name the rule as soon as you can. Three points on the first clue, two on the second, one on the third. While you play, remember that files from On the Records arrive unverified. If you treat the intake note as fact, you carry its errors straight into the demand. And here's the UPL line, which comes back every single day of this program: you confirm facts and explain the process; you never tell a client what the case is worth or whether they have a claim."
+    }
+  },
+  "d1m4-l1": {
+    "why": {
+      "say": "Think of the Case Plan as the file's operating instruction. It's what Atty. Thorne reads to set strategy, and it's what every later day of this course executes against. So if the plan hides a risk, the strategy gets built on a false picture, and nobody finds out until it's expensive. When you see the plan's layout in a minute, notice that the risks band is drawn taller than everything else and in red. That's deliberate. On a Case Plan, the risks get more room than the comfort.",
+      "ask": "What happens if Atty. Thorne builds a demand strategy without knowing about the 14-day gap?"
+    },
+    "theory": {
+      "say": "Early evaluation brings three things together: is there money, who's responsible, and how is this case likely to move. Coverage determination asks which policies apply, with what benefits, limits and exclusions; in plain words, is there money to pay the claim? Liability assessment asks who caused the incident and to what degree, clear, shared or disputed, and on what evidence. Case projection is an early read of risk and trajectory, built from coverage, liability, injury, treatment and documents, but the value stays with counsel. And one more idea: in a legal framework, Case Management shifts from best efforts to strict compliance. Every deadline in the plan gets docketed.",
+      "ask": "Why do you think a projection can't come before coverage and liability are understood?"
+    },
+    "frame": {
+      "say": "These three pillars only make sense together. Coverage asks, is there money to pay the claim? That's valid policies, coverage type, limits, exclusions and gaps. Liability asks, who's responsible, and to what degree? That means who caused it, whether it's clear, shared or disputed, the evidence behind it, and any comparative negligence. And projection asks, how is this case likely to move? That draws on everything: coverage, liability, how severe the injury is, what treatment to expect, and how good the documentation is. You can see why projection sits last. It leans on the other two.",
+      "ask": "On John Doe's file today, which of these three questions can you actually answer with documents?"
+    },
+    "rules": {
+      "say": "Acceptance comes first. After the verification call, you decide: Accepted, Escalated for review, or Declined, with a reason someone else can follow. At that point you stop gathering and make the call; if eligibility is uncertain, clarify with the client, then escalate with a short summary of exactly what's ambiguous. No limbo. State coverage, liability and projection together, and keep the projection preliminary until coverage is confirmed. Liability isn't final until the Police Report, driver statements and any video confirm it, so never tell a client it's a sure thing. Clear the Regulatory Triple-Check, then file the Three-Pillar plan within the state's window, often 30 to 60 days, and docket it. Clinical, Functional, Financial: measurable goals, an owner and a date on every item. Flag adverse facts prominently. The plan proposes operational steps; legal conclusions, value and settlement posture are Atty. Thorne's.",
+      "ask": "Is “request the MRI” something you can write in the plan? What about “worth policy limits”?"
+    },
+    "model": {
+      "say": "Here's the plan's architecture: five bands stacked top to bottom, each with an orange number. One, the Case Snapshot and acceptance. Two, coverage, liability and projection. Three, the Regulatory Triple-Check. Four, the Three-Pillar Plan, split into Clinical, Functional and Financial columns. And five, Risks and Flags, and notice it's red and visibly taller than the rest, holding one highlighted chip: 14-Day Treatment Gap. That asymmetry is the whole design. To the right, a routing rail runs to a card that reads Atty. Elijah Thorne, review, with a calendar chip underneath: file within 30 to 60 days.",
+      "ask": "Why do you think the risks band is drawn taller than the band holding the plan itself?"
+    },
+    "job": {
+      "say": "Let me walk you through it as a day on the desk. The verification call is done, so you record the acceptance decision in Case Notes: Accepted, Escalated or Declined, with a reason a colleague could follow. Once coverage is verified and the triple-check is cleared, you open the Action Plan Editor and draft all five bands, and the risks band can't be empty. Then, with the plan drafted, you docket the filing window on the CMS Calendar and route the plan to Atty. Thorne from the editor. It's routed before anything that commits the firm's position, and the due date is on the calendar."
+    },
+    "dodont": {
+      "say": "Let's close with 3 Clues, 1 Rule. Each round hides one Do or Don't about acceptance and the Case Plan. I'll show three clues in turn; call Do or Don't and name the rule. Earlier is better: three points, then two, then one. Keep one line clear while you play. “Request the MRI” is operational, and it's yours. “This case is worth policy limits” is not yours to write. And I know flagging a risk can feel like admitting the case is weak. It isn't. Flagging early is exactly what makes the case defensible later."
+    }
+  },
+  "d1m3-l1": {
+    "why": {
+      "say": "Here's something that surprises people: most of the self-inflicted damage to an injury claim happens in the first two weeks, before anyone has told the client what not to do. A casual Recorded Statement to the other side's carrier. A gap in treatment. One post on social media. Any of those can cost more than any negotiation will ever win back. So this lesson is about protecting the claim from the client's own good intentions. We're going to work it as call-and-response: I'll read you a don't, and you give me the do.",
+      "ask": "What's one thing a new client might do in week one, meaning well, that could hurt the claim?"
+    },
+    "theory": {
+      "say": "Client instructions protect the claim from the client's good intentions, because what a client says, posts, signs or skips can become evidence. First, the difference between a medical danger and a legal danger. A medical danger threatens their health; a legal danger, like a gap in care, threatens the claim. Second, a clean, discoverable file: everything on it can reach defense counsel, so your instructions stay factual and never become legal opinion. Third, the Letter of Representation tells the world the firm represents the client, and from then on adverse contact routes through us. And fourth, on rentals, the rate cap and duration: the authorized daily rate and number of days. Beyond them, it's the client's own cost.",
+      "ask": "Can someone give me an example of a legal danger that isn't a medical one?"
+    },
+    "frame": {
+      "say": "Before any client picks up a rental car, you run four checks. First, whose policy is primary? It's usually the renter's own policy, and the rental company only steps in after a written denial. Second, who authorizes the rental? Confirm that, and check whether there's a rental reimbursement endorsement on the policy. Third, the daily rate cap: record the authorized rate before the client collects a vehicle. And fourth, the duration limit, the number of covered days. Days outside that come out of the client's pocket, and if nobody told them, they'll blame the firm.",
+      "ask": "Which of these four checks do you think clients most often get burned on?"
+    },
+    "rules": {
+      "say": "These are the firm's standing instructions. The client gives no Recorded Statement to the adverse carrier; all adverse contact goes through us. They start treatment and keep every appointment, and you explain why: gaps become causation arguments. On this file that matters most, because John Doe's gap is already forming. They post nothing about the collision, the injuries or their activities, and sign no release or settlement paper until we've reviewed it. They keep every receipt, including mileage to appointments and household help, and report any change of address, phone or provider at once. Property Damage is the one carve-out; the adverse carrier may discuss only that, and if the call drifts into injuries or the facts of the loss, it stops. On rentals, confirm authorization, rate cap and duration first. You give the instruction; what conduct does to claim value is Atty. Thorne's to answer.",
+      "ask": "If John Doe asks why he shouldn't give a Recorded Statement, what can you say without giving legal advice?"
+    },
+    "model": {
+      "say": "Here's the board: green Do column on the left, red Don't column on the right, and each Don't sits on the same line as the Do that replaces it. Let's run it the way I promised. I'll read the Don't, you give me the Do. Ready? Don't give the other driver's carrier a Recorded Statement. Good. Don't post about the crash. Right. Down at the bottom is the rental flow, four chips in a row: whose policy is primary, who authorizes, the daily rate cap, the duration limit. And under the last two, an orange tag that says it plainly: uncovered days are the client's cost.",
+      "ask": "Here's a Don't: signing a carrier's medical authorization form. What's the Do that replaces it?"
+    },
+    "job": {
+      "say": "Let me tell you how this looks in practice. The retainer's signed, so you deliver the standing instructions and log the delivery in CMS Onboarding, with the date and the method. A few days later the client calls about a rental. Before he collects anything, you confirm the primary policy, who authorizes it, the rate cap and the duration, and you record all of it in the Property Damage section. Then the adverse carrier calls him directly. You tell him to route it to the firm, you log the contact in the Communications Log, and the checkpoint is simple: no Recorded Statement, and the contact's on the record."
+    },
+    "dodont": {
+      "say": "Let's play 3 Clues, 1 Rule on client instructions. Behind each round is a Do or Don't from this lesson. Three clues, revealed one at a time; when you think you've got it, call Do or Don't and tell me the rule. Three points for the first clue, two for the second, one for the third. A couple of things to keep in mind. Rental is where clients get hurt financially, because uncovered days come out of their pocket. And watch yourself on the Recorded Statement. The moment you start explaining why it hurts the claim, you've slid into legal advice. The instruction is the deliverable."
+    }
+  },
+  "d1m3-l2": {
+    "why": {
+      "say": "Property Damage settles long before the injury claim does, so it's the client's first real test of whether this firm knows what it's doing. And it's more than the car: the damage is physical evidence of how hard the impact was, so you audit it as carefully as you'd audit the medicals. One misconception I'll correct every time I hear it: actual cash value is not the loan balance. If anyone says those are the same thing, I'm going to stop you, kindly, right there.",
+      "ask": "Has anyone here had a car totalled? Did the payout match what you still owed on it?"
+    },
+    "theory": {
+      "say": "Property Damage is a separate claim with its own measure: repair it, or total it, set against the vehicle's pre-loss value. Four ideas. The scene audit checks that the photos, video and damage match how the crash happened; the physics has to be possible. A supplemental estimate is written after teardown finds hidden damage, and it's proof of impact severity for the injury claim too. The total loss threshold is the repair-to-ACV percentage where the carrier stops repairing and pays the value instead. And the valuation report is the carrier's market-based report that sets ACV. You verify it line by line, so the client isn't lowballed.",
+      "ask": "Why would a supplemental estimate matter to the injury claim, not just the repair?"
+    },
+    "frame": {
+      "say": "This is the Property Damage deep dive, four things to look at. Photos first: you want point-of-impact clarity, including the undercarriage and the frame, because that's physical proof of the impact behind the injury claim. Then estimates versus actuals: put the insurance estimate next to the final body shop bill, because supplementals prove hidden structural damage. Then total loss and value: go through the CCC One or other valuation report line by line, so the client isn't lowballed on what the car was worth. And the scene audit: photos, video and damage, checked against how the crash happened. The physics of the claim has to be possible.",
+      "ask": "If the final body shop bill comes in well above the first estimate, what does that tell you?"
+    },
+    "rules": {
+      "say": "No written Repair Estimate, no position: get it before discussing any outcome. Give the carrier a defined window to inspect, the firm's standard being 5 days from the letter, and record when it opens. Compare the estimate with the final bill, and audit the photos for a clear point of impact. A Total Loss is when repair cost reaches the carrier's threshold against actual cash value; confirm the basis in writing. ACV is pre-loss market value, not the loan and not a new car, so verify the valuation report. Courts use the lesser of repair cost or the drop in market value. Storage and towing accrue daily. Loss of Use is claimed separately for each day without a vehicle, measured by a comparable rental; in Nevada, for example, Dugan v. Gotsopoulos, 117 Nev. 285 (2001). Confirm the rule, escalate disputes, and never advise accepting a valuation.",
+      "ask": "Once a car is towed and stored, who is paying for every day it sits there?"
+    },
+    "model": {
+      "say": "This gauge is the decision in one picture. A long bar runs from pale on the left through orange to navy, with a bold threshold marker about three-quarters along. Left of it is repair, where the carrier pays to fix the car. Right of it is total loss, where the carrier pays ACV. The repair-estimate chip and the ACV chip sit above the bar so you can see the comparison. Underneath, three steps: compare the estimate with the final bill, compare against ACV, and confirm the carrier's basis in writing. And bottom right, what's owed either way: storage, towing and Loss of Use.",
+      "ask": "If the car lands just right of that threshold, what's the client actually owed, and by whom?"
+    },
+    "job": {
+      "say": "Picture the Property Damage section filling in over a couple of weeks. The Repair Estimate arrives, and you log it, then compare it with ACV and, later, with the final bill; the estimate's on file and the comparison's recorded. Then the carrier states a disposition, repair or total. You don't assume anything: you confirm the threshold basis and the valuation report in writing, under correspondence. And meanwhile, the client has no vehicle. So you record the dates and open the loss-of-use claim, and you claim it separately from the repair or the ACV payment."
+    },
+    "dodont": {
+      "say": "Here's our 3 Clues, 1 Rule round for Property Damage. Each round hides one Do or one Don't; I reveal clues one at a time, and you call Do or Don't and name the rule. First-clue calls earn three points, then two, then one. While you play, think about Loss of Use. It's the most often forgotten item, and on this file it really matters, because John Doe needs to get to treatment he hasn't started yet, and he has no car. On Day 5 we'll come back to all this with Diminished Value and the Property Damage dispute lab. Today is the threshold. Day 5 is the fight."
+    }
+  },
+  "d1m1-open": {
+    "case": {
+      "say": "It's 02/09/2026, and an email just came in from On the Records: a new matter, John Doe, front-seat passenger, collision on 02/06/2026 at Maple Hollow Rd and Birch Ave. Attached you've got the New Client Intake Sheet, the intake supplement, the retainer and the claim-specific HIPAA authorization he signed this morning, and the Riverton PD crash report. A colleague has already keyed a draft intake record into the CMS, and Atty. Thorne wants the matter active today. I'm not going to say anything more about it yet. Take ten minutes in the CMS with the documents and the draft, and see what you find.",
+      "ask": "After ten minutes, does the draft record match the documents? Where doesn't it?"
+    },
+    "task": {
+      "say": "Here's your job. Open John Doe's matter in CMS New Case, and before anything else, run and document the Conflict Check on every party's full legal name. Then go through the draft intake record field by field against the source documents: the date of loss, the names and roles, John Doe's position, his date of birth, the report number. Correct each error with its source, never silently. Docket the SOL, 02/06/2028, with reminders on the Calendar, map all six roles in Parties, log the retainer and the HIPAA authorization, and file every intake document under its category, named to the firm's convention. Then route a short note in Case Notes telling Atty. Thorne what you corrected.",
+      "ask": "If you change the position field, which documents prove you're right?"
+    },
+    "check": {
+      "say": "Before you log it, check yourself. Was the Conflict Check documented before the matter existed, on full legal names? Is the date of loss, 02/06/2026, confirmed against the Police Report, and the SOL, 02/06/2028, docketed with reminders? John Doe should be the front-seat passenger, not the driver, even though “Driver” was pre-filled. Did you catch the position and the date of birth in the draft, and the transposed report number on the intake sheet, each corrected with its source? Remember, an unexplained change is a new error. All six roles mapped, the retainer and HIPAA authorization logged with their signing date, 02/09/2026, and documents named before filing. And open your Case Notes: the note to Atty. Thorne is part of the work, not an extra.",
+      "ask": "Where in your Case Notes would Atty. Thorne see why the date of birth changed?"
+    }
+  },
+  "d1m3-a1": {
+    "case": {
+      "say": "John Doe's retainer is signed and his matter is open in the CMS. Nothing has gone out to him yet. And a voicemail just landed on the file, dated 02/10/2026. Before we talk about it, play it, and take notes the way you would at your own desk: who called, what happened, what he needs, which number to call back. Then check your notes against the message before you act. One detail in there changes what this packet has to do, so listen for it.",
+      "ask": "From the voicemail alone, what has already happened on this file that the packet now has to deal with?"
+    },
+    "task": {
+      "say": "Now you'll assemble John Doe's onboarding direction packet in CMS Onboarding, under Direction Packet. Build all six sections and populate each with the firm's standing instructions, and make the Property Damage section specific to this file. Then, because the adverse carrier has already called him, tell me which instruction is now most urgent and how you'll confirm he understood it. You'll also take a live call from John Doe. Route all Keystone contact to the firm, no Recorded Statement, have him repeat the instruction back, give him the treatment direction, since he hasn't started, and confirm the Property Damage details and how he'll get the packet. Then log delivery. What you hand in is a complete, delivered, logged packet.",
+      "ask": "Read your treatment direction out loud. Would it make John Doe book an appointment today?"
+    },
+    "check": {
+      "say": "Let's check the packet before you log it. All six sections should be there and populated, with every standing instruction showing up in the Do's and Don'ts. Is the treatment direction stated with real urgency, given that treatment hasn't begun? Does the Property Damage section name the rental parameters you need to confirm? Your communication protocol should route all adverse carrier contact to the firm, and the contacts list should show Atty. Elijah Thorne as Lead Counsel. Delivery logged, with date and method. And did you name the adverse-contact instruction as the urgent one, with a real confirmation step? Sending isn't confirming. Now I'll play John Doe, confused, in pain, already called by the other side, and receive one of your packets.",
+      "ask": "How will you actually know John Doe read the packet, not just received it?"
+    }
+  },
+  "d1m3-a2": {
+    "case": {
+      "say": "It's 02/11/2026, and a CMS notice just came in on LSH-2026-MVA-770412. John Doe's Direction Packet was delivered and logged on 02/10/2026, and its directions have been staged as draft task cards for you to review before activation. A card can't activate without an owner, a due date and a verification method. Now, look at what's missing: no treatment start is recorded, and no follow-up is on the calendar. Those directions need to become obligations somebody tracks, not a document he was sent once. Read every card carefully. I won't tell you more than that.",
+      "ask": "Before you open the cards, what's the risk of a direction that nobody owns?"
+    },
+    "task": {
+      "say": "Your task is to turn John Doe's onboarding directions into tracked tasks in CMS Tasks. For every one, set the owner, the due date, and how it'll be verified. One of the staged cards has the wrong owner. Find it, reassign it, and record why it could never have been the client's task in the first place. Then schedule the follow-up that confirms he's actually started treatment. What you hand in is a task set with the right owners, real dates and a verification method on each. And for every single card, ask yourself how you'll know it happened. A task with no verification is a hope, not a task.",
+      "ask": "For the treatment card, how will you know it actually happened?"
+    },
+    "check": {
+      "say": "Quick self-check before you log it. Every direction has an owner, every task has a due date, and every task has a verification method recorded. Did you find the mis-assigned card, reassign it to the firm, and write down why? Is the treatment-start follow-up scheduled, with nothing left undated? Here's why that last one matters so much. The treatment follow-up is the hinge into Module 4. John Doe's gap becomes undeniable there, and this is the task that would have caught it. Use your tracker so a gap in care is visible the day it starts, and don't stop at tracking; confirm the work was done correctly.",
+      "ask": "If his first appointment slipped, which of your tasks would tell you, and on what date?"
+    }
+  },
+  "d1m3-kc": {
+    "questions": {
+      "say": "This is your Learning Check for Property Damage and onboarding. Every answer comes from John Doe's file, in your own words, typed right under each question. First, the firm's standing instructions for a new injury client and the specific harm each one prevents. Second, what has to be confirmed before John Doe collects a rental, whose policy is usually primary, and what happens to days outside the authorization. Third, what actual cash value means, what it doesn't mean, and why confusing it with something else misleads the client. Take your time on that one; I want understanding, not a memorised definition."
+    },
+    "summary": {
+      "say": "Now the Self-Summary: the principles, in your own words, not mine. And there's one scenario to think through. Robert Smith's carrier has already called John Doe, Keystone hasn't confirmed its limit in writing, and Peach State has asserted a reimbursement right. Which three actions do you take today, in what order, and what goes into the Case Plan's risks band? Think hard about the order. When everything feels urgent, your job is to decide what actually protects John Doe first, and to be able to say why.",
+      "ask": "If you could only do one of those three actions today, which would it be?"
+    },
+    "scale": {
+      "say": "Last step: the Skill Scale. Rate yourself 1 to 5 on each competency, honestly, then submit for review. There's no prize for a high number. Once your scores are in, I'll put your self-rating next to your score, and if there's a wide gap either way, we'll talk it through together. Overconfidence and underconfidence both tell me something useful about where you need support next.",
+      "ask": "Which competency do you expect your self-rating and your score to disagree on?"
+    }
+  },
+  "d2m1-cov": {
+    "why": {
+      "say": "Two questions, and I'm writing them as two columns on the board: “Who pays the bills now?” and “Who pays the claim later?” People merge them all the time, and that's where the money leaks. Every policy on a file pays a different thing, and only some of them pay the Medical Bills while the claim is open. The Payer-First Principle sends each bill to the payer that has to pay it first: the no-fault medical coverage, then the Health Plan, and a Letter of Protection only last. In that order, a bill is paid once, at the lowest cost, with as little as possible to repay. Out of order, that same bill comes back as a lien against John Doe's recovery.",
+      "ask": "Who pays John Doe's bills now, and who pays his claim later? Are they the same?"
+    },
+    "theory": {
+      "say": "Every policy answers two questions: whose is it, and what does it pay? Third-party coverage is the at-fault driver's; first-party answers to the client's side, and who you claim against changes how you deal with them. The Recovery Stack is only coverage that pays the claim, so BI, then the UM and UIM layers. Bills and the car stay outside it. No-fault medical coverage, MedPay and PIP, pays accident medical bills regardless of fault, fast, even while liability is disputed. And UM follows the person, by status: an occupant reaches the vehicle's policy, a resident relative reaches the household's.",
+      "ask": "John Doe reaches two UM policies, and neither is his own. Which status gets him to each one?"
+    },
+    "theory2": {
+      "say": "Four more ideas that shape every bill. Set-off and non-duplication: some policies credit what MedPay or PIP paid against what they owe, so you verify the form in writing. Subrogation versus non-subrogation: a payer with subrogation claims its payments back from the recovery; without it, what it paid stays paid. Contract rate and write-off: an in-network provider takes the plan's rate and writes off the rest, so there's no balance billing and a smaller lien. And Medicare Secondary Payer: Medicare pays only after no-fault and liability coverage, it recovers by statute, and the case gets reported to the BCRC.",
+      "ask": "Why is a payer with no subrogation right the best one to bill first?"
+    },
+    "frame": {
+      "say": "Here's what each coverage pays, row by row. BI liability is the at-fault driver's, third-party; it pays the claim for the injuries he caused, and it is the recovery. UM and UIM sit on the client's side, through the vehicle or household, paying the claim when BI is too small, with consent rules guarding its subrogation. MedPay comes from the occupied vehicle's policy and pays medical bills with no fault needed, but no wages; its repayment terms you verify in writing. PIP, where a state requires it, pays medical bills, part of wages and services, with a set-off or lien by state law. Health insurance is the client's own plan at the contract rate, with a reimbursement right on what it paid. Medicare and Medicaid come last, with recovery by statute and a BCRC report.",
+      "ask": "Which row on this table pays John Doe's bills fastest, with the least to repay?"
+    },
+    "rules": {
+      "say": "Sort every coverage twice. By whose: Keystone BI and PD are Robert Smith's, third-party; Host UM, Relative UM, MedPay and collision answer to John Doe's side; Peach State is his own plan through Northgate Distribution. By what it pays: BI and UM pay the claim, and only they make the $40,000 stack. MedPay pays bills regardless of fault, never wages; this file has Harbor Point MedPay, $5,000, and no PIP, which you verify. John Doe reaches Host UM as an occupant of Kevin Alvarez's Escape and Relative UM as Margaret Doe's resident relative; his Bluewater UM was rejected 03/14/2024. The order: MedPay first, since Harbor Point confirmed on 03/02/2026 it has no reimbursement right; then the Health Plan, at contract rate; an LOP last. Track each payer's ledger, never re-route a paid claim, and leave conflicts over primacy to Atty. Thorne.",
+      "ask": "Before I tell you: where does MedPay sit, and why does it go ahead of Peach State?"
+    },
+    "model": {
+      "say": "Two tiers on this slide. On top, a coverage map of eight cards. Navy for third-party: Keystone BI, $10,000, and Keystone PD, $25,000. Orange for first-party: Harbor Point Host UM, $20,000; Cardinal State Relative UM, $10,000; Harbor Point MedPay, $5,000; and Bluewater collision with a $500 deductible. Green for health: Peach State Health Plan. And a grey card, crossed out: Bluewater UM, rejected 03/14/2024. Each card is tagged the claim, the bills or the car, and only the three claim cards are bracketed as the $40,000 Recovery Stack. Below, a staircase steps down: MedPay or PIP, then the Health Plan, then the Letter of Protection. The callout says it: out of order means a lien that didn't have to exist.",
+      "ask": "Which card on this map would most people wrongly add to the $40,000?"
+    },
+    "job": {
+      "say": "Picture how this works across a normal week. As each claim opens, you list every coverage, its carrier and what it pays in the CMS Insurance tab, and tag each one third-party, first-party or health. When coverage is confirmed in writing, you place it on the Coverage Matrix: in the stack, in the Payer Order, or outside both, so the stack reads $40,000 and MedPay, PD and collision sit outside it. A provider asks whom to bill, and you route it Payer-First using the MedPay ledger: MedPay, then Peach State, then an LOP. If a provider asks for an LOP, you check MedPay and network status first in the LOP register, and Atty. Thorne approves any LOP. And when a payer pays, you post it on its ledger, so nothing paid gets re-routed."
+    },
+    "dodont": {
+      "say": "Let's play 3 Clues, 1 Rule with coverages. Each round hides one of this lesson's Dos or Don'ts; clues come one at a time, and you call Do or Don't and name the rule. Three, two or one points, depending on how early you get it. Two facts to carry in. Summit Imaging: $2,395.00 paid by MedPay with nothing to repay, instead of a $2,395.00 LOP balance against John Doe's net. And Crescent: $3,400.00 billed, $1,860.00 paid by Peach State, $1,540.00 written off for good, so Peach State's claim can only start from what it paid. Remember, you route bills in the default order, but when two policies both claim to pay second, that's Atty. Thorne's call.",
+      "ask": "Why does John Doe reach $30,000 of UM at all, when his own policy has none?"
+    }
+  },
+  "d2m1-l1": {
+    "why": {
+      "say": "Imagine five envelopes on this table. Five letters leave John Doe's file on 02/17/2026. Which one, written wrong, costs John Doe the most? Go on, argue it. Now let's look hard at the two UM letters. The Letter of Representation is the moment every carrier conversation moves off John Doe and onto the firm. One letter wrong, the wrong insured named, a UM carrier never noticed, a notice that reads like a demand, and it follows the claim all the way to the demand table, where it can put $30,000 of UM coverage at risk.",
+      "ask": "Of the five letters going out on 02/17/2026, which one, written wrong, costs John Doe the most?"
+    },
+    "theory": {
+      "say": "Claim set-up is really coverage determination, finding which policies apply and what limits and exclusions they carry, and the LOR is how the firm gets onto each one. The Letter of Representation is formal notice that we represent the client, and it moves all contact onto the firm. Coverage determination comes down to four questions: is coverage valid, what type applies, what are the limits, and are there exclusions? Every request in an LOR chases one of those answers. Liability assessment asks who's legally responsible and how far; Atty. Thorne weighs it, and you secure the proof. And remember first- versus third-party. The third-party carrier is adverse to the client; first-party policies cover him. Each letter differs accordingly.",
+      "ask": "Why would a letter to Robert Smith's carrier read differently from one to Harbor Point?"
+    },
+    "theory2": {
+      "say": "Four more ideas. Information protection: the adverse carrier learns only what it must, because anything you give it can be used against the client. Notice versus demand: notice preserves the claim, a demand asks for payment. UM notice goes early; the demand waits for a documented BI tender. The preservation request asks the carrier to keep photos, statements, video, the vehicle and its event data, the liability proof that can vanish. And the acknowledgement is the carrier's written receipt of your LOR, sometimes stating coverage and the limit. That's the first written answer you'll log.",
+      "ask": "What's the difference between putting a UM carrier on notice and making a demand on it?"
+    },
+    "frame": {
+      "say": "Coverage determination and liability run side by side, and each has four questions. On coverage: is there valid insurance? What type applies? What are the policy limits? Are there exclusions or gaps? And on liability: who caused the incident? Is liability clear, shared or disputed? What evidence supports fault? Are there comparative negligence factors? Every request in your LORs is chasing an answer to one of these eight questions. Keep both columns in mind as you draft, because a letter that only asks about money leaves the liability proof unprotected.",
+      "ask": "Which of these eight questions can you answer today on John Doe's file, and from what document?"
+    },
+    "rules": {
+      "say": "Send the LOR once the retainer's signed, and early. Claims opened by phone 02/16 to 02/17/2026; the LORs went out 02/17/2026. Use the firm template, address the adjuster by name, like “Attn: Dana Whitfield”, and with no adjuster, “Attn: Claims Department”, which is Cardinal State today. Each letter names the client, the date of loss, the claim number and that carrier's insured: Robert Smith for Keystone, Kevin Alvarez for Harbor Point, Margaret Doe for Cardinal State. Say he was injured, a Demand Package will follow, all contact goes to the firm. Nothing more. Request limits, Declaration Pages and preservation, including the event data recorder. Notify all three stack carriers now, because late notice hands a carrier a defense, but notice isn't a demand. Keystone gets his name only, plus the PD carve-out for Leah Moran with 5 business days to inspect. Atty. Thorne signs; you log delivery.",
+      "ask": "Why does Cardinal State get a letter today, when it pays nothing until BI and Host UM are done?"
+    },
+    "model": {
+      "say": "This is one template becoming five different letters. On the left, the LOR page on firm letterhead, with numbered badges on each field: the Attn line, the subject with claim number and date of loss, the client and insured, the requests, and the signature line, Atty. Elijah Thorne. Five arrows fan out to five recipients: Keystone, for BI plus the PD carve-out; Harbor Point, for Host UM and MedPay; Cardinal State, addressed to the Claims Department. Then, below a divider marked outside the stack, Bluewater and Peach State in grey. Keystone's card carries a red warning, name only, and both UM cards say notice, not demand.",
+      "ask": "What would go wrong if Keystone's letter were copied straight across to Harbor Point?"
+    },
+    "job": {
+      "say": "Let's run it as it happened on this file. The claims opened by phone on 02/16 and 02/17/2026, and for each you logged the claim number, the adjuster, or “none yet”, and the preferred delivery method in the Insurance tab and Communications Log. Then the LOR set is drafted, and all five letters go to Atty. Thorne for signature through Documents, Outgoing, with a task. Not one is signed by you. The letters are served on 02/17/2026; you log the method and time and calendar the acknowledgement check, with a follow-up dated 02/20/2026 for anyone still silent. When an acknowledgement arrives, you file it and record any coverage statement or limit with its source and date."
+    },
+    "dodont": {
+      "say": "Let's run 3 Clues, 1 Rule on LORs and notification. Each round hides one Do or Don't from this lesson; three clues in turn, and you call Do or Don't and name the rule, three points for the first clue, two, then one. Here's a trap to watch for: the Keystone letter that over-shares, his phone, his address, his employer, his treatment. On 02/17/2026 John Doe hasn't treated yet; the 14-Day Gap is still forming, and nothing in a letter should describe it. And the signature line is the UPL line on this slide. You draft and you send. Atty. Thorne signs."
+    }
+  },
+  "d2m1-l2": {
+    "why": {
+      "say": "An unverified coverage fact is just a guess the file is built on. On this file, both UM carriers confirmed coverage in writing by 03/09/2026, but Keystone held its BI limit until 03/20/2026. So here's my question. I'm putting the five statuses on the board: reported, noticed, acknowledged, disclosed, confirmed in writing. Where did Keystone's BI stand on 03/11/2026? The answer is “not confirmed”, because nobody on the file had seen its Declaration Page until 03/20/2026. The matrix has to show that honestly: a source behind every “confirmed”, and a date on every open item.",
+      "ask": "On 03/11/2026, which of the five statuses did Keystone's BI limit really have?"
+    },
+    "theory": {
+      "say": "Coverage verification turns a reported fact into a confirmed one, in writing, with every limit, form and exclusion traced to the document that proves it. The Coverage Matrix is one row per carrier, and it's the file's single coverage record; status, source and date show what's proven. The verification statuses run reported, noticed, acknowledged, disclosed, confirmed in writing, and only the last one is proof; each earlier one is a lead. The Declaration Page is the policy's own summary of who and what it covers, and for how much. And limit types: per person caps one injured person, per accident caps everyone, and a combined single limit is one figure for all of it.",
+      "ask": "Keystone's BI is $10,000 per person. Whose claim does that figure cap?"
+    },
+    "theory2": {
+      "say": "Let's go a bit deeper. UM forms come in two kinds. Add-on, or excess, UM pays on top of the BI payment; reduced UM subtracts the BI payment from its limit. The form changes the stack. Only liability and UM layers stack; MedPay, PD and collision are separate benefits you track apart. Exclusions and gaps matter as much as limits, and a verified zero is a fact, while an assumed zero is a guess. And when a carrier stalls, treat it like any bottleneck: find the root cause, act now, then prevent the next occurrence.",
+      "ask": "If Harbor Point's UM had been the reduced form, what would the stack total have been?"
+    },
+    "frame": {
+      "say": "Here's every potential coverage source, and what proves it. BI liability: per person, per accident or combined, proven by a Declaration Page or Coverage Letter; it's the first layer, and you confirm there's no step-down. Host UM: add-on or reduced, proven by the carrier's written form confirmation, opening after the BI tender. Relative UM: the same question plus an other-insurance clause, proven by a certified policy and Coverage Letter; its priority is Atty. Thorne's call. MedPay or PIP pays medical bills to its limit regardless of fault, proven by its written terms, and it's tracked apart. PD and collision cover the vehicle only, outside the stack. And the client's own UM is zero if rejected in writing, proven by the signed rejection form.",
+      "ask": "Which of these six sources on John Doe's file still lacks the document that proves it?"
+    },
+    "rules": {
+      "say": "The Coverage Matrix is the single record: carrier, insured, claim number, adjuster, limit and type, status, source, date, next follow-up. A limit is preliminary until a Declaration Page or Coverage Letter confirms it; a phone figure or a Police Report is a lead, never quoted to John Doe. Read the Dec Page line by line, including a policy period covering 02/06/2026. Keystone's shows BI $10,000 per person. Ask each UM carrier for its form in writing; Harbor Point confirmed add-on on 03/02/2026. Stack only three layers: $10,000 plus $20,000 plus $10,000, $40,000. Verify gaps too: the Bluewater rejection, 03/14/2024, goes in the file. Firm cadence is 24 to 48 hours on an unopened claim, the third business day on an LOR, and a dated next follow-up within two business days. Regulatory deadlines, policy duties and bad-faith questions are Atty. Thorne's to confirm.",
+      "ask": "What's the difference between a follow-up you made and one you only scheduled?"
+    },
+    "model": {
+      "say": "Across the top, the five-stage status track: reported, noticed, acknowledged, disclosed, and confirmed in writing, edged in green. Below it are three swim rows, one per stack layer, each with a marker where it stood on 03/11/2026. Host UM and Relative UM are at the green end, with their dates, 03/02 and 03/09. BI is held short in orange, labelled written request pending, with a dashed line out to 03/20. Along the bottom, a calendar band shows the firm cadence: 24 to 48 hours, the third business day, a dated next follow-up. Behind it, outlined in red, the regulatory backstop: confirm the rule. A layer is verified only at the green end.",
+      "ask": "Why is BI, the layer that pays first, the one stuck furthest from the green end?"
+    },
+    "job": {
+      "say": "Here's the rhythm on the job. A written coverage confirmation arrives, and you enter the limit, form and terms on the Coverage Matrix with source and date, marking it confirmed in writing only with the document attached. On 03/03/2026, Teresa Okafor is assigned at Cardinal State, so you replace “not yet assigned” with her name and direct contact in the Insurance tab and Parties, and re-address correspondence. When a follow-up date arrives and the item's still open, you follow up, log the result and set the next date, so no open item carries a past date. And when you spot a regulatory or policy deadline, you escalate it so Atty. Thorne confirms the rule, then docket it with its source."
+    },
+    "dodont": {
+      "say": "Time for 3 Clues, 1 Rule on coverage verification. Each round hides one Do or Don't; I'll reveal the clues one at a time, and you call Do or Don't and name the rule for three, two or one points. One thing before we start. Keep regulatory deadlines generic. The rule differs by state, and your job is to have Atty. Thorne confirm it and docket it, never to quote it at an adjuster. And think about Harbor Point's add-on confirmation. Had its UM been reduced by the BI payment, Host UM would show $20,000 minus $10,000, which is $10,000, and, assuming Cardinal State is add-on too, the stack would be $30,000, not $40,000. That's why the form is verified, not assumed."
+    }
+  },
+  "d1m1-l2": {
+    "why": {
+      "say": "I've drawn two lanes on the board, and here's why. Two different questions get confused on every new file: who pays John Doe's Medical Bills while the claim is open, and who pays the claim itself at the end. Most of the confusion on this topic is just those two questions being treated as one. The Health Plan answers the first question, and then it asks to be repaid out of the second. So if a reimbursement claim gets found after the demand goes out, guess where the money comes from? Straight out of the client's net.",
+      "ask": "Who pays John Doe's medical bills while his claim is open, and who pays the claim itself?"
+    },
+    "theory": {
+      "say": "Before any clinical planning, the Regulatory Triple-Check establishes the claim and your authority to act, and then the Payer Order decides who funds care. A few terms. Subrogation is a payer's right to stand in the client's shoes and recover what it paid for accident care. Primary payer determination is deciding which payer gets billed first, so each bill reaches the right payer and nothing's paid twice. A Letter of Protection is the firm's written promise to pay a provider from the settlement, and it's last in the Payer Order. And the client's net is what the client keeps once fees, costs and liens are paid. A lien flagged late comes straight out of it.",
+      "ask": "Why do you think a Letter of Protection sits last in the Payer Order?"
+    },
+    "frame": {
+      "say": "The Regulatory Triple-Check is three checks, and you clear all three before clinical planning. One, HIPAA compliance: get a claim-specific authorization that names the incident date, because a standard release may not be adequate for an injury claim. Two, Medicare and Medicaid reporting: if the client is 65 or older, or on SSDI, you report the case to the BCRC. That avoids federal penalties and settlement freezes under MMSEA. Three, subrogation management: set the Payer Order, PIP or MedPay first, then private health insurance, then LOPs and provider liens, so every bill reaches the right payer and reimbursement rights surface early.",
+      "ask": "John Doe is 34. So which part of the BCRC check still has to be verified for him?"
+    },
+    "rules": {
+      "say": "Clear the triple-check before clinical planning, so the claim's properly established and you're authorized to act. HIPAA first: a claim-specific Authorization to Release Medical Information that names the incident date and permits contact with legal and insurance parties. Then Medicare and Medicaid: if the client's 65 or older or on SSDI, report to the Benefits Coordination and Recovery Center under MMSEA, 2007. John Doe is 34, so you verify his SSDI status and record the answer. Then the Payer Order, and verify whether MedPay or PIP applies; don't assume it. The Payer Order isn't the Recovery Stack. When a Health Plan pays accident bills, flag its reimbursement right on first notice, and record the carrier, member ID and group number in the lien register that day. Never promise a provider or plan an amount, and leave enforceability and compromise to Atty. Thorne.",
+      "ask": "Why flag the Health Plan's reimbursement right on first notice instead of waiting for the demand?"
+    },
+    "model": {
+      "say": "Two lanes, left to right. The upper lane, in navy, is labelled pays the bills now, the Payer Order: PIP or MedPay, then Peach State Health Plan, then LOPs and provider liens. The lower lane, in orange, is pays the claim later, the Recovery Stack: BI, then Host UM, then Relative UM, ending at a settlement node. Now look at that heavy orange arrow curving down from the Health Plan into the settlement. That's the reimbursement claim, and it's the lesson: money goes out to providers early and comes back out of the settlement at the end. Top right, the triple-check chips, HIPAA, BCRC, Payer Order, and bottom left the warning: flagged late equals paid twice.",
+      "ask": "Following that curved arrow, whose pocket does the reimbursement come out of?"
+    },
+    "job": {
+      "say": "Here's the sequence on a live file. The retainer's signed, so you obtain the claim-specific HIPAA authorization and file it in Documents; it names 02/06/2026 and permits legal and insurance contact. Once you know the client's age and benefits, you verify SSDI status and report to the BCRC if he's 65 or older or on SSDI, logging the answer and its date in Case Notes. When the Health Plan's identified, you record the carrier, member ID and group, and the Payer Order, in Liens, so a dated lien record exists. And the moment the plan pays an accident-related bill, you flag the reimbursement right against the matter, before any demand is drafted."
+    },
+    "dodont": {
+      "say": "Let's play 3 Clues, 1 Rule on the triple-check and payer order. Each round hides one Do or one Don't; the clues come one at a time, and you call it, Do or Don't, and name the rule. First clue, three points; second, two; third, one. As you play, think about John Doe's BCRC check: his age rules out the 65-plus trigger, but something is still left to verify, and the file has to show it was checked. And here's where this is headed. On Day 3 you'll negotiate this lien down, and what you can reduce then depends on what you register today."
+    }
+  },
+  "d1m4-l2": {
+    "why": {
+      "say": "A plan sitting in draft doesn't do anybody any good. It's only useful once counsel has seen it and the file is running against an approved version. So I don't want you thinking of routing as overhead or paperwork. Routing is where operational work becomes authorized work. And here's something I want you to hear early: when a plan comes back to you with comments, that's not failure. Being sent back is the system working. If you're afraid of it, you'll start under-flagging risks just to avoid it, and that's far worse.",
+      "ask": "How would you feel if your first plan came back with comments, and what would you do with it?"
+    },
+    "theory": {
+      "say": "A Case Plan is a living, approved document: drafted in structure, reviewed by counsel, then run. Section templates give every plan the same structure, so a reviewer can scan it fast and nothing gets missed. The review loop goes draft, route, review, approve, execute, and a return is just a normal step back into drafting. The pre-confirmation stage is when a conclusion is still waiting on its proof; when the proof arrives and it's different, the plan gets re-routed. And the audit trail: the CMS keeps every version unaltered, so each approval is provable, and every note you write is discoverable.",
+      "ask": "If every note is discoverable, how should that change the way you write a treatment note?"
+    },
+    "frame": {
+      "say": "Four things you track for mandatory disclosure and compliance. Electronic record integrity: the CMS keeps an unalterable audit trail of every version, so nothing's quietly changed. State-specific timelines: carrier-mandated deadlines, like an early IME in no-fault states, go on the calendar. Letters of Protection: you know which providers are treating under an LOP, so no bill arrives as a surprise. And the Golden Rule: the medical plan and the legal claim run as parallel tracks. Coordinate them, but don't commingle them.",
+      "ask": "What does “coordinate, don't commingle” look like in one sentence of a real treatment note?"
+    },
+    "rules": {
+      "say": "Draft in the editor's section templates, because ad hoc structure gives you plans reviewers can't scan. Put each action item's owner and date in their own fields, not buried in a sentence. Route for review before you execute anything that commits the firm's position externally. When a plan comes back, address every comment and re-route; never run a partly addressed plan. Record the approved version, because the file runs against the approved plan, not the latest draft. And when a material fact changes, re-route, because a plan approved on a false picture isn't approved. Keep notes clean, factual and clinical, legal strategy in the legal track only. And where a review comment asks for a legal judgment, the answer comes from Atty. Thorne, not from you.",
+      "ask": "Right now, which version of the plan is John Doe's file running against?"
+    },
+    "model": {
+      "say": "Two halves here. On the left, the editor as a document page with its toolbar, and four numbered callouts: the section templates, the risks band, the owner and date fields on action items, and the route-for-review control. On the right, the routing loop as a closed circuit: draft, route, counsel review, approved, execute. And there's a branch, returned with comment, running back to draft. Notice it's orange and just as prominent as the approval branch. That's on purpose; the loop is iterative, not a one-way submission. Underneath it all runs a thin grey bar, the audit trail, with every version kept.",
+      "ask": "Why do you think the return branch is drawn as boldly as the approval branch?"
+    },
+    "job": {
+      "say": "Let's follow a plan through its life. You've drafted it across all five bands, so you route it to Atty. Thorne using route for review in the Action Plan Editor, and the routing's recorded with a timestamp. It comes back with comments. You address every one of them in Revisions and re-route, with no comment left unaddressed. Then, after approval, a material fact changes. You don't quietly edit the approved plan. You mark it superseded under Version and re-route a new one, so the approved version is kept and the new version goes to counsel."
+    },
+    "dodont": {
+      "say": "Last game of the module: 3 Clues, 1 Rule. Each round hides one of this lesson's Dos or Don'ts about routing and record-keeping. I'll reveal three clues, one at a time; call Do or Don't and name the rule. Three points for an early call, two for the middle clue, one at the end. Keep this file in mind: the gap investigation on Day 2 is going to change the picture and force a re-route, so the superseded state really matters here. And here's a pitfall worth hearing out loud: defense counsel uses opinions in medical notes to impeach the Case Manager's neutrality."
+    }
+  },
+  "d2m1-a1": {
+    "case": {
+      "say": "It's 02/17/2026, and a message from Atty. Thorne just landed: letters of representation go out today. Here's where the claims stand. Keystone BI, KM-26-440871, with Dana Whitfield, and Keystone PD with Leah Moran, who accepted PD liability this morning. Harbor Point, HP-26-7741, with Marcus Bell, for Host UM and MedPay. And Cardinal State, CS-26-20355, with no adjuster yet. He wants the three LORs, plus notices to Bluewater and Peach State, on his desk for signature today. The preferred delivery methods are in the Communications Log. John Doe hasn't started treatment. You've got the claim numbers and the call log, and that's all you need to build the set.",
+      "ask": "Before you draft a word, which two letters do you think need the most care, and why?"
+    },
+    "task": {
+      "say": "Generate John Doe's full letter set on the firm template in CMS Documents, under Outgoing. That's LORs to Keystone, for BI with the PD carve-out, to Harbor Point for Host UM and MedPay, and to Cardinal State for Relative UM, plus notices to Bluewater and Peach State Health Plan. Give each the right Attn line, insured, claim, policy or member number, and the date of loss, with requests for limits, Declaration Pages, additional coverage and preservation. Route the set to Atty. Thorne for signature, send each by its preferred method from the Email Workspace, and calendar the acknowledgement checks. Where I'll grade your judgment: what Keystone's letter leaves out, and why no UM letter asks for payment.",
+      "ask": "What goes in the Attn line for Cardinal State, and why not a name?"
+    },
+    "check": {
+      "say": "Check your set before you log it. Five letters: LORs to Keystone, Harbor Point and Cardinal State, notices to Bluewater and Peach State. Attn lines: Dana Whitfield, Marcus Bell, and “Attn: Claims Department” for Cardinal State. Now the insured lines, and look closely, because these get swapped: Robert Smith, Kevin Alvarez, Margaret Doe, and John Doe on Bluewater. Subject lines carry the claim number and 02/06/2026; Peach State's carries PSH-55017742 and GRP-41208. Keystone gets his name only, with the carve-out confined to the Civic and 5 business days to inspect. Neither UM letter asks for payment. Bluewater's requests the signed rejection form from 03/14/2024. John Doe's told to preserve the doorbell-camera video. And every letter went to Atty. Thorne for signature, sent 02/17/2026, with a follow-up on 02/20/2026. A letter he didn't sign fails, however good it is.",
+      "ask": "On your Harbor Point and Cardinal State letters, whose name is in the insured line?"
+    }
+  },
+  "d1m1-a1": {
+    "case": {
+      "say": "All three carriers have opened claims and reported their limits on the set-up calls. The Declaration Pages were requested in writing, and none has arrived. Then on 02/24/2026, Keystone Mutual's acknowledgment of BI claim KM-26-440871 came in, for its insured, Robert Smith. It says his BI limit, $10,000.00 each person, was discussed with our office by phone at set-up, and that Keystone will confirm it in writing, with the declarations page, once it gets a written request with John Doe's signed authorizations, including form KM-BI 114. Nothing's been entered in the Insurance tab yet. Say the order with me, bottom-up: BI pays first, and only once it's exhausted does Host UM open.",
+      "ask": "Based on Keystone's letter, is its $10,000 limit confirmed yet, or still preliminary?"
+    },
+    "task": {
+      "say": "You're building the complete Policy Stack for John Doe v. Robert Smith in the CMS Insurance tab. Enter all three layers in their order of operations, with the carrier, policy number, claim number, limit and adjuster for each, and classify each as first-party or third-party. In the Comments box, record the carrier's actual name, the driver's name where it differs from the owner, and the adjuster's details, or say plainly that none is assigned yet. Then verify the total, record the order the layers must be pursued in, and mark the projection preliminary until every limit's confirmed in writing. And please don't enter these as three equal claims. UM owes nothing until BI is exhausted.",
+      "ask": "What could happen if the BI claim were settled or released without the UM carriers' written consent?"
+    },
+    "model": {
+      "say": "Here's the stack as a ladder, built from the bottom up so you can feel the order. Rung one at the bottom, navy: BI, $10,000. Rung two: Host UM, $20,000. Rung three at the top, orange: Relative UM, $10,000. Each rung carries its carrier, claim number and adjuster in small type on the right. Along the right side, an orange brace spans all three rungs, with the total set large: $40,000. And beneath it, a card headed verify each layer, with one empty checkbox per layer. The rungs are numbered one, two, three, bottom to top, and they're never reordered.",
+      "ask": "Whose policy is the Host UM, and how does John Doe get to reach it?"
+    },
+    "check": {
+      "say": "Let's check the stack before you log it. All three layers present, BI, Host UM and Relative UM, with limits of $10,000, $20,000 and $10,000, computing to $40,000. The order recorded as BI, then Host UM, then Relative UM. BI classified third-party, both UM layers first-party. Policy and claim numbers filled in for every layer, and the Relative UM adjuster recorded as “No adjuster assigned yet”, not left blank. The source of each limit noted, the set-up call for now, with the Declaration Page requested. And the projection marked preliminary. Don't project value before coverage is confirmed, and don't quote a likely limit to the client. I'll ask two of you to read your total aloud.",
+      "ask": "If your total isn't $40,000, which rung is in the wrong place?"
+    }
+  },
+  "d2m1-a2": {
+    "case": {
+      "say": "It's 03/11/2026. A colleague has been keeping John Doe's Coverage Matrix, and the CMS has flagged it. The Keystone BI follow-up for the Declaration Page was due 03/05/2026, and nothing's logged. The matrix total reads $45,000, while the Case Plan target is $40,000. And since the matrix was last edited, new documents arrived: Harbor Point's letter of 03/02/2026, Cardinal State's assignment on 03/03/2026, and its Coverage Letter on 03/09/2026. Keystone's written request with authorizations was sent, but no Declaration Page yet. And this morning, Summit Imaging asked for an LOP, which was declined because MedPay applies first. You've got the staged matrix and the file documents. I'm not telling you how many errors there are.",
+      "ask": "What's the first thing you'd check when a stack total reads $45,000 instead of $40,000?"
+    },
+    "task": {
+      "say": "Audit the staged Coverage Matrix against the documents in CMS Documents. Find every error, correct it, and cite the document and date that prove each correction. Restore the stack total, clear every past-due follow-up by acting on it and setting a new date, and leave the correct rows alone. You'll also have a live call in the Call Simulator with Dana Whitfield at Keystone. Confirm she has the written request and signed authorizations, get a firm date for the Declaration Page in writing, share no treatment detail or demand figure, then log the call and set the next follow-up by 03/13/2026. Finally, route a three-line audit note to Atty. Thorne: confirmed in writing, still preliminary, escalated.",
+      "ask": "On 03/11/2026, what status can you honestly give the BI row, and why?"
+    },
+    "model": {
+      "say": "This is the staged matrix as you found it on 03/11/2026. A full-width CMS table with a navy header and six rows, deliberately imperfect. A navy rail on the left marks the stack rows, and MedPay is sitting inside it, wrongly, as row four. A grey divider separates the rows that belong outside the stack. At the bottom, the footer total in large type: $45,000. When we reveal the answers, red audit rings will appear on the planted errors, the footer will be struck through with $40,000 beside it, and MedPay will drop below the divider. On the right is the audit-note card to Atty. Elijah Thorne, with three lines: confirmed in writing, preliminary, escalated.",
+      "ask": "Without the reveal, what tells you MedPay doesn't belong on that navy rail?"
+    },
+    "check": {
+      "say": "Check your audit before you log it. BI should read preliminary, verbal from the set-up call, written request sent, because Keystone's Declaration Page doesn't arrive until 03/20/2026. The 03/05/2026 follow-up was past due, so you called Dana Whitfield on 03/11/2026, logged it, and set the next date by 03/13/2026. Host UM's form is add-on, from Harbor Point's 03/02/2026 letter. Teresa Okafor replaces “not yet assigned”. MedPay moved into the Payer Order, and the total corrected from $45,000 to $40,000. Bluewater's “UM: none” needs the signed rejection form from 03/14/2024 chased. Keystone's PD row stays outside the stack, marked preliminary; moving it in or deleting it is a false positive. Finding Cardinal State's unstated form and excess clause earns credit too. Every correction cites a document. Now let's hear an audit note the way Atty. Thorne would read it.",
+      "ask": "In ten seconds, does your audit note tell Atty. Thorne what he must decide?"
+    }
+  },
+  "d1m1-a2": {
+    "case": {
+      "say": "A letter just landed on the file, dated 03/12/2026, from Peach State Health Plan about member PSH-55017742, group GRP-41208. Following its 02/27/2026 notice of reimbursement rights, Peach State says it's processing John Doe's accident-related claims and will assert reimbursement from any recovery. It asks us to confirm the claim's noted on the file, return the accident questionnaire, and notify it before any settlement. The recovery file is SRU-26-03318. Right now, no lien record exists on the matter, and the pre-demand audit is still ahead. Timing is everything on this one.",
+      "ask": "If you waited to register this until the demand went out, what would it cost John Doe?"
+    },
+    "task": {
+      "say": "Register Peach State Health Plan's reimbursement claim in John Doe's lien register in CMS Liens, and flag it against the matter. Record the carrier, member ID and group number, its position in the Payer Order, the basis on which reimbursement is asserted, and the date of the flag. Record the Regulatory Triple-Check results right alongside it. Then, in one line, say what has to happen before this lien can be compromised. When you set the flag, say the date out loud; I want to hear it. What you hand in is a dated, flagged lien record complete enough to negotiate from on Day 3. A lien found at disbursement is found too late to negotiate from strength.",
+      "ask": "What's the date you're setting on that flag, and why today?"
+    },
+    "check": {
+      "say": "Before you log it, run your record against this. A lien record created against John Doe's matter, with the carrier as Peach State Health Plan, and both member ID PSH-55017742 and group GRP-41208 entered. The Payer Order position recorded: after PIP or MedPay, before LOPs and provider liens. The reimbursement basis noted. The flag dated before any demand's drafted. The triple-check recorded, HIPAA authorization, BCRC answer, Payer Order. And an escalation note saying compromise needs Atty. Thorne's authority. Remember, registering a lien isn't conceding it. Day 3 is where it gets reduced. I'm going to read one of your records aloud as if I were the lien negotiator receiving it on Day 3.",
+      "ask": "Reading your record cold on Day 3, what would a lien negotiator still have to go looking for?"
+    }
+  },
+  "d1m4-a1": {
+    "case": {
+      "say": "This is Day 1's most consequential activity. Everything on Days 2 to 5 turns on this flag existing and being accurate. On 03/13/2026, a CMS notice: Riverton Urgent Care's 02/20/2026 note and Riverton Spine & Rehab's visits since 02/24/2026 are now indexed to the treatment timeline, right beside the 02/06/2026 EMS run report. The date of loss is 02/06/2026. The first treatment falls 14 days later. And look at the last line of the notice: Risk Flags, none recorded. Nobody has flagged this yet. That's your job.",
+      "ask": "When the adjuster sees a 14-day gap, what do you think they're going to say?"
+    },
+    "task": {
+      "say": "Identify and flag the treatment gap in John Doe's file, in the Case File's Risk Flags and the risks band of the Action Plan Editor. Compute it exactly; “about two weeks” isn't a flag, 02/06 to 02/20 is. Record the initial gap, and set the file to catch any later break in care. In the risks band, state what the gap will be used for against the claim. List the likely causes you'll investigate, and the steps you need before the gap can be explained. Then route the flag to Atty. Thorne. What you hand in is a precisely computed, prominently flagged and routed treatment-gap record.",
+      "ask": "What are three likely reasons a client goes two weeks before seeing anyone?"
+    },
+    "check": {
+      "say": "Check the flag before you log it. Gap computed as 14 days, 02/06/2026 to 02/20/2026, not “about two weeks”. The initial gap recorded, and a watch set for any later break in care, because a second break would undercut the “he got better” explanation for the first. The defense uses stated: injuries not serious, recovered earlier than claimed, treatment unnecessary, other causes. Likely causes listed, like transportation, cost, work schedule, temporary relief, or delayed referrals. Investigation steps recorded: his own explanation, supporting documents, provider confirmation. And the flag sits prominently in the risks band, routed to Atty. Thorne. A well-explained gap is far less damaging than an unexplained one.",
+      "ask": "Did you set a watch for the next break in care, and where will it show up?"
+    }
+  },
+  "d1m4-a2": {
+    "case": {
+      "say": "This is Day 1's capstone, so give it real time. It's the gate, not a wrap-up. Everything from today is in the file: parties mapped, the $40,000 stack verified, the triple-check cleared with the Health Plan's reimbursement right flagged, the onboarding packet delivered and tracked, and the 14-Day Treatment Gap identified. And on 03/16/2026, this from Atty. Thorne: he needs the full Case Plan on John Doe, all five bands, routed to him by end of day. The acceptance decision and why, the stack in order with a preliminary projection, liability, the triple-check, the three pillars with owners and dates, and the risks band. Docket the filing window. If he has to ask a question, it isn't finished.",
+      "ask": "What would make Atty. Thorne have to come back to you with a question?"
+    },
+    "task": {
+      "say": "You'll draft the complete Case Plan for John Doe v. Robert Smith in the Action Plan Editor. Fill all five bands from today's work: the acceptance decision with its reason; coverage as a stack with its order of operations, liability, and a preliminary projection; the triple-check results; Clinical, Functional and Financial pillars with measurable goals, every action item with an owner and a date; and the risks band, with the 14-Day Gap and the risk of a later break in care, prominently, with their consequences. Docket the filing window, then route the plan to Atty. Thorne. The route control stays locked until every band is complete, so if you can't route, that tells you something.",
+      "ask": "If your route button is still locked, which band do you think is incomplete?"
+    },
+    "check": {
+      "say": "Read your plan the way Atty. Thorne will. The snapshot: parties, 02/06/2026, SOL 02/06/2028, client as passenger. The acceptance decision with its reason. Coverage at $10,000, $20,000 and $10,000, total $40,000, in order, BI, Host UM, Relative UM, with the projection marked preliminary and no number stated before coverage is confirmed. Liability preliminary until the Police Report and driver statements confirm it. The triple-check. Each pillar with a measurable goal, every action item with an owner and a date. The risks band with the gap and the risk of a later break, prominent, with consequences. Filing window docketed, plan routed with a timestamp. And here's the Day 1 gate: CMS initialized, stack verified at $40,000, triple-check cleared, plan routed. Day 2 doesn't begin until all four are true.",
+      "ask": "Could Atty. Thorne set strategy from your plan without asking you a single question?"
+    }
+  },
+  "d1m1-kc": {
+    "questions": {
+      "say": "Here's your Learning Check on the Policy Stack. Answer from John Doe's file, in your own words, typed under each question. First, list the three coverage layers in the order they must be pursued, with each limit and the total. Second, and this is the keystone, John Doe was a front-seat passenger: explain how that single fact changes his available recovery, and what it would have been had he been driving his own car. Third, why the Host UM layer can't be demanded before BI is exhausted or tendered, and what happens if you get the order wrong. Take your time; I care more about the why than the numbers."
+    },
+    "summary": {
+      "say": "Now your Self-Summary: write the principles in your own words. Then think through this scenario. Robert Smith's carrier has already called John Doe, Keystone hasn't confirmed its limit in writing, and Peach State has asserted a reimbursement right. Which three actions do you take today, in what order, and what goes in the Case Plan's risks band? Be honest with yourself here. The right answer doesn't quietly cover anything up to hit a deadline; it puts things on the record and tells the attorney.",
+      "ask": "Which of those three pressures would you tell Atty. Thorne about first?"
+    },
+    "scale": {
+      "say": "Finally, the Skill Scale. Rate yourself 1 to 5 on each competency, then submit for review. I'll put your self-rating beside your score, and where there's a wide gap, we'll have a conversation. A 5 on something you scored 60 on is worth talking about, and so is a 2 on something you aced. One more thing: UPL is a gate. A strong score doesn't survive an ethics breach.",
+      "ask": "Where do you honestly think you sit, 1 to 5, on keeping the stack in order?"
+    }
+  },
+  "d2m1-kc": {
+    "questions": {
+      "say": "This is the Learning Check on coverage set-up. Every answer comes from John Doe's file, in your own words, typed under each question. First, name every coverage on the file, whose it is and what it pays, then tell me which three are the $40,000 Recovery Stack and why the others stay out. Second, state the Payer-First Principle and apply it to Summit Imaging's 03/11/2026 LOP request: what would an LOP there have cost John Doe, and why? Third, list the five letters that left the file on 02/17/2026, with the insured each one named and how it was addressed. For every “confirmed”, give me the document behind it."
+    },
+    "summary": {
+      "say": "Time for your Self-Summary, the principles in your own words. Then work the scenario. Robert Smith's carrier has already called John Doe, Keystone hasn't confirmed its limit in writing, and Peach State has asserted a reimbursement right. Which three actions do you take today, in what order, and what goes into the Case Plan's risks band? As you write, think about what you'd say, and not say, to a carrier who calls you about this file today.",
+      "ask": "If Dana Whitfield called you today asking about the gap, what would you tell her?"
+    },
+    "scale": {
+      "say": "Last part, the Skill Scale. Rate each competency 1 to 5 and submit it for review. When the scores come back, I'll compare your self-rating with your score. A 5 sitting next to a $45,000 stack is a coaching conversation, and we'll have it. And remember, UPL is a gate: a strong score doesn't survive a letter signed for the attorney, or a coverage opinion given to a carrier or the client.",
+      "ask": "Which coverage skill do you feel least sure of right now?"
+    }
+  },
+  "d1m4-kc": {
+    "questions": {
+      "say": "This Learning Check closes Day 1, so treat it as the audit it is. Answer from the file, in your own words, typed under each question. First, set out the five bands of the Case Plan and what belongs in each, including the three pillars. Second, explain why an adverse fact buried in the body of a plan hasn't, in any meaningful sense, been disclosed to counsel. Third, state John Doe's coverage position exactly as it should appear in the plan: the layers, limits, total, order of operations, and the status of the projection."
+    },
+    "summary": {
+      "say": "Now the Self-Summary, in your own words. And one last scenario for the day. Robert Smith's carrier has already called John Doe, Keystone hasn't confirmed its limit in writing, and Peach State has asserted a reimbursement right. Which three actions do you take today, in what order, and what goes in the Case Plan's risks band? Keep in mind that Day 2's Letters of Representation build on what you verify now. With an unverified stack, they go to the wrong carriers in the wrong order.",
+      "ask": "If an approved plan changes after a new fact arrives, do you edit it or re-route it?"
+    },
+    "scale": {
+      "say": "And the Skill Scale to finish. Rate each competency 1 to 5, then submit for review. This time I'll compare your scores with your self-ratings across all four modules, not just this one, and we'll talk through any wide gaps. Before anyone leaves for Day 2, we're going to confirm the gate together, out loud: CMS initialized, stack verified at $40,000, triple-check cleared, plan routed.",
+      "ask": "Looking at the four gate items, which one are you least confident you've truly cleared?"
+    }
+  }
+}

@@ -115,7 +115,7 @@ window.LSH_BLUEPRINT = {
       { icon: '🔑', title: 'Signing in as a trainer', points: [
           'Admin sign-in with the admin password. The server checks it, and every request after it needs your signed session.',
           'Your top bar adds 🧭 Orientation, the Facilitator Guide, 👁 Trainee view and 🏠 Main Portal (back to the Training Portal\'s Training Directory).',
-          'Admin is your trainer dashboard: Trainee Audit, 📁 Batch Folders, Rankings, SOP Reference, Trainer Cues, Content Studio, Trainee Feedback, 📋 Activities and 🗣 Feedback Style. Attendance is on the Main Portal.',
+          'Admin is your trainer dashboard: Trainee Audit, 📁 Batch Folders, Rankings, SOP Reference, Trainer Cues, Content Studio, Trainee Feedback, 📋 Activities, 🗣 Feedback Style and 🕘 Attendance.',
           'Every day is open to you, so you can preview it before you teach it.'],
         where: 'Admin sign-in · Admin in the top bar.',
         tip: 'Trainees open the course from the Training Portal; you approve them here.' },
@@ -179,11 +179,11 @@ window.LSH_BLUEPRINT = {
         where: 'Admin → 📋 Activities · 🗣 Feedback Style.',
         tip: 'The more of your own reviews it learns from, the more the drafts sound like you.' },
       { icon: '🕘', title: 'Attendance, Trainee view and Orientation', points: [
-          '🕘 Attendance is taken on the Main Portal, not here: Master Control → 🕘 Attendance, every program and batch in one place.',
-          'Time In still fills in by itself when a trainee opens the course; tag the status and add notes there. The Google Sheet stays in step.',
+          '🕘 Attendance: Time In fills in by itself when a trainee opens the course; tag each status and add notes.',
+          'It stays in step with the attendance Google Sheet, through the Training Portal.',
           '👁 Trainee view shows the portal exactly as trainees see it.',
           '🧭 Orientation is the deck to share with trainees on day one. The blueprints themselves live on the Main Portal\'s 🧭 Blueprint page, never inside the program.'],
-        where: 'Attendance: the Main Portal → Master Control → 🕘 Attendance. Here: Admin → 👁 Trainee view · 🧭 Orientation.',
+        where: 'Admin → 🕘 Attendance · 👁 Trainee view · 🧭 Orientation.',
         tip: 'The Trainee blueprint PDF republishes itself after every update; nothing to do by hand.' }
     ]
   }

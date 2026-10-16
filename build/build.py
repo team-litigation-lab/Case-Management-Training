@@ -250,7 +250,10 @@ rep('<script src="/js/eapa-updates.js?v=z"></script>', tags(
     "cm-lor-data.js?v=1", "cm-hipaa-data.js?v=1", "cm-medprov-data.js?v=1",   # Drafting Tools' data
     "cm-lor.js?v=2", "cm-hipaa.js?v=1", "cm-medprov.js?v=1", "cm-drafting.js?v=1",
     "daily-activities.js?v=3"))
-rep('<script src="/js/attendance.js?v=2"></script>', '<script src="/js/attendance.js?v=3"></script>')
+# Admin → 🕘 Attendance is this course's own (js/attendance.js): EA/PA dropped its tab (attendance moved to its
+# Main Portal), so the tag goes in just before portal-link.js whether or not EA/PA still carries one
+s = re.sub(r'<script src="/js/attendance\.js\?v=[^"]*"></script>\n?', '', s)
+rep('<script src="/js/portal-link.js?v=3"></script>', '<script src="/js/attendance.js?v=3"></script>\n<script src="/js/portal-link.js?v=3"></script>')
 # the Trainer blueprint's content is this course's own (js/blueprint-content.js): its version, not EA/PA's
 s = re.sub(r'<script src="/js/blueprint-content\.js\?v=[^"]*"></script>', '<script src="/js/blueprint-content.js?v=5"></script>', s, count=1)
 
@@ -263,7 +266,7 @@ rep('<script src="/js/lsh-card-frame.js?v=3"></script>', tags(
     # The 5-Day Case Management Flow (John Doe v. Robert Smith): after graded-calls.js, because its
     # dashboard wrapper must run on the finished page, and after cm-skillbuilders.js, whose
     # renderLessonCard it wraps.
-    "cm-case-flow-docs.js?v=4", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=11", "cm-case-flow-sim.js?v=5", "cm-case-flow-data.js?v=15", "cm-case-dates.js?v=1", "cm-case-flow.js?v=38",
+    "cm-case-flow-docs.js?v=4", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=11", "cm-case-flow-scripts.js?v=1", "cm-case-flow-sim.js?v=5", "cm-case-flow-data.js?v=15", "cm-case-dates.js?v=2", "cm-case-flow.js?v=39",
     "show-password.js?v=1", "lsh-card-frame.js?v=3"))
 
 # Training tools open signed in (js/lsh-tool-links.js, the same file in every LSH course repo: CMS
@@ -311,7 +314,7 @@ for need in ["cm-updates.js", "cm-documents.js", "cm-skillbuilders.js",
              "lsh-dashboard.js", "lsh-one-screen.js", "lsh-tool-links.js", "lsh-topbar.js",
              "graded-calls.js", "show-password.js", "attendance.js", "portal-link.js", "portal-gate.js",
              "cm-lor-data.js", "cm-hipaa-data.js", "cm-medprov-data.js",
-             "cm-lor.js", "cm-hipaa.js", "cm-medprov.js", "cm-drafting.js", "cm-case-flow-docs.js", "cm-case-flow-art.js", "cm-case-flow-slides.js", "cm-case-flow-sim.js", "cm-case-flow-data.js", "cm-case-dates.js", "cm-case-flow.js", "cm-cms-case.js", "cm-doc-filing.js"]:
+             "cm-lor.js", "cm-hipaa.js", "cm-medprov.js", "cm-drafting.js", "cm-case-flow-docs.js", "cm-case-flow-art.js", "cm-case-flow-slides.js", "cm-case-flow-scripts.js", "cm-case-flow-sim.js", "cm-case-flow-data.js", "cm-case-dates.js", "cm-case-flow.js", "cm-cms-case.js", "cm-doc-filing.js"]:
     if f'src="/js/{need}' not in s:
         sys.exit(f"MISSING SCRIPT: /js/{need} is not loaded by the built page")
 # and none of EA/PA's own day files should be
