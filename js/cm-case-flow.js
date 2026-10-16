@@ -431,6 +431,7 @@ const titleCase = t => String(t || "").split(/(\s+|—|–|\/)/).map((w, i, a) =
   const first = i === 0, last = i === a.length - 1;
   return (!first && !last && SMALL.has(w.toLowerCase())) ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1);
 }).join("");
+const leadSplit = t => { const m = String(t || "").match(/^\*\*([^*]+?[.!?:])\*\*\s+(.+)$/); return m ? [m[1], m[2]] : null; };
 const hl = t => E(t).replace(/\*\*(.+?)\*\*/g, '<mark class="cfx-hl">$1</mark>');
 const words = (t, n) => { const w = String(t || "").replace(/\s+/g, " ").trim().split(" "); return w.length <= n ? w.join(" ") : w.slice(0, n).join(" ").replace(/[,;:]$/, "") + "…"; };
 const firstSentence = t => (String(t || "").match(/^.*?[.!?](\s|$)/) || [t])[0].trim();
@@ -584,12 +585,13 @@ window.cmCaseFlow.cg = function(id, act, arg){
 function slideBody(view, l, d){
   const {block: b, day, mod} = l.cf, c = copyOf(b);
   switch(view){
-    case "why": return `<div class="cfx-hero"><div class="cfx-hero-text"><span class="cfx-chip">${E(titleCase(b.topic))}</span><p class="cfx-hook">${hl(c.hook)}</p></div>${art(c.image)}</div>${strip()}`;
+    case "why": { const ls = leadSplit(c.hook);
+      return `<div class="cfx-hero"><div class="cfx-hero-text"><span class="cfx-chip">${E(titleCase(b.topic))}</span>${ls ? `<p class="cfx-lead-1">${hl("**" + ls[0] + "**")}</p><p class="cfx-hook">${hl(ls[1])}</p>` : `<p class="cfx-hook">${hl(c.hook)}</p>`}</div>${art(c.image)}</div>${strip()}`; }
     case "theory": case "theory2": {
       const t = c.theory, half = Math.ceil(t.concepts.length / 2), two = t.concepts.length > TH_PER;
       const list = !two ? t.concepts : view === "theory" ? t.concepts.slice(0, half) : t.concepts.slice(half);
       return `<div class="cfx-theory cfx-th-solo"><div class="cfx-th-main">
-          ${view === "theory" ? `<p class="cfx-th-lead">${hl(t.lead)}</p>` : `<p class="cfx-th-cont">${E(titleCase(b.topic))}: continued</p>`}
+          ${view === "theory" ? (leadSplit(t.lead) ? `<p class="cfx-lead-1">${hl("**" + leadSplit(t.lead)[0] + "**")}</p><p class="cfx-th-lead">${hl(leadSplit(t.lead)[1])}</p>` : `<p class="cfx-th-lead">${hl(t.lead)}</p>`) : `<p class="cfx-th-cont">${E(titleCase(b.topic))}: continued</p>`}
           <div class="cfx-th-grid">${list.map((x, j) => `<div class="cfx-th-c" style="animation-delay:${j * .05}s"><b>${E(x.term)}</b><span>${hl(x.text)}</span></div>`).join("")}</div></div>
       </div>`;
     }
@@ -600,12 +602,12 @@ function slideBody(view, l, d){
         : f.kind === "flow"
           ? `<ol class="cfx-fw-flow" style="--n:${steps.length}">${steps.map((x, i) => `<li style="animation-delay:${i * .07}s"><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span></li>`).join("")}</ol>`
           : `<div class="cfx-fw-list">${steps.map((x, i) => `<div style="animation-delay:${i * .05}s"><b>${E(x.label)}</b><span>${hl(x.text)}</span></div>`).join("")}</div>`;
-      return `<div class="cfx-fw"><h3 class="cfx-fw-t">${E(f.title)}</h3>${body}${f.note ? `<p class="cfx-fw-note">${hl(f.note)}</p>` : ""}</div>`;
+      return `<div class="cfx-fw"><h3 class="cfx-fw-t">${E(String(f.title).replace(/,?\s*\(?Steps?\s+\d+\s*[–-]\s*\d+\)?\s*$/i, ""))}</h3>${body}${f.note ? `<p class="cfx-fw-note">${hl(f.note)}</p>` : ""}</div>`;
     }
     case "rules": return `<div class="cfx-split"><ol class="cfx-points">${c.points.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>${art(c.image, "small")}</div>
       ${c.upl ? `<div class="cfx-upl"><b>⚖ UPL Line</b><span>${hl(c.upl)}</span></div>` : ""}`;
     case "model": return `<div class="cfx-model">${b.show && b.show.caption ? `<p class="cfx-caption">${E(b.show.caption)}</p>` : ""}${visual(l, b)}</div>`;
-    case "job": return `<div class="cfx-job">${c.job.map((r, ri) => `<div class="cfx-flow">${r.map((x, j) => `<div class="cfx-step"><small>${["Trigger", "Task", "Tool", "Checkpoint"][j]}</small><span>${hl(x)}</span>${j === 2 ? `<span class="cfx-tools-in">${toolChips(rowTools(b, x, ri), b.id)}</span>` : ""}</div>`).join('<span class="cfx-arrow">➔</span>')}</div>`).join("")}</div>`;
+    case "job": return `<div class="cfx-job">${c.job.map((r, ri) => `<div class="cfx-flow">${r.map((x, j) => `<div class="cfx-step"><small>${["Trigger", "Task", "Tool", "Checkpoint"][j]}</small><span>${hl(x)}</span></div>`).join('<span class="cfx-arrow">➔</span>')}</div>`).join("")}</div>`;
     case "dodont": return (SLIDES[b.id] || {}).clues ? clueGame(b) : ddList(c);
     case "case": {
       const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(Boolean).slice(0, 4);
@@ -621,7 +623,9 @@ function slideBody(view, l, d){
         </div></div>`;
     }
     case "task": { const main = blockTools(b).filter(id => id !== "call")[0] || "cms";
-      return `<div class="cfx-task"><ol class="cfx-points">${c.steps.map(x => { const ids = toolsIn(x, b.id); return `<li><span>${hl(x)}<span class="cfx-tools-in">${toolChips(ids.length ? ids : [main], b.id)}</span></span></li>`; }).join("")}</ol>
+      const where = TOOLKIT.find(t => t.id === main), whereName = where ? where.name.replace(/^the /, "the ") : "the CMS";
+      return `<div class="cfx-do-now"><b>🧪 Practice Lab: do this now</b><span>Open ${E(whereName)} with the button on each step, work the steps below on John Doe's file, ${SIM.calls[b.id] ? "take the live call, " : ""}then hand in what's under <em>Deliver</em> and tick it off on the next slide, <em>Check Your Work</em>.</span></div>
+      <div class="cfx-task"><ol class="cfx-points">${c.steps.map(x => { const ids = toolsIn(x, b.id); return `<li><span>${hl(x)}<span class="cfx-tools-in">${toolChips(ids.length ? ids : [main], b.id)}</span></span></li>`; }).join("")}</ol>
       <aside class="cfx-side"><div><b>🛠 Where</b><span>${E(b.act.tool)}</span><div class="cfx-btns">${toolChips([...new Set(toolsIn(b.act.tool + (SIM.calls[b.id] ? " Call Simulator" : ""), b.id).concat(WORKED_IN[b.id] || []))], b.id, true)}</div></div>
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}</span>
@@ -678,7 +682,7 @@ function card(l, i, d, part){
   const {day, mod, block: b, k, phase} = l.cf, vs = viewsOf(b), p = Math.min(Math.max(part || 1, 1), vs.length), view = vs[p - 1];
   noteReached(b, p);
   const dots = vs.map((v, j) => `<span class="cfx-dot${j === p - 1 ? " on" : j < p - 1 ? " done" : ""}" title="${E(VIEW_LABEL[v])}"></span>`).join("");
-  const logo = typeof LOGO_FULL_SRC !== "undefined" ? `<img class="cfx-logo" src="${LOGO_FULL_SRC}" alt="Legal Support Help">` : "";
+  const logo = "";   // (the LSH logo is in the top bar; the slide doesn't repeat it)
   const onNavy = view === "case";   // a Skill Building opener sits on the slide itself, like the deck's
   return oneOfEachTool(`<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; ${phase.lead === "Case Phase" ? `CASE PHASE ${phase.n} OF ${phase.of}` : phase.lead.toUpperCase()} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-${view} cfx-${b.kind}" data-part="${p}">
@@ -686,7 +690,7 @@ function card(l, i, d, part){
       <div class="cfx-ribbon"><span>${E(titleCase(b.title))}</span></div>
       <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}</span>
         <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.n}.${k + 1} · ${E(KIND[b.kind])}</span>${timeChip(l, d)}
-        <span class="cfx-tools" aria-label="Tools for this step">🛠 ${toolChips(blockTools(b), b.id)}</span>
+        ${b.kind === "activity" && (view === "task" || view === "check") ? `<span class="cfx-tools" aria-label="Tools for this step">🛠 ${toolChips(blockTools(b), b.id)}</span>` : ""}
         <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Full text</button></div>
       ${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}
     </div>`);
@@ -766,7 +770,7 @@ function timeChip(l, d){
   return "";
 }
 function agendaSlide(d){
-  const logo = typeof LOGO_FULL_SRC !== "undefined" ? `<img class="cfx-logo" src="${LOGO_FULL_SRC}" alt="Legal Support Help">` : "";
+  const logo = "";
   const src = CF.days.find(x => x.n === d.cf.n) || {};
   const sc = daySchedule(d);
   const rows = sc.phases.map(({ph, topics, acts, discuss, practice}) => `<li><span class="cfx-ag-n">${String(ph.n).padStart(2, "0")}</span><div><b>${E(ph.title)}</b>
@@ -1339,7 +1343,7 @@ if(typeof window.sopRunOfShow === "function"){
     add(sc.kc, {title: `Knowledge Check · ${game.icon} ${E(game.name)}`, do: [
       `Trainees open the Knowledge Check from the last slide: ① today's game, ${E(game.name)}, then ② each Case Phase's Learning Check (3 written questions, the Self-Summary and the Skill Scale), and one Submit.`,
       `70% marks the day complete. Below that it's a “not yet”: they can move on and retake it, and their best score counts.`],
-      say: `“Last stretch for today. The Knowledge Check is a game, ${game.name}, and then three written questions for each Case Phase. Answer from the file, in your own words. No looking at each other's screens.”`,
+      say: `“Last stretch for today. The Knowledge Check is a game, ${game.name}, and then a short takeaway for each Case Phase, a few lines in your own words about what you will do differently. No looking at each other's screens.”`,
       watch: "Stop presenting while they answer, so nobody reads answers off the shared screen."});
     add(5, {title: "Close", do: [`Ask everyone to send quick feedback with the 💬 Feedback button.`, `Click <b>■ End</b> in Presenter view.`],
       say: next ? `“That's Case Flow Day ${n}. Tomorrow we pick John Doe's file up at ${E(String(next.title).replace(/^Case Flow Day \d+ · /, ""))}. Before you go, hit Feedback and tell me one thing that worked today and one thing that didn't.”`
@@ -2404,6 +2408,11 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-chip{display:inline-block;font:700 13px var(--font-ui);color:var(--navy);background:#DCE6F5;border-radius:999px;padding:6px 14px;margin-bottom:16px;}
 .cfx-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:28px;align-items:center;}
 .cfx-hook{font:600 32px/1.32 'Fraunces',Georgia,serif;color:var(--ink);margin:0;}
+.cfx-lead-1{text-align:center;font:700 30px/1.3 'Fraunces',Georgia,serif;color:var(--ink);margin:0 0 12px;}
+.cfx-hero-text .cfx-lead-1 + .cfx-hook{text-align:center;font-size:26px;}
+.cfx-theory .cfx-lead-1{font-size:24px;} .cfx-theory .cfx-lead-1 + .cfx-th-lead{text-align:center;}
+.cfx-do-now{display:flex;flex-direction:column;gap:4px;background:#EEF4FF;border:1.5px solid #9DB6E8;border-left:6px solid #2457C5;border-radius:12px;padding:10px 16px;margin:0 0 12px;text-align:left;}
+.cfx-do-now b{font:800 16px var(--font-ui);color:#1C3F8F;} .cfx-do-now span{font:500 15.5px/1.45 var(--font-ui);color:var(--ink);}
 .cfx-situation{font:500 25px/1.5 var(--font-ui);color:var(--ink);margin:0;}
 .cfx-art{display:flex;align-items:center;justify-content:center;animation:cfxIn .5s ease both;}
 .cfx-art svg{width:100%;max-width:420px;height:auto;max-height:300px;}
@@ -2479,7 +2488,7 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-theory{display:grid;grid-template-columns:minmax(0,1fr) clamp(160px,20%,250px);gap:18px;align-items:start;}
 .cfx-theory.cfx-th-solo{grid-template-columns:minmax(0,1fr);}
 .cfx-th-lead{font:600 22px/1.3 'Fraunces',Georgia,serif;color:var(--ink);margin:0 0 10px;text-align:center;}
-.cfx-th-cont{font:700 13px var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--orange-deep);margin:0 0 12px;text-align:center;}
+.cfx-th-cont,.cfx-fw-t,.cfx-ag-day{display:table;margin:0 auto 14px !important;font:800 15px/1.3 var(--font-ui) !important;letter-spacing:.07em;text-transform:uppercase;color:#B5561A !important;background:#F6D2AC;padding:3px 10px;border-radius:4px;text-align:center;}
 .cfx-th-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}
 .cfx-th-c{background:#fff;border:1.5px solid #E6DED2;border-left:5px solid #DB8437;border-radius:12px;padding:7px 12px;display:flex;flex-direction:column;gap:2px;animation:cfxIn .3s ease-out both;}
 .cfx-th-c b{font:800 15px/1.25 'Poppins','Inter',sans-serif;color:var(--navy);letter-spacing:.01em;}
@@ -2560,11 +2569,11 @@ main > .cf-side-presenter{display:none;}
 .lesson-stage:fullscreen > .cf-stage-card{display:flex;flex-direction:column;min-height:0;height:100%;box-sizing:border-box;}
 .lesson-stage:fullscreen > .cf-stage-card .stage-body{display:flex !important;flex-direction:column;flex:1;min-height:0;}
 .cfx-deck > *{position:relative;z-index:1;}
-.cfx-deck-head{display:flex;align-items:center;gap:20px;padding:0 0 8px;margin:0 0 10px;border-bottom:2px solid rgba(255,255,255,.88);}
+.cfx-deck-head{display:flex;align-items:center;gap:20px;padding:0 0 10px;margin:0 0 16px;border-bottom:2px solid rgba(255,255,255,.88);}
 .cfx-logo{height:48px;width:auto;flex:0 0 auto;}
 .cfx-deck-title{margin:0 !important;font:800 33px/1.1 'Poppins','Inter',sans-serif !important;color:#fff !important;letter-spacing:.005em;
   text-shadow:-2px -2px 0 #DB8437,2px -2px 0 #DB8437,-2px 2px 0 #DB8437,2px 2px 0 #DB8437,0 -2px 0 #DB8437,0 2px 0 #DB8437,-2px 0 0 #DB8437,2px 0 0 #DB8437,0 4px 0 rgba(0,0,0,.18);}
-.cfx-ribbon{margin:0 0 10px;}
+.cfx-ribbon{margin:0 0 16px;}
 .cfx-tools{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px;margin-left:auto;font-size:13px;color:#D6DBEA;}
 .cfx-tools + .cfx-full{margin-left:6px;}
 .cfx-tool{font:700 11.5px/1 'Inter',sans-serif;padding:5px 9px;border-radius:999px;border:1px solid #F4B77A;background:rgba(244,183,122,.14);color:#F4B77A;cursor:pointer;white-space:nowrap;}
@@ -2731,8 +2740,8 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 #cf-return-next{position:fixed;right:16px;bottom:16px;z-index:60;font:800 14px 'Inter',sans-serif;padding:11px 20px;border:0;border-radius:999px;background:var(--orange,#E87722);color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer;}
 /* the sub-header: a full-width bar, the topic centred in capitals and quotes, on a lighter navy with an orange rule */
 .cfx-ribbon span{display:block;text-align:center;background:linear-gradient(90deg,#343C66 0%,#46508A 50%,#343C66 100%);border-bottom:3px solid #DB8437;border-radius:6px;color:#fff;font:800 20px/1.25 'Poppins','Inter',sans-serif;letter-spacing:.04em;text-transform:uppercase;padding:8px 24px;}
-.cfx-ribbon span::before{content:"“";color:#F4B77A;margin-right:2px;}.cfx-ribbon span::after{content:"”";color:#F4B77A;margin-left:2px;}
-.cfx-deck .cfx-top{margin:0 0 10px;}
+
+.cfx-deck .cfx-top{margin:0 0 16px;}
 .cfx-deck .cfx-title.cfx-pill{display:inline-flex;align-items:center;gap:8px;margin:0 !important;background:#ECEEF3;color:#262B45 !important;border-radius:8px;padding:6px 16px;font:700 17px/1.2 'Poppins','Inter',sans-serif !important;letter-spacing:.06em;}
 .cfx-deck .cfx-vi{margin:0;}
 .cfx-deck .cfx-kicker{background:transparent;border-color:rgba(255,255,255,.35);color:#F4B77A;}
@@ -2784,11 +2793,12 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-tl b{font:600 11.5px/1.25 'Inter',sans-serif;color:#DDE2EE;padding:0 4px;}
 .cfx-tl li.here b{color:#F4B77A;font-weight:800;text-transform:uppercase;letter-spacing:.06em;}
 .cfx-tl small{font:500 10.5px 'IBM Plex Mono',monospace;color:#9AA3BA;}
-.cfx-sb-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:18px;align-items:start;}
+.cfx-sb-grid{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.6fr);gap:18px;align-items:start;}
+.cfx-sb-main .cfx-ev{padding:8px 12px;} .cfx-sb-main .cfx-ev p{font-size:15px !important;line-height:1.45;}
 .cfx-sb-main{display:flex;flex-direction:column;gap:10px;}
 /* the case documents in one row, as big as the column and the screen's height allow (600px images, so they stay legible) */
 .cfx-sb-docs .cfx-docs-row{display:flex;flex-wrap:nowrap;justify-content:center;align-items:flex-start;gap:14px;margin:0;}
-.cfx-sb-docs .cfx-thumb{flex:1 1 0;min-width:0;max-width:min(280px,calc((100vh - 430px) / 1.3));}
+.cfx-sb-docs .cfx-thumb{flex:1 1 0;min-width:0;max-width:min(360px,calc((100vh - 400px) / 1.25));}
 .cfx-sb-docs .cfx-thumb img{border-width:3px;}
 .cfx-sb-docs .cfx-thumb span{font-size:12.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .cfx-ev{background:#fff;color:#1F2433;border-radius:14px;border:2px solid #DB8437;padding:10px 14px;box-shadow:0 6px 18px rgba(0,0,0,.25);text-align:left;}
