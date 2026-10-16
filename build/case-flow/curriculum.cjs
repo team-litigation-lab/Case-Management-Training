@@ -39,14 +39,16 @@ const stack = () => CF.case.stack.slice().sort((a, b) => a.order - b.order);
 /* ---------- validation ---------- */
 const errors = [];
 const cited = new Map();   // "D1#18" → [block ids]
-// The case profile (the Case File page): every section opens with a day (`opens`) or once a day is passed (`passed`)
+// The case profile (the Case File page): every section opens once the trainee has done the Skill Activity that
+// establishes it (`after`: an activity id), so the file fills in as they work it
 (CF.profile || []).forEach((sec, i) => {
-  const n = sec.opens || sec.passed, at = `profile[${i}] "${sec.title || ""}"`;
+  const at = `profile[${i}] "${sec.title || ""}"`;
   if(!sec.title || !(sec.items || []).length) errors.push(`${at}: needs a title and items`);
-  if(!!sec.opens === !!sec.passed || !CF.days.some(d => d.n === n)) errors.push(`${at}: needs exactly one of opens / passed, naming a Case Flow day`);
+  const act = CF.days.flatMap(d => d.modules.flatMap(m => m.blocks)).find(b => b.id === sec.after);
+  if(!act || act.kind !== "activity") errors.push(`${at}: needs after: the id of the Skill Activity that establishes it`);
   if(/blueprint/i.test(JSON.stringify(sec))) errors.push(`${at}: says "blueprint"; the program never uses the word`);
 });
-if(!(CF.profile || []).some(x => x.opens === 1)) errors.push("profile: nothing opens on Case Flow Day 1");
+if(!(CF.profile || []).some(x => x.after === "d1m1-open")) errors.push("profile: nothing opens with the first Skill Activity (d1m1-open)");
 CF.days.forEach(day => {
   // four modules a day; Day 5 has a fifth, the Track B close-out (the award, the liens and the litigated Net Sheet)
   if(day.modules.length !== (day.n === 5 ? 5 : 4)) errors.push(`Day ${day.n}: ${day.modules.length} modules, expected ${day.n === 5 ? 5 : 4}`);
