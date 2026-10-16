@@ -6,8 +6,8 @@
 window.PRESENTER_NOTES = {
 // ---------- Day 1 ----------
 "1::Training Agenda & What Case Management Is": {
-  "p1": {"on": "This slide sets out today's agenda (fundamentals, intake and acceptance, and the Treatment Phase) and defines case management as the end-to-end coordination of a case from intake to resolution. The three steps name what good case management delivers: timely progression, proper documentation and compliance, and effective communication."},
-  "p2": {"on": "This slide says intake, evaluation and representation approval are the foundation of everything after them, and that knowing where bottlenecks form lets you get ahead of them. The pitfall to stress is treating case management as data entry instead of ownership."}
+  "p1": {"on": "This slide sets out today's agenda (fundamentals, intake and acceptance, and the Treatment Phase) and defines Case Management as the end-to-end coordination of a case from intake to resolution. The three steps name what good Case Management delivers: timely progression, proper documentation and compliance, and effective communication."},
+  "p2": {"on": "This slide says intake, evaluation and representation approval are the foundation of everything after them, and that knowing where bottlenecks form lets you get ahead of them. The pitfall to stress is treating Case Management as data entry instead of ownership."}
 },
 "1::The General Case Management Process": {
   "p1": {"on": "This slide shows the seven-stage general process every case moves through, from Intake & Case Opening to Case Resolution & Closing, as a left-to-right flow. The core principle is that each stage feeds the next, so weak work early shows up as problems later."},
@@ -70,7 +70,7 @@ window.PRESENTER_NOTES = {
   "p2": {"on": "This slide asks trainees to open the case in the CMS training interface and log their decision there, and notes that better training, communication or technology prevents repeat bottlenecks. The pitfall is deciding without documenting the reason."}
 },
 "1::Tools for Case Planning & the PI Case Lifecycle Strategy": {
-  "p1": {"on": "This slide explains that inside a legal framework, case management moves from best efforts to strict compliance, and that a PI case is a race against the Statute of Limitations and the insurer's gap-in-treatment defense. The four tools are the CMS, task trackers and calendars, document management systems and workflow automation."},
+  "p1": {"on": "This slide explains that inside a legal framework, Case Management moves from best efforts to strict compliance, and that a PI case is a race against the Statute of Limitations and the insurer's gap-in-treatment defense. The four tools are the CMS, task trackers and calendars, document management systems and workflow automation."},
   "p2": {"on": "This slide says to docket the Statute of Limitations on day one and use task trackers so gaps in treatment are visible as soon as they start. The pitfall is relying on memory instead of the system for deadlines."}
 },
 "1::Claim Set-Up: Coverage Determination & Liability Assessment": {
@@ -106,7 +106,7 @@ window.PRESENTER_NOTES = {
   "p2": {"on": "This slide warns against legal opinions in medical notes, which defense counsel can use to challenge the Case Manager's neutrality. The pitfall is writing 'this will help the case' in a treatment note."}
 },
 "1::The Treatment Phase — Core Objectives": {
-  "p1": {"on": "This slide explains that in the Treatment Phase the question shifts from 'What do they need?' to 'Is the plan working?', calling it the engine room of case management. Three boxes set out the objectives: Facilitation (access to services), Coordination (providers aligned) and Advocacy (stepping in when services are denied)."},
+  "p1": {"on": "This slide explains that in the Treatment Phase the question shifts from 'What do they need?' to 'Is the plan working?', calling it the engine room of Case Management. Three boxes set out the objectives: Facilitation (access to services), Coordination (providers aligned) and Advocacy (stepping in when services are denied)."},
   "p2": {"on": "This slide says to ask 'Is the plan working?' at every contact. The pitfall is passively recording treatment instead of steering it."}
 },
 "1::Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention": {

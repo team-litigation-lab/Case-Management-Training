@@ -370,7 +370,7 @@ window.CM_CASE_FLOW = {
         tell: {
           why: "Every phase of this course runs through one person: you, the Case Manager. Knowing exactly what the role owns, and where it stops, is what lets you move John Doe's file fast without crossing into legal advice.",
           rules: [
-            "Case management is the end-to-end coordination, tracking and handling of a case from intake to resolution: timely progression, proper documentation and compliance, and effective communication between all parties.",
+            "Case Management is the end-to-end coordination, tracking and handling of a case from intake to resolution: timely progression, proper documentation and compliance, and effective communication between all parties.",
             "You own the file's movement: deadlines, documents, carriers, providers and the client's updates. Atty. Thorne owns every legal judgment: value, merits, strategy and settlement authority.",
             "A case moves through phases (intake, claim set-up, treatment, pre-demand, demand, settlement and liens, disbursement, and litigation if it forks), and each phase has its own goals and deliverables.",
             "Your key duties: client communication, case progress monitoring, task compliance, case updates and summaries, document drafting and filing, case health analysis, and planning recommendations to counsel.",
@@ -405,7 +405,7 @@ window.CM_CASE_FLOW = {
         sources: ["D1#1", "D1#2", "D1#3", "D1#4"],
         rubric: {
           ai: [
-            ["Role definition", 20, "Defines case management as end-to-end ownership of the file's movement, not data entry"],
+            ["Role definition", 20, "Defines Case Management as end-to-end ownership of the file's movement, not data entry"],
             ["Ownership split", 25, "Separates the Case Manager's work from Atty. Thorne's legal judgments correctly"],
             ["System discipline", 15, "Treats the CMS as the single source of truth for every contact and deadline"]
           ],
@@ -496,7 +496,7 @@ window.CM_CASE_FLOW = {
         tell: {
           why: "The Intake Phase is where the Case Manager establishes control, structure and clarity. It is not just data collection: a file opened wrong stays wrong, because every later deadline, demand and lien check reads from the fields set in the first hour. A mis-mapped party is not a typo. It is a lost coverage layer.",
           rules: [
-            "Case management is the end-to-end coordination, tracking and handling of a case from intake to resolution: timely progression, proper documentation and compliance, and effective communication between all parties. It is ownership, not data entry.",
+            "Case Management is the end-to-end coordination, tracking and handling of a case from intake to resolution: timely progression, proper documentation and compliance, and effective communication between all parties. It is ownership, not data entry.",
             "You are the gatekeeper of case quality. Confirm the intake work is complete, accurate, properly documented and ready for activation. Incomplete intake goes back, not forward.",
             "Run the Conflict Check before the file is created, on the full legal name of every party (Robert Smith, the host driver, the resident relative), and record its date and result. Nothing else moves until it is done.",
             "Confirm the date of loss against the Police Report, not the intake note. The statute of limitations, every carrier deadline and the treatment timeline count from it.",
@@ -7543,8 +7543,8 @@ window.CM_CASE_FLOW = {
      work and the Client & Treatment work overlap in time, so each has its own lane on the case timeline. */
   sequence: [
     {n: 1, phases: [
-      {title: "Intake & Property Damage", blocks: ["d1m1-role", "d1m1-case", "d1m1-l1", "d1m4-l1", "d1m3-l1", "d1m3-l2", "d1m1-open", "d1m3-a1", "d1m3-a2", "d1m3-kc"], headings: {"d1m1-role": "Case Management Fundamentals", "d1m1-case": "Case Management Fundamentals", "d1m1-l1": "Case Phase: Intake", "d1m4-l1": "Case Phase: Intake", "d1m3-l1": "Case Phase: Property Damage", "d1m3-l2": "Case Phase: Property Damage"}},
-      {title: "Claim Set Up", workstream: "claims", blocks: ["d2m1-cov", "d2m1-l1", "d2m1-l2", "d1m1-l2", "d1m4-l2", "d2m1-a1", "d1m1-a1", "d2m1-a2", "d1m1-a2", "d1m4-a1", "d1m4-a2", "d1m1-kc", "d2m1-kc", "d1m4-kc"], headings: {"d2m1-cov": "Case Phase: Claim Set Up", "d2m1-l1": "Case Phase: Claim Set Up", "d2m1-l2": "Case Phase: Claim Set Up", "d1m1-l2": "Case Phase: Claim Set Up", "d1m4-l2": "CM Process: Case Strategy", "d1m4-a1": "Skill Building: CM Process · Case Strategy", "d1m4-a2": "Skill Building: CM Process · Case Strategy"}}
+      {title: "Intake & Property Damage", blocks: ["d1m1-role", "d1m1-case", "d1m1-l1", "d1m4-l1", "d1m3-l1", "d1m3-l2", "d1m1-open", "d1m3-a1", "d1m3-a2", "d1m3-kc"], headings: {"d1m1-role": "Case Management Fundamentals", "d1m1-case": "Case Management Fundamentals", "d1m1-l1": "Intake", "d1m4-l1": "Intake", "d1m3-l1": "Property Damage", "d1m3-l2": "Property Damage"}},
+      {title: "Claim Set Up", workstream: "claims", blocks: ["d2m1-cov", "d2m1-l1", "d2m1-l2", "d1m1-l2", "d1m4-l2", "d2m1-a1", "d1m1-a1", "d2m1-a2", "d1m1-a2", "d1m4-a1", "d1m4-a2", "d1m1-kc", "d2m1-kc", "d1m4-kc"], headings: {"d2m1-cov": "Claim Set Up", "d2m1-l1": "Claim Set Up", "d2m1-l2": "Claim Set Up", "d1m1-l2": "Claim Set Up", "d1m4-l2": "CM Process: Case Strategy", "d1m4-a1": "Skill Building: CM Process · Case Strategy", "d1m4-a2": "Skill Building: CM Process · Case Strategy"}}
     ]},
     {n: 2, phases: [
       {title: "Client Communications", lead: "Operational Focus", workstream: "care", blocks: ["d2m3-l1", "d1m2-l1", "d1m2-l2", "d1m2-a1", "d1m2-a2", "d1m2-kc"]},

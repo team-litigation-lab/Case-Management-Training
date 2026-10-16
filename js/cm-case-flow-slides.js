@@ -41,7 +41,7 @@ window.CM_CF_SLIDES = {
    "Keeping the status **in your inbox**, not the CMS"
   ],
   "theory": {
-   "lead": "Case management is the **end-to-end coordination** of a case from intake to resolution: tracking, handling and moving it, phase by phase.",
+   "lead": "Case Management is the **end-to-end coordination** of a case from intake to resolution: tracking, handling and moving it, phase by phase.",
    "concepts": [
     {
      "term": "What It Ensures",
@@ -1021,7 +1021,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Strict Compliance",
-     "text": "In a legal framework, case management shifts from **best efforts to strict compliance**: every plan deadline is docketed"
+     "text": "In a legal framework, Case Management shifts from **best efforts to strict compliance**: every plan deadline is docketed"
     }
    ],
    "pages": [

@@ -80,7 +80,7 @@ SEQUENCE.forEach(seq => {
   if(!day) return;
   const lessons = [], quiz = [], quizMod = [], phases = [];
   seq.phases.forEach((ph, pi) => {
-    // What this run of blocks is. Most are stages of the case ("Case Phase: Demand"), but some are
+    // What this run of blocks is. Most are stages of the case (a lesson's title is just "Demand"), but some are
     // cross-phase work the Case Manager does throughout (bottlenecks, binders, deposition prep): calling
     // those a Case Phase is simply wrong, so a phase may name its own lead in CF.sequence.
     const phase = {n: pi + 1, of: seq.phases.length, title: ph.title, lead: ph.lead || "Case Phase", count: ph.blocks.length, lane: ph.workstream || ""};
@@ -99,7 +99,7 @@ SEQUENCE.forEach(seq => {
         fourPart: Object.assign(fp, {bestPractices: b.best || [], discussionCase: ""}),
         trainerCue: (b.notes || [])[0] || "",
         cf: {day, mod, block: b, k, phase,   // day: where it is taught; mod: its unit of scoring
-             heading: (ph.headings || {})[id] || (b.kind === "lesson" ? phase.lead + ": " : b.kind === "activity" ? "Skill Building: " : "Learning Check: ") + ph.title}
+             heading: (ph.headings || {})[id] || (b.kind === "lesson" ? (phase.lead === "Case Phase" ? "" : phase.lead + ": ") : b.kind === "activity" ? "Skill Building: " : "Learning Check: ") + ph.title}
       }, layoutOf(b.show)));
       if(b.kind === "check") (mod.quiz || []).forEach(q => { quiz.push(q); quizMod.push(mod.id); });
     });
@@ -709,7 +709,6 @@ function daySchedule(d){
   let left = PRACTICE_MIN; phases.forEach((x, i) => { x.practice = i === phases.length - 1 ? left : Math.round(PRACTICE_MIN * x.acts / acts); left -= x.practice; x.discuss = x.topics * per; });
   return {per, kc, practice: PRACTICE_MIN, phases, buffer: Math.max(0, DAY_MIN - n * per - PRACTICE_MIN - kc), topics: n};
 }
-const hm = m => `${Math.floor(m / 60)}:${String(m % 60).padStart(2, "0")}`;
 /* a trainer's countdown for a topic's discussion (or a phase's practice): tap the chip to start, tap again to stop */
 const TIMERS = {};
 window.cmCaseFlow = window.cmCaseFlow || {};
@@ -740,17 +739,11 @@ function agendaSlide(d){
   const sc = daySchedule(d);
   const rows = sc.phases.map(({ph, topics, acts, discuss, practice}) => `<li><span class="cfx-ag-n">${String(ph.n).padStart(2, "0")}</span><div><b>${E(ph.title)}</b>
       <small>💬 ${topics} topic${topics === 1 ? "" : "s"} × ${sc.per} min discussion · 🧪 ${acts} Skill Activit${acts === 1 ? "y" : "ies"} · ${practice} min practice</small></div><span class="cfx-ag-min">${discuss + practice} min</span></li>`).join("");
-  const plan = `<div class="cfx-ag-plan"><b>⏱ The ${DAY_MIN / 60}-hour day</b>
-      <span><i>💬 Discussion</i>${sc.topics} topics × ${sc.per} min = ${hm(sc.topics * sc.per)}</span>
-      <span><i>🧪 Practice</i>${sc.practice} min</span>
-      <span><i>🧠 Knowledge Check</i>${sc.kc} min</span>
-      ${sc.buffer ? `<span><i>☕ Breaks & Q&A</i>${sc.buffer} min</span>` : ""}
-      <span class="tot"><i>Total</i>${hm(DAY_MIN)}</span></div>`;
   return `<div class="card lesson-card cf-card cfx cfx-deck cfx-agenda">
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">Case Management Training</h2></div>
       <div class="cfx-ribbon"><span>Day ${d.cf.n} · Training Agenda</span></div>
       <div class="cfx-ag"><ol class="cfx-ag-list">${rows}</ol>
-        <div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p>${plan}</div></div>
+        <div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div></div>
     </div>`;
 }
 /* ---------- the live call: the course's own roleplay engine, on John Doe v. Robert Smith ---------- */
@@ -1801,8 +1794,9 @@ if(typeof window.cmDoc === "function"){
   const __doc = window.cmDoc;
   window.cmDoc = id => __doc(id) || CF_DOCS.find(d => d.id === id);
 }
-/* Once the case has rolled forward a year (js/cm-case-dates.js), a document opens in case-doc.html, which shows
-   it with that year's dates (print it or save it as a PDF there); in the case's own year, the PDF as rendered. */
+/* A case document opens in case-doc.html, which shows it in the page with the trainee's case-year dates
+   (js/cm-case-dates.js; print it or save it as a PDF there). Nothing opens as a download: not the PDFs (a browser
+   set to download PDFs would), and not RS03, the editable CMS record, whose original is a .docx. */
 /* a case document opens beside the slide (the course's tool frame, side by side), so the trainee reads it while they
    work; Ctrl/⌘-click or the middle button still opens it in a new tab */
 window.cmCaseFlow.doc = function(ev, id){
@@ -1811,7 +1805,7 @@ window.cmCaseFlow.doc = function(ev, id){
   openPane("doc", new URL(docUrl(d), location.href).href, `${d.title} (${d.id})`, "📄", "split");
   return false;
 };
-const docUrl = d => DATES && DATES.shift && /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}&year=${DATES.year}`
+const docUrl = d => /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}${DATES && DATES.year ? `&year=${DATES.year}` : ""}`
   : typeof cmDocUrl === "function" ? cmDocUrl(d) : "documents/" + d.file;
 function docLine(blockId){
   const docs = (CF_PACKETS[blockId] || []).map(id => CF_DOCS.find(d => d.id === id)).filter(Boolean);
@@ -1823,7 +1817,7 @@ function caseFlowDocuments(archiveLink){
   const shown = CF_DOCS.filter(docOpen), locked = CF_DOCS.filter(d => !docOpen(d));
   const tpl = (window.CM_DOCS || []).filter(d => d.folder === "templates");
   const row = d => `<div class="cm-doc-row"><div><span class="t">${E(d.title)}</span> <span style="font-size:11px;color:var(--ink-soft)">· ${d.folder === "templates" ? "Any day" : "Case Flow Day " + d.day}</span><div class="d">${E(d.desc)}</div>${state.isAdmin && d.key ? `<div class="cm-key">🔑 ${E(d.key)}</div>` : ""}</div>
-      <div style="display:flex;gap:6px;align-items:center"><span class="cms">CMS: ${E(d.cms)}</span><a class="btn btn-ghost btn-sm" href="${E(docUrl(d))}" target="_blank" rel="noopener"${/^RS\d\d$/.test(d.id) && !/\.(docx|xlsx)$/i.test(d.file) ? ` onclick="return cmCaseFlow.doc(event,'${d.id}')"` : ""}>${/\.(docx|xlsx)$/i.test(d.file) ? "Download" : "Open"}</a></div></div>`;
+      <div style="display:flex;gap:6px;align-items:center"><span class="cms">CMS: ${E(d.cms)}</span><a class="btn btn-ghost btn-sm" href="${E(docUrl(d))}" target="_blank" rel="noopener"${/^RS\d\d$/.test(d.id) ? ` onclick="return cmCaseFlow.doc(event,'${d.id}')"` : ""}>${!/^RS\d\d$/.test(d.id) && /\.(docx|xlsx)$/i.test(d.file) ? "Download" : "Open"}</a></div></div>`;
   const folders = CF_FOLDERS.map(fo => ({fo, items: shown.filter(d => d.folder === fo.id), later: locked.filter(d => d.folder === fo.id).length})).filter(x => x.items.length || x.later);
   return `<p class="eyebrow">Case Documents</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">📁 Case Documents: ${E(CF.case.style)}</h1>
@@ -2242,7 +2236,7 @@ main > .cf-side-presenter{display:none;}
 .cfx-vm-st{font:600 12.5px 'Inter',sans-serif;color:#5B6178;}
 /* a voicemail is a short card, so the documents get the room: one row of large pages under it */
 .cfx-sb-grid.cfx-sb-vm{grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:18px;align-items:start;}
-.cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-docs-row{grid-template-columns:repeat(auto-fit,minmax(0,200px));justify-content:center;gap:12px 18px;}
+.cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-docs-row{gap:12px 18px;}
 .cfx-sb-grid.cfx-sb-vm .cfx-thumb span{font-size:13px;}
 /* the voicemail card itself: phone-sized */
 .cfx-sb-vm .cfx-vm .cfx-ev-h{flex-wrap:wrap;gap:2px 8px;}
@@ -2299,10 +2293,6 @@ main > .cf-side-presenter{display:none;}
 /* the day's Training Agenda */
 .cfx-ag-list li > div{flex:1;min-width:0;text-align:left;}.cfx-ag-list li > div b, .cfx-ag-list li > div small{text-align:left;}
 .cfx-ag-min{margin-left:auto;font:800 14px 'IBM Plex Mono',monospace;color:#F4B77A;white-space:nowrap;}
-.cfx-ag-plan{margin-top:12px;border-top:1px solid #EADFD2;padding-top:10px;display:flex;flex-direction:column;gap:4px;font:600 14px/1.35 var(--font-ui);}
-.cfx-ag-plan b{font:800 15px 'Poppins','Inter',sans-serif;color:#262B45;margin-bottom:2px;}
-.cfx-ag-plan span{display:flex;justify-content:space-between;gap:10px;}.cfx-ag-plan i{font-style:normal;color:var(--ink-soft,#5B6178);}
-.cfx-ag-plan .tot{border-top:1px dashed #EADFD2;padding-top:4px;font-weight:800;color:#262B45;}
 .cfx-time{font:700 12px 'IBM Plex Mono',monospace;letter-spacing:.02em;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#F4B77A;cursor:pointer;white-space:nowrap;}
 .cfx-time.on{background:#DB8437;color:#fff;border-color:#DB8437;}.cfx-time.over{background:#B54A3F;border-color:#B54A3F;}
 .cfx-ag{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:22px;align-items:start;}
@@ -2335,11 +2325,13 @@ main > .cf-side-presenter{display:none;}
 .cfx-tl b{font:600 11.5px/1.25 'Inter',sans-serif;color:#DDE2EE;padding:0 4px;}
 .cfx-tl li.here b{color:#F4B77A;font-weight:800;text-transform:uppercase;letter-spacing:.06em;}
 .cfx-tl small{font:500 10.5px 'IBM Plex Mono',monospace;color:#9AA3BA;}
-.cfx-sb-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,.9fr);gap:16px;align-items:start;}
+.cfx-sb-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:18px;align-items:start;}
 .cfx-sb-main{display:flex;flex-direction:column;gap:10px;}
-.cfx-sb-docs .cfx-docs-row{display:grid;grid-template-columns:repeat(2,minmax(0,clamp(100px,calc((100vh - 620px) / 3),160px)));justify-content:center;gap:10px 12px;margin:0;}
-.cfx-sb-docs .cfx-thumb{flex:none;}
-.cfx-sb-docs .cfx-thumb span{font-size:11px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+/* the case documents in one row, as big as the column and the screen's height allow (600px images, so they stay legible) */
+.cfx-sb-docs .cfx-docs-row{display:flex;flex-wrap:nowrap;justify-content:center;align-items:flex-start;gap:14px;margin:0;}
+.cfx-sb-docs .cfx-thumb{flex:1 1 0;min-width:0;max-width:min(280px,calc((100vh - 430px) / 1.3));}
+.cfx-sb-docs .cfx-thumb img{border-width:3px;}
+.cfx-sb-docs .cfx-thumb span{font-size:12.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .cfx-ev{background:#fff;color:#1F2433;border-radius:14px;border:2px solid #DB8437;padding:10px 14px;box-shadow:0 6px 18px rgba(0,0,0,.25);text-align:left;}
 .cfx-ev-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font:600 12.5px 'Inter',sans-serif;color:#5B6579;}
 .cfx-ev-i{font-size:16px;}.cfx-ev-ch{font:800 11px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#B5651F;}

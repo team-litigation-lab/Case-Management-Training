@@ -4,23 +4,23 @@
 window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
  "1::Training Agenda & What Case Management Is": {
   "p1": {
-   "why": "Today we're covering the essentials: case management fundamentals, intake, case evaluation and representation approval, then the bottlenecks in each case phase and how to overcome them.",
-   "talk": "Here's the plan for today: first the fundamentals, then intake, case evaluation and representation approval, and then the Treatment phase. But before any of that, what is case management? It's the end-to-end coordination, tracking and handling of a case, from intake all the way to resolution. It keeps cases moving on time, keeps the documentation and compliance right, and keeps everyone talking to each other.",
+   "why": "Today we're covering the essentials: Case Management fundamentals, intake, case evaluation and representation approval, then the bottlenecks in each case phase and how to overcome them.",
+   "talk": "Here's the plan for today: first the fundamentals, then intake, case evaluation and representation approval, and then the Treatment phase. But before any of that, what is Case Management? It's the end-to-end coordination, tracking and handling of a case, from intake all the way to resolution. It keeps cases moving on time, keeps the documentation and compliance right, and keeps everyone talking to each other.",
    "walk": [
     "First, timely progression. Every file has to keep moving, because small delays pile up fast, and a client whose case sits still is a client who stops feeling looked after.",
     "Next, proper documentation and compliance. Meticulous records create accountability. If it isn't written down in the file, nobody can prove it happened or see who owns it.",
     "Finally, effective communication. The client, the providers, the attorney and the adjuster all need to be working from the same picture, and we're the ones who keep them aligned."
    ],
-   "ask": "Before we dive in, what do you picture when you hear case management? Is it mostly paperwork, or mostly people? Hold on to your answer; we'll come back to it.",
+   "ask": "Before we dive in, what do you picture when you hear Case Management? Is it mostly paperwork, or mostly people? Hold on to your answer; we'll come back to it.",
    "scenario": "It's Monday morning and you've just inherited 40 files from a Case Manager who left on Friday. There are no handover notes. One client has left three voicemails asking why nobody has called her back. Before you open a single file, what three things do you want to know about each case, and where would you look for them?"
   },
   "p2": {
-   "why": "Case management isn't data entry. It's coordination and ownership, from start to finish.",
+   "why": "Case Management isn't data entry. It's coordination and ownership, from start to finish.",
    "talk": "These practices set the mindset for the whole course. The early work holds up everything after it, every phase has places where cases get stuck, and our job is to own the file, not just type into it.",
    "walk": [
     "First, treat intake, evaluation and representation approval as the foundation. Everything that follows is built on them, so a crack here shows up later as a much bigger problem.",
     "Next, learn where bottlenecks usually form in each phase. When you know where files tend to get stuck, you can get ahead of it instead of reacting after the delay has already happened.",
-    "Finally, the pitfall to watch: thinking of case management as data entry. Typing information into the system isn't the job. The job is coordinating the case and owning it from start to finish."
+    "Finally, the pitfall to watch: thinking of Case Management as data entry. Typing information into the system isn't the job. The job is coordinating the case and owning it from start to finish."
    ],
    "ask": "So, back to your answer from a minute ago. What's one delay you've seen in a case that better coordination would have prevented?",
    "scenario": "A new colleague spends her whole first week typing records into the system. Every field is filled in, but when the attorney asks where the Martinez case stands, she can't say what happens next or who's waiting on whom. What is she missing about the job, and what would you tell her to do differently next week?"
@@ -83,7 +83,7 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
  "1::Understanding Case Phases": {
   "p1": {
    "why": "Understanding the phases is essential: each one builds on the last, and together they make up the whole process.",
-   "talk": "Case management is split into structured phases that guide a case from start to finish. Each phase has its own goals, responsibilities and deliverables, the things that must be done before the phase is finished. Get those right, and the case moves efficiently and accurately. Skip them, and the next phase inherits the mess.",
+   "talk": "Case Management is split into structured phases that guide a case from start to finish. Each phase has its own goals, responsibilities and deliverables, the things that must be done before the phase is finished. Get those right, and the case moves efficiently and accurately. Skip them, and the next phase inherits the mess.",
    "walk": [
     "First, Intake. This is where we lay the groundwork for the whole case.",
     "Next, Investigation, or Claim Set-Up: coverage, liability and the case plan. We find out who pays, who's responsible, and how we're going to run the file.",
@@ -102,7 +102,7 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
    "talk": "These practices protect the handoffs between phases. Moving a file too early, keeping the status in your head instead of the system, and treating litigation as routine all lead to the same place: problems we could have avoided.",
    "walk": [
     "First, each phase builds on the last, so don't move a file forward until the current phase's deliverables are complete. Whatever's missing just follows the file into the next phase.",
-    "Next, record the phase in the CMS, our case management system, every time it changes. That way the whole team sees the same status, and nobody works from an old picture.",
+    "Next, record the phase in the CMS, our Case Management system, every time it changes. That way the whole team sees the same status, and nobody works from an old picture.",
     "Finally, the pitfall to watch: treating litigation as a normal next step. It isn't. Litigation is the path for cases that couldn't resolve earlier."
    ],
    "ask": "Which phase transition do you think is most likely to be rushed? And when it is rushed, what breaks?",
@@ -164,12 +164,12 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
  "1::Intake & Initial Client Contact — Gatekeepers of Case Quality": {
   "p1": {
    "why": "Initial contact is a vital first touchpoint, and after intake, we check everything for accuracy and completeness. That makes us the gatekeepers of case quality.",
-   "talk": "Every great legal outcome starts long before a courtroom or a settlement. It starts with initial client contact, the first conversation with a potential client, followed right away by intake, which gathers the basic facts, checks how urgent it is, and asks whether the case can move forward. Our role begins once intake is done. We're the quality control check before a case is officially accepted into active case management.",
+   "talk": "Every great legal outcome starts long before a courtroom or a settlement. It starts with initial client contact, the first conversation with a potential client, followed right away by intake, which gathers the basic facts, checks how urgent it is, and asks whether the case can move forward. Our role begins once intake is done. We're the quality control check before a case is officially accepted into active Case Management.",
    "walk": [
     "First, confirm the intake work is complete. If a piece is missing, we find it now, not after the case is active and people are depending on it.",
     "Next, confirm it's accurate. Names, dates and facts need to be right, because every later phase relies on them.",
     "Then, confirm it's properly documented, so anyone who opens the file can see what was gathered and where it came from.",
-    "Finally, confirm it's ready for case activation. Only when all four checks pass does the case move into active case management."
+    "Finally, confirm it's ready for case activation. Only when all four checks pass does the case move into active Case Management."
    ],
    "ask": "Who here has had a job where you checked someone else's work before it went out? What did you learn to look for first?",
    "scenario": "An intake packet arrives for activation. The client's name, the date of loss and the police report are all there, but the signed retainer is missing and the insurance card photo is too blurry to read. Run the four checks: complete, accurate, documented, ready. Does it pass, and what goes back?"
@@ -263,7 +263,7 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
  },
  "1::Bottleneck: Delayed Client Follow-Up": {
   "p1": {
-   "why": "By tackling delayed follow-up, we make case management more efficient and keep intake moving.",
+   "why": "By tackling delayed follow-up, we make Case Management more efficient and keep intake moving.",
    "talk": "Even when we ask all the right questions, the case can stall if the answers don't come back. Delayed follow-up stalls timelines and outcomes, and it usually looks like one of three things.",
    "walk": [
     "First, clients not responding to clarification requests. The questions stay unanswered, and the file can't move until they are.",
@@ -359,7 +359,7 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
  },
  "1::Bottleneck: Communication Gaps": {
   "p1": {
-   "why": "Effective communication during intake is vital for case management efficiency and for better legal outcomes.",
+   "why": "Effective communication during intake is vital for Case Management efficiency and for better legal outcomes.",
    "talk": "This one's frustrating: the work is done, but it's stuck because the information never reached the right person. Communication gaps between teams stall intake even when nothing else is wrong.",
    "walk": [
     "First, the intake team isn't updating Case Managers, so we don't know a case is ready, or that something changed.",
@@ -377,7 +377,7 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
     "Next, use the CMS as the single source of truth, not side emails. A side email only helps the people who are on it.",
     "Finally, the pitfall to watch: assuming the intake team sent everything. Check the packet against what should be there before you start."
    ],
-   "ask": "Let's design one together. What's a simple handoff rule between intake and case management that would close these gaps?",
+   "ask": "Let's design one together. What's a simple handoff rule between intake and Case Management that would close these gaps?",
    "scenario": "Intake emailed you directly about a change in a client's phone number, but the CMS still has the old one. A week later, a colleague covering for you can't reach the client. What should have happened, and what rule would you suggest for the team?"
   }
  },
@@ -411,7 +411,7 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
  "1::Tools for Case Planning & the PI Case Lifecycle Strategy": {
   "p1": {
    "why": "Strict compliance with deadlines and procedures is crucial in PI cases, especially because of the Statute of Limitations and the gap-in-treatment defense.",
-   "talk": "Once we're working inside a legal framework, case management shifts from best efforts to strict compliance. The system gives us efficiency plus accountability. And a personal injury case is a race against two things: the Statute of Limitations, that's the legal deadline to file a lawsuit, and the gap-in-treatment defense, where the insurance company argues that a break in the client's care means the injury wasn't serious.",
+   "talk": "Once we're working inside a legal framework, Case Management shifts from best efforts to strict compliance. The system gives us efficiency plus accountability. And a personal injury case is a race against two things: the Statute of Limitations, that's the legal deadline to file a lawsuit, and the gap-in-treatment defense, where the insurance company argues that a break in the client's care means the injury wasn't serious.",
    "walk": [
     "First, our Case Management Software, the CMS. It's where the whole file lives, so everyone works from the same record.",
     "Next, task trackers and calendars. Deadlines live here, not in anyone's head.",
@@ -608,7 +608,7 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
  },
  "1::The “Golden Rule” of US Claim Set-Up": {
   "p1": {
-   "why": "Managing the medical plan and the legal claim separately is crucial for effective case management.",
+   "why": "Managing the medical plan and the legal claim separately is crucial for effective Case Management.",
    "talk": "Here's the golden rule. In the US, our file is discoverable, which means the other side can ask to see it in litigation. So we have a duty to keep it clean. The motto is: coordinate, don't commingle. We coordinate the care and the claim, but we never mix them together in the same notes.",
    "walk": [
     "First, treat the medical plan and the legal claim as two parallel tracks. They run side by side and we coordinate between them, but they never cross-contaminate.",
@@ -632,7 +632,7 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
  "1::The Treatment Phase — Core Objectives": {
   "p1": {
    "why": "The primary question during this phase is, “Is the plan working?” Answering it takes continuous support, monitoring and problem-solving.",
-   "talk": "Up to now we've been asking what the client needs. In this phase the focus shifts to whether the plan is actually working. This is the engine room of case management, where the goals get achieved, and our job is to balance support, monitoring and problem-solving. We do it through three pillars.",
+   "talk": "Up to now we've been asking what the client needs. In this phase the focus shifts to whether the plan is actually working. This is the engine room of Case Management, where the goals get achieved, and our job is to balance support, monitoring and problem-solving. We do it through three pillars.",
    "walk": [
     "First, facilitation: remove the logistical barriers to care, like transportation, paperwork and scheduling. A great treatment plan is worthless if the client can't actually get to the appointment.",
     "Next, coordination: keep every provider aligned on one treatment approach. The therapist, the doctor and the social worker shouldn't be working at cross-purposes, and we're the ones who notice when they are.",

@@ -27,6 +27,8 @@ const LONG = {"Case Files":"Case Files", "Medical":"Medical Records", "Police":"
 const KEY = "doc-filing";
 const docOf = (id)=> (typeof cmDoc === "function" && cmDoc(id)) || null;
 const urlOf = (d)=> typeof cmDocUrl === "function" ? cmDocUrl(d) : "documents/" + d.file;
+// to read it: the document in the page (case-doc.html), never a download; urlOf stays the original file, which is what gets filed
+const viewOf = (d)=> /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}${window.CM_CASE_DATES && CM_CASE_DATES.year ? `&year=${CM_CASE_DATES.year}` : ""}` : urlOf(d);
 const basename = (d)=> String(d.file || "").split("/").pop();
 const expectedCategory = (d)=> LONG[d.cms] || d.cms || "Others";
 const rid = ()=> "f" + Math.random().toString(36).slice(2, 10);
@@ -62,7 +64,7 @@ function rowHTML(blockId, d){
   const r = recOf(d.id) || {}, k = `${blockId}__${d.id}`.replace(/\W/g, "_");
   const filed = !!r.filed;
   return `<div class="dfl-row${filed ? " dfl-done" : ""}" data-k="${k}">
-    <div class="dfl-doc"><a href="${esc(urlOf(d))}" target="_blank" rel="noopener">${esc(d.title)}</a>
+    <div class="dfl-doc"><a href="${esc(viewOf(d))}" target="_blank" rel="noopener" onclick="return window.cmCaseFlow && cmCaseFlow.doc ? cmCaseFlow.doc(event,'${esc(d.id)}') : true">${esc(d.title)}</a>
       <span class="dfl-file">${esc(basename(d))}</span></div>
     ${filed ? `<div class="dfl-ok">✓ Filed in the CMS as <b>${esc(r.name)}</b> under ${esc(r.category)}${r.attempts > 1 ? ` · ${r.attempts} attempts` : " · first time right"}</div>`
       : `<div class="dfl-fields">
