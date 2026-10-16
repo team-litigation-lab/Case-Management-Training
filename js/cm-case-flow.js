@@ -1202,7 +1202,9 @@ if(typeof submitQuiz === "function"){
       await load();
       Object.entries(by).forEach(([m, v]) => { rec(m).quiz = Object.assign(v, {pct: Math.round(v.correct / v.total * 100), at}); });
       await persist();
-      const g = state.cfGame; if(g && g.day === dayId){ REC.game = REC.game || {}; const b0 = REC.game[dayId]; if(!b0 || g.pts > (b0.pts || 0)) REC.game[dayId] = {pts: g.pts, best: g.best, at}; await persist(); }
+      const g = state.cfGame; if(g && g.day === dayId){ REC.game = REC.game || {}; const b0 = REC.game[dayId]; if(!b0 || g.pts > (b0.pts || 0)) REC.game[dayId] = {pts: g.pts, best: g.best, at};
+        if(!g.banked){ g.banked = true; REC.friendTokens = tokensBanked() + tokensEarned(Object.values(g.log).filter(x => x.ok).length); }   // 🤝 for the next round
+        await persist(); }
       cmCaseFlow.autoReview(dayId);   // the rubric scoring runs by itself, module by module
     }
     return r;
@@ -1255,7 +1257,7 @@ function cfResult(d){
         <div class="cf-kcr-score">${typeof sealSvg === "function" ? sealSvg({size: 72, label: lastScore + "%", done: lastPassed}) : ""}<div><div class="big">${lastCorrect} / ${lastTotal} correct</div><div class="sub">${msg}</div></div></div>
         <div class="cf-kcr-next">${renderQuizNextStep(d, lastPassed)}</div>
       </div>
-      ${state.cfGame && state.cfGame.day === d.id ? `<div class="cf-kcr-game"><span>⭐ <b>${state.cfGame.pts.toLocaleString()}</b> points</span><span>🔥 best streak <b>${state.cfGame.best}</b></span>${gameBadges(d, state.cfGame).map(([i, t]) => `<span class="cfg-badge sm"><i>${i}</i><b>${t}</b></span>`).join("")}${(REC.game || {})[d.id] ? `<span class="cf-note">Your best: ${(REC.game[d.id].pts || 0).toLocaleString()} points</span>` : ""}</div>` : ""}
+      ${state.cfGame && state.cfGame.day === d.id ? `<div class="cf-kcr-game"><span>${state.cfGame.mode === "millionaire" ? `<b>${rankName(rankAt(Object.values(state.cfGame.log).filter(x => x.ok).length, d.quiz.length))}</b>` : `⭐ <b>${state.cfGame.pts.toLocaleString()}</b> points`}</span><span>🔥 best streak <b>${state.cfGame.best}</b></span>${gameBadges(d, state.cfGame).map(([i, t]) => `<span class="cfg-badge sm"><i>${i}</i><b>${t}</b></span>`).join("")}${(REC.game || {})[d.id] ? `<span class="cf-note">Your best: ${(REC.game[d.id].pts || 0).toLocaleString()} points</span>` : ""}</div>` : ""}
       <div class="cf-kcr-mods">${kcMods(d).map(({b, mod, ph}) => `<div class="cf-kcr-mod"><small>${d.cf.n}.${ph.n} ${E(ph.title)}</small><b>${E(b.title)}</b><div class="cf-kcr-chips" id="cfkc_res_${mod.id}">${kcChip(mod.id)}</div></div>`).join("")}</div>
       <div class="cf-kcr-foot">
         <div class="cf-kcr-btns"><button class="btn btn-ghost btn-sm" onclick="retakeQuiz(${d.id})">Retake Quiz</button>
@@ -1267,16 +1269,18 @@ function cfResult(d){
     </div>
     <div id="answerFeedback"></div>`;
 }
-/* ---------- ① the quiz, played as a game show: each Case Flow day has its own (a trainee or trainer can pick
-   another before the first answer). A pick locks in and shows at once whether it was right, never which option is
-   (the answer key still waits for a pass), and no clock ever forces an answer.
-     💰 Millionaire (Day 1): the money ladder with safe havens, a 30-second clock, 50/50 and Ask the Audience
-     🟦 Jeopardy (Day 2): the day's Case Phases × values, a hidden Daily Double
+/* ---------- ① the quiz, played as a game show: each Case Flow day has its own, and only its own. A pick locks in
+   and shows at once whether it was right, never which option is (the answer key still waits for a pass), and no
+   clock ever forces an answer. The rewards are a Case Manager's, not a prize fund: points, badges, a career rank, and
+   🤝 Ask a Friend tokens (one for every 5 right answers, banked on Submit for the next round: a hint from the AI
+   colleague that names the principle, never the answer).
+     💼 Who Wants to Be a Case Manager? (Day 1): climb the career ranks, a 30-second clock, 50/50 and Ask the Audience
+     🟦 Jeopardy (Day 2): the day's Case Phases × point values, a hidden Daily Double
      💣 Countdown Bomb (Day 3): a fuse burns; answer before 💥 for the time bonus
      🎡 Wheel of Fortune (Day 4): spin for a multiplier before each question
      🚪 Mystery Doors (Day 5): pick a door for its reward, then the question ---------- */
 const GAMES = {
-  millionaire: {icon: "💰", name: "Who Wants to Be a Case Manager?", short: "Millionaire"},
+  millionaire: {icon: "💼", name: "Who Wants to Be a Case Manager?", short: "Career Climb"},
   jeopardy: {icon: "🟦", name: "Case Flow Jeopardy!", short: "Jeopardy"},
   bomb: {icon: "💣", name: "Countdown Bomb", short: "Countdown Bomb"},
   wheel: {icon: "🎡", name: "Wheel of Fortune", short: "Wheel of Fortune"},
@@ -1285,7 +1289,15 @@ const GAME_DAY = {1: "millionaire", 2: "jeopardy", 3: "bomb", 4: "wheel", 5: "do
 const GAME_FAST = 12000, MIL_SEC = 30, BOMB_SEC = 20;
 const WHEEL_COL = ["#DB8437", "#262B45", "#F4B77A", "#46508A", "#B54A3F", "#2F8F5B", "#C26A22", "#343C66"];
 const WHEEL = [["×1", 1, 0], ["×2", 2, 0], ["+50", 1, 50], ["×1.5", 1.5, 0], ["×3", 3, 0], ["+100", 1, 100], ["×1", 1, 0], ["×2", 2, 0]];
-const prizeLadder = n => Array.from({length: n}, (_, i) => { const v = 100 * Math.pow(1e6 / 100, i / Math.max(1, n - 1)); const m = Math.pow(10, Math.floor(Math.log10(v)) - 1); return Math.round(v / m) * m; });
+/* Day 1's ladder is a career: seven ranks, climbed by right answers, from Trainee to Lead Case Manager */
+const RANKS = [["🎓", "Trainee"], ["📋", "Intake Assistant"], ["🗂", "Case Assistant"], ["📞", "Claims Coordinator"], ["💼", "Case Manager"], ["⭐", "Senior Case Manager"], ["🏆", "Lead Case Manager"]];
+const rankAt = (right, n) => Math.min(RANKS.length - 1, Math.floor(right * (RANKS.length - 1) / Math.max(1, n)));
+const rankName = i => RANKS[i][0] + " " + RANKS[i][1];
+/* 🤝 Ask a Friend: one token for every TOKEN_EVERY right answers (at most TOKEN_MAX a round), banked on Submit and
+   spent in a later round; REC.friendTokens on the trainee's record */
+const TOKEN_EVERY = 5, TOKEN_MAX = 3;
+const tokensEarned = right => Math.min(TOKEN_MAX, Math.floor(right / TOKEN_EVERY));
+const tokensBanked = () => Math.max(0, (typeof REC !== "undefined" && REC && REC.friendTokens) || 0);
 /* sound: short synthesized cues (off by the 🔇 button; remembered on the device) */
 let AC = null;
 const soundOn = () => { try{ return localStorage.getItem("cf_game_sound") !== "off"; }catch(e){ return true; } };
@@ -1319,21 +1331,21 @@ function jeopardyBoard(d, g){
   const rows = Math.max(...cols.map(c => c.qs.length));
   return `<div class="cfg-jb" style="--cols:${cols.length}">${cols.map(c => `<div class="cfg-jh">${E(c.ph.title)}</div>`).join("")}
     ${Array.from({length: rows}, (_, r) => cols.map(c => { const i = c.qs[r]; if(i === undefined) return `<div class="cfg-jc empty"></div>`; const l = g.log[i], v = (r + 1) * 200;
-      return `<button type="button" class="cfg-jc${l ? (l.ok ? " ok" : " no") : ""}" ${l ? "disabled" : ""} onclick="cmCaseFlow.gamePick(${i},${v})">${l ? (l.ok ? "✓ " : "✗ ") + "$" + v : "$" + v}</button>`; }).join("")).join("")}</div>`;
+      return `<button type="button" class="cfg-jc${l ? (l.ok ? " ok" : " no") : ""}" ${l ? "disabled" : ""} onclick="cmCaseFlow.gamePick(${i},${v})">${l ? (l.ok ? "✓ " : "✗ ") + v : v}</button>`; }).join("")).join("")}</div>`;
 }
 function gameQuiz(d){
   const g = game(d), n = d.quiz.length, answered = Object.keys(state.quizAnswers || {}).length, G = GAMES[g.mode];
   const finished = answered >= n;
   let qi = Math.min(state.quizQuestionIndex || 0, n - 1);
-  const picker = !answered ? `<div class="cfg-pick">${Object.entries(GAMES).map(([k, x]) => `<button type="button" class="${k === g.mode ? "on" : ""}" onclick="cmCaseFlow.gameMode('${k}')">${x.icon} ${x.short}</button>`).join("")}</div>` : "";
   const sound = `<button type="button" class="cfg-sound" onclick="cmCaseFlow.gameSound()" title="Sound">${soundOn() ? "🔊" : "🔇"}</button>`;
-  const lad = g.mode === "millionaire" ? prizeLadder(n) : null, right = Object.values(g.log).filter(x => x.ok).length;
-  const score = g.mode === "millionaire" ? (right ? money(lad[right - 1]) : "$0") : g.mode === "jeopardy" ? money(g.pts) : `⭐ ${g.pts.toLocaleString()}`;
-  const hud = `<div class="cfg-title"><b>${G.icon} ${G.name}</b>${sound}</div>${picker}
-    <div class="cfg-hud"><span class="cfg-pts">${score}<small>${g.mode === "millionaire" ? "won" : g.mode === "jeopardy" ? "winnings" : "points"}</small></span><span class="cfg-streak${g.streak >= 3 ? " hot" : ""}">🔥 ${g.streak}<small>streak</small></span><span class="cfg-lvl">${answered}<small>of ${n} played</small></span></div>`;
+  const right = Object.values(g.log).filter(x => x.ok).length, rk = rankAt(right, n), earned = tokensEarned(right);
+  const score = g.mode === "millionaire" ? rankName(rk) : `⭐ ${g.pts.toLocaleString()}`;
+  const hud = `<div class="cfg-title"><b>${G.icon} ${G.name}</b>${sound}</div>
+    <div class="cfg-hud"><span class="cfg-pts">${score}<small>${g.mode === "millionaire" ? "your rank" : "points"}</small></span><span class="cfg-streak${g.streak >= 3 ? " hot" : ""}">🔥 ${g.streak}<small>streak</small></span><span class="cfg-lvl">${answered}<small>of ${n} played</small></span><span class="cfg-tok" title="Ask a Friend tokens: one for every ${TOKEN_EVERY} right answers, for your next round">🤝 ${tokensBanked()}<small>to use${earned ? ` · +${earned} next round` : ""}</small></span></div>`;
   const track = g.mode === "jeopardy" ? "" : `<div class="cfg-track">${d.quiz.map((_, i) => { const l = g.log[i]; return `<button type="button" class="cfg-node${i === qi && !finished ? " at" : ""}${l ? (l.ok ? " ok" : " no") : ""}" ${l ? "" : "disabled"} onclick="cmCaseFlow.gameGo(${i})" aria-label="Question ${i + 1}">${i === qi && !finished ? (g.mode === "bomb" ? "💣" : "🚀") : l ? (l.ok ? "✓" : "✗") : i + 1}</button>`; }).join("")}</div>`;
-  const clear = `<div class="cfg-clear"><div class="cfg-clear-h">🏁 ${g.mode === "millionaire" ? `You won ${score}!` : "Game over: quiz cleared!"}</div>
-      <div class="cfg-tally"><span><b>${right}</b> of ${n} right</span><span><b class="cfg-count" data-to="${g.mode === "millionaire" ? (right ? lad[right - 1] : 0) : g.pts}" data-money="${g.mode === "millionaire" || g.mode === "jeopardy" ? 1 : ""}">${g.mode === "millionaire" ? score : g.mode === "jeopardy" ? money(g.pts) : g.pts.toLocaleString()}</b> ${g.mode === "millionaire" || g.mode === "jeopardy" ? "" : "points"}</span><span>best streak <b>${g.best}</b></span></div>
+  const clear = `<div class="cfg-clear"><div class="cfg-clear-h">🏁 ${g.mode === "millionaire" ? `You made ${score}!` : "Game over: quiz cleared!"}</div>
+      <div class="cfg-tally"><span><b>${right}</b> of ${n} right</span>${g.mode === "millionaire" ? "" : `<span><b class="cfg-count" data-to="${g.pts}">${g.pts.toLocaleString()}</b> points</span>`}<span>best streak <b>${g.best}</b></span></div>
+      ${earned ? `<div class="cfg-earn">🤝 <b>+${earned} Ask a Friend token${earned === 1 ? "" : "s"}</b> for your next round: a hint from your AI colleague on a question you're stuck on</div>` : ""}
       ${gameBadges(d, g).length ? `<div class="cfg-badges">${gameBadges(d, g).map(([i, t, x]) => `<span class="cfg-badge"><i>${i}</i><b>${t}</b><small>${x}</small></span>`).join("")}</div>` : ""}
       <button class="btn btn-primary" style="padding:13px 28px;" type="button" onclick="cmCaseFlow.kcPart('written')">Bonus round: Learning Checks & Self-Summary →</button></div>`;
   // the board / the wheel / the doors come before a question
@@ -1354,18 +1366,20 @@ function gameQuiz(d){
       <div class="cfg-doors">${[1, 2, 3].map(k => `<button type="button" class="cfg-door" onclick="cmCaseFlow.gameDoor(${qi},${k})"><span class="cfg-door-panel">🚪<b>${k}</b></span></button>`).join("")}</div></div>`;
   }
   if(!done && !g.shown[qi]) g.shown[qi] = Date.now();
-  const hidden = g.hide[qi] || [], aud = g.aud[qi];
+  const hidden = g.hide[qi] || [], aud = g.aud[qi], fr = (g.friend || {})[qi];
+  const friend = !done && !fr && tokensBanked() ? `<button type="button" class="cfg-friend" onclick="cmCaseFlow.gameFriend(${qi})" title="Spend a token: your AI colleague names the principle, never the answer">🤝 Ask a Friend <small>${tokensBanked()} token${tokensBanked() === 1 ? "" : "s"}</small></button>` : "";
+  const hint = fr ? `<div class="cfg-hintbox">🤝 <b>Your colleague:</b> ${fr === 1 ? "<i>thinking…</i>" : E(fr)}</div>` : "";
   const extra = g.mode === "millionaire" ? `<div class="cfg-life"><button type="button" ${g.used.fifty || done ? "disabled" : ""} onclick="cmCaseFlow.gameLife('fifty',${qi})">½ 50:50</button><button type="button" ${g.used.aud || done ? "disabled" : ""} onclick="cmCaseFlow.gameLife('aud',${qi})">👥 Ask the Audience</button><span class="cfg-clock" data-sec="${MIL_SEC}" data-start="${g.shown[qi] || 0}"></span></div>`
     : g.mode === "bomb" ? `<div class="cfg-fuse${done ? " out" : ""}${g.boom[qi] ? " boomed" : ""}"><i style="animation-duration:${BOMB_SEC}s;animation-delay:-${Math.min(BOMB_SEC, ((done ? (log && log.at) || Date.now() : Date.now()) - (g.shown[qi] || Date.now())) / 1000)}s"></i><span>💣</span></div>`
-    : (g.pre[qi] ? `<div class="cfg-prize">${g.mode === "wheel" ? "🎡" : "🚪"} This level pays <b>${g.pre[qi].label}</b></div>` : g.mode === "jeopardy" ? `<div class="cfg-prize">🟦 ${E(phaseOfQ(d, qi).title)} for <b>$${state.cfJv || 200}</b>${qi === g.daily ? " · <b class='dd'>DAILY DOUBLE ×2</b>" : ""}</div>` : "");
+    : (g.pre[qi] ? `<div class="cfg-prize">${g.mode === "wheel" ? "🎡" : "🚪"} This level pays <b>${g.pre[qi].label}</b></div>` : g.mode === "jeopardy" ? `<div class="cfg-prize">🟦 ${E(phaseOfQ(d, qi).title)} for <b>${state.cfJv || 200} points</b>${qi === g.daily ? " · <b class='dd'>DAILY DOUBLE ×2</b>" : ""}</div>` : "");
   const card = `<div class="card cfg-card${done ? (log && log.ok ? " right" : " wrong") : ""}${g.mode === "jeopardy" ? " jq" : ""}" data-q="${qi}">
-      ${extra}
-      <p class="cfg-q">${E(q.q)}</p>
+      ${extra}${friend}
+      <p class="cfg-q">${E(q.q)}</p>${hint}
       <div class="cfg-opts">${q.opts.map((o, oi) => { const me = pick === oi, gone = hidden.includes(oi);
         return `<button type="button" class="cfg-opt${me ? (log && log.ok ? " right" : " wrong") : ""}${done && !me ? " dim" : ""}${gone ? " gone" : ""}" ${done || gone ? "disabled" : ""} onclick="cmCaseFlow.gameAnswer(${d.id},${qi},${oi})"><span class="cfg-letter">${String.fromCharCode(65 + oi)}</span><span>${E(o)}</span>${aud ? `<span class="cfg-aud"><i style="width:${aud[oi]}%"></i><em>${aud[oi]}%</em></span>` : ""}${me ? `<span class="cfg-mark">${log && log.ok ? "✓" : "✗"}</span>` : ""}</button>`; }).join("")}</div>
-      ${done && log ? `<div class="cfg-say ${log.ok ? "ok" : "no"}">${log.ok ? `Correct! <b>${g.mode === "millionaire" ? "You climb to " + money(lad[Object.values(g.log).filter(x => x.ok).length - 1]) : "+" + log.pts}</b>${log.fast ? " · ⚡ speed bonus" : ""}${log.combo ? ` · 🔥 streak +${log.combo}` : ""}` : `${log.boom ? "💥 Boom, and " : ""}Not this one. The right answer shows in the review once you pass.`}</div>` : ""}
+      ${done && log ? `<div class="cfg-say ${log.ok ? "ok" : "no"}">${log.ok ? `Correct! <b>${g.mode === "millionaire" ? (rankAt(right, n) > rankAt(right - 1, n) ? "Promoted to " + rankName(rankAt(right, n)) : `Level ${qi + 1} cleared`) : "+" + log.pts}</b>${right % TOKEN_EVERY === 0 && right / TOKEN_EVERY <= TOKEN_MAX ? " · 🤝 +1 token for your next round" : ""}${log.fast ? " · ⚡ speed bonus" : ""}${log.combo ? ` · 🔥 streak +${log.combo}` : ""}` : `${log.boom ? "💥 Boom, and " : ""}Not this one. The right answer shows in the review once you pass.`}</div>` : ""}
     </div>`;
-  const side = g.mode === "millionaire" ? `<ol class="cfg-ladder">${lad.map((v, i) => `<li class="${i === right - (done && log && log.ok ? 1 : 0) && !finished ? "at" : ""}${i < right ? " won" : ""}${(i + 1) % 6 === 0 ? " safe" : ""}"><span>${i + 1}</span>${money(v)}</li>`).reverse().join("")}</ol>` : "";
+  const side = g.mode === "millionaire" ? `<div class="cfg-ranks"><b>Your career</b><ol class="cfg-ladder">${RANKS.map(([ic, t], i) => `<li class="${i === rk ? "at" : i < rk ? "won" : ""}"><span>${ic}</span>${E(t)}</li>`).reverse().join("")}</ol><small>${right} of ${n} right · next rank at ${Math.min(n, Math.ceil((rk + 1) * n / (RANKS.length - 1)))}</small></div>` : "";
   const nav = finished ? `<div class="cfg-nav"><button class="btn btn-ghost" type="button" onclick="cmCaseFlow.gameGo(-1)">← Back to the ${g.mode === "jeopardy" ? "board" : "tally"}</button></div>`
     : done ? `<div class="cfg-nav"><button class="btn btn-primary" type="button" onclick="cmCaseFlow.gameNext()">${g.mode === "jeopardy" ? "Back to the board →" : "Next level →"}</button></div>` : "";
   return `<div class="cfg cfg-m-${g.mode}">${hud}${track}<div class="${side ? "cfg-split" : ""}"><div>${card}${nav}</div>${side}</div></div>`;
@@ -1393,6 +1407,19 @@ function gamePaint(d){
 }
 Object.assign(window.cmCaseFlow = window.cmCaseFlow || {}, {
   gameMode(k){ const d = gameDay(); state.cfGameMode = Object.assign(state.cfGameMode || {}, {[d.id]: k}); state.cfGame = null; state.cfJq = null; gamePaint(d); },
+  tokens(n){ if(n != null && (state.isAdmin || n < tokensBanked())){ REC.friendTokens = Math.max(0, Math.floor(n)); persist(); } return tokensBanked(); },   // a trainer can grant Ask a Friend tokens
+  async gameFriend(qi){ const d = gameDay(), g = game(d), q = d.quiz[qi];
+    if(!tokensBanked() || (g.friend || {})[qi]) return;
+    g.friend = g.friend || {}; g.friend[qi] = 1; REC.friendTokens = tokensBanked() - 1; persist(); sfx("open"); gamePaint(d);
+    const mod = CF.days.flatMap(x => x.modules).find(m => m.id === d.cf.quizMod[qi]) || {};
+    const fallback = `Think back to ${mod.title ? `“${mod.title}”` : "this Case Phase's lesson"}: the rule taught there decides it, and so does what John Doe's file actually shows.`;
+    let text = "";
+    try{
+      if(typeof callAIText === "function") text = String(await callAIText(`You are a senior personal-injury Case Manager helping a trainee colleague on a training quiz about the John Doe v. Robert Smith file. Give a nudge in at most two short sentences: name the principle, rule or fact on the file that decides the question. Never say which option is right, never quote or paraphrase any option, never use option letters, and never say "the answer is".\n\nQuestion: ${q.q}\nOptions:\n${q.opts.map(o => "- " + o).join("\n")}`, 120, undefined, "tracker") || "").trim();
+    }catch(e){ text = ""; }
+    const right = String(q.opts[q.a] || "").toLowerCase().slice(0, 28);
+    if(!text || /answer is|option [a-d]\b|\b[a-d]\)|choose|correct (one|option)/i.test(text) || (right.length > 12 && text.toLowerCase().includes(right))) text = fallback;
+    g.friend[qi] = text.slice(0, 320); if(state.quizAnswers[qi] === undefined) gamePaint(d); },
   gameSound(){ try{ localStorage.setItem("cf_game_sound", soundOn() ? "off" : "on"); }catch(e){} gamePaint(gameDay()); },
   gameGo(i){ const d = gameDay(), all = Object.keys(state.quizAnswers || {}).length >= d.quiz.length;
     if(i < 0){ state.cfGameShow = null; if(state.cfGame && state.cfGame.mode === "jeopardy"){ state.cfJq = null; state.cfJAns = null; } return gamePaint(d); }
@@ -1435,7 +1462,7 @@ Object.assign(window.cmCaseFlow = window.cmCaseFlow || {}, {
     sfx(ok ? "right" : "wrong");
     gamePaint(d);
     const card = document.querySelector(".cfg-card");
-    if(card && pts){ const f = document.createElement("span"); f.className = "cfg-float"; f.textContent = g.mode === "jeopardy" ? "+$" + pts : `+${pts}`; card.appendChild(f); }
+    if(card && pts){ const f = document.createElement("span"); f.className = "cfg-float"; f.textContent = `+${pts}`; card.appendChild(f); }
     if(ok && g.streak >= 3 && g.streak % 2 === 1){ const b = document.createElement("div"); b.className = "cfg-banner"; b.textContent = `🔥 ${g.streak} in a row!`; const c = document.querySelector(".cfg"); if(c) c.appendChild(b); if(typeof burstConfetti === "function" && g.streak >= 5) burstConfetti(); }
     const n = d.quiz.length, next = d.quiz.findIndex((_, i) => state.quizAnswers[i] === undefined);
     clearTimeout(state.cfGameT);
@@ -1931,9 +1958,6 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfg-title{display:flex;justify-content:center;align-items:center;gap:10px;margin:0 0 8px;}
 .cfg-title b{font:900 24px 'Poppins','Inter',sans-serif;color:var(--navy);letter-spacing:.01em;}
 .cfg-sound{border:1px solid var(--line,#D6DAE4);background:#fff;border-radius:999px;width:34px;height:34px;cursor:pointer;font-size:16px;}
-.cfg-pick{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;margin:0 0 10px;}
-.cfg-pick button{border:1.5px solid var(--line,#D6DAE4);background:#fff;border-radius:999px;padding:5px 12px;font:700 12.5px var(--font-ui);color:var(--navy);cursor:pointer;}
-.cfg-pick button.on{background:#262B45;color:#fff;border-color:#262B45;}
 .cfg-hint{text-align:center;font:600 14px var(--font-ui);color:var(--ink-soft,#5B6178);margin:0 0 10px;}
 /* Jeopardy */
 .cfg-jb{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:6px;background:#0E1A5C;padding:8px;border-radius:14px;}
@@ -1959,10 +1983,18 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfg-door-prize{position:absolute;inset:0;display:grid;place-items:center;font:900 30px 'Poppins','Inter',sans-serif;color:#262B45;animation:cfgPop .6s ease both;}
 .cfg-prize{display:inline-block;margin:0 0 10px;background:#262B45;color:#fff;border-radius:999px;padding:5px 14px;font:700 13.5px var(--font-ui);}.cfg-prize b{color:#F4B77A;}.cfg-prize .dd{color:#F4C542;}
 /* Millionaire */
-.cfg-split{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:14px;align-items:start;}
-.cfg-ladder{list-style:none;margin:0;padding:8px;background:#0B1240;border-radius:12px;display:flex;flex-direction:column;gap:2px;}
-.cfg-ladder li{display:flex;gap:8px;font:700 12px 'IBM Plex Mono',monospace;color:#F4B77A;padding:2px 8px;border-radius:4px;}
-.cfg-ladder li span{width:20px;color:#8A93C8;}.cfg-ladder li.safe{color:#fff;}.cfg-ladder li.won{color:#7FD6A0;}
+.cfg-split{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:14px;align-items:start;}
+.cfg-ranks{align-self:start;position:sticky;top:0;background:#0B1240;border-radius:12px;padding:10px 10px 8px;color:#C9CFEA;}
+.cfg-ranks>b{display:block;font:800 12px 'Poppins','Inter',sans-serif;color:#fff;text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px 4px;}
+.cfg-ranks>small{display:block;font:600 11px var(--font-ui);color:#8A93C8;margin:6px 4px 0;}
+.cfg-ladder{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px;}
+.cfg-ladder li{display:flex;gap:8px;align-items:center;font:700 12.5px var(--font-ui);color:#8A93C8;padding:5px 8px;border-radius:6px;}
+.cfg-ladder li span{width:20px;text-align:center;}.cfg-ladder li.won{color:#7FD6A0;}
+.cfg-tok{color:#2F6B4A;}
+.cfg-friend{float:right;margin:0 0 6px 8px;border:1.5px solid #2F8F5B;background:#EAF6EF;color:#1F5E3B;border-radius:999px;padding:5px 12px;font:700 12.5px var(--font-ui);cursor:pointer;}
+.cfg-friend small{font-weight:600;opacity:.8;margin-left:4px;}
+.cfg-hintbox{margin:8px 0 10px;padding:9px 12px;border-left:4px solid #2F8F5B;background:#EAF6EF;border-radius:6px;font:500 14px/1.45 var(--font-ui);color:#1F3B2C;}
+.cfg-earn{margin:8px auto 4px;max-width:560px;padding:9px 14px;background:#EAF6EF;border:1.5px solid #2F8F5B;border-radius:10px;font:600 14px var(--font-ui);color:#1F5E3B;}
 .cfg-ladder li.at{background:#DB8437;color:#fff;animation:cfgPulse 1s ease-in-out infinite alternate;}
 .cfg-life{display:flex;align-items:center;gap:8px;margin:0 0 10px;flex-wrap:wrap;}
 .cfg-life button{border:1.5px solid #262B45;background:#fff;color:#262B45;border-radius:999px;padding:5px 12px;font:800 12.5px var(--font-ui);cursor:pointer;}
