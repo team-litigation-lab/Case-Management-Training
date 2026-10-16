@@ -32,7 +32,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#20` | Case Study: John Doe v. Apex — Coverage Analysis | ✅ BUILT | d1m1-a1, d1m1-kc, d2m1-l2, d2m1-a2, d2m1-kc |
 | `D1#21` | Case Study: John Doe v. Apex — Liability Determination | ✅ BUILT | d1m4-l1, d2m1-l1, d2m1-a1 |
 | `D1#22` | Case Planning Framework: Regulatory Intake & Verification | ✅ BUILT | d1m1-l2, d1m1-a2, d1m1-kc, d1m4-l1, d1m4-a2, d5m4-kc |
-| `D1#23` | Case Planning Framework: The Three-Pillar Case Plan | ✅ BUILT | d1m1-l2, d1m4-l1, d1m4-a2, d1m4-kc |
+| `D1#23` | Case Planning Framework: The Three-Pillar Case Plan | ✅ BUILT | d1m1-l2, d1m4-l1, d1m4-a2, d1m4-kc, d2m2-eob |
 | `D1#24` | Case Planning Framework: Mandatory Disclosure & Compliance Tracking | ✅ BUILT | d1m1-a2, d1m4-l2, d1m4-kc, d2m2-l1, d2m2-a1 |
 | `D1#25` | The “Golden Rule” of US Claim Set-Up | ✅ BUILT | d1m4-l2, d1m4-kc |
 | `D1#26` | The Treatment Phase — Core Objectives | ✅ BUILT | d2m2-l1, d2m2-a2 |
@@ -132,7 +132,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D3#22` | Auditing the Billing Before Asking for a Discount | ✅ BUILT | d3m3-l2, d3m3-a2, d3m3-kc |
 | `D3#23` | The Net Sheet: Purpose of a Combined BI/UM Net Sheet | ✅ BUILT | d3m4-l1, d3m4-kc, d5m5-l1, d5m5-kc |
 | `D3#24` | The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) | ✅ BUILT | d3m4-l1, d3m4-kc, d5m4-kc, d5m5-l1, d5m5-kc |
-| `D3#25` | The Net Sheet: The LSH Corporate Net Sheet Ledger | ✅ BUILT | d3m4-l1, d3m4-a1, d5m5-l1, d5m5-a1 |
+| `D3#25` | The Net Sheet: The LSH Corporate Net Sheet Ledger | ✅ BUILT | d2m2-eob, d3m4-l1, d3m4-a1, d5m5-l1, d5m5-a1 |
 | `D3#26` | The Net Sheet: Case Manager Protocols for Dual Settlements | ✅ BUILT | d3m4-l1, d3m4-l2, d3m4-a2 |
 | `D3#27` | Key Takeaway — The Value of a Case Manager | ✅ BUILT | d3m4-l1, d3m4-a1, d3m4-kc, d5m5-l1, d5m5-a1, d5m5-kc |
 | `D3#28` | Skill Building: The “Doe v. Apex” Final Net Challenge | ✅ BUILT | d3m4-a1, d5m5-a1 |
@@ -176,12 +176,12 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D4#23` | Arbitration Binders: Section 3 — Liabilities & Biomechanical Evidence | ✅ BUILT | d4m3-l2, d4m3-a2 |
 | `D4#24` | Arbitration Binders: Section 4 — Proving Bodily Accident Medical Damages | ✅ BUILT | d4m3-l2, d4m3-a2, d4m3-kc |
 | `D4#25` | Arbitration Binders: Section 5 — The Prior Medical Shield | ✅ BUILT | d4m3-l2, d4m3-a2 |
-| `D4#26` | Arbitration Binders: Section 6 — Economic Losses & Lien Reconciliations | ✅ BUILT | d4m3-l2, d4m3-a2, d4m3-kc |
+| `D4#26` | Arbitration Binders: Section 6 — Economic Losses & Lien Reconciliations | ✅ BUILT | d2m2-eob, d4m3-l2, d4m3-a2, d4m3-kc |
 | `D4#27` | Skill Building: The PI Critical Thinking Audit Challenge (Arbitration) | ✅ BUILT | d4m3-a2 |
 | `D4#28` | Skill Building: The Arbitration Audit & Binder Build | ✅ BUILT | d4m3-a2 |
 | `D4#29` | Common Bottlenecks: Mediation (The Compromise Traps) | ✅ BUILT | d4m4-l1, d4m4-a1, d4m4-a2, d4m4-kc |
 | `D4#30` | Common Bottlenecks: Arbitration (The Trial-Ready Landmines) | ✅ BUILT | d4m4-l1, d4m4-a2, d4m4-kc |
-| `D4#31` | Case Manager Operational Countermeasures: The 48-Hour Mandate | ✅ BUILT | d4m1-a1, d4m1-l2, d4m1-a2, d4m4-a1, d4m4-l2, d4m4-a2, d4m4-kc |
+| `D4#31` | Case Manager Operational Countermeasures: The 48-Hour Mandate | ✅ BUILT | d2m2-eob, d4m1-a1, d4m1-l2, d4m1-a2, d4m4-a1, d4m4-l2, d4m4-a2, d4m4-kc |
 
 ## Existing Day 5 — Litigation, Property Damage, Liability Disputes & MIA Clients
 

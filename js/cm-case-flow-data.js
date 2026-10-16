@@ -2261,6 +2261,15 @@ window.CM_CASE_FLOW = {
       title: "Treatment Phase Operations, LOP Issuance & Provider Oversight",
       about: "Keeping John Doe's treatment moving and paid for: the Payer Order in practice, LOPs on counsel's terms, the MedPay ledger, and the A-C-T protocol the day care breaks down.",
       quiz: [
+        {q: "Peach State's 06/03/2026 EOB for Crescent's injection shows billed $3,400.00, plan paid $1,860.00 and member responsibility $0.00. On 07/01/2026 Crescent mails John Doe a statement for $1,540.00. What is it?",
+         opts: ["A balance John Doe owes, now that his insurance has processed the claim", "A new lien to add to the Lien Tracker at $1,540.00", "A balance bill of the contractual write-off: document it, route it to Atty. Thorne and ask Crescent in writing to correct the account", "Peach State's reimbursement claim"],
+         a: 2, r: "In network, Crescent agreed to accept the allowed $1,860.00 as payment in full (CO-45), and the EOB shows John Doe's share as $0.00. The $1,540.00 is the write-off: not a debt and not a lien. Whether he owes it is Atty. Thorne's call; you document it, route it, request the correction in writing and tell John Doe what you are doing."},
+        {q: "Where does Peach State's reimbursement claim on Crescent's bill start?",
+         opts: ["$3,400.00, the amount billed", "$1,860.00, what the plan paid", "$1,540.00, the contractual adjustment", "$0.00, because member responsibility is $0.00"],
+         a: 1, r: "A plan can claim back only what it paid. The EOB's plan-paid line, $1,860.00 (EFT PSH-EFT-0603-77815), is where its claim starts, and its itemized lien must match its EOBs line by line."},
+        {q: "A provider sends Harbor Point a new bill for John Doe on 07/08/2026. What happens, and what do you do?",
+         opts: ["Harbor Point pays it from the $20,000 Host UM limit", "It comes back with a notice of exhaustion, because MedPay's $5,000.00 was used up on 06/26/2026; the bill goes to the next payer in the Payer Order", "Harbor Point pays it and asks John Doe to repay it from his recovery", "It is added to the $40,000 stack"],
+         a: 1, r: "Harbor Point's payment history (RS31) shows five checks totalling $5,000.00, the last on 06/26/2026, and says bills received after exhaustion are returned with a notice of exhaustion. MedPay payments don't reduce the UM limit, Harbor Point asserts no reimbursement right, and MedPay is never part of the stack."},
         {q: "On 03/11/2026 Summit Imaging Center asks for an LOP before John Doe's cervical MRI. What do you do?",
          opts: ["Issue the LOP on the firm's template so the MRI isn't delayed", "Ask Peach State to pre-authorize the MRI, and issue an LOP for anything it won't pay", "Decline: MedPay pays first, so give Summit the Harbor Point MedPay billing details and log the decline", "Tell Summit the firm will guarantee its bill at settlement"],
          a: 2, r: "Payer order: MedPay → Peach State → LOP. MedPay had $3,675.00 left, enough for the $2,395.00 MRI. An unnecessary LOP turns a bill an earlier payer would cover into a lien on John Doe's net, and only Atty. Thorne sets LOP terms or commits the firm to anything."},
@@ -2344,6 +2353,78 @@ window.CM_CASE_FLOW = {
           "Put to the room: “Riverton Spine & Rehab and Summit Imaging both asked for an LOP. Why did one get it and the other not?” The answer is the Payer Order, not the provider's preference.",
           "Watch for trainees who treat an LOP as free. It is a promise the firm keeps out of John Doe's recovery, and every dollar on it is a dollar Day 3 has to negotiate.",
           "Legal nuance: how MedPay's $5,000 is spent across providers, and what Harbor Point's 03/02/2026 confirmation of no reimbursement right means for the UM claim, are Atty. Thorne's calls. You record the facts and run the ledger."
+        ]
+      },
+
+      {
+        kind: "lesson", id: "d2m2-eob",
+        title: "Explanation of Benefits (EOB) & MedPay",
+        topic: "Reading what each payer paid, and what is still owed",
+        visual: "Two documents side by side, each read line by line. Left, Peach State's Explanation of Benefits for claim PS-2605-449021, with a red stamp THIS IS NOT A BILL: six rows (Billed $3,400.00 · Allowed $1,860.00 · Contractual adjustment $1,540.00 · Deductible/copay $0.00 · Plan paid $1,860.00 · Member responsibility $0.00), each with an orange callout tag naming where it goes on the file (Specials · write-off, owed by nobody · Peach State's reimbursement claim · the most Crescent may bill). Right, Harbor Point's MedPay payment history: five checks in date order with a falling limit bar, $5,000.00 → $0.00, stamped EXHAUSTED 06/26/2026. Below, Crescent's 07/01/2026 patient statement for $1,540.00 with a red question mark, joined by a dashed line to the EOB's $0.00 member-responsibility row and labelled BALANCE BILL?",
+        tell: {
+          why: "Every payer reports what it did with a bill: Peach State in an Explanation of Benefits, Harbor Point in its MedPay payment history. Read line by line, they say what was billed, what was paid, what was written off and what John Doe may still owe. They are the proof behind the Medical Specials, every lien amount, and every answer you give a provider or John Doe about a balance.",
+          rules: [
+            "An EOB is a health plan's statement to its member of how it processed one claim, and it says so: THIS IS NOT A BILL. Peach State's EOB of 06/03/2026 (claim PS-2605-449021) covers Crescent Pain & Spine's 05/15/2026 cervical epidural injection.",
+            "Read its columns in order: amount billed ($3,400.00) → plan allowed ($1,860.00) → contractual adjustment ($1,540.00, the provider's write-off) → deductible, copay or coinsurance ($0.00) → plan paid ($1,860.00, EFT PSH-EFT-0603-77815) → member responsibility ($0.00).",
+            "Read the remark codes: CO-45 means the charge exceeded the in-network fee schedule and the difference is the provider's contractual obligation; AC1 flags the service as possibly accident-related, which is how the plan's reimbursement right attaches to the claim.",
+            "Member responsibility is the most an in-network provider may bill the patient. Crescent's patient statement of 07/01/2026 asks John Doe for $1,540.00, the amount the EOB shows as written off: treat it as a balance bill, not a debt and not a lien.",
+            "On a balance bill: document it beside the EOB, route it to Atty. Thorne the same day, draft the written request that Crescent correct its account, and tell John Doe what you are doing and when he will hear back. Whether he owes anything is counsel's call.",
+            "A plan's reimbursement claim is what it paid, never what was billed: Peach State's claim on Crescent's bill starts at $1,860.00. When its itemized lien arrives, match every line to an EOB; a line no EOB supports, or one unrelated to the collision, goes to Atty. Thorne.",
+            "The EOB's AC1 remark asks for the plan's accident questionnaire. Route it to Atty. Thorne before John Doe returns it: what it says about the accident and the other insurance is a statement on the file.",
+            "MedPay sends no EOB, but Harbor Point reports its payments the same way: its payment history (RS31) lists each check by date of service, payee, amount billed, amount paid and the limit remaining. It paid every bill at the amount billed, in the order received.",
+            "Harbor Point's five checks: $685.00 (Riverton Urgent Care), $640.00, $640.00 and $640.00 (Lakeside Orthopedics) and $2,395.00 (Summit Imaging) = $5,000.00, exhausted 06/26/2026. Bills it receives after that come back with a notice of exhaustion: send the next one to the next payer in the Payer Order.",
+            "Reconcile every provider to its payers: each statement must show the MedPay check or the plan's payment as a credit. A provider still showing a balance on a paid date of service has a billing error, not a lien. Medical Specials keep the billed amounts the audit holds ($14,817.40); the lien register carries only what each payer can claim back."
+          ],
+          upl: [
+            "You may read, reconcile and report what an EOB or a payment history shows, and ask a provider in writing to correct an account. Whether a balance is owed, whether a write-off may be billed, and how to answer the plan's accident questionnaire are Atty. Thorne's calls."
+          ]
+        },
+        show: {
+          caption: "Peach State's EOB for Crescent's 05/15/2026 injection, read line by line",
+          type: "table",
+          head: ["EOB line", "Amount", "What it means", "On the file"],
+          rows: [
+            ["Amount billed", "$3,400.00", "Crescent's charge for the injection", "Medical Specials"],
+            ["Plan allowed", "$1,860.00", "Peach State's in-network fee schedule", "The most the plan pays"],
+            ["Contractual adjustment", "$1,540.00", "CO-45: the provider's write-off", "Owed by nobody"],
+            ["Deductible · copay · coinsurance", "$0.00", "John Doe's share under his plan", "Nothing to pay"],
+            ["Plan paid", "$1,860.00", "EFT PSH-EFT-0603-77815, 06/03/2026", "Peach State's reimbursement claim"],
+            ["Member responsibility", "$0.00", "The most Crescent may bill John Doe", "Its $1,540.00 statement is a balance bill"]
+          ]
+        },
+        ops: [
+          ["An EOB arrives", "Post billed, allowed, adjustment, paid and member share against the visit", "CMS → Liens · CMS → Documents", "Plan paid $1,860.00 logged; claim PS-2605-449021 linked to the visit"],
+          ["A MedPay check clears", "Post the check, the date of service and the limit remaining", "CMS → Insurance tab → MedPay ledger", "Ledger ties to Harbor Point's payment history, $0.00 left after 06/26/2026"],
+          ["A patient statement shows a balance", "Compare it with the EOB's member responsibility; route any balance bill", "CMS → Liens · Email Workspace", "$1,540.00 flagged; Atty. Thorne told the same day; correction request drafted"],
+          ["The plan's itemized lien arrives", "Match each line to an EOB and to the collision", "CMS → Liens → Peach State", "Only EOB-backed, accident-related lines stand"]
+        ],
+        best: [
+          "Read every EOB down to the member-responsibility line before you answer a balance question.",
+          "Ask each provider for an itemized statement that shows every payer's credit.",
+          "Keep billed and paid on the same CMS line, so neither number is lost.",
+          "Tell John Doe what you are doing about a bill, and when he will hear back.",
+          "Pitfall: logging a lien at the billed amount instead of what the plan paid.",
+          "Pitfall: treating a contractual write-off as a balance the client owes.",
+          "Pitfall: sending a bill to MedPay after its 06/26/2026 exhaustion."
+        ],
+        sources: ["D4#26", "D4#31", "D3#25", "D1#23"],
+        rubric: {
+          ai: [
+            ["Reads the EOB", 20, "Each line read correctly: billed, allowed, adjustment, member share, plan paid, and the CO-45 and AC1 remarks"],
+            ["MedPay reconciled", 20, "Five checks to $5,000.00, exhausted 06/26/2026, each tied to its provider's statement"],
+            ["Balance bill handled", 20, "Crescent's $1,540.00 identified as the write-off, routed to Atty. Thorne, correction requested in writing"]
+          ],
+          trainer: [
+            ["Grasps the consequence", 25, "Explains how a misread EOB inflates a lien or leaves the client paying a bill he may not owe"],
+            ["UPL boundary", 15, "No answer to whether John Doe owes the balance; the questionnaire goes to counsel"]
+          ]
+        },
+        notes: [
+          "Hand out RS26 and read the EOB with the room, column by column, before you show the slide. Ask: “What does John Doe owe Crescent?” The EOB says $0.00.",
+          "Then turn the page to Crescent's 07/01/2026 statement for $1,540.00. Ask: “Is this a lien we missed, or a bill nobody owes?” It is the write-off, billed to the patient.",
+          "Make the lien point with one number: Peach State can claim back what it paid, $1,860.00, never the $3,400.00 billed.",
+          "Walk Harbor Point's RS31 down to the $0.00 line on 06/26/2026, and ask where the next bill goes. The Payer Order answers it.",
+          "Close on the boundary: you read, reconcile and report; whether John Doe owes a balance is Atty. Thorne's call."
         ]
       },
 
@@ -2548,6 +2629,8 @@ window.CM_CASE_FLOW = {
         visual: "The standard knowledge-check split. Upper half: the question panel on the cream card with the orange ruled border, questions numbered in orange. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with three prompts, beside the 1–5 SKILL SCALE ladder with its six competency rows. Module-specific addition across the top: a thin payer rail, MEDPAY → PEACH STATE → LOP, with a small gauge showing MedPay at $0.00 after 06/12/2026. Far right, the 60/40 split as a stacked bar, 60% AI in navy and 40% Trainer in orange, with UPL as a separate red gate chip outside the bar.",
         check: {
           questions: [
+            "Read Peach State's 06/03/2026 EOB (claim PS-2605-449021) line by line: what does each amount mean, and where does each one go on John Doe's file?",
+            "Crescent's 07/01/2026 statement asks John Doe for $1,540.00. What does the EOB show, what do you do, and what do you tell him?",
             "Riverton Spine & Rehab got an LOP on 02/23/2026; Summit Imaging's 03/11/2026 request was declined. Explain both decisions from the Payer Order, and what you may and may not tell either provider.",
             "Post the MedPay ledger in date order and show the visit on which $5,000.00 runs out. What happens to the next bill once MedPay is exhausted?",
             "Place John Doe on the Standard Treatment Map on 04/08/2026 and on 06/12/2026, and name the Case Manager's focus in each phase.",
@@ -2562,6 +2645,8 @@ window.CM_CASE_FLOW = {
             "Identify the one thing in this module you are least confident about, and what you would need in order to be confident."
           ],
           scale: [
+            "Reading an EOB line by line, remark codes included",
+            "Reconciling provider balances to the EOBs and the MedPay ledger",
             "Applying the payer order: MedPay, then the Health Plan, then an LOP",
             "Preparing and transmitting an LOP on counsel's terms, and declining one",
             "Keeping a MedPay exhaustion ledger and LOP balances current",
@@ -7548,7 +7633,7 @@ window.CM_CASE_FLOW = {
     ]},
     {n: 2, phases: [
       {title: "Client Communications", lead: "Operational Focus", workstream: "care", blocks: ["d2m3-l1", "d1m2-l1", "d1m2-l2", "d1m2-a1", "d1m2-a2", "d1m2-kc"]},
-      {title: "Treatment", workstream: "care", blocks: ["d2m2-l2", "d2m2-l1", "d2m3-l2", "d2m2-a1", "d2m3-a1", "d2m2-a2", "d2m3-a2", "d2m2-kc", "d2m3-kc"]},
+      {title: "Treatment", workstream: "care", blocks: ["d2m2-l2", "d2m2-l1", "d2m2-eob", "d2m3-l2", "d2m2-a1", "d2m3-a1", "d2m2-a2", "d2m3-a2", "d2m2-kc", "d2m3-kc"]},
       {title: "Pre-Demand Case Auditing", blocks: ["d2m4-l1", "d2m4-l2", "d2m4-a1", "d2m4-a2", "d2m4-kc"]}
     ]},
     {n: 3, phases: [

@@ -1752,6 +1752,119 @@ window.CM_CF_SLIDES = {
    }
   }
  },
+ "d2m2-eob": {
+  "image": "money-ledger",
+  "hook": "Every bill's story is in **the EOB and the MedPay ledger**: read them before you answer",
+  "points": [
+   "Read billed, allowed, **write-off, paid**, member share, in order",
+   "Member responsibility is **the most a provider may bill**",
+   "A plan's lien starts at **what it paid**, never billed",
+   "MedPay paid **$5,000.00 in five checks**; exhausted 06/26/2026"
+  ],
+  "upl": "Read and report what payers paid; whether a balance is owed is Atty. Thorne's",
+  "job": [
+   [
+    "An EOB arrives",
+    "Post billed, allowed, paid, member share",
+    "CMS → Liens",
+    "Plan paid $1,860.00 logged"
+   ],
+   [
+    "A MedPay check clears",
+    "Post check and limit remaining",
+    "CMS → MedPay ledger",
+    "Ties to Harbor Point's history"
+   ],
+   [
+    "A patient statement shows a balance",
+    "Compare with member responsibility",
+    "CMS → Liens · Email Workspace",
+    "Balance bill routed to Atty. Thorne"
+   ]
+  ],
+  "dos": [
+   "Read every EOB to **the member-responsibility line**",
+   "Keep billed and paid **on the same CMS line**",
+   "Tell John Doe **what you are doing** about a bill"
+  ],
+  "donts": [
+   "A lien logged **at the billed amount**",
+   "A contractual write-off treated as **the client's debt**",
+   "A bill sent to MedPay **after 06/26/2026**"
+  ],
+  "theory": {
+   "lead": "Every payer reports what it did with a bill: the Health Plan in an **Explanation of Benefits**, MedPay in its payment history. Read both before any lien.",
+   "concepts": [
+    {
+     "term": "Explanation of Benefits",
+     "text": "The plan's account of one processed claim: **not a bill**, but proof of who paid what"
+    },
+    {
+     "term": "Billed vs. Allowed",
+     "text": "Billed is the provider's charge; allowed is the plan's fee schedule. **The gap is written off** in network"
+    },
+    {
+     "term": "Remark Codes",
+     "text": "Short codes that explain each line: CO-45 is the fee-schedule write-off, AC1 **flags a possible accident**"
+    },
+    {
+     "term": "Member Responsibility",
+     "text": "The deductible, copay and coinsurance left to the patient: **the most a provider may bill** in network"
+    },
+    {
+     "term": "Balance Billing",
+     "text": "Billing the patient for a contractual write-off: **not allowed in network**, so an error, not a lien"
+    },
+    {
+     "term": "MedPay Payment History",
+     "text": "The carrier's ledger of every MedPay check: date of service, amount paid and **the limit remaining**"
+    },
+    {
+     "term": "Exhaustion",
+     "text": "Once MedPay's limit is spent, later bills come back unpaid: **route them to the next payer**"
+    },
+    {
+     "term": "Reconciliation",
+     "text": "Matching every provider balance to each payer's EOB or check, so **no paid bill becomes a lien**"
+    }
+   ],
+   "pages": [
+    "D4#35",
+    "D3#20"
+   ],
+   "framework": {
+    "title": "Reading an EOB",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Match the claim",
+      "text": "Member ID, claim number, provider and date of service against the CMS treatment record"
+     },
+     {
+      "label": "Billed to allowed",
+      "text": "The charge, the plan's allowed amount, and the contractual adjustment it wrote off"
+     },
+     {
+      "label": "The patient's share",
+      "text": "Deductible, copay and coinsurance: **member responsibility** is the most a provider may bill"
+     },
+     {
+      "label": "What the plan paid",
+      "text": "The payment, its date and its EFT or check number: where any reimbursement claim starts"
+     },
+     {
+      "label": "Read the remark codes",
+      "text": "CO-45 explains the write-off; AC1 flags an accident and the plan's reimbursement right"
+     },
+     {
+      "label": "Reconcile and log",
+      "text": "Tie it to the provider's statement and the lien register; flag any balance billing"
+     }
+    ],
+    "note": "MedPay's payment history reads the same way: date of service, billed, paid, check number and the limit remaining"
+   }
+  }
+ },
  "d2m2-a1": {
   "image": "medical-visit",
   "situation": "02/23/2026. Urgent care's $685.00 went to MedPay. Riverton Spine & Rehab, **out of network** for Peach State, starts care 02/24/2026. On 03/11/2026 Summit Imaging asks for **an LOP for the MRI**.",
@@ -1934,6 +2047,8 @@ window.CM_CF_SLIDES = {
  "d2m2-kc": {
   "image": "knowledge-check",
   "questions": [
+   "Read Peach State's 06/03/2026 EOB line by line. What does **each amount** mean for the file?",
+   "Crescent bills John Doe $1,540.00 on 07/01/2026. **What do you do**, and what do you tell him?",
    "Using **the Payer Order**, explain Riverton's LOP and Summit's decline, and what you may tell each provider.",
    "Post the MedPay ledger: which visit exhausts **the $5,000.00**, and what happens to the next bill?",
    "On 04/08/2026 and 06/12/2026, place John Doe on the Standard Treatment Map and name **the Case Manager's focus**.",
