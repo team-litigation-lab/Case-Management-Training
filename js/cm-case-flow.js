@@ -386,6 +386,7 @@ function selfSummary(b, day, mod, part){   // part: "qs" (the prompts) or "scale
   const st = `<span class="cf-ss-st" id="cfss_st_${mod.id}">${m.savedAt ? "Saved " + E(new Date(m.savedAt).toLocaleString()) : ""}</span>`;
   const save = `<button type="button" class="btn btn-ghost btn-sm" onclick="cmCaseFlow.save('${mod.id}')">Save</button>`;
   if(part === "qs") return `<div class="cf-ss" data-mod="${mod.id}">${qs}<div class="cf-ss-act">${save}${st}<span class="cf-note">Next: rate yourself on the Skill Scale, then submit.</span></div></div>`;
+  if(part === "page") return `<div class="cf-ss" data-mod="${mod.id}">${qs}${scale}<div class="cf-ss-act">${st}</div></div>`;
   return `<div class="cf-ss" data-mod="${mod.id}">${part === "scale" ? "" : qs}${scale}
       <div class="cf-ss-act">${save}
       <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.review(${day.id},'${mod.id}')">Submit for review</button>
@@ -639,7 +640,7 @@ function card(l, i, d, part){
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">${E(l.cf.heading)}</h2></div>
       <div class="cfx-ribbon"><span>${E(titleCase(b.title))}</span></div>
       <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}</span>
-        <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.n}.${k + 1} · ${E(KIND[b.kind])}</span>
+        <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.n}.${k + 1} · ${E(KIND[b.kind])}</span>${timeChip(l, d)}
         <span class="cfx-tools" aria-label="Tools for this step">🛠 ${toolChips(blockTools(b), b.id)}</span>
         <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Full text</button></div>
       ${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}
@@ -672,29 +673,71 @@ if(typeof buildDaySlides === "function"){
     const s = __build.apply(this, arguments);
     if(!cfDay(d && d.id)) return s;
     // the day's lessons are already in the order the course teaches them (CF.sequence): each Case Phase's
-    // lessons, uninterrupted → its activities and practice → its Learning Check; each block is one slide per view
+    // lessons, uninterrupted → its activities and practice; each block is one slide per view. The Learning
+    // Checks (questions, Self-Summary, Skill Scale) aren't slides: they're on the day's Knowledge Check page.
     const out = [];
     s.forEach(sl => {
       if(sl.type !== "topic") return out.push(sl);
-      if(sl.part !== 1) return;
+      if(sl.part !== 1 || d.lessons[sl.lessonIndex].cf.block.kind === "check") return;
       viewsOf(d.lessons[sl.lessonIndex].cf.block).forEach((v, j) => out.push({type: "topic", lessonIndex: sl.lessonIndex, part: j + 1}));
     });
     return out;
   };
 }
+/* ---------- the 4-hour day: a 15–20 minute discussion for every topic, 30 minutes of Practice, a 10–15 minute
+   Knowledge Check (longer the more topics the day has); whatever is left is breaks and Q&A ---------- */
+const DAY_MIN = 240, PRACTICE_MIN = 30;
+function daySchedule(d){
+  const kindOf = l => l.cf.block.kind, n = d.lessons.filter(l => kindOf(l) === "lesson").length || 1;
+  const kc = Math.max(10, Math.min(15, Math.round(10 + (n - 8) * 2.5)));
+  const per = Math.max(15, Math.min(20, Math.floor((DAY_MIN - PRACTICE_MIN - kc) / n)));
+  const phases = d.cf.phases.map(ph => { const ls = d.lessons.filter(l => l.cf.phase === ph); return {ph, topics: ls.filter(l => kindOf(l) === "lesson").length, acts: ls.filter(l => kindOf(l) === "activity").length}; });
+  const acts = phases.reduce((a, x) => a + x.acts, 0) || 1;
+  let left = PRACTICE_MIN; phases.forEach((x, i) => { x.practice = i === phases.length - 1 ? left : Math.round(PRACTICE_MIN * x.acts / acts); left -= x.practice; x.discuss = x.topics * per; });
+  return {per, kc, practice: PRACTICE_MIN, phases, buffer: Math.max(0, DAY_MIN - n * per - PRACTICE_MIN - kc), topics: n};
+}
+const hm = m => `${Math.floor(m / 60)}:${String(m % 60).padStart(2, "0")}`;
+/* a trainer's countdown for a topic's discussion (or a phase's practice): tap the chip to start, tap again to stop */
+const TIMERS = {};
+window.cmCaseFlow = window.cmCaseFlow || {};
+window.cmCaseFlow.timer = function(key, min){
+  const t = TIMERS[key];
+  if(t && t.iv){ clearInterval(t.iv); delete TIMERS[key]; return paintTimers(); }
+  TIMERS[key] = {end: Date.now() + min * 60000, min, iv: setInterval(paintTimers, 1000)}; paintTimers();
+};
+function paintTimers(){
+  document.querySelectorAll(".cfx-time[data-k]").forEach(el => {
+    const t = TIMERS[el.dataset.k], base = el.dataset.label;
+    if(!t){ el.textContent = base; el.classList.remove("on", "over"); return; }
+    const ms = t.end - Date.now(), over = ms < 0, a = Math.abs(Math.round(ms / 1000));
+    el.textContent = `${over ? "+" : ""}${Math.floor(a / 60)}:${String(a % 60).padStart(2, "0")} ${over ? "over" : "left"}`;
+    el.classList.add("on"); el.classList.toggle("over", over);
+  });
+}
+function timeChip(l, d){
+  if(!d || !d.cf) return "";
+  const sc = daySchedule(d), b = l.cf.block, x = sc.phases.find(p => p.ph === l.cf.phase);
+  if(b.kind === "lesson") { const label = `💬 ${sc.per} min discussion`; return `<button type="button" class="cfx-time" data-k="t_${b.id}" data-label="${label}" title="This topic's discussion: ${sc.per} minutes. Tap to start a countdown." onclick="cmCaseFlow.timer('t_${b.id}',${sc.per})">${label}</button>`; }
+  if(b.kind === "activity" && x) { const label = `🧪 Practice · ${x.practice} min`; return `<button type="button" class="cfx-time" data-k="p_${d.id}_${x.ph.n}" data-label="${label}" title="This Case Phase's Skill Activities share ${x.practice} of the day's ${sc.practice} practice minutes. Tap to start a countdown." onclick="cmCaseFlow.timer('p_${d.id}_${x.ph.n}',${x.practice})">${label}</button>`; }
+  return "";
+}
 function agendaSlide(d){
   const logo = typeof LOGO_FULL_SRC !== "undefined" ? `<img class="cfx-logo" src="${LOGO_FULL_SRC}" alt="Legal Support Help">` : "";
   const src = CF.days.find(x => x.n === d.cf.n) || {};
-  const rows = d.cf.phases.map(ph => {
-    const ls = d.lessons.filter(l => l.cf.phase === ph), n = kind => ls.filter(l => l.cf.block.kind === kind).length;
-    return `<li><span class="cfx-ag-n">${String(ph.n).padStart(2, "0")}</span><div><b>${E(ph.title)}</b>
-      <small>${n("lesson")} lessons · Skill Building: ${n("activity")} activities in the CMS · Learning Check</small></div></li>`;
-  }).join("");
+  const sc = daySchedule(d);
+  const rows = sc.phases.map(({ph, topics, acts, discuss, practice}) => `<li><span class="cfx-ag-n">${String(ph.n).padStart(2, "0")}</span><div><b>${E(ph.title)}</b>
+      <small>💬 ${topics} topic${topics === 1 ? "" : "s"} × ${sc.per} min discussion · 🧪 ${acts} Skill Activit${acts === 1 ? "y" : "ies"} · ${practice} min practice</small></div><span class="cfx-ag-min">${discuss + practice} min</span></li>`).join("");
+  const plan = `<div class="cfx-ag-plan"><b>⏱ The ${DAY_MIN / 60}-hour day</b>
+      <span><i>💬 Discussion</i>${sc.topics} topics × ${sc.per} min = ${hm(sc.topics * sc.per)}</span>
+      <span><i>🧪 Practice</i>${sc.practice} min</span>
+      <span><i>🧠 Knowledge Check</i>${sc.kc} min</span>
+      ${sc.buffer ? `<span><i>☕ Breaks & Q&A</i>${sc.buffer} min</span>` : ""}
+      <span class="tot"><i>Total</i>${hm(DAY_MIN)}</span></div>`;
   return `<div class="card lesson-card cf-card cfx cfx-deck cfx-agenda">
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">Case Management Training</h2></div>
       <div class="cfx-ribbon"><span>Day ${d.cf.n} · Training Agenda</span></div>
       <div class="cfx-ag"><ol class="cfx-ag-list">${rows}</ol>
-        <div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div></div>
+        <div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p>${plan}</div></div>
     </div>`;
 }
 /* ---------- the live call: the course's own roleplay engine, on John Doe v. Robert Smith ---------- */
@@ -1133,10 +1176,84 @@ if(typeof submitQuiz === "function"){
       await load();
       Object.entries(by).forEach(([m, v]) => { rec(m).quiz = Object.assign(v, {pct: Math.round(v.correct / v.total * 100), at}); });
       await persist();
+      cmCaseFlow.autoReview(dayId);   // the rubric scoring runs by itself, module by module
     }
     return r;
   };
   submitQuiz = wrapped; window.submitQuiz = wrapped;
+}
+
+/* ---------- the Knowledge Check page: ① the quiz, ② each Case Phase's Learning Check & Self-Summary ----------
+   The Learning Checks aren't slides any more: the day's Knowledge Check is the quiz, then each module's written
+   questions, Self-Summary and Skill Scale. One Submit scores the quiz and sends every module to the AI reviewer
+   against its rubric, automatically (no separate "Submit for review"); the results fit one screen. */
+const words3 = (x, n) => String(x || "").trim().split(/\s+/).filter(Boolean).length >= n;
+const kcMods = d => d.lessons.filter(l => l.cf.block.kind === "check").map(l => ({b: l.cf.block, mod: l.cf.mod, ph: l.cf.phase}));
+function modMissing(b, modId){   // what's left to do on a module's Learning Check, or "" when it's complete
+  const m = rec(modId);
+  if(b.check.questions.some((_, j) => !words3(m.kc[j], 3))) return "answer each question";
+  if(b.check.summary.some((_, j) => !words3(m.answers[j], 12))) return "answer each Self-Summary prompt in a few sentences";
+  if(b.check.scale.some((_, j) => !m.scale[j])) return "rate yourself on every competency";
+  return "";
+}
+function writtenPart(d){
+  const day = d.cf, mods = kcMods(d), firstOpen = mods.findIndex(x => modMissing(x.b, x.mod.id));
+  return `<div class="cf-kc-written">${mods.map(({b, mod, ph}, i) => {
+      const left = modMissing(b, mod.id), m = rec(mod.id);
+      return `<details class="card cf-kc-mod" ${i === (firstOpen < 0 ? 0 : firstOpen) ? "open" : ""} data-mod="${mod.id}">
+        <summary><span class="cf-kc-mh"><small>Learning Check · ${day.n}.${ph.n} ${E(ph.title)}</small><b>${E(b.title)}</b></span><span class="cf-kc-badge ${left ? "" : "ok"}">${left ? "To do" : "Complete ✓"}</span></summary>
+        <h4>Knowledge Check questions</h4>
+        <ol class="cf-kc-qs">${b.check.questions.map((q, j) => `<li><span>${E(q)}</span><textarea id="cfkc_${mod.id}_${j}" rows="2" placeholder="Your answer, from the file" aria-label="Answer ${j + 1}" oninput="cmCaseFlow.kcDraft('${mod.id}',${j},this.value)">${E(m.kc[j] || "")}</textarea></li>`).join("")}</ol>
+        <h4>Self-Summary & Skill Scale</h4>
+        ${selfSummary(b, day, mod, "page")}
+      </details>`; }).join("")}
+    <div class="cf-kc-submit"><button class="btn btn-ghost" type="button" onclick="cmCaseFlow.kcPart('quiz')">← Back to the quiz</button>
+      <button class="btn btn-primary" style="padding:13px 28px;" type="button" ${state.quizSubmitting ? "disabled" : ""} onclick="cmCaseFlow.kcSubmit(${d.id})">Submit Knowledge Check</button>
+      <span class="cf-note">The quiz is scored at once; each Learning Check and Self-Summary is scored against its module's rubric automatically.</span></div></div>`;
+}
+const kcSig = (b, m) => JSON.stringify([m.kc, m.answers, m.scale]).length + ":" + JSON.stringify([m.kc, m.answers, m.scale]).replace(/\s+/g, " ").slice(0, 4000).split("").reduce((h, c) => (h * 31 + c.charCodeAt(0)) | 0, 7);
+function kcChip(modId){   // a module's scores, compact, for the results
+  const s = composite(rec(modId)), m = rec(modId);
+  const v = x => x == null ? "—" : x + "%";
+  return `<span>Automated <b>${v(s.a)}</b></span><span>Trainer <b>${v(s.t)}</b></span><span>Composite <b>${v(s.c)}</b></span>${m.ai ? "" : `<em id="cfkc_rv_${modId}">${state.cfReviewing && state.cfReviewing[modId] ? "Reviewing…" : "Review pending"}</em>`}`;
+}
+function cfResult(d){
+  const {lastScore, lastCorrect, lastTotal, lastPassed} = state;
+  const msg = lastPassed ? `That's a wrap on Case Flow Day ${d.cf.n}. Well done.` : "Not quite 70% yet. See which questions you missed below, then retake when you're ready.";
+  const history = (state.progress[d.id] && state.progress[d.id].history) || [];
+  const next = d.cf.n < MODULES.length ? (dayUnlocked(cfIdOf(d.cf.n + 1)) ? `<button class="btn btn-primary" onclick="goToNextDay(${d.id})">Continue to Case Flow Day ${d.cf.n + 1} →</button>` : "")
+    : (typeof certData === "function" && certData().eligible ? `<button class="btn btn-primary" onclick="openCertificate()">🎓 View Certificate of Completion</button>` : "");
+  return `<div class="card quiz-result cf-kc-result">
+      <div class="cf-kcr-top">
+        <div class="cf-kcr-score">${typeof sealSvg === "function" ? sealSvg({size: 72, label: lastScore + "%", done: lastPassed}) : ""}<div><div class="big">${lastCorrect} / ${lastTotal} correct</div><div class="sub">${msg}</div></div></div>
+        <div class="cf-kcr-next">${renderQuizNextStep(d, lastPassed)}</div>
+      </div>
+      <div class="cf-kcr-mods">${kcMods(d).map(({b, mod, ph}) => `<div class="cf-kcr-mod"><small>${d.cf.n}.${ph.n} ${E(ph.title)}</small><b>${E(b.title)}</b><div class="cf-kcr-chips" id="cfkc_res_${mod.id}">${kcChip(mod.id)}</div></div>`).join("")}</div>
+      <div class="cf-kcr-foot">
+        <div class="cf-kcr-btns"><button class="btn btn-ghost btn-sm" onclick="retakeQuiz(${d.id})">Retake Quiz</button>
+          <button class="btn btn-ghost btn-sm" onclick="downloadQuizResultPdf(${d.id})">⬇ Download PDF</button>
+          <button class="btn btn-ghost btn-sm" onclick="returnToLessonCard(${d.id})">Return to Progress</button>${next}</div>
+        ${history.length ? `<div class="cf-kcr-hist">Attempts: ${history.map(h => `<span class="${h.passed ? "qh-pass" : "qh-fail"}">${h.score}%</span>`).join(" · ")}</div>` : ""}
+        ${typeof renderQuickDayFeedback === "function" ? `<div class="cf-kcr-fb">${renderQuickDayFeedback(d.id)}</div>` : ""}
+      </div>
+    </div>
+    <div id="answerFeedback"></div>`;
+}
+if(typeof renderQuiz === "function"){
+  const __quiz = renderQuiz;
+  const quiz = function(d){
+    if(!d || !d.cf) return __quiz.apply(this, arguments);
+    if(state.quizSubmitted) return relabel(cfResult(d), d);
+    const mods = kcMods(d), done = mods.filter(x => !modMissing(x.b, x.mod.id)).length, answered = Object.keys(state.quizAnswers || {}).length;
+    const part = state.cfKcPart === "written" && state.cfKcDay === d.id ? "written" : "quiz";
+    const step = (k, label, sub) => `<button type="button" class="cf-kc-step${part === k ? " on" : ""}" onclick="cmCaseFlow.kcPart('${k}')"><b>${label}</b><small>${sub}</small></button>`;
+    const steps = `<div class="cf-kc-steps">${step("quiz", "① Quiz", `${answered} of ${d.quiz.length} answered`)}${step("written", "② Learning Checks & Self-Summary", `${done} of ${mods.length} complete`)}</div>`;
+    if(part === "written") return steps + writtenPart(d);
+    const h = __quiz.apply(this, arguments).replace(/<button class="btn btn-primary"([^>]*)onclick="submitQuiz\((\d+)\)">Submit Knowledge Check<\/button>/,
+      `<button class="btn btn-primary" style="padding:13px 28px;" ${answered >= d.quiz.length ? "" : "disabled"} onclick="cmCaseFlow.kcPart('written')">Next: Learning Checks &amp; Self-Summary →</button>`);
+    return steps + h;
+  };
+  renderQuiz = quiz; window.renderQuiz = quiz;
 }
 
 /* ---------- the trainee's actions ---------- */
@@ -1153,10 +1270,38 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
   tick(blockId, j, on){ REC.ticks = REC.ticks || {}; (REC.ticks[blockId] = REC.ticks[blockId] || [])[j] = !!on; persist(); },
   kcDraft(modId, j, v){ rec(modId).kc[j] = v; clearTimeout(draftTimer); draftTimer = setTimeout(() => { persist(); status(modId, "Draft saved"); }, 900); },
   async save(modId){ const m = readForm(modId); m.savedAt = new Date().toISOString(); await persist(); status(modId, "Saved " + new Date(m.savedAt).toLocaleString()); },
-  async review(dayId, modId){
-    const d = cfDay(dayId), m = readForm(modId);
+  kcPart(part){ state.cfKcPart = part; state.cfKcDay = state.dayId; const w = document.getElementById("quizWrap"); if(w) w.innerHTML = renderQuiz(DAYS.find(x => x.id === state.dayId)); window.scrollTo({top: 0, behavior: "smooth"}); },
+  async kcSubmit(dayId){
+    const d = cfDay(dayId); if(!d) return;
+    if(Object.keys(state.quizAnswers || {}).length < d.quiz.length){ if(typeof toast === "function") toast(`Answer all ${d.quiz.length} quiz questions first.`); return cmCaseFlow.kcPart("quiz"); }
+    document.querySelectorAll(".cf-kc-mod .cf-ss").forEach(el => readForm(el.dataset.mod));
+    const miss = kcMods(d).find(x => modMissing(x.b, x.mod.id));
+    if(miss){
+      if(typeof toast === "function") toast(`${miss.b.title}: ${modMissing(miss.b, miss.mod.id)} first.`);
+      const el = document.querySelector(`.cf-kc-mod[data-mod="${miss.mod.id}"]`); if(el){ el.open = true; el.scrollIntoView({behavior: "smooth", block: "start"}); }
+      return;
+    }
+    await persist();
+    state.cfKcPart = "quiz";
+    return submitQuiz(dayId);
+  },
+  async autoReview(dayId){
+    const d = cfDay(dayId); if(!d) return;
+    for(const {b, mod} of kcMods(d)){
+      const m = rec(mod.id);
+      if(modMissing(b, mod.id) || (m.ai && m.ai.sig === kcSig(b, m))) continue;   // incomplete, or already scored as it stands
+      state.cfReviewing = Object.assign(state.cfReviewing || {}, {[mod.id]: true});
+      const el = document.getElementById(`cfkc_rv_${mod.id}`); if(el) el.textContent = "Reviewing…";
+      try{ await cmCaseFlow.review(dayId, mod.id, true); }catch(e){}
+      state.cfReviewing[mod.id] = false;
+      const res = document.getElementById(`cfkc_res_${mod.id}`); if(res) res.innerHTML = kcChip(mod.id);
+    }
+  },
+  async review(dayId, modId, auto){
+    const d = cfDay(dayId), m = auto ? rec(modId) : readForm(modId);
     const mod = allMods().map(x => x.m).find(x => x.id === modId);
     const b = mod.blocks.find(x => x.kind === "check");
+    if(auto && modMissing(b, modId)) return;
     if(m.answers.filter(a => String(a || "").trim().split(/\s+/).length >= 12).length < b.check.summary.length){
       if(typeof toast === "function") toast("Answer each Self-Summary prompt in a few sentences first."); return;
     }
@@ -1184,7 +1329,7 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
     try{
       const rep = await runRubricEvaluation(label, ctx, text, notes);
       m.ai = {score: Math.round(rep.totalScore), tier: rep.gradeTier || "", strengths: (rep.strengths || []).slice(0, 3),
-              gaps: (rep.blindspots || []).slice(0, 3), growth: (rep.growthSuggestions || []).slice(0, 2), at: new Date().toISOString()};
+              gaps: (rep.blindspots || []).slice(0, 3), growth: (rep.growthSuggestions || []).slice(0, 2), at: new Date().toISOString(), sig: kcSig(b, m)};
       await persist();
       status(modId, "Reviewed");
     }catch(e){
@@ -1576,6 +1721,37 @@ if(typeof window.renderPracticeHub === "function"){
 
 /* ---------- styles: only what the course's own classes don't already give ---------- */
 const st = document.createElement("style"); st.id = "cm-case-flow"; st.textContent = `
+.cf-kc-steps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 14px;}
+.cf-kc-step{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:10px 16px;border-radius:12px;border:1.5px solid var(--line,#D6DAE4);background:#fff;color:var(--navy);cursor:pointer;text-align:left;}
+.cf-kc-step b{font:800 15px 'Poppins','Inter',sans-serif;}.cf-kc-step small{font:500 12.5px var(--font-ui);color:var(--ink-soft,#5B6178);}
+.cf-kc-step.on{background:#262B45;border-color:#262B45;color:#fff;}.cf-kc-step.on small{color:#C9CFE0;}
+.cf-kc-mod{padding:0;margin:0 0 12px;overflow:hidden;}
+.cf-kc-mod > summary{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;list-style:none;}
+.cf-kc-mod > summary::-webkit-details-marker{display:none;}
+.cf-kc-mh{display:flex;flex-direction:column;gap:2px;}.cf-kc-mh small{font:700 11.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--orange-deep);}
+.cf-kc-mh b{font:700 17px 'Fraunces',Georgia,serif;color:var(--navy);}
+.cf-kc-badge{font:700 12px var(--font-ui);padding:4px 10px;border-radius:999px;background:#FFF1E2;color:#9A4E12;white-space:nowrap;}.cf-kc-badge.ok{background:#E6F4EC;color:#1F6B43;}
+.cf-kc-mod[open] > summary{border-bottom:1px solid var(--line,#E3E6EE);}
+.cf-kc-mod h4{margin:14px 18px 8px;font:800 13px 'Poppins','Inter',sans-serif;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);}
+.cf-kc-qs{margin:0 18px 6px;padding-left:20px;display:flex;flex-direction:column;gap:10px;}
+.cf-kc-qs li > span{display:block;font:600 14.5px/1.4 var(--font-ui);color:var(--ink);margin-bottom:4px;}
+.cf-kc-qs textarea{width:100%;box-sizing:border-box;font:14px/1.4 var(--font-ui);padding:8px 10px;border:1px solid var(--line,#D6DAE4);border-radius:8px;resize:vertical;}
+.cf-kc-mod .cf-ss{padding:0 18px 14px;}
+.cf-kc-submit{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:6px 0 4px;}
+.cf-kc-result{padding:18px 22px !important;text-align:left !important;}
+.cf-kcr-top{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px;align-items:center;}
+.cf-kcr-score{display:flex;align-items:center;gap:14px;}.cf-kcr-score .big{font-size:30px !important;margin:0 !important;}.cf-kcr-score .sub{margin-top:2px;}
+.cf-kcr-next .quiz-next-step{margin:0 !important;text-align:left;}
+.cf-kcr-mods{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:14px 0 10px;}
+.cf-kcr-mod{background:#F6F7FB;border:1px solid var(--line,#E3E6EE);border-radius:10px;padding:8px 12px;font-size:12.5px;}
+.cf-kcr-mod > b{display:block;color:var(--navy);margin-bottom:4px;font-size:13px;line-height:1.3;}
+.cf-kcr-mod > small{display:block;font:700 10.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--orange-deep);}
+.cf-kcr-chips{display:flex;flex-wrap:wrap;gap:4px 12px;color:var(--ink-soft,#5B6178);}.cf-kcr-chips b{color:var(--navy);}.cf-kcr-chips em{color:var(--orange-deep);font-style:normal;font-weight:700;}
+.cf-kcr-foot{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;}
+.cf-kcr-btns{display:flex;flex-wrap:wrap;gap:8px;}
+.cf-kcr-hist{font-size:12.5px;color:var(--ink-soft,#5B6178);}.cf-kcr-hist .qh-pass{color:#1F6B43;font-weight:700;}.cf-kcr-hist .qh-fail{color:#B54A3F;font-weight:700;}
+.cf-kcr-fb{flex:1 1 100%;}.cf-kcr-fb > *{margin:0 !important;}
+@media(max-width:760px){.cf-kcr-top,.cf-kc-steps{grid-template-columns:minmax(0,1fr);}}
 .cf-px-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:0 0 14px;}
 .cf-px-tab{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:10px 14px;border-radius:12px;border:1.5px solid var(--line,#D6DAE4);background:#fff;color:var(--navy);font:800 15px 'Poppins','Inter',sans-serif;cursor:pointer;text-align:left;}
 .cf-px-tab small{font:500 12px/1.3 var(--font-ui);color:var(--ink-soft,#5B6178);}
@@ -1799,6 +1975,14 @@ main > .cf-side-presenter{display:none;}
 .cfx-task-card .cfx-chip{background:#262B45;color:#fff;}
 .cfx-task-card .cfx-situation{margin:8px 0 0;font-size:22px;color:#1F2433;}
 /* the day's Training Agenda */
+.cfx-ag-list li > div{flex:1;min-width:0;text-align:left;}.cfx-ag-list li > div b, .cfx-ag-list li > div small{text-align:left;}
+.cfx-ag-min{margin-left:auto;font:800 14px 'IBM Plex Mono',monospace;color:#F4B77A;white-space:nowrap;}
+.cfx-ag-plan{margin-top:12px;border-top:1px solid #EADFD2;padding-top:10px;display:flex;flex-direction:column;gap:4px;font:600 14px/1.35 var(--font-ui);}
+.cfx-ag-plan b{font:800 15px 'Poppins','Inter',sans-serif;color:#262B45;margin-bottom:2px;}
+.cfx-ag-plan span{display:flex;justify-content:space-between;gap:10px;}.cfx-ag-plan i{font-style:normal;color:var(--ink-soft,#5B6178);}
+.cfx-ag-plan .tot{border-top:1px dashed #EADFD2;padding-top:4px;font-weight:800;color:#262B45;}
+.cfx-time{font:700 12px 'IBM Plex Mono',monospace;letter-spacing:.02em;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#F4B77A;cursor:pointer;white-space:nowrap;}
+.cfx-time.on{background:#DB8437;color:#fff;border-color:#DB8437;}.cfx-time.over{background:#B54A3F;border-color:#B54A3F;}
 .cfx-ag{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:22px;align-items:start;}
 .cfx-ag-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
 .cfx-ag-list li{text-align:left;display:flex;gap:16px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 16px;}
