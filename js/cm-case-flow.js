@@ -449,12 +449,22 @@ function falloutFor(blockId){
     return {f, done, what: String(what).replace(/\*\*/g, "")};
   }).filter(x => isTrainer() || !x.done);
 }
-const VIEW_LABEL = {why: "Why It Matters", rules: "The Rules", model: "See It", job: "On the Job", dodont: "Do & Don't",
+const VIEW_LABEL = {why: "Why It Matters", theory: "The Theory", theory2: "The Theory, Continued", rules: "The Rules", model: "See It", job: "On the Job", dodont: "Do & Don't",
   case: "Your Case", task: "Your Task", check: "Check Your Work", questions: "Knowledge Check", questions2: "Knowledge Check, Continued", summary: "Self-Summary", scale: "Skill Scale"};
-const VIEW_ICON = {why: "💡", rules: "📏", model: "🔍", job: "🛠", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
+const VIEW_ICON = {why: "💡", theory: "📚", theory2: "📚", rules: "📏", model: "🔍", job: "🛠", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
 const KC_PER = 4;   // Knowledge Check questions on one slide
+/* The Theory: the lesson's concepts from the original Canva decks (build/case-flow/slides/theory-dN.json), four to a
+   slide (a deep topic, 6–8 concepts, takes two), beside the deck pages they come from */
+const TH_PER = 4;
+const theoryOf = b => (SLIDES[b.id] || {}).theory || null;
+const theoryViews = b => { const t = theoryOf(b); return !t ? [] : t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]; };
+const deckPage = ref => {   // "D1#24" → the original deck page
+  const m = /^D(\d)#(\d+)$/.exec(ref || ""); if(!m) return null;
+  const D = window.CM_DECKS && window.CM_DECKS[m[1]], pg = D && D.pages && D.pages[m[2]];
+  return {day: +m[1], n: +m[2], src: `/decks/day${m[1]}/${String(m[2]).padStart(2, "0")}.webp`, title: pg ? pg.t : ""};
+};
 function viewsOf(b){
-  if(b.kind === "lesson") return ["why", "rules"].concat(b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length ? ["dodont"] : []);
+  if(b.kind === "lesson") return ["why"].concat(theoryViews(b), ["rules"],b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length ? ["dodont"] : []);
   if(b.kind === "activity") return ["case", "task"].concat(b.show ? ["model"] : [], ["check"]);
   return (copyOf(b).questions.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
 }
@@ -472,7 +482,7 @@ function copyOf(b){   // the block's concise copy, or a condensed fallback from 
   const best = b.best || [], dos = best.filter(x => !/^pitfall/i.test(x)), donts = best.filter(x => /^pitfall/i.test(x)).map(x => x.replace(/^pitfall:\s*/i, ""));
   if(b.kind === "lesson") return {image: c.image, hook: c.hook || words(firstSentence(b.tell.why), 22), points: c.points || b.tell.rules.slice(0, 4).map(r => words(r, 16)),
     upl: c.upl !== undefined ? c.upl : ((b.tell.upl || [])[0] ? words(b.tell.upl[0], 18) : ""), job: c.job || (b.ops || []).slice(0, 3).map(r => r.map(x => words(x, 7))),
-    dos: c.dos || dos.slice(0, 3).map(x => words(x, 12)), donts: c.donts || donts.slice(0, 3).map(x => words(x, 12))};
+    dos: c.dos || dos.slice(0, 3).map(x => words(x, 12)), donts: c.donts || donts.slice(0, 3).map(x => words(x, 12)), theory: c.theory || null};
   if(b.kind === "activity") return {image: c.image, situation: c.situation || words(b.act.scenario, 36), steps: c.steps || [words(b.act.prompt, 30)],
     deliver: c.deliver || words(b.act.output, 18), checks: c.checks || b.act.checkpoints.slice(0, 5).map(x => words(x, 12)),
     dos: c.dos || dos.slice(0, 2).map(x => words(x, 12)), donts: c.donts || donts.slice(0, 2).map(x => words(x, 12))};
@@ -500,6 +510,7 @@ const TOOLKIT = [
   {id: "calendaring", icon: "🗓", short: "Calendaring", name: "the Calendaring Simulators", re: /Calendaring Simulators?/},
   {id: "plan", icon: "📝", short: "Action Plan", name: "your Action Plan", re: /Action Plan Editor|action plan/i},
   {id: "docs", icon: "📁", short: "Documents", name: "the Case Documents", re: /Case Documents/},
+  {id: "lor", icon: "📄", short: "LOR Drafting", name: "LOR Drafting (John Doe v. Robert Smith)", re: /\bLORs?\b|Letters? of Representation/},
 ];
 const TOOL = Object.fromEntries(TOOLKIT.map(t => [t.id, t]));
 /* The LSH Net Sheet is where the money is worked, and only there: Day 3's Settlement Negotiations, Lien Negotiations and
@@ -508,12 +519,16 @@ const TOOL = Object.fromEntries(TOOLKIT.map(t => [t.id, t]));
 const NET_PHASES = {"Settlement Negotiations": "recovery", "Lien Negotiations & Reduction": "liens", "Disbursement & Closing a Case": "final", "Case Won: Award & Disbursement": "litigation"};
 const NET_STAGE = {};
 (CF.sequence || []).forEach(d => d.phases.forEach(ph => { if(NET_PHASES[ph.title]) ph.blocks.forEach(id => { NET_STAGE[id] = NET_PHASES[ph.title]; }); }));
+/* LOR Drafting (js/cm-lor.js, on John Doe's file with no assignment) is the claims phase's: Claim Set Up drafts the LORs */
+const LOR_BLOCKS = new Set();
+(CF.sequence || []).forEach(d => d.phases.forEach(ph => { if(/^Claim Set Up/.test(ph.title)) ph.blocks.forEach(id => LOR_BLOCKS.add(id)); }));
 // the in-course pages a tool opens (anything else is a training platform in the tool frame)
-const PAGE = {plan: ["notes"], docs: ["casedocs"], calendar: ["tool", "calendar"]};
+const PAGE = {plan: ["notes"], docs: ["casedocs"], calendar: ["tool", "calendar"], lor: ["lor"]};
 function toolLive(id, blockId){
   // a step with a call on John Doe's file takes that call; any other opens the Call Simulator (☎ LSH Ring Channel)
   if(id === "call") return !!(blockId && SIM.calls[blockId]) || (typeof cmTool === "function" && !!cmTool("calls"));
   if(id === "netsheet") return !!(blockId && NET_STAGE[blockId]);
+  if(id === "lor") return !!(blockId && LOR_BLOCKS.has(blockId)) && typeof window.cmLorCard === "function";
   if(PAGE[id]) return id !== "calendar" || (typeof PRACTICE_TOOLS !== "undefined" && PRACTICE_TOOLS.some(t => t.id === "calendar"));
   return typeof openTool === "function" && typeof cmTool === "function" && !!cmTool(id);
 }
@@ -529,6 +544,7 @@ function blockTools(b){
   else if(b.kind === "lesson") ids = toolsIn((b.ops || []).map(o => o[2]).join(" · "), b.id);
   else ids = ["cms", "docs"];
   if(NET_STAGE[b.id]) ids.push("netsheet");   // every block of a Case Phase that works the money
+  if(b.id === "d2m1-a1") ids.push("lor");   // Generating Formal LORs: drafted in LOR Drafting, logged in the CMS
   ids = [...new Set(ids)];
   return ids.length ? ids : ["cms"];
 }
@@ -548,6 +564,16 @@ function slideBody(view, l, d){
   const {block: b, day, mod} = l.cf, c = copyOf(b);
   switch(view){
     case "why": return `<div class="cfx-hero"><div class="cfx-hero-text"><span class="cfx-chip">${E(titleCase(b.topic))}</span><p class="cfx-hook">${hl(c.hook)}</p></div>${art(c.image)}</div>${strip()}`;
+    case "theory": case "theory2": {
+      const t = c.theory, half = Math.ceil(t.concepts.length / 2), two = t.concepts.length > TH_PER;
+      const list = !two ? t.concepts : view === "theory" ? t.concepts.slice(0, half) : t.concepts.slice(half);
+      const pages = (t.pages || []).map(deckPage).filter(Boolean);
+      return `<div class="cfx-theory${pages.length ? "" : " cfx-th-solo"}"><div class="cfx-th-main">
+          ${view === "theory" ? `<p class="cfx-th-lead">${hl(t.lead)}</p>` : `<p class="cfx-th-cont">${E(titleCase(b.topic))}: continued</p>`}
+          <div class="cfx-th-grid">${list.map((x, j) => `<div class="cfx-th-c" style="animation-delay:${j * .05}s"><b>${E(x.term)}</b><span>${hl(x.text)}</span></div>`).join("")}</div></div>
+        ${pages.length ? `<div class="cfx-th-deck"><small>From the original deck</small>${pages.map(pg => `<a class="cfx-th-pg" href="${E(pg.src)}" target="_blank" rel="noopener" title="${E(pg.title)}" onclick="return cmCaseFlow.deck(event,'D${pg.day}#${pg.n}')"><img src="${E(pg.src)}" alt="Day ${pg.day} deck, page ${pg.n}: ${E(pg.title)}" loading="lazy"><span>Day ${pg.day} · p. ${pg.n}${pg.title ? ` · ${E(pg.title)}` : ""}</span></a>`).join("")}</div>` : ""}
+      </div>`;
+    }
     case "rules": return `<div class="cfx-split"><ol class="cfx-points">${c.points.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>${art(c.image, "small")}</div>
       ${c.upl ? `<div class="cfx-upl"><b>⚖ UPL Line</b><span>${hl(c.upl)}</span></div>` : ""}`;
     case "model": return `<div class="cfx-model">${b.show && b.show.caption ? `<p class="cfx-caption">${E(b.show.caption)}</p>` : ""}${visual(l, b)}</div>`;
@@ -1052,6 +1078,8 @@ MODULES.forEach(d => d.lessons.forEach(l => {
   const b = l.cf.block, n = b.notes || [], vs = viewsOf(b), best = (b.best || []).map(x => String(x).replace(/^pitfall:\s*/i, "Watch for this: "));
   const per = {   // one script per slide (view); the block's speaker notes spread across its slides
     why: {why: b.tell && b.tell.why, talk: n[0] || ""},
+    theory: theoryOf(b) ? {why: String(theoryOf(b).lead).replace(/\*\*/g, ""), walk: theoryOf(b).concepts.slice(0, theoryOf(b).concepts.length > TH_PER ? Math.ceil(theoryOf(b).concepts.length / 2) : TH_PER).map(x => `${x.term}: ${String(x.text).replace(/\*\*/g, "")}`), ask: "Which of these have you met before, and where would it show up on John Doe's file?"} : {},
+    theory2: theoryOf(b) ? {why: "The theory, continued.", walk: theoryOf(b).concepts.slice(Math.ceil(theoryOf(b).concepts.length / 2)).map(x => `${x.term}: ${String(x.text).replace(/\*\*/g, "")}`)} : {},
     rules: {why: "The rules, and where the Case Manager's role ends.", walk: ((b.tell && b.tell.rules) || []).concat((b.tell && b.tell.upl) || []), ask: n[1] || ""},
     model: {why: (b.show && b.show.caption) || "The model to follow.", talk: b.visual || ""},
     job: {why: "Trigger ➔ Task ➔ Tool ➔ Checkpoint: how it runs on the job.", walk: (b.ops || []).map(r => r.join(" ➔ "))},
@@ -1386,12 +1414,13 @@ function caseTimeline(n){
 function caseFlowProfile(archiveLink){
   const c = CF.case, secs = CF.profile || [], shown = secs.filter(profileOpen);
   const pos = dayUnlocked(cfIdOf(5)) ? 5 : [4, 3, 2, 1].find(n => dayUnlocked(cfIdOf(n))) || 1;
-  return `<h1 style="color:var(--navy);font-size:28px;margin:0 0 10px">📂 Case File: ${E(c.style)}</h1>
-    <div class="client-intro-banner"><div class="cib-tag">📌 Your Client</div><h2>${E(c.client.name)}</h2>
-      <p>Matter ${E(c.no)} · Lead Counsel ${E(c.counsel)}</p>
+  // one card: the page's title and the client together (applyPageHero leaves an h1 that's already in a hero alone)
+  return `<section class="page-hero cf-file-hero"><p class="eyebrow">Case File</p>
+      <h1>📂 Case File: ${E(c.style)}</h1>
+      <div class="cf-client"><span class="cf-client-k">📌 Your Client</span><b>${E(c.client.name)}</b><span>Matter ${E(c.no)} · Lead Counsel ${E(c.counsel)}</span></div>
       <p class="cf-note">What you establish on the file appears here as you work it.</p>
       ${DATES && isTrainer() ? `<p class="cf-case-year">📅 Case year ${E(DATES.year)} (collision ${E(DATES.dol())}); each trainee keeps the year they started on.${DATES.preview ? ` <b>Trainer preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end the preview</a>.` : ""}</p>` : ""}
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-navy btn-sm" onclick="goto('day',${cfIdOf(pos)})">Open Case Flow Day ${pos}</button><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.docsArchived ? cmCaseFlow.docsArchived(false) : goto('casedocs')">📁 Open the Case Documents</button>${typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS</button>` : ""}</div></div>
+      <div class="cf-hero-btns"><button class="btn btn-primary btn-sm" onclick="goto('day',${cfIdOf(pos)})">Open Case Flow Day ${pos}</button><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.docsArchived ? cmCaseFlow.docsArchived(false) : goto('casedocs')">📁 Open the Case Documents</button>${typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS</button>` : ""}</div></section>
     ${caseTimeline(pos)}
     ${shown.length ? `<div class="profile-grid">${shown.map(x => `<div class="card profile-section"><h3>${E(x.title)}</h3><ul>${x.items.map(i => `<li>${E(i)}</li>`).join("")}</ul></div>`).join("")}</div>` : ""}
     ${archiveLink ? `<div class="cf-archived-link"><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.archived(true)">🗄 Archived: The John Doe v. Apex Case File</button>
@@ -1437,6 +1466,12 @@ window.cmCaseFlow.doc = function(ev, id){
   if(ev && (ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.button === 1) || typeof openPane !== "function") return true;
   const d = CF_DOCS.find(x => x.id === id); if(!d) return true;
   openPane("doc", new URL(docUrl(d), location.href).href, `${d.title} (${d.id})`, "📄", "split");
+  return false;
+};
+window.cmCaseFlow.deck = function(ev, ref){   // an original deck page, beside the slide
+  if(ev && (ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.button === 1) || typeof openPane !== "function") return true;
+  const pg = deckPage(ref); if(!pg) return true;
+  openPane("deck", new URL(pg.src, location.href).href, `Day ${pg.day} deck · p. ${pg.n}${pg.title ? ` · ${pg.title}` : ""}`, "📘", "split");
   return false;
 };
 const docUrl = d => DATES && DATES.shift && /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}&year=${DATES.year}`
@@ -1490,9 +1525,14 @@ window.cmCaseFlow.openBlock = function(dayId, lessonIndex){
   const idx = slides.findIndex(sl => sl.lessonIndex === lessonIndex && sl.part === 1);
   if(idx >= 0 && typeof goToSlide === "function") setTimeout(() => { state.dayViewMode = "slides"; goToSlide(idx); }, 0);
 };
+/* one page per Case Flow day: a tab for each day, opening on the trainee's current day */
+window.cmCaseFlow.pxDay = function(n){ state.cfPxDay = n; render(); window.scrollTo(0, 0); };
 function caseFlowPractice(archiveLink){
   const kcDone = d => !!((state.progress || {})[d.id] || {}).done;
-  const days = MODULES.map(d => {
+  const cur = [5, 4, 3, 2, 1].find(n => dayUnlocked(cfIdOf(n))) || 1;
+  const sel = MODULES.some(d => d.cf.n === state.cfPxDay) ? state.cfPxDay : cur;
+  const tabs = `<div class="cf-px-tabs" role="tablist">${MODULES.map(d => `<button type="button" role="tab" aria-selected="${d.cf.n === sel}" class="cf-px-tab${d.cf.n === sel ? " on" : ""}" onclick="cmCaseFlow.pxDay(${d.cf.n})">Day ${d.cf.n}${dayUnlocked(d.id) ? (kcDone(d) ? " ✓" : "") : " 🔒"}<small>${E((CF.days.find(x => x.n === d.cf.n) || {}).phase || "")}</small></button>`).join("")}</div>`;
+  const days = MODULES.filter(d => d.cf.n === sel).map(d => {
     const open = dayUnlocked(d.id), day = CF.days.find(x => x.n === d.cf.n);
     const mods = d.cf.phases.map(ph => {
       const acts = d.lessons.map((l, li) => ({b: l.cf.block, li, ph: l.cf.phase})).filter(x => x.ph === ph && x.b.kind === "activity");
@@ -1514,6 +1554,7 @@ function caseFlowPractice(archiveLink){
   return `<p class="eyebrow">Practice</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🧪 Practice: The Case Flow Skill Activities</h1>
     <p style="color:var(--ink-soft);font-size:14px;max-width:84ch;margin:0 0 14px">Every hands-on exercise of the 5-Day Legal Case Management Flow, on the live file <b>${E(CF.case.style)}</b>: each Case Phase's Skill Activities, every one worked on John Doe's file in the CMS (with the Call Simulator or the email workspace where it names them), from the documents it lists. Each opens with its day and goes straight to its slide.</p>
+    ${tabs}
     ${days}
     <div class="card" style="padding:14px 18px;margin-bottom:14px"><b style="color:var(--navy)">Any day</b><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">${any}</div></div>
     ${archiveLink ? `<div class="cf-archived-link"><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.practiceArchived(true)">🗄 Archived: the John Doe v. Apex Skill Builders</button>
@@ -1535,6 +1576,12 @@ if(typeof window.renderPracticeHub === "function"){
 
 /* ---------- styles: only what the course's own classes don't already give ---------- */
 const st = document.createElement("style"); st.id = "cm-case-flow"; st.textContent = `
+.cf-px-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:0 0 14px;}
+.cf-px-tab{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:10px 14px;border-radius:12px;border:1.5px solid var(--line,#D6DAE4);background:#fff;color:var(--navy);font:800 15px 'Poppins','Inter',sans-serif;cursor:pointer;text-align:left;}
+.cf-px-tab small{font:500 12px/1.3 var(--font-ui);color:var(--ink-soft,#5B6178);}
+.cf-px-tab.on{background:#262B45;border-color:#262B45;color:#fff;box-shadow:0 8px 18px -10px rgba(20,24,48,.6);}
+.cf-px-tab.on small{color:#C9CFE0;}
+@media(max-width:760px){.cf-px-tabs{grid-template-columns:repeat(3,minmax(0,1fr));}}
 /* ---- the Case Flow slides: one idea per slide, big type ---- */
 .cfx{display:block !important;text-align:left !important;padding:22px 30px 24px !important;background:linear-gradient(180deg,#fff 0%,#fffdf9 100%) !important;position:relative;overflow:hidden;}
 .cfx::before{content:"";position:absolute;right:-120px;top:-140px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,#FBF1E6 0%,rgba(251,241,230,0) 70%);pointer-events:none;}
@@ -1594,6 +1641,21 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfx-dd h3{margin:0 0 10px;font:700 22px 'Fraunces',Georgia,serif;color:var(--navy);}
 .cfx-dd ul{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px;}
 .cfx-dd li{font:500 21px/1.4 var(--font-ui);color:var(--ink);}
+/* The Theory: the deck's lead line, its concepts as cards, the original deck pages beside them */
+.cfx-theory{display:grid;grid-template-columns:minmax(0,1fr) clamp(160px,20%,250px);gap:18px;align-items:start;}
+.cfx-theory.cfx-th-solo{grid-template-columns:minmax(0,1fr);}
+.cfx-th-lead{font:600 22px/1.3 'Fraunces',Georgia,serif;color:var(--ink);margin:0 0 10px;text-align:center;}
+.cfx-th-cont{font:700 13px var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--orange-deep);margin:0 0 12px;text-align:center;}
+.cfx-th-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}
+.cfx-th-c{background:#fff;border:1.5px solid #E6DED2;border-left:5px solid #DB8437;border-radius:12px;padding:7px 12px;display:flex;flex-direction:column;gap:2px;animation:cfxIn .3s ease-out both;}
+.cfx-th-c b{font:800 15px/1.25 'Poppins','Inter',sans-serif;color:var(--navy);letter-spacing:.01em;}
+.cfx-th-c span{font:500 16px/1.35 var(--font-ui);color:var(--ink);}
+.cfx-th-deck{display:flex;flex-direction:column;gap:8px;}
+.cfx-th-deck small{font:700 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-deep);text-align:center;}
+.cfx-th-pg{display:flex;flex-direction:column;gap:5px;text-decoration:none;color:var(--ink-soft,#5B6178);}
+.cfx-th-pg img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;border:2px solid #DB8437;box-shadow:0 6px 14px rgba(20,24,48,.18);background:#262B45;transition:transform .2s ease;}
+.cfx-th-pg:hover img,.cfx-th-pg:focus-visible img{transform:scale(1.03);}
+.cfx-th-pg span{font:600 12px/1.3 var(--font-ui);text-align:center;}
 .cfx-task{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:24px;align-items:start;}
 .cfx-task .cfx-points li{font-size:22px;}
 .cfx-side{display:flex;flex-direction:column;gap:12px;}
@@ -1795,6 +1857,22 @@ main > .cf-side-presenter{display:none;}
 .cf-call-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:0 0 14px;padding:10px 14px;background:#262B45;color:#DDE2EE;border-radius:12px;font-size:14px;}
 .cf-call-bar b{color:#fff;}
 .cf-timeline{padding:16px 20px;margin:0 0 16px;background:#262B45 !important;color:#fff;border:0 !important;}
+/* the Case File's header: the page title and the client in one card */
+.cf-file-hero .cf-client{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin:14px 0 4px;color:#E4E7F2;font:600 15px/1.4 var(--font-ui);}
+.cf-file-hero .cf-client-k{font:700 11.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#F4B77A;}
+.cf-file-hero .cf-client b{font:700 22px 'Fraunces',Georgia,serif;color:#fff;}
+.cf-file-hero .cf-note, .cf-file-hero .cf-case-year{color:#C9CFE0 !important;margin:2px 0 0;font-size:13.5px;}
+.cf-file-hero .cf-case-year a{color:#F4B77A;}
+.cf-hero-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.cf-hero-btns .btn-ghost{background:rgba(255,255,255,.1) !important;border:1px solid rgba(255,255,255,.3) !important;color:#fff !important;}
+/* The Case So Far, top to bottom: a dot on a vertical line, the date, what happened */
+.cf-timeline .cfx-tl-full{flex-direction:column;flex-wrap:nowrap;gap:0;position:relative;margin:0 0 8px;}
+.cf-timeline .cfx-tl-full::before{display:block !important;content:"";position:absolute;left:8px;right:auto;top:10px;bottom:10px;width:2px;height:auto;background:rgba(255,255,255,.28);}
+.cf-timeline .cfx-tl-full li, .cf-timeline .cf-lane .cfx-tl-full li{flex:none !important;flex-direction:row;align-items:center;text-align:left;gap:12px;padding:6px 0;}
+.cf-timeline .cfx-tl-full li small{order:1;min-width:92px;font-size:12px;}
+.cf-timeline .cfx-tl-full li b{order:2;font-size:14px;padding:0;}
+.cf-timeline .cfx-tl-full li.here{padding:8px 0;}
+.cf-timeline .cfx-tl-full li.here i{margin-top:0;margin-left:-2px;}
 .cfx-tl-full{flex-wrap:wrap;row-gap:14px;}.cfx-tl-full li{flex:0 0 calc(100% / 8);}.cfx-tl-full::before{display:none;}
 .cf-lanes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;}
 .cf-lane{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:10px 12px;}
@@ -1814,7 +1892,7 @@ main > .cf-side-presenter{display:none;}
 @media(max-width:760px){
   .cfx{padding:16px 16px 18px !important;}
   .cfx-title{font-size:26px !important;}.cfx-of{display:block;font-size:15px;margin-top:4px;}.cfx-sep{display:none;}
-  .cfx-hero,.cfx-split,.cfx-lesson .cfx-split,.cfx-task,.cfx-dd,.cfx-qs-2{grid-template-columns:minmax(0,1fr);}
+  .cfx-hero,.cfx-split,.cfx-lesson .cfx-split,.cfx-task,.cfx-dd,.cfx-qs-2,.cfx-theory,.cfx-th-grid{grid-template-columns:minmax(0,1fr);}
   .cfx-hook{font-size:24px;}.cfx-situation{font-size:19px;}
   .cfx-points li{font-size:19px;grid-template-columns:36px 1fr;}.cfx-points li::before{width:32px;height:32px;font-size:16px;}
   .cfx-flow{grid-template-columns:minmax(0,1fr);}.cfx-arrow{transform:rotate(90deg);justify-self:center;}

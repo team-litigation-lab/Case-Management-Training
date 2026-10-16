@@ -36,7 +36,7 @@ per block of the day (20 per day), in this shape:
 
 ## Fields by block kind
 
-**Lesson** (`kind: "lesson"`): drawn as Why it matters · The rules · See it (the block's existing `show` visual) ·
+**Lesson** (`kind: "lesson"`): drawn as Why it matters · The theory · The rules · See it (the block's existing `show` visual) ·
 On the job · Do & Don't.
 - `hook` — one sentence, **≤ 16 words**: the strategic why (from `tell.why`), as a confident headline.
 - `points` — **3 or 4** rules, **≤ 12 words each**, from `tell.rules` (the most important ones; merge where
@@ -44,6 +44,29 @@ On the job · Do & Don't.
 - `upl` — the UPL boundary in **≤ 14 words**, if the block has `tell.upl` (else omit).
 - `job` — from `ops`: **up to 3 rows**, each `[trigger, task, tool, checkpoint]`, **≤ 6 words per cell**.
 - `dos` / `donts` — from `best` (practices → dos; "Pitfall: …" → donts): **2–3 each, ≤ 10 words each**.
+
+**The Theory** (every lesson; in `build/case-flow/slides/theory-dN.json`, keyed by block id): drawn as its own slide
+after Why it matters, beside thumbnails of the original Canva deck pages it comes from. It carries the decks'
+*theory* — the definitions, frameworks, phases and principles behind the lesson — so the run of slides has the
+context the decks gave, not only the rules. Take it from the deck pages that teach the lesson's topic (the text in
+`js/cm-decks-data.js`, the page image in `decks/dayN/NN.webp`), and from the block's own text where no deck page does.
+```json
+"d1m4-l2": {
+  "lead": "A case plan is a **living, approved document**: drafted in structure, reviewed by counsel, then run.",
+  "concepts": [{"term": "Section templates", "text": "…"}, {"term": "…", "text": "…"}, {"term": "…", "text": "…"}],
+  "pages": ["D1#24", "D1#25"]
+}
+```
+- `lead` — the deck's definition or framing of the topic, **≤ 28 words**, one highlight.
+- `concepts` — **3 or 4**: a `term` (**≤ 5 words**, no highlight: the deck's name for the idea) and its `text`
+  (**≤ 20 words**, one highlight): what it is and why it matters. Complement The rules; don't repeat them.
+  A deep topic (the coverages, the treatment phase: the Standard Treatment Map, MMI, red flags, gaps) may carry
+  **6–8**, drawn as The theory and The theory, continued (four to a slide).
+- `pages` — **1–2** original deck pages (`D1#24` = the Day 1 deck, page 24), the ones its theory comes from. These
+  are the decks' page numbers, not the lesson's `sources` (which number the earlier course's topics); never a page
+  that shows the archived Apex file's facts. `[]` only for a lesson with no deck behind it.
+- The decks were written for the archived John Doe v. Apex file: take their *doctrine*, never Apex's names, dates
+  or figures, and nothing that contradicts this course's block or `curriculum/5-day-flow/case-file.md`.
 
 **Activity** (`kind: "activity"`): drawn as Your case · Your task · The model (if `show`) · Check your work.
 - `situation` — the scenario in **≤ 32 words**: file date, what just happened, what is at stake. Keep the key

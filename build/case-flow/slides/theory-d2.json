@@ -1,0 +1,106 @@
+{
+  "d2m1-l1": {
+    "lead": "Claim set-up is coverage determination: finding **which policies apply** and what limits and exclusions they carry. The LOR puts the firm on each one.",
+    "concepts": [
+      {"term": "Letter of Representation", "text": "The firm's formal notice that it represents the client: **it moves all contact** off the client and onto the firm"},
+      {"term": "Coverage Determination", "text": "Four questions: is coverage valid, what type applies, what are the limits, any exclusions? **Every LOR request** chases an answer"},
+      {"term": "Liability Assessment", "text": "Who is legally responsible, and how far: **clear, shared or disputed**. Atty. Thorne weighs it; you secure the proof"},
+      {"term": "First- and Third-Party Claims", "text": "Third-party: the other driver's carrier, adverse to the client. First-party: policies covering him. **Each letter differs accordingly**"},
+      {"term": "Information Protection", "text": "The adverse carrier learns only what it must: **anything you give it** can be used against the client"},
+      {"term": "Notice vs. Demand", "text": "Notice preserves the claim; a demand asks for payment. **UM notice comes early**; demand follows a documented BI tender"},
+      {"term": "Preservation Request", "text": "Asks the carrier to keep photos, statements, video, the vehicle and its event data: **liability proof that can vanish**"},
+      {"term": "Acknowledgement", "text": "The carrier's written receipt of the LOR, sometimes stating coverage and limit: **the first written answer** you log"}
+    ],
+    "pages": ["D1#21"]
+  },
+  "d2m1-l2": {
+    "lead": "Coverage verification turns a reported fact into **a confirmed one in writing**: every limit, form and exclusion traced to the document that proves it.",
+    "concepts": [
+      {"term": "Coverage Matrix", "text": "One row per carrier, the file's single coverage record: **status, source and date** show what is proven"},
+      {"term": "Verification Statuses", "text": "Reported, noticed, acknowledged, disclosed, confirmed in writing: **only the last is proof**; each earlier status is a lead"},
+      {"term": "Declaration Page", "text": "The policy's own summary of who and what it covers, and for how much: **the proof behind a limit**"},
+      {"term": "Limit Types", "text": "**Per person** caps one injured person; per accident caps everyone; a combined single limit is one figure for all"},
+      {"term": "UM Forms", "text": "Add-on (excess) UM pays on top of the BI payment; reduced UM subtracts it. **The form changes the stack**"},
+      {"term": "Stacking Layers", "text": "Only liability and UM layers stack; MedPay, PD and collision coverage are **separate benefits, tracked apart**"},
+      {"term": "Exclusions and Gaps", "text": "A policy's exclusions matter as much as its limits: **a verified zero** is a fact, an assumed one a guess"},
+      {"term": "Applied Case Manager Actions", "text": "A stalled carrier is a bottleneck: find the root cause, act now, then **prevent the next occurrence**"}
+    ],
+    "pages": ["D1#20", "D1#18"]
+  },
+  "d2m2-l1": {
+    "lead": "Once the claim is set up, the case plan runs on **three pillars**: clinical care, functional status and subrogation management, which sets who pays.",
+    "concepts": [
+      {"term": "Payer Order", "text": "The default sequence: MedPay or PIP first, health insurance next, an LOP last. **Order keeps liens down**"},
+      {"term": "MedPay vs. PIP", "text": "First-party coverage for medical bills regardless of fault, up to its limit; **unlike PIP, no wages**"},
+      {"term": "Health Insurance", "text": "Pays covered care at its contract rate, but may hold **a reimbursement right** against the recovery"},
+      {"term": "Letter of Protection", "text": "The client's signed agreement that a provider is paid from any recovery: **a consensual lien** on his net"},
+      {"term": "Standard Treatment Map", "text": "The usual route of care: emergency, imaging, chiropractic and PT, orthopedics, pain management, surgery. **Each stop needs a payer**"},
+      {"term": "Monitoring Progress", "text": "Evaluating clinical and functional outcomes, not checking boxes: **ask about the plan**, not just “How are you?”"},
+      {"term": "Crisis Intervention", "text": "Stepping in when care is denied or stalled by bureaucracy: **adjust the plan** to the immediate issue first"},
+      {"term": "Medication Red Flags", "text": "Combined opioid, muscle relaxant and sedative, or rising doses without a new diagnosis: **raise it with the provider**"}
+    ],
+    "pages": ["D1#26", "D1#39"]
+  },
+  "d2m2-l2": {
+    "lead": "Mastering **the Standard Treatment Map** separates a Case Manager who observes a recovery from one who drives it; deviations trigger denials and IMEs.",
+    "concepts": [
+      {"term": "Acute and Sub-Acute Phases", "text": "Days 1–14: ER, imaging, initial PT, documenting causation. Weeks 2–8: active PT, specialists, **measuring functional gains**"},
+      {"term": "Restorative and Maintenance Phases", "text": "Weeks 9–24: injections, work hardening, **barriers to return to work**. Then home exercise and as-needed visits"},
+      {"term": "Maximum Medical Improvement", "text": "The provider's finding that further care won't improve the condition: **it closes the treatment phase** and opens pre-demand"},
+      {"term": "Variance Analysis", "text": "When a client drifts off the map, identify why first: **clinical, psychosocial or systemic**, before funding stops"},
+      {"term": "A-C-T Protocol", "text": "The immediate action for any red flag: Assess the danger, Coordinate the fix, Track it. **Documentation supplies counsel's why**"},
+      {"term": "Reasonable and Necessary", "text": "The utilization-review test: common for the mechanism of injury, and **objective functional gain**, not subjective pain alone"},
+      {"term": "SMART Goals", "text": "Specific, Measurable, Achievable, Relevant, Time-bound: goals **defensible to clinicians and adjusters** alike, like the week-6 measures"},
+      {"term": "Stakeholder Triad", "text": "Clinical, legal and financial loops, with you as the router: **one broken loop** can stall a case for months"}
+    ],
+    "pages": ["D1#40", "D1#44"]
+  },
+  "d2m3-l1": {
+    "lead": "The Golden Rule: coordinate, don't commingle. The medical plan and the legal claim are **two parallel tracks** that never cross-contaminate, even in a gap interview.",
+    "concepts": [
+      {"term": "Case Manager Neutrality", "text": "Legal opinions in medical or call notes let the defense **impeach your neutrality**; record facts, never conclusions"},
+      {"term": "Gaps as Legal Danger", "text": "Under A-C-T, a gap in care is **a legal danger**, not medical: it routes to Atty. Thorne"},
+      {"term": "Active Listening", "text": "Reflect and paraphrase his words, then summarize: he **feels heard and corrects** what you got wrong"},
+      {"term": "Attorney-Client Privilege", "text": "Confidential firm-client communication is privileged; **a third person** in the conversation can put that protection at risk"}
+    ],
+    "pages": ["D1#28", "D1#44"]
+  },
+  "d2m3-l2": {
+    "lead": "Case Managers must understand **the why behind the paperwork**: continuity is proved by what the record already shows, never by what it is asked to say.",
+    "concepts": [
+      {"term": "Continuity of Care", "text": "An unbroken path along the Standard Treatment Map, each step following from the last: **the chain an adjuster tests**"},
+      {"term": "Treatment Gap", "text": "Any break in care, before first treatment or midstream. Adjusters read it as **minor, healed or unrelated**"},
+      {"term": "Records Made at the Time", "text": "Written by EMS, providers and employers as events happened: **strongest proof**, since nobody wrote them for the claim"},
+      {"term": "Consistent Histories", "text": "Each provider's history repeats mechanism, onset and body region; **agreement across charts** is what makes continuity credible"},
+      {"term": "Causation Opinion", "text": "A treating doctor's opinion linking injury to collision: **the bridge across a gap**, requested by Atty. Thorne"},
+      {"term": "Record Integrity", "text": "A record changes only by its author's dated addendum: altering one **can be evidence tampering** or fraud"},
+      {"term": "Excuse Notes", "text": "A work note proves only what its author saw or ordered at a visit: **unexamined days need other proof**"},
+      {"term": "Generic Notes", "text": "Notes that don't tie complaints to the collision weaken causation: under A-C-T, **flag them to Atty. Thorne**"}
+    ],
+    "pages": ["D1#44", "D1#39"]
+  },
+  "d2m4-l1": {
+    "lead": "A full pre-demand audit is **the final stress test**: the move from collecting information to using it, leaving the defense zero easy outs.",
+    "concepts": [
+      {"term": "Trinity of Case Alignment", "text": "Narrative, physicality and medicals **must all agree**; if one is out of line, the case value collapses"},
+      {"term": "Maximum Medical Improvement", "text": "The provider's finding that care has reached its plateau: **the incurred Specials are complete**, and the audit can begin"},
+      {"term": "Special Damages", "text": "Medical Bills + lost wages + Property Damage: the provable dollar loss. **Every line needs a document**"},
+      {"term": "Medical and Billing Audit", "text": "Three passes: chronology for gaps, coding for duplicates, prior history for pre-existing conditions. **Find weak spots first**"},
+      {"term": "Liens and Subrogation", "text": "Health plans, government payers and LOP providers may claim repayment from the recovery: **every lien shrinks the net**"},
+      {"term": "Property Damage Deep Dive", "text": "Photos of the point of impact, estimate against final bill, supplements: **PD proves the force** behind the injury"},
+      {"term": "Defense-Eye Audit", "text": "Read the file as the adjuster will: social media, a minor-impact (MIST) label, venue. **Name each value killer**"},
+      {"term": "Policy-Limits Targets", "text": "Verified limits in the order they open: what each policy can pay, **not the claim's worth**"}
+    ],
+    "pages": ["D2#4", "D1#40"]
+  },
+  "d2m4-l2": {
+    "lead": "A pre-demand audit is the file's sanity check; the strategy brief carries **its findings, not conclusions**, to Atty. Thorne, who makes every call.",
+    "concepts": [
+      {"term": "Core Audit Objectives", "text": "Verification (facts match evidence), Valuation (every dollar justified), Risk, Compliance: **the brief reports each**"},
+      {"term": "Statement Drift", "text": "A witness whose story changes between tellings: **drift is a defense opening**, so the brief flags it"},
+      {"term": "Value Killers", "text": "The defense-eye audit looks for what shrinks a claim: social media, a MIST label, venue. **Counsel weighs each one**"},
+      {"term": "Short-Funded Settlement", "text": "When the math is wrong or liens are missed, **the client takes home nothing**: lien totals belong in every brief"}
+    ],
+    "pages": ["D2#3", "D2#9"]
+  }
+}
