@@ -177,6 +177,56 @@
         "RS14"
       ]
     },
+    "d2m2-a3": {
+      "date": "04/22/2026",
+      "time": "12:18 p.m.",
+      "channel": "voicemail",
+      "from": "John Doe (555) 010-2288",
+      "to": "Case Manager, ext. 214",
+      "subject": "Voicemail: John Doe — won't go to Millbrook for the injection",
+      "body": "It's John Doe. Lakeside booked my injection at Millbrook Interventional Pain Center, in Millbrook, May 14 at 9:00 a.m. I'm not going. It's way out there and I've got no ride; my car's in the shop and my mom works days. And I heard it's out of network with Peach State. I still want the shot. Call my cell.",
+      "spoken": "Hey, it's John Doe... the car accident. So, uh, Lakeside called me yesterday about the shot. The injection Dr. Reyes wants me to get. They booked me at some place called Millbrook Interventional Pain Center. In Millbrook. May fourteenth, nine in the morning. And... I'm not going there. It's way out in Millbrook, my car's still in the shop, and my mom works days, so I've got no ride out there. And a guy at work said that place isn't in network with Peach State, so I'd get stuck with a bill. I still want to get the shot, okay? Just... not there. Can you help me sort it out? Call me on my cell, it's five five five, oh one oh, two two eight eight. I'm on lunch till one, then I'm on the floor till three thirty. Thanks.",
+      "listen": [
+        {
+          "q": "Who called, and which number does he want you to call back?",
+          "a": "John Doe, on his cell: (555) 010-2288.",
+          "match": [
+            "john",
+            "2288"
+          ]
+        },
+        {
+          "q": "Where did Lakeside book him, and when?",
+          "a": "Millbrook Interventional Pain Center, in Millbrook, on May 14 at 9:00 a.m.",
+          "match": [
+            "millbrook",
+            "nine|9|morning|a\\.?m|may|0?5/\\d|fourteen|14"
+          ]
+        },
+        {
+          "q": "What are his two reasons for not going?",
+          "a": "It's too far, with no ride: his car's in the shop and his mother works days. And he heard it's out of network with Peach State.",
+          "match": [
+            "far|ride|car|drive|transport|distance|shop",
+            "network|peach|bill|insur|cover"
+          ]
+        },
+        {
+          "q": "Does he still want the injection?",
+          "a": "Yes: he still wants it, just not at that facility.",
+          "match": [
+            "yes|still|wants?"
+          ]
+        },
+        {
+          "q": "When can you reach him today?",
+          "a": "On his lunch until 1:00; after that he's on the floor until 3:30.",
+          "match": [
+            "lunch|1|one|3|three"
+          ]
+        }
+      ]
+    },
     "d2m3-a2": {
       "date": "06/22/2026",
       "time": "9:05 a.m.",
@@ -498,6 +548,12 @@
     {
       "date": "04/02/2026",
       "label": "Care disrupted · 19 days",
+      "track": "",
+      "lane": "care"
+    },
+    {
+      "date": "04/22/2026",
+      "label": "Injection redirected to Crescent",
       "track": "",
       "lane": "care"
     },
