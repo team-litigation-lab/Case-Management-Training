@@ -646,7 +646,7 @@ An exploded packet: a central navy folder with six document cards fanned around 
 
 **Scenario.** John Doe's retainer is signed and the matter is open in the CMS. Nothing has been sent to him yet, and he has already had one call from Robert Smith's carrier.
 
-**Execution prompt.** Assemble John Doe's onboarding direction packet. Build all six sections, populate each with the firm's standing instructions, and make the Property Damage section specific to this file. Given that the adverse carrier has already called him, state which instruction is now most urgent and how you will confirm he has understood it. Then log delivery.
+**Execution prompt.** Assemble John Doe's onboarding Direction Packet. Build all six sections, populate each with the firm's standing instructions, and make the Property Damage section specific to this file. Given that the adverse carrier has already called him, state which instruction is now most urgent and how you will confirm he has understood it. Then log delivery.
 
 | | |
 |---|---|
@@ -874,7 +874,7 @@ A two-tier slide. The top tier is a coverage map: eight cards in three colour gr
 
 1. Sort every coverage by whose it is. Third-party coverage is the at-fault driver's: Robert Smith's Keystone BI and PD. First-party coverage answers to John Doe's side: Host UM, Relative UM, MedPay and collision. The Health Plan is his own benefit plan, through Northgate Distribution.
 2. Sort it again by what it pays. BI and UM pay the claim at the end; MedPay, PIP and the Health Plan pay the Medical Bills while it is open; PD and collision pay for the car. Only BI and UM are the $40,000 Recovery Stack.
-3. MedPay pays reasonable accident medical bills regardless of fault, up to its limit, and never wages. PIP, where a state requires it, also pays a share of lost wages and replacement services. This file has Harbor Point MedPay, $5,000, and no PIP: verify PIP on every file; never assume it.
+3. MedPay pays reasonable accident Medical Bills regardless of fault, up to its limit, and never wages. PIP, where a state requires it, also pays a share of lost wages and replacement services. This file has Harbor Point MedPay, $5,000, and no PIP: verify PIP on every file; never assume it.
 4. UM/UIM is reached by status, not ownership. John Doe reaches Host UM as an occupant of Kevin Alvarez's 2020 Ford Escape, and Relative UM as a resident relative of Margaret Doe. His own Bluewater policy adds nothing: UM/UIM was rejected in writing on 03/14/2024.
 5. The Payer-First Principle: MedPay (or PIP) first, the Health Plan next, a Letter of Protection last, and only for care the earlier payers can't carry.
 6. MedPay goes first because it pays regardless of fault, and Harbor Point confirmed in writing (03/02/2026) that it has no reimbursement right against John Doe's recovery: every MedPay dollar is a bill that never becomes a lien.
@@ -1134,7 +1134,7 @@ A two-lane swimlane running left to right. Upper lane, navy, labelled PAYS THE B
 1. Clear the Regulatory Triple-Check before any clinical planning begins, so the claim is properly established and you are authorized to act.
 2. Check 1, HIPAA: obtain a claim-specific Authorization to Release Medical Information. It names the incident date and permits communication with legal and insurance parties; a generic release may not be adequate.
 3. Check 2, Medicare/Medicaid: if the client is 65+ or on SSDI, report the case to the Benefits Coordination & Recovery Center (BCRC) under MMSEA (2007). Skipping it risks federal penalties and a frozen settlement. John Doe is 34, so the check is his SSDI status: verify it and record the answer.
-4. Check 3, payer order: PIP/MedPay first, then private health insurance, then LOP/provider liens. Verify whether any PIP/MedPay applies on this loss; do not assume it.
+4. Check 3, Payer Order: PIP/MedPay first, then private health insurance, then LOP/provider liens. Verify whether any PIP/MedPay applies on this loss; do not assume it.
 5. The Payer Order is not the Recovery Stack. The $40,000 in BI and UM pays the claim; the Payer Order pays the bills while it is open.
 6. A Health Plan that pays accident-related bills asserts a reimbursement right against the settlement. Identify it early so it doesn't surprise you at settlement: flag it on first notice, before the first demand.
 7. Record the plan's carrier, member ID and group number in the CMS lien register the day they are known, and log the BCRC answer in the file.
@@ -1179,7 +1179,7 @@ Verified in Policy Stack Knowledge Check (taught on Case Flow Day 1) and that da
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Triple-check complete | HIPAA authorization, BCRC answer and Payer Order all recorded |
-| 🤖 AI | **20%** | Payer order | PIP/MedPay → private health insurance → LOP/provider liens, kept separate from the Recovery Stack |
+| 🤖 AI | **20%** | Payer Order | PIP/MedPay → private health insurance → LOP/provider liens, kept separate from the Recovery Stack |
 | 🤖 AI | **20%** | Lien fields and timing | Carrier, member ID and group recorded; flag placed before the first demand |
 | 🧑‍🏫 Trainer | **25%** | Grasps the consequence | Explains how a late-flagged reimbursement claim damages the client's net, not just the paperwork |
 | 🧑‍🏫 Trainer | **15%** | UPL boundary | No opinion on enforceability; no payment promised |
@@ -1803,7 +1803,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
    *He reaches the host vehicle's UM because he was riding in that car. Had he been driving his own car he would have reached $10,000: he rejected UM on his own policy, and the relative policy excludes a car he owns.*
 3. The correct Payer Order for John Doe's Medical Bills is:  
    Health Plan → PIP/MedPay → LOP/provider liens · **✓ PIP/MedPay → private health insurance → LOP/provider liens** · LOP/provider liens → Health Plan → PIP/MedPay · Robert Smith's BI carrier pays each bill as it arrives  
-   *The Regulatory Triple-Check payer order: PIP/MedPay, then private health insurance, then LOP/provider liens.*
+   *The Regulatory Triple-Check Payer Order: PIP/MedPay, then private health insurance, then LOP/provider liens.*
 4. Which of these is NOT part of the Regulatory Triple-Check?  
    A claim-specific HIPAA authorization that names the incident date · Medicare/Medicaid (BCRC) reporting where the client is 65+ or on SSDI · Payer Order and subrogation management · **✓ The Time-Limit Demand**  
    *The triple-check is HIPAA, Medicare/Medicaid reporting, and the Payer Order. Demands come on Day 3.*
@@ -1980,7 +1980,7 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
    Coverage, Liability, Projection · **✓ Clinical, Functional, Financial** · Intake, Treatment, Demand · HIPAA, BCRC, Payer Order  
    *Clinical (acute interventions), Functional (ADLs and return to work), Financial (Payer Order, subrogation, MMSEA).*
 2. Once the claim is set up, the Case Plan is typically filed within:  
-   7 days · **✓ 30–60 days, depending on the state** · 6 months · After maximum medical improvement  
+   7 days · **✓ 30–60 days, depending on the state** · 6 months · After Maximum Medical Improvement  
    *Often 30–60 days depending on the state. Docket the date.*
 3. John Doe's date of loss is 02/06/2026 and his first treatment is 02/20/2026. The gap is:  
    7 days · 10 days · **✓ 14 days** · 20 days  

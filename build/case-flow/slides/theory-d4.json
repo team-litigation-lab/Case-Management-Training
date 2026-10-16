@@ -15,7 +15,7 @@
       "rows": [
         ["“I'm waiting on my manager's authority.”", "Set **a firm reply date**; after it, the file goes to counsel"],
         ["“We need records from five years ago.”", "Ask why they matter; expect a good-faith offer on undisputed injuries now"],
-        ["“The property damage was too low for this injury.”", "Low-velocity impacts can still injure the spine; point to the imaging"]
+        ["“The Property Damage was too low for this injury.”", "Low-velocity impacts can still injure the spine; point to the imaging"]
       ],
       "note": "Log every stall the day it happens; any new number is Atty. Thorne's to answer, never yours."
     }
@@ -106,9 +106,9 @@
         ["1 · Executive Summary & Administration", "Snapshot sheet, mediation order or agreement, and the session schedule"],
         ["2 · The Mediation Briefs", "Our confidential statement and the defense's brief, if exchanged"],
         ["3 · Core Pleadings", "The operative complaint and the answer with its affirmative defenses"],
-        ["4 · Key Evidence & Liability", "Police report, photos and video stills, deposition summaries with highlighted pages"],
+        ["4 · Key Evidence & Liability", "Police Report, photos and video stills, deposition summaries with highlighted pages"],
         ["5 · Damages, Financials & Experts", "Medical chart and bills ledger, wage-loss proof, expert reports"],
-        ["6 · Settlement History & Drafts", "Negotiation log of every demand and offer, and a draft release"]
+        ["6 · Settlement History & Drafts", "Negotiation Log of every demand and offer, and a draft release"]
       ],
       "note": "Build three sets, for counsel, the mediator and John Doe, or one OCR-searchable digital set."
     }
@@ -129,7 +129,7 @@
       "rows": [
         ["1 · Arbitration Submissions", "Snapshot sheet, final brief, governing order or agreement, fee disclosures"],
         ["2 · Arbitration Pleadings", "The operative demand and each party's written position; no superseded versions"],
-        ["3 · Liability & Biomechanics", "Certified police report, diagrams, and photos and stills in **color, never grayscale**"],
+        ["3 · Liability & Biomechanics", "Certified Police Report, diagrams, and photos and stills in **color, never grayscale**"],
         ["4 · Medical Damages", "Consolidated medical ledger, provider treatment records and bills, imaging, causation opinion"],
         ["5 · The Prior Medical Shield", "Prior injury records and work history, paired with a medical opinion"],
         ["6 · Economic Losses", "Wage-loss proof only: employer letters, W-2s or tax returns"]

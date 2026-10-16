@@ -31,14 +31,14 @@
       [
         "John Doe is still in therapy and the bills keep growing.",
         "No future-care plan exists yet, so the Specials are unfinished.",
-        "The demand goes out ahead of the 06/12/2026 maximum medical improvement note."
+        "The demand goes out ahead of the 06/12/2026 Maximum Medical Improvement note."
       ]
     ]
   },
   "d3m1-l2": {
     "dos": [
       [
-        "Two UM demand packages are being assembled on 08/31/2026.",
+        "Two UM Demand Packages are being assembled on 08/31/2026.",
         "The UM adjusters will ask whether Keystone's $10,000 is truly spent.",
         "Page one holds the tender, the consents and the Limited Release."
       ],
@@ -137,7 +137,7 @@
         "Weeks later, nothing on paper shows what anyone agreed to."
       ],
       [
-        "The five checks have gone out and the trust ledger reads zero.",
+        "The five checks have gone out and the Trust Ledger reads zero.",
         "A health-benefit carrier then sends a reimbursement claim.",
         "Nothing is left in trust to pay it, and John Doe is exposed."
       ]
@@ -163,7 +163,7 @@
     ],
     "donts": [
       [
-        "A health plan asserts reimbursement against the settlement.",
+        "A Health Plan asserts reimbursement against the settlement.",
         "Self-funded ERISA plans answer to federal law and resist cuts.",
         "The trainee haggles with it the way one haggles with Riverton."
       ],

@@ -315,7 +315,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 #### 1 · Visual Layout Description
 
-A CMS communications log as a table across the full slide width, four rows pre-filled as worked examples and four blank rows outlined in orange for the trainee. Columns: Date · Time · Channel · Outcome · Next action. In the right margin, a vertical coverage tracker of four chips (Phone ×2, Email, SMS, Emergency contact), each grey until its rung is cleared, then orange. Bottom strip, in danger red: a BAD entry, “called client, no answer”, with no date, time or channel, annotated with what is missing.
+A CMS Communications Log as a table across the full slide width, four rows pre-filled as worked examples and four blank rows outlined in orange for the trainee. Columns: Date · Time · Channel · Outcome · Next action. In the right margin, a vertical coverage tracker of four chips (Phone ×2, Email, SMS, Emergency contact), each grey until its rung is cleared, then orange. Bottom strip, in danger red: a BAD entry, “called client, no answer”, with no date, time or channel, annotated with what is missing.
 
 #### 2 · Slide Body — Let Them
 
@@ -490,7 +490,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 | Competency | 1 | 2 | 3 | 4 | 5 |
 |---|---|---|---|---|---|
 | Running the No Contact Protocol's channel ladder | ○ | ○ | ○ | ○ | ○ |
-| Keeping a contemporaneous, defensible communications log | ○ | ○ | ○ | ○ | ○ |
+| Keeping a contemporaneous, defensible Communications Log | ○ | ○ | ○ | ○ | ○ |
 | Drafting a Final Warning Letter that gets a response | ○ | ○ | ○ | ○ | ○ |
 | Applying the three-criteria Skip-Trace gate | ○ | ○ | ○ | ○ | ○ |
 | Keeping the file moving while outreach runs | ○ | ○ | ○ | ○ | ○ |
@@ -640,7 +640,7 @@ Centre-right, a cream ledger card with a navy header bar, MEDPAY · HARBOR POINT
 *Why:* Treatment is the file's engine room, and someone has to pay for it while the claim is open. On John Doe's file three payers stand in a default order: Harbor Point MedPay, then Peach State, then a Letter of Protection. An LOP issued out of order turns a bill an earlier payer would have paid into a lien against John Doe's net.
 
 1. The treatment-phase question changes from “What does he need?” to “Is the plan working?” Your three jobs: facilitation (transport, paperwork, scheduling), coordination (every provider on one plan), advocacy (step in when care is denied or stalls).
-2. Run the payer order: Harbor Point MedPay → Peach State → LOP. No PIP on this file; John Doe reaches the $5,000 MedPay as an occupant of Kevin Alvarez's 2020 Ford Escape.
+2. Run the Payer Order: Harbor Point MedPay → Peach State → LOP. No PIP on this file; John Doe reaches the $5,000 MedPay as an occupant of Kevin Alvarez's 2020 Ford Escape.
 3. The order is a default: providers bill whom they bill. MedPay pays what it gets, in date order, never wages. Crescent Pain & Spine billed Peach State on 05/15/2026 with $640.00 of MedPay left: track both ledgers; never re-route a paid claim. Who is primary (coordination of benefits, governing law) is Atty. Thorne's call.
 4. An LOP is John Doe's signed agreement, acknowledged by the firm on Atty. Thorne's terms, that a provider is paid from any recovery. The firm guarantees nothing; John Doe stays liable whatever the outcome, as Atty. Thorne explains before he signs. Use one only where earlier payers can't: Riverton Spine & Rehab is out of network.
 5. LOP terms are Atty. Thorne's: his approved template, his signature, what happens if there is no recovery. You prepare, route, transmit once approved, and confirm receipt. Never promise a provider a payment amount, a reduction or a date.
@@ -692,7 +692,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | Payer order | MedPay → Peach State → LOP applied to each bill; no PIP on this file |
+| 🤖 AI | **20%** | Payer Order | MedPay → Peach State → LOP applied to each bill; no PIP on this file |
 | 🤖 AI | **20%** | MedPay ledger | Five payments in date order; running total reaches $5,000.00 on the 06/12/2026 visit; $0.00 left |
 | 🤖 AI | **20%** | LOP decisions | LOP to Riverton Spine & Rehab (out of network); Summit Imaging's request declined because MedPay applies first |
 | 🧑‍🏫 Trainer | **20%** | Coordination judgment | Sees the hub role (warm handoffs, three closed loops, guarded transitions) and avoids mission creep |
@@ -724,7 +724,7 @@ Two documents side by side, each read line by line. Left, Peach State's Explanat
 
 *Why:* Every payer reports what it did with a bill: Peach State in an Explanation of Benefits, Harbor Point in its MedPay payment history. Read line by line, they say what was billed, what was paid, what was written off and what John Doe may still owe. They are the proof behind the Medical Specials, every lien amount, and every answer you give a provider or John Doe about a balance.
 
-1. An EOB is a health plan's statement to its member of how it processed one claim, and it says so: THIS IS NOT A BILL. Peach State's EOB of 06/03/2026 (claim PS-2605-449021) covers Crescent Pain & Spine's 05/15/2026 cervical epidural injection.
+1. An EOB is a Health Plan's statement to its member of how it processed one claim, and it says so: THIS IS NOT A BILL. Peach State's EOB of 06/03/2026 (claim PS-2605-449021) covers Crescent Pain & Spine's 05/15/2026 cervical epidural injection.
 2. Read its columns in order: amount billed ($3,400.00) → plan allowed ($1,860.00) → contractual adjustment ($1,540.00, the provider's write-off) → deductible, copay or coinsurance ($0.00) → plan paid ($1,860.00, EFT PSH-EFT-0603-77815) → member responsibility ($0.00).
 3. Read the remark codes: CO-45 means the charge exceeded the in-network fee schedule and the difference is the provider's contractual obligation; AC1 flags the service as possibly accident-related, which is how the plan's reimbursement right attaches to the claim.
 4. Member responsibility is the most an in-network provider may bill the patient. Crescent's patient statement of 07/01/2026 asks John Doe for $1,540.00, the amount the EOB shows as written off: treat it as a balance bill, not a debt and not a lien.
@@ -829,7 +829,7 @@ A two-column compare board. Left: a cream card with a green top rule headed COUN
 
 | COUNTS — made at the time | NEVER — made to order |
 |---|---|
-| EMS run report: neck stiffness, 02/06/2026. | Asking a provider to change, back-date or add to a record. |
+| EMS Run Report: neck stiffness, 02/06/2026. | Asking a provider to change, back-date or add to a record. |
 | Urgent-care note, 02/20/2026: onset at the MVA. | An excuse note written to order, or for unexamined days. |
 | Histories that agree on mechanism, onset and body region. | Drafting or suggesting a doctor's opinion. |
 | Northgate call-outs 02/09–02/13; work notes matched to a visit. | Scripting what John Doe tells his providers. |
@@ -1358,7 +1358,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 |---|---|---|---|---|---|
 | Reading an EOB line by line, remark codes included | ○ | ○ | ○ | ○ | ○ |
 | Reconciling provider balances to the EOBs and the MedPay ledger | ○ | ○ | ○ | ○ | ○ |
-| Applying the payer order: MedPay, then the Health Plan, then an LOP | ○ | ○ | ○ | ○ | ○ |
+| Applying the Payer Order: MedPay, then the Health Plan, then an LOP | ○ | ○ | ○ | ○ | ○ |
 | Preparing and transmitting an LOP on counsel's terms, and declining one | ○ | ○ | ○ | ○ | ○ |
 | Keeping a MedPay exhaustion ledger and LOP balances current | ○ | ○ | ○ | ○ | ○ |
 | Monitoring progress against the treatment map and the six-week rule | ○ | ○ | ○ | ○ | ○ |
@@ -1380,7 +1380,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
    *Harbor Point's payment history (RS31) shows five checks totalling $5,000.00, the last on 06/26/2026, and says bills received after exhaustion are returned with a notice of exhaustion. MedPay payments don't reduce the UM limit, Harbor Point asserts no reimbursement right, and MedPay is never part of the stack.*
 4. On 03/11/2026 Summit Imaging Center asks for an LOP before John Doe's cervical MRI. What do you do?  
    Issue the LOP on the firm's template so the MRI isn't delayed · Ask Peach State to pre-authorize the MRI, and issue an LOP for anything it won't pay · **✓ Decline: MedPay pays first, so give Summit the Harbor Point MedPay billing details and log the decline** · Tell Summit the firm will guarantee its bill at settlement  
-   *Payer order: MedPay → Peach State → LOP. MedPay had $3,675.00 left, enough for the $2,395.00 MRI. An unnecessary LOP turns a bill an earlier payer would cover into a lien on John Doe's net, and only Atty. Thorne sets LOP terms or commits the firm to anything.*
+   *Payer Order: MedPay → Peach State → LOP. MedPay had $3,675.00 left, enough for the $2,395.00 MRI. An unnecessary LOP turns a bill an earlier payer would cover into a lien on John Doe's net, and only Atty. Thorne sets LOP terms or commits the firm to anything.*
 5. Harbor Point MedPay has paid $685.00, $640.00, $2,395.00 and $640.00 in date order. How much is left for Lakeside Orthopedics' 06/12/2026 MMI visit?  
    **✓ $640.00** · $1,280.00 · $0.00 · $4,360.00  
    *$685.00 + $640.00 + $2,395.00 + $640.00 = $4,360.00; $5,000.00 – $4,360.00 = $640.00. The 06/12/2026 visit uses it, and MedPay is exhausted at exactly $5,000.00.*
@@ -1441,7 +1441,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned about investigating a client's treatment gap: the principles, not the clicks.
+- Summarize, in your own words, what you learned about investigating a client's Treatment Gap: the principles, not the clicks.
 - Articulate your strategy: the Gap Record is with Atty. Thorne. What is your next action on this file, and why is it the right one rather than something else?
 - Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
 
@@ -1871,7 +1871,7 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (4 questions):
+**Auto-graded share of the day's Knowledge Check** (5 questions):
 
 1. Riverton Spine & Rehab billed 34 lines at $185.00, but its treatment notes show 33 visits. After the audit, John Doe's medical Specials are:  
    $15,002.40 · **✓ $14,817.40** · $16,401.40 · $13,277.40  
@@ -1885,6 +1885,9 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 4. In the pre-demand strategy session, which of these may the Case Manager recommend?  
    **✓ Serving the demand by certified mail with return receipt and by email, so receipt can be proved** · Demanding the $10,000 BI limits · Claiming billed rather than paid amounts · Sending the Host UM demand now, alongside the BI demand  
    *Service method is operational, so you may recommend it, within whatever the governing statute requires for a Time-Limited Demand (Atty. Thorne confirms and approves). The demand figure and billed-vs-paid are his legal calls. A UM demand now would be premature: the UM layers owe nothing until BI is exhausted, and settling BI without their consent is what puts them at risk.*
+5. Northgate's HR letter verifies 9 missed shifts at 8 h × $22.00, but five of them (02/09–02/13/2026) fall before John Doe's first treatment and carry no provider work note. In the audited Specials, the Case Manager:  
+   Drops the five shifts and claims only four: $704.00 · Asks Dr. Reyes for a work note backdated to cover 02/09–02/13/2026 · **✓ Keeps $1,584.00, flags the five shifts with Northgate's Attendance Record (called out citing neck pain) as their support, and routes them to Atty. Thorne** · Keeps $1,584.00 and leaves the five shifts unmentioned so Keystone doesn't notice them  
+   *Flag, never drop, never hide. 9 × 8 h × $22.00 = $1,584.00, verified by Northgate. The five pre-treatment shifts sit inside the 14-Day Gap and the defense will use them, yet the Attendance Record also corroborates the gap justification. How they are presented is Atty. Thorne's call.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 

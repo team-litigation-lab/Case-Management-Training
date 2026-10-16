@@ -109,7 +109,7 @@
       "ask": "Which number decides whether the Civic is totaled: the first estimate or the final bill?"
     },
     "theory": {
-      "say": "Property damage is a cornerstone of civil litigation. It's the law's way of making an owner financially whole after someone's negligence harms their property. And in suit, it cuts both ways. PD can be strong evidence of injury, or it can become the defense's most formidable tool against it. You need two terms straight. Special damages are quantifiable losses, and every PD figure is special, proved by documents. General damages are subjective, like pain and suffering. Valuation is one of the most heavily litigated PD questions, which is why courts lean on set formulas. The key one is diminution in value: pre-loss market value minus post-loss value, weighed under the lesser-of rule against the repair cost, which caps a total loss.",
+      "say": "Property Damage is a cornerstone of civil litigation. It's the law's way of making an owner financially whole after someone's negligence harms their property. And in suit, it cuts both ways. PD can be strong evidence of injury, or it can become the defense's most formidable tool against it. You need two terms straight. Special damages are quantifiable losses, and every PD figure is special, proved by documents. General damages are subjective, like pain and suffering. Valuation is one of the most heavily litigated PD questions, which is why courts lean on set formulas. The key one is diminution in value: pre-loss market value minus post-loss value, weighed under the lesser-of rule against the repair cost, which caps a Total Loss.",
       "ask": "Which of these ideas have you already bumped into on the Civic's side of the file?"
     },
     "frame": {
@@ -128,7 +128,7 @@
       "say": "On the job, it goes like this. The final repair bill posts with the supplement, so you re-run the total-loss check on $9,255.00 in the Property Damage screen, record 52.6% of $17,600.00, and get Keystone's 75% basis on file in writing. Then the rental ends while the Civic is still in the shop. You log every day without a vehicle, period by period, and land on 12 plus 36, 48 days, with no paid rental day counted. When the 09/24/2026 complaint pleads Loss of Use and Diminished Value, you reconcile the figures across the PD screen, the damages summary and discovery, so $2,016.00 and $3,600.00 match everywhere, and any mismatch goes to Atty. Thorne. And when the deposition is noticed on 01/20/2027, you index the PD severity set for his deposition documents before the 02/04/2027 prep session."
     },
     "dodont": {
-      "say": "Here comes 3 Clues, 1 Rule for this lesson. I'll show three clues one at a time, each a moment from the Civic's property damage file. Call it as soon as you've got it: Do or Don't. Then tell me the rule that settles it. The rules you'll need are all from what we just did: which repair figure the threshold runs on, whose rental rate measures a day's use, how the 78 days are allocated, and why the supplement matters to more than just the car. A hint from me: the double count is sneakier than it looks. Take your time with clue two before you commit.",
+      "say": "Here comes 3 Clues, 1 Rule for this lesson. I'll show three clues one at a time, each a moment from the Civic's Property Damage file. Call it as soon as you've got it: Do or Don't. Then tell me the rule that settles it. The rules you'll need are all from what we just did: which repair figure the threshold runs on, whose rental rate measures a day's use, how the 78 days are allocated, and why the supplement matters to more than just the car. A hint from me: the double count is sneakier than it looks. Take your time with clue two before you commit.",
       "ask": "Who's willing to commit to Do or Don't before the second clue?"
     }
   },
@@ -142,7 +142,7 @@
       "ask": "Why does a carrier's formula need to be on paper before we can answer it?"
     },
     "frame": {
-      "say": "So how do we value the claim? Three ideas. First, the lesser-of rule: the owner gets the lesser of the repair cost or the drop in market value, and a car that costs more to fix than it was worth is a total loss. Second, Diminished Value: the market value a car still loses after a proper repair. Many courts add it on top of the repair, as long as the total stays under the pre-loss value. Third, special value. Where there's no market at all, say an heirloom, some courts use the actual value to the owner, but sentimental value is still excluded. It's an exception, not the rule. For a 2019 Civic, the first two are what we're working with.",
+      "say": "So how do we value the claim? Three ideas. First, the lesser-of rule: the owner gets the lesser of the repair cost or the drop in market value, and a car that costs more to fix than it was worth is a Total Loss. Second, Diminished Value: the market value a car still loses after a proper repair. Many courts add it on top of the repair, as long as the total stays under the pre-loss value. Third, special value. Where there's no market at all, say an heirloom, some courts use the actual value to the owner, but sentimental value is still excluded. It's an exception, not the rule. For a 2019 Civic, the first two are what we're working with.",
       "ask": "Which of these three measures actually applies to John Doe's Civic right now?"
     },
     "rules": {
@@ -195,7 +195,7 @@
   },
   "d5m2-kc": {
     "questions": {
-      "say": "This is the PD Dispute Evaluation. Answer from John Doe's file, in your own words, right under each question. Show whether the Civic is a total loss, with the final repair, the ACV, Keystone's threshold and the percentage, arithmetic included. Allocate the 78 days from 02/06 to 04/24/2026 and say which are claimed, at what rate, for how much, and why the rental days are out. Sort the damages into their three types. And when you hit Question 6, the pressure scenario, slow down. The strong answer agrees to nothing, logs the call, and gets the inspection request and the offer to Atty. Thorne right away.",
+      "say": "This is the PD Dispute Evaluation. Answer from John Doe's file, in your own words, right under each question. Show whether the Civic is a Total Loss, with the final repair, the ACV, Keystone's threshold and the percentage, arithmetic included. Allocate the 78 days from 02/06 to 04/24/2026 and say which are claimed, at what rate, for how much, and why the rental days are out. Sort the damages into their three types. And when you hit Question 6, the pressure scenario, slow down. The strong answer agrees to nothing, logs the call, and gets the inspection request and the offer to Atty. Thorne right away.",
       "ask": "In the pressure scenario, who gives John Doe any instruction about preserving the Civic?"
     },
     "summary": {
@@ -246,7 +246,7 @@
       "ask": "Can someone give me an honest estimate about John's crash that wouldn't be a guess?"
     },
     "frame": {
-      "say": "These are the seven golden rules for testifying. Rule one, always tell the absolute truth, because a damaged case can be saved and a lied-about one can't. Rules two and three: pause two full seconds, then answer in words. That gives time to think, a clean transcript and a window to object. Rules four and five: never guess, and answer only what was asked, then stop. I don't know is a complete answer, and it keeps the target small. Rules six and seven: hold the silence after you've answered, and don't try to win. The deposition gathers information; the legal battle belongs to Atty. Thorne. These are general rules. We teach every client the same seven, and none of them tells John what to say.",
+      "say": "These are the seven Golden Rules for testifying. Rule one, always tell the absolute truth, because a damaged case can be saved and a lied-about one can't. Rules two and three: pause two full seconds, then answer in words. That gives time to think, a clean transcript and a window to object. Rules four and five: never guess, and answer only what was asked, then stop. I don't know is a complete answer, and it keeps the target small. Rules six and seven: hold the silence after you've answered, and don't try to win. The deposition gathers information; the legal battle belongs to Atty. Thorne. These are general rules. We teach every client the same seven, and none of them tells John what to say.",
       "ask": "Which of these seven do you think John will find hardest under pressure?"
     },
     "rules": {
@@ -262,7 +262,7 @@
     },
     "dodont": {
       "say": "Game time: 3 Clues, 1 Rule, for opposing counsel's traps. I'll reveal three clues one at a time. Call it, Do or Don't, and then name the rule. You'll need what we just built: why a deposition is information gathering and the records win later, why we explain objections ahead of time, why silence is safe and rambling isn't, and the traps of a narrowed yes, a client who argues or talks over an objection, and prep that skips the medical history. Some of these clues will sound like John is doing great. Listen for the moment it turns.",
-      "ask": "Who can name the golden rule behind this one, not just the call?"
+      "ask": "Who can name the Golden Rule behind this one, not just the call?"
     }
   },
   "d5m3-a1": {
@@ -289,7 +289,7 @@
       "ask": "Who in this mock is allowed to speak to John, and when?"
     },
     "task": {
-      "say": "While the mock runs in the Call Simulator, you keep the Trap Log in CMS under Litigation, Deposition prep log. For each trap, log the timestamp, the question in AI Mercer's exact words, its category, the trap type, and which golden rules John kept or broke. Beside every mischaracterisation, put the record fact and its source. Log each objection and whether John stopped talking. Then route the finished log to Atty. Thorne before his debrief. You coach nothing, not during the mock and not after. The log is for Atty. Thorne alone; nothing in it goes to John. Your hand-in is a timestamped Trap Log, scored against the seven rules.",
+      "say": "While the mock runs in the Call Simulator, you keep the Trap Log in CMS under Litigation, Deposition prep log. For each trap, log the timestamp, the question in AI Mercer's exact words, its category, the trap type, and which Golden Rules John kept or broke. Beside every mischaracterisation, put the record fact and its source. Log each objection and whether John stopped talking. Then route the finished log to Atty. Thorne before his debrief. You coach nothing, not during the mock and not after. The log is for Atty. Thorne alone; nothing in it goes to John. Your hand-in is a timestamped Trap Log, scored against the seven rules.",
       "ask": "Why does the log need Mercer's exact words instead of your summary of the question?"
     },
     "model": {
@@ -337,7 +337,7 @@
       "ask": "Under the modified 50% rule, what happens to John's recovery at exactly 50%?"
     },
     "job": {
-      "say": "Watch how it unfolds. The Answer is filed on 11/12/2026, pleading comparative fault, causation and failure to mitigate. You log each defense as its own line in the Pleadings Log, dated 11/12/2026, and confirm the filing on the docket. Then you map the file's evidence to each allegation in the counter-package, with its source, witness and custody, and nothing goes in without a source document and a named authenticating witness. When an item lacks foundation, or a holder won't produce, you flag it for a subpoena duces tecum and route it to Atty. Thorne, naming the gap and the record holder. And with deposition prep set for 02/04 and 02/16/2027, you deliver the counter-package and the Gap Record into his prep set before 02/04/2027."
+      "say": "Watch how it unfolds. The Answer is filed on 11/12/2026, pleading comparative fault, causation and failure to mitigate. You log each defense as its own line in the Pleadings Log, dated 11/12/2026, and confirm the filing on the docket. Then you map the file's evidence to each allegation in the counter-package, with its source, witness and custody, and nothing goes in without a source document and a named authenticating witness. When an item lacks foundation, or a holder won't produce, you flag it for a Subpoena Duces Tecum and route it to Atty. Thorne, naming the gap and the record holder. And with deposition prep set for 02/04 and 02/16/2027, you deliver the counter-package and the Gap Record into his prep set before 02/04/2027."
     },
     "dodont": {
       "say": "Time for 3 Clues, 1 Rule on the liability counter-package. Three clues come up, one at a time. Call it, Do or Don't, then give me the rule. Think back over what we just covered: answering each allegation with a document instead of an argument, recording liability status the way the claims team does, using the damage pattern with the video and the witness, and the traps of leaning on the citation alone, promising John he can't be blamed, and adding Kevin Alvarez's policy to the stack. One tip: watch who's speaking in each clue. Sometimes it's not the evidence that's wrong, it's who's giving the opinion.",
@@ -358,7 +358,7 @@
       "ask": "On Smith's service, which of these five steps did we actually need?"
     },
     "rules": {
-      "say": "The clerk issues the Summons, the process server gets the papers, you follow up every five days, and the affidavit is filed: here 09/24 filed, 10/14 served, 10/16/2026 affidavit. Three failed attempts at 118 Larkspur Ln and a neighbor saying Smith moved means a stale address, so Skip-Trace first, permissible purpose only. On 10/09 it found 4410 Quarry Ridge Ct, Millbrook. Service starts his clock, answer due 11/13/2026, and you check the docket weekly. A subpoena duces tecum needs a narrow Exhibit A, and opposing counsel gets notice first. For John, silent since 01/22/2027, run Day 1's No Contact Protocol. The Step 4 letter goes certified mail and email over Atty. Thorne's signature, by 01/27/2027. Withdrawal goes in only if he directs it. Margaret hears only that the firm needs John to call.",
+      "say": "The clerk issues the Summons, the process server gets the papers, you follow up every five days, and the affidavit is filed: here 09/24 filed, 10/14 served, 10/16/2026 affidavit. Three failed attempts at 118 Larkspur Ln and a neighbor saying Smith moved means a stale address, so Skip-Trace first, permissible purpose only. On 10/09 it found 4410 Quarry Ridge Ct, Millbrook. Service starts his clock, answer due 11/13/2026, and you check the docket weekly. A Subpoena Duces Tecum needs a narrow Exhibit A, and opposing counsel gets notice first. For John, silent since 01/22/2027, run Day 1's No Contact Protocol. The Step 4 letter goes certified mail and email over Atty. Thorne's signature, by 01/27/2027. Withdrawal goes in only if he directs it. Margaret hears only that the firm needs John to call.",
       "ask": "Three attempts failed at 118 Larkspur Ln. Why is a fourth at 6:00 a.m. the wrong move?"
     },
     "model": {
@@ -366,7 +366,7 @@
       "ask": "Looking at both lanes, where does the authority to act change hands?"
     },
     "job": {
-      "say": "Back to October. On 10/08/2026, the third attempt fails and a neighbor says Smith moved. You escalate for Skip-Trace authority, log the 10/09/2026 result and re-assign the server to 4410 Quarry Ridge Ct. When the affidavit is filed 10/16/2026, you docket the answer date, 11/13/2026, and set a recurring weekly docket check. Later, Atty. Thorne approves a subpoena duces tecum, so you send notice to Atty. Grant Mercer first, dated before service, then have the custodian served and set a compliance call five days before production. And when John goes unreachable from 01/22/2027 with a deposition noticed, you run Steps 1 to 3, then draft the Step 4 notice for Atty. Thorne's signature, response date before 02/04/2027, and log both the certified mail and the email."
+      "say": "Back to October. On 10/08/2026, the third attempt fails and a neighbor says Smith moved. You escalate for Skip-Trace authority, log the 10/09/2026 result and re-assign the server to 4410 Quarry Ridge Ct. When the affidavit is filed 10/16/2026, you docket the answer date, 11/13/2026, and set a recurring weekly docket check. Later, Atty. Thorne approves a Subpoena Duces Tecum, so you send notice to Atty. Grant Mercer first, dated before service, then have the custodian served and set a compliance call five days before production. And when John goes unreachable from 01/22/2027 with a deposition noticed, you run Steps 1 to 3, then draft the Step 4 notice for Atty. Thorne's signature, response date before 02/04/2027, and log both the certified mail and the email."
     },
     "dodont": {
       "say": "Let's play 3 Clues, 1 Rule one more time for this lesson. Three clues, one at a time, about finding people on this file. Call it, Do or Don't, and name the rule. You've got the tools: following up with the server every five days and asking for each attempt's details, paying a custodian's copy invoice the day it arrives, confirming the address before certified mail goes out, and the traps of knocking on a stale door, serving the non-party before opposing counsel has notice, and saying too much to Margaret. Some of these sound like good hustle. Ask yourself whether the hustle is pointed in the right direction.",
@@ -379,7 +379,7 @@
       "ask": "Is a row finished if it has strong evidence but no authenticating witness?"
     },
     "task": {
-      "say": "You're building the liability counter-package for Atty. Thorne in CMS under Litigation. For each of the three allegations, list the evidence that answers it, its source document, the witness who can authenticate it, its chain of custody and any gap in its foundation. Write out the doorbell video's chain from the 02/17/2026 preservation request to the 02/19/2026 copy. Where a record will need a custodian, draft a narrow Exhibit A for a subpoena duces tecum in the Action Plan Editor's template, for his review. Then close with the questions only he can answer: the governing fault rule, seatbelt and citation admissibility, and whether fault on Kevin Alvarez touches coverage. You hand in the allegation-by-allegation package, the draft Exhibit A and those routed questions.",
+      "say": "You're building the liability counter-package for Atty. Thorne in CMS under Litigation. For each of the three allegations, list the evidence that answers it, its source document, the witness who can authenticate it, its chain of custody and any gap in its foundation. Write out the doorbell video's chain from the 02/17/2026 preservation request to the 02/19/2026 copy. Where a record will need a custodian, draft a narrow Exhibit A for a Subpoena Duces Tecum in the Action Plan Editor's template, for his review. Then close with the questions only he can answer: the governing fault rule, seatbelt and citation admissibility, and whether fault on Kevin Alvarez touches coverage. You hand in the allegation-by-allegation package, the draft Exhibit A and those routed questions.",
       "ask": "Which single document answers two defenses?"
     },
     "check": {
@@ -425,7 +425,7 @@
       "ask": "Why should Peach State share in the cost of a lawsuit it never filed?"
     },
     "frame": {
-      "say": "Here's how the master financial ledger is built, top to bottom. It starts with the recovery summary: the gross by stream, each with its source, so the BI tendered at mediation and both UM awards from arbitration. Next are attorney fees, the fee on each stream, confirmed from the retainer, and on this file that's the 40% tier once suit was filed. Then case expenses, every advanced cost with its receipt: filing, service, mediation, arbitration, the reporter, records, plus the pre-suit costs. Then the provider ledger: charges, payments, adjustments, balance owed and reduction, with only the liens actually owed, and reductions following the fee actually charged. And last, the net to the client, gross minus fees, costs and reduced liens, shown line by line before John Doe signs.",
+      "say": "Here's how the Master Financial Ledger is built, top to bottom. It starts with the recovery summary: the gross by stream, each with its source, so the BI tendered at mediation and both UM awards from arbitration. Next are attorney fees, the fee on each stream, confirmed from the retainer, and on this file that's the 40% tier once suit was filed. Then case expenses, every advanced cost with its receipt: filing, service, mediation, arbitration, the reporter, records, plus the pre-suit costs. Then the provider ledger: charges, payments, adjustments, balance owed and reduction, with only the liens actually owed, and reductions following the fee actually charged. And last, the net to the client, gross minus fees, costs and reduced liens, shown line by line before John Doe signs.",
       "ask": "Which section of this ledger is most likely to trip someone up on a litigated file?"
     },
     "rules": {
@@ -455,7 +455,7 @@
     },
     "check": {
       "say": "Check your Net Sheet before you log it. The gross is Keystone $10,000.00 from mediation, plus Harbor Point $20,000.00 and Cardinal State $10,000.00 from the award, $40,000.00. The fee is the 40% tier, $16,000.00, confirmed from the retainer, not 33⅓% from habit. Costs come to $3,895.25, each on its row with a receipt. Liens: Peach State from $1,860.00 down to $1,116.00, and Riverton Spine & Rehab from $6,290.00 to the audited $6,105.00 to $4,275.00, totaling $5,391.00, each reduction's basis on its line. Zero-balance lines like MedPay's $5,000.00 and Crescent's $1,540.00 write-off stay off the payables. Net $14,713.75, tied to the $40,000.00 in trust. Nothing disbursed until John signs on 07/29/2027, disbursement 07/30/2027. And no lien paid from a phone call.",
-      "ask": "Does your trust ledger tie to the $40,000.00 gross to the cent?"
+      "ask": "Does your Trust Ledger tie to the $40,000.00 gross to the cent?"
     }
   },
   "d5m5-kc": {

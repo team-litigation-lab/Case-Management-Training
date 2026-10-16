@@ -286,7 +286,7 @@
     ],
     "upl": "Ask only inside Atty. Thorne's written authority; never accept outside it or promise payment.",
     "job": [
-      ["Provider's final ledger received", "Audit each line; request written correction", "Medical Records Requests · Lien Tracker", "33 visits; duplicate out; $6,105.00"],
+      ["Provider's Final Ledger received", "Audit each line; request written correction", "Medical Records Requests · Lien Tracker", "33 visits; duplicate out; $6,105.00"],
       ["Audited balance confirmed", "Draft request; get written authority", "CMS → Documents → Outgoing", "Authority logged before any call"],
       ["Reduction agreed", "Get signed Payoff Letter; update tabs", "Financial Ledger → Net Sheet", "Full-and-final language; net recomputed same day"]
     ],

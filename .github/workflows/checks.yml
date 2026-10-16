@@ -44,6 +44,8 @@ jobs:
         run: node build/case-flow/scripts/assemble.cjs --check
       - name: Case Flow simulation (an event for every activity, a call in every Case Phase, fallout, the timeline; the assembled file in step)
         run: node build/case-flow/sim/assemble.cjs --check
+      - name: Defined terms capitalized as specified (build/case-flow/terms.json)
+        run: node build/case-flow/terms.cjs --check
       - name: Case Flow dates roll forward exactly (weekdays, the two-year SOL, holidays; no date left behind)
         run: node .github/scripts/check-case-dates.mjs
       - name: Documents served from R2 (ranges, 304s, static assets as the fallback)

@@ -9,7 +9,7 @@
       "ask": "Which of these have you met before, and where would it show up on John Doe's file?"
     },
     "frame": {
-      "say": "These are the three stalls you'll hear most, so let's practice answering them. First, \"I'm waiting on my manager's authority.\" Fine. You set a firm reply date, and once it passes, the file goes to counsel. Second, \"We need records from five years ago.\" Ask why they matter, and make clear you expect a good-faith offer on the undisputed injuries now, not after a fishing trip. Third, the classic: \"The property damage was too low for this injury.\" Low-velocity impacts can still injure the spine, and you point them straight to the imaging. Notice the pattern. Every answer is calm, factual, and moves the clock forward.",
+      "say": "These are the three stalls you'll hear most, so let's practice answering them. First, \"I'm waiting on my manager's authority.\" Fine. You set a firm reply date, and once it passes, the file goes to counsel. Second, \"We need records from five years ago.\" Ask why they matter, and make clear you expect a good-faith offer on the undisputed injuries now, not after a fishing trip. Third, the classic: \"The Property Damage was too low for this injury.\" Low-velocity impacts can still injure the spine, and you point them straight to the imaging. Notice the pattern. Every answer is calm, factual, and moves the clock forward.",
       "ask": "Looking at John Doe's file, which of these stalls is Keystone using right now, and how did we answer it?"
     },
     "rules": {
@@ -225,7 +225,7 @@
       "ask": "Why do you think settlement drafts belong in the binder before the session even starts?"
     },
     "frame": {
-      "say": "Here's the six-section binder in its fixed order. Section one holds the snapshot sheet, the mediation order or agreement, and the session schedule. Section two, our confidential statement and the defense's brief, if they exchanged one. Section three, the operative complaint and the answer with its affirmative defenses. Section four, the police report, photos and video stills, and deposition summaries with the key pages highlighted. Section five, the medical chart and bills ledger, the wage-loss proof and the expert reports. And section six, the negotiation log of every demand and offer, plus a draft release. Same order, every time, so Atty. Thorne's hand goes to the right tab without thinking.",
+      "say": "Here's the six-section binder in its fixed order. Section one holds the snapshot sheet, the mediation order or agreement, and the session schedule. Section two, our confidential statement and the defense's brief, if they exchanged one. Section three, the operative complaint and the answer with its affirmative defenses. Section four, the Police Report, photos and video stills, and deposition summaries with the key pages highlighted. Section five, the medical chart and bills ledger, the wage-loss proof and the expert reports. And section six, the Negotiation Log of every demand and offer, plus a draft release. Same order, every time, so Atty. Thorne's hand goes to the right tab without thinking.",
       "ask": "On John Doe's file, which of these six sections do you think will take the most work to get right?"
     },
     "rules": {
@@ -241,21 +241,21 @@
       "ask": "A pleaded defense has no answering exhibit in sections four or five. What do you do with it?"
     },
     "dodont": {
-      "say": "Let's play 3 Clues, 1 Rule. I'll show three clues, you call Do or Don't and name the rule. In play: start from the 07/20/2026 demand package, since most of sections four and five already exist there, and bookmark to the page Atty. Thorne will quote, not the cover. The traps: an unorganized file the morning of, a snapshot sheet with stale opposing-counsel contacts, and the confidential statement sent ten minutes early or to the wrong person. Remember, the product is the index, and when two copies disagree, the index decides. And Dr. Reyes's causation opinion may need disclosure by 03/15/2027. You flag it to Atty. Thorne now, and how it's disclosed is his call.",
+      "say": "Let's play 3 Clues, 1 Rule. I'll show three clues, you call Do or Don't and name the rule. In play: start from the 07/20/2026 Demand Package, since most of sections four and five already exist there, and bookmark to the page Atty. Thorne will quote, not the cover. The traps: an unorganized file the morning of, a snapshot sheet with stale opposing-counsel contacts, and the confidential statement sent ten minutes early or to the wrong person. Remember, the product is the index, and when two copies disagree, the index decides. And Dr. Reyes's causation opinion may need disclosure by 03/15/2027. You flag it to Atty. Thorne now, and how it's disclosed is his call.",
       "ask": "You bookmark Dr. Reyes's Causation Letter to its cover page. Do or Don't, and what's the rule?"
     }
   },
   "d4m3-l2": {
     "why": {
-      "say": "I'm holding up the mediation binder. This one persuaded. The next one is evidence. And I'm writing a date on the board: 06/02/2027. Everything in this lesson counts back from that exchange. Here's why it matters. On 04/05/2027, Harbor Point and Cardinal State picked up Keystone's gap argument, and Laura Whitcomb, Esq. is going to decide damages, bindingly. The Arbitration Binder is the record her award rests on. A page that's missing, illegible or not exchanged by 06/02/2027 may simply not count. No second chances.",
+      "say": "I'm holding up the Mediation Binder. This one persuaded. The next one is evidence. And I'm writing a date on the board: 06/02/2027. Everything in this lesson counts back from that exchange. Here's why it matters. On 04/05/2027, Harbor Point and Cardinal State picked up Keystone's gap argument, and Laura Whitcomb, Esq. is going to decide damages, bindingly. The Arbitration Binder is the record her award rests on. A page that's missing, illegible or not exchanged by 06/02/2027 may simply not count. No second chances.",
       "ask": "What's the difference between a binder that persuades and a binder that's evidence?"
     },
     "theory": {
       "say": "The Arbitration Binder isn't a reference packet. It's a trial-ready evidentiary record, handed straight to a private judge who decides. Your role here is operational: timelines, scheduling and documents, run with rigid precision. The arbitration brief deadline is the absolute cutoff for claims, exhibit indexes and witness lists, and it goes to the arbitrator and opposing counsel. The arbitration submissions are the foundational paperwork that sets the ground rules for the whole proceeding, which is why they lead the binder. And here's the scary part: a missing page or a grayscale print can be excluded, and with a binding award, there's no second chance to fix it.",
-      "ask": "Which of these four ideas feels most different from how we built the mediation binder?"
+      "ask": "Which of these four ideas feels most different from how we built the Mediation Binder?"
     },
     "frame": {
-      "say": "Six tabs again, but with a different job. Tab one, arbitration submissions: the snapshot sheet, the final brief, the governing order or agreement and fee disclosures. Tab two, arbitration pleadings: the operative demand and each party's written position, with no superseded versions. Tab three, liability and biomechanics: the certified police report, diagrams, and photos and stills in color, never grayscale. Tab four, medical damages: the consolidated ledger, provider records and bills, imaging, the causation opinion. Tab five is the prior medical shield, prior injury records and work history paired with a medical opinion. And tab six is economic losses, wage-loss proof only.",
+      "say": "Six tabs again, but with a different job. Tab one, arbitration submissions: the snapshot sheet, the final brief, the governing order or agreement and fee disclosures. Tab two, arbitration pleadings: the operative demand and each party's written position, with no superseded versions. Tab three, liability and biomechanics: the certified Police Report, diagrams, and photos and stills in color, never grayscale. Tab four, medical damages: the consolidated ledger, provider records and bills, imaging, the causation opinion. Tab five is the prior medical shield, prior injury records and work history paired with a medical opinion. And tab six is economic losses, wage-loss proof only.",
       "ask": "Looking at John Doe's file, which tab is going to carry the gap fight that the carriers are pressing?"
     },
     "rules": {
@@ -263,7 +263,7 @@
       "ask": "Who can say the doorbell video is what we say it is?"
     },
     "model": {
-      "say": "Look at the two panels. On the left, small and grayed out, is the mediation binder, captioned persuades, non-binding. A heavy orange arrow says the gap dispute carries over. On the right, much bigger, are the six arbitration tabs, each with a card stating its QC rule. Over tab one sits a threshold chip: BI exhausted, $10,000 tendered 03/18/2027. Under the tabs runs an authentication rail: custodian certification, native file, chain of custody. Bottom right is a red warning, not exchanged by 06/02/2027 means it may not count, with a reminder to confirm the forum's rules. That size difference is the message. This record is the one that decides.",
+      "say": "Look at the two panels. On the left, small and grayed out, is the Mediation Binder, captioned persuades, non-binding. A heavy orange arrow says the gap dispute carries over. On the right, much bigger, are the six arbitration tabs, each with a card stating its QC rule. Over tab one sits a threshold chip: BI exhausted, $10,000 tendered 03/18/2027. Under the tabs runs an authentication rail: custodian certification, native file, chain of custody. Bottom right is a red warning, not exchanged by 06/02/2027 means it may not count, with a reminder to confirm the forum's rules. That size difference is the message. This record is the one that decides.",
       "ask": "Why does the BI exhaustion proof sit on top of tab one, ahead of everything else?"
     },
     "job": {
@@ -277,7 +277,7 @@
   },
   "d4m3-a1": {
     "case": {
-      "say": "It's 03/04/2027, and this just came from Atty. Thorne: \"Mercer writes that Keystone will not put a real number on the table while our medical ledger is unverified. The draft binder carries Riverton at $6,290.00 and Crescent as an open balance. Rebuild it from the master index and audit it.\" The statement and binder go to Hon. Carla Benton (Ret.) by 03/11/2027, routed to him first, for the 03/18/2027 mediation. John Doe was deposed 02/18/2027, and the certified transcript's in the file. Riverton Spine & Rehab's final itemized ledger, requested 02/08/2027, followed up 02/22 and red-flagged 03/01, still hasn't arrived. Now, see those two red landmine chips? Who spotted them in the draft before I pointed?",
+      "say": "It's 03/04/2027, and this just came from Atty. Thorne: \"Mercer writes that Keystone will not put a real number on the table while our medical ledger is unverified. The draft binder carries Riverton at $6,290.00 and Crescent as an open balance. Rebuild it from the master index and audit it.\" The statement and binder go to Hon. Carla Benton (Ret.) by 03/11/2027, routed to him first, for the 03/18/2027 mediation. John Doe was deposed 02/18/2027, and the certified transcript's in the file. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027, followed up 02/22 and red-flagged 03/01, still hasn't arrived. Now, see those two red landmine chips? Who spotted them in the draft before I pointed?",
       "ask": "Who spotted those two landmines in the draft before I pointed them out, and what tipped you off?"
     },
     "task": {
@@ -357,7 +357,7 @@
       "ask": "Can you think of a time a problem reached the boss before anyone at a lower level had a chance to fix it?"
     },
     "frame": {
-      "say": "This is the three-step protocol, and it's simpler than it sounds. Level one is the source. You follow up with whoever owes the item, on the cadence, and log the date, method and result every time. Level two is the notice of delay. That's written notice to the supervisor or office manager stating what's outstanding, since when, and the hard date it threatens. Level three is Atty. Thorne. You send him the five-field report, and if a motion to compel or a subpoena is on the table, that choice is his. Three rungs, in order, documented the whole way up.",
+      "say": "This is the three-step protocol, and it's simpler than it sounds. Level one is the source. You follow up with whoever owes the item, on the cadence, and log the date, method and result every time. Level two is the Notice of Delay. That's written notice to the supervisor or office manager stating what's outstanding, since when, and the hard date it threatens. Level three is Atty. Thorne. You send him the five-field report, and if a motion to compel or a subpoena is on the table, that choice is his. Three rungs, in order, documented the whole way up.",
       "ask": "With Riverton Spine & Rehab's overdue ledger, which rung would you be on by 02/22/2027?"
     },
     "rules": {
@@ -365,7 +365,7 @@
       "ask": "Who should have heard about the Keystone silence first: Dana Whitfield's supervisor or Atty. Thorne?"
     },
     "model": {
-      "say": "On the left, there's a three-rung ladder, drawn bottom-up. Rung one is the source, rung two is the supervisor with a notice of delay, and rung three is Atty. Thorne, with a 48-hour pill between each pair. Under it, a red strip: don't skip, don't sit. On the right is the bottleneck report itself, filled in for Keystone exactly as it reached Atty. Thorne on 09/08/2026. Five fields, each with an orange badge: the blocker, when it started, what it threatens, what was tried, and the ask. The ask is boxed in orange and it's the only thing in bold. That's the point. Escalation is a sequence, and the report is what lets counsel act in one read.",
+      "say": "On the left, there's a three-rung ladder, drawn bottom-up. Rung one is the source, rung two is the supervisor with a Notice of Delay, and rung three is Atty. Thorne, with a 48-hour pill between each pair. Under it, a red strip: don't skip, don't sit. On the right is the bottleneck report itself, filled in for Keystone exactly as it reached Atty. Thorne on 09/08/2026. Five fields, each with an orange badge: the blocker, when it started, what it threatens, what was tried, and the ask. The ask is boxed in orange and it's the only thing in bold. That's the point. Escalation is a sequence, and the report is what lets counsel act in one read.",
       "ask": "Why do you think the ask is the only field in bold on that report?"
     },
     "job": {
@@ -379,7 +379,7 @@
   },
   "d4m4-a1": {
     "case": {
-      "say": "This landed on 02/22/2027: record overdue 14 days, Riverton Spine & Rehab's final ledger. It was requested 02/08/2027 and still isn't here, and it's a dependency for the Mediation Binder due to Hon. Carla Benton (Ret.) on 03/11/2027, ahead of the 03/18/2027 session. Keystone's attendee and their authority are unconfirmed, and there are no countermeasure rules on this file yet. The demand-stage audit holds Riverton at $6,105.00, 33 visits at $185.00, and Peach State's EOB shows $1,860.00 paid on Crescent's $3,400.00 bill. Before we touch the live dates, we'll calibrate. Let's enter the Keystone dates together and watch Rule 1 fire on 09/02 and 09/04. If a rule can't reproduce a known record, we can't trust it on a live one.",
+      "say": "This landed on 02/22/2027: record overdue 14 days, Riverton Spine & Rehab's Final Ledger. It was requested 02/08/2027 and still isn't here, and it's a dependency for the Mediation Binder due to Hon. Carla Benton (Ret.) on 03/11/2027, ahead of the 03/18/2027 session. Keystone's attendee and their authority are unconfirmed, and there are no countermeasure rules on this file yet. The demand-stage audit holds Riverton at $6,105.00, 33 visits at $185.00, and Peach State's EOB shows $1,860.00 paid on Crescent's $3,400.00 bill. Before we touch the live dates, we'll calibrate. Let's enter the Keystone dates together and watch Rule 1 fire on 09/02 and 09/04. If a rule can't reproduce a known record, we can't trust it on a live one.",
       "ask": "If Rule 1 doesn't fire on 09/02 and 09/04 during calibration, what would that tell you?"
     },
     "task": {

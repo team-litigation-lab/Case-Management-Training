@@ -4,7 +4,7 @@
     "concepts": [
       {"term": "Third-Party vs. First-Party", "text": "Third-party is the at-fault driver's coverage; first-party answers to the client's side: **who you claim against** changes"},
       {"term": "The Recovery Stack", "text": "Only coverage that pays the claim stacks: BI, then the UM/UIM layers. **Bills and the car** stay outside"},
-      {"term": "No-Fault Medical Coverage", "text": "MedPay and PIP pay accident medical bills **regardless of fault**, fast, while liability is still disputed"},
+      {"term": "No-Fault Medical Coverage", "text": "MedPay and PIP pay accident Medical Bills **regardless of fault**, fast, while liability is still disputed"},
       {"term": "UM by Status", "text": "UM/UIM follows the person: an occupant reaches the vehicle's policy, **a resident relative the household's**"},
       {"term": "Set-Off and Non-Duplication", "text": "Some policies credit what MedPay or PIP paid against what they owe: **verify the form in writing**"},
       {"term": "Subrogation vs. Non-Subrogation", "text": "A payer with subrogation claims its payments back from the recovery; without it, **what it paid stays paid**"},
@@ -19,8 +19,8 @@
       "rows": [
         ["BI liability", "The at-fault driver's (third-party)", "The claim, for injuries he caused", "None: it is the recovery"],
         ["UM/UIM", "Client side: the vehicle or household", "The claim, when BI is too small", "Consent rules guard its subrogation"],
-        ["MedPay", "The occupied vehicle's policy", "Medical bills, no fault needed; no wages", "By policy: **verify in writing**"],
-        ["PIP", "Client side, where a state requires it", "Medical bills, part of wages, services", "Set-off or lien, by state law"],
+        ["MedPay", "The occupied vehicle's policy", "Medical Bills, no fault needed; no wages", "By policy: **verify in writing**"],
+        ["PIP", "Client side, where a state requires it", "Medical Bills, part of wages, services", "Set-off or lien, by state law"],
         ["Health insurance", "The client's own plan", "Covered care at the contract rate", "**Reimbursement right** on what it paid"],
         ["Medicare / Medicaid", "Government payer", "Care, after no-fault and liability", "Recovery by statute; a BCRC report"]
       ],
@@ -74,7 +74,7 @@
         ["BI liability", "Per person, per accident or combined single limit", "Declaration Page or Coverage Letter", "First stack layer; confirm no step-down"],
         ["Host UM", "Add-on, or reduced by the BI payment", "The carrier's written form confirmation", "Second layer; opens after the BI tender"],
         ["Relative UM", "Add-on or reduced; other-insurance clause", "Certified policy and Coverage Letter", "Third layer; priority is Atty. Thorne's call"],
-        ["MedPay or PIP", "Medical bills to its limit, regardless of fault", "Written terms, including any reimbursement right", "**Tracked apart**, never added to the stack"],
+        ["MedPay or PIP", "Medical Bills to its limit, regardless of fault", "Written terms, including any reimbursement right", "**Tracked apart**, never added to the stack"],
         ["PD and collision", "Vehicle damage only", "Declaration Page, like any limit", "Separate benefit, outside the stack"],
         ["Client's own UM", "Zero if rejected in writing", "The signed rejection form in the file", "A verified zero, not an assumed one"]
       ],
@@ -82,10 +82,10 @@
     }
   },
   "d2m2-l1": {
-    "lead": "Once the claim is set up, the case plan runs on **three pillars**: clinical care, functional status and subrogation management, which sets who pays.",
+    "lead": "Once the claim is set up, the Case Plan runs on **three pillars**: clinical care, functional status and subrogation management, which sets who pays.",
     "concepts": [
       {"term": "Payer Order", "text": "The default sequence: MedPay or PIP first, health insurance next, an LOP last. **Order keeps liens down**"},
-      {"term": "MedPay vs. PIP", "text": "First-party coverage for medical bills regardless of fault, up to its limit; **unlike PIP, no wages**"},
+      {"term": "MedPay vs. PIP", "text": "First-party coverage for Medical Bills regardless of fault, up to its limit; **unlike PIP, no wages**"},
       {"term": "Health Insurance", "text": "Pays covered care at its contract rate, but may hold **a reimbursement right** against the recovery"},
       {"term": "Letter of Protection", "text": "The client's signed agreement that a provider is paid from any recovery: **a consensual lien** on his net"},
       {"term": "Standard Treatment Map", "text": "The usual route of care: emergency, imaging, chiropractic and PT, orthopedics, pain management, surgery. **Each stop needs a payer**"},
@@ -99,8 +99,8 @@
       "kind": "flow",
       "steps": [
         {"label": "Identify the payers", "text": "Primary payer determination: list every source and its default order; primacy is Atty. Thorne's call"},
-        {"label": "MedPay or PIP", "text": "First-party, regardless of fault, up to its limit; MedPay pays medical bills only, never wages"},
-        {"label": "Health plan", "text": "Pays covered care at its contract rate, but may assert **a reimbursement right** against the recovery"},
+        {"label": "MedPay or PIP", "text": "First-party, regardless of fault, up to its limit; MedPay pays Medical Bills only, never wages"},
+        {"label": "Health Plan", "text": "Pays covered care at its contract rate, but may assert **a reimbursement right** against the recovery"},
         {"label": "Letter of Protection", "text": "Last rung, for care earlier payers can't carry: paid from any recovery, on Atty. Thorne's terms"}
       ],
       "note": "On this file: Harbor Point MedPay, then Peach State, then an LOP. No PIP; providers bill whom they bill"
@@ -216,7 +216,7 @@
       {"term": "Maximum Medical Improvement", "text": "The provider's finding that care has reached its plateau: **the incurred Specials are complete**, and the audit can begin"},
       {"term": "Special Damages", "text": "Medical Bills + lost wages + Property Damage: the provable dollar loss. **Every line needs a document**"},
       {"term": "Medical and Billing Audit", "text": "Three passes: chronology for gaps, coding for duplicates, prior history for pre-existing conditions. **Find weak spots first**"},
-      {"term": "Liens and Subrogation", "text": "Health plans, government payers and LOP providers may claim repayment from the recovery: **every lien shrinks the net**"},
+      {"term": "Liens and Subrogation", "text": "Health Plans, government payers and LOP providers may claim repayment from the recovery: **every lien shrinks the net**"},
       {"term": "Property Damage Deep Dive", "text": "Photos of the point of impact, estimate against final bill, supplements: **PD proves the force** behind the injury"},
       {"term": "Defense-Eye Audit", "text": "Read the file as the adjuster will: social media, a minor-impact (MIST) label, venue. **Name each value killer**"},
       {"term": "Policy-Limits Targets", "text": "Verified limits in the order they open: what each policy can pay, **not the claim's worth**"}
@@ -227,11 +227,11 @@
       "kind": "table",
       "head": ["Audit area", "Checkpoint", "What to verify"],
       "rows": [
-        ["Financial and liens", "Special Damages", "Medical bills + lost wages + PD, every line documented"],
+        ["Financial and liens", "Special Damages", "Medical Bills + lost wages + PD, every line documented"],
         ["Financial and liens", "Lost wages", "Employer's wage letter plus a provider's work note; without both, usually rejected"],
-        ["Financial and liens", "Lien resolution", "**Every subrogation interest**: statutory, health plan, consensual LOP"],
+        ["Financial and liens", "Lien resolution", "**Every subrogation interest**: statutory, Health Plan, consensual LOP"],
         ["Liability proof", "Report, witnesses, scene", "Final report; witness contact and statement drift; the physics possible"],
-        ["Property Damage deep dive", "Photos, estimates, total loss", "Point of impact clear; supplements show hidden structural damage"],
+        ["Property Damage deep dive", "Photos, estimates, Total Loss", "Point of impact clear; supplements show hidden structural damage"],
         ["Medical and billing", "Chronology, coding, prior history", "Every gap explained; no duplicate codes; 5–10 years of history"]
       ],
       "note": "Opened at MMI, when the incurred Specials are complete; every finding goes to Atty. Thorne, who sets the demand"

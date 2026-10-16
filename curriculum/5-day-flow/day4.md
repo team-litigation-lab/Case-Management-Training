@@ -439,7 +439,7 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (4 questions):
+**Auto-graded share of the day's Knowledge Check** (5 questions):
 
 1. On Track B, why can't the file demand the $20,000 Host UM while Keystone stalls?  
    Harbor Point has already denied the claim · **✓ Host UM opens only once BI is exhausted — paid or tendered at limits — so a UM demand now risks the stack (as configured for this training file; confirm the governing rule)** · UM claims can only be made after a lawsuit is filed · The lapsed Time-Limited Demand bars every other claim  
@@ -453,6 +453,9 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 4. The 09/08/2026 impasse memo to Atty. Thorne should end with:  
    A recommendation to file suit and an estimate of Robert Smith's exposure above his limits · A proposed counter-offer to put to Keystone · **✓ The decision needed from him, framed as questions, with the dated record, the frozen stack and the SOL above it** · A note that John Doe has agreed to go to court  
    *The memo documents and asks. Filing, value and any excess exposure are Atty. Thorne's analysis; the Case Manager's job is a record he can decide from.*
+5. Atty. Thorne authorized suit on 09/09/2026, the Case Manager changed the status to Litigation on 09/10, and the Complaint was filed 09/24/2026. From which date does the retainer's 40% fee tier apply?  
+   09/09/2026, the authorization · 09/10/2026, the status change · **✓ 09/24/2026, the filing date** · 08/21/2026, the date the demand lapsed  
+   *Per the retainer, 33⅓% pre-suit and 40% once suit is filed: the tier follows the filing, not the status. Recording 40% from 09/10 changes John Doe's fee two weeks early. Atty. Thorne discussed the tier with John Doe on 09/09; the CM records that, never explains the fee.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -870,7 +873,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (4 questions):
+**Auto-graded share of the day's Knowledge Check** (5 questions):
 
 1. Defendant's discovery to John Doe was served on his counsel, Atty. Thorne, by U.S. mail on 12/01/2026. As configured for this training file, his responses are due:  
    12/31/2026 · 01/03/2027 · **✓ 01/04/2027** · 01/13/2027  
@@ -884,6 +887,9 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 4. At the 06/22/2027 hearing, Laura Whitcomb, Esq. asks you directly about a Riverton Spine & Rehab bill. You:  
    Answer briefly: you audited that bill and know it best · Stay silent and wait for Atty. Thorne to notice · Offer to email her the audit after the hearing · **✓ Say you are the Case Manager providing administrative assistance, defer to Atty. Thorne on the record, and hand him the document**  
    *Speaking to the merits before the arbitrator is the unauthorized practice of law, even when your answer is right. Defer politely and put the document in counsel's hands.*
+5. The Scheduling Order says mediation is to be “completed by 03/31/2027.” The re-keyed calendar shows “Mediation session 03/31/2027.” The correct fix is:  
+   Leave it: the order names the date · **✓ Re-enter it as a deadline, “completed by 03/31/2027”, with a task to collect 3–4 windows from Atty. Thorne, John Doe and opposing counsel before the mediator's office is contacted** · Call Hon. Carla Benton's office and book 03/31/2027 · Roll it forward to 04/01/2027 to leave time for the session  
+   *Read each verb in the order: “completed by” sets when the session must be over, not when it is held. Windows are gathered from every party before the neutral hears from you; the session was held 03/18/2027, inside the deadline.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -962,7 +968,7 @@ An open binder seen from above fills the left two-thirds: six navy divider tabs 
 
 **Best practices & pitfalls**
 
-- Start from the 07/20/2026 demand package: most of Sections 4 and 5 already exist there.
+- Start from the 07/20/2026 Demand Package: most of Sections 4 and 5 already exist there.
 - Bookmark to the page Atty. Thorne will quote, not to the document's cover.
 - ⚠️ Pitfall: handing the attorney an unorganized file the morning of the session.
 - ⚠️ Pitfall: a snapshot sheet with stale opposing-counsel contacts.
@@ -1068,7 +1074,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 #### 5 · Speaker Notes
 
-- Open by holding up the mediation binder: “This one persuaded. The next one is evidence.” Then write 06/02/2027 on the board; everything in this lesson counts back from the exchange.
+- Open by holding up the Mediation Binder: “This one persuaded. The next one is evidence.” Then write 06/02/2027 on the board; everything in this lesson counts back from the exchange.
 - Ask the room: “Who can say the doorbell video is what we say it is?” Let them reach Margaret Doe as the camera's owner, the 02/19/2026 copy and the chain of custody. Whether anyone testifies is Atty. Thorne's decision.
 - Relaxed evidence rules are where trainees get careless. Make them say it back: relaxed admission is not full weight, and the clause may relax nothing at all. Confirm the forum's rules.
 - Hold the privilege line. The CM flags; Atty. Thorne decides. An internal memo in an exchanged set cannot be unsent.
@@ -1088,7 +1094,7 @@ A three-column workbench. Left: the draft binder as a grey stack topped by two r
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** It is 03/04/2027 on Track B. John Doe was deposed on 02/18/2027 and the certified transcript is in the file. The confidential statement and binder are due to Hon. Carla Benton (Ret.) on 03/11/2027 for the 03/18/2027 mediation. The draft binder, built from the providers' original bills instead of the audited demand ledger, carries Riverton Spine & Rehab at $6,290.00 and lists Crescent Pain & Spine's $3,400.00 as an open balance, and Atty. Grant Mercer has written that Keystone “will not put a real number on the table” while the medical ledger is unverified. Riverton Spine & Rehab's final itemized ledger, requested 02/08/2027 (second request 02/22, red-flagged 03/01), is still outstanding.
+**Scenario.** It is 03/04/2027 on Track B. John Doe was deposed on 02/18/2027 and the certified transcript is in the file. The confidential statement and binder are due to Hon. Carla Benton (Ret.) on 03/11/2027 for the 03/18/2027 mediation. The draft binder, built from the providers' original bills instead of the audited demand ledger, carries Riverton Spine & Rehab at $6,290.00 and lists Crescent Pain & Spine's $3,400.00 as an open balance, and Atty. Grant Mercer has written that Keystone “will not put a real number on the table” while the medical ledger is unverified. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027 (second request 02/22, red-flagged 03/01), is still outstanding.
 
 **Execution prompt.** Assemble the six-section Mediation Binder from the master index, starting from the 07/20/2026 Demand Package. Seat each document in one section with its exhibit number and Bates range, and map every allegation in the 11/12/2026 answer to the exhibit that answers it. Run the pre-mediation audit: rebuild the ledger from the certified bills in hand to $16,401.40, and cross-check each provider balance against what MedPay and Peach State already paid. Add the Negotiation Log, a draft Limited Release and the UM consent requests, then route it all to Atty. Thorne before delivery.
 
@@ -1275,7 +1281,7 @@ The standard knowledge-check split: the question panel on the warm cream card wi
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (4 questions):
+**Auto-graded share of the day's Knowledge Check** (5 questions):
 
 1. The 11/12/2026 answer pleads that John Doe was unbelted. Which exhibits in Section 4 of the Mediation Binder answer it?  
    **✓ The event data recorder (belt buckled) and the EMS Run Report** · The MRI read and Dr. Reyes's Causation Letter · The Police Report's citation and Ruth Calloway's statement · The Northgate Attendance Record and the 02/07/2026 pharmacy receipt  
@@ -1289,6 +1295,9 @@ The standard knowledge-check split: the question panel on the warm cream card wi
 4. Day 2 left the billed-or-paid choice on Crescent Pain & Spine's $3,400.00 bill to Atty. Thorne; Peach State paid $1,860.00 at its contract rate. Building the Mediation Binder, what does the audited Lien Sheet show?  
    Crescent $3,400.00 and Peach State $1,860.00 · Crescent $1,540.00 and Peach State $1,860.00 · **✓ Peach State's $1,860.00 reimbursement claim only: Crescent wrote off the rest and cannot balance-bill** · Nothing: the bill is already counted in the Specials  
    *Cross-reference every provider balance against what the plan already paid (its EOB). Peach State's contract payment satisfied the bill and Crescent wrote off the other $1,540.00 (the $3,400.00 bill less the $1,860.00 paid), so Crescent holds no lien; listing both counts one bill twice against John Doe's recovery.*
+5. Sorting the unsorted folder for the 06/22/2027 Arbitration Binder, you find the 09/08/2026 impasse memo to Atty. Thorne. Where does it go?  
+   **✓ Flagged for Atty. Thorne's privilege and exchange decision, and kept out of the exchange set** · Tab 6, because it explains the negotiation history · Tab 1 with the submissions, since it shows BI was not paid · Tab 2 with the arbitration pleadings  
+   *An internal memo in an exchanged set cannot be unsent. The CM flags; Atty. Thorne decides what is withheld as privileged and what is exchanged. The BI exhaustion threshold is proved with executed documents: Keystone's tender, the UM consents, the Limited Release and Robert Smith's dismissal.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1352,7 +1361,7 @@ A Track B timeline runs across the full slide on a navy rail, hard dates as mono
 | Bottleneck | On this file | Early signal | Hard date threatened |
 |---|---|---|---|
 | Non-responsive adjuster | Keystone (Dana Whitfield) after its “final” $3,500 | Second follow-up unanswered | UM can't open; SOL cutoff 11/05/2027 |
-| Delayed record | Riverton Spine & Rehab's final ledger | No answer 14 days after the request | Binder to the mediator 03/11/2027 |
+| Delayed record | Riverton Spine & Rehab's Final Ledger | No answer 14 days after the request | Binder to the mediator 03/11/2027 |
 | Missing decision-maker | Keystone's mediation attendee | Authority unconfirmed 10 days out | Mediation 03/18/2027 |
 | Scheduling | A proposed mediation date | Falls after the order's deadline | Mediation completed by 03/31/2027 |
 | Evidentiary exclusion | Arbitration exhibits, prior-medical shield | An exhibit incomplete 10 days out | Exhibit exchange 06/02/2027 |
@@ -1495,7 +1504,7 @@ A CMS rules panel fills the left two-thirds: four rule rows on cream cards, each
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** File date 02/22/2027 (Track B, in suit). Mediation with Hon. Carla Benton (Ret.) is 03/18/2027; the confidential statement and binder are due to her 03/11/2027. Riverton Spine & Rehab's final itemized ledger, requested 02/08/2027 for the binder, has not arrived. Keystone's representative and authority for the session are unconfirmed. Calibration record: Keystone follow-ups 08/24 and 08/31/2026 unanswered; supervisor escalation 09/02; silence on 09/04. The demand-stage audit holds Riverton at $6,105.00 (33 visits × $185.00); Peach State's EOB shows $1,860.00 paid on Crescent Pain & Spine's $3,400.00 bill.
+**Scenario.** File date 02/22/2027 (Track B, in suit). Mediation with Hon. Carla Benton (Ret.) is 03/18/2027; the confidential statement and binder are due to her 03/11/2027. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027 for the binder, has not arrived. Keystone's representative and authority for the session are unconfirmed. Calibration record: Keystone follow-ups 08/24 and 08/31/2026 unanswered; supervisor escalation 09/02; silence on 09/04. The demand-stage audit holds Riverton at $6,105.00 (33 visits × $185.00); Peach State's EOB shows $1,860.00 paid on Crescent Pain & Spine's $3,400.00 bill.
 
 **Execution prompt.** Configure four countermeasure rules in the CMS: (1) silence: follow-ups every 5 business days; 48 h after the second unanswered → supervisor; 48 h more → Atty. Thorne; (2) a record not received 14 days after request → second request and a subpoena flag for Atty. Thorne; (3) a hard date 10 days out with an open dependency → red flag; (4) the 48-Hour Mandate audit before every hard date, with its contents (ledger against EOBs, binder, OCR) and the fallback if a record is still missing. Calibrate Rule 1 on the Keystone record, then fire all four on the mediation calendar: date, action, owner. Graded: the dates, and what you own versus what is his.
 
@@ -1681,7 +1690,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (4 questions):
+**Auto-graded share of the day's Knowledge Check** (5 questions):
 
 1. Keystone left the follow-ups of 08/24 and 08/31/2026 unanswered. Under the 48-Hour Mandate, when did the written escalation to Keystone's claims supervisor go out?  
    08/26/2026 · **✓ 09/02/2026** · 09/04/2026 · 09/08/2026  
@@ -1695,6 +1704,9 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 4. Which of these does NOT belong in a bottleneck report to Atty. Thorne?  
    The date the blocker started · The hard date it threatens · What was tried, rung by rung, with dates · **✓ Your view of what the claim is worth if it isn't fixed**  
    *The five fields are the blocker, the date it started, the hard date it threatens, what was tried, and the ask. Value is Atty. Thorne's call and never goes in a Case Manager's report.*
+5. On 05/24/2027, Riverton Spine & Rehab's refreshed ledger (05/21) restores the 05/04/2026 duplicate: $6,290.00 against the audited $6,105.00. With exhibits exchanged 06/02/2027, the Case Manager:  
+   Escalates it to Atty. Thorne at Rung 3 before anything else · Exchanges $6,290.00, since it is the provider's latest figure · Holds the whole exhibit exchange until Riverton issues a corrected ledger · **✓ Fixes it at Rung 1 the same day: returns the audit to Riverton's billing office and keeps $6,105.00 in the set with the duplicate documented, so medical Specials stay $14,817.40**  
+   *Rung 1 problems are solved at Rung 1; the items needing Atty. Thorne's decision (Crescent's certification, Dr. Reyes's declaration, Cardinal State's silence) go to him first. An unverified $6,290.00 invites the carriers to doubt every other number, and holding the exchange for one record is the pitfall.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 

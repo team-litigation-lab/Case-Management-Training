@@ -140,7 +140,7 @@ window.CM_CF_SIM = {
    "from": "CMS",
    "to": "Case Manager",
    "subject": "Records indexed: Riverton Urgent Care and first Riverton Spine & Rehab visits",
-   "body": "LSH-2026-MVA-770412. Riverton Urgent Care's 02/20/2026 note and Riverton Spine & Rehab's visits since 02/24/2026 are indexed to the treatment timeline beside the 02/06/2026 EMS run report. First treatment falls 14 days after the date of loss. Risk Flags: none recorded.",
+   "body": "LSH-2026-MVA-770412. Riverton Urgent Care's 02/20/2026 note and Riverton Spine & Rehab's visits since 02/24/2026 are indexed to the treatment timeline beside the 02/06/2026 EMS Run Report. First treatment falls 14 days after the date of loss. Risk Flags: none recorded.",
    "attachments": [
     "RS12",
     "RS11"
@@ -271,7 +271,7 @@ window.CM_CF_SIM = {
    "from": "Atty. Elijah Thorne",
    "to": "Case Manager",
    "subject": "Gap Justification Record before the pre-demand session",
-   "body": "Dr. Reyes's causation letter of 06/19 is in, and John reached MMI on 06/12. Before our pre-demand session I want the Gap Justification Record: both interruptions with exact dates, every reason beside the dated document that proves it, “account only” where there isn't one. Facts and citations, no argument. Run your defense-eye pass first.",
+   "body": "Dr. Reyes's Causation Letter of 06/19 is in, and John reached MMI on 06/12. Before our pre-demand session I want the Gap Justification Record: both interruptions with exact dates, every reason beside the dated document that proves it, “account only” where there isn't one. Facts and citations, no argument. Run your defense-eye pass first.",
    "attachments": [
     "RS19",
     "RS11",
@@ -349,7 +349,7 @@ window.CM_CF_SIM = {
    "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
    "to": "Case Manager, LSH Law Group",
    "subject": "KM-26-440871 / John Doe: settlement offer",
-   "body": "Following review of your time-limited demand, Keystone offers $3,500.00 to resolve the bodily injury claim. Your client waited two weeks before seeking any treatment, and the MRI findings are degenerative in nature. Our letter is attached. I'll call you this afternoon to discuss.",
+   "body": "Following review of your Time-Limited Demand, Keystone offers $3,500.00 to resolve the bodily injury claim. Your client waited two weeks before seeking any treatment, and the MRI findings are degenerative in nature. Our letter is attached. I'll call you this afternoon to discuss.",
    "attachments": [
     "RS35"
    ]
@@ -386,7 +386,7 @@ window.CM_CF_SIM = {
    "from": "Tammy Greer <tgreer@rivertonspinerehab.example>",
    "to": "Case Manager, LSH Law Group",
    "subject": "John Doe: final LOP ledger and balance due",
-   "body": "Attached is John Doe's final itemized ledger under the 02/23/2026 Letter of Protection: 34 visits at $185.00, balance $6,290.00. We understand the case is settling. Please confirm when we can expect payment in full. Visit notes are attached for your records.",
+   "body": "Attached is John Doe's Final Itemized Ledger under the 02/23/2026 Letter of Protection: 34 visits at $185.00, balance $6,290.00. We understand the case is settling. Please confirm when we can expect payment in full. Visit notes are attached for your records.",
    "attachments": [
     "RS23",
     "RS14"
@@ -481,7 +481,7 @@ window.CM_CF_SIM = {
    "channel": "email",
    "from": "Atty. Elijah Thorne <ethorne@lshlawgroup.example>",
    "to": "Case Manager",
-   "subject": "Mediation binder: due to Hon. Carla Benton (Ret.) 03/11",
+   "subject": "Mediation Binder: due to Hon. Carla Benton (Ret.) 03/11",
    "body": "Mercer writes that Keystone “will not put a real number on the table” while our medical ledger is unverified. The draft binder carries Riverton at $6,290.00 and Crescent as an open balance. Rebuild it from the master index and audit it. Statement and binder go to Hon. Carla Benton (Ret.) by 03/11/2027; route everything to me first.",
    "attachments": [
     "RS57",
@@ -512,8 +512,8 @@ window.CM_CF_SIM = {
    "channel": "alert",
    "from": "CMS",
    "to": "Case Manager",
-   "subject": "Record overdue 14 days: Riverton Spine & Rehab final ledger",
-   "body": "Riverton Spine & Rehab's final itemized ledger, requested 02/08/2027, has not been received. It is a dependency for the Mediation Binder due 03/11/2027 (Hon. Carla Benton (Ret.), session 03/18/2027). Keystone's session attendee and authority: unconfirmed. No countermeasure rules are configured on this file.",
+   "subject": "Record overdue 14 days: Riverton Spine & Rehab Final Ledger",
+   "body": "Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027, has not been received. It is a dependency for the Mediation Binder due 03/11/2027 (Hon. Carla Benton (Ret.), session 03/18/2027). Keystone's session attendee and authority: unconfirmed. No countermeasure rules are configured on this file.",
    "attachments": [
     "RS23",
     "RS57",
@@ -584,8 +584,8 @@ window.CM_CF_SIM = {
    "channel": "email",
    "from": "Leah Moran <leah.moran@keystonemutual.example>",
    "to": "Case Manager, LSH Law Group",
-   "subject": "KM-26-440871-PD / John Doe: final property damage position",
-   "body": "Keystone's position is final: $792.00 for diminished value under our valuation formula and $0 for loss of use. The attached release covers all claims arising from the 02/06/2026 accident; please have Mr. Doe sign and return it and I'll issue payment. I'll call this afternoon to see if he'll take it.",
+   "subject": "KM-26-440871-PD / John Doe: final Property Damage position",
+   "body": "Keystone's position is final: $792.00 for Diminished Value under our valuation formula and $0 for Loss of Use. The attached release covers all claims arising from the 02/06/2026 accident; please have Mr. Doe sign and return it and I'll issue payment. I'll call this afternoon to see if he'll take it.",
    "attachments": [
     "RS48"
    ]
@@ -671,7 +671,7 @@ window.CM_CF_SIM = {
    "context": "02/10/2026. Retainer signed 02/09; the matter is open; no onboarding packet has reached him. John, 34, a Northgate warehouse shift lead, was the front-seat passenger in coworker Kevin Alvarez's Escape on 02/06. Last night a Keystone Mutual caller asked to record his account; he said he'd think about it, and she said she'd call back. His neck is stiff; he hasn't seen anyone. His Civic was towed from the scene and he has no car. Calms with clear steps; repeats instructions back if asked.",
    "opening": "Hey, it's John Doe, returning your call. So the other guy's insurance called me last night, a lady from Keystone, wanting to record what happened. She said she'd call back. What do I tell her?",
    "goals": [
-    "Route all Keystone contact to the firm; no recorded statement",
+    "Route all Keystone contact to the firm; no Recorded Statement",
     "Confirm he understood by having him repeat the instruction",
     "State the packet's treatment direction, since treatment hasn't begun",
     "Confirm Property Damage details and the packet's delivery method"
@@ -683,7 +683,7 @@ window.CM_CF_SIM = {
    "role": "adjuster",
    "persona": "Seasoned BI adjuster, brisk and guarded. Considers the limit question answered. Fishes for treatment details and a demand number; commits to nothing in writing without being pinned.",
    "context": "03/11/2026. Keystone BI claim KM-26-440871, insured Robert Smith, policy KMI-PA-7731045, DOL 02/06/2026. She gave the $10,000 per-person limit by phone at set-up, and her 02/24/2026 letter promised the declarations page once the firm's written request and signed authorizations arrived. They have been sent; nothing has come back. She says it is with underwriting. Asked for a specific date, she commits to sending it by 03/20/2026. She asks how John is treating and what the firm will demand.",
-   "opening": "Dana Whitfield. I've got about five minutes. If this is the dec page again, I gave your office the limit on the first call. Ten thousand per person. What else do you need?",
+   "opening": "Dana Whitfield. I've got about five minutes. If this is the Dec Page again, I gave your office the limit on the first call. Ten thousand per person. What else do you need?",
    "goals": [
     "Confirm Keystone received the written request and signed authorizations",
     "Get a firm date for the Declaration Page in writing",
@@ -879,7 +879,7 @@ window.CM_CF_SIM = {
    "role": "adjuster",
    "persona": "Cheerful, efficient PD adjuster closing files before year-end; calls the formula “company standard”; wants a yes today.",
    "context": "12/10/2026. KM-26-440871-PD, John Doe's 2019 Honda Civic LX: repair $9,255.00; ACV $17,600.00. Keystone offers $792.00 Diminished Value (10% × $17,600.00 × 0.75 × 0.60) and $0 Loss of Use (claimed 48 days × $42.00 = $2,016.00). Independent appraisal: $3,600.00 (05/06/2026). Her emailed release covers “all claims arising from the 02/06/2026 accident.” She asks whether John will take it and insists it is final.",
-   "opening": "Hi, Leah Moran with Keystone, property damage, following up my email. Seven ninety-two on the diminished value is final. Will Mr. Doe sign so I can get his check out before the holidays?",
+   "opening": "Hi, Leah Moran with Keystone, Property Damage, following up my email. Seven ninety-two on the Diminished Value is final. Will Mr. Doe sign so I can get his check out before the holidays?",
    "goals": [
     "Tell her the offer is with Atty. Thorne; nothing accepted or rejected",
     "Make no counter and quote no figure",
@@ -1280,7 +1280,7 @@ window.CM_CF_SIM = {
   },
   {
    "date": "07/20/2026",
-   "label": "BI time-limited demand served",
+   "label": "BI Time-Limited Demand served",
    "track": "",
    "lane": ""
   },

@@ -37,7 +37,7 @@
       "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
       "to": "Case Manager, LSH Law Group",
       "subject": "KM-26-440871 / John Doe: settlement offer",
-      "body": "Following review of your time-limited demand, Keystone offers $3,500.00 to resolve the bodily injury claim. Your client waited two weeks before seeking any treatment, and the MRI findings are degenerative in nature. Our letter is attached. I'll call you this afternoon to discuss.",
+      "body": "Following review of your Time-Limited Demand, Keystone offers $3,500.00 to resolve the bodily injury claim. Your client waited two weeks before seeking any treatment, and the MRI findings are degenerative in nature. Our letter is attached. I'll call you this afternoon to discuss.",
       "attachments": [
         "RS35"
       ]
@@ -74,7 +74,7 @@
       "from": "Tammy Greer <tgreer@rivertonspinerehab.example>",
       "to": "Case Manager, LSH Law Group",
       "subject": "John Doe: final LOP ledger and balance due",
-      "body": "Attached is John Doe's final itemized ledger under the 02/23/2026 Letter of Protection: 34 visits at $185.00, balance $6,290.00. We understand the case is settling. Please confirm when we can expect payment in full. Visit notes are attached for your records.",
+      "body": "Attached is John Doe's Final Itemized Ledger under the 02/23/2026 Letter of Protection: 34 visits at $185.00, balance $6,290.00. We understand the case is settling. Please confirm when we can expect payment in full. Visit notes are attached for your records.",
       "attachments": [
         "RS23",
         "RS14"
@@ -169,7 +169,7 @@
       "channel": "email",
       "from": "Atty. Elijah Thorne <ethorne@lshlawgroup.example>",
       "to": "Case Manager",
-      "subject": "Mediation binder: due to Hon. Carla Benton (Ret.) 03/11",
+      "subject": "Mediation Binder: due to Hon. Carla Benton (Ret.) 03/11",
       "body": "Mercer writes that Keystone “will not put a real number on the table” while our medical ledger is unverified. The draft binder carries Riverton at $6,290.00 and Crescent as an open balance. Rebuild it from the master index and audit it. Statement and binder go to Hon. Carla Benton (Ret.) by 03/11/2027; route everything to me first.",
       "attachments": [
         "RS57",
@@ -200,8 +200,8 @@
       "channel": "alert",
       "from": "CMS",
       "to": "Case Manager",
-      "subject": "Record overdue 14 days: Riverton Spine & Rehab final ledger",
-      "body": "Riverton Spine & Rehab's final itemized ledger, requested 02/08/2027, has not been received. It is a dependency for the Mediation Binder due 03/11/2027 (Hon. Carla Benton (Ret.), session 03/18/2027). Keystone's session attendee and authority: unconfirmed. No countermeasure rules are configured on this file.",
+      "subject": "Record overdue 14 days: Riverton Spine & Rehab Final Ledger",
+      "body": "Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027, has not been received. It is a dependency for the Mediation Binder due 03/11/2027 (Hon. Carla Benton (Ret.), session 03/18/2027). Keystone's session attendee and authority: unconfirmed. No countermeasure rules are configured on this file.",
       "attachments": [
         "RS23",
         "RS57",
@@ -272,8 +272,8 @@
       "channel": "email",
       "from": "Leah Moran <leah.moran@keystonemutual.example>",
       "to": "Case Manager, LSH Law Group",
-      "subject": "KM-26-440871-PD / John Doe: final property damage position",
-      "body": "Keystone's position is final: $792.00 for diminished value under our valuation formula and $0 for loss of use. The attached release covers all claims arising from the 02/06/2026 accident; please have Mr. Doe sign and return it and I'll issue payment. I'll call this afternoon to see if he'll take it.",
+      "subject": "KM-26-440871-PD / John Doe: final Property Damage position",
+      "body": "Keystone's position is final: $792.00 for Diminished Value under our valuation formula and $0 for Loss of Use. The attached release covers all claims arising from the 02/06/2026 accident; please have Mr. Doe sign and return it and I'll issue payment. I'll call this afternoon to see if he'll take it.",
       "attachments": [
         "RS48"
       ]
@@ -475,7 +475,7 @@
       "role": "adjuster",
       "persona": "Cheerful, efficient PD adjuster closing files before year-end; calls the formula “company standard”; wants a yes today.",
       "context": "12/10/2026. KM-26-440871-PD, John Doe's 2019 Honda Civic LX: repair $9,255.00; ACV $17,600.00. Keystone offers $792.00 Diminished Value (10% × $17,600.00 × 0.75 × 0.60) and $0 Loss of Use (claimed 48 days × $42.00 = $2,016.00). Independent appraisal: $3,600.00 (05/06/2026). Her emailed release covers “all claims arising from the 02/06/2026 accident.” She asks whether John will take it and insists it is final.",
-      "opening": "Hi, Leah Moran with Keystone, property damage, following up my email. Seven ninety-two on the diminished value is final. Will Mr. Doe sign so I can get his check out before the holidays?",
+      "opening": "Hi, Leah Moran with Keystone, Property Damage, following up my email. Seven ninety-two on the Diminished Value is final. Will Mr. Doe sign so I can get his check out before the holidays?",
       "goals": [
         "Tell her the offer is with Atty. Thorne; nothing accepted or rejected",
         "Make no counter and quote no figure",

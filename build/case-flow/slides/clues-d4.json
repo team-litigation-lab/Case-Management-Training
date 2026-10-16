@@ -41,7 +41,7 @@
     ],
     "donts": [
       ["The 06/22/2027 session with Laura Whitcomb, Esq. is days away.", "Her award binds, so exhibits get one shot at admissibility.", "The set you bring was built to persuade Hon. Carla Benton (Ret.)."],
-      ["Laura Whitcomb, Esq. turns and asks you about a medical bill.", "The Golden Rule keeps Case Managers off the record entirely.", "You explain the bill yourself instead of handing it to Atty. Thorne."],
+      ["Laura Whitcomb, Esq. turns and asks you about a Medical Bill.", "The Golden Rule keeps Case Managers off the record entirely.", "You explain the bill yourself instead of handing it to Atty. Thorne."],
       ["From the bench comes a directive with a date attached.", "It belongs on the calendar and in a memo that same day.", "Tomorrow morning, you try to recall what she said exactly."]
     ]
   },
@@ -69,7 +69,7 @@
   },
   "d4m4-l1": {
     "dos": [
-      ["Riverton Spine & Rehab's final ledger has not arrived yet.", "The binder is due to Hon. Carla Benton (Ret.) on 03/11/2027.", "You flag the holdup on 03/01/2027, ten days out, not 03/11."],
+      ["Riverton Spine & Rehab's Final Ledger has not arrived yet.", "The binder is due to Hon. Carla Benton (Ret.) on 03/11/2027.", "You flag the holdup on 03/01/2027, ten days out, not 03/11."],
       ["You call Dana Whitfield and reach voicemail again.", "Later, the impasse file has to prove the silence happened.", "Each call gets a matching email, dated and logged."]
     ],
     "donts": [
