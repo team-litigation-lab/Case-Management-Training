@@ -55,7 +55,7 @@ Each Case Phase is taught as one uninterrupted discussion of its lessons, then i
 4. *Skill Activity* — Assembling the 6-Tab Arbitration Binder
 5. *Knowledge Check* — Binder Assembly Verification
 
-**Case Phase 4 — Common Bottlenecks**
+**Case Phase 4 — Common Bottlenecks & Countermeasures**
 
 1. *Lesson* — Identifying Non-Responsive Adjusters, Delayed Records & Scheduling Bottlenecks
 2. *Lesson* — Escalation Workflows & Supervisory Reporting Guidelines
@@ -1326,13 +1326,13 @@ The standard knowledge-check split: the question panel on the warm cream card wi
 
 ---
 
-## Case Phase 4 — Common Bottlenecks
+## Case Phase 4 — Common Bottlenecks & Countermeasures
 
 **Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check
 
 ### 4.4.1 Identifying Non-Responsive Adjusters, Delayed Records & Scheduling Bottlenecks
 
-> **Lesson** · Day 4 — The litigation fork & ADR — Track B · Case Phase 4: Common Bottlenecks · scored with Countermeasure Operational Audit (`d4m4`)  
+> **Lesson** · Day 4 — The litigation fork & ADR — Track B · Case Phase 4: Common Bottlenecks & Countermeasures · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Name the bottleneck by the date it threatens  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · `D4#30` Common Bottlenecks: Arbitration (The Trial-Ready Landmines) · LSH Claims Specialist: BI liability follow-ups (every 5 business days) and the escalation protocol
@@ -1414,7 +1414,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 4) and tha
 
 ### 4.4.2 Escalation Workflows & Supervisory Reporting Guidelines
 
-> **Lesson** · Day 4 — The litigation fork & ADR — Track B · Case Phase 4: Common Bottlenecks · scored with Countermeasure Operational Audit (`d4m4`)  
+> **Lesson** · Day 4 — The litigation fork & ADR — Track B · Case Phase 4: Common Bottlenecks & Countermeasures · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** The ladder decides who hears; the report decides whether they can act  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D5#32` Advanced KPIs for Litigation Case Managers · LSH Claims Specialist: escalation protocol (supervisor review, internal flag, certified request for a written position)
@@ -1496,7 +1496,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 4) and tha
 
 ### 4.4.3 Automated Countermeasure Triggering in CMS
 
-> **Skill Activity** · Day 4 — The litigation fork & ADR — Track B · Case Phase 4: Common Bottlenecks · scored with Countermeasure Operational Audit (`d4m4`)  
+> **Skill Activity** · Day 4 — The litigation fork & ADR — Track B · Case Phase 4: Common Bottlenecks & Countermeasures · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Skill Activity 1 — rules that fire before the deadline does  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · LSH Claims Specialist: BI liability follow-ups and the escalation protocol
@@ -1574,7 +1574,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 4) and tha
 
 ### 4.4.4 Bottleneck Resolution Simulation
 
-> **Skill Activity** · Day 4 — The litigation fork & ADR — Track B · Case Phase 4: Common Bottlenecks · scored with Countermeasure Operational Audit (`d4m4`)  
+> **Skill Activity** · Day 4 — The litigation fork & ADR — Track B · Case Phase 4: Common Bottlenecks & Countermeasures · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Skill Activity 2 — five problems, nine days, one order  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#30` Common Bottlenecks: Arbitration (The Trial-Ready Landmines) · `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder
@@ -1652,7 +1652,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 4) and tha
 
 ### 4.4.5 Countermeasure Operational Audit
 
-> **Knowledge Check** · Day 4 — The litigation fork & ADR — Track B · Case Phase 4: Common Bottlenecks · scored with Countermeasure Operational Audit (`d4m4`)  
+> **Knowledge Check** · Day 4 — The litigation fork & ADR — Track B · Case Phase 4: Common Bottlenecks & Countermeasures · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · `D4#30` Common Bottlenecks: Arbitration (The Trial-Ready Landmines) · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder

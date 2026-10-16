@@ -1210,6 +1210,137 @@ window.CM_CF_SLIDES = {
    "List the **four Day 1 gate conditions**. What breaks if treatment work starts with the stack unverified?"
   ]
  },
+ "d2m1-cov": {
+  "image": "insurance-stack",
+  "hook": "Send each bill to **the right first payer**, or it comes back as a lien",
+  "points": [
+   "Sort every coverage: **whose it is**, and what it pays",
+   "Only BI and UM are **the $40,000 Recovery Stack**",
+   "Payer-First: **MedPay, then Peach State**, an LOP last",
+   "Verify PIP and UM in writing; **never assume either**"
+  ],
+  "upl": "Route bills in the default order; primacy and lien enforceability are Atty. Thorne's",
+  "job": [
+   [
+    "Coverage confirmed in writing",
+    "Place it: stack, Payer Order, outside",
+    "CMS → Coverage Matrix",
+    "Stack $40,000; MedPay outside it"
+   ],
+   [
+    "A provider asks whom to bill",
+    "Route it by Payer-First order",
+    "CMS → MedPay ledger",
+    "MedPay, Peach State, then LOP"
+   ],
+   [
+    "A provider asks for an LOP",
+    "Check MedPay and network first",
+    "CMS → Liens → LOP register",
+    "Atty. Thorne approves any LOP"
+   ]
+  ],
+  "dos": [
+   "Verify every coverage in writing: **a dated Declaration Page**",
+   "Confirm the Health Plan was **active on the loss date**",
+   "Keep the Payer Order and **the Recovery Stack apart**"
+  ],
+  "donts": [
+   "An LOP to a provider **MedPay would have paid**",
+   "MedPay, PD or collision **added to the stack**",
+   "Assuming PIP, or **UM on the client's own policy**"
+  ],
+  "theory": {
+   "lead": "Every policy answers **two questions**: whose is it, and what does it pay? The Payer-First Principle then decides which payer each Medical Bill goes to first.",
+   "concepts": [
+    {
+     "term": "Third-Party vs. First-Party",
+     "text": "Third-party is the at-fault driver's coverage; first-party answers to the client's side: **who you claim against** changes"
+    },
+    {
+     "term": "The Recovery Stack",
+     "text": "Only coverage that pays the claim stacks: BI, then the UM/UIM layers. **Bills and the car** stay outside"
+    },
+    {
+     "term": "No-Fault Medical Coverage",
+     "text": "MedPay and PIP pay accident medical bills **regardless of fault**, fast, while liability is still disputed"
+    },
+    {
+     "term": "UM by Status",
+     "text": "UM/UIM follows the person: an occupant reaches the vehicle's policy, **a resident relative the household's**"
+    },
+    {
+     "term": "Set-Off and Non-Duplication",
+     "text": "Some policies credit what MedPay or PIP paid against what they owe: **verify the form in writing**"
+    },
+    {
+     "term": "Subrogation vs. Non-Subrogation",
+     "text": "A payer with subrogation claims its payments back from the recovery; without it, **what it paid stays paid**"
+    },
+    {
+     "term": "Contract Rate and Write-Off",
+     "text": "An in-network provider takes the plan's rate and writes off the rest: **no balance billing**, a smaller lien"
+    },
+    {
+     "term": "Medicare Secondary Payer",
+     "text": "Medicare pays only after no-fault and liability coverage, and **recovers by statute**; report the case to the BCRC"
+    }
+   ],
+   "pages": [
+    "D2#25",
+    "D3#20"
+   ],
+   "framework": {
+    "title": "What Each Coverage Pays",
+    "kind": "table",
+    "head": [
+     "Coverage",
+     "Whose",
+     "Pays",
+     "Payback risk"
+    ],
+    "rows": [
+     [
+      "BI liability",
+      "The at-fault driver's (third-party)",
+      "The claim, for injuries he caused",
+      "None: it is the recovery"
+     ],
+     [
+      "UM/UIM",
+      "Client side: the vehicle or household",
+      "The claim, when BI is too small",
+      "Consent rules guard its subrogation"
+     ],
+     [
+      "MedPay",
+      "The occupied vehicle's policy",
+      "Medical bills, no fault needed; no wages",
+      "By policy: **verify in writing**"
+     ],
+     [
+      "PIP",
+      "Client side, where a state requires it",
+      "Medical bills, part of wages, services",
+      "Set-off or lien, by state law"
+     ],
+     [
+      "Health insurance",
+      "The client's own plan",
+      "Covered care at the contract rate",
+      "**Reimbursement right** on what it paid"
+     ],
+     [
+      "Medicare / Medicaid",
+      "Government payer",
+      "Care, after no-fault and liability",
+      "Recovery by statute; a BCRC report"
+     ]
+    ],
+    "note": "Payer-First: MedPay or PIP, then health insurance, then an LOP. Liability and UM pay the claim, not the bills"
+   }
+  }
+ },
  "d2m1-l1": {
   "image": "policy-letter",
   "hook": "The LOR moves every carrier onto the firm; one wrong letter risks **$30,000 of UM coverage**.",
@@ -1505,6 +1636,8 @@ window.CM_CF_SLIDES = {
  "d2m1-kc": {
   "image": "knowledge-check",
   "questions": [
+   "Name every coverage, whose it is and what it pays. Which **three are the $40,000 stack**?",
+   "Apply **the Payer-First Principle** to Summit Imaging's 03/11/2026 LOP request. What would an LOP have cost?",
    "Name the **five letters** sent 02/17/2026: for each, the insured named and how it was addressed.",
    "Why “Attn: Claims Department” on Cardinal State's LOR, and what had to change **in the CMS after 03/03/2026**?",
    "What must Keystone's LOR request and **leave out**, and why can Harbor Point's letter say more?",

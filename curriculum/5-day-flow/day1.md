@@ -46,19 +46,20 @@ Each Case Phase is taught as one uninterrupted discussion of its lessons, then i
 
 **Case Phase 2 — Claim Set Up**
 
-1. *Lesson* — LOR Drafting Mechanics & Three-Carrier Notification
-2. *Lesson* — Coverage Verification Tracking & Follow-Up Deadlines
-3. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check
-4. *Lesson* — The Action Plan Editor & Attorney Review Routing
-5. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
-6. *Skill Activity* — Policy Stack & Coverage Verification
-7. *Skill Activity* — CMS Coverage Matrix Audit
-8. *Skill Activity* — Subrogation Lien Flagging in the CMS
-9. *Skill Activity* — Identifying & Flagging the 14-Day Gap
-10. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
-11. *Knowledge Check* — Policy Stack Knowledge Check
-12. *Knowledge Check* — Coverage Setup Verification Check
-13. *Knowledge Check* — Case Plan Audit & Day 1 Gate
+1. *Lesson* — Coverages & the Payer-First Principle
+2. *Lesson* — LOR Drafting Mechanics & Three-Carrier Notification
+3. *Lesson* — Coverage Verification Tracking & Follow-Up Deadlines
+4. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check
+5. *Lesson* — The Action Plan Editor & Attorney Review Routing
+6. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+7. *Skill Activity* — Policy Stack & Coverage Verification
+8. *Skill Activity* — CMS Coverage Matrix Audit
+9. *Skill Activity* — Subrogation Lien Flagging in the CMS
+10. *Skill Activity* — Identifying & Flagging the 14-Day Gap
+11. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
+12. *Knowledge Check* — Policy Stack Knowledge Check
+13. *Knowledge Check* — Coverage Setup Verification Check
+14. *Knowledge Check* — Case Plan Audit & Day 1 Gate
 
 **End-of-day discussion (trainer):** Robert Smith's carrier has already called John Doe, Keystone hasn't confirmed its limit in writing, and Peach State has asserted a reimbursement right. Which three actions do you take today, in what order, and what goes in the Case Plan's risks band?
 
@@ -859,9 +860,98 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 ## Case Phase 2 — Claim Set Up
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
-### 1.2.1 LOR Drafting Mechanics & Three-Carrier Notification
+### 1.2.1 Coverages & the Payer-First Principle
+
+> **Lesson** · Day 1 — File opening & case strategy · Case Phase 2: Claim Set Up · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Topic:** Every policy on John Doe's file, what it pays, and who pays first  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D2#20` The Valuation Baseline: PIP Set-Off (The Credit) · `D2#23` The Valuation Baseline: Subrogation vs. Non-Subrogation · `D2#24` The Valuation Baseline: Strategic PIP “Exhaustion” · D1 Task Overview: Billing, Resolution & Closing
+
+#### 1 · Visual Layout Description
+
+A two-tier slide. The top tier is a coverage map: eight cards in three colour groups. Navy, THIRD-PARTY: Keystone BI $10,000 · Keystone PD $25,000. Orange, FIRST-PARTY: Harbor Point Host UM $20,000 · Cardinal State Relative UM $10,000 · Harbor Point MedPay $5,000 · Bluewater collision ($500 deductible). Green, HEALTH: Peach State Health Plan. A crossed-out grey card: Bluewater UM, rejected 03/14/2024. Each card carries a small tag for what it pays: THE CLAIM, THE BILLS or THE CAR, and only the three THE CLAIM cards are joined by a bracket labelled RECOVERY STACK $40,000. The bottom tier is a staircase running down left to right, titled THE PAYER-FIRST PRINCIPLE: MedPay/PIP → Health Plan → Letter of Protection, each step lower than the last, labelled pays regardless of fault · contract rate, reimbursement right · paid from the recovery. Bottom-right, an orange callout: “Out of order = a lien that didn't have to exist.”
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Every policy on a file pays a different thing, and only some of them pay the Medical Bills while the claim is open. The Payer-First Principle sends each bill to the payer that must pay it first: the no-fault medical coverage, then the Health Plan, and a Letter of Protection only last. In that order a bill is paid once, at the lowest cost, with as little as possible to repay; out of order, the same bill comes back as a lien against John Doe's recovery.
+
+1. Sort every coverage by whose it is. Third-party coverage is the at-fault driver's: Robert Smith's Keystone BI and PD. First-party coverage answers to John Doe's side: Host UM, Relative UM, MedPay and collision. The Health Plan is his own benefit plan, through Northgate Distribution.
+2. Sort it again by what it pays. BI and UM pay the claim at the end; MedPay, PIP and the Health Plan pay the Medical Bills while it is open; PD and collision pay for the car. Only BI and UM are the $40,000 Recovery Stack.
+3. MedPay pays reasonable accident medical bills regardless of fault, up to its limit, and never wages. PIP, where a state requires it, also pays a share of lost wages and replacement services. This file has Harbor Point MedPay, $5,000, and no PIP: verify PIP on every file; never assume it.
+4. UM/UIM is reached by status, not ownership. John Doe reaches Host UM as an occupant of Kevin Alvarez's 2020 Ford Escape, and Relative UM as a resident relative of Margaret Doe. His own Bluewater policy adds nothing: UM/UIM was rejected in writing on 03/14/2024.
+5. The Payer-First Principle: MedPay (or PIP) first, the Health Plan next, a Letter of Protection last, and only for care the earlier payers can't carry.
+6. MedPay goes first because it pays regardless of fault, and Harbor Point confirmed in writing (03/02/2026) that it has no reimbursement right against John Doe's recovery: every MedPay dollar is a bill that never becomes a lien.
+7. The Health Plan comes next because an in-network provider is paid at the contract rate and cannot balance-bill. Crescent Pain & Spine billed $3,400.00; Peach State paid $1,860.00. Only what the plan paid can come back as its reimbursement claim.
+8. A Letter of Protection comes last. Riverton Spine & Rehab is out of network for Peach State, so its care runs under an LOP; Summit Imaging's LOP request (03/11/2026) was declined, because MedPay applies first.
+9. Medicare and Medicaid pay after no-fault and liability coverage. A client on Medicare, Medicaid or SSDI is reported to the BCRC; John Doe is 34, so the file records his verified SSDI status.
+10. The order is a default: providers bill whom they bill. Track each payer's ledger, what it paid on which bill, and never re-route a claim another payer has paid. Who is primary when policies conflict is Atty. Thorne's call.
+
+> ⚠️ **UPL boundary.** You may identify the coverages, explain what each one pays and route bills in the default order. Whether a policy applies, which is primary when two conflict, and whether a lien is enforceable are Atty. Thorne's calls.
+
+#### 2 · Slide Body — Show Them
+
+*Every coverage on John Doe's file, and where it sits*
+
+| Coverage | Carrier · limit | Pays | Where it sits |
+|---|---|---|---|
+| BI liability (third-party) | Keystone Mutual · $10,000 per person | The claim | Recovery Stack, layer 1 |
+| Host UM (first-party) | Harbor Point · $20,000, add-on | The claim, once BI is exhausted | Recovery Stack, layer 2 |
+| Relative UM (first-party) | Cardinal State Mutual · $10,000 | The claim, behind Host UM | Recovery Stack, layer 3 |
+| MedPay (first-party, no-fault) | Harbor Point · $5,000 | Medical Bills, regardless of fault | Payer Order 1st; no payback |
+| Health Plan | Peach State Health Plan | Medical Bills, at the contract rate | Payer Order 2nd; reimbursement right |
+| PD liability (third-party) | Keystone Mutual · $25,000 | The Civic, the rental, Loss of Use | Outside the stack |
+| Collision (first-party) | Bluewater · $500 deductible | The Civic, regardless of fault | Outside the stack (his UM: rejected 03/14/2024) |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Each claim is opened | List every coverage, its carrier and what it pays | CMS → Insurance tab | Each tagged third-party, first-party or health |
+| Coverage confirmed in writing | Place it: Recovery Stack, Payer Order or outside both | CMS → Insurance tab → Coverage Matrix | Stack $40,000; MedPay, PD and collision outside it |
+| A provider asks whom to bill | Route it by the Payer-First order | CMS → Insurance tab → MedPay ledger | MedPay first, Peach State next, an LOP last |
+| A provider asks for an LOP | Check MedPay and network status first | CMS → Liens → LOP register | Payer check recorded; Atty. Thorne approves any LOP |
+| A payer pays a bill | Post payer, bill and amount on its ledger | CMS → Insurance tab → MedPay ledger · CMS → Liens | Every ledger current; no paid claim re-routed |
+
+**Best practices & pitfalls**
+
+- Verify every coverage in writing: a dated Declaration Page or Coverage Letter.
+- Confirm the Health Plan was active on the date of loss: Peach State began 02/01/2026.
+- Ask each new provider whether it bills MedPay or the Health Plan before the first visit.
+- Keep the Payer Order and the Recovery Stack on separate lines of the Coverage Matrix.
+- ⚠️ Pitfall: issuing an LOP to a provider MedPay or the Health Plan would have paid.
+- ⚠️ Pitfall: adding MedPay, PD or collision coverage to the $40,000 stack.
+- ⚠️ Pitfall: assuming PIP, or assuming the client's own policy carries UM.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Coverages sorted | Each coverage named by whose it is and what it pays: the claim, the bills or the car |
+| 🤖 AI | **20%** | Payer-First order | MedPay → Peach State → LOP, with the reason for each step |
+| 🤖 AI | **20%** | Stack kept clean | $40,000 is BI + Host UM + Relative UM only; MedPay, PD and collision tracked outside it |
+| 🧑‍🏫 Trainer | **25%** | Grasps the consequence | Explains how an out-of-order LOP becomes a lien against the client's net |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | Applicability, primacy and lien enforceability left to Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open with the question the room always merges: “Who pays the bills now?” is not “Who pays the claim later?” Put the two columns on the board before the slide.
+- Walk the table row by row: whose policy, what does it pay, where does it sit? Let the room place MedPay before you do.
+- Summit Imaging is the lesson in one fact: $2,395.00 paid by MedPay with nothing to repay, instead of a $2,395.00 LOP balance against John Doe's net.
+- Crescent is the Health Plan step: $3,400.00 billed, $1,860.00 paid, $1,540.00 written off for good. Peach State's reimbursement claim can only start from what it paid.
+- Ask why John Doe reaches $30,000 of UM at all. He was a passenger: had he been driving his own Civic, his rejected Bluewater UM would leave only the $10,000 BI.
+- Close on the boundary: you route bills in the default order; when two policies both claim to pay second, that is Atty. Thorne's call.
+
+---
+
+### 1.2.2 LOR Drafting Mechanics & Three-Carrier Notification
 
 > **Lesson** · Day 1 — File opening & case strategy · Case Phase 2: Claim Set Up · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** One template, five letters, and the rules that make each one different  
@@ -947,7 +1037,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 ---
 
-### 1.2.2 Coverage Verification Tracking & Follow-Up Deadlines
+### 1.2.3 Coverage Verification Tracking & Follow-Up Deadlines
 
 > **Lesson** · Day 1 — File opening & case strategy · Case Phase 2: Claim Set Up · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** From “reported” to “confirmed in writing”, with a date on every open item  
@@ -1031,7 +1121,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 ---
 
-### 1.2.3 Health Subrogation, Payer Order & the Regulatory Triple-Check
+### 1.2.4 Health Subrogation, Payer Order & the Regulatory Triple-Check
 
 > **Lesson** · Day 1 — File opening & case strategy · Case Phase 2: Claim Set Up · scored with Policy Stack Knowledge Check (`d1m1`)  
 > **Topic:** Who pays the bills now, and who gets paid back later  
@@ -1110,7 +1200,7 @@ Verified in Policy Stack Knowledge Check (taught on Case Flow Day 1) and that da
 
 ---
 
-### 1.2.4 The Action Plan Editor & Attorney Review Routing
+### 1.2.5 The Action Plan Editor & Attorney Review Routing
 
 > **Lesson** · Day 1 — File opening & case strategy · Case Phase 2: Claim Set Up · scored with Case Plan Audit & Day 1 Gate (`d1m4`)  
 > **Topic:** Drafting, routing, and the review loop  
@@ -1188,7 +1278,7 @@ Verified in Case Plan Audit & Day 1 Gate (taught on Case Flow Day 1) and that da
 
 ---
 
-### 1.2.5 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+### 1.2.6 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
 
 > **Skill Activity** · Day 1 — File opening & case strategy · Case Phase 2: Claim Set Up · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — five letters, each one right  
@@ -1265,7 +1355,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 ---
 
-### 1.2.6 Policy Stack & Coverage Verification
+### 1.2.7 Policy Stack & Coverage Verification
 
 > **Skill Activity** · Day 1 — File opening & case strategy · Case Phase 2: Claim Set Up · scored with Policy Stack Knowledge Check (`d1m1`)  
 > **Topic:** Skill Activity 1 — build the ladder to $40,000  
@@ -1353,7 +1443,7 @@ Verified in Policy Stack Knowledge Check (taught on Case Flow Day 1) and that da
 
 ---
 
-### 1.2.7 CMS Coverage Matrix Audit
+### 1.2.8 CMS Coverage Matrix Audit
 
 > **Skill Activity** · Day 1 — File opening & case strategy · Case Phase 2: Claim Set Up · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 2 — find what the matrix gets wrong  
@@ -1444,7 +1534,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 ---
 
-### 1.2.8 Subrogation Lien Flagging in the CMS
+### 1.2.9 Subrogation Lien Flagging in the CMS
 
 > **Skill Activity** · Day 1 — File opening & case strategy · Case Phase 2: Claim Set Up · scored with Policy Stack Knowledge Check (`d1m1`)  
 > **Topic:** Skill Activity 2 — register the claim before it can hurt you  
@@ -1516,7 +1606,7 @@ Verified in Policy Stack Knowledge Check (taught on Case Flow Day 1) and that da
 
 ---
 
-### 1.2.9 Identifying & Flagging the 14-Day Gap
+### 1.2.10 Identifying & Flagging the 14-Day Gap
 
 > **Skill Activity** · Day 1 — File opening & case strategy · Case Phase 2: Claim Set Up · scored with Case Plan Audit & Day 1 Gate (`d1m4`)  
 > **Topic:** Skill Activity 1 — find the fact that will decide this case  
@@ -1589,7 +1679,7 @@ Verified in Case Plan Audit & Day 1 Gate (taught on Case Flow Day 1) and that da
 
 ---
 
-### 1.2.10 Live Case Plan Draft — John Doe v. Robert Smith
+### 1.2.11 Live Case Plan Draft — John Doe v. Robert Smith
 
 > **Skill Activity** · Day 1 — File opening & case strategy · Case Phase 2: Claim Set Up · scored with Case Plan Audit & Day 1 Gate (`d1m4`)  
 > **Topic:** Skill Activity 2 — the full plan, routed for review  
@@ -1665,7 +1755,7 @@ Verified in Case Plan Audit & Day 1 Gate (taught on Case Flow Day 1) and that da
 
 ---
 
-### 1.2.11 Policy Stack Knowledge Check
+### 1.2.12 Policy Stack Knowledge Check
 
 > **Knowledge Check** · Day 1 — File opening & case strategy · Case Phase 2: Claim Set Up · scored with Policy Stack Knowledge Check (`d1m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1756,7 +1846,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 1.2.12 Coverage Setup Verification Check
+### 1.2.13 Coverage Setup Verification Check
 
 > **Knowledge Check** · Day 1 — File opening & case strategy · Case Phase 2: Claim Set Up · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1769,13 +1859,15 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 #### 2 · Slide Body — Knowledge verification
 
-1. List the five letters that left John Doe's file on 02/17/2026. For each, give the insured it named and how it was addressed.
-2. Why did Cardinal State's LOR go to “Attn: Claims Department”, and what had to change in the CMS after 03/03/2026?
-3. What must Keystone's LOR request, and which client details must it leave out? Explain why Harbor Point's letter can say more.
-4. On 03/11/2026, which layers were confirmed in writing and which were still preliminary? Name the document and date behind each confirmation.
-5. Explain why MedPay ($5,000) and Keystone's PD coverage ($25,000) sit in the Coverage Matrix but never in the $40,000 stack.
-6. On 03/11/2026 Dana Whitfield offers to “talk limits” if you explain why John Doe waited until 02/20/2026 to treat. What do you say, what do you log, and who do you tell?
-7. Harbor Point confirmed its UM is add-on. What would the matrix show for Host UM if it were reduced by the BI payment, and why is the form verified, not assumed?
+1. Name every coverage on John Doe's file, whose it is and what it pays. Which three are the $40,000 Recovery Stack, and why do the others stay out of it?
+2. State the Payer-First Principle and apply it to Summit Imaging's 03/11/2026 LOP request. What would an LOP there have cost John Doe, and why?
+3. List the five letters that left John Doe's file on 02/17/2026. For each, give the insured it named and how it was addressed.
+4. Why did Cardinal State's LOR go to “Attn: Claims Department”, and what had to change in the CMS after 03/03/2026?
+5. What must Keystone's LOR request, and which client details must it leave out? Explain why Harbor Point's letter can say more.
+6. On 03/11/2026, which layers were confirmed in writing and which were still preliminary? Name the document and date behind each confirmation.
+7. Explain why MedPay ($5,000) and Keystone's PD coverage ($25,000) sit in the Coverage Matrix but never in the $40,000 stack.
+8. On 03/11/2026 Dana Whitfield offers to “talk limits” if you explain why John Doe waited until 02/20/2026 to treat. What do you say, what do you log, and who do you tell?
+9. Harbor Point confirmed its UM is add-on. What would the matrix show for Host UM if it were reduced by the BI payment, and why is the form verified, not assumed?
 
 **Best practices & pitfalls**
 
@@ -1794,6 +1886,8 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 | Competency | 1 | 2 | 3 | 4 | 5 |
 |---|---|---|---|---|---|
+| Sorting each coverage by whose it is and what it pays | ○ | ○ | ○ | ○ | ○ |
+| Routing Medical Bills by the Payer-First order | ○ | ○ | ○ | ○ | ○ |
 | Drafting an LOR with every required component | ○ | ○ | ○ | ○ | ○ |
 | Addressing each letter to the right carrier, insured and adjuster | ○ | ○ | ○ | ○ | ○ |
 | Protecting client information in third-party correspondence | ○ | ○ | ○ | ○ | ○ |
@@ -1803,18 +1897,27 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (4 questions):
+**Auto-graded share of the day's Knowledge Check** (7 questions):
 
-1. Cardinal State Mutual has no adjuster assigned when John Doe's LOR goes out on 02/17/2026. How is the letter addressed?  
+1. Which coverages make up John Doe's $40,000 Recovery Stack?  
+   **✓ Keystone BI, Harbor Point Host UM and Cardinal State Relative UM** · Keystone BI, Host UM, Relative UM and Harbor Point MedPay · Keystone BI, Keystone PD and Host UM · Host UM, Relative UM and his own Bluewater UM  
+   *Only the coverages that pay the claim stack: $10,000 BI + $20,000 Host UM + $10,000 Relative UM. MedPay pays bills now (Payer Order), PD pays for the car, and John Doe rejected UM on his Bluewater policy in writing on 03/14/2024.*
+2. On 03/11/2026 Summit Imaging asks for an LOP for John Doe's $2,395.00 MRI. Harbor Point MedPay has $3,675.00 left. What do you do?  
+   Prepare the LOP for Atty. Thorne's approval, since the provider asked for one · **✓ Decline the LOP and route the bill to MedPay, which applies first** · Send the bill to Peach State first, to save MedPay for later · Tell Summit it will be paid in full at settlement  
+   *The Payer-First Principle: MedPay pays regardless of fault, and Harbor Point confirmed it has no reimbursement right, so the MRI is paid with nothing to repay. An LOP would have turned it into a $2,395.00 lien against John Doe's net. Never promise a provider payment at settlement.*
+3. Crescent Pain & Spine billed $3,400.00 for the 05/15/2026 injection, and Peach State paid $1,860.00. Why does Peach State's reimbursement claim start at $1,860.00?  
+   Peach State always discounts its claims by about 45% · **✓ Crescent is in network: the plan paid its contract rate, Crescent wrote off the rest and cannot balance-bill, so the plan can only claim what it paid** · The other $1,540.00 is owed by MedPay · John Doe still owes Crescent the $1,540.00, so it is left out of the plan's claim  
+   *A Health Plan's reimbursement claim is what it paid, not what was billed. In network, the $1,540.00 difference is written off for good. That is why the Health Plan comes before an LOP, which carries the full billed amount into the recovery.*
+4. Cardinal State Mutual has no adjuster assigned when John Doe's LOR goes out on 02/17/2026. How is the letter addressed?  
    “Attn: Teresa Okafor”, to save re-addressing it later · **✓ “Attn: Claims Department”, with the claim number in the subject line** · To Margaret Doe, the insured, to forward to her carrier · Held back until Cardinal State assigns an adjuster  
    *With no adjuster assigned, the address line reads “Attn: Claims Department”. Teresa Okafor is not assigned until 03/03/2026, and holding the letter delays the UM notice.*
-2. Harbor Point's LOR goes out on 02/17/2026, long before BI can be exhausted. What should it do?  
+5. Harbor Point's LOR goes out on 02/17/2026, long before BI can be exhausted. What should it do?  
    Demand the $20,000 Host UM limits now, so the response clock starts running · Wait until Keystone tenders its $10,000 before writing to Harbor Point at all · Ask Harbor Point to pay the BI layer too, since Keystone is slow · **✓ Give notice of the Host UM claim, open the MedPay claim and ask for its claim forms and proof-of-loss requirements, and ask for written confirmation of coverage, with no UM payment demand**  
    *UM policies carry notice conditions, so the carrier is noticed at set-up. Notice is not a demand: the UM layers owe nothing until BI is exhausted, so a UM payment demand now is premature. What puts the stack at risk is settling or releasing BI without the UM carriers' consent. MedPay is different: it pays bills as they are submitted.*
-3. Keystone Mutual gave a figure on the set-up call but will not confirm Robert Smith's limits in writing or release its Declaration Page without a written request and authorizations. What do you do?  
+6. Keystone Mutual gave a figure on the set-up call but will not confirm Robert Smith's limits in writing or release its Declaration Page without a written request and authorizations. What do you do?  
    **✓ Send the written limits request Atty. Thorne signs, with only the documents or limited authorization he approves, keep BI preliminary, and calendar the follow-up** · Mark BI $10,000 confirmed from the set-up call, so the projection can be finished · Demand Host UM now, so that Harbor Point puts pressure on Keystone · Tell John Doe the limit is probably $10,000, and revisit it later  
    *Expect asymmetry: a third-party BI carrier often wants a written request and documents first. Until its Declaration Page arrives (03/20/2026 on this file), the set-up-call figure is a lead: BI stays preliminary and no limit is quoted to the client. What goes with the request is counsel's call: never a blanket Medical Authorization to an adverse carrier. Some states set what a limits request must contain; confirm the governing rule.*
-4. The Coverage Matrix lists Harbor Point MedPay, $5,000, as stack layer 4 and totals the stack at $45,000. What is the correct treatment?  
+7. The Coverage Matrix lists Harbor Point MedPay, $5,000, as stack layer 4 and totals the stack at $45,000. What is the correct treatment?  
    Leave it: MedPay is first-party coverage from a stack carrier · Fold MedPay into the Host UM limit, making it $25,000 · **✓ Move MedPay to the Payer Order and restore the stack to $40,000** · Delete MedPay from the file, since it is not part of the stack  
    *MedPay pays bills now; it is Payer Order, not Recovery Stack. It stays tracked (Harbor Point confirmed no reimbursement right on 03/02/2026), and the stack is $10,000 + $20,000 + $10,000 = $40,000.*
 
@@ -1842,7 +1945,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 ---
 
-### 1.2.13 Case Plan Audit & Day 1 Gate
+### 1.2.14 Case Plan Audit & Day 1 Gate
 
 > **Knowledge Check** · Day 1 — File opening & case strategy · Case Phase 2: Claim Set Up · scored with Case Plan Audit & Day 1 Gate (`d1m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
