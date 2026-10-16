@@ -828,7 +828,7 @@ function renderPresenterConsole(d){
             <button class="btn btn-primary" onclick="presenterStep(1)">Next →</button>
           </div>
           <div class="pv-next"><b>Up next:</b> <span id="pvNext">${presenterNextText(d)}</span></div>
-          <p class="pv-tip">In Google Meet: <b>Present now → A window</b> → pick <b>“LSH Slides — share this window”</b>. Keep this tab for yourself; use ← → keys here to move the slides.</p>
+          <p class="pv-tip">In Google Meet: <b>Present now → A window</b> → pick <b>“LSH Slides — share this window”</b>. Keep this tab for yourself; use ← → keys here to move the slides. To show the room a tool or a document beside the slide, click its button in the slides window: it opens ⧉ Side by side there.</p>
         </section>
         <aside class="pv-cues"><div class="pv-label">Your notes — only you can see these</div><div id="pvCues">${presenterCues(d, slides[idx])}</div></aside>
       </div>

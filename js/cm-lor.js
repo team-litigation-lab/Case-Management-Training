@@ -8,9 +8,9 @@
    nothing here opens or touches the CMS: the page says so in as many words, and no card, link or
    session points at a case file — see NO_CASE_FILE below.
 
-     • Every trainee drafts on John Doe v. Robert Smith, the Case Flow's own file, with no assignment needed (it is
-       the Claim Set Up step: the LORs to the BI, Host UM and Relative UM carriers). A trainer can still assign one
-       of the 18 practice cases in "Case Notes For Drafting Activity (SA Demo)" instead (Assign cases, admins only).
+     • Every trainee drafts on John Doe v. Robert Smith, the Case Flow's own file (it is the Claim Set Up step: the
+       LORs to the BI, Host UM and Relative UM carriers). There is no case to assign: a trainer opens the same page
+       as a trainee sees it (nothing they type is saved).
      • The trainee reads their case notes on the page and can download them as a PDF.
      • Two editors, one per letter, showing the firm's templates exactly as they are. What the firm
        highlighted in yellow is what the trainee fills in; everything else is fixed text they can't edit:
@@ -24,7 +24,6 @@
 
    Shared storage keys (rules in worker.js):
      lor:<traineeId>        the trainee's own drafts (they read and write their own)
-     lorassign:<traineeId>  the case their trainer assigned (the trainee reads it, only admins write it)
    ============================================================ */
 (function(){
 "use strict";
@@ -37,18 +36,18 @@ const adminOn = () => !!state.isAdmin && !state.adminPreview;
 // Said on the page itself, not only here: this activity never becomes a case file in the CMS.
 const NO_CASE_FILE = "Do <b>not</b> create a case file in the CMS for this activity, and do not link it to any case file. This is a standalone drafting exercise: draft both letters here and download them.";
 
-/* ---------- the trainee's drafts and the case their trainer assigned ---------- */
-const L = {id:null, draft:null, assign:null, loading:false, err:"", timer:null, saving:false, savedAt:null, tab:TEMPLATES[0].id};
+/* ---------- the trainee's drafts ---------- */
+const L = {id:null, draft:null, loading:false, err:"", timer:null, saving:false, savedAt:null, tab:TEMPLATES[0].id};
+const PREVIEW = "\u0000preview";   // L.id while a trainer looks at the page: a blank draft, never saved
 const blank = () => ({v:1, letters:{}, updatedAt:""});
 function letter(tid){ const ls = L.draft.letters; return ls[tid] || (ls[tid] = {fields:{}, checks:{}, updatedAt:""}); }
 
 async function load(id){
   L.loading = true; L.err = ""; L.id = id;
   try{
-    const [d, a] = await Promise.all([sharedGet("lor:" + id), sharedGet("lorassign:" + id)]);
+    const d = await sharedGet("lor:" + id);
     L.draft = (d && typeof d === "object") ? d : blank();
     if(!L.draft.letters) L.draft.letters = {};
-    L.assign = (a && typeof a === "object") ? a : null;
   }catch(err){ L.err = "Couldn’t load your drafting activity. Check your connection and try again."; }
   L.loading = false;
   if(state.view === "lor") render();
@@ -58,7 +57,7 @@ function paintSave(ok){
   if(el) el.textContent = L.saving ? "Saving…" : (ok === false ? "⚠ Not saved. Check your connection." : (L.savedAt ? "All changes saved" : ""));
 }
 function queueSave(){
-  if(!state.traineeId) return;   // 👁 Trainee view: a preview with no trainee to save to
+  if(!state.traineeId || L.id === PREVIEW) return;   // 👁 a trainer's view of the page: nothing to save to
   L.draft.updatedAt = new Date().toISOString();
   clearTimeout(L.timer); L.saving = true; paintSave();
   L.timer = setTimeout(async () => {
@@ -71,7 +70,7 @@ function queueSave(){
 // Case 0 is the course's own file, John Doe v. Robert Smith: it opens for everyone with no assignment, as the
 // Case Flow's Claim Set Up step (the LORs to the BI, Host UM and Relative UM carriers). Its facts are the case
 // file's (curriculum/5-day-flow/case-file.md; the Declaration Pages RS27–RS29), its date of loss in the trainee's
-// case year (js/cm-case-dates.js). A trainer can still assign one of the 18 practice cases instead (1-based).
+// case year (js/cm-case-dates.js). (The 18 practice cases in CM_LOR_CASES are kept as data, 1-based; none is handed out.)
 const JD_DOL = () => { const D = window.CM_CASE_DATES, s = D && D.dol ? D.dol() : "02/06/2026", [m, d, y] = s.split("/").map(Number);
   return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-US", {year:"numeric", month:"long", day:"numeric", timeZone:"UTC"}); };
 const JD = () => ({jd:true,
@@ -80,11 +79,7 @@ const JD = () => ({jd:true,
     "Also 1P":"Cardinal State Mutual (Relative UM, Margaret Doe's policy CSM-AU-5580213, claim CS-26-20355, adjuster Teresa Okafor, 1200 Cardinal Way, Millbrook, teresa.okafor@cardinalstate.example): the same 1P letter, sent separately"},
   p3:{"Client’s Name":"John Doe", "Date of Loss":JD_DOL(), "Defendant Insurance Company Name":"Keystone Mutual Insurance", "Policy Number":"KMI-PA-7731045", "Claim Number":"KM-26-440871",
     "Adjuster Name and Address":"Dana Whitfield, P.O. Box 4100, Riverton", "Fax Number":"(555) 010-7199", "Defendant Insured Name":"Robert Smith", "Defendant Driver’s Name":"Robert Smith"}});
-function myCaseNo(){
-  if(adminOn()) return state.lorPreviewCase != null && state.lorPreviewCase !== "" ? Number(state.lorPreviewCase) : 0;
-  const n = L.assign && Number(L.assign.case);
-  return n >= 1 && n <= CASES.length ? n : 0;   // no assignment needed: John Doe v. Robert Smith
-}
+const myCaseNo = () => 0;   // everyone drafts John Doe v. Robert Smith
 const caseOf = no => no === 0 ? JD() : (no ? CASES[no - 1] : null) || null;
 const caseName = no => { const c = caseOf(no); return no === 0 ? `John Doe v. Robert Smith · ${JD_DOL()}` : c ? `Case ${no} · ${c.p1["Client’s Name"] || "—"} · ${c.p1["Date of Loss"] || ""}` : `Case ${no}`; };
 // The template's own order for the notes, so the page reads like the file the trainers sent.
@@ -222,57 +217,17 @@ function editor(no){
 }
 function renderPage(){
   if(!state.traineeId && !state.isAdmin && !state.adminPreview) return `<div class="card" style="padding:28px;">Sign in to open the LOR Drafting tool.</div>`;
-  if(adminOn()) return renderAdmin();
-  if(L.id !== state.traineeId && !L.loading) load(state.traineeId);
+  const viewer = adminOn() || !state.traineeId;   // a trainer (or the 👁 Trainee view): the page as a trainee sees it
+  if(viewer){ if(L.id !== PREVIEW){ L.id = PREVIEW; L.draft = blank(); L.err = ""; } }
+  else if(L.id !== state.traineeId && !L.loading) load(state.traineeId);
   if(L.err) return `<div class="card" style="padding:28px;">${e(L.err)} <button class="btn btn-ghost btn-sm" onclick="CMLor.reload()">Try again</button></div>`;
   if(!L.draft) return `<div class="card" style="padding:28px;">Loading your drafting activity…</div>`;
   const no = myCaseNo();
-  const preview = (state.adminPreview && !state.traineeId)
+  const preview = viewer
     ? `<div class="card lor-preview-note">👁 <b>Trainee view</b> — this is the page as a trainee sees it. Nothing you type here is saved; a trainee drafts on their own account.</div>` : "";
   return `${preview}<div class="lor-hero"><p class="lor-eyebrow">📄 Drafting Tools</p><h1>LOR Drafting</h1>
-      <p>Draft a Letter of Representation for both the 1P and the 3P carrier${no === 0 ? ", on John Doe v. Robert Smith" : ", from the case your trainer assigned you"}.</p>
-      <button class="btn btn-ghost btn-sm" type="button" onclick="goto('drafting')">← Back to Drafting Tools</button></div>
+      <p>Draft a Letter of Representation for both the 1P and the 3P carrier, on John Doe v. Robert Smith.</p></div>
     ${notice()}${objective()}${caseCard(no)}${caseOf(no) ? editor(no) : ""}`;
-}
-
-/* ---------- the trainer: who gets which case ---------- */
-const A = {rows:null, loading:false, open:{}};
-async function loadAdmin(){
-  A.loading = true;
-  try{
-    const keys = (await sharedList("trainee:")) || [];
-    const ids = keys.map(k => String(k).replace(/^trainee:/, ""));
-    const people = await sharedGetMany(ids.map(id => "trainee:" + id));
-    const rows = ids.map((id, i) => ({id, rec: people[i] || {}})).filter(x => x.rec && !x.rec.archived && x.rec.approved)
-      .map(x => ({id:x.id, name:x.rec.name || x.id, batch:x.rec.batch || ""}));
-    const assigns = await sharedGetMany(rows.map(x => "lorassign:" + x.id));
-    rows.forEach((x, i) => { x.a = assigns[i] || null; });
-    A.rows = rows.sort((a, b) => (a.name || "").localeCompare(b.name || ""));
-  }catch(err){ A.rows = []; }
-  A.loading = false;
-  if(state.view === "lor") render();
-}
-function renderAdmin(){
-  if(!A.rows && !A.loading) loadAdmin();
-  const opts = no => CASES.map((c, i) => `<option value="${i + 1}"${no === i + 1 ? " selected" : ""}>${e(caseName(i + 1))}</option>`).join("");
-  const groups = {}; (A.rows || []).forEach(x => { (groups[x.batch] = groups[x.batch] || []).push(x); });
-  const keys = Object.keys(groups).sort((a, b) => (a === "") - (b === "") || b.localeCompare(a, undefined, {numeric:true}));
-  return `<div class="lor-hero"><p class="lor-eyebrow">📄 Drafting Tools</p><h1>LOR Drafting</h1>
-      <p>Hand each trainee one of the ${CASES.length} cases. They draft both letters on this page and download them.</p>
-      <button class="btn btn-ghost btn-sm" type="button" onclick="goto('drafting')">← Back to Drafting Tools</button></div>
-    ${notice()}
-    <section class="card lor-assign"><h2>🧑‍🏫 Assign cases</h2>
-      <p class="lor-muted">One case per trainee. A trainee sees their case notes and both templates as soon as you assign one; changing it keeps whatever they have already drafted.</p>
-      ${!A.rows ? `<p class="lor-muted">Loading the trainees…</p>` : !A.rows.length ? `<p class="lor-muted">No approved trainee yet.</p>`
-        : keys.map(b => `<div class="lor-batch"><b>📁 ${e(b ? "Batch " + b : "No batch set")}</b>
-          ${groups[b].map(x => `<div class="lor-arow"><span class="lor-aname">${e(x.name)}</span>
-            <select aria-label="Case for ${e(x.name)}" onchange="CMLor.assign('${e(x.id)}', this.value, this)"><option value="">John Doe v. Robert Smith (the default)</option>${opts(x.a && Number(x.a.case))}</select>
-            <span class="lor-astate">${x.a && x.a.case ? `assigned${x.a.at ? " " + e(new Date(x.a.at).toLocaleDateString()) : ""}` : ""}</span></div>`).join("")}</div>`).join("")}
-      <div style="margin-top:12px;"><button class="btn btn-ghost btn-sm" type="button" onclick="CMLor.refreshAdmin()">Refresh</button></div></section>
-    <section class="card lor-preview"><h2>👁 The activity as a trainee sees it</h2>
-      <p class="lor-muted">Pick a case to read its notes and both letters.</p>
-      <select aria-label="Preview a case" onchange="CMLor.preview(this.value)"><option value="0"${myCaseNo() === 0 ? " selected" : ""}>${e(caseName(0))}</option>${opts(myCaseNo())}</select>
-      ${caseCard(myCaseNo())}</section>`;
 }
 
 /* ---------- downloads ---------- */
@@ -311,9 +266,7 @@ function makeWord(name, lines){
 
 window.CMLor = {
   reload(){ L.id = null; L.draft = null; L.err = ""; render(); },
-  refreshAdmin(){ A.rows = null; render(); },
   tab(id){ L.tab = id; render(); window.scrollTo(0, 0); },
-  preview(v){ state.lorPreviewCase = Number(v) || 0; render(); },
   grow(el){ el.style.height = "auto"; el.style.height = Math.min(520, el.scrollHeight + 2) + "px"; },
   set(tid, f, v){ letter(tid).fields[f] = v; letter(tid).updatedAt = new Date().toISOString(); queueSave(); },
   tick(tid, id){ const d = letter(tid); d.checks[id] = !d.checks[id]; queueSave(); render(); },
@@ -340,17 +293,7 @@ window.CMLor = {
               ["", "This is a standalone drafting activity. Do not create a case file in the CMS for it."]);
     await makePdf(`Case Notes - ${caseName(no)}`, lines);
   },
-  async assign(id, v, el){
-    const no = Number(v) || 0;
-    el.disabled = true;
-    try{
-      const rec = no ? {case:no, at:new Date().toISOString(), by:"trainer"} : {case:null, at:new Date().toISOString(), by:"trainer"};
-      if(await sharedSet("lorassign:" + id, rec) === false) throw new Error("save");
-      const row = (A.rows || []).find(x => x.id === id); if(row) row.a = rec;
-      toast(no ? "✓ Case assigned." : "Case cleared.");
-    }catch(err){ toast("Couldn’t save the assignment. Check your connection."); }
-    el.disabled = false; render();
-  }
+
 };
 
 /* ---------- wiring into the engine ---------- */
@@ -368,7 +311,7 @@ window.render = function(){
 window.cmLorCard = function(){
   const no = isTrainee() ? myCaseNo() : null;
   if(isTrainee() && L.id !== state.traineeId && !L.loading) load(state.traineeId);
-  const note = adminOn() ? "Every trainee drafts John Doe v. Robert Smith's LORs; assign a practice case only to give one a different file." : `Your case: <b>${e(caseName(no || 0))}</b>.`;
+  const note = `${adminOn() ? "Every trainee's case" : "Your case"}: <b>${e(caseName(no || 0))}</b>.`;
   return `<div class="card fts-card"><h3>📄 LOR Drafting</h3>
     <p class="fts-note">Draft the Letter of Representation for the 1P and the 3P carrier on John Doe v. Robert Smith (the Case Flow's Claim Set Up step), in the firm's own templates, then download them.</p>
     <p class="fss-case">${note}</p>
@@ -376,19 +319,19 @@ window.cmLorCard = function(){
 };
 
 (function(){ const s = document.createElement("style"); s.id = "cm-lor"; s.textContent = `
-main.main-lor{max-width:1080px;margin:0 auto;padding:24px 16px 48px;}
+main.main-lor{max-width:1440px;margin:0 auto;padding:24px 24px 48px;}
 .lor-preview-note{padding:10px 14px;margin:0 0 14px;background:#EEF2FF;border:1px solid #C7D2FE;color:#3730A3;font-size:13.5px;}
 .lor-hero h1{margin:0 0 6px;color:var(--navy);font-size:28px;}
-.lor-hero p{margin:0 0 16px;color:var(--ink-soft);font-size:15px;max-width:760px;}
+.lor-hero p{margin:0 0 16px;color:var(--ink-soft);font-size:16px;max-width:900px;}
 .lor-eyebrow{margin:0 0 2px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--orange-deep);}
 .lor-muted{color:var(--ink-soft);font-size:13.5px;}
 .lor-warn{display:flex;gap:12px;align-items:flex-start;background:#FFF7ED;border:1px solid #FDBA74;border-left:5px solid #F97316;border-radius:12px;padding:14px 16px;margin:0 0 16px;}
 .lor-warn-ic{font-size:19px;line-height:1.2;}
 .lor-warn-h{color:#9A3412;display:block;margin-bottom:2px;}
 .lor-warn p b{color:#7C2D12;}
-.lor-warn p{margin:0;font-size:13.5px;color:#7C2D12;}
+.lor-warn p{margin:0;font-size:15px;color:#7C2D12;}
 .lor-obj{padding:14px 18px;margin-bottom:16px;background:#F7F8FB;}
-.lor-obj b{color:var(--navy);} .lor-obj p{margin:4px 0 0;font-size:13.5px;color:var(--ink-soft);font-style:italic;}
+.lor-obj b{color:var(--navy);} .lor-obj p{margin:4px 0 0;font-size:15px;color:var(--ink-soft);font-style:italic;}
 .lor-wait{padding:24px;} .lor-wait b{color:var(--navy);} .lor-wait p{margin:6px 0 0;color:var(--ink-soft);font-size:13.5px;}
 .lor-case{padding:18px;margin-bottom:20px;}
 .lor-case-h{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;}
@@ -398,22 +341,22 @@ main.main-lor{max-width:1080px;margin:0 auto;padding:24px 16px 48px;}
 .lor-notes-h{font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:8px;}
 .lor-notes dl{margin:0;} .lor-notes dl > div{display:flex;gap:8px;padding:3px 0;border-bottom:1px solid #EDEFF5;}
 .lor-notes dl > div:last-child{border-bottom:0;}
-.lor-notes dt{flex:0 0 46%;font-size:12.5px;color:var(--ink-soft);}
-.lor-notes dd{margin:0;flex:1 1 auto;min-width:0;font-size:12.5px;font-weight:600;color:var(--navy);overflow-wrap:anywhere;}
+.lor-notes dt{flex:0 0 46%;font-size:14px;color:var(--ink-soft);}
+.lor-notes dd{margin:0;flex:1 1 auto;min-width:0;font-size:14px;font-weight:600;color:var(--navy);overflow-wrap:anywhere;}
 .lor-tabs{margin-bottom:14px;}
 .lor-ed-h{margin:0 0 10px;color:var(--navy);font-size:20px;}
 .lor-steps{padding:12px 16px;margin-bottom:14px;}
 .lor-steps summary{cursor:pointer;font-weight:700;color:var(--navy);}
-.lor-steps ol{margin:10px 0 6px;padding-left:20px;} .lor-steps li{font-size:13.5px;margin-bottom:5px;}
+.lor-steps ol{margin:10px 0 6px;padding-left:20px;} .lor-steps li{font-size:15px;margin-bottom:5px;}
 .lor-steps code,.lor-naming code{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;background:#F1F5F9;border-radius:5px;padding:2px 6px;overflow-wrap:anywhere;}
 /* the letter itself: the firm's page, with only the highlighted parts editable */
-.lor-paper{padding:40px 44px;background:#fff;}
-.lorl{font-family:Arial,Helvetica,sans-serif;font-size:13.5px;line-height:1.5;color:#111;}
+.lor-paper{padding:44px 56px;background:#fff;}
+.lorl{font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.55;color:#111;}
 .lorl-p{margin:0 0 9px;text-align:justify;}
 .lorl-mid{text-align:center;font-weight:700;}
 .lorl-num{display:list-item;list-style:decimal;margin-left:26px;text-align:justify;}
 .lorl-tab{display:inline-block;width:34px;}
-.lorl-tbl{border-collapse:collapse;margin:6px 0;} .lorl-tbl td{padding:2px 8px 2px 0;font-size:13.5px;}
+.lorl-tbl{border-collapse:collapse;margin:6px 0;} .lorl-tbl td{padding:2px 8px 2px 0;font-size:16px;}
 .lorl-in,.lorl-ta{font:inherit;color:#0B3B8C;font-weight:700;background:#FEF9C3;border:0;border-bottom:1.5px solid #EAB308;border-radius:3px 3px 0 0;padding:1px 5px;max-width:100%;}
 .lorl-in:focus,.lorl-ta:focus{outline:2px solid #F97316;outline-offset:1px;background:#FFFBEB;}
 .lorl-in::placeholder,.lorl-ta::placeholder{color:#8A7B2F;font-weight:500;font-style:italic;}
@@ -426,7 +369,7 @@ main.main-lor{max-width:1080px;margin:0 auto;padding:24px 16px 48px;}
 .lor-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0 6px;}
 .lor-save{font-size:12.5px;color:var(--ink-soft);}
 .lor-naming{margin:0;}
-/* the trainer's side */
+/* the trainer's side of the Drafting Tools that hand something out (js/cm-medprov.js) */
 .lor-assign,.lor-preview{padding:18px;margin-bottom:18px;}
 .lor-assign h2,.lor-preview h2{margin:0 0 4px;color:var(--navy);font-size:19px;}
 .lor-batch{margin-top:12px;} .lor-batch > b{color:var(--navy);font-size:14px;}

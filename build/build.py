@@ -244,11 +244,11 @@ s = re.sub(r'<script src="/js/eapa-deck-art\.js[^"]*"></script>\n?', "", s)
 # One hook — eapa-updates.js — becomes the CM run, in load order.
 s = re.sub(r'<script src="/js/eapa-updates\.js\?v=[^"]*"></script>', '<script src="/js/eapa-updates.js?v=z"></script>', s, count=1)
 rep('<script src="/js/eapa-updates.js?v=z"></script>', tags(
-    "cm-updates.js?v=23",
+    "cm-updates.js?v=24",
     "cm-documents.js?v=2",
     "cm-skillbuilders.js?v=cm-2026.10.16-cfonly",
     "cm-lor-data.js?v=1", "cm-hipaa-data.js?v=1", "cm-medprov-data.js?v=1",   # Drafting Tools' data
-    "cm-lor.js?v=2", "cm-hipaa.js?v=1", "cm-medprov.js?v=1", "cm-drafting.js?v=1",
+    "cm-lor.js?v=3", "cm-hipaa.js?v=2", "cm-medprov.js?v=2", "cm-drafting.js?v=1",
     "daily-activities.js?v=3"))
 # Attendance is taken on the Main Portal (no Admin → 🕘 Attendance tab here, as in EA/PA): only the trainee's
 # automatic Time In stays (js/checkin.js), just before portal-link.js, whether or not EA/PA still carries attendance.js
@@ -266,7 +266,7 @@ rep('<script src="/js/lsh-card-frame.js?v=3"></script>', tags(
     # The 5-Day Case Management Flow (John Doe v. Robert Smith): after graded-calls.js, because its
     # dashboard wrapper must run on the finished page, and after cm-skillbuilders.js, whose
     # renderLessonCard it wraps.
-    "cm-case-flow-docs.js?v=4", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=11", "cm-case-flow-scripts.js?v=1", "cm-case-flow-sim.js?v=5", "cm-case-flow-data.js?v=15", "cm-case-dates.js?v=2", "cm-case-flow.js?v=42",
+    "cm-case-flow-docs.js?v=4", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=11", "cm-case-flow-scripts.js?v=1", "cm-case-flow-sim.js?v=5", "cm-case-flow-data.js?v=15", "cm-case-dates.js?v=2", "cm-case-flow.js?v=43",
     "show-password.js?v=1", "lsh-card-frame.js?v=3"))
 
 # Training tools open signed in (js/lsh-tool-links.js, the same file in every LSH course repo: CMS
@@ -317,6 +317,9 @@ for need in ["cm-updates.js", "cm-documents.js", "cm-skillbuilders.js",
              "cm-lor.js", "cm-hipaa.js", "cm-medprov.js", "cm-drafting.js", "cm-case-flow-docs.js", "cm-case-flow-art.js", "cm-case-flow-slides.js", "cm-case-flow-scripts.js", "cm-case-flow-sim.js", "cm-case-flow-data.js", "cm-case-dates.js", "cm-case-flow.js", "cm-cms-case.js", "cm-doc-filing.js"]:
     if f'src="/js/{need}' not in s:
         sys.exit(f"MISSING SCRIPT: /js/{need} is not loaded by the built page")
+# the AI-key messages name this course's Worker in Cloudflare, not EA/PA's
+rep("Workers & Pages → ea-pa-training → Settings", "Workers & Pages → case-management-training → Settings", min_count=2)
+rep("Workers &amp; Pages → ea-pa-training → Settings", "Workers &amp; Pages → case-management-training → Settings")
 # and none of EA/PA's own day files should be
 if "/js/days/day" in s:
     sys.exit("LEFTOVER: the page still loads EA/PA's js/days/dayN files")

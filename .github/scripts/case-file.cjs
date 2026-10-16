@@ -52,7 +52,7 @@ const check = (ok, m) => { console.log((ok ? 'PASS ' : 'FAIL ') + m); if (!ok) f
         await page.evaluate(() => { state.isAdmin = true; render(); }); await sleep(400);
         const tabs = await page.evaluate(() => Array.from(document.querySelectorAll('.cf-file-tab')).map(b => b.textContent.trim()));
         check(tabs.length >= 6, `${W}x${H} a trainer gets the case in tabs: ${tabs.join(' · ')}`);
-        check(await page.evaluate(() => /yours only/i.test((document.querySelector('.cf-file-only') || {}).textContent || '')), `${W}x${H} and they are marked as the trainer's`);
+        check(await page.evaluate(() => { const k = Array.from(document.querySelectorAll('.cf-file-tab.key')); return k.length >= 5 && k.every(b => /trainer only/i.test(b.title)); }), `${W}x${H} and they are marked as the trainer's (dashed, "trainer only")`);
         const over = await page.evaluate(async () => {
             const bad = [];
             for (const b of Array.from(document.querySelectorAll('.cf-file-tab'))) {

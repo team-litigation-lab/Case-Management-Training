@@ -195,8 +195,7 @@ function renderPage(){
   const preview = (state.adminPreview && !state.traineeId)
     ? `<div class="card lor-preview-note">👁 <b>Trainee view</b> — this is the page as a trainee sees it. Nothing you type here is saved; a trainee drafts on their own account.</div>` : "";
   return `${preview}<div class="lor-hero"><p class="lor-eyebrow">📄 Drafting Tools</p><h1>Med Provider Drafting</h1>
-      <p>Draft the lien balance verification and medical LOR letters to your assigned provider, in the firm's own templates.</p>
-      <button class="btn btn-ghost btn-sm" type="button" onclick="goto('drafting')">← Back to Drafting Tools</button></div>
+      <p>Draft the lien balance verification and medical LOR letters to your assigned provider, in the firm's own templates.</p></div>
     ${notice()}${providerCard(provider)}${provider ? editor(provider) : ""}`;
 }
 
@@ -223,8 +222,7 @@ function renderAdmin(){
   const groups = {}; (A.rows || []).forEach(x => { (groups[x.batch] = groups[x.batch] || []).push(x); });
   const keys = Object.keys(groups).sort((a, b) => (a === "") - (b === "") || b.localeCompare(a, undefined, {numeric:true}));
   return `<div class="lor-hero"><p class="lor-eyebrow">📄 Drafting Tools</p><h1>Med Provider Drafting</h1>
-      <p>Hand each trainee one of the ${PROVIDERS.length} providers. They draft that provider's letters on this page and download them.</p>
-      <button class="btn btn-ghost btn-sm" type="button" onclick="goto('drafting')">← Back to Drafting Tools</button></div>
+      <p>Hand each trainee one of the ${PROVIDERS.length} providers. They draft that provider's letters on this page and download them.</p></div>
     ${notice()}
     <section class="card lor-assign"><h2>🧑‍🏫 Assign providers</h2>
       <p class="lor-muted">One provider per trainee. A trainee sees that provider's letters as soon as you assign one; changing it keeps whatever they have already drafted.</p>

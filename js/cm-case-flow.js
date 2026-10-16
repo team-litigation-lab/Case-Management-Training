@@ -1006,9 +1006,9 @@ window.cmCaseFlow.listenClose = function(){ const box = document.getElementById(
 /* ---------- opening a step's tool ---------- */
 window.cmCaseFlow.tool = function(id, blockId){
   if(id === "call" && blockId && SIM.calls[blockId]) return cmCaseFlow.call(blockId);
-  if(id === "netsheet" && typeof openPane === "function"){   // the firm's Net Sheet (net-sheet.html), beside the slide, checked at this step's stage
+  if(id === "netsheet" && typeof openPane === "function"){   // the firm's Net Sheet (net-sheet.html), over the slide at full width (its ledger is wide), checked at this step's stage
     const st = NET_STAGE[blockId] || "final";
-    openPane("netsheet", new URL(`net-sheet.html?stage=${st}${DATES ? "&year=" + DATES.year : ""}`, location.href).href, `LSH Net Sheet · ${st === "litigation" ? "Track B (case won)" : "Track A (settled)"}`, "📊", "split");
+    openPane("netsheet", new URL(`net-sheet.html?stage=${st}${DATES ? "&year=" + DATES.year : ""}`, location.href).href, `LSH Net Sheet · ${st === "litigation" ? "Track B (case won)" : "Track A (settled)"}`, "📊", "full");
     return;
   }
   if(PAGE[id]){   // one of the course's own pages: go there, with a way back to this slide
@@ -1186,7 +1186,7 @@ if(typeof window.renderDaySlideshow === "function"){
 }
 if(typeof window.afterRender === "function"){
   const __after = window.afterRender;
-  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ syncReturn(); sidePresenter(); kcFit(); adminLanding(); }catch(e){} return r; };
+  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ syncReturn(); sidePresenter(); kcFit(); fitFileCols(); adminLanding(); }catch(e){} return r; };
 }
 /* Check Your Work: the reference of what the trainee did in the tool (a CMS Case ID, a docket or request number),
    kept on their record and shown to their trainer with the module's Learning Check */
@@ -1964,7 +1964,23 @@ if(typeof renderAuditStrip === "function"){
 /* Every Admin tab (the Trainee Audit, Trainer Cues, the SOP, Activities) names the days as on screen: Case Flow Day 1–5, never their ids */
 if(typeof window.renderAdmin === "function"){
   const __admin = window.renderAdmin;
-  window.renderAdmin = function(){ if(state.adminTab === "attendance") state.adminTab = "audit"; return groupAdminTabs(relabelAll(__admin.apply(this, arguments)).replace("Knowledge Checks, Skill Builders and your day-by-day", "Knowledge Checks, Skill Activities and your day-by-day")); };   // (attendance is on the Main Portal now)
+  /* An admin opening the course from the Portal can reach the Admin screen a moment before their sign-in has settled
+     (the Portal's ticket is still being exchanged, or the admin session is in but not yet applied): wait for it, for up
+     to 10 seconds, instead of saying "Admin access required" (which a second try from the Training Directory then fixed). */
+  let adminWaits = 0;
+  const signingIn = () => !!(state.adminToken || document.getElementById("portal-cover-msg"));
+  window.renderAdmin = function(){
+    if(!state.isAdmin && !state.adminPreview && signingIn() && adminWaits < 20){
+      adminWaits++;
+      setTimeout(async () => {
+        if(state.view !== "admin" || state.isAdmin) return;
+        try{ if(state.adminToken && typeof authStatus === "function" && (await authStatus())) state.isAdmin = true; }catch(e){}
+        if(state.view === "admin") render();
+      }, 500);
+      return `<div class="card" style="padding:40px;text-align:center;"><div style="font-size:30px;margin-bottom:10px;">🛡</div><h2 style="color:var(--navy);margin:0;">Opening the admin screen…</h2></div>`;
+    }
+    if(state.isAdmin) adminWaits = 0;
+    if(state.adminTab === "attendance") state.adminTab = "audit"; return groupAdminTabs(relabelAll(__admin.apply(this, arguments)).replace("Knowledge Checks, Skill Builders and your day-by-day", "Knowledge Checks, Skill Activities and your day-by-day")); };   // (attendance is on the Main Portal now)
 }
 
 /* ---------- the trainer's 40%: entered in each trainee's Admin panel ---------- */
@@ -2125,17 +2141,81 @@ function fileTabs(shown, pos){
   const tabs = CF_FILE_TABS.filter(t => t.id === "now" || shown.some(x => (x.group || "file") === t.id));
   const cur = tabs.some(t => t.id === state.cfFileTab) ? state.cfFileTab : "now";
   const secs = shown.filter(x => (x.group || "file") === cur);
-  const strip = tabs.length > 1 ? `<div class="cf-file-tabs" role="tablist">
-      ${tabs.map(t => `<button type="button" role="tab" aria-selected="${t.id === cur}" title="${E(t.title)}${t.id === "now" ? "" : " — trainer only"}" class="cf-file-tab${t.id === cur ? " on" : ""}${t.id === "now" ? "" : " key"}" onclick="cmCaseFlow.fileTab('${t.id}')">${E(t.label)}</button>`).join("")}
-      <span class="cf-file-only" title="The dashed tabs are the case's answers: a trainee sees none of them">🔑 yours only</span></div>` : "";
+  // the file's tabs (the trainer's) and, on the same line, the Case File | Documents switch
+  const strip = `<div class="cf-file-tabs" role="tablist">
+      ${tabs.length > 1 ? tabs.map(t => `<button type="button" role="tab" aria-selected="${t.id === cur}" title="${E(t.title)}${t.id === "now" ? "" : " — trainer only: trainees never see this tab"}" class="cf-file-tab${t.id === cur ? " on" : ""}${t.id === "now" ? "" : " key"}" onclick="cmCaseFlow.fileTab('${t.id}')">${E(t.label)}</button>`).join("") : ""}
+      <div class="lsh-subtabs cf-docs-switch cf-file-switch"><button type="button" class="on" aria-selected="true">Case File</button><button type="button" onclick="goto('casedocs')">📁 Documents</button></div></div>`;
   return `<div class="cf-file-facts">${strip}
     ${cur === "now" ? caseTimeline(pos) : `<div class="cf-file-cols">${secs.map(x => `<div class="cf-file-sec"><h3>${E(x.title)}</h3><ul>${x.items.map(i => `<li>${E(i)}</li>`).join("")}</ul></div>`).join("")}</div>`}</div>`;
 }
+/* the file's text at the largest size that still fits the screen (15px down to 11px) */
+function fitFileCols(){
+  const c = document.querySelector(".cf-file-page .cf-file-cols"); if(!c) return;
+  let f = 15; c.style.fontSize = f + "px";
+  while(c.scrollHeight > c.clientHeight + 1 && f > 11){ f -= 0.5; c.style.fontSize = f + "px"; }
+}
+window.addEventListener("resize", () => { clearTimeout(state.cfFileFitT); state.cfFileFitT = setTimeout(() => { try{ fitFileCols(); }catch(e){} }, 120); });
 window.cmCaseFlow.fileTab = function(id){ state.cfFileTab = id; if(typeof render === "function") render(); };
+
+/* ---------- the day's intro ("Before you start"): one screen ----------
+   One wide card of the day's objectives, split where the sentence lists them (never inside brackets or a
+   figure like $40,000), then what the day covers, one card per Case Phase, every topic shown. */
+function objectivesOf(text){
+  const out = []; let cur = "", depth = 0; const t = String(text || "");
+  for(let i = 0; i < t.length; i++){
+    const c = t[i];
+    if(c === "(" || c === "[") depth++;
+    else if((c === ")" || c === "]") && depth) depth--;
+    if(!depth && (c === ";" || (c === "," && /\s/.test(t[i + 1] || "")) || (c === "." && /\s/.test(t[i + 1] || "")))){ out.push(cur); cur = ""; continue; }
+    cur += c;
+  }
+  out.push(cur);
+  return out.map(x => x.trim().replace(/^and\s+/i, "").replace(/\.$/, "")).filter(x => x.length > 8).map(x => x[0].toUpperCase() + x.slice(1));
+}
+if(typeof window.renderDayIntro === "function"){
+  const __intro = window.renderDayIntro;
+  window.renderDayIntro = function(d){
+    if(!d || !d.cf) return __intro.apply(this, arguments);
+    const objs = objectivesOf(d.objective);
+    const phases = [];
+    d.lessons.forEach(l => { const ph = l.cf.phase; let g = phases.find(x => x.ph === ph); if(!g) phases.push(g = {ph, items: []}); if(l.cf.block.kind !== "check") g.items.push(l); });
+    const icon = l => l.cf.block.kind === "activity" ? "🧪" : "📘";
+    // two cards: the Case Phases in order, split where the topics are about half each side
+    const total = phases.reduce((a, g) => a + g.items.length + 1, 0); let run = 0;
+    const cols = [[], []]; phases.forEach(g => { cols[cols[1].length || (run && run + (g.items.length + 1) / 2 > total / 2) ? 1 : 0].push(g); run += g.items.length + 1; });
+    const phaseName = ph => `${ph.lead === "Case Phase" ? `Case Phase ${ph.n}` : ph.lead} · ${ph.title}`;
+    return `<div class="lesson-stage day-intro cf-intro">
+      <div class="lesson-slide"><div class="card lesson-card">
+        <div class="di-box cf-intro-obj"><b>🎯 By the end of today you'll be able to</b><ul>${objs.map(o => `<li>${E(o)}</li>`).join("")}</ul></div>
+        <div class="cf-intro-phases">${cols.filter(c => c.length).map(c => `<div class="di-box cf-intro-ph">${c.map(g => `<b>🗺 ${E(phaseName(g.ph))}</b>
+          <ul>${g.items.map(l => `<li><span aria-hidden="true">${icon(l)}</span> ${E(l.h)}</li>`).join("")}</ul>`).join("")}</div>`).join("")}</div>
+      </div></div>
+      <div class="slide-nav"><button class="btn btn-ghost" onclick="goto('dashboard')">← Dashboard</button><span class="slide-counter">Objectives</span><button class="btn btn-primary" onclick="startDayFromIntro(${d.id})">Start Case Flow Day ${d.cf.n} →</button></div>
+    </div>`;
+  };
+}
 
 if(typeof window.renderClientProfile === "function" && Array.isArray(CF.profile)){
   window.renderClientProfile = () => caseFlowProfile();
   window.cmCaseFlow.profile = () => { if(state.view !== "clientprofile" && typeof goto === "function") return goto("clientprofile"); render(); window.scrollTo(0, 0); };   // the dashboard's "Case profile" button
+}
+
+/* ---------- My Notes & Action Plan: one screen ----------
+   The page's title in a column on the left, with the way back to the Case Flow at its foot; the note editor takes
+   the rest of the width and the height of the screen (its page scrolls inside); Download (PDF) and, after an
+   activity, Next sit at the bottom right. One note: the Action Plan (earlier notes still show, below it). */
+if(typeof window.renderNotes === "function" && typeof window.renderNoteCard === "function"){
+  window.renderNotes = function(){
+    if(typeof ensureDefaultNote === "function") ensureDefaultNote();
+    const r = state.cfReturn;
+    const back = r ? `<button type="button" class="btn btn-ghost cf-notes-back" onclick="cmCaseFlow.back()">${r.view === "day" ? `← Back to Case Flow Day ${E(r.n)}` : "← Back to the Case Flow"}</button>` : "";
+    const next = r && r.next != null ? `<button type="button" class="btn btn-primary" onclick="cmCaseFlow.onward()">Next: ${E(r.nextLabel)} →</button>` : "";
+    return `<div class="cf-notes">
+      <section class="page-hero cf-notes-hero"><p class="eyebrow">Personal Workspace</p><h1>My Notes &amp; Action Plan</h1>
+        <p>Your action plan, takeaways, and anything else worth keeping. It saves automatically, and <b>Review</b> gives quick feedback on quality, professionalism and compliance before you finalize anything.</p>${back}</section>
+      <div class="cf-notes-main"><div id="notesList">${state.notes.map(n => renderNoteCard(n)).join("")}</div>
+        <div class="cf-notes-foot"><button type="button" class="btn btn-ghost" onclick="downloadNotesPdf()">⬇ Download All Notes (PDF)</button>${next}</div></div></div>`;
+  };
 }
 
 /* ---------- the case documents: John Doe v. Robert Smith (js/cm-case-flow-docs.js) ----------
@@ -2590,11 +2670,11 @@ main > .cf-side-presenter{display:none;}
 /* 🔑 the Case File's facts: the trainer's answer key, in tabs so the page fits one screen */
 .cf-file-facts{margin-top:10px;}
 .cf-file-tabs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:8px;}
-.cf-file-only{font-size:11px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:#8A2F26;background:rgba(253,232,228,.75);border-radius:999px;padding:3px 9px;margin-right:4px;}
-.cf-file-tab{font:600 12.5px 'Inter',sans-serif;color:#2B3147;background:rgba(255,255,255,.62);border:1px solid #C9CEDB;border-radius:999px;padding:4px 12px;cursor:pointer;}
+.cf-file-switch{margin:0 0 0 auto !important;}
+.cf-file-tab{font:600 14px 'Inter',sans-serif;color:#2B3147;background:rgba(255,255,255,.62);border:1px solid #C9CEDB;border-radius:999px;padding:4px 12px;cursor:pointer;}
 .cf-file-tab:hover{border-color:#DB8437;}
 .cf-file-tab.on{background:#132A5C;border-color:#132A5C;color:#fff;}
-.cf-file-cols{columns:4 260px;column-gap:18px;padding:10px 14px;border:1px solid #D7DCE7;border-radius:12px;background:rgba(255,255,255,.62);}
+.cf-file-cols{font-size:15px;columns:3 300px;column-gap:18px;padding:10px 14px;border:1px solid #D7DCE7;border-radius:12px;background:rgba(255,255,255,.62);}
 .cf-file-tab.key{border-style:dashed;}
 /* the page fills the screen and nothing below it scrolls away: the hero keeps its size, the open tab takes
    what is left, and only a tab with more in it than that (the whole timeline) scrolls inside itself */
@@ -2619,9 +2699,9 @@ main > .cf-side-presenter{display:none;}
    column instead of leaving a column half empty, which is what lets a whole tab fit the screen. */
 .cf-file-sec{margin:0 0 9px;padding:0;}
 .cf-file-sec + .cf-file-sec{padding-top:8px;border-top:1px solid #D7DCE7;}
-.cf-file-sec h3{margin:0 0 4px;font:700 12.5px 'Fraunces',serif;color:#132A5C;break-after:avoid;}
+.cf-file-sec h3{margin:0 0 5px;font:700 1.12em 'Fraunces',serif;color:#132A5C;break-after:avoid;}
 .cf-file-sec ul{margin:0;padding-left:15px;}
-.cf-file-sec li{font-size:11px;line-height:1.32;color:#2E3345;margin-bottom:2.5px;}
+.cf-file-sec li{font-size:1em;line-height:1.38;color:#2E3345;margin-bottom:2.5px;}
 .cf-file-sec li:last-child{margin-bottom:0;}
 /* a laptop screen: the same cards, a little tighter, so a tab still fits without scrolling */
 @media (max-width:1440px){
@@ -2630,11 +2710,11 @@ main > .cf-side-presenter{display:none;}
 }
 /* a small laptop (1280 x 720): narrower columns, so a tab still fits the screen */
 @media (max-width:1300px){
-  .cf-file-cols{columns:5 200px;column-gap:9px;padding:7px 10px;}
+  .cf-file-cols{columns:4 220px;column-gap:10px;padding:7px 10px;}
   .cf-file-sec{margin-bottom:5px;}
   .cf-file-sec + .cf-file-sec{padding-top:5px;}
-  .cf-file-sec h3{font-size:12px;margin-bottom:3px;}
-  .cf-file-sec li{font-size:10.8px;line-height:1.28;margin-bottom:1.5px;}
+  .cf-file-sec h3{margin-bottom:3px;}
+  .cf-file-sec li{line-height:1.32;margin-bottom:1.5px;}
 }
 @media (max-width:900px){.cf-file-cols{columns:1;}}
 /* 📤 filing the block's documents into the CMS (js/cm-doc-filing.js) */
@@ -2706,6 +2786,48 @@ main > .cf-side-presenter{display:none;}
 .cf-vm-tx summary{cursor:pointer;font-weight:700;color:#262B45;}
 #cf-return{position:fixed;left:16px;bottom:16px;z-index:60;font:700 13px 'Inter',sans-serif;padding:10px 16px;border:0;border-radius:999px;background:#262B45;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer;}
 #cf-return[hidden],#cf-return-next[hidden]{display:none;}
+/* Presenter view's slides window (the one shared in Meet): a step's tool or document opens beside the slide there too
+   (⧉ Side by side), so the room sees the slide and the CMS together; the slide moves over to make room */
+html body.audience-mode > div#cm-toolframe:not([hidden]){display:flex !important;}   /* (beats the slides window's "nothing but the slide") */
+body.audience-mode.cm-tf-split.cm-tf-open #audienceRoot{right:var(--cm-tf-w,50vw);}
+/* the slides window: the Case Flow card fills the window and the slide inside it is fitted to what's left (scaled down
+   when the window is narrow, as it is beside a tool) instead of running off the bottom */
+#audienceRoot .lesson-stage:has(> .cf-stage-card){display:flex !important;flex-direction:column;height:100vh;box-sizing:border-box;padding:1.5vh 1.5vw !important;}
+#audienceRoot .cf-stage-card{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;}
+#audienceRoot .cf-stage-card .stage-body{flex:1 1 auto;min-height:0;display:flex !important;flex-direction:column;}
+#audienceRoot .cf-stage-card #lessonSlideWrap{flex:1 1 auto;min-height:0;height:auto !important;}
+/* the day's intro on one screen (renderDayIntro above) */
+.cf-intro .lesson-card{padding:18px 24px !important;}
+.cf-intro-obj{margin-bottom:12px;}
+.cf-intro-obj ul{columns:2 340px;column-gap:28px;margin:0;}
+.cf-intro-obj li{break-inside:avoid;font-size:15px;line-height:1.45;margin-bottom:4px;}
+.cf-intro-phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:12px;align-items:start;}
+.cf-intro-ph ul + b{margin-top:10px;}
+.cf-intro-ph{border-top-color:var(--navy) !important;}
+.cf-intro-ph:nth-child(even){border-top-color:var(--orange) !important;}
+.cf-intro-ph ul{list-style:none;margin:0;padding:0;}
+.cf-intro-ph li{font-size:14px;line-height:1.35;margin:0 0 3px;padding:0;}
+@media (max-height:820px){.cf-intro .di-box{padding:10px 14px;}.cf-intro-obj li{font-size:14px;margin-bottom:2px;}.cf-intro-ph li{font-size:13px;line-height:1.3;margin-bottom:2px;}.cf-intro-ph ul + b{margin-top:6px;}}
+.cf-intro-ph li::before{display:none;}
+/* My Notes & Action Plan on one screen (renderNotes above) */
+body:has(.cf-notes) #cf-return,body:has(.cf-notes) #cf-return-next{display:none !important;}
+.cf-notes{display:grid;grid-template-columns:minmax(240px,300px) 1fr;gap:18px;height:calc(100dvh - 196px);min-height:440px;}
+.cf-notes-hero{display:flex;flex-direction:column;gap:10px;margin:0 !important;padding:22px 20px !important;}
+.cf-notes-hero h1{font-size:28px !important;line-height:1.15;margin:0 !important;}
+.cf-notes-hero p{margin:0;font-size:14px;line-height:1.5;}
+.cf-notes-back{margin-top:auto;align-self:flex-start;color:#fff !important;background:rgba(255,255,255,.12) !important;border:1px solid rgba(255,255,255,.55) !important;}
+.cf-notes-back:hover{background:rgba(255,255,255,.22) !important;}
+.cf-notes-main{display:flex;flex-direction:column;min-width:0;min-height:0;gap:10px;}
+.cf-notes #notesList{flex:1 1 auto;min-height:0;overflow:auto;display:flex;flex-direction:column;gap:12px;}
+.cf-notes .note-card{flex:1 0 100%;display:flex;flex-direction:column;margin:0;padding:12px 16px;min-height:0;}
+.cf-notes .note-card + .note-card{flex:0 0 auto;}
+.cf-notes .note-head{margin-bottom:6px;}
+.cf-notes .note-card > .wd{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;}
+.cf-notes .wd-canvas{flex:1 1 auto;max-height:none;min-height:0;padding:14px;}
+.cf-notes .wd-page{max-width:none;min-height:100%;box-sizing:border-box;padding:28px 40px;}
+.cf-notes .note-foot{margin-top:6px;}
+.cf-notes-foot{display:flex;justify-content:flex-end;gap:10px;flex:none;}
+@media (max-width:900px){.cf-notes{grid-template-columns:1fr;height:auto;}.cf-notes .wd-canvas{max-height:60vh;}}
 /* the Knowledge Check: the takeaway, and the results' Answer Review grid */
 .cf-kc-take{display:block;font:600 16px/1.45 var(--font-ui);color:var(--navy);margin:6px 0 10px;}
 .cf-kc-mod textarea{width:100%;font:500 15px/1.5 var(--font-ui);padding:12px 14px;border:1px solid var(--line);border-radius:10px;resize:vertical;}
@@ -2836,8 +2958,8 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cf-timeline .cfx-tl-full{flex-direction:column;flex-wrap:nowrap;gap:0;position:relative;margin:0 0 8px;}
 .cf-timeline .cfx-tl-full::before{display:block !important;content:"";position:absolute;left:8px;right:auto;top:10px;bottom:10px;width:2px;height:auto;background:rgba(255,255,255,.28);}
 .cf-timeline .cfx-tl-full li, .cf-timeline .cf-lane .cfx-tl-full li{flex:none !important;flex-direction:row;align-items:center;text-align:left;gap:12px;padding:6px 0;}
-.cf-timeline .cfx-tl-full li small{order:1;min-width:92px;font-size:12px;}
-.cf-timeline .cfx-tl-full li b{order:2;font-size:14px;padding:0;}
+.cf-timeline .cfx-tl-full li small{order:1;min-width:104px;font-size:13.5px;}
+.cf-timeline .cfx-tl-full li b{order:2;font-size:16px;padding:0;}
 .cf-timeline .cfx-tl-full li.here{padding:8px 0;}
 .cf-timeline .cfx-tl-full li.here i{margin-top:0;margin-left:-2px;}
 .cfx-tl-full{flex-wrap:wrap;row-gap:14px;}.cfx-tl-full li{flex:0 0 calc(100% / 8);}.cfx-tl-full::before{display:none;}
