@@ -113,7 +113,7 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
    "talk": "These practices are about not letting the other side set our schedule. Every proposal gets checked against our client, our attorney and our prep, and every pushback gets logged and escalated.",
    "walk": [
     "First, the scenario: opposing counsel suggests a quick Zoom mediation next Tuesday. Don't just accept it. Check interpreter needs, the attorney's buffer and client prep first, because a fast yes can leave us walking in unprepared.",
-    "Next, if opposing counsel rejects all our windows, log the pushback in the CMS, our case management system, immediately. Then escalate to the handling attorney for an attorney-to-attorney call. The log shows exactly what we offered and when.",
+    "Next, if opposing counsel rejects all our windows, log the pushback in the CMS, our Case Management system, immediately. Then escalate to the handling attorney for an attorney-to-attorney call. The log shows exactly what we offered and when.",
     "Finally, the pitfall to watch: scheduling before you've collected everyone's availability. It feels efficient, but it usually means rescheduling, and that wastes everyone's time."
    ],
    "ask": "Opposing counsel just rejected every window we proposed. Walk me through what you do next, and who you tell.",

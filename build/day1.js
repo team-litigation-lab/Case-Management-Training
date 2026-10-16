@@ -57,11 +57,11 @@ const DAY1 = {
         bestPractices: [
           "Treat intake, evaluation and representation approval as the foundation for everything that follows.",
           "Learn where bottlenecks usually form in each phase so you can get ahead of them.",
-          "Pitfall: thinking of case management as data entry — it is coordination and ownership from start to finish."
+          "Pitfall: thinking of Case Management as data entry — it is coordination and ownership from start to finish."
         ],
         discussionCase: "Ask the room: what is one delay you have seen in a case that better coordination would have prevented?"
       },
-      trainerCue: "We're covering the essentials of case management fundamentals — intake, case evaluation and representation approval — then the bottlenecks in each case phase and how to overcome them. These fundamentals lay the groundwork for more detailed discussions later."
+      trainerCue: "We're covering the essentials of Case Management fundamentals — intake, case evaluation and representation approval — then the bottlenecks in each case phase and how to overcome them. These fundamentals lay the groundwork for more detailed discussions later."
     },
     { h: "The General Case Management Process",
       layout: "PROCESS",
@@ -164,7 +164,7 @@ const DAY1 = {
         ],
         discussionCase: "Which phase transition is most likely to be rushed, and what breaks when it is?"
       },
-      trainerCue: "Understanding the phases is essential. Each builds on the last, creating a comprehensive process crucial for effective case management."
+      trainerCue: "Understanding the phases is essential. Each builds on the last, creating a comprehensive process crucial for effective Case Management."
     },
     { h: "Case Phase: Intake — Establishing Control",
       fourPart: {
@@ -224,7 +224,7 @@ const DAY1 = {
         corePrinciples: [
           "Every great legal outcome starts long before we enter a courtroom or sign a settlement.",
           "Initial client contact is the first interaction with a potential client, followed immediately by intake — used to gather basic facts, assess urgency, and determine if the case can move forward.",
-          "The Case Manager's role begins after intake is completed, functioning as a quality control and case validation reviewer before a case is officially accepted into active case management.",
+          "The Case Manager's role begins after intake is completed, functioning as a quality control and case validation reviewer before a case is officially accepted into active Case Management.",
           "👉 Case Managers are the gatekeepers of case quality."
         ],
         howTo: [
@@ -321,7 +321,7 @@ const DAY1 = {
         ],
         discussionCase: "How many follow-up attempts, over what period, before you escalate?"
       },
-      trainerCue: "By tackling delayed follow-up, we improve the efficiency of case management and streamline intake."
+      trainerCue: "By tackling delayed follow-up, we improve the efficiency of Case Management and streamline intake."
     },
     { h: "Bottleneck: Conflict Check Delays",
       fourPart: {
@@ -395,9 +395,9 @@ const DAY1 = {
           "Use the CMS as the single source of truth — not side emails.",
           "Pitfall: assuming the intake team sent everything."
         ],
-        discussionCase: "Design a simple handoff rule between intake and case management."
+        discussionCase: "Design a simple handoff rule between intake and Case Management."
       },
-      trainerCue: "Effective communication during intake is vital for improving case management efficiency and achieving better legal outcomes."
+      trainerCue: "Effective communication during intake is vital for improving Case Management efficiency and achieving better legal outcomes."
     },
     { h: "Tools for Case Planning & the PI Case Lifecycle Strategy",
       fourPart: {
@@ -565,7 +565,7 @@ const DAY1 = {
         ],
         discussionCase: "A 67-year-old client is referred. What is the first regulatory action you take?"
       },
-      trainerCue: "This step is critical for a smooth case management process — the triple-check grants authority to act and prevents federal penalties."
+      trainerCue: "This step is critical for a smooth Case Management process — the triple-check grants authority to act and prevents federal penalties."
     },
     { h: "Case Planning Framework: The Three-Pillar Case Plan",
       layout: "THREEBOX",
@@ -629,7 +629,7 @@ const DAY1 = {
         ],
         discussionCase: "Rewrite a note that mixes legal opinion with medical facts."
       },
-      trainerCue: "Managing medical plans and legal claims separately is crucial for effective case management."
+      trainerCue: "Managing medical plans and legal claims separately is crucial for effective Case Management."
     },
     { h: "The Treatment Phase — Core Objectives",
       layout: "THREEBOX",
@@ -1084,7 +1084,7 @@ const DAY1 = {
       fourPart: {
         corePrinciples: [
           "🎯 Why early intervention matters — treatment gaps identified during active care can weaken injury credibility, delay recovery progress, create documentation inconsistencies, and reduce future settlement value.",
-          "👉 Early case management intervention helps prevent larger demand-phase issues later.",
+          "👉 Early Case Management intervention helps prevent larger demand-phase issues later.",
           "🔍 Common causes: missed appointments; transportation problems; financial concerns or co-pays; work schedule conflicts; client stops treatment after temporary symptom relief; delays in referrals, imaging, or authorizations."
         ],
         howTo: [

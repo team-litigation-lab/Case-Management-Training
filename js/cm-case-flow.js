@@ -80,7 +80,7 @@ SEQUENCE.forEach(seq => {
   if(!day) return;
   const lessons = [], quiz = [], quizMod = [], phases = [];
   seq.phases.forEach((ph, pi) => {
-    // What this run of blocks is. Most are stages of the case ("Case Phase: Demand"), but some are
+    // What this run of blocks is. Most are stages of the case (a lesson's title is just "Demand"), but some are
     // cross-phase work the Case Manager does throughout (bottlenecks, binders, deposition prep): calling
     // those a Case Phase is simply wrong, so a phase may name its own lead in CF.sequence.
     const phase = {n: pi + 1, of: seq.phases.length, title: ph.title, lead: ph.lead || "Case Phase", count: ph.blocks.length, lane: ph.workstream || ""};
@@ -99,7 +99,7 @@ SEQUENCE.forEach(seq => {
         fourPart: Object.assign(fp, {bestPractices: b.best || [], discussionCase: ""}),
         trainerCue: (b.notes || [])[0] || "",
         cf: {day, mod, block: b, k, phase,   // day: where it is taught; mod: its unit of scoring
-             heading: (ph.headings || {})[id] || (b.kind === "lesson" ? phase.lead + ": " : b.kind === "activity" ? "Skill Building: " : "Learning Check: ") + ph.title}
+             heading: (ph.headings || {})[id] || (b.kind === "lesson" ? (phase.lead === "Case Phase" ? "" : phase.lead + ": ") : b.kind === "activity" ? "Skill Building: " : "Learning Check: ") + ph.title}
       }, layoutOf(b.show)));
       if(b.kind === "check") (mod.quiz || []).forEach(q => { quiz.push(q); quizMod.push(mod.id); });
     });
@@ -559,7 +559,7 @@ function toolChip(id, blockId, big){
   const t = TOOL[id];
   if(!t || !toolLive(id, blockId)) return "";
   const live = id === "call" && blockId && SIM.calls[blockId], name = live ? `the live call with ${SIM.calls[blockId].who}` : t.name;
-  return `<button type="button" class="${big ? "btn btn-navy btn-sm" : "cfx-tool"}" onclick="cmCaseFlow.tool('${id}','${blockId || ""}')" title="Open ${E(name)}">${t.icon} ${E(live ? "Live Call" : big ? t.name.replace(/^(the|your) /, "").replace(/^./, c => c.toUpperCase()) : t.short)}</button>`;
+  return `<button type="button" class="${big ? "btn btn-navy btn-sm" : "cfx-tool"}" data-tool="${id}" onclick="cmCaseFlow.tool('${id}','${blockId || ""}')" title="Open ${E(name)}">${t.icon} ${E(live ? "Live Call" : big ? t.name.replace(/^(the|your) /, "").replace(/^./, c => c.toUpperCase()) : t.short)}</button>`;
 }
 const toolChips = (ids, blockId, big) => ids.map(id => toolChip(id, blockId, big)).join("");
 function rowTools(b, cell, ri){
@@ -612,7 +612,7 @@ function slideBody(view, l, d){
       <aside class="cfx-side"><div><b>🛠 Where</b><span>${E(b.act.tool)}</span><div class="cfx-btns">${toolChips([...new Set(toolsIn(b.act.tool + (SIM.calls[b.id] ? " Call Simulator" : ""), b.id).concat(WORKED_IN[b.id] || []))], b.id, true)}</div></div>
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}</span>
-          <button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
+          <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
         <div class="cfx-deliver"><b>📤 Deliver</b><span>${hl(c.deliver)}</span></div></aside></div>`; }
     case "check": return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${hl(x)}</span></label>`).join("")}</div>
       ${c.donts.length ? `<div class="cfx-watch"><b>⚠️ Watch For</b>${c.donts.map(x => `<span>${hl(x)}</span>`).join("")}</div>` : ""}${workLog(b)}`;
@@ -642,13 +642,32 @@ function actDone(id){
   return ((REC.reached || {})[id] || 0) >= viewsOf(b).length || ((REC.ticks || {})[id] || []).some(Boolean) || !!(REC.work || {})[id] || !!((REC.listen || {})[id] || {}).at || !!(REC.calls || {})[id];
 }
 const actOpened = id => !!(REC.reached || {})[id] || actDone(id);
+/* each tool once per slide: a slide names its tools in the top row, in the Your Task "Where" box, beside a step or
+   an On the Job row, and the live call in its own box. Only the first of each stays, looked for in that order of
+   weight: the live-call box, the Where box, the slide's own content, then the top row (which goes if it ends up empty). */
+function oneOfEachTool(html){
+  if(typeof document === "undefined") return html;
+  const t = document.createElement("template"); t.innerHTML = html;
+  const root = t.content, seen = new Set();
+  const order = [".cfx-call [data-tool]", ".cfx-side [data-tool]", ".cfx-sheet [data-tool], .cfx-sb [data-tool]", ".cfx-top [data-tool]"];
+  const done = new Set();
+  order.forEach(sel => root.querySelectorAll(sel).forEach(el => {
+    if(done.has(el)) return; done.add(el);
+    const id = el.getAttribute("data-tool");
+    if(seen.has(id)) el.remove(); else seen.add(id);
+  }));
+  root.querySelectorAll(".cfx-tools-in").forEach(x => { if(!x.querySelector("[data-tool]")) x.remove(); });
+  root.querySelectorAll(".cfx-top .cfx-tools").forEach(x => { if(!x.querySelector("[data-tool]")) x.remove(); });
+  root.querySelectorAll(".cfx-side .cfx-btns").forEach(x => { if(!x.querySelector("[data-tool]")) x.remove(); });
+  return t.innerHTML;
+}
 function card(l, i, d, part){
   const {day, mod, block: b, k, phase} = l.cf, vs = viewsOf(b), p = Math.min(Math.max(part || 1, 1), vs.length), view = vs[p - 1];
   noteReached(b, p);
   const dots = vs.map((v, j) => `<span class="cfx-dot${j === p - 1 ? " on" : j < p - 1 ? " done" : ""}" title="${E(VIEW_LABEL[v])}"></span>`).join("");
   const logo = typeof LOGO_FULL_SRC !== "undefined" ? `<img class="cfx-logo" src="${LOGO_FULL_SRC}" alt="Legal Support Help">` : "";
   const onNavy = view === "case";   // a Skill Building opener sits on the slide itself, like the deck's
-  return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; ${phase.lead === "Case Phase" ? `CASE PHASE ${phase.n} OF ${phase.of}` : phase.lead.toUpperCase()} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
+  return oneOfEachTool(`<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; ${phase.lead === "Case Phase" ? `CASE PHASE ${phase.n} OF ${phase.of}` : phase.lead.toUpperCase()} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-${view} cfx-${b.kind}" data-part="${p}">
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">${E(l.cf.heading)}</h2></div>
       <div class="cfx-ribbon"><span>${E(titleCase(b.title))}</span></div>
@@ -657,7 +676,7 @@ function card(l, i, d, part){
         <span class="cfx-tools" aria-label="Tools for this step">🛠 ${toolChips(blockTools(b), b.id)}</span>
         <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Full text</button></div>
       ${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}
-    </div>`;
+    </div>`);
 }
 if(!document.getElementById("cfx-deck-font")){
   const f = document.createElement("link"); f.id = "cfx-deck-font"; f.rel = "stylesheet";
@@ -709,7 +728,6 @@ function daySchedule(d){
   let left = PRACTICE_MIN; phases.forEach((x, i) => { x.practice = i === phases.length - 1 ? left : Math.round(PRACTICE_MIN * x.acts / acts); left -= x.practice; x.discuss = x.topics * per; });
   return {per, kc, practice: PRACTICE_MIN, phases, buffer: Math.max(0, DAY_MIN - n * per - PRACTICE_MIN - kc), topics: n};
 }
-const hm = m => `${Math.floor(m / 60)}:${String(m % 60).padStart(2, "0")}`;
 /* a trainer's countdown for a topic's discussion (or a phase's practice): tap the chip to start, tap again to stop */
 const TIMERS = {};
 window.cmCaseFlow = window.cmCaseFlow || {};
@@ -740,17 +758,11 @@ function agendaSlide(d){
   const sc = daySchedule(d);
   const rows = sc.phases.map(({ph, topics, acts, discuss, practice}) => `<li><span class="cfx-ag-n">${String(ph.n).padStart(2, "0")}</span><div><b>${E(ph.title)}</b>
       <small>💬 ${topics} topic${topics === 1 ? "" : "s"} × ${sc.per} min discussion · 🧪 ${acts} Skill Activit${acts === 1 ? "y" : "ies"} · ${practice} min practice</small></div><span class="cfx-ag-min">${discuss + practice} min</span></li>`).join("");
-  const plan = `<div class="cfx-ag-plan"><b>⏱ The ${DAY_MIN / 60}-hour day</b>
-      <span><i>💬 Discussion</i>${sc.topics} topics × ${sc.per} min = ${hm(sc.topics * sc.per)}</span>
-      <span><i>🧪 Practice</i>${sc.practice} min</span>
-      <span><i>🧠 Knowledge Check</i>${sc.kc} min</span>
-      ${sc.buffer ? `<span><i>☕ Breaks & Q&A</i>${sc.buffer} min</span>` : ""}
-      <span class="tot"><i>Total</i>${hm(DAY_MIN)}</span></div>`;
   return `<div class="card lesson-card cf-card cfx cfx-deck cfx-agenda">
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">Case Management Training</h2></div>
       <div class="cfx-ribbon"><span>Day ${d.cf.n} · Training Agenda</span></div>
       <div class="cfx-ag"><ol class="cfx-ag-list">${rows}</ol>
-        <div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p>${plan}</div></div>
+        <div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div></div>
     </div>`;
 }
 /* ---------- the live call: the course's own roleplay engine, on John Doe v. Robert Smith ---------- */
@@ -1190,7 +1202,9 @@ if(typeof submitQuiz === "function"){
       await load();
       Object.entries(by).forEach(([m, v]) => { rec(m).quiz = Object.assign(v, {pct: Math.round(v.correct / v.total * 100), at}); });
       await persist();
-      const g = state.cfGame; if(g && g.day === dayId){ REC.game = REC.game || {}; const b0 = REC.game[dayId]; if(!b0 || g.pts > (b0.pts || 0)) REC.game[dayId] = {pts: g.pts, best: g.best, at}; await persist(); }
+      const g = state.cfGame; if(g && g.day === dayId){ REC.game = REC.game || {}; const b0 = REC.game[dayId]; if(!b0 || g.pts > (b0.pts || 0)) REC.game[dayId] = {pts: g.pts, best: g.best, at};
+        if(!g.banked){ g.banked = true; REC.friendTokens = tokensBanked() + tokensEarned(Object.values(g.log).filter(x => x.ok).length); }   // 🤝 for the next round
+        await persist(); }
       cmCaseFlow.autoReview(dayId);   // the rubric scoring runs by itself, module by module
     }
     return r;
@@ -1243,7 +1257,7 @@ function cfResult(d){
         <div class="cf-kcr-score">${typeof sealSvg === "function" ? sealSvg({size: 72, label: lastScore + "%", done: lastPassed}) : ""}<div><div class="big">${lastCorrect} / ${lastTotal} correct</div><div class="sub">${msg}</div></div></div>
         <div class="cf-kcr-next">${renderQuizNextStep(d, lastPassed)}</div>
       </div>
-      ${state.cfGame && state.cfGame.day === d.id ? `<div class="cf-kcr-game"><span>⭐ <b>${state.cfGame.pts.toLocaleString()}</b> points</span><span>🔥 best streak <b>${state.cfGame.best}</b></span>${gameBadges(d, state.cfGame).map(([i, t]) => `<span class="cfg-badge sm"><i>${i}</i><b>${t}</b></span>`).join("")}${(REC.game || {})[d.id] ? `<span class="cf-note">Your best: ${(REC.game[d.id].pts || 0).toLocaleString()} points</span>` : ""}</div>` : ""}
+      ${state.cfGame && state.cfGame.day === d.id ? `<div class="cf-kcr-game"><span>${state.cfGame.mode === "millionaire" ? `<b>${rankName(rankAt(Object.values(state.cfGame.log).filter(x => x.ok).length, d.quiz.length))}</b>` : `⭐ <b>${state.cfGame.pts.toLocaleString()}</b> points`}</span><span>🔥 best streak <b>${state.cfGame.best}</b></span>${gameBadges(d, state.cfGame).map(([i, t]) => `<span class="cfg-badge sm"><i>${i}</i><b>${t}</b></span>`).join("")}${(REC.game || {})[d.id] ? `<span class="cf-note">Your best: ${(REC.game[d.id].pts || 0).toLocaleString()} points</span>` : ""}</div>` : ""}
       <div class="cf-kcr-mods">${kcMods(d).map(({b, mod, ph}) => `<div class="cf-kcr-mod"><small>${d.cf.n}.${ph.n} ${E(ph.title)}</small><b>${E(b.title)}</b><div class="cf-kcr-chips" id="cfkc_res_${mod.id}">${kcChip(mod.id)}</div></div>`).join("")}</div>
       <div class="cf-kcr-foot">
         <div class="cf-kcr-btns"><button class="btn btn-ghost btn-sm" onclick="retakeQuiz(${d.id})">Retake Quiz</button>
@@ -1255,16 +1269,18 @@ function cfResult(d){
     </div>
     <div id="answerFeedback"></div>`;
 }
-/* ---------- ① the quiz, played as a game show: each Case Flow day has its own (a trainee or trainer can pick
-   another before the first answer). A pick locks in and shows at once whether it was right, never which option is
-   (the answer key still waits for a pass), and no clock ever forces an answer.
-     💰 Millionaire (Day 1): the money ladder with safe havens, a 30-second clock, 50/50 and Ask the Audience
-     🟦 Jeopardy (Day 2): the day's Case Phases × values, a hidden Daily Double
+/* ---------- ① the quiz, played as a game show: each Case Flow day has its own, and only its own. A pick locks in
+   and shows at once whether it was right, never which option is (the answer key still waits for a pass), and no
+   clock ever forces an answer. The rewards are a Case Manager's, not a prize fund: points, badges, a career rank, and
+   🤝 Ask a Friend tokens (one for every 5 right answers, banked on Submit for the next round: a hint from the AI
+   colleague that names the principle, never the answer).
+     💼 Who Wants to Be a Case Manager? (Day 1): climb the career ranks, a 30-second clock, 50/50 and Ask the Audience
+     🟦 Jeopardy (Day 2): the day's Case Phases × point values, a hidden Daily Double
      💣 Countdown Bomb (Day 3): a fuse burns; answer before 💥 for the time bonus
      🎡 Wheel of Fortune (Day 4): spin for a multiplier before each question
      🚪 Mystery Doors (Day 5): pick a door for its reward, then the question ---------- */
 const GAMES = {
-  millionaire: {icon: "💰", name: "Who Wants to Be a Case Manager?", short: "Millionaire"},
+  millionaire: {icon: "💼", name: "Who Wants to Be a Case Manager?", short: "Career Climb"},
   jeopardy: {icon: "🟦", name: "Case Flow Jeopardy!", short: "Jeopardy"},
   bomb: {icon: "💣", name: "Countdown Bomb", short: "Countdown Bomb"},
   wheel: {icon: "🎡", name: "Wheel of Fortune", short: "Wheel of Fortune"},
@@ -1273,7 +1289,15 @@ const GAME_DAY = {1: "millionaire", 2: "jeopardy", 3: "bomb", 4: "wheel", 5: "do
 const GAME_FAST = 12000, MIL_SEC = 30, BOMB_SEC = 20;
 const WHEEL_COL = ["#DB8437", "#262B45", "#F4B77A", "#46508A", "#B54A3F", "#2F8F5B", "#C26A22", "#343C66"];
 const WHEEL = [["×1", 1, 0], ["×2", 2, 0], ["+50", 1, 50], ["×1.5", 1.5, 0], ["×3", 3, 0], ["+100", 1, 100], ["×1", 1, 0], ["×2", 2, 0]];
-const prizeLadder = n => Array.from({length: n}, (_, i) => { const v = 100 * Math.pow(1e6 / 100, i / Math.max(1, n - 1)); const m = Math.pow(10, Math.floor(Math.log10(v)) - 1); return Math.round(v / m) * m; });
+/* Day 1's ladder is a career: seven ranks, climbed by right answers, from Trainee to Lead Case Manager */
+const RANKS = [["🎓", "Trainee"], ["📋", "Intake Assistant"], ["🗂", "Case Assistant"], ["📞", "Claims Coordinator"], ["💼", "Case Manager"], ["⭐", "Senior Case Manager"], ["🏆", "Lead Case Manager"]];
+const rankAt = (right, n) => Math.min(RANKS.length - 1, Math.floor(right * (RANKS.length - 1) / Math.max(1, n)));
+const rankName = i => RANKS[i][0] + " " + RANKS[i][1];
+/* 🤝 Ask a Friend: one token for every TOKEN_EVERY right answers (at most TOKEN_MAX a round), banked on Submit and
+   spent in a later round; REC.friendTokens on the trainee's record */
+const TOKEN_EVERY = 5, TOKEN_MAX = 3;
+const tokensEarned = right => Math.min(TOKEN_MAX, Math.floor(right / TOKEN_EVERY));
+const tokensBanked = () => Math.max(0, (typeof REC !== "undefined" && REC && REC.friendTokens) || 0);
 /* sound: short synthesized cues (off by the 🔇 button; remembered on the device) */
 let AC = null;
 const soundOn = () => { try{ return localStorage.getItem("cf_game_sound") !== "off"; }catch(e){ return true; } };
@@ -1307,21 +1331,21 @@ function jeopardyBoard(d, g){
   const rows = Math.max(...cols.map(c => c.qs.length));
   return `<div class="cfg-jb" style="--cols:${cols.length}">${cols.map(c => `<div class="cfg-jh">${E(c.ph.title)}</div>`).join("")}
     ${Array.from({length: rows}, (_, r) => cols.map(c => { const i = c.qs[r]; if(i === undefined) return `<div class="cfg-jc empty"></div>`; const l = g.log[i], v = (r + 1) * 200;
-      return `<button type="button" class="cfg-jc${l ? (l.ok ? " ok" : " no") : ""}" ${l ? "disabled" : ""} onclick="cmCaseFlow.gamePick(${i},${v})">${l ? (l.ok ? "✓ " : "✗ ") + "$" + v : "$" + v}</button>`; }).join("")).join("")}</div>`;
+      return `<button type="button" class="cfg-jc${l ? (l.ok ? " ok" : " no") : ""}" ${l ? "disabled" : ""} onclick="cmCaseFlow.gamePick(${i},${v})">${l ? (l.ok ? "✓ " : "✗ ") + v : v}</button>`; }).join("")).join("")}</div>`;
 }
 function gameQuiz(d){
   const g = game(d), n = d.quiz.length, answered = Object.keys(state.quizAnswers || {}).length, G = GAMES[g.mode];
   const finished = answered >= n;
   let qi = Math.min(state.quizQuestionIndex || 0, n - 1);
-  const picker = !answered ? `<div class="cfg-pick">${Object.entries(GAMES).map(([k, x]) => `<button type="button" class="${k === g.mode ? "on" : ""}" onclick="cmCaseFlow.gameMode('${k}')">${x.icon} ${x.short}</button>`).join("")}</div>` : "";
   const sound = `<button type="button" class="cfg-sound" onclick="cmCaseFlow.gameSound()" title="Sound">${soundOn() ? "🔊" : "🔇"}</button>`;
-  const lad = g.mode === "millionaire" ? prizeLadder(n) : null, right = Object.values(g.log).filter(x => x.ok).length;
-  const score = g.mode === "millionaire" ? (right ? money(lad[right - 1]) : "$0") : g.mode === "jeopardy" ? money(g.pts) : `⭐ ${g.pts.toLocaleString()}`;
-  const hud = `<div class="cfg-title"><b>${G.icon} ${G.name}</b>${sound}</div>${picker}
-    <div class="cfg-hud"><span class="cfg-pts">${score}<small>${g.mode === "millionaire" ? "won" : g.mode === "jeopardy" ? "winnings" : "points"}</small></span><span class="cfg-streak${g.streak >= 3 ? " hot" : ""}">🔥 ${g.streak}<small>streak</small></span><span class="cfg-lvl">${answered}<small>of ${n} played</small></span></div>`;
+  const right = Object.values(g.log).filter(x => x.ok).length, rk = rankAt(right, n), earned = tokensEarned(right);
+  const score = g.mode === "millionaire" ? rankName(rk) : `⭐ ${g.pts.toLocaleString()}`;
+  const hud = `<div class="cfg-title"><b>${G.icon} ${G.name}</b>${sound}</div>
+    <div class="cfg-hud"><span class="cfg-pts">${score}<small>${g.mode === "millionaire" ? "your rank" : "points"}</small></span><span class="cfg-streak${g.streak >= 3 ? " hot" : ""}">🔥 ${g.streak}<small>streak</small></span><span class="cfg-lvl">${answered}<small>of ${n} played</small></span><span class="cfg-tok" title="Ask a Friend tokens: one for every ${TOKEN_EVERY} right answers, for your next round">🤝 ${tokensBanked()}<small>to use${earned ? ` · +${earned} next round` : ""}</small></span></div>`;
   const track = g.mode === "jeopardy" ? "" : `<div class="cfg-track">${d.quiz.map((_, i) => { const l = g.log[i]; return `<button type="button" class="cfg-node${i === qi && !finished ? " at" : ""}${l ? (l.ok ? " ok" : " no") : ""}" ${l ? "" : "disabled"} onclick="cmCaseFlow.gameGo(${i})" aria-label="Question ${i + 1}">${i === qi && !finished ? (g.mode === "bomb" ? "💣" : "🚀") : l ? (l.ok ? "✓" : "✗") : i + 1}</button>`; }).join("")}</div>`;
-  const clear = `<div class="cfg-clear"><div class="cfg-clear-h">🏁 ${g.mode === "millionaire" ? `You won ${score}!` : "Game over: quiz cleared!"}</div>
-      <div class="cfg-tally"><span><b>${right}</b> of ${n} right</span><span><b class="cfg-count" data-to="${g.mode === "millionaire" ? (right ? lad[right - 1] : 0) : g.pts}" data-money="${g.mode === "millionaire" || g.mode === "jeopardy" ? 1 : ""}">${g.mode === "millionaire" ? score : g.mode === "jeopardy" ? money(g.pts) : g.pts.toLocaleString()}</b> ${g.mode === "millionaire" || g.mode === "jeopardy" ? "" : "points"}</span><span>best streak <b>${g.best}</b></span></div>
+  const clear = `<div class="cfg-clear"><div class="cfg-clear-h">🏁 ${g.mode === "millionaire" ? `You made ${score}!` : "Game over: quiz cleared!"}</div>
+      <div class="cfg-tally"><span><b>${right}</b> of ${n} right</span>${g.mode === "millionaire" ? "" : `<span><b class="cfg-count" data-to="${g.pts}">${g.pts.toLocaleString()}</b> points</span>`}<span>best streak <b>${g.best}</b></span></div>
+      ${earned ? `<div class="cfg-earn">🤝 <b>+${earned} Ask a Friend token${earned === 1 ? "" : "s"}</b> for your next round: a hint from your AI colleague on a question you're stuck on</div>` : ""}
       ${gameBadges(d, g).length ? `<div class="cfg-badges">${gameBadges(d, g).map(([i, t, x]) => `<span class="cfg-badge"><i>${i}</i><b>${t}</b><small>${x}</small></span>`).join("")}</div>` : ""}
       <button class="btn btn-primary" style="padding:13px 28px;" type="button" onclick="cmCaseFlow.kcPart('written')">Bonus round: Learning Checks & Self-Summary →</button></div>`;
   // the board / the wheel / the doors come before a question
@@ -1342,18 +1366,20 @@ function gameQuiz(d){
       <div class="cfg-doors">${[1, 2, 3].map(k => `<button type="button" class="cfg-door" onclick="cmCaseFlow.gameDoor(${qi},${k})"><span class="cfg-door-panel">🚪<b>${k}</b></span></button>`).join("")}</div></div>`;
   }
   if(!done && !g.shown[qi]) g.shown[qi] = Date.now();
-  const hidden = g.hide[qi] || [], aud = g.aud[qi];
+  const hidden = g.hide[qi] || [], aud = g.aud[qi], fr = (g.friend || {})[qi];
+  const friend = !done && !fr && tokensBanked() ? `<button type="button" class="cfg-friend" onclick="cmCaseFlow.gameFriend(${qi})" title="Spend a token: your AI colleague names the principle, never the answer">🤝 Ask a Friend <small>${tokensBanked()} token${tokensBanked() === 1 ? "" : "s"}</small></button>` : "";
+  const hint = fr ? `<div class="cfg-hintbox">🤝 <b>Your colleague:</b> ${fr === 1 ? "<i>thinking…</i>" : E(fr)}</div>` : "";
   const extra = g.mode === "millionaire" ? `<div class="cfg-life"><button type="button" ${g.used.fifty || done ? "disabled" : ""} onclick="cmCaseFlow.gameLife('fifty',${qi})">½ 50:50</button><button type="button" ${g.used.aud || done ? "disabled" : ""} onclick="cmCaseFlow.gameLife('aud',${qi})">👥 Ask the Audience</button><span class="cfg-clock" data-sec="${MIL_SEC}" data-start="${g.shown[qi] || 0}"></span></div>`
     : g.mode === "bomb" ? `<div class="cfg-fuse${done ? " out" : ""}${g.boom[qi] ? " boomed" : ""}"><i style="animation-duration:${BOMB_SEC}s;animation-delay:-${Math.min(BOMB_SEC, ((done ? (log && log.at) || Date.now() : Date.now()) - (g.shown[qi] || Date.now())) / 1000)}s"></i><span>💣</span></div>`
-    : (g.pre[qi] ? `<div class="cfg-prize">${g.mode === "wheel" ? "🎡" : "🚪"} This level pays <b>${g.pre[qi].label}</b></div>` : g.mode === "jeopardy" ? `<div class="cfg-prize">🟦 ${E(phaseOfQ(d, qi).title)} for <b>$${state.cfJv || 200}</b>${qi === g.daily ? " · <b class='dd'>DAILY DOUBLE ×2</b>" : ""}</div>` : "");
+    : (g.pre[qi] ? `<div class="cfg-prize">${g.mode === "wheel" ? "🎡" : "🚪"} This level pays <b>${g.pre[qi].label}</b></div>` : g.mode === "jeopardy" ? `<div class="cfg-prize">🟦 ${E(phaseOfQ(d, qi).title)} for <b>${state.cfJv || 200} points</b>${qi === g.daily ? " · <b class='dd'>DAILY DOUBLE ×2</b>" : ""}</div>` : "");
   const card = `<div class="card cfg-card${done ? (log && log.ok ? " right" : " wrong") : ""}${g.mode === "jeopardy" ? " jq" : ""}" data-q="${qi}">
-      ${extra}
-      <p class="cfg-q">${E(q.q)}</p>
+      ${extra}${friend}
+      <p class="cfg-q">${E(q.q)}</p>${hint}
       <div class="cfg-opts">${q.opts.map((o, oi) => { const me = pick === oi, gone = hidden.includes(oi);
         return `<button type="button" class="cfg-opt${me ? (log && log.ok ? " right" : " wrong") : ""}${done && !me ? " dim" : ""}${gone ? " gone" : ""}" ${done || gone ? "disabled" : ""} onclick="cmCaseFlow.gameAnswer(${d.id},${qi},${oi})"><span class="cfg-letter">${String.fromCharCode(65 + oi)}</span><span>${E(o)}</span>${aud ? `<span class="cfg-aud"><i style="width:${aud[oi]}%"></i><em>${aud[oi]}%</em></span>` : ""}${me ? `<span class="cfg-mark">${log && log.ok ? "✓" : "✗"}</span>` : ""}</button>`; }).join("")}</div>
-      ${done && log ? `<div class="cfg-say ${log.ok ? "ok" : "no"}">${log.ok ? `Correct! <b>${g.mode === "millionaire" ? "You climb to " + money(lad[Object.values(g.log).filter(x => x.ok).length - 1]) : "+" + log.pts}</b>${log.fast ? " · ⚡ speed bonus" : ""}${log.combo ? ` · 🔥 streak +${log.combo}` : ""}` : `${log.boom ? "💥 Boom, and " : ""}Not this one. The right answer shows in the review once you pass.`}</div>` : ""}
+      ${done && log ? `<div class="cfg-say ${log.ok ? "ok" : "no"}">${log.ok ? `Correct! <b>${g.mode === "millionaire" ? (rankAt(right, n) > rankAt(right - 1, n) ? "Promoted to " + rankName(rankAt(right, n)) : `Level ${qi + 1} cleared`) : "+" + log.pts}</b>${right % TOKEN_EVERY === 0 && right / TOKEN_EVERY <= TOKEN_MAX ? " · 🤝 +1 token for your next round" : ""}${log.fast ? " · ⚡ speed bonus" : ""}${log.combo ? ` · 🔥 streak +${log.combo}` : ""}` : `${log.boom ? "💥 Boom, and " : ""}Not this one. The right answer shows in the review once you pass.`}</div>` : ""}
     </div>`;
-  const side = g.mode === "millionaire" ? `<ol class="cfg-ladder">${lad.map((v, i) => `<li class="${i === right - (done && log && log.ok ? 1 : 0) && !finished ? "at" : ""}${i < right ? " won" : ""}${(i + 1) % 6 === 0 ? " safe" : ""}"><span>${i + 1}</span>${money(v)}</li>`).reverse().join("")}</ol>` : "";
+  const side = g.mode === "millionaire" ? `<div class="cfg-ranks"><b>Your career</b><ol class="cfg-ladder">${RANKS.map(([ic, t], i) => `<li class="${i === rk ? "at" : i < rk ? "won" : ""}"><span>${ic}</span>${E(t)}</li>`).reverse().join("")}</ol><small>${right} of ${n} right · next rank at ${Math.min(n, Math.ceil((rk + 1) * n / (RANKS.length - 1)))}</small></div>` : "";
   const nav = finished ? `<div class="cfg-nav"><button class="btn btn-ghost" type="button" onclick="cmCaseFlow.gameGo(-1)">← Back to the ${g.mode === "jeopardy" ? "board" : "tally"}</button></div>`
     : done ? `<div class="cfg-nav"><button class="btn btn-primary" type="button" onclick="cmCaseFlow.gameNext()">${g.mode === "jeopardy" ? "Back to the board →" : "Next level →"}</button></div>` : "";
   return `<div class="cfg cfg-m-${g.mode}">${hud}${track}<div class="${side ? "cfg-split" : ""}"><div>${card}${nav}</div>${side}</div></div>`;
@@ -1381,6 +1407,19 @@ function gamePaint(d){
 }
 Object.assign(window.cmCaseFlow = window.cmCaseFlow || {}, {
   gameMode(k){ const d = gameDay(); state.cfGameMode = Object.assign(state.cfGameMode || {}, {[d.id]: k}); state.cfGame = null; state.cfJq = null; gamePaint(d); },
+  tokens(n){ if(n != null && (state.isAdmin || n < tokensBanked())){ REC.friendTokens = Math.max(0, Math.floor(n)); persist(); } return tokensBanked(); },   // a trainer can grant Ask a Friend tokens
+  async gameFriend(qi){ const d = gameDay(), g = game(d), q = d.quiz[qi];
+    if(!tokensBanked() || (g.friend || {})[qi]) return;
+    g.friend = g.friend || {}; g.friend[qi] = 1; REC.friendTokens = tokensBanked() - 1; persist(); sfx("open"); gamePaint(d);
+    const mod = CF.days.flatMap(x => x.modules).find(m => m.id === d.cf.quizMod[qi]) || {};
+    const fallback = `Think back to ${mod.title ? `“${mod.title}”` : "this Case Phase's lesson"}: the rule taught there decides it, and so does what John Doe's file actually shows.`;
+    let text = "";
+    try{
+      if(typeof callAIText === "function") text = String(await callAIText(`You are a senior personal-injury Case Manager helping a trainee colleague on a training quiz about the John Doe v. Robert Smith file. Give a nudge in at most two short sentences: name the principle, rule or fact on the file that decides the question. Never say which option is right, never quote or paraphrase any option, never use option letters, and never say "the answer is".\n\nQuestion: ${q.q}\nOptions:\n${q.opts.map(o => "- " + o).join("\n")}`, 120, undefined, "tracker") || "").trim();
+    }catch(e){ text = ""; }
+    const right = String(q.opts[q.a] || "").toLowerCase().slice(0, 28);
+    if(!text || /answer is|option [a-d]\b|\b[a-d]\)|choose|correct (one|option)/i.test(text) || (right.length > 12 && text.toLowerCase().includes(right))) text = fallback;
+    g.friend[qi] = text.slice(0, 320); if(state.quizAnswers[qi] === undefined) gamePaint(d); },
   gameSound(){ try{ localStorage.setItem("cf_game_sound", soundOn() ? "off" : "on"); }catch(e){} gamePaint(gameDay()); },
   gameGo(i){ const d = gameDay(), all = Object.keys(state.quizAnswers || {}).length >= d.quiz.length;
     if(i < 0){ state.cfGameShow = null; if(state.cfGame && state.cfGame.mode === "jeopardy"){ state.cfJq = null; state.cfJAns = null; } return gamePaint(d); }
@@ -1423,7 +1462,7 @@ Object.assign(window.cmCaseFlow = window.cmCaseFlow || {}, {
     sfx(ok ? "right" : "wrong");
     gamePaint(d);
     const card = document.querySelector(".cfg-card");
-    if(card && pts){ const f = document.createElement("span"); f.className = "cfg-float"; f.textContent = g.mode === "jeopardy" ? "+$" + pts : `+${pts}`; card.appendChild(f); }
+    if(card && pts){ const f = document.createElement("span"); f.className = "cfg-float"; f.textContent = `+${pts}`; card.appendChild(f); }
     if(ok && g.streak >= 3 && g.streak % 2 === 1){ const b = document.createElement("div"); b.className = "cfg-banner"; b.textContent = `🔥 ${g.streak} in a row!`; const c = document.querySelector(".cfg"); if(c) c.appendChild(b); if(typeof burstConfetti === "function" && g.streak >= 5) burstConfetti(); }
     const n = d.quiz.length, next = d.quiz.findIndex((_, i) => state.quizAnswers[i] === undefined);
     clearTimeout(state.cfGameT);
@@ -1829,8 +1868,9 @@ if(typeof window.cmDoc === "function"){
   const __doc = window.cmDoc;
   window.cmDoc = id => __doc(id) || CF_DOCS.find(d => d.id === id);
 }
-/* Once the case has rolled forward a year (js/cm-case-dates.js), a document opens in case-doc.html, which shows
-   it with that year's dates (print it or save it as a PDF there); in the case's own year, the PDF as rendered. */
+/* A case document opens in case-doc.html, which shows it in the page with the trainee's case-year dates
+   (js/cm-case-dates.js; print it or save it as a PDF there). Nothing opens as a download: not the PDFs (a browser
+   set to download PDFs would), and not RS03, the editable CMS record, whose original is a .docx. */
 /* a case document opens beside the slide (the course's tool frame, side by side), so the trainee reads it while they
    work; Ctrl/⌘-click or the middle button still opens it in a new tab */
 window.cmCaseFlow.doc = function(ev, id){
@@ -1839,7 +1879,7 @@ window.cmCaseFlow.doc = function(ev, id){
   openPane("doc", new URL(docUrl(d), location.href).href, `${d.title} (${d.id})`, "📄", "split");
   return false;
 };
-const docUrl = d => DATES && DATES.shift && /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}&year=${DATES.year}`
+const docUrl = d => /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}${DATES && DATES.year ? `&year=${DATES.year}` : ""}`
   : typeof cmDocUrl === "function" ? cmDocUrl(d) : "documents/" + d.file;
 function docLine(blockId){
   const docs = (CF_PACKETS[blockId] || []).map(id => CF_DOCS.find(d => d.id === id)).filter(Boolean);
@@ -1851,7 +1891,7 @@ function caseFlowDocuments(archiveLink){
   const shown = CF_DOCS.filter(docOpen), locked = CF_DOCS.filter(d => !docOpen(d));
   const tpl = (window.CM_DOCS || []).filter(d => d.folder === "templates");
   const row = d => `<div class="cm-doc-row"><div><span class="t">${E(d.title)}</span> <span style="font-size:11px;color:var(--ink-soft)">· ${d.folder === "templates" ? "Any day" : "Case Flow Day " + d.day}</span><div class="d">${E(d.desc)}</div>${state.isAdmin && d.key ? `<div class="cm-key">🔑 ${E(d.key)}</div>` : ""}</div>
-      <div style="display:flex;gap:6px;align-items:center"><span class="cms">CMS: ${E(d.cms)}</span><a class="btn btn-ghost btn-sm" href="${E(docUrl(d))}" target="_blank" rel="noopener"${/^RS\d\d$/.test(d.id) && !/\.(docx|xlsx)$/i.test(d.file) ? ` onclick="return cmCaseFlow.doc(event,'${d.id}')"` : ""}>${/\.(docx|xlsx)$/i.test(d.file) ? "Download" : "Open"}</a></div></div>`;
+      <div style="display:flex;gap:6px;align-items:center"><span class="cms">CMS: ${E(d.cms)}</span><a class="btn btn-ghost btn-sm" href="${E(docUrl(d))}" target="_blank" rel="noopener"${/^RS\d\d$/.test(d.id) ? ` onclick="return cmCaseFlow.doc(event,'${d.id}')"` : ""}>${!/^RS\d\d$/.test(d.id) && /\.(docx|xlsx)$/i.test(d.file) ? "Download" : "Open"}</a></div></div>`;
   const folders = CF_FOLDERS.map(fo => ({fo, items: shown.filter(d => d.folder === fo.id), later: locked.filter(d => d.folder === fo.id).length})).filter(x => x.items.length || x.later);
   return `<p class="eyebrow">Case Documents</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">📁 Case Documents: ${E(CF.case.style)}</h1>
@@ -1946,9 +1986,6 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfg-title{display:flex;justify-content:center;align-items:center;gap:10px;margin:0 0 8px;}
 .cfg-title b{font:900 24px 'Poppins','Inter',sans-serif;color:var(--navy);letter-spacing:.01em;}
 .cfg-sound{border:1px solid var(--line,#D6DAE4);background:#fff;border-radius:999px;width:34px;height:34px;cursor:pointer;font-size:16px;}
-.cfg-pick{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;margin:0 0 10px;}
-.cfg-pick button{border:1.5px solid var(--line,#D6DAE4);background:#fff;border-radius:999px;padding:5px 12px;font:700 12.5px var(--font-ui);color:var(--navy);cursor:pointer;}
-.cfg-pick button.on{background:#262B45;color:#fff;border-color:#262B45;}
 .cfg-hint{text-align:center;font:600 14px var(--font-ui);color:var(--ink-soft,#5B6178);margin:0 0 10px;}
 /* Jeopardy */
 .cfg-jb{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:6px;background:#0E1A5C;padding:8px;border-radius:14px;}
@@ -1974,10 +2011,18 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfg-door-prize{position:absolute;inset:0;display:grid;place-items:center;font:900 30px 'Poppins','Inter',sans-serif;color:#262B45;animation:cfgPop .6s ease both;}
 .cfg-prize{display:inline-block;margin:0 0 10px;background:#262B45;color:#fff;border-radius:999px;padding:5px 14px;font:700 13.5px var(--font-ui);}.cfg-prize b{color:#F4B77A;}.cfg-prize .dd{color:#F4C542;}
 /* Millionaire */
-.cfg-split{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:14px;align-items:start;}
-.cfg-ladder{list-style:none;margin:0;padding:8px;background:#0B1240;border-radius:12px;display:flex;flex-direction:column;gap:2px;}
-.cfg-ladder li{display:flex;gap:8px;font:700 12px 'IBM Plex Mono',monospace;color:#F4B77A;padding:2px 8px;border-radius:4px;}
-.cfg-ladder li span{width:20px;color:#8A93C8;}.cfg-ladder li.safe{color:#fff;}.cfg-ladder li.won{color:#7FD6A0;}
+.cfg-split{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:14px;align-items:start;}
+.cfg-ranks{align-self:start;position:sticky;top:0;background:#0B1240;border-radius:12px;padding:10px 10px 8px;color:#C9CFEA;}
+.cfg-ranks>b{display:block;font:800 12px 'Poppins','Inter',sans-serif;color:#fff;text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px 4px;}
+.cfg-ranks>small{display:block;font:600 11px var(--font-ui);color:#8A93C8;margin:6px 4px 0;}
+.cfg-ladder{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px;}
+.cfg-ladder li{display:flex;gap:8px;align-items:center;font:700 12.5px var(--font-ui);color:#8A93C8;padding:5px 8px;border-radius:6px;}
+.cfg-ladder li span{width:20px;text-align:center;}.cfg-ladder li.won{color:#7FD6A0;}
+.cfg-tok{color:#2F6B4A;}
+.cfg-friend{float:right;margin:0 0 6px 8px;border:1.5px solid #2F8F5B;background:#EAF6EF;color:#1F5E3B;border-radius:999px;padding:5px 12px;font:700 12.5px var(--font-ui);cursor:pointer;}
+.cfg-friend small{font-weight:600;opacity:.8;margin-left:4px;}
+.cfg-hintbox{margin:8px 0 10px;padding:9px 12px;border-left:4px solid #2F8F5B;background:#EAF6EF;border-radius:6px;font:500 14px/1.45 var(--font-ui);color:#1F3B2C;}
+.cfg-earn{margin:8px auto 4px;max-width:560px;padding:9px 14px;background:#EAF6EF;border:1.5px solid #2F8F5B;border-radius:10px;font:600 14px var(--font-ui);color:#1F5E3B;}
 .cfg-ladder li.at{background:#DB8437;color:#fff;animation:cfgPulse 1s ease-in-out infinite alternate;}
 .cfg-life{display:flex;align-items:center;gap:8px;margin:0 0 10px;flex-wrap:wrap;}
 .cfg-life button{border:1.5px solid #262B45;background:#fff;color:#262B45;border-radius:999px;padding:5px 12px;font:800 12.5px var(--font-ui);cursor:pointer;}
@@ -2321,7 +2366,7 @@ main > .cf-side-presenter{display:none;}
 .cfx-vm-st{font:600 12.5px 'Inter',sans-serif;color:#5B6178;}
 /* a voicemail is a short card, so the documents get the room: one row of large pages under it */
 .cfx-sb-grid.cfx-sb-vm{grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:18px;align-items:start;}
-.cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-docs-row{grid-template-columns:repeat(auto-fit,minmax(0,200px));justify-content:center;gap:12px 18px;}
+.cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-docs-row{gap:12px 18px;}
 .cfx-sb-grid.cfx-sb-vm .cfx-thumb span{font-size:13px;}
 /* the voicemail card itself: phone-sized */
 .cfx-sb-vm .cfx-vm .cfx-ev-h{flex-wrap:wrap;gap:2px 8px;}
@@ -2378,10 +2423,6 @@ main > .cf-side-presenter{display:none;}
 /* the day's Training Agenda */
 .cfx-ag-list li > div{flex:1;min-width:0;text-align:left;}.cfx-ag-list li > div b, .cfx-ag-list li > div small{text-align:left;}
 .cfx-ag-min{margin-left:auto;font:800 14px 'IBM Plex Mono',monospace;color:#F4B77A;white-space:nowrap;}
-.cfx-ag-plan{margin-top:12px;border-top:1px solid #EADFD2;padding-top:10px;display:flex;flex-direction:column;gap:4px;font:600 14px/1.35 var(--font-ui);}
-.cfx-ag-plan b{font:800 15px 'Poppins','Inter',sans-serif;color:#262B45;margin-bottom:2px;}
-.cfx-ag-plan span{display:flex;justify-content:space-between;gap:10px;}.cfx-ag-plan i{font-style:normal;color:var(--ink-soft,#5B6178);}
-.cfx-ag-plan .tot{border-top:1px dashed #EADFD2;padding-top:4px;font-weight:800;color:#262B45;}
 .cfx-time{font:700 12px 'IBM Plex Mono',monospace;letter-spacing:.02em;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#F4B77A;cursor:pointer;white-space:nowrap;}
 .cfx-time.on{background:#DB8437;color:#fff;border-color:#DB8437;}.cfx-time.over{background:#B54A3F;border-color:#B54A3F;}
 .cfx-ag{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:22px;align-items:start;}
@@ -2414,11 +2455,13 @@ main > .cf-side-presenter{display:none;}
 .cfx-tl b{font:600 11.5px/1.25 'Inter',sans-serif;color:#DDE2EE;padding:0 4px;}
 .cfx-tl li.here b{color:#F4B77A;font-weight:800;text-transform:uppercase;letter-spacing:.06em;}
 .cfx-tl small{font:500 10.5px 'IBM Plex Mono',monospace;color:#9AA3BA;}
-.cfx-sb-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,.9fr);gap:16px;align-items:start;}
+.cfx-sb-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:18px;align-items:start;}
 .cfx-sb-main{display:flex;flex-direction:column;gap:10px;}
-.cfx-sb-docs .cfx-docs-row{display:grid;grid-template-columns:repeat(2,minmax(0,clamp(100px,calc((100vh - 620px) / 3),160px)));justify-content:center;gap:10px 12px;margin:0;}
-.cfx-sb-docs .cfx-thumb{flex:none;}
-.cfx-sb-docs .cfx-thumb span{font-size:11px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+/* the case documents in one row, as big as the column and the screen's height allow (600px images, so they stay legible) */
+.cfx-sb-docs .cfx-docs-row{display:flex;flex-wrap:nowrap;justify-content:center;align-items:flex-start;gap:14px;margin:0;}
+.cfx-sb-docs .cfx-thumb{flex:1 1 0;min-width:0;max-width:min(280px,calc((100vh - 430px) / 1.3));}
+.cfx-sb-docs .cfx-thumb img{border-width:3px;}
+.cfx-sb-docs .cfx-thumb span{font-size:12.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .cfx-ev{background:#fff;color:#1F2433;border-radius:14px;border:2px solid #DB8437;padding:10px 14px;box-shadow:0 6px 18px rgba(0,0,0,.25);text-align:left;}
 .cfx-ev-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font:600 12.5px 'Inter',sans-serif;color:#5B6579;}
 .cfx-ev-i{font-size:16px;}.cfx-ev-ch{font:800 11px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#B5651F;}

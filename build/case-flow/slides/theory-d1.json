@@ -1,6 +1,6 @@
 {
   "d1m1-role": {
-    "lead": "Case management is the **end-to-end coordination** of a case from intake to resolution: tracking, handling and moving it, phase by phase.",
+    "lead": "Case Management is the **end-to-end coordination** of a case from intake to resolution: tracking, handling and moving it, phase by phase.",
     "concepts": [
       {"term": "What It Ensures", "text": "Timely progression, proper documentation and compliance, clear communication: **the three tests** every task on the file must pass"},
       {"term": "The General Process", "text": "Seven stages, from Intake & Case Opening to Resolution & Closing: **you carry the file** through all seven"},
@@ -185,7 +185,7 @@
       {"term": "Coverage Determination", "text": "Which policies apply, with what benefits, limits and exclusions: **is there money** to pay the claim?"},
       {"term": "Liability Assessment", "text": "Who caused the incident and to what degree: **clear, shared or disputed**, and on what evidence"},
       {"term": "Case Projection", "text": "An early read of risk and trajectory from coverage, liability, injury, treatment and documents; **value stays with counsel**"},
-      {"term": "Strict Compliance", "text": "In a legal framework, case management shifts from **best efforts to strict compliance**: every plan deadline is docketed"}
+      {"term": "Strict Compliance", "text": "In a legal framework, Case Management shifts from **best efforts to strict compliance**: every plan deadline is docketed"}
     ],
     "pages": ["D1#21", "D1#22"],
     "framework": {

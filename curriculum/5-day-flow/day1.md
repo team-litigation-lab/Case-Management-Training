@@ -84,7 +84,7 @@ A single horizontal case-lifecycle track across the slide: eight rounded station
 
 *Why:* Every phase of this course runs through one person: you, the Case Manager. Knowing exactly what the role owns, and where it stops, is what lets you move John Doe's file fast without crossing into legal advice.
 
-1. Case management is the end-to-end coordination, tracking and handling of a case from intake to resolution: timely progression, proper documentation and compliance, and effective communication between all parties.
+1. Case Management is the end-to-end coordination, tracking and handling of a case from intake to resolution: timely progression, proper documentation and compliance, and effective communication between all parties.
 2. You own the file's movement: deadlines, documents, carriers, providers and the client's updates. Atty. Thorne owns every legal judgment: value, merits, strategy and settlement authority.
 3. A case moves through phases (intake, claim set-up, treatment, pre-demand, demand, settlement and liens, disbursement, and litigation if it forks), and each phase has its own goals and deliverables.
 4. Your key duties: client communication, case progress monitoring, task compliance, case updates and summaries, document drafting and filing, case health analysis, and planning recommendations to counsel.
@@ -131,7 +131,7 @@ Verified in Policy Stack Knowledge Check (taught on Case Flow Day 1) and that da
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | Role definition | Defines case management as end-to-end ownership of the file's movement, not data entry |
+| 🤖 AI | **20%** | Role definition | Defines Case Management as end-to-end ownership of the file's movement, not data entry |
 | 🤖 AI | **25%** | Ownership split | Separates the Case Manager's work from Atty. Thorne's legal judgments correctly |
 | 🤖 AI | **15%** | System discipline | Treats the CMS as the single source of truth for every contact and deadline |
 | 🧑‍🏫 Trainer | **25%** | Professional judgment | Knows when to act and when to route to counsel |
@@ -243,7 +243,7 @@ Left-to-right intake pipeline across the full slide width. Left third: a muted g
 
 *Why:* The Intake Phase is where the Case Manager establishes control, structure and clarity. It is not just data collection: a file opened wrong stays wrong, because every later deadline, demand and lien check reads from the fields set in the first hour. A mis-mapped party is not a typo. It is a lost coverage layer.
 
-1. Case management is the end-to-end coordination, tracking and handling of a case from intake to resolution: timely progression, proper documentation and compliance, and effective communication between all parties. It is ownership, not data entry.
+1. Case Management is the end-to-end coordination, tracking and handling of a case from intake to resolution: timely progression, proper documentation and compliance, and effective communication between all parties. It is ownership, not data entry.
 2. You are the gatekeeper of case quality. Confirm the intake work is complete, accurate, properly documented and ready for activation. Incomplete intake goes back, not forward.
 3. Run the Conflict Check before the file is created, on the full legal name of every party (Robert Smith, the host driver, the resident relative), and record its date and result. Nothing else moves until it is done.
 4. Confirm the date of loss against the Police Report, not the intake note. The statute of limitations, every carrier deadline and the treatment timeline count from it.

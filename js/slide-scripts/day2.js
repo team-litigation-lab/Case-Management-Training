@@ -221,7 +221,7 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
    "walk": [
     "First, challenge one: find two specific details on the intake sheet that objectively disprove the low-speed argument. Objectively means facts anyone can verify, not how anyone felt about the crash.",
     "Next, challenge two: reframe the 14-day gap in the demand letter so it increases the value instead of losing it. The gap has a reason, and your job is to show that reason is part of what this crash did to John.",
-    "Finally, run the full pre-demand audit on the John Doe file and record your findings in the CMS, our case management system. If it isn't in the CMS, the next person on the file never sees it."
+    "Finally, run the full pre-demand audit on the John Doe file and record your findings in the CMS, our Case Management system. If it isn't in the CMS, the next person on the file never sees it."
    ],
    "ask": "Before you open the file: what kind of detail on an intake sheet would prove a crash wasn't low-speed?",
    "scenario": "The Aggressive Casualty adjuster says John Doe's injuries 'can't be serious' because of the 14-day gap before his first chiropractic visit. John's intake sheet shows he was taken from the scene by ambulance and his van was totaled. Use those facts to rebut the argument in two sentences."
@@ -863,7 +863,7 @@ window.SLIDE_SCRIPTS = Object.assign(window.SLIDE_SCRIPTS || {}, {
    "walk": [
     "First, request the W-9 the moment the verbal agreement is made. Not when the release comes back, not when the carrier asks: right then.",
     "Next, match each document to its signer. The claimant signs the release, the lienholder, Medicare or the hospital, gives the final demand, the payee signs the W-9, and the attorneys sign the Stipulation to Dismiss.",
-    "Finally, track every document to \"received\" in the CMS, our case management system. If it isn't marked received, it's still out there, so we chase it."
+    "Finally, track every document to \"received\" in the CMS, our Case Management system. If it isn't marked received, it's still out there, so we chase it."
    ],
    "ask": "Quick check: I'll name a document, you tell me who signs it. Release? Final Demand? W-9? Stipulation to Dismiss?",
    "scenario": "The adjuster agrees to settle on a Friday afternoon call. The release will take a week to draft. Which documents do you request right away, who signs each one, and how do you track them in the CMS?"
