@@ -80,7 +80,10 @@ SEQUENCE.forEach(seq => {
   if(!day) return;
   const lessons = [], quiz = [], quizMod = [], phases = [];
   seq.phases.forEach((ph, pi) => {
-    const phase = {n: pi + 1, of: seq.phases.length, title: ph.title, count: ph.blocks.length, lane: ph.workstream || ""};
+    // What this run of blocks is. Most are stages of the case ("Case Phase: Demand"), but some are
+    // cross-phase work the Case Manager does throughout (bottlenecks, binders, deposition prep): calling
+    // those a Case Phase is simply wrong, so a phase may name its own lead in CF.sequence.
+    const phase = {n: pi + 1, of: seq.phases.length, title: ph.title, lead: ph.lead || "Case Phase", count: ph.blocks.length, lane: ph.workstream || ""};
     phases.push(phase);
     ph.blocks.forEach((id, k) => {
       const at = STORED[id];
@@ -96,7 +99,7 @@ SEQUENCE.forEach(seq => {
         fourPart: Object.assign(fp, {bestPractices: b.best || [], discussionCase: ""}),
         trainerCue: (b.notes || [])[0] || "",
         cf: {day, mod, block: b, k, phase,   // day: where it is taught; mod: its unit of scoring
-             heading: (ph.headings || {})[id] || (b.kind === "lesson" ? "Case Phase: " : b.kind === "activity" ? "Skill Building: " : "Learning Check: ") + ph.title}
+             heading: (ph.headings || {})[id] || (b.kind === "lesson" ? phase.lead + ": " : b.kind === "activity" ? "Skill Building: " : "Learning Check: ") + ph.title}
       }, layoutOf(b.show)));
       if(b.kind === "check") (mod.quiz || []).forEach(q => { quiz.push(q); quizMod.push(mod.id); });
     });
@@ -110,7 +113,7 @@ SEQUENCE.forEach(seq => {
     taskOverview: seq.phases.map((ph, pi) => {
       const bs = blocksOf(ph), act = bs.find(b => b.kind === "activity");
       return {
-        label: `Case Phase ${pi + 1} · ${ph.title}`,
+        label: `${(ph.lead || "Case Phase") === "Case Phase" ? `Case Phase ${pi + 1}` : ph.lead} · ${ph.title}`,
         tasks: bs.filter(b => b.kind !== "lesson").map(b => b.title),
         sample: act ? `Sample task: ${act.act.prompt.split(". ")[0]}.` : ""
       };
@@ -605,7 +608,7 @@ function card(l, i, d, part){
   const dots = vs.map((v, j) => `<span class="cfx-dot${j === p - 1 ? " on" : j < p - 1 ? " done" : ""}" title="${E(VIEW_LABEL[v])}"></span>`).join("");
   const logo = typeof LOGO_FULL_SRC !== "undefined" ? `<img class="cfx-logo" src="${LOGO_FULL_SRC}" alt="Legal Support Help">` : "";
   const onNavy = view === "case";   // a Skill Building opener sits on the slide itself, like the deck's
-  return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; CASE PHASE ${phase.n} OF ${phase.of} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
+  return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; ${phase.lead === "Case Phase" ? `CASE PHASE ${phase.n} OF ${phase.of}` : phase.lead.toUpperCase()} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-${view} cfx-${b.kind}" data-part="${p}">
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">${E(l.cf.heading)}</h2></div>
       <div class="cfx-ribbon"><span>${E(titleCase(b.title))}</span></div>
@@ -1258,7 +1261,7 @@ function trainerPanel(rec){
     const r = mine.modules[m.id] || {}, t = given[m.id] || {};
     const c = composite(Object.assign({}, r, {trainer: t}));
     const answered = (r.answers || []).some(a => String(a || "").trim());
-    return `<details class="cf-tr"><summary><b>Case Flow Day ${n} · Case Phase ${phase.n}</b> ${E(b.title)}
+    return `<details class="cf-tr"><summary><b>Case Flow Day ${n} · ${phase.lead === "Case Phase" ? `Case Phase ${phase.n}` : E(phase.lead)}</b> ${E(b.title)}
         <span class="cf-tr-chips">${r.quiz ? `<span class="fb-chip sent">Quiz ${E(r.quiz.pct)}%</span>` : ""}${r.ai ? `<span class="fb-chip sent">AI ${E(r.ai.score)}%</span>` : ""}${typeof t.score === "number" ? `<span class="fb-chip sent">Trainer ${E(t.score)}%</span>` : (answered ? `<span class="fb-chip draft">To score</span>` : `<span class="fb-chip none">No summary yet</span>`)}${c.c != null ? `<span class="fb-chip sent">Composite ${E(c.c)}%</span>` : ""}</span></summary>
       ${answered ? `<div class="fb-evidence">${(r.kc || []).some(Boolean) ? b.check.questions.map((q, j) => `<div><b>KC ${j + 1}. ${E(q)}</b><br>${E((r.kc || [])[j] || "—")}</div>`).join("") : ""}${b.check.summary.map((q, j) => `<div><b>${E(q)}</b><br>${E((r.answers || [])[j] || "—")}</div>`).join("")}
         <div><b>Self-ratings:</b> ${b.check.scale.map((x, j) => `${E(x)}: ${E((r.scale || [])[j] || "—")}`).join(" · ")}</div></div>` : ""}
