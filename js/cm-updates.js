@@ -1511,7 +1511,8 @@ const __teamAfterRender = window.afterRender;
 window.afterRender = function(){ const r = __teamAfterRender.apply(this, arguments); trimTeamHeaders(document.querySelector("main")); return r; };
 
 /* Dashboard band (trainees): the five numbers, then 💬 Your feedback and Ranking side by side on the same line,
-   with the certificate notice (the same pill) right under them, instead of on its own under the band (the Graded
+   with the certificate notice (the same pill) right under them, instead of on its own under the band; the Competency
+   Profile sits above the Resume / Certificate row (the Graded
    calls card had pushed Ranking onto a row of its own). Only the arrangement changes; every card keeps its look. Wraps the dashboard before js/lsh-dashboard.js
    moves the band under the day cards and js/graded-calls.js adds its card. */
 if(typeof renderDashboard === "function" && !renderDashboard.__cmBand){
@@ -1526,6 +1527,9 @@ if(typeof renderDashboard === "function" && !renderDashboard.__cmBand){
     // the certificate notice (the same pill, as it was) moves right under Feedback and Ranking
     const locked = t.content.querySelector(".bottom-actions .cert-hero-locked");
     if(locked) side.appendChild(locked);
+    // the Competency Profile comes before Resume / Download my Certificate
+    const strip = t.content.querySelector(".dash-main .comp-strip"), acts = t.content.querySelector(".dash-main .bottom-actions");
+    if(strip && acts) acts.before(strip);
     return t.innerHTML;
   };
   renderDashboard.__cmBand = true;

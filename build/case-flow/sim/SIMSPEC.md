@@ -66,7 +66,7 @@ Calls for **Days 1–2** (in `days12.json`):
 | Case Phase | Activity | On the line |
 |---|---|---|
 | D1 · Intake & Property Damage | `d1m3-a1` | John Doe — onboarding call; he mentions Robert Smith's carrier already called him |
-| D1 · Claim Set Up & Case Strategy | `d2m1-a2` | Dana Whitfield, Keystone Mutual BI (limits, Dec Page, authorizations) |
+| D1 · Claim Set Up | `d2m1-a2` | Dana Whitfield, Keystone Mutual BI (limits, Dec Page, authorizations) |
 | D2 · Client Communications | `d1m2-a1` | Margaret Doe, John's mother and emergency contact, while John is unreachable |
 | D2 · Treatment | `d2m2-a2` | John Doe — the missed visits (A-C-T) |
 | D2 · Treatment (second) | `d2m3-a1` | John Doe — the recorded gap interview |
