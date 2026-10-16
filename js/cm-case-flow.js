@@ -1699,7 +1699,21 @@ if(typeof renderFeedbackAdmin === "function"){
    Each section opens with its Case Flow day (`opens`) or once that day is passed (`passed`),
    so the profile never gives away a day's answers; trainers see every section. */
 const cfIdOf = n => (cfDayByN(n) || {}).id;
-const profileOpen = sec => isTrainer() || (sec.after ? actDone(sec.after) : false);
+/* The Case File's fact cards are the answer key — the audited specials, the fork, Track A's net sheet, how
+   the suit ends — so they are the trainer's: a trainee builds the file from the documents and their own
+   work in the CMS, and sees their own timeline here, not the answers. */
+const profileOpen = () => isTrainer();
+// the Case File page is one screen: its parts are tabs, not a column to scroll. The timeline is everyone's;
+// the fact tabs (CF.profile `group`) are the trainer's.
+const CF_FILE_TABS = [
+  {id: "now", label: "📅 So Far", title: "The case so far"},
+  {id: "file", label: "📂 The File", title: "The file: the client, the people, the collision, the retainer"},
+  {id: "cover", label: "🛡 Coverage & PD", title: "Coverage, the $40,000 stack and the property damage claim"},
+  {id: "care", label: "🩺 Treatment", title: "Injury, treatment, the disruption and the 14-day gap"},
+  {id: "money", label: "💵 Demand", title: "The specials, the demand and the settlement"},
+  {id: "suit", label: "🏛 Into Suit", title: "Track B: the stonewall, impasse and suit"},
+  {id: "won", label: "🏆 Case Won", title: "Track B: where the suit stands, and how it ends"}
+];
 /* the whole case: the shared file, the two workstreams that run in parallel (each with "you are here"), then the file again */
 /* where the trainee's file stands: the newest event of each activity they have opened, overall and per workstream */
 function caseNow(){
@@ -1758,17 +1772,31 @@ function caseFlowProfile(archiveLink){
   const c = CF.case, secs = CF.profile || [], shown = secs.filter(profileOpen);
   const pos = dayUnlocked(cfIdOf(5)) ? 5 : [4, 3, 2, 1].find(n => dayUnlocked(cfIdOf(n))) || 1;
   // one card: the page's title and the client together (applyPageHero leaves an h1 that's already in a hero alone)
-  return `<section class="page-hero cf-file-hero"><p class="eyebrow">Case File</p>
-      <h1>📂 Case File: ${E(c.style)}</h1>
-      <div class="cf-client"><span class="cf-client-k">📌 Your Client</span><b>${E(c.client.name)}</b><span>Matter ${E(c.no)} · Lead Counsel ${E(c.counsel)}</span></div>
-      <p class="cf-note">What you establish on the file appears here as you work it.</p>
-      ${DATES && isTrainer() ? `<p class="cf-case-year">📅 Case year ${E(DATES.year)} (collision ${E(DATES.dol())}); each trainee keeps the year they started on.${DATES.preview ? ` <b>Trainer preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end the preview</a>.` : ""}</p>` : ""}
-      <div class="cf-hero-btns"><button class="btn btn-primary btn-sm" onclick="goto('day',${cfIdOf(pos)})">Open Case Flow Day ${pos}</button><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.docsArchived ? cmCaseFlow.docsArchived(false) : goto('casedocs')">📁 Open the Case Documents</button>${typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS</button>` : ""}</div></section>
-    ${caseTimeline(pos)}
-    ${shown.length ? `<div class="profile-grid">${shown.map(x => `<div class="card profile-section"><h3>${E(x.title)}</h3><ul>${x.items.map(i => `<li>${E(i)}</li>`).join("")}</ul></div>`).join("")}</div>` : ""}
+  return `<div class="cf-file-page"><section class="page-hero cf-file-hero">
+      <div class="cf-file-head">
+        <div class="cf-file-who"><p class="eyebrow">Case File</p><h1>📂 ${E(c.style)}</h1>
+          <div class="cf-client"><span class="cf-client-k">📌 Your Client</span><b>${E(c.client.name)}</b><span>Matter ${E(c.no)} · Lead Counsel ${E(c.counsel)}</span></div></div>
+        <div class="cf-hero-btns"><button class="btn btn-primary btn-sm" onclick="goto('day',${cfIdOf(pos)})">Open Case Flow Day ${pos}</button><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.docsArchived ? cmCaseFlow.docsArchived(false) : goto('casedocs')">📁 Case Documents</button>${typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 CMS</button>` : ""}</div>
+      </div>
+      <p class="cf-note">${isTrainer() ? `The whole file, as you know it: the key tabs are the answers, and trainees never see them.${DATES ? ` 📅 Case year ${E(DATES.year)} (collision ${E(DATES.dol())}); each trainee keeps the year they started on.${DATES.preview ? ` <b>Preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end it</a>.` : ""}` : ""}` : "Your case so far is below. The file itself is in 📁 Case Documents, and the case you build is in the 🗂 CMS."}</p></section>
+    ${fileTabs(shown, pos)}
     ${archiveLink ? `<div class="cf-archived-link"><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.archived(true)">🗄 Archived: The John Doe v. Apex Case File</button>
-      <span class="cf-note">The earlier version's Case File and its Case File checkpoints, kept for the Apex days.</span></div>` : ""}`;
+      <span class="cf-note">The earlier version's Case File and its Case File checkpoints, kept for the Apex days.</span></div>` : ""}</div>`;
 }
+/* The page in tabs: one screenful each, laid out across the width instead of down a long column.
+   Everyone gets 📅 The Case So Far; the fact tabs are the trainer's and are marked as such. */
+function fileTabs(shown, pos){
+  const tabs = CF_FILE_TABS.filter(t => t.id === "now" || shown.some(x => (x.group || "file") === t.id));
+  const cur = tabs.some(t => t.id === state.cfFileTab) ? state.cfFileTab : "now";
+  const secs = shown.filter(x => (x.group || "file") === cur);
+  const strip = tabs.length > 1 ? `<div class="cf-file-tabs" role="tablist">
+      ${tabs.map(t => `<button type="button" role="tab" aria-selected="${t.id === cur}" title="${E(t.title)}${t.id === "now" ? "" : " — trainer only"}" class="cf-file-tab${t.id === cur ? " on" : ""}${t.id === "now" ? "" : " key"}" onclick="cmCaseFlow.fileTab('${t.id}')">${E(t.label)}</button>`).join("")}
+      <span class="cf-file-only" title="The dashed tabs are the case's answers: a trainee sees none of them">🔑 yours only</span></div>` : "";
+  return `<div class="cf-file-facts">${strip}
+    ${cur === "now" ? caseTimeline(pos) : `<div class="cf-file-cols">${secs.map(x => `<div class="cf-file-sec"><h3>${E(x.title)}</h3><ul>${x.items.map(i => `<li>${E(i)}</li>`).join("")}</ul></div>`).join("")}</div>`}</div>`;
+}
+window.cmCaseFlow.fileTab = function(id){ state.cfFileTab = id; if(typeof render === "function") render(); };
+
 function archivedBar(){
   return `<div class="cf-archived-bar"><span><b>🗄 Archived</b> · the John Doe v. Apex Case File, kept for the earlier version's days. Your client is John Doe v. Robert Smith.</span>
     <button class="btn btn-navy btn-sm" onclick="cmCaseFlow.archived(false)">← John Doe v. Robert Smith</button></div>`;
@@ -2207,6 +2235,57 @@ main > .cf-side-presenter{display:none;}
 .cfx-log b{color:#262B45;}
 .cfx-log input{flex:1 1 200px;min-width:0;padding:4px 10px;border:1px solid #C9CEDB;border-radius:8px;font:12.5px 'Inter',sans-serif;}
 .cfx-log-ok{color:var(--success,#2E7D4F);font-weight:600;}
+/* 🔑 the Case File's facts: the trainer's answer key, in tabs so the page fits one screen */
+.cf-file-facts{margin-top:10px;}
+.cf-file-tabs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:8px;}
+.cf-file-only{font-size:11px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:#8A2F26;background:rgba(253,232,228,.75);border-radius:999px;padding:3px 9px;margin-right:4px;}
+.cf-file-tab{font:600 12.5px 'Inter',sans-serif;color:#2B3147;background:rgba(255,255,255,.62);border:1px solid #C9CEDB;border-radius:999px;padding:4px 12px;cursor:pointer;}
+.cf-file-tab:hover{border-color:#DB8437;}
+.cf-file-tab.on{background:#132A5C;border-color:#132A5C;color:#fff;}
+.cf-file-cols{columns:4 260px;column-gap:18px;padding:10px 14px;border:1px solid #D7DCE7;border-radius:12px;background:rgba(255,255,255,.62);}
+.cf-file-tab.key{border-style:dashed;}
+/* the page fills the screen and nothing below it scrolls away: the hero keeps its size, the open tab takes
+   what is left, and only a tab with more in it than that (the whole timeline) scrolls inside itself */
+#app > main:has(> .cf-file-page){display:flex;flex-direction:column;padding-top:14px;}
+#app > main:has(> .cf-file-page) > .lsh-subtabs{margin-bottom:10px;}
+.cf-file-page{display:flex;flex-direction:column;flex:1 1 auto;height:100%;min-height:0;}
+.cf-file-page .cf-file-facts{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;}
+.cf-file-page .cf-file-cols{flex:1 1 auto;min-height:0;overflow:auto;}
+/* the timeline takes what it needs and no more (a trainee's is short at first), and scrolls inside
+   itself rather than pushing the page past the screen */
+.cf-file-page .cf-file-facts .cf-timeline{flex:0 1 auto;min-height:0;overflow:auto;}
+.cf-file-facts .cf-timeline{margin:0;}
+.cf-timeline .cf-note{color:#D7DDEA;}   /* the card is navy: the empty-state line has to be light */
+.cf-file-hero{flex:0 0 auto;padding:11px 18px 10px;margin-bottom:9px;}
+.cf-file-hero .eyebrow{display:none;}   /* the title says Case File */
+.cf-file-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.cf-file-hero h1{font-size:19px;margin:0 0 5px;}
+.cf-file-hero .cf-client{margin:0;}
+.cf-file-hero .cf-note{margin:6px 0 0;font-size:11.8px;}
+.cf-file-hero .cf-hero-btns{margin:0;flex:0 0 auto;}
+.cf-file-page .cf-archived-link{flex:0 0 auto;margin-top:8px;}
+/* Newspaper columns, not boxes: a heading under a rule, then its facts. A long one runs on into the next
+   column instead of leaving a column half empty, which is what lets a whole tab fit the screen. */
+.cf-file-sec{margin:0 0 9px;padding:0;}
+.cf-file-sec + .cf-file-sec{padding-top:8px;border-top:1px solid #D7DCE7;}
+.cf-file-sec h3{margin:0 0 4px;font:700 12.5px 'Fraunces',serif;color:#132A5C;break-after:avoid;}
+.cf-file-sec ul{margin:0;padding-left:15px;}
+.cf-file-sec li{font-size:11px;line-height:1.32;color:#2E3345;margin-bottom:2.5px;}
+.cf-file-sec li:last-child{margin-bottom:0;}
+/* a laptop screen: the same cards, a little tighter, so a tab still fits without scrolling */
+@media (max-width:1440px){
+  .cf-file-sec li{margin-bottom:2px;}
+  .cf-file-cols{columns:4 240px;column-gap:10px;}
+}
+/* a small laptop (1280 x 720): narrower columns, so a tab still fits the screen */
+@media (max-width:1300px){
+  .cf-file-cols{columns:5 200px;column-gap:9px;padding:7px 10px;}
+  .cf-file-sec{margin-bottom:5px;}
+  .cf-file-sec + .cf-file-sec{padding-top:5px;}
+  .cf-file-sec h3{font-size:12px;margin-bottom:3px;}
+  .cf-file-sec li{font-size:10.8px;line-height:1.28;margin-bottom:1.5px;}
+}
+@media (max-width:900px){.cf-file-cols{columns:1;}}
 /* 📤 filing the block's documents into the CMS (js/cm-doc-filing.js) */
 .dfl{margin:10px 0 2px;padding:10px 12px;border:1px solid #C9CEDB;border-radius:10px;background:rgba(255,255,255,.62);}
 .dfl-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;font-size:13px;color:#262B45;}
