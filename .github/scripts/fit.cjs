@@ -64,12 +64,12 @@ const SIZES = [[1366, 768], [1920, 1080]];
     await page.goto(BASE, { waitUntil: 'load' }); await sleep(800);
     await signIn(page, 'Fit', 'Narrow', 'B100926');
     const narrow = await page.evaluate(async (day) => {
-        state.isAdmin = true; goto('day', day); state.dayViewMode = 'slides'; state.lessonSlide = 1; render();
+        state.isAdmin = true; goto('day', day || DAYS[0].id); state.dayViewMode = 'slides'; state.lessonSlide = 1; render();
         await new Promise(r => setTimeout(r, 300)); window.scrollTo(0, 0);
         const top = document.querySelector('.ls-top').getBoundingClientRect(), stage = document.getElementById('lessonStage').getBoundingClientRect();
         const wrap = document.getElementById('lessonSlideWrap');
         return { above: top.bottom <= stage.top + 1, over: wrap.scrollHeight - wrap.clientHeight };
-    }, ONLY ? ONLY[0] : 1);
+    }, ONLY ? ONLY[0] : 0);   // 0: the course's first day
     if (!narrow.above) fail('900x800: the lesson controls should stay above the slide on a narrower window');
     if (narrow.over > 2) fail(`900x800: ${narrow.over}px of the slide is cut off (it scrolls inside the frame)`);
 

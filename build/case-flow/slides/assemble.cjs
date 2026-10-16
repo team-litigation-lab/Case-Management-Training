@@ -9,8 +9,8 @@ const ROOT = path.resolve(__dirname, "../../..");
 global.window = {};
 require(path.join(ROOT, "js/cm-case-flow-data.js"));
 const CF = window.CM_CASE_FLOW;
-require(path.join(ROOT, "js/cm-decks-data.js"));
-const DECKS = window.CM_DECKS;
+// the original Canva decks' page text (build-time reference only; the course never shows the decks)
+const DECKS = JSON.parse(fs.readFileSync(path.join(__dirname, "deck-pages.json"), "utf8"));
 const CATALOG = fs.readFileSync(path.join(__dirname, "SLIDESPEC.md"), "utf8").split("## Image catalog")[1].split("\n").slice(1).join(" ").split("·").map(s => s.trim()).filter(Boolean);
 const out = {}, errors = [];
 const wc = s => String(s).replace(/\*\*/g, "").trim().split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)).length;   // a symbol alone (→, ·, …, &) is not a word
@@ -35,17 +35,15 @@ const theory = (b) => {
     if(!x || typeof x.term !== "string" || !x.term.trim() || wc(x.term) > 5 || marks(x.term)) errors.push(`${id}.theory.concepts[${i}].term: want ≤ 5 words, no highlight`);
     line(id, `theory.concepts[${i}].text`, x && x.text, 20);
   });
-  // pages are the original Canva decks' own pages ("D1#24" = Day 1 deck, page 24: decks/day1/24.webp, js/cm-decks-data.js),
+  // pages are the original Canva decks' own pages ("D1#24" = Day 1 deck, page 24, in deck-pages.json),
   // not the lesson's `sources` (those number the earlier course's topics in build/dayN.js)
   if(!Array.isArray(t.pages) || t.pages.length > 2) errors.push(`${id}.theory.pages: want 0–2`);
   else {
     if(!t.pages.length && (b.sources || []).some(s => /^D\d#\d+$/.test(s))) errors.push(`${id}.theory.pages: show the deck page(s) its theory comes from`);
     t.pages.forEach(p => {
-      const pg = (/^D(\d)#(\d+)$/.exec(p) || []), w = DECKS[pg[1]] && DECKS[pg[1]].pages[pg[2]];
+      const pg = (/^D(\d)#(\d+)$/.exec(p) || []), w = DECKS[pg[1]] && DECKS[pg[1]][pg[2]];
       if(!w) errors.push(`${id}.theory.pages: ${p} isn't a page of the decks`);
-      else if(/\bApex\b|Jordan Davies/i.test(w.w)) errors.push(`${id}.theory.pages: ${p} shows the archived Apex file's facts`);
-      const [, d, n] = /^D(\d)#(\d+)$/.exec(p) || [];
-      if(!d || !fs.existsSync(path.join(ROOT, `decks/day${d}/${String(n).padStart(2, "0")}.webp`))) errors.push(`${id}.theory.pages: no page image for ${p}`);
+      else if(/\bApex\b|Jordan Davies/i.test(w.w)) errors.push(`${id}.theory.pages: ${p} shows the old Apex file's facts`);
     });
   }
   // The Framework: the deck page's own structure (its table, flowchart or checklist), rebuilt in the course's design
@@ -66,6 +64,33 @@ const theory = (b) => {
   }
   return t;
 };
+// 3 Clues, 1 Rule: the Do & Don't slide's game (build/case-flow/slides/clues-dN.json): three clues for each Do and
+// each Don't, widest first, that never say the rule's key words or give the verdict away
+const CL = {};
+for (const day of CF.days) { const f = path.join(__dirname, `clues-d${day.n}.json`); if(fs.existsSync(f)) Object.assign(CL, JSON.parse(fs.readFileSync(f, "utf8"))); }
+const VERDICT = /\b(do|don't|dont|never|always|should|must|avoid|mistakes?|wrong|right|good|bad|pitfalls?)\b/i;
+const clues = (b, c) => {
+  const k = CL[b.id], id = b.id; if(!k) return errors.push(`${id}.clues: missing (clues-dN.json)`), null;
+  for (const side of ["dos", "donts"]) {
+    const items = c[side] || [], set = k[side];
+    if(!Array.isArray(set) || set.length !== items.length){ errors.push(`${id}.clues.${side}: want ${items.length} sets of clues`); continue; }
+    set.forEach((three, i) => {
+      if(!Array.isArray(three) || three.length !== 3) return errors.push(`${id}.clues.${side}[${i}]: want 3 clues`);
+      const key = ((String(items[i]).match(/\*\*(.+?)\*\*/) || [])[1] || "").toLowerCase(), keyWords = key.split(/[^\p{L}]+/u).filter(w => w.length >= 5);
+      three.forEach((x, j) => {
+        const f = `clues.${side}[${i}][${j}]`;
+        if(typeof x !== "string" || !x.trim()) return errors.push(`${id}.${f}: missing`);
+        if(wc(x) < 5 || wc(x) > 14) errors.push(`${id}.${f}: ${wc(x)} words (want 5–14): ${x}`);
+        if(marks(x)) errors.push(`${id}.${f}: no highlight in a clue`);
+        if(VERDICT.test(x)) errors.push(`${id}.${f}: gives the verdict away ("${x.match(VERDICT)[0]}"): ${x}`);
+        const lw = x.toLowerCase(), hit = keyWords.find(w => new RegExp(`\\b${w}`, "i").test(lw));
+        if((key && lw.includes(key)) || hit) errors.push(`${id}.${f}: says the rule's key words ("${hit || key}"): ${x}`);
+        if(/\bApex\b|Jordan Davies/i.test(x)) errors.push(`${id}.${f}: the old Apex file`);
+      });
+    });
+  }
+  return k;
+};
 for (const day of CF.days) {
   const f = path.join(__dirname, `d${day.n}.json`);
   if(!fs.existsSync(f)){ errors.push(`d${day.n}.json missing`); continue; }
@@ -77,8 +102,9 @@ for (const day of CF.days) {
       line(b.id, "hook", c.hook, 16); list(b.id, "points", c.points, 3, 4, 12);
       if((b.tell.upl || []).length) line(b.id, "upl", c.upl, 14, [0, 1]);
       if((b.ops || []).length){ if(!Array.isArray(c.job) || !c.job.length || c.job.length > 3) errors.push(`${b.id}.job: want 1–3 rows`); else c.job.forEach((r, i) => { if(!Array.isArray(r) || r.length !== 4) errors.push(`${b.id}.job[${i}]: want 4 cells`); else r.forEach((x, k) => { if(wc(x) > 6) errors.push(`${b.id}.job[${i}][${k}]: ${wc(x)} words (max 6)`); }); }); }
-      if((b.best || []).length){ list(b.id, "dos", c.dos, 2, 3, 10); list(b.id, "donts", c.donts, 2, 3, 10); }
-      const t = theory(b); if(t) out[b.id] = Object.assign({}, c, {theory: t});
+      let k = null;
+      if((b.best || []).length){ list(b.id, "dos", c.dos, 2, 3, 10); list(b.id, "donts", c.donts, 2, 3, 10); k = clues(b, c); }
+      const t = theory(b); if(t) out[b.id] = Object.assign({}, c, {theory: t}, k ? {clues: k} : {});
     } else if(b.kind === "activity"){
       line(b.id, "situation", c.situation, 32, [1, 2]); list(b.id, "steps", c.steps, 3, 5, 12); line(b.id, "deliver", c.deliver, 14); list(b.id, "checks", c.checks, 3, 5, 10);
       if(c.dos) list(b.id, "dos", c.dos, 1, 2, 10); if(c.donts) list(b.id, "donts", c.donts, 1, 2, 10);
@@ -91,7 +117,7 @@ for (const day of CF.days) {
 const n = Object.keys(out).length;
 if(errors.length){ console.log(`${errors.length} problem(s):`); errors.slice(0, 60).forEach((e, i) => console.log(`${i + 1}. ${e}`)); }
 const OUT = path.join(ROOT, "js/cm-case-flow-slides.js"), text = `/* The Case Flow slides' concise copy (one idea per slide, the key phrase **highlighted**), assembled from
-   build/case-flow/slides/dN.json by build/case-flow/slides/assemble.cjs. Written to build/case-flow/slides/SLIDESPEC.md.
+   build/case-flow/slides/dN.json (theory-dN.json, clues-dN.json) by build/case-flow/slides/assemble.cjs. Written to build/case-flow/slides/SLIDESPEC.md.
    Do not edit here: edit the JSON and assemble again. */
 window.CM_CF_SLIDES = ${JSON.stringify(out, null, 1)};
 `;

@@ -63,7 +63,7 @@ window.LSH_BLUEPRINT = {
           'The documents contain real-world inconsistencies — catching them is the job.',
           'Treat everything as confidential, like a real client file.'],
         where: 'Case File and 📁 Case Documents in the top bar.',
-        tip: 'Keep 📁 Case Documents open in a second tab while you work a Skill Builder.' },
+        tip: 'Keep 📁 Case Documents open beside the slide while you work a Skill Activity.' },
       { icon: '🧪', title: 'How your work is scored', points: [
           'Each module ends with your Self-Summary and Skill Scale, saved to your record as you go.',
           'Automated 60%: your share of the day\'s Knowledge Check and an AI review of your Self-Summary against the module\'s rubric.',
@@ -121,7 +121,7 @@ window.LSH_BLUEPRINT = {
         tip: 'Trainees open the course from the Training Portal; you approve them here.' },
       { icon: '✅', title: 'Trainees and the Trainee Audit', points: [
           'Approve new trainees, or reject them. Revoke a trainee to close their access.',
-          'Each trainee\'s day, lessons, Knowledge Check scores and work, by batch — on the Case Flow days, or the archived Apex days for a trainee you put on that version (Course version, in their panel).',
+          'Each trainee\'s day, lessons, Knowledge Check scores and work, by batch, on the five Case Flow days.',
           'Generate an AI review of their work, and reset a tool\'s attempts when they need another try.'],
         where: 'Admin → Trainee Audit.',
         tip: 'Approve the class before the first session, so nobody waits at the start.' },
@@ -139,22 +139,21 @@ window.LSH_BLUEPRINT = {
         tip: 'Use a surprise task to check what the class found hard that morning.' },
       { icon: '🧠', title: 'The Case File and the 40% assessment', points: [
           'The Case File is John Doe v. Robert Smith\'s profile: each section opens with its day; you see all of it.',
-          'In each trainee\'s panel: their Self-Summaries and Skill Scales, and your trainer score (the 40%) for every module.',
-          'The archived Apex Case File, with its checkpoints and answer key, is behind the Archived link.'],
+          'In each trainee\'s panel: their Self-Summaries and Skill Scales, and your trainer score (the 40%) for every module.'],
         where: 'Top bar → Case File (as a trainer) · Admin → Trainee Audit.',
-        tip: 'Go through one checkpoint together in class before trainees do the next on their own.' },
+        tip: 'Walk one section of the Case File with the class before trainees work the next on their own.' },
       { icon: '📁', title: 'Case documents and the audit key', points: [
-          'The John Doe v. Robert Smith file (60 documents, each opening with its day), the templates and the handouts; the Apex and Jordan Davies files are archived.',
+          'The John Doe v. Robert Smith file (60 documents, each opening with its day), the templates and the handouts.',
           'Signed in as a trainer, every document shows a red 🔑 note with its planted discrepancies.',
           'Trainees never see the 🔑 notes: they have to find the errors themselves.'],
         where: 'Top bar → 📁 Documents.',
         tip: 'Use the 🔑 notes to check what a trainee caught and what they missed.' },
-      { icon: '🧪', title: 'Practice, Skill Builders and simulators', points: [
-          '🧪 Practice: every Case Flow Skill Activity, day by day, on the real case documents; the archived Apex Skill Builders are behind the Archived link.',
+      { icon: '🧪', title: 'Practice and simulators', points: [
+          '🧪 Practice: every Case Flow Skill Activity, day by day, on the real case documents.',
           'The Training Portal\'s simulators: the Case Management call pack, the email workspace and replies, and calendaring.',
           'Scores from the simulators are saved for you to review.'],
         where: 'Top bar → 🧪 Practice, and its 🧰 Training Tools hub for the simulators.',
-        tip: 'Assign the day\'s Skill Builder right after its lesson, while it\'s fresh.' },
+        tip: 'Run each Case Phase\'s Skill Activities right after its lessons, while they\'re fresh.' },
       { icon: '📋', title: 'SOP Reference', points: [
           '🧭 Program flow: kick-off, the daily rhythm, between sessions and the program close.',
           'Each day\'s timed run of show (Do / Say / Watch for), built from that day\'s live content.',

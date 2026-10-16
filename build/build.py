@@ -39,9 +39,10 @@ def gone(old, why):
 
 # ---------- 1. day data ----------
 # EA/PA keeps each day in js/days/dayN/lessons.js and assembles DAYS from window.EA_DAY_FILES
-# (ten files, with a "didn't load" banner). The CM course has five days of its own in
-# build/day1.js-day5.js, inlined here, so none of those files is loaded and DAYS is a plain list.
-days = "\n\n".join(rd(f"day{i}.js") for i in range(1, 6))
+# (ten files, with a "didn't load" banner). The CM course's days are the Case Flow's, built by
+# js/cm-case-flow.js from js/cm-case-flow-data.js, so DAYS starts empty and none of those files is loaded.
+# (build/day1.js-day5.js, the earlier John Doe v. Apex course, are kept only as the source the Case Flow's
+# lessons cite: build/case-flow/curriculum.cjs maps every one of their topics; nothing of them is served.)
 s, n = re.subn(r'<script src="/js/days/day(?:[1-9]|10)/lessons\.js[^"]*"></script>\n?', "", s)
 if n != 10:
     sys.exit(f"MISSING: expected 10 js/days/dayN/lessons.js tags, removed {n}")
@@ -49,7 +50,7 @@ DAY_FILES_START = "const DAY_FILES = window.EA_DAY_FILES || {};"
 if DAY_FILES_START not in s:
     sys.exit(f"MISSING: {DAY_FILES_START!r} — EA/PA changed how DAYS is assembled")
 i, j = block(DAY_FILES_START, "\n}\n", s)          # through the MISSING_DAYS banner
-s = s[:i] + days + "\n\nconst DAYS = [DAY1, DAY2, DAY3, DAY4, DAY5];\n" + s[j:]
+s = s[:i] + "const DAYS = [];   // the course's days are the Case Flow's: js/cm-case-flow.js fills DAYS\n" + s[j:]
 
 # ---------- 2. data blocks ----------
 replace_block("const PRACTICE_TOOLS = [", "\n];\n", rd("cm_practice_tools.js") + "\n")
@@ -63,9 +64,8 @@ replace_block("const CRISIS_SCENARIO_SETS = {", "\n};\n", "const CRISIS_SCENARIO
 replace_block("const SOP_DATA = [", "\n];\n", "const SOP_DATA = []; // CM: SOP is generated from the live day content (sopForDay)\n")
 # EA/PA records its own topic-order history in DAY_LAYOUTS so a trainee's saved place follows a topic
 # that moved. Those are EA/PA's topic titles and layout ids ("email-management", "credibility-day1"),
-# meaningless for a CM day: applied to CM they move saved places to the wrong slide. The CM course's
-# own moves live in js/cm-decks.js (moveSaved / moveNoQc), so the list is emptied here.
-replace_block("const DAY_LAYOUTS = [", "\n];\n", "const DAY_LAYOUTS = [];   // CM: its own saved-place moves are in js/cm-decks.js\n")
+# meaningless for a CM day: applied to CM they move saved places to the wrong slide, so the list is emptied here.
+replace_block("const DAY_LAYOUTS = [", "\n];\n", "const DAY_LAYOUTS = [];   // CM: the Case Flow's days have no EA/PA topic history\n")
 
 # ---------- 3. drop EA-only heavy assets / keyed content ----------
 s = "\n".join(l for l in s.split("\n") if not l.startswith('LESSON_DIAGRAMS["'))
@@ -114,7 +114,7 @@ rep('<div class="lbl">Finished all 10 days</div>', '<div class="lbl">Finished al
 
 # ---------- 6. day slides / task overview wording ----------
 rep('if(slide.type==="taskOverview") return "Legal EA Task Overview";', 'if(slide.type==="taskOverview") return "Case Manager Task Overview";')
-rep('if(slide.type==="meetClient") return "Meet Elias Thorne — Live Q&A";', 'if(slide.type==="meetClient") return "Meet the Case — John Doe v. Apex";')
+rep('if(slide.type==="meetClient") return "Meet Elias Thorne — Live Q&A";', 'if(slide.type==="meetClient") return "Meet the Case — John Doe v. Robert Smith";')
 rep('<h2 class="section-title">Legal EA Task Overview</h2>', '<h2 class="section-title">Case Manager Task Overview</h2>')
 rep("Six areas cover most of what a Legal Executive Assistant handles day to day.", "Six areas cover most of what a personal-injury Case Manager handles day to day.")
 
@@ -139,7 +139,7 @@ rep("You are an automated evaluator grading a trainee Executive/Personal Assista
 rep("You are generating the OPENING LINE for a live, unscripted roleplay training call for an Executive/Personal Assistant.",
     "You are generating the OPENING LINE for a live, unscripted roleplay training call for a personal-injury Case Manager.")
 rep("CLIENT BACKGROUND (for context on who might be calling — Elias Thorne, his firm, his household):",
-    "CASE BACKGROUND (John Doe v. Apex — the caller may be the client, an adjuster, a provider, a lienholder, opposing counsel or the handling attorney):")
+    "CASE BACKGROUND (John Doe v. Robert Smith — the caller may be the client, an adjuster, a provider, a lienholder, opposing counsel or the handling attorney):")
 rep("dropping the EA/PA straight into the situation", "dropping the Case Manager straight into the situation")
 rep("If the EA/PA is handling it well", "If the Case Manager is handling it well")
 rep('placeholder="Speak your reply — or type it here as the EA/PA..."', 'placeholder="Speak your reply — or type it here as the Case Manager..."')
@@ -155,14 +155,14 @@ rep("You are writing a trainer-style performance evaluation for an Executive Ass
     "You are writing a trainer-style performance evaluation for a personal-injury Case Manager trainee")
 rep("Program: LSH (Legal Support Help) 10-day EA/PA Upskill Program for Legal Executive & Personal Assistants",
     "Program: LSH (Legal Support Help) 5-day Case Management Training for personal-injury Case Managers")
-rep('a 2-3 sentence scenario involving Elias Thorne, "whatToDo": 2-3 sentences on what a strong EA/PA does}', 'a 2-3 sentence scenario from the John Doe v. Apex file, "whatToDo": 2-3 sentences on what a strong Case Manager does}')
+rep('a 2-3 sentence scenario involving Elias Thorne, "whatToDo": 2-3 sentences on what a strong EA/PA does}', 'a 2-3 sentence scenario from the John Doe v. Robert Smith file, "whatToDo": 2-3 sentences on what a strong Case Manager does}')
 rep('"purpose": 2-3 sentences on why it matters to an EA/PA and the firm,', '"purpose": 2-3 sentences on why it matters to a Case Manager and the firm,')
 rep("<b>What a strong EA/PA does:</b>", "<b>What a strong Case Manager does:</b>")
-rep("(short realistic situations with Elias Thorne)", "(short realistic situations from the John Doe v. Apex file)")
+rep("(short realistic situations with Elias Thorne)", "(short realistic situations from the John Doe v. Robert Smith file)")
 rep("Elias Thorne scenarios are realistic.", "John Doe case scenarios are realistic.")
 # (The AI speaker-script prompt was removed from the EA/PA engine: scripts are no longer written by AI.)
 rep('"If Elias handed you this exact situation today, what would your first move be?"', '"If this landed on your John Doe file today, what would your first move be?"')
-rep("Apply the Day ${id} concepts to real EA/PA work for Elias Thorne.", "Apply the Day ${id} concepts to the John Doe v. Apex case file.")
+rep("Apply the Day ${id} concepts to real EA/PA work for Elias Thorne.", "Apply the Day ${id} concepts to the John Doe v. Robert Smith case file.")
 rep("Welcome to LSH EA PA Upskill Training Day ${id}.", "Welcome to LSH Case Management Training Day ${id}.")
 rep("ppt:`EA PA Day ${id}`, canvaLabel:`EA PA Day ${id}`", "ppt:`Revised CM Training Day ${id}`, canvaLabel:`CM Day ${id}`")
 rep("{id:\"presence\", label:\"Executive Presence & Judgment\", tip:\"Lead with a recommendation, not just options — write as if Elias will act on it immediately.\"}",
@@ -173,31 +173,31 @@ rep('"Elias\'s spouse is calling about a scheduling conflict with tonight\'s din
 
 # ---------- 8b. orientation, dashboard hero, content studio ----------
 rep('["Client Profile","Everything about your client, Elias Thorne. Read it first."],["Practice Lab","All hands-on tools — each opens with its day."]',
-    '["Case File","John Doe v. Apex — the working case. Read it first."],["📁 Case Documents","Every record, bill, lien letter and pleading — with its CMS upload category."],["🧪 Practice","Every practice tool, organized the same way for each day: 🧠 Skill Builders on the case documents, 🗣 Communication (live calls, roleplay, email) and 🗂 Systems (the CMS, docket, medical records, e-filing, calendar and trust ledger). Each day\'s tools open with that day."]')
+    '["Case File","John Doe v. Robert Smith — the working case. Read it first."],["📁 Case Documents","Every record, bill, lien letter and pleading — with its CMS upload category."],["🧪 Practice","The Case Flow\'s Skill Activities, a page per day: each with its tool, its expected output and the documents it works from. Each day\'s tools open with that day."]')
 rep('["🔥 Live Roleplay","Voice calls with realistic clients and crises."],', '')
 _i = s.index('{k:"Client", h:"Meet your client: Elias Thorne", body:`')
 _j = s.index('</div>`},', _i) + len('</div>`},')
-CLIENT_SLIDE = ('{k:"Client", h:"Meet the case: John Doe v. Apex Delivery Services", body:`\n'
+CLIENT_SLIDE = ('{k:"Client", h:"Meet the case: John Doe v. Robert Smith", body:`\n'
   '      <div class="or-client">\n        <div class="or-avatar">JD</div>\n'
-  '        <div><p class="or-lead" style="margin-top:0">A Valentine\'s Day T-bone by an Apex commercial F-150 that ran a red light — extrication, facial scarring, a lumbar herniation and surgery. Every lesson, Skill Builder and CMS exercise works this one file (Day 5 adds Jordan Davies).</p>\n'
+  '        <div><p class="or-lead" style="margin-top:0">John Doe, a front-seat passenger, was hurt on 02/06/2026 when Robert Smith rolled through a stop sign and struck the car he rode in: a C5-C6 disc herniation, a 14-day gap before treatment, and $40,000 of BI and UM coverage to work. Every lesson, Skill Activity and CMS exercise works this one file.</p>\n'
   '        <ul class="or-list"><li>Read the <b>Case File</b> before Day 1, then open the documents in <b>📁 Case Documents</b>.</li><li>The documents contain real-world inconsistencies — catching them is the job.</li><li>Treat everything as confidential, like a real client file.</li></ul></div>\n'
   '      </div>`},')
 s = s[:_i] + CLIENT_SLIDE + s[_j:]
 rep('Pass all <b>10 Knowledge Checks</b> (70%+)', 'Pass all <b>${DAYS.length} Knowledge Checks</b> (70%+)')
-rep('${step(2,"📇","Client Profile","Read about Elias Thorne.")}', '${step(2,"📂","Case File","Read the John Doe v. Apex file.")}')
+rep('${step(2,"📇","Client Profile","Read about Elias Thorne.")}', '${step(2,"📂","Case File","Read the John Doe v. Robert Smith file.")}')
 rep('{k:"Practice", h:"Practice Labs: how grading works", body:`', '{k:"Practice", h:"Skill Builders: how grading works", body:`')
 s = re.sub(r'Executive Assistant/ Personal Assistant Professional Development Wo[^<]*', 'Case Management Professional Development Workshop', s, count=1)
 rep("Unlock your full potential as a Strategic Go-To Person to your Attorney. Minimize cognitive load, streamline execution, and act as a true force multiplier.",
     "Run a personal-injury file from intake to disbursement: verify every document, keep treatment on the map, audit before demand, negotiate the net, and stay trial-ready.")
-rep("Running client case: Elias Thorne, Managing Owner & CEO of Thorne & Partners Law Group.", "Running case: John Doe v. Apex Delivery Services (commercial T-bone, facial scarring, L4-L5 microdiscectomy).")
-rep('"a 2-sentence discussion case involving Elias Thorne"', '"a 2-sentence discussion case from the John Doe v. Apex file"')
+rep("Running client case: Elias Thorne, Managing Owner & CEO of Thorne & Partners Law Group.", "Running case: John Doe v. Robert Smith (a passenger injury: C5-C6 herniation, the 14-Day Treatment Gap, a $40,000 BI + Host UM + Relative UM stack).")
+rep('"a 2-sentence discussion case involving Elias Thorne"', '"a 2-sentence discussion case from the John Doe v. Robert Smith file"')
 
 # ---------- 8c. "Practice Lab" → "Skill Builders" in user-facing text ----------
 s = s.replace("Practice Labs", "Skill Builders").replace("Practice Lab", "Skill Builders")
 
 # ---------- 8d. the AI-reviewed writing buttons read "Review" ----------
-# Every button that sends written work to the AI reviewer says "Review" (js/cm-practice.js,
-# js/cm-skillbuilders.js and labPolish in js/cm-updates.js do it for the labs). The Notes page is
+# Every button that sends written work to the AI reviewer says "Review" (js/cm-skillbuilders.js and
+# labPolish in js/cm-updates.js do it for the labs). The Notes page is
 # drawn here, and said "✨ Get Review" before the review and "✨ Get Feedback" after it.
 rep('''id="aiBtn_${n.id}">✨ Get Review</button>''', '''id="aiBtn_${n.id}">Review</button>''')
 # (EA/PA now resets it to "✨ Get Review"; either way it reads "Review" here.)
@@ -244,20 +244,15 @@ s = re.sub(r'<script src="/js/eapa-deck-art\.js[^"]*"></script>\n?', "", s)
 # One hook — eapa-updates.js — becomes the CM run, in load order.
 s = re.sub(r'<script src="/js/eapa-updates\.js\?v=[^"]*"></script>', '<script src="/js/eapa-updates.js?v=z"></script>', s, count=1)
 rep('<script src="/js/eapa-updates.js?v=z"></script>', tags(
-    "presenter-notes.js?v=2",
-    *[f"slide-scripts/day{i}.js?v=3" for i in range(1, 6)],
-    "cm-updates.js?v=22",
-    "cm-decks-data.js?v=2",            # the decks' page data
-    "cm-decks.js?v=3",                 # lessons are the decks' own pages (no process questions)
-    "cm-documents.js?v=1",
-    "cm-skillbuilders.js?v=22",
-    "cm-lab.js?v=2",
-    "cm-mindset.js?v=2",
-    "cm-practice.js?v=7",
+    "cm-updates.js?v=23",
+    "cm-documents.js?v=2",
+    "cm-skillbuilders.js?v=cm-2026.10.16-cfonly",
     "cm-lor-data.js?v=1", "cm-hipaa-data.js?v=1", "cm-medprov-data.js?v=1",   # Drafting Tools' data
     "cm-lor.js?v=2", "cm-hipaa.js?v=1", "cm-medprov.js?v=1", "cm-drafting.js?v=1",
-    "daily-activities.js?v=2"))
+    "daily-activities.js?v=3"))
 rep('<script src="/js/attendance.js?v=2"></script>', '<script src="/js/attendance.js?v=3"></script>')
+# the Trainer blueprint's content is this course's own (js/blueprint-content.js): its version, not EA/PA's
+s = re.sub(r'<script src="/js/blueprint-content\.js\?v=[^"]*"></script>', '<script src="/js/blueprint-content.js?v=5"></script>', s, count=1)
 
 # graded-calls moves down beside the dashboard band; lsh-dashboard and show-password are CM-only.
 # EA/PA's Orientation script is EA/PA's own; this course has none (every blueprint is on the Main Portal).
@@ -268,7 +263,7 @@ rep('<script src="/js/lsh-card-frame.js?v=3"></script>', tags(
     # The 5-Day Case Management Flow (John Doe v. Robert Smith): after graded-calls.js, because its
     # dashboard wrapper must run on the finished page, and after cm-skillbuilders.js, whose
     # renderLessonCard it wraps.
-    "cm-case-flow-docs.js?v=4", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=10", "cm-case-flow-sim.js?v=5", "cm-case-flow-data.js?v=14", "cm-case-dates.js?v=1", "cm-case-flow.js?v=37",
+    "cm-case-flow-docs.js?v=4", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=11", "cm-case-flow-sim.js?v=5", "cm-case-flow-data.js?v=15", "cm-case-dates.js?v=1", "cm-case-flow.js?v=38",
     "show-password.js?v=1", "lsh-card-frame.js?v=3"))
 
 # Training tools open signed in (js/lsh-tool-links.js, the same file in every LSH course repo: CMS
@@ -293,7 +288,7 @@ rep('  state.roleplayHistory = [];\n  state.assignedRoleplay = null;', '  state.
 rep('  await storeSet("roleplayHistory", []);\n  await storeSet("day10-window", null);', '  await storeSet("roleplayHistory", []);\n  await storeSet("cms-log", {});\n  await storeSet("lab-subs", {});\n  await storeSet("day10-window", null);')
 # Live Roleplay: Quick Practice drew from EA topic ids (empty pool in CM → crash)
 rep('const QUICK_PRACTICE_TOPIC_IDS = ["inboxtriage","boardgatekeeping","investorupdate","calendarcollision","vendornegotiation","domesticstaff","traveldisruption","coldobjections","bantqualifying"];',
-    'const QUICK_PRACTICE_TOPIC_IDS = ["transportwall","treatmentdebt","deponerves","firstcall","umconsent","lopreduction","recordsdelay","mediationsched","extension"];')
+    'const QUICK_PRACTICE_TOPIC_IDS = ["cf-d1m3-a1","cf-d2m3-a1","cf-d2m2-a2","cf-d3m1-a1","cf-d3m2-a1","cf-d4m1-a1","cf-d4m3-a2","cf-d5m3-a1","cf-d5m4-a2"];')   # the Case Flow's calls (build/cm_roleplay.js)
 rep("trainee Executive/Personal Assistant's performance in a short, casual practice call", "trainee personal-injury Case Manager's performance in a short, casual practice call")
 rep("You are roleplaying as the caller/contact in a live, unscripted training call for an Executive/Personal Assistant.", "You are roleplaying as the caller/contact in a live, unscripted training call for a personal-injury Case Manager.")
 rep("that would realistically drop on an Executive/Personal Assistant's desk in quick succession", "that would realistically drop on a personal-injury Case Manager's desk in quick succession")
@@ -311,13 +306,12 @@ for bad in ["of 10</b>", "done===10", "{length:10}", "Finished all 10 days", "Da
     if bad in s:
         sys.exit(f"LEFTOVER: {bad!r} — ten-day copy survived; the edit for it no longer matches")
 # Every script the CM course needs must be in the page; a missing one loses its feature silently.
-for need in ["cm-updates.js", "cm-decks.js", "cm-decks-data.js", "cm-documents.js", "cm-skillbuilders.js",
-             "cm-lab.js", "cm-mindset.js", "cm-practice.js", "presenter-notes.js", "daily-activities.js",
+for need in ["cm-updates.js", "cm-documents.js", "cm-skillbuilders.js",
+             "daily-activities.js",
              "lsh-dashboard.js", "lsh-one-screen.js", "lsh-tool-links.js", "lsh-topbar.js",
              "graded-calls.js", "show-password.js", "attendance.js", "portal-link.js", "portal-gate.js",
              "cm-lor-data.js", "cm-hipaa-data.js", "cm-medprov-data.js",
-             "cm-lor.js", "cm-hipaa.js", "cm-medprov.js", "cm-drafting.js", "cm-case-flow-docs.js", "cm-case-flow-art.js", "cm-case-flow-slides.js", "cm-case-flow-sim.js", "cm-case-flow-data.js", "cm-case-dates.js", "cm-case-flow.js", "cm-cms-case.js", "cm-doc-filing.js",
-             *[f"slide-scripts/day{i}.js" for i in range(1, 6)]]:
+             "cm-lor.js", "cm-hipaa.js", "cm-medprov.js", "cm-drafting.js", "cm-case-flow-docs.js", "cm-case-flow-art.js", "cm-case-flow-slides.js", "cm-case-flow-sim.js", "cm-case-flow-data.js", "cm-case-dates.js", "cm-case-flow.js", "cm-cms-case.js", "cm-doc-filing.js"]:
     if f'src="/js/{need}' not in s:
         sys.exit(f"MISSING SCRIPT: /js/{need} is not loaded by the built page")
 # and none of EA/PA's own day files should be
@@ -325,8 +319,10 @@ if "/js/days/day" in s:
     sys.exit("LEFTOVER: the page still loads EA/PA's js/days/dayN files")
 if "EA_DAY_FILES" in s:
     sys.exit("LEFTOVER: the page still references window.EA_DAY_FILES")
-if s.count("const DAYS = [DAY1, DAY2, DAY3, DAY4, DAY5];") != 1:
-    sys.exit("the five CM days were not inlined exactly once")
+if s.count("const DAYS = [];   // the course's days are the Case Flow's") != 1:
+    sys.exit("DAYS is not the empty list js/cm-case-flow.js fills")
+if re.search(r"const DAY\d+ = \{", s):
+    sys.exit("LEFTOVER: a day object is inlined; the course's days are the Case Flow's")
 
 open(OUT, "w", encoding="utf8").write(s)
 left = {w: len(re.findall(w, s)) for w in ["Elias", "Thorne", "EA/PA", "EA / PA", "10-Day", "Executive Assistant"]}

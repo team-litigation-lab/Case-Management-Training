@@ -9,10 +9,10 @@
                                                            (build/case-flow/curriculum.cjs)
    Spec: curriculum/5-day-flow/00-architecture.md
 
-   A separate training file from "John Doe v. Apex Delivery Services" (Days 1–5),
-   which stays exactly as it is. The theory here is extracted from that course's
-   lessons (build/day1.js–day5.js) and re-aligned onto this case; `sources` on
-   every block names where each one came from ("D1#18" = Day 1, topic 18).
+   The whole course. Its theory was extracted from the earlier course's lessons (John Doe
+   v. Apex, now removed; its text is kept only as build/day1.js–day5.js, never served) and
+   re-aligned onto this case; `sources` on every block names where each one came from
+   ("D1#18" = Day 1, topic 18).
 
    Text is plain: the course's renderers escape what they draw.
 
@@ -811,10 +811,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "List the three coverage layers on John Doe v. Robert Smith in the order they must be pursued, with each layer's limit and the total available.",
             "John Doe was a front-seat passenger. Explain how that single fact changes the available recovery, and what it would have been had he been driving his own car.",
-            "Why must the Host UM layer not be demanded before the BI layer is exhausted or tendered? State the consequence of getting the order wrong.",
-            "Set out the Payer Order for John Doe's Medical Bills, and explain why it is a different question from the Recovery Stack.",
-            "Name the three parts of the Regulatory Triple-Check and what each requires on this file, including what you verify for the BCRC.",
-            "You discover an unregistered health lien on the morning the Demand Package is due to be served. Describe what you do, in what order, and whose authority you need."
+            "Why must the Host UM layer not be demanded before the BI layer is exhausted or tendered? State the consequence of getting the order wrong."
           ],
           summary: [
             "Summarize, in your own words, what you learned opening John Doe's file: the principles, not the clicks.",
@@ -1121,11 +1118,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "Set out all six steps of the No Contact Protocol in order, with the required action at each step.",
             "State the three purposes the protocol serves, and explain which of them protects the firm rather than the client.",
-            "A colleague logs three voicemails to the client's mobile on three days and reports the contact ladder exhausted. Explain what is wrong and what the log should show instead.",
-            "State the three criteria that must all be met before skip-tracing starts, and explain why starting on fewer is a problem for both the firm and the record.",
-            "John Doe has been unreachable for eleven days and his treatment has not begun. Identify every risk now building on this file and what you do about each.",
-            "At Step 5 the client is still unresponsive. State precisely what you may do and what only Atty. Thorne may do.",
-            "Rewrite this sentence to bring it inside the UPL boundary: “If you don't call us back this week, you will lose your case and we will have to withdraw.”"
+            "A colleague logs three voicemails to the client's mobile on three days and reports the contact ladder exhausted. Explain what is wrong and what the log should show instead."
           ],
           summary: [
             "Summarize what you learned about the firm's duty to a client who has gone silent, and what the record has to show.",
@@ -1438,12 +1431,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "List the firm's standing instructions for a new personal injury client and, for each, the specific harm it prevents.",
             "Before John Doe collects a rental, what must be confirmed, and whose policy is usually primary? What happens to days outside the authorization?",
-            "Explain what actual cash value means, what it does not mean, and why confusing it with the loan balance misleads the client.",
-            "Robert Smith's carrier calls John Doe directly and asks for a Recorded Statement. Set out exactly what you instruct him to do, and what you log.",
-            "Identify everything John Doe may be owed on the Property Damage side beyond the repair or ACV payment, and what must be documented for each.",
-            "A direction was delivered to the client but never assigned as a tracked task. Explain why that is a failure and what it costs on this file.",
-            "What does the Case Manager own on John Doe's file, and what does Atty. Thorne own? Give two examples of each.",
-            "Opening the matter in the CMS, which errors did you find in the draft record and the intake sheet, and which documents proved them?"
+            "Explain what actual cash value means, what it does not mean, and why confusing it with the loan balance misleads the client."
           ],
           summary: [
             "Summarize what you learned about protecting a claim in its first two weeks, and whose job that protection is.",
@@ -1757,11 +1745,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "Set out the five bands of the Case Plan and what belongs in each, including the three pillars.",
             "Explain why an adverse fact buried in the body of a plan has not, in any meaningful sense, been disclosed to counsel.",
-            "State John Doe's coverage position exactly as it should appear in the plan: layers, limits, total, order of operations, and the status of the projection.",
-            "Compute John Doe's Treatment Gap from the record dates and explain how an adjuster will use it against the claim.",
-            "A plan was approved last week. Today the gap investigation produces a medical explanation that changes the picture. What is the status of that approval, and what do you do?",
-            "Draw the line: give one thing the plan may properly state, and one that must come from Atty. Thorne instead.",
-            "All four Day 1 gate conditions must be met before Day 2 begins. List them, and explain what breaks if treatment work starts with the stack unverified."
+            "State John Doe's coverage position exactly as it should appear in the plan: layers, limits, total, order of operations, and the status of the projection."
           ],
           summary: [
             "Summarize what you learned about turning a raw intake into a file an attorney can set strategy from.",
@@ -2211,13 +2195,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "Name every coverage on John Doe's file, whose it is and what it pays. Which three are the $40,000 Recovery Stack, and why do the others stay out of it?",
             "State the Payer-First Principle and apply it to Summit Imaging's 03/11/2026 LOP request. What would an LOP there have cost John Doe, and why?",
-            "List the five letters that left John Doe's file on 02/17/2026. For each, give the insured it named and how it was addressed.",
-            "Why did Cardinal State's LOR go to “Attn: Claims Department”, and what had to change in the CMS after 03/03/2026?",
-            "What must Keystone's LOR request, and which client details must it leave out? Explain why Harbor Point's letter can say more.",
-            "On 03/11/2026, which layers were confirmed in writing and which were still preliminary? Name the document and date behind each confirmation.",
-            "Explain why MedPay ($5,000) and Keystone's PD coverage ($25,000) sit in the Coverage Matrix but never in the $40,000 stack.",
-            "On 03/11/2026 Dana Whitfield offers to “talk limits” if you explain why John Doe waited until 02/20/2026 to treat. What do you say, what do you log, and who do you tell?",
-            "Harbor Point confirmed its UM is add-on. What would the matrix show for Host UM if it were reduced by the BI payment, and why is the form verified, not assumed?"
+            "List the five letters that left John Doe's file on 02/17/2026. For each, give the insured it named and how it was addressed."
           ],
           summary: [
             "Summarize, in your own words, what you learned setting up and verifying John Doe's coverage: the principles, not the clicks.",
@@ -2641,13 +2619,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "Read Peach State's 06/03/2026 EOB (claim PS-2605-449021) line by line: what does each amount mean, and where does each one go on John Doe's file?",
             "Crescent's 07/01/2026 statement asks John Doe for $1,540.00. What does the EOB show, what do you do, and what do you tell him?",
-            "Riverton Spine & Rehab got an LOP on 02/23/2026; Summit Imaging's 03/11/2026 request was declined. Explain both decisions from the Payer Order, and what you may and may not tell either provider.",
-            "Post the MedPay ledger in date order and show the visit on which $5,000.00 runs out. What happens to the next bill once MedPay is exhausted?",
-            "Place John Doe on the Standard Treatment Map on 04/08/2026 and on 06/12/2026, and name the Case Manager's focus in each phase.",
-            "Rewrite “help John Doe get through his shifts” as a SMART goal (e.g., a full 8-hour Northgate shift without right-arm numbness by a set date), then name the objective measures that would show his care is reasonable and necessary.",
-            "Keystone will point to John Doe's 2021 chiropractic visits. State his pre-morbid baseline, what documents it and the change since the crash, and which part of the argument is Atty. Thorne's.",
-            "04/21/2026, two hours before John Doe's first evening visit, Riverton's office manager says they won't see him unless you confirm in writing their full bill will be paid. What do you do, in what order?",
-            "As John Doe moves to pain management, name two medication or behavioral-health red flags you would watch for, and who hears about each."
+            "Riverton Spine & Rehab got an LOP on 02/23/2026; Summit Imaging's 03/11/2026 request was declined. Explain both decisions from the Payer Order, and what you may and may not tell either provider."
           ],
           summary: [
             "Summarize, in your own words, what you learned about keeping John Doe's treatment moving and paid for: the principles, not the clicks.",
@@ -3018,11 +2990,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "Name the four reasons for John Doe's 14-day gap and, beside each, the document that corroborates it, with its date.",
             "Rewrite “Was it because you had no car?” so it could surface the same reason without suggesting it. Explain what the leading version costs the file.",
-            "On the recorded call John Doe asks, “Is this gap going to wreck my case?” Give your answer word for word, then say what you do with the question.",
-            "How does the 03/04/2026 call differ from a Recorded Statement Keystone wants from John Doe? Cover who it is with, consent, privilege, and what the firm does with each.",
-            "List five records that prove John Doe's care was continuous across the 14-day gap, and two things that must never be done to make the record stronger.",
-            "It is 06/22/2026 and the Gap Record is due to Atty. Thorne today. Riverton Spine & Rehab offers to “add a line” to its 04/21/2026 note explaining the missed visits. What do you do, in what order?",
-            "Why must the record cover the 19-day disruption as well? Give its dates, the missed visits, its reasons and the document for each."
+            "On the recorded call John Doe asks, “Is this gap going to wreck my case?” Give your answer word for word, then say what you do with the question."
           ],
           summary: [
             "Summarize, in your own words, what you learned about investigating a client's treatment gap: the principles, not the clicks.",
@@ -3356,11 +3324,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "Total John Doe's Specials from the bills: show the Riverton Spine & Rehab correction, the medical total, the wage arithmetic and the final figure.",
             "Who determines MMI, when was John Doe's, and why must the demand wait for it? Where does the $3,400–$6,800 in future medical go?",
-            "Name the four objectives of the pre-demand audit, and give one finding each produced on this file.",
-            "Run the defense-eye audit: name four risks Keystone will raise on this file and the document that answers each.",
-            "Crescent billed $3,400.00 and Peach State paid $1,860.00. Explain billed vs paid, what you put in front of Atty. Thorne, and why the choice is his.",
-            "On the morning of 07/20/2026, assembling the package, you find the exhibit index still lists Riverton Spine & Rehab at $6,290.00. What do you do, in what order, and whose authority do you need?",
-            "Draw the line: give one recommendation you may make in the strategy session and one decision you must leave to Atty. Thorne, and say why."
+            "Name the four objectives of the pre-demand audit, and give one finding each produced on this file."
           ],
           summary: [
             "Summarize, in your own words, what you learned auditing John Doe's file before the demand: the principles, not the clicks.",
@@ -3716,11 +3680,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "State the terms of the BI demand to Keystone, how it was served, and the date its window closed. Show how you counted the deadline.",
             "Name the five elements that make a Time-Limited Demand one a carrier must answer, with this file's example of each. Who decides whether a refusal is bad faith?",
-            "Keystone calls John Doe's MRI degenerative and points to the 14-day gap. Which documents answer each point, and where in the package do they go?",
-            "08/25/2026: Harbor Point has consented, Cardinal State has not, and John Doe calls asking to sign Keystone's release today. What do you do and say, what does the consent protect, and what could Cardinal State do instead?",
-            "Explain why the stack reaches $40,000, what Host UM would pay under an offset form, and why Relative UM is demanded as excess.",
-            "The morning the BI demand goes out (07/20/2026), Dana Whitfield's email auto-replies that she is out until 08/03 and names no backup. What do you do, in what order, and whose authority do you need?",
-            "List the page-one exhibits of the Host UM demand on 08/31/2026, and what you do when Keystone's check arrives."
+            "Keystone calls John Doe's MRI degenerative and points to the 14-day gap. Which documents answer each point, and where in the package do they go?"
           ],
           summary: [
             "Summarize, in your own words, what you learned serving John Doe's demands: the principles that make a demand hold, not the clicks.",
@@ -4061,11 +4021,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "Keystone offered $3,500 on 08/05/2026. Run the math check: fee, costs, unreduced liens and John Doe's net. What does the result tell Atty. Thorne, and who tells John Doe?",
             "Dana Whitfield says the 14-Day Gap proves the crash didn't hurt John Doe and the MRI is degenerative. Answer both from the file, naming four documents and quoting the radiologist.",
-            "There is no PIP on this file. Explain what MedPay's $5,000, exhausted and non-subrogated, means for the valuation baseline, and what would change where PIP applies.",
-            "Harbor Point offered $8,000: “BI already compensated him.” Explain the offset rule, why it doesn't reduce this Host UM, and why Cardinal State's file must show damages above $30,000.",
-            "Name three stall tactics and your answer to each, and explain the “Never” rule on a Limits Demand.",
-            "Suppose Marcus Bell calls at 4:45 p.m. on 09/14: accept the $8,000 verbally now or it is withdrawn and he invokes arbitration. Atty. Thorne is on a flight until morning. What do you say, do and log?",
-            "Cardinal State tenders its $10,000 limits on 10/06/2026. List what you confirm before the call ends, what the same-day email says, and what must happen before the check is deposited."
+            "There is no PIP on this file. Explain what MedPay's $5,000, exhausted and non-subrogated, means for the valuation baseline, and what would change where PIP applies."
           ],
           summary: [
             "Summarize, in your own words, what you learned negotiating John Doe's file: the principles, not the clicks.",
@@ -4403,11 +4359,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "Classify each claim against John Doe's $40,000 (Peach State, Riverton Spine & Rehab, Harbor Point MedPay, Medicare/Medicaid, a prior attorney) as statutory, contractual or none, and rank the liens by reducibility.",
             "Peach State is a fully insured group plan. Explain why that matters to reducing its $1,860.00 claim, and who decides what follows from it.",
-            "Show the math that takes Peach State from $1,860.00 to $1,240.00, name the doctrine behind it, and explain how beating the 14-Day Gap defense with the MRI supports it.",
-            "Using the BI-only illustration, show how $6,179.92 would be shared between the two liens, and what John Doe would net.",
-            "Riverton Spine & Rehab billed $6,290.00. Walk through what you do before asking for any reduction, and the figure you negotiate from.",
-            "On the morning of disbursement a lawyer writes that John Doe consulted him first and claims “one-third of the recovery.” Your file says no prior attorney. What do you do, in what order, and whose authority do you need?",
-            "Riverton agrees to $4,580.00 on the phone. List everything that must happen before that figure is final and a check can issue."
+            "Show the math that takes Peach State from $1,860.00 to $1,240.00, name the doctrine behind it, and explain how beating the 14-Day Gap defense with the MRI supports it."
           ],
           summary: [
             "Summarize, in your own words, what you learned about reducing the liens on John Doe's file: the principles, not the clicks.",
@@ -4749,11 +4701,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "Take John Doe's $40,000.00 to his $20,359.92 net, stream by stream. What does each stream carry for fee, costs and liens, and why is the split 25% / 75%?",
             "Name the four document sets that must be in the file before it is archived, the item on John Doe's file that satisfies each, and how long the closed file is kept.",
-            "The Trust Ledger reads $0.00 after the 10/22/2026 disbursement. Which records prove it, and what would a balance left in trust tell you?",
-            "Write the closing memo's discrepancy note: offers of $3,500, $8,000 and $6,000 ended at $10,000, $20,000 and $10,000. What answered the 14-Day Gap?",
-            "No suit was filed on Track A. When would this file have needed a dismissal, of what kind, signed by whom, and what do you confirm after it is filed?",
-            "Suppose that after the closing memo, John Doe forwards a $1,540.00 bill from Crescent Pain & Spine and is angry. What do you check first, who is accountable, and what do you tell him today?",
-            "Suppose Keystone says its tender lapses unless the signed release is emailed within the hour, and the draft still releases “all other … insurers.” What do you do, in order?"
+            "The Trust Ledger reads $0.00 after the 10/22/2026 disbursement. Which records prove it, and what would a balance left in trust tell you?"
           ],
           summary: [
             "Summarize, in your own words, what you learned closing John Doe's file: the principles behind the Net Sheet, the release audit and the Trust Ledger, not the clicks.",
@@ -5117,11 +5065,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "Explain the fork: what is the same on Track B as on Day 3's Track A, what changes on 08/12/2026, and why a $10,000 carrier freezes all $40,000.",
             "List the impasse triggers on John Doe's file by 09/04/2026, each with its date and the proof that shows it.",
-            "Keystone calls $3,500 “final” on 08/12. Using the “Never” rule, say what the file does next, and what it never does without Atty. Thorne's authority.",
-            "Set out what changes at transition: status, court fields, fee tier, folders, calendar. Name the five sub-folders, and say where an incoming Request for Admission is filed.",
-            "Compare the mediator and the arbitrator this file will meet: background, how each is chosen, what each can decide, and how that changes the binder.",
-            "09/10/2026: John Doe calls. He asks whether he should “just take the $3,500” and whether going to court raises the fee. What do you say, what do you not say, and what goes to Atty. Thorne today?",
-            "Suppose an arbitrator's award came in short because a bill was missing from your binder. Can Atty. Thorne appeal it? Explain what that means for how you build the binder."
+            "Keystone calls $3,500 “final” on 08/12. Using the “Never” rule, say what the file does next, and what it never does without Atty. Thorne's authority."
           ],
           summary: [
             "Summarize, in your own words, what you learned about recognizing an impasse and moving a file into litigation: the principles, not the clicks.",
@@ -5481,11 +5425,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "Defendant's discovery to John Doe was served on his counsel, Atty. Thorne, by U.S. mail on 12/01/2026. Compute his response date step by step, and state what can happen to a Request for Admission left unanswered.",
             "The SOL is 02/06/2028. Give the internal hard date and the internal filing cutoff with the arithmetic, and explain why the firm never relies on a weekend roll-forward.",
-            "Explain forward versus backward counting off a weekend, using the 01/04/2027 discovery deadline and the brief for the 06/22/2027 arbitration hearing.",
-            "The arbitration is invoked on 04/05/2027. List the logistics you own before 06/22/2027 (windows, fee schedule, retainer, room or video layout), and say what you log from the bench and when.",
-            "Pressure scenario: mid-hearing, Laura Whitcomb, Esq. turns to you and asks why the Riverton Spine & Rehab bill shows 34 lines. Say exactly what you say and do, and what you log afterward.",
-            "Opposing counsel rejects all your mediation windows and offers “a quick video mediation next Tuesday.” The order requires mediation by 03/31/2027. What do you check, log and escalate?",
-            "Draw the line: name two things you do at the 06/22/2027 hearing and two you never do, and say who does them instead."
+            "Explain forward versus backward counting off a weekend, using the 01/04/2027 discovery deadline and the brief for the 06/22/2027 arbitration hearing."
           ],
           summary: [
             "Summarize what you learned about hard rules and the two forums on this file: the principles, not the clicks.",
@@ -5810,11 +5750,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "Name the six sections of John Doe's Mediation Binder in order, with one document from this file that belongs in each.",
             "What does the master index record for every exhibit, and why is the CMS index, not the printed binder, the one source of truth?",
-            "The 11/12/2026 answer pleads that John Doe was unbelted. Which section tells you that defense is in play, and which exhibits answer it?",
-            "Why does the Arbitration Binder lead with Keystone's $10,000 tender, and why must nothing from the Confidential Mediation Statement appear in it?",
-            "Explain what a business-records certification does for John Doe's Medical Records, and what a relaxed arbitration evidence rule does and does not change.",
-            "Crescent Pain & Spine billed $3,400.00 and Peach State paid $1,860.00. What does the attorney's-set Lien Sheet show, and which records prove it?",
-            "The evening before the 06/02/2027 exchange, you find Riverton Spine & Rehab's certified records stop at 04/02/2026: the 17 resumed visits are missing. What do you do, in what order, and who decides what is exchanged?"
+            "The 11/12/2026 answer pleads that John Doe was unbelted. Which section tells you that defense is in play, and which exhibits answer it?"
           ],
           summary: [
             "Summarize what you learned about building a binder an attorney can work from at speed: the principles, not the clicks.",
@@ -6140,11 +6076,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "Name the three bottleneck families and give this file's example of each, with the hard date it threatened.",
             "Walk Rule 1 on the Keystone record: each follow-up, the 48-Hour Mandate escalation and the hand-off to Atty. Thorne, with every date.",
-            "Keystone's representative must be able to pay the $10,000 limits at the 03/18/2027 mediation. If they arrive without that authority, what failed earlier, and what was your countermeasure?",
-            "Name the three arbitration landmines and the countermeasure for each before John Doe's 06/02/2027 exhibit exchange.",
-            "It is 03/09/2027, 48 hours before the binder is due to Hon. Carla Benton (Ret.), and Riverton's final ledger still hasn't arrived. What do you do, in what order, and what don't you do?",
-            "Lakeside Orthopedics hasn't answered your 05/05/2027 records request by 05/19/2027. Walk the ladder: who hears at each rung, on what date, and what the Notice of Delay says and never says.",
-            "On 05/24/2027 Teresa Okafor calls back, says the 14-Day Gap makes the claim worth less, and asks if John Doe would take less than limits. What do you say, do and log?"
+            "Keystone's representative must be able to pay the $10,000 limits at the 03/18/2027 mediation. If they arrive without that authority, what failed earlier, and what was your countermeasure?"
           ],
           summary: [
             "Summarize, in your own words, what you learned about seeing a bottleneck before it bites: the principles, not the clicks.",
@@ -6511,11 +6443,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "Defendant's discovery was mailed to John Doe on 12/01/2026. Compute the response date step by step, say how the count changes for a set e-served by consent, and why you confirm the court's rule.",
             "Atty. Mercer's Answer pleads three defenses. Name each one, and the evidence already on John Doe's file you would pull for Atty. Thorne against it.",
-            "Where in the litigation file do the affidavit of service, the 12/01/2026 RFAs and the Scheduling Order go, under what names, and what happens to the order's dates?",
-            "Define three litigation KPIs as formulas with targets, and give this file's reading for one of them, with its source.",
-            "Run the three review lenses (coverage, treatment, liability) over the file as it stands on 01/20/2027. Name one litigation task under each, and whose decision it feeds.",
-            "At 4:45 p.m. on 01/12/2027 Atty. Mercer's office asks for two more weeks on Smith's responses: “just note it, we'll paper it later.” What do you do, in what order, on whose authority?",
-            "On 01/15/2027 John Doe tells you a Keystone investigator called him at home yesterday “to confirm a few facts” and he answered. What do you do, in what order, and on whose authority?"
+            "Where in the litigation file do the affidavit of service, the 12/01/2026 RFAs and the Scheduling Order go, under what names, and what happens to the order's dates?"
           ],
           summary: [
             "Summarize, in your own words, what you learned about supporting John Doe's lawsuit: the principles, not the clicks.",
@@ -6857,11 +6785,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "Show whether John Doe's Civic is a total loss: the final repair, the ACV, Keystone's threshold and the percentage, with the arithmetic.",
             "Allocate the 78 days from 02/06 to 04/24/2026. Which are claimed as Loss of Use, at what rate and for how much, and why are the rental days excluded?",
-            "Name the three types of damages, place the Civic's repair, Loss of Use and Diminished Value among them, and say what conduct a punitive claim requires.",
-            "Rebuild Keystone's $792.00, and give three reasons the 17c formula understates John Doe's Diminished Value.",
-            "State the lesser-of rule, and use it with the make-whole principle to show the repair plus diminished-value claim does not over-compensate John Doe.",
-            "Pressure: Atty. Grant Mercer's office asks to inspect the Civic and says Keystone will close the PD claim at $792.00 if John Doe agrees by 5 p.m. today. What do you do, in what order, on whose authority?",
-            "How does the PD record (the supplement and the rental dates) help Atty. Thorne meet the causation attack on the 14-Day Gap at John Doe's deposition, and where does your role stop?"
+            "Name the three types of damages, place the Civic's repair, Loss of Use and Diminished Value among them, and say what conduct a punitive claim requires."
           ],
           summary: [
             "Summarize, in your own words, what you learned about valuing and disputing Property Damage on John Doe's file: the principles, not the clicks.",
@@ -7213,11 +7137,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "List the landmines the pre-deposition audit must surface on John Doe's file before 02/04/2027, with the record that documents each.",
             "Set out the day-before checklist for 02/17/2027: who you confirm with, what you confirm, the exhibit set and the backup contact.",
-            "Name the four categories of defense questions. Which do clients most often underreport, and where does that risk sit on this file?",
-            "State the seven golden rules for testifying with the reason behind each, and explain what the two-second pause does on a video deposition.",
-            "On 02/17/2027 John asks you: “Can I just tell them I had no ride, so they drop the two weeks?” Give your exact reply and say what you do next.",
-            "At 9:50 a.m. on 02/18/2027 John hasn't joined the video and his new number goes to voicemail. What do you do, in what order, and whose decision is a late start?",
-            "Atty. Thorne says “Objection, form” mid-answer. What must John do, what usually happens next, and why is talking over an objection worse on video?"
+            "Name the four categories of defense questions. Which do clients most often underreport, and where does that risk sit on this file?"
           ],
           summary: [
             "Summarize, in your own words, what you learned about preparing a client to testify: the principles, not the clicks.",
@@ -7556,11 +7476,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "List John Doe's Recovery Stack in its order of operations, with each limit and the total, and name three coverages on this file that are not part of it. Then state the Payer Order for his Medical Bills.",
             "When did the window on the 07/20/2026 BI Time-Limited Demand close, and why that date? On Track A, what had to come from Harbor Point and Cardinal State before the BI release was signed?",
-            "Track A nets John Doe $20,359.92 from $40,000.00. Name every deduction with its figure, and explain how costs and liens split between the BI and UM streams.",
-            "Why did Keystone's stonewall freeze the $40,000 stack, and which is binding: the 03/18/2027 mediation or the Whitcomb arbitration? Compute the internal SOL cutoff and the brief's docket date, and name the bottleneck it can't recover.",
-            "The 11/12/2026 Answer pleads two comparative-fault allegations and failure to mitigate. Match each to the file evidence that answers it, and name the question on each that only Atty. Thorne can answer.",
-            "John is unreachable 01/22–02/03/2027; his deposition is 02/18/2027. Which Day 1 No Contact steps apply, and which calls are Atty. Thorne's? Reached, he asks how to explain the 14-Day Gap. What do you do, and which records explain it?",
-            "The Civic dispute stands at $2,016.00 Loss of Use and $3,600.00 vs $792.00 Diminished Value. Give your routed recommendation, and say what you may and may not tell Leah Moran."
+            "Track A nets John Doe $20,359.92 from $40,000.00. Name every deduction with its figure, and explain how costs and liens split between the BI and UM streams."
           ],
           summary: [
             "Summarize what you learned across all five days of John Doe's file: the principles that carried from intake to deposition, not the clicks.",
@@ -7614,7 +7530,7 @@ window.CM_CASE_FLOW = {
       blocks: [
         {"kind": "lesson", "id": "d5m5-l1", "title": "Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund", "topic": "Same $40,000.00, a different net: what suit cost the client, line by line", "visual": "Two tall ledger cards side by side on cream: TRACK A (navy header) and TRACK B (orange header), with the same five rows (Gross, Fee, Costs, Liens, Net). Both gross rows read $40,000.00; on Track B the fee, costs and liens rows are highlighted in orange; the net rows read $20,359.92 and $14,713.75 in large mono type. Between the cards, a slim arrow labelled SUIT FILED 09/24/2026 · 40% TIER. At the foot, a red chip: “No Payoff Letter, no payment.”", "tell": {"why": "Keystone's stonewall turned a $40,000.00 settlement into a lawsuit, a mediation and an arbitration. The 07/06/2027 award brings in the same $40,000.00 gross as Track A, yet John Doe nets $14,713.75, not $20,359.92. The Net Sheet shows him exactly why, line by line, before he signs.", "rules": ["The award ends the case, not the work. Laura Whitcomb's 07/06/2027 award finds John Doe's damages exceed the UM limits and awards Harbor Point's $20,000.00 and Cardinal State's $10,000.00; with Keystone's $10,000.00 BI tendered at the 03/18/2027 mediation, the gross is $40,000.00.", "The fee follows the retainer, not the outcome. Suit was filed 09/24/2026, so the 40% tier applies: $16,000.00. Atty. Thorne confirms the fee on each stream from the retainer before the Net Sheet is drafted.", "Litigation costs need the same receipts as pre-suit costs: filing fee and summons $218.00, Allied Process Services $285.00, mediation (Hon. Carla Benton, plaintiff's half) $1,200.00, arbitration (plaintiff's share of Laura Whitcomb's fee) $900.00, Riverton Court Reporting $645.50 and certified records for the binder $160.00, plus the pre-suit $486.75: $3,895.25.", "A litigated fund still pays only what is owed. The liens are Peach State's $1,860.00 and Riverton Spine & Rehab's audited $6,105.00; MedPay, Crescent's write-off and the MedPay-paid providers stay at zero.", "Reduce against the fund the litigation built. Peach State's procurement-cost reduction follows the fee actually charged: 40% of $1,860.00 is $744.00, accepted at $1,116.00 on 07/14/2027. Riverton Spine & Rehab accepts $4,275.00 in a signed Payoff Letter dated 07/16/2027.", "Net: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75. Nothing leaves trust until both UM checks have cleared, every Payoff Letter is in Documents and John Doe has signed the Settlement Statement."], "upl": ["You build and explain the arithmetic and the documents. Whether suing was worth it, whether the fee tier was fair and whether John should sign are Atty. Thorne's to discuss with him."]}, "show": {"caption": "Same gross, two nets: what the litigation cost John Doe", "type": "compare", "boxes": [{"head": "TRACK A — settled before suit (10/22/2026)", "items": ["Gross $40,000.00", "Fee 33⅓%: $13,333.33", "Costs: $486.75", "Liens: $1,240.00 + $4,580.00 = $5,820.00", "Net to John Doe: $20,359.92"]}, {"head": "TRACK B — won at arbitration (07/30/2027)", "items": ["Gross $40,000.00", "Fee 40% (suit filed 09/24/2026): $16,000.00", "Costs: $3,895.25", "Liens: $1,116.00 + $4,275.00 = $5,391.00", "Net to John Doe: $14,713.75"]}]}, "ops": [["Award received (07/06/2027)", "Log it and diary each carrier's payment", "CMS → Litigation · CMS → Calendar", "Harbor Point $20,000.00 · Cardinal State $10,000.00"], ["The fund is known", "Send the Reduction Requests for Atty. Thorne's approval", "LSH Net Sheet · CMS → Liens", "Peach State $1,116.00 · Riverton Spine & Rehab $4,275.00"], ["Last UM check cleared", "Complete the Net Sheet and route the Settlement Statement", "LSH Net Sheet · CMS → Tasks → Escalate", "Net $14,713.75, routed before John Doe signs"]], "best": ["Show John the fee tier from his own retainer: 40% once suit was filed.", "Attach a receipt to every litigation cost before it reaches the Net Sheet.", "Reduce liens against the litigated fund at the fee actually charged.", "Pitfall: carrying Track A's 33⅓% fee or its $1,240.00 reduction into the litigated file.", "Pitfall: disbursing Keystone's check, held in trust since 03/29/2027, before the liens are resolved."], "sources": ["D3#21", "D3#23", "D3#24", "D3#25", "D3#27", "Newly authored: the Track B close-out (the 07/06/2027 award and the litigated Net Sheet)"], "rubric": {"ai": [["Fee tier", 15, "The 40% tier applied once suit was filed: $16,000.00"], ["Litigation costs", 15, "Seven receipted items = $3,895.25, each with its source"], ["Lien reductions", 15, "Peach State at the 40% rate to $1,116.00; Riverton Spine & Rehab $4,275.00 with its Payoff Letter"], ["Net", 15, "$14,713.75, reconciled to the trust deposits"]], "trainer": [["Client explanation", 20, "Explains the difference from a pre-suit settlement as plain arithmetic, without opinion"], ["UPL boundary", 20, "Leaves the worth of the lawsuit and the fee's fairness to Atty. Thorne"]]}, "notes": ["Open with the two nets side by side and ask the room what changed. Not the gross: the fee tier, the costs and the lien math.", "Ask: “Peach State's reduction was $620.00 on Track A. Why $744.00 now?” The reduction follows the fee actually charged.", "Stop anyone who reaches for an opinion on whether the lawsuit was worth it. That is Atty. Thorne's conversation with John."]},
         {"kind": "activity", "id": "d5m5-a1", "title": "The Litigation Net Sheet: Disbursing the Award", "topic": "Skill Activity — take the award to $14,713.75 on the LSH Net Sheet", "visual": "The LSH Net Sheet fills the slide in its four navy-headed sections. Section 1 reads Gross $40,000.00 with three carrier chips (Keystone, Harbor Point, Cardinal State); Section 2 shows Attorney Fees at 40% = $16,000.00 with an orange SUIT FILED tag and seven receipt rows totalling $3,895.25; Section 3 lists the providers with Peach State reduced to $1,116.00 and Riverton Spine & Rehab to $4,275.00, the zero-balance rows greyed with NOT PAYABLE chips; Section 4 ends on a large orange NET CLIENT DISBURSEMENT $14,713.75.", "act": {"scenario": "File date 07/22/2027. Laura Whitcomb's 07/06/2027 award gave Harbor Point's $20,000.00 and Cardinal State's $10,000.00; their checks arrived 07/20 and today, joining Keystone's $10,000.00 held in trust since 03/29/2027: $40,000.00. Peach State accepted $1,116.00 (07/14) and Riverton Spine & Rehab $4,275.00 (07/16), both in writing. Every litigation cost is receipted.", "prompt": "Complete John Doe's LSH Net Sheet for the litigated recovery. Section 1: the gross by carrier. Section 2: the 40% fee the retainer sets once suit is filed, and every receipted cost, pre-suit and litigation, on its row. Section 3: every provider and payer with charges, payments, adjustments and balance owed, and each lien's reduced figure with its Payoff Letter. Section 4: the net to John Doe. Tie it to the Trust Ledger and route the Settlement Statement to Atty. Thorne. Graded judgment: what you explain to John about the difference from a pre-suit settlement, and what you leave to Atty. Thorne.", "tool": "LSH Net Sheet · CMS → Financial Ledger → Trust · CMS → Tasks → Escalate", "output": "A Net Sheet reaching $14,713.75, every cost and lien proved, routed to Atty. Thorne before John Doe signs.", "checkpoints": ["Gross: Keystone $10,000.00 (mediation, 03/18/2027) + Harbor Point $20,000.00 + Cardinal State $10,000.00 (award, 07/06/2027) = $40,000.00", "Fee at the 40% tier (suit filed 09/24/2026): $16,000.00, confirmed by Atty. Thorne from the retainer", "Costs receipted: $486.75 pre-suit + $218.00 filing + $285.00 service + $1,200.00 mediation + $900.00 arbitration + $645.50 court reporter + $160.00 certified records = $3,895.25", "Liens: Peach State $1,860.00 → $1,116.00 (40% procurement-cost reduction, $744.00, 07/14/2027); Riverton Spine & Rehab $6,290.00 → audited $6,105.00 → $4,275.00 (Payoff Letter 07/16/2027); total $5,391.00", "Zero-balance lines kept off the payables with their source: MedPay $5,000.00, Crescent's $1,540.00 write-off, the MedPay-paid providers", "Net: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75; the trust deposits of $40,000.00 tie to the gross", "Nothing disbursed until both UM checks clear and John Doe signs the Settlement Statement (07/29/2027); disbursement 07/30/2027", "The difference from a pre-suit settlement explained to John Doe as arithmetic; whether suing was worth it routed to Atty. Thorne"]}, "ops": [["Last UM check received (07/22/2027)", "Post it and complete the Net Sheet", "LSH Net Sheet", "Gross $40,000.00 · net $14,713.75"], ["Liens accepted in writing", "Log the reduced figures and Payoff Letters", "LSH Net Sheet · CMS → Documents", "Peach State $1,116.00 · Riverton Spine & Rehab $4,275.00"], ["Net Sheet ties to trust", "Route the Settlement Statement", "CMS → Tasks → Escalate", "Routed before John Doe signs"]], "best": ["Enter every cost from its receipt, on its row.", "Write each reduction's basis on its line.", "Pitfall: carrying Track A's 33⅓% fee into the litigated file.", "Pitfall: paying a lien from a phone call instead of a Payoff Letter."], "sources": ["D3#21", "D3#25", "D3#27", "D3#28", "Newly authored: the Track B close-out"], "rubric": {"ai": [["Gross and fee", 15, "$40,000.00 by carrier; 40% = $16,000.00"], ["Costs", 15, "$3,895.25 from seven receipted items"], ["Liens", 15, "$1,116.00 and $4,275.00 with their Payoff Letters; zero-balance lines off the payables"], ["Net", 15, "$14,713.75, tied to the trust deposits"]], "trainer": [["Explaining the difference", 20, "Plain arithmetic to John Doe: fee tier, costs, liens"], ["UPL boundary", 20, "No opinion on the lawsuit's worth or the fee; routed to Atty. Thorne"]]}, "notes": ["Have each trainee open the Net Sheet beside the slide and check it at the Track B stage. The trap is the fee: 33⅓% from habit instead of 40%.", "Ask: “John says a friend kept more from his settlement. What do you say?” Only arithmetic, and a route to Atty. Thorne."]},
-        {"kind": "check", "id": "d5m5-kc", "title": "Track B Close-Out Check", "topic": "Knowledge Check + Case Manager Self-Summary & Skill Scale", "visual": "Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange; beside it, the two nets stacked as chips, TRACK A $20,359.92 and TRACK B $14,713.75. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, beside the 1–5 SKILL SCALE as a five-step horizontal ladder. Far right, the 60/40 split as a stacked bar, with UPL as a separate red gate chip below it.", "check": {"questions": ["Take the $40,000.00 award to John Doe's $14,713.75: name every deduction with its figure and its source.", "Why is the fee 40% on this file, and which document says so? Who confirms it before the Net Sheet is drafted?", "Peach State accepted $1,240.00 on Track A and $1,116.00 on Track B. Show both reductions and why they differ.", "List the litigation costs on the Net Sheet with each amount, and say what you need before any cost is charged.", "John asks why he nets $5,646.17 less than a settlement before suit would have paid. What do you say, and what do you route?"], "summary": ["Summarize, in your own words, what you learned closing Track B: the principles behind a litigated Net Sheet, not the clicks.", "Articulate your strategy: the award is in and both UM checks are in trust. What is your next action before the 07/30/2027 disbursement, and why is it the right one rather than something else?", "Identify the one thing in this module you are least confident about, and what you would need in order to be confident."], "scale": ["Applying the retainer's fee tier to a litigated recovery", "Proving litigation costs with receipts", "Reducing liens against a litigated fund", "Explaining a Net Sheet to a client without advice"]}, "best": ["Answer from the file: names, dates and figures, not general rules."], "sources": ["D3#23", "D3#24", "D3#27", "Newly authored: the Track B close-out"], "rubric": {"ai": [["Net Sheet arithmetic", 20, "$40,000.00 → $14,713.75 with every deduction and its source"], ["Fee and lien doctrine", 20, "The 40% tier from the retainer; reductions at the fee actually charged"], ["Completeness", 20, "Every question answered substantively"]], "trainer": [["Strategic articulation", 20, "The stated next action is the right one and the reasoning holds"], ["UPL boundary", 20, "No opinion on the worth of the suit, the fee or the award"]]}, "notes": ["This is the last check of the Case Flow: the file is closed from intake to award.", "Question 5 is the UPL gate: arithmetic yes, opinion no. A trainee who says the lawsuit was or wasn't worth it has crossed the line."]}
+        {"kind": "check", "id": "d5m5-kc", "title": "Track B Close-Out Check", "topic": "Knowledge Check + Case Manager Self-Summary & Skill Scale", "visual": "Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange; beside it, the two nets stacked as chips, TRACK A $20,359.92 and TRACK B $14,713.75. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, beside the 1–5 SKILL SCALE as a five-step horizontal ladder. Far right, the 60/40 split as a stacked bar, with UPL as a separate red gate chip below it.", "check": {"questions": ["Take the $40,000.00 award to John Doe's $14,713.75: name every deduction with its figure and its source.", "Why is the fee 40% on this file, and which document says so? Who confirms it before the Net Sheet is drafted?", "Peach State accepted $1,240.00 on Track A and $1,116.00 on Track B. Show both reductions and why they differ."], "summary": ["Summarize, in your own words, what you learned closing Track B: the principles behind a litigated Net Sheet, not the clicks.", "Articulate your strategy: the award is in and both UM checks are in trust. What is your next action before the 07/30/2027 disbursement, and why is it the right one rather than something else?", "Identify the one thing in this module you are least confident about, and what you would need in order to be confident."], "scale": ["Applying the retainer's fee tier to a litigated recovery", "Proving litigation costs with receipts", "Reducing liens against a litigated fund", "Explaining a Net Sheet to a client without advice"]}, "best": ["Answer from the file: names, dates and figures, not general rules."], "sources": ["D3#23", "D3#24", "D3#27", "Newly authored: the Track B close-out"], "rubric": {"ai": [["Net Sheet arithmetic", 20, "$40,000.00 → $14,713.75 with every deduction and its source"], ["Fee and lien doctrine", 20, "The 40% tier from the retainer; reductions at the fee actually charged"], ["Completeness", 20, "Every question answered substantively"]], "trainer": [["Strategic articulation", 20, "The stated next action is the right one and the reasoning holds"], ["UPL boundary", 20, "No opinion on the worth of the suit, the fee or the award"]]}, "notes": ["This is the last check of the Case Flow: the file is closed from intake to award.", "Question 5 is the UPL gate: arithmetic yes, opinion no. A trainee who says the lawsuit was or wasn't worth it has crossed the line."]}
       ]
     }
 
