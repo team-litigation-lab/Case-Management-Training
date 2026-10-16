@@ -1552,7 +1552,7 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfx-art svg{width:100%;max-width:420px;height:auto;max-height:300px;}
 .cfx-art.small svg{max-width:260px;max-height:200px;}
 @keyframes cfxIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
-.cfx .cf-strip{margin-top:22px;}
+.cfx .cf-strip{margin-top:22px;}.cfx-lesson .cf-strip{justify-content:center;}
 .cfx-split{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;}
 .cfx-points{list-style:none;counter-reset:cfx;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;}
 .cfx-points li{counter-increment:cfx;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;font:500 24px/1.4 var(--font-ui);color:var(--ink);animation:cfxIn .3s ease-out both;}
@@ -1563,6 +1563,13 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfx-qs li{font-size:23px;}
 .cfx-upl{margin-top:20px;display:flex;gap:14px;align-items:center;background:#FFF4F2;border:1.5px solid #F2C4BC;border-radius:14px;padding:12px 18px;font:500 20px/1.4 var(--font-ui);}
 .cfx-upl b{white-space:nowrap;color:#A33A2A;font-size:15px;letter-spacing:.04em;text-transform:uppercase;}
+/* lesson slides sit in the middle of their sheet, not against its left edge: the Why It Matters hook, the Rules list
+   with its picture as one centred group, the UPL line, and each Do / Don't heading over its (centred) list */
+.cfx-lesson .cfx-hero-text{text-align:center;}
+.cfx-lesson .cfx-split{grid-template-columns:auto auto;justify-content:center;column-gap:36px;}
+.cfx-lesson .cfx-upl{justify-content:center;text-align:center;}
+.cfx-lesson .cfx-dd > div{display:flex;flex-direction:column;align-items:center;}
+.cfx-lesson .cfx-dd h3{text-align:center;}
 .cfx-model{font-size:18px;}
 .cfx-model .cfx-caption{font:600 20px var(--font-ui);color:var(--navy-soft);margin:0 0 12px;}
 .cfx-model table{font-size:17px;}
@@ -1640,7 +1647,7 @@ main > .cf-side-presenter{display:none;}
 .cfx-logo{height:48px;width:auto;flex:0 0 auto;}
 .cfx-deck-title{margin:0 !important;font:800 33px/1.1 'Poppins','Inter',sans-serif !important;color:#fff !important;letter-spacing:.005em;
   text-shadow:-2px -2px 0 #DB8437,2px -2px 0 #DB8437,-2px 2px 0 #DB8437,2px 2px 0 #DB8437,0 -2px 0 #DB8437,0 2px 0 #DB8437,-2px 0 0 #DB8437,2px 0 0 #DB8437,0 4px 0 rgba(0,0,0,.18);}
-.cfx-ribbon{margin:0 0 10px -28px;max-width:calc(100% + 28px);}
+.cfx-ribbon{margin:0 0 10px;}
 .cfx-tools{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px;margin-left:auto;font-size:13px;color:#D6DBEA;}
 .cfx-tools + .cfx-full{margin-left:6px;}
 .cfx-tool{font:700 11.5px/1 'Inter',sans-serif;padding:5px 9px;border-radius:999px;border:1px solid #F4B77A;background:rgba(244,183,122,.14);color:#F4B77A;cursor:pointer;white-space:nowrap;}
@@ -1701,8 +1708,9 @@ main > .cf-side-presenter{display:none;}
 .cf-vm-tx summary{cursor:pointer;font-weight:700;color:#262B45;}
 #cf-return{position:fixed;left:16px;bottom:16px;z-index:60;font:700 13px 'Inter',sans-serif;padding:10px 16px;border:0;border-radius:999px;background:#262B45;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer;}
 #cf-return[hidden]{display:none;}
-.lesson-stage #lessonSlideWrap .cfx-ribbon{margin-left:-40px;max-width:calc(100% + 40px);}
-.cfx-ribbon span{display:inline-block;background:#5B6579;color:#fff;font:700 21px/1.25 'Poppins','Inter',sans-serif;padding:7px 54px 7px 40px;clip-path:polygon(0 0,calc(100% - 28px) 0,100% 50%,calc(100% - 28px) 100%,0 100%);}
+/* the sub-header: a full-width bar, the topic centred in capitals and quotes, on a lighter navy with an orange rule */
+.cfx-ribbon span{display:block;text-align:center;background:linear-gradient(90deg,#343C66 0%,#46508A 50%,#343C66 100%);border-bottom:3px solid #DB8437;border-radius:6px;color:#fff;font:800 20px/1.25 'Poppins','Inter',sans-serif;letter-spacing:.04em;text-transform:uppercase;padding:8px 24px;}
+.cfx-ribbon span::before{content:"“";color:#F4B77A;margin-right:2px;}.cfx-ribbon span::after{content:"”";color:#F4B77A;margin-left:2px;}
 .cfx-deck .cfx-top{margin:0 0 10px;}
 .cfx-deck .cfx-title.cfx-pill{display:inline-flex;align-items:center;gap:8px;margin:0 !important;background:#ECEEF3;color:#262B45 !important;border-radius:8px;padding:6px 16px;font:700 17px/1.2 'Poppins','Inter',sans-serif !important;letter-spacing:.06em;}
 .cfx-deck .cfx-vi{margin:0;}
@@ -1734,7 +1742,7 @@ main > .cf-side-presenter{display:none;}
 @media(max-width:760px){
   .cfx.cfx-deck{padding:14px 16px 18px !important;}
   .cfx-deck-head{gap:12px;}.cfx-logo{height:38px;}.cfx-deck-title{font-size:23px !important;}
-  .cfx-ribbon,.lesson-stage #lessonSlideWrap .cfx-ribbon{margin-left:0;max-width:100%;}.cfx-ribbon span{font-size:17px;padding:6px 34px 6px 14px;}
+  .cfx-ribbon span{font-size:16px;padding:6px 12px;}
   .cfx-deck .cfx-top{flex-wrap:wrap;gap:8px 10px;}.cfx-deck .cfx-title.cfx-pill{white-space:nowrap;font-size:15px !important;padding:5px 12px;}
   .cfx-deck .cfx-kicker{display:none;}.cfx-thumb:nth-child(n+3){display:none;}
   .cfx-docs-row{flex-wrap:wrap;}.cfx-thumb{flex-basis:44%;}
@@ -1798,7 +1806,7 @@ main > .cf-side-presenter{display:none;}
 @media(max-width:760px){
   .cfx{padding:16px 16px 18px !important;}
   .cfx-title{font-size:26px !important;}.cfx-of{display:block;font-size:15px;margin-top:4px;}.cfx-sep{display:none;}
-  .cfx-hero,.cfx-split,.cfx-task,.cfx-dd,.cfx-qs-2{grid-template-columns:minmax(0,1fr);}
+  .cfx-hero,.cfx-split,.cfx-lesson .cfx-split,.cfx-task,.cfx-dd,.cfx-qs-2{grid-template-columns:minmax(0,1fr);}
   .cfx-hook{font-size:24px;}.cfx-situation{font-size:19px;}
   .cfx-points li{font-size:19px;grid-template-columns:36px 1fr;}.cfx-points li::before{width:32px;height:32px;font-size:16px;}
   .cfx-flow{grid-template-columns:minmax(0,1fr);}.cfx-arrow{transform:rotate(90deg);justify-self:center;}
