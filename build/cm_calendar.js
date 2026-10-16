@@ -1,4 +1,18 @@
 const DAY_ORDER = ["Mon","Tue","Wed","Thu","Fri"];
+/* The lab's week is this working week (the coming one on a weekend), so every day shows its date:
+   calDayDate("Wed") → "Wed, Sep 30". */
+function calWeekMonday(){
+  const t = new Date(); t.setHours(0,0,0,0);
+  const dow = t.getDay();
+  t.setDate(t.getDate() + (dow===0 ? 1 : dow===6 ? 2 : 1-dow));
+  return t;
+}
+function calDayDate(day){
+  const i = DAY_ORDER.indexOf(day); if(i < 0) return day;
+  const d = calWeekMonday(); d.setDate(d.getDate()+i);
+  return `${day}, ${d.toLocaleDateString("en-US", {month:"short", day:"numeric"})}`;
+}
+window.calDayDate = calDayDate;
 const CAL_EVENTS = [
   {t:"Intake Verification Call — New Referral (Rivera)", day:"Mon", s:9, e:10, p:"High", loc:"Phone", type:"Intake"},
   {t:"Team Case Standup", day:"Mon", s:9.5, e:10.5, p:"Medium", loc:"Virtual", type:"Internal"},
@@ -23,7 +37,7 @@ const CAL_EVENTS = [
   {t:"Arbitrator Strike List Due — Okafor (AAA panel)", day:"Wed", s:13.5, e:14, p:"High", loc:"Email", type:"Arbitration"},
   {t:"Weekly Docket Check — all litigated files", day:"Wed", s:15, e:16, p:"Medium", loc:"Court portal", type:"Litigation"},
   {t:"Process Server Follow-up — Smith (5-day check)", day:"Wed", s:15.5, e:16, p:"Medium", loc:"Phone", type:"Litigation"},
-  {t:"Mediation — John Doe v. Apex (Zoom + breakout rooms)", day:"Thu", s:9, e:13, p:"High", loc:"Zoom", type:"Mediation"},
+  {t:"Mediation — John Doe v. Robert Smith (Zoom + breakout rooms)", day:"Thu", s:9, e:13, p:"High", loc:"Zoom", type:"Mediation"},
   {t:"Client Pre-Brief — John Doe (15 min before mediation)", day:"Thu", s:8.75, e:9, p:"High", loc:"Zoom", type:"Client"},
   {t:"Subpoena Compliance Call — Metro General Records", day:"Thu", s:10, e:10.5, p:"Medium", loc:"Phone", type:"Litigation"},
   {t:"New Referral Intake — Walk-in", day:"Thu", s:11, e:11.5, p:"Low", loc:"Office", type:"Intake"},

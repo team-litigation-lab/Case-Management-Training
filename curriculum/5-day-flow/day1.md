@@ -788,11 +788,6 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 1. List the firm's standing instructions for a new personal injury client and, for each, the specific harm it prevents.
 2. Before John Doe collects a rental, what must be confirmed, and whose policy is usually primary? What happens to days outside the authorization?
 3. Explain what actual cash value means, what it does not mean, and why confusing it with the loan balance misleads the client.
-4. Robert Smith's carrier calls John Doe directly and asks for a Recorded Statement. Set out exactly what you instruct him to do, and what you log.
-5. Identify everything John Doe may be owed on the Property Damage side beyond the repair or ACV payment, and what must be documented for each.
-6. A direction was delivered to the client but never assigned as a tracked task. Explain why that is a failure and what it costs on this file.
-7. What does the Case Manager own on John Doe's file, and what does Atty. Thorne own? Give two examples of each.
-8. Opening the matter in the CMS, which errors did you find in the draft record and the intake sheet, and which documents proved them?
 
 **Best practices & pitfalls**
 
@@ -1771,9 +1766,6 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 1. List the three coverage layers on John Doe v. Robert Smith in the order they must be pursued, with each layer's limit and the total available.
 2. John Doe was a front-seat passenger. Explain how that single fact changes the available recovery, and what it would have been had he been driving his own car.
 3. Why must the Host UM layer not be demanded before the BI layer is exhausted or tendered? State the consequence of getting the order wrong.
-4. Set out the Payer Order for John Doe's Medical Bills, and explain why it is a different question from the Recovery Stack.
-5. Name the three parts of the Regulatory Triple-Check and what each requires on this file, including what you verify for the BCRC.
-6. You discover an unregistered health lien on the morning the Demand Package is due to be served. Describe what you do, in what order, and whose authority you need.
 
 **Best practices & pitfalls**
 
@@ -1862,12 +1854,6 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 1. Name every coverage on John Doe's file, whose it is and what it pays. Which three are the $40,000 Recovery Stack, and why do the others stay out of it?
 2. State the Payer-First Principle and apply it to Summit Imaging's 03/11/2026 LOP request. What would an LOP there have cost John Doe, and why?
 3. List the five letters that left John Doe's file on 02/17/2026. For each, give the insured it named and how it was addressed.
-4. Why did Cardinal State's LOR go to “Attn: Claims Department”, and what had to change in the CMS after 03/03/2026?
-5. What must Keystone's LOR request, and which client details must it leave out? Explain why Harbor Point's letter can say more.
-6. On 03/11/2026, which layers were confirmed in writing and which were still preliminary? Name the document and date behind each confirmation.
-7. Explain why MedPay ($5,000) and Keystone's PD coverage ($25,000) sit in the Coverage Matrix but never in the $40,000 stack.
-8. On 03/11/2026 Dana Whitfield offers to “talk limits” if you explain why John Doe waited until 02/20/2026 to treat. What do you say, what do you log, and who do you tell?
-9. Harbor Point confirmed its UM is add-on. What would the matrix show for Host UM if it were reduced by the BI payment, and why is the form verified, not assumed?
 
 **Best practices & pitfalls**
 
@@ -1961,10 +1947,6 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 1. Set out the five bands of the Case Plan and what belongs in each, including the three pillars.
 2. Explain why an adverse fact buried in the body of a plan has not, in any meaningful sense, been disclosed to counsel.
 3. State John Doe's coverage position exactly as it should appear in the plan: layers, limits, total, order of operations, and the status of the projection.
-4. Compute John Doe's Treatment Gap from the record dates and explain how an adjuster will use it against the claim.
-5. A plan was approved last week. Today the gap investigation produces a medical explanation that changes the picture. What is the status of that approval, and what do you do?
-6. Draw the line: give one thing the plan may properly state, and one that must come from Atty. Thorne instead.
-7. All four Day 1 gate conditions must be met before Day 2 begins. List them, and explain what breaks if treatment work starts with the stack unverified.
 
 **Best practices & pitfalls**
 

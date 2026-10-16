@@ -42,8 +42,8 @@ const want = scripts(page), got = scripts(built);
 for (const f of want) if (!got.includes(f)) problems.push(`the built page doesn't load /js/${f}, which the committed page does`);
 for (const f of got) if (!want.includes(f)) problems.push(`the built page loads /js/${f}, which the committed page doesn't`);
 
-if (built.match(/const DAY(\d) = \{/g)?.length !== 5) problems.push(`expected the five CM days inlined, found ${built.match(/const DAY(\d) = \{/g)?.length ?? 0}`);
-if (!built.includes('const DAYS = [DAY1, DAY2, DAY3, DAY4, DAY5];')) problems.push('the five-day DAYS list is missing');
+if (built.match(/const DAY(\d+) = \{/g)) problems.push('a day object is inlined; the course\'s days are the Case Flow\'s (js/cm-case-flow.js)');
+if (!built.includes('const DAYS = [];')) problems.push('DAYS is not the empty list js/cm-case-flow.js fills');
 if (!built.includes('John Doe')) problems.push('the built page has no John Doe case content: the CM day data did not go in');
 
 // Within 15% of the committed page: a page far off that size is not this course.
@@ -55,4 +55,4 @@ if (problems.length) {
     problems.forEach((p, i) => console.error(`${i + 1}. ${p}`));
     process.exit(1);
 }
-console.log(`\nThe CM page still builds from the EA/PA portal: ${(built.length / 1e6).toFixed(2)} MB, the five CM days inlined, and the same ${got.length} scripts as the committed page.`);
+console.log(`\nThe CM page still builds from the EA/PA portal: ${(built.length / 1e6).toFixed(2)} MB, DAYS left to the Case Flow, and the same ${got.length} scripts as the committed page.`);

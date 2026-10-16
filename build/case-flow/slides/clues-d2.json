@@ -1,0 +1,121 @@
+{
+  "d2m1-cov": {
+    "dos": [
+      ["A carrier says Host UM is $20,000 on a quick call.", "The Coverage Matrix wants a source and a date behind that figure.", "Harbor Point's 03/02/2026 letter turns a phone figure into a confirmed layer."],
+      ["Crescent Pain & Spine bills Peach State Health Plan for an injection.", "A plan that began after the crash would pay nothing at all.", "Peach State began 02/01/2026, five days before the collision."],
+      ["Two lists sit side by side on John Doe's Insurance tab.", "One says who pays the bills first; the other totals $40,000.", "MedPay leads the Payer Order yet adds nothing to the BI and UM layers."]
+    ],
+    "donts": [
+      ["Summit Imaging asks the firm for a Letter of Protection.", "Harbor Point's $5,000 no-fault coverage still has room for the MRI.", "A bill Harbor Point could cover turns into a lien on John Doe's net."],
+      ["Someone totals every policy on the file to impress John Doe.", "Keystone PD's $25,000 and Harbor Point's $5,000 land in the claim total.", "The number he hears is more than BI and UM can pay."],
+      ["A new file arrives and coverage gets filled in from memory.", "No-fault wage benefits are presumed without a Declaration Page behind them.", "John Doe's Bluewater UM was rejected in writing on 03/14/2024."]
+    ]
+  },
+  "d2m1-l1": {
+    "dos": [
+      ["Keystone Mutual picks up on 02/16/2026 to open a file.", "Every later Attn line and subject line depends on this call.", "KM-26-440871 and Dana Whitfield, spelled exactly, go straight into the log."],
+      ["Harbor Point asks how the 02/06/2026 collision happened.", "Anything said now can be quoted back at the demand table.", "Date, time, place, type of collision and parties, and nothing more."],
+      ["An acknowledgement letter mentions a policy nobody has logged yet.", "It might be a fourth layer, or nothing at all.", "Lead Counsel decides whether it applies, not the Case Manager."]
+    ],
+    "donts": [
+      ["Cardinal State gets its notice letter on 02/17/2026.", "The BI tender from Keystone has not been documented yet.", "The letter asks Cardinal State to pay its $10,000 now."],
+      ["Keystone's letter goes out to Robert Smith's own carrier.", "Third-party adjusters work for the other side of the table.", "(555) 010-2288 and 2214 Maple Hollow Rd appear in that letter."],
+      ["Cardinal State has nobody assigned to CS-26-20355 on 02/17/2026.", "The Attn line needs something, and the letters go out today.", "A made-up person replaces Claims Department; Teresa Okafor arrives 03/03/2026."]
+    ]
+  },
+  "d2m1-l2": {
+    "dos": [
+      ["Keystone's adjuster mentions a $10,000 limit during the set-up call.", "Nothing in writing will follow until a formal request arrives.", "The figure goes in the Matrix at once, tagged as spoken, not confirmed."],
+      ["Keystone wants formal requests, proof of representation and supporting documents.", "Its BI limit stayed unconfirmed until 03/20/2026.", "Each ask goes out in writing, logged with its date and attachments."],
+      ["A Declaration Page arrives with its policy period printed on top.", "A policy that lapsed before the crash pays nothing.", "The effective dates are read against the date of loss."]
+    ],
+    "donts": [
+      ["The Recovery Stack total gets updated after a busy morning.", "Harbor Point's $5,000 and Keystone's $25,000 for the car are included.", "The $40,000 figure suddenly reads $70,000."],
+      ["A Police Report lists a carrier and a limit for Robert Smith.", "No Declaration Page or Coverage Letter sits behind it yet.", "The Matrix status flips to confirmed in writing anyway."],
+      ["A written request to Keystone has been out for a week.", "The calendar shows nothing coming up for that item.", "Nobody chases it, and it stays open forever."]
+    ]
+  },
+  "d2m2-l1": {
+    "dos": [
+      ["John Doe calls about a ride to Riverton Spine & Rehab.", "Visits, pain and what he can manage at work all come up.", "Each contact checks whether the treatment is actually helping him."],
+      ["John Doe worries about the envelopes piling up from providers.", "Cost worry left unanswered is how a client stops going.", "Summit goes to MedPay, Crescent to Peach State, Riverton under an LOP."],
+      ["Riverton's PT note and Dr. Reyes's note describe John Doe differently.", "The defense will read the mismatch as a hole in the medicals.", "Both offices hear about it the same day, before it spreads."]
+    ],
+    "donts": [
+      ["A provider asks for a Letter of Protection over the phone.", "Harbor Point's $5,000 and Peach State go unexamined.", "The LOP is issued simply because someone asked, and a lien grows."],
+      ["Riverton Spine & Rehab's billing office asks about its balance.", "LOP terms belong to Lead Counsel, and the firm guarantees nothing.", "The Case Manager promises the whole bill gets covered when the case resolves."],
+      ["A treatment check-in drifts into topics far from his care.", "Hours go to issues that block nothing about the treatment goal.", "The Case Manager adopts each new worry as a personal project."]
+    ]
+  },
+  "d2m2-eob": {
+    "dos": [
+      ["Peach State's EOB for claim PS-2605-449021 lands on the desk.", "It is stamped THIS IS NOT A BILL across the top.", "The final row, $0.00, is the most Crescent may bill John Doe."],
+      ["Crescent billed $3,400.00 and Peach State paid $1,860.00.", "The Specials need one number; the lien register needs the other.", "Both figures sit side by side in a single entry."],
+      ["John Doe calls about a $1,540.00 statement from Crescent.", "Counsel gets it the same day and a correction request is drafted.", "He hears the next steps and when he will hear back."]
+    ],
+    "donts": [
+      ["Peach State's reimbursement claim is entered in the lien register.", "The plan paid $1,860.00 on Crescent's injection.", "The register shows $3,400.00, Crescent's full charge, instead."],
+      ["Crescent's 07/01/2026 statement asks John Doe for $1,540.00.", "The EOB lists that sum as a CO-45 contractual adjustment.", "Someone tells John Doe he owes it and logs it as a lien."],
+      ["A new Lakeside Orthopedics bill is ready to go out.", "Harbor Point's five checks already total $5,000.00.", "It comes back with a notice of exhaustion, unpaid."]
+    ]
+  },
+  "d2m2-l2": {
+    "dos": [
+      ["Riverton's attendance log shows empty slots starting 04/03/2026.", "The defense reads absences as an injury not serious enough to treat.", "After the second no-show, the clinic hears about it from the Case Manager."],
+      ["A summary for counsel describes John Doe's hand and his herniation.", "One flipped word here damages credibility with every reader.", "Each mention of a side is checked: this file has only one."],
+      ["John Doe loses his transport and starts missing PT.", "The 14-Day Gap is still being reconstructed after the fact.", "This disruption goes in a GIRP note on its very first day."]
+    ],
+    "donts": [
+      ["Four visits are missed after transport disappears in April 2026.", "Evening slots and rides from Margaret Doe sit unused.", "The schedule stays exactly as written, crisis or not."],
+      ["A referral authorization stalls for reasons outside John Doe's control.", "His missed visits get labelled non-compliance in the notes.", "The GIRP note points at him instead of the process."],
+      ["A carrier is stalling on a request that blocks therapy.", "The office manager and a written carrier notice both get skipped.", "The ladder is climbed from the top rung down."]
+    ]
+  },
+  "d2m3-l1": {
+    "dos": [
+      ["The recorded call with John Doe about the 14-day gap begins.", "Broad questions come early; dates and names get pinned at the end.", "The opener sounds like: take me through the days after the crash."],
+      ["John Doe says he figured the pain would pass.", "The Case Manager repeats it back in his own words.", "He gets the chance to fix anything the summary got off."],
+      ["John Doe's rental ends on 03/19/2026.", "His 03/05/2026 consult with Dr. Reyes still needs a ride.", "Transport gets lined up now, so no new break in care appears."]
+    ],
+    "donts": [
+      ["The question plan for the gap call is being drafted.", "John Doe agrees easily, and the account stops being his.", "“Was it because you had no car?” goes on the list."],
+      ["John Doe asks whether the gap will sink his claim.", "Any answer about value belongs to Atty. Thorne alone.", "He hears that it won't matter, or that it will hurt."],
+      ["John Doe explains he expected the pain to pass on its own.", "The tone of the next question turns sharp and judging.", "He stops telling the whole story to the firm."]
+    ]
+  },
+  "d2m3-l2": {
+    "dos": [
+      ["The 14-Day Gap needs proof made at the time.", "The EMS report, Riverton Drug receipt and Northgate call-outs are on hand.", "Those get gathered first; a Causation Letter request comes later."],
+      ["The EMS report says John Doe declined transport on 02/06/2026.", "Every summary of a history gets compared with the original wording.", "Neck stiffness stays neck stiffness, word for word, in the timeline."],
+      ["The treatment timeline from 02/06 to 06/19 is being built.", "Unexplained breaks in care read to an adjuster as healed.", "The 14-day gap and the 19-day disruption both show, with dates."]
+    ],
+    "donts": [
+      ["A PT note and Dr. Reyes's findings disagree.", "A letter to the clinic asks it to clarify the note.", "The request spells out the exact wording the clinic is to use."],
+      ["The timeline for the demand is nearly finished.", "Fourteen days between 02/06 and 02/20/2026 look awkward on paper.", "They quietly vanish from the chart, in hopes Keystone misses them."]
+    ]
+  },
+  "d2m4-l1": {
+    "dos": [
+      ["MMI is recorded from Lakeside Orthopedics' 06/12/2026 note.", "Duplicate lines, prior history and each gap get hunted down.", "The defense's attacks are rehearsed in-house before Keystone sees anything."],
+      ["$16,401.40 in Specials sits against a $10,000 BI limit.", "Peach State's $1,860.00 and Riverton's LOP wait behind that limit.", "Each interest gets registered while the ask is still being built."],
+      ["Atty. Thorne picks a random line in the Specials ledger.", "He wants to check it in seconds, not hours.", "Each number carries the document and date it came from."]
+    ],
+    "donts": [
+      ["The demand package is ready and the clock is ticking.", "Riverton's duplicate $185.00 line from 05/04/2026 is still in it.", "It ships anyway, math unchecked, and Keystone finds the slip."],
+      ["Lakeside's MMI note mentions possible repeat injections.", "They could cost $3,400 to $6,800 down the road.", "That range gets folded into the audited $16,401.40 total."],
+      ["Settlement paperwork is signed and the file feels finished.", "John Doe's share of the money is being calculated.", "A payer's reimbursement claim surfaces only once the signatures are dry."]
+    ]
+  },
+  "d2m4-l2": {
+    "dos": [
+      ["The strategy brief for Atty. Thorne reaches its Risks section.", "The 14-Day Gap, the 2021 low-back visits and the declined transport.", "Counsel hears each weakness from the Case Manager first, not the adjuster."],
+      ["John Doe's account, the impact force and the C5-C6 herniation get compared.", "One piece out of line hands Keystone an easy out.", "Mismatches get caught in-house while there is still time to answer them."],
+      ["The demand is close, and the other side will go looking online.", "John Doe's posts are viewed, but none is touched.", "Any instruction about his accounts comes only from Atty. Thorne."]
+    ],
+    "donts": [
+      ["The summary memo for the strategy session is drafted.", "The bottom line hides somewhere below the chronology.", "It needs a stapler where one sheet was the limit."],
+      ["The exhibit index goes out with the memo.", "Atty. Thorne flips to the Causation Letter it lists.", "The listed location holds a different document entirely."],
+      ["The brief's force section covers Kevin Alvarez's Escape and the Civic.", "A $2,315.00 A-pillar supplement changed the Civic's repair figure.", "The brief still quotes $6,940.00 instead of $9,255.00."]
+    ]
+  }
+}

@@ -412,10 +412,6 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 1. Explain the fork: what is the same on Track B as on Day 3's Track A, what changes on 08/12/2026, and why a $10,000 carrier freezes all $40,000.
 2. List the impasse triggers on John Doe's file by 09/04/2026, each with its date and the proof that shows it.
 3. Keystone calls $3,500 “final” on 08/12. Using the “Never” rule, say what the file does next, and what it never does without Atty. Thorne's authority.
-4. Set out what changes at transition: status, court fields, fee tier, folders, calendar. Name the five sub-folders, and say where an incoming Request for Admission is filed.
-5. Compare the mediator and the arbitrator this file will meet: background, how each is chosen, what each can decide, and how that changes the binder.
-6. 09/10/2026: John Doe calls. He asks whether he should “just take the $3,500” and whether going to court raises the fee. What do you say, what do you not say, and what goes to Atty. Thorne today?
-7. Suppose an arbitrator's award came in short because a bill was missing from your binder. Can Atty. Thorne appeal it? Explain what that means for how you build the binder.
 
 **Best practices & pitfalls**
 
@@ -847,10 +843,6 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 1. Defendant's discovery to John Doe was served on his counsel, Atty. Thorne, by U.S. mail on 12/01/2026. Compute his response date step by step, and state what can happen to a Request for Admission left unanswered.
 2. The SOL is 02/06/2028. Give the internal hard date and the internal filing cutoff with the arithmetic, and explain why the firm never relies on a weekend roll-forward.
 3. Explain forward versus backward counting off a weekend, using the 01/04/2027 discovery deadline and the brief for the 06/22/2027 arbitration hearing.
-4. The arbitration is invoked on 04/05/2027. List the logistics you own before 06/22/2027 (windows, fee schedule, retainer, room or video layout), and say what you log from the bench and when.
-5. Pressure scenario: mid-hearing, Laura Whitcomb, Esq. turns to you and asks why the Riverton Spine & Rehab bill shows 34 lines. Say exactly what you say and do, and what you log afterward.
-6. Opposing counsel rejects all your mediation windows and offers “a quick video mediation next Tuesday.” The order requires mediation by 03/31/2027. What do you check, log and escalate?
-7. Draw the line: name two things you do at the 06/22/2027 hearing and two you never do, and say who does them instead.
 
 **Best practices & pitfalls**
 
@@ -1256,10 +1248,6 @@ The standard knowledge-check split: the question panel on the warm cream card wi
 1. Name the six sections of John Doe's Mediation Binder in order, with one document from this file that belongs in each.
 2. What does the master index record for every exhibit, and why is the CMS index, not the printed binder, the one source of truth?
 3. The 11/12/2026 answer pleads that John Doe was unbelted. Which section tells you that defense is in play, and which exhibits answer it?
-4. Why does the Arbitration Binder lead with Keystone's $10,000 tender, and why must nothing from the Confidential Mediation Statement appear in it?
-5. Explain what a business-records certification does for John Doe's Medical Records, and what a relaxed arbitration evidence rule does and does not change.
-6. Crescent Pain & Spine billed $3,400.00 and Peach State paid $1,860.00. What does the attorney's-set Lien Sheet show, and which records prove it?
-7. The evening before the 06/02/2027 exchange, you find Riverton Spine & Rehab's certified records stop at 04/02/2026: the 17 resumed visits are missing. What do you do, in what order, and who decides what is exchanged?
 
 **Best practices & pitfalls**
 
@@ -1666,10 +1654,6 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 1. Name the three bottleneck families and give this file's example of each, with the hard date it threatened.
 2. Walk Rule 1 on the Keystone record: each follow-up, the 48-Hour Mandate escalation and the hand-off to Atty. Thorne, with every date.
 3. Keystone's representative must be able to pay the $10,000 limits at the 03/18/2027 mediation. If they arrive without that authority, what failed earlier, and what was your countermeasure?
-4. Name the three arbitration landmines and the countermeasure for each before John Doe's 06/02/2027 exhibit exchange.
-5. It is 03/09/2027, 48 hours before the binder is due to Hon. Carla Benton (Ret.), and Riverton's final ledger still hasn't arrived. What do you do, in what order, and what don't you do?
-6. Lakeside Orthopedics hasn't answered your 05/05/2027 records request by 05/19/2027. Walk the ladder: who hears at each rung, on what date, and what the Notice of Delay says and never says.
-7. On 05/24/2027 Teresa Okafor calls back, says the 14-Day Gap makes the claim worth less, and asks if John Doe would take less than limits. What do you say, do and log?
 
 **Best practices & pitfalls**
 

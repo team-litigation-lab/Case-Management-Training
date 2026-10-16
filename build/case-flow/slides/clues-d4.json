@@ -1,0 +1,91 @@
+{
+  "d4m1-l1": {
+    "dos": [
+      ["A Keystone voicemail arrives while you juggle five other files.", "Weeks later, the impasse memo leans on exact dates, not recollection.", "The log entry carries the same date as the call itself."],
+      ["Keystone says its $3,500 offer is final, and gives no reason.", "Atty. Thorne needs a carrier position he can actually quote back.", "You ask Keystone to put its grounds and evidence on paper."],
+      ["Two follow-ups to Dana Whitfield, 08/24 and 08/31, sit unanswered.", "Before anyone calls impasse, one more rung above her gets tested.", "On 09/02 an email goes to the claims boss over Dana Whitfield."]
+    ],
+    "donts": [
+      ["Keystone has gone quiet since its final word on 08/12.", "Meanwhile $40,000 of coverage stays frozen behind a $10,000 carrier.", "The plan is to sit tight until October and hope Keystone calls."],
+      ["Keystone stalls on BI, and the UM layers look tempting.", "Harbor Point's $20,000 only opens once Keystone's $10,000 is paid or tendered.", "A limits demand goes out to Marcus Bell while Keystone still holds."],
+      ["John Doe calls, worried, asking what comes next with Keystone.", "What the stall means for his claim belongs to Atty. Thorne alone.", "You tell him a judge and a lawsuit are coming for sure."]
+    ]
+  },
+  "d4m1-l2": {
+    "dos": [
+      ["Atty. Thorne's dated authorization to sue lands on the file.", "Status, court fields, folders and the calendar all need changing.", "Every change gets made together, before you leave your desk."],
+      ["A deadline sits on the Litigation Calendar, colored and alerted.", "A grayscale exhibit or missed date can cost evidence or leverage.", "Forty-eight hours out, you check the exhibits and dates line by line."],
+      ["Two sessions loom: Hon. Carla Benton (Ret.) and Laura Whitcomb, Esq.", "One cares about valuation; the other weighs admissible evidence.", "Each binder is built for the person in that chair."]
+    ],
+    "donts": [
+      ["The scanner spits out a filed Complaint at the end of the day.", "Later, nobody searching 01_PLEADINGS can tell what the PDF is.", "The file keeps its scanner name: scan001.pdf."],
+      ["Two sessions are on the calendar: 03/18/2027 and 06/22/2027.", "One neutral can only facilitate; the other issues a binding award.", "Both get the identical prep, binder and expectations."],
+      ["Laura Whitcomb, Esq.'s award arrives with a math slip in it.", "Courts vacate or correct awards only on narrow grounds, quickly.", "Someone shrugs and says a higher court will fix it later."]
+    ]
+  },
+  "d4m2-l1": {
+    "dos": [
+      ["Robert Smith was served 10/14/2026, and an answer date is due.", "Weeks later a colleague needs to re-check how 11/13/2026 was reached.", "The entry shows the service date, the 30-day rule and the math."],
+      ["A court rule reads two ways, and the dates differ.", "An earlier date costs time; a later one can cost rights.", "You docket the earlier reading and flag it to Atty. Thorne."]
+    ],
+    "donts": [
+      ["Robert Smith was served on 10/14/2026, and the count begins.", "The answer date comes out one day earlier than 11/13/2026.", "The service date itself gets counted as day one."],
+      ["The arbitration brief is due 10 days ahead of the 06/22/2027 hearing.", "The count lands on 06/12/2027, a Saturday.", "The date gets pushed to the next business day after Sunday."],
+      ["John Doe's limitation date, 02/06/2028, falls on a Sunday.", "The firm's internal dates sit at 02/04/2028 and 11/05/2027.", "The calendar shows only the Sunday, counting on a grace day."]
+    ]
+  },
+  "d4m2-l2": {
+    "dos": [
+      ["Laura Whitcomb, Esq. reacts sharply to a doorbell still on 06/22/2027.", "Afterward, Atty. Thorne needs to know what landed and what did not.", "Your notes on testimony and reactions guide every next step he takes."],
+      ["The arbitrator's office sends a fee schedule and a retainer request.", "An unpaid retainer can push the 06/22/2027 session off the calendar.", "Accounting pays, and you get confirmation on paper ahead of the date."]
+    ],
+    "donts": [
+      ["The 06/22/2027 session with Laura Whitcomb, Esq. is days away.", "Her award binds, so exhibits get one shot at admissibility.", "The set you bring was built to persuade Hon. Carla Benton (Ret.)."],
+      ["Laura Whitcomb, Esq. turns and asks you about a medical bill.", "The Golden Rule keeps Case Managers off the record entirely.", "You explain the bill yourself instead of handing it to Atty. Thorne."],
+      ["From the bench comes a directive with a date attached.", "It belongs on the calendar and in a memo that same day.", "Tomorrow morning, you try to recall what she said exactly."]
+    ]
+  },
+  "d4m3-l1": {
+    "dos": [
+      ["The 03/18/2027 mediation is set, and the binder starts empty.", "Most of Sections 4 and 5 were already assembled last summer.", "You reopen what went to Keystone back in July, ahead of the stall."],
+      ["Counsel has minutes to answer the 14-Day Gap at mediation.", "The five-second rule applies to every page in the binder.", "Each bookmark lands on the exact line he plans to read aloud."]
+    ],
+    "donts": [
+      ["Everyone meets Hon. Carla Benton (Ret.) on 03/18/2027.", "Atty. Thorne hunts for proof and may concede a point.", "He gets a loose stack of papers at breakfast that day."],
+      ["Section 1 of the binder opens with the snapshot sheet.", "Hon. Carla Benton (Ret.) tries to reach the defense side's lawyer.", "The phone and email listed for Atty. Mercer are months old."],
+      ["The confidential statement for Hon. Carla Benton (Ret.) is drafted.", "It was due to her by 03/11/2027, a full week ahead.", "It reaches her inbox as everyone is already taking seats."]
+    ]
+  },
+  "d4m3-l2": {
+    "dos": [
+      ["The forum's rules let the arbitrator admit whatever seems relevant.", "Admitted is not the same as persuasive in a binding award.", "You prep every exhibit as if a full trial courtroom were waiting."],
+      ["On 04/05/2027 Harbor Point and Cardinal State take up the gap fight.", "Riverton Fire, Riverton PD and Northgate HR custodians are notoriously slow.", "Certification requests go out within days of 04/05/2027."]
+    ],
+    "donts": [
+      ["The doorbell video holds the clearest frame of the crash.", "QC on Tab 3 checks every still for color.", "The copy that reaches Laura Whitcomb, Esq. is shades of gray."],
+      ["The exchange set is assembled for the 06/02/2027 deadline.", "Tab 2 is meant to hold operative versions only.", "An old pleading version and a draft brief ride along."],
+      ["Materials from 03/18/2027 sit on the shelf beside the new tabs.", "Whatever Hon. Carla Benton (Ret.) saw is typically inadmissible later.", "Our brief to her lands in the set for Laura Whitcomb, Esq."]
+    ]
+  },
+  "d4m4-l1": {
+    "dos": [
+      ["Riverton Spine & Rehab's final ledger has not arrived yet.", "The binder is due to Hon. Carla Benton (Ret.) on 03/11/2027.", "You flag the holdup on 03/01/2027, ten days out, not 03/11."],
+      ["You call Dana Whitfield and reach voicemail again.", "Later, the impasse file has to prove the silence happened.", "Each call gets a matching email, dated and logged."]
+    ],
+    "donts": [
+      ["Keystone leaves 08/24 and 08/31 unanswered, then ignores 09/02.", "The log is what proves the silence to Atty. Thorne.", "The entry just shrugs that Dana Whitfield has a lot going on."],
+      ["Damage photos and doorbell stills are headed to a binding hearing.", "An illegible copy can be excluded or given little weight.", "The printer is set to black and white to save toner."]
+    ]
+  },
+  "d4m4-l2": {
+    "dos": [
+      ["Keystone's silence threatens UM and the 11/05/2027 cutoff at once.", "Atty. Thorne reads the report's first line and sets his urgency.", "The closest deadline on the calendar sits at the very top."],
+      ["The five-field report to Atty. Thorne is almost finished.", "Its last field is the ask, which he can act on in one read.", "It names a single choice he needs to make, and by when."]
+    ],
+    "donts": [
+      ["Dana Whitfield misses one follow-up on the cadence.", "Her supervisor has not yet received a Notice of Delay.", "Lead counsel gets the problem first, with both lower rungs untried."],
+      ["An email to Atty. Thorne reports that Keystone still is not responding.", "To act, he first digs up every follow-up himself.", "It closes with a two-word request for guidance and nothing else."],
+      ["The 06/02/2027 exhibit exchange arrives with one provider still outstanding.", "No extension from Atty. Thorne is on the docket.", "The set waits for the straggler, and 06/02/2027 slips past."]
+    ]
+  }
+}

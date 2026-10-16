@@ -431,10 +431,6 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 1. Defendant's discovery was mailed to John Doe on 12/01/2026. Compute the response date step by step, say how the count changes for a set e-served by consent, and why you confirm the court's rule.
 2. Atty. Mercer's Answer pleads three defenses. Name each one, and the evidence already on John Doe's file you would pull for Atty. Thorne against it.
 3. Where in the litigation file do the affidavit of service, the 12/01/2026 RFAs and the Scheduling Order go, under what names, and what happens to the order's dates?
-4. Define three litigation KPIs as formulas with targets, and give this file's reading for one of them, with its source.
-5. Run the three review lenses (coverage, treatment, liability) over the file as it stands on 01/20/2027. Name one litigation task under each, and whose decision it feeds.
-6. At 4:45 p.m. on 01/12/2027 Atty. Mercer's office asks for two more weeks on Smith's responses: “just note it, we'll paper it later.” What do you do, in what order, on whose authority?
-7. On 01/15/2027 John Doe tells you a Keystone investigator called him at home yesterday “to confirm a few facts” and he answered. What do you do, in what order, and on whose authority?
 
 **Best practices & pitfalls**
 
@@ -851,10 +847,6 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 1. Show whether John Doe's Civic is a total loss: the final repair, the ACV, Keystone's threshold and the percentage, with the arithmetic.
 2. Allocate the 78 days from 02/06 to 04/24/2026. Which are claimed as Loss of Use, at what rate and for how much, and why are the rental days excluded?
 3. Name the three types of damages, place the Civic's repair, Loss of Use and Diminished Value among them, and say what conduct a punitive claim requires.
-4. Rebuild Keystone's $792.00, and give three reasons the 17c formula understates John Doe's Diminished Value.
-5. State the lesser-of rule, and use it with the make-whole principle to show the repair plus diminished-value claim does not over-compensate John Doe.
-6. Pressure: Atty. Grant Mercer's office asks to inspect the Civic and says Keystone will close the PD claim at $792.00 if John Doe agrees by 5 p.m. today. What do you do, in what order, on whose authority?
-7. How does the PD record (the supplement and the rental dates) help Atty. Thorne meet the causation attack on the 14-Day Gap at John Doe's deposition, and where does your role stop?
 
 **Best practices & pitfalls**
 
@@ -1283,10 +1275,6 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 1. List the landmines the pre-deposition audit must surface on John Doe's file before 02/04/2027, with the record that documents each.
 2. Set out the day-before checklist for 02/17/2027: who you confirm with, what you confirm, the exhibit set and the backup contact.
 3. Name the four categories of defense questions. Which do clients most often underreport, and where does that risk sit on this file?
-4. State the seven golden rules for testifying with the reason behind each, and explain what the two-second pause does on a video deposition.
-5. On 02/17/2027 John asks you: “Can I just tell them I had no ride, so they drop the two weeks?” Give your exact reply and say what you do next.
-6. At 9:50 a.m. on 02/18/2027 John hasn't joined the video and his new number goes to voicemail. What do you do, in what order, and whose decision is a late start?
-7. Atty. Thorne says “Objection, form” mid-answer. What must John do, what usually happens next, and why is talking over an objection worse on video?
 
 **Best practices & pitfalls**
 
@@ -1693,10 +1681,6 @@ The standard knowledge-check split, extended for the final check. Above the crea
 1. List John Doe's Recovery Stack in its order of operations, with each limit and the total, and name three coverages on this file that are not part of it. Then state the Payer Order for his Medical Bills.
 2. When did the window on the 07/20/2026 BI Time-Limited Demand close, and why that date? On Track A, what had to come from Harbor Point and Cardinal State before the BI release was signed?
 3. Track A nets John Doe $20,359.92 from $40,000.00. Name every deduction with its figure, and explain how costs and liens split between the BI and UM streams.
-4. Why did Keystone's stonewall freeze the $40,000 stack, and which is binding: the 03/18/2027 mediation or the Whitcomb arbitration? Compute the internal SOL cutoff and the brief's docket date, and name the bottleneck it can't recover.
-5. The 11/12/2026 Answer pleads two comparative-fault allegations and failure to mitigate. Match each to the file evidence that answers it, and name the question on each that only Atty. Thorne can answer.
-6. John is unreachable 01/22–02/03/2027; his deposition is 02/18/2027. Which Day 1 No Contact steps apply, and which calls are Atty. Thorne's? Reached, he asks how to explain the 14-Day Gap. What do you do, and which records explain it?
-7. The Civic dispute stands at $2,016.00 Loss of Use and $3,600.00 vs $792.00 Diminished Value. Give your routed recommendation, and say what you may and may not tell Leah Moran.
 
 **Best practices & pitfalls**
 
@@ -1939,8 +1923,6 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 1. Take the $40,000.00 award to John Doe's $14,713.75: name every deduction with its figure and its source.
 2. Why is the fee 40% on this file, and which document says so? Who confirms it before the Net Sheet is drafted?
 3. Peach State accepted $1,240.00 on Track A and $1,116.00 on Track B. Show both reductions and why they differ.
-4. List the litigation costs on the Net Sheet with each amount, and say what you need before any cost is charged.
-5. John asks why he nets $5,646.17 less than a settlement before suit would have paid. What do you say, and what do you route?
 
 **Best practices & pitfalls**
 

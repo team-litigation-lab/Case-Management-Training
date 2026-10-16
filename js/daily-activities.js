@@ -14,7 +14,7 @@
    that voice.
 
    Shared storage keys (rules in worker.js):
-     activities:dayN          published activities for a day (everyone reads, admin writes)
+     activities:dayN          published activities for Case Flow Day N (everyone reads, admin writes)
      actfile:<id>             an attachment the trainer published (everyone reads, admin writes)
      actsub:<traineeId>       that trainee's answers + the trainer's feedback
      actup:<traineeId>:<act>  a file the trainee attached to an answer
@@ -29,9 +29,13 @@ if (typeof PERSONAL_KEYS !== "undefined" && !PERSONAL_KEYS.includes("activity-dr
   PERSONAL_KEY_SET.add("activity-drafts");
 }
 
-function daState(){ return state.da || (state.da = {byDay:{}, loadedAt:0, open:null, subs:null, adminDay:1, adminSub:"manage", edit:null}); }
+function daState(){ return state.da || (state.da = {byDay:{}, loadedAt:0, open:null, subs:null, adminDay:(DAYS[0] || {}).id, adminSub:"manage", edit:null}); }
 function daNewId(){ return "a" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
 function daDay(id){ return DAYS.find(d => d.id === id); }
+// The days are the Case Flow's (ids 11–15, "Case Flow Day 1–5"); a day's activities keep the key by its number
+// (activities:day1–5), so what a trainer published for Day N before is Case Flow Day N's
+function daNum(id){ const d = daDay(id); return d && d.cf ? d.cf.n : id; }
+function daLabel(id){ const d = daDay(id); return d && d.cf ? "Case Flow Day " + d.cf.n : "Day " + id; }
 function daActs(dayId){ return ((daState().byDay[dayId] || {}).items) || []; }
 function daFindAct(actId){ for(const d of DAYS){ const a = daActs(d.id).find(x => x.id === actId); if(a) return {act:a, dayId:d.id}; } return null; }
 function daFmtSize(n){ return n > 1048576 ? (n/1048576).toFixed(1) + " MB" : Math.max(1, Math.round(n/1024)) + " KB"; }
@@ -66,7 +70,7 @@ async function daLoad(force){
   s.loading = true;
   // Every day's activities (and a trainee's own submissions) in one request, not one per day.
   const mine = state.traineeId && !state.isAdmin ? "actsub:" + state.traineeId : "";
-  const got = await sharedGetMany(DAYS.map(d => "activities:day" + d.id).concat(mine ? [mine] : []));
+  const got = await sharedGetMany(DAYS.map(d => "activities:day" + daNum(d.id)).concat(mine ? [mine] : []));
   DAYS.forEach((d, i) => { s.byDay[d.id] = got[i] || {items:[]}; });
   if(mine) s.subs = got[DAYS.length] || {items:{}};
   s.loadedAt = Date.now(); s.loading = false;
@@ -97,7 +101,7 @@ function renderActivitiesPage(){
     ${days.length ? days.map(d => {
       const open = state.isAdmin || dayUnlocked(d.id);
       return `<div class="da-day">
-        <h3 class="da-day-h">Day ${d.id} · ${esc(d.title)} ${open ? "" : '<span class="pill pill-locked">🔒 Opens with Day ' + d.id + '</span>'}</h3>
+        <h3 class="da-day-h">${daLabel(d.id)} · ${esc(String(d.title).replace(/^Case Flow Day \d+ · /, ""))} ${open ? "" : '<span class="pill pill-locked">🔒 Opens with ' + daLabel(d.id) + '</span>'}</h3>
         <div class="da-grid">${daActs(d.id).map(a => { const st = daStatus(a.id); return `
           <button type="button" class="card da-card ${open ? "" : "locked"}" ${open ? `onclick="daOpen('${a.id}')"` : "disabled"}>
             <span class="da-card-t">${esc(a.title)}</span>
@@ -121,7 +125,7 @@ function renderActivityDetail(a, dayId){
   if(fb && !sub.readAt && state.traineeId && !state.isAdmin) setTimeout(() => daMarkRead(a.id), 400);
   return `
     <a class="back-link" onclick="daClose()">&larr; All activities</a>
-    <p class="eyebrow" style="margin-top:10px;">Day ${dayId} · Daily Activity</p>
+    <p class="eyebrow" style="margin-top:10px;">${daLabel(dayId)} · Daily Activity</p>
     <h1 style="color:var(--navy);font-size:25px;margin:6px 0 14px;">${esc(a.title)}</h1>
     ${fb ? daFeedbackCard(fb, "Feedback from your trainer") : ""}
     <div class="card da-body">${daFormat(a.instructions) || '<p style="color:var(--ink-soft)">No written instructions — see the attached file.</p>'}
@@ -210,19 +214,19 @@ function renderDaManage(){
   const s = daState(), dayId = s.adminDay, acts = daActs(dayId), e = s.edit;
   return `
     <p style="color:var(--ink-soft);font-size:13.5px;max-width:80ch;margin:0 0 12px;">Publish the activities for each day. Trainees see them under <b>📋 Activities</b> once that day unlocks. Type or paste the instructions and attach any files (worksheets, PDFs, templates). The notes on what a strong answer includes stay private — they guide your review and the AI draft.</p>
-    <div class="da-daychips">${DAYS.map(d => `<button class="${d.id === dayId ? "active" : ""}" onclick="daAdminDay(${d.id})">Day ${d.id}${daActs(d.id).length ? ` <b>${daActs(d.id).length}</b>` : ""}</button>`).join("")}</div>
+    <div class="da-daychips">${DAYS.map(d => `<button class="${d.id === dayId ? "active" : ""}" onclick="daAdminDay(${d.id})">${daLabel(d.id)}${daActs(d.id).length ? ` <b>${daActs(d.id).length}</b>` : ""}</button>`).join("")}</div>
     <div class="card" style="padding:16px 18px;margin-bottom:14px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;"><b style="color:var(--navy);">Day ${dayId} · ${esc(daDay(dayId).title)}</b>${e ? "" : `<button class="btn btn-primary btn-sm" onclick="daEdit(null)">+ New activity</button>`}</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;"><b style="color:var(--navy);">${daLabel(dayId)} · ${esc(String((daDay(dayId) || {}).title || "").replace(/^Case Flow Day \d+ · /, ""))}</b>${e ? "" : `<button class="btn btn-primary btn-sm" onclick="daEdit(null)">+ New activity</button>`}</div>
       ${acts.length ? `<div class="da-list">${acts.map((a, i) => `<div class="da-row"><span class="da-row-t">${i + 1}. ${esc(a.title)}</span><span class="da-row-m">${a.response && a.response.text !== false ? "✍" : ""}${a.response && a.response.file ? " 📎" : ""} ${(a.files || []).length ? `${a.files.length} file(s)` : ""}</span>
         <span class="da-row-b"><button class="btn btn-ghost btn-sm" ${i ? "" : "disabled"} onclick="daMove('${a.id}',-1)" title="Move up">↑</button><button class="btn btn-ghost btn-sm" ${i < acts.length - 1 ? "" : "disabled"} onclick="daMove('${a.id}',1)" title="Move down">↓</button><button class="btn btn-ghost btn-sm" onclick="daEdit('${a.id}')">Edit</button><button class="btn btn-ghost btn-sm" onclick="daDelete('${a.id}')">Delete</button></span></div>`).join("")}</div>`
-        : `<p style="color:var(--ink-soft);font-size:13.5px;margin:10px 0 0;">No activities for Day ${dayId} yet.</p>`}
+        : `<p style="color:var(--ink-soft);font-size:13.5px;margin:10px 0 0;">No activities for ${daLabel(dayId)} yet.</p>`}
     </div>
     ${e ? renderDaForm(e) : ""}`;
 }
 function renderDaForm(e){
   const s = daState();
   return `<div class="card da-form" id="daForm">
-    <h3 style="margin:0 0 10px;color:var(--navy);font-size:16px;">${e.id ? "Edit activity" : "New activity"} · Day ${s.adminDay}</h3>
+    <h3 style="margin:0 0 10px;color:var(--navy);font-size:16px;">${e.id ? "Edit activity" : "New activity"} · ${daLabel(s.adminDay)}</h3>
     <label>Title<input type="text" id="daf_title" value="${esc(e.title || "")}" placeholder="e.g. Draft Elias's Monday briefing email"></label>
     <label>Instructions <span>(what the trainee should do — paste from your document; **bold**, "- " bullets and links work)</span><textarea id="daf_instr" rows="10">${esc(e.instructions || "")}</textarea></label>
     <div class="da-form-row"><b>Trainee answers with</b>
@@ -251,7 +255,7 @@ function daKeepForm(){
 }
 function daRemoveFile(i){ daKeepForm(); daState().edit.files.splice(i, 1); render(); }
 async function daSaveDay(dayId, items){
-  const ok = await sharedSet("activities:day" + dayId, {items, updatedAt:new Date().toISOString()});
+  const ok = await sharedSet("activities:day" + daNum(dayId), {items, updatedAt:new Date().toISOString()});
   if(!ok) throw new Error("couldn't save to the server");
   daState().byDay[dayId] = {items};
 }
@@ -276,7 +280,7 @@ async function daSaveActivity(){
     await daSaveDay(dayId, items);
     s.rubrics = s.rubrics || {}; if(e.rubric.trim()) s.rubrics[act.id] = e.rubric.trim(); else delete s.rubrics[act.id];
     await sharedSet("actadmin:rubrics", s.rubrics);
-    s.edit = null; toast(i >= 0 ? "Activity updated." : `Published — trainees see it under 📋 Activities when Day ${dayId} opens.`); render();
+    s.edit = null; toast(i >= 0 ? "Activity updated." : `Published — trainees see it under 📋 Activities when ${daLabel(dayId)} opens.`); render();
   }catch(err){ showActionError(err, "Saving the activity"); if(btn){ btn.disabled = false; btn.textContent = "Publish activity"; } }
 }
 async function daDelete(id){
@@ -335,7 +339,7 @@ function renderDaReview(){
   return `
     <div class="da-review-bar">
       ${[["todo", "To review"], ["sent", "Sent"], ["all", "All"]].map(([k, l]) => `<button class="${f === k ? "active" : ""}" onclick="daReviewFilter('${k}')">${l}${k !== "all" ? ` (${count(k)})` : ""}</button>`).join("")}
-      <select onchange="daReviewDay(this.value)"><option value="0">All days</option>${DAYS.map(d => `<option value="${d.id}" ${fd === d.id ? "selected" : ""}>Day ${d.id}</option>`).join("")}</select>
+      <select onchange="daReviewDay(this.value)"><option value="0">All days</option>${DAYS.map(d => `<option value="${d.id}" ${fd === d.id ? "selected" : ""}>${daLabel(d.id)}</option>`).join("")}</select>
       <button class="btn btn-ghost btn-sm" onclick="daLoadReview()">↻ Refresh</button>
       ${count("new") ? `<button class="btn btn-navy btn-sm" id="daDraftAllBtn" onclick="daDraftAll()">✨ Draft feedback for all new (${count("new")})</button>` : ""}
     </div>
@@ -374,7 +378,7 @@ function daActivityPrompt(r){
   const f = daFindAct(r.aid), a = f ? f.act : {title:"", instructions:""}, rubric = (daState().rubrics || {})[r.aid] || "";
   return `You are the facilitator at Legal Support Help (LSH) reviewing one trainee's submission for a daily training activity. Write specific, honest, encouraging feedback based ONLY on what they submitted — never invent work they didn't do. If the answer is thin or off-task, say so kindly and clearly.
 
-ACTIVITY (Day ${f ? f.dayId : "?"}): ${a.title}
+ACTIVITY (${f ? daLabel(f.dayId) : "?"}): ${a.title}
 INSTRUCTIONS GIVEN TO THE TRAINEE:
 ${String(a.instructions || "(see attached file)").slice(0, 4000)}
 

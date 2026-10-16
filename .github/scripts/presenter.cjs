@@ -6,12 +6,12 @@
 //   - the slides window resized: laid out again, still without animation;
 //   - the slides window never reloads itself for an update.
 // Usage: node .github/scripts/presenter.cjs [baseUrl] [day]   (with .github/scripts/server.mjs running; needs `npm i playwright`;
-//        day: a day with a slide long enough to split into pages, default 1; CI uses Day 2, since the deck pages never split;
-//        slides are scaled to fit before they split, so the page test may shrink the slides window to make one split)
+//        day: the day's id, default the first; CI uses 12, Case Flow Day 2. Case Flow slides are scaled to fit one screen and
+//        never split, so the page test runs only on a day whose slides still do, and is reported as skipped otherwise)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');   // the name + batch form is gone: trainees arrive from the Portal
 const BASE = process.argv[2] || 'http://localhost:8787/';
-const DAY = Number(process.argv[3] || 1);
+const DAY = Number(process.argv[3] || 0);   // 0: the course's first day
 (async () => {
     const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
     const ctx = await browser.newContext({ viewport: { width: 1360, height: 900 } });
@@ -28,7 +28,7 @@ const DAY = Number(process.argv[3] || 1);
         await fetch('/api/storage/set', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key, value: JSON.stringify(rec) }) });
     });
     await page.reload({ waitUntil: 'load' }); await sleep(1500);
-    await page.evaluate((day) => { state.isAdmin = true; goto('day', day); state.dayViewMode = 'slides'; state.lessonSlide = 2; render(); }, DAY);
+    await page.evaluate((day) => { state.isAdmin = true; goto('day', day || DAYS[0].id); state.dayViewMode = 'slides'; state.lessonSlide = 2; render(); }, DAY);
     await sleep(400);
     const popup = ctx.waitForEvent('page');
     await page.evaluate(() => presenterStart());
@@ -73,7 +73,7 @@ const DAY = Number(process.argv[3] || 1);
     await findPaged();
     if (paged < 0) { await aud.setViewportSize({ width: 1280, height: 330 }); await sleep(800); await findPaged(); }
     await take();   // the jumps above drew the window; count from here
-    if (paged < 0) fail(`no slide in Day ${DAY} is long enough to split into pages, even in a short window (the page test was skipped)`);
+    if (paged < 0) console.log(`Day ${DAY}: no slide splits into pages (Case Flow slides fit one screen): the page test is skipped`);
     else {
         await page.evaluate(() => presenterStep(1)); await sleep(600);
         r = await take();

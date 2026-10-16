@@ -414,10 +414,6 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 1. State the terms of the BI demand to Keystone, how it was served, and the date its window closed. Show how you counted the deadline.
 2. Name the five elements that make a Time-Limited Demand one a carrier must answer, with this file's example of each. Who decides whether a refusal is bad faith?
 3. Keystone calls John Doe's MRI degenerative and points to the 14-day gap. Which documents answer each point, and where in the package do they go?
-4. 08/25/2026: Harbor Point has consented, Cardinal State has not, and John Doe calls asking to sign Keystone's release today. What do you do and say, what does the consent protect, and what could Cardinal State do instead?
-5. Explain why the stack reaches $40,000, what Host UM would pay under an offset form, and why Relative UM is demanded as excess.
-6. The morning the BI demand goes out (07/20/2026), Dana Whitfield's email auto-replies that she is out until 08/03 and names no backup. What do you do, in what order, and whose authority do you need?
-7. List the page-one exhibits of the Host UM demand on 08/31/2026, and what you do when Keystone's check arrives.
 
 **Best practices & pitfalls**
 
@@ -838,10 +834,6 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 1. Keystone offered $3,500 on 08/05/2026. Run the math check: fee, costs, unreduced liens and John Doe's net. What does the result tell Atty. Thorne, and who tells John Doe?
 2. Dana Whitfield says the 14-Day Gap proves the crash didn't hurt John Doe and the MRI is degenerative. Answer both from the file, naming four documents and quoting the radiologist.
 3. There is no PIP on this file. Explain what MedPay's $5,000, exhausted and non-subrogated, means for the valuation baseline, and what would change where PIP applies.
-4. Harbor Point offered $8,000: “BI already compensated him.” Explain the offset rule, why it doesn't reduce this Host UM, and why Cardinal State's file must show damages above $30,000.
-5. Name three stall tactics and your answer to each, and explain the “Never” rule on a Limits Demand.
-6. Suppose Marcus Bell calls at 4:45 p.m. on 09/14: accept the $8,000 verbally now or it is withdrawn and he invokes arbitration. Atty. Thorne is on a flight until morning. What do you say, do and log?
-7. Cardinal State tenders its $10,000 limits on 10/06/2026. List what you confirm before the call ends, what the same-day email says, and what must happen before the check is deposited.
 
 **Best practices & pitfalls**
 
@@ -1260,10 +1252,6 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 1. Classify each claim against John Doe's $40,000 (Peach State, Riverton Spine & Rehab, Harbor Point MedPay, Medicare/Medicaid, a prior attorney) as statutory, contractual or none, and rank the liens by reducibility.
 2. Peach State is a fully insured group plan. Explain why that matters to reducing its $1,860.00 claim, and who decides what follows from it.
 3. Show the math that takes Peach State from $1,860.00 to $1,240.00, name the doctrine behind it, and explain how beating the 14-Day Gap defense with the MRI supports it.
-4. Using the BI-only illustration, show how $6,179.92 would be shared between the two liens, and what John Doe would net.
-5. Riverton Spine & Rehab billed $6,290.00. Walk through what you do before asking for any reduction, and the figure you negotiate from.
-6. On the morning of disbursement a lawyer writes that John Doe consulted him first and claims “one-third of the recovery.” Your file says no prior attorney. What do you do, in what order, and whose authority do you need?
-7. Riverton agrees to $4,580.00 on the phone. List everything that must happen before that figure is final and a check can issue.
 
 **Best practices & pitfalls**
 
@@ -1677,10 +1665,6 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 1. Take John Doe's $40,000.00 to his $20,359.92 net, stream by stream. What does each stream carry for fee, costs and liens, and why is the split 25% / 75%?
 2. Name the four document sets that must be in the file before it is archived, the item on John Doe's file that satisfies each, and how long the closed file is kept.
 3. The Trust Ledger reads $0.00 after the 10/22/2026 disbursement. Which records prove it, and what would a balance left in trust tell you?
-4. Write the closing memo's discrepancy note: offers of $3,500, $8,000 and $6,000 ended at $10,000, $20,000 and $10,000. What answered the 14-Day Gap?
-5. No suit was filed on Track A. When would this file have needed a dismissal, of what kind, signed by whom, and what do you confirm after it is filed?
-6. Suppose that after the closing memo, John Doe forwards a $1,540.00 bill from Crescent Pain & Spine and is angry. What do you check first, who is accountable, and what do you tell him today?
-7. Suppose Keystone says its tender lapses unless the signed release is emailed within the hour, and the draft still releases “all other … insurers.” What do you do, in order?
 
 **Operational mapping**
 

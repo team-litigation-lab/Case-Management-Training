@@ -470,10 +470,6 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 1. Set out all six steps of the No Contact Protocol in order, with the required action at each step.
 2. State the three purposes the protocol serves, and explain which of them protects the firm rather than the client.
 3. A colleague logs three voicemails to the client's mobile on three days and reports the contact ladder exhausted. Explain what is wrong and what the log should show instead.
-4. State the three criteria that must all be met before skip-tracing starts, and explain why starting on fewer is a problem for both the firm and the record.
-5. John Doe has been unreachable for eleven days and his treatment has not begun. Identify every risk now building on this file and what you do about each.
-6. At Step 5 the client is still unresponsive. State precisely what you may do and what only Atty. Thorne may do.
-7. Rewrite this sentence to bring it inside the UPL boundary: “If you don't call us back this week, you will lose your case and we will have to withdraw.”
 
 **Best practices & pitfalls**
 
@@ -1241,12 +1237,6 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 1. Read Peach State's 06/03/2026 EOB (claim PS-2605-449021) line by line: what does each amount mean, and where does each one go on John Doe's file?
 2. Crescent's 07/01/2026 statement asks John Doe for $1,540.00. What does the EOB show, what do you do, and what do you tell him?
 3. Riverton Spine & Rehab got an LOP on 02/23/2026; Summit Imaging's 03/11/2026 request was declined. Explain both decisions from the Payer Order, and what you may and may not tell either provider.
-4. Post the MedPay ledger in date order and show the visit on which $5,000.00 runs out. What happens to the next bill once MedPay is exhausted?
-5. Place John Doe on the Standard Treatment Map on 04/08/2026 and on 06/12/2026, and name the Case Manager's focus in each phase.
-6. Rewrite “help John Doe get through his shifts” as a SMART goal (e.g., a full 8-hour Northgate shift without right-arm numbness by a set date), then name the objective measures that would show his care is reasonable and necessary.
-7. Keystone will point to John Doe's 2021 chiropractic visits. State his pre-morbid baseline, what documents it and the change since the crash, and which part of the argument is Atty. Thorne's.
-8. 04/21/2026, two hours before John Doe's first evening visit, Riverton's office manager says they won't see him unless you confirm in writing their full bill will be paid. What do you do, in what order?
-9. As John Doe moves to pain management, name two medication or behavioral-health red flags you would watch for, and who hears about each.
 
 **Best practices & pitfalls**
 
@@ -1340,10 +1330,6 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 1. Name the four reasons for John Doe's 14-day gap and, beside each, the document that corroborates it, with its date.
 2. Rewrite “Was it because you had no car?” so it could surface the same reason without suggesting it. Explain what the leading version costs the file.
 3. On the recorded call John Doe asks, “Is this gap going to wreck my case?” Give your answer word for word, then say what you do with the question.
-4. How does the 03/04/2026 call differ from a Recorded Statement Keystone wants from John Doe? Cover who it is with, consent, privilege, and what the firm does with each.
-5. List five records that prove John Doe's care was continuous across the 14-day gap, and two things that must never be done to make the record stronger.
-6. It is 06/22/2026 and the Gap Record is due to Atty. Thorne today. Riverton Spine & Rehab offers to “add a line” to its 04/21/2026 note explaining the missed visits. What do you do, in what order?
-7. Why must the record cover the 19-day disruption as well? Give its dates, the missed visits, its reasons and the document for each.
 
 **Best practices & pitfalls**
 
@@ -1757,10 +1743,6 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 1. Total John Doe's Specials from the bills: show the Riverton Spine & Rehab correction, the medical total, the wage arithmetic and the final figure.
 2. Who determines MMI, when was John Doe's, and why must the demand wait for it? Where does the $3,400–$6,800 in future medical go?
 3. Name the four objectives of the pre-demand audit, and give one finding each produced on this file.
-4. Run the defense-eye audit: name four risks Keystone will raise on this file and the document that answers each.
-5. Crescent billed $3,400.00 and Peach State paid $1,860.00. Explain billed vs paid, what you put in front of Atty. Thorne, and why the choice is his.
-6. On the morning of 07/20/2026, assembling the package, you find the exhibit index still lists Riverton Spine & Rehab at $6,290.00. What do you do, in what order, and whose authority do you need?
-7. Draw the line: give one recommendation you may make in the strategy session and one decision you must leave to Atty. Thorne, and say why.
 
 **Best practices & pitfalls**
 

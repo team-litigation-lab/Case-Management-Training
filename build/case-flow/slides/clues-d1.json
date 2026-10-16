@@ -1,0 +1,277 @@
+{
+  "d1m1-role": {
+    "dos": [
+      [
+        "Friday afternoon, you close John Doe's file for the weekend.",
+        "Monday morning, the team asks what happens on it, and when.",
+        "One task, one owner, a calendar entry: nothing sits idle."
+      ],
+      [
+        "John Doe calls with two questions in a single breath.",
+        "One is about paperwork; the other is about what the law means.",
+        "You answer the first; Atty. Thorne gets the second, same day."
+      ]
+    ],
+    "donts": [
+      [
+        "At the end of a call, John Doe asks one more thing.",
+        "He wants a number, and he wants it from you.",
+        "You toss out a dollar figure that only Atty. Thorne can set."
+      ],
+      [
+        "Dana Whitfield emails an update on John Doe's BI claim.",
+        "The message stays put in your email, flagged and starred.",
+        "The CMS log is blank; colleagues think nothing has moved."
+      ]
+    ]
+  },
+  "d1m1-case": {
+    "dos": [
+      [
+        "A colleague asks you for John Doe's date of loss.",
+        "You answer 02/06/2026, and the colleague asks how you know.",
+        "You point to the Police Report, page and line."
+      ],
+      [
+        "Three policies sit on John Doe's file, totaling $40,000.",
+        "Keystone Mutual pays first, then Harbor Point, then Cardinal State Mutual.",
+        "Every call, the same lineup: BI, Host UM, then Relative UM."
+      ]
+    ],
+    "donts": [
+      [
+        "An adjuster asks for John Doe's first treatment date.",
+        "You recall it off the top of your head, confidently.",
+        "No record backs your answer, and nobody checked the file first."
+      ],
+      [
+        "John Doe first saw a provider on 02/20/2026.",
+        "Fourteen days passed after EMS found neck stiffness on 02/06/2026.",
+        "A case note reads: he waited, so that's on him."
+      ]
+    ]
+  },
+  "d1m1-l1": {
+    "dos": [
+      [
+        "Harbor Point confirms a $20,000 Host UM limit by phone.",
+        "You type the limit into the CMS coverage field.",
+        "Next to it goes the Dec Page, adjuster letter, or Police Report."
+      ],
+      [
+        "John Doe's matter opens in the CMS this morning.",
+        "Every deadline on the file counts from 02/06/2026.",
+        "By lunch, 02/06/2028 sits on the calendar with reminders."
+      ],
+      [
+        "Marcus Bell sends an update, and a colleague forwards it around.",
+        "Side emails pile up with different versions of the facts.",
+        "Everything lands in the CMS, and that's the one place people look."
+      ]
+    ],
+    "donts": [
+      [
+        "A raw file arrives from On the Records at 9 a.m.",
+        "A new matter number appears in the CMS within minutes.",
+        "Nobody has yet screened Robert Smith's name against firm records."
+      ],
+      [
+        "A screening search runs on the parties to John Doe's file.",
+        "The search box holds only R. Smith, and results come back clear.",
+        "Nobody types the full legal name Robert Smith into the system."
+      ],
+      [
+        "Intake hands over John Doe's file with a signature missing.",
+        "The narrative and the Police Report differ on a detail or two.",
+        "Close enough, says the team, and the file goes active anyway."
+      ]
+    ]
+  },
+  "d1m1-l2": {
+    "dos": [
+      [
+        "Retainer signed, John Doe is ready to start treatment talks.",
+        "HIPAA release, BCRC answer, and Payer Order sit on a checklist.",
+        "All three are cleared first; only then does treatment mapping begin."
+      ],
+      [
+        "John Doe is 34, so the age trigger is ruled out.",
+        "His SSDI status still needs checking under MMSEA rules from 2007.",
+        "The Benefits Coordination & Recovery Center answer gets logged with its timestamp."
+      ]
+    ],
+    "donts": [
+      [
+        "Peach State and providers need permission to share John Doe's records.",
+        "A boilerplate HIPAA form goes out from the supply drawer.",
+        "Nowhere on it does 02/06/2026 appear, so providers may balk."
+      ],
+      [
+        "John Doe worries out loud about his growing medical bills.",
+        "Peach State has already asserted reimbursement against any settlement.",
+        "You tell him not to worry, the plan pays everything."
+      ]
+    ]
+  },
+  "d1m2-l1": {
+    "dos": [
+      [
+        "A records request for John Doe goes out at noon.",
+        "Ten days later, the CMS pings you about the missing reply.",
+        "That ping was set the very minute the request left."
+      ],
+      [
+        "John Doe works as a shift lead at Northgate Distribution.",
+        "He can't take calls on the floor, but texts reach him.",
+        "A call window, a text, an upload link: he picks one."
+      ]
+    ],
+    "donts": [
+      [
+        "John Doe has gone quiet for eleven days running.",
+        "The file note says only: we're waiting on the client.",
+        "Calls were placed, but the CMS shows no dates, times, or outcomes."
+      ],
+      [
+        "John Doe's signed HIPAA form arrives three weeks late.",
+        "Nobody sent it with a deadline or an upload link.",
+        "The case note pins the delay squarely on John Doe."
+      ]
+    ]
+  },
+  "d1m2-l2": {
+    "dos": [
+      [
+        "Step 4 arrives: the Final Warning Letter for John Doe.",
+        "The letter has to prove the firm did its part.",
+        "Each call, text, and email appears as a line with its calendar day."
+      ],
+      [
+        "The Final Warning Letter is ready for certified mail.",
+        "2214 Maple Hollow Rd, Riverton may be stale by now.",
+        "In-house help checks where John Doe actually lives before it ships."
+      ]
+    ],
+    "donts": [
+      [
+        "John Doe has not answered phone, email, text, or emergency contact.",
+        "No Final Warning Letter has gone out, and no deadline has passed.",
+        "A Skip-Trace launches anyway, with one of three gates met."
+      ],
+      [
+        "John Doe's Final Warning Letter draft lands on your screen.",
+        "Atty. Thorne has not seen or signed off on it.",
+        "One line announces the firm is ending representation, as decided."
+      ]
+    ]
+  },
+  "d1m3-l1": {
+    "dos": [
+      [
+        "John Doe feels better and wants to skip next week's PT.",
+        "Gaps in care become causation arguments for the defense.",
+        "You tell him the reason behind each appointment, not only the rule."
+      ],
+      [
+        "John Doe calls, frustrated about missing shifts at Northgate Distribution.",
+        "You let him finish, then repeat his worry back to him.",
+        "Feeling heard, he follows the firm's instructions without pushback."
+      ]
+    ],
+    "donts": [
+      [
+        "Dana Whitfield of Keystone Mutual asks John Doe for a Recorded Statement.",
+        "John Doe asks you why giving one would be a problem.",
+        "You explain how it could hurt his claim, instead of just instructing."
+      ],
+      [
+        "The adverse carrier calls John Doe under the LOR carve-out.",
+        "The talk starts with repair photos and the passenger door.",
+        "Soon the adjuster asks about his neck, and nobody stops the call."
+      ]
+    ]
+  },
+  "d1m3-l2": {
+    "dos": [
+      [
+        "The Escape comes back from the body shop with a final bill.",
+        "The bill runs higher than the insurer's first written figure.",
+        "Those extra line items reveal structural harm nobody saw at inspection."
+      ],
+      [
+        "The carrier declares the vehicle a Total Loss.",
+        "Its offer rests on a CCC One figure for pre-loss value.",
+        "You check the comparables before John Doe hears any number."
+      ]
+    ],
+    "donts": [
+      [
+        "The carrier's appraiser writes up the Escape the week after the crash.",
+        "That first figure goes straight into the file as final.",
+        "Nobody compares it against the body shop's closing bill or supplementals."
+      ],
+      [
+        "Robert Smith's pickup ran the stop into the Escape's passenger door.",
+        "Frame photos could show how hard the impact really was.",
+        "The vehicle file is treated as fender paperwork, apart from the injury claim."
+      ]
+    ]
+  },
+  "d1m4-l1": {
+    "dos": [
+      [
+        "The Case Plan reaches the functional pillar for John Doe.",
+        "Return to work at Northgate Distribution needs a way to track progress.",
+        "Each pillar gets a target with a number and a date."
+      ],
+      [
+        "You mark a file Escalated in the Case Plan's acceptance band.",
+        "A colleague covering next week opens it cold.",
+        "A written why sits beside the call, plain enough for anyone."
+      ]
+    ],
+    "donts": [
+      [
+        "The Three-Pillar Case Plan for John Doe hits Atty. Thorne's desk.",
+        "PT and specialty consults fill the page with goals.",
+        "Return-to-work status and the Payer Order appear nowhere on it."
+      ],
+      [
+        "The verification call has confirmed John Doe's facts of loss.",
+        "Accepted, Escalated, or Declined waits on the screen.",
+        "Instead of choosing, you order three more records and wait."
+      ],
+      [
+        "A new file's liability facts look murky after the verification call.",
+        "No summary goes to Atty. Thorne, and no decision gets recorded.",
+        "Weeks pass with the file parked, neither accepted nor escalated."
+      ]
+    ]
+  },
+  "d1m4-l2": {
+    "dos": [
+      [
+        "You type a quick note after a call with John Doe.",
+        "The CMS keeps an unalterable trail of each line you write.",
+        "You write as if Robert Smith's lawyer will open the file."
+      ],
+      [
+        "John Doe's PT session wraps up, and you log the visit.",
+        "Medical and legal tracks run side by side, kept apart.",
+        "The note lists range of motion and pain scores, nothing more."
+      ]
+    ],
+    "donts": [
+      [
+        "An old CMS entry on John Doe's file has a typo.",
+        "Defense counsel may one day read that exact history.",
+        "The original text is overwritten, with no record of the change."
+      ],
+      [
+        "John Doe's PT visit gets logged in the medical track.",
+        "A strategy comment slips in next to the PT findings.",
+        "The note cheers that this visit will boost his claim."
+      ]
+    ]
+  }
+}
