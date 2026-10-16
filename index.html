@@ -1401,6 +1401,31 @@ rect.svg-callout-badge{animation:none;}
   font-family:inherit;resize:vertical;min-height:120px;color:var(--ink);
 }
 .note-textarea:focus{outline:none;border-color:var(--navy-soft);}
+/* The note editor: a small word processor (ribbon, page, status bar), like a document in Word. */
+.wd{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#EEF0F5;}
+.wd-ribbon{display:flex;flex-wrap:wrap;align-items:center;gap:2px 4px;padding:6px 8px;background:#F8F9FC;border-bottom:1px solid var(--line);}
+.wd-grp{display:flex;align-items:center;gap:2px;padding:0 6px;border-right:1px solid #E1E4EC;}
+.wd-grp:last-child{border-right:0;}
+.wd-btn{min-width:30px;height:30px;padding:0 7px;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--ink);font:600 13px var(--font-ui);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:4px;}
+.wd-btn:hover{background:#E9ECF4;}
+.wd-btn.on{background:#E3E8F6;border-color:#C9D2EA;color:var(--navy);}
+.wd-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.wd-sel{height:30px;border:1px solid #DCE0EA;border-radius:6px;background:#fff;font:500 12.5px var(--font-ui);color:var(--ink);padding:0 6px;}
+.wd-color{position:relative;flex-direction:column;gap:0;}
+.wd-color input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.wd-color i{display:block;width:16px;height:3px;border-radius:2px;}
+.wd-canvas{padding:22px 18px;max-height:560px;overflow:auto;}
+.wd-page{background:#fff;max-width:800px;min-height:320px;margin:0 auto;padding:44px 56px;box-shadow:0 1px 3px rgba(22,24,41,.12),0 6px 18px -8px rgba(22,24,41,.18);border-radius:2px;font:15px/1.6 Georgia,'Times New Roman',serif;color:#1B1E2E;outline:none;}
+.wd-page:empty::before{content:attr(data-placeholder);color:#9AA0B4;}
+.wd-page h1{font:700 24px/1.25 'Fraunces',Georgia,serif;color:var(--navy);margin:.4em 0 .3em;}
+.wd-page h2{font:700 19px/1.3 'Fraunces',Georgia,serif;color:var(--navy);margin:.6em 0 .3em;}
+.wd-page h3{font:700 16px/1.35 var(--font-ui);color:#2F3B63;margin:.6em 0 .25em;}
+.wd-page p,.wd-page div{margin:0 0 .5em;}
+.wd-page ul,.wd-page ol{margin:0 0 .6em;padding-left:1.6em;}
+.wd-page blockquote{margin:.4em 0 .7em;padding:.3em 0 .3em 14px;border-left:3px solid var(--orange);color:#3A3F55;font-style:italic;}
+.wd-page a{color:#2457C5;}
+.wd-status{display:flex;justify-content:space-between;gap:10px;padding:5px 12px;background:#F8F9FC;border-top:1px solid var(--line);font:500 11.5px var(--font-ui);color:var(--ink-soft);}
+@media (max-width:640px){ .wd-page{padding:22px 18px;} .wd-canvas{padding:10px 8px;} .wd-grp{padding:0 3px;} .wd-status span:last-child{display:none;} }
 .note-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;}
 .note-saved{font-size:var(--font-sub);color:var(--ink-soft);}
 .ai-feedback{margin-top:12px;}
@@ -10579,6 +10604,135 @@ function renderNotes(){
   `;
 }
 
+
+/* ---------- the note editor: a small word processor ----------
+   Each note is a document: a ribbon (undo/redo, paragraph style, font, size, bold/italic/underline/strike,
+   text and highlight colour, lists, indent, alignment, link, clear formatting), a white page and a status
+   bar with the word count. The note keeps its formatted HTML (n.html, cleaned on every save) and its plain
+   text (n.content), which the review, the PDF and older notes use. */
+const WD_ICONS = {"undo": "<path d=\"M9 14 4 9l5-5\"/><path d=\"M4 9h10a6 6 0 0 1 0 12h-3\"/>", "redo": "<path d=\"m15 14 5-5-5-5\"/><path d=\"M20 9H10a6 6 0 0 0 0 12h3\"/>", "ul": "<path d=\"M9 6h11M9 12h11M9 18h11\"/><circle cx=\"4.5\" cy=\"6\" r=\"1\"/><circle cx=\"4.5\" cy=\"12\" r=\"1\"/><circle cx=\"4.5\" cy=\"18\" r=\"1\"/>", "ol": "<path d=\"M10 6h10M10 12h10M10 18h10\"/><path d=\"M4 4h1v4M4 8h2M4 11h2l-2 3h2\"/>", "left": "<path d=\"M4 6h16M4 12h10M4 18h13\"/>", "center": "<path d=\"M4 6h16M7 12h10M5 18h14\"/>", "right": "<path d=\"M4 6h16M10 12h10M7 18h13\"/>", "outdent": "<path d=\"M21 6H11M21 12H11M21 18H11M7 8l-4 4 4 4\"/>", "indent": "<path d=\"M21 6H11M21 12H11M21 18H11M3 8l4 4-4 4\"/>", "link": "<path d=\"M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7\"/><path d=\"M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7\"/>", "clear": "<path d=\"M4 7V4h16v3M9 20h6M12 4v16\"/><path d=\"m3 21 18-18\"/>"};
+const wdIcon = (k)=>`<svg viewBox="0 0 24 24" aria-hidden="true">${WD_ICONS[k]}</svg>`;
+function wdRibbon(id){
+  const b = (cmd, label, inner)=>`<button type="button" class="wd-btn" data-cmd="${cmd}" title="${label}" aria-label="${label}" onmousedown="event.preventDefault()" onclick="wdCmd('${id}','${cmd}')">${inner}</button>`;
+  return `<div class="wd-ribbon" role="toolbar" aria-label="Formatting">
+    <div class="wd-grp">${b("undo","Undo (Ctrl+Z)",wdIcon("undo"))}${b("redo","Redo (Ctrl+Y)",wdIcon("redo"))}</div>
+    <div class="wd-grp"><select class="wd-sel" title="Paragraph style" aria-label="Paragraph style" onmousedown="wdKeep('${id}')" onchange="wdCmd('${id}','formatBlock',this.value);this.value=''"><option value="">Style</option><option value="P">Normal</option><option value="H1">Heading 1</option><option value="H2">Heading 2</option><option value="H3">Heading 3</option><option value="BLOCKQUOTE">Quote</option></select>
+      <select class="wd-sel" title="Font" aria-label="Font" onmousedown="wdKeep('${id}')" onchange="wdCmd('${id}','fontName',this.value);this.value=''"><option value="">Font</option><option value="Georgia">Georgia</option><option value="Calibri, Arial, sans-serif">Calibri</option><option value="Arial">Arial</option><option value="Times New Roman">Times New Roman</option><option value="Courier New">Courier New</option></select>
+      <select class="wd-sel" title="Font size" aria-label="Font size" onmousedown="wdKeep('${id}')" onchange="wdCmd('${id}','fontSize',this.value);this.value=''"><option value="">Size</option><option value="2">10</option><option value="3">12</option><option value="4">14</option><option value="5">18</option><option value="6">24</option></select></div>
+    <div class="wd-grp">${b("bold","Bold (Ctrl+B)","<b>B</b>")}${b("italic","Italic (Ctrl+I)","<i style='font-family:Georgia'>I</i>")}${b("underline","Underline (Ctrl+U)","<u>U</u>")}${b("strikeThrough","Strikethrough","<s>S</s>")}
+      <label class="wd-btn wd-color" title="Text colour" onmousedown="wdKeep('${id}')">A<i style="background:#C0392B"></i><input type="color" value="#C0392B" aria-label="Text colour" onchange="wdCmd('${id}','foreColor',this.value)"></label>
+      <label class="wd-btn wd-color" title="Highlight" onmousedown="wdKeep('${id}')"><span style="background:#FFE58A;padding:0 3px;border-radius:2px">ab</span><input type="color" value="#FFE58A" aria-label="Highlight colour" onchange="wdCmd('${id}','hiliteColor',this.value)"></label></div>
+    <div class="wd-grp">${b("insertUnorderedList","Bulleted list",wdIcon("ul"))}${b("insertOrderedList","Numbered list",wdIcon("ol"))}${b("outdent","Decrease indent",wdIcon("outdent"))}${b("indent","Increase indent",wdIcon("indent"))}</div>
+    <div class="wd-grp">${b("justifyLeft","Align left",wdIcon("left"))}${b("justifyCenter","Centre",wdIcon("center"))}${b("justifyRight","Align right",wdIcon("right"))}</div>
+    <div class="wd-grp">${b("createLink","Insert link",wdIcon("link"))}${b("removeFormat","Clear formatting",wdIcon("clear"))}</div>
+  </div>`;
+}
+// A note written before the editor: its plain text becomes paragraphs.
+function wdHtmlOf(n){
+  if(n.html) return wdClean(n.html);
+  return String(n.content||"").split(/\n/).map(l=>`<p>${esc(l)||"<br>"}</p>`).join("");
+}
+// Only formatting survives a save or a paste: no scripts, no attributes beyond a colour, size, alignment or link.
+function wdClean(html){
+  const box = document.createElement("div"); box.innerHTML = String(html||"");
+  const OK = /^(P|DIV|BR|B|STRONG|I|EM|U|S|STRIKE|DEL|H1|H2|H3|UL|OL|LI|BLOCKQUOTE|SPAN|FONT|A|SUB|SUP)$/;
+  const STY = {"color":/(?:^|;)\s*color:\s*([^;]+)/i, "background-color":/background(?:-color)?:\s*([^;]+)/i, "text-align":/text-align:\s*(left|right|center|justify)/i, "font-family":/font-family:\s*([^;]+)/i, "font-size":/font-size:\s*([^;]+)/i, "margin-left":/margin-left:\s*(\d+px)/i};
+  (function walk(el){
+    [...el.children].forEach(c=>{
+      walk(c);
+      if(!OK.test(c.tagName)){ c.replaceWith(...c.childNodes); return; }
+      const keep = {};
+      const st = c.getAttribute("style")||"";
+      const style = Object.entries(STY).map(([k,re])=>{ const x = st.match(re); return x && !/url|expression|[<>]/i.test(x[1]) ? `${k}:${x[1].trim()}` : ""; }).filter(Boolean).join(";");
+      if(c.tagName==="FONT"){ ["color","face","size"].forEach(a=>{ const v=c.getAttribute(a); if(v && /^[#\w ,.-]+$/.test(v)) keep[a]=v; }); }
+      if(c.tagName==="A"){ const h = c.getAttribute("href")||""; if(/^(https?:|mailto:)/i.test(h)){ keep.href = h; keep.target = "_blank"; keep.rel = "noopener"; } }
+      const al = c.getAttribute("align"); if(al && /^(left|right|center|justify)$/i.test(al)) keep.align = al;
+      [...c.attributes].forEach(a=>c.removeAttribute(a.name));
+      Object.entries(keep).forEach(([k,v])=>c.setAttribute(k,v));
+      if(style) c.setAttribute("style", style);
+    });
+  })(box);
+  return box.innerHTML;
+}
+// The note as plain text: one line per paragraph, heading or list item (for the review and the PDF).
+function wdText(html){
+  const box = document.createElement("div"); box.innerHTML = String(html||"");
+  const out = [];
+  let cur = "";
+  const flush = ()=>{ out.push(cur.replace(/\s+$/,"")); cur = ""; };
+  (function walk(el){
+    el.childNodes.forEach(c=>{
+      if(c.nodeType===3){ cur += c.textContent.replace(/\s+/g," "); return; }
+      if(c.nodeType!==1) return;
+      const tag = c.tagName;
+      if(tag==="BR"){ flush(); return; }
+      if(tag==="UL" || tag==="OL"){
+        if(cur.trim()) flush();
+        let k = 0;
+        [...c.children].filter(li=>li.tagName==="LI").forEach(li=>{ k++; wdText(li.innerHTML).split("\n").filter(x=>x.trim()).forEach((x,j)=>out.push((j ? "   " : (tag==="OL" ? k+". " : "• ")) + x)); });
+        return;
+      }
+      if(/^(P|DIV|H1|H2|H3|BLOCKQUOTE|LI)$/.test(tag)){ if(cur.trim()) flush(); walk(c); flush(); return; }
+      walk(c);
+    });
+  })(box);
+  if(cur.trim()) flush();
+  return out.map(l=>l.trim()).join("\n").replace(/\n{3,}/g,"\n\n").trim();
+}
+const wdSel = {};
+function wdKeep(id){ const s = window.getSelection(), page = document.getElementById("wd_"+id); if(s && s.rangeCount && page && page.contains(s.anchorNode)) wdSel[id] = s.getRangeAt(0).cloneRange(); }
+function wdCmd(id, cmd, arg){
+  const page = document.getElementById("wd_"+id); if(!page) return;
+  if((cmd==="formatBlock" || cmd==="fontName" || cmd==="fontSize") && !arg) return;
+  page.focus();
+  // a colour picker or a drop-down takes the focus: put the selection back first
+  if(wdSel[id] && /^(foreColor|hiliteColor|formatBlock|fontName|fontSize)$/.test(cmd)){ const s = window.getSelection(); s.removeAllRanges(); s.addRange(wdSel[id]); }
+  if(cmd==="createLink"){ const url = prompt("Link address (https://…)", "https://"); if(!url || !/^(https?:|mailto:)/i.test(url)) return; arg = url; }
+  try{ document.execCommand("styleWithCSS", false, cmd==="hiliteColor" || cmd==="foreColor"); }catch(e){}
+  document.execCommand(cmd, false, cmd==="formatBlock" ? `<${arg}>` : (arg==null ? null : arg));
+  wdChanged(id);
+}
+function wdChanged(id){
+  const page = document.getElementById("wd_"+id); if(!page) return;
+  const n = findNote(id); if(!n) return;
+  n.html = wdClean(page.innerHTML);
+  wdStatus(id);
+  onNoteChange(id, "content", wdText(n.html));
+}
+function wdStatus(id){
+  const page = document.getElementById("wd_"+id), st = document.getElementById("wdst_"+id); if(!page || !st) return;
+  const t = (page.innerText||"").trim(), w = t ? t.split(/\s+/).length : 0;
+  st.textContent = `${w} word${w===1?"":"s"} · ${t.length} characters`;
+  const sel = window.getSelection(), inside = sel && page.contains(sel.anchorNode);
+  document.querySelectorAll(`#notecard_${id} .wd-btn[data-cmd]`).forEach(b=>{
+    const c = b.dataset.cmd; if(!/^(bold|italic|underline|strikeThrough|insertUnorderedList|insertOrderedList|justifyLeft|justifyCenter|justifyRight)$/.test(c)) return;
+    let on = false; try{ on = inside && document.queryCommandState(c); }catch(e){}
+    b.classList.toggle("on", !!on);
+  });
+}
+function wdPaste(e, id){
+  e.preventDefault();
+  const html = e.clipboardData.getData("text/html"), text = e.clipboardData.getData("text/plain");
+  document.execCommand("insertHTML", false, html ? wdClean(html) : esc(text).replace(/\n/g,"<br>"));
+  wdChanged(id);
+}
+function wdKey(e, id){
+  if((e.ctrlKey||e.metaKey) && !e.altKey){
+    const k = e.key.toLowerCase();
+    if(k==="b"||k==="i"||k==="u"){ e.preventDefault(); wdCmd(id, k==="b"?"bold":k==="i"?"italic":"underline"); }
+  }
+  if(e.key==="Tab"){ e.preventDefault(); wdCmd(id, e.shiftKey ? "outdent" : "indent"); }
+}
+function renderNoteEditor(n){
+  const t = String(n.content||"").trim(), w = t ? t.split(/\s+/).length : 0;
+  return `<div class="wd">${wdRibbon(n.id)}
+    <div class="wd-canvas"><div class="wd-page" id="wd_${n.id}" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="${esc(n.title||"Note")}" data-placeholder="Write your action plan or notes here…"
+      oninput="wdChanged('${n.id}')" onkeyup="wdStatus('${n.id}')" onmouseup="wdStatus('${n.id}')" onpaste="wdPaste(event,'${n.id}')" onkeydown="wdKey(event,'${n.id}')" onblur="wdKeep('${n.id}')">${wdHtmlOf(n)}</div></div>
+    <div class="wd-status"><span id="wdst_${n.id}">${w} word${w===1?"":"s"} · ${t.length} characters</span><span>Ctrl+B · Ctrl+I · Ctrl+U · Tab to indent</span></div>
+  </div>`;
+}
+Object.assign(window, {wdCmd, wdChanged, wdStatus, wdPaste, wdKey, wdKeep});
+
 function renderNoteCard(n){
   return `
     <div class="card note-card" id="notecard_${n.id}">
@@ -10586,7 +10740,7 @@ function renderNoteCard(n){
         <input type="text" class="note-title-input" value="${esc(n.title)}" placeholder="Note title" oninput="onNoteChange('${n.id}','title',this.value)">
         ${n.pinned?'<span class="pill pill-open">Pinned</span>':`<button class="btn btn-sm btn-ghost" onclick="deleteNote('${n.id}')">Delete</button>`}
       </div>
-      <textarea class="note-textarea" rows="7" placeholder="Write your action plan or notes here..." oninput="onNoteChange('${n.id}','content',this.value)">${esc(n.content)}</textarea>
+      ${renderNoteEditor(n)}
       <div class="note-foot">
         <span class="note-saved" id="saved_${n.id}">${n.updatedAt?('Saved '+fmtDate(n.updatedAt)):'Not saved yet'}</span>
         <button class="btn btn-sm btn-navy" onclick="getAIFeedback('${n.id}')" id="aiBtn_${n.id}">Review</button>
@@ -10619,7 +10773,7 @@ async function addNote(){
   state.notes.unshift({id, title:"New Note", content:"", updatedAt:new Date().toISOString(), pinned:false});   // newest at the top
   await storeSet("notes", state.notes);
   render();
-  setTimeout(()=>{ const card = document.getElementById("notecard_"+id); if(card){ card.scrollIntoView({behavior:"smooth", block:"center"}); const ta = card.querySelector("textarea"); if(ta) ta.focus(); card.classList.add("note-new"); } }, 60);
+  setTimeout(()=>{ const card = document.getElementById("notecard_"+id); if(card){ card.scrollIntoView({behavior:"smooth", block:"center"}); const ta = card.querySelector(".wd-page"); if(ta) ta.focus(); card.classList.add("note-new"); } }, 60);
 }
 window.addNote = addNote;
 
@@ -10659,12 +10813,14 @@ ${n.content}
 """`;
 
   try{
-    const text = await callAIText(prompt, 600, undefined, "grading");
+    // "tracker" starts on the high-volume model: the grading models' small daily quota is what made this
+    // review fail with "Couldn't get feedback" once the labs had used it up
+    const text = await callAIText(prompt, 600, undefined, "tracker");
     fb.innerHTML = text
       ? `<div class="ai-result"><b>Feedback</b><div class="ai-result-body">${esc(text).replace(/\n/g,"<br>")}</div></div>`
       : `<div class="ai-result"><b>Feedback</b><div class="ai-result-body">No feedback returned — try again in a moment.</div></div>`;
   }catch(e){
-    fb.innerHTML = `<div class="ai-result ai-error"><b>Couldn't get feedback</b><div class="ai-result-body">The review service didn't respond. Check your connection and try again.</div></div>`;
+    fb.innerHTML = renderAiErrorBlock(e, "Couldn't get feedback");
   }finally{
     btn.disabled = false; btn.textContent = "Review";
   }
@@ -15507,7 +15663,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-sim.js?v=5"></script>
 <script src="/js/cm-case-flow-data.js?v=15"></script>
 <script src="/js/cm-case-dates.js?v=2"></script>
-<script src="/js/cm-case-flow.js?v=41"></script>
+<script src="/js/cm-case-flow.js?v=42"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=3"></script>
 <script src="/js/lsh-tool-links.js?v=cm-2026.10.08-portal"></script>
