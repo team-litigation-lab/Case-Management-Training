@@ -1021,6 +1021,37 @@ window.cmCaseFlow.back = function(){
   goto("day", r.dayId);
   setTimeout(() => { state.dayViewMode = "slides"; if(typeof goToSlide === "function" && r.slide != null) goToSlide(r.slide); }, 0);
 };
+/* ---------- Admin: where an admin lands, and the tabs grouped in sections ----------
+   An admin who opens the course (from the Main Portal, or a link with no page in it) lands on the Admin screen,
+   not the trainee dashboard; a link to a page (#/day/…, #/admin, …) still opens that page, and once they've moved
+   on, the Dashboard is theirs to open. The Admin screen's nine tabs are grouped as in Foundational Training: a
+   row of sections, then the open section's tabs. A tab not listed goes under Admin Master Control. */
+const BOOT_HASH = String(location.hash || "").replace(/^#\/?/, "");
+let adminLanded = !!BOOT_HASH;
+function adminLanding(){
+  if(adminLanded || !state.isAdmin || state.adminPreview) return;
+  if(state.view === "dashboard"){ adminLanded = true; setTimeout(() => { if(state.view === "dashboard") goto("admin"); }, 0); }
+  else if(!["login", "pendingApproval"].includes(state.view)) adminLanded = true;
+}
+const ADMIN_GROUPS = [
+  {id: "admin", label: "🛡 Admin Master Control", tabs: ["audit", "batches", "rankings", "tfeedback"]},
+  {id: "modules", label: "📚 Training Modules", tabs: ["sop", "cues", "studio"]},
+  {id: "activities", label: "📋 Activities", tabs: ["activities", "fbstyle"]}
+];
+const adminGroupOf = tab => (ADMIN_GROUPS.find(g => g.tabs.includes(tab)) || ADMIN_GROUPS[0]).id;
+function groupAdminTabs(out){
+  const a = out.indexOf('<div class="admin-tabs"'); if(a < 0) return out;
+  const b = out.indexOf("</div>", a) + 6;
+  const t = document.createElement("template"); t.innerHTML = out.slice(a, b);
+  const tabs = [...t.content.querySelectorAll(".admin-tab-btn")].map(x => ({id: ((x.getAttribute("onclick") || "").match(/setAdminTab\('([^']+)'\)/) || [])[1], html: x.outerHTML})).filter(x => x.id);
+  if(!tabs.length) return out;
+  const cur = adminGroupOf(state.adminTab || "audit");
+  const secs = ADMIN_GROUPS.map(g => ({g, tabs: tabs.filter(x => adminGroupOf(x.id) === g.id)})).filter(x => x.tabs.length);
+  const open = secs.find(x => x.g.id === cur) || secs[0];
+  const bar = `<div class="admin-tabs cf-admin-tabs"><div class="cf-admin-secs">${secs.map(x => `<button type="button" class="cf-admin-sec${x === open ? " active" : ""}" onclick="setAdminTab('${x.tabs[0].id}')">${x.g.label}<span>${x.tabs.length}</span></button>`).join("")}</div>
+    <div class="cf-admin-row">${open.tabs.map(x => x.html).join("")}</div></div>`;
+  return out.slice(0, a) + bar + out.slice(b);
+}
 /* the way back: a pill on the course page a step opened, until the trainee goes back or elsewhere in the Case Flow;
    after an activity worked in the Action Plan Editor, a second one carries on to the next step */
 function syncReturn(){
@@ -1149,7 +1180,7 @@ if(typeof window.renderDaySlideshow === "function"){
 }
 if(typeof window.afterRender === "function"){
   const __after = window.afterRender;
-  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ syncReturn(); sidePresenter(); kcFit(); }catch(e){} return r; };
+  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ syncReturn(); sidePresenter(); kcFit(); adminLanding(); }catch(e){} return r; };
 }
 /* Check Your Work: the reference of what the trainee did in the tool (a CMS Case ID, a docket or request number),
    kept on their record and shown to their trainer with the module's Learning Check */
@@ -1894,7 +1925,7 @@ if(typeof renderAuditStrip === "function"){
 /* Every Admin tab (the Trainee Audit, Trainer Cues, the SOP, Activities) names the days as on screen: Case Flow Day 1–5, never their ids */
 if(typeof window.renderAdmin === "function"){
   const __admin = window.renderAdmin;
-  window.renderAdmin = function(){ if(state.adminTab === "attendance") state.adminTab = "audit"; return relabelAll(__admin.apply(this, arguments)); };   // (attendance is on the Main Portal now)
+  window.renderAdmin = function(){ if(state.adminTab === "attendance") state.adminTab = "audit"; return groupAdminTabs(relabelAll(__admin.apply(this, arguments)).replace("Knowledge Checks, Skill Builders and your day-by-day", "Knowledge Checks, Skill Activities and your day-by-day")); };   // (attendance is on the Main Portal now)
 }
 
 /* ---------- the trainer's 40%: entered in each trainee's Admin panel ---------- */
@@ -2044,7 +2075,6 @@ function caseFlowProfile(){
       <div class="cf-file-head">
         <div class="cf-file-who"><p class="eyebrow">Case File</p><h1>📂 ${E(c.style)}</h1>
           <div class="cf-client"><span class="cf-client-k">📌 Your Client</span><b>${E(c.client.name)}</b><span>Matter ${E(c.no)} · Lead Counsel ${E(c.counsel)}</span></div></div>
-        <div class="cf-hero-btns"><button class="btn btn-primary btn-sm" onclick="goto('day',${cfIdOf(pos)})">Open Case Flow Day ${pos}</button><button class="btn btn-ghost btn-sm" onclick="goto('casedocs')">📁 Case Documents</button>${typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 CMS</button>` : ""}</div>
       </div>
       <p class="cf-note">${isTrainer() ? `The whole file, as you know it: the key tabs are the answers, and trainees never see them.${DATES ? ` 📅 Case year ${E(DATES.year)} (collision ${E(DATES.dol())}); each trainee keeps the year they started on.${DATES.preview ? ` <b>Preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end it</a>.` : ""}` : ""}` : "Your case so far is below. The file itself is in 📁 Case Documents, and the case you build is in the 🗂 CMS."}</p></section>
     ${fileTabs(shown, pos)}
@@ -2632,6 +2662,20 @@ main > .cf-side-presenter{display:none;}
 .cf-vm-tx summary{cursor:pointer;font-weight:700;color:#262B45;}
 #cf-return{position:fixed;left:16px;bottom:16px;z-index:60;font:700 13px 'Inter',sans-serif;padding:10px 16px;border:0;border-radius:999px;background:#262B45;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer;}
 #cf-return[hidden],#cf-return-next[hidden]{display:none;}
+/* the Admin screen's tabs, grouped: the sections, then the open section's tabs */
+.admin-tabs.cf-admin-tabs{display:block !important;border-bottom:1px solid var(--line);margin-bottom:20px;white-space:normal;overflow:visible;}
+.cf-admin-secs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
+.cf-admin-sec{font:inherit;font-size:13.5px;font-weight:700;border:1px solid #DDE1EC;background:#fff;color:var(--navy);border-radius:999px;padding:6px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;}
+.cf-admin-sec span{font-size:11px;font-weight:800;background:#ECEEF5;color:#4A5070;border-radius:999px;padding:1px 7px;}
+.cf-admin-sec:hover{border-color:#353B57;} .cf-admin-sec.active{background:var(--navy);border-color:var(--navy);color:#fff;} .cf-admin-sec.active span{background:rgba(255,255,255,.2);color:#fff;}
+.cf-admin-row{display:flex;gap:8px;flex-wrap:wrap;}
+@media(max-width:760px){
+  .cf-admin-secs{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+  .cf-admin-sec{font-size:12.5px;padding:7px 8px;justify-content:center;white-space:normal;text-align:center;line-height:1.2;}
+  .cf-admin-row{gap:6px;padding:4px 0 10px;}
+  .cf-admin-row .admin-tab-btn{font-size:13px;padding:6px 11px;border:1px solid #DDE1EC !important;border-radius:999px;background:#fff;}
+  .cf-admin-row .admin-tab-btn.active{background:#FFF3E6;border-color:var(--orange) !important;color:var(--navy);}
+}
 #cf-return-next{position:fixed;right:16px;bottom:16px;z-index:60;font:800 14px 'Inter',sans-serif;padding:11px 20px;border:0;border-radius:999px;background:var(--orange,#E87722);color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer;}
 /* the sub-header: a full-width bar, the topic centred in capitals and quotes, on a lighter navy with an orange rule */
 .cfx-ribbon span{display:block;text-align:center;background:linear-gradient(90deg,#343C66 0%,#46508A 50%,#343C66 100%);border-bottom:3px solid #DB8437;border-radius:6px;color:#fff;font:800 20px/1.25 'Poppins','Inter',sans-serif;letter-spacing:.04em;text-transform:uppercase;padding:8px 24px;}
