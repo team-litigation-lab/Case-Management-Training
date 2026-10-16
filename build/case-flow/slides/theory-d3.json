@@ -13,7 +13,7 @@
       "kind": "list",
       "steps": [
         {"label": "30-Day Rule", "text": "At MMI the demand targets **MMI plus 30 days**; any later date is Atty. Thorne's"},
-        {"label": "Photo Impact", "text": "Lead the demand with the most graphic photo, property damage or injury, to **set the tone**"},
+        {"label": "Photo Impact", "text": "Lead the demand with the most graphic photo, Property Damage or injury, to **set the tone**"},
         {"label": "The Why Factor", "text": "Every bill in the demand carries **why the treatment was necessary** for the client's recovery"}
       ],
       "note": "Treat the carrier like a bank that hasn't paid its bill: the demand presents a debt owed."
@@ -37,7 +37,7 @@
       "kind": "table",
       "head": ["Component", "How it's calculated", "On this file"],
       "rows": [
-        ["Total Case Value", "Medical bills plus pain and suffering, as Atty. Thorne values them", "Atty. Thorne's valuation"],
+        ["Total Case Value", "Medical Bills plus pain and suffering, as Atty. Thorne values them", "Atty. Thorne's valuation"],
         ["BI Settlement Received", "Minus the at-fault driver's maximum limit", "– $10,000, Keystone's full BI limit"],
         ["UM Settlement Goal", "The **remaining gap**, up to the UM limit", "Harbor Point Host UM, up to $20,000"],
         ["Relative UM (excess)", "Answers only above BI and Host UM", "The gap above $30,000, up to $10,000"]
@@ -81,7 +81,7 @@
       "head": ["Category", "What goes in"],
       "rows": [
         ["Evidence of Liability", "Police Report, property-damage photos, witness statements, dashcam or surveillance footage"],
-        ["Economic Damages", "Itemized medical bills, complete medical records, lost wage verification, future medical estimates"],
+        ["Economic Damages", "Itemized Medical Bills, complete medical records, lost wage verification, future medical estimates"],
         ["Non-Economic Damages", "The demand letter, the client's impact statement, photos of injuries"],
         ["Proof of Exhaustion", "Signed Limited Release, check copy, at-fault Dec Page, **Consent to Settle**"]
       ],
@@ -105,7 +105,7 @@
         ["Medical Providers", "Doctors or hospitals treating on a Letter of Protection (LOP)", "**High**: often take a reduction to get paid now"],
         ["Health Insurance", "Private insurers seeking subrogation", "Moderate: subject to the Made Whole or Common Fund doctrines"],
         ["Medicare · Medicaid", "Government-funded programs", "Low: strict federal or state formulas; slow to process"],
-        ["ERISA Plans", "Self-funded employer health plans", "Very low: governed by federal law, notoriously hard to reduce"]
+        ["ERISA Plans", "Self-funded employer Health Plans", "Very low: governed by federal law, notoriously hard to reduce"]
       ],
       "note": "Statutory claims have stronger legal backing than contractual ones. Every compromise needs Atty. Thorne's express authority."
     }

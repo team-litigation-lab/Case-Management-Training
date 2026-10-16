@@ -142,7 +142,7 @@
     "image": "treatment-plan",
     "hook": "An LOP **out of Payer Order** turns a payable bill into a lien on his net.",
     "points": [
-      "Run the payer order: **MedPay → Peach State → LOP**",
+      "Run the Payer Order: **MedPay → Peach State → LOP**",
       "Use an LOP **only where earlier payers can't**",
       "Atty. Thorne sets LOP terms; **never promise payment** amounts, reductions or dates",
       "Be the hub: **warm handoffs**, not phone numbers"
@@ -283,7 +283,7 @@
     "deliver": "A CMS task list: every task **Done by me** or Delegated, owner and date",
     "checks": [
       "Crescent **verified in network** with Peach State, not hearsay",
-      "Crescent's 05/15/2026 slot: **no new treatment gap**",
+      "Crescent's 05/15/2026 slot: **no new Treatment Gap**",
       "Millbrook cancelled; **calendar and reminders** updated",
       "Records request **delegated with an owner** and due date",
       "**No medical advice**; no talk of claim value"

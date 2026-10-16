@@ -201,7 +201,7 @@
     }
   },
   "d1m4-l2": {
-    "lead": "A case plan is a **living, approved document**: drafted in structure, reviewed by counsel, then run.",
+    "lead": "A Case Plan is a **living, approved document**: drafted in structure, reviewed by counsel, then run.",
     "concepts": [
       {"term": "Section Templates", "text": "One structure for every plan, so reviewers can **scan it fast** and nothing is missed"},
       {"term": "The Review Loop", "text": "Draft, route, review, approve, execute; **a return is normal**, a step back into drafting, not a failure"},

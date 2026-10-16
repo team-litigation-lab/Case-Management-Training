@@ -110,7 +110,7 @@
     "questions": [
       "Discovery mailed 12/01/2026: compute the **response date**. What changes for e-service, and why confirm the court's rule?",
       "Name the Answer's **three defenses** and the file evidence you would pull for Atty. Thorne against each.",
-      "File the affidavit, 12/01/2026 RFAs and scheduling order: **where, under what names**? What happens to the order's dates?"
+      "File the affidavit, 12/01/2026 RFAs and Scheduling Order: **where, under what names**? What happens to the order's dates?"
     ]
   },
   "d5m2-l1": {
@@ -310,7 +310,7 @@
       "Log each objection and **whether John stopped talking**",
       "**Coach nothing**; route the log to Atty. Thorne"
     ],
-    "deliver": "A **timestamped Trap Log**, scored against the seven golden rules, routed before the debrief",
+    "deliver": "A **timestamped Trap Log**, scored against the seven Golden Rules, routed before the debrief",
     "checks": [
       "All **six assigned traps** logged",
       "Gap entry: **14 days**, 02/06/2026 to 02/20/2026",
@@ -347,7 +347,7 @@
     "job": [
       ["Answer filed 11/12/2026", "Log each defense separately", "CMS → Litigation → Pleadings Log", "Three lines, each dated 11/12/2026"],
       ["Defenses logged", "Map evidence to each allegation", "CMS → Litigation → Liability counter-package", "Every item: source and named witness"],
-      ["Item lacks foundation", "Flag for subpoena duces tecum", "CMS → Tasks → Escalate", "Foundation gap and holder named"]
+      ["Item lacks foundation", "Flag for Subpoena Duces Tecum", "CMS → Tasks → Escalate", "Foundation gap and holder named"]
     ],
     "dos": [
       "Answer each allegation **with a document**, not an argument",
@@ -391,7 +391,7 @@
     "points": [
       "Stale address? **Skip-Trace first**, permissible purpose only",
       "Follow up with the process server **every 5 days**",
-      "Subpoena duces tecum: **notice opposing counsel first**, then serve",
+      "Subpoena Duces Tecum: **notice opposing counsel first**, then serve",
       "The Step 4 letter: **certified mail AND email**, Atty. Thorne's signature"
     ],
     "upl": "Run authorized skip-traces and draft notices; never decide alternative service or threaten withdrawal",

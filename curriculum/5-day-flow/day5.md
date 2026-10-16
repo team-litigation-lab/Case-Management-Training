@@ -239,7 +239,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 #### 5 · Speaker Notes
 
-- Open by holding up the scheduling order: “This one page now outranks every adjuster letter in the file. Why?” Because a judge signed it, and every date in it is absolute.
+- Open by holding up the Scheduling Order: “This one page now outranks every adjuster letter in the file. Why?” Because a judge signed it, and every date in it is absolute.
 - Ask the room: “Defense counsel will spend John Doe's deposition on the 14-Day Gap. What is your job before 02/18/2027, and where does it stop?” Documents, logistics and the packet; it stops at what John Doe says.
 - Walk the three KPI families and insist on numbers. A KPI without a target is a wish, and “stay on top of RFAs” is not a KPI.
 - Legal nuance: whether a late disclosure excludes evidence, and whether counsel can agree an extension without the court, depends on the court and the order. Teach the habit, not the answer: in writing, through Atty. Thorne, rule confirmed.
@@ -521,7 +521,7 @@ A horizontal threshold gauge across the top half, the same instrument as Day 1's
 2. Three damage types are recoverable. Economic (special): repair, tow and storage, rental, Loss of Use, Diminished Value. Non-economic (general): pain and suffering, on the injury side. Punitive: to punish egregious conduct such as DUI; none is pleaded here.
 3. PD is also evidence of impact severity: the $2,315.00 teardown supplement (03/02/2026) is structural, the A-pillar, showing hidden damage for the PD claim and force for the injury claim.
 4. Courts generally award the lesser of the repair cost or the drop in market value: a car costing more to fix than it was worth is a Total Loss, capped at its value. Confirm Keystone's threshold basis in writing.
-5. Run it on the final bill: $6,940.00 + $2,315.00 = $9,255.00, 52.6% of the $17,600.00 ACV, under Keystone's 75% line of $13,200.00. Repairable, with $3,945.00 to spare. Verify the valuation report: a low ACV moves the line.
+5. Run it on the final bill: $6,940.00 + $2,315.00 = $9,255.00, 52.6% of the $17,600.00 ACV, under Keystone's 75% line of $13,200.00. Repairable, with $3,945.00 to spare. Verify the Valuation Report: a low ACV moves the line.
 6. Loss of Use is claimable for each day without the car or a paid substitute, measured by a comparable rental; Keystone's own $42.00/day rate is the strongest measure. Authority is state law (for example, Restatement (Second) of Torts § 928(b)); confirm the governing rule.
 7. Allocate each of the 78 days from 02/06 to 04/24/2026 once; claim only the 48 unpaid: 48 × $42.00 = $2,016.00. A paid rental day claimed twice is a windfall.
 8. Keystone's 30-day cap is claims practice; the legal measure generally runs for the reasonable repair time. Keystone blames “shop delay”; the record shows a parts backorder. Arguing the 36 days is for Atty. Thorne.
@@ -536,7 +536,7 @@ A horizontal threshold gauge across the top half, the same instrument as Day 1's
 
 *Every day from 02/06 to 04/24/2026, allocated once*
 
-| Period | Days | What happened | Loss of use |
+| Period | Days | What happened | Loss of Use |
 |---|---|---|---|
 | 02/06–02/17/2026 | 12 | Towed and stored; no car; liability accepted 02/17 | $504.00 claimed |
 | 02/18–03/19/2026 | 30 | Rental, $42.00/day: $1,260.00 paid by Keystone | None: already paid |
@@ -771,7 +771,7 @@ A negotiation board across the slide. Left: a vertical number line from $0 to $5
 |---|---|---|---|
 | Loss of Use, 02/06–02/17 (12 days) | $504.00 | $0 | Tow and storage record; 02/17 acceptance |
 | Loss of Use, 03/20–04/24 (36 days) | $1,512.00 | $0 | 04/10 refusal; 04/24 completion |
-| Diminished value | $3,600.00 | $792.00 | Appraisal 05/06/2026; A-pillar supplement |
+| Diminished Value | $3,600.00 | $792.00 | Appraisal 05/06/2026; A-pillar supplement |
 | Total in dispute | $5,616.00 | $792.00 | Difference $4,824.00 |
 
 **Verification checkpoints**
@@ -844,7 +844,7 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Show whether John Doe's Civic is a total loss: the final repair, the ACV, Keystone's threshold and the percentage, with the arithmetic.
+1. Show whether John Doe's Civic is a Total Loss: the final repair, the ACV, Keystone's threshold and the percentage, with the arithmetic.
 2. Allocate the 78 days from 02/06 to 04/24/2026. Which are claimed as Loss of Use, at what rate and for how much, and why are the rental days excluded?
 3. Name the three types of damages, place the Civic's repair, Loss of Use and Diminished Value among them, and say what conduct a punitive claim requires.
 
@@ -877,7 +877,7 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 **Auto-graded share of the day's Knowledge Check** (4 questions):
 
 1. John Doe's Civic: final repair $9,255.00, ACV $17,600.00, Keystone's total-loss threshold 75%. The Civic is:  
-   A total loss: the supplement pushed the repair past half the ACV · **✓ Repairable: $9,255.00 is 52.6% of ACV, under the $13,200.00 line** · A total loss: structural damage always totals a car · Repairable only on the $6,940.00 estimate, not on the final bill  
+   A Total Loss: the supplement pushed the repair past half the ACV · **✓ Repairable: $9,255.00 is 52.6% of ACV, under the $13,200.00 line** · A Total Loss: structural damage always totals a car · Repairable only on the $6,940.00 estimate, not on the final bill  
    *$9,255.00 is 52.6% of $17,600.00. The line is 75% × $17,600.00 = $13,200.00, so the Civic is repairable with $3,945.00 to spare. Run it on the final bill, never the first estimate.*
 2. Keystone paid John Doe's rental for 02/18–03/19/2026. Which days make up the $2,016.00 loss-of-use claim?  
    **✓ 02/06–02/17 and 03/20–04/24/2026: 48 days without a car or a paid rental** · All 78 days from 02/06 to 04/24/2026 · Only the 30 rental days, at a higher daily rate · Only the 36 days of parts delay  
@@ -1004,7 +1004,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 ### 5.3.2 Opposing Counsel's Traps & Defending Key Testimony
 
 > **Lesson** · Day 5 — Litigation — Track B · Case Phase 3: Deposition Preparation · scored with Deposition Readiness Audit (`d5m3`)  
-> **Topic:** The four categories, the seven golden rules, and what an objection means  
+> **Topic:** The four categories, the seven Golden Rules, and what an objection means  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#10` Discovery Intake Meeting — Pillar 2: The Essential Testimony Guidelines · `D5#12` Navigating the Silent Traps — Drill A: The “Is That All?” Trap · `D5#13` Navigating the Silent Traps — Drill B: The Thoughtful Silence · `D5#15` What Will the Defense Attorney Ask Me? The Four Categories · `D5#16` The 7 Golden Rules for Testifying (Rules 1–3) · `D5#17` The 7 Golden Rules for Testifying (Rules 4–5) · `D5#18` The 7 Golden Rules for Testifying (Rules 6–7) · `D5#20` What Happens When Your Lawyer Objects? · Newly authored: compound and loaded-question traps
 
@@ -1067,7 +1067,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | Golden rules | All seven stated correctly, with the reason for each |
+| 🤖 AI | **20%** | Golden Rules | All seven stated correctly, with the reason for each |
 | 🤖 AI | **20%** | Trap map | Each trap matched to the rule it tests and the pleaded defense behind it |
 | 🤖 AI | **20%** | Record anchors | 14 days (02/06–02/20/2026), 19 days (04/02–04/21/2026), the MRI wording, the EMS report and the EDR |
 | 🧑‍🏫 Trainer | **20%** | UPL boundary | No wording offered for any trap; substance routed to Atty. Thorne |
@@ -1188,12 +1188,12 @@ Split screen. Left 60%: a mock video deposition — AI ATTY. GRANT MERCER questi
 
 **Scenario.** File date 02/16/2027, Track B, the second prep session. Atty. Thorne runs a mock cross-examination: AI defense counsel, playing Atty. Grant Mercer, questions AI John Doe while Atty. Thorne defends and objects. Your microphone is muted. Atty. Thorne debriefs John from your log when the mock ends.
 
-**Execution prompt.** Keep the Trap Log for Atty. Thorne's debrief while the mock runs. For each trap, log the timestamp, the question in AI Mercer's words, its category (background, crash, medical history, daily life), the trap type (the “Is that all?” trap, a compound question, “degenerative”, the gap mischaracterised, the seatbelt, the 2021 prior, the silent stare) and the golden rules John kept or broke. Beside every mischaracterisation, put the record fact and its source. Log each objection and whether John stopped talking. Coach nothing, during the mock or after it: route the log to Atty. Thorne. The log is for Atty. Thorne alone; nothing in it goes to John.
+**Execution prompt.** Keep the Trap Log for Atty. Thorne's debrief while the mock runs. For each trap, log the timestamp, the question in AI Mercer's words, its category (background, crash, medical history, daily life), the trap type (the “Is that all?” trap, a compound question, “degenerative”, the gap mischaracterised, the seatbelt, the 2021 prior, the silent stare) and the Golden Rules John kept or broke. Beside every mischaracterisation, put the record fact and its source. Log each objection and whether John stopped talking. Coach nothing, during the mock or after it: route the log to Atty. Thorne. The log is for Atty. Thorne alone; nothing in it goes to John.
 
 | | |
 |---|---|
 | **Tool / interface** | Call Simulator → AI defense counsel: Atty. Grant Mercer (mock cross-examination, led by Atty. Thorne) · CMS → Litigation → Deposition prep log |
-| **Expected output** | A timestamped Trap Log, scored against the seven golden rules, routed to Atty. Thorne before his debrief. |
+| **Expected output** | A timestamped Trap Log, scored against the seven Golden Rules, routed to Atty. Thorne before his debrief. |
 
 **Show Them — reference model**
 
@@ -1295,7 +1295,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 |---|---|---|---|---|---|
 | Running a pre-deposition audit that surfaces every landmine | ○ | ○ | ○ | ○ | ○ |
 | Delivering the three prep pillars and the virtual-deposition rules | ○ | ○ | ○ | ○ | ○ |
-| Explaining the seven golden rules and objections in plain words | ○ | ○ | ○ | ○ | ○ |
+| Explaining the seven Golden Rules and objections in plain words | ○ | ○ | ○ | ○ | ○ |
 | Recognising and logging opposing counsel's traps | ○ | ○ | ○ | ○ | ○ |
 | Running the day-before checklist and the technology check | ○ | ○ | ○ | ○ | ○ |
 | Routing every substantive question to Atty. Thorne without answering it | ○ | ○ | ○ | ○ | ○ |
@@ -1322,7 +1322,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Audit accuracy | Gap 14 days (02/06–02/20/2026), disruption 19 days (04/02–04/21/2026), 2021 visits, seatbelt, MRI wording, written discovery, social media |
-| 🤖 AI | **15%** | Rules and categories | Seven golden rules, four categories and objection handling stated correctly |
+| 🤖 AI | **15%** | Rules and categories | Seven Golden Rules, four categories and objection handling stated correctly |
 | 🤖 AI | **15%** | Logistics accuracy | 02/17/2027 confirmations; 02/18/2027 at 10:00 a.m.; Riverton Court Reporting; John's new number and Margaret as backup |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
@@ -1389,7 +1389,7 @@ Two zones. Left 60%: the four-row regime table on a cream card, regime names in 
 |---|---|---|---|
 | Answer filed 11/12/2026 pleading comparative fault, causation and failure to mitigate | Log each defense as its own line and confirm the filing on the docket | CMS → Litigation → Pleadings Log · Docket System | Three defenses logged separately, each dated 11/12/2026 |
 | Defenses logged | Map the file's evidence to each allegation with source, witness and custody | CMS → Litigation → Liability counter-package | No item without a source document and a named authenticating witness |
-| An item lacks foundation or a holder won't produce | Flag it for a subpoena duces tecum and route to Atty. Thorne | CMS → Tasks → Escalate | Foundation gap named, with the record holder |
+| An item lacks foundation or a holder won't produce | Flag it for a Subpoena Duces Tecum and route to Atty. Thorne | CMS → Tasks → Escalate | Foundation gap named, with the record holder |
 | Deposition prep set for 02/04 and 02/16/2027 | Deliver the counter-package and the Gap Record to Atty. Thorne's prep set | CMS → Documents · CMS → Tasks | Both in the prep set before 02/04/2027 |
 
 **Best practices & pitfalls**
@@ -1445,7 +1445,7 @@ Two parallel swimlanes, left to right. Upper lane, navy, ROBERT SMITH — DEFEND
 2. Failed attempts at 118 Larkspur Ln (10/01, 10/05, 10/08) and a neighbor saying Smith moved in August mean a stale address. Skip-Trace first, via the firm's licensed databases, permissible purpose only (no pretext calls): utility, employment, active-address records. 10/09: 4410 Quarry Ridge Ct, Millbrook.
 3. Right address, still dodging: vary the server's windows (early morning, evenings, weekends where the rules allow; some states bar Sunday service). Then Atty. Thorne may move for alternative service. Unserved in time, a case can be dismissed: confirm the court's rule.
 4. Service starts his clock: answer due 11/13/2026 (30 days on this file's configured rules). Check the docket weekly, never only the e-filing emails; a motion lost in spam still runs.
-5. A subpoena duces tecum compels a non-party's records. Narrow Exhibit A (patient, date, record types); “all records” invites a Motion to Quash. Notice opposing counsel first (often 5–10 days; confirm), then serve the custodian by process server.
+5. A Subpoena Duces Tecum compels a non-party's records. Narrow Exhibit A (patient, date, record types); “all records” invites a Motion to Quash. Notice opposing counsel first (often 5–10 days; confirm), then serve the custodian by process server.
 6. An unreachable client in suit runs Day 1's No Contact Protocol. John went quiet 01/22/2027; Step 3 names the 02/18/2027 deposition and the 02/04 and 02/16 prep. Moving anything is Atty. Thorne's call.
 7. The Step 4 Final Warning Letter (certified notice) goes by certified mail AND email over Atty. Thorne's signature: attempts itemized, a 7–14 day response date before 02/04/2027, how to respond. For 02/03/2027, send by 01/27/2027.
 8. Day 1's fourth element, notice of potential withdrawal, goes in only if Atty. Thorne directs it, in his words: in a pending suit withdrawal generally needs the court's leave. Never raise withdrawal anywhere else.
@@ -1471,7 +1471,7 @@ Two parallel swimlanes, left to right. Upper lane, navy, ROBERT SMITH — DEFEND
 |---|---|---|---|
 | Third failed attempt, 10/08/2026; neighbor says Smith moved | Escalate for Skip-Trace authority; send the result to the process server | CMS → Tasks → Escalate · Email Workspace | Skip-Trace result logged 10/09/2026; server re-assigned to 4410 Quarry Ridge Ct |
 | Affidavit of service filed 10/16/2026 | Docket the answer date and set the weekly docket check | Docket System · CMS → Calendar | Answer due 11/13/2026 on the calendar; weekly check recurring |
-| Subpoena duces tecum approved by Atty. Thorne | Notice opposing counsel, then serve the custodian by process server | Court E-Filing · CMS → Litigation → Subpoena log | Notice to Atty. Grant Mercer dated before service; compliance call 5 days before production |
+| Subpoena Duces Tecum approved by Atty. Thorne | Notice opposing counsel, then serve the custodian by process server | Court E-Filing · CMS → Litigation → Subpoena log | Notice to Atty. Grant Mercer dated before service; compliance call 5 days before production |
 | Client unreachable with a deposition noticed (from 01/22/2027) | Run Steps 1–3; draft the Step 4 notice for Atty. Thorne's signature | CMS → Communications Log · Action Plan Editor | Response date before 02/04/2027; certified mail AND email both logged |
 
 **Best practices & pitfalls**
@@ -1524,7 +1524,7 @@ A three-row counter-package matrix across the full slide width on a white card w
 
 **Scenario.** File date 11/12/2026, Track B. Atty. Grant Mercer of Mercer & Hale LLP has filed Robert Smith's Answer in Civil Action No. 26-CV-04417. It denies liability and pleads comparative negligence (the Escape entered the all-way stop out of turn; John was unbelted), causation (the gap; a “degenerative” MRI) and failure to mitigate. In the file: report RPD-26-018842, Ruth Calloway's details, the doorbell video, the 10/2026 EDR download, the EMS Run Report and the A-C-T record.
 
-**Execution prompt.** Build the liability counter-package for Atty. Thorne. For each of the three allegations, list the file evidence that answers it, its source document, the witness who can authenticate it, its chain of custody, and any gap in its foundation. Write out the doorbell video's chain from the 02/17/2026 preservation request to the 02/19/2026 copy. For any record that will need a custodian, draft a narrow Exhibit A for a subpoena duces tecum, for his review. Close with the questions only he can answer: the governing fault rule, seatbelt and citation admissibility, and whether fault on Kevin Alvarez touches coverage.
+**Execution prompt.** Build the liability counter-package for Atty. Thorne. For each of the three allegations, list the file evidence that answers it, its source document, the witness who can authenticate it, its chain of custody, and any gap in its foundation. Write out the doorbell video's chain from the 02/17/2026 preservation request to the 02/19/2026 copy. For any record that will need a custodian, draft a narrow Exhibit A for a Subpoena Duces Tecum, for his review. Close with the questions only he can answer: the governing fault rule, seatbelt and citation admissibility, and whether fault on Kevin Alvarez touches coverage.
 
 | | |
 |---|---|
@@ -1549,7 +1549,7 @@ A three-row counter-package matrix across the full slide width on a white card w
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | Answer received 11/12/2026 | Open the counter-package, one row per allegation | CMS → Litigation → Liability counter-package | Three rows, each with evidence, source, witness and custody |
-| A record will need a custodian | Draft the subpoena duces tecum with a narrow Exhibit A | Action Plan Editor → Subpoena template | Exhibit A names John Doe, 02/06/2026 and specific record types |
+| A record will need a custodian | Draft the Subpoena Duces Tecum with a narrow Exhibit A | Action Plan Editor → Subpoena template | Exhibit A names John Doe, 02/06/2026 and specific record types |
 | Package complete | Route to Atty. Thorne with the open legal questions | CMS → Tasks → Escalate | Every question listed; no conclusion drafted as advice |
 
 **Best practices & pitfalls**
@@ -1580,7 +1580,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 #### 5 · Speaker Notes
 
 - Hand out the Answer's three allegations as three blank rows. Tell the room the package is graded row by row, and a row without an authenticating witness is not finished.
-- Ask: “Which single document answers two defenses?” The EMS run report: “restrained” answers the seatbelt, and the neck complaint on the day of the crash answers the causation defense on the gap.
+- Ask: “Which single document answers two defenses?” The EMS Run Report: “restrained” answers the seatbelt, and the neck complaint on the day of the crash answers the causation defense on the gap.
 - Read the Exhibit A drafts. Anything that says “all records” goes back: one patient, one date, named record types.
 - Legal nuance: the EDR's 11 mph is consistent with a car pulling away from a stop, but speed alone does not prove who had the right-of-way. Let Ruth Calloway and the video carry that.
 

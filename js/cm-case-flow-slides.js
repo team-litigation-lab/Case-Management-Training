@@ -443,7 +443,7 @@ window.CM_CF_SLIDES = {
   "hook": "A reimbursement claim found after the demand comes out of **the client's net**.",
   "points": [
    "Clear the Triple-Check first: **HIPAA, BCRC, Payer Order**",
-   "Payer order: PIP/MedPay, private health insurance, **then LOP/provider liens**",
+   "Payer Order: PIP/MedPay, private health insurance, **then LOP/provider liens**",
    "The Payer Order pays the bills; **the $40,000 stack** pays the claim",
    "Flag the plan's reimbursement right **before the first demand**"
   ],
@@ -548,7 +548,7 @@ window.CM_CF_SLIDES = {
      "Nowhere on it does 02/06/2026 appear, so providers may balk."
     ],
     [
-     "John Doe worries out loud about his growing medical bills.",
+     "John Doe worries out loud about his growing Medical Bills.",
      "Peach State has already asserted reimbursement against any settlement.",
      "You tell him not to worry, the plan pays everything."
     ]
@@ -1022,7 +1022,7 @@ window.CM_CF_SLIDES = {
   "hook": "Property Damage is the client's first test of the firm, and **physical evidence of impact**.",
   "points": [
    "Get **the written Repair Estimate** before discussing any outcome",
-   "Total loss: confirm the carrier's **threshold basis in writing**",
+   "Total Loss: confirm the carrier's **threshold basis in writing**",
    "ACV is **pre-loss market value**: not the loan balance, not a replacement",
    "Loss of Use is **claimed separately**, per day without a vehicle"
   ],
@@ -1359,7 +1359,7 @@ window.CM_CF_SLIDES = {
    "Writing **“this will help the case”** in a treatment note"
   ],
   "theory": {
-   "lead": "A case plan is a **living, approved document**: drafted in structure, reviewed by counsel, then run.",
+   "lead": "A Case Plan is a **living, approved document**: drafted in structure, reviewed by counsel, then run.",
    "concepts": [
     {
      "term": "Section Templates",
@@ -1522,7 +1522,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "No-Fault Medical Coverage",
-     "text": "MedPay and PIP pay accident medical bills **regardless of fault**, fast, while liability is still disputed"
+     "text": "MedPay and PIP pay accident Medical Bills **regardless of fault**, fast, while liability is still disputed"
     },
     {
      "term": "UM by Status",
@@ -1574,13 +1574,13 @@ window.CM_CF_SLIDES = {
      [
       "MedPay",
       "The occupied vehicle's policy",
-      "Medical bills, no fault needed; no wages",
+      "Medical Bills, no fault needed; no wages",
       "By policy: **verify in writing**"
      ],
      [
       "PIP",
       "Client side, where a state requires it",
-      "Medical bills, part of wages, services",
+      "Medical Bills, part of wages, services",
       "Set-off or lien, by state law"
      ],
      [
@@ -1917,7 +1917,7 @@ window.CM_CF_SLIDES = {
      ],
      [
       "MedPay or PIP",
-      "Medical bills to its limit, regardless of fault",
+      "Medical Bills to its limit, regardless of fault",
       "Written terms, including any reimbursement right",
       "**Tracked apart**, never added to the stack"
      ],
@@ -2012,7 +2012,7 @@ window.CM_CF_SLIDES = {
   "image": "treatment-plan",
   "hook": "An LOP **out of Payer Order** turns a payable bill into a lien on his net.",
   "points": [
-   "Run the payer order: **MedPay → Peach State → LOP**",
+   "Run the Payer Order: **MedPay → Peach State → LOP**",
    "Use an LOP **only where earlier payers can't**",
    "Atty. Thorne sets LOP terms; **never promise payment** amounts, reductions or dates",
    "Be the hub: **warm handoffs**, not phone numbers"
@@ -2049,7 +2049,7 @@ window.CM_CF_SLIDES = {
    "Mission creep: taking on **every problem John Doe raises**"
   ],
   "theory": {
-   "lead": "Once the claim is set up, the case plan runs on **three pillars**: clinical care, functional status and subrogation management, which sets who pays.",
+   "lead": "Once the claim is set up, the Case Plan runs on **three pillars**: clinical care, functional status and subrogation management, which sets who pays.",
    "concepts": [
     {
      "term": "Payer Order",
@@ -2057,7 +2057,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "MedPay vs. PIP",
-     "text": "First-party coverage for medical bills regardless of fault, up to its limit; **unlike PIP, no wages**"
+     "text": "First-party coverage for Medical Bills regardless of fault, up to its limit; **unlike PIP, no wages**"
     },
     {
      "term": "Health Insurance",
@@ -2098,10 +2098,10 @@ window.CM_CF_SLIDES = {
      },
      {
       "label": "MedPay or PIP",
-      "text": "First-party, regardless of fault, up to its limit; MedPay pays medical bills only, never wages"
+      "text": "First-party, regardless of fault, up to its limit; MedPay pays Medical Bills only, never wages"
      },
      {
-      "label": "Health plan",
+      "label": "Health Plan",
       "text": "Pays covered care at its contract rate, but may assert **a reimbursement right** against the recovery"
      },
      {
@@ -2526,7 +2526,7 @@ window.CM_CF_SLIDES = {
   "deliver": "A CMS task list: every task **Done by me** or Delegated, owner and date",
   "checks": [
    "Crescent **verified in network** with Peach State, not hearsay",
-   "Crescent's 05/15/2026 slot: **no new treatment gap**",
+   "Crescent's 05/15/2026 slot: **no new Treatment Gap**",
    "Millbrook cancelled; **calendar and reminders** updated",
    "Records request **delegated with an owner** and due date",
    "**No medical advice**; no talk of claim value"
@@ -2950,7 +2950,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Liens and Subrogation",
-     "text": "Health plans, government payers and LOP providers may claim repayment from the recovery: **every lien shrinks the net**"
+     "text": "Health Plans, government payers and LOP providers may claim repayment from the recovery: **every lien shrinks the net**"
     },
     {
      "term": "Property Damage Deep Dive",
@@ -2981,7 +2981,7 @@ window.CM_CF_SLIDES = {
      [
       "Financial and liens",
       "Special Damages",
-      "Medical bills + lost wages + PD, every line documented"
+      "Medical Bills + lost wages + PD, every line documented"
      ],
      [
       "Financial and liens",
@@ -2991,7 +2991,7 @@ window.CM_CF_SLIDES = {
      [
       "Financial and liens",
       "Lien resolution",
-      "**Every subrogation interest**: statutory, health plan, consensual LOP"
+      "**Every subrogation interest**: statutory, Health Plan, consensual LOP"
      ],
      [
       "Liability proof",
@@ -3000,7 +3000,7 @@ window.CM_CF_SLIDES = {
      ],
      [
       "Property Damage deep dive",
-      "Photos, estimates, total loss",
+      "Photos, estimates, Total Loss",
       "Point of impact clear; supplements show hidden structural damage"
      ],
      [
@@ -3032,7 +3032,7 @@ window.CM_CF_SLIDES = {
    ],
    "donts": [
     [
-     "The demand package is ready and the clock is ticking.",
+     "The Demand Package is ready and the clock is ticking.",
      "Riverton's duplicate $185.00 line from 05/04/2026 is still in it.",
      "It ships anyway, math unchecked, and Keystone finds the slip."
     ],
@@ -3309,7 +3309,7 @@ window.CM_CF_SLIDES = {
      },
      {
       "label": "Photo Impact",
-      "text": "Lead the demand with the most graphic photo, property damage or injury, to **set the tone**"
+      "text": "Lead the demand with the most graphic photo, Property Damage or injury, to **set the tone**"
      },
      {
       "label": "The Why Factor",
@@ -3351,7 +3351,7 @@ window.CM_CF_SLIDES = {
     [
      "John Doe is still in therapy and the bills keep growing.",
      "No future-care plan exists yet, so the Specials are unfinished.",
-     "The demand goes out ahead of the 06/12/2026 maximum medical improvement note."
+     "The demand goes out ahead of the 06/12/2026 Maximum Medical Improvement note."
     ]
    ]
   }
@@ -3473,7 +3473,7 @@ window.CM_CF_SLIDES = {
     "rows": [
      [
       "Total Case Value",
-      "Medical bills plus pain and suffering, as Atty. Thorne values them",
+      "Medical Bills plus pain and suffering, as Atty. Thorne values them",
       "Atty. Thorne's valuation"
      ],
      [
@@ -3498,7 +3498,7 @@ window.CM_CF_SLIDES = {
   "clues": {
    "dos": [
     [
-     "Two UM demand packages are being assembled on 08/31/2026.",
+     "Two UM Demand Packages are being assembled on 08/31/2026.",
      "The UM adjusters will ask whether Keystone's $10,000 is truly spent.",
      "Page one holds the tender, the consents and the Limited Release."
     ],
@@ -3795,7 +3795,7 @@ window.CM_CF_SLIDES = {
      ],
      [
       "Economic Damages",
-      "Itemized medical bills, complete medical records, lost wage verification, future medical estimates"
+      "Itemized Medical Bills, complete medical records, lost wage verification, future medical estimates"
      ],
      [
       "Non-Economic Damages",
@@ -3839,7 +3839,7 @@ window.CM_CF_SLIDES = {
      "Weeks later, nothing on paper shows what anyone agreed to."
     ],
     [
-     "The five checks have gone out and the trust ledger reads zero.",
+     "The five checks have gone out and the Trust Ledger reads zero.",
      "A health-benefit carrier then sends a reimbursement claim.",
      "Nothing is left in trust to pay it, and John Doe is exposed."
     ]
@@ -3968,7 +3968,7 @@ window.CM_CF_SLIDES = {
      ],
      [
       "ERISA Plans",
-      "Self-funded employer health plans",
+      "Self-funded employer Health Plans",
       "Very low: governed by federal law, notoriously hard to reduce"
      ]
     ],
@@ -3995,7 +3995,7 @@ window.CM_CF_SLIDES = {
    ],
    "donts": [
     [
-     "A health plan asserts reimbursement against the settlement.",
+     "A Health Plan asserts reimbursement against the settlement.",
      "Self-funded ERISA plans answer to federal law and resist cuts.",
      "The trainee haggles with it the way one haggles with Riverton."
     ],
@@ -4046,7 +4046,7 @@ window.CM_CF_SLIDES = {
   "upl": "Ask only inside Atty. Thorne's written authority; never accept outside it or promise payment.",
   "job": [
    [
-    "Provider's final ledger received",
+    "Provider's Final Ledger received",
     "Audit each line; request written correction",
     "Medical Records Requests · Lien Tracker",
     "33 visits; duplicate out; $6,105.00"
@@ -4586,7 +4586,7 @@ window.CM_CF_SLIDES = {
       "Ask why they matter; expect a good-faith offer on undisputed injuries now"
      ],
      [
-      "“The property damage was too low for this injury.”",
+      "“The Property Damage was too low for this injury.”",
       "Low-velocity impacts can still injure the spine; point to the imaging"
      ]
     ],
@@ -5092,7 +5092,7 @@ window.CM_CF_SLIDES = {
      "The set you bring was built to persuade Hon. Carla Benton (Ret.)."
     ],
     [
-     "Laura Whitcomb, Esq. turns and asks you about a medical bill.",
+     "Laura Whitcomb, Esq. turns and asks you about a Medical Bill.",
      "The Golden Rule keeps Case Managers off the record entirely.",
      "You explain the bill yourself instead of handing it to Atty. Thorne."
     ],
@@ -5232,7 +5232,7 @@ window.CM_CF_SLIDES = {
      ],
      [
       "4 · Key Evidence & Liability",
-      "Police report, photos and video stills, deposition summaries with highlighted pages"
+      "Police Report, photos and video stills, deposition summaries with highlighted pages"
      ],
      [
       "5 · Damages, Financials & Experts",
@@ -5240,7 +5240,7 @@ window.CM_CF_SLIDES = {
      ],
      [
       "6 · Settlement History & Drafts",
-      "Negotiation log of every demand and offer, and a draft release"
+      "Negotiation Log of every demand and offer, and a draft release"
      ]
     ],
     "note": "Build three sets, for counsel, the mediator and John Doe, or one OCR-searchable digital set."
@@ -5386,7 +5386,7 @@ window.CM_CF_SLIDES = {
      ],
      [
       "3 · Liability & Biomechanics",
-      "Certified police report, diagrams, and photos and stills in **color, never grayscale**"
+      "Certified Police Report, diagrams, and photos and stills in **color, never grayscale**"
      ],
      [
       "4 · Medical Damages",
@@ -5579,7 +5579,7 @@ window.CM_CF_SLIDES = {
   "clues": {
    "dos": [
     [
-     "Riverton Spine & Rehab's final ledger has not arrived yet.",
+     "Riverton Spine & Rehab's Final Ledger has not arrived yet.",
      "The binder is due to Hon. Carla Benton (Ret.) on 03/11/2027.",
      "You flag the holdup on 03/01/2027, ten days out, not 03/11."
     ],
@@ -6045,7 +6045,7 @@ window.CM_CF_SLIDES = {
     ],
     [
      "Trial is set for the 09/13/2027 calendar and binders need building.",
-     "The tabbed exhibits come from the demand package assembled pre-suit.",
+     "The tabbed exhibits come from the Demand Package assembled pre-suit.",
      "Months of later treatment and the latest provider bills are absent."
     ],
     [
@@ -6088,7 +6088,7 @@ window.CM_CF_SLIDES = {
   "questions": [
    "Discovery mailed 12/01/2026: compute the **response date**. What changes for e-service, and why confirm the court's rule?",
    "Name the Answer's **three defenses** and the file evidence you would pull for Atty. Thorne against each.",
-   "File the affidavit, 12/01/2026 RFAs and scheduling order: **where, under what names**? What happens to the order's dates?"
+   "File the affidavit, 12/01/2026 RFAs and Scheduling Order: **where, under what names**? What happens to the order's dates?"
   ]
  },
  "d5m2-l1": {
@@ -6130,7 +6130,7 @@ window.CM_CF_SLIDES = {
    "Treating Property Damage as **“just the car”**"
   ],
   "theory": {
-   "lead": "Property damage is **a cornerstone of civil litigation**: the law's mechanism for making an owner financially whole after negligence harms their property.",
+   "lead": "Property Damage is **a cornerstone of civil litigation**: the law's mechanism for making an owner financially whole after negligence harms their property.",
    "concepts": [
     {
      "term": "PD Cuts Both Ways",
@@ -6184,7 +6184,7 @@ window.CM_CF_SLIDES = {
   "clues": {
    "dos": [
     [
-     "The Civic's first repair estimate reads $6,940.00.",
+     "The Civic's first Repair Estimate reads $6,940.00.",
      "A $2,315.00 teardown supplement arrives 03/02/2026, showing A-pillar damage.",
      "Total $9,255.00, 52.6% of the $17,600.00 ACV: still repairable."
     ],
@@ -6689,7 +6689,7 @@ window.CM_CF_SLIDES = {
    "Log each objection and **whether John stopped talking**",
    "**Coach nothing**; route the log to Atty. Thorne"
   ],
-  "deliver": "A **timestamped Trap Log**, scored against the seven golden rules, routed before the debrief",
+  "deliver": "A **timestamped Trap Log**, scored against the seven Golden Rules, routed before the debrief",
   "checks": [
    "All **six assigned traps** logged",
    "Gap entry: **14 days**, 02/06/2026 to 02/20/2026",
@@ -6738,7 +6738,7 @@ window.CM_CF_SLIDES = {
    ],
    [
     "Item lacks foundation",
-    "Flag for subpoena duces tecum",
+    "Flag for Subpoena Duces Tecum",
     "CMS → Tasks → Escalate",
     "Foundation gap and holder named"
    ]
@@ -6865,7 +6865,7 @@ window.CM_CF_SLIDES = {
   "points": [
    "Stale address? **Skip-Trace first**, permissible purpose only",
    "Follow up with the process server **every 5 days**",
-   "Subpoena duces tecum: **notice opposing counsel first**, then serve",
+   "Subpoena Duces Tecum: **notice opposing counsel first**, then serve",
    "The Step 4 letter: **certified mail AND email**, Atty. Thorne's signature"
   ],
   "upl": "Run authorized skip-traces and draft notices; never decide alternative service or threaten withdrawal",
@@ -6958,7 +6958,7 @@ window.CM_CF_SLIDES = {
      "Each knock gets logged with its calendar stamp and clock reading."
     ],
     [
-     "A subpoena duces tecum pulls a non-party's files toward production.",
+     "A Subpoena Duces Tecum pulls a non-party's files toward production.",
      "The copy bill lands in the firm's inbox this morning.",
      "Payment goes out the same day, so production keeps moving."
     ],

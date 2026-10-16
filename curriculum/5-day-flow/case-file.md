@@ -206,7 +206,7 @@ before any negotiated reduction, leaving John Doe nothing — which is why the l
   (15) served on John **by U.S. mail** → 30 days + 3 for mail = 01/03/2027, a Sunday → **due 01/04/2027 (Mon)**.
   Unanswered Requests for Admission may be deemed admitted. (Rule set configured for this training file;
   confirm the court's rules.)
-- **12/10/2026** Scheduling order: plaintiff's expert disclosure 03/15/2027; defense expert disclosure 04/15/2027;
+- **12/10/2026** Scheduling Order: plaintiff's expert disclosure 03/15/2027; defense expert disclosure 04/15/2027;
   mediation completed by 03/31/2027; discovery closes 05/28/2027; pretrial conference 08/12/2027; trial calendar 09/13/2027.
 - **12/14/2026** Plaintiff's discovery served on Smith by email (e-service by consent) → his responses due **01/13/2027**.
 - **01/20/2027** Notice of John's deposition: **02/18/2027, 10:00 a.m., by videoconference**, Riverton Court Reporting.

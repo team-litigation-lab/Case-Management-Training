@@ -124,7 +124,7 @@
     "hook": "A reimbursement claim found after the demand comes out of **the client's net**.",
     "points": [
       "Clear the Triple-Check first: **HIPAA, BCRC, Payer Order**",
-      "Payer order: PIP/MedPay, private health insurance, **then LOP/provider liens**",
+      "Payer Order: PIP/MedPay, private health insurance, **then LOP/provider liens**",
       "The Payer Order pays the bills; **the $40,000 stack** pays the claim",
       "Flag the plan's reimbursement right **before the first demand**"
     ],
@@ -326,7 +326,7 @@
     "hook": "Property Damage is the client's first test of the firm, and **physical evidence of impact**.",
     "points": [
       "Get **the written Repair Estimate** before discussing any outcome",
-      "Total loss: confirm the carrier's **threshold basis in writing**",
+      "Total Loss: confirm the carrier's **threshold basis in writing**",
       "ACV is **pre-loss market value**: not the loan balance, not a replacement",
       "Loss of Use is **claimed separately**, per day without a vehicle"
     ],
