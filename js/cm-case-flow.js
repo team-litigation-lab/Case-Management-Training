@@ -501,6 +501,7 @@ const art = (key, cls) => ART[key] ? `<div class="cfx-art ${cls || ""}" aria-hid
 const TOOLKIT = [
   {id: "cms", icon: "🗂", short: "CMS", name: "the CMS", re: /\bCMS\b|Case File|Case Notes|Case Summary|Communications Log|Financial Ledger|Lien Tracker|Net Sheet|Recovery Ledger|Insurance tab|\bTasks\b|\bLiens\b|Parties|\bCalendar\b(?! Conflict)|Documents →/},
   {id: "call", icon: "📞", short: "Call Simulator", name: "the Call Simulator", re: /Call Simulator|\bcall(s|ed)? (John|Margaret|Dana|the adjuster|the client)\b/i},
+  {id: "netsheet", icon: "📊", short: "Net Sheet", name: "the LSH Net Sheet", re: /Net Sheet|Lien Tracker|Recovery Ledger|Specials ledger|Financial Ledger → Specials/},
   {id: "email", icon: "✉️", short: "Email", name: "the Email Workspace", re: /Email Workspace/},
   {id: "replies", icon: "📨", short: "Replies", name: "Email Replies", re: /Email Replies/},
   {id: "docket", icon: "⚖️", short: "Docket", name: "the Docket System", re: /Docket System/},
@@ -512,11 +513,18 @@ const TOOLKIT = [
   {id: "docs", icon: "📁", short: "Documents", name: "the Case Documents", re: /Case Documents/},
 ];
 const TOOL = Object.fromEntries(TOOLKIT.map(t => [t.id, t]));
+/* The LSH Net Sheet is where the money is worked, and only there: Day 3's Settlement Negotiations, Lien Negotiations and
+   Disbursement (Track A, settled before suit) and Day 5's close-out once the case is won (Track B). Each block of those
+   Case Phases opens it at that phase's stage (js/cm-net-sheet.js STAGES). */
+const NET_PHASES = {"Settlement Negotiations": "recovery", "Lien Negotiations & Reduction": "liens", "Disbursement & Closing a Case": "final", "Case Won: Award & Disbursement": "litigation"};
+const NET_STAGE = {};
+(CF.sequence || []).forEach(d => d.phases.forEach(ph => { if(NET_PHASES[ph.title]) ph.blocks.forEach(id => { NET_STAGE[id] = NET_PHASES[ph.title]; }); }));
 // the in-course pages a tool opens (anything else is a training platform in the tool frame)
 const PAGE = {plan: ["notes"], docs: ["casedocs"], calendar: ["tool", "calendar"]};
 function toolLive(id, blockId){
   // a step with a call on John Doe's file takes that call; any other opens the Call Simulator (☎ LSH Ring Channel)
   if(id === "call") return !!(blockId && SIM.calls[blockId]) || (typeof cmTool === "function" && !!cmTool("calls"));
+  if(id === "netsheet") return !!(blockId && NET_STAGE[blockId]);
   if(PAGE[id]) return id !== "calendar" || (typeof PRACTICE_TOOLS !== "undefined" && PRACTICE_TOOLS.some(t => t.id === "calendar"));
   return typeof openTool === "function" && typeof cmTool === "function" && !!cmTool(id);
 }
@@ -531,6 +539,7 @@ function blockTools(b){
   if(b.kind === "activity") ids = toolsIn(b.act.tool + " " + b.act.prompt, b.id).concat(SIM.calls[b.id] ? ["call"] : []);
   else if(b.kind === "lesson") ids = toolsIn((b.ops || []).map(o => o[2]).join(" · "), b.id);
   else ids = ["cms", "docs"];
+  if(NET_STAGE[b.id]) ids.push("netsheet");   // every block of a Case Phase that works the money
   ids = [...new Set(ids)];
   return ids.length ? ids : ["cms"];
 }
@@ -591,8 +600,24 @@ function slideBody(view, l, d){
   }
   return "";
 }
+/* How far the trainee has worked each Skill Activity: the furthest slide reached (REC.reached), with ticks, logged
+   work, the call and the listening check also counting as having done it. The Case File fills in from this. */
+let reachT = null;
+function noteReached(b, p){
+  if(b.kind !== "activity" || isTrainer() || ((REC.reached || {})[b.id] || 0) >= p) return;
+  (REC.reached = REC.reached || {})[b.id] = p;
+  clearTimeout(reachT); reachT = setTimeout(persist, 800);
+}
+const BLOCK = {};
+CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { BLOCK[b.id] = b; })));
+function actDone(id){
+  const b = BLOCK[id]; if(!b) return false;
+  return ((REC.reached || {})[id] || 0) >= viewsOf(b).length || ((REC.ticks || {})[id] || []).some(Boolean) || !!(REC.work || {})[id] || !!((REC.listen || {})[id] || {}).at || !!(REC.calls || {})[id];
+}
+const actOpened = id => !!(REC.reached || {})[id] || actDone(id);
 function card(l, i, d, part){
   const {day, mod, block: b, k, phase} = l.cf, vs = viewsOf(b), p = Math.min(Math.max(part || 1, 1), vs.length), view = vs[p - 1];
+  noteReached(b, p);
   const dots = vs.map((v, j) => `<span class="cfx-dot${j === p - 1 ? " on" : j < p - 1 ? " done" : ""}" title="${E(VIEW_LABEL[v])}"></span>`).join("");
   const logo = typeof LOGO_FULL_SRC !== "undefined" ? `<img class="cfx-logo" src="${LOGO_FULL_SRC}" alt="Legal Support Help">` : "";
   const onNavy = view === "case";   // a Skill Building opener sits on the slide itself, like the deck's
@@ -883,6 +908,11 @@ window.cmCaseFlow.listenClose = function(){ const box = document.getElementById(
 /* ---------- opening a step's tool ---------- */
 window.cmCaseFlow.tool = function(id, blockId){
   if(id === "call" && blockId && SIM.calls[blockId]) return cmCaseFlow.call(blockId);
+  if(id === "netsheet" && typeof openPane === "function"){   // the firm's Net Sheet (net-sheet.html), beside the slide, checked at this step's stage
+    const st = NET_STAGE[blockId] || "final";
+    openPane("netsheet", new URL(`net-sheet.html?stage=${st}${DATES ? "&year=" + DATES.year : ""}`, location.href).href, `LSH Net Sheet · ${st === "litigation" ? "Track B (case won)" : "Track A (settled)"}`, "📊", "split");
+    return;
+  }
   if(PAGE[id]){   // one of the course's own pages: go there, with a way back to this slide
     const d = MODULES.find(x => x.lessons.some(l => l.cf.block.id === blockId)) || MODULES.find(x => x.id === state.dayId);
     state.cfReturn = d ? {dayId: d.id, n: d.cf.n, slide: typeof state.lessonSlide === "number" ? state.lessonSlide : null, view: state.view} : null;
@@ -1181,6 +1211,12 @@ function workLogged(mine, m){
   if(heard) return heard + (rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "");
   return rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "";
 }
+const NET_LABEL = {recovery: "Track A · settlement", liens: "Track A · liens", final: "Track A · final", litigation: "Track B · case won"};
+function netLogged(snap, m){
+  const ns = snap["net-sheet"], stage = (m.blocks.map(x => NET_STAGE[x.id]).filter(Boolean))[0];
+  const sheet = ns && (ns.files ? ns.files[stage === "litigation" ? "B" : "A"] : ns), r = stage && sheet && sheet.checks && sheet.checks[stage];
+  return r ? `<div class="cf-tr-work"><b>📊 Net Sheet (${E(NET_LABEL[stage])}):</b> ${E(r.passed)}/${E(r.total)} tie out · checked ${E(new Date(r.at).toLocaleDateString())}${r.items.filter(x => !x.ok).map(x => ` · ✗ ${E(x.cell)} = ${E(x.got)}`).join("")}</div>` : "";
+}
 function trainerPanel(rec){
   const work = (state.traineeWork || {})[rec.id];
   if(!work || work.loading || !work.feedback) return "";
@@ -1193,7 +1229,7 @@ function trainerPanel(rec){
         <span class="cf-tr-chips">${r.quiz ? `<span class="fb-chip sent">Quiz ${E(r.quiz.pct)}%</span>` : ""}${r.ai ? `<span class="fb-chip sent">AI ${E(r.ai.score)}%</span>` : ""}${typeof t.score === "number" ? `<span class="fb-chip sent">Trainer ${E(t.score)}%</span>` : (answered ? `<span class="fb-chip draft">To score</span>` : `<span class="fb-chip none">No summary yet</span>`)}${c.c != null ? `<span class="fb-chip sent">Composite ${E(c.c)}%</span>` : ""}</span></summary>
       ${answered ? `<div class="fb-evidence">${(r.kc || []).some(Boolean) ? b.check.questions.map((q, j) => `<div><b>KC ${j + 1}. ${E(q)}</b><br>${E((r.kc || [])[j] || "—")}</div>`).join("") : ""}${b.check.summary.map((q, j) => `<div><b>${E(q)}</b><br>${E((r.answers || [])[j] || "—")}</div>`).join("")}
         <div><b>Self-ratings:</b> ${b.check.scale.map((x, j) => `${E(x)}: ${E((r.scale || [])[j] || "—")}`).join(" · ")}</div></div>` : ""}
-      ${workLogged(mine, m)}
+      ${workLogged(mine, m)}${netLogged(work.snap || {}, m)}
       <div class="cf-tr-rubric"><b>Assess against:</b> ${b.rubric.trainer.map(x => `${E(x[0])} (${E(x[1])})`).join(" · ")} — UPL is a gate, not a weighting.</div>
       <div class="fbc-row"><label>Trainer score (0–100)<input type="number" min="0" max="100" id="cftr_${sid}_${m.id}" value="${typeof t.score === "number" ? E(t.score) : ""}"></label></div>
       <label class="fbc-full">Comment for the trainee<textarea id="cftc_${sid}_${m.id}" rows="2">${E(t.comment || "")}</textarea></label>
@@ -1253,12 +1289,40 @@ if(typeof renderFeedbackAdmin === "function"){
    Each section opens with its Case Flow day (`opens`) or once that day is passed (`passed`),
    so the profile never gives away a day's answers; trainers see every section. */
 const cfIdOf = n => (cfDayByN(n) || {}).id;
-const profileOpen = sec => !!(state.isAdmin || state.adminPreview) ||
-  (sec.opens ? dayUnlocked(cfIdOf(sec.opens)) : !!((state.progress || {})[cfIdOf(sec.passed)] || {}).done);
-const lockLabel = sec => sec.opens ? `Opens with Case Flow Day ${sec.opens}` : `Opens when you pass Case Flow Day ${sec.passed}`;
+const profileOpen = sec => isTrainer() || (sec.after ? actDone(sec.after) : false);
 /* the whole case: the shared file, the two workstreams that run in parallel (each with "you are here"), then the file again */
+/* where the trainee's file stands: the newest event of each activity they have opened, overall and per workstream */
+function caseNow(){
+  const now = {"": NaN, claims: NaN, care: NaN}, max = (a, b) => isNaN(a) ? b : Math.max(a, b);
+  let trackA = false, trackB = false;
+  MODULES.forEach(d => d.lessons.forEach(l => {
+    const id = l.cf.block.id, e = SIM.events[id];
+    if(l.cf.block.kind !== "activity" || !e || !actOpened(id)) return;
+    const t = dayMs(e.date); now[""] = max(now[""], t);
+    if(l.cf.phase.lane) now[l.cf.phase.lane] = max(now[l.cf.phase.lane], t);
+    if(d.cf.n >= 4) trackB = true; else if(d.cf.n === 3) trackA = true;
+  }));
+  return {now, track: trackB ? "B" : trackA ? "A" : ""};
+}
+const fmtMs = t => { const d = new Date(t); return `${String(d.getUTCMonth() + 1).padStart(2, "0")}/${String(d.getUTCDate()).padStart(2, "0")}/${d.getUTCFullYear()}`; };
 function caseTimeline(n){
   if(!(SIM.timeline || []).length) return "";
+  if(!isTrainer()){   // a trainee sees the case only as far as they have worked it
+    const {now, track} = caseNow();
+    const seen = SIM.timeline.filter(m => (!m.track || m.track === track) && dayMs(m.date) <= (m.lane ? now[m.lane] : now[""]));
+    if(!seen.length) return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3><p class="cf-note">The timeline fills in as you work John Doe's file.</p></div>`;
+    const li = list => list.map(m => `<li class="past"><i></i><b>${E(m.label)}</b><small>${E(m.date)}</small></li>`).join("");
+    const at = t => isNaN(t) ? "" : `<li class="here"><i></i><b>You are here</b><small>${E(fmtMs(t))}</small></li>`;
+    const laned = seen.filter(m => m.lane);
+    if(!laned.length) return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3><ol class="cfx-tl cfx-tl-full">${li(seen)}${at(now[""])}</ol></div>`;
+    // once the two workstreams have started: the shared file, the workstreams side by side (each with its own "you are here"), then the file again
+    const all = SIM.timeline.filter(m => m.lane && (!m.track || m.track === track)).map(m => dayMs(m.date)), lo = Math.min(...all), hi = Math.max(...all);
+    const before = seen.filter(m => !m.lane && dayMs(m.date) < lo), after = seen.filter(m => !m.lane && dayMs(m.date) > hi);
+    return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3>
+      ${before.length ? `<ol class="cfx-tl cfx-tl-full">${li(before)}</ol>` : ""}
+      <div class="cf-lanes">${Object.entries(LANES).map(([k, name]) => `<div class="cf-lane cf-lane-${k}"><div class="cf-lane-h">${E(name)}</div><ol class="cfx-tl cfx-tl-full">${li(laned.filter(m => m.lane === k))}${after.length ? "" : at(now[k])}</ol></div>`).join("")}</div>
+      ${after.length ? `<ol class="cfx-tl cfx-tl-full">${li(after)}${at(now[""])}</ol>` : ""}</div>`;
+  }
   const track = n >= 4 ? "B" : n === 3 ? "A" : "";
   const items = SIM.timeline.filter(m => !m.track || !track || m.track === track);
   const first = cfDayByN(n) && cfDayByN(n).lessons.find(l => l.cf.block.kind === "activity" && SIM.events[l.cf.block.id]);
@@ -1281,19 +1345,16 @@ function caseTimeline(n){
     <ol class="cfx-tl cfx-tl-full">${row(after, lastShared)}</ol></div>`;
 }
 function caseFlowProfile(archiveLink){
-  const c = CF.case, secs = CF.profile || [], shown = secs.filter(profileOpen), locked = secs.filter(x => !profileOpen(x));
-  const gates = [];
-  locked.forEach(x => { const k = lockLabel(x), g = gates.find(y => y.k === k); g ? g.t.push(x.title) : gates.push({k, t: [x.title]}); });
+  const c = CF.case, secs = CF.profile || [], shown = secs.filter(profileOpen);
   const pos = dayUnlocked(cfIdOf(5)) ? 5 : [4, 3, 2, 1].find(n => dayUnlocked(cfIdOf(n))) || 1;
   return `<h1 style="color:var(--navy);font-size:28px;margin:0 0 10px">📂 Case File: ${E(c.style)}</h1>
-    <div class="client-intro-banner"><div class="cib-tag">📌 Your Client</div><h2>One File, From Intake to Deposition</h2>
-      <p>${E(c.client.name)}, ${E(c.client.position.toLowerCase())}, is your client for the whole course: ${E(c.no)} · Lead Counsel ${E(c.counsel)} · ${E(money(c.total))} Recovery Stack · ${E(c.gapDays)}-Day Treatment Gap.</p>
-      ${DATES ? `<p class="cf-case-year">📅 <b>Dates are kept current.</b> On your file the collision is ${E(DATES.dol())}; every date, weekday and deadline on the case moves with it, and the two-year SOL stays exact. You keep this case year until you finish.${DATES.preview ? ` <b>Trainer preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end the preview</a>.` : ""}</p>` : ""}
-      <p>This profile grows with the file. Each section opens with the day it belongs to, and what a day's work produces (the audited Specials, the reasons for the gap, the Net Sheet, the calendar) opens once you pass that day, so work it out from the documents first.</p>
+    <div class="client-intro-banner"><div class="cib-tag">📌 Your Client</div><h2>${E(c.client.name)}</h2>
+      <p>Matter ${E(c.no)} · Lead Counsel ${E(c.counsel)}</p>
+      <p class="cf-note">What you establish on the file appears here as you work it.</p>
+      ${DATES && isTrainer() ? `<p class="cf-case-year">📅 Case year ${E(DATES.year)} (collision ${E(DATES.dol())}); each trainee keeps the year they started on.${DATES.preview ? ` <b>Trainer preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end the preview</a>.` : ""}</p>` : ""}
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-navy btn-sm" onclick="goto('day',${cfIdOf(pos)})">Open Case Flow Day ${pos}</button><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.docsArchived ? cmCaseFlow.docsArchived(false) : goto('casedocs')">📁 Open the Case Documents</button>${typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS</button>` : ""}</div></div>
     ${caseTimeline(pos)}
-    <div class="profile-grid">${shown.map(x => `<div class="card profile-section"><h3>${E(x.title)}</h3><ul>${x.items.map(i => `<li>${E(i)}</li>`).join("")}</ul></div>`).join("")}
-      ${gates.map(g => `<div class="card profile-section cf-prof-lock"><h3>🔒 ${E(g.k)}</h3><ul>${g.t.map(t => `<li>${E(t)}</li>`).join("")}</ul></div>`).join("")}</div>
+    ${shown.length ? `<div class="profile-grid">${shown.map(x => `<div class="card profile-section"><h3>${E(x.title)}</h3><ul>${x.items.map(i => `<li>${E(i)}</li>`).join("")}</ul></div>`).join("")}</div>` : ""}
     ${archiveLink ? `<div class="cf-archived-link"><button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.archived(true)">🗄 Archived: The John Doe v. Apex Case File</button>
       <span class="cf-note">The earlier version's Case File and its Case File checkpoints, kept for the Apex days.</span></div>` : ""}`;
 }

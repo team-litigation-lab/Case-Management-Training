@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>LSH Net Sheet</title>
+<!-- The firm's LSH Net Sheet for John Doe v. Robert Smith (js/cm-net-sheet.js). The Case Flow opens it beside the
+     slide (or on a second screen): net-sheet.html?stage=recovery|liens|final|litigation&year=2026 -->
+<style>
+  :root { --navy: #262B45; --orange: #DB8437; --ink: #1E2233; --soft: #5B6178; --line: #D6DAE4; --in: #FFF7D6; --paper: #F5F6FA; }
+  html, body { background: var(--paper); }
+  body { margin: 0; font: 14px/1.45 Arial, Helvetica, sans-serif; color: var(--ink); }
+  .ns-bar { position: sticky; top: 0; z-index: 2; display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; padding: 10px 16px; background: var(--navy); color: #fff; }
+  .ns-bar .t { flex: 1 1 260px; min-width: 0; font-weight: 700; }
+  .ns-bar .t small { display: block; font-weight: 400; font-size: 12px; color: #C9CFE0; }
+  .ns-bar select, .ns-bar button { font: 700 13px Arial, Helvetica, sans-serif; padding: 7px 10px; border-radius: 8px; border: 0; }
+  .ns-bar button { background: #F4B77A; color: var(--navy); cursor: pointer; }
+  .ns-bar button.ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.4); }
+  #ns-status { font-size: 12px; color: #C9CFE0; }
+  main { max-width: 1180px; margin: 0 auto; padding: 14px 16px 40px; }
+  .ns-lead { font-size: 13px; color: var(--soft); margin: 0 0 12px; }
+  .ns-lead b { color: var(--ink); }
+  #ns-check { background: #fff; border: 2px solid var(--orange); border-radius: 12px; padding: 10px 14px; margin: 0 0 14px; font-size: 13.5px; }
+  #ns-check ul { margin: 6px 0 0; padding-left: 4px; list-style: none; }
+  #ns-check li { margin: 4px 0; } #ns-check li.ok { color: #2E7D4F; } #ns-check li.miss { color: #B54A3F; }
+  #ns-check li span { color: var(--ink); font-size: 12.5px; }
+  .ns-sec { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px 12px; margin: 0 0 14px; }
+  .ns-sec h2 { font-size: 14px; letter-spacing: .03em; text-transform: uppercase; color: #fff; background: var(--navy); margin: -10px -14px 10px; padding: 8px 14px; border-radius: 11px 11px 0 0; }
+  .ns-scroll { overflow-x: auto; }
+  table.ns-t { width: 100%; border-collapse: collapse; }
+  .ns-t th { text-align: left; font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color: var(--soft); padding: 4px 6px; border-bottom: 2px solid var(--line); white-space: nowrap; }
+  .ns-t td { padding: 3px 6px; border-bottom: 1px solid #EEF0F5; vertical-align: middle; }
+  .ns-t .m { text-align: right; }
+  .ns-ledger { min-width: 1080px; }
+  .ns-in { width: 100%; box-sizing: border-box; border: 1px solid #E8D88F; background: var(--in); border-radius: 5px; padding: 4px 6px; font: 13.5px Arial, Helvetica, sans-serif; }
+  .ns-in:focus { outline: 2px solid var(--orange); border-color: var(--orange); background: #fff; }
+  .m .ns-in { text-align: right; min-width: 92px; }
+  .ns-in.pct { width: 90px; }
+  .ns-out { display: block; text-align: right; font-weight: 700; padding: 4px 6px; background: #F1F3F8; border-radius: 5px; min-width: 92px; white-space: nowrap; }
+  .ns-out.neg { color: #B54A3F; }
+  tr.tot td { font-weight: 700; border-top: 2px solid var(--line); }
+  tr.net td { font-weight: 800; font-size: 15px; border-top: 3px double var(--navy); }
+  tr.net .ns-out { background: #E6F2EA; color: #1F5E38; }
+  tr.gap td { height: 8px; border: 0; }
+  small { color: var(--soft); }
+  @media (max-width: 640px) { main { padding: 10px 8px 30px; } }
+</style>
+<script>window.CM_CASE_YEAR = new URLSearchParams(location.search).get("year");</script>
+<script src="/js/cm-case-dates.js?v=1"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+<script src="/js/cm-net-sheet.js?v=4"></script>
+</head>
+<body>
+<div class="ns-bar">
+  <div class="t">📊 LSH Net Sheet<small>John Doe v. Robert Smith · <span id="ns-track"></span> · <span id="ns-status">Loading…</span></small></div>
+  <select id="ns-stage" aria-label="Check against"></select>
+  <button id="ns-check-btn" type="button">Check my sheet</button>
+  <button id="ns-dl" type="button" class="ghost">⬇ Download (.xlsx)</button>
+  <button id="ns-reset" type="button" class="ghost">Start over</button>
+</div>
+<main>
+  <p class="ns-lead">The firm's Net Sheet, filled from John Doe's bills. Type in the <b>yellow</b> cells; the grey ones are the template's formulas. Verify every figure against its source document before you enter it, then <b>Check my sheet</b> against the file. Your sheet is kept with your progress; <b>Download</b> gives it to you as a spreadsheet for Excel or Google Sheets.</p>
+  <div id="ns-check" hidden></div>
+  <div id="ns"></div>
+</main>
+</body>
+</html>
