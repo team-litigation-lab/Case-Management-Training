@@ -200,7 +200,10 @@ s = s.replace("Practice Labs", "Skill Builders").replace("Practice Lab", "Skill 
 # js/cm-skillbuilders.js and labPolish in js/cm-updates.js do it for the labs). The Notes page is
 # drawn here, and said "✨ Get Review" before the review and "✨ Get Feedback" after it.
 rep('''id="aiBtn_${n.id}">✨ Get Review</button>''', '''id="aiBtn_${n.id}">Review</button>''')
-rep('btn.disabled = false; btn.textContent = "✨ Get Feedback";', 'btn.disabled = false; btn.textContent = "Review";')
+# (EA/PA now resets it to "✨ Get Review"; either way it reads "Review" here.)
+if not re.search(r'btn\.disabled = false; btn\.textContent = "✨ Get (?:Feedback|Review)";', s):
+    sys.exit("MISSING (0): the Notes review button's reset (btn.textContent = \"✨ Get Feedback\" or \"✨ Get Review\")")
+s = re.sub(r'btn\.disabled = false; btn\.textContent = "✨ Get (?:Feedback|Review)";', 'btn.disabled = false; btn.textContent = "Review";', s)
 
 # ---------- 8e. the Trainee Audit isn't read twice when the Admin screen opens ----------
 # liveTick's admin branch refreshes the ledger as soon as state.liveAdminAt is unset, so opening the
@@ -232,6 +235,11 @@ def tags(*names):
 s, n = re.subn(r'<script src="/js/days/day(?:[1-9]|10)/(?:notes|scripts)\.js[^"]*"></script>\n?', "", s)
 if n != 20:
     sys.exit(f"MISSING: expected 20 js/days/dayN/(notes|scripts).js tags, removed {n}")
+# EA/PA's per-day lesson slide copy (window.EA_SLIDE_COPY, read only if present) is EA/PA content, so it
+# goes too; the Case Flow's slide copy is js/cm-case-flow-slides.js.
+s = re.sub(r'<script src="/js/days/day(?:[1-9]|10)/slides\.js[^"]*"></script>\n?', "", s)
+# ...and its illustrations for that copy (EAPA_ART, also read only if defined).
+s = re.sub(r'<script src="/js/eapa-deck-art\.js[^"]*"></script>\n?', "", s)
 
 # One hook — eapa-updates.js — becomes the CM run, in load order.
 s = re.sub(r'<script src="/js/eapa-updates\.js\?v=[^"]*"></script>', '<script src="/js/eapa-updates.js?v=z"></script>', s, count=1)
