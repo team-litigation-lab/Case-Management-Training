@@ -1548,6 +1548,23 @@ function kcChip(modId){   // a module's scores, compact, for the results
   const v = x => x == null ? "—" : x + "%";
   return `<span>Automated <b>${v(s.a)}</b></span><span>Trainer <b>${v(s.t)}</b></span><span>Composite <b>${v(s.c)}</b></span>${m.ai ? "" : `<em id="cfkc_rv_${modId}">${state.cfReviewing && state.cfReviewing[modId] ? "Reviewing…" : "Review pending"}</em>`}`;
 }
+/* The bonus round is graded: each takeaway by the AI reviewer against its module's rubric. Their average is the day's
+   takeaway score, kept on the day's record beside the quiz (state.progress[day].takeaway), so it shows on the results,
+   the trainer's Day-by-Day and the trainee's evidence; the quiz alone still decides the 70% pass. */
+function takeawayScore(d){
+  const mods = kcMods(d), v = mods.map(({mod}) => rec(mod.id).ai).filter(a => a && typeof a.score === "number").map(a => a.score);
+  return {n: mods.length, graded: v.length, pct: v.length ? Math.round(v.reduce((x, y) => x + y, 0) / v.length) : null};
+}
+async function saveTakeaway(d){
+  const t = takeawayScore(d), p = (state.progress || {})[d.id];
+  if(!p || t.pct == null || (p.takeaway === t.pct && p.takeawayGraded === t.graded)) return;
+  p.takeaway = t.pct; p.takeawayGraded = t.graded; p.takeawayAt = new Date().toISOString();
+  try{ await storeSet("day-progress", state.progress); if(typeof syncToLedger === "function") await syncToLedger(); }catch(e){}
+}
+function takeawayHtml(d){
+  const t = takeawayScore(d), busy = kcMods(d).some(({mod}) => state.cfReviewing && state.cfReviewing[mod.id]);
+  return `<b>${t.pct == null ? "—" : t.pct + "%"}</b><span>Takeaways</span><small>${t.pct == null ? (busy ? "Grading…" : "Graded after you submit") : `AI-graded · ${t.graded} of ${t.n}${busy ? " · grading…" : ""}`}</small>`;
+}
 function cfResult(d){
   const {lastScore, lastCorrect, lastTotal, lastPassed} = state;
   const msg = lastPassed ? `That's a wrap on Case Flow Day ${d.cf.n}. Well done.` : "Not quite 70% yet. See which questions you missed below, then retake when you're ready.";
@@ -1556,7 +1573,8 @@ function cfResult(d){
     : (typeof certData === "function" && certData().eligible ? `<button class="btn btn-primary" onclick="openCertificate()">🎓 View Certificate of Completion</button>` : "");
   return `<div class="card quiz-result cf-kc-result">
       <div class="cf-kcr-top">
-        <div class="cf-kcr-score">${typeof sealSvg === "function" ? sealSvg({size: 72, label: lastScore + "%", done: lastPassed}) : ""}<div><div class="big">${lastCorrect} / ${lastTotal} correct</div><div class="sub">${msg}</div></div></div>
+        <div class="cf-kcr-score">${typeof sealSvg === "function" ? sealSvg({size: 72, label: lastScore + "%", done: lastPassed}) : ""}<div><div class="big">${lastCorrect} / ${lastTotal} correct</div><div class="sub">${msg}</div></div>
+          <div class="cf-kcr-take" id="cfkc_take_${d.id}">${takeawayHtml(d)}</div></div>
         <div class="cf-kcr-next">${renderQuizNextStep(d, lastPassed)}</div>
       </div>
       ${state.cfGame && state.cfGame.day === d.id ? `<div class="cf-kcr-game"><span>${state.cfGame.mode === "millionaire" ? `<b>${rankName(rankAt(Object.values(state.cfGame.log).filter(x => x.ok).length, d.quiz.length))}</b>` : `⭐ <b>${state.cfGame.pts.toLocaleString()}</b> points`}</span><span>🔥 best streak <b>${state.cfGame.best}</b></span>${gameBadges(d, state.cfGame).map(([i, t]) => `<span class="cfg-badge sm"><i>${i}</i><b>${t}</b></span>`).join("")}${(REC.game || {})[d.id] ? `<span class="cf-note">Your best: ${(REC.game[d.id].pts || 0).toLocaleString()} points</span>` : ""}</div>` : ""}
@@ -1824,7 +1842,7 @@ if(typeof renderQuiz === "function"){
     const mods = kcMods(d), done = mods.filter(x => !modMissing(x.b, x.mod.id)).length, answered = Object.keys(state.quizAnswers || {}).length;
     const part = state.cfKcPart === "written" && state.cfKcDay === d.id ? "written" : "quiz";
     const step = (k, label, sub) => `<button type="button" class="cf-kc-step${part === k ? " on" : ""}" onclick="cmCaseFlow.kcPart('${k}')"><b>${label}</b><small>${sub}</small></button>`;
-    const steps = `<div class="cf-kc-steps">${step("quiz", `① ${(GAMES[(state.cfGame && state.cfGame.day === d.id && state.cfGame.mode) || (state.cfGameMode || {})[d.id] || GAME_DAY[d.cf.n]] || GAMES.millionaire).icon} The Quiz Game`, `${answered} of ${d.quiz.length} played`)}${step("written", "② Bonus round: your takeaways", `${done} of ${mods.length} written`)}</div>`;
+    const steps = `<div class="cf-kc-steps">${step("quiz", `① ${(GAMES[(state.cfGame && state.cfGame.day === d.id && state.cfGame.mode) || (state.cfGameMode || {})[d.id] || GAME_DAY[d.cf.n]] || GAMES.millionaire).icon} The Quiz Game`, `${answered} of ${d.quiz.length} played`)}${step("written", "② Bonus round: your takeaways", `${done} of ${mods.length} written${takeawayScore(d).pct == null ? " · graded when you submit" : ` · graded ${takeawayScore(d).pct}%`}`)}</div>`;
     const prog = (state.progress || {})[d.id];
     const head = `<div class="cf-kc-head"><button type="button" class="cf-kc-back" onclick="cmCaseFlow.kcBack(${d.id})" title="Back to the slide you were on">← Lessons</button>
       <b>Case Flow Day ${d.cf.n} · ${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</b><span class="tag">Knowledge Check · ${d.quiz.length} questions</span>
@@ -1892,7 +1910,10 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
       try{ await cmCaseFlow.review(dayId, mod.id, true); }catch(e){}
       state.cfReviewing[mod.id] = false;
       const res = document.getElementById(`cfkc_res_${mod.id}`); if(res) res.innerHTML = kcChip(mod.id);
+      const tk = document.getElementById(`cfkc_take_${dayId}`); if(tk) tk.innerHTML = takeawayHtml(d);
     }
+    await saveTakeaway(d);
+    const tk = document.getElementById(`cfkc_take_${dayId}`); if(tk) tk.innerHTML = takeawayHtml(d);
   },
   async review(dayId, modId, auto){
     const d = cfDay(dayId), m = auto ? rec(modId) : readForm(modId);
@@ -1927,6 +1948,40 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
     const res = document.getElementById(`cfss_res_${modId}`); if(res) res.innerHTML = scoreHtml(modId);
   }
 });
+
+/* the results PDF carries the takeaways' grades under the quiz result */
+if(typeof window.downloadQuizResultPdf === "function"){
+  const __pdf = window.downloadQuizResultPdf;
+  window.downloadQuizResultPdf = async function(dayId){
+    const d = cfDay(dayId), mk = window.buildAndSavePdf;
+    if(!d || typeof mk !== "function") return __pdf.apply(this, arguments);
+    const t = takeawayScore(d);
+    const add = ["Takeaways (bonus round, AI-graded against each module's rubric): " + (t.pct == null ? "not graded yet" : `${t.pct}% average (${t.graded} of ${t.n} graded)`)]
+      .concat(kcMods(d).map(({b, mod}) => { const a = rec(mod.id).ai; return `   ${b.title}: ${a && typeof a.score === "number" ? a.score + "%" + (a.tier ? " — " + a.tier : "") : "not graded yet"}`; }));
+    window.buildAndSavePdf = function(title, sub, lines){ if(Array.isArray(lines)) lines.splice(1, 0, ...add); return mk.apply(this, arguments); };
+    try{ return await __pdf.apply(this, arguments); }finally{ window.buildAndSavePdf = mk; }
+  };
+}
+/* the takeaway score beside the quiz, where a trainer reads a trainee's days */
+if(typeof window.renderAdminDetail === "function"){
+  const __detail = window.renderAdminDetail;
+  window.renderAdminDetail = function(rec){
+    let out = __detail.apply(this, arguments);
+    const dp = (rec && rec.dayProgress) || {};
+    DAYS.forEach(d => { const p = dp[d.id]; if(!p || typeof p.takeaway !== "number") return;
+      const head = `<span>Day ${d.id} — ${E(d.title)}</span>`, i = out.indexOf(head); if(i < 0) return;
+      const j = out.indexOf("</span>", out.indexOf("<span", i + head.length)); if(j < 0) return;
+      out = out.slice(0, j) + ` · takeaways ${p.takeaway}%` + out.slice(j); });
+    return out;
+  };
+}
+if(typeof window.evidenceText === "function"){
+  const __ev = window.evidenceText;
+  window.evidenceText = function(ev){
+    const t = __ev.apply(this, arguments);
+    return ev && ev.dp && typeof ev.dp.takeaway === "number" ? `${t}\nKnowledge Check takeaways (bonus round, AI-graded against each module's rubric): ${ev.dp.takeaway}% average.` : t;
+  };
+}
 
 /* ---------- the dashboard: the Case Flow is the program ----------
    The engine draws the dashboard from DAYS, the Case Flow's days, so the day cards, the banner's day
@@ -2447,7 +2502,9 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cf-kc-submit{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:6px 0 4px;}
 .cf-kc-result{padding:18px 22px !important;text-align:left !important;}
 .cf-kcr-top{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px;align-items:center;}
-.cf-kcr-score{display:flex;align-items:center;gap:14px;}.cf-kcr-score .big{font-size:30px !important;margin:0 !important;}.cf-kcr-score .sub{margin-top:2px;}
+.cf-kcr-score{display:flex;align-items:center;gap:14px;}
+.cf-kcr-take{display:flex;flex-direction:column;align-items:flex-start;margin-left:18px;padding:8px 14px;border-left:3px solid #DB8437;background:rgba(219,132,55,.08);border-radius:0 10px 10px 0;}
+.cf-kcr-take b{font-size:26px;line-height:1.1;color:#132A5C;}.cf-kcr-take span{font-weight:800;font-size:13px;color:#132A5C;}.cf-kcr-take small{font-size:11.5px;color:var(--ink-soft);}.cf-kcr-score .big{font-size:30px !important;margin:0 !important;}.cf-kcr-score .sub{margin-top:2px;}
 .cf-kcr-next .quiz-next-step{margin:0 !important;text-align:left;}
 .cf-kcr-mods{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:14px 0 10px;}
 .cf-kcr-mod{background:#F6F7FB;border:1px solid var(--line,#E3E6EE);border-radius:10px;padding:8px 12px;font-size:12.5px;}
