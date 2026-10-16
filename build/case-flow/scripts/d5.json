@@ -1,0 +1,475 @@
+{
+  "d5m1-l1": {
+    "why": {
+      "say": "Let me start with a question. Our 07/20/2026 Time-Limited Demand to Keystone lapsed unaccepted on 08/21/2026, and the 48-Hour Mandate got no answer. What's our very next legal step, and who decides it? Right: we file suit, and Atty. Thorne makes that call. On 09/24/2026 John Doe's file became Civil Action No. 26-CV-04417, and that changes everything about how we work. An adjuster's deadline bends. A court's deadline doesn't. That's why we keep a Pleadings Log and a Discovery Calendar, and their whole job is to prove, every single day, that nothing filed, served or owed has slipped. Here's our day: litigation support first, then the Property Damage dispute, then deposition preparation, and we finish with liability disputes and MIA clients.",
+      "ask": "What's the very next legal step on John Doe's file, and who gets to decide it?"
+    },
+    "theory": {
+      "say": "Now, the big shift. A lawsuit is a highly structured, court-mandated process, and if we miss a deadline or misfile a document, the court can dismiss the case. Your role changes by phase. In pleadings you track service and draft the files. In discovery you gather data and prep the client. In trial prep you coordinate schedules and pull the final medicals. And once suit is filed, paperwork stops being admin tracking; a missing document can jeopardize the trial. You'll meet three written discovery tools: interrogatories, which are written questions under oath; requests for production, which demand documents; and requests for admission, which demand an admit or deny. All of them run on strict deadlines. And every filing by either side creates a docket entry whose clock runs whether or not the email ever reached you.",
+      "ask": "Which of these have you met before, and where would it show up on John Doe's file?"
+    },
+    "frame": {
+      "say": "Think of the litigation lifecycle in three phases, and I want you to see where you fit. Phase one is pleadings: the Complaint is filed, the defendant is served, and the Answer comes back. Your job there is tracking service timelines and drafting the initial files. Phase two is discovery: interrogatories, requests for production, depositions. That's where you calendar every response, gather the data and meet with the client, and honestly, it's where most of your time goes. Phase three is trial prep: expert disclosures, motion practice, and then trial or settlement. You coordinate schedules and update the final medicals. Every case moves through these three, and knowing which one you're in tells you what your desk should look like this week.",
+      "ask": "On John Doe's file, which phase is he in right now, and how can you tell?"
+    },
+    "rules": {
+      "say": "First rule: litigation isn't a longer negotiation. From the 09/24/2026 filing on, the court sets the pace. The Complaint has five parts, caption, jurisdiction, facts, causes of action and prayer for relief; Atty. Thorne drafts it, and before he signs, you verify the filing date against the SOL and the defendant's exact legal name. Service proves the defendant knew, so log every attempt. Still unserved at day 14, that was 10/08/2026, you escalate for Skip-Trace authority. Smith was served 10/14/2026. Read the Answer as a roadmap, and treat RFAs as the danger zone: one unanswered in time may be deemed admitted. When discovery lands, calendar it that day and book a Discovery Intake Meeting; never mail John Doe all 70 requests. And the line: you track, calendar, compile and draft. Atty. Thorne decides and signs, and you never tell John Doe how to answer.",
+      "ask": "Which phase will take most of your time, and why?"
+    },
+    "model": {
+      "say": "Take a look at this master timeline. It runs from 09/24/2026 to 01/13/2027, and each numbered badge is a trigger: the Complaint filed, Smith served on 10/14, the Answer on 11/12, discovery mailed 12/01, the Scheduling Order on 12/10, and our own set e-served 12/14. From every trigger, a line drops to its due date. Watch the 12/01 line, because it's drawn in three steps: plus 30 days, plus 3 mail days, and then Sunday rolls to Monday, landing on 01/04/2027. Over on the right is the warning I want burned in: 15 RFAs, unanswered means deemed admitted. Along the bottom sit the five numbered litigation sub-folders. The point of the whole picture is simple. Every date on our calendar is a calculation that anyone can re-check.",
+      "ask": "If I hid the due dates, could you rebuild each one from its trigger alone?"
+    },
+    "job": {
+      "say": "Let me tell you how this actually runs. Atty. Thorne authorizes suit, and before signature you verify the filing date against the SOL and confirm Robert Smith's exact legal name from an independent record like the Declaration Page or DMV records, not the Police Report alone. It's filed 09/24/2026, well inside our 02/04/2028 internal hard date, and you log it in the Pleadings Log. The stamped complaint goes into 01_PLEADINGS the same day. Then a service attempt fails. You log it, and when he's still unserved at day 14, 10/08/2026, you escalate to Atty. Thorne with the attempt log, run the Skip-Trace on his approval and send him an update. Finally, discovery and RFAs land. You calendar each response with its arithmetic and alert Atty. Thorne within the hour the RFAs arrive, time-stamped."
+    },
+    "dodont": {
+      "say": "Time for a game: 3 Clues, 1 Rule. I'll reveal three clues, one at a time, about something a Case Manager did on this file. As soon as you think you know, call it out: Do or Don't. Then the important part, name the rule behind it. Everything here comes from what we just covered: the arithmetic written into every calendar entry, the baseline questions we ask in every interrogatory set, recording John Doe's own words, the SOL, and how we count from a trigger date. Don't just shout the first answer. If you're unsure after clue one, wait for clue two. The points go to the person who can explain why, not just who's fastest.",
+      "ask": "Ready for the first clue? Who wants to call it after just one?"
+    }
+  },
+  "d5m1-l2": {
+    "why": {
+      "say": "I'm holding up the Scheduling Order. This one page now outranks every adjuster letter in the file. Why? Because a judge signed it, and every date in it is absolute. It was entered 12/10/2026, and it now runs John Doe's case to a 09/13/2027 trial calendar. So how do we make sure none of those dates sneaks up on us? Two tools. A trial-prep checklist turns the order's dates into tasks that somebody owns. And the KPIs prove, week by week, that each of those tasks is ahead of its deadline rather than behind it. That's the whole lesson in a sentence: the order sets the dates, the checklist assigns them, and the numbers show we're winning the race.",
+      "ask": "Why does a single page signed by a judge outrank every adjuster letter in this file?"
+    },
+    "theory": {
+      "say": "Trial preparation is where you compile the final puzzle pieces so Atty. Thorne walks into court fully armed. Discovery is the heavy lifting. Both sides have to lay their cards on the table, and it's where you'll spend most of your litigation time. Then there's the deposition, an oral interview under oath recorded by a court reporter. You own the logistics, never the testimony. Remember too that litigation can take one to three years, so we rerun records and bills to show the total cost of the injury, not the snapshot from pre-lit. And to keep all of that honest, we run a weekly KPI audit: measurable checks, like a process server assigned within 48 hours, so a slipping file shows itself before it fails.",
+      "ask": "Which of these four have you already seen show up on John Doe's file, and where?"
+    },
+    "frame": {
+      "say": "Here's phase three, trial and mediation preparation, and it comes down to three jobs. First, the final run. Because litigation can stretch one to three years, you rerun records from every provider, and you never just reuse the pre-lit package. Second, subpoena management. You draft trial subpoenas for the witnesses Atty. Thorne names, so they're legally required to appear. You don't pick the witnesses; he does. Third, the trial binder. You take the exhibits from the litigation file and index and tab them, so when Atty. Thorne is at the counsel table, he can put his hand on any document in seconds. Get these three right and the attorney never has to wonder whether something's missing.",
+      "ask": "Looking at John Doe's file today, which of these three jobs is already in motion?"
+    },
+    "rules": {
+      "say": "The Scheduling Order controls. Pin it to the front of the file with 30-, 14- and 7-day alerts on every date: our experts 03/15/2027, theirs 04/15/2027, mediation by 03/31/2027, discovery closing 05/28/2027, pretrial 08/12/2027 and trial calendar 09/13/2027. Every extension goes in writing: once Atty. Thorne agrees, you draft the same-day confirmation for his signature, in his name. Watch two traps. One is treating court deadlines like adjuster deadlines. The other is letting the client talk to the other side; if Keystone or a defense investigator reaches John Doe, step in and tell Atty. Thorne that day. For the 02/18/2027 deposition, you handle the reporter, the link, the tech check and the packet by 02/11/2027. Prepare the process, never the testimony. And every KPI gets a formula and a target.",
+      "ask": "Defense counsel will spend John Doe's deposition on the 14-Day Gap. What's your job before 02/18/2027, and where does it stop?"
+    },
+    "model": {
+      "say": "This is what being ahead looks like. Across the top is the trial-prep runway, from 01/20/2027 to 09/13/2027, with seven milestones: the deposition on 02/18, our experts 03/15, mediation by 03/31, defense experts 04/15, discovery closing 05/28, pretrial 08/12 and the trial calendar 09/13. Before each one you'll see three little ticks for the 30, 14 and 7-day alerts. Notice the red band dropping from 05/28: nothing that needs an answer gets scheduled past it. Underneath are nine KPIs in three families, and every single one has a target you can measure, like 48 hours, 1 hour, 7 days or 10 days. Here's the principle. A KPI without a target is a wish, and stay on top of RFAs isn't a KPI.",
+      "ask": "How would you rewrite “stay on top of RFAs” so it actually becomes a KPI?"
+    },
+    "job": {
+      "say": "Picture a week in the life. The Scheduling Order is entered 12/10/2026. You pin it to the front of the file, calendar all six dates with three alerts each, that's 18 alerts, and file the order in 01_PLEADINGS. Next, Atty. Mercer's office calls and an extension gets agreed by phone. You confirm Atty. Thorne actually approved it, draft the written confirmation for his signature, send it that same day in his name and recalendar; no scheduling-order date moves without a court order. Then the deposition is noticed. You book the reporter, the link and the technology check, and send the attorney-approved packet by 02/11/2027, confirming John Doe got it. And every week you run the docket audit: each KPI shows its formula, its target and a dated reading, and every miss gets routed."
+    },
+    "dodont": {
+      "say": "Let's play 3 Clues, 1 Rule. Three clues will appear one at a time, each a little snapshot from John Doe's litigation file. Your job is to call it, Do or Don't, and then name the rule from today's lesson that decides it. Think about what we just covered: the three alerts on every order date, the 30-day client call, the 10-day subpoena audit, who chooses trial witnesses, setting John Doe's expectations, and what happens with phone-only extensions, pre-lit records and late prep packets. You can call it early if you're confident, but if you're wrong, the room gets to steal it. Naming the rule is worth more than being first.",
+      "ask": "Who thinks they can call this one on the very first clue?"
+    }
+  },
+  "d5m1-a1": {
+    "case": {
+      "say": "It's 01/05/2027, Track B. Civil Action No. 26-CV-04417 is three months old. The docket calendar was audited and corrected on 12/10/2026, but nobody ever reconciled the CMS Pleadings Log to it, and the reconciliation check now shows five mismatches. The executed Affidavit of Service, filed 10/16/2026, is still sitting in an Allied Process Services email with no row. The Interrogatories and RFPs mailed 12/01/2026 share one row that still says due 12/31/2026, while the calendar shows 01/04/2027. There's no row at all for the 15 RFAs. The Scheduling Order is saved as scan_1210.pdf, and a Certificate of Service dated 01/04/2027 sits in Documents, unlogged. I'm putting the log on screen. You've got 90 seconds to tell me what's wrong before anyone touches it.",
+      "ask": "In ninety seconds, how many problems can you find in this log as it stands?"
+    },
+    "task": {
+      "say": "You're going to repair the Pleadings Log and Discovery Calendar for 26-CV-04417, working in CMS under Litigation, Calendar and Documents. Add every missing row, recompute each response date from its trigger and its method of service, and write the arithmetic right into the row. File each document in its numbered sub-folder with a proper name, and calendar the Scheduling Order's six dates. Then the graded call: the RFA deadline never had its own row, and it's passed. Prove compliance from that Certificate of Service, record the misses honestly, and report to Atty. Thorne today. Partway through, Jenna Price, Atty. Mercer's paralegal, will call. Log her words verbatim with the time, take no position, tell her only that Atty. Thorne will respond, and route it to him. Hand in the corrected, source-linked log and your report.",
+      "ask": "The log said 12/31/2026, which was too early. Why fix a date that could only have made us early?"
+    },
+    "check": {
+      "say": "Before you log this, check your work row by row. Is there an affidavit row, personal service 10/14/2026 by Allied Process Services, filed 10/16/2026, saved in 02_SERVICE_DOCS? Did you correct the Interrogatories and RFPs to 01/04/2027 with the count written out, 12/01 plus 30, plus 3 for mail, Sunday rolled to Monday? The 15 RFAs need their own row with a red deemed-admission flag. Is the Certificate of Service logged and checked, signed verification attached? Smith's responses go on 01/13/2027, and remember, no extra 3 days for e-service on this file. The Scheduling Order should be renamed, filed in 01_PLEADINGS, with all six dates. And did you record the late rows as misses, not back-dated, and report to Atty. Thorne without calling Atty. Mercer? One row per set, every row linked to its source.",
+      "ask": "Did anyone add three mail days to the e-served set out of habit?"
+    }
+  },
+  "d5m1-a2": {
+    "case": {
+      "say": "It's 01/20/2027, and John Doe's deposition notice just landed: 02/18/2027, 10:00 a.m., by videoconference, with Riverton Court Reporting. The link will come from the reporter, and they want us to confirm attendance. Here's the problem. Our trial-prep checklist was drafted from the calendar as it was first keyed, before the 12/10/2026 audit, and it was never reconciled. It shows our expert disclosure on 04/15/2027, lists mediation 03/31/2027 as if that's the session date, plans records subpoenas for June 2027, and sources the final records run from the pre-lit Demand Package. There are no alerts and no deposition tasks. Smith's responses came in 01/13/2027 and were never docketed, and there's no KPI tracker at all. Put the checklist beside the Scheduling Order and find the first wrong date.",
+      "ask": "Who can find the first wrong date in under a minute?"
+    },
+    "task": {
+      "say": "Here's what you'll do. In the Action Plan Editor, audit the checklist line by line against the 12/10/2026 Scheduling Order. Every date has to be right, every task needs an owner, and each gets 30-, 14- and 7-day alerts. Add the 02/18/2027 deposition logistics and the prep document set. Then build the KPI tracker in CMS under Litigation: define all nine KPIs, each with its formula and target, enter this file's reading with its source, and mark it met, missed or open. Close with one task each for the three review lenses: coverage, treatment and liability. What you hand in is a checklist that matches the order date for date, and a complete tracker. And the graded call is choosing which two items go to Atty. Thorne first.",
+      "ask": "Which two items go to Atty. Thorne first, and why those two?"
+    },
+    "model": {
+      "say": "Take a look at the reference model. On the left is the checklist with its faulty lines numbered. Our experts on 04/15/2027 get struck through and corrected to 03/15/2027. Mediation 03/31 becomes completed by 03/31. The records subpoenas get dragged back from June across the red 05/28/2027 cutoff line, the final records run is re-sourced from the providers, and the blank deposition block fills in. On the right is the KPI tracker, five columns: KPI, formula, target, reading and status, with green, red and amber chips. Each corrected checklist line connects to the KPI it moves. And down in the corner is the line I'd like you to remember: no record means not done. A checklist is audited against the order, never against memory.",
+      "ask": "Why do you think each corrected checklist line is tied to a specific KPI?"
+    },
+    "check": {
+      "say": "Let's check before you log it. Our expert date should now read 03/15/2027, with 04/15/2027 kept as the defense date. Mediation says completed by 03/31/2027. Records subpoenas return before 05/28/2027, and 04/28/2027 is flagged as the last day to e-serve a 30-day request, confirmed with Atty. Thorne. All six dates carry three alerts, 18 in all. The deposition notice is docketed by 01/22/2027, the reporter confirmed, calendars aligned and the packet set for 02/11/2027. Your Gap Record lists the documents, the EMS report, the Northgate attendance, the texts to Margaret, the MRI read, the Causation Letter, and nothing scripted for John Doe. All nine KPIs need a formula, target, sourced reading and status. And Smith's 01/13/2027 responses are logged as a docket miss and routed.",
+      "ask": "Is there anything in your Gap Record that tells John Doe what to say?"
+    }
+  },
+  "d5m1-kc": {
+    "questions": {
+      "say": "Time for the Litigation Support Assessment. Answer every question from John Doe's file, in your own words, typed right under the question. Question 1 is the gate, so take it slowly. Work the 12/01/2026 response date step by step, explain how the count changes for a set e-served by consent, and tell me why you'd confirm the court's rule. If your answer is 12/31/2026 or 01/03/2027, stop and rework the count before you go on. Then name Atty. Mercer's three defenses and the evidence on file you'd pull against each, and tell me where the affidavit, the RFAs and the Scheduling Order get filed and named.",
+      "ask": "Before you start, what are the three steps in counting from a mailed trigger?"
+    },
+    "summary": {
+      "say": "Now the self-summary, the principles in your own words. Before anyone writes, think about this one: opposing counsel wants two weeks at 4:45 p.m. and says they'll paper it later. Who can say yes? Only Atty. Thorne, and only in writing, the same day. Then your scenario. It's 01/28/2027. John Doe has been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect his Civic. Write out your next five actions in order, and next to each one, who owns it. Be specific about what's yours and what goes to Atty. Thorne.",
+      "ask": "Opposing counsel wants two weeks at 4:45 p.m. and will paper it later. Who can say yes?"
+    },
+    "scale": {
+      "say": "Last step. Rate yourself on each competency from 1 to 5, honestly, then submit it for review. I'll be comparing your self-rating with your score, so if you gave yourself a 5 on deadlines but missed the count in Question 1, we'll talk about that gap. That's not a gotcha; it's how we find what to practice next. One thing to remember: UPL is a gate. A strong score doesn't survive an ethics breach.",
+      "ask": "Where do you expect the biggest gap between your self-rating and your score?"
+    }
+  },
+  "d5m2-l1": {
+    "why": {
+      "say": "Look at this gauge for a second. Which number decides whether John Doe's Civic is totaled? Most of you will say the estimate. It's actually the final bill, $9,255.00, after the supplement. Here's why this matters now. On Track B the Civic isn't a side claim anymore. Its Loss of Use and Diminished Value are pleaded in the suit, and every figure we put forward will be tested in discovery. The repair-against-ACV arithmetic decides which measure of damages applies. And the loss-of-use calendar does double duty: it's also the transportation record that explains the 14-Day Gap. Get the car's numbers right, and you're quietly strengthening the injury case too.",
+      "ask": "Which number decides whether the Civic is totaled: the first estimate or the final bill?"
+    },
+    "theory": {
+      "say": "Property damage is a cornerstone of civil litigation. It's the law's way of making an owner financially whole after someone's negligence harms their property. And in suit, it cuts both ways. PD can be strong evidence of injury, or it can become the defense's most formidable tool against it. You need two terms straight. Special damages are quantifiable losses, and every PD figure is special, proved by documents. General damages are subjective, like pain and suffering. Valuation is one of the most heavily litigated PD questions, which is why courts lean on set formulas. The key one is diminution in value: pre-loss market value minus post-loss value, weighed under the lesser-of rule against the repair cost, which caps a total loss.",
+      "ask": "Which of these ideas have you already bumped into on the Civic's side of the file?"
+    },
+    "frame": {
+      "say": "There are three kinds of damages you can recover, and I want you to be able to sort any figure into one of them. Economic, or special, damages are quantifiable losses proved by documents: the repair, tow and storage, rental, Loss of Use and Diminished Value. That's where everything about the Civic lives. Non-economic, or general, damages are subjective: pain and suffering, emotional distress, loss of consortium. Those are claimed on the injury side, not the property side. And punitive, or exemplary, damages exist to punish egregious, reckless or intentional conduct and deter others, think DUI. On John Doe's file, no punitive claim is pleaded. So when you see a number, ask which bucket it belongs in first.",
+      "ask": "Where would John Doe's $2,016.00 Loss of Use claim sit among these three?"
+    },
+    "rules": {
+      "say": "The goal is to make John Doe whole: his position before 02/06/2026, never a windfall. The $2,315.00 teardown supplement of 03/02/2026 is structural, the A-pillar, so it shows hidden damage and impact force. Courts generally award the lesser of repair cost or the drop in value, so run it on the final bill: $6,940.00 plus $2,315.00 is $9,255.00, 52.6% of the $17,600.00 ACV, under Keystone's 75% line of $13,200.00. Repairable. Loss of Use is claimable for each day without the car or a paid substitute, at Keystone's own $42.00 a day. Allocate the 78 days from 02/06 to 04/24/2026 once, claim only the 48 unpaid, $2,016.00. Keystone's 30-day cap is claims practice, and arguing it is Atty. Thorne's job. You compute and report; you never tell John Doe what his car is worth.",
+      "ask": "Keystone paid for 30 days of rental. Why is John Doe still owed anything for the use of his car?"
+    },
+    "model": {
+      "say": "This is the same threshold gauge from Day 1, now carrying John Doe's numbers. The bar runs from zero to the ACV of $17,600.00, with the threshold at 75%, $13,200.00. The grey chip is the $6,940.00 estimate at 39.4%, and the orange chip is the final bill, $9,255.00, at 52.6%, the jump being the $2,315.00 A-pillar supplement. Underneath is a ribbon of all 78 days from 02/06 to 04/24/2026. Red for the first 12, navy for the 30 days of rental Keystone paid, $1,260.00, then red again for the last 36. Those two red stretches are the Loss of Use: 48 days at $42.00, $2,016.00. Keystone paid for the middle and nothing on either side.",
+      "ask": "Can you find the two red segments, and say what each one represents?"
+    },
+    "job": {
+      "say": "On the job, it goes like this. The final repair bill posts with the supplement, so you re-run the total-loss check on $9,255.00 in the Property Damage screen, record 52.6% of $17,600.00, and get Keystone's 75% basis on file in writing. Then the rental ends while the Civic is still in the shop. You log every day without a vehicle, period by period, and land on 12 plus 36, 48 days, with no paid rental day counted. When the 09/24/2026 complaint pleads Loss of Use and Diminished Value, you reconcile the figures across the PD screen, the damages summary and discovery, so $2,016.00 and $3,600.00 match everywhere, and any mismatch goes to Atty. Thorne. And when the deposition is noticed on 01/20/2027, you index the PD severity set for his deposition documents before the 02/04/2027 prep session."
+    },
+    "dodont": {
+      "say": "Here comes 3 Clues, 1 Rule for this lesson. I'll show three clues one at a time, each a moment from the Civic's property damage file. Call it as soon as you've got it: Do or Don't. Then tell me the rule that settles it. The rules you'll need are all from what we just did: which repair figure the threshold runs on, whose rental rate measures a day's use, how the 78 days are allocated, and why the supplement matters to more than just the car. A hint from me: the double count is sneakier than it looks. Take your time with clue two before you commit.",
+      "ask": "Who's willing to commit to Do or Don't before the second clue?"
+    }
+  },
+  "d5m2-l2": {
+    "why": {
+      "say": "I've written two numbers on the board, far apart: $792.00 and $3,600.00. Same car, same damage. A Civic with an A-pillar repair in its history is worth less than one never hit, and John Doe didn't cause that loss. Keystone's $792.00 comes from a formula. The $3,600.00 comes from a market appraisal. Let me build the $792.00 in front of you, one step at a time: 10% of the $17,600.00 ACV is $1,760.00, times 0.75 is $1,320.00, times 0.60 is $792.00. Each multiplication is a cut, and you can see exactly where. The gap between those two numbers is pleaded on Track B. Our job is to build the evidence. Atty. Thorne makes the argument.",
+      "ask": "Watching the formula, which of those three cuts bothers you most, and why?"
+    },
+    "theory": {
+      "say": "The law measures property at fair market value. So what a repaired car still loses is a market loss, and you prove it with market evidence, not with how the owner feels about it. Special value to an owner is an exception, not the rule. Now, a carrier formula is claims practice. It isn't a legal measure, and an appraisal built on real market data is how you test it. That only works if you get the carrier's position and inputs in writing, because only a basis on paper can be answered with stronger evidence. And once we're in suit, there's a tool for non-party records: the Subpoena Duces Tecum. Keep it targeted, though. A blanket request invites a Motion to Quash.",
+      "ask": "Why does a carrier's formula need to be on paper before we can answer it?"
+    },
+    "frame": {
+      "say": "So how do we value the claim? Three ideas. First, the lesser-of rule: the owner gets the lesser of the repair cost or the drop in market value, and a car that costs more to fix than it was worth is a total loss. Second, Diminished Value: the market value a car still loses after a proper repair. Many courts add it on top of the repair, as long as the total stays under the pre-loss value. Third, special value. Where there's no market at all, say an heirloom, some courts use the actual value to the owner, but sentimental value is still excluded. It's an exception, not the rule. For a 2019 Civic, the first two are what we're working with.",
+      "ask": "Which of these three measures actually applies to John Doe's Civic right now?"
+    },
+    "rules": {
+      "say": "Diminished Value is what a car still loses after a proper repair, because buyers pay less for a damage history, and many jurisdictions allow it against the at-fault driver. Many courts add it to the repair, under pre-loss value: $9,255.00 plus $3,600.00 is $12,855.00, under $17,600.00. It's a market loss, not a feeling. Keystone's 17c figure comes from a Georgia class-action settlement, not a legal measure. Critique it: no damage, however severe, gets past $1,760.00 on this car, and the appraisal's 20.5% is more than twice that ceiling. The 0.75 tier sits below the top, severe structural tier, and 0.60 counts the 52,300 miles twice. Test our own appraisal too. PD settles only on a property-damage-only release Atty. Thorne has reviewed. You calculate and critique; you never make, accept or counter a figure.",
+      "ask": "If this Civic had the worst structural damage a repairable car can have, what's the most the 17c formula could pay?"
+    },
+    "model": {
+      "say": "Now for the face-off. On the left is Keystone's 17c, laid out as a staircase: $1,760.00, times 0.75, times 0.60, landing on $792.00. Each step carries its flaw in red: the 10% cap, the tier, and mileage counted twice. On the right is the market: $3,600.00, backed by three pieces of evidence, the 05/06/2026 appraisal, the A-pillar supplement and the photos. Between the two cards runs a line at $1,760.00, the formula's ceiling, and you can see the $3,600.00 sitting well above it. Along the bottom, in red, is the warning: PD release only, never all claims. The picture makes one argument. The formula simply can't reach the market.",
+      "ask": "What does that horizontal line at $1,760.00 tell you about Keystone's formula?"
+    },
+    "job": {
+      "say": "Let's run it on the job. Keystone states its diminished-value figure. You don't argue it on the phone. You ask Atty. Thorne how he wants the 17c worksheet and every input obtained, a discovery request or a written request through counsel, and you draft it for his review, so the base, both multipliers and the ACV end up on file in writing. Then the appraisal arrives on 05/06/2026. You audit its method, its data and the appraiser's credentials, write a dated audit note, and index it as our diminished-value evidence. And if Keystone sends a PD release or a check, you hold it and route the release language to Atty. Thorne, so he's reviewed its scope before John Doe ever sees a signature line."
+    },
+    "dodont": {
+      "say": "Let's play 3 Clues, 1 Rule. Three clues will come up one by one, each a snapshot from the diminished-value dispute. When you're ready, call it: Do or Don't, and then name the rule. You'll want what we just covered: getting the formula's inputs in writing, where the critique of that formula gets argued, the difference between documenting a figure and giving John Doe a valuation opinion, how far a release can reach, and what the law will and won't pay for. Listen closely to the wording in each clue. Sometimes one small phrase is the whole answer.",
+      "ask": "Which phrase in that first clue makes you lean toward Don't?"
+    }
+  },
+  "d5m2-a1": {
+    "case": {
+      "say": "It's December 2026, and the requests mailed 12/01/2026 have arrived. Defendant's First Requests for Production, served on John Doe by U.S. mail, ask for every document supporting the Property Damage claim, with responses due 01/04/2027. Atty. Thorne's message is clear: audit the Civic's numbers before anything is produced, flag what Keystone will argue about the unpaid days, and nothing goes out without his review. Now look at the PD screen, untouched since April. The total-loss check was run on the $6,940.00 estimate, 39.4% of ACV. The loss-of-use line reads 78 days times $42.00, $3,276.00. And Keystone still offers $0 for Loss of Use. Something here isn't right. Your job is to find it.",
+      "ask": "What's the first number on that PD screen you'd want to re-run, and why?"
+    },
+    "task": {
+      "say": "You're auditing and correcting the Civic's numbers before anything is produced. Working in CMS under Property Damage, Loss of Use, re-run the total-loss check on the final repair against the $17,600.00 ACV and Keystone's 75% threshold, and list what you'd verify in Keystone's Valuation Report. Then rebuild the loss-of-use ledger day by day from 02/06 to 04/24/2026, allocating each day once, and correct the claim. Attach evidence for each period, and index the severity set, the photos and the estimate against the final bill, in Documents. Finally, use Tasks, Escalate to flag for Atty. Thorne the two arguments Keystone will make against the unpaid days, without answering them, dated ahead of the deadline. Hand in a corrected PD worksheet with every period evidenced.",
+      "ask": "If the defense receives a worksheet claiming $3,276.00, what happens to the credibility of the $3,600.00 appraisal?"
+    },
+    "check": {
+      "say": "Run your self-check before you log it. Your final repair should read $6,940.00 plus $2,315.00, $9,255.00, which is 52.6% of $17,600.00, under the $13,200.00 line, so repairable. Did you correct the stale 39.4% with a dated note, not overwrite it? Your valuation-report checks should cover comparables, the LX trim, the 52,300 miles and condition. The 78 days split as 12, 30 and 36, and Loss of Use drops from $3,276.00 to 48 times $42.00, $2,016.00. I'll grade the evidence hardest: the 12 pre-rental days are proved by the tow and storage record and Keystone's 02/17/2026 acceptance, not John Doe's word. Tow and storage, $455.00, and the rental stay out. Keystone's two defenses are flagged, not argued, and your escalation is dated by 12/28/2026.",
+      "ask": "What document, besides John Doe's word, proves those first 12 days without a car?"
+    }
+  },
+  "d5m2-a2": {
+    "case": {
+      "say": "It's 12/10/2026, and the Scheduling Order requires mediation by 03/31/2027. Leah Moran at Keystone PD has just emailed. She says $792.00 for Diminished Value and $0 for Loss of Use are final. Attached is a release of all claims arising from the 02/06/2026 accident, which she'd like Mr. Doe to sign and return so she can issue payment. She'll call this afternoon to see if he'll take it. Atty. Thorne wants your recommendation. Now, before anyone touches the math, I've got a question about that attachment. Read the release language carefully, and think about what all claims would mean for a client who's also in a lawsuit over his injuries.",
+      "ask": "Who opened Leah Moran's attachment, and what did you do with it?"
+    },
+    "task": {
+      "say": "This is the lab. In CMS under Property Damage, rebuild Keystone's 17c figure from the $17,600.00 ACV, then critique the 10% cap and both multipliers against the 03/02/2026 supplement and the 05/06/2026 appraisal. Lay out the whole PD dispute, claimed against offered, and recommend a negotiating range with a top and a floor, each tied to its evidence and arithmetic. Then take Leah Moran's call in the Call Simulator and answer her email in the Email Workspace. Tell her the offer is with Atty. Thorne, make no counter, quote no figure, note the all-claims release scope and log her exact words. What you hand in is a one-page PD dispute memo, routed to Atty. Thorne through Tasks, Escalate, for authority.",
+      "ask": "What's the lowest number you'd put in front of Atty. Thorne, and which document defends it?"
+    },
+    "model": {
+      "say": "Here's the dispute on one page. On the left is a number line from zero to $5,616.00. Keystone's $792.00 sits low, and the claimed $5,616.00 sits at the top. In between is an empty bracket, the recommended range, marked for Atty. Thorne's authority, and that's the part you'll fill. On the right, the 17c is rebuilt in three steps, $1,760.00, times 0.75, times 0.60, $792.00, each with its critique tagged in red. And in the corner, over a thumbnail of the release, is a warning: all claims, hold it, route it to counsel. The message of the whole slide is about roles. You build the range. Only counsel can use it.",
+      "ask": "Why does that bracket stay labelled for Atty. Thorne's authority rather than yours?"
+    },
+    "check": {
+      "say": "Before you log your memo, check it. The 17c rebuilt: $1,760.00, then $1,320.00, then $792.00, with the 10% cap named. Both multipliers challenged: 0.75 against the A-pillar supplement, and 0.60 as a second discount for miles the ACV already priced in. The appraisal compared, 20.5% of ACV against 4.5%, a difference of $2,808.00. The dispute totalled at $5,616.00 against $792.00, with a floor above $792.00 and the weak 36 shop delay days named. Show the make-whole check, $12,855.00 under $17,600.00, and the limit check, $16,586.00 inside the $25,000 limit, with the Escape flagged. The release routed, nothing to John Doe. And when Leah Moran asks, can you just tell me if he'll take it, you told her only that the offer is with Atty. Thorne.",
+      "ask": "When Leah Moran asked whether he'd take it, what exactly did you say?"
+    }
+  },
+  "d5m2-kc": {
+    "questions": {
+      "say": "This is the PD Dispute Evaluation. Answer from John Doe's file, in your own words, right under each question. Show whether the Civic is a total loss, with the final repair, the ACV, Keystone's threshold and the percentage, arithmetic included. Allocate the 78 days from 02/06 to 04/24/2026 and say which are claimed, at what rate, for how much, and why the rental days are out. Sort the damages into their three types. And when you hit Question 6, the pressure scenario, slow down. The strong answer agrees to nothing, logs the call, and gets the inspection request and the offer to Atty. Thorne right away.",
+      "ask": "In the pressure scenario, who gives John Doe any instruction about preserving the Civic?"
+    },
+    "summary": {
+      "say": "Now the self-summary, in your own words. Here's one to chew on first: why does a parked car's A-pillar matter to a neck injury? Because the supplement measures the force that drove the Escape, with John Doe inside, into the Civic. Atty. Thorne uses that in prep; you put it in the set and never tell John Doe what to say. Then your scenario: it's 01/28/2027, John Doe's been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect his Civic. Write your next five actions in order, and who owns each one.",
+      "ask": "Why does a parked car's A-pillar matter to a neck injury?"
+    },
+    "scale": {
+      "say": "Finally, rate yourself on each competency, 1 to 5, and submit it for review. I'll sit your rating next to your score. If you gave yourself a 5 on a block you scored 60 on, we'll talk. If you gave yourself a 2 on something you aced, we'll talk about that too. And remember, UPL is a gate. On this module, the breach I'm watching for is any PD figure accepted, rejected or valued for John Doe. A strong score won't survive that.",
+      "ask": "Which competency here did you rate lowest, and what would move it up a point?"
+    }
+  },
+  "d5m3-l1": {
+    "why": {
+      "say": "Every prep session guide starts with the same line: start by calming their nerves. Good advice. But look at the calendar. John resurfaced on 02/03/2027, fifteen days before he testifies on 02/18/2027, by video, from a room the firm doesn't control. So what has to come before any calming? The audit. Before we sit down with John, we need to know everything in his file the defense might use, so Atty. Thorne meets it first. And here's the division of labor I want you to hold onto all module. Atty. Thorne prepares the substance, what John's testimony covers. You prepare the person and the setting, so John walks in calm, informed and ready.",
+      "ask": "John has fifteen days until he testifies. What has to happen before anyone starts calming him down?"
+    },
+    "theory": {
+      "say": "A deposition can shape the whole outcome of a litigated case. Atty. Thorne owns the legal strategy, and you prepare the client operationally and psychologically. That starts with a landmine audit: before any prep meeting, you review the file for what the defense will exploit, so counsel sees it first. Why does that matter so much? Because consistency is credibility. The defense will compare John's testimony with his signed answers and his records, and any mismatch reads as concealment. Then there's the courtroom drama myth. Clients expect TV, and showing them the real, ordinary process calms them without any prediction. And remember, defense counsel writes an evaluation report to the carrier on how John will strike a jury, so how he presents matters.",
+      "ask": "Who on John's side of the file reads that defense evaluation report, and why should it worry us?"
+    },
+    "frame": {
+      "say": "Here's the shape of deposition prep. It begins with the pre-deposition audit: prior medical history, signed answers and public social media, with any landmines routed to Atty. Thorne. Then three pillars. Pillar one, de-escalate: no judge, no jury, no shouting, and you calm the client with the process, never a prediction. Pillar two, testimony guidelines: pause, tell the truth, stop once the question's answered, drilled only on neutral questions. Pillar three, dress and demeanor: business casual, nothing flashy, limitations told plainly, never minimized or exaggerated. After that comes the technology check, a computer, camera at eye level, light in front, quiet private room. And the day before, you confirm the date, time and link with the client, Atty. Thorne and the court reporter.",
+      "ask": "Which of these steps is already done on John's file, and which is still waiting?"
+    },
+    "rules": {
+      "say": "Before 02/04/2027, audit for landmines and route them to Atty. Thorne: the 14-Day Gap, the 19-day disruption, the three 2021 low-back chiropractic visits, the seatbelt and the degenerative MRI. Check John's signed answers and public social media too, and route any inconsistency the same day. Never tell him to delete a post. His account matches his records because he's reviewed them with Atty. Thorne, not because he learned a script. Then the pillars: no judge, no jury, calm with the process; pause two seconds, tell the truth, stop talking; business casual and plain about limitations. Test the setup with him on 02/16/2027, confirm everything with all three parties on 02/17/2027, and no one in the room, no notes, no messages, not even to you. You explain process and logistics. Every substantive question goes to Atty. Thorne.",
+      "ask": "John asks what he should say about the two weeks before urgent care. What do you tell him?"
+    },
+    "model": {
+      "say": "Picture two lanes running toward 02/18/2027 at 10:00 a.m. The dates across the top are the audit, then 02/04, 02/11, 02/16, 02/17 and the deposition day itself. The upper lane belongs to Atty. Thorne, and it's labelled substance. The lower lane is yours: the person and the setting. A solid red line divides them, and here's what I love about this picture. The arrows only go one way, upward, each one a question routed to him. Nothing comes back down into your lane as content. Down in the corner is John's laptop setup: camera at eye level, light in front, private room, no notes, no messaging. Your lane is full of real work, and none of it is what John should say.",
+      "ask": "Why do you think the arrows on this slide only ever cross the red line upward?"
+    },
+    "job": {
+      "say": "Let me show you how the two weeks actually run. The notice of deposition is served 01/20/2027. You calendar the deposition, both prep sessions, the 02/11/2027 packet and the day-before checklist, and you start the audit, so 02/04, 02/11, 02/16, 02/17 and 02/18 at 10:00 a.m. are on the calendar for Atty. Thorne and John. When the audit's done, you route the landmine list and any discovery mismatch to Atty. Thorne before 02/04/2027, with every landmine tied to its source record. On 02/16/2027 you run the test call on John's own device, in the room he'll use, and log camera, audio, link, lighting, room and backup number, each pass or fail. And on 02/17/2027 you confirm with all three and get the exhibit set approved by Atty. Thorne."
+    },
+    "dodont": {
+      "say": "Let's play 3 Clues, 1 Rule. Three clues, revealed one at a time, from John's deposition prep. Call it Do or Don't as soon as you're sure, then name the rule that decides it. You'll lean on what we just covered: why consistency is credibility, what a calm client does for his answers, why everyone gets the dress-code talk, and the traps of surprise records, reassuring predictions, a bad video setup and over-coaching. One warning: some of these clues sound kind and helpful right up until the third one. Kindness that's really a prediction is still a Don't.",
+      "ask": "What's the difference between calming John with the process and calming him with a prediction?"
+    }
+  },
+  "d5m3-l2": {
+    "why": {
+      "say": "Defense attorneys love psychological traps. Let me try one on you. So it was just the neck stiffness. Is that all? Hands up if you'd say yes. Now look at the 02/20/2026 urgent-care note: hand numbness. That one yes just fenced off a symptom. Here's the thing. Atty. Mercer doesn't need John to lie. A hurried yes to a narrowed list, a guess or an argument does the same damage. His Answer and the records tell us exactly where he'll dig: the gap, the disruption, the 2021 visits and the seatbelt. What meets every one of those traps? Seven general rules and Atty. Thorne's objections. A script meets none of them.",
+      "ask": "Be honest: how many of you would have answered yes to that question?"
+    },
+    "theory": {
+      "say": "The defense has a simple goal in a deposition: get the client to contradict himself, lose his temper or exaggerate, because each of those damages credibility. General rules protect against that; a script can't. So let's reset some expectations. Defense counsel may ask very broad questions to discover the facts, and wide questions are normal, not attacks. There's a real difference between an estimate and a guess. An estimate rests on what you perceived; a guess claims what you couldn't know, and only the estimate is honest testimony. Remember, a deposition is information gathering, not a battle. Nothing is won there, so the smallest target protects the case. And when Atty. Thorne objects, that's a formal flag on the record protecting the witness, not a sign of trouble.",
+      "ask": "Can someone give me an honest estimate about John's crash that wouldn't be a guess?"
+    },
+    "frame": {
+      "say": "These are the seven golden rules for testifying. Rule one, always tell the absolute truth, because a damaged case can be saved and a lied-about one can't. Rules two and three: pause two full seconds, then answer in words. That gives time to think, a clean transcript and a window to object. Rules four and five: never guess, and answer only what was asked, then stop. I don't know is a complete answer, and it keeps the target small. Rules six and seven: hold the silence after you've answered, and don't try to win. The deposition gathers information; the legal battle belongs to Atty. Thorne. These are general rules. We teach every client the same seven, and none of them tells John what to say.",
+      "ask": "Which of these seven do you think John will find hardest under pressure?"
+    },
+    "rules": {
+      "say": "Defense questions come in four categories: personal background, crash mechanics, medical history and daily life. Clients underreport medical history most, and here that's the 2021 low-back visits. Rule one is the truth, and the prior-injury question is the Liar's Trap; counsel usually has the records already. Pause two seconds and answer in words, since the reporter can't type a nod. Never guess, answer only what's asked, then hold the silence and don't argue. The Is that all trap can fence off the hand numbness, and the complete record, not memory, is the full list. Compound questions fold two facts into one yes; John can say a question's unclear. On an objection, John stops, then answers unless instructed not to. The EMS report, MRI and EDR are Atty. Thorne's to use. You explain rules; you never coach answers.",
+      "ask": "Which of the four categories do clients underreport, and where does that sit on this file?"
+    },
+    "model": {
+      "say": "This is the trap map for John's file. On the left are seven traps: Is that all, the compound question, degenerative, the gap mischaracterised, the seatbelt, the 2021 prior and the silent stare. In the centre are the seven rules: truth, pause, say it in words, no guessing, keep it short, hold the silence, don't argue. Each trap connects to the rule that meets it. And every one of those connections ends on the right, in one tall shield: Atty. Thorne, who prepares and objects. Now notice what's missing. There's no scripted answer anywhere on this slide, and that empty space is deliberate. Along the bottom is the habit for John: when there's an objection, stop talking.",
+      "ask": "Which rule meets the silent stare, and why does that one rattle clients so much?"
+    },
+    "job": {
+      "say": "Let's see it on the job. Atty. Mercer's Answer was served 11/12/2026. You take each pleaded defense, comparative fault, causation and failure to mitigate, and map it to the questions it predicts in the deposition prep log, so each one ties to at least one trap. Once the trap map's done, you check that the record that meets each trap is actually in Atty. Thorne's set: the EMS report, the MRI report of 03/13/2026, the 06/19/2026 Causation Letter, the EDR download and the Northgate Attendance Record. And when John asks you how to answer one of those traps, and he will, you log his question in his own words and route it to Atty. Thorne the same day. No wording offered, not even a little."
+    },
+    "dodont": {
+      "say": "Game time: 3 Clues, 1 Rule, for opposing counsel's traps. I'll reveal three clues one at a time. Call it, Do or Don't, and then name the rule. You'll need what we just built: why a deposition is information gathering and the records win later, why we explain objections ahead of time, why silence is safe and rambling isn't, and the traps of a narrowed yes, a client who argues or talks over an objection, and prep that skips the medical history. Some of these clues will sound like John is doing great. Listen for the moment it turns.",
+      "ask": "Who can name the golden rule behind this one, not just the call?"
+    }
+  },
+  "d5m3-a1": {
+    "case": {
+      "say": "It's 02/04/2027 on Track B. John Doe went dark on 01/22/2027, and yesterday we reached him through Margaret. He has a new phone number. His deposition is noticed for 02/18/2027 at 10:00 a.m., by videoconference with Riverton Court Reporting, and he's anxious; he's expecting a TV cross-examination. Atty. Thorne's note says prep session one is at 1:00 p.m. and you open: the new number, the logistics, the test call, the three pillars and the room rules. He'll listen, then take the substance, and he wants his gap set ready to share on screen. One thing before we start. What decides your grade is the routing. A polished segment that answers even one substantive question fails.",
+      "ask": "What's the very first thing you'll update in the CMS before the session starts?"
+    },
+    "task": {
+      "say": "You'll run your segment of John's first prep session in the Call Simulator with AI John Doe. Confirm his new number, with Margaret as backup. State the logistics exactly and set a 02/16/2027 test call on the device and in the room he'll use. Deliver the three pillars and the in-room rules in plain words, and drill the pause on neutral questions only. AI John will ask what to say about the gap, the missed April therapy, the seatbelt, his 2021 chiropractor visits and the MRI. Recognise each as substance, answer none, and log each in his words to Atty. Thorne through Tasks, Escalate. Have the gap set ready to share. You hand in your segment, a logistics record and John's routed questions.",
+      "ask": "Which of John's questions can you answer, and which ones can't you?"
+    },
+    "model": {
+      "say": "So what does a good segment look like? John's tile is big on the video call, yours sits beside it, and Atty. Thorne is small in the corner, listening. Under the call is your agenda, five steps: logistics, calm, guidelines, dress and demeanor, and the in-room rules. On the right is the card that matters most: routed to Atty. Thorne, with five lines for the gap, the disruption, the seatbelt, the 2021 visits and the MRI. As John asks, those lines fill up. And here's the point. Your answers to them stay empty, every time. The message across the bottom says it all: answer the process, route the substance.",
+      "ask": "If John pushes a second time on the gap, what keeps that answer line empty?"
+    },
+    "check": {
+      "say": "Before you log your segment, go through this. Is his new number updated in CMS under Parties, with Margaret confirmed as backup? Did you state the logistics exactly, 02/18/2027, 10:00 a.m., videoconference, Riverton Court Reporting, and set the 02/16/2027 test call? Did you explain the setting without predicting any outcome, drill the pause on neutral questions only, and give the dress talk as advice every client gets? Did you cover the room rules, private room, no one else, no notes, no phone, no messaging? And the big one: all five substantive questions met with routing, not content, and each logged in John's words before the segment ended. Watch the helpful half-answer. Always tell the truth is a rule; just say you had no ride is a script.",
+      "ask": "Did anything you said today sound like “just say you had no ride”?"
+    }
+  },
+  "d5m3-a2": {
+    "case": {
+      "say": "It's 02/16/2027, the second prep session. At 2:00 p.m., Atty. Thorne is running a mock cross-examination. Let me set the roles out loud, because the boundary matters. Atty. Thorne leads and defends. AI defense counsel, playing Atty. Grant Mercer, asks the questions. AI John Doe answers. And you observe. Your microphone stays muted the whole time. Your job is the Trap Log: every trap with its time, Mercer's exact words, and the record fact beside any mischaracterisation, plus every objection. Atty. Thorne debriefs John from your log when the mock ends, so it has to reach him before we finish.",
+      "ask": "Who in this mock is allowed to speak to John, and when?"
+    },
+    "task": {
+      "say": "While the mock runs in the Call Simulator, you keep the Trap Log in CMS under Litigation, Deposition prep log. For each trap, log the timestamp, the question in AI Mercer's exact words, its category, the trap type, and which golden rules John kept or broke. Beside every mischaracterisation, put the record fact and its source. Log each objection and whether John stopped talking. Then route the finished log to Atty. Thorne before his debrief. You coach nothing, not during the mock and not after. The log is for Atty. Thorne alone; nothing in it goes to John. Your hand-in is a timestamped Trap Log, scored against the seven rules.",
+      "ask": "Why does the log need Mercer's exact words instead of your summary of the question?"
+    },
+    "model": {
+      "say": "Here are two entries from a model Trap Log. On the left you can see the mock: AI Mercer questioning, AI John answering, and Atty. Thorne's tile flagged for an objection, with a running timer up top. On the right is the log itself, with columns for the time, the question as asked, the category, trap and record, and the rules. Above it sit the trap chips, turning orange as each one gets logged, with the silent stare dashed because Mercer may not use it. And look at your own tile at the bottom, microphone struck through. Across the foot it says observe, log, route, never coach. Your only output in this exercise is the log.",
+      "ask": "Looking at these two entries, what makes each one useful for Atty. Thorne's debrief?"
+    },
+    "check": {
+      "say": "Check your log before you route it. Are all six traps there, plus the silent stare if Mercer used it, each with a timestamp, his exact words and one of the four categories? Your gap entry should read 14 days, 02/06/2026 to 02/20/2026, and any disruption question set against 19 days, 04/02/2026 to 04/21/2026. Degenerative should cite the 03/13/2026 MRI: no significant degenerative change at the adjacent levels. The seatbelt entry cites the EMS Run Report and the EDR download, and the 2021 entry notes three resolved low-back visits and no prior neck complaints. Each answer scored on the rules, every objection logged. And honestly: did you nod, type in the chat, or say anything to John? That's coaching, in a mock or on 02/18/2027.",
+      "ask": "Which trap worked on John, and which rule would have protected him?"
+    }
+  },
+  "d5m3-kc": {
+    "questions": {
+      "say": "This is the Deposition Readiness Audit. Look at the readiness strip on screen first. Which chip is hardest to turn green honestly? Most people say the audit. I'd say the routing, because it's the one that gets tested under pressure. Now answer from John's file, in your own words, under each question. List the landmines your audit must surface before 02/04/2027, with the record behind each. Lay out the day-before checklist for 02/17/2027. And name the four categories of defense questions, the one clients underreport, and where that risk sits here.",
+      "ask": "Which chip on the readiness strip is hardest to turn green honestly?"
+    },
+    "summary": {
+      "say": "On to your self-summary. Let's warm up with this: it's 02/03/2027, and John has just resurfaced with a new phone, fifteen days before he testifies. What can't wait until tomorrow? His new number in the CMS, and the audit routed to Atty. Thorne. Keep that urgency in mind. Then write your scenario: it's 01/28/2027, John's been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect his Civic. Give me your next five actions in order, with an owner beside each one.",
+      "ask": "John just resurfaced fifteen days out. What can't wait until tomorrow?"
+    },
+    "scale": {
+      "say": "Last piece: rate yourself 1 to 5 on each competency, then submit it. I'm going to compare your rating with your score and talk through any wide gaps with you. And let me be straight about Question 5, because it's the UPL gate. Any reply that gives John content about the gap fails the module, however polished it is. The right reply routes his question to Atty. Thorne and logs it in John's words. Rate yourself with that in mind.",
+      "ask": "Where would you honestly rate your routing under pressure right now?"
+    }
+  },
+  "d5m4-l1": {
+    "why": {
+      "say": "Let me read you Robert Smith's Answer. It says the Escape entered the all-way stop out of turn. It says John was unbelted. And it says he failed to mitigate by missing visits. Now, which of those three isn't about John at all? The first one. Entering out of turn is about Kevin Alvarez's driving, not John's. After suit, the defense went after fault and mitigation: the car he rode in and his seatbelt are comparative fault, and his missed visits are failure to mitigate. Here's the difference. Fault can reduce or even bar recovery. Mitigation only cuts the damages the missed care actually caused. Our counter-package answers each one from this file, with evidence that can come in.",
+      "ask": "Which of Smith's three allegations isn't about John's own conduct at all?"
+    },
+    "theory": {
+      "say": "Comparative negligence apportions fault between the parties, and the share charged to the injured person can reduce, or even bar, what they recover. There are three regimes, pure, modified and contributory, and they treat the very same fault finding differently. So it's the governing rule, not the percentage alone, that decides whether recovery is reduced or barred. Next, liability status. It's accepted, partial or denied, and recording that status with its source shows Atty. Thorne what's still contested. Keep fault and mitigation separate in your head: comparative fault is about the crash, failure to mitigate is about later care, and it only trims avoidable damages. All of this feeds the counter-package, an index that answers each pleaded allegation with evidence that can come in.",
+      "ask": "Why doesn't the percentage of fault, on its own, tell us what John recovers?"
+    },
+    "frame": {
+      "say": "Here's the counter-package laid out, one allegation per row. Entered the stop out of turn: that's about Kevin Alvarez's driving, and Ruth Calloway, the doorbell video and the point of impact answer it, with the EDR corroborating. Unbelted passenger: that's about John's seatbelt, and the EDR shows the belt buckled while the EMS report reads restrained front-seat passenger. Failure to mitigate: the 19 days without visits, 04/02 to 04/21/2026, answered by the A-C-T record, the 04/08 call, the extension refused 04/10 and the evening slots. And causation, the 14-Day Gap and the degenerative MRI, answered by the Gap Record: four reasons, the EMS neck complaint and the Causation Letter. Every allegation, a document.",
+      "ask": "Which row on John's file do you think the defense will lean on hardest?"
+    },
+    "rules": {
+      "say": "Comparative negligence apportions fault. Under pure, damages fall by John's share, however large. Under modified, they fall, but recovery is barred at 50% in some states or 51% in others. Under contributory, any fault bars recovery. Confirm the governing rule. Record liability status with its source; Keystone accepted PD liability on 02/17/2026, and the Answer now pleads comparative fault. The out-of-turn allegation targets Kevin Alvarez, and whatever the defense says about him, the stack stays $40,000. Unbelted is answered by the EDR and the EMS report. Failure to mitigate trims only avoidable damages, and the A-C-T record answers it. Evidence counts only if it can come in, so record source, witness and custody, and don't rest on the citation alone. You gather and index; Atty. Thorne decides fault, admissibility and coverage.",
+      "ask": "If a jury finds John 20% at fault, what does he recover under each regime? And at 50%?"
+    },
+    "model": {
+      "say": "One finding, four outcomes. On the left is the regime table, with two columns: John at 20% and John at 50%. Your eye goes straight to the red cells, the ones that say Barred, and that's on purpose. Under contributory, he's barred either way. Under a modified 50% rule, he's barred at 50%. That's the cliff. On the right are the three allegations, each pointing to its answer already in the file. Out of turn: RPD-26-018842, Calloway and the video. Unbelted: EDR buckled and EMS restrained. Failed to mitigate: the A-C-T record from 04/08 to 04/23. And along the bottom, a reminder: the stack stays $40,000. Every point of fault costs John money, and each point already has its answer.",
+      "ask": "Under the modified 50% rule, what happens to John's recovery at exactly 50%?"
+    },
+    "job": {
+      "say": "Watch how it unfolds. The Answer is filed on 11/12/2026, pleading comparative fault, causation and failure to mitigate. You log each defense as its own line in the Pleadings Log, dated 11/12/2026, and confirm the filing on the docket. Then you map the file's evidence to each allegation in the counter-package, with its source, witness and custody, and nothing goes in without a source document and a named authenticating witness. When an item lacks foundation, or a holder won't produce, you flag it for a subpoena duces tecum and route it to Atty. Thorne, naming the gap and the record holder. And with deposition prep set for 02/04 and 02/16/2027, you deliver the counter-package and the Gap Record into his prep set before 02/04/2027."
+    },
+    "dodont": {
+      "say": "Time for 3 Clues, 1 Rule on the liability counter-package. Three clues come up, one at a time. Call it, Do or Don't, then give me the rule. Think back over what we just covered: answering each allegation with a document instead of an argument, recording liability status the way the claims team does, using the damage pattern with the video and the witness, and the traps of leaning on the citation alone, promising John he can't be blamed, and adding Kevin Alvarez's policy to the stack. One tip: watch who's speaking in each clue. Sometimes it's not the evidence that's wrong, it's who's giving the opinion.",
+      "ask": "Who's making the call here, and should it be them?"
+    }
+  },
+  "d5m4-l2": {
+    "why": {
+      "say": "Two people went missing on this file, and I want you to look at them side by side. Robert Smith moved before he could be served. John Doe went silent 27 days before his deposition. What do they share? Neither one has a working contact point. And what's different? One is the opponent, and one is our client, and the authority lines follow from that. The tools overlap: Skip-Trace, the process server, certified proof of notice. But who can authorize what, and what we're allowed to say, changes completely. In both cases, the record we keep is what proves our diligence.",
+      "ask": "Smith and John both went missing. What do they share, and what's different about them?"
+    },
+    "theory": {
+      "say": "Filing a lawsuit means nothing until service. The defendant has to be legally notified, or the case stalls and can be dismissed. And defendants who know a suit is coming may hide, ignore the door or move, which is why diligent, logged attempts matter: they prove the effort. When an address goes stale, there's the Skip-Trace, a background search of utility, employment and address records to find a current address, run only for a permissible purpose. If someone's still dodging, there's alternative service, a court-permitted substitute like mail or posting, and only the attorney can ask for it. On the client side, certified notice gives us a provable mailing record, and paired with email, it shows John was told how to respond.",
+      "ask": "Why is a logged failed attempt worth almost as much as a successful one?"
+    },
+    "frame": {
+      "say": "Here's the evading defendant protocol, step by step. When attempts fail, you log each one's date, time and address and follow up with the server every five days. If the address looks stale, then on Atty. Thorne's authority, a Skip-Trace runs through licensed databases checking utility, employment and active-address records. With the right address and the person still dodging, the server varies the windows, early mornings, evenings and weekends, where the court's rules allow. If that still fails, Atty. Thorne may ask the court to permit alternative service by mail or posting. And when service finally happens, the signed affidavit of service gets filed with the court. Never leave it sitting in an email.",
+      "ask": "On Smith's service, which of these five steps did we actually need?"
+    },
+    "rules": {
+      "say": "The clerk issues the Summons, the process server gets the papers, you follow up every five days, and the affidavit is filed: here 09/24 filed, 10/14 served, 10/16/2026 affidavit. Three failed attempts at 118 Larkspur Ln and a neighbor saying Smith moved means a stale address, so Skip-Trace first, permissible purpose only. On 10/09 it found 4410 Quarry Ridge Ct, Millbrook. Service starts his clock, answer due 11/13/2026, and you check the docket weekly. A subpoena duces tecum needs a narrow Exhibit A, and opposing counsel gets notice first. For John, silent since 01/22/2027, run Day 1's No Contact Protocol. The Step 4 letter goes certified mail and email over Atty. Thorne's signature, by 01/27/2027. Withdrawal goes in only if he directs it. Margaret hears only that the firm needs John to call.",
+      "ask": "Three attempts failed at 118 Larkspur Ln. Why is a fourth at 6:00 a.m. the wrong move?"
+    },
+    "model": {
+      "say": "Same tools, different authority. Look at the top lane, Robert Smith, the defendant. Three failed attempts at 118 Larkspur Ln on 10/01, 10/05 and 10/08. Then the Skip-Trace on 10/09 bends the lane to 4410 Quarry Ridge Ct, he's served 10/14, the affidavit follows 10/16, and his answer's due 11/13/2026. Now the bottom lane, John Doe, our client. A silent stretch from 01/22/2027 with the four protocol steps along it, certified mail plus email, and then the break: 02/03, reached through Margaret, ending at the 02/18/2027 deposition. Between the lanes sits the line I want you to remember: withdrawal is never the Case Manager's to raise.",
+      "ask": "Looking at both lanes, where does the authority to act change hands?"
+    },
+    "job": {
+      "say": "Back to October. On 10/08/2026, the third attempt fails and a neighbor says Smith moved. You escalate for Skip-Trace authority, log the 10/09/2026 result and re-assign the server to 4410 Quarry Ridge Ct. When the affidavit is filed 10/16/2026, you docket the answer date, 11/13/2026, and set a recurring weekly docket check. Later, Atty. Thorne approves a subpoena duces tecum, so you send notice to Atty. Grant Mercer first, dated before service, then have the custodian served and set a compliance call five days before production. And when John goes unreachable from 01/22/2027 with a deposition noticed, you run Steps 1 to 3, then draft the Step 4 notice for Atty. Thorne's signature, response date before 02/04/2027, and log both the certified mail and the email."
+    },
+    "dodont": {
+      "say": "Let's play 3 Clues, 1 Rule one more time for this lesson. Three clues, one at a time, about finding people on this file. Call it, Do or Don't, and name the rule. You've got the tools: following up with the server every five days and asking for each attempt's details, paying a custodian's copy invoice the day it arrives, confirming the address before certified mail goes out, and the traps of knocking on a stale door, serving the non-party before opposing counsel has notice, and saying too much to Margaret. Some of these sound like good hustle. Ask yourself whether the hustle is pointed in the right direction.",
+      "ask": "Does working harder at the same address ever count as diligence?"
+    }
+  },
+  "d5m4-a1": {
+    "case": {
+      "say": "It's 11/12/2026 on Track B. Atty. Grant Mercer of Mercer & Hale LLP has filed Robert Smith's Answer in Civil Action No. 26-CV-04417. It denies liability and pleads comparative negligence, saying the Escape entered the all-way stop out of turn and John was unbelted. It pleads causation, the gap and a degenerative MRI, and failure to mitigate. Atty. Thorne wants, for each allegation, the evidence that answers it, its source, its authenticating witness and its chain of custody, plus a list of the questions only he can answer. In the file you've got report RPD-26-018842, Ruth Calloway's details, the doorbell video, the 10/2026 EDR download, the EMS Run Report and the A-C-T record. You'll get three blank rows, one per allegation, and I'll grade row by row.",
+      "ask": "Is a row finished if it has strong evidence but no authenticating witness?"
+    },
+    "task": {
+      "say": "You're building the liability counter-package for Atty. Thorne in CMS under Litigation. For each of the three allegations, list the evidence that answers it, its source document, the witness who can authenticate it, its chain of custody and any gap in its foundation. Write out the doorbell video's chain from the 02/17/2026 preservation request to the 02/19/2026 copy. Where a record will need a custodian, draft a narrow Exhibit A for a subpoena duces tecum in the Action Plan Editor's template, for his review. Then close with the questions only he can answer: the governing fault rule, seatbelt and citation admissibility, and whether fault on Kevin Alvarez touches coverage. You hand in the allegation-by-allegation package, the draft Exhibit A and those routed questions.",
+      "ask": "Which single document answers two defenses?"
+    },
+    "check": {
+      "say": "Check your package against this before you log it. Three separate rows: out of turn, unbelted, failure to mitigate. Out of turn answered by RPD-26-018842, Ruth Calloway of 2209 Maple Hollow Rd, the video and the point of impact, with the EDR's 11 mph as corroboration only, because speed alone doesn't prove right-of-way. Unbelted answered by the EDR and the EMS report. Mitigation answered by the A-C-T record, with the disruption stated exactly: 19 days, 04/02 to 04/21/2026, four missed visits. The video's chain runs from Margaret Doe's camera through 02/17 and 02/19/2026, native file unaltered. Every item has a witness. Your Exhibit A covers only John Doe's 02/06/2026 Riverton Fire EMS run and named record types, never all records. And the stack still reads $40,000.",
+      "ask": "Does your Exhibit A name one patient, one date and specific record types?"
+    }
+  },
+  "d5m4-a2": {
+    "case": {
+      "say": "Two episodes, one file. Part one: it's 10/08/2026, and Allied Process Services reports a third failed attempt at 118 Larkspur Ln, tonight at 6:40 p.m., no answer, no vehicle, after tries on 10/01 and 10/05. A neighbor says Robert Smith moved out in August. The server wants to know how to proceed. Treat this like a race against a stale address. The 10/09 Skip-Trace return will list 118 Larkspur Ln with utilities closed 08/2026, 4410 Quarry Ridge Ct, Millbrook, with a utility opened 08/2026 that matches his registration, and a 2019 address. Part two: it's 01/22/2027, and calls to John go unanswered, two days after his deposition was noticed for 02/18/2027. Prep is set for 02/04 and 02/16/2027.",
+      "ask": "After the 10/08 report, what's the graded move: a fourth knock, or something else?"
+    },
+    "task": {
+      "say": "In Part one, escalate for Skip-Trace authority through Tasks, Escalate, then evaluate the 10/09 return, choosing the address on recency and two corroborating sources, and record why. Re-instruct Allied, log service on 10/14 and the affidavit on 10/16, and docket the answer date. In Part two, run Steps 1 to 3 of the No Contact Protocol with the litigation impact, then draft the Step 4 certified notice in the Action Plan Editor for Atty. Thorne's signature: attempts itemized, a 7 to 14 day response date before 02/04/2027, how to respond. Send it certified mail and email to a confirmed address. You'll also call Margaret Doe: verify her identity, say only that the firm needs John to call, and log it. Then assess John's Skip-Trace gate.",
+      "ask": "John and Smith both have no working contact point. Why does Smith get a Skip-Trace and John doesn't?"
+    },
+    "check": {
+      "say": "Time for your self-check. Part one: you escalated for Skip-Trace after 10/08/2026, not a fourth knock; chose 4410 Quarry Ridge Ct on two current sources and rejected 118 Larkspur Ln as stale; logged service 10/14/2026, the affidavit 10/16/2026, and docketed the answer for 11/13/2026. Part two: Step 1 names the deposition, 27 days out, the prep dates and the 03/15/2027 expert disclosure. Your ladder is logged, calls, email to john.doe@example.com, text, then Margaret. Now check every response date against 02/04/2027; a 14-day window from 01/22 lands on 02/05, too late, so it's sent by 01/27/2027 for 02/03/2027. Certified mail to 2214 Maple Hollow Rd and email, signed by Atty. Thorne. No withdrawal language from you, anywhere. And the gate isn't met: John was reached 02/03/2027.",
+      "ask": "Where does your notice's response date fall against the 02/04/2027 prep session?"
+    }
+  },
+  "d5m4-kc": {
+    "questions": {
+      "say": "This is the Final Comprehensive Knowledge Check, the last one before Track B's close-out. It spans all five days, and every answer comes from one file: John Doe's names, dates and figures, not general rules. Write in your own words under each question. Lay out the Recovery Stack in its order of operations, with each limit and the total, and name three coverages that aren't part of it, then the Payer Order for his Medical Bills. Tell me when the window on the 07/20/2026 BI demand closed and why. And reconcile the Track A net of $20,359.92 from $40,000.00, deduction by deduction.",
+      "ask": "Before you start, what's the first layer of John's Recovery Stack?"
+    },
+    "summary": {
+      "say": "Before you write your self-summary, let's do Question 7 out loud. John asks you how to explain the gap. What do you say? The only right answer listens, tells him Atty. Thorne will go through it with him, escalates at once and logs the call. Then Question 4, the arithmetic gate: $40,000.00, less the $13,333.33 fee, $486.75 in costs, and the $1,240.00 and $4,580.00 liens, leaves $20,359.92, to the cent. Now your scenario: 01/28/2027, John unreachable for six days, deposition noticed for 02/18/2027, defense counsel asking to inspect the Civic. Your next five actions, in order, with owners.",
+      "ask": "John asks how to explain the gap. What do you say?"
+    },
+    "scale": {
+      "say": "Last step for the final check. Rate yourself 1 to 5 on each competency across all five days, then submit for review. I'll compare your ratings with your scores. Please be honest with yourself here, because this is what we'll coach from. And know that UPL is a gate, not a weight. A 5 on the UPL competency from someone who coached John in Question 7 doesn't pass, however strong the rest of the paper is.",
+      "ask": "Across all five days, which competency surprised you most when you rated it?"
+    }
+  },
+  "d5m5-l1": {
+    "why": {
+      "say": "Put the two nets side by side. On Track A, John Doe netted $20,359.92. On Track B, the 07/06/2027 award brings in the same $40,000.00 gross, and he nets $14,713.75. So what changed? Not the gross. Keystone's stonewall turned a $40,000.00 settlement into a lawsuit, a mediation and an arbitration, and that moved three things: the fee tier, the costs and the lien math. John's going to notice that difference, and he deserves to understand it. That's what the Net Sheet does. It shows him exactly why, line by line, before he signs anything.",
+      "ask": "Same $40,000.00 gross on both tracks. What changed to bring John's net down?"
+    },
+    "theory": {
+      "say": "The Net Sheet is the ultimate transparency tool. It shows the client where every dollar came from and where every dollar goes. A few ideas sit underneath it. First, the common fund doctrine: the attorney's work and costs created the fund, so lienholders contribute their proportional share of fees and costs. That's the basis for our reductions. Second, the double-dipping trap. Carriers audit the file, so the sheet traces every dollar to its source and never mixes funds. Third, fee transparency. Fees can differ by stream and by stage, so we track each stream's fee separately to keep the ledger accurate and explainable. And finally, the Final Payoff Letter. No lien check goes out without a signed letter accepting it as full and final satisfaction.",
+      "ask": "Why should Peach State share in the cost of a lawsuit it never filed?"
+    },
+    "frame": {
+      "say": "Here's how the master financial ledger is built, top to bottom. It starts with the recovery summary: the gross by stream, each with its source, so the BI tendered at mediation and both UM awards from arbitration. Next are attorney fees, the fee on each stream, confirmed from the retainer, and on this file that's the 40% tier once suit was filed. Then case expenses, every advanced cost with its receipt: filing, service, mediation, arbitration, the reporter, records, plus the pre-suit costs. Then the provider ledger: charges, payments, adjustments, balance owed and reduction, with only the liens actually owed, and reductions following the fee actually charged. And last, the net to the client, gross minus fees, costs and reduced liens, shown line by line before John Doe signs.",
+      "ask": "Which section of this ledger is most likely to trip someone up on a litigated file?"
+    },
+    "rules": {
+      "say": "The award ends the case, not the work. Laura Whitcomb's 07/06/2027 award gives Harbor Point's $20,000.00 and Cardinal State's $10,000.00, and with Keystone's $10,000.00 BI from the 03/18/2027 mediation, the gross is $40,000.00. The fee follows the retainer: suit filed 09/24/2026, so 40%, $16,000.00, confirmed by Atty. Thorne. Litigation costs need receipts too: filing $218.00, service $285.00, mediation $1,200.00, arbitration $900.00, reporter $645.50, records $160.00, plus the pre-suit $486.75, totaling $3,895.25. The fund pays only what's owed. Peach State's reduction follows the fee charged, $744.00, accepted at $1,116.00, and Riverton Spine & Rehab accepts $4,275.00. Net: $14,713.75. Nothing leaves trust until checks clear, Payoff Letters are in and John signs. You explain the arithmetic; whether suing was worth it is Atty. Thorne's conversation.",
+      "ask": "Peach State's reduction was $620.00 on Track A. Why is it $744.00 now?"
+    },
+    "model": {
+      "say": "Same gross, two nets. Here are two ledger cards side by side, Track A and Track B, each with the same five rows: gross, fee, costs, liens and net. Both gross rows read $40,000.00. But on Track B, the fee, the costs and the liens are highlighted, because those are the three rows the litigation moved. And at the bottom, the nets: $20,359.92 on Track A, $14,713.75 on Track B. Between the cards is the reason: suit filed 09/24/2026, which triggers the 40% tier. And at the foot, a red reminder I want you to carry into the activity: no Payoff Letter, no payment.",
+      "ask": "Looking at the Track B card, which highlighted row moved the most?"
+    },
+    "job": {
+      "say": "Picture the close-out as it actually runs. The award arrives on 07/06/2027. You log it under Litigation and diary each carrier's payment: Harbor Point $20,000.00 and Cardinal State $10,000.00. Once the fund is known, you prepare the Reduction Requests in the LSH Net Sheet and send them for Atty. Thorne's approval, and they come back as Peach State at $1,116.00 and Riverton Spine & Rehab at $4,275.00. Then, when the last UM check has cleared, you complete the Net Sheet and route the Settlement Statement through Tasks, Escalate, showing a net of $14,713.75, all before John Doe signs anything. Three steps, and every one of them leaves a record."
+    },
+    "dodont": {
+      "say": "Last round of 3 Clues, 1 Rule for the Case Flow. Three clues, one at a time, from John's litigated close-out. Call it, Do or Don't, and name the rule. You'll want everything from this lesson: showing John the fee tier from his own retainer, a receipt on every litigation cost, reducing liens at the fee actually charged, and the traps of carrying Track A's numbers into this file or disbursing Keystone's check, held in trust since 03/29/2027, too early. And if any clue tempts you toward an opinion on whether the lawsuit was worth it, stop right there. That's Atty. Thorne's conversation with John.",
+      "ask": "If a clue mentions 33⅓%, what should that make you suspicious of?"
+    }
+  },
+  "d5m5-a1": {
+    "case": {
+      "say": "It's 07/22/2027. Laura Whitcomb's 07/06/2027 award gave Harbor Point's $20,000.00 and Cardinal State's $10,000.00. Harbor Point's check came 07/20, and Cardinal State's arrived this morning, joining Keystone's $10,000.00, held in trust since 03/29/2027. That's all $40,000.00 in trust. Peach State accepted $1,116.00 on 07/14, and Riverton Spine & Rehab accepted $4,275.00 on 07/16, both in writing, and every litigation cost is receipted. Atty. Thorne's note reminds us suit was filed, so the fee is the 40% tier under John's retainer. He wants the Net Sheet and the Settlement Statement for his review before John sees anything. Open the Net Sheet beside this slide and check it at the Track B stage.",
+      "ask": "Before you enter a single number, what fee percentage applies at the Track B stage?"
+    },
+    "task": {
+      "say": "You'll complete John Doe's LSH Net Sheet for the litigated recovery. Section one is the gross by carrier. Section two is the 40% fee and every receipted cost, pre-suit and litigation, each on its own row. Section three lists every provider and payer with charges, payments, adjustments and balance owed, and each lien's reduced figure with its Payoff Letter. Section four is the net to John. Tie it to the Trust Ledger in CMS, then route the Settlement Statement to Atty. Thorne through Tasks, Escalate. You'll also take John's call: walk him through fee, costs, liens and net, show the 40% from his own retainer, and give the reduced liens with their acceptances. Hand in a Net Sheet reaching $14,713.75, every number proved.",
+      "ask": "John says a friend kept more from his settlement. What do you say?"
+    },
+    "check": {
+      "say": "Check your Net Sheet before you log it. The gross is Keystone $10,000.00 from mediation, plus Harbor Point $20,000.00 and Cardinal State $10,000.00 from the award, $40,000.00. The fee is the 40% tier, $16,000.00, confirmed from the retainer, not 33⅓% from habit. Costs come to $3,895.25, each on its row with a receipt. Liens: Peach State from $1,860.00 down to $1,116.00, and Riverton Spine & Rehab from $6,290.00 to the audited $6,105.00 to $4,275.00, totaling $5,391.00, each reduction's basis on its line. Zero-balance lines like MedPay's $5,000.00 and Crescent's $1,540.00 write-off stay off the payables. Net $14,713.75, tied to the $40,000.00 in trust. Nothing disbursed until John signs on 07/29/2027, disbursement 07/30/2027. And no lien paid from a phone call.",
+      "ask": "Does your trust ledger tie to the $40,000.00 gross to the cent?"
+    }
+  },
+  "d5m5-kc": {
+    "questions": {
+      "say": "This is the last check of the Case Flow. John Doe's file is now closed, from intake all the way to the award, so take a moment to appreciate that. Answer from the file, in your own words, under each question. Take the $40,000.00 award down to John's $14,713.75, naming every deduction with its figure and source. Explain why the fee is 40% on this file, which document says so and who confirms it. And show why Peach State accepted $1,240.00 on Track A but $1,116.00 on Track B.",
+      "ask": "Which document tells us the fee on this file is 40%?"
+    },
+    "summary": {
+      "say": "Now your self-summary, in your own words. Keep Question 5 in mind as you write, because it's the UPL gate: arithmetic, yes; opinion, no. If you say the lawsuit was or wasn't worth it, you've crossed the line, however good the rest is. Then your scenario: it's 01/28/2027, John's been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect his Civic. Give me your next five actions, in order, and who owns each one.",
+      "ask": "Where exactly is the line between explaining John's net and judging whether suing was worth it?"
+    },
+    "scale": {
+      "say": "And here we are, the very last rating of the course. Score yourself 1 to 5 on each competency, then submit it for review. I'll sit down with your rating beside your score, and if there's a wide gap either way, we'll talk it through together. You've carried one file from intake to award. Be as honest about yourself as you've been with John's numbers.",
+      "ask": "Looking back across the whole Case Flow, which skill do you feel strongest in now?"
+    }
+  }
+}

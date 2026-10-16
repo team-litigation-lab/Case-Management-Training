@@ -10,7 +10,7 @@
    year they started on (caseYear on their Case Flow record, set by js/cm-case-flow.js) until they finish, so dates
    never jump mid-course. A trainer can preview a year with ?caseYear=2029 (?caseYear=off ends the preview).
    Loaded after the Case Flow content and before js/cm-case-flow.js: it rewrites the dates in CM_CASE_FLOW,
-   CM_CF_SLIDES, CM_CF_SIM and CM_CF_DOCS in place; case-doc.html does the same to the case documents. */
+   CM_CF_SLIDES, CM_CF_SIM, CM_CF_DOCS and CM_CF_SCRIPTS (the trainer scripts) in place; case-doc.html does the same to the case documents. */
 (function(){
   const BASE = 2026, DAY = 864e5;
   const utc = (y, m, d) => Date.UTC(y, m - 1, d);
@@ -169,5 +169,5 @@
     dol(){ const [y, m, d] = move(2026, 2, 6, S); return `${pad(m)}/${pad(d)}/${y}`; },
   };
   window.CM_CASE_DATES = api;
-  if(S) ["CM_CASE_FLOW", "CM_CF_SLIDES", "CM_CF_SIM", "CM_CF_DOCS"].forEach(k => { if(window[k]) apply(window[k], S); });
+  if(S) ["CM_CASE_FLOW", "CM_CF_SLIDES", "CM_CF_SIM", "CM_CF_DOCS", "CM_CF_SCRIPTS"].forEach(k => { if(window[k]) apply(window[k], S); });
 })();
