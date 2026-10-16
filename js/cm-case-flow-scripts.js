@@ -750,6 +750,24 @@ window.CM_CF_SCRIPTS = {
    "ask": "What could you have calendared back on 02/18/2026 that would have warned you about this?"
   }
  },
+ "d2m2-a3": {
+  "case": {
+   "say": "It's 04/22/2026, and there's a voicemail from John Doe, left at 12:18 p.m. Care has just restarted at Riverton Spine & Rehab, on evening slots, with Margaret driving him after her shift, and the Civic is still in the shop. Yesterday Lakeside's scheduling desk booked the injection Dr. Reyes referred him for back on 03/27/2026, but they booked it at Millbrook Interventional Pain Center, out in Millbrook, for 05/14/2026. John says he isn't going. It's too far, he's got no ride out there, and somebody at work told him the place is out of network with Peach State. He still wants the appointment. He just wants it somewhere he can actually get to.",
+   "ask": "Before you call him back, which document on the file would you open first, and why?"
+  },
+  "task": {
+   "say": "Here's your job. Call John back and really listen. Where he goes, among the options his doctors find appropriate, is his choice, and what care he gets is Dr. Reyes's and the treating provider's call, so you give no medical advice at all. Check Crescent's network status with Peach State yourself. Then work with Janelle Brooks, Lakeside's referral coordinator, to send the referral to Crescent Pain & Spine, and book Crescent's first opening while John's still on the line. After that, every task that follows is yours to do or to delegate, with an owner and a due date: the cancellation, the calendar, Parties, Peach State and the Lien Tracker, the records request, transport, the GIRP note, the report to Atty. Thorne, and the attendance check after 05/15/2026.",
+   "ask": "Who decides where John has the injection, and who decides whether he has it?"
+  },
+  "model": {
+   "say": "This is what done looks like: a task list in the CMS. Every row ends one of two ways. Either it's done by me, with the date, or it's delegated to a named person with a due date. Calling John back, reading Dr. Reyes's referral, verifying Crescent with Peach State, booking 05/15/2026 with John on the line, the calendar, the Parties entry, the Peach State billing and the Lien Tracker flag, transport, the GIRP note and the report are all done on 04/22/2026. Janelle Brooks cancels the Millbrook slot by 04/23/2026, because Lakeside booked it. The records team requests Crescent's records and itemized bill by 05/29/2026. And the attendance check on 05/18/2026 stays on my own list.",
+   "ask": "Why does the records request get delegated, when the call to John never does?"
+  },
+  "check": {
+   "say": "Check your work before you log it. Did you return the call on 04/22/2026 and record John's reasons in his own words? Did you verify Crescent's network status with Peach State, instead of repeating what he heard at work? Crescent Pain & Spine, Dr. Omar Haddad, is in network for member PSH-55017742. Is 05/15/2026 booked, one day after the Millbrook slot it replaces, with PT carrying on in the evenings, so there's no new gap? Is the Millbrook slot off the calendar, with a reminder call on 05/13/2026 and an attendance check on 05/18/2026? Does every task have a date or an owner? And read your notes back for advice. Saying one place gives better care than the other fails, however kindly it's meant.",
+   "ask": "If Crescent's first opening had been weeks away, who would you tell, and what would you ask them?"
+  }
+ },
  "d2m2-kc": {
   "questions": {
    "say": "Here's your Knowledge Check. Answer from this file, in your own words, typed under each question. You'll read Peach State's 06/03/2026 EOB for claim PS-2605-449021 line by line and say where each amount goes. You'll handle Crescent's 07/01/2026 statement asking John Doe for $1,540.00. And you'll explain from the Payer Order why Riverton got an LOP on 02/23/2026 and Summit's 03/11/2026 request was declined. Then there's a pressure scenario later in the check. The right answer promises nothing new, points the office manager to the LOP signed on 02/23/2026, and gets Atty. Thorne involved before the appointment.",

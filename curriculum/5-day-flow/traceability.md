@@ -35,25 +35,25 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#23` | Case Planning Framework: The Three-Pillar Case Plan | ✅ BUILT | d1m1-l2, d1m4-l1, d1m4-a2, d1m4-kc, d2m2-eob |
 | `D1#24` | Case Planning Framework: Mandatory Disclosure & Compliance Tracking | ✅ BUILT | d1m1-a2, d1m4-l2, d1m4-kc, d2m2-l1, d2m2-a1 |
 | `D1#25` | The “Golden Rule” of US Claim Set-Up | ✅ BUILT | d1m4-l2, d1m4-kc |
-| `D1#26` | The Treatment Phase — Core Objectives | ✅ BUILT | d2m2-l1, d2m2-a2 |
+| `D1#26` | The Treatment Phase — Core Objectives | ✅ BUILT | d2m2-l1, d2m2-a2, d2m2-a3 |
 | `D1#27` | Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention | ✅ BUILT | d2m2-l2, d2m2-a2 |
 | `D1#28` | Treatment Phase: Essential Client Communication Strategies | ✅ BUILT | d1m3-l1, d1m3-a1, d2m2-l2, d2m3-l1, d2m3-a1, d2m3-kc |
-| `D1#29` | Handling the Treatment Phase: Clinical Documentation (GIRP) | ✅ BUILT | d2m2-l2, d2m2-a2, d2m3-a1, d2m3-kc |
-| `D1#30` | Handling the Treatment Phase: Proactive Resource Coordination | ✅ BUILT | d2m2-l1, d2m2-a2 |
+| `D1#29` | Handling the Treatment Phase: Clinical Documentation (GIRP) | ✅ BUILT | d2m2-l2, d2m2-a2, d2m2-a3, d2m3-a1, d2m3-kc |
+| `D1#30` | Handling the Treatment Phase: Proactive Resource Coordination | ✅ BUILT | d2m2-l1, d2m2-a2, d2m2-a3 |
 | `D1#31` | Treatment Red Flags: PT & Conservative Care, Surgical Protocols | ✅ BUILT | d2m2-l2 |
 | `D1#32` | Treatment Red Flags: Pain Management, Medication & Behavioral Health / TBI | ✅ BUILT | d2m2-kc |
 | `D1#33` | Case Planning — Treatment: The Assessment Phase | ✅ BUILT | d2m2-a1, d2m2-kc |
 | `D1#34` | Case Planning — Treatment: SMART Goal Setting | ✅ BUILT | d2m2-kc |
-| `D1#35` | Case Planning — Treatment: The Care Coordination Strategy | ✅ BUILT | d2m2-l1, d2m2-a1 |
+| `D1#35` | Case Planning — Treatment: The Care Coordination Strategy | ✅ BUILT | d2m2-l1, d2m2-a1, d2m2-a3 |
 | `D1#36` | The Standard Treatment Map | ✅ BUILT | d2m2-l2, d2m2-kc |
 | `D1#37` | Treatment Road Map Mastery & the Clinical Pathway Flowchart | ✅ BUILT | d2m2-l2, d2m2-kc |
 | `D1#38` | Variance Analysis: Why the Map Fails | ✅ BUILT | d2m2-l2, d2m2-a2 |
-| `D1#39` | Communication Loops: The “Stakeholder Triad” | ✅ BUILT | d2m2-l1, d2m3-l2 |
+| `D1#39` | Communication Loops: The “Stakeholder Triad” | ✅ BUILT | d2m2-l1, d2m2-a3, d2m3-l2 |
 | `D1#40` | The “Golden Standard”: Reasonable and Necessary | ✅ BUILT | d2m2-l2, d2m2-kc, d2m4-l1, d2m4-a1 |
 | `D1#41` | Immediate Action Protocol: A-C-T for Red Flags | ✅ BUILT | d2m2-l2, d2m2-a2 |
 | `D1#42` | Illustration & Course Correction: The 6-Week Rule and Objective Metrics | ✅ BUILT | d2m2-l2, d2m2-kc |
 | `D1#43` | The “Yellow Flag” Warning System | ✅ BUILT | d2m2-l2 |
-| `D1#44` | Handling Treatment Gaps During the Treatment Phase | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a2, d1m3-kc, d1m4-a1, d1m4-a2, d1m4-kc, d2m3-l1, d2m3-a1, d2m3-l2, d2m3-a2, d2m3-kc, d5m4-kc |
+| `D1#44` | Handling Treatment Gaps During the Treatment Phase | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a2, d1m3-kc, d1m4-a1, d1m4-a2, d1m4-kc, d2m2-a3, d2m3-l1, d2m3-a1, d2m3-l2, d2m3-a2, d2m3-kc, d5m4-kc |
 | `D1#45` | Common Bottlenecks: Escalation Protocol & the Escalation Ladder | ✅ BUILT | d2m2-l2, d2m2-a2, d4m4-l2, d4m4-a2, d4m4-kc |
 | `D1#46` | Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain | ✅ BUILT | d2m2-a1, d2m2-kc |
 | `D1#47` | Skill Building: Handling Client Treatment — “The Transportation Wall” | ✅ BUILT | d2m2-a2 |
@@ -253,6 +253,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: LOR components, information protection, acknowledgement and limits disclosure
 - LSH Claims Specialist: MedPay vs. PIP (Medical Bills regardless of fault, no lost wages)
 - Newly authored: LOP issuance guidelines and the MedPay exhaustion ledger
+- Newly authored: redirecting a referral to the client's choice of facility, and the downstream task list (each task done or delegated with an owner and a due date)
 - LSH Claims Specialist: communication skills and professionalism — clarity without jargon, empathy, active listening, paraphrasing, calm reassurance
 - LSH Claims Specialist: LOR — all carrier communication through the firm
 - Newly authored: non-leading investigative interview technique (the funnel); recording consent and privilege on a client call; reassurance about process, never outcome
@@ -323,6 +324,7 @@ Where neither source had the theory, it was written for this flow and is marked 
 - **The two-track fork: one file settling on Day 3 (Track A) and going to suit on Days 4–5 (Track B) from the same 08/05/2026 negotiation** — Days 3–5 — the brief's day order, made one coherent file
 - **UM notice at claim set-up (notice is not a demand) and verifying each UM form and MedPay's terms in writing** — Day 2 · Module 1
 - **LOP issuance guidelines and the MedPay exhaustion ledger** — Day 2 · Module 2
+- **Redirecting a referral to the client's choice of facility, and the downstream task list: each task done or delegated with an owner and a due date** — Day 2 · Module 2
 - **The non-leading gap interview, recording a client call with consent stated, and the Gap Justification Record format** — Day 2 · Module 3
 - **Billed vs. paid Specials routed to counsel, and the strategy-briefing protocol for Lead Counsel** — Day 2 · Module 4
 - **The five elements of a Time-Limited Demand that holds up, and the Limited Release as the guard on the UM claims** — Day 3 · Module 1

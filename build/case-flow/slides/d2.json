@@ -270,6 +270,33 @@
       "Accepting **“I'll just wait”** without a plan"
     ]
   },
+  "d2m2-a3": {
+    "image": "checklist-qa",
+    "situation": "04/22/2026: John Doe's voicemail. Lakeside booked his injection at **Millbrook Interventional Pain Center** for 05/14/2026. He won't go: too far, no ride, and he **heard it's out of network**.",
+    "steps": [
+      "Call John Doe back: **his choice of facility**, no medical advice",
+      "Redirect the referral to **Crescent Pain & Spine** with Janelle Brooks",
+      "Book **05/15/2026** with John Doe on the line; cancel Millbrook",
+      "Calendar, Parties, Peach State, records, transport: **done or delegated**",
+      "Write the GIRP note and **report to Atty. Thorne**"
+    ],
+    "deliver": "A CMS task list: every task **Done by me** or Delegated, owner and date",
+    "checks": [
+      "Crescent **verified in network** with Peach State, not hearsay",
+      "Crescent's 05/15/2026 slot: **no new treatment gap**",
+      "Millbrook cancelled; **calendar and reminders** updated",
+      "Records request **delegated with an owner** and due date",
+      "**No medical advice**; no talk of claim value"
+    ],
+    "dos": [
+      "Read **Dr. Reyes's referral note** before you call anyone",
+      "Give every open task **an owner and a date**"
+    ],
+    "donts": [
+      "Telling John Doe **which facility is better** medically",
+      "Repeating **what John heard** about the network, unverified"
+    ]
+  },
   "d2m2-kc": {
     "image": "knowledge-check",
     "questions": [
