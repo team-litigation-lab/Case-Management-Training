@@ -602,6 +602,15 @@ window.CM_CF_SIM = {
    "attachments": [
     "RS52"
    ]
+  },
+  "d5m5-a1": {
+   "date": "07/22/2027",
+   "time": "9:05 a.m.",
+   "channel": "memo",
+   "from": "Atty. Elijah Thorne",
+   "to": "Case Manager",
+   "subject": "Doe award: both UM checks in, draft the Net Sheet",
+   "body": "Cardinal State's check came in this morning, so all $40,000.00 is in trust. Suit was filed, so the fee is the 40% tier under John's retainer. Use the receipted litigation costs and the two Payoff Letters, Peach State and Riverton Spine & Rehab. Draft the Net Sheet and the Settlement Statement for my review before John sees anything."
   }
  },
  "calls": {
@@ -870,6 +879,20 @@ window.CM_CF_SIM = {
     "Log the call and any new number, to verify with John"
    ],
    "line": "Margaret is not the client: the CM shares nothing on the case and never advises."
+  },
+  "d5m5-a1": {
+   "who": "John Doe",
+   "role": "client",
+   "persona": "Relieved it's over but upset at the number; a friend kept more from his settlement. Wants to know where his money went.",
+   "context": "07/27/2027. The arbitration award came in 07/06; both UM checks and Keystone's are in trust: $40,000.00. John has the draft Settlement Statement: $14,713.75 to him. He remembers Atty. Thorne mentioning the 40% tier when suit was filed, not the amount. He thinks the arbitrator cut his award for the gap, and asks whether suing was a mistake and whether the fee is fair. He calms with plain arithmetic and a clear next step.",
+   "opening": "Hey, it's John. I got the statement. Forty thousand, and I get fourteen-seven? My buddy settled his case and kept way more than that. Where did it all go?",
+   "goals": [
+    "Walk the deductions in order: fee, costs, liens, net",
+    "Show the 40% tier from his own retainer",
+    "Give the reduced lien figures and their written acceptances",
+    "Route whether suing was worth it to Atty. Thorne"
+   ],
+   "line": "Explain the arithmetic only; no opinion on the lawsuit, the fee or the award."
   }
  },
  "fallout": [
@@ -1292,6 +1315,18 @@ window.CM_CF_SIM = {
   {
    "date": "06/22/2027",
    "label": "UM arbitration hearing",
+   "track": "B",
+   "lane": ""
+  },
+  {
+   "date": "07/06/2027",
+   "label": "Arbitration award · case won",
+   "track": "B",
+   "lane": ""
+  },
+  {
+   "date": "07/30/2027",
+   "label": "Track B disbursement",
    "track": "B",
    "lane": ""
   },

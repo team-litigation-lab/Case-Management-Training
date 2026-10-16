@@ -128,14 +128,14 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D3#18` | Lien Negotiations/Reduction: Common Types of Liens | ✅ BUILT | d3m3-l1, d3m3-a1, d3m3-kc |
 | `D3#19` | Key Legal Doctrines Used for Reduction | ✅ BUILT | d3m3-l1, d3m3-a1, d3m3-kc |
 | `D3#20` | Quantum Meruit Principle — Prior Attorney Liens | ✅ BUILT | d3m3-l1, d3m3-kc |
-| `D3#21` | Increasing the Client's Net | ✅ BUILT | d3m3-l2, d3m3-a2, d3m3-kc |
+| `D3#21` | Increasing the Client's Net | ✅ BUILT | d3m3-l2, d3m3-a2, d3m3-kc, d5m5-l1, d5m5-a1 |
 | `D3#22` | Auditing the Billing Before Asking for a Discount | ✅ BUILT | d3m3-l2, d3m3-a2, d3m3-kc |
-| `D3#23` | The Net Sheet: Purpose of a Combined BI/UM Net Sheet | ✅ BUILT | d3m4-l1, d3m4-kc |
-| `D3#24` | The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) | ✅ BUILT | d3m4-l1, d3m4-kc, d5m4-kc |
-| `D3#25` | The Net Sheet: The LSH Corporate Net Sheet Ledger | ✅ BUILT | d3m4-l1, d3m4-a1 |
+| `D3#23` | The Net Sheet: Purpose of a Combined BI/UM Net Sheet | ✅ BUILT | d3m4-l1, d3m4-kc, d5m5-l1, d5m5-kc |
+| `D3#24` | The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) | ✅ BUILT | d3m4-l1, d3m4-kc, d5m4-kc, d5m5-l1, d5m5-kc |
+| `D3#25` | The Net Sheet: The LSH Corporate Net Sheet Ledger | ✅ BUILT | d3m4-l1, d3m4-a1, d5m5-l1, d5m5-a1 |
 | `D3#26` | The Net Sheet: Case Manager Protocols for Dual Settlements | ✅ BUILT | d3m4-l1, d3m4-l2, d3m4-a2 |
-| `D3#27` | Key Takeaway — The Value of a Case Manager | ✅ BUILT | d3m4-l1, d3m4-a1, d3m4-kc |
-| `D3#28` | Skill Building: The “Doe v. Apex” Final Net Challenge | ✅ BUILT | d3m4-a1 |
+| `D3#27` | Key Takeaway — The Value of a Case Manager | ✅ BUILT | d3m4-l1, d3m4-a1, d3m4-kc, d5m5-l1, d5m5-a1, d5m5-kc |
+| `D3#28` | Skill Building: The “Doe v. Apex” Final Net Challenge | ✅ BUILT | d3m4-a1, d5m5-a1 |
 | `D3#29` | Case Phase: Disbursement — Core Objectives | ✅ BUILT | d3m4-l2, d3m4-a2 |
 | `D3#30` | Disbursement: The Workflow | ✅ BUILT | d3m4-l2, d3m4-a2 |
 | `D3#31` | Disbursement: Documentation Checklist | ✅ BUILT | d3m4-a2 |
@@ -308,6 +308,8 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - Newly authored: the No Contact Protocol compressed against a deposition date; the emergency contact gets the request, never the case
 - LSH Claims Specialist: No Contact Protocol; Final Warning Letter; sending withdrawal letters (current address, certified mail, dispatch recorded)
 - LSH Claims Specialist: liability determination and disputes
+- Newly authored: the Track B close-out (the 07/06/2027 award and the litigated Net Sheet)
+- Newly authored: the Track B close-out
 
 ## Newly authored
 
@@ -327,6 +329,7 @@ Where neither source had the theory, it was written for this flow and is marked 
 - **The net-floor gross-up for a percentage fee, and PIP valuation doctrine carried over to MedPay** — Day 3 · Module 2
 - **The 'verified none' lien inventory and pro-rata distribution worked on the BI-only illustration** — Day 3 · Module 3
 - **Trust handling (cleared funds, disputed shares held) and the UM release audit points** — Day 3 · Module 4
+- **The Track B close-out: the 07/06/2027 arbitration award, liens reduced at the 40% tier and the litigated LSH Net Sheet** — Day 5 · Module 5 — the case file had stopped at the hearing; written so the litigation track ends in a disbursement
 - **The five impasse triggers and the decision-only impasse memo** — Day 4 · Module 1
 - **Backward-counted deadlines move to the earlier business day; the SOL's internal hard date and cutoff** — Day 4 · Module 2
 - **Exhibit numbering, Bates ranges and the master index; authentication and relaxed arbitration evidence rules** — Day 4 · Module 3

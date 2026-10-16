@@ -501,6 +501,7 @@ const art = (key, cls) => ART[key] ? `<div class="cfx-art ${cls || ""}" aria-hid
 const TOOLKIT = [
   {id: "cms", icon: "🗂", short: "CMS", name: "the CMS", re: /\bCMS\b|Case File|Case Notes|Case Summary|Communications Log|Financial Ledger|Lien Tracker|Net Sheet|Recovery Ledger|Insurance tab|\bTasks\b|\bLiens\b|Parties|\bCalendar\b(?! Conflict)|Documents →/},
   {id: "call", icon: "📞", short: "Call Simulator", name: "the Call Simulator", re: /Call Simulator|\bcall(s|ed)? (John|Margaret|Dana|the adjuster|the client)\b/i},
+  {id: "netsheet", icon: "📊", short: "Net Sheet", name: "the LSH Net Sheet", re: /Net Sheet|Lien Tracker|Recovery Ledger|Specials ledger|Financial Ledger → Specials/},
   {id: "email", icon: "✉️", short: "Email", name: "the Email Workspace", re: /Email Workspace/},
   {id: "replies", icon: "📨", short: "Replies", name: "Email Replies", re: /Email Replies/},
   {id: "docket", icon: "⚖️", short: "Docket", name: "the Docket System", re: /Docket System/},
@@ -512,11 +513,18 @@ const TOOLKIT = [
   {id: "docs", icon: "📁", short: "Documents", name: "the Case Documents", re: /Case Documents/},
 ];
 const TOOL = Object.fromEntries(TOOLKIT.map(t => [t.id, t]));
+/* The LSH Net Sheet is where the money is worked, and only there: Day 3's Settlement Negotiations, Lien Negotiations and
+   Disbursement (Track A, settled before suit) and Day 5's close-out once the case is won (Track B). Each block of those
+   Case Phases opens it at that phase's stage (js/cm-net-sheet.js STAGES). */
+const NET_PHASES = {"Settlement Negotiations": "recovery", "Lien Negotiations & Reduction": "liens", "Disbursement & Closing a Case": "final", "Case Won: Award & Disbursement": "litigation"};
+const NET_STAGE = {};
+(CF.sequence || []).forEach(d => d.phases.forEach(ph => { if(NET_PHASES[ph.title]) ph.blocks.forEach(id => { NET_STAGE[id] = NET_PHASES[ph.title]; }); }));
 // the in-course pages a tool opens (anything else is a training platform in the tool frame)
 const PAGE = {plan: ["notes"], docs: ["casedocs"], calendar: ["tool", "calendar"]};
 function toolLive(id, blockId){
   // a step with a call on John Doe's file takes that call; any other opens the Call Simulator (☎ LSH Ring Channel)
   if(id === "call") return !!(blockId && SIM.calls[blockId]) || (typeof cmTool === "function" && !!cmTool("calls"));
+  if(id === "netsheet") return !!(blockId && NET_STAGE[blockId]);
   if(PAGE[id]) return id !== "calendar" || (typeof PRACTICE_TOOLS !== "undefined" && PRACTICE_TOOLS.some(t => t.id === "calendar"));
   return typeof openTool === "function" && typeof cmTool === "function" && !!cmTool(id);
 }
@@ -531,6 +539,7 @@ function blockTools(b){
   if(b.kind === "activity") ids = toolsIn(b.act.tool + " " + b.act.prompt, b.id).concat(SIM.calls[b.id] ? ["call"] : []);
   else if(b.kind === "lesson") ids = toolsIn((b.ops || []).map(o => o[2]).join(" · "), b.id);
   else ids = ["cms", "docs"];
+  if(NET_STAGE[b.id]) ids.push("netsheet");   // every block of a Case Phase that works the money
   ids = [...new Set(ids)];
   return ids.length ? ids : ["cms"];
 }
@@ -883,6 +892,11 @@ window.cmCaseFlow.listenClose = function(){ const box = document.getElementById(
 /* ---------- opening a step's tool ---------- */
 window.cmCaseFlow.tool = function(id, blockId){
   if(id === "call" && blockId && SIM.calls[blockId]) return cmCaseFlow.call(blockId);
+  if(id === "netsheet" && typeof openPane === "function"){   // the firm's Net Sheet (net-sheet.html), beside the slide, checked at this step's stage
+    const st = NET_STAGE[blockId] || "final";
+    openPane("netsheet", new URL(`net-sheet.html?stage=${st}${DATES ? "&year=" + DATES.year : ""}`, location.href).href, `LSH Net Sheet · ${st === "litigation" ? "Track B (case won)" : "Track A (settled)"}`, "📊", "split");
+    return;
+  }
   if(PAGE[id]){   // one of the course's own pages: go there, with a way back to this slide
     const d = MODULES.find(x => x.lessons.some(l => l.cf.block.id === blockId)) || MODULES.find(x => x.id === state.dayId);
     state.cfReturn = d ? {dayId: d.id, n: d.cf.n, slide: typeof state.lessonSlide === "number" ? state.lessonSlide : null, view: state.view} : null;
@@ -1181,6 +1195,12 @@ function workLogged(mine, m){
   if(heard) return heard + (rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "");
   return rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "";
 }
+const NET_LABEL = {recovery: "Track A · settlement", liens: "Track A · liens", final: "Track A · final", litigation: "Track B · case won"};
+function netLogged(snap, m){
+  const ns = snap["net-sheet"], stage = (m.blocks.map(x => NET_STAGE[x.id]).filter(Boolean))[0];
+  const sheet = ns && (ns.files ? ns.files[stage === "litigation" ? "B" : "A"] : ns), r = stage && sheet && sheet.checks && sheet.checks[stage];
+  return r ? `<div class="cf-tr-work"><b>📊 Net Sheet (${E(NET_LABEL[stage])}):</b> ${E(r.passed)}/${E(r.total)} tie out · checked ${E(new Date(r.at).toLocaleDateString())}${r.items.filter(x => !x.ok).map(x => ` · ✗ ${E(x.cell)} = ${E(x.got)}`).join("")}</div>` : "";
+}
 function trainerPanel(rec){
   const work = (state.traineeWork || {})[rec.id];
   if(!work || work.loading || !work.feedback) return "";
@@ -1193,7 +1213,7 @@ function trainerPanel(rec){
         <span class="cf-tr-chips">${r.quiz ? `<span class="fb-chip sent">Quiz ${E(r.quiz.pct)}%</span>` : ""}${r.ai ? `<span class="fb-chip sent">AI ${E(r.ai.score)}%</span>` : ""}${typeof t.score === "number" ? `<span class="fb-chip sent">Trainer ${E(t.score)}%</span>` : (answered ? `<span class="fb-chip draft">To score</span>` : `<span class="fb-chip none">No summary yet</span>`)}${c.c != null ? `<span class="fb-chip sent">Composite ${E(c.c)}%</span>` : ""}</span></summary>
       ${answered ? `<div class="fb-evidence">${(r.kc || []).some(Boolean) ? b.check.questions.map((q, j) => `<div><b>KC ${j + 1}. ${E(q)}</b><br>${E((r.kc || [])[j] || "—")}</div>`).join("") : ""}${b.check.summary.map((q, j) => `<div><b>${E(q)}</b><br>${E((r.answers || [])[j] || "—")}</div>`).join("")}
         <div><b>Self-ratings:</b> ${b.check.scale.map((x, j) => `${E(x)}: ${E((r.scale || [])[j] || "—")}`).join(" · ")}</div></div>` : ""}
-      ${workLogged(mine, m)}
+      ${workLogged(mine, m)}${netLogged(work.snap || {}, m)}
       <div class="cf-tr-rubric"><b>Assess against:</b> ${b.rubric.trainer.map(x => `${E(x[0])} (${E(x[1])})`).join(" · ")} — UPL is a gate, not a weighting.</div>
       <div class="fbc-row"><label>Trainer score (0–100)<input type="number" min="0" max="100" id="cftr_${sid}_${m.id}" value="${typeof t.score === "number" ? E(t.score) : ""}"></label></div>
       <label class="fbc-full">Comment for the trainee<textarea id="cftc_${sid}_${m.id}" rows="2">${E(t.comment || "")}</textarea></label>

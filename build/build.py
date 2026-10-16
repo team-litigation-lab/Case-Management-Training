@@ -260,7 +260,7 @@ rep('<script src="/js/lsh-card-frame.js?v=3"></script>', tags(
     # The 5-Day Case Management Flow (John Doe v. Robert Smith): after graded-calls.js, because its
     # dashboard wrapper must run on the finished page, and after cm-skillbuilders.js, whose
     # renderLessonCard it wraps.
-    "cm-case-flow-docs.js?v=3", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=5", "cm-case-flow-sim.js?v=4", "cm-case-flow-data.js?v=9", "cm-case-dates.js?v=1", "cm-case-flow.js?v=26",
+    "cm-case-flow-docs.js?v=4", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=6", "cm-case-flow-sim.js?v=5", "cm-case-flow-data.js?v=10", "cm-case-dates.js?v=1", "cm-case-flow.js?v=28",
     "show-password.js?v=1", "lsh-card-frame.js?v=3"))
 
 # Training tools open signed in (js/lsh-tool-links.js, the same file in every LSH course repo: CMS
@@ -276,7 +276,7 @@ rep('else if(state.view==="tools"||state.view==="cms") body=renderTrainingTools(
 rep('tools:"Training Tools", cms:"Training Tools",', 'tools:"Training Tools", cms:"Training Tools", calls:"Simulators",')
 # personal keys sync to the cloud (cms-log was missing) + keep the lists from shrinking
 # The keys synced to the cloud: drop EA/PA's own two, add the CM course's (cms-log, lab-subs).
-rep('"task-day-since","outbound-calls","c6-audit"];', '"task-day-since","cms-log","lab-subs","case-flow"];')   # case-flow: the Case Flow track's Self-Summaries, self-ratings and scores
+rep('"task-day-since","outbound-calls","c6-audit"];', '"task-day-since","cms-log","lab-subs","case-flow","net-sheet"];')   # case-flow: the Case Flow track's Self-Summaries, self-ratings and scores; net-sheet: the trainee's LSH Net Sheet (net-sheet.html)
 rep('  state.roleplayHistory = [];\n  state.assignedRoleplay = null;', '  state.roleplayHistory = [];\n  state.cmsLog = {};\n  state.labSubs = {};\n  state.labReviews = null;\n  state.assignedRoleplay = null;')
 rep('  await storeSet("roleplayHistory", []);\n  await storeSet("day10-window", null);', '  await storeSet("roleplayHistory", []);\n  await storeSet("cms-log", {});\n  await storeSet("lab-subs", {});\n  await storeSet("day10-window", null);')
 # Live Roleplay: Quick Practice drew from EA topic ids (empty pool in CM → crash)

@@ -222,7 +222,21 @@ before any negotiated reduction, leaving John Doe nothing — which is why the l
   is invoked; Cardinal State joins one consolidated **binding arbitration**, arbitrator **Laura Whitcomb, Esq.**
   Hearing **06/22/2027 (Tue)**; exhibit exchange 20 days before → **06/02/2027**; arbitration brief 10 days
   before → 06/12/2027 is a Saturday → **docket 06/11/2027 (Fri)** (counting backward, move to the earlier business day).
-  The award is not part of this file.
+- **07/06/2027 (Tue) award (case won):** Laura Whitcomb finds John Doe's damages exceed the UM limits and awards
+  **Harbor Point $20,000** (host UM) and **Cardinal State $10,000** (relative UM, excess). Keystone's $10,000 BI
+  (tendered 03/18/2027) has been in trust since **03/29/2027 (Mon)**, held until the liens resolve. Gross **$40,000.00**.
+- **Fee:** suit was filed, so the retainer's **40% tier** applies: **$16,000.00** (Atty. Thorne confirms from the retainer).
+- **Costs (receipted) $3,895.25:** pre-suit $486.75 + filing fee & summons $218.00 (09/24/2026) + Allied Process
+  Services $285.00 (three attempts, skip-trace, personal service) + mediation, plaintiff's half of Hon. Carla Benton's
+  fee $1,200.00 + arbitration, plaintiff's share of Laura Whitcomb's fee $900.00 + Riverton Court Reporting
+  (John's deposition, videoconference) $645.50 + certified records for the arbitration binder $160.00.
+- **Liens:** Peach State $1,860.00 reduced at the fee actually charged (40% = $744.00) → **$1,116.00**, accepted in
+  writing **07/14/2027 (Wed)**; Riverton Spine & Rehab audited $6,105.00 → **$4,275.00**, signed Payoff Letter
+  **07/16/2027 (Fri)**; total **$5,391.00**. MedPay, Crescent's write-off and the MedPay-paid providers stay at $0.00.
+- Harbor Point's check **07/20/2027 (Tue)**, Cardinal State's **07/22/2027 (Thu)**; John signs the Settlement
+  Statement **07/29/2027 (Thu)**; **disbursement 07/30/2027 (Fri)**.
+- **Net to John Doe: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75** (Track A: $20,359.92; the
+  difference, $5,646.17, is what the stonewall cost him in fee tier, litigation costs and lien math).
 - **SOL calendar:** 02/06/2028 is a Sunday. Firm rule: never rely on a weekend roll-forward — the internal hard
   date is **02/04/2028 (Fri)**, with an internal filing cutoff 90 days before → 11/06/2027 is a Saturday → **11/05/2027 (Fri)**.
 

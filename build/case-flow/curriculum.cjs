@@ -48,7 +48,8 @@ const cited = new Map();   // "D1#18" → [block ids]
 });
 if(!(CF.profile || []).some(x => x.opens === 1)) errors.push("profile: nothing opens on Case Flow Day 1");
 CF.days.forEach(day => {
-  if(day.modules.length !== 4) errors.push(`Day ${day.n}: ${day.modules.length} modules, expected 4`);
+  // four modules a day; Day 5 has a fifth, the Track B close-out (the award, the liens and the litigated Net Sheet)
+  if(day.modules.length !== (day.n === 5 ? 5 : 4)) errors.push(`Day ${day.n}: ${day.modules.length} modules, expected ${day.n === 5 ? 5 : 4}`);
   ["title", "phase", "objective", "gate", "discussion"].forEach(k => { if(!day[k]) errors.push(`Day ${day.n}: missing ${k}`); });
   if(!(day.fileState || []).length) errors.push(`Day ${day.n}: missing fileState (where the file stands as the day opens)`);
   if(/blueprint/i.test(JSON.stringify(day))) errors.push(`Day ${day.n}: says "blueprint"; the program never uses the word`);
