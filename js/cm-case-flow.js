@@ -450,20 +450,16 @@ function falloutFor(blockId){
     return {f, done, what: String(what).replace(/\*\*/g, "")};
   }).filter(x => isTrainer() || !x.done);
 }
-const VIEW_LABEL = {why: "Why It Matters", theory: "The Theory", theory2: "The Theory, Continued", rules: "The Rules", model: "See It", job: "On the Job", dodont: "Do & Don't",
+const VIEW_LABEL = {why: "Why It Matters", theory: "The Theory", theory2: "The Theory, Continued", frame: "The Framework", rules: "The Rules", model: "See It", job: "On the Job", dodont: "Do & Don't",
   case: "Your Case", task: "Your Task", check: "Check Your Work", questions: "Knowledge Check", questions2: "Knowledge Check, Continued", summary: "Self-Summary", scale: "Skill Scale"};
-const VIEW_ICON = {why: "💡", theory: "📚", theory2: "📚", rules: "📏", model: "🔍", job: "🛠", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
+const VIEW_ICON = {why: "💡", theory: "📚", theory2: "📚", frame: "🧭", rules: "📏", model: "🔍", job: "🛠", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
 const KC_PER = 4;   // Knowledge Check questions on one slide
 /* The Theory: the lesson's concepts from the original Canva decks (build/case-flow/slides/theory-dN.json), four to a
-   slide (a deep topic, 6–8 concepts, takes two), beside the deck pages they come from */
+   slide (a deep topic, 6–8 concepts, takes two); then The Framework, the deck page's own table, flowchart or checklist
+   rebuilt in the course's design (the slides never show the deck's page images) */
 const TH_PER = 4;
 const theoryOf = b => (SLIDES[b.id] || {}).theory || null;
-const theoryViews = b => { const t = theoryOf(b); return !t ? [] : t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]; };
-const deckPage = ref => {   // "D1#24" → the original deck page
-  const m = /^D(\d)#(\d+)$/.exec(ref || ""); if(!m) return null;
-  const D = window.CM_DECKS && window.CM_DECKS[m[1]], pg = D && D.pages && D.pages[m[2]];
-  return {day: +m[1], n: +m[2], src: `/decks/day${m[1]}/${String(m[2]).padStart(2, "0")}.webp`, title: pg ? pg.t : ""};
-};
+const theoryViews = b => { const t = theoryOf(b); return !t ? [] : (t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]).concat(t.framework ? ["frame"] : []); };
 function viewsOf(b){
   if(b.kind === "lesson") return ["why"].concat(theoryViews(b), ["rules"],b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length ? ["dodont"] : []);
   if(b.kind === "activity") return ["case", "task"].concat(b.show ? ["model"] : [], ["check"]);
@@ -505,7 +501,7 @@ const TOOLKIT = [
   {id: "email", icon: "✉️", short: "Email", name: "the Email Workspace", re: /Email Workspace/},
   {id: "replies", icon: "📨", short: "Replies", name: "Email Replies", re: /Email Replies/},
   {id: "docket", icon: "⚖️", short: "Docket", name: "the Docket System", re: /Docket System/},
-  {id: "records", icon: "🩺", short: "Records", name: "Medical Records Requests", re: /Medical Records Requests?/},
+  {id: "records", icon: "🩺", short: "ChartSwap", name: "ChartSwap (the Medical Records Requests platform)", re: /ChartSwap|Medical Records Requests?/},
   {id: "efiling", icon: "🏛", short: "E-Filing", name: "Court E-Filing", re: /E-Filing/},
   {id: "calendar", icon: "◫", short: "Conflicts", name: "the Calendar Conflict Resolver", re: /Calendar Conflict Resolver/},
   {id: "calendaring", icon: "🗓", short: "Calendaring", name: "the Calendaring Simulators", re: /Calendaring Simulators?/},
@@ -520,6 +516,15 @@ const TOOL = Object.fromEntries(TOOLKIT.map(t => [t.id, t]));
 const NET_PHASES = {"Settlement Negotiations": "recovery", "Lien Negotiations & Reduction": "liens", "Disbursement & Closing a Case": "final", "Case Won: Award & Disbursement": "litigation"};
 const NET_STAGE = {};
 (CF.sequence || []).forEach(d => d.phases.forEach(ph => { if(NET_PHASES[ph.title]) ph.blocks.forEach(id => { NET_STAGE[id] = NET_PHASES[ph.title]; }); }));
+/* The records, docket and court-filing platforms, at the steps where that work happens on John Doe's file (on top of
+   any the step's own text names): ChartSwap for the records and itemized bills behind treatment, specials, liens and
+   discovery; the Docket System for every court date the litigation track sets; Court E-Filing for the complaint,
+   the First Amended Complaint and alternative service. */
+const WORKED_IN = {
+  "d2m2-a1": ["records"], "d2m2-a2": ["records"], "d2m3-a2": ["records"], "d2m4-a1": ["records"], "d3m3-a2": ["records"],
+  "d4m1-a2": ["docket", "efiling"], "d4m2-a2": ["docket"], "d5m1-a1": ["efiling", "docket", "records"], "d5m1-a2": ["docket"],
+  "d5m3-a1": ["docket"], "d5m4-a2": ["efiling"],
+  "d2m2-l1": ["records"], "d2m2-l2": ["records"], "d2m4-l1": ["records"], "d4m1-l2": ["efiling", "docket"], "d4m2-l1": ["docket"], "d5m1-l1": ["efiling", "docket"], "d5m1-l2": ["docket"]};
 /* LOR Drafting (js/cm-lor.js, on John Doe's file with no assignment) is the claims phase's: Claim Set Up drafts the LORs */
 const LOR_BLOCKS = new Set();
 (CF.sequence || []).forEach(d => d.phases.forEach(ph => { if(/^Claim Set Up/.test(ph.title)) ph.blocks.forEach(id => LOR_BLOCKS.add(id)); }));
@@ -546,6 +551,7 @@ function blockTools(b){
   else ids = ["cms", "docs"];
   if(NET_STAGE[b.id]) ids.push("netsheet");   // every block of a Case Phase that works the money
   if(b.id === "d2m1-a1") ids.push("lor");   // Generating Formal LORs: drafted in LOR Drafting, logged in the CMS
+  ids = ids.concat(WORKED_IN[b.id] || []);
   ids = [...new Set(ids)];
   return ids.length ? ids : ["cms"];
 }
@@ -568,12 +574,19 @@ function slideBody(view, l, d){
     case "theory": case "theory2": {
       const t = c.theory, half = Math.ceil(t.concepts.length / 2), two = t.concepts.length > TH_PER;
       const list = !two ? t.concepts : view === "theory" ? t.concepts.slice(0, half) : t.concepts.slice(half);
-      const pages = (t.pages || []).map(deckPage).filter(Boolean);
-      return `<div class="cfx-theory${pages.length ? "" : " cfx-th-solo"}"><div class="cfx-th-main">
+      return `<div class="cfx-theory cfx-th-solo"><div class="cfx-th-main">
           ${view === "theory" ? `<p class="cfx-th-lead">${hl(t.lead)}</p>` : `<p class="cfx-th-cont">${E(titleCase(b.topic))}: continued</p>`}
           <div class="cfx-th-grid">${list.map((x, j) => `<div class="cfx-th-c" style="animation-delay:${j * .05}s"><b>${E(x.term)}</b><span>${hl(x.text)}</span></div>`).join("")}</div></div>
-        ${pages.length ? `<div class="cfx-th-deck"><small>From the original deck</small>${pages.map(pg => `<a class="cfx-th-pg" href="${E(pg.src)}" target="_blank" rel="noopener" title="${E(pg.title)}" onclick="return cmCaseFlow.deck(event,'D${pg.day}#${pg.n}')"><img src="${E(pg.src)}" alt="Day ${pg.day} deck, page ${pg.n}: ${E(pg.title)}" loading="lazy"><span>Day ${pg.day} · p. ${pg.n}${pg.title ? ` · ${E(pg.title)}` : ""}</span></a>`).join("")}</div>` : ""}
       </div>`;
+    }
+    case "frame": {   // the deck page's structure, drawn in the course's own design
+      const f = c.theory.framework, steps = f.steps || [];
+      const body = f.kind === "table"
+        ? `<div class="cfx-fw-scroll"><table class="cfx-fw-tbl"><thead><tr>${f.head.map(h => `<th>${E(h)}</th>`).join("")}</tr></thead><tbody>${f.rows.map((r, i) => `<tr style="animation-delay:${i * .05}s">${r.map((x, j) => j ? `<td>${hl(x)}</td>` : `<th scope="row">${hl(x)}</th>`).join("")}</tr>`).join("")}</tbody></table></div>`
+        : f.kind === "flow"
+          ? `<ol class="cfx-fw-flow" style="--n:${steps.length}">${steps.map((x, i) => `<li style="animation-delay:${i * .07}s"><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span></li>`).join("")}</ol>`
+          : `<div class="cfx-fw-list">${steps.map((x, i) => `<div style="animation-delay:${i * .05}s"><b>${E(x.label)}</b><span>${hl(x.text)}</span></div>`).join("")}</div>`;
+      return `<div class="cfx-fw"><h3 class="cfx-fw-t">${E(f.title)}</h3>${body}${f.note ? `<p class="cfx-fw-note">${hl(f.note)}</p>` : ""}</div>`;
     }
     case "rules": return `<div class="cfx-split"><ol class="cfx-points">${c.points.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>${art(c.image, "small")}</div>
       ${c.upl ? `<div class="cfx-upl"><b>⚖ UPL Line</b><span>${hl(c.upl)}</span></div>` : ""}`;
@@ -596,7 +609,7 @@ function slideBody(view, l, d){
     }
     case "task": { const main = blockTools(b).filter(id => id !== "call")[0] || "cms";
       return `<div class="cfx-task"><ol class="cfx-points">${c.steps.map(x => { const ids = toolsIn(x, b.id); return `<li><span>${hl(x)}<span class="cfx-tools-in">${toolChips(ids.length ? ids : [main], b.id)}</span></span></li>`; }).join("")}</ol>
-      <aside class="cfx-side"><div><b>🛠 Where</b><span>${E(b.act.tool)}</span><div class="cfx-btns">${toolButtons(b.act.tool + (SIM.calls[b.id] ? " Call Simulator" : ""), b.id)}</div></div>
+      <aside class="cfx-side"><div><b>🛠 Where</b><span>${E(b.act.tool)}</span><div class="cfx-btns">${toolChips([...new Set(toolsIn(b.act.tool + (SIM.calls[b.id] ? " Call Simulator" : ""), b.id).concat(WORKED_IN[b.id] || []))], b.id, true)}</div></div>
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}</span>
           <button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
@@ -1123,6 +1136,7 @@ MODULES.forEach(d => d.lessons.forEach(l => {
     why: {why: b.tell && b.tell.why, talk: n[0] || ""},
     theory: theoryOf(b) ? {why: String(theoryOf(b).lead).replace(/\*\*/g, ""), walk: theoryOf(b).concepts.slice(0, theoryOf(b).concepts.length > TH_PER ? Math.ceil(theoryOf(b).concepts.length / 2) : TH_PER).map(x => `${x.term}: ${String(x.text).replace(/\*\*/g, "")}`), ask: "Which of these have you met before, and where would it show up on John Doe's file?"} : {},
     theory2: theoryOf(b) ? {why: "The theory, continued.", walk: theoryOf(b).concepts.slice(Math.ceil(theoryOf(b).concepts.length / 2)).map(x => `${x.term}: ${String(x.text).replace(/\*\*/g, "")}`)} : {},
+    frame: theoryOf(b) && theoryOf(b).framework ? {why: theoryOf(b).framework.title, walk: (theoryOf(b).framework.rows || []).map(r => r.map(x => String(x).replace(/\*\*/g, "")).join(" · ")).concat((theoryOf(b).framework.steps || []).map(x => `${x.label}: ${String(x.text).replace(/\*\*/g, "")}`)), ask: "Walk the room through it on John Doe's file: where is he on this right now?"} : {},
     rules: {why: "The rules, and where the Case Manager's role ends.", walk: ((b.tell && b.tell.rules) || []).concat((b.tell && b.tell.upl) || []), ask: n[1] || ""},
     model: {why: (b.show && b.show.caption) || "The model to follow.", talk: b.visual || ""},
     job: {why: "Trigger ➔ Task ➔ Tool ➔ Checkpoint: how it runs on the job.", walk: (b.ops || []).map(r => r.join(" ➔ "))},
@@ -1176,6 +1190,7 @@ if(typeof submitQuiz === "function"){
       await load();
       Object.entries(by).forEach(([m, v]) => { rec(m).quiz = Object.assign(v, {pct: Math.round(v.correct / v.total * 100), at}); });
       await persist();
+      const g = state.cfGame; if(g && g.day === dayId){ REC.game = REC.game || {}; const b0 = REC.game[dayId]; if(!b0 || g.pts > (b0.pts || 0)) REC.game[dayId] = {pts: g.pts, best: g.best, at}; await persist(); }
       cmCaseFlow.autoReview(dayId);   // the rubric scoring runs by itself, module by module
     }
     return r;
@@ -1228,6 +1243,7 @@ function cfResult(d){
         <div class="cf-kcr-score">${typeof sealSvg === "function" ? sealSvg({size: 72, label: lastScore + "%", done: lastPassed}) : ""}<div><div class="big">${lastCorrect} / ${lastTotal} correct</div><div class="sub">${msg}</div></div></div>
         <div class="cf-kcr-next">${renderQuizNextStep(d, lastPassed)}</div>
       </div>
+      ${state.cfGame && state.cfGame.day === d.id ? `<div class="cf-kcr-game"><span>⭐ <b>${state.cfGame.pts.toLocaleString()}</b> points</span><span>🔥 best streak <b>${state.cfGame.best}</b></span>${gameBadges(d, state.cfGame).map(([i, t]) => `<span class="cfg-badge sm"><i>${i}</i><b>${t}</b></span>`).join("")}${(REC.game || {})[d.id] ? `<span class="cf-note">Your best: ${(REC.game[d.id].pts || 0).toLocaleString()} points</span>` : ""}</div>` : ""}
       <div class="cf-kcr-mods">${kcMods(d).map(({b, mod, ph}) => `<div class="cf-kcr-mod"><small>${d.cf.n}.${ph.n} ${E(ph.title)}</small><b>${E(b.title)}</b><div class="cf-kcr-chips" id="cfkc_res_${mod.id}">${kcChip(mod.id)}</div></div>`).join("")}</div>
       <div class="cf-kcr-foot">
         <div class="cf-kcr-btns"><button class="btn btn-ghost btn-sm" onclick="retakeQuiz(${d.id})">Retake Quiz</button>
@@ -1239,6 +1255,190 @@ function cfResult(d){
     </div>
     <div id="answerFeedback"></div>`;
 }
+/* ---------- ① the quiz, played as a game show: each Case Flow day has its own (a trainee or trainer can pick
+   another before the first answer). A pick locks in and shows at once whether it was right, never which option is
+   (the answer key still waits for a pass), and no clock ever forces an answer.
+     💰 Millionaire (Day 1): the money ladder with safe havens, a 30-second clock, 50/50 and Ask the Audience
+     🟦 Jeopardy (Day 2): the day's Case Phases × values, a hidden Daily Double
+     💣 Countdown Bomb (Day 3): a fuse burns; answer before 💥 for the time bonus
+     🎡 Wheel of Fortune (Day 4): spin for a multiplier before each question
+     🚪 Mystery Doors (Day 5): pick a door for its reward, then the question ---------- */
+const GAMES = {
+  millionaire: {icon: "💰", name: "Who Wants to Be a Case Manager?", short: "Millionaire"},
+  jeopardy: {icon: "🟦", name: "Case Flow Jeopardy!", short: "Jeopardy"},
+  bomb: {icon: "💣", name: "Countdown Bomb", short: "Countdown Bomb"},
+  wheel: {icon: "🎡", name: "Wheel of Fortune", short: "Wheel of Fortune"},
+  doors: {icon: "🚪", name: "Mystery Doors", short: "Mystery Doors"}};
+const GAME_DAY = {1: "millionaire", 2: "jeopardy", 3: "bomb", 4: "wheel", 5: "doors"};
+const GAME_FAST = 12000, MIL_SEC = 30, BOMB_SEC = 20;
+const WHEEL_COL = ["#DB8437", "#262B45", "#F4B77A", "#46508A", "#B54A3F", "#2F8F5B", "#C26A22", "#343C66"];
+const WHEEL = [["×1", 1, 0], ["×2", 2, 0], ["+50", 1, 50], ["×1.5", 1.5, 0], ["×3", 3, 0], ["+100", 1, 100], ["×1", 1, 0], ["×2", 2, 0]];
+const prizeLadder = n => Array.from({length: n}, (_, i) => { const v = 100 * Math.pow(1e6 / 100, i / Math.max(1, n - 1)); const m = Math.pow(10, Math.floor(Math.log10(v)) - 1); return Math.round(v / m) * m; });
+/* sound: short synthesized cues (off by the 🔇 button; remembered on the device) */
+let AC = null;
+const soundOn = () => { try{ return localStorage.getItem("cf_game_sound") !== "off"; }catch(e){ return true; } };
+function sfx(kind){
+  if(!soundOn()) return;
+  try{
+    AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+    const seq = {right: [[660, .09], [880, .14]], wrong: [[220, .18], [160, .22]], tick: [[1200, .03]], boom: [[90, .45]], spin: [[520, .05], [620, .05], [720, .05]], open: [[440, .07], [660, .1]], level: [[523, .09], [659, .09], [784, .16]], tense: [[196, .25], [233, .3]]}[kind] || [];
+    let t = AC.currentTime;
+    seq.forEach(([f, d]) => { const o = AC.createOscillator(), g = AC.createGain(); o.type = kind === "boom" || kind === "wrong" ? "sawtooth" : "triangle"; o.frequency.value = f; g.gain.setValueAtTime(.06, t); g.gain.exponentialRampToValueAtTime(.0001, t + d); o.connect(g); g.connect(AC.destination); o.start(t); o.stop(t + d); t += d * .9; });
+  }catch(e){}
+}
+function game(d){
+  const g = state.cfGame;
+  if(!g || g.day !== d.id || !Object.keys(state.quizAnswers || {}).length && Object.keys(g.log).length){
+    const mode = (state.cfGameMode && state.cfGameMode[d.id]) || GAME_DAY[d.cf.n] || "millionaire";
+    const daily = Math.floor(Math.random() * d.quiz.length);
+    state.cfGame = {day: d.id, mode, pts: 0, streak: 0, best: 0, fast: 0, log: {}, shown: {}, misses: 0, comeback: false, pre: {}, used: {}, hide: {}, aud: {}, boom: {}, daily, board: state.cfGame && state.cfGame.day === d.id ? null : null};
+  }
+  return state.cfGame;
+}
+function gameBadges(d, g){
+  const n = d.quiz.length, right = Object.values(g.log).filter(x => x.ok).length;
+  return [right === n && ["🏆", "Perfect Run", "every answer right"], g.best >= 5 && ["🔥", "On Fire", `${g.best} in a row`], g.fast >= 5 && ["⚡", "Quick Draw", `${g.fast} speed bonuses`], g.comeback && ["💪", "Comeback", "right after two misses"],
+    g.mode === "millionaire" && right >= Math.ceil(n * .8) && !g.used.fifty && !g.used.aud && ["🎖", "No Lifelines", "80%+ on your own"],
+    g.mode === "bomb" && Object.values(g.log).filter(x => x.ok && !x.boom).length >= Math.ceil(n * .8) && ["🧯", "Bomb Squad", "defused 80%+ in time"]].filter(Boolean);
+}
+const phaseOfQ = (d, i) => { const m = d.cf.quizMod[i]; const l = d.lessons.find(x => x.cf.mod && x.cf.mod.id === m); return l ? l.cf.phase : d.cf.phases[0]; };
+function jeopardyBoard(d, g){
+  const cols = d.cf.phases.map(ph => ({ph, qs: d.quiz.map((_, i) => i).filter(i => phaseOfQ(d, i) === ph)})).filter(c => c.qs.length);
+  const rows = Math.max(...cols.map(c => c.qs.length));
+  return `<div class="cfg-jb" style="--cols:${cols.length}">${cols.map(c => `<div class="cfg-jh">${E(c.ph.title)}</div>`).join("")}
+    ${Array.from({length: rows}, (_, r) => cols.map(c => { const i = c.qs[r]; if(i === undefined) return `<div class="cfg-jc empty"></div>`; const l = g.log[i], v = (r + 1) * 200;
+      return `<button type="button" class="cfg-jc${l ? (l.ok ? " ok" : " no") : ""}" ${l ? "disabled" : ""} onclick="cmCaseFlow.gamePick(${i},${v})">${l ? (l.ok ? "✓ " : "✗ ") + "$" + v : "$" + v}</button>`; }).join("")).join("")}</div>`;
+}
+function gameQuiz(d){
+  const g = game(d), n = d.quiz.length, answered = Object.keys(state.quizAnswers || {}).length, G = GAMES[g.mode];
+  const finished = answered >= n;
+  let qi = Math.min(state.quizQuestionIndex || 0, n - 1);
+  const picker = !answered ? `<div class="cfg-pick">${Object.entries(GAMES).map(([k, x]) => `<button type="button" class="${k === g.mode ? "on" : ""}" onclick="cmCaseFlow.gameMode('${k}')">${x.icon} ${x.short}</button>`).join("")}</div>` : "";
+  const sound = `<button type="button" class="cfg-sound" onclick="cmCaseFlow.gameSound()" title="Sound">${soundOn() ? "🔊" : "🔇"}</button>`;
+  const lad = g.mode === "millionaire" ? prizeLadder(n) : null, right = Object.values(g.log).filter(x => x.ok).length;
+  const score = g.mode === "millionaire" ? (right ? money(lad[right - 1]) : "$0") : g.mode === "jeopardy" ? money(g.pts) : `⭐ ${g.pts.toLocaleString()}`;
+  const hud = `<div class="cfg-title"><b>${G.icon} ${G.name}</b>${sound}</div>${picker}
+    <div class="cfg-hud"><span class="cfg-pts">${score}<small>${g.mode === "millionaire" ? "won" : g.mode === "jeopardy" ? "winnings" : "points"}</small></span><span class="cfg-streak${g.streak >= 3 ? " hot" : ""}">🔥 ${g.streak}<small>streak</small></span><span class="cfg-lvl">${answered}<small>of ${n} played</small></span></div>`;
+  const track = g.mode === "jeopardy" ? "" : `<div class="cfg-track">${d.quiz.map((_, i) => { const l = g.log[i]; return `<button type="button" class="cfg-node${i === qi && !finished ? " at" : ""}${l ? (l.ok ? " ok" : " no") : ""}" ${l ? "" : "disabled"} onclick="cmCaseFlow.gameGo(${i})" aria-label="Question ${i + 1}">${i === qi && !finished ? (g.mode === "bomb" ? "💣" : "🚀") : l ? (l.ok ? "✓" : "✗") : i + 1}</button>`; }).join("")}</div>`;
+  const clear = `<div class="cfg-clear"><div class="cfg-clear-h">🏁 ${g.mode === "millionaire" ? `You won ${score}!` : "Game over: quiz cleared!"}</div>
+      <div class="cfg-tally"><span><b>${right}</b> of ${n} right</span><span><b class="cfg-count" data-to="${g.mode === "millionaire" ? (right ? lad[right - 1] : 0) : g.pts}" data-money="${g.mode === "millionaire" || g.mode === "jeopardy" ? 1 : ""}">${g.mode === "millionaire" ? score : g.mode === "jeopardy" ? money(g.pts) : g.pts.toLocaleString()}</b> ${g.mode === "millionaire" || g.mode === "jeopardy" ? "" : "points"}</span><span>best streak <b>${g.best}</b></span></div>
+      ${gameBadges(d, g).length ? `<div class="cfg-badges">${gameBadges(d, g).map(([i, t, x]) => `<span class="cfg-badge"><i>${i}</i><b>${t}</b><small>${x}</small></span>`).join("")}</div>` : ""}
+      <button class="btn btn-primary" style="padding:13px 28px;" type="button" onclick="cmCaseFlow.kcPart('written')">Bonus round: Learning Checks & Self-Summary →</button></div>`;
+  // the board / the wheel / the doors come before a question
+  if(g.mode === "jeopardy" && (state.cfJq == null || g.log[state.cfJq] && state.cfGameShow !== state.cfJq && state.cfJAns !== state.cfJq)){
+    return `<div class="cfg">${hud}${finished ? clear : `<p class="cfg-hint">Pick a category and a value. One square hides a <b>Daily Double</b>.</p>`}${jeopardyBoard(d, g)}</div>`;
+  }
+  if(g.mode === "jeopardy") qi = state.cfJq;
+  if(finished && state.cfGameShow !== qi) return `<div class="cfg">${hud}${track}${clear}</div>`;
+  const q = d.quiz[qi], pick = state.quizAnswers[qi], done = pick !== undefined, log = g.log[qi];
+  if(!done && g.mode === "wheel" && !g.pre[qi]){
+    const seg = 360 / WHEEL.length;
+    return `<div class="cfg">${hud}${track}<div class="cfg-wheel-wrap"><div class="cfg-pointer">▼</div>
+      <div class="cfg-wheel" id="cfgWheel" style="background:conic-gradient(${WHEEL.map((_, i) => `${WHEEL_COL[i]} ${i * seg}deg ${(i + 1) * seg}deg`).join(",")})">${WHEEL.map(([t], i) => `<span style="transform:rotate(${i * seg + seg / 2}deg)"><b>${t}</b></span>`).join("")}<i class="cfg-hub">🎡</i></div>
+      <button class="btn btn-primary cfg-spin" type="button" onclick="cmCaseFlow.gameSpin(${qi})">🎡 Spin for level ${qi + 1}</button></div></div>`;
+  }
+  if(!done && g.mode === "doors" && !g.pre[qi]){
+    return `<div class="cfg">${hud}${track}<p class="cfg-hint">Level ${qi + 1}: pick a door. Behind each, a reward for a right answer.</p>
+      <div class="cfg-doors">${[1, 2, 3].map(k => `<button type="button" class="cfg-door" onclick="cmCaseFlow.gameDoor(${qi},${k})"><span class="cfg-door-panel">🚪<b>${k}</b></span></button>`).join("")}</div></div>`;
+  }
+  if(!done && !g.shown[qi]) g.shown[qi] = Date.now();
+  const hidden = g.hide[qi] || [], aud = g.aud[qi];
+  const extra = g.mode === "millionaire" ? `<div class="cfg-life"><button type="button" ${g.used.fifty || done ? "disabled" : ""} onclick="cmCaseFlow.gameLife('fifty',${qi})">½ 50:50</button><button type="button" ${g.used.aud || done ? "disabled" : ""} onclick="cmCaseFlow.gameLife('aud',${qi})">👥 Ask the Audience</button><span class="cfg-clock" data-sec="${MIL_SEC}" data-start="${g.shown[qi] || 0}"></span></div>`
+    : g.mode === "bomb" ? `<div class="cfg-fuse${done ? " out" : ""}${g.boom[qi] ? " boomed" : ""}"><i style="animation-duration:${BOMB_SEC}s;animation-delay:-${Math.min(BOMB_SEC, ((done ? (log && log.at) || Date.now() : Date.now()) - (g.shown[qi] || Date.now())) / 1000)}s"></i><span>💣</span></div>`
+    : (g.pre[qi] ? `<div class="cfg-prize">${g.mode === "wheel" ? "🎡" : "🚪"} This level pays <b>${g.pre[qi].label}</b></div>` : g.mode === "jeopardy" ? `<div class="cfg-prize">🟦 ${E(phaseOfQ(d, qi).title)} for <b>$${state.cfJv || 200}</b>${qi === g.daily ? " · <b class='dd'>DAILY DOUBLE ×2</b>" : ""}</div>` : "");
+  const card = `<div class="card cfg-card${done ? (log && log.ok ? " right" : " wrong") : ""}${g.mode === "jeopardy" ? " jq" : ""}" data-q="${qi}">
+      ${extra}
+      <p class="cfg-q">${E(q.q)}</p>
+      <div class="cfg-opts">${q.opts.map((o, oi) => { const me = pick === oi, gone = hidden.includes(oi);
+        return `<button type="button" class="cfg-opt${me ? (log && log.ok ? " right" : " wrong") : ""}${done && !me ? " dim" : ""}${gone ? " gone" : ""}" ${done || gone ? "disabled" : ""} onclick="cmCaseFlow.gameAnswer(${d.id},${qi},${oi})"><span class="cfg-letter">${String.fromCharCode(65 + oi)}</span><span>${E(o)}</span>${aud ? `<span class="cfg-aud"><i style="width:${aud[oi]}%"></i><em>${aud[oi]}%</em></span>` : ""}${me ? `<span class="cfg-mark">${log && log.ok ? "✓" : "✗"}</span>` : ""}</button>`; }).join("")}</div>
+      ${done && log ? `<div class="cfg-say ${log.ok ? "ok" : "no"}">${log.ok ? `Correct! <b>${g.mode === "millionaire" ? "You climb to " + money(lad[Object.values(g.log).filter(x => x.ok).length - 1]) : "+" + log.pts}</b>${log.fast ? " · ⚡ speed bonus" : ""}${log.combo ? ` · 🔥 streak +${log.combo}` : ""}` : `${log.boom ? "💥 Boom, and " : ""}Not this one. The right answer shows in the review once you pass.`}</div>` : ""}
+    </div>`;
+  const side = g.mode === "millionaire" ? `<ol class="cfg-ladder">${lad.map((v, i) => `<li class="${i === right - (done && log && log.ok ? 1 : 0) && !finished ? "at" : ""}${i < right ? " won" : ""}${(i + 1) % 6 === 0 ? " safe" : ""}"><span>${i + 1}</span>${money(v)}</li>`).reverse().join("")}</ol>` : "";
+  const nav = finished ? `<div class="cfg-nav"><button class="btn btn-ghost" type="button" onclick="cmCaseFlow.gameGo(-1)">← Back to the ${g.mode === "jeopardy" ? "board" : "tally"}</button></div>`
+    : done ? `<div class="cfg-nav"><button class="btn btn-primary" type="button" onclick="cmCaseFlow.gameNext()">${g.mode === "jeopardy" ? "Back to the board →" : "Next level →"}</button></div>` : "";
+  return `<div class="cfg cfg-m-${g.mode}">${hud}${track}<div class="${side ? "cfg-split" : ""}"><div>${card}${nav}</div>${side}</div></div>`;
+}
+const gameDay = () => DAYS.find(x => x.id === state.dayId);
+function gamePaint(d){
+  const w = document.getElementById("quizWrap"); if(!w) return;
+  w.innerHTML = renderQuiz(d);
+  clearInterval(state.cfClockIv); clearTimeout(state.cfBombT);
+  const g = state.cfGame; if(!g) return;
+  const card = w.querySelector(".cfg-card"), qi = card ? +card.dataset.q : -1;
+  if(qi < 0 || state.quizAnswers[qi] !== undefined) return;
+  if(g.mode === "millionaire"){
+    const el = w.querySelector(".cfg-clock"), t0 = g.shown[qi];
+    const tick = () => { const left = Math.max(0, MIL_SEC - Math.floor((Date.now() - t0) / 1000)); if(el){ el.textContent = left ? `⏱ ${left}s` : "⏱ time's up: no time bonus"; el.classList.toggle("low", left <= 5); } if(left && left <= 5) sfx("tick"); if(!left) clearInterval(state.cfClockIv); };
+    tick(); state.cfClockIv = setInterval(tick, 1000);
+  }
+  if(g.mode === "bomb" && !g.boom[qi]){
+    const left = BOMB_SEC * 1000 - (Date.now() - g.shown[qi]);
+    state.cfBombT = setTimeout(() => { if(state.quizAnswers[qi] !== undefined) return; g.boom[qi] = true; sfx("boom");
+      document.body.classList.add("cfg-shake"); setTimeout(() => document.body.classList.remove("cfg-shake"), 600);
+      const f = w.querySelector(".cfg-fuse"); if(f) f.classList.add("boomed");
+      const c = w.querySelector(".cfg-card"); if(c){ const b = document.createElement("div"); b.className = "cfg-banner boom"; b.textContent = "💥 BOOM! Answer to move on"; c.appendChild(b); } }, Math.max(0, left));
+  }
+}
+Object.assign(window.cmCaseFlow = window.cmCaseFlow || {}, {
+  gameMode(k){ const d = gameDay(); state.cfGameMode = Object.assign(state.cfGameMode || {}, {[d.id]: k}); state.cfGame = null; state.cfJq = null; gamePaint(d); },
+  gameSound(){ try{ localStorage.setItem("cf_game_sound", soundOn() ? "off" : "on"); }catch(e){} gamePaint(gameDay()); },
+  gameGo(i){ const d = gameDay(), all = Object.keys(state.quizAnswers || {}).length >= d.quiz.length;
+    if(i < 0){ state.cfGameShow = null; if(state.cfGame && state.cfGame.mode === "jeopardy"){ state.cfJq = null; state.cfJAns = null; } return gamePaint(d); }
+    state.quizQuestionIndex = i; if(state.cfGame && state.cfGame.mode === "jeopardy") state.cfJq = i; state.cfGameShow = all ? i : null; gamePaint(d); },
+  gameNext(){ const d = gameDay(), g = game(d);
+    if(g.mode === "jeopardy"){ clearTimeout(state.cfGameT); state.cfJq = null; state.cfJAns = null; state.cfGameShow = null; return gamePaint(d); }
+    const next = d.quiz.findIndex((_, i) => state.quizAnswers[i] === undefined); state.quizQuestionIndex = next < 0 ? d.quiz.length - 1 : next; gamePaint(d); },
+  gamePick(i, v){ const d = gameDay(); state.cfJq = i; state.cfJv = v; state.quizQuestionIndex = i; sfx(i === game(d).daily ? "tense" : "open"); gamePaint(d); },
+  gameSpin(qi){ const d = gameDay(), g = game(d), w = document.getElementById("cfgWheel"), k = Math.floor(Math.random() * WHEEL.length), seg = 360 / WHEEL.length;
+    const turn = 360 * 5 + (360 - k * seg - seg / 2);
+    if(w){ w.style.transition = "transform 2.4s cubic-bezier(.15,.85,.25,1)"; w.style.transform = `rotate(${turn}deg)`; }
+    sfx("spin"); const iv = setInterval(() => sfx("tick"), 160);
+    setTimeout(() => { clearInterval(iv); const [label, mult, bonus] = WHEEL[k]; g.pre[qi] = {label, mult, bonus}; sfx("level"); gamePaint(d); }, w ? 2500 : 0); },
+  gameDoor(qi, k){ const d = gameDay(), g = game(d), prizes = [["×2", 2, 0], ["+150 🎁", 1, 150], ["×1.5", 1.5, 0], ["×3", 3, 0], ["+100", 1, 100]];
+    const [label, mult, bonus] = prizes[Math.floor(Math.random() * prizes.length)];
+    const el = document.querySelectorAll(".cfg-door")[k - 1]; if(el){ el.classList.add("open"); el.insertAdjacentHTML("beforeend", `<span class="cfg-door-prize">${label}</span>`); }
+    sfx("open"); setTimeout(() => { g.pre[qi] = {label, mult, bonus}; gamePaint(d); }, el ? 1000 : 0); },
+  gameLife(kind, qi){ const d = gameDay(), g = game(d), q = d.quiz[qi]; if(g.used[kind]) return; g.used[kind] = true;
+    if(kind === "fifty"){ const wrong = q.opts.map((_, i) => i).filter(i => i !== q.a).sort(() => Math.random() - .5); g.hide[qi] = wrong.slice(0, Math.max(0, q.opts.length - 2)); }
+    else { const left = 100, right = 40 + Math.floor(Math.random() * 25); let rest = left - right; g.aud[qi] = q.opts.map((_, i) => i === q.a ? right : 0);
+      const others = q.opts.map((_, i) => i).filter(i => i !== q.a); others.forEach((i, j) => { const v = j === others.length - 1 ? rest : Math.floor(Math.random() * rest * .7); g.aud[qi][i] = v; rest -= v; }); }
+    sfx("open"); gamePaint(d); },
+  gameAnswer(dayId, qi, oi){
+    const d = DAYS.find(x => x.id === dayId), g = game(d), q = d.quiz[qi];
+    if(state.quizAnswers[qi] !== undefined) return;   // a pick locks in
+    clearInterval(state.cfClockIv); clearTimeout(state.cfBombT);
+    state.quizAnswers[qi] = oi; state.cfJAns = qi;   // (Jeopardy: the clue stays up to show the result)
+    const ok = oi === q.a, el = Date.now() - (g.shown[qi] || Date.now()), boom = !!g.boom[qi];
+    const fast = ok && (g.mode === "millionaire" ? el <= MIL_SEC * 1000 : g.mode === "bomb" ? !boom : el <= GAME_FAST);
+    let pts = 0, combo = 0;
+    if(ok){
+      g.streak++; combo = g.mode === "millionaire" ? 0 : Math.min(100, 20 * (g.streak - 1)); if(g.misses >= 2) g.comeback = true; g.misses = 0; if(fast) g.fast++;
+      const pre = g.pre[qi] || {mult: 1, bonus: 0};
+      pts = g.mode === "jeopardy" ? (state.cfJv || 200) * (qi === g.daily ? 2 : 1) + combo
+        : g.mode === "bomb" ? (boom ? 50 : 100 + Math.round((BOMB_SEC * 1000 - el) / 100)) + combo
+        : g.mode === "millionaire" ? 0
+        : Math.round((100 + (fast ? 25 : 0)) * pre.mult + pre.bonus) + combo;
+    } else { g.streak = 0; g.misses++; }
+    g.best = Math.max(g.best, g.streak); g.pts += pts; g.log[qi] = {ok, pts, fast: fast && g.mode !== "bomb", combo, boom, at: Date.now()};
+    sfx(ok ? "right" : "wrong");
+    gamePaint(d);
+    const card = document.querySelector(".cfg-card");
+    if(card && pts){ const f = document.createElement("span"); f.className = "cfg-float"; f.textContent = g.mode === "jeopardy" ? "+$" + pts : `+${pts}`; card.appendChild(f); }
+    if(ok && g.streak >= 3 && g.streak % 2 === 1){ const b = document.createElement("div"); b.className = "cfg-banner"; b.textContent = `🔥 ${g.streak} in a row!`; const c = document.querySelector(".cfg"); if(c) c.appendChild(b); if(typeof burstConfetti === "function" && g.streak >= 5) burstConfetti(); }
+    const n = d.quiz.length, next = d.quiz.findIndex((_, i) => state.quizAnswers[i] === undefined);
+    clearTimeout(state.cfGameT);
+    state.cfGameT = setTimeout(() => { if(state.view !== "day" || state.dayViewMode !== "knowledgeCheck") return;
+      if(g.mode === "jeopardy"){ state.cfJq = null; state.cfJAns = null; }
+      if(next >= 0 && g.mode !== "jeopardy"){ state.quizQuestionIndex = next; gamePaint(d); }
+      else if(next >= 0) gamePaint(d);   // Jeopardy: back to the board, the trainee picks the next square
+      else { state.quizQuestionIndex = n - 1; state.cfGameShow = null; gamePaint(d); sfx("level"); if(typeof burstConfetti === "function") burstConfetti(); countUp(); } }, ok ? 1300 : 1700);
+  }
+});
+function countUp(){   // the tally counts up
+  document.querySelectorAll(".cfg-count").forEach(el => { const to = +el.dataset.to || 0, t0 = performance.now(), m = !!el.dataset.money;
+    const step = t => { const k = Math.min(1, (t - t0) / 900), v = Math.round(to * (1 - Math.pow(1 - k, 3))); el.textContent = m ? money(Math.round(v)) : v.toLocaleString(); if(k < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step); });
+}
 if(typeof renderQuiz === "function"){
   const __quiz = renderQuiz;
   const quiz = function(d){
@@ -1247,11 +1447,9 @@ if(typeof renderQuiz === "function"){
     const mods = kcMods(d), done = mods.filter(x => !modMissing(x.b, x.mod.id)).length, answered = Object.keys(state.quizAnswers || {}).length;
     const part = state.cfKcPart === "written" && state.cfKcDay === d.id ? "written" : "quiz";
     const step = (k, label, sub) => `<button type="button" class="cf-kc-step${part === k ? " on" : ""}" onclick="cmCaseFlow.kcPart('${k}')"><b>${label}</b><small>${sub}</small></button>`;
-    const steps = `<div class="cf-kc-steps">${step("quiz", "① Quiz", `${answered} of ${d.quiz.length} answered`)}${step("written", "② Learning Checks & Self-Summary", `${done} of ${mods.length} complete`)}</div>`;
+    const steps = `<div class="cf-kc-steps">${step("quiz", `① ${(GAMES[(state.cfGame && state.cfGame.day === d.id && state.cfGame.mode) || (state.cfGameMode || {})[d.id] || GAME_DAY[d.cf.n]] || GAMES.millionaire).icon} The Quiz Game`, `${answered} of ${d.quiz.length} played`)}${step("written", "② Bonus round: Learning Checks & Self-Summary", `${done} of ${mods.length} complete`)}</div>`;
     if(part === "written") return steps + writtenPart(d);
-    const h = __quiz.apply(this, arguments).replace(/<button class="btn btn-primary"([^>]*)onclick="submitQuiz\((\d+)\)">Submit Knowledge Check<\/button>/,
-      `<button class="btn btn-primary" style="padding:13px 28px;" ${answered >= d.quiz.length ? "" : "disabled"} onclick="cmCaseFlow.kcPart('written')">Next: Learning Checks &amp; Self-Summary →</button>`);
-    return steps + h;
+    return steps + gameQuiz(d);
   };
   renderQuiz = quiz; window.renderQuiz = quiz;
 }
@@ -1270,7 +1468,7 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
   tick(blockId, j, on){ REC.ticks = REC.ticks || {}; (REC.ticks[blockId] = REC.ticks[blockId] || [])[j] = !!on; persist(); },
   kcDraft(modId, j, v){ rec(modId).kc[j] = v; clearTimeout(draftTimer); draftTimer = setTimeout(() => { persist(); status(modId, "Draft saved"); }, 900); },
   async save(modId){ const m = readForm(modId); m.savedAt = new Date().toISOString(); await persist(); status(modId, "Saved " + new Date(m.savedAt).toLocaleString()); },
-  kcPart(part){ state.cfKcPart = part; state.cfKcDay = state.dayId; const w = document.getElementById("quizWrap"); if(w) w.innerHTML = renderQuiz(DAYS.find(x => x.id === state.dayId)); window.scrollTo({top: 0, behavior: "smooth"}); },
+  kcPart(part){ state.cfKcPart = part; state.cfKcDay = state.dayId; gamePaint(DAYS.find(x => x.id === state.dayId)); window.scrollTo({top: 0, behavior: "smooth"}); },
   async kcSubmit(dayId){
     const d = cfDay(dayId); if(!d) return;
     if(Object.keys(state.quizAnswers || {}).length < d.quiz.length){ if(typeof toast === "function") toast(`Answer all ${d.quiz.length} quiz questions first.`); return cmCaseFlow.kcPart("quiz"); }
@@ -1613,12 +1811,6 @@ window.cmCaseFlow.doc = function(ev, id){
   openPane("doc", new URL(docUrl(d), location.href).href, `${d.title} (${d.id})`, "📄", "split");
   return false;
 };
-window.cmCaseFlow.deck = function(ev, ref){   // an original deck page, beside the slide
-  if(ev && (ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.button === 1) || typeof openPane !== "function") return true;
-  const pg = deckPage(ref); if(!pg) return true;
-  openPane("deck", new URL(pg.src, location.href).href, `Day ${pg.day} deck · p. ${pg.n}${pg.title ? ` · ${pg.title}` : ""}`, "📘", "split");
-  return false;
-};
 const docUrl = d => DATES && DATES.shift && /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}&year=${DATES.year}`
   : typeof cmDocUrl === "function" ? cmDocUrl(d) : "documents/" + d.file;
 function docLine(blockId){
@@ -1721,6 +1913,101 @@ if(typeof window.renderPracticeHub === "function"){
 
 /* ---------- styles: only what the course's own classes don't already give ---------- */
 const st = document.createElement("style"); st.id = "cm-case-flow"; st.textContent = `
+.cfg{position:relative;width:100%;box-sizing:border-box;}
+#quizWrap:has(.cfg){width:100%;}
+.cfg-title{display:flex;justify-content:center;align-items:center;gap:10px;margin:0 0 8px;}
+.cfg-title b{font:900 24px 'Poppins','Inter',sans-serif;color:var(--navy);letter-spacing:.01em;}
+.cfg-sound{border:1px solid var(--line,#D6DAE4);background:#fff;border-radius:999px;width:34px;height:34px;cursor:pointer;font-size:16px;}
+.cfg-pick{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;margin:0 0 10px;}
+.cfg-pick button{border:1.5px solid var(--line,#D6DAE4);background:#fff;border-radius:999px;padding:5px 12px;font:700 12.5px var(--font-ui);color:var(--navy);cursor:pointer;}
+.cfg-pick button.on{background:#262B45;color:#fff;border-color:#262B45;}
+.cfg-hint{text-align:center;font:600 14px var(--font-ui);color:var(--ink-soft,#5B6178);margin:0 0 10px;}
+/* Jeopardy */
+.cfg-jb{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:6px;background:#0E1A5C;padding:8px;border-radius:14px;}
+.cfg-jh{background:#1B2A8A;color:#fff;font:800 13px/1.25 'Poppins','Inter',sans-serif;text-transform:uppercase;text-align:center;padding:10px 6px;border-radius:6px;display:grid;place-items:center;min-height:52px;}
+.cfg-jc{background:#1B2A8A;color:#F4C542;font:900 22px 'Poppins','Inter',sans-serif;border:0;border-radius:6px;padding:12px 4px;cursor:pointer;text-shadow:0 2px 0 #000;transition:transform .15s, background .15s;}
+.cfg-jc:not(:disabled):hover{transform:scale(1.04);background:#2438B0;}
+.cfg-jc.ok{background:#1F5E3A;color:#BFF0D0;font-size:15px;}.cfg-jc.no{background:#5E1F1F;color:#F5C2BC;font-size:15px;}.cfg-jc.empty{background:transparent;}
+.cfg-card.jq{animation:cfgZoom .45s cubic-bezier(.2,.8,.3,1.1) both;}
+/* the wheel */
+.cfg-wheel-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;margin:6px 0;position:relative;}
+.cfg-pointer{font-size:26px;color:#B54A3F;line-height:1;margin-bottom:-18px;z-index:2;text-shadow:0 2px 0 #fff;}
+.cfg-wheel{position:relative;width:260px;height:260px;border-radius:50%;border:8px solid #262B45;box-shadow:0 14px 30px -12px rgba(20,24,48,.6);}
+.cfg-wheel span{position:absolute;left:50%;top:50%;width:0;height:0;}
+.cfg-wheel span b{position:absolute;left:-28px;top:-112px;width:56px;text-align:center;font:900 17px 'Poppins','Inter',sans-serif;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5);}
+.cfg-hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:#fff;display:grid;place-items:center;font-style:normal;font-size:24px;box-shadow:0 2px 8px rgba(0,0,0,.3);}
+/* the doors */
+.cfg-doors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:620px;margin:0 auto;perspective:900px;}
+.cfg-door{position:relative;height:200px;border:0;background:#FBF1E6;border-radius:12px 12px 4px 4px;cursor:pointer;padding:0;overflow:hidden;}
+.cfg-door-panel{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:linear-gradient(160deg,#8A4A1C,#5E3112);color:#F4B77A;font-size:54px;border:4px solid #3E200B;border-radius:12px 12px 4px 4px;transform-origin:left center;transition:transform .9s cubic-bezier(.3,.7,.2,1);z-index:1;}
+.cfg-door-panel b{font:900 26px 'Poppins','Inter',sans-serif;color:#fff;}
+.cfg-door:not(.open):hover .cfg-door-panel{transform:rotateY(-12deg);}
+.cfg-door.open .cfg-door-panel{transform:rotateY(-105deg);}
+.cfg-door-prize{position:absolute;inset:0;display:grid;place-items:center;font:900 30px 'Poppins','Inter',sans-serif;color:#262B45;animation:cfgPop .6s ease both;}
+.cfg-prize{display:inline-block;margin:0 0 10px;background:#262B45;color:#fff;border-radius:999px;padding:5px 14px;font:700 13.5px var(--font-ui);}.cfg-prize b{color:#F4B77A;}.cfg-prize .dd{color:#F4C542;}
+/* Millionaire */
+.cfg-split{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:14px;align-items:start;}
+.cfg-ladder{list-style:none;margin:0;padding:8px;background:#0B1240;border-radius:12px;display:flex;flex-direction:column;gap:2px;}
+.cfg-ladder li{display:flex;gap:8px;font:700 12px 'IBM Plex Mono',monospace;color:#F4B77A;padding:2px 8px;border-radius:4px;}
+.cfg-ladder li span{width:20px;color:#8A93C8;}.cfg-ladder li.safe{color:#fff;}.cfg-ladder li.won{color:#7FD6A0;}
+.cfg-ladder li.at{background:#DB8437;color:#fff;animation:cfgPulse 1s ease-in-out infinite alternate;}
+.cfg-life{display:flex;align-items:center;gap:8px;margin:0 0 10px;flex-wrap:wrap;}
+.cfg-life button{border:1.5px solid #262B45;background:#fff;color:#262B45;border-radius:999px;padding:5px 12px;font:800 12.5px var(--font-ui);cursor:pointer;}
+.cfg-life button:disabled{opacity:.4;cursor:default;text-decoration:line-through;}
+.cfg-clock{margin-left:auto;font:800 14px 'IBM Plex Mono',monospace;color:var(--navy);}.cfg-clock.low{color:#B54A3F;animation:cfgPulse .5s ease-in-out infinite alternate;}
+.cfg-opt.gone{visibility:hidden;}
+.cfg-aud{position:relative;margin-left:auto;width:90px;height:16px;background:#EEF0F5;border-radius:4px;overflow:hidden;flex:none;}
+.cfg-aud i{position:absolute;left:0;top:0;bottom:0;background:#46508A;animation:cfgGrow .8s ease-out both;}.cfg-aud em{position:absolute;right:4px;top:0;font:700 11px var(--font-ui);font-style:normal;color:#262B45;}
+/* the bomb */
+.cfg-fuse{position:relative;height:14px;background:#EEF0F5;border-radius:999px;margin:0 0 12px;overflow:visible;}
+.cfg-fuse i{position:absolute;left:0;top:0;bottom:0;width:100%;border-radius:999px;background:linear-gradient(90deg,#B54A3F,#DB8437 70%,#F4C542);animation-name:cfgFuse;animation-timing-function:linear;animation-fill-mode:forwards;}
+.cfg-fuse.out i{animation-play-state:paused;}
+.cfg-fuse span{position:absolute;right:-6px;top:50%;transform:translateY(-50%);font-size:26px;}
+.cfg-fuse.boomed span{animation:cfgPop .4s ease;filter:drop-shadow(0 0 8px #F4C542);}
+.cfg-banner.boom{background:linear-gradient(135deg,#B54A3F,#5E1F1F);}
+body.cfg-shake #quizWrap{animation:cfgShake .5s ease;}
+@keyframes cfgFuse{from{width:100%;}to{width:0%;}}
+@keyframes cfgGrow{from{width:0;}}
+@keyframes cfgZoom{from{opacity:0;transform:scale(.6);}to{opacity:1;transform:none;}}
+@media(max-width:760px){.cfg-split{grid-template-columns:minmax(0,1fr);}.cfg-ladder{display:none;}.cfg-doors{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}.cfg-door{height:140px;}.cfg-wheel{width:220px;height:220px;}.cfg-wheel span b{top:-94px;}}
+.cfg-hud{display:flex;gap:10px;justify-content:center;margin:0 0 10px;}
+.cfg-hud > span{display:flex;align-items:baseline;gap:6px;background:#262B45;color:#fff;border-radius:12px;padding:8px 16px;font:800 20px 'Poppins','Inter',sans-serif;}
+.cfg-hud small{font:600 11px var(--font-ui);color:#C9CFE0;text-transform:uppercase;letter-spacing:.06em;}
+.cfg-pts{transition:transform .2s;}.cfg-streak.hot{background:linear-gradient(135deg,#DB8437,#B54A3F);animation:cfgPulse 1s ease-in-out infinite alternate;}
+.cfg-track{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin:0 0 12px;}
+.cfg-node{width:30px;height:30px;border-radius:50%;border:2px solid #D6DAE4;background:#fff;color:#8A93A8;font:700 12px var(--font-ui);display:grid;place-items:center;cursor:pointer;padding:0;transition:transform .2s;}
+.cfg-node:disabled{cursor:default;opacity:.7;}.cfg-node.ok{background:#2F8F5B;border-color:#2F8F5B;color:#fff;}.cfg-node.no{background:#B54A3F;border-color:#B54A3F;color:#fff;}
+.cfg-node.at{transform:scale(1.25);border-color:#DB8437;background:#FFF1E2;font-size:15px;}
+.cfg-card{position:relative;padding:20px 24px !important;animation:cfgIn .35s cubic-bezier(.2,.8,.3,1.2) both;overflow:visible;}
+.cfg-q{font:700 20px/1.4 'Fraunces',Georgia,serif;color:var(--navy);margin:0 0 14px;}
+.cfg-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.cfg-opt{display:flex;align-items:center;gap:12px;text-align:left;padding:12px 14px;border-radius:12px;border:2px solid #E3E6EE;background:#fff;font:500 15px/1.35 var(--font-ui);color:var(--ink);cursor:pointer;transition:transform .15s, border-color .15s, box-shadow .15s;}
+.cfg-opt:not(:disabled):hover{transform:translateY(-2px);border-color:#DB8437;box-shadow:0 8px 18px -10px rgba(219,132,55,.7);}
+.cfg-letter{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:#262B45;color:#fff;font:800 14px 'Poppins','Inter',sans-serif;}
+.cfg-mark{margin-left:auto;font:800 20px var(--font-ui);}
+.cfg-opt.right{border-color:#2F8F5B;background:#E9F6EE;animation:cfgPop .4s ease;}.cfg-opt.right .cfg-letter{background:#2F8F5B;}
+.cfg-opt.wrong{border-color:#B54A3F;background:#FBECEA;animation:cfgShake .45s ease;}.cfg-opt.wrong .cfg-letter{background:#B54A3F;}
+.cfg-opt.dim{opacity:.55;}
+.cfg-say{margin-top:12px;font:700 15px var(--font-ui);}.cfg-say.ok{color:#1F6B43;}.cfg-say.no{color:#9A3A2F;}
+.cfg-float{position:absolute;right:28px;top:14px;font:900 28px 'Poppins','Inter',sans-serif;color:#2F8F5B;pointer-events:none;animation:cfgFloat 1.2s ease-out forwards;}
+.cfg-banner{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);background:linear-gradient(135deg,#DB8437,#B54A3F);color:#fff;font:900 30px 'Poppins','Inter',sans-serif;padding:14px 26px;border-radius:16px;box-shadow:0 18px 40px -16px rgba(0,0,0,.6);pointer-events:none;animation:cfgBanner 1.3s ease-out forwards;z-index:5;}
+.cfg-nav{display:flex;justify-content:flex-end;margin-top:12px;}
+.cfg-clear{margin-top:12px;text-align:center;background:#262B45;color:#fff;border-radius:16px;padding:18px;animation:cfgIn .4s ease both;}
+.cfg-clear-h{font:900 26px 'Poppins','Inter',sans-serif;margin-bottom:8px;}
+.cfg-tally{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-bottom:12px;font:600 15px var(--font-ui);color:#C9CFE0;}.cfg-tally b{font-size:24px;color:#F4B77A;}
+.cfg-badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+.cfg-badge{display:flex;flex-direction:column;align-items:center;gap:2px;background:#fff;color:#262B45;border-radius:14px;padding:8px 14px;min-width:110px;animation:cfgPop .5s ease both;}
+.cfg-badge i{font-style:normal;font-size:24px;}.cfg-badge b{font:800 13px 'Poppins','Inter',sans-serif;}.cfg-badge small{font:500 11px var(--font-ui);color:#5B6178;}
+.cfg-badge.sm{flex-direction:row;min-width:0;padding:4px 10px;border:1px solid #E3E6EE;gap:6px;}.cfg-badge.sm i{font-size:15px;}
+.cf-kcr-game{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:12px 0 0;font:600 14px var(--font-ui);color:var(--ink);}.cf-kcr-game b{color:var(--navy);}
+@keyframes cfgIn{from{opacity:0;transform:translateX(40px) scale(.97);}to{opacity:1;transform:none;}}
+@keyframes cfgPop{0%{transform:scale(1);}40%{transform:scale(1.04);}100%{transform:scale(1);}}
+@keyframes cfgShake{0%,100%{transform:translateX(0);}20%{transform:translateX(-8px);}40%{transform:translateX(8px);}60%{transform:translateX(-5px);}80%{transform:translateX(5px);}}
+@keyframes cfgFloat{from{opacity:1;transform:translateY(0);}to{opacity:0;transform:translateY(-50px);}}
+@keyframes cfgBanner{0%{opacity:0;transform:translate(-50%,-50%) scale(.6);}20%{opacity:1;transform:translate(-50%,-50%) scale(1.08);}70%{opacity:1;transform:translate(-50%,-50%) scale(1);}100%{opacity:0;transform:translate(-50%,-80%) scale(.95);}}
+@keyframes cfgPulse{from{box-shadow:0 0 0 0 rgba(219,132,55,.55);}to{box-shadow:0 0 0 8px rgba(219,132,55,0);}}
+@media(prefers-reduced-motion:reduce){.cfg *, .cfg-card, .cfg-opt, .cfg-banner, .cfg-float{animation:none !important;transition:none !important;}}
+@media(max-width:760px){.cfg-opts{grid-template-columns:minmax(0,1fr);}.cfg-hud > span{font-size:16px;padding:6px 10px;}}
 .cf-kc-steps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 14px;}
 .cf-kc-step{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:10px 16px;border-radius:12px;border:1.5px solid var(--line,#D6DAE4);background:#fff;color:var(--navy);cursor:pointer;text-align:left;}
 .cf-kc-step b{font:800 15px 'Poppins','Inter',sans-serif;}.cf-kc-step small{font:500 12.5px var(--font-ui);color:var(--ink-soft,#5B6178);}
@@ -1826,12 +2113,27 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfx-th-c{background:#fff;border:1.5px solid #E6DED2;border-left:5px solid #DB8437;border-radius:12px;padding:7px 12px;display:flex;flex-direction:column;gap:2px;animation:cfxIn .3s ease-out both;}
 .cfx-th-c b{font:800 15px/1.25 'Poppins','Inter',sans-serif;color:var(--navy);letter-spacing:.01em;}
 .cfx-th-c span{font:500 16px/1.35 var(--font-ui);color:var(--ink);}
-.cfx-th-deck{display:flex;flex-direction:column;gap:8px;}
-.cfx-th-deck small{font:700 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-deep);text-align:center;}
-.cfx-th-pg{display:flex;flex-direction:column;gap:5px;text-decoration:none;color:var(--ink-soft,#5B6178);}
-.cfx-th-pg img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;border:2px solid #DB8437;box-shadow:0 6px 14px rgba(20,24,48,.18);background:#262B45;transition:transform .2s ease;}
-.cfx-th-pg:hover img,.cfx-th-pg:focus-visible img{transform:scale(1.03);}
-.cfx-th-pg span{font:600 12px/1.3 var(--font-ui);text-align:center;}
+.cfx-th-solo .cfx-th-c span{font-size:17px;}
+/* The Framework: the deck's table, flow or checklist, in the course's design */
+.cfx-fw-t{margin:0 0 12px;text-align:center;font:800 22px/1.25 'Poppins','Inter',sans-serif;color:var(--navy);}
+.cfx-fw-scroll{overflow-x:auto;}
+.cfx-fw-tbl{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1.5px solid #E6DED2;border-radius:14px;overflow:hidden;}
+.cfx-fw-tbl thead th{background:#262B45;color:#fff;font:800 13px 'Poppins','Inter',sans-serif;letter-spacing:.04em;text-transform:uppercase;text-align:left;padding:9px 14px;}
+.cfx-fw-tbl tbody tr{animation:cfxIn .3s ease-out both;}
+.cfx-fw-tbl tbody th, .cfx-fw-tbl td{padding:9px 14px;border-top:1px solid #EEE7DD;text-align:left;vertical-align:top;font:500 16px/1.35 var(--font-ui);color:var(--ink);}
+.cfx-fw-tbl tbody th{font-weight:800;color:var(--navy);background:#FBF6EF;white-space:nowrap;}
+.cfx-fw-tbl tbody tr:nth-child(even) td{background:#FFFCF7;}
+.cfx-fw-flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:16px;}
+.cfx-fw-flow li{position:relative;background:#fff;border:1.5px solid #E6DED2;border-top:5px solid #DB8437;border-radius:12px;padding:12px 12px 12px;display:flex;flex-direction:column;gap:5px;animation:cfxIn .3s ease-out both;}
+.cfx-fw-flow li::before{display:none !important;content:none !important;}
+.cfx-fw-flow li:not(:last-child)::after{content:"➔";position:absolute;right:-15px;top:50%;transform:translateY(-50%);color:#DB8437;font-size:16px;z-index:1;}
+.cfx-fw-n{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#262B45;color:#fff;font:800 13px 'Poppins','Inter',sans-serif;}
+.cfx-fw-flow b, .cfx-fw-list b{font:800 15px/1.25 'Poppins','Inter',sans-serif;color:var(--navy);}
+.cfx-fw-flow span:last-child, .cfx-fw-list span{font:500 15px/1.35 var(--font-ui);color:var(--ink);}
+.cfx-fw-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.cfx-fw-list > div{background:#fff;border:1.5px solid #E6DED2;border-left:5px solid #262B45;border-radius:12px;padding:10px 14px;display:flex;flex-direction:column;gap:4px;animation:cfxIn .3s ease-out both;}
+.cfx-fw-note{margin:12px 0 0;text-align:center;font:600 15px/1.4 var(--font-ui);color:var(--ink-soft,#5B6178);}
+
 .cfx-task{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:24px;align-items:start;}
 .cfx-task .cfx-points li{font-size:22px;}
 .cfx-side{display:flex;flex-direction:column;gap:12px;}
@@ -2096,7 +2398,8 @@ main > .cf-side-presenter{display:none;}
 @media(max-width:760px){
   .cfx{padding:16px 16px 18px !important;}
   .cfx-title{font-size:26px !important;}.cfx-of{display:block;font-size:15px;margin-top:4px;}.cfx-sep{display:none;}
-  .cfx-hero,.cfx-split,.cfx-lesson .cfx-split,.cfx-task,.cfx-dd,.cfx-qs-2,.cfx-theory,.cfx-th-grid{grid-template-columns:minmax(0,1fr);}
+  .cfx-hero,.cfx-split,.cfx-lesson .cfx-split,.cfx-task,.cfx-dd,.cfx-qs-2,.cfx-theory,.cfx-th-grid,.cfx-fw-flow{grid-template-columns:minmax(0,1fr);}
+  .cfx-fw-flow li:not(:last-child)::after{content:"⬇";right:50%;top:auto;bottom:-15px;transform:translateX(50%);}
   .cfx-hook{font-size:24px;}.cfx-situation{font-size:19px;}
   .cfx-points li{font-size:19px;grid-template-columns:36px 1fr;}.cfx-points li::before{width:32px;height:32px;font-size:16px;}
   .cfx-flow{grid-template-columns:minmax(0,1fr);}.cfx-arrow{transform:rotate(90deg);justify-self:center;}

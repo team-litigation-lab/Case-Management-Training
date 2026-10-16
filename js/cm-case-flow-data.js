@@ -1825,6 +1825,15 @@ window.CM_CASE_FLOW = {
       title: "Claims Setup & Coverage Verification",
       about: "Opening the claims correctly: the LOR set to all three stack carriers and the notices outside the stack, then tracking every coverage from “reported” to “confirmed in writing” in the CMS Coverage Matrix.",
       quiz: [
+        {q: "Which coverages make up John Doe's $40,000 Recovery Stack?",
+         opts: ["Keystone BI, Harbor Point Host UM and Cardinal State Relative UM", "Keystone BI, Host UM, Relative UM and Harbor Point MedPay", "Keystone BI, Keystone PD and Host UM", "Host UM, Relative UM and his own Bluewater UM"],
+         a: 0, r: "Only the coverages that pay the claim stack: $10,000 BI + $20,000 Host UM + $10,000 Relative UM. MedPay pays bills now (Payer Order), PD pays for the car, and John Doe rejected UM on his Bluewater policy in writing on 03/14/2024."},
+        {q: "On 03/11/2026 Summit Imaging asks for an LOP for John Doe's $2,395.00 MRI. Harbor Point MedPay has $3,675.00 left. What do you do?",
+         opts: ["Prepare the LOP for Atty. Thorne's approval, since the provider asked for one", "Decline the LOP and route the bill to MedPay, which applies first", "Send the bill to Peach State first, to save MedPay for later", "Tell Summit it will be paid in full at settlement"],
+         a: 1, r: "The Payer-First Principle: MedPay pays regardless of fault, and Harbor Point confirmed it has no reimbursement right, so the MRI is paid with nothing to repay. An LOP would have turned it into a $2,395.00 lien against John Doe's net. Never promise a provider payment at settlement."},
+        {q: "Crescent Pain & Spine billed $3,400.00 for the 05/15/2026 injection, and Peach State paid $1,860.00. Why does Peach State's reimbursement claim start at $1,860.00?",
+         opts: ["Peach State always discounts its claims by about 45%", "Crescent is in network: the plan paid its contract rate, Crescent wrote off the rest and cannot balance-bill, so the plan can only claim what it paid", "The other $1,540.00 is owed by MedPay", "John Doe still owes Crescent the $1,540.00, so it is left out of the plan's claim"],
+         a: 1, r: "A Health Plan's reimbursement claim is what it paid, not what was billed. In network, the $1,540.00 difference is written off for good. That is why the Health Plan comes before an LOP, which carries the full billed amount into the recovery."},
         {q: "Cardinal State Mutual has no adjuster assigned when John Doe's LOR goes out on 02/17/2026. How is the letter addressed?",
          opts: ["“Attn: Teresa Okafor”, to save re-addressing it later", "“Attn: Claims Department”, with the claim number in the subject line", "To Margaret Doe, the insured, to forward to her carrier", "Held back until Cardinal State assigns an adjuster"],
          a: 1, r: "With no adjuster assigned, the address line reads “Attn: Claims Department”. Teresa Okafor is not assigned until 03/03/2026, and holding the letter delays the UM notice."},
@@ -1839,6 +1848,81 @@ window.CM_CASE_FLOW = {
          a: 2, r: "MedPay pays bills now; it is Payer Order, not Recovery Stack. It stays tracked (Harbor Point confirmed no reimbursement right on 03/02/2026), and the stack is $10,000 + $20,000 + $10,000 = $40,000."}
       ],
       blocks: [
+
+      {
+        kind: "lesson", id: "d2m1-cov",
+        title: "Coverages & the Payer-First Principle",
+        topic: "Every policy on John Doe's file, what it pays, and who pays first",
+        visual: "A two-tier slide. The top tier is a coverage map: eight cards in three colour groups. Navy, THIRD-PARTY: Keystone BI $10,000 · Keystone PD $25,000. Orange, FIRST-PARTY: Harbor Point Host UM $20,000 · Cardinal State Relative UM $10,000 · Harbor Point MedPay $5,000 · Bluewater collision ($500 deductible). Green, HEALTH: Peach State Health Plan. A crossed-out grey card: Bluewater UM, rejected 03/14/2024. Each card carries a small tag for what it pays: THE CLAIM, THE BILLS or THE CAR, and only the three THE CLAIM cards are joined by a bracket labelled RECOVERY STACK $40,000. The bottom tier is a staircase running down left to right, titled THE PAYER-FIRST PRINCIPLE: MedPay/PIP → Health Plan → Letter of Protection, each step lower than the last, labelled pays regardless of fault · contract rate, reimbursement right · paid from the recovery. Bottom-right, an orange callout: “Out of order = a lien that didn't have to exist.”",
+        tell: {
+          why: "Every policy on a file pays a different thing, and only some of them pay the Medical Bills while the claim is open. The Payer-First Principle sends each bill to the payer that must pay it first: the no-fault medical coverage, then the Health Plan, and a Letter of Protection only last. In that order a bill is paid once, at the lowest cost, with as little as possible to repay; out of order, the same bill comes back as a lien against John Doe's recovery.",
+          rules: [
+            "Sort every coverage by whose it is. Third-party coverage is the at-fault driver's: Robert Smith's Keystone BI and PD. First-party coverage answers to John Doe's side: Host UM, Relative UM, MedPay and collision. The Health Plan is his own benefit plan, through Northgate Distribution.",
+            "Sort it again by what it pays. BI and UM pay the claim at the end; MedPay, PIP and the Health Plan pay the Medical Bills while it is open; PD and collision pay for the car. Only BI and UM are the $40,000 Recovery Stack.",
+            "MedPay pays reasonable accident medical bills regardless of fault, up to its limit, and never wages. PIP, where a state requires it, also pays a share of lost wages and replacement services. This file has Harbor Point MedPay, $5,000, and no PIP: verify PIP on every file; never assume it.",
+            "UM/UIM is reached by status, not ownership. John Doe reaches Host UM as an occupant of Kevin Alvarez's 2020 Ford Escape, and Relative UM as a resident relative of Margaret Doe. His own Bluewater policy adds nothing: UM/UIM was rejected in writing on 03/14/2024.",
+            "The Payer-First Principle: MedPay (or PIP) first, the Health Plan next, a Letter of Protection last, and only for care the earlier payers can't carry.",
+            "MedPay goes first because it pays regardless of fault, and Harbor Point confirmed in writing (03/02/2026) that it has no reimbursement right against John Doe's recovery: every MedPay dollar is a bill that never becomes a lien.",
+            "The Health Plan comes next because an in-network provider is paid at the contract rate and cannot balance-bill. Crescent Pain & Spine billed $3,400.00; Peach State paid $1,860.00. Only what the plan paid can come back as its reimbursement claim.",
+            "A Letter of Protection comes last. Riverton Spine & Rehab is out of network for Peach State, so its care runs under an LOP; Summit Imaging's LOP request (03/11/2026) was declined, because MedPay applies first.",
+            "Medicare and Medicaid pay after no-fault and liability coverage. A client on Medicare, Medicaid or SSDI is reported to the BCRC; John Doe is 34, so the file records his verified SSDI status.",
+            "The order is a default: providers bill whom they bill. Track each payer's ledger, what it paid on which bill, and never re-route a claim another payer has paid. Who is primary when policies conflict is Atty. Thorne's call."
+          ],
+          upl: [
+            "You may identify the coverages, explain what each one pays and route bills in the default order. Whether a policy applies, which is primary when two conflict, and whether a lien is enforceable are Atty. Thorne's calls."
+          ]
+        },
+        show: {
+          caption: "Every coverage on John Doe's file, and where it sits",
+          type: "table",
+          head: ["Coverage", "Carrier · limit", "Pays", "Where it sits"],
+          rows: [
+            ["BI liability (third-party)", "Keystone Mutual · $10,000 per person", "The claim", "Recovery Stack, layer 1"],
+            ["Host UM (first-party)", "Harbor Point · $20,000, add-on", "The claim, once BI is exhausted", "Recovery Stack, layer 2"],
+            ["Relative UM (first-party)", "Cardinal State Mutual · $10,000", "The claim, behind Host UM", "Recovery Stack, layer 3"],
+            ["MedPay (first-party, no-fault)", "Harbor Point · $5,000", "Medical Bills, regardless of fault", "Payer Order 1st; no payback"],
+            ["Health Plan", "Peach State Health Plan", "Medical Bills, at the contract rate", "Payer Order 2nd; reimbursement right"],
+            ["PD liability (third-party)", "Keystone Mutual · $25,000", "The Civic, the rental, Loss of Use", "Outside the stack"],
+            ["Collision (first-party)", "Bluewater · $500 deductible", "The Civic, regardless of fault", "Outside the stack (his UM: rejected 03/14/2024)"]
+          ]
+        },
+        ops: [
+          ["Each claim is opened", "List every coverage, its carrier and what it pays", "CMS → Insurance tab", "Each tagged third-party, first-party or health"],
+          ["Coverage confirmed in writing", "Place it: Recovery Stack, Payer Order or outside both", "CMS → Insurance tab → Coverage Matrix", "Stack $40,000; MedPay, PD and collision outside it"],
+          ["A provider asks whom to bill", "Route it by the Payer-First order", "CMS → Insurance tab → MedPay ledger", "MedPay first, Peach State next, an LOP last"],
+          ["A provider asks for an LOP", "Check MedPay and network status first", "CMS → Liens → LOP register", "Payer check recorded; Atty. Thorne approves any LOP"],
+          ["A payer pays a bill", "Post payer, bill and amount on its ledger", "CMS → Insurance tab → MedPay ledger · CMS → Liens", "Every ledger current; no paid claim re-routed"]
+        ],
+        best: [
+          "Verify every coverage in writing: a dated Declaration Page or Coverage Letter.",
+          "Confirm the Health Plan was active on the date of loss: Peach State began 02/01/2026.",
+          "Ask each new provider whether it bills MedPay or the Health Plan before the first visit.",
+          "Keep the Payer Order and the Recovery Stack on separate lines of the Coverage Matrix.",
+          "Pitfall: issuing an LOP to a provider MedPay or the Health Plan would have paid.",
+          "Pitfall: adding MedPay, PD or collision coverage to the $40,000 stack.",
+          "Pitfall: assuming PIP, or assuming the client's own policy carries UM."
+        ],
+        sources: ["D1#18", "D2#20", "D2#23", "D2#24", "D1 Task Overview: Billing, Resolution & Closing"],
+        rubric: {
+          ai: [
+            ["Coverages sorted", 20, "Each coverage named by whose it is and what it pays: the claim, the bills or the car"],
+            ["Payer-First order", 20, "MedPay → Peach State → LOP, with the reason for each step"],
+            ["Stack kept clean", 20, "$40,000 is BI + Host UM + Relative UM only; MedPay, PD and collision tracked outside it"]
+          ],
+          trainer: [
+            ["Grasps the consequence", 25, "Explains how an out-of-order LOP becomes a lien against the client's net"],
+            ["UPL boundary", 15, "Applicability, primacy and lien enforceability left to Atty. Thorne"]
+          ]
+        },
+        notes: [
+          "Open with the question the room always merges: “Who pays the bills now?” is not “Who pays the claim later?” Put the two columns on the board before the slide.",
+          "Walk the table row by row: whose policy, what does it pay, where does it sit? Let the room place MedPay before you do.",
+          "Summit Imaging is the lesson in one fact: $2,395.00 paid by MedPay with nothing to repay, instead of a $2,395.00 LOP balance against John Doe's net.",
+          "Crescent is the Health Plan step: $3,400.00 billed, $1,860.00 paid, $1,540.00 written off for good. Peach State's reimbursement claim can only start from what it paid.",
+          "Ask why John Doe reaches $30,000 of UM at all. He was a passenger: had he been driving his own Civic, his rejected Bluewater UM would leave only the $10,000 BI.",
+          "Close on the boundary: you route bills in the default order; when two policies both claim to pay second, that is Atty. Thorne's call."
+        ]
+      },
 
       {
         kind: "lesson", id: "d2m1-l1",
@@ -2115,6 +2199,8 @@ window.CM_CASE_FLOW = {
         visual: "The standard knowledge-check split: the cream question panel with orange-numbered questions, the navy Self-Summary card, the 1–5 skill ladder, and the 60/40 strip with the separate red UPL gate. Module-specific addition: a COVERAGE STATUS STRIP between the panels, five carrier chips in a row — KEYSTONE · HARBOR POINT · CARDINAL STATE · BLUEWATER · PEACH STATE — each with an empty mono status pill the trainee fills (confirmed in writing, preliminary, or notice only) as a self-audit before answering. The three stack chips sit on a navy rail; the two notice chips on grey.",
         check: {
           questions: [
+            "Name every coverage on John Doe's file, whose it is and what it pays. Which three are the $40,000 Recovery Stack, and why do the others stay out of it?",
+            "State the Payer-First Principle and apply it to Summit Imaging's 03/11/2026 LOP request. What would an LOP there have cost John Doe, and why?",
             "List the five letters that left John Doe's file on 02/17/2026. For each, give the insured it named and how it was addressed.",
             "Why did Cardinal State's LOR go to “Attn: Claims Department”, and what had to change in the CMS after 03/03/2026?",
             "What must Keystone's LOR request, and which client details must it leave out? Explain why Harbor Point's letter can say more.",
@@ -2129,6 +2215,8 @@ window.CM_CASE_FLOW = {
             "Identify the one thing in this module you are least confident about, and what you would need in order to be confident."
           ],
           scale: [
+            "Sorting each coverage by whose it is and what it pays",
+            "Routing Medical Bills by the Payer-First order",
             "Drafting an LOR with every required component",
             "Addressing each letter to the right carrier, insured and adjuster",
             "Protecting client information in third-party correspondence",
@@ -7456,7 +7544,7 @@ window.CM_CASE_FLOW = {
   sequence: [
     {n: 1, phases: [
       {title: "Intake & Property Damage", blocks: ["d1m1-role", "d1m1-case", "d1m1-l1", "d1m4-l1", "d1m3-l1", "d1m3-l2", "d1m1-open", "d1m3-a1", "d1m3-a2", "d1m3-kc"], headings: {"d1m1-role": "Case Management Fundamentals", "d1m1-case": "Case Management Fundamentals", "d1m1-l1": "Case Phase: Intake", "d1m4-l1": "Case Phase: Intake", "d1m3-l1": "Case Phase: Property Damage", "d1m3-l2": "Case Phase: Property Damage"}},
-      {title: "Claim Set Up", workstream: "claims", blocks: ["d2m1-l1", "d2m1-l2", "d1m1-l2", "d1m4-l2", "d2m1-a1", "d1m1-a1", "d2m1-a2", "d1m1-a2", "d1m4-a1", "d1m4-a2", "d1m1-kc", "d2m1-kc", "d1m4-kc"], headings: {"d2m1-l1": "Case Phase: Claim Set Up", "d2m1-l2": "Case Phase: Claim Set Up", "d1m1-l2": "Case Phase: Claim Set Up", "d1m4-l2": "CM Process: Case Strategy", "d1m4-a1": "Skill Building: CM Process · Case Strategy", "d1m4-a2": "Skill Building: CM Process · Case Strategy"}}
+      {title: "Claim Set Up", workstream: "claims", blocks: ["d2m1-cov", "d2m1-l1", "d2m1-l2", "d1m1-l2", "d1m4-l2", "d2m1-a1", "d1m1-a1", "d2m1-a2", "d1m1-a2", "d1m4-a1", "d1m4-a2", "d1m1-kc", "d2m1-kc", "d1m4-kc"], headings: {"d2m1-cov": "Case Phase: Claim Set Up", "d2m1-l1": "Case Phase: Claim Set Up", "d2m1-l2": "Case Phase: Claim Set Up", "d1m1-l2": "Case Phase: Claim Set Up", "d1m4-l2": "CM Process: Case Strategy", "d1m4-a1": "Skill Building: CM Process · Case Strategy", "d1m4-a2": "Skill Building: CM Process · Case Strategy"}}
     ]},
     {n: 2, phases: [
       {title: "Client Communications", lead: "Operational Focus", workstream: "care", blocks: ["d2m3-l1", "d1m2-l1", "d1m2-l2", "d1m2-a1", "d1m2-a2", "d1m2-kc"]},

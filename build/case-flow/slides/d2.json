@@ -1,4 +1,30 @@
 {
+  "d2m1-cov": {
+    "image": "insurance-stack",
+    "hook": "Send each bill to **the right first payer**, or it comes back as a lien",
+    "points": [
+      "Sort every coverage: **whose it is**, and what it pays",
+      "Only BI and UM are **the $40,000 Recovery Stack**",
+      "Payer-First: **MedPay, then Peach State**, an LOP last",
+      "Verify PIP and UM in writing; **never assume either**"
+    ],
+    "upl": "Route bills in the default order; primacy and lien enforceability are Atty. Thorne's",
+    "job": [
+      ["Coverage confirmed in writing", "Place it: stack, Payer Order, outside", "CMS → Coverage Matrix", "Stack $40,000; MedPay outside it"],
+      ["A provider asks whom to bill", "Route it by Payer-First order", "CMS → MedPay ledger", "MedPay, Peach State, then LOP"],
+      ["A provider asks for an LOP", "Check MedPay and network first", "CMS → Liens → LOP register", "Atty. Thorne approves any LOP"]
+    ],
+    "dos": [
+      "Verify every coverage in writing: **a dated Declaration Page**",
+      "Confirm the Health Plan was **active on the loss date**",
+      "Keep the Payer Order and **the Recovery Stack apart**"
+    ],
+    "donts": [
+      "An LOP to a provider **MedPay would have paid**",
+      "MedPay, PD or collision **added to the stack**",
+      "Assuming PIP, or **UM on the client's own policy**"
+    ]
+  },
   "d2m1-l1": {
     "image": "policy-letter",
     "hook": "The LOR moves every carrier onto the firm; one wrong letter risks **$30,000 of UM coverage**.",
@@ -107,6 +133,8 @@
   "d2m1-kc": {
     "image": "knowledge-check",
     "questions": [
+      "Name every coverage, whose it is and what it pays. Which **three are the $40,000 stack**?",
+      "Apply **the Payer-First Principle** to Summit Imaging's 03/11/2026 LOP request. What would an LOP have cost?",
       "Name the **five letters** sent 02/17/2026: for each, the insured named and how it was addressed.",
       "Why “Attn: Claims Department” on Cardinal State's LOR, and what had to change **in the CMS after 03/03/2026**?",
       "What must Keystone's LOR request and **leave out**, and why can Harbor Point's letter say more?",

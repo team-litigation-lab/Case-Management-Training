@@ -63,7 +63,38 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D1#3",
     "D1#4"
-   ]
+   ],
+   "framework": {
+    "title": "The General Process",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Intake & Case Opening",
+      "text": "Verify the facts, run the Conflict Check and open the file in the CMS"
+     },
+     {
+      "label": "Case Planning & Strategy Support",
+      "text": "Draft the Case Plan and recommend next steps; **Atty. Thorne sets strategy**"
+     },
+     {
+      "label": "Documentation & File Management",
+      "text": "Request, name and file every document; the CMS is the single source of truth"
+     },
+     {
+      "label": "Communication Management",
+      "text": "Keep the client, carriers and providers updated; log every contact the same day"
+     },
+     {
+      "label": "Case Monitoring & Tracking",
+      "text": "Docket every deadline, watch progress and flag risk to counsel the day you see it"
+     },
+     {
+      "label": "Billing, Resolution & Closing",
+      "text": "Support the billing and lien records through resolution, then close a complete file"
+     }
+    ],
+    "note": "Seven stages on one track; billing support and closing run together at the end of the file."
+   }
   }
  },
  "d1m1-case": {
@@ -126,7 +157,38 @@ window.CM_CF_SLIDES = {
    ],
    "pages": [
     "D1#16"
-   ]
+   ],
+   "framework": {
+    "title": "The Structured Intake Questions",
+    "kind": "table",
+    "head": [
+     "Question",
+     "On this file"
+    ],
+    "rows": [
+     [
+      "Who",
+      "John Doe, passenger; Robert Smith, defendant; Kevin Alvarez, host driver"
+     ],
+     [
+      "What",
+      "A collision into the Escape's passenger door; EMS noted neck stiffness"
+     ],
+     [
+      "When",
+      "02/06/2026, about 7:10 a.m.; SOL docketed 02/06/2028"
+     ],
+     [
+      "Where",
+      "The all-way stop at Maple Hollow Rd & Birch Ave"
+     ],
+     [
+      "How",
+      "Robert Smith **ran the stop**; Riverton PD cited him (RPD-26-018842)"
+     ]
+    ],
+    "note": "Every answer comes from a document; ambiguous facts of loss or liability go to Atty. Thorne for review."
+   }
   }
  },
  "d1m1-l1": {
@@ -208,7 +270,34 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D1#21",
     "D1#22"
-   ]
+   ],
+   "framework": {
+    "title": "The Intake Workflow",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Raw File Received",
+      "text": "The file arrives from “On the Records”; read it end to end first"
+     },
+     {
+      "label": "Review & Verify Details",
+      "text": "Check the DOL, parties and signatures against the Police Report, not the intake note"
+     },
+     {
+      "label": "Conflict Check Completed",
+      "text": "Run it on every party's **full legal name**; log its date and result"
+     },
+     {
+      "label": "Approved or Escalated",
+      "text": "Complete intake moves to acceptance; incomplete intake goes back, uncertain eligibility to Atty. Thorne"
+     },
+     {
+      "label": "File Created and Logged",
+      "text": "Open the matter in the CMS: six roles mapped, SOL docketed, documents named"
+     }
+    ],
+    "note": "Nothing moves before the Conflict Check is documented; coverage is then read off the Declaration Page."
+   }
   }
  },
  "d1m1-open": {
@@ -322,7 +411,34 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D1#25",
     "D1#22"
-   ]
+   ],
+   "framework": {
+    "title": "The Regulatory Triple-Check",
+    "kind": "table",
+    "head": [
+     "Check",
+     "What you do",
+     "Why it matters"
+    ],
+    "rows": [
+     [
+      "HIPAA Compliance",
+      "Obtain a claim-specific authorization naming the incident date",
+      "A standard release may not be adequate for injury claims"
+     ],
+     [
+      "Medicare/Medicaid Reporting",
+      "If 65+ or on SSDI, report the case to the BCRC",
+      "Avoids federal penalties and **settlement freezes** under MMSEA"
+     ],
+     [
+      "Subrogation Management",
+      "Set the Payer Order: PIP/MedPay → private health insurance → LOP/provider liens",
+      "Each bill reaches the right payer; reimbursement rights surface early"
+     ]
+    ],
+    "note": "Clear all three before clinical planning begins: the claim is established and you are authorized to act."
+   }
   }
  },
  "d1m1-a2": {
@@ -422,7 +538,42 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D1#11",
     "D1#9"
-   ]
+   ],
+   "framework": {
+    "title": "Common Intake Bottlenecks",
+    "kind": "table",
+    "head": [
+     "Bottleneck",
+     "How it shows up"
+    ],
+    "rows": [
+     [
+      "Incomplete Client Information",
+      "Missing contact details or incident facts; no supporting documents"
+     ],
+     [
+      "Delayed Client Follow-Up",
+      "**Unanswered clarification requests**, missed verification calls, slow documents"
+     ],
+     [
+      "Conflict Check Delays",
+      "System backlog, incomplete entries, unclear opposing party information"
+     ],
+     [
+      "Intake Form Errors",
+      "Incorrect dates, inconsistent statements, missing signatures, misfiled records"
+     ],
+     [
+      "Case Eligibility Uncertainty",
+      "Ambiguous facts of loss or liability needing attorney review"
+     ],
+     [
+      "Communication Gaps",
+      "Incomplete intake packets; miscommunication between departments"
+     ]
+    ],
+    "note": "A silent client is Delayed Client Follow-Up: the No Contact Protocol clears it, one logged attempt at a time."
+   }
   }
  },
  "d1m2-a1": {
@@ -509,7 +660,26 @@ window.CM_CF_SLIDES = {
      "text": "Ending representation by Notice of Withdrawal or Motion to Withdraw; **only the attorney decides**, under firm and court rules"
     }
    ],
-   "pages": []
+   "pages": [],
+   "framework": {
+    "title": "The No Contact Protocol, Steps 4–6",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Final Warning Letter",
+      "text": "Earlier attempts itemized, a 7–14 day deadline, withdrawal notice; certified mail AND email"
+     },
+     {
+      "label": "Decision Point",
+      "text": "Still no response: **the attorney decides** on a Notice or Motion to Withdraw"
+     },
+     {
+      "label": "File Closure",
+      "text": "Marked “No response – withdrew per protocol”; proof of every attempt retained"
+     }
+    ],
+    "note": "Skip-tracing waits for all three: ladder exhausted, letter sent, deadline passed. Counsel authorizes it."
+   }
   }
  },
  "d1m2-a2": {
@@ -611,7 +781,30 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D1#44",
     "D1#28"
-   ]
+   ],
+   "framework": {
+    "title": "The Rental Authorization Check",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Whose Policy Is Primary?",
+      "text": "The renter's own policy is usually primary; the rental company follows a written denial"
+     },
+     {
+      "label": "Who Authorizes?",
+      "text": "Confirm who authorizes the rental and check for a rental reimbursement endorsement"
+     },
+     {
+      "label": "Daily Rate Cap",
+      "text": "Record the authorized daily rate before the client collects a vehicle"
+     },
+     {
+      "label": "Duration Limit",
+      "text": "Record the number of covered days: **uncovered days are the client's cost**"
+     }
+    ],
+    "note": "All four go in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
+   }
   }
  },
  "d1m3-a1": {
@@ -699,7 +892,39 @@ window.CM_CF_SLIDES = {
    ],
    "pages": [
     "D2#6"
-   ]
+   ],
+   "framework": {
+    "title": "Property Damage (PD) Deep Dive",
+    "kind": "table",
+    "head": [
+     "Check",
+     "What you audit",
+     "Why it matters"
+    ],
+    "rows": [
+     [
+      "Photos",
+      "Point-of-impact clarity, including the undercarriage and frame",
+      "Physical proof of the impact behind the injury claim"
+     ],
+     [
+      "Estimates vs. Actuals",
+      "The insurance estimate against the final body shop bill",
+      "**Supplementals prove hidden** structural damage"
+     ],
+     [
+      "Total Loss/Value",
+      "The CCC One or other Valuation Report, line by line",
+      "So the client isn't lowballed on the vehicle's value"
+     ],
+     [
+      "The Scene Audit",
+      "Photos, video and damage against how the crash happened",
+      "The physics of the claim must be possible"
+     ]
+    ],
+    "note": "Audit Property Damage as carefully as the medicals: it is physical evidence of how hard the impact was."
+   }
   }
  },
  "d1m3-a2": {
@@ -802,7 +1027,34 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D1#21",
     "D1#22"
-   ]
+   ],
+   "framework": {
+    "title": "Why These Three Work Together",
+    "kind": "table",
+    "head": [
+     "Element",
+     "The question",
+     "What you check"
+    ],
+    "rows": [
+     [
+      "Coverage",
+      "Is there money to pay the claim?",
+      "Valid policies, coverage type, limits, exclusions and gaps"
+     ],
+     [
+      "Liability",
+      "Who is responsible, and to what degree?",
+      "Who caused it; clear, shared or disputed; evidence; comparative negligence"
+     ],
+     [
+      "Projection",
+      "How is this case likely to move?",
+      "Coverage, liability, injury severity, treatment expectations, documentation quality"
+     ]
+    ],
+    "note": "Projection reads risk and trajectory; it stays preliminary until coverage is confirmed, and case value stays with Atty. Thorne."
+   }
   }
  },
  "d1m4-a1": {
@@ -891,7 +1143,34 @@ window.CM_CF_SLIDES = {
    ],
    "pages": [
     "D1#25"
-   ]
+   ],
+   "framework": {
+    "title": "Mandatory Disclosure & Compliance Tracking",
+    "kind": "table",
+    "head": [
+     "Requirement",
+     "What the plan tracks"
+    ],
+    "rows": [
+     [
+      "Electronic Record Integrity",
+      "A CMS that keeps an **unalterable audit trail** of every version"
+     ],
+     [
+      "State-Specific Timelines",
+      "Carrier-mandated deadlines, such as an early IME in no-fault states"
+     ],
+     [
+      "Letter of Protection (LOP)",
+      "Providers treating under an LOP, so no bill arrives as a surprise"
+     ],
+     [
+      "The Golden Rule",
+      "Medical plan and legal claim as parallel tracks: coordinate, don't commingle"
+     ]
+    ],
+    "note": "The file is discoverable in litigation: write every plan note as if defense counsel will read it."
+   }
   }
  },
  "d1m4-a2": {
@@ -930,6 +1209,137 @@ window.CM_CF_SLIDES = {
    "Draw the line: one thing the plan may state, and one that **must come from Atty. Thorne**.",
    "List the **four Day 1 gate conditions**. What breaks if treatment work starts with the stack unverified?"
   ]
+ },
+ "d2m1-cov": {
+  "image": "insurance-stack",
+  "hook": "Send each bill to **the right first payer**, or it comes back as a lien",
+  "points": [
+   "Sort every coverage: **whose it is**, and what it pays",
+   "Only BI and UM are **the $40,000 Recovery Stack**",
+   "Payer-First: **MedPay, then Peach State**, an LOP last",
+   "Verify PIP and UM in writing; **never assume either**"
+  ],
+  "upl": "Route bills in the default order; primacy and lien enforceability are Atty. Thorne's",
+  "job": [
+   [
+    "Coverage confirmed in writing",
+    "Place it: stack, Payer Order, outside",
+    "CMS → Coverage Matrix",
+    "Stack $40,000; MedPay outside it"
+   ],
+   [
+    "A provider asks whom to bill",
+    "Route it by Payer-First order",
+    "CMS → MedPay ledger",
+    "MedPay, Peach State, then LOP"
+   ],
+   [
+    "A provider asks for an LOP",
+    "Check MedPay and network first",
+    "CMS → Liens → LOP register",
+    "Atty. Thorne approves any LOP"
+   ]
+  ],
+  "dos": [
+   "Verify every coverage in writing: **a dated Declaration Page**",
+   "Confirm the Health Plan was **active on the loss date**",
+   "Keep the Payer Order and **the Recovery Stack apart**"
+  ],
+  "donts": [
+   "An LOP to a provider **MedPay would have paid**",
+   "MedPay, PD or collision **added to the stack**",
+   "Assuming PIP, or **UM on the client's own policy**"
+  ],
+  "theory": {
+   "lead": "Every policy answers **two questions**: whose is it, and what does it pay? The Payer-First Principle then decides which payer each Medical Bill goes to first.",
+   "concepts": [
+    {
+     "term": "Third-Party vs. First-Party",
+     "text": "Third-party is the at-fault driver's coverage; first-party answers to the client's side: **who you claim against** changes"
+    },
+    {
+     "term": "The Recovery Stack",
+     "text": "Only coverage that pays the claim stacks: BI, then the UM/UIM layers. **Bills and the car** stay outside"
+    },
+    {
+     "term": "No-Fault Medical Coverage",
+     "text": "MedPay and PIP pay accident medical bills **regardless of fault**, fast, while liability is still disputed"
+    },
+    {
+     "term": "UM by Status",
+     "text": "UM/UIM follows the person: an occupant reaches the vehicle's policy, **a resident relative the household's**"
+    },
+    {
+     "term": "Set-Off and Non-Duplication",
+     "text": "Some policies credit what MedPay or PIP paid against what they owe: **verify the form in writing**"
+    },
+    {
+     "term": "Subrogation vs. Non-Subrogation",
+     "text": "A payer with subrogation claims its payments back from the recovery; without it, **what it paid stays paid**"
+    },
+    {
+     "term": "Contract Rate and Write-Off",
+     "text": "An in-network provider takes the plan's rate and writes off the rest: **no balance billing**, a smaller lien"
+    },
+    {
+     "term": "Medicare Secondary Payer",
+     "text": "Medicare pays only after no-fault and liability coverage, and **recovers by statute**; report the case to the BCRC"
+    }
+   ],
+   "pages": [
+    "D2#25",
+    "D3#20"
+   ],
+   "framework": {
+    "title": "What Each Coverage Pays",
+    "kind": "table",
+    "head": [
+     "Coverage",
+     "Whose",
+     "Pays",
+     "Payback risk"
+    ],
+    "rows": [
+     [
+      "BI liability",
+      "The at-fault driver's (third-party)",
+      "The claim, for injuries he caused",
+      "None: it is the recovery"
+     ],
+     [
+      "UM/UIM",
+      "Client side: the vehicle or household",
+      "The claim, when BI is too small",
+      "Consent rules guard its subrogation"
+     ],
+     [
+      "MedPay",
+      "The occupied vehicle's policy",
+      "Medical bills, no fault needed; no wages",
+      "By policy: **verify in writing**"
+     ],
+     [
+      "PIP",
+      "Client side, where a state requires it",
+      "Medical bills, part of wages, services",
+      "Set-off or lien, by state law"
+     ],
+     [
+      "Health insurance",
+      "The client's own plan",
+      "Covered care at the contract rate",
+      "**Reimbursement right** on what it paid"
+     ],
+     [
+      "Medicare / Medicaid",
+      "Government payer",
+      "Care, after no-fault and liability",
+      "Recovery by statute; a BCRC report"
+     ]
+    ],
+    "note": "Payer-First: MedPay or PIP, then health insurance, then an LOP. Liability and UM pay the claim, not the bills"
+   }
+  }
  },
  "d2m1-l1": {
   "image": "policy-letter",
@@ -1009,7 +1419,34 @@ window.CM_CF_SLIDES = {
    ],
    "pages": [
     "D1#21"
-   ]
+   ],
+   "framework": {
+    "title": "Coverage Determination and Liability",
+    "kind": "table",
+    "head": [
+     "Coverage Determination",
+     "Liability Assessment"
+    ],
+    "rows": [
+     [
+      "Is there valid insurance coverage?",
+      "Who caused the incident?"
+     ],
+     [
+      "What type of coverage applies?",
+      "Is liability clear, shared or disputed?"
+     ],
+     [
+      "What are the **policy limits**?",
+      "What evidence supports fault?"
+     ],
+     [
+      "Are there exclusions or coverage gaps?",
+      "Are there comparative negligence factors?"
+     ]
+    ],
+    "note": "Every LOR request chases a coverage answer; Atty. Thorne weighs liability, and the preservation request protects its proof"
+   }
   }
  },
  "d2m1-a1": {
@@ -1118,7 +1555,56 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D1#20",
     "D1#18"
-   ]
+   ],
+   "framework": {
+    "title": "Identified Potential Coverage Sources",
+    "kind": "table",
+    "head": [
+     "Coverage type",
+     "Limit or form",
+     "Status proven by",
+     "Notes"
+    ],
+    "rows": [
+     [
+      "BI liability",
+      "Per person, per accident or combined single limit",
+      "Declaration Page or Coverage Letter",
+      "First stack layer; confirm no step-down"
+     ],
+     [
+      "Host UM",
+      "Add-on, or reduced by the BI payment",
+      "The carrier's written form confirmation",
+      "Second layer; opens after the BI tender"
+     ],
+     [
+      "Relative UM",
+      "Add-on or reduced; other-insurance clause",
+      "Certified policy and Coverage Letter",
+      "Third layer; priority is Atty. Thorne's call"
+     ],
+     [
+      "MedPay or PIP",
+      "Medical bills to its limit, regardless of fault",
+      "Written terms, including any reimbursement right",
+      "**Tracked apart**, never added to the stack"
+     ],
+     [
+      "PD and collision",
+      "Vehicle damage only",
+      "Declaration Page, like any limit",
+      "Separate benefit, outside the stack"
+     ],
+     [
+      "Client's own UM",
+      "Zero if rejected in writing",
+      "The signed rejection form in the file",
+      "A verified zero, not an assumed one"
+     ]
+    ],
+    "note": "Only BI and the UM layers stack; on this file $10,000 + $20,000 + $10,000 = $40,000"
+   }
   }
  },
  "d2m1-a2": {
@@ -1150,6 +1636,8 @@ window.CM_CF_SLIDES = {
  "d2m1-kc": {
   "image": "knowledge-check",
   "questions": [
+   "Name every coverage, whose it is and what it pays. Which **three are the $40,000 stack**?",
+   "Apply **the Payer-First Principle** to Summit Imaging's 03/11/2026 LOP request. What would an LOP have cost?",
    "Name the **five letters** sent 02/17/2026: for each, the insured named and how it was addressed.",
    "Why “Attn: Claims Department” on Cardinal State's LOR, and what had to change **in the CMS after 03/03/2026**?",
    "What must Keystone's LOR request and **leave out**, and why can Harbor Point's letter say more?",
@@ -1238,7 +1726,30 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D1#26",
     "D1#39"
-   ]
+   ],
+   "framework": {
+    "title": "The Payer Order",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Identify the payers",
+      "text": "Primary payer determination: list every source and its default order; primacy is Atty. Thorne's call"
+     },
+     {
+      "label": "MedPay or PIP",
+      "text": "First-party, regardless of fault, up to its limit; MedPay pays medical bills only, never wages"
+     },
+     {
+      "label": "Health plan",
+      "text": "Pays covered care at its contract rate, but may assert **a reimbursement right** against the recovery"
+     },
+     {
+      "label": "Letter of Protection",
+      "text": "Last rung, for care earlier payers can't carry: paid from any recovery, on Atty. Thorne's terms"
+     }
+    ],
+    "note": "On this file: Harbor Point MedPay, then Peach State, then an LOP. No PIP; providers bill whom they bill"
+   }
   }
  },
  "d2m2-a1": {
@@ -1347,7 +1858,50 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D1#40",
     "D1#44"
-   ]
+   ],
+   "framework": {
+    "title": "The Standard Treatment Map",
+    "kind": "table",
+    "head": [
+     "Phase",
+     "Window",
+     "Typical interventions",
+     "Case Manager focus"
+    ],
+    "rows": [
+     [
+      "Acute",
+      "Days 1–14",
+      "ER, imaging (MRI/CT), bracing, RICE, initial PT",
+      "Establishing causation and MedPay coverage"
+     ],
+     [
+      "Sub-Acute",
+      "Weeks 2–8",
+      "Active PT 2–3 times weekly, specialist follow-up",
+      "Functional gains; week-6 check: 20–30% better range of motion"
+     ],
+     [
+      "Restorative",
+      "Weeks 9–24",
+      "Work hardening, injections, psychological adjustment",
+      "Identifying barriers to return to work"
+     ],
+     [
+      "Maintenance",
+      "After week 24",
+      "Home exercise program, as-needed visits",
+      "Watching for the provider's MMI finding"
+     ],
+     [
+      "MMI",
+      "The endpoint",
+      "The provider finds further care won't improve the condition",
+      "Treatment closes; **pre-demand audit opens**"
+     ]
+    ],
+    "note": "Deviations from the map are the main trigger for denials and IMEs; name the variance before funding stops"
+   }
   }
  },
  "d2m2-a2": {
@@ -1452,7 +2006,30 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D1#28",
     "D1#44"
-   ]
+   ],
+   "framework": {
+    "title": "The A-C-T Immediate Action Protocol",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Assess",
+      "text": "Medical danger (fever, hardware failure) → the provider today; legal danger (gaps, generic notes) → Atty. Thorne"
+     },
+     {
+      "label": "Coordinate",
+      "text": "Clarify with the provider's office, then remove the barrier the client names: transport, scheduling, referrals"
+     },
+     {
+      "label": "Track",
+      "text": "Document the flag and each fix attempt that day: **counsel's why** if a provider is dropped"
+     },
+     {
+      "label": "Back to monitoring",
+      "text": "Track feeds the next check-in: is the plan working?"
+     }
+    ],
+    "note": "For a gap in care, Assess is already answered: a legal danger, routed to Atty. Thorne"
+   }
   }
  },
  "d2m3-a1": {
@@ -1560,7 +2137,49 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D1#44",
     "D1#39"
-   ]
+   ],
+   "framework": {
+    "title": "Treatment Red Flags",
+    "kind": "table",
+    "head": [
+     "Area",
+     "Red flag",
+     "What it signals"
+    ],
+    "rows": [
+     [
+      "Physical therapy",
+      "Over 12 sessions with no gain; no specialist or imaging suggested",
+      "A stalled plan, or care read as **over-treatment**"
+     ],
+     [
+      "Physical therapy",
+      "Passive care only: heat packs, TENS, massage, no active exercise",
+      "Feel-good care that adjusters discount"
+     ],
+     [
+      "Attendance",
+      "Two or more missed appointments",
+      "Defense argues the injury wasn't serious enough to treat"
+     ],
+     [
+      "Surgery",
+      "Surgery recommended before PT or injections, outside an emergency",
+      "A reasonable-and-necessary challenge"
+     ],
+     [
+      "Pain management",
+      "Opioid, muscle relaxant and sedative together; doses rising, diagnosis unchanged",
+      "A safety risk; treatment failing or dependency forming"
+     ],
+     [
+      "Records",
+      "Left and right switched; notes on life stress, not the collision",
+      "Credibility and causation weakened"
+     ]
+    ],
+    "note": "Under A-C-T, raise medical flags with the provider and legal flags with Atty. Thorne; you never direct care"
+   }
   }
  },
  "d2m3-a2": {
@@ -1681,7 +2300,49 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D2#4",
     "D1#40"
-   ]
+   ],
+   "framework": {
+    "title": "The Master Audit Checklist",
+    "kind": "table",
+    "head": [
+     "Audit area",
+     "Checkpoint",
+     "What to verify"
+    ],
+    "rows": [
+     [
+      "Financial and liens",
+      "Special Damages",
+      "Medical bills + lost wages + PD, every line documented"
+     ],
+     [
+      "Financial and liens",
+      "Lost wages",
+      "Employer's wage letter plus a provider's work note; without both, usually rejected"
+     ],
+     [
+      "Financial and liens",
+      "Lien resolution",
+      "**Every subrogation interest**: statutory, health plan, consensual LOP"
+     ],
+     [
+      "Liability proof",
+      "Report, witnesses, scene",
+      "Final report; witness contact and statement drift; the physics possible"
+     ],
+     [
+      "Property Damage deep dive",
+      "Photos, estimates, total loss",
+      "Point of impact clear; supplements show hidden structural damage"
+     ],
+     [
+      "Medical and billing",
+      "Chronology, coding, prior history",
+      "Every gap explained; no duplicate codes; 5–10 years of history"
+     ]
+    ],
+    "note": "Opened at MMI, when the incurred Specials are complete; every finding goes to Atty. Thorne, who sets the demand"
+   }
   }
  },
  "d2m4-a1": {
@@ -1774,7 +2435,30 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D2#3",
     "D2#9"
-   ]
+   ],
+   "framework": {
+    "title": "Core Objectives of the Pre-Demand Audit",
+    "kind": "list",
+    "steps": [
+     {
+      "label": "Verification",
+      "text": "Do the facts match the physical evidence: photos, the Police Report, the scene?"
+     },
+     {
+      "label": "Valuation",
+      "text": "Are damages calculated accurately: bills, wages and future care, each justified by a document?"
+     },
+     {
+      "label": "Risk Assessment",
+      "text": "Weak spots the defense will argue: comparative negligence, social media, a MIST label, venue"
+     },
+     {
+      "label": "Compliance",
+      "text": "Statutory requirements met before the demand issues, the **Statute of Limitations** first"
+     }
+    ],
+    "note": "The audit is the file's sanity check: the brief reports each objective's findings; Atty. Thorne draws the conclusions"
+   }
   }
  },
  "d2m4-a2": {
@@ -1878,7 +2562,26 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D2#19",
     "D2#13"
-   ]
+   ],
+   "framework": {
+    "title": "Demand Best Practices",
+    "kind": "list",
+    "steps": [
+     {
+      "label": "30-Day Rule",
+      "text": "At MMI the demand targets **MMI plus 30 days**; any later date is Atty. Thorne's"
+     },
+     {
+      "label": "Photo Impact",
+      "text": "Lead the demand with the most graphic photo, property damage or injury, to **set the tone**"
+     },
+     {
+      "label": "The Why Factor",
+      "text": "Every bill in the demand carries **why the treatment was necessary** for the client's recovery"
+     }
+    ],
+    "note": "Treat the carrier like a bank that hasn't paid its bill: the demand presents a debt owed."
+   }
   }
  },
  "d3m1-a1": {
@@ -1986,7 +2689,39 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D3#5",
     "D3#9"
-   ]
+   ],
+   "framework": {
+    "title": "How the UM Settlement Is Calculated",
+    "kind": "table",
+    "head": [
+     "Component",
+     "How it's calculated",
+     "On this file"
+    ],
+    "rows": [
+     [
+      "Total Case Value",
+      "Medical bills plus pain and suffering, as Atty. Thorne values them",
+      "Atty. Thorne's valuation"
+     ],
+     [
+      "BI Settlement Received",
+      "Minus the at-fault driver's maximum limit",
+      "– $10,000, Keystone's full BI limit"
+     ],
+     [
+      "UM Settlement Goal",
+      "The **remaining gap**, up to the UM limit",
+      "Harbor Point Host UM, up to $20,000"
+     ],
+     [
+      "Relative UM (excess)",
+      "Answers only above BI and Host UM",
+      "The gap above $30,000, up to $10,000"
+     ]
+    ],
+    "note": "An offset policy subtracts the BI from the UM limit; add-on pays on top (Harbor Point, 03/02/2026)."
+   }
   }
  },
  "d3m1-a2": {
@@ -2090,7 +2825,30 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D2#21",
     "D2#27"
-   ]
+   ],
+   "framework": {
+    "title": "The Negotiation Battle Map",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Create a Net Sheet",
+      "text": "Total the liens, costs and attorney's fee: below that, **the client receives $0**"
+     },
+     {
+      "label": "Identify the Value Drivers",
+      "text": "List three facts that would scare a jury; every call leads with them"
+     },
+     {
+      "label": "Anticipate the Adjuster's Response",
+      "text": "Name your **top two weaknesses** and the documents that justify them"
+     },
+     {
+      "label": "Prepare the Rebuttal",
+      "text": "Have the argument ready **before they bring it up**"
+     }
+    ],
+    "note": "Built before the first call. The CM presents the record; every move on the number is Atty. Thorne's."
+   }
   }
  },
  "d3m2-a1": {
@@ -2182,7 +2940,34 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D3#8",
     "D3#7"
-   ]
+   ],
+   "framework": {
+    "title": "The UM Demand Packet Inclusions",
+    "kind": "table",
+    "head": [
+     "Category",
+     "What goes in"
+    ],
+    "rows": [
+     [
+      "Evidence of Liability",
+      "Police Report, property-damage photos, witness statements, dashcam or surveillance footage"
+     ],
+     [
+      "Economic Damages",
+      "Itemized medical bills, complete medical records, lost wage verification, future medical estimates"
+     ],
+     [
+      "Non-Economic Damages",
+      "The demand letter, the client's impact statement, photos of injuries"
+     ],
+     [
+      "Proof of Exhaustion",
+      "Signed Limited Release, check copy, at-fault Dec Page, **Consent to Settle**"
+     ]
+    ],
+    "note": "To secure a UM settlement, the package shows the other driver's fault and damages above what's collected."
+   }
   }
  },
  "d3m2-a2": {
@@ -2284,7 +3069,39 @@ window.CM_CF_SLIDES = {
    ],
    "pages": [
     "D3#20"
-   ]
+   ],
+   "framework": {
+    "title": "Common Types of Liens",
+    "kind": "table",
+    "head": [
+     "Lien Type",
+     "Description",
+     "Negotiability"
+    ],
+    "rows": [
+     [
+      "Medical Providers",
+      "Doctors or hospitals treating on a Letter of Protection (LOP)",
+      "**High**: often take a reduction to get paid now"
+     ],
+     [
+      "Health Insurance",
+      "Private insurers seeking subrogation",
+      "Moderate: subject to the Made Whole or Common Fund doctrines"
+     ],
+     [
+      "Medicare · Medicaid",
+      "Government-funded programs",
+      "Low: strict federal or state formulas; slow to process"
+     ],
+     [
+      "ERISA Plans",
+      "Self-funded employer health plans",
+      "Very low: governed by federal law, notoriously hard to reduce"
+     ]
+    ],
+    "note": "Statutory claims have stronger legal backing than contractual ones. Every compromise needs Atty. Thorne's express authority."
+   }
   }
  },
  "d3m3-a1": {
@@ -2377,7 +3194,30 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D3#24",
     "D3#23"
-   ]
+   ],
+   "framework": {
+    "title": "Auditing the Billing to the Payoff",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Cross-Reference",
+      "text": "Records against bill: a Level 3 visit billed Level 5 is **corrected, not discounted**"
+     },
+     {
+      "label": "Duplicate Charges",
+      "text": "Look for overlapping dates, especially between hospital stays and individual physician groups"
+     },
+     {
+      "label": "Leverage the Common Fund",
+      "text": "In many states lienholders reduce by their share of fees and costs; Atty. Thorne argues it"
+     },
+     {
+      "label": "The Payoff Letter",
+      "text": "Never pay without a signed letter: **full and final satisfaction** of the lien"
+     }
+    ],
+    "note": "Corrections first, reductions second: never negotiate a percentage off an inflated bill."
+   }
   }
  },
  "d3m3-a2": {
@@ -2482,7 +3322,32 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D3#25",
     "D3#26"
-   ]
+   ],
+   "framework": {
+    "title": "The Net Sheet: Two Recovery Streams",
+    "kind": "table",
+    "head": [
+     "Stream",
+     "Source",
+     "CM Focus",
+     "On this file"
+    ],
+    "rows": [
+     [
+      "Stream 1: Third-Party BI",
+      "The at-fault driver's insurance company",
+      "Exhaust its limit first: usually **a legal prerequisite**",
+      "Keystone, $10,000"
+     ],
+     [
+      "Stream 2: First-Party UM/UIM",
+      "First-party coverage: a host vehicle's or resident relative's policy",
+      "Triggers only once BI is exhausted or the tortfeasor uninsured",
+      "Harbor Point $20,000 + Cardinal State $10,000"
+     ]
+    ],
+    "note": "Track each stream separately: fee terms can differ between BI and UM, and no dollar is counted twice."
+   }
   }
  },
  "d3m4-a1": {
@@ -2574,7 +3439,30 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D2#35",
     "D3#32"
-   ]
+   ],
+   "framework": {
+    "title": "The Disbursement Workflow",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Verification",
+      "text": "Review Ready for Payment files; confirm all **conditions precedent** are met"
+     },
+     {
+      "label": "Documentation",
+      "text": "Collect invoices and receipts; ensure each is legible and matches the claim"
+     },
+     {
+      "label": "Authorization",
+      "text": "Sign-off for release: **Atty. Thorne approves and signs**; the packet goes to accounting"
+     },
+     {
+      "label": "Reconciliation",
+      "text": "Confirm receipt of funds; update the case file to reflect Paid status"
+     }
+    ],
+    "note": "Disbursement serves accuracy, compliance and fraud prevention: no gate opens before the one before it closes."
+   }
   }
  },
  "d3m4-a2": {
@@ -2677,7 +3565,30 @@ window.CM_CF_SLIDES = {
    ],
    "pages": [
     "D2#29"
-   ]
+   ],
+   "framework": {
+    "title": "Common Adjuster Stall Tactics",
+    "kind": "table",
+    "head": [
+     "The stall",
+     "The rebuttal"
+    ],
+    "rows": [
+     [
+      "“I'm waiting on my manager's authority.”",
+      "Set **a firm reply date**; after it, the file goes to counsel"
+     ],
+     [
+      "“We need records from five years ago.”",
+      "Ask why they matter; expect a good-faith offer on undisputed injuries now"
+     ],
+     [
+      "“The property damage was too low for this injury.”",
+      "Low-velocity impacts can still injure the spine; point to the imaging"
+     ]
+    ],
+    "note": "Log every stall the day it happens; any new number is Atty. Thorne's to answer, never yours."
+   }
   }
  },
  "d4m1-a1": {
@@ -2770,7 +3681,38 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D5#31",
     "D4#4"
-   ]
+   ],
+   "framework": {
+    "title": "The Complaint, Section by Section",
+    "kind": "table",
+    "head": [
+     "Section",
+     "Core function"
+    ],
+    "rows": [
+     [
+      "1 · The Caption",
+      "Court name, the parties and the official case number"
+     ],
+     [
+      "2 · Jurisdiction",
+      "The legal basis for the court's authority to rule"
+     ],
+     [
+      "3 · Factual Allegations",
+      "The narrative: date, location and mechanics of the crash"
+     ],
+     [
+      "4 · Causes of Action",
+      "The legal claims asserted, such as negligence"
+     ],
+     [
+      "5 · Prayer for Relief",
+      "The explicit demand for legal remedies and money damages"
+     ]
+    ],
+    "note": "Counsel drafts the claims; you check each section's facts against the file. The case number stays “Pending” until filing."
+   }
   }
  },
  "d4m1-a2": {
@@ -2874,7 +3816,30 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D4#21",
     "D5#28"
-   ]
+   ],
+   "framework": {
+    "title": "Subpoena Issuance Process Flow",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Draft the Subpoena",
+      "text": "Fill out the court-approved Subpoena Duces Tecum, a command to produce documents"
+     },
+     {
+      "label": "Notice to Opposing Counsel",
+      "text": "Serve the defense a copy first; most states require **5 to 10 days' notice**"
+     },
+     {
+      "label": "Formal Service",
+      "text": "A process server delivers the subpoena to the facility's Registered Agent"
+     },
+     {
+      "label": "Track Compliance",
+      "text": "Call the facility's legal or records department 5 days before the deadline"
+     }
+    ],
+    "note": "Atty. Thorne decides whether to subpoena and signs it; you draft, docket each notice period and track compliance."
+   }
   }
  },
  "d4m2-a1": {
@@ -2966,7 +3931,44 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D4#5",
     "D4#20"
-   ]
+   ],
+   "framework": {
+    "title": "Extent of Decision-Making Power",
+    "kind": "table",
+    "head": [
+     "Element",
+     "Mediator",
+     "Arbitrator"
+    ],
+    "rows": [
+     [
+      "Role",
+      "Facilitator and negotiator",
+      "Private judge and finder of fact"
+     ],
+     [
+      "Decision authority",
+      "Zero: cannot force a settlement, rule or order payout",
+      "Total: issues **a binding Arbitration Award**"
+     ],
+     [
+      "Control of the outcome",
+      "The parties keep full control over whether to sign",
+      "Decides liability and damages, and can exclude evidence"
+     ],
+     [
+      "Review afterward",
+      "None needed: there is no ruling",
+      "Court review on narrow grounds only"
+     ],
+     [
+      "Your standard",
+      "Compromise focus",
+      "Trial-ready standard"
+     ]
+    ],
+    "note": "Court-ordered mediation compels attendance, never agreement. At both tables the Case Manager never argues or speaks for John Doe."
+   }
   }
  },
  "d4m2-a2": {
@@ -3078,7 +4080,42 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D4#7",
     "D4#8"
-   ]
+   ],
+   "framework": {
+    "title": "The Six-Section Mediation Binder",
+    "kind": "table",
+    "head": [
+     "Section",
+     "What goes in"
+    ],
+    "rows": [
+     [
+      "1 · Executive Summary & Administration",
+      "Snapshot sheet, mediation order or agreement, and the session schedule"
+     ],
+     [
+      "2 · The Mediation Briefs",
+      "Our confidential statement and the defense's brief, if exchanged"
+     ],
+     [
+      "3 · Core Pleadings",
+      "The operative complaint and the answer with its affirmative defenses"
+     ],
+     [
+      "4 · Key Evidence & Liability",
+      "Police report, photos and video stills, deposition summaries with highlighted pages"
+     ],
+     [
+      "5 · Damages, Financials & Experts",
+      "Medical chart and bills ledger, wage-loss proof, expert reports"
+     ],
+     [
+      "6 · Settlement History & Drafts",
+      "Negotiation log of every demand and offer, and a draft release"
+     ]
+    ],
+    "note": "Build three sets, for counsel, the mediator and John Doe, or one OCR-searchable digital set."
+   }
   }
  },
  "d4m3-a1": {
@@ -3170,7 +4207,42 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D4#25",
     "D4#21"
-   ]
+   ],
+   "framework": {
+    "title": "The Six-Tab Arbitration Binder",
+    "kind": "table",
+    "head": [
+     "Tab",
+     "What goes in"
+    ],
+    "rows": [
+     [
+      "1 · Arbitration Submissions",
+      "Snapshot sheet, final brief, governing order or agreement, fee disclosures"
+     ],
+     [
+      "2 · Arbitration Pleadings",
+      "The operative demand and each party's written position; no superseded versions"
+     ],
+     [
+      "3 · Liability & Biomechanics",
+      "Certified police report, diagrams, and photos and stills in **color, never grayscale**"
+     ],
+     [
+      "4 · Medical Damages",
+      "Consolidated medical ledger, provider treatment records and bills, imaging, causation opinion"
+     ],
+     [
+      "5 · The Prior Medical Shield",
+      "Prior injury records and work history, paired with a medical opinion"
+     ],
+     [
+      "6 · Economic Losses",
+      "Wage-loss proof only: employer letters, W-2s or tax returns"
+     ]
+    ],
+    "note": "Liens, the negotiation ledger, the tort complaint and answer stay in Atty. Thorne's set; nothing from mediation crosses over."
+   }
   }
  },
  "d4m3-a2": {
@@ -3273,7 +4345,49 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D4#33",
     "D4#35"
-   ]
+   ],
+   "framework": {
+    "title": "Common Bottlenecks in Mediation & Arbitration",
+    "kind": "table",
+    "head": [
+     "Forum",
+     "Bottleneck",
+     "What goes wrong"
+    ],
+    "rows": [
+     [
+      "Mediation",
+      "Unverified ledgers & liens",
+      "Unreconciled bills or missing final treatment logs make damages look unsupported"
+     ],
+     [
+      "Mediation",
+      "Missing decision-makers",
+      "A representative attends without **full settlement authority**"
+     ],
+     [
+      "Mediation",
+      "Confidential brief misalignment",
+      "Briefs arrive late or missing critical exhibits, stalling the mediator's preparation"
+     ],
+     [
+      "Arbitration",
+      "Evidentiary exclusions",
+      "Missing documents or low-quality grayscale prints can be excluded"
+     ],
+     [
+      "Arbitration",
+      "Pre-existing defense traps",
+      "Prior injury records left unshielded by an expert medical declaration"
+     ],
+     [
+      "Arbitration",
+      "Calendar & deadline misses",
+      "Unsynced windows for the neutral, or a missed brief cutoff"
+     ]
+    ],
+    "note": "Countermeasures: a 48-hour audit before every deadline, and early lien reconciliation against health-plan EOBs."
+   }
   }
  },
  "d4m4-a1": {
@@ -3364,7 +4478,26 @@ window.CM_CF_SLIDES = {
    ],
    "pages": [
     "D1#45"
-   ]
+   ],
+   "framework": {
+    "title": "The Three-Step Escalation Protocol",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Level 1: The Source",
+      "text": "Follow up with whoever owes the item, on the cadence; log date, method and result"
+     },
+     {
+      "label": "Level 2: Notice of Delay",
+      "text": "Written notice to the supervisor or office manager: what is outstanding, since when, the hard date"
+     },
+     {
+      "label": "Level 3: Atty. Thorne",
+      "text": "Send the five-field report; a motion to compel or subpoena is **his to choose**"
+     }
+    ],
+    "note": "Give each rung 48 hours after the second unanswered follow-up. With a hard date 10 days out, tell counsel in parallel."
+   }
   }
  },
  "d4m4-a2": {
@@ -3469,7 +4602,34 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D5#3",
     "D5#27"
-   ]
+   ],
+   "framework": {
+    "title": "The Litigation Lifecycle: Where You Fit In",
+    "kind": "table",
+    "head": [
+     "Phase",
+     "What happens",
+     "Your role"
+    ],
+    "rows": [
+     [
+      "Pleadings",
+      "File the Complaint, serve the defendant, receive the Answer",
+      "Track **service timelines** and draft the initial files"
+     ],
+     [
+      "Discovery",
+      "Interrogatories, Requests for Production, depositions",
+      "Calendar every response, gather the data, meet the client"
+     ],
+     [
+      "Trial prep",
+      "Expert disclosures, motion practice, trial or settlement",
+      "Coordinate schedules and update the final medicals"
+     ]
+    ],
+    "note": "Discovery is where you spend most of your litigation time; every phase runs on the court's deadlines, not an adjuster's."
+   }
   }
  },
  "d5m1-a1": {
@@ -3562,7 +4722,26 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D5#7",
     "D5#5"
-   ]
+   ],
+   "framework": {
+    "title": "Phase 3: Trial and Mediation Preparation",
+    "kind": "list",
+    "steps": [
+     {
+      "label": "The Final Run",
+      "text": "Litigation can take 1 to 3 years: rerun records from **every provider**, never the pre-lit package"
+     },
+     {
+      "label": "Subpoena Management",
+      "text": "Draft trial subpoenas for the witnesses Atty. Thorne names, so they legally appear"
+     },
+     {
+      "label": "Trial Binder Organization",
+      "text": "Exhibits from the litigation file, indexed and tabbed for the attorney at the counsel table"
+     }
+    ],
+    "note": "The Scheduling Order sets every date: pin it to the front of the file, with 30-, 14- and 7-day alerts."
+   }
   }
  },
  "d5m1-a2": {
@@ -3665,7 +4844,34 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D5#39",
     "D5#40"
-   ]
+   ],
+   "framework": {
+    "title": "Types of Damages You Can Recover",
+    "kind": "table",
+    "head": [
+     "Type of damage",
+     "What it covers",
+     "On a PD claim"
+    ],
+    "rows": [
+     [
+      "Economic (special)",
+      "Quantifiable financial losses, **proved by documents**",
+      "Repair, tow and storage, rental, Loss of Use, Diminished Value"
+     ],
+     [
+      "Non-economic (general)",
+      "Subjective losses: pain and suffering, emotional distress, loss of consortium",
+      "Claimed on the injury side, not the property side"
+     ],
+     [
+      "Punitive (exemplary)",
+      "Punishes egregious, reckless or intentional misconduct and deters others",
+      "Conduct such as DUI; none is pleaded on this file"
+     ]
+    ],
+    "note": "The goal is not a windfall: restore the owner to the financial position held before the incident."
+   }
   }
  },
  "d5m2-a1": {
@@ -3757,7 +4963,34 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D5#41",
     "D5#35"
-   ]
+   ],
+   "framework": {
+    "title": "Calculating the Value of the Claim",
+    "kind": "table",
+    "head": [
+     "Measure",
+     "How courts apply it",
+     "Its limit"
+    ],
+    "rows": [
+     [
+      "The lesser-of rule",
+      "The lesser of repair cost or the drop in market value",
+      "Costs more to fix than it was worth: a Total Loss"
+     ],
+     [
+      "Diminished Value",
+      "Market value a car still loses after a proper repair",
+      "Many courts add it to repair, kept under pre-loss value"
+     ],
+     [
+      "Special value",
+      "No market (an heirloom): some courts use actual value to the owner",
+      "Sentimental value is still excluded: **an exception, not the rule**"
+     ]
+    ],
+    "note": "Every measure starts from fair market value; confirm the governing rule with Atty. Thorne."
+   }
   }
  },
  "d5m2-a2": {
@@ -3861,7 +5094,38 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D5#9",
     "D5#10"
-   ]
+   ],
+   "framework": {
+    "title": "Preparing Your Client for a Deposition",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Pre-deposition audit",
+      "text": "Prior medical history, signed answers, public social media: landmines routed to Atty. Thorne"
+     },
+     {
+      "label": "Pillar 1: De-escalate",
+      "text": "No judge, no jury, no shouting: calm the client with **the process**, never a prediction"
+     },
+     {
+      "label": "Pillar 2: Testimony guidelines",
+      "text": "Pause, tell the truth, stop once answered: drilled on neutral questions only"
+     },
+     {
+      "label": "Pillar 3: Dress and demeanor",
+      "text": "Business casual, nothing flashy; limitations told plainly, never minimized or exaggerated"
+     },
+     {
+      "label": "Technology check",
+      "text": "A computer, camera at eye level, light in front, a quiet private room"
+     },
+     {
+      "label": "The day before",
+      "text": "Confirm date, time and link with the client, Atty. Thorne and the court reporter"
+     }
+    ],
+    "note": "Atty. Thorne prepares the substance; you prepare the person and the setting."
+   }
   }
  },
  "d5m3-a1": {
@@ -3952,7 +5216,39 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D5#16",
     "D5#17"
-   ]
+   ],
+   "framework": {
+    "title": "The 7 Golden Rules for Testifying",
+    "kind": "table",
+    "head": [
+     "Rule",
+     "What it says",
+     "Why it protects"
+    ],
+    "rows": [
+     [
+      "1",
+      "Always tell the absolute truth",
+      "A damaged case can be saved; **a lied-about one cannot**"
+     ],
+     [
+      "2 · 3",
+      "Pause two full seconds, then answer in words",
+      "Time to think, a clean transcript, a window to object"
+     ],
+     [
+      "4 · 5",
+      "Never guess; answer only what was asked, then stop",
+      "“I don't know” is a complete answer: the smallest target"
+     ],
+     [
+      "6 · 7",
+      "Hold the silence; don't try to win",
+      "A deposition gathers information; the legal battle is Atty. Thorne's"
+     ]
+    ],
+    "note": "Questions fall into four categories: background, crash mechanics, medical history, daily life. Clients underreport medical history most."
+   }
   }
  },
  "d5m3-a2": {
@@ -4051,7 +5347,39 @@ window.CM_CF_SLIDES = {
      "text": "An index answering each pleaded allegation with **evidence that can come in**, built for Atty. Thorne's analysis"
     }
    ],
-   "pages": []
+   "pages": [],
+   "framework": {
+    "title": "The Liability Counter-Package",
+    "kind": "table",
+    "head": [
+     "Defense pleaded",
+     "What it targets",
+     "Evidence that answers"
+    ],
+    "rows": [
+     [
+      "Entered the stop out of turn",
+      "Kevin Alvarez's driving, not John's",
+      "Ruth Calloway, the doorbell video, the point of impact; EDR corroborates"
+     ],
+     [
+      "Unbelted passenger",
+      "John's seatbelt use",
+      "EDR: belt buckled; EMS: “restrained front-seat passenger”"
+     ],
+     [
+      "Failure to mitigate",
+      "19 days without visits, 04/02 → 04/21/2026",
+      "The A-C-T record: the 04/08 call, extension refused 04/10, evening slots"
+     ],
+     [
+      "Causation",
+      "The 14-Day Gap; the “degenerative” MRI",
+      "The Gap Record: four reasons, EMS neck complaint, Causation Letter"
+     ]
+    ],
+    "note": "Every item carries its source, its authenticating witness and **its chain of custody**; its weight is Atty. Thorne's call."
+   }
   }
  },
  "d5m4-a1": {
@@ -4143,7 +5471,34 @@ window.CM_CF_SLIDES = {
    ],
    "pages": [
     "D5#22"
-   ]
+   ],
+   "framework": {
+    "title": "The Evading Defendant Protocol",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Attempts fail",
+      "text": "Log each attempt's date, time and address; follow up with the server every 5 days"
+     },
+     {
+      "label": "Skip-Trace",
+      "text": "On Atty. Thorne's authority, licensed databases check utility, employment and **active-address records**"
+     },
+     {
+      "label": "Vary the windows",
+      "text": "The server tries early mornings, evenings and weekends where the court's rules allow"
+     },
+     {
+      "label": "Alternative service",
+      "text": "Atty. Thorne may ask the court to permit service by mail or posting"
+     },
+     {
+      "label": "Proof of service",
+      "text": "The signed affidavit of service is filed with the court, never left in email"
+     }
+    ],
+    "note": "Unserved before the court's deadline, a case can be dismissed: confirm the court's rule."
+   }
   }
  },
  "d5m4-a2": {
@@ -4245,7 +5600,44 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D3#25",
     "D3#21"
-   ]
+   ],
+   "framework": {
+    "title": "The BI/UM Master Financial Ledger",
+    "kind": "table",
+    "head": [
+     "Net Sheet section",
+     "What it records",
+     "On a litigated file"
+    ],
+    "rows": [
+     [
+      "Recovery summary",
+      "Gross recovery by stream, each with its source",
+      "BI tendered at mediation; both UM awards at arbitration"
+     ],
+     [
+      "Attorney fees",
+      "The fee on each stream, confirmed from the retainer",
+      "The **40% tier** once suit is filed"
+     ],
+     [
+      "Case expenses",
+      "Every advanced cost, each with its receipt",
+      "Filing, service, mediation, arbitration, reporter, records, plus pre-suit costs"
+     ],
+     [
+      "Provider ledger",
+      "Charges, payments, adjustments, balance owed, reduction",
+      "Only liens owed; reductions follow the fee actually charged"
+     ],
+     [
+      "Net to client",
+      "Gross minus fees, costs and reduced liens",
+      "Shown line by line before John Doe signs"
+     ]
+    ],
+    "note": "Nothing leaves trust until both UM checks clear and every Payoff Letter is in Documents."
+   }
   }
  },
  "d5m5-a1": {

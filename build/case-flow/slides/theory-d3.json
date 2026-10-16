@@ -7,7 +7,17 @@
       {"term": "The Why Factor", "text": "Every bill carries **why the treatment was necessary**: the adjuster evaluates a documented recovery, not a pile of invoices."},
       {"term": "The Final Scrub", "text": "Before it goes out, check for **common adjuster traps**: billing overlaps, an unexplained pre-existing condition, unverified balances."}
     ],
-    "pages": ["D2#19", "D2#13"]
+    "pages": ["D2#19", "D2#13"],
+    "framework": {
+      "title": "Demand Best Practices",
+      "kind": "list",
+      "steps": [
+        {"label": "30-Day Rule", "text": "At MMI the demand targets **MMI plus 30 days**; any later date is Atty. Thorne's"},
+        {"label": "Photo Impact", "text": "Lead the demand with the most graphic photo, property damage or injury, to **set the tone**"},
+        {"label": "The Why Factor", "text": "Every bill in the demand carries **why the treatment was necessary** for the client's recovery"}
+      ],
+      "note": "Treat the carrier like a bank that hasn't paid its bill: the demand presents a debt owed."
+    }
   },
   "d3m1-l2": {
     "lead": "UM is **the client's financial safety net**: once the at-fault policy is exhausted, first-party coverage makes up the difference, up to its limits.",
@@ -21,7 +31,19 @@
       {"term": "Offset vs. Add-On", "text": "An offset policy subtracts the BI from its UM limit; **add-on or stacked coverage** pays on top."},
       {"term": "Relative UM as Excess", "text": "Relative UM answers only **above the primary layers**: the gap it pays starts where BI and Host UM end."}
     ],
-    "pages": ["D3#5", "D3#9"]
+    "pages": ["D3#5", "D3#9"],
+    "framework": {
+      "title": "How the UM Settlement Is Calculated",
+      "kind": "table",
+      "head": ["Component", "How it's calculated", "On this file"],
+      "rows": [
+        ["Total Case Value", "Medical bills plus pain and suffering, as Atty. Thorne values them", "Atty. Thorne's valuation"],
+        ["BI Settlement Received", "Minus the at-fault driver's maximum limit", "– $10,000, Keystone's full BI limit"],
+        ["UM Settlement Goal", "The **remaining gap**, up to the UM limit", "Harbor Point Host UM, up to $20,000"],
+        ["Relative UM (excess)", "Answers only above BI and Host UM", "The gap above $30,000, up to $10,000"]
+      ],
+      "note": "An offset policy subtracts the BI from the UM limit; add-on pays on top (Harbor Point, 03/02/2026)."
+    }
   },
   "d3m2-l1": {
     "lead": "In PI law the demand letter is **your opening move**; adjusters protect the carrier by undervaluing claims, so negotiation is prepared, not improvised.",
@@ -31,7 +53,18 @@
       {"term": "Anticipate the Response", "text": "Name your **top two weaknesses** before the adjuster does, and have the documents that answer them in hand."},
       {"term": "The Professional Pause", "text": "Silence after a low number **shifts the burden back**: the adjuster must justify the figure with data."}
     ],
-    "pages": ["D2#21", "D2#27"]
+    "pages": ["D2#21", "D2#27"],
+    "framework": {
+      "title": "The Negotiation Battle Map",
+      "kind": "flow",
+      "steps": [
+        {"label": "Create a Net Sheet", "text": "Total the liens, costs and attorney's fee: below that, **the client receives $0**"},
+        {"label": "Identify the Value Drivers", "text": "List three facts that would scare a jury; every call leads with them"},
+        {"label": "Anticipate the Adjuster's Response", "text": "Name your **top two weaknesses** and the documents that justify them"},
+        {"label": "Prepare the Rebuttal", "text": "Have the argument ready **before they bring it up**"}
+      ],
+      "note": "Built before the first call. The CM presents the record; every move on the number is Atty. Thorne's."
+    }
   },
   "d3m2-l2": {
     "lead": "A UM settlement is won on paper: the package shows the other driver's fault and that **damages exceed what's collected**.",
@@ -41,7 +74,19 @@
       {"term": "The Bracketing Technique", "text": "Paired ranges that **build a bridge** across a gap, then close in the middle. Atty. Thorne makes every move."},
       {"term": "PIP Set-Off", "text": "In no-fault states the law generally bars **double recovery**: value minus PIP paid is what the defendant still owes."}
     ],
-    "pages": ["D3#8", "D3#7"]
+    "pages": ["D3#8", "D3#7"],
+    "framework": {
+      "title": "The UM Demand Packet Inclusions",
+      "kind": "table",
+      "head": ["Category", "What goes in"],
+      "rows": [
+        ["Evidence of Liability", "Police Report, property-damage photos, witness statements, dashcam or surveillance footage"],
+        ["Economic Damages", "Itemized medical bills, complete medical records, lost wage verification, future medical estimates"],
+        ["Non-Economic Damages", "The demand letter, the client's impact statement, photos of injuries"],
+        ["Proof of Exhaustion", "Signed Limited Release, check copy, at-fault Dec Page, **Consent to Settle**"]
+      ],
+      "note": "To secure a UM settlement, the package shows the other driver's fault and damages above what's collected."
+    }
   },
   "d3m3-l1": {
     "lead": "Not all liens are created equal: **legal backing decides negotiability**, from statutory claims that bend least to provider balances that bend most.",
@@ -51,7 +96,19 @@
       {"term": "Medicare and Medicaid", "text": "Government payers bound by **strict federal or state formulas**: low negotiability, and slow to process."},
       {"term": "ERISA Plans", "text": "Self-funded employer plans governed by federal law: **very low negotiability**, notoriously difficult to reduce."}
     ],
-    "pages": ["D3#20"]
+    "pages": ["D3#20"],
+    "framework": {
+      "title": "Common Types of Liens",
+      "kind": "table",
+      "head": ["Lien Type", "Description", "Negotiability"],
+      "rows": [
+        ["Medical Providers", "Doctors or hospitals treating on a Letter of Protection (LOP)", "**High**: often take a reduction to get paid now"],
+        ["Health Insurance", "Private insurers seeking subrogation", "Moderate: subject to the Made Whole or Common Fund doctrines"],
+        ["Medicare · Medicaid", "Government-funded programs", "Low: strict federal or state formulas; slow to process"],
+        ["ERISA Plans", "Self-funded employer health plans", "Very low: governed by federal law, notoriously hard to reduce"]
+      ],
+      "note": "Statutory claims have stronger legal backing than contractual ones. Every compromise needs Atty. Thorne's express authority."
+    }
   },
   "d3m3-l2": {
     "lead": "Before you ask for a discount, make sure the bill is accurate: an error earns **a demand for correction**, not a favor.",
@@ -61,7 +118,18 @@
       {"term": "Pro-Rata Distribution", "text": "Equal-priority liens split a short fund **in proportion**: each lien's amount over all liens, times what's left."},
       {"term": "The Common Fund Doctrine", "text": "The lienholder shouldn't get **a free ride** on the work and costs that created the fund it's repaid from."}
     ],
-    "pages": ["D3#24", "D3#23"]
+    "pages": ["D3#24", "D3#23"],
+    "framework": {
+      "title": "Auditing the Billing to the Payoff",
+      "kind": "flow",
+      "steps": [
+        {"label": "Cross-Reference", "text": "Records against bill: a Level 3 visit billed Level 5 is **corrected, not discounted**"},
+        {"label": "Duplicate Charges", "text": "Look for overlapping dates, especially between hospital stays and individual physician groups"},
+        {"label": "Leverage the Common Fund", "text": "In many states lienholders reduce by their share of fees and costs; Atty. Thorne argues it"},
+        {"label": "The Payoff Letter", "text": "Never pay without a signed letter: **full and final satisfaction** of the lien"}
+      ],
+      "note": "Corrections first, reductions second: never negotiate a percentage off an inflated bill."
+    }
   },
   "d3m4-l1": {
     "lead": "The Net Sheet is the tool for **transparency and case control**: it shows every dollar's origin and destination before anything leaves trust.",
@@ -71,7 +139,17 @@
       {"term": "The Double-Dipping Trap", "text": "Carriers audit files closely; tracing every dollar's source keeps liens paid correctly, **without cross-contaminating funds**."},
       {"term": "The Final Aggregate Net", "text": "Both streams side by side show the client **the compounding power** of the coverages and what negotiation added."}
     ],
-    "pages": ["D3#25", "D3#26"]
+    "pages": ["D3#25", "D3#26"],
+    "framework": {
+      "title": "The Net Sheet: Two Recovery Streams",
+      "kind": "table",
+      "head": ["Stream", "Source", "CM Focus", "On this file"],
+      "rows": [
+        ["Stream 1: Third-Party BI", "The at-fault driver's insurance company", "Exhaust its limit first: usually **a legal prerequisite**", "Keystone, $10,000"],
+        ["Stream 2: First-Party UM/UIM", "First-party coverage: a host vehicle's or resident relative's policy", "Triggers only once BI is exhausted or the tortfeasor uninsured", "Harbor Point $20,000 + Cardinal State $10,000"]
+      ],
+      "note": "Track each stream separately: fee terms can differ between BI and UM, and no dollar is counted twice."
+    }
   },
   "d3m4-l2": {
     "lead": "The release is **the contract that ends the dispute**; disbursement then moves money only through verification, documentation, authorization and reconciliation.",
@@ -81,6 +159,17 @@
       {"term": "Satisfaction of Lien", "text": "A provider's signed letter that its lien is paid: it **prevents collections against the client** later."},
       {"term": "Dismissal With Prejudice", "text": "Where suit was filed, the court is told it's over; with prejudice means the case **can't be refiled**."}
     ],
-    "pages": ["D2#35", "D3#32"]
+    "pages": ["D2#35", "D3#32"],
+    "framework": {
+      "title": "The Disbursement Workflow",
+      "kind": "flow",
+      "steps": [
+        {"label": "Verification", "text": "Review Ready for Payment files; confirm all **conditions precedent** are met"},
+        {"label": "Documentation", "text": "Collect invoices and receipts; ensure each is legible and matches the claim"},
+        {"label": "Authorization", "text": "Sign-off for release: **Atty. Thorne approves and signs**; the packet goes to accounting"},
+        {"label": "Reconciliation", "text": "Confirm receipt of funds; update the case file to reflect Paid status"}
+      ],
+      "note": "Disbursement serves accuracy, compliance and fraud prevention: no gate opens before the one before it closes."
+    }
   }
 }

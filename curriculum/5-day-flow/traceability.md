@@ -27,7 +27,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#15` | Bottleneck: Communication Gaps | ✅ BUILT | d1m1-l1 |
 | `D1#16` | Tools for Case Planning & the PI Case Lifecycle Strategy | ✅ BUILT | d1m1-case, d1m1-l1, d1m3-a2, d1m4-a1 |
 | `D1#17` | Skill Building: Intake Decision Challenge & Applied Case Manager Actions | ✅ BUILT | d1m4-l1 |
-| `D1#18` | Claim Set-Up: Coverage Determination & Liability Assessment | ✅ BUILT | d1m1-l1, d1m1-a1, d1m1-kc, d1m4-a2, d2m1-l2, d2m1-a2, d2m1-kc, d5m4-kc |
+| `D1#18` | Claim Set-Up: Coverage Determination & Liability Assessment | ✅ BUILT | d1m1-l1, d1m1-a1, d1m1-kc, d1m4-a2, d2m1-cov, d2m1-l2, d2m1-a2, d2m1-kc, d5m4-kc |
 | `D1#19` | Claim Set-Up: Case Projection — Why the Three Work Together | ✅ BUILT | d1m1-case, d1m1-a1, d1m1-kc, d1m4-l1, d1m4-a2, d2m1-l2 |
 | `D1#20` | Case Study: John Doe v. Apex — Coverage Analysis | ✅ BUILT | d1m1-a1, d1m1-kc, d2m1-l2, d2m1-a2, d2m1-kc |
 | `D1#21` | Case Study: John Doe v. Apex — Liability Determination | ✅ BUILT | d1m4-l1, d2m1-l1, d2m1-a1 |
@@ -81,11 +81,11 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D2#17` | Demand: Best Practices | ✅ BUILT | d3m1-l1, d3m1-a1 |
 | `D2#18` | Skill Building: Demand Phase Challenge — Real-Time Demand Audit | ✅ BUILT | d3m1-a1, d3m1-kc |
 | `D2#19` | Settlement Negotiations: The Pitch & the Negotiation Battle Map | ✅ BUILT | d3m2-l1, d3m2-kc |
-| `D2#20` | The Valuation Baseline: PIP Set-Off (The Credit) | ✅ BUILT | d3m2-l2, d3m2-kc |
+| `D2#20` | The Valuation Baseline: PIP Set-Off (The Credit) | ✅ BUILT | d2m1-cov, d3m2-l2, d3m2-kc |
 | `D2#21` | The Valuation Baseline: PIP as a Severity Signal | ✅ BUILT | d3m2-l1 |
 | `D2#22` | The Valuation Baseline: The EMC and the Benefit Ceiling | ✅ BUILT | d3m2-l2 |
-| `D2#23` | The Valuation Baseline: Subrogation vs. Non-Subrogation | ✅ BUILT | d3m2-l2, d3m2-kc |
-| `D2#24` | The Valuation Baseline: Strategic PIP “Exhaustion” | ✅ BUILT | d3m2-l1 |
+| `D2#23` | The Valuation Baseline: Subrogation vs. Non-Subrogation | ✅ BUILT | d2m1-cov, d3m2-l2, d3m2-kc |
+| `D2#24` | The Valuation Baseline: Strategic PIP “Exhaustion” | ✅ BUILT | d2m1-cov, d3m2-l1 |
 | `D2#25` | Negotiations Initiated: The “Battle” — First Call to Low-Ball | ✅ BUILT | d3m2-l1, d3m2-a1 |
 | `D2#26` | Settlement Negotiations: The Bracketing Technique | ✅ BUILT | d3m2-l2, d3m2-a2 |
 | `D2#27` | Common Adjuster “Stall Tactics” and Rebuttals | ✅ BUILT | d3m2-l1, d3m2-a1, d3m2-kc |

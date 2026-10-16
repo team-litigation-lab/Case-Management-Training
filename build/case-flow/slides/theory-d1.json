@@ -7,7 +7,20 @@
       {"term": "Case Planning & Strategy Support", "text": "You build the plan and recommend next steps; **strategy itself stays** with Atty. Thorne"},
       {"term": "Case Health Analysis", "text": "Reading the whole file for risk, not single tasks: **spotting the weak point** before it costs the client"}
     ],
-    "pages": ["D1#3", "D1#4"]
+    "pages": ["D1#3", "D1#4"],
+    "framework": {
+      "title": "The General Process",
+      "kind": "flow",
+      "steps": [
+        {"label": "Intake & Case Opening", "text": "Verify the facts, run the Conflict Check and open the file in the CMS"},
+        {"label": "Case Planning & Strategy Support", "text": "Draft the Case Plan and recommend next steps; **Atty. Thorne sets strategy**"},
+        {"label": "Documentation & File Management", "text": "Request, name and file every document; the CMS is the single source of truth"},
+        {"label": "Communication Management", "text": "Keep the client, carriers and providers updated; log every contact the same day"},
+        {"label": "Case Monitoring & Tracking", "text": "Docket every deadline, watch progress and flag risk to counsel the day you see it"},
+        {"label": "Billing, Resolution & Closing", "text": "Support the billing and lien records through resolution, then close a complete file"}
+      ],
+      "note": "Seven stages on one track; billing support and closing run together at the end of the file."
+    }
   },
   "d1m1-case": {
     "lead": "Every file is worked from **its verified facts**: who was hurt, how, which policies apply, and what could weaken the claim.",
@@ -17,7 +30,20 @@
       {"term": "Critical Case Event", "text": "The one fact the defense will build on; name it early so **counsel plans around it**"},
       {"term": "The Source Documents", "text": "Intake sheet, supplement and Police Report are the file's sources: **quote the document**, never your memory"}
     ],
-    "pages": ["D1#16"]
+    "pages": ["D1#16"],
+    "framework": {
+      "title": "The Structured Intake Questions",
+      "kind": "table",
+      "head": ["Question", "On this file"],
+      "rows": [
+        ["Who", "John Doe, passenger; Robert Smith, defendant; Kevin Alvarez, host driver"],
+        ["What", "A collision into the Escape's passenger door; EMS noted neck stiffness"],
+        ["When", "02/06/2026, about 7:10 a.m.; SOL docketed 02/06/2028"],
+        ["Where", "The all-way stop at Maple Hollow Rd & Birch Ave"],
+        ["How", "Robert Smith **ran the stop**; Riverton PD cited him (RPD-26-018842)"]
+      ],
+      "note": "Every answer comes from a document; ambiguous facts of loss or liability go to Atty. Thorne for review."
+    }
   },
   "d1m1-l1": {
     "lead": "Intake is where you establish **control, structure and clarity**: verifying facts and mapping every party to the policy it unlocks.",
@@ -31,7 +57,19 @@
       {"term": "Per-Person vs. Per-Accident Limits", "text": "A split limit caps each injured person at the first figure and **the whole accident** at the second; read both"},
       {"term": "The Declaration Page", "text": "The carrier's statement of the named insured, covered vehicles, coverages and limits: **written proof of coverage**"}
     ],
-    "pages": ["D1#21", "D1#22"]
+    "pages": ["D1#21", "D1#22"],
+    "framework": {
+      "title": "The Intake Workflow",
+      "kind": "flow",
+      "steps": [
+        {"label": "Raw File Received", "text": "The file arrives from “On the Records”; read it end to end first"},
+        {"label": "Review & Verify Details", "text": "Check the DOL, parties and signatures against the Police Report, not the intake note"},
+        {"label": "Conflict Check Completed", "text": "Run it on every party's **full legal name**; log its date and result"},
+        {"label": "Approved or Escalated", "text": "Complete intake moves to acceptance; incomplete intake goes back, uncertain eligibility to Atty. Thorne"},
+        {"label": "File Created and Logged", "text": "Open the matter in the CMS: six roles mapped, SOL docketed, documents named"}
+      ],
+      "note": "Nothing moves before the Conflict Check is documented; coverage is then read off the Declaration Page."
+    }
   },
   "d1m1-l2": {
     "lead": "Before clinical planning, the **Regulatory Triple-Check** establishes the claim and your authority to act; the Payer Order then decides who funds care.",
@@ -41,7 +79,18 @@
       {"term": "Letter of Protection", "text": "The firm's written promise to pay a provider from the settlement: **last in the Payer Order**"},
       {"term": "The Client's Net", "text": "What the client keeps once fees, costs and liens are paid: **a late-flagged lien** comes straight out of it"}
     ],
-    "pages": ["D1#25", "D1#22"]
+    "pages": ["D1#25", "D1#22"],
+    "framework": {
+      "title": "The Regulatory Triple-Check",
+      "kind": "table",
+      "head": ["Check", "What you do", "Why it matters"],
+      "rows": [
+        ["HIPAA Compliance", "Obtain a claim-specific authorization naming the incident date", "A standard release may not be adequate for injury claims"],
+        ["Medicare/Medicaid Reporting", "If 65+ or on SSDI, report the case to the BCRC", "Avoids federal penalties and **settlement freezes** under MMSEA"],
+        ["Subrogation Management", "Set the Payer Order: PIP/MedPay → private health insurance → LOP/provider liens", "Each bill reaches the right payer; reimbursement rights surface early"]
+      ],
+      "note": "Clear all three before clinical planning begins: the claim is established and you are authorized to act."
+    }
   },
   "d1m2-l1": {
     "lead": "The No Contact Protocol is a **formal due-diligence record**: it tracks silence, proves the firm tried, and protects it from liability.",
@@ -51,7 +100,21 @@
       {"term": "Approved Channels", "text": "The contact methods the client and firm agreed at intake; **only approved channels** count as a valid attempt"},
       {"term": "Emergency Contact", "text": "A second person, collected at intake, who can **still reach the client** after they go quiet"}
     ],
-    "pages": ["D1#11", "D1#9"]
+    "pages": ["D1#11", "D1#9"],
+    "framework": {
+      "title": "Common Intake Bottlenecks",
+      "kind": "table",
+      "head": ["Bottleneck", "How it shows up"],
+      "rows": [
+        ["Incomplete Client Information", "Missing contact details or incident facts; no supporting documents"],
+        ["Delayed Client Follow-Up", "**Unanswered clarification requests**, missed verification calls, slow documents"],
+        ["Conflict Check Delays", "System backlog, incomplete entries, unclear opposing party information"],
+        ["Intake Form Errors", "Incorrect dates, inconsistent statements, missing signatures, misfiled records"],
+        ["Case Eligibility Uncertainty", "Ambiguous facts of loss or liability needing attorney review"],
+        ["Communication Gaps", "Incomplete intake packets; miscommunication between departments"]
+      ],
+      "note": "A silent client is Delayed Client Follow-Up: the No Contact Protocol clears it, one logged attempt at a time."
+    }
   },
   "d1m2-l2": {
     "lead": "The Final Warning Letter **closes the outreach record**: one last documented notice before the firm searches for the client or counsel moves to withdraw.",
@@ -61,7 +124,17 @@
       {"term": "Skip-Trace", "text": "A paid search for a missing person's current address and contacts; **counsel authorizes it** because it spends firm money"},
       {"term": "Withdrawal", "text": "Ending representation by Notice of Withdrawal or Motion to Withdraw; **only the attorney decides**, under firm and court rules"}
     ],
-    "pages": []
+    "pages": [],
+    "framework": {
+      "title": "The No Contact Protocol, Steps 4–6",
+      "kind": "flow",
+      "steps": [
+        {"label": "Final Warning Letter", "text": "Earlier attempts itemized, a 7–14 day deadline, withdrawal notice; certified mail AND email"},
+        {"label": "Decision Point", "text": "Still no response: **the attorney decides** on a Notice or Motion to Withdraw"},
+        {"label": "File Closure", "text": "Marked “No response – withdrew per protocol”; proof of every attempt retained"}
+      ],
+      "note": "Skip-tracing waits for all three: ladder exhausted, letter sent, deadline passed. Counsel authorizes it."
+    }
   },
   "d1m3-l1": {
     "lead": "Client instructions protect the claim from **the client's own good intentions**: what the client says, posts, signs or skips can become evidence.",
@@ -71,7 +144,18 @@
       {"term": "Letter of Representation", "text": "The notice that the firm represents the client; from then on, adverse contact **routes through the firm**"},
       {"term": "Rate Cap and Duration", "text": "The authorized daily rate and number of days; **anything beyond them** is the client's own cost"}
     ],
-    "pages": ["D1#44", "D1#28"]
+    "pages": ["D1#44", "D1#28"],
+    "framework": {
+      "title": "The Rental Authorization Check",
+      "kind": "flow",
+      "steps": [
+        {"label": "Whose Policy Is Primary?", "text": "The renter's own policy is usually primary; the rental company follows a written denial"},
+        {"label": "Who Authorizes?", "text": "Confirm who authorizes the rental and check for a rental reimbursement endorsement"},
+        {"label": "Daily Rate Cap", "text": "Record the authorized daily rate before the client collects a vehicle"},
+        {"label": "Duration Limit", "text": "Record the number of covered days: **uncovered days are the client's cost**"}
+      ],
+      "note": "All four go in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
+    }
   },
   "d1m3-l2": {
     "lead": "Property Damage is **a separate claim** with its own measure: repair or total, set against the vehicle's pre-loss value.",
@@ -81,7 +165,19 @@
       {"term": "Total Loss Threshold", "text": "The repair-to-ACV percentage at which a carrier stops repairing and **pays the value instead**"},
       {"term": "The Valuation Report", "text": "The carrier's market-based report that sets ACV; **verify it line by line** so the client isn't lowballed"}
     ],
-    "pages": ["D2#6"]
+    "pages": ["D2#6"],
+    "framework": {
+      "title": "Property Damage (PD) Deep Dive",
+      "kind": "table",
+      "head": ["Check", "What you audit", "Why it matters"],
+      "rows": [
+        ["Photos", "Point-of-impact clarity, including the undercarriage and frame", "Physical proof of the impact behind the injury claim"],
+        ["Estimates vs. Actuals", "The insurance estimate against the final body shop bill", "**Supplementals prove hidden** structural damage"],
+        ["Total Loss/Value", "The CCC One or other Valuation Report, line by line", "So the client isn't lowballed on the vehicle's value"],
+        ["The Scene Audit", "Photos, video and damage against how the crash happened", "The physics of the claim must be possible"]
+      ],
+      "note": "Audit Property Damage as carefully as the medicals: it is physical evidence of how hard the impact was."
+    }
   },
   "d1m4-l1": {
     "lead": "Early evaluation joins **coverage, liability and projection**: is there money, who is responsible, and how the case is likely to move.",
@@ -91,7 +187,18 @@
       {"term": "Case Projection", "text": "An early read of risk and trajectory from coverage, liability, injury, treatment and documents; **value stays with counsel**"},
       {"term": "Strict Compliance", "text": "In a legal framework, case management shifts from **best efforts to strict compliance**: every plan deadline is docketed"}
     ],
-    "pages": ["D1#21", "D1#22"]
+    "pages": ["D1#21", "D1#22"],
+    "framework": {
+      "title": "Why These Three Work Together",
+      "kind": "table",
+      "head": ["Element", "The question", "What you check"],
+      "rows": [
+        ["Coverage", "Is there money to pay the claim?", "Valid policies, coverage type, limits, exclusions and gaps"],
+        ["Liability", "Who is responsible, and to what degree?", "Who caused it; clear, shared or disputed; evidence; comparative negligence"],
+        ["Projection", "How is this case likely to move?", "Coverage, liability, injury severity, treatment expectations, documentation quality"]
+      ],
+      "note": "Projection reads risk and trajectory; it stays preliminary until coverage is confirmed, and case value stays with Atty. Thorne."
+    }
   },
   "d1m4-l2": {
     "lead": "A case plan is a **living, approved document**: drafted in structure, reviewed by counsel, then run.",
@@ -101,6 +208,18 @@
       {"term": "Pre-Confirmation Stage", "text": "A conclusion still awaiting its proof; when the proof arrives and differs, **the plan is re-routed**"},
       {"term": "The Audit Trail", "text": "The CMS keeps every version unaltered, so **each approval is provable**, and every note is discoverable"}
     ],
-    "pages": ["D1#25"]
+    "pages": ["D1#25"],
+    "framework": {
+      "title": "Mandatory Disclosure & Compliance Tracking",
+      "kind": "table",
+      "head": ["Requirement", "What the plan tracks"],
+      "rows": [
+        ["Electronic Record Integrity", "A CMS that keeps an **unalterable audit trail** of every version"],
+        ["State-Specific Timelines", "Carrier-mandated deadlines, such as an early IME in no-fault states"],
+        ["Letter of Protection (LOP)", "Providers treating under an LOP, so no bill arrives as a surprise"],
+        ["The Golden Rule", "Medical plan and legal claim as parallel tracks: coordinate, don't commingle"]
+      ],
+      "note": "The file is discoverable in litigation: write every plan note as if defense counsel will read it."
+    }
   }
 }
