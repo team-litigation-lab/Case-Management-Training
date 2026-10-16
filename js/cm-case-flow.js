@@ -61,6 +61,7 @@ function layoutOf(s){
 /* ---------- build the days ---------- */
 const MODULES = [];   // the day objects, in order
 const BY_ID = {};
+const QUIZ_N = 20;   // every Case Flow day's Knowledge Check quiz: 20 questions
 
 /* Where each block is stored: its module is its unit of scoring (the Knowledge Check, its quiz share,
    the Self-Summary and Skill Scale, the trainer's 40%). Where it is taught is the sequence below. */
@@ -103,6 +104,7 @@ SEQUENCE.forEach(seq => {
       if(b.kind === "check") (mod.quiz || []).forEach(q => { quiz.push(q); quizMod.push(mod.id); });
     });
   });
+  quiz.splice(QUIZ_N); quizMod.splice(QUIZ_N);   // every day's Knowledge Check: 20 questions
   const blocksOf = ph => ph.blocks.map(id => STORED[id]).filter(Boolean).map(x => x.block);
   const d = {
     id: day.id,
@@ -1510,12 +1512,12 @@ if(typeof submitQuiz === "function"){
    against its rubric, automatically (no separate "Submit for review"); the results fit one screen. */
 const words3 = (x, n) => String(x || "").trim().split(/\s+/).filter(Boolean).length >= n;
 const kcMods = d => d.lessons.filter(l => l.cf.block.kind === "check").map(l => ({b: l.cf.block, mod: l.cf.mod, ph: l.cf.phase}));
+// The bonus round is one takeaway per module: the Self-Summary's first prompt, in a few sentences
+const TAKEAWAY_MIN = 8;
+const takeawayOf = b => b.check.summary[0];
 function modMissing(b, modId){   // what's left to do on a module's Learning Check, or "" when it's complete
-  const m = rec(modId);
-  if(b.check.questions.some((_, j) => !words3(m.kc[j], 3))) return "answer each question";
-  if(b.check.summary.some((_, j) => !words3(m.answers[j], 12))) return "answer each Self-Summary prompt in a few sentences";
-  if(b.check.scale.some((_, j) => !m.scale[j])) return "rate yourself on every competency";
-  return "";
+  const m = rec(modId), n = String(m.answers[0] || "").trim().split(/\s+/).filter(Boolean).length;
+  return n >= TAKEAWAY_MIN ? "" : n ? `add to your takeaway (at least ${TAKEAWAY_MIN} words; ${n} so far)` : "write your takeaway";
 }
 /* ② the bonus round: one module's Learning Check at a time, its modules as tabs, so it fits one screen */
 function writtenPart(d){
@@ -1525,13 +1527,14 @@ function writtenPart(d){
       return `<button type="button" role="tab" class="cf-kc-tab${mod.id === sel ? " on" : ""}${left ? "" : " ok"}" aria-selected="${mod.id === sel}" onclick="cmCaseFlow.kcMod('${mod.id}')"><small>${day.n}.${ph.n} ${E(ph.title)}</small><b>${E(b.title)}</b><span class="cf-kc-badge ${left ? "" : "ok"}">${left ? "To do" : "Complete ✓"}</span></button>`; }).join("")}</div>`;
   const submit = `<div class="cf-kc-submit"><button class="btn btn-ghost" type="button" onclick="cmCaseFlow.kcPart('quiz')">← Back to the quiz</button>
       <button class="btn btn-primary" style="padding:13px 28px;" type="button" ${state.quizSubmitting ? "disabled" : ""} onclick="cmCaseFlow.kcSubmit(${d.id})">Submit Knowledge Check</button></div>`;
-  return `<div class="cf-kc-written">${tabs}${mods.filter(x => x.mod.id === sel).map(({b, mod, ph}, i) => {
-      const left = modMissing(b, mod.id), m = rec(mod.id);
-      return `<div class="card cf-kc-mod" data-mod="${mod.id}">
-        <div class="cf-kc-cols"><div><h4>Knowledge Check questions</h4>
-        <ol class="cf-kc-qs">${b.check.questions.map((q, j) => `<li><span>${E(q)}</span><textarea id="cfkc_${mod.id}_${j}" rows="2" placeholder="Your answer, from the file" aria-label="Answer ${j + 1}" oninput="cmCaseFlow.kcDraft('${mod.id}',${j},this.value)">${E(m.kc[j] || "")}</textarea></li>`).join("")}</ol>
-        ${submit}</div><div><h4>Self-Summary & Skill Scale</h4>
-        ${selfSummary(b, day, mod, "page")}</div></div>
+  return `<div class="cf-kc-written">${tabs}${mods.filter(x => x.mod.id === sel).map(({b, mod}) => {
+      const m = rec(mod.id);
+      return `<div class="card cf-kc-mod" data-mod="${mod.id}"><div class="cf-ss" data-mod="${mod.id}">
+        <h4>Your takeaway</h4>
+        <label class="cf-kc-take" for="cfss_${mod.id}_0">${E(takeawayOf(b))}</label>
+        <textarea id="cfss_${mod.id}_0" rows="6" placeholder="In your own words, from John Doe's file (a few sentences)" oninput="cmCaseFlow.draft('${mod.id}')">${E(m.answers[0] || "")}</textarea>
+        <div class="cf-kc-take-st"><span id="cfss_st_${mod.id}"></span></div></div>
+        ${submit}
       </div>`; }).join("")}
     </div>`;
 }
@@ -1605,7 +1608,29 @@ function sfx(kind){
     seq.forEach(([f, d]) => { const o = AC.createOscillator(), g = AC.createGain(); o.type = kind === "boom" || kind === "wrong" ? "sawtooth" : "triangle"; o.frequency.value = f; g.gain.setValueAtTime(.06, t); g.gain.exponentialRampToValueAtTime(.0001, t + d); o.connect(g); g.connect(AC.destination); o.start(t); o.stop(t + d); t += d * .9; });
   }catch(e){}
 }
+/* The quiz in progress is kept on the trainee's record (REC.quizDraft[dayId]: the picks and the game), so leaving
+   the Knowledge Check for another page, or closing the tab, doesn't lose it: coming back picks up where they were.
+   It's cleared once the quiz is submitted or retaken. */
+function saveQuizDraft(d){
+  REC.quizDraft = REC.quizDraft || {};
+  REC.quizDraft[d.id] = {answers: Object.assign({}, state.quizAnswers || {}), game: state.cfGame && state.cfGame.day === d.id ? state.cfGame : null, at: new Date().toISOString()};
+  persist();
+}
+function restoreQuizDraft(d){
+  const q = REC.quizDraft && REC.quizDraft[d.id];
+  if(!q || state.quizSubmitted || Object.keys(state.quizAnswers || {}).length || !Object.keys(q.answers || {}).length) return;
+  state.quizAnswers = Object.assign({}, q.answers);
+  if(q.game) state.cfGame = q.game;
+  const next = d.quiz.findIndex((_, i) => state.quizAnswers[i] === undefined);
+  state.quizQuestionIndex = next < 0 ? d.quiz.length - 1 : next;
+}
+function clearQuizDraft(dayId){ clearTimeout(__qdT); if(REC.quizDraft && REC.quizDraft[dayId]){ delete REC.quizDraft[dayId]; persist(); } }
+if(typeof window.retakeQuiz === "function"){
+  const __retake = window.retakeQuiz;
+  window.retakeQuiz = function(dayId){ clearQuizDraft(dayId); state.cfGame = null; return __retake.apply(this, arguments); };
+}
 function game(d){
+  restoreQuizDraft(d);
   const g = state.cfGame;
   if(!g || g.day !== d.id || !Object.keys(state.quizAnswers || {}).length && Object.keys(g.log).length){
     const mode = (state.cfGameMode && state.cfGameMode[d.id]) || GAME_DAY[d.cf.n] || "millionaire";
@@ -1635,29 +1660,29 @@ function gameQuiz(d){
   const sound = `<button type="button" class="cfg-sound" onclick="cmCaseFlow.gameSound()" title="Sound">${soundOn() ? "🔊" : "🔇"}</button>`;
   const right = Object.values(g.log).filter(x => x.ok).length, rk = rankAt(right, n), earned = tokensEarned(right);
   const score = g.mode === "millionaire" ? rankName(rk) : `⭐ ${g.pts.toLocaleString()}`;
-  const hud = `<div class="cfg-title"><b>${G.icon} ${G.name}</b>${sound}</div>
-    <div class="cfg-hud"><span class="cfg-pts">${score}<small>${g.mode === "millionaire" ? "your rank" : "points"}</small></span><span class="cfg-streak${g.streak >= 3 ? " hot" : ""}">🔥 ${g.streak}<small>streak</small></span><span class="cfg-lvl">${answered}<small>of ${n} played</small></span><span class="cfg-tok" title="Ask a Friend tokens: one for every ${TOKEN_EVERY} right answers, for your next round">🤝 ${tokensBanked()}<small>to use${earned ? ` · +${earned} next round` : ""}</small></span></div>`;
+  const titleRow = `<div class="cfg-title"><b>${G.icon} ${G.name}</b>${sound}</div>`;   // under the score strip, so the top isn't crowded
+  const hud = `<div class="cfg-hud"><span class="cfg-pts">${score}<small>${g.mode === "millionaire" ? "your rank" : "points"}</small></span><span class="cfg-streak${g.streak >= 3 ? " hot" : ""}">🔥 ${g.streak}<small>streak</small></span><span class="cfg-lvl">${answered}<small>of ${n} played</small></span><span class="cfg-tok" title="Ask a Friend tokens: one for every ${TOKEN_EVERY} right answers, for your next round">🤝 ${tokensBanked()}<small>to use${earned ? ` · +${earned} next round` : ""}</small></span></div>`;
   const track = g.mode === "jeopardy" ? "" : `<div class="cfg-track">${d.quiz.map((_, i) => { const l = g.log[i]; return `<button type="button" class="cfg-node${i === qi && !finished ? " at" : ""}${l ? (l.ok ? " ok" : " no") : ""}" ${l ? "" : "disabled"} onclick="cmCaseFlow.gameGo(${i})" aria-label="Question ${i + 1}">${i === qi && !finished ? (g.mode === "bomb" ? "💣" : "🚀") : l ? (l.ok ? "✓" : "✗") : i + 1}</button>`; }).join("")}</div>`;
   const clear = `<div class="cfg-clear"><div class="cfg-clear-h">🏁 ${g.mode === "millionaire" ? `You made ${score}!` : "Game over: quiz cleared!"}</div>
       <div class="cfg-tally"><span><b>${right}</b> of ${n} right</span>${g.mode === "millionaire" ? "" : `<span><b class="cfg-count" data-to="${g.pts}">${g.pts.toLocaleString()}</b> points</span>`}<span>best streak <b>${g.best}</b></span></div>
       ${earned ? `<div class="cfg-earn">🤝 <b>+${earned} Ask a Friend token${earned === 1 ? "" : "s"}</b> for your next round: a hint from your AI colleague on a question you're stuck on</div>` : ""}
       ${gameBadges(d, g).length ? `<div class="cfg-badges">${gameBadges(d, g).map(([i, t, x]) => `<span class="cfg-badge"><i>${i}</i><b>${t}</b><small>${x}</small></span>`).join("")}</div>` : ""}
-      <button class="btn btn-primary" style="padding:13px 28px;" type="button" onclick="cmCaseFlow.kcPart('written')">Bonus round: Learning Checks & Self-Summary →</button></div>`;
+      <button class="btn btn-primary" style="padding:13px 28px;" type="button" onclick="cmCaseFlow.kcPart('written')">Bonus round: your takeaways →</button></div>`;
   // the board / the wheel / the doors come before a question
   if(g.mode === "jeopardy" && (state.cfJq == null || g.log[state.cfJq] && state.cfGameShow !== state.cfJq && state.cfJAns !== state.cfJq)){
-    return `<div class="cfg">${hud}${finished ? clear : `<p class="cfg-hint">Pick a category and a value. One square hides a <b>Daily Double</b>.</p>`}${jeopardyBoard(d, g)}</div>`;
+    return `<div class="cfg">${hud}${titleRow}${finished ? clear : `<p class="cfg-hint">Pick a category and a value. One square hides a <b>Daily Double</b>.</p>`}${jeopardyBoard(d, g)}</div>`;
   }
   if(g.mode === "jeopardy") qi = state.cfJq;
-  if(finished && state.cfGameShow !== qi) return `<div class="cfg">${hud}${track}${clear}</div>`;
+  if(finished && state.cfGameShow !== qi) return `<div class="cfg">${hud}${track}${titleRow}${clear}</div>`;
   const q = d.quiz[qi], pick = state.quizAnswers[qi], done = pick !== undefined, log = g.log[qi];
   if(!done && g.mode === "wheel" && !g.pre[qi]){
     const seg = 360 / WHEEL.length;
-    return `<div class="cfg">${hud}${track}<div class="cfg-wheel-wrap"><div class="cfg-pointer">▼</div>
+    return `<div class="cfg">${hud}${track}${titleRow}<div class="cfg-wheel-wrap"><div class="cfg-pointer">▼</div>
       <div class="cfg-wheel" id="cfgWheel" style="background:conic-gradient(${WHEEL.map((_, i) => `${WHEEL_COL[i]} ${i * seg}deg ${(i + 1) * seg}deg`).join(",")})">${WHEEL.map(([t], i) => `<span style="transform:rotate(${i * seg + seg / 2}deg)"><b>${t}</b></span>`).join("")}<i class="cfg-hub">🎡</i></div>
       <button class="btn btn-primary cfg-spin" type="button" onclick="cmCaseFlow.gameSpin(${qi})">🎡 Spin for level ${qi + 1}</button></div></div>`;
   }
   if(!done && g.mode === "doors" && !g.pre[qi]){
-    return `<div class="cfg">${hud}${track}<p class="cfg-hint">Level ${qi + 1}: pick a door. Behind each, a reward for a right answer.</p>
+    return `<div class="cfg">${hud}${track}${titleRow}<p class="cfg-hint">Level ${qi + 1}: pick a door. Behind each, a reward for a right answer.</p>
       <div class="cfg-doors">${[1, 2, 3].map(k => `<button type="button" class="cfg-door" onclick="cmCaseFlow.gameDoor(${qi},${k})"><span class="cfg-door-panel">🚪<b>${k}</b></span></button>`).join("")}</div></div>`;
   }
   if(!done && !g.shown[qi]) g.shown[qi] = Date.now();
@@ -1677,7 +1702,7 @@ function gameQuiz(d){
   const side = g.mode === "millionaire" ? `<div class="cfg-ranks"><b>Your career</b><ol class="cfg-ladder">${RANKS.map(([ic, t], i) => `<li class="${i === rk ? "at" : i < rk ? "won" : ""}"><span>${ic}</span>${E(t)}</li>`).reverse().join("")}</ol><small>${right} of ${n} right · next rank at ${Math.min(n, Math.ceil((rk + 1) * n / (RANKS.length - 1)))}</small></div>` : "";
   const nav = finished ? `<div class="cfg-nav"><button class="btn btn-ghost" type="button" onclick="cmCaseFlow.gameGo(-1)">← Back to the ${g.mode === "jeopardy" ? "board" : "tally"}</button></div>`
     : done ? `<div class="cfg-nav"><button class="btn btn-primary" type="button" onclick="cmCaseFlow.gameNext()">${g.mode === "jeopardy" ? "Back to the board →" : "Next level →"}</button></div>` : "";
-  return `<div class="cfg cfg-m-${g.mode}">${hud}${track}<div class="${side ? "cfg-split" : ""}"><div>${card}${nav}</div>${side}</div></div>`;
+  return `<div class="cfg cfg-m-${g.mode}">${hud}${track}${titleRow}<div class="${side ? "cfg-split" : ""}"><div>${card}${nav}</div>${side}</div></div>`;
 }
 const gameDay = () => DAYS.find(x => x.id === state.dayId);
 /* The Knowledge Check page is one screen: its own compact head replaces the engine's back links and day title
@@ -1691,7 +1716,9 @@ function kcFit(){
   while(box.scrollHeight > box.clientHeight + 1 && z > 0.6){ z = Math.round((z - 0.05) * 100) / 100; w.style.zoom = String(z); }
 }
 window.addEventListener("resize", () => { clearTimeout(state.cfKcFitT); state.cfKcFitT = setTimeout(() => { try{ kcFit(); }catch(e){} }, 120); });
+let __qdT = null;
 function gamePaint(d){
+  if(d && !state.quizSubmitted && Object.keys(state.quizAnswers || {}).length){ clearTimeout(__qdT); __qdT = setTimeout(() => saveQuizDraft(d), 400); }
   const w = document.getElementById("quizWrap"); if(!w) return;
   w.innerHTML = renderQuiz(d);
   try{ kcFit(); }catch(e){}
@@ -1753,7 +1780,7 @@ Object.assign(window.cmCaseFlow = window.cmCaseFlow || {}, {
     const d = DAYS.find(x => x.id === dayId), g = game(d), q = d.quiz[qi];
     if(state.quizAnswers[qi] !== undefined) return;   // a pick locks in
     clearInterval(state.cfClockIv); clearTimeout(state.cfBombT);
-    state.quizAnswers[qi] = oi; state.cfJAns = qi;   // (Jeopardy: the clue stays up to show the result)
+    state.quizAnswers[qi] = oi; state.cfJAns = qi; saveQuizDraft(d);   // (Jeopardy: the clue stays up to show the result)
     const ok = oi === q.a, el = Date.now() - (g.shown[qi] || Date.now()), boom = !!g.boom[qi];
     const fast = ok && (g.mode === "millionaire" ? el <= MIL_SEC * 1000 : g.mode === "bomb" ? !boom : el <= GAME_FAST);
     let pts = 0, combo = 0;
@@ -1793,18 +1820,32 @@ if(typeof renderQuiz === "function"){
     const mods = kcMods(d), done = mods.filter(x => !modMissing(x.b, x.mod.id)).length, answered = Object.keys(state.quizAnswers || {}).length;
     const part = state.cfKcPart === "written" && state.cfKcDay === d.id ? "written" : "quiz";
     const step = (k, label, sub) => `<button type="button" class="cf-kc-step${part === k ? " on" : ""}" onclick="cmCaseFlow.kcPart('${k}')"><b>${label}</b><small>${sub}</small></button>`;
-    const steps = `<div class="cf-kc-steps">${step("quiz", `① ${(GAMES[(state.cfGame && state.cfGame.day === d.id && state.cfGame.mode) || (state.cfGameMode || {})[d.id] || GAME_DAY[d.cf.n]] || GAMES.millionaire).icon} The Quiz Game`, `${answered} of ${d.quiz.length} played`)}${step("written", "② Bonus round: Learning Checks & Self-Summary", `${done} of ${mods.length} complete`)}</div>`;
+    const steps = `<div class="cf-kc-steps">${step("quiz", `① ${(GAMES[(state.cfGame && state.cfGame.day === d.id && state.cfGame.mode) || (state.cfGameMode || {})[d.id] || GAME_DAY[d.cf.n]] || GAMES.millionaire).icon} The Quiz Game`, `${answered} of ${d.quiz.length} played`)}${step("written", "② Bonus round: your takeaways", `${done} of ${mods.length} written`)}</div>`;
     const prog = (state.progress || {})[d.id];
-    const head = `<div class="cf-kc-head"><button type="button" class="cf-kc-back" onclick="backToSlidesFromKnowledgeCheck()">← Lessons</button>
+    const head = `<div class="cf-kc-head"><button type="button" class="cf-kc-back" onclick="cmCaseFlow.kcBack(${d.id})" title="Back to the slide you were on">← Lessons</button>
       <b>Case Flow Day ${d.cf.n} · ${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</b><span class="tag">Knowledge Check · ${d.quiz.length} questions</span>
-      ${prog && prog.done ? `<span class="cf-kc-passed" title="Your best score is kept; you can retake it any time">✓ Passed · best ${E(prog.score)}%</span>` : ""}
-      <button type="button" class="cf-kc-newtab" onclick="openRouteInNewTab('#/day/${d.id}')" title="Keep this Knowledge Check open and review the lessons side by side">📑 Lessons in a new tab</button></div>`;
+      ${prog && prog.done ? `<span class="cf-kc-passed" title="Your best score is kept; you can retake it any time">✓ Passed · best ${E(prog.score)}%</span>` : ""}</div>`;
     if(part === "written") return head + steps + writtenPart(d);
     return head + steps + gameQuiz(d);
   };
   renderQuiz = quiz; window.renderQuiz = quiz;
 }
 
+/* The results' Answer Review: the day's 20 questions as a 4 × 5 grid of compact cards (the question, your pick, the
+   right answer when you missed it, the reason on hover), so the whole review fits one screen */
+if(typeof window.renderAnswerFeedback === "function"){
+  const __af = window.renderAnswerFeedback;
+  window.renderAnswerFeedback = function(d){
+    if(!d || !d.cf) return __af.apply(this, arguments);
+    const el = document.getElementById("answerFeedback"); if(!el) return;
+    el.innerHTML = `<h2 class="cf-ans-h">Answer Review</h2><div class="cf-ans-grid">${d.quiz.map((q, i) => {
+      const p = state.quizAnswers[i], ok = p === q.a;
+      return `<div class="cf-ans ${ok ? "ok" : "no"}" title="${E(q.r)}"><p><b>${i + 1}.</b> ${E(q.q)}</p>
+        <div class="cf-ans-pick">${ok ? "✅" : "❌"} ${typeof p === "number" ? E(q.opts[p]) : "(not answered)"}</div>
+        ${ok ? "" : `<div class="cf-ans-right">✓ ${E(q.opts[q.a])}</div>`}</div>`; }).join("")}</div>`;
+    if(typeof kcFit === "function") setTimeout(kcFit, 0);
+  };
+}
 /* ---------- the trainee's actions ---------- */
 let draftTimer = null;
 function readForm(modId){
@@ -1820,6 +1861,7 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
   kcDraft(modId, j, v){ rec(modId).kc[j] = v; clearTimeout(draftTimer); draftTimer = setTimeout(() => { persist(); status(modId, "Draft saved"); }, 900); },
   async save(modId){ const m = readForm(modId); m.savedAt = new Date().toISOString(); await persist(); status(modId, "Saved " + new Date(m.savedAt).toLocaleString()); },
   kcMod(modId){ const cur = document.querySelector(".cf-kc-mod"); if(cur) readForm(cur.dataset.mod); persist(); state.cfKcMod = modId; gamePaint(DAYS.find(x => x.id === state.dayId)); },
+  kcBack(dayId){ const d = cfDay(dayId) || cfDay(state.dayId); state.dayViewMode = "slides"; state.lessonSlide = typeof resumeSlideFor === "function" ? resumeSlideFor(d.id) : 0; state.slidePage = 0; render(); },
   kcPart(part){ state.cfKcPart = part; state.cfKcDay = state.dayId; gamePaint(DAYS.find(x => x.id === state.dayId)); window.scrollTo({top: 0, behavior: "smooth"}); },
   async kcSubmit(dayId){
     const d = cfDay(dayId); if(!d) return;
@@ -1831,6 +1873,7 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
       state.cfKcMod = miss.mod.id; gamePaint(d);   // its tab
       return;
     }
+    clearQuizDraft(dayId);
     await persist();
     state.cfKcPart = "quiz";
     return submitQuiz(dayId);
@@ -1852,13 +1895,7 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
     const mod = allMods().map(x => x.m).find(x => x.id === modId);
     const b = mod.blocks.find(x => x.kind === "check");
     if(auto && modMissing(b, modId)) return;
-    if(m.answers.filter(a => String(a || "").trim().split(/\s+/).length >= 12).length < b.check.summary.length){
-      if(typeof toast === "function") toast("Answer each Self-Summary prompt in a few sentences first."); return;
-    }
-    if(b.check.scale.some((_, j) => !m.scale[j])){ if(typeof toast === "function") toast("Rate yourself 1–5 on every competency first."); return; }
-    if(b.check.questions.some((_, j) => String(m.kc[j] || "").trim().split(/\s+/).filter(Boolean).length < 3)){
-      if(typeof toast === "function") toast("Answer each Knowledge Check question first (the slides before the Self-Summary)."); return;
-    }
+    if(modMissing(b, modId)){ if(typeof toast === "function") toast(`${b.title}: ${modMissing(b, modId)} first.`); return; }
     m.savedAt = new Date().toISOString(); await persist();
     if(typeof runRubricEvaluation !== "function"){ status(modId, "Saved. The AI reviewer isn't available here; your trainer will review it."); return; }
     status(modId, "Reviewing…");
@@ -1869,10 +1906,8 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
       + `Health Plan ${c.health.carrier} (${c.health.memberId}). Critical fact: ${c.critical}\n`
       + (day && (day.fileState || []).length ? `Where the file stands on Case Flow Day ${day.n} (${day.phase}): ${day.fileState.join(" ")}\n` : "")
       + `Module: ${mod.title} — ${mod.about}\nThe module's knowledge-verification questions were:\n- ${b.check.questions.join("\n- ")}`;
-    const text = `Knowledge Check answers:\n${b.check.questions.map((q, j) => `${j + 1}. ${q}\n${m.kc[j] || ""}`).join("\n\n")}\n\nSelf-Summary:\n`
-      + b.check.summary.map((q, j) => `${q}\n${m.answers[j] || ""}`).join("\n\n")
-      + `\n\nSelf-ratings (1–5): ${b.check.scale.map((s, j) => `${s}: ${m.scale[j]}`).join("; ")}`;
-    const notes = `Grade against this module's rubric. AI criteria: ${b.rubric.ai.map(r => `${r[0]} (${r[1]}%): ${r[2]}`).join("; ")}. `
+    const text = `The trainee's takeaway (one written answer for this module):\n${takeawayOf(b)}\n${m.answers[0] || ""}`;
+    const notes = `This is a short takeaway (a few sentences), not a full write-up: grade the understanding it shows, not its length. Grade against this module's rubric. AI criteria: ${b.rubric.ai.map(r => `${r[0]} (${r[1]}%): ${r[2]}`).join("; ")}. `
       + `A trainer separately assesses: ${b.rubric.trainer.map(r => r[0]).join(", ")}. `
       + `UPL is a gate: if the trainee proposes giving the client legal advice (case value, merits, what silence does to their rights, announcing withdrawal), score Risk Mitigation 0 and say so. `
       + `Use the case facts above; numbers that contradict them (limits, dates, order of the stack, the 14-day gap, the figures for this day) are accuracy errors.`;
@@ -2662,6 +2697,20 @@ main > .cf-side-presenter{display:none;}
 .cf-vm-tx summary{cursor:pointer;font-weight:700;color:#262B45;}
 #cf-return{position:fixed;left:16px;bottom:16px;z-index:60;font:700 13px 'Inter',sans-serif;padding:10px 16px;border:0;border-radius:999px;background:#262B45;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer;}
 #cf-return[hidden],#cf-return-next[hidden]{display:none;}
+/* the Knowledge Check: the takeaway, and the results' Answer Review grid */
+.cf-kc-take{display:block;font:600 16px/1.45 var(--font-ui);color:var(--navy);margin:6px 0 10px;}
+.cf-kc-mod textarea{width:100%;font:500 15px/1.5 var(--font-ui);padding:12px 14px;border:1px solid var(--line);border-radius:10px;resize:vertical;}
+.cf-kc-take-st{font-size:12px;color:var(--ink-soft);min-height:16px;margin:4px 0 8px;}
+body.cf-kc-page #quizWrap{max-width:none;}
+.cf-kc-result{max-width:none;}
+.cf-ans-h{font:700 20px 'Fraunces',Georgia,serif;color:var(--navy);margin:16px 0 8px;}
+.cf-ans-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;}
+.cf-ans{background:#fff;border:1px solid var(--line);border-left:4px solid #2F8F5B;border-radius:10px;padding:8px 10px;font:500 13.5px/1.4 var(--font-ui);color:var(--ink);cursor:help;}
+.cf-ans.no{border-left-color:#C0392B;background:#FFF8F7;}
+.cf-ans p{margin:0 0 5px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.cf-ans-pick{font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.cf-ans-right{margin-top:3px;color:#1E6B43;font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+@media (max-width:900px){.cf-ans-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
 /* Case Documents: the Case File / Documents switch sits under the page's intro (no Open CMS: the slides send trainees to
    the CMS), so the copy js/lsh-topbar.js puts at the top of the page is hidden there */
 main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is wrapped, so js/lsh-topbar.js leaves it alone) */
