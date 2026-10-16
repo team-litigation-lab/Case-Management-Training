@@ -1,0 +1,106 @@
+{
+  "d1m1-role": {
+    "lead": "Case management is the **end-to-end coordination** of a case from intake to resolution: tracking, handling and moving it, phase by phase.",
+    "concepts": [
+      {"term": "What It Ensures", "text": "Timely progression, proper documentation and compliance, clear communication: **the three tests** every task on the file must pass"},
+      {"term": "The General Process", "text": "Seven stages, from Intake & Case Opening to Resolution & Closing: **you carry the file** through all seven"},
+      {"term": "Case Planning & Strategy Support", "text": "You build the plan and recommend next steps; **strategy itself stays** with Atty. Thorne"},
+      {"term": "Case Health Analysis", "text": "Reading the whole file for risk, not single tasks: **spotting the weak point** before it costs the client"}
+    ],
+    "pages": ["D1#3", "D1#4"]
+  },
+  "d1m1-case": {
+    "lead": "Every file is worked from **its verified facts**: who was hurt, how, which policies apply, and what could weaken the claim.",
+    "concepts": [
+      {"term": "The Case Snapshot", "text": "Parties, date of loss, SOL, client position and coverage on one card: **the facts every task reads**"},
+      {"term": "Facts of Loss", "text": "How, where and when the collision happened, confirmed by the Police Report and witnesses; **ambiguity here needs counsel**"},
+      {"term": "Critical Case Event", "text": "The one fact the defense will build on; name it early so **counsel plans around it**"},
+      {"term": "The Source Documents", "text": "Intake sheet, supplement and Police Report are the file's sources: **quote the document**, never your memory"}
+    ],
+    "pages": ["D1#16"]
+  },
+  "d1m1-l1": {
+    "lead": "Intake is where you establish **control, structure and clarity**: verifying facts and mapping every party to the policy it unlocks.",
+    "concepts": [
+      {"term": "The Recovery Stack", "text": "Every policy that can pay the claim, layered in the order it pays; **find every layer** at intake"},
+      {"term": "Bodily Injury Liability", "text": "The at-fault driver's coverage for injuries he causes others: **the first layer** to pay, and a third-party claim"},
+      {"term": "UM/UIM Coverage", "text": "First-party cover for when the at-fault driver's BI is **missing or too small**; reached through the vehicle or household"},
+      {"term": "Exclusions and Rejections", "text": "A signed UM rejection or an owned-vehicle exclusion **closes a layer**; record the document that does it"},
+      {"term": "MedPay and PIP", "text": "First-party medical coverage paid regardless of fault: **it pays bills first**, while the claim is still open"},
+      {"term": "Property Damage and Collision", "text": "PD liability repairs what the at-fault driver damaged; collision is the owner's own cover. **Neither joins the injury stack**"},
+      {"term": "Per-Person vs. Per-Accident Limits", "text": "A split limit caps each injured person at the first figure and **the whole accident** at the second; read both"},
+      {"term": "The Declaration Page", "text": "The carrier's statement of the named insured, covered vehicles, coverages and limits: **written proof of coverage**"}
+    ],
+    "pages": ["D1#21", "D1#22"]
+  },
+  "d1m1-l2": {
+    "lead": "Before clinical planning, the **Regulatory Triple-Check** establishes the claim and your authority to act; the Payer Order then decides who funds care.",
+    "concepts": [
+      {"term": "Subrogation", "text": "A payer's right to stand in the client's shoes and **recover what it paid** for accident care"},
+      {"term": "Primary Payer Determination", "text": "Deciding which payer is billed first, so each bill **goes to the right payer** and nothing is paid twice"},
+      {"term": "Letter of Protection", "text": "The firm's written promise to pay a provider from the settlement: **last in the Payer Order**"},
+      {"term": "The Client's Net", "text": "What the client keeps once fees, costs and liens are paid: **a late-flagged lien** comes straight out of it"}
+    ],
+    "pages": ["D1#25", "D1#22"]
+  },
+  "d1m2-l1": {
+    "lead": "The No Contact Protocol is a **formal due-diligence record**: it tracks silence, proves the firm tried, and protects it from liability.",
+    "concepts": [
+      {"term": "Intake Bottlenecks", "text": "Points where work slows, stalls or turns inconsistent; **a silent client** is one, delaying case progression"},
+      {"term": "Due Diligence", "text": "Proof the firm made reasonable, documented efforts to reach the client: **the record that justifies** whatever comes next"},
+      {"term": "Approved Channels", "text": "The contact methods the client and firm agreed at intake; **only approved channels** count as a valid attempt"},
+      {"term": "Emergency Contact", "text": "A second person, collected at intake, who can **still reach the client** after they go quiet"}
+    ],
+    "pages": ["D1#11", "D1#9"]
+  },
+  "d1m2-l2": {
+    "lead": "The Final Warning Letter **closes the outreach record**: one last documented notice before the firm searches for the client or counsel moves to withdraw.",
+    "concepts": [
+      {"term": "Dual Delivery", "text": "Certified mail proves delivery; email gets a response. **Each covers the other's gap**"},
+      {"term": "The Three-Criteria Gate", "text": "An AND gate, not a checklist: the search waits until **all three are true**, so money isn't spent early"},
+      {"term": "Skip-Trace", "text": "A paid search for a missing person's current address and contacts; **counsel authorizes it** because it spends firm money"},
+      {"term": "Withdrawal", "text": "Ending representation by Notice of Withdrawal or Motion to Withdraw; **only the attorney decides**, under firm and court rules"}
+    ],
+    "pages": []
+  },
+  "d1m3-l1": {
+    "lead": "Client instructions protect the claim from **the client's own good intentions**: what the client says, posts, signs or skips can become evidence.",
+    "concepts": [
+      {"term": "Medical vs. Legal Danger", "text": "A medical danger threatens the client's health; a legal danger, like **a gap in care**, threatens the claim"},
+      {"term": "A Clean, Discoverable File", "text": "Everything on the file can reach defense counsel, so instructions stay **factual, never legal opinion**"},
+      {"term": "Letter of Representation", "text": "The notice that the firm represents the client; from then on, adverse contact **routes through the firm**"},
+      {"term": "Rate Cap and Duration", "text": "The authorized daily rate and number of days; **anything beyond them** is the client's own cost"}
+    ],
+    "pages": ["D1#44", "D1#28"]
+  },
+  "d1m3-l2": {
+    "lead": "Property Damage is **a separate claim** with its own measure: repair or total, set against the vehicle's pre-loss value.",
+    "concepts": [
+      {"term": "The Scene Audit", "text": "Photos, video and damage must match how the crash happened; **the physics must be possible**"},
+      {"term": "Supplemental Estimate", "text": "An added estimate written after teardown finds hidden damage: **proof of impact severity** for the injury claim"},
+      {"term": "Total Loss Threshold", "text": "The repair-to-ACV percentage at which a carrier stops repairing and **pays the value instead**"},
+      {"term": "The Valuation Report", "text": "The carrier's market-based report that sets ACV; **verify it line by line** so the client isn't lowballed"}
+    ],
+    "pages": ["D2#6"]
+  },
+  "d1m4-l1": {
+    "lead": "Early evaluation joins **coverage, liability and projection**: is there money, who is responsible, and how the case is likely to move.",
+    "concepts": [
+      {"term": "Coverage Determination", "text": "Which policies apply, with what benefits, limits and exclusions: **is there money** to pay the claim?"},
+      {"term": "Liability Assessment", "text": "Who caused the incident and to what degree: **clear, shared or disputed**, and on what evidence"},
+      {"term": "Case Projection", "text": "An early read of risk and trajectory from coverage, liability, injury, treatment and documents; **value stays with counsel**"},
+      {"term": "Strict Compliance", "text": "In a legal framework, case management shifts from **best efforts to strict compliance**: every plan deadline is docketed"}
+    ],
+    "pages": ["D1#21", "D1#22"]
+  },
+  "d1m4-l2": {
+    "lead": "A case plan is a **living, approved document**: drafted in structure, reviewed by counsel, then run.",
+    "concepts": [
+      {"term": "Section Templates", "text": "One structure for every plan, so reviewers can **scan it fast** and nothing is missed"},
+      {"term": "The Review Loop", "text": "Draft, route, review, approve, execute; **a return is normal**, a step back into drafting, not a failure"},
+      {"term": "Pre-Confirmation Stage", "text": "A conclusion still awaiting its proof; when the proof arrives and differs, **the plan is re-routed**"},
+      {"term": "The Audit Trail", "text": "The CMS keeps every version unaltered, so **each approval is provable**, and every note is discoverable"}
+    ],
+    "pages": ["D1#25"]
+  }
+}

@@ -39,7 +39,32 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Guessing **what the case is worth**",
    "Keeping the status **in your inbox**, not the CMS"
-  ]
+  ],
+  "theory": {
+   "lead": "Case management is the **end-to-end coordination** of a case from intake to resolution: tracking, handling and moving it, phase by phase.",
+   "concepts": [
+    {
+     "term": "What It Ensures",
+     "text": "Timely progression, proper documentation and compliance, clear communication: **the three tests** every task on the file must pass"
+    },
+    {
+     "term": "The General Process",
+     "text": "Seven stages, from Intake & Case Opening to Resolution & Closing: **you carry the file** through all seven"
+    },
+    {
+     "term": "Case Planning & Strategy Support",
+     "text": "You build the plan and recommend next steps; **strategy itself stays** with Atty. Thorne"
+    },
+    {
+     "term": "Case Health Analysis",
+     "text": "Reading the whole file for risk, not single tasks: **spotting the weak point** before it costs the client"
+    }
+   ],
+   "pages": [
+    "D1#3",
+    "D1#4"
+   ]
+  }
  },
  "d1m1-case": {
   "image": "property-damage",
@@ -78,7 +103,31 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Repeating facts **from memory** alone",
    "Treating the gap as **the client's fault**"
-  ]
+  ],
+  "theory": {
+   "lead": "Every file is worked from **its verified facts**: who was hurt, how, which policies apply, and what could weaken the claim.",
+   "concepts": [
+    {
+     "term": "The Case Snapshot",
+     "text": "Parties, date of loss, SOL, client position and coverage on one card: **the facts every task reads**"
+    },
+    {
+     "term": "Facts of Loss",
+     "text": "How, where and when the collision happened, confirmed by the Police Report and witnesses; **ambiguity here needs counsel**"
+    },
+    {
+     "term": "Critical Case Event",
+     "text": "The one fact the defense will build on; name it early so **counsel plans around it**"
+    },
+    {
+     "term": "The Source Documents",
+     "text": "Intake sheet, supplement and Police Report are the file's sources: **quote the document**, never your memory"
+    }
+   ],
+   "pages": [
+    "D1#16"
+   ]
+  }
  },
  "d1m1-l1": {
   "image": "intake-interview",
@@ -119,7 +168,48 @@ window.CM_CF_SLIDES = {
    "Creating the file **before the Conflict Check**",
    "Running the Conflict Check on **a nickname or partial name**",
    "Accepting a case because intake **“mostly” looks fine**"
-  ]
+  ],
+  "theory": {
+   "lead": "Intake is where you establish **control, structure and clarity**: verifying facts and mapping every party to the policy it unlocks.",
+   "concepts": [
+    {
+     "term": "The Recovery Stack",
+     "text": "Every policy that can pay the claim, layered in the order it pays; **find every layer** at intake"
+    },
+    {
+     "term": "Bodily Injury Liability",
+     "text": "The at-fault driver's coverage for injuries he causes others: **the first layer** to pay, and a third-party claim"
+    },
+    {
+     "term": "UM/UIM Coverage",
+     "text": "First-party cover for when the at-fault driver's BI is **missing or too small**; reached through the vehicle or household"
+    },
+    {
+     "term": "Exclusions and Rejections",
+     "text": "A signed UM rejection or an owned-vehicle exclusion **closes a layer**; record the document that does it"
+    },
+    {
+     "term": "MedPay and PIP",
+     "text": "First-party medical coverage paid regardless of fault: **it pays bills first**, while the claim is still open"
+    },
+    {
+     "term": "Property Damage and Collision",
+     "text": "PD liability repairs what the at-fault driver damaged; collision is the owner's own cover. **Neither joins the injury stack**"
+    },
+    {
+     "term": "Per-Person vs. Per-Accident Limits",
+     "text": "A split limit caps each injured person at the first figure and **the whole accident** at the second; read both"
+    },
+    {
+     "term": "The Declaration Page",
+     "text": "The carrier's statement of the named insured, covered vehicles, coverages and limits: **written proof of coverage**"
+    }
+   ],
+   "pages": [
+    "D1#21",
+    "D1#22"
+   ]
+  }
  },
  "d1m1-open": {
   "image": "data-entry",
@@ -208,7 +298,32 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Using a generic release **without the incident date**",
    "Reassuring the client **“insurance will cover it”**"
-  ]
+  ],
+  "theory": {
+   "lead": "Before clinical planning, the **Regulatory Triple-Check** establishes the claim and your authority to act; the Payer Order then decides who funds care.",
+   "concepts": [
+    {
+     "term": "Subrogation",
+     "text": "A payer's right to stand in the client's shoes and **recover what it paid** for accident care"
+    },
+    {
+     "term": "Primary Payer Determination",
+     "text": "Deciding which payer is billed first, so each bill **goes to the right payer** and nothing is paid twice"
+    },
+    {
+     "term": "Letter of Protection",
+     "text": "The firm's written promise to pay a provider from the settlement: **last in the Payer Order**"
+    },
+    {
+     "term": "The Client's Net",
+     "text": "What the client keeps once fees, costs and liens are paid: **a late-flagged lien** comes straight out of it"
+    }
+   ],
+   "pages": [
+    "D1#25",
+    "D1#22"
+   ]
+  }
  },
  "d1m1-a2": {
   "image": "lien-scale",
@@ -283,7 +398,32 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Letting a file sit **without logging attempts**",
    "Blaming the client for **process gaps**"
-  ]
+  ],
+  "theory": {
+   "lead": "The No Contact Protocol is a **formal due-diligence record**: it tracks silence, proves the firm tried, and protects it from liability.",
+   "concepts": [
+    {
+     "term": "Intake Bottlenecks",
+     "text": "Points where work slows, stalls or turns inconsistent; **a silent client** is one, delaying case progression"
+    },
+    {
+     "term": "Due Diligence",
+     "text": "Proof the firm made reasonable, documented efforts to reach the client: **the record that justifies** whatever comes next"
+    },
+    {
+     "term": "Approved Channels",
+     "text": "The contact methods the client and firm agreed at intake; **only approved channels** count as a valid attempt"
+    },
+    {
+     "term": "Emergency Contact",
+     "text": "A second person, collected at intake, who can **still reach the client** after they go quiet"
+    }
+   ],
+   "pages": [
+    "D1#11",
+    "D1#9"
+   ]
+  }
  },
  "d1m2-a1": {
   "image": "data-entry",
@@ -348,7 +488,29 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Skip-tracing on **the first criterion alone**",
    "Writing **“we are withdrawing”** without attorney approval"
-  ]
+  ],
+  "theory": {
+   "lead": "The Final Warning Letter **closes the outreach record**: one last documented notice before the firm searches for the client or counsel moves to withdraw.",
+   "concepts": [
+    {
+     "term": "Dual Delivery",
+     "text": "Certified mail proves delivery; email gets a response. **Each covers the other's gap**"
+    },
+    {
+     "term": "The Three-Criteria Gate",
+     "text": "An AND gate, not a checklist: the search waits until **all three are true**, so money isn't spent early"
+    },
+    {
+     "term": "Skip-Trace",
+     "text": "A paid search for a missing person's current address and contacts; **counsel authorizes it** because it spends firm money"
+    },
+    {
+     "term": "Withdrawal",
+     "text": "Ending representation by Notice of Withdrawal or Motion to Withdraw; **only the attorney decides**, under firm and court rules"
+    }
+   ],
+   "pages": []
+  }
  },
  "d1m2-a2": {
   "image": "email-outreach",
@@ -425,7 +587,32 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Explaining why a Recorded Statement hurts: **that's legal advice**",
    "Letting a carrier's Property Damage call **drift into injuries**"
-  ]
+  ],
+  "theory": {
+   "lead": "Client instructions protect the claim from **the client's own good intentions**: what the client says, posts, signs or skips can become evidence.",
+   "concepts": [
+    {
+     "term": "Medical vs. Legal Danger",
+     "text": "A medical danger threatens the client's health; a legal danger, like **a gap in care**, threatens the claim"
+    },
+    {
+     "term": "A Clean, Discoverable File",
+     "text": "Everything on the file can reach defense counsel, so instructions stay **factual, never legal opinion**"
+    },
+    {
+     "term": "Letter of Representation",
+     "text": "The notice that the firm represents the client; from then on, adverse contact **routes through the firm**"
+    },
+    {
+     "term": "Rate Cap and Duration",
+     "text": "The authorized daily rate and number of days; **anything beyond them** is the client's own cost"
+    }
+   ],
+   "pages": [
+    "D1#44",
+    "D1#28"
+   ]
+  }
  },
  "d1m3-a1": {
   "image": "client-call",
@@ -489,7 +676,31 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Working only from **the initial estimate**",
    "Treating Property Damage as **“just the car”**"
-  ]
+  ],
+  "theory": {
+   "lead": "Property Damage is **a separate claim** with its own measure: repair or total, set against the vehicle's pre-loss value.",
+   "concepts": [
+    {
+     "term": "The Scene Audit",
+     "text": "Photos, video and damage must match how the crash happened; **the physics must be possible**"
+    },
+    {
+     "term": "Supplemental Estimate",
+     "text": "An added estimate written after teardown finds hidden damage: **proof of impact severity** for the injury claim"
+    },
+    {
+     "term": "Total Loss Threshold",
+     "text": "The repair-to-ACV percentage at which a carrier stops repairing and **pays the value instead**"
+    },
+    {
+     "term": "The Valuation Report",
+     "text": "The carrier's market-based report that sets ACV; **verify it line by line** so the client isn't lowballed"
+    }
+   ],
+   "pages": [
+    "D2#6"
+   ]
+  }
  },
  "d1m3-a2": {
   "image": "checklist-qa",
@@ -567,7 +778,32 @@ window.CM_CF_SLIDES = {
    "A plan that **only covers clinical care**",
    "Gathering more information **at the acceptance stage**",
    "Letting an uncertain file **sit in limbo**"
-  ]
+  ],
+  "theory": {
+   "lead": "Early evaluation joins **coverage, liability and projection**: is there money, who is responsible, and how the case is likely to move.",
+   "concepts": [
+    {
+     "term": "Coverage Determination",
+     "text": "Which policies apply, with what benefits, limits and exclusions: **is there money** to pay the claim?"
+    },
+    {
+     "term": "Liability Assessment",
+     "text": "Who caused the incident and to what degree: **clear, shared or disputed**, and on what evidence"
+    },
+    {
+     "term": "Case Projection",
+     "text": "An early read of risk and trajectory from coverage, liability, injury, treatment and documents; **value stays with counsel**"
+    },
+    {
+     "term": "Strict Compliance",
+     "text": "In a legal framework, case management shifts from **best efforts to strict compliance**: every plan deadline is docketed"
+    }
+   ],
+   "pages": [
+    "D1#21",
+    "D1#22"
+   ]
+  }
  },
  "d1m4-a1": {
   "image": "calendar-gap",
@@ -632,7 +868,31 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Edits that **break the audit trail**",
    "Writing **“this will help the case”** in a treatment note"
-  ]
+  ],
+  "theory": {
+   "lead": "A case plan is a **living, approved document**: drafted in structure, reviewed by counsel, then run.",
+   "concepts": [
+    {
+     "term": "Section Templates",
+     "text": "One structure for every plan, so reviewers can **scan it fast** and nothing is missed"
+    },
+    {
+     "term": "The Review Loop",
+     "text": "Draft, route, review, approve, execute; **a return is normal**, a step back into drafting, not a failure"
+    },
+    {
+     "term": "Pre-Confirmation Stage",
+     "text": "A conclusion still awaiting its proof; when the proof arrives and differs, **the plan is re-routed**"
+    },
+    {
+     "term": "The Audit Trail",
+     "text": "The CMS keeps every version unaltered, so **each approval is provable**, and every note is discoverable"
+    }
+   ],
+   "pages": [
+    "D1#25"
+   ]
+  }
  },
  "d1m4-a2": {
   "image": "cms-screen",
@@ -710,7 +970,47 @@ window.CM_CF_SLIDES = {
    "A UM letter that **reads as a demand**",
    "The client's **phone, address or birth date** to Keystone",
    "A **guessed adjuster name** for Cardinal State"
-  ]
+  ],
+  "theory": {
+   "lead": "Claim set-up is coverage determination: finding **which policies apply** and what limits and exclusions they carry. The LOR puts the firm on each one.",
+   "concepts": [
+    {
+     "term": "Letter of Representation",
+     "text": "The firm's formal notice that it represents the client: **it moves all contact** off the client and onto the firm"
+    },
+    {
+     "term": "Coverage Determination",
+     "text": "Four questions: is coverage valid, what type applies, what are the limits, any exclusions? **Every LOR request** chases an answer"
+    },
+    {
+     "term": "Liability Assessment",
+     "text": "Who is legally responsible, and how far: **clear, shared or disputed**. Atty. Thorne weighs it; you secure the proof"
+    },
+    {
+     "term": "First- and Third-Party Claims",
+     "text": "Third-party: the other driver's carrier, adverse to the client. First-party: policies covering him. **Each letter differs accordingly**"
+    },
+    {
+     "term": "Information Protection",
+     "text": "The adverse carrier learns only what it must: **anything you give it** can be used against the client"
+    },
+    {
+     "term": "Notice vs. Demand",
+     "text": "Notice preserves the claim; a demand asks for payment. **UM notice comes early**; demand follows a documented BI tender"
+    },
+    {
+     "term": "Preservation Request",
+     "text": "Asks the carrier to keep photos, statements, video, the vehicle and its event data: **liability proof that can vanish**"
+    },
+    {
+     "term": "Acknowledgement",
+     "text": "The carrier's written receipt of the LOR, sometimes stating coverage and limit: **the first written answer** you log"
+    }
+   ],
+   "pages": [
+    "D1#21"
+   ]
+  }
  },
  "d2m1-a1": {
   "image": "email-outreach",
@@ -778,7 +1078,48 @@ window.CM_CF_SLIDES = {
    "**Adding MedPay or PD** to the stack total",
    "Confirming a limit **from a phone call** or Police Report",
    "An open request with **no next date**"
-  ]
+  ],
+  "theory": {
+   "lead": "Coverage verification turns a reported fact into **a confirmed one in writing**: every limit, form and exclusion traced to the document that proves it.",
+   "concepts": [
+    {
+     "term": "Coverage Matrix",
+     "text": "One row per carrier, the file's single coverage record: **status, source and date** show what is proven"
+    },
+    {
+     "term": "Verification Statuses",
+     "text": "Reported, noticed, acknowledged, disclosed, confirmed in writing: **only the last is proof**; each earlier status is a lead"
+    },
+    {
+     "term": "Declaration Page",
+     "text": "The policy's own summary of who and what it covers, and for how much: **the proof behind a limit**"
+    },
+    {
+     "term": "Limit Types",
+     "text": "**Per person** caps one injured person; per accident caps everyone; a combined single limit is one figure for all"
+    },
+    {
+     "term": "UM Forms",
+     "text": "Add-on (excess) UM pays on top of the BI payment; reduced UM subtracts it. **The form changes the stack**"
+    },
+    {
+     "term": "Stacking Layers",
+     "text": "Only liability and UM layers stack; MedPay, PD and collision coverage are **separate benefits, tracked apart**"
+    },
+    {
+     "term": "Exclusions and Gaps",
+     "text": "A policy's exclusions matter as much as its limits: **a verified zero** is a fact, an assumed one a guess"
+    },
+    {
+     "term": "Applied Case Manager Actions",
+     "text": "A stalled carrier is a bottleneck: find the root cause, act now, then **prevent the next occurrence**"
+    }
+   ],
+   "pages": [
+    "D1#20",
+    "D1#18"
+   ]
+  }
  },
  "d2m1-a2": {
   "image": "insurance-stack",
@@ -857,7 +1198,48 @@ window.CM_CF_SLIDES = {
    "An LOP **before checking MedPay** and Peach State",
    "Telling a provider **“paid in full at settlement”**",
    "Mission creep: taking on **every problem John Doe raises**"
-  ]
+  ],
+  "theory": {
+   "lead": "Once the claim is set up, the case plan runs on **three pillars**: clinical care, functional status and subrogation management, which sets who pays.",
+   "concepts": [
+    {
+     "term": "Payer Order",
+     "text": "The default sequence: MedPay or PIP first, health insurance next, an LOP last. **Order keeps liens down**"
+    },
+    {
+     "term": "MedPay vs. PIP",
+     "text": "First-party coverage for medical bills regardless of fault, up to its limit; **unlike PIP, no wages**"
+    },
+    {
+     "term": "Health Insurance",
+     "text": "Pays covered care at its contract rate, but may hold **a reimbursement right** against the recovery"
+    },
+    {
+     "term": "Letter of Protection",
+     "text": "The client's signed agreement that a provider is paid from any recovery: **a consensual lien** on his net"
+    },
+    {
+     "term": "Standard Treatment Map",
+     "text": "The usual route of care: emergency, imaging, chiropractic and PT, orthopedics, pain management, surgery. **Each stop needs a payer**"
+    },
+    {
+     "term": "Monitoring Progress",
+     "text": "Evaluating clinical and functional outcomes, not checking boxes: **ask about the plan**, not just “How are you?”"
+    },
+    {
+     "term": "Crisis Intervention",
+     "text": "Stepping in when care is denied or stalled by bureaucracy: **adjust the plan** to the immediate issue first"
+    },
+    {
+     "term": "Medication Red Flags",
+     "text": "Combined opioid, muscle relaxant and sedative, or rising doses without a new diagnosis: **raise it with the provider**"
+    }
+   ],
+   "pages": [
+    "D1#26",
+    "D1#39"
+   ]
+  }
  },
  "d2m2-a1": {
   "image": "medical-visit",
@@ -925,7 +1307,48 @@ window.CM_CF_SLIDES = {
    "**Continuing the plan unchanged** through a crisis",
    "**Blaming the client** for a systemic delay",
    "Jumping to Atty. Thorne **before the first two rungs**"
-  ]
+  ],
+  "theory": {
+   "lead": "Mastering **the Standard Treatment Map** separates a Case Manager who observes a recovery from one who drives it; deviations trigger denials and IMEs.",
+   "concepts": [
+    {
+     "term": "Acute and Sub-Acute Phases",
+     "text": "Days 1–14: ER, imaging, initial PT, documenting causation. Weeks 2–8: active PT, specialists, **measuring functional gains**"
+    },
+    {
+     "term": "Restorative and Maintenance Phases",
+     "text": "Weeks 9–24: injections, work hardening, **barriers to return to work**. Then home exercise and as-needed visits"
+    },
+    {
+     "term": "Maximum Medical Improvement",
+     "text": "The provider's finding that further care won't improve the condition: **it closes the treatment phase** and opens pre-demand"
+    },
+    {
+     "term": "Variance Analysis",
+     "text": "When a client drifts off the map, identify why first: **clinical, psychosocial or systemic**, before funding stops"
+    },
+    {
+     "term": "A-C-T Protocol",
+     "text": "The immediate action for any red flag: Assess the danger, Coordinate the fix, Track it. **Documentation supplies counsel's why**"
+    },
+    {
+     "term": "Reasonable and Necessary",
+     "text": "The utilization-review test: common for the mechanism of injury, and **objective functional gain**, not subjective pain alone"
+    },
+    {
+     "term": "SMART Goals",
+     "text": "Specific, Measurable, Achievable, Relevant, Time-bound: goals **defensible to clinicians and adjusters** alike, like the week-6 measures"
+    },
+    {
+     "term": "Stakeholder Triad",
+     "text": "Clinical, legal and financial loops, with you as the router: **one broken loop** can stall a case for months"
+    }
+   ],
+   "pages": [
+    "D1#40",
+    "D1#44"
+   ]
+  }
  },
  "d2m2-a2": {
   "image": "car-transport",
@@ -1005,7 +1428,32 @@ window.CM_CF_SLIDES = {
    "A question that **names the reason** you expect",
    "Reassuring or alarming him: **both are case opinions**",
    "**Blaming the client** for the gap"
-  ]
+  ],
+  "theory": {
+   "lead": "The Golden Rule: coordinate, don't commingle. The medical plan and the legal claim are **two parallel tracks** that never cross-contaminate, even in a gap interview.",
+   "concepts": [
+    {
+     "term": "Case Manager Neutrality",
+     "text": "Legal opinions in medical or call notes let the defense **impeach your neutrality**; record facts, never conclusions"
+    },
+    {
+     "term": "Gaps as Legal Danger",
+     "text": "Under A-C-T, a gap in care is **a legal danger**, not medical: it routes to Atty. Thorne"
+    },
+    {
+     "term": "Active Listening",
+     "text": "Reflect and paraphrase his words, then summarize: he **feels heard and corrects** what you got wrong"
+    },
+    {
+     "term": "Attorney-Client Privilege",
+     "text": "Confidential firm-client communication is privileged; **a third person** in the conversation can put that protection at risk"
+    }
+   ],
+   "pages": [
+    "D1#28",
+    "D1#44"
+   ]
+  }
  },
  "d2m3-a1": {
   "image": "client-call",
@@ -1072,7 +1520,48 @@ window.CM_CF_SLIDES = {
   "donts": [
    "A “clarify” request that **tells them what to write**",
    "**Leaving the gap out** of the timeline"
-  ]
+  ],
+  "theory": {
+   "lead": "Case Managers must understand **the why behind the paperwork**: continuity is proved by what the record already shows, never by what it is asked to say.",
+   "concepts": [
+    {
+     "term": "Continuity of Care",
+     "text": "An unbroken path along the Standard Treatment Map, each step following from the last: **the chain an adjuster tests**"
+    },
+    {
+     "term": "Treatment Gap",
+     "text": "Any break in care, before first treatment or midstream. Adjusters read it as **minor, healed or unrelated**"
+    },
+    {
+     "term": "Records Made at the Time",
+     "text": "Written by EMS, providers and employers as events happened: **strongest proof**, since nobody wrote them for the claim"
+    },
+    {
+     "term": "Consistent Histories",
+     "text": "Each provider's history repeats mechanism, onset and body region; **agreement across charts** is what makes continuity credible"
+    },
+    {
+     "term": "Causation Opinion",
+     "text": "A treating doctor's opinion linking injury to collision: **the bridge across a gap**, requested by Atty. Thorne"
+    },
+    {
+     "term": "Record Integrity",
+     "text": "A record changes only by its author's dated addendum: altering one **can be evidence tampering** or fraud"
+    },
+    {
+     "term": "Excuse Notes",
+     "text": "A work note proves only what its author saw or ordered at a visit: **unexamined days need other proof**"
+    },
+    {
+     "term": "Generic Notes",
+     "text": "Notes that don't tie complaints to the collision weaken causation: under A-C-T, **flag them to Atty. Thorne**"
+    }
+   ],
+   "pages": [
+    "D1#44",
+    "D1#39"
+   ]
+  }
  },
  "d2m3-a2": {
   "image": "calendar-gap",
@@ -1152,7 +1641,48 @@ window.CM_CF_SLIDES = {
    "Sending the demand and **hoping nobody checks**",
    "**Adding future care** to the Specials",
    "Discovering a lien **after the release** is signed"
-  ]
+  ],
+  "theory": {
+   "lead": "A full pre-demand audit is **the final stress test**: the move from collecting information to using it, leaving the defense zero easy outs.",
+   "concepts": [
+    {
+     "term": "Trinity of Case Alignment",
+     "text": "Narrative, physicality and medicals **must all agree**; if one is out of line, the case value collapses"
+    },
+    {
+     "term": "Maximum Medical Improvement",
+     "text": "The provider's finding that care has reached its plateau: **the incurred Specials are complete**, and the audit can begin"
+    },
+    {
+     "term": "Special Damages",
+     "text": "Medical Bills + lost wages + Property Damage: the provable dollar loss. **Every line needs a document**"
+    },
+    {
+     "term": "Medical and Billing Audit",
+     "text": "Three passes: chronology for gaps, coding for duplicates, prior history for pre-existing conditions. **Find weak spots first**"
+    },
+    {
+     "term": "Liens and Subrogation",
+     "text": "Health plans, government payers and LOP providers may claim repayment from the recovery: **every lien shrinks the net**"
+    },
+    {
+     "term": "Property Damage Deep Dive",
+     "text": "Photos of the point of impact, estimate against final bill, supplements: **PD proves the force** behind the injury"
+    },
+    {
+     "term": "Defense-Eye Audit",
+     "text": "Read the file as the adjuster will: social media, a minor-impact (MIST) label, venue. **Name each value killer**"
+    },
+    {
+     "term": "Policy-Limits Targets",
+     "text": "Verified limits in the order they open: what each policy can pay, **not the claim's worth**"
+    }
+   ],
+   "pages": [
+    "D2#4",
+    "D1#40"
+   ]
+  }
  },
  "d2m4-a1": {
   "image": "money-ledger",
@@ -1220,7 +1750,32 @@ window.CM_CF_SLIDES = {
    "A summary memo that **runs to three pages**",
    "An exhibit index whose **page numbers don't match**",
    "Briefing **the initial PD estimate**, not the final figure"
-  ]
+  ],
+  "theory": {
+   "lead": "A pre-demand audit is the file's sanity check; the strategy brief carries **its findings, not conclusions**, to Atty. Thorne, who makes every call.",
+   "concepts": [
+    {
+     "term": "Core Audit Objectives",
+     "text": "Verification (facts match evidence), Valuation (every dollar justified), Risk, Compliance: **the brief reports each**"
+    },
+    {
+     "term": "Statement Drift",
+     "text": "A witness whose story changes between tellings: **drift is a defense opening**, so the brief flags it"
+    },
+    {
+     "term": "Value Killers",
+     "text": "The defense-eye audit looks for what shrinks a claim: social media, a MIST label, venue. **Counsel weighs each one**"
+    },
+    {
+     "term": "Short-Funded Settlement",
+     "text": "When the math is wrong or liens are missed, **the client takes home nothing**: lien totals belong in every brief"
+    }
+   ],
+   "pages": [
+    "D2#3",
+    "D2#9"
+   ]
+  }
  },
  "d2m4-a2": {
   "image": "strategy-session",
@@ -1299,7 +1854,32 @@ window.CM_CF_SLIDES = {
    "A demand with **no stated deadline** or clock trigger",
    "Leaving **the gap out of the timeline**",
    "Demanding **before MMI** or a future-care plan"
-  ]
+  ],
+  "theory": {
+   "lead": "A demand is not a request for money; it is a **presentation of a debt owed**, built on the legal and procedural foundation.",
+   "concepts": [
+    {
+     "term": "Legal and Procedural Foundation",
+     "text": "Three pillars every demand stands on: SOL, Liability Framework, Coverage Analysis. Know **the why behind the paperwork**."
+    },
+    {
+     "term": "The Time-Limited Demand",
+     "text": "A within-limits demand with a stated window: it **forces a decision on the record**; an unreasonable refusal can matter."
+    },
+    {
+     "term": "The Why Factor",
+     "text": "Every bill carries **why the treatment was necessary**: the adjuster evaluates a documented recovery, not a pile of invoices."
+    },
+    {
+     "term": "The Final Scrub",
+     "text": "Before it goes out, check for **common adjuster traps**: billing overlaps, an unexplained pre-existing condition, unverified balances."
+    }
+   ],
+   "pages": [
+    "D2#19",
+    "D2#13"
+   ]
+  }
  },
  "d3m1-a1": {
   "image": "checklist-qa",
@@ -1366,7 +1946,48 @@ window.CM_CF_SLIDES = {
    "Letting an **“all other … insurers” release** reach the client",
    "Promising **full UM limits** before coverage and offset are confirmed",
    "Celebrating the $40,000 gross: **success is John Doe's net**"
-  ]
+  ],
+  "theory": {
+   "lead": "UM is **the client's financial safety net**: once the at-fault policy is exhausted, first-party coverage makes up the difference, up to its limits.",
+   "concepts": [
+    {
+     "term": "The Net Check",
+     "text": "The gross settlement doesn't matter to the client; **only the net check** does, after fees and unreduced liens."
+    },
+    {
+     "term": "BI Exhaustion",
+     "text": "The at-fault carrier pays its full limit. That **pulls the contract trigger**: the UM claim becomes a second phase."
+    },
+    {
+     "term": "Consent and Subrogation Waiver",
+     "text": "The UM carrier consents and waives subrogation, or substitutes its own check: **the UM claim survives** the BI release."
+    },
+    {
+     "term": "Front-Load the Proof",
+     "text": "The at-fault Dec Page, signed release and consents up front **strip the technicality defense** on page one."
+    },
+    {
+     "term": "First-Party Contract Claim",
+     "text": "The UM carrier insures the client, so the claim shifts **from third-party to first-party**: a contract claim, yet adversarial."
+    },
+    {
+     "term": "The Gap",
+     "text": "UM doesn't simply pay its limit: it pays **the gap between damages** and what was already collected."
+    },
+    {
+     "term": "Offset vs. Add-On",
+     "text": "An offset policy subtracts the BI from its UM limit; **add-on or stacked coverage** pays on top."
+    },
+    {
+     "term": "Relative UM as Excess",
+     "text": "Relative UM answers only **above the primary layers**: the gap it pays starts where BI and Host UM end."
+    }
+   ],
+   "pages": [
+    "D3#5",
+    "D3#9"
+   ]
+  }
  },
  "d3m1-a2": {
   "image": "binder-exhibits",
@@ -1445,7 +2066,32 @@ window.CM_CF_SLIDES = {
    "**Softening the demand** to seem reasonable",
    "Negotiating without knowing **the client's net floor**",
    "Accepting **an open-ended callback**"
-  ]
+  ],
+  "theory": {
+   "lead": "In PI law the demand letter is **your opening move**; adjusters protect the carrier by undervaluing claims, so negotiation is prepared, not improvised.",
+   "concepts": [
+    {
+     "term": "The Pitch",
+     "text": "A demand that reads like a template **gets treated like one**; a tailored presentation earns a real evaluation."
+    },
+    {
+     "term": "Value Drivers",
+     "text": "The few facts that would **scare a jury**: they create the carrier's risk, so every call leads with them."
+    },
+    {
+     "term": "Anticipate the Response",
+     "text": "Name your **top two weaknesses** before the adjuster does, and have the documents that answer them in hand."
+    },
+    {
+     "term": "The Professional Pause",
+     "text": "Silence after a low number **shifts the burden back**: the adjuster must justify the figure with data."
+    }
+   ],
+   "pages": [
+    "D2#21",
+    "D2#27"
+   ]
+  }
  },
  "d3m2-a1": {
   "image": "phone-call",
@@ -1512,7 +2158,32 @@ window.CM_CF_SLIDES = {
    "Accepting the first offer because **“it's his own coverage”**",
    "A verbal settlement **with no confirming email**",
    "Finding a benefit-carrier lien **after disbursement**"
-  ]
+  ],
+  "theory": {
+   "lead": "A UM settlement is won on paper: the package shows the other driver's fault and that **damages exceed what's collected**.",
+   "concepts": [
+    {
+     "term": "Weak File vs. Legal Trap",
+     "text": "Raw charts and a casual letter carry no risk; a coded summary on a clock **raises the carrier's risk**."
+    },
+    {
+     "term": "Documents by Function",
+     "text": "The package sorts proof by job: **coverage, liability, damages**. Diagnostics and a causation narrative answer pre-existing-condition defenses."
+    },
+    {
+     "term": "The Bracketing Technique",
+     "text": "Paired ranges that **build a bridge** across a gap, then close in the middle. Atty. Thorne makes every move."
+    },
+    {
+     "term": "PIP Set-Off",
+     "text": "In no-fault states the law generally bars **double recovery**: value minus PIP paid is what the defendant still owes."
+    }
+   ],
+   "pages": [
+    "D3#8",
+    "D3#7"
+   ]
+  }
  },
  "d3m2-a2": {
   "image": "settlement-check",
@@ -1590,7 +2261,31 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Treating an ERISA plan **like a provider LOP**",
    "Asking for **a “courtesy discount”** with no legal basis"
-  ]
+  ],
+  "theory": {
+   "lead": "Not all liens are created equal: **legal backing decides negotiability**, from statutory claims that bend least to provider balances that bend most.",
+   "concepts": [
+    {
+     "term": "Medical Provider Liens",
+     "text": "Providers treating on an LOP: **high negotiability**, often willing to take a reduction to get paid now."
+    },
+    {
+     "term": "Health Insurance Subrogation",
+     "text": "A private plan's reimbursement right: moderate, shaped by the **Made Whole and Common Fund** doctrines."
+    },
+    {
+     "term": "Medicare and Medicaid",
+     "text": "Government payers bound by **strict federal or state formulas**: low negotiability, and slow to process."
+    },
+    {
+     "term": "ERISA Plans",
+     "text": "Self-funded employer plans governed by federal law: **very low negotiability**, notoriously difficult to reduce."
+    }
+   ],
+   "pages": [
+    "D3#20"
+   ]
+  }
  },
  "d3m3-a1": {
   "image": "documents-audit",
@@ -1658,7 +2353,32 @@ window.CM_CF_SLIDES = {
    "Negotiating a percentage **off an inflated bill**",
    "Agreeing to a reduction verbally with **no written confirmation**",
    "Paying **from a statement**, not the payoff figure"
-  ]
+  ],
+  "theory": {
+   "lead": "Before you ask for a discount, make sure the bill is accurate: an error earns **a demand for correction**, not a favor.",
+   "concepts": [
+    {
+     "term": "Upcoding",
+     "text": "Billing a higher service level than the records support, like **Level 5 for Level 3**: the record decides."
+    },
+    {
+     "term": "Unbundling",
+     "text": "Splitting one service into separately billed parts to **inflate the total**; the records show what was one treatment."
+    },
+    {
+     "term": "Pro-Rata Distribution",
+     "text": "Equal-priority liens split a short fund **in proportion**: each lien's amount over all liens, times what's left."
+    },
+    {
+     "term": "The Common Fund Doctrine",
+     "text": "The lienholder shouldn't get **a free ride** on the work and costs that created the fund it's repaid from."
+    }
+   ],
+   "pages": [
+    "D3#24",
+    "D3#23"
+   ]
+  }
  },
  "d3m3-a2": {
   "image": "negotiation",
@@ -1738,7 +2458,32 @@ window.CM_CF_SLIDES = {
    "**Mixing BI and UM money** on one line",
    "Charging **the same cost** to both streams",
    "A lien figure **with no Payoff Letter**"
-  ]
+  ],
+  "theory": {
+   "lead": "The Net Sheet is the tool for **transparency and case control**: it shows every dollar's origin and destination before anything leaves trust.",
+   "concepts": [
+    {
+     "term": "Third-Party BI Stream",
+     "text": "The at-fault driver's carrier; exhausting its limit is usually **a legal prerequisite** to first-party UM."
+    },
+    {
+     "term": "First-Party UM Stream",
+     "text": "The client's own or **a resident relative's policy**; triggers only once BI is exhausted or the driver is uninsured."
+    },
+    {
+     "term": "The Double-Dipping Trap",
+     "text": "Carriers audit files closely; tracing every dollar's source keeps liens paid correctly, **without cross-contaminating funds**."
+    },
+    {
+     "term": "The Final Aggregate Net",
+     "text": "Both streams side by side show the client **the compounding power** of the coverages and what negotiation added."
+    }
+   ],
+   "pages": [
+    "D3#25",
+    "D3#26"
+   ]
+  }
  },
  "d3m4-a1": {
   "image": "money-ledger",
@@ -1805,7 +2550,32 @@ window.CM_CF_SLIDES = {
    "A General Release that **wipes out the UM claims**",
    "Cutting checks **against uncleared funds**",
    "Paying from emailed instructions **without verifying by phone**"
-  ]
+  ],
+  "theory": {
+   "lead": "The release is **the contract that ends the dispute**; disbursement then moves money only through verification, documentation, authorization and reconciliation.",
+   "concepts": [
+    {
+     "term": "Release of All Claims",
+     "text": "The exit document that **ends the right to sue**; its scope decides which claims and carriers survive."
+    },
+    {
+     "term": "Settlement Disclosure Statement",
+     "text": "The truth document: gross to net, and that **full and final** means no return for more money."
+    },
+    {
+     "term": "Satisfaction of Lien",
+     "text": "A provider's signed letter that its lien is paid: it **prevents collections against the client** later."
+    },
+    {
+     "term": "Dismissal With Prejudice",
+     "text": "Where suit was filed, the court is told it's over; with prejudice means the case **can't be refiled**."
+    }
+   ],
+   "pages": [
+    "D2#35",
+    "D3#32"
+   ]
+  }
  },
  "d3m4-a2": {
   "image": "settlement-check",
@@ -1884,7 +2654,31 @@ window.CM_CF_SLIDES = {
    "Treating silence as negotiation and **waiting another month**",
    "Sending a UM demand **before BI is exhausted**",
    "Telling John Doe it “will have to go **to court**”"
-  ]
+  ],
+  "theory": {
+   "lead": "An impasse is **a stall the record proves**: the carrier holds its number after every rebuttal, follow-up and escalation, and the file reaches the litigation fork.",
+   "concepts": [
+    {
+     "term": "The Stall",
+     "text": "An adjuster's delay line, such as “waiting on authority”, meant to **wear you down**; log it, never accept it"
+    },
+    {
+     "term": "The Rebuttal",
+     "text": "Each stall gets a factual answer and a firm reply date; **a rebuttal left unanswered** becomes evidence of impasse"
+    },
+    {
+     "term": "Reasons in Writing",
+     "text": "Ask the carrier to state **its reasons in writing**; a named ground can be rebutted, a vague one cannot"
+    },
+    {
+     "term": "The Four Elements",
+     "text": "Duty, breach, causation and damages: **what any suit must prove**, so each needs a verified exhibit"
+    }
+   ],
+   "pages": [
+    "D2#29"
+   ]
+  }
  },
  "d4m1-a1": {
   "image": "escalation-alert",
@@ -1952,7 +2746,32 @@ window.CM_CF_SLIDES = {
    "Leaving “scan001.pdf” **in a litigation folder**",
    "Treating mediation and arbitration **as the same thing**",
    "Assuming an arbitration error **can be appealed**"
-  ]
+  ],
+  "theory": {
+   "lead": "Filing the Complaint **formally initiates the lawsuit**: the file moves from negotiation to court procedure, and later to a neutral the parties select or a court appoints.",
+   "concepts": [
+    {
+     "term": "The Complaint",
+     "text": "Counsel drafts the legal arguments; the Case Manager **verifies the factual foundation** beneath them"
+    },
+    {
+     "term": "Anatomy of a Complaint",
+     "text": "Caption, jurisdiction, factual allegations, causes of action, prayer for relief: **five sections to check** against the file"
+    },
+    {
+     "term": "Pre-Filing Verification",
+     "text": "The Statute Date, the defendant's **exact legal name** and a business's Registered Agent, confirmed before counsel signs"
+    },
+    {
+     "term": "Panel Strike List",
+     "text": "AAA or JAMS sends candidates; each side vets, ranks and **strikes names** before a docketed cutoff"
+    }
+   ],
+   "pages": [
+    "D5#31",
+    "D4#4"
+   ]
+  }
  },
  "d4m1-a2": {
   "image": "cms-screen",
@@ -2031,7 +2850,32 @@ window.CM_CF_SLIDES = {
    "Counting **the trigger day** as day one",
    "Rolling a backward deadline **forward to Monday**",
    "Relying on **the SOL's weekend roll-forward**"
-  ]
+  ],
+  "theory": {
+   "lead": "Litigation is **governed by rigid procedures**: once suit is filed, statute, rule and order set the dates, and documents shift from administrative tracking to evidence.",
+   "concepts": [
+    {
+     "term": "Documents Become Evidence",
+     "text": "After filing, a missing or misfiled page is no longer clerical: it **can jeopardize a trial**"
+    },
+    {
+     "term": "Weekly Court Processes",
+     "text": "Litigation runs on recurring court processes you execute **every week**, each one driven by the calendar"
+    },
+    {
+     "term": "Built-In Notice Periods",
+     "text": "Many steps carry a built-in wait, like notice to opposing counsel **before a third-party subpoena**; docket the wait"
+    },
+    {
+     "term": "Tracking Compliance",
+     "text": "A deadline someone else owes still needs **a check-in before it**: call the records office days ahead"
+    }
+   ],
+   "pages": [
+    "D4#21",
+    "D5#28"
+   ]
+  }
  },
  "d4m2-a1": {
   "image": "calendar-gap",
@@ -2098,7 +2942,32 @@ window.CM_CF_SLIDES = {
    "A mediation-quality binder **at an arbitration**",
    "**“Helpfully” answering the arbitrator** directly",
    "Logging bench directives **the next day from memory**"
-  ]
+  ],
+  "theory": {
+   "lead": "Mediation is **negotiation toward compromise**, non-binding; arbitration is an adversarial hearing where a neutral acts as judge and issues a binding Award.",
+   "concepts": [
+    {
+     "term": "Zero Decision Power",
+     "text": "The mediator facilitates and negotiates but cannot rule; **the parties keep control** over whether to sign"
+    },
+    {
+     "term": "Absolute Decision Power",
+     "text": "The arbitrator is a private judge and finder of fact who **can exclude evidence** and award damages"
+    },
+    {
+     "term": "Trial-Ready Standard",
+     "text": "Because appeal is drastically limited, treat the hearing with **a multi-day trial's precision**, not a compromise mindset"
+    },
+    {
+     "term": "Unauthorized Practice of Law",
+     "text": "Arguing, speaking on the record or representing John Doe is practicing law; **without a license it's UPL**"
+    }
+   ],
+   "pages": [
+    "D4#5",
+    "D4#20"
+   ]
+  }
  },
  "d4m2-a2": {
   "image": "arbitration",
@@ -2177,7 +3046,40 @@ window.CM_CF_SLIDES = {
    "An unorganized file **the morning of the session**",
    "A snapshot sheet with **stale opposing-counsel contacts**",
    "The confidential statement sent **ten minutes before the session**"
-  ]
+  ],
+  "theory": {
+   "lead": "A Mediation Binder is **the attorney's cheat sheet**: the case's most critical documents, compiled so counsel never fumbles during a fast-paced compromise session.",
+   "concepts": [
+    {
+     "term": "Executive Summary & Administration",
+     "text": "The first thing counsel sees: a one-page snapshot that **sets the basic framework** of parties, order and schedule"
+    },
+    {
+     "term": "The Mediation Briefs",
+     "text": "Both sides' arguments **read side by side**, so counsel can prepare rebuttals before the session"
+    },
+    {
+     "term": "Core Pleadings",
+     "text": "The legal framework: the filed documents that **define what the suit is about**"
+    },
+    {
+     "term": "Key Evidence & Liability",
+     "text": "The “smoking guns”: **raw evidence of liability**, from reports to stills and highlighted deposition pages"
+    },
+    {
+     "term": "Damages, Financials & Experts",
+     "text": "The section that **justifies counsel's dollar figure**: records, bills, wage proof and expert reports"
+    },
+    {
+     "term": "Settlement History & Drafts",
+     "text": "The closing section that **prepares counsel to finalize** any deal reached, before anyone leaves the room"
+    }
+   ],
+   "pages": [
+    "D4#7",
+    "D4#8"
+   ]
+  }
  },
  "d4m3-a1": {
   "image": "money-ledger",
@@ -2244,7 +3146,32 @@ window.CM_CF_SLIDES = {
    "**A grayscale print** of a crash still",
    "A draft brief or **superseded complaint** in the set",
    "The Confidential Mediation Statement **in the Arbitration Binder**"
-  ]
+  ],
+  "theory": {
+   "lead": "The Arbitration Binder is **a trial-ready evidentiary record**, not a reference packet: it is submitted directly to a private judge who decides.",
+   "concepts": [
+    {
+     "term": "Operational Tracks",
+     "text": "Your arbitration role is operational: **timelines, scheduling and documents**, run with rigid precision"
+    },
+    {
+     "term": "Arbitration Brief Deadline",
+     "text": "The absolute cutoff for claims, **exhibit indexes and witness lists**, sent to the arbitrator and opposing counsel"
+    },
+    {
+     "term": "Arbitration Submissions",
+     "text": "The foundational paperwork that **sets the ground rules** for the whole proceeding, so it leads the binder"
+    },
+    {
+     "term": "Evidentiary Exclusion",
+     "text": "A missing page or grayscale print **can be excluded**, and a binding award leaves no second chance"
+    }
+   ],
+   "pages": [
+    "D4#25",
+    "D4#21"
+   ]
+  }
  },
  "d4m3-a2": {
   "image": "checklist-qa",
@@ -2322,7 +3249,32 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Logging silence as **“adjuster busy”** instead of dates",
    "Stills printed **in grayscale** for a binding hearing"
-  ]
+  ],
+  "theory": {
+   "lead": "Bottlenecks come in two kinds: **compromise traps** that stall a mediation, and trial-ready landmines that can sink a binding arbitration.",
+   "concepts": [
+    {
+     "term": "Compromise Traps",
+     "text": "Unverified ledgers, absent authority and late briefs **give the defense a reason** to stall at mediation"
+    },
+    {
+     "term": "Trial-Ready Landmines",
+     "text": "Excluded exhibits, unshielded priors and missed cutoffs at arbitration **cost evidence you can't recover**"
+    },
+    {
+     "term": "The Prior Medical Shield",
+     "text": "The defense uses prior records to argue **pre-existing degenerative conditions**; the shield answers with records and expert opinion"
+    },
+    {
+     "term": "Operational Countermeasures",
+     "text": "Two habits clear most bottlenecks early: **a 48-hour audit** and lien reconciliation against EOBs"
+    }
+   ],
+   "pages": [
+    "D4#33",
+    "D4#35"
+   ]
+  }
  },
  "d4m4-a1": {
   "image": "cms-screen",
@@ -2389,7 +3341,31 @@ window.CM_CF_SLIDES = {
    "Going **straight to Atty. Thorne** before the lower rungs",
    "“Please advise” **with no dates**",
    "Letting a deadline pass **because a record was late**"
-  ]
+  ],
+  "theory": {
+   "lead": "Escalation is **a variance loop**: monitor each item against its expected course, and when progress stalls, route it up before the date is lost.",
+   "concepts": [
+    {
+     "term": "Variance Detected",
+     "text": "The moment an item **departs from its expected course**; that departure, not frustration, starts the escalation"
+    },
+    {
+     "term": "The Escalation Ladder",
+     "text": "Each problem goes to **the lowest capable rung**, so counsel's time is spent on decisions only he can make"
+    },
+    {
+     "term": "Decision-Ready Report",
+     "text": "A report built so the supervisor can **act in one read**, without redoing your research"
+    },
+    {
+     "term": "The Critical Thinking Audit",
+     "text": "Before a hard date, test the file against **the defense's stated position** and escalate any gap you find"
+    }
+   ],
+   "pages": [
+    "D1#45"
+   ]
+  }
  },
  "d4m4-a2": {
   "image": "clock-deadline",
@@ -2469,7 +3445,32 @@ window.CM_CF_SLIDES = {
    "A perfect Complaint filed **one day after the SOL**",
    "Letting a **court deadline** slide like an adjuster's",
    "**Counting the trigger day** as day one"
-  ]
+  ],
+  "theory": {
+   "lead": "A lawsuit is a **highly structured, court-mandated process**: miss a deadline or misfile a document, and the court can dismiss the case.",
+   "concepts": [
+    {
+     "term": "Your Role by Phase",
+     "text": "Pleadings: track service and draft files; discovery: gather data, prep the client; trial prep: **coordinate schedules, final medicals**"
+    },
+    {
+     "term": "Documents Become Evidence",
+     "text": "Once suit is filed, paperwork stops being admin tracking: a **missing or misfiled document** can jeopardize the trial"
+    },
+    {
+     "term": "Written Discovery Tools",
+     "text": "Interrogatories are written questions under oath, RFPs demand documents, RFAs demand admit or deny: all **run on strict deadlines**"
+    },
+    {
+     "term": "The Docket Entry",
+     "text": "Every filing by either side creates a docket entry, and **its clock runs** whether or not the email reached you"
+    }
+   ],
+   "pages": [
+    "D5#3",
+    "D5#27"
+   ]
+  }
  },
  "d5m1-a1": {
   "image": "data-entry",
@@ -2537,7 +3538,32 @@ window.CM_CF_SLIDES = {
    "A **phone-only extension**",
    "Trial binders built from **the pre-lit records**",
    "Sending the prep packet **the day before**"
-  ]
+  ],
+  "theory": {
+   "lead": "Trial preparation is the stage where you **compile the final puzzle pieces**, so the attorney walks into court fully armed.",
+   "concepts": [
+    {
+     "term": "Discovery: The Heavy Lifting",
+     "text": "Both sides must lay their cards on the table; it is where Case Managers spend **most of their litigation time**"
+    },
+    {
+     "term": "The Deposition",
+     "text": "An oral interview under oath, recorded by a court reporter; you own **the logistics, not the testimony**"
+    },
+    {
+     "term": "The Final Run",
+     "text": "Litigation can take 1 to 3 years, so records and bills are rerun to show **the total cost** of injury"
+    },
+    {
+     "term": "The Weekly KPI Audit",
+     "text": "Measurable checks you audit weekly, like a server assigned within 48 hours, so a slipping file **shows before it fails**"
+    }
+   ],
+   "pages": [
+    "D5#7",
+    "D5#5"
+   ]
+  }
  },
  "d5m1-a2": {
   "image": "calendar-gap",
@@ -2615,7 +3641,32 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Claiming **the 30 paid rental days** again",
    "Treating Property Damage as **“just the car”**"
-  ]
+  ],
+  "theory": {
+   "lead": "Property damage is **a cornerstone of civil litigation**: the law's mechanism for making an owner financially whole after negligence harms their property.",
+   "concepts": [
+    {
+     "term": "PD Cuts Both Ways",
+     "text": "In suit, PD can be **definitive evidence of injury** or the defense's most formidable tool against it"
+    },
+    {
+     "term": "Special vs. General Damages",
+     "text": "Special damages are quantifiable losses; general damages are subjective. Every PD figure is special, **proved by documents**"
+    },
+    {
+     "term": "Valuation Is Contested",
+     "text": "How much the defendant owes is among the **most heavily litigated** PD questions, so courts apply set formulas"
+    },
+    {
+     "term": "Diminution in Value",
+     "text": "Pre-loss market value minus post-loss value; the **lesser-of rule** weighs it against repair cost, capping a Total Loss"
+    }
+   ],
+   "pages": [
+    "D5#39",
+    "D5#40"
+   ]
+  }
  },
  "d5m2-a1": {
   "image": "money-ledger",
@@ -2682,7 +3733,32 @@ window.CM_CF_SLIDES = {
    "Telling John Doe his car **“lost $3,600.00”**",
    "A PD release that **reaches the injury claim**",
    "Promising **sentimental-value recovery** the law won't award"
-  ]
+  ],
+  "theory": {
+   "lead": "The law measures property at **fair market value**, so what a repaired car still loses is a market loss, proved with market evidence.",
+   "concepts": [
+    {
+     "term": "Market Value, Not Sentiment",
+     "text": "Standard law values property at market; special value to an owner is **an exception, not the rule**"
+    },
+    {
+     "term": "Formula Versus Market",
+     "text": "A carrier formula is claims practice, **not a legal measure**; an appraisal built on market data tests it"
+    },
+    {
+     "term": "The Written Basis",
+     "text": "Get the carrier's position and inputs in writing: only **a basis on paper** can be answered with stronger evidence"
+    },
+    {
+     "term": "Subpoena Duces Tecum",
+     "text": "In suit, a Subpoena Duces Tecum **compels a non-party's records**; a blanket request invites a Motion to Quash"
+    }
+   ],
+   "pages": [
+    "D5#41",
+    "D5#35"
+   ]
+  }
  },
  "d5m2-a2": {
   "image": "phone-call",
@@ -2761,7 +3837,32 @@ window.CM_CF_SLIDES = {
    "Calming him **with a prediction**, not the process",
    "Letting John be surprised by **his 2021 chiropractic records**",
    "Over-coaching until **John sounds rehearsed**"
-  ]
+  ],
+  "theory": {
+   "lead": "A deposition can shape a litigated case's outcome: the attorney owns the legal strategy, while you prepare the client **operationally and psychologically**.",
+   "concepts": [
+    {
+     "term": "The Landmine Audit",
+     "text": "Before any prep meeting, review the file for **what the defense will exploit**, so Atty. Thorne meets it first"
+    },
+    {
+     "term": "Consistency Is Credibility",
+     "text": "The defense compares testimony with signed answers and records; any mismatch **reads as concealment**, so counsel sees it first"
+    },
+    {
+     "term": "The Courtroom Drama Myth",
+     "text": "Clients expect a TV courtroom drama; showing **the real, ordinary process** calms them without any prediction"
+    },
+    {
+     "term": "The Evaluation Report",
+     "text": "Defense counsel reports to the carrier how the client will strike a jury: **presentation feeds that report**"
+    }
+   ],
+   "pages": [
+    "D5#9",
+    "D5#10"
+   ]
+  }
  },
  "d5m3-a1": {
   "image": "client-call",
@@ -2827,7 +3928,32 @@ window.CM_CF_SLIDES = {
    "A “yes” to **a list from memory**",
    "A client who **argues with defense counsel**",
    "Preparing only the crash mechanics, **missing the medical history**"
-  ]
+  ],
+  "theory": {
+   "lead": "The defense's goal is to make the client **contradict, lose temper or exaggerate**, damaging credibility; general rules protect it, a script cannot.",
+   "concepts": [
+    {
+     "term": "Wide-Open Questioning",
+     "text": "Defense counsel may ask a very broad range of questions to discover the facts: **wide questions are normal**, not attacks"
+    },
+    {
+     "term": "Estimate Versus Guess",
+     "text": "An estimate rests on what you perceived; a guess claims what you couldn't know: **only the estimate** is honest testimony"
+    },
+    {
+     "term": "Information Gathering, Not Battle",
+     "text": "A deposition gathers facts for the defense's evaluation; nothing is won there, so **the smallest target** protects the case"
+    },
+    {
+     "term": "The Objection's Purpose",
+     "text": "An objection is **a formal flag** on the record protecting the witness, not a sign of trouble"
+    }
+   ],
+   "pages": [
+    "D5#16",
+    "D5#17"
+   ]
+  }
  },
  "d5m3-a2": {
   "image": "checklist-qa",
@@ -2904,7 +4030,29 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Telling John he **“can't be blamed”** as a passenger",
    "Adding **Kevin Alvarez's policy** to the stack"
-  ]
+  ],
+  "theory": {
+   "lead": "Comparative negligence **apportions fault** between the parties; the share charged to the injured person can reduce, or bar, what they recover.",
+   "concepts": [
+    {
+     "term": "Three Fault Regimes",
+     "text": "Pure, modified and contributory treat one fault finding differently: **the governing rule**, not the percentage alone, decides reduce or bar"
+    },
+    {
+     "term": "Liability Status",
+     "text": "Liability is accepted, partial or denied; recording **its status and source** shows Atty. Thorne what remains contested"
+    },
+    {
+     "term": "Fault Versus Mitigation",
+     "text": "Comparative fault concerns the crash; failure to mitigate concerns later care and **trims only avoidable damages**"
+    },
+    {
+     "term": "The Counter-Package",
+     "text": "An index answering each pleaded allegation with **evidence that can come in**, built for Atty. Thorne's analysis"
+    }
+   ],
+   "pages": []
+  }
  },
  "d5m4-a1": {
   "image": "documents-audit",
@@ -2972,7 +4120,31 @@ window.CM_CF_SLIDES = {
    "**A fourth attempt** at a stale address",
    "Serving the non-party **before opposing counsel has notice**",
    "Telling Margaret Doe **why the firm needs John**"
-  ]
+  ],
+  "theory": {
+   "lead": "Filing a lawsuit **means nothing until service**: the defendant must be legally notified, or the case stalls and may be dismissed.",
+   "concepts": [
+    {
+     "term": "Evading Defendants",
+     "text": "Defendants aware of a suit may hide, ignore the door or move; **diligent, logged attempts** prove the effort"
+    },
+    {
+     "term": "The Skip-Trace",
+     "text": "A background search of utility, employment and address records that **finds a current address**, run only for permissible purpose"
+    },
+    {
+     "term": "Alternative Service",
+     "text": "A court-permitted substitute for personal service, such as mail or posting, that **only the attorney can request**"
+    },
+    {
+     "term": "Certified Notice",
+     "text": "Certified mail leaves **a provable mailing record**; with email, it shows the client was told how to respond"
+    }
+   ],
+   "pages": [
+    "D5#22"
+   ]
+  }
  },
  "d5m4-a2": {
   "image": "email-outreach",
@@ -3049,7 +4221,32 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Carrying **Track A's 33⅓%** into this file",
    "Disbursing **before the liens resolve**"
-  ]
+  ],
+  "theory": {
+   "lead": "The Net Sheet is **the ultimate transparency tool**: it shows the client where every dollar came from and where it goes.",
+   "concepts": [
+    {
+     "term": "The Common Fund Doctrine",
+     "text": "The attorney's work and costs created the fund, so lienholders contribute **their proportional share** of fees and costs"
+    },
+    {
+     "term": "The Double-Dipping Trap",
+     "text": "Carriers audit the file, so the sheet traces **every dollar to its source**, never mixing funds"
+    },
+    {
+     "term": "Fee Structure Transparency",
+     "text": "Fees can differ by stream and stage; tracking **each stream's fee separately** keeps the ledger accurate and explainable"
+    },
+    {
+     "term": "The Final Payoff Letter",
+     "text": "No lien check goes out without a signed letter accepting it as **full and final satisfaction**"
+    }
+   ],
+   "pages": [
+    "D3#25",
+    "D3#21"
+   ]
+  }
  },
  "d5m5-a1": {
   "image": "money-ledger",

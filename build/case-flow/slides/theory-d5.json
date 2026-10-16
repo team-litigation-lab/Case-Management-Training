@@ -1,0 +1,217 @@
+{
+  "d5m1-l1": {
+    "lead": "A lawsuit is a **highly structured, court-mandated process**: miss a deadline or misfile a document, and the court can dismiss the case.",
+    "concepts": [
+      {
+        "term": "Your Role by Phase",
+        "text": "Pleadings: track service and draft files; discovery: gather data, prep the client; trial prep: **coordinate schedules, final medicals**"
+      },
+      {
+        "term": "Documents Become Evidence",
+        "text": "Once suit is filed, paperwork stops being admin tracking: a **missing or misfiled document** can jeopardize the trial"
+      },
+      {
+        "term": "Written Discovery Tools",
+        "text": "Interrogatories are written questions under oath, RFPs demand documents, RFAs demand admit or deny: all **run on strict deadlines**"
+      },
+      {
+        "term": "The Docket Entry",
+        "text": "Every filing by either side creates a docket entry, and **its clock runs** whether or not the email reached you"
+      }
+    ],
+    "pages": [
+      "D5#3",
+      "D5#27"
+    ]
+  },
+  "d5m1-l2": {
+    "lead": "Trial preparation is the stage where you **compile the final puzzle pieces**, so the attorney walks into court fully armed.",
+    "concepts": [
+      {
+        "term": "Discovery: The Heavy Lifting",
+        "text": "Both sides must lay their cards on the table; it is where Case Managers spend **most of their litigation time**"
+      },
+      {
+        "term": "The Deposition",
+        "text": "An oral interview under oath, recorded by a court reporter; you own **the logistics, not the testimony**"
+      },
+      {
+        "term": "The Final Run",
+        "text": "Litigation can take 1 to 3 years, so records and bills are rerun to show **the total cost** of injury"
+      },
+      {
+        "term": "The Weekly KPI Audit",
+        "text": "Measurable checks you audit weekly, like a server assigned within 48 hours, so a slipping file **shows before it fails**"
+      }
+    ],
+    "pages": [
+      "D5#7",
+      "D5#5"
+    ]
+  },
+  "d5m2-l1": {
+    "lead": "Property damage is **a cornerstone of civil litigation**: the law's mechanism for making an owner financially whole after negligence harms their property.",
+    "concepts": [
+      {
+        "term": "PD Cuts Both Ways",
+        "text": "In suit, PD can be **definitive evidence of injury** or the defense's most formidable tool against it"
+      },
+      {
+        "term": "Special vs. General Damages",
+        "text": "Special damages are quantifiable losses; general damages are subjective. Every PD figure is special, **proved by documents**"
+      },
+      {
+        "term": "Valuation Is Contested",
+        "text": "How much the defendant owes is among the **most heavily litigated** PD questions, so courts apply set formulas"
+      },
+      {
+        "term": "Diminution in Value",
+        "text": "Pre-loss market value minus post-loss value; the **lesser-of rule** weighs it against repair cost, capping a Total Loss"
+      }
+    ],
+    "pages": ["D5#39", "D5#40"]
+  },
+  "d5m2-l2": {
+    "lead": "The law measures property at **fair market value**, so what a repaired car still loses is a market loss, proved with market evidence.",
+    "concepts": [
+      {
+        "term": "Market Value, Not Sentiment",
+        "text": "Standard law values property at market; special value to an owner is **an exception, not the rule**"
+      },
+      {
+        "term": "Formula Versus Market",
+        "text": "A carrier formula is claims practice, **not a legal measure**; an appraisal built on market data tests it"
+      },
+      {
+        "term": "The Written Basis",
+        "text": "Get the carrier's position and inputs in writing: only **a basis on paper** can be answered with stronger evidence"
+      },
+      {
+        "term": "Subpoena Duces Tecum",
+        "text": "In suit, a Subpoena Duces Tecum **compels a non-party's records**; a blanket request invites a Motion to Quash"
+      }
+    ],
+    "pages": ["D5#41", "D5#35"]
+  },
+  "d5m3-l1": {
+    "lead": "A deposition can shape a litigated case's outcome: the attorney owns the legal strategy, while you prepare the client **operationally and psychologically**.",
+    "concepts": [
+      {
+        "term": "The Landmine Audit",
+        "text": "Before any prep meeting, review the file for **what the defense will exploit**, so Atty. Thorne meets it first"
+      },
+      {
+        "term": "Consistency Is Credibility",
+        "text": "The defense compares testimony with signed answers and records; any mismatch **reads as concealment**, so counsel sees it first"
+      },
+      {
+        "term": "The Courtroom Drama Myth",
+        "text": "Clients expect a TV courtroom drama; showing **the real, ordinary process** calms them without any prediction"
+      },
+      {
+        "term": "The Evaluation Report",
+        "text": "Defense counsel reports to the carrier how the client will strike a jury: **presentation feeds that report**"
+      }
+    ],
+    "pages": [
+      "D5#9",
+      "D5#10"
+    ]
+  },
+  "d5m3-l2": {
+    "lead": "The defense's goal is to make the client **contradict, lose temper or exaggerate**, damaging credibility; general rules protect it, a script cannot.",
+    "concepts": [
+      {
+        "term": "Wide-Open Questioning",
+        "text": "Defense counsel may ask a very broad range of questions to discover the facts: **wide questions are normal**, not attacks"
+      },
+      {
+        "term": "Estimate Versus Guess",
+        "text": "An estimate rests on what you perceived; a guess claims what you couldn't know: **only the estimate** is honest testimony"
+      },
+      {
+        "term": "Information Gathering, Not Battle",
+        "text": "A deposition gathers facts for the defense's evaluation; nothing is won there, so **the smallest target** protects the case"
+      },
+      {
+        "term": "The Objection's Purpose",
+        "text": "An objection is **a formal flag** on the record protecting the witness, not a sign of trouble"
+      }
+    ],
+    "pages": [
+      "D5#16",
+      "D5#17"
+    ]
+  },
+  "d5m4-l1": {
+    "lead": "Comparative negligence **apportions fault** between the parties; the share charged to the injured person can reduce, or bar, what they recover.",
+    "concepts": [
+      {
+        "term": "Three Fault Regimes",
+        "text": "Pure, modified and contributory treat one fault finding differently: **the governing rule**, not the percentage alone, decides reduce or bar"
+      },
+      {
+        "term": "Liability Status",
+        "text": "Liability is accepted, partial or denied; recording **its status and source** shows Atty. Thorne what remains contested"
+      },
+      {
+        "term": "Fault Versus Mitigation",
+        "text": "Comparative fault concerns the crash; failure to mitigate concerns later care and **trims only avoidable damages**"
+      },
+      {
+        "term": "The Counter-Package",
+        "text": "An index answering each pleaded allegation with **evidence that can come in**, built for Atty. Thorne's analysis"
+      }
+    ],
+    "pages": []
+  },
+  "d5m4-l2": {
+    "lead": "Filing a lawsuit **means nothing until service**: the defendant must be legally notified, or the case stalls and may be dismissed.",
+    "concepts": [
+      {
+        "term": "Evading Defendants",
+        "text": "Defendants aware of a suit may hide, ignore the door or move; **diligent, logged attempts** prove the effort"
+      },
+      {
+        "term": "The Skip-Trace",
+        "text": "A background search of utility, employment and address records that **finds a current address**, run only for permissible purpose"
+      },
+      {
+        "term": "Alternative Service",
+        "text": "A court-permitted substitute for personal service, such as mail or posting, that **only the attorney can request**"
+      },
+      {
+        "term": "Certified Notice",
+        "text": "Certified mail leaves **a provable mailing record**; with email, it shows the client was told how to respond"
+      }
+    ],
+    "pages": [
+      "D5#22"
+    ]
+  },
+  "d5m5-l1": {
+    "lead": "The Net Sheet is **the ultimate transparency tool**: it shows the client where every dollar came from and where it goes.",
+    "concepts": [
+      {
+        "term": "The Common Fund Doctrine",
+        "text": "The attorney's work and costs created the fund, so lienholders contribute **their proportional share** of fees and costs"
+      },
+      {
+        "term": "The Double-Dipping Trap",
+        "text": "Carriers audit the file, so the sheet traces **every dollar to its source**, never mixing funds"
+      },
+      {
+        "term": "Fee Structure Transparency",
+        "text": "Fees can differ by stream and stage; tracking **each stream's fee separately** keeps the ledger accurate and explainable"
+      },
+      {
+        "term": "The Final Payoff Letter",
+        "text": "No lien check goes out without a signed letter accepting it as **full and final satisfaction**"
+      }
+    ],
+    "pages": [
+      "D3#25",
+      "D3#21"
+    ]
+  }
+}

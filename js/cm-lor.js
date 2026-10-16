@@ -8,8 +8,9 @@
    nothing here opens or touches the CMS: the page says so in as many words, and no card, link or
    session points at a case file — see NO_CASE_FILE below.
 
-     • The trainer assigns one case per trainee (Assign cases, admins only) out of the 18 in
-       "Case Notes For Drafting Activity (SA Demo)". Until they do, the trainee sees what to ask for.
+     • Every trainee drafts on John Doe v. Robert Smith, the Case Flow's own file, with no assignment needed (it is
+       the Claim Set Up step: the LORs to the BI, Host UM and Relative UM carriers). A trainer can still assign one
+       of the 18 practice cases in "Case Notes For Drafting Activity (SA Demo)" instead (Assign cases, admins only).
      • The trainee reads their case notes on the page and can download them as a PDF.
      • Two editors, one per letter, showing the firm's templates exactly as they are. What the firm
        highlighted in yellow is what the trainee fills in; everything else is fixed text they can't edit:
@@ -66,15 +67,26 @@ function queueSave(){
   }, 900);
 }
 
-/* ---------- the assigned case ---------- */
-// The case number a trainer assigned, 1-based as the trainers count them; null when they haven't yet.
+/* ---------- the case ---------- */
+// Case 0 is the course's own file, John Doe v. Robert Smith: it opens for everyone with no assignment, as the
+// Case Flow's Claim Set Up step (the LORs to the BI, Host UM and Relative UM carriers). Its facts are the case
+// file's (curriculum/5-day-flow/case-file.md; the Declaration Pages RS27–RS29), its date of loss in the trainee's
+// case year (js/cm-case-dates.js). A trainer can still assign one of the 18 practice cases instead (1-based).
+const JD_DOL = () => { const D = window.CM_CASE_DATES, s = D && D.dol ? D.dol() : "02/06/2026", [m, d, y] = s.split("/").map(Number);
+  return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-US", {year:"numeric", month:"long", day:"numeric", timeZone:"UTC"}); };
+const JD = () => ({jd:true,
+  p1:{"Client’s Name":"John Doe", "Date of Loss":JD_DOL(), "Insurance Company Name":"Harbor Point Insurance", "Policy Number":"HPA-4402917", "Claim Number":"HP-26-7741",
+    "Adjuster Name and Address":"Marcus Bell, 77 Harbor Point Blvd, Riverton", "Email":"marcus.bell@harborpoint.example",
+    "Also 1P":"Cardinal State Mutual (Relative UM, Margaret Doe's policy CSM-AU-5580213, claim CS-26-20355, adjuster Teresa Okafor, 1200 Cardinal Way, Millbrook, teresa.okafor@cardinalstate.example): the same 1P letter, sent separately"},
+  p3:{"Client’s Name":"John Doe", "Date of Loss":JD_DOL(), "Defendant Insurance Company Name":"Keystone Mutual Insurance", "Policy Number":"KMI-PA-7731045", "Claim Number":"KM-26-440871",
+    "Adjuster Name and Address":"Dana Whitfield, P.O. Box 4100, Riverton", "Fax Number":"(555) 010-7199", "Defendant Insured Name":"Robert Smith", "Defendant Driver’s Name":"Robert Smith"}});
 function myCaseNo(){
-  if(adminOn()) return Number(state.lorPreviewCase) || 1;    // an admin reading the page sees case 1
+  if(adminOn()) return state.lorPreviewCase != null && state.lorPreviewCase !== "" ? Number(state.lorPreviewCase) : 0;
   const n = L.assign && Number(L.assign.case);
-  return n >= 1 && n <= CASES.length ? n : null;
+  return n >= 1 && n <= CASES.length ? n : 0;   // no assignment needed: John Doe v. Robert Smith
 }
-const caseOf = no => (no ? CASES[no - 1] : null) || null;
-const caseName = no => { const c = caseOf(no); return c ? `Case ${no} · ${c.p1["Client’s Name"] || "—"} · ${c.p1["Date of Loss"] || ""}` : `Case ${no}`; };
+const caseOf = no => no === 0 ? JD() : (no ? CASES[no - 1] : null) || null;
+const caseName = no => { const c = caseOf(no); return no === 0 ? `John Doe v. Robert Smith · ${JD_DOL()}` : c ? `Case ${no} · ${c.p1["Client’s Name"] || "—"} · ${c.p1["Date of Loss"] || ""}` : `Case ${no}`; };
 // The template's own order for the notes, so the page reads like the file the trainers sent.
 const P1_KEYS = ["Client’s Name", "Date of Loss", "Insurance Company Name", "Policy Number", "Claim Number", "Adjuster Name and Address", "Email"];
 const P3_KEYS = ["Client’s Name", "Date of Loss", "Defendant Insurance Company Name", "Policy Number", "Claim Number", "Adjuster Name and Address", "Fax Number", "Defendant Insured Name", "Defendant Driver’s Name"];
@@ -167,6 +179,7 @@ function letterLines(tpl){
 
 /* ---------- the page ---------- */
 function notice(){
+  if(myCaseNo() === 0) return `<div class="lor-warn lor-cf" role="note"><span class="lor-warn-ic">📂</span><div><b class="lor-warn-h">Case Flow · Claim Set Up — John Doe v. Robert Smith.</b><p>The LORs for the file you opened in the CMS: the 1P letter to <b>Harbor Point</b> (Host UM and MedPay) and again to <b>Cardinal State Mutual</b> (Relative UM), and the 3P letter to <b>Keystone Mutual</b> (Robert Smith's BI). Draft them here, download them, and log them on John Doe's file in the CMS.</p>${state.cfReturn ? `<button class="btn btn-navy btn-sm" type="button" onclick="cmCaseFlow.back()">← Back to the Case Flow</button>` : ""}</div></div>`;
   return `<div class="lor-warn" role="note"><span class="lor-warn-ic">⚠</span><div><b class="lor-warn-h">Standalone activity — no CMS case file.</b><p>${NO_CASE_FILE}</p></div></div>`;
 }
 function objective(){
@@ -176,7 +189,7 @@ function caseCard(no){
   const c = caseOf(no);
   if(!c) return `<div class="card lor-wait"><b>Your trainer hasn’t assigned your case yet.</b><p>The cases are handed out one per trainee. Ask your trainer to assign yours; your case notes and both letters open here as soon as they do.</p></div>`;
   const side = (ttl, key) => `<div class="lor-notes"><div class="lor-notes-h">${ttl}</div><dl>${noteRows(c, key).map(([k, v]) => `<div><dt>${e(k)}</dt><dd>${e(v)}</dd></div>`).join("")}</dl></div>`;
-  return `<section class="card lor-case"><div class="lor-case-h"><div><p class="lor-eyebrow">Your assigned case</p><h2>${e(caseName(no))}</h2></div>
+  return `<section class="card lor-case"><div class="lor-case-h"><div><p class="lor-eyebrow">${no === 0 ? "Your case" : "Your assigned case"}</p><h2>${e(caseName(no))}</h2></div>
       <button class="btn btn-ghost btn-sm" type="button" onclick="CMLor.casePdf()">⬇ Download my case notes (PDF)</button></div>
     <p class="lor-muted">Draft both letters from these notes. Replace every placeholder with the right detail, drop the brackets, and keep the capitalisation the placeholder uses.</p>
     <div class="lor-notes-grid">${side("For 1P LOR Drafting", "p1")}${side("For 3P LOR Drafting", "p3")}</div></section>`;
@@ -217,9 +230,9 @@ function renderPage(){
   const preview = (state.adminPreview && !state.traineeId)
     ? `<div class="card lor-preview-note">👁 <b>Trainee view</b> — this is the page as a trainee sees it. Nothing you type here is saved; a trainee drafts on their own account.</div>` : "";
   return `${preview}<div class="lor-hero"><p class="lor-eyebrow">📄 Drafting Tools</p><h1>LOR Drafting</h1>
-      <p>Draft a Letter of Representation for both the 1P and the 3P carrier, from the case your trainer assigned you.</p>
+      <p>Draft a Letter of Representation for both the 1P and the 3P carrier${no === 0 ? ", on John Doe v. Robert Smith" : ", from the case your trainer assigned you"}.</p>
       <button class="btn btn-ghost btn-sm" type="button" onclick="goto('drafting')">← Back to Drafting Tools</button></div>
-    ${notice()}${objective()}${caseCard(no)}${no ? editor(no) : ""}`;
+    ${notice()}${objective()}${caseCard(no)}${caseOf(no) ? editor(no) : ""}`;
 }
 
 /* ---------- the trainer: who gets which case ---------- */
@@ -253,12 +266,12 @@ function renderAdmin(){
       ${!A.rows ? `<p class="lor-muted">Loading the trainees…</p>` : !A.rows.length ? `<p class="lor-muted">No approved trainee yet.</p>`
         : keys.map(b => `<div class="lor-batch"><b>📁 ${e(b ? "Batch " + b : "No batch set")}</b>
           ${groups[b].map(x => `<div class="lor-arow"><span class="lor-aname">${e(x.name)}</span>
-            <select aria-label="Case for ${e(x.name)}" onchange="CMLor.assign('${e(x.id)}', this.value, this)"><option value="">— not assigned —</option>${opts(x.a && Number(x.a.case))}</select>
+            <select aria-label="Case for ${e(x.name)}" onchange="CMLor.assign('${e(x.id)}', this.value, this)"><option value="">John Doe v. Robert Smith (the default)</option>${opts(x.a && Number(x.a.case))}</select>
             <span class="lor-astate">${x.a && x.a.case ? `assigned${x.a.at ? " " + e(new Date(x.a.at).toLocaleDateString()) : ""}` : ""}</span></div>`).join("")}</div>`).join("")}
       <div style="margin-top:12px;"><button class="btn btn-ghost btn-sm" type="button" onclick="CMLor.refreshAdmin()">Refresh</button></div></section>
     <section class="card lor-preview"><h2>👁 The activity as a trainee sees it</h2>
       <p class="lor-muted">Pick a case to read its notes and both letters.</p>
-      <select aria-label="Preview a case" onchange="CMLor.preview(this.value)">${opts(myCaseNo())}</select>
+      <select aria-label="Preview a case" onchange="CMLor.preview(this.value)"><option value="0"${myCaseNo() === 0 ? " selected" : ""}>${e(caseName(0))}</option>${opts(myCaseNo())}</select>
       ${caseCard(myCaseNo())}</section>`;
 }
 
@@ -300,7 +313,7 @@ window.CMLor = {
   reload(){ L.id = null; L.draft = null; L.err = ""; render(); },
   refreshAdmin(){ A.rows = null; render(); },
   tab(id){ L.tab = id; render(); window.scrollTo(0, 0); },
-  preview(v){ state.lorPreviewCase = Number(v) || 1; render(); },
+  preview(v){ state.lorPreviewCase = Number(v) || 0; render(); },
   grow(el){ el.style.height = "auto"; el.style.height = Math.min(520, el.scrollHeight + 2) + "px"; },
   set(tid, f, v){ letter(tid).fields[f] = v; letter(tid).updatedAt = new Date().toISOString(); queueSave(); },
   tick(tid, id){ const d = letter(tid); d.checks[id] = !d.checks[id]; queueSave(); render(); },
@@ -355,9 +368,9 @@ window.render = function(){
 window.cmLorCard = function(){
   const no = isTrainee() ? myCaseNo() : null;
   if(isTrainee() && L.id !== state.traineeId && !L.loading) load(state.traineeId);
-  const note = adminOn() ? "Assign each trainee a case." : no ? `Your case: <b>${e(caseName(no))}</b>.` : "Waiting for your trainer to assign your case.";
+  const note = adminOn() ? "Every trainee drafts John Doe v. Robert Smith's LORs; assign a practice case only to give one a different file." : `Your case: <b>${e(caseName(no || 0))}</b>.`;
   return `<div class="card fts-card"><h3>📄 LOR Drafting</h3>
-    <p class="fts-note">Draft the Letter of Representation for the 1P and the 3P carrier from your assigned case, in the firm's own templates, then download them. A standalone activity — no CMS case file.</p>
+    <p class="fts-note">Draft the Letter of Representation for the 1P and the 3P carrier on John Doe v. Robert Smith (the Case Flow's Claim Set Up step), in the firm's own templates, then download them.</p>
     <p class="fss-case">${note}</p>
     <div class="fts-tool-act"><button class="btn btn-navy btn-sm" type="button" onclick="goto('lor')">Open LOR Drafting</button></div></div>`;
 };
