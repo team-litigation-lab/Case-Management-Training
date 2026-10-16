@@ -35,6 +35,12 @@ What lands on the file and starts the activity: the realistic trigger, as the tr
   "attachments": ["RS01", "RS02"]     // optional: document ids from js/cm-case-flow-docs.js that this message carries
 }
 ```
+- **A voicemail is heard, not read** (`"channel": "voicemail"`). Give it `spoken`: what the caller says, word for word
+  as they'd say it (fillers, pauses as "...", numbers in words, ≤ 160 words), and `listen`: 3–6 questions that test
+  what a Case Manager must catch by ear (`{"q": "…", "a": "the answer, ≤ 30 words", "match": ["regex", …]}`, every
+  pattern must match a trainee's correct note, case-insensitive). The course plays it like a voicemail box and keeps
+  the transcript hidden until the trainee checks their notes. `from` is the caller ID, which may not be the number
+  to call back.
 - The date must match the activity's own scenario date where it gives one, and sit in the right place on the
   case timeline. A CMS-generated trigger is `"channel": "alert", "from": "CMS"`.
 - Atty. Thorne's internal asks are `"channel": "memo"` or `"email"` from `Atty. Elijah Thorne`.

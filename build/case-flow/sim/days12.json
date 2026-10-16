@@ -20,10 +20,18 @@
       "date": "02/10/2026",
       "time": "8:47 a.m.",
       "channel": "voicemail",
-      "from": "John Doe (555) 010-2288",
+      "from": "Northgate Distribution (555) 010-3950",
       "to": "Case Manager, ext. 214",
       "subject": "Voicemail: John Doe — call from the other driver's insurance",
-      "body": "Hey, it's John Doe. I signed with Mr. Thorne yesterday. Somebody from Keystone Mutual, the other guy's insurance, called me last night asking what happened and if they could record it. I didn't know what to tell them. I haven't gotten anything from you guys yet. My neck's still stiff. Can you call me back? I'm on my mobile."
+      "body": "Hey, it's John Doe. I signed with Mr. Thorne yesterday. Last night Dana from Keystone Mutual, the other guy's insurance, asked what happened and if she could record it. I said I'd think about it; she's calling back today. I haven't gotten anything from you guys. My neck's still stiff. I'm at work, so call my cell: 555-010-2288.",
+      "spoken": "Hey, uh... this is John Doe. I signed with Mr. Thorne yesterday, for the car accident. So, last night, somebody from Keystone Mutual called me. That's the other guy's insurance. A lady... Dana, I think. She was asking what happened, and if she could record it. I didn't know what to tell her, so I said I'd think about it, and she said she'd call me back today. And, um, I haven't gotten anything from you guys yet. No paperwork, nothing. My neck's still stiff. It's worse in the morning. Can you call me back? I'm calling from work, but call my cell. It's five five five, oh one oh, two two eight eight. Okay. Thanks. Bye.",
+      "listen": [
+        {"q": "Who left the message, and which number does he want you to call back?", "a": "John Doe, on his cell: (555) 010-2288. The caller ID is his work line at Northgate, not the number to call.", "match": ["john", "2288"]},
+        {"q": "Who contacted him, and what did they ask for?", "a": "Dana, from Keystone Mutual (the other driver's insurance): what happened, and to record it.", "match": ["keystone", "record"]},
+        {"q": "What did he tell her, and when will she try again?", "a": "He said he'd think about it, and she said she'd call him back today.", "match": ["think|today|call(s|ing|ed)? (him )?back|again"]},
+        {"q": "How is he feeling?", "a": "His neck is still stiff, and it's worse in the morning.", "match": ["neck", "stiff|sore|pain|hurt"]},
+        {"q": "What hasn't he received from the firm?", "a": "Anything at all yet: no paperwork from the firm.", "match": ["nothing|anything|paperwork|packet|letter|welcome|onboarding|documents?"]}
+      ]
     },
     "d1m3-a2": {
       "date": "02/11/2026",
