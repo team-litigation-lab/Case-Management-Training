@@ -1186,7 +1186,7 @@ if(typeof window.renderDaySlideshow === "function"){
 }
 if(typeof window.afterRender === "function"){
   const __after = window.afterRender;
-  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ syncReturn(); sidePresenter(); kcFit(); fitFileCols(); adminLanding(); }catch(e){} return r; };
+  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ syncReturn(); sidePresenter(); kcFit(); fitFileCols(); adminLanding(); yearInSide(); }catch(e){} return r; };
 }
 /* Check Your Work: the reference of what the trainee did in the tool (a CMS Case ID, a docket or request number),
    kept on their record and shown to their trainer with the module's Learning Check */
@@ -1401,6 +1401,41 @@ if(typeof window.renderPresenterNote === "function"){
    The engine's pages listed each topic's two parts (and the old course's answer keys); a Case Flow block has up to
    eight slides, so these list them all, by Case Phase, each under its slide's name, in the trainer's own words. */
 const slideName = v => `${VIEW_ICON[v] || ""} ${VIEW_LABEL[v] || v}`.trim();
+/* the picker in the lesson's side column (trainers), and the year on Presenter view's console */
+function yearInSide(){
+  if(!DATES || !state.isAdmin || state.view !== "day") return;
+  const top = document.querySelector(".ls-top");
+  if(top && !state.presenting && !top.querySelector(".cf-yr")) top.insertAdjacentHTML("beforeend", `<div class="cf-yr-side">${caseYearPicker(true)}</div>`);
+  const meta = document.querySelector(".pv-meta");
+  if(meta && !meta.querySelector(".cf-yr-pv")) meta.insertAdjacentHTML("beforeend", `<span class="cf-yr-pv" title="The case year these notes and the slides are in (set on Admin → Trainer Cues or beside the slides)">📅 ${E(DATES.year)}</span>`);
+}
+/* ---------- the case year a trainer's notes are in ----------
+   Each trainee keeps the case year they started on (js/cm-case-dates.js), and a batch starts together: its ID is its
+   start date (B + MMDDYY), so its case year is the one that was current that day. The trainer picks the year (each
+   year listed with the batches on it) and the whole course, the scripts, Presenter view and the Speaker Notes PDF,
+   is shown in it for this tab: the dates the trainer reads out are the dates on their trainees' screens. */
+const batchYear = b => { const m = /^B(\d\d)(\d\d)(\d\d)$/.exec(String(b || "").trim().toUpperCase()); return m && DATES ? DATES.freshYear(Date.UTC(2000 + +m[3], +m[1] - 1, +m[2], 12)) : null; };
+function teachYears(){
+  if(!DATES) return [];
+  const ys = []; for(let y = DATES.base; y <= Math.max(DATES.fresh, DATES.year); y++) if(DATES.shiftFor(y) != null) ys.push({y, batches: []});
+  const seen = new Set();
+  (state.adminData || []).forEach(r => { const b = r && String(r.batch || "").trim().toUpperCase(), y = batchYear(b); if(!y || seen.has(b) || (r && r.archived)) return; seen.add(b); const row = ys.find(x => x.y === y); if(row) row.batches.push(b); });
+  ys.forEach(x => x.batches.sort().reverse());
+  return ys.reverse();
+}
+function caseYearPicker(compact){
+  if(!DATES) return "";
+  const ys = teachYears();
+  const opt = x => `<option value="${x.y}"${x.y === DATES.year ? " selected" : ""}>${x.y}${x.y === DATES.fresh ? " (current)" : ""}${x.batches.length ? " · " + E(x.batches.slice(0, 4).join(", ")) + (x.batches.length > 4 ? ` +${x.batches.length - 4}` : "") : ""}</option>`;
+  return `<label class="cf-yr${compact ? " cf-yr-sm" : ""}" title="The case year your notes, slides and Speaker Notes PDF show. Each batch keeps the case year it started in: pick your batch's.">📅 Case year
+    <select onchange="cmCaseFlow.teachYear(this.value)">${ys.map(opt).join("")}</select></label>${DATES.preview ? `<small class="cf-yr-note">Showing ${E(DATES.year)} in this tab</small>` : ""}`;
+}
+window.cmCaseFlow.teachYear = function(y){
+  if(!DATES || +y === DATES.year) return;
+  if(state.presenting && !confirm("Changing the case year reloads the page and ends Presenter view. Continue?")){ render(); return; }
+  const u = new URL(location.href); u.searchParams.set("caseYear", +y === (DATES.pinnedYear || DATES.fresh) ? "off" : String(+y));   // back to this browser's own year: no preview location.assign(u.href);
+};
+
 if(typeof window.renderAdminTrainerCues === "function"){
   const __cues = window.renderAdminTrainerCues;
   window.renderAdminTrainerCues = function(){
@@ -1418,6 +1453,7 @@ if(typeof window.renderAdminTrainerCues === "function"){
       <p class="eyebrow">Admin Only</p>
       <h1 style="color:var(--navy);font-size:26px;margin:6px 0 4px;">Trainer Cues &amp; Scripts</h1>
       <p style="color:var(--ink-soft);font-size:13px;max-width:75ch;margin:0 0 18px;">What you say on every slide, in your own voice, plus the questions to put to the room. Trainees (and your screen-share) never see this. Keep it open in a second window, or use 🖥 Presenter view, which shows the same script beside each slide.</p>
+      <div class="cf-yr-row">${caseYearPicker()}</div>
       <div class="cues-day-tabs">${DAYS.map(x => `<button class="${x.id === d.id ? "active" : ""}" onclick="setCuesDay(${x.id})">Case Flow Day ${x.cf.n}</button>`).join("")}</div>
       <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:16px 0 10px;">
         <h2 style="color:var(--navy);font-size:19px;margin:0;">${E(d.title)}</h2>
@@ -2853,6 +2889,15 @@ body.audience-mode.cm-tf-split.cm-tf-open #audienceRoot{right:var(--cm-tf-w,50vw
 #audienceRoot .cf-stage-card{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;}
 #audienceRoot .cf-stage-card .stage-body{flex:1 1 auto;min-height:0;display:flex !important;flex-direction:column;}
 #audienceRoot .cf-stage-card #lessonSlideWrap{flex:1 1 auto;min-height:0;height:auto !important;}
+/* the case-year picker (trainers) */
+.cf-yr{display:inline-flex;align-items:center;gap:8px;font:700 13px var(--font-ui,'Inter',sans-serif);color:var(--navy,#132A5C);}
+.cf-yr select{font:600 13px var(--font-ui,'Inter',sans-serif);padding:6px 10px;border:1px solid #C9CEDB;border-radius:8px;background:#fff;color:#132A5C;max-width:100%;}
+.cf-yr-row{margin:0 0 12px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.cf-yr-note{font-size:12px;color:var(--ink-soft);}
+.cf-yr-side .cf-yr{width:100%;justify-content:space-between;font-size:12px;}.cf-yr-side select{flex:1;min-width:0;font-size:12px;}
+.cf-yr-side .cf-yr-note{display:block;margin-top:4px;}
+@media (max-height:780px){.cf-yr-side{display:none;}}   /* a short screen: no room beside the slide; the picker is on Admin → Trainer Cues */
+.cf-yr-pv{font-family:'IBM Plex Mono',monospace;}
 /* the day's intro on one screen (renderDayIntro above) */
 .cf-intro .lesson-card{padding:18px 24px !important;}
 .cf-intro-obj{margin-bottom:12px;}
