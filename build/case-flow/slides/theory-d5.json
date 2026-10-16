@@ -22,7 +22,34 @@
     "pages": [
       "D5#3",
       "D5#27"
-    ]
+    ],
+    "framework": {
+      "title": "The Litigation Lifecycle: Where You Fit In",
+      "kind": "table",
+      "head": [
+        "Phase",
+        "What happens",
+        "Your role"
+      ],
+      "rows": [
+        [
+          "Pleadings",
+          "File the Complaint, serve the defendant, receive the Answer",
+          "Track **service timelines** and draft the initial files"
+        ],
+        [
+          "Discovery",
+          "Interrogatories, Requests for Production, depositions",
+          "Calendar every response, gather the data, meet the client"
+        ],
+        [
+          "Trial prep",
+          "Expert disclosures, motion practice, trial or settlement",
+          "Coordinate schedules and update the final medicals"
+        ]
+      ],
+      "note": "Discovery is where you spend most of your litigation time; every phase runs on the court's deadlines, not an adjuster's."
+    }
   },
   "d5m1-l2": {
     "lead": "Trial preparation is the stage where you **compile the final puzzle pieces**, so the attorney walks into court fully armed.",
@@ -47,7 +74,26 @@
     "pages": [
       "D5#7",
       "D5#5"
-    ]
+    ],
+    "framework": {
+      "title": "Phase 3: Trial and Mediation Preparation",
+      "kind": "list",
+      "steps": [
+        {
+          "label": "The Final Run",
+          "text": "Litigation can take 1 to 3 years: rerun records from **every provider**, never the pre-lit package"
+        },
+        {
+          "label": "Subpoena Management",
+          "text": "Draft trial subpoenas for the witnesses Atty. Thorne names, so they legally appear"
+        },
+        {
+          "label": "Trial Binder Organization",
+          "text": "Exhibits from the litigation file, indexed and tabbed for the attorney at the counsel table"
+        }
+      ],
+      "note": "The Scheduling Order sets every date: pin it to the front of the file, with 30-, 14- and 7-day alerts."
+    }
   },
   "d5m2-l1": {
     "lead": "Property damage is **a cornerstone of civil litigation**: the law's mechanism for making an owner financially whole after negligence harms their property.",
@@ -69,7 +115,34 @@
         "text": "Pre-loss market value minus post-loss value; the **lesser-of rule** weighs it against repair cost, capping a Total Loss"
       }
     ],
-    "pages": ["D5#39", "D5#40"]
+    "pages": ["D5#39", "D5#40"],
+    "framework": {
+      "title": "Types of Damages You Can Recover",
+      "kind": "table",
+      "head": [
+        "Type of damage",
+        "What it covers",
+        "On a PD claim"
+      ],
+      "rows": [
+        [
+          "Economic (special)",
+          "Quantifiable financial losses, **proved by documents**",
+          "Repair, tow and storage, rental, Loss of Use, Diminished Value"
+        ],
+        [
+          "Non-economic (general)",
+          "Subjective losses: pain and suffering, emotional distress, loss of consortium",
+          "Claimed on the injury side, not the property side"
+        ],
+        [
+          "Punitive (exemplary)",
+          "Punishes egregious, reckless or intentional misconduct and deters others",
+          "Conduct such as DUI; none is pleaded on this file"
+        ]
+      ],
+      "note": "The goal is not a windfall: restore the owner to the financial position held before the incident."
+    }
   },
   "d5m2-l2": {
     "lead": "The law measures property at **fair market value**, so what a repaired car still loses is a market loss, proved with market evidence.",
@@ -91,7 +164,34 @@
         "text": "In suit, a Subpoena Duces Tecum **compels a non-party's records**; a blanket request invites a Motion to Quash"
       }
     ],
-    "pages": ["D5#41", "D5#35"]
+    "pages": ["D5#41", "D5#35"],
+    "framework": {
+      "title": "Calculating the Value of the Claim",
+      "kind": "table",
+      "head": [
+        "Measure",
+        "How courts apply it",
+        "Its limit"
+      ],
+      "rows": [
+        [
+          "The lesser-of rule",
+          "The lesser of repair cost or the drop in market value",
+          "Costs more to fix than it was worth: a Total Loss"
+        ],
+        [
+          "Diminished Value",
+          "Market value a car still loses after a proper repair",
+          "Many courts add it to repair, kept under pre-loss value"
+        ],
+        [
+          "Special value",
+          "No market (an heirloom): some courts use actual value to the owner",
+          "Sentimental value is still excluded: **an exception, not the rule**"
+        ]
+      ],
+      "note": "Every measure starts from fair market value; confirm the governing rule with Atty. Thorne."
+    }
   },
   "d5m3-l1": {
     "lead": "A deposition can shape a litigated case's outcome: the attorney owns the legal strategy, while you prepare the client **operationally and psychologically**.",
@@ -116,7 +216,38 @@
     "pages": [
       "D5#9",
       "D5#10"
-    ]
+    ],
+    "framework": {
+      "title": "Preparing Your Client for a Deposition",
+      "kind": "flow",
+      "steps": [
+        {
+          "label": "Pre-deposition audit",
+          "text": "Prior medical history, signed answers, public social media: landmines routed to Atty. Thorne"
+        },
+        {
+          "label": "Pillar 1: De-escalate",
+          "text": "No judge, no jury, no shouting: calm the client with **the process**, never a prediction"
+        },
+        {
+          "label": "Pillar 2: Testimony guidelines",
+          "text": "Pause, tell the truth, stop once answered: drilled on neutral questions only"
+        },
+        {
+          "label": "Pillar 3: Dress and demeanor",
+          "text": "Business casual, nothing flashy; limitations told plainly, never minimized or exaggerated"
+        },
+        {
+          "label": "Technology check",
+          "text": "A computer, camera at eye level, light in front, a quiet private room"
+        },
+        {
+          "label": "The day before",
+          "text": "Confirm date, time and link with the client, Atty. Thorne and the court reporter"
+        }
+      ],
+      "note": "Atty. Thorne prepares the substance; you prepare the person and the setting."
+    }
   },
   "d5m3-l2": {
     "lead": "The defense's goal is to make the client **contradict, lose temper or exaggerate**, damaging credibility; general rules protect it, a script cannot.",
@@ -141,7 +272,39 @@
     "pages": [
       "D5#16",
       "D5#17"
-    ]
+    ],
+    "framework": {
+      "title": "The 7 Golden Rules for Testifying",
+      "kind": "table",
+      "head": [
+        "Rule",
+        "What it says",
+        "Why it protects"
+      ],
+      "rows": [
+        [
+          "1",
+          "Always tell the absolute truth",
+          "A damaged case can be saved; **a lied-about one cannot**"
+        ],
+        [
+          "2 · 3",
+          "Pause two full seconds, then answer in words",
+          "Time to think, a clean transcript, a window to object"
+        ],
+        [
+          "4 · 5",
+          "Never guess; answer only what was asked, then stop",
+          "“I don't know” is a complete answer: the smallest target"
+        ],
+        [
+          "6 · 7",
+          "Hold the silence; don't try to win",
+          "A deposition gathers information; the legal battle is Atty. Thorne's"
+        ]
+      ],
+      "note": "Questions fall into four categories: background, crash mechanics, medical history, daily life. Clients underreport medical history most."
+    }
   },
   "d5m4-l1": {
     "lead": "Comparative negligence **apportions fault** between the parties; the share charged to the injured person can reduce, or bar, what they recover.",
@@ -163,7 +326,39 @@
         "text": "An index answering each pleaded allegation with **evidence that can come in**, built for Atty. Thorne's analysis"
       }
     ],
-    "pages": []
+    "pages": [],
+    "framework": {
+      "title": "The Liability Counter-Package",
+      "kind": "table",
+      "head": [
+        "Defense pleaded",
+        "What it targets",
+        "Evidence that answers"
+      ],
+      "rows": [
+        [
+          "Entered the stop out of turn",
+          "Kevin Alvarez's driving, not John's",
+          "Ruth Calloway, the doorbell video, the point of impact; EDR corroborates"
+        ],
+        [
+          "Unbelted passenger",
+          "John's seatbelt use",
+          "EDR: belt buckled; EMS: “restrained front-seat passenger”"
+        ],
+        [
+          "Failure to mitigate",
+          "19 days without visits, 04/02 → 04/21/2026",
+          "The A-C-T record: the 04/08 call, extension refused 04/10, evening slots"
+        ],
+        [
+          "Causation",
+          "The 14-Day Gap; the “degenerative” MRI",
+          "The Gap Record: four reasons, EMS neck complaint, Causation Letter"
+        ]
+      ],
+      "note": "Every item carries its source, its authenticating witness and **its chain of custody**; its weight is Atty. Thorne's call."
+    }
   },
   "d5m4-l2": {
     "lead": "Filing a lawsuit **means nothing until service**: the defendant must be legally notified, or the case stalls and may be dismissed.",
@@ -187,7 +382,34 @@
     ],
     "pages": [
       "D5#22"
-    ]
+    ],
+    "framework": {
+      "title": "The Evading Defendant Protocol",
+      "kind": "flow",
+      "steps": [
+        {
+          "label": "Attempts fail",
+          "text": "Log each attempt's date, time and address; follow up with the server every 5 days"
+        },
+        {
+          "label": "Skip-Trace",
+          "text": "On Atty. Thorne's authority, licensed databases check utility, employment and **active-address records**"
+        },
+        {
+          "label": "Vary the windows",
+          "text": "The server tries early mornings, evenings and weekends where the court's rules allow"
+        },
+        {
+          "label": "Alternative service",
+          "text": "Atty. Thorne may ask the court to permit service by mail or posting"
+        },
+        {
+          "label": "Proof of service",
+          "text": "The signed affidavit of service is filed with the court, never left in email"
+        }
+      ],
+      "note": "Unserved before the court's deadline, a case can be dismissed: confirm the court's rule."
+    }
   },
   "d5m5-l1": {
     "lead": "The Net Sheet is **the ultimate transparency tool**: it shows the client where every dollar came from and where it goes.",
@@ -212,6 +434,43 @@
     "pages": [
       "D3#25",
       "D3#21"
-    ]
+    ],
+    "framework": {
+      "title": "The BI/UM Master Financial Ledger",
+      "kind": "table",
+      "head": [
+        "Net Sheet section",
+        "What it records",
+        "On a litigated file"
+      ],
+      "rows": [
+        [
+          "Recovery summary",
+          "Gross recovery by stream, each with its source",
+          "BI tendered at mediation; both UM awards at arbitration"
+        ],
+        [
+          "Attorney fees",
+          "The fee on each stream, confirmed from the retainer",
+          "The **40% tier** once suit is filed"
+        ],
+        [
+          "Case expenses",
+          "Every advanced cost, each with its receipt",
+          "Filing, service, mediation, arbitration, reporter, records, plus pre-suit costs"
+        ],
+        [
+          "Provider ledger",
+          "Charges, payments, adjustments, balance owed, reduction",
+          "Only liens owed; reductions follow the fee actually charged"
+        ],
+        [
+          "Net to client",
+          "Gross minus fees, costs and reduced liens",
+          "Shown line by line before John Doe signs"
+        ]
+      ],
+      "note": "Nothing leaves trust until both UM checks clear and every Payoff Letter is in Documents."
+    }
   }
 }

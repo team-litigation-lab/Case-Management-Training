@@ -48,6 +48,22 @@ const theory = (b) => {
       if(!d || !fs.existsSync(path.join(ROOT, `decks/day${d}/${String(n).padStart(2, "0")}.webp`))) errors.push(`${id}.theory.pages: no page image for ${p}`);
     });
   }
+  // The Framework: the deck page's own structure (its table, flowchart or checklist), rebuilt in the course's design
+  const f = t.framework;
+  if(f !== undefined){
+    if(!f || typeof f.title !== "string" || !f.title.trim() || wc(f.title) > 8 || marks(f.title)) errors.push(`${id}.theory.framework.title: want ≤ 8 words, no highlight`);
+    const cell = (k, x, max) => { if(typeof x !== "string" || !x.trim()) errors.push(`${id}.theory.framework.${k}: empty`); else if(wc(x) > max) errors.push(`${id}.theory.framework.${k}: ${wc(x)} words (max ${max}): ${x}`); else if(marks(x) % 1 || marks(x) > 1) errors.push(`${id}.theory.framework.${k}: at most one highlight`); };
+    if(f && f.kind === "table"){
+      if(!Array.isArray(f.head) || f.head.length < 2 || f.head.length > 4) errors.push(`${id}.theory.framework.head: want 2–4 columns`);
+      else f.head.forEach((x, i) => cell(`head[${i}]`, x, 4));
+      if(!Array.isArray(f.rows) || f.rows.length < 2 || f.rows.length > 6) errors.push(`${id}.theory.framework.rows: want 2–6`);
+      else f.rows.forEach((r, i) => { if(!Array.isArray(r) || r.length !== (f.head || []).length) errors.push(`${id}.theory.framework.rows[${i}]: want ${(f.head || []).length} cells`); else r.forEach((x, j) => cell(`rows[${i}][${j}]`, x, 12)); });
+    } else if(f && (f.kind === "flow" || f.kind === "list")){
+      if(!Array.isArray(f.steps) || f.steps.length < 3 || f.steps.length > 6) errors.push(`${id}.theory.framework.steps: want 3–6`);
+      else f.steps.forEach((x, i) => { cell(`steps[${i}].label`, x && x.label, 5); cell(`steps[${i}].text`, x && x.text, 16); });
+    } else if(f) errors.push(`${id}.theory.framework.kind: want table, flow or list`);
+    if(f && f.note !== undefined) cell("note", f.note, 22);
+  }
   return t;
 };
 for (const day of CF.days) {

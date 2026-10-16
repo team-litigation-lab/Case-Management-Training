@@ -7,7 +7,18 @@
       {"term": "Reasons in Writing", "text": "Ask the carrier to state **its reasons in writing**; a named ground can be rebutted, a vague one cannot"},
       {"term": "The Four Elements", "text": "Duty, breach, causation and damages: **what any suit must prove**, so each needs a verified exhibit"}
     ],
-    "pages": ["D2#29"]
+    "pages": ["D2#29"],
+    "framework": {
+      "title": "Common Adjuster Stall Tactics",
+      "kind": "table",
+      "head": ["The stall", "The rebuttal"],
+      "rows": [
+        ["“I'm waiting on my manager's authority.”", "Set **a firm reply date**; after it, the file goes to counsel"],
+        ["“We need records from five years ago.”", "Ask why they matter; expect a good-faith offer on undisputed injuries now"],
+        ["“The property damage was too low for this injury.”", "Low-velocity impacts can still injure the spine; point to the imaging"]
+      ],
+      "note": "Log every stall the day it happens; any new number is Atty. Thorne's to answer, never yours."
+    }
   },
   "d4m1-l2": {
     "lead": "Filing the Complaint **formally initiates the lawsuit**: the file moves from negotiation to court procedure, and later to a neutral the parties select or a court appoints.",
@@ -17,7 +28,20 @@
       {"term": "Pre-Filing Verification", "text": "The Statute Date, the defendant's **exact legal name** and a business's Registered Agent, confirmed before counsel signs"},
       {"term": "Panel Strike List", "text": "AAA or JAMS sends candidates; each side vets, ranks and **strikes names** before a docketed cutoff"}
     ],
-    "pages": ["D5#31", "D4#4"]
+    "pages": ["D5#31", "D4#4"],
+    "framework": {
+      "title": "The Complaint, Section by Section",
+      "kind": "table",
+      "head": ["Section", "Core function"],
+      "rows": [
+        ["1 · The Caption", "Court name, the parties and the official case number"],
+        ["2 · Jurisdiction", "The legal basis for the court's authority to rule"],
+        ["3 · Factual Allegations", "The narrative: date, location and mechanics of the crash"],
+        ["4 · Causes of Action", "The legal claims asserted, such as negligence"],
+        ["5 · Prayer for Relief", "The explicit demand for legal remedies and money damages"]
+      ],
+      "note": "Counsel drafts the claims; you check each section's facts against the file. The case number stays “Pending” until filing."
+    }
   },
   "d4m2-l1": {
     "lead": "Litigation is **governed by rigid procedures**: once suit is filed, statute, rule and order set the dates, and documents shift from administrative tracking to evidence.",
@@ -27,7 +51,18 @@
       {"term": "Built-In Notice Periods", "text": "Many steps carry a built-in wait, like notice to opposing counsel **before a third-party subpoena**; docket the wait"},
       {"term": "Tracking Compliance", "text": "A deadline someone else owes still needs **a check-in before it**: call the records office days ahead"}
     ],
-    "pages": ["D4#21", "D5#28"]
+    "pages": ["D4#21", "D5#28"],
+    "framework": {
+      "title": "Subpoena Issuance Process Flow",
+      "kind": "flow",
+      "steps": [
+        {"label": "Draft the Subpoena", "text": "Fill out the court-approved Subpoena Duces Tecum, a command to produce documents"},
+        {"label": "Notice to Opposing Counsel", "text": "Serve the defense a copy first; most states require **5 to 10 days' notice**"},
+        {"label": "Formal Service", "text": "A process server delivers the subpoena to the facility's Registered Agent"},
+        {"label": "Track Compliance", "text": "Call the facility's legal or records department 5 days before the deadline"}
+      ],
+      "note": "Atty. Thorne decides whether to subpoena and signs it; you draft, docket each notice period and track compliance."
+    }
   },
   "d4m2-l2": {
     "lead": "Mediation is **negotiation toward compromise**, non-binding; arbitration is an adversarial hearing where a neutral acts as judge and issues a binding Award.",
@@ -37,7 +72,20 @@
       {"term": "Trial-Ready Standard", "text": "Because appeal is drastically limited, treat the hearing with **a multi-day trial's precision**, not a compromise mindset"},
       {"term": "Unauthorized Practice of Law", "text": "Arguing, speaking on the record or representing John Doe is practicing law; **without a license it's UPL**"}
     ],
-    "pages": ["D4#5", "D4#20"]
+    "pages": ["D4#5", "D4#20"],
+    "framework": {
+      "title": "Extent of Decision-Making Power",
+      "kind": "table",
+      "head": ["Element", "Mediator", "Arbitrator"],
+      "rows": [
+        ["Role", "Facilitator and negotiator", "Private judge and finder of fact"],
+        ["Decision authority", "Zero: cannot force a settlement, rule or order payout", "Total: issues **a binding Arbitration Award**"],
+        ["Control of the outcome", "The parties keep full control over whether to sign", "Decides liability and damages, and can exclude evidence"],
+        ["Review afterward", "None needed: there is no ruling", "Court review on narrow grounds only"],
+        ["Your standard", "Compromise focus", "Trial-ready standard"]
+      ],
+      "note": "Court-ordered mediation compels attendance, never agreement. At both tables the Case Manager never argues or speaks for John Doe."
+    }
   },
   "d4m3-l1": {
     "lead": "A Mediation Binder is **the attorney's cheat sheet**: the case's most critical documents, compiled so counsel never fumbles during a fast-paced compromise session.",
@@ -49,7 +97,21 @@
       {"term": "Damages, Financials & Experts", "text": "The section that **justifies counsel's dollar figure**: records, bills, wage proof and expert reports"},
       {"term": "Settlement History & Drafts", "text": "The closing section that **prepares counsel to finalize** any deal reached, before anyone leaves the room"}
     ],
-    "pages": ["D4#7", "D4#8"]
+    "pages": ["D4#7", "D4#8"],
+    "framework": {
+      "title": "The Six-Section Mediation Binder",
+      "kind": "table",
+      "head": ["Section", "What goes in"],
+      "rows": [
+        ["1 · Executive Summary & Administration", "Snapshot sheet, mediation order or agreement, and the session schedule"],
+        ["2 · The Mediation Briefs", "Our confidential statement and the defense's brief, if exchanged"],
+        ["3 · Core Pleadings", "The operative complaint and the answer with its affirmative defenses"],
+        ["4 · Key Evidence & Liability", "Police report, photos and video stills, deposition summaries with highlighted pages"],
+        ["5 · Damages, Financials & Experts", "Medical chart and bills ledger, wage-loss proof, expert reports"],
+        ["6 · Settlement History & Drafts", "Negotiation log of every demand and offer, and a draft release"]
+      ],
+      "note": "Build three sets, for counsel, the mediator and John Doe, or one OCR-searchable digital set."
+    }
   },
   "d4m3-l2": {
     "lead": "The Arbitration Binder is **a trial-ready evidentiary record**, not a reference packet: it is submitted directly to a private judge who decides.",
@@ -59,7 +121,21 @@
       {"term": "Arbitration Submissions", "text": "The foundational paperwork that **sets the ground rules** for the whole proceeding, so it leads the binder"},
       {"term": "Evidentiary Exclusion", "text": "A missing page or grayscale print **can be excluded**, and a binding award leaves no second chance"}
     ],
-    "pages": ["D4#25", "D4#21"]
+    "pages": ["D4#25", "D4#21"],
+    "framework": {
+      "title": "The Six-Tab Arbitration Binder",
+      "kind": "table",
+      "head": ["Tab", "What goes in"],
+      "rows": [
+        ["1 · Arbitration Submissions", "Snapshot sheet, final brief, governing order or agreement, fee disclosures"],
+        ["2 · Arbitration Pleadings", "The operative demand and each party's written position; no superseded versions"],
+        ["3 · Liability & Biomechanics", "Certified police report, diagrams, and photos and stills in **color, never grayscale**"],
+        ["4 · Medical Damages", "Consolidated medical ledger, provider treatment records and bills, imaging, causation opinion"],
+        ["5 · The Prior Medical Shield", "Prior injury records and work history, paired with a medical opinion"],
+        ["6 · Economic Losses", "Wage-loss proof only: employer letters, W-2s or tax returns"]
+      ],
+      "note": "Liens, the negotiation ledger, the tort complaint and answer stay in Atty. Thorne's set; nothing from mediation crosses over."
+    }
   },
   "d4m4-l1": {
     "lead": "Bottlenecks come in two kinds: **compromise traps** that stall a mediation, and trial-ready landmines that can sink a binding arbitration.",
@@ -69,7 +145,21 @@
       {"term": "The Prior Medical Shield", "text": "The defense uses prior records to argue **pre-existing degenerative conditions**; the shield answers with records and expert opinion"},
       {"term": "Operational Countermeasures", "text": "Two habits clear most bottlenecks early: **a 48-hour audit** and lien reconciliation against EOBs"}
     ],
-    "pages": ["D4#33", "D4#35"]
+    "pages": ["D4#33", "D4#35"],
+    "framework": {
+      "title": "Common Bottlenecks in Mediation & Arbitration",
+      "kind": "table",
+      "head": ["Forum", "Bottleneck", "What goes wrong"],
+      "rows": [
+        ["Mediation", "Unverified ledgers & liens", "Unreconciled bills or missing final treatment logs make damages look unsupported"],
+        ["Mediation", "Missing decision-makers", "A representative attends without **full settlement authority**"],
+        ["Mediation", "Confidential brief misalignment", "Briefs arrive late or missing critical exhibits, stalling the mediator's preparation"],
+        ["Arbitration", "Evidentiary exclusions", "Missing documents or low-quality grayscale prints can be excluded"],
+        ["Arbitration", "Pre-existing defense traps", "Prior injury records left unshielded by an expert medical declaration"],
+        ["Arbitration", "Calendar & deadline misses", "Unsynced windows for the neutral, or a missed brief cutoff"]
+      ],
+      "note": "Countermeasures: a 48-hour audit before every deadline, and early lien reconciliation against health-plan EOBs."
+    }
   },
   "d4m4-l2": {
     "lead": "Escalation is **a variance loop**: monitor each item against its expected course, and when progress stalls, route it up before the date is lost.",
@@ -79,6 +169,16 @@
       {"term": "Decision-Ready Report", "text": "A report built so the supervisor can **act in one read**, without redoing your research"},
       {"term": "The Critical Thinking Audit", "text": "Before a hard date, test the file against **the defense's stated position** and escalate any gap you find"}
     ],
-    "pages": ["D1#45"]
+    "pages": ["D1#45"],
+    "framework": {
+      "title": "The Three-Step Escalation Protocol",
+      "kind": "flow",
+      "steps": [
+        {"label": "Level 1: The Source", "text": "Follow up with whoever owes the item, on the cadence; log date, method and result"},
+        {"label": "Level 2: Notice of Delay", "text": "Written notice to the supervisor or office manager: what is outstanding, since when, the hard date"},
+        {"label": "Level 3: Atty. Thorne", "text": "Send the five-field report; a motion to compel or subpoena is **his to choose**"}
+      ],
+      "note": "Give each rung 48 hours after the second unanswered follow-up. With a hard date 10 days out, tell counsel in parallel."
+    }
   }
 }
