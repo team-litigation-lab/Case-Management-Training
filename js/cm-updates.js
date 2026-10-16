@@ -271,10 +271,16 @@ function authHeaders(){
   return Object.assign({"Content-Type":"application/json"}, t ? {"Authorization":"Bearer "+t} : {});
 }
 async function authFetch(url, payload){
-  const doFetch = ()=>fetch(url, {method:"POST", headers:authHeaders(), body: JSON.stringify(payload)});
+  // the admin token this request is sent with, if any: only a refusal of THAT token means the admin session expired. A request
+  // sent before the admin sign-in from the Portal had settled carries no token; its refusal, arriving just after the sign-in,
+  // used to sign the admin straight out again ("Admin access required" on the first try, fine on the second).
+  let sentAdmin = "";
+  const doFetch = ()=>{ const h = authHeaders(); sentAdmin = (state.isAdmin || state.adminPreview) && state.adminToken && h.Authorization === "Bearer " + state.adminToken ? state.adminToken : "";
+    return fetch(url, {method:"POST", headers:h, body: JSON.stringify(payload)}); };
   let res = await doFetch();
-  if(res.status===401 && !state.isAdmin && await reauthTrainee()) res = await doFetch();
-  if(res.status===401 && (state.isAdmin || state.adminPreview)){ setAdminToken(""); state.isAdmin = false; state.adminPreview = false; try{ sessionStorage.removeItem("lsh_admin_preview"); }catch(e){} toast("Your admin session expired — click 🛡 Admin and sign in again."); }
+  if(res.status===401 && !state.isAdmin && !sentAdmin && await reauthTrainee()) res = await doFetch();
+  if(res.status===401 && !sentAdmin && (state.isAdmin || state.adminPreview) && state.adminToken) res = await doFetch();   // sent before the admin was signed in: once more, now with the admin token
+  if(res.status===401 && sentAdmin && sentAdmin === state.adminToken && (state.isAdmin || state.adminPreview)){ setAdminToken(""); state.isAdmin = false; state.adminPreview = false; try{ sessionStorage.removeItem("lsh_admin_preview"); }catch(e){} toast("Your admin session expired — click 🛡 Admin and sign in again."); }
   return res;
 }
 Narrator.slideText = function(){
