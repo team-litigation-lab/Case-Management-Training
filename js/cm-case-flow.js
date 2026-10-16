@@ -1203,7 +1203,7 @@ function caseFlowPractice(archiveLink){
       if(!acts.length) return "";
       return `<div class="cf-px-mod"><div class="cf-px-mh">${d.cf.n}.${ph.n} · ${E(ph.title)}</div>
         ${acts.map(({b, li}) => `<div class="cf-px-act"><div><b>${E(b.title)}</b>
-            <div class="cf-px-meta"><span>🛠 ${E(b.act.tool)} ${toolChips(blockTools(b), b.id)}</span><span>📤 ${E(b.act.output)}</span>${(CF_PACKETS[b.id] || []).length ? `<span>📁 ${CF_PACKETS[b.id].length} documents</span>` : ""}</div></div>
+            <div class="cf-px-meta"><span>🛠 ${E(b.act.tool)} ${open ? toolChips(blockTools(b), b.id) : ""}</span><span>📤 ${E(b.act.output)}</span>${(CF_PACKETS[b.id] || []).length ? `<span>📁 ${CF_PACKETS[b.id].length} documents</span>` : ""}</div></div>
           ${open ? `<button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.openBlock(${d.id},${li})">Open</button>` : `<span class="cf-px-lock">🔒</span>`}</div>`).join("")}</div>`;
     }).join("");
     return `<div class="card px-day"><div class="px-day-h"><div><h2>Case Flow Day ${d.cf.n}${open ? "" : " · 🔒"}${day.track ? ` <span class="cf-px-track">${E(day.track)}</span>` : ""}</h2><div class="sub">${E(day.phase)}</div></div>
