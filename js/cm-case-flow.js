@@ -700,8 +700,8 @@ window.cmCaseFlow.callBack = function(){
    the time and the caller ID, the beep, then the caller in their own voice over a faint line hiss. The slide shows
    only what a phone shows (caller ID, time, length); the trainee takes notes in the Listening Check, checks them
    against what was said, and only then sees the transcript. Plays and the check are kept on their record
-   (REC.listen) and shown to their trainer. Without speech in the browser the transcript opens instead, so the
-   step never blocks. */
+   (REC.listen) and shown to their trainer. A browser that can't speak (no speech engine, or no English voice
+   installed) gets the steps to turn it on for that device, and the transcript stays closed until they've listened. */
 const VM = {playing: null, ctx: null, hiss: null};
 const vmWords = t => String(t || "").split(/\s+/).filter(Boolean).length;
 const vmLength = e => { const s = Math.round(vmWords(e.spoken) / 2.3 + 6); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
@@ -765,7 +765,7 @@ window.cmCaseFlow.vmPlay = async function(blockId){
   const e = SIM.events[blockId];
   if(!e || !e.spoken) return;
   if(VM.playing){ const was = VM.playing.id; VM.playing = null; try{ speechSynthesis.cancel(); }catch(er){} vmHiss(false); vmPaint(was); if(was === blockId) return; }
-  if(!canSpeak()){ if(typeof toast === "function") toast("This browser can't play the voicemail aloud, so its transcript is open instead."); vmRec(blockId).noAudio = true; cmCaseFlow.listen(blockId, true); return; }
+  if(!(await vmVoicesReady())){ vmSetup(blockId); return; }
   const token = {id: blockId}; VM.playing = token;
   const r = vmRec(blockId); r.plays = (r.plays || 0) + 1; persist();
   vmPaint(blockId);
@@ -786,6 +786,56 @@ window.cmCaseFlow.vmPlay = async function(blockId){
   if(VM.playing === token) await vmSay("End of message.", "system", token);
   if(VM.playing === token){ VM.playing = null; vmPaint(blockId); }
 };
+/* speech in this browser: an engine and at least one English voice (Chrome loads its voices a moment after the page) */
+function vmVoicesReady(){
+  if(!canSpeak()) return Promise.resolve(false);
+  const has = () => speechSynthesis.getVoices().some(v => /^en[-_]/i.test(v.lang));
+  if(has()) return Promise.resolve(true);
+  return new Promise(res => {
+    let done = false; const end = v => { if(!done){ done = true; res(v); } };
+    try{ speechSynthesis.addEventListener("voiceschanged", () => end(has()), {once: true}); }catch(e){}
+    setTimeout(() => end(has()), 1500);
+  });
+}
+/* the steps to turn speech on, for the device the trainee is on */
+function vmDevice(){
+  const ua = navigator.userAgent || "", p = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || "";
+  const os = /iPhone|iPad|iPod/.test(ua) ? "ios" : /Android/.test(ua) ? "android" : /CrOS/.test(ua) ? "chromeos" : /Mac/.test(p + ua) ? "mac" : /Win/.test(p + ua) ? "windows" : /Linux/.test(p + ua) ? "linux" : "other";
+  const browser = /Edg\//.test(ua) ? "Edge" : /Firefox\//.test(ua) ? "Firefox" : /Chrome\//.test(ua) ? "Chrome" : /Safari\//.test(ua) ? "Safari" : "this browser";
+  return {os, browser};
+}
+const VM_STEPS = {
+  windows: ["Open <b>Settings → Time &amp; language → Speech</b>.", "Under <b>Manage voices</b>, choose <b>Add voices</b> and add an <b>English</b> voice.", "Close every browser window and open the course again."],
+  mac: ["Open <b>System Settings → Accessibility → Spoken Content</b>.", "Next to <b>System voice</b>, choose <b>Manage Voices…</b> and download an <b>English</b> voice.", "Quit the browser (⌘Q) and open the course again."],
+  chromeos: ["Open <b>Settings → Accessibility → Text-to-Speech</b>.", "Under <b>Speech engine</b>, install an <b>English</b> voice (Google voices).", "Close the browser and open the course again."],
+  linux: ["Install the speech engine: <code>sudo apt install speech-dispatcher espeak-ng</code> (or your system's package manager).", "Restart the computer, or log out and back in.", "Open the course in <b>Chrome</b> or <b>Edge</b>."],
+  ios: ["Open <b>Settings → Accessibility → Spoken Content → Voices → English</b> and download a voice.", "Turn off <b>Silent mode</b> and turn the volume up.", "Open the course again in Safari."],
+  android: ["Open <b>Settings → Accessibility → Text-to-speech output</b>.", "Choose <b>Speech Services by Google</b> and install the <b>English</b> voice data.", "Open the course again in Chrome."],
+  other: ["Open the course in <b>Google Chrome</b> or <b>Microsoft Edge</b> on a computer.", "Install an <b>English</b> text-to-speech voice in your computer's settings.", "Close the browser and open the course again."],
+};
+function vmSetup(blockId){
+  const {os, browser} = vmDevice(), engine = canSpeak();
+  let box = document.getElementById("cf-vm");
+  if(!box){ box = document.createElement("div"); box.id = "cf-vm"; box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true"); document.body.appendChild(box);
+    document.addEventListener("keydown", ev => { if(ev.key === "Escape" && !box.hidden) cmCaseFlow.listenClose(); }); }
+  box.setAttribute("aria-label", "Turn on speech to hear the voicemail");
+  box.innerHTML = `<div class="cf-vm-card cf-vm-setup">
+      <div class="cf-vm-h"><div><b>🔈 Turn on speech to hear this voicemail</b><span>${engine ? `${E(browser)} has no English voice installed on this device.` : `${E(browser)} can't speak on this device.`} This step is a listening test, so the message has to be heard.</span></div>
+        <button type="button" class="cf-vm-x" onclick="cmCaseFlow.listenClose()" aria-label="Close">✕</button></div>
+      <ol class="cf-vm-steps">${(VM_STEPS[os] || VM_STEPS.other).map(x => `<li>${x}</li>`).join("")}</ol>
+      <p class="cf-vm-lead">Also check that your computer isn't muted and that this site may play sound (the 🔒 beside the address → <b>Site settings → Sound: Allow</b>). Headphones are best.${browser === "Firefox" || browser === "Safari" ? ` <b>Chrome</b> or <b>Edge</b> has the clearest voices.` : ""}</p>
+      <div class="cfx-vm-row"><button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.vmRetry('${blockId}')">↻ I've done this: try again</button>
+        <span class="cfx-vm-st" id="cf-vm-retry"></span></div>
+      <p class="cf-note">Still silent after these steps? Ask your trainer: they can check your device with you.</p>
+    </div>`;
+  const tb = document.querySelector(".topbar"); document.body.style.setProperty("--cf-topbar", tb ? Math.max(0, Math.round(tb.getBoundingClientRect().bottom)) + "px" : "0px");
+  box.hidden = false;
+}
+window.cmCaseFlow.vmRetry = async function(blockId){
+  const st = document.getElementById("cf-vm-retry"); if(st) st.textContent = "Checking…";
+  if(await vmVoicesReady()){ cmCaseFlow.listenClose(); cmCaseFlow.vmPlay(blockId); return; }
+  if(st) st.textContent = "Still no voice on this device. Finish the steps above (a restart of the browser is usually needed).";
+};
 function voicemailCard(e, blockId, extra){
   return `<div class="cfx-ev cfx-ev-voicemail cfx-vm${extra ? " " + extra : ""}" data-vm="${blockId}">
       <div class="cfx-ev-h"><span class="cfx-ev-i">📳</span><span class="cfx-ev-ch">Voicemail</span><span class="cfx-ev-from">${E(e.from || "")}</span>
@@ -800,7 +850,7 @@ function voicemailCard(e, blockId, extra){
 /* the Listening Check: notes from the message, checked against what was said, then the transcript */
 window.cmCaseFlow.listen = function(blockId, reveal){
   const e = SIM.events[blockId]; if(!e || !e.listen) return;
-  const r = vmRec(blockId), checked = !!r.at, show = checked || reveal || r.noAudio;
+  const r = vmRec(blockId), checked = !!r.at, show = checked || (reveal && isTrainer());
   let box = document.getElementById("cf-vm");
   if(!box){ box = document.createElement("div"); box.id = "cf-vm"; box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true"); box.setAttribute("aria-label", "Listening Check"); document.body.appendChild(box);
     document.addEventListener("keydown", ev => { if(ev.key === "Escape" && !box.hidden) cmCaseFlow.listenClose(); }); }
@@ -823,6 +873,7 @@ window.cmCaseFlow.listenDraft = function(blockId, j, v){ const r = vmRec(blockId
 window.cmCaseFlow.listenCheck = function(blockId){
   const e = SIM.events[blockId], r = vmRec(blockId);
   e.listen.forEach((x, j) => { const el = document.getElementById(`cfvm_${blockId}_${j}`); if(el) r.answers[j] = el.value.trim().slice(0, 400); });
+  if(!r.plays){ if(typeof toast === "function") toast("Play the voicemail first: this check is on what you hear."); return; }
   if(!r.answers.some(Boolean)){ if(typeof toast === "function") toast("Write down what you heard first."); return; }
   r.got = e.listen.map((x, j) => x.match.every(m => { try{ return new RegExp(m, "i").test(r.answers[j] || ""); }catch(er){ return false; } }));
   r.score = r.got.filter(Boolean).length; r.at = new Date().toISOString();
@@ -1126,7 +1177,7 @@ function caseYearNote(mine){
 }
 function workLogged(mine, m){
   const rows = m.blocks.filter(x => x.kind === "activity").map(x => ({x, w: (mine.work || {})[x.id]})).filter(r => r.w);
-  const heard = m.blocks.filter(x => x.kind === "activity" && ((mine.listen || {})[x.id] || {}).at).map(x => { const h = mine.listen[x.id], ev = SIM.events[x.id]; return `<div class="cf-tr-work"><b>🎧 Listening Check (${E(x.title)}):</b> ${E(h.score)}/${E((ev.listen || []).length)} caught · played ${E(h.plays)}×${h.noAudio ? " (no audio on their device: read the transcript)" : ""}${(ev.listen || []).map((q, j) => `<br>${h.got[j] ? "✓" : "✗"} ${E(q.q)} <i>${E(h.answers[j] || "—")}</i>`).join("")}</div>`; }).join("");
+  const heard = m.blocks.filter(x => x.kind === "activity" && ((mine.listen || {})[x.id] || {}).at).map(x => { const h = mine.listen[x.id], ev = SIM.events[x.id]; return `<div class="cf-tr-work"><b>🎧 Listening Check (${E(x.title)}):</b> ${E(h.score)}/${E((ev.listen || []).length)} caught · played ${E(h.plays)}×${(ev.listen || []).map((q, j) => `<br>${h.got[j] ? "✓" : "✗"} ${E(q.q)} <i>${E(h.answers[j] || "—")}</i>`).join("")}</div>`; }).join("");
   if(heard) return heard + (rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "");
   return rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "";
 }
@@ -1525,6 +1576,9 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cf-vm-qs label{display:block;font-weight:600;color:#262B45;margin-bottom:4px;}
 .cf-vm-qs textarea{width:100%;box-sizing:border-box;border:1px solid #C9CEDB;border-radius:8px;padding:6px 10px;font:14px 'Inter',sans-serif;resize:vertical;}
 .cf-vm-res{font-size:13px;margin-top:4px;}.cf-vm-res.ok{color:#2E7D4F;}.cf-vm-res.miss{color:#B54A3F;}.cf-vm-res span{color:#37394A;}
+.cf-vm-steps{margin:6px 0 10px;padding-left:22px;font-size:14px;line-height:1.5;}
+.cf-vm-steps li{margin:0 0 6px;}
+.cf-vm-steps code{background:#F1F3F8;padding:1px 6px;border-radius:5px;font-size:12.5px;}
 .cf-vm-score{padding:8px 12px;border-radius:10px;background:#F4F6FB;font-size:14px;margin-bottom:10px;}
 .cf-vm-tx{font-size:13.5px;background:#fff;border:1px solid #E1E4EC;border-radius:10px;padding:8px 12px;}
 .cf-vm-tx summary{cursor:pointer;font-weight:700;color:#262B45;}
