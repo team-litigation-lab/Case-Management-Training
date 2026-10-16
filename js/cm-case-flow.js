@@ -1894,7 +1894,7 @@ if(typeof renderAuditStrip === "function"){
 /* Every Admin tab (the Trainee Audit, Trainer Cues, the SOP, Activities) names the days as on screen: Case Flow Day 1–5, never their ids */
 if(typeof window.renderAdmin === "function"){
   const __admin = window.renderAdmin;
-  window.renderAdmin = function(){ return relabelAll(__admin.apply(this, arguments)); };
+  window.renderAdmin = function(){ if(state.adminTab === "attendance") state.adminTab = "audit"; return relabelAll(__admin.apply(this, arguments)); };   // (attendance is on the Main Portal now)
 }
 
 /* ---------- the trainer's 40%: entered in each trainee's Admin panel ---------- */
