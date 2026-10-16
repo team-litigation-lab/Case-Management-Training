@@ -4109,7 +4109,7 @@ function renderFacilitatorGuide(){
       <ul>
         <li><b>Secure mode:</b> once <code>MASTER_ADMIN_PASSWORD</code> is set on the Worker, the admin password is checked on the server, every request needs a signed session, trainees can only read and change their own records (never approval or attempt resets), and the AI can only be used by signed-in users. Admin shows a red warning while this is off.</li>
         <li><b>Which version is live?</b> The footer shows the build number. If a fix "doesn't work", check the build first — a renamed download (e.g. <i>index (1).html</i>) is the usual cause.</li>
-        <li><b>AI features failing?</b> Every AI button shows the real reason. "Key isn't set / invalid" means <code>GEMINI_API_KEY</code> needs setting on the Worker (Cloudflare → Workers &amp; Pages → ea-pa-training → Settings → Variables and Secrets).</li>
+        <li><b>AI features failing?</b> Every AI button shows the real reason. "Key isn't set / invalid" means <code>GEMINI_API_KEY</code> needs setting on the Worker (Cloudflare → Workers &amp; Pages → case-management-training → Settings → Variables and Secrets).</li>
         <li><b>Revoke</b> deletes a trainee's record and saved progress; invalid names/batches are cleaned automatically.</li>
       </ul>
     </div>
@@ -7840,11 +7840,11 @@ function assessSubmissionQuality(text){
 /* Plain-English reason for an AI failure (shown instead of a generic "check your connection"). */
 function friendlyAiError(e){
   const m = String((e && e.message) || e || "");
-  if(/x-api-key|authentication_error|invalid api key|API key not valid/i.test(m)) return /gemini/i.test(m) ? "The Gemini API key on the server is invalid — replace GEMINI_API_KEY in Cloudflare (Workers & Pages → ea-pa-training → Settings → Variables and Secrets)." : "The AI key on the server is invalid — replace it in Cloudflare (Settings → Variables and Secrets).";
+  if(/x-api-key|authentication_error|invalid api key|API key not valid/i.test(m)) return /gemini/i.test(m) ? "The Gemini API key on the server is invalid — replace GEMINI_API_KEY in Cloudflare (Workers & Pages → case-management-training → Settings → Variables and Secrets)." : "The AI key on the server is invalid — replace it in Cloudflare (Settings → Variables and Secrets).";
   if(/quota|RESOURCE_EXHAUSTED|free tier/i.test(m)) return "AI generation limit reached. Try again in a minute.";
   if(/401|sign-in required|unauthor/i.test(m)) return (state.isAdmin || state.view==="admin") ? "Your admin sign-in has expired or was made before secure mode was switched on. Click 🛡 Admin → Sign out, then sign in again with the admin password and retry." : "Your session needs refreshing — sign out and back in, then try again.";
   if(/403|not allowed/i.test(m)) return "The server refused this request for your account type. Sign out and back in, then try again.";
-  if(/GEMINI_API_KEY|not configured|No AI key/i.test(m)) return "No AI key is set on the server — add GEMINI_API_KEY (free, from Google AI Studio) as a Secret in Cloudflare (Workers & Pages → ea-pa-training → Settings → Variables and Secrets).";
+  if(/GEMINI_API_KEY|not configured|No AI key/i.test(m)) return "No AI key is set on the server — add GEMINI_API_KEY (free, from Google AI Studio) as a Secret in Cloudflare (Workers & Pages → case-management-training → Settings → Variables and Secrets).";
   if(/credit|billing|balance/i.test(m)) return "The Gemini account has hit its quota or billing limit — check Google AI Studio, then retry.";
   if(/429|rate limit/i.test(m)) return "AI generation limit reached. Try again in a minute.";
   if(/overloaded|529|503/i.test(m)) return "The AI service is busy right now. Try again in a minute.";
@@ -15637,15 +15637,15 @@ window.addEventListener("unhandledrejection", (ev)=>{ const e = ev.reason; if(e 
 window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message && !/ResizeObserver|Script error/.test(ev.message)) showActionError(new Error(ev.message), ""); });
 
 </script>
-<script src="/js/cm-updates.js?v=23"></script>
+<script src="/js/cm-updates.js?v=24"></script>
 <script src="/js/cm-documents.js?v=2"></script>
 <script src="/js/cm-skillbuilders.js?v=cm-2026.10.16-cfonly"></script>
 <script src="/js/cm-lor-data.js?v=1"></script>
 <script src="/js/cm-hipaa-data.js?v=1"></script>
 <script src="/js/cm-medprov-data.js?v=1"></script>
-<script src="/js/cm-lor.js?v=2"></script>
-<script src="/js/cm-hipaa.js?v=1"></script>
-<script src="/js/cm-medprov.js?v=1"></script>
+<script src="/js/cm-lor.js?v=3"></script>
+<script src="/js/cm-hipaa.js?v=2"></script>
+<script src="/js/cm-medprov.js?v=2"></script>
 <script src="/js/cm-drafting.js?v=1"></script>
 <script src="/js/daily-activities.js?v=3"></script>
 <script src="/js/checkin.js?v=1"></script>
@@ -15663,7 +15663,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-sim.js?v=5"></script>
 <script src="/js/cm-case-flow-data.js?v=15"></script>
 <script src="/js/cm-case-dates.js?v=2"></script>
-<script src="/js/cm-case-flow.js?v=42"></script>
+<script src="/js/cm-case-flow.js?v=43"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=3"></script>
 <script src="/js/lsh-tool-links.js?v=cm-2026.10.08-portal"></script>

@@ -3053,7 +3053,10 @@ window.CM_CASE_FLOW = {
          a: 3, r: "It turns on a collateral-source rule that varies by state. The Case Manager shows both columns; the choice is counsel's."},
         {q: "In the pre-demand strategy session, which of these may the Case Manager recommend?",
          opts: ["Serving the demand by certified mail with return receipt and by email, so receipt can be proved", "Demanding the $10,000 BI limits", "Claiming billed rather than paid amounts", "Sending the Host UM demand now, alongside the BI demand"],
-         a: 0, r: "Service method is operational, so you may recommend it, within whatever the governing statute requires for a Time-Limited Demand (Atty. Thorne confirms and approves). The demand figure and billed-vs-paid are his legal calls. A UM demand now would be premature: the UM layers owe nothing until BI is exhausted, and settling BI without their consent is what puts them at risk."}
+         a: 0, r: "Service method is operational, so you may recommend it, within whatever the governing statute requires for a Time-Limited Demand (Atty. Thorne confirms and approves). The demand figure and billed-vs-paid are his legal calls. A UM demand now would be premature: the UM layers owe nothing until BI is exhausted, and settling BI without their consent is what puts them at risk."},
+        {q: "Northgate's HR letter verifies 9 missed shifts at 8 h × $22.00, but five of them (02/09–02/13/2026) fall before John Doe's first treatment and carry no provider work note. In the audited Specials, the Case Manager:",
+         opts: ["Drops the five shifts and claims only four: $704.00", "Asks Dr. Reyes for a work note backdated to cover 02/09–02/13/2026", "Keeps $1,584.00, flags the five shifts with Northgate's Attendance Record (called out citing neck pain) as their support, and routes them to Atty. Thorne", "Keeps $1,584.00 and leaves the five shifts unmentioned so Keystone doesn't notice them"],
+         a: 2, r: "Flag, never drop, never hide. 9 × 8 h × $22.00 = $1,584.00, verified by Northgate. The five pre-treatment shifts sit inside the 14-Day Gap and the defense will use them, yet the Attendance Record also corroborates the gap justification. How they are presented is Atty. Thorne's call."}
       ],
       blocks: [
 
@@ -3409,7 +3412,10 @@ window.CM_CASE_FLOW = {
          a: 0, r: "Add-on UM is not reduced by the BI payment. Under an offset form the $10,000 BI would come off the $20,000 limit, leaving $10,000. Offset rules vary by state and policy, which is why the carrier's written confirmation is the source."},
         {q: "When must Harbor Point's and Cardinal State's consents to settle be in writing?",
          opts: ["Only if a UM carrier asks for one", "Before Keystone's check clears the trust account", "Within 30 days after the BI release is signed", "Before John Doe signs Keystone's release"],
-         a: 3, r: "Releasing Robert Smith without the UM carriers' written consent can impair their subrogation rights and cost John Doe the UM coverage. On this file: consents 08/24 and 08/26/2026, Limited Release signed 08/28/2026."}
+         a: 3, r: "Releasing Robert Smith without the UM carriers' written consent can impair their subrogation rights and cost John Doe the UM coverage. On this file: consents 08/24 and 08/26/2026, Limited Release signed 08/28/2026."},
+        {q: "The Relative UM demand to Cardinal State (Teresa Okafor, CS-26-20355) goes out 08/31/2026 framed as excess. What must its package show?",
+         opts: ["Damages above the $30,000 already reached through the $10,000 BI and the $20,000 Host UM", "Damages above the $10,000 BI only, the same showing as Harbor Point's package", "Only that John Doe is a resident relative under Margaret Doe's policy (03/09/2026)", "A cross-reference to Harbor Point's package, since the two claims share one file"],
+         a: 0, r: "Relative UM is excess: Cardinal State answers only above the $30,000 from BI and Host UM, up to $10,000. Each carrier gets its own complete package with the exhaustion proof on page one; the damages figure itself is Atty. Thorne's valuation."}
       ],
       blocks: [
 
@@ -3743,7 +3749,10 @@ window.CM_CASE_FLOW = {
          a: 3, r: "On a reduction policy Keystone's $10,000 would come off the $20,000 limit. Harbor Point confirmed in writing that its UM is add-on, so the BI payment does not shrink the $20,000 limit; whether damages fill that room is shown with the medical proof."},
         {q: "Cardinal State tenders its $10,000 Relative UM limits on 10/06/2026. Who accepts it?",
          opts: ["The Case Manager, because it is the full limit", "John Doe, on his informed decision, conveyed through Atty. Thorne", "Atty. Thorne alone, without troubling the client", "Harbor Point, as the primary UM carrier"],
-         a: 1, r: "Settlement is the client's decision. Atty. Thorne advises him and conveys it; the Case Manager logs the decision and drafts the acceptance email for Atty. Thorne to approve."}
+         a: 1, r: "Settlement is the client's decision. Atty. Thorne advises him and conveys it; the Case Manager logs the decision and drafts the acceptance email for Atty. Thorne to approve."},
+        {q: "Before the first call with Dana Whitfield, the battle map sets John Doe's net floor. With $7,965.00 in unreduced liens, $486.75 in costs and the one-third fee, what gross does he need just to reach $0.00 net?",
+         opts: ["$8,451.75", "$12,677.63", "$10,000.00", "$16,401.40"],
+         a: 1, r: "Liens + costs = $7,965.00 + $486.75 = $8,451.75; × 1.5 for the one-third fee = $12,677.63 gross. That is above Keystone's $10,000 limit, which is why every UM layer and lien reduction matters. $8,451.75 forgets the fee; $16,401.40 is the Specials."}
       ],
       blocks: [
 
@@ -4084,7 +4093,10 @@ window.CM_CASE_FLOW = {
          a: 3, r: "Riverton holds $6,105.00 of the $7,965.00 in audited liens (about 76.65%), so it takes $6,179.92 × $6,105.00 ÷ $7,965.00 = $4,736.77; Peach State takes $6,179.92 × $1,860.00 ÷ $7,965.00 = $1,443.15. John Doe would net nothing, which is why reductions matter."},
         {q: "Riverton Spine & Rehab's billing manager agrees on a call to accept $4,580.00. The reduction is final when:",
          opts: ["The call ends with a verbal yes", "Atty. Thorne approves it and the provider's signed Payoff Letter accepts $4,580.00 as full and final satisfaction", "The Case Manager logs the call in the Communications Log", "John Doe agrees to the figure"],
-         a: 1, r: "A verbal reduction is not a reduction. No Payoff Letter, no payment: the letter must state full and final satisfaction, and the compromise needs Atty. Thorne's approval."}
+         a: 1, r: "A verbal reduction is not a reduction. No Payoff Letter, no payment: the letter must state full and final satisfaction, and the compromise needs Atty. Thorne's approval."},
+        {q: "Peach State paid $1,860.00 on Crescent Pain & Spine's $3,400.00 bill for the 05/15/2026 injection. Building the lien inventory, who can pursue John Doe for the other $1,540.00?",
+         opts: ["Crescent Pain & Spine, as an unpaid provider balance", "Peach State, as part of its reimbursement claim", "Harbor Point, through MedPay", "Nobody: Crescent took Peach State's contract rate and cannot balance-bill, so the $1,540.00 is recorded as not owed"],
+         a: 3, r: "The lien is what the plan paid, not what was billed: Peach State asserts $1,860.00. Crescent's $1,540.00 write-off ($3,400.00 – $1,860.00) is a contract-rate adjustment, recorded as not owed. Harbor Point's MedPay has no reimbursement right (03/02/2026)."}
       ],
       blocks: [
 
@@ -4422,7 +4434,10 @@ window.CM_CASE_FLOW = {
          a: 3, r: "Nothing is disbursed against uncleared funds or before the client has signed the statement. All three checks had cleared by 10/20 (the last, Cardinal State's, deposited 10/13), John Doe signed 10/21, and Atty. Thorne signed the checks 10/22."},
         {q: "How are the $486.75 in case costs handled on John Doe's Net Sheet?",
          opts: ["Receipted, then split pro rata 25% / 75%: $121.69 BI and $365.06 UM", "Charged in full to each stream", "Absorbed by the firm because no suit was filed", "Taken out of the lienholders' payments"],
-         a: 0, r: "Every cost needs a receipt and is charged once. This file allocates costs to the streams pro rata to gross: 25% of $486.75 = $121.69 on BI, and the remaining $365.06 on UM."}
+         a: 0, r: "Every cost needs a receipt and is charged once. This file allocates costs to the streams pro rata to gross: 25% of $486.75 = $121.69 on BI, and the remaining $365.06 on UM."},
+        {q: "The Net Sheet shows John Doe netting $20,359.92. Lakeside Orthopedics noted possible repeat ESIs ($3,400–$6,800) ahead. Before John Doe signs, the Case Manager:",
+         opts: ["Holds $6,800.00 of his net in trust to cover the injections", "Tells John Doe the net is enough to cover future care", "Flags it to Atty. Thorne: the settlement is full and final and no carrier pays more, so he has that conversation with John Doe", "Adds the injections to Peach State's lien so the plan pays them later"],
+         a: 2, r: "The CM builds and explains the arithmetic but never says whether the net is enough. Future medical was narrated, never in the Specials; with a full and final settlement nothing more comes from Keystone, Harbor Point or Cardinal State. The flag goes to Atty. Thorne."}
       ],
       blocks: [
 
@@ -4798,7 +4813,10 @@ window.CM_CASE_FLOW = {
          a: 0, r: "The mediator's only tool is persuasion; the arbitrator is a private judge. Courts vacate or correct an award only on narrow grounds, so the Arbitration Binder must be right the first time."},
         {q: "The 09/08/2026 impasse memo to Atty. Thorne should end with:",
          opts: ["A recommendation to file suit and an estimate of Robert Smith's exposure above his limits", "A proposed counter-offer to put to Keystone", "The decision needed from him, framed as questions, with the dated record, the frozen stack and the SOL above it", "A note that John Doe has agreed to go to court"],
-         a: 2, r: "The memo documents and asks. Filing, value and any excess exposure are Atty. Thorne's analysis; the Case Manager's job is a record he can decide from."}
+         a: 2, r: "The memo documents and asks. Filing, value and any excess exposure are Atty. Thorne's analysis; the Case Manager's job is a record he can decide from."},
+        {q: "Atty. Thorne authorized suit on 09/09/2026, the Case Manager changed the status to Litigation on 09/10, and the Complaint was filed 09/24/2026. From which date does the retainer's 40% fee tier apply?",
+         opts: ["09/09/2026, the authorization", "09/10/2026, the status change", "09/24/2026, the filing date", "08/21/2026, the date the demand lapsed"],
+         a: 2, r: "Per the retainer, 33⅓% pre-suit and 40% once suit is filed: the tier follows the filing, not the status. Recording 40% from 09/10 changes John Doe's fee two weeks early. Atty. Thorne discussed the tier with John Doe on 09/09; the CM records that, never explains the fee."}
       ],
       blocks: [
 
@@ -5129,7 +5147,10 @@ window.CM_CASE_FLOW = {
          a: 2, r: "A backward count that lands on a weekend moves to the earlier business day. Rolling it forward to 06/14 files the brief late; 06/02 is the exhibit exchange."},
         {q: "At the 06/22/2027 hearing, Laura Whitcomb, Esq. asks you directly about a Riverton Spine & Rehab bill. You:",
          opts: ["Answer briefly: you audited that bill and know it best", "Stay silent and wait for Atty. Thorne to notice", "Offer to email her the audit after the hearing", "Say you are the Case Manager providing administrative assistance, defer to Atty. Thorne on the record, and hand him the document"],
-         a: 3, r: "Speaking to the merits before the arbitrator is the unauthorized practice of law, even when your answer is right. Defer politely and put the document in counsel's hands."}
+         a: 3, r: "Speaking to the merits before the arbitrator is the unauthorized practice of law, even when your answer is right. Defer politely and put the document in counsel's hands."},
+        {q: "The Scheduling Order says mediation is to be “completed by 03/31/2027.” The re-keyed calendar shows “Mediation session 03/31/2027.” The correct fix is:",
+         opts: ["Leave it: the order names the date", "Re-enter it as a deadline, “completed by 03/31/2027”, with a task to collect 3–4 windows from Atty. Thorne, John Doe and opposing counsel before the mediator's office is contacted", "Call Hon. Carla Benton's office and book 03/31/2027", "Roll it forward to 04/01/2027 to leave time for the session"],
+         a: 1, r: "Read each verb in the order: “completed by” sets when the session must be over, not when it is held. Windows are gathered from every party before the neutral hears from you; the session was held 03/18/2027, inside the deadline."}
       ],
       blocks: [
 
@@ -5488,7 +5509,10 @@ window.CM_CASE_FLOW = {
          a: 1, r: "The prior medical shield answers the “pre-existing degenerative” argument before it is made: three low-back visits (not neck) that resolved, no prior neck complaint, paired with the MRI's “no significant degenerative change at the adjacent levels” and the Causation Letter. What is argued from it is Atty. Thorne's call."},
         {q: "Day 2 left the billed-or-paid choice on Crescent Pain & Spine's $3,400.00 bill to Atty. Thorne; Peach State paid $1,860.00 at its contract rate. Building the Mediation Binder, what does the audited Lien Sheet show?",
          opts: ["Crescent $3,400.00 and Peach State $1,860.00", "Crescent $1,540.00 and Peach State $1,860.00", "Peach State's $1,860.00 reimbursement claim only: Crescent wrote off the rest and cannot balance-bill", "Nothing: the bill is already counted in the Specials"],
-         a: 2, r: "Cross-reference every provider balance against what the plan already paid (its EOB). Peach State's contract payment satisfied the bill and Crescent wrote off the other $1,540.00 (the $3,400.00 bill less the $1,860.00 paid), so Crescent holds no lien; listing both counts one bill twice against John Doe's recovery."}
+         a: 2, r: "Cross-reference every provider balance against what the plan already paid (its EOB). Peach State's contract payment satisfied the bill and Crescent wrote off the other $1,540.00 (the $3,400.00 bill less the $1,860.00 paid), so Crescent holds no lien; listing both counts one bill twice against John Doe's recovery."},
+        {q: "Sorting the unsorted folder for the 06/22/2027 Arbitration Binder, you find the 09/08/2026 impasse memo to Atty. Thorne. Where does it go?",
+         opts: ["Flagged for Atty. Thorne's privilege and exchange decision, and kept out of the exchange set", "Tab 6, because it explains the negotiation history", "Tab 1 with the submissions, since it shows BI was not paid", "Tab 2 with the arbitration pleadings"],
+         a: 0, r: "An internal memo in an exchanged set cannot be unsent. The CM flags; Atty. Thorne decides what is withheld as privileged and what is exchanged. The BI exhaustion threshold is proved with executed documents: Keystone's tender, the UM consents, the Limited Release and Robert Smith's dismissal."}
       ],
       blocks: [
 
@@ -5813,7 +5837,10 @@ window.CM_CASE_FLOW = {
          a: 0, r: "There is no second hearing. An excluded exhibit is gone for good; the other three can be fixed before 06/22/2027."},
         {q: "Which of these does NOT belong in a bottleneck report to Atty. Thorne?",
          opts: ["The date the blocker started", "The hard date it threatens", "What was tried, rung by rung, with dates", "Your view of what the claim is worth if it isn't fixed"],
-         a: 3, r: "The five fields are the blocker, the date it started, the hard date it threatens, what was tried, and the ask. Value is Atty. Thorne's call and never goes in a Case Manager's report."}
+         a: 3, r: "The five fields are the blocker, the date it started, the hard date it threatens, what was tried, and the ask. Value is Atty. Thorne's call and never goes in a Case Manager's report."},
+        {q: "On 05/24/2027, Riverton Spine & Rehab's refreshed ledger (05/21) restores the 05/04/2026 duplicate: $6,290.00 against the audited $6,105.00. With exhibits exchanged 06/02/2027, the Case Manager:",
+         opts: ["Escalates it to Atty. Thorne at Rung 3 before anything else", "Exchanges $6,290.00, since it is the provider's latest figure", "Holds the whole exhibit exchange until Riverton issues a corrected ledger", "Fixes it at Rung 1 the same day: returns the audit to Riverton's billing office and keeps $6,105.00 in the set with the duplicate documented, so medical Specials stay $14,817.40"],
+         a: 3, r: "Rung 1 problems are solved at Rung 1; the items needing Atty. Thorne's decision (Crescent's certification, Dr. Reyes's declaration, Cardinal State's silence) go to him first. An unverified $6,290.00 invites the carriers to doubt every other number, and holding the exchange for one record is the pitfall."}
       ],
       blocks: [
 

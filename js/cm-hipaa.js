@@ -118,8 +118,7 @@ function renderPage(){
   if(adminOn()){
     if(!H.draft) H.draft = blank();
     return `<div class="lor-hero"><p class="lor-eyebrow">📄 Drafting Tools</p><h1>HIPAA Drafting</h1>
-        <p>Every trainee drafts the same HIPAA authorization form, the firm's own template — there is nothing to assign.</p>
-        <button class="btn btn-ghost btn-sm" type="button" onclick="goto('drafting')">← Back to Drafting Tools</button></div>
+        <p>Every trainee drafts the same HIPAA authorization form, the firm's own template — there is nothing to assign.</p></div>
       ${notice()}
       <section class="card lor-preview"><h2>👁 The activity as a trainee sees it</h2>${steps()}
         <div class="card lor-paper">${renderLetter()}</div></section>`;
@@ -130,8 +129,7 @@ function renderPage(){
   const preview = (state.adminPreview && !state.traineeId)
     ? `<div class="card lor-preview-note">👁 <b>Trainee view</b> — this is the page as a trainee sees it. Nothing you type here is saved; a trainee drafts on their own account.</div>` : "";
   return `${preview}<div class="lor-hero"><p class="lor-eyebrow">📄 Drafting Tools</p><h1>HIPAA Drafting</h1>
-      <p>Draft the HIPAA Compliant Authorization Form, in the firm's own template, ready for the client to sign.</p>
-      <button class="btn btn-ghost btn-sm" type="button" onclick="goto('drafting')">← Back to Drafting Tools</button></div>
+      <p>Draft the HIPAA Compliant Authorization Form, in the firm's own template, ready for the client to sign.</p></div>
     ${notice()}${steps()}
     <section class="lor-ed"><div class="card lor-paper">${renderLetter()}</div>
       <div class="lor-actions">
