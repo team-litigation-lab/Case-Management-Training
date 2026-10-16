@@ -985,12 +985,15 @@ function workLog(b){
   const main = blockTools(b).filter(id => id !== "call" && !PAGE[id])[0] || "cms", t = typeof cmTool === "function" && cmTool(main);
   const w = (REC.work || {})[b.id] || {};
   return `<div class="cfx-log" title="The reference of the work you did in ${E(TOOL[main].name)}"><b>🧾 Log Your Work</b>
-    <input id="cflog_${b.id}" placeholder="${E((t && t.idHint) || "CMS Case ID or reference")}" value="${E(w.ref || "")}" aria-label="Reference of your work in ${E(TOOL[main].name)}">
+    <input id="cflog_${b.id}" placeholder="${E((t && t.idHint) || "CMS Case ID or reference")}" value="${E(w.ref || (main === "cms" && window.CMCase ? CMCase.id() : ""))}" aria-label="Reference of your work in ${E(TOOL[main].name)}"${main === "cms" ? ' data-cms-id="1"' : ""}>${main === "cms" ? `<span class="cfx-log-from" data-cms-note>${window.CMCase && CMCase.id() ? "from the CMS" : ""}</span>` : ""}
     <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.logWork('${b.id}','${main}')">Log it</button>
     <span class="cfx-log-ok" id="cflogok_${b.id}">${w.at ? `✓ Logged ${E(new Date(w.at).toLocaleDateString())}` : ""}</span></div>`;
 }
 window.cmCaseFlow.logWork = function(blockId, tool){
-  const el = document.getElementById("cflog_" + blockId), ref = (el && el.value || "").trim().slice(0, 120);
+  const el = document.getElementById("cflog_" + blockId);
+  // nothing typed on a CMS step: the case open in the CMS (js/cm-cms-case.js)
+  const ref = (((el && el.value || "").trim()) || (tool === "cms" && window.CMCase ? CMCase.id() : "")).slice(0, 120);
+  if(el && ref && el.value.trim() !== ref) el.value = ref;
   if(!ref){ if(typeof toast === "function") toast("Add the reference of your work first: the CMS Case ID, docket or request number."); return; }
   REC.work = REC.work || {}; REC.work[blockId] = {ref, tool, at: new Date().toISOString()}; persist();
   const ok = document.getElementById("cflogok_" + blockId); if(ok) ok.textContent = "✓ Logged " + new Date().toLocaleDateString();
@@ -1664,6 +1667,8 @@ main > .cf-side-presenter{display:none;}
 .cfx-log b{color:#262B45;}
 .cfx-log input{flex:1 1 200px;min-width:0;padding:4px 10px;border:1px solid #C9CEDB;border-radius:8px;font:12.5px 'Inter',sans-serif;}
 .cfx-log-ok{color:var(--success,#2E7D4F);font-weight:600;}
+/* the Case ID the CMS gave, not typed (js/cm-cms-case.js) */
+.cfx-log-from:not(:empty){font-size:11px;font-weight:700;color:#1F4E79;background:rgba(214,231,248,.75);border-radius:999px;padding:2px 8px;}
 .cf-tr-work{font-size:12.8px;margin:6px 0;padding:6px 10px;background:#F4F6FB;border-radius:8px;}
 .cfx-vm .cfx-vm-body{display:flex;align-items:center;gap:14px;margin:8px 0 10px;font-size:14px;}
 .cfx-vm .cfx-vm-body small{color:#5B6178;}

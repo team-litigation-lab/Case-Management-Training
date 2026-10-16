@@ -153,6 +153,11 @@ function caseLine(def){
   if(def.caseRef === "jdv"){ const id = pick(["px5:cms-jordan","cmJordan5:cms"]); return `<p class="cm-intro" style="margin:8px 0">📂 Your Jordan Davies case: ${id ? `<b>${E(id)}</b>` : `<i>you create it in this activity</i>`}</p>`; }
   return "";
 }
+/* An activity done in the CMS: its ID is the Case ID of the case open there, so the box starts with it
+   instead of asking the trainee to copy it across (js/cm-cms-case.js). cmLabOpen's default is the CMS. */
+const onCms = (def)=> (def.tool || "cms") === "cms";
+const cmsOpenId = (def)=> (onCms(def) && window.CMCase && ID_RULES.cms.re.test(CMCase.id()) ? CMCase.id() : "");
+
 function formHTML(key, where){
   const def = DEFS[key] || {}, s = subs()[key] || {}, k = where + "_" + kid(key);
   const t = def.tool && window.cmTool ? cmTool(def.tool) : null;
@@ -161,7 +166,7 @@ function formHTML(key, where){
   const lab = (t)=> `<label style="font-size:12.8px;font-weight:700;color:var(--navy);display:block;margin:10px 0 5px">${t}</label>`;
   return `<div id="${k}" style="margin-top:10px">
     ${steps.map((st,i)=>`<label class="cm-check"><input type="checkbox" style="min-width:0;flex:0 0 auto" id="${k}_s${i}" ${s.steps && s.steps[i]?"checked":""}><span style="font-weight:500">${i+1}. ${st.t}${stepAction(key, st)}</span></label>`).join("")}
-    ${lab(E(evLabel))}<input id="${k}_ev" style="width:100%;box-sizing:border-box" value="${E(s.evidence || ((state.cmsLog||{})[key]||{}).caseId || "")}" placeholder="${E(evLabel)}">
+    ${lab(E(evLabel))}<input id="${k}_ev" style="width:100%;box-sizing:border-box" value="${E(s.evidence || ((state.cmsLog||{})[key]||{}).caseId || cmsOpenId(def))}" placeholder="${E(evLabel)}"${onCms(def) ? ' data-cms-id="1"' : ""}>${onCms(def) ? `<span class="cm-cms-from" data-cms-note>${cmsOpenId(def) ? "from the CMS" : ""}</span>` : ""}
     ${lab("What you did in the tool")}<textarea class="cm-ta" id="${k}_sum" style="min-height:${where==="lp"?110:80}px" placeholder="What you entered, uploaded and logged, e.g. Created the case with the corrected DOB, uploaded the police report under Police, added Tasks for…">${E(s.summary||"")}</textarea>
     <div><button class="btn btn-navy btn-sm" style="margin-top:8px" onclick="cmLabSubmit('${key}','${where}', this)">${s.at ? "Submit again for review" : "Submit for review"}</button></div>
   </div>`;
@@ -174,7 +179,10 @@ function stepAction(key, st){
 }
 window.cmLabSubmit = async function(key, where, btn){
   const k = where + "_" + kid(key), def = DEFS[key] || {};
-  const ev = ((document.getElementById(k+"_ev")||{}).value || "").trim(), sum = ((document.getElementById(k+"_sum")||{}).value || "").trim();
+  const evEl = document.getElementById(k+"_ev");
+  const ev = ((evEl && evEl.value || "").trim()) || cmsOpenId(def);   // nothing typed on a CMS activity: the case open there
+  if(evEl && ev && evEl.value.trim() !== ev) evEl.value = ev;
+  const sum = ((document.getElementById(k+"_sum")||{}).value || "").trim();
   const steps = {}; (def.steps||[]).forEach((_,i)=>{ const c = document.getElementById(`${k}_s${i}`); if(c && c.checked) steps[i] = true; });
   if(ev.length < 2){ toast("Enter the ID (or score) the tool gave you first."); return; }
   if(sum.length < 20){ toast("Describe what you did in the tool first."); return; }
