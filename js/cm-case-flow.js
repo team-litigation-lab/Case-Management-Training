@@ -420,7 +420,8 @@ const CHANNEL = {email: ["✉️", "Email"], call: ["📞", "Phone call"], voice
   alert: ["🔔", "CMS alert"], portal: ["🌐", "Portal message"], text: ["💬", "Text message"], memo: ["📝", "Internal memo"]};
 const dayMs = v => { const [m, d, y] = String(v || "").split("/").map(Number); return y ? Date.UTC(y, m - 1, d) : NaN; };
 const trackOfDay = day => (/Track ([AB])/.exec((day && day.track) || "") || [])[1] || "";
-function eventCard(e, extra){
+function eventCard(e, extra, blockId){
+  if(e.channel === "voicemail" && e.spoken && blockId) return voicemailCard(e, blockId, extra);
   const [icon, label] = CHANNEL[e.channel] || ["📌", "Message"];
   const att = (e.attachments || []).map(id => CF_DOCS.find(x => x.id === id)).filter(Boolean);
   return `<div class="cfx-ev cfx-ev-${E(e.channel)}${extra ? " " + extra : ""}">
@@ -428,7 +429,7 @@ function eventCard(e, extra){
         <span class="cfx-ev-when">${E(e.date || "")}${e.time ? " · " + E(e.time) : ""}</span></div>
       <div class="cfx-ev-subj">${E(e.subject || "")}</div>
       <p class="cfx-ev-body">${E(e.body || "")}</p>
-      ${att.length ? `<div class="cfx-ev-att">${att.map(x => `<a href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}">📎 ${E(x.title)}</a>`).join("")}</div>` : ""}
+      ${att.length ? `<div class="cfx-ev-att">${att.map(x => `<a href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')">📎 ${E(x.title)}</a>`).join("")}</div>` : ""}
     </div>`;
 }
 const LANES = {claims: "Claims & Coverage", care: "Client & Treatment"};
@@ -557,16 +558,16 @@ function slideBody(view, l, d){
       <div class="cfx-dont"><h3>⚠️ Don't</h3><ul>${c.donts.map(x => `<li>${hl(x)}</li>`).join("")}</ul></div></div>`;
     case "case": {
       const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(Boolean).slice(0, 4);
-      const ev = SIM.events[b.id], fall = falloutFor(b.id);
-      const thumbs = docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
+      const ev = SIM.events[b.id], fall = falloutFor(b.id), vm = ev && ev.channel === "voicemail" && ev.spoken;
+      const thumbs = docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
       return `<div class="cfx-sb">
         ${ev ? timelineStrip(ev.date, trackOfDay(day), l.cf.phase.lane, d.cf.n) : ""}
         <div class="cfx-challenge"><span>“${E(b.title.toUpperCase())}”</span></div>
         ${fall.map(x => { const e = x.f.then.event, [icon] = CHANNEL[e.channel] || ["⚠️"];
           return `<details class="cfx-fall"><summary><span class="cfx-fall-i">⚠️</span><b>${E(e.subject)}</b><span class="cfx-fall-from">${icon} ${E(e.from || "")}</span></summary>
             <p>${E(e.body)}</p>${isTrainer() ? `<small class="cfx-fall-why">${x.done ? "Not shown to this trainee: they confirmed" : "Shown because this wasn't confirmed"}: “${E(x.what)}” (${E(x.f.if.activity)})</small>` : ""}</details>`; }).join("")}
-        <div class="cfx-sb-grid">
-          <div class="cfx-sb-main">${ev ? eventCard(ev) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}</div>
+        <div class="cfx-sb-grid${vm ? " cfx-sb-vm" : ""}">
+          <div class="cfx-sb-main">${ev ? eventCard(ev, "", b.id) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}</div>
           <div class="cfx-sb-docs">${thumbs}</div>
         </div></div>`;
     }
@@ -694,6 +695,191 @@ window.cmCaseFlow.callBack = function(){
   goto("day", cf.dayId);
   setTimeout(() => { state.dayViewMode = "slides"; if(typeof goToSlide === "function" && cf.slide != null) goToSlide(cf.slide); }, 0);
 };
+/* ---------- a voicemail is heard, not read ----------
+   A voicemail event (build/case-flow/sim: "spoken" and "listen") plays like a voicemail box: the system voice with
+   the time and the caller ID, the beep, then the caller in their own voice over a faint line hiss. The slide shows
+   only what a phone shows (caller ID, time, length); the trainee takes notes in the Listening Check, checks them
+   against what was said, and only then sees the transcript. Plays and the check are kept on their record
+   (REC.listen) and shown to their trainer. A browser that can't speak (no speech engine, or no English voice
+   installed) gets the steps to turn it on for that device, and the transcript stays closed until they've listened. */
+const VM = {playing: null, ctx: null, hiss: null};
+const vmWords = t => String(t || "").split(/\s+/).filter(Boolean).length;
+const vmLength = e => { const s = Math.round(vmWords(e.spoken) / 2.3 + 6); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
+const vmRec = id => { REC.listen = REC.listen || {}; return (REC.listen[id] = REC.listen[id] || {plays: 0, answers: []}); };
+const canSpeak = () => typeof speechSynthesis !== "undefined" && typeof SpeechSynthesisUtterance !== "undefined";
+function vmVoice(kind){
+  const vs = (canSpeak() ? speechSynthesis.getVoices() : []).filter(v => /^en[-_]/i.test(v.lang));
+  const male = /\b(male|david|daniel|alex|fred|guy|george|mark|james|tom|aaron|arthur|ryan|christopher|eric|roger)\b/i, female = /\b(female|samantha|zira|susan|victoria|karen|moira|tessa|aria|jenny|libby|sonia|serena|allison|ava)\b/i;
+  const want = kind === "caller" ? vs.filter(v => male.test(v.name) && !female.test(v.name)) : vs.filter(v => female.test(v.name));
+  return want[0] || vs[kind === "caller" ? Math.min(1, vs.length - 1) : 0] || null;
+}
+// "02/10/2026" + "8:47 a.m." → "Tuesday, February 10th, at 8:47 a.m."
+function vmWhen(e){
+  const [m, d, y] = String(e.date || "").split("/").map(Number);
+  if(!y) return "";
+  const t = new Date(Date.UTC(y, m - 1, d)), f = o => t.toLocaleDateString("en-US", Object.assign({timeZone: "UTC"}, o));
+  const sfx = (d % 100 >= 11 && d % 100 <= 13) ? "th" : ({1: "st", 2: "nd", 3: "rd"}[d % 10] || "th");
+  return `${f({weekday: "long"})}, ${f({month: "long"})} ${d}${sfx}${e.time ? ", at " + e.time : ""}`;
+}
+const vmDigits = t => (String(t).match(/\(?\d{3}\)?[\s-]*\d{3}-\d{4}/) || [""])[0].replace(/\D/g, "").split("").map(n => n === "0" ? "oh" : n).join(" ").replace(/^(\S+ \S+ \S+) (\S+ \S+ \S+) /, "$1, $2, ");
+function vmTone(ctx, at, f, dur, gain){ const o = ctx.createOscillator(), g = ctx.createGain(); o.frequency.value = f; g.gain.value = gain; o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + at); o.stop(ctx.currentTime + at + dur); }
+function vmHiss(on){
+  try{
+    if(on){
+      const Ctx = window.AudioContext || window.webkitAudioContext; if(!Ctx) return;
+      const ctx = VM.ctx || (VM.ctx = new Ctx()), buf = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate), ch = buf.getChannelData(0);
+      for(let i = 0; i < ch.length; i++) ch[i] = Math.random() * 2 - 1;
+      const src = ctx.createBufferSource(), bp = ctx.createBiquadFilter(), g = ctx.createGain();
+      src.buffer = buf; src.loop = true; bp.type = "bandpass"; bp.frequency.value = 1800; bp.Q.value = 0.6; g.gain.value = 0.018;
+      src.connect(bp); bp.connect(g); g.connect(ctx.destination); src.start(); VM.hiss = src;
+    }else if(VM.hiss){ VM.hiss.stop(); VM.hiss = null; }
+  }catch(e){}
+}
+function vmSay(text, kind, token){
+  return new Promise(res => {
+    if(VM.playing !== token) return res();
+    const u = new SpeechSynthesisUtterance(text), v = vmVoice(kind);
+    if(v) u.voice = v;
+    u.rate = kind === "caller" ? 0.92 : 1; u.pitch = kind === "caller" ? 0.85 : 1.08; u.volume = 1;
+    let done = false; const end = () => { if(!done){ done = true; res(); } };
+    u.onend = end; u.onerror = end;
+    setTimeout(end, Math.max(4000, vmWords(text) * 650));   // never hang if a browser drops the event
+    speechSynthesis.speak(u);
+  });
+}
+const vmPause = ms => new Promise(r => setTimeout(r, ms));
+function vmPaint(blockId){
+  document.querySelectorAll(`[data-vm="${blockId}"]`).forEach(el => {
+    const r = vmRec(blockId), on = VM.playing && VM.playing.id === blockId;
+    el.querySelectorAll(".cfx-vm-play").forEach(b => { b.textContent = on ? "⏹ Stop" : r.plays ? "↻ Play again" : "▶ Play"; b.setAttribute("aria-pressed", on ? "true" : "false"); });
+    el.querySelectorAll(".cfx-vm-st").forEach(x => { x.textContent = on ? "🔊 Playing…" : vmStatus(blockId); });
+    el.classList.toggle("on", !!on);
+  });
+}
+function vmStatus(blockId){
+  const r = vmRec(blockId), e = SIM.events[blockId];
+  if(r.at) return `Listening Check ${r.score}/${(e.listen || []).length} · played ${r.plays}×`;
+  return r.plays ? `Played ${r.plays}× · now check your notes` : "Not played yet";
+}
+window.cmCaseFlow.vmPlay = async function(blockId){
+  const e = SIM.events[blockId];
+  if(!e || !e.spoken) return;
+  if(VM.playing){ const was = VM.playing.id; VM.playing = null; try{ speechSynthesis.cancel(); }catch(er){} vmHiss(false); vmPaint(was); if(was === blockId) return; }
+  if(!(await vmVoicesReady())){ vmSetup(blockId); return; }
+  const token = {id: blockId}; VM.playing = token;
+  const r = vmRec(blockId); r.plays = (r.plays || 0) + 1; persist();
+  vmPaint(blockId);
+  try{ speechSynthesis.cancel(); }catch(er){}
+  const Ctx = window.AudioContext || window.webkitAudioContext;
+  try{ if(Ctx){ VM.ctx = VM.ctx || new Ctx(); if(VM.ctx.state === "suspended") await VM.ctx.resume(); } }catch(er){}
+  const when = vmWhen(e);
+  await vmSay(`You have one new message. Received ${when}${/\.$/.test(when) ? "" : "."} From ${vmDigits(e.from)}.`, "system", token);
+  if(VM.playing === token){ try{ VM.ctx && vmTone(VM.ctx, 0.15, 1000, 0.45, 0.08); }catch(er){} await vmPause(900); }
+  if(VM.playing === token) vmHiss(true);
+  // the caller, sentence by sentence, with the small gaps people leave
+  for(const part of String(e.spoken).split(/(?<=[.?!])\s+/)){
+    if(VM.playing !== token) break;
+    await vmSay(part.replace(/\.\.\./g, ","), "caller", token);
+    await vmPause(/\.\.\.$|,$/.test(part) ? 500 : 260);
+  }
+  vmHiss(false);
+  if(VM.playing === token) await vmSay("End of message.", "system", token);
+  if(VM.playing === token){ VM.playing = null; vmPaint(blockId); }
+};
+/* speech in this browser: an engine and at least one English voice (Chrome loads its voices a moment after the page) */
+function vmVoicesReady(){
+  if(!canSpeak()) return Promise.resolve(false);
+  const has = () => speechSynthesis.getVoices().some(v => /^en[-_]/i.test(v.lang));
+  if(has()) return Promise.resolve(true);
+  return new Promise(res => {
+    let done = false; const end = v => { if(!done){ done = true; res(v); } };
+    try{ speechSynthesis.addEventListener("voiceschanged", () => end(has()), {once: true}); }catch(e){}
+    setTimeout(() => end(has()), 1500);
+  });
+}
+/* the steps to turn speech on, for the device the trainee is on */
+function vmDevice(){
+  const ua = navigator.userAgent || "", p = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || "";
+  const os = /iPhone|iPad|iPod/.test(ua) ? "ios" : /Android/.test(ua) ? "android" : /CrOS/.test(ua) ? "chromeos" : /Mac/.test(p + ua) ? "mac" : /Win/.test(p + ua) ? "windows" : /Linux/.test(p + ua) ? "linux" : "other";
+  const browser = /Edg\//.test(ua) ? "Edge" : /Firefox\//.test(ua) ? "Firefox" : /Chrome\//.test(ua) ? "Chrome" : /Safari\//.test(ua) ? "Safari" : "this browser";
+  return {os, browser};
+}
+const VM_STEPS = {
+  windows: ["Open <b>Settings → Time &amp; language → Speech</b>.", "Under <b>Manage voices</b>, choose <b>Add voices</b> and add an <b>English</b> voice.", "Close every browser window and open the course again."],
+  mac: ["Open <b>System Settings → Accessibility → Spoken Content</b>.", "Next to <b>System voice</b>, choose <b>Manage Voices…</b> and download an <b>English</b> voice.", "Quit the browser (⌘Q) and open the course again."],
+  chromeos: ["Open <b>Settings → Accessibility → Text-to-Speech</b>.", "Under <b>Speech engine</b>, install an <b>English</b> voice (Google voices).", "Close the browser and open the course again."],
+  linux: ["Install the speech engine: <code>sudo apt install speech-dispatcher espeak-ng</code> (or your system's package manager).", "Restart the computer, or log out and back in.", "Open the course in <b>Chrome</b> or <b>Edge</b>."],
+  ios: ["Open <b>Settings → Accessibility → Spoken Content → Voices → English</b> and download a voice.", "Turn off <b>Silent mode</b> and turn the volume up.", "Open the course again in Safari."],
+  android: ["Open <b>Settings → Accessibility → Text-to-speech output</b>.", "Choose <b>Speech Services by Google</b> and install the <b>English</b> voice data.", "Open the course again in Chrome."],
+  other: ["Open the course in <b>Google Chrome</b> or <b>Microsoft Edge</b> on a computer.", "Install an <b>English</b> text-to-speech voice in your computer's settings.", "Close the browser and open the course again."],
+};
+function vmSetup(blockId){
+  const {os, browser} = vmDevice(), engine = canSpeak();
+  let box = document.getElementById("cf-vm");
+  if(!box){ box = document.createElement("div"); box.id = "cf-vm"; box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true"); document.body.appendChild(box);
+    document.addEventListener("keydown", ev => { if(ev.key === "Escape" && !box.hidden) cmCaseFlow.listenClose(); }); }
+  box.setAttribute("aria-label", "Turn on speech to hear the voicemail");
+  box.innerHTML = `<div class="cf-vm-card cf-vm-setup">
+      <div class="cf-vm-h"><div><b>🔈 Turn on speech to hear this voicemail</b><span>${engine ? `${E(browser)} has no English voice installed on this device.` : `${E(browser)} can't speak on this device.`} This step is a listening test, so the message has to be heard.</span></div>
+        <button type="button" class="cf-vm-x" onclick="cmCaseFlow.listenClose()" aria-label="Close">✕</button></div>
+      <ol class="cf-vm-steps">${(VM_STEPS[os] || VM_STEPS.other).map(x => `<li>${x}</li>`).join("")}</ol>
+      <p class="cf-vm-lead">Also check that your computer isn't muted and that this site may play sound (the 🔒 beside the address → <b>Site settings → Sound: Allow</b>). Headphones are best.${browser === "Firefox" || browser === "Safari" ? ` <b>Chrome</b> or <b>Edge</b> has the clearest voices.` : ""}</p>
+      <div class="cfx-vm-row"><button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.vmRetry('${blockId}')">↻ I've done this: try again</button>
+        <span class="cfx-vm-st" id="cf-vm-retry"></span></div>
+      <p class="cf-note">Still silent after these steps? Ask your trainer: they can check your device with you.</p>
+    </div>`;
+  const tb = document.querySelector(".topbar"); document.body.style.setProperty("--cf-topbar", tb ? Math.max(0, Math.round(tb.getBoundingClientRect().bottom)) + "px" : "0px");
+  box.hidden = false;
+}
+window.cmCaseFlow.vmRetry = async function(blockId){
+  const st = document.getElementById("cf-vm-retry"); if(st) st.textContent = "Checking…";
+  if(await vmVoicesReady()){ cmCaseFlow.listenClose(); cmCaseFlow.vmPlay(blockId); return; }
+  if(st) st.textContent = "Still no voice on this device. Finish the steps above (a restart of the browser is usually needed).";
+};
+function voicemailCard(e, blockId, extra){
+  return `<div class="cfx-ev cfx-ev-voicemail cfx-vm${extra ? " " + extra : ""}" data-vm="${blockId}">
+      <div class="cfx-ev-h"><span class="cfx-ev-i">📳</span><span class="cfx-ev-ch">Voicemail</span><span class="cfx-ev-from">${E(e.from || "")}</span>
+        <span class="cfx-ev-when">${E(e.date || "")}${e.time ? " · " + E(e.time) : ""}</span></div>
+      <div class="cfx-vm-body"><span class="cfx-vm-wave" aria-hidden="true">${"<i></i>".repeat(18)}</span>
+        <div><b>1 new message</b> · ${vmLength(e)}<br><small>Listen first: the transcript opens after your Listening Check.</small></div></div>
+      <div class="cfx-vm-row"><button type="button" class="btn btn-orange btn-sm cfx-vm-play" onclick="cmCaseFlow.vmPlay('${blockId}')">${vmRec(blockId).plays ? "↻ Play again" : "▶ Play"}</button>
+        <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.listen('${blockId}')">🎧 Listening Check</button>
+        <span class="cfx-vm-st">${E(vmStatus(blockId))}</span></div>
+    </div>`;
+}
+/* the Listening Check: notes from the message, checked against what was said, then the transcript */
+window.cmCaseFlow.listen = function(blockId, reveal){
+  const e = SIM.events[blockId]; if(!e || !e.listen) return;
+  const r = vmRec(blockId), checked = !!r.at, show = checked || (reveal && isTrainer());
+  let box = document.getElementById("cf-vm");
+  if(!box){ box = document.createElement("div"); box.id = "cf-vm"; box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true"); box.setAttribute("aria-label", "Listening Check"); document.body.appendChild(box);
+    document.addEventListener("keydown", ev => { if(ev.key === "Escape" && !box.hidden) cmCaseFlow.listenClose(); }); }
+  box.innerHTML = `<div class="cf-vm-card" data-vm="${blockId}">
+      <div class="cf-vm-h"><div><b>🎧 Listening Check</b><span>Voicemail from ${E(e.from)} · ${E(e.date)}${e.time ? " · " + E(e.time) : ""}</span></div>
+        <button type="button" class="cf-vm-x" onclick="cmCaseFlow.listenClose()" aria-label="Close">✕</button></div>
+      <div class="cfx-vm-row"><button type="button" class="btn btn-orange btn-sm cfx-vm-play" onclick="cmCaseFlow.vmPlay('${blockId}')">${r.plays ? "↻ Play again" : "▶ Play"}</button><span class="cfx-vm-st">${E(vmStatus(blockId))}</span></div>
+      <p class="cf-vm-lead">Take the message down the way you would at your desk: from what you heard, not the caller ID.</p>
+      <ol class="cf-vm-qs">${e.listen.map((x, j) => `<li><label for="cfvm_${blockId}_${j}">${E(x.q)}</label>
+        <textarea id="cfvm_${blockId}_${j}" rows="2" oninput="cmCaseFlow.listenDraft('${blockId}',${j},this.value)" ${checked ? "readonly" : ""}>${E((r.answers || [])[j] || "")}</textarea>
+        ${checked ? `<div class="cf-vm-res ${r.got[j] ? "ok" : "miss"}">${r.got[j] ? "✓ Caught" : "✗ Missed"} · <span>The message: ${E(x.a)}</span></div>` : ""}</li>`).join("")}</ol>
+      ${checked ? `<div class="cf-vm-score">You caught <b>${r.score} of ${e.listen.length}</b>${r.score < e.listen.length ? ". Play it again for what you missed before you call back." : ". Now call him back."}</div>` : `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.listenCheck('${blockId}')">Check my notes</button>`}
+      ${show ? `<details class="cf-vm-tx" ${checked ? "" : "open"}><summary>📝 Transcript</summary><p>${E(e.spoken)}</p></details>` : ""}
+    </div>`;
+  // never over the top bar: the check opens under it
+  const tb = document.querySelector(".topbar"); document.body.style.setProperty("--cf-topbar", tb ? Math.max(0, Math.round(tb.getBoundingClientRect().bottom)) + "px" : "0px");
+  box.hidden = false;
+};
+window.cmCaseFlow.listenDraft = function(blockId, j, v){ const r = vmRec(blockId); if(r.at) return; r.answers[j] = String(v).slice(0, 400); clearTimeout(VM.t); VM.t = setTimeout(persist, 600); };
+window.cmCaseFlow.listenCheck = function(blockId){
+  const e = SIM.events[blockId], r = vmRec(blockId);
+  e.listen.forEach((x, j) => { const el = document.getElementById(`cfvm_${blockId}_${j}`); if(el) r.answers[j] = el.value.trim().slice(0, 400); });
+  if(!r.plays){ if(typeof toast === "function") toast("Play the voicemail first: this check is on what you hear."); return; }
+  if(!r.answers.some(Boolean)){ if(typeof toast === "function") toast("Write down what you heard first."); return; }
+  r.got = e.listen.map((x, j) => x.match.every(m => { try{ return new RegExp(m, "i").test(r.answers[j] || ""); }catch(er){ return false; } }));
+  r.score = r.got.filter(Boolean).length; r.at = new Date().toISOString();
+  persist(); cmCaseFlow.listen(blockId); vmPaint(blockId);
+};
+window.cmCaseFlow.listenClose = function(){ const box = document.getElementById("cf-vm"); if(box) box.hidden = true; };
 /* ---------- opening a step's tool ---------- */
 window.cmCaseFlow.tool = function(id, blockId){
   if(id === "call" && blockId && SIM.calls[blockId]) return cmCaseFlow.call(blockId);
@@ -703,7 +889,7 @@ window.cmCaseFlow.tool = function(id, blockId){
     goto.apply(null, PAGE[id]);
     return;
   }
-  if(typeof openTool === "function") openTool(id === "call" ? "calls" : id);   // a training platform, in the course's tool frame
+  if(typeof openTool === "function") openTool(id === "call" ? "calls" : id, "split");   // a training platform, beside the slide (⧉ Side by side; 🖥 Second screen)
 };
 window.cmCaseFlow.back = function(){
   const r = state.cfReturn; state.cfReturn = null;
@@ -801,7 +987,7 @@ MODULES.forEach(d => d.lessons.forEach(l => {
     model: {why: (b.show && b.show.caption) || "The model to follow.", talk: b.visual || ""},
     job: {why: "Trigger ➔ Task ➔ Tool ➔ Checkpoint: how it runs on the job.", walk: (b.ops || []).map(r => r.join(" ➔ "))},
     dodont: {why: "How this block is graded, and what to watch for.", talk: n.slice(2).join(" "), walk: best},
-    case: {why: b.act && b.act.scenario, talk: [SIM.events[b.id] ? `What just landed on the file (${SIM.events[b.id].date}): ${SIM.events[b.id].subject}. ${SIM.events[b.id].body}` : "", n[0] || ""].filter(Boolean).join(" ")},
+    case: {why: b.act && b.act.scenario, talk: [SIM.events[b.id] ? (SIM.events[b.id].channel === "voicemail" && SIM.events[b.id].spoken ? `A voicemail just landed on the file (${SIM.events[b.id].date}). Play it, take notes as you would at your desk, and check them before you act.` : `What just landed on the file (${SIM.events[b.id].date}): ${SIM.events[b.id].subject}. ${SIM.events[b.id].body}`) : "", n[0] || ""].filter(Boolean).join(" ")},
     task: {why: b.act && b.act.prompt, walk: b.act ? [`Tool: ${b.act.tool}`, `Output: ${b.act.output}`].concat(SIM.calls[b.id] ? [`Live call: ${SIM.calls[b.id].who}. The trainee must: ${SIM.calls[b.id].goals.join("; ")}.`] : []) : [], ask: n[1] || ""},
     check: {why: "Check the work against the verification checkpoints.", talk: n.slice(2).join(" "), walk: ((b.act && b.act.checkpoints) || []).concat(best)},
     questions: {why: "Knowledge check: answers come from this file, in the trainee's own words, typed under each question.", walk: ((b.check && b.check.questions) || []).slice(0, KC_PER), talk: n[0] || ""},
@@ -991,6 +1177,8 @@ function caseYearNote(mine){
 }
 function workLogged(mine, m){
   const rows = m.blocks.filter(x => x.kind === "activity").map(x => ({x, w: (mine.work || {})[x.id]})).filter(r => r.w);
+  const heard = m.blocks.filter(x => x.kind === "activity" && ((mine.listen || {})[x.id] || {}).at).map(x => { const h = mine.listen[x.id], ev = SIM.events[x.id]; return `<div class="cf-tr-work"><b>🎧 Listening Check (${E(x.title)}):</b> ${E(h.score)}/${E((ev.listen || []).length)} caught · played ${E(h.plays)}×${(ev.listen || []).map((q, j) => `<br>${h.got[j] ? "✓" : "✗"} ${E(q.q)} <i>${E(h.answers[j] || "—")}</i>`).join("")}</div>`; }).join("");
+  if(heard) return heard + (rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "");
   return rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "";
 }
 function trainerPanel(rec){
@@ -1143,19 +1331,27 @@ if(typeof window.cmDoc === "function"){
 }
 /* Once the case has rolled forward a year (js/cm-case-dates.js), a document opens in case-doc.html, which shows
    it with that year's dates (print it or save it as a PDF there); in the case's own year, the PDF as rendered. */
+/* a case document opens beside the slide (the course's tool frame, side by side), so the trainee reads it while they
+   work; Ctrl/⌘-click or the middle button still opens it in a new tab */
+window.cmCaseFlow.doc = function(ev, id){
+  if(ev && (ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.button === 1) || typeof openPane !== "function") return true;
+  const d = CF_DOCS.find(x => x.id === id); if(!d) return true;
+  openPane("doc", new URL(docUrl(d), location.href).href, `${d.title} (${d.id})`, "📄", "split");
+  return false;
+};
 const docUrl = d => DATES && DATES.shift && /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}&year=${DATES.year}`
   : typeof cmDocUrl === "function" ? cmDocUrl(d) : "documents/" + d.file;
 function docLine(blockId){
   const docs = (CF_PACKETS[blockId] || []).map(id => CF_DOCS.find(d => d.id === id)).filter(Boolean);
   if(!docs.length) return "";
-  return `<div class="cf-docline"><b>📁 Work from</b>${docs.map(d => `<a href="${E(docUrl(d))}" target="_blank" rel="noopener" title="${E(d.desc)}">${E(d.title)}</a>`).join("")}</div>`;
+  return `<div class="cf-docline"><b>📁 Work from</b>${docs.map(d => `<a href="${E(docUrl(d))}" target="_blank" rel="noopener" title="${E(d.desc)}" onclick="return cmCaseFlow.doc(event,'${d.id}')">${E(d.title)}</a>`).join("")}</div>`;
 }
 const docOpen = d => !!(state.isAdmin || state.adminPreview) || dayUnlocked(cfIdOf(d.day));
 function caseFlowDocuments(archiveLink){
   const shown = CF_DOCS.filter(docOpen), locked = CF_DOCS.filter(d => !docOpen(d));
   const tpl = (window.CM_DOCS || []).filter(d => d.folder === "templates");
   const row = d => `<div class="cm-doc-row"><div><span class="t">${E(d.title)}</span> <span style="font-size:11px;color:var(--ink-soft)">· ${d.folder === "templates" ? "Any day" : "Case Flow Day " + d.day}</span><div class="d">${E(d.desc)}</div>${state.isAdmin && d.key ? `<div class="cm-key">🔑 ${E(d.key)}</div>` : ""}</div>
-      <div style="display:flex;gap:6px;align-items:center"><span class="cms">CMS: ${E(d.cms)}</span><a class="btn btn-ghost btn-sm" href="${E(docUrl(d))}" target="_blank" rel="noopener">${/\.(docx|xlsx)$/i.test(d.file) ? "Download" : "Open"}</a></div></div>`;
+      <div style="display:flex;gap:6px;align-items:center"><span class="cms">CMS: ${E(d.cms)}</span><a class="btn btn-ghost btn-sm" href="${E(docUrl(d))}" target="_blank" rel="noopener"${/^RS\d\d$/.test(d.id) && !/\.(docx|xlsx)$/i.test(d.file) ? ` onclick="return cmCaseFlow.doc(event,'${d.id}')"` : ""}>${/\.(docx|xlsx)$/i.test(d.file) ? "Download" : "Open"}</a></div></div>`;
   const folders = CF_FOLDERS.map(fo => ({fo, items: shown.filter(d => d.folder === fo.id), later: locked.filter(d => d.folder === fo.id).length})).filter(x => x.items.length || x.later);
   return `<p class="eyebrow">Case Documents</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">📁 Case Documents: ${E(CF.case.style)}</h1>
@@ -1342,6 +1538,50 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfx-log input{flex:1 1 200px;min-width:0;padding:4px 10px;border:1px solid #C9CEDB;border-radius:8px;font:12.5px 'Inter',sans-serif;}
 .cfx-log-ok{color:var(--success,#2E7D4F);font-weight:600;}
 .cf-tr-work{font-size:12.8px;margin:6px 0;padding:6px 10px;background:#F4F6FB;border-radius:8px;}
+.cfx-vm .cfx-vm-body{display:flex;align-items:center;gap:14px;margin:8px 0 10px;font-size:14px;}
+.cfx-vm .cfx-vm-body small{color:#5B6178;}
+.cfx-vm-wave{display:inline-flex;align-items:center;gap:3px;height:34px;}
+.cfx-vm-wave i{display:block;width:4px;border-radius:2px;background:#DB8437;height:30%;}
+.cfx-vm-wave i:nth-child(3n){height:75%}.cfx-vm-wave i:nth-child(4n+1){height:50%}.cfx-vm-wave i:nth-child(5n+2){height:95%}
+.cfx-vm.on .cfx-vm-wave i,.cf-vm-card.on .cfx-vm-wave i{animation:cfvm .9s ease-in-out infinite alternate;}
+.cfx-vm-wave i:nth-child(odd){animation-delay:.3s!important}
+@keyframes cfvm{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+.cfx-vm-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;}
+.cfx-vm-st{font:600 12.5px 'Inter',sans-serif;color:#5B6178;}
+/* a voicemail is a short card, so the documents get the room: one row of large pages under it */
+.cfx-sb-grid.cfx-sb-vm{grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:18px;align-items:start;}
+.cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-docs-row{grid-template-columns:repeat(auto-fit,minmax(0,200px));justify-content:center;gap:12px 18px;}
+.cfx-sb-grid.cfx-sb-vm .cfx-thumb span{font-size:13px;}
+/* the voicemail card itself: phone-sized */
+.cfx-sb-vm .cfx-vm .cfx-ev-h{flex-wrap:wrap;gap:2px 8px;}
+.cfx-sb-vm .cfx-vm .cfx-ev-from{flex-basis:100%;order:3;}
+.cfx-sb-vm .cfx-vm .cfx-ev-when{margin-left:auto;}
+.cfx-sb-vm .cfx-vm .cfx-vm-body{flex-direction:column;align-items:stretch;gap:6px;margin:8px 0;font-size:13px;}
+.cfx-sb-vm .cfx-vm .cfx-vm-wave{height:28px;justify-content:space-between;}
+.cfx-sb-vm .cfx-vm .cfx-vm-row{flex-wrap:wrap;gap:6px;}
+.cfx-sb-vm .cfx-vm .cfx-vm-row .btn{flex:1 1 auto;padding:6px 10px;font-size:12.5px;white-space:nowrap;}
+.cfx-sb-vm .cfx-vm .cfx-vm-st{flex-basis:100%;}
+@media(max-width:760px){.cfx-sb-grid.cfx-sb-vm{grid-template-columns:minmax(0,1fr);}}
+#cf-vm{position:fixed;left:0;right:0;bottom:0;top:var(--cf-topbar,0px);z-index:80;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(20,24,40,.55);}
+.cf-vm-card{max-height:calc(100vh - var(--cf-topbar,0px) - 32px)!important;}
+#cf-vm[hidden]{display:none;}
+.cf-vm-card{width:min(720px,100%);max-height:calc(100vh - 32px);overflow:auto;background:#FFFDF8;border:3px solid #DB8437;border-radius:18px;padding:16px 20px;box-shadow:0 18px 40px rgba(0,0,0,.35);}
+.cf-vm-h{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px;}
+.cf-vm-h b{display:block;font:800 19px 'Poppins','Inter',sans-serif;color:#262B45;}
+.cf-vm-h span{font-size:13px;color:#5B6178;}
+.cf-vm-x{border:0;background:none;font-size:20px;cursor:pointer;color:#262B45;}
+.cf-vm-lead{font-size:13.5px;color:#37394A;margin:10px 0;}
+.cf-vm-qs{margin:0 0 12px;padding-left:20px;}
+.cf-vm-qs li{margin:0 0 10px;font-size:14px;}
+.cf-vm-qs label{display:block;font-weight:600;color:#262B45;margin-bottom:4px;}
+.cf-vm-qs textarea{width:100%;box-sizing:border-box;border:1px solid #C9CEDB;border-radius:8px;padding:6px 10px;font:14px 'Inter',sans-serif;resize:vertical;}
+.cf-vm-res{font-size:13px;margin-top:4px;}.cf-vm-res.ok{color:#2E7D4F;}.cf-vm-res.miss{color:#B54A3F;}.cf-vm-res span{color:#37394A;}
+.cf-vm-steps{margin:6px 0 10px;padding-left:22px;font-size:14px;line-height:1.5;}
+.cf-vm-steps li{margin:0 0 6px;}
+.cf-vm-steps code{background:#F1F3F8;padding:1px 6px;border-radius:5px;font-size:12.5px;}
+.cf-vm-score{padding:8px 12px;border-radius:10px;background:#F4F6FB;font-size:14px;margin-bottom:10px;}
+.cf-vm-tx{font-size:13.5px;background:#fff;border:1px solid #E1E4EC;border-radius:10px;padding:8px 12px;}
+.cf-vm-tx summary{cursor:pointer;font-weight:700;color:#262B45;}
 #cf-return{position:fixed;left:16px;bottom:16px;z-index:60;font:700 13px 'Inter',sans-serif;padding:10px 16px;border:0;border-radius:999px;background:#262B45;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer;}
 #cf-return[hidden]{display:none;}
 .lesson-stage #lessonSlideWrap .cfx-ribbon{margin-left:-40px;max-width:calc(100% + 40px);}

@@ -40,6 +40,16 @@ function event(at, e, max){
   if(!CHANNELS.includes(e.channel)) err(`${at}.channel: "${e.channel}"`);
   text(`${at}.from`, e.from, 14); text(`${at}.subject`, e.subject, 16); text(`${at}.body`, e.body, max);
   (e.attachments || []).forEach(a => { if(!DOCS.has(a)) err(`${at}.attachments: ${a} isn't a document`); });
+  // a voicemail is heard, not read: what the caller says, and the listening check on it
+  if(e.channel === "voicemail" && (e.spoken || e.listen)){
+    text(`${at}.spoken`, e.spoken, 160);
+    if(!Array.isArray(e.listen) || e.listen.length < 3 || e.listen.length > 6) err(`${at}.listen: want 3–6 questions`);
+    else e.listen.forEach((x, j) => {
+      text(`${at}.listen[${j}].q`, x.q, 20); text(`${at}.listen[${j}].a`, x.a, 30);
+      if(!Array.isArray(x.match) || !x.match.length) err(`${at}.listen[${j}].match: want 1+ patterns`);
+      else x.match.forEach(m => { try{ const re = new RegExp(m, "i"); if(!re.test(x.a)) err(`${at}.listen[${j}].match /${m}/ doesn't match its own answer`); }catch(er){ err(`${at}.listen[${j}].match /${m}/: ${er.message}`); } });
+    });
+  }
 }
 // every activity: an event, in date order with the activities before it on its track
 ACTS.forEach(id => event(`events.${id}`, sim.events[id], 60));

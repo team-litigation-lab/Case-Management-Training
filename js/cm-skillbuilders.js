@@ -75,6 +75,24 @@ body.cm-tf-open{overflow:hidden}
 #cm-toolpill{position:fixed;right:18px;bottom:18px;z-index:8999;box-shadow:0 6px 22px rgba(0,0,0,.25);border-radius:999px}
 #cm-toolpill[hidden]{display:none}
 @media (max-width:760px){.cm-tf-hint,.cm-tf-long{display:none}}
+/* Side by side: the tool on the right, the course (the slide, its steps, the case documents) still open and working
+   on the left, for steps where the trainee works in a tool and reads the page at once. Drag the edge to resize. */
+body.cm-tf-split #cm-toolframe{left:auto;width:var(--cm-tf-w,50vw);border-left:3px solid var(--orange,#DB8437);box-shadow:-10px 0 28px rgba(0,0,0,.2)}
+body.cm-tf-split.cm-tf-open #app > *{pointer-events:auto}
+body.cm-tf-split.cm-tf-open #app > :not(.topbar){box-sizing:border-box;width:auto!important;max-width:calc(100vw - var(--cm-tf-w,50vw))!important;margin-left:0!important;margin-right:0!important;overflow-x:clip;min-width:0}
+body.cm-tf-split.cm-tf-open #app > :not(.topbar):not(.view-mode-strip){visibility:visible}
+/* the slide takes the whole left side: its side column and the presenter figure step aside until the tool closes */
+body.cm-tf-split.cm-tf-open #app main:has(#lessonStage){grid-template-columns:minmax(0,1fr)!important}
+body.cm-tf-split.cm-tf-open #app main:has(#lessonStage) > :not(#lessonStage):not(:has(#lessonStage)){display:none!important}
+body.cm-tf-split.cm-tf-open .stage-body{grid-template-columns:minmax(0,1fr)!important}
+body.cm-tf-split.cm-tf-open .stage-body > :not(#lessonSlideWrap){display:none!important}
+body.cm-tf-split.cm-tf-open{overflow:auto}
+.cm-tf-drag{display:none;position:absolute;left:-7px;top:0;bottom:0;width:12px;cursor:col-resize;z-index:3}
+body.cm-tf-split .cm-tf-drag{display:block}
+body.cm-tf-dragging .cm-tf-body iframe{pointer-events:none}
+body.cm-tf-split .cm-tf-hint,body.cm-tf-split .cm-tf-long{display:none}
+.cm-tf-split-btn[aria-pressed="true"]{background:var(--navy)!important;color:#fff!important}
+@media (max-width:900px){.cm-tf-split-btn,.cm-tf-pop{display:none!important}body.cm-tf-split #cm-toolframe{left:0;width:auto;border-left:0}body.cm-tf-split.cm-tf-open #app > :not(.topbar){max-width:none!important}body.cm-tf-split.cm-tf-open #app > :not(.topbar):not(.view-mode-strip){visibility:hidden}}
 .cm-radio{display:flex;flex-direction:column;gap:6px;margin:6px 0 10px}
 .cm-radio label{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:9px;padding:8px 10px;font-size:13px;background:#fff;cursor:pointer}
 .cm-skill-cta{margin-top:14px;border:1.5px solid var(--orange);background:#FFF6EC;border-radius:12px;padding:12px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
@@ -207,18 +225,86 @@ function ensureShell(){
   // so the course navigation stays on screen while a tool is open.
   frameShell.innerHTML = `<div class="cm-tf-bar"><span class="cm-tf-name"></span>
     <span class="cm-tf-hint">Sign-in won't stay? Use <b>New tab</b>.</span>
+    <button class="btn btn-ghost btn-sm cm-tf-split-btn" onclick="cmToolSplit()" aria-pressed="false" title="Keep the course open beside the tool">⧉ Side by side</button>
+    <button class="btn btn-ghost btn-sm cm-tf-pop" onclick="cmToolPop()" title="Open the tool in its own window, on your second screen if you have one">🖥 Second screen</button>
     <button class="btn btn-navy btn-sm cm-tf-newtab" onclick="openTool(null,'tab')">New tab ↗</button>
     <button class="btn btn-ghost btn-sm" onclick="closeToolFrame()">✕ Close<span class="cm-tf-long"> and back to training</span></button></div>
-    <div class="cm-tf-body"></div>`;
+    <div class="cm-tf-body"></div><div class="cm-tf-drag" title="Drag to resize"></div>`;
   document.body.appendChild(frameShell);
+  dragEdge(frameShell.querySelector(".cm-tf-drag"));
   const pill = document.createElement("button");
   pill.id = "cm-toolpill"; pill.hidden = true; pill.className = "btn btn-navy";
   pill.onclick = ()=> openTool(currentFrame, null, null, currentAct);
   document.body.appendChild(pill);
-  document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !frameShell.hidden) closeToolFrame(); });
+  // Esc closes a full-page tool; side by side, the trainee is working in both, so it stays (✕ Close closes it)
+  document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !frameShell.hidden && !document.body.classList.contains("cm-tf-split")) closeToolFrame(); });
   window.addEventListener("resize", placeFrame);
+  // the top bar is never covered: the frame starts under it, and moves when the bar's height changes
+  try{ const tb = document.querySelector(".topbar"); if(tb && "ResizeObserver" in window) new ResizeObserver(placeFrame).observe(tb); }catch(e){}
   return frameShell;
 }
+/* ---- side by side and the second screen ---- */
+const panes = {};                   // frame id → {name, icon, url} for a page opened in the frame (not a training platform)
+const lsGet = (k, d)=>{ try{ const v = localStorage.getItem(k); return v === null ? d : v; }catch(e){ return d; } };
+const lsSet = (k, v)=>{ try{ localStorage.setItem(k, v); }catch(e){} };
+const canSplit = ()=> window.innerWidth > 900;
+function applySplitWidth(){ const f = Math.min(0.72, Math.max(0.3, parseFloat(lsGet("cm-tf-w", "0.5")) || 0.5)); document.body.style.setProperty("--cm-tf-w", Math.round(f * 100) + "vw"); }
+function setSplit(on){
+  on = !!on && canSplit();
+  applySplitWidth();
+  document.body.classList.toggle("cm-tf-split", on);
+  if(frameShell) paintShell();
+  window.dispatchEvent(new Event("resize"));   // the slide on the left fits its new width
+}
+window.cmToolSplit = function(on){
+  const next = on === undefined ? !document.body.classList.contains("cm-tf-split") : !!on;
+  lsSet("cm-tf-split", next ? "1" : "0"); setSplit(next);
+};
+function dragEdge(h){
+  if(!h) return;
+  h.addEventListener("pointerdown", e=>{
+    e.preventDefault(); h.setPointerCapture(e.pointerId); document.body.classList.add("cm-tf-dragging");
+    const move = ev=>{ lsSet("cm-tf-w", String(Math.min(0.72, Math.max(0.3, 1 - ev.clientX / window.innerWidth)))); applySplitWidth(); };
+    const up = ()=>{ h.removeEventListener("pointermove", move); h.removeEventListener("pointerup", up); document.body.classList.remove("cm-tf-dragging"); window.dispatchEvent(new Event("resize")); };
+    h.addEventListener("pointermove", move); h.addEventListener("pointerup", up);
+  });
+}
+/* the tool (or page) in its own window: on another screen when the browser can say where one is (Window Management
+   API, after the trainee allows it), else beside this window. The course stays here, the tool goes there. */
+window.cmToolPop = async function(){
+  const id = currentFrame; if(!id) return;
+  const pg = panes[id], t = cmTool(id), href = pg ? pg.url : (t ? toolHref(t) : ""); if(!href) return;
+  let place = {left: window.screenX + window.outerWidth, top: window.screenY, width: Math.round(screen.availWidth / 2), height: screen.availHeight};
+  try{
+    if("getScreenDetails" in window){
+      const sd = await window.getScreenDetails(), other = sd.screens.find(s=> s !== sd.currentScreen);
+      if(other) place = {left: other.availLeft, top: other.availTop, width: other.availWidth, height: other.availHeight};
+    }
+  }catch(e){ /* not allowed or not supported: beside this window */ }
+  const w = window.open(href, "lsh-tool-" + id, `popup,left=${place.left},top=${place.top},width=${place.width},height=${place.height}`);
+  if(!w){ if(typeof toast==="function") toast("Your browser blocked the new window. Allow pop-ups for this site, or use New tab."); return; }
+  closeToolFrame();
+  if(typeof toast==="function") toast(`${pg ? pg.name : t.short} is open in its own window${place.left >= window.screenX + window.outerWidth ? "" : ""}: move it to your second screen.`);
+};
+/* a course page (a case document) in the same frame, beside the slide */
+window.openPane = function(key, url, name, icon, mode){
+  if(mode === "tab"){ window.open(url, "_blank", "noopener"); return; }
+  ensureShell();
+  panes[key] = {name, icon: icon || "📄", url};
+  if(!frames[key] || frames[key].dataset.src !== url){
+    if(frames[key]) frames[key].remove();
+    const f = document.createElement("iframe");
+    f.dataset.src = url; f.dataset.base = url; f.title = name; f.src = url;
+    frameShell.querySelector(".cm-tf-body").appendChild(f); frames[key] = f;
+  }
+  currentFrame = key; currentAct = null;
+  setSplit(mode === "split" || (mode !== "full" && lsGet("cm-tf-split", "0") === "1"));
+  paintShell();
+  frameShell.hidden = false; document.body.classList.add("cm-tf-open");
+  placeFrame();
+  document.getElementById("cm-toolpill").hidden = true;
+  if(typeof render==="function") repaintToolsMenu();
+};
 // Start the frame just under the course's top bar.
 function placeFrame(){
   if(!frameShell || frameShell.hidden) return;
@@ -228,7 +314,9 @@ function placeFrame(){
 }
 function paintShell(){
   const t = cmTool(currentFrame);
-  frameShell.querySelector(".cm-tf-name").textContent = t ? `${t.icon} ${t.name.replace(/ \((LSH Training Portal|LSH CMS|☎ LSH Ring Channel)\)$/,"")}` : "";
+  const pg = panes[currentFrame];
+  frameShell.querySelector(".cm-tf-name").textContent = pg ? `${pg.icon} ${pg.name}` : t ? `${t.icon} ${t.name.replace(/ \((LSH Training Portal|LSH CMS|☎ LSH Ring Channel)\)$/,"")}` : "";
+  const sb = frameShell.querySelector(".cm-tf-split-btn"); if(sb) sb.setAttribute("aria-pressed", document.body.classList.contains("cm-tf-split") ? "true" : "false");
   Object.entries(frames).forEach(([id,f])=>{ f.style.display = id===currentFrame ? "block" : "none"; });
 }
 // "↩ Return to …" shows only on the Practice pages, and only while the activity it came from isn't finished.
@@ -265,15 +353,19 @@ window.openTool = function(id, mode, extra, act){
     frameShell.querySelector(".cm-tf-body").appendChild(f);
     frames[id] = f;
   }
-  currentFrame = id; paintShell();
+  currentFrame = id;
+  setSplit(mode === "split" || (mode !== "full" && lsGet("cm-tf-split", "0") === "1"));
+  paintShell();
   frameShell.hidden = false; document.body.classList.add("cm-tf-open");
-  window.scrollTo(0, 0); placeFrame();
+  if(!document.body.classList.contains("cm-tf-split")) window.scrollTo(0, 0);
+  placeFrame();
   document.getElementById("cm-toolpill").hidden = true;
   if(typeof render==="function") repaintToolsMenu();
 };
 window.closeToolFrame = function(){
   if(!frameShell) return;
   frameShell.hidden = true; document.body.classList.remove("cm-tf-open");
+  if(document.body.classList.contains("cm-tf-split")){ document.body.classList.remove("cm-tf-split"); window.dispatchEvent(new Event("resize")); }
   repaintToolsMenu();
   const t = cmTool(currentFrame), pill = document.getElementById("cm-toolpill");
   syncPill();

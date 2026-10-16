@@ -242,7 +242,7 @@ rep('<script src="/js/eapa-updates.js?v=z"></script>', tags(
     "cm-decks-data.js?v=1",            # the decks' page data
     "cm-decks.js?v=3",                 # lessons are the decks' own pages (no process questions)
     "cm-documents.js?v=1",
-    "cm-skillbuilders.js?v=21",
+    "cm-skillbuilders.js?v=22",
     "cm-lab.js?v=2",
     "cm-mindset.js?v=2",
     "cm-practice.js?v=7",
@@ -260,7 +260,7 @@ rep('<script src="/js/lsh-card-frame.js?v=3"></script>', tags(
     # The 5-Day Case Management Flow (John Doe v. Robert Smith): after graded-calls.js, because its
     # dashboard wrapper must run on the finished page, and after cm-skillbuilders.js, whose
     # renderLessonCard it wraps.
-    "cm-case-flow-docs.js?v=3", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=5", "cm-case-flow-sim.js?v=3", "cm-case-flow-data.js?v=9", "cm-case-dates.js?v=1", "cm-case-flow.js?v=23",
+    "cm-case-flow-docs.js?v=3", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=5", "cm-case-flow-sim.js?v=4", "cm-case-flow-data.js?v=9", "cm-case-dates.js?v=1", "cm-case-flow.js?v=26",
     "show-password.js?v=1", "lsh-card-frame.js?v=3"))
 
 # Training tools open signed in (js/lsh-tool-links.js, the same file in every LSH course repo: CMS
