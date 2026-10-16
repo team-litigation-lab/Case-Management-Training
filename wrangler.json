@@ -45,5 +45,22 @@
         "GeminiRelay"
       ]
     }
-  ]
+  ],
+  "previews": {
+    "version_metadata": {
+      "binding": "CF_VERSION_METADATA"
+    },
+    "placement": {
+      "mode": "targeted",
+      "region": "gcp:us-central1"
+    },
+    "durable_objects": {
+      "bindings": [
+        {
+          "name": "GEMINI_RELAY",
+          "class_name": "GeminiRelay"
+        }
+      ]
+    }
+  }
 }

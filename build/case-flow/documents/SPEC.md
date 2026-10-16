@@ -1,7 +1,7 @@
 # John Doe v. Robert Smith — the case documents (spec)
 
 The document set every Case Flow day works from: `documents/case-flow/<folder>/RS_NN_<Name>.pdf`, built from
-`build/case-flow/documents/src/RSNN.html` by `node build/case-flow/documents/render.cjs` (headless Chromium).
+`documents/case-flow/html/RSNN.html` by `node build/case-flow/documents/render.cjs` (headless Chromium).
 The metadata the program shows (title, folder, CMS category, day, description, trainer key) is
 `js/cm-case-flow-docs.js`. The facts are `curriculum/5-day-flow/case-file.md` (sections 1–6); **this spec never
 overrides it**. A fact a document needs that is in neither is added to case-file.md §6 first.
@@ -13,7 +13,7 @@ overrides it**. A fact a document needs that is in neither is added to case-file
   RECORD · John Doe v. Robert Smith · RSNN · page x of y`. Do not repeat it in the body.
 - **Real-world look.** Each document looks like what its sender would really produce: a carrier's declarations
   page, a hospital-style clinical note, a court caption, a firm letter on LSH Law Group letterhead, a provider
-  ledger. Use the classes in `doc.css` (letterhead, caption, form grid, ledger table, signature block, stamps).
+  ledger. Use the classes in `documents/case-flow/html/doc.css` (letterhead, caption, form grid, ledger table, signature block, stamps).
   Letter size, 1–3 pages (a few, like the visit log or the discovery set, may run longer).
 - **Exact facts.** Every name, number, date, claim number, policy number and dollar figure matches case-file.md.
   Dates MM/DD/YYYY in tables and forms; written dates ("February 6, 2026") in letters and pleadings. Money
