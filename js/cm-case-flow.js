@@ -559,7 +559,7 @@ function toolChip(id, blockId, big){
   const t = TOOL[id];
   if(!t || !toolLive(id, blockId)) return "";
   const live = id === "call" && blockId && SIM.calls[blockId], name = live ? `the live call with ${SIM.calls[blockId].who}` : t.name;
-  return `<button type="button" class="${big ? "btn btn-navy btn-sm" : "cfx-tool"}" onclick="cmCaseFlow.tool('${id}','${blockId || ""}')" title="Open ${E(name)}">${t.icon} ${E(live ? "Live Call" : big ? t.name.replace(/^(the|your) /, "").replace(/^./, c => c.toUpperCase()) : t.short)}</button>`;
+  return `<button type="button" class="${big ? "btn btn-navy btn-sm" : "cfx-tool"}" data-tool="${id}" onclick="cmCaseFlow.tool('${id}','${blockId || ""}')" title="Open ${E(name)}">${t.icon} ${E(live ? "Live Call" : big ? t.name.replace(/^(the|your) /, "").replace(/^./, c => c.toUpperCase()) : t.short)}</button>`;
 }
 const toolChips = (ids, blockId, big) => ids.map(id => toolChip(id, blockId, big)).join("");
 function rowTools(b, cell, ri){
@@ -612,7 +612,7 @@ function slideBody(view, l, d){
       <aside class="cfx-side"><div><b>🛠 Where</b><span>${E(b.act.tool)}</span><div class="cfx-btns">${toolChips([...new Set(toolsIn(b.act.tool + (SIM.calls[b.id] ? " Call Simulator" : ""), b.id).concat(WORKED_IN[b.id] || []))], b.id, true)}</div></div>
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}</span>
-          <button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
+          <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
         <div class="cfx-deliver"><b>📤 Deliver</b><span>${hl(c.deliver)}</span></div></aside></div>`; }
     case "check": return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${hl(x)}</span></label>`).join("")}</div>
       ${c.donts.length ? `<div class="cfx-watch"><b>⚠️ Watch For</b>${c.donts.map(x => `<span>${hl(x)}</span>`).join("")}</div>` : ""}${workLog(b)}`;
@@ -642,13 +642,32 @@ function actDone(id){
   return ((REC.reached || {})[id] || 0) >= viewsOf(b).length || ((REC.ticks || {})[id] || []).some(Boolean) || !!(REC.work || {})[id] || !!((REC.listen || {})[id] || {}).at || !!(REC.calls || {})[id];
 }
 const actOpened = id => !!(REC.reached || {})[id] || actDone(id);
+/* each tool once per slide: a slide names its tools in the top row, in the Your Task "Where" box, beside a step or
+   an On the Job row, and the live call in its own box. Only the first of each stays, looked for in that order of
+   weight: the live-call box, the Where box, the slide's own content, then the top row (which goes if it ends up empty). */
+function oneOfEachTool(html){
+  if(typeof document === "undefined") return html;
+  const t = document.createElement("template"); t.innerHTML = html;
+  const root = t.content, seen = new Set();
+  const order = [".cfx-call [data-tool]", ".cfx-side [data-tool]", ".cfx-sheet [data-tool], .cfx-sb [data-tool]", ".cfx-top [data-tool]"];
+  const done = new Set();
+  order.forEach(sel => root.querySelectorAll(sel).forEach(el => {
+    if(done.has(el)) return; done.add(el);
+    const id = el.getAttribute("data-tool");
+    if(seen.has(id)) el.remove(); else seen.add(id);
+  }));
+  root.querySelectorAll(".cfx-tools-in").forEach(x => { if(!x.querySelector("[data-tool]")) x.remove(); });
+  root.querySelectorAll(".cfx-top .cfx-tools").forEach(x => { if(!x.querySelector("[data-tool]")) x.remove(); });
+  root.querySelectorAll(".cfx-side .cfx-btns").forEach(x => { if(!x.querySelector("[data-tool]")) x.remove(); });
+  return t.innerHTML;
+}
 function card(l, i, d, part){
   const {day, mod, block: b, k, phase} = l.cf, vs = viewsOf(b), p = Math.min(Math.max(part || 1, 1), vs.length), view = vs[p - 1];
   noteReached(b, p);
   const dots = vs.map((v, j) => `<span class="cfx-dot${j === p - 1 ? " on" : j < p - 1 ? " done" : ""}" title="${E(VIEW_LABEL[v])}"></span>`).join("");
   const logo = typeof LOGO_FULL_SRC !== "undefined" ? `<img class="cfx-logo" src="${LOGO_FULL_SRC}" alt="Legal Support Help">` : "";
   const onNavy = view === "case";   // a Skill Building opener sits on the slide itself, like the deck's
-  return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; ${phase.lead === "Case Phase" ? `CASE PHASE ${phase.n} OF ${phase.of}` : phase.lead.toUpperCase()} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
+  return oneOfEachTool(`<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; ${phase.lead === "Case Phase" ? `CASE PHASE ${phase.n} OF ${phase.of}` : phase.lead.toUpperCase()} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-${view} cfx-${b.kind}" data-part="${p}">
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">${E(l.cf.heading)}</h2></div>
       <div class="cfx-ribbon"><span>${E(titleCase(b.title))}</span></div>
@@ -657,7 +676,7 @@ function card(l, i, d, part){
         <span class="cfx-tools" aria-label="Tools for this step">🛠 ${toolChips(blockTools(b), b.id)}</span>
         <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Full text</button></div>
       ${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}
-    </div>`;
+    </div>`);
 }
 if(!document.getElementById("cfx-deck-font")){
   const f = document.createElement("link"); f.id = "cfx-deck-font"; f.rel = "stylesheet";
