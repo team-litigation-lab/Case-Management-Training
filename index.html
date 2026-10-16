@@ -20,11 +20,14 @@
   --bg:#EEF0F6;
   --paper:#FFFFFF;
   --ink:#1B1E2E;
-  --ink-soft:#5B6178;
+  /* Muted ink. #5B6178 was tuned for a white card; read off the photo through
+     a translucent one it measures 2.5:1, so it steps to the darkest grey that
+     still reads as muted (4.6:1 there, 13:1 on white). */
+  --ink-soft:#2B2F3E;
   --line:#DCE0EA;
   --success:#3F7D58;
   --success-bg:#E7F1EA;
-  --danger:#B54A3F;
+  --danger:#9B3A30;   /* 4.4:1 on its own chip before, 5.8:1 now */
   --danger-bg:#F7E9E6;
   --radius:14px;
   --shadow:0 1px 2px rgba(22,24,41,.04), 0 8px 24px -12px rgba(22,24,41,.18);
@@ -2355,6 +2358,100 @@ em.warn{font-style:normal;color:var(--danger);}
 .ho-bp{display:flex;align-items:center;gap:14px;padding:14px 18px;margin-bottom:16px;border-left:5px solid var(--navy);}
 .ho-bp-i{font-size:30px;} .ho-bp b{display:block;color:var(--navy);font-size:15px;} .ho-bp span{font-size:13px;color:var(--ink-soft);} .ho-bp .btn{margin-left:auto;white-space:nowrap;}
 @media(max-width:760px){.ho-bp{flex-wrap:wrap;} .ho-bp .btn{margin-left:0;}}
+
+/* ============================================================================
+   The LSH standard page style — the see-through surfaces every LSH site shares.
+
+   A vendored copy of the layer in the Training Portal's theme.css, identical in
+   all five programs, kept here rather than linked so this program deploys on
+   its own and no other site's deploy can restyle it. The Portal's README, under
+   "The standard page style", is the source of truth; change it there first and
+   copy the block down.
+
+   Two halves. The page sits on a photo behind a wash — each program keeps its
+   own image, pointed at by its own body::before — and the panels on top of it
+   are translucent, so the photo carries on underneath instead of stopping at
+   every card's edge.
+
+   The colour rules below are not decoration: they are what the backdrop costs.
+   Text has to clear WCAG AA (4.5:1, or 3:1 at 24px / 18.7px bold) against the
+   photo, not against a white card that is no longer white.
+   ========================================================================= */
+:root{
+  /* .60 white over the backdrop at .40 keeps --ink above 8:1 and the muted
+     --ink-soft above 4.5:1, which is what sets these two numbers. */
+  --surface-glass:rgba(255,255,255,.60);
+  --surface-blur:saturate(118%) blur(10px);
+}
+/* Every program shipped its backdrop turned down so far (8% to 20%) that it was
+   invisible, and covered it with opaque cards besides. At .40 it reads through
+   the glass without the text on top of it losing contrast. */
+body::before{opacity:.40;}
+.module-card,
+.card{
+  background:var(--surface-glass);
+  backdrop-filter:var(--surface-blur);
+  -webkit-backdrop-filter:var(--surface-blur);
+}
+.empty-note{background:rgba(246,247,251,.72);backdrop-filter:var(--surface-blur);-webkit-backdrop-filter:var(--surface-blur);}
+.tk-admin-note{background:rgba(255,255,255,.72);backdrop-filter:var(--surface-blur);-webkit-backdrop-filter:var(--surface-blur);}
+/* The admin tab strip sits straight on the glass over the darkest part of the
+   photo, where the muted ink is short of AA. An inactive tab is navigation, so
+   it takes the full ink; the active one keeps the navy and its orange rule. */
+.admin-tab-btn:not(.active){color:var(--ink);}
+/* Orange as lettering cannot clear AA on the photo — the deepest brand orange
+   reaches 3.5:1 — so the admin eyebrow takes the navy ink and keeps its size,
+   weight and tracking to stay a label. */
+.eyebrow{color:var(--navy);}
+/* The footer line sits straight on the backdrop with no panel under it. On the
+   darkest of the five photos the muted ink reaches only 4.2:1 there, so the
+   footer takes the full ink on every program rather than on one. */
+.footer-note,.footer-note span{color:var(--ink);}
+/* Printing drops both: a photo behind a printed page costs ink, and a
+   backdrop-filter prints as a grey slab. */
+@media print{
+  body::before{display:none;}
+  .module-card,.card,.empty-note,.tk-admin-note{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none;}
+}
+
+/* ---- the futuristic layer: gradients, glow and a lit edge -----------------
+   The second half of the house style, after the backdrop. The Portal paints
+   its dark chrome and its primary buttons as gradients rather than flat
+   colour, puts a cyan hairline along the lit edge of a dark bar, and lets a
+   card light up on hover; these rules bring the same vocabulary here, keyed on
+   the classes every program shares.
+
+   Each gradient keeps the flat brand colour as a stop, so the contrast of the
+   text on it is the contrast it already had. The edge light is an inset
+   box-shadow rather than a pseudo-element on purpose: .dash-top and .page-hero
+   already spend their ::after on a texture overlay, and .module-head alternates
+   navy and orange by nth-child, which a blanket background-image would flatten.
+   -------------------------------------------------------------------------- */
+:root{
+  --g-navy:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 55%,var(--navy-soft) 100%);
+  /* Starts at the brand orange and travels lighter, never darker: the dark
+     label these buttons carry reads 6.3:1 at the first stop and 7.9:1 at the
+     last, where the deep orange would have taken it to 4.1:1. */
+  --g-accent:linear-gradient(135deg,var(--orange) 0%,#E59A52 55%,#EFA560 100%);
+  --edge-cyan:rgba(56,189,248,.38);
+  --glow-navy:0 12px 30px -16px rgba(22,24,41,.65);
+  --glow-accent:0 10px 26px -14px rgba(219,132,55,.55);
+  --glow-cyan:0 0 0 1px rgba(56,189,248,.30),0 10px 26px -16px rgba(56,189,248,.5);
+}
+.topbar{background-image:var(--g-navy);box-shadow:inset 0 -1px 0 var(--edge-cyan),var(--glow-navy);}
+.btn-primary{background-image:var(--g-accent);box-shadow:var(--glow-accent);}
+.btn-navy{background-image:var(--g-navy);box-shadow:var(--glow-navy);}
+.btn-primary:not([disabled]):hover,.btn-navy:not([disabled]):hover{box-shadow:var(--glow-cyan);}
+/* A card lights up along its edge on hover rather than all the time, so a page
+   of them stays calm while it is being read. */
+.module-card,.card{transition:box-shadow .22s ease,transform .16s ease;}
+.module-card:hover,.card:hover{box-shadow:0 18px 38px -22px rgba(22,24,41,.55),0 0 0 1px var(--edge-cyan);}
+@media (prefers-reduced-motion: reduce){
+  .module-card,.card{transition:none;}
+}
+@media print{
+  .topbar,.btn-primary,.btn-navy{background-image:none;box-shadow:none;}
+}
 </style>
 <script src="/js/portal-gate.js?v=2026.10.08-admin"></script>
 </head>

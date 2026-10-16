@@ -201,7 +201,9 @@ img[alt="Legal Support Help"]{border-radius:8px;}
 .dash-main .module-card.mc-clean:nth-child(3n+2) .module-head,
 .dash-main .module-card.mc-clean:nth-child(3n+3) .module-head{background:#F7F8FB !important;color:var(--navy);border-top:4px solid #4A5277;border-bottom:1px solid #ECEEF4;}
 .dash-main .module-card.mc-clean:nth-child(3n+2) .module-head{border-top-color:var(--orange);}
-.dash-main .module-card.mc-clean .mh-day{color:var(--orange-deep);opacity:1;font-weight:700;letter-spacing:.1em;}
+/* The day label sits on the card, which is translucent over the page's photo
+   now: --orange-deep measures 4.1:1 there, the navy ink 8:1. */
+.dash-main .module-card.mc-clean .mh-day{color:var(--navy);opacity:1;font-weight:700;letter-spacing:.1em;}
 .dash-main .module-card.mc-clean .mh-title{text-transform:none;letter-spacing:0;font-weight:700;color:var(--navy);}
 .dash-main .module-card.mc-clean .module-start-btn{background:#ECEEF5;border:1px solid #DDE1EC;color:var(--navy);border-radius:10px;box-shadow:none;font-weight:700;letter-spacing:.01em;}
 .dash-main .module-card.mc-clean .module-start-btn:hover, .dash-main .module-card.mc-clean:hover .module-start-btn{background:#353B57;border-color:#353B57;color:#fff;}
@@ -219,7 +221,10 @@ img[alt="Legal Support Help"]{border-radius:8px;}
 .dash-main > .dash-side .stat .num{color:var(--navy) !important;}
 .dash-main > .dash-side .stat .lbl, .dash-main > .dash-side .card .sub, .dash-main > .dash-side .stat .lbl span{color:#6B7088 !important;}
 .dash-main > .dash-side .tfb-dash{background:#FFF7EF !important;border-color:#F7DEC6 !important;}
-.dash-main > .dash-side .tfb-dash .btn{color:#fff !important;}
+/* The primary button here is a solid orange; a white label on it is 3.6:1,
+   so only the ghost button (transparent, on the navy rail) stays white. */
+.dash-main > .dash-side .tfb-dash .btn-ghost{color:#fff !important;}
+.dash-main > .dash-side .tfb-dash .btn-primary{color:#241304 !important;}
 .dash-main > .dash-side .tfb-dash-stars button{color:#D5D8E3 !important;}
 .dash-main > .dash-side .tfb-dash-stars button.on, .dash-main > .dash-side .tfb-dash-stars button.lit{color:var(--orange) !important;}
 /* "Resume where you left off": a compact button, not a full-width bar */
