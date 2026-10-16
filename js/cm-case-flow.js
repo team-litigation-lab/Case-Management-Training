@@ -556,7 +556,6 @@ function slideBody(view, l, d){
       const ev = SIM.events[b.id], fall = falloutFor(b.id), vm = ev && ev.channel === "voicemail" && ev.spoken;
       const thumbs = docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
       return `<div class="cfx-sb">
-        <div class="cfx-challenge"><span>“${E(b.title.toUpperCase())}”</span></div>
         ${fall.map(x => { const e = x.f.then.event, [icon] = CHANNEL[e.channel] || ["⚠️"];
           return `<details class="cfx-fall"><summary><span class="cfx-fall-i">⚠️</span><b>${E(e.subject)}</b><span class="cfx-fall-from">${icon} ${E(e.from || "")}</span></summary>
             <p>${E(e.body)}</p>${isTrainer() ? `<small class="cfx-fall-why">${x.done ? "Not shown to this trainee: they confirmed" : "Shown because this wasn't confirmed"}: “${E(x.what)}” (${E(x.f.if.activity)})</small>` : ""}</details>`; }).join("")}
@@ -924,9 +923,58 @@ function syncReturn(){
   pill.textContent = r.view === "day" ? `← Back to Case Flow Day ${r.n}` : "← Back to the Case Flow";
   pill.hidden = false;
 }
+/* The presenter: a Case Manager in the course's illustration style (navy blazer, LSH badge, tablet), gesturing to the slide. */
+const PRESENTER_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 430" role="presentation">'
+  + '<ellipse cx="124" cy="418" rx="78" ry="9" fill="#1F2A44" opacity=".18"/>'
+  + '<path d="M28 132v14M21 139h14" stroke="#F4B77A" stroke-width="3" stroke-linecap="round"/><circle cx="20" cy="186" r="4" fill="#E07A1F"/><circle cx="208" cy="70" r="5" fill="#F4B77A"/><path d="M214 118v10M209 123h10" stroke="#E07A1F" stroke-width="2.5" stroke-linecap="round"/>'
+  + '<rect x="98" y="250" width="22" height="152" rx="9" fill="#1F2A44"/><rect x="126" y="250" width="22" height="152" rx="9" fill="#262B45"/>'
+  + '<rect x="88" y="396" width="34" height="13" rx="6.5" fill="#1F2A44"/><rect x="124" y="396" width="34" height="13" rx="6.5" fill="#1F2A44"/>'
+  + '<path d="M94 92Q90 54 122 52Q154 52 150 92Q153 122 142 134L104 134Q90 122 94 92Z" fill="#2A1F1A"/>'
+  + '<rect x="115" y="110" width="15" height="20" rx="6" fill="#C98B5E"/>'
+  + '<path d="M84 156Q84 132 108 128L136 128Q160 132 160 156L164 262Q122 274 80 262Z" fill="#3B4A6B"/>'
+  + '<path d="M110 128L122 156L134 128Z" fill="#FFFFFF"/>'
+  + '<path d="M108 128L122 164L113 172L96 136Z" fill="#2C3758"/><path d="M136 128L122 164L131 172L148 136Z" fill="#2C3758"/>'
+  + '<path d="M114 132L122 182L130 132" fill="none" stroke="#E07A1F" stroke-width="3" stroke-linejoin="round"/>'
+  + '<rect x="113" y="180" width="18" height="23" rx="3" fill="#FFFFFF" stroke="#8A93A8" stroke-width="1.5"/><rect x="116" y="184" width="12" height="4" rx="1" fill="#E07A1F"/><rect x="116" y="191" width="12" height="2.5" rx="1" fill="#C9CFE0"/><rect x="116" y="196" width="8" height="2.5" rx="1" fill="#C9CFE0"/>'
+  + '<path d="M90 150L66 204L40 166" fill="none" stroke="#3B4A6B" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>'
+  + '<path d="M32 152Q30 140 38 142L41 154L44 140Q48 136 50 142L49 158Q48 170 40 172Q32 170 32 160Z" fill="#C98B5E"/>'
+  + '<path d="M154 150L166 208L140 222" fill="none" stroke="#3B4A6B" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>'
+  + '<g transform="rotate(-10 132 226)"><rect x="110" y="198" width="46" height="60" rx="6" fill="#1F2A44"/><rect x="115" y="204" width="36" height="46" rx="3" fill="#DCE6F5"/><rect x="119" y="209" width="20" height="4" rx="2" fill="#E07A1F"/><rect x="119" y="217" width="28" height="3" rx="1.5" fill="#8A93A8"/><rect x="119" y="224" width="24" height="3" rx="1.5" fill="#8A93A8"/><rect x="119" y="231" width="28" height="3" rx="1.5" fill="#8A93A8"/><path d="M120 241l5 5 9-10" fill="none" stroke="#2F8F5B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>'
+  + '<circle cx="140" cy="222" r="9.5" fill="#C98B5E"/>'
+  + '<circle cx="122" cy="90" r="25" fill="#C98B5E"/>'
+  + '<path d="M97 86Q100 60 124 60Q146 61 148 86Q132 74 112 80Q104 84 97 86Z" fill="#2A1F1A"/>'
+  + '<circle cx="113" cy="93" r="2.4" fill="#1F2A44"/><circle cx="131" cy="93" r="2.4" fill="#1F2A44"/>'
+  + '<path d="M109 86q4-3 8 0M127 86q4-3 8 0" fill="none" stroke="#2A1F1A" stroke-width="1.8" stroke-linecap="round"/>'
+  + '<path d="M114 103Q122 109 130 103" fill="none" stroke="#7A4A32" stroke-width="2.2" stroke-linecap="round"/>'
+  + '<circle cx="97" cy="100" r="3" fill="#F4B77A"/><circle cx="147" cy="100" r="3" fill="#F4B77A"/>'
+  + '</svg>';
+/* A Case Flow slide is one card: the dots and the slide go in .cf-stage-card, the full width of the stage, and
+   Previous / Next sit under it (the presenter stands in the side column, sidePresenter()). Everything stays inside #lessonStage, so full screen and the slide's fit still work. */
+function cfStage(html){
+  if(typeof html !== "string" || html.indexOf("cfx-deck") < 0 || html.indexOf("stage-body") < 0) return html;
+  const t = document.createElement("template"); t.innerHTML = html;
+  const body = t.content.querySelector(".stage-body");
+  if(!body || !body.querySelector(".cfx-deck") || body.closest(".cf-stage-card")) return html;
+  const card = document.createElement("div"); card.className = "cf-stage-card";
+  const dots = body.previousElementSibling && body.previousElementSibling.classList.contains("slide-dots") ? body.previousElementSibling : null;
+  body.before(card); if(dots) card.appendChild(dots); card.appendChild(body);
+  body.querySelectorAll(":scope > .stage-presenter").forEach(x => x.remove());
+  return t.innerHTML;
+}
+/* the one presenter: in the lesson's side column, under its controls (shown only beside a Case Flow slide) */
+function sidePresenter(){
+  const main = document.querySelector("main");
+  if(!main || !main.querySelector(":scope > #lessonStage") || main.querySelector(":scope > .cf-side-presenter")) return;
+  const who = document.createElement("div"); who.className = "cf-side-presenter"; who.setAttribute("aria-hidden", "true"); who.innerHTML = PRESENTER_SVG;
+  main.appendChild(who);
+}
+if(typeof window.renderDaySlideshow === "function"){
+  const __rds = window.renderDaySlideshow;
+  window.renderDaySlideshow = function(){ return cfStage(__rds.apply(this, arguments)); };
+}
 if(typeof window.afterRender === "function"){
   const __after = window.afterRender;
-  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ syncReturn(); }catch(e){} return r; };
+  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ syncReturn(); sidePresenter(); }catch(e){} return r; };
 }
 /* Check Your Work: the reference of what the trainee did in the tool (a CMS Case ID, a docket or request number),
    kept on their record and shown to their trainer with the module's Learning Check */
@@ -1560,15 +1608,33 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 /* ---------- executed like the original deck: navy slide, logo + outlined phase title, the topic ribbon, white cards ---------- */
 .cfx-sepline{display:none !important;}
 .cfx.cfx-deck{background:#262B45 !important;color:#fff;border:0 !important;padding:16px 28px 22px !important;}
-/* one card: the slide's design sits directly on the lesson stage (no second card inside it), so the slide has the
-   stage's whole width; the deck's orange corner is the stage's own top-right corner, clear of the dots, the slide and the buttons */
-.lesson-stage:has(.cfx-deck){position:relative;overflow:hidden;background:#262B45 !important;}
-.lesson-stage:has(.cfx-deck)::before{content:"";position:absolute;top:0;right:0;width:min(200px,18%);height:46px;border-radius:0 0 0 100%;background:#DB8437;opacity:.95;pointer-events:none;}
-.lesson-stage:has(.cfx-deck) .slide-dots{padding-right:min(190px,17%);}   /* the dots stop short of the orange corner */
-.lesson-stage:has(.cfx-deck) > *{position:relative;z-index:1;}
-.lesson-stage #lessonSlideWrap:has(.cfx-deck){background:transparent !important;border-radius:0 !important;box-shadow:none !important;padding:4px 2px 2px !important;}
-.lesson-stage #lessonSlideWrap:has(.cfx-deck)::before, .lesson-stage #lessonSlideWrap:has(.cfx-deck)::after{display:none !important;}
-.lesson-stage #lessonSlideWrap:has(.cfx-deck) .cfx.cfx-deck{background:transparent !important;padding:0 !important;}
+/* one card: the slide's design sits directly on the card (no second card inside it), the full width of the stage;
+   Previous / Next sit under it, on the page (cfStage() builds this from the engine's stage); the presenter is in the side column */
+.lesson-stage:has(> .cf-stage-card){background:transparent !important;box-shadow:none !important;padding:0 !important;border-radius:0 !important;overflow:visible !important;
+  display:grid !important;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;}
+.cf-stage-card{grid-column:1;grid-row:1;position:relative;overflow:hidden;min-width:0;background:#262B45;border-radius:20px;padding:16px 20px 14px;box-shadow:0 18px 40px -22px rgba(20,24,48,.65);}
+.cf-stage-card::before{content:"";position:absolute;top:0;right:0;width:min(200px,20%);height:46px;border-radius:0 0 0 100%;background:#DB8437;opacity:.95;pointer-events:none;}
+.cf-stage-card > *{position:relative;z-index:1;}
+.cf-stage-card .slide-dots{padding-right:min(190px,19%);}   /* the dots stop short of the orange corner */
+.cf-stage-card .stage-body{display:block !important;}
+.cf-stage-card #lessonSlideWrap{background:transparent !important;border-radius:0 !important;box-shadow:none !important;padding:4px 2px 2px !important;}
+.cf-stage-card #lessonSlideWrap::before, .cf-stage-card #lessonSlideWrap::after{display:none !important;}
+.cf-stage-card #lessonSlideWrap .cfx.cfx-deck{background:transparent !important;padding:0 !important;}
+body:has(.cf-stage-card) .slide-presenter{display:none !important;}   /* the page's own presenter: the Case Flow card has its own beside it */
+main > .cf-side-presenter{display:none;}
+@media(min-width:1000px){
+  body:not(.ft-fit) main:has(> #lessonStage .cf-stage-card){grid-template-columns:minmax(0,1fr) 240px !important;}   /* the side column, a little wider */
+  main:has(> #lessonStage .cf-stage-card) > .cf-side-presenter{display:block;width:min(190px, calc((100vh - 450px) * .56));margin:6px auto 0 !important;pointer-events:none;user-select:none;}
+  body.cm-tf-split.cm-tf-open main > .cf-side-presenter{display:none !important;}
+}
+.cf-side-presenter svg{display:block;width:100%;height:auto;filter:drop-shadow(0 10px 14px rgba(20,24,48,.25));}
+.lesson-stage > .cf-stage-card ~ .slide-nav, .lesson-stage > .cf-stage-card ~ .slide-done-banner{grid-column:1 / -1;}
+.lesson-stage > .cf-stage-card ~ .slide-nav{margin:10px 0 0 !important;padding:8px 12px;background:rgba(255,255,255,.82);border:1px solid rgba(38,43,69,.12);border-radius:14px;backdrop-filter:blur(6px);}
+.lesson-stage > .cf-stage-card ~ .slide-nav .slide-counter{color:#262B45 !important;}
+.lesson-stage > .cf-stage-card ~ .slide-nav .btn-ghost{background:#fff;border:1px solid rgba(38,43,69,.2);}
+.lesson-stage:fullscreen:has(> .cf-stage-card){background:#1F2440 !important;padding:2.5vh 2vw !important;grid-template-rows:minmax(0,1fr) auto;height:100vh;box-sizing:border-box;}
+.lesson-stage:fullscreen > .cf-stage-card{display:flex;flex-direction:column;min-height:0;height:100%;box-sizing:border-box;}
+.lesson-stage:fullscreen > .cf-stage-card .stage-body{display:flex !important;flex-direction:column;flex:1;min-height:0;}
 .cfx-deck > *{position:relative;z-index:1;}
 .cfx-deck-head{display:flex;align-items:center;gap:20px;padding:0 0 8px;margin:0 0 10px;border-bottom:2px solid rgba(255,255,255,.88);}
 .cfx-logo{height:48px;width:auto;flex:0 0 auto;}
@@ -1651,8 +1717,6 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfx-thumb img{width:100%;aspect-ratio:300/388;object-fit:cover;object-position:top;background:#fff;border:3px solid #DB8437;border-radius:6px;box-shadow:0 6px 16px rgba(0,0,0,.3);transition:transform .2s ease;}
 .cfx-thumb:hover img{transform:translateY(-3px);}
 .cfx-thumb span{font:600 12.5px/1.3 'Inter',sans-serif;color:#DDE2EE;text-align:center;}
-.cfx-challenge{margin:4px -28px 12px;background:linear-gradient(90deg,#5B6579 0%,#4C5568 100%);clip-path:polygon(0 0,calc(100% - 34px) 0,100% 50%,calc(100% - 34px) 100%,0 100%);text-align:center;}
-.cfx-challenge span{display:block;padding:9px 48px;font:800 22px/1.25 'Poppins','Inter',sans-serif;letter-spacing:.03em;color:#fff;}
 .cfx-task-card{background:#C9CDD8;color:#1F2433;border-radius:22px;padding:14px 22px;border:3px solid #E9EBF0;}
 .cfx-task-card .cfx-chip{background:#262B45;color:#fff;}
 .cfx-task-card .cfx-situation{margin:8px 0 0;font-size:22px;color:#1F2433;}
@@ -1674,7 +1738,6 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
   .cfx-deck .cfx-top{flex-wrap:wrap;gap:8px 10px;}.cfx-deck .cfx-title.cfx-pill{white-space:nowrap;font-size:15px !important;padding:5px 12px;}
   .cfx-deck .cfx-kicker{display:none;}.cfx-thumb:nth-child(n+3){display:none;}
   .cfx-docs-row{flex-wrap:wrap;}.cfx-thumb{flex-basis:44%;}
-  .cfx-challenge{margin:4px -16px 12px;}.cfx-challenge span{font-size:16px;padding:8px 30px;}
   .cfx-ag{grid-template-columns:minmax(0,1fr);}
 }
 /* ---------- the simulation: what landed on the file, the case timeline, fallout, the live call ---------- */
@@ -1690,7 +1753,7 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cfx-tl small{font:500 10.5px 'IBM Plex Mono',monospace;color:#9AA3BA;}
 .cfx-sb-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,.9fr);gap:16px;align-items:start;}
 .cfx-sb-main{display:flex;flex-direction:column;gap:10px;}
-.cfx-sb-docs .cfx-docs-row{display:grid;grid-template-columns:repeat(2,minmax(0,100px));justify-content:center;gap:10px 12px;margin:0;}
+.cfx-sb-docs .cfx-docs-row{display:grid;grid-template-columns:repeat(2,minmax(0,clamp(100px,calc((100vh - 620px) / 3),160px)));justify-content:center;gap:10px 12px;margin:0;}
 .cfx-sb-docs .cfx-thumb{flex:none;}
 .cfx-sb-docs .cfx-thumb span{font-size:11px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .cfx-ev{background:#fff;color:#1F2433;border-radius:14px;border:2px solid #DB8437;padding:10px 14px;box-shadow:0 6px 18px rgba(0,0,0,.25);text-align:left;}
