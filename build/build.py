@@ -268,7 +268,9 @@ rep('<script src="/js/lsh-card-frame.js?v=3"></script>', tags(
 # one-screen layout last of all, because it measures the bar and the footer it has to fit between.
 s = re.sub(r'<script src="/js/lsh-tool-links\.js\?v=[^"]*"></script>\n?', "", s)
 rep('<script src="/js/lsh-topbar.js?v=2"></script>', tags(
-    "lsh-tool-links.js?v=cm-2026.10.08-portal", "lsh-topbar.js?v=2", "lsh-one-screen.js?v=1"))
+    "lsh-tool-links.js?v=cm-2026.10.08-portal",
+    # The CMS Case ID comes from the CMS (js/cm-cms-case.js), after the tool links it signs in with.
+    "cm-cms-case.js?v=cm-2026.10.16-cmsid", "lsh-topbar.js?v=2", "lsh-one-screen.js?v=1"))
 
 # ---------- 10. Call Simulator + Live Roleplay CM fixes ----------
 rep('["practice","Skill Builders"],["tools","🧰 Tools"]', '["practice","Skill Builders"],["calls","🛠 Simulators"],["tools","🧰 Tools"]')
@@ -304,7 +306,7 @@ for need in ["cm-updates.js", "cm-decks.js", "cm-decks-data.js", "cm-documents.j
              "lsh-dashboard.js", "lsh-one-screen.js", "lsh-tool-links.js", "lsh-topbar.js",
              "graded-calls.js", "show-password.js", "attendance.js", "portal-link.js", "portal-gate.js",
              "cm-lor-data.js", "cm-hipaa-data.js", "cm-medprov-data.js",
-             "cm-lor.js", "cm-hipaa.js", "cm-medprov.js", "cm-drafting.js", "cm-case-flow-docs.js", "cm-case-flow-art.js", "cm-case-flow-slides.js", "cm-case-flow-sim.js", "cm-case-flow-data.js", "cm-case-dates.js", "cm-case-flow.js",
+             "cm-lor.js", "cm-hipaa.js", "cm-medprov.js", "cm-drafting.js", "cm-case-flow-docs.js", "cm-case-flow-art.js", "cm-case-flow-slides.js", "cm-case-flow-sim.js", "cm-case-flow-data.js", "cm-case-dates.js", "cm-case-flow.js", "cm-cms-case.js",
              *[f"slide-scripts/day{i}.js" for i in range(1, 6)]]:
     if f'src="/js/{need}' not in s:
         sys.exit(f"MISSING SCRIPT: /js/{need} is not loaded by the built page")
