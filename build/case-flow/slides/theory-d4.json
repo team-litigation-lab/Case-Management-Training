@@ -1,0 +1,84 @@
+{
+  "d4m1-l1": {
+    "lead": "An impasse is **a stall the record proves**: the carrier holds its number after every rebuttal, follow-up and escalation, and the file reaches the litigation fork.",
+    "concepts": [
+      {"term": "The Stall", "text": "An adjuster's delay line, such as “waiting on authority”, meant to **wear you down**; log it, never accept it"},
+      {"term": "The Rebuttal", "text": "Each stall gets a factual answer and a firm reply date; **a rebuttal left unanswered** becomes evidence of impasse"},
+      {"term": "Reasons in Writing", "text": "Ask the carrier to state **its reasons in writing**; a named ground can be rebutted, a vague one cannot"},
+      {"term": "The Four Elements", "text": "Duty, breach, causation and damages: **what any suit must prove**, so each needs a verified exhibit"}
+    ],
+    "pages": ["D2#29"]
+  },
+  "d4m1-l2": {
+    "lead": "Filing the Complaint **formally initiates the lawsuit**: the file moves from negotiation to court procedure, and later to a neutral the parties select or a court appoints.",
+    "concepts": [
+      {"term": "The Complaint", "text": "Counsel drafts the legal arguments; the Case Manager **verifies the factual foundation** beneath them"},
+      {"term": "Anatomy of a Complaint", "text": "Caption, jurisdiction, factual allegations, causes of action, prayer for relief: **five sections to check** against the file"},
+      {"term": "Pre-Filing Verification", "text": "The Statute Date, the defendant's **exact legal name** and a business's Registered Agent, confirmed before counsel signs"},
+      {"term": "Panel Strike List", "text": "AAA or JAMS sends candidates; each side vets, ranks and **strikes names** before a docketed cutoff"}
+    ],
+    "pages": ["D5#31", "D4#4"]
+  },
+  "d4m2-l1": {
+    "lead": "Litigation is **governed by rigid procedures**: once suit is filed, statute, rule and order set the dates, and documents shift from administrative tracking to evidence.",
+    "concepts": [
+      {"term": "Documents Become Evidence", "text": "After filing, a missing or misfiled page is no longer clerical: it **can jeopardize a trial**"},
+      {"term": "Weekly Court Processes", "text": "Litigation runs on recurring court processes you execute **every week**, each one driven by the calendar"},
+      {"term": "Built-In Notice Periods", "text": "Many steps carry a built-in wait, like notice to opposing counsel **before a third-party subpoena**; docket the wait"},
+      {"term": "Tracking Compliance", "text": "A deadline someone else owes still needs **a check-in before it**: call the records office days ahead"}
+    ],
+    "pages": ["D4#21", "D5#28"]
+  },
+  "d4m2-l2": {
+    "lead": "Mediation is **negotiation toward compromise**, non-binding; arbitration is an adversarial hearing where a neutral acts as judge and issues a binding Award.",
+    "concepts": [
+      {"term": "Zero Decision Power", "text": "The mediator facilitates and negotiates but cannot rule; **the parties keep control** over whether to sign"},
+      {"term": "Absolute Decision Power", "text": "The arbitrator is a private judge and finder of fact who **can exclude evidence** and award damages"},
+      {"term": "Trial-Ready Standard", "text": "Because appeal is drastically limited, treat the hearing with **a multi-day trial's precision**, not a compromise mindset"},
+      {"term": "Unauthorized Practice of Law", "text": "Arguing, speaking on the record or representing John Doe is practicing law; **without a license it's UPL**"}
+    ],
+    "pages": ["D4#5", "D4#20"]
+  },
+  "d4m3-l1": {
+    "lead": "A Mediation Binder is **the attorney's cheat sheet**: the case's most critical documents, compiled so counsel never fumbles during a fast-paced compromise session.",
+    "concepts": [
+      {"term": "Executive Summary & Administration", "text": "The first thing counsel sees: a one-page snapshot that **sets the basic framework** of parties, order and schedule"},
+      {"term": "The Mediation Briefs", "text": "Both sides' arguments **read side by side**, so counsel can prepare rebuttals before the session"},
+      {"term": "Core Pleadings", "text": "The legal framework: the filed documents that **define what the suit is about**"},
+      {"term": "Key Evidence & Liability", "text": "The “smoking guns”: **raw evidence of liability**, from reports to stills and highlighted deposition pages"},
+      {"term": "Damages, Financials & Experts", "text": "The section that **justifies counsel's dollar figure**: records, bills, wage proof and expert reports"},
+      {"term": "Settlement History & Drafts", "text": "The closing section that **prepares counsel to finalize** any deal reached, before anyone leaves the room"}
+    ],
+    "pages": ["D4#7", "D4#8"]
+  },
+  "d4m3-l2": {
+    "lead": "The Arbitration Binder is **a trial-ready evidentiary record**, not a reference packet: it is submitted directly to a private judge who decides.",
+    "concepts": [
+      {"term": "Operational Tracks", "text": "Your arbitration role is operational: **timelines, scheduling and documents**, run with rigid precision"},
+      {"term": "Arbitration Brief Deadline", "text": "The absolute cutoff for claims, **exhibit indexes and witness lists**, sent to the arbitrator and opposing counsel"},
+      {"term": "Arbitration Submissions", "text": "The foundational paperwork that **sets the ground rules** for the whole proceeding, so it leads the binder"},
+      {"term": "Evidentiary Exclusion", "text": "A missing page or grayscale print **can be excluded**, and a binding award leaves no second chance"}
+    ],
+    "pages": ["D4#25", "D4#21"]
+  },
+  "d4m4-l1": {
+    "lead": "Bottlenecks come in two kinds: **compromise traps** that stall a mediation, and trial-ready landmines that can sink a binding arbitration.",
+    "concepts": [
+      {"term": "Compromise Traps", "text": "Unverified ledgers, absent authority and late briefs **give the defense a reason** to stall at mediation"},
+      {"term": "Trial-Ready Landmines", "text": "Excluded exhibits, unshielded priors and missed cutoffs at arbitration **cost evidence you can't recover**"},
+      {"term": "The Prior Medical Shield", "text": "The defense uses prior records to argue **pre-existing degenerative conditions**; the shield answers with records and expert opinion"},
+      {"term": "Operational Countermeasures", "text": "Two habits clear most bottlenecks early: **a 48-hour audit** and lien reconciliation against EOBs"}
+    ],
+    "pages": ["D4#33", "D4#35"]
+  },
+  "d4m4-l2": {
+    "lead": "Escalation is **a variance loop**: monitor each item against its expected course, and when progress stalls, route it up before the date is lost.",
+    "concepts": [
+      {"term": "Variance Detected", "text": "The moment an item **departs from its expected course**; that departure, not frustration, starts the escalation"},
+      {"term": "The Escalation Ladder", "text": "Each problem goes to **the lowest capable rung**, so counsel's time is spent on decisions only he can make"},
+      {"term": "Decision-Ready Report", "text": "A report built so the supervisor can **act in one read**, without redoing your research"},
+      {"term": "The Critical Thinking Audit", "text": "Before a hard date, test the file against **the defense's stated position** and escalate any gap you find"}
+    ],
+    "pages": ["D1#45"]
+  }
+}

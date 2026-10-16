@@ -1,0 +1,86 @@
+{
+  "d3m1-l1": {
+    "lead": "A demand is not a request for money; it is a **presentation of a debt owed**, built on the legal and procedural foundation.",
+    "concepts": [
+      {"term": "Legal and Procedural Foundation", "text": "Three pillars every demand stands on: SOL, Liability Framework, Coverage Analysis. Know **the why behind the paperwork**."},
+      {"term": "The Time-Limited Demand", "text": "A within-limits demand with a stated window: it **forces a decision on the record**; an unreasonable refusal can matter."},
+      {"term": "The Why Factor", "text": "Every bill carries **why the treatment was necessary**: the adjuster evaluates a documented recovery, not a pile of invoices."},
+      {"term": "The Final Scrub", "text": "Before it goes out, check for **common adjuster traps**: billing overlaps, an unexplained pre-existing condition, unverified balances."}
+    ],
+    "pages": ["D2#19", "D2#13"]
+  },
+  "d3m1-l2": {
+    "lead": "UM is **the client's financial safety net**: once the at-fault policy is exhausted, first-party coverage makes up the difference, up to its limits.",
+    "concepts": [
+      {"term": "The Net Check", "text": "The gross settlement doesn't matter to the client; **only the net check** does, after fees and unreduced liens."},
+      {"term": "BI Exhaustion", "text": "The at-fault carrier pays its full limit. That **pulls the contract trigger**: the UM claim becomes a second phase."},
+      {"term": "Consent and Subrogation Waiver", "text": "The UM carrier consents and waives subrogation, or substitutes its own check: **the UM claim survives** the BI release."},
+      {"term": "Front-Load the Proof", "text": "The at-fault Dec Page, signed release and consents up front **strip the technicality defense** on page one."},
+      {"term": "First-Party Contract Claim", "text": "The UM carrier insures the client, so the claim shifts **from third-party to first-party**: a contract claim, yet adversarial."},
+      {"term": "The Gap", "text": "UM doesn't simply pay its limit: it pays **the gap between damages** and what was already collected."},
+      {"term": "Offset vs. Add-On", "text": "An offset policy subtracts the BI from its UM limit; **add-on or stacked coverage** pays on top."},
+      {"term": "Relative UM as Excess", "text": "Relative UM answers only **above the primary layers**: the gap it pays starts where BI and Host UM end."}
+    ],
+    "pages": ["D3#5", "D3#9"]
+  },
+  "d3m2-l1": {
+    "lead": "In PI law the demand letter is **your opening move**; adjusters protect the carrier by undervaluing claims, so negotiation is prepared, not improvised.",
+    "concepts": [
+      {"term": "The Pitch", "text": "A demand that reads like a template **gets treated like one**; a tailored presentation earns a real evaluation."},
+      {"term": "Value Drivers", "text": "The few facts that would **scare a jury**: they create the carrier's risk, so every call leads with them."},
+      {"term": "Anticipate the Response", "text": "Name your **top two weaknesses** before the adjuster does, and have the documents that answer them in hand."},
+      {"term": "The Professional Pause", "text": "Silence after a low number **shifts the burden back**: the adjuster must justify the figure with data."}
+    ],
+    "pages": ["D2#21", "D2#27"]
+  },
+  "d3m2-l2": {
+    "lead": "A UM settlement is won on paper: the package shows the other driver's fault and that **damages exceed what's collected**.",
+    "concepts": [
+      {"term": "Weak File vs. Legal Trap", "text": "Raw charts and a casual letter carry no risk; a coded summary on a clock **raises the carrier's risk**."},
+      {"term": "Documents by Function", "text": "The package sorts proof by job: **coverage, liability, damages**. Diagnostics and a causation narrative answer pre-existing-condition defenses."},
+      {"term": "The Bracketing Technique", "text": "Paired ranges that **build a bridge** across a gap, then close in the middle. Atty. Thorne makes every move."},
+      {"term": "PIP Set-Off", "text": "In no-fault states the law generally bars **double recovery**: value minus PIP paid is what the defendant still owes."}
+    ],
+    "pages": ["D3#8", "D3#7"]
+  },
+  "d3m3-l1": {
+    "lead": "Not all liens are created equal: **legal backing decides negotiability**, from statutory claims that bend least to provider balances that bend most.",
+    "concepts": [
+      {"term": "Medical Provider Liens", "text": "Providers treating on an LOP: **high negotiability**, often willing to take a reduction to get paid now."},
+      {"term": "Health Insurance Subrogation", "text": "A private plan's reimbursement right: moderate, shaped by the **Made Whole and Common Fund** doctrines."},
+      {"term": "Medicare and Medicaid", "text": "Government payers bound by **strict federal or state formulas**: low negotiability, and slow to process."},
+      {"term": "ERISA Plans", "text": "Self-funded employer plans governed by federal law: **very low negotiability**, notoriously difficult to reduce."}
+    ],
+    "pages": ["D3#20"]
+  },
+  "d3m3-l2": {
+    "lead": "Before you ask for a discount, make sure the bill is accurate: an error earns **a demand for correction**, not a favor.",
+    "concepts": [
+      {"term": "Upcoding", "text": "Billing a higher service level than the records support, like **Level 5 for Level 3**: the record decides."},
+      {"term": "Unbundling", "text": "Splitting one service into separately billed parts to **inflate the total**; the records show what was one treatment."},
+      {"term": "Pro-Rata Distribution", "text": "Equal-priority liens split a short fund **in proportion**: each lien's amount over all liens, times what's left."},
+      {"term": "The Common Fund Doctrine", "text": "The lienholder shouldn't get **a free ride** on the work and costs that created the fund it's repaid from."}
+    ],
+    "pages": ["D3#24", "D3#23"]
+  },
+  "d3m4-l1": {
+    "lead": "The Net Sheet is the tool for **transparency and case control**: it shows every dollar's origin and destination before anything leaves trust.",
+    "concepts": [
+      {"term": "Third-Party BI Stream", "text": "The at-fault driver's carrier; exhausting its limit is usually **a legal prerequisite** to first-party UM."},
+      {"term": "First-Party UM Stream", "text": "The client's own or **a resident relative's policy**; triggers only once BI is exhausted or the driver is uninsured."},
+      {"term": "The Double-Dipping Trap", "text": "Carriers audit files closely; tracing every dollar's source keeps liens paid correctly, **without cross-contaminating funds**."},
+      {"term": "The Final Aggregate Net", "text": "Both streams side by side show the client **the compounding power** of the coverages and what negotiation added."}
+    ],
+    "pages": ["D3#25", "D3#26"]
+  },
+  "d3m4-l2": {
+    "lead": "The release is **the contract that ends the dispute**; disbursement then moves money only through verification, documentation, authorization and reconciliation.",
+    "concepts": [
+      {"term": "Release of All Claims", "text": "The exit document that **ends the right to sue**; its scope decides which claims and carriers survive."},
+      {"term": "Settlement Disclosure Statement", "text": "The truth document: gross to net, and that **full and final** means no return for more money."},
+      {"term": "Satisfaction of Lien", "text": "A provider's signed letter that its lien is paid: it **prevents collections against the client** later."},
+      {"term": "Dismissal With Prejudice", "text": "Where suit was filed, the court is told it's over; with prejudice means the case **can't be refiled**."}
+    ],
+    "pages": ["D2#35", "D3#32"]
+  }
+}
