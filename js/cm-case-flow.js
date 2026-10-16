@@ -419,7 +419,6 @@ const SIM = Object.assign({events: {}, calls: {}, fallout: [], timeline: []}, wi
 const CHANNEL = {email: ["✉️", "Email"], call: ["📞", "Phone call"], voicemail: ["📳", "Voicemail"], letter: ["📨", "Letter"], fax: ["📠", "Fax"],
   alert: ["🔔", "CMS alert"], portal: ["🌐", "Portal message"], text: ["💬", "Text message"], memo: ["📝", "Internal memo"]};
 const dayMs = v => { const [m, d, y] = String(v || "").split("/").map(Number); return y ? Date.UTC(y, m - 1, d) : NaN; };
-const trackOfDay = day => (/Track ([AB])/.exec((day && day.track) || "") || [])[1] || "";
 function eventCard(e, extra, blockId){
   if(e.channel === "voicemail" && e.spoken && blockId) return voicemailCard(e, blockId, extra);
   const [icon, label] = CHANNEL[e.channel] || ["📌", "Message"];
@@ -437,19 +436,6 @@ const LANES = {claims: "Claims & Coverage", care: "Client & Treatment"};
 function laneAt(lane, n){
   const evs = MODULES.filter(d => d.cf.n <= n).flatMap(d => d.lessons.filter(l => l.cf.block.kind === "activity" && l.cf.phase.lane === lane && SIM.events[l.cf.block.id]).map(l => ({n: d.cf.n, e: SIM.events[l.cf.block.id], title: l.cf.block.title})));
   return evs.find(x => x.n === n) || evs[evs.length - 1] || null;
-}
-/* the case's milestones around a date, with "you are here"; on a workstream, that lane's milestones */
-function timelineStrip(at, track, lane, n){
-  const t = dayMs(at), all = (SIM.timeline || []).filter(m => (!m.track || !track || m.track === track) && (!lane || !m.lane || m.lane === lane));
-  if(!all.length || isNaN(t)) return "";
-  let k = all.findIndex(m => dayMs(m.date) > t); if(k < 0) k = all.length;
-  const show = all.slice(Math.max(0, k - 3), Math.min(all.length, k + 3)), cut = show.findIndex(m => dayMs(m.date) > t);
-  const dot = (m, past) => `<li class="${past ? "past" : "next"}"><i></i><b>${E(m.label)}</b><small>${E(m.date)}</small></li>`;
-  const here = `<li class="here"><i></i><b>You are here</b><small>${E(at)}</small></li>`;
-  const items = show.map((m, j) => (j === cut ? here : "") + dot(m, cut < 0 || j < cut)).join("") + (cut < 0 ? here : "");
-  const other = lane && laneAt(lane === "claims" ? "care" : "claims", n);
-  const head = lane ? `<div class="cfx-lane"><span class="cfx-lane-on cfx-lane-${lane}">${E(LANES[lane])} workstream</span>${other ? `<span class="cfx-lane-off">${E(LANES[lane === "claims" ? "care" : "claims"])} runs in parallel: last at ${E(other.e.date)}, ${E(other.title)}</span>` : ""}</div>` : "";
-  return `${head}<ol class="cfx-tl">${items}</ol>`;
 }
 /* fallout: a later activity shows what a skipped check costs, for a trainee who didn't tick it */
 function falloutFor(blockId){
@@ -570,7 +556,6 @@ function slideBody(view, l, d){
       const ev = SIM.events[b.id], fall = falloutFor(b.id), vm = ev && ev.channel === "voicemail" && ev.spoken;
       const thumbs = docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
       return `<div class="cfx-sb">
-        ${ev ? timelineStrip(ev.date, trackOfDay(day), l.cf.phase.lane, d.cf.n) : ""}
         <div class="cfx-challenge"><span>“${E(b.title.toUpperCase())}”</span></div>
         ${fall.map(x => { const e = x.f.then.event, [icon] = CHANNEL[e.channel] || ["⚠️"];
           return `<details class="cfx-fall"><summary><span class="cfx-fall-i">⚠️</span><b>${E(e.subject)}</b><span class="cfx-fall-from">${icon} ${E(e.from || "")}</span></summary>
@@ -1575,10 +1560,15 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 /* ---------- executed like the original deck: navy slide, logo + outlined phase title, the topic ribbon, white cards ---------- */
 .cfx-sepline{display:none !important;}
 .cfx.cfx-deck{background:#262B45 !important;color:#fff;border:0 !important;padding:16px 28px 22px !important;}
-.lesson-stage #lessonSlideWrap:has(.cfx-deck){background:#262B45 !important;}
+/* one card: the slide's design sits directly on the lesson stage (no second card inside it), so the slide has the
+   stage's whole width; the deck's orange corner is the stage's own top-right corner, clear of the dots, the slide and the buttons */
+.lesson-stage:has(.cfx-deck){position:relative;overflow:hidden;background:#262B45 !important;}
+.lesson-stage:has(.cfx-deck)::before{content:"";position:absolute;top:0;right:0;width:min(200px,18%);height:46px;border-radius:0 0 0 100%;background:#DB8437;opacity:.95;pointer-events:none;}
+.lesson-stage:has(.cfx-deck) .slide-dots{padding-right:min(190px,17%);}   /* the dots stop short of the orange corner */
+.lesson-stage:has(.cfx-deck) > *{position:relative;z-index:1;}
+.lesson-stage #lessonSlideWrap:has(.cfx-deck){background:transparent !important;border-radius:0 !important;box-shadow:none !important;padding:4px 2px 2px !important;}
+.lesson-stage #lessonSlideWrap:has(.cfx-deck)::before, .lesson-stage #lessonSlideWrap:has(.cfx-deck)::after{display:none !important;}
 .lesson-stage #lessonSlideWrap:has(.cfx-deck) .cfx.cfx-deck{background:transparent !important;padding:0 !important;}
-.lesson-stage #lessonSlideWrap:has(.cfx-deck)::before{content:"";inset:auto;top:0;right:0;left:auto;width:min(300px,30%);height:84px;border-radius:0 16px 0 100%;background:#DB8437;opacity:.95;}
-.lesson-stage #lessonSlideWrap:has(.cfx-deck)::after{content:"";position:absolute;left:0;bottom:0;width:min(180px,18%);height:52px;border-radius:0 100% 0 16px;background:#DB8437;opacity:.9;pointer-events:none;}
 .cfx-deck > *{position:relative;z-index:1;}
 .cfx-deck-head{display:flex;align-items:center;gap:20px;padding:0 0 8px;margin:0 0 10px;border-bottom:2px solid rgba(255,255,255,.88);}
 .cfx-logo{height:48px;width:auto;flex:0 0 auto;}
@@ -1727,10 +1717,6 @@ const st = document.createElement("style"); st.id = "cm-case-flow"; st.textConte
 .cf-call-bar b{color:#fff;}
 .cf-timeline{padding:16px 20px;margin:0 0 16px;background:#262B45 !important;color:#fff;border:0 !important;}
 .cfx-tl-full{flex-wrap:wrap;row-gap:14px;}.cfx-tl-full li{flex:0 0 calc(100% / 8);}.cfx-tl-full::before{display:none;}
-.cfx-lane{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:0 0 6px;}
-.cfx-lane-on{font:800 11.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:999px;color:#262B45;background:#F4B77A;}
-.cfx-lane-on.cfx-lane-care{background:#9BE0B4;}
-.cfx-lane-off{font:500 12px 'Inter',sans-serif;color:#AEB6CC;}
 .cf-lanes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;}
 .cf-lane{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:10px 12px;}
 .cf-lane-h{font:800 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#F4B77A;margin:0 0 10px;}

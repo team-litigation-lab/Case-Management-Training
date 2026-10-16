@@ -7452,7 +7452,7 @@ window.CM_CASE_FLOW = {
   sequence: [
     {n: 1, phases: [
       {title: "Intake & Property Damage", blocks: ["d1m1-role", "d1m1-case", "d1m1-l1", "d1m4-l1", "d1m3-l1", "d1m3-l2", "d1m1-open", "d1m3-a1", "d1m3-a2", "d1m3-kc"], headings: {"d1m1-role": "Case Management Fundamentals", "d1m1-case": "Case Management Fundamentals", "d1m1-l1": "Case Phase: Intake", "d1m4-l1": "Case Phase: Intake", "d1m3-l1": "Case Phase: Property Damage", "d1m3-l2": "Case Phase: Property Damage"}},
-      {title: "Claim Set Up & Case Strategy", workstream: "claims", blocks: ["d2m1-l1", "d2m1-l2", "d1m1-l2", "d1m4-l2", "d2m1-a1", "d1m1-a1", "d2m1-a2", "d1m1-a2", "d1m4-a1", "d1m4-a2", "d1m1-kc", "d2m1-kc", "d1m4-kc"], headings: {"d2m1-l1": "Case Phase: Claim Set Up", "d2m1-l2": "Case Phase: Claim Set Up", "d1m1-l2": "Case Phase: Claim Set Up", "d1m4-l2": "Case Phase: Case Strategy"}}
+      {title: "Claim Set Up", workstream: "claims", blocks: ["d2m1-l1", "d2m1-l2", "d1m1-l2", "d1m4-l2", "d2m1-a1", "d1m1-a1", "d2m1-a2", "d1m1-a2", "d1m4-a1", "d1m4-a2", "d1m1-kc", "d2m1-kc", "d1m4-kc"], headings: {"d2m1-l1": "Case Phase: Claim Set Up", "d2m1-l2": "Case Phase: Claim Set Up", "d1m1-l2": "Case Phase: Claim Set Up", "d1m4-l2": "CM Process: Case Strategy", "d1m4-a1": "Skill Building: CM Process · Case Strategy", "d1m4-a2": "Skill Building: CM Process · Case Strategy"}}
     ]},
     {n: 2, phases: [
       {title: "Client Communications", workstream: "care", blocks: ["d2m3-l1", "d1m2-l1", "d1m2-l2", "d1m2-a1", "d1m2-a2", "d1m2-kc"]},
