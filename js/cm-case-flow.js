@@ -80,7 +80,10 @@ SEQUENCE.forEach(seq => {
   if(!day) return;
   const lessons = [], quiz = [], quizMod = [], phases = [];
   seq.phases.forEach((ph, pi) => {
-    const phase = {n: pi + 1, of: seq.phases.length, title: ph.title, count: ph.blocks.length, lane: ph.workstream || ""};
+    // What this run of blocks is. Most are stages of the case ("Case Phase: Demand"), but some are
+    // cross-phase work the Case Manager does throughout (bottlenecks, binders, deposition prep): calling
+    // those a Case Phase is simply wrong, so a phase may name its own lead in CF.sequence.
+    const phase = {n: pi + 1, of: seq.phases.length, title: ph.title, lead: ph.lead || "Case Phase", count: ph.blocks.length, lane: ph.workstream || ""};
     phases.push(phase);
     ph.blocks.forEach((id, k) => {
       const at = STORED[id];
@@ -96,7 +99,7 @@ SEQUENCE.forEach(seq => {
         fourPart: Object.assign(fp, {bestPractices: b.best || [], discussionCase: ""}),
         trainerCue: (b.notes || [])[0] || "",
         cf: {day, mod, block: b, k, phase,   // day: where it is taught; mod: its unit of scoring
-             heading: (ph.headings || {})[id] || (b.kind === "lesson" ? "Case Phase: " : b.kind === "activity" ? "Skill Building: " : "Learning Check: ") + ph.title}
+             heading: (ph.headings || {})[id] || (b.kind === "lesson" ? phase.lead + ": " : b.kind === "activity" ? "Skill Building: " : "Learning Check: ") + ph.title}
       }, layoutOf(b.show)));
       if(b.kind === "check") (mod.quiz || []).forEach(q => { quiz.push(q); quizMod.push(mod.id); });
     });
@@ -110,7 +113,7 @@ SEQUENCE.forEach(seq => {
     taskOverview: seq.phases.map((ph, pi) => {
       const bs = blocksOf(ph), act = bs.find(b => b.kind === "activity");
       return {
-        label: `Case Phase ${pi + 1} · ${ph.title}`,
+        label: `${(ph.lead || "Case Phase") === "Case Phase" ? `Case Phase ${pi + 1}` : ph.lead} · ${ph.title}`,
         tasks: bs.filter(b => b.kind !== "lesson").map(b => b.title),
         sample: act ? `Sample task: ${act.act.prompt.split(". ")[0]}.` : ""
       };
@@ -631,7 +634,7 @@ function card(l, i, d, part){
   const dots = vs.map((v, j) => `<span class="cfx-dot${j === p - 1 ? " on" : j < p - 1 ? " done" : ""}" title="${E(VIEW_LABEL[v])}"></span>`).join("");
   const logo = typeof LOGO_FULL_SRC !== "undefined" ? `<img class="cfx-logo" src="${LOGO_FULL_SRC}" alt="Legal Support Help">` : "";
   const onNavy = view === "case";   // a Skill Building opener sits on the slide itself, like the deck's
-  return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; CASE PHASE ${phase.n} OF ${phase.of} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
+  return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; ${phase.lead === "Case Phase" ? `CASE PHASE ${phase.n} OF ${phase.of}` : phase.lead.toUpperCase()} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-${view} cfx-${b.kind}" data-part="${p}">
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">${E(l.cf.heading)}</h2></div>
       <div class="cfx-ribbon"><span>${E(titleCase(b.title))}</span></div>
@@ -1008,12 +1011,15 @@ function workLog(b){
   const main = blockTools(b).filter(id => id !== "call" && !PAGE[id])[0] || "cms", t = typeof cmTool === "function" && cmTool(main);
   const w = (REC.work || {})[b.id] || {};
   return `<div class="cfx-log" title="The reference of the work you did in ${E(TOOL[main].name)}"><b>🧾 Log Your Work</b>
-    <input id="cflog_${b.id}" placeholder="${E((t && t.idHint) || "CMS Case ID or reference")}" value="${E(w.ref || "")}" aria-label="Reference of your work in ${E(TOOL[main].name)}">
+    <input id="cflog_${b.id}" placeholder="${E((t && t.idHint) || "CMS Case ID or reference")}" value="${E(w.ref || (main === "cms" && window.CMCase ? CMCase.id() : ""))}" aria-label="Reference of your work in ${E(TOOL[main].name)}"${main === "cms" ? ' data-cms-id="1"' : ""}>${main === "cms" ? `<span class="cfx-log-from" data-cms-note>${window.CMCase && CMCase.id() ? "from the CMS" : ""}</span>` : ""}
     <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.logWork('${b.id}','${main}')">Log it</button>
     <span class="cfx-log-ok" id="cflogok_${b.id}">${w.at ? `✓ Logged ${E(new Date(w.at).toLocaleDateString())}` : ""}</span></div>`;
 }
 window.cmCaseFlow.logWork = function(blockId, tool){
-  const el = document.getElementById("cflog_" + blockId), ref = (el && el.value || "").trim().slice(0, 120);
+  const el = document.getElementById("cflog_" + blockId);
+  // nothing typed on a CMS step: the case open in the CMS (js/cm-cms-case.js)
+  const ref = (((el && el.value || "").trim()) || (tool === "cms" && window.CMCase ? CMCase.id() : "")).slice(0, 120);
+  if(el && ref && el.value.trim() !== ref) el.value = ref;
   if(!ref){ if(typeof toast === "function") toast("Add the reference of your work first: the CMS Case ID, docket or request number."); return; }
   REC.work = REC.work || {}; REC.work[blockId] = {ref, tool, at: new Date().toISOString()}; persist();
   const ok = document.getElementById("cflogok_" + blockId); if(ok) ok.textContent = "✓ Logged " + new Date().toLocaleDateString();
@@ -1286,7 +1292,7 @@ function trainerPanel(rec){
     const r = mine.modules[m.id] || {}, t = given[m.id] || {};
     const c = composite(Object.assign({}, r, {trainer: t}));
     const answered = (r.answers || []).some(a => String(a || "").trim());
-    return `<details class="cf-tr"><summary><b>Case Flow Day ${n} · Case Phase ${phase.n}</b> ${E(b.title)}
+    return `<details class="cf-tr"><summary><b>Case Flow Day ${n} · ${phase.lead === "Case Phase" ? `Case Phase ${phase.n}` : E(phase.lead)}</b> ${E(b.title)}
         <span class="cf-tr-chips">${r.quiz ? `<span class="fb-chip sent">Quiz ${E(r.quiz.pct)}%</span>` : ""}${r.ai ? `<span class="fb-chip sent">AI ${E(r.ai.score)}%</span>` : ""}${typeof t.score === "number" ? `<span class="fb-chip sent">Trainer ${E(t.score)}%</span>` : (answered ? `<span class="fb-chip draft">To score</span>` : `<span class="fb-chip none">No summary yet</span>`)}${c.c != null ? `<span class="fb-chip sent">Composite ${E(c.c)}%</span>` : ""}</span></summary>
       ${answered ? `<div class="fb-evidence">${(r.kc || []).some(Boolean) ? b.check.questions.map((q, j) => `<div><b>KC ${j + 1}. ${E(q)}</b><br>${E((r.kc || [])[j] || "—")}</div>`).join("") : ""}${b.check.summary.map((q, j) => `<div><b>${E(q)}</b><br>${E((r.answers || [])[j] || "—")}</div>`).join("")}
         <div><b>Self-ratings:</b> ${b.check.scale.map((x, j) => `${E(x)}: ${E((r.scale || [])[j] || "—")}`).join(" · ")}</div></div>` : ""}
@@ -1723,6 +1729,8 @@ main > .cf-side-presenter{display:none;}
 .cfx-log b{color:#262B45;}
 .cfx-log input{flex:1 1 200px;min-width:0;padding:4px 10px;border:1px solid #C9CEDB;border-radius:8px;font:12.5px 'Inter',sans-serif;}
 .cfx-log-ok{color:var(--success,#2E7D4F);font-weight:600;}
+/* the Case ID the CMS gave, not typed (js/cm-cms-case.js) */
+.cfx-log-from:not(:empty){font-size:11px;font-weight:700;color:#1F4E79;background:rgba(214,231,248,.75);border-radius:999px;padding:2px 8px;}
 .cf-tr-work{font-size:12.8px;margin:6px 0;padding:6px 10px;background:#F4F6FB;border-radius:8px;}
 .cfx-vm .cfx-vm-body{display:flex;align-items:center;gap:14px;margin:8px 0 10px;font-size:14px;}
 .cfx-vm .cfx-vm-body small{color:#5B6178;}

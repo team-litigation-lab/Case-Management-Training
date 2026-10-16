@@ -7445,8 +7445,12 @@ window.CM_CASE_FLOW = {
      practice (all of it on John Doe's file in the CMS), then its Learning Check. The modules above stay
      the units of scoring (each Knowledge Check, its quiz share, the Self-Summary and the trainer's 40%);
      the sequence only sets where each block is taught. Every block appears exactly once.
-     A phase's title is its name in the original deck: lessons show "Case Phase: <title>" (or the
+     A phase's title is its name in the original deck: lessons show "<lead>: <title>" (or the
      block's own entry in `headings`), activities "Skill Building: <title>", checks "Learning Check: <title>".
+     `lead` is what the run of blocks actually is, and defaults to "Case Phase". Not every run is one: the
+     bottlenecks, the mediation and arbitration binders, deposition preparation, client communications and
+     the liability disputes are work the Case Manager does across phases, not stages the case passes through,
+     so those carry lead: "Operational Focus" and are never announced as a Case Phase.
      `workstream` ("claims" or "care") marks the phases that run in parallel on the file: the Claims & Coverage
      work and the Client & Treatment work overlap in time, so each has its own lane on the case timeline. */
   sequence: [
@@ -7455,7 +7459,7 @@ window.CM_CASE_FLOW = {
       {title: "Claim Set Up", workstream: "claims", blocks: ["d2m1-l1", "d2m1-l2", "d1m1-l2", "d1m4-l2", "d2m1-a1", "d1m1-a1", "d2m1-a2", "d1m1-a2", "d1m4-a1", "d1m4-a2", "d1m1-kc", "d2m1-kc", "d1m4-kc"], headings: {"d2m1-l1": "Case Phase: Claim Set Up", "d2m1-l2": "Case Phase: Claim Set Up", "d1m1-l2": "Case Phase: Claim Set Up", "d1m4-l2": "CM Process: Case Strategy", "d1m4-a1": "Skill Building: CM Process · Case Strategy", "d1m4-a2": "Skill Building: CM Process · Case Strategy"}}
     ]},
     {n: 2, phases: [
-      {title: "Client Communications", workstream: "care", blocks: ["d2m3-l1", "d1m2-l1", "d1m2-l2", "d1m2-a1", "d1m2-a2", "d1m2-kc"]},
+      {title: "Client Communications", lead: "Operational Focus", workstream: "care", blocks: ["d2m3-l1", "d1m2-l1", "d1m2-l2", "d1m2-a1", "d1m2-a2", "d1m2-kc"]},
       {title: "Treatment", workstream: "care", blocks: ["d2m2-l2", "d2m2-l1", "d2m3-l2", "d2m2-a1", "d2m3-a1", "d2m2-a2", "d2m3-a2", "d2m2-kc", "d2m3-kc"]},
       {title: "Pre-Demand Case Auditing", blocks: ["d2m4-l1", "d2m4-l2", "d2m4-a1", "d2m4-a2", "d2m4-kc"]}
     ]},
@@ -7468,14 +7472,14 @@ window.CM_CASE_FLOW = {
     {n: 4, phases: [
       {title: "The Litigation Fork", blocks: ["d4m1-l1", "d4m1-l2", "d4m1-a1", "d4m1-a2", "d4m1-kc"]},
       {title: "Mediation, Arbitration & the Calendar", blocks: ["d4m2-l1", "d4m2-l2", "d4m2-a1", "d4m2-a2", "d4m2-kc"]},
-      {title: "Mediation & Arbitration Binders", blocks: ["d4m3-l1", "d4m3-l2", "d4m3-a1", "d4m3-a2", "d4m3-kc"]},
-      {title: "Common Bottlenecks", blocks: ["d4m4-l1", "d4m4-l2", "d4m4-a1", "d4m4-a2", "d4m4-kc"]}
+      {title: "Mediation & Arbitration Binders", lead: "Operational Focus", blocks: ["d4m3-l1", "d4m3-l2", "d4m3-a1", "d4m3-a2", "d4m3-kc"]},
+      {title: "Common Bottlenecks & Countermeasures", lead: "Operational Focus", blocks: ["d4m4-l1", "d4m4-l2", "d4m4-a1", "d4m4-a2", "d4m4-kc"]}
     ]},
     {n: 5, phases: [
       {title: "Litigation", blocks: ["d5m1-l1", "d5m1-l2", "d5m1-a1", "d5m1-a2", "d5m1-kc"]},
       {title: "Property Damage in Litigation", blocks: ["d5m2-l1", "d5m2-l2", "d5m2-a1", "d5m2-a2", "d5m2-kc"]},
-      {title: "Deposition Preparation", blocks: ["d5m3-l1", "d5m3-l2", "d5m3-a1", "d5m3-a2", "d5m3-kc"]},
-      {title: "Liability Disputes & Skip-Tracing", blocks: ["d5m4-l1", "d5m4-l2", "d5m4-a1", "d5m4-a2", "d5m4-kc"]},
+      {title: "Deposition Preparation", lead: "Operational Focus", blocks: ["d5m3-l1", "d5m3-l2", "d5m3-a1", "d5m3-a2", "d5m3-kc"]},
+      {title: "Liability Disputes & Skip-Tracing", lead: "Operational Focus", blocks: ["d5m4-l1", "d5m4-l2", "d5m4-a1", "d5m4-a2", "d5m4-kc"]},
       {title: "Case Won: Award & Disbursement", blocks: ["d5m5-l1", "d5m5-a1", "d5m5-kc"]}
     ]}
   ]

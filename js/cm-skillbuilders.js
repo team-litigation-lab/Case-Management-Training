@@ -38,6 +38,7 @@ const st = document.createElement("style"); st.id = "cm-skillbuilders-css"; st.t
 .cm-cms b{color:var(--navy)}
 .cm-cms .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px}
 .cm-cms input{font:inherit;padding:7px 9px;border:1px solid var(--line);border-radius:8px;min-width:200px}
+.cm-cms-from:not(:empty){font-size:11px;font-weight:700;color:#1F4E79;background:rgba(214,231,248,.75);border-radius:999px;padding:2px 8px;}
 .cm-soon{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;background:#FFF1DE;color:#9A5B00;border-radius:999px;padding:2px 8px;margin-left:6px}
 .cm-tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-bottom:16px}
 .cm-tool{padding:16px 18px;display:flex;flex-direction:column;gap:8px}
@@ -374,6 +375,10 @@ window.openCms = function(mode){ openTool("cms", mode); };
 
 /* Tool step: the trainee does the work in a training platform, then logs the ID here.
    A tool that isn't live yet falls back to a CMS Task so no step is ever blocked. */
+/* The Case ID of the case open in the CMS (js/cm-cms-case.js). The CMS is integrated with the course, so a
+   step that logs CMS work starts with the open case's ID instead of asking the trainee to copy it across. */
+function cmsCaseId(platform){ return platform === "cms" && window.CMCase ? CMCase.id() : ""; }
+
 function toolStep(toolId, key, what){
   if(window.cmLabStepHTML) return cmLabStepHTML(key, toolId, what);   // the step, done in the tool and submitted for review (js/cm-lab.js)
   const t = cmTool(toolId), saved = ((state.cmsLog||{})[key]||{}), k = key.replace(/\W/g,"_");
@@ -384,7 +389,7 @@ function toolStep(toolId, key, what){
     <div class="row">
       ${t.live?`<button class="btn btn-navy btn-sm" onclick="openTool('${toolId}')">Open ${E(t.short)}</button><button class="btn btn-ghost btn-sm" onclick="openTool('${toolId}','tab')" title="Open in a new tab">↗</button>`
               :`<button class="btn btn-navy btn-sm" onclick="openTool('cms')">Open CMS</button>`}
-      <input id="cmsId_${k}" placeholder="${E(fallback?cmTool("cms").idHint:t.idHint)}" value="${E(saved.caseId||"")}">
+      <input id="cmsId_${k}" placeholder="${E(fallback?cmTool("cms").idHint:t.idHint)}" value="${E(saved.caseId||cmsCaseId(fallback?"cms":toolId))}"${(fallback||toolId==="cms")?' data-cms-id="1"':""}>${(fallback||toolId==="cms")?`<span class="cm-cms-from" data-cms-note>${cmsCaseId("cms")?"from the CMS":""}</span>`:""}
       <button class="btn btn-ghost btn-sm" onclick="cmLogCms('${key}','${fallback?"cms":toolId}')">Log my work</button>
       <span id="cmsLogged_${k}" style="font-size:12px;color:var(--success)">${saved.at?`✓ Logged ${fmtDate(saved.at)}`:""}</span>
     </div></div>`;
@@ -393,8 +398,9 @@ const cmsStep = (key, what)=> toolStep("cms", key, what);
 window.cmToolStep = toolStep;
 window.cmLogCms = async function(key, platform){
   const el = document.getElementById("cmsId_"+key.replace(/\W/g,"_"));
-  const v = (el && el.value || "").trim();
   const t = cmTool(platform||"cms");
+  const v = ((el && el.value || "").trim()) || cmsCaseId(t.id);   // nothing typed: the case open in the CMS
+  if(el && v && el.value.trim() !== v) el.value = v;
   if(v.length < 3){ toast(`Enter the ${t.evidence} the ${t.short} gave you when you saved.`); return; }
   state.cmsLog = state.cmsLog || {};
   state.cmsLog[key] = {caseId:v, at:new Date().toISOString(), tool:toolOfKey(key), platform:t.id};
