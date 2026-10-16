@@ -371,7 +371,7 @@ async function listAll(env, prefix) {
   return keys;
 }
 
-/* ---------- 🕘 automatic Time In (js/attendance.js) ----------
+/* ---------- 🕘 automatic Time In (read by the Training Portal /attendance.html) ----------
    A trainee's course calls /api/checkin on their first visit each day (Eastern time). The first call records
    checkin:<YYYY-MM-DD>:<id> = {timeIn, at, name, batch, training}, with the same in its KV metadata
    ({t, at, n, b, tr}) so the LSH Training Portal reads a whole day from one key list; kept 40 days. Each
