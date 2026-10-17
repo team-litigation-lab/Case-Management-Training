@@ -16,7 +16,14 @@
    see who filed the repository right the first time.
 
    What is needed: the CMS open beside the lesson (🗂 Open CMS) with the trainee's own case open in it. The
-   panel says so when it isn't, and nothing else is blocked.  Course side of the CMS's course-bridge.js. */
+   panel says so when it isn't, and nothing else is blocked.  Course side of the CMS's course-bridge.js.
+
+   It also relays for the Portal's simulators. The Medical Records Requests simulator produces the records
+   and the itemized bill a provider sends back as real files, and files them into the case the same way;
+   opened from a lesson it is a frame or a tab of this course, not of the CMS, so it cannot reach the CMS
+   itself. So this course passes a document it sends on to the CMS beside the lesson, unchanged, and hands
+   the CMS's answer straight back — the same name check, the same category, the same upload. Only the
+   Portal may ask (RELAY_ORIGINS), and a document is only ever relayed: nothing here decides a name. */
 (function(){
 const esc = (s)=> String(s == null ? "" : s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 // the Doc Hub categories in the CMS, and where each document's own "cms" short label belongs
@@ -158,7 +165,33 @@ function health(){
   return {filed: all.filter(x=>x.filed).length, firstTime: all.filter(x=>x.filed && x.attempts === 1).length,
           attempts: all.reduce((n, x)=>n + (x.attempts || 0), 0)};
 }
-window.cmDocFiling = {panel, file, health, categories: CATEGORIES, expectedCategory, CATEGORIES};
+window.cmDocFiling = {panel, file, health, categories: CATEGORIES, expectedCategory, CATEGORIES, relayOrigins: ()=> RELAY_ORIGINS.map(String)};
+
+/* ---------- relaying a simulator's document to the CMS ----------
+   The LSH Training Portal (and a local server while the checks run) may ask; nobody else. The message
+   is the CMS's own cms-doc-file, so the simulator speaks to the CMS through this course without either
+   side learning anything new, and the answer goes back to the window that asked. */
+const RELAY_ORIGINS = [
+  /^https:\/\/([a-z0-9-]+\.)?cm-training-activity\.pages\.dev$/,
+  /^https:\/\/([a-z0-9-]+\.)*legalsupporthelp\.workers\.dev$/,
+  /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/
+];
+const mayRelay = (origin)=> RELAY_ORIGINS.some(re=> re.test(String(origin || "")));
+window.addEventListener("message", (e)=>{
+  const d = e.data;
+  if(!d || d.lsh !== "cms-doc-file" || !mayRelay(e.origin)) return;
+  const back = (out)=>{ try{ (e.source || window).postMessage(Object.assign({lsh:"cms-doc-filed", id:d.id, problems:[]}, out), e.origin); }catch(err){ /* that window went away */ } };
+  const bytes = d.bytes instanceof ArrayBuffer ? d.bytes : null;
+  if(!bytes || !bytes.byteLength){ back({ok:false, error:"The document did not arrive at the course. Try filing it again."}); return; }
+  askCms({lsh:"cms-doc-file", name:d.name, category:d.category, original:d.original || d.name,
+          mime:d.mime || "application/pdf", summary:d.summary || d.name, bytes}, "cms-doc-filed", [bytes])
+    .then(out=>{
+      back(out && typeof out === "object" ? {ok:!!out.ok, name:out.name, key:out.key, category:out.category, saved:out.saved, problems:out.problems || [], expected:out.expected, error:out.error}
+                                          : {ok:false, error:"The CMS did not answer."});
+      if(out && out.ok && typeof toast === "function") toast(`Filed in the CMS as ${out.name}.`);
+    })
+    .catch(err=> back({ok:false, error:(err && err.message) || "The document could not be sent to the CMS."}));
+});
 
 /* the trainee's filing comes back with their record (storeGet is ready once the page has loaded) */
 window.addEventListener("load", ()=>{
