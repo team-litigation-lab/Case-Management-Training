@@ -234,7 +234,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: No Contact Protocol, Steps 1–3
 - D5 agenda: MIA Clients
 - LSH Claims Specialist: No Contact Protocol, Step 2
-- LSH Claims Specialist: No Contact Protocol, Steps 4–6; withdrawal letters
+- LSH Claims Specialist: No Contact Protocol, Steps 4–6; Withdrawal Letters
 - LSH Claims Specialist: Final Warning Letter; sample unresponsive-client letters
 - LSH Claims Specialist: No Contact Protocol
 - LSH Claims Specialist: LOR Property Damage carve-out, rental coverage hierarchy, documents to support the claim
@@ -305,12 +305,19 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - Newly authored: seatbelt-evidence and citation admissibility as state-variable questions; authentication and chain of custody in the counter-package
 - LSH Claims Specialist: handling liability disputes — written basis, stronger evidence, witness statements, escalation to the legal team
 - Newly authored: authentication and chain of custody in the counter-package
-- LSH Claims Specialist: No Contact Protocol, Steps 1–6; Final Warning Letter; withdrawal letters
+- LSH Claims Specialist: No Contact Protocol, Steps 1–6; Final Warning Letter; Withdrawal Letters
 - Newly authored: the No Contact Protocol compressed against a deposition date; the emergency contact gets the request, never the case
-- LSH Claims Specialist: No Contact Protocol; Final Warning Letter; sending withdrawal letters (current address, certified mail, dispatch recorded)
+- LSH Claims Specialist: No Contact Protocol; Final Warning Letter; sending Withdrawal Letters (current address, certified mail, dispatch recorded)
 - LSH Claims Specialist: liability determination and disputes
 - Newly authored: the Track B close-out (the 07/06/2027 award and the litigated Net Sheet)
 - Newly authored: the Track B close-out
+- LSH Claims Specialist: Dropped Cases — definition, common reasons, the Pending Drop check, Withdrawal Letters to clients, carriers and medical providers, annotating and saving them, and switching the status to Dropped
+- LSH Claims Specialist: No Contact Protocol — the decision point (Notice of Withdrawal or Motion to Withdraw) and file closure
+- Newly authored: no health insurance as a drop reason; the reason kept to the client's letter; the six-step close-out in order
+- LSH Claims Specialist: Dropped Cases — sending Withdrawal Letters to clients, carriers and medical providers; the sample letters by email, by text, to a carrier and to a provider
+- Newly authored: the Denise Harlow practice matter (no health insurance, treatment ended, Pending Drop)
+- LSH Claims Specialist: Dropped Cases — Withdrawal Letters and closing the file
+- Newly authored: the Denise Harlow practice matter
 
 ## Newly authored
 
@@ -340,3 +347,4 @@ Where neither source had the theory, it was written for this flow and is marked 
 - **Rental cap vs. reasonable repair time, the 17c critique and the PD-only release** — Day 5 · Module 2
 - **The remote-deposition room protocol and compound or loaded-question traps** — Day 5 · Module 3
 - **Authentication and chain of custody in the liability counter-package; the No Contact Protocol against a deposition date** — Day 5 · Module 4
+- **The Case Manager's close-out of a Dropped Case: the Pending Drop gate, Withdrawal Letters to the client, carriers and providers (the reason only in the client's), each send method, the Dropped status and its proof; no health insurance as a drop reason; the Denise Harlow practice matter** — Day 5 · Module 6 — from the firm's Claims Specialist deck “Dropped Cases”; the No Contact Protocol stays in Client Communications, and John Doe's case is never dropped

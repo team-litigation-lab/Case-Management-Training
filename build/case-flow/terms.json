@@ -6,6 +6,7 @@
     "Scheduling Order", "Notice of Delay", "Causation Letter", "Police Report", "Run Report", "Valuation Report",
     "Repair Estimate", "Dec Page", "Recorded Statement", "Subpoena Duces Tecum", "Direction Packet", "Case Plan",
     "Payer Order", "Health Plan", "Medical Bill", "Property Damage", "Total Loss", "Diminished Value", "Loss of Use",
-    "Treatment Gap", "Maximum Medical Improvement", "Golden Rule"
+    "Treatment Gap", "Maximum Medical Improvement", "Golden Rule",
+    "Dropped Case", "Pending Drop", "Withdrawal Letter", "Notice of Withdrawal", "Motion to Withdraw"
   ]
 }

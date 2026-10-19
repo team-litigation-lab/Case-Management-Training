@@ -411,6 +411,55 @@
       "note": "Unserved before the court's deadline, a case can be dismissed: confirm the court's rule."
     }
   },
+  "d5m6-l1": {
+    "lead": "A Dropped Case is a claim **discontinued before resolution**: documented, closed out and proved, so the client is informed and the firm is protected.",
+    "concepts": [
+      {
+        "term": "Why cases are dropped",
+        "text": "Unresponsive client, no liability, no coverage, unfinished treatment such as **no Health Plan**, or conflicting information"
+      },
+      {
+        "term": "The Withdrawal Letter",
+        "text": "A formal notice that **the attorney-client relationship has ended**, directing the client to seek other counsel"
+      },
+      {
+        "term": "Pending Drop",
+        "text": "The status that says the decision is made; the letters wait until **the client has been told**"
+      },
+      {
+        "term": "Proof of closure",
+        "text": "Certified Mail receipts, dispatch logs and saved letters **protect the firm** if the drop is questioned later"
+      }
+    ],
+    "pages": [],
+    "framework": {
+      "title": "Who gets which letter",
+      "kind": "table",
+      "head": [
+        "Recipient",
+        "What it says",
+        "How it's sent"
+      ],
+      "rows": [
+        [
+          "Client",
+          "Date, DOL, the reason, and to seek other counsel",
+          "Preferred method plus **Certified Mail**"
+        ],
+        [
+          "Carrier",
+          "Date, client, DOL, claim number; representation ended",
+          "Email or fax, per the CRM"
+        ],
+        [
+          "Medical provider",
+          "Representation ended; please update your records",
+          "Email or fax, per the CRM"
+        ]
+      ],
+      "note": "Only the client's letter gives the reason; every letter is saved in Word and PDF and logged."
+    }
+  },
   "d5m5-l1": {
     "lead": "The Net Sheet is **the ultimate transparency tool**: it shows the client where every dollar came from and where it goes.",
     "concepts": [

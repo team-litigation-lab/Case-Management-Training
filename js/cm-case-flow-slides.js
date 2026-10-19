@@ -7180,5 +7180,158 @@ window.CM_CF_SLIDES = {
    "Why is the fee **40% on this file**, which document says so, and who confirms it?",
    "Peach State: $1,240.00 on Track A, $1,116.00 on Track B. **Show both reductions**."
   ]
+ },
+ "d5m6-l1": {
+  "image": "policy-letter",
+  "hook": "Atty. Thorne **decides the drop**; you close it out so the file proves it.",
+  "points": [
+   "**No note, no letter**: confirm Pending Drop and the client told",
+   "Only the client's letter carries **the reason and next step**",
+   "Client: preferred method plus **Certified Mail**; others by email or fax",
+   "Log, follow up, then **switch to Dropped**; keep the proof"
+  ],
+  "upl": "Atty. Thorne decides and explains; **never call a case worthless**.",
+  "job": [
+   [
+    "Pending Drop, client told",
+    "Prepare each party's letter",
+    "Action Plan Editor",
+    "Word and PDF saved"
+   ],
+   [
+    "Letters signed",
+    "Send by method; log it",
+    "Communications Log",
+    "Party, method, date logged"
+   ],
+   [
+    "Receipts followed up",
+    "Switch status; file proof",
+    "CMS → Documents",
+    "Status Dropped, proof retained"
+   ]
+  ],
+  "dos": [
+   "Check **the gate** before you open the template",
+   "Send the client's letter **two ways**, one with proof"
+  ],
+  "donts": [
+   "Putting **the reason** in a carrier's letter",
+   "Switching to Dropped **before every letter is logged**",
+   "Telling the client **the case is worthless**"
+  ],
+  "theory": {
+   "lead": "A Dropped Case is a claim **discontinued before resolution**: documented, closed out and proved, so the client is informed and the firm is protected.",
+   "concepts": [
+    {
+     "term": "Why cases are dropped",
+     "text": "Unresponsive client, no liability, no coverage, unfinished treatment such as **no Health Plan**, or conflicting information"
+    },
+    {
+     "term": "The Withdrawal Letter",
+     "text": "A formal notice that **the attorney-client relationship has ended**, directing the client to seek other counsel"
+    },
+    {
+     "term": "Pending Drop",
+     "text": "The status that says the decision is made; the letters wait until **the client has been told**"
+    },
+    {
+     "term": "Proof of closure",
+     "text": "Certified Mail receipts, dispatch logs and saved letters **protect the firm** if the drop is questioned later"
+    }
+   ],
+   "pages": [],
+   "framework": {
+    "title": "Who gets which letter",
+    "kind": "table",
+    "head": [
+     "Recipient",
+     "What it says",
+     "How it's sent"
+    ],
+    "rows": [
+     [
+      "Client",
+      "Date, DOL, the reason, and to seek other counsel",
+      "Preferred method plus **Certified Mail**"
+     ],
+     [
+      "Carrier",
+      "Date, client, DOL, claim number; representation ended",
+      "Email or fax, per the CRM"
+     ],
+     [
+      "Medical provider",
+      "Representation ended; please update your records",
+      "Email or fax, per the CRM"
+     ]
+    ],
+    "note": "Only the client's letter gives the reason; every letter is saved in Word and PDF and logged."
+   }
+  },
+  "clues": {
+   "dos": [
+    [
+     "Denise Harlow's file reads Pending Drop on 12/08/2026.",
+     "Before drafting anything, the Case Manager looks for Atty. Thorne's note.",
+     "The note confirms Denise was told by phone at 2:10 p.m."
+    ],
+    [
+     "Denise prefers text and email for anything from the firm.",
+     "Her letter also goes by Certified Mail to 87 Alder Creek Dr.",
+     "The green return receipt comes back signed and goes in the file."
+    ]
+   ],
+   "donts": [
+    [
+     "Granite Shield's withdrawal notice is drafted for Paul Ostrander.",
+     "A line explains that Denise stopped treating at Brookside.",
+     "The adjuster now knows why the firm closed its file."
+    ],
+    [
+     "Denise's text and email went out at 9:00 a.m.",
+     "Brookside's fax hasn't been sent yet, and nothing is in the log.",
+     "The status already reads Dropped on the CMS screen."
+    ],
+    [
+     "Denise calls after the Certified Mail arrives, upset.",
+     "She asks whether her claim was ever worth anything.",
+     "The reply gives her a view on what her claim was worth."
+    ]
+   ]
+  }
+ },
+ "d5m6-a1": {
+  "image": "email-outreach",
+  "situation": "Practice matter, 12/09/2026: Denise Harlow has **no Health Plan** and stopped treatment 10/29/2026. Atty. Thorne dropped the case and told her 12/08. Status: **Pending Drop**.",
+  "steps": [
+   "Record **the gate**: Pending Drop and Atty. Thorne's note",
+   "Draft Denise's letter with **his reason and next step**",
+   "Draft Granite Shield's and Brookside's letters, **no reason given**",
+   "Send by text, email and **Certified Mail**; email; fax",
+   "Log, follow up 12/16/2026, then **switch to Dropped**"
+  ],
+  "deliver": "Three letters for his signature and **a close-out log to Dropped**",
+  "checks": [
+   "Gate confirmed **before any letter goes out**",
+   "The reason **only in Denise's letter**",
+   "Claim GS-26-48213 and DOL **on the carrier letter**",
+   "Every letter saved **in Word and PDF**",
+   "Dropped only **after the follow-up**; proof retained"
+  ],
+  "dos": [
+   "Quote **Atty. Thorne's reason**; never write your own"
+  ],
+  "donts": [
+   "Offering Denise **a way to save the case**"
+  ]
+ },
+ "d5m6-kc": {
+  "image": "knowledge-check",
+  "questions": [
+   "Name **the two things you confirm** before any Withdrawal Letter goes out, and why.",
+   "What goes in Denise's letter but **not in Granite Shield's or Brookside's**, and why?",
+   "Before Denise's status becomes Dropped, what must be true, and **what proof stays**?"
+  ]
  }
 };

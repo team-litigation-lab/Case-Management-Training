@@ -415,6 +415,63 @@
       "ask": "Across all five days, which competency surprised you most when you rated it?"
     }
   },
+  "d5m6-l1": {
+    "why": {
+      "say": "Here's a phase John Doe's file never reaches. His case is never dropped: earlier today the Skip-Trace found the people his file needed. But not every case ends in a settlement or an award. Sometimes Atty. Thorne decides the firm can't keep going, and when he does, someone has to close the file properly. That's you. A Dropped Case is a claim the firm stops pursuing before it resolves. The client, every carrier and every provider has to know the representation has ended, and the file has to prove they were told. Done carelessly, a drop leaves a client confused and the firm exposed.",
+      "ask": "If a Dropped Case just went quiet in the CMS with no letters, who could be hurt by that?"
+    },
+    "theory": {
+      "say": "Let's start with the vocabulary. A Dropped Case is a claim discontinued before resolution, and it has to be documented, closed out and proved. Cases get dropped for a handful of reasons: the client stops responding or withdraws, liability can't be established, coverage is denied or the limits are too thin, the client can't finish treatment, or conflicting information comes to light. We'll add one you'll see often: a client with no Health Plan who simply can't pay for care. The Withdrawal Letter is the formal notice that the attorney-client relationship has ended. Pending Drop is the status that says the decision's been made but the letters are waiting. And the proof, the receipts, logs and saved letters, is what protects the firm later.",
+      "ask": "Which of those reasons have you already seen on a file?"
+    },
+    "frame": {
+      "say": "Three kinds of recipient, three kinds of letter. The client's letter carries the date, the date of loss, the reason in Atty. Thorne's words, and the next step he approves, which is to speak to another attorney promptly. It goes by the client's preferred method, email, text or both, plus Certified Mail so we have proof of receipt. The carrier's letter carries the date, the client's name, the date of loss and the claim number, and says only that we no longer represent the client. The medical provider's letter says the same and asks them to update their records. Those two go by email or fax, whichever the CRM notes say that party prefers. And notice what's missing from those two letters: the reason.",
+      "ask": "Why should the carrier never learn why the firm withdrew?"
+    },
+    "rules": {
+      "say": "Six steps, always in this order. First, the gate: the status reads Pending Drop, and there's a note from Atty. Thorne or the Case Manager that the client was told. If either is missing, nothing goes out, because the letter must never be the client's first news. Second, prepare a Withdrawal Letter for every party on the file, over Atty. Thorne's signature, saved in Word and PDF. Third, send each one by its method. Fourth, annotate each dispatch with party, method and date, and save the sent letter to the file. Fifth, follow up on receipt. Sixth, switch the status to Dropped and keep the proof. An unresponsive client only gets here through the No Contact Protocol from Client Communications. We don't repeat it here; this is where it ends.",
+      "ask": "The status says Pending Drop but there's no note. What do you do?"
+    },
+    "model": {
+      "say": "Here's the whole close-out on one rail. Step one, the gate, with its two ticks: Pending Drop, and the client told. Step two, the three letters, client, carrier and provider, each saved in Word and PDF. Step three, the send: the client by her preferred method plus Certified Mail, carriers and providers by email or fax as the CRM says. Step four, annotate and save. Step five, follow up on the return receipt, the acknowledgement and the fax confirmation. And step six, the status flips from Pending Drop to Dropped, with the proof retained. Every step leaves a record, and that record is what the firm points to if anyone ever asks.",
+      "ask": "Which step do you think gets skipped most often in a busy week?"
+    },
+    "job": {
+      "say": "Here's how it runs on the job. The trigger is the status Pending Drop, with Atty. Thorne's note that the client was told. You open the Action Plan Editor and prepare each party's Withdrawal Letter from the template, for his signature, and you save each one in Word and PDF. Once the letters are signed, you send each by its method, by email, text, fax or Certified Mail, and you log the party, the method and the date in the Communications Log. And once the receipts are followed up, you switch the status to Dropped and file the proof in Documents: the receipts, the logs and the attorney's note."
+    },
+    "dodont": {
+      "say": "Time for 3 Clues, 1 Rule. I'll read three clues, one at a time, from a dropped practice file. Call it, Do or Don't, and name the rule. You'll want everything from this lesson: checking the gate before you open the template, sending the client's letter two ways with one of them giving us proof, keeping the reason out of a carrier's or provider's letter, holding the status change until every letter is out and logged, and never telling a client the case is worthless. That last one isn't a style point. Whether a claim had value is Atty. Thorne's to discuss, never ours.",
+      "ask": "If a clue has the client asking what her claim was worth, whose conversation is that?"
+    }
+  },
+  "d5m6-a1": {
+    "case": {
+      "say": "This one's a practice matter, not John Doe's file, so don't open it or create it in the CMS. It's 12/09/2026. Denise Harlow was rear-ended at a red light on 09/19/2026. Granite Shield Insurance has the BI claim, GS-26-48213, and the CRM says its adjuster, Paul Ostrander, takes email only. She treated at Brookside Physical Therapy from 09/24 to 10/29/2026, then stopped. She has no Health Plan to pay for care, and Brookside declined a Letter of Protection. Atty. Thorne has decided to drop the case. The status is Pending Drop, and his note from 12/08/2026 says he called Denise, she understood, her address at 87 Alder Creek Dr is confirmed, and she prefers text and email.",
+      "ask": "Before you draft a word, which two things on this file do you check?"
+    },
+    "task": {
+      "say": "You'll work in the Action Plan Editor. Record the gate you checked. Then draft three Withdrawal Letters for Atty. Thorne's signature. Denise's carries the date, her name, the date of loss, the reason in his note's words, and the next step he approves: speak to another attorney promptly, because time limits apply. Granite Shield's and Brookside's carry the date, the client, the date of loss and the claim number, and say only that the firm no longer represents her. Name each send method and why. Then write the close-out log: Word and PDF saved, each dispatch annotated, the follow-up, the switch to Dropped and the proof retained. And be ready for Denise's call, because she'll ask whether her case was worthless.",
+      "ask": "What will you say when Denise asks whether her case was worthless?"
+    },
+    "check": {
+      "say": "Check your work before you log it. The gate is recorded: Pending Drop and Atty. Thorne's 12/08/2026 note, both confirmed before anything was prepared. Denise's letter is dated 12/09/2026, names the 09/19/2026 date of loss, quotes his reason and gives the approved next step. Granite Shield's letter shows claim GS-26-48213 and the date of loss, Brookside's asks them to update their records, and neither says why. Every letter is saved in Word and PDF. Denise gets text, email and Certified Mail to 87 Alder Creek Dr, Granite Shield gets email, and Brookside gets a fax. Each dispatch is logged, the follow-up is on 12/16/2026, and the status moves to Dropped only after that, with the proof kept.",
+      "ask": "Does any letter except Denise's mention treatment or insurance?"
+    }
+  },
+  "d5m6-kc": {
+    "questions": {
+      "say": "Three questions, answered from the practice matter in your own words, under each one. First, name the two things you confirm before any Withdrawal Letter goes out, and why both matter. Second, tell me what goes in Denise Harlow's letter that doesn't go in Granite Shield's or Brookside's, and why we keep it that way. Third, Denise's letters went out on 12/09/2026: what has to be true before her status becomes Dropped, and what proof stays in the file? Names, dates and methods, please, not general rules.",
+      "ask": "Which of the three letters is the only one that explains why?"
+    },
+    "summary": {
+      "say": "Now your self-summary. In your own words, what did you learn closing a Dropped Case? I want the principles behind the close-out, not the clicks. Then your strategy: Denise's letters are out, and on 12/16/2026 her return receipt still hasn't come back. What's your next action, and why is it the right one rather than something else? And be honest about the one thing in this module you're least sure of. Keep the line in mind as you write: if your answer explains the drop to Denise, or tells her what to do next, it has crossed into Atty. Thorne's territory.",
+      "ask": "Whose job is it to tell Denise why her case was dropped?"
+    },
+    "scale": {
+      "say": "Last, rate yourself from 1 to 5 on each skill: confirming the Pending Drop gate before anything goes out, drafting a Withdrawal Letter for each party, choosing and logging each send method, and closing the file with proof and without advice. Submit it for review, and I'll compare your rating with your answers. A wide gap either way is worth a conversation, not a grade. Then we move to the last phase of the course, John Doe's award and disbursement.",
+      "ask": "Which of these four skills would you most want to practice again?"
+    }
+  },
   "d5m5-l1": {
     "why": {
       "say": "Put the two nets side by side. On Track A, John Doe netted $20,359.92. On Track B, the 07/06/2027 award brings in the same $40,000.00 gross, and he nets $14,713.75. So what changed? Not the gross. Keystone's stonewall turned a $40,000.00 settlement into a lawsuit, a mediation and an arbitration, and that moved three things: the fee tier, the costs and the lien math. John's going to notice that difference, and he deserves to understand it. That's what the Net Sheet does. It shows him exactly why, line by line, before he signs anything.",

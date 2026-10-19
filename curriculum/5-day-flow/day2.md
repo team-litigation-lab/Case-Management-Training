@@ -237,7 +237,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 > **Lesson** · Day 2 — Client contact, treatment & pre-demand · Case Phase 1: Client Communications · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** No Contact Protocol Steps 4 to 6, and when the search begins  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** LSH Claims Specialist: No Contact Protocol, Steps 4–6; withdrawal letters · D5 agenda: MIA Clients
+> **Theory extracted from:** LSH Claims Specialist: No Contact Protocol, Steps 4–6; Withdrawal Letters · D5 agenda: MIA Clients
 
 #### 1 · Visual Layout Description
 

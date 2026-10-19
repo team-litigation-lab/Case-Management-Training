@@ -224,5 +224,6 @@ window.CM_CF_DOC_PACKETS = {
   "d5m2-a1": ["RS45", "RS46", "RS54"], "d5m2-a2": ["RS47", "RS48", "RS46"],
   "d5m3-a1": ["RS56", "RS20", "RS14"], "d5m3-a2": ["RS53", "RS20", "RS16", "RS12"],
   "d5m4-a1": ["RS53", "RS07", "RS08", "RS09", "RS10", "RS11", "RS14"], "d5m4-a2": ["RS52", "RS01"],
-  "d5m5-a1": ["RS05", "RS44", "RS58", "RS59"]
+  "d5m5-a1": ["RS05", "RS44", "RS58", "RS59"],
+  "d5m6-a1": ["RS05"]   // a practice matter (Denise Harlow), not John Doe's file: RS05 shows the firm's standard retainer and its withdrawal terms
 };
