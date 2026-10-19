@@ -659,8 +659,8 @@ window.CM_CF_SIM = {
    "channel": "memo",
    "from": "Atty. Elijah Thorne",
    "to": "Case Manager",
-   "subject": "Practice matter: the Carver drop, Withdrawal Letters today",
-   "body": "Practice matter, not the Doe file. I've dropped Denise Carver's case: no Health Plan, no care since 10/29/2026. I told her yesterday; my note is on her file and the status is Pending Drop. Draft her letter, Granite Shield's and Brookside's for my signature, send each the way the CRM says, and log everything. Only hers gives the reason."
+   "subject": "Practice matter: the Harlow drop, Withdrawal Letters today",
+   "body": "Practice matter, not the Doe file. I've dropped Denise Harlow's case: no Health Plan, no care since 10/29/2026. I told her yesterday; my note is on her file and the status is Pending Drop. Draft her letter, Granite Shield's and Brookside's for my signature, send each the way the CRM says, and log everything. Only hers gives the reason."
   },
   "d5m5-a1": {
    "date": "07/22/2027",
@@ -940,11 +940,11 @@ window.CM_CF_SIM = {
    "line": "Margaret is not the client: the CM shares nothing on the case and never advises."
   },
   "d5m6-a1": {
-   "who": "Denise Carver",
+   "who": "Denise Harlow",
    "role": "client",
    "persona": "Hurt and embarrassed more than angry; feels the firm gave up because she couldn't pay for therapy. Pushes for an answer on whether her case was worthless.",
-   "context": "12/10/2026, a practice matter, not the Doe file. Denise Carver was rear-ended 09/19/2026 and treated at Brookside Physical Therapy until 10/29/2026; she has no Health Plan, and Brookside declined a Letter of Protection. Atty. Thorne dropped the case and told her 12/08. Her Withdrawal Letter came by text and email 12/09; Certified Mail is on its way. She asks whether the case was worthless, whether restarting therapy would change things, and what to do now. She calms when she is heard and given a clear next step.",
-   "opening": "Hi, it's Denise Carver. I got your text with the letter. So that's it? Because I couldn't pay for therapy, my case was just... worthless?",
+   "context": "12/10/2026, a practice matter, not the Doe file. Denise Harlow was rear-ended 09/19/2026 and treated at Brookside Physical Therapy until 10/29/2026; she has no Health Plan, and Brookside declined a Letter of Protection. Atty. Thorne dropped the case and told her 12/08. Her Withdrawal Letter came by text and email 12/09; Certified Mail is on its way. She asks whether the case was worthless, whether restarting therapy would change things, and what to do now. She calms when she is heard and given a clear next step.",
+   "opening": "Hi, it's Denise Harlow. I got your text with the letter. So that's it? Because I couldn't pay for therapy, my case was just... worthless?",
    "goals": [
     "Listen, acknowledge her frustration and confirm the letter reached her",
     "Give no view on the claim's worth or on restarting treatment",

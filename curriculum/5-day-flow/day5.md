@@ -1840,7 +1840,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 > **Skill Activity** · Day 5 — Litigation — Track B · Case Phase 5: Dropped Cases & Withdrawal Letters · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Skill Activity — a practice matter: three Withdrawal Letters, their dispatch and the Dropped status  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** LSH Claims Specialist: Dropped Cases — sending Withdrawal Letters to clients, carriers and medical providers; the sample letters by email, by text, to a carrier and to a provider · Newly authored: the Denise Carver practice matter (no health insurance, treatment ended, Pending Drop)
+> **Theory extracted from:** LSH Claims Specialist: Dropped Cases — sending Withdrawal Letters to clients, carriers and medical providers; the sample letters by email, by text, to a carrier and to a provider · Newly authored: the Denise Harlow practice matter (no health insurance, treatment ended, Pending Drop)
 
 #### 1 · Visual Layout Description
 
@@ -1848,7 +1848,7 @@ A PRACTICE MATTER banner in orange across the top: DENISE CARVER · LSH-2026-MVA
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** A practice matter, not John Doe's file: do not open or create it in the CMS. File date 12/09/2026. Denise Carver (LSH-2026-MVA-781205) was rear-ended at a red light on 09/19/2026. Granite Shield Insurance holds the BI claim, GS-26-48213 (adjuster Paul Ostrander; CRM note: email only). She treated at Brookside Physical Therapy (CRM note: fax only) from 09/24 to 10/29/2026, then stopped: she has no Health Plan to pay for care, and Brookside declined a Letter of Protection. Atty. Thorne has decided to drop the case. Status: Pending Drop. His note, 12/08/2026, 2:10 p.m.: called Denise, told her the firm will close its representation; she understood; address 87 Alder Creek Dr, Riverton confirmed; she prefers text and email (denise.carver@mail.example). RS05 shows the firm's standard retainer, with the withdrawal terms every client signs.
+**Scenario.** A practice matter, not John Doe's file: do not open or create it in the CMS. File date 12/09/2026. Denise Harlow (LSH-2026-MVA-781205) was rear-ended at a red light on 09/19/2026. Granite Shield Insurance holds the BI claim, GS-26-48213 (adjuster Paul Ostrander; CRM note: email only). She treated at Brookside Physical Therapy (CRM note: fax only) from 09/24 to 10/29/2026, then stopped: she has no Health Plan to pay for care, and Brookside declined a Letter of Protection. Atty. Thorne has decided to drop the case. Status: Pending Drop. His note, 12/08/2026, 2:10 p.m.: called Denise, told her the firm will close its representation; she understood; address 87 Alder Creek Dr, Riverton confirmed; she prefers text and email (denise.harlow@mail.example). RS05 shows the firm's standard retainer, with the withdrawal terms every client signs.
 
 **Execution prompt.** Close out the drop in the Action Plan Editor. Record the gate you checked. Draft three Withdrawal Letters for Atty. Thorne's signature: to Denise (date, name, date of loss, the reason in his note's words, and the next step he approves: speak to another attorney promptly, because time limits apply), and one each to Granite Shield and to Brookside (date, client, date of loss, claim number, that the firm no longer represents her; nothing about why). Name each send method and why. Then write the close-out log: Word and PDF saved, each dispatch annotated, the follow-up, the switch to Dropped and the proof retained. Graded judgment: what you say if Denise calls to ask whether her case was worthless.
 
@@ -1859,8 +1859,8 @@ A PRACTICE MATTER banner in orange across the top: DENISE CARVER · LSH-2026-MVA
 
 **Verification checkpoints**
 
-- [ ] Gate recorded: status “Pending Drop” and Atty. Thorne's 12/08/2026 note that Denise Carver was told; nothing prepared to send before both were confirmed
-- [ ] Client letter: 12/09/2026, Denise Carver, date of loss 09/19/2026, the reason in Atty. Thorne's words (treatment ended 10/29/2026, so the firm cannot continue the claim), the approved next step (speak to another attorney promptly; time limits apply), signed by Atty. Thorne
+- [ ] Gate recorded: status “Pending Drop” and Atty. Thorne's 12/08/2026 note that Denise Harlow was told; nothing prepared to send before both were confirmed
+- [ ] Client letter: 12/09/2026, Denise Harlow, date of loss 09/19/2026, the reason in Atty. Thorne's words (treatment ended 10/29/2026, so the firm cannot continue the claim), the approved next step (speak to another attorney promptly; time limits apply), signed by Atty. Thorne
 - [ ] Granite Shield letter: client, claim GS-26-48213, date of loss 09/19/2026, the firm no longer represents her; Brookside letter: patient, date of loss, the firm no longer represents her, please update your records; neither gives the reason
 - [ ] Every letter saved in Word and PDF
 - [ ] Methods: Denise by text and email (subject “Notice of Withdrawal of Representation”, PDF attached, a brief description) plus Certified Mail with return receipt to 87 Alder Creek Dr; Granite Shield by email and Brookside by fax, per the CRM notes
@@ -1893,7 +1893,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **10%** | Gate | Pending Drop and the 12/08/2026 note both confirmed before anything is prepared to send |
-| 🤖 AI | **15%** | Client letter | 12/09/2026, Denise Carver, 09/19/2026, the reason in Atty. Thorne's words, the approved next step, his signature |
+| 🤖 AI | **15%** | Client letter | 12/09/2026, Denise Harlow, 09/19/2026, the reason in Atty. Thorne's words, the approved next step, his signature |
 | 🤖 AI | **15%** | Carrier and provider letters | GS-26-48213 and the date of loss on each; no reason given; “please update your records” to Brookside |
 | 🤖 AI | **20%** | Methods and close-out log | Text, email and Certified Mail; email; fax; Word and PDF; dispatch logged; follow-up 12/16/2026; Dropped with proof |
 | 🧑‍🏫 Trainer | **20%** | Judgment | Keeps the reason to the client's letter and the status change behind the follow-up |
@@ -1914,7 +1914,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 > **Knowledge Check** · Day 5 — Litigation — Track B · Case Phase 5: Dropped Cases & Withdrawal Letters · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** LSH Claims Specialist: Dropped Cases — Withdrawal Letters and closing the file · Newly authored: the Denise Carver practice matter
+> **Theory extracted from:** LSH Claims Specialist: Dropped Cases — Withdrawal Letters and closing the file · Newly authored: the Denise Harlow practice matter
 
 #### 1 · Visual Layout Description
 
@@ -1923,7 +1923,7 @@ The standard knowledge-check split. Upper half: the cream question panel with or
 #### 2 · Slide Body — Knowledge verification
 
 1. Name the two things you confirm before any Withdrawal Letter goes out, and why both matter.
-2. What goes in Denise Carver's letter that does not go in Granite Shield's or Brookside's, and why?
+2. What goes in Denise Harlow's letter that does not go in Granite Shield's or Brookside's, and why?
 3. Denise's three letters went out 12/09/2026. What must be true before her status becomes “Dropped”, and what proof stays in the file?
 
 **Best practices & pitfalls**
@@ -1954,10 +1954,10 @@ The standard knowledge-check split. Upper half: the cream question panel with or
 1. A practice file shows status “Pending Drop”, but no note from Atty. Thorne or the Case Manager says the client has been told. What happens before any Withdrawal Letter goes out?  
    The client's letter goes by Certified Mail, so it serves as the notice · **✓ Every letter is held until Atty. Thorne confirms, in a note on the file, that the client was told** · The Case Manager calls the client to explain why the firm is dropping the case · The carrier's and provider's letters go now; the client's waits  
    *Two gates come first: the status is Pending Drop AND a note shows the client was told, so the letter is never the client's first news. Telling the client is Atty. Thorne's conversation; nothing goes to any party until both gates are met.*
-2. Denise Carver's three Withdrawal Letters are signed. Which dispatch plan follows the firm's close-out?  
+2. Denise Harlow's three Withdrawal Letters are signed. Which dispatch plan follows the firm's close-out?  
    **✓ Denise by text and email, her preferred methods, plus Certified Mail with return receipt; Granite Shield by email and Brookside Physical Therapy by fax, as the CRM notes say; each dispatch logged, every letter saved in Word and PDF** · Everyone by Certified Mail only, and the status switched to “Dropped” the same day · Denise by text only; Granite Shield and Brookside by phone, logged afterwards · Denise by email, with Granite Shield and Brookside copied, so everyone sees the reason  
    *The client gets her preferred method plus Certified Mail for proof of receipt; carriers and providers get email or fax as the CRM notes say. The reason stays in the client's letter. The status moves to Dropped only once every letter is sent, logged and followed up.*
-3. Denise Carver calls after her letter arrives: “So my case was worthless?” Which answer stays inside the Case Manager's role?  
+3. Denise Harlow calls after her letter arrives: “So my case was worthless?” Which answer stays inside the Case Manager's role?  
    “Without treatment there was nothing to claim, so yes.” · “If you find a clinic and restart treatment, the firm may take the case back.” · **✓ “I can't speak to the value of your claim. Atty. Thorne made this decision and will call you to talk it through. Your letter also explains that time limits apply and suggests you speak to another attorney promptly.”** · “The firm thinks your case is too weak, but another lawyer might disagree.”  
    *The Case Manager never values the claim, never re-argues or explains the decision and never advises on next steps. She points Denise only to what Atty. Thorne approved: his call back and the letter's direction to seek other counsel promptly, then logs the call and routes it.*
 
@@ -1975,7 +1975,7 @@ The standard knowledge-check split. Upper half: the cream question panel with or
 
 #### 5 · Speaker Notes
 
-- Answers come from the practice matter: Denise Carver, 12/08 and 12/09/2026, Granite Shield by email, Brookside by fax.
+- Answers come from the practice matter: Denise Harlow, 12/08 and 12/09/2026, Granite Shield by email, Brookside by fax.
 - The UPL gate: a trainee who explains the drop to Denise, or tells her what to do next, has crossed the line, whatever the rest of the answer.
 
 ---

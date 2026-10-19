@@ -7272,7 +7272,7 @@ window.CM_CF_SLIDES = {
   "clues": {
    "dos": [
     [
-     "Denise Carver's file reads Pending Drop on 12/08/2026.",
+     "Denise Harlow's file reads Pending Drop on 12/08/2026.",
      "Before drafting anything, the Case Manager looks for Atty. Thorne's note.",
      "The note confirms Denise was told by phone at 2:10 p.m."
     ],
@@ -7303,7 +7303,7 @@ window.CM_CF_SLIDES = {
  },
  "d5m6-a1": {
   "image": "email-outreach",
-  "situation": "Practice matter, 12/09/2026: Denise Carver has **no Health Plan** and stopped treatment 10/29/2026. Atty. Thorne dropped the case and told her 12/08. Status: **Pending Drop**.",
+  "situation": "Practice matter, 12/09/2026: Denise Harlow has **no Health Plan** and stopped treatment 10/29/2026. Atty. Thorne dropped the case and told her 12/08. Status: **Pending Drop**.",
   "steps": [
    "Record **the gate**: Pending Drop and Atty. Thorne's note",
    "Draft Denise's letter with **his reason and next step**",

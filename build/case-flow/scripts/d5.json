@@ -446,7 +446,7 @@
   },
   "d5m6-a1": {
     "case": {
-      "say": "This one's a practice matter, not John Doe's file, so don't open it or create it in the CMS. It's 12/09/2026. Denise Carver was rear-ended at a red light on 09/19/2026. Granite Shield Insurance has the BI claim, GS-26-48213, and the CRM says its adjuster, Paul Ostrander, takes email only. She treated at Brookside Physical Therapy from 09/24 to 10/29/2026, then stopped. She has no Health Plan to pay for care, and Brookside declined a Letter of Protection. Atty. Thorne has decided to drop the case. The status is Pending Drop, and his note from 12/08/2026 says he called Denise, she understood, her address at 87 Alder Creek Dr is confirmed, and she prefers text and email.",
+      "say": "This one's a practice matter, not John Doe's file, so don't open it or create it in the CMS. It's 12/09/2026. Denise Harlow was rear-ended at a red light on 09/19/2026. Granite Shield Insurance has the BI claim, GS-26-48213, and the CRM says its adjuster, Paul Ostrander, takes email only. She treated at Brookside Physical Therapy from 09/24 to 10/29/2026, then stopped. She has no Health Plan to pay for care, and Brookside declined a Letter of Protection. Atty. Thorne has decided to drop the case. The status is Pending Drop, and his note from 12/08/2026 says he called Denise, she understood, her address at 87 Alder Creek Dr is confirmed, and she prefers text and email.",
       "ask": "Before you draft a word, which two things on this file do you check?"
     },
     "task": {
@@ -460,7 +460,7 @@
   },
   "d5m6-kc": {
     "questions": {
-      "say": "Three questions, answered from the practice matter in your own words, under each one. First, name the two things you confirm before any Withdrawal Letter goes out, and why both matter. Second, tell me what goes in Denise Carver's letter that doesn't go in Granite Shield's or Brookside's, and why we keep it that way. Third, Denise's letters went out on 12/09/2026: what has to be true before her status becomes Dropped, and what proof stays in the file? Names, dates and methods, please, not general rules.",
+      "say": "Three questions, answered from the practice matter in your own words, under each one. First, name the two things you confirm before any Withdrawal Letter goes out, and why both matter. Second, tell me what goes in Denise Harlow's letter that doesn't go in Granite Shield's or Brookside's, and why we keep it that way. Third, Denise's letters went out on 12/09/2026: what has to be true before her status becomes Dropped, and what proof stays in the file? Names, dates and methods, please, not general rules.",
       "ask": "Which of the three letters is the only one that explains why?"
     },
     "summary": {

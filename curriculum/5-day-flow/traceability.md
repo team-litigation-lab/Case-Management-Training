@@ -315,9 +315,9 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: No Contact Protocol — the decision point (Notice of Withdrawal or Motion to Withdraw) and file closure
 - Newly authored: no health insurance as a drop reason; the reason kept to the client's letter; the six-step close-out in order
 - LSH Claims Specialist: Dropped Cases — sending Withdrawal Letters to clients, carriers and medical providers; the sample letters by email, by text, to a carrier and to a provider
-- Newly authored: the Denise Carver practice matter (no health insurance, treatment ended, Pending Drop)
+- Newly authored: the Denise Harlow practice matter (no health insurance, treatment ended, Pending Drop)
 - LSH Claims Specialist: Dropped Cases — Withdrawal Letters and closing the file
-- Newly authored: the Denise Carver practice matter
+- Newly authored: the Denise Harlow practice matter
 
 ## Newly authored
 
@@ -347,4 +347,4 @@ Where neither source had the theory, it was written for this flow and is marked 
 - **Rental cap vs. reasonable repair time, the 17c critique and the PD-only release** — Day 5 · Module 2
 - **The remote-deposition room protocol and compound or loaded-question traps** — Day 5 · Module 3
 - **Authentication and chain of custody in the liability counter-package; the No Contact Protocol against a deposition date** — Day 5 · Module 4
-- **The Case Manager's close-out of a Dropped Case: the Pending Drop gate, Withdrawal Letters to the client, carriers and providers (the reason only in the client's), each send method, the Dropped status and its proof; no health insurance as a drop reason; the Denise Carver practice matter** — Day 5 · Module 6 — from the firm's Claims Specialist deck “Dropped Cases”; the No Contact Protocol stays in Client Communications, and John Doe's case is never dropped
+- **The Case Manager's close-out of a Dropped Case: the Pending Drop gate, Withdrawal Letters to the client, carriers and providers (the reason only in the client's), each send method, the Dropped status and its proof; no health insurance as a drop reason; the Denise Harlow practice matter** — Day 5 · Module 6 — from the firm's Claims Specialist deck “Dropped Cases”; the No Contact Protocol stays in Client Communications, and John Doe's case is never dropped
