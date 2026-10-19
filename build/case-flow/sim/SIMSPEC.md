@@ -88,6 +88,7 @@ Calls for **Days 3–5** (in `days345.json`):
 | D5 · Deposition Preparation | `d5m3-a1` | John Doe — deposition prep |
 | D5 · Deposition Preparation (second) | `d5m3-a2` | Defense counsel Atty. Grant Mercer — mock cross |
 | D5 · Liability Disputes & Skip-Tracing | `d5m4-a2` | Margaret Doe — John has gone quiet before his deposition |
+| D5 · Dropped Cases & Withdrawal Letters | `d5m6-a1` | Denise Carver (a practice matter, not the Doe file) — “was my case worthless?” after her Withdrawal Letter |
 
 Use the names the data already uses (adjusters, counsel, providers); if the block names a different person for
 that role, use the block's.
