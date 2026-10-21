@@ -413,179 +413,12 @@ window.CM_CF_SLIDES = {
    "Accepting **a pre-filled field** unchecked"
   ]
  },
- "d1m1-a1": {
-  "image": "insurance-stack",
-  "situation": "All three carriers reported limits **on the set-up calls**. **No Declaration Page** has arrived yet; Keystone wants authorizations first. Nothing is in the CMS Insurance tab.",
-  "steps": [
-   "Enter all three layers in **order of operations**",
-   "Record carrier, policy and claim numbers, limit and **adjuster for each**",
-   "Classify each layer as **first-party or third-party**",
-   "In Comments: carrier's name, differing driver, adjuster or **“none assigned yet”**",
-   "Verify the total, record the pursuit order, **mark the projection preliminary**"
-  ],
-  "deliver": "A three-layer Coverage Matrix **totalling $40,000**, each layer classified, ordered and attributed",
-  "checks": [
-   "Limits **$10,000 / $20,000 / $10,000**; total $40,000",
-   "Order recorded: **BI → Host UM → Relative UM**",
-   "BI third-party; **both UM layers first-party**",
-   "Relative UM adjuster: **“No adjuster assigned yet”**, not blank",
-   "Each limit's source recorded; projection **marked preliminary**"
-  ],
-  "dos": [
-   "Record **where each limit came from**"
-  ],
-  "donts": [
-   "Quoting a likely limit **before written confirmation**"
-  ]
- },
- "d1m1-l2": {
-  "image": "money-ledger",
-  "hook": "A reimbursement claim found after the demand comes out of **the client's net**.",
-  "points": [
-   "Clear the Triple-Check first: **HIPAA, BCRC, Payer Order**",
-   "Payer Order: PIP/MedPay, private health insurance, **then LOP/provider liens**",
-   "The Payer Order pays the bills; **the $40,000 stack** pays the claim",
-   "Flag the plan's reimbursement right **before the first demand**"
-  ],
-  "upl": "Report what a plan asserts; never judge enforceability or compromise without counsel",
-  "job": [
-   [
-    "Retainer signed",
-    "Get claim-specific HIPAA authorization",
-    "CMS → Documents",
-    "Authorization names 02/06/2026"
-   ],
-   [
-    "Age and benefits known",
-    "Verify SSDI status; report if required",
-    "CMS → Case Notes",
-    "BCRC answer logged, dated"
-   ],
-   [
-    "Plan pays accident-related bill",
-    "Record and flag the lien",
-    "CMS → Liens → Flag",
-    "Flag set before any demand"
-   ]
-  ],
-  "dos": [
-   "Clear the triple-check **before clinical planning**",
-   "Log the **BCRC report date** or verified “not required”"
-  ],
-  "donts": [
-   "Using a generic release **without the incident date**",
-   "Reassuring the client **“insurance will cover it”**"
-  ],
-  "theory": {
-   "lead": "Before clinical planning, the **Regulatory Triple-Check** establishes the claim and your authority to act; the Payer Order then decides who funds care.",
-   "concepts": [
-    {
-     "term": "Subrogation",
-     "text": "A payer's right to stand in the client's shoes and **recover what it paid** for accident care"
-    },
-    {
-     "term": "Primary Payer Determination",
-     "text": "Deciding which payer is billed first, so each bill **goes to the right payer** and nothing is paid twice"
-    },
-    {
-     "term": "Letter of Protection",
-     "text": "The firm's written promise to pay a provider from the settlement: **last in the Payer Order**"
-    },
-    {
-     "term": "The Client's Net",
-     "text": "What the client keeps once fees, costs and liens are paid: **a late-flagged lien** comes straight out of it"
-    }
-   ],
-   "pages": [
-    "D1#25",
-    "D1#22"
-   ],
-   "framework": {
-    "title": "The Regulatory Triple-Check",
-    "kind": "table",
-    "head": [
-     "Check",
-     "What you do",
-     "Why it matters"
-    ],
-    "rows": [
-     [
-      "HIPAA Compliance",
-      "Obtain a claim-specific authorization naming the incident date",
-      "A standard release may not be adequate for injury claims"
-     ],
-     [
-      "Medicare/Medicaid Reporting",
-      "If 65+ or on SSDI, report the case to the BCRC",
-      "Avoids federal penalties and **settlement freezes** under MMSEA"
-     ],
-     [
-      "Subrogation Management",
-      "Set the Payer Order: PIP/MedPay → private health insurance → LOP/provider liens",
-      "Each bill reaches the right payer; reimbursement rights surface early"
-     ]
-    ],
-    "note": "Clear all three before clinical planning begins: the claim is established and you are authorized to act."
-   }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Retainer signed, John Doe is ready to start treatment talks.",
-     "HIPAA release, BCRC answer, and Payer Order sit on a checklist.",
-     "All three are cleared first; only then does treatment mapping begin."
-    ],
-    [
-     "John Doe is 34, so the age trigger is ruled out.",
-     "His SSDI status still needs checking under MMSEA rules from 2007.",
-     "The Benefits Coordination & Recovery Center answer gets logged with its timestamp."
-    ]
-   ],
-   "donts": [
-    [
-     "Peach State and providers need permission to share John Doe's records.",
-     "A boilerplate HIPAA form goes out from the supply drawer.",
-     "Nowhere on it does 02/06/2026 appear, so providers may balk."
-    ],
-    [
-     "John Doe worries out loud about his growing Medical Bills.",
-     "Peach State has already asserted reimbursement against any settlement.",
-     "You tell him not to worry, the plan pays everything."
-    ]
-   ]
-  }
- },
- "d1m1-a2": {
-  "image": "lien-scale",
-  "situation": "Peach State Health Plan has begun paying John Doe's accident-related treatment. **No lien record exists** yet, and **the pre-demand audit** is still ahead.",
-  "steps": [
-   "Register Peach State's claim and **flag it against the matter**",
-   "Enter carrier, **member ID and group number**",
-   "Record its **payer-order position** and the reimbursement basis",
-   "Date the flag and attach **the Triple-Check results**",
-   "State what must happen **before any compromise**"
-  ],
-  "deliver": "A **dated, flagged lien record** you could negotiate from on Day 3",
-  "checks": [
-   "Carrier: **Peach State Health Plan**",
-   "**PSH-55017742 and GRP-41208** both entered",
-   "Position: **after PIP/MedPay, before LOP/provider liens**",
-   "Flag dated **before any demand** is drafted",
-   "Compromise needs **Atty. Thorne's authority**"
-  ],
-  "dos": [
-   "Registering a lien **is not conceding it**"
-  ],
-  "donts": [
-   "Finding the lien **at disbursement**"
-  ]
- },
  "d1m1-kc": {
   "image": "knowledge-check",
   "questions": [
-   "List the **three coverage layers** in pursuit order, with each limit and the total.",
-   "How does John Doe being a **front-seat passenger** change the recovery? What if he'd driven his own car?",
-   "Why can't Host UM be demanded **before BI is exhausted** or tendered? What does the wrong order cost?"
+   "Name the **six stages** in order. What does the CM own at Intake & Case Opening?",
+   "John Doe asks what his case is **worth**. Who answers, and what do you log?",
+   "What must happen **before the matter is created** in the CMS, and on whose names?"
   ]
  },
  "d1m2-l1": {
@@ -1189,7 +1022,7 @@ window.CM_CF_SLIDES = {
     "Reason a colleague can follow"
    ],
    [
-    "Coverage verified, triple-check cleared",
+    "Coverage verified in writing",
     "Draft all five bands",
     "Action Plan Editor",
     "Risks band populated"
@@ -1279,7 +1112,7 @@ window.CM_CF_SLIDES = {
     [
      "The Three-Pillar Case Plan for John Doe hits Atty. Thorne's desk.",
      "PT and specialty consults fill the page with goals.",
-     "Return-to-work status and the Payer Order appear nowhere on it."
+     "Return-to-work status and who pays the bills appear nowhere on it."
     ],
     [
      "The verification call has confirmed John Doe's facts of loss.",
@@ -1438,10 +1271,10 @@ window.CM_CF_SLIDES = {
  },
  "d1m4-a2": {
   "image": "cms-screen",
-  "situation": "Day 1's work is in: parties mapped, **$40,000 stack verified**, triple-check cleared, packet tracked, **14-Day Treatment Gap** identified. Atty. Thorne awaits the Case Plan.",
+  "situation": "The set-up is in: parties mapped, **$40,000 stack verified**, packet tracked, **14-Day Treatment Gap** identified. Atty. Thorne awaits the Case Plan.",
   "steps": [
    "Snapshot: record **the acceptance decision** and its reason",
-   "Coverage stack and order, liability, **preliminary projection**, triple-check results",
+   "Coverage stack and order, liability, **preliminary projection**; triple-check held open",
    "Pillars: **measurable goals**; each action item with owner and date",
    "Risks: **14-Day Gap and later breaks in care**, prominently, with consequences",
    "Docket the filing window, then **route to Atty. Thorne**"
@@ -1468,173 +1301,6 @@ window.CM_CF_SLIDES = {
    "Why has **an adverse fact buried** in a plan's body not really been disclosed to counsel?",
    "State John Doe's coverage as the plan should: layers, limits, total, **order of operations**, projection status."
   ]
- },
- "d2m1-cov": {
-  "image": "insurance-stack",
-  "hook": "Send each bill to **the right first payer**, or it comes back as a lien",
-  "points": [
-   "Sort every coverage: **whose it is**, and what it pays",
-   "Only BI and UM are **the $40,000 Recovery Stack**",
-   "Payer-First: **MedPay, then Peach State**, an LOP last",
-   "Verify PIP and UM in writing; **never assume either**"
-  ],
-  "upl": "Route bills in the default order; primacy and lien enforceability are Atty. Thorne's",
-  "job": [
-   [
-    "Coverage confirmed in writing",
-    "Place it: stack, Payer Order, outside",
-    "CMS → Coverage Matrix",
-    "Stack $40,000; MedPay outside it"
-   ],
-   [
-    "A provider asks whom to bill",
-    "Route it by Payer-First order",
-    "CMS → MedPay ledger",
-    "MedPay, Peach State, then LOP"
-   ],
-   [
-    "A provider asks for an LOP",
-    "Check MedPay and network first",
-    "CMS → Liens → LOP register",
-    "Atty. Thorne approves any LOP"
-   ]
-  ],
-  "dos": [
-   "Verify every coverage in writing: **a dated Declaration Page**",
-   "Confirm the Health Plan was **active on the loss date**",
-   "Keep the Payer Order and **the Recovery Stack apart**"
-  ],
-  "donts": [
-   "An LOP to a provider **MedPay would have paid**",
-   "MedPay, PD or collision **added to the stack**",
-   "Assuming PIP, or **UM on the client's own policy**"
-  ],
-  "theory": {
-   "lead": "Every policy answers **two questions**: whose is it, and what does it pay? The Payer-First Principle then decides which payer each Medical Bill goes to first.",
-   "concepts": [
-    {
-     "term": "Third-Party vs. First-Party",
-     "text": "Third-party is the at-fault driver's coverage; first-party answers to the client's side: **who you claim against** changes"
-    },
-    {
-     "term": "The Recovery Stack",
-     "text": "Only coverage that pays the claim stacks: BI, then the UM/UIM layers. **Bills and the car** stay outside"
-    },
-    {
-     "term": "No-Fault Medical Coverage",
-     "text": "MedPay and PIP pay accident Medical Bills **regardless of fault**, fast, while liability is still disputed"
-    },
-    {
-     "term": "UM by Status",
-     "text": "UM/UIM follows the person: an occupant reaches the vehicle's policy, **a resident relative the household's**"
-    },
-    {
-     "term": "Set-Off and Non-Duplication",
-     "text": "Some policies credit what MedPay or PIP paid against what they owe: **verify the form in writing**"
-    },
-    {
-     "term": "Subrogation vs. Non-Subrogation",
-     "text": "A payer with subrogation claims its payments back from the recovery; without it, **what it paid stays paid**"
-    },
-    {
-     "term": "Contract Rate and Write-Off",
-     "text": "An in-network provider takes the plan's rate and writes off the rest: **no balance billing**, a smaller lien"
-    },
-    {
-     "term": "Medicare Secondary Payer",
-     "text": "Medicare pays only after no-fault and liability coverage, and **recovers by statute**; report the case to the BCRC"
-    }
-   ],
-   "pages": [
-    "D2#25",
-    "D3#20"
-   ],
-   "framework": {
-    "title": "What Each Coverage Pays",
-    "kind": "table",
-    "head": [
-     "Coverage",
-     "Whose",
-     "Pays",
-     "Payback risk"
-    ],
-    "rows": [
-     [
-      "BI liability",
-      "The at-fault driver's (third-party)",
-      "The claim, for injuries he caused",
-      "None: it is the recovery"
-     ],
-     [
-      "UM/UIM",
-      "Client side: the vehicle or household",
-      "The claim, when BI is too small",
-      "Consent rules guard its subrogation"
-     ],
-     [
-      "MedPay",
-      "The occupied vehicle's policy",
-      "Medical Bills, no fault needed; no wages",
-      "By policy: **verify in writing**"
-     ],
-     [
-      "PIP",
-      "Client side, where a state requires it",
-      "Medical Bills, part of wages, services",
-      "Set-off or lien, by state law"
-     ],
-     [
-      "Health insurance",
-      "The client's own plan",
-      "Covered care at the contract rate",
-      "**Reimbursement right** on what it paid"
-     ],
-     [
-      "Medicare / Medicaid",
-      "Government payer",
-      "Care, after no-fault and liability",
-      "Recovery by statute; a BCRC report"
-     ]
-    ],
-    "note": "Payer-First: MedPay or PIP, then health insurance, then an LOP. Liability and UM pay the claim, not the bills"
-   }
-  },
-  "clues": {
-   "dos": [
-    [
-     "A carrier says Host UM is $20,000 on a quick call.",
-     "The Coverage Matrix wants a source and a date behind that figure.",
-     "Harbor Point's 03/02/2026 letter turns a phone figure into a confirmed layer."
-    ],
-    [
-     "Crescent Pain & Spine bills Peach State Health Plan for an injection.",
-     "A plan that began after the crash would pay nothing at all.",
-     "Peach State began 02/01/2026, five days before the collision."
-    ],
-    [
-     "Two lists sit side by side on John Doe's Insurance tab.",
-     "One says who pays the bills first; the other totals $40,000.",
-     "MedPay leads the Payer Order yet adds nothing to the BI and UM layers."
-    ]
-   ],
-   "donts": [
-    [
-     "Summit Imaging asks the firm for a Letter of Protection.",
-     "Harbor Point's $5,000 no-fault coverage still has room for the MRI.",
-     "A bill Harbor Point could cover turns into a lien on John Doe's net."
-    ],
-    [
-     "Someone totals every policy on the file to impress John Doe.",
-     "Keystone PD's $25,000 and Harbor Point's $5,000 land in the claim total.",
-     "The number he hears is more than BI and UM can pay."
-    ],
-    [
-     "A new file arrives and coverage gets filled in from memory.",
-     "No-fault wage benefits are presumed without a Declaration Page behind them.",
-     "John Doe's Bluewater UM was rejected in writing on 03/14/2024."
-    ]
-   ]
-  }
  },
  "d2m1-l1": {
   "image": "policy-letter",
@@ -1779,6 +1445,31 @@ window.CM_CF_SLIDES = {
     ]
    ]
   }
+ },
+ "d1m1-a1": {
+  "image": "insurance-stack",
+  "situation": "All three carriers reported limits **on the set-up calls**. **No Declaration Page** has arrived yet; Keystone wants authorizations first. Nothing is in the CMS Insurance tab.",
+  "steps": [
+   "Enter all three layers in **order of operations**",
+   "Record carrier, policy and claim numbers, limit and **adjuster for each**",
+   "Classify each layer as **first-party or third-party**",
+   "In Comments: carrier's name, differing driver, adjuster or **“none assigned yet”**",
+   "Verify the total, record the pursuit order, **mark the projection preliminary**"
+  ],
+  "deliver": "A three-layer Coverage Matrix **totalling $40,000**, each layer classified, ordered and attributed",
+  "checks": [
+   "Limits **$10,000 / $20,000 / $10,000**; total $40,000",
+   "Order recorded: **BI → Host UM → Relative UM**",
+   "BI third-party; **both UM layers first-party**",
+   "Relative UM adjuster: **“No adjuster assigned yet”**, not blank",
+   "Each limit's source recorded; projection **marked preliminary**"
+  ],
+  "dos": [
+   "Record **where each limit came from**"
+  ],
+  "donts": [
+   "Quoting a likely limit **before written confirmation**"
+  ]
  },
  "d2m1-a1": {
   "image": "email-outreach",
@@ -1987,7 +1678,7 @@ window.CM_CF_SLIDES = {
   "deliver": "A corrected matrix **totalling $40,000**, every status sourced, open items dated, note routed",
   "checks": [
    "BI: **still preliminary**; Declaration Page not until 03/20/2026",
-   "**MedPay moved out** of the stack into the Payer Order",
+   "**MedPay out** of the stack: it pays bills, not claims",
    "Stack total **$45,000 corrected to $40,000**",
    "BI follow-up **logged 03/11/2026**; next by 03/13/2026",
    "Bluewater's “UM: none” chased: **signed rejection form** (03/14/2024)"
@@ -2004,9 +1695,176 @@ window.CM_CF_SLIDES = {
   "image": "knowledge-check",
   "questions": [
    "Name every coverage, whose it is and what it pays. Which **three are the $40,000 stack**?",
-   "Apply **the Payer-First Principle** to Summit Imaging's 03/11/2026 LOP request. What would an LOP have cost?",
+   "Give each layer of the **Policy Stack** you built in the CMS: carrier, claim, limit, party, order.",
    "Name the **five letters** sent 02/17/2026: for each, the insured named and how it was addressed."
   ]
+ },
+ "d2m1-cov": {
+  "image": "insurance-stack",
+  "hook": "Send each bill to **the right first payer**, or it comes back as a lien",
+  "points": [
+   "Sort every coverage: **whose it is**, and what it pays",
+   "Only BI and UM are **the $40,000 Recovery Stack**",
+   "Payer-First: **MedPay, then Peach State**, an LOP last",
+   "Verify PIP and UM in writing; **never assume either**"
+  ],
+  "upl": "Route bills in the default order; primacy and lien enforceability are Atty. Thorne's",
+  "job": [
+   [
+    "Coverage confirmed in writing",
+    "Place it: stack, Payer Order, outside",
+    "CMS → Coverage Matrix",
+    "Stack $40,000; MedPay outside it"
+   ],
+   [
+    "A provider asks whom to bill",
+    "Route it by Payer-First order",
+    "CMS → MedPay ledger",
+    "MedPay, Peach State, then LOP"
+   ],
+   [
+    "A provider asks for an LOP",
+    "Check MedPay and network first",
+    "CMS → Liens → LOP register",
+    "Atty. Thorne approves any LOP"
+   ]
+  ],
+  "dos": [
+   "Verify every coverage in writing: **a dated Declaration Page**",
+   "Confirm the Health Plan was **active on the loss date**",
+   "Keep the Payer Order and **the Recovery Stack apart**"
+  ],
+  "donts": [
+   "An LOP to a provider **MedPay would have paid**",
+   "MedPay, PD or collision **added to the stack**",
+   "Assuming PIP, or **UM on the client's own policy**"
+  ],
+  "theory": {
+   "lead": "Every policy answers **two questions**: whose is it, and what does it pay? The Payer-First Principle then decides which payer each Medical Bill goes to first.",
+   "concepts": [
+    {
+     "term": "Third-Party vs. First-Party",
+     "text": "Third-party is the at-fault driver's coverage; first-party answers to the client's side: **who you claim against** changes"
+    },
+    {
+     "term": "The Recovery Stack",
+     "text": "Only coverage that pays the claim stacks: BI, then the UM/UIM layers. **Bills and the car** stay outside"
+    },
+    {
+     "term": "No-Fault Medical Coverage",
+     "text": "MedPay and PIP pay accident Medical Bills **regardless of fault**, fast, while liability is still disputed"
+    },
+    {
+     "term": "UM by Status",
+     "text": "UM/UIM follows the person: an occupant reaches the vehicle's policy, **a resident relative the household's**"
+    },
+    {
+     "term": "Set-Off and Non-Duplication",
+     "text": "Some policies credit what MedPay or PIP paid against what they owe: **verify the form in writing**"
+    },
+    {
+     "term": "Subrogation vs. Non-Subrogation",
+     "text": "A payer with subrogation claims its payments back from the recovery; without it, **what it paid stays paid**"
+    },
+    {
+     "term": "Contract Rate and Write-Off",
+     "text": "An in-network provider takes the plan's rate and writes off the rest: **no balance billing**, a smaller lien"
+    },
+    {
+     "term": "Medicare Secondary Payer",
+     "text": "Medicare pays only after no-fault and liability coverage, and **recovers by statute**; report the case to the BCRC"
+    }
+   ],
+   "pages": [
+    "D2#25",
+    "D3#20"
+   ],
+   "framework": {
+    "title": "What Each Coverage Pays",
+    "kind": "table",
+    "head": [
+     "Coverage",
+     "Whose",
+     "Pays",
+     "Payback risk"
+    ],
+    "rows": [
+     [
+      "BI liability",
+      "The at-fault driver's (third-party)",
+      "The claim, for injuries he caused",
+      "None: it is the recovery"
+     ],
+     [
+      "UM/UIM",
+      "Client side: the vehicle or household",
+      "The claim, when BI is too small",
+      "Consent rules guard its subrogation"
+     ],
+     [
+      "MedPay",
+      "The occupied vehicle's policy",
+      "Medical Bills, no fault needed; no wages",
+      "By policy: **verify in writing**"
+     ],
+     [
+      "PIP",
+      "Client side, where a state requires it",
+      "Medical Bills, part of wages, services",
+      "Set-off or lien, by state law"
+     ],
+     [
+      "Health insurance",
+      "The client's own plan",
+      "Covered care at the contract rate",
+      "**Reimbursement right** on what it paid"
+     ],
+     [
+      "Medicare / Medicaid",
+      "Government payer",
+      "Care, after no-fault and liability",
+      "Recovery by statute; a BCRC report"
+     ]
+    ],
+    "note": "Payer-First: MedPay or PIP, then health insurance, then an LOP. Liability and UM pay the claim, not the bills"
+   }
+  },
+  "clues": {
+   "dos": [
+    [
+     "A carrier says Host UM is $20,000 on a quick call.",
+     "The Coverage Matrix wants a source and a date behind that figure.",
+     "Harbor Point's 03/02/2026 letter turns a phone figure into a confirmed layer."
+    ],
+    [
+     "Crescent Pain & Spine bills Peach State Health Plan for an injection.",
+     "A plan that began after the crash would pay nothing at all.",
+     "Peach State began 02/01/2026, five days before the collision."
+    ],
+    [
+     "Two lists sit side by side on John Doe's Insurance tab.",
+     "One says who pays the bills first; the other totals $40,000.",
+     "MedPay leads the Payer Order yet adds nothing to the BI and UM layers."
+    ]
+   ],
+   "donts": [
+    [
+     "Summit Imaging asks the firm for a Letter of Protection.",
+     "Harbor Point's $5,000 no-fault coverage still has room for the MRI.",
+     "A bill Harbor Point could cover turns into a lien on John Doe's net."
+    ],
+    [
+     "Someone totals every policy on the file to impress John Doe.",
+     "Keystone PD's $25,000 and Harbor Point's $5,000 land in the claim total.",
+     "The number he hears is more than BI and UM can pay."
+    ],
+    [
+     "A new file arrives and coverage gets filled in from memory.",
+     "No-fault wage benefits are presumed without a Declaration Page behind them.",
+     "John Doe's Bluewater UM was rejected in writing on 03/14/2024."
+    ]
+   ]
+  }
  },
  "d2m2-l1": {
   "image": "treatment-plan",
@@ -2540,6 +2398,148 @@ window.CM_CF_SLIDES = {
    "Repeating **what John heard** about the network, unverified"
   ]
  },
+ "d1m1-l2": {
+  "image": "money-ledger",
+  "hook": "A reimbursement claim found after the demand comes out of **the client's net**.",
+  "points": [
+   "Clear the Triple-Check first: **HIPAA, BCRC, Payer Order**",
+   "Payer Order: PIP/MedPay, private health insurance, **then LOP/provider liens**",
+   "The Payer Order pays the bills; **the $40,000 stack** pays the claim",
+   "Flag the plan's reimbursement right **before the first demand**"
+  ],
+  "upl": "Report what a plan asserts; never judge enforceability or compromise without counsel",
+  "job": [
+   [
+    "Retainer signed",
+    "Get claim-specific HIPAA authorization",
+    "CMS → Documents",
+    "Authorization names 02/06/2026"
+   ],
+   [
+    "Age and benefits known",
+    "Verify SSDI status; report if required",
+    "CMS → Case Notes",
+    "BCRC answer logged, dated"
+   ],
+   [
+    "Plan pays accident-related bill",
+    "Record and flag the lien",
+    "CMS → Liens → Flag",
+    "Flag set before any demand"
+   ]
+  ],
+  "dos": [
+   "Clear the triple-check **before clinical planning**",
+   "Log the **BCRC report date** or verified “not required”"
+  ],
+  "donts": [
+   "Using a generic release **without the incident date**",
+   "Reassuring the client **“insurance will cover it”**"
+  ],
+  "theory": {
+   "lead": "Before clinical planning, the **Regulatory Triple-Check** establishes the claim and your authority to act; the Payer Order then decides who funds care.",
+   "concepts": [
+    {
+     "term": "Subrogation",
+     "text": "A payer's right to stand in the client's shoes and **recover what it paid** for accident care"
+    },
+    {
+     "term": "Primary Payer Determination",
+     "text": "Deciding which payer is billed first, so each bill **goes to the right payer** and nothing is paid twice"
+    },
+    {
+     "term": "Letter of Protection",
+     "text": "The firm's written promise to pay a provider from the settlement: **last in the Payer Order**"
+    },
+    {
+     "term": "The Client's Net",
+     "text": "What the client keeps once fees, costs and liens are paid: **a late-flagged lien** comes straight out of it"
+    }
+   ],
+   "pages": [
+    "D1#25",
+    "D1#22"
+   ],
+   "framework": {
+    "title": "The Regulatory Triple-Check",
+    "kind": "table",
+    "head": [
+     "Check",
+     "What you do",
+     "Why it matters"
+    ],
+    "rows": [
+     [
+      "HIPAA Compliance",
+      "Obtain a claim-specific authorization naming the incident date",
+      "A standard release may not be adequate for injury claims"
+     ],
+     [
+      "Medicare/Medicaid Reporting",
+      "If 65+ or on SSDI, report the case to the BCRC",
+      "Avoids federal penalties and **settlement freezes** under MMSEA"
+     ],
+     [
+      "Subrogation Management",
+      "Set the Payer Order: PIP/MedPay → private health insurance → LOP/provider liens",
+      "Each bill reaches the right payer; reimbursement rights surface early"
+     ]
+    ],
+    "note": "Clear all three before clinical planning begins: the claim is established and you are authorized to act."
+   }
+  },
+  "clues": {
+   "dos": [
+    [
+     "Retainer signed, John Doe is ready to start treatment talks.",
+     "HIPAA release, BCRC answer, and Payer Order sit on a checklist.",
+     "All three are cleared first; only then does treatment mapping begin."
+    ],
+    [
+     "John Doe is 34, so the age trigger is ruled out.",
+     "His SSDI status still needs checking under MMSEA rules from 2007.",
+     "The Benefits Coordination & Recovery Center answer gets logged with its timestamp."
+    ]
+   ],
+   "donts": [
+    [
+     "Peach State and providers need permission to share John Doe's records.",
+     "A boilerplate HIPAA form goes out from the supply drawer.",
+     "Nowhere on it does 02/06/2026 appear, so providers may balk."
+    ],
+    [
+     "John Doe worries out loud about his growing Medical Bills.",
+     "Peach State has already asserted reimbursement against any settlement.",
+     "You tell him not to worry, the plan pays everything."
+    ]
+   ]
+  }
+ },
+ "d1m1-a2": {
+  "image": "lien-scale",
+  "situation": "Peach State Health Plan has begun paying John Doe's accident-related treatment. **No lien record exists** yet, and **the pre-demand audit** is still ahead.",
+  "steps": [
+   "Register Peach State's claim and **flag it against the matter**",
+   "Enter carrier, **member ID and group number**",
+   "Record its **payer-order position** and the reimbursement basis",
+   "Date the flag and attach **the Triple-Check results**",
+   "State what must happen **before any compromise**"
+  ],
+  "deliver": "A **dated, flagged lien record** you could negotiate from on Day 5",
+  "checks": [
+   "Carrier: **Peach State Health Plan**",
+   "**PSH-55017742 and GRP-41208** both entered",
+   "Position: **after PIP/MedPay, before LOP/provider liens**",
+   "Flag dated **before any demand** is drafted",
+   "Compromise needs **Atty. Thorne's authority**"
+  ],
+  "dos": [
+   "Registering a lien **is not conceding it**"
+  ],
+  "donts": [
+   "Finding the lien **at disbursement**"
+  ]
+ },
  "d2m2-kc": {
   "image": "knowledge-check",
   "questions": [
@@ -2891,7 +2891,7 @@ window.CM_CF_SLIDES = {
  },
  "d2m4-l1": {
   "image": "checklist-qa",
-  "hook": "Most value is won or lost here: Day 3's demands spend only **what this audit proves**.",
+  "hook": "Most value is won or lost here: the demands spend only **what this audit proves**.",
   "points": [
    "MMI is **a medical determination**; record it from the 06/12/2026 note",
    "BI Specials are **medical plus wages**; the Civic runs separately",
@@ -6995,7 +6995,7 @@ window.CM_CF_SLIDES = {
    "Pick the address on **recency and two corroborating sources**",
    "Re-instruct the server; log service and affidavit; **docket the answer date**",
    "Run Steps 1–3; draft **the Step 4 certified notice**",
-   "Assess John's **Skip-Trace gate** on Day 1's three criteria"
+   "Assess John's **Skip-Trace gate** on Day 3's three criteria"
   ],
   "deliver": "A service record through the answer date; **a certified notice dispatched**, both deliveries logged",
   "checks": [

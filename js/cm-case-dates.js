@@ -6,7 +6,7 @@
      · the collision lands on the Friday from 01/31 to 02/06 of its new year, and only in a year where neither
        that year nor the next is a leap year, so the two-year SOL is still exactly DOL + 2 years. Those years are
        2026, 2029, 2030, 2033, 2034, 2037, …; between them the case keeps its last year.
-   The case moves to a new year once that year's Day 1 work (through 03/16) is in the past. Each trainee keeps the
+   The case moves to a new year once that year's Day 1 work (through 02/11) is in the past. Each trainee keeps the
    year they started on (caseYear on their Case Flow record, set by js/cm-case-flow.js) until they finish, so dates
    never jump mid-course. A trainer can preview a year with ?caseYear=2029 (?caseYear=off ends the preview).
    Loaded after the Case Flow content and before js/cm-case-flow.js: it rewrites the dates in CM_CASE_FLOW,
@@ -14,7 +14,7 @@
 (function(){
   const BASE = 2026, DAY = 864e5;
   const utc = (y, m, d) => Date.UTC(y, m - 1, d);
-  const BASE_DOL = utc(2026, 2, 6), BASE_DAY1_END = utc(2026, 3, 16);
+  const BASE_DOL = utc(2026, 2, 6), BASE_DAY1_END = utc(2026, 2, 11);
   const leap = y => (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;
 
   /* the shift (days, a multiple of 7) that puts the case in year Y, or null when the SOL would not stay exact */

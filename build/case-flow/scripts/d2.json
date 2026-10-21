@@ -195,7 +195,7 @@
       "ask": "If Riverton bills a date John Doe didn't attend, what do you do with that line?"
     },
     "dodont": {
-      "say": "Time for 3 Clues, 1 Rule. I'll reveal three clues in turn. Call Do or Don't as soon as you can, and name the rule. Good habits on this one include asking \"Is the plan working?\" at every contact, ending each call by asking what might get in the way of treatment this week, reconciling conflicting provider notes straight away, and telling John which payer handles which bill, because cost worry left unanswered is how a client stops going. The traps are issuing an LOP just because a provider asked, telling a provider they'll be paid in full at settlement, mission creep, and handing Atty. Thorne raw records with no summary. And remember, an LOP isn't free. Every dollar on it is one Day 3 has to negotiate.",
+      "say": "Time for 3 Clues, 1 Rule. I'll reveal three clues in turn. Call Do or Don't as soon as you can, and name the rule. Good habits on this one include asking \"Is the plan working?\" at every contact, ending each call by asking what might get in the way of treatment this week, reconciling conflicting provider notes straight away, and telling John which payer handles which bill, because cost worry left unanswered is how a client stops going. The traps are issuing an LOP just because a provider asked, telling a provider they'll be paid in full at settlement, mission creep, and handing Atty. Thorne raw records with no summary. And remember, an LOP isn't free. Every dollar on it is one Day 5 has to negotiate.",
       "ask": "Why is an LOP never really free for John Doe, even when the provider is happy with it?"
     }
   },
@@ -383,7 +383,7 @@
   },
   "d2m4-l1": {
     "why": {
-      "say": "The demand goes out on Day 3, but what it can claim gets decided today. Pre-demand is where most of a file's value is won or lost, because Day 3's demands can only spend what this audit proves. One duplicate line or one unchecked limit is Keystone's easy out. Now try this arithmetic. There's $7,965.00 in liens waiting behind a $10,000 BI limit. Take a moment and work out what's left before John Doe sees anything from that layer. That's why every dollar in this audit has to be right.",
+      "say": "The demand goes out later today, but what it can claim gets decided right here. Pre-demand is where most of a file's value is won or lost, because The demands that follow can only spend what this audit proves. One duplicate line or one unchecked limit is Keystone's easy out. Now try this arithmetic. There's $7,965.00 in liens waiting behind a $10,000 BI limit. Take a moment and work out what's left before John Doe sees anything from that layer. That's why every dollar in this audit has to be right.",
       "ask": "With $7,965.00 in liens behind a $10,000 BI limit, how much of that layer is left?"
     },
     "theory": {
@@ -475,7 +475,7 @@
   },
   "d2m4-kc": {
     "questions": {
-      "say": "Look at the gate bar. This module turns the last two chips green: Specials audited at $16,401.40, and strategy approved by Atty. Thorne. Day 3 doesn't open until all six are green. Now answer from this file, in your own words, under each question. Total John Doe's Specials from the bills, showing the Riverton Spine & Rehab correction, the medical total, the wage arithmetic and the final figure. Say who determines MMI, when John Doe's was, why the demand waits for it, and where the $3,400 to $6,800 in future medical goes. And name the four audit objectives, with one finding each produced on this file.",
+      "say": "Look at the gate bar. This module turns the last two chips green: Specials audited at $16,401.40, and strategy approved by Atty. Thorne. The demand doesn't go out until all six are green. Now answer from this file, in your own words, under each question. Total John Doe's Specials from the bills, showing the Riverton Spine & Rehab correction, the medical total, the wage arithmetic and the final figure. Say who determines MMI, when John Doe's was, why the demand waits for it, and where the $3,400 to $6,800 in future medical goes. And name the four audit objectives, with one finding each produced on this file.",
       "ask": "Which two chips on the gate bar does this module turn green?"
     },
     "summary": {
@@ -483,8 +483,8 @@
       "ask": "Which number on this file would you defend line by line to Dana Whitfield, and where does every cent come from?"
     },
     "scale": {
-      "say": "And to close out Day 2, your Skill Scale. Rate each competency from one to five and submit it for review. I'll put your self-rating beside your score, and where they're far apart, we'll sit down and talk it through. Be especially honest on the billed-versus-paid question. If any of your answers today picked a column for the demand, that loses the UPL marks, however good the rest of the work was.",
-      "ask": "Looking back over Day 2, which competency feels most solid to you now?"
+      "say": "And to close out the pre-demand audit, your Skill Scale. Rate each competency from one to five and submit it for review. I'll put your self-rating beside your score, and where they're far apart, we'll sit down and talk it through. Be especially honest on the billed-versus-paid question. If any of your answers today picked a column for the demand, that loses the UPL marks, however good the rest of the work was.",
+      "ask": "Looking back over the pre-demand audit, which competency feels most solid to you now?"
     }
   }
 }

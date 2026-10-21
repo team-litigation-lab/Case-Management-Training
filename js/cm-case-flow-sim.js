@@ -89,20 +89,18 @@ window.CM_CF_SIM = {
    "body": "Claims are open: Keystone BI KM-26-440871 (Dana Whitfield) and PD (Leah Moran, who accepted PD liability this morning), Harbor Point HP-26-7741 (Marcus Bell, Host UM and MedPay), Cardinal State CS-26-20355, no adjuster yet. I want the three LORs, plus notices to Bluewater and Peach State, on my desk for signature today. Preferred delivery methods are in the Communications Log.",
    "attachments": [
     "RS01",
-    "RS07",
-    "RS32"
+    "RS07"
    ]
   },
   "d1m1-a1": {
-   "date": "02/24/2026",
-   "time": "11:30 a.m.",
-   "channel": "letter",
-   "from": "Dana Whitfield, Keystone Mutual BI Claims",
-   "to": "Atty. Elijah Thorne, attn. Case Manager",
-   "subject": "Acknowledgment of bodily injury claim KM-26-440871 — insured Robert Smith",
-   "body": "Keystone Mutual acknowledges your representation of John Doe. Our insured's BI limit of $10,000.00 each person was discussed with your office by telephone at set-up. We will confirm that limit in writing, by a copy of the declarations page, on receipt of a written request with your client's signed authorizations, including form KM-BI 114, enclosed.",
+   "date": "02/17/2026",
+   "time": "7:55 a.m.",
+   "channel": "alert",
+   "from": "CMS",
+   "to": "Case Manager",
+   "subject": "Insurance tab empty: three claims opened by phone",
+   "body": "LSH-2026-MVA-770412. Set-up calls logged 02/16–02/17/2026: Keystone Mutual BI KM-26-440871, Harbor Point HP-26-7741 (Host UM), Cardinal State Mutual CS-26-20355 (no adjuster assigned). Limits were reported by phone; none is confirmed in writing. The Insurance tab has no layers, so today's letter set cannot merge carrier details until it does.",
    "attachments": [
-    "RS32",
     "RS01",
     "RS07"
    ]

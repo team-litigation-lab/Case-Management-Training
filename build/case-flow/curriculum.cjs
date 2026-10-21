@@ -91,7 +91,7 @@ CF.days.forEach(day => {
     });
   });
 });
-/* The sequence: each day's Case Phases, each taught as its lessons → its activities → its Learning Check.
+/* The sequence: each day is one module, taught as its lessons → its activities → its Knowledge Check.
    Every block exactly once, and each module's Knowledge Check no earlier than the blocks it checks. */
 const STORED = {};
 CF.days.forEach(day => day.modules.forEach(mod => mod.blocks.forEach(b => { STORED[b.id] = {day, mod, b}; })));
@@ -115,6 +115,27 @@ else {
     if(!(ph.blocks || []).some(id => STORED[id] && STORED[id].b.kind === "check")) errors.push(`${at}: ends without a Learning Check`);
   }));
   Object.keys(STORED).forEach(id => { if(!TAUGHT[id]) errors.push(`sequence: ${id} is never taught`); });
+  /* One module a day, on John Doe's one file: Lectures → Practice → Knowledge Check, in four hours, with a 20-question
+     Knowledge Check. The day's minutes are js/cm-case-flow.js daySchedule(): 15–20 minutes a topic (4 for a brief,
+     condensed one), the Practice (about 10 minutes a Skill Activity, 30–60), a 10–15 minute Knowledge Check and
+     20 minutes for the welcome, a break and the close, inside 240. */
+  CF.sequence.forEach(sd => {
+    const ids = (sd.phases || []).flatMap(ph => ph.blocks || []).filter(id => STORED[id]), bs = ids.map(id => STORED[id].b);
+    const n = bs.filter(b => b.kind === "lesson" && !b.brief).length || 1, m = bs.filter(b => b.kind === "lesson" && b.brief).length, acts = bs.filter(b => b.kind === "activity").length;
+    const kc = Math.max(10, Math.min(15, Math.round(10 + (n + m / 2 - 8) * 2.5)));
+    const practice = Math.max(30, Math.min(60, acts * 10, 240 - 20 - kc - n * 15 - m * 4));
+    const per = Math.max(15, Math.min(20, Math.floor((240 - 20 - practice - kc - m * 4) / n)));
+    const total = n * per + m * 4 + practice + kc;
+    if(total + 20 > 240) errors.push(`Day ${sd.n}: ${total} minutes of teaching plus 20 minutes for the welcome, a break and the close is over the 4-hour day (make lessons brief, or move them)`);
+    if((sd.phases || []).length !== 1) errors.push(`Day ${sd.n}: ${(sd.phases || []).length} phases; each day is one module`);
+    const qs = new Set(bs.filter(b => b.kind === "check").map(b => STORED[b.id].mod.id));
+    const nq = [...qs].reduce((a, id) => a + (CF.days.flatMap(d => d.modules).find(x => x.id === id).quiz || []).length, 0);
+    if(nq < 20) errors.push(`Day ${sd.n}: its Knowledge Checks hold ${nq} quiz questions; the day's Knowledge Check asks 20`);
+  });
+  // Day 1 opens with the Case Manager's introduction, then the client (Meet Your Case), then the lessons, and no game before Meet Your Case
+  const d1 = ((CF.sequence.find(d => d.n === 1) || {}).phases || []).flatMap(p => p.blocks);
+  if(d1[0] !== "d1m1-role" || d1[1] !== "d1m1-case") errors.push(`sequence Day 1: must open with d1m1-role, then d1m1-case (it opens ${d1.slice(0, 2).join(", ")})`);
+  if(STORED["d1m1-role"] && !STORED["d1m1-role"].b.noGame) errors.push("d1m1-role: needs noGame (no 3 Clues before Meet Your Case)");
   const before = (a, b) => a[0] - b[0] || a[1] - b[1] || a[2] - b[2];
   CF.days.forEach(day => day.modules.forEach(mod => {
     const kc = mod.blocks.find(b => b.kind === "check"), t = kc && TAUGHT[kc.id];
@@ -185,7 +206,7 @@ const srcMd = s => s.map(x => LEGACY[x] ? `\`${x}\` ${md(LEGACY[x].h)}` : md(x))
 function blockMd(b, day, phase, k, mod){
   const kc = mod.blocks.find(x => x.kind === "check");
   const L = [`### ${day.n}.${phase.n}.${k + 1} ${md(b.title)}`, "",
-    `> **${KIND[b.kind]}** · Day ${day.n} — ${day.phase} · Case Phase ${phase.n}: ${md(phase.title)} · scored with ${md(kc.title)} (\`${mod.id}\`)  `,
+    `> **${KIND[b.kind]}** · Day ${day.n} — ${day.phase} · ${md(phase.lead)}: ${md(phase.title)}${b.brief ? " (condensed)" : ""} · scored with ${md(kc.title)} (\`${mod.id}\`)  `,
     `> **Topic:** ${md(b.topic)}  `,
     `> **Continuity:** ${CF.case.style} · ${CF.case.counsel} · ${stack().map(l => money(l.limit) + " " + l.tag).join(" / ")} · ${CF.case.gapDays}-Day Gap  `,
     `> **Theory extracted from:** ${srcMd(b.sources)}`, "",
@@ -234,15 +255,15 @@ function dayMd(day){
     `| **Date of loss** | ${c.dol} · **SOL** ${c.sol} (${c.solNote}) |`, `| **Client** | ${c.client.name} — ${c.client.position} |`,
     `| **Policy stack** | ${stack().map(l => `${money(l.limit)} ${l.tag}`).join(" / ")} = **${money(c.total)}** |`,
     `| **Health plan** | ${c.health.carrier} · ${c.health.memberId} · ${c.health.group} |`, `| **Critical fact** | ${c.critical} |`, "",
-    "## This day's Case Phases", "",
-    "Each Case Phase is taught as one uninterrupted discussion of its lessons, then its Skill Activities and real-time practice on John Doe's file in the CMS, then its Learning Check.", ""];
-  const phases = CF.sequence.find(x => x.n === day.n).phases.map((ph, i) => ({n: i + 1, title: ph.title, blocks: ph.blocks.map(id => STORED[id])}));
+    "## This day's module", "",
+    "The day is one module, on John Doe's one file: Lectures (its lessons, one uninterrupted discussion) → Practice (its Skill Activities on the file in the CMS, in the order the work happens) → Knowledge Check. A lesson marked (condensed) is a short overview.", ""];
+  const phases = CF.sequence.find(x => x.n === day.n).phases.map((ph, i) => ({n: i + 1, title: ph.title, lead: ph.lead || `Case Phase ${i + 1}`, blocks: ph.blocks.map(id => STORED[id])}));
   phases.forEach(ph => {
-    L.push(`**Case Phase ${ph.n} — ${ph.title}**`, "", ...ph.blocks.map((x, i) => `${i + 1}. *${KIND[x.b.kind]}* — ${x.b.title}`), "");
+    L.push(`**${ph.lead} — ${ph.title}**`, "", ...ph.blocks.map((x, i) => `${i + 1}. *${KIND[x.b.kind]}* — ${x.b.title}${x.b.brief ? " (condensed)" : ""}`), "");
   });
   L.push(`**End-of-day discussion (trainer):** ${day.discussion}`, "", "---", "");
   phases.forEach(ph => {
-    L.push(`## Case Phase ${ph.n} — ${ph.title}`, "", `**Order:** ${ph.blocks.map(x => KIND[x.b.kind]).join(" ➔ ")}`, "");
+    L.push(`## ${ph.lead} — ${ph.title}`, "", `**Order:** ${ph.blocks.map(x => KIND[x.b.kind]).join(" ➔ ")}`, "");
     ph.blocks.forEach((x, k) => L.push(blockMd(x.b, day, ph, k, x.mod)));
   });
   return L.join("\n");

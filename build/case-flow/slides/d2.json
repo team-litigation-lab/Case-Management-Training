@@ -117,7 +117,7 @@
     "deliver": "A corrected matrix **totalling $40,000**, every status sourced, open items dated, note routed",
     "checks": [
       "BI: **still preliminary**; Declaration Page not until 03/20/2026",
-      "**MedPay moved out** of the stack into the Payer Order",
+      "**MedPay out** of the stack: it pays bills, not claims",
       "Stack total **$45,000 corrected to $40,000**",
       "BI follow-up **logged 03/11/2026**; next by 03/13/2026",
       "Bluewater's “UM: none” chased: **signed rejection form** (03/14/2024)"
@@ -134,7 +134,7 @@
     "image": "knowledge-check",
     "questions": [
       "Name every coverage, whose it is and what it pays. Which **three are the $40,000 stack**?",
-      "Apply **the Payer-First Principle** to Summit Imaging's 03/11/2026 LOP request. What would an LOP have cost?",
+      "Give each layer of the **Policy Stack** you built in the CMS: carrier, claim, limit, party, order.",
       "Name the **five letters** sent 02/17/2026: for each, the insured named and how it was addressed."
     ]
   },
@@ -420,7 +420,7 @@
   },
   "d2m4-l1": {
     "image": "checklist-qa",
-    "hook": "Most value is won or lost here: Day 3's demands spend only **what this audit proves**.",
+    "hook": "Most value is won or lost here: the demands spend only **what this audit proves**.",
     "points": [
       "MMI is **a medical determination**; record it from the 06/12/2026 note",
       "BI Specials are **medical plus wages**; the Civic runs separately",
