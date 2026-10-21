@@ -170,7 +170,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D4#17` | Arbitration: Operational Mindset — From Compromise to Trial-Ready | ✅ BUILT | d4m2-l2, d4m2-a2, d4m2-kc |
 | `D4#18` | Arbitration Operational Track 1: Critical Timelines & Calendar Hard Rules | ✅ BUILT | d4m2-l1, d4m2-a1, d4m2-a2, d4m2-kc |
 | `D4#19` | Arbitration Operational Track 2: Logistics & Setup Protocols | ✅ BUILT | d4m2-l2, d4m2-a2 |
-| `D4#20` | Ethics & Boundaries: What You Can and Cannot Do at Hearings (UPL) | ✅ BUILT | d4m2-l2, d4m2-a2, d4m2-kc |
+| `D4#20` | Ethics & Boundaries: What You Can and Cannot Do at Hearings (UPL) | ✅ BUILT | d1m1-upl, d4m2-l2, d4m2-a2, d4m2-kc |
 | `D4#21` | Arbitration Binders: Section 1 — The Arbitration Submissions | ✅ BUILT | d4m3-l2, d4m3-a2, d4m3-kc |
 | `D4#22` | Arbitration Binders: Section 2 — Core Litigation Pleadings | ✅ BUILT | d4m3-l2, d4m3-a2 |
 | `D4#23` | Arbitration Binders: Section 3 — Liabilities & Biomechanical Evidence | ✅ BUILT | d4m3-l2, d4m3-a2 |
@@ -228,6 +228,8 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 Theory the course does not carry, taken from the LSH firm curriculum and cited on the blocks that use it:
 
 - curriculum/5-day-flow/case-file.md §1–2: the file at intake, people and vehicles, the collision
+- LSH Claims Specialist: communication skills and professionalism — clarity without jargon, calm reassurance
+- Newly authored: a dedicated, practical UPL lesson: fact sharing vs. legal advice, and the hear-log-route habit
 - LSH Claims Specialist: pre-claim data set, Declaration Page, coverage asymmetry
 - LSH Claims Specialist: No Contact Protocol, Steps 1–3
 - D5 agenda: MIA Clients
@@ -323,6 +325,9 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 
 Where neither source had the theory, it was written for this flow and is marked here so it can be reviewed:
 
+- **A dedicated UPL lesson: fact sharing vs. legal advice, the hear-log-route habit, and reassurance about the process, never the outcome** — Day 1 · Module 1 — after Meet Your Case, before the first task
+- **The gap doctrine: the only gap explanation that holds up is the client's own factual explanation, supported by verifiable written documentation; the Case Manager records it without interpreting, defending or judging its effect on value** — Day 3 · Treatment Phase — the gap interview and the Gap Explanation Record
+- **Plain English for every legal term and abbreviation (CF.plain), shown on the first block that uses it** — Every day — the In plain English box on a lesson's Rules slide or an activity's Your Task slide
 - **The Case Manager's Role, Meet Your Case, and Opening John Doe's File in the CMS** — Case Flow Day 1 · Case Phase 1 — written for the case-lifecycle sequence, from D1#1–#7, D1#12–#13 and the case file
 - **The $40,000 host-passenger stack and its order of operations** — Day 1 · Module 1 — the case facts the brief specifies (Host UM and Relative UM behind a $10,000 BI)
 - **Recovery Stack vs. Payer Order as two separate questions** — Day 1 · Module 1, Lesson 2 — built on the Regulatory Triple-Check's Payer Order
@@ -332,7 +337,7 @@ Where neither source had the theory, it was written for this flow and is marked 
 - **UM notice at claim set-up (notice is not a demand) and verifying each UM form and MedPay's terms in writing** — Day 2 · Module 1
 - **LOP issuance guidelines and the MedPay exhaustion ledger** — Day 2 · Module 2
 - **Redirecting a referral to the client's choice of facility, and the downstream task list: each task done or delegated with an owner and a due date** — Day 2 · Module 2
-- **The non-leading gap interview, recording a client call with consent stated, and the Gap Justification Record format** — Day 2 · Module 3
+- **The non-leading gap interview, recording a client call with consent stated, and the Gap Explanation Record format** — Day 2 · Module 3
 - **Billed vs. paid Specials routed to counsel, and the strategy-briefing protocol for Lead Counsel** — Day 2 · Module 4
 - **The five elements of a Time-Limited Demand that holds up, and the Limited Release as the guard on the UM claims** — Day 3 · Module 1
 - **The net-floor gross-up for a percentage fee, and PIP valuation doctrine carried over to MedPay** — Day 3 · Module 2

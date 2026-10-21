@@ -27,6 +27,16 @@
   },
   "d2m1-l1": {
     "image": "policy-letter",
+    "roadmap": {
+      "title": "Three Carriers, One Day: the Roadmap",
+      "steps": [
+        {"label": "Draft on template", "text": "One LOR per carrier, **each naming its own insured**"},
+        {"label": "Request and preserve", "text": "Limits, Dec Pages, photos, video and vehicle data"},
+        {"label": "Protect the client", "text": "Third-party letter: his name only, nothing more"},
+        {"label": "Send and log", "text": "Each carrier's preferred method; Atty. Thorne signs"},
+        {"label": "Follow up", "text": "No acknowledgement by **the third business day**: call"}
+      ]
+    },
     "hook": "The LOR moves every carrier onto the firm; one wrong letter risks **$30,000 of UM coverage**.",
     "points": [
       "Name the **right insured** on each: Robert Smith, Kevin Alvarez, Margaret Doe",
@@ -219,6 +229,16 @@
   },
   "d2m2-l2": {
     "image": "escalation-alert",
+    "roadmap": {
+      "title": "Treatment Monitoring: the Roadmap",
+      "steps": [
+        {"label": "Check in", "text": "Visits, pain, function, and **any barrier**"},
+        {"label": "Name the variance", "text": "Clinical, psychosocial or systemic"},
+        {"label": "Assess", "text": "Medical danger to the provider; legal danger to Atty. Thorne"},
+        {"label": "Coordinate", "text": "Clarify with the office; **remove the barrier**"},
+        {"label": "Track", "text": "Every fix attempt in a GIRP note, facts only"}
+      ]
+    },
     "hook": "On an LOP, you are **the only real-time check** that John Doe's plan is working.",
     "points": [
       "Monitor **outcomes, not attendance** alone; hunt the barriers",
@@ -307,6 +327,17 @@
   },
   "d2m3-l1": {
     "image": "intake-interview",
+    "roadmap": {
+      "title": "The Gap Interview: the Roadmap",
+      "steps": [
+        {"label": "Plan the questions", "text": "Read the records; write questions, **never expected answers**"},
+        {"label": "Open on the record", "text": "Date, participants, your role, his consent, privacy"},
+        {"label": "Ask open, follow his words", "text": "Broad first, his words next, closed questions last"},
+        {"label": "Ask for the paper", "text": "Work schedules, doctor notes, travel logs, **illness records**"},
+        {"label": "Read it back", "text": "He corrects your summary; opinion questions routed"},
+        {"label": "Record and task", "text": "His words as given; a dated task per document"}
+      ]
+    },
     "hook": "The gap explanation that holds up is **John Doe's own**, backed by documents.",
     "points": [
       "Investigate, don't advocate: write **questions only**, never expected answers",
@@ -385,7 +416,7 @@
   },
   "d2m3-a2": {
     "image": "calendar-gap",
-    "situation": "06/22/2026. MMI reached 06/12/2026; Dr. Reyes's **06/19/2026 Causation Letter** is in. Atty. Thorne wants **the Gap Justification Record** before the pre-demand strategy session.",
+    "situation": "06/22/2026. MMI reached 06/12/2026; Dr. Reyes's **06/19/2026 Causation Letter** is in. Atty. Thorne wants **the Gap Explanation Record** before the pre-demand strategy session.",
     "steps": [
       "Cover both: 14-day gap and **19-day disruption**, exact dates",
       "Pair every reason with **a dated document**",
@@ -406,7 +437,7 @@
       "Keep **the work-product layer** in the CMS"
     ],
     "donts": [
-      "Justifying the 14-day gap and **forgetting the 19-day disruption**",
+      "Documenting the 14-day gap and **forgetting the 19-day disruption**",
       "Presenting **the client's word as documented**"
     ]
   },

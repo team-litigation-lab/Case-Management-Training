@@ -45,8 +45,8 @@
         "No record backs your answer, and nobody checked the file first."
       ],
       [
-        "John Doe first saw a provider on 02/20/2026.",
-        "Fourteen days passed after EMS found neck stiffness on 02/06/2026.",
+        "The EMS Run Report and the first treatment record carry different dates.",
+        "Days pass between them, and nobody yet knows why.",
         "A case note reads: he waited, so that's on him."
       ]
     ]
@@ -168,9 +168,9 @@
   "d1m3-l1": {
     "dos": [
       [
-        "John Doe feels better and wants to skip next week's PT.",
-        "Gaps in care become causation arguments for the defense.",
-        "You tell him the reason behind each appointment, not only the rule."
+        "John Doe's rental runs out in a few weeks.",
+        "He mentions his carpool might end soon.",
+        "You note it and help line up another ride now."
       ],
       [
         "John Doe calls, frustrated about missing shifts at Northgate Distribution.",
@@ -186,7 +186,7 @@
       ],
       [
         "The adverse carrier calls John Doe under the LOR carve-out.",
-        "The talk starts with repair photos and the passenger door.",
+        "The talk starts with repair photos and the damaged door.",
         "Soon the adjuster asks about his neck, and nobody stops the call."
       ]
     ]
@@ -211,7 +211,7 @@
         "Nobody compares it against the body shop's closing bill or supplementals."
       ],
       [
-        "Robert Smith's pickup ran the stop into the Escape's passenger door.",
+        "The repair photos show a crushed door on one side.",
         "Frame photos could show how hard the impact really was.",
         "The vehicle file is treated as fender paperwork, apart from the injury claim."
       ]
@@ -271,6 +271,42 @@
         "John Doe's PT visit gets logged in the medical track.",
         "A strategy comment slips in next to the PT findings.",
         "The note cheers that this visit will boost his claim."
+      ]
+    ]
+  },
+  "d1m1-upl": {
+    "dos": [
+      [
+        "John Doe asks when his crash happened, then what that means.",
+        "You read him 02/06/2026 straight from the Police Report.",
+        "The meaning part goes to Atty. Thorne with a same-day task."
+      ],
+      [
+        "Three clients ask three different opinion questions this week.",
+        "Each hears the same sentence: that's Atty. Thorne's call.",
+        "The words stay identical, so nobody hears a guess."
+      ],
+      [
+        "John Doe asks if taking the first offer is smart.",
+        "You log it for Atty. Thorne instead of answering.",
+        "Then you add: he'll call you back by Friday."
+      ]
+    ],
+    "donts": [
+      [
+        "John Doe is anxious over the days before his first visit.",
+        "You want to calm him down quickly.",
+        "You tell him: relax, it won't matter at all."
+      ],
+      [
+        "John Doe asks for a ballpark, just between friends.",
+        "He promises nobody will hold you to it.",
+        "You say probably around forty thousand, roughly."
+      ],
+      [
+        "Keystone Mutual wants to talk with John Doe directly.",
+        "He asks you how to answer their questions.",
+        "You hand him a script: say the other driver ran it."
       ]
     ]
   }

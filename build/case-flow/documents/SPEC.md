@@ -216,7 +216,7 @@ within 24 months at $3,400 each.
 To Atty. Thorne. Records reviewed; opinion to a reasonable degree of medical probability: delayed presentation is
 clinically consistent with a disc injury whose radicular symptoms evolve over days to weeks; the C5-C6 herniation
 was more likely than not caused by the 02/06/2026 collision; the 2021 low-back care is unrelated.
-*Plant:* none. *Key:* The causation answer to the gap and to the 2021 visits; the centrepiece of the gap justification
+*Plant:* none. *Key:* The causation answer to the gap and to the 2021 visits; the centrepiece of the gap explanation
 record and the rebuttal.
 
 **RS20 · Prior Records — Birch Avenue Chiropractic (2021)** · Day 2 · Medical · `RS_20_Prior_Records_Birch_Ave_Chiropractic_2021.pdf`
@@ -391,7 +391,7 @@ the appraisal is $3,600.00. Route to Atty. Thorne with a recommendation.
 ### Litigation & ADR — Track B (folder `litigation`)
 
 **RS49 · Keystone — Impasse Correspondence (Aug–Sep 2026)** · Day 4 · Litigation · `RS_49_Keystone_Impasse_Correspondence.pdf`
-08/06 LSH rebuttal (cover letter listing the enclosures: MRI report, causation letter, EMS report, gap justification
+08/06 LSH rebuttal (cover letter listing the enclosures: MRI report, causation letter, EMS report, gap explanation
 record); 08/12 Dana Whitfield email: "$3,500 is our final offer"; 08/24 and 08/31 LSH follow-ups asking for a
 response and the evidence relied on (no reply); 09/02 escalation letter to Greg Holloway, claims supervisor (no reply).
 *Key:* The impasse record: every attempt dated, every silence documented. The demand lapsed 08/21/2026.

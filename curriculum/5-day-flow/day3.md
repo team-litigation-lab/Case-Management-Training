@@ -4,7 +4,7 @@
 
 **Objective.** Keep John Doe reachable and informed (the No Contact Protocol, the Final Warning Letter); route every bill to the payer that must pay it first; flag the Health Plan's reimbursement right and clear the Regulatory Triple-Check; keep treatment moving through the disruption (LOPs, EOBs, provider contact); and probe and document the 14-Day Gap with John Doe on a recorded call.
 
-**Gate to the next day.** No Contact Protocol run and logged · bills routed in Payer Order, LOPs out and providers coordinated · Peach State's reimbursement right flagged and the Regulatory Triple-Check cleared · treatment documented to MMI · Gap Justification Record complete
+**Gate to the next day.** No Contact Protocol run and logged · bills routed in Payer Order, LOPs out and providers coordinated · Peach State's reimbursement right flagged and the Regulatory Triple-Check cleared · treatment documented to MMI · Gap Explanation Record complete
 
 **The file as this day opens.**
 
@@ -49,7 +49,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 14. *Skill Activity* — Subrogation Lien Flagging in the CMS
 15. *Skill Activity* — Executing the A-C-T Crisis Protocol for Disrupted Care
 16. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
-17. *Skill Activity* — Gap Justification Record Creation
+17. *Skill Activity* — Gap Explanation Record Creation
 18. *Knowledge Check* — Treatment Monitoring Review
 19. *Knowledge Check* — UPL & Investigation Review
 20. *Knowledge Check* — MIA Escalation Knowledge Check
@@ -452,7 +452,7 @@ A closed monitoring loop drawn as a navy ring left of centre, with “IS THE PLA
 - Red flags to raise with the provider: more than 12 sessions with no gain and no specialist or imaging suggested; passive-only care (heat, TENS, massage) with no active exercise; two or more missed visits, which the defense reads as an injury not serious enough to treat.
 - Yellow flags (catastrophizing, litigation stress, reliance on passive care or medication) are reported with a plan, in the map's language: “John Doe is in the restorative phase. Psychosocial variance: no transport since 04/01/2026, four visits missed. Plan: evening slots from 04/21/2026 with family transport; attendance tracked.”
 - When progress stalls, re-engage John Doe on his own goal (a full warehouse shift at Northgate without right-arm numbness), with active listening and without pressure.
-- The 14-Day Gap is being probed with John Doe on a recorded call and justified with medical documentation after the fact. The disruption must never need that reconstruction: record it the day it happens.
+- The 14-Day Gap is documented after the fact, from John Doe's own explanation on a recorded call and the dated records that support it. The disruption must never need that reconstruction: record it the day it happens.
 - Proofread laterality in every summary: everything on this file is right-sided (right hand, right paracentral herniation). A left/right switch damages credibility.
 - ⚠️ Pitfall: continuing the plan unchanged through a crisis.
 - ⚠️ Pitfall: blaming the client, or treating a systemic delay as non-compliance, instead of revising the plan.
@@ -497,7 +497,7 @@ A two-column compare board. Left: a cream card with a green top rule headed COUN
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* An adjuster reads a gap as proof the injury was minor, healed or caused by something else. The answer is records made at the time (provider notes placing onset at the collision, histories that agree, the EMS report, work records), then a causation opinion. A record made to order destroys the case it was meant to save.
+*Why:* The only gap explanation that holds up against insurance adjusters is John Doe's own factual explanation, supported by verifiable written documentation (e.g., work schedules, doctor availability notes, travel logs, or illness records). Around it, continuity is shown by records made at the time (provider notes placing onset at the collision, histories that agree, the EMS report, work records) and later a causation opinion Atty. Thorne requests. A record made to order destroys the case it was meant to save.
 
 1. Continuity is proved by records made at the time, then by a treating doctor's opinion that reads them; never by explanations made to order.
 2. Read every history for mechanism (the collision), onset (02/06/2026) and body region (neck and right arm; the 2021 visits were low back).
@@ -581,7 +581,7 @@ A matched-pairs board fills the upper two-thirds: a green-bordered left column h
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* The 14-Day Gap will be used against John Doe whether or not anyone asks him why it happened; unexplained, it costs credibility, consistent records and value. The explanation that holds up is his own, in his words, backed by documents. A reason the Case Manager suggested is one the defense can take apart.
+*Why:* The only gap explanation that holds up against insurance adjusters is John Doe's own factual explanation, supported by verifiable written documentation (e.g., work schedules, doctor availability notes, travel logs, or illness records). Your job is to draw it out with clean questions and record it as he gives it. The Case Manager records the client's documented facts directly, without attempting to interpret, defend, or judge how the gap impacts claim value. A reason the Case Manager suggested is not his explanation at all.
 
 1. Investigate; don't advocate. Read the EMS report, the 02/20/2026 urgent-care history and the treatment timeline, then write a question plan: questions only, never the answers you expect.
 2. Funnel: broad open questions first, then open follow-ups built on his own words, closed questions last and only to pin a date, a name or a document. One question at a time.
@@ -591,9 +591,11 @@ A matched-pairs board fills the upper two-thirds: a green-bordered left column h
 6. Record only with consent: state the date, who is on the call and that you are the Case Manager, not a lawyer, and get John Doe's spoken yes before any substance. Consent laws vary (some require every party's); confirm the governing rule.
 7. Protect privilege: the firm and its own client, in confidence. Confirm he can talk privately, ask Atty. Thorne before anyone joins (a third person can put privilege at risk), and label the recording privileged.
 8. A Recorded Statement to the other side is different: if Keystone asks John Doe for one, he declines and refers it to the firm. A Harbor Point or Cardinal State request goes to Atty. Thorne; their policies may require cooperation.
-9. Prevent the next gap. A barrier he names changes the plan, not the client: help coordinate transport, scheduling or referrals; confirm his 03/05/2026 consult with Dr. Reyes; ask how he gets to care after the rental ends 03/19/2026.
-10. Restate the standing instruction: keep every appointment; report worsening symptoms and any barrier before a visit is missed.
-11. Document every explanation and follow-up the same day, and escalate a gap that stays unexplained to Atty. Thorne.
+9. Ask for the paper. After each reason he gives, ask what shows it in writing: a work schedule, a doctor's availability note, a travel log, an illness record, a text or a receipt. Open a dated task for each one.
+10. Record, don't interpret. Write his explanation in his words, beside the document that supports it: no adjectives, no defense of it, no view on what it does to the claim's value.
+11. Prevent the next gap. A barrier he names changes the plan, not the client: help coordinate transport, scheduling or referrals; confirm his 03/05/2026 consult with Dr. Reyes; ask how he gets to care after the rental ends 03/19/2026.
+12. Restate the standing instruction: keep every appointment; report worsening symptoms and any barrier before a visit is missed.
+13. Document every explanation and follow-up the same day, and escalate a gap that stays unexplained to Atty. Thorne.
 
 > ⚠️ **UPL boundary.** You gather and document. You may not tell John Doe the gap “won't matter” or “will hurt the case”, what it does to value, or what to say about it. Log any such question and route it to Atty. Thorne.
 
@@ -1379,7 +1381,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 3) and that day
 
 ---
 
-### 3.1.17 Gap Justification Record Creation
+### 3.1.17 Gap Explanation Record Creation
 
 > **Skill Activity** · Day 3 — Treatment & client communications · Module 3: Treatment Phase · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 2 — every reason beside its proof, for both interruptions  
@@ -1388,17 +1390,17 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 3) and that day
 
 #### 1 · Visual Layout Description
 
-A white CMS record card with a navy header, GAP JUSTIFICATION RECORD · JOHN DOE, split into two horizontal bands of equal weight: 14-DAY GAP · 02/06–02/20/2026 and 19-DAY DISRUPTION · 04/02–04/21/2026. Each band has three columns, REASON · CORROBORATING DOCUMENT · DATE, with orange numbered badges on the reasons and mono date pills. A grey ACCOUNT ONLY tag marks any row without an independent document. Bottom-right, a ROUTE TO ATTY. THORNE control. The argument: every reason sits beside its proof, and the second interruption gets the same room as the first.
+A white CMS record card with a navy header, GAP EXPLANATION RECORD · JOHN DOE, split into two horizontal bands of equal weight: 14-DAY GAP · 02/06–02/20/2026 and 19-DAY DISRUPTION · 04/02–04/21/2026. Each band has three columns, REASON · CORROBORATING DOCUMENT · DATE, with orange numbered badges on the reasons and mono date pills. A grey ACCOUNT ONLY tag marks any row without an independent document. Bottom-right, a ROUTE TO ATTY. THORNE control. The argument: every reason sits beside its proof, and the second interruption gets the same room as the first.
 
 #### 2 · Slide Body — Let Them
 
 **Scenario.** 06/22/2026. John Doe reached MMI on 06/12/2026. Dr. Alana Reyes's Causation Letter of 06/19/2026 is in: delayed presentation is clinically consistent with a disc injury whose radicular symptoms evolve over days to weeks, and the injury was more likely than not caused by the collision. The 03/04 call note, the 04/08 A-C-T log and every record are in the CMS. Atty. Thorne wants the record before the pre-demand strategy session.
 
-**Execution prompt.** Build John Doe's Gap Justification Record in the CMS. Cover both interruptions, the 14-day gap (02/06–02/20/2026) and the 19-day disruption (04/02–04/21/2026), with exact dates. Pair every reason with the dated document that corroborates it; mark a reason with no independent document “account only”. Cite the complaints before and after each interruption, and the firm's follow-up during the disruption. Write facts and citations only: no argument, no valuation, nothing quoted from the privileged call. Run a defense-eye pass, then route it to Atty. Thorne.
+**Execution prompt.** Build John Doe's Gap Explanation Record in the CMS. Cover both interruptions, the 14-day gap (02/06–02/20/2026) and the 19-day disruption (04/02–04/21/2026), with exact dates. Pair every reason with the dated document that corroborates it; mark a reason with no independent document “account only”. Cite the complaints before and after each interruption, and the firm's follow-up during the disruption. Write facts and citations only: no argument, no valuation, nothing quoted from the privileged call. Run a defense-eye pass, then route it to Atty. Thorne.
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Case File → Gap Justification Record · Tasks |
+| **Tool / interface** | CMS → Case File → Gap Explanation Record · Tasks |
 | **Expected output** | A routed record covering both interruptions, every reason beside a dated document, ready for Atty. Thorne to decide how it is used in the demand. |
 
 **Show Them — reference model**
@@ -1428,8 +1430,8 @@ A white CMS record card with a navy header, GAP JUSTIFICATION RECORD · JOHN DOE
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Causation Letter received | Log it; cite it beside the expected-to-pass and escalation reasons | CMS → Documents · Case File → Gap Justification Record | Letter dated 06/19/2026 cited on the 14-day band |
-| Record drafted | Pair every reason with a dated document; mark account-only reasons | CMS → Case File → Gap Justification Record | No reason without a document or an “account only” tag |
+| Causation Letter received | Log it; cite it beside the expected-to-pass and escalation reasons | CMS → Documents · Case File → Gap Explanation Record | Letter dated 06/19/2026 cited on the 14-day band |
+| Record drafted | Pair every reason with a dated document; mark account-only reasons | CMS → Case File → Gap Explanation Record | No reason without a document or an “account only” tag |
 | Record complete | Run the defense-eye pass and route to Atty. Thorne | CMS → Tasks | Routed with a timestamp before the pre-demand strategy session |
 
 **Best practices & pitfalls**
@@ -1437,9 +1439,9 @@ A white CMS record card with a navy header, GAP JUSTIFICATION RECORD · JOHN DOE
 - One reason per row, one dated document per reason.
 - Keep the work-product layer in the CMS; anything that leaves the firm is a separate timeline Atty. Thorne approves.
 - Show the firm's follow-up, not only the client's reasons: the A-C-T steps show the disruption was managed, not ignored.
-- Consistent documentation strengthens both the medical picture and the later negotiation.
+- Record each explanation exactly as John Doe gave it and as the document shows it; what it means for the claim is Atty. Thorne's to judge.
 - Keep one story across claims: the no-car days 02/06–02/17 are the same 12 days claimed as Loss of Use on the Civic's property-damage claim.
-- ⚠️ Pitfall: justifying the 14-day gap and forgetting the 19-day disruption.
+- ⚠️ Pitfall: documenting the 14-day gap and forgetting the 19-day disruption.
 - ⚠️ Pitfall: presenting a reason that rests on the client's word as if it were documented.
 
 #### 3 · Knowledge Check & CM Summary
@@ -1612,7 +1614,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 | Holding the UPL line when a client asks what a fact does to his case | ○ | ○ | ○ | ○ | ○ |
 | Writing a GIRP call note with the client's words and a dated plan | ○ | ○ | ○ | ○ | ○ |
 | Telling records made at the time from records made to order | ○ | ○ | ○ | ○ | ○ |
-| Building a Gap Justification Record that pairs every reason with a dated document | ○ | ○ | ○ | ○ | ○ |
+| Building a Gap Explanation Record that pairs every reason with a dated document | ○ | ○ | ○ | ○ | ○ |
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
@@ -1627,7 +1629,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 3. Which of these is NOT acceptable continuous-care evidence on John Doe's file?  
    **✓ A note written in June at the firm's request, excusing him from work 02/09–02/13** · The EMS Run Report recording neck stiffness on 02/06/2026 · Northgate's Attendance Record of his call-outs 02/09–02/13 citing neck pain · The 02/20/2026 urgent-care note recording onset at the MVA  
    *Nobody examined him 02/09–02/13, so a note made months later to the firm's order proves nothing and invites a fraud question. The employer's own record is the proof for those days.*
-4. John Doe's Gap Justification Record must cover:  
+4. John Doe's Gap Explanation Record must cover:  
    Only the 14-day initial gap, because that is the one the adjuster will raise · **✓ The 14-day gap (02/06–02/20/2026) and the 19-day disruption (04/02–04/21/2026), every reason paired with its document** · Only the reasons that can be proved from Medical Records · The 14-day gap, with the firm's argument for why it doesn't matter  
    *Both interruptions, each reason beside its dated document. Facts and citations only; the argument is Atty. Thorne's.*
 5. A provider's note looks wrong about when John Doe's neck pain began. What do you do?  
@@ -1736,6 +1738,6 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 - Question 2 is easy to answer shallowly. Protection from liability is the purpose trainees omit, and it is why the record is built the way it is.
 - Question 5 is the integration question: the running SOL, the hardening Treatment Gap, and the claims work that must go on anyway.
 - Question 7 is the UPL gate in miniature. A trainee who can't rewrite it compliantly isn't ready for client contact.
-- The gap they are watching build here is the same 14 days they will defend in deposition on Day 5.
+- The gap they are watching build here is the same 14 days defense counsel will ask John Doe about in deposition on Day 5.
 
 ---

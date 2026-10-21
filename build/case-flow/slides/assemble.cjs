@@ -106,6 +106,15 @@ for (const day of CF.days) {
       line(b.id, "hook", c.hook, 16); list(b.id, "points", c.points, 3, 4, 12);
       if((b.tell.upl || []).length) line(b.id, "upl", c.upl, 14, [0, 1]);
       if((b.ops || []).length){ if(!Array.isArray(c.job) || !c.job.length || c.job.length > 3) errors.push(`${b.id}.job: want 1–3 rows`); else c.job.forEach((r, i) => { if(!Array.isArray(r) || r.length !== 4) errors.push(`${b.id}.job[${i}]: want 4 cells`); else r.forEach((x, k) => { if(wc(x) > 6) errors.push(`${b.id}.job[${i}][${k}]: ${wc(x)} words (max 6)`); }); }); }
+      if(c.roadmap !== undefined){   // a complex lesson's roadmap: 3–6 steps, shown before anything is taught or tested
+        const r = c.roadmap;
+        if(!r || typeof r.title !== "string" || !r.title.trim() || wc(r.title) > 8 || marks(r.title)) errors.push(`${b.id}.roadmap.title: want ≤ 8 words, no highlight`);
+        if(!r || !Array.isArray(r.steps) || r.steps.length < 3 || r.steps.length > 6) errors.push(`${b.id}.roadmap.steps: want 3–6`);
+        else r.steps.forEach((x, i) => {
+          if(!x || typeof x.label !== "string" || !x.label.trim() || wc(x.label) > 5 || marks(x.label)) errors.push(`${b.id}.roadmap.steps[${i}].label: want ≤ 5 words, no highlight`);
+          if(!x || typeof x.text !== "string" || !x.text.trim() || wc(x.text) > 12 || marks(x.text) > 1 || marks(x.text) % 1) errors.push(`${b.id}.roadmap.steps[${i}].text: want ≤ 12 words, at most one highlight`);
+        });
+      }
       let k = null;
       if((b.best || []).length){ list(b.id, "dos", c.dos, 2, 3, 10); list(b.id, "donts", c.donts, 2, 3, 10); k = clues(b, c); }
       const t = theory(b); if(t) out[b.id] = Object.assign({}, c, {theory: t}, k ? {clues: k} : {});

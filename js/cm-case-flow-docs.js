@@ -75,7 +75,7 @@ window.CM_CF_DOCS = [
    key:"MMI = the demand clock. Future medical $3,400–$6,800 is narrative, not Specials."},
   {id:"RS19", folder:"medical", file:"case-flow/medical/RS_19_Reyes_Causation_Letter.pdf", title:"Dr. Alana Reyes — Causation Letter (06/19/2026)", cms:"Medical", day:3,
    desc:"Dr. Reyes's causation opinion, 06/19/2026: the delay, the herniation and the collision.",
-   key:"The causation answer to the gap and to the 2021 visits; the centrepiece of the Gap Justification Record and the rebuttal."},
+   key:"The causation answer to the gap and to the 2021 visits; the centrepiece of the Gap Explanation Record and the rebuttal."},
   {id:"RS20", folder:"medical", file:"case-flow/medical/RS_20_Prior_Records_Birch_Ave_Chiropractic_2021.pdf", title:"Prior Records — Birch Avenue Chiropractic (2021)", cms:"Medical", day:3,
    desc:"Birch Avenue Chiropractic, three visits in May 2021.",
    key:"Low back only — no prior neck. Corrects RS02."},

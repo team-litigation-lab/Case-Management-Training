@@ -27,12 +27,12 @@
     "image": "property-damage",
     "hook": "One file for five days: know **its facts cold** before you touch the CMS.",
     "points": [
-      "02/06/2026: Robert Smith **ran the stop**; John Doe was the passenger",
+      "Who ran the stop, and where John sat: **the Police Report**",
       "The stack, in order: **BI → Host UM → Relative UM**, $40,000",
-      "Passenger status opens **both UM layers**",
-      "First treatment 02/20/2026: **the 14-Day Treatment Gap**"
+      "His seat in the vehicle decides **which layers he reaches**",
+      "EMS date vs. first treatment record: **find the gap yourself**"
     ],
-    "upl": "Share facts and the process; never value, or how the gap will play",
+    "upl": "Share facts and the process; never value, or what the gap does",
     "job": [
       ["Course begins", "Read the Case File and intake", "Case File · Documents", "DOL, stack, gap from memory"],
       ["Matter opens in the CMS", "Trace each fact to its document", "CMS → Case File", "No fact from memory alone"],
@@ -60,7 +60,7 @@
     "deliver": "An active matter, **every field verified**, corrections noted to Atty. Thorne",
     "checks": [
       "Conflict Check logged **before the matter existed**",
-      "Position corrected to **front-seat passenger**",
+      "Position corrected **from the Police Report**",
       "Date of birth and **report number** corrected, with sources",
       "SOL docketed; **six roles** mapped; documents filed",
       "Correction note **routed to Atty. Thorne**"
@@ -74,6 +74,17 @@
   },
   "d1m1-l1": {
     "image": "intake-interview",
+    "roadmap": {
+      "title": "Opening the File: the Roadmap",
+      "steps": [
+        {"label": "Conflict Check", "text": "Every party's full legal name, **before the file exists**"},
+        {"label": "Verify the facts", "text": "Date of loss against the Police Report; corrections documented"},
+        {"label": "Docket the SOL", "text": "On day one, from the confirmed date of loss"},
+        {"label": "Map the parties", "text": "Six roles and the client's position, **none left “unknown”**"},
+        {"label": "Record coverage", "text": "From the Declaration Page, with each fact's source"},
+        {"label": "Name and file", "text": "Every document to the firm's naming convention"}
+      ]
+    },
     "hook": "A file opened wrong stays wrong: **a mis-mapped party** is a lost coverage layer.",
     "points": [
       "Run the **Conflict Check first**, on every party's full legal name",
@@ -85,7 +96,7 @@
     "job": [
       ["Raw file received", "Conflict Check, then verify DOL", "CMS → New Case", "DOL matches the Police Report"],
       ["Matter created", "Docket SOL; log retainer and HIPAA", "CMS → Calendar · Documents", "SOL 02/06/2028 on the calendar"],
-      ["Parties identified", "Map six roles; record position", "CMS → Parties", "None “unknown”; position = passenger"]
+      ["Parties identified", "Map six roles; record position", "CMS → Parties", "None “unknown”; position from report"]
     ],
     "dos": [
       "Record **the source** of every coverage fact",
@@ -121,6 +132,16 @@
   },
   "d1m1-l2": {
     "image": "money-ledger",
+    "roadmap": {
+      "title": "Who Pays What: the Roadmap",
+      "steps": [
+        {"label": "HIPAA authorization", "text": "Claim-specific, naming the incident date"},
+        {"label": "Medicare and Medicaid check", "text": "Age and SSDI status verified, **the answer recorded**"},
+        {"label": "Payer Order", "text": "MedPay first, then health insurance, then LOP or liens"},
+        {"label": "Flag the Health Plan", "text": "Reimbursement right logged **on first notice**"},
+        {"label": "Lien register", "text": "Carrier, member ID and group number, the same day"}
+      ]
+    },
     "hook": "A reimbursement claim found after the demand comes out of **the client's net**.",
     "points": [
       "Clear the Triple-Check first: **HIPAA, BCRC, Payer Order**",
@@ -169,11 +190,21 @@
     "questions": [
       "Name the **six stages** in order. What does the CM own at Intake & Case Opening?",
       "John Doe asks what his case is **worth**. Who answers, and what do you log?",
-      "What must happen **before the matter is created** in the CMS, and on whose names?"
+      "What must happen **before the matter is created** in the CMS, and on whose names?",
+      "John Doe asks if waiting hurt his case. **Your exact words**, and what you log?"
     ]
   },
   "d1m2-l1": {
     "image": "phone-call",
+    "roadmap": {
+      "title": "The No Contact Protocol: the Roadmap",
+      "steps": [
+        {"label": "Internal review", "text": "Case status, live deadlines, last contact, channels used"},
+        {"label": "Contact attempts", "text": "Phone twice, email and text, emergency contact, **certified mail**"},
+        {"label": "Log every attempt", "text": "Date, time, channel and outcome, in the CMS"},
+        {"label": "Team notification", "text": "Escalate to Atty. Thorne with **the deadline impact**"}
+      ]
+    },
     "hook": "A client you can't reach **still has deadlines**; the protocol proves the firm did its part.",
     "points": [
       "Step 1: review status, deadlines and last contact **before you call**",
@@ -278,6 +309,16 @@
   },
   "d1m3-l1": {
     "image": "privacy-shield",
+    "roadmap": {
+      "title": "Client Instructions & Rental: the Roadmap",
+      "steps": [
+        {"label": "Give the instructions", "text": "No Recorded Statement, no posts, no signing without review"},
+        {"label": "Treatment and barriers", "text": "Keep every appointment; **report any barrier** before a miss"},
+        {"label": "Keep the receipts", "text": "Every expense and mile documented, so it can be claimed"},
+        {"label": "The PD carve-out", "text": "The adverse carrier may discuss **Property Damage only**"},
+        {"label": "Rental authorization", "text": "Who authorizes it, the daily cap and the duration"}
+      ]
+    },
     "hook": "Most self-inflicted claim damage happens **in the first two weeks**, before the client is told.",
     "points": [
       "**No Recorded Statement** to the adverse carrier; route contact through the firm",
@@ -292,7 +333,7 @@
       ["Adverse carrier calls client", "Route to the firm; log contact", "CMS → Communications Log", "No Recorded Statement; logged"]
     ],
     "dos": [
-      "Explain **why consistent treatment matters**",
+      "Ask about **barriers to care** at every check-in",
       "Use **active listening**; heard clients follow instructions"
     ],
     "donts": [
@@ -323,6 +364,17 @@
   },
   "d1m3-l2": {
     "image": "repair-shop",
+    "roadmap": {
+      "title": "Property Damage: the Roadmap",
+      "steps": [
+        {"label": "Written estimate first", "text": "No Repair Estimate, **no position** with the client"},
+        {"label": "Inspection window", "text": "Five days from the letter; record when it opens"},
+        {"label": "Audit estimate and photos", "text": "Bill against estimate; point of impact, frame, undercarriage"},
+        {"label": "Repair or Total Loss", "text": "The carrier's threshold against **actual cash value**, in writing"},
+        {"label": "Loss of Use", "text": "Each day without a vehicle, at a comparable rental rate"},
+        {"label": "Escalate disputes", "text": "Document and route; no ad hoc arguing with adjusters"}
+      ]
+    },
     "hook": "Property Damage is the client's first test of the firm, and **physical evidence of impact**.",
     "points": [
       "Get **the written Repair Estimate** before discussing any outcome",
@@ -401,23 +453,25 @@
   },
   "d1m4-a1": {
     "image": "calendar-gap",
-    "situation": "John Doe's first treatment records have arrived. **DOL 02/06/2026**; **first treatment 02/20/2026**; chiropractic care began 02/24/2026.",
+    "situation": "John Doe's first treatment records have arrived in the CMS. Find the first treatment date yourself and compare it with **the date of loss**.",
     "steps": [
       "Compute **the gap exactly** from DOL to first treatment",
       "Record the gap; **watch for a later break** in care",
-      "In the risks band, state how each is **used against the claim**",
-      "List **likely causes** and the steps to explain them",
+      "In the risks band, record **the facts only**: dates and length",
+      "List **the documents to request** from John Doe",
       "**Route the flag** to Atty. Thorne"
     ],
     "deliver": "A **precisely computed, prominently flagged** and routed treatment-gap record",
     "checks": [
       "Gap: **14 days, 02/06/2026 to 02/20/2026**",
       "Gap recorded; **a watch set** for later breaks",
-      "**Defense uses named**: not serious, recovered early, unnecessary, other causes",
+      "Risks band: **facts only**, explanation marked pending",
       "Investigation steps: **client's explanation, documents, provider confirmation**",
       "Flag prominent in risks band; **routed to Atty. Thorne**"
     ],
-    "dos": ["**Document the reason** for every interruption"],
+    "dos": [
+      "**Document the reason** for every interruption"
+    ],
     "donts": [
       "Writing **“about two weeks”** instead of exact dates",
       "Recording the gap but **setting no watch** for the next"
@@ -474,6 +528,32 @@
       "Set out the **five bands** of the Case Plan and what belongs in each, including the three pillars.",
       "Why has **an adverse fact buried** in a plan's body not really been disclosed to counsel?",
       "State John Doe's coverage as the plan should: layers, limits, total, **order of operations**, projection status."
+    ]
+  },
+  "d1m1-upl": {
+    "image": "client-call",
+    "hook": "You share **facts and the process**; Atty. Thorne gives every opinion on the case.",
+    "points": [
+      "Legal advice is **any opinion** on what his facts mean",
+      "Share facts: dates, documents, **what was sent and when**",
+      "Explain the process: **what happens next**, and who decides",
+      "Never value, strategy, settlement, or **what the gap does**"
+    ],
+    "upl": "Hear it, log it, **route it** to Atty. Thorne the same day",
+    "job": [
+      ["Client asks his case's worth", "Log it; route to counsel", "CMS → Case Notes · Tasks", "Routed today; no figure given"],
+      ["Client asks what happens next", "Explain the next step plainly", "CMS → Case Notes", "Process explained; no prediction"],
+      ["Adjuster asks your view", "Decline; share approved facts only", "CMS → Communications Log", "Nothing beyond the record"]
+    ],
+    "dos": [
+      "Answer from **the record**; route what it means",
+      "Use **one routing line**, every time",
+      "Give the client **a time frame** for the answer"
+    ],
+    "donts": [
+      "Reassuring him **about the outcome**",
+      "Guessing a value **“off the record”**",
+      "Coaching him on **what to tell an adjuster**"
     ]
   }
 }

@@ -231,8 +231,8 @@
       "channel": "memo",
       "from": "Atty. Elijah Thorne",
       "to": "Case Manager",
-      "subject": "Gap Justification Record before the pre-demand session",
-      "body": "Dr. Reyes's Causation Letter of 06/19 is in, and John reached MMI on 06/12. Before our pre-demand session I want the Gap Justification Record: both interruptions with exact dates, every reason beside the dated document that proves it, “account only” where there isn't one. Facts and citations, no argument. Run your defense-eye pass first.",
+      "subject": "Gap Explanation Record before the pre-demand session",
+      "body": "Dr. Reyes's Causation Letter of 06/19 is in, and John reached MMI on 06/12. Before our pre-demand session I want the Gap Explanation Record: both interruptions with exact dates, every reason beside the dated document that proves it, “account only” where there isn't one. Facts and citations, no argument. Run your defense-eye pass first.",
       "attachments": [
         "RS19",
         "RS11",
@@ -340,10 +340,10 @@
       "goals": [
         "Open on record: date, parties, role, his consent, privacy confirmed",
         "Draw out all four reasons with open, non-leading questions",
-        "Surface the texts, the call-outs and the 02/07 receipt",
+        "Ask for the paper: the texts, the call-outs, the 02/07 receipt",
         "Read back his account; confirm 03/05 consult and post-03/19 transport"
       ],
-      "line": "Never suggest a reason or say what the gap does to his case; route that to Atty. Thorne."
+      "line": "Never suggest a reason, interpret it or say what the gap does to his case; route that to Atty. Thorne."
     },
     "d2m4-a2": {
       "who": "Atty. Elijah Thorne",
