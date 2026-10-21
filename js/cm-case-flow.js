@@ -264,7 +264,8 @@ const showLabel = (b, head) => head + (b.show && b.show.caption ? ` — ${b.show
 const opsTable = ops => !(ops && ops.length) ? "" :
   table(["Trigger event", "Case Manager task", "Tool / interface", "Verification checkpoint"], ops);
 
-function rubricHtml(r){
+function rubricHtml(r){   // the grading weights stay with the scoring (the Knowledge Check, the trainer's panel): not shown in the lesson
+  return "";
   if(!r) return "";
   const rows = list => list.map(([dim, pts, crit]) => [`${pts}%`, dim, crit]);
   return `<details class="cf-rubric"><summary>Assessment criteria — AI ${sum(r.ai)}% + Trainer ${sum(r.trainer)}%</summary>
@@ -421,7 +422,7 @@ const TH_PER = 4;
 const theoryOf = b => (SLIDES[b.id] || {}).theory || null;
 const theoryViews = b => { const t = theoryOf(b); return !t ? [] : (t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]).concat(t.framework ? ["frame"] : []); };
 function viewsOf(b){
-  if(b.kind === "lesson") return ["why"].concat(theoryViews(b), ["rules"],b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length ? ["dodont"] : []);
+  if(b.kind === "lesson") return ["why"].concat(theoryViews(b), ["rules"],b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // noGame: the CM introduction (Meet Your Case comes before the first game)
   if(b.kind === "activity") return ["case", "task"].concat(b.show ? ["model"] : [], ["check"]);
   return (copyOf(b).questions.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
 }
@@ -536,13 +537,14 @@ function toolButtons(tool, blockId){ return toolChips(toolsIn(tool, blockId), bl
 const ddList = c => `<div class="cfx-dd"><div class="cfx-do"><h3>✅ Do</h3><ul>${c.dos.map(x => `<li>${hl(x)}</li>`).join("")}</ul></div>
       <div class="cfx-dont"><h3>⚠️ Don't</h3><ul>${c.donts.map(x => `<li>${hl(x)}</li>`).join("")}</ul></div></div>`;
 const blockById = id => { for(const d of CF.days) for(const m of d.modules){ const b = m.blocks.find(x => x.id === id); if(b) return b; } return null; };
+const CG_ROUNDS = 3;   // a short game: three rounds, the rest of the rules in the full list (📋)
 const CG = {};   // the game on each lesson's slide, for this visit: {round, shown, calls: {i: {pick, ok, pts}}, list}
 function cgRounds(b){
   const c = copyOf(b), k = SLIDES[b.id].clues;
   const r = c.dos.map((x, i) => ({side: "do", rule: x, clues: k.dos[i]})).concat(c.donts.map((x, i) => ({side: "dont", rule: x, clues: k.donts[i]})));
   let h = 0; for(const ch of b.id) h = (h * 31 + ch.charCodeAt(0)) >>> 0;   // a fixed mix per lesson: the same for the whole class
   for(let i = r.length - 1; i > 0; i--){ h = (h * 1103515245 + 12345) >>> 0; const j = h % (i + 1); [r[i], r[j]] = [r[j], r[i]]; }
-  return r;
+  return r.slice(0, CG_ROUNDS);
 }
 function clueGame(b){
   const g = CG[b.id] = CG[b.id] || {round: 0, shown: 1, calls: {}, list: false}, rounds = cgRounds(b);

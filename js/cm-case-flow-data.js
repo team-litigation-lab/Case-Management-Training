@@ -375,7 +375,7 @@ window.CM_CASE_FLOW = {
       blocks: [
 
       {
-        kind: "lesson", id: "d1m1-role",
+        kind: "lesson", id: "d1m1-role", noGame: true,
         title: "The Case Manager's Role",
         topic: "Owning the file from intake to resolution",
         visual: "A single horizontal case-lifecycle track across the slide: eight rounded stations left to right — Intake, Claim Set-Up, Treatment, Pre-Demand, Demand, Settlement & Liens, Disbursement, Litigation (the last drawn dashed, as the fork). Above the track a navy band, THE CASE MANAGER OWNS THE MOVEMENT, runs the full width; below it a thinner orange band, ATTY. THORNE OWNS EVERY LEGAL JUDGMENT. A small CMS monitor icon sits under the first station, captioned: if it isn't in the CMS, it didn't happen.",

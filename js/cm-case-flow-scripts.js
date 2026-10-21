@@ -9,7 +9,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "So, whose file is it: the client's, Atty. Thorne's, or yours?"
   },
   "theory": {
-   "say": "Let's put a definition on the table. Case Management is the end-to-end coordination of a case, from intake to resolution: tracking it, handling it and moving it, phase by phase. Every task on the file has to pass three tests. Is it moving on time? Is it properly documented and compliant? Is everyone hearing about it clearly? You'll carry the file through seven stages, from Intake and Case Opening all the way to Resolution and Closing. Along the way you build the Case Plan and recommend next steps, but the strategy itself stays with Atty. Thorne. And you're always doing case health analysis, which just means reading the whole file for risk, not one task at a time, so you spot the weak point before it costs the client.",
+   "say": "Let's put a definition on the table. Case Management is the end-to-end coordination of a case, from intake to resolution: tracking it, handling it and moving it, phase by phase. Every task on the file has to pass three tests. Is it moving on time? Is it properly documented and compliant? Is everyone hearing about it clearly? You'll carry the file through six stages, from Intake and Case Opening all the way to Billing, Resolution and Closing. Along the way you build the Case Plan and recommend next steps, but the strategy itself stays with Atty. Thorne. And you're always doing case health analysis, which just means reading the whole file for risk, not one task at a time, so you spot the weak point before it costs the client.",
    "ask": "Which of these have you met before, and where do you think it'll show up on John Doe's file?"
   },
   "frame": {
@@ -26,9 +26,6 @@ window.CM_CF_SCRIPTS = {
   },
   "job": {
    "say": "Here's how this actually runs on the job. A new matter gets assigned to you. Before you call anyone, you read the raw file end to end in the CMS Case File, and you don't pick up the phone until every party, date and carrier is noted. Then, a week in, the client asks you a legal question. You log it in the Communications Log, create a task, and route it to Atty. Thorne the same day, with the facts and no opinion from you. And when a deadline or a risk shows up, you docket it on the Calendar, flag it under Risk Flags in the Case File, and recommend a next step. The test every time is simple: nothing lives only in an email or in your memory."
-  },
-  "dodont": {
-   "say": "Time for a game we'll play at the end of every lesson. It's called 3 Clues, 1 Rule. Behind each round is one of this lesson's Dos or Don'ts. I'll reveal three clues, one at a time, and as soon as you think you've got it, call it: Do or Don't, and name the rule. Get it on the first clue and that's three points, second clue two, third clue one. On this one, keep the UPL line in your head, because I'm going to keep naming it all week: the fastest way to hurt a case is a well-meant guess about its value. And remember, from today, everything you do on John Doe's file happens in the CMS."
   }
  },
  "d1m1-case": {
