@@ -1665,6 +1665,23 @@ async function saveTakeaway(d){
   p.takeaway = t.pct; p.takeawayGraded = t.graded; p.takeawayAt = new Date().toISOString();
   try{ await storeSet("day-progress", state.progress); if(typeof syncToLedger === "function") await syncToLedger(); }catch(e){}
 }
+/* What the Training Portal's Progress page shows for this course (it reads the trainee's record, key caseFlow; written with the
+   record, cm-updates.js): per Case Flow day, the Knowledge Check, the takeaway score, and each module's Automated, Trainer and
+   Composite scores. */
+function scoreSummary(){
+  const out = {days: {}, at: REC.updatedAt || null};
+  DAYS.filter(d => d.cf).forEach(d => {
+    const mods = {};
+    [...new Set(d.lessons.filter(l => l.cf).map(l => l.cf.mod.id))].forEach(id => {
+      const m = (REC.modules || {})[id]; if(!m) return;
+      const s = composite(m); if(s.a != null || s.t != null) mods[id] = s;
+    });
+    const p = (state.progress || {})[d.id] || {};
+    out.days[d.cf.n] = {id: d.id, kc: typeof p.score === "number" ? p.score : null, passed: !!p.done,
+      takeaway: typeof p.takeaway === "number" ? p.takeaway : null, modules: mods};
+  });
+  return out;
+}
 function takeawayHtml(d){
   const t = takeawayScore(d), busy = kcMods(d).some(({mod}) => state.cfReviewing && state.cfReviewing[mod.id]);
   return `<b>${t.pct == null ? "—" : t.pct + "%"}</b><span>Takeaways</span><small>${t.pct == null ? (busy ? "Grading…" : "Graded after you submit") : `AI-graded · ${t.graded} of ${t.n}${busy ? " · grading…" : ""}`}</small>`;
@@ -1853,11 +1870,16 @@ let __qdT = null;
 function gamePaint(d){
   if(d && !state.quizSubmitted && Object.keys(state.quizAnswers || {}).length){ clearTimeout(__qdT); __qdT = setTimeout(() => saveQuizDraft(d), 400); }
   const w = document.getElementById("quizWrap"); if(!w) return;
+  // No flicker: repainting the same question (answering it, Ask a Friend, a token) keeps its card still; only a new
+  // question card plays its entrance (cfgIn starts from transparent, so replaying it blinked the card on every click).
+  const prevQ = w.dataset.cfq;
   w.innerHTML = renderQuiz(d);
+  const shownCard = w.querySelector(".cfg-card"), shownQ = shownCard ? String(shownCard.dataset.q) : "";
+  w.classList.toggle("cfg-same", !!shownQ && shownQ === prevQ); w.dataset.cfq = shownQ;
   try{ kcFit(); }catch(e){}
   clearInterval(state.cfClockIv); clearTimeout(state.cfBombT);
   const g = state.cfGame; if(!g) return;
-  const card = w.querySelector(".cfg-card"), qi = card ? +card.dataset.q : -1;
+  const card = shownCard, qi = card ? +card.dataset.q : -1;
   if(qi < 0 || state.quizAnswers[qi] !== undefined) return;
   if(g.mode === "millionaire"){
     const el = w.querySelector(".cfg-clock"), t0 = g.shown[qi];
@@ -1996,6 +2018,7 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
   kcMod(modId){ const cur = document.querySelector(".cf-kc-mod"); if(cur) readForm(cur.dataset.mod); persist(); state.cfKcMod = modId; gamePaint(DAYS.find(x => x.id === state.dayId)); },
   kcBack(dayId){ const d = cfDay(dayId) || cfDay(state.dayId); state.dayViewMode = "slides"; state.lessonSlide = typeof resumeSlideFor === "function" ? resumeSlideFor(d.id) : 0; state.slidePage = 0; render(); },
   kcPart(part){ state.cfKcPart = part; state.cfKcDay = state.dayId; gamePaint(DAYS.find(x => x.id === state.dayId)); window.scrollTo({top: 0, behavior: "smooth"}); },
+  scoreSummary(){ return scoreSummary(); },
   async kcSubmit(dayId){
     const d = cfDay(dayId); if(!d) return;
     if(Object.keys(state.quizAnswers || {}).length < d.quiz.length){ if(typeof toast === "function") toast(`Answer all ${d.quiz.length} quiz questions first.`); return cmCaseFlow.kcPart("quiz"); }
@@ -2553,6 +2576,7 @@ body.cfg-shake #quizWrap{animation:cfgShake .5s ease;}
 .cfg-node:disabled{cursor:default;opacity:.7;}.cfg-node.ok{background:#2F8F5B;border-color:#2F8F5B;color:#fff;}.cfg-node.no{background:#B54A3F;border-color:#B54A3F;color:#fff;}
 .cfg-node.at{transform:scale(1.25);border-color:#DB8437;background:#FFF1E2;font-size:15px;}
 .cfg-card{position:relative;padding:20px 24px !important;animation:cfgIn .35s cubic-bezier(.2,.8,.3,1.2) both;overflow:visible;}
+#quizWrap.cfg-same .cfg-card,#quizWrap.cfg-same .cfg-aud i{animation:none;}
 .cfg-q{font:700 20px/1.4 'Fraunces',Georgia,serif;color:var(--navy);margin:0 0 14px;}
 .cfg-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .cfg-opt{display:flex;align-items:center;gap:12px;text-align:left;padding:12px 14px;border-radius:12px;border:2px solid #E3E6EE;background:#fff;font:500 15px/1.35 var(--font-ui);color:var(--ink);cursor:pointer;transition:transform .15s, border-color .15s, box-shadow .15s;}

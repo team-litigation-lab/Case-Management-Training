@@ -6,7 +6,9 @@
  * use one KV namespace without their trainee/progress records colliding.
  *
  * Secrets (set once with `wrangler secret put <NAME>`):
- *   GEMINI_API_KEY     — the reviewer behind every AI feature (Google Gemini). Required.
+ *   GEMINI_API_KEY     — the reviewer behind every AI feature (Google Gemini). Required. More keys (GEMINI_API_KEY1,
+ *                        GEMINI_API_KEY14, GEMINI_API_KEY15, GEMINI_API_KEY16 …) join the pool: they take turns, and a key that
+ *                        runs out of quota or credits rests while the next one answers.
  *   GEMINI_MODEL       — optional, default "gemini-3.8-flash" (falls back to gemini-3.5-flash-lite)
 
  *   MASTER_ADMIN_PASSWORD — admin sign-in (the LSH Training Portal's master admin password: one password on every platform). Setting this switches the portal
@@ -196,6 +198,16 @@ function canRead(tok, key) {
   if (tok.role === "a") return true;
   return OWN(tok.id).includes(key) || key === `callsim:${tok.id}` || key === `labreview:${tok.id}` || key === `simresults:${tok.id}` || key.startsWith(`actup:${tok.id}:`) || PUBLIC_READ.some((re) => re.test(key));
 }
+// What a trainee reads of their own records leaves out what is for trainers only: the private trainer note on each day's
+// feedback (the trainer's Feedback panel calls it "Private trainer note (not shown to trainee)").
+function forTrainee(tok, key, raw) {
+  if (tok.role === "a" || raw == null || !key.startsWith("feedback:")) return raw;
+  try {
+    const v = JSON.parse(raw);
+    Object.values((v && v.days) || {}).forEach((d) => { if (d && typeof d === "object") delete d.trainerNote; });
+    return JSON.stringify(v);
+  } catch (e) { return raw; }
+}
 async function traineeWrite(env, tok, key, value) {
   const kv = kvOf(env);
   const id = tok.id;
@@ -219,7 +231,11 @@ async function traineeWrite(env, tok, key, value) {
       const cur = out.days[d];
       const trainerOwned = cur && (cur.editedByTrainer || (cur.status === "sent" && !cur.auto));
       if (trainerOwned) { if (v && v.readAt && !cur.readAt) cur.readAt = v.readAt; continue; }
-      if (v && typeof v === "object") { delete v.editedByTrainer; out.days[d] = v; }
+      if (v && typeof v === "object") {
+        delete v.editedByTrainer;
+        if (cur && cur.trainerNote) v.trainerNote = cur.trainerNote;   // the trainee never sees it (forTrainee), so never drops or rewrites it
+        out.days[d] = v;
+      }
     }
     await kv.put(key, JSON.stringify(out)); return null;
   }
@@ -321,6 +337,32 @@ async function viaGateway(env, req, user) {
   return json({ error: { message: (status === 429 ? "rate limit (shared AI budget): " : "") + ((data && data.error) || "AI gateway error " + r.status) } }, status);
 }
 
+/* The key pool: every GEMINI_API_KEY secret on this Worker is used, GEMINI_API_KEY and any numbered one (GEMINI_API_KEY1 …
+   GEMINI_API_KEY14, GEMINI_API_KEY15, GEMINI_API_KEY16 …). They take turns: each request starts on the next key. A key that hits its
+   limit rests (a minute for a per-minute limit, an hour for a daily one or when it is out of credits or has billing off, 10 minutes
+   if Google rejects it) and the request moves on to the next key. Same rules as the CMS (functions/_ai.js) and the Training Portal's
+   AI gateway (functions/_ai-gateway.js). The rests live in this Worker instance's memory. */
+const geminiKeyNames = (env) => Object.keys(env || {}).filter((n) => /^GEMINI_API_KEY\d*$/.test(n) && String(env[n] || "").trim())
+  .sort((a, b) => (Number(a.slice(14)) || 0) - (Number(b.slice(14)) || 0));
+const geminiRest = new Map();   // key name -> resting until (ms)
+let geminiTurn = 0;
+function geminiKeyOrder(env) {
+  const names = geminiKeyNames(env); if (!names.length) return [];
+  const start = geminiTurn++ % names.length, now = Date.now();
+  const turn = names.slice(start).concat(names.slice(0, start));
+  const awake = turn.filter((n) => !(geminiRest.get(n) > now));
+  return awake.length ? awake : turn;   // all resting: try them anyway, the soonest may be back
+}
+function restGeminiKey(name, status, msg) {
+  const m = String(msg || "");
+  let ms = 0;
+  if (status === 429) ms = /per.?day|daily|PerDay/i.test(m) ? 3600e3 : 60e3;
+  if (/credit|billing|quota exceeded for quota metric.*day|prepay/i.test(m)) ms = 3600e3;
+  if ((status === 400 || status === 403) && /API key|permission|denied/i.test(m)) ms = 600e3;
+  if (ms) geminiRest.set(name, Date.now() + ms);
+  return !!ms;
+}
+
 async function callGemini(env, rawBody, user) {
   let req; try { req = JSON.parse(rawBody); } catch (e) { return json({ error: "Invalid request" }, 400); }
   if (gatewayOn(env)) return await viaGateway(env, req, user);
@@ -334,14 +376,18 @@ async function callGemini(env, rawBody, user) {
   if (req.system) payload.systemInstruction = { parts: [{ text: toText(req.system) }] };
   // Google limits the 2.5 models to accounts that already used them; new projects use 3.8 Flash / 3.5 Flash-Lite.
   const models = [env.GEMINI_MODEL || "gemini-3.8-flash", "gemini-3.5-flash-lite", "gemini-3.5-flash"].filter((v, i, a) => a.indexOf(v) === i);
+  const keys = geminiKeyOrder(env);
+  if (!keys.length) return json({ error: "No AI key is configured on this Worker. Add GEMINI_API_KEY (or GEMINI_API_KEY1, GEMINI_API_KEY2, …) as a Secret in Cloudflare." }, 500);
   let last = null;
+  for (const keyName of keys) {
+  let nextKey = false;
   for (const model of models) {
     const p = JSON.parse(JSON.stringify(payload));
     if (/2\.5-flash/.test(model)) p.generationConfig.thinkingConfig = { thinkingBudget: 0 };   // 2.5: thinking off
     else p.generationConfig.thinkingConfig = { thinkingLevel: "low" };                         // 3.x: think briefly → much faster replies
     const send = (body) => geminiFetch(env, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
       method: "POST",
-      headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
+      headers: { "Content-Type": "application/json", "x-goog-api-key": String(env[keyName]).trim() },
       body: JSON.stringify(body)
     });
     let r = await send(p);
@@ -357,8 +403,11 @@ async function callGemini(env, rawBody, user) {
     }
     const msg = (data.error && data.error.message) || `Gemini error ${r.status}`;
     last = { status: r.status, msg };
-    if (r.status === 400 && /API key/i.test(msg)) break;            // bad key: no point trying another model
+    if (restGeminiKey(keyName, r.status, msg)) { nextKey = true; break; }   // limit, credits or a rejected key: the next key takes over
+    if (r.status === 400 && /API key/i.test(msg)) { nextKey = true; break; }
     if (![404, 429, 500, 503].includes(r.status)) break;
+  }
+  if (!nextKey) break;   // not a key problem: another key would get the same answer
   }
   const status = last.status === 400 && /API key/i.test(last.msg) ? 502 : last.status;   // 502, not 401: a bad AI key is not a portal sign-in problem
   return json({ error: { message: (status === 502 && /API key/i.test(last.msg) ? "invalid x-api-key (Gemini): " : status === 429 ? "rate limit (Gemini free tier): " : "") + last.msg } }, status);
@@ -449,7 +498,7 @@ export default {
         const m = html.match(/APP_BUILD = "([^"]+)"/);
         // Changes on every Cloudflare deploy; open pages use it to pick up a new version.
         const deployment = (env.CF_VERSION_METADATA && env.CF_VERSION_METADATA.id) || "unknown";
-        return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nDeployment: ${deployment}\nWorker: secure-mode worker.js\nSecure mode: ${adminPass(env) ? "ON" : "OFF"}\nAdmin password: ${adminPassStatus(env)}\nAI provider: ${env.GEMINI_API_KEY ? "Google Gemini (" + (env.GEMINI_MODEL || "gemini-3.8-flash") + ")" : "none — add GEMINI_API_KEY"}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
+        return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nDeployment: ${deployment}\nWorker: secure-mode worker.js\nSecure mode: ${adminPass(env) ? "ON" : "OFF"}\nAdmin password: ${adminPassStatus(env)}\nAI provider: ${geminiKeyNames(env).length ? "Google Gemini (" + (env.GEMINI_MODEL || "gemini-3.8-flash") + ", " + geminiKeyNames(env).length + " key" + (geminiKeyNames(env).length === 1 ? "" : "s") + ")" : (gatewayOn(env) ? "Google Gemini via the Portal's AI gateway" : "none — add GEMINI_API_KEY")}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
       }
       if (!path.startsWith("/api/")) {
         const res = (await docFromR2(env, request, path)) || (await env.ASSETS.fetch(request));
@@ -573,7 +622,7 @@ export default {
       /* ---------- AI proxy (signed-in users only, so strangers can't spend your credits) ---------- */
       // (the path keeps its old name so pages already open in browsers keep working)
       if (path === "/api/claude" || path === "/api/ai") {
-        if (!env.GEMINI_API_KEY) return json({ error: "No AI key is configured on this Worker. Add GEMINI_API_KEY as a Secret in Cloudflare." }, 500);
+        if (!geminiKeyNames(env).length && !gatewayOn(env)) return json({ error: "No AI key is configured on this Worker. Add GEMINI_API_KEY as a Secret in Cloudflare." }, 500);
         return await callGemini(env, await request.text(), tok && tok.id);
       }
 
@@ -601,7 +650,7 @@ export default {
       if (path === "/api/storage/get") {
         if (!key) return json({ error: "Missing key" }, 400);
         if (!canRead(tok, key)) return json({ error: "Not allowed" }, 403);
-        return json({ value: await kv.get(key) });
+        return json({ value: forTrainee(tok, key, await kv.get(key)) });
       }
       if (path === "/api/storage/get-many") {
         // Several records in one request (the admin ledger, attendance, a trainee's tasks for every
@@ -611,7 +660,7 @@ export default {
         const keys = Array.isArray(body.keys) ? body.keys.map((k) => String(k || "")) : [];
         if (!keys.length || keys.length > 100) return json({ error: "Send 1 to 100 keys" }, 400);
         const values = {};
-        await Promise.all(keys.map(async (k) => { if (k && canRead(tok, k)) values[k] = await kv.get(k); }));
+        await Promise.all(keys.map(async (k) => { if (k && canRead(tok, k)) values[k] = forTrainee(tok, k, await kv.get(k)); }));
         return json({ values });
       }
       if (path === "/api/storage/set") {

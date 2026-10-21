@@ -195,6 +195,12 @@ function cmTool(id){
   let url = String(o.url!=null ? o.url : d.url || "").trim().replace(/\/+$/,"");
   if(id==="calendaring" && /\/simulators\/calendar\.html$/i.test(url)) url = d.url;   // a saved address from before the Calendaring Simulators moved
   if(id==="calls" && /calls=1|trainingcrm\.pages\.dev/i.test(url)) url = d.url;      // a saved address from before the Call Simulator moved to ☎ LSH Ring Channel
+  // A Portal simulator always opens its own page: a saved address on the Portal that names another page (Email Replies saved
+  // as the Email Workspace, a simulators hub address, a page that has moved) goes to the tool's own simulator instead.
+  if(d.portalSim && /cm-training-activity\.pages\.dev/i.test(url)){
+    const own = d.url.replace(/^https:\/\/[^/]+/, "").split("?")[0], saved = url.replace(/^https:\/\/[^/]+/, "").split("?")[0];
+    if(saved !== own) url = d.url;
+  }
   const status = o.status || d.status;
   return Object.assign({}, d, {url, status, live: status==="live" && /^https:\/\//i.test(url)});
 }
@@ -338,6 +344,16 @@ window.openTool = function(id, mode, extra, act){
   if(!t.live){ toast(`${t.icon} ${t.name} is coming soon. For now, log this step as a Task in the CMS.`); return; }
   let href = toolHref(t);
   if(extra) href += (href.includes("?") ? "&" : "?") + extra;
+  // The CMS in a tab: signed in with a fresh ticket (no log-in page, as in the frame), and kept reachable (no noopener), so
+  // "File it in the CMS" and the open-case lookup (js/cm-doc-filing.js, js/cm-cms-case.js) work with a CMS tab too.
+  if(mode==="tab" && id==="cms"){
+    const w = window.open("", "_blank");
+    if(!w){ window.open(href, "_blank", "noopener"); return; }
+    (window.__cmsTabs = window.__cmsTabs || []).push(w);
+    const go = (u)=>{ try{ w.location.href = u; }catch(e){} setTimeout(()=>{ if(window.CMCase) CMCase.ask(); }, 2500); };
+    if(window.LSHToolLinks) LSHToolLinks.ticketed(href).then(go, ()=>go(href)); else go(href);
+    return;
+  }
   if(mode==="tab" || id==="calendaring" || id==="calls"){ window.open(href, "_blank", "noopener"); return; }   // the Calendaring Simulators and the Call Simulator (☎ LSH Ring Channel, through the Portal) use the Portal's sign-in cookie, which a frame doesn't send
   ensureShell();
   currentAct = act || null;
