@@ -1,10 +1,10 @@
-# Case Flow Day 1 — Intake & Property Damage
+# Case Flow Day 1 — Intake, Claims & Property Damage
 
-**Phase:** Intake & Property Damage · **Focus case:** John Doe v. Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
+**Phase:** Intake, claims & Property Damage · **Focus case:** John Doe v. Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
 
-**Objective.** Know the Case Manager's role and the six stages of a file; meet John Doe and his case; read the raw file and make the acceptance decision; open the matter correctly in the CMS with the Conflict Check first; and set up the Property Damage side (the client's do's and don'ts, the rental, the repair or total-loss path).
+**Objective.** Know the Case Manager's role and the six stages of a file; meet John Doe and his case; hold the UPL line; read the raw file, make the acceptance decision and see which claims the file will carry; open the matter correctly in the CMS with the Conflict Check first; and set up the Property Damage side (the client's do's and don'ts, the rental, the repair or total-loss path).
 
-**Gate to the next day.** Matter opened in the CMS with the Conflict Check documented · acceptance decision recorded · PD onboarding directions delivered and assigned in the system
+**Gate to the next day.** Matter opened in the CMS with the Conflict Check documented · acceptance decision recorded · the claims the file carries identified · PD onboarding directions delivered and assigned in the system
 
 **The file as this day opens.**
 
@@ -31,7 +31,7 @@
 
 The day is one module, on John Doe's one file: Lectures (its lessons, one uninterrupted discussion) → Practice (its Skill Activities on the file in the CMS, in the order the work happens) → Knowledge Check. A lesson marked (condensed) is a short overview.
 
-**Module 1 — Intake & Property Damage**
+**Module 1 — Intake, Claims & Property Damage**
 
 1. *Lesson* — The Case Manager's Role
 2. *Lesson* — Meet Your Case: John Doe v. Robert Smith
@@ -50,13 +50,13 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ---
 
-## Module 1 — Intake & Property Damage
+## Module 1 — Intake, Claims & Property Damage
 
 **Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check
 
 ### 1.1.1 The Case Manager's Role
 
-> **Lesson** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Owning the file from intake to resolution  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#1` Training Agenda & What Case Management Is · `D1#2` The General Case Management Process · `D1#3` Key Duties of a Case Manager · `D1#4` Understanding Case Phases
@@ -135,7 +135,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ### 1.1.2 Meet Your Case: John Doe v. Robert Smith
 
-> **Lesson** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** The one file you will work for five days  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#19` Claim Set-Up: Case Projection — Why the Three Work Together · curriculum/5-day-flow/case-file.md §1–2: the file at intake, people and vehicles, the collision
@@ -215,7 +215,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ### 1.1.3 Fact Sharing vs. Legal Advice: the UPL Line
 
-> **Lesson** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** What you may say, and what only Atty. Thorne says  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#20` Ethics & Boundaries: What You Can and Cannot Do at Hearings (UPL) · LSH Claims Specialist: communication skills and professionalism — clarity without jargon, calm reassurance · Newly authored: a dedicated, practical UPL lesson: fact sharing vs. legal advice, and the hear-log-route habit
@@ -294,7 +294,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ### 1.1.4 Ingesting the Raw File
 
-> **Lesson** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** From “On the Records” to a structured matter  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#1` Training Agenda & What Case Management Is · `D1#3` Key Duties of a Case Manager · `D1#4` Understanding Case Phases · `D1#5` Case Phase: Intake — Establishing Control · `D1#6` The Real Intake Workflow · `D1#7` Intake & Initial Client Contact — Gatekeepers of Case Quality · `D1#10` Bottleneck: Incomplete Client Information · `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · `D1#15` Bottleneck: Communication Gaps · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · LSH Claims Specialist: pre-claim data set, Declaration Page, coverage asymmetry
@@ -382,7 +382,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ### 1.1.5 The Acceptance Decision & the Three-Pillar Case Plan
 
-> **Lesson** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with Case Plan Audit & Day 2 Gate (`d1m4`)  
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** The document that makes the file move  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#8` Case Acceptance Determination · `D1#14` Bottleneck: Case Eligibility Uncertainty · `D1#17` Skill Building: Intake Decision Challenge & Applied Case Manager Actions · `D1#19` Claim Set-Up: Case Projection — Why the Three Work Together · `D1#21` Case Study: John Doe v. Apex — Liability Determination · `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#23` Case Planning Framework: The Three-Pillar Case Plan
@@ -438,7 +438,7 @@ A five-band vertical architecture, each band a full-width navy or navy-soft bar 
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in Case Plan Audit & Day 2 Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
+Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -463,7 +463,7 @@ Verified in Case Plan Audit & Day 2 Gate (taught on Case Flow Day 2) and that da
 
 ### 1.1.6 Client Do's and Don'ts & Rental Authorization
 
-> **Lesson** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Protecting the claim from the client's own good intentions  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#44` Handling Treatment Gaps During the Treatment Phase · LSH Claims Specialist: LOR Property Damage carve-out, rental coverage hierarchy, documents to support the claim
@@ -543,7 +543,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ### 1.1.7 Repair Estimates, Total Loss & Loss of Use
 
-> **Lesson** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Repair, or total? And what the client is owed either way  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · `D5#35` Property Damage: Calculating the Value of the Claim · LSH Claims Specialist: 5-day inspection window, Loss of Use, tow and storage
@@ -624,7 +624,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ### 1.1.8 Opening John Doe's File in the CMS
 
-> **Skill Activity** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Skill Activity — from raw file to an active matter  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#5` Case Phase: Intake — Establishing Control · `D1#6` The Real Intake Workflow · `D1#7` Intake & Initial Client Contact — Gatekeepers of Case Quality · `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors
@@ -697,7 +697,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ### 1.1.9 Client Onboarding Direction Packet
 
-> **Skill Activity** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Skill Activity 1 — assemble what the client gets on day one  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#44` Handling Treatment Gaps During the Treatment Phase · LSH Claims Specialist: client communication protocol
@@ -768,7 +768,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ### 1.1.10 Onboarding Direction Assignment in System
 
-> **Skill Activity** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Skill Activity 2 — turn directions into tracked tasks  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#3` Key Duties of a Case Manager · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#44` Handling Treatment Gaps During the Treatment Phase
@@ -838,7 +838,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ### 1.1.11 CM Fundamentals Knowledge Check
 
-> **Knowledge Check** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#1` Training Agenda & What Case Management Is · `D1#5` Case Phase: Intake — Establishing Control · `D1#12` Bottleneck: Conflict Check Delays · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy
@@ -948,7 +948,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ### 1.1.12 PD & Onboarding Knowledge Audit
 
-> **Knowledge Check** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
+> **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · `D5#35` Property Damage: Calculating the Value of the Claim · `D1#44` Handling Treatment Gaps During the Treatment Phase

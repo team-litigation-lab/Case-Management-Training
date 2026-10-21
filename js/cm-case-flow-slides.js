@@ -2806,7 +2806,7 @@ window.CM_CF_SLIDES = {
    "Date the flag and attach **the Triple-Check results**",
    "State what must happen **before any compromise**"
   ],
-  "deliver": "A **dated, flagged lien record** you could negotiate from on Day 5",
+  "deliver": "A **dated, flagged lien record** you could negotiate from on Day 4",
   "checks": [
    "Carrier: **Peach State Health Plan**",
    "**PSH-55017742 and GRP-41208** both entered",
@@ -7380,7 +7380,7 @@ window.CM_CF_SLIDES = {
    "Pick the address on **recency and two corroborating sources**",
    "Re-instruct the server; log service and affidavit; **docket the answer date**",
    "Run Steps 1–3; draft **the Step 4 certified notice**",
-   "Assess John's **Skip-Trace gate** on Day 3's three criteria"
+   "Assess John's **Skip-Trace gate** on Day 2's three criteria"
   ],
   "deliver": "A service record through the answer date; **a certified notice dispatched**, both deliveries logged",
   "checks": [
