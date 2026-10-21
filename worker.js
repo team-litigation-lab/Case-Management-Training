@@ -6,7 +6,11 @@
  * use one KV namespace without their trainee/progress records colliding.
  *
  * Secrets (set once with `wrangler secret put <NAME>`):
- *   GEMINI_API_KEY     — the reviewer behind every AI feature (Google Gemini). Required.
+ *   GEMINI_API_KEY, GEMINI_API_KEY1 … GEMINI_API_KEY16 — the Gemini key pool behind every AI feature
+ *                        (see GEMINI_POOL). Set as many as you have, one per Google Cloud project; the keys
+ *                        in use today are GEMINI_API_KEY14, GEMINI_API_KEY15 and GEMINI_API_KEY16. They are
+ *                        interchangeable: each request starts on the next key in turn, and a key whose
+ *                        credits run out is rested while the next key takes over. At least one is required.
  *   GEMINI_MODEL       — optional, default "gemini-3.8-flash" (falls back to gemini-3.5-flash-lite)
 
  *   MASTER_ADMIN_PASSWORD — admin sign-in (the LSH Training Portal's master admin password: one password on every platform). Setting this switches the portal
@@ -270,6 +274,27 @@ async function traineeWrite(env, tok, key, value) {
    {messages, system, max_tokens} request; this translates it to Gemini's
    generateContent and the reply back. Model: GEMINI_MODEL (default gemini-3.8-flash),
    falling back to gemini-3.5-flash-lite / gemini-3.5-flash if busy or unavailable. */
+// Every AI feature (grading, drafting review, trainer tools) shares one pool of keys, so a key that runs
+// out of credits never stops the course: each request starts on the next key in turn, and a key that hits
+// its limit is rested while the next key takes over.
+// Free-tier limits are per Google Cloud project, so each key should come from its own project.
+// The pool is GEMINI_API_KEY and GEMINI_API_KEY1 … GEMINI_API_KEY16 — set as many as you have; the keys
+// in use on Cloudflare today are GEMINI_API_KEY14, GEMINI_API_KEY15 and GEMINI_API_KEY16, and they are
+// interchangeable: the pool rotates through whichever are set, in turn.
+const GEMINI_POOL = ["GEMINI_API_KEY", ...Array.from({ length: 16 }, (_, i) => "GEMINI_API_KEY" + (i + 1))];
+// A key set twice under different names is counted once.
+const geminiKeyNames = (env) => GEMINI_POOL.filter((n, i, a) => env[n] && a.findIndex((m) => env[m] === env[n]) === i);
+const hasGemini = (env) => geminiKeyNames(env).length > 0;
+// Per Worker instance: which key the next request starts on, and keys resting after a limit.
+// A per-minute limit rests the key for a minute; a daily limit (credits used up) for an hour; a rejected key for 10 minutes.
+let geminiTurn = Math.floor(Math.random() * 1000);
+const geminiRest = new Map();   // "<key name>|<model>" or "<key name>|*" -> rest until (ms)
+const resting = (name, model) => Math.max(geminiRest.get(name + "|*") || 0, geminiRest.get(name + "|" + model) || 0) > Date.now();
+function geminiKeyOrder(env) {
+  const names = geminiKeyNames(env);
+  const start = names.length ? geminiTurn++ % names.length : 0;
+  return [...names.slice(start), ...names.slice(0, start)];
+}
 /* Gemini refuses some regions ("User location is not supported for the API use"). The Worker is placed in
    the US (wrangler.json), but placement is best-effort: a request can still run near the trainee. A refused
    call is sent again from GeminiRelay, a Durable Object pinned to western North America, and that Worker
@@ -324,6 +349,10 @@ async function viaGateway(env, req, user) {
 async function callGemini(env, rawBody, user) {
   let req; try { req = JSON.parse(rawBody); } catch (e) { return json({ error: "Invalid request" }, 400); }
   if (gatewayOn(env)) return await viaGateway(env, req, user);
+  // Keys in turn (see geminiKeyOrder): when a key's credits or free-tier limit are used up (429), or the
+  // key is rejected, it rests and the next key takes the request.
+  const keys = geminiKeyOrder(env);
+  if (!keys.length) return json({ error: "No AI key is configured on this Worker. Add GEMINI_API_KEY as a Secret in Cloudflare." }, 500);
   const toText = (c) => typeof c === "string" ? c : (Array.isArray(c) ? c.map((p) => p && p.text ? p.text : "").join("\n") : "");
   const contents = (req.messages || []).map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: toText(m.content) }] }));
   const payload = {
@@ -334,32 +363,51 @@ async function callGemini(env, rawBody, user) {
   if (req.system) payload.systemInstruction = { parts: [{ text: toText(req.system) }] };
   // Google limits the 2.5 models to accounts that already used them; new projects use 3.8 Flash / 3.5 Flash-Lite.
   const models = [env.GEMINI_MODEL || "gemini-3.8-flash", "gemini-3.5-flash-lite", "gemini-3.5-flash"].filter((v, i, a) => a.indexOf(v) === i);
-  let last = null;
+  let last = null, limit = null;
+  // Each model is tried on every key before moving to the next model, so the better model's quota is used
+  // up across all keys before falling back. Resting keys are skipped, so a key whose credits have run out
+  // costs one call, not a call on every request.
   for (const model of models) {
-    const p = JSON.parse(JSON.stringify(payload));
-    if (/2\.5-flash/.test(model)) p.generationConfig.thinkingConfig = { thinkingBudget: 0 };   // 2.5: thinking off
-    else p.generationConfig.thinkingConfig = { thinkingLevel: "low" };                         // 3.x: think briefly → much faster replies
-    const send = (body) => geminiFetch(env, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
-      body: JSON.stringify(body)
-    });
-    let r = await send(p);
-    let data = await r.json().catch(() => ({}));
-    if (r.status === 400 && /thinking/i.test((data.error && data.error.message) || "")) {   // model doesn't accept that setting → send without it
-      delete p.generationConfig.thinkingConfig; r = await send(p); data = await r.json().catch(() => ({}));
+    for (const name of keys.filter((n) => !resting(n, model))) {
+      const apiKey = env[name];
+      const p = JSON.parse(JSON.stringify(payload));
+      if (/2\.5-flash/.test(model)) p.generationConfig.thinkingConfig = { thinkingBudget: 0 };   // 2.5: thinking off
+      else p.generationConfig.thinkingConfig = { thinkingLevel: "low" };                         // 3.x: think briefly → much faster replies
+      const send = (body) => geminiFetch(env, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
+        body: JSON.stringify(body)
+      });
+      let r = await send(p);
+      let data = await r.json().catch(() => ({}));
+      if (r.status === 400 && /thinking/i.test((data.error && data.error.message) || "")) {   // model doesn't accept that setting → send without it
+        delete p.generationConfig.thinkingConfig; r = await send(p); data = await r.json().catch(() => ({}));
+      }
+      if (r.ok) {
+        const cand = (data.candidates || [])[0] || {};
+        const text = ((cand.content && cand.content.parts) || []).filter((x) => !x.thought).map((x) => x.text || "").join("");
+        if (!text) { last = { status: 502, msg: `Gemini returned no text (${cand.finishReason || "blocked"})` }; break; }   // same prompt on another key won't help: next model
+        return json({ content: [{ type: "text", text }], model, stop_reason: cand.finishReason === "MAX_TOKENS" ? "max_tokens" : "end_turn", provider: "gemini" });
+      }
+      const msg = (data.error && data.error.message) || `Gemini error ${r.status}`;
+      last = { status: r.status, msg };
+      if (r.status === 429) {   // credits or rate limit used up on this key: rest it and hand over to the next
+        limit = last;
+        geminiRest.set(name + "|" + model, Date.now() + (/per.?day|daily|quota/i.test(msg) ? 3600000 : 60000));
+        continue;                                                     // next key, same model
+      }
+      if ((r.status === 400 && /API key/i.test(msg)) || r.status === 401 || r.status === 403) {   // rejected key (or API not enabled in its project): rest it
+        geminiRest.set(name + "|*", Date.now() + 600000);
+        if (r.status !== 400) last = { status: 400, msg: "API key rejected: " + msg };
+        continue;
+      }
+      if (r.status === 404) break;                                    // model not available: next model
+      if ([500, 503].includes(r.status)) continue;                   // busy: next key
+      return json({ error: { message: msg } }, r.status);             // anything else (e.g. a bad request) won't improve on another key
     }
-    if (r.ok) {
-      const cand = (data.candidates || [])[0] || {};
-      const text = ((cand.content && cand.content.parts) || []).filter((x) => !x.thought).map((x) => x.text || "").join("");
-      if (!text) { last = { status: 502, msg: `Gemini returned no text (${cand.finishReason || "blocked"})` }; continue; }
-      return json({ content: [{ type: "text", text }], model, stop_reason: cand.finishReason === "MAX_TOKENS" ? "max_tokens" : "end_turn", provider: "gemini" });
-    }
-    const msg = (data.error && data.error.message) || `Gemini error ${r.status}`;
-    last = { status: r.status, msg };
-    if (r.status === 400 && /API key/i.test(msg)) break;            // bad key: no point trying another model
-    if (![404, 429, 500, 503].includes(r.status)) break;
   }
+  if (limit) last = limit;   // report the limit, not a later model's 404
+  if (!last) last = { status: 429, msg: "every Gemini key is resting after reaching its limit — try again in a minute" };
   const status = last.status === 400 && /API key/i.test(last.msg) ? 502 : last.status;   // 502, not 401: a bad AI key is not a portal sign-in problem
   return json({ error: { message: (status === 502 && /API key/i.test(last.msg) ? "invalid x-api-key (Gemini): " : status === 429 ? "rate limit (Gemini free tier): " : "") + last.msg } }, status);
 }
@@ -449,7 +497,7 @@ export default {
         const m = html.match(/APP_BUILD = "([^"]+)"/);
         // Changes on every Cloudflare deploy; open pages use it to pick up a new version.
         const deployment = (env.CF_VERSION_METADATA && env.CF_VERSION_METADATA.id) || "unknown";
-        return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nDeployment: ${deployment}\nWorker: secure-mode worker.js\nSecure mode: ${adminPass(env) ? "ON" : "OFF"}\nAdmin password: ${adminPassStatus(env)}\nAI provider: ${env.GEMINI_API_KEY ? "Google Gemini (" + (env.GEMINI_MODEL || "gemini-3.8-flash") + ")" : "none — add GEMINI_API_KEY"}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
+        return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nDeployment: ${deployment}\nWorker: secure-mode worker.js\nSecure mode: ${adminPass(env) ? "ON" : "OFF"}\nAdmin password: ${adminPassStatus(env)}\nAI provider: ${hasGemini(env) ? "Google Gemini (" + (env.GEMINI_MODEL || "gemini-3.8-flash") + ")" : "none — add GEMINI_API_KEY"}\nAI key pool: ${GEMINI_POOL.filter((n) => env[n]).map((n) => `${n}${geminiKeyNames(env).includes(n) ? "" : " (same key as another)"}${resting(n, "*") ? " (resting)" : ""}`).join(", ") || "no keys set"}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
       }
       if (!path.startsWith("/api/")) {
         const res = (await docFromR2(env, request, path)) || (await env.ASSETS.fetch(request));
@@ -573,7 +621,7 @@ export default {
       /* ---------- AI proxy (signed-in users only, so strangers can't spend your credits) ---------- */
       // (the path keeps its old name so pages already open in browsers keep working)
       if (path === "/api/claude" || path === "/api/ai") {
-        if (!env.GEMINI_API_KEY) return json({ error: "No AI key is configured on this Worker. Add GEMINI_API_KEY as a Secret in Cloudflare." }, 500);
+        if (!hasGemini(env) && !gatewayOn(env)) return json({ error: "No AI key is configured on this Worker. Add GEMINI_API_KEY as a Secret in Cloudflare." }, 500);
         return await callGemini(env, await request.text(), tok && tok.id);
       }
 

@@ -206,7 +206,15 @@ This repository is its own Worker, separate from the EA/PA portal (EA-PA-TRAININ
 3. Secrets (Settings → Variables and Secrets), the same as EA/PA:
    - `MASTER_ADMIN_PASSWORD`: admin sign-in (the LSH Training Portal's master admin password: one password on every platform); setting it switches on secure mode. Set it as a Secret.
   - `AI_GATEWAY_SECRET`: optional (a Secret; the same value as on the Portal). When set, every AI call goes to the Main Portal's shared AI gateway (`/api/ai-gateway`): one master key pool and one shared budget for every call flow, counted per program. Without it this Worker uses its own `GEMINI_API_KEY` pool.
-   - `GEMINI_API_KEY`: AI grading and roleplays (Gemini is the only AI provider, as in EA/PA).
+   - `GEMINI_API_KEY`, `GEMINI_API_KEY1` … `GEMINI_API_KEY16`: the Gemini key pool behind AI grading and
+     roleplays (Gemini is the only AI provider, as in EA/PA). **Set as many as you have, one key per Google
+     Cloud project** — the keys in use today are `GEMINI_API_KEY14`, `GEMINI_API_KEY15` and
+     `GEMINI_API_KEY16`. They are interchangeable and rotate automatically: each request starts on the next
+     key in turn, and a key that answers 429 (its credits or free-tier limit used up) is rested while the
+     next key takes the request — a minute for a per-minute limit, an hour for a daily/quota one, ten
+     minutes for a key Google rejects. So AI features keep working when one key runs out of credits, with
+     no change on Cloudflare beyond adding the next key. `/version` lists the keys that are set and which
+     are resting (never the keys themselves). A key set twice under two names is counted once.
    - `SESSION_SECRET`: optional.
    - `PORTAL_SSO_SECRET`: the Portal sign-in secret (see the top of this README); it also signs the tickets that open the CMS without a log-in page (`/api/auth/tool-ticket`).
 4. After the first deploy, sign in as admin → **🧰 Tools** to check the CMS address (default `https://lshcasemanagementtraining-trainingcrm.pages.dev`, the CaseManagementTraining app). The Docket System, Medical Records Requests and Court E-Filing are Live by default and point at the LSH Training Portal. If an admin saved tool addresses before they went live, open **Admin: tool addresses** once and set them to Live with their portal addresses.
