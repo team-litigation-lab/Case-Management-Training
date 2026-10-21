@@ -571,7 +571,7 @@ A horizontal treatment timeline is the whole slide. Far left, a navy node: DOL �
 
 **Scenario.** John Doe's first treatment records have arrived. The date of loss is 02/06/2026. The first treatment record is dated 02/20/2026; chiropractic care at Riverton Spine & Rehab began on 02/24/2026.
 
-**Execution prompt.** Identify and flag the Treatment Gap in John Doe's file. Compute it exactly, record the initial gap, set the file to catch any later break in care, and state in the risks band what the gap will be used for against the claim. List the likely causes you will investigate, and the steps needed before the gap can be explained. Then route the flag to Atty. Thorne.
+**Execution prompt.** Identify and flag the Treatment Gap in John Doe's file. Compute it exactly, record the initial gap, set the file to catch any later break in care, and record in the risks band the facts only: its dates, its length, and that John Doe's own explanation and its documents are still to be gathered. What the gap means for the claim is Atty. Thorne's to assess. List the documents you will ask John Doe for, and the steps needed before the gap can be explained. Then route the flag to Atty. Thorne.
 
 | | |
 |---|---|
@@ -582,8 +582,8 @@ A horizontal treatment timeline is the whole slide. Far left, a navy node: DOL �
 
 - [ ] Gap computed as 14 days, 02/06/2026 to 02/20/2026
 - [ ] Initial gap recorded, and a watch set for any later break in care
-- [ ] Defense uses stated: injuries not serious; recovered earlier than claimed; treatment unnecessary; other causes
-- [ ] Likely causes listed to investigate: missed appointments, transportation, cost or co-pays, work schedule, stopping after temporary relief, delayed referrals, imaging or authorizations
+- [ ] Risks band holds facts only: the dates, the 14 days, and “explanation pending: client's own account and supporting documents”; no view on what the gap does to the claim
+- [ ] Documents to request listed: work schedules, doctor availability notes, travel logs, illness records, receipts and messages
 - [ ] Investigation steps recorded: the client's own explanation, supporting documents, provider confirmation
 - [ ] Flag placed prominently in the Case Plan's risks band
 - [ ] Flag routed to Atty. Thorne
@@ -876,12 +876,12 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 6. In the Action Plan Editor, where do an action item's owner and date go?  
    **✓ In the item's own fields** · In a sentence in the item · In the risks band · In a separate email  
    *Put each action item's owner and date in their own fields, not in a sentence.*
-7. Which of these is a defense use of the 14-Day Gap that the flag must name?  
-   **✓ The injuries were not serious** · The SOL has run · The LOR was late · The client was a passenger  
-   *The flag states the defense uses: injuries not serious, recovered earlier than claimed, treatment unnecessary, other causes.*
+7. What does the gap flag in the Case Plan's risks band record?  
+   **✓ The gap's dates and length, and that John Doe's own documented explanation is still to be gathered** · How much the gap will lower the value of the case · The Case Manager's guess at why John Doe waited · The arguments the Case Manager will make to defend the gap  
+   *Facts only: 14 days, 02/06/2026 to 02/20/2026, explanation pending. What the gap means for the claim is Atty. Thorne's to assess; the Case Manager never interprets or defends it.*
 8. Besides the initial 14-day gap, what must the gap flag set up?  
    Nothing more · **✓ A watch for any later break in care** · A demand date · A call to the adjuster  
-   *Record the initial gap and set a watch for any later break in care: a second break undercuts the explanation for the first.*
+   *Record the initial gap and set a watch for any later break in care; document each break the same way: its dates, then the client's own explanation and the records that support it.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 

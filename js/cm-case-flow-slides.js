@@ -127,12 +127,12 @@ window.CM_CF_SLIDES = {
   "image": "property-damage",
   "hook": "One file for five days: know **its facts cold** before you touch the CMS.",
   "points": [
-   "02/06/2026: Robert Smith **ran the stop**; John Doe was the passenger",
+   "Who ran the stop, and where John sat: **the Police Report**",
    "The stack, in order: **BI → Host UM → Relative UM**, $40,000",
-   "Passenger status opens **both UM layers**",
-   "First treatment 02/20/2026: **the 14-Day Treatment Gap**"
+   "His seat in the vehicle decides **which layers he reaches**",
+   "EMS date vs. first treatment record: **find the gap yourself**"
   ],
-  "upl": "Share facts and the process; never value, or how the gap will play",
+  "upl": "Share facts and the process; never value, or what the gap does",
   "job": [
    [
     "Course begins",
@@ -194,11 +194,11 @@ window.CM_CF_SLIDES = {
     "rows": [
      [
       "Who",
-      "John Doe, passenger; Robert Smith, defendant; Kevin Alvarez, host driver"
+      "John Doe, client; Robert Smith, defendant; **the Police Report** names the rest"
      ],
      [
       "What",
-      "A collision into the Escape's passenger door; EMS noted neck stiffness"
+      "A two-vehicle collision; what EMS found is in the Run Report"
      ],
      [
       "When",
@@ -210,7 +210,7 @@ window.CM_CF_SLIDES = {
      ],
      [
       "How",
-      "Robert Smith **ran the stop**; Riverton PD cited him (RPD-26-018842)"
+      "How it happened, and any citation: **read the Police Report**"
      ]
     ],
     "note": "Every answer comes from a document; ambiguous facts of loss or liability go to Atty. Thorne for review."
@@ -236,15 +236,145 @@ window.CM_CF_SLIDES = {
      "No record backs your answer, and nobody checked the file first."
     ],
     [
-     "John Doe first saw a provider on 02/20/2026.",
-     "Fourteen days passed after EMS found neck stiffness on 02/06/2026.",
+     "The EMS Run Report and the first treatment record carry different dates.",
+     "Days pass between them, and nobody yet knows why.",
      "A case note reads: he waited, so that's on him."
+    ]
+   ]
+  }
+ },
+ "d1m1-upl": {
+  "image": "client-call",
+  "hook": "You share **facts and the process**; Atty. Thorne gives every opinion on the case.",
+  "points": [
+   "Legal advice is **any opinion** on what his facts mean",
+   "Share facts: dates, documents, **what was sent and when**",
+   "Explain the process: **what happens next**, and who decides",
+   "Never value, strategy, settlement, or **what the gap does**"
+  ],
+  "upl": "Hear it, log it, **route it** to Atty. Thorne the same day",
+  "job": [
+   [
+    "Client asks his case's worth",
+    "Log it; route to counsel",
+    "CMS → Case Notes · Tasks",
+    "Routed today; no figure given"
+   ],
+   [
+    "Client asks what happens next",
+    "Explain the next step plainly",
+    "CMS → Case Notes",
+    "Process explained; no prediction"
+   ],
+   [
+    "Adjuster asks your view",
+    "Decline; share approved facts only",
+    "CMS → Communications Log",
+    "Nothing beyond the record"
+   ]
+  ],
+  "dos": [
+   "Answer from **the record**; route what it means",
+   "Use **one routing line**, every time",
+   "Give the client **a time frame** for the answer"
+  ],
+  "donts": [
+   "Reassuring him **about the outcome**",
+   "Guessing a value **“off the record”**",
+   "Coaching him on **what to tell an adjuster**"
+  ],
+  "theory": {
+   "lead": "UPL is giving legal advice without a license; a Case Manager stays on **the fact side** of that line, every time.",
+   "concepts": [
+    {
+     "term": "Fact sharing",
+     "text": "Telling the client what a record says: a date, an amount, **what was sent**, and when"
+    },
+    {
+     "term": "Process explanation",
+     "text": "What happens next, what a form is for, and **who decides**; never how it ends"
+    },
+    {
+     "term": "Legal advice",
+     "text": "Any opinion on what his facts mean for **his rights, money or choices**: the attorney's alone"
+    },
+    {
+     "term": "Hear, log, route",
+     "text": "An opinion question is written down word for word and **sent to Atty. Thorne** the same day"
+    }
+   ],
+   "pages": [
+    "D4#24"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "John Doe asks when his crash happened, then what that means.",
+     "You read him 02/06/2026 straight from the Police Report.",
+     "The meaning part goes to Atty. Thorne with a same-day task."
+    ],
+    [
+     "Three clients ask three different opinion questions this week.",
+     "Each hears the same sentence: that's Atty. Thorne's call.",
+     "The words stay identical, so nobody hears a guess."
+    ],
+    [
+     "John Doe asks if taking the first offer is smart.",
+     "You log it for Atty. Thorne instead of answering.",
+     "Then you add: he'll call you back by Friday."
+    ]
+   ],
+   "donts": [
+    [
+     "John Doe is anxious over the days before his first visit.",
+     "You want to calm him down quickly.",
+     "You tell him: relax, it won't matter at all."
+    ],
+    [
+     "John Doe asks for a ballpark, just between friends.",
+     "He promises nobody will hold you to it.",
+     "You say probably around forty thousand, roughly."
+    ],
+    [
+     "Keystone Mutual wants to talk with John Doe directly.",
+     "He asks you how to answer their questions.",
+     "You hand him a script: say the other driver ran it."
     ]
    ]
   }
  },
  "d1m1-l1": {
   "image": "intake-interview",
+  "roadmap": {
+   "title": "Opening the File: the Roadmap",
+   "steps": [
+    {
+     "label": "Conflict Check",
+     "text": "Every party's full legal name, **before the file exists**"
+    },
+    {
+     "label": "Verify the facts",
+     "text": "Date of loss against the Police Report; corrections documented"
+    },
+    {
+     "label": "Docket the SOL",
+     "text": "On day one, from the confirmed date of loss"
+    },
+    {
+     "label": "Map the parties",
+     "text": "Six roles and the client's position, **none left “unknown”**"
+    },
+    {
+     "label": "Record coverage",
+     "text": "From the Declaration Page, with each fact's source"
+    },
+    {
+     "label": "Name and file",
+     "text": "Every document to the firm's naming convention"
+    }
+   ]
+  },
   "hook": "A file opened wrong stays wrong: **a mis-mapped party** is a lost coverage layer.",
   "points": [
    "Run the **Conflict Check first**, on every party's full legal name",
@@ -270,7 +400,7 @@ window.CM_CF_SLIDES = {
     "Parties identified",
     "Map six roles; record position",
     "CMS → Parties",
-    "None “unknown”; position = passenger"
+    "None “unknown”; position from report"
    ]
   ],
   "dos": [
@@ -401,7 +531,7 @@ window.CM_CF_SLIDES = {
   "deliver": "An active matter, **every field verified**, corrections noted to Atty. Thorne",
   "checks": [
    "Conflict Check logged **before the matter existed**",
-   "Position corrected to **front-seat passenger**",
+   "Position corrected **from the Police Report**",
    "Date of birth and **report number** corrected, with sources",
    "SOL docketed; **six roles** mapped; documents filed",
    "Correction note **routed to Atty. Thorne**"
@@ -418,11 +548,33 @@ window.CM_CF_SLIDES = {
   "questions": [
    "Name the **six stages** in order. What does the CM own at Intake & Case Opening?",
    "John Doe asks what his case is **worth**. Who answers, and what do you log?",
-   "What must happen **before the matter is created** in the CMS, and on whose names?"
+   "What must happen **before the matter is created** in the CMS, and on whose names?",
+   "John Doe asks if waiting hurt his case. **Your exact words**, and what you log?"
   ]
  },
  "d1m2-l1": {
   "image": "phone-call",
+  "roadmap": {
+   "title": "The No Contact Protocol: the Roadmap",
+   "steps": [
+    {
+     "label": "Internal review",
+     "text": "Case status, live deadlines, last contact, channels used"
+    },
+    {
+     "label": "Contact attempts",
+     "text": "Phone twice, email and text, emergency contact, **certified mail**"
+    },
+    {
+     "label": "Log every attempt",
+     "text": "Date, time, channel and outcome, in the CMS"
+    },
+    {
+     "label": "Team notification",
+     "text": "Escalate to Atty. Thorne with **the deadline impact**"
+    }
+   ]
+  },
   "hook": "A client you can't reach **still has deadlines**; the protocol proves the firm did its part.",
   "points": [
    "Step 1: review status, deadlines and last contact **before you call**",
@@ -714,6 +866,31 @@ window.CM_CF_SLIDES = {
  },
  "d1m3-l1": {
   "image": "privacy-shield",
+  "roadmap": {
+   "title": "Client Instructions & Rental: the Roadmap",
+   "steps": [
+    {
+     "label": "Give the instructions",
+     "text": "No Recorded Statement, no posts, no signing without review"
+    },
+    {
+     "label": "Treatment and barriers",
+     "text": "Keep every appointment; **report any barrier** before a miss"
+    },
+    {
+     "label": "Keep the receipts",
+     "text": "Every expense and mile documented, so it can be claimed"
+    },
+    {
+     "label": "The PD carve-out",
+     "text": "The adverse carrier may discuss **Property Damage only**"
+    },
+    {
+     "label": "Rental authorization",
+     "text": "Who authorizes it, the daily cap and the duration"
+    }
+   ]
+  },
   "hook": "Most self-inflicted claim damage happens **in the first two weeks**, before the client is told.",
   "points": [
    "**No Recorded Statement** to the adverse carrier; route contact through the firm",
@@ -743,7 +920,7 @@ window.CM_CF_SLIDES = {
    ]
   ],
   "dos": [
-   "Explain **why consistent treatment matters**",
+   "Ask about **barriers to care** at every check-in",
    "Use **active listening**; heard clients follow instructions"
   ],
   "donts": [
@@ -801,9 +978,9 @@ window.CM_CF_SLIDES = {
   "clues": {
    "dos": [
     [
-     "John Doe feels better and wants to skip next week's PT.",
-     "Gaps in care become causation arguments for the defense.",
-     "You tell him the reason behind each appointment, not only the rule."
+     "John Doe's rental runs out in a few weeks.",
+     "He mentions his carpool might end soon.",
+     "You note it and help line up another ride now."
     ],
     [
      "John Doe calls, frustrated about missing shifts at Northgate Distribution.",
@@ -819,7 +996,7 @@ window.CM_CF_SLIDES = {
     ],
     [
      "The adverse carrier calls John Doe under the LOR carve-out.",
-     "The talk starts with repair photos and the passenger door.",
+     "The talk starts with repair photos and the damaged door.",
      "Soon the adjuster asks about his neck, and nobody stops the call."
     ]
    ]
@@ -852,6 +1029,35 @@ window.CM_CF_SLIDES = {
  },
  "d1m3-l2": {
   "image": "repair-shop",
+  "roadmap": {
+   "title": "Property Damage: the Roadmap",
+   "steps": [
+    {
+     "label": "Written estimate first",
+     "text": "No Repair Estimate, **no position** with the client"
+    },
+    {
+     "label": "Inspection window",
+     "text": "Five days from the letter; record when it opens"
+    },
+    {
+     "label": "Audit estimate and photos",
+     "text": "Bill against estimate; point of impact, frame, undercarriage"
+    },
+    {
+     "label": "Repair or Total Loss",
+     "text": "The carrier's threshold against **actual cash value**, in writing"
+    },
+    {
+     "label": "Loss of Use",
+     "text": "Each day without a vehicle, at a comparable rental rate"
+    },
+    {
+     "label": "Escalate disputes",
+     "text": "Document and route; no ad hoc arguing with adjusters"
+    }
+   ]
+  },
   "hook": "Property Damage is the client's first test of the firm, and **physical evidence of impact**.",
   "points": [
    "Get **the written Repair Estimate** before discussing any outcome",
@@ -964,7 +1170,7 @@ window.CM_CF_SLIDES = {
      "Nobody compares it against the body shop's closing bill or supplementals."
     ],
     [
-     "Robert Smith's pickup ran the stop into the Escape's passenger door.",
+     "The repair photos show a crushed door on one side.",
      "Frame photos could show how hard the impact really was.",
      "The vehicle file is treated as fender paperwork, apart from the injury claim."
     ]
@@ -1129,19 +1335,19 @@ window.CM_CF_SLIDES = {
  },
  "d1m4-a1": {
   "image": "calendar-gap",
-  "situation": "John Doe's first treatment records have arrived. **DOL 02/06/2026**; **first treatment 02/20/2026**; chiropractic care began 02/24/2026.",
+  "situation": "John Doe's first treatment records have arrived in the CMS. Find the first treatment date yourself and compare it with **the date of loss**.",
   "steps": [
    "Compute **the gap exactly** from DOL to first treatment",
    "Record the gap; **watch for a later break** in care",
-   "In the risks band, state how each is **used against the claim**",
-   "List **likely causes** and the steps to explain them",
+   "In the risks band, record **the facts only**: dates and length",
+   "List **the documents to request** from John Doe",
    "**Route the flag** to Atty. Thorne"
   ],
   "deliver": "A **precisely computed, prominently flagged** and routed treatment-gap record",
   "checks": [
    "Gap: **14 days, 02/06/2026 to 02/20/2026**",
    "Gap recorded; **a watch set** for later breaks",
-   "**Defense uses named**: not serious, recovered early, unnecessary, other causes",
+   "Risks band: **facts only**, explanation marked pending",
    "Investigation steps: **client's explanation, documents, provider confirmation**",
    "Flag prominent in risks band; **routed to Atty. Thorne**"
   ],
@@ -1304,6 +1510,31 @@ window.CM_CF_SLIDES = {
  },
  "d2m1-l1": {
   "image": "policy-letter",
+  "roadmap": {
+   "title": "Three Carriers, One Day: the Roadmap",
+   "steps": [
+    {
+     "label": "Draft on template",
+     "text": "One LOR per carrier, **each naming its own insured**"
+    },
+    {
+     "label": "Request and preserve",
+     "text": "Limits, Dec Pages, photos, video and vehicle data"
+    },
+    {
+     "label": "Protect the client",
+     "text": "Third-party letter: his name only, nothing more"
+    },
+    {
+     "label": "Send and log",
+     "text": "Each carrier's preferred method; Atty. Thorne signs"
+    },
+    {
+     "label": "Follow up",
+     "text": "No acknowledgement by **the third business day**: call"
+    }
+   ]
+  },
   "hook": "The LOR moves every carrier onto the firm; one wrong letter risks **$30,000 of UM coverage**.",
   "points": [
    "Name the **right insured** on each: Robert Smith, Kevin Alvarez, Margaret Doe",
@@ -2185,6 +2416,31 @@ window.CM_CF_SLIDES = {
  },
  "d2m2-l2": {
   "image": "escalation-alert",
+  "roadmap": {
+   "title": "Treatment Monitoring: the Roadmap",
+   "steps": [
+    {
+     "label": "Check in",
+     "text": "Visits, pain, function, and **any barrier**"
+    },
+    {
+     "label": "Name the variance",
+     "text": "Clinical, psychosocial or systemic"
+    },
+    {
+     "label": "Assess",
+     "text": "Medical danger to the provider; legal danger to Atty. Thorne"
+    },
+    {
+     "label": "Coordinate",
+     "text": "Clarify with the office; **remove the barrier**"
+    },
+    {
+     "label": "Track",
+     "text": "Every fix attempt in a GIRP note, facts only"
+    }
+   ]
+  },
   "hook": "On an LOP, you are **the only real-time check** that John Doe's plan is working.",
   "points": [
    "Monitor **outcomes, not attendance** alone; hunt the barriers",
@@ -2400,6 +2656,31 @@ window.CM_CF_SLIDES = {
  },
  "d1m1-l2": {
   "image": "money-ledger",
+  "roadmap": {
+   "title": "Who Pays What: the Roadmap",
+   "steps": [
+    {
+     "label": "HIPAA authorization",
+     "text": "Claim-specific, naming the incident date"
+    },
+    {
+     "label": "Medicare and Medicaid check",
+     "text": "Age and SSDI status verified, **the answer recorded**"
+    },
+    {
+     "label": "Payer Order",
+     "text": "MedPay first, then health insurance, then LOP or liens"
+    },
+    {
+     "label": "Flag the Health Plan",
+     "text": "Reimbursement right logged **on first notice**"
+    },
+    {
+     "label": "Lien register",
+     "text": "Carrier, member ID and group number, the same day"
+    }
+   ]
+  },
   "hook": "A reimbursement claim found after the demand comes out of **the client's net**.",
   "points": [
    "Clear the Triple-Check first: **HIPAA, BCRC, Payer Order**",
@@ -2550,6 +2831,35 @@ window.CM_CF_SLIDES = {
  },
  "d2m3-l1": {
   "image": "intake-interview",
+  "roadmap": {
+   "title": "The Gap Interview: the Roadmap",
+   "steps": [
+    {
+     "label": "Plan the questions",
+     "text": "Read the records; write questions, **never expected answers**"
+    },
+    {
+     "label": "Open on the record",
+     "text": "Date, participants, your role, his consent, privacy"
+    },
+    {
+     "label": "Ask open, follow his words",
+     "text": "Broad first, his words next, closed questions last"
+    },
+    {
+     "label": "Ask for the paper",
+     "text": "Work schedules, doctor notes, travel logs, **illness records**"
+    },
+    {
+     "label": "Read it back",
+     "text": "He corrects your summary; opinion questions routed"
+    },
+    {
+     "label": "Record and task",
+     "text": "His words as given; a dated task per document"
+    }
+   ]
+  },
   "hook": "The gap explanation that holds up is **John Doe's own**, backed by documents.",
   "points": [
    "Investigate, don't advocate: write **questions only**, never expected answers",
@@ -2856,7 +3166,7 @@ window.CM_CF_SLIDES = {
  },
  "d2m3-a2": {
   "image": "calendar-gap",
-  "situation": "06/22/2026. MMI reached 06/12/2026; Dr. Reyes's **06/19/2026 Causation Letter** is in. Atty. Thorne wants **the Gap Justification Record** before the pre-demand strategy session.",
+  "situation": "06/22/2026. MMI reached 06/12/2026; Dr. Reyes's **06/19/2026 Causation Letter** is in. Atty. Thorne wants **the Gap Explanation Record** before the pre-demand strategy session.",
   "steps": [
    "Cover both: 14-day gap and **19-day disruption**, exact dates",
    "Pair every reason with **a dated document**",
@@ -2877,7 +3187,7 @@ window.CM_CF_SLIDES = {
    "Keep **the work-product layer** in the CMS"
   ],
   "donts": [
-   "Justifying the 14-day gap and **forgetting the 19-day disruption**",
+   "Documenting the 14-day gap and **forgetting the 19-day disruption**",
    "Presenting **the client's word as documented**"
   ]
  },
@@ -3237,6 +3547,31 @@ window.CM_CF_SLIDES = {
  },
  "d3m1-l1": {
   "image": "demand-letter",
+  "roadmap": {
+   "title": "The Time-Limited Demand: the Roadmap",
+   "steps": [
+    {
+     "label": "Confirm the foundation",
+     "text": "SOL, liability and coverage, each from its document"
+    },
+    {
+     "label": "Within limits, clear terms",
+     "text": "$10,000; who and what is released; **how to accept**"
+    },
+    {
+     "label": "A reasonable window",
+     "text": "Conditions Keystone can meet; 30 days"
+    },
+    {
+     "label": "Document it",
+     "text": "The package complete enough to evaluate inside the window"
+    },
+    {
+     "label": "Serve and docket",
+     "text": "Certified mail and email; **docket from receipt**"
+    }
+   ]
+  },
   "hook": "A clear, timed **$10,000 Limits Demand** makes Keystone decide on the record.",
   "points": [
    "Demand **within limits**: $10,000, Keystone's full BI limit",
@@ -3705,7 +4040,7 @@ window.CM_CF_SLIDES = {
   "checks": [
    "$3,500 **nets John Doe $0.00** after fee, costs and liens",
    "Pause used; **asked what data supports $3,500**",
-   "Gap answered with **the Gap Justification Record** and dated documents",
+   "Gap answered with **the Gap Explanation Record** and dated documents",
    "“Degenerative” answered **with Dr. Park's words**",
    "**No counter**; terms and 08/21/2026 deadline unchanged"
   ],
@@ -4036,6 +4371,31 @@ window.CM_CF_SLIDES = {
  },
  "d3m3-l2": {
   "image": "lien-scale",
+  "roadmap": {
+   "title": "Reducing the Liens: the Roadmap",
+   "steps": [
+    {
+     "label": "Audit the bill",
+     "text": "Line by line against the records; **corrections first**"
+    },
+    {
+     "label": "Run the math",
+     "text": "Pro rata shares, computed from the fraction"
+    },
+    {
+     "label": "Ask with authority",
+     "text": "Atty. Thorne's written request and target"
+    },
+    {
+     "label": "Payoff Letter",
+     "text": "Full and final, in writing, **before any payment**"
+    },
+    {
+     "label": "Update the ledger",
+     "text": "The day a reduction is confirmed; show John Doe"
+    }
+   ]
+  },
   "hook": "Every dollar a lien gives up **lands in John Doe's net**.",
   "points": [
    "Audit first: drop the 05/04/2026 duplicate, **negotiate from $6,105.00**",
@@ -4349,6 +4709,31 @@ window.CM_CF_SLIDES = {
  },
  "d3m4-l2": {
   "image": "release-signature",
+  "roadmap": {
+   "title": "From Release to $0.00: the Roadmap",
+   "steps": [
+    {
+     "label": "Audit the release",
+     "text": "Who is released, which claims, **what John promises**"
+    },
+    {
+     "label": "UM consents first",
+     "text": "Both consents in before the BI release is signed"
+    },
+    {
+     "label": "Settlement Statement",
+     "text": "How $40,000.00 becomes his net, full and final"
+    },
+    {
+     "label": "Trust and clearance",
+     "text": "IOLTA the same day; nothing paid on uncleared funds"
+    },
+    {
+     "label": "Disburse and reconcile",
+     "text": "Payoff Letters, Atty. Thorne's signature, **ledger at $0.00**"
+    }
+   ]
+  },
   "hook": "One unread line in Keystone's 08/14 draft would have **cost John Doe $30,000**.",
   "points": [
    "Read **every release line by line** before John Doe sees it",

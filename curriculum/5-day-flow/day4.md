@@ -8,7 +8,7 @@
 
 **The file as this day opens.**
 
-- Treatment complete: MMI 06/12/2026, with the 14-day initial gap and the 19-day disruption documented in the Gap Justification Record.
+- Treatment complete: MMI 06/12/2026, with the 14-day initial gap and the 19-day disruption documented in the Gap Explanation Record.
 - Specials: $14,817.40 medical after the audit + $1,584.00 wages = $16,401.40.
 - The Recovery Stack: $10,000 BI (Keystone Mutual), $20,000 Host UM (Harbor Point), $10,000 Relative UM (Cardinal State Mutual), $40,000.
 - Peach State's reimbursement claim and Riverton Spine & Rehab's LOP balance are open on the file.
@@ -168,7 +168,7 @@ A single brief page fills the centre of the slide, a white card with five horizo
 
 1. **Bottom line** — MMI; $16,401.40 against a $10,000 BI limit; decisions needed.
 2. **Facts, audited** — The trinity aligned; liability proof final; every fact sourced.
-3. **Risks, with answers** — Gap → the Gap Justification Record and Dr. Reyes's Causation Letter; disruption → the A-C-T record; 2021 low back → a different region, resolved; “degenerative” → “no significant degenerative change at the adjacent levels.”
+3. **Risks, with answers** — Gap → the Gap Explanation Record and Dr. Reyes's Causation Letter; disruption → the A-C-T record; 2021 low back → a different region, resolved; “degenerative” → “no significant degenerative change at the adjacent levels.”
 4. **Decisions needed** — Each one a question for Atty. Thorne.
 5. **Options → consequences** — Service, docketing, consents, the release.
 6. **Record & re-route** — Dated, attributed, tasked; the plan re-routed.
@@ -274,7 +274,7 @@ Left half: a Time-Limited Demand Letter on navy-banded letterhead, five orange n
 - Know which value-drivers the demand leads with: the MRI herniation, the injection, the residual right-arm paresthesia at MMI, clear liability.
 - Docket the deadline from the receipt date on the return receipt, never from the mailing date.
 - The window is for acceptance, not payment: Keystone accepted by 08/21/2026 and its check arrived 09/04/2026. When payment is due after acceptance is a separate term Atty. Thorne sets.
-- A well-explained gap costs less than an unexplained one: adjusters use gaps to argue the injury was minor, healed early, was over-treated or came from something else.
+- Adjusters use gaps to argue the injury was minor, healed early, was over-treated or came from something else. The only gap explanation that holds up against them is John Doe's own factual explanation, supported by verifiable written documentation.
 - ⚠️ Pitfall: a demand with no stated deadline, or one that doesn't say what starts the clock.
 - ⚠️ Pitfall: leaving the gap out of the timeline and hoping Keystone misses it.
 - ⚠️ Pitfall: demanding before MMI or a future-care plan exists.
@@ -461,7 +461,7 @@ Verified in Pre-Demand Audit & Day 4 Gate (taught on Case Flow Day 4) and that d
 
 - Hand out the bills, not the totals. Trainees who add Riverton Spine & Rehab's statement without counting the visits in its notes will land on $15,002.40; let them, then ask how many visits the notes show.
 - Ask the room: “Peach State paid $1,860.00 on a $3,400.00 bill. Which number goes in the demand?” The only right answer: both go in front of Atty. Thorne, and he decides.
-- The wage check is the subtle one. Five of the nine shifts fall inside the 14-Day Gap, before any provider saw John Doe. The defense will use them, yet the Attendance Record also corroborates the gap justification. Flag them; never drop them.
+- The wage check is the subtle one. Five of the nine shifts fall inside the 14-Day Gap, before any provider saw John Doe. Record them exactly as the Attendance Record shows them; what they mean is Atty. Thorne's to weigh. Flag them; never drop them.
 - Grade to the cent. $16,401.40 is the day's gate figure; any other total means a line is wrong.
 
 ---
@@ -479,7 +479,7 @@ A two-pane Call Simulator screen. Left pane: the session transcript as alternati
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** File date: early July 2026, before any demand is drafted. Your audit is done: MMI 06/12/2026; Specials $16,401.40 ($14,817.40 medical after the duplicate came out + $1,584.00 wages); liens $1,860.00 (Peach State) and $6,105.00 (the LOP); targets $10,000 BI → $20,000 Host UM → $10,000 Relative UM. The Gap Justification Record (06/22/2026) and Dr. Reyes's 06/19/2026 Causation Letter are in the file. Atty. Thorne has called the pre-demand strategy session.
+**Scenario.** File date: early July 2026, before any demand is drafted. Your audit is done: MMI 06/12/2026; Specials $16,401.40 ($14,817.40 medical after the duplicate came out + $1,584.00 wages); liens $1,860.00 (Peach State) and $6,105.00 (the LOP); targets $10,000 BI → $20,000 Host UM → $10,000 Relative UM. The Gap Explanation Record (06/22/2026) and Dr. Reyes's 06/19/2026 Causation Letter are in the file. Atty. Thorne has called the pre-demand strategy session.
 
 **Execution prompt.** Run the pre-demand strategy session with AI Atty. Elijah Thorne. Brief him in protocol order: bottom line, audited facts, risks with their answering documents, the decisions he must make, and each option's operational consequences. Answer his challenges with objective facts, not adjectives. Recommend only on operations; ask for his decision on everything legal. Read back each decision before you close. Then record the decisions in the CMS, open a task for each, and re-route the Case Plan.
 
@@ -559,7 +559,7 @@ A three-column assembly board. Left: the Demand Package as five tabbed cream fol
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) and the Gap Justification Record are on file; the pre-demand audit put the Specials at $16,401.40. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.
+**Scenario.** File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) and the Gap Explanation Record are on file; the pre-demand audit put the Specials at $16,401.40. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.
 
 **Execution prompt.** Audit the draft against the Big Four and the Final Scrub, log each deficiency as an assigned CMS task, and assemble the package with the gap answered on page one of the timeline. Once Atty. Thorne has signed, serve it on Keystone by certified mail with return receipt AND by email, and log both. When the return receipt comes back dated 07/22/2026, docket the acceptance deadline from it, with reminders. Graded judgment: what starts the clock, and what you do if Keystone asks for more time.
 
@@ -658,7 +658,7 @@ Two demand letters side by side on white letterhead: left HOST UM · HARBOR POIN
 - [ ] Economic: itemized line-item bills, not balance-forward statements ($14,817.40); Northgate wage letter ($1,584.00); future ESIs ($3,400–$6,800); Peach State's $1,860.00 ledger current
 - [ ] Non-economic: the narrative of pain and life impact, carried by the MRI (03/13/2026), Dr. Reyes's Causation Letter stating causation explicitly (06/19/2026) and the MMI note (06/12/2026: residual right-arm paresthesia)
 - [ ] A two-page treatment summary matching each diagnosis, with its code, to its treatment, not a record dump
-- [ ] Gap and “degenerative” answered up front: “no significant degenerative change at the adjacent levels,” the Causation Letter, the EMS report, the Gap Justification Record (the 14-day gap and the 19-day disruption)
+- [ ] Gap and “degenerative” answered up front: “no significant degenerative change at the adjacent levels,” the Causation Letter, the EMS report, the Gap Explanation Record (the 14-day gap and the 19-day disruption)
 - [ ] Response deadline left as a marked blank for Atty. Thorne; both drafts routed to him, nothing served
 
 **Operational mapping**
@@ -765,7 +765,7 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
    *Service method is operational, so you may recommend it, within whatever the governing statute requires for a Time-Limited Demand (Atty. Thorne confirms and approves). The demand figure and billed-vs-paid are his legal calls. A UM demand now would be premature: the UM layers owe nothing until BI is exhausted, and settling BI without their consent is what puts them at risk.*
 5. Northgate's HR letter verifies 9 missed shifts at 8 h × $22.00, but five of them (02/09–02/13/2026) fall before John Doe's first treatment and carry no provider work note. In the audited Specials, the Case Manager:  
    Drops the five shifts and claims only four: $704.00 · Asks Dr. Reyes for a work note backdated to cover 02/09–02/13/2026 · **✓ Keeps $1,584.00, flags the five shifts with Northgate's Attendance Record (called out citing neck pain) as their support, and routes them to Atty. Thorne** · Keeps $1,584.00 and leaves the five shifts unmentioned so Keystone doesn't notice them  
-   *Flag, never drop, never hide. 9 × 8 h × $22.00 = $1,584.00, verified by Northgate. The five pre-treatment shifts sit inside the 14-Day Gap and the defense will use them, yet the Attendance Record also corroborates the gap justification. How they are presented is Atty. Thorne's call.*
+   *Flag, never drop, never hide. 9 × 8 h × $22.00 = $1,584.00, verified by Northgate. Five of the shifts fall inside the 14-Day Gap: record them exactly as the Attendance Record shows them, beside John Doe's own explanation of the gap. How they are presented is Atty. Thorne's call.*
 6. Who determines MMI on John Doe's file?  
    The Case Manager, from the bills · **✓ His treating provider: Lakeside Orthopedics' 06/12/2026 note** · Keystone's adjuster · Atty. Thorne  
    *MMI is a medical determination, never yours: record it from the treating provider's note, with the future-care plan.*

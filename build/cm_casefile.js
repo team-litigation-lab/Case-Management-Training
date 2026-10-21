@@ -103,7 +103,7 @@ const CLIENT_PROFILE_DOC = [
   {section:"The BI Demand and the Fork", items:[
     "07/20/2026 time-limited BI demand to Keystone for the $10,000 limits, by certified mail and email · received 07/22 · 30-day window → 08/21/2026",
     "Conditions: payment of limits, a Limited Release of Robert Smith and Keystone only, and Smith's affidavit of no other insurance",
-    "08/05/2026 Keystone offers $3,500, citing the gap and calling the MRI degenerative · 08/06 rebuttal (Atty. Thorne approved): the radiologist's finding, the Causation Letter, the EMS report, the Gap Justification Record",
+    "08/05/2026 Keystone offers $3,500, citing the gap and calling the MRI degenerative · 08/06 rebuttal (Atty. Thorne approved): the radiologist's finding, the Causation Letter, the EMS report, the Gap Explanation Record",
     "This is the fork. Track A (Case Flow Day 5): the file settles. Track B (Day 5, condensed): Keystone stonewalls and the case goes to suit."
   ]},
   {section:"Track A: The File Settles", items:[
