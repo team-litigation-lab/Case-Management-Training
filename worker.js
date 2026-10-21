@@ -626,7 +626,7 @@ export default {
         return await callGemini(env, await request.text(), tok && tok.id);
       }
 
-      /* ---------- cohort ranking (first name + initial only) ---------- */
+      /* ---------- the trainee's own score (no cohort: a trainee sees only their own Score Card) ---------- */
       if (path === "/api/ranking") {
         const me = tok.role === "t" ? JSON.parse((await kv.get(`trainee:${tok.id}`)) || "null") : null;
         const batch = me ? slugPart(me.batch) : "";
@@ -635,6 +635,7 @@ export default {
           const r = JSON.parse((await kv.get(k)) || "null");
           if (!r || r.approved !== true || r.archived) continue;
           if (batch && slugPart(r.batch) !== batch) continue;
+          if (tok.role === "t" && r.id !== tok.id) continue;   // never another trainee's name or scores
           const parts = String(r.name || "Trainee").trim().split(/\s+/);
           const short = parts.length > 1 ? `${parts[0]} ${parts[parts.length - 1][0]}.` : parts[0];
           const dp = {}; Object.entries(r.dayProgress || {}).forEach(([d, v]) => { if (v) dp[d] = { done: !!v.done, score: v.score, surpriseTaskScore: v.surpriseTaskScore }; });

@@ -98,6 +98,15 @@ async function ticketFor(payloadObj, secret) {
     const again = await call(env, '/api/auth/portal', { ticket: aTicket });
     if (again.status !== 401 || !again.body || again.body.code !== 'used') fail(`an administrator's ticket should work only once, got ${JSON.stringify(again)}`);
 
+    // 6. a trainee sees only their own Score Card: /api/ranking never names another trainee or shows their scores
+    for (const [f, l] of [['Ben', 'Diaz'], ['Cara', 'Lim']]) {
+        await env.LSH_KV.put(`cm:trainee:${f.toLowerCase()}-${l.toLowerCase()}--b100926`, JSON.stringify({ id: `${f.toLowerCase()}-${l.toLowerCase()}--b100926`, name: `${f} ${l}`, batch: 'B100926', approved: true, dayProgress: { 11: { done: true, score: 90 } } }));
+    }
+    await env.LSH_KV.put('cm:trainee:ana-cruz--b100926', JSON.stringify({ id: 'ana-cruz--b100926', name: 'Ana Cruz', batch: 'B100926', approved: true, dayProgress: { 11: { done: true, score: 80 } } }));
+    const rank = await call(env, '/api/ranking', {}, { Authorization: 'Bearer ' + good.body.token });
+    const names = ((rank.body && rank.body.trainees) || []).map(t => t.name);
+    if (rank.status !== 200 || names.length !== 1 || names[0] !== 'Ana C.') fail(`a trainee's /api/ranking should hold only themselves, got ${JSON.stringify(names)}`);
+
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-    console.log('Single sign-on: the Portal is the only way a trainee gets in, a typed name + batch is refused, a missing PORTAL_SSO_SECRET says so, and a trainer signed in on the Portal gets in with no second password, once per ticket.');
+    console.log('Single sign-on: the Portal is the only way a trainee gets in, a typed name + batch is refused, a missing PORTAL_SSO_SECRET says so, a trainee sees only their own ranking, and a trainer signed in on the Portal gets in with no second password, once per ticket.');
 })().catch(e => { console.error(e); process.exit(1); });
