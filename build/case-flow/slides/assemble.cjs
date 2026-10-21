@@ -91,10 +91,14 @@ const clues = (b, c) => {
   }
   return k;
 };
+// the copy files, merged (a block's copy stays in its file when the block moves to another module or day)
+const j = {};
 for (const day of CF.days) {
   const f = path.join(__dirname, `d${day.n}.json`);
   if(!fs.existsSync(f)){ errors.push(`d${day.n}.json missing`); continue; }
-  const j = JSON.parse(fs.readFileSync(f, "utf8"));
+  for (const [id, c] of Object.entries(JSON.parse(fs.readFileSync(f, "utf8")))) { if(j[id]) errors.push(`${id}: copy in two files`); j[id] = c; }
+}
+for (const day of CF.days) {
   for (const m of day.modules) for (const b of m.blocks) {
     const c = j[b.id]; if(!c){ errors.push(`${b.id}: no copy`); continue; }
     if(!CATALOG.includes(c.image)) errors.push(`${b.id}.image: "${c.image}" isn't in the catalog`);

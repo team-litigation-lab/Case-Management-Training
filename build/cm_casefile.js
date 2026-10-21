@@ -27,7 +27,7 @@ const CLIENT_PROFILE_DOC = [
   {section:"The Recovery Stack: $40,000", items:[
     "1 · BI, Robert Smith's liability: Keystone Mutual Insurance · claim KM-26-440871 · adjuster Dana Whitfield · $10,000",
     "2 · Host UM, the host vehicle's policy: Harbor Point Insurance · claim HP-26-7741 · adjuster Marcus Bell · $20,000",
-    "3 · Relative UM, the resident relative's policy: Cardinal State Mutual · claim CS-26-20355 · adjuster not yet assigned on Day 1 · $10,000",
+    "3 · Relative UM, the resident relative's policy: Cardinal State Mutual · claim CS-26-20355 · adjuster not yet assigned at set-up · $10,000",
     "Order of operations: BI → Host UM → Relative UM. Host UM opens only once BI is exhausted (paid or tendered at limits); Relative UM stacks behind Host UM.",
     "A UM demand before the BI tender is premature. Settling or releasing BI without the UM carriers' written consent can forfeit the stack."
   ]},
@@ -87,7 +87,7 @@ const CLIENT_PROFILE_DOC = [
   {section:"Retainer and Costs", items:[
     "Contingency fee: 33⅓% pre-suit; 40% once suit is filed"
   ]},
-  {section:"Day 2's Work: Specials and the A-C-T Response", items:[
+  {section:"Treatment & Pre-Demand: Specials and the A-C-T Response", items:[
     "Riverton Spine & Rehab billed 34 lines × $185.00 = $6,290.00, but 05/04/2026 is a duplicate: 33 visits = $6,105.00 after audit",
     "MedPay paid in date order $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00 (exhausted 06/2026)",
     "Medical specials: $15,002.40 billed → $14,817.40 after the audit · lost wages: 9 shifts × 8 h × $22.00 = $1,584.00 (Northgate HR letter) · total Specials $16,401.40",
@@ -104,7 +104,7 @@ const CLIENT_PROFILE_DOC = [
     "07/20/2026 time-limited BI demand to Keystone for the $10,000 limits, by certified mail and email · received 07/22 · 30-day window → 08/21/2026",
     "Conditions: payment of limits, a Limited Release of Robert Smith and Keystone only, and Smith's affidavit of no other insurance",
     "08/05/2026 Keystone offers $3,500, citing the gap and calling the MRI degenerative · 08/06 rebuttal (Atty. Thorne approved): the radiologist's finding, the Causation Letter, the EMS report, the Gap Justification Record",
-    "This is the fork. Track A (Case Flow Day 3): the file settles. Track B (Days 4–5): Keystone stonewalls and the case goes to suit."
+    "This is the fork. Track A (Case Flow Day 5): the file settles. Track B (Day 5, condensed): Keystone stonewalls and the case goes to suit."
   ]},
   {section:"Track A: The File Settles", items:[
     "08/12/2026 Keystone tenders $10,000 · UM consents 08/24 (Harbor Point) and 08/26 (Cardinal State) · Keystone's General Release (08/14) revised to a Limited Release, signed 08/28 · check into IOLTA 09/04",

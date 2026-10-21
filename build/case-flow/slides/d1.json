@@ -153,7 +153,7 @@
       "Date the flag and attach **the Triple-Check results**",
       "State what must happen **before any compromise**"
     ],
-    "deliver": "A **dated, flagged lien record** you could negotiate from on Day 3",
+    "deliver": "A **dated, flagged lien record** you could negotiate from on Day 5",
     "checks": [
       "Carrier: **Peach State Health Plan**",
       "**PSH-55017742 and GRP-41208** both entered",
@@ -167,9 +167,9 @@
   "d1m1-kc": {
     "image": "knowledge-check",
     "questions": [
-      "List the **three coverage layers** in pursuit order, with each limit and the total.",
-      "How does John Doe being a **front-seat passenger** change the recovery? What if he'd driven his own car?",
-      "Why can't Host UM be demanded **before BI is exhausted** or tendered? What does the wrong order cost?"
+      "Name the **six stages** in order. What does the CM own at Intake & Case Opening?",
+      "John Doe asks what his case is **worth**. Who answers, and what do you log?",
+      "What must happen **before the matter is created** in the CMS, and on whose names?"
     ]
   },
   "d1m2-l1": {
@@ -386,7 +386,7 @@
     "upl": "State facts, flag risks; legal conclusions, value and posture are Atty. Thorne's",
     "job": [
       ["Verification call complete", "Record acceptance decision and reason", "CMS → Case Notes", "Reason a colleague can follow"],
-      ["Coverage verified, triple-check cleared", "Draft all five bands", "Action Plan Editor", "Risks band populated"],
+      ["Coverage verified in writing", "Draft all five bands", "Action Plan Editor", "Risks band populated"],
       ["Plan drafted", "Docket window; route to Atty. Thorne", "Route for review · Calendar", "Routed before any position-committing action"]
     ],
     "dos": [
@@ -449,10 +449,10 @@
   },
   "d1m4-a2": {
     "image": "cms-screen",
-    "situation": "Day 1's work is in: parties mapped, **$40,000 stack verified**, triple-check cleared, packet tracked, **14-Day Treatment Gap** identified. Atty. Thorne awaits the Case Plan.",
+    "situation": "The set-up is in: parties mapped, **$40,000 stack verified**, packet tracked, **14-Day Treatment Gap** identified. Atty. Thorne awaits the Case Plan.",
     "steps": [
       "Snapshot: record **the acceptance decision** and its reason",
-      "Coverage stack and order, liability, **preliminary projection**, triple-check results",
+      "Coverage stack and order, liability, **preliminary projection**; triple-check held open",
       "Pillars: **measurable goals**; each action item with owner and date",
       "Risks: **14-Day Gap and later breaks in care**, prominently, with consequences",
       "Docket the filing window, then **route to Atty. Thorne**"

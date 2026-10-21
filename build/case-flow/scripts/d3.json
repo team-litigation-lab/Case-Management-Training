@@ -63,7 +63,7 @@
   },
   "d3m1-a1": {
     "case": {
-      "say": "Here's what just landed on the file. It's Monday, 07/20/2026, and Atty. Thorne writes that the Keystone BI demand gets a final audit and goes out today. The terms are approved for Dana Whitfield at Keystone Mutual, claim KM-26-440871: the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, and 30 days from receipt. MMI was 06/12/2026, Dr. Reyes's Causation Letter and the Gap Justification Record are on file, and the Day 2 audit put the Specials at $16,401.40. I'm handing you the demand specialist's draft. Fair warning, it has problems. Audit it against the Big Four and the Final Scrub, log every deficiency as a task, and bring it back for his signature. Nobody mails anything until the audit is logged.",
+      "say": "Here's what just landed on the file. It's Monday, 07/20/2026, and Atty. Thorne writes that the Keystone BI demand gets a final audit and goes out today. The terms are approved for Dana Whitfield at Keystone Mutual, claim KM-26-440871: the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, and 30 days from receipt. MMI was 06/12/2026, Dr. Reyes's Causation Letter and the Gap Justification Record are on file, and the pre-demand audit put the Specials at $16,401.40. I'm handing you the demand specialist's draft. Fair warning, it has problems. Audit it against the Big Four and the Final Scrub, log every deficiency as a task, and bring it back for his signature. Nobody mails anything until the audit is logged.",
       "ask": "Before you open the draft, what are the first three things you'll check?"
     },
     "task": {
@@ -203,7 +203,7 @@
     },
     "scale": {
       "say": "Okay, the Skill Scale. Give yourself a 1 to 5 on each of the six competencies, from building the battle map and net floor through to holding the authority line, where every number and decision runs through Atty. Thorne. I'll set your self-rating next to your score, and if they're far apart in either direction, we'll talk about it. That's not a penalty, it's coaching. Just keep in mind that UPL is a gate, so a strong score can't rescue an ethics breach. Submit it for review when you're finished.",
-      "ask": "Which of the six competencies would you most want to practice again before Day 4?"
+      "ask": "Which of the six competencies would you most want to practice again before your next file?"
     }
   },
   "d3m3-l1": {
@@ -228,7 +228,7 @@
       "ask": "Why is the comparative fault card greyed out on John Doe's file?"
     },
     "job": {
-      "say": "Let's put it on the job. When the gross reaches $40,000.00 on 10/06/2026, you run the final inventory in the Lien Tracker, re-verifying the Day 2 register, asserted and absent, and classifying each claim as statutory or contractual. Two stay open; Medicare, Medicaid, hospital, workers' comp, prior attorney and MedPay each get “none” with a source. Once the Health Plan lien is classified, you get the plan documents and escalate the funding status to Atty. Thorne. Fully insured goes on file, and the governing-law call is recorded as his. When he picks the reduction basis, you draft the request naming the doctrine and showing $1,860.00 minus $620.00 equals $1,240.00, held for his approval. And for the prior-attorney question, ask John Doe, check intake, and log “no prior attorney, verified” with its date."
+      "say": "Let's put it on the job. When the gross reaches $40,000.00 on 10/06/2026, you run the final inventory in the Lien Tracker, re-verifying the Day 3 register, asserted and absent, and classifying each claim as statutory or contractual. Two stay open; Medicare, Medicaid, hospital, workers' comp, prior attorney and MedPay each get “none” with a source. Once the Health Plan lien is classified, you get the plan documents and escalate the funding status to Atty. Thorne. Fully insured goes on file, and the governing-law call is recorded as his. When he picks the reduction basis, you draft the request naming the doctrine and showing $1,860.00 minus $620.00 equals $1,240.00, held for his approval. And for the prior-attorney question, ask John Doe, check intake, and log “no prior attorney, verified” with its date."
     },
     "dodont": {
       "say": "Here comes Three Clues, One Rule. I reveal three clues, you call Do or Don't, then name the rule. The rules in play: work the most negotiable lien first to build momentum, but resolve every one in writing before disbursement. Record a verified “none” the way you'd record a lien, with its source and date. Name the doctrine and show the math in every Reduction Request. And the traps: treating an ERISA plan like a provider LOP, asking for a courtesy discount with no legal basis, paying a prior attorney a percentage he's no longer owed. One heads-up. Someone will ask whether riding in Kevin Alvarez's carpool makes this workers' comp. That's a coverage question for Atty. Thorne. We record that no claim was filed and no lien asserted.",
@@ -266,7 +266,7 @@
   },
   "d3m3-a1": {
     "case": {
-      "say": "Here's what just landed, 10/06/2026, on PSH-55017742. Peach State Health Plan asserts its reimbursement right of $1,860.00, paid for the 05/15/2026 epidural injection at Crescent Pain & Spine, and asks us to confirm its claim will be protected from the proceeds. The notice of rights and the EOB are attached. Some context: Cardinal State has just tendered its $10,000 limits, so the gross is $40,000.00. Both liens have been on the Lien Tracker since the Day 2 audit, and Atty. Thorne held the Reduction Requests until the gross was known. Now take a look at the plan documents. They show a fully insured group plan.",
+      "say": "Here's what just landed, 10/06/2026, on PSH-55017742. Peach State Health Plan asserts its reimbursement right of $1,860.00, paid for the 05/15/2026 epidural injection at Crescent Pain & Spine, and asks us to confirm its claim will be protected from the proceeds. The notice of rights and the EOB are attached. Some context: Cardinal State has just tendered its $10,000 limits, so the gross is $40,000.00. Both liens have been on the Lien Tracker since the pre-demand audit, and Atty. Thorne held the Reduction Requests until the gross was known. Now take a look at the plan documents. They show a fully insured group plan.",
       "ask": "What one fact about Peach State decides which law governs its claim?"
     },
     "task": {
@@ -405,8 +405,8 @@
       "ask": "Is this a lien we missed, or a bill nobody owes?"
     },
     "scale": {
-      "say": "Here's the last Skill Scale of the day. Score yourself 1 to 5 on each competency, from building a dual-stream Net Sheet that ties to the Trust Ledger, to holding the UPL boundary on releases, money and the client's questions. I'll put your rating next to your score, and any wide gap, high or low, is something we'll talk through together. As always, UPL is a gate, and a strong score doesn't survive an ethics breach. Submit it for review when you're done, and well done on Day 3.",
-      "ask": "Looking back over all of Day 3, which competency grew the most for you?"
+      "say": "Here's the last Skill Scale of the day. Score yourself 1 to 5 on each competency, from building a dual-stream Net Sheet that ties to the Trust Ledger, to holding the UPL boundary on releases, money and the client's questions. I'll put your rating next to your score, and any wide gap, high or low, is something we'll talk through together. As always, UPL is a gate, and a strong score doesn't survive an ethics breach. Submit it for review when you're done, and well done on Track A.",
+      "ask": "Looking back over Track A, which competency grew the most for you?"
     }
   }
 }

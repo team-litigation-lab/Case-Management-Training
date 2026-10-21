@@ -10,30 +10,30 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 
 | # | Topic | Status | Where it lives now |
 |---|---|---|---|
-| `D1#1` | Training Agenda & What Case Management Is | ✅ BUILT | d1m1-role, d1m1-l1 |
+| `D1#1` | Training Agenda & What Case Management Is | ✅ BUILT | d1m1-role, d1m1-l1, d1m1-kc |
 | `D1#2` | The General Case Management Process | ✅ BUILT | d1m1-role, d1m4-l2 |
 | `D1#3` | Key Duties of a Case Manager | ✅ BUILT | d1m1-role, d1m1-l1, d1m3-a2 |
 | `D1#4` | Understanding Case Phases | ✅ BUILT | d1m1-role, d1m1-l1 |
-| `D1#5` | Case Phase: Intake — Establishing Control | ✅ BUILT | d1m1-l1, d1m1-open |
+| `D1#5` | Case Phase: Intake — Establishing Control | ✅ BUILT | d1m1-l1, d1m1-open, d1m1-kc |
 | `D1#6` | The Real Intake Workflow | ✅ BUILT | d1m1-l1, d1m1-open |
 | `D1#7` | Intake & Initial Client Contact — Gatekeepers of Case Quality | ✅ BUILT | d1m1-l1, d1m1-open |
 | `D1#8` | Case Acceptance Determination | ✅ BUILT | d1m4-l1, d1m4-a2, d1m4-kc |
 | `D1#9` | Common Intake Bottlenecks — Overview | ✅ BUILT | d1m2-l1 |
 | `D1#10` | Bottleneck: Incomplete Client Information | ✅ BUILT | d1m1-l1 |
 | `D1#11` | Bottleneck: Delayed Client Follow-Up | ✅ BUILT | d1m2-l1, d1m2-a1, d1m2-kc |
-| `D1#12` | Bottleneck: Conflict Check Delays | ✅ BUILT | d1m1-l1, d1m1-open |
+| `D1#12` | Bottleneck: Conflict Check Delays | ✅ BUILT | d1m1-l1, d1m1-open, d1m1-kc |
 | `D1#13` | Bottleneck: Intake Form Errors | ✅ BUILT | d1m1-l1, d1m1-open |
 | `D1#14` | Bottleneck: Case Eligibility Uncertainty | ✅ BUILT | d1m4-l1 |
 | `D1#15` | Bottleneck: Communication Gaps | ✅ BUILT | d1m1-l1 |
-| `D1#16` | Tools for Case Planning & the PI Case Lifecycle Strategy | ✅ BUILT | d1m1-case, d1m1-l1, d1m3-a2, d1m4-a1 |
+| `D1#16` | Tools for Case Planning & the PI Case Lifecycle Strategy | ✅ BUILT | d1m1-case, d1m1-l1, d1m1-kc, d1m3-a2, d1m4-a1 |
 | `D1#17` | Skill Building: Intake Decision Challenge & Applied Case Manager Actions | ✅ BUILT | d1m4-l1 |
-| `D1#18` | Claim Set-Up: Coverage Determination & Liability Assessment | ✅ BUILT | d1m1-l1, d1m1-a1, d1m1-kc, d1m4-a2, d2m1-cov, d2m1-l2, d2m1-a2, d2m1-kc, d5m4-kc |
-| `D1#19` | Claim Set-Up: Case Projection — Why the Three Work Together | ✅ BUILT | d1m1-case, d1m1-a1, d1m1-kc, d1m4-l1, d1m4-a2, d2m1-l2 |
-| `D1#20` | Case Study: John Doe v. Apex — Coverage Analysis | ✅ BUILT | d1m1-a1, d1m1-kc, d2m1-l2, d2m1-a2, d2m1-kc |
+| `D1#18` | Claim Set-Up: Coverage Determination & Liability Assessment | ✅ BUILT | d1m1-l1, d1m4-a2, d1m1-a1, d2m1-l2, d2m1-a2, d2m1-kc, d2m1-cov, d5m4-kc |
+| `D1#19` | Claim Set-Up: Case Projection — Why the Three Work Together | ✅ BUILT | d1m1-case, d1m4-l1, d1m4-a2, d1m1-a1, d2m1-l2 |
+| `D1#20` | Case Study: John Doe v. Apex — Coverage Analysis | ✅ BUILT | d1m1-a1, d2m1-l2, d2m1-a2, d2m1-kc |
 | `D1#21` | Case Study: John Doe v. Apex — Liability Determination | ✅ BUILT | d1m4-l1, d2m1-l1, d2m1-a1 |
-| `D1#22` | Case Planning Framework: Regulatory Intake & Verification | ✅ BUILT | d1m1-l2, d1m1-a2, d1m1-kc, d1m4-l1, d1m4-a2, d5m4-kc |
-| `D1#23` | Case Planning Framework: The Three-Pillar Case Plan | ✅ BUILT | d1m1-l2, d1m4-l1, d1m4-a2, d1m4-kc, d2m2-eob |
-| `D1#24` | Case Planning Framework: Mandatory Disclosure & Compliance Tracking | ✅ BUILT | d1m1-a2, d1m4-l2, d1m4-kc, d2m2-l1, d2m2-a1 |
+| `D1#22` | Case Planning Framework: Regulatory Intake & Verification | ✅ BUILT | d1m4-l1, d1m4-a2, d1m1-l2, d1m1-a2, d5m4-kc |
+| `D1#23` | Case Planning Framework: The Three-Pillar Case Plan | ✅ BUILT | d1m4-l1, d1m4-a2, d1m4-kc, d2m2-eob, d1m1-l2 |
+| `D1#24` | Case Planning Framework: Mandatory Disclosure & Compliance Tracking | ✅ BUILT | d1m4-l2, d1m4-kc, d2m2-l1, d2m2-a1, d1m1-a2 |
 | `D1#25` | The “Golden Rule” of US Claim Set-Up | ✅ BUILT | d1m4-l2, d1m4-kc |
 | `D1#26` | The Treatment Phase — Core Objectives | ✅ BUILT | d2m2-l1, d2m2-a2, d2m2-a3 |
 | `D1#27` | Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention | ✅ BUILT | d2m2-l2, d2m2-a2 |
@@ -229,8 +229,6 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 
 - curriculum/5-day-flow/case-file.md §1–2: the file at intake, people and vehicles, the collision
 - LSH Claims Specialist: pre-claim data set, Declaration Page, coverage asymmetry
-- LSH Claims Specialist: CMS Insurance tab SOP, first- and third-party coverage
-- D1 Task Overview: Billing, Resolution & Closing
 - LSH Claims Specialist: No Contact Protocol, Steps 1–3
 - D5 agenda: MIA Clients
 - LSH Claims Specialist: No Contact Protocol, Step 2
@@ -243,6 +241,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: LOR purpose, recipients, drafting components and delivery
 - LSH Claims Specialist: claim set-up call, information protection on third-party claims, LOR acknowledgement and limits disclosure
 - Newly authored: UM notice at set-up (notice, not demand)
+- LSH Claims Specialist: CMS Insurance tab SOP, first- and third-party coverage
 - LSH Claims Specialist: LOR drafting, contents, recipients and delivery
 - LSH Claims Specialist: information protection on third-party claims, LOR acknowledgement
 - LSH Claims Specialist: Declaration Pages, certified copy of policy, policy limits and limit types
@@ -251,6 +250,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: Declaration Pages, coverage verification and follow-up
 - Newly authored: verifying the UM form and MedPay terms at set-up
 - LSH Claims Specialist: LOR components, information protection, acknowledgement and limits disclosure
+- D1 Task Overview: Billing, Resolution & Closing
 - LSH Claims Specialist: MedPay vs. PIP (Medical Bills regardless of fault, no lost wages)
 - Newly authored: LOP issuance guidelines and the MedPay exhaustion ledger
 - Newly authored: redirecting a referral to the client's choice of facility, and the downstream task list (each task done or delegated with an owner and a due date)
