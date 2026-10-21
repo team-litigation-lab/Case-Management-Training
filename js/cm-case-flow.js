@@ -485,6 +485,19 @@ const TOOL = Object.fromEntries(TOOLKIT.map(t => [t.id, t]));
    Disbursement (Track A, settled before suit) and its close-out once the case is won (Track B). Each block of those
    modules opens it at that stage (js/cm-net-sheet.js STAGES). */
 const NET_MODS = {d3m2: "recovery", d3m3: "liens", d3m4: "final", d5m5: "litigation"};
+/* The email practice a step opens, aimed at the step rather than at a page of choices (the Portal's
+   simulators/email.js and email-replies.html read these):
+     ✉ Email Workspace  → inbox=1, the ready-made inbox the trainee's program starts on (the CM Monday
+                           inbox on this course), opened straight away instead of the chooser;
+     📨 Email Replies    → email=<id>, the one scenario the step is about (the ids in the Portal's
+                           reply-packs/emails.json). EMAIL_NEED maps a block to its scenario; a block
+                           with no entry opens the list filtered to the course, as before. */
+const EMAIL_NEED = {};
+function emailTarget(id, blockId){
+  if(id === "email") return "inbox=1";
+  if(id === "replies") return EMAIL_NEED[blockId] ? "email=" + EMAIL_NEED[blockId] : "";
+  return "";
+}
 const NET_STAGE = {};
 Object.keys(STORED).forEach(id => { const st = NET_MODS[STORED[id].mod.id]; if(st) NET_STAGE[id] = st; });
 /* The records, docket and court-filing platforms, at the steps where that work happens on John Doe's file (on top of
@@ -1049,7 +1062,7 @@ window.cmCaseFlow.tool = function(id, blockId){
     goto.apply(null, PAGE[id]);
     return;
   }
-  if(typeof openTool === "function") openTool(id === "call" ? "calls" : id, "split");   // a training platform, beside the slide (⧉ Side by side; 🖥 Second screen)
+  if(typeof openTool === "function") openTool(id === "call" ? "calls" : id, "split", emailTarget(id, blockId) || undefined);   // a training platform, beside the slide (⧉ Side by side; 🖥 Second screen)
 };
 window.cmCaseFlow.back = function(){
   const r = state.cfReturn; state.cfReturn = null;
