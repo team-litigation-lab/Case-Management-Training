@@ -234,13 +234,13 @@ const DRAFTING_SUBVIEWS = ["lor","hipaa","medprov"];
 window.EXTRA_ROUTE_VIEWS = ["casedocs", "drafting"].concat(DRAFTING_SUBVIEWS);
 // Page names for the "← Back to …" button, matching this top bar.
 window.EXTRA_ROUTE_LABELS = {clientprofile:"Case File", casedocs:"Documents", practice:"Practice", notes:"Notes",
-  drafting:"Drafting Tools", lor:"Drafting Tools", hipaa:"Drafting Tools", medprov:"Drafting Tools"};
+  drafting:"Drafting Tools", handouts:"Knowledge Base", lor:"Drafting Tools", hipaa:"Drafting Tools", medprov:"Drafting Tools"};
 function renderTopbar(){
-  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["drafting","📄 Drafting Tools"],["notes","Notes"],["handouts","Handouts"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
+  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["drafting","📄 Drafting Tools"],["notes","Notes"],["handouts","📚 Knowledge Base"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
   if(state.isAdmin){
     // Admin is a trainer monitoring dashboard, not a trainee workspace — hide
     // the trainee-facing-only views that have no role here.
-    views = views.filter(([id]) => !["crisisroleplay","notes","handouts","tasks"].includes(id));
+    views = views.filter(([id]) => !["crisisroleplay","notes","tasks"].includes(id));   // trainers keep 📚 Knowledge Base: they add documents there
     views.push(["orientation","🧭 Orientation"]);
     views.push(["facilitatorguide","Facilitator Guide"]);
   }

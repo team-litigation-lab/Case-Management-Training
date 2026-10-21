@@ -244,9 +244,9 @@ s = re.sub(r'<script src="/js/eapa-deck-art\.js[^"]*"></script>\n?', "", s)
 # One hook — eapa-updates.js — becomes the CM run, in load order.
 s = re.sub(r'<script src="/js/eapa-updates\.js\?v=[^"]*"></script>', '<script src="/js/eapa-updates.js?v=z"></script>', s, count=1)
 rep('<script src="/js/eapa-updates.js?v=z"></script>', tags(
-    "cm-updates.js?v=25",
-    "cm-documents.js?v=2",
-    "cm-skillbuilders.js?v=cm-2026.10.16-cfonly",
+    "cm-updates.js?v=26",
+    "cm-documents.js?v=3",
+    "cm-skillbuilders.js?v=cm-2026.10.21-kb",
     "cm-lor-data.js?v=1", "cm-hipaa-data.js?v=1", "cm-medprov-data.js?v=1",   # Drafting Tools' data
     "cm-lor.js?v=3", "cm-hipaa.js?v=2", "cm-medprov.js?v=2", "cm-drafting.js?v=1",
     "daily-activities.js?v=3"))
