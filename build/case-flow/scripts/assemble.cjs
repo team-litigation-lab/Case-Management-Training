@@ -17,7 +17,7 @@ const TH_PER = 4, KC_PER = 4;
 function viewsOf(b){
   const t = (SLIDES[b.id] || {}).theory;
   const theory = !t ? [] : (t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]).concat(t.framework ? ["frame"] : []);
-  if(b.kind === "lesson") return ["why"].concat(theory, ["rules"], b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length ? ["dodont"] : []);
+  if(b.kind === "lesson") return ["why"].concat(theory, ["rules"], b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);
   if(b.kind === "activity") return ["case", "task"].concat(b.show ? ["model"] : [], ["check"]);
   const qs = (SLIDES[b.id] || {}).questions || b.check.questions;
   return (qs.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);

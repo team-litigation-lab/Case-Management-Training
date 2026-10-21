@@ -3,7 +3,7 @@
     "lead": "Case Management is the **end-to-end coordination** of a case from intake to resolution: tracking, handling and moving it, phase by phase.",
     "concepts": [
       {"term": "What It Ensures", "text": "Timely progression, proper documentation and compliance, clear communication: **the three tests** every task on the file must pass"},
-      {"term": "The General Process", "text": "Seven stages, from Intake & Case Opening to Resolution & Closing: **you carry the file** through all seven"},
+      {"term": "The General Process", "text": "Six stages, from Intake & Case Opening to Billing, Resolution & Closing: **you carry the file** through all six"},
       {"term": "Case Planning & Strategy Support", "text": "You build the plan and recommend next steps; **strategy itself stays** with Atty. Thorne"},
       {"term": "Case Health Analysis", "text": "Reading the whole file for risk, not single tasks: **spotting the weak point** before it costs the client"}
     ],
@@ -19,7 +19,7 @@
         {"label": "Case Monitoring & Tracking", "text": "Docket every deadline, watch progress and flag risk to counsel the day you see it"},
         {"label": "Billing, Resolution & Closing", "text": "Support the billing and lien records through resolution, then close a complete file"}
       ],
-      "note": "Seven stages on one track; billing support and closing run together at the end of the file."
+      "note": "Six stages on one track, from opening the file to closing it."
     }
   },
   "d1m1-case": {

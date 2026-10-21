@@ -49,7 +49,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "The General Process",
-     "text": "Seven stages, from Intake & Case Opening to Resolution & Closing: **you carry the file** through all seven"
+     "text": "Six stages, from Intake & Case Opening to Billing, Resolution & Closing: **you carry the file** through all six"
     },
     {
      "term": "Case Planning & Strategy Support",
@@ -93,7 +93,7 @@ window.CM_CF_SLIDES = {
       "text": "Support the billing and lien records through resolution, then close a complete file"
      }
     ],
-    "note": "Seven stages on one track; billing support and closing run together at the end of the file."
+    "note": "Six stages on one track, from opening the file to closing it."
    }
   },
   "clues": {
