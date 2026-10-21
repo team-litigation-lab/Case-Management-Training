@@ -29,8 +29,10 @@ function cmsWindows(){
     const src = f.dataset && (f.dataset.src || f.dataset.base) || f.getAttribute("src") || "";
     try{ const u = new URL(src, location.href); if((CMS_HOSTS.some(re=>re.test(u.hostname)) || LOCAL.test(u.origin)) && f.contentWindow) out.push(f.contentWindow); }catch(e){}
   });
+  (window.__cmsTabs || []).forEach(w=>{ if(w && !w.closed) out.push(w); });   // CMS tabs opened from the 🧰 Tools menu (openTool, js/cm-skillbuilders.js)
   return out;
 }
+window.cmCmsWindows = cmsWindows;
 /* Ask every CMS window which case is open. The answer comes back through the listener below.
    A frame asked before its page is ready hears nothing, so each CMS frame is asked again when it loads. */
 function ask(){

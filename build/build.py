@@ -244,9 +244,9 @@ s = re.sub(r'<script src="/js/eapa-deck-art\.js[^"]*"></script>\n?', "", s)
 # One hook — eapa-updates.js — becomes the CM run, in load order.
 s = re.sub(r'<script src="/js/eapa-updates\.js\?v=[^"]*"></script>', '<script src="/js/eapa-updates.js?v=z"></script>', s, count=1)
 rep('<script src="/js/eapa-updates.js?v=z"></script>', tags(
-    "cm-updates.js?v=26",
+    "cm-updates.js?v=27",
     "cm-documents.js?v=3",
-    "cm-skillbuilders.js?v=cm-2026.10.21-kb",
+    "cm-skillbuilders.js?v=cm-2026.10.21-cmstab",
     "cm-lor-data.js?v=1", "cm-hipaa-data.js?v=1", "cm-medprov-data.js?v=1",   # Drafting Tools' data
     "cm-lor.js?v=3", "cm-hipaa.js?v=2", "cm-medprov.js?v=2", "cm-drafting.js?v=1",
     "daily-activities.js?v=3"))
@@ -266,7 +266,7 @@ rep('<script src="/js/lsh-card-frame.js?v=3"></script>', tags(
     # The 5-Day Case Management Flow (John Doe v. Robert Smith): after graded-calls.js, because its
     # dashboard wrapper must run on the finished page, and after cm-skillbuilders.js, whose
     # renderLessonCard it wraps.
-    "cm-case-flow-docs.js?v=9", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=17", "cm-case-flow-scripts.js?v=8", "cm-case-flow-sim.js?v=10", "cm-case-flow-data.js?v=21", "cm-case-dates.js?v=3", "cm-case-flow.js?v=49",
+    "cm-case-flow-docs.js?v=9", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=17", "cm-case-flow-scripts.js?v=8", "cm-case-flow-sim.js?v=10", "cm-case-flow-data.js?v=21", "cm-case-dates.js?v=3", "cm-case-flow.js?v=50",
     "show-password.js?v=1", "lsh-card-frame.js?v=3"))
 
 # Training tools open signed in (js/lsh-tool-links.js, the same file in every LSH course repo: CMS
@@ -276,9 +276,9 @@ s = re.sub(r'<script src="/js/lsh-tool-links\.js\?v=[^"]*"></script>\n?', "", s)
 rep('<script src="/js/lsh-topbar.js?v=2"></script>', tags(
     "lsh-tool-links.js?v=cm-2026.10.08-portal",
     # The CMS Case ID comes from the CMS (js/cm-cms-case.js), after the tool links it signs in with.
-    "cm-cms-case.js?v=cm-2026.10.16-cmsid",
+    "cm-cms-case.js?v=cm-2026.10.21-tabs",
     # Case documents filed into the CMS, named the firm's way (js/cm-doc-filing.js).
-    "cm-doc-filing.js?v=cm-2026.10.16-docview", "lsh-topbar.js?v=2", "lsh-one-screen.js?v=1"))
+    "cm-doc-filing.js?v=cm-2026.10.21-tabs", "lsh-topbar.js?v=2", "lsh-one-screen.js?v=1"))
 
 # ---------- 10. Call Simulator + Live Roleplay CM fixes ----------
 rep('["practice","Skill Builders"],["tools","🧰 Tools"]', '["practice","Skill Builders"],["calls","🛠 Simulators"],["tools","🧰 Tools"]')

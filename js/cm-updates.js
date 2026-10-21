@@ -235,7 +235,7 @@ window.EXTRA_ROUTE_VIEWS = ["casedocs", "drafting"].concat(DRAFTING_SUBVIEWS);
 // Page names for the "← Back to …" button, matching this top bar.
 window.EXTRA_ROUTE_LABELS = {clientprofile:"Case File", casedocs:"Documents", practice:"Practice", notes:"Notes",
   drafting:"Drafting Tools", handouts:"Knowledge Base", lor:"Drafting Tools", hipaa:"Drafting Tools", medprov:"Drafting Tools"};
-function renderTopbar(){
+function renderTopbar(){   // trainees never see an admin sign-in (🛡 Admin is for admins only): admins come in from the Portal (?admin=1)
   let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["drafting","📄 Drafting Tools"],["notes","Notes"],["handouts","📚 Knowledge Base"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
   if(state.isAdmin){
     // Admin is a trainer monitoring dashboard, not a trainee workspace — hide
@@ -259,7 +259,7 @@ function renderTopbar(){
           ${(state.traineeId && !state.isAdmin) ? `<button type="button" class="nav-focus" onclick="openFocusPanel()" title="My Focus — trainer feedback and what to work on next">🎯 Focus${focusNewCount()?`<span class="nav-badge">${focusNewCount()}</span>`:""}</button>` : ""}
           ${state.adminPreview
             ? `<button type="button" class="nav-viewswitch" onclick="setAdminViewMode('admin')" title="Return to the admin (trainer) view">🛡 Back to Admin view</button>`
-            : ((state.portalOnly && !state.isAdmin) ? "" : `<button class="${state.view==='admin'?'active':''}" onclick="openAdmin()">🛡 Admin</button>`)}
+            : (state.isAdmin ? `<button class="${state.view==='admin'?'active':''}" onclick="openAdmin()">🛡 Admin</button>` : "")}
           ${state.isAdmin ? `<button type="button" class="nav-viewswitch" onclick="setAdminViewMode('trainee')" title="See the portal exactly as a trainee does — no trainer tools or admin pages">👁 Trainee view</button>` : ""}
         </div>
       </div>
@@ -500,9 +500,25 @@ function toolUnlocked(t){ const n = toolDayOf(t); return state.isAdmin || state.
 const __eapaDayUnlocked = window.dayUnlocked;
 window.dayUnlocked = function(id){ return state.adminPreview ? true : __eapaDayUnlocked(id); };
 const __eapaGoto = window.goto;
-window.goto = function(view, id){ __eapaGoto(view, id); if(view==="day" && state.adminPreview && state.maxSlideReached !== 9999){ state.maxSlideReached = 9999; render(); } };
+// The trainee side has no admin pages: a signed-in trainee who reaches the Admin or Facilitator Guide address
+// (an old link, the back button) lands on their own dashboard instead of an admin sign-in.
+const TRAINER_ONLY_VIEWS = ["admin", "facilitatorguide"];
+const traineeOnly = () => !!state.traineeId && !state.isAdmin && !state.adminToken && !state.adminPreview;
+window.goto = function(view, id){
+  if(TRAINER_ONLY_VIEWS.includes(view) && traineeOnly()) view = "dashboard";
+  __eapaGoto(view, id); if(view==="day" && state.adminPreview && state.maxSlideReached !== 9999){ state.maxSlideReached = 9999; render(); } };
 const __eapaOpenAdmin = window.openAdmin;
 window.openAdmin = function(){ if(state.adminPreview){ setAdminViewMode("admin"); return; } return __eapaOpenAdmin(); };
+// Every score reaches the Training Portal: the trainee's record (what the Portal's Progress page reads) carries the Case
+// Flow's scores, caseFlow (cmCaseFlow.scoreSummary: each day's Knowledge Check and takeaway, each module's scores),
+// refreshed whenever the record is saved (a Knowledge Check, a takeaway, progress).
+const __sharedSetForPortal = window.sharedSet;
+window.sharedSet = function(key, val){
+  if(state.traineeId && key === "trainee:" + state.traineeId && val && typeof val === "object" && window.cmCaseFlow && typeof cmCaseFlow.scoreSummary === "function"){
+    try{ val = Object.assign({}, val, {caseFlow: cmCaseFlow.scoreSummary()}); }catch(e){}
+  }
+  return __sharedSetForPortal.apply(this, [key, val]);
+};
 // Logging out of Admin returns to the course's sign-in (landing) page, not the trainee dashboard.
 // A trainee signed in on the same browser is logged out too (their progress is saved first).
 window.adminLogout = async function(){
@@ -1348,6 +1364,18 @@ window.renderMeetClientTrainerGuide = function(){
     const card = t.content.firstElementChild; if(!card) return html;
     card.querySelectorAll(".module-icon, .module-topic-list, .module-more").forEach(n=>n.remove());
     const n = (d.lessons||[]).length, start = card.querySelector(".module-start-btn");
+    // A day that's started but not passed says so: "Continue", how far the slides got, and the recorded Knowledge Check
+    // score with the 70% pass mark (a score under 70% is kept, it just doesn't complete the day).
+    const prog = (state.progress||{})[d.id] || {};
+    if(start && !prog.done && !start.disabled){
+      let total = 0; try{ total = buildDaySlides(d).length; }catch(e){}
+      const far = (state.slideProgress||{})[d.id] || 0, seen = total ? Math.min(100, Math.round((far + 1) / total * 100)) : 0;
+      const scored = typeof prog.score === "number";
+      if(far > 0 || scored){
+        start.textContent = "Continue";
+        start.insertAdjacentHTML("beforebegin", `<div class="mc-progress"><span>Slides <b>${far > 0 ? seen : 0}%</b></span>${scored ? `<span>Knowledge Check <b>${prog.score}%</b> · 70% to pass</span>` : ""}</div>`);
+      }
+    }
     if(n && start) start.insertAdjacentHTML("afterend", `<button type="button" class="btn btn-ghost btn-sm module-finish-btn module-topics-btn" onclick="event.stopPropagation(); showDayTopics(${d.id})">☰ Topics <span>· ${n}</span></button>`);
     card.classList.add("mc-clean");
     return card.outerHTML;
@@ -1356,6 +1384,8 @@ window.renderMeetClientTrainerGuide = function(){
   const st = document.createElement("style"); st.id = "clean-day-cards"; st.textContent = `
 .module-card.mc-clean .module-body{flex:1 1 auto;min-height:12px;padding:10px 16px 4px;}
 .module-card.mc-clean .module-body:empty{padding:0;}
+.module-card.mc-clean .mc-progress{display:flex;flex-wrap:wrap;gap:4px 12px;padding:0 16px 8px;font-size:12px;color:var(--ink-soft);}
+.module-card.mc-clean .mc-progress b{color:var(--navy);}
 .module-card.mc-clean .module-topics-btn span{color:var(--ink-soft);font-weight:700;margin-left:2px;}
 .topics-modal{overflow-y:auto;}
 .topics-modal-head{position:sticky;top:0;z-index:1;flex-shrink:0;}
