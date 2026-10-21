@@ -5561,10 +5561,27 @@ function checkDay10SingleAttempt(actionId){
   storeSet("completed-lab-actions", state.completedLabActions);
   return true;
 }
+/* What a day card says, from what the trainee has actually done:
+     done      passed the Knowledge Check (70%)
+     attempted took the Knowledge Check and is not at 70% yet — the best score is kept, so the card
+               shows it and offers the retake, rather than "Start"
+     started   worked the slides (or a Skill Builder), no Knowledge Check yet → "Resume"
+     open      not begun → "Start"                                                                    */
+function dayStage(d){
+  const prog = state.progress[d.id] || {};
+  if(prog.done) return "done";
+  if(typeof prog.score === "number") return "attempted";
+  if((state.slideProgress && state.slideProgress[d.id] > 0) || (prog.history||[]).length) return "started";
+  return "open";
+}
+const DAY_CTA = { done:"Review", attempted:"Retake Knowledge Check", started:"Resume", open:"Start" };
+// the attempts a trainee has made at a day's Knowledge Check, for the card's note
+function dayAttempts(d){ return ((state.progress[d.id]||{}).history||[]).length; }
 function moduleCard(d){
   const prog = state.progress[d.id];
   const unlocked = dayUnlocked(d.id);
   const status = prog&&prog.done ? "done" : (unlocked?"open":"locked");
+  const stage = unlocked ? dayStage(d) : "locked";
   const icon = DAY_ICONS[d.id] || "📘";
   const TOPIC_PREVIEW = 7;
   const shown = d.lessons.slice(0, TOPIC_PREVIEW);
@@ -5572,7 +5589,7 @@ function moduleCard(d){
   return `
   <div class="module-card mc-${status}" id="module-${d.id}">
     <div class="module-head">
-      <div class="mh-day">Day ${d.id}${status==='done'?' &middot; Completed':(status==='locked'?' &middot; 🔒 Locked':'')}</div>
+      <div class="mh-day">Day ${d.id}${status==='done'?' &middot; Completed':(status==='locked'?' &middot; 🔒 Locked':(stage==='attempted'?` &middot; Best ${prog.score}% &middot; 70% to pass`:(stage==='started'?' &middot; In progress':'')))}</div>
       <div class="mh-title">${esc(d.title)}</div>
     </div>
     <div class="module-body">
@@ -5583,7 +5600,7 @@ function moduleCard(d){
       </ul>
       ${more>0 ? `<button type="button" class="module-more" onclick="event.stopPropagation(); showDayTopics(${d.id})">+ ${more} more topic${more===1?"":"s"} <span>›</span></button>` : ""}
     </div>
-    <button class="btn module-start-btn ${status==='locked'?'btn-ghost':'btn-navy'}" ${status==='locked'?'disabled':''} onclick="goto('day',${d.id})">${status==='done'?'Review':'Start'}</button>
+    <button class="btn module-start-btn ${status==='locked'?'btn-ghost':'btn-navy'}" ${status==='locked'?'disabled':''} onclick="goto('day',${d.id})"${stage==='attempted'?` title="Your best score is recorded (${prog.score}% over ${dayAttempts(d)} attempt${dayAttempts(d)===1?'':'s'}). 70% marks the day complete."`:''}>${status==='locked'?'Start':DAY_CTA[stage]}</button>
     ${(status!=='locked' && status!=='done') ? `<button class="btn btn-ghost btn-sm module-finish-btn" onclick="finishTrainingForDay(${d.id})">✓ Finish Training</button>` : ""}
     ${status==='done' ? `
     <div class="module-review-row">
@@ -5612,7 +5629,7 @@ function showDayTopics(dayId){
       </ol>`}
       <div class="topics-modal-foot">
         <button type="button" class="btn btn-ghost btn-sm" onclick="this.closest('.overlay').remove()">Close</button>
-        ${status!=='locked' ? `<button type="button" class="btn btn-navy btn-sm" onclick="this.closest('.overlay').remove(); goto('day',${d.id})">${status==='done'?'Review Day':'Start Day'} ${d.id}</button>` : `<span class="topics-locked-note">${esc(dayLockReason(d.id))}</span>`}
+        ${status!=='locked' ? `<button type="button" class="btn btn-navy btn-sm" onclick="this.closest('.overlay').remove(); goto('day',${d.id})">${status==='done'?'Review Day':(dayStage(d)==='open'?'Start Day':'Resume Day')} ${d.id}</button>` : `<span class="topics-locked-note">${esc(dayLockReason(d.id))}</span>`}
       </div>
     </div>`;
   overlay.addEventListener("click",(e)=>{ if(e.target===overlay) overlay.remove(); });

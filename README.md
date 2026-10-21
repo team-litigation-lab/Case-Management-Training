@@ -58,6 +58,28 @@ The script applies the CM edits to the EA/PA page and inserts the CM content fro
     - **Files:** the slides are in `js/blueprint-content.js`. `js/lsh-blueprint.js` is the same file on every LSH platform, and `js/lsh-blueprint-course.js` is the same on every LSH course: copy them from EA-PA-TRAINING when they change there.
     - **Test:** `.github/scripts/blueprint.cjs`.
 
+### Day cards say where the trainee is
+
+A day card's button is the trainee's next step, from their own record (`dayStage` and `moduleCard` in
+`index.html`):
+
+| Their record | The card says |
+| --- | --- |
+| Nothing yet | **Start** |
+| Slides worked, no Knowledge Check | **Resume** · "In progress" |
+| Knowledge Check taken, under 70% | **Retake Knowledge Check** · "Best *n*% · 70% to pass" |
+| Passed (70%) | **Review** · "Completed" |
+
+**A Knowledge Check under the pass mark is recorded.** 70% is what marks a day complete — so 13 of 20
+(65%) does not — but the attempt is kept either way: `progress[day].score` is the best of every
+attempt and `.history` holds them all, and a worse retake never lowers the best. Before this, a day
+a trainee had worked through and scored 65% on still showed only "Start", with nothing on the card
+about their score, which read as the day not having been recorded at all. The button's tooltip gives
+the best score and how many attempts are on the record, and 🎯 Focus still lists any day under 70%.
+
+`.github/scripts/day-progress.cjs` (CI) checks each of the four states, and that a failing attempt is
+kept and never lowers the best score.
+
 ### 📂 Case File
 
 The Case File page is the Case Flow's John Doe v. Robert Smith profile (`CLIENT_PROFILE_DOC` in `build/cm_casefile.js`, from `CM_CASE_FLOW.case` and `.profile`), which is also the case dossier inside every AI prompt. How it fills in and what trainers see: above, and under *Training Tools hub*.

@@ -79,6 +79,10 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/cms-case.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: Day cards say where the trainee is (Start, Resume, Retake with the best score, Review)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/day-progress.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: The Case File (the facts are the trainer's; the page fits one screen, trainee and trainer)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
