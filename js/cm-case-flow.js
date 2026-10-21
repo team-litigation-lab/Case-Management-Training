@@ -98,14 +98,14 @@ SEQUENCE.forEach(seq => {
         h: `${phase.n}.${k + 1} ${b.title}`,
         fourPart: Object.assign(fp, {bestPractices: b.best || [], discussionCase: ""}),
         trainerCue: (b.notes || [])[0] || "",
-        cf: {day, mod, block: b, k, phase,   // day: where it is taught; mod: its unit of scoring
+        cf: {day, mod, block: b, k, phase, lane: (ph.lanes || {})[id] || phase.lane,   // day: where it is taught; mod: its unit of scoring; lane: its workstream
              heading: (ph.headings || {})[id] || (b.kind === "lesson" ? (phase.lead === "Case Phase" ? "" : phase.lead + ": ") : b.kind === "activity" ? "Skill Building: " : "Learning Check: ") + ph.title}
       }, layoutOf(b.show)));
       if(b.kind === "check") pools.push((mod.quiz || []).map(q => ({q, mod: mod.id})));
     });
   });
-  // every day's Knowledge Check: 20 questions. A day with more takes them in turn from each module it checks (so Day 5's
-  // close-out and its condensed litigation fork are all asked about), kept in the order they are taught
+  // every day's Knowledge Check: 20 questions. A day with more takes them in turn from each module it checks (so every
+  // module a day checks is asked about), kept in the order they are taught
   const take = pools.map(() => 0); let left = Math.min(QUIZ_N, pools.reduce((a, p) => a + p.length, 0));
   for(let k = 0; left; k = (k + 1) % pools.length) if(take[k] < pools[k].length){ take[k]++; left--; }
   const picked = pools.flatMap((p, k) => p.slice(0, take[k]));
@@ -296,6 +296,7 @@ async function load(){
   loaded = true;
   try{ const v = await storeGet(KEY); if(v && typeof v === "object" && v.modules) REC = v; }catch(e){}
   keepCaseYear();
+  keepDolOffset();
   await loadTrainerScores();
 }
 /* The case's dates roll forward with the calendar (js/cm-case-dates.js), but a trainee stays on the case year
@@ -310,6 +311,43 @@ function keepCaseYear(){
   try{ if(sessionStorage.getItem("lsh_case-year-reload") === String(want)) return; sessionStorage.setItem("lsh_case-year-reload", String(want)); }catch(e){ return; }
   location.reload();
 }
+/* The CMS's Date of Loss leads (js/cm-case-dates.js): when the trainee's John Doe case in the CMS has another DOL,
+   every date on or after it moves by the same number of days, as the CMS moves the SOL and the rest of the case.
+   Kept on the record (dolOffset, dolYear, dolFrom: the CMS DOL it came from) and on this device; a page built with
+   another offset reloads once on the record's. dolIgnore: a CMS DOL the trainee chose not to follow. */
+const dolWanted = () => (DATES && REC.dolYear === DATES.year ? (REC.dolOffset || 0) : 0);
+function keepDolOffset(){
+  if(!DATES || DATES.preview || isTrainer()) return;
+  const want = dolWanted();
+  if(want === (DATES.dolOffset || 0)) return;
+  DATES.setDolOffset(want, DATES.year);
+  try{ if(sessionStorage.getItem("lsh_case-dol-reload") === String(want)) return; sessionStorage.setItem("lsh_case-dol-reload", String(want)); }catch(e){ return; }
+  location.reload();
+}
+function followCmsDol(c){
+  if(!DATES || DATES.preview || isTrainer() || !c || !c.dol || !/\bjohn\b[\s\S]*\bdoe\b|\bdoe\b[\s\S]*\bjohn\b/i.test(c.client || "")) return;
+  if(c.dol === REC.dolIgnore) return;
+  const n = DATES.offsetFor(c.dol);
+  if(n == null || n === dolWanted()) return;
+  REC.dolOffset = n; REC.dolYear = DATES.year; REC.dolFrom = c.dol; delete REC.dolIgnore;
+  DATES.setDolOffset(n, DATES.year); persist();
+  if(typeof toast === "function") toast(`Your CMS Date of Loss is ${c.dol}: the case's dates move ${n > 0 ? "+" : ""}${n} day${Math.abs(n) === 1 ? "" : "s"}. Update them from 📂 Case File.`);
+  if(typeof render === "function" && state && state.view === "clientprofile") render();
+}
+window.addEventListener("load", () => { if(window.CMCase){ CMCase.onChange(followCmsDol); const c = CMCase.get(); if(c) followCmsDol(c); } });
+function dolNote(){
+  if(!DATES || isTrainer() || DATES.preview) return "";
+  const want = dolWanted(), now = DATES.dolOffset || 0;
+  if(!want && !now) return "";
+  const sg = n => `${n > 0 ? "+" : ""}${n} day${Math.abs(n) === 1 ? "" : "s"}`;
+  if(want !== now) return `<p class="cf-note cf-dol">📅 Your CMS Date of Loss (${E(REC.dolFrom || "")}) moves the case's dates ${sg(want)}. <a href="#" onclick="cmCaseFlow.updateDol();return false">Update the dates now</a> · <a href="#" onclick="cmCaseFlow.resetDol();return false">Keep the course's dates</a></p>`;
+  return `<p class="cf-note cf-dol">📅 Dates follow your CMS Date of Loss (moved ${sg(now)}). <a href="#" onclick="cmCaseFlow.resetDol();return false">Reset to the course's dates</a></p>`;
+}
+Object.assign(window.cmCaseFlow = window.cmCaseFlow || {}, {
+  updateDol: () => location.reload(),
+  resetDol: () => { REC.dolIgnore = REC.dolFrom || ""; REC.dolOffset = 0; REC.dolYear = DATES.year; DATES.setDolOffset(0, DATES.year); Promise.resolve(persist()).then(() => location.reload()); },
+  followCmsDol
+});
 /* After sign-in restores a trainee's progress from the cloud, read their Case Flow record again: the one loaded
    at startup was this device's, and saving over the restored one would lose their work. */
 if(typeof loadAll === "function"){
@@ -407,7 +445,7 @@ function eventCard(e, extra, blockId, noAtt){   // noAtt: the slide shows the do
 const LANES = {claims: "Claims & Coverage", care: "Client & Treatment"};
 /* where a workstream stands for a trainee on Case Flow Day n: the first event it has on that day, else its last before */
 function laneAt(lane, n){
-  const evs = MODULES.filter(d => d.cf.n <= n).flatMap(d => d.lessons.filter(l => l.cf.block.kind === "activity" && l.cf.phase.lane === lane && SIM.events[l.cf.block.id]).map(l => ({n: d.cf.n, e: SIM.events[l.cf.block.id], title: l.cf.block.title})));
+  const evs = MODULES.filter(d => d.cf.n <= n).flatMap(d => d.lessons.filter(l => l.cf.block.kind === "activity" && l.cf.lane === lane && SIM.events[l.cf.block.id]).map(l => ({n: d.cf.n, e: SIM.events[l.cf.block.id], title: l.cf.block.title})));
   return evs.find(x => x.n === n) || evs[evs.length - 1] || null;
 }
 /* fallout: a later activity shows what a skipped check costs, for a trainee who didn't tick it */
@@ -431,9 +469,10 @@ const theoryOf = b => (SLIDES[b.id] || {}).theory || null;
 const roadmapOf = b => (SLIDES[b.id] || {}).roadmap || null;   // a complex lesson opens with its roadmap: the steps ahead, before any of them is taught or tested
 const theoryViews = b => { const t = theoryOf(b); return !t ? [] : (t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]).concat(t.framework ? ["frame"] : []); };
 function viewsOf(b){
-  if(b.kind === "lesson" && b.brief) return ["why", "rules"].concat((b.ops || []).length ? ["job"] : []);   // brief: a condensed overview (Day 5's litigation fork)
+  if(b.kind === "lesson" && b.brief) return ["why", "rules"].concat((b.ops || []).length ? ["job"] : []);   // brief: a condensed overview (Day 5's litigation)
+  if(b.kind === "lesson" && b.compact) return ["why"].concat(roadmapOf(b) ? ["map"] : [], theoryViews(b).slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);   // compact: a full topic on fewer slides (Days 2, 4 and 5 keep to their slide budget)
   if(b.kind === "lesson") return ["why"].concat(roadmapOf(b) ? ["map"] : [], theoryViews(b), ["rules"],b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // noGame: the CM introduction (Meet Your Case comes before the first game)
-  if(b.kind === "activity") return ["case", "task"].concat(b.show ? ["model"] : [], ["check"]);
+  if(b.kind === "activity") return ["case", "task"].concat(b.show && !b.compact ? ["model"] : [], ["check"]);   // compact: no See It slide (the worked model stays in 📖 Full text)
   return (copyOf(b).questions.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
 }
 const SMALL = new Set(["a", "an", "the", "and", "or", "but", "nor", "of", "to", "in", "on", "for", "at", "by", "with", "from", "as", "per", "vs.", "v.", "via", "into"]);
@@ -482,7 +521,7 @@ const TOOLKIT = [
   {id: "lor", icon: "📄", short: "LOR Drafting", name: "LOR Drafting (John Doe v. Robert Smith)", re: /\bLORs?\b|Letters? of Representation/},
 ];
 const TOOL = Object.fromEntries(TOOLKIT.map(t => [t.id, t]));
-/* The LSH Net Sheet is where the money is worked, and only there: Day 5's Settlement Negotiations, Lien Negotiations and
+/* The LSH Net Sheet is where the money is worked, and only there: Day 4's Settlement Negotiations, Lien Negotiations and
    Disbursement (Track A, settled before suit) and its close-out once the case is won (Track B). Each block of those
    modules opens it at that stage (js/cm-net-sheet.js STAGES). */
 const NET_MODS = {d3m2: "recovery", d3m3: "liens", d3m4: "final", d5m5: "litigation"};
@@ -663,9 +702,9 @@ function slideBody(view, l, d){
     }
     case "task": { const main = blockTools(b).filter(id => id !== "call")[0] || "cms";
       const where = TOOLKIT.find(t => t.id === main), whereName = where ? where.name.replace(/^the /, "the ") : "the CMS";
-      return `${plainBox(b)}<div class="cfx-do-now"><b>🧪 Practice Lab: do this now</b><span>Open ${E(whereName)} with the button on each step, work the steps below on John Doe's file, ${SIM.calls[b.id] ? "take the live call, " : ""}then hand in what's under <em>Deliver</em> and tick it off on the next slide, <em>Check Your Work</em>.</span></div>
-      <div class="cfx-task"><ol class="cfx-points">${c.steps.map(x => { const ids = toolsIn(x, b.id); return `<li><span>${hl(x)}<span class="cfx-tools-in">${toolChips(ids.length ? ids : [main], b.id)}</span></span></li>`; }).join("")}</ol>
-      <aside class="cfx-side"><div><b>🛠 Where</b><span>${E(b.act.tool)}</span><div class="cfx-btns">${toolChips([...new Set(toolsIn(b.act.tool + (SIM.calls[b.id] ? " Call Simulator" : ""), b.id).concat(WORKED_IN[b.id] || []))], b.id, true)}</div></div>
+      return `${plainBox(b)}<div class="cfx-do-now"><b>🧪 Practice Lab: do this now</b><span>Open ${E(whereName)} from today's 🧪 Practice Lab slide (it stays open beside the slides), work the steps below on John Doe's file, ${SIM.calls[b.id] ? "take the live call, " : ""}then hand in what's under <em>Deliver</em> and tick it off on the next slide, <em>Check Your Work</em>.</span></div>
+      <div class="cfx-task"><ol class="cfx-points">${c.steps.map(x => { return `<li><span>${hl(x)}</span></li>`; }).join("")}</ol>
+      <aside class="cfx-side"><div><b>🛠 Where</b><span>${E(b.act.tool)}</span></div>
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}</span>
           <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
@@ -729,7 +768,6 @@ function card(l, i, d, part){
       <div class="cfx-ribbon"><span>${E(titleCase(b.title))}</span></div>
       <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}</span>
         <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.n}.${k + 1} · ${E(KIND[b.kind])}</span>${timeChip(l, d)}
-        ${b.kind === "activity" && (view === "task" || view === "check") ? `<span class="cfx-tools" aria-label="Tools for this step">🛠 ${toolChips(blockTools(b), b.id)}</span>` : ""}
         <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Full text</button></div>
       ${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}
     </div>`);
@@ -764,8 +802,11 @@ if(typeof buildDaySlides === "function"){
     // lessons, uninterrupted → its activities and practice; each block is one slide per view. The Learning
     // Checks (questions, Self-Summary, Skill Scale) aren't slides: they're on the day's Knowledge Check page.
     const out = [];
+    let lab = false;   // the module's one Practice Lab slide, just before its first Skill Activity (the base deck's own is dropped)
     s.forEach(sl => {
+      if(sl.type === "practiceLab") return;
       if(sl.type !== "topic") return out.push(sl);
+      if(!lab && d.lessons[sl.lessonIndex].cf.block.kind === "activity" && sl.part === 1){ lab = true; out.push({type: "practiceLab"}); }
       if(sl.part !== 1 || d.lessons[sl.lessonIndex].cf.block.kind === "check") return;
       viewsOf(d.lessons[sl.lessonIndex].cf.block).forEach((v, j) => out.push({type: "topic", lessonIndex: sl.lessonIndex, part: j + 1}));
     });
@@ -1217,7 +1258,7 @@ function cfStage(html){
   if(!body || !body.querySelector(".cfx-deck") || body.closest(".cf-stage-card")) return html;
   const card = document.createElement("div"); card.className = "cf-stage-card";
   const dots = body.previousElementSibling && body.previousElementSibling.classList.contains("slide-dots") ? body.previousElementSibling : null;
-  if(dots && dots.children.length > 90){   // a long day (Day 5's close-out): one thin progress line instead of rows of dots
+  if(dots && dots.children.length > 90){   // a long day: one thin progress line instead of rows of dots
     const n = dots.children.length, at = [...dots.children].findIndex(x => x.classList.contains("active"));
     dots.classList.add("cf-dots-bar"); dots.title = `Step ${at + 1} of ${n}`;
     dots.innerHTML = `<span class="cf-dots-fill" style="width:${((at + 1) / n * 100).toFixed(1)}%"></span>`;
@@ -1303,9 +1344,49 @@ if(typeof window.renderOpenRoleplay === "function" || typeof renderOpenRoleplay 
       + html.replace(/<button class="btn btn-ghost btn-sm" style="margin-bottom:14px;" onclick="rpExitToHub\(\)">&larr; Back to Dashboard<\/button>/, "");
   };
 }
+/* ---------- the Practice Lab: one slide per module ----------
+   Where the day's tools open, once: the CMS and every other platform its Skill Activities use (the Net Sheet, LOR
+   Drafting, ChartSwap, the Docket and E-Filing platforms, the Case Documents). The activity slides that follow say
+   where each step is done without repeating the buttons; a live call is taken from its own activity's Your Task. */
+function labTools(d){
+  const at = {};
+  d.lessons.forEach(l => { const b = l.cf.block; if(b.kind === "activity") blockTools(b).forEach(id => { if(id !== "call" && !at[id]) at[id] = b.id; }); });
+  if(typeof relatedTools === "function" && relatedTools(d.id).some(t => t.id === "calendar") && !at.calendar) at.calendar = "";
+  const order = TOOLKIT.map(t => t.id);
+  return Object.entries(at).sort((a, b) => order.indexOf(a[0]) - order.indexOf(b[0]));
+}
+function practiceLab(d){
+  const acts = d.lessons.map((l, li) => [l, li]).filter(([l]) => l.cf.block.kind === "activity");
+  const ph = d.cf.phases[0] || {title: ""};
+  return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; ${E(String(ph.lead || "").toUpperCase())} &middot; PRACTICE LAB</div>
+    <div class="card lesson-card cf-card cfx cfx-deck cfx-lab">
+      <div class="cfx-deck-head"><h2 class="cfx-deck-title">🧪 Practice Lab</h2></div>
+      <div class="cfx-ribbon"><span>${E(titleCase(ph.title))}</span></div>
+      <div class="cfx-sheet">
+        <p class="cfx-lab-lead">Open your tools here, once: they stay open beside the slides. Then work today's <b>${acts.length} Skill Activities</b> on John Doe's file, in the order the work happens. Each opens with <em>Your Case</em>, then <em>Your Task</em> and <em>Check Your Work</em>; 📞 marks a live call.</p>
+        <div class="cfx-lab-tools">${labTools(d).map(([id, bid]) => toolChip(id, bid, true)).join("")}</div>
+        <ol class="cfx-lab-list">${acts.map(([l, li], k) => { const b = l.cf.block;
+          return `<li><button type="button" onclick="cmCaseFlow.labGo(${d.id},${li})" title="Go to this activity's slides"><span class="n">${k + 1}</span><span class="t">${E(titleCase(b.title))}</span>${SIM.calls[b.id] ? `<span class="c" title="Live call">📞</span>` : ""}${!isTrainer() && actDone(b.id) ? `<span class="ok" title="Worked">✓</span>` : ""}</button></li>`; }).join("")}</ol>
+      </div>
+    </div>`;
+}
+window.cmCaseFlow.labGo = function(dayId, li){
+  const d = cfDay(dayId), slides = d && typeof buildDaySlides === "function" ? buildDaySlides(d) : [];
+  const idx = slides.findIndex(sl => sl.type === "topic" && sl.lessonIndex === li && sl.part === 1);
+  if(idx >= 0 && typeof goToSlide === "function") goToSlide(idx);
+};
+if(typeof presenterCues === "function"){   // Presenter view: the trainer's note for the Practice Lab slide
+  const __cues = presenterCues;
+  presenterCues = function(d, slide){
+    if(!(slide && slide.type === "practiceLab" && cfDay(d && d.id))) return __cues.apply(this, arguments);
+    const n = d.lessons.filter(l => l.cf.block.kind === "activity").length;
+    return `<h3>Practice Lab</h3><p>Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. Then run today's ${n} Skill Activities in order: each opens with Your Case, then Your Task and Check Your Work. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
+  };
+}
 if(typeof renderDaySlideContent === "function"){
   const __content = renderDaySlideContent;
   renderDaySlideContent = function(d, slide){
+    if(slide && slide.type === "practiceLab" && cfDay(d && d.id)) return practiceLab(d);
     return (slide && slide.type === "taskOverview" && cfDay(d && d.id)) ? agendaSlide(d) : __content.apply(this, arguments);
   };
 }
@@ -1313,6 +1394,7 @@ if(typeof daySlideTitle === "function"){
   const __title = daySlideTitle;
   daySlideTitle = function(d, slide){
     if(cfDay(d && d.id) && slide && slide.type === "taskOverview") return "Training Agenda";
+    if(cfDay(d && d.id) && slide && slide.type === "practiceLab") return "Practice Lab";
     if(cfDay(d && d.id) && slide && slide.type === "topic"){ const l = d.lessons[slide.lessonIndex]; const v = viewsOf(l.cf.block)[(slide.part || 1) - 1]; return `${l.h} — ${VIEW_LABEL[v] || ""}`; }
     return __title.apply(this, arguments);
   };
@@ -2266,7 +2348,7 @@ function caseNow(){
     const id = l.cf.block.id, e = SIM.events[id];
     if(l.cf.block.kind !== "activity" || !e || !actOpened(id)) return;
     const t = dayMs(e.date); now[""] = max(now[""], t);
-    if(l.cf.phase.lane) now[l.cf.phase.lane] = max(now[l.cf.phase.lane], t);
+    if(l.cf.lane) now[l.cf.lane] = max(now[l.cf.lane], t);
     const m = l.cf.mod.id;   // Track A: the demand, settlement, liens and disbursement (d3m*); Track B: the litigation fork and its close-out
     if(/^d4m|^d5m[1-5]$/.test(m)) trackB = true; else if(/^d3m/.test(m)) trackA = true;
   }));
@@ -2321,7 +2403,7 @@ function caseFlowProfile(){
         <div class="cf-file-who"><p class="eyebrow">Case File</p><h1>📂 ${E(c.style)}</h1>
           <div class="cf-client"><span class="cf-client-k">📌 Your Client</span><b>${E(c.client.name)}</b><span>Matter ${E(c.no)} · Lead Counsel ${E(c.counsel)}</span></div></div>
       </div>
-      <p class="cf-note">${isTrainer() ? `The whole file, as you know it: the key tabs are the answers, and trainees never see them.${DATES ? ` 📅 Case year ${E(DATES.year)} (collision ${E(DATES.dol())}); each trainee keeps the year they started on.${DATES.preview ? ` <b>Preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end it</a>.` : ""}` : ""}` : "Your case so far is below. The file itself is in 📁 Case Documents, and the case you build is in the 🗂 CMS."}</p></section>
+      <p class="cf-note">${isTrainer() ? `The whole file, as you know it: the key tabs are the answers, and trainees never see them.${DATES ? ` 📅 Case year ${E(DATES.year)} (collision ${E(DATES.dol())}); each trainee keeps the year they started on.${DATES.preview ? ` <b>Preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end it</a>.` : ""}` : ""}` : "Your case so far is below. The file itself is in 📁 Case Documents, and the case you build is in the 🗂 CMS."}</p>${dolNote()}</section>
     ${fileTabs(shown, pos)}
 </div>`;
 }
@@ -2428,7 +2510,7 @@ window.cmCaseFlow.doc = function(ev, id){
   openPane("doc", new URL(docUrl(d), location.href).href, `${d.title} (${d.id})`, "📄", "split");
   return false;
 };
-const docUrl = d => /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}${DATES && DATES.year ? `&year=${DATES.year}` : ""}`
+const docUrl = d => /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}${DATES && DATES.year ? `&year=${DATES.year}` : ""}${DATES && DATES.dolOffset ? `&dol=${DATES.dolOffset}` : ""}`
   : typeof cmDocUrl === "function" ? cmDocUrl(d) : "documents/" + d.file;
 function docLine(blockId){
   const docs = (CF_PACKETS[blockId] || []).map(id => CF_DOCS.find(d => d.id === id)).filter(Boolean);
@@ -2687,6 +2769,16 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-lead-1{text-align:center;font:700 30px/1.3 'Fraunces',Georgia,serif;color:var(--ink);margin:0 0 12px;}
 .cfx-hero-text .cfx-lead-1 + .cfx-hook{text-align:center;font-size:26px;}
 .cfx-theory .cfx-lead-1{font-size:24px;} .cfx-theory .cfx-lead-1 + .cfx-th-lead{text-align:center;}
+.cfx-lab-lead{font:500 16px/1.45 var(--font-ui);color:var(--ink);margin:0 0 10px;text-align:left;}
+.cfx-lab-tools{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px;}
+.cfx-lab-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;text-align:left;}
+.cfx-lab-list > li{padding:0 !important;margin:0 !important;}
+.cfx-lab-list > li::before, .cfx-lab-list > li::after{content:none !important;display:none !important;}
+.cfx-lab-list button{display:flex;align-items:center;gap:8px;width:100%;background:#F7F8FC;border:1px solid #DDE2EE;border-radius:10px;padding:6px 10px;font:600 13.5px/1.25 var(--font-ui);color:var(--ink);cursor:pointer;text-align:left;}
+.cfx-lab-list button:hover{border-color:#2457C5;background:#EEF4FF;}
+.cfx-lab-list .n{flex:none;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font:800 12px/22px var(--font-ui);text-align:center;}
+.cfx-lab-list .t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.cfx-lab-list .ok{color:#1E8A4C;font-weight:800;}
 .cfx-do-now{display:flex;flex-direction:column;gap:4px;background:#EEF4FF;border:1.5px solid #9DB6E8;border-left:6px solid #2457C5;border-radius:12px;padding:10px 16px;margin:0 0 12px;text-align:left;}
 .cfx-do-now b{font:800 16px var(--font-ui);color:#1C3F8F;} .cfx-do-now span{font:500 15.5px/1.45 var(--font-ui);color:var(--ink);}
 .cfx-situation{font:500 25px/1.5 var(--font-ui);color:var(--ink);margin:0;}
