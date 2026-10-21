@@ -34,6 +34,8 @@ jobs:
         run: node .github/scripts/sso.cjs
       - name: Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's)
         run: node .github/scripts/tool-links.cjs
+      - name: Gemini key pool (every numbered key is used, keys take turns, a key out of credits rests; Google answered by the test)
+        run: node .github/scripts/ai-keys.mjs
       - name: Case documents and handouts exist, document references resolve
         run: node .github/scripts/check-data.mjs
       - name: Case Flow curriculum (rhythm, six components, 60/40 rubrics, every existing topic carried)

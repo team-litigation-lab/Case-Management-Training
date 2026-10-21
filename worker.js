@@ -6,8 +6,8 @@
  * use one KV namespace without their trainee/progress records colliding.
  *
  * Secrets (set once with `wrangler secret put <NAME>`):
- *   GEMINI_API_KEY, GEMINI_API_KEY1 … GEMINI_API_KEY16 — the Gemini key pool behind every AI feature
- *                        (see GEMINI_POOL). Set as many as you have, one per Google Cloud project; the keys
+ *   GEMINI_API_KEY, GEMINI_API_KEY1 … GEMINI_API_KEY<n> — the Gemini key pool behind every AI feature
+ *                        (see geminiPool). Set as many as you have, one per Google Cloud project; the keys
  *                        in use today are GEMINI_API_KEY14, GEMINI_API_KEY15 and GEMINI_API_KEY16. They are
  *                        interchangeable: each request starts on the next key in turn, and a key whose
  *                        credits run out is rested while the next key takes over. At least one is required.
@@ -278,12 +278,15 @@ async function traineeWrite(env, tok, key, value) {
 // out of credits never stops the course: each request starts on the next key in turn, and a key that hits
 // its limit is rested while the next key takes over.
 // Free-tier limits are per Google Cloud project, so each key should come from its own project.
-// The pool is GEMINI_API_KEY and GEMINI_API_KEY1 … GEMINI_API_KEY16 — set as many as you have; the keys
-// in use on Cloudflare today are GEMINI_API_KEY14, GEMINI_API_KEY15 and GEMINI_API_KEY16, and they are
-// interchangeable: the pool rotates through whichever are set, in turn.
-const GEMINI_POOL = ["GEMINI_API_KEY", ...Array.from({ length: 16 }, (_, i) => "GEMINI_API_KEY" + (i + 1))];
+// The pool is every GEMINI_API_KEY secret on this Worker: GEMINI_API_KEY and any numbered one
+// (GEMINI_API_KEY1, GEMINI_API_KEY14, …), the same rule as the CMS site's functions/_ai.js. So a new key
+// joins the pool by being set in Cloudflare, with no change here — the keys in use today are
+// GEMINI_API_KEY14, GEMINI_API_KEY15 and GEMINI_API_KEY16, and they are interchangeable: the pool rotates
+// through whichever are set, in turn. GEMINI_API_KEY first, then in number order.
+const geminiPool = (env) => Object.keys(env || {}).filter((n) => /^GEMINI_API_KEY\d*$/.test(n) && String(env[n] || "").trim())
+  .sort((a, b) => (a.length - b.length) || a.localeCompare(b));
 // A key set twice under different names is counted once.
-const geminiKeyNames = (env) => GEMINI_POOL.filter((n, i, a) => env[n] && a.findIndex((m) => env[m] === env[n]) === i);
+const geminiKeyNames = (env) => geminiPool(env).filter((n, i, a) => a.findIndex((m) => env[m] === env[n]) === i);
 const hasGemini = (env) => geminiKeyNames(env).length > 0;
 // Per Worker instance: which key the next request starts on, and keys resting after a limit.
 // A per-minute limit rests the key for a minute; a daily limit (credits used up) for an hour; a rejected key for 10 minutes.
@@ -497,7 +500,7 @@ export default {
         const m = html.match(/APP_BUILD = "([^"]+)"/);
         // Changes on every Cloudflare deploy; open pages use it to pick up a new version.
         const deployment = (env.CF_VERSION_METADATA && env.CF_VERSION_METADATA.id) || "unknown";
-        return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nDeployment: ${deployment}\nWorker: secure-mode worker.js\nSecure mode: ${adminPass(env) ? "ON" : "OFF"}\nAdmin password: ${adminPassStatus(env)}\nAI provider: ${hasGemini(env) ? "Google Gemini (" + (env.GEMINI_MODEL || "gemini-3.8-flash") + ")" : "none — add GEMINI_API_KEY"}\nAI key pool: ${GEMINI_POOL.filter((n) => env[n]).map((n) => `${n}${geminiKeyNames(env).includes(n) ? "" : " (same key as another)"}${resting(n, "*") ? " (resting)" : ""}`).join(", ") || "no keys set"}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
+        return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nDeployment: ${deployment}\nWorker: secure-mode worker.js\nSecure mode: ${adminPass(env) ? "ON" : "OFF"}\nAdmin password: ${adminPassStatus(env)}\nAI provider: ${hasGemini(env) ? "Google Gemini (" + (env.GEMINI_MODEL || "gemini-3.8-flash") + ")" : "none — add GEMINI_API_KEY"}\nAI key pool: ${geminiPool(env).map((n) => `${n}${geminiKeyNames(env).includes(n) ? "" : " (same key as another)"}${resting(n, "*") ? " (resting)" : ""}`).join(", ") || "no keys set"}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
       }
       if (!path.startsWith("/api/")) {
         const res = (await docFromR2(env, request, path)) || (await env.ASSETS.fetch(request));
