@@ -32,9 +32,9 @@
     .cdv-turn { border: 0; margin: 0; break-after: page; page-break-after: always; }
   }
 </style>
-<script>window.CM_CASE_YEAR = new URLSearchParams(location.search).get("year");</script>
+<script>window.CM_CASE_YEAR = new URLSearchParams(location.search).get("year"); window.CM_CASE_DOL = new URLSearchParams(location.search).get("dol");   // the CMS Date of Loss offset, days</script>
 <script src="/js/cm-case-flow-docs.js?v=9"></script>
-<script src="/js/cm-case-dates.js?v=3"></script>
+<script src="/js/cm-case-dates.js?v=4"></script>
 </head>
 <body>
 <div class="cdv-bar" id="bar" hidden>
@@ -53,7 +53,7 @@
   let css, html;
   try{
     const [c, h] = await Promise.all(["doc.css", id + ".html"].map(f => fetch("/documents/case-flow/html/" + f).then(r => { if(!r.ok) throw new Error(r.status); return r.text(); })));
-    css = c; html = D.text(h);
+    css = c; html = D.all(h);
   }catch(e){
     out.innerHTML = `<p class="cdv-msg">The document couldn't be loaded. <a href="/documents/${doc.file.split("/").map(encodeURIComponent).join("/")}">Open the original</a>.</p>`;
     return;

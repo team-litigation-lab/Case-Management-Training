@@ -4,7 +4,7 @@
    The trainee can still type over it (a case opened in another tab, a reference the CMS didn't give).
 
    How: the CMS frame (and any CMS tab this page opened) is asked {lsh:"cms-case?"}; its course-bridge.js
-   answers {lsh:"cms-case", caseId, client, phase} and says so again whenever the open case changes, so
+   answers {lsh:"cms-case", caseId, client, phase, dol} and says so again whenever the open case changes, so
    saving a new case fills the box the moment the CMS assigns its ID. Only a message from a CMS address is
    read, and the last known case is kept for the rest of the session (localStorage), so a step opened
    after the frame is closed still has it.
@@ -48,9 +48,10 @@ window.addEventListener("message", (e)=>{
   // (A page talking to itself, or any other frame, is not the CMS however it words the message.)
   if(!e.data || e.data.lsh !== "cms-case" || !cmsOrigin(e.origin) || !cmsWindows().includes(e.source)) return;
   const c = {caseId: String(e.data.caseId || "").trim(), client: String(e.data.client || "").trim(),
-             phase: String(e.data.phase || "").trim(), at: e.data.at || new Date().toISOString()};
+             phase: String(e.data.phase || "").trim(), dol: String(e.data.dol || "").trim(),   // the case's Date of Loss (MM/DD/YYYY)
+             at: e.data.at || new Date().toISOString()};
   if(!c.caseId) return;                                     // a draft with no ID yet: keep what we had
-  if(open && open.caseId === c.caseId && open.client === c.client) return;
+  if(open && open.caseId === c.caseId && open.client === c.client && (open.dol || "") === c.dol) return;
   open = c;
   try{ localStorage.setItem(KEY, JSON.stringify(c)); }catch(err){}
   fill();

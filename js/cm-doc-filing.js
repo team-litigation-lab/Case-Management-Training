@@ -35,7 +35,7 @@ const KEY = "doc-filing";
 const docOf = (id)=> (typeof cmDoc === "function" && cmDoc(id)) || null;
 const urlOf = (d)=> typeof cmDocUrl === "function" ? cmDocUrl(d) : "documents/" + d.file;
 // to read it: the document in the page (case-doc.html), never a download; urlOf stays the original file, which is what gets filed
-const viewOf = (d)=> /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}${window.CM_CASE_DATES && CM_CASE_DATES.year ? `&year=${CM_CASE_DATES.year}` : ""}` : urlOf(d);
+const viewOf = (d)=> /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}${window.CM_CASE_DATES && CM_CASE_DATES.year ? `&year=${CM_CASE_DATES.year}` : ""}${window.CM_CASE_DATES && CM_CASE_DATES.dolOffset ? `&dol=${CM_CASE_DATES.dolOffset}` : ""}` : urlOf(d);
 const basename = (d)=> String(d.file || "").split("/").pop();
 const expectedCategory = (d)=> LONG[d.cms] || d.cms || "Others";
 const rid = ()=> "f" + Math.random().toString(36).slice(2, 10);
