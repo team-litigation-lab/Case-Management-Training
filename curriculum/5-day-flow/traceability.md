@@ -326,7 +326,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 Where neither source had the theory, it was written for this flow and is marked here so it can be reviewed:
 
 - **A dedicated UPL lesson: fact sharing vs. legal advice, the hear-log-route habit, and reassurance about the process, never the outcome** — Day 1 · Module 1 — after Meet Your Case, before the first task
-- **The gap doctrine: the only gap explanation that holds up is the client's own factual explanation, supported by verifiable written documentation; the Case Manager records it without interpreting, defending or judging its effect on value** — Day 3 · Treatment Phase — the gap interview and the Gap Explanation Record
+- **The gap doctrine: the only gap explanation that holds up is the client's own factual explanation, supported by verifiable written documentation; the Case Manager records it without interpreting, defending or judging its effect on value** — Day 3 · Pre-Demand Audit & the Demand — the gap interview and the Gap Explanation Record
 - **Plain English for every legal term and abbreviation (CF.plain), shown on the first block that uses it** — Every day — the In plain English box on a lesson's Rules slide or an activity's Your Task slide
 - **The Case Manager's Role, Meet Your Case, and Opening John Doe's File in the CMS** — Case Flow Day 1 · Case Phase 1 — written for the case-lifecycle sequence, from D1#1–#7, D1#12–#13 and the case file
 - **The $40,000 host-passenger stack and its order of operations** — Day 1 · Module 1 — the case facts the brief specifies (Host UM and Relative UM behind a $10,000 BI)

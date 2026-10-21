@@ -87,7 +87,7 @@ The one practice tool left beside the Skill Activities (Case Flow Day 4; `js/cm-
 
 **Templates** (`js/cm-documents.js`): the blank forms and sample releases in `documents/templates/`.
 
-**📚 Knowledge Base (no Handouts page).** The handouts are in the LSH Knowledge Base's **Case Management** collection, one section per day (`CM Training · Day 1 · Intake & Property Damage` … `Day 5 · Closing & Settlement`). The top bar's **📚 Knowledge Base** (view `handouts`) shows the link and the templates; the link (`CM_KB_URL`) goes through the Portal's `/api/launch?tool=kb&to=cmkb`, which signs the reader in and opens that collection. Trainers add documents there with **+ Add to Case Management** (the page tells admins how).
+**📚 Knowledge Base (no Handouts page).** The handouts are in the LSH Knowledge Base's **Case Management** collection, one section per day (`CM Training · Day 1 · Intake, Claims & Property Damage` … `Day 5 · Litigation & Dropped Cases`). The top bar's **📚 Knowledge Base** (view `handouts`) shows the link and the templates; the link (`CM_KB_URL`) goes through the Portal's `/api/launch?tool=kb&to=cmkb`, which signs the reader in and opens that collection. Trainers add documents there with **+ Add to Case Management** (the page tells admins how).
 - `templates/LSH_Net_Sheet_v2_FIXED.xlsx`: the original Net Sheet calculated the attorney fee from an empty cell (`L11 = L7*I11`), so the fee was always **$0**. Fixed to `L7*C11`, with a John Doe v. Robert Smith practice tab. Trainees fill the same net sheet in the course (`net-sheet.html`); the file stays as the reference.
 
 The Training Tools hub, the tool frame, 🛠 Simulators, the 📚 Knowledge Base page and the Calendar Conflict Resolver are in `js/cm-skillbuilders.js`.
