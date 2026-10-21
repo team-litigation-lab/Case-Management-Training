@@ -1573,3 +1573,18 @@ if(typeof renderDashboard === "function" && !renderDashboard.__cmBand){
 @media(max-width:760px){ .dash-side.cm-band > .cert-hero-locked{margin:6px auto 0;} }
 `; document.head.appendChild(st);
 }
+
+/* Score card, not a leaderboard: a trainee sees only their own overall score (/api/ranking returns only them),
+   never other trainees' names or scores. */
+window.renderRankingCard = function(){
+  if(!state.feedbackLoadedAt || Date.now()-state.feedbackLoadedAt > 5*60*1000){ state.feedbackLoadedAt = Date.now(); setTimeout(()=>loadMyFeedback(), 0); }
+  const rd = state.rankData;
+  if(!rd){ setTimeout(()=>loadTraineeRanking(), 0); return `<div class="card stat rank-card"><div class="lbl">My Score Card</div><div class="sub">Loading your score…</div></div>`; }
+  const me = (rd.ranked||[]).find(x=>x.id===state.traineeId);
+  return `<div class="card stat rank-card">
+    <div class="num">${me ? me.overall : "—"}</div>
+    <div class="lbl">My Score Card</div>
+    <div class="sub">Your overall score: 35% progress · 25% quizzes · 25% Skill Builders · 15% random tasks (40/30/30 until a task is graded)</div>
+  </div>`;
+};
+
