@@ -261,15 +261,18 @@ Activities now work the set itself, and each one ends with the finished article.
 - **Converted, filed and backed up.** The trainee then **converts the exchange into a memorandum** (built as a
   real PDF in the browser from their own email, her reply and what it establishes), **files it into the open case
   in the CMS** under the firm's naming convention — the CMS refuses any other name, exactly as it does for a
-  catalogue document — and **backs the case up to their own Google Drive**. The firm's own version of the same
-  memorandum (`RS68`) is there to read theirs against.
+  catalogue document — and that same filing **keeps it on their Backup Drive**, under *Insurance, Demands &
+  Negotiation*, where the firm keeps every demand document on the case. A document the trainee wrote is a
+  document on the case like any other, so it goes down both roads a case document does. The firm's own version
+  of the same memorandum (`RS68`) is there to read theirs against.
 - **The trainer sees all of it** with the module's Learning Check: every call and note of the audit with its
   score, the email they sent and how many attempts were refused, the answer they gave to the follow-up, what they
   filed and whether it was backed up.
+- **The audits follow the lessons and the case, and the build says so.** Nothing in an audit is a fact of its own: every figure, date and name in one is a restatement of `case-file.md`, the lesson data, the document manifest or the documents that item works from. The assembler requires each one to be found in a source that item actually draws on, so a change to a lesson or to the practice case that leaves an audit behind is a red check naming the item — not an audit that teaches a figure the file no longer carries. It checks the audits against the sources, not the sources against each other; keeping those agreeing is `build/case-flow/documents/audit.cjs`'s job and `terms.cjs`'s.
 - **Source and rebuild:** `build/case-flow/exhibits/` — `EXHIBITSPEC.md` (the shape and the word limits),
   `d3.json` and `d4.json` (the content), `assemble.cjs` → `js/cm-case-flow-exhibits.js`. The UI is in
-  `js/cm-case-flow.js`; the filing and the Drive request are `js/cm-doc-filing.js` (`send`, the same road the drafting activities file through, and `drive`), which
-  the CMS answers through its `course-bridge.js`. CI checks the content against the spec and runs the whole
+  `js/cm-case-flow.js`; the filing is `js/cm-doc-filing.js` (`send`, the same road the drafting activities file
+  through, which keeps the Backup Drive copy too). CI checks the content against the spec and runs the whole
   workflow in a browser (`.github/scripts/exhibit-audit.cjs`).
 
 **Templates** (`js/cm-documents.js`): the blank forms and sample releases in `documents/templates/`.
@@ -322,6 +325,7 @@ A firm keeps a backup drive of every case document in one folder structure every
 - **The standard lives in one place:** `FOLDER_STANDARD` in `worker.js` — 16 folders: `01 Clients` first (a drive is read top to bottom under pressure), the client folder named last name first, the case's nine folders inside it in the order the case runs, then `02 Firm Administration` apart from client work, `03 Templates` and `04 Closed Files`. `FOLDER_WHY` holds the rule for each one and `DRIVE_HOMES` maps each of the case file's folders to its folder on the drive. The page draws the structure from what the Worker sends and never carries a copy; the test fails if it starts to.
 - **The numbers are the point.** A layout with the right folders in the wrong order is refused: every drive in the firm reads the same way, intake to close. Stray spaces and a leading slash are not held against anyone.
 - **Where it is kept:** `drive:<trainee id>` in KV — the Google account's email, the folder ids, the Day 1 grade and the list of documents saved. The refresh and access tokens are sealed with AES-GCM under a key derived from `SESSION_SECRET` and never leave the Worker. **Disconnect** gives the access back to Google and drops the link; the copies already in their Drive stay there, and the Day 1 grade is kept. A trainer can read a trainee's status to grade it and can change nothing.
+- **Everything filed reaches it, not just the case documents.** The letters a trainee drafts (`js/cm-cms-upload.js`) and the Service Confirmation's memorandum (`js/cm-case-flow.js`) are filed through `cmDocFiling.send`, which keeps the Drive copy the same way `file()` does — each in the folder its kind belongs in (`FOLDER` in `js/cm-cms-upload.js`, `convert.folder` in `build/case-flow/exhibits/`). Without that a trainee's drive held every case document and none of the ones they wrote themselves.
 - **The CMS is the file of record.** A Drive copy that can't be made — not connected, not set up yet, a folder deleted — never undoes a filing. The trainee is told what didn't reach their Drive.
 - **What a trainer sees:** the trainee's row in the Trainee Audit has **Document Filing & Backup Drive** — which documents reached the case file, under which category, how many goes each took, **first time right** as its own number, how many are on the drive, and the Day 1 Drive score. Both records ride the trainee's progress to their account (`doc-filing` and `drive-setup` in `PERSONAL_KEYS`), so it needs no extra request. **`doc-filing` was missing from that list**, so the filing grades had only ever lived in the trainee's browser: lost on another device, and never visible to a trainer. Fixed with the Drive, and the test now checks for both.
 - **Setting it up (an admin, once):** `GOOGLE_CLIENT_ID` (a plain variable) and `GOOGLE_CLIENT_SECRET` (a secret) on this Worker. In that Google Cloud project: turn the **Google Drive API** on, add the `…/auth/drive.file` scope to the OAuth consent screen, and put this site's address among the OAuth client's **Authorized JavaScript origins**. Until both are set, `/api/drive` says the Backup Drive isn't switched on, the dashboard card stays away and nothing else is blocked. It is the same Google set-up the CMS's Doc Hub backup uses; a separate OAuth client is fine.
