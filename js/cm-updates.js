@@ -373,6 +373,15 @@ function fitSlideZoom(wrap){
   if(!wrap || !wrap.isConnected || window.innerWidth <= 760 || wrap.querySelector(".cs-page")) return false;   // deck pages size themselves
   // a picture that hasn't loaded yet has no height: lay the slide out again once it has
   wrap.querySelectorAll("img").forEach(img=>{ if(!img.complete && !img.dataset.fitWait){ img.dataset.fitWait = "1"; img.addEventListener("load", repaginateSoon, {once:true}); } });
+  // a Case Flow slide keeps its header and its lesson card at one size: only the card's content is scaled
+  const body = wrap.querySelector(".cfx-deck > .cfx-body");
+  if(body){
+    const box = body.querySelector(":scope > .cfx-sheet") || body, inner = [...box.children]; let zb = 1;
+    slideZoomParts(wrap).forEach(n=>n.style.zoom = ""); inner.forEach(n=>n.style.zoom = ""); box.style.overflowY = "";
+    while(box.scrollHeight > box.clientHeight + 2 && zb > SLIDE_ZOOM_MIN){ zb = Math.round((zb - 0.05)*100)/100; inner.forEach(n=>n.style.zoom = String(zb)); }
+    if(box.scrollHeight > box.clientHeight + 2) box.style.overflowY = "auto";   // still long at the smallest size: it scrolls inside the card
+    return true;
+  }
   const parts = slideZoomParts(wrap); let z = 1;
   parts.forEach(n=>n.style.zoom = "");
   while(wrap.scrollHeight > wrap.clientHeight + 2 && z > SLIDE_ZOOM_MIN){ z = Math.round((z - 0.05)*100)/100; parts.forEach(n=>n.style.zoom = String(z)); }
