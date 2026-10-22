@@ -115,14 +115,14 @@
   },
   "d5m2-l1": {
     "image": "repair-shop",
-    "hook": "The Civic is pleaded now: **every figure gets tested**, and its dates explain the 14-Day Gap.",
+    "hook": "Margaret's PD file: **every figure gets tested**, and its dates explain the 14-Day Gap.",
     "points": [
       "Make the owner whole: **never a windfall**",
       "$9,255.00 is 52.6% of the ACV, under 75%: **repairable, $3,945.00 to spare**",
       "Claim only **the 48 unpaid days**: 48 × $42.00 = $2,016.00",
       "Keep loss-of-use and gap records **identical, date for date**"
     ],
-    "upl": "Compute, document and report; never tell John Doe what his car is worth",
+    "upl": "Compute, document and report; never tell Margaret Doe what her car is worth",
     "job": [
       ["Final repair bill posts", "Re-run total-loss check on $9,255.00", "CMS → Property Damage", "52.6% of $17,600.00 recorded"],
       ["Rental ends, Civic still in shop", "Log each day without a vehicle", "CMS → Property Damage", "12 + 36 = 48 days"],
@@ -184,7 +184,7 @@
       "Put **the critique on paper** for Atty. Thorne"
     ],
     "donts": [
-      "Telling John Doe his car **“lost $3,600.00”**",
+      "Telling Margaret Doe her car **“lost $3,600.00”**",
       "A PD release that **reaches the injury claim**",
       "Promising **sentimental-value recovery** the law won't award"
     ]

@@ -400,7 +400,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 - Walk the table row by row: whose policy, what does it pay, where does it sit? Let the room place MedPay before you do.
 - Summit Imaging is the lesson in one fact: $2,395.00 paid by MedPay with nothing to repay, instead of a $2,395.00 LOP balance against John Doe's net.
 - Crescent is the Health Plan step: $3,400.00 billed, $1,860.00 paid, $1,540.00 written off for good. Peach State's reimbursement claim can only start from what it paid.
-- Ask why John Doe reaches $30,000 of UM at all. He was a passenger: had he been driving his own Civic, his rejected Bluewater UM would leave only the $10,000 BI.
+- Ask why John Doe reaches $30,000 of UM at all. He was a passenger: he owns no car, so his UM comes from the Escape's policy and his mother's Cardinal State policy; her Bluewater policy on the Civic has no UM.
 - Close on the boundary: you route bills in the default order; when two policies both claim to pay second, that is Atty. Thorne's call.
 
 ---
@@ -1911,7 +1911,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
    *BI pays first. Host UM opens once BI is exhausted or tendered, and Relative UM stacks behind Host UM.*
 3. Why can John Doe reach the $20,000 Host UM layer?  
    He owns the host vehicle · **✓ He was a passenger in the host vehicle** · Robert Smith has no insurance · His Health Plan assigns it to him  
-   *He reaches the host vehicle's UM because he was riding in that car. Had he been driving his own car he would have reached $10,000: he rejected UM on his own policy, and the relative policy excludes a car he owns.*
+   *He reaches the host vehicle's UM because he was riding in that car. He owns no car and has no auto policy of his own, so his UM comes from the host vehicle and his mother's policy.*
 4. Cardinal State Mutual has no adjuster assigned when John Doe's LOR goes out on 02/17/2026. How is the letter addressed?  
    “Attn: Teresa Okafor”, to save re-addressing it later · **✓ “Attn: Claims Department”, with the claim number in the subject line** · To Margaret Doe, the insured, to forward to her carrier · Held back until Cardinal State assigns an adjuster  
    *With no adjuster assigned, the address line reads “Attn: Claims Department”. Teresa Okafor is not assigned until 03/03/2026, and holding the letter delays the UM notice.*
