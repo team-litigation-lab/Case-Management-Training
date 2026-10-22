@@ -632,7 +632,7 @@
           "channel": "alert",
           "from": "CMS",
           "subject": "Exchange set audit: Lien Sheet overstated",
-          "body": "The attorney's-set Lien Sheet still lists Harbor Point MedPay $5,000.00 and Summit Imaging $2,395.00, and Crescent as open. Liens actually owed: $7,965.00. A $7,395.00 overstatement sits nine days before the 06/02/2027 exchange."
+          "body": "The attorney's-set Lien Sheet still lists Harbor Point PIP $5,000.00 and Summit Imaging $2,395.00, and Crescent as open. Liens actually owed: $7,965.00. A $7,395.00 overstatement sits nine days before the 06/02/2027 exchange."
         }
       }
     },
