@@ -236,7 +236,7 @@ window.EXTRA_ROUTE_VIEWS = ["casedocs", "drafting"].concat(DRAFTING_SUBVIEWS);
 window.EXTRA_ROUTE_LABELS = {clientprofile:"Case File", casedocs:"Documents", practice:"Practice", notes:"Notes",
   drafting:"Drafting Tools", handouts:"Knowledge Base", lor:"Drafting Tools", hipaa:"Drafting Tools", medprov:"Drafting Tools"};
 function renderTopbar(){   // trainees never see an admin sign-in (🛡 Admin is for admins only): admins come in from the Portal (?admin=1)
-  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["drafting","📄 Drafting Tools"],["notes","Notes"],["handouts","📚 Knowledge Base"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
+  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","Notes"],["handouts","📚 Knowledge Base"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
   if(state.isAdmin){
     // Admin is a trainer monitoring dashboard, not a trainee workspace — hide
     // the trainee-facing-only views that have no role here.
@@ -1519,6 +1519,7 @@ if(document.querySelector(".topbar")) render();
 .nav .nav-tools-menu button{color:var(--navy);background:transparent;text-align:left;border-radius:8px;padding:9px 12px;font-size:13.5px;white-space:nowrap}
 .nav .nav-tools-menu button:hover{background:#F3F4F9;color:var(--navy)}
 .nav .nav-tools-menu button.on{background:#FFF1DE;color:#9A5B00}
+.nav .nav-tools-menu .nav-tools-sep{border-top:1px solid var(--line);margin:4px 0 2px;padding:8px 12px 2px;font:800 11px var(--font-ui,inherit);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
 .nav .nav-tools-menu button.more{border-top:1px solid var(--line);border-radius:0 0 8px 8px;font-size:12.5px;color:var(--ink-soft);margin-top:4px}
 .topbar.nav-open .nav-tools{flex-direction:column}
 .topbar.nav-open .nav-tools-menu{position:static;box-shadow:none;background:rgba(255,255,255,.06);min-width:0;margin-top:4px}
