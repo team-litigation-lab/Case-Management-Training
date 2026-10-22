@@ -955,8 +955,8 @@ window.CM_CF_SLIDES = {
     "kind": "flow",
     "steps": [
      {
-      "label": "Whose Policy Is Primary?",
-      "text": "The renter's own policy is usually primary; the rental company follows a written denial"
+      "label": "Whose Coverage Pays the Rental?",
+      "text": "The adverse carrier's **Property Damage** coverage pays the 3P rental; the client's policy only if none"
      },
      {
       "label": "Who Authorizes?",
@@ -1230,7 +1230,7 @@ window.CM_CF_SLIDES = {
   "image": "property-damage",
   "questions": [
    "List the firm's **standing instructions** for a new client, and the harm each prevents.",
-   "Before a rental: what must be confirmed, **whose policy is usually primary**, and what happens to uncovered days?",
+   "Before a rental: what must be confirmed, **whose coverage provides it**, and what happens to uncovered days?",
    "What does **actual cash value** mean and not mean, and why does the loan-balance mix-up mislead clients?"
   ]
  },
@@ -3082,8 +3082,8 @@ window.CM_CF_SLIDES = {
      "He gets the chance to fix anything the summary got off."
     ],
     [
-     "John Doe's rental ends on 03/19/2026.",
-     "His 03/05/2026 consult with Dr. Reyes still needs a ride.",
+     "John Doe's 03/05/2026 consult with Dr. Reyes gets confirmed.",
+     "Margaret Doe's rental, his ride to care, ends 03/19/2026.",
      "Transport gets lined up now, so no new break in care appears."
     ]
    ],
