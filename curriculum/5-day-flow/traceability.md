@@ -255,6 +255,8 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - D1 Task Overview: Billing, Resolution & Closing
 - LSH Claims Specialist: MedPay vs. PIP (Medical Bills regardless of fault, no lost wages)
 - Newly authored: LOP issuance guidelines and the MedPay exhaustion ledger
+- Case file: Riverton Spine & Rehab, chiro and PT under an LOP signed 02/23/2026 (RS23, the itemized LOP ledger)
+- Newly authored: Letters of Protection, and the Case Manager's part in client-provider referrals within the UPL line
 - Newly authored: redirecting a referral to the client's choice of facility, and the downstream task list (each task done or delegated with an owner and a due date)
 - LSH Claims Specialist: communication skills and professionalism — clarity without jargon, empathy, active listening, paraphrasing, calm reassurance
 - LSH Claims Specialist: LOR — all carrier communication through the firm
