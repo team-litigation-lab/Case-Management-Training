@@ -602,6 +602,23 @@ window.CM_CF_SCRIPTS = {
    "ask": "When a provider asks whether they'll be paid in full, how do you answer them?"
   }
  },
+ "d2m2-lop": {
+  "why": {
+   "say": "John Doe needs chiropractic care next week, and nothing he has will pay for it. That's where a Letter of Protection comes in. In plain English, it's the firm's written promise to pay the provider's bill out of the settlement, so he can be treated now instead of waiting. It keeps care moving, and care that keeps moving keeps the file honest. But it isn't free money. It's a balance against his recovery, and he still owes it. So we track it from the day it's signed.",
+   "ask": "If the settlement came in lower than the bills, who would still owe the provider?"
+  },
+  "theory": {
+   "say": "Four ideas carry this lesson. A Letter of Protection is the firm's written promise to pay a provider from the settlement, so it's a claim against John Doe's recovery, not insurance. Payer-first means we check health insurance, MedPay and PIP before we ever reach for one. The LOP balance grows with every visit, so the itemized ledger every thirty days keeps the Liens tab honest. And referrals are options and logistics only: a list, the network status, the booking, and his choice.",
+   "ask": "Which of these four would you check first on a new provider bill?"
+  },
+  "rules": {
+   "say": "Here's how we handle it. First, an LOP is the last resort, so we check health insurance, MedPay and PIP before anything else and write down why none of them works. Second, it gets signed before the first visit and filed. Riverton's was signed on 02/23/2026. Third, we ask for the itemized ledger every thirty days and update the Liens tab, so the balance never surprises anyone. And when John Doe asks where to go, we give him options with the facts, book the one he picks, and log his choice in his own words.",
+   "ask": "Why does it matter that he picks the provider, and not us?"
+  },
+  "job": {
+   "say": "On the job it looks like this. When no payer covers the care, you document the payer check and route the LOP to Atty. Thorne to approve. When it's signed, you file it and set the recurring ledger task. And when John Doe asks where he should go, you hand him two or three options with their locations, hours and network status, disclose any relationship the firm has with them, and book his choice. What you never say is which one is better for his case. That's the line."
+  }
+ },
  "d2m2-l2": {
   "why": {
    "say": "Let me start with a date: 04/07/2026. Does anyone know what was due that day on John Doe's file? It was his week-6 mark of care. And John Doe wasn't there. Here's why that matters. On an LOP, nobody denies the next six visits in real time. Keystone does it later, at the demand, by calling the care unnecessary or the injury minor. That leaves you as the only real-time check that John Doe's plan is working, and the person who acts the very day it isn't.",

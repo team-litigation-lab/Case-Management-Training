@@ -2593,6 +2593,77 @@ window.CM_CASE_FLOW = {
       },
 
       {
+        kind: "lesson", id: "d2m2-lop", compact: true,
+        title: "Letters of Protection & the Case Manager's Part in Provider Referrals",
+        topic: "What an LOP is, when it is used, and how you help John Doe reach care without steering it",
+        visual: "A three-party triangle: John Doe at the top, Riverton Spine & Rehab bottom left, LSH Law Group bottom right. The provider-to-firm side is labelled LETTER OF PROTECTION · signed 02/23/2026 · paid from the settlement. A red band across the triangle's centre reads THE UPL LINE: options and logistics, never which care.",
+        tell: {
+          why: "A Letter of Protection (LOP) is the firm's written promise to pay a provider's bill from the settlement, so a client with no way to pay can be treated now. It keeps care going, but it also creates a balance that comes out of John Doe's recovery and a provider who is waiting to be paid. The Case Manager tracks it from the day it is signed; and when a client needs a provider, the Case Manager helps with options and logistics while the choice of care stays with John Doe and his doctors.",
+          rules: [
+            "In plain English, an LOP says: treat the client now, and the firm will pay your bill from the settlement. It is a promise against the recovery, not insurance, and the client still owes the balance.",
+            "Use one only when the payers are used up or unavailable: check health insurance, MedPay and PIP first (the Payer-First Principle), and record why the LOP is needed.",
+            "Get it signed before the first visit and file it: Riverton Spine & Rehab's LOP was signed 02/23/2026; its ledger shows Financial class LOP / attorney.",
+            "Track the LOP balance as it grows: request the itemized ledger every 30 days and enter each update in CMS → Liens, so the Net Sheet never meets a surprise.",
+            "Provider referrals: you may share a list of providers who accept LOPs or the client's plan, with their locations, hours and network status, and book the appointment he chooses.",
+            "You never recommend one provider over another, promise a result, or say a treatment will help the case. Disclose any relationship the firm has with a provider on the list.",
+            "Log every referral and the client's own choice in the CMS: who was offered, who he chose, and why, in his words."
+          ],
+          upl: [
+            "Options and logistics only: a list, the network status, the booking. Which care he gets is for John Doe and his doctors; what the LOP means for his recovery is for Atty. Thorne."
+          ]
+        },
+        show: {
+          caption: "“Where should I go for my back?” answered both ways",
+          type: "split",
+          do: [
+            "“Here are three providers near you that take an LOP, with their hours and how far each is.”",
+            "“Crescent Pain & Spine is in network with Peach State; I checked today.”",
+            "“Which one works for you? I'll book it while we're on the phone.”",
+            "“The firm does refer clients to Riverton Spine & Rehab; you're free to choose any of them.”"
+          ],
+          dont: [
+            "“Go to Riverton Spine; they write great reports for cases.”",
+            "“Chiropractic will make your case worth more.”",
+            "“Don't worry about the bill; the LOP means it's free.”",
+            "“Skip the injection; it won't help.”"
+          ]
+        },
+        ops: [
+          ["No payer will cover a provider John Doe needs", "Check every payer first; record why an LOP is needed; route to Atty. Thorne to approve", "CMS → Insurance · Case Notes", "Payer check on file; attorney approval logged"],
+          ["The LOP is signed", "File it; set a 30-day ledger request", "CMS → Documents · Liens · Tasks", "LOP on file; ledger task recurring"],
+          ["John Doe asks where he should go for treatment", "Give the list with network status; book his choice; disclose any firm relationship", "CMS → Parties · Calendar · Case Notes", "Options given, his choice recorded, no recommendation"]
+        ],
+        best: [
+          "Check every payer before an LOP: the LOP is the last resort, not the first.",
+          "Ask for the itemized ledger every 30 days; never let the LOP balance surprise the Net Sheet.",
+          "Offer two or three options with facts (location, hours, network), and let John Doe choose.",
+          "Pitfall: telling the client one provider is better for the case.",
+          "Pitfall: an LOP signed after treatment started, or never filed.",
+          "Pitfall: forgetting that the client still owes the LOP balance."
+        ],
+        sources: [
+          "Case file: Riverton Spine & Rehab, chiro and PT under an LOP signed 02/23/2026 (RS23, the itemized LOP ledger)",
+          "Newly authored: Letters of Protection, and the Case Manager's part in client-provider referrals within the UPL line"
+        ],
+        rubric: {
+          ai: [
+            ["LOP basics", 25, "Explains what an LOP is, when it is used, and that the client still owes the balance"],
+            ["Tracking", 20, "Files the LOP and keeps its balance current in the CMS"],
+            ["Referral logistics", 15, "Gives options with facts and books the client's own choice"]
+          ],
+          trainer: [
+            ["UPL boundary", 25, "No recommendation of a provider or a treatment; any firm relationship disclosed"],
+            ["Client care", 15, "Plain words; the client's choice recorded in his own words"]
+          ]
+        },
+        notes: [
+          "Ask: “John Doe has no health insurance that covers chiropractic. How does he get treated next week?” Let the room reach the LOP.",
+          "Open RS23 and point to Financial class: LOP / attorney, and the LOP signed date. That is the document they will reconcile on Day 3.",
+          "Role-play the referral: John Doe asks “Where should I go?” Model the answer: options, facts, his choice, logged."
+        ]
+      },
+
+      {
         kind: "lesson", id: "d2m2-l2", compact: true,
         title: "A-C-T Crisis Protocol & Treatment Monitoring Principles",
         topic: "Is the plan working, and what you do the day it isn't",
@@ -3723,10 +3794,10 @@ window.CM_CASE_FLOW = {
      ========================================================== */
   {
     n: 3, id: 13,
-    title: "Case Flow Day 3 · Pre-Demand Audit & the Demand",
-    phase: "Pre-demand audit & the demand",
-    objective: "Probe the 14-Day Gap with John Doe on a recorded call, inside the UPL line, and complete the Gap Explanation Record from his own documented facts; audit the file to MMI and $16,401.40 in Specials; brief Atty. Thorne in the pre-demand strategy session; serve a time-limited BI demand that holds up; and structure the Host UM and Relative UM demands behind it.",
-    gate: "Gap Explanation Record complete, from John Doe's own documented facts · Specials audited at $16,401.40 · demand strategy approved by Atty. Thorne · BI Time-Limited Demand served with proof of delivery · Host UM and Relative UM demands drafted",
+    title: "Case Flow Day 3 · Pre-Demand Audit, the Demand & Settlement Negotiation",
+    phase: "Pre-demand audit, the demand & settlement negotiation",
+    objective: "Probe the 14-Day Gap with John Doe on a recorded call, inside the UPL line, and complete the Gap Explanation Record from his own documented facts; audit the file to MMI and $16,401.40 in Specials; brief Atty. Thorne in the pre-demand strategy session; serve a time-limited BI demand that holds up; structure the Host UM and Relative UM demands behind it; then negotiate Track A to a $40,000 gross recovery with both UM consents.",
+    gate: "Gap Explanation Record complete, from John Doe's own documented facts · Specials audited at $16,401.40 · demand strategy approved by Atty. Thorne · BI Time-Limited Demand served with proof of delivery · Host UM and Relative UM demands drafted · Track A negotiated to $40,000 gross, both UM consents in hand",
     discussion: "It is 07/20/2026. The Specials are audited and Atty. Thorne has approved a policy-limits demand to Keystone. What must be true before the Time-Limited Demand goes out, and what would let Keystone say it never had a fair chance to settle?",
     fileState: [
       "Treatment complete: MMI 06/12/2026; the 14-day initial gap and the 19-day disruption are on the file, and the Gap Explanation Record is still to be completed from John Doe's own documented facts.",
@@ -5138,10 +5209,10 @@ window.CM_CASE_FLOW = {
      ========================================================== */
   {
     n: 4, id: 14,
-    title: "Case Flow Day 4 · Settlement Negotiation & ADR",
-    phase: "Settlement negotiation & ADR",
-    objective: "Negotiate Track A to a $40,000 gross recovery with both UM consents and a Limited Release; reduce the liens and disburse a reconciled $20,359.92 net to John Doe; then, where the file does not settle (Track B), run the alternative dispute resolution side: the mediation and arbitration rules and hard dates, the UPL line at hearings, and the mediation and arbitration binders.",
-    gate: "Track A: $40,000 gross recovered, liens resolved at $1,240.00 and $4,580.00, Net Sheet and Trust Ledger reconciled to $0.00, closing memo filed · ADR: hard-rule calendar set for the mediation and the arbitration, ADR rules matrix complete, Mediation Binder and arbitration exhibits assembled",
+    title: "Case Flow Day 4 · Reductions, Lien Negotiation & ADR",
+    phase: "Reductions, lien negotiation & ADR",
+    objective: "With Track A settled at $40,000 gross (Day 3), audit the Limited Release; reduce the liens and the provider balances and disburse a reconciled $20,359.92 net to John Doe; then, where the file does not settle (Track B), run the alternative dispute resolution side: the mediation and arbitration rules and hard dates, the UPL line at hearings, and the mediation and arbitration binders.",
+    gate: "Track A: liens resolved at $1,240.00 and $4,580.00, Net Sheet and Trust Ledger reconciled to $0.00, closing memo filed · ADR: hard-rule calendar set for the mediation and the arbitration, ADR rules matrix complete, Mediation Binder and arbitration exhibits assembled",
     discussion: "Keystone's draft release arrives on 08/14/2026 releasing “all other persons, firms, corporations and insurers.” Harbor Point hasn't answered the consent request, and Atty. Thorne is out of the office until Monday. What do you do, and what must not happen before he is back?",
     fileState: [
       "Track A: the file settles. BI Time-Limited Demand served 07/20/2026; Keystone offers $3,500 on 08/05 and tenders the $10,000 limits on 08/12.",
@@ -7960,16 +8031,16 @@ window.CM_CASE_FLOW = {
        headings: {"d1m1-role": "Introduction to Case Management", "d1m1-case": "Meet Your Client: John Doe", "d1m1-upl": "The UPL Line: Fact Sharing vs. Legal Advice", "d1m1-l1": "Intake", "d1m4-l1": "Intake & the Claims", "d1m3-l1": "Property Damage", "d1m3-l2": "Property Damage", "d1m1-open": "Skill Building: Opening the File in the CMS", "d1m3-a1": "Skill Building: Property Damage", "d1m3-a2": "Skill Building: Property Damage"}}
     ]},
     {n: 2, phases: [
-      {title: "Claim Set Up & Treatment", lead: "Module 2", lanes: {"d2m1-l1": "claims", "d2m1-l2": "claims", "d1m4-l2": "claims", "d1m1-a1": "claims", "d2m1-a1": "claims", "d2m1-a2": "claims", "d1m4-a1": "claims", "d1m4-a2": "claims", "d2m1-kc": "claims", "d1m4-kc": "claims", "d2m1-cov": "care", "d2m2-l1": "care", "d2m2-eob": "care", "d1m1-l2": "care", "d2m2-l2": "care", "d1m2-l1": "care", "d1m2-l2": "care", "d1m2-a1": "care", "d1m2-a2": "care", "d2m2-a1": "care", "d1m1-a2": "care", "d2m2-a2": "care", "d2m2-a3": "care", "d2m2-kc": "care", "d1m2-kc": "care"}, blocks: ["d2m1-l1", "d2m1-l2", "d1m4-l2", "d2m1-cov", "d2m2-l1", "d2m2-eob", "d1m1-l2", "d2m2-l2", "d1m2-l1", "d1m2-l2", "d1m1-a1", "d2m1-a1", "d2m1-a2", "d1m4-a1", "d1m4-a2", "d1m2-a1", "d1m2-a2", "d2m2-a1", "d1m1-a2", "d2m2-a2", "d2m2-a3", "d2m1-kc", "d1m4-kc", "d2m2-kc", "d1m2-kc"],
-       headings: {"d2m1-l1": "Claim Set Up", "d2m1-l2": "Claim Set Up", "d1m4-l2": "Claim Set Up: Case Strategy", "d2m1-cov": "Treatment: Who Pays the Bills", "d2m2-l1": "Treatment: Who Pays the Bills", "d2m2-eob": "Treatment: Who Pays the Bills", "d1m1-l2": "Treatment: Liens & the Regulatory Triple-Check", "d2m2-l2": "Treatment: Monitoring the Care", "d1m2-l1": "Treatment: Client Communications", "d1m2-l2": "Treatment: Client Communications", "d1m1-a1": "Skill Building: CMS Case File Setup", "d2m1-a1": "Skill Building: Draft, Transmit & Log the LORs", "d2m1-a2": "Skill Building: Receive Carrier Claim Correspondence", "d1m4-a1": "Skill Building: Case Strategy", "d1m4-a2": "Skill Building: Case Strategy", "d1m2-a1": "Skill Building: Client Communications", "d1m2-a2": "Skill Building: Client Communications", "d2m2-a1": "Skill Building: Treatment", "d1m1-a2": "Skill Building: Liens", "d2m2-a2": "Skill Building: Treatment", "d2m2-a3": "Skill Building: Treatment"}}
+      {title: "Claim Set Up & Treatment", lead: "Module 2", lanes: {"d2m1-l1": "claims", "d2m1-l2": "claims", "d1m4-l2": "claims", "d1m1-a1": "claims", "d2m1-a1": "claims", "d2m1-a2": "claims", "d1m4-a1": "claims", "d1m4-a2": "claims", "d2m1-kc": "claims", "d1m4-kc": "claims", "d2m1-cov": "care", "d2m2-l1": "care", "d2m2-eob": "care", "d2m2-lop": "care", "d1m1-l2": "care", "d2m2-l2": "care", "d1m2-l1": "care", "d1m2-l2": "care", "d1m2-a1": "care", "d1m2-a2": "care", "d2m2-a1": "care", "d1m1-a2": "care", "d2m2-a2": "care", "d2m2-a3": "care", "d2m2-kc": "care", "d1m2-kc": "care"}, blocks: ["d2m1-l1", "d2m1-l2", "d1m4-l2", "d2m1-cov", "d2m2-l1", "d2m2-eob", "d2m2-lop", "d1m1-l2", "d2m2-l2", "d1m2-l1", "d1m2-l2", "d1m1-a1", "d2m1-a1", "d2m1-a2", "d1m4-a1", "d1m4-a2", "d1m2-a1", "d1m2-a2", "d2m2-a1", "d1m1-a2", "d2m2-a2", "d2m2-a3", "d2m1-kc", "d1m4-kc", "d2m2-kc", "d1m2-kc"],
+       headings: {"d2m1-l1": "Claim Set Up", "d2m1-l2": "Claim Set Up", "d1m4-l2": "Claim Set Up: Case Strategy", "d2m1-cov": "Treatment: Who Pays the Bills", "d2m2-l1": "Treatment: Who Pays the Bills", "d2m2-eob": "Treatment: Who Pays the Bills", "d2m2-lop": "Treatment: Who Pays the Bills", "d1m1-l2": "Treatment: Liens & the Regulatory Triple-Check", "d2m2-l2": "Treatment: Monitoring the Care", "d1m2-l1": "Treatment: Client Communications", "d1m2-l2": "Treatment: Client Communications", "d1m1-a1": "Skill Building: CMS Case File Setup", "d2m1-a1": "Skill Building: Draft, Transmit & Log the LORs", "d2m1-a2": "Skill Building: Receive Carrier Claim Correspondence", "d1m4-a1": "Skill Building: Case Strategy", "d1m4-a2": "Skill Building: Case Strategy", "d1m2-a1": "Skill Building: Client Communications", "d1m2-a2": "Skill Building: Client Communications", "d2m2-a1": "Skill Building: Treatment", "d1m1-a2": "Skill Building: Liens", "d2m2-a2": "Skill Building: Treatment", "d2m2-a3": "Skill Building: Treatment"}}
     ]},
     {n: 3, phases: [
-      {title: "Pre-Demand Audit & the Demand", lead: "Module 3", lanes: {"d2m3-l1": "care", "d2m3-l2": "care", "d2m3-a1": "care", "d2m3-a2": "care", "d2m3-kc": "care"}, blocks: ["d2m3-l1", "d2m3-l2", "d2m4-l1", "d2m4-l2", "d3m1-l1", "d3m1-l2", "d2m3-a1", "d2m3-a2", "d2m4-a1", "d2m4-a2", "d3m1-a1", "d3m1-a2", "d2m3-kc", "d2m4-kc", "d3m1-kc"],
-       headings: {"d2m3-l1": "Pre-Demand: the Gap Explanation Record", "d2m3-l2": "Pre-Demand: the Gap Explanation Record", "d2m3-a1": "Skill Building: the Gap Explanation Record", "d2m3-a2": "Skill Building: the Gap Explanation Record", "d2m4-l1": "Pre-Demand Case Auditing", "d2m4-l2": "Pre-Demand Case Auditing", "d3m1-l1": "Demand", "d3m1-l2": "Demand", "d2m4-a1": "Skill Building: Pre-Demand Case Auditing", "d2m4-a2": "Skill Building: Pre-Demand Case Auditing", "d3m1-a1": "Skill Building: Demand", "d3m1-a2": "Skill Building: Demand"}}
+      {title: "Pre-Demand Audit, the Demand & Settlement Negotiation", lead: "Module 3", lanes: {"d2m3-l1": "care", "d2m3-l2": "care", "d2m3-a1": "care", "d2m3-a2": "care", "d2m3-kc": "care"}, blocks: ["d2m3-l1", "d2m3-l2", "d2m4-l1", "d2m4-l2", "d3m1-l1", "d3m1-l2", "d3m2-l1", "d3m2-l2", "d2m3-a1", "d2m3-a2", "d2m4-a1", "d2m4-a2", "d3m1-a1", "d3m1-a2", "d3m2-a1", "d3m2-a2", "d2m3-kc", "d2m4-kc", "d3m1-kc", "d3m2-kc"],
+       headings: {"d2m3-l1": "Pre-Demand: the Gap Explanation Record", "d2m3-l2": "Pre-Demand: the Gap Explanation Record", "d2m3-a1": "Skill Building: the Gap Explanation Record", "d2m3-a2": "Skill Building: the Gap Explanation Record", "d2m4-l1": "Pre-Demand Case Auditing", "d2m4-l2": "Pre-Demand Case Auditing", "d3m1-l1": "Demand", "d3m1-l2": "Demand", "d2m4-a1": "Skill Building: Pre-Demand Case Auditing", "d2m4-a2": "Skill Building: Pre-Demand Case Auditing", "d3m1-a1": "Skill Building: Demand", "d3m1-a2": "Skill Building: Demand", "d3m2-l1": "Settlement Negotiations", "d3m2-l2": "Settlement Negotiations", "d3m2-a1": "Skill Building: Settlement Negotiations", "d3m2-a2": "Skill Building: Settlement Negotiations"}}
     ]},
     {n: 4, phases: [
-      {title: "Settlement Negotiation & ADR", lead: "Module 4", blocks: ["d3m2-l1", "d3m2-l2", "d3m3-l1", "d3m3-l2", "d3m4-l1", "d3m4-l2", "d4m2-l1", "d4m2-l2", "d4m3-l1", "d4m3-l2", "d3m2-a1", "d3m2-a2", "d3m3-a1", "d3m3-a2", "d3m4-a1", "d3m4-a2", "d4m2-a1", "d4m2-a2", "d4m3-a1", "d4m3-a2", "d3m2-kc", "d3m3-kc", "d3m4-kc", "d4m2-kc", "d4m3-kc"],
-       headings: {"d3m2-l1": "Settlement Negotiations", "d3m2-l2": "Settlement Negotiations", "d3m3-l1": "Lien Negotiations & Reduction", "d3m3-l2": "Lien Negotiations & Reduction", "d3m4-l1": "Disbursement & Closing a Case", "d3m4-l2": "Disbursement & Closing a Case", "d4m2-l1": "ADR: Mediation & Arbitration", "d4m2-l2": "ADR: Mediation & Arbitration", "d4m3-l1": "ADR: The Binders", "d4m3-l2": "ADR: The Binders", "d3m2-a1": "Skill Building: Settlement Negotiations", "d3m2-a2": "Skill Building: Settlement Negotiations", "d3m3-a1": "Skill Building: Lien Negotiations", "d3m3-a2": "Skill Building: Lien Negotiations", "d3m4-a1": "Skill Building: Disbursement & Closing", "d3m4-a2": "Skill Building: Disbursement & Closing", "d4m2-a1": "Skill Building: ADR", "d4m2-a2": "Skill Building: ADR", "d4m3-a1": "Skill Building: ADR", "d4m3-a2": "Skill Building: ADR"}}
+      {title: "Reductions, Lien Negotiation & ADR", lead: "Module 4", blocks: ["d3m3-l1", "d3m3-l2", "d3m4-l1", "d3m4-l2", "d4m2-l1", "d4m2-l2", "d4m3-l1", "d4m3-l2", "d3m3-a1", "d3m3-a2", "d3m4-a1", "d3m4-a2", "d4m2-a1", "d4m2-a2", "d4m3-a1", "d4m3-a2", "d3m3-kc", "d3m4-kc", "d4m2-kc", "d4m3-kc"],
+       headings: {"d3m3-l1": "Lien Negotiations & Reduction", "d3m3-l2": "Lien Negotiations & Reduction", "d3m4-l1": "Disbursement & Closing a Case", "d3m4-l2": "Disbursement & Closing a Case", "d4m2-l1": "ADR: Mediation & Arbitration", "d4m2-l2": "ADR: Mediation & Arbitration", "d4m3-l1": "ADR: The Binders", "d4m3-l2": "ADR: The Binders", "d3m3-a1": "Skill Building: Lien Negotiations", "d3m3-a2": "Skill Building: Lien Negotiations", "d3m4-a1": "Skill Building: Disbursement & Closing", "d3m4-a2": "Skill Building: Disbursement & Closing", "d4m2-a1": "Skill Building: ADR", "d4m2-a2": "Skill Building: ADR", "d4m3-a1": "Skill Building: ADR", "d4m3-a2": "Skill Building: ADR"}}
     ]},
     {n: 5, phases: [
       {title: "Litigation & Dropped Cases", lead: "Module 5", blocks: ["d4m1-l1", "d4m1-l2", "d4m4-l1", "d4m4-l2", "d5m1-l1", "d5m1-l2", "d5m2-l1", "d5m2-l2", "d5m3-l1", "d5m3-l2", "d5m4-l1", "d5m4-l2", "d5m5-l1", "d5m6-l1", "d4m1-a1", "d4m1-a2", "d4m4-a1", "d4m4-a2", "d5m1-a1", "d5m1-a2", "d5m2-a1", "d5m2-a2", "d5m3-a1", "d5m3-a2", "d5m4-a1", "d5m4-a2", "d5m5-a1", "d5m6-a1", "d4m1-kc", "d4m4-kc", "d5m1-kc", "d5m2-kc", "d5m3-kc", "d5m4-kc", "d5m5-kc", "d5m6-kc"],

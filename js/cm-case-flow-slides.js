@@ -2414,6 +2414,105 @@ window.CM_CF_SLIDES = {
    "Answering **“paid in full?”** beyond the LOP's terms"
   ]
  },
+ "d2m2-lop": {
+  "image": "client-call",
+  "hook": "An LOP gets John Doe treated now, paid **from the settlement**.",
+  "points": [
+   "An LOP is **a promise against the recovery**, not insurance",
+   "Use it **only after every payer** is checked",
+   "Track the balance: **ledger every 30 days**",
+   "Referrals: **options and logistics**, never which care"
+  ],
+  "upl": "Give the options and book **his choice**; never recommend a provider",
+  "job": [
+   [
+    "No payer covers the care",
+    "Check payers; route to counsel",
+    "CMS → Insurance · Case Notes",
+    "Payer check on file"
+   ],
+   [
+    "The LOP is signed",
+    "File it; set ledger task",
+    "CMS → Liens · Tasks",
+    "Balance tracked monthly"
+   ],
+   [
+    "“Where should I go?”",
+    "Give options; book his choice",
+    "CMS → Parties · Calendar",
+    "His choice logged, no advice"
+   ]
+  ],
+  "dos": [
+   "Check **every payer** before an LOP",
+   "Give **options with facts**; he chooses",
+   "Disclose **any firm relationship**"
+  ],
+  "donts": [
+   "Saying one provider is **better for the case**",
+   "Calling the LOP bill **free**",
+   "Letting the balance **surprise the Net Sheet**"
+  ],
+  "theory": {
+   "lead": "A **Letter of Protection** keeps care going when no payer will: the firm promises the provider payment from the settlement.",
+   "concepts": [
+    {
+     "term": "Letter of Protection (LOP)",
+     "text": "The firm's written promise to pay a provider's bill from the settlement: **a claim against the recovery**, not insurance"
+    },
+    {
+     "term": "Payer-First",
+     "text": "Health insurance, MedPay and PIP are checked first; the LOP is **the last resort**, and the reason is recorded"
+    },
+    {
+     "term": "The LOP Balance",
+     "text": "Grows with every visit; the itemized ledger every 30 days keeps **the Liens tab and the Net Sheet** current"
+    },
+    {
+     "term": "Provider Referrals",
+     "text": "Options and logistics only: a list, network status, the booking. **The client chooses**; any firm relationship is disclosed"
+    }
+   ],
+   "pages": []
+  },
+  "clues": {
+   "dos": [
+    [
+     "John Doe has no plan that covers chiropractic care.",
+     "Health insurance, MedPay and PIP were checked first.",
+     "The file records why an LOP is the last resort."
+    ],
+    [
+     "Riverton Spine & Rehab bills under an LOP.",
+     "Its ledger grows with every visit.",
+     "The Case Manager requests the itemized ledger every 30 days."
+    ],
+    [
+     "John Doe asks the Case Manager where to go for treatment.",
+     "He gets a short list with locations, hours and network status.",
+     "He chooses, and the Case Manager books his choice."
+    ]
+   ],
+   "donts": [
+    [
+     "A Case Manager tells John Doe one clinic writes reports that help cases.",
+     "It sounds helpful and well meant.",
+     "It steers his care: that is the UPL line."
+    ],
+    [
+     "John Doe hears the LOP means he pays nothing.",
+     "The bill is paid from the settlement.",
+     "He still owes the balance if the recovery falls short."
+    ],
+    [
+     "The LOP was signed after the third visit.",
+     "The first visits have no protection.",
+     "An LOP is signed before the first visit and filed."
+    ]
+   ]
+  }
+ },
  "d2m2-l2": {
   "image": "escalation-alert",
   "roadmap": {

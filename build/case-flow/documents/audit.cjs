@@ -124,6 +124,19 @@ if (text.RS23 !== undefined) {
   if (may4 !== 2) fails.push(`RS23: ${may4} ledger lines for DOS 05/04/2026 (expected 2: the planted duplicate)`);
 }
 
+// John Doe is the front-seat PASSENGER of Kevin Alvarez's Escape (Unit 2): no document may make him a driver or an
+// operator of a vehicle in the crash, put him behind the wheel, or call the Escape his. (His Civic was PARKED and
+// unoccupied: it is struck property, not a vehicle he was in.)
+const NOT_DRIVER = [
+  /John (?:A\. )?Doe,? (?:was )?(?:the )?(?:driver|operator)\b/i, /\bdriver:? John (?:A\. )?Doe\b/i, /\boperator:? John (?:A\. )?Doe\b/i,
+  /John (?:A\. )?Doe (?:was )?driving\b/i, /\bDoe'?s? (?:Ford )?Escape\b/i, /John (?:A\. )?Doe,? (?:the )?(?:rear|back)[- ]seat/i
+];
+for (const [id, t] of Object.entries(text)) {
+  const flat = t.replace(/\s+/g, " ");
+  NOT_DRIVER.forEach(re => { const m = flat.match(re); if (m) fails.push(`${id}: “${m[0]}”: John Doe was the Escape's front-seat passenger, never a driver`); });
+}
+if (text.RS07 !== undefined && !has("RS07", /front[- ]seat passenger|front passenger/i)) fails.push("RS07: the Police Report should place John Doe in the Escape's front passenger seat");
+
 console.log(`Audited ${Object.keys(text).length} of ${DOCS.length} documents.`);
 warn.forEach(w => console.log("warn: " + w));
 if (fails.length) { console.log(`\n${fails.length} problem(s):`); fails.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
