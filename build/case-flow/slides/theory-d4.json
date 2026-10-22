@@ -64,6 +64,26 @@
       "note": "Atty. Thorne decides whether to subpoena and signs it; you draft, docket each notice period and track compliance."
     }
   },
+  "d4m2-um": {
+    "lead": "A UM/UIM claim is a **first-party claim** against the client's own policy, so the impasse route is set by that contract and the state's law.",
+    "concepts": [
+      {"term": "First-Party Claim", "text": "Made against **the client's own coverage**, under a contract he pays premiums on"},
+      {"term": "Third-Party Claim", "text": "Made against **the at-fault driver's carrier**, here Keystone Mutual for Robert Smith"},
+      {"term": "Mandatory Arbitration Clause", "text": "A policy term sending the dispute to an arbitrator; the firm files **a Demand for Arbitration**"},
+      {"term": "Insurance Bad Faith", "text": "A separate suit for unreasonable handling, which **can exceed the policy limit**"}
+    ],
+    "pages": ["D2#33", "D4#2"],
+    "framework": {
+      "title": "The UM Dispute Flow",
+      "kind": "flow",
+      "steps": [
+        {"label": "Claim submission", "text": "The UM Demand Package, with proof the at-fault limits were exhausted"},
+        {"label": "Dispute", "text": "The carrier offers far under value, or denies liability or coverage"},
+        {"label": "Resolution route", "text": "Demand for Arbitration, or suit against the carrier: state law and the clause decide"}
+      ],
+      "note": "Bad faith sits off this flow: a separate action about the carrier's handling, and Atty. Thorne's call alone."
+    }
+  },
   "d4m2-l2": {
     "lead": "Mediation and arbitration can each come **before or after a lawsuit is filed**: the process, the court's rules and the negotiations decide.",
     "concepts": [
