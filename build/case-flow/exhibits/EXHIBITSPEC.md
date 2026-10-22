@@ -88,7 +88,7 @@ becomes a filed document.
   "reply": {"from": "…", "date": "…", "time": "…", "subject": "…", "body": "…"},
   "press": {"from": "…", "date": "…", "subject": "…", "body": "…",
             "choices": [{"label": "…", "ok": false, "why": "…"}]},
-  "convert": {"title": "…", "category": "Others", "type": "Others",
+  "convert": {"title": "…", "category": "Others", "type": "Others", "folder": "insurance",
               "sections": [{"h": "…", "lines": ["…"]}], "establishes": ["…"]}
 }
 ```
@@ -101,8 +101,36 @@ becomes a filed document.
 - `press` — the follow-up the other side sends next, with 2–4 `choices`: exactly one is `ok`. This is the UPL
   test; `why` says what each choice would cost, ≤ 30 words.
 - `convert` — the memorandum the trainee files: its `sections` are the headings and the lines under each, and
-  `establishes` is what the acknowledgment proves. `category` is the CMS Doc Hub category and `type` the type
-  part of the firm's file name. `model` is the document id of the finished memorandum.
+  `establishes` is what the acknowledgment proves. `category` is the CMS Doc Hub category, `type` the type
+  part of the firm's file name, and `folder` the `CM_CF_DOC_FOLDERS` id of the Backup Drive folder the
+  firm keeps this kind of document in — the filing keeps a copy there, as it does for a case document.
+  `model` is the document id of the finished memorandum.
+
+## The audits follow the lessons and the practice case
+
+Nothing here is a fact of its own. Every figure, date and name in an audit or a confirmation is a restatement
+of something the course already says, so the assembler requires each one to be found in a source that item
+actually draws on:
+
+- `curriculum/5-day-flow/case-file.md` — the practice case
+- `js/cm-case-flow-data.js` — the lessons
+- `js/cm-case-flow-docs.js` — the document manifest, titles, descriptions and trainer keys
+- the text of the documents that item works from: the audit's `source` and `reveal`, and every id in the
+  item's own `proof`
+
+A figure or date in an item that is in none of them fails the build, naming the item and the documents it
+draws on. So a change to a lesson or to the practice case that leaves an audit behind is a red check with the
+item named, instead of an audit that teaches a number the file no longer carries.
+
+Names are checked the same way, because a carrier or coverage the course has stopped calling by that name
+reads worst of all to a trainee. A name is satisfied if the phrase is in the sources, or the phrase without
+its first word is (so a step beginning "Request the Final Itemized Ledger" is not a finding), or every
+capitalised word in it appears somewhere in them.
+
+**What this cannot do:** it checks an audit against the sources, not the sources against each other. While the
+course itself says two different things — a coverage renamed in the documents but not in the lessons — an
+audit that follows either one passes. Keeping the sources consistent is the document audit's job
+(`build/case-flow/documents/audit.cjs`) and `terms.cjs`'s.
 
 ## Rules
 - Plain, realistic voices; an adjuster sounds like an adjuster. No emoji, no HTML, no "blueprint".

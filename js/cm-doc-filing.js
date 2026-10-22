@@ -17,8 +17,8 @@
 
    It also files a document the course itself produced — the Service Confirmation's memorandum, built from the
    trainee's own confirmation email and the adjuster's acknowledgment (cmDocFiling.send) — through the same
-   name check and the same upload, and asks the CMS to back the case's filed documents up to the trainee's own
-   Google Drive (cmDocFiling.drive); the backup is the CMS's, and the course only asks for it.
+   name check and the same upload, and keeps it on the trainee's Backup Drive in its folder, exactly as a case
+   document is kept (js/cm-drive.js).
 
    What is needed: the CMS open beside the lesson (🗂 Open CMS) with the trainee's own case open in it. The
    panel says so when it isn't, and nothing else is blocked.  Course side of the CMS's course-bridge.js.
@@ -178,12 +178,19 @@ const mimeOf = (file)=>{
           xlsx:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}[ext] || "application/octet-stream";
 };
 
-/* ---------- send: one document the course produced, to the CMS ----------
+/* ---------- send: one document the course produced, to the CMS and the Backup Drive ----------
    The same upload this panel uses, for a document the course made rather than one from the case documents:
    the letters a trainee drafts (js/cm-cms-upload.js) and the Service Confirmation's memorandum
    (js/cm-case-flow.js) both file through here, so a drafted document and a case document take one road.
    The trainee writes the name and the CMS checks it against caseFileName; what is refused here is only what
-   could never reach the CMS at all, each with the reason to show the trainee. Nothing decides a name. */
+   could never reach the CMS at all, each with the reason to show the trainee. Nothing decides a name.
+
+   And it takes the same second road a case document takes: a copy into the trainee's Backup Drive, in the
+   folder the caller says this kind of document belongs in (`folder`, a CM_CF_DOC_FOLDERS id). A document the
+   course produced is a document on the case like any other, so it belongs in the drive the firm reads from —
+   without this, a trainee's drive held every case document and none of the ones they wrote themselves.
+   The CMS stays the file of record: a drive that isn't set up, or a folder someone deleted, never undoes the
+   filing. The outcome comes back on the answer (`drive`), for the caller to tell the trainee. */
 async function send(d){
   if(!caseOpen()) return {ok: false, error: "No case is open in the CMS. Press 🗂 Open CMS, then open your own case (or save it, so it is given its Case ID)."};
   const name = String((d && d.name) || "").trim();
@@ -191,20 +198,21 @@ async function send(d){
   const bytes = d && d.bytes;
   if(!(bytes instanceof ArrayBuffer) || !bytes.byteLength) return {ok: false, error: "The document did not reach this step. Build it again."};
   if(!CATEGORIES.includes(d.category)) return {ok: false, error: `"${d.category}" is not a Doc Hub category. The categories are: ${CATEGORIES.join(", ")}.`};
-  return await askCms({lsh: "cms-doc-file", name, category: d.category, original: d.original || name,
+  // taken before the original is handed to the CMS: transferring it empties it here
+  const forDrive = bytes.slice(0);
+  const out = await askCms({lsh: "cms-doc-file", name, category: d.category, original: d.original || name,
     mime: d.mime || "application/pdf", summary: d.summary || name, bytes}, "cms-doc-filed", [bytes]);
+  if(!out || !out.ok) return out;
+  return Object.assign({}, out, {drive: await keepOnDrive(d.folder, out.name, forDrive)});
 }
 
-/* ---------- backing the case's filed documents up to the trainee's Drive ----------
-   The backup itself is the CMS's (its drive-backup.js, through its own /api/drive-backup): the course only asks
-   for it and reports what came back, so the Google connection, the folder and the files stay the CMS's business.
-   A CMS without Google sign-in set up, or an account not connected yet, says so and nothing else is blocked. */
-async function drive(){
-  if(!caseOpen()) return {ok: false, error: "Open your own case in the CMS first."};
-  const out = await askCms({lsh: "cms-drive-backup"}, "cms-drive-backed-up");
-  if(out && out.ok) return out;
-  if(out && out.error) return out;
-  return {ok: false, error: "The CMS didn't answer the backup request. Is your case open in it?"};
+/* A copy of a filed document on the trainee's Backup Drive (js/cm-drive.js), in the folder its kind belongs
+   in. Never throws and never changes the filing: it reports, and the caller tells the trainee. */
+async function keepOnDrive(folder, name, bytes){
+  if(!folder) return {ok: false, why: "no-folder-given"};
+  if(!window.CMDrive || typeof CMDrive.saveFiled !== "function") return {ok: false, why: "no-drive"};
+  try{ return await CMDrive.saveFiled(folder, name, bytes); }
+  catch(err){ return {ok: false, why: (err && err.message) || "the copy could not be made"}; }
 }
 
 /* How healthy the repository is: what has been filed, and what was filed right the first time. */
@@ -213,7 +221,7 @@ function health(){
   return {filed: all.filter(x=>x.filed).length, firstTime: all.filter(x=>x.filed && x.attempts === 1).length,
           attempts: all.reduce((n, x)=>n + (x.attempts || 0), 0)};
 }
-window.cmDocFiling = {panel, file, send, drive, health, categories: CATEGORIES, expectedCategory, CATEGORIES, relayOrigins: ()=> RELAY_ORIGINS.map(String)};
+window.cmDocFiling = {panel, file, send, keepOnDrive, health, categories: CATEGORIES, expectedCategory, CATEGORIES, relayOrigins: ()=> RELAY_ORIGINS.map(String)};
 
 /* ---------- relaying a simulator's document to the CMS ----------
    The LSH Training Portal (and a local server while the checks run) may ask; nobody else. The message

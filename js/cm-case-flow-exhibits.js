@@ -802,6 +802,7 @@ window.CM_CF_EXHIBITS = {
    "convert": {
     "title": "Demand Service & Adjuster Acknowledgment — memorandum to file",
     "category": "Others",
+    "folder": "insurance",
     "type": "Others",
     "sections": [
      {
@@ -838,7 +839,7 @@ window.CM_CF_EXHIBITS = {
       "lines": [
        "CMS → Doc Hub → Others, named the firm's way, with the return receipt appended.",
        "CMS → Insurance tab → Demand: Time-Limited Demand yes, served 07/20/2026, received 07/22/2026, acceptance 08/21/2026.",
-       "Google Drive: LSH CMS Backups / <Case ID> <Client>, backed up from the case's Doc Hub."
+       "Your Backup Drive → 05 Insurance, Demands & Negotiation — the same copy, kept with the filing."
       ]
      }
     ],
