@@ -248,7 +248,7 @@ rep('<script src="/js/eapa-updates.js?v=z"></script>', tags(
     "cm-documents.js?v=3",
     "cm-skillbuilders.js?v=cm-2026.10.21-cmstab",
     "cm-lor-data.js?v=1", "cm-hipaa-data.js?v=1", "cm-medprov-data.js?v=1",   # Drafting Tools' data
-    "cm-lor.js?v=3", "cm-hipaa.js?v=2", "cm-medprov.js?v=2", "cm-drafting.js?v=1",
+    "cm-lor.js?v=3", "cm-hipaa.js?v=cm-2026.10.22-cms-upload", "cm-medprov.js?v=2", "cm-drafting.js?v=cm-2026.10.22-cms-upload",
     "daily-activities.js?v=3"))
 # Attendance is taken on the Main Portal (no Admin → 🕘 Attendance tab here, as in EA/PA): only the trainee's
 # automatic Time In stays (js/checkin.js), just before portal-link.js, whether or not EA/PA still carries attendance.js
@@ -260,13 +260,15 @@ s = re.sub(r'<script src="/js/blueprint-content\.js\?v=[^"]*"></script>', '<scri
 # graded-calls moves down beside the dashboard band; lsh-dashboard and show-password are CM-only.
 # EA/PA's Orientation script is EA/PA's own; this course has none (every blueprint is on the Main Portal).
 rep('<script src="/js/graded-calls.js?v=1"></script>\n', "")
+# EA/PA's port of this course's ⧉ side-by-side frame: the course has its own (cm-updates.js), so not loaded here
+s = re.sub(r'<script src="/js/eapa-toolframe\.js\?v=[^"]*"></script>\n?', '', s)
 s = re.sub(r'<script src="/js/eapa-orientation\.js\?v=[^"]*"></script>\n?', "", s)
 rep('<script src="/js/lsh-card-frame.js?v=3"></script>', tags(
     "lsh-dashboard.js?v=4", "graded-calls.js?v=1",
     # The 5-Day Case Management Flow (John Doe v. Robert Smith): after graded-calls.js, because its
     # dashboard wrapper must run on the finished page, and after cm-skillbuilders.js, whose
     # renderLessonCard it wraps.
-    "cm-case-flow-docs.js?v=10", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=18", "cm-case-flow-scripts.js?v=9", "cm-case-flow-sim.js?v=11", "cm-case-flow-data.js?v=23", "cm-case-dates.js?v=5", "cm-case-flow.js?v=52",
+    "cm-case-flow-docs.js?v=17", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=26", "cm-case-flow-scripts.js?v=16", "cm-case-flow-sim.js?v=15", "cm-case-flow-exhibits.js?v=1", "cm-case-flow-data.js?v=31", "cm-case-dates.js?v=5", "cm-case-flow.js?v=55",
     "show-password.js?v=1", "lsh-card-frame.js?v=3"))
 
 # Training tools open signed in (js/lsh-tool-links.js, the same file in every LSH course repo: CMS
@@ -277,8 +279,12 @@ rep('<script src="/js/lsh-topbar.js?v=2"></script>', tags(
     "lsh-tool-links.js?v=cm-2026.10.08-portal",
     # The CMS Case ID comes from the CMS (js/cm-cms-case.js), after the tool links it signs in with.
     "cm-cms-case.js?v=cm-2026.10.21-dol",
-    # Case documents filed into the CMS, named the firm's way (js/cm-doc-filing.js).
-    "cm-doc-filing.js?v=cm-2026.10.21-dol", "lsh-topbar.js?v=2", "lsh-one-screen.js?v=1"))
+    # Case documents filed into the CMS, named the firm's way (js/cm-doc-filing.js), and the
+    # drafting activities filing their own drafted document the same way (js/cm-cms-upload.js,
+    # which uses cmDocFiling.send, so it comes after it). Then the trainee's own Backup Drive
+    # (js/cm-drive.js), which the filing keeps its copy on.
+    "cm-doc-filing.js?v=cm-2026.10.22-send", "cm-cms-upload.js?v=cm-2026.10.22-cms-upload",
+    "cm-drive.js?v=cm-2026.10.22-drive", "lsh-topbar.js?v=2", "lsh-one-screen.js?v=1"))
 
 # ---------- 10. Call Simulator + Live Roleplay CM fixes ----------
 rep('["practice","Skill Builders"],["tools","🧰 Tools"]', '["practice","Skill Builders"],["calls","🛠 Simulators"],["tools","🧰 Tools"]')
@@ -314,7 +320,7 @@ for need in ["cm-updates.js", "cm-documents.js", "cm-skillbuilders.js",
              "lsh-dashboard.js", "lsh-one-screen.js", "lsh-tool-links.js", "lsh-topbar.js",
              "graded-calls.js", "show-password.js", "checkin.js", "portal-link.js", "portal-gate.js",
              "cm-lor-data.js", "cm-hipaa-data.js", "cm-medprov-data.js",
-             "cm-lor.js", "cm-hipaa.js", "cm-medprov.js", "cm-drafting.js", "cm-case-flow-docs.js", "cm-case-flow-art.js", "cm-case-flow-slides.js", "cm-case-flow-scripts.js", "cm-case-flow-sim.js", "cm-case-flow-data.js", "cm-case-dates.js", "cm-case-flow.js", "cm-cms-case.js", "cm-doc-filing.js"]:
+             "cm-lor.js", "cm-hipaa.js", "cm-medprov.js", "cm-drafting.js", "cm-case-flow-docs.js", "cm-case-flow-art.js", "cm-case-flow-slides.js", "cm-case-flow-scripts.js", "cm-case-flow-sim.js", "cm-case-flow-data.js", "cm-case-dates.js", "cm-case-flow.js", "cm-cms-case.js", "cm-doc-filing.js", "cm-cms-upload.js", "cm-drive.js", "cm-case-flow-exhibits.js"]:
     if f'src="/js/{need}' not in s:
         sys.exit(f"MISSING SCRIPT: /js/{need} is not loaded by the built page")
 # the AI-key messages name this course's Worker in Cloudflare, not EA/PA's

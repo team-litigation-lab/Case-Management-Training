@@ -36,17 +36,17 @@ const CLIENT_PROFILE_DOC = [
     "Payer Order (who pays the Medical Bills while the claim is open) is a different question from the stack: PIP/MedPay → private health insurance → LOP/provider liens"
   ]},
   {section:"People and Vehicles", items:[
-    "Host driver: Kevin Alvarez, John's coworker (separate household); they carpool on alternate weeks and 02/06/2026 was Kevin's week. He owns the host vehicle, a 2020 Ford Escape, insured by Harbor Point (Host UM $20,000; MedPay $5,000).",
+    "Host driver: Kevin Alvarez, John's coworker (separate household); they carpool on alternate weeks and 02/06/2026 was Kevin's week. He owns the host vehicle, a 2020 Ford Escape, insured by Harbor Point (Host UM $20,000; PIP $5,000).",
     "Resident relative: Margaret Doe, John's mother; John lives with her at 2214 Maple Hollow Rd. Her car is insured by Cardinal State Mutual (UM $10,000). Emergency contact on the file."
   ]},
   {section:"The Vehicles and Who Insures Them", items:[
-    "John's own car: 2019 Honda Civic LX, 52,300 miles, owned outright, insured by Bluewater Auto Insurance (liability + collision, $500 deductible). UM/UIM rejected in writing (03/14/2024).",
-    "Why passenger status matters: as a passenger in a car he doesn't own, John reaches Host UM and Relative UM. Driving his own Civic, he would reach $10,000: he rejected UM on his own policy, and Cardinal State excludes a resident relative in a vehicle he owns that it doesn't insure.",
+    "The parked car: Margaret's 2019 Honda Civic LX, 52,300 miles, owned outright, insured by Bluewater Auto Insurance on her policy (liability + collision, $500 deductible); UM/UIM rejected in writing by Margaret (03/14/2024). John owns no car and has no auto policy.",
+    "Why passenger status matters: as a passenger in a car he doesn't own, John reaches Host UM and Relative UM. He owns no car, so no policy of his own applies, and Margaret's Bluewater policy on the Civic carries no UM (rejected), so it adds no layer.",
     "Defendant: Robert Smith, driving a 2017 Chevrolet Silverado · Keystone Mutual BI $10,000 per person; PD liability $25,000 (separate, outside the $40,000 stack) · address on the Police Report: 118 Larkspur Ln, Riverton",
     "Employer: Northgate Distribution · warehouse shift lead since 01/12/2026 · $22.00/hour, 8-hour shifts · Peach State coverage through Northgate, effective 02/01/2026"
   ]},
   {section:"The Collision: 02/06/2026, about 7:10 a.m.", items:[
-    "All-way stop at Maple Hollow Rd & Birch Ave. Kevin stopped eastbound and proceeded; Robert Smith, northbound on Birch Ave, didn't stop and struck the Escape's front passenger door at about 28 mph, pushing it into John's parked Civic.",
+    "All-way stop at Maple Hollow Rd & Birch Ave. Kevin stopped eastbound and proceeded; Robert Smith, northbound on Birch Ave, didn't stop and struck the Escape's front passenger door at about 28 mph, pushing it into Margaret's parked Civic.",
     "Riverton PD report RPD-26-018842: Smith cited for failure to stop at a stop sign",
     "Independent witness: Ruth Calloway, 2209 Maple Hollow Rd",
     "Doorbell-camera video (Margaret's camera at 2214 Maple Hollow Rd) shows the Escape stopped and Smith rolling through · preservation told to John 02/17, copy secured 02/19/2026",
@@ -54,29 +54,29 @@ const CLIENT_PROFILE_DOC = [
   ]},
   {section:"Injury and Treatment", items:[
     "Injury: cervical strain; C5-C6 right paracentral disc herniation with mild right foraminal narrowing · prior: three chiropractic visits in 2021 for low-back stiffness, resolved; no prior neck complaints",
-    "02/20/2026 Riverton Urgent Care: first treatment, \"onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18\" · $685.00 (MedPay)"
+    "02/20/2026 Riverton Urgent Care: first treatment, \"onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18\" · $685.00 (PIP)"
   ]},
   {section:"The Treatment Record", items:[
     "02/24–04/02/2026 Riverton Spine & Rehab (chiro + PT, out of network for Peach State): 16 visits under an LOP signed 02/23/2026",
-    "03/05/2026 Lakeside Orthopedics, Dr. Alana Reyes: initial consult, orders MRI · $640.00 (MedPay)",
-    "03/13/2026 Summit Imaging Center, cervical MRI (Dr. Helen Park): C5-C6 herniation, \"no significant degenerative change at the adjacent levels\" · $2,395.00 (MedPay)",
-    "03/27/2026 Lakeside Orthopedics follow-up, referral to pain management · $640.00 (MedPay)",
+    "03/05/2026 Lakeside Orthopedics, Dr. Alana Reyes: initial consult, orders MRI · $640.00 (PIP)",
+    "03/13/2026 Summit Imaging Center, cervical MRI (Dr. Helen Park): C5-C6 herniation, \"no significant degenerative change at the adjacent levels\" · $2,395.00 (PIP)",
+    "03/27/2026 Lakeside Orthopedics follow-up, referral to pain management · $640.00 (PIP)",
     "04/02 → 04/21/2026: disrupted care, 19 days with no visits (missed 04/03, 04/07, 04/09, 04/14)",
     "04/21–06/05/2026 Riverton Spine & Rehab: 17 visits, care resumed (LOP)",
     "05/15/2026 Crescent Pain & Spine, Dr. Omar Haddad: cervical epidural steroid injection · billed $3,400.00, Peach State paid $1,860.00 at contract rate (no balance billing)",
-    "06/12/2026 Lakeside Orthopedics: MMI · residual intermittent right-arm paresthesia · possible 1–2 repeat ESIs within 24 months ($3,400–$6,800 future medical) · $640.00 (MedPay, now exhausted)",
+    "06/12/2026 Lakeside Orthopedics: MMI · residual intermittent right-arm paresthesia · possible 1–2 repeat ESIs within 24 months ($3,400–$6,800 future medical) · $640.00 (PIP, now exhausted)",
     "02/07–06/2026 Riverton Drug: prescriptions and OTC · $312.40, John out of pocket"
   ]},
   {section:"Coverage Confirmations", items:[
-    "Harbor Point (03/02/2026, in writing): no reimbursement right on MedPay; its UM is add-on (excess), not reduced by the BI payment, with no MedPay non-duplication reduction",
+    "Harbor Point (03/02/2026, in writing): no reimbursement right on PIP; its UM is add-on (excess), not reduced by the BI payment, with no PIP non-duplication reduction",
     "Cardinal State: Teresa Okafor assigned as adjuster 03/03/2026; John confirmed in writing (03/09/2026) as a resident relative occupying a non-owned vehicle",
     "Keystone disclosed nothing before a written request with authorizations; BI $10,000 confirmed by its Declaration Page 03/20/2026"
   ]},
   {section:"The Disruption", items:[
-    "Keystone ended John's rental 03/19/2026 (30-day cap) while the Civic waited for parts; Kevin's shift changed 04/01/2026, ending the carpool.",
+    "Keystone ended Margaret's rental 03/19/2026 (30-day cap) while the Civic waited for parts; Kevin's shift changed 04/01/2026, ending the carpool.",
     "John missed PT visits from 04/03; the CM learned of it 04/08/2026 from Riverton Spine & Rehab's missed-visit alert."
   ]},
-  {section:"Property Damage: John's Civic", items:[
+  {section:"Property Damage: Margaret's Civic", items:[
     "A separate claim with Keystone PD (adjuster Leah Moran), outside the $40,000 stack · PD liability accepted 02/17/2026",
     "Tow $185.00 + 6 days' storage at $45.00 = $455.00 (Keystone paid)",
     "Estimate $6,940.00 (Riverton Collision Center, 02/16) + teardown supplement $2,315.00 (03/02) = $9,255.00 repair, paid to the shop 04/24/2026 · ACV $17,600.00, so repair is 52.6% of ACV: repairable, not a Total Loss",
@@ -89,14 +89,14 @@ const CLIENT_PROFILE_DOC = [
   ]},
   {section:"Treatment & Pre-Demand: Specials and the A-C-T Response", items:[
     "Riverton Spine & Rehab billed 34 lines × $185.00 = $6,290.00, but 05/04/2026 is a duplicate: 33 visits = $6,105.00 after audit",
-    "MedPay paid in date order $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00 (exhausted 06/2026)",
+    "PIP paid in date order $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00 (exhausted 06/2026)",
     "Medical specials: $15,002.40 billed → $14,817.40 after the audit · lost wages: 9 shifts × 8 h × $22.00 = $1,584.00 (Northgate HR letter) · total Specials $16,401.40",
     "A-C-T: Assess, called John 04/08 · Coordinate, asked Keystone PD to extend the rental (refused 04/10), then moved John to evening slots so Margaret could drive him (first open slot 04/21) · Track, attendance confirmed 04/21 and 04/23 · the Civic came back 04/24"
   ]},
   {section:"Why the 14-Day Gap Happened", items:[
     "No transportation: the Civic was towed from the scene, Kevin's Escape was in the shop, and no rental was authorized until 02/18/2026",
     "He thought it was soreness that would pass; took OTC ibuprofen and lidocaine patches (receipt 02/07/2026)",
-    "Cost worry: unsure his new Peach State coverage (effective 02/01/2026) was active; didn't know MedPay existed",
+    "Cost worry: unsure his new Peach State coverage (effective 02/01/2026) was active; didn't know PIP existed",
     "Symptoms escalated: numbness into his right hand from 02/18; he worked 02/18–02/19 and went to urgent care on his first day off, 02/20/2026",
     "Corroboration: EMS report (neck complaint on the DOL) · Northgate attendance (called out 02/09–02/13 citing neck pain) · texts to his mother 02/07–02/15 · the pharmacy receipt · the urgent-care history · Dr. Reyes's Causation Letter (06/19/2026)"
   ]},

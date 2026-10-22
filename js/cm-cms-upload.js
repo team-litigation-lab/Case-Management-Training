@@ -1,0 +1,230 @@
+/* 📤 Upload in the CMS — the drafting activities file their own work into the client's case file.
+
+   A drafting activity used to end at a download: the trainee printed or saved the file and filed it by
+   hand, and nothing was graded. It ends in the CMS now. The trainee opens their client's case file in the
+   CMS beside the lesson and uploads the document they just drafted into it, under the right tab, named the
+   firm's way:
+
+       <Case ID>_<Last-First>_<Type>_<YYYY-MM-DD>.<ext>
+
+   What is graded is the filing itself: the tab chosen, and the name applied. The course checks the tab
+   (TAB below says where the firm keeps each drafted document) and refuses a wrong one before anything
+   leaves the page; the CMS checks the name against the firm's one rule (its course-bridge.js, caseFileName
+   in its app.js) and refuses a wrong one, saying which part is wrong. Nothing is corrected quietly, and
+   every attempt is kept, so a trainer can see who filed it right the first time.
+
+   ⬇ Download PDF stays exactly as it was, beside the upload: a trainee still needs the file itself for the
+   client's Drive. The download keeps the trainers' own naming convention (INS – … - LOR mm.dd.yyyy (VA's
+   name)); the upload uses the CMS's convention, because the CMS is what names files in the case.
+
+   The document itself is sent through js/cm-doc-filing.js (cmDocFiling.send), the same upload a trainee
+   would use in the CMS, which also keeps a copy on their Backup Drive in the folder FOLDER names — the same bytes, the same tab, the same name check. Nothing here decides a name.
+
+   Used by the HIPAA Drafting activity (js/cm-hipaa.js), which is the drafting activity this course still
+   runs itself. The LOR and Med Provider activities open the Portal's shared drafting tool instead
+   (js/cm-lor.js, js/cm-medprov.js route there), so their upload belongs to that tool — which files into the
+   CMS through this course's relay (js/cm-doc-filing.js). Their tabs are in TAB below, ready for it.
+
+   How an activity uses it: register the document it drafts, then draw the panel and let the button call it.
+       cmCmsUpload.register("lor:lor1p", {title:"1P Letter of Representation", tab:"Others",
+                                          lines: ()=> letterLines(tpl)});
+       cmCmsUpload.panel("lor:lor1p")      // the HTML: the tab, the name, the button, the record
+       cmCmsUpload.upload(id, btn)         // what the button calls
+
+   Shared storage key: cms-upload — the trainee's own filing record (what was uploaded, and in how many
+   attempts), read back when the page loads.
+   ============================================================ */
+(function(){
+"use strict";
+
+const KEY = "cms-upload";
+const esc = (s)=> String(s == null ? "" : s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* The Doc Hub tabs in the CMS. The same list cm-doc-filing.js files the case documents into, so a trainee
+   chooses from one set of tabs whether the document came with the case or they drafted it themselves. */
+const TABS = (window.cmDocFiling && window.cmDocFiling.CATEGORIES) ||
+  ["Intake Documents", "Medical Records", "Police Report", "Case Files", "Invoices", "Bills",
+   "Property Damage", "Litigation Documents", "Others"];
+
+/* Where the firm files each drafted document. Read from the case documents it belongs with, so a drafted
+   letter lands in the tab a trainee already knows it from:
+     • the signed client forms (HIPAA, the fee agreement) are Case Files, as RS05 and RS06 are
+     • the carriers' and the lien holders' correspondence is Others, as RS27–RS42 are
+     • anything addressed to a provider about records is Medical Records, as RS11–RS21 are           */
+const TAB = {
+  "hipaa":          "Case Files",
+  "lor:lor1p":      "Others",
+  "lor:lor3p":      "Others",
+  "medprov:lienbv": "Others",
+  "medprov:medlor": "Medical Records",
+  "medprov:hitech": "Medical Records"
+};
+
+/* And the Backup Drive folder each one belongs in (CM_CF_DOC_FOLDERS, the same file the drive is laid out
+   from): the CMS tab says what kind of document it is, the folder says where the firm keeps it, and they are
+   not always the same question. A HIPAA authorization is filed under Case Files and lives with the retainer;
+   a lien balance verification is filed under Others and lives with the liens. */
+const FOLDER = {
+  "hipaa":          "intake",
+  "lor:lor1p":      "insurance",
+  "lor:lor3p":      "insurance",
+  "medprov:lienbv": "liens",
+  "medprov:medlor": "medical",
+  "medprov:hitech": "medical"
+};
+
+const DOCS = {};                        // the documents the activities on this page have registered
+const log = ()=> (state.cmsUploads = state.cmsUploads || {});
+const recOf = (id)=> log()[id] || null;
+async function save(){ try{ if(typeof storeSet === "function") await storeSet(KEY, log()); }catch(e){} }
+
+const caseOpen = ()=> (window.CMCase && CMCase.id()) || "";
+const today = ()=>{ const d = new Date(), p = n=> String(n).padStart(2, "0"); return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`; };
+const pattern = (ext)=> `${caseOpen() || "<Case ID>"}_<Last-First>_<Type>_${today()}.${ext || "pdf"}`;
+const tabOf = (d)=> d.tab || TAB[d.id] || "Others";
+const folderOf = (d)=> d.folder || FOLDER[d.id] || "";
+
+/* An activity says what it drafts: its title, the tab the firm files it under (TAB, unless it says
+   otherwise), the Backup Drive folder it belongs in (FOLDER, unless it says otherwise) and how to produce the
+   document itself (lines(), the same lines the download is made from). */
+function register(id, d){
+  if(!id || !d || typeof d.lines !== "function") return;
+  DOCS[id] = Object.assign({}, DOCS[id], d, {id});
+}
+
+/* ---------- the document itself: the PDF the trainee drafted ----------
+   The same page the download gives them (the tools' own makePdf), handed over as bytes instead of saved. */
+const pdfSafe = (s)=> String(s == null ? "" : s).replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
+  .replace(/[–—]/g, "-").replace(/☐/g, "[  ]").replace(/☒|☑/g, "[X]")
+  .replace(/[^\x00-\xff]/g, "").replace(/ {2,}/g, m=> m);
+async function pdfBytes(lines){
+  if(typeof ensureJsPdf !== "function" || !(await ensureJsPdf())) throw new Error("the PDF maker could not be loaded");
+  const {jsPDF} = window.jspdf, doc = new jsPDF({unit:"pt", format:"letter"});
+  const M = 64, W = doc.internal.pageSize.getWidth() - M * 2, BOT = doc.internal.pageSize.getHeight() - M;
+  let y = M;
+  doc.setFont("times", "normal").setFontSize(11);
+  (lines || []).forEach(line=>{
+    const txt = pdfSafe(line);
+    if(!txt.trim()){ y += 11; return; }
+    doc.splitTextToSize(txt, W).forEach(row=>{
+      if(y > BOT){ doc.addPage(); y = M; }
+      doc.text(row, M, y); y += 14;
+    });
+    y += 4;
+  });
+  return doc.output("arraybuffer");
+}
+
+/* ---------- the panel ---------- */
+const problemsHTML = (r)=> `<div class="dfl-bad"><b>Not uploaded.</b><ul>${(r.problems || []).map(p=>`<li>${esc(p)}</li>`).join("")}</ul></div>`;
+
+function panel(id){
+  const d = DOCS[id];
+  if(!d) return "";
+  const r = recOf(id) || {}, k = String(id).replace(/\W/g, "_");
+  return `<div class="dfl dfl-one" id="cmu_${esc(k)}" data-k="${esc(k)}">
+    <div class="dfl-h"><b>📤 Upload in the CMS</b>
+      <span class="dfl-conv">Open your client's case file, file it under the right tab, and name it
+        <code>&lt;Case ID&gt;_&lt;Last-First&gt;_&lt;Type&gt;_&lt;YYYY-MM-DD&gt;.&lt;ext&gt;</code> — the type is the tab you file it under.</span></div>
+    ${caseOpen() ? `<div class="dfl-case">Filing into <b>${esc(caseOpen())}</b>, the case open in the CMS.</div>`
+      : `<div class="dfl-need">Open your client's case file in the CMS first: <button type="button" class="btn btn-ghost btn-sm" onclick="openTool('cms','split')">🗂 Open CMS</button></div>`}
+    ${rowHTML(id)}</div>`;
+}
+function rowHTML(id){
+  const d = DOCS[id], r = recOf(id) || {}, k = String(id).replace(/\W/g, "_");
+  if(r.filed) return `<div class="dfl-row dfl-done" data-k="${esc(k)}"><div class="dfl-doc">${esc(d.title)}</div>
+    <div class="dfl-ok">✓ Filed in the CMS as <b>${esc(r.name)}</b> under ${esc(r.category)}${r.attempts > 1 ? ` · ${r.attempts} attempts` : " · first time right"}</div></div>`;
+  return `<div class="dfl-row" data-k="${esc(k)}"><div class="dfl-doc">${esc(d.title)}</div>
+    <div class="dfl-fields">
+      <select class="dfl-cat" aria-label="CMS tab for ${esc(d.title)}"><option value="">CMS tab…</option>
+        ${TABS.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("")}</select>
+      <input class="dfl-name" aria-label="File name for ${esc(d.title)}" placeholder="${esc(pattern("pdf"))}">
+      <button type="button" class="btn btn-navy btn-sm" onclick="cmCmsUpload.upload('${esc(id)}',this)">Upload in the CMS</button>
+    </div>
+    <div class="dfl-msg" aria-live="polite">${r.problems && r.problems.length ? problemsHTML(r) : ""}</div></div>`;
+}
+
+/* ---------- uploading it ---------- */
+async function upload(id, btn){
+  const d = DOCS[id]; if(!d) return;
+  const k = String(id).replace(/\W/g, "_");
+  const wrap = document.getElementById("cmu_" + k); if(!wrap) return;
+  const row = wrap.querySelector(".dfl-row"), msg = wrap.querySelector(".dfl-msg");
+  const tab = (row.querySelector(".dfl-cat") || {}).value || "";
+  const name = ((row.querySelector(".dfl-name") || {}).value || "").trim();
+  const say = (html)=>{ if(msg) msg.innerHTML = html; };
+  const r = log()[id] = Object.assign({attempts: 0, title: d.title}, recOf(id));
+
+  if(!caseOpen()){
+    say(`<div class="dfl-bad"><b>Not uploaded.</b><ul><li>No case is open in the CMS. Press 🗂 Open CMS, then open your client's case file (or save it, so it is given its Case ID).</li></ul></div>`);
+    return;
+  }
+  if(!tab){ say(`<div class="dfl-bad"><b>Not uploaded.</b><ul><li>Choose the CMS tab you would file this document under.</li></ul></div>`); return; }
+
+  r.attempts++;
+  // the tab: a document in the wrong tab is a document nobody finds
+  if(tab !== tabOf(d)){
+    r.tabOk = false;
+    r.problems = [`The firm files this document under ${tabOf(d)}, not ${tab}. A document in the wrong tab is a document nobody finds.`];
+    say(problemsHTML(r)); await save(); return;
+  }
+  r.tabOk = true;
+  if(btn){ btn.disabled = true; btn.textContent = "Uploading…"; }
+  const done = ()=>{ if(btn){ btn.disabled = false; btn.textContent = "Upload in the CMS"; } };
+
+  let bytes = null;
+  try{ bytes = await pdfBytes(d.lines()); }
+  catch(err){
+    r.problems = [`The document could not be made into a PDF to upload: ${(err && err.message) || "unknown error"}.`];
+    say(problemsHTML(r)); await save(); done(); return;
+  }
+  if(!window.cmDocFiling || typeof cmDocFiling.send !== "function"){
+    r.problems = ["This page cannot reach the CMS. Reload the page and try again."];
+    say(problemsHTML(r)); await save(); done(); return;
+  }
+  const out = await cmDocFiling.send({name, category: tab, folder: folderOf(d),
+                                      original: (d.original || d.id.replace(/\W/g, "_")) + ".pdf",
+                                      mime: "application/pdf", summary: d.title, bytes});
+  done();
+  if(out && out.ok){
+    r.filed = true; r.nameOk = true; r.name = out.name; r.category = out.category || tab;
+    r.at = new Date().toISOString(); r.problems = [];
+    await save();
+    r.drive = out.drive && out.drive.ok ? out.drive.folder : "";
+    await save();
+    if(typeof toast === "function") toast(`Filed in the CMS as ${out.name}.`);
+    if(out.drive && out.drive.ok && typeof toast === "function") toast(`Kept on your Backup Drive under ${out.drive.folder.split("/").pop()}.`);
+    else if(out.drive && out.drive.why === "no-drive" && typeof toast === "function") toast("Filed in the CMS. Your Backup Drive isn't set up yet, so no copy was kept there.");
+    row.outerHTML = rowHTML(id);
+    return;
+  }
+  r.nameOk = false;
+  r.problems = (out && out.problems && out.problems.length) ? out.problems : [(out && out.error) || "The CMS did not file it."];
+  say(problemsHTML(r)); await save();
+}
+
+/* What the trainee has filed, and what they filed right the first time — the grade a trainer reads. */
+function report(){
+  return Object.keys(log()).map(id=>{
+    const r = log()[id] || {};
+    return {id, title: r.title || (DOCS[id] && DOCS[id].title) || id, filed: !!r.filed,
+            attempts: r.attempts || 0, firstTime: !!r.filed && r.attempts === 1, at: r.at || "",
+            name: r.name || "", tab: r.category || ""};
+  });
+}
+function health(){
+  const all = report();
+  return {uploaded: all.filter(x=>x.filed).length, firstTime: all.filter(x=>x.firstTime).length,
+          attempts: all.reduce((n, x)=>n + x.attempts, 0)};
+}
+
+window.cmCmsUpload = {register, panel, upload, report, health, pattern, pdfBytes, tabOf, TABS, TAB};
+
+/* the trainee's filing comes back with their record (storeGet is ready once the page has loaded) */
+window.addEventListener("load", ()=>{
+  setTimeout(async ()=>{
+    if(typeof storeGet !== "function") return;
+    try{ const v = await storeGet(KEY); if(v && typeof v === "object"){ state.cmsUploads = v; if(typeof render === "function") render(); } }catch(e){}
+  }, 320);
+});
+})();

@@ -40,7 +40,7 @@ overrides it**. A fact a document needs that is in neither is added to case-file
 - **Riverton Drug ($312.40):** 02/07 OTC ibuprofen + lidocaine patches $38.60 · 02/20 Rx cyclobenzaprine + naproxen $64.20 ·
   03/05 Rx meloxicam $42.80 · 03/27 Rx gabapentin $58.40 · 04/21 OTC lidocaine patches $29.80 · 05/15 Rx methylprednisolone
   $36.20 · 06/12 Rx gabapentin refill $42.40.
-- **MedPay (Harbor Point, $5,000.00):** 03/09 Riverton Urgent Care $685.00 · 03/16 Lakeside 03/05 visit $640.00 ·
+- **PIP (Harbor Point, $5,000.00):** 03/09 Riverton Urgent Care $685.00 · 03/16 Lakeside 03/05 visit $640.00 ·
   03/25 Summit Imaging $2,395.00 · 04/10 Lakeside 03/27 visit $640.00 · 06/26 Lakeside 06/12 visit $640.00 (exhausted).
 - **Peach State EOB (Crescent Pain & Spine, DOS 05/15/2026):** billed $3,400.00 · allowed $1,860.00 · paid $1,860.00 (06/03/2026) ·
   contractual adjustment $1,540.00 · member responsibility $0.00.
@@ -59,7 +59,7 @@ Bills · PD · Litigation · Others).
 Intake 02/09/2026, taken by the intake specialist. Client identity and contact (case-file §1), DOB 08/14/1991,
 lives with his mother Margaret Doe (emergency contact, same address, phone (555) 010-2291). Position: front-seat
 passenger in Kevin Alvarez's 2020 Ford Escape (coworker carpool). Employer Northgate Distribution, shift lead,
-$22.00/h, started 01/12/2026. Health plan Peach State (member/group). Own car 2019 Civic LX, Bluewater (UM
+$22.00/h, started 01/12/2026. Health plan Peach State (member/group). Owns no car; the parked 2019 Civic LX is Margaret's, Bluewater (UM
 "rejected? — client unsure"). Collision summary (all-way stop, Smith rolled through, passenger-door impact, Escape
 pushed into the parked Civic). Police Report number, injuries reported ("neck stiffness, sore; declined ambulance;
 no treatment yet"), carriers as known at intake (Keystone for Smith; Harbor Point for Kevin; Cardinal State for
@@ -72,7 +72,7 @@ UM and Relative UM. No treatment yet: the 14-day gap is already running (first c
 **RS02 · Intake Supplement — Prior History & Household** · Day 1 · Case Files · `RS_02_Intake_Supplement_Prior_History.pdf`
 Same intake specialist, 02/09/2026. Prior injuries/claims: "Chiropractic 2021 — Birch Avenue Chiropractic, 3
 visits, **neck and back** stiffness, resolved." No prior claims, no prior counsel, no workers' comp. Household:
-lives with mother (resident relative); Margaret's car insured with Cardinal State. Own vehicle and Bluewater policy;
+lives with mother (resident relative); Margaret's car insured with Cardinal State. No vehicle of his own; Margaret's Civic and its Bluewater policy;
 "client believes he signed something about UM in 2024". Employment history. Social media: told to stop posting.
 *Plant:* the 2021 care is recorded as **neck and back**; the 2021 records (RS20) show **low back only**, no neck.
 *Key:* The 2021 visits were low back only (RS20). A "prior neck" note in our own file is exactly what defense counsel
@@ -83,7 +83,7 @@ The intake as keyed into the CMS (the editable export the trainee corrects): mat
 employment, incident narrative, parties, vehicles, insurance, health plan, emergency contact, flags.
 *Plants:* (1) client role **"Driver"** (he was the front-seat passenger: this is what opens Host UM and Relative UM);
 (2) DOB **08/14/1990** (it is 08/14/1991).
-*Key:* Role must be Passenger — as a driver of his own Civic he would reach only $10,000 (UM rejected on Bluewater).
+*Key:* Role must be Passenger — listed as a driver, the file points at the wrong coverage (he owns no car; Margaret's Bluewater policy has no UM).
 DOB is 08/14/1991 (driver's license copy and RS01). Every downstream letter (LORs, HIPAA requests) inherits these.
 
 **RS04 · Master Case Summary — Attorney Only** · Day 1 · Case Files · `RS_04_Master_Case_Summary_ATTORNEY_ONLY.pdf`
@@ -94,7 +94,7 @@ analysis, health plan reimbursement, the treatment-gap risk, SOL 02/06/2028 (Sun
 WORK PRODUCT — DO NOT PRODUCE".
 *Plant:* none. *Key:* Internal work product: never in a demand package, mediation binder or arbitration exhibit set.
 
-**RS05 · Contingent Fee Retainer Agreement** · Day 1 · Case Files · `RS_05_Retainer_Agreement.pdf`
+**RS05 · Contingency Fee Agreement** · Day 1 · Case Files · `RS_05_Retainer_Agreement.pdf`
 LSH Law Group and John Doe, executed 02/09/2026, re the 02/06/2026 collision. Fee 33⅓% of gross recovery before
 suit; 40% of gross recovery once a lawsuit is filed. Costs reimbursed from the client's share after the fee
 (fee on gross). Client duties (no direct contact with carriers, keep appointments, keep us informed of address and
@@ -169,7 +169,7 @@ the scene. Restrained (rebuts "unbelted").
 **RS12 · Riverton Urgent Care — Visit Note (02/20/2026)** · Day 1 · Medical · `RS_12_Urgent_Care_Note.pdf`
 Nina Patel, PA-C. HPI exactly: "onset at MVA 02/06/2026, progressively worsening; numbness to right hand since
 02/18." Exam, assessment (cervical strain, r/o cervical radiculopathy), plan (cyclobenzaprine + naproxen Rx, refer
-orthopedics, recommend chiropractic/PT), payer: Harbor Point MedPay (claim HP-26-7741).
+orthopedics, recommend chiropractic/PT), payer: Harbor Point PIP (claim HP-26-7741).
 *Plant:* none. *Key:* First treatment: 14 days after the DOL. The history ties onset to the collision.
 
 **RS13 · Riverton Spine & Rehab — Initial Evaluation & LOP** · Day 2 · Medical · `RS_13_Spine_Rehab_Initial_Eval_and_LOP.pdf`
@@ -231,7 +231,7 @@ The receipts (spec list) and a printed Rx history; total $312.40.
 ### Bills & invoices (folder `bills`)
 
 **RS22 · Riverton Urgent Care — Statement** · Day 2 · Bills · `RS_22_Urgent_Care_Statement.pdf`
-DOS 02/20/2026, $685.00, paid by Harbor Point MedPay 03/09/2026, balance $0.00.
+DOS 02/20/2026, $685.00, paid by Harbor Point PIP 03/09/2026, balance $0.00.
 
 **RS23 · Riverton Spine & Rehab — Itemized LOP Ledger** · Day 2 · Bills · `RS_23_Spine_Rehab_Itemized_LOP_Ledger.pdf`
 Tammy Greer, office manager, statement date 06/30/2026: one line per visit date at $185.00, **34 lines**, total
@@ -240,11 +240,11 @@ Tammy Greer, office manager, statement date 06/30/2026: one line per visit date 
 *Key:* 33 visits match the attendance log (RS14); the second 05/04 line is a duplicate. Audited balance $6,105.00.
 
 **RS24 · Lakeside Orthopedics — Statement** · Day 2 · Bills · `RS_24_Lakeside_Orthopedics_Statement.pdf`
-Three visits 03/05, 03/27, 06/12/2026 at $640.00 = $1,920.00; MedPay payments 03/16, 04/10, 06/26/2026; balance $0.00.
+Three visits 03/05, 03/27, 06/12/2026 at $640.00 = $1,920.00; PIP payments 03/16, 04/10, 06/26/2026; balance $0.00.
 
 **RS25 · Summit Imaging Center — Invoice** · Day 2 · Invoices · `RS_25_Summit_Imaging_Invoice.pdf`
-Cervical MRI without contrast 03/13/2026, $2,395.00 (technical + professional), paid by MedPay 03/25/2026, $0.00.
-Note: "LOP requested 03/11/2026 — not required (MedPay coverage confirmed)".
+Cervical MRI without contrast 03/13/2026, $2,395.00 (technical + professional), paid by PIP 03/25/2026, $0.00.
+Note: "LOP requested 03/11/2026 — not required (PIP coverage confirmed)".
 
 **RS26 · Crescent Pain & Spine — Bill, Peach State EOB & Patient Statement** · Day 2 · Bills · `RS_26_Crescent_Bill_EOB_and_Statement.pdf`
 Page 1: claim to Peach State, DOS 05/15/2026, $3,400.00. Page 2: Peach State EOB (spec figures). Page 3: a Crescent
@@ -263,9 +263,9 @@ $20,000; PD $25,000; no UM; policy period covering 02/06/2026. Cover letter from
 *Key:* BI $10,000 per person confirmed 03/20/2026 — the first layer. PD $25,000 is outside the stack.
 
 **RS28 · Harbor Point Insurance — Declarations, Coverage Letter & Arbitration Clause** · Day 2 · Others · `RS_28_Harbor_Point_Dec_Page_and_Coverage_Letter.pdf`
-Dec page HPA-4402917 (Kevin Alvarez, 2020 Ford Escape; UM $20,000/$40,000 add-on/excess; MedPay $5,000). Marcus
-Bell's coverage letter 03/02/2026: John covered as an occupant; no reimbursement right on MedPay; UM add-on, not
-reduced by BI; no MedPay non-duplication reduction. Policy excerpt: UM arbitration clause (either party may demand
+Dec page HPA-4402917 (Kevin Alvarez, 2020 Ford Escape; UM $20,000/$40,000 add-on/excess; PIP $5,000). Marcus
+Bell's coverage letter 03/02/2026: John covered as an occupant; no reimbursement right on PIP; UM add-on, not
+reduced by BI; no PIP non-duplication reduction. Policy excerpt: UM arbitration clause (either party may demand
 arbitration of damages disputes) and the consent-to-settle condition.
 *Key:* Second layer. Consent before any BI settlement; the arbitration clause drives Track B's forum (RS57).
 
@@ -273,16 +273,16 @@ arbitration of damages disputes) and the consent-to-settle condition.
 Dec page CSM-AU-5580213 (Margaret Doe, 2018 Toyota Camry; UM $10,000/$20,000); 03/03/2026 letter assigning Teresa
 Okafor; 03/09/2026 coverage letter: John covered as a resident relative occupying a non-owned vehicle; exclusion
 excerpt (a vehicle owned by the insured or a resident relative and not insured under this policy).
-*Key:* Third layer, excess over Host UM. The exclusion is why driving his own Civic would have cost him this layer.
+*Key:* Third layer, excess over Host UM. He reaches it as Margaret's resident relative occupying a non-owned vehicle.
 
 **RS30 · Bluewater Auto — Declarations & UM Rejection** · Day 2 · Others · `RS_30_Bluewater_Dec_Page_and_UM_Rejection.pdf`
 Dec page BWA-209-66184 (John Doe, 2019 Honda Civic LX; liability 25/50/25; collision $500 ded.; UM/UIM: REJECTED);
 signed UM/UIM selection/rejection form 03/14/2024.
-*Key:* No UM on his own policy — why passenger status matters. His collision coverage is an alternative PD route.
+*Key:* Margaret's policy on the Civic: UM rejected in writing, so it adds no UM layer for John. Her collision coverage is a route for her own PD claim, not his.
 
-**RS31 · Harbor Point — MedPay Payment Ledger** · Day 2 · Others · `RS_31_Harbor_Point_MedPay_Ledger.pdf`
-The five payments (spec list), running balance to $0.00, "MedPay limit exhausted 06/26/2026".
-*Key:* Payer order in action; the Crescent bill went to Peach State, not MedPay.
+**RS31 · Harbor Point — PIP Payment Ledger** · Day 2 · Others · `RS_31_Harbor_Point_PIP_Ledger.pdf`
+The five payments (spec list) at 100% of the billed medical, running balance to $0.00, "PIP limit exhausted 06/26/2026"; a lost-income section: the 80% wage benefit ($1,267.20 on $1,584.00) not payable, limit exhausted before Northgate's 06/30/2026 letter.
+*Key:* Payer order in action; the Crescent bill went to Peach State, not PIP.
 
 **RS32 · Keystone Mutual — Claim Correspondence (Feb–Apr 2026)** · Day 2 · Others · `RS_32_Keystone_Claim_Correspondence.pdf`
 02/17/2026 Leah Moran: PD liability accepted; 02/18 rental authorized at Rivergate Rentals, $42.00/day, max 30 days;
@@ -459,3 +459,70 @@ released; UM consents attached.
 Atty. Thorne's certificate: John Doe's verified answers to interrogatories, responses to requests for production and
 responses to requests for admission served by U.S. mail on Atty. Grant Mercer 01/04/2027.
 *Key:* Proves the RFA responses were timely (due 01/04/2027).
+
+**RS65 · Harbor Point — PIP Application & Claim Acknowledgement** · Day 2 · Others · `RS_65_Harbor_Point_PIP_Application.pdf`
+John Doe's PIP application, signed 02/17/2026 and sent with the Harbor Point LOR (passenger in Kevin Alvarez's 2020 Ford Escape; household policies: Margaret Doe's Bluewater and Cardinal State, PIP rejected in writing), and Harbor Point's 02/24/2026 acknowledgement: PIP opened under HPA-4402917, $5,000 each person, 100% medical / 80% lost income, bills to be sent with the claim number; wage loss needs an employer verification.
+*Key:* Whose PIP: the vehicle he rode in, because no household policy carries PIP. Riverton's add-on rule: no BI or UM set-off, no reimbursement from the recovery.
+
+### The audited sets and their finished counterparts
+
+Three Skill Activities audit a draft set and are then shown the finished one: the Demand Package's exhibit
+packet (RS66 → RS67), the Litigation Desk's draft Mediation Binder (RS62 → RS69) and its draft Arbitration
+Binder index (RS63 → RS70). The drafts carry the plants; the finished sets carry none, and every activity that
+comes after works from them. Content for the audits: `build/case-flow/exhibits/EXHIBITSPEC.md`.
+
+**RS66 · Demand Package — Exhibit Packet & Index (DRAFT for audit)** · Day 3 · Others · `RS_66_Demand_Exhibit_Packet_DRAFT.pdf`
+The demand specialist's enclosure set for RS33, prepared 07/17/2026: a cover sheet, the Exhibit A–J index with page
+counts, Bates ranges and the source of each copy, a table of what the cover letter says the set proves, and the
+blank audit sheet the Case Manager fills in (keep / replace / pull, what is wrong or missing, the fix and who does
+it). Marked "DRAFT EXHIBIT PACKET — for Case Manager audit before Atty. Thorne signs".
+*Plants (ten, this is the loophole audit):* (1) Exhibit A cites the Police Report as **RPD-26-018824** (it is
+RPD-26-018842, RS07); (2) Exhibit C is the **grayscale** still export (RS09); (3) Exhibit E carries Riverton Spine &
+Rehab's **34-line, $6,290.00** ledger with the 05/04/2026 duplicate (RS23); (4) Exhibit E also carries Crescent's
+patient statement billing John **$1,540.00**, a contractual adjustment an in-network provider cannot bill (RS26);
+(5) Exhibit F is the MRI with the **02/16/2026** history date and no corrected addendum (RS16); (6) Exhibit I is the
+estimate and Diminished Value report for **Margaret Doe's** Civic, her claim and not Mr. Doe's;
+(7) Exhibit J encloses the **Master Case Summary** (work product, RS04) and the client's **HIPAA authorization**
+(RS06); (8) Bates ranges **overlap** (E runs 000016–66, F runs 000064–66); (9) **missing** the Gap Explanation
+Record, so the 19-day April disruption has no exhibit; (10) **missing** Keystone's declarations page and limits
+letter of 03/20/2026 (RS27), the proof of the limit the demand is built on.
+*Key:* Audited against the file, not against the draft's own figures. Every fix is a dated, assigned CMS task; the
+Case Manager corrects nothing silently. The finished set is RS67.
+
+**RS67 · BI Time-Limited Demand Package — FINAL as served (07/20/2026)** · Day 3 · Others · `RS_67_BI_Demand_Package_FINAL_AS_SERVED.pdf`
+The complete, ready-to-go package as signed and served, shown once the audit is handed in: the demand letter with
+RS33's four faults corrected (30 days **from receipt**; a **Limited Release of Robert Smith and Keystone Mutual
+only**, expressly preserving every UM/UIM claim and the Property Damage claim; Specials **$16,401.40**; Smith's
+affidavit of no other insurance added as condition 3), then the Exhibit Index as served — Exhibits A–J, 81 pages,
+Bates LSH-DEM-000001–000081, each exhibit mapped to the cover-letter section it proves — then a table of what was
+pulled from the draft set and why. Ends with the service record: signed and served 07/20/2026 by certified mail
+(No. 9589 0710 5270 0412 7731 58) and email at 4:21 p.m., return receipt 07/22/2026, acceptance docketed 08/21/2026.
+*Key:* No plants. This is the package every later activity works from: the negotiation, the lien work, the
+Mediation Binder (RS69) and the arbitration exhibits (RS70) all trace to these exhibits and these figures.
+
+**RS68 · Demand Service & Adjuster Acknowledgment — Memorandum (as filed)** · Day 3 · Others · `RS_68_Demand_Service_and_Acknowledgment_Memo.pdf`
+The model for the Service Confirmation activity: a memorandum to file dated 07/22/2026 holding the service table
+(both channels and their proof), the Case Manager's confirmation email of 07/20/2026 reproduced in full, Dana
+Whitfield's written acknowledgment of 07/22/2026, what the acknowledgment establishes and what it does not, the
+same-day action taken, and where the memorandum and its thread are filed (CMS → Doc Hub → Others under the firm's
+naming convention, Communications Log, the Insurance tab's Demand record, and the Google Drive backup folder).
+*Key:* No plants. The acknowledgment fixes 07/22/2026 from the carrier's own writing and confirms the set is
+complete at 81 pages, Exhibits A–J, closing the "we never got all of it" argument. "I may come back to you about
+the time frame" is a request **flagged for Atty. Thorne**, never an extension the Case Manager grants.
+
+**RS69 · Mediation Binder — FINAL as delivered (03/11/2027)** · Day 4 · Litigation · `RS_69_Mediation_Binder_FINAL_AS_DELIVERED.pdf`
+The complete six-section binder as approved 03/10/2027 and delivered 03/11/2027, shown once the audit is handed in:
+the master index (Sections 1–6, 141 pages, Bates LSH-MED-000001–000141, OCR-searchable and bookmarked), the Section 3
+defense map pairing each of the five pleaded allegations with the exhibit that answers it (and the two legal
+questions flagged for Atty. Thorne), the Section 5 ledger rebuilt line by line to **$16,401.40** with open liens
+**$7,965.00**, the Property Damage schedule kept separate, a table of what the audit changed and what each fault
+would have cost, and the delivery record.
+*Key:* No plants. Built from RS67 and audited against the Litigation Desk's draft index (RS62); the starting point for RS70 and for Day 5.
+
+**RS70 · UM Arbitration Binder — FINAL as exchanged (06/02/2027)** · Day 4 · Litigation · `RS_70_Arbitration_Binder_FINAL_AS_EXCHANGED.pdf`
+The complete six-tab binder as approved 05/29/2027 and exchanged 06/02/2027, shown once the audit is handed in: the
+master exhibit index (Tabs 1–6, exhibits C-1 to C-18, 174 pages, Bates LSH-ARB-000001–000174) with each tab's QC
+rule in its row, the withheld-items list with Atty. Thorne's recorded reason for each, the Lien Sheet audited from
+$15,545.00 to **$7,965.00**, a table of what the sort and QC changed, and the exchange record.
+*Key:* No plants. Threshold exhibits lead (the BI tender, the UM consents, the Limited Release and the dismissal);
+the brief is docketed **06/11/2027**; nothing privileged or settlement-related is in the exchanged set.

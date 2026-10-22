@@ -10,7 +10,7 @@
 
 - A raw file from “On the Records”: date of loss 02/06/2026, statute of limitations 02/06/2028; the client's position and the facts of loss are in the Police Report, to be read, not assumed.
 - Nothing is in the CMS yet: no Conflict Check, no matter, no parties.
-- John Doe's Civic was damaged in the crash; the Property Damage claim and the rental are still to be set up.
+- A parked Civic was damaged in the crash; whose Property Damage claim and rental it is has yet to be worked out from the records.
 - John Doe has not started treatment.
 
 > Generated from `js/cm-case-flow-data.js` by `build/case-flow/curriculum.cjs`. Edit the data and regenerate; never edit this file by hand. Spec: `00-architecture.md`. Theory map: `traceability.md`.
@@ -43,8 +43,9 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 8. *Skill Activity* — Opening John Doe's File in the CMS
 9. *Skill Activity* — Client Onboarding Direction Packet
 10. *Skill Activity* — Onboarding Direction Assignment in System
-11. *Knowledge Check* — CM Fundamentals Knowledge Check
-12. *Knowledge Check* — PD & Onboarding Knowledge Audit
+11. *Skill Activity* — Whose Rental Is It? The Civic Investigation
+12. *Knowledge Check* — CM Fundamentals Knowledge Check
+13. *Knowledge Check* — PD & Onboarding Knowledge Audit
 
 **End-of-day discussion (trainer):** Robert Smith's carrier has already called John Doe, and he needs a car to get to work. What do you tell him today, in what order, and what has to be on the file before tomorrow's claim set-up?
 
@@ -52,7 +53,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 1 — Intake, Claims & Property Damage
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check
 
 ### 1.1.1 The Case Manager's Role
 
@@ -152,7 +153,7 @@ A case card filling the slide like a file folder: top-left the style JOHN DOE v.
 2. Your client: John Doe, 34, a warehouse shift lead at Northgate Distribution. Lead Counsel: Atty. Elijah Thorne. Case Manager: you. Where John Doe was sitting is a fact you find in the records, not one you are given.
 3. The Recovery Stack is $40,000, worked in order: $10,000 BI (Keystone Mutual) → $20,000 Host UM (Harbor Point) → $10,000 Relative UM (Cardinal State Mutual).
 4. His position in the vehicle decides which of those layers he can reach. Work it out from the Police Report and the policies before you name a single carrier.
-5. Health: Peach State Health Plan asserted a reimbursement right on first notice; Harbor Point carries $5,000 MedPay on the Escape.
+5. Health: Peach State Health Plan asserted a reimbursement right on first notice; Harbor Point carries $5,000 PIP on the Escape.
 6. The critical fact: compare the EMS Run Report's date with the first treatment record. The days between them are a Treatment Gap: you record its dates and, later, John Doe's own documented explanation. You never judge it.
 7. The statute of limitations is docketed for 02/06/2028. Every deadline on the file counts from the date of loss.
 
@@ -374,7 +375,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 #### 5 · Speaker Notes
 
 - Open by asking the room: “What is the single most expensive mistake you can make in the first hour of a file?” Let them answer, then show the passenger field.
-- The passenger fact is the whole lesson. Driving his own car on this loss, John Doe would reach $10,000: he rejected UM on his own policy, and the relative policy excludes a car he owns. As a passenger in the host vehicle he reaches $40,000. Same crash, same injuries, four times the recovery, decided by one field.
+- The passenger fact is the whole lesson. John Doe owns no car and has no auto policy of his own, so every UM dollar comes through someone else's policy. As a passenger in the host vehicle he reaches $40,000. Same crash, same injuries, four times the recovery, decided by one field.
 - Stress that “On the Records” files arrive unverified. A trainee who treats the intake note as fact carries its errors into the demand.
 - Name the UPL line now. It comes back every day of this program.
 
@@ -617,7 +618,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 - The recurring misconception is that ACV equals the loan balance. Correct it the moment it appears.
 - Storage is the silent cost. Ask: “Who is paying for every day this car sits?”
-- Loss of Use is the most often forgotten item, and on this file it matters: John Doe needs to get to treatment he hasn't started.
+- Loss of Use is the most often forgotten item. On this file it is not John Doe's to claim: ask the room whose car the Civic is, and make them prove it from the Police Report and the intake. His own need is a ride to treatment he hasn't started.
 - Day 5 reopens this with Diminished Value and the Property Damage dispute lab. Today is the threshold; Day 5 is the fight.
 
 ---
@@ -710,7 +711,7 @@ An exploded packet: a central navy folder with six document cards fanned around 
 
 **Scenario.** John Doe's retainer is signed and the matter is open in the CMS. Nothing has been sent to him yet, and he has already had one call from Robert Smith's carrier.
 
-**Execution prompt.** Assemble John Doe's onboarding Direction Packet. Build all six sections, populate each with the firm's standing instructions, and make the Property Damage section specific to this file. Given that the adverse carrier has already called him, state which instruction is now most urgent and how you will confirm he has understood it. Then log delivery.
+**Execution prompt.** Assemble John Doe's onboarding Direction Packet. Build all six sections, populate each with the firm's standing instructions, and make the Property Damage section specific to this file: from the records, state whose vehicle and claim it is. Given that the adverse carrier has already called him, state which instruction is now most urgent and how you will confirm he has understood it. Then log delivery.
 
 | | |
 |---|---|
@@ -722,7 +723,7 @@ An exploded packet: a central navy folder with six document cards fanned around 
 - [ ] All six packet sections present and populated
 - [ ] The standing instructions all appear in the Do's and Don'ts
 - [ ] Treatment direction stated, given that treatment has not begun
-- [ ] Property Damage section names the rental parameters to confirm
+- [ ] Property Damage section states, from the records, that the PD and rental claim belong to the Civic's owner, not the client
 - [ ] Communication protocol routes all adverse carrier contact to the firm
 - [ ] Firm contacts list Atty. Elijah Thorne as Lead Counsel
 - [ ] Delivery logged with date and method
@@ -836,7 +837,78 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.11 CM Fundamentals Knowledge Check
+### 1.1.11 Whose Rental Is It? The Civic Investigation
+
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
+> **Topic:** Skill Activity 3 — investigate the PD and rental claim from the records  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#44` Handling Treatment Gaps During the Treatment Phase · LSH Claims Specialist: LOR Property Damage carve-out, rental coverage hierarchy, documents to support the claim
+
+#### 1 · Visual Layout Description
+
+An evidence board: four document cards (Police Report, Intake Sheet, Intake Supplement, Keystone PD letter) pinned in a row, each with one highlighted field and a red string running to a central card that reads OWNER · CLAIMANT · OUR CLIENT? with three blank lines.
+
+#### 2 · Slide Body — Let Them
+
+**Scenario.** 02/11/2026. Keystone PD (Leah Moran) emails the firm to confirm the claimant on the 2019 Honda Civic so a rental can be set up once liability is decided. John Doe calls: he needs a car to get to his first appointment and asks whether the rental is his. Nobody has yet written down whose claim it is.
+
+**Execution prompt.** Before anyone answers John Doe, investigate. From the Police Report, the Intake Sheet, the Intake Supplement and the CMS Intake Record, establish where John Doe was in the collision, who owns the Civic and who the PD and rental claimant is. Write the finding as a CMS Case Note that cites each source, decide whether John Doe has a Property Damage or rental claim of his own, and report it to Atty. Thorne. Then answer John Doe's call within the UPL line and solve his real problem: a ride to treatment.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → Case Notes · CMS → Property Damage · Call Simulator |
+| **Expected output** | A sourced Case Note naming the Civic's owner and the PD and rental claimant, a report to Atty. Thorne, and a logged call with John Doe that arranges his transportation without advising anyone on the claim. |
+
+**Verification checkpoints**
+
+- [ ] John Doe's position in the collision taken from the Police Report, not assumed
+- [ ] The Civic's owner named from the Police Report and the Intake Supplement
+- [ ] The PD and rental claimant named from the owner, with the Intake Record's carrier line
+- [ ] Conclusion recorded: John Doe has no PD or rental claim of his own
+- [ ] Each finding cites its source document and page
+- [ ] Atty. Thorne told the same day; the owner's claim left to the owner and the attorney
+- [ ] No advice to John Doe or the owner about the PD claim or its value
+- [ ] John Doe's transportation to treatment arranged or escalated
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Rental authorization arrives | Read the records before answering anyone | CMS → Documents | Owner and claimant found in the file |
+| Ownership established | Write the sourced Case Note | CMS → Case Notes | Each fact cites its document |
+| Client asks about the rental | State the fact, route the claim question to Atty. Thorne, solve the ride | Call Simulator · CMS → Tasks | Call logged; transportation task dated |
+
+**Best practices & pitfalls**
+
+- Read the Police Report's vehicle and occupant boxes before you set up any PD claim.
+- Ask of every claim: who owns it, and is that person our client?
+- ⚠️ Pitfall: setting up a rental in the client's name because he is the one who called.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **25%** | Evidence | Position, owner and claimant each taken from a named record |
+| 🤖 AI | **20%** | Conclusion | No PD or rental claim for John Doe; whose claim it is, stated |
+| 🤖 AI | **15%** | UPL boundary | Nothing said to John Doe or the owner about the claim's merits or value |
+| 🧑‍🏫 Trainer | **25%** | Investigative reasoning | Reconciles the records and notices what the client's call assumes |
+| 🧑‍🏫 Trainer | **15%** | Client care | Solves the real need, a ride to treatment, the same day |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Don't tell the room whose car it is. The Police Report's Unit 3 box and the Intake Supplement settle it; make them find both.
+- The trap is the call: John Doe asks for the rental and a helpful trainee books it in his name. Grade that as the failure it is.
+- The finding goes to Atty. Thorne; whether the firm helps the owner is his decision, not the CM's.
+
+---
+
+### 1.1.12 CM Fundamentals Knowledge Check
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -850,9 +922,8 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 #### 2 · Slide Body — Knowledge verification
 
 1. Name the six stages of John Doe's file in order, and say what the Case Manager owns at Intake & Case Opening that nobody else will.
-2. John Doe asks what his case is worth. Who answers, what do you tell him, and what do you log?
+2. John Doe asks you two things on the same call: what his case is worth, and whether waiting to see a doctor hurt it. Say word for word what you tell him on each, who answers them if you do not, and what you record and route in the CMS.
 3. You are opening John Doe's matter in the CMS. What must happen before the matter is created, on whose names, and why does the order matter?
-4. John Doe asks whether waiting to see a doctor hurt his case. Say word for word what you tell him, and what you record in the CMS.
 
 **Best practices & pitfalls**
 
@@ -904,7 +975,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
    Counts, as long as you remember it · **✓ Didn't happen: the CMS is the single source of truth** · Belongs in an email to yourself · Gets logged at the end of the month  
    *Every contact, document, deadline and decision is logged in the CMS the same day. If it isn't in the CMS, it didn't happen.*
 8. Where was John Doe in the collision on 02/06/2026?  
-   Driving his own Civic · **✓ The front-seat passenger in Kevin Alvarez's 2020 Ford Escape** · A pedestrian at the crossing · Driving Margaret Doe's car  
+   Driving Margaret Doe's Civic · **✓ The front-seat passenger in Kevin Alvarez's 2020 Ford Escape** · A pedestrian at the crossing · A passenger in Margaret Doe's Civic  
    *He was the front-seat passenger in the host vehicle; Robert Smith ran the all-way stop and struck the passenger door.*
 9. Which statute of limitations is docketed on John Doe's file?  
    02/06/2027 · 02/20/2028 · **✓ 02/06/2028** · 02/09/2028  
@@ -946,7 +1017,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 1.1.12 PD & Onboarding Knowledge Audit
+### 1.1.13 PD & Onboarding Knowledge Audit
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -960,7 +1031,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 #### 2 · Slide Body — Knowledge verification
 
 1. List the firm's standing instructions for a new personal injury client and, for each, the specific harm it prevents.
-2. Before John Doe collects a rental, what must be confirmed, and whose coverage provides the rental? What happens to days outside the authorization?
+2. Before anyone collects a rental, what must be confirmed, and whose coverage provides the rental? On John Doe's file, whose rental is it, and how do the records tell you?
 3. Explain what actual cash value means, what it does not mean, and why confusing it with the loan balance misleads the client.
 
 **Best practices & pitfalls**
@@ -989,7 +1060,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (9 questions):
+**Auto-graded share of the day's Knowledge Check** (10 questions):
 
 1. The Property Damage carve-out in the LOR lets the adverse carrier talk to the client about:  
    Injuries and treatment · **✓ The Property Damage claim only** · Anything except settlement figures · A Recorded Statement  
@@ -1012,10 +1083,13 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 7. A vehicle is a Total Loss when:  
    The client no longer wants it · **✓ The cost to repair reaches the carrier's threshold measured against its actual cash value** · Any frame damage is found · The repair takes longer than 30 days  
    *Confirm the threshold basis the carrier is applying, in writing. Actual cash value is the pre-loss market value.*
-8. John Doe is without a car while the Civic is in the shop. Loss of Use is:  
-   Included in the repair payment · **✓ Claimable for each day without a vehicle, measured by a comparable rental, separately from the repair or ACV payment** · Owed only if the car is a Total Loss · Paid by his Health Plan  
+8. Keystone asks the firm to confirm the claimant on the parked 2019 Honda Civic. From the records, whose Property Damage and rental claim is it?  
+   John Doe's: he called about the rental first · **✓ The owner's, as the Police Report and the intake records show; John Doe, a passenger who owns no car, has none** · Kevin Alvarez's, as host driver · Robert Smith's carrier decides whose it is  
+   *The claim belongs to the vehicle's owner, found in the Police Report's Unit 3 box and the Intake Supplement. A passenger who owns no car has no PD or rental claim; the CM records the finding and tells the attorney.*
+9. An owner is without her car while it is in the shop. Loss of Use is:  
+   Included in the repair payment · **✓ Claimable for each day without a vehicle, measured by a comparable rental, separately from the repair or ACV payment** · Owed only if the car is a Total Loss · Paid by her Health Plan  
    *Loss of Use is a separate claim. Asserting it is counsel's position, and the governing rule is confirmed for the file.*
-9. The Civic sits in storage while its valuation is disputed. Why settle its disposition quickly?  
+10. The Civic sits in storage while its valuation is disputed. Why settle its disposition quickly?  
    **✓ Storage and towing accrue daily and eat the recovery** · Property Damage must be claimed within 30 days · The body shop will sell it · The carrier stops paying the rental at once  
    *Storage and towing charges accrue daily. Document and escalate a disputed valuation; don't argue it ad hoc with the adjuster.*
 

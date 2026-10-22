@@ -210,6 +210,32 @@
       ]
     ]
   },
+  "d3m3-l3": {
+    "dos": [
+      [
+        "Riverton's audited balance is $6,105.00.",
+        "A letter with the recovery, fee, costs and other liens goes out first.",
+        "Atty. Thorne's written authority is already in the file."
+      ],
+      [
+        "Peach State agrees to $1,240.00.",
+        "The Net Sheet changes that afternoon.",
+        "John Doe sees his take-home rise before he asks."
+      ]
+    ],
+    "donts": [
+      [
+        "Riverton's biller says $4,580.00 works for them.",
+        "Nothing is sent and nothing comes back signed.",
+        "The full balance reappears a month later."
+      ],
+      [
+        "The provider counters below the floor.",
+        "The CM says yes to close it out.",
+        "Atty. Thorne hears about it after the fact."
+      ]
+    ]
+  },
   "d3m4-l1": {
     "dos": [
       [

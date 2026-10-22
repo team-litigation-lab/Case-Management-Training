@@ -37,7 +37,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#25` | The “Golden Rule” of US Claim Set-Up | ✅ BUILT | d1m4-l2, d1m4-kc |
 | `D1#26` | The Treatment Phase — Core Objectives | ✅ BUILT | d2m2-l1, d2m2-a2, d2m2-a3 |
 | `D1#27` | Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention | ✅ BUILT | d2m2-l2, d2m2-a2 |
-| `D1#28` | Treatment Phase: Essential Client Communication Strategies | ✅ BUILT | d1m3-l1, d1m3-a1, d2m2-l2, d2m3-l1, d2m3-a1, d2m3-kc |
+| `D1#28` | Treatment Phase: Essential Client Communication Strategies | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a3, d2m2-l2, d2m3-l1, d2m3-a1, d2m3-kc |
 | `D1#29` | Handling the Treatment Phase: Clinical Documentation (GIRP) | ✅ BUILT | d2m2-l2, d2m2-a2, d2m2-a3, d2m3-a1, d2m3-kc |
 | `D1#30` | Handling the Treatment Phase: Proactive Resource Coordination | ✅ BUILT | d2m2-l1, d2m2-a2, d2m2-a3 |
 | `D1#31` | Treatment Red Flags: PT & Conservative Care, Surgical Protocols | ✅ BUILT | d2m2-l2 |
@@ -53,7 +53,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#41` | Immediate Action Protocol: A-C-T for Red Flags | ✅ BUILT | d2m2-l2, d2m2-a2 |
 | `D1#42` | Illustration & Course Correction: The 6-Week Rule and Objective Metrics | ✅ BUILT | d2m2-l2, d2m2-kc |
 | `D1#43` | The “Yellow Flag” Warning System | ✅ BUILT | d2m2-l2 |
-| `D1#44` | Handling Treatment Gaps During the Treatment Phase | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a2, d1m3-kc, d1m4-a1, d1m4-a2, d1m4-kc, d2m2-a3, d2m3-l1, d2m3-a1, d2m3-l2, d2m3-a2, d2m3-kc, d5m4-kc |
+| `D1#44` | Handling Treatment Gaps During the Treatment Phase | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a2, d1m3-a3, d1m3-kc, d1m4-a1, d1m4-a2, d1m4-kc, d2m2-a3, d2m3-l1, d2m3-a1, d2m3-l2, d2m3-a2, d2m3-kc, d5m4-kc |
 | `D1#45` | Common Bottlenecks: Escalation Protocol & the Escalation Ladder | ✅ BUILT | d2m2-l2, d2m2-a2, d4m4-l2, d4m4-a2, d4m4-kc |
 | `D1#46` | Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain | ✅ BUILT | d2m2-a1, d2m2-kc |
 | `D1#47` | Skill Building: Handling Client Treatment — “The Transportation Wall” | ✅ BUILT | d2m2-a2 |
@@ -94,7 +94,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D2#30` | Skill Building: The Math Check — Your Slam-Dunk Liability Case | ✅ BUILT | d3m2-a1, d3m2-kc |
 | `D2#31` | BI Settlement — Phase II: The UM/UIM “Safety Check” | ✅ BUILT | d3m1-l2, d3m1-kc |
 | `D2#32` | BI Settlement: Key Laws & Doctrines | ✅ BUILT | d3m1-l2 |
-| `D2#33` | The Execution: The Release of All Claims (The “Exit” Document) | ✅ BUILT | d3m4-l2, d3m4-a2 |
+| `D2#33` | The Execution: The Release of All Claims (The “Exit” Document) | ✅ BUILT | d3m4-l2, d3m4-a2, d4m2-um, d4m2-a3, d4m2-kc |
 | `D2#34` | The Execution: Settlement Disclosure Statement (The “Truth” Document) | ✅ BUILT | d3m4-l2 |
 | `D2#35` | The Execution: Lien Payoff Letters (The “Verification” Paperwork) | ✅ BUILT | d3m3-a1, d3m3-l2, d3m3-a2, d3m4-l1, d3m4-a1, d3m4-l2, d3m4-a2 |
 | `D2#36` | The Execution: The Settlement Statement (The “Net” Sheet) | ✅ BUILT | d3m4-l1, d3m4-a1, d3m4-l2 |
@@ -112,7 +112,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D3#2` | Beyond Organization: The UM Demand Strategy | ✅ BUILT | d3m1-l2 |
 | `D3#3` | BI Exhaustion & Consent — Mechanic 1: Locking the Escape Hatches | ✅ BUILT | d3m1-l2, d3m1-kc, d5m4-kc |
 | `D3#4` | The UM Demand Package: Turning Risk Management Against the Insurer | ✅ BUILT | d3m1-l2, d3m1-a2 |
-| `D3#5` | UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap | ✅ BUILT | d3m1-l2, d3m1-a2 |
+| `D3#5` | UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap | ✅ BUILT | d3m1-l2, d3m1-a2, d4m2-um, d4m2-a3 |
 | `D3#6` | UM Demand: The Demand Packet — Document Inclusions | ✅ BUILT | d3m1-a2, d3m1-kc |
 | `D3#7` | UM Settlement: How the Settlement Is Calculated | ✅ BUILT | d3m2-l2, d3m2-a2 |
 | `D3#8` | UM Settlement: Negotiation & Settlement | ✅ BUILT | d3m2-l2, d3m2-a2 |
@@ -126,10 +126,10 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D3#16` | Documents that Matter: Final Pleading & Release Documents (Closing Phase) | ✅ BUILT | d3m1-a2 |
 | `D3#17` | Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit | ✅ BUILT | d3m2-l2, d3m2-a2, d3m2-kc |
 | `D3#18` | Lien Negotiations/Reduction: Common Types of Liens | ✅ BUILT | d3m3-l1, d3m3-a1, d3m3-kc |
-| `D3#19` | Key Legal Doctrines Used for Reduction | ✅ BUILT | d3m3-l1, d3m3-a1, d3m3-kc |
+| `D3#19` | Key Legal Doctrines Used for Reduction | ✅ BUILT | d3m3-l1, d3m3-a1, d3m3-kc, d4m2-um, d4m2-a3, d4m2-kc |
 | `D3#20` | Quantum Meruit Principle — Prior Attorney Liens | ✅ BUILT | d3m3-l1, d3m3-kc |
-| `D3#21` | Increasing the Client's Net | ✅ BUILT | d3m3-l2, d3m3-a2, d3m3-kc, d5m5-l1, d5m5-a1 |
-| `D3#22` | Auditing the Billing Before Asking for a Discount | ✅ BUILT | d3m3-l2, d3m3-a2, d3m3-kc |
+| `D3#21` | Increasing the Client's Net | ✅ BUILT | d3m3-l2, d3m3-l3, d3m3-a2, d3m3-kc, d5m5-l1, d5m5-a1 |
+| `D3#22` | Auditing the Billing Before Asking for a Discount | ✅ BUILT | d3m3-l2, d3m3-l3, d3m3-a2, d3m3-kc |
 | `D3#23` | The Net Sheet: Purpose of a Combined BI/UM Net Sheet | ✅ BUILT | d3m4-l1, d3m4-kc, d5m5-l1, d5m5-kc |
 | `D3#24` | The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) | ✅ BUILT | d3m4-l1, d3m4-kc, d5m4-kc, d5m5-l1, d5m5-kc |
 | `D3#25` | The Net Sheet: The LSH Corporate Net Sheet Ledger | ✅ BUILT | d2m2-eob, d3m4-l1, d3m4-a1, d5m5-l1, d5m5-a1 |
@@ -152,7 +152,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | # | Topic | Status | Where it lives now |
 |---|---|---|---|
 | `D4#1` | Welcome to Day 4: When Pre-Suit Negotiations Stall | ✅ BUILT | d4m1-l1, d4m1-l2, d4m1-kc, d5m4-kc |
-| `D4#2` | Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background | ✅ BUILT | d4m1-l2, d4m1-kc |
+| `D4#2` | Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background | ✅ BUILT | d4m1-l2, d4m1-kc, d4m2-um, d4m2-a3 |
 | `D4#3` | Introducing the Neutral: Assignment & Selection Workflows | ✅ BUILT | d4m1-l2, d4m1-a2, d4m1-kc |
 | `D4#4` | Introducing the Neutral: Extent of Decision-Making Power | ✅ BUILT | d4m1-l2, d4m1-kc |
 | `D4#5` | Mediation Protocols for CMs: Logistics & Scheduling | ✅ BUILT | d4m2-a1, d4m2-l2, d4m2-kc |
@@ -169,7 +169,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D4#16` | Case Phase: Arbitration — The Anatomy of a PI Arbitration | ✅ BUILT | d4m2-l2, d4m2-a2, d4m2-kc |
 | `D4#17` | Arbitration: Operational Mindset — From Compromise to Trial-Ready | ✅ BUILT | d4m2-l2, d4m2-a2, d4m2-kc |
 | `D4#18` | Arbitration Operational Track 1: Critical Timelines & Calendar Hard Rules | ✅ BUILT | d4m2-l1, d4m2-a1, d4m2-a2, d4m2-kc |
-| `D4#19` | Arbitration Operational Track 2: Logistics & Setup Protocols | ✅ BUILT | d4m2-l2, d4m2-a2 |
+| `D4#19` | Arbitration Operational Track 2: Logistics & Setup Protocols | ✅ BUILT | d4m2-um, d4m2-l2, d4m2-a2 |
 | `D4#20` | Ethics & Boundaries: What You Can and Cannot Do at Hearings (UPL) | ✅ BUILT | d1m1-upl, d4m2-l2, d4m2-a2, d4m2-kc |
 | `D4#21` | Arbitration Binders: Section 1 — The Arbitration Submissions | ✅ BUILT | d4m3-l2, d4m3-a2, d4m3-kc |
 | `D4#22` | Arbitration Binders: Section 2 — Core Litigation Pleadings | ✅ BUILT | d4m3-l2, d4m3-a2 |
@@ -248,13 +248,15 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: information protection on third-party claims, LOR acknowledgement
 - LSH Claims Specialist: Declaration Pages, certified copy of policy, policy limits and limit types
 - LSH Claims Specialist: follow-up cadence, LOR acknowledgement, statement of insurance disclosure
-- Newly authored: verifying the UM form and MedPay terms at set-up; the regulatory and policy deadline backstop
+- Newly authored: verifying the UM form and PIP terms at set-up; the regulatory and policy deadline backstop
 - LSH Claims Specialist: Declaration Pages, coverage verification and follow-up
-- Newly authored: verifying the UM form and MedPay terms at set-up
+- Newly authored: verifying the UM form and PIP terms at set-up
 - LSH Claims Specialist: LOR components, information protection, acknowledgement and limits disclosure
 - D1 Task Overview: Billing, Resolution & Closing
 - LSH Claims Specialist: MedPay vs. PIP (Medical Bills regardless of fault, no lost wages)
-- Newly authored: LOP issuance guidelines and the MedPay exhaustion ledger
+- Newly authored: LOP issuance guidelines and the PIP exhaustion ledger
+- Case file: Riverton Spine & Rehab, chiro and PT under an LOP signed 02/23/2026 (RS23, the itemized LOP ledger)
+- Newly authored: Letters of Protection, and the Case Manager's part in client-provider referrals within the UPL line
 - Newly authored: redirecting a referral to the client's choice of facility, and the downstream task list (each task done or delegated with an owner and a due date)
 - LSH Claims Specialist: communication skills and professionalism — clarity without jargon, empathy, active listening, paraphrasing, calm reassurance
 - LSH Claims Specialist: LOR — all carrier communication through the firm
@@ -272,6 +274,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: review the case reference sheet before any adjuster call; no backdoor contact with the client
 - Newly authored: plan funding status (self-funded vs. fully insured) decides the law that governs a health-plan reduction; the verified-none inventory of absent lienholders
 - Newly authored: the pro-rata distribution rule worked on the BI-only illustration; the pro-rata argument restated on true facts for a fund that covers every lien
+- Newly authored: lien negotiation calls, from the Pre-Demand & Reduction File Review Protocols handout (LSH Knowledge Base, CM Training · Day 4)
 - Newly authored: trust-account handling (same-day IOLTA deposit once the release is signed, client endorsement, no disbursement against uncleared funds, disputed shares held in trust); the contingent-fee Settlement Statement (ABA Model Rule 1.5(c) as an example); the UM release's Medicare and confidentiality terms
 - LSH Claims Specialist: liability denial and disputes — the dispute path to litigation; duty, breach, causation and damages; ask for the denial's reasons and evidence in writing
 - Newly authored: the five impasse triggers, each proved from the file
@@ -283,7 +286,13 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - Newly authored: SOL internal hard date and 90-day internal filing cutoff (firm rule configured for this training file), kept live after filing until Atty. Thorne releases them
 - Newly authored: scheduling-order entry (read each verb) and RFAs docketed separately for the deemed-admission risk
 - Newly authored: calendar-error risk (later or missing costs rights; earlier costs time)
+- LSH Claims Specialist: UM/UIM coverage and exhaustion
+- Newly authored: the first-party vs. third-party mindset shift stated as the CM's opening question on a UM dispute
+- Newly authored: the three-step UM dispute flow (claim submission → impasse → resolution route) with the route read from state law and the policy clause, never chosen
+- Newly authored: bad faith kept off the route fork as a separate suit above the limits, reserved to counsel; each UM layer read and docketed on its own clause
 - Newly authored: court-ordered mediation compels attendance, not agreement
+- Newly authored: where ADR lands on the timeline — pre-litigation and post-filing mediation, contractual pre-filing arbitration and agreed post-filing arbitration, and the Standard Case Progression Roadmap
+- Newly authored: the impasse memo that quotes each layer's clause and asks the route, the per-layer deadline and consolidation as three written questions
 - Newly authored: exhibit numbering, Bates ranges and the master index as the one source of truth
 - Newly authored: authentication, business-records certifications, relaxed evidence rules in arbitration, and mediation confidentiality at the hand-off
 - LSH Claims Specialist: BI liability follow-ups (every 5 business days) and the escalation protocol
@@ -334,19 +343,21 @@ Where neither source had the theory, it was written for this flow and is marked 
 - **The three-criteria Skip-Trace gate** — Day 1 · Module 2 — the No Contact Protocol has the steps; the trigger rule is new
 - **The five-band Case Plan wrapping the Three-Pillar Plan, and the review-loop states** — Day 1 · Module 4
 - **The two-track fork: one file settling on Day 3 (Track A) and going to suit on Days 4–5 (Track B) from the same 08/05/2026 negotiation** — Days 3–5 — the brief's day order, made one coherent file
-- **UM notice at claim set-up (notice is not a demand) and verifying each UM form and MedPay's terms in writing** — Day 2 · Module 1
-- **LOP issuance guidelines and the MedPay exhaustion ledger** — Day 2 · Module 2
+- **UM notice at claim set-up (notice is not a demand) and verifying each UM form and PIP's terms in writing** — Day 2 · Module 1
+- **LOP issuance guidelines and the PIP exhaustion ledger** — Day 2 · Module 2
 - **Redirecting a referral to the client's choice of facility, and the downstream task list: each task done or delegated with an owner and a due date** — Day 2 · Module 2
 - **The non-leading gap interview, recording a client call with consent stated, and the Gap Explanation Record format** — Day 2 · Module 3
 - **Billed vs. paid Specials routed to counsel, and the strategy-briefing protocol for Lead Counsel** — Day 2 · Module 4
 - **The five elements of a Time-Limited Demand that holds up, and the Limited Release as the guard on the UM claims** — Day 3 · Module 1
-- **The net-floor gross-up for a percentage fee, and PIP valuation doctrine carried over to MedPay** — Day 3 · Module 2
+- **The net-floor gross-up for a percentage fee, and PIP valuation doctrine carried over to PIP** — Day 3 · Module 2
 - **The 'verified none' lien inventory and pro-rata distribution worked on the BI-only illustration** — Day 3 · Module 3
 - **Trust handling (cleared funds, disputed shares held) and the UM release audit points** — Day 3 · Module 4
 - **The Track B close-out: the 07/06/2027 arbitration award, liens reduced at the 40% tier and the litigated LSH Net Sheet** — Day 5 · Module 5 — the case file had stopped at the hearing; written so the litigation track ends in a disbursement
 - **The five impasse triggers and the decision-only impasse memo** — Day 4 · Module 1
 - **Backward-counted deadlines move to the earlier business day; the SOL's internal hard date and cutoff** — Day 4 · Module 2
 - **Exhibit numbering, Bates ranges and the master index; authentication and relaxed arbitration evidence rules** — Day 4 · Module 3
+- **The first-party vs. third-party mindset shift, and the three-step UM dispute flow with the resolution route read off the state law and the policy clause rather than chosen** — Day 4 · Module 4 — ADR: UM/UIM Coverage Disputes
+- **Bad faith kept off the UM route fork as a separate suit above the policy limit, reserved to counsel; each UM layer read and docketed on its own clause and its own deadline** — Day 4 · Module 4 — ADR: UM/UIM Coverage Disputes
 - **Three bottleneck families, CMS countermeasure rules and the five-field bottleneck report** — Day 4 · Module 4
 - **KPIs as formulas with targets, and the last day to serve written discovery** — Day 5 · Module 1
 - **Rental cap vs. reasonable repair time, the 17c critique and the PD-only release** — Day 5 · Module 2

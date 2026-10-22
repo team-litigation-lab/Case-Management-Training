@@ -410,8 +410,8 @@ function fullText(l, d){
     + S(3, "Trigger ➔ Task ➔ Tool ➔ Checkpoint", opsTable(b.ops))
     + S(4, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
   if(b.kind === "activity") return S(1, "Let Them — the scenario", `<div class="scenario-card"><div class="stag">John Doe v. Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
-    + S(2, "Let Them — execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span><span class="cfx-btns">${toolButtons(b.act.tool + (SIM.calls[b.id] ? " Call Simulator" : ""), b.id)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
-    + S(3, "Verification checkpoints", ul(b.act.checkpoints))
+    + S(2, "Let Them — execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
+    + S(3, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once you finish the activity and reveal the answers on its Check Your Work slide.</p>`)
     + S(4, "Trigger ➔ Task ➔ Tool ➔ Checkpoint", opsTable(b.ops))
     + S(5, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
   return S(1, "Knowledge verification", `<ol class="cf-q">${b.check.questions.map(q => `<li>${E(q)}</li>`).join("")}</ol>`)
@@ -457,9 +457,9 @@ function falloutFor(blockId){
     return {f, done, what: String(what).replace(/\*\*/g, "")};
   }).filter(x => isTrainer() || !x.done);
 }
-const VIEW_LABEL = {why: "Why It Matters", theory: "The Theory", theory2: "The Theory, Continued", frame: "The Framework", rules: "The Rules", map: "The Roadmap", model: "See It", job: "On the Job", dodont: "Do & Don't",
+const VIEW_LABEL = {audit: "Audit & the Finished Set", why: "Why It Matters", theory: "The Theory", theory2: "The Theory, Continued", frame: "The Framework", rules: "The Rules", map: "The Roadmap", model: "See It", job: "On the Job", dodont: "Do & Don't",
   case: "Your Case", task: "Your Task", check: "Check Your Work", questions: "Knowledge Check", questions2: "Knowledge Check, Continued", summary: "Self-Summary", scale: "Skill Scale"};
-const VIEW_ICON = {why: "💡", theory: "📚", theory2: "📚", frame: "🧭", rules: "📏", map: "🗺", model: "🔍", job: "🛠", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
+const VIEW_ICON = {audit: "🔍", why: "💡", theory: "📚", theory2: "📚", frame: "🧭", rules: "📏", map: "🗺", model: "🔍", job: "🛠", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
 const KC_PER = 4;   // Knowledge Check questions on one slide
 /* The Theory: the lesson's concepts from the original Canva decks (build/case-flow/slides/theory-dN.json), four to a
    slide (a deep topic, 6–8 concepts, takes two); then The Framework, the deck page's own table, flowchart or checklist
@@ -472,7 +472,7 @@ function viewsOf(b){
   if(b.kind === "lesson" && b.brief) return ["why", "rules"].concat((b.ops || []).length ? ["job"] : []);   // brief: a condensed overview (Day 5's litigation)
   if(b.kind === "lesson" && b.compact) return ["why"].concat(roadmapOf(b) ? ["map"] : [], theoryViews(b).slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);   // compact: a full topic on fewer slides (Days 2, 4 and 5 keep to their slide budget)
   if(b.kind === "lesson") return ["why"].concat(roadmapOf(b) ? ["map"] : [], theoryViews(b), ["rules"],b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // noGame: the CM introduction (Meet Your Case comes before the first game)
-  if(b.kind === "activity") return ["case", "task"].concat(b.show && !b.compact ? ["model"] : [], ["check"]);   // compact: no See It slide (the worked model stays in 📖 Full text)
+  if(b.kind === "activity") return ["case", "task"].concat(EX.audits[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);   // compact: no See It slide (the worked model stays in 📖 Full text)
   return (copyOf(b).questions.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
 }
 const SMALL = new Set(["a", "an", "the", "and", "or", "but", "nor", "of", "to", "in", "on", "for", "at", "by", "with", "from", "as", "per", "vs.", "v.", "via", "into"]);
@@ -483,6 +483,11 @@ const titleCase = t => String(t || "").split(/(\s+|—|–|\/)/).map((w, i, a) =
 }).join("");
 const leadSplit = t => { const m = String(t || "").match(/^\*\*([^*]+?[.!?:])\*\*\s+(.+)$/); return m ? [m[1], m[2]] : null; };
 const hl = t => E(t).replace(/\*\*(.+?)\*\*/g, '<mark class="cfx-hl">$1</mark>');
+/* Check Your Work holds the answers (the **marked** parts): a trainee sees blanks until they finish the activity and
+   reveal them; the trainer always sees them, except on the shared slides window (the audience sees what trainees see). */
+const masked = t => E(t).replace(/\*\*(.+?)\*\*/g, '<span class="cfx-blank" title="Your answer, from the file">______</span>');
+const inAudience = () => typeof document !== "undefined" && !!document.body && document.body.classList.contains("audience-mode");
+const answersOpen = id => (isTrainer() && !inAudience()) || !!((REC.revealed || {})[id]);
 const words = (t, n) => { const w = String(t || "").replace(/\s+/g, " ").trim().split(" "); return w.length <= n ? w.join(" ") : w.slice(0, n).join(" ").replace(/[,;:]$/, "") + "…"; };
 const firstSentence = t => (String(t || "").match(/^.*?[.!?](\s|$)/) || [t])[0].trim();
 function copyOf(b){   // the block's concise copy, or a condensed fallback from its full text
@@ -525,6 +530,46 @@ const TOOL = Object.fromEntries(TOOLKIT.map(t => [t.id, t]));
    Disbursement (Track A, settled before suit) and its close-out once the case is won (Track B). Each block of those
    modules opens it at that stage (js/cm-net-sheet.js STAGES). */
 const NET_MODS = {d3m2: "recovery", d3m3: "liens", d3m4: "final", d5m5: "litigation"};
+/* The email practice a step opens, aimed at the step rather than at a page of choices (the Portal's
+   simulators/email.js and email-replies.html read these):
+     ✉ Email Workspace  → inbox=1, the ready-made inbox the trainee's program starts on (the CM Monday
+                           inbox on this course), opened straight away instead of the chooser;
+     📨 Email Replies    → email=<id>, the one scenario the step is about (the ids in the Portal's
+                           reply-packs/emails.json). EMAIL_NEED maps a block to its scenario; a block
+                           with no entry opens the list filtered to the course, as before. */
+/* A Case Manager's day is negotiating and communicating in writing, so each activity that is practice
+   at one of those opens the Email Replies scenario for that need — the adjuster, the lienholder, the
+   provider's billing desk, the client, the attorney — rather than a list of eleven to pick from. The
+   ids are the Portal's (simulators/reply-packs/emails.json); a block listed here is also offered Email
+   Replies among its tools (blockTools), and a block that isn't listed is unaffected.
+   Which scenario belongs to which activity is a curriculum decision: this is the mapping by the need
+   each activity practises, and it is meant to be edited here as the Case Flow changes. A scenario is
+   used for more than one activity where the need is the same skill (an adjuster is negotiated with more
+   than once). */
+const EMAIL_NEED = {
+  // Negotiating
+  "d3m1-a1": "cm_adjuster_statement",         // serving the BI time-limit demand: the adjuster's demands back
+  "d3m2-a1": "cm_adjuster_statement",         // MRI findings against the 14-day gap
+  "d5m2-a2": "cm_adjuster_statement",         // diminished value, argued with the carrier
+  "d3m3-a1": "cm_hospital_lien",              // statutory lien reduction: the hospital's $45,000 notice
+  "d3m3-a2": "cm_lop_provider",               // provider balance negotiation
+  "d2m2-a1": "cm_lop_provider",               // transmitting LOPs: the provider's balance question
+  "d5m1-a1": "cm_extension",                  // pleadings and discovery: opposing counsel's extension
+  // Communicating
+  "d1m2-a1": "all_web_inquiry",               // multi-channel outreach: a prospective client's inquiry
+  "d1m3-a1": "cm_spouse",                     // onboarding directions: what a spouse may be told
+  "d2m2-a2": "cm_client_bills_collections",   // A-C-T crisis protocol: the client whose bills keep coming
+  "d2m3-a1": "cm_client_bills_collections",   // probing the treatment gap with the client
+  "d2m3-a2": "cm_records_dob",                // the gap justification record: a records request refused
+  "d2m4-a2": "cm_attorney_status",            // the pre-demand strategy session: "where are we?"
+  "d3m2-a2": "cm_client_net",                 // closing the gross recovery: "where is my money"
+  "d3m4-a2": "all_wire_phish"                 // release and disbursement: fraudulent wire instructions
+};
+function emailTarget(id, blockId){
+  if(id === "email") return "inbox=1";
+  if(id === "replies") return EMAIL_NEED[blockId] ? "email=" + EMAIL_NEED[blockId] : "";
+  return "";
+}
 const NET_STAGE = {};
 Object.keys(STORED).forEach(id => { const st = NET_MODS[STORED[id].mod.id]; if(st) NET_STAGE[id] = st; });
 /* The records, docket and court-filing platforms, at the steps where that work happens on John Doe's file (on top of
@@ -562,6 +607,7 @@ function blockTools(b){
   else ids = ["cms", "docs"];
   if(NET_STAGE[b.id]) ids.push("netsheet");   // every block of a Case Phase that works the money
   if(b.id === "d2m1-a1") ids.push("lor");   // Generating Formal LORs: drafted in LOR Drafting, logged in the CMS
+  if(EMAIL_NEED[b.id]) ids.push("replies");   // practice at the negotiating or communicating this step needs (EMAIL_NEED)
   ids = ids.concat(WORKED_IN[b.id] || []);
   ids = [...new Set(ids)];
   return ids.length ? ids : ["cms"];
@@ -684,6 +730,7 @@ function slideBody(view, l, d){
     }
     case "rules": return `<div class="cfx-split"><ol class="cfx-points">${c.points.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>${art(c.image, "small")}</div>${plainBox(b)}
       ${c.upl ? `<div class="cfx-upl"><b>⚖ UPL Line</b><span>${hl(c.upl)}</span></div>` : ""}`;
+    case "audit": return auditSlide(b);
     case "model": return `<div class="cfx-model">${b.show && b.show.caption ? `<p class="cfx-caption">${E(b.show.caption)}</p>` : ""}${visual(l, b)}</div>`;
     case "job": return `<div class="cfx-job">${c.job.map((r, ri) => `<div class="cfx-flow">${r.map((x, j) => `<div class="cfx-step"><small>${["Trigger", "Task", "Tool", "Checkpoint"][j]}</small><span>${hl(x)}</span></div>`).join('<span class="cfx-arrow">➔</span>')}</div>`).join("")}</div>`;
     case "dodont": return (SLIDES[b.id] || {}).clues ? clueGame(b) : ddList(c);
@@ -708,9 +755,14 @@ function slideBody(view, l, d){
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}</span>
           <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
+        ${serviceOf(b.id) ? `<div class="cfx-call cfx-svb"><b>✉ Service Confirmation</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
+          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the Service Confirmation</button></div>` : ""}
         <div class="cfx-deliver"><b>📤 Deliver</b><span>${hl(c.deliver)}</span></div></aside></div>`; }
-    case "check": return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${hl(x)}</span></label>`).join("")}</div>
-      ${c.donts.length ? `<div class="cfx-watch"><b>⚠️ Watch For</b>${c.donts.map(x => `<span>${hl(x)}</span>`).join("")}</div>` : ""}${workLog(b)}`;
+    case "check": { const open = answersOpen(b.id);
+      return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${open ? hl(x) : masked(x)}</span></label>`).join("")}</div>
+      ${open ? (isTrainer() && !inAudience() ? `<p class="cfx-key-note">🔑 Trainer view: the answers. Trainees see blanks until they finish the activity.</p>` : "")
+        : `<div class="cfx-reveal"><span>Work the activity in the tool first, then compare: each blank is an answer your file should hold.</span><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.reveal('${b.id}')">✓ I've finished: show the answers</button></div>`}
+      ${c.donts.length ? `<div class="cfx-watch"><b>⚠️ Watch For</b>${c.donts.map(x => `<span>${hl(x)}</span>`).join("")}</div>` : ""}${workLog(b)}`; }
     case "questions": case "questions2": {   // each question with its answer box; answers save as they're typed
       const from = view === "questions2" ? KC_PER : 0, m = rec(mod.id), last = from + KC_PER >= c.questions.length;
       return `<ol class="cfx-points cfx-qs cfx-qs-2 cfx-kc" style="counter-reset:cfx ${from}">${c.questions.slice(from, from + KC_PER).map((q, j) => `<li><span><span class="cfx-kc-q">${hl(q)}</span>
@@ -780,6 +832,15 @@ if(!document.getElementById("cfx-deck-font")){
 window.cmCaseFlow = window.cmCaseFlow || {};
 window.cmCaseFlow.full = function(dayId, i){
   const d = cfDay(dayId), l = d && d.lessons[i]; if(!l) return;
+  // its own browser tab, so the slides and the tool beside them stay in view; the pop-up only when tabs are blocked
+  const w = window.open("", "_blank");
+  if(w && w.document){
+    const head = [...document.querySelectorAll('link[rel="stylesheet"], style')].map(n => n.outerHTML).join("");
+    w.document.open();
+    w.document.write(`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${E(titleCase(l.cf.block.title))} — Full Text</title><base href="${location.origin}/">${head}<style>body{background:#F4F5FA;margin:0;padding:24px 16px}.cfx-full-page{max-width:980px;margin:0 auto;padding:18px 24px !important}</style></head><body><div class="card lesson-card cfx-full-page"><h2 style="margin:0 0 12px">📖 ${E(titleCase(l.cf.block.title))} — Full Text</h2>${strip()}${fullText(l, d)}</div></body></html>`);
+    w.document.close();
+    return;
+  }
   const o = document.createElement("div"); o.className = "cfx-modal"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Full text");
   o.innerHTML = `<div class="cfx-modal-in card lesson-card"><div class="cfx-modal-h"><b>📖 ${E(titleCase(l.cf.block.title))} — Full Text</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>${strip()}${fullText(l, d)}</div>`;
   const close = () => { o.remove(); document.removeEventListener("keydown", esc, true); };
@@ -1105,6 +1166,348 @@ window.cmCaseFlow.listenCheck = function(blockId){
 };
 window.cmCaseFlow.listenClose = function(){ const box = document.getElementById("cf-vm"); if(box) box.hidden = true; };
 /* ---------- opening a step's tool ---------- */
+/* ---------- the exhibit audit, the completed package, and the service confirmation ----------
+   A Skill Activity that assembles or serves a document set gets the set itself (build/case-flow/exhibits:
+   "audits"), as a packet the trainee works item by item — keep it, replace it, pull it, add what is missing,
+   or flag it for the attorney — with the loophole or evidentiary gap each item hides. Handed in, the finished
+   set is revealed: the Demand Package as served, the Mediation Binder as delivered, the Arbitration Binder as
+   exchanged, which every later activity then works from (CM_CF_DOC_PACKETS carries it forward).
+   An activity that serves something also gets the Service Confirmation ("emails"): the trainee writes the
+   confirmation email that goes out with the certified mailing, the adjuster answers in writing, the trainee
+   answers the follow-up that tests the UPL line, and then converts the whole exchange into a memorandum, files
+   it in the CMS under the firm's naming convention, which keeps it on their Backup Drive in its folder too. Their marks, their email, the
+   choice they made and what they filed are kept on their record and shown to their trainer. */
+const EX = Object.assign({audits: {}, emails: {}}, window.CM_CF_EXHIBITS || {});
+const VERDICT = {
+  keep: {label: "Keep as is", icon: "✓", hint: "The copy is fit to use and belongs in the set."},
+  replace: {label: "Replace it", icon: "↻", hint: "It belongs in the set, but not this copy or not this figure."},
+  pull: {label: "Pull it", icon: "✕", hint: "It does not belong in a set that leaves this office."},
+  add: {label: "Add what is missing", icon: "＋", hint: "The set needs something it does not have."},
+  flag: {label: "Flag for Atty. Thorne", icon: "⚖", hint: "It stays, and the decision is the attorney's, not yours."}
+};
+const VORDER = ["keep", "replace", "pull", "add", "flag"];
+const EKIND = {loophole: "Loophole", gap: "Evidentiary gap", privilege: "Privileged — ours, not theirs",
+  qc: "Copy not fit to use", arithmetic: "Figure that doesn't tie", calendar: "Date counted from the wrong event"};
+const auditOf = id => EX.audits[id] || null;
+const serviceOf = id => EX.emails[id] || null;
+function exRec(blockId){ REC.audits = REC.audits || {}; return (REC.audits[blockId] = REC.audits[blockId] || {marks: [], notes: [], at: null}); }
+function svRec(blockId){ REC.service = REC.service || {}; return (REC.service[blockId] = REC.service[blockId] || {sent: null, body: "", tries: 0, choice: null, converted: null, filed: null, drive: null}); }
+const exScore = (a, r) => a.items.reduce((n, it, i) => n + (r.marks[i] === it.verdict ? 1 : 0), 0);
+const exMarked = r => (r.marks || []).filter(Boolean).length;
+const exDoc = id => CF_DOCS.find(d => d.id === id);
+const exDocLink = id => { const d = exDoc(id); return d ? `<a href="${E(docUrl(d))}" target="_blank" rel="noopener" title="${E(d.desc)}" onclick="return cmCaseFlow.doc(event,'${E(id)}')">${E(d.title)}</a>` : E(id); };
+
+/* the slide: where the audit stands, and — once it is handed in — the completed package */
+function auditSlide(b){
+  const a = auditOf(b.id); if(!a) return "";
+  const r = exRec(b.id), done = !!r.at, n = a.items.length, sc = done ? exScore(a, r) : 0, sv = serviceOf(b.id);
+  const src = exDoc(a.source), rev = exDoc(a.reveal);
+  const head = `<div class="cfx-aud-h"><span class="cfx-chip">📁 ${E(a.title)}</span>
+      <span class="cfx-aud-due">Out the door by <b>${E(a.due)}</b></span></div>
+    <p class="cfx-aud-intro">${hl(a.intro)}</p>`;
+  if(!done) return `<div class="cfx-aud">${head}
+    <div class="cfx-aud-row">
+      <div class="cfx-aud-card"><b>The set you are auditing</b><span>${src ? exDocLink(a.source) : E(a.source)}</span>
+        <small>${n} items to call: ${VORDER.map(v => VERDICT[v].label.toLowerCase()).join(", ")}.</small></div>
+      <div class="cfx-aud-card"><b>Where you are</b><span class="cfx-aud-prog">${exMarked(r)} of ${n} called</span>
+        <small>Nothing is scored until you hand it in, and nothing is corrected quietly: every finding is a dated, assigned task.</small></div>
+    </div>
+    <div class="cfx-aud-act"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.audit('${b.id}')">🔍 Open the audit workbench</button>
+      ${sv ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.service('${b.id}')">✉ Service Confirmation</button>` : ""}
+      <span class="cfx-aud-note">${E(a.kicker)}</span></div></div>`;
+  return `<div class="cfx-aud cfx-aud-done">${head}
+    <div class="cfx-aud-row">
+      <div class="cfx-aud-card cfx-aud-score"><b>Your audit</b><span>${sc} of ${n} called correctly</span>
+        <small>Handed in ${E(new Date(r.at).toLocaleDateString())}. Your trainer sees every call and every note you wrote.</small></div>
+      <div class="cfx-aud-card cfx-aud-rev"><b>📦 The completed package</b><span>${rev ? exDocLink(a.reveal) : E(a.reveal)}</span>
+        <small>${hl(a.revealNote)}</small></div>
+    </div>
+    <ul class="cfx-aud-points">${a.revealPoints.map(p => `<li>${hl(p)}</li>`).join("")}</ul>
+    <div class="cfx-aud-act"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.audit('${b.id}')">🔍 Compare your audit, item by item</button>
+      ${sv ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.service('${b.id}')">✉ Service Confirmation</button>` : ""}</div></div>`;
+}
+
+/* the workbench: every item of the set, the call the trainee makes, and after hand-in what the file says */
+function auditBench(blockId){
+  const a = auditOf(blockId), r = exRec(blockId), done = !!r.at;
+  const rows = a.items.map((it, i) => {
+    const mine = r.marks[i] || "", right = done && mine === it.verdict;
+    return `<tr class="${done ? (right ? "ok" : "no") : ""}">
+      <td class="ab-ref">${E(it.ref)}</td>
+      <td><b>${E(it.what)}</b><br><span class="ab-as">${E(it.as)}</span></td>
+      <td class="ab-call">${done ? `<span class="ab-v ab-v-${E(mine || "none")}">${mine ? VERDICT[mine].icon + " " + E(VERDICT[mine].label) : "— not called"}</span>
+            ${right ? `<span class="ab-ok">✓</span>` : `<br><span class="ab-right">${VERDICT[it.verdict].icon} ${E(VERDICT[it.verdict].label)}</span>`}`
+        : `<select class="ab-sel" aria-label="Your call on ${E(it.what)}" onchange="cmCaseFlow.auditMark('${blockId}',${i},this.value)">
+            <option value="">Your call…</option>${VORDER.map(v => `<option value="${v}"${mine === v ? " selected" : ""}>${VERDICT[v].icon} ${E(VERDICT[v].label)}</option>`).join("")}</select>`}</td>
+      <td>${done ? `<span class="ab-kind">${E(EKIND[it.kind])}</span><br>${hl(it.issue)}<br><b>Fix:</b> ${hl(it.fix)}<br><small>${it.proof.map(exDocLink).join(" · ")}</small>`
+        : `<textarea class="ab-note" rows="2" placeholder="What is wrong with it, or what is missing — and who fixes it" aria-label="Your note on ${E(it.what)}" oninput="cmCaseFlow.auditNote('${blockId}',${i},this.value)">${E(r.notes[i] || "")}</textarea>`}</td>
+    </tr>`;
+  }).join("");
+  const n = a.items.length;
+  return `<div class="cfx-modal-in card lesson-card cfx-bench"><div class="cfx-modal-h"><b>🔍 ${E(a.title)}</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>
+    <div class="ab-top"><span>${E(a.kicker)}</span>${exDoc(a.source) ? `<span>Open the set beside this: ${exDocLink(a.source)}</span>` : ""}
+      ${done ? `<span class="ab-sc">${exScore(a, r)} of ${n} correct</span>` : `<span class="ab-sc" id="absc_${E(blockId)}">${exMarked(r)} of ${n} called</span>`}</div>
+    <div class="ab-key">${VORDER.map(v => `<span><b>${VERDICT[v].icon} ${E(VERDICT[v].label)}</b> ${E(VERDICT[v].hint)}</span>`).join("")}</div>
+    <table class="ab-table"><thead><tr><th>${E(a.columns.ref)}</th><th>What it is${done ? "" : " · as drafted"}</th><th>Your call${done ? " · the file's" : ""}</th><th>${done ? "What it would have cost, and the fix" : "Your note"}</th></tr></thead><tbody>${rows}</tbody></table>
+    ${done ? `<div class="ab-rev"><b>📦 ${E(a.revealNote)}</b><ul>${a.revealPoints.map(p => `<li>${hl(p)}</li>`).join("")}</ul>
+        <p>The completed set: ${exDoc(a.reveal) ? exDocLink(a.reveal) : E(a.reveal)}</p></div>`
+      : `<div class="ab-foot"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.auditHandIn('${blockId}')">Hand in the audit</button>
+        <span>Call every item first. Once it is handed in you see what the file says about each one, and the completed package.</span></div>`}</div>`;
+}
+window.cmCaseFlow.audit = function(blockId){
+  if(!auditOf(blockId) || document.getElementById("cf-bench")) return;   // one workbench at a time
+  const o = document.createElement("div"); o.className = "cfx-modal"; o.id = "cf-bench"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Exhibit audit");
+  o.innerHTML = auditBench(blockId);
+  const close = () => { o.remove(); document.removeEventListener("keydown", esc, true); if(typeof render === "function") render(); };
+  const esc = e => { if(e.key === "Escape"){ e.stopPropagation(); close(); } };
+  o.addEventListener("click", e => { if(e.target === o || e.target.closest(".cfx-modal-h button")) close(); });
+  document.addEventListener("keydown", esc, true);
+  document.body.appendChild(o);
+};
+function benchRepaint(blockId){
+  const o = document.getElementById("cf-bench"); if(!o) return;
+  o.innerHTML = auditBench(blockId);
+}
+let exT = null;
+window.cmCaseFlow.auditMark = function(blockId, i, v){
+  const a = auditOf(blockId), r = exRec(blockId); if(!a || r.at) return;
+  r.marks[i] = VORDER.includes(v) ? v : "";
+  const sc = document.getElementById("absc_" + blockId);
+  if(sc) sc.textContent = `${exMarked(r)} of ${a.items.length} called`;
+  clearTimeout(exT); exT = setTimeout(persist, 600);
+};
+window.cmCaseFlow.auditNote = function(blockId, i, v){
+  const r = exRec(blockId); if(r.at) return;
+  r.notes[i] = String(v).slice(0, 600);
+  clearTimeout(exT); exT = setTimeout(persist, 800);
+};
+window.cmCaseFlow.auditHandIn = function(blockId){
+  const a = auditOf(blockId), r = exRec(blockId); if(!a || r.at) return;
+  const left = a.items.length - exMarked(r);
+  if(left){ if(typeof toast === "function") toast(`${left} item${left === 1 ? "" : "s"} still to call. An audit that skips an item is how a set goes out with it.`); return; }
+  r.at = new Date().toISOString(); persist();
+  if(typeof toast === "function") toast("Audit handed in. The completed package is on the slide and in the workbench.");
+  benchRepaint(blockId);
+};
+
+/* ---------- the Service Confirmation: the confirmation email, the acknowledgment, and the filed document ----------
+   Proving a demand left the office is half of it. The other half is the email the Case Manager writes with the
+   certified mailing, the adjuster's written acknowledgment — which fixes the date the clock started from the
+   carrier's own words — and the follow-up that tests whether the Case Manager will move a deadline that is not
+   theirs. Then the exchange stops being a mailbox thread: it is converted into a memorandum, filed into the open
+   case in the CMS under the firm's naming convention, and backed up to the trainee's Drive. */
+const folderLabel = (id) => { const f = (window.CM_CF_DOC_FOLDERS || []).find(x => x.id === id); return f ? f.label : String(id || "its folder"); };
+const svNameFor = (e) => {
+  const id = (window.CMCase && CMCase.id()) || "<Case ID>";
+  return `${id}_Doe-John_${String(e.convert.type).replace(/\s+/g, "-")}_${(e.reply.date || "").split("/").reverse().join("-").replace(/^(\d{4})-(\d{2})-(\d{2})$/, "$1-$3-$2")}.pdf`;
+};
+function svStep(n, label, state, body){
+  return `<div class="sv-step sv-${state}"><div class="sv-h"><span class="sv-n">${state === "done" ? "✓" : n}</span><b>${E(label)}</b></div>${body ? `<div class="sv-b">${body}</div>` : ""}</div>`;
+}
+function svWorkspace(blockId){
+  const e = serviceOf(blockId), r = svRec(blockId), a = auditOf(blockId);
+  const sent = !!r.sent, chose = r.choice != null, right = chose && !!(e.press.choices[r.choice] || {}).ok;
+  const conv = !!r.converted, filed = !!r.filed, drive = !!r.drive;
+  const mailBox = `<table class="sv-mail"><tr><th>Channel</th><th>Sent</th><th>Proof</th><th>Proof dated</th></tr>
+      <tr><td>${E(e.mail.channel)}</td><td>${E(e.mail.sent)}</td><td>${E(e.mail.proof)}</td><td>${E(e.mail.receipt)}</td></tr></table>
+    <p class="sv-note">Mail proves it left this office. It does not prove the carrier read it, and it is not what the carrier's file will show. That is what the email is for.</p>`;
+  const compose = sent
+    ? `<div class="sv-sentmail"><div class="sv-eh"><b>To</b> ${E(e.to)}<br><b>Cc</b> ${E(e.cc || "—")}<br><b>Subject</b> ${E(e.subject)}<br><b>Sent</b> ${E(e.mail.sent)}, 4:21 p.m.<br><b>Attachment</b> ${E(e.attachment)}</div><pre class="sv-body">${E(r.body)}</pre></div>`
+    : `<p class="sv-brief">${hl(e.brief)}</p>
+      <div class="sv-eh"><b>To</b> ${E(e.to)}<br><b>Cc</b> ${E(e.cc || "—")}<br><b>Subject</b> ${E(e.subject)}<br><b>Attachment</b> ${E(e.attachment)}</div>
+      <textarea class="sv-write" id="svw_${E(blockId)}" rows="9" placeholder="Write the email as you would send it." aria-label="Your confirmation email">${E(r.body || "")}</textarea>
+      <ul class="sv-req">${e.required.map(q => `<li>${E(q.label)}</li>`).join("")}</ul>
+      <div class="sv-row"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.svSend('${blockId}')">Send it to the adjuster</button>
+        <span class="sv-msg" id="svm_${E(blockId)}" aria-live="polite">${r.tries ? `Not sent yet — ${r.tries} attempt${r.tries === 1 ? "" : "s"}.` : ""}</span></div>`;
+  const reply = sent ? `<div class="sv-eh"><b>From</b> ${E(e.reply.from)}<br><b>Sent</b> ${E(e.reply.date)}, ${E(e.reply.time)}<br><b>Subject</b> ${E(e.reply.subject)}</div><pre class="sv-body">${E(e.reply.body)}</pre>
+      <ul class="sv-est">${e.convert.establishes.map(x => `<li>${hl(x)}</li>`).join("")}</ul>` : "";
+  const press = sent ? `<div class="sv-eh"><b>From</b> ${E(e.press.from)}<br><b>Sent</b> ${E(e.press.date)}<br><b>Subject</b> ${E(e.press.subject)}</div><pre class="sv-body">${E(e.press.body)}</pre>
+      <div class="sv-choices">${e.press.choices.map((c, i) => `<label class="sv-ch${chose ? (c.ok ? " ok" : (r.choice === i ? " no" : "")) : ""}">
+          <input type="radio" name="svch_${E(blockId)}" ${r.choice === i ? "checked" : ""} ${chose ? "disabled" : ""} onchange="cmCaseFlow.svChoose('${blockId}',${i})">
+          <span>${E(c.label)}${chose ? `<br><small>${c.ok ? "✓ " : "✕ "}${E(c.why)}</small>` : ""}</span></label>`).join("")}</div>` : "";
+  const convert = `<p class="sv-note">A thread in a mailbox is not on the case file: a colleague covering the file cannot find it, and it is not in the backup. Converted, filed and backed up, the carrier's own confirmation of the date that started the clock is part of the case.</p>
+    <ul class="sv-sec">${e.convert.sections.map(s => `<li><b>${E(s.h)}</b>${s.lines.length ? `<br>${s.lines.map(E).join("<br>")}` : ""}</li>`).join("")}</ul>
+    <div class="sv-row"><button type="button" class="btn btn-navy" ${right ? "" : "disabled"} onclick="cmCaseFlow.svConvert('${blockId}')">📄 ${conv ? "Build it again" : "Convert the thread into a document"}</button>
+      ${conv ? `<span class="sv-ok">✓ ${E(r.converted.pages)} page${r.converted.pages === 1 ? "" : "s"} built${r.converted.saved ? " and downloaded" : ""}</span>` : `<span class="sv-msg">${right ? "" : "Answer the follow-up correctly first."}</span>`}</div>`;
+  const file = `<div class="sv-eh"><b>Category</b> ${E(e.convert.category)} &nbsp;<b>Name it</b> <code>&lt;Case ID&gt;_&lt;Last-First&gt;_&lt;Type&gt;_&lt;YYYY-MM-DD&gt;.pdf</code></div>
+    ${filed ? `<span class="sv-ok">✓ Filed in the CMS as <b>${E(r.filed.name)}</b> under ${E(r.filed.category)}</span>${r.drive ? `<br><span class="sv-ok">✓ Kept on your Backup Drive under <b>${E(String(r.drive.folder).split("/").pop())}</b></span>` : ""}`
+      : `<div class="sv-row"><input class="sv-name" id="svn_${E(blockId)}" placeholder="${E(svNameFor(e))}" aria-label="File name for the memorandum" value="${E(r.nameTried || "")}">
+        <button type="button" class="btn btn-navy" ${conv ? "" : "disabled"} onclick="cmCaseFlow.svFile('${blockId}')">📤 File it in the CMS</button>
+        <span class="sv-msg" id="svf_${E(blockId)}" aria-live="polite">${(r.problems || []).length ? r.problems.map(E).join(" · ") : (conv ? "" : "Build the document first.")}</span></div>`}`;
+  const back = `<p class="sv-note">The firm keeps a Backup Drive as well as a CMS, and a document you wrote belongs in it like any other: a colleague covering this file looks for it under <b>${E(folderLabel(e.convert.folder))}</b>, where every demand and negotiation document on the case is kept. The CMS is the file of record, so a drive that isn't built yet never undoes the filing &mdash; it just leaves you one copy.</p>
+    ${drive ? `<span class="sv-ok">✓ Kept on your Backup Drive under <b>${E(String(r.drive.folder).split("/").pop())}</b>, with the filing</span>`
+      : `<div class="sv-row">${filed ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.svDrive('${blockId}')">📂 Keep it on my Backup Drive</button>` : ""}
+        <span class="sv-msg" id="svd_${E(blockId)}" aria-live="polite">${!filed ? "File it in the CMS first: the copy is kept with the filing."
+          : r.driveWhy === "no-folder" ? "That folder isn't in your Backup Drive. Put the missing folders back from the dashboard, then try again."
+          : "Your Backup Drive isn't built yet, so no copy was kept. Build it from the card on your dashboard, then keep this document on it."}</span></div>`}`;
+  const model = `<p class="sv-note">The firm's own memorandum for this service, for you to read yours against: ${exDoc(e.model) ? exDocLink(e.model) : E(e.model)}.</p>`;
+  return `<div class="cfx-modal-in card lesson-card cfx-sv"><div class="cfx-modal-h"><b>✉ ${E(e.title)}</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>
+    <div class="sv-top"><span>${E(e.kicker)}</span>${a && !exRec(blockId).at ? `<span class="sv-warn">Audit the set before you serve it: nothing goes out that has not been audited.</span>` : ""}</div>
+    ${svStep(1, "Confirmed by mail", "done", mailBox)}
+    ${svStep(2, "The confirmation email you send", sent ? "done" : "now", compose)}
+    ${svStep(3, "The adjuster's acknowledgment", sent ? "done" : "wait", reply)}
+    ${svStep(4, "The follow-up that tests the line", chose ? (right ? "done" : "no") : (sent ? "now" : "wait"), press)}
+    ${svStep(5, "Convert the exchange into a document", conv ? "done" : (right ? "now" : "wait"), convert)}
+    ${svStep(6, "File it in the CMS", filed ? "done" : (conv ? "now" : "wait"), file)}
+    ${svStep(7, "Kept on your Backup Drive", drive ? "done" : (filed ? "now" : "wait"), back)}
+    ${svStep(8, "Read yours against the firm's", "note", model)}</div>`;
+}
+window.cmCaseFlow.service = function(blockId){
+  if(!serviceOf(blockId) || document.getElementById("cf-sv")) return;   // one workspace at a time, or the email being written is lost behind it
+  const o = document.createElement("div"); o.className = "cfx-modal"; o.id = "cf-sv"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Service Confirmation");
+  o.innerHTML = svWorkspace(blockId);
+  const close = () => { const t = document.getElementById("svw_" + blockId); if(t) { svRec(blockId).body = t.value.slice(0, 4000); persist(); } o.remove(); document.removeEventListener("keydown", esc, true); if(typeof render === "function") render(); };
+  const esc = ev => { if(ev.key === "Escape"){ ev.stopPropagation(); close(); } };
+  o.addEventListener("click", ev => { if(ev.target === o || ev.target.closest(".cfx-modal-h button")) close(); });
+  document.addEventListener("keydown", esc, true);
+  document.body.appendChild(o);
+};
+function svRepaint(blockId){ const o = document.getElementById("cf-sv"); if(o) o.innerHTML = svWorkspace(blockId); }
+window.cmCaseFlow.svSend = function(blockId){
+  const e = serviceOf(blockId), r = svRec(blockId); if(!e || r.sent) return;
+  const el = document.getElementById("svw_" + blockId), text = ((el && el.value) || "").trim();
+  r.body = text.slice(0, 4000);
+  const msg = document.getElementById("svm_" + blockId);
+  if(text.split(/\s+/).filter(Boolean).length < 40){
+    r.tries++; persist();
+    if(msg) msg.innerHTML = `<b>Not sent.</b> An email this short cannot do the job. Work through the list above.`;
+    return;
+  }
+  const missing = e.required.filter(q => !q.match.every(p => { try{ return new RegExp(p, "i").test(text); }catch(err){ return true; } }));
+  if(missing.length){
+    r.tries++; persist();
+    if(msg) msg.innerHTML = `<b>Not sent.</b> Dana Whitfield can answer this without giving you what you need:<ul>${missing.map(q => `<li>${E(q.label)} — ${E(q.hint)}</li>`).join("")}</ul>`;
+    return;
+  }
+  r.sent = new Date().toISOString(); persist();
+  if(typeof toast === "function") toast("Sent. Her acknowledgment is in the thread.");
+  svRepaint(blockId);
+};
+window.cmCaseFlow.svChoose = function(blockId, i){
+  const e = serviceOf(blockId), r = svRec(blockId); if(!e || r.choice != null) return;
+  r.choice = i; persist();
+  const c = e.press.choices[i] || {};
+  if(typeof toast === "function") toast(c.ok ? "Right: recorded, routed, and the date stays on the docket." : "That one costs the file. Read why, and remember whose call it was.");
+  svRepaint(blockId);
+};
+const SV_BYTES = {};   // the built PDF, held for this page's life (a PDF is not worth persisting: it is rebuilt)
+/* the memorandum: the trainee's own email, the adjuster's words, and what the acknowledgment establishes.
+   Everything it is made of is on their record, so it can be built again whenever it is needed — which is how
+   the Drive copy still works for a trainee who files today and builds their drive tomorrow. */
+async function svBuild(blockId){
+  const e = serviceOf(blockId), r = svRec(blockId);
+  if(!e || !(r.choice != null && (e.press.choices[r.choice] || {}).ok)) return null;
+  if(typeof ensureJsPdf === "function" && !(await ensureJsPdf())) return null;
+  const {jsPDF} = window.jspdf || {};
+  if(!jsPDF) return null;
+  const doc = (typeof safeDoc === "function" ? safeDoc(new jsPDF({unit: "pt", format: "letter"})) : new jsPDF({unit: "pt", format: "letter"}));
+  const W = doc.internal.pageSize.getWidth(), H = doc.internal.pageSize.getHeight(), M = 54;
+  const navy = [38, 43, 69], orange = [219, 132, 55], ink = [40, 42, 58], soft = [110, 116, 140];
+  let y = 0, page = 0;
+  const foot = () => { doc.setFont("helvetica", "normal"); doc.setFontSize(8); doc.setTextColor.apply(doc, soft);
+    doc.text(`LSH CASE MANAGEMENT TRAINING — SIMULATED DOCUMENT — FICTIONAL PARTIES · John Doe v. Robert Smith · page ${page}`, W / 2, H - 24, {align: "center"}); };
+  const head = (first) => { page++; if(typeof drawPdfHeader === "function") drawPdfHeader(doc, e.convert.title, `${(window.CMCase && CMCase.id()) || "LSH-2026-MVA-770412"} · prepared by ${state.traineeName || "the Case Manager"}${first ? "" : " (continued)"}`); y = 112; };
+  const need = n => { if(y + n > H - 54){ foot(); doc.addPage(); head(false); } };
+  const para = (t, opt) => { const o = opt || {};
+    doc.setFont("helvetica", o.b ? "bold" : (o.i ? "italic" : "normal")); doc.setFontSize(o.size || 10); doc.setTextColor.apply(doc, o.color || ink);
+    doc.splitTextToSize(String(t), W - 2 * M - (o.pad || 0)).forEach(l => { need(14); doc.text(l, M + (o.pad || 0), y); y += (o.lh || 13.5); }); y += (o.after == null ? 5 : o.after); };
+  const h3 = t => { need(30); doc.setFont("helvetica", "bold"); doc.setFontSize(11.5); doc.setTextColor.apply(doc, navy); doc.text(String(t), M, y);
+    doc.setDrawColor.apply(doc, orange); doc.setLineWidth(1.2); doc.line(M, y + 5, M + 40, y + 5); y += 20; };
+  head(true);
+  para(`Memorandum to file · prepared ${e.reply.date} · ${e.convert.title}`, {i: true, color: soft, size: 9.5});
+  e.convert.sections.forEach(s => {
+    h3(s.h);
+    s.lines.forEach(l => para("— " + l));
+    if(/confirmation email/i.test(s.h)){
+      para(`To: ${e.to}`, {size: 9}); para(`Cc: ${e.cc || "—"}`, {size: 9}); para(`Subject: ${e.subject}`, {size: 9});
+      para(`Sent: ${e.mail.sent}, 4:21 p.m. · Attachment: ${e.attachment}`, {size: 9, color: soft});
+      String(r.body).split(/\n{2,}/).forEach(p => para(p.replace(/\s*\n\s*/g, " "), {pad: 12}));
+    }
+    if(/acknowledg/i.test(s.h)){
+      para(`From: ${e.reply.from}`, {size: 9}); para(`Sent: ${e.reply.date}, ${e.reply.time}`, {size: 9}); para(`Subject: ${e.reply.subject}`, {size: 9});
+      String(e.reply.body).split(/\n{2,}/).forEach(p => para(p.replace(/\s*\n\s*/g, " "), {pad: 12}));
+    }
+    if(/establishes/i.test(s.h)) e.convert.establishes.forEach(x => para("— " + x));
+  });
+  h3("Appendix · the follow-up and how it was answered");
+  para(`${e.press.from}, ${e.press.date} — ${e.press.subject}`, {size: 9, color: soft});
+  para(String(e.press.body).replace(/\s*\n\s*/g, " "), {pad: 12});
+  para("Answered: " + (e.press.choices[r.choice] || {}).label, {b: true});
+  foot();
+  let bytes = null;
+  try{ bytes = doc.output("arraybuffer"); }catch(err){ bytes = null; }
+  if(bytes) SV_BYTES[blockId] = bytes;
+  return {bytes, pages: page, doc};
+}
+/* The trainee's own press of "Convert": build it, hand them the file, and let them name it for the CMS. */
+window.cmCaseFlow.svConvert = async function(blockId){
+  const e = serviceOf(blockId), r = svRec(blockId); if(!e) return;
+  if(!(r.choice != null && (e.press.choices[r.choice] || {}).ok)) return;
+  const built = await svBuild(blockId);
+  if(!built || !built.bytes){ if(typeof toast === "function") toast("Couldn't build the document — try again."); return; }
+  let saved = false;
+  try{ built.doc.save(String(e.convert.title).replace(/[^\w]+/g, "-").replace(/^-|-$/g, "") + ".pdf"); saved = true; }catch(err){}
+  r.converted = {at: new Date().toISOString(), pages: built.pages, saved};
+  persist();
+  if(typeof toast === "function") toast("Document built. Name it the firm's way and file it in the CMS.");
+  svRepaint(blockId);
+};
+/* The document as it stands, built again if this page hasn't built it yet. */
+async function svBytes(blockId){
+  const held = SV_BYTES[blockId];
+  if(held && held.byteLength) return held;
+  const built = await svBuild(blockId);
+  return built && built.bytes && built.bytes.byteLength ? built.bytes : null;
+}
+window.cmCaseFlow.svFile = async function(blockId){
+  const e = serviceOf(blockId), r = svRec(blockId); if(!e || !r.converted || r.filed) return;
+  const el = document.getElementById("svn_" + blockId), name = ((el && el.value) || "").trim();
+  const msg = document.getElementById("svf_" + blockId);
+  const say = h => { if(msg) msg.innerHTML = h; };
+  r.nameTried = name;
+  if(!name){ say("Write the file name first, the firm's way."); return; }
+  if(!window.cmDocFiling || typeof cmDocFiling.send !== "function"){ say("Filing isn't available on this page."); return; }
+  say("Filing…");
+  const bytes = await svBytes(blockId);
+  if(!bytes){ say("The document could not be built. Press Convert again, then file it."); return; }
+  const out = await cmDocFiling.send({name, category: e.convert.category, folder: e.convert.folder,
+    original: "Demand-Service-Acknowledgment.pdf",
+    mime: "application/pdf", summary: e.convert.title, bytes: bytes.slice(0)});
+  if(out && out.ok){
+    r.filed = {name: out.name, category: out.category || e.convert.category, at: new Date().toISOString()}; r.problems = [];
+    // the same filing keeps it on the trainee's Backup Drive, in the folder this kind of document belongs in
+    if(out.drive && out.drive.ok) r.drive = {at: new Date().toISOString(), folder: out.drive.folder};
+    else r.driveWhy = (out.drive && out.drive.why) || "no-drive";
+    persist();
+    if(typeof toast === "function") toast(`Filed in the CMS as ${out.name}.`);
+    if(r.drive && typeof toast === "function") toast(`Kept on your Backup Drive under ${String(r.drive.folder).split("/").pop()}.`);
+    svRepaint(blockId); return;
+  }
+  r.problems = (out && out.problems && out.problems.length) ? out.problems : [(out && out.error) || "The CMS did not file it."];
+  persist(); say(`<b>Not filed.</b> ${r.problems.map(E).join(" · ")}`);
+};
+/* The memorandum reaches the Backup Drive with the filing. This is the retry, for a trainee whose drive
+   wasn't built or connected when they filed: the copy is made now, from the document they already built. */
+window.cmCaseFlow.svDrive = async function(blockId){
+  const e = serviceOf(blockId), r = svRec(blockId); if(!e || !r.filed || r.drive) return;
+  const msg = document.getElementById("svd_" + blockId);
+  const say = t => { if(msg) msg.textContent = t; };
+  if(!window.cmDocFiling || typeof cmDocFiling.keepOnDrive !== "function"){ say("The Backup Drive isn't available on this page."); return; }
+  say("Keeping it on your Drive…");
+  // a trainee who files today and builds their drive tomorrow: the memorandum is built again from their record
+  const bytes = await svBytes(blockId);
+  if(!bytes){ say("The document could not be built again. Press Convert, then keep it on your Drive."); return; }
+  const out = await cmDocFiling.keepOnDrive(e.convert.folder, r.filed.name, bytes.slice(0));
+  if(out && out.ok){
+    r.drive = {at: new Date().toISOString(), folder: out.folder}; r.driveWhy = "";
+    persist();
+    if(typeof toast === "function") toast(`Kept on your Backup Drive under ${String(out.folder).split("/").pop()}.`);
+    svRepaint(blockId); return;
+  }
+  r.driveWhy = (out && out.why) || "no-drive"; persist();
+  say(out && out.why === "no-folder" ? "That folder isn't in your Backup Drive. Put the missing folders back from the dashboard, then try again."
+    : "Your Backup Drive isn't built yet. Build it from the card on your dashboard, then keep this document on it.");
+};
 window.cmCaseFlow.tool = function(id, blockId){
   if(id === "call" && blockId && SIM.calls[blockId]) return cmCaseFlow.call(blockId);
   if(id === "netsheet" && typeof openPane === "function"){   // the firm's Net Sheet (net-sheet.html), over the slide at full width (its ledger is wide), checked at this step's stage
@@ -1118,7 +1521,7 @@ window.cmCaseFlow.tool = function(id, blockId){
     goto.apply(null, PAGE[id]);
     return;
   }
-  if(typeof openTool === "function") openTool(id === "call" ? "calls" : id, "split");   // a training platform, beside the slide (⧉ Side by side; 🖥 Second screen)
+  if(typeof openTool === "function") openTool(id === "call" ? "calls" : id, "split", emailTarget(id, blockId) || undefined);   // a training platform, beside the slide (⧉ Side by side; 🖥 Second screen)
 };
 window.cmCaseFlow.back = function(){
   const r = state.cfReturn; state.cfReturn = null;
@@ -1350,7 +1753,7 @@ if(typeof window.renderOpenRoleplay === "function" || typeof renderOpenRoleplay 
    where each step is done without repeating the buttons; a live call is taken from its own activity's Your Task. */
 function labTools(d){
   const at = {};
-  d.lessons.forEach(l => { const b = l.cf.block; if(b.kind === "activity") blockTools(b).forEach(id => { if(id !== "call" && !at[id]) at[id] = b.id; }); });
+  d.lessons.forEach(l => { const b = l.cf.block; if(b.kind === "activity") blockTools(b).concat(SIM.calls[b.id] ? ["call"] : []).forEach(id => { if(!at[id]) at[id] = b.id; }); });
   if(typeof relatedTools === "function" && relatedTools(d.id).some(t => t.id === "calendar") && !at.calendar) at.calendar = "";
   const order = TOOLKIT.map(t => t.id);
   return Object.entries(at).sort((a, b) => order.indexOf(a[0]) - order.indexOf(b[0]));
@@ -1364,12 +1767,52 @@ function practiceLab(d){
       <div class="cfx-ribbon"><span>${E(titleCase(ph.title))}</span></div>
       <div class="cfx-sheet">
         <p class="cfx-lab-lead">Open your tools here, once: they stay open beside the slides. Then work today's <b>${acts.length} Skill Activities</b> on John Doe's file, in the order the work happens. Each opens with <em>Your Case</em>, then <em>Your Task</em> and <em>Check Your Work</em>; 📞 marks a live call.</p>
-        <div class="cfx-lab-tools">${labTools(d).map(([id, bid]) => toolChip(id, bid, true)).join("")}</div>
+        ${labGate(d)}<div class="cfx-lab-tools" id="cfxLabTools${d.id}"${labReady(d) ? "" : " hidden"}>${labTools(d).map(([id, bid]) => toolChip(id, bid, true)).join("")}</div>
         <ol class="cfx-lab-list">${acts.map(([l, li], k) => { const b = l.cf.block;
           return `<li><button type="button" onclick="cmCaseFlow.labGo(${d.id},${li})" title="Go to this activity's slides"><span class="n">${k + 1}</span><span class="t">${E(titleCase(b.title))}</span>${SIM.calls[b.id] ? `<span class="c" title="Live call">📞</span>` : ""}${!isTrainer() && actDone(b.id) ? `<span class="ok" title="Worked">✓</span>` : ""}</button></li>`; }).join("")}</ol>
       </div>
     </div>`;
 }
+/* The readiness gate: before the day's tools open, three key-concept questions, one from each of the day's first
+   three modules (their Knowledge Check pools). A trainee answers each correctly to unlock the tools; a wrong answer
+   shows the reason and can be tried again. Trainers and the shared slides window skip it. */
+function labQuestions(d){
+  const mods = [];
+  (d.lessons || []).map(l => l.cf && l.cf.block && l.cf.block.id).filter(Boolean).forEach(id => {
+    const m = CF.days.flatMap(x => x.modules).find(x => x.blocks.some(b => b.id === id)); if(m && !mods.includes(m)) mods.push(m); });
+  return mods.filter(m => (m.quiz || []).length).slice(0, 3).map(m => m.quiz[0]);
+}
+const LAB_KEY = d => "cfLabReady:" + d.id;
+const labPassed = {};
+function labReady(d){
+  if(isTrainer() || inAudience() || labPassed[d.id] || !labQuestions(d).length) return true;
+  try{ return sessionStorage.getItem(LAB_KEY(d)) === "1"; }catch(e){ return false; }
+}
+function labGate(d){
+  if(labReady(d)) return "";
+  const qs = labQuestions(d);
+  if(!qs.length) return "";
+  return `<div class="cfx-lab-gate" id="cfxLabGate${d.id}"><b>Ready for practice?</b> Answer these ${qs.length} key concepts to open today's tools.
+    ${qs.map((q, qi) => `<div class="cfx-lab-q" data-q="${qi}"><span>${qi + 1}. ${E(q.q)}</span><div class="o">${q.opts.map((o, oi) =>
+      `<button type="button" onclick="cmCaseFlow.labGate(${d.id},${qi},${oi},this)">${E(o)}</button>`).join("")}</div><div class="r" hidden></div></div>`).join("")}</div>`;
+}
+window.cmCaseFlow.labGate = function(dayId, qi, oi, btn){
+  const d = cfDay(dayId), q = d && labQuestions(d)[qi], row = btn && btn.closest(".cfx-lab-q");
+  if(!q || !row) return;
+  const ok = oi === q.a, r = row.querySelector(".r");
+  row.querySelectorAll("button").forEach(b => b.classList.remove("no"));
+  btn.classList.add(ok ? "ok" : "no");
+  if(ok){ row.classList.add("done"); row.querySelectorAll("button").forEach(b => { b.disabled = true; }); }
+  r.hidden = false; r.textContent = ok ? "✓ " + q.r : "Not quite. " + q.r + " Try again.";
+  const gate = document.getElementById("cfxLabGate" + dayId);
+  if(gate && gate.querySelectorAll(".cfx-lab-q").length === gate.querySelectorAll(".cfx-lab-q.done").length){
+    labPassed[dayId] = true;
+    try{ sessionStorage.setItem("cfLabReady:" + dayId, "1"); }catch(e){}
+    const tools = document.getElementById("cfxLabTools" + dayId);
+    if(tools) tools.hidden = false;
+    gate.classList.add("passed");
+  }
+};
 window.cmCaseFlow.labGo = function(dayId, li){
   const d = cfDay(dayId), slides = d && typeof buildDaySlides === "function" ? buildDaySlides(d) : [];
   const idx = slides.findIndex(sl => sl.type === "topic" && sl.lessonIndex === li && sl.part === 1);
@@ -1701,10 +2144,12 @@ if(typeof submitQuiz === "function"){
    questions, Self-Summary and Skill Scale. One Submit scores the quiz and sends every module to the AI reviewer
    against its rubric, automatically (no separate "Submit for review"); the results fit one screen. */
 const words3 = (x, n) => String(x || "").trim().split(/\s+/).filter(Boolean).length >= n;
-const kcMods = d => d.lessons.filter(l => l.cf.block.kind === "check").map(l => ({b: l.cf.block, mod: l.cf.mod, ph: l.cf.phase}));
-// The bonus round is one takeaway per module: the Self-Summary's first prompt, in a few sentences
+// The bonus round is ONE takeaway for the whole day (saves time): a short summary of the day, written against and
+// graded with the day's last Knowledge Check block, which stands for the day.
+const kcMods = d => { const all = d.lessons.filter(l => l.cf.block.kind === "check").map(l => ({b: l.cf.block, mod: l.cf.mod, ph: l.cf.phase}));
+  return all.length ? [all[all.length - 1]] : []; };
 const TAKEAWAY_MIN = 8;
-const takeawayOf = b => b.check.summary[0];
+const takeawayOf = b => `Your key takeaway from today, in one short summary: what you learned across the day's lessons and activities on John Doe's file, and what you will do differently on the job. (Start from: ${b.check.summary[0]})`;
 function modMissing(b, modId){   // what's left to do on a module's Learning Check, or "" when it's complete
   const m = rec(modId), n = String(m.answers[0] || "").trim().split(/\s+/).filter(Boolean).length;
   return n >= TAKEAWAY_MIN ? "" : n ? `add to your takeaway (at least ${TAKEAWAY_MIN} words; ${n} so far)` : "write your takeaway";
@@ -1899,7 +2344,7 @@ function gameQuiz(d){
       <div class="cfg-tally"><span><b>${right}</b> of ${n} right</span>${g.mode === "millionaire" ? "" : `<span><b class="cfg-count" data-to="${g.pts}">${g.pts.toLocaleString()}</b> points</span>`}<span>best streak <b>${g.best}</b></span></div>
       ${earned ? `<div class="cfg-earn">🤝 <b>+${earned} Ask a Friend token${earned === 1 ? "" : "s"}</b> for your next round: a hint from your AI colleague on a question you're stuck on</div>` : ""}
       ${gameBadges(d, g).length ? `<div class="cfg-badges">${gameBadges(d, g).map(([i, t, x]) => `<span class="cfg-badge"><i>${i}</i><b>${t}</b><small>${x}</small></span>`).join("")}</div>` : ""}
-      <button class="btn btn-primary" style="padding:13px 28px;" type="button" onclick="cmCaseFlow.kcPart('written')">Bonus round: your takeaways →</button></div>`;
+      <button class="btn btn-primary" style="padding:13px 28px;" type="button" onclick="cmCaseFlow.kcPart('written')">Bonus round: your key takeaway →</button></div>`;
   // the board / the wheel / the doors come before a question
   if(g.mode === "jeopardy" && (state.cfJq == null || g.log[state.cfJq] && state.cfGameShow !== state.cfJq && state.cfJAns !== state.cfJq)){
     return `<div class="cfg">${hud}${titleRow}${finished ? clear : `<p class="cfg-hint">Pick a category and a value. One square hides a <b>Daily Double</b>.</p>`}${jeopardyBoard(d, g)}</div>`;
@@ -1948,14 +2393,74 @@ function kcFit(){
   while(box.scrollHeight > box.clientHeight + 1 && z > 0.6){ z = Math.round((z - 0.05) * 100) / 100; w.style.zoom = String(z); }
 }
 window.addEventListener("resize", () => { clearTimeout(state.cfKcFitT); state.cfKcFitT = setTimeout(() => { try{ kcFit(); }catch(e){} }, 120); });
+/* The Knowledge Check is repainted on every answer, every pick and every move between questions. Writing
+   the whole page back with innerHTML threw away and rebuilt every node each time: the page visibly
+   flickered, worst on Day 3, whose Countdown Bomb repaints while a CSS fuse animation is running and
+   whose rebuilt page is measured and scaled again by kcFit.
+   So the new page is built as before and then *morphed* in: a node whose markup hasn't changed is left
+   exactly as it is, and only what really differs is written. The result is the same DOM innerHTML would
+   have produced — morphEl falls back to replacing a node whenever it can't patch it — so no mode's
+   markup has to be known here, and nothing flickers because almost nothing is touched.
+   The fuse is the one exception: its animation-delay is worked out from the clock on every render (so a
+   rebuilt fuse resumes where it was), which would make it differ every time and restart the animation.
+   A fuse that is already running on the same question keeps its own style. */
+const FUSE_SEL = ".cfg-fuse i";
+function sameFuse(cur, next){
+  return cur.matches && cur.matches(FUSE_SEL) && next.matches && next.matches(FUSE_SEL)
+    && cur.closest(".cfg-card") && next.closest && true;
+}
+function morphAttrs(cur, next, keepStyle){
+  for(const a of Array.from(next.attributes)){
+    if(keepStyle && a.name === "style") continue;
+    if(cur.getAttribute(a.name) !== a.value) cur.setAttribute(a.name, a.value);
+  }
+  for(const a of Array.from(cur.attributes)){
+    if(keepStyle && a.name === "style") continue;
+    if(!next.hasAttribute(a.name)) cur.removeAttribute(a.name);
+  }
+}
+function morphEl(cur, next){
+  if(cur.nodeType === 3 && next.nodeType === 3){ if(cur.nodeValue !== next.nodeValue) cur.nodeValue = next.nodeValue; return true; }
+  if(cur.nodeType !== 1 || next.nodeType !== 1 || cur.tagName !== next.tagName) return false;
+  const fuse = sameFuse(cur, next);
+  if(!fuse && cur.outerHTML === next.outerHTML) return true;            // unchanged: left alone
+  // A live <select>, <input> or <textarea> keeps what the trainee has typed or chosen.
+  if(/^(SELECT|INPUT|TEXTAREA)$/.test(cur.tagName)){ morphAttrs(cur, next); return true; }
+  morphAttrs(cur, next, fuse);
+  morphKids(cur, next);
+  return true;
+}
+function morphKids(cur, next){
+  // The live child list, never a snapshot of it: patching a child can replace it, which makes a
+  // snapshot's later entries stale and left a node behind (a mode whose card has one box fewer kept
+  // the box before it — the Countdown Bomb's fuse turned up on the next day's page).
+  const b = Array.from(next.childNodes);
+  for(let i = 0; i < b.length; i++){
+    const cn = cur.childNodes[i];
+    if(!cn){ cur.appendChild(b[i].cloneNode(true)); continue; }
+    if(!morphEl(cn, b[i])) cur.replaceChild(b[i].cloneNode(true), cn);
+  }
+  while(cur.childNodes.length > b.length) cur.removeChild(cur.lastChild);
+}
+function paintInto(w, html){
+  if(!w.firstChild){ w.innerHTML = html; return; }
+  const next = document.createElement("div");
+  next.innerHTML = html;
+  morphKids(w, next);
+}
 let __qdT = null;
 function gamePaint(d){
   if(d && !state.quizSubmitted && Object.keys(state.quizAnswers || {}).length){ clearTimeout(__qdT); __qdT = setTimeout(() => saveQuizDraft(d), 400); }
   const w = document.getElementById("quizWrap"); if(!w) return;
-  // No flicker: repainting the same question (answering it, Ask a Friend, a token) keeps its card still; only a new
-  // question card plays its entrance (cfgIn starts from transparent, so replaying it blinked the card on every click).
+  // Only ever paint the day that is open. A game's own timers (the bomb's 20-second fuse, the wheel's
+  // spin) hold the day they were started on, so one left running while the trainee opens another day
+  // used to paint that day's quiz over this one.
+  if(d && state.dayId && d.id !== state.dayId) return;
+  // No flicker, from both ends. The page is morphed in rather than written back whole (paintInto), so a
+  // node whose markup hasn't changed is left alone; and only a new question card plays its entrance
+  // (cfgIn starts from transparent, so replaying it blinked the card on every click).
   const prevQ = w.dataset.cfq;
-  w.innerHTML = renderQuiz(d);
+  paintInto(w, renderQuiz(d));
   const shownCard = w.querySelector(".cfg-card"), shownQ = shownCard ? String(shownCard.dataset.q) : "";
   w.classList.toggle("cfg-same", !!shownQ && shownQ === prevQ); w.dataset.cfq = shownQ;
   try{ kcFit(); }catch(e){}
@@ -2057,7 +2562,7 @@ if(typeof renderQuiz === "function"){
     const mods = kcMods(d), done = mods.filter(x => !modMissing(x.b, x.mod.id)).length, answered = Object.keys(state.quizAnswers || {}).length;
     const part = state.cfKcPart === "written" && state.cfKcDay === d.id ? "written" : "quiz";
     const step = (k, label, sub) => `<button type="button" class="cf-kc-step${part === k ? " on" : ""}" onclick="cmCaseFlow.kcPart('${k}')"><b>${label}</b><small>${sub}</small></button>`;
-    const steps = `<div class="cf-kc-steps">${step("quiz", `① ${(GAMES[(state.cfGame && state.cfGame.day === d.id && state.cfGame.mode) || (state.cfGameMode || {})[d.id] || GAME_DAY[d.cf.n]] || GAMES.millionaire).icon} The Quiz Game`, `${answered} of ${d.quiz.length} played`)}${step("written", "② Bonus round: your takeaways", `${done} of ${mods.length} written${takeawayScore(d).pct == null ? " · graded when you submit" : ` · graded ${takeawayScore(d).pct}%`}`)}</div>`;
+    const steps = `<div class="cf-kc-steps">${step("quiz", `① ${(GAMES[(state.cfGame && state.cfGame.day === d.id && state.cfGame.mode) || (state.cfGameMode || {})[d.id] || GAME_DAY[d.cf.n]] || GAMES.millionaire).icon} The Quiz Game`, `${answered} of ${d.quiz.length} played`)}${step("written", "② Bonus round: your key takeaway", `${done} of ${mods.length} written${takeawayScore(d).pct == null ? " · graded when you submit" : ` · graded ${takeawayScore(d).pct}%`}`)}</div>`;
     const prog = (state.progress || {})[d.id];
     const head = `<div class="cf-kc-head"><button type="button" class="cf-kc-back" onclick="cmCaseFlow.kcBack(${d.id})" title="Back to the slide you were on">← Lessons</button>
       <b>Case Flow Day ${d.cf.n} · ${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</b><span class="tag">Knowledge Check · ${d.quiz.length} questions</span>
@@ -2094,6 +2599,7 @@ const status = (modId, t) => { const el = document.getElementById(`cfss_st_${mod
 window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
   draft(modId){ readForm(modId); clearTimeout(draftTimer); draftTimer = setTimeout(() => { persist(); status(modId, "Draft saved"); }, 900); },
   rate(modId, j, n){ rec(modId).scale[j] = n; persist(); },
+  reveal(blockId){ (REC.revealed = REC.revealed || {})[blockId] = new Date().toISOString(); persist(); if(typeof render === "function") render(); },
   tick(blockId, j, on){ REC.ticks = REC.ticks || {}; (REC.ticks[blockId] = REC.ticks[blockId] || [])[j] = !!on; persist(); },
   kcDraft(modId, j, v){ rec(modId).kc[j] = v; clearTimeout(draftTimer); draftTimer = setTimeout(() => { persist(); status(modId, "Draft saved"); }, 900); },
   async save(modId){ const m = readForm(modId); m.savedAt = new Date().toISOString(); await persist(); status(modId, "Saved " + new Date(m.savedAt).toLocaleString()); },
@@ -2267,7 +2773,17 @@ function caseYearNote(mine){
 function workLogged(mine, m){
   const rows = m.blocks.filter(x => x.kind === "activity").map(x => ({x, w: (mine.work || {})[x.id]})).filter(r => r.w);
   const heard = m.blocks.filter(x => x.kind === "activity" && ((mine.listen || {})[x.id] || {}).at).map(x => { const h = mine.listen[x.id], ev = SIM.events[x.id]; return `<div class="cf-tr-work"><b>🎧 Listening Check (${E(x.title)}):</b> ${E(h.score)}/${E((ev.listen || []).length)} caught · played ${E(h.plays)}×${(ev.listen || []).map((q, j) => `<br>${h.got[j] ? "✓" : "✗"} ${E(q.q)} <i>${E(h.answers[j] || "—")}</i>`).join("")}</div>`; }).join("");
-  if(heard) return heard + (rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "");
+  const aud = m.blocks.filter(x => x.kind === "activity" && EX.audits[x.id] && ((mine.audits || {})[x.id] || {}).at).map(x => {
+    const a = EX.audits[x.id], r = mine.audits[x.id], sc = a.items.reduce((n, it, i) => n + (r.marks[i] === it.verdict ? 1 : 0), 0);
+    return `<div class="cf-tr-work"><b>🔍 ${E(a.title)}:</b> ${E(sc)}/${E(a.items.length)} called correctly · handed in ${E(new Date(r.at).toLocaleDateString())}${a.items.map((it, i) => `<br>${r.marks[i] === it.verdict ? "✓" : "✗"} ${E(it.ref)} ${E(it.what)} — called <i>${E((VERDICT[r.marks[i]] || {}).label || "—")}</i>${r.notes[i] ? `: “${E(r.notes[i])}”` : ""}`).join("")}</div>`;
+  }).join("");
+  const svs = m.blocks.filter(x => x.kind === "activity" && EX.emails[x.id] && ((mine.service || {})[x.id] || {}).sent).map(x => {
+    const e = EX.emails[x.id], r = mine.service[x.id], c = r.choice != null ? e.press.choices[r.choice] : null;
+    return `<div class="cf-tr-work"><b>✉ ${E(e.title)}:</b> sent after ${E(r.tries || 0)} rejected attempt${(r.tries || 0) === 1 ? "" : "s"}${c ? ` · follow-up answered ${c.ok ? "correctly" : "wrongly"}: “${E(c.label)}”` : " · follow-up not answered"}${r.filed ? ` · filed as <code>${E(r.filed.name)}</code> under ${E(r.filed.category)}` : " · not filed"}${r.drive ? " · backed up to Drive" : ""}<br><i>${E(r.body || "—")}</i></div>`;
+  }).join("");
+  const extra = aud + svs;
+  if(heard) return heard + extra + (rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "");
+  if(extra) return extra + (rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "");
   return rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "";
 }
 const NET_LABEL = {recovery: "Track A · settlement", liens: "Track A · liens", final: "Track A · final", litigation: "Track B · case won"};
@@ -2355,14 +2871,16 @@ function caseNow(){
   return {now, track: trackB ? "B" : trackA ? "A" : ""};
 }
 const fmtMs = t => { const d = new Date(t); return `${String(d.getUTCMonth() + 1).padStart(2, "0")}/${String(d.getUTCDate()).padStart(2, "0")}/${d.getUTCFullYear()}`; };
+/* one screen: each event is a date button; its label pops up on hover, focus or tap */
+const tlItem = (cls, label, date) => `<li class="${cls}"><button type="button" class="cf-tl-b" aria-label="${label} · ${date}"><i></i><small>${date.replace(/\/\d\d(\d\d)\b/, "/$1")}</small></button><b class="cf-tl-pop">${label}<span>${date}</span></b></li>`;
 function caseTimeline(n){
   if(!(SIM.timeline || []).length) return "";
   if(!isTrainer()){   // a trainee sees the case only as far as they have worked it
     const {now, track} = caseNow();
     const seen = SIM.timeline.filter(m => (!m.track || m.track === track) && dayMs(m.date) <= (m.lane ? now[m.lane] : now[""]));
     if(!seen.length) return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3><p class="cf-note">The timeline fills in as you work John Doe's file.</p></div>`;
-    const li = list => list.map(m => `<li class="past"><i></i><b>${E(m.label)}</b><small>${E(m.date)}</small></li>`).join("");
-    const at = t => isNaN(t) ? "" : `<li class="here"><i></i><b>You are here</b><small>${E(fmtMs(t))}</small></li>`;
+    const li = list => list.map(m => tlItem("past", E(m.label), E(m.date))).join("");
+    const at = t => isNaN(t) ? "" : tlItem("here", "You are here", E(fmtMs(t)));
     const laned = seen.filter(m => m.lane);
     if(!laned.length) return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3><ol class="cfx-tl cfx-tl-full">${li(seen)}${at(now[""])}</ol></div>`;
     // once the two workstreams have started: the shared file, the workstreams side by side (each with its own "you are here"), then the file again
@@ -2381,10 +2899,10 @@ function caseTimeline(n){
   const row = (list, at, mark = true) => {   // mark: show "you are here" in this row (else only colour what's past)
     const t = dayMs(at); let placed = !mark;
     const li = list.map(m => {
-      const past = !isNaN(t) && dayMs(m.date) <= t, pre = !placed && !isNaN(t) && dayMs(m.date) > t ? (placed = true, `<li class="here"><i></i><b>You are here</b><small>${E(at)}</small></li>`) : "";
-      return pre + `<li class="${past ? "past" : "next"}"><i></i><b>${E(m.label)}</b><small>${E(m.date)}${m.track ? " · Track " + E(m.track) : ""}</small></li>`;
+      const past = !isNaN(t) && dayMs(m.date) <= t, pre = !placed && !isNaN(t) && dayMs(m.date) > t ? (placed = true, tlItem("here", "You are here", E(at))) : "";
+      return pre + tlItem(past ? "past" : "next", E(m.label) + (m.track ? " · Track " + E(m.track) : ""), E(m.date));
     }).join("");
-    return li + (!placed && at && !isNaN(t) ? `<li class="here"><i></i><b>You are here</b><small>${E(at)}</small></li>` : "");
+    return li + (!placed && at && !isNaN(t) ? tlItem("here", "You are here", E(at)) : "");
   };
   const laned = items.filter(m => m.lane), lo = Math.min(...laned.map(m => dayMs(m.date))), hi = Math.max(...laned.map(m => dayMs(m.date)));
   const before = items.filter(m => !m.lane && dayMs(m.date) < lo), after = items.filter(m => !m.lane && dayMs(m.date) > hi);
@@ -2473,6 +2991,55 @@ if(typeof window.renderClientProfile === "function" && Array.isArray(CF.profile)
   window.cmCaseFlow.profile = () => { if(state.view !== "clientprofile" && typeof goto === "function") return goto("clientprofile"); render(); window.scrollTo(0, 0); };   // the dashboard's "Case profile" button
 }
 
+/* ---------- the Action Plan: a template the trainee fills in ----------
+   The Action Plan note starts as a form in plain text: each section labelled, each answer a blank to fill, so a
+   trainee writes the plan rather than wondering what goes in it. An empty Action Plan gets it again; 📝 Use the
+   template puts it back on demand (below what is already written). */
+const PLAN_TEMPLATE = [
+  "ACTION PLAN · John Doe v. Robert Smith",
+  "Date: ____________    Case Flow Day / phase: ____________",
+  "",
+  "1. SITUATION (facts from the file only, with the document each comes from)",
+  "   - ____________",
+  "",
+  "2. GOAL AND DEADLINE (what must be true, by when: SOL, carrier or court date)",
+  "   - Goal: ____________",
+  "   - Deadline: ____________",
+  "",
+  "3. ACTION ITEMS (one per line: task, owner, due date, tool)",
+  "   - Task: ____________ | Owner: ____________ | Due: ____________ | Tool: ____________",
+  "   - Task: ____________ | Owner: ____________ | Due: ____________ | Tool: ____________",
+  "   - Task: ____________ | Owner: ____________ | Due: ____________ | Tool: ____________",
+  "",
+  "4. RISKS AND FLAGS (gaps, liens, coverage, deadlines; facts only, no opinion on value)",
+  "   - ____________",
+  "",
+  "5. UPL CHECK (anything the client asked that only the attorney can answer, and when it was routed)",
+  "   - ____________",
+  "",
+  "6. WHO IS TOLD (attorney, client, carrier, provider) and how",
+  "   - ____________",
+  "",
+  "7. FOLLOW-UP (the date you check again, and what you check)",
+  "   - ____________"
+].join("\n");
+if(typeof window.ensureDefaultNote === "function"){
+  const __ensure = window.ensureDefaultNote;
+  window.ensureDefaultNote = function(){
+    __ensure.apply(this, arguments);
+    const plan = (state.notes || []).find(n => /action plan/i.test(n.title || ""));
+    if(plan && !String(plan.content || "").trim()) plan.content = PLAN_TEMPLATE;
+  };
+}
+window.cmCaseFlow.planTemplate = function(){
+  if(typeof ensureDefaultNote === "function") ensureDefaultNote();
+  const plan = (state.notes || []).find(n => /action plan/i.test(n.title || "")); if(!plan) return;
+  plan.content = String(plan.content || "").trim() ? plan.content + "\n\n" + PLAN_TEMPLATE : PLAN_TEMPLATE;
+  plan.updatedAt = new Date().toISOString();
+  if(typeof storeSet === "function") storeSet("notes", state.notes);
+  if(typeof render === "function") render();
+};
+
 /* ---------- My Notes & Action Plan: one screen ----------
    The page's title in a column on the left, with the way back to the Case Flow at its foot; the note editor takes
    the rest of the width and the height of the screen (its page scrolls inside); Download (PDF) and, after an
@@ -2487,7 +3054,7 @@ if(typeof window.renderNotes === "function" && typeof window.renderNoteCard === 
       <section class="page-hero cf-notes-hero"><p class="eyebrow">Personal Workspace</p><h1>My Notes &amp; Action Plan</h1>
         <p>Your action plan, takeaways, and anything else worth keeping. It saves automatically, and <b>Review</b> gives quick feedback on quality, professionalism and compliance before you finalize anything.</p>${back}</section>
       <div class="cf-notes-main"><div id="notesList">${state.notes.map(n => renderNoteCard(n)).join("")}</div>
-        <div class="cf-notes-foot"><button type="button" class="btn btn-ghost" onclick="downloadNotesPdf()">⬇ Download All Notes (PDF)</button>${next}</div></div></div>`;
+        <div class="cf-notes-foot"><button type="button" class="btn btn-ghost" onclick="cmCaseFlow.planTemplate()" title="Add the fill-in Action Plan template to your plan">📝 Use the template</button><button type="button" class="btn btn-ghost" onclick="downloadNotesPdf()">⬇ Download All Notes (PDF)</button>${next}</div></div></div>`;
   };
 }
 
@@ -2556,6 +3123,16 @@ function caseFlowPractice(){
   const tabs = `<div class="cf-px-tabs" role="tablist">${MODULES.map(d => `<button type="button" role="tab" aria-selected="${d.cf.n === sel}" class="cf-px-tab${d.cf.n === sel ? " on" : ""}" onclick="cmCaseFlow.pxDay(${d.cf.n})">Day ${d.cf.n}${dayUnlocked(d.id) ? (kcDone(d) ? " ✓" : "") : " 🔒"}<small>${E((CF.days.find(x => x.n === d.cf.n) || {}).phase || "")}</small></button>`).join("")}</div>`;
   const days = MODULES.filter(d => d.cf.n === sel).map(d => {
     const open = dayUnlocked(d.id), day = CF.days.find(x => x.n === d.cf.n);
+    /* One tools access for the session, not a set of chips on every activity. A day's activities are
+       worked in the same few platforms, so the chips repeated down the page were the same two or three
+       buttons over and over, and a trainee opening one from the wrong row landed on the wrong step.
+       The day's distinct tools are offered once, at the top of the day, each opening on that day's first
+       activity that uses it; every activity row still names the tool it is worked in, in words. The
+       per-step buttons stay where they belong, on the activity's own slide (the 🛠 Where box). */
+    const firstFor = {};
+    d.lessons.forEach((l, li) => { if(l.cf.block.kind !== "activity") return;
+      blockTools(l.cf.block).forEach(id => { if(firstFor[id] === undefined) firstFor[id] = {blockId: l.cf.block.id, li}; }); });
+    const sessionTools = open ? Object.keys(firstFor).map(id => toolChip(id, firstFor[id].blockId)).filter(Boolean).join("") : "";
     // the module's Practice, in the order the work happens, grouped under each activity's heading
     const groups = [];
     d.lessons.forEach((l, li) => { if(l.cf.block.kind !== "activity") return; const t = l.cf.heading.replace(/^Skill Building:\s*/, ""), last = groups[groups.length - 1];
@@ -2563,11 +3140,13 @@ function caseFlowPractice(){
     const mods = groups.map(({title, acts}, gi) => {
       return `<div class="cf-px-mod"><div class="cf-px-mh">${d.cf.n}.${gi + 1} · ${E(title)}</div>
         ${acts.map(({b, li}) => `<div class="cf-px-act"><div><b>${E(b.title)}</b>
-            <div class="cf-px-meta"><span>🛠 ${E(b.act.tool)} ${open ? toolChips(blockTools(b), b.id) : ""}</span><span>📤 ${E(b.act.output)}</span>${(CF_PACKETS[b.id] || []).length ? `<span>📁 ${CF_PACKETS[b.id].length} documents</span>` : ""}</div></div>
+            <div class="cf-px-meta"><span>🛠 ${E(b.act.tool)}</span><span>📤 ${E(b.act.output)}</span>${(CF_PACKETS[b.id] || []).length ? `<span>📁 ${CF_PACKETS[b.id].length} documents</span>` : ""}</div></div>
           ${open ? `<button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.openBlock(${d.id},${li})">Open</button>` : `<span class="cf-px-lock">🔒</span>`}</div>`).join("")}</div>`;
     }).join("");
     return `<div class="card px-day"><div class="px-day-h"><div><h2>Case Flow Day ${d.cf.n}${open ? "" : " · 🔒"}${day.track ? ` <span class="cf-px-track">${E(day.track)}</span>` : ""}</h2><div class="sub">${E(day.phase)}</div></div>
         <span class="px-prog">${kcDone(d) ? "Knowledge Check passed ✓" : open ? "In progress" : "Opens when the day before is passed"}</span></div>
+      ${sessionTools ? `<div class="cf-px-tools"><b>🛠 Tools for this session</b><div class="cf-px-toolrow">${sessionTools}</div>
+        <small>Each opens on the first activity of the day that is worked in it. Every step's own tools are on its slide.</small></div>` : ""}
       <div class="cf-px-mods">${mods}</div></div>`;
   }).join("");
   const any = [
@@ -2584,9 +3163,14 @@ function caseFlowPractice(){
 `;
 }
 if(typeof window.renderPracticeHub === "function") window.renderPracticeHub = () => caseFlowPractice();
+window.cmCaseFlowTest = {blockTools, EMAIL_NEED, emailTarget};   // .github/scripts/practice-tools.cjs
 
 /* ---------- styles: only what the course's own classes don't already give ---------- */
 const st = document.createElement("style"); st.id = "cm-case-flow"; st.textContent = `
+.cf-px-tools{margin:0 0 14px;padding:12px 14px;background:#F7F8FB;border:1px solid var(--line,#D6DAE4);border-radius:12px;}
+.cf-px-tools > b{display:block;font:800 12.5px var(--font-ui);color:var(--navy);letter-spacing:.04em;text-transform:uppercase;}
+.cf-px-toolrow{display:flex;gap:8px;flex-wrap:wrap;margin:9px 0 0;}
+.cf-px-tools small{display:block;margin-top:8px;font-size:12px;color:var(--ink-soft,#5B6178);}
 .cfg{position:relative;width:100%;box-sizing:border-box;}
 #quizWrap:has(.cfg){width:100%;}
 .cfg-title{display:flex;justify-content:center;align-items:center;gap:10px;margin:0 0 8px;}
@@ -2771,6 +3355,17 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-theory .cfx-lead-1{font-size:24px;} .cfx-theory .cfx-lead-1 + .cfx-th-lead{text-align:center;}
 .cfx-lab-lead{font:500 16px/1.45 var(--font-ui);color:var(--ink);margin:0 0 10px;text-align:left;}
 .cfx-lab-tools{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px;}
+.cfx-lab-tools[hidden]{display:none;}
+.cfx-lab-gate{border:1px solid #F0C9A0;background:#FFF8EF;border-radius:10px;padding:8px 12px;margin:0 0 10px;font:500 13px/1.4 var(--font-ui);color:var(--ink);text-align:left;}
+.cfx-lab-gate.passed{border-color:#9CD3B0;background:#F1FAF4;}
+.cfx-lab-gate.passed .cfx-lab-q{display:none;}
+.cfx-lab-gate.passed::after{content:" ✓ Ready: today's tools are open.";color:#2E7D4F;}
+.cfx-lab-q{margin-top:6px;}
+.cfx-lab-q .o{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px;}
+.cfx-lab-q .o button{font:500 12px/1.3 var(--font-ui);border:1px solid #CBD2E1;background:#fff;border-radius:6px;padding:3px 8px;cursor:pointer;text-align:left;}
+.cfx-lab-q .o button.ok{background:#E3F4E8;border-color:#3E9A5E;}
+.cfx-lab-q .o button.no{background:#FDECEC;border-color:#C9473F;}
+.cfx-lab-q .r{font-size:12px;color:var(--ink-soft);margin-top:2px;}
 .cfx-lab-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;text-align:left;}
 .cfx-lab-list > li{padding:0 !important;margin:0 !important;}
 .cfx-lab-list > li::before, .cfx-lab-list > li::after{content:none !important;display:none !important;}
@@ -2983,7 +3578,7 @@ main > .cf-side-presenter{display:none;}
 .cf-file-page .cf-file-cols{flex:1 1 auto;min-height:0;overflow:auto;}
 /* the timeline takes what it needs and no more (a trainee's is short at first), and scrolls inside
    itself rather than pushing the page past the screen */
-.cf-file-page .cf-file-facts .cf-timeline{flex:0 1 auto;min-height:0;overflow:auto;}
+.cf-file-page .cf-file-facts .cf-timeline{flex:0 1 auto;min-height:0;overflow:visible;}
 .cf-file-facts .cf-timeline{margin:0;}
 .cf-timeline .cf-note{color:#D7DDEA;}   /* the card is navy: the empty-state line has to be light */
 .cf-file-hero{flex:0 0 auto;padding:11px 18px 10px;margin-bottom:9px;}
@@ -3034,6 +3629,9 @@ main > .cf-side-presenter{display:none;}
 .dfl-bad{font-size:12.3px;color:#8A2F26;background:rgba(253,232,228,.7);border-left:3px solid #9B3A30;border-radius:0 8px 8px 0;padding:6px 10px;}
 .dfl-bad ul{margin:4px 0 0;padding-left:18px;}
 .dfl-ok{font-size:12.3px;color:#1F5B3A;margin-top:4px;}
+/* 📤 a drafting activity filing the one letter it drafted (js/cm-cms-upload.js) */
+.dfl-one{margin:14px 0 2px;}
+.dfl-one .dfl-row:first-of-type{border-top:none;padding-top:4px;}
 .dfl-done{opacity:.95;}
 /* the Case ID the CMS gave, not typed (js/cm-cms-case.js) */
 .cfx-log-from:not(:empty){font-size:11px;font-weight:700;color:#1F4E79;background:rgba(214,231,248,.75);border-radius:999px;padding:2px 8px;}
@@ -3278,6 +3876,22 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cf-lane-h{font:800 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#F4B77A;margin:0 0 10px;}
 .cf-lane-care .cf-lane-h{color:#9BE0B4;}
 .cf-lane .cfx-tl-full li{flex:0 0 calc(100% / 4);}
+/* one screen: the timeline is a wrap of date buttons; each label pops up over the rail */
+.cf-timeline .cfx-tl-full{flex-direction:row !important;flex-wrap:wrap !important;gap:4px;margin:0 0 4px;}
+.cf-timeline .cfx-tl-full::before{display:none !important;}
+.cf-timeline .cfx-tl-full li, .cf-timeline .cf-lane .cfx-tl-full li{flex:0 0 auto !important;padding:0;position:relative;overflow:visible;}
+.cf-tl-b{display:flex;align-items:center;gap:5px;padding:2px 7px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);color:#DDE2EE;cursor:pointer;font:inherit;}
+.cf-tl-b:hover,.cf-tl-b:focus-visible{background:rgba(219,132,55,.3);border-color:#DB8437;outline:none;}
+.cf-timeline .cfx-tl-full li small{order:0;min-width:0 !important;font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:-.01em;color:#C9CFE0;}
+.cf-timeline .cfx-tl-full li i{width:6px;height:6px;border-width:1px;}
+.cf-timeline .cfx-tl-full li.here .cf-tl-b{background:#DB8437;border-color:#fff;}
+.cf-timeline .cfx-tl-full li.here small{color:#fff;}
+.cf-timeline .cfx-tl-full li.next .cf-tl-b{opacity:.62;}
+.cf-tl-pop span{display:block;margin-top:2px;font:600 10.5px 'IBM Plex Mono',monospace;color:#F4B77A;}
+.cf-tl-pop{position:absolute;left:50%;top:calc(100% + 8px);transform:translateX(-50%);z-index:20;display:none;width:max-content;max-width:260px;padding:7px 11px;border-radius:10px;background:#12162B;border:1px solid #DB8437;color:#fff;font:700 12.5px/1.3 'Inter',sans-serif;box-shadow:0 8px 20px rgba(0,0,0,.45);}
+.cf-timeline .cfx-tl-full li:hover .cf-tl-pop,.cf-timeline .cfx-tl-full li:focus-within .cf-tl-pop{display:block;}
+.cf-timeline .cfx-tl-full li:first-child .cf-tl-pop{left:0;transform:none;}
+.cf-timeline .cfx-tl-full li:last-child .cf-tl-pop{left:auto;right:0;transform:none;}
 @media(max-width:760px){.cf-lanes{grid-template-columns:minmax(0,1fr);}}
 .cf-timeline h3{margin:0 0 12px;font:800 20px 'Poppins','Inter',sans-serif;color:#fff;}
 @media(max-width:760px){
@@ -3285,6 +3899,81 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
   .cfx-tl li:nth-child(1),.cfx-tl li:nth-child(7){display:none;}
   .cfx-tl b{font-size:10.5px;}
 }
+/* the exhibit audit, the completed package and the Service Confirmation */
+.cfx-aud{display:grid;gap:12px;}
+.cfx-aud-h{display:flex;flex-wrap:wrap;align-items:center;gap:10px;}
+.cfx-aud-due{font-size:13px;color:var(--ink-soft);}
+.cfx-aud-intro{font-size:17px;line-height:1.45;margin:0;max-width:80ch;}
+.cfx-aud-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;}
+.cfx-aud-card{border:1px solid var(--line);border-radius:12px;padding:10px 13px;background:#fff;display:grid;gap:3px;}
+.cfx-aud-card b{color:var(--navy);font-size:12px;text-transform:uppercase;letter-spacing:.05em;}
+.cfx-aud-card>span{font-size:16px;font-weight:700;color:var(--navy);}
+.cfx-aud-card small{font-size:12.5px;color:var(--ink-soft);line-height:1.4;}
+.cfx-aud-score{background:#FFF8EF;border-color:#F0C08A;}
+.cfx-aud-rev{background:#F3F7F4;border-color:#BBD4C4;}
+.cfx-aud-points{margin:0;padding-left:20px;display:grid;gap:3px;font-size:14px;color:var(--ink);}
+.cfx-aud-act{display:flex;flex-wrap:wrap;align-items:center;gap:10px;}
+.cfx-aud-note{font-size:13px;color:var(--ink-soft);}
+.cfx-bench,.cfx-sv{max-width:1180px;}
+.ab-top,.sv-top{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;font-size:13px;color:var(--ink-soft);margin-bottom:8px;}
+.ab-sc{margin-left:auto;font-weight:800;color:var(--navy);}
+.sv-warn{color:#A2410F;font-weight:700;}
+.ab-key{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:4px 12px;margin-bottom:10px;font-size:12px;color:var(--ink-soft);}
+.ab-key b{color:var(--navy);}
+.ab-table{width:100%;border-collapse:collapse;font-size:13px;}
+.ab-table th{text-align:left;background:#F4F6FA;border:1px solid var(--line);padding:5px 7px;color:var(--navy);font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;}
+.ab-table td{border:1px solid var(--line);padding:6px 7px;vertical-align:top;line-height:1.4;}
+.ab-table tr.ok td{background:#F3F9F5;}
+.ab-table tr.no td{background:#FDF4F2;}
+.ab-ref{font-family:ui-monospace,Menlo,monospace;font-weight:700;color:var(--navy);white-space:nowrap;}
+.ab-as{color:var(--ink-soft);}
+.ab-call{min-width:160px;}
+.ab-sel,.ab-note,.sv-write,.sv-name{font:inherit;font-size:13px;border:1px solid var(--line);border-radius:7px;padding:5px 7px;width:100%;background:#fff;}
+.ab-v{font-weight:700;color:var(--navy);}
+.ab-ok{color:#1d5c3a;font-weight:800;margin-left:4px;}
+.ab-right{font-weight:800;color:#A2410F;}
+.ab-kind{display:inline-block;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:800;color:#A2410F;}
+.ab-foot,.ab-rev{margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:13px;color:var(--ink-soft);}
+.ab-rev{display:block;border:1px solid #BBD4C4;background:#F3F7F4;border-radius:12px;padding:10px 14px;color:var(--ink);}
+.ab-rev ul{margin:6px 0;padding-left:20px;}
+.sv-step{border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:10px;background:#fff;}
+.sv-step.sv-done{border-color:#BBD4C4;background:#F7FBF8;}
+.sv-step.sv-now{border-color:#F0C08A;background:#FFFCF7;}
+.sv-step.sv-wait{opacity:.6;}
+.sv-step.sv-no{border-color:#E6B4A8;background:#FDF6F4;}
+.sv-h{display:flex;align-items:center;gap:9px;color:var(--navy);font-size:15px;}
+.sv-n{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;font-weight:800;flex:0 0 auto;}
+.sv-step.sv-done .sv-n{background:#1d5c3a;}
+.sv-b{margin-top:8px;font-size:13.5px;line-height:1.5;}
+.sv-mail{width:100%;border-collapse:collapse;font-size:12.5px;}
+.sv-mail th,.sv-mail td{border:1px solid var(--line);padding:4px 7px;text-align:left;}
+.sv-mail th{background:#F4F6FA;color:var(--navy);}
+.sv-note{color:var(--ink-soft);margin:6px 0 0;}
+.sv-brief{margin:0 0 8px;}
+.sv-eh{font-family:ui-monospace,Menlo,monospace;font-size:12px;background:#F4F6FA;border:1px solid var(--line);border-radius:8px;padding:7px 9px;margin:0 0 8px;line-height:1.6;}
+.sv-body{font-family:ui-monospace,Menlo,monospace;font-size:12px;white-space:pre-wrap;background:#fff;border:1px solid var(--line);border-left:3px solid #DB8437;border-radius:0 8px 8px 0;padding:8px 10px;margin:0;}
+.sv-req,.sv-est,.sv-sec{margin:8px 0 0;padding-left:20px;display:grid;gap:3px;}
+.sv-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:9px;}
+.sv-name{max-width:420px;}
+.sv-msg{font-size:12.5px;color:#A2410F;}
+.sv-msg ul{margin:4px 0 0;padding-left:18px;}
+.sv-ok{font-size:12.5px;color:#1d5c3a;font-weight:700;}
+.sv-choices{display:grid;gap:6px;margin-top:9px;}
+.sv-ch{display:grid;grid-template-columns:20px 1fr;gap:8px;align-items:start;border:1px solid var(--line);border-radius:9px;padding:7px 9px;cursor:pointer;}
+.sv-ch.ok{border-color:#BBD4C4;background:#F3F9F5;}
+.sv-ch.no{border-color:#E6B4A8;background:#FDF4F2;}
+.sv-ch small{color:var(--ink-soft);}
+.sv-sentmail{display:grid;gap:8px;}
+@media(max-width:760px){
+  .ab-table,.ab-table thead,.ab-table tbody,.ab-table tr,.ab-table td{display:block;width:auto;}
+  .ab-table thead{display:none;}
+  .ab-table tr{border:1px solid var(--line);border-radius:10px;margin-bottom:8px;padding:4px;}
+  .ab-table td{border:0;padding:4px 6px;}
+  .cfx-aud-intro{font-size:15px;}
+}
+.cfx-blank{display:inline-block;min-width:4.5em;border-bottom:2px dotted #E8862A;color:transparent;}
+.cfx-reveal{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:10px 0;padding:10px 14px;border-radius:10px;background:#FFF6EC;font-size:14px;}
+.cfx-key-note{font-size:12.5px;color:var(--ink-soft);margin:6px 0;}
 .cfx-modal{position:fixed;inset:0;z-index:9999;background:rgba(20,26,44,.55);display:flex;align-items:flex-start;justify-content:center;padding:4vh 16px;overflow:auto;}
 .cfx-modal-in{max-width:980px;width:100%;padding:18px 24px !important;}
 .cfx-modal-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;font-size:17px;color:var(--navy);}

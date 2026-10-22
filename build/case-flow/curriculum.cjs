@@ -138,6 +138,8 @@ else {
      Lab slide) stay within SLIDE_CAP, and no day runs far from the others (half to one and a half times the median).
      A heavy day condenses its blocks (`compact`, `brief`) instead of carrying more slides. */
   const SLIDES = (() => { require(path.join(ROOT, "js/cm-case-flow-slides.js")); return global.window.CM_CF_SLIDES || {}; })();
+  // an activity that audits a document set draws one more slide (build/case-flow/exhibits), so it counts here too
+  const AUDITS = (() => { require(path.join(ROOT, "js/cm-case-flow-exhibits.js")); return (global.window.CM_CF_EXHIBITS || {}).audits || {}; })();
   const SLIDE_CAP = 100, TH_PER = 4;
   const viewsOf = b => {
     const t = (SLIDES[b.id] || {}).theory, map = (SLIDES[b.id] || {}).roadmap ? ["map"] : [];
@@ -145,7 +147,7 @@ else {
     if(b.kind === "lesson" && b.brief) return ["why", "rules"].concat((b.ops || []).length ? ["job"] : []);
     if(b.kind === "lesson" && b.compact) return ["why"].concat(map, theory.slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);
     if(b.kind === "lesson") return ["why"].concat(map, theory, ["rules"], b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);
-    if(b.kind === "activity") return ["case", "task"].concat(b.show && !b.compact ? ["model"] : [], ["check"]);
+    if(b.kind === "activity") return ["case", "task"].concat(AUDITS[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);
     return [];   // a Knowledge Check is its own page, not slides
   };
   DECK = CF.sequence.map(sd => { const bs = (sd.phases || []).flatMap(ph => ph.blocks || []).filter(id => STORED[id]).map(id => STORED[id].b);
@@ -181,6 +183,30 @@ Object.keys(LEGACY).forEach(k => {
   if(targets.length && targets.every(n => written.has(n)))
     errors.push(`${k} "${LEGACY[k].h}" is planned for Case Flow Day ${[...new Set(targets)].join(" and ")}, which is written, but no block uses it`);
 });
+
+// Foundational lessons before practice: in every phase the lessons all come before the first Skill Activity (the
+// Practice Lab opens after the lessons), and every Skill Activity is preceded, in teaching order, by a lesson of its
+// own module or by the lessons its `prereq` names. No trainee lands in a lab or simulator untaught.
+if(Array.isArray(CF.sequence)){
+  const of = {}; CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { of[b.id] = {b, mod: m.id}; })));
+  const taught = new Set(), lessonsSeen = new Set();
+  CF.sequence.forEach(sd => (sd.phases || []).forEach(ph => {
+    let lab = false;
+    (ph.blocks || []).forEach(id => {
+      const x = of[id]; if(!x) return;
+      if(x.b.kind === "lesson"){
+        if(lab) errors.push(`Day ${sd.n}: lesson ${id} comes after the Practice Lab has opened (lessons first, then practice)`);
+        taught.add(x.mod); lessonsSeen.add(id);
+      }
+      if(x.b.kind === "activity"){
+        lab = true;
+        const pre = [].concat(x.b.prereq || []);
+        if(pre.length ? !pre.every(l => lessonsSeen.has(l)) : !taught.has(x.mod))
+          errors.push(`Day ${sd.n}: activity ${id} has no lesson before it (${pre.length ? "prereq " + pre.join(", ") : "none of module " + x.mod})`);
+      }
+    });
+  }));
+}
 
 if(errors.length){
   console.error("Case Flow curriculum check failed:\n" + errors.map(e => "  • " + e).join("\n"));

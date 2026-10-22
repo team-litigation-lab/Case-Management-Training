@@ -131,6 +131,27 @@
       "note": "Corrections first, reductions second: never negotiate a percentage off an inflated bill."
     }
   },
+  "d3m3-l3": {
+    "lead": "The lienholder takes less when it can **see the math** and sign a letter that closes the bill.",
+    "concepts": [
+      {
+        "term": "Reduction Request",
+        "text": "The written ask: **audited balance**, recovery, fee and costs, other liens and the common-fund share."
+      },
+      {
+        "term": "Authority",
+        "text": "Atty. Thorne's written floor for each lien: **the CM asks inside it** and routes anything outside."
+      },
+      {
+        "term": "Payoff Letter",
+        "text": "The lienholder's signed **full-and-final** satisfaction: no balance billing, no collections."
+      }
+    ],
+    "pages": [
+      "D3#21",
+      "D3#22"
+    ]
+  },
   "d3m4-l1": {
     "lead": "The Net Sheet is the tool for **transparency and case control**: it shows every dollar's origin and destination before anything leaves trust.",
     "concepts": [

@@ -74,3 +74,7 @@ table.ledger.compact td, table.ledger.compact th { padding: 1.5px 4px; font-size
 .frame .frame-label { position: absolute; left: 8px; right: 8px; top: 50%; transform: translateY(-50%); text-align: center; font-family: "Liberation Sans", Arial, sans-serif; font-size: 9pt; background: rgba(255,255,255,.85); padding: 4px; }
 .frame .frame-time { position: absolute; right: 6px; bottom: 4px; font-family: "Liberation Mono", monospace; font-size: 8pt; background: #000; color: #fff; padding: 1px 4px; }
 .redact { background: #000; color: #000; }
+
+/* a wide ledger fits the page: numbers and dates stay on one line, the description wraps */
+table.ledger.fit{width:100%;font-size:8.6px;}
+table.ledger.fit td, table.ledger.fit th{white-space:normal;padding:3px 4px;}

@@ -547,9 +547,8 @@ window.CM_CF_SLIDES = {
   "image": "knowledge-check",
   "questions": [
    "Name the **six stages** in order. What does the CM own at Intake & Case Opening?",
-   "John Doe asks what his case is **worth**. Who answers, and what do you log?",
-   "What must happen **before the matter is created** in the CMS, and on whose names?",
-   "John Doe asks if waiting hurt his case. **Your exact words**, and what you log?"
+   "John Doe asks his case's **worth**, and if waiting hurt it. Your exact words, and what you log?",
+   "What must happen **before the matter is created** in the CMS, and on whose names?"
   ]
  },
  "d1m2-l1": {
@@ -978,7 +977,7 @@ window.CM_CF_SLIDES = {
   "clues": {
    "dos": [
     [
-     "John Doe's rental runs out in a few weeks.",
+     "Margaret Doe's rental runs out in a few weeks.",
      "He mentions his carpool might end soon.",
      "You note it and help line up another ride now."
     ],
@@ -1016,7 +1015,7 @@ window.CM_CF_SLIDES = {
   "checks": [
    "**All six sections** present and populated",
    "Treatment direction stated: **treatment hasn't begun**",
-   "Property Damage section names **the rental parameters**",
+   "Property Damage section states **whose claim it is**",
    "Atty. Elijah Thorne listed as **Lead Counsel**",
    "Adverse-contact instruction made urgent, **with a confirmation step**"
   ],
@@ -1200,6 +1199,31 @@ window.CM_CF_SLIDES = {
   ],
   "donts": [
    "Tracking tasks **without confirming they were done**"
+  ]
+ },
+ "d1m3-a3": {
+  "image": "checklist-qa",
+  "situation": "Keystone has authorized a rental for the Civic. John Doe calls asking if it is his. Nobody has written down **whose claim it is**.",
+  "steps": [
+   "Read the **Police Report's vehicle and occupant boxes**",
+   "Find **who owns the Civic** in the intake records",
+   "Name **the PD and rental claimant** from Keystone's letter",
+   "Write a **sourced Case Note** and tell Atty. Thorne",
+   "Answer John Doe **within the UPL line**; solve his ride"
+  ],
+  "deliver": "A **sourced finding** of whose claim it is, reported, and a logged call",
+  "checks": [
+   "**Position, owner and claimant** each from a record",
+   "**Conclusion** on a PD or rental claim for John Doe",
+   "Each finding **cites its document**",
+   "**Atty. Thorne** told the same day",
+   "**Transportation** to treatment arranged"
+  ],
+  "dos": [
+   "Ask: **who owns the claim**, and is that our client?"
+  ],
+  "donts": [
+   "Booking a rental **because the caller asked**"
   ]
  },
  "d1m3-kc": {
@@ -1704,7 +1728,7 @@ window.CM_CF_SLIDES = {
  },
  "d2m1-a1": {
   "image": "email-outreach",
-  "situation": "File date 02/17/2026. Claims are open with Keystone (BI and PD), Harbor Point (Host UM, MedPay) and Cardinal State, **no adjuster assigned**. **Five letters** must go out today.",
+  "situation": "File date 02/17/2026. Claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, **no adjuster assigned**. **Five letters** must go out today.",
   "steps": [
    "Draft **five letters** on the firm template: three LORs, two notices",
    "Give each its **Attn line, insured, number** and date of loss",
@@ -1735,7 +1759,7 @@ window.CM_CF_SLIDES = {
   "points": [
    "Limits stay **preliminary until a Declaration Page** or Coverage Letter",
    "Get each UM carrier's form **in writing**: add-on or reduced",
-   "Stack **three layers to $40,000**; MedPay and PD are tracked, never added",
+   "Stack **three layers to $40,000**; PIP and PD are tracked, never added",
    "Every open item carries **a dated next follow-up**"
   ],
   "upl": "You record and chase; applying terms or alleging bad faith is Atty. Thorne's call.",
@@ -1765,7 +1789,7 @@ window.CM_CF_SLIDES = {
    "Check each policy period **covers 02/06/2026**"
   ],
   "donts": [
-   "**Adding MedPay or PD** to the stack total",
+   "**Adding PIP or PD** to the stack total",
    "Confirming a limit **from a phone call** or Police Report",
    "An open request with **no next date**"
   ],
@@ -1794,7 +1818,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Stacking Layers",
-     "text": "Only liability and UM layers stack; MedPay, PD and collision coverage are **separate benefits, tracked apart**"
+     "text": "Only liability and UM layers stack; PIP, PD and collision coverage are **separate benefits, tracked apart**"
     },
     {
      "term": "Exclusions and Gaps",
@@ -1909,7 +1933,7 @@ window.CM_CF_SLIDES = {
   "deliver": "A corrected matrix **totalling $40,000**, every status sourced, open items dated, note routed",
   "checks": [
    "BI: **still preliminary**; Declaration Page not until 03/20/2026",
-   "**MedPay out** of the stack: it pays bills, not claims",
+   "**PIP out** of the stack: it pays bills, not claims",
    "Stack total **$45,000 corrected to $40,000**",
    "BI follow-up **logged 03/11/2026**; next by 03/13/2026",
    "Bluewater's “UM: none” chased: **signed rejection form** (03/14/2024)"
@@ -1936,7 +1960,7 @@ window.CM_CF_SLIDES = {
   "points": [
    "Sort every coverage: **whose it is**, and what it pays",
    "Only BI and UM are **the $40,000 Recovery Stack**",
-   "Payer-First: **MedPay, then Peach State**, an LOP last",
+   "Payer-First: **PIP, then Peach State**, an LOP last",
    "Verify PIP and UM in writing; **never assume either**"
   ],
   "upl": "Route bills in the default order; primacy and lien enforceability are Atty. Thorne's",
@@ -1945,17 +1969,17 @@ window.CM_CF_SLIDES = {
     "Coverage confirmed in writing",
     "Place it: stack, Payer Order, outside",
     "CMS → Coverage Matrix",
-    "Stack $40,000; MedPay outside it"
+    "Stack $40,000; PIP outside it"
    ],
    [
     "A provider asks whom to bill",
     "Route it by Payer-First order",
-    "CMS → MedPay ledger",
-    "MedPay, Peach State, then LOP"
+    "CMS → PIP ledger",
+    "PIP, Peach State, then LOP"
    ],
    [
     "A provider asks for an LOP",
-    "Check MedPay and network first",
+    "Check PIP and network first",
     "CMS → Liens → LOP register",
     "Atty. Thorne approves any LOP"
    ]
@@ -1966,8 +1990,8 @@ window.CM_CF_SLIDES = {
    "Keep the Payer Order and **the Recovery Stack apart**"
   ],
   "donts": [
-   "An LOP to a provider **MedPay would have paid**",
-   "MedPay, PD or collision **added to the stack**",
+   "An LOP to a provider **PIP would have paid**",
+   "PIP, PD or collision **added to the stack**",
    "Assuming PIP, or **UM on the client's own policy**"
   ],
   "theory": {
@@ -2033,7 +2057,7 @@ window.CM_CF_SLIDES = {
       "Consent rules guard its subrogation"
      ],
      [
-      "MedPay",
+      "PIP",
       "The occupied vehicle's policy",
       "Medical Bills, no fault needed; no wages",
       "By policy: **verify in writing**"
@@ -2075,7 +2099,7 @@ window.CM_CF_SLIDES = {
     [
      "Two lists sit side by side on John Doe's Insurance tab.",
      "One says who pays the bills first; the other totals $40,000.",
-     "MedPay leads the Payer Order yet adds nothing to the BI and UM layers."
+     "PIP leads the Payer Order yet adds nothing to the BI and UM layers."
     ]
    ],
    "donts": [
@@ -2101,7 +2125,7 @@ window.CM_CF_SLIDES = {
   "image": "treatment-plan",
   "hook": "An LOP **out of Payer Order** turns a payable bill into a lien on his net.",
   "points": [
-   "Run the Payer Order: **MedPay → Peach State → LOP**",
+   "Run the Payer Order: **PIP → Peach State → LOP**",
    "Use an LOP **only where earlier payers can't**",
    "Atty. Thorne sets LOP terms; **never promise payment** amounts, reductions or dates",
    "Be the hub: **warm handoffs**, not phone numbers"
@@ -2115,9 +2139,9 @@ window.CM_CF_SLIDES = {
     "Nothing sent without Atty. Thorne's approval"
    ],
    [
-    "MedPay pays a bill",
+    "PIP pays a bill",
     "Post payment, running total, balance",
-    "CMS → MedPay ledger",
+    "CMS → PIP ledger",
     "$5,000.00 reached 06/12/2026; $0.00 left"
    ],
    [
@@ -2133,7 +2157,7 @@ window.CM_CF_SLIDES = {
    "Reconcile **conflicting provider statements** at once"
   ],
   "donts": [
-   "An LOP **before checking MedPay** and Peach State",
+   "An LOP **before checking PIP** and Peach State",
    "Telling a provider **“paid in full at settlement”**",
    "Mission creep: taking on **every problem John Doe raises**"
   ],
@@ -2187,7 +2211,7 @@ window.CM_CF_SLIDES = {
      },
      {
       "label": "MedPay or PIP",
-      "text": "First-party, regardless of fault, up to its limit; MedPay pays Medical Bills only, never wages"
+      "text": "First-party, regardless of fault, to its limit; PIP also pays 80% of wages, MedPay none"
      },
      {
       "label": "Health Plan",
@@ -2198,7 +2222,7 @@ window.CM_CF_SLIDES = {
       "text": "Last rung, for care earlier payers can't carry: paid from any recovery, on Atty. Thorne's terms"
      }
     ],
-    "note": "On this file: Harbor Point MedPay, then Peach State, then an LOP. No PIP; providers bill whom they bill"
+    "note": "On this file: Harbor Point PIP, then Peach State, then an LOP; providers bill whom they bill"
    }
   },
   "clues": {
@@ -2211,7 +2235,7 @@ window.CM_CF_SLIDES = {
     [
      "John Doe worries about the envelopes piling up from providers.",
      "Cost worry left unanswered is how a client stops going.",
-     "Summit goes to MedPay, Crescent to Peach State, Riverton under an LOP."
+     "Summit goes to PIP, Crescent to Peach State, Riverton under an LOP."
     ],
     [
      "Riverton's PT note and Dr. Reyes's note describe John Doe differently.",
@@ -2240,12 +2264,12 @@ window.CM_CF_SLIDES = {
  },
  "d2m2-eob": {
   "image": "money-ledger",
-  "hook": "Every bill's story is in **the EOB and the MedPay ledger**: read them before you answer",
+  "hook": "Every bill's story is in **the EOB and the PIP ledger**: read them before you answer",
   "points": [
    "Read billed, allowed, **write-off, paid**, member share, in order",
    "Member responsibility is **the most a provider may bill**",
    "A plan's lien starts at **what it paid**, never billed",
-   "MedPay paid **$5,000.00 in five checks**; exhausted 06/26/2026"
+   "PIP paid **$5,000.00 in five checks**; exhausted 06/26/2026"
   ],
   "upl": "Read and report what payers paid; whether a balance is owed is Atty. Thorne's",
   "job": [
@@ -2256,9 +2280,9 @@ window.CM_CF_SLIDES = {
     "Plan paid $1,860.00 logged"
    ],
    [
-    "A MedPay check clears",
+    "A PIP check clears",
     "Post check and limit remaining",
-    "CMS → MedPay ledger",
+    "CMS → PIP ledger",
     "Ties to Harbor Point's history"
    ],
    [
@@ -2276,10 +2300,10 @@ window.CM_CF_SLIDES = {
   "donts": [
    "A lien logged **at the billed amount**",
    "A contractual write-off treated as **the client's debt**",
-   "A bill sent to MedPay **after 06/26/2026**"
+   "A bill sent to PIP **after 06/26/2026**"
   ],
   "theory": {
-   "lead": "Every payer reports what it did with a bill: the Health Plan in an **Explanation of Benefits**, MedPay in its payment history. Read both before any lien.",
+   "lead": "Every payer reports what it did with a bill: the Health Plan in an **Explanation of Benefits**, PIP in its payment history. Read both before any lien.",
    "concepts": [
     {
      "term": "Explanation of Benefits",
@@ -2302,12 +2326,12 @@ window.CM_CF_SLIDES = {
      "text": "Billing the patient for a contractual write-off: **not allowed in network**, so an error, not a lien"
     },
     {
-     "term": "MedPay Payment History",
-     "text": "The carrier's ledger of every MedPay check: date of service, amount paid and **the limit remaining**"
+     "term": "PIP Payment History",
+     "text": "The carrier's ledger of every PIP check: date of service, amount paid and **the limit remaining**"
     },
     {
      "term": "Exhaustion",
-     "text": "Once MedPay's limit is spent, later bills come back unpaid: **route them to the next payer**"
+     "text": "Once PIP's limit is spent, later bills come back unpaid: **route them to the next payer**"
     },
     {
      "term": "Reconciliation",
@@ -2347,7 +2371,7 @@ window.CM_CF_SLIDES = {
       "text": "Tie it to the provider's statement and the lien register; flag any balance billing"
      }
     ],
-    "note": "MedPay's payment history reads the same way: date of service, billed, paid, check number and the limit remaining"
+    "note": "PIP's payment history reads the same way: date of service, billed, paid, check number and the limit remaining"
    }
   },
   "clues": {
@@ -2389,13 +2413,13 @@ window.CM_CF_SLIDES = {
  },
  "d2m2-a1": {
   "image": "medical-visit",
-  "situation": "02/23/2026. Urgent care's $685.00 went to MedPay. Riverton Spine & Rehab, **out of network** for Peach State, starts care 02/24/2026. On 03/11/2026 Summit Imaging asks for **an LOP for the MRI**.",
+  "situation": "02/23/2026. Urgent care's $685.00 went to PIP. Riverton Spine & Rehab, **out of network** for Peach State, starts care 02/24/2026. On 03/11/2026 Summit Imaging asks for **an LOP for the MRI**.",
   "steps": [
    "Run and record **the Payer Order** for each provider",
    "Prepare Riverton Spine & Rehab's LOP; **route it for signature**",
    "Transmit with the HIPAA authorization; ask for **a missed-visit alert**",
    "Record the assessment and **the 2021 pre-morbid baseline**",
-   "Decline Summit in writing, **naming Harbor Point MedPay**"
+   "Decline Summit in writing, **naming Harbor Point PIP**"
   ],
   "deliver": "One **counsel-approved LOP** sent, one declined with payer named, ledger and baseline recorded",
   "checks": [
@@ -2410,9 +2434,108 @@ window.CM_CF_SLIDES = {
    "Highlight prior history: **never hide it**"
   ],
   "donts": [
-   "An LOP to a provider **MedPay would have paid**",
+   "An LOP to a provider **PIP would have paid**",
    "Answering **“paid in full?”** beyond the LOP's terms"
   ]
+ },
+ "d2m2-lop": {
+  "image": "client-call",
+  "hook": "An LOP gets John Doe treated now, paid **from the settlement**.",
+  "points": [
+   "An LOP is **a promise against the recovery**, not insurance",
+   "Use it **only after every payer** is checked",
+   "Track the balance: **ledger every 30 days**",
+   "Referrals: **options and logistics**, never which care"
+  ],
+  "upl": "Give the options and book **his choice**; never recommend a provider",
+  "job": [
+   [
+    "No payer covers the care",
+    "Check payers; route to counsel",
+    "CMS → Insurance · Case Notes",
+    "Payer check on file"
+   ],
+   [
+    "The LOP is signed",
+    "File it; set ledger task",
+    "CMS → Liens · Tasks",
+    "Balance tracked monthly"
+   ],
+   [
+    "“Where should I go?”",
+    "Give options; book his choice",
+    "CMS → Parties · Calendar",
+    "His choice logged, no advice"
+   ]
+  ],
+  "dos": [
+   "Check **every payer** before an LOP",
+   "Give **options with facts**; he chooses",
+   "Disclose **any firm relationship**"
+  ],
+  "donts": [
+   "Saying one provider is **better for the case**",
+   "Calling the LOP bill **free**",
+   "Letting the balance **surprise the Net Sheet**"
+  ],
+  "theory": {
+   "lead": "A **Letter of Protection** keeps care going when no payer will: the firm promises the provider payment from the settlement.",
+   "concepts": [
+    {
+     "term": "Letter of Protection (LOP)",
+     "text": "The firm's written promise to pay a provider's bill from the settlement: **a claim against the recovery**, not insurance"
+    },
+    {
+     "term": "Payer-First",
+     "text": "Health insurance, MedPay and PIP are checked first; the LOP is **the last resort**, and the reason is recorded"
+    },
+    {
+     "term": "The LOP Balance",
+     "text": "Grows with every visit; the itemized ledger every 30 days keeps **the Liens tab and the Net Sheet** current"
+    },
+    {
+     "term": "Provider Referrals",
+     "text": "Options and logistics only: a list, network status, the booking. **The client chooses**; any firm relationship is disclosed"
+    }
+   ],
+   "pages": []
+  },
+  "clues": {
+   "dos": [
+    [
+     "John Doe has no plan that covers chiropractic care.",
+     "Health insurance, MedPay and PIP were checked first.",
+     "The file records why an LOP is the last resort."
+    ],
+    [
+     "Riverton Spine & Rehab bills under an LOP.",
+     "Its ledger grows with every visit.",
+     "The Case Manager requests the itemized ledger every 30 days."
+    ],
+    [
+     "John Doe asks the Case Manager where to go for treatment.",
+     "He gets a short list with locations, hours and network status.",
+     "He chooses, and the Case Manager books his choice."
+    ]
+   ],
+   "donts": [
+    [
+     "A Case Manager tells John Doe one clinic writes reports that help cases.",
+     "It sounds helpful and well meant.",
+     "It steers his care: that is the UPL line."
+    ],
+    [
+     "John Doe hears the LOP means he pays nothing.",
+     "The bill is paid from the settlement.",
+     "He still owes the balance if the recovery falls short."
+    ],
+    [
+     "The LOP was signed after the third visit.",
+     "The first visits have no protection.",
+     "An LOP is signed before the first visit and filed."
+    ]
+   ]
+  }
  },
  "d2m2-l2": {
   "image": "escalation-alert",
@@ -2533,7 +2656,7 @@ window.CM_CF_SLIDES = {
       "Acute",
       "Days 1–14",
       "ER, imaging (MRI/CT), bracing, RICE, initial PT",
-      "Establishing causation and MedPay coverage"
+      "Establishing causation and PIP coverage"
      ],
      [
       "Sub-Acute",
@@ -2602,7 +2725,7 @@ window.CM_CF_SLIDES = {
  },
  "d2m2-a2": {
   "image": "car-transport",
-  "situation": "04/08/2026: John Doe missed 04/03 and 04/07; **no visit since 04/02/2026**. Keystone ended his rental 03/19/2026, his carpool ended 04/01/2026, and **the Civic awaits parts**.",
+  "situation": "04/08/2026: John Doe missed 04/03 and 04/07; **no visit since 04/02/2026**. Keystone ended Margaret's rental 03/19/2026, his carpool ended 04/01/2026, and **the Civic awaits parts**.",
   "steps": [
    "Assess: call John Doe **on 04/08/2026**; classify the variance",
    "Coordinate: request **a rental extension** from Keystone PD in writing",
@@ -2669,7 +2792,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "label": "Payer Order",
-     "text": "MedPay first, then health insurance, then LOP or liens"
+     "text": "PIP first, then health insurance, then LOP or liens"
     },
     {
      "label": "Flag the Health Plan",
@@ -3871,13 +3994,13 @@ window.CM_CF_SLIDES = {
   "image": "binder-exhibits",
   "situation": "File date 08/31/2026. Keystone tendered $10,000 limits 08/12; consents came 08/24 and 08/26; the **Limited Release was signed** 08/28. Keystone's **check hasn't arrived**. Keystone had called the MRI “degenerative.”",
   "steps": [
-   "Draft **Host UM to Harbor Point** for the $20,000 limit",
-   "Draft **Relative UM to Cardinal State**: $10,000, excess over Host UM",
+   "QC the desk's **Host UM draft** to Harbor Point",
+   "QC **Relative UM to Cardinal State**: excess, not primary",
    "Put **exhaustion proof on page one**; show damages above collections",
    "Answer the gap and “degenerative” **with the MRI**",
    "**Leave the response deadline** blank for Atty. Thorne; route both"
   ],
-  "deliver": "Two attorney-ready UM drafts, **exhaustion proof first**, routed for review",
+  "deliver": "Two QC'd UM drafts, **exhaustion proof first**, routed for review",
   "checks": [
    "Two separate packages, **HP-26-7741 and CS-26-20355**",
    "Relative UM claimed for **damages above $30,000**",
@@ -3907,7 +4030,7 @@ window.CM_CF_SLIDES = {
   "points": [
    "Build **the battle map** first: net floor, value drivers, attacks, rebuttals",
    "Net floor: **$12,677.63 gross**, above Keystone's $10,000 limit",
-   "Anchor on **$16,401.40 total Specials**, not MedPay's $5,000",
+   "Anchor on **$16,401.40 total Specials**, not PIP's $5,000",
    "Restate the approved demand and name each stall; **make no moves**"
   ],
   "upl": "Present the record, relay offers; never counter, move number or deadline, or value offers.",
@@ -4196,14 +4319,14 @@ window.CM_CF_SLIDES = {
    "Offset answered with **the 03/02/2026 add-on letter**",
    "Counter-package approved, sent 09/16/2026; **no figure below limits**",
    "**Each confirming email**: coverage, release, liens, payee, check date",
-   "Recovery Ledger **$40,000.00 gross**; MedPay, Keystone PD, Bluewater excluded",
+   "Recovery Ledger **$40,000.00 gross**; PIP, Keystone PD, Bluewater excluded",
    "Each UM release signed **before its check**; deposited same day"
   ],
   "dos": [
    "**Quote the carrier**; never paraphrase its reasons"
   ],
   "donts": [
-   "Adding **MedPay or property-damage payments** to the gross",
+   "Adding **PIP or property-damage payments** to the gross",
    "Depositing a UM check **before its release is signed**"
   ]
  },
@@ -4212,7 +4335,7 @@ window.CM_CF_SLIDES = {
   "questions": [
    "**Math-check Keystone's $3,500**: fee, costs, unreduced liens, net. What does it show, and who tells John Doe?",
    "Dana Whitfield cites the 14-Day Gap and a degenerative MRI. Answer both: **four documents** and the radiologist's words.",
-   "No PIP here. What does MedPay's $5,000, **exhausted and non-subrogated**, mean for valuation? What changes where PIP applies?"
+   "Add-on PIP: what do its $5,000, **exhausted and non-subrogated**, mean for valuation? And in no-fault?"
   ]
  },
  "d3m3-l1": {
@@ -4519,6 +4642,92 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
+ "d3m3-l3": {
+  "image": "checklist-qa",
+  "hook": "A reduction is won **on paper first**, then on the phone.",
+  "points": [
+   "Negotiate from **the audited balance**: $7,965.00",
+   "Send **the Reduction Request** before you call",
+   "Make **Atty. Thorne's ask**, nothing outside it",
+   "**No Payoff Letter**, no payment"
+  ],
+  "upl": "The authorized ask only; never accept a figure outside it",
+  "job": [
+   [
+    "Audited balance confirmed",
+    "Draft the Reduction Request",
+    "CMS → Documents → Outgoing",
+    "Authority logged first"
+   ],
+   [
+    "Lienholder responds",
+    "Call with the authorized ask",
+    "CMS → Case Notes",
+    "Counter routed the same day"
+   ],
+   [
+    "Reduction agreed",
+    "Get the signed Payoff Letter",
+    "CMS → Net Sheet",
+    "Full-and-final on file"
+   ]
+  ],
+  "dos": [
+   "Send **the request** before the call",
+   "Update the ledger **the same day**"
+  ],
+  "donts": [
+   "A reduction **agreed only by phone**",
+   "An ask **outside his authority**"
+  ],
+  "theory": {
+   "lead": "The lienholder takes less when it can **see the math** and sign a letter that closes the bill.",
+   "concepts": [
+    {
+     "term": "Reduction Request",
+     "text": "The written ask: **audited balance**, recovery, fee and costs, other liens and the common-fund share."
+    },
+    {
+     "term": "Authority",
+     "text": "Atty. Thorne's written floor for each lien: **the CM asks inside it** and routes anything outside."
+    },
+    {
+     "term": "Payoff Letter",
+     "text": "The lienholder's signed **full-and-final** satisfaction: no balance billing, no collections."
+    }
+   ],
+   "pages": [
+    "D3#21",
+    "D3#22"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Riverton's audited balance is $6,105.00.",
+     "A letter with the recovery, fee, costs and other liens goes out first.",
+     "Atty. Thorne's written authority is already in the file."
+    ],
+    [
+     "Peach State agrees to $1,240.00.",
+     "The Net Sheet changes that afternoon.",
+     "John Doe sees his take-home rise before he asks."
+    ]
+   ],
+   "donts": [
+    [
+     "Riverton's biller says $4,580.00 works for them.",
+     "Nothing is sent and nothing comes back signed.",
+     "The full balance reappears a month later."
+    ],
+    [
+     "The provider counters below the floor.",
+     "The CM says yes to close it out.",
+     "Atty. Thorne hears about it after the fact."
+    ]
+   ]
+  }
+ },
  "d3m3-a2": {
   "image": "negotiation",
   "situation": "10/09/2026: Peach State accepted $1,240.00. Riverton Spine & Rehab's ledger bills **34 lines × $185.00 = $6,290.00**. Atty. Thorne set a written target; **no lien is paid** until resolved in writing.",
@@ -4549,7 +4758,7 @@ window.CM_CF_SLIDES = {
  "d3m3-kc": {
   "image": "knowledge-check",
   "questions": [
-   "**Statutory, contractual or none?** Peach State, Riverton Spine & Rehab, MedPay, Medicare/Medicaid, prior attorney. Rank liens by reducibility.",
+   "**Statutory, contractual or none?** Peach State, Riverton Spine & Rehab, PIP, Medicare/Medicaid, prior attorney. Rank liens by reducibility.",
    "Peach State is a **fully insured group plan**. Why does that matter to reducing $1,860.00, and who decides?",
    "Show the math, $1,860.00 to $1,240.00, and **name the doctrine**. How does beating the 14-Day Gap support it?"
   ]
@@ -4696,7 +4905,7 @@ window.CM_CF_SLIDES = {
    "Pre-suit fee: **$3,333.33 + $10,000.00 = $13,333.33**",
    "Costs **$486.75, split $121.69 / $365.06**, charged once",
    "Net: **$5,089.98 + $15,269.94 = $20,359.92**",
-   "MedPay and Crescent's write-off **kept off the payables**",
+   "PIP and Crescent's write-off **kept off the payables**",
    "**Future ESIs flagged** to Atty. Thorne before John Doe signs"
   ],
   "dos": [
@@ -4704,7 +4913,7 @@ window.CM_CF_SLIDES = {
   ],
   "donts": [
    "Marking a lien final **from an email or phone call**",
-   "Adding **MedPay's $5,000.00** to the payables"
+   "Adding **PIP's $5,000.00** to the payables"
   ]
  },
  "d3m4-l2": {
@@ -5356,13 +5565,157 @@ window.CM_CF_SLIDES = {
    "Rolling 11/06/2027 **forward to Monday**"
   ]
  },
+ "d4m2-um": {
+  "image": "coverage-check",
+  "hook": "A UM claim is made against **our own client's insurance**, not the other driver's.",
+  "points": [
+   "Third party: Keystone. **First party: Harbor Point and Cardinal State**",
+   "The route is **read off the clause**, never chosen",
+   "Mandatory arbitration: file a **Demand for Arbitration**, not a complaint",
+   "Bad faith is **a separate suit**, above the policy limit"
+  ],
+  "upl": "Read the clause, route it to Atty. Thorne; never call an offer unreasonable.",
+  "job": [
+   [
+    "UM offers come back low",
+    "Memo with both clauses quoted",
+    "CMS → Case Notes",
+    "Sent same day, uninterpreted"
+   ],
+   [
+    "Clauses in hand",
+    "Ask the route per layer",
+    "CMS → Tasks → Atty. Thorne",
+    "Nothing recommended, everything asked"
+   ],
+   [
+    "Route decided in writing",
+    "Open the ADR entry",
+    "CMS → ADR tab",
+    "Typed UM / UIM arbitration"
+   ]
+  ],
+  "dos": [
+   "Say **first party or third party** before anything else",
+   "Quote the clause; **a paraphrase is interpretation**"
+  ],
+  "donts": [
+   "**Filing suit** where the policy sends it to arbitration",
+   "Reading Harbor Point's clause **onto Cardinal State**",
+   "Telling John Doe the carrier is **acting in bad faith**"
+  ],
+  "theory": {
+   "lead": "A UM/UIM claim is a **first-party claim** against the client's own policy, so the impasse route is set by that contract and the state's law.",
+   "concepts": [
+    {
+     "term": "First-Party Claim",
+     "text": "Made against **the client's own coverage**, under a contract he pays premiums on"
+    },
+    {
+     "term": "Third-Party Claim",
+     "text": "Made against **the at-fault driver's carrier**, here Keystone Mutual for Robert Smith"
+    },
+    {
+     "term": "Mandatory Arbitration Clause",
+     "text": "A policy term sending the dispute to an arbitrator; the firm files **a Demand for Arbitration**"
+    },
+    {
+     "term": "Insurance Bad Faith",
+     "text": "A separate suit for unreasonable handling, which **can exceed the policy limit**"
+    }
+   ],
+   "pages": [
+    "D2#33",
+    "D4#2"
+   ],
+   "framework": {
+    "title": "The UM Dispute Flow",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Claim submission",
+      "text": "The UM Demand Package, with proof the at-fault limits were exhausted"
+     },
+     {
+      "label": "Dispute",
+      "text": "The carrier offers far under value, or denies liability or coverage"
+     },
+     {
+      "label": "Resolution route",
+      "text": "Demand for Arbitration, or suit against the carrier: state law and the clause decide"
+     }
+    ],
+    "note": "Bad faith sits off this flow: a separate action about the carrier's handling, and Atty. Thorne's call alone."
+   }
+  },
+  "clues": {
+   "dos": [
+    [
+     "Keystone insured the driver who ran the stop sign.",
+     "Harbor Point and Cardinal State insure our own side.",
+     "Which it is changes the duties, the defences and the exit."
+    ],
+    [
+     "Marcus Bell will not move off his 09/14/2026 number.",
+     "Atty. Thorne needs the policy's own words in front of him.",
+     "You copy the paragraph across rather than summarise it."
+    ]
+   ],
+   "donts": [
+    [
+     "The UM negotiation with Harbor Point has plainly failed.",
+     "Its policy says where a dispute under it is decided.",
+     "You reach for a complaint because the BI claim went that way."
+    ],
+    [
+     "Two UM layers, two carriers, two certified policies.",
+     "Only one of them has arrived with its paragraph legible.",
+     "You assume the second one says what the first one does."
+    ],
+    [
+     "John Doe rings, angry about an offer worth a third.",
+     "Whether handling was unreasonable is a legal opinion.",
+     "You agree with him on the phone and name the consequence."
+    ]
+   ]
+  }
+ },
  "d4m2-l2": {
   "image": "mediation-table",
   "hook": "Hon. Carla Benton (Ret.) helps parties agree; **Laura Whitcomb, Esq. decides**, with almost no appeal.",
+  "roadmap": {
+   "title": "Standard Case Progression Roadmap",
+   "steps": [
+    {
+     "label": "Demand & Negotiation",
+     "text": "Treatment ends, the demand goes out and **the carrier evaluates it**"
+    },
+    {
+     "label": "Pre-Litigation Mediation",
+     "text": "Optional: both sides mediate **before any complaint is filed**"
+    },
+    {
+     "label": "Pre-Filing Arbitration",
+     "text": "Only where **a signed clause** compels arbitration instead of court"
+    },
+    {
+     "label": "Complaint Filed",
+     "text": "Negotiation fails, suit is filed and **the court's clock starts**"
+    },
+    {
+     "label": "Discovery & Mediation",
+     "text": "Evidence exchanged; courts often **order mediation before a trial date**"
+    },
+    {
+     "label": "Arbitration Or Trial",
+     "text": "Parties may agree to binding arbitration; otherwise **the case is tried**"
+    }
+   ]
+  },
   "points": [
+   "Each forum can land **before or after the complaint is filed**",
    "Court-ordered mediation means John Doe **must attend, not agree**",
    "Binding arbitration: **the arbitrator acts as judge**; court review is narrow",
-   "Collect **3–4 windows** from everyone before contacting the mediator",
    "Golden Rule: **never argue**, speak on the record or represent John Doe"
   ],
   "upl": "Run logistics, exhibits and notes; never argue, negotiate or advise on a number.",
@@ -5396,23 +5749,23 @@ window.CM_CF_SLIDES = {
    "Logging bench directives **the next day from memory**"
   ],
   "theory": {
-   "lead": "Mediation is **negotiation toward compromise**, non-binding; arbitration is an adversarial hearing where a neutral acts as judge and issues a binding Award.",
+   "lead": "Mediation and arbitration can each come **before or after a lawsuit is filed**: the process, the court's rules and the negotiations decide.",
    "concepts": [
     {
-     "term": "Zero Decision Power",
-     "text": "The mediator facilitates and negotiates but cannot rule; **the parties keep control** over whether to sign"
+     "term": "Non-Binding (Mediation)",
+     "text": "Both sides must agree: **nobody is forced to settle**, and the parties keep control of the outcome"
     },
     {
-     "term": "Absolute Decision Power",
-     "text": "The arbitrator is a private judge and finder of fact who **can exclude evidence** and award damages"
+     "term": "Binding (Arbitration)",
+     "text": "The arbitrator's decision is final and **enforceable like a court order**, reviewed on narrow grounds"
     },
     {
-     "term": "Trial-Ready Standard",
-     "text": "Because appeal is drastically limited, treat the hearing with **a multi-day trial's precision**, not a compromise mindset"
+     "term": "Before Filing",
+     "text": "Mediation after treatment and the demand; arbitration only where **a signed clause** compels it"
     },
     {
-     "term": "Unauthorized Practice of Law",
-     "text": "Arguing, speaking on the record or representing John Doe is practicing law; **without a license it's UPL**"
+     "term": "After Filing",
+     "text": "Mediation often **ordered during discovery**; arbitration by the parties' agreement to leave court"
     }
    ],
    "pages": [
@@ -5516,12 +5869,37 @@ window.CM_CF_SLIDES = {
    "Treating the UM carriers **as friendly**"
   ]
  },
+ "d4m2-a3": {
+  "image": "documents-audit",
+  "situation": "10/02/2026. Harbor Point offers **$8,000 of $20,000**; Cardinal State **$6,000 of $10,000**. Both refuse to move.",
+  "steps": [
+   "Write the impasse memo: **offers against the limits**",
+   "Quote **each layer's dispute-resolution clause** verbatim",
+   "Ask the route, the deadline and consolidation **in writing**",
+   "Open the ADR entry and **hold every date**",
+   "Draft John Doe's **procedural** explanation"
+  ],
+  "deliver": "An impasse memo, a routed CMS file, **no opinion in either**",
+  "checks": [
+   "Both named as **first-party** claims",
+   "$8,000 / $20,000 and **$6,000 / $10,000**",
+   "Harbor Point's clause **quoted, not paraphrased**",
+   "Cardinal State's certified policy **marked outstanding**",
+   "**Nothing docketed** before his written answer"
+  ],
+  "dos": [
+   "Give each layer **its own clause and deadline**"
+  ],
+  "donts": [
+   "Docketing an arbitration deadline **from the tort SOL**"
+  ]
+ },
  "d4m2-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Discovery mailed 12/01/2026: compute the response date step by step. What can happen **to an unanswered RFA**?",
-   "SOL 02/06/2028: give the **internal hard date and cutoff** with arithmetic. Why never rely on a weekend roll-forward?",
-   "Explain **forward versus backward counting** using the 01/04/2027 deadline and the 06/22/2027 arbitration brief."
+   "Discovery mailed 12/01/2026, SOL 02/06/2028: compute **each date with its arithmetic**, both weekend directions, and the RFA risk.",
+   "Name the two UM resolution routes, what decides which governs, and where **bad faith** sits.",
+   "Place each forum **before or after filing**, say where John Doe's landed, then define non-binding and binding."
   ]
  },
  "d4m3-l1": {
@@ -5670,7 +6048,7 @@ window.CM_CF_SLIDES = {
    "Build six sections from **the master index**",
    "Map every pleaded defense **to the exhibit answering it**",
    "Rebuild the ledger from certified bills **to $16,401.40**",
-   "Cross-check balances **against MedPay and Peach State**",
+   "Cross-check balances **against PIP and Peach State**",
    "Add Negotiation Log, release, consent requests; **route to Atty. Thorne**"
   ],
   "deliver": "Indexed, OCR-searchable binder with **an audited ledger**, routed to Atty. Thorne, ready by 03/11/2027",
@@ -5823,7 +6201,7 @@ window.CM_CF_SLIDES = {
  },
  "d4m3-a2": {
   "image": "checklist-qa",
-  "situation": "It is 05/17/2027. **Exchange 06/02/2027**, hearing 06/22/2027. The folder holds a pre-filing draft complaint, grayscale stills, the impasse memo and **a Lien Sheet** listing Harbor Point MedPay and Summit Imaging.",
+  "situation": "It is 05/17/2027. **Exchange 06/02/2027**, hearing 06/22/2027. The folder holds a pre-filing draft complaint, grayscale stills, the impasse memo and **a Lien Sheet** listing Harbor Point PIP and Summit Imaging.",
   "steps": [
    "Sort into six tabs, **applying each QC rule** as you go",
    "Lead with **the BI exhaustion record**",
@@ -6478,14 +6856,14 @@ window.CM_CF_SLIDES = {
  },
  "d5m2-l1": {
   "image": "repair-shop",
-  "hook": "The Civic is pleaded now: **every figure gets tested**, and its dates explain the 14-Day Gap.",
+  "hook": "Margaret's PD file: **every figure gets tested**, and its dates explain the 14-Day Gap.",
   "points": [
    "Make the owner whole: **never a windfall**",
    "$9,255.00 is 52.6% of the ACV, under 75%: **repairable, $3,945.00 to spare**",
    "Claim only **the 48 unpaid days**: 48 × $42.00 = $2,016.00",
    "Keep loss-of-use and gap records **identical, date for date**"
   ],
-  "upl": "Compute, document and report; never tell John Doe what his car is worth",
+  "upl": "Compute, document and report; never tell Margaret Doe what her car is worth",
   "job": [
    [
     "Final repair bill posts",
@@ -6655,7 +7033,7 @@ window.CM_CF_SLIDES = {
    "Put **the critique on paper** for Atty. Thorne"
   ],
   "donts": [
-   "Telling John Doe his car **“lost $3,600.00”**",
+   "Telling Margaret Doe her car **“lost $3,600.00”**",
    "A PD release that **reaches the injury claim**",
    "Promising **sentimental-value recovery** the law won't award"
   ],
@@ -6726,7 +7104,7 @@ window.CM_CF_SLIDES = {
    ],
    "donts": [
     [
-     "John Doe calls asking what his Civic is really worth now.",
+     "Margaret Doe calls asking what her Civic is really worth now.",
      "The Riverton Auto Appraisal of 05/06/2026 sits open on screen.",
      "The Case Manager quotes the appraisal's number to him as settled fact."
     ],

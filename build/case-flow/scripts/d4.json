@@ -131,14 +131,48 @@
       "ask": "The brief's backward count lands on Saturday 06/12/2027. Do you move it to Monday, and which rule says so?"
     }
   },
+  "d4m2-um": {
+    "why": {
+      "say": "Before we talk procedure, one question. Whose insurance company are we fighting? Keystone insured Robert Smith, the man who ran the stop sign, so that claim is against somebody else's carrier. Harbor Point and Cardinal State are different. They are John's own coverage, under contracts he can call on, and that changes what this file is. When Harbor Point came back with eight thousand dollars against a twenty thousand dollar limit, we did not simply head for court the way the bodily injury claim would have. Harbor Point's own policy says where a dispute under it is decided, and reading that clause is our job before a single date goes on the calendar.",
+      "ask": "What changes about a claim when the insurance company on the other end of it is our own client's?"
+    },
+    "theory": {
+      "say": "Let's name the two shapes. A third-party claim is made against the at-fault driver's carrier: Keystone, for Robert Smith. A first-party claim is made against your own insurance, on the policy you pay the premiums for. Here that is Harbor Point for Host UM and Cardinal State for Relative UM. Plain English for the client: one is a claim against the other driver's insurance, the other is a claim against your own. Then there is the mandatory arbitration clause, a policy term that sends the dispute to an arbitrator, so the firm files a Demand for Arbitration instead of a complaint. And off to one side, insurance bad faith: a separate suit about unreasonable handling, which can reach above the policy limit.",
+      "ask": "Why would a carrier rather have a UM dispute heard by an arbitrator than by a jury?"
+    },
+    "frame": {
+      "say": "Three steps, and I want you to see the third one as a fork. Step one, claim submission: the UM Demand Package goes out with proof that the at-fault limits were exhausted. On this file that went to Harbor Point and Cardinal State on the thirty-first of August. Step two, dispute: the carrier offers far under value, or denies liability or coverage. Eight thousand from Harbor Point, six thousand from Cardinal State. Step three, the resolution route, and here the road splits: a Demand for Arbitration where the policy's clause binds, or a civil suit against the carrier where the state's law bars that clause or lets the insured opt out. Bad faith is not on this flow at all. It is a separate action about handling, and it is Atty. Thorne's call alone.",
+      "ask": "Which of those three steps is the one where a Case Manager can do real damage by guessing?"
+    },
+    "rules": {
+      "say": "Start by knowing which claim you are on, because the evidence is the same but the relationship is not. Next, John's own Bluewater policy is not a UM layer at all: he rejected UM in writing in March of twenty twenty-four. He reaches UM by status instead, as an occupant of Kevin Alvarez's Escape and as a resident relative of his mother, Margaret. Third, and say this one back to me later: the route is read, never chosen. State law and the clause in the policy the claim is made under decide it. Fourth, read each layer on its own. Harbor Point's clause does not speak for Cardinal State. And every route carries its own clock, which is not the tort statute of limitations in February of twenty twenty-eight. Ask Atty. Thorne in writing, and docket only from his answer.",
+      "ask": "If Harbor Point's policy has an arbitration clause, what do we know about Cardinal State's?"
+    },
+    "model": {
+      "say": "Look at the flow on the file as it actually ran. Claim submission, the thirty-first of August twenty twenty-six: the demands carried the injuries, the records, sixteen thousand four hundred and one dollars forty in Specials, the wage letter, and the documented proof that Keystone's ten thousand was tendered and consented to. Dispute: eight thousand on the fourteenth of September, six thousand on the first of October, fourteen thousand offered against thirty thousand of limits. Resolution route: Harbor Point invoked its arbitration clause, it was taken up in April twenty twenty-seven, and the hearing ran on the twenty-second of June before Laura Whitcomb. And notice the last row of that table. John's Bluewater policy is not a route, because the coverage was rejected in writing.",
+      "ask": "Which document on this file proves step one was complete before step two could even be argued?"
+    },
+    "job": {
+      "say": "On the job this is four triggers. When the UM offers come back low, you write the impasse memo the same day and you pull both carriers' dispute-resolution clauses from the certified policies, quoted and not interpreted. When the clauses and the statute are in hand, you lay the route options before Atty. Thorne as findings, with each layer's own filing or demand deadline put to him as a question. When he decides in writing, you record it: the ADR entry typed as UM slash UIM arbitration, how it was set as required by the policy or contract, and the case status matching the route. And when arbitration is invoked, you docket the hearing and everything counted back from it, and you tell John what happens procedurally and nothing more.",
+      "ask": "Which of those four steps is the one trainees skip, and what does skipping it cost?"
+    },
+    "dodont": {
+      "say": "Two habits to keep. Say which kind of claim you are on before you say anything else about it, because first party or third party decides everything that follows. And quote the clause in your memo and then stop, because a paraphrase is already an interpretation and interpretation is not yours. Three to avoid. Do not file, or tell the client the firm is filing, a lawsuit when the policy sends that dispute to arbitration. Do not read Harbor Point's arbitration clause onto Cardinal State's policy just because both say UM on the front. And do not tell John the carrier is acting in bad faith or that he can recover above his limits, however much you want to.",
+      "ask": "Why is the bad-faith line the most tempting one to cross on a file like this?"
+    }
+  },
   "d4m2-l2": {
     "why": {
       "say": "Two names, side by side: Hon. Carla Benton (Ret.) and Laura Whitcomb, Esq. Tell me what each one can do to John Doe's case. Judge Benton is our mediator, and she can't decide anything. She can only help the parties agree, and any deal needs John's agreement, through Atty. Thorne. Laura Whitcomb is the arbitrator, and she decides. Her award stands with almost no appeal. These two sessions are three months apart, and here's the danger. If you prepare for both the same way, you'll walk a compromise file into a trial-ready hearing. That's the mistake this lesson is built to prevent.",
       "ask": "What can Hon. Carla Benton do to John Doe's case that Laura Whitcomb can't, and the other way around?"
     },
+    "map": {
+      "say": "Before we name either neutral, look at where these sessions sit. Treatment ends, the demand goes out, the carrier evaluates it. If both sides want to avoid court costs, legal fees and a public record, they can mediate right there, before a single page is filed. Arbitration can come that early too, but only where the client signed a clause that sends the dispute out of court, like rideshare terms or a treatment consent. When negotiation fails, as it did with Keystone, the complaint is filed and the court's clock starts. Discovery runs, and many courts order mediation before they will give you a trial date. After that, the parties can agree to binding arbitration, or the case is tried. Both of John Doe's sessions sit on the filed side of that line.",
+      "ask": "Does mediation happen before a lawsuit is filed or after it?"
+    },
     "theory": {
-      "say": "Here's the core distinction. Mediation is negotiation toward compromise, and it's non-binding. Arbitration is an adversarial hearing where the neutral acts as a judge and issues a binding Award. The mediator has zero decision power. She facilitates and negotiates, but she can't rule, so the parties keep control over whether to sign. The arbitrator has absolute decision power. She's a private judge and finder of fact who can exclude evidence and award damages. Since appeal is so limited, we treat that hearing with a multi-day trial's precision. And through all of it, remember: arguing, speaking on the record or representing John Doe is practicing law. Without a license, that's UPL.",
-      "ask": "Where have you already seen the difference between helping someone agree and deciding for them?"
+      "say": "Two words, and I want you saying them in plain language. Non-binding, which is mediation: both sides have to agree, so nobody is forced to settle and the parties keep control of the outcome. Binding, which is arbitration: the decision is final and enforced like a court order, and a court will only look at it on very narrow grounds. Then where each one sits. Before filing, mediation usually comes after treatment and the demand, and arbitration comes only where a signed clause compels it. After filing, mediation is often ordered during discovery, and arbitration happens when the parties agree to leave the court system. Those four cards are what you explain to John Doe. What either one does to his claim is Atty. Thorne's to tell him.",
+      "ask": "Say it to me as you would to John Doe: what does non-binding mean, and what does binding mean?"
     },
     "frame": {
       "say": "Let's line the two up row by row. The mediator's role is facilitator and negotiator; the arbitrator is a private judge and finder of fact. On decision authority, the mediator has zero. She can't force a settlement, rule or order a payout. The arbitrator has total authority and issues a binding Arbitration Award. Control of the outcome stays with the parties at mediation, since they decide whether to sign, while the arbitrator decides liability and damages and can exclude evidence. Review afterward? Mediation needs none because there's no ruling; arbitration gets court review on narrow grounds only. And that sets your standard: compromise focus for one, trial-ready for the other.",
@@ -197,10 +231,28 @@
       "ask": "Say your deferral line out loud once: what are the exact words you'll use at the hearing?"
     }
   },
+  "d4m2-a3": {
+    "case": {
+      "say": "It is the second of October twenty twenty-six, and we are on Track B. The UM demands went out at the end of August, after Keystone tendered its ten thousand in bodily injury limits on the twelfth with both UM carriers' written consents and a Limited Release signed on the twenty-eighth. Now the answers are in. Marcus Bell at Harbor Point offers eight thousand against a twenty thousand dollar Host UM limit, and he is calling the fourteen-day gap a causation problem. Teresa Okafor at Cardinal State offers six thousand against ten thousand. Harbor Point's policy has a binding arbitration clause. Cardinal State's certified policy was requested and has not arrived.",
+      "ask": "Fourteen thousand offered against thirty thousand of limits. What is our first move, and what is not?"
+    },
+    "task": {
+      "say": "Route the impasse. Write the memo to Atty. Thorne: the offers set against the limits, Harbor Point's stated reason, and each layer's dispute-resolution clause quoted word for word, with Cardinal State's marked as outstanding. Lay out both routes and what each would require operationally. Then ask him three things in writing: which route governs on each layer, each layer's own suit or arbitration-demand deadline, and whether the two should be heard together. Set the CMS up to carry his answer, with the ADR entry, the status, and a task per open question. Draft the calendar entries, but do not save them. Then write what you will say to John when he calls to ask what happens now.",
+      "ask": "Why do we draft the calendar entries and hold them instead of simply docketing them today?"
+    },
+    "model": {
+      "say": "Here is what a memo that works looks like. It opens with the numbers: eight thousand against twenty, six thousand against ten, fourteen against thirty in all, with the dates on each. Then exhaustion, evidenced rather than asserted: Keystone's tender on the twelfth of August, the consents on the twenty-fourth and the twenty-sixth, the Limited Release signed on the twenty-eighth. Then a section per layer. Harbor Point's arbitration paragraph is pasted in whole and identified as binding, and nothing more is said about it. Cardinal State's section says plainly that the certified policy was requested and has not arrived, and there is a chase task against it. Then three numbered questions. That is a memo he can decide from without opening the file.",
+      "ask": "What is missing from that memo on purpose, and why is leaving it out the right call?"
+    },
+    "check": {
+      "say": "Check your work against this. Both claims named as first-party claims, distinct from the Keystone claim that closed in August. The figures exact, with their dates. Exhaustion documented rather than assumed. Harbor Point's clause quoted and called binding, with no interpretation. Cardinal State treated as its own layer, its certified policy marked outstanding, with a chase task, and Harbor Point's clause never read onto it. Both routes laid out with their operational consequences. Bad faith raised only as a question, with the handling dates recorded as facts. Three written questions asked. Nothing docketed, and the tort statute of limitations not used as a UM deadline. And the explanation to John procedural only: what a Demand for Arbitration is, that a neutral decides rather than a jury, and that Atty. Thorne will go through what it means.",
+      "ask": "Whose work would you rather hand to Atty. Thorne: the memo with an answer in it, or the one with three questions?"
+    }
+  },
   "d4m2-kc": {
     "questions": {
-      "say": "Let's move into the Learning Check. Answer from this file, in your own words, typed under each question. You'll compute John Doe's discovery response date step by step, work out the SOL's internal dates with the arithmetic, and explain forward versus backward counting off a weekend. Question 3 is the direction test, so take your time on it. And for question 5, I'm going to play Laura Whitcomb, Esq. and put the bill question to one of you across the table. I'm grading the very first sentence you say.",
-      "ask": "If the brief lands on Monday 06/14/2027 in your answer, what went wrong in your count?"
+      "say": "Into the Learning Check, three questions, one for each part of this module. Question 1 is all the date arithmetic in one: the discovery mailed on the first of December, the Sunday statute of limitations, both weekend directions, and what happens to an unanswered Request for Admission. Show me the working, not just the dates. Question 2 is the UM side: the two routes out of an impasse, what decides which one governs, where a bad-faith action sits, and why John’s own Bluewater policy is not a route. Question 3 puts mediation and arbitration on the timeline and asks for non-binding and binding in the words you would use with him.",
+      "ask": "Which of those three would you least like Atty. Thorne to find wrong in your answer, and why?"
     },
     "summary": {
       "say": "Now write your Self-Summary: the principles from this module in your own words. Then take the scenario on the slide. It's 09/04/2026, Keystone has ignored two follow-ups and the 48-hour escalation, and John Doe calls asking why nothing's happening and whether he should just take the $3,500. Write what you say, what you don't say, and what goes to Atty. Thorne today. While you're writing, think about one date on this file you'd always check twice.",
@@ -281,17 +333,21 @@
       "ask": "Who spotted those two landmines in the draft before I pointed them out, and what tipped you off?"
     },
     "task": {
-      "say": "You'll assemble the six-section Mediation Binder in the CMS, working from the master index and starting with the 07/20/2026 Demand Package. Seat each document in one section with its exhibit number and Bates range, and map every allegation in the 11/12/2026 answer to the exhibit that answers it. Then run the pre-mediation audit. Rebuild the ledger from the certified bills you have to $16,401.40, and cross-check each provider balance against what MedPay and Peach State already paid. Add the Negotiation Log, a draft Limited Release and the UM consent requests. You'll hand in an indexed, searchable binder with an audited ledger, a lien summary and a short memo on both landmines, routed to Atty. Thorne.",
+      "say": "You'll assemble the six-section Mediation Binder in the CMS, working from the master index and starting with the 07/20/2026 Demand Package. Seat each document in one section with its exhibit number and Bates range, and map every allegation in the 11/12/2026 answer to the exhibit that answers it. Then run the pre-mediation audit. Rebuild the ledger from the certified bills you have to $16,401.40, and cross-check each provider balance against what PIP and Peach State already paid. Add the Negotiation Log, a draft Limited Release and the UM consent requests. You'll hand in an indexed, searchable binder with an audited ledger, a lien summary and a short memo on both landmines, routed to Atty. Thorne.",
       "ask": "Atty. Mercer says the ledger is unverified. Is he wrong?"
     },
     "check": {
       "say": "Before you log this, run your checks. Section one's snapshot has LSH-2026-MVA-770412, No. 26-CV-04417, Atty. Mercer's verified contacts, and the fee split read from the order. Section three, only the filed complaint and answer. Your defense map gets graded hard: five allegations, five answers, each with an exhibit number, so \"see Medical Records\" isn't a map. Landmine one: Riverton audited to 33 visits at $185.00, $6,105.00, duplicate removed, pending final verification, for $16,401.40. Landmine two: Crescent's $3,400.00 satisfied by Peach State's $1,860.00, with open liens of $7,965.00. Section six's log runs from the 07/20/2026 demand to suit. The release and consent requests are drafts, so leave every term to Atty. Thorne. Then swap binders with your partner and QA each other's index.",
       "ask": "When you swap with your partner, which exhibit number in their defense map will you check first?"
+    },
+    "audit": {
+      "say": "This is the index the Litigation Desk assembled on the second of March, and Atty. Mercer says Keystone won't put a real number on the table while the medical ledger is unverified. On this draft he's right. Section five was typed from the providers' original bills, so Riverton Spine and Rehab comes in at six thousand two hundred and ninety on thirty-four lines and the medical total reads fifteen thousand and two forty, against the fourteen thousand eight hundred and seventeen forty we served in July. Crescent shows as an open balance Peach State already paid. Call every section, and tell me what's missing as well as what's wrong. When you hand it in you'll see the binder as we delivered it on the eleventh of March.",
+      "ask": "Two medical totals for one file. Which one would you defend in that room?"
     }
   },
   "d4m3-a2": {
     "case": {
-      "say": "Here's what landed on 05/17/2027: exhibit exchange in 16 days, and the Arbitration Binder isn't started. Zero of six tabs. The hard date is 06/02/2027, before Laura Whitcomb, Esq., on HP-26-7741 and CS-26-20355. Robert Smith was dismissed after Keystone tendered its $10,000 at the 03/18/2027 mediation, and the carriers are disputing damages over the gap. The unsorted folder holds a pre-filing draft of the Complaint, grayscale doorbell stills, the 09/08/2026 impasse memo, and a Lien Sheet listing Harbor Point MedPay at $5,000.00 and Summit Imaging at $2,395.00. Crescent Pain & Spine's certified records, requested 05/05/2027, haven't come in. I'm putting four red traps on the board, then covering them before anyone sorts.",
+      "say": "Here's what landed on 05/17/2027: exhibit exchange in 16 days, and the Arbitration Binder isn't started. Zero of six tabs. The hard date is 06/02/2027, before Laura Whitcomb, Esq., on HP-26-7741 and CS-26-20355. Robert Smith was dismissed after Keystone tendered its $10,000 at the 03/18/2027 mediation, and the carriers are disputing damages over the gap. The unsorted folder holds a pre-filing draft of the Complaint, grayscale doorbell stills, the 09/08/2026 impasse memo, and a Lien Sheet listing Harbor Point PIP at $5,000.00 and Summit Imaging at $2,395.00. Crescent Pain & Spine's certified records, requested 05/05/2027, haven't come in. I'm putting four red traps on the board, then covering them before anyone sorts.",
       "ask": "Before I cover them, which of those four traps do you think you'd have missed on your own?"
     },
     "task": {
@@ -301,6 +357,10 @@
     "check": {
       "say": "Check before you log. Tab one has the snapshot and the 06/11/2027 brief slot, never a draft. Threshold exhibits come first, the $10,000 tender, consents, Limited Release, dismissal and both Coverage Letters. Tab two holds operative versions only, with the pre-filing draft gone. Tab three has the certified RPD-26-018842 and color stills from the native file. Tab four ties $14,817.40 to certified bills, with certifications requested from each provider. On tab five, pull and pair the 2021 records with the MRI read and Causation Letter, but don't argue causation; a supplemental opinion from Dr. Reyes is Atty. Thorne's call. The Lien Sheet drops Harbor Point and Summit, leaving $7,965.00. Tab six is wages, $1,584.00. And the impasse memo is the privilege test. It never goes in tab six.",
       "ask": "Where did you put the 09/08/2026 impasse memo, and who decides whether it's ever exchanged?"
+    },
+    "audit": {
+      "say": "The desk's exhibit index, the fourteenth of May, and Harbor Point is on the other side of this hearing now. Decide for each exhibit which tab it belongs in, or that it's withheld, and apply the QC as you sort rather than after. The Confidential Mediation Statement is sitting at C-2 for background. Nobody has asked a single provider for a certification, the authentication log hasn't been started, and tab one has no exhaustion record at all, so there's nothing proving the bodily injury layer is gone. And the Lien Sheet claims five thousand dollars for Harbor Point MedPay, which gave up any reimbursement right in writing in March. When you hand it in you'll see the set we exchanged on the second of June.",
+      "ask": "Harbor Point is the opponent now. What changes about what we send?"
     }
   },
   "d4m3-kc": {

@@ -1,501 +1,518 @@
 {
-  "d2m3-l1": {
-    "why": {
-      "say": "I've written two questions on the board. The first one is, \"Was it because you had no car?\" The second is, \"What, if anything, made it hard to get seen sooner?\" Here's the rule I want you to remember from today. The only gap explanation that holds up against insurance adjusters is John Doe's own factual explanation, backed by written documents you can check: work schedules, doctor availability notes, travel logs, illness records. Your job is to draw it out with clean questions and write it down as he gives it. You don't interpret it, defend it or judge what it does to the claim. And a reason you suggested isn't his explanation at all.",
-      "ask": "Which of those two questions would the defense rather you asked John Doe, and why?"
-    },
-    "map": {
-      "say": "Here's the road for the gap interview, start to finish. You plan the questions from the records, and you write questions only, never the answers you expect. You open on the record: the date, who's on the call, your role, his consent and his privacy. You ask open, follow his words, and keep closed questions for last. Then you ask for the paper: work schedules, doctor availability notes, travel logs, illness records. You read it back so he can correct you. And you record his words as he gave them, with a dated task for every document.",
-      "ask": "Which step do you think is easiest to skip when the client is friendly and talkative?"
-    },
-    "theory": {
-      "say": "Everything in this lesson sits on one Golden Rule: coordinate, don't commingle. The medical plan and the legal claim run on two parallel tracks, and they never cross-contaminate, not even in a gap interview. That's why your neutrality matters so much. If a legal opinion turns up in your medical notes or call notes, the defense uses it to impeach you, so you record facts, never conclusions. Under A-C-T, a gap in care is a legal danger rather than a medical one, which means it routes to Atty. Thorne. While you're talking to John, you listen actively: reflect, paraphrase, then summarize, so he feels heard and fixes whatever you got wrong. And remember privilege. Confidential talk between the firm and its client is protected, and a third person in the conversation can put that at risk.",
-      "ask": "Which of these ideas have you run into before, and where would it show up on John Doe's file?"
-    },
-    "frame": {
-      "say": "Let's bring back the A-C-T Immediate Action Protocol, because the gap interview lives inside it. Assess comes first. Medical danger, like a fever or hardware failing, goes to the provider today. Legal danger, like a gap or a generic note, goes to Atty. Thorne. Then Coordinate: you clarify with the provider's office, and you remove whatever barrier the client names, whether that's transport, scheduling or a referral. Track means you document the flag and every fix you attempted that same day, and if a provider gets dropped, you write down counsel's reason. And then you're back to monitoring, because Track feeds your next check-in, where the question is simple: is the plan working?",
-      "ask": "Looking at John Doe's file right now, which step of A-C-T is his 14-Day Gap sitting in?"
-    },
-    "rules": {
-      "say": "Here are the rules for the gap call. You investigate; you don't advocate. Read the EMS report, the 02/20/2026 urgent-care history and the timeline, then write a plan that holds questions only, never the answers you expect. Run a funnel: broad open questions, follow-ups built on his words, closed questions last to pin a date or a document, one at a time. Never lead, and never judge. You know the ordinary causes, like transport, co-pays and work schedules, but you never offer them. Record only with his spoken consent, and protect privilege. If Keystone wants a Recorded Statement, he declines and sends it to us. Confirm his 03/05/2026 consult with Dr. Reyes, and ask how he'll get to care once the rental ends 03/19/2026. And the line: never tell him the gap won't matter or will hurt. Reassure the process, never the outcome.",
-      "ask": "If John Doe's reason is true anyway, why does it matter how you asked for it?"
-    },
-    "model": {
-      "say": "Have a look at this board. On the left, in green, it says ask it open. On the right, in red, never like this. Every open question sits on the same line as the leading or opinion-laden version it replaces, so you can read straight across and hear the difference. That last red row has a little UPL tag on it, and that's the soothing line, the one that sounds kind and is really an opinion on his case. Down below is the funnel: first open, then follow his words, then pin the dates and documents. Notice the pill at its mouth, recorded, consent on the record. The whole point is that the same fact, asked two ways, produces two different cases.",
-      "ask": "Reading across the rows, which red question do you think you'd be most tempted to ask on a real call?"
-    },
-    "job": {
-      "say": "Now let's follow this on the job. It starts when the records show the 14-day gap. You read the EMS report, the urgent-care history and the treatment timeline in the CMS, and you save your question plan in Case Notes before the call, with no question in it naming a reason. When the call connects in the Call Simulator with AI John Doe, you state the date, who's on, and that it's recorded, and you get his consent and confirm he's somewhere private before anything substantive. If he asks what the gap does to his case, you give no opinion; you log it and escalate to Atty. Thorne through Tasks the same day. And if a carrier asks him for a Recorded Statement, you remind him it goes through the firm, log it in the Communications Log and tell Atty. Thorne that day.",
-      "ask": "Where in that sequence do you think a nervous new Case Manager is most likely to slip?"
-    },
-    "dodont": {
-      "say": "Time for 3 Clues, 1 Rule. I'll reveal three clues one at a time, and as soon as you think you've got it, call out Do or Don't and name the rule behind it. Some of these are the good habits: asking open, following his words and closing last, paraphrasing back so he can correct you, and preventing the next gap now, which is far cheaper than explaining a second one in the demand. Others are traps: a question that names the reason you expect, blaming him for the gap, and soothing. Watch that last one. \"Don't worry\" is the most common UPL slip in this module. It sounds kind, and it's an opinion on the case, the same as saying \"it will hurt the case\".",
-      "ask": "What's the difference between telling John consistent care matters and telling him what this gap does to his case?"
-    }
+ "d2m3-l1": {
+  "why": {
+   "say": "I've written two questions on the board. The first one is, \"Was it because you had no car?\" The second is, \"What, if anything, made it hard to get seen sooner?\" Here's the rule I want you to remember from today. The only gap explanation that holds up against insurance adjusters is John Doe's own factual explanation, backed by written documents you can check: work schedules, doctor availability notes, travel logs, illness records. Your job is to draw it out with clean questions and write it down as he gives it. You don't interpret it, defend it or judge what it does to the claim. And a reason you suggested isn't his explanation at all.",
+   "ask": "Which of those two questions would the defense rather you asked John Doe, and why?"
   },
-  "d1m2-l1": {
-    "why": {
-      "say": "Before we touch a single step, I want you to know what this protocol is for, because it isn't about chasing a client. The No Contact Protocol does three jobs at once. It tracks unresponsiveness formally, it establishes due diligence before anyone ever talks about withdrawal, and it protects the firm from liability. A client who can't be reached is still a file with deadlines running on it. The protocol is the proof that the firm did its part. If you see it as just ringing someone until they pick up, you'll miss why the record matters, and the record is the whole point.",
-      "ask": "If John Doe went quiet tomorrow, who gets hurt if nobody can prove what the firm did to reach him?"
-    },
-    "map": {
-      "say": "Here's the protocol from start to finish before we go through it. Step one is an internal review: the case status, the live deadlines, the date of last contact and the channels already used. Step two is the contact attempts, escalating by channel: two calls, then email and text, then the emergency contact, then certified mail. Alongside it, you log every attempt in the CMS: date, time, channel and outcome. And step three is team notification: you escalate to Atty. Thorne and spell out what the silence puts at risk, like the statute of limitations.",
-      "ask": "Why do you think the protocol escalates by channel rather than by the number of calls?"
-    },
-    "theory": {
-      "say": "A few terms first. An intake bottleneck is any point where the work slows, stalls or gets inconsistent, and a silent client is one of them, because the case stops progressing. Due diligence is the proof that the firm made reasonable, documented efforts to reach the client, and it's the record that justifies whatever happens next. Approved channels are the contact methods the client and the firm agreed on at intake; only those count as a valid attempt. And the emergency contact is that second person you collected at intake who can still reach the client after they go quiet. On John Doe's file, that's Margaret Doe, his mother.",
-      "ask": "Which of these terms have you met before, and where would you find it on John Doe's file?"
-    },
-    "frame": {
-      "say": "Silence rarely comes out of nowhere, so let's look at the common intake bottlenecks behind it. There's incomplete client information, like missing contact details, incident facts or supporting documents. There's delayed follow-up: clarification requests nobody answered, verification calls missed, documents arriving slowly. Conflict checks get held up by backlog, incomplete entries or unclear opposing party details. Intake forms carry wrong dates, inconsistent statements, missing signatures or misfiled records. Sometimes the facts of loss or liability are ambiguous enough to need an attorney's review. And there are communication gaps, where an intake packet is incomplete or two departments simply talk past each other. Any one of these can turn into a client you can't reach.",
-      "ask": "Looking at John Doe's file right now, which of these bottlenecks do you think he's closest to?"
-    },
-    "rules": {
-      "say": "Step 1 is internal review, and it's the step everyone skips because they want to start dialling. Before you call anyone, check the case status, the live deadlines and the date of last contact, and confirm every earlier attempt used an approved channel. Step 2 is contact attempts, escalating: at least two phone attempts, then email and text, then the emergency contact, then certified mail or a formal letter. You escalate by channel, not by volume. Two voicemails on one number clears the phone rung and nothing more. I'll say it twice, because it matters: two voicemails, one rung. Set a follow-up reminder when a request goes out and log every attempt with date, time, channel and outcome. Step 3 is team notification and deadline impact; deadlines don't pause for silence. You can tell the client what we need and by when. You can't tell them representation will end.",
-      "ask": "What deadline is running on John Doe's file right now, before you pick up the phone?"
-    },
-    "model": {
-      "say": "Here's the whole protocol on one picture. Down the left you've got a spine of six stations. The first three are in full colour: internal review, contact attempts and team notification. That's today. Stations four to six are greyed back with a next lesson tag, so you can see where this is heading without getting ahead of ourselves. On the right, station two opens up into a ladder of channels, and each rung gets wider: phone, with two or more attempts, then email and text, then the emergency contact, then certified mail or a formal letter. And down in the corner there's a red card reminding you that the statute of limitations and hearing dates keep running the whole time.",
-      "ask": "Why do you think each rung on that ladder is drawn wider than the one above it?"
-    },
-    "job": {
-      "say": "Let me tell you how this actually plays out. John Doe misses a scheduled contact or an appointment. That's your trigger. You open the Case Summary in the CMS and do Step 1: status, deadlines, last contact date, and you know the live deadlines before any outreach begins. Once that's done, you work the channel ladder in the Communications Log, two or more phone attempts, then email and text, each one logged with date, time, channel and outcome. When the ladder's exhausted, that's Step 3. You notify Atty. Thorne through Tasks, Escalate, and you assess the impact on the file, so the escalation's documented and the SOL of 02/06/2028, plus any hearing dates, are on the record.",
-      "ask": "What would Atty. Thorne need to see in that escalation before he could act on it?"
-    },
-    "dodont": {
-      "say": "Let's play 3 Clues, 1 Rule. I'll put up one clue at a time. When you think you know where it's going, shout Do or Don't and tell me which rule it's testing. Some rounds are good habits, like setting a follow-up reminder the moment a request goes out, or giving the client an easy way to answer, a call window, a text, an upload link. Some are traps, like letting a file sit because we're waiting on the client with nothing logged, or blaming the client for what's really a process gap. And listen for channel versus volume. It's the point people fail most often: two voicemails on the same number clears the phone rung and nothing more. Oh, and remember that emergency contact we collected at intake? This is the moment it pays off.",
-      "ask": "Why does the emergency contact count as a new channel when a third call to his mobile doesn't?"
-    }
+  "map": {
+   "say": "Here's the road for the gap interview, start to finish. You plan the questions from the records, and you write questions only, never the answers you expect. You open on the record: the date, who's on the call, your role, his consent and his privacy. You ask open, follow his words, and keep closed questions for last. Then you ask for the paper: work schedules, doctor availability notes, travel logs, illness records. You read it back so he can correct you. And you record his words as he gave them, with a dated task for every document.",
+   "ask": "Which step do you think is easiest to skip when the client is friendly and talkative?"
   },
-  "d1m2-l2": {
-    "why": {
-      "say": "The Final Warning Letter is the last low-cost step before the firm has to choose between two expensive things: spending money to find somebody, or moving to withdraw. So this letter has two jobs. It has to be specific enough that the client actually answers it, and documented enough to justify whichever of those next steps comes. And I'm going to hold you on one idea all lesson: the search waits until three things are true at the same time, not just the first one. People trigger it early all the time, and that spends the firm's money and weakens the record.",
-      "ask": "What's the risk of spending the firm's money on a search before the letter's deadline has even passed?"
-    },
-    "theory": {
-      "say": "This letter closes out the outreach record. It's one last documented notice before the firm searches for the client or counsel moves to withdraw. It goes by dual delivery. Certified mail proves it was delivered, email is what actually gets a response, and each one covers the other's gap. Then there's the three-criteria gate, and I want you to hear the word gate. It's an AND gate, not a checklist, so the search waits until all three are true. The search itself is a skip-trace, a paid search for someone's current address and contacts, and because it spends firm money, counsel authorizes it. And withdrawal, ending representation by notice or motion, is decided only by the attorney, under firm and court rules.",
-      "ask": "Which of these have you met before, and where would it show up on John Doe's file?"
-    },
-    "frame": {
-      "say": "This picks up exactly where Step 3 left off, with Steps 4 through 6. Step 4 is the Final Warning Letter. It itemizes the earlier attempts, gives a deadline of 7 to 14 days and gives notice of potential withdrawal, and it goes by certified mail and email. Step 5 is the decision point. If there's still no response, the attorney decides whether to file a Notice or a Motion to Withdraw. Step 6 is file closure. The file gets marked \"No response – withdrew per protocol\", and the proof of every attempt is kept. Three steps, and only one of them, the letter, is really yours to drive.",
-      "ask": "If John Doe went silent today, how far would his file be from Step 4?"
-    },
-    "rules": {
-      "say": "Step 4 goes by certified mail and email. Both, not either. The letter states the earlier attempts, gives a response deadline of 7 to 14 days and gives notice of potential withdrawal. And you confirm the address first, because a letter sent to a stale address proves nothing. At Step 5, if the client's still silent, the attorney may file a Notice of Withdrawal or a Motion to Withdraw, and that's counsel's call. Step 6 marks the file closed per protocol and keeps every proof. Skip-tracing starts only when the ladder's exhausted, the letter's gone and its deadline has passed, and counsel authorizes it with the full log attached. Meanwhile records, coverage and deadlines keep moving. The letter can state requirements and say withdrawal is possible. It can't judge the claim, advise on rights, or announce that representation's ending.",
-      "ask": "Why do we need both certified mail and email, when either one would technically get the letter there?"
-    },
-    "model": {
-      "say": "There are two panels here. On the left is the letter itself, on letterhead, with four orange badges marking what it must contain: the earlier attempts, itemized; a response deadline of 7 to 14 days; notice of potential withdrawal; and how to respond. Above it you'll see certified mail and email joined by a bold AND, because both are required. On the right is the Step 5 fork. It starts with one question: did a response come in within the deadline? If yes, the file resumes. If no, you hit a gate with three chips, the ladder exhausted, the letter sent and the deadline expired, and only then do you reach the skip-trace and the attorney's decision point. It's drawn as a gate on purpose.",
-      "ask": "What happens on this picture if only two of those three chips are true?"
-    },
-    "job": {
-      "say": "Here's the story on the job. You've made your Step 3 escalation and there's still no response. That's when you draft the Final Warning Letter in the Action Plan Editor from the warning letter template, with the earlier attempts itemized and the deadline and withdrawal notice in place. Once it's ready, you confirm the current address and send it from CMS Documents, Outgoing, by certified mail and email, both channels logged and the certified receipt kept. Then the response deadline expires. Now you check that all three criteria are evidenced in the log, and only then do you escalate to Atty. Thorne through Tasks, asking for skip-trace authority and the Step 5 decision.",
-      "ask": "What's the first thing you'd check in the log before you escalate to Atty. Thorne?"
-    },
-    "dodont": {
-      "say": "Now for 3 Clues, 1 Rule. I'll reveal three clues, one by one. The moment you've got it, call Do or Don't and name the rule. You'll see good habits, like itemizing the attempts with real dates, because \"we have tried several times\" isn't evidence, and asking in-house help to confirm an address you can't verify. You'll also see traps, like triggering a skip-trace on the first criterion alone, or writing \"we are withdrawing\" in a letter the attorney never approved. That one's the hard line. The Case Manager assembles the record, and the attorney decides to withdraw. We'll come back on Day 5 for advanced skip-tracing, process servers and certified notice. Today is the trigger; Day 5 is the execution.",
-      "ask": "Who decides that representation is ending, and who tells the client?"
-    }
+  "theory": {
+   "say": "Everything in this lesson sits on one Golden Rule: coordinate, don't commingle. The medical plan and the legal claim run on two parallel tracks, and they never cross-contaminate, not even in a gap interview. That's why your neutrality matters so much. If a legal opinion turns up in your medical notes or call notes, the defense uses it to impeach you, so you record facts, never conclusions. Under A-C-T, a gap in care is a legal danger rather than a medical one, which means it routes to Atty. Thorne. While you're talking to John, you listen actively: reflect, paraphrase, then summarize, so he feels heard and fixes whatever you got wrong. And remember privilege. Confidential talk between the firm and its client is protected, and a third person in the conversation can put that at risk.",
+   "ask": "Which of these ideas have you run into before, and where would it show up on John Doe's file?"
   },
-  "d1m2-a1": {
-    "case": {
-      "say": "Here's what just landed on the file, dated 02/16/2026. It's file LSH-2026-MVA-770412, and there's been no client contact with John Doe for six days. His last logged contact was 02/10/2026. He missed his check-in call scheduled for 02/13/2026. The phone system shows two calls to his mobile, both ending in voicemail, and neither one is in the Communications Log. No treatment start is recorded. His emergency contact on file is Margaret Doe, at (555) 010-2291, and Step 1 of the No Contact Protocol is due today. Before we go on, would someone read the red bad entry aloud for us? \"Called client, no answer.\" Be honest, that's what most of us would have written.",
-      "ask": "What's missing from \"called client, no answer\" that a supervisor would need six months from now?"
-    },
-    "task": {
-      "say": "Your job is to run the No Contact Protocol on John Doe's file. Start with the Step 1 internal review in the CMS Case Summary and name the deadlines that are live right now. Don't start dialling first. Then reconstruct the attempts already made and carry the Step 2 ladder forward in the Communications Log, logging every attempt with date, time, channel and outcome, plus the next action and its due date. Part of this is a live call with Margaret Doe. Identify yourself, confirm she's the emergency contact on file, ask her to have John call the firm by a set date, and confirm his best number and current address, without disclosing any case details. What you hand in is a completed Step 1 review, an unbroken Step 2 log, and your call on whether Step 3 is warranted and what impact you'd report.",
-      "ask": "Before you log anything, what deadline is running on this file right now?"
-    },
-    "check": {
-      "say": "Before you log your work, check it against these points. Did you do Step 1 first, with the status, live deadlines and last contact reviewed? Are the earlier voicemails logged with date, time and channel? Is the phone rung cleared with at least two attempts, and are email and text both tried, rather than more calls? Did you use the emergency contact? That's the rung people forget most, and we collected it at intake for exactly this. Every entry needs date, time, channel and outcome, and the next action needs a due date. Your Step 3 impact should name the SOL of 02/06/2028 and the treatment that hasn't started. That silence is what becomes the 14-Day Gap later. And nothing threatens withdrawal. Write each entry as if a supervisor will audit it six months from now.",
-      "ask": "If you called his mobile three times, how many channels have you actually used?"
-    }
+  "frame": {
+   "say": "Let's bring back the A-C-T Immediate Action Protocol, because the gap interview lives inside it. Assess comes first. Medical danger, like a fever or hardware failing, goes to the provider today. Legal danger, like a gap or a generic note, goes to Atty. Thorne. Then Coordinate: you clarify with the provider's office, and you remove whatever barrier the client names, whether that's transport, scheduling or a referral. Track means you document the flag and every fix you attempted that same day, and if a provider gets dropped, you write down counsel's reason. And then you're back to monitoring, because Track feeds your next check-in, where the question is simple: is the plan working?",
+   "ask": "Looking at John Doe's file right now, which step of A-C-T is his 14-Day Gap sitting in?"
   },
-  "d1m2-a2": {
-    "case": {
-      "say": "This note from Atty. Thorne just landed on the file, dated 02/21/2026. He's read your Step 3 note. It's been eleven days with no word from John, and no treatment that we know of. The phone rung is cleared, emails and texts have gone out, Margaret Doe has been tried, and it's all logged. He wants the Final Warning Letter drafted for his review Monday morning: every attempt with its date, a response date, and how to reach us, by certified mail and email. Withdrawal is possible, not decided, and the letter says nothing about John's claim. Here's the hard part. You need a letter that's urgent but not threatening, and most first drafts miss one way or the other.",
-      "ask": "What's one sentence that would make this letter sound threatening rather than urgent?"
-    },
-    "task": {
-      "say": "You'll draft the Step 4 Final Warning Letter to John Doe in the Action Plan Editor, using the warning letter template. Itemize the earlier attempts, and by itemize I mean list each one with its date. Set a response deadline inside the 7 to 14 day window, give notice of potential withdrawal, and tell him exactly how to respond. Every sentence stays inside the UPL boundary, so nothing on the strength of his claim, nothing on what silence does legally, and nothing announcing withdrawal as decided. Then record what has to be true before skip-tracing can start, and whose authority Step 5 needs. What you hand in is a send-ready letter with both deliveries logged and the escalation recorded.",
-      "ask": "Whose authority does the Step 5 decision need, and where will you record that?"
-    },
-    "check": {
-      "say": "Before you submit, swap drafts with the person next to you and mark each other's. And first, let's read the banned and compliant pairs aloud together; it'll save you a full rewrite. Look for the firm's identification and the file reference, and the date of loss as 02/06/2026. The earlier attempts should be itemized with dates. The deadline should be an actual date inside the 7 to 14 day window, not \"as soon as possible.\" Withdrawal should read as possible, not decided, and there should be at least two ways to respond. Certified mail and email are both recorded, with the address confirmed before sending. There's nothing about claim value or legal consequence, so no \"you will lose your case.\" The skip-trace criteria are recorded, and Step 5 is noted as Atty. Thorne's.",
-      "ask": "Does your partner's letter tell John what's needed and by when, without telling him what happens to his case?"
-    }
+  "rules": {
+   "say": "Here are the rules for the gap call. You investigate; you don't advocate. Read the EMS report, the 02/20/2026 urgent-care history and the timeline, then write a plan that holds questions only, never the answers you expect. Run a funnel: broad open questions, follow-ups built on his words, closed questions last to pin a date or a document, one at a time. Never lead, and never judge. You know the ordinary causes, like transport, co-pays and work schedules, but you never offer them. Record only with his spoken consent, and protect privilege. If Keystone wants a Recorded Statement, he declines and sends it to us. Confirm his 03/05/2026 consult with Dr. Reyes, and ask how he'll get to care once the rental ends 03/19/2026. And the line: never tell him the gap won't matter or will hurt. Reassure the process, never the outcome.",
+   "ask": "If John Doe's reason is true anyway, why does it matter how you asked for it?"
   },
-  "d1m2-kc": {
-    "questions": {
-      "say": "This is your Knowledge Check. Your answers come from this file, in your own words, typed under each question. You'll set out all six steps of the No Contact Protocol in order, with what's required at each one. You'll state the protocol's three purposes and say which one protects the firm rather than the client. A word on that second question: it's easy to answer shallowly. Protection from liability is the purpose people leave out, and it's exactly why the record gets built the way it does. Then there's a colleague who logged three voicemails on three days and called the ladder exhausted. Tell me what's wrong and what the log should show.",
-      "ask": "Which of the three purposes do you think is the easiest one to forget?"
-    },
-    "summary": {
-      "say": "Now your Self-Summary, where you put the principles in your own words. Here's the scenario. It's 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits. Keystone ended his rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked John for a Recorded Statement. Tell me what you do first, second and third, and what each step protects. This one pulls it all together: the running SOL, a Treatment Gap that's hardening, and the claims work that has to keep moving anyway. Keep in mind, too, that the gap you're watching build here is the same 14 days defense counsel will ask John Doe about at his deposition on Day 5.",
-      "ask": "Of those three problems, which one protects the most if you deal with it first?"
-    },
-    "scale": {
-      "say": "Last step is your Skill Scale. Rate yourself honestly, one to five, on each competency, then submit it for review. One to five isn't a grade. It's a picture of where you actually are today. When I get these back, I'll compare your self-rating with your Knowledge Check score, and wherever there's a wide gap, either way, you and I will have a short conversation about it. Overrating and underrating both tell me something useful.",
-      "ask": "Which competency here are you least sure how to rate, and why?"
-    }
+  "model": {
+   "say": "Have a look at this board. On the left, in green, it says ask it open. On the right, in red, never like this. Every open question sits on the same line as the leading or opinion-laden version it replaces, so you can read straight across and hear the difference. That last red row has a little UPL tag on it, and that's the soothing line, the one that sounds kind and is really an opinion on his case. Down below is the funnel: first open, then follow his words, then pin the dates and documents. Notice the pill at its mouth, recorded, consent on the record. The whole point is that the same fact, asked two ways, produces two different cases.",
+   "ask": "Reading across the rows, which red question do you think you'd be most tempted to ask on a real call?"
   },
-  "d2m2-l2": {
-    "why": {
-      "say": "Let me start with a date: 04/07/2026. Does anyone know what was due that day on John Doe's file? It was his week-6 mark of care. And John Doe wasn't there. Here's why that matters. On an LOP, nobody denies the next six visits in real time. Keystone does it later, at the demand, by calling the care unnecessary or the injury minor. That leaves you as the only real-time check that John Doe's plan is working, and the person who acts the very day it isn't.",
-      "ask": "On an LOP file, who denies unnecessary care, and when, and what does that make you?"
-    },
-    "map": {
-      "say": "Here's the road for monitoring treatment, before we get into it. You check in on visits, pain, function and any barrier. When something's off, you name the variance: clinical, psychosocial or systemic. Then you run A-C-T. Assess, where medical danger goes to the provider and legal danger goes to Atty. Thorne. Coordinate, where you clarify with the office and remove the barrier. And Track, where every fix attempt goes into a GIRP note, facts only. Five steps, and you'll use them on John Doe's file more than once."
-    },
-    "theory": {
-      "say": "Knowing the Standard Treatment Map is what separates a Case Manager who watches a recovery from one who drives it, because deviations are what trigger denials and IMEs. The acute phase is days 1 to 14, with the ER, imaging, initial PT and documenting causation. Sub-acute runs weeks 2 to 8, with active PT, specialists and measured functional gains. Restorative is weeks 9 to 24, with injections, work hardening and barriers to returning to work, and after that comes maintenance, with home exercise and as-needed visits. Maximum Medical Improvement is the provider's finding that more care won't improve things. It closes treatment and opens pre-demand. When a client drifts off the map, variance analysis asks why first: is it clinical, psychosocial or systemic, and you ask before funding stops.",
-      "ask": "Which phase do you think John Doe was in when he missed his week-6 mark?"
-    },
-    "theory2": {
-      "say": "A few more ideas you'll lean on. The A-C-T protocol is your immediate action for any red flag: you Assess the danger, Coordinate the fix and Track it, and that documentation is what gives counsel his why. \"Reasonable and necessary\" is the utilization-review test. Is the care common for this mechanism of injury, and is there objective functional gain, not just subjective pain? SMART goals, meaning specific, measurable, achievable, relevant and time-bound, like the week-6 measures, are what hold up with clinicians and adjusters alike. And there's the stakeholder triad of clinical, legal and financial loops, with you as the router. One broken loop can stall a case for months.",
-      "ask": "What would a SMART goal for John Doe's next six weeks of PT actually sound like?"
-    },
-    "frame": {
-      "say": "Here's the Standard Treatment Map phase by phase. Acute is days 1 to 14: the ER, MRI or CT, bracing, RICE and initial PT, while we establish causation and MedPay coverage. Sub-acute is weeks 2 to 8, with active PT two or three times a week and specialist follow-up. That's where the week-6 check lives, looking for 20 to 30 percent better range of motion. Restorative is weeks 9 to 24, covering work hardening, injections, psychological adjustment and finding the barriers to return to work. Maintenance comes after week 24, with home exercise and as-needed visits while we watch for the provider's MMI finding. MMI is the endpoint. Treatment closes, and the pre-demand audit opens.",
-      "ask": "On 04/08/2026, day 61 of John Doe's file, where on this map is he sitting?"
-    },
-    "rules": {
-      "say": "Monitor outcomes, not just attendance. Ask about visits, pain and what he can't do at work or home, and hunt the barriers, internal ones like fear or mood and external ones like transport or money. On 04/08/2026, day 61, he's in week 9. At every check-in, ask whether he's improving. His week-6 mark fell on 04/07/2026, which is 02/24/2026 plus 42 days, and the next step, whether that's medication, injections or a specialist, is the provider's decision. Name the variance before you fix it. Run A-C-T for every red flag, and adjust the plan first, because it's usually the plan, not the client. Climb the ladder one documented rung at a time: clinical, then administrative, then legal. Write every intervention as a GIRP note. And you coordinate care, you never direct it. Never tell him to skip treatment, or that missed visits cut his claim.",
-      "ask": "Why does writing \"this will help the case\" in a GIRP note put the file at risk?"
-    },
-    "model": {
-      "say": "This picture shows how A-C-T fits inside monitoring rather than beside it. There's a navy ring with the question \"Is the plan working?\" in the middle. Down at about four o'clock, a red detect node breaks out into three steps: assess, coordinate, track. Then notice the arrow from track. It curves right back up into the ring. Up in the corner is the treatment map, with a marker on restorative, week 9, 04/08/2026. And on the left are the three variance chips, clinical, psychosocial and systemic, with psychosocial lit up, because what's derailed John is that he's got no transport. A-C-T isn't a detour from monitoring. It closes back into it.",
-      "ask": "Why is psychosocial the variance that's highlighted for John Doe, rather than clinical or systemic?"
-    },
-    "job": {
-      "say": "Let's walk through a few weeks of this file. A provider's missed-visit alert comes in. That same day, you call AI John Doe, classify the variance and write the GIRP note in Case Notes, dated the day the alert arrived. At week 6, 04/07/2026, you ask the provider for the re-evaluation measures: range of motion, pain score and disability index. Whether a PHQ-9 or GAD-7 screen is indicated is the provider's call, and anything putting his mental health in the record gets flagged to Atty. Thorne. If the barrier isn't fixed at the clinical rung, you climb one rung with a written notice to the carrier causing it, copied to Atty. Thorne, and only property facts to Keystone PD, with each rung dated. Red flags that can cost the claim go to Atty. Thorne with the fix you attempted.",
-      "ask": "Why does the GIRP note need to be dated the day the alert arrives, not the day you finish?"
-    },
-    "dodont": {
-      "say": "Let's play 3 Clues, 1 Rule. Three clues come up one at a time, and when you've got it, call Do or Don't and name the rule. You'll be watching for red flags to raise with the provider, like more than 12 sessions with no gain, passive-only care, or two or more missed visits. You'll see yellow flags reported with a plan, in the map's language. Then there's proofreading laterality, because everything on this file is right-sided, and recording a disruption the day it happens, so it never needs the reconstruction the 14-Day Gap does. The traps are continuing the plan unchanged through a crisis, blaming John, or jumping to Atty. Thorne before the clinical and administrative rungs. And remember, the middle step is Coordinate, but it still opens with that clarifying call to the provider's office.",
-      "ask": "What argument from the defense does a factual A-C-T record answer later on?"
-    }
+  "job": {
+   "say": "Now let's follow this on the job. It starts when the records show the 14-day gap. You read the EMS report, the urgent-care history and the treatment timeline in the CMS, and you save your question plan in Case Notes before the call, with no question in it naming a reason. When the call connects in the Call Simulator with AI John Doe, you state the date, who's on, and that it's recorded, and you get his consent and confirm he's somewhere private before anything substantive. If he asks what the gap does to his case, you give no opinion; you log it and escalate to Atty. Thorne through Tasks the same day. And if a carrier asks him for a Recorded Statement, you remind him it goes through the firm, log it in the Communications Log and tell Atty. Thorne that day.",
+   "ask": "Where in that sequence do you think a nervous new Case Manager is most likely to slip?"
   },
-  "d2m2-l1": {
-    "why": {
-      "say": "I've got John Doe's MedPay ledger up, with the right-hand column covered. Harbor Point has paid $685.00, $640.00, $2,395.00 and then $640.00 for the 03/27/2026 visit. How much MedPay is left? Take a second. It's $640.00. If you can't keep that column straight, you can't decide an LOP request. Treatment is the file's engine room, and somebody has to pay for it while the claim is open. On this file three payers stand in a default order: Harbor Point MedPay, then Peach State, then a Letter of Protection. An LOP issued out of order turns a bill an earlier payer would have paid into a lien against John Doe's net.",
-      "ask": "How much MedPay does John Doe have left after the 03/27/2026 visit?"
-    },
-    "theory": {
-      "say": "Once the claim's set up, the Case Plan runs on three pillars: clinical care, functional status and subrogation management, and that last one decides who pays. The Payer Order is the default sequence. MedPay or PIP pays first, then health insurance, and an LOP comes last. Keeping that order keeps the liens down. MedPay is first-party coverage for Medical Bills regardless of fault, up to its limit, and unlike PIP it never pays wages. Health insurance pays covered care at its contract rate, but it may hold a reimbursement right against the recovery. A Letter of Protection is the client's signed agreement that a provider gets paid from any recovery, which makes it a consensual lien on his net.",
-      "ask": "Which of these payers have you dealt with before, and which one is first in line on John Doe's file?"
-    },
-    "theory2": {
-      "say": "The other half of the theory is about keeping care moving. The Standard Treatment Map is the usual route: emergency, imaging, chiropractic and PT, orthopedics, pain management, sometimes surgery, and every stop needs a payer. Monitoring progress means evaluating clinical and functional outcomes, not ticking boxes, so you ask about the plan, not just \"How are you?\" Crisis intervention is stepping in when care gets denied or stalled by bureaucracy, and you adjust the plan to the immediate issue first. And watch for medication red flags, like an opioid, a muscle relaxant and a sedative together, or doses climbing with no new diagnosis. You don't judge that yourself. You raise it with the provider.",
-      "ask": "Instead of asking John Doe how he is, what would you ask him about his plan?"
-    },
-    "frame": {
-      "say": "Let's set the Payer Order out step by step. First you identify the payers, listing every source and its default order, and remember that who's actually primary is Atty. Thorne's call. Next is MedPay or PIP, which is first-party, regardless of fault, up to its limit, and MedPay pays Medical Bills only, never wages. Then comes the Health Plan, which pays covered care at its contract rate but may assert a reimbursement right against the recovery. The Letter of Protection is the last rung, for care the earlier payers can't carry. It's paid from any recovery, on Atty. Thorne's terms.",
-      "ask": "Where is John Doe on this ladder for his Riverton Spine & Rehab physical therapy?"
-    },
-    "rules": {
-      "say": "In treatment, the question becomes \"Is the plan working?\" and you're facilitating, coordinating and advocating. Run the Payer Order: Harbor Point MedPay, then Peach State, then an LOP. There's no PIP here; John reaches the $5,000 MedPay as an occupant of Kevin Alvarez's 2020 Ford Escape. MedPay pays in date order, never wages. When Crescent Pain & Spine billed Peach State on 05/15/2026 with $640.00 of MedPay left, you tracked both ledgers and never re-routed a paid claim. Riverton Spine & Rehab got an LOP because it's out of network. Summit Imaging's 03/11/2026 MRI went to MedPay, since every needless LOP is a lien on his net. LOP terms are Atty. Thorne's, so you prepare, route, transmit once he approves and confirm receipt. Never promise a provider an amount, a reduction or a date, and never explain John's liability to him.",
-      "ask": "Riverton and Summit Imaging both asked for an LOP. Why did only one of them get it?"
-    },
-    "model": {
-      "say": "Here's the MedPay ledger, Harbor Point's $5,000, with five rows paid in date order. Above it there's a gauge draining in five steps, and the last one lands on $0.00 at 06/12/2026, in red. On the left is the payer rail: MedPay first, Peach State second, and the LOP third, stamped counsel-approved terms. Then look at the two provider chips along the bottom. Riverton Spine & Rehab has a tick for its LOP. Summit Imaging has a cross, because its bill went to MedPay instead. That's the argument of the whole slide. An LOP is the last rung of the Payer Order, not the first answer to a provider who asks.",
-      "ask": "What would a $2,395.00 LOP for Summit Imaging have cost John Doe at the end?"
-    },
-    "job": {
-      "say": "Picture a normal month on this file. A provider asks for an LOP. You run the Payer Order and prepare one on counsel's template only for care MedPay and Peach State can't carry, then route it for approval from CMS Documents, Outgoing. The payer check is recorded first, and nothing goes out without Atty. Thorne. When MedPay pays a bill, you post the payment, the running total and the balance on the MedPay ledger, and it ties to Harbor Point, hitting $5,000.00 on the 06/12/2026 visit. When an LOP statement arrives, you update the LOP register and check every line, so through 04/02/2026 that's 16 visits at $185.00, or $2,960.00, all attended. For a new referral, you do a warm handoff with John on the line and confirm the payer before the first visit.",
-      "ask": "If Riverton bills a date John Doe didn't attend, what do you do with that line?"
-    },
-    "dodont": {
-      "say": "Time for 3 Clues, 1 Rule. I'll reveal three clues in turn. Call Do or Don't as soon as you can, and name the rule. Good habits on this one include asking \"Is the plan working?\" at every contact, ending each call by asking what might get in the way of treatment this week, reconciling conflicting provider notes straight away, and telling John which payer handles which bill, because cost worry left unanswered is how a client stops going. The traps are issuing an LOP just because a provider asked, telling a provider they'll be paid in full at settlement, mission creep, and handing Atty. Thorne raw records with no summary. And remember, an LOP isn't free. Every dollar on it is one Day 4 has to negotiate.",
-      "ask": "Why is an LOP never really free for John Doe, even when the provider is happy with it?"
-    }
-  },
-  "d2m2-eob": {
-    "why": {
-      "say": "Before we look at the slide, take out RS26, Peach State's Explanation of Benefits, and let's read it together, column by column. So, what does John Doe owe Crescent? Find the bottom line. The EOB says $0.00. Every payer reports what it did with a bill. Peach State does it in an EOB, and Harbor Point does it in its MedPay payment history. Read line by line, they tell you what was billed, what was paid, what was written off and what John Doe may still owe. Those documents are the proof behind the Medical Specials, behind every lien amount, and behind every answer you give a provider or John Doe about a balance.",
-      "ask": "Reading RS26, what does John Doe actually owe Crescent Pain & Spine for the injection?"
-    },
-    "theory": {
-      "say": "Every payer reports back on a bill, the Health Plan in an Explanation of Benefits and MedPay in its payment history, and you read both before you ever touch a lien. An EOB is the plan's account of one processed claim. It's not a bill; it's proof of who paid what. Billed versus allowed is the first thing to see. Billed is the provider's charge, allowed is the plan's fee schedule, and in network the gap gets written off. Remark codes are the short codes explaining each line. CO-45 is the fee-schedule write-off, and AC1 flags a possible accident. And member responsibility, meaning the deductible, copay and coinsurance, is the most an in-network provider may bill the patient.",
-      "ask": "Which of these terms have you seen on your own Medical Bills, and what did it mean there?"
-    },
-    "theory2": {
-      "say": "Four more ideas round this out. Balance billing is when a provider bills the patient for a contractual write-off. In network that isn't allowed, so it's an error, not a lien. The MedPay payment history is the carrier's ledger of every check, showing the date of service, the amount paid and the limit remaining. Exhaustion is what happens once that limit's spent. Later bills come back unpaid, and you route them to the next payer. And reconciliation is matching every provider balance to each payer's EOB or check, so that no bill that's already been paid ever turns into a lien against John Doe.",
-      "ask": "If a provider bills John Doe for a write-off, is that a lien, a debt or an error?"
-    },
-    "frame": {
-      "say": "Here's how you read an EOB, top to bottom, every time. First, match the claim: the member ID, claim number, provider and date of service against the CMS treatment record. Then go from billed to allowed, which means the charge, the plan's allowed amount and the contractual adjustment it wrote off. Next is the patient's share, the deductible, copay and coinsurance, because member responsibility is the most a provider may bill. After that comes what the plan paid, with its date and its EFT or check number, since that's where any reimbursement claim starts. Read the remark codes: CO-45 explains the write-off, and AC1 flags an accident and the plan's reimbursement right. Finally, reconcile and log it against the provider's statement and the lien register, and flag any balance billing.",
-      "ask": "Which step in reading an EOB do you think people skip most often?"
-    },
-    "rules": {
-      "say": "Peach State's EOB of 06/03/2026, claim PS-2605-449021, covers Crescent's 05/15/2026 epidural injection, and it says THIS IS NOT A BILL. Crescent billed $3,400.00 and the plan allowed $1,860.00. The $1,540.00 difference is Crescent's write-off. The plan paid $1,860.00, and member responsibility is $0.00. CO-45 explains that write-off, and AC1 is how Peach State's reimbursement right attaches. Now turn to Crescent's 07/01/2026 statement asking John Doe for $1,540.00. That's a balance bill, not a debt and not a lien. You document it, route it to Atty. Thorne that day, draft a correction request and tell John what's happening. Peach State's claim starts at $1,860.00, never $3,400.00, and you route its accident questionnaire to Atty. Thorne. Harbor Point's five checks total $5,000.00, exhausted 06/26/2026. You read and reconcile; whether he owes anything is counsel's call.",
-      "ask": "Crescent's $1,540.00 statement: is it a lien we missed, or a bill nobody owes?"
-    },
-    "model": {
-      "say": "We've got two documents side by side, each read line by line. On the left is Peach State's EOB for claim PS-2605-449021, with that red stamp, THIS IS NOT A BILL. It has six rows: billed $3,400.00, allowed $1,860.00, the $1,540.00 adjustment, $0.00 deductible, $1,860.00 paid, and $0.00 member responsibility. Each orange tag tells you where that number goes on the file. On the right is Harbor Point's payment history, five checks with a limit bar falling from $5,000.00 to nothing, stamped exhausted 06/26/2026. And underneath is Crescent's 07/01/2026 statement for $1,540.00, with a dashed line back to that $0.00 row and a question: balance bill?",
-      "ask": "Which row on Peach State's EOB is the most Crescent may bill John Doe?"
-    },
-    "job": {
-      "say": "Let's run this as it happens on the file. An EOB arrives, and you post billed, allowed, adjustment, paid and member share against the visit in CMS Liens and Documents, so the $1,860.00 plan payment is logged and claim PS-2605-449021 is linked to the visit. A MedPay check clears, and you post it on the MedPay ledger with the date of service and the limit remaining, until it ties to Harbor Point's history with $0.00 left after 06/26/2026. Then a patient statement shows a balance. You compare it with the EOB's member responsibility, flag the $1,540.00, tell Atty. Thorne the same day and draft the correction request. And when Peach State's itemized lien arrives, you match each line to an EOB and to the collision, so only those lines stand.",
-      "ask": "What would you do with a line on Peach State's lien that no EOB supports?"
-    },
-    "dodont": {
-      "say": "Here comes 3 Clues, 1 Rule. I'll reveal three clues one by one; call Do or Don't and name the rule. The good habits are reading every EOB down to member responsibility before you answer a balance question, asking each provider for an itemized statement showing every payer's credit, keeping billed and paid on the same CMS line, and telling John what you're doing and when he'll hear back. The traps are logging a lien at the billed amount instead of what the plan paid, treating a write-off as something he owes, and sending a bill to MedPay after it was exhausted on 06/26/2026. One number to hold onto: Peach State can claim back $1,860.00, never $3,400.00. You read, reconcile and report. Whether John Doe owes a balance is Atty. Thorne's call.",
-      "ask": "After Harbor Point's $0.00 line on 06/26/2026, where does the next bill go?"
-    }
-  },
-  "d2m3-l2": {
-    "why": {
-      "say": "The adjuster says the gap proves John Doe healed. What would you collect? Call it out and I'll write it up. Good. Now let's sort that list into two boxes. Remember the rule: the only gap explanation that holds up against adjusters is John Doe's own factual explanation, backed by written documents you can check. Around it, records made at the time do the rest: provider notes that place onset at the collision, histories that agree, the EMS report and the work records, and later a causation opinion Atty. Thorne requests. Anything in the other box, a record made to order, destroys the very case it was meant to save.",
-      "ask": "Which item on our list would an adjuster find hardest to argue with, and why?"
-    },
-    "theory": {
-      "say": "You need to understand the why behind the paperwork, and here it is: continuity is proved by what the record already shows, never by what it's asked to say. Continuity of care is an unbroken path along the Standard Treatment Map, each step following from the last, and that chain is exactly what an adjuster tests. A Treatment Gap is any break in it, before the first treatment or midstream, and adjusters read it as minor, healed or unrelated. Records made at the time, written by EMS, providers and employers as things happened, are your strongest proof, because nobody wrote them for the claim. And consistent histories, repeating the same mechanism, onset and body region across charts, are what make continuity believable.",
-      "ask": "Who on John Doe's file wrote something down about his neck before anyone thought about a claim?"
-    },
-    "theory2": {
-      "say": "Four more ideas. A causation opinion is a treating doctor's opinion linking the injury to the collision. It's the bridge across a gap, and Atty. Thorne requests it. Record integrity means a record changes only by its author's dated addendum. Altering one can be evidence tampering or fraud. Excuse notes prove only what their author saw or ordered at a visit, so days nobody examined him need other proof. And generic notes, ones that don't tie the complaints to the collision, weaken causation. Under A-C-T, those get flagged to Atty. Thorne. You don't fix them yourself.",
-      "ask": "What proves John Doe couldn't work 02/09 through 02/13, when no doctor saw him?"
-    },
-    "frame": {
-      "say": "These are the treatment red flags, and for each one there's a reason the defense loves it. In physical therapy, watch for more than 12 sessions with no gain and no specialist or imaging suggested, which reads as a stalled plan or over-treatment. Passive care only, heat packs, TENS and massage with no active exercise, is feel-good care adjusters discount. Two or more missed appointments let the defense say the injury wasn't serious enough to treat. Surgery recommended before PT or injections, outside an emergency, invites a reasonable-and-necessary challenge. In pain management, an opioid, a muscle relaxant and a sedative together, with doses rising and the diagnosis unchanged, is a safety risk. And in records, left and right switched, or notes about life stress instead of the collision, weaken both credibility and causation.",
-      "ask": "Which of these red flags do you see on John Doe's file right now?"
-    },
-    "rules": {
-      "say": "Continuity is proved by records made at the time, then by a doctor's opinion that reads them, and never by explanations made to order. Read every history for mechanism, the collision, onset on 02/06/2026, and region, the neck and right arm, since the 2021 visits were low back. If the PT notes and Dr. Reyes disagree, flag it to Atty. Thorne that day. Never ask a provider to change, back-date or add to a record, and never order an excuse note. For 02/09 to 02/13, Northgate's Attendance Record is the proof. The EMS report bridges day zero, so record \"declined transport\" exactly as written. Keep the 02/07/2026 Riverton Drug receipt and the full text thread to Margaret Doe. A causation opinion is Atty. Thorne's request; you assemble and track, never draft. Tell providers scheduling facts only, and never hide an interruption.",
-      "ask": "Riverton's front desk offers to add a line saying the pain began at the crash. What do you say, and who do you tell?"
-    },
-    "model": {
-      "say": "This is a compare board, and the heading says it all: made at the time versus made to order. On the left, under a green rule, is what counts, each document with its date: the 02/06 EMS report, the 02/07 receipt, the 02/09 to 02/13 call-outs, the 02/20 urgent care note and the 06/19 Causation Letter. On the right, in red, is what never happens, every item struck through. Now look along the bottom. There's a timeline from 02/06 to 06/19 with the left card's documents pinned onto it, so you can see the proof was being laid down while the gap was actually happening. That's the point. Timing is what makes a document believable.",
-      "ask": "Why does the 06/19 Causation Letter belong in the left column, even though it came months later?"
-    },
-    "job": {
-      "say": "Here's the rhythm on the job. A provider record arrives, and you compare its mechanism, onset date and body region with the other histories on the treatment timeline. Either it's logged consistent, or it's flagged with the conflicting line quoted. If one history conflicts with another provider's, you flag it to Atty. Thorne through Tasks that same day, and you don't contact the provider about the wording or request a change. When Atty. Thorne decides to seek a causation opinion, you assemble the records for his letter and docket the follow-up, so it goes under his signature with the date on the calendar. And when a work or excuse note arrives, you check the signer, the date and the covered days against the visit record, flagging any mismatch.",
-      "ask": "Why shouldn't you call the provider yourself to sort out a conflicting history?"
-    },
-    "dodont": {
-      "say": "Let's play 3 Clues, 1 Rule. One clue at a time, and the moment you know, call Do or Don't and name the rule. The good habits are collecting what already exists before asking for anything new, quoting records exactly, flagging conflicting statements rather than fixing them, and keeping every interruption visible on the timeline with its dates. The traps include asking a provider to \"clarify\" a note in a way that tells them what to write, and leaving the gap off the timeline and hoping nobody notices. And here's one that catches people. A stronger note isn't always better. A note that shows up after the firm asked for it, saying exactly what the firm needed, is the weakest document in the file.",
-      "ask": "Why would your fingerprints on Dr. Reyes's wording make her letter worthless?"
-    }
-  },
-  "d2m2-a1": {
-    "case": {
-      "say": "We'll run this in two passes, one for each date. The first is 02/23/2026, and this email just came in from Tammy Greer, Office Manager at Riverton Spine & Rehab. John Doe is booked for his chiropractic and PT evaluation tomorrow, 02/24, they're out of network with Peach State, and they want a signed Letter of Protection and his HIPAA authorization today. His first treatment was Riverton Urgent Care on 02/20/2026, $685.00, paid by Harbor Point MedPay. Atty. Thorne has approved the LOP template, and John had three chiropractic visits in 2021 for low-back stiffness. The second date is 03/11/2026, when Summit Imaging Center, booked for the cervical MRI Dr. Reyes ordered on 03/05/2026, asks for an LOP too.",
-      "ask": "Before you open the template, why does Riverton get an LOP?"
-    },
-    "task": {
-      "say": "Work both dates, and start each one by running the Payer Order and recording the result. On 02/23/2026, you prepare Riverton's LOP on the approved template, route it to Atty. Thorne for approval and signature, and transmit it with the claim-specific HIPAA authorization, asking for itemized statements and a missed-visit alert. Confirm receipt and open the entry in the CMS LOP register. Record John's assessment too, with his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing in the Email Workspace, naming Harbor Point MedPay and proving it from the MedPay ledger. If Summit still refuses, Atty. Thorne hears before the 03/13/2026 appointment, so the MRI doesn't slip. And you're graded on this: no payment promised to either provider.",
-      "ask": "Summit says it won't do the MRI without an LOP. What do you say, and who do you tell?"
-    },
-    "check": {
-      "say": "Check your work before you log it. Did you run the Payer Order for each provider? Is Riverton's LOP justified, out of network and more care than MedPay's balance can carry? Was it explained by Atty. Thorne and signed by John Doe and Atty. Thorne on 02/23/2026, before the 02/24 visit, with nothing signed by you? Does your transmittal carry the HIPAA authorization, ask for statements and the missed-visit alert, and is receipt logged? Your assessment should note the rental ending 03/19/2026 as a treatment risk, and the baseline should show the 2021 visits were low back, resolved, a different region. Summit's decline names MedPay, proved from the ledger with $3,675.00 left, enough for the $2,395.00 MRI with $1,280.00 left over. And listen to the language. \"Don't worry, you'll be paid in full\" fails, however friendly.",
-      "ask": "When a provider asks whether they'll be paid in full, how do you answer them?"
-    }
-  },
-  "d2m3-a1": {
-    "case": {
-      "say": "Here's what landed on the file on 03/04/2026. The first records are in. Riverton Urgent Care's 02/20/2026 note says onset at the MVA on 02/06/2026, progressively worsening, with numbness to the right hand since 02/18. The EMS Run Report records neck stiffness on 02/06/2026. John Doe's been at Riverton Spine & Rehab since 02/24/2026, and his rental runs to 03/19/2026. And nobody has asked him why he waited 14 days. Atty. Thorne wants him on a recorded call today: open questions, nothing suggested, no opinions on what it means, and a GIRP note when you're done. Before anyone dials, here are the two ways to fail: a leading question or a suggested reason, and any version of \"won't matter\" or \"will hurt the case\".",
-      "ask": "Knowing what's on this file, what question will you be most tempted to ask him first?"
-    },
-    "task": {
-      "say": "You'll run a recorded call with AI John Doe in the Call Simulator to find out why he first treated on 02/20/2026, fourteen days after the collision. Open on the record with the date, who's on the call, your role, his consent to recording, and that he can talk privately. Ask open questions, follow his words, and save closed questions for pinning dates and documents. There are four reasons to draw out. Find out who he told and what he kept, like the texts, the call-outs and the 02/07 receipt, then read his account back. Close by confirming his 03/05 consult and his transport after 03/19. Then hand in a privileged GIRP note in Case Notes and a dated task for every corroborating document.",
-      "ask": "Which reason was hardest to get, and what question finally got it?"
-    },
-    "model": {
-      "say": "This is your run sheet for the call. The simulator screen across the left shows AI John Doe, recorded call, 03/04/2026, with the red recording dot and a transcript pane below. Under the transcript there's a meter counting your questions: open, closed and leading, and leading is in red. You want that one at zero. Over on the right are four empty reason slots, each with a space for a document beside it, and they only fill in as you actually surface them. Underneath sits a red warning: a suggested reason earns a yes, not a fact. Reasons are earned by questions. You never supply them.",
-      "ask": "What happens to the three hidden reasons if you ask \"Was it the car?\" two minutes in?"
-    },
-    "check": {
-      "say": "Check the call and the note before you log. Did the recording start with 03/04/2026, everyone on the call, your role, his spoken consent and privacy confirmed? Was your first question open, covering 02/06 to 02/20, with zero leading questions? You need all four reasons in his words: no transport, with the Civic towed, Kevin Alvarez's Escape in the shop and no rental until 02/18/2026; thinking it was soreness, treated with ibuprofen and lidocaine patches; doubting his Peach State coverage and not knowing MedPay existed; and the numbness from 02/18, working two shifts, then urgent care on his first day off. Did you surface the texts, the Northgate call-outs and the receipt? And grade your GIRP note as hard as the call: his words in quotation marks, a dated plan, labelled privileged.",
-      "ask": "Does your GIRP note record an intervention and a plan, or only how John Doe felt?"
-    }
-  },
-  "d2m2-a2": {
-    "case": {
-      "say": "The clock starts at 04/08/2026, with this alert from Riverton Spine & Rehab on LOP account RSR-26-0412. Under the LOP dated 02/23/2026, John Doe missed 04/03 with no call, and he missed 04/07. His last visit was 04/02/2026. He told their front desk his rental ended and his ride's no longer available. He's booked 04/09 and 04/14 at 4:15 PM, but their 6:00 PM evening schedule is full until the week of 04/20, and he's on the wait list. They're asking you to contact your client. As you work, the file will keep moving, and I'll give you each update when you've earned it, not before.",
-      "ask": "What's the very first thing you'll do today, on 04/08/2026, with this alert in hand?"
-    },
-    "task": {
-      "say": "You're going to run A-C-T on the Transportation Wall. To assess, call AI John Doe on 04/08/2026, find the barrier, ask about his current symptoms, classify the variance and decide whether it's a medical or a legal danger. To coordinate, clarify with the clinic, request a rental extension from Keystone PD in writing through the Email Workspace, and build a transport plan from one of the three Transportation Wall options, saying why, and book evening slots with the clinic while John's on the line. To track, write the GIRP note in Case Notes, report to Atty. Thorne, and confirm attendance on 04/21 and 04/23/2026. You're graded on exact dates and the 19-day count, with no treatment advice and nothing on what missed visits do to his claim.",
-      "ask": "Which option did the file actually use, and why did Option B outlast Option A?"
-    },
-    "model": {
-      "say": "Look along this timeline, from 04/02/2026 to 04/24/2026. That hollow red band from 04/02 to 04/21 is labelled nineteen days, no visits, and there are four red crosses on it, at 04/03, 04/07, 04/09 and 04/14. Above it, the A-C-T steps are pinned to their dates. Assess is 04/08. Coordinate runs from 04/08 through the rental refusal on 04/10 to the evening slot on 04/21. Track is 04/21 and 04/23, with green ticks. Then there's a grey pill at 04/24: the Civic's back. The three options for getting through the wall sit underneath, A, B and C. That empty red band is the argument, because every day of it needs a documented reason.",
-      "ask": "Why did Margaret driving after her shift matter, when the Civic came back only three days later?"
-    },
-    "check": {
-      "say": "Before you log your work, check it. Is Assess dated 04/08/2026, with the barrier recorded? That's Keystone ending the rental on 03/19/2026 at its 30-day cap, the carpool ending with Kevin Alvarez's shift change on 04/01/2026, and the Civic still waiting on parts. Did you ask about symptoms? Is it classified as a transport barrier, a psychosocial variance and a legal danger? Your request to Leah Moran at Keystone PD should be property facts only, because Keystone also holds the BI claim, and the 04/10/2026 refusal should be logged in full. You need the four missed visits exactly, 19 days from 04/02 to 04/21, a factual GIRP note, and attendance confirmed. And listen back for value talk. \"If you miss more therapy your case is worth less\" fails, however well meant.",
-      "ask": "What could you have calendared back on 02/18/2026 that would have warned you about this?"
-    }
-  },
-  "d2m2-a3": {
-    "case": {
-      "say": "It's 04/22/2026, and there's a voicemail from John Doe, left at 12:18 p.m. Care has just restarted at Riverton Spine & Rehab, on evening slots, with Margaret driving him after her shift, and the Civic is still in the shop. Yesterday Lakeside's scheduling desk booked the injection Dr. Reyes referred him for back on 03/27/2026, but they booked it at Millbrook Interventional Pain Center, out in Millbrook, for 05/14/2026. John says he isn't going. It's too far, he's got no ride out there, and somebody at work told him the place is out of network with Peach State. He still wants the appointment. He just wants it somewhere he can actually get to.",
-      "ask": "Before you call him back, which document on the file would you open first, and why?"
-    },
-    "task": {
-      "say": "Here's your job. Call John back and really listen. Where he goes, among the options his doctors find appropriate, is his choice, and what care he gets is Dr. Reyes's and the treating provider's call, so you give no medical advice at all. Check Crescent's network status with Peach State yourself. Then work with Janelle Brooks, Lakeside's referral coordinator, to send the referral to Crescent Pain & Spine, and book Crescent's first opening while John's still on the line. After that, every task that follows is yours to do or to delegate, with an owner and a due date: the cancellation, the calendar, Parties, Peach State and the Lien Tracker, the records request, transport, the GIRP note, the report to Atty. Thorne, and the attendance check after 05/15/2026.",
-      "ask": "Who decides where John has the injection, and who decides whether he has it?"
-    },
-    "model": {
-      "say": "This is what done looks like: a task list in the CMS. Every row ends one of two ways. Either it's done by me, with the date, or it's delegated to a named person with a due date. Calling John back, reading Dr. Reyes's referral, verifying Crescent with Peach State, booking 05/15/2026 with John on the line, the calendar, the Parties entry, the Peach State billing and the Lien Tracker flag, transport, the GIRP note and the report are all done on 04/22/2026. Janelle Brooks cancels the Millbrook slot by 04/23/2026, because Lakeside booked it. The records team requests Crescent's records and itemized bill by 05/29/2026. And the attendance check on 05/18/2026 stays on my own list.",
-      "ask": "Why does the records request get delegated, when the call to John never does?"
-    },
-    "check": {
-      "say": "Check your work before you log it. Did you return the call on 04/22/2026 and record John's reasons in his own words? Did you verify Crescent's network status with Peach State, instead of repeating what he heard at work? Crescent Pain & Spine, Dr. Omar Haddad, is in network for member PSH-55017742. Is 05/15/2026 booked, one day after the Millbrook slot it replaces, with PT carrying on in the evenings, so there's no new gap? Is the Millbrook slot off the calendar, with a reminder call on 05/13/2026 and an attendance check on 05/18/2026? Does every task have a date or an owner? And read your notes back for advice. Saying one place gives better care than the other fails, however kindly it's meant.",
-      "ask": "If Crescent's first opening had been weeks away, who would you tell, and what would you ask them?"
-    }
-  },
-  "d2m3-a2": {
-    "case": {
-      "say": "I'm putting the adjuster's four arguments on the board: not serious, recovered early, treatment unnecessary, another cause. Your record is going to answer each one with a document, not a sentence. Here's what landed on 06/22/2026. John Doe reached MMI on 06/12/2026, and Dr. Alana Reyes's Causation Letter of 06/19/2026 is in. She says delayed presentation is clinically consistent with a disc injury whose radicular symptoms evolve over days to weeks, and that the injury was more likely than not caused by the collision. Atty. Thorne wants the Gap Explanation Record before the pre-demand session, with both interruptions at exact dates, every reason beside its dated document, \"account only\" where there isn't one, and a defense-eye pass first.",
-      "ask": "Which of the adjuster's four arguments does Dr. Reyes's letter answer most directly?"
-    },
-    "task": {
-      "say": "You'll build John Doe's Gap Explanation Record in the CMS Case File. It covers both interruptions with exact dates: the 14-day gap, 02/06 to 02/20/2026, and the 19-day disruption, 04/02 to 04/21/2026. Pair every reason with the dated document that backs it up, and mark any reason with no independent document as \"account only\". Cite the complaints before and after each interruption, and the firm's follow-up during the disruption. Write facts and citations only, so no argument, no valuation, and nothing quoted from the privileged call. Run your defense-eye pass, then route it to Atty. Thorne through Tasks. What you hand in is a routed record, ready for him to decide how it's used in the demand.",
-      "ask": "Which reason on this file has the weakest document, and what do you do about it?"
-    },
-    "model": {
-      "say": "Here's the shape the record takes. It's one CMS card, Gap Explanation Record, John Doe, split into two bands of equal weight. The top band is the 14-day gap, 02/06 to 02/20/2026. The bottom band is the 19-day disruption, 04/02 to 04/21/2026. Each band has three columns: the reason, the corroborating document and the date. Any row that rests only on John's word gets a grey \"account only\" tag, and down in the corner is the control to route it to Atty. Thorne. Notice that the second interruption gets exactly the same room as the first. Every reason sits beside its proof, in both bands.",
-      "ask": "Why do you think the 19-day band is drawn exactly as big as the 14-day one?"
-    },
-    "check": {
-      "say": "Now check your record. The 14-day gap runs 02/06 to 02/20/2026, and the 19-day disruption runs 04/02 to 04/21/2026, with missed visits on 04/03, 04/07, 04/09 and 04/14. For no transportation, you've got the tow record and Keystone's rental from 02/18/2026, with Kevin Alvarez's Escape in the shop marked account only. For expecting it to pass, there's the 02/07/2026 Riverton Drug receipt and the texts to Margaret Doe. The cost worry gets Peach State's 02/01/2026 eligibility, with the worry itself account only. The urgent-care note is quoted exactly. Did you show the firm's follow-up from 04/08? And don't stop at the 14-day gap. The 19-day disruption needs the same record: his reasons, each beside its document. Keep the work-product layer in the CMS, and keep the privileged call out of everything.",
-      "ask": "What's the difference between this internal record and a gap timeline that goes to Keystone?"
-    }
-  },
-  "d2m2-kc": {
-    "questions": {
-      "say": "Here's your Knowledge Check. Answer from this file, in your own words, typed under each question. You'll read Peach State's 06/03/2026 EOB for claim PS-2605-449021 line by line and say where each amount goes. You'll handle Crescent's 07/01/2026 statement asking John Doe for $1,540.00. And you'll explain from the Payer Order why Riverton got an LOP on 02/23/2026 and Summit's 03/11/2026 request was declined. Then there's a pressure scenario later in the check. The right answer promises nothing new, points the office manager to the LOP signed on 02/23/2026, and gets Atty. Thorne involved before the appointment.",
-      "ask": "What may you tell Summit Imaging when you decline its LOP request, and what may you not?"
-    },
-    "summary": {
-      "say": "Now write your Self-Summary. It's 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits, Keystone ended his rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked John for a Recorded Statement. Tell me what you do first, second and third, and what each step protects. A couple of things I'll be looking for. On the 2021 visits, documenting low back versus neck, resolved, no prior neck complaints, is proof; saying they \"don't matter\" is arguing. On medication red flags, the provider hears the safety issue, Atty. Thorne hears the legal one, and you document the conversation.",
-      "ask": "Which of these three problems would you hand to Atty. Thorne before anything else today?"
-    },
-    "scale": {
-      "say": "Finish with your Skill Scale. Rate each competency from one to five, honestly, and submit it for review. I'll be comparing your self-rating with your score, and if there's a wide gap, we'll talk it through together. One thing to know before you rate yourself: UPL works as a gate. A strong score doesn't survive a single payment promise to a provider, so if you made one anywhere today, rate with that in mind.",
-      "ask": "Where do you think your self-rating and your score will be furthest apart?"
-    }
-  },
-  "d2m3-kc": {
-    "questions": {
-      "say": "Before the written check, let's do question 3 out loud. I'll be John Doe, and one of you is the Case Manager. I'm going to ask you, \"Is this gap going to wreck my case?\" and if I hear \"don't worry\", I'm stopping us right there. Then write your answers from this file, in your own words. Name the four reasons for the 14-day gap, each with its corroborating document and date. Rewrite \"Was it because you had no car?\" so it surfaces the same reason without suggesting it, and explain what the leading version costs. Question 2 matters most here, so take your time with it.",
-      "ask": "Who wants to be the Case Manager first while I play John Doe?"
-    },
-    "summary": {
-      "say": "Time for your Self-Summary. Same date, 04/08/2026. Riverton Spine & Rehab says John Doe has missed two visits, Keystone ended his rental on 03/19, his carpool ended 04/01, and Dana Whitfield wants a Recorded Statement from him. What do you do first, second and third, and what does each step protect? While you're thinking about records, here's something to chew on. Why is a provider's offer to add a line to a chart more dangerous than a missing note? A missing note is a weakness. An altered one is a credibility collapse, and possibly a fraud question.",
-      "ask": "Why is a provider's offer to change a record more dangerous than a note that's simply missing?"
-    },
-    "scale": {
-      "say": "Last up is the Skill Scale. Give yourself a one to five on each competency and submit it for review. I'll compare each rating with your score and talk through any big gap with you. And remember UPL is a gate here too. A strong score doesn't survive a coached answer or a requested change to a record. If you couldn't rewrite that leading question cleanly, be honest about it; it just means another round in the simulator.",
-      "ask": "Which skill from today would you most want another run at in the simulator?"
-    }
-  },
-  "d2m4-l1": {
-    "why": {
-      "say": "The demand goes out later today, but what it can claim gets decided right here. Pre-demand is where most of a file's value is won or lost, because The demands that follow can only spend what this audit proves. One duplicate line or one unchecked limit is Keystone's easy out. Now try this arithmetic. There's $7,965.00 in liens waiting behind a $10,000 BI limit. Take a moment and work out what's left before John Doe sees anything from that layer. That's why every dollar in this audit has to be right.",
-      "ask": "With $7,965.00 in liens behind a $10,000 BI limit, how much of that layer is left?"
-    },
-    "theory": {
-      "say": "Think of the full pre-demand audit as the final stress test, the point where we stop collecting information and start using it, leaving the defense zero easy outs. It starts with the trinity of case alignment: narrative, physicality and medicals must all agree, and if one's out of line, the value collapses. Maximum Medical Improvement is the provider's finding that care has plateaued. The incurred Specials are complete, and the audit can begin. Special damages are Medical Bills plus lost wages plus Property Damage, the provable dollar loss, and every line needs a document. And the medical and billing audit runs three passes, chronology for gaps, coding for duplicates and prior history for pre-existing conditions, so we find the weak spots first.",
-      "ask": "Which of these audit ideas is new to you, and which part of John Doe's file would it test first?"
-    },
-    "theory2": {
-      "say": "Four more pieces. Liens and subrogation come first. Health Plans, government payers and LOP providers may all claim repayment from the recovery, and every lien shrinks his net. The Property Damage deep dive looks at photos of the point of impact, the estimate against the final bill and any supplements, because Property Damage proves the force behind the injury. The defense-eye audit is reading the file the way the adjuster will, looking at social media, a minor-impact label and the venue, and naming each value killer. And policy-limits targets are the verified limits in the order they open. That's what each policy can pay, which isn't the same thing as what the claim's worth.",
-      "ask": "What on John Doe's file would an adjuster point to for a minor-impact argument?"
-    },
-    "frame": {
-      "say": "This is the Master Audit Checklist. On the financial side you've got special damages, meaning Medical Bills, lost wages and Property Damage, every line documented. Lost wages need the employer's wage letter plus a provider's work note, and without both they're usually rejected. Then lien resolution, covering every subrogation interest, whether statutory, Health Plan or a consensual LOP. For liability proof, there's the final report, witness contact and any drift in their statements, and whether the physics is even possible. The Property Damage deep dive checks that the point of impact is clear and that supplements show hidden structural damage. And medical and billing gets the chronology with every gap explained, coding with no duplicates, and five to ten years of history.",
-      "ask": "Which line of this checklist do you think is weakest on John Doe's file today?"
-    },
-    "rules": {
-      "say": "Who decides John reached MMI? Not you, and not John. It's Lakeside Orthopedics, recorded from its 06/12/2026 note with the future-care plan. Audit for verification, valuation, risk and compliance, with the SOL of 02/06/2028 docketed. The Civic runs on its own Keystone PD claim, so his BI Specials are medical plus wages. Three passes: chronology for the 14 days and the 19-day disruption, coding for duplicates, and prior history, the 2021 low-back visits. Show billed beside paid, because that choice is Atty. Thorne's. Northgate verifies 9 shifts at 8 hours and $22.00, so $1,584.00, and flag the five shifts with no note. The $3,400 to $6,800 in future injections stays out of the total. Register every lien, including Peach State's $1,860.00. $16,401.40 already exceeds the $10,000 limit. You audit, total and flag; you don't value the case.",
-      "ask": "Who decides that John Doe reached MMI, and where do you record it from?"
-    },
-    "model": {
-      "say": "Read this one left to right. First there's a gate, MMI on 06/12/2026, with a green tick. Nothing enters the ledger until that's passed. In the centre is the ledger itself. See the Riverton Spine & Rehab row: $6,290.00 is struck through in red and replaced by $6,105.00, with a badge flagging a $185.00 duplicate on 05/04/2026. That's what the coding pass catches. Underneath is the sum, $14,817.40 in medicals plus $1,584.00 in wages, which gives $16,401.40. The future medical card sits deliberately outside the frame, in the narrative. On the right are the targets in the order they open: $10,000 BI, $20,000 Host UM and $10,000 Relative UM, each with its source.",
-      "ask": "What would Keystone have done with that $185.00 duplicate if we hadn't caught it?"
-    },
-    "job": {
-      "say": "The story starts on 06/12/2026, when the MMI note arrives. You record MMI and the future-care plan on the treatment timeline and open the pre-demand audit as a task with an owner and a date. As the final bills and records come in, you build the Specials ledger and reconcile it against the chronology until every billed date matches a visit and the medical total is $14,817.40. Once the ledger's reconciled, you register every lien and record billed beside paid in the Liens and the Net Sheet's Lien Tracker. That means $1,860.00 and $6,105.00 are listed and the billed-versus-paid question is routed to Atty. Thorne. Finally, before the ask, you re-verify each limit in the Coverage Matrix: $10,000, then $20,000, then $10,000, $40,000 in all, each with its written source.",
-      "ask": "Why re-verify the limits now, when the Coverage Matrix was confirmed weeks ago?"
-    },
-    "dodont": {
-      "say": "Let's play 3 Clues, 1 Rule. I'll reveal the clues one at a time; call Do or Don't and name the rule as soon as you see it. The good habits are stress-testing the file before the defense does, locking in total damages and then protecting them by finding every lien before the demand, and recording the source of every figure so Atty. Thorne can check any line in seconds. The traps are sending the demand and hoping nobody checks the math, padding the Specials with future care, and finding a lien after the release is signed. Watch billed versus paid, too. Picking a column yourself or hiding the paid one are both wrong, so show both and route the choice.",
-      "ask": "Why doesn't the Civic's repair ever count toward the $40,000 or the BI Specials?"
-    }
-  },
-  "d2m4-l2": {
-    "why": {
-      "say": "Let me read you two first lines. One: \"On 02/06/2026 John Doe was a front-seat passenger…\" Two: \"John Doe is at MMI with $16,401.40 in audited Specials against a $10,000 BI limit, and I need your decisions.\" Which of those can Atty. Thorne actually act on? Right, the second. He makes the strategy calls from your brief, and that's why its shape matters so much. A brief that opens with the chronology buries the decision. One that hides a risk misleads him. And one that makes the call for him crosses a line that isn't yours to cross.",
-      "ask": "Which of those two opening lines could Atty. Thorne act on in the first ten seconds?"
-    },
-    "theory": {
-      "say": "A pre-demand audit is the file's sanity check, and the strategy brief carries its findings, not conclusions, to Atty. Thorne, who makes every call. The brief reports on each of the core audit objectives: verification, valuation, risk and compliance. It flags statement drift, which is a witness whose story changes between tellings, because drift is an opening for the defense. It names the value killers the defense-eye audit turned up, such as social media, a minor-impact label or the venue, and counsel weighs each one. And it always carries the lien totals, because when the math is wrong or a lien gets missed, you end up with a short-funded settlement where the client takes home nothing.",
-      "ask": "What would a short-funded settlement mean for John Doe, in plain terms?"
-    },
-    "frame": {
-      "say": "The brief rests on the four core objectives of the pre-demand audit. Verification asks whether the facts match the physical evidence, meaning the photos, the Police Report and the scene. Valuation asks whether the damages are calculated accurately, with the bills, the wages and the future care each justified by a document. Risk assessment covers the weak spots the defense will argue: comparative negligence, social media, a minor-impact label, venue. And compliance means every statutory requirement is met before the demand issues, the Statute of Limitations first. If you can report a finding under each of those four, you're ready to brief.",
-      "ask": "Under which of these four objectives does John Doe's file still have an open question?"
-    },
-    "rules": {
-      "say": "Lead with the bottom line in one sentence: MMI 06/12/2026, $16,401.40 in audited Specials against a $10,000 BI limit, decisions needed before any demand is drafted. Next come the facts, audited and sourced, with the narrative, physicality and medicals agreeing. That includes report RPD-26-018842, Smith cited for failure to stop, Ruth Calloway checked for drift, and the doorbell video. On force, John's door was struck at about 28 mph, and the Civic went from $6,940.00 to $9,255.00 with a $2,315.00 A-pillar supplement. Then the risks, each paired with its answering document. Which one would you be tempted to leave out? Usually it's the 2021 low-back visits, and Keystone will find them. Then decisions as questions, and options with consequences. Record his decisions the same day. Saying Specials exceed the limit is a finding, but \"we should demand limits\" is his call.",
-      "ask": "Which risk would you be tempted to leave out of the brief, and what happens when Keystone finds it first?"
-    },
-    "model": {
-      "say": "Here's the brief, laid out in the order counsel reads it. It's one page with five bands. First is the bottom line, in navy, one line, the biggest type on the page. Second is the audited facts, split into narrative, physicality and medicals, each with a green tick. Third is the risks, in red: the 14-Day Gap, the disruption, the 2021 low back and that \"degenerative\" read, each one tethered to the document that answers it. Fourth is the decisions needed, every item written as a question. Fifth is the options with their consequences. And down the right edge runs a rail that says Atty. Elijah Thorne decides, ending in a dated, tasked decision record.",
-      "ask": "Why is every item in the decisions band written as a question rather than a recommendation?"
-    },
-    "job": {
-      "say": "So the audit's complete. You draft the one-page memo and the exhibit index in the Action Plan Editor, five sections in protocol order, with every exhibit label matching its page. Once the brief's ready, you book the strategy session on the CMS calendar and send the memo ahead through the Email Workspace, and the session happens before any demand is drafted. After the session, you record each decision in counsel's own words in Case Notes and open its tasks, each one dated, attributed to Atty. Thorne, with an owner and a due date. And since those decisions change the plan, you mark the Case Plan superseded and re-route the new version the same day, keeping the approved one.",
-      "ask": "Why re-route the Case Plan as a new version instead of just editing the old one?"
-    },
-    "dodont": {
-      "say": "Let's play 3 Clues, 1 Rule. Three clues, revealed one at a time. As soon as you know, call Do or Don't and name the rule. On the good side, you bring the bad facts yourself, so counsel never meets a risk first in the adjuster's letter. You find discrepancies before the defense does. You check John's public social media, and you never suggest deleting a post. You use the structural supplement to answer a minor-impact label, and you leave venue to Atty. Thorne. On the trap side, there's a three-page memo, an exhibit index with mismatched page numbers, and briefing the initial PD estimate instead of the final figure. And watch the recommend line. Certified mail with return receipt is operational, but \"we should demand limits\" isn't yours to say.",
-      "ask": "Is \"send it certified mail with return receipt and email\" a recommendation you're allowed to make?"
-    }
-  },
-  "d2m4-a1": {
-    "case": {
-      "say": "This landed on the file on 07/01/2026: billing complete, Special Damages Audit due, LSH-2026-MVA-770412. Lakeside Orthopedics declared MMI on 06/12/2026, and Dr. Reyes's Causation Letter arrived 06/19/2026. Every bill's in. There's Riverton Urgent Care at $685.00, Riverton Spine & Rehab's statement of 34 lines at $185.00, or $6,290.00, with its visit notes, three Lakeside Orthopedics visits at $640.00, Summit Imaging at $2,395.00, Crescent Pain & Spine at $3,400.00, which Peach State paid $1,860.00 on, and Riverton Drug at $312.40. Northgate's HR letter of 06/30/2026 verifies 9 missed shifts at 8 hours times $22.00. I'm handing you the bills, not the totals. Go ahead and add them up.",
-      "ask": "Before you total Riverton Spine & Rehab's statement, how many visits do its notes actually show?"
-    },
-    "task": {
-      "say": "You'll build John Doe's audited Specials ledger in the CMS Financial Ledger. Enter each provider's charges with dates, the billed amount and who paid. Reconcile Riverton Spine & Rehab's lines against its visit notes, and take out any line no visit supports. Total the medical, add the verified wages and show billed beside paid. Future medical goes in the narrative, not the ledger. List every lien with its amount in Liens and the Lien Tracker, and re-verify the three policy-limits targets in order on the Insurance tab. You'll hand in an audited ledger, a lien list, the targets in order, and a flag list routed to Atty. Thorne, and part of your grade is what you flag rather than decide.",
-      "ask": "Peach State paid $1,860.00 on a $3,400.00 bill. Which number goes in the demand?"
-    },
-    "check": {
-      "say": "Check your ledger to the cent. Riverton Spine & Rehab's notes show 33 visits against 34 lines, so the 05/04/2026 duplicate comes out and $6,290.00 becomes $6,105.00, with a corrected statement requested. Your medical total should be $14,817.40, down from $15,002.40. Wages are 9 shifts at 8 hours and $22.00, so $1,584.00, which gives total Specials of $16,401.40. If you've got any other number, a line is wrong. Here's the subtle one. Five of those nine shifts, 02/09 to 02/13/2026, fall before any provider saw John. Flag them with Northgate's Attendance Record; never drop them. Billed sits beside paid, and the choice goes to Atty. Thorne. Future medical stays in the narrative, and the targets run $10,000, $20,000, $10,000.",
-      "ask": "Why flag those five early shifts instead of quietly dropping them from the wage claim?"
-    }
-  },
-  "d2m4-a2": {
-    "case": {
-      "say": "It's 07/08/2026, and this is Atty. Thorne's note. He's read your audit, and the strategy session on John Doe is today at 2:00 p.m. in his office. Bottom line first, he says. Expect him to push the way Keystone will, on low speed, the 14 days and the \"degenerative\" read. Bring the facts, the documents and the operational options, and remember the decisions on the demand are his. Your audit's done: MMI 06/12/2026, Specials of $16,401.40, liens of $1,860.00 and $6,105.00, and targets of $10,000 BI, $20,000 Host UM and $10,000 Relative UM. Fair warning, he'll interrupt you inside the first minute.",
-      "ask": "If he says \"Keystone will call this low-speed,\" what objective fact do you answer with first?"
-    },
-    "task": {
-      "say": "You'll run the pre-demand strategy session with AI Atty. Elijah Thorne in the Call Simulator. Brief him in protocol order. Start with the bottom line, MMI, $16,401.40 in Specials and the $10,000 BI limit, then the audited facts, the risks with their answering documents, the decisions he has to make, and the operational consequences of each option. Meet every challenge with dated documents, not adjectives; \"it was a serious crash\" doesn't answer anything. Recommend only on operations, and get his decisions on the demand, the gap, the UM consents and billed versus paid. Read each decision back before you close. Afterwards, record them in Case Notes, open a task for each in Tasks, and re-route the Case Plan.",
-      "ask": "Observers, what did Atty. Thorne decide, in his own words?"
-    },
-    "check": {
-      "say": "Grade your decision record, not the conversation. If a decision isn't dated, attributed and tasked, the session didn't happen. Did you lead with the bottom line, with the figures exact? Did you meet the low-speed challenge with objective facts? That's Smith running the stop sign and getting cited, John's door struck at about 28 mph, the $2,315.00 A-pillar supplement, and the C5-C6 herniation on the 03/13/2026 MRI. Did you meet the gap with documents rather than an apology, and raise the 2021 visits and the \"degenerative\" read unprompted? His decisions should be recorded: the time-limited BI demand to Dana Whitfield, served 07/20/2026, the gap addressed up front, the UM consent plan, and billed versus paid. And when he asked what you think we should demand, did you give him the inputs and hand the figure back?",
-      "ask": "When AI Atty. Thorne asked what you'd demand, what exactly did you say back?"
-    }
-  },
-  "d2m4-kc": {
-    "questions": {
-      "say": "Look at the gate bar. This module turns the last two chips green: Specials audited at $16,401.40, and strategy approved by Atty. Thorne. The demand doesn't go out until all six are green. Now answer from this file, in your own words, under each question. Total John Doe's Specials from the bills, showing the Riverton Spine & Rehab correction, the medical total, the wage arithmetic and the final figure. Say who determines MMI, when John Doe's was, why the demand waits for it, and where the $3,400 to $6,800 in future medical goes. And name the four audit objectives, with one finding each produced on this file.",
-      "ask": "Which two chips on the gate bar does this module turn green?"
-    },
-    "summary": {
-      "say": "Now your Self-Summary, in your own words. The scenario takes us back to 04/08/2026. Riverton Spine & Rehab reports two missed visits, Keystone ended John's rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked him for a Recorded Statement. Tell me what you do first, second and third, and what each one protects. And while you write, think about this. If you found an error in an exhibit right before the 07/20/2026 service date, the right move is to stop the package, fix every total that cites it, and tell Atty. Thorne before anything goes out. Serving a known error to make the date is the failure.",
-      "ask": "Which number on this file would you defend line by line to Dana Whitfield, and where does every cent come from?"
-    },
-    "scale": {
-      "say": "And to close out the pre-demand audit, your Skill Scale. Rate each competency from one to five and submit it for review. I'll put your self-rating beside your score, and where they're far apart, we'll sit down and talk it through. Be especially honest on the billed-versus-paid question. If any of your answers today picked a column for the demand, that loses the UPL marks, however good the rest of the work was.",
-      "ask": "Looking back over the pre-demand audit, which competency feels most solid to you now?"
-    }
+  "dodont": {
+   "say": "Time for 3 Clues, 1 Rule. I'll reveal three clues one at a time, and as soon as you think you've got it, call out Do or Don't and name the rule behind it. Some of these are the good habits: asking open, following his words and closing last, paraphrasing back so he can correct you, and preventing the next gap now, which is far cheaper than explaining a second one in the demand. Others are traps: a question that names the reason you expect, blaming him for the gap, and soothing. Watch that last one. \"Don't worry\" is the most common UPL slip in this module. It sounds kind, and it's an opinion on the case, the same as saying \"it will hurt the case\".",
+   "ask": "What's the difference between telling John consistent care matters and telling him what this gap does to his case?"
   }
+ },
+ "d1m2-l1": {
+  "why": {
+   "say": "Before we touch a single step, I want you to know what this protocol is for, because it isn't about chasing a client. The No Contact Protocol does three jobs at once. It tracks unresponsiveness formally, it establishes due diligence before anyone ever talks about withdrawal, and it protects the firm from liability. A client who can't be reached is still a file with deadlines running on it. The protocol is the proof that the firm did its part. If you see it as just ringing someone until they pick up, you'll miss why the record matters, and the record is the whole point.",
+   "ask": "If John Doe went quiet tomorrow, who gets hurt if nobody can prove what the firm did to reach him?"
+  },
+  "map": {
+   "say": "Here's the protocol from start to finish before we go through it. Step one is an internal review: the case status, the live deadlines, the date of last contact and the channels already used. Step two is the contact attempts, escalating by channel: two calls, then email and text, then the emergency contact, then certified mail. Alongside it, you log every attempt in the CMS: date, time, channel and outcome. And step three is team notification: you escalate to Atty. Thorne and spell out what the silence puts at risk, like the statute of limitations.",
+   "ask": "Why do you think the protocol escalates by channel rather than by the number of calls?"
+  },
+  "theory": {
+   "say": "A few terms first. An intake bottleneck is any point where the work slows, stalls or gets inconsistent, and a silent client is one of them, because the case stops progressing. Due diligence is the proof that the firm made reasonable, documented efforts to reach the client, and it's the record that justifies whatever happens next. Approved channels are the contact methods the client and the firm agreed on at intake; only those count as a valid attempt. And the emergency contact is that second person you collected at intake who can still reach the client after they go quiet. On John Doe's file, that's Margaret Doe, his mother.",
+   "ask": "Which of these terms have you met before, and where would you find it on John Doe's file?"
+  },
+  "frame": {
+   "say": "Silence rarely comes out of nowhere, so let's look at the common intake bottlenecks behind it. There's incomplete client information, like missing contact details, incident facts or supporting documents. There's delayed follow-up: clarification requests nobody answered, verification calls missed, documents arriving slowly. Conflict checks get held up by backlog, incomplete entries or unclear opposing party details. Intake forms carry wrong dates, inconsistent statements, missing signatures or misfiled records. Sometimes the facts of loss or liability are ambiguous enough to need an attorney's review. And there are communication gaps, where an intake packet is incomplete or two departments simply talk past each other. Any one of these can turn into a client you can't reach.",
+   "ask": "Looking at John Doe's file right now, which of these bottlenecks do you think he's closest to?"
+  },
+  "rules": {
+   "say": "Step 1 is internal review, and it's the step everyone skips because they want to start dialling. Before you call anyone, check the case status, the live deadlines and the date of last contact, and confirm every earlier attempt used an approved channel. Step 2 is contact attempts, escalating: at least two phone attempts, then email and text, then the emergency contact, then certified mail or a formal letter. You escalate by channel, not by volume. Two voicemails on one number clears the phone rung and nothing more. I'll say it twice, because it matters: two voicemails, one rung. Set a follow-up reminder when a request goes out and log every attempt with date, time, channel and outcome. Step 3 is team notification and deadline impact; deadlines don't pause for silence. You can tell the client what we need and by when. You can't tell them representation will end.",
+   "ask": "What deadline is running on John Doe's file right now, before you pick up the phone?"
+  },
+  "model": {
+   "say": "Here's the whole protocol on one picture. Down the left you've got a spine of six stations. The first three are in full colour: internal review, contact attempts and team notification. That's today. Stations four to six are greyed back with a next lesson tag, so you can see where this is heading without getting ahead of ourselves. On the right, station two opens up into a ladder of channels, and each rung gets wider: phone, with two or more attempts, then email and text, then the emergency contact, then certified mail or a formal letter. And down in the corner there's a red card reminding you that the statute of limitations and hearing dates keep running the whole time.",
+   "ask": "Why do you think each rung on that ladder is drawn wider than the one above it?"
+  },
+  "job": {
+   "say": "Let me tell you how this actually plays out. John Doe misses a scheduled contact or an appointment. That's your trigger. You open the Case Summary in the CMS and do Step 1: status, deadlines, last contact date, and you know the live deadlines before any outreach begins. Once that's done, you work the channel ladder in the Communications Log, two or more phone attempts, then email and text, each one logged with date, time, channel and outcome. When the ladder's exhausted, that's Step 3. You notify Atty. Thorne through Tasks, Escalate, and you assess the impact on the file, so the escalation's documented and the SOL of 02/06/2028, plus any hearing dates, are on the record.",
+   "ask": "What would Atty. Thorne need to see in that escalation before he could act on it?"
+  },
+  "dodont": {
+   "say": "Let's play 3 Clues, 1 Rule. I'll put up one clue at a time. When you think you know where it's going, shout Do or Don't and tell me which rule it's testing. Some rounds are good habits, like setting a follow-up reminder the moment a request goes out, or giving the client an easy way to answer, a call window, a text, an upload link. Some are traps, like letting a file sit because we're waiting on the client with nothing logged, or blaming the client for what's really a process gap. And listen for channel versus volume. It's the point people fail most often: two voicemails on the same number clears the phone rung and nothing more. Oh, and remember that emergency contact we collected at intake? This is the moment it pays off.",
+   "ask": "Why does the emergency contact count as a new channel when a third call to his mobile doesn't?"
+  }
+ },
+ "d1m2-l2": {
+  "why": {
+   "say": "The Final Warning Letter is the last low-cost step before the firm has to choose between two expensive things: spending money to find somebody, or moving to withdraw. So this letter has two jobs. It has to be specific enough that the client actually answers it, and documented enough to justify whichever of those next steps comes. And I'm going to hold you on one idea all lesson: the search waits until three things are true at the same time, not just the first one. People trigger it early all the time, and that spends the firm's money and weakens the record.",
+   "ask": "What's the risk of spending the firm's money on a search before the letter's deadline has even passed?"
+  },
+  "theory": {
+   "say": "This letter closes out the outreach record. It's one last documented notice before the firm searches for the client or counsel moves to withdraw. It goes by dual delivery. Certified mail proves it was delivered, email is what actually gets a response, and each one covers the other's gap. Then there's the three-criteria gate, and I want you to hear the word gate. It's an AND gate, not a checklist, so the search waits until all three are true. The search itself is a skip-trace, a paid search for someone's current address and contacts, and because it spends firm money, counsel authorizes it. And withdrawal, ending representation by notice or motion, is decided only by the attorney, under firm and court rules.",
+   "ask": "Which of these have you met before, and where would it show up on John Doe's file?"
+  },
+  "frame": {
+   "say": "This picks up exactly where Step 3 left off, with Steps 4 through 6. Step 4 is the Final Warning Letter. It itemizes the earlier attempts, gives a deadline of 7 to 14 days and gives notice of potential withdrawal, and it goes by certified mail and email. Step 5 is the decision point. If there's still no response, the attorney decides whether to file a Notice or a Motion to Withdraw. Step 6 is file closure. The file gets marked \"No response – withdrew per protocol\", and the proof of every attempt is kept. Three steps, and only one of them, the letter, is really yours to drive.",
+   "ask": "If John Doe went silent today, how far would his file be from Step 4?"
+  },
+  "rules": {
+   "say": "Step 4 goes by certified mail and email. Both, not either. The letter states the earlier attempts, gives a response deadline of 7 to 14 days and gives notice of potential withdrawal. And you confirm the address first, because a letter sent to a stale address proves nothing. At Step 5, if the client's still silent, the attorney may file a Notice of Withdrawal or a Motion to Withdraw, and that's counsel's call. Step 6 marks the file closed per protocol and keeps every proof. Skip-tracing starts only when the ladder's exhausted, the letter's gone and its deadline has passed, and counsel authorizes it with the full log attached. Meanwhile records, coverage and deadlines keep moving. The letter can state requirements and say withdrawal is possible. It can't judge the claim, advise on rights, or announce that representation's ending.",
+   "ask": "Why do we need both certified mail and email, when either one would technically get the letter there?"
+  },
+  "model": {
+   "say": "There are two panels here. On the left is the letter itself, on letterhead, with four orange badges marking what it must contain: the earlier attempts, itemized; a response deadline of 7 to 14 days; notice of potential withdrawal; and how to respond. Above it you'll see certified mail and email joined by a bold AND, because both are required. On the right is the Step 5 fork. It starts with one question: did a response come in within the deadline? If yes, the file resumes. If no, you hit a gate with three chips, the ladder exhausted, the letter sent and the deadline expired, and only then do you reach the skip-trace and the attorney's decision point. It's drawn as a gate on purpose.",
+   "ask": "What happens on this picture if only two of those three chips are true?"
+  },
+  "job": {
+   "say": "Here's the story on the job. You've made your Step 3 escalation and there's still no response. That's when you draft the Final Warning Letter in the Action Plan Editor from the warning letter template, with the earlier attempts itemized and the deadline and withdrawal notice in place. Once it's ready, you confirm the current address and send it from CMS Documents, Outgoing, by certified mail and email, both channels logged and the certified receipt kept. Then the response deadline expires. Now you check that all three criteria are evidenced in the log, and only then do you escalate to Atty. Thorne through Tasks, asking for skip-trace authority and the Step 5 decision.",
+   "ask": "What's the first thing you'd check in the log before you escalate to Atty. Thorne?"
+  },
+  "dodont": {
+   "say": "Now for 3 Clues, 1 Rule. I'll reveal three clues, one by one. The moment you've got it, call Do or Don't and name the rule. You'll see good habits, like itemizing the attempts with real dates, because \"we have tried several times\" isn't evidence, and asking in-house help to confirm an address you can't verify. You'll also see traps, like triggering a skip-trace on the first criterion alone, or writing \"we are withdrawing\" in a letter the attorney never approved. That one's the hard line. The Case Manager assembles the record, and the attorney decides to withdraw. We'll come back on Day 5 for advanced skip-tracing, process servers and certified notice. Today is the trigger; Day 5 is the execution.",
+   "ask": "Who decides that representation is ending, and who tells the client?"
+  }
+ },
+ "d1m2-a1": {
+  "case": {
+   "say": "Here's what just landed on the file, dated 02/16/2026. It's file LSH-2026-MVA-770412, and there's been no client contact with John Doe for six days. His last logged contact was 02/10/2026. He missed his check-in call scheduled for 02/13/2026. The phone system shows two calls to his mobile, both ending in voicemail, and neither one is in the Communications Log. No treatment start is recorded. His emergency contact on file is Margaret Doe, at (555) 010-2291, and Step 1 of the No Contact Protocol is due today. Before we go on, would someone read the red bad entry aloud for us? \"Called client, no answer.\" Be honest, that's what most of us would have written.",
+   "ask": "What's missing from \"called client, no answer\" that a supervisor would need six months from now?"
+  },
+  "task": {
+   "say": "Your job is to run the No Contact Protocol on John Doe's file. Start with the Step 1 internal review in the CMS Case Summary and name the deadlines that are live right now. Don't start dialling first. Then reconstruct the attempts already made and carry the Step 2 ladder forward in the Communications Log, logging every attempt with date, time, channel and outcome, plus the next action and its due date. Part of this is a live call with Margaret Doe. Identify yourself, confirm she's the emergency contact on file, ask her to have John call the firm by a set date, and confirm his best number and current address, without disclosing any case details. What you hand in is a completed Step 1 review, an unbroken Step 2 log, and your call on whether Step 3 is warranted and what impact you'd report.",
+   "ask": "Before you log anything, what deadline is running on this file right now?"
+  },
+  "check": {
+   "say": "Before you log your work, check it against these points. Did you do Step 1 first, with the status, live deadlines and last contact reviewed? Are the earlier voicemails logged with date, time and channel? Is the phone rung cleared with at least two attempts, and are email and text both tried, rather than more calls? Did you use the emergency contact? That's the rung people forget most, and we collected it at intake for exactly this. Every entry needs date, time, channel and outcome, and the next action needs a due date. Your Step 3 impact should name the SOL of 02/06/2028 and the treatment that hasn't started. That silence is what becomes the 14-Day Gap later. And nothing threatens withdrawal. Write each entry as if a supervisor will audit it six months from now.",
+   "ask": "If you called his mobile three times, how many channels have you actually used?"
+  }
+ },
+ "d1m2-a2": {
+  "case": {
+   "say": "This note from Atty. Thorne just landed on the file, dated 02/21/2026. He's read your Step 3 note. It's been eleven days with no word from John, and no treatment that we know of. The phone rung is cleared, emails and texts have gone out, Margaret Doe has been tried, and it's all logged. He wants the Final Warning Letter drafted for his review Monday morning: every attempt with its date, a response date, and how to reach us, by certified mail and email. Withdrawal is possible, not decided, and the letter says nothing about John's claim. Here's the hard part. You need a letter that's urgent but not threatening, and most first drafts miss one way or the other.",
+   "ask": "What's one sentence that would make this letter sound threatening rather than urgent?"
+  },
+  "task": {
+   "say": "You'll draft the Step 4 Final Warning Letter to John Doe in the Action Plan Editor, using the warning letter template. Itemize the earlier attempts, and by itemize I mean list each one with its date. Set a response deadline inside the 7 to 14 day window, give notice of potential withdrawal, and tell him exactly how to respond. Every sentence stays inside the UPL boundary, so nothing on the strength of his claim, nothing on what silence does legally, and nothing announcing withdrawal as decided. Then record what has to be true before skip-tracing can start, and whose authority Step 5 needs. What you hand in is a send-ready letter with both deliveries logged and the escalation recorded.",
+   "ask": "Whose authority does the Step 5 decision need, and where will you record that?"
+  },
+  "check": {
+   "say": "Before you submit, swap drafts with the person next to you and mark each other's. And first, let's read the banned and compliant pairs aloud together; it'll save you a full rewrite. Look for the firm's identification and the file reference, and the date of loss as 02/06/2026. The earlier attempts should be itemized with dates. The deadline should be an actual date inside the 7 to 14 day window, not \"as soon as possible.\" Withdrawal should read as possible, not decided, and there should be at least two ways to respond. Certified mail and email are both recorded, with the address confirmed before sending. There's nothing about claim value or legal consequence, so no \"you will lose your case.\" The skip-trace criteria are recorded, and Step 5 is noted as Atty. Thorne's.",
+   "ask": "Does your partner's letter tell John what's needed and by when, without telling him what happens to his case?"
+  }
+ },
+ "d1m2-kc": {
+  "questions": {
+   "say": "This is your Knowledge Check. Your answers come from this file, in your own words, typed under each question. You'll set out all six steps of the No Contact Protocol in order, with what's required at each one. You'll state the protocol's three purposes and say which one protects the firm rather than the client. A word on that second question: it's easy to answer shallowly. Protection from liability is the purpose people leave out, and it's exactly why the record gets built the way it does. Then there's a colleague who logged three voicemails on three days and called the ladder exhausted. Tell me what's wrong and what the log should show.",
+   "ask": "Which of the three purposes do you think is the easiest one to forget?"
+  },
+  "summary": {
+   "say": "Now your Self-Summary, where you put the principles in your own words. Here's the scenario. It's 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits. Keystone ended Margaret's rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked John for a Recorded Statement. Tell me what you do first, second and third, and what each step protects. This one pulls it all together: the running SOL, a Treatment Gap that's hardening, and the claims work that has to keep moving anyway. Keep in mind, too, that the gap you're watching build here is the same 14 days defense counsel will ask John Doe about at his deposition on Day 5.",
+   "ask": "Of those three problems, which one protects the most if you deal with it first?"
+  },
+  "scale": {
+   "say": "Last step is your Skill Scale. Rate yourself honestly, one to five, on each competency, then submit it for review. One to five isn't a grade. It's a picture of where you actually are today. When I get these back, I'll compare your self-rating with your Knowledge Check score, and wherever there's a wide gap, either way, you and I will have a short conversation about it. Overrating and underrating both tell me something useful.",
+   "ask": "Which competency here are you least sure how to rate, and why?"
+  }
+ },
+ "d2m2-l2": {
+  "why": {
+   "say": "Let me start with a date: 04/07/2026. Does anyone know what was due that day on John Doe's file? It was his week-6 mark of care. And John Doe wasn't there. Here's why that matters. On an LOP, nobody denies the next six visits in real time. Keystone does it later, at the demand, by calling the care unnecessary or the injury minor. That leaves you as the only real-time check that John Doe's plan is working, and the person who acts the very day it isn't.",
+   "ask": "On an LOP file, who denies unnecessary care, and when, and what does that make you?"
+  },
+  "map": {
+   "say": "Here's the road for monitoring treatment, before we get into it. You check in on visits, pain, function and any barrier. When something's off, you name the variance: clinical, psychosocial or systemic. Then you run A-C-T. Assess, where medical danger goes to the provider and legal danger goes to Atty. Thorne. Coordinate, where you clarify with the office and remove the barrier. And Track, where every fix attempt goes into a GIRP note, facts only. Five steps, and you'll use them on John Doe's file more than once."
+  },
+  "theory": {
+   "say": "Knowing the Standard Treatment Map is what separates a Case Manager who watches a recovery from one who drives it, because deviations are what trigger denials and IMEs. The acute phase is days 1 to 14, with the ER, imaging, initial PT and documenting causation. Sub-acute runs weeks 2 to 8, with active PT, specialists and measured functional gains. Restorative is weeks 9 to 24, with injections, work hardening and barriers to returning to work, and after that comes maintenance, with home exercise and as-needed visits. Maximum Medical Improvement is the provider's finding that more care won't improve things. It closes treatment and opens pre-demand. When a client drifts off the map, variance analysis asks why first: is it clinical, psychosocial or systemic, and you ask before funding stops.",
+   "ask": "Which phase do you think John Doe was in when he missed his week-6 mark?"
+  },
+  "theory2": {
+   "say": "A few more ideas you'll lean on. The A-C-T protocol is your immediate action for any red flag: you Assess the danger, Coordinate the fix and Track it, and that documentation is what gives counsel his why. \"Reasonable and necessary\" is the utilization-review test. Is the care common for this mechanism of injury, and is there objective functional gain, not just subjective pain? SMART goals, meaning specific, measurable, achievable, relevant and time-bound, like the week-6 measures, are what hold up with clinicians and adjusters alike. And there's the stakeholder triad of clinical, legal and financial loops, with you as the router. One broken loop can stall a case for months.",
+   "ask": "What would a SMART goal for John Doe's next six weeks of PT actually sound like?"
+  },
+  "frame": {
+   "say": "Here's the Standard Treatment Map phase by phase. Acute is days 1 to 14: the ER, MRI or CT, bracing, RICE and initial PT, while we establish causation and PIP coverage. Sub-acute is weeks 2 to 8, with active PT two or three times a week and specialist follow-up. That's where the week-6 check lives, looking for 20 to 30 percent better range of motion. Restorative is weeks 9 to 24, covering work hardening, injections, psychological adjustment and finding the barriers to return to work. Maintenance comes after week 24, with home exercise and as-needed visits while we watch for the provider's MMI finding. MMI is the endpoint. Treatment closes, and the pre-demand audit opens.",
+   "ask": "On 04/08/2026, day 61 of John Doe's file, where on this map is he sitting?"
+  },
+  "rules": {
+   "say": "Monitor outcomes, not just attendance. Ask about visits, pain and what he can't do at work or home, and hunt the barriers, internal ones like fear or mood and external ones like transport or money. On 04/08/2026, day 61, he's in week 9. At every check-in, ask whether he's improving. His week-6 mark fell on 04/07/2026, which is 02/24/2026 plus 42 days, and the next step, whether that's medication, injections or a specialist, is the provider's decision. Name the variance before you fix it. Run A-C-T for every red flag, and adjust the plan first, because it's usually the plan, not the client. Climb the ladder one documented rung at a time: clinical, then administrative, then legal. Write every intervention as a GIRP note. And you coordinate care, you never direct it. Never tell him to skip treatment, or that missed visits cut his claim.",
+   "ask": "Why does writing \"this will help the case\" in a GIRP note put the file at risk?"
+  },
+  "model": {
+   "say": "This picture shows how A-C-T fits inside monitoring rather than beside it. There's a navy ring with the question \"Is the plan working?\" in the middle. Down at about four o'clock, a red detect node breaks out into three steps: assess, coordinate, track. Then notice the arrow from track. It curves right back up into the ring. Up in the corner is the treatment map, with a marker on restorative, week 9, 04/08/2026. And on the left are the three variance chips, clinical, psychosocial and systemic, with psychosocial lit up, because what's derailed John is that he's got no transport. A-C-T isn't a detour from monitoring. It closes back into it.",
+   "ask": "Why is psychosocial the variance that's highlighted for John Doe, rather than clinical or systemic?"
+  },
+  "job": {
+   "say": "Let's walk through a few weeks of this file. A provider's missed-visit alert comes in. That same day, you call AI John Doe, classify the variance and write the GIRP note in Case Notes, dated the day the alert arrived. At week 6, 04/07/2026, you ask the provider for the re-evaluation measures: range of motion, pain score and disability index. Whether a PHQ-9 or GAD-7 screen is indicated is the provider's call, and anything putting his mental health in the record gets flagged to Atty. Thorne. If the barrier isn't fixed at the clinical rung, you climb one rung with a written notice to the carrier causing it, copied to Atty. Thorne, and only property facts to Keystone PD, with each rung dated. Red flags that can cost the claim go to Atty. Thorne with the fix you attempted.",
+   "ask": "Why does the GIRP note need to be dated the day the alert arrives, not the day you finish?"
+  },
+  "dodont": {
+   "say": "Let's play 3 Clues, 1 Rule. Three clues come up one at a time, and when you've got it, call Do or Don't and name the rule. You'll be watching for red flags to raise with the provider, like more than 12 sessions with no gain, passive-only care, or two or more missed visits. You'll see yellow flags reported with a plan, in the map's language. Then there's proofreading laterality, because everything on this file is right-sided, and recording a disruption the day it happens, so it never needs the reconstruction the 14-Day Gap does. The traps are continuing the plan unchanged through a crisis, blaming John, or jumping to Atty. Thorne before the clinical and administrative rungs. And remember, the middle step is Coordinate, but it still opens with that clarifying call to the provider's office.",
+   "ask": "What argument from the defense does a factual A-C-T record answer later on?"
+  }
+ },
+ "d2m2-l1": {
+  "why": {
+   "say": "I've got John Doe's PIP ledger up, with the right-hand column covered. Harbor Point has paid $685.00, $640.00, $2,395.00 and then $640.00 for the 03/27/2026 visit. How much PIP is left? Take a second. It's $640.00. If you can't keep that column straight, you can't decide an LOP request. Treatment is the file's engine room, and somebody has to pay for it while the claim is open. On this file three payers stand in a default order: Harbor Point PIP, then Peach State, then a Letter of Protection. An LOP issued out of order turns a bill an earlier payer would have paid into a lien against John Doe's net.",
+   "ask": "How much PIP does John Doe have left after the 03/27/2026 visit?"
+  },
+  "theory": {
+   "say": "Once the claim's set up, the Case Plan runs on three pillars: clinical care, functional status and subrogation management, and that last one decides who pays. The Payer Order is the default sequence. MedPay or PIP pays first, then health insurance, and an LOP comes last. Keeping that order keeps the liens down. PIP is first-party coverage for Medical Bills regardless of fault, up to its limit, and unlike PIP it never pays wages. Health insurance pays covered care at its contract rate, but it may hold a reimbursement right against the recovery. A Letter of Protection is the client's signed agreement that a provider gets paid from any recovery, which makes it a consensual lien on his net.",
+   "ask": "Which of these payers have you dealt with before, and which one is first in line on John Doe's file?"
+  },
+  "theory2": {
+   "say": "The other half of the theory is about keeping care moving. The Standard Treatment Map is the usual route: emergency, imaging, chiropractic and PT, orthopedics, pain management, sometimes surgery, and every stop needs a payer. Monitoring progress means evaluating clinical and functional outcomes, not ticking boxes, so you ask about the plan, not just \"How are you?\" Crisis intervention is stepping in when care gets denied or stalled by bureaucracy, and you adjust the plan to the immediate issue first. And watch for medication red flags, like an opioid, a muscle relaxant and a sedative together, or doses climbing with no new diagnosis. You don't judge that yourself. You raise it with the provider.",
+   "ask": "Instead of asking John Doe how he is, what would you ask him about his plan?"
+  },
+  "frame": {
+   "say": "Let's set the Payer Order out step by step. First you identify the payers, listing every source and its default order, and remember that who's actually primary is Atty. Thorne's call. Next is MedPay or PIP, which is first-party, regardless of fault, up to its limit, and PIP also pays 80% of lost income, where MedPay pays Medical Bills only. Then comes the Health Plan, which pays covered care at its contract rate but may assert a reimbursement right against the recovery. The Letter of Protection is the last rung, for care the earlier payers can't carry. It's paid from any recovery, on Atty. Thorne's terms.",
+   "ask": "Where is John Doe on this ladder for his Riverton Spine & Rehab physical therapy?"
+  },
+  "rules": {
+   "say": "In treatment, the question becomes \"Is the plan working?\" and you're facilitating, coordinating and advocating. Run the Payer Order: Harbor Point PIP, then Peach State, then an LOP. John claims the $5,000 PIP as a passenger in Kevin Alvarez's 2020 Ford Escape, because no policy in his household carries PIP. PIP pays in date order, never wages. When Crescent Pain & Spine billed Peach State on 05/15/2026 with $640.00 of PIP left, you tracked both ledgers and never re-routed a paid claim. Riverton Spine & Rehab got an LOP because it's out of network. Summit Imaging's 03/11/2026 MRI went to PIP, since every needless LOP is a lien on his net. LOP terms are Atty. Thorne's, so you prepare, route, transmit once he approves and confirm receipt. Never promise a provider an amount, a reduction or a date, and never explain John's liability to him.",
+   "ask": "Riverton and Summit Imaging both asked for an LOP. Why did only one of them get it?"
+  },
+  "model": {
+   "say": "Here's the PIP ledger, Harbor Point's $5,000, with five rows paid in date order. Above it there's a gauge draining in five steps, and the last one lands on $0.00 at 06/12/2026, in red. On the left is the payer rail: PIP first, Peach State second, and the LOP third, stamped counsel-approved terms. Then look at the two provider chips along the bottom. Riverton Spine & Rehab has a tick for its LOP. Summit Imaging has a cross, because its bill went to PIP instead. That's the argument of the whole slide. An LOP is the last rung of the Payer Order, not the first answer to a provider who asks.",
+   "ask": "What would a $2,395.00 LOP for Summit Imaging have cost John Doe at the end?"
+  },
+  "job": {
+   "say": "Picture a normal month on this file. A provider asks for an LOP. You run the Payer Order and prepare one on counsel's template only for care PIP and Peach State can't carry, then route it for approval from CMS Documents, Outgoing. The payer check is recorded first, and nothing goes out without Atty. Thorne. When PIP pays a bill, you post the payment, the running total and the balance on the PIP ledger, and it ties to Harbor Point, hitting $5,000.00 on the 06/12/2026 visit. When an LOP statement arrives, you update the LOP register and check every line, so through 04/02/2026 that's 16 visits at $185.00, or $2,960.00, all attended. For a new referral, you do a warm handoff with John on the line and confirm the payer before the first visit.",
+   "ask": "If Riverton bills a date John Doe didn't attend, what do you do with that line?"
+  },
+  "dodont": {
+   "say": "Time for 3 Clues, 1 Rule. I'll reveal three clues in turn. Call Do or Don't as soon as you can, and name the rule. Good habits on this one include asking \"Is the plan working?\" at every contact, ending each call by asking what might get in the way of treatment this week, reconciling conflicting provider notes straight away, and telling John which payer handles which bill, because cost worry left unanswered is how a client stops going. The traps are issuing an LOP just because a provider asked, telling a provider they'll be paid in full at settlement, mission creep, and handing Atty. Thorne raw records with no summary. And remember, an LOP isn't free. Every dollar on it is one Day 4 has to negotiate.",
+   "ask": "Why is an LOP never really free for John Doe, even when the provider is happy with it?"
+  }
+ },
+ "d2m2-eob": {
+  "why": {
+   "say": "Before we look at the slide, take out RS26, Peach State's Explanation of Benefits, and let's read it together, column by column. So, what does John Doe owe Crescent? Find the bottom line. The EOB says $0.00. Every payer reports what it did with a bill. Peach State does it in an EOB, and Harbor Point does it in its PIP payment history. Read line by line, they tell you what was billed, what was paid, what was written off and what John Doe may still owe. Those documents are the proof behind the Medical Specials, behind every lien amount, and behind every answer you give a provider or John Doe about a balance.",
+   "ask": "Reading RS26, what does John Doe actually owe Crescent Pain & Spine for the injection?"
+  },
+  "theory": {
+   "say": "Every payer reports back on a bill, the Health Plan in an Explanation of Benefits and PIP in its payment history, and you read both before you ever touch a lien. An EOB is the plan's account of one processed claim. It's not a bill; it's proof of who paid what. Billed versus allowed is the first thing to see. Billed is the provider's charge, allowed is the plan's fee schedule, and in network the gap gets written off. Remark codes are the short codes explaining each line. CO-45 is the fee-schedule write-off, and AC1 flags a possible accident. And member responsibility, meaning the deductible, copay and coinsurance, is the most an in-network provider may bill the patient.",
+   "ask": "Which of these terms have you seen on your own Medical Bills, and what did it mean there?"
+  },
+  "theory2": {
+   "say": "Four more ideas round this out. Balance billing is when a provider bills the patient for a contractual write-off. In network that isn't allowed, so it's an error, not a lien. The PIP payment history is the carrier's ledger of every check, showing the date of service, the amount paid and the limit remaining. Exhaustion is what happens once that limit's spent. Later bills come back unpaid, and you route them to the next payer. And reconciliation is matching every provider balance to each payer's EOB or check, so that no bill that's already been paid ever turns into a lien against John Doe.",
+   "ask": "If a provider bills John Doe for a write-off, is that a lien, a debt or an error?"
+  },
+  "frame": {
+   "say": "Here's how you read an EOB, top to bottom, every time. First, match the claim: the member ID, claim number, provider and date of service against the CMS treatment record. Then go from billed to allowed, which means the charge, the plan's allowed amount and the contractual adjustment it wrote off. Next is the patient's share, the deductible, copay and coinsurance, because member responsibility is the most a provider may bill. After that comes what the plan paid, with its date and its EFT or check number, since that's where any reimbursement claim starts. Read the remark codes: CO-45 explains the write-off, and AC1 flags an accident and the plan's reimbursement right. Finally, reconcile and log it against the provider's statement and the lien register, and flag any balance billing.",
+   "ask": "Which step in reading an EOB do you think people skip most often?"
+  },
+  "rules": {
+   "say": "Peach State's EOB of 06/03/2026, claim PS-2605-449021, covers Crescent's 05/15/2026 epidural injection, and it says THIS IS NOT A BILL. Crescent billed $3,400.00 and the plan allowed $1,860.00. The $1,540.00 difference is Crescent's write-off. The plan paid $1,860.00, and member responsibility is $0.00. CO-45 explains that write-off, and AC1 is how Peach State's reimbursement right attaches. Now turn to Crescent's 07/01/2026 statement asking John Doe for $1,540.00. That's a balance bill, not a debt and not a lien. You document it, route it to Atty. Thorne that day, draft a correction request and tell John what's happening. Peach State's claim starts at $1,860.00, never $3,400.00, and you route its accident questionnaire to Atty. Thorne. Harbor Point's five checks total $5,000.00, exhausted 06/26/2026. You read and reconcile; whether he owes anything is counsel's call.",
+   "ask": "Crescent's $1,540.00 statement: is it a lien we missed, or a bill nobody owes?"
+  },
+  "model": {
+   "say": "We've got two documents side by side, each read line by line. On the left is Peach State's EOB for claim PS-2605-449021, with that red stamp, THIS IS NOT A BILL. It has six rows: billed $3,400.00, allowed $1,860.00, the $1,540.00 adjustment, $0.00 deductible, $1,860.00 paid, and $0.00 member responsibility. Each orange tag tells you where that number goes on the file. On the right is Harbor Point's payment history, five checks with a limit bar falling from $5,000.00 to nothing, stamped exhausted 06/26/2026. And underneath is Crescent's 07/01/2026 statement for $1,540.00, with a dashed line back to that $0.00 row and a question: balance bill?",
+   "ask": "Which row on Peach State's EOB is the most Crescent may bill John Doe?"
+  },
+  "job": {
+   "say": "Let's run this as it happens on the file. An EOB arrives, and you post billed, allowed, adjustment, paid and member share against the visit in CMS Liens and Documents, so the $1,860.00 plan payment is logged and claim PS-2605-449021 is linked to the visit. A PIP check clears, and you post it on the PIP ledger with the date of service and the limit remaining, until it ties to Harbor Point's history with $0.00 left after 06/26/2026. Then a patient statement shows a balance. You compare it with the EOB's member responsibility, flag the $1,540.00, tell Atty. Thorne the same day and draft the correction request. And when Peach State's itemized lien arrives, you match each line to an EOB and to the collision, so only those lines stand.",
+   "ask": "What would you do with a line on Peach State's lien that no EOB supports?"
+  },
+  "dodont": {
+   "say": "Here comes 3 Clues, 1 Rule. I'll reveal three clues one by one; call Do or Don't and name the rule. The good habits are reading every EOB down to member responsibility before you answer a balance question, asking each provider for an itemized statement showing every payer's credit, keeping billed and paid on the same CMS line, and telling John what you're doing and when he'll hear back. The traps are logging a lien at the billed amount instead of what the plan paid, treating a write-off as something he owes, and sending a bill to PIP after it was exhausted on 06/26/2026. One number to hold onto: Peach State can claim back $1,860.00, never $3,400.00. You read, reconcile and report. Whether John Doe owes a balance is Atty. Thorne's call.",
+   "ask": "After Harbor Point's $0.00 line on 06/26/2026, where does the next bill go?"
+  }
+ },
+ "d2m3-l2": {
+  "why": {
+   "say": "The adjuster says the gap proves John Doe healed. What would you collect? Call it out and I'll write it up. Good. Now let's sort that list into two boxes. Remember the rule: the only gap explanation that holds up against adjusters is John Doe's own factual explanation, backed by written documents you can check. Around it, records made at the time do the rest: provider notes that place onset at the collision, histories that agree, the EMS report and the work records, and later a causation opinion Atty. Thorne requests. Anything in the other box, a record made to order, destroys the very case it was meant to save.",
+   "ask": "Which item on our list would an adjuster find hardest to argue with, and why?"
+  },
+  "theory": {
+   "say": "You need to understand the why behind the paperwork, and here it is: continuity is proved by what the record already shows, never by what it's asked to say. Continuity of care is an unbroken path along the Standard Treatment Map, each step following from the last, and that chain is exactly what an adjuster tests. A Treatment Gap is any break in it, before the first treatment or midstream, and adjusters read it as minor, healed or unrelated. Records made at the time, written by EMS, providers and employers as things happened, are your strongest proof, because nobody wrote them for the claim. And consistent histories, repeating the same mechanism, onset and body region across charts, are what make continuity believable.",
+   "ask": "Who on John Doe's file wrote something down about his neck before anyone thought about a claim?"
+  },
+  "theory2": {
+   "say": "Four more ideas. A causation opinion is a treating doctor's opinion linking the injury to the collision. It's the bridge across a gap, and Atty. Thorne requests it. Record integrity means a record changes only by its author's dated addendum. Altering one can be evidence tampering or fraud. Excuse notes prove only what their author saw or ordered at a visit, so days nobody examined him need other proof. And generic notes, ones that don't tie the complaints to the collision, weaken causation. Under A-C-T, those get flagged to Atty. Thorne. You don't fix them yourself.",
+   "ask": "What proves John Doe couldn't work 02/09 through 02/13, when no doctor saw him?"
+  },
+  "frame": {
+   "say": "These are the treatment red flags, and for each one there's a reason the defense loves it. In physical therapy, watch for more than 12 sessions with no gain and no specialist or imaging suggested, which reads as a stalled plan or over-treatment. Passive care only, heat packs, TENS and massage with no active exercise, is feel-good care adjusters discount. Two or more missed appointments let the defense say the injury wasn't serious enough to treat. Surgery recommended before PT or injections, outside an emergency, invites a reasonable-and-necessary challenge. In pain management, an opioid, a muscle relaxant and a sedative together, with doses rising and the diagnosis unchanged, is a safety risk. And in records, left and right switched, or notes about life stress instead of the collision, weaken both credibility and causation.",
+   "ask": "Which of these red flags do you see on John Doe's file right now?"
+  },
+  "rules": {
+   "say": "Continuity is proved by records made at the time, then by a doctor's opinion that reads them, and never by explanations made to order. Read every history for mechanism, the collision, onset on 02/06/2026, and region, the neck and right arm, since the 2021 visits were low back. If the PT notes and Dr. Reyes disagree, flag it to Atty. Thorne that day. Never ask a provider to change, back-date or add to a record, and never order an excuse note. For 02/09 to 02/13, Northgate's Attendance Record is the proof. The EMS report bridges day zero, so record \"declined transport\" exactly as written. Keep the 02/07/2026 Riverton Drug receipt and the full text thread to Margaret Doe. A causation opinion is Atty. Thorne's request; you assemble and track, never draft. Tell providers scheduling facts only, and never hide an interruption.",
+   "ask": "Riverton's front desk offers to add a line saying the pain began at the crash. What do you say, and who do you tell?"
+  },
+  "model": {
+   "say": "This is a compare board, and the heading says it all: made at the time versus made to order. On the left, under a green rule, is what counts, each document with its date: the 02/06 EMS report, the 02/07 receipt, the 02/09 to 02/13 call-outs, the 02/20 urgent care note and the 06/19 Causation Letter. On the right, in red, is what never happens, every item struck through. Now look along the bottom. There's a timeline from 02/06 to 06/19 with the left card's documents pinned onto it, so you can see the proof was being laid down while the gap was actually happening. That's the point. Timing is what makes a document believable.",
+   "ask": "Why does the 06/19 Causation Letter belong in the left column, even though it came months later?"
+  },
+  "job": {
+   "say": "Here's the rhythm on the job. A provider record arrives, and you compare its mechanism, onset date and body region with the other histories on the treatment timeline. Either it's logged consistent, or it's flagged with the conflicting line quoted. If one history conflicts with another provider's, you flag it to Atty. Thorne through Tasks that same day, and you don't contact the provider about the wording or request a change. When Atty. Thorne decides to seek a causation opinion, you assemble the records for his letter and docket the follow-up, so it goes under his signature with the date on the calendar. And when a work or excuse note arrives, you check the signer, the date and the covered days against the visit record, flagging any mismatch.",
+   "ask": "Why shouldn't you call the provider yourself to sort out a conflicting history?"
+  },
+  "dodont": {
+   "say": "Let's play 3 Clues, 1 Rule. One clue at a time, and the moment you know, call Do or Don't and name the rule. The good habits are collecting what already exists before asking for anything new, quoting records exactly, flagging conflicting statements rather than fixing them, and keeping every interruption visible on the timeline with its dates. The traps include asking a provider to \"clarify\" a note in a way that tells them what to write, and leaving the gap off the timeline and hoping nobody notices. And here's one that catches people. A stronger note isn't always better. A note that shows up after the firm asked for it, saying exactly what the firm needed, is the weakest document in the file.",
+   "ask": "Why would your fingerprints on Dr. Reyes's wording make her letter worthless?"
+  }
+ },
+ "d2m2-a1": {
+  "case": {
+   "say": "We'll run this in two passes, one for each date. The first is 02/23/2026, and this email just came in from Tammy Greer, Office Manager at Riverton Spine & Rehab. John Doe is booked for his chiropractic and PT evaluation tomorrow, 02/24, they're out of network with Peach State, and they want a signed Letter of Protection and his HIPAA authorization today. His first treatment was Riverton Urgent Care on 02/20/2026, $685.00, paid by Harbor Point PIP. Atty. Thorne has approved the LOP template, and John had three chiropractic visits in 2021 for low-back stiffness. The second date is 03/11/2026, when Summit Imaging Center, booked for the cervical MRI Dr. Reyes ordered on 03/05/2026, asks for an LOP too.",
+   "ask": "Before you open the template, why does Riverton get an LOP?"
+  },
+  "task": {
+   "say": "Work both dates, and start each one by running the Payer Order and recording the result. On 02/23/2026, you prepare Riverton's LOP on the approved template, route it to Atty. Thorne for approval and signature, and transmit it with the claim-specific HIPAA authorization, asking for itemized statements and a missed-visit alert. Confirm receipt and open the entry in the CMS LOP register. Record John's assessment too, with his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing in the Email Workspace, naming Harbor Point PIP and proving it from the PIP ledger. If Summit still refuses, Atty. Thorne hears before the 03/13/2026 appointment, so the MRI doesn't slip. And you're graded on this: no payment promised to either provider.",
+   "ask": "Summit says it won't do the MRI without an LOP. What do you say, and who do you tell?"
+  },
+  "check": {
+   "say": "Check your work before you log it. Did you run the Payer Order for each provider? Is Riverton's LOP justified, out of network and more care than PIP's balance can carry? Was it explained by Atty. Thorne and signed by John Doe and Atty. Thorne on 02/23/2026, before the 02/24 visit, with nothing signed by you? Does your transmittal carry the HIPAA authorization, ask for statements and the missed-visit alert, and is receipt logged? Your assessment should note the rental ending 03/19/2026 as a treatment risk, and the baseline should show the 2021 visits were low back, resolved, a different region. Summit's decline names PIP, proved from the ledger with $3,675.00 left, enough for the $2,395.00 MRI with $1,280.00 left over. And listen to the language. \"Don't worry, you'll be paid in full\" fails, however friendly.",
+   "ask": "When a provider asks whether they'll be paid in full, how do you answer them?"
+  }
+ },
+ "d2m3-a1": {
+  "case": {
+   "say": "Here's what landed on the file on 03/04/2026. The first records are in. Riverton Urgent Care's 02/20/2026 note says onset at the MVA on 02/06/2026, progressively worsening, with numbness to the right hand since 02/18. The EMS Run Report records neck stiffness on 02/06/2026. John Doe's been at Riverton Spine & Rehab since 02/24/2026, and Margaret's rental runs to 03/19/2026. And nobody has asked him why he waited 14 days. Atty. Thorne wants him on a recorded call today: open questions, nothing suggested, no opinions on what it means, and a GIRP note when you're done. Before anyone dials, here are the two ways to fail: a leading question or a suggested reason, and any version of \"won't matter\" or \"will hurt the case\".",
+   "ask": "Knowing what's on this file, what question will you be most tempted to ask him first?"
+  },
+  "task": {
+   "say": "You'll run a recorded call with AI John Doe in the Call Simulator to find out why he first treated on 02/20/2026, fourteen days after the collision. Open on the record with the date, who's on the call, your role, his consent to recording, and that he can talk privately. Ask open questions, follow his words, and save closed questions for pinning dates and documents. There are four reasons to draw out. Find out who he told and what he kept, like the texts, the call-outs and the 02/07 receipt, then read his account back. Close by confirming his 03/05 consult and his transport after 03/19. Then hand in a privileged GIRP note in Case Notes and a dated task for every corroborating document.",
+   "ask": "Which reason was hardest to get, and what question finally got it?"
+  },
+  "model": {
+   "say": "This is your run sheet for the call. The simulator screen across the left shows AI John Doe, recorded call, 03/04/2026, with the red recording dot and a transcript pane below. Under the transcript there's a meter counting your questions: open, closed and leading, and leading is in red. You want that one at zero. Over on the right are four empty reason slots, each with a space for a document beside it, and they only fill in as you actually surface them. Underneath sits a red warning: a suggested reason earns a yes, not a fact. Reasons are earned by questions. You never supply them.",
+   "ask": "What happens to the three hidden reasons if you ask \"Was it the car?\" two minutes in?"
+  },
+  "check": {
+   "say": "Check the call and the note before you log. Did the recording start with 03/04/2026, everyone on the call, your role, his spoken consent and privacy confirmed? Was your first question open, covering 02/06 to 02/20, with zero leading questions? You need all four reasons in his words: no transport, with the Civic towed, Kevin Alvarez's Escape in the shop and no rental until 02/18/2026; thinking it was soreness, treated with ibuprofen and lidocaine patches; doubting his Peach State coverage and not knowing PIP existed; and the numbness from 02/18, working two shifts, then urgent care on his first day off. Did you surface the texts, the Northgate call-outs and the receipt? And grade your GIRP note as hard as the call: his words in quotation marks, a dated plan, labelled privileged.",
+   "ask": "Does your GIRP note record an intervention and a plan, or only how John Doe felt?"
+  }
+ },
+ "d2m2-a2": {
+  "case": {
+   "say": "The clock starts at 04/08/2026, with this alert from Riverton Spine & Rehab on LOP account RSR-26-0412. Under the LOP dated 02/23/2026, John Doe missed 04/03 with no call, and he missed 04/07. His last visit was 04/02/2026. He told their front desk his mother's rental ended and his ride's no longer available. He's booked 04/09 and 04/14 at 4:15 PM, but their 6:00 PM evening schedule is full until the week of 04/20, and he's on the wait list. They're asking you to contact your client. As you work, the file will keep moving, and I'll give you each update when you've earned it, not before.",
+   "ask": "What's the very first thing you'll do today, on 04/08/2026, with this alert in hand?"
+  },
+  "task": {
+   "say": "You're going to run A-C-T on the Transportation Wall. To assess, call AI John Doe on 04/08/2026, find the barrier, ask about his current symptoms, classify the variance and decide whether it's a medical or a legal danger. To coordinate, clarify with the clinic, request a rental extension from Keystone PD in writing through the Email Workspace, and build a transport plan from one of the three Transportation Wall options, saying why, and book evening slots with the clinic while John's on the line. To track, write the GIRP note in Case Notes, report to Atty. Thorne, and confirm attendance on 04/21 and 04/23/2026. You're graded on exact dates and the 19-day count, with no treatment advice and nothing on what missed visits do to his claim.",
+   "ask": "Which option did the file actually use, and why did Option B outlast Option A?"
+  },
+  "model": {
+   "say": "Look along this timeline, from 04/02/2026 to 04/24/2026. That hollow red band from 04/02 to 04/21 is labelled nineteen days, no visits, and there are four red crosses on it, at 04/03, 04/07, 04/09 and 04/14. Above it, the A-C-T steps are pinned to their dates. Assess is 04/08. Coordinate runs from 04/08 through the rental refusal on 04/10 to the evening slot on 04/21. Track is 04/21 and 04/23, with green ticks. Then there's a grey pill at 04/24: the Civic's back. The three options for getting through the wall sit underneath, A, B and C. That empty red band is the argument, because every day of it needs a documented reason.",
+   "ask": "Why did Margaret driving after her shift matter, when the Civic came back only three days later?"
+  },
+  "check": {
+   "say": "Before you log your work, check it. Is Assess dated 04/08/2026, with the barrier recorded? That's Keystone ending the rental on 03/19/2026 at its 30-day cap, the carpool ending with Kevin Alvarez's shift change on 04/01/2026, and the Civic still waiting on parts. Did you ask about symptoms? Is it classified as a transport barrier, a psychosocial variance and a legal danger? Your request to Leah Moran at Keystone PD should be property facts only, because Keystone also holds the BI claim, and the 04/10/2026 refusal should be logged in full. You need the four missed visits exactly, 19 days from 04/02 to 04/21, a factual GIRP note, and attendance confirmed. And listen back for value talk. \"If you miss more therapy your case is worth less\" fails, however well meant.",
+   "ask": "What could you have calendared back on 02/18/2026 that would have warned you about this?"
+  }
+ },
+ "d2m2-a3": {
+  "case": {
+   "say": "It's 04/22/2026, and there's a voicemail from John Doe, left at 12:18 p.m. Care has just restarted at Riverton Spine & Rehab, on evening slots, with Margaret driving him after her shift, and the Civic is still in the shop. Yesterday Lakeside's scheduling desk booked the injection Dr. Reyes referred him for back on 03/27/2026, but they booked it at Millbrook Interventional Pain Center, out in Millbrook, for 05/14/2026. John says he isn't going. It's too far, he's got no ride out there, and somebody at work told him the place is out of network with Peach State. He still wants the appointment. He just wants it somewhere he can actually get to.",
+   "ask": "Before you call him back, which document on the file would you open first, and why?"
+  },
+  "task": {
+   "say": "Here's your job. Call John back and really listen. Where he goes, among the options his doctors find appropriate, is his choice, and what care he gets is Dr. Reyes's and the treating provider's call, so you give no medical advice at all. Check Crescent's network status with Peach State yourself. Then work with Janelle Brooks, Lakeside's referral coordinator, to send the referral to Crescent Pain & Spine, and book Crescent's first opening while John's still on the line. After that, every task that follows is yours to do or to delegate, with an owner and a due date: the cancellation, the calendar, Parties, Peach State and the Lien Tracker, the records request, transport, the GIRP note, the report to Atty. Thorne, and the attendance check after 05/15/2026.",
+   "ask": "Who decides where John has the injection, and who decides whether he has it?"
+  },
+  "model": {
+   "say": "This is what done looks like: a task list in the CMS. Every row ends one of two ways. Either it's done by me, with the date, or it's delegated to a named person with a due date. Calling John back, reading Dr. Reyes's referral, verifying Crescent with Peach State, booking 05/15/2026 with John on the line, the calendar, the Parties entry, the Peach State billing and the Lien Tracker flag, transport, the GIRP note and the report are all done on 04/22/2026. Janelle Brooks cancels the Millbrook slot by 04/23/2026, because Lakeside booked it. The records team requests Crescent's records and itemized bill by 05/29/2026. And the attendance check on 05/18/2026 stays on my own list.",
+   "ask": "Why does the records request get delegated, when the call to John never does?"
+  },
+  "check": {
+   "say": "Check your work before you log it. Did you return the call on 04/22/2026 and record John's reasons in his own words? Did you verify Crescent's network status with Peach State, instead of repeating what he heard at work? Crescent Pain & Spine, Dr. Omar Haddad, is in network for member PSH-55017742. Is 05/15/2026 booked, one day after the Millbrook slot it replaces, with PT carrying on in the evenings, so there's no new gap? Is the Millbrook slot off the calendar, with a reminder call on 05/13/2026 and an attendance check on 05/18/2026? Does every task have a date or an owner? And read your notes back for advice. Saying one place gives better care than the other fails, however kindly it's meant.",
+   "ask": "If Crescent's first opening had been weeks away, who would you tell, and what would you ask them?"
+  }
+ },
+ "d2m3-a2": {
+  "case": {
+   "say": "I'm putting the adjuster's four arguments on the board: not serious, recovered early, treatment unnecessary, another cause. Your record is going to answer each one with a document, not a sentence. Here's what landed on 06/22/2026. John Doe reached MMI on 06/12/2026, and Dr. Alana Reyes's Causation Letter of 06/19/2026 is in. She says delayed presentation is clinically consistent with a disc injury whose radicular symptoms evolve over days to weeks, and that the injury was more likely than not caused by the collision. Atty. Thorne wants the Gap Explanation Record before the pre-demand session, with both interruptions at exact dates, every reason beside its dated document, \"account only\" where there isn't one, and a defense-eye pass first.",
+   "ask": "Which of the adjuster's four arguments does Dr. Reyes's letter answer most directly?"
+  },
+  "task": {
+   "say": "You'll build John Doe's Gap Explanation Record in the CMS Case File. It covers both interruptions with exact dates: the 14-day gap, 02/06 to 02/20/2026, and the 19-day disruption, 04/02 to 04/21/2026. Pair every reason with the dated document that backs it up, and mark any reason with no independent document as \"account only\". Cite the complaints before and after each interruption, and the firm's follow-up during the disruption. Write facts and citations only, so no argument, no valuation, and nothing quoted from the privileged call. Run your defense-eye pass, then route it to Atty. Thorne through Tasks. What you hand in is a routed record, ready for him to decide how it's used in the demand.",
+   "ask": "Which reason on this file has the weakest document, and what do you do about it?"
+  },
+  "model": {
+   "say": "Here's the shape the record takes. It's one CMS card, Gap Explanation Record, John Doe, split into two bands of equal weight. The top band is the 14-day gap, 02/06 to 02/20/2026. The bottom band is the 19-day disruption, 04/02 to 04/21/2026. Each band has three columns: the reason, the corroborating document and the date. Any row that rests only on John's word gets a grey \"account only\" tag, and down in the corner is the control to route it to Atty. Thorne. Notice that the second interruption gets exactly the same room as the first. Every reason sits beside its proof, in both bands.",
+   "ask": "Why do you think the 19-day band is drawn exactly as big as the 14-day one?"
+  },
+  "check": {
+   "say": "Now check your record. The 14-day gap runs 02/06 to 02/20/2026, and the 19-day disruption runs 04/02 to 04/21/2026, with missed visits on 04/03, 04/07, 04/09 and 04/14. For no transportation, you've got the tow record and Keystone's rental from 02/18/2026, with Kevin Alvarez's Escape in the shop marked account only. For expecting it to pass, there's the 02/07/2026 Riverton Drug receipt and the texts to Margaret Doe. The cost worry gets Peach State's 02/01/2026 eligibility, with the worry itself account only. The urgent-care note is quoted exactly. Did you show the firm's follow-up from 04/08? And don't stop at the 14-day gap. The 19-day disruption needs the same record: his reasons, each beside its document. Keep the work-product layer in the CMS, and keep the privileged call out of everything.",
+   "ask": "What's the difference between this internal record and a gap timeline that goes to Keystone?"
+  }
+ },
+ "d2m2-kc": {
+  "questions": {
+   "say": "Here's your Knowledge Check. Answer from this file, in your own words, typed under each question. You'll read Peach State's 06/03/2026 EOB for claim PS-2605-449021 line by line and say where each amount goes. You'll handle Crescent's 07/01/2026 statement asking John Doe for $1,540.00. And you'll explain from the Payer Order why Riverton got an LOP on 02/23/2026 and Summit's 03/11/2026 request was declined. Then there's a pressure scenario later in the check. The right answer promises nothing new, points the office manager to the LOP signed on 02/23/2026, and gets Atty. Thorne involved before the appointment.",
+   "ask": "What may you tell Summit Imaging when you decline its LOP request, and what may you not?"
+  },
+  "summary": {
+   "say": "Now write your Self-Summary. It's 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits, Keystone ended Margaret's rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked John for a Recorded Statement. Tell me what you do first, second and third, and what each step protects. A couple of things I'll be looking for. On the 2021 visits, documenting low back versus neck, resolved, no prior neck complaints, is proof; saying they \"don't matter\" is arguing. On medication red flags, the provider hears the safety issue, Atty. Thorne hears the legal one, and you document the conversation.",
+   "ask": "Which of these three problems would you hand to Atty. Thorne before anything else today?"
+  },
+  "scale": {
+   "say": "Finish with your Skill Scale. Rate each competency from one to five, honestly, and submit it for review. I'll be comparing your self-rating with your score, and if there's a wide gap, we'll talk it through together. One thing to know before you rate yourself: UPL works as a gate. A strong score doesn't survive a single payment promise to a provider, so if you made one anywhere today, rate with that in mind.",
+   "ask": "Where do you think your self-rating and your score will be furthest apart?"
+  }
+ },
+ "d2m3-kc": {
+  "questions": {
+   "say": "Before the written check, let's do question 3 out loud. I'll be John Doe, and one of you is the Case Manager. I'm going to ask you, \"Is this gap going to wreck my case?\" and if I hear \"don't worry\", I'm stopping us right there. Then write your answers from this file, in your own words. Name the four reasons for the 14-day gap, each with its corroborating document and date. Rewrite \"Was it because you had no car?\" so it surfaces the same reason without suggesting it, and explain what the leading version costs. Question 2 matters most here, so take your time with it.",
+   "ask": "Who wants to be the Case Manager first while I play John Doe?"
+  },
+  "summary": {
+   "say": "Time for your Self-Summary. Same date, 04/08/2026. Riverton Spine & Rehab says John Doe has missed two visits, Keystone ended Margaret's rental on 03/19, his carpool ended 04/01, and Dana Whitfield wants a Recorded Statement from him. What do you do first, second and third, and what does each step protect? While you're thinking about records, here's something to chew on. Why is a provider's offer to add a line to a chart more dangerous than a missing note? A missing note is a weakness. An altered one is a credibility collapse, and possibly a fraud question.",
+   "ask": "Why is a provider's offer to change a record more dangerous than a note that's simply missing?"
+  },
+  "scale": {
+   "say": "Last up is the Skill Scale. Give yourself a one to five on each competency and submit it for review. I'll compare each rating with your score and talk through any big gap with you. And remember UPL is a gate here too. A strong score doesn't survive a coached answer or a requested change to a record. If you couldn't rewrite that leading question cleanly, be honest about it; it just means another round in the simulator.",
+   "ask": "Which skill from today would you most want another run at in the simulator?"
+  }
+ },
+ "d2m4-l1": {
+  "why": {
+   "say": "The demand goes out later today, but what it can claim gets decided right here. Pre-demand is where most of a file's value is won or lost, because The demands that follow can only spend what this audit proves. One duplicate line or one unchecked limit is Keystone's easy out. Now try this arithmetic. There's $7,965.00 in liens waiting behind a $10,000 BI limit. Take a moment and work out what's left before John Doe sees anything from that layer. That's why every dollar in this audit has to be right.",
+   "ask": "With $7,965.00 in liens behind a $10,000 BI limit, how much of that layer is left?"
+  },
+  "theory": {
+   "say": "Think of the full pre-demand audit as the final stress test, the point where we stop collecting information and start using it, leaving the defense zero easy outs. It starts with the trinity of case alignment: narrative, physicality and medicals must all agree, and if one's out of line, the value collapses. Maximum Medical Improvement is the provider's finding that care has plateaued. The incurred Specials are complete, and the audit can begin. Special damages are Medical Bills plus lost wages plus Property Damage, the provable dollar loss, and every line needs a document. And the medical and billing audit runs three passes, chronology for gaps, coding for duplicates and prior history for pre-existing conditions, so we find the weak spots first.",
+   "ask": "Which of these audit ideas is new to you, and which part of John Doe's file would it test first?"
+  },
+  "theory2": {
+   "say": "Four more pieces. Liens and subrogation come first. Health Plans, government payers and LOP providers may all claim repayment from the recovery, and every lien shrinks his net. The Property Damage deep dive looks at photos of the point of impact, the estimate against the final bill and any supplements, because Property Damage proves the force behind the injury. The defense-eye audit is reading the file the way the adjuster will, looking at social media, a minor-impact label and the venue, and naming each value killer. And policy-limits targets are the verified limits in the order they open. That's what each policy can pay, which isn't the same thing as what the claim's worth.",
+   "ask": "What on John Doe's file would an adjuster point to for a minor-impact argument?"
+  },
+  "frame": {
+   "say": "This is the Master Audit Checklist. On the financial side you've got special damages, meaning Medical Bills, lost wages and Property Damage, every line documented. Lost wages need the employer's wage letter plus a provider's work note, and without both they're usually rejected. Then lien resolution, covering every subrogation interest, whether statutory, Health Plan or a consensual LOP. For liability proof, there's the final report, witness contact and any drift in their statements, and whether the physics is even possible. The Property Damage deep dive checks that the point of impact is clear and that supplements show hidden structural damage. And medical and billing gets the chronology with every gap explained, coding with no duplicates, and five to ten years of history.",
+   "ask": "Which line of this checklist do you think is weakest on John Doe's file today?"
+  },
+  "rules": {
+   "say": "Who decides John reached MMI? Not you, and not John. It's Lakeside Orthopedics, recorded from its 06/12/2026 note with the future-care plan. Audit for verification, valuation, risk and compliance, with the SOL of 02/06/2028 docketed. The Civic runs on its own Keystone PD claim, so his BI Specials are medical plus wages. Three passes: chronology for the 14 days and the 19-day disruption, coding for duplicates, and prior history, the 2021 low-back visits. Show billed beside paid, because that choice is Atty. Thorne's. Northgate verifies 9 shifts at 8 hours and $22.00, so $1,584.00, and flag the five shifts with no note. The $3,400 to $6,800 in future injections stays out of the total. Register every lien, including Peach State's $1,860.00. $16,401.40 already exceeds the $10,000 limit. You audit, total and flag; you don't value the case.",
+   "ask": "Who decides that John Doe reached MMI, and where do you record it from?"
+  },
+  "model": {
+   "say": "Read this one left to right. First there's a gate, MMI on 06/12/2026, with a green tick. Nothing enters the ledger until that's passed. In the centre is the ledger itself. See the Riverton Spine & Rehab row: $6,290.00 is struck through in red and replaced by $6,105.00, with a badge flagging a $185.00 duplicate on 05/04/2026. That's what the coding pass catches. Underneath is the sum, $14,817.40 in medicals plus $1,584.00 in wages, which gives $16,401.40. The future medical card sits deliberately outside the frame, in the narrative. On the right are the targets in the order they open: $10,000 BI, $20,000 Host UM and $10,000 Relative UM, each with its source.",
+   "ask": "What would Keystone have done with that $185.00 duplicate if we hadn't caught it?"
+  },
+  "job": {
+   "say": "The story starts on 06/12/2026, when the MMI note arrives. You record MMI and the future-care plan on the treatment timeline and open the pre-demand audit as a task with an owner and a date. As the final bills and records come in, you build the Specials ledger and reconcile it against the chronology until every billed date matches a visit and the medical total is $14,817.40. Once the ledger's reconciled, you register every lien and record billed beside paid in the Liens and the Net Sheet's Lien Tracker. That means $1,860.00 and $6,105.00 are listed and the billed-versus-paid question is routed to Atty. Thorne. Finally, before the ask, you re-verify each limit in the Coverage Matrix: $10,000, then $20,000, then $10,000, $40,000 in all, each with its written source.",
+   "ask": "Why re-verify the limits now, when the Coverage Matrix was confirmed weeks ago?"
+  },
+  "dodont": {
+   "say": "Let's play 3 Clues, 1 Rule. I'll reveal the clues one at a time; call Do or Don't and name the rule as soon as you see it. The good habits are stress-testing the file before the defense does, locking in total damages and then protecting them by finding every lien before the demand, and recording the source of every figure so Atty. Thorne can check any line in seconds. The traps are sending the demand and hoping nobody checks the math, padding the Specials with future care, and finding a lien after the release is signed. Watch billed versus paid, too. Picking a column yourself or hiding the paid one are both wrong, so show both and route the choice.",
+   "ask": "Why doesn't the Civic's repair ever count toward the $40,000 or the BI Specials?"
+  }
+ },
+ "d2m4-l2": {
+  "why": {
+   "say": "Let me read you two first lines. One: \"On 02/06/2026 John Doe was a front-seat passenger…\" Two: \"John Doe is at MMI with $16,401.40 in audited Specials against a $10,000 BI limit, and I need your decisions.\" Which of those can Atty. Thorne actually act on? Right, the second. He makes the strategy calls from your brief, and that's why its shape matters so much. A brief that opens with the chronology buries the decision. One that hides a risk misleads him. And one that makes the call for him crosses a line that isn't yours to cross.",
+   "ask": "Which of those two opening lines could Atty. Thorne act on in the first ten seconds?"
+  },
+  "theory": {
+   "say": "A pre-demand audit is the file's sanity check, and the strategy brief carries its findings, not conclusions, to Atty. Thorne, who makes every call. The brief reports on each of the core audit objectives: verification, valuation, risk and compliance. It flags statement drift, which is a witness whose story changes between tellings, because drift is an opening for the defense. It names the value killers the defense-eye audit turned up, such as social media, a minor-impact label or the venue, and counsel weighs each one. And it always carries the lien totals, because when the math is wrong or a lien gets missed, you end up with a short-funded settlement where the client takes home nothing.",
+   "ask": "What would a short-funded settlement mean for John Doe, in plain terms?"
+  },
+  "frame": {
+   "say": "The brief rests on the four core objectives of the pre-demand audit. Verification asks whether the facts match the physical evidence, meaning the photos, the Police Report and the scene. Valuation asks whether the damages are calculated accurately, with the bills, the wages and the future care each justified by a document. Risk assessment covers the weak spots the defense will argue: comparative negligence, social media, a minor-impact label, venue. And compliance means every statutory requirement is met before the demand issues, the Statute of Limitations first. If you can report a finding under each of those four, you're ready to brief.",
+   "ask": "Under which of these four objectives does John Doe's file still have an open question?"
+  },
+  "rules": {
+   "say": "Lead with the bottom line in one sentence: MMI 06/12/2026, $16,401.40 in audited Specials against a $10,000 BI limit, decisions needed before any demand is drafted. Next come the facts, audited and sourced, with the narrative, physicality and medicals agreeing. That includes report RPD-26-018842, Smith cited for failure to stop, Ruth Calloway checked for drift, and the doorbell video. On force, John's door was struck at about 28 mph, and the Civic went from $6,940.00 to $9,255.00 with a $2,315.00 A-pillar supplement. Then the risks, each paired with its answering document. Which one would you be tempted to leave out? Usually it's the 2021 low-back visits, and Keystone will find them. Then decisions as questions, and options with consequences. Record his decisions the same day. Saying Specials exceed the limit is a finding, but \"we should demand limits\" is his call.",
+   "ask": "Which risk would you be tempted to leave out of the brief, and what happens when Keystone finds it first?"
+  },
+  "model": {
+   "say": "Here's the brief, laid out in the order counsel reads it. It's one page with five bands. First is the bottom line, in navy, one line, the biggest type on the page. Second is the audited facts, split into narrative, physicality and medicals, each with a green tick. Third is the risks, in red: the 14-Day Gap, the disruption, the 2021 low back and that \"degenerative\" read, each one tethered to the document that answers it. Fourth is the decisions needed, every item written as a question. Fifth is the options with their consequences. And down the right edge runs a rail that says Atty. Elijah Thorne decides, ending in a dated, tasked decision record.",
+   "ask": "Why is every item in the decisions band written as a question rather than a recommendation?"
+  },
+  "job": {
+   "say": "So the audit's complete. You draft the one-page memo and the exhibit index in the Action Plan Editor, five sections in protocol order, with every exhibit label matching its page. Once the brief's ready, you book the strategy session on the CMS calendar and send the memo ahead through the Email Workspace, and the session happens before any demand is drafted. After the session, you record each decision in counsel's own words in Case Notes and open its tasks, each one dated, attributed to Atty. Thorne, with an owner and a due date. And since those decisions change the plan, you mark the Case Plan superseded and re-route the new version the same day, keeping the approved one.",
+   "ask": "Why re-route the Case Plan as a new version instead of just editing the old one?"
+  },
+  "dodont": {
+   "say": "Let's play 3 Clues, 1 Rule. Three clues, revealed one at a time. As soon as you know, call Do or Don't and name the rule. On the good side, you bring the bad facts yourself, so counsel never meets a risk first in the adjuster's letter. You find discrepancies before the defense does. You check John's public social media, and you never suggest deleting a post. You use the structural supplement to answer a minor-impact label, and you leave venue to Atty. Thorne. On the trap side, there's a three-page memo, an exhibit index with mismatched page numbers, and briefing the initial PD estimate instead of the final figure. And watch the recommend line. Certified mail with return receipt is operational, but \"we should demand limits\" isn't yours to say.",
+   "ask": "Is \"send it certified mail with return receipt and email\" a recommendation you're allowed to make?"
+  }
+ },
+ "d2m4-a1": {
+  "case": {
+   "say": "This landed on the file on 07/01/2026: billing complete, Special Damages Audit due, LSH-2026-MVA-770412. Lakeside Orthopedics declared MMI on 06/12/2026, and Dr. Reyes's Causation Letter arrived 06/19/2026. Every bill's in. There's Riverton Urgent Care at $685.00, Riverton Spine & Rehab's statement of 34 lines at $185.00, or $6,290.00, with its visit notes, three Lakeside Orthopedics visits at $640.00, Summit Imaging at $2,395.00, Crescent Pain & Spine at $3,400.00, which Peach State paid $1,860.00 on, and Riverton Drug at $312.40. Northgate's HR letter of 06/30/2026 verifies 9 missed shifts at 8 hours times $22.00. I'm handing you the bills, not the totals. Go ahead and add them up.",
+   "ask": "Before you total Riverton Spine & Rehab's statement, how many visits do its notes actually show?"
+  },
+  "task": {
+   "say": "You'll build John Doe's audited Specials ledger in the CMS Financial Ledger. Enter each provider's charges with dates, the billed amount and who paid. Reconcile Riverton Spine & Rehab's lines against its visit notes, and take out any line no visit supports. Total the medical, add the verified wages and show billed beside paid. Future medical goes in the narrative, not the ledger. List every lien with its amount in Liens and the Lien Tracker, and re-verify the three policy-limits targets in order on the Insurance tab. You'll hand in an audited ledger, a lien list, the targets in order, and a flag list routed to Atty. Thorne, and part of your grade is what you flag rather than decide.",
+   "ask": "Peach State paid $1,860.00 on a $3,400.00 bill. Which number goes in the demand?"
+  },
+  "check": {
+   "say": "Check your ledger to the cent. Riverton Spine & Rehab's notes show 33 visits against 34 lines, so the 05/04/2026 duplicate comes out and $6,290.00 becomes $6,105.00, with a corrected statement requested. Your medical total should be $14,817.40, down from $15,002.40. Wages are 9 shifts at 8 hours and $22.00, so $1,584.00, which gives total Specials of $16,401.40. If you've got any other number, a line is wrong. Here's the subtle one. Five of those nine shifts, 02/09 to 02/13/2026, fall before any provider saw John. Flag them with Northgate's Attendance Record; never drop them. Billed sits beside paid, and the choice goes to Atty. Thorne. Future medical stays in the narrative, and the targets run $10,000, $20,000, $10,000.",
+   "ask": "Why flag those five early shifts instead of quietly dropping them from the wage claim?"
+  }
+ },
+ "d2m4-a2": {
+  "case": {
+   "say": "It's 07/08/2026, and this is Atty. Thorne's note. He's read your audit, and the strategy session on John Doe is today at 2:00 p.m. in his office. Bottom line first, he says. Expect him to push the way Keystone will, on low speed, the 14 days and the \"degenerative\" read. Bring the facts, the documents and the operational options, and remember the decisions on the demand are his. Your audit's done: MMI 06/12/2026, Specials of $16,401.40, liens of $1,860.00 and $6,105.00, and targets of $10,000 BI, $20,000 Host UM and $10,000 Relative UM. Fair warning, he'll interrupt you inside the first minute.",
+   "ask": "If he says \"Keystone will call this low-speed,\" what objective fact do you answer with first?"
+  },
+  "task": {
+   "say": "You'll run the pre-demand strategy session with AI Atty. Elijah Thorne in the Call Simulator. Brief him in protocol order. Start with the bottom line, MMI, $16,401.40 in Specials and the $10,000 BI limit, then the audited facts, the risks with their answering documents, the decisions he has to make, and the operational consequences of each option. Meet every challenge with dated documents, not adjectives; \"it was a serious crash\" doesn't answer anything. Recommend only on operations, and get his decisions on the demand, the gap, the UM consents and billed versus paid. Read each decision back before you close. Afterwards, record them in Case Notes, open a task for each in Tasks, and re-route the Case Plan.",
+   "ask": "Observers, what did Atty. Thorne decide, in his own words?"
+  },
+  "check": {
+   "say": "Grade your decision record, not the conversation. If a decision isn't dated, attributed and tasked, the session didn't happen. Did you lead with the bottom line, with the figures exact? Did you meet the low-speed challenge with objective facts? That's Smith running the stop sign and getting cited, John's door struck at about 28 mph, the $2,315.00 A-pillar supplement, and the C5-C6 herniation on the 03/13/2026 MRI. Did you meet the gap with documents rather than an apology, and raise the 2021 visits and the \"degenerative\" read unprompted? His decisions should be recorded: the time-limited BI demand to Dana Whitfield, served 07/20/2026, the gap addressed up front, the UM consent plan, and billed versus paid. And when he asked what you think we should demand, did you give him the inputs and hand the figure back?",
+   "ask": "When AI Atty. Thorne asked what you'd demand, what exactly did you say back?"
+  }
+ },
+ "d2m4-kc": {
+  "questions": {
+   "say": "Look at the gate bar. This module turns the last two chips green: Specials audited at $16,401.40, and strategy approved by Atty. Thorne. The demand doesn't go out until all six are green. Now answer from this file, in your own words, under each question. Total John Doe's Specials from the bills, showing the Riverton Spine & Rehab correction, the medical total, the wage arithmetic and the final figure. Say who determines MMI, when John Doe's was, why the demand waits for it, and where the $3,400 to $6,800 in future medical goes. And name the four audit objectives, with one finding each produced on this file.",
+   "ask": "Which two chips on the gate bar does this module turn green?"
+  },
+  "summary": {
+   "say": "Now your Self-Summary, in your own words. The scenario takes us back to 04/08/2026. Riverton Spine & Rehab reports two missed visits, Keystone ended Margaret's rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked him for a Recorded Statement. Tell me what you do first, second and third, and what each one protects. And while you write, think about this. If you found an error in an exhibit right before the 07/20/2026 service date, the right move is to stop the package, fix every total that cites it, and tell Atty. Thorne before anything goes out. Serving a known error to make the date is the failure.",
+   "ask": "Which number on this file would you defend line by line to Dana Whitfield, and where does every cent come from?"
+  },
+  "scale": {
+   "say": "And to close out the pre-demand audit, your Skill Scale. Rate each competency from one to five and submit it for review. I'll put your self-rating beside your score, and where they're far apart, we'll sit down and talk it through. Be especially honest on the billed-versus-paid question. If any of your answers today picked a column for the demand, that loses the UPL marks, however good the rest of the work was.",
+   "ask": "Looking back over the pre-demand audit, which competency feels most solid to you now?"
+  }
+ },
+ "d2m2-lop": {
+  "why": {
+   "say": "John Doe needs chiropractic care next week, and nothing he has will pay for it. That's where a Letter of Protection comes in. In plain English, it's the firm's written promise to pay the provider's bill out of the settlement, so he can be treated now instead of waiting. It keeps care moving, and care that keeps moving keeps the file honest. But it isn't free money. It's a balance against his recovery, and he still owes it. So we track it from the day it's signed.",
+   "ask": "If the settlement came in lower than the bills, who would still owe the provider?"
+  },
+  "rules": {
+   "say": "Here's how we handle it. First, an LOP is the last resort, so we check health insurance, MedPay and PIP before anything else and write down why none of them works. Second, it gets signed before the first visit and filed. Riverton's was signed on 02/23/2026. Third, we ask for the itemized ledger every thirty days and update the Liens tab, so the balance never surprises anyone. And when John Doe asks where to go, we give him options with the facts, book the one he picks, and log his choice in his own words.",
+   "ask": "Why does it matter that he picks the provider, and not us?"
+  },
+  "job": {
+   "say": "On the job it looks like this. When no payer covers the care, you document the payer check and route the LOP to Atty. Thorne to approve. When it's signed, you file it and set the recurring ledger task. And when John Doe asks where he should go, you hand him two or three options with their locations, hours and network status, disclose any relationship the firm has with them, and book his choice. What you never say is which one is better for his case. That's the line."
+  },
+  "theory": {
+   "say": "Four ideas carry this lesson. A Letter of Protection is the firm's written promise to pay a provider from the settlement, so it's a claim against John Doe's recovery, not insurance. Payer-first means we check health insurance, MedPay and PIP before we ever reach for one. The LOP balance grows with every visit, so the itemized ledger every thirty days keeps the Liens tab honest. And referrals are options and logistics only: a list, the network status, the booking, and his choice.",
+   "ask": "Which of these four would you check first on a new provider bill?"
+  }
+ }
 }
