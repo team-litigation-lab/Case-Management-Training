@@ -207,7 +207,7 @@ window.CM_CF_SIM = {
    "from": "Tammy Greer, Riverton Spine & Rehab (tgreer@rivertonspine.example)",
    "to": "Case Manager",
    "subject": "Missed-visit alert: John Doe, LOP account RSR-26-0412",
-   "body": "Per your LOP dated 02/23/2026: John Doe missed 04/03 (no call) and 04/07. He told our front desk his rental ended and his ride is no longer available. He's booked 04/09 and 04/14 at 4:15 PM. Our 6:00 PM evening schedule is full until the week of 04/20; he's on the wait list. Please contact your client.",
+   "body": "Per your LOP dated 02/23/2026: John Doe missed 04/03 (no call) and 04/07. He told our front desk his mother's rental ended and his ride is no longer available. He's booked 04/09 and 04/14 at 4:15 PM. Our 6:00 PM evening schedule is full until the week of 04/20; he's on the wait list. Please contact your client.",
    "attachments": [
     "RS14"
    ]
@@ -240,7 +240,7 @@ window.CM_CF_SIM = {
     },
     {
      "q": "What are his two reasons for not going?",
-     "a": "It's too far, with no ride: his car's in the shop and his mother works days. And he heard it's out of network with Peach State.",
+     "a": "It's too far, with no ride: his mother's Civic is in the shop and his mother works days. And he heard it's out of network with Peach State.",
      "match": [
       "far|ride|car|drive|transport|distance|shop",
       "network|peach|bill|insur|cover"
@@ -675,7 +675,7 @@ window.CM_CF_SIM = {
    "who": "John Doe",
    "role": "client",
    "persona": "Polite, tired and sore; rattled by the Keystone call. Wants plain answers. Will ask whether to talk to Keystone, whose fault it was, and what his case is worth.",
-   "context": "02/10/2026. Retainer signed 02/09; the matter is open; no onboarding packet has reached him. John, 34, a Northgate warehouse shift lead, was the front-seat passenger in coworker Kevin Alvarez's Escape on 02/06. Last night a Keystone Mutual caller asked to record his account; he said he'd think about it, and she said she'd call back. His neck is stiff; he hasn't seen anyone. His Civic was towed from the scene and he has no car. Calms with clear steps; repeats instructions back if asked.",
+   "context": "02/10/2026. Retainer signed 02/09; the matter is open; no onboarding packet has reached him. John, 34, a Northgate warehouse shift lead, was the front-seat passenger in coworker Kevin Alvarez's Escape on 02/06. Last night a Keystone Mutual caller asked to record his account; he said he'd think about it, and she said she'd call back. His neck is stiff; he hasn't seen anyone. Margaret's Civic was towed from the scene and he has no car. Calms with clear steps; repeats instructions back if asked.",
    "opening": "Hey, it's John Doe, returning your call. So the other guy's insurance called me last night, a lady from Keystone, wanting to record what happened. She said she'd call back. What do I tell her?",
    "goals": [
     "Route all Keystone contact to the firm; no Recorded Statement",
@@ -717,7 +717,7 @@ window.CM_CF_SIM = {
    "who": "John Doe",
    "role": "client",
    "persona": "Embarrassed and frustrated; short answers at first. In pain and defensive about the missed visits. Will ask if this ruins his case. Opens up when not judged.",
-   "context": "04/08/2026. Riverton Spine & Rehab reports John missed 04/03 and 04/07; last visit 04/02. Keystone ended his rental on 03/19 at its 30-day cap; his Civic is still waiting on parts; Kevin Alvarez's shift changed 04/01, ending the carpool. He has no ride to his 4:15 PM appointments. His neck and right arm still bother him. His mother Margaret works a day shift and could drive him in the evenings, but he only says so if asked who could help.",
+   "context": "04/08/2026. Riverton Spine & Rehab reports John missed 04/03 and 04/07; last visit 04/02. Keystone ended Margaret's rental on 03/19 at its 30-day cap; Margaret's Civic is still waiting on parts; Kevin Alvarez's shift changed 04/01, ending the carpool. He has no ride to his 4:15 PM appointments. His neck and right arm still bother him. His mother Margaret works a day shift and could drive him in the evenings, but he only says so if asked who could help.",
    "opening": "Yeah, I know, I missed a couple. I'm not blowing it off, I swear. I just don't have a way to get there anymore. Is this going to mess up my case?",
    "goals": [
     "Find the barrier and ask about his current symptoms",
@@ -885,7 +885,7 @@ window.CM_CF_SIM = {
    "who": "Leah Moran",
    "role": "adjuster",
    "persona": "Cheerful, efficient PD adjuster closing files before year-end; calls the formula “company standard”; wants a yes today.",
-   "context": "12/10/2026. KM-26-440871-PD, John Doe's 2019 Honda Civic LX: repair $9,255.00; ACV $17,600.00. Keystone offers $792.00 Diminished Value (10% × $17,600.00 × 0.75 × 0.60) and $0 Loss of Use (claimed 48 days × $42.00 = $2,016.00). Independent appraisal: $3,600.00 (05/06/2026). Her emailed release covers “all claims arising from the 02/06/2026 accident.” She asks whether John will take it and insists it is final.",
+   "context": "12/10/2026. KM-26-440871-PD, Margaret Doe's 2019 Honda Civic LX: repair $9,255.00; ACV $17,600.00. Keystone offers $792.00 Diminished Value (10% × $17,600.00 × 0.75 × 0.60) and $0 Loss of Use (claimed 48 days × $42.00 = $2,016.00). Independent appraisal: $3,600.00 (05/06/2026). Her emailed release covers “all claims arising from the 02/06/2026 accident.” She asks whether John will take it and insists it is final.",
    "opening": "Hi, Leah Moran with Keystone, Property Damage, following up my email. Seven ninety-two on the Diminished Value is final. Will Mr. Doe sign so I can get his check out before the holidays?",
    "goals": [
     "Tell her the offer is with Atty. Thorne; nothing accepted or rejected",
@@ -978,7 +978,7 @@ window.CM_CF_SIM = {
      "channel": "alert",
      "from": "CMS",
      "subject": "Letter merge blocked: client role reads “Driver”",
-     "body": "The Harbor Point and Cardinal State LORs will not generate: the matter record still lists John Doe as the driver. As driver of his own Civic he would reach neither Host UM nor Relative UM. Correct it from the Police Report before today's letters go."
+     "body": "The Harbor Point and Cardinal State LORs will not generate: the matter record still lists John Doe as the driver. A driver listing points at the wrong coverage. Correct it from the Police Report before today's letters go."
     }
    }
   },

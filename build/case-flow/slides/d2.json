@@ -385,7 +385,7 @@
  },
  "d2m2-a2": {
   "image": "car-transport",
-  "situation": "04/08/2026: John Doe missed 04/03 and 04/07; **no visit since 04/02/2026**. Keystone ended his rental 03/19/2026, his carpool ended 04/01/2026, and **the Civic awaits parts**.",
+  "situation": "04/08/2026: John Doe missed 04/03 and 04/07; **no visit since 04/02/2026**. Keystone ended Margaret's rental 03/19/2026, his carpool ended 04/01/2026, and **the Civic awaits parts**.",
   "steps": [
    "Assess: call John Doe **on 04/08/2026**; classify the variance",
    "Coordinate: request **a rental extension** from Keystone PD in writing",

@@ -131,7 +131,7 @@
    "ask": "Which of the three purposes do you think is the easiest one to forget?"
   },
   "summary": {
-   "say": "Now your Self-Summary, where you put the principles in your own words. Here's the scenario. It's 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits. Keystone ended his rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked John for a Recorded Statement. Tell me what you do first, second and third, and what each step protects. This one pulls it all together: the running SOL, a Treatment Gap that's hardening, and the claims work that has to keep moving anyway. Keep in mind, too, that the gap you're watching build here is the same 14 days defense counsel will ask John Doe about at his deposition on Day 5.",
+   "say": "Now your Self-Summary, where you put the principles in your own words. Here's the scenario. It's 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits. Keystone ended Margaret's rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked John for a Recorded Statement. Tell me what you do first, second and third, and what each step protects. This one pulls it all together: the running SOL, a Treatment Gap that's hardening, and the claims work that has to keep moving anyway. Keep in mind, too, that the gap you're watching build here is the same 14 days defense counsel will ask John Doe about at his deposition on Day 5.",
    "ask": "Of those three problems, which one protects the most if you deal with it first?"
   },
   "scale": {
@@ -294,7 +294,7 @@
  },
  "d2m3-a1": {
   "case": {
-   "say": "Here's what landed on the file on 03/04/2026. The first records are in. Riverton Urgent Care's 02/20/2026 note says onset at the MVA on 02/06/2026, progressively worsening, with numbness to the right hand since 02/18. The EMS Run Report records neck stiffness on 02/06/2026. John Doe's been at Riverton Spine & Rehab since 02/24/2026, and his rental runs to 03/19/2026. And nobody has asked him why he waited 14 days. Atty. Thorne wants him on a recorded call today: open questions, nothing suggested, no opinions on what it means, and a GIRP note when you're done. Before anyone dials, here are the two ways to fail: a leading question or a suggested reason, and any version of \"won't matter\" or \"will hurt the case\".",
+   "say": "Here's what landed on the file on 03/04/2026. The first records are in. Riverton Urgent Care's 02/20/2026 note says onset at the MVA on 02/06/2026, progressively worsening, with numbness to the right hand since 02/18. The EMS Run Report records neck stiffness on 02/06/2026. John Doe's been at Riverton Spine & Rehab since 02/24/2026, and Margaret's rental runs to 03/19/2026. And nobody has asked him why he waited 14 days. Atty. Thorne wants him on a recorded call today: open questions, nothing suggested, no opinions on what it means, and a GIRP note when you're done. Before anyone dials, here are the two ways to fail: a leading question or a suggested reason, and any version of \"won't matter\" or \"will hurt the case\".",
    "ask": "Knowing what's on this file, what question will you be most tempted to ask him first?"
   },
   "task": {
@@ -312,7 +312,7 @@
  },
  "d2m2-a2": {
   "case": {
-   "say": "The clock starts at 04/08/2026, with this alert from Riverton Spine & Rehab on LOP account RSR-26-0412. Under the LOP dated 02/23/2026, John Doe missed 04/03 with no call, and he missed 04/07. His last visit was 04/02/2026. He told their front desk his rental ended and his ride's no longer available. He's booked 04/09 and 04/14 at 4:15 PM, but their 6:00 PM evening schedule is full until the week of 04/20, and he's on the wait list. They're asking you to contact your client. As you work, the file will keep moving, and I'll give you each update when you've earned it, not before.",
+   "say": "The clock starts at 04/08/2026, with this alert from Riverton Spine & Rehab on LOP account RSR-26-0412. Under the LOP dated 02/23/2026, John Doe missed 04/03 with no call, and he missed 04/07. His last visit was 04/02/2026. He told their front desk his mother's rental ended and his ride's no longer available. He's booked 04/09 and 04/14 at 4:15 PM, but their 6:00 PM evening schedule is full until the week of 04/20, and he's on the wait list. They're asking you to contact your client. As you work, the file will keep moving, and I'll give you each update when you've earned it, not before.",
    "ask": "What's the very first thing you'll do today, on 04/08/2026, with this alert in hand?"
   },
   "task": {
@@ -370,7 +370,7 @@
    "ask": "What may you tell Summit Imaging when you decline its LOP request, and what may you not?"
   },
   "summary": {
-   "say": "Now write your Self-Summary. It's 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits, Keystone ended his rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked John for a Recorded Statement. Tell me what you do first, second and third, and what each step protects. A couple of things I'll be looking for. On the 2021 visits, documenting low back versus neck, resolved, no prior neck complaints, is proof; saying they \"don't matter\" is arguing. On medication red flags, the provider hears the safety issue, Atty. Thorne hears the legal one, and you document the conversation.",
+   "say": "Now write your Self-Summary. It's 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits, Keystone ended Margaret's rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked John for a Recorded Statement. Tell me what you do first, second and third, and what each step protects. A couple of things I'll be looking for. On the 2021 visits, documenting low back versus neck, resolved, no prior neck complaints, is proof; saying they \"don't matter\" is arguing. On medication red flags, the provider hears the safety issue, Atty. Thorne hears the legal one, and you document the conversation.",
    "ask": "Which of these three problems would you hand to Atty. Thorne before anything else today?"
   },
   "scale": {
@@ -384,7 +384,7 @@
    "ask": "Who wants to be the Case Manager first while I play John Doe?"
   },
   "summary": {
-   "say": "Time for your Self-Summary. Same date, 04/08/2026. Riverton Spine & Rehab says John Doe has missed two visits, Keystone ended his rental on 03/19, his carpool ended 04/01, and Dana Whitfield wants a Recorded Statement from him. What do you do first, second and third, and what does each step protect? While you're thinking about records, here's something to chew on. Why is a provider's offer to add a line to a chart more dangerous than a missing note? A missing note is a weakness. An altered one is a credibility collapse, and possibly a fraud question.",
+   "say": "Time for your Self-Summary. Same date, 04/08/2026. Riverton Spine & Rehab says John Doe has missed two visits, Keystone ended Margaret's rental on 03/19, his carpool ended 04/01, and Dana Whitfield wants a Recorded Statement from him. What do you do first, second and third, and what does each step protect? While you're thinking about records, here's something to chew on. Why is a provider's offer to add a line to a chart more dangerous than a missing note? A missing note is a weakness. An altered one is a credibility collapse, and possibly a fraud question.",
    "ask": "Why is a provider's offer to change a record more dangerous than a note that's simply missing?"
   },
   "scale": {
@@ -490,7 +490,7 @@
    "ask": "Which two chips on the gate bar does this module turn green?"
   },
   "summary": {
-   "say": "Now your Self-Summary, in your own words. The scenario takes us back to 04/08/2026. Riverton Spine & Rehab reports two missed visits, Keystone ended John's rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked him for a Recorded Statement. Tell me what you do first, second and third, and what each one protects. And while you write, think about this. If you found an error in an exhibit right before the 07/20/2026 service date, the right move is to stop the package, fix every total that cites it, and tell Atty. Thorne before anything goes out. Serving a known error to make the date is the failure.",
+   "say": "Now your Self-Summary, in your own words. The scenario takes us back to 04/08/2026. Riverton Spine & Rehab reports two missed visits, Keystone ended Margaret's rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked him for a Recorded Statement. Tell me what you do first, second and third, and what each one protects. And while you write, think about this. If you found an error in an exhibit right before the 07/20/2026 service date, the right move is to stop the package, fix every total that cites it, and tell Atty. Thorne before anything goes out. Serving a known error to make the date is the failure.",
    "ask": "Which number on this file would you defend line by line to Dana Whitfield, and where does every cent come from?"
   },
   "scale": {

@@ -749,7 +749,7 @@ A call-simulator screen across the left two-thirds: a navy header bar reading AI
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** 03/04/2026. The first records are in. Riverton Urgent Care's note of 02/20/2026 reads: “onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18.” The EMS Run Report records neck stiffness on 02/06/2026. John Doe has been at Riverton Spine & Rehab since 02/24/2026; his rental runs to 03/19/2026. Nobody has asked him why he waited 14 days.
+**Scenario.** 03/04/2026. The first records are in. Riverton Urgent Care's note of 02/20/2026 reads: “onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18.” The EMS Run Report records neck stiffness on 02/06/2026. John Doe has been at Riverton Spine & Rehab since 02/24/2026; Margaret's rental runs to 03/19/2026. Nobody has asked him why he waited 14 days.
 
 **Execution prompt.** Run a recorded call with AI John Doe to learn why he first treated on 02/20/2026, 14 days after the collision. Open on the record: the date, who is on the call, his consent to recording, and that he can talk privately. Ask open questions, follow his words, and keep closed questions for pinning dates and documents. Find out who he told and what he kept; read his account back. Close with the standing instruction and his next appointment, then file a privileged GIRP note. Graded failures: any leading question or suggested reason, and telling him the gap “won't matter” or “will hurt the case”.
 
@@ -1551,7 +1551,7 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 7. Which four objectives does the pre-demand audit test?  
    **✓ Verification, Valuation, Risk, Compliance** · Speed, Volume, Tone, Format · Liability, Venue, Jury, Judge · Clinical, Functional, Financial, Legal  
    *Do the facts match the evidence, is every dollar justified, where will the defense attack, and are the SOL and any statutory terms confirmed?*
-8. Why does John Doe's Civic stay out of his BI Specials?  
+8. Why does Margaret Doe's Civic stay out of his BI Specials?  
    **✓ It runs on its own Keystone PD claim, outside the $40,000** · Property Damage is never recoverable · Bluewater already paid it · It is future medical  
    *Special damages include Property Damage, but the Civic is on its own PD claim, so the BI Specials are medical plus wages.*
 9. Briefing Atty. Thorne for the strategy session, what comes first?  

@@ -10,7 +10,7 @@
 
 - A raw file from “On the Records”: date of loss 02/06/2026, statute of limitations 02/06/2028; the client's position and the facts of loss are in the Police Report, to be read, not assumed.
 - Nothing is in the CMS yet: no Conflict Check, no matter, no parties.
-- John Doe's Civic was damaged in the crash; the Property Damage claim and the rental are still to be set up.
+- A parked Civic was damaged in the crash; whose Property Damage claim and rental it is has yet to be worked out from the records.
 - John Doe has not started treatment.
 
 > Generated from `js/cm-case-flow-data.js` by `build/case-flow/curriculum.cjs`. Edit the data and regenerate; never edit this file by hand. Spec: `00-architecture.md`. Theory map: `traceability.md`.
@@ -374,7 +374,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 #### 5 · Speaker Notes
 
 - Open by asking the room: “What is the single most expensive mistake you can make in the first hour of a file?” Let them answer, then show the passenger field.
-- The passenger fact is the whole lesson. Driving his own car on this loss, John Doe would reach $10,000: he rejected UM on his own policy, and the relative policy excludes a car he owns. As a passenger in the host vehicle he reaches $40,000. Same crash, same injuries, four times the recovery, decided by one field.
+- The passenger fact is the whole lesson. John Doe owns no car and has no auto policy of his own, so every UM dollar comes through someone else's policy. As a passenger in the host vehicle he reaches $40,000. Same crash, same injuries, four times the recovery, decided by one field.
 - Stress that “On the Records” files arrive unverified. A trainee who treats the intake note as fact carries its errors into the demand.
 - Name the UPL line now. It comes back every day of this program.
 
@@ -617,7 +617,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 - The recurring misconception is that ACV equals the loan balance. Correct it the moment it appears.
 - Storage is the silent cost. Ask: “Who is paying for every day this car sits?”
-- Loss of Use is the most often forgotten item, and on this file it matters: John Doe needs to get to treatment he hasn't started.
+- Loss of Use is the most often forgotten item. On this file it is not John Doe's to claim: ask the room whose car the Civic is, and make them prove it from the Police Report and the intake. His own need is a ride to treatment he hasn't started.
 - Day 5 reopens this with Diminished Value and the Property Damage dispute lab. Today is the threshold; Day 5 is the fight.
 
 ---
@@ -710,7 +710,7 @@ An exploded packet: a central navy folder with six document cards fanned around 
 
 **Scenario.** John Doe's retainer is signed and the matter is open in the CMS. Nothing has been sent to him yet, and he has already had one call from Robert Smith's carrier.
 
-**Execution prompt.** Assemble John Doe's onboarding Direction Packet. Build all six sections, populate each with the firm's standing instructions, and make the Property Damage section specific to this file. Given that the adverse carrier has already called him, state which instruction is now most urgent and how you will confirm he has understood it. Then log delivery.
+**Execution prompt.** Assemble John Doe's onboarding Direction Packet. Build all six sections, populate each with the firm's standing instructions, and make the Property Damage section specific to this file: from the records, state whose vehicle and claim it is. Given that the adverse carrier has already called him, state which instruction is now most urgent and how you will confirm he has understood it. Then log delivery.
 
 | | |
 |---|---|
@@ -722,7 +722,7 @@ An exploded packet: a central navy folder with six document cards fanned around 
 - [ ] All six packet sections present and populated
 - [ ] The standing instructions all appear in the Do's and Don'ts
 - [ ] Treatment direction stated, given that treatment has not begun
-- [ ] Property Damage section names the rental parameters to confirm
+- [ ] Property Damage section states, from the records, that the PD and rental claim belong to the Civic's owner, not the client
 - [ ] Communication protocol routes all adverse carrier contact to the firm
 - [ ] Firm contacts list Atty. Elijah Thorne as Lead Counsel
 - [ ] Delivery logged with date and method
@@ -904,7 +904,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
    Counts, as long as you remember it · **✓ Didn't happen: the CMS is the single source of truth** · Belongs in an email to yourself · Gets logged at the end of the month  
    *Every contact, document, deadline and decision is logged in the CMS the same day. If it isn't in the CMS, it didn't happen.*
 8. Where was John Doe in the collision on 02/06/2026?  
-   Driving his own Civic · **✓ The front-seat passenger in Kevin Alvarez's 2020 Ford Escape** · A pedestrian at the crossing · Driving Margaret Doe's car  
+   Driving Margaret Doe's Civic · **✓ The front-seat passenger in Kevin Alvarez's 2020 Ford Escape** · A pedestrian at the crossing · A passenger in Margaret Doe's Civic  
    *He was the front-seat passenger in the host vehicle; Robert Smith ran the all-way stop and struck the passenger door.*
 9. Which statute of limitations is docketed on John Doe's file?  
    02/06/2027 · 02/20/2028 · **✓ 02/06/2028** · 02/09/2028  
@@ -960,7 +960,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 #### 2 · Slide Body — Knowledge verification
 
 1. List the firm's standing instructions for a new personal injury client and, for each, the specific harm it prevents.
-2. Before John Doe collects a rental, what must be confirmed, and whose policy is usually primary? What happens to days outside the authorization?
+2. Before anyone collects a rental, what must be confirmed, and whose policy is usually primary? On John Doe's file, whose rental is it, and how do the records tell you?
 3. Explain what actual cash value means, what it does not mean, and why confusing it with the loan balance misleads the client.
 
 **Best practices & pitfalls**
@@ -1012,8 +1012,8 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 7. A vehicle is a Total Loss when:  
    The client no longer wants it · **✓ The cost to repair reaches the carrier's threshold measured against its actual cash value** · Any frame damage is found · The repair takes longer than 30 days  
    *Confirm the threshold basis the carrier is applying, in writing. Actual cash value is the pre-loss market value.*
-8. John Doe is without a car while the Civic is in the shop. Loss of Use is:  
-   Included in the repair payment · **✓ Claimable for each day without a vehicle, measured by a comparable rental, separately from the repair or ACV payment** · Owed only if the car is a Total Loss · Paid by his Health Plan  
+8. An owner is without her car while it is in the shop. Loss of Use is:  
+   Included in the repair payment · **✓ Claimable for each day without a vehicle, measured by a comparable rental, separately from the repair or ACV payment** · Owed only if the car is a Total Loss · Paid by her Health Plan  
    *Loss of Use is a separate claim. Asserting it is counsel's position, and the governing rule is confirmed for the file.*
 9. The Civic sits in storage while its valuation is disputed. Why settle its disposition quickly?  
    **✓ Storage and towing accrue daily and eat the recovery** · Property Damage must be claimed within 30 days · The body shop will sell it · The carrier stops paying the rental at once  

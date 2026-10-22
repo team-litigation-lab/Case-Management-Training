@@ -131,12 +131,12 @@ window.CM_CASE_FLOW = {
       "Resident relative: Margaret Doe, John's mother; John lives with her at 2214 Maple Hollow Rd. Her car is insured by Cardinal State Mutual (UM $10,000). Emergency contact on the file."
     ]},
     {after: 'd1m1-open', title: 'The Vehicles and Who Insures Them', group: 'file', items: [
-      "John's own car: 2019 Honda Civic LX, 52,300 miles, owned outright, insured by Bluewater Auto Insurance (liability + collision, $500 deductible). UM/UIM rejected in writing (03/14/2024).",
-      "Why passenger status matters: as a passenger in a car he doesn't own, John reaches Host UM and Relative UM. Driving his own Civic, he would reach $10,000: he rejected UM on his own policy, and Cardinal State excludes a resident relative in a vehicle he owns that it doesn't insure.",
+      "The parked car: Margaret's 2019 Honda Civic LX, 52,300 miles, owned outright, insured by Bluewater Auto Insurance on her policy (liability + collision, $500 deductible); UM/UIM rejected in writing by Margaret (03/14/2024). John owns no car and has no auto policy.",
+      "Why passenger status matters: as a passenger in a car he doesn't own, John reaches Host UM and Relative UM. He owns no car, so no policy of his own applies, and Margaret's Bluewater policy on the Civic carries no UM (rejected), so it adds no layer.",
       "Defendant: Robert Smith, driving a 2017 Chevrolet Silverado · Keystone Mutual BI $10,000 per person; PD liability $25,000 (separate, outside the $40,000 stack) · address on the Police Report: 118 Larkspur Ln, Riverton",
       "Employer: Northgate Distribution · warehouse shift lead since 01/12/2026 · $22.00/hour, 8-hour shifts · Peach State coverage through Northgate, effective 02/01/2026"]},
     {after: "d1m1-open", title: "The Collision: 02/06/2026, about 7:10 a.m.", group: "file", items: [
-      "All-way stop at Maple Hollow Rd & Birch Ave. Kevin stopped eastbound and proceeded; Robert Smith, northbound on Birch Ave, didn't stop and struck the Escape's front passenger door at about 28 mph, pushing it into John's parked Civic.",
+      "All-way stop at Maple Hollow Rd & Birch Ave. Kevin stopped eastbound and proceeded; Robert Smith, northbound on Birch Ave, didn't stop and struck the Escape's front passenger door at about 28 mph, pushing it into Margaret's parked Civic.",
       "Riverton PD report RPD-26-018842: Smith cited for failure to stop at a stop sign",
       "Independent witness: Ruth Calloway, 2209 Maple Hollow Rd",
       "Doorbell-camera video (Margaret's camera at 2214 Maple Hollow Rd) shows the Escape stopped and Smith rolling through · preservation told to John 02/17, copy secured 02/19/2026",
@@ -162,10 +162,10 @@ window.CM_CASE_FLOW = {
       "Keystone disclosed nothing before a written request with authorizations; BI $10,000 confirmed by its Declaration Page 03/20/2026"
     ]},
     {after: "d2m2-a2", title: "The Disruption", group: "care", items: [
-      "Keystone ended John's rental 03/19/2026 (30-day cap) while the Civic waited for parts; Kevin's shift changed 04/01/2026, ending the carpool.",
+      "Keystone ended Margaret's rental 03/19/2026 (30-day cap) while the Civic waited for parts; Kevin's shift changed 04/01/2026, ending the carpool.",
       "John missed PT visits from 04/03; the CM learned of it 04/08/2026 from Riverton Spine & Rehab's missed-visit alert."
     ]},
-    {after: "d5m2-a2", title: "Property Damage: John's Civic", group: "cover", items: [
+    {after: "d5m2-a2", title: "Property Damage: Margaret's Civic", group: "cover", items: [
       "A separate claim with Keystone PD (adjuster Leah Moran), outside the $40,000 stack · PD liability accepted 02/17/2026",
       "Tow $185.00 + 6 days' storage at $45.00 = $455.00 (Keystone paid)",
       "Estimate $6,940.00 (Riverton Collision Center, 02/16) + teardown supplement $2,315.00 (03/02) = $9,255.00 repair, paid to the shop 04/24/2026 · ACV $17,600.00, so repair is 52.6% of ACV: repairable, not a Total Loss",
@@ -401,7 +401,7 @@ window.CM_CASE_FLOW = {
     fileState: [
       "A raw file from “On the Records”: date of loss 02/06/2026, statute of limitations 02/06/2028; the client's position and the facts of loss are in the Police Report, to be read, not assumed.",
       "Nothing is in the CMS yet: no Conflict Check, no matter, no parties.",
-      "John Doe's Civic was damaged in the crash; the Property Damage claim and the rental are still to be set up.",
+      "A parked Civic was damaged in the crash; whose Property Damage claim and rental it is has yet to be worked out from the records.",
       "John Doe has not started treatment."
     ],
     modules: [
@@ -434,7 +434,7 @@ window.CM_CASE_FLOW = {
          opts: ["Counts, as long as you remember it", "Didn't happen: the CMS is the single source of truth", "Belongs in an email to yourself", "Gets logged at the end of the month"],
          a: 1, r: "Every contact, document, deadline and decision is logged in the CMS the same day. If it isn't in the CMS, it didn't happen."},
         {q: "Where was John Doe in the collision on 02/06/2026?",
-         opts: ["Driving his own Civic", "The front-seat passenger in Kevin Alvarez's 2020 Ford Escape", "A pedestrian at the crossing", "Driving Margaret Doe's car"],
+         opts: ["Driving Margaret Doe's Civic", "The front-seat passenger in Kevin Alvarez's 2020 Ford Escape", "A pedestrian at the crossing", "A passenger in Margaret Doe's Civic"],
          a: 1, r: "He was the front-seat passenger in the host vehicle; Robert Smith ran the all-way stop and struck the passenger door."},
         {q: "Which statute of limitations is docketed on John Doe's file?",
          opts: ["02/06/2027", "02/20/2028", "02/06/2028", "02/09/2028"],
@@ -754,7 +754,7 @@ window.CM_CASE_FLOW = {
         },
         notes: [
           "Open by asking the room: “What is the single most expensive mistake you can make in the first hour of a file?” Let them answer, then show the passenger field.",
-          "The passenger fact is the whole lesson. Driving his own car on this loss, John Doe would reach $10,000: he rejected UM on his own policy, and the relative policy excludes a car he owns. As a passenger in the host vehicle he reaches $40,000. Same crash, same injuries, four times the recovery, decided by one field.",
+          "The passenger fact is the whole lesson. John Doe owns no car and has no auto policy of his own, so every UM dollar comes through someone else's policy. As a passenger in the host vehicle he reaches $40,000. Same crash, same injuries, four times the recovery, decided by one field.",
           "Stress that “On the Records” files arrive unverified. A trainee who treats the intake note as fact carries its errors into the demand.",
           "Name the UPL line now. It comes back every day of this program."
         ]
@@ -1202,8 +1202,8 @@ window.CM_CASE_FLOW = {
         {q: "A vehicle is a Total Loss when:",
          opts: ["The client no longer wants it", "The cost to repair reaches the carrier's threshold measured against its actual cash value", "Any frame damage is found", "The repair takes longer than 30 days"],
          a: 1, r: "Confirm the threshold basis the carrier is applying, in writing. Actual cash value is the pre-loss market value."},
-        {q: "John Doe is without a car while the Civic is in the shop. Loss of Use is:",
-         opts: ["Included in the repair payment", "Claimable for each day without a vehicle, measured by a comparable rental, separately from the repair or ACV payment", "Owed only if the car is a Total Loss", "Paid by his Health Plan"],
+        {q: "An owner is without her car while it is in the shop. Loss of Use is:",
+         opts: ["Included in the repair payment", "Claimable for each day without a vehicle, measured by a comparable rental, separately from the repair or ACV payment", "Owed only if the car is a Total Loss", "Paid by her Health Plan"],
          a: 1, r: "Loss of Use is a separate claim. Asserting it is counsel's position, and the governing rule is confirmed for the file."},
         {q: "The Civic sits in storage while its valuation is disputed. Why settle its disposition quickly?",
          opts: ["Storage and towing accrue daily and eat the recovery", "Property Damage must be claimed within 30 days", "The body shop will sell it", "The carrier stops paying the rental at once"],
@@ -1289,14 +1289,14 @@ window.CM_CASE_FLOW = {
         visual: "An exploded packet: a central navy folder with six document cards fanned around it in a semicircle, each numbered with an orange badge — ① Do's and Don'ts ② Treatment directions ③ Property Damage and rental ④ Communication protocol ⑤ Document retention ⑥ Firm contacts and escalation path — each showing two or three bullet previews in small type. Beneath the fan, a delivery bar of three chips: PREPARED → DELIVERED → LOGGED, the third noting the required date and method.",
         act: {
           scenario: "John Doe's retainer is signed and the matter is open in the CMS. Nothing has been sent to him yet, and he has already had one call from Robert Smith's carrier.",
-          prompt: "Assemble John Doe's onboarding Direction Packet. Build all six sections, populate each with the firm's standing instructions, and make the Property Damage section specific to this file. Given that the adverse carrier has already called him, state which instruction is now most urgent and how you will confirm he has understood it. Then log delivery.",
+          prompt: "Assemble John Doe's onboarding Direction Packet. Build all six sections, populate each with the firm's standing instructions, and make the Property Damage section specific to this file: from the records, state whose vehicle and claim it is. Given that the adverse carrier has already called him, state which instruction is now most urgent and how you will confirm he has understood it. Then log delivery.",
           tool: "CMS → Onboarding → Direction Packet",
           output: "A complete, delivered and logged onboarding packet specific to John Doe's file.",
           checkpoints: [
             "All six packet sections present and populated",
             "The standing instructions all appear in the Do's and Don'ts",
             "Treatment direction stated, given that treatment has not begun",
-            "Property Damage section names the rental parameters to confirm",
+            "Property Damage section states, from the records, that the PD and rental claim belong to the Civic's owner, not the client",
             "Communication protocol routes all adverse carrier contact to the firm",
             "Firm contacts list Atty. Elijah Thorne as Lead Counsel",
             "Delivery logged with date and method",
@@ -1394,7 +1394,7 @@ window.CM_CASE_FLOW = {
         notes: [
           "The recurring misconception is that ACV equals the loan balance. Correct it the moment it appears.",
           "Storage is the silent cost. Ask: “Who is paying for every day this car sits?”",
-          "Loss of Use is the most often forgotten item, and on this file it matters: John Doe needs to get to treatment he hasn't started.",
+          "Loss of Use is the most often forgotten item. On this file it is not John Doe's to claim: ask the room whose car the Civic is, and make them prove it from the Police Report and the intake. His own need is a ride to treatment he hasn't started.",
           "Day 5 reopens this with Diminished Value and the Property Damage dispute lab. Today is the threshold; Day 5 is the fight."
         ]
       },
@@ -1456,7 +1456,7 @@ window.CM_CASE_FLOW = {
         check: {
           questions: [
             "List the firm's standing instructions for a new personal injury client and, for each, the specific harm it prevents.",
-            "Before John Doe collects a rental, what must be confirmed, and whose policy is usually primary? What happens to days outside the authorization?",
+            "Before anyone collects a rental, what must be confirmed, and whose policy is usually primary? On John Doe's file, whose rental is it, and how do the records tell you?",
             "Explain what actual cash value means, what it does not mean, and why confusing it with the loan balance misleads the client."
           ],
           summary: [
@@ -1865,7 +1865,7 @@ window.CM_CASE_FLOW = {
          a: 1, r: "BI pays first. Host UM opens once BI is exhausted or tendered, and Relative UM stacks behind Host UM."},
         {q: "Why can John Doe reach the $20,000 Host UM layer?",
          opts: ["He owns the host vehicle", "He was a passenger in the host vehicle", "Robert Smith has no insurance", "His Health Plan assigns it to him"],
-         a: 1, r: "He reaches the host vehicle's UM because he was riding in that car. Had he been driving his own car he would have reached $10,000: he rejected UM on his own policy, and the relative policy excludes a car he owns."},
+         a: 1, r: "He reaches the host vehicle's UM because he was riding in that car. He owns no car and has no auto policy of his own, so his UM comes from the host vehicle and his mother's policy."},
         {q: "Cardinal State Mutual has no adjuster assigned when John Doe's LOR goes out on 02/17/2026. How is the letter addressed?",
          opts: ["“Attn: Teresa Okafor”, to save re-addressing it later", "“Attn: Claims Department”, with the claim number in the subject line", "To Margaret Doe, the insured, to forward to her carrier", "Held back until Cardinal State assigns an adjuster"],
          a: 1, r: "With no adjuster assigned, the address line reads “Attn: Claims Department”. Teresa Okafor is not assigned until 03/03/2026, and holding the letter delays the UM notice."},
@@ -2388,7 +2388,7 @@ window.CM_CASE_FLOW = {
           "Walk the table row by row: whose policy, what does it pay, where does it sit? Let the room place MedPay before you do.",
           "Summit Imaging is the lesson in one fact: $2,395.00 paid by MedPay with nothing to repay, instead of a $2,395.00 LOP balance against John Doe's net.",
           "Crescent is the Health Plan step: $3,400.00 billed, $1,860.00 paid, $1,540.00 written off for good. Peach State's reimbursement claim can only start from what it paid.",
-          "Ask why John Doe reaches $30,000 of UM at all. He was a passenger: had he been driving his own Civic, his rejected Bluewater UM would leave only the $10,000 BI.",
+          "Ask why John Doe reaches $30,000 of UM at all. He was a passenger: he owns no car, so his UM comes from the Escape's policy and his mother's Cardinal State policy; her Bluewater policy on the Civic has no UM.",
           "Close on the boundary: you route bills in the default order; when two policies both claim to pay second, that is Atty. Thorne's call."
         ]
       },
@@ -3169,7 +3169,7 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 1 — Call Simulator: the 14-Day Gap, in his words",
         visual: "A call-simulator screen across the left two-thirds: a navy header bar reading AI JOHN DOE · RECORDED CALL · 03/04/2026 with a red recording dot, a cream transcript pane, and beneath it a question meter of three mono pills that count OPEN · CLOSED · LEADING, the last in red. Right third: four empty reason slots with orange numbered badges ①–④, each with a document slot beside it, filling only as the trainee surfaces them. Under the slots, a red danger callout: “A suggested reason earns a yes, not a fact.” The argument: reasons are earned by questions, never supplied.",
         act: {
-          scenario: "03/04/2026. The first records are in. Riverton Urgent Care's note of 02/20/2026 reads: “onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18.” The EMS Run Report records neck stiffness on 02/06/2026. John Doe has been at Riverton Spine & Rehab since 02/24/2026; his rental runs to 03/19/2026. Nobody has asked him why he waited 14 days.",
+          scenario: "03/04/2026. The first records are in. Riverton Urgent Care's note of 02/20/2026 reads: “onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18.” The EMS Run Report records neck stiffness on 02/06/2026. John Doe has been at Riverton Spine & Rehab since 02/24/2026; Margaret's rental runs to 03/19/2026. Nobody has asked him why he waited 14 days.",
           prompt: "Run a recorded call with AI John Doe to learn why he first treated on 02/20/2026, 14 days after the collision. Open on the record: the date, who is on the call, his consent to recording, and that he can talk privately. Ask open questions, follow his words, and keep closed questions for pinning dates and documents. Find out who he told and what he kept; read his account back. Close with the standing instruction and his next appointment, then file a privileged GIRP note. Graded failures: any leading question or suggested reason, and telling him the gap “won't matter” or “will hurt the case”.",
           tool: "Call Simulator → AI John Doe (recorded call) · CMS → Case Notes · Tasks",
           output: "A consented, privileged recording with all four reasons in John Doe's own words, a same-day GIRP note, and a dated task for every corroborating document.",
@@ -3461,7 +3461,7 @@ window.CM_CASE_FLOW = {
         {q: "Which four objectives does the pre-demand audit test?",
          opts: ["Verification, Valuation, Risk, Compliance", "Speed, Volume, Tone, Format", "Liability, Venue, Jury, Judge", "Clinical, Functional, Financial, Legal"],
          a: 0, r: "Do the facts match the evidence, is every dollar justified, where will the defense attack, and are the SOL and any statutory terms confirmed?"},
-        {q: "Why does John Doe's Civic stay out of his BI Specials?",
+        {q: "Why does Margaret Doe's Civic stay out of his BI Specials?",
          opts: ["It runs on its own Keystone PD claim, outside the $40,000", "Property Damage is never recoverable", "Bluewater already paid it", "It is future medical"],
          a: 0, r: "Special damages include Property Damage, but the Civic is on its own PD claim, so the BI Specials are medical plus wages."},
         {q: "Briefing Atty. Thorne for the strategy session, what comes first?",
@@ -5955,7 +5955,7 @@ window.CM_CASE_FLOW = {
             "Exhibit numbers belong to the proceeding (4-1, 4-2…): a late document takes the next number; a set others hold is never renumbered. Bates numbers belong to the page: stamped once at production (DOE 000001).",
             "Section 3 holds only the operative pleadings (09/24/2026 complaint, 11/12/2026 answer), no drafts. The answer pleads comparative negligence (out of turn, unbelted), causation (the gap, a “degenerative” MRI) and failure to mitigate; a defense argued but never pleaded is flagged to Atty. Thorne.",
             "Section 5's ledger ties line by line to the certified invoices and HR letter, each correction documented (duplicate removed: $6,290.00 → $6,105.00): $14,817.40 medical + $1,584.00 wages = $16,401.40. Future care ($3,400–$6,800) is narrative.",
-            "Section 6's log fixes the baseline (Keystone's $3,500, “final” 08/12/2026). A draft Limited Release lets Atty. Thorne fix terms in writing before anyone leaves, conditioned on both UM carriers' written consent (each may substitute its own check to keep subrogation). Its scope (BI only, or the pleaded PD claim too) is his call.",
+            "Section 6's log fixes the baseline (Keystone's $3,500, “final” 08/12/2026). A draft Limited Release lets Atty. Thorne fix terms in writing before anyone leaves, conditioned on both UM carriers' written consent (each may substitute its own check to keep subrogation). Its scope (BI only: John Doe pleads no PD claim) is his call.",
             "You are the QA and logistics auditor: sets for Atty. Thorne, the mediator and John Doe (or one digital set), every PDF OCR-searchable, statement delivered by 03/11/2027, binder audited against the index 48 hours out."
           ],
           upl: [
@@ -5971,7 +5971,7 @@ window.CM_CASE_FLOW = {
             ["2 · Briefs", "Our confidential statement; the defense's, if exchanged", "Ours to the mediator only, by 03/11/2027"],
             ["3 · Core pleadings", "Complaint 09/24/2026; answer and defenses 11/12/2026", "Operative versions only"],
             ["4 · Key evidence & liability", "RPD-26-018842, Ruth Calloway, doorbell stills, EMS report, EDR, deposition summary", "Summary + highlighted transcript pages"],
-            ["5 · Damages, financials & experts", "Ledger, Northgate HR letter, MRI, Causation Letter, Gap Explanation Record, PD claim", "Ledger = sources: $16,401.40"],
+            ["5 · Damages, financials & experts", "Ledger, Northgate HR letter, MRI, Causation Letter, Gap Explanation Record", "Ledger = sources: $16,401.40"],
             ["6 · Settlement history & drafts", "Negotiation Log from 07/20/2026; draft release (Smith, Keystone)", "Baseline stated; scope and UM consents flagged for Atty. Thorne"]
           ]
         },
@@ -6025,7 +6025,7 @@ window.CM_CASE_FLOW = {
             "Section 4 also holds the key correspondence (Keystone's 02/17/2026 acceptance of PD liability; what weight it carries is Atty. Thorne's call) and the 02/18/2027 deposition summary with highlighted transcript pages on the gap, the disruption, the 2021 visits and the seatbelt",
             "Landmine 1: ledger rebuilt from the certified bills in hand, with Riverton Spine & Rehab's original 34-line bill audited to 33 visits × $185.00 = $6,105.00 (05/04/2026 duplicate removed) and marked “Pending Final Verification” until its certified ledger arrives; $14,817.40 medical + $1,584.00 wages = $16,401.40",
             "Landmine 2: Crescent's $3,400.00 bill shown as satisfied by Peach State's $1,860.00 contract payment, proved by Peach State's EOB (no balance billing); open liens Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $7,965.00",
-            "Section 5 carries the PD claim separately, outside the $40,000 stack: Loss of Use 48 days × $42.00 = $2,016.00; Diminished Value $3,600.00 (appraisal) vs. $792.00 (Keystone)",
+            "Section 5 carries no PD claim: the Civic is Margaret Doe's, and her Keystone PD claim runs on its own file, outside John Doe's demand and the $40,000 stack",
             "Section 6: Negotiation Log 07/20/2026 demand → $3,500 (08/05) → rebuttal (08/06) → $3,500 “final” (08/12) → lapse (08/21) → suit (09/24); draft release limited to Robert Smith and Keystone; consent requests to Harbor Point and Cardinal State drafted",
             "Master index complete: every document in exactly one section with an exhibit number and Bates range; PDF OCR-searchable and bookmarked",
             "Audit memo names both landmines and their fixes; binder, statement and memo routed to Atty. Thorne before delivery; nothing about value said to Atty. Mercer"
@@ -6944,19 +6944,19 @@ window.CM_CASE_FLOW = {
     {
       n: 2, id: "d5m2",
       title: "Interactive Property Damage Practice Lab",
-      about: "John Doe's Civic in suit: the repair against ACV and the total-loss line, Loss of Use allocated day by day, and the diminished-value dispute worked from Keystone's 17c offer to a recommended range for Atty. Thorne.",
+      about: "Margaret Doe's Civic, on the separate PD-only file the firm opened for her (Margaret Doe has no PD claim): the repair against ACV and the total-loss line, Loss of Use allocated day by day, and the diminished-value dispute worked from Keystone's 17c offer to a recommended range for Atty. Thorne.",
       quiz: [
-        {q: "John Doe's Civic: final repair $9,255.00, ACV $17,600.00, Keystone's total-loss threshold 75%. The Civic is:",
+        {q: "Margaret Doe's Civic: final repair $9,255.00, ACV $17,600.00, Keystone's total-loss threshold 75%. The Civic is:",
          opts: ["A Total Loss: the supplement pushed the repair past half the ACV", "Repairable: $9,255.00 is 52.6% of ACV, under the $13,200.00 line", "A Total Loss: structural damage always totals a car", "Repairable only on the $6,940.00 estimate, not on the final bill"],
          a: 1, r: "$9,255.00 is 52.6% of $17,600.00. The line is 75% × $17,600.00 = $13,200.00, so the Civic is repairable with $3,945.00 to spare. Run it on the final bill, never the first estimate."},
-        {q: "Keystone paid John Doe's rental for 02/18–03/19/2026. Which days make up the $2,016.00 loss-of-use claim?",
+        {q: "Keystone paid Margaret Doe's rental for 02/18–03/19/2026. Which days make up the $2,016.00 loss-of-use claim?",
          opts: ["02/06–02/17 and 03/20–04/24/2026: 48 days without a car or a paid rental", "All 78 days from 02/06 to 04/24/2026", "Only the 30 rental days, at a higher daily rate", "Only the 36 days of parts delay"],
-         a: 0, r: "12 + 36 = 48 unpaid days × $42.00 = $2,016.00. The 30 paid days are excluded: claiming them again would pay John Doe twice for the same day."},
-        {q: "On John Doe's Civic, what holds Keystone's 17c diminished-value formula to $1,760.00 at most, whatever the damage?",
+         a: 0, r: "12 + 36 = 48 unpaid days × $42.00 = $2,016.00. The 30 paid days are excluded: claiming them again would pay Margaret Doe twice for the same day."},
+        {q: "On Margaret Doe's Civic, what holds Keystone's 17c diminished-value formula to $1,760.00 at most, whatever the damage?",
          opts: ["The mileage multiplier of 0.60", "The $25,000 PD limit", "The 10% base: 10% of the $17,600.00 ACV, set before any multiplier", "The date of the appraisal"],
          a: 2, r: "17c starts from 10% of value, $1,760.00 here, and the multipliers can only reduce it. The $3,600.00 appraisal is 20.5% of ACV, a figure the formula can never reach."},
-        {q: "Leah Moran tells you Keystone's $792.00 is final and asks you to confirm John Doe will take it. You:",
-         opts: ["Accept it, since anything beats $0", "Reject it and counter at $3,600.00", "Tell John Doe it's a fair offer and let him decide", "Log it, tell her it is with Atty. Thorne, and route it to him the same day"],
+        {q: "Leah Moran tells you Keystone's $792.00 is final and asks you to confirm Margaret Doe will take it. You:",
+         opts: ["Accept it, since anything beats $0", "Reject it and counter at $3,600.00", "Tell Margaret Doe it's a fair offer and let her decide", "Log it, tell her it is with Atty. Thorne, and route it to him the same day"],
          a: 3, r: "The CM never makes, accepts, rejects or counters a PD figure, and never values an offer for the client. The CM records and routes; Atty. Thorne decides."}
       ],
       blocks: [
@@ -6965,11 +6965,11 @@ window.CM_CASE_FLOW = {
         kind: "lesson", id: "d5m2-l1", brief: true,
         title: "Repair Estimates vs. ACV & Loss-of-Use Allocations",
         topic: "Repairable or total, and what each day without the Civic is worth",
-        visual: "A horizontal threshold gauge across the top half, the same instrument as Day 1's, now carrying John Doe's numbers: a bar from $0 to ACV $17,600.00, a bold navy THRESHOLD marker at 75% labelled $13,200.00, a grey chip at $6,940.00 (estimate, 39.4%) and an orange chip at $9,255.00 (final, 52.6%), joined by an orange arrow tagged +$2,315.00 A-PILLAR SUPPLEMENT. Lower half: a 78-day calendar ribbon from 02/06 to 04/24/2026 in three segments: red 12 days, navy 30 days (RENTAL PAID $1,260.00), red 36 days. A brace under the two red segments reads LOSS OF USE 48 × $42.00 = $2,016.00. The argument: Keystone paid for the middle and nothing on either side.",
+        visual: "A horizontal threshold gauge across the top half, the same instrument as Day 1's, now carrying Margaret Doe's numbers: a bar from $0 to ACV $17,600.00, a bold navy THRESHOLD marker at 75% labelled $13,200.00, a grey chip at $6,940.00 (estimate, 39.4%) and an orange chip at $9,255.00 (final, 52.6%), joined by an orange arrow tagged +$2,315.00 A-PILLAR SUPPLEMENT. Lower half: a 78-day calendar ribbon from 02/06 to 04/24/2026 in three segments: red 12 days, navy 30 days (RENTAL PAID $1,260.00), red 36 days. A brace under the two red segments reads LOSS OF USE 48 × $42.00 = $2,016.00. The argument: Keystone paid for the middle and nothing on either side.",
         tell: {
           why: "On Track B the Civic is no longer a side claim: its Loss of Use and Diminished Value are pleaded in the suit, and every figure will be tested in discovery. The repair-against-ACV arithmetic decides which measure of damages applies, and the loss-of-use calendar is the transportation record that explains the 14-Day Gap.",
           rules: [
-            "When negligence damages property, the law aims to make the owner whole: John Doe's position before 02/06/2026, never a windfall. Test every PD figure against it.",
+            "When negligence damages property, the law aims to make the owner whole: Margaret Doe's position before 02/06/2026, never a windfall. Test every PD figure against it.",
             "Three damage types are recoverable. Economic (special): repair, tow and storage, rental, Loss of Use, Diminished Value. Non-economic (general): pain and suffering, on the injury side. Punitive: to punish egregious conduct such as DUI; none is pleaded here.",
             "PD is also evidence of impact severity: the $2,315.00 teardown supplement (03/02/2026) is structural, the A-pillar, showing hidden damage for the PD claim and force for the injury claim.",
             "Courts generally award the lesser of the repair cost or the drop in market value: a car costing more to fix than it was worth is a Total Loss, capped at its value. Confirm Keystone's threshold basis in writing.",
@@ -6981,7 +6981,7 @@ window.CM_CASE_FLOW = {
             "Keystone's PD coverage ($25,000) pays this claim, outside the $40,000 stack. Bluewater's collision went unused: Keystone accepted PD liability on 02/17/2026."
           ],
           upl: [
-            "You may compute, allocate, document and report PD figures to Atty. Thorne. You may not tell John Doe what his car or its use is worth, whether to accept a Keystone figure, or how a court will measure his damages.",
+            "You may compute, allocate, document and report PD figures to Atty. Thorne. You may not tell Margaret Doe what her car or its use is worth, whether to accept a Keystone figure, or how a court will measure her damages.",
             "You may put the PD and rental record in Atty. Thorne's deposition set; you may not rehearse John Doe's answers about the gap or the car."
           ]
         },
@@ -7017,13 +7017,13 @@ window.CM_CASE_FLOW = {
           ],
           trainer: [
             ["Evidentiary reasoning", 25, "Connects the supplement and the loss-of-use dates to the injury claim and the gap"],
-            ["UPL boundary", 15, "No valuation or acceptance advice to John Doe; the 36-day argument left to Atty. Thorne"]
+            ["UPL boundary", 15, "No valuation or acceptance advice to Margaret Doe; the 36-day argument left to Atty. Thorne"]
           ]
         },
         notes: [
           "Open with the gauge. Ask which number decides whether the Civic is totaled; most will say the estimate. It is the final bill, $9,255.00, after the supplement.",
-          "Put it to the room: “Keystone paid for 30 days of rental. Why is John Doe still owed anything for the use of his car?” Make them find the two red segments on either side.",
-          "Tie it to Day 5's gap work: the 12 days without a car are the first of the four reasons for the 14-Day Gap, and the 02/18/2026 rental date is in the PD record, not just John Doe's memory. Expect defense counsel to build a causation trap on that fortnight at deposition; the record answers it, and Atty. Thorne, not the CM, prepares John Doe.",
+          "Put it to the room: “Keystone paid for 30 days of rental. Why is Margaret Doe still owed anything for the use of her car?” Make them find the two red segments on either side.",
+          "Tie it to Day 5's gap work: the 12 days without a car are the first of the four reasons for the 14-Day Gap, and the 02/18/2026 rental date is in the PD record, not just John Doe's memory. Expect defense counsel to build a causation trap on that fortnight at deposition; the record answers it, and Atty. Thorne, not the CM, prepares Margaret Doe.",
           "Legal nuance: whether parts-backorder days are recoverable, and how far a carrier's cap binds, vary by jurisdiction. Watch for the 78-day double count; the make-whole principle answers it, and it is not a technicality."
         ]
       },
@@ -7034,7 +7034,7 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 1 — audit the Civic's numbers before discovery does",
         visual: "An annotated CMS Property Damage worksheet fills the left two-thirds: a white card with a navy header bar and two staged entries struck through in red, the 39.4% total-loss check on the $6,940.00 estimate and the 78-day, $3,276.00 loss-of-use line, each with an orange numbered badge pointing to its corrected value in the margin (52.6% on $9,255.00; 48 days, $2,016.00). The right third is an evidence column of three cream cards, one per period (12 · 30 · 36 days), each listing its proof as mono pills. A red-bordered strip along the bottom reads PRODUCED WRONG = IMPEACHED. The argument: fix the record before the defense reads it.",
         act: {
-          scenario: "File date 12/2026: the requests mailed 12/01/2026 have arrived. Defendant's First Requests for Production, served on John Doe by U.S. mail, ask for every document supporting the Property Damage claim (responses due 01/04/2027). The total-loss and loss-of-use entries on the CMS Property Damage screen, untouched since April, show a total-loss check run on the $6,940.00 estimate (39.4% of ACV) and a loss-of-use line of 78 days × $42.00 = $3,276.00. Keystone still offers $0 for Loss of Use.",
+          scenario: "File date 12/2026: the requests mailed 12/01/2026 have arrived. Leah Moran (Keystone PD) asks Margaret Doe's PD file for every document supporting her Property Damage claim (reply due 01/04/2027). The total-loss and loss-of-use entries on the CMS Property Damage screen, untouched since April, show a total-loss check run on the $6,940.00 estimate (39.4% of ACV) and a loss-of-use line of 78 days × $42.00 = $3,276.00. Keystone still offers $0 for Loss of Use.",
           prompt: "Audit and correct the Civic's numbers before anything is produced. Re-run the total-loss check on the final repair against the $17,600.00 ACV and Keystone's 75% threshold, and list what you would verify in Keystone's Valuation Report. Rebuild the loss-of-use ledger day by day from 02/06 to 04/24/2026, allocating each day once, and correct the claim. Attach the evidence for each period, and index the severity set: the photos and the estimate against the final bill. Then flag for Atty. Thorne the two arguments Keystone will make against the unpaid days, without answering them, and date the task ahead of the response deadline.",
           tool: "CMS → Property Damage → Loss of Use · CMS → Documents · CMS → Tasks → Escalate",
           output: "A corrected PD worksheet (repairable at 52.6% of ACV; 48 days and $2,016.00 claimed) with each period evidenced and Keystone's defenses flagged for Atty. Thorne.",
@@ -7080,7 +7080,7 @@ window.CM_CASE_FLOW = {
         notes: [
           "Don't tell them there are two staged errors. The trainee who re-runs the threshold on $9,255.00 and catches the 78-day double count is doing the job; the one who tidies the formatting isn't.",
           "Ask the room: “If the defense receives a worksheet claiming $3,276.00, what happens to the credibility of the $3,600.00 appraisal?” That is why the audit comes before production.",
-          "Grade the evidence column hardest. The 12 pre-rental days are proved by the tow and storage record and Keystone's own 02/17/2026 acceptance, not by John Doe's word.",
+          "Grade the evidence column hardest. The 12 pre-rental days are proved by the tow and storage record and Keystone's own 02/17/2026 acceptance, not by Margaret Doe's word.",
           "What is produced, and how discovery is answered, is Atty. Thorne's decision. The CM prepares the set; the responses go out over his signature."
         ]
       },
@@ -7091,20 +7091,20 @@ window.CM_CASE_FLOW = {
         topic: "What a repaired car still loses, and how the dispute gets resolved",
         visual: "A balanced two-column face-off. Left, a navy card headed KEYSTONE'S 17c: the formula as a descending staircase of three mono pills, $1,760.00 → × 0.75 → × 0.60, landing on $792.00, each step tagged in red with its flaw (10% CAP · TIER · MILEAGE TWICE). Right, an orange-bordered cream card headed THE MARKET: $3,600.00 set large in Fraunces, with three evidence chips beneath it (appraisal 05/06/2026 · A-pillar supplement · photos). A thin horizontal rule between the cards marks the $1,760.00 ceiling; the $3,600.00 sits visibly above it. Bottom strip, red-bordered: “PD release only. Never all claims.” The argument: the formula cannot reach the market.",
         tell: {
-          why: "A Civic with an A-pillar repair in its history is worth less than one never hit, and John Doe didn't cause that loss. Keystone's $792.00 comes from a formula; the $3,600.00 from a market appraisal. The difference is pleaded on Track B: the CM builds the evidence and Atty. Thorne makes the argument.",
+          why: "A Civic with an A-pillar repair in its history is worth less than one never hit, and Margaret Doe didn't cause that loss. Keystone's $792.00 comes from a formula; the $3,600.00 from a market appraisal. The difference is pleaded on Track B: the CM builds the evidence and Atty. Thorne makes the argument.",
           rules: [
             "Diminished Value is the market value a car still loses after a proper repair: buyers pay less for a damage history. Many jurisdictions allow it against the at-fault driver.",
             "It sits beside the lesser-of rule: where a repair leaves a residual loss, many courts add it to the repair cost (for example, Restatement (Second) of Torts § 928), kept under the pre-loss value: $9,255.00 + $3,600.00 = $12,855.00, under $17,600.00. Confirm the governing rule.",
             "It is a market loss, not a feeling. The measure is fair market value. Where an item has no market (an heirloom), some courts use actual value to the owner, still excluding sentimental value; a few allow emotional-distress damages for intentional destruction. Neither fits a 2019 Civic.",
             "Keystone's “17c” figure is a carrier formula from a Georgia class-action settlement, not a legal measure of damages: 10% of $17,600.00 = $1,760.00, × damage 0.75, × mileage 0.60 = $792.00.",
-            "Critique the cap: no damage, however severe, yields more than $1,760.00 on this car. The appraisal's $3,600.00 is 20.5% of ACV, more than twice the formula's ceiling.",
+            "Critique the cap: no damage, however severe, yields more than $1,760.00 on ther car. The appraisal's $3,600.00 is 20.5% of ACV, more than twice the formula's ceiling.",
             "Critique the multipliers: 0.75 is the formula's ‘major structural’ tier; the A-pillar teardown supports arguing for its top, ‘severe structural’ tier (1.00), Atty. Thorne's argument to make; 0.60 discounts 52,300 miles the $17,600.00 ACV already priced in, counting mileage twice.",
             "Test your own evidence too: the Riverton Auto Appraisal (05/06/2026) post-dates the 04/24/2026 repair, so it valued the repaired car; check its method and credentials.",
-            "Resolve on evidence: get Keystone's position and inputs in writing, by the route Atty. Thorne chooses (in suit, usually discovery), assemble the answer (appraisal, supplement, rental record) and escalate to him. Pleaded on Track B, the items resolve where he takes them: negotiation, mediation, or trial.",
-            "PD is settled only on a property-damage-only release Atty. Thorne has reviewed. A release reaching “all claims” from 02/06/2026 could end the injury case in suit; John Doe signs nothing from Keystone until the firm has reviewed it."
+            "Resolve on evidence: get Keystone's position and inputs in writing, by the route Atty. Thorne chooses, assemble the answer (appraisal, supplement, rental record) and escalate to him. Outside John Doe's suit, the items resolve where he takes them: negotiation, appraisal, or Margaret's own small-claims filing.",
+            "PD is settled only on a property-damage-only release Atty. Thorne has reviewed. A release reaching “all claims” from 02/06/2026 could reach more than the Civic; Margaret Doe signs nothing from Keystone until the firm has reviewed it."
           ],
           upl: [
-            "You may calculate, critique the formula on paper, assemble the evidence and recommend a range to Atty. Thorne. You may not make, accept, reject or counter any PD figure, tell John Doe what his car has lost in value or whether to take Keystone's offer, or explain a release to him."
+            "You may calculate, critique the formula on paper, assemble the evidence and recommend a range to Atty. Thorne. You may not make, accept, reject or counter any PD figure, tell Margaret Doe what her car has lost in value or whether to take Keystone's offer, or explain a release to her."
           ]
         },
         show: {
@@ -7128,12 +7128,12 @@ window.CM_CASE_FLOW = {
         ops: [
           ["Keystone states its diminished-value figure", "Ask Atty. Thorne how to obtain the 17c worksheet and every input (a discovery request or a written request through counsel), and draft it for his review", "CMS → Property Damage → Correspondence", "Base, both multipliers and the ACV used on file in writing"],
           ["Appraisal received (05/06/2026)", "Audit its method, data and credentials; index it as the diminished-value evidence", "CMS → Property Damage · CMS → Documents", "Audit note dated; appraisal indexed"],
-          ["Keystone sends a PD release or check", "Hold it and route the release language to Atty. Thorne", "CMS → Tasks → Escalate", "Release scope reviewed by Atty. Thorne before John Doe sees a signature line"]
+          ["Keystone sends a PD release or check", "Hold it and route the release language to Atty. Thorne", "CMS → Tasks → Escalate", "Release scope reviewed by Atty. Thorne before Margaret Doe sees a signature line"]
         ],
         best: [
           "Make Keystone show its formula's inputs in writing; a number without its math can't be answered.",
           "Put the critique on paper for Atty. Thorne; an adjuster call is not where it gets argued.",
-          "Pitfall: telling John Doe his car “lost $3,600.00”; that is a valuation opinion.",
+          "Pitfall: telling Margaret Doe her car “lost $3,600.00”; that is a valuation opinion.",
           "Pitfall: a PD release that reaches the injury claim.",
           "Pitfall: promising sentimental-value recovery the law won't award."
         ],
@@ -7146,7 +7146,7 @@ window.CM_CASE_FLOW = {
           ],
           trainer: [
             ["Dispute judgment", 25, "Evidence-led; escalates rather than argues; keeps the release risk in view"],
-            ["UPL boundary", 15, "No figure made, accepted, rejected or valued for John Doe"]
+            ["UPL boundary", 15, "No figure made, accepted, rejected or valued for Margaret Doe"]
           ]
         },
         notes: [
@@ -7163,20 +7163,20 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 2 — from $792.00 to a recommended range for Atty. Thorne",
         visual: "A negotiation board across the slide. Left: a vertical number line from $0 to $5,616.00, Keystone's $792.00 low in navy and the claimed $5,616.00 at the top in orange; between them an empty orange bracket labelled RECOMMENDED RANGE — FOR ATTY. THORNE'S AUTHORITY, which the trainee fills. Right: the 17c rebuilt as three stacked mono pills ($1,760.00 → × 0.75 → × 0.60 = $792.00), each with a red critique tag. Bottom-right, a red-bordered callout over a release thumbnail: “ALL CLAIMS” — HOLD, ROUTE TO COUNSEL. The argument: the CM builds the range; only counsel can use it.",
         act: {
-          scenario: "File date 12/10/2026. The Scheduling Order requires mediation by 03/31/2027. Leah Moran (Keystone PD) emails that $792.00 for Diminished Value and $0 for Loss of Use are final, attaching a release of “all claims arising from the 02/06/2026 accident” for John Doe's signature, then calls to ask whether John Doe will take it. Atty. Thorne wants your recommendation.",
+          scenario: "File date 12/10/2026. The Scheduling Order requires mediation by 03/31/2027. Leah Moran (Keystone PD) emails that $792.00 for Diminished Value and $0 for Loss of Use are final, attaching a release of “all claims arising from the 02/06/2026 accident” for Margaret Doe's signature, then calls to ask whether Margaret Doe will take it. Atty. Thorne wants your recommendation.",
           prompt: "Work the diminished-value dispute to a recommendation. Rebuild Keystone's 17c figure from the $17,600.00 ACV, then critique its 10% cap and both multipliers against the 03/02/2026 supplement and the 05/06/2026 appraisal. Set out the whole PD dispute, claimed against offered, and recommend a negotiating range: a top and a floor, each with its evidence and arithmetic. Take Leah Moran's call and answer her email without accepting, rejecting or countering anything, route the release, and send the range to Atty. Thorne for authority.",
           tool: "CMS → Property Damage · Email Workspace · Call Simulator → AI Adjuster: Leah Moran, Keystone Mutual (PD) · CMS → Tasks → Escalate",
           output: "A one-page PD dispute memo: the 17c rebuilt and critiqued, a recommended range with its evidence, the release flagged, and the call and email logged, routed to Atty. Thorne.",
           checkpoints: [
             "17c rebuilt: 10% × $17,600.00 = $1,760.00; × 0.75 = $1,320.00; × 0.60 = $792.00",
-            "The 10% cap named: the formula can never exceed $1,760.00 on this car",
+            "The 10% cap named: the formula can never exceed $1,760.00 on ther car",
             "Both multipliers challenged: 0.75 against the $2,315.00 A-pillar supplement (03/02/2026); 0.60 as a second discount for 52,300 miles the ACV already priced in",
             "Appraisal compared: $3,600.00 (20.5% of ACV) against $792.00 (4.5%); difference $2,808.00",
             "Dispute totalled: $2,016.00 + $3,600.00 = $5,616.00 claimed against $792.00 offered",
             "Range has a top and a floor, each traced to a document with the arithmetic shown, and the weakest item (the 36 “shop delay” days) named; the floor sits above $792.00",
             "Make-whole check shown: $9,255.00 + $3,600.00 = $12,855.00, below the $17,600.00 pre-loss value",
             "Limit check: $455.00 + $9,255.00 + $1,260.00 = $10,970.00 paid, + $5,616.00 disputed = $16,586.00, inside Keystone's $25,000 PD limit; any other claim on that limit (the Escape) flagged for Atty. Thorne",
-            "Release flagged: the “all claims” language routed to Atty. Thorne; nothing sent to John Doe to sign",
+            "Release flagged: the “all claims” language routed to Atty. Thorne; nothing sent to Margaret Doe to sign",
             "Call and email logged; Leah Moran told only that the offer is with Atty. Thorne; no figure accepted, rejected or countered",
             "Recommendation routed to Atty. Thorne as a task, evidence attached, marked “for authority”"
           ]
@@ -7194,7 +7194,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Keystone restates $792.00 and $0 with a release", "Log the email and the call; acknowledge receipt only", "Email Workspace · CMS → Communications Log", "Both logged 12/10/2026; no position taken"],
-          ["Release received", "Route the release language to Atty. Thorne and hold it from John Doe", "CMS → Tasks → Escalate", "Escalated the same day; John Doe not asked to sign"],
+          ["Release received", "Route the release language to Atty. Thorne and hold it from Margaret Doe", "CMS → Tasks → Escalate", "Escalated the same day; Margaret Doe not asked to sign"],
           ["Range drafted", "Send the memo and the evidence to Atty. Thorne for authority", "CMS → Tasks → Escalate", "His decision recorded before anything goes to Keystone"],
           ["Atty. Thorne sets authority", "Record it in his words and calendar the next step", "CMS → Case Notes · Calendar", "Authority dated; nothing used beyond it"]
         ],
@@ -7202,7 +7202,7 @@ window.CM_CASE_FLOW = {
           "Recommend with arithmetic: every number in the range traces to a document.",
           "Give Atty. Thorne the weak point too: the 36 “shop delay” days are where Keystone will push hardest.",
           "Pitfall: telling Leah Moran “we'd probably take” any figure; that is an offer made without authority.",
-          "Pitfall: forwarding Keystone's release to John Doe “just so he can see it.”"
+          "Pitfall: forwarding Keystone's release to Margaret Doe “just so she can see it.”"
         ],
         sources: ["D5#35", "D5#34", "LSH Claims Specialist: liability disputes — written basis, stronger evidence, escalation to the attorney", "Newly authored: the 17c critique and the recommended negotiating range"],
         rubric: {
@@ -7215,11 +7215,11 @@ window.CM_CASE_FLOW = {
           trainer: [
             ["Negotiation judgment", 15, "A range Atty. Thorne could use: realistic, with the weak points named"],
             ["Release risk", 10, "Saw that the release could reach the injury claim and held it"],
-            ["UPL boundary", 15, "Nothing accepted, rejected or countered; John Doe not asked to sign; the adjuster told only that it is with counsel"]
+            ["UPL boundary", 15, "Nothing accepted, rejected or countered; Margaret Doe not asked to sign; the adjuster told only that it is with counsel"]
           ]
         },
         notes: [
-          "Start with the release, not the math. Ask who opened Leah Moran's attachment. A trainee who forwards it to John Doe has failed the lab before computing anything.",
+          "Start with the release, not the math. Ask who opened Leah Moran's attachment. A trainee who forwards it to Margaret Doe has failed the lab before computing anything.",
           "Ask: “What is the lowest number you'd put in front of Atty. Thorne, and which document defends it?” Grade the reasoning, not the figure; the outcome is his. Keystone's own formula, with the damage tier at the top and the mileage double count removed, reaches its $1,760.00 ceiling; a floor built there defends better than one picked from the air.",
           "In the call, AI Leah Moran presses: “Can you just tell me if he'll take it?” The only right answer is that the offer is with Atty. Thorne and the firm will respond.",
           "Nuance: the range is internal work product for counsel. With the items pleaded and Robert Smith represented by Atty. Grant Mercer, how and with whom PD is negotiated is Atty. Thorne's choice."
@@ -7233,12 +7233,12 @@ window.CM_CASE_FLOW = {
         visual: "The standard knowledge-check split (cream question panel with orange-numbered questions, navy Self-Summary card, the 1–5 ladder, the 60/40 strip with the separate red UPL gate). Module-specific addition: a PD LEDGER STRIP between the panels, four cells in mono type: Repair $9,255.00 · 52.6% | Loss of Use 48 days · $2,016.00 vs $0 | Diminished Value $3,600.00 vs $792.00 | Recommendation → Atty. Thorne. The last cell is orange-bordered and empty until the trainee states the next action. The strip is the whole dispute at a glance; the questions make them defend each cell.",
         check: {
           questions: [
-            "Show whether John Doe's Civic is a Total Loss: the final repair, the ACV, Keystone's threshold and the percentage, with the arithmetic.",
+            "Show whether Margaret Doe's Civic is a Total Loss: the final repair, the ACV, Keystone's threshold and the percentage, with the arithmetic.",
             "Allocate the 78 days from 02/06 to 04/24/2026. Which are claimed as Loss of Use, at what rate and for how much, and why are the rental days excluded?",
             "Name the three types of damages, place the Civic's repair, Loss of Use and Diminished Value among them, and say what conduct a punitive claim requires."
           ],
           summary: [
-            "Summarize, in your own words, what you learned about valuing and disputing Property Damage on John Doe's file: the principles, not the clicks.",
+            "Summarize, in your own words, what you learned about valuing and disputing Property Damage on Margaret Doe's file: the principles, not the clicks.",
             "Articulate your strategy: the PD dispute stands at $5,616.00 claimed against $792.00 offered. What is your next action, and why is it the right one rather than something else?",
             "Identify the one thing in this module you are least confident about, and what you would need in order to be confident."
           ],
@@ -7266,15 +7266,15 @@ window.CM_CASE_FLOW = {
           trainer: [
             ["Strategic articulation", 15, "The stated next action fits a $5,616.00 against $792.00 dispute and the reasoning holds"],
             ["Self-Summary quality", 10, "Honest and specific, not a restatement of the slide"],
-            ["UPL boundary", 10, "Inspection and offer both routed to Atty. Thorne; nothing agreed with defense counsel; no value given to John Doe"],
+            ["UPL boundary", 10, "Inspection and offer both routed to Atty. Thorne; nothing agreed with defense counsel; no value given to Margaret Doe"],
             ["Self-rating calibration", 5, "Self-score is defensible against demonstrated performance"]
           ]
         },
         notes: [
-          "Question 6 is the pressure scenario. The right answer agrees to nothing, logs the call, and gets both the inspection request and the offer to Atty. Thorne at once; any instruction to John Doe to preserve the Civic is his to give, and the CM relays it.",
-          "After Question 7, ask the room: “Why does a parked car's A-pillar matter to a neck injury?” The supplement measures the force that drove the Escape, with John Doe inside, into the Civic. Atty. Thorne uses it in prep; the CM puts it in the set and never tells John Doe what to say.",
+          "Question 6 is the pressure scenario. The right answer agrees to nothing, logs the call, and gets both the inspection request and the offer to Atty. Thorne at once; any instruction to Margaret Doe to preserve the Civic is Atty. Thorne's to give, and the CM relays it.",
+          "After Question 7, ask the room: “Why does a parked car's A-pillar matter to a neck injury?” The supplement measures the force that drove the Escape, with John Doe inside, into the Civic. Atty. Thorne uses it in prep; the CM puts it in the set and never tells Margaret Doe what to say.",
           "Compare each self-rating with the score. A 5 on a block scored at 60 is a coaching conversation, and so is a 2 on a block they aced.",
-          "UPL is a gate: a strong score does not survive an ethics breach. On this module the breach to watch for is a PD figure accepted, rejected or valued for John Doe."
+          "UPL is a gate: a strong score does not survive an ethics breach. On this module the breach to watch for is a PD figure accepted, rejected or valued for Margaret Doe."
         ]
       }
 

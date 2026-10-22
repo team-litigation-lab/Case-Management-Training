@@ -59,7 +59,7 @@ Bills · PD · Litigation · Others).
 Intake 02/09/2026, taken by the intake specialist. Client identity and contact (case-file §1), DOB 08/14/1991,
 lives with his mother Margaret Doe (emergency contact, same address, phone (555) 010-2291). Position: front-seat
 passenger in Kevin Alvarez's 2020 Ford Escape (coworker carpool). Employer Northgate Distribution, shift lead,
-$22.00/h, started 01/12/2026. Health plan Peach State (member/group). Own car 2019 Civic LX, Bluewater (UM
+$22.00/h, started 01/12/2026. Health plan Peach State (member/group). Owns no car; the parked 2019 Civic LX is Margaret's, Bluewater (UM
 "rejected? — client unsure"). Collision summary (all-way stop, Smith rolled through, passenger-door impact, Escape
 pushed into the parked Civic). Police Report number, injuries reported ("neck stiffness, sore; declined ambulance;
 no treatment yet"), carriers as known at intake (Keystone for Smith; Harbor Point for Kevin; Cardinal State for
@@ -72,7 +72,7 @@ UM and Relative UM. No treatment yet: the 14-day gap is already running (first c
 **RS02 · Intake Supplement — Prior History & Household** · Day 1 · Case Files · `RS_02_Intake_Supplement_Prior_History.pdf`
 Same intake specialist, 02/09/2026. Prior injuries/claims: "Chiropractic 2021 — Birch Avenue Chiropractic, 3
 visits, **neck and back** stiffness, resolved." No prior claims, no prior counsel, no workers' comp. Household:
-lives with mother (resident relative); Margaret's car insured with Cardinal State. Own vehicle and Bluewater policy;
+lives with mother (resident relative); Margaret's car insured with Cardinal State. No vehicle of his own; Margaret's Civic and its Bluewater policy;
 "client believes he signed something about UM in 2024". Employment history. Social media: told to stop posting.
 *Plant:* the 2021 care is recorded as **neck and back**; the 2021 records (RS20) show **low back only**, no neck.
 *Key:* The 2021 visits were low back only (RS20). A "prior neck" note in our own file is exactly what defense counsel
@@ -83,7 +83,7 @@ The intake as keyed into the CMS (the editable export the trainee corrects): mat
 employment, incident narrative, parties, vehicles, insurance, health plan, emergency contact, flags.
 *Plants:* (1) client role **"Driver"** (he was the front-seat passenger: this is what opens Host UM and Relative UM);
 (2) DOB **08/14/1990** (it is 08/14/1991).
-*Key:* Role must be Passenger — as a driver of his own Civic he would reach only $10,000 (UM rejected on Bluewater).
+*Key:* Role must be Passenger — listed as a driver, the file points at the wrong coverage (he owns no car; Margaret's Bluewater policy has no UM).
 DOB is 08/14/1991 (driver's license copy and RS01). Every downstream letter (LORs, HIPAA requests) inherits these.
 
 **RS04 · Master Case Summary — Attorney Only** · Day 1 · Case Files · `RS_04_Master_Case_Summary_ATTORNEY_ONLY.pdf`
@@ -273,12 +273,12 @@ arbitration of damages disputes) and the consent-to-settle condition.
 Dec page CSM-AU-5580213 (Margaret Doe, 2018 Toyota Camry; UM $10,000/$20,000); 03/03/2026 letter assigning Teresa
 Okafor; 03/09/2026 coverage letter: John covered as a resident relative occupying a non-owned vehicle; exclusion
 excerpt (a vehicle owned by the insured or a resident relative and not insured under this policy).
-*Key:* Third layer, excess over Host UM. The exclusion is why driving his own Civic would have cost him this layer.
+*Key:* Third layer, excess over Host UM. He reaches it as Margaret's resident relative occupying a non-owned vehicle.
 
 **RS30 · Bluewater Auto — Declarations & UM Rejection** · Day 2 · Others · `RS_30_Bluewater_Dec_Page_and_UM_Rejection.pdf`
 Dec page BWA-209-66184 (John Doe, 2019 Honda Civic LX; liability 25/50/25; collision $500 ded.; UM/UIM: REJECTED);
 signed UM/UIM selection/rejection form 03/14/2024.
-*Key:* No UM on his own policy — why passenger status matters. His collision coverage is an alternative PD route.
+*Key:* Margaret's policy on the Civic: UM rejected in writing, so it adds no UM layer for John. Her collision coverage is a route for her own PD claim, not his.
 
 **RS31 · Harbor Point — MedPay Payment Ledger** · Day 2 · Others · `RS_31_Harbor_Point_MedPay_Ledger.pdf`
 The five payments (spec list), running balance to $0.00, "MedPay limit exhausted 06/26/2026".

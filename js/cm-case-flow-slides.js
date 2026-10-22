@@ -978,7 +978,7 @@ window.CM_CF_SLIDES = {
   "clues": {
    "dos": [
     [
-     "John Doe's rental runs out in a few weeks.",
+     "Margaret Doe's rental runs out in a few weeks.",
      "He mentions his carpool might end soon.",
      "You note it and help line up another ride now."
     ],
@@ -1016,7 +1016,7 @@ window.CM_CF_SLIDES = {
   "checks": [
    "**All six sections** present and populated",
    "Treatment direction stated: **treatment hasn't begun**",
-   "Property Damage section names **the rental parameters**",
+   "Property Damage section states **whose claim it is**, from the records",
    "Atty. Elijah Thorne listed as **Lead Counsel**",
    "Adverse-contact instruction made urgent, **with a confirmation step**"
   ],
@@ -2701,7 +2701,7 @@ window.CM_CF_SLIDES = {
  },
  "d2m2-a2": {
   "image": "car-transport",
-  "situation": "04/08/2026: John Doe missed 04/03 and 04/07; **no visit since 04/02/2026**. Keystone ended his rental 03/19/2026, his carpool ended 04/01/2026, and **the Civic awaits parts**.",
+  "situation": "04/08/2026: John Doe missed 04/03 and 04/07; **no visit since 04/02/2026**. Keystone ended Margaret's rental 03/19/2026, his carpool ended 04/01/2026, and **the Civic awaits parts**.",
   "steps": [
    "Assess: call John Doe **on 04/08/2026**; classify the variance",
    "Coordinate: request **a rental extension** from Keystone PD in writing",
@@ -6584,7 +6584,7 @@ window.CM_CF_SLIDES = {
    "Claim only **the 48 unpaid days**: 48 × $42.00 = $2,016.00",
    "Keep loss-of-use and gap records **identical, date for date**"
   ],
-  "upl": "Compute, document and report; never tell John Doe what his car is worth",
+  "upl": "Compute, document and report; never tell Margaret Doe what her car is worth",
   "job": [
    [
     "Final repair bill posts",
@@ -6754,7 +6754,7 @@ window.CM_CF_SLIDES = {
    "Put **the critique on paper** for Atty. Thorne"
   ],
   "donts": [
-   "Telling John Doe his car **“lost $3,600.00”**",
+   "Telling Margaret Doe her car **“lost $3,600.00”**",
    "A PD release that **reaches the injury claim**",
    "Promising **sentimental-value recovery** the law won't award"
   ],
@@ -6825,7 +6825,7 @@ window.CM_CF_SLIDES = {
    ],
    "donts": [
     [
-     "John Doe calls asking what his Civic is really worth now.",
+     "Margaret Doe calls asking what her Civic is really worth now.",
      "The Riverton Auto Appraisal of 05/06/2026 sits open on screen.",
      "The Case Manager quotes the appraisal's number to him as settled fact."
     ],
