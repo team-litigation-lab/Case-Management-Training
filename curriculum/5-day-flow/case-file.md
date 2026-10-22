@@ -34,7 +34,7 @@ BI must be exhausted (paid or tendered at limits) before Host UM opens; Relative
 A UM demand before the BI tender is premature; settling or releasing BI without the UM carriers' written consent can forfeit the stack. **Payer Order** (who pays the Medical Bills
 while the claim is open) is a different question: PIP/MedPay → private health insurance → LOP/provider liens.
 
-**PIP (Riverton's rule).** Riverton is an **add-on PIP state**: every auto policy carries $5,000 of Personal Injury Protection unless the named insured rejects it in writing. PIP pays **100% of reasonable accident medical expenses and 80% of lost income**, regardless of fault, with no deductible. It is add-on, not no-fault: it does not reduce BI or UM, and Riverton bars a PIP carrier from recovering what it paid out of its insured's settlement. **Whose PIP:** a household policy with PIP comes first; John owns no car, and Margaret Doe rejected PIP in writing on both her Bluewater and Cardinal State policies, so John claims PIP as a passenger on the vehicle he rode in: **Harbor Point's PIP on Kevin Alvarez's Escape, $5,000** (claim HP-26-7741). PIP application signed 02/17/2026 and sent with the Harbor Point LOR; Harbor Point acknowledged it and opened PIP on 02/24/2026 (RS65).
+**PIP (Riverton's rule).** Riverton is an **add-on PIP state**: every auto policy carries $5,000 of Personal Injury Protection unless the named insured rejects it in writing. PIP pays **100% of reasonable accident medical expenses and 80% of lost income**, regardless of fault, with no deductible. It is add-on, not no-fault: it does not reduce BI or UM, and Riverton bars a PIP carrier from recovering what it paid out of its insured's settlement. **Whose PIP:** John owns no car, so he claims PIP as a passenger on the vehicle he rode in: **Harbor Point's PIP on Kevin Alvarez's Escape, $5,000** (claim HP-26-7741). PIP application signed 02/17/2026 and sent with the Harbor Point LOR; Harbor Point acknowledged it and opened PIP on 02/24/2026 (RS65).
 
 ## 2. The file from Day 2 on
 
@@ -265,7 +265,7 @@ the facts above. Fictional throughout; no real carrier, provider or firm.
 | Keystone Mutual Insurance | Claims, P.O. Box 4100, Riverton · Robert Smith's policy **KMI-PA-7731045** · BI claim KM-26-440871 (Dana Whitfield, BI adjuster; **Greg Holloway**, claims supervisor) · PD claim KM-26-440871-PD (Leah Moran) |
 | Harbor Point Insurance | 77 Harbor Point Blvd, Riverton · Kevin Alvarez's policy **HPA-4402917** (2020 Ford Escape) · claim HP-26-7741 (Marcus Bell) · UM $20,000 / $40,000; PIP $5,000 |
 | Cardinal State Mutual | 1200 Cardinal Way, Millbrook · Margaret Doe's policy **CSM-AU-5580213** (2018 Toyota Camry) · claim CS-26-20355 (Teresa Okafor) · UM $10,000 / $20,000 |
-| Bluewater Auto Insurance | John Doe's policy **BWA-209-66184** (2019 Honda Civic LX) · liability 25/50/25 + collision ($500 deductible) · UM/UIM rejected in writing 03/14/2024 |
+| Bluewater Auto Insurance | Margaret Doe's policy **BWA-209-66184** (2019 Honda Civic LX) · liability 25/50/25 + collision ($500 deductible) · UM/UIM rejected in writing 03/14/2024 |
 | Peach State Health Plan | Subrogation & Recovery Unit, P.O. Box 2210, Riverton · member PSH-55017742 · group GRP-41208 (Northgate Distribution; **fully insured** group plan) · recovery analyst **Dion Carver** · first notice of reimbursement rights **02/27/2026** |
 | Riverton PD | Officer **Thomas Garner #2217** · report RPD-26-018842 |
 | Riverton Fire EMS | Medic 7 · run RF-26-0206-114 · paramedic **J. Ortiz** · on scene 07:18 |

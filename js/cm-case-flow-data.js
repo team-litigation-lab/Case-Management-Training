@@ -1988,7 +1988,7 @@ window.CM_CASE_FLOW = {
       quiz: [
         {q: "Which coverages make up John Doe's $40,000 Recovery Stack?",
          opts: ["Keystone BI, Harbor Point Host UM and Cardinal State Relative UM", "Keystone BI, Host UM, Relative UM and Harbor Point PIP", "Keystone BI, Keystone PD and Host UM", "Host UM, Relative UM and his own Bluewater UM"],
-         a: 0, r: "Only the coverages that pay the claim stack: $10,000 BI + $20,000 Host UM + $10,000 Relative UM. PIP pays bills now (Payer Order), PD pays for the car, and John Doe rejected UM on his Bluewater policy in writing on 03/14/2024."},
+         a: 0, r: "Only the coverages that pay the claim stack: $10,000 BI + $20,000 Host UM + $10,000 Relative UM. PIP pays bills now (Payer Order), PD pays for the car, and Margaret Doe rejected UM on her Bluewater policy in writing on 03/14/2024."},
         {q: "On John Doe v. Robert Smith, in what order must the coverage layers be pursued?",
          opts: ["Host UM → BI → Relative UM", "BI → Host UM → Relative UM", "Relative UM → Host UM → BI", "All three at once, in parallel"],
          a: 1, r: "BI pays first. Host UM opens once BI is exhausted or tendered, and Relative UM stacks behind Host UM."},
@@ -2056,7 +2056,7 @@ window.CM_CASE_FLOW = {
             ["Keystone Mutual", "BI KM-26-440871 · PD carve-out for the Civic", "Robert Smith", "Dana Whitfield (PD copy: Leah Moran)"],
             ["Harbor Point", "Host UM HP-26-7741 · PIP", "Kevin Alvarez", "Marcus Bell"],
             ["Cardinal State", "Relative UM CS-26-20355", "Margaret Doe", "Claims Department (no adjuster yet)"],
-            ["Bluewater (notice)", "Own policy: collision option; UM rejection form", "John Doe", "Claims Department (policy no. in subject)"],
+            ["Bluewater (notice)", "Margaret Doe's policy on the Civic: collision option; UM rejection form", "Margaret Doe", "Claims Department (policy no. in subject)"],
             ["Peach State (notice)", "Reimbursement right · PSH-55017742 · GRP-41208", "John Doe (member)", "Recovery unit"]
           ]
         },
@@ -2166,7 +2166,7 @@ window.CM_CASE_FLOW = {
           checkpoints: [
             "Five letters: LORs to Keystone, Harbor Point and Cardinal State; notices to Bluewater and Peach State",
             "Attn lines: Dana Whitfield (KM-26-440871), Marcus Bell (HP-26-7741), and “Attn: Claims Department” for Cardinal State (CS-26-20355), not a guessed name",
-            "Insured named correctly on each: Robert Smith, Kevin Alvarez, Margaret Doe; John Doe on Bluewater",
+            "Insured named correctly on each: Robert Smith, Kevin Alvarez, Margaret Doe; Margaret Doe on Bluewater",
             "Subject lines carry the claim number and DOL 02/06/2026; Bluewater's carries the policy number; Peach State's carries PSH-55017742 and GRP-41208",
             "Keystone's letter gives John Doe's name only (no DOB, phone, address, employer or treatment detail) and confines the PD carve-out to the Civic, with 5 business days from the date of the letter to inspect the Civic",
             "Every LOR requests limits, any additional coverage, Declaration Pages and preservation; Keystone's names the photos, statements, the Silverado and its EDR data, and any video; Harbor Point's asks that the Escape and its EDR data be preserved before any repair or salvage",
@@ -2223,7 +2223,7 @@ window.CM_CASE_FLOW = {
             "Record the limit type: Keystone's Declaration Page shows BI $10,000 per person, the cap on one injured person's claim. Per-accident, aggregate and combined single limits read differently; ask when unclear.",
             "Ask each UM carrier for its form in writing: add-on, or reduced by the BI payment. Harbor Point confirmed on 03/02/2026: add-on (excess), no PIP non-duplication, no reimbursement right on PIP.",
             "Track everything; stack only three layers: $10,000 BI + $20,000 Host UM + $10,000 Relative UM = $40,000. PIP ($5,000), Keystone's PD coverage ($25,000) and Bluewater's collision coverage are tracked, never added.",
-            "Verify exclusions and gaps as carefully as limits. John Doe rejected UM on his Bluewater policy in writing (03/14/2024): the signed form goes in the file, so the zero is verified, not assumed.",
+            "Verify exclusions and gaps as carefully as limits. Margaret Doe rejected UM on her Bluewater policy in writing (03/14/2024): the signed form goes in the file, so the zero is verified, not assumed.",
             "Firm cadence: a claim not opened on the call, follow up in 24–48 hours; an LOR not acknowledged, by the third business day; any other open request, a dated next follow-up within two business days. A past date with nothing logged is an audit failure.",
             "Regulatory backstop: many states set deadlines for a carrier to acknowledge a claim and answer written communications; some require limits disclosure on a qualifying written request. Confirm the governing rule; docket it.",
             "The policies set John Doe's duties too: prompt notice, proof of loss for PIP, and any UM notice or limitation rule separate from the 02/06/2028 SOL. Atty. Thorne confirms each; you docket it."
@@ -2313,7 +2313,7 @@ window.CM_CASE_FLOW = {
             ["3 · Relative UM", "Cardinal State · CS-26-20355 · Not yet assigned", "$10,000 · Confirmed 03/09/2026", "None"],
             ["4 · PIP", "Harbor Point · PIP", "$5,000 · Confirmed 03/02/2026", "None"],
             ["Outside · PD", "Keystone · Leah Moran", "$25,000 · PD liability accepted 02/17/2026", "Per PD file"],
-            ["Outside · Bluewater", "Bluewater Auto · John Doe's policy", "UM: none · source: —", "None"]
+            ["Outside · Bluewater", "Bluewater Auto · Margaret Doe's policy", "UM: none · source: —", "None"]
           ]
         },
         ops: [
@@ -2459,7 +2459,7 @@ window.CM_CASE_FLOW = {
             "Sort every coverage by whose it is. Third-party coverage is the at-fault driver's: Robert Smith's Keystone BI and PD. First-party coverage answers to John Doe's side: Host UM, Relative UM, PIP and collision. The Health Plan is his own benefit plan, through Northgate Distribution.",
             "Sort it again by what it pays. BI and UM pay the claim at the end; MedPay, PIP and the Health Plan pay the Medical Bills while it is open; PD and collision pay for the car. Only BI and UM are the $40,000 Recovery Stack.",
             "MedPay pays reasonable accident Medical Bills regardless of fault, up to its limit, and never wages. PIP, where a state requires it, also pays a share of lost wages and replacement services. This file has PIP: Riverton requires it, and John Doe claims the $5,000 PIP on Kevin Alvarez's Escape, the vehicle he rode in, at Harbor Point. Verify PIP on every file; never assume it.",
-            "UM/UIM is reached by status, not ownership. John Doe reaches Host UM as an occupant of Kevin Alvarez's 2020 Ford Escape, and Relative UM as a resident relative of Margaret Doe. His own Bluewater policy adds nothing: UM/UIM was rejected in writing on 03/14/2024.",
+            "UM/UIM is reached by status, not ownership. John Doe reaches Host UM as an occupant of Kevin Alvarez's 2020 Ford Escape, and Relative UM as a resident relative of Margaret Doe. Margaret Doe's Bluewater policy adds nothing: UM/UIM was rejected in writing on 03/14/2024.",
             "The Payer-First Principle: PIP (or MedPay where a state has no PIP) first, the Health Plan next, a Letter of Protection last, and only for care the earlier payers can't carry.",
             "PIP goes first because it pays regardless of fault, and Harbor Point confirmed in writing (03/02/2026) that it has no reimbursement right against John Doe's recovery: every PIP dollar is a bill that never becomes a lien.",
             "The Health Plan comes next because an in-network provider is paid at the contract rate and cannot balance-bill. Crescent Pain & Spine billed $3,400.00; Peach State paid $1,860.00. Only what the plan paid can come back as its reimbursement claim.",
@@ -2482,7 +2482,7 @@ window.CM_CASE_FLOW = {
             ["PIP (first-party, no-fault)", "Harbor Point · $5,000", "Medical Bills, regardless of fault", "Payer Order 1st; no payback"],
             ["Health Plan", "Peach State Health Plan", "Medical Bills, at the contract rate", "Payer Order 2nd; reimbursement right"],
             ["PD liability (third-party)", "Keystone Mutual · $25,000", "The Civic, the rental, Loss of Use", "Outside the stack"],
-            ["Collision (first-party)", "Bluewater · $500 deductible", "The Civic, regardless of fault", "Outside the stack (his UM: rejected 03/14/2024)"]
+            ["Collision (first-party)", "Bluewater · $500 deductible", "The Civic, regardless of fault", "Outside the stack (its UM: rejected 03/14/2024)"]
           ]
         },
         ops: [
@@ -6006,7 +6006,7 @@ window.CM_CASE_FLOW = {
           why: "A BI claim is made against the driver who caused the crash. A UM claim is made against the insurance John Doe pays for himself, and that changes what the file is. Harbor Point and Cardinal State are not opponents the way Keystone is: they are parties to John Doe's own contract, with duties to him and defences drawn from his own policy. When $8,000 and $6,000 came back against $30,000 of UM limits, the file did not simply head for court the way the BI claim would have: Harbor Point's policy says where a UM dispute is decided, and that clause, with the governing state law, is what the Case Manager has to read before a single date is docketed.",
           rules: [
             "Know which kind of claim you are working. Third-party: filed against the at-fault driver's carrier, here Keystone Mutual for Robert Smith. First-party: filed against John Doe's own coverage under his own contract, here Harbor Point (Host UM) and Cardinal State (Relative UM). The evidence is the same; the relationship, the duties and the route out are not.",
-            "John Doe's own Bluewater Auto policy is not a UM layer. He rejected UM/UIM on it in writing on 03/14/2024, so his own named policy adds nothing. He reaches UM by status instead: as an occupant of Kevin Alvarez's Escape (Harbor Point) and as a resident relative of Margaret Doe (Cardinal State).",
+            "Margaret Doe's Bluewater Auto policy on the Civic is not a UM layer. She rejected UM/UIM on it in writing on 03/14/2024, so it adds nothing; John Doe owns no car and has no policy of his own. He reaches UM by status instead: as an occupant of Kevin Alvarez's Escape (Harbor Point) and as a resident relative of Margaret Doe (Cardinal State).",
             "When a UM negotiation reaches impasse you do not reach for a complaint by reflex. The route is set by the governing state law and by the dispute-resolution clause in the policy the claim is made under: read both, on each layer, before anything is calendared.",
             "Route 1, mandatory arbitration, is the common one. Many UM/UIM policies carry a binding arbitration clause, as Harbor Point's does. The firm does not file a traditional lawsuit; it files a formal Demand for Arbitration. Carriers favour it because it bypasses a jury, narrows discovery and resolves a contract dispute faster and more cheaply.",
             "Route 2, standard litigation, runs in two situations. Some states forbid mandatory arbitration clauses in auto policies, or let the policyholder opt out; where the clause does not bind, a failed UM negotiation becomes a civil suit filed directly against the carrier. Separately, where a carrier has unreasonably delayed, denied or mishandled the claim, the firm may bring an Insurance Bad Faith action, which can reach beyond the UM policy limit. Whether either applies is Atty. Thorne's analysis, never yours.",
@@ -6027,7 +6027,7 @@ window.CM_CASE_FLOW = {
             ["1 · Claim submission", "UM Demand Package", "Served 08/31/2026 to Harbor Point and Cardinal State: injuries, records, $16,401.40 in Specials, the wage letter, and documented proof that Robert Smith's $10,000 BI limit was exhausted and consented to"],
             ["2 · Dispute", "Impasse", "Harbor Point offers $8,000 (09/14/2026) and Cardinal State $6,000 (10/01/2026) against $30,000 of UM limits; impasse memo to Atty. Thorne"],
             ["3 · Resolution route", "Demand for Arbitration, or file suit against the carrier", "Read the governing state law and each policy's clause. Harbor Point's UM policy has a binding arbitration clause: invoked 04/05/2027, heard 06/22/2027 before Laura Whitcomb, Esq. Where no clause binds, a civil suit against the carrier; a bad-faith action is a separate suit, and Atty. Thorne's call"],
-            ["Not a route", "John Doe's own Bluewater Auto policy", "UM/UIM rejected in writing 03/14/2024: there is no third layer and no third route"]
+            ["Not a route", "Margaret Doe's Bluewater Auto policy", "UM/UIM rejected in writing 03/14/2024: there is no third layer and no third route"]
           ]
         },
         ops: [
@@ -6053,7 +6053,7 @@ window.CM_CASE_FLOW = {
             ["Tracked and docketed", 10, "ADR entry typed UM / UIM arbitration and set by the policy; each layer's own deadline asked of Atty. Thorne and docketed from his written answer"]
           ],
           trainer: [
-            ["Bluewater handled correctly", 10, "Treats the 03/14/2024 written UM rejection as the reason John Doe's own policy is not a route, and reaches UM by occupancy and residency instead"],
+            ["Bluewater handled correctly", 10, "Treats the 03/14/2024 written UM rejection as the reason Margaret Doe's Bluewater policy is not a route, and reaches UM by occupancy and residency instead"],
             ["Client explanation", 10, "Explains the route to John Doe procedurally: what a Demand for Arbitration is, the date, the place, what to bring"],
             ["UPL boundary", 20, "Offers no view on which route governs, on whether an offer is unreasonable, or on bad faith; routes all three to Atty. Thorne"]
           ]
@@ -6062,7 +6062,7 @@ window.CM_CASE_FLOW = {
           "Open with the question, not the answer: “Whose insurance company are we fighting?” Keystone is the at-fault driver's. Harbor Point and Cardinal State are John Doe's own. Let the room sit with that before any procedure is taught.",
           "Humanize the jargon in one breath and keep it: a third-party claim is a claim against the other driver's insurance; a first-party claim is a claim against the insurance you pay for yourself. Trainees who keep saying “the other side” about Harbor Point have not made the shift.",
           "Ask: “The UM negotiation has failed. What do we file?” Anyone who says “a lawsuit” gets the clause read to them. The route is read off the policy and the state's law, never picked because it is the one they know.",
-          "Watch the Bluewater trap. Some trainees will look for UM on John Doe's own named policy because that is where the textbook puts it. It was rejected in writing on 03/14/2024: he reaches UM as an occupant of Kevin Alvarez's Escape and as a resident relative of Margaret Doe.",
+          "Watch the Bluewater trap. Some trainees will look for UM on the Bluewater policy because the Civic was in the crash. It is Margaret Doe's, and she rejected UM in writing on 03/14/2024; John Doe owns no car: he reaches UM as an occupant of Kevin Alvarez's Escape and as a resident relative of Margaret Doe.",
           "Hold the bad-faith card off the fork on purpose. Trainees find it exciting because it reaches above the limits; that is exactly why saying it to John Doe, or to Marcus Bell, is Atty. Thorne's to do and not theirs."
         ]
       },

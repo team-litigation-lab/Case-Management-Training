@@ -114,7 +114,7 @@ window.CM_CF_DOCS = [
    key:"Payer Order in action; the Crescent bill went to Peach State, not PIP. The 80% wage benefit never paid: the limit was used up before Northgate's 06/30/2026 letter."},
   {id:"RS65", folder:"insurance", file:"case-flow/insurance/RS_65_Harbor_Point_PIP_Application.pdf", title:"Harbor Point — PIP Application & Claim Acknowledgement", cms:"Others", day:2,
    desc:"John Doe's PIP application (02/17/2026) and Harbor Point's acknowledgement opening PIP (02/24/2026).",
-   key:"Whose PIP: John owns no car and Margaret rejected PIP in writing, so he claims PIP on the Escape he rode in. John Doe's Harbor Point PIP (add-on): $5,000, 100% medical / 80% lost income, no set-off against BI or UM, no reimbursement from the recovery."},
+   key:"Whose PIP: John owns no car, so he claims PIP on the Escape he rode in. John Doe's Harbor Point PIP (add-on): $5,000, 100% medical / 80% lost income, no set-off against BI or UM, no reimbursement from the recovery."},
   {id:"RS71", folder:"insurance", file:"case-flow/insurance/RS_71_PIP_Log.pdf", title:"PIP Log — John Doe (Harbor Point PIP)", cms:"Case Files", day:2,
    desc:"The firm's PIP Log on John Doe's Harbor Point PIP: each bill paid, the running balance to the $5,000.00 limit, the wage benefit, the care billed elsewhere.",
    key:"Kept by the Case Manager and reconciled to Harbor Point's payment history (RS31): five payments, $5,000.00, exhausted 06/26/2026. The 80% wage benefit ($1,267.20) was not payable. Crescent went to Peach State and Riverton Spine & Rehab to the LOP, so neither touched the limit."},

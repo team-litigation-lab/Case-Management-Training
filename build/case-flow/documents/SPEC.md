@@ -123,7 +123,7 @@ Atty. Thorne's call. Paid-to-date will be itemized later (RS41).
 Officer Thomas Garner #2217, 02/06/2026, ~07:10, Maple Hollow Rd & Birch Ave (all-way stop). Unit 1: Robert Smith,
 118 Larkspur Ln, Riverton, 2017 Chevrolet Silverado, Keystone Mutual KMI-PA-7731045, northbound Birch Ave. Unit 2:
 Kevin Alvarez, 2020 Ford Escape, Harbor Point HPA-4402917, eastbound Maple Hollow, stopped then proceeded. Unit 3:
-parked 2019 Honda Civic (John Doe, Bluewater BWA-209-66184). Occupants: John Doe, Unit 2 front-right passenger,
+parked 2019 Honda Civic (Margaret Doe, Bluewater BWA-209-66184). Occupants: John Doe, Unit 2 front-right passenger,
 restraint "lap/shoulder belt used", injury code "C – possible injury, complaint of neck pain", EMS refused.
 Narrative: Unit 1 failed to stop, struck Unit 2's front passenger door, pushed Unit 2 into parked Unit 3. Diagram
 (CSS/SVG). Citation: Smith, failure to stop at stop sign. Witness: Ruth Calloway, 2209 Maple Hollow Rd. Doorbell
@@ -469,7 +469,7 @@ responses to requests for admission served by U.S. mail on Atty. Grant Mercer 01
 *Key:* Proves the RFA responses were timely (due 01/04/2027).
 
 **RS65 · Harbor Point — PIP Application & Claim Acknowledgement** · Day 2 · Others · `RS_65_Harbor_Point_PIP_Application.pdf`
-John Doe's PIP application, signed 02/17/2026 and sent with the Harbor Point LOR (passenger in Kevin Alvarez's 2020 Ford Escape; household policies: Margaret Doe's Bluewater and Cardinal State, PIP rejected in writing), and Harbor Point's 02/24/2026 acknowledgement: PIP opened under HPA-4402917, $5,000 each person, 100% medical / 80% lost income, bills to be sent with the claim number; wage loss needs an employer verification.
+John Doe's PIP application, signed 02/17/2026 and sent with the Harbor Point LOR (passenger in Kevin Alvarez's 2020 Ford Escape), and Harbor Point's 02/24/2026 acknowledgement: PIP opened under HPA-4402917, $5,000 each person, 100% medical / 80% lost income, bills to be sent with the claim number; wage loss needs an employer verification.
 *Key:* Whose PIP: the vehicle he rode in, because no household policy carries PIP. Riverton's add-on rule: no BI or UM set-off, no reimbursement from the recovery.
 
 ### The audited sets and their finished counterparts

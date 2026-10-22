@@ -478,7 +478,7 @@ window.CM_CF_SLIDES = {
      "term": "Exclusions and Rejections",
      "text": "A signed UM rejection or an owned-vehicle exclusion **closes a layer**; record the document that does it",
      "more": [
-      "On this file: John Doe rejected UM on his own Bluewater policy, in writing",
+      "On this file: Margaret Doe rejected UM on her Bluewater policy, in writing",
       "The signed form goes in the file, so **the zero is verified**, not assumed",
       "Whether an exclusion or rejection applies is Atty. Thorne's call; you record the document"
      ]
@@ -2458,7 +2458,7 @@ window.CM_CF_SLIDES = {
     [
      "A new file arrives and coverage gets filled in from memory.",
      "No-fault wage benefits are presumed without a Declaration Page behind them.",
-     "John Doe's Bluewater UM was rejected in writing on 03/14/2024."
+     "Margaret Doe's Bluewater UM was rejected in writing on 03/14/2024."
     ]
    ]
   }
@@ -6483,7 +6483,7 @@ window.CM_CF_SLIDES = {
       "On this file: Harbor Point (Host UM) and Cardinal State (Relative UM)",
       "Harbor Point: John Doe as an occupant of Kevin Alvarez's Escape",
       "Cardinal State: John Doe as a resident relative of Margaret Doe",
-      "His own Bluewater Auto policy adds nothing: **UM/UIM rejected in writing** 03/14/2024",
+      "Margaret Doe's Bluewater Auto policy adds nothing: **UM/UIM rejected in writing** 03/14/2024",
       "Same evidence as the BI claim; the relationship, the duties and the route out differ"
      ]
     },
