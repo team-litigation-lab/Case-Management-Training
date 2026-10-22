@@ -886,12 +886,12 @@ function card(l, i, d, part){
   const onNavy = view === "case";   // a Skill Building opener sits on the slide itself, like the deck's
   return oneOfEachTool(`<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; ${phase.lead === "Case Phase" ? `CASE PHASE ${phase.n} OF ${phase.of}` : phase.lead.toUpperCase()} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-${view} cfx-${b.kind}" data-part="${p}">
-      <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">${E(l.cf.heading)}</h2></div>
-      <div class="cfx-ribbon"><span>${E(titleCase(b.title))}</span></div>
+      <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title" title="${E(l.cf.heading)}">${E(l.cf.heading)}</h2></div>
+      <div class="cfx-ribbon"><span title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span></div>
       <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}</span>
         <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.n}.${k + 1} · ${E(KIND[b.kind])}</span>${timeChip(l, d)}
         <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Full text</button></div>
-      ${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}
+      <div class="cfx-body${onNavy ? " cfx-body-navy" : ""}">${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}</div>
     </div>`);
 }
 if(!document.getElementById("cfx-deck-font")){
@@ -1010,8 +1010,9 @@ function agendaSlide(d){
   return `<div class="card lesson-card cf-card cfx cfx-deck cfx-agenda">
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">Case Management Training</h2></div>
       <div class="cfx-ribbon"><span>Day ${d.cf.n} · Training Agenda</span></div>
-      <div class="cfx-ag"><ol class="cfx-ag-list">${rows}</ol>
-        <div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div></div>
+      <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">📅</span>Training Agenda</span></div>
+      <div class="cfx-body cfx-body-navy"><div class="cfx-ag"><ol class="cfx-ag-list">${rows}</ol>
+        <div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div></div></div>
     </div>`;
 }
 /* ---------- the live call: the course's own roleplay engine, on John Doe v. Robert Smith ---------- */
@@ -1777,7 +1778,7 @@ function cfStage(html){
   if(!body || !body.querySelector(".cfx-deck") || body.closest(".cf-stage-card")) return html;
   const card = document.createElement("div"); card.className = "cf-stage-card";
   const dots = body.previousElementSibling && body.previousElementSibling.classList.contains("slide-dots") ? body.previousElementSibling : null;
-  if(dots && dots.children.length > 90){   // a long day: one thin progress line instead of rows of dots
+  if(dots && dots.children.length){   // one thin progress line, the same on every day (no rows of dots that change the title's room)
     const n = dots.children.length, at = [...dots.children].findIndex(x => x.classList.contains("active"));
     dots.classList.add("cf-dots-bar"); dots.title = `Step ${at + 1} of ${n}`;
     dots.innerHTML = `<span class="cf-dots-fill" style="width:${((at + 1) / n * 100).toFixed(1)}%"></span>`;
@@ -1883,12 +1884,13 @@ function practiceLab(d){
     <div class="card lesson-card cf-card cfx cfx-deck cfx-lab">
       <div class="cfx-deck-head"><h2 class="cfx-deck-title">🧪 Practice Lab</h2></div>
       <div class="cfx-ribbon"><span>${E(titleCase(ph.title))}</span></div>
-      <div class="cfx-sheet">
+      <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">🧪</span>Open Your Tools</span></div>
+      <div class="cfx-body"><div class="cfx-sheet">
         <p class="cfx-lab-lead">Open your tools here, once: they stay open beside the slides. Then work today's <b>${acts.length} Skill Activities</b> on John Doe's file, in the order the work happens. Each opens with <em>Your Case</em>, then <em>Your Task</em> and <em>Check Your Work</em>; 📞 marks a live call.</p>
         ${labGate(d)}<div class="cfx-lab-tools" id="cfxLabTools${d.id}"${labReady(d) ? "" : " hidden"}>${labTools(d).map(([id, bid]) => toolChip(id, bid, true)).join("")}</div>
         <ol class="cfx-lab-list">${acts.map(([l, li], k) => { const b = l.cf.block;
           return `<li><button type="button" onclick="cmCaseFlow.labGo(${d.id},${li})" title="Go to this activity's slides"><span class="n">${k + 1}</span><span class="t">${E(titleCase(b.title))}</span>${SIM.calls[b.id] ? `<span class="c" title="Live call">📞</span>` : ""}${!isTrainer() && actDone(b.id) ? `<span class="ok" title="Worked">✓</span>` : ""}</button></li>`; }).join("")}</ol>
-      </div>
+      </div></div>
     </div>`;
 }
 /* The readiness gate: before the day's tools open, three key-concept questions, one from each of the day's first
@@ -2834,6 +2836,20 @@ if(typeof renderDashboard === "function"){
     t.innerHTML = relabelAll(__dash.apply(this, arguments));
     t.content.querySelectorAll(".step-circle").forEach(c => { const d = cfDay(c.textContent.trim()); if(d) c.textContent = String(d.cf.n); });   // the circles show 1–5, not the ids
     return t.innerHTML;
+  };
+}
+
+/* ---------- 🎯 My Focus: its trainer-feedback chips and the day's feedback pop-up name Case Flow Days 1–5 ---------- */
+if(typeof renderWorkOnNextPanel === "function"){
+  const __won = renderWorkOnNextPanel;
+  renderWorkOnNextPanel = function(){ return relabelAll(__won.apply(this, arguments)); };
+}
+if(typeof openDayFeedback === "function"){
+  const __dayFb = openDayFeedback;
+  openDayFeedback = window.openDayFeedback = function(){
+    const r = __dayFb.apply(this, arguments);   // the pop-up is on the page before its first await
+    document.querySelectorAll(".fb-modal .mh-day").forEach(n => { n.textContent = relabelAll(n.textContent); });
+    return r;
   };
 }
 
@@ -3947,6 +3963,23 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-deck .cfx-dot{background:rgba(255,255,255,.25);}.cfx-deck .cfx-dot.done{background:#AEB6CC;}
 .cfx-deck .cfx-full{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.35);color:#fff;}
 .cfx-sheet{background:#fff;color:var(--ink);border:1px solid rgba(255,255,255,.6);border-radius:14px;padding:18px 24px;box-shadow:0 8px 22px rgba(0,0,0,.18);}
+/* One frame for every slide (desktop): the deck fills the slide area from the top, its title, ribbon and top row
+   keep one size and one place, and the lesson card fills the rest at the same size on every slide. Only what is
+   inside the card changes: when it is too long, the card's content alone is scaled to fit (fitSlideZoom). */
+@media (min-width:761px){
+  .lesson-stage #lessonSlideWrap:has(> .cfx-deck){justify-content:flex-start !important;align-items:stretch !important;flex-direction:column !important;}
+  .lesson-stage #lessonSlideWrap > .cfx-deck{display:flex !important;flex-direction:column;flex:1 1 auto;min-height:0;width:100%;gap:0 !important;justify-content:flex-start !important;}
+  .cfx-deck > .topic-separator,.cfx-deck > .cfx-deck-head,.cfx-deck > .cfx-ribbon,.cfx-deck > .cfx-top{flex:none;}
+  .lesson-stage .cfx-deck-head{position:relative;min-width:0;padding:0 96px 12px 0;}
+  .lesson-stage .cfx-deck-title{flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(20px,1.9vw,30px) !important;}
+  .lesson-stage .cfx-deck-head .slide-dots.cf-head-dots.cf-dots-bar{position:absolute;left:4px;right:96px;bottom:0;width:auto;height:5px;margin:0 !important;flex:none;}
+  .lesson-stage .cfx-ribbon > span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(13px,1.1vw,17px) !important;}
+  .lesson-stage .cfx-deck > .cfx-body{flex:1 1 0;min-height:0;display:flex;flex-direction:column;overflow:hidden;}
+  .lesson-stage .cfx-body > .cfx-sheet{flex:1 1 auto;min-height:0;overflow:hidden;}
+  /* the day's closing line sits over the middle of the Previous / Next bar, so the last slide keeps the same frame */
+  .lesson-stage:has(> .cf-stage-card){position:relative;}
+  .lesson-stage > .cf-stage-card ~ .slide-done-banner{position:absolute;left:0;right:0;bottom:6px;z-index:3;margin:0 auto !important;width:max-content;max-width:min(52%,640px);padding:6px 14px !important;font-size:13px !important;line-height:1.35;text-align:center;}
+}
 .cfx-sheet .cfx-art.small svg{max-height:200px;}
 /* Skill Building opener: the case documents, the challenge ribbon, the situation */
 .cfx-docs-row{display:flex;gap:14px;justify-content:center;margin:0 0 12px;}
