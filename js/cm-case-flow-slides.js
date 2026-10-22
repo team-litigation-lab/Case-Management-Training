@@ -5569,10 +5569,39 @@ window.CM_CF_SLIDES = {
  "d4m2-l2": {
   "image": "mediation-table",
   "hook": "Hon. Carla Benton (Ret.) helps parties agree; **Laura Whitcomb, Esq. decides**, with almost no appeal.",
+  "roadmap": {
+   "title": "Standard Case Progression Roadmap",
+   "steps": [
+    {
+     "label": "Demand & Negotiation",
+     "text": "Treatment ends, the demand goes out and **the carrier evaluates it**"
+    },
+    {
+     "label": "Pre-Litigation Mediation",
+     "text": "Optional: both sides mediate **before any complaint is filed**"
+    },
+    {
+     "label": "Pre-Filing Arbitration",
+     "text": "Only where **a signed clause** compels arbitration instead of court"
+    },
+    {
+     "label": "Complaint Filed",
+     "text": "Negotiation fails, suit is filed and **the court's clock starts**"
+    },
+    {
+     "label": "Discovery & Mediation",
+     "text": "Evidence exchanged; courts often **order mediation before a trial date**"
+    },
+    {
+     "label": "Arbitration Or Trial",
+     "text": "Parties may agree to binding arbitration; otherwise **the case is tried**"
+    }
+   ]
+  },
   "points": [
+   "Each forum can land **before or after the complaint is filed**",
    "Court-ordered mediation means John Doe **must attend, not agree**",
    "Binding arbitration: **the arbitrator acts as judge**; court review is narrow",
-   "Collect **3–4 windows** from everyone before contacting the mediator",
    "Golden Rule: **never argue**, speak on the record or represent John Doe"
   ],
   "upl": "Run logistics, exhibits and notes; never argue, negotiate or advise on a number.",
@@ -5606,23 +5635,23 @@ window.CM_CF_SLIDES = {
    "Logging bench directives **the next day from memory**"
   ],
   "theory": {
-   "lead": "Mediation is **negotiation toward compromise**, non-binding; arbitration is an adversarial hearing where a neutral acts as judge and issues a binding Award.",
+   "lead": "Mediation and arbitration can each come **before or after a lawsuit is filed**: the process, the court's rules and the negotiations decide.",
    "concepts": [
     {
-     "term": "Zero Decision Power",
-     "text": "The mediator facilitates and negotiates but cannot rule; **the parties keep control** over whether to sign"
+     "term": "Non-Binding (Mediation)",
+     "text": "Both sides must agree: **nobody is forced to settle**, and the parties keep control of the outcome"
     },
     {
-     "term": "Absolute Decision Power",
-     "text": "The arbitrator is a private judge and finder of fact who **can exclude evidence** and award damages"
+     "term": "Binding (Arbitration)",
+     "text": "The arbitrator's decision is final and **enforceable like a court order**, reviewed on narrow grounds"
     },
     {
-     "term": "Trial-Ready Standard",
-     "text": "Because appeal is drastically limited, treat the hearing with **a multi-day trial's precision**, not a compromise mindset"
+     "term": "Before Filing",
+     "text": "Mediation after treatment and the demand; arbitration only where **a signed clause** compels it"
     },
     {
-     "term": "Unauthorized Practice of Law",
-     "text": "Arguing, speaking on the record or representing John Doe is practicing law; **without a license it's UPL**"
+     "term": "After Filing",
+     "text": "Mediation often **ordered during discovery**; arbitration by the parties' agreement to leave court"
     }
    ],
    "pages": [
@@ -5731,7 +5760,8 @@ window.CM_CF_SLIDES = {
   "questions": [
    "Discovery mailed 12/01/2026: compute the response date step by step. What can happen **to an unanswered RFA**?",
    "SOL 02/06/2028: give the **internal hard date and cutoff** with arithmetic. Why never rely on a weekend roll-forward?",
-   "Explain **forward versus backward counting** using the 01/04/2027 deadline and the 06/22/2027 arbitration brief."
+   "Explain **forward versus backward counting** using the 01/04/2027 deadline and the 06/22/2027 arbitration brief.",
+   "Place each forum **before or after filing**, say where John Doe's landed, then define non-binding and binding."
   ]
  },
  "d4m3-l1": {
