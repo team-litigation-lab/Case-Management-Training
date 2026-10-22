@@ -482,7 +482,7 @@ A balanced two-column DO / DON'T board on the upper two-thirds, green-bordered l
 4. The client signs no release, authorization or settlement document from any carrier until the firm has reviewed it.
 5. The client keeps every receipt and out-of-pocket expense, including mileage to appointments and household help. Only what is documented can be recovered.
 6. Property Damage is the one carve-out from the no-direct-contact rule. The LOR lets the adverse carrier talk to the client about the Property Damage claim only.
-7. On a rental, the renter's own personal auto policy is usually primary. The rental company is usually self-insured and steps in only after the personal policy denies, in a formal written denial.
+7. On a rental, the third-party rental is provided by the adverse carrier's Property Damage coverage. The client's own policy, or the rental company's self-insurance, is used only where there is no 3P coverage — for example a liability denial or an unresolved dispute over fault.
 8. Confirm rental authorization before the client collects a vehicle: who authorizes it, the daily rate cap and the duration limit. Check for a rental reimbursement endorsement on the policy.
 9. The client reports any change of address, phone number or treating provider at once.
 
@@ -960,7 +960,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 #### 2 · Slide Body — Knowledge verification
 
 1. List the firm's standing instructions for a new personal injury client and, for each, the specific harm it prevents.
-2. Before John Doe collects a rental, what must be confirmed, and whose policy is usually primary? What happens to days outside the authorization?
+2. Before John Doe collects a rental, what must be confirmed, and whose coverage provides the rental? What happens to days outside the authorization?
 3. Explain what actual cash value means, what it does not mean, and why confusing it with the loan balance misleads the client.
 
 **Best practices & pitfalls**
@@ -994,9 +994,9 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 1. The Property Damage carve-out in the LOR lets the adverse carrier talk to the client about:  
    Injuries and treatment · **✓ The Property Damage claim only** · Anything except settlement figures · A Recorded Statement  
    *Only the resolution of the Property Damage claim. Anything else routes to the firm.*
-2. On a rental vehicle, whose policy is usually primary?  
-   The rental company's self-insurance · **✓ The renter's own personal auto policy** · The at-fault driver's BI · The client's Health Plan  
-   *The rental company usually steps in only after the personal policy denies, in writing.*
+2. On a rental vehicle, whose coverage provides it?  
+   The rental company's self-insurance · **✓ The adverse carrier's Property Damage coverage** · The client's own personal auto policy · The client's Health Plan  
+   *The 3P rental comes from the adverse carrier's Property Damage coverage. The client's own policy is used only where there is no 3P coverage.*
 3. Actual cash value (ACV) is:  
    What is still owed on the loan · **✓ The vehicle's pre-loss market value** · The cost of a new replacement · The Repair Estimate plus storage  
    *Pre-loss market value, not the loan balance and not replacement with new.*

@@ -6,8 +6,8 @@
    — Case Documents, the Practice Lab, the Training Tools, a handout, the Facilitator Guide —
    scrolls inside that body, so the page itself is always one screen tall and the top bar and
    footer never move. The lesson pages don't scroll at all: the slide is sized to the room the
-   page has left (fitSlideFrame in js/cm-updates.js), and the dashboard already fills the
-   screen (js/lsh-dashboard.js).
+   page has left (fitSlideFrame in js/cm-updates.js), and the dashboard
+   already fills the screen.
 
    Only on a window with room for it (at least 1001 x 480): a phone and a tiny window keep the
    ordinary page scroll, the way the lesson slides already do under 1000px wide — there the top
@@ -18,8 +18,10 @@
    table's place across a redraw. They are pointed at the page body here, so every caller keeps
    working and nothing else in the app has to change.
 
-   New in this course; the other LSH course repos don't have it yet. Copy this file (and the
-   footer-line part of fitSlideFrame) into them to give them the same layout.
+   The same file in every LSH course repo (EA-PA-TRAINING, Case-Management-Training,
+   propertydamageclaimstraining, medsumanddemandtraining, Foundational-Training); change it in
+   all of them. Each course's slide fitting takes the page body's bottom as its floor while
+   body.one-screen is set, so a lesson's Previous / Next bar stays above the footer line.
    Loaded last, after js/lsh-topbar.js.
    ============================================================ */
 (function(){

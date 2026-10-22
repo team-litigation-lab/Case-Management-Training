@@ -149,7 +149,7 @@
       "title": "The Rental Authorization Check",
       "kind": "flow",
       "steps": [
-        {"label": "Whose Policy Is Primary?", "text": "The renter's own policy is usually primary; the rental company follows a written denial"},
+        {"label": "Whose Coverage Pays the Rental?", "text": "The adverse carrier's **Property Damage** coverage provides the 3P rental; the client's own policy only where there is no coverage"},
         {"label": "Who Authorizes?", "text": "Confirm who authorizes the rental and check for a rental reimbursement endorsement"},
         {"label": "Daily Rate Cap", "text": "Record the authorized daily rate before the client collects a vehicle"},
         {"label": "Duration Limit", "text": "Record the number of covered days: **uncovered days are the client's cost**"}
