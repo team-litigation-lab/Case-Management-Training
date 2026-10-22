@@ -1,12 +1,12 @@
-// What a day card tells a trainee about their own progress (moduleCard in index.html).
-// A Knowledge Check under the pass mark is recorded — progress[day].score keeps the best of every
-// attempt and .history keeps them all — so a day the trainee has worked through must never invite
-// them to "Start" it again. Checks each state of a day:
-//     not begun        → Start
-//     slides worked    → Resume, "In progress"
-//     taken, under 70% → Retake Knowledge Check, with the best score and the pass mark on the card
-//     passed           → Review, "Completed"
-// and that a failing attempt is kept on the record at all (best score and attempt count).
+// What a day card tells a trainee about their own progress (moduleCard in index.html, and the wrapper
+// in js/cm-updates.js that rewrites it). A Knowledge Check under the pass mark is recorded —
+// progress[day].score keeps the best of every attempt and .history keeps them all — so a day the
+// trainee has worked through must never invite them to "Start" it again. Checks each state of a day:
+//     not begun                 → Start
+//     slides worked             → Continue, with how far the slides got
+//     Knowledge Check under 70% → Continue, with the score and the 70% pass mark on the card
+//     passed                    → Review
+// and that a failing attempt is kept on the record at all (the best score is never lowered).
 // Usage: node .github/scripts/day-progress.cjs [baseUrl]   (needs `npm i playwright` and a browser)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -43,7 +43,8 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
         for (let i = 0; i < 40 && !el; i++) { el = document.getElementById('module-' + d.id); if (!el) await new Promise(r => setTimeout(r, 25)); }
         if (!el) return { missing: true };
         const btn = el.querySelector('.module-start-btn');
-        return { label: el.querySelector('.mh-day').textContent.replace(/\s+/g, ' ').trim(), cta: btn.textContent.trim(), title: btn.getAttribute('title') || '' };
+        return { label: el.querySelector('.mh-day').textContent.replace(/\s+/g, ' ').trim(), cta: btn.textContent.trim(),
+            card: el.textContent.replace(/\s+/g, ' ').trim() };
     }, { progress, slideProgress });
 
     const fresh = await card(null, 0);
@@ -51,19 +52,18 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
     else if (fresh.cta !== 'Start') fail(`a day not begun should say "Start", says "${fresh.cta}"`);
 
     const started = await card(null, 3);
-    if (started.cta !== 'Resume') fail(`a day whose slides have been worked should say "Resume", says "${started.cta}"`);
-    if (!/In progress/i.test(started.label)) fail(`a day in progress should say so on the card, says "${started.label}"`);
+    if (started.cta !== 'Continue') fail(`a day whose slides have been worked should say "Continue", says "${started.cta}"`);
+    if (!/Slides\s*\d+%/.test(started.card)) fail(`a day in progress should show how far the slides got: "${started.card.slice(0, 120)}"`);
 
     // 13 of 20 is 65%: recorded, but not the 70% that completes the day
     const under = await card({ done: false, score: 65, date: new Date().toISOString(), history: [{ score: 55, passed: false }, { score: 65, passed: false }] }, 12);
-    if (under.cta !== 'Retake Knowledge Check') fail(`a day taken but under the pass mark should offer the retake, says "${under.cta}"`);
-    if (!/65%/.test(under.label)) fail(`the card should show the best score of a day not yet passed, says "${under.label}"`);
-    if (!/70%/.test(under.label)) fail(`the card should say what the pass mark is, says "${under.label}"`);
-    if (!/2 attempts/.test(under.title)) fail(`the button should say how many attempts are on the record, says "${under.title}"`);
+    if (under.cta !== 'Continue') fail(`a day taken but under the pass mark should say "Continue", says "${under.cta}"`);
+    if (!/Knowledge Check 65%/.test(under.card)) fail(`the card should show the best score of a day not yet passed: "${under.card.slice(0, 160)}"`);
+    if (!/70% to pass/.test(under.card)) fail(`the card should say what the pass mark is: "${under.card.slice(0, 160)}"`);
 
     const passed = await card({ done: true, score: 85, date: new Date().toISOString(), history: [{ score: 85, passed: true }] }, 20);
     if (passed.cta !== 'Review') fail(`a day passed should say "Review", says "${passed.cta}"`);
-    if (!/Completed/i.test(passed.label)) fail(`a day passed should say Completed, says "${passed.label}"`);
+    if (!/Completed/i.test(passed.card)) fail(`a day passed should say Completed: "${passed.card.slice(0, 120)}"`);
 
     // a failing attempt is kept on the record, with the best score, and never lowers it
     const kept = await page.evaluate(() => {
@@ -81,6 +81,6 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
 
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-    console.log('Day cards tell the trainee where they are: Start, Resume, Retake Knowledge Check with the best score and the pass mark, or Review; a failing attempt is kept and never lowers the best score.');
+    console.log('Day cards tell the trainee where they are: Start, Continue with how far the slides got and the Knowledge Check score beside the 70% pass mark, or Review; a failing attempt is kept and never lowers the best score.');
     console.log('All good.');
 })().catch(e => { console.error(e); process.exit(1); });

@@ -58,7 +58,10 @@ The script applies the CM edits to the EA/PA page and inserts the CM content fro
     - **Files:** the slides are in `js/blueprint-content.js`. `js/lsh-blueprint.js` is the same file on every LSH platform, and `js/lsh-blueprint-course.js` is the same on every LSH course: copy them from EA-PA-TRAINING when they change there.
     - **Test:** `.github/scripts/blueprint.cjs`.
 
-### One tools access per Practice Lab session
+### One tools access per session on the Practice page
+
+This is the 🧪 **Practice page**, not the Practice Lab slide in the deck (that one is above: one slide
+per module, which the day's tools open from). The same rule, on the other surface.
 
 🧪 Practice lists each day's Skill Activities. Every activity row used to carry its own row of tool
 buttons, which on a single day was the same two or three platforms repeated down the page (Day 3 showed
@@ -81,8 +84,9 @@ A signed-in trainee is never offered an admin log-in, an admin view, or a traine
 their own record and nothing else. This is now a **rule**, `traineeSide()` in `index.html` (a trainee is
 signed in and isn't an admin), not a configuration:
 
-- the 🛡 **Admin** button is off the top bar (both copies — `index.html` and the course's own in
-  `js/cm-updates.js`), and so is **🛡 Sign In as Trainer** on the Facilitator Guide;
+- the 🛡 **Admin** button is off the top bar — `index.html`'s copy by this rule, and the course's own
+  (`js/cm-updates.js`) because it now shows the button to admins only — and so is **🛡 Sign In as
+  Trainer** on the Facilitator Guide;
 - `openAdmin()` does nothing for them, so the admin password box can't be reached;
 - `goto('admin')` lands them on their **own dashboard**. It used to show "Admin access required — use
   the Admin button to sign in", which is an admin log-in on the trainee side;
@@ -95,8 +99,8 @@ limit) was shown the 🛡 Admin button and its password box. An admin is signed 
 as a trainee, so nothing changes for them; neither does the log-in screen, which still offers an admin
 their way in.
 
-Trainees see **their own** score: 👁 Review Score on a day they've passed, their best score on the day
-card, and 🎯 Focus. Score cards across programs are consolidated on the Main Portal, whose
+Trainees see **their own** score and no one else's (there is no cohort leaderboard): 👁 Review Score on a
+day they've passed, their score on the day card, and 🎯 Focus. Score cards across programs are consolidated on the Main Portal, whose
 `/progress.html` is admin-only both in the page and on the server (`requireSession(..., {adminOnly:
 true})`).
 
@@ -166,25 +170,25 @@ survives with its delay intact. Against the old `innerHTML` it fails on exactly 
 
 ### Day cards say where the trainee is
 
-A day card's button is the trainee's next step, from their own record (`dayStage` and `moduleCard` in
-`index.html`):
+A day card's button is the trainee's next step, from their own record:
 
 | Their record | The card says |
 | --- | --- |
 | Nothing yet | **Start** |
-| Slides worked, no Knowledge Check | **Resume** · "In progress" |
-| Knowledge Check taken, under 70% | **Retake Knowledge Check** · "Best *n*% · 70% to pass" |
+| Slides worked, or a Knowledge Check taken | **Continue**, with how far the slides got and the Knowledge Check score beside the **70% to pass** |
 | Passed (70%) | **Review** · "Completed" |
 
-**A Knowledge Check under the pass mark is recorded.** 70% is what marks a day complete — so 13 of 20
-(65%) does not — but the attempt is kept either way: `progress[day].score` is the best of every
-attempt and `.history` holds them all, and a worse retake never lowers the best. Before this, a day
-a trainee had worked through and scored 65% on still showed only "Start", with nothing on the card
-about their score, which read as the day not having been recorded at all. The button's tooltip gives
-the best score and how many attempts are on the record, and 🎯 Focus still lists any day under 70%.
+`moduleCard` in `index.html` draws Start and Review; the wrapper in `js/cm-updates.js` rewrites a day
+that is started but not passed as **Continue** and adds the progress line.
 
-`.github/scripts/day-progress.cjs` (CI) checks each of the four states, and that a failing attempt is
-kept and never lowers the best score.
+**A Knowledge Check under the pass mark is recorded.** 70% is what marks a day complete — so 13 of 20
+(65%) does not — but the attempt is kept either way: `progress[day].score` is the best of every attempt
+and `.history` holds them all, and a worse retake never lowers the best. The card showing only "Start"
+with nothing about the score is what read as the day not having been recorded at all. 🎯 Focus still
+lists any day under 70%.
+
+`.github/scripts/day-progress.cjs` (CI) checks each state of a day, and that a failing attempt is kept
+and never lowers the best score.
 
 ### 📂 Case File
 
