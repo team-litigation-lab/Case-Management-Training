@@ -39,25 +39,26 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 4. *Lesson* — Coverages & the Payer-First Principle
 5. *Lesson* — LOP Issuance Guidelines, Provider Coordination & MedPay Limits
 6. *Lesson* — Explanation of Benefits (EOB) & MedPay
-7. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check
-8. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
-9. *Lesson* — The No Contact Protocol — Steps 1 to 3
-10. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
-11. *Skill Activity* — Policy Stack & Coverage Verification
-12. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
-13. *Skill Activity* — CMS Coverage Matrix Audit
-14. *Skill Activity* — Identifying & Flagging the 14-Day Gap
-15. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
-16. *Skill Activity* — Multi-Channel Outreach Logging
-17. *Skill Activity* — Final Warning Letter Drafting
-18. *Skill Activity* — Transmitting LOPs to Medical Providers
-19. *Skill Activity* — Subrogation Lien Flagging in the CMS
-20. *Skill Activity* — Executing the A-C-T Crisis Protocol for Disrupted Care
-21. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
-22. *Knowledge Check* — Coverage Setup Verification Check
-23. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
-24. *Knowledge Check* — Treatment Monitoring Review
-25. *Knowledge Check* — MIA Escalation Knowledge Check
+7. *Lesson* — Letters of Protection & the Case Manager's Part in Provider Referrals
+8. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check
+9. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
+10. *Lesson* — The No Contact Protocol — Steps 1 to 3
+11. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
+12. *Skill Activity* — Policy Stack & Coverage Verification
+13. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+14. *Skill Activity* — CMS Coverage Matrix Audit
+15. *Skill Activity* — Identifying & Flagging the 14-Day Gap
+16. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
+17. *Skill Activity* — Multi-Channel Outreach Logging
+18. *Skill Activity* — Final Warning Letter Drafting
+19. *Skill Activity* — Transmitting LOPs to Medical Providers
+20. *Skill Activity* — Subrogation Lien Flagging in the CMS
+21. *Skill Activity* — Executing the A-C-T Crisis Protocol for Disrupted Care
+22. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+23. *Knowledge Check* — Coverage Setup Verification Check
+24. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
+25. *Knowledge Check* — Treatment Monitoring Review
+26. *Knowledge Check* — MIA Escalation Knowledge Check
 
 **End-of-day discussion (trainer):** It is 04/08/2026. Keystone confirmed its limit in writing on 03/20, Riverton Spine & Rehab reports John Doe has missed two visits, and Dana Whitfield has asked John for a Recorded Statement. What do you do first, second and third, and what does each protect?
 
@@ -65,7 +66,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 2 — Claim Set Up & Treatment
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 2.1.1 LOR Drafting Mechanics & Three-Carrier Notification
 
@@ -575,7 +576,84 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.7 Health Subrogation, Payer Order & the Regulatory Triple-Check
+### 2.1.7 Letters of Protection & the Case Manager's Part in Provider Referrals
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Topic:** What an LOP is, when it is used, and how you help John Doe reach care without steering it  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** Case file: Riverton Spine & Rehab, chiro and PT under an LOP signed 02/23/2026 (RS23, the itemized LOP ledger) · Newly authored: Letters of Protection, and the Case Manager's part in client-provider referrals within the UPL line
+
+#### 1 · Visual Layout Description
+
+A three-party triangle: John Doe at the top, Riverton Spine & Rehab bottom left, LSH Law Group bottom right. The provider-to-firm side is labelled LETTER OF PROTECTION · signed 02/23/2026 · paid from the settlement. A red band across the triangle's centre reads THE UPL LINE: options and logistics, never which care.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* A Letter of Protection (LOP) is the firm's written promise to pay a provider's bill from the settlement, so a client with no way to pay can be treated now. It keeps care going, but it also creates a balance that comes out of John Doe's recovery and a provider who is waiting to be paid. The Case Manager tracks it from the day it is signed; and when a client needs a provider, the Case Manager helps with options and logistics while the choice of care stays with John Doe and his doctors.
+
+1. In plain English, an LOP says: treat the client now, and the firm will pay your bill from the settlement. It is a promise against the recovery, not insurance, and the client still owes the balance.
+2. Use one only when the payers are used up or unavailable: check health insurance, MedPay and PIP first (the Payer-First Principle), and record why the LOP is needed.
+3. Get it signed before the first visit and file it: Riverton Spine & Rehab's LOP was signed 02/23/2026; its ledger shows Financial class LOP / attorney.
+4. Track the LOP balance as it grows: request the itemized ledger every 30 days and enter each update in CMS → Liens, so the Net Sheet never meets a surprise.
+5. Provider referrals: you may share a list of providers who accept LOPs or the client's plan, with their locations, hours and network status, and book the appointment he chooses.
+6. You never recommend one provider over another, promise a result, or say a treatment will help the case. Disclose any relationship the firm has with a provider on the list.
+7. Log every referral and the client's own choice in the CMS: who was offered, who he chose, and why, in his words.
+
+> ⚠️ **UPL boundary.** Options and logistics only: a list, the network status, the booking. Which care he gets is for John Doe and his doctors; what the LOP means for his recovery is for Atty. Thorne.
+
+#### 2 · Slide Body — Show Them
+
+*“Where should I go for my back?” answered both ways*
+
+| ✅ Do | ❌ Don't |
+|---|---|
+| “Here are three providers near you that take an LOP, with their hours and how far each is.” | “Go to Riverton Spine; they write great reports for cases.” |
+| “Crescent Pain & Spine is in network with Peach State; I checked today.” | “Chiropractic will make your case worth more.” |
+| “Which one works for you? I'll book it while we're on the phone.” | “Don't worry about the bill; the LOP means it's free.” |
+| “The firm does refer clients to Riverton Spine & Rehab; you're free to choose any of them.” | “Skip the injection; it won't help.” |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| No payer will cover a provider John Doe needs | Check every payer first; record why an LOP is needed; route to Atty. Thorne to approve | CMS → Insurance · Case Notes | Payer check on file; attorney approval logged |
+| The LOP is signed | File it; set a 30-day ledger request | CMS → Documents · Liens · Tasks | LOP on file; ledger task recurring |
+| John Doe asks where he should go for treatment | Give the list with network status; book his choice; disclose any firm relationship | CMS → Parties · Calendar · Case Notes | Options given, his choice recorded, no recommendation |
+
+**Best practices & pitfalls**
+
+- Check every payer before an LOP: the LOP is the last resort, not the first.
+- Ask for the itemized ledger every 30 days; never let the LOP balance surprise the Net Sheet.
+- Offer two or three options with facts (location, hours, network), and let John Doe choose.
+- ⚠️ Pitfall: telling the client one provider is better for the case.
+- ⚠️ Pitfall: an LOP signed after treatment started, or never filed.
+- ⚠️ Pitfall: forgetting that the client still owes the LOP balance.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **25%** | LOP basics | Explains what an LOP is, when it is used, and that the client still owes the balance |
+| 🤖 AI | **20%** | Tracking | Files the LOP and keeps its balance current in the CMS |
+| 🤖 AI | **15%** | Referral logistics | Gives options with facts and books the client's own choice |
+| 🧑‍🏫 Trainer | **25%** | UPL boundary | No recommendation of a provider or a treatment; any firm relationship disclosed |
+| 🧑‍🏫 Trainer | **15%** | Client care | Plain words; the client's choice recorded in his own words |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Ask: “John Doe has no health insurance that covers chiropractic. How does he get treated next week?” Let the room reach the LOP.
+- Open RS23 and point to Financial class: LOP / attorney, and the LOP signed date. That is the document they will reconcile on Day 3.
+- Role-play the referral: John Doe asks “Where should I go?” Model the answer: options, facts, his choice, logged.
+
+---
+
+### 2.1.8 Health Subrogation, Payer Order & the Regulatory Triple-Check
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays the bills now, and who gets paid back later  
@@ -654,7 +732,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.8 A-C-T Crisis Protocol & Treatment Monitoring Principles
+### 2.1.9 A-C-T Crisis Protocol & Treatment Monitoring Principles
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Is the plan working, and what you do the day it isn't  
@@ -737,7 +815,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.9 The No Contact Protocol — Steps 1 to 3
+### 2.1.10 The No Contact Protocol — Steps 1 to 3
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Internal review, escalating contact attempts, team notification  
@@ -813,7 +891,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.10 Final Warning Letter & the Skip-Trace Trigger
+### 2.1.11 Final Warning Letter & the Skip-Trace Trigger
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** No Contact Protocol Steps 4 to 6, and when the search begins  
@@ -887,7 +965,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.11 Policy Stack & Coverage Verification
+### 2.1.12 Policy Stack & Coverage Verification
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — build the ladder to $40,000  
@@ -975,7 +1053,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.12 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+### 2.1.13 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — five letters, each one right  
@@ -1052,7 +1130,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.13 CMS Coverage Matrix Audit
+### 2.1.14 CMS Coverage Matrix Audit
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 2 — find what the matrix gets wrong  
@@ -1143,7 +1221,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.14 Identifying & Flagging the 14-Day Gap
+### 2.1.15 Identifying & Flagging the 14-Day Gap
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 1 — find the fact that will decide this case  
@@ -1216,7 +1294,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.15 Live Case Plan Draft — John Doe v. Robert Smith
+### 2.1.16 Live Case Plan Draft — John Doe v. Robert Smith
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 2 — the full plan, routed for review  
@@ -1292,7 +1370,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.16 Multi-Channel Outreach Logging
+### 2.1.17 Multi-Channel Outreach Logging
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 1 — build a defensible record  
@@ -1366,7 +1444,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.17 Final Warning Letter Drafting
+### 2.1.18 Final Warning Letter Drafting
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 2 — write the letter that gets answered  
@@ -1441,7 +1519,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.18 Transmitting LOPs to Medical Providers
+### 2.1.19 Transmitting LOPs to Medical Providers
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 1 — one LOP issued, one declined  
@@ -1518,7 +1596,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.19 Subrogation Lien Flagging in the CMS
+### 2.1.20 Subrogation Lien Flagging in the CMS
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — register the claim before it can hurt you  
@@ -1590,7 +1668,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.20 Executing the A-C-T Crisis Protocol for Disrupted Care
+### 2.1.21 Executing the A-C-T Crisis Protocol for Disrupted Care
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — the Transportation Wall, 04/08/2026  
@@ -1678,7 +1756,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.21 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+### 2.1.22 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 3 — the Millbrook booking, 04/22/2026  
@@ -1778,7 +1856,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.22 Coverage Setup Verification Check
+### 2.1.23 Coverage Setup Verification Check
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1886,7 +1964,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 ---
 
-### 2.1.23 Case Plan Audit & the Claim Set Up Gate
+### 2.1.24 Case Plan Audit & the Claim Set Up Gate
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1981,7 +2059,7 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 ---
 
-### 2.1.24 Treatment Monitoring Review
+### 2.1.25 Treatment Monitoring Review
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2086,7 +2164,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 
 ---
 
-### 2.1.25 MIA Escalation Knowledge Check
+### 2.1.26 MIA Escalation Knowledge Check
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

@@ -133,7 +133,7 @@ window.CM_CF_DOCS = [
   {id:"RS38", folder:"insurance", file:"case-flow/insurance/RS_38_UM_Consents_to_Settle.pdf", title:"UM Consents to Settle", cms:"Others", day:3,
    desc:"Harbor Point (08/24) and Cardinal State (08/26/2026) consent to the BI settlement.",
    key:"The green light for the limited BI release."},
-  {id:"RS39", folder:"insurance", file:"case-flow/insurance/RS_39_UM_Offers_and_Tenders.pdf", title:"UM Correspondence — Offers & Tenders", cms:"Others", day:4,
+  {id:"RS39", folder:"insurance", file:"case-flow/insurance/RS_39_UM_Offers_and_Tenders.pdf", title:"UM Correspondence — Offers & Tenders", cms:"Others", day:3,
    desc:"Track A: the UM carriers' offers, Harbor Point's payment and Cardinal State's tender.",
    key:"\"BI already compensated him\" is wrong on an add-on UM (RS28). Gross recovery $40,000.00."},
   {id:"RS40", folder:"liens", file:"case-flow/liens/RS_40_Peach_State_Notice_of_Reimbursement_Rights.pdf", title:"Peach State — Notice of Reimbursement Rights", cms:"Others", day:2,

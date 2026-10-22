@@ -62,6 +62,14 @@ The script applies the CM edits to the EA/PA page and inserts the CM content fro
 
 The Case File page is the Case Flow's John Doe v. Robert Smith profile (`CLIENT_PROFILE_DOC` in `build/cm_casefile.js`, from `CM_CASE_FLOW.case` and `.profile`), which is also the case dossier inside every AI prompt. How it fills in and what trainers see: above, and under *Training Tools hub*.
 
+### ✅ Check Your Work, Full text and the Action Plan
+- **Check Your Work** holds the activity's answers (the highlighted parts). A trainee sees each answer as a blank until they finish the activity and press **✓ I've finished: show the answers** (saved as `revealed` on their Case Flow record); the trainer always sees them, except on the shared slides window, which shows what trainees see. The **📖 Full text** checkpoints follow the same rule.
+- **📖 Full text** opens in its own browser tab, so the slides and the tool beside them stay in view (the old pop-up only when the browser blocks the tab). It carries no tool buttons: the day's tools open once, from its **🧪 Practice Lab** slide, which also opens the Call Simulator when the day has a live call.
+- **Knowledge Check bonus round:** one key takeaway for the whole day, graded with the day's last Knowledge Check block.
+- **The Action Plan** starts as a fill-in template (situation, goal and deadline, action items with owner, due date and tool, risks, UPL check, who is told, follow-up); **📝 Use the template** adds it again.
+- **Lessons before practice:** `build/case-flow/curriculum.cjs` fails if a lesson comes after the Practice Lab has opened in a phase, or if a Skill Activity has no lesson of its module (or of its `prereq` list) before it in teaching order.
+- **The passenger fact:** `build/case-flow/documents/audit.cjs` fails any document that makes John Doe a driver or operator, or the Escape his, and checks the Police Report keeps him in the front passenger seat.
+
 ### 🧪 Practice
 
 The top bar has a single **🧪 Practice** item; 🛠 Simulators, 🧰 Tools, 🔥 Roleplay and the Calendar Conflict Resolver are reached from it (`PRACTICE_SUBVIEWS` in `js/cm-updates.js`). The page is the Case Flow's Skill Activities (see above), with an "Any day" row: 📁 Case Documents, a quick roleplay call, the CMS Training Library and the CMS.
