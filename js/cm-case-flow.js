@@ -16,7 +16,7 @@
      it like any other topic. Its card is drawn here, from the engine's own pieces
      (renderFourPartSection, renderLessonVisual, renderPracticeCards, renderTable,
      renderCallout), so it carries the house look and whatever the universal layout
-     changes next — with Tell Them / Show Them / Let Them as its section names.
+     changes next — with Tell Them / Show Them as its lesson section names.
    • Speaker notes go to Presenter view (window.SLIDE_SCRIPTS), never onto the
      trainee's slide: in this course trainer content stays off the shared screen.
    • Scoring. The day's Knowledge Check is the course's own auto-graded quiz (70% to
@@ -414,8 +414,8 @@ function fullText(l, d){
     + S(3 + n, "Trigger ➔ Task ➔ Tool ➔ Checkpoint", opsTable(b.ops))
     + S(4 + n, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
   }
-  if(b.kind === "activity") return S(1, "Let Them — the scenario", `<div class="scenario-card"><div class="stag">John Doe v. Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
-    + S(2, "Let Them — execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
+  if(b.kind === "activity") return S(1, "The scenario", `<div class="scenario-card"><div class="stag">John Doe v. Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
+    + S(2, "Execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
     + S(3, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once you finish the activity and reveal the answers on its Check Your Work slide.</p>`)
     + S(4, "Trigger ➔ Task ➔ Tool ➔ Checkpoint", opsTable(b.ops))
     + S(5, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);

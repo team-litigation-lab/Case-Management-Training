@@ -268,7 +268,7 @@ rep('<script src="/js/lsh-card-frame.js?v=3"></script>', tags(
     # The 5-Day Case Management Flow (John Doe v. Robert Smith): after graded-calls.js, because its
     # dashboard wrapper must run on the finished page, and after cm-skillbuilders.js, whose
     # renderLessonCard it wraps.
-    "cm-case-flow-docs.js?v=18", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=29", "cm-case-flow-scripts.js?v=20", "cm-case-flow-sim.js?v=16", "cm-case-flow-exhibits.js?v=2", "cm-case-flow-data.js?v=36", "cm-case-dates.js?v=5", "cm-case-flow.js?v=69",
+    "cm-case-flow-docs.js?v=17", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=26", "cm-case-flow-scripts.js?v=16", "cm-case-flow-sim.js?v=15", "cm-case-flow-exhibits.js?v=1", "cm-case-flow-data.js?v=31", "cm-case-dates.js?v=5", "cm-case-flow.js?v=55",
     "show-password.js?v=1", "lsh-card-frame.js?v=3"))
 
 # Training tools open signed in (js/lsh-tool-links.js, the same file in every LSH course repo: CMS
@@ -283,7 +283,7 @@ rep('<script src="/js/lsh-topbar.js?v=2"></script>', tags(
     # drafting activities filing their own drafted document the same way (js/cm-cms-upload.js,
     # which uses cmDocFiling.send, so it comes after it). Then the trainee's own Backup Drive
     # (js/cm-drive.js), which the filing keeps its copy on.
-    "cm-doc-filing.js?v=cm-2026.10.22-amend", "cm-cms-upload.js?v=cm-2026.10.22-cms-upload",
+    "cm-doc-filing.js?v=cm-2026.10.22-send", "cm-cms-upload.js?v=cm-2026.10.22-cms-upload",
     "cm-drive.js?v=cm-2026.10.22-drive", "lsh-topbar.js?v=2", "lsh-one-screen.js?v=1"))
 
 # ---------- 10. Call Simulator + Live Roleplay CM fixes ----------
