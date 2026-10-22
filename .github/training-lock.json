@@ -12,7 +12,7 @@
   "files": {
     "js/cm-case-flow-data.js": {
       "locked": true,
-      "sha256": "cd3aba1c01b217029e2709a692181dcd9a5803e0b667a12cbaed57c55d4e8739",
+      "sha256": "d174ced3fc04225d9fd7588e7037a0117b4ab65af38999e8e4b8c53d23fc69b0",
       "what": "Lesson data — the source of truth for every module"
     },
     "build/case-flow/exhibits/d3.json": {
@@ -202,7 +202,7 @@
     },
     "curriculum/5-day-flow/day4.md": {
       "locked": true,
-      "sha256": "696eda370dee5cbe75d28480e82484182fdfc2f300595aaee9b5197d1dc6cb0f",
+      "sha256": "6c6e7c57085321bd47a1ef968b14bb1f62defefe63c287d4d91a04b5af1cceaa",
       "what": "Curriculum documents, built from the sources"
     },
     "curriculum/5-day-flow/day5.md": {
