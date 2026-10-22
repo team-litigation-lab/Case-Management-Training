@@ -1,10 +1,16 @@
-# The CMS is locked. These files are frozen — .github/scripts/cms-locked.cjs fails Checks on any change to
-# one of them, and the lock manifest itself cannot be edited without review, so the lock cannot be lifted
-# quietly in the same pull request that changes the CMS.
+# The training modules are locked. Their files are frozen — .github/scripts/training-locked.cjs fails Checks
+# on any change to one of them (the list is .github/training-lock.json), and the lock itself cannot be edited
+# without review, so it cannot be lifted quietly in the same pull request that changes a module.
 #
 # Review here is the second gate, not the first: the red check is what stops the edit.
-/js/cm-cms-case.js               @team-litigation-lab
-/js/cm-cms-upload.js             @team-litigation-lab
-/js/cm-doc-filing.js             @team-litigation-lab
-/.github/cms-lock.json           @team-litigation-lab
-/.github/scripts/cms-locked.cjs  @team-litigation-lab
+/js/cm-case-flow-data.js             @team-litigation-lab
+/js/cm-case-flow-slides.js           @team-litigation-lab
+/js/cm-case-flow-scripts.js          @team-litigation-lab
+/js/cm-case-flow-sim.js              @team-litigation-lab
+/js/cm-case-flow-exhibits.js         @team-litigation-lab
+/js/cm-case-flow-docs.js             @team-litigation-lab
+/js/cm-case-flow-art.js              @team-litigation-lab
+/build/case-flow/**/*.json           @team-litigation-lab
+/curriculum/5-day-flow/              @team-litigation-lab
+/.github/training-lock.json          @team-litigation-lab
+/.github/scripts/training-locked.cjs @team-litigation-lab

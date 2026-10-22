@@ -11,7 +11,8 @@
 // the wrong call and reveals the completed set; an email that does not do the job is refused with what is
 // missing; a complete one brings the acknowledgment; the wrong answer to the follow-up blocks the conversion
 // and the right one allows it; the memorandum is built, filed into the CMS under the convention, and backed
-// up; and all of it survives a reload and reaches the trainer.
+// kept on the trainee's Backup Drive in its folder, with the retry for a drive built late; and all of it
+// survives a reload and reaches the trainer.
 // The CMS is answered by this test (at its real address), so nothing leaves the machine.
 // Usage: node .github/scripts/exhibit-audit.cjs [baseUrl]   (needs `npm i playwright`; a local server on baseUrl)
 const { chromium } = require('playwright');
@@ -47,9 +48,10 @@ const EMAIL = [
 ].join('\n');
 
 // The CMS as the course sees it: which case is open, filing a document whose name follows the convention,
-// and the Drive backup it runs itself (its drive-backup.js; the CMS repo covers that side).
+// The Backup Drive is the course's own (js/cm-drive.js, graded on Day 1); here it is stood in for, so
+// this test covers that the filing hands the memorandum to it in the right folder, not Google itself.
 const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><script>
-  window.__filed = []; window.__backups = 0;
+  window.__filed = [];
   const day = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); };
   const expected = (category, original) => {
     const type = String(category).replace(/[^A-Za-z0-9]+/g, '-');
@@ -64,11 +66,6 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
       if (m.name !== want) return parent.postMessage({lsh:'cms-doc-filed', id:m.id, ok:false, problems:['The name should be "' + want + '".']}, '*');
       window.__filed.push({name:m.name, category:m.category, bytes:(m.bytes && m.bytes.byteLength) || 0, mime:m.mime, summary:m.summary});
       return parent.postMessage({lsh:'cms-doc-filed', id:m.id, ok:true, name:m.name, category:m.category, key:'documents/'+m.name, saved:true}, '*');
-    }
-    if (m.lsh === 'cms-drive-backup') {
-      window.__backups++;
-      return parent.postMessage({lsh:'cms-drive-backed-up', id:m.id, ok:true, copied:1, skipped:0, failed:0,
-        summary:'Google Drive backup: 1 file copied.'}, '*');
     }
   });
 </script></body>`;
@@ -195,7 +192,16 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     check(/Confirming receipt/.test(await page.locator('#cf-sv').innerText()), 'the sent email and her acknowledgment are still there after a reload');
     check(!(await page.locator('#cf-sv button:has-text("Convert the thread")').isDisabled()), 'and with the follow-up answered correctly the exchange can be converted');
 
-    // 8. the exchange becomes a document, filed into the CMS under the convention, and backed up
+    // 8. the exchange becomes a document, filed into the CMS under the convention, and kept on the Drive.
+    // The Backup Drive is stood in for, so what is covered is that the filing hands the document over in the
+    // right folder, not Google itself. It has to go in after the reload above, or js/cm-drive.js is the one in
+    // place when the document is filed; the stub marks itself so that mistake fails here instead of quietly
+    // weakening what follows.
+    const standInForDrive = () => page.evaluate(() => {
+        window.__drive = null;
+        window.CMDrive = { __stub: true, saveFiled: async (folder, name) => { window.__drive = { folder, name }; return { ok: true, folder: `LSH Case Backups / 01 Clients / Doe-John / 05 ${folder}` }; } };
+    });
+    await standInForDrive();
     await page.evaluate(() => openTool('cms', 'split'));
     await page.waitForFunction((id) => window.CMCase && CMCase.id() === id, CASE_ID, { timeout: 15000 }).catch(() => {});
     check((await page.evaluate(() => window.CMCase && CMCase.id())) === CASE_ID, 'the case open in the CMS is read from it');
@@ -222,10 +228,42 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     check(!!filed && filed.category === CATEGORY, `under the category the activity files it in: ${filed && filed.category}`);
     check(!!filed && filed.bytes > 1000, `as a real PDF, not a placeholder: ${filed && filed.bytes} bytes`);
     check(!!filed && filed.mime === 'application/pdf', 'sent as the PDF it is');
+    check(await page.evaluate(() => !!(window.CMDrive && window.CMDrive.__stub)), 'the Backup Drive under test is the stand-in, so what follows means what it says');
+    const kept = await page.evaluate(() => window.__drive || null);
+    check(!!kept && kept.name === name, `the same filing keeps a copy on the trainee's Backup Drive, under the name the CMS gave it: ${kept && kept.name}`);
+    check(!!kept && kept.folder === 'insurance', `in the folder this kind of document belongs in, not one the trainee picks: ${kept && kept.folder}`);
+    // the step's own words: "Backup Drive" appears in every state of it, the not-kept state included, so the
+    // done marker is what is checked — and that the not-kept wording is gone.
+    const driveStep = await page.locator('#cf-sv .sv-step').nth(6).innerText();
+    check(/✓ Kept on your Backup Drive under/.test(driveStep), `the step says the copy was kept, and names the folder: ${driveStep.replace(/\s+/g, ' ').slice(0, 110)}`);
+    // the step's standing note explains what happens when a drive isn't built, so the absence to check is the
+    // offer to do it, not that wording
+    check(!/Keep it on my Backup Drive|File it in the CMS first/.test(driveStep), 'and no longer offers to do it by hand');
+
+    // 8b. the retry, for a trainee who files before building their drive: the copy is made from the document
+    // they already built, and the step only turns green when the drive actually takes it.
+    await page.evaluate(async (b) => {
+        const r = (await storeGet('case-flow')) || {};
+        if (r.service && r.service[b]) { delete r.service[b].drive; r.service[b].driveWhy = 'no-drive'; await storeSet('case-flow', r); }
+    }, BLOCK);
+    await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800);
+    await page.evaluate(() => { state.isAdmin = true; });
+    await page.evaluate((b) => cmCaseFlow.service(b), BLOCK);
+    await page.waitForSelector('#cf-sv .sv-step');
+    const notKept = await page.locator('#cf-sv .sv-step').nth(6).innerText();
+    check(/Keep it on my Backup Drive/.test(notKept) && !/✓ Kept on your Backup Drive/.test(notKept),
+        `a filing that never reached the drive offers to do it, after a reload: ${notKept.replace(/\s+/g, ' ').slice(0, 100)}`);
+    // with no drive at all, the retry refuses and says what to do rather than reporting success
+    await page.evaluate(() => { delete window.CMDrive; });
+    await page.evaluate((b) => cmCaseFlow.svDrive(b), BLOCK);
+    await page.waitForTimeout(600);
+    check(!/✓ Kept on your Backup Drive/.test(await page.locator('#cf-sv').innerText()), 'the retry does not claim success when there is no drive to take it');
+    await standInForDrive();
     await page.evaluate((b) => cmCaseFlow.svDrive(b), BLOCK);
     await page.waitForTimeout(900);
-    check((await frame.evaluate(() => window.__backups)) === 1, 'and the CMS is asked, once, to back the case up to the trainee\'s Drive');
-    check(/Drive backup/.test(await page.locator('#cf-sv').innerText()), `with what came back shown to the trainee`);
+    const late = await page.evaluate(() => window.__drive || null);
+    check(!!late && late.folder === 'insurance' && late.name === name, `and once the drive is built the copy is made, same folder, same name: ${JSON.stringify(late)}`);
+    check(/✓ Kept on your Backup Drive under/.test(await page.locator('#cf-sv .sv-step').nth(6).innerText()), 'and the step turns green only then');
 
     // 9. all of it reaches the trainer
     const trainer = await page.evaluate(async () => {
@@ -237,9 +275,9 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     check(trainer.handedIn && trainer.marks === n, `the trainee's audit is on their record: ${trainer.marks} calls, handed in`);
     check(/wrong on purpose/.test(trainer.note), 'with the notes they wrote');
     check(trainer.tries === 2 && trainer.body > 400, `their email and its rejected attempts are too: ${trainer.tries} refused, ${trainer.body} characters sent`);
-    check(trainer.choice === right && !!trainer.filed && trainer.drive, `and the answer they gave, what they filed and the backup: ${trainer.filed}`);
+    check(trainer.choice === right && !!trainer.filed && trainer.drive, `and the answer they gave, what they filed and the Backup Drive copy: ${trainer.filed}`);
 
     await browser.close();
     if (failures.length) { console.error(`\n${failures.length} check(s) failed.`); process.exit(1); }
-    console.log('\nAll good: the set is audited, the completed package is revealed and carried forward, and the service confirmation is filed and backed up.');
+    console.log('\nAll good: the set is audited, the completed package is revealed and carried forward, and the service confirmation is filed and kept on the Backup Drive.');
 })().catch(e => { console.error(e); process.exit(1); });

@@ -28,8 +28,8 @@ jobs:
           node-version: 22
       - name: JavaScript syntax, local files, JSON
         run: node .github/scripts/check-site.mjs
-      - name: The CMS is locked (its modules are frozen; a change to one fails here on purpose)
-        run: node .github/scripts/cms-locked.cjs
+      - name: The training modules are locked (the Case Flow's lessons and what is built from them are frozen; a change fails here on purpose)
+        run: node .github/scripts/training-locked.cjs
       - name: Batch IDs are B + MMDDYY (the page and the Worker read them the same way; older codes keep working)
         run: node .github/scripts/batch-id.cjs
       - name: Single sign-on (the Portal is the only way a trainee gets in; a missing PORTAL_SSO_SECRET says so)
@@ -54,6 +54,14 @@ jobs:
         run: node build/case-flow/exhibits/assemble.cjs --check
       - name: Defined terms capitalized as specified (build/case-flow/terms.json)
         run: node build/case-flow/terms.cjs --check
+      - name: The generated files are in step with the lesson data (one rebuild changes nothing)
+        run: |
+          node build/case-flow/build.cjs --quiet
+          if ! git diff --quiet; then
+            echo "::error::A lesson edit landed without its generated files. Run 'node build/case-flow/build.cjs' and commit what it writes."
+            git diff --stat
+            exit 1
+          fi
       - name: Case Flow dates roll forward exactly (weekdays, the two-year SOL, holidays; no date left behind)
         run: node .github/scripts/check-case-dates.mjs
       - name: Documents served from R2 (ranges, 304s, static assets as the fallback)

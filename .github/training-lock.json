@@ -1,0 +1,219 @@
+{
+  "Locking the training modules": [
+    "The 5-Day Case Flow's training modules are frozen. The files below are recorded by SHA-256 and",
+    ".github/scripts/training-locked.cjs fails Checks on any change to one of them, on a pull request or a push to main.",
+    "Locked: the lesson data, the content sources, the files built from them, and the curriculum documents.",
+    "Not locked: the engine that runs the modules (js/cm-case-flow.js), so how the course runs can still be fixed.",
+    "To change a locked file: set its \"locked\" to false in this file, in its own commit, with the reason in the",
+    "commit message. Once the change is approved, run `node .github/scripts/training-locked.cjs --relock` to",
+    "record the new hashes and set \"locked\" back to true.",
+    "A red check here is not a thing to work around: it means an edit reached the frozen training modules."
+  ],
+  "files": {
+    "js/cm-case-flow-data.js": {
+      "locked": true,
+      "sha256": "cd3aba1c01b217029e2709a692181dcd9a5803e0b667a12cbaed57c55d4e8739",
+      "what": "Lesson data — the source of truth for every module"
+    },
+    "build/case-flow/exhibits/d3.json": {
+      "locked": true,
+      "sha256": "2f9ef3e83bd15ce3204f4e0fa1c99098652d62a17a342d7afc3887b7399bfbde",
+      "what": "Content sources"
+    },
+    "build/case-flow/exhibits/d4.json": {
+      "locked": true,
+      "sha256": "392321897a19e7c266872bdb7dd368221c4439360244e7342fe9efa16e10924e",
+      "what": "Content sources"
+    },
+    "build/case-flow/scripts/d1.json": {
+      "locked": true,
+      "sha256": "864f1b1abdb833e02acf6f1d1cdbd5581dd9a066d592f3233b05a2a2c1c4750c",
+      "what": "Content sources"
+    },
+    "build/case-flow/scripts/d2.json": {
+      "locked": true,
+      "sha256": "a06c30e8061d7872227b582b07075b14b6db93059b839dcd4d563ac54e687c53",
+      "what": "Content sources"
+    },
+    "build/case-flow/scripts/d3.json": {
+      "locked": true,
+      "sha256": "050f60abe05908f52ecd776588e5c67761475c66e316e19d34b802542fd8d191",
+      "what": "Content sources"
+    },
+    "build/case-flow/scripts/d4.json": {
+      "locked": true,
+      "sha256": "c91c3a31ca490b651f73d1ea64f7936aa6f0967cb1a741b56be00e646a73da79",
+      "what": "Content sources"
+    },
+    "build/case-flow/scripts/d5.json": {
+      "locked": true,
+      "sha256": "ef974eeceac7b953e7b5a6d74abf4925bbb8502ae6cb011de16e255289010734",
+      "what": "Content sources"
+    },
+    "build/case-flow/sim/days12.json": {
+      "locked": true,
+      "sha256": "4b89cba94333bee2db4a0a1ea6d550357770c760f22c12c9a92e6fc11b7cd793",
+      "what": "Content sources"
+    },
+    "build/case-flow/sim/days345.json": {
+      "locked": true,
+      "sha256": "bd5d182fdb2608e89b15231095d10e4cb3159894f0080d9b0cc346b1befea34c",
+      "what": "Content sources"
+    },
+    "build/case-flow/slides/clues-d1.json": {
+      "locked": true,
+      "sha256": "f97d4dc31ae79825987f672cf273bd81a633ee9b0dd7846b338ebb6de3e8a1c6",
+      "what": "Content sources"
+    },
+    "build/case-flow/slides/clues-d2.json": {
+      "locked": true,
+      "sha256": "0c041454b10f19687f56bb84785241e0ae477e1bd8db31debe5c19adf0b4ec32",
+      "what": "Content sources"
+    },
+    "build/case-flow/slides/clues-d3.json": {
+      "locked": true,
+      "sha256": "9e1665687572d5efbc8119dda644b7c7ab1e0b048cf91aab0d6bb1a857c3c668",
+      "what": "Content sources"
+    },
+    "build/case-flow/slides/clues-d4.json": {
+      "locked": true,
+      "sha256": "dc973585421e65c2970b3fa47fcc3c850e7f9274e9520ec35ba85f7ed87b4481",
+      "what": "Content sources"
+    },
+    "build/case-flow/slides/clues-d5.json": {
+      "locked": true,
+      "sha256": "fed8df5b5478b88f53ab8eb3e472cf351a68cc065822b42552c5ab22a392a06a",
+      "what": "Content sources"
+    },
+    "build/case-flow/slides/d1.json": {
+      "locked": true,
+      "sha256": "2ee58136872c871995288381f8fc3442c03f12abfa9de9d2aafdd80373b5e7aa",
+      "what": "Content sources"
+    },
+    "build/case-flow/slides/d2.json": {
+      "locked": true,
+      "sha256": "0b05b07c5674021d0793a3eb2a569f0ba93d67e717cdab508566751cddad359d",
+      "what": "Content sources"
+    },
+    "build/case-flow/slides/d3.json": {
+      "locked": true,
+      "sha256": "a399f9063ec58c727a2b68428ac8b68f59a2c7731b82064659f982f67d1ae1a6",
+      "what": "Content sources"
+    },
+    "build/case-flow/slides/d4.json": {
+      "locked": true,
+      "sha256": "1f98396cca46c9f2c21f84b0e63a33449ae2389ee999d6f4fca131853fb0f77f",
+      "what": "Content sources"
+    },
+    "build/case-flow/slides/d5.json": {
+      "locked": true,
+      "sha256": "da8245d25960c3ce9c1d0163321d47671fa441a2ee0eb9f76a6bc13da0edf503",
+      "what": "Content sources"
+    },
+    "build/case-flow/slides/deck-pages.json": {
+      "locked": true,
+      "sha256": "0504c5eda95532dd60134a717de387cf308ae6d8f46f449a00faa67d10d4f410",
+      "what": "Content sources"
+    },
+    "build/case-flow/slides/theory-d1.json": {
+      "locked": true,
+      "sha256": "19fa806406bb9bb1b0e2648409f647ac599e3838deb0793954bcf3c66b31fee9",
+      "what": "Content sources"
+    },
+    "build/case-flow/slides/theory-d2.json": {
+      "locked": true,
+      "sha256": "c25f7605aa356340c31199fd926a0de8d3b633af620f95074418e5eac2767eb0",
+      "what": "Content sources"
+    },
+    "build/case-flow/slides/theory-d3.json": {
+      "locked": true,
+      "sha256": "edf797a6f6dfbff5e36d71eb36865aec2a00b554cf0a60e15434277d9eb858c1",
+      "what": "Content sources"
+    },
+    "build/case-flow/slides/theory-d4.json": {
+      "locked": true,
+      "sha256": "09a10d01a4310392e09671a54f3dd5a1463a837a77d4d46897b369808597a3e4",
+      "what": "Content sources"
+    },
+    "build/case-flow/slides/theory-d5.json": {
+      "locked": true,
+      "sha256": "316d649b79275737d155f75a49c7c3df2a2ee78e1ac2f85065443b9556e19b38",
+      "what": "Content sources"
+    },
+    "build/case-flow/terms.json": {
+      "locked": true,
+      "sha256": "c5cafadf4f42c4e6df513f815df652e789a4751033188316815416589605fd57",
+      "what": "Content sources"
+    },
+    "js/cm-case-flow-slides.js": {
+      "locked": true,
+      "sha256": "ccfda4ba74d037eeea3c301748017ddfa0cdb491c6f46e8c01788b738d6e6d84",
+      "what": "Built from the sources — what trainees load"
+    },
+    "js/cm-case-flow-scripts.js": {
+      "locked": true,
+      "sha256": "5b75b1bfe6c639f99dd938a38db5ba08dad10bf034d5b64ba5a2fb3f7c42ff43",
+      "what": "Built from the sources — what trainees load"
+    },
+    "js/cm-case-flow-sim.js": {
+      "locked": true,
+      "sha256": "f652f4a6e993fb6b1f2c2d6ff49b0262c763446f7e3a6e69ab23cfa739608d01",
+      "what": "Built from the sources — what trainees load"
+    },
+    "js/cm-case-flow-exhibits.js": {
+      "locked": true,
+      "sha256": "63eb276bf98c5f44087ab9ecc7387e684657e17e3ee8d8d2391a5ef46789d29c",
+      "what": "Built from the sources — what trainees load"
+    },
+    "js/cm-case-flow-docs.js": {
+      "locked": true,
+      "sha256": "a25d391770dc3a0d310351c1cd9bfd545be53863ba01866ff1f1847ec659f782",
+      "what": "Built from the sources — what trainees load"
+    },
+    "js/cm-case-flow-art.js": {
+      "locked": true,
+      "sha256": "db005374e783fced6e984e26108cb3d2815a4bca6bde4f8b98eb7f3c30c3c64e",
+      "what": "Built from the sources — what trainees load"
+    },
+    "curriculum/5-day-flow/00-architecture.md": {
+      "locked": true,
+      "sha256": "e110ab007cb634c115cf50b412a1cb218abafadeb74a9a1ca626e6c35eb36e2b",
+      "what": "Curriculum documents, built from the sources"
+    },
+    "curriculum/5-day-flow/case-file.md": {
+      "locked": true,
+      "sha256": "8c00517f921a8097b8f23ac6a2d2e5fe0cf8cd980db89ba5c7cb908baacb3501",
+      "what": "Curriculum documents, built from the sources"
+    },
+    "curriculum/5-day-flow/day1.md": {
+      "locked": true,
+      "sha256": "6519256e3fb56e2cbb1b0d6256622bd0be39f022d87b001ae560fa1ccf7fa333",
+      "what": "Curriculum documents, built from the sources"
+    },
+    "curriculum/5-day-flow/day2.md": {
+      "locked": true,
+      "sha256": "ef0e5abc3647d051517f4deaf2ea9c2f9950b8755b82545d87184314484651b1",
+      "what": "Curriculum documents, built from the sources"
+    },
+    "curriculum/5-day-flow/day3.md": {
+      "locked": true,
+      "sha256": "fef63a703b1374595cf1468a35bcca2c1e71d47916d8b77fdc9697cf8f597930",
+      "what": "Curriculum documents, built from the sources"
+    },
+    "curriculum/5-day-flow/day4.md": {
+      "locked": true,
+      "sha256": "696eda370dee5cbe75d28480e82484182fdfc2f300595aaee9b5197d1dc6cb0f",
+      "what": "Curriculum documents, built from the sources"
+    },
+    "curriculum/5-day-flow/day5.md": {
+      "locked": true,
+      "sha256": "520b61a63b0c6611771350eced770ef96694584b1734e9c2828973ad157b73c8",
+      "what": "Curriculum documents, built from the sources"
+    },
+    "curriculum/5-day-flow/traceability.md": {
+      "locked": true,
+      "sha256": "d8196250c4760f08d3b9a345eb8662c3545c60197841f3988fd2a85bc4b5615b",
+      "what": "Curriculum documents, built from the sources"
+    }
+  }
+}

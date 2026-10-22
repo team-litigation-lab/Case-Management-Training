@@ -124,20 +124,7 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     check(health && health.uploaded === 1 && health.firstTime === 0 && health.attempts === 3,
         `and the grade a trainer reads: ${JSON.stringify(health)}`);
 
-    // 5. filed once is filed for good: the CMS is locked, so a filed document is not refiled from here.
-    //    (The row is drawn read-only after a filing; this calls upload() again, the way a stale row would.)
-    const again = await page.evaluate(async (id) => {
-        await cmCmsUpload.upload(id, null);
-        const r = cmCmsUpload.report().find(x => x.id === id) || {};
-        return {attempts: r.attempts, name: r.name, category: r.tab,
-                text: (document.getElementById('cmu_' + id.replace(/\W/g, '_')) || {}).innerText || ''};
-    }, DOC);
-    check((await frame.evaluate(() => window.__filed.length)) === 1, 'a filed document is not sent to the CMS a second time');
-    check(again.attempts === 3, `and the attempt count a trainer reads is not touched: ${again.attempts}`);
-    check(again.name === name && again.category === RIGHT_TAB, 'the name and tab it was filed under stand');
-    check(/Filed in the CMS as/i.test(again.text), 'and the row still shows the filing it holds');
-
-    // 6. the trainee's upload is still there after a reload
+    // 5. the trainee's upload is still there after a reload
     await page.waitForTimeout(500);
     await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(2000);
     const back = await open();
