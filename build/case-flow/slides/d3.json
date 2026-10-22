@@ -91,13 +91,13 @@
     "image": "binder-exhibits",
     "situation": "File date 08/31/2026. Keystone tendered $10,000 limits 08/12; consents came 08/24 and 08/26; the **Limited Release was signed** 08/28. Keystone's **check hasn't arrived**. Keystone had called the MRI “degenerative.”",
     "steps": [
-      "Draft **Host UM to Harbor Point** for the $20,000 limit",
-      "Draft **Relative UM to Cardinal State**: $10,000, excess over Host UM",
+      "QC the desk's **Host UM draft** to Harbor Point",
+      "QC **Relative UM to Cardinal State**: excess, not primary",
       "Put **exhaustion proof on page one**; show damages above collections",
       "Answer the gap and “degenerative” **with the MRI**",
       "**Leave the response deadline** blank for Atty. Thorne; route both"
     ],
-    "deliver": "Two attorney-ready UM drafts, **exhaustion proof first**, routed for review",
+    "deliver": "Two QC'd UM drafts, **exhaustion proof first**, routed for review",
     "checks": [
       "Two separate packages, **HP-26-7741 and CS-26-20355**",
       "Relative UM claimed for **damages above $30,000**",
@@ -319,6 +319,45 @@
       "Negotiating a percentage **off an inflated bill**",
       "Agreeing to a reduction verbally with **no written confirmation**",
       "Paying **from a statement**, not the payoff figure"
+    ]
+  },
+  "d3m3-l3": {
+    "image": "checklist-qa",
+    "hook": "A reduction is won **on paper first**, then on the phone.",
+    "points": [
+      "Negotiate from **the audited balance**: $7,965.00",
+      "Send **the Reduction Request** before you call",
+      "Make **Atty. Thorne's ask**, nothing outside it",
+      "**No Payoff Letter**, no payment"
+    ],
+    "upl": "The authorized ask only; never accept a figure outside it",
+    "job": [
+      [
+        "Audited balance confirmed",
+        "Draft the Reduction Request",
+        "CMS → Documents → Outgoing",
+        "Authority logged first"
+      ],
+      [
+        "Lienholder responds",
+        "Call with the authorized ask",
+        "CMS → Case Notes",
+        "Counter routed the same day"
+      ],
+      [
+        "Reduction agreed",
+        "Get the signed Payoff Letter",
+        "CMS → Net Sheet",
+        "Full-and-final on file"
+      ]
+    ],
+    "dos": [
+      "Send **the request** before the call",
+      "Update the ledger **the same day**"
+    ],
+    "donts": [
+      "A reduction **agreed only by phone**",
+      "An ask **outside his authority**"
     ]
   },
   "d3m3-a2": {

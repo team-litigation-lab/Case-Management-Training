@@ -1385,12 +1385,52 @@ function practiceLab(d){
       <div class="cfx-ribbon"><span>${E(titleCase(ph.title))}</span></div>
       <div class="cfx-sheet">
         <p class="cfx-lab-lead">Open your tools here, once: they stay open beside the slides. Then work today's <b>${acts.length} Skill Activities</b> on John Doe's file, in the order the work happens. Each opens with <em>Your Case</em>, then <em>Your Task</em> and <em>Check Your Work</em>; 📞 marks a live call.</p>
-        <div class="cfx-lab-tools">${labTools(d).map(([id, bid]) => toolChip(id, bid, true)).join("")}</div>
+        ${labGate(d)}<div class="cfx-lab-tools" id="cfxLabTools${d.id}"${labReady(d) ? "" : " hidden"}>${labTools(d).map(([id, bid]) => toolChip(id, bid, true)).join("")}</div>
         <ol class="cfx-lab-list">${acts.map(([l, li], k) => { const b = l.cf.block;
           return `<li><button type="button" onclick="cmCaseFlow.labGo(${d.id},${li})" title="Go to this activity's slides"><span class="n">${k + 1}</span><span class="t">${E(titleCase(b.title))}</span>${SIM.calls[b.id] ? `<span class="c" title="Live call">📞</span>` : ""}${!isTrainer() && actDone(b.id) ? `<span class="ok" title="Worked">✓</span>` : ""}</button></li>`; }).join("")}</ol>
       </div>
     </div>`;
 }
+/* The readiness gate: before the day's tools open, three key-concept questions, one from each of the day's first
+   three modules (their Knowledge Check pools). A trainee answers each correctly to unlock the tools; a wrong answer
+   shows the reason and can be tried again. Trainers and the shared slides window skip it. */
+function labQuestions(d){
+  const mods = [];
+  (d.lessons || []).map(l => l.cf && l.cf.block && l.cf.block.id).filter(Boolean).forEach(id => {
+    const m = CF.days.flatMap(x => x.modules).find(x => x.blocks.some(b => b.id === id)); if(m && !mods.includes(m)) mods.push(m); });
+  return mods.filter(m => (m.quiz || []).length).slice(0, 3).map(m => m.quiz[0]);
+}
+const LAB_KEY = d => "cfLabReady:" + d.id;
+const labPassed = {};
+function labReady(d){
+  if(isTrainer() || inAudience() || labPassed[d.id] || !labQuestions(d).length) return true;
+  try{ return sessionStorage.getItem(LAB_KEY(d)) === "1"; }catch(e){ return false; }
+}
+function labGate(d){
+  if(labReady(d)) return "";
+  const qs = labQuestions(d);
+  if(!qs.length) return "";
+  return `<div class="cfx-lab-gate" id="cfxLabGate${d.id}"><b>Ready for practice?</b> Answer these ${qs.length} key concepts to open today's tools.
+    ${qs.map((q, qi) => `<div class="cfx-lab-q" data-q="${qi}"><span>${qi + 1}. ${E(q.q)}</span><div class="o">${q.opts.map((o, oi) =>
+      `<button type="button" onclick="cmCaseFlow.labGate(${d.id},${qi},${oi},this)">${E(o)}</button>`).join("")}</div><div class="r" hidden></div></div>`).join("")}</div>`;
+}
+window.cmCaseFlow.labGate = function(dayId, qi, oi, btn){
+  const d = cfDay(dayId), q = d && labQuestions(d)[qi], row = btn && btn.closest(".cfx-lab-q");
+  if(!q || !row) return;
+  const ok = oi === q.a, r = row.querySelector(".r");
+  row.querySelectorAll("button").forEach(b => b.classList.remove("no"));
+  btn.classList.add(ok ? "ok" : "no");
+  if(ok){ row.classList.add("done"); row.querySelectorAll("button").forEach(b => { b.disabled = true; }); }
+  r.hidden = false; r.textContent = ok ? "✓ " + q.r : "Not quite. " + q.r + " Try again.";
+  const gate = document.getElementById("cfxLabGate" + dayId);
+  if(gate && gate.querySelectorAll(".cfx-lab-q").length === gate.querySelectorAll(".cfx-lab-q.done").length){
+    labPassed[dayId] = true;
+    try{ sessionStorage.setItem("cfLabReady:" + dayId, "1"); }catch(e){}
+    const tools = document.getElementById("cfxLabTools" + dayId);
+    if(tools) tools.hidden = false;
+    gate.classList.add("passed");
+  }
+};
 window.cmCaseFlow.labGo = function(dayId, li){
   const d = cfDay(dayId), slides = d && typeof buildDaySlides === "function" ? buildDaySlides(d) : [];
   const idx = slides.findIndex(sl => sl.type === "topic" && sl.lessonIndex === li && sl.part === 1);
@@ -2851,6 +2891,17 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-theory .cfx-lead-1{font-size:24px;} .cfx-theory .cfx-lead-1 + .cfx-th-lead{text-align:center;}
 .cfx-lab-lead{font:500 16px/1.45 var(--font-ui);color:var(--ink);margin:0 0 10px;text-align:left;}
 .cfx-lab-tools{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px;}
+.cfx-lab-tools[hidden]{display:none;}
+.cfx-lab-gate{border:1px solid #F0C9A0;background:#FFF8EF;border-radius:10px;padding:8px 12px;margin:0 0 10px;font:500 13px/1.4 var(--font-ui);color:var(--ink);text-align:left;}
+.cfx-lab-gate.passed{border-color:#9CD3B0;background:#F1FAF4;}
+.cfx-lab-gate.passed .cfx-lab-q{display:none;}
+.cfx-lab-gate.passed::after{content:" ✓ Ready: today's tools are open.";color:#2E7D4F;}
+.cfx-lab-q{margin-top:6px;}
+.cfx-lab-q .o{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px;}
+.cfx-lab-q .o button{font:500 12px/1.3 var(--font-ui);border:1px solid #CBD2E1;background:#fff;border-radius:6px;padding:3px 8px;cursor:pointer;text-align:left;}
+.cfx-lab-q .o button.ok{background:#E3F4E8;border-color:#3E9A5E;}
+.cfx-lab-q .o button.no{background:#FDECEC;border-color:#C9473F;}
+.cfx-lab-q .r{font-size:12px;color:var(--ink-soft);margin-top:2px;}
 .cfx-lab-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;text-align:left;}
 .cfx-lab-list > li{padding:0 !important;margin:0 !important;}
 .cfx-lab-list > li::before, .cfx-lab-list > li::after{content:none !important;display:none !important;}

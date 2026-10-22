@@ -587,13 +587,13 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 #### 1 · Visual Layout Description
 
-A horizontal threshold gauge across the top half, the same instrument as Day 1's, now carrying John Doe's numbers: a bar from $0 to ACV $17,600.00, a bold navy THRESHOLD marker at 75% labelled $13,200.00, a grey chip at $6,940.00 (estimate, 39.4%) and an orange chip at $9,255.00 (final, 52.6%), joined by an orange arrow tagged +$2,315.00 A-PILLAR SUPPLEMENT. Lower half: a 78-day calendar ribbon from 02/06 to 04/24/2026 in three segments: red 12 days, navy 30 days (RENTAL PAID $1,260.00), red 36 days. A brace under the two red segments reads LOSS OF USE 48 × $42.00 = $2,016.00. The argument: Keystone paid for the middle and nothing on either side.
+A horizontal threshold gauge across the top half, the same instrument as Day 1's, now carrying Margaret Doe's numbers: a bar from $0 to ACV $17,600.00, a bold navy THRESHOLD marker at 75% labelled $13,200.00, a grey chip at $6,940.00 (estimate, 39.4%) and an orange chip at $9,255.00 (final, 52.6%), joined by an orange arrow tagged +$2,315.00 A-PILLAR SUPPLEMENT. Lower half: a 78-day calendar ribbon from 02/06 to 04/24/2026 in three segments: red 12 days, navy 30 days (RENTAL PAID $1,260.00), red 36 days. A brace under the two red segments reads LOSS OF USE 48 × $42.00 = $2,016.00. The argument: Keystone paid for the middle and nothing on either side.
 
 #### 2 · Slide Body — Tell Them
 
 *Why:* On Track B the Civic is no longer a side claim: its Loss of Use and Diminished Value are pleaded in the suit, and every figure will be tested in discovery. The repair-against-ACV arithmetic decides which measure of damages applies, and the loss-of-use calendar is the transportation record that explains the 14-Day Gap.
 
-1. When negligence damages property, the law aims to make the owner whole: John Doe's position before 02/06/2026, never a windfall. Test every PD figure against it.
+1. When negligence damages property, the law aims to make the owner whole: Margaret Doe's position before 02/06/2026, never a windfall. Test every PD figure against it.
 2. Three damage types are recoverable. Economic (special): repair, tow and storage, rental, Loss of Use, Diminished Value. Non-economic (general): pain and suffering, on the injury side. Punitive: to punish egregious conduct such as DUI; none is pleaded here.
 3. PD is also evidence of impact severity: the $2,315.00 teardown supplement (03/02/2026) is structural, the A-pillar, showing hidden damage for the PD claim and force for the injury claim.
 4. Courts generally award the lesser of the repair cost or the drop in market value: a car costing more to fix than it was worth is a Total Loss, capped at its value. Confirm Keystone's threshold basis in writing.
@@ -604,7 +604,7 @@ A horizontal threshold gauge across the top half, the same instrument as Day 1's
 9. The loss-of-use dates are gap evidence too: no car until the 02/18/2026 rental is the first reason for the 14-Day Gap, and the 03/19 cut-off fed the disrupted care. Keep both records identical, date for date.
 10. Keystone's PD coverage ($25,000) pays this claim, outside the $40,000 stack. Bluewater's collision went unused: Keystone accepted PD liability on 02/17/2026.
 
-> ⚠️ **UPL boundary.** You may compute, allocate, document and report PD figures to Atty. Thorne. You may not tell John Doe what his car or its use is worth, whether to accept a Keystone figure, or how a court will measure his damages.
+> ⚠️ **UPL boundary.** You may compute, allocate, document and report PD figures to Atty. Thorne. You may not tell Margaret Doe what her car or its use is worth, whether to accept a Keystone figure, or how a court will measure her damages.
 
 > ⚠️ **UPL boundary.** You may put the PD and rental record in Atty. Thorne's deposition set; you may not rehearse John Doe's answers about the gap or the car.
 
@@ -647,15 +647,15 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 | 🤖 AI | **20%** | Day allocation | 78 days split 12 / 30 / 36, each counted once; 48 × $42.00 = $2,016.00 |
 | 🤖 AI | **20%** | Doctrine | Make-whole aim, the three damage types and the lesser-of rule stated correctly |
 | 🧑‍🏫 Trainer | **25%** | Evidentiary reasoning | Connects the supplement and the loss-of-use dates to the injury claim and the gap |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | No valuation or acceptance advice to John Doe; the 36-day argument left to Atty. Thorne |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | No valuation or acceptance advice to Margaret Doe; the 36-day argument left to Atty. Thorne |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
 #### 5 · Speaker Notes
 
 - Open with the gauge. Ask which number decides whether the Civic is totaled; most will say the estimate. It is the final bill, $9,255.00, after the supplement.
-- Put it to the room: “Keystone paid for 30 days of rental. Why is John Doe still owed anything for the use of his car?” Make them find the two red segments on either side.
-- Tie it to Day 5's gap work: the 12 days without a car are the first of the four reasons for the 14-Day Gap, and the 02/18/2026 rental date is in the PD record, not just John Doe's memory. Expect defense counsel to build a causation trap on that fortnight at deposition; the record answers it, and Atty. Thorne, not the CM, prepares John Doe.
+- Put it to the room: “Keystone paid for 30 days of rental. Why is Margaret Doe still owed anything for the use of her car?” Make them find the two red segments on either side.
+- Tie it to Day 5's gap work: the 12 days without a car are the first of the four reasons for the 14-Day Gap, and the 02/18/2026 rental date is in the PD record, not just John Doe's memory. Expect defense counsel to build a causation trap on that fortnight at deposition; the record answers it, and Atty. Thorne, not the CM, prepares Margaret Doe.
 - Legal nuance: whether parts-backorder days are recoverable, and how far a carrier's cap binds, vary by jurisdiction. Watch for the 78-day double count; the make-whole principle answers it, and it is not a technicality.
 
 ---
@@ -673,19 +673,19 @@ A balanced two-column face-off. Left, a navy card headed KEYSTONE'S 17c: the for
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* A Civic with an A-pillar repair in its history is worth less than one never hit, and John Doe didn't cause that loss. Keystone's $792.00 comes from a formula; the $3,600.00 from a market appraisal. The difference is pleaded on Track B: the CM builds the evidence and Atty. Thorne makes the argument.
+*Why:* A Civic with an A-pillar repair in its history is worth less than one never hit, and Margaret Doe didn't cause that loss. Keystone's $792.00 comes from a formula; the $3,600.00 from a market appraisal. The difference is pleaded on Track B: the CM builds the evidence and Atty. Thorne makes the argument.
 
 1. Diminished Value is the market value a car still loses after a proper repair: buyers pay less for a damage history. Many jurisdictions allow it against the at-fault driver.
 2. It sits beside the lesser-of rule: where a repair leaves a residual loss, many courts add it to the repair cost (for example, Restatement (Second) of Torts § 928), kept under the pre-loss value: $9,255.00 + $3,600.00 = $12,855.00, under $17,600.00. Confirm the governing rule.
 3. It is a market loss, not a feeling. The measure is fair market value. Where an item has no market (an heirloom), some courts use actual value to the owner, still excluding sentimental value; a few allow emotional-distress damages for intentional destruction. Neither fits a 2019 Civic.
 4. Keystone's “17c” figure is a carrier formula from a Georgia class-action settlement, not a legal measure of damages: 10% of $17,600.00 = $1,760.00, × damage 0.75, × mileage 0.60 = $792.00.
-5. Critique the cap: no damage, however severe, yields more than $1,760.00 on this car. The appraisal's $3,600.00 is 20.5% of ACV, more than twice the formula's ceiling.
+5. Critique the cap: no damage, however severe, yields more than $1,760.00 on ther car. The appraisal's $3,600.00 is 20.5% of ACV, more than twice the formula's ceiling.
 6. Critique the multipliers: 0.75 is the formula's ‘major structural’ tier; the A-pillar teardown supports arguing for its top, ‘severe structural’ tier (1.00), Atty. Thorne's argument to make; 0.60 discounts 52,300 miles the $17,600.00 ACV already priced in, counting mileage twice.
 7. Test your own evidence too: the Riverton Auto Appraisal (05/06/2026) post-dates the 04/24/2026 repair, so it valued the repaired car; check its method and credentials.
-8. Resolve on evidence: get Keystone's position and inputs in writing, by the route Atty. Thorne chooses (in suit, usually discovery), assemble the answer (appraisal, supplement, rental record) and escalate to him. Pleaded on Track B, the items resolve where he takes them: negotiation, mediation, or trial.
-9. PD is settled only on a property-damage-only release Atty. Thorne has reviewed. A release reaching “all claims” from 02/06/2026 could end the injury case in suit; John Doe signs nothing from Keystone until the firm has reviewed it.
+8. Resolve on evidence: get Keystone's position and inputs in writing, by the route Atty. Thorne chooses, assemble the answer (appraisal, supplement, rental record) and escalate to him. Outside John Doe's suit, the items resolve where he takes them: negotiation, appraisal, or Margaret's own small-claims filing.
+9. PD is settled only on a property-damage-only release Atty. Thorne has reviewed. A release reaching “all claims” from 02/06/2026 could reach more than the Civic; Margaret Doe signs nothing from Keystone until the firm has reviewed it.
 
-> ⚠️ **UPL boundary.** You may calculate, critique the formula on paper, assemble the evidence and recommend a range to Atty. Thorne. You may not make, accept, reject or counter any PD figure, tell John Doe what his car has lost in value or whether to take Keystone's offer, or explain a release to him.
+> ⚠️ **UPL boundary.** You may calculate, critique the formula on paper, assemble the evidence and recommend a range to Atty. Thorne. You may not make, accept, reject or counter any PD figure, tell Margaret Doe what her car has lost in value or whether to take Keystone's offer, or explain a release to her.
 
 #### 2 · Slide Body — Show Them
 
@@ -704,13 +704,13 @@ A balanced two-column face-off. Left, a navy card headed KEYSTONE'S 17c: the for
 |---|---|---|---|
 | Keystone states its diminished-value figure | Ask Atty. Thorne how to obtain the 17c worksheet and every input (a discovery request or a written request through counsel), and draft it for his review | CMS → Property Damage → Correspondence | Base, both multipliers and the ACV used on file in writing |
 | Appraisal received (05/06/2026) | Audit its method, data and credentials; index it as the diminished-value evidence | CMS → Property Damage · CMS → Documents | Audit note dated; appraisal indexed |
-| Keystone sends a PD release or check | Hold it and route the release language to Atty. Thorne | CMS → Tasks → Escalate | Release scope reviewed by Atty. Thorne before John Doe sees a signature line |
+| Keystone sends a PD release or check | Hold it and route the release language to Atty. Thorne | CMS → Tasks → Escalate | Release scope reviewed by Atty. Thorne before Margaret Doe sees a signature line |
 
 **Best practices & pitfalls**
 
 - Make Keystone show its formula's inputs in writing; a number without its math can't be answered.
 - Put the critique on paper for Atty. Thorne; an adjuster call is not where it gets argued.
-- ⚠️ Pitfall: telling John Doe his car “lost $3,600.00”; that is a valuation opinion.
+- ⚠️ Pitfall: telling Margaret Doe her car “lost $3,600.00”; that is a valuation opinion.
 - ⚠️ Pitfall: a PD release that reaches the injury claim.
 - ⚠️ Pitfall: promising sentimental-value recovery the law won't award.
 
@@ -726,7 +726,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 | 🤖 AI | **20%** | Critique | The 10% cap, the damage tier and the mileage double count each named; 20.5% against 10% |
 | 🤖 AI | **20%** | Doctrine | Residual market loss added to the repair beside the lesser-of rule; $12,855.00 under $17,600.00; market value, not sentiment; PD-only release |
 | 🧑‍🏫 Trainer | **25%** | Dispute judgment | Evidence-led; escalates rather than argues; keeps the release risk in view |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | No figure made, accepted, rejected or valued for John Doe |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | No figure made, accepted, rejected or valued for Margaret Doe |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
@@ -1722,7 +1722,7 @@ An annotated CMS Property Damage worksheet fills the left two-thirds: a white ca
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** File date 12/2026: the requests mailed 12/01/2026 have arrived. Defendant's First Requests for Production, served on John Doe by U.S. mail, ask for every document supporting the Property Damage claim (responses due 01/04/2027). The total-loss and loss-of-use entries on the CMS Property Damage screen, untouched since April, show a total-loss check run on the $6,940.00 estimate (39.4% of ACV) and a loss-of-use line of 78 days × $42.00 = $3,276.00. Keystone still offers $0 for Loss of Use.
+**Scenario.** File date 12/2026: the requests mailed 12/01/2026 have arrived. Leah Moran (Keystone PD) asks Margaret Doe's PD file for every document supporting her Property Damage claim (reply due 01/04/2027). The total-loss and loss-of-use entries on the CMS Property Damage screen, untouched since April, show a total-loss check run on the $6,940.00 estimate (39.4% of ACV) and a loss-of-use line of 78 days × $42.00 = $3,276.00. Keystone still offers $0 for Loss of Use.
 
 **Execution prompt.** Audit and correct the Civic's numbers before anything is produced. Re-run the total-loss check on the final repair against the $17,600.00 ACV and Keystone's 75% threshold, and list what you would verify in Keystone's Valuation Report. Rebuild the loss-of-use ledger day by day from 02/06 to 04/24/2026, allocating each day once, and correct the claim. Attach the evidence for each period, and index the severity set: the photos and the estimate against the final bill. Then flag for Atty. Thorne the two arguments Keystone will make against the unpaid days, without answering them, and date the task ahead of the response deadline.
 
@@ -1782,7 +1782,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 - Don't tell them there are two staged errors. The trainee who re-runs the threshold on $9,255.00 and catches the 78-day double count is doing the job; the one who tidies the formatting isn't.
 - Ask the room: “If the defense receives a worksheet claiming $3,276.00, what happens to the credibility of the $3,600.00 appraisal?” That is why the audit comes before production.
-- Grade the evidence column hardest. The 12 pre-rental days are proved by the tow and storage record and Keystone's own 02/17/2026 acceptance, not by John Doe's word.
+- Grade the evidence column hardest. The 12 pre-rental days are proved by the tow and storage record and Keystone's own 02/17/2026 acceptance, not by Margaret Doe's word.
 - What is produced, and how discovery is answered, is Atty. Thorne's decision. The CM prepares the set; the responses go out over his signature.
 
 ---
@@ -1800,7 +1800,7 @@ A negotiation board across the slide. Left: a vertical number line from $0 to $5
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** File date 12/10/2026. The Scheduling Order requires mediation by 03/31/2027. Leah Moran (Keystone PD) emails that $792.00 for Diminished Value and $0 for Loss of Use are final, attaching a release of “all claims arising from the 02/06/2026 accident” for John Doe's signature, then calls to ask whether John Doe will take it. Atty. Thorne wants your recommendation.
+**Scenario.** File date 12/10/2026. The Scheduling Order requires mediation by 03/31/2027. Leah Moran (Keystone PD) emails that $792.00 for Diminished Value and $0 for Loss of Use are final, attaching a release of “all claims arising from the 02/06/2026 accident” for Margaret Doe's signature, then calls to ask whether Margaret Doe will take it. Atty. Thorne wants your recommendation.
 
 **Execution prompt.** Work the diminished-value dispute to a recommendation. Rebuild Keystone's 17c figure from the $17,600.00 ACV, then critique its 10% cap and both multipliers against the 03/02/2026 supplement and the 05/06/2026 appraisal. Set out the whole PD dispute, claimed against offered, and recommend a negotiating range: a top and a floor, each with its evidence and arithmetic. Take Leah Moran's call and answer her email without accepting, rejecting or countering anything, route the release, and send the range to Atty. Thorne for authority.
 
@@ -1823,14 +1823,14 @@ A negotiation board across the slide. Left: a vertical number line from $0 to $5
 **Verification checkpoints**
 
 - [ ] 17c rebuilt: 10% × $17,600.00 = $1,760.00; × 0.75 = $1,320.00; × 0.60 = $792.00
-- [ ] The 10% cap named: the formula can never exceed $1,760.00 on this car
+- [ ] The 10% cap named: the formula can never exceed $1,760.00 on ther car
 - [ ] Both multipliers challenged: 0.75 against the $2,315.00 A-pillar supplement (03/02/2026); 0.60 as a second discount for 52,300 miles the ACV already priced in
 - [ ] Appraisal compared: $3,600.00 (20.5% of ACV) against $792.00 (4.5%); difference $2,808.00
 - [ ] Dispute totalled: $2,016.00 + $3,600.00 = $5,616.00 claimed against $792.00 offered
 - [ ] Range has a top and a floor, each traced to a document with the arithmetic shown, and the weakest item (the 36 “shop delay” days) named; the floor sits above $792.00
 - [ ] Make-whole check shown: $9,255.00 + $3,600.00 = $12,855.00, below the $17,600.00 pre-loss value
 - [ ] Limit check: $455.00 + $9,255.00 + $1,260.00 = $10,970.00 paid, + $5,616.00 disputed = $16,586.00, inside Keystone's $25,000 PD limit; any other claim on that limit (the Escape) flagged for Atty. Thorne
-- [ ] Release flagged: the “all claims” language routed to Atty. Thorne; nothing sent to John Doe to sign
+- [ ] Release flagged: the “all claims” language routed to Atty. Thorne; nothing sent to Margaret Doe to sign
 - [ ] Call and email logged; Leah Moran told only that the offer is with Atty. Thorne; no figure accepted, rejected or countered
 - [ ] Recommendation routed to Atty. Thorne as a task, evidence attached, marked “for authority”
 
@@ -1839,7 +1839,7 @@ A negotiation board across the slide. Left: a vertical number line from $0 to $5
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | Keystone restates $792.00 and $0 with a release | Log the email and the call; acknowledge receipt only | Email Workspace · CMS → Communications Log | Both logged 12/10/2026; no position taken |
-| Release received | Route the release language to Atty. Thorne and hold it from John Doe | CMS → Tasks → Escalate | Escalated the same day; John Doe not asked to sign |
+| Release received | Route the release language to Atty. Thorne and hold it from Margaret Doe | CMS → Tasks → Escalate | Escalated the same day; Margaret Doe not asked to sign |
 | Range drafted | Send the memo and the evidence to Atty. Thorne for authority | CMS → Tasks → Escalate | His decision recorded before anything goes to Keystone |
 | Atty. Thorne sets authority | Record it in his words and calendar the next step | CMS → Case Notes · Calendar | Authority dated; nothing used beyond it |
 
@@ -1848,7 +1848,7 @@ A negotiation board across the slide. Left: a vertical number line from $0 to $5
 - Recommend with arithmetic: every number in the range traces to a document.
 - Give Atty. Thorne the weak point too: the 36 “shop delay” days are where Keystone will push hardest.
 - ⚠️ Pitfall: telling Leah Moran “we'd probably take” any figure; that is an offer made without authority.
-- ⚠️ Pitfall: forwarding Keystone's release to John Doe “just so he can see it.”
+- ⚠️ Pitfall: forwarding Keystone's release to Margaret Doe “just so she can see it.”
 
 #### 3 · Knowledge Check & CM Summary
 
@@ -1864,13 +1864,13 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 | 🤖 AI | **15%** | Range construction | Top and floor each traced to evidence with arithmetic; floor above $792.00 |
 | 🧑‍🏫 Trainer | **15%** | Negotiation judgment | A range Atty. Thorne could use: realistic, with the weak points named |
 | 🧑‍🏫 Trainer | **10%** | Release risk | Saw that the release could reach the injury claim and held it |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | Nothing accepted, rejected or countered; John Doe not asked to sign; the adjuster told only that it is with counsel |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | Nothing accepted, rejected or countered; Margaret Doe not asked to sign; the adjuster told only that it is with counsel |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
 #### 5 · Speaker Notes
 
-- Start with the release, not the math. Ask who opened Leah Moran's attachment. A trainee who forwards it to John Doe has failed the lab before computing anything.
+- Start with the release, not the math. Ask who opened Leah Moran's attachment. A trainee who forwards it to Margaret Doe has failed the lab before computing anything.
 - Ask: “What is the lowest number you'd put in front of Atty. Thorne, and which document defends it?” Grade the reasoning, not the figure; the outcome is his. Keystone's own formula, with the damage tier at the top and the mileage double count removed, reaches its $1,760.00 ceiling; a floor built there defends better than one picked from the air.
 - In the call, AI Leah Moran presses: “Can you just tell me if he'll take it?” The only right answer is that the offer is with Atty. Thorne and the firm will respond.
 - Nuance: the range is internal work product for counsel. With the items pleaded and Robert Smith represented by Atty. Grant Mercer, how and with whom PD is negotiated is Atty. Thorne's choice.
@@ -2622,7 +2622,7 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Show whether John Doe's Civic is a Total Loss: the final repair, the ACV, Keystone's threshold and the percentage, with the arithmetic.
+1. Show whether Margaret Doe's Civic is a Total Loss: the final repair, the ACV, Keystone's threshold and the percentage, with the arithmetic.
 2. Allocate the 78 days from 02/06 to 04/24/2026. Which are claimed as Loss of Use, at what rate and for how much, and why are the rental days excluded?
 3. Name the three types of damages, place the Civic's repair, Loss of Use and Diminished Value among them, and say what conduct a punitive claim requires.
 
@@ -2635,7 +2635,7 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned about valuing and disputing Property Damage on John Doe's file: the principles, not the clicks.
+- Summarize, in your own words, what you learned about valuing and disputing Property Damage on Margaret Doe's file: the principles, not the clicks.
 - Articulate your strategy: the PD dispute stands at $5,616.00 claimed against $792.00 offered. What is your next action, and why is it the right one rather than something else?
 - Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
 
@@ -2654,17 +2654,17 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 
 **Auto-graded share of the day's Knowledge Check** (4 questions):
 
-1. John Doe's Civic: final repair $9,255.00, ACV $17,600.00, Keystone's total-loss threshold 75%. The Civic is:  
+1. Margaret Doe's Civic: final repair $9,255.00, ACV $17,600.00, Keystone's total-loss threshold 75%. The Civic is:  
    A Total Loss: the supplement pushed the repair past half the ACV · **✓ Repairable: $9,255.00 is 52.6% of ACV, under the $13,200.00 line** · A Total Loss: structural damage always totals a car · Repairable only on the $6,940.00 estimate, not on the final bill  
    *$9,255.00 is 52.6% of $17,600.00. The line is 75% × $17,600.00 = $13,200.00, so the Civic is repairable with $3,945.00 to spare. Run it on the final bill, never the first estimate.*
-2. Keystone paid John Doe's rental for 02/18–03/19/2026. Which days make up the $2,016.00 loss-of-use claim?  
+2. Keystone paid Margaret Doe's rental for 02/18–03/19/2026. Which days make up the $2,016.00 loss-of-use claim?  
    **✓ 02/06–02/17 and 03/20–04/24/2026: 48 days without a car or a paid rental** · All 78 days from 02/06 to 04/24/2026 · Only the 30 rental days, at a higher daily rate · Only the 36 days of parts delay  
-   *12 + 36 = 48 unpaid days × $42.00 = $2,016.00. The 30 paid days are excluded: claiming them again would pay John Doe twice for the same day.*
-3. On John Doe's Civic, what holds Keystone's 17c diminished-value formula to $1,760.00 at most, whatever the damage?  
+   *12 + 36 = 48 unpaid days × $42.00 = $2,016.00. The 30 paid days are excluded: claiming them again would pay Margaret Doe twice for the same day.*
+3. On Margaret Doe's Civic, what holds Keystone's 17c diminished-value formula to $1,760.00 at most, whatever the damage?  
    The mileage multiplier of 0.60 · The $25,000 PD limit · **✓ The 10% base: 10% of the $17,600.00 ACV, set before any multiplier** · The date of the appraisal  
    *17c starts from 10% of value, $1,760.00 here, and the multipliers can only reduce it. The $3,600.00 appraisal is 20.5% of ACV, a figure the formula can never reach.*
-4. Leah Moran tells you Keystone's $792.00 is final and asks you to confirm John Doe will take it. You:  
-   Accept it, since anything beats $0 · Reject it and counter at $3,600.00 · Tell John Doe it's a fair offer and let him decide · **✓ Log it, tell her it is with Atty. Thorne, and route it to him the same day**  
+4. Leah Moran tells you Keystone's $792.00 is final and asks you to confirm Margaret Doe will take it. You:  
+   Accept it, since anything beats $0 · Reject it and counter at $3,600.00 · Tell Margaret Doe it's a fair offer and let her decide · **✓ Log it, tell her it is with Atty. Thorne, and route it to him the same day**  
    *The CM never makes, accepts, rejects or counters a PD figure, and never values an offer for the client. The CM records and routes; Atty. Thorne decides.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
@@ -2677,17 +2677,17 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action fits a $5,616.00 against $792.00 dispute and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slide |
-| 🧑‍🏫 Trainer | **10%** | UPL boundary | Inspection and offer both routed to Atty. Thorne; nothing agreed with defense counsel; no value given to John Doe |
+| 🧑‍🏫 Trainer | **10%** | UPL boundary | Inspection and offer both routed to Atty. Thorne; nothing agreed with defense counsel; no value given to Margaret Doe |
 | 🧑‍🏫 Trainer | **5%** | Self-rating calibration | Self-score is defensible against demonstrated performance |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
 #### 5 · Speaker Notes
 
-- Question 6 is the pressure scenario. The right answer agrees to nothing, logs the call, and gets both the inspection request and the offer to Atty. Thorne at once; any instruction to John Doe to preserve the Civic is his to give, and the CM relays it.
-- After Question 7, ask the room: “Why does a parked car's A-pillar matter to a neck injury?” The supplement measures the force that drove the Escape, with John Doe inside, into the Civic. Atty. Thorne uses it in prep; the CM puts it in the set and never tells John Doe what to say.
+- Question 6 is the pressure scenario. The right answer agrees to nothing, logs the call, and gets both the inspection request and the offer to Atty. Thorne at once; any instruction to Margaret Doe to preserve the Civic is Atty. Thorne's to give, and the CM relays it.
+- After Question 7, ask the room: “Why does a parked car's A-pillar matter to a neck injury?” The supplement measures the force that drove the Escape, with John Doe inside, into the Civic. Atty. Thorne uses it in prep; the CM puts it in the set and never tells Margaret Doe what to say.
 - Compare each self-rating with the score. A 5 on a block scored at 60 is a coaching conversation, and so is a 2 on a block they aced.
-- UPL is a gate: a strong score does not survive an ethics breach. On this module the breach to watch for is a PD figure accepted, rejected or valued for John Doe.
+- UPL is a gate: a strong score does not survive an ethics breach. On this module the breach to watch for is a PD figure accepted, rejected or valued for Margaret Doe.
 
 ---
 
