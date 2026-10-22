@@ -1687,7 +1687,7 @@ const PRESENTER_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 
   + '<path d="M114 103Q122 109 130 103" fill="none" stroke="#7A4A32" stroke-width="2.2" stroke-linecap="round"/>'
   + '<circle cx="97" cy="100" r="3" fill="#F4B77A"/><circle cx="147" cy="100" r="3" fill="#F4B77A"/>'
   + '</svg>';
-/* A Case Flow slide is one card: the dots and the slide go in .cf-stage-card, the full width of the stage, and
+/* A Case Flow slide is one card: the dots and the slide go in .cf-stage-card (the dots beside the slide's title), the full width of the stage, and
    Previous / Next sit under it (the presenter stands in the side column, sidePresenter()). Everything stays inside #lessonStage, so full screen and the slide's fit still work. */
 function cfStage(html){
   if(typeof html !== "string" || html.indexOf("cfx-deck") < 0 || html.indexOf("stage-body") < 0) return html;
@@ -1702,6 +1702,8 @@ function cfStage(html){
     dots.innerHTML = `<span class="cf-dots-fill" style="width:${((at + 1) / n * 100).toFixed(1)}%"></span>`;
   }
   body.before(card); if(dots) card.appendChild(dots); card.appendChild(body);
+  const head = body.querySelector(".cfx-deck-head");   // the title and the progress dots share the top row
+  if(dots && head){ dots.classList.add("cf-head-dots"); head.appendChild(dots); }
   body.querySelectorAll(":scope > .stage-presenter").forEach(x => x.remove());
   return t.innerHTML;
 }
@@ -3561,11 +3563,19 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
    Previous / Next sit under it, on the page (cfStage() builds this from the engine's stage); the presenter is in the side column */
 .lesson-stage:has(> .cf-stage-card){background:transparent !important;box-shadow:none !important;padding:0 !important;border-radius:0 !important;overflow:visible !important;
   display:grid !important;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;}
-.cf-stage-card{grid-column:1;grid-row:1;position:relative;overflow:hidden;min-width:0;background:#262B45;border-radius:20px;padding:16px 20px 14px;box-shadow:0 18px 40px -22px rgba(20,24,48,.65);}
-.cf-stage-card::before{content:"";position:absolute;top:0;right:0;width:min(200px,20%);height:46px;border-radius:0 0 0 100%;background:#DB8437;opacity:.95;pointer-events:none;}
+.cf-stage-card{grid-column:1;grid-row:1;position:relative;overflow:hidden;min-width:0;background:rgba(30,35,64,.9);backdrop-filter:blur(12px) saturate(1.1);-webkit-backdrop-filter:blur(12px) saturate(1.1);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:16px 20px 14px;box-shadow:0 18px 40px -22px rgba(20,24,48,.65);}
+/* the card is glass over the page's background; line ornaments at its top-right and bottom-left corners (and in the sheet's bottom-right) */
+.cf-stage-card::before, .cf-stage-card::after{content:"";position:absolute;pointer-events:none;background-repeat:no-repeat;}
+.cf-stage-card::before{top:6px;right:6px;width:90px;height:70px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='70' viewBox='0 0 90 70' fill='none' stroke-linecap='round'%3E%3Cpath d='M6 8H76V60' stroke='%23DB8437' stroke-width='1.6'/%3E%3Cpath d='M22 14H70V44' stroke='%238E97C4' stroke-width='1.2'/%3E%3Cpath d='M40 4H84V24' stroke='%23DB8437' stroke-width='1.2'/%3E%3Ccircle cx='6' cy='8' r='2.2' fill='%23DB8437' stroke='none'/%3E%3Ccircle cx='76' cy='60' r='2.2' fill='%23DB8437' stroke='none'/%3E%3Ccircle cx='22' cy='14' r='1.8' fill='%238E97C4' stroke='none'/%3E%3Ccircle cx='70' cy='44' r='1.8' fill='%238E97C4' stroke='none'/%3E%3Ccircle cx='84' cy='24' r='1.8' fill='%23DB8437' stroke='none'/%3E%3C/svg%3E");}
+.cf-stage-card::after{bottom:6px;left:6px;width:70px;height:70px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70' fill='none' stroke-linecap='round'%3E%3Cpath d='M10 6V60H62' stroke='%23DB8437' stroke-width='1.6'/%3E%3Cpath d='M16 20V54H44' stroke='%238E97C4' stroke-width='1.2'/%3E%3Cpath d='M4 34V66H28' stroke='%23DB8437' stroke-width='1.2'/%3E%3Ccircle cx='10' cy='6' r='2.2' fill='%23DB8437' stroke='none'/%3E%3Ccircle cx='62' cy='60' r='2.2' fill='%23DB8437' stroke='none'/%3E%3Ccircle cx='16' cy='20' r='1.8' fill='%238E97C4' stroke='none'/%3E%3Ccircle cx='44' cy='54' r='1.8' fill='%238E97C4' stroke='none'/%3E%3Crect x='1' y='31' width='6' height='6' fill='%23DB8437' stroke='none'/%3E%3C/svg%3E");}
 .cf-stage-card > *{position:relative;z-index:1;}
-.cf-stage-card .slide-dots{padding-right:min(190px,19%);}   /* the dots stop short of the orange corner */
-.cf-stage-card .slide-dots.cf-dots-bar{display:block;height:6px;border-radius:3px;background:rgba(255,255,255,.18);margin:6px min(190px,19%) 12px 0;padding:0;}
+.cf-stage-card .slide-dots{padding-right:90px;}   /* the dots stop short of the corner ornament */
+.cf-stage-card .slide-dots.cf-dots-bar{display:block;height:6px;border-radius:3px;background:rgba(255,255,255,.18);margin:6px 90px 12px 0;padding:0;}
+/* on the title row: a dark pill of small dots between the title and the corner */
+.cfx-deck-head .slide-dots.cf-head-dots{flex:0 1 auto;min-width:0;margin:0 96px 0 auto !important;padding:6px 10px;gap:3px;justify-content:center;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.12);border-radius:8px;}
+.cfx-deck-head .cf-head-dots .slide-dot{width:6px;height:6px;}
+.cfx-deck-head .cf-head-dots .slide-dot.active{width:16px;}
+.cfx-deck-head .slide-dots.cf-head-dots.cf-dots-bar{display:block;flex:0 1 320px;height:8px;padding:0;}
 .cf-dots-bar .cf-dots-fill{display:block;height:100%;border-radius:3px;background:var(--orange,#E8913A);}
 .cf-stage-card .stage-body{display:block !important;}
 .cf-stage-card #lessonSlideWrap{background:transparent !important;border-radius:0 !important;box-shadow:none !important;padding:4px 2px 2px !important;}
@@ -3587,10 +3597,10 @@ main > .cf-side-presenter{display:none;}
 .lesson-stage:fullscreen > .cf-stage-card{display:flex;flex-direction:column;min-height:0;height:100%;box-sizing:border-box;}
 .lesson-stage:fullscreen > .cf-stage-card .stage-body{display:flex !important;flex-direction:column;flex:1;min-height:0;}
 .cfx-deck > *{position:relative;z-index:1;}
-.cfx-deck-head{display:flex;align-items:center;gap:20px;padding:0 0 10px;margin:0 0 16px;border-bottom:2px solid rgba(255,255,255,.88);}
+.cfx-deck-head{display:flex;align-items:center;gap:20px;padding:0 0 4px;margin:0 0 12px;}
 .cfx-logo{height:48px;width:auto;flex:0 0 auto;}
-.cfx-deck-title{margin:0 !important;font:800 33px/1.1 'Poppins','Inter',sans-serif !important;color:#fff !important;letter-spacing:.005em;
-  text-shadow:-2px -2px 0 #DB8437,2px -2px 0 #DB8437,-2px 2px 0 #DB8437,2px 2px 0 #DB8437,0 -2px 0 #DB8437,0 2px 0 #DB8437,-2px 0 0 #DB8437,2px 0 0 #DB8437,0 4px 0 rgba(0,0,0,.18);}
+.cfx-deck-title{margin:0 !important;padding:2px 0 2px 4px;font:800 33px/1.1 'Poppins','Inter',sans-serif !important;color:#fff !important;letter-spacing:.005em;
+  -webkit-text-stroke:4px #DB8437;paint-order:stroke fill;stroke-linejoin:round;text-shadow:0 4px 0 rgba(0,0,0,.18);}   /* a true outline (stroke under the fill): smooth edges, unlike stacked shadows; the left padding keeps the first letter's outline inside the slide's clip */
 .cfx-ribbon{margin:0 0 16px;}
 .cfx-tools{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px;margin-left:auto;font-size:13px;color:#D6DBEA;}
 .cfx-tools + .cfx-full{margin-left:6px;}
@@ -3822,7 +3832,7 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-deck .cfx-kicker{background:transparent;border-color:rgba(255,255,255,.35);color:#F4B77A;}
 .cfx-deck .cfx-dot{background:rgba(255,255,255,.25);}.cfx-deck .cfx-dot.done{background:#AEB6CC;}
 .cfx-deck .cfx-full{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.35);color:#fff;}
-.cfx-sheet{background:#FFFDF8;color:var(--ink);border:3px solid #DB8437;border-radius:22px;padding:18px 24px;box-shadow:0 8px 22px rgba(0,0,0,.18);}
+.cfx-sheet{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150' fill='none'%3E%3Cpath d='M122 6V128M130 20V128' stroke='%23DB8437' stroke-width='1.2'/%3E%3Cpath d='M138 0V140' stroke='%23262B45' stroke-width='1.2'/%3E%3Cpath d='M4 122H118M18 130H118' stroke='%23DB8437' stroke-width='1.2'/%3E%3Cpath d='M0 140H138' stroke='%23262B45' stroke-width='1.2'/%3E%3Cpath d='M84 150L150 92' stroke='%23262B45' stroke-width='1.2'/%3E%3Ccircle cx='116' cy='118' r='8' stroke='%23DB8437' stroke-width='1.2'/%3E%3Crect x='133' y='133' width='6' height='6' stroke='%23DB8437' stroke-width='1.2'/%3E%3C/svg%3E") no-repeat right 8px bottom 8px / 110px;color:var(--ink);border:1px solid rgba(255,255,255,.6);border-radius:14px;padding:18px 24px;box-shadow:0 8px 22px rgba(0,0,0,.18);}
 .cfx-sheet .cfx-art.small svg{max-height:200px;}
 /* Skill Building opener: the case documents, the challenge ribbon, the situation */
 .cfx-docs-row{display:flex;gap:14px;justify-content:center;margin:0 0 12px;}
@@ -3850,7 +3860,7 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-ag-side p{margin:0;}
 @media(max-width:760px){
   .cfx.cfx-deck{padding:14px 16px 18px !important;}
-  .cfx-deck-head{gap:12px;}.cfx-logo{height:38px;}.cfx-deck-title{font-size:23px !important;}
+  .cfx-deck-head{gap:10px 12px;flex-wrap:wrap;}.cfx-deck-head .slide-dots.cf-head-dots{order:-1;flex:1 1 100%;margin:0 70px 0 0 !important;}.cfx-logo{height:38px;}.cfx-deck-title{font-size:23px !important;-webkit-text-stroke-width:3px;}
   .cfx-ribbon span{font-size:16px;padding:6px 12px;}
   .cfx-deck .cfx-top{flex-wrap:wrap;gap:8px 10px;}.cfx-deck .cfx-title.cfx-pill{white-space:nowrap;font-size:15px !important;padding:5px 12px;}
   .cfx-deck .cfx-kicker{display:none;}.cfx-thumb:nth-child(n+3){display:none;}
