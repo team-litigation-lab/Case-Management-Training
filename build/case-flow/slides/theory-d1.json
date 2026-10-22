@@ -161,9 +161,9 @@
     "lead": "Property Damage is **a separate claim** with its own measure: repair or total, set against the vehicle's pre-loss value.",
     "concepts": [
       {"term": "The Scene Audit", "text": "Photos, video and damage must match how the crash happened; **the physics must be possible**"},
-      {"term": "Supplemental Estimate", "text": "An added estimate written after teardown finds hidden damage: **proof of impact severity** for the injury claim"},
-      {"term": "Total Loss Threshold", "text": "The repair-to-ACV percentage at which a carrier stops repairing and **pays the value instead**"},
-      {"term": "The Valuation Report", "text": "The carrier's market-based report that sets ACV; **verify it line by line** so the client isn't lowballed"}
+      {"term": "Initial and Supplemental Estimates", "text": "The initial estimate prices visible damage; a supplemental after teardown is **proof of impact severity**"},
+      {"term": "Total Loss and Valuation", "text": "Past the repair-to-ACV threshold the carrier pays ACV from its Valuation Report: **verify it line by line**"},
+      {"term": "Rental", "text": "A comparable vehicle while the client's is out: confirm who authorizes it, **the daily cap and duration**"}
     ],
     "pages": ["D2#6"],
     "framework": {
