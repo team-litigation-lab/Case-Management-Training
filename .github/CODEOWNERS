@@ -3,8 +3,8 @@
 # quietly in the same pull request that changes the CMS.
 #
 # Review here is the second gate, not the first: the red check is what stops the edit.
-/js/cm-cms-case.js        @team-litigation-lab/case-management-training
-/js/cm-cms-upload.js      @team-litigation-lab/case-management-training
-/js/cm-doc-filing.js      @team-litigation-lab/case-management-training
-/.github/cms-lock.json    @team-litigation-lab/case-management-training
-/.github/scripts/cms-locked.cjs  @team-litigation-lab/case-management-training
+/js/cm-cms-case.js               @team-litigation-lab
+/js/cm-cms-upload.js             @team-litigation-lab
+/js/cm-doc-filing.js             @team-litigation-lab
+/.github/cms-lock.json           @team-litigation-lab
+/.github/scripts/cms-locked.cjs  @team-litigation-lab
