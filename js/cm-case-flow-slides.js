@@ -957,7 +957,7 @@ window.CM_CF_SLIDES = {
     "steps": [
      {
       "label": "Whose Coverage Pays the Rental?",
-      "text": "The adverse carrier's **Property Damage** coverage provides the 3P rental; the client's own policy only where there is no coverage"
+      "text": "The adverse carrier's **Property Damage** coverage pays the 3P rental; the client's policy only if none"
      },
      {
       "label": "Who Authorizes?",
