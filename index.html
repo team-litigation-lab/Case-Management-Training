@@ -1487,6 +1487,8 @@ rect.svg-callout-badge{animation:none;}
 .cr-msg{max-width:78%;margin-bottom:10px;padding:10px 13px;border-radius:12px;font-size:var(--font-body);line-height:1.5;}
 .cr-msg.cr-client{background:var(--navy);color:#fff;border-bottom-left-radius:3px;}
 .cr-msg.cr-ea{background:var(--orange-soft);color:var(--navy-deep);margin-left:auto;border-bottom-right-radius:3px;}
+.cr-msg.cr-failed{background:#FDECEC;color:#8A2222;border:1px solid #F3C4C4;}
+.cr-msg.cr-failed .cr-retry{margin-left:8px;}
 .cr-chat-input-row{display:flex;gap:8px;margin-top:10px;}
 .cr-chat-input-row textarea{flex:1;min-height:44px;border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-size:var(--font-body);font-family:inherit;resize:vertical;}
 
@@ -3654,6 +3656,9 @@ async function loadAll(){
 }
 
 /* ---------- helpers ---------- */
+// A caller turn that failed to generate isn't something the caller said: it is
+// shown to the trainee so they can retry, but it never enters a transcript.
+function callFailureMsg(e){ return "Couldn't reach the caller — " + friendlyAiError(e) + " Your reply is still here; use Retry."; }
 function esc(s){ return (s+"").replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
 async function callAIText(prompt, maxTokens, timeoutMs, feature){
@@ -4723,7 +4728,7 @@ Open immediately with the specific, in-character problem itself — never a gene
     const opening = await callAIText(prompt, 150, undefined, "chat");
     s.chatHistory = [{role:"client", text: opening.trim().replace(/^["“]+|["”]+$/g,"")}];
   }catch(e){
-    s.chatHistory = [{role:"client", text:"[Connection issue generating the scenario — try Restart below.]"}];
+    s.chatHistory = [{role:"client", text:"Connection issue generating the scenario — try Restart below.", error:true}];
   }
   render();
   VoiceCall.say("rp", s.chatHistory[0].text);
@@ -4781,7 +4786,7 @@ function renderOpenRoleplay(){
   `;
 }
 function renderRpChat(s){
-  return (s.chatHistory||[]).map(m=>`<div class="cr-msg ${m.role==='client'?'cr-client':'cr-ea'}">${esc(m.text)}</div>`).join("");
+  return (s.chatHistory||[]).map(m=>`<div class="cr-msg ${m.error?'cr-failed':(m.role==='client'?'cr-client':'cr-ea')}">${esc(m.text)}${m.error?`<button class="btn btn-orange btn-sm cr-retry" onclick="rpRetryLast()">Retry</button>`:""}</div>`).join("");
 }
 function rpRenderChatWindow(){
   const win = document.getElementById("rpChatWindow");
@@ -4801,7 +4806,7 @@ async function rpSendMessage(){
   s.chatHistory.push({role:"client", text:"…thinking…", pending:true});
   rpRenderChatWindow();
   VoiceCall.thinking("rp");
-  const transcript = s.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"CALLER: ":"CASE MANAGER: ")+m.text).join("\n");
+  const transcript = s.chatHistory.filter(m=>!m.pending && !m.error).map(m=>(m.role==="client"?"CALLER: ":"CASE MANAGER: ")+m.text).join("\n");
   const prompt = `You are roleplaying as the caller/contact in a live, unscripted training call for a personal-injury Case Manager. Stay fully in character. No meta-commentary.
 
 CLIENT BACKGROUND:
@@ -4821,13 +4826,27 @@ Respond with the next line only — 1-3 sentences, realistic in tone for this si
     s.chatHistory.push({role:"client", text: reply.trim().replace(/^["“]+|["”]+$/g,"")});
   }catch(e){
     s.chatHistory = s.chatHistory.filter(m=>!m.pending);
-    s.chatHistory.push({role:"client", text:"[Connection issue — try sending again.]"});
+    s.chatHistory.push({role:"client", text: callFailureMsg(e), error:true});
   }
   rpRenderChatWindow();
   const lastRp = s.chatHistory[s.chatHistory.length-1];
-  if(lastRp && lastRp.role==="client") VoiceCall.say("rp", lastRp.text);
+  if(lastRp && lastRp.role==="client" && !lastRp.error) VoiceCall.say("rp", lastRp.text);
 }
 window.rpSendMessage = rpSendMessage;
+function rpRetryLast(){
+  // Drop the failed caller turn and re-send the reply that went with it, so a
+  // dropped request doesn't cost the trainee their line or strand the call.
+  const s = state.rpSession;
+  if(!s) return;
+  while(s.chatHistory.length && s.chatHistory[s.chatHistory.length-1].error) s.chatHistory.pop();
+  const last = s.chatHistory[s.chatHistory.length-1];
+  if(!last || last.role!=="ea"){ rpRenderChatWindow(); return; }
+  s.chatHistory.pop();
+  rpRenderChatWindow();
+  const input = document.getElementById("rpChatInput");
+  if(input){ input.value = last.text; rpSendMessage(); }
+}
+window.rpRetryLast = rpRetryLast;
 function rpRestart(){
   startRpVoiceCall();
   state.rpSession.chatHistory = [];
@@ -4852,7 +4871,7 @@ async function rpEndDebrief(){
   if((s.chatHistory||[]).filter(m=>m.role==="ea").length < 1){ toast("Say or type at least one reply before ending the call."); return; }
   VoiceCall.hangup();
   el.innerHTML = `<div class="ai-loading">Reviewing the exchange…</div>`;
-  const transcript = s.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"CALLER: ":"CASE MANAGER: ")+m.text).join("\n");
+  const transcript = s.chatHistory.filter(m=>!m.pending && !m.error).map(m=>(m.role==="client"?"CALLER: ":"CASE MANAGER: ")+m.text).join("\n");
   try{
     if(s.isQuickPractice){
       const summary = await runQuickPracticeSummary(s, transcript);
@@ -9829,14 +9848,14 @@ Open immediately with how this specific caller would actually start the call —
     const opening = await callAIText(prompt, 150, undefined, "chat");
     ic.chatHistory = [{role:"caller", text: opening.trim().replace(/^["“]+|["”]+$/g,"")}];
   }catch(e){
-    ic.chatHistory = [{role:"caller", text:"[Connection issue generating the call — try Restart below.]"}];
+    ic.chatHistory = [{role:"caller", text:"Connection issue generating the call — try Restart below.", error:true}];
   }
   refreshIntakeCallPart();
   VoiceCall.say("intake", ic.chatHistory[0].text);
 }
 function renderIntakeCallChatWindow(){
   const ic = toolState.intakeCall;
-  return (ic.chatHistory||[]).map(m=>`<div class="cr-msg ${m.role==='caller'?'cr-client':'cr-ea'}">${esc(m.text)}</div>`).join("");
+  return (ic.chatHistory||[]).map(m=>`<div class="cr-msg ${m.error?'cr-failed':(m.role==='caller'?'cr-client':'cr-ea')}">${esc(m.text)}</div>`).join("");
 }
 function renderIntakeCallChat(){
   const ic = toolState.intakeCall;
@@ -9895,7 +9914,7 @@ async function sendIntakeCallMessage(){
   ic.chatHistory.push({role:"caller", text:"…thinking…", pending:true});
   document.getElementById("intakeCallChatWindow").innerHTML = renderIntakeCallChatWindow();
   VoiceCall.thinking("intake");
-  const transcript = ic.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="caller"?"CALLER: ":"INTAKE: ")+m.text).join("\n");
+  const transcript = ic.chatHistory.filter(m=>!m.pending && !m.error).map(m=>(m.role==="caller"?"CALLER: ":"INTAKE: ")+m.text).join("\n");
   const prompt = `You are roleplaying as a prospective client calling a law firm for an intake-call training simulation. Stay fully in character. No meta-commentary.
 
 CALLER: ${persona.name}, calling about a ${persona.matter} matter.
@@ -9911,12 +9930,12 @@ Respond with the next line only — 1-3 sentences, realistic in tone for this ca
     ic.chatHistory.push({role:"caller", text: reply.trim().replace(/^["“]+|["”]+$/g,"")});
   }catch(e){
     ic.chatHistory = ic.chatHistory.filter(m=>!m.pending);
-    ic.chatHistory.push({role:"caller", text:"[Connection issue — try sending again.]"});
+    ic.chatHistory.push({role:"caller", text: callFailureMsg(e), error:true});
   }
   const icWin = document.getElementById("intakeCallChatWindow");
   if(icWin){ icWin.innerHTML = renderIntakeCallChatWindow(); icWin.scrollTop = icWin.scrollHeight; }
   const lastIc = ic.chatHistory[ic.chatHistory.length-1];
-  if(lastIc && lastIc.role==="caller") VoiceCall.say("intake", lastIc.text);
+  if(lastIc && lastIc.role==="caller" && !lastIc.error) VoiceCall.say("intake", lastIc.text);
 }
 window.sendIntakeCallMessage = sendIntakeCallMessage;
 async function endIntakeCallDebrief(){
@@ -9927,7 +9946,7 @@ async function endIntakeCallDebrief(){
   if(!(await useLabAttempt(4, "endIntakeCallDebrief"))) return;
   el.innerHTML = `<div class="ai-loading">Reviewing the call…</div>`;
   const persona = INTAKE_CALL_PERSONAS.find(p=>p.id===ic.personaId);
-  const transcript = ic.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="caller"?"CALLER: ":"INTAKE: ")+m.text).join("\n");
+  const transcript = ic.chatHistory.filter(m=>!m.pending && !m.error).map(m=>(m.role==="caller"?"CALLER: ":"INTAKE: ")+m.text).join("\n");
   try{
     const report = await runIntakeCallEvaluation(persona, transcript);
     el.innerHTML = renderIntakeCallEvaluationReport(report);
@@ -14059,7 +14078,7 @@ function crRenderChatWindow(){
   win.scrollTop = win.scrollHeight;
 }
 function renderCrChat(){
-  return (toolState.cr.chatHistory||[]).map(m=>`<div class="cr-msg ${m.role==='client'?'cr-client':'cr-ea'}">${esc(m.text)}</div>`).join("");
+  return (toolState.cr.chatHistory||[]).map(m=>`<div class="cr-msg ${m.error?'cr-failed':(m.role==='client'?'cr-client':'cr-ea')}">${esc(m.text)}</div>`).join("");
 }
 function crStartRoleplay(){
   const s = crCurrentScenario();
@@ -14082,7 +14101,7 @@ async function crSendChat(){
   toolState.cr.chatHistory.push({role:"client", text:"…thinking…", pending:true});
   crRenderChatWindow();
   const s = crCurrentScenario();
-  const transcript = toolState.cr.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"CLIENT: ":"CASE MANAGER: ")+m.text).join("\n");
+  const transcript = toolState.cr.chatHistory.filter(m=>!m.pending && !m.error).map(m=>(m.role==="client"?"CLIENT: ":"CASE MANAGER: ")+m.text).join("\n");
   const prompt = `You are roleplaying as a crisis contact (Elias Thorne, or the relevant person who opened this scenario — David Reyes, a vendor account manager, a school administrator, etc., staying consistent with who spoke first) in a high-pressure crisis training scenario for an Executive Assistant. Stay fully in character. Do not break the fourth wall or offer meta-commentary.
 
 CLIENT BACKGROUND:
@@ -14103,7 +14122,7 @@ Respond with the next line only — 1-3 sentences, stressed but not cartoonish, 
     toolState.cr.chatHistory.push({role:"client", text: reply});
   }catch(e){
     toolState.cr.chatHistory = toolState.cr.chatHistory.filter(m=>!m.pending);
-    toolState.cr.chatHistory.push({role:"client", text:"[Connection issue — try sending again.]"});
+    toolState.cr.chatHistory.push({role:"client", text: callFailureMsg(e), error:true});
   }
   crRenderChatWindow();
 }
@@ -14115,7 +14134,7 @@ async function crEndDebrief(){
   if(!(await useLabAttempt(toolIdToDayId(toolState.cr.setKey), "crEndDebrief_"+toolState.cr.setKey))) return;
   el.innerHTML = `<div class="ai-loading">Preparing your debrief…</div>`;
   const s = crCurrentScenario();
-  const transcript = toolState.cr.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"CLIENT: ":"CASE MANAGER: ")+m.text).join("\n");
+  const transcript = toolState.cr.chatHistory.filter(m=>!m.pending && !m.error).map(m=>(m.role==="client"?"CLIENT: ":"CASE MANAGER: ")+m.text).join("\n");
   try{
     const report = await runRubricEvaluation(
       "Crisis Roleplay Debrief",
@@ -14267,7 +14286,7 @@ function d6crRenderChatWindow(){
   win.scrollTop = win.scrollHeight;
 }
 function renderD6CrChat(){
-  return (toolState.c6cr.chatHistory||[]).map(m=>`<div class="cr-msg ${m.role==='client'?'cr-client':'cr-ea'}">${esc(m.text)}</div>`).join("");
+  return (toolState.c6cr.chatHistory||[]).map(m=>`<div class="cr-msg ${m.error?'cr-failed':(m.role==='client'?'cr-client':'cr-ea')}">${esc(m.text)}</div>`).join("");
 }
 function d6crStartRoleplay(){
   const s = d6crCurrentScenario();
@@ -14290,7 +14309,7 @@ async function d6crSendChat(){
   toolState.c6cr.chatHistory.push({role:"client", text:"…thinking…", pending:true});
   d6crRenderChatWindow();
   const s = d6crCurrentScenario();
-  const transcript = toolState.c6cr.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"EXECUTIVE/STAKEHOLDER: ":"CASE MANAGER: ")+m.text).join("\n");
+  const transcript = toolState.c6cr.chatHistory.filter(m=>!m.pending && !m.error).map(m=>(m.role==="client"?"EXECUTIVE/STAKEHOLDER: ":"CASE MANAGER: ")+m.text).join("\n");
   const prompt = `You are roleplaying as the executive or stakeholder who opened this scenario (Elias Thorne, David Reyes, or a client's Chief of Staff, staying consistent with who spoke first) in a high-pressure business-compliance training scenario for an Executive Assistant. Stay fully in character. Do not break the fourth wall or offer meta-commentary.
 
 CLIENT BACKGROUND:
@@ -14311,7 +14330,7 @@ Respond with the next line only — 1-3 sentences, stressed but not cartoonish, 
     toolState.c6cr.chatHistory.push({role:"client", text: reply});
   }catch(e){
     toolState.c6cr.chatHistory = toolState.c6cr.chatHistory.filter(m=>!m.pending);
-    toolState.c6cr.chatHistory.push({role:"client", text:"[Connection issue — try sending again.]"});
+    toolState.c6cr.chatHistory.push({role:"client", text: callFailureMsg(e), error:true});
   }
   d6crRenderChatWindow();
 }
@@ -14323,7 +14342,7 @@ async function d6crEndDebrief(){
   if(!(await useLabAttempt(6, "d6crEndDebrief"))) return;
   el.innerHTML = `<div class="ai-loading">Preparing your debrief…</div>`;
   const s = d6crCurrentScenario();
-  const transcript = toolState.c6cr.chatHistory.filter(m=>!m.pending).map(m=>(m.role==="client"?"EXECUTIVE/STAKEHOLDER: ":"CASE MANAGER: ")+m.text).join("\n");
+  const transcript = toolState.c6cr.chatHistory.filter(m=>!m.pending && !m.error).map(m=>(m.role==="client"?"EXECUTIVE/STAKEHOLDER: ":"CASE MANAGER: ")+m.text).join("\n");
   try{
     const report = await runRubricEvaluation(
       "Business-Compliance Crisis Roleplay Debrief",
