@@ -876,7 +876,7 @@ An evidence board: four document cards (Police Report, Intake Sheet, Intake Supp
 |---|---|---|---|
 | Rental authorization arrives | Read the records before answering anyone | CMS → Documents | Owner and claimant found in the file |
 | Ownership established | Write the sourced Case Note | CMS → Case Notes | Each fact cites its document |
-| Client asks about the rental | State the fact, route the claim question to Atty. Thorne, arrange his rides to care under the LOP or reimbursed, not on the PD rental | Call Simulator · CMS → Tasks | Call logged; transportation task dated |
+| Client asks about the rental | State the fact, route the claim question to Atty. Thorne, arrange his rides to care under the LOP, or log his receipts for the settlement, not on the PD rental | Call Simulator · CMS → Tasks | Call logged; transportation task dated |
 
 **Best practices & pitfalls**
 

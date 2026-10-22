@@ -1683,7 +1683,7 @@ A horizontal treatment timeline across the slide from 04/02/2026 to 04/24/2026. 
 
 **Scenario.** 04/08/2026: Riverton Spine & Rehab's missed-visit alert. John Doe missed 04/03 and 04/07; his last visit was 04/02/2026. As you work, the file moves: Keystone PD refuses to extend Margaret Doe's rental on 04/10/2026 (her PD claim, not his ride to care), the clinic's first open evening slot is 04/21/2026, John Doe misses 04/09 and 04/14 meanwhile, and the Civic comes back from the shop on 04/24/2026.
 
-**Execution prompt.** Execute A-C-T on the Transportation Wall. Assess: call John Doe on 04/08/2026, find the barrier, classify the variance, and decide whether it is a medical or a legal danger. Coordinate: clarify with the clinic, cover his rides to care under the LOP or as reimbursed out-of-pocket costs, not through the PD rental, and build a transport plan from one of the three Transportation Wall options, saying why. Track: write the GIRP note, report to Atty. Thorne, and confirm attendance once care resumes. Graded: exact dates and the 19-day count; no treatment advice; no talk of what missed visits do to the claim.
+**Execution prompt.** Execute A-C-T on the Transportation Wall. Assess: call John Doe on 04/08/2026, find the barrier, classify the variance, and decide whether it is a medical or a legal danger. Coordinate: clarify with the clinic, arrange his rides to care under the LOP, or log what he pays as out-of-pocket costs repaid from the settlement, not through the PD rental, and build a transport plan from one of the three Transportation Wall options, saying why. Track: write the GIRP note, report to Atty. Thorne, and confirm attendance once care resumes. Graded: exact dates and the 19-day count; no treatment advice; no talk of what missed visits do to the claim.
 
 | | |
 |---|---|
@@ -1694,7 +1694,7 @@ A horizontal treatment timeline across the slide from 04/02/2026 to 04/24/2026. 
 
 *The Transportation Wall: three ways through, and their trade-offs*
 
-1. **Option A · Problem Solver** — You find the ride: transport under the LOP, rides he pays for and is reimbursed for with receipts kept, bus routes, ride vouchers from a non-profit or community program. Not the PD rental: that is Margaret Doe's claim. Never a ride, rental or voucher paid for by the firm: that is financial assistance to a client, Atty. Thorne's call under the governing ethics rule. Fast, but John Doe depends on you.
+1. **Option A · Problem Solver** — You find the ride: transport under the LOP, rides he pays for, receipts kept and repaid from the settlement, bus routes, ride vouchers from a non-profit or community program. Not the PD rental: that is Margaret Doe's claim. Never a ride, rental or voucher paid for by the firm: that is financial assistance to a client, Atty. Thorne's call under the governing ethics rule. Fast, but John Doe depends on you.
 2. **Option B · Empowerer** — John Doe finds it with you: who in his household can drive, and when. Slower to start, but it lasts.
 3. **Option C · Clinical Pivot** — Ask the clinic whether an interim home program fits while transport is fixed. The provider decides.
 
@@ -1703,7 +1703,7 @@ A horizontal treatment timeline across the slide from 04/02/2026 to 04/24/2026. 
 - [ ] Assess dated 04/08/2026, the day the alert arrived; barrier recorded: Keystone ended the rental on 03/19/2026 (30-day cap), the carpool ended with Kevin Alvarez's shift change on 04/01/2026, the Civic is awaiting parts
 - [ ] Symptoms asked about on the call; anything new or worse routed to the provider at once
 - [ ] Classified: an external barrier (transport), a psychosocial variance, and a legal danger (missed visits); reported to Atty. Thorne
-- [ ] Rides to care covered under the LOP (transport asked of Riverton Spine & Rehab; any new or amended LOP routed to Atty. Thorne to sign) or paid by John Doe and reimbursed, receipts and mileage logged; not through the PD rental, which is Margaret Doe's claim; Keystone's 04/10/2026 refusal to extend her rental (“shop delay”) noted
+- [ ] Rides to care arranged by the Case Manager under the LOP with Riverton Spine & Rehab, or paid by John Doe with receipts and mileage logged as out-of-pocket Specials, repaid from the settlement and carried into the demand; not through the PD rental, which is Margaret Doe's claim; Keystone's 04/10/2026 refusal to extend her rental (“shop delay”) noted
 - [ ] Transport option chosen and justified; plan: evening slots so Margaret Doe can drive John Doe after her shift, booked with the clinic while John Doe is on the line
 - [ ] Missed visits recorded exactly: 04/03, 04/07, 04/09 and 04/14/2026, four in all
 - [ ] Disruption computed: 04/02/2026 → 04/21/2026 = 19 days without a visit
@@ -1717,7 +1717,7 @@ A horizontal treatment timeline across the slide from 04/02/2026 to 04/24/2026. 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | 04/08/2026: missed-visit alert | Assess: call John Doe, classify the variance, write the GIRP note | Call Simulator → AI John Doe · CMS → Case Notes | Call and note dated 04/08/2026 |
-| Barrier is transport | Coordinate: rides under the LOP or reimbursed; evening slots with the clinic | Email Workspace · CMS → Case Notes · CMS → Calendar | Ride route and receipts logged; any LOP change to Atty. Thorne; 04/21/2026 slot on the calendar |
+| Barrier is transport | Coordinate: rides under the LOP or reimbursed; evening slots with the clinic | Email Workspace · CMS → Case Notes · CMS → Calendar | Ride route logged; receipts and mileage on the Specials ledger; 04/21/2026 slot on the calendar |
 | Care resumes 04/21/2026 | Track: confirm attendance with the clinic; report to Atty. Thorne | CMS → Case File → Treatment timeline · CMS → Tasks → Escalate | Attendance on 04/21 and 04/23/2026 confirmed; 19-day disruption recorded with its cause |
 
 **Best practices & pitfalls**
@@ -1725,7 +1725,7 @@ A horizontal treatment timeline across the slide from 04/02/2026 to 04/24/2026. 
 - Facilitation is the treatment phase's first job: a client who can't reach the clinic isn't in treatment, whatever the plan says.
 - Act the day the alert lands. Every day without a plan is another missed visit.
 - Calendar known transport risks: a rental capped at 30 days has an end date (03/19/2026) you could see on 02/18/2026.
-- Rides to care go under the LOP or are reimbursed with receipts. The PD rental is Margaret Doe's claim, not his transport plan; Keystone's 04/10/2026 refusal to extend it belongs to her loss-of-use claim.
+- Rides to care go under the LOP, arranged by you, or John Doe pays and the settlement repays him: log every receipt and mile so they reach the Specials and the demand. The PD rental is Margaret Doe's claim, not his transport plan; Keystone's 04/10/2026 refusal to extend it belongs to her loss-of-use claim.
 - ⚠️ Pitfall: accepting “I'll just wait until the car's back” without a plan.
 - ⚠️ Pitfall: writing to Keystone PD for John Doe's ride. The rental is Margaret Doe's PD claim; his rides go under the LOP or are reimbursed.
 - ⚠️ Pitfall: telling John Doe that missing therapy “will hurt your case.” It is a value statement, and it pushes treatment for the claim's sake.
@@ -1744,7 +1744,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 | 🤖 AI | **10%** | Ladder documented | Clinic, LOP or reimbursement route, report to Atty. Thorne, in that order |
 | 🧑‍🏫 Trainer | **15%** | Crisis judgment | Chooses and justifies a transport option that keeps John Doe in care, balancing empowerment and speed |
 | 🧑‍🏫 Trainer | **10%** | Client communication | Active listening; motivates without pressure or blame |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | No treatment advice, no value talk, no firm-funded transport offered, no LOP signed or promised by the Case Manager |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | No treatment advice, no value talk, no firm-funded transport offered or advanced ahead of the settlement |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
