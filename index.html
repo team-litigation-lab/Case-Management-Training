@@ -4050,7 +4050,7 @@ function renderFacilitatorGuide(){
         <div style="font-size:34px;margin-bottom:10px;">🔒</div>
         <h2 style="color:var(--navy);margin:0 0 8px;">Trainers Only</h2>
         <p style="color:var(--ink-soft);font-size:14px;">The Facilitator Guide, Trainer Cues, and Discussion Checkpoints are only visible once you're signed in as a trainer.</p>
-        ${(state.portalOnly && !state.isAdmin) ? "" : `<button class="btn btn-primary" style="margin-top:14px;" onclick="openAdmin()">🛡 Sign In as Trainer</button>`}
+        ${((state.portalOnly && !state.isAdmin) || traineeSide()) ? "" : `<button class="btn btn-primary" style="margin-top:14px;" onclick="openAdmin()">🛡 Sign In as Trainer</button>`}
       </div>`;
   }
   return `
@@ -4176,7 +4176,7 @@ function renderTopbar(){
         <div class="nav">
           ${views.map(([id,label])=>`<button class="${state.view===id?'active':''}" onclick="goto('${id}')">${label}${id==="tasks" && openTasksCount() ? `<span class="nav-badge">${openTasksCount()}</span>` : ""}</button>`).join("")}
           ${(state.traineeId && !state.isAdmin) ? `<button type="button" class="nav-focus" onclick="openFocusPanel()" title="My Focus — trainer feedback and what to work on next">🎯 Focus${focusNewCount()?`<span class="nav-badge">${focusNewCount()}</span>`:""}</button>` : ""}
-          ${(state.portalOnly && !state.isAdmin) ? "" : `<button class="${state.view==='admin'?'active':''}" onclick="openAdmin()">🛡 Admin</button>`}
+          ${((state.portalOnly && !state.isAdmin) || traineeSide()) ? "" : `<button class="${state.view==='admin'?'active':''}" onclick="openAdmin()">🛡 Admin</button>`}
         </div>
       </div>
     </div>
@@ -5787,6 +5787,7 @@ function averageCompetencyScore(){
 
 /* ---------- router ---------- */
 function goto(view, id){
+  if(view === "admin" && traineeSide()) view = "dashboard";   // not the trainee's side (traineeSide)
   state.mobileNavOpen = false;
   state.searchQuery = "";
   if(VoiceCall.active && view!=="openroleplay") VoiceCall.hangup(true);
@@ -5841,7 +5842,7 @@ function render(){
   else if(state.view==="clientprofile") body=renderClientProfile();
   else if(state.view==="crisisroleplay") body=renderCrisisRoleplayHub();
   else if(state.view==="openroleplay") body=renderOpenRoleplay();
-  else if(state.view==="admin") body=renderAdmin();
+  else if(state.view==="admin"){ if(traineeSide()){ state.view="dashboard"; body=renderDashboard(); } else body=renderAdmin(); }
   else if(state.view==="facilitatorguide") body=renderFacilitatorGuide();
   else if(state.view==="tasks") body=renderTasksPage();
   else if(state.view==="casedocs") body=renderCaseDocuments();
@@ -5886,6 +5887,14 @@ function bookmarkView(){
    Tabs stay in sync: when one tab saves, the others pick the change up (the
    browser's "storage" event), so an older tab never overwrites newer progress.
    ============================================================ */
+/* The admin side is not the trainee's. A signed-in trainee is never offered an admin log-in, an admin
+   view or a trainer's notes: they see their own record and nothing else. This is by rule, not by
+   configuration — it used to hang on state.portalOnly, which comes from /api/auth/status, so a trainee
+   whose status call failed (offline, or the daily request limit) was shown the 🛡 Admin button and its
+   password box. An admin is signed in as an admin, never as a trainee, so they are unaffected, and so is
+   someone not signed in at all (the log-in screen still offers them the admin way in). */
+const traineeSide = () => !state.isAdmin && !!state.traineeId;
+window.traineeSide = traineeSide;   // the course's own top bar reads it (js/cm-updates.js)
 const ROUTE_VIEWS = ["dashboard","practice","activities","notes","clientprofile","handouts","tasks","crisisroleplay","facilitatorguide"];
 const routeViews = ()=>ROUTE_VIEWS.concat(window.EXTRA_ROUTE_VIEWS||[]);   // a course build can add its own pages
 function routeHash(){
@@ -10879,6 +10888,7 @@ window.downloadNotesPdf = downloadNotesPdf;
 
 function openAdmin(){
   if(state.isAdmin){ goto("admin"); return; }
+  if(traineeSide()) return;   // a signed-in trainee is never asked for the admin password
   const overlay=document.createElement("div");
   overlay.className="overlay";
   overlay.innerHTML=`
@@ -15345,7 +15355,9 @@ function renderMatchBoard(prefix, cardTexts, zoneLabels){
       </div>
     </div>`;
 }
-function cssId(s){ return s.replace(/[^a-z0-9]/gi,"").toLowerCase(); }
+// Never throws on a record with no id: one malformed trainee record used to take the whole Admin page
+// down with it (renderCertAdmin → cssId), instead of just showing that row without its id.
+function cssId(s){ return String(s == null ? "" : s).replace(/[^a-z0-9]/gi,"").toLowerCase(); }
 function renderMatchCard(prefix,i,text){
   return `<div class="match-card" id="${prefix}Card-${i}" draggable="true" ondragstart="event.dataTransfer.setData('text/plain','${i}')">${esc(text)}</div>`;
 }

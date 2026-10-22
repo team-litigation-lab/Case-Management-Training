@@ -34,6 +34,8 @@ jobs:
         run: node .github/scripts/sso.cjs
       - name: Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's)
         run: node .github/scripts/tool-links.cjs
+      - name: Gemini key pool (every numbered key is used, keys take turns, a key out of credits rests; Google answered by the test)
+        run: node .github/scripts/ai-keys.mjs
       - name: Case documents and handouts exist, document references resolve
         run: node .github/scripts/check-data.mjs
       - name: Case Flow curriculum (rhythm, six components, 60/40 rubrics, every existing topic carried)
@@ -77,6 +79,22 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/cms-case.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: The admin side is not the trainee's (no admin log-in, view or trainer's notes for a trainee)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/trainee-side.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: One tools access per Practice Lab session (not on every activity row)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/practice-tools.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: The Knowledge Check repaints without rebuilding the page (no flicker; the bomb's fuse survives)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/kc-morph.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: Day cards say where the trainee is (Start, Resume, Retake with the best score, Review)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/day-progress.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: The Case File (the facts are the trainer's; the page fits one screen, trainee and trainer)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
