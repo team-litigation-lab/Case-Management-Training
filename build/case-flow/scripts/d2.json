@@ -514,5 +514,22 @@
    "say": "Four ideas carry this lesson. A Letter of Protection is the firm's written promise to pay a provider from the settlement, so it's a claim against John Doe's recovery, not insurance. Payer-first means we check health insurance, MedPay and PIP before we ever reach for one. The LOP balance grows with every visit, so the itemized ledger every thirty days keeps the Liens tab honest. And referrals are options and logistics only: a list, the network status, the booking, and his choice.",
    "ask": "Which of these four would you check first on a new provider bill?"
   }
+ },
+ "d2m2-cost": {
+  "why": {
+   "say": "Picture John Doe's week once the rental's gone. He still has physical therapy three times a week. Somebody drives him, or he pays for a ride. There's a prescription, maybe a brace. None of that shows up on a provider's bill, but every dollar of it is a cost of the crash. And here's the catch: it's recoverable only if somebody wrote it down when it happened. That somebody is you. You keep the log; what the demand claims, and at what rate, is Atty. Thorne's call under the governing state's rules.",
+   "ask": "What costs do you think John Doe is paying out of his own pocket right now?"
+  },
+  "theory": {
+   "say": "Four ideas. Out-of-pocket costs: mileage, rides, parking, prescriptions, co-pays, equipment, and any rental the owner paid, each with its receipt. The trip log: the date, the provider and the round-trip miles for every visit, kept from the first appointment, never rebuilt from memory. The mileage rate is whatever the governing state's rules allow, and Atty. Thorne confirms it; for reference, when this course was written the IRS rates were twenty and a half cents a mile medical and seventy-two and a half business. Rental reimbursement: days past the cutoff or a rate above the cap are the owner's cost, routed with the Property Damage claim. And into the demand: every cost goes in the Specials ledger the day its receipt arrives.",
+   "ask": "Why does a trip log kept as treatment happens beat a list rebuilt at the demand?"
+  },
+  "rules": {
+   "say": "Here are the rules. Out-of-pocket costs are Specials, and each one needs its receipt or its log. Start the trip log at the first visit: date, provider, round-trip miles. The rate comes from the governing state's rules, confirmed by Atty. Thorne. A rental the carrier didn't pay is the owner's out-of-pocket cost; keep the receipt and route it with the Property Damage claim. When the rental ends, transport becomes a barrier to care, so plan the rides before a visit is missed. Check every payer first, so nothing is claimed twice. Enter each cost the day its receipt arrives, then total the log and route it to Atty. Thorne before the demand. And never promise the client he'll be repaid.",
+   "ask": "John Doe asks if he'll get his ride money back. What can you say without crossing the UPL line?"
+  },
+  "job": {
+   "say": "On the job, it runs like this. Treatment starts, so you open the trip log in Case Notes, set a task, and tell John Doe exactly what to keep: every receipt, and every trip with its date, office and miles. When a receipt comes in, you enter the cost in the Financial Ledger under Specials the same day and file the receipt in Documents. And when MMI is reached and the demand is next, you total the log and route it to Atty. Thorne, who confirms the rate and decides what the demand claims."
+  }
  }
 }

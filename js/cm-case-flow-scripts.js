@@ -231,30 +231,26 @@ window.CM_CF_SCRIPTS = {
    "ask": "What's one thing a new client might do in week one, meaning well, that could hurt the claim?"
   },
   "map": {
-   "say": "Here's the road for this lesson before we walk it. It starts with the standing instructions you give John Doe: no Recorded Statement to the other side, no posts, and nothing signed until we've reviewed it. Then treatment: he keeps every appointment and tells you about any barrier before a visit is missed. Then receipts, because only what's documented can be claimed. Then the Property Damage carve-out, the one topic the adverse carrier may discuss with him. And last, the rental: who authorizes it, the daily cap and how long it runs. Five stops, in order.",
-   "ask": "Which of these five do you think a client is most likely to forget?"
+   "say": "Here's the road for this lesson before we walk it. It starts with the standing instructions you give John Doe: no Recorded Statement to the other side, no posts, and nothing signed until we've reviewed it. Then treatment: he keeps every appointment and tells you about any barrier before a visit is missed. Then receipts, because only what's documented can be claimed. And last, the Property Damage carve-out, the one topic the adverse carrier may discuss with him. Four stops, in order. Rental gets its own lesson, right after Property Damage.",
+   "ask": "Which of these four do you think a client is most likely to forget?"
   },
   "theory": {
-   "say": "Client instructions protect the claim from the client's good intentions, because what a client says, posts, signs or skips can become evidence. First, the difference between a medical danger and a legal danger. A medical danger threatens their health; a legal danger, like a gap in care, threatens the claim. Second, a clean, discoverable file: everything on it can reach defense counsel, so your instructions stay factual and never become legal opinion. Third, the Letter of Representation tells the world the firm represents the client, and from then on adverse contact routes through us. And fourth, on rentals, the rate cap and duration: the authorized daily rate and number of days. Beyond them, it's the client's own cost.",
+   "say": "Client instructions protect the claim from the client's good intentions, because what a client says, posts, signs or skips can become evidence. First, the difference between a medical danger and a legal danger. A medical danger threatens their health; a legal danger, like a gap in care, threatens the claim. Second, a clean, discoverable file: everything on it can reach defense counsel, so your instructions stay factual and never become legal opinion. Third, the Letter of Representation tells the world the firm represents the client, and from then on adverse contact routes through us. And fourth, documented costs. Every accident-related cost needs its receipt or a trip log, because only what's documented can be recovered.",
    "ask": "Can someone give me an example of a legal danger that isn't a medical one?"
   },
-  "frame": {
-   "say": "Before any client picks up a rental car, you run four checks. First, whose policy is primary? It's usually the renter's own policy, and the rental company only steps in after a written denial. Second, who authorizes the rental? Confirm that, and check whether there's a rental reimbursement endorsement on the policy. Third, the daily rate cap: record the authorized rate before the client collects a vehicle. And fourth, the duration limit, the number of covered days. Coverage is usually 30 days at most, unless the Dec Page says otherwise. Days outside that come out of the client's pocket, and if nobody told them, they'll blame the firm.",
-   "ask": "Which of these four checks do you think clients most often get burned on?"
-  },
   "rules": {
-   "say": "These are the firm's standing instructions. The client gives no Recorded Statement to the adverse carrier; all adverse contact goes through us. They start treatment, keep every appointment, and tell you about any barrier, like transport, cost or work, before a visit is missed. You explain the process, not the stakes. They post nothing about the collision, the injuries or their activities, and sign no release or settlement paper until we've reviewed it. They keep every receipt, including mileage to appointments and household help, and report any change of address, phone or provider at once. Property Damage is the one carve-out; the adverse carrier may discuss only that, and if the call drifts into injuries or the facts of the loss, it stops. On rentals, confirm authorization, rate cap and duration first. You give the instruction; what conduct does to claim value is Atty. Thorne's to answer.",
+   "say": "These are the firm's standing instructions. The client gives no Recorded Statement to the adverse carrier; all adverse contact goes through us. They start treatment, keep every appointment, and tell you about any barrier, like transport, cost or work, before a visit is missed. You explain the process, not the stakes. They post nothing about the collision, the injuries or their activities, and sign no release or settlement paper until we've reviewed it. They keep every receipt, including mileage to appointments and household help, and report any change of address, phone or provider at once. Property Damage is the one carve-out; the adverse carrier may discuss only that, and if the call drifts into injuries or the facts of the loss, it stops. You give the instruction; what conduct does to claim value is Atty. Thorne's to answer.",
    "ask": "If John Doe asks why he shouldn't give a Recorded Statement, what can you say without giving legal advice?"
   },
   "model": {
-   "say": "Here's the board: green Do column on the left, red Don't column on the right, and each Don't sits on the same line as the Do that replaces it. Let's run it the way I promised. I'll read the Don't, you give me the Do. Ready? Don't give the other driver's carrier a Recorded Statement. Good. Don't post about the crash. Right. Down at the bottom is the rental flow, four chips in a row: whose policy is primary, who authorizes, the daily rate cap, the duration limit. And under the last two, an orange tag that says it plainly: uncovered days are the client's cost.",
+   "say": "Here's the board: green Do column on the left, red Don't column on the right, and each Don't sits on the same line as the Do that replaces it. Let's run it the way I promised. I'll read the Don't, you give me the Do. Ready? Don't give the other driver's carrier a Recorded Statement. Good. Don't post about the crash. Right. Don't sign a carrier's release yourself. Exactly, bring it to the firm first. Down at the bottom are three orange tags: no Recorded Statement, keep every receipt, Property Damage only. Those are the three a client breaks most often in the first week.",
    "ask": "Here's a Don't: signing a carrier's medical authorization form. What's the Do that replaces it?"
   },
   "job": {
-   "say": "Let me tell you how this looks in practice. The retainer's signed, so you deliver the standing instructions and log the delivery in CMS Onboarding, with the date and the method. A few days later the client calls about a rental. Before he collects anything, you confirm the primary policy, who authorizes it, the rate cap and the duration, and you record all of it in the Property Damage section. Then the adverse carrier calls him directly. You tell him to route it to the firm, you log the contact in the Communications Log, and the checkpoint is simple: no Recorded Statement, and the contact's on the record."
+   "say": "Let me tell you how this looks in practice. The retainer's signed, so you deliver the standing instructions and log the delivery in CMS Onboarding, with the date and the method. A few days later the client mentions he paid for a prescription and a ride to urgent care. You tell him to keep both receipts, and you log the expense in Case Notes. Then the adverse carrier calls him directly. You tell him to route it to the firm, you log the contact in the Communications Log, and the checkpoint is simple: no Recorded Statement, and the contact's on the record."
   },
   "dodont": {
-   "say": "Let's play 3 Clues, 1 Rule on client instructions. Behind each round is a Do or Don't from this lesson. Three clues, revealed one at a time; when you think you've got it, call Do or Don't and tell me the rule. Three points for the first clue, two for the second, one for the third. A couple of things to keep in mind. Rental is where clients get hurt financially, because uncovered days come out of their pocket. And watch yourself on the Recorded Statement. The moment you start explaining why it hurts the claim, you've slid into legal advice. The instruction is the deliverable."
+   "say": "Let's play 3 Clues, 1 Rule on client instructions. Behind each round is a Do or Don't from this lesson. Three clues, revealed one at a time; when you think you've got it, call Do or Don't and tell me the rule. Three points for the first clue, two for the second, one for the third. A couple of things to keep in mind. Barriers to care come up quietly, so listen for them. And watch yourself on the Recorded Statement. The moment you start explaining why it hurts the claim, you've slid into legal advice. The instruction is the deliverable."
   }
  },
  "d1m3-a1": {
@@ -300,6 +296,34 @@ window.CM_CF_SCRIPTS = {
   },
   "dodont": {
    "say": "Here's our 3 Clues, 1 Rule round for Property Damage. Each round hides one Do or one Don't; I reveal clues one at a time, and you call Do or Don't and name the rule. First-clue calls earn three points, then two, then one. While you play, think about Loss of Use. It's the most often forgotten item, and on this file it really matters, because John Doe needs to get to treatment he hasn't started yet, and he has no car. On Day 5 we'll come back to all this with Diminished Value and the Property Damage dispute lab. Today is the threshold. Day 5 is the fight."
+  }
+ },
+ "d1m3-rent": {
+  "why": {
+   "say": "Here's the first money question almost every client asks: can I get a rental? It's also the easiest place for them to get hurt. A car picked up on a promise, at a rate nobody authorized, or kept for days nobody covered, turns into a bill with the client's name on it. So before anyone collects keys, you confirm the coverage in writing. And one more thing before we start. Rental belongs to the Property Damage claim, which means it's the vehicle owner's claim. On our file, whose car was it?",
+   "ask": "John Doe was the passenger. Whose rental claim is it, and how would you prove that from the file?"
+  },
+  "theory": {
+   "say": "Four ideas. First, whose claim it is. Rental follows the vehicle, so it sits on the owner's Property Damage claim, not on a passenger's injury claim. Here that's Margaret Doe. Second, the primary policy. The renter's own auto policy usually pays first, and the rental company only steps in after a written denial. Third, the rental reimbursement endorsement: optional coverage on the owner's policy for a rental while the car's in the shop, and you find it on the Dec Page. Fourth, the rate cap and the duration. The authorized daily rate and the number of days, usually 30 at most. Anything beyond them is the client's cost.",
+   "ask": "Where would you look to find out whether Margaret Doe's policy carries a rental reimbursement endorsement?"
+  },
+  "frame": {
+   "say": "Before any client picks up a rental car, you run four checks. First, whose policy is primary? It's usually the renter's own policy, and the rental company only steps in after a written denial. Second, who authorizes the rental? Confirm that, and check whether there's a rental reimbursement endorsement on the policy. Third, the daily rate cap: record the authorized rate before the client collects a vehicle. And fourth, the duration limit, the number of covered days. Coverage is usually 30 days at most, unless the Dec Page says otherwise. Days outside that come out of the client's pocket, and if nobody told them, they'll blame the firm.",
+   "ask": "Which of these four checks do you think clients most often get burned on?"
+  },
+  "rules": {
+   "say": "Here are the rules. Rental is part of the Property Damage claim and belongs to the owner; John Doe was a passenger, so this one is Margaret Doe's. Find whose policy is primary, and get any denial in writing before relying on the rental company. Confirm who authorizes it and check the Dec Page for an endorsement. Record the daily rate cap and the duration before pickup, usually 30 days unless the Dec Page says otherwise, and calendar the last covered day. A comparable car, not an upgrade. File Keystone's authorization and record every number in the Property Damage section. And if a carrier's rental call drifts into injuries, it stops.",
+   "ask": "If Keystone authorizes a compact car and Margaret picks up an SUV, who pays the difference?"
+  },
+  "model": {
+   "say": "Here's the rental call answered both ways. On the left, the Case Manager says she'll confirm the rate and the days in writing before anyone picks up a car, explains that the letter covers a comparable car and an upgrade would be the client's cost, and promises a reminder three days before coverage ends. On the right, the same call gone wrong: go grab a car, they'll pay; get whatever you need; keep it as long as you like. Every line on the right ends with a bill nobody planned for.",
+   "ask": "Pick one line on the right. What would the client pay because of it?"
+  },
+  "job": {
+   "say": "Here's how it runs on the job. The owner asks about a rental, so you confirm the primary policy, who authorizes it, any endorsement, the rate cap and the duration, and you record all five in the Property Damage section before she collects a car. When Keystone's authorization arrives, you file it in Documents and put the last covered day on the calendar. And as that cutoff nears, you tell the owner in writing, and you plan how John Doe gets to treatment once the car is gone, because his rides end with it."
+  },
+  "dodont": {
+   "say": "Let's play 3 Clues, 1 Rule on rental authorization. Behind each round is a Do or Don't from this lesson. Three clues, one at a time; call Do or Don't when you've got it and tell me the rule. Three points on the first clue, two on the second, one on the third. Keep two things in mind. A rental picked up before the numbers are confirmed is a bill waiting to happen. And whose claim it is matters: the car decides that, not who happens to call you."
   }
  },
  "d1m3-a2": {
@@ -631,6 +655,23 @@ window.CM_CF_SCRIPTS = {
   },
   "job": {
    "say": "On the job it looks like this. When no payer covers the care, you document the payer check and route the LOP to Atty. Thorne to approve. When it's signed, you file it and set the recurring ledger task. And when John Doe asks where he should go, you hand him two or three options with their locations, hours and network status, disclose any relationship the firm has with them, and book his choice. What you never say is which one is better for his case. That's the line."
+  }
+ },
+ "d2m2-cost": {
+  "why": {
+   "say": "Picture John Doe's week once the rental's gone. He still has physical therapy three times a week. Somebody drives him, or he pays for a ride. There's a prescription, maybe a brace. None of that shows up on a provider's bill, but every dollar of it is a cost of the crash. And here's the catch: it's recoverable only if somebody wrote it down when it happened. That somebody is you. You keep the log; what the demand claims, and at what rate, is Atty. Thorne's call under the governing state's rules.",
+   "ask": "What costs do you think John Doe is paying out of his own pocket right now?"
+  },
+  "theory": {
+   "say": "Four ideas. Out-of-pocket costs: mileage, rides, parking, prescriptions, co-pays, equipment, and any rental the owner paid, each with its receipt. The trip log: the date, the provider and the round-trip miles for every visit, kept from the first appointment, never rebuilt from memory. The mileage rate is whatever the governing state's rules allow, and Atty. Thorne confirms it; for reference, when this course was written the IRS rates were twenty and a half cents a mile medical and seventy-two and a half business. Rental reimbursement: days past the cutoff or a rate above the cap are the owner's cost, routed with the Property Damage claim. And into the demand: every cost goes in the Specials ledger the day its receipt arrives.",
+   "ask": "Why does a trip log kept as treatment happens beat a list rebuilt at the demand?"
+  },
+  "rules": {
+   "say": "Here are the rules. Out-of-pocket costs are Specials, and each one needs its receipt or its log. Start the trip log at the first visit: date, provider, round-trip miles. The rate comes from the governing state's rules, confirmed by Atty. Thorne. A rental the carrier didn't pay is the owner's out-of-pocket cost; keep the receipt and route it with the Property Damage claim. When the rental ends, transport becomes a barrier to care, so plan the rides before a visit is missed. Check every payer first, so nothing is claimed twice. Enter each cost the day its receipt arrives, then total the log and route it to Atty. Thorne before the demand. And never promise the client he'll be repaid.",
+   "ask": "John Doe asks if he'll get his ride money back. What can you say without crossing the UPL line?"
+  },
+  "job": {
+   "say": "On the job, it runs like this. Treatment starts, so you open the trip log in Case Notes, set a task, and tell John Doe exactly what to keep: every receipt, and every trip with its date, office and miles. When a receipt comes in, you enter the cost in the Financial Ledger under Specials the same day and file the receipt in Documents. And when MMI is reached and the demand is next, you total the log and route it to Atty. Thorne, who confirms the rate and decides what the demand claims."
   }
  },
  "d2m2-l2": {

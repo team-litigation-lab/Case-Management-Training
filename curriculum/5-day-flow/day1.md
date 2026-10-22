@@ -38,14 +38,15 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 3. *Lesson* — Fact Sharing vs. Legal Advice: the UPL Line
 4. *Lesson* — Ingesting the Raw File
 5. *Lesson* — The Acceptance Decision & the Three-Pillar Case Plan
-6. *Lesson* — Client Do's and Don'ts & Rental Authorization
+6. *Lesson* — Client Do's and Don'ts
 7. *Lesson* — Repair Estimates, Total Loss & Loss of Use
-8. *Skill Activity* — Opening John Doe's File in the CMS
-9. *Skill Activity* — Client Onboarding Direction Packet
-10. *Skill Activity* — Onboarding Direction Assignment in System
-11. *Skill Activity* — Whose Rental Is It? The Civic Investigation
-12. *Knowledge Check* — CM Fundamentals Knowledge Check
-13. *Knowledge Check* — PD & Onboarding Knowledge Audit
+8. *Lesson* — Rental Authorization
+9. *Skill Activity* — Opening John Doe's File in the CMS
+10. *Skill Activity* — Client Onboarding Direction Packet
+11. *Skill Activity* — Onboarding Direction Assignment in System
+12. *Skill Activity* — Whose Rental Is It? The Civic Investigation
+13. *Knowledge Check* — CM Fundamentals Knowledge Check
+14. *Knowledge Check* — PD & Onboarding Knowledge Audit
 
 **End-of-day discussion (trainer):** Robert Smith's carrier has already called John Doe, and he needs a car to get to work. What do you tell him today, in what order, and what has to be on the file before tomorrow's claim set-up?
 
@@ -53,7 +54,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 1 — Intake, Claims & Property Damage
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check
 
 ### 1.1.1 The Case Manager's Role
 
@@ -462,16 +463,16 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 1.1.6 Client Do's and Don'ts & Rental Authorization
+### 1.1.6 Client Do's and Don'ts
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Protecting the claim from the client's own good intentions  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#44` Handling Treatment Gaps During the Treatment Phase · LSH Claims Specialist: LOR Property Damage carve-out, rental coverage hierarchy, documents to support the claim
+> **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#44` Handling Treatment Gaps During the Treatment Phase · LSH Claims Specialist: LOR Property Damage carve-out, documents to support the claim
 
 #### 1 · Visual Layout Description
 
-A balanced two-column DO / DON'T board on the upper two-thirds, green-bordered left and red-bordered right, with matched pairs on the same line so each DON'T sits opposite the DO it replaces. Each row carries a small icon in the gutter. Lower third: a rental authorization flow of four connected chips — WHOSE POLICY IS PRIMARY? → WHO AUTHORIZES? → DAILY RATE CAP → DURATION LIMIT — with an orange tag under the last two: “uncovered days are the client's cost.”
+A balanced two-column DO / DON'T board on the upper two-thirds, green-bordered left and red-bordered right, with matched pairs on the same line so each DON'T sits opposite the DO it replaces. Each row carries a small icon in the gutter. Lower third: a strip of three orange tags — NO RECORDED STATEMENT · KEEP EVERY RECEIPT · PROPERTY DAMAGE ONLY — the three instructions clients most often break in week one.
 
 #### 2 · Slide Body — Tell Them
 
@@ -483,9 +484,7 @@ A balanced two-column DO / DON'T board on the upper two-thirds, green-bordered l
 4. The client signs no release, authorization or settlement document from any carrier until the firm has reviewed it.
 5. The client keeps every receipt and out-of-pocket expense, including mileage to appointments and household help. Only what is documented can be recovered.
 6. Property Damage is the one carve-out from the no-direct-contact rule. The LOR lets the adverse carrier talk to the client about the Property Damage claim only.
-7. On a rental, the renter's own personal auto policy is usually primary. The rental company is usually self-insured and steps in only after the personal policy denies, in a formal written denial.
-8. Confirm rental authorization before the client collects a vehicle: who authorizes it, the daily rate cap and the duration limit. Check for a rental reimbursement endorsement on the policy.
-9. The client reports any change of address, phone number or treating provider at once.
+7. The client reports any change of address, phone number or treating provider at once.
 
 > ⚠️ **UPL boundary.** You may deliver the firm's standing instructions and explain the process. You may not tell the client what their conduct will do to the value of the claim; give the instruction and route the question to Atty. Thorne.
 
@@ -500,7 +499,7 @@ A balanced two-column DO / DON'T board on the upper two-thirds, green-bordered l
 | Route every adverse carrier call to the firm. | Give a Recorded Statement to the other side. |
 | Start treatment promptly and attend every appointment. | Let treatment lapse, or stop because you feel better. |
 | Keep receipts for every accident-related cost. | Assume an undocumented expense can be claimed later. |
-| Confirm rental authorization, rate cap and duration first. | Collect a rental before coverage is confirmed in writing. |
+| Bring every carrier document to the firm before signing. | Sign a carrier's release or medical authorization yourself. |
 | Report any change of address, phone or provider at once. | Post about the collision, the injuries or your activities. |
 
 **Operational mapping**
@@ -508,7 +507,7 @@ A balanced two-column DO / DON'T board on the upper two-thirds, green-bordered l
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | Retainer signed | Deliver the standing instructions and log delivery | CMS → Onboarding | Delivery logged with date and method |
-| Client asks about a rental | Confirm the primary policy, the authorization, the rate cap and the duration | CMS → Property Damage | All rental parameters recorded before collection |
+| Client mentions an accident-related expense | Tell him to keep the receipt; log the expense | CMS → Case Notes | Receipt requested; expense logged |
 | Adverse carrier calls the client directly | Instruct the client to route it to the firm; log the contact | CMS → Communications Log | No Recorded Statement; contact logged |
 
 **Best practices & pitfalls**
@@ -526,7 +525,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **25%** | Instruction coverage | All standing instructions present, including the Property Damage carve-out |
-| 🤖 AI | **20%** | Rental hierarchy | Personal policy primary; written denial before rental-company self-insurance |
+| 🤖 AI | **20%** | Carve-out and receipts | Property Damage carve-out stated narrowly; every expense documented |
 | 🤖 AI | **15%** | Delivery logged | Date and method of delivery recorded |
 | 🧑‍🏫 Trainer | **25%** | Client-facing clarity | Delivered so a stressed client would actually follow them |
 | 🧑‍🏫 Trainer | **15%** | UPL boundary | Instruction given without opining on claim value or legal effect |
@@ -537,7 +536,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 - Run the matched pairs as call-and-response: read a DON'T, have the room give you the DO.
 - The treatment instruction matters most on this file. John Doe's gap is already forming; say so.
-- Rental is where clients get hurt financially. Uncovered days come out of their pocket, and they will blame the firm if nobody told them the limit.
+- Receipts start now: tell John Doe to keep every receipt and a log of each trip to treatment. Rental & Reimbursement of Costs, in the Treatment Phase, builds on it.
 - Watch for trainees explaining why a Recorded Statement hurts the claim. That slides into legal advice; the instruction is the deliverable.
 
 ---
@@ -623,7 +622,83 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.8 Opening John Doe's File in the CMS
+### 1.1.8 Rental Authorization
+
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
+> **Topic:** A rental the policy actually pays for, confirmed before the client collects a car  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** Case file: Keystone Mutual's claim correspondence, the rental authorization and the rental cutoff (RS32) · LSH Claims Specialist: rental coverage hierarchy, the rental reimbursement endorsement, rate cap and duration
+
+#### 1 · Visual Layout Description
+
+A four-chip flow across the upper half: WHOSE POLICY IS PRIMARY? → WHO AUTHORIZES? → DAILY RATE CAP → DURATION LIMIT, with “usually 30 days unless the Dec Page says otherwise” under the last chip. Lower half, left: Keystone's Form KM-PD 210 rental authorization (RS32) with the rate and the covered days circled in orange. Right: a cream card headed WHOSE CLAIM? naming the Civic's owner, Margaret Doe, with John Doe struck through as a passenger. An orange tag along the bottom: “uncovered days are the client's cost.”
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* A rental is the first money question a client asks, and the easiest place for them to get hurt: a car collected on a promise, at a rate or for days nobody authorized, becomes a bill that lands on the client. Rental belongs to the Property Damage claim, so it is the vehicle owner's to make. On this file that is Margaret Doe, the Civic's owner, not John Doe, who was her passenger.
+
+1. Rental is part of the Property Damage claim, and it belongs to the vehicle's owner. John Doe was a passenger; the Civic is Margaret Doe's, so the rental is hers to claim.
+2. Find whose policy is primary. On a rental, the renter's own personal auto policy is usually primary; the rental company is usually self-insured and steps in only after the personal policy denies, in a formal written denial.
+3. Confirm who authorizes the rental (the adverse carrier on accepted liability, or the owner's own carrier) and check the Dec Page for a rental reimbursement endorsement.
+4. Record the authorized daily rate cap before the client collects a vehicle. Anything above the cap is the client's cost.
+5. Record the duration limit: coverage usually runs 30 days at most, unless the Dec Page says otherwise. Calendar the last covered day and tell the client before it arrives.
+6. A comparable vehicle, not an upgrade: the class of car the client lost. An upgrade's difference is the client's cost.
+7. Get it in writing: Keystone's rental authorization (Form KM-PD 210) is filed in CMS → Documents, and every parameter goes in CMS → Property Damage before collection.
+8. The Property Damage carve-out lets the adverse carrier discuss the rental with the owner. If the call moves to injuries or the facts of the loss, it stops and routes to the firm.
+
+> ⚠️ **UPL boundary.** You confirm coverage facts and explain the process. Whether to dispute a cutoff or a rate, and what the owner should accept, is Atty. Thorne's call.
+
+#### 2 · Slide Body — Show Them
+
+*The rental call, answered both ways*
+
+| ✅ Do | ❌ Don't |
+|---|---|
+| “Before you pick it up, I'll confirm the rate and the days in writing.” | “Go ahead and grab a car; they'll pay for it.” |
+| “Keystone's letter covers a car like yours; an upgrade would be your cost.” | “Get whatever you need; we'll sort out the rate later.” |
+| “Coverage ends on the date in the letter; I'll remind you three days before.” | “Keep it as long as you need it.” |
+| “The rental is on Margaret's Property Damage claim, as the Civic's owner.” | “Your rental is part of your injury case.” |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| The owner asks about a rental | Confirm the primary policy, the authorizer, the endorsement, the rate cap and the duration | CMS → Property Damage | All five recorded before collection |
+| The carrier's rental authorization arrives | File it; calendar the last covered day | CMS → Documents · Calendar | Authorization filed; cutoff calendared |
+| The rental cutoff nears | Tell the owner in writing; plan John Doe's rides to treatment | CMS → Case Notes · Tasks | Owner told; rides to treatment planned |
+
+**Best practices & pitfalls**
+
+- Confirm every rental parameter in writing before the client collects a car.
+- Calendar the last covered day and warn the client before it.
+- ⚠️ Pitfall: sending a client to pick up a car before the authorization is confirmed.
+- ⚠️ Pitfall: treating the rental as the passenger's claim instead of the owner's.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **25%** | Rental hierarchy | Personal policy primary; written denial before rental-company self-insurance |
+| 🤖 AI | **20%** | Rental parameters | Authorizer, endorsement, rate cap and duration recorded before collection |
+| 🤖 AI | **15%** | Whose claim | The rental placed on the owner's Property Damage claim, not the passenger's |
+| 🧑‍🏫 Trainer | **25%** | Client-facing clarity | Limits explained so the client is never surprised by a bill |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | Coverage facts only; disputes and acceptance routed to Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Rental is where clients get hurt financially. Uncovered days come out of their pocket, and they will blame the firm if nobody told them the limit.
+- Ask the room whose rental this is on John Doe's file. Let them find Margaret Doe; the Civic Investigation activity proves it from the documents.
+- Show RS32: the authorization, and later the cutoff. The cutoff is what starts John Doe's transport problem in the Treatment Phase.
+
+---
+
+### 1.1.9 Opening John Doe's File in the CMS
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Skill Activity — from raw file to an active matter  
@@ -696,7 +771,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.9 Client Onboarding Direction Packet
+### 1.1.10 Client Onboarding Direction Packet
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Skill Activity 1 — assemble what the client gets on day one  
@@ -767,7 +842,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.10 Onboarding Direction Assignment in System
+### 1.1.11 Onboarding Direction Assignment in System
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Skill Activity 2 — turn directions into tracked tasks  
@@ -837,7 +912,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.11 Whose Rental Is It? The Civic Investigation
+### 1.1.12 Whose Rental Is It? The Civic Investigation
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Skill Activity 3 — investigate the PD and rental claim from the records  
@@ -908,7 +983,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.12 CM Fundamentals Knowledge Check
+### 1.1.13 CM Fundamentals Knowledge Check
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1017,7 +1092,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 1.1.13 PD & Onboarding Knowledge Audit
+### 1.1.14 PD & Onboarding Knowledge Audit
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

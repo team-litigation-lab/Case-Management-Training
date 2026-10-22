@@ -749,5 +749,46 @@
    }
   ],
   "pages": []
+ },
+ "d2m2-cost": {
+  "lead": "Treatment costs the client money no provider bill shows: **documented when it happens**, it can reach the demand.",
+  "concepts": [
+   {
+    "term": "Out-of-Pocket Costs",
+    "text": "Mileage, rides, parking, prescriptions, co-pays, equipment and any rental the owner paid: **each with its receipt**",
+    "more": [
+     "Mileage to and from every treatment visit",
+     "Rides and parking when the client has no car",
+     "Prescriptions, co-pays and deductibles",
+     "Medical equipment: a brace, a cervical pillow, a TENS unit",
+     "A rental the owner paid: days past the cutoff, or a rate above the cap"
+    ]
+   },
+   {
+    "term": "The Trip Log",
+    "text": "Date, provider and round-trip miles for every visit, **kept from the first appointment**",
+    "more": [
+     "One line per visit: the date, the provider and the round-trip miles",
+     "Kept as treatment happens, never rebuilt from memory at the demand",
+     "Mileage is claimed at the rate the governing state's rules allow; Atty. Thorne confirms it",
+     "For reference, the IRS rates when this course was written: **20.5¢ a mile medical**, 72.5¢ business"
+    ]
+   },
+   {
+    "term": "Rental Reimbursement",
+    "text": "A rental the carrier didn't pay is **the owner's out-of-pocket cost**: receipt filed, routed with the PD claim",
+    "more": [
+     "Days past the carrier's cutoff",
+     "A daily rate above the authorized cap",
+     "An upgrade's difference over a comparable vehicle",
+     "Keep the rental company's receipt and route it to Atty. Thorne"
+    ]
+   },
+   {
+    "term": "Into the Demand",
+    "text": "Each cost entered in **the Specials ledger** the day its receipt arrives; counsel decides what is claimed"
+   }
+  ],
+  "pages": []
  }
 }

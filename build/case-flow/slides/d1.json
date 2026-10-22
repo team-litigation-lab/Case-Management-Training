@@ -311,13 +311,12 @@
   "d1m3-l1": {
     "image": "privacy-shield",
     "roadmap": {
-      "title": "Client Instructions & Rental: the Roadmap",
+      "title": "Client Instructions: the Roadmap",
       "steps": [
         {"label": "Give the instructions", "text": "No Recorded Statement, no posts, no signing without review"},
         {"label": "Treatment and barriers", "text": "Keep every appointment; **report any barrier** before a miss"},
         {"label": "Keep the receipts", "text": "Every expense and mile documented, so it can be claimed"},
-        {"label": "The PD carve-out", "text": "The adverse carrier may discuss **Property Damage only**"},
-        {"label": "Rental authorization", "text": "Who authorizes it, the daily cap and the duration"}
+        {"label": "The PD carve-out", "text": "The adverse carrier may discuss **Property Damage only**"}
       ]
     },
     "hook": "Most self-inflicted claim damage happens **in the first two weeks**, before the client is told.",
@@ -325,12 +324,12 @@
       "**No Recorded Statement** to the adverse carrier; route contact through the firm",
       "Start treatment and **keep every appointment**",
       "**Post nothing**, sign nothing from a carrier until the firm reviews it",
-      "Rental: confirm authorization, **rate cap and duration** before collection"
+      "Keep **every receipt** and a log of each trip to treatment"
     ],
     "upl": "Give the instruction; route questions about claim value to Atty. Thorne",
     "job": [
       ["Retainer signed", "Deliver standing instructions; log delivery", "CMS → Onboarding", "Date and method logged"],
-      ["Client asks about a rental", "Confirm policy, authorization, cap, duration", "CMS → Property Damage", "Recorded before collection"],
+      ["Client mentions an expense", "Keep the receipt; log it", "CMS → Case Notes", "Receipt requested; logged"],
       ["Adverse carrier calls client", "Route to the firm; log contact", "CMS → Communications Log", "No Recorded Statement; logged"]
     ],
     "dos": [
@@ -396,6 +395,30 @@
     "donts": [
       "Working only from **the initial estimate**",
       "Treating Property Damage as **“just the car”**"
+    ]
+  },
+  "d1m3-rent": {
+    "image": "car-transport",
+    "hook": "A rental collected **on a promise** becomes the client's bill.",
+    "points": [
+      "Rental is on **the owner's PD claim**: Margaret Doe's, not John's",
+      "The renter's own policy is **usually primary**",
+      "Confirm authorizer, rate cap and **duration in writing** first",
+      "Coverage is **usually 30 days** unless the Dec Page differs"
+    ],
+    "upl": "Confirm coverage facts; **disputes and acceptance** are Atty. Thorne's call",
+    "job": [
+      ["Owner asks about a rental", "Confirm policy, authorizer, cap, duration", "CMS → Property Damage", "Recorded before collection"],
+      ["Authorization arrives", "File it; calendar last day", "CMS → Documents · Calendar", "Cutoff calendared"],
+      ["Rental cutoff nears", "Warn owner; plan treatment rides", "CMS → Case Notes · Tasks", "Owner told; rides planned"]
+    ],
+    "dos": [
+      "Confirm every parameter **in writing** before pickup",
+      "Calendar **the last covered day**; warn early"
+    ],
+    "donts": [
+      "Sending a client for a car **before authorization**",
+      "Treating the rental as **the passenger's claim**"
     ]
   },
   "d1m3-a2": {

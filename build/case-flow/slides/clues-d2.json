@@ -389,5 +389,31 @@
     "An LOP is signed before the first visit and filed."
    ]
   ]
+ },
+ "d2m2-cost": {
+  "dos": [
+   [
+    "John Doe gets a ride to Dr. Reyes's office on 02/20/2026.",
+    "That same day you give him a simple form for his trips.",
+    "It asks for the date, the provider and the miles."
+   ],
+   [
+    "A pharmacy receipt lands in your inbox from John Doe.",
+    "You enter its amount in the Specials ledger that afternoon.",
+    "The receipt itself goes into the case documents too."
+   ]
+  ],
+  "donts": [
+   [
+    "Treatment ended months ago at Lakeside Orthopedics.",
+    "Nobody kept a list of the drives to appointments.",
+    "You guess the miles now to fill in the demand."
+   ],
+   [
+    "John Doe worries about what the rides are costing him.",
+    "He asks if he will get that money back.",
+    "You tell him the firm will recover all of it."
+   ]
+  ]
  }
 }

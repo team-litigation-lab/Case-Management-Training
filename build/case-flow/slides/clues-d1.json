@@ -217,6 +217,32 @@
       ]
     ]
   },
+  "d1m3-rent": {
+    "dos": [
+      [
+        "Margaret Doe's Civic is in the shop after the crash.",
+        "Leah Moran says Keystone will cover a rental car.",
+        "You wait for Form KM-PD 210 before sending her anywhere."
+      ],
+      [
+        "Keystone's letter gives Margaret Doe a fixed number of rental days.",
+        "You put the final day on the CMS calendar.",
+        "Three days ahead of it, you call her with the date."
+      ]
+    ],
+    "donts": [
+      [
+        "Margaret Doe needs a car to get to work tomorrow.",
+        "Keystone has not yet confirmed a rate or any days.",
+        "You tell her to go pick one up anyway."
+      ],
+      [
+        "John Doe rode in the front seat of the Civic.",
+        "He calls asking for a rental of his own.",
+        "You open a rental file in his name."
+      ]
+    ]
+  },
   "d1m4-l1": {
     "dos": [
       [

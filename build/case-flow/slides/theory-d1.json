@@ -142,20 +142,9 @@
       {"term": "Medical vs. Legal Danger", "text": "A medical danger threatens the client's health; a legal danger, like **a gap in care**, threatens the claim"},
       {"term": "A Clean, Discoverable File", "text": "Everything on the file can reach defense counsel, so instructions stay **factual, never legal opinion**"},
       {"term": "Letter of Representation", "text": "The notice that the firm represents the client; from then on, adverse contact **routes through the firm**"},
-      {"term": "Rate Cap and Duration", "text": "The authorized daily rate and number of days; **anything beyond them** is the client's own cost"}
+      {"term": "Documented Costs", "text": "Every accident-related cost needs its receipt or trip log: **only what is documented** can be recovered"}
     ],
-    "pages": ["D1#44", "D1#28"],
-    "framework": {
-      "title": "The Rental Authorization Check",
-      "kind": "flow",
-      "steps": [
-        {"label": "Whose Policy Is Primary?", "text": "The renter's own policy is usually primary; the rental company follows a written denial"},
-        {"label": "Who Authorizes?", "text": "Confirm who authorizes the rental and check for a rental reimbursement endorsement"},
-        {"label": "Daily Rate Cap", "text": "Record the authorized daily rate before the client collects a vehicle"},
-        {"label": "Duration Limit", "text": "Usually 30 days max unless the Dec Page differs: **uncovered days are the client's cost**"}
-      ],
-      "note": "All four go in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
-    }
+    "pages": ["D1#44", "D1#28"]
   },
   "d1m3-l2": {
     "lead": "Property Damage is **a separate claim** with its own measure: repair or total, set against the vehicle's pre-loss value.",
@@ -178,6 +167,27 @@
         ["Rental", "Who authorizes, daily cap; 30 days max unless the Dec Page differs", "**Uncovered days are the client's cost**"]
       ],
       "note": "Audit Property Damage as carefully as the medicals: it is physical evidence of how hard the impact was."
+    }
+  },
+  "d1m3-rent": {
+    "lead": "A rental is part of **the Property Damage claim**: the owner's, paid only within what the policy authorizes.",
+    "concepts": [
+      {"term": "Whose Claim It Is", "text": "Rental follows the vehicle: it belongs to **the owner's PD claim**, not to a passenger's injury claim"},
+      {"term": "Primary Policy", "text": "The renter's own auto policy usually pays first; the rental company follows **a written denial**", "more": ["The renter's personal auto policy is usually primary", "The rental company is usually self-insured and pays only after the personal policy denies", "Get that denial in writing before relying on the rental company's coverage"]},
+      {"term": "Rental Reimbursement Endorsement", "text": "Optional coverage on the owner's policy for a rental while the car is repaired: **check the Dec Page**"},
+      {"term": "Rate Cap and Duration", "text": "The authorized daily rate and days, usually 30 at most: **anything beyond them** is the client's cost", "more": ["Record the authorized daily rate before the client collects a vehicle", "Coverage usually runs 30 days at most, unless the Dec Page says otherwise", "Calendar the last covered day and tell the client before it arrives", "A comparable vehicle, not an upgrade: the difference is the client's cost"]}
+    ],
+    "pages": [],
+    "framework": {
+      "title": "The Rental Authorization Check",
+      "kind": "flow",
+      "steps": [
+        {"label": "Whose Policy Is Primary?", "text": "The renter's own policy is usually primary; the rental company follows a written denial"},
+        {"label": "Who Authorizes?", "text": "Confirm who authorizes the rental and check for a rental reimbursement endorsement"},
+        {"label": "Daily Rate Cap", "text": "Record the authorized daily rate before the client collects a vehicle"},
+        {"label": "Duration Limit", "text": "Usually 30 days max unless the Dec Page differs: **uncovered days are the client's cost**"}
+      ],
+      "note": "All four go in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
     }
   },
   "d1m4-l1": {

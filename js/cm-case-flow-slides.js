@@ -868,7 +868,7 @@ window.CM_CF_SLIDES = {
  "d1m3-l1": {
   "image": "privacy-shield",
   "roadmap": {
-   "title": "Client Instructions & Rental: the Roadmap",
+   "title": "Client Instructions: the Roadmap",
    "steps": [
     {
      "label": "Give the instructions",
@@ -885,10 +885,6 @@ window.CM_CF_SLIDES = {
     {
      "label": "The PD carve-out",
      "text": "The adverse carrier may discuss **Property Damage only**"
-    },
-    {
-     "label": "Rental authorization",
-     "text": "Who authorizes it, the daily cap and the duration"
     }
    ]
   },
@@ -897,7 +893,7 @@ window.CM_CF_SLIDES = {
    "**No Recorded Statement** to the adverse carrier; route contact through the firm",
    "Start treatment and **keep every appointment**",
    "**Post nothing**, sign nothing from a carrier until the firm reviews it",
-   "Rental: confirm authorization, **rate cap and duration** before collection"
+   "Keep **every receipt** and a log of each trip to treatment"
   ],
   "upl": "Give the instruction; route questions about claim value to Atty. Thorne",
   "job": [
@@ -908,10 +904,10 @@ window.CM_CF_SLIDES = {
     "Date and method logged"
    ],
    [
-    "Client asks about a rental",
-    "Confirm policy, authorization, cap, duration",
-    "CMS → Property Damage",
-    "Recorded before collection"
+    "Client mentions an expense",
+    "Keep the receipt; log it",
+    "CMS → Case Notes",
+    "Receipt requested; logged"
    ],
    [
     "Adverse carrier calls client",
@@ -944,37 +940,14 @@ window.CM_CF_SLIDES = {
      "text": "The notice that the firm represents the client; from then on, adverse contact **routes through the firm**"
     },
     {
-     "term": "Rate Cap and Duration",
-     "text": "The authorized daily rate and number of days; **anything beyond them** is the client's own cost"
+     "term": "Documented Costs",
+     "text": "Every accident-related cost needs its receipt or trip log: **only what is documented** can be recovered"
     }
    ],
    "pages": [
     "D1#44",
     "D1#28"
-   ],
-   "framework": {
-    "title": "The Rental Authorization Check",
-    "kind": "flow",
-    "steps": [
-     {
-      "label": "Whose Policy Is Primary?",
-      "text": "The renter's own policy is usually primary; the rental company follows a written denial"
-     },
-     {
-      "label": "Who Authorizes?",
-      "text": "Confirm who authorizes the rental and check for a rental reimbursement endorsement"
-     },
-     {
-      "label": "Daily Rate Cap",
-      "text": "Record the authorized daily rate before the client collects a vehicle"
-     },
-     {
-      "label": "Duration Limit",
-      "text": "Usually 30 days max unless the Dec Page differs: **uncovered days are the client's cost**"
-     }
-    ],
-    "note": "All four go in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
-   }
+   ]
   },
   "clues": {
    "dos": [
@@ -1199,6 +1172,127 @@ window.CM_CF_SLIDES = {
      "The repair photos show a crushed door on one side.",
      "Frame photos could show how hard the impact really was.",
      "The vehicle file is treated as fender paperwork, apart from the injury claim."
+    ]
+   ]
+  }
+ },
+ "d1m3-rent": {
+  "image": "car-transport",
+  "hook": "A rental collected **on a promise** becomes the client's bill.",
+  "points": [
+   "Rental is on **the owner's PD claim**: Margaret Doe's, not John's",
+   "The renter's own policy is **usually primary**",
+   "Confirm authorizer, rate cap and **duration in writing** first",
+   "Coverage is **usually 30 days** unless the Dec Page differs"
+  ],
+  "upl": "Confirm coverage facts; **disputes and acceptance** are Atty. Thorne's call",
+  "job": [
+   [
+    "Owner asks about a rental",
+    "Confirm policy, authorizer, cap, duration",
+    "CMS → Property Damage",
+    "Recorded before collection"
+   ],
+   [
+    "Authorization arrives",
+    "File it; calendar last day",
+    "CMS → Documents · Calendar",
+    "Cutoff calendared"
+   ],
+   [
+    "Rental cutoff nears",
+    "Warn owner; plan treatment rides",
+    "CMS → Case Notes · Tasks",
+    "Owner told; rides planned"
+   ]
+  ],
+  "dos": [
+   "Confirm every parameter **in writing** before pickup",
+   "Calendar **the last covered day**; warn early"
+  ],
+  "donts": [
+   "Sending a client for a car **before authorization**",
+   "Treating the rental as **the passenger's claim**"
+  ],
+  "theory": {
+   "lead": "A rental is part of **the Property Damage claim**: the owner's, paid only within what the policy authorizes.",
+   "concepts": [
+    {
+     "term": "Whose Claim It Is",
+     "text": "Rental follows the vehicle: it belongs to **the owner's PD claim**, not to a passenger's injury claim"
+    },
+    {
+     "term": "Primary Policy",
+     "text": "The renter's own auto policy usually pays first; the rental company follows **a written denial**",
+     "more": [
+      "The renter's personal auto policy is usually primary",
+      "The rental company is usually self-insured and pays only after the personal policy denies",
+      "Get that denial in writing before relying on the rental company's coverage"
+     ]
+    },
+    {
+     "term": "Rental Reimbursement Endorsement",
+     "text": "Optional coverage on the owner's policy for a rental while the car is repaired: **check the Dec Page**"
+    },
+    {
+     "term": "Rate Cap and Duration",
+     "text": "The authorized daily rate and days, usually 30 at most: **anything beyond them** is the client's cost",
+     "more": [
+      "Record the authorized daily rate before the client collects a vehicle",
+      "Coverage usually runs 30 days at most, unless the Dec Page says otherwise",
+      "Calendar the last covered day and tell the client before it arrives",
+      "A comparable vehicle, not an upgrade: the difference is the client's cost"
+     ]
+    }
+   ],
+   "pages": [],
+   "framework": {
+    "title": "The Rental Authorization Check",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Whose Policy Is Primary?",
+      "text": "The renter's own policy is usually primary; the rental company follows a written denial"
+     },
+     {
+      "label": "Who Authorizes?",
+      "text": "Confirm who authorizes the rental and check for a rental reimbursement endorsement"
+     },
+     {
+      "label": "Daily Rate Cap",
+      "text": "Record the authorized daily rate before the client collects a vehicle"
+     },
+     {
+      "label": "Duration Limit",
+      "text": "Usually 30 days max unless the Dec Page differs: **uncovered days are the client's cost**"
+     }
+    ],
+    "note": "All four go in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
+   }
+  },
+  "clues": {
+   "dos": [
+    [
+     "Margaret Doe's Civic is in the shop after the crash.",
+     "Leah Moran says Keystone will cover a rental car.",
+     "You wait for Form KM-PD 210 before sending her anywhere."
+    ],
+    [
+     "Keystone's letter gives Margaret Doe a fixed number of rental days.",
+     "You put the final day on the CMS calendar.",
+     "Three days ahead of it, you call her with the date."
+    ]
+   ],
+   "donts": [
+    [
+     "Margaret Doe needs a car to get to work tomorrow.",
+     "Keystone has not yet confirmed a rate or any days.",
+     "You tell her to go pick one up anyway."
+    ],
+    [
+     "John Doe rode in the front seat of the Civic.",
+     "He calls asking for a rental of his own.",
+     "You open a rental file in his name."
     ]
    ]
   }
@@ -2560,6 +2654,112 @@ window.CM_CF_SLIDES = {
      "The LOP was signed after the third visit.",
      "The first visits have no protection.",
      "An LOP is signed before the first visit and filed."
+    ]
+   ]
+  }
+ },
+ "d2m2-cost": {
+  "image": "money-ledger",
+  "hook": "Every trip to treatment costs the client: **only a logged cost** reaches the demand.",
+  "points": [
+   "Out-of-pocket costs are **Specials**, each with its receipt",
+   "Log every trip: **date, provider, round-trip miles**",
+   "Mileage rate: **the governing state's rules**, confirmed by counsel",
+   "Rental past the cutoff is **the owner's out-of-pocket** cost"
+  ],
+  "upl": "Log the costs; **never promise repayment**: the claim is Atty. Thorne's",
+  "job": [
+   [
+    "Treatment starts",
+    "Open the trip log",
+    "CMS → Case Notes · Tasks",
+    "Client told what to keep"
+   ],
+   [
+    "A receipt arrives",
+    "Enter cost; file receipt",
+    "CMS → Financial Ledger → Specials",
+    "Entered with its receipt"
+   ],
+   [
+    "MMI; demand next",
+    "Total the log; route it",
+    "CMS → Tasks",
+    "Rate confirmed by counsel"
+   ]
+  ],
+  "dos": [
+   "Start the trip log **at the first visit**",
+   "File each receipt **the day it arrives**"
+  ],
+  "donts": [
+   "Estimating mileage **from memory** at the end",
+   "Promising the client **every cost comes back**"
+  ],
+  "theory": {
+   "lead": "Treatment costs the client money no provider bill shows: **documented when it happens**, it can reach the demand.",
+   "concepts": [
+    {
+     "term": "Out-of-Pocket Costs",
+     "text": "Mileage, rides, parking, prescriptions, co-pays, equipment and any rental the owner paid: **each with its receipt**",
+     "more": [
+      "Mileage to and from every treatment visit",
+      "Rides and parking when the client has no car",
+      "Prescriptions, co-pays and deductibles",
+      "Medical equipment: a brace, a cervical pillow, a TENS unit",
+      "A rental the owner paid: days past the cutoff, or a rate above the cap"
+     ]
+    },
+    {
+     "term": "The Trip Log",
+     "text": "Date, provider and round-trip miles for every visit, **kept from the first appointment**",
+     "more": [
+      "One line per visit: the date, the provider and the round-trip miles",
+      "Kept as treatment happens, never rebuilt from memory at the demand",
+      "Mileage is claimed at the rate the governing state's rules allow; Atty. Thorne confirms it",
+      "For reference, the IRS rates when this course was written: **20.5¢ a mile medical**, 72.5¢ business"
+     ]
+    },
+    {
+     "term": "Rental Reimbursement",
+     "text": "A rental the carrier didn't pay is **the owner's out-of-pocket cost**: receipt filed, routed with the PD claim",
+     "more": [
+      "Days past the carrier's cutoff",
+      "A daily rate above the authorized cap",
+      "An upgrade's difference over a comparable vehicle",
+      "Keep the rental company's receipt and route it to Atty. Thorne"
+     ]
+    },
+    {
+     "term": "Into the Demand",
+     "text": "Each cost entered in **the Specials ledger** the day its receipt arrives; counsel decides what is claimed"
+    }
+   ],
+   "pages": []
+  },
+  "clues": {
+   "dos": [
+    [
+     "John Doe gets a ride to Dr. Reyes's office on 02/20/2026.",
+     "That same day you give him a simple form for his trips.",
+     "It asks for the date, the provider and the miles."
+    ],
+    [
+     "A pharmacy receipt lands in your inbox from John Doe.",
+     "You enter its amount in the Specials ledger that afternoon.",
+     "The receipt itself goes into the case documents too."
+    ]
+   ],
+   "donts": [
+    [
+     "Treatment ended months ago at Lakeside Orthopedics.",
+     "Nobody kept a list of the drives to appointments.",
+     "You guess the miles now to fill in the demand."
+    ],
+    [
+     "John Doe worries about what the rides are costing him.",
+     "He asks if he will get that money back.",
+     "You tell him the firm will recover all of it."
     ]
    ]
   }

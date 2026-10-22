@@ -800,5 +800,44 @@
    "Calling the LOP bill **free**",
    "Letting the balance **surprise the Net Sheet**"
   ]
+ },
+ "d2m2-cost": {
+  "image": "money-ledger",
+  "hook": "Every trip to treatment costs the client: **only a logged cost** reaches the demand.",
+  "points": [
+   "Out-of-pocket costs are **Specials**, each with its receipt",
+   "Log every trip: **date, provider, round-trip miles**",
+   "Mileage rate: **the governing state's rules**, confirmed by counsel",
+   "Rental past the cutoff is **the owner's out-of-pocket** cost"
+  ],
+  "upl": "Log the costs; **never promise repayment**: the claim is Atty. Thorne's",
+  "job": [
+   [
+    "Treatment starts",
+    "Open the trip log",
+    "CMS → Case Notes · Tasks",
+    "Client told what to keep"
+   ],
+   [
+    "A receipt arrives",
+    "Enter cost; file receipt",
+    "CMS → Financial Ledger → Specials",
+    "Entered with its receipt"
+   ],
+   [
+    "MMI; demand next",
+    "Total the log; route it",
+    "CMS → Tasks",
+    "Rate confirmed by counsel"
+   ]
+  ],
+  "dos": [
+   "Start the trip log **at the first visit**",
+   "File each receipt **the day it arrives**"
+  ],
+  "donts": [
+   "Estimating mileage **from memory** at the end",
+   "Promising the client **every cost comes back**"
+  ]
  }
 }
