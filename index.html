@@ -4566,8 +4566,7 @@ const VoiceCall = {
       </div>
       <div class="vc-timer" id="vcTimer">${this._time()}</div>
       <div class="vc-controls">
-        ${(this.SR && !a.readOnly) ? `<button type="button" class="vc-btn ${a.status==='listening'?'vc-on':''}" onclick="VoiceCall.toggleTalk()" title="Speak your reply">🎙<span>${a.status==='listening'?'Listening…':'Talk'}</span></button>` : ""}
-        ${(this.SR && !a.readOnly) ? `<button type="button" class="vc-btn ${a.handsFree?'vc-on':''}" onclick="VoiceCall.toggleHandsFree()" title="Automatically listen after the caller finishes">🔁<span>Hands-free</span></button>` : ""}
+        ${(this.SR && !a.readOnly) ? `<button type="button" class="vc-btn ${a.handsFree?'vc-on':''}" onclick="VoiceCall.toggleHandsFree()" title="${a.handsFree?'Your microphone is on: just speak, and your reply goes when you pause. Turn it off to type instead.':'Turn your microphone on: then just speak'}">🎙<span>${a.handsFree?'Mic on':'Mic off'}</span></button>` : ""}
         <button type="button" class="vc-btn" onclick="VoiceCall.replay()" title="Hear the caller's last line again">↻<span>Replay</span></button>
         <button type="button" class="vc-btn ${a.muted?'vc-on':''}" onclick="VoiceCall.toggleMute()" title="Mute the caller's voice">${a.muted?'🔇':'🔊'}<span>${a.muted?'Unmute':'Speaker'}</span></button>
         <button type="button" class="vc-btn vc-hang" onclick="VoiceCall.hangupAndEvaluate()" title="Hang up and get your evaluation">📞<span>Hang Up</span></button>
@@ -4621,9 +4620,10 @@ const VoiceCall = {
     if(!this.canSpeak) return;
     try{ const u=new SpeechSynthesisUtterance(" "); u.volume=0; speechSynthesis.speak(u); speechSynthesis.resume(); }catch(e){}
   },
-  thinking(key){ const a=this.active; if(a && a.key===key && a.status!=="ringing"){ a.status="thinking"; this._paint(); } },
-  toggleTalk(){ const a=this.active; if(!a) return; if(a.status==="listening") this._stopListening(true); else this._listen(); },
-  toggleHandsFree(){ const a=this.active; if(!a) return; a.handsFree=!a.handsFree; this._paint(); if(a.handsFree && a.status==="yourturn") this._listen(); },
+  thinking(key){ const a=this.active; if(a && a.key===key && a.status!=="ringing"){ this._stopListening(); a.turnText=""; a.status="thinking"; this._paint(); } },
+  toggleHandsFree(){ const a=this.active; if(!a) return; a.handsFree=!a.handsFree; a.micBlocked=false;
+    if(!a.handsFree && a.rec){ this._stopListening(); a.status="yourturn"; }
+    this._paint(); if(a.handsFree && a.status==="yourturn") this._listen(); },
   toggleMute(){ const a=this.active; if(!a) return; a.muted=!a.muted; if(a.muted && this.canSpeak){ speechSynthesis.cancel(); } this._paint(); },
   hangupAndEvaluate(){ const a=this.active; const cb = a && a.onHangup; this.hangup(); if(cb) cb(); },
   hangup(silent){
@@ -4636,29 +4636,50 @@ const VoiceCall = {
   },
   /* ---- internals ---- */
   _afterCaller(){ const a=this.active; if(!a) return; a.status="yourturn"; this._paint(); if(a.readOnly || !document.getElementById(a.inputId)) return; if(a.handsFree && this.SR) setTimeout(()=>{ if(this.active===a && a.status==="yourturn") this._listen(); }, 350); },
-  _listen(){
+  /* Hands-free: the microphone stays open for the whole turn. Everything said is kept, however long and however
+     many short pauses it has; the reply goes once the trainee has been quiet for SILENCE ms. When the browser
+     ends its recognition session on its own (its time limit, a long silence, a network blip), listening starts
+     again and keeps what was already said. Typing in the reply box turns listening off for that turn. */
+  SILENCE: 2500,
+  _listen(resume){
     const a = this.active; if(!a || !this.SR) return;
     if(a.readOnly || !document.getElementById(a.inputId)){ a.status="yourturn"; this._paint(); return; }
     if(this.canSpeak) speechSynthesis.cancel();
     this._stopListening();
-    const rec = new this.SR(); rec.lang = "en-US"; rec.interimResults = true; rec.continuous = false;
     const input = ()=>document.getElementById(a.inputId);
+    if(!resume){ const el0 = input(); a.turnText = el0 && el0.value.trim() ? el0.value.trim() + " " : ""; a.restarts = []; }
+    const el1 = input();
+    if(el1 && !el1.dataset.vcType){ el1.dataset.vcType = "1"; el1.addEventListener("keydown", (ev)=>{ const c = this.active; if(c && c.rec && ev.key && ev.key.length === 1){ this._stopListening(); c.status = "yourturn"; this._paint(); } }); }
+    const rec = new this.SR(); rec.lang = "en-US"; rec.interimResults = true; rec.continuous = true;
     let finalText = "";
+    const arm = ()=>{ clearTimeout(a.silence); a.silence = setTimeout(()=>{ if(this.active===a && a.rec===rec && (a.turnText + finalText).trim()){ a.finishing = true; try{ rec.stop(); }catch(e){} } }, this.SILENCE); };
     rec.onresult = (ev)=>{
       let interim = "";
       for(let i=ev.resultIndex;i<ev.results.length;i++){
         const t = ev.results[i][0].transcript;
-        if(ev.results[i].isFinal) finalText += t; else interim += t;
+        if(ev.results[i].isFinal) finalText += t + " "; else interim += t;
       }
-      const el = input(); if(el) el.value = (finalText + interim).trim();
+      const el = input(); if(el) el.value = (a.turnText + finalText + interim).replace(/\s+/g, " ").trim();
+      arm();
     };
-    rec.onerror = (ev)=>{ if(ev.error==="not-allowed"){ toast("Microphone access was blocked — allow it in the browser bar, or type your reply."); a.handsFree=false; } };
+    rec.onerror = (ev)=>{
+      if(ev.error==="not-allowed" || ev.error==="service-not-allowed"){ toast("Microphone access was blocked — allow it in the browser bar, or type your reply."); a.handsFree=false; a.micBlocked=true; }
+      else if(ev.error==="audio-capture"){ toast("No microphone was found — plug one in, or type your reply."); a.handsFree=false; a.micBlocked=true; }
+    };
     rec.onend = ()=>{
       if(this.active!==a || a.rec!==rec) return;
-      a.rec = null;
+      clearTimeout(a.silence); a.rec = null;
+      a.turnText = (a.turnText + finalText).replace(/\s+/g, " ");
       const el = input();
-      const said = (el && el.value.trim()) || finalText.trim();
-      if(said){ a.status="thinking"; this._paint(); a.send && a.send(); }
+      const said = (el && el.value.trim()) || a.turnText.trim();
+      const finishing = a.finishing; a.finishing = false;
+      if(finishing && said){ a.turnText = ""; a.status="thinking"; this._paint(); a.send && a.send(); return; }
+      // the browser stopped listening by itself: start again, keeping what was said (a few quick failures in a row stop it)
+      const now = Date.now(); a.restarts = (a.restarts || []).filter(t=>now - t < 10000).concat(now);
+      if(a.handsFree && !a.micBlocked && a.status==="listening" && a.restarts.length <= 5){
+        setTimeout(()=>{ if(this.active===a && !a.rec && a.status==="listening") this._listen(true); }, 150); return;
+      }
+      if(said && a.handsFree && !a.micBlocked){ a.turnText = ""; a.status="thinking"; this._paint(); a.send && a.send(); }
       else { a.status="yourturn"; this._paint(); }
     };
     a.rec = rec; a.status = "listening"; this._paint();
@@ -4692,8 +4713,8 @@ const VoiceCall = {
   _statusText(){
     const a=this.active; if(!a) return "";
     return ({ringing:"Ringing…", connected:"Connected", caller:"🔊 Caller speaking…", thinking:"Caller is responding…",
-      yourturn: a.readOnly ? "Caller finished" : (this.SR ? (a.handsFree ? "Your turn — just speak" : "Your turn — tap Talk or type") : "Your turn — type your reply"),
-      listening:"🎙 Listening… pause when you're done"})[a.status] || "";
+      yourturn: a.readOnly ? "Caller finished" : (this.SR ? (a.handsFree ? "Your turn — just speak" : "Your turn — type your reply, or turn the mic on") : "Your turn — type your reply"),
+      listening:"🎙 Listening… just talk; your reply goes when you pause"})[a.status] || "";
   },
   _paint(){
     const p=document.getElementById("vcPanel"); if(!p || !this.active) return;
