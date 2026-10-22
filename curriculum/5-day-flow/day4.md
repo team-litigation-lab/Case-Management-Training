@@ -34,24 +34,25 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 1. *Lesson* — Statutory Liens, Health Subrogation & Provider Balances
 2. *Lesson* — Pro-Rata Distribution & Medical Bill Reduction
-3. *Lesson* — The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker
-4. *Lesson* — Release Audits, Trust Accounting & Disbursement Commands
-5. *Lesson* — Court Hard Rules, SOL Cutoffs & the Master Calendar
-6. *Lesson* — Mediation vs. Binding Arbitration & the UPL Line at Hearings
-7. *Lesson* — The Mediation Binder & Exhibit Indexing
-8. *Lesson* — Arbitration Exhibits & Evidentiary Rules
-9. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab
-10. *Skill Activity* — Provider Balance Negotiation Exercises
-11. *Skill Activity* — Completing the Final Dual-Tab Net Sheet
-12. *Skill Activity* — Release Audit & Disbursement Command Triggering
-13. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs
-14. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping
-15. *Skill Activity* — Assembling the 6-Section Mediation Binder
-16. *Skill Activity* — Assembling the 6-Tab Arbitration Binder
-17. *Knowledge Check* — Lien Reduction Verification
-18. *Knowledge Check* — Final Accounting Check
-19. *Knowledge Check* — ADR & Calendar Compliance Check
-20. *Knowledge Check* — Binder Assembly Verification
+3. *Lesson* — Lien Negotiation Calls: the Reduction Request, the Ask and the Payoff Letter (condensed)
+4. *Lesson* — The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker
+5. *Lesson* — Release Audits, Trust Accounting & Disbursement Commands
+6. *Lesson* — Court Hard Rules, SOL Cutoffs & the Master Calendar
+7. *Lesson* — Mediation vs. Binding Arbitration & the UPL Line at Hearings
+8. *Lesson* — The Mediation Binder & Exhibit Indexing
+9. *Lesson* — Arbitration Exhibits & Evidentiary Rules
+10. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab
+11. *Skill Activity* — Provider Balance Negotiation Exercises
+12. *Skill Activity* — Completing the Final Dual-Tab Net Sheet
+13. *Skill Activity* — Release Audit & Disbursement Command Triggering
+14. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs
+15. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping
+16. *Skill Activity* — Assembling the 6-Section Mediation Binder
+17. *Skill Activity* — Assembling the 6-Tab Arbitration Binder
+18. *Knowledge Check* — Lien Reduction Verification
+19. *Knowledge Check* — Final Accounting Check
+20. *Knowledge Check* — ADR & Calendar Compliance Check
+21. *Knowledge Check* — Binder Assembly Verification
 
 **End-of-day discussion (trainer):** Keystone's draft release arrives on 08/14/2026 releasing “all other persons, firms, corporations and insurers.” Harbor Point hasn't answered the consent request, and Atty. Thorne is out of the office until Monday. What do you do, and what must not happen before he is back?
 
@@ -59,7 +60,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 4 — Reductions, Lien Negotiation & ADR
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 4.1.1 Statutory Liens, Health Subrogation & Provider Balances
 
@@ -229,7 +230,79 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 4) and that day
 
 ---
 
-### 4.1.3 The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker
+### 4.1.3 Lien Negotiation Calls: the Reduction Request, the Ask and the Payoff Letter
+
+> **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR (condensed) · scored with Lien Reduction Verification (`d3m3`)  
+> **Topic:** From the audited balance to a signed full-and-final payoff  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D3#21` Increasing the Client's Net · `D3#22` Auditing the Billing Before Asking for a Discount · Newly authored: lien negotiation calls, from the Pre-Demand & Reduction File Review Protocols handout (LSH Knowledge Base, CM Training · Day 4)
+
+#### 1 · Visual Layout Description
+
+A three-step ladder on the left: REDUCTION REQUEST → THE CALL → PAYOFF LETTER, each rung a navy card with an orange badge. On the right, a lien card for Riverton Spine & Rehab: $6,290.00 struck through, $6,105.00 audited, $4,580.00 agreed, with a green FULL AND FINAL stamp.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* A reduction is won on paper before it is won on the phone. The lienholder needs the audited balance, the reason a reduction is fair and a payoff it can sign. A CM who calls without the request, or pays without the letter, leaves money on the table or reopens a closed bill.
+
+1. Negotiate from the audited balance, never the billed one: Riverton Spine & Rehab $6,105.00, Peach State $1,860.00, $7,965.00 in all.
+2. Send the written Reduction Request first: the audited balance, the recovery, the fee and costs, the other liens and the common-fund share, with Atty. Thorne's written authority on file.
+3. On the call, make Atty. Thorne's ask and nothing outside it. Note the name, the date and every figure; a counter outside his authority goes back to him the same day.
+4. Argue on true facts only: never invent a smaller fund or say the client will refuse the settlement.
+5. No Payoff Letter, no payment: the signed letter states full and final satisfaction and no balance billing or collections.
+6. Update the Lien Tracker and the Net Sheet the day a reduction is confirmed, and show John Doe the change in his net.
+
+> ⚠️ **UPL boundary.** You draft, calculate and make the authorized ask. You never accept a figure outside Atty. Thorne's written authority, promise a provider payment, or tell John Doe a bill is invalid.
+
+#### 2 · Slide Body — Show Them
+
+*From audited balance to signed payoff (Track A figures)*
+
+| Lienholder | Audited | Agreed | Saved | Payoff Letter |
+|---|---|---|---|---|
+| Peach State Health Plan | $1,860.00 | $1,240.00 | $620.00 | Signed, full and final |
+| Riverton Spine & Rehab | $6,105.00 | $4,580.00 | $1,525.00 | Signed, full and final |
+| Total | $7,965.00 | $5,820.00 | $2,145.00 | Both on file before disbursement |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Audited balance confirmed | Draft the Reduction Request with the math; get Atty. Thorne's written authority | CMS → Documents → Outgoing · CMS → Tasks → Escalate | Authority logged before the request goes |
+| Lienholder responds | Call with the authorized ask; log the name, date and figures | CMS → Case Notes · CMS → Liens | Counter outside authority routed the same day |
+| Reduction agreed | Obtain the signed Payoff Letter; update the Lien Tracker and Net Sheet | CMS → Financial Ledger → Net Sheet | Full-and-final language on file |
+
+**Best practices & pitfalls**
+
+- Paper first, phone second.
+- Update the ledger the day a reduction is confirmed.
+- ⚠️ Pitfall: agreeing to a reduction on the phone with nothing in writing.
+- ⚠️ Pitfall: making an ask outside Atty. Thorne's written authority.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Lien Reduction Verification (taught on Case Flow Day 4) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Reduction Request | Audited balance, recovery, fee, costs and other liens stated |
+| 🤖 AI | **20%** | Authority | Every ask inside Atty. Thorne's written authority |
+| 🤖 AI | **20%** | Payoff Letter | Full and final; no balance billing or collections |
+| 🧑‍🏫 Trainer | **20%** | Negotiation ethics | True facts only; no bluff |
+| 🧑‍🏫 Trainer | **20%** | Record keeping | Names, dates and figures logged; ledger updated the same day |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Ask the room what goes out before the phone call. Anyone who says the call has skipped the Reduction Request.
+- Play the provider who asks “so what's the client getting?” The answer is facts from the Net Sheet, never a threat.
+
+---
+
+### 4.1.4 The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** One Net Sheet, two streams, every dollar's origin visible  
@@ -315,7 +388,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.4 Release Audits, Trust Accounting & Disbursement Commands
+### 4.1.5 Release Audits, Trust Accounting & Disbursement Commands
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** No money moves until every gate behind it is closed  
@@ -398,7 +471,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.5 Court Hard Rules, SOL Cutoffs & the Master Calendar
+### 4.1.6 Court Hard Rules, SOL Cutoffs & the Master Calendar
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** The dates the law sets, and the earlier dates the firm dockets  
@@ -482,7 +555,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.6 Mediation vs. Binding Arbitration & the UPL Line at Hearings
+### 4.1.7 Mediation vs. Binding Arbitration & the UPL Line at Hearings
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Two neutrals, two standards, one boundary  
@@ -564,7 +637,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.7 The Mediation Binder & Exhibit Indexing
+### 4.1.8 The Mediation Binder & Exhibit Indexing
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Six sections, one master index, and the five-second rule  
@@ -585,7 +658,7 @@ An open binder seen from above fills the left two-thirds: six navy divider tabs 
 4. Exhibit numbers belong to the proceeding (4-1, 4-2…): a late document takes the next number; a set others hold is never renumbered. Bates numbers belong to the page: stamped once at production (DOE 000001).
 5. Section 3 holds only the operative pleadings (09/24/2026 complaint, 11/12/2026 answer), no drafts. The answer pleads comparative negligence (out of turn, unbelted), causation (the gap, a “degenerative” MRI) and failure to mitigate; a defense argued but never pleaded is flagged to Atty. Thorne.
 6. Section 5's ledger ties line by line to the certified invoices and HR letter, each correction documented (duplicate removed: $6,290.00 → $6,105.00): $14,817.40 medical + $1,584.00 wages = $16,401.40. Future care ($3,400–$6,800) is narrative.
-7. Section 6's log fixes the baseline (Keystone's $3,500, “final” 08/12/2026). A draft Limited Release lets Atty. Thorne fix terms in writing before anyone leaves, conditioned on both UM carriers' written consent (each may substitute its own check to keep subrogation). Its scope (BI only, or the pleaded PD claim too) is his call.
+7. Section 6's log fixes the baseline (Keystone's $3,500, “final” 08/12/2026). A draft Limited Release lets Atty. Thorne fix terms in writing before anyone leaves, conditioned on both UM carriers' written consent (each may substitute its own check to keep subrogation). Its scope (BI only: John Doe pleads no PD claim) is his call.
 8. You are the QA and logistics auditor: sets for Atty. Thorne, the mediator and John Doe (or one digital set), every PDF OCR-searchable, statement delivered by 03/11/2027, binder audited against the index 48 hours out.
 
 > ⚠️ **UPL boundary.** You build the binder and draft the confidential statement for Atty. Thorne's approval. Arguments, settlement positions, every number and each set's contents are his. You never discuss value with the mediator, Atty. Mercer or John Doe.
@@ -600,7 +673,7 @@ An open binder seen from above fills the left two-thirds: six navy divider tabs 
 | 2 · Briefs | Our confidential statement; the defense's, if exchanged | Ours to the mediator only, by 03/11/2027 |
 | 3 · Core pleadings | Complaint 09/24/2026; answer and defenses 11/12/2026 | Operative versions only |
 | 4 · Key evidence & liability | RPD-26-018842, Ruth Calloway, doorbell stills, EMS report, EDR, deposition summary | Summary + highlighted transcript pages |
-| 5 · Damages, financials & experts | Ledger, Northgate HR letter, MRI, Causation Letter, Gap Explanation Record, PD claim | Ledger = sources: $16,401.40 |
+| 5 · Damages, financials & experts | Ledger, Northgate HR letter, MRI, Causation Letter, Gap Explanation Record | Ledger = sources: $16,401.40 |
 | 6 · Settlement history & drafts | Negotiation Log from 07/20/2026; draft release (Smith, Keystone) | Baseline stated; scope and UM consents flagged for Atty. Thorne |
 
 **Operational mapping**
@@ -644,7 +717,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.8 Arbitration Exhibits & Evidentiary Rules
+### 4.1.9 Arbitration Exhibits & Evidentiary Rules
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** From a binder that persuades to the record a binding award rests on  
@@ -726,7 +799,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.9 Health Subrogation & Statutory Lien Reduction Lab
+### 4.1.10 Health Subrogation & Statutory Lien Reduction Lab
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Skill Activity 1 — reduce Peach State, clear the statutory side  
@@ -813,7 +886,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 4) and that day
 
 ---
 
-### 4.1.10 Provider Balance Negotiation Exercises
+### 4.1.11 Provider Balance Negotiation Exercises
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Skill Activity 2 — the reduction call to the chiropractor  
@@ -890,7 +963,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 4) and that day
 
 ---
 
-### 4.1.11 Completing the Final Dual-Tab Net Sheet
+### 4.1.12 Completing the Final Dual-Tab Net Sheet
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity 1 — take $40,000.00 to $20,359.92, and prove every line  
@@ -969,7 +1042,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.12 Release Audit & Disbursement Command Triggering
+### 4.1.13 Release Audit & Disbursement Command Triggering
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity 2 — catch the line that costs $30,000, then move the money  
@@ -1048,7 +1121,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.13 Auditing Court Hard Rules & Setting Calendar Cutoffs
+### 4.1.14 Auditing Court Hard Rules & Setting Calendar Cutoffs
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 1 — find the dates that would cost the file  
@@ -1140,7 +1213,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.14 ADR Rules Matrix & UPL Boundary Mapping
+### 4.1.15 ADR Rules Matrix & UPL Boundary Mapping
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 2 — what changes from compromise to decision  
@@ -1226,7 +1299,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.15 Assembling the 6-Section Mediation Binder
+### 4.1.16 Assembling the 6-Section Mediation Binder
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Skill Activity 1 — build it, audit it, route it before 03/11/2027  
@@ -1239,7 +1312,7 @@ A three-column workbench. Left: the draft binder as a grey stack topped by two r
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** It is 03/04/2027 on Track B. John Doe was deposed on 02/18/2027 and the certified transcript is in the file. The confidential statement and binder are due to Hon. Carla Benton (Ret.) on 03/11/2027 for the 03/18/2027 mediation. The draft binder, built from the providers' original bills instead of the audited demand ledger, carries Riverton Spine & Rehab at $6,290.00 and lists Crescent Pain & Spine's $3,400.00 as an open balance, and Atty. Grant Mercer has written that Keystone “will not put a real number on the table” while the medical ledger is unverified. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027 (second request 02/22, red-flagged 03/01), is still outstanding.
+**Scenario.** It is 03/04/2027 on Track B. John Doe was deposed on 02/18/2027 and the certified transcript is in the file. The confidential statement and binder are due to Hon. Carla Benton (Ret.) on 03/11/2027 for the 03/18/2027 mediation. The draft binder, built from the providers' original bills instead of the audited demand ledger, carries Riverton Spine & Rehab at $6,290.00 and lists Crescent Pain & Spine's $3,400.00 as an open balance, and Atty. Grant Mercer has written that Keystone “will not put a real number on the table” while the medical ledger is unverified. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027 (second request 02/22, red-flagged 03/01), is still outstanding. The Litigation Desk's draft index is in the file (RS62), assigned on the 07/15/2026 task log (RS64): QC it, do not rebuild it from nothing.
 
 **Execution prompt.** Assemble the six-section Mediation Binder from the master index, starting from the 07/20/2026 Demand Package. Seat each document in one section with its exhibit number and Bates range, and map every allegation in the 11/12/2026 answer to the exhibit that answers it. Run the pre-mediation audit: rebuild the ledger from the certified bills in hand to $16,401.40, and cross-check each provider balance against what MedPay and Peach State already paid. Add the Negotiation Log, a draft Limited Release and the UM consent requests, then route it all to Atty. Thorne before delivery.
 
@@ -1257,7 +1330,7 @@ A three-column workbench. Left: the draft binder as a grey stack topped by two r
 - [ ] Section 4 also holds the key correspondence (Keystone's 02/17/2026 acceptance of PD liability; what weight it carries is Atty. Thorne's call) and the 02/18/2027 deposition summary with highlighted transcript pages on the gap, the disruption, the 2021 visits and the seatbelt
 - [ ] Landmine 1: ledger rebuilt from the certified bills in hand, with Riverton Spine & Rehab's original 34-line bill audited to 33 visits × $185.00 = $6,105.00 (05/04/2026 duplicate removed) and marked “Pending Final Verification” until its certified ledger arrives; $14,817.40 medical + $1,584.00 wages = $16,401.40
 - [ ] Landmine 2: Crescent's $3,400.00 bill shown as satisfied by Peach State's $1,860.00 contract payment, proved by Peach State's EOB (no balance billing); open liens Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $7,965.00
-- [ ] Section 5 carries the PD claim separately, outside the $40,000 stack: Loss of Use 48 days × $42.00 = $2,016.00; Diminished Value $3,600.00 (appraisal) vs. $792.00 (Keystone)
+- [ ] Section 5 carries no PD claim: the Civic is Margaret Doe's, and her Keystone PD claim runs on its own file, outside John Doe's demand and the $40,000 stack
 - [ ] Section 6: Negotiation Log 07/20/2026 demand → $3,500 (08/05) → rebuttal (08/06) → $3,500 “final” (08/12) → lapse (08/21) → suit (09/24); draft release limited to Robert Smith and Keystone; consent requests to Harbor Point and Cardinal State drafted
 - [ ] Master index complete: every document in exactly one section with an exhibit number and Bates range; PDF OCR-searchable and bookmarked
 - [ ] Audit memo names both landmines and their fixes; binder, statement and memo routed to Atty. Thorne before delivery; nothing about value said to Atty. Mercer
@@ -1306,7 +1379,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.16 Assembling the 6-Tab Arbitration Binder
+### 4.1.17 Assembling the 6-Tab Arbitration Binder
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Skill Activity 2 — sort, QC and defuse two landmines before 06/02/2027  
@@ -1319,7 +1392,7 @@ A sorting board. Left column: the unsorted folder as a pile of white document ca
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** It is 05/17/2027. Keystone tendered the $10,000 BI limits at the 03/18/2027 mediation and Robert Smith was dismissed. On 04/05/2027 Harbor Point and Cardinal State disputed damages, citing the gap; Laura Whitcomb, Esq. hears the consolidated arbitration on 06/22/2027, with exhibits exchanged 06/02/2027. The unsorted exhibit folder holds a pre-filing draft of the Complaint, grayscale doorbell stills, the 09/08/2026 impasse memo, and a Lien Sheet listing Harbor Point MedPay at $5,000.00 and Summit Imaging at $2,395.00.
+**Scenario.** It is 05/17/2027. Keystone tendered the $10,000 BI limits at the 03/18/2027 mediation and Robert Smith was dismissed. On 04/05/2027 Harbor Point and Cardinal State disputed damages, citing the gap; Laura Whitcomb, Esq. hears the consolidated arbitration on 06/22/2027, with exhibits exchanged 06/02/2027. The unsorted exhibit folder holds a pre-filing draft of the Complaint, grayscale doorbell stills, the 09/08/2026 impasse memo, and a Lien Sheet listing Harbor Point MedPay at $5,000.00 and Summit Imaging at $2,395.00. The Litigation Desk's draft exhibit index is in the file (RS63), assigned on the 07/15/2026 task log (RS64): QC it, do not rebuild it from nothing.
 
 **Execution prompt.** Sort the folder into the six-tab Arbitration Binder and apply each tab's QC rule as you go. Lead with the BI exhaustion record, number every exhibit C-1 onward with its Bates range, and log each record's authentication. Defuse both landmines: build Tab 5's prior medical shield against the prior-injury line defense counsel pressed at the 02/18/2027 deposition (the 2021 low-back visits) and the “degenerative” MRI reading Keystone first raised on 08/05/2026, and strip the attorney's-set Lien Sheet to what is actually owed. Flag every privileged or settlement item for Atty. Thorne; nothing is exchanged until he approves the set.
 
@@ -1383,7 +1456,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.17 Lien Reduction Verification
+### 4.1.18 Lien Reduction Verification
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1468,7 +1541,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 4.1.18 Final Accounting Check
+### 4.1.19 Final Accounting Check
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1568,7 +1641,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 4.1.19 ADR & Calendar Compliance Check
+### 4.1.20 ADR & Calendar Compliance Check
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1653,7 +1726,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 4.1.20 Binder Assembly Verification
+### 4.1.21 Binder Assembly Verification
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
