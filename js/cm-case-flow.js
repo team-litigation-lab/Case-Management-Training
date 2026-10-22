@@ -3554,8 +3554,8 @@ main > .cf-side-presenter{display:none;}
 .cfx-deck > *{position:relative;z-index:1;}
 .cfx-deck-head{display:flex;align-items:center;gap:20px;padding:0 0 4px;margin:0 0 12px;}
 .cfx-logo{height:48px;width:auto;flex:0 0 auto;}
-.cfx-deck-title{margin:0 !important;font:800 33px/1.1 'Poppins','Inter',sans-serif !important;color:#fff !important;letter-spacing:.005em;
-  -webkit-text-stroke:4px #DB8437;paint-order:stroke fill;stroke-linejoin:round;text-shadow:0 4px 0 rgba(0,0,0,.18);}   /* a true outline (stroke under the fill): smooth edges, unlike stacked shadows */
+.cfx-deck-title{margin:0 !important;padding:2px 0 2px 4px;font:800 33px/1.1 'Poppins','Inter',sans-serif !important;color:#fff !important;letter-spacing:.005em;
+  -webkit-text-stroke:4px #DB8437;paint-order:stroke fill;stroke-linejoin:round;text-shadow:0 4px 0 rgba(0,0,0,.18);}   /* a true outline (stroke under the fill): smooth edges, unlike stacked shadows; the left padding keeps the first letter's outline inside the slide's clip */
 .cfx-ribbon{margin:0 0 16px;}
 .cfx-tools{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px;margin-left:auto;font-size:13px;color:#D6DBEA;}
 .cfx-tools + .cfx-full{margin-left:6px;}
