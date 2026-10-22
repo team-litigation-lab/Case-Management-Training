@@ -123,7 +123,7 @@ Atty. Thorne's call. Paid-to-date will be itemized later (RS41).
 Officer Thomas Garner #2217, 02/06/2026, ~07:10, Maple Hollow Rd & Birch Ave (all-way stop). Unit 1: Robert Smith,
 118 Larkspur Ln, Riverton, 2017 Chevrolet Silverado, Keystone Mutual KMI-PA-7731045, northbound Birch Ave. Unit 2:
 Kevin Alvarez, 2020 Ford Escape, Harbor Point HPA-4402917, eastbound Maple Hollow, stopped then proceeded. Unit 3:
-parked 2019 Honda Civic (Margaret Doe, Bluewater BWA-209-66184). Occupants: John Doe, Unit 2 front-right passenger,
+parked 2019 Honda Civic (owner Margaret Doe, Bluewater BWA-209-66184). Occupants: John Doe, Unit 2 front-right passenger,
 restraint "lap/shoulder belt used", injury code "C – possible injury, complaint of neck pain", EMS refused.
 Narrative: Unit 1 failed to stop, struck Unit 2's front passenger door, pushed Unit 2 into parked Unit 3. Diagram
 (CSS/SVG). Citation: Smith, failure to stop at stop sign. Witness: Ruth Calloway, 2209 Maple Hollow Rd. Doorbell

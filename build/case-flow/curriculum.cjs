@@ -147,7 +147,7 @@ else {
     if(b.kind === "lesson" && b.brief) return ["why", "rules"].concat((b.ops || []).length ? ["job"] : []);
     if(b.kind === "lesson" && b.compact) return ["why"].concat(map, theory.slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);
     if(b.kind === "lesson") return ["why"].concat(map, theory, ["rules"], b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);
-    if(b.kind === "activity") return ["case", "task"].concat(AUDITS[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);
+    if(b.kind === "activity") return ["case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], ["task"], AUDITS[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);
     return [];   // a Knowledge Check is its own page, not slides
   };
   DECK = CF.sequence.map(sd => { const bs = (sd.phases || []).flatMap(ph => ph.blocks || []).filter(id => STORED[id]).map(id => STORED[id].b);
@@ -225,6 +225,16 @@ if(Array.isArray(CF.sequence)){
     const e = SIMEV[id];
     if(!x.b.otherMatter && e && !(ms(e.date) < sol)) errors.push(`${id}: its event (${e.date}) is not before the SOL (${CF.case.sol}), so the firm would be working a closed claim`);
   })));
+}
+
+
+/* The foundation behind each lesson (CF.discuss): every lesson carries one, of at least four paragraphs, and every
+   entry names a lesson that exists, so a renamed block can't leave its discussion behind. */
+{
+  const D = CF.discuss || {}, lessons = Object.values(STORED).filter(x => x.b.kind === "lesson").map(x => x.b.id);
+  lessons.forEach(id => { const n = (D[id] || []).filter(p => String(p).trim()).length;
+    if(n < 4) errors.push(`${id}: its foundation for discussion (CF.discuss) has ${n} paragraph(s); every lesson needs at least four`); });
+  Object.keys(D).forEach(id => { if(!STORED[id] || STORED[id].b.kind !== "lesson") errors.push(`discuss.${id}: no lesson has this id`); });
 }
 
 if(errors.length){

@@ -404,11 +404,16 @@ function selfSummary(b, day, mod, part){   // part: "qs" (the prompts) or "scale
 /* ---------- the full text of a block (the curriculum as written), behind "📖 Full text" ---------- */
 function fullText(l, d){
   const {block: b} = l.cf;
-  if(b.kind === "lesson") return S(1, "Tell Them — the rules and the strategic why", `<p class="cf-why">${E(b.tell.why)}</p>${ul(b.tell.rules)}`
+  if(b.kind === "lesson"){
+    // the foundation (CF.discuss) comes first: the knowledge the rules stand on, for the discussion
+    const found = (CF.discuss || {})[b.id] || [], n = found.length ? 1 : 0;
+    return (n ? S(1, "The Foundation — for discussion", `<div class="cf-discuss">${found.map(p => `<p>${hl(p)}</p>`).join("")}</div>`) : "")
+      + S(1 + n, "Tell Them — the rules and the strategic why", `<p class="cf-why">${E(b.tell.why)}</p>${ul(b.tell.rules)}`
       + (b.tell.upl || []).map(u => renderCallout({type: "warning", label: "UPL boundary", text: u})).join(""))
-    + S(2, showLabel(b, "Show Them"), visual(l, b))
-    + S(3, "Trigger ➔ Task ➔ Tool ➔ Checkpoint", opsTable(b.ops))
-    + S(4, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
+    + S(2 + n, showLabel(b, "Show Them"), visual(l, b))
+    + S(3 + n, "Trigger ➔ Task ➔ Tool ➔ Checkpoint", opsTable(b.ops))
+    + S(4 + n, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
+  }
   if(b.kind === "activity") return S(1, "Let Them — the scenario", `<div class="scenario-card"><div class="stag">John Doe v. Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
     + S(2, "Let Them — execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
     + S(3, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once you finish the activity and reveal the answers on its Check Your Work slide.</p>`)
@@ -457,9 +462,9 @@ function falloutFor(blockId){
     return {f, done, what: String(what).replace(/\*\*/g, "")};
   }).filter(x => isTrainer() || !x.done);
 }
-const VIEW_LABEL = {audit: "Audit & the Finished Set", why: "Why It Matters", theory: "The Theory", theory2: "The Theory, Continued", frame: "The Framework", rules: "The Rules", map: "The Roadmap", model: "See It", job: "On the Job", dodont: "Do & Don't",
+const VIEW_LABEL = {grade: "The Grade-A Standard", audit: "Audit & the Finished Set", why: "Why It Matters", theory: "The Theory", theory2: "The Theory, Continued", frame: "The Framework", rules: "The Rules", map: "The Roadmap", model: "See It", job: "On the Job", dodont: "Do & Don't",
   case: "Your Case", task: "Your Task", check: "Check Your Work", questions: "Knowledge Check", questions2: "Knowledge Check, Continued", summary: "Self-Summary", scale: "Skill Scale"};
-const VIEW_ICON = {audit: "🔍", why: "💡", theory: "📚", theory2: "📚", frame: "🧭", rules: "📏", map: "🗺", model: "🔍", job: "🛠", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
+const VIEW_ICON = {grade: "🏅", audit: "🔍", why: "💡", theory: "📚", theory2: "📚", frame: "🧭", rules: "📏", map: "🗺", model: "🔍", job: "🛠", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
 const KC_PER = 4;   // Knowledge Check questions on one slide
 /* The Theory: the lesson's concepts from the original Canva decks (build/case-flow/slides/theory-dN.json), four to a
    slide (a deep topic, 6–8 concepts, takes two); then The Framework, the deck page's own table, flowchart or checklist
@@ -472,7 +477,7 @@ function viewsOf(b){
   if(b.kind === "lesson" && b.brief) return ["why", "rules"].concat((b.ops || []).length ? ["job"] : []);   // brief: a condensed overview (Day 5's litigation)
   if(b.kind === "lesson" && b.compact) return ["why"].concat(roadmapOf(b) ? ["map"] : [], theoryViews(b).slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);   // compact: a full topic on fewer slides (Days 2, 4 and 5 keep to their slide budget)
   if(b.kind === "lesson") return ["why"].concat(roadmapOf(b) ? ["map"] : [], theoryViews(b), ["rules"],b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // noGame: the CM introduction (Meet Your Case comes before the first game)
-  if(b.kind === "activity") return ["case", "task"].concat(EX.audits[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);   // compact: no See It slide (the worked model stays in 📖 Full text)
+  if(b.kind === "activity") return ["case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], ["task"], EX.audits[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);   // compact: no See It slide (the worked model stays in 📖 Full text)
   return (copyOf(b).questions.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
 }
 const SMALL = new Set(["a", "an", "the", "and", "or", "but", "nor", "of", "to", "in", "on", "for", "at", "by", "with", "from", "as", "per", "vs.", "v.", "via", "into"]);
@@ -789,6 +794,11 @@ function slideBody(view, l, d){
     case "rules": return `<div class="cfx-split"><ol class="cfx-points">${c.points.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>${art(c.image, "small")}</div>${plainBox(b)}
       ${c.upl ? `<div class="cfx-upl"><b>⚖ UPL Line</b><span>${hl(c.upl)}</span></div>` : ""}`;
     case "audit": return auditSlide(b);
+    case "grade": {   // what a Grade-A packet or binder holds and how it is built, shown before Your Task
+      const g = SLIDES[b.id].grade, col = (cls, h, xs, ol) => `<div class="cfx-grade-c ${cls}"><h3>${h}</h3><${ol ? "ol" : "ul"}>${xs.map(x => `<li>${hl(x)}</li>`).join("")}</${ol ? "ol" : "ul"}></div>`;
+      return `<div class="cfx-fw cfx-grade-w"><h3 class="cfx-fw-t">🏅 ${E(g.title)}</h3><div class="cfx-grade">${col("cfx-grade-g", "📐 Guidelines", g.guide)}${col("cfx-grade-i", "📦 Standard Inclusions", g.include)}${col("cfx-grade-s", "🪜 Steps to Grade A", g.steps, true)}</div>
+        <p class="cfx-fw-note">Build your own version from the downloaded case documents, then upload it to your training Drive and the CMS: the platform audits it against this standard.</p></div>`;
+    }
     case "model": return `<div class="cfx-model">${b.show && b.show.caption ? `<p class="cfx-caption">${E(b.show.caption)}</p>` : ""}${visual(l, b)}</div>`;
     case "job": return `<div class="cfx-job">${c.job.map((r, ri) => `<div class="cfx-flow">${r.map((x, j) => `<div class="cfx-step"><small>${["Trigger", "Task", "Tool", "Checkpoint"][j]}</small><span>${hl(x)}</span></div>`).join('<span class="cfx-arrow">➔</span>')}</div>`).join("")}</div>`;
     case "dodont": return (SLIDES[b.id] || {}).clues ? clueGame(b) : ddList(c);
@@ -1314,6 +1324,27 @@ function auditBench(blockId){
       : `<div class="ab-foot"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.auditHandIn('${blockId}')">Hand in the audit</button>
         <span>Call every item first. Once it is handed in you see what the file says about each one, and the completed package.</span></div>`}</div>`;
 }
+/* ---------- every pop-up moves: drag it by its title bar ----------
+   The Full text, the exhibit audits and the Service Confirmation open over the slide. Dragged aside, the dimming lifts
+   and the slide and the documents behind it can be used while the pop-up stays open. The offset lives on the outer
+   layer (--cfx-dx / --cfx-dy), so a pop-up that repaints its panel stays where it was put. */
+document.addEventListener("pointerdown", e => {
+  const h = e.target.closest && e.target.closest(".cfx-modal-h");
+  if(!h || e.button !== 0 || e.target.closest("button, a, input, select, textarea")) return;
+  const o = h.closest(".cfx-modal"), inner = h.closest(".cfx-modal-in"); if(!o || !inner) return;
+  e.preventDefault();
+  if(!o.classList.contains("cfx-modal-moved")){ const st = o.scrollTop; o.classList.add("cfx-modal-moved"); inner.scrollTop = st; }
+  const px = v => parseFloat(o.style.getPropertyValue(v)) || 0, dx0 = px("--cfx-dx"), dy0 = px("--cfx-dy");
+  const r = inner.getBoundingClientRect(), left0 = r.left - dx0, top0 = r.top - dy0, x0 = e.clientX, y0 = e.clientY;
+  const move = ev => {   // the title bar never leaves the screen
+    const left = Math.min(Math.max(left0 + dx0 + ev.clientX - x0, 120 - r.width), innerWidth - 120);
+    const top = Math.min(Math.max(top0 + dy0 + ev.clientY - y0, 0), innerHeight - 48);
+    o.style.setProperty("--cfx-dx", (left - left0) + "px"); o.style.setProperty("--cfx-dy", (top - top0) + "px");
+    o.style.setProperty("--cfx-mh", Math.max(160, innerHeight - top - 12) + "px");   // the panel ends on the screen, scrolling inside
+  };
+  const up = () => { removeEventListener("pointermove", move); removeEventListener("pointerup", up); removeEventListener("pointercancel", up); };
+  addEventListener("pointermove", move); addEventListener("pointerup", up); addEventListener("pointercancel", up);
+});
 window.cmCaseFlow.audit = function(blockId){
   if(!auditOf(blockId) || document.getElementById("cf-bench")) return;   // one workbench at a time
   const o = document.createElement("div"); o.className = "cfx-modal"; o.id = "cf-bench"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Exhibit audit");
@@ -1326,7 +1357,13 @@ window.cmCaseFlow.audit = function(blockId){
 };
 function benchRepaint(blockId){
   const o = document.getElementById("cf-bench"); if(!o) return;
-  o.innerHTML = auditBench(blockId);
+  repaintModal(o, auditBench(blockId));
+}
+// a pop-up's panel repainted where it is: a moved pop-up scrolls its own panel, so that scroll is kept too
+function repaintModal(o, html){
+  const inner = o.querySelector(".cfx-modal-in"), st = inner ? inner.scrollTop : 0;
+  o.innerHTML = html;
+  const next = o.querySelector(".cfx-modal-in"); if(next && st) next.scrollTop = st;
 }
 let exT = null;
 window.cmCaseFlow.auditMark = function(blockId, i, v){
@@ -1422,7 +1459,7 @@ window.cmCaseFlow.service = function(blockId){
   document.addEventListener("keydown", esc, true);
   document.body.appendChild(o);
 };
-function svRepaint(blockId){ const o = document.getElementById("cf-sv"); if(o) o.innerHTML = svWorkspace(blockId); }
+function svRepaint(blockId){ const o = document.getElementById("cf-sv"); if(o) repaintModal(o, svWorkspace(blockId)); }
 window.cmCaseFlow.svSend = function(blockId){
   const e = serviceOf(blockId), r = svRec(blockId); if(!e || r.sent) return;
   const el = document.getElementById("svw_" + blockId), text = ((el && el.value) || "").trim();
@@ -1946,6 +1983,7 @@ MODULES.forEach(d => d.lessons.forEach(l => {
     rules: {why: "The rules, and where the Case Manager's role ends.", walk: ((b.tell && b.tell.rules) || []).concat((b.tell && b.tell.upl) || []), ask: n[1] || ""},
     model: {why: (b.show && b.show.caption) || "The model to follow.", talk: b.visual || ""},
     job: {why: "Trigger ➔ Task ➔ Tool ➔ Checkpoint: how it runs on the job.", walk: (b.ops || []).map(r => r.join(" ➔ "))},
+    grade: (SLIDES[b.id] || {}).grade ? {why: SLIDES[b.id].grade.title, walk: ["Guidelines: " + SLIDES[b.id].grade.guide.join("; "), "Standard inclusions: " + SLIDES[b.id].grade.include.join("; "), "Steps: " + SLIDES[b.id].grade.steps.join("; ")].map(x => x.replace(/\*\*/g, ""))} : {},
     dodont: {why: "How this block is graded, and what to watch for.", talk: n.slice(2).join(" "), walk: best},
     case: {why: b.act && b.act.scenario, talk: [SIM.events[b.id] ? (SIM.events[b.id].channel === "voicemail" && SIM.events[b.id].spoken ? `A voicemail just landed on the file (${SIM.events[b.id].date}). Play it, take notes as you would at your desk, and check them before you act.` : `What just landed on the file (${SIM.events[b.id].date}): ${SIM.events[b.id].subject}. ${SIM.events[b.id].body}`) : "", n[0] || ""].filter(Boolean).join(" ")},
     task: {why: b.act && b.act.prompt, walk: b.act ? [`Tool: ${b.act.tool}`, `Output: ${b.act.output}`].concat(SIM.calls[b.id] ? [`Live call: ${SIM.calls[b.id].who}. The trainee must: ${SIM.calls[b.id].goals.join("; ")}.`] : []) : [], ask: n[1] || ""},
@@ -3432,6 +3470,7 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-dot{width:10px;height:10px;border-radius:50%;background:#E3E6EE;transition:transform .2s ease;}
 .cfx-dot.done{background:var(--navy-soft);}
 .cfx-dot.on{background:var(--orange);transform:scale(1.35);box-shadow:0 0 0 3px rgba(224,122,31,.18);}
+.cf-discuss p{margin:0 0 12px;font-size:15px;line-height:1.65;max-width:72ch;}.cf-discuss p:last-child{margin-bottom:0;}
 .cfx-full{margin-left:auto;border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font:600 12.5px var(--font-ui);color:var(--navy);cursor:pointer;}
 .cfx-full:hover{border-color:var(--orange);color:var(--orange-deep);}
 .cfx-title{font:700 34px/1.15 'Fraunces',Georgia,serif !important;color:var(--navy) !important;margin:6px 0 16px !important;letter-spacing:-.01em;position:relative;}
@@ -3510,6 +3549,17 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-step span{font:600 18px/1.35 var(--font-ui);color:var(--ink);}
 .cfx-arrow{align-self:center;font-size:22px;color:var(--orange);}
 .cfx-dd{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.cfx-grade{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;text-align:left;}
+.cfx-grade-c{border-radius:14px;padding:10px 14px;animation:cfxIn .3s ease-out both;}
+.cfx-grade-c h3{margin:0 0 6px;font:800 15px var(--font-ui);color:var(--navy);text-transform:uppercase;letter-spacing:.04em;}
+.cfx-grade-c ul,.cfx-grade-c ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font:500 14.5px/1.34 var(--font-ui);color:var(--ink);}
+.cfx-grade-c li{display:list-item;margin:0;padding:0;text-align:left;position:static;}
+.cfx-grade-c li::before{content:none !important;display:none !important;}
+.cfx-grade-c ul li{list-style:disc;} .cfx-grade-c ol li{list-style:decimal;}
+.cfx-grade-c li::marker{color:var(--orange);font-weight:800;}
+.cfx-grade-g{background:#EEF4FF;border:1.5px solid #C7D6F2;}
+.cfx-grade-i{background:#FFF6EC;border:1.5px solid #F3D2B3;animation-delay:.06s;}
+.cfx-grade-s{background:#EEF8F2;border:1.5px solid #BFE3CE;animation-delay:.12s;}
 /* 3 Clues, 1 Rule */
 .cfx-cg{display:flex;flex-direction:column;gap:12px;text-align:left;}
 .cfx-cg-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
@@ -4119,10 +4169,16 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-modal{position:fixed;inset:0;z-index:9999;background:rgba(20,26,44,.55);display:flex;align-items:flex-start;justify-content:center;padding:4vh 16px;overflow:auto;}
 .cfx-modal-in{max-width:980px;width:100%;padding:18px 24px !important;}
 .cfx-modal-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;font-size:17px;color:var(--navy);}
+.cfx-modal-in{transform:translate(var(--cfx-dx,0px),var(--cfx-dy,0px));transition:none;}
+.cfx-modal-h{cursor:move;touch-action:none;user-select:none;}
+.cfx-modal-h button,.cfx-modal-h a{cursor:pointer;}
+.cfx-modal-moved{background:transparent;pointer-events:none;overflow:hidden;}
+.cfx-modal-moved .cfx-modal-in{pointer-events:auto;max-height:var(--cfx-mh,92vh);overflow:auto;padding-top:0 !important;box-shadow:0 18px 50px rgba(20,26,44,.35);}
+.cfx-modal-moved .cfx-modal-h{position:sticky;top:0;z-index:2;margin:0 -24px 10px;padding:14px 24px 10px;background:#fff;border-bottom:1px solid #E6E8F0;}
 @media(max-width:760px){
   .cfx{padding:16px 16px 18px !important;}
   .cfx-title{font-size:26px !important;}.cfx-of{display:block;font-size:15px;margin-top:4px;}.cfx-sep{display:none;}
-  .cfx-hero,.cfx-split,.cfx-lesson .cfx-split,.cfx-task,.cfx-dd,.cfx-qs-2,.cfx-theory,.cfx-th-grid,.cfx-fw-flow{grid-template-columns:minmax(0,1fr);}
+  .cfx-hero,.cfx-split,.cfx-lesson .cfx-split,.cfx-task,.cfx-dd,.cfx-grade,.cfx-qs-2,.cfx-theory,.cfx-th-grid,.cfx-fw-flow{grid-template-columns:minmax(0,1fr);}
   .cfx-fw-flow li:not(:last-child)::after{content:"⬇";right:50%;top:auto;bottom:-15px;transform:translateX(50%);}
   .cfx-hook{font-size:24px;}.cfx-situation{font-size:19px;}
   .cfx-points li{font-size:19px;grid-template-columns:36px 1fr;}.cfx-points li::before{width:32px;height:32px;font-size:16px;}

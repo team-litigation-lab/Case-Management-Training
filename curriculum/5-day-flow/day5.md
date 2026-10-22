@@ -462,7 +462,7 @@ A full-width horizontal court timeline on a navy rail runs from 09/24/2026 to 01
 
 - Write the trigger, the method of service and the arithmetic into every calendar entry.
 - Every interrogatory set we send asks the three baseline questions: all insurance (primary, excess, umbrella), course and scope of employment, and surveillance. The file's verified stack is $40,000 (BI → Host UM → Relative UM); what any answer means for coverage is a question for Atty. Thorne.
-- Property Damage is pleaded too (the Civic's Loss of Use and Diminished Value): physical evidence of the impact, and something the defense will test.
+- No Property Damage is pleaded: John Doe owns no vehicle, and the Civic's Loss of Use and Diminished Value are Margaret's own claim. Its damage is still physical evidence of the impact, and the defense will test it.
 - In the Discovery Intake Meeting, walk John Doe through every request and record his own answers, in his words, into the response template for Atty. Thorne's review; flag every request that may call for an objection or privilege (including the scope of the 2021 chiropractic notes) for his decision; never suggest an answer. Then compile what the RFPs ask for: Northgate's wage letter, the Medical Records and bills, the 2021 chiropractic notes.
 - ⚠️ Pitfall: a perfect Complaint filed one day after the SOL.
 - ⚠️ Pitfall: missing a court deadline the way you might let an adjuster's deadline slide.
@@ -591,7 +591,7 @@ A horizontal threshold gauge across the top half, the same instrument as Day 1's
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* On Track B the Civic is no longer a side claim: its Loss of Use and Diminished Value are pleaded in the suit, and every figure will be tested in discovery. The repair-against-ACV arithmetic decides which measure of damages applies, and the loss-of-use calendar is the transportation record that explains the 14-Day Gap.
+*Why:* On Track B the Civic is still Margaret's own claim, outside John Doe's suit (he owns no vehicle, so no Property Damage is pleaded), but with the case in litigation every figure on the file can be tested in discovery. The repair-against-ACV arithmetic decides which measure of damages applies, and the loss-of-use calendar is the transportation record that explains the 14-Day Gap.
 
 1. When negligence damages property, the law aims to make the owner whole: Margaret Doe's position before 02/06/2026, never a windfall. Test every PD figure against it.
 2. Three damage types are recoverable. Economic (special): repair, tow and storage, rental, Loss of Use, Diminished Value. Non-economic (general): pain and suffering, on the injury side. Punitive: to punish egregious conduct such as DUI; none is pleaded here.
@@ -625,7 +625,7 @@ A horizontal threshold gauge across the top half, the same instrument as Day 1's
 |---|---|---|---|
 | Final repair bill posts with the supplement | Re-run the total-loss check on $9,255.00 and record the basis | CMS → Property Damage | 52.6% of $17,600.00 recorded; Keystone's 75% basis on file in writing |
 | Rental ends with the Civic still in the shop | Log each day without a vehicle, period by period | CMS → Property Damage → Loss of Use | 12 + 36 = 48 days; no paid rental day counted |
-| Loss of Use and Diminished Value pleaded in the 09/24/2026 complaint | Reconcile the PD figures across the PD screen, the damages summary and discovery | CMS → Litigation → Pleadings Log | $2,016.00 and $3,600.00 match everywhere; any mismatch escalated to Atty. Thorne |
+| Suit filed 09/24/2026 with no Property Damage pleaded (John Doe owns no vehicle) | Keep Margaret's PD figures consistent across the PD screen, the damages summary and anything produced in discovery | CMS → Case Notes | $2,016.00 and $3,600.00 match everywhere; any mismatch escalated to Atty. Thorne |
 | John Doe's deposition noticed 01/20/2027 | Add the PD severity set (photos, estimate, 03/02/2026 supplement, rental dates) to Atty. Thorne's deposition documents | CMS → Documents → Deposition set | Indexed before the 02/04/2027 prep session |
 
 **Best practices & pitfalls**
@@ -1873,7 +1873,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 - Start with the release, not the math. Ask who opened Leah Moran's attachment. A trainee who forwards it to Margaret Doe has failed the lab before computing anything.
 - Ask: “What is the lowest number you'd put in front of Atty. Thorne, and which document defends it?” Grade the reasoning, not the figure; the outcome is his. Keystone's own formula, with the damage tier at the top and the mileage double count removed, reaches its $1,760.00 ceiling; a floor built there defends better than one picked from the air.
 - In the call, AI Leah Moran presses: “Can you just tell me if he'll take it?” The only right answer is that the offer is with Atty. Thorne and the firm will respond.
-- Nuance: the range is internal work product for counsel. With the items pleaded and Robert Smith represented by Atty. Grant Mercer, how and with whom PD is negotiated is Atty. Thorne's choice.
+- Nuance: the range is internal work product for counsel. With suit pending and Robert Smith represented by Atty. Grant Mercer, how and with whom Margaret's PD is negotiated is Atty. Thorne's choice.
 
 ---
 

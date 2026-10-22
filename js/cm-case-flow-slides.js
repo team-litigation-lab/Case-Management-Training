@@ -2458,7 +2458,7 @@ window.CM_CF_SLIDES = {
     [
      "A new file arrives and coverage gets filled in from memory.",
      "No-fault wage benefits are presumed without a Declaration Page behind them.",
-     "Margaret Doe's Bluewater UM was rejected in writing on 03/14/2024."
+     "On 03/14/2024 Margaret Doe signed away UM on the Bluewater coverage for her Civic."
     ]
    ]
   }
@@ -4478,6 +4478,32 @@ window.CM_CF_SLIDES = {
   "deliver": "An audited, served demand with **proof of delivery** and 08/21/2026 docketed",
   "purpose": "Keystone's 30 days run from receipt: **without proof, no deadline** to hold",
   "principle": "The clock starts at **proven receipt, not mailing**",
+  "grade": {
+   "title": "The Grade-A Time-Limited Demand",
+   "guide": [
+    "**Within limits**, clear, reasonable, documented and timed",
+    "Terms exactly as **Atty. Thorne approved** them",
+    "Answer **the gap on page one**, before Keystone raises it",
+    "Present, don't compile: each bill with **its medical-necessity why**"
+   ],
+   "include": [
+    "Cover letter: **$10,000 limits**, 30 days from receipt",
+    "Liability: **RPD-26-018842**, Ruth Calloway, doorbell video",
+    "Itemized bills and records: **$14,817.40** Specials",
+    "Gap proof: EMS report, onset note, **Causation Letter**",
+    "Wages **$1,584.00**: the Northgate HR letter",
+    "Narrative: mechanism, pain, **work and life impact**",
+    "Limited Release terms and **Smith's affidavit** request"
+   ],
+   "steps": [
+    "Download the case documents into **your training Drive**",
+    "Audit the draft against **the Big Four and Final Scrub**",
+    "Log each deficiency as **an assigned CMS task**",
+    "Assemble in reading order; **OCR and bookmark** the PDF",
+    "Route to Atty. Thorne; **serve only once signed**",
+    "Upload the served set to **the CMS for the audit**"
+   ]
+  },
   "checks": [
    "**$10,000 BI limit**; terms match Atty. Thorne's approval exactly",
    "Big Four complete; **Specials total $16,401.40**",
@@ -4680,6 +4706,31 @@ window.CM_CF_SLIDES = {
   "deliver": "Two QC'd UM drafts, **exhaustion proof first**, routed for review",
   "purpose": "Each draft reaches a carrier as written: **one missed error** travels with it",
   "principle": "Prove the BI layer is spent **before asking UM** for more",
+  "grade": {
+   "title": "The Grade-A UM Demand Packages",
+   "guide": [
+    "Two packages, two carriers: **never the BI demand re-addressed**",
+    "**Exhaustion proof first**, on page one of each",
+    "Relative UM framed as **excess over $30,000**",
+    "The response deadline is **Atty. Thorne's to set**"
+   ],
+   "include": [
+    "Cover letter per carrier: **claim number and limit**",
+    "Exhaustion: tender, Dec Page, affidavit, **consents, Limited Release**",
+    "Coverage: each **UM Dec Page** and Coverage Letter",
+    "Itemized bills **$14,817.40**; wage letter $1,584.00",
+    "**Two-page treatment summary**: diagnosis, code, treatment",
+    "MRI, Causation Letter, MMI note, **Gap Explanation Record**"
+   ],
+   "steps": [
+    "Download the case documents into **your training Drive**",
+    "QC the desk's draft line by line; **note each fix**",
+    "Order it: **exhaustion, coverage, liability, damages**",
+    "Tie every figure to **its source document**",
+    "Route both drafts to Atty. Thorne; **nothing served**",
+    "Upload both to the CMS with **a follow-up task each**"
+   ]
+  },
   "checks": [
    "Two separate packages, **HP-26-7741 and CS-26-20355**",
    "Relative UM claimed for **damages above $30,000**",
@@ -6544,7 +6595,7 @@ window.CM_CF_SLIDES = {
      "Which it is changes the duties, the defences and the exit."
     ],
     [
-     "Marcus Bell will not move off his 09/14/2026 number.",
+     "Marcus Bell will not move off his 03/31/2027 number.",
      "Atty. Thorne needs the policy's own words in front of him.",
      "You copy the paragraph across rather than summarise it."
     ]
@@ -6774,7 +6825,7 @@ window.CM_CF_SLIDES = {
  },
  "d4m2-a3": {
   "image": "documents-audit",
-  "situation": "10/02/2026. Harbor Point offers **$8,000 of $20,000**; Cardinal State **$6,000 of $10,000**. Both refuse to move.",
+  "situation": "04/05/2027. Harbor Point offers **$8,000 of $20,000**; Cardinal State **$6,000 of $10,000**. Both refuse to move.",
   "steps": [
    "Write the impasse memo: **offers against the limits**",
    "Quote **each layer's dispute-resolution clause** verbatim",
@@ -6979,6 +7030,33 @@ window.CM_CF_SLIDES = {
   "deliver": "Indexed, OCR-searchable binder with **an audited ledger**, routed to Atty. Thorne, ready by 03/11/2027",
   "purpose": "Keystone won't put a real number up **while the ledger is unverified**",
   "principle": "Only audited, certified figures **reach the mediator's binder**",
+  "grade": {
+   "title": "The Grade-A Mediation Binder",
+   "guide": [
+    "The binder **prints from the master index**, never the reverse",
+    "Any document found **in five seconds**: tabbed, bookmarked, searchable",
+    "**Operative pleadings only**; no drafts anywhere",
+    "Statement **to the mediator only**, delivered by 03/11/2027"
+   ],
+   "include": [
+    "**Cover letter** to Hon. Carla Benton (Ret.)",
+    "**Master index**: section, exhibit, date, source, Bates",
+    "1 Snapshot sheet and **mediation order**",
+    "2 **Confidential Mediation Statement**",
+    "3 **Complaint and answer**, operative only",
+    "4 Liability evidence and **deposition summary**",
+    "5 Ledger **$16,401.40**, MRI, Causation Letter",
+    "6 Negotiation Log and **draft Limited Release**"
+   ],
+   "steps": [
+    "Download the case documents into **your training Drive**",
+    "Build **the master index first**; seat each document once",
+    "Number exhibits by section; **Bates-stamp each page once**",
+    "Rebuild the ledger from certified bills: **fix both landmines**",
+    "Write the cover letter and **audit memo**; route to Atty. Thorne",
+    "Upload the binder to **the CMS for the audit**"
+   ]
+  },
   "checks": [
    "Riverton audited: 33 visits × $185.00 = **$6,105.00**",
    "Crescent's bill **satisfied by Peach State's $1,860.00**",
@@ -7158,6 +7236,33 @@ window.CM_CF_SLIDES = {
   "deliver": "A six-tab, C-numbered binder, authentication log and audited Lien Sheet, **routed to Atty. Thorne**",
   "purpose": "The binding award rests **on this exhibit set** alone",
   "principle": "Nothing is exchanged **until Atty. Thorne approves** the set",
+  "grade": {
+   "title": "The Grade-A Arbitration Binder",
+   "guide": [
+    "**Threshold first**: BI exhausted, proved by executed documents",
+    "Every exhibit **authenticated** by its custodian's certification",
+    "**Nothing from the mediation** crosses over",
+    "The set **freezes once exchanged** on 06/02/2027"
+   ],
+   "include": [
+    "**Cover letter** for the 06/02/2027 exchange",
+    "**Master index**: C-number, Bates, authentication",
+    "1 **Exhaustion record**, snapshot sheet, final brief",
+    "2 Demand, joinder, **each carrier's position**",
+    "3 **Certified Police Report**, color stills, EDR",
+    "4 Treatment chart, **ledger $14,817.40**, records",
+    "5 **2021 records** paired with the MRI read",
+    "6 **Northgate wage letter** only"
+   ],
+   "steps": [
+    "Download the case documents into **your training Drive**",
+    "Sort each document by **its tab's QC rule**",
+    "Number **C-1 onward**; keep the production Bates numbers",
+    "Request certifications; **log each receipt**",
+    "Keep the Lien Sheet in **the attorney's set**",
+    "Route to Atty. Thorne; upload to **the CMS for the audit**"
+   ]
+  },
   "checks": [
    "Threshold exhibits first, **nothing from the Mediation Statement**",
    "Tab 5 shields **the 2021 low-back visits** with answering records",

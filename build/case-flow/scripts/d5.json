@@ -114,14 +114,14 @@
     },
     "frame": {
       "say": "There are three kinds of damages you can recover, and I want you to be able to sort any figure into one of them. Economic, or special, damages are quantifiable losses proved by documents: the repair, tow and storage, rental, Loss of Use and Diminished Value. That's where everything about the Civic lives. Non-economic, or general, damages are subjective: pain and suffering, emotional distress, loss of consortium. Those are claimed on the injury side, not the property side. And punitive, or exemplary, damages exist to punish egregious, reckless or intentional conduct and deter others, think DUI. On John Doe's file, no punitive claim is pleaded. So when you see a number, ask which bucket it belongs in first.",
-      "ask": "Where would John Doe's $2,016.00 Loss of Use claim sit among these three?"
+      "ask": "Where would Margaret's $2,016.00 Loss of Use claim sit among these three?"
     },
     "rules": {
-      "say": "The goal is to make John Doe whole: his position before 02/06/2026, never a windfall. The $2,315.00 teardown supplement of 03/02/2026 is structural, the A-pillar, so it shows hidden damage and impact force. Courts generally award the lesser of repair cost or the drop in value, so run it on the final bill: $6,940.00 plus $2,315.00 is $9,255.00, 52.6% of the $17,600.00 ACV, under Keystone's 75% line of $13,200.00. Repairable. Loss of Use is claimable for each day without the car or a paid substitute, at Keystone's own $42.00 a day. Allocate the 78 days from 02/06 to 04/24/2026 once, claim only the 48 unpaid, $2,016.00. Keystone's 30-day cap is claims practice, and arguing it is Atty. Thorne's job. You compute and report; you never tell Margaret Doe what her car is worth.",
+      "say": "The goal is to make the owner, Margaret, whole: her position before 02/06/2026, never a windfall. The $2,315.00 teardown supplement of 03/02/2026 is structural, the A-pillar, so it shows hidden damage and impact force. Courts generally award the lesser of repair cost or the drop in value, so run it on the final bill: $6,940.00 plus $2,315.00 is $9,255.00, 52.6% of the $17,600.00 ACV, under Keystone's 75% line of $13,200.00. Repairable. Loss of Use is claimable for each day without the car or a paid substitute, at Keystone's own $42.00 a day. Allocate the 78 days from 02/06 to 04/24/2026 once, claim only the 48 unpaid, $2,016.00. Keystone's 30-day cap is claims practice, and arguing it is Atty. Thorne's job. You compute and report; you never tell Margaret Doe what her car is worth.",
       "ask": "Keystone paid for 30 days of rental. Why is Margaret Doe still owed anything for the use of her car?"
     },
     "model": {
-      "say": "This is the same threshold gauge from Day 1, now carrying John Doe's numbers. The bar runs from zero to the ACV of $17,600.00, with the threshold at 75%, $13,200.00. The grey chip is the $6,940.00 estimate at 39.4%, and the orange chip is the final bill, $9,255.00, at 52.6%, the jump being the $2,315.00 A-pillar supplement. Underneath is a ribbon of all 78 days from 02/06 to 04/24/2026. Red for the first 12, navy for the 30 days of rental Keystone paid, $1,260.00, then red again for the last 36. Those two red stretches are the Loss of Use: 48 days at $42.00, $2,016.00. Keystone paid for the middle and nothing on either side.",
+      "say": "This is the same threshold gauge from Day 1, now carrying the Civic's numbers. The bar runs from zero to the ACV of $17,600.00, with the threshold at 75%, $13,200.00. The grey chip is the $6,940.00 estimate at 39.4%, and the orange chip is the final bill, $9,255.00, at 52.6%, the jump being the $2,315.00 A-pillar supplement. Underneath is a ribbon of all 78 days from 02/06 to 04/24/2026. Red for the first 12, navy for the 30 days of rental Keystone paid, $1,260.00, then red again for the last 36. Those two red stretches are the Loss of Use: 48 days at $42.00, $2,016.00. Keystone paid for the middle and nothing on either side.",
       "ask": "Can you find the two red segments, and say what each one represents?"
     },
     "job": {
@@ -134,7 +134,7 @@
   },
   "d5m2-l2": {
     "why": {
-      "say": "I've written two numbers on the board, far apart: $792.00 and $3,600.00. Same car, same damage. A Civic with an A-pillar repair in its history is worth less than one never hit, and John Doe didn't cause that loss. Keystone's $792.00 comes from a formula. The $3,600.00 comes from a market appraisal. Let me build the $792.00 in front of you, one step at a time: 10% of the $17,600.00 ACV is $1,760.00, times 0.75 is $1,320.00, times 0.60 is $792.00. Each multiplication is a cut, and you can see exactly where. The gap between those two numbers is pleaded on Track B. Our job is to build the evidence. Atty. Thorne makes the argument.",
+      "say": "I've written two numbers on the board, far apart: $792.00 and $3,600.00. Same car, same damage. A Civic with an A-pillar repair in its history is worth less than one never hit, and Margaret didn't cause that loss. Keystone's $792.00 comes from a formula. The $3,600.00 comes from a market appraisal. Let me build the $792.00 in front of you, one step at a time: 10% of the $17,600.00 ACV is $1,760.00, times 0.75 is $1,320.00, times 0.60 is $792.00. Each multiplication is a cut, and you can see exactly where. The gap between those two numbers is pleaded on Track B. Our job is to build the evidence. Atty. Thorne makes the argument.",
       "ask": "Watching the formula, which of those three cuts bothers you most, and why?"
     },
     "theory": {
@@ -196,7 +196,7 @@
   "d5m2-kc": {
     "questions": {
       "say": "This is the PD Dispute Evaluation. Answer from John Doe's file, in your own words, right under each question. Show whether the Civic is a Total Loss, with the final repair, the ACV, Keystone's threshold and the percentage, arithmetic included. Allocate the 78 days from 02/06 to 04/24/2026 and say which are claimed, at what rate, for how much, and why the rental days are out. Sort the damages into their three types. And when you hit Question 6, the pressure scenario, slow down. The strong answer agrees to nothing, logs the call, and gets the inspection request and the offer to Atty. Thorne right away.",
-      "ask": "In the pressure scenario, who gives John Doe any instruction about preserving the Civic?"
+      "ask": "In the pressure scenario, who gives Margaret any instruction about preserving the Civic?"
     },
     "summary": {
       "say": "Now the self-summary, in your own words. Here's one to chew on first: why does a parked car's A-pillar matter to a neck injury? Because the supplement measures the force that drove the Escape, with John Doe inside, into the Civic. Atty. Thorne uses that in prep; you put it in the set and never tell John Doe what to say. Then your scenario: it's 01/28/2027, John Doe's been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect Margaret's Civic. Write your next five actions in order, and who owns each one.",
