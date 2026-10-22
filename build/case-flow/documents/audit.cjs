@@ -46,9 +46,9 @@ for (const [id] of Object.entries(text)) for (const [re, ok, plant] of IDS) {
 }
 // DOB: 08/14/1991 everywhere; RS03 plants 08/14/1990
 for (const [id] of Object.entries(text)) for (const m of T(id).match(/08\/14\/19\d\d/g) || []) if (m !== "08/14/1991" && !(id === "RS03" && m === "08/14/1990")) fails.push(`${id}: DOB ${m}`);
-// the date of loss is 02/06/2026; RS16 plants 02/16/2026 as the "date of injury", and RS65's exhibit index
-// names that plant as the fault to catch (RS66 names it again as the fault that was corrected)
-const DOL_PLANT = new Set(["RS16", "RS65", "RS66"]);
+// the date of loss is 02/06/2026; RS16 plants 02/16/2026 as the "date of injury", and RS66's exhibit index
+// names that plant as the fault to catch (RS67 names it again as the fault that was corrected)
+const DOL_PLANT = new Set(["RS16", "RS66", "RS67"]);
 for (const [id] of Object.entries(text)) if (/date of (loss|injury|accident|collision)\W{0,3}(February 16|02\/16\/2026)/i.test(T(id)) && !DOL_PLANT.has(id)) fails.push(`${id}: a date of loss of 02/16/2026`);
 
 // 3. required facts and plants, document by document
@@ -83,7 +83,8 @@ const NEED = {
   RS28: [/\$20,000/, /\$5,000/, /03\/02\/2026|March 2, 2026/, /arbitrat/i],
   RS29: [/\$10,000/, /03\/09\/2026|March 9, 2026/, /Okafor/],
   RS30: [/03\/14\/2024|March 14, 2024/, /reject/i],
-  RS31: [/\$5,000\.00/, /06\/26\/2026/],
+  RS31: [/\$5,000\.00/, /06\/26\/2026/, /80%/, /\$1,267\.20/],
+  RS65: [/02\/17\/2026/, /02\/24\/2026/, /\$5,000\.00/, /PIP rejected in writing/i, /passenger/i, /100%/, /80%/],
   RS32: [/03\/19\/2026|March 19, 2026/, /\$42\.00/],
   RS33: [/\$16,410\.40/, /08\/19\/2026|August 19, 2026/, /full and final release of all claims/i],
   RS34: [/07\/22\/2026|July 22, 2026/],
@@ -148,6 +149,11 @@ for (const [id, t] of Object.entries(text)) {
   NOT_OWNER.forEach(re => { const m = flat.match(re); if (m) fails.push(`${id}: “${m[0]}”: the Civic is Margaret Doe's; John Doe has no property-damage or rental claim`); });
 }
 if (text.RS07 !== undefined && !has("RS07", /DOE, Margaret/)) fails.push("RS07: the Police Report should list Margaret Doe as the parked Civic's owner");
+
+// PIP: Riverton is an add-on PIP state and John Doe claims the $5,000 PIP on the Escape he rode in (Harbor Point). No document
+// may still call the first-party medical coverage MedPay / Medical Payments.
+for (const [id] of Object.entries(text)) { const m = T(id).match(/\bMed ?Pay\b|Medical Payments/); if (m) fails.push(`${id}: “${m[0]}”: this file's first-party medical coverage is Harbor Point PIP`); }
+if (text.RS28 !== undefined && !has("RS28", /Personal Injury Protection/i)) fails.push("RS28: Harbor Point's declarations should show Part B Personal Injury Protection ($5,000)");
 
 console.log(`Audited ${Object.keys(text).length} of ${DOCS.length} documents.`);
 warn.forEach(w => console.log("warn: " + w));

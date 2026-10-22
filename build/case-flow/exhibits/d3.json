@@ -3,8 +3,8 @@
     "d3m1-a1": {
       "title": "Exhibit Packet Audit — the Demand Package as drafted",
       "kicker": "Audit the enclosure set before Atty. Thorne signs anything.",
-      "source": "RS65",
-      "reveal": "RS66",
+      "source": "RS66",
+      "reveal": "RS67",
       "due": "07/20/2026",
       "intro": "The demand specialist built the enclosure set and typed the Specials from it. Nothing has been re-verified since the pre-demand audit and no corrected record has been chased. Work the set item by item: every loophole here is one Dana Whitfield can use, and every gap is one she will find.",
       "columns": {
@@ -226,7 +226,7 @@
     "d3m1-a1": {
       "title": "Service Confirmation — the email the adjuster has to answer",
       "kicker": "Mail proves it left. The email makes the carrier admit when it landed.",
-      "model": "RS67",
+      "model": "RS68",
       "mail": {
         "channel": "Certified mail, return receipt requested",
         "sent": "07/20/2026",

@@ -6,8 +6,8 @@ window.CM_CF_EXHIBITS = {
   "d3m1-a1": {
    "title": "Exhibit Packet Audit — the Demand Package as drafted",
    "kicker": "Audit the enclosure set before Atty. Thorne signs anything.",
-   "source": "RS65",
-   "reveal": "RS66",
+   "source": "RS66",
+   "reveal": "RS67",
    "due": "07/20/2026",
    "intro": "The demand specialist built the enclosure set and typed the Specials from it. Nothing has been re-verified since the pre-demand audit and no corrected record has been chased. Work the set item by item: every loophole here is one Dana Whitfield can use, and every gap is one she will find.",
    "columns": {
@@ -228,7 +228,7 @@ window.CM_CF_EXHIBITS = {
    "title": "Section Audit — the Mediation Binder as drafted",
    "kicker": "Audit all six sections before Atty. Thorne approves delivery.",
    "source": "RS62",
-   "reveal": "RS68",
+   "reveal": "RS69",
    "due": "03/11/2027",
    "intro": "The Litigation Desk assembled the binder on 03/02/2027 from the providers' original bills, and Atty. Grant Mercer says Keystone will not put a real number on the table while the medical ledger is unverified. On this draft he is right. Work the six sections.",
    "columns": {
@@ -359,7 +359,7 @@ window.CM_CF_EXHIBITS = {
      "proof": [
       "RS23",
       "RS14",
-      "RS66"
+      "RS67"
      ]
     },
     {
@@ -434,7 +434,7 @@ window.CM_CF_EXHIBITS = {
      "issue": "If the file settles on the day there is nothing to sign, and no consent on its way to Harbor Point or Cardinal State, so the money stops anyway.",
      "fix": "Add the draft Limited Release of Robert Smith and Keystone only, and the drafted consent requests to both UM carriers. Atty. Thorne settles every term in them.",
      "proof": [
-      "RS66",
+      "RS67",
       "RS38"
      ]
     },
@@ -466,7 +466,7 @@ window.CM_CF_EXHIBITS = {
    "title": "Sorting & QC Audit — the arbitration exhibit index",
    "kicker": "Apply each tab's QC rule before the 06/02/2027 exchange.",
    "source": "RS63",
-   "reveal": "RS69",
+   "reveal": "RS70",
    "due": "06/02/2027",
    "intro": "The Litigation Desk's index of 05/14/2027. Keystone tendered at the 03/18/2027 mediation and Robert Smith was dismissed; Harbor Point and Cardinal State now dispute damages and sit on the other side of this hearing. Work it exhibit by exhibit.",
    "columns": {
@@ -628,12 +628,12 @@ window.CM_CF_EXHIBITS = {
     },
     {
      "ref": "C-9",
-     "what": "Lien Sheet — Harbor Point MedPay, $5,000.00",
-     "as": "Listed as a lien because MedPay paid $5,000.00 of the bills.",
+     "what": "Lien Sheet — Harbor Point PIP, $5,000.00",
+     "as": "Listed as a lien because PIP paid $5,000.00 of the bills.",
      "verdict": "pull",
      "kind": "loophole",
-     "issue": "Harbor Point gave up any reimbursement right in writing on 03/02/2026, and it is the carrier on the other side of this hearing. Working John Doe's net from a lien it does not hold costs him $5,000.00 nobody would have asked for.",
-     "fix": "Strike it, citing the 03/02/2026 letter in the threshold record. MedPay paying a bill does not create a lien.",
+     "issue": "Riverton's add-on PIP carries no reimbursement from the recovery, as Harbor Point's own letter of 03/02/2026 confirms, and Harbor Point is the carrier on the other side of this hearing. Working John Doe's net from a lien it does not hold costs him $5,000.00.",
+     "fix": "Strike it, citing the 03/02/2026 letter in the threshold record. PIP paying a bill does not create a lien.",
      "proof": [
       "RS28",
       "RS31"
@@ -694,7 +694,7 @@ window.CM_CF_EXHIBITS = {
     "Threshold exhibits lead: the BI tender, both UM consents, the Limited Release and the dismissal.",
     "Every record certified and authenticated; Crescent's certification chased with a subpoena flag.",
     "Tab 5 pairs the 2021 low-back records and the deposition testimony with the MRI read and the Causation Letter.",
-    "Lien Sheet audited from $12,965.00 to $7,965.00: MedPay, Summit and Crescent all at $0.00.",
+    "Lien Sheet audited from $12,965.00 to $7,965.00: PIP, Summit and Crescent all at $0.00.",
     "Brief docketed 06/11/2027; exchange 06/02/2027; hearing 06/22/2027.",
     "Six items withheld on Atty. Thorne's recorded decision, each with its reason on the file."
    ]
@@ -704,7 +704,7 @@ window.CM_CF_EXHIBITS = {
   "d3m1-a1": {
    "title": "Service Confirmation — the email the adjuster has to answer",
    "kicker": "Mail proves it left. The email makes the carrier admit when it landed.",
-   "model": "RS67",
+   "model": "RS68",
    "mail": {
     "channel": "Certified mail, return receipt requested",
     "sent": "07/20/2026",
