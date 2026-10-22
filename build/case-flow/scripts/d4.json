@@ -289,8 +289,8 @@
       "ask": "When you swap with your partner, which exhibit number in their defense map will you check first?"
     },
     "audit": {
-      "say": "Atty. Mercer says Keystone won't put a real number on the table while the medical ledger is unverified, and on this draft he's right. The ledger was typed from the original bills, so it comes to sixteen thousand five hundred and eighty-six forty against the sixteen thousand four hundred and one forty we served in July. Crescent shows as a thirty-four hundred dollar open balance that Peach State already paid at the contract rate. Call every section, and watch section two: an unmarked confidential statement tabbed for three people hands our position to the other side. When you hand it in you'll see the binder as we delivered it on the eleventh of March.",
-      "ask": "Two numbers for one file. Which one would you defend in that room?"
+      "say": "This is the index the Litigation Desk assembled on the second of March, and Atty. Mercer says Keystone won't put a real number on the table while the medical ledger is unverified. On this draft he's right. Section five was typed from the providers' original bills, so Riverton Spine and Rehab comes in at six thousand two hundred and ninety on thirty-four lines and the medical total reads fifteen thousand and two forty, against the fourteen thousand eight hundred and seventeen forty we served in July. Crescent shows as an open balance Peach State already paid. Call every section, and tell me what's missing as well as what's wrong. When you hand it in you'll see the binder as we delivered it on the eleventh of March.",
+      "ask": "Two medical totals for one file. Which one would you defend in that room?"
     }
   },
   "d4m3-a2": {
@@ -307,8 +307,8 @@
       "ask": "Where did you put the 09/08/2026 impasse memo, and who decides whether it's ever exchanged?"
     },
     "audit": {
-      "say": "This is the whole folder, unsorted, and Harbor Point is on the other side of the hearing now. Decide for each record which tab it goes in, or that it's withheld, and apply the QC as you sort rather than after. The confidential mediation statement is sitting in the pile. Nobody has asked a single provider for a certification. And the Lien Sheet claims fifteen thousand five hundred and forty-five dollars, including five thousand for Harbor Point MedPay, which gave up any reimbursement right in writing in March. Audited, the liens are seven thousand nine hundred and sixty-five. When you hand it in you'll see the set we actually exchanged on the second of June.",
-      "ask": "Harbor Point is now the opponent. What changes about what we send?"
+      "say": "The desk's exhibit index, the fourteenth of May, and Harbor Point is on the other side of this hearing now. Decide for each exhibit which tab it belongs in, or that it's withheld, and apply the QC as you sort rather than after. The Confidential Mediation Statement is sitting at C-2 for background. Nobody has asked a single provider for a certification, the authentication log hasn't been started, and tab one has no exhaustion record at all, so there's nothing proving the bodily injury layer is gone. And the Lien Sheet claims five thousand dollars for Harbor Point MedPay, which gave up any reimbursement right in writing in March. When you hand it in you'll see the set we exchanged on the second of June.",
+      "ask": "Harbor Point is the opponent now. What changes about what we send?"
     }
   },
   "d4m3-kc": {

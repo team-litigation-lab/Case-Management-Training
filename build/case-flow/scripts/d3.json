@@ -88,7 +88,7 @@
       "ask": "With no check in hand today, what proves exhaustion?"
     },
     "task": {
-      "say": "You're drafting two demands for Atty. Thorne's review, not one. Host UM goes to Marcus Bell at Harbor Point, HP-26-7741, for the $20,000 limit. Relative UM goes to Teresa Okafor at Cardinal State, CS-26-20355, for the $10,000 limit as excess over Host UM. Use the UM templates in the Action Plan Editor. And to answer the last slide's question, exhaustion today is proven by the tender, the consents and the signed Limited Release, with the check copy to follow. That goes on page one of each. Organize the evidence by function, audit each package the way you audited the BI demand, show damages above what's been collected, and answer the gap and “degenerative” with the MRI. You'll hand in two attorney-ready drafts, routed for review with tracked follow-up tasks.",
+      "say": "You're not starting from a blank page. The audit closed on 07/15, and Atty. Thorne assigned the UM demands to the Demand Desk; their drafts are in the file. Your job is QC. Host UM goes to Marcus Bell at Harbor Point, HP-26-7741, for the $20,000 limit; Relative UM goes to Teresa Okafor at Cardinal State, CS-26-20355, for $10,000 as excess over Host UM. Exhaustion is proven by the tender, the consents and the signed Limited Release, with the check copy to follow, and it belongs on page one of each. Check every figure against the audit, answer the gap and “degenerative” with the MRI, and hand in two QC'd drafts routed to Atty. Thorne.",
       "ask": "Why does Cardinal State's demand say excess?"
     },
     "check": {
@@ -290,6 +290,20 @@
     "check": {
       "say": "Before you log it, check yourself. Is the plan ledger matched to the one accident-related charge, the 05/15/2026 injection, $3,400.00 billed and $1,860.00 paid? The lien is what the plan paid, not what was billed. Is Crescent's $1,540.00 write-off recorded as not owed? Is the lien classified contractual, with fully insured status from the plan documents and the governing law recorded as Atty. Thorne's call? Is the common-fund math shown, citing the MRI and the 06/19/2026 Causation Letter? Are the absences complete, Medicare, Medicaid, hospital, workers' comp and prior attorney, each with date and source, and MedPay recorded as not a lien? And did you log $1,240.00 as final only with Peach State's written confirmation and Atty. Thorne's approval attached? That's where people trip.",
       "ask": "Who checked Summit Imaging, which asked for an LOP on 03/11/2026?"
+    }
+  },
+  "d3m3-l3": {
+    "why": {
+      "say": "Here's a question to start. Riverton Spine & Rehab has agreed to take less. What has to be in the file before a dollar goes out? Most people say the agreement. It's the signed Payoff Letter. A reduction is won on paper first and on the phone second. The lienholder needs to see the audited balance, the recovery, the fee and costs, and the other liens, so it can see why taking less is fair. And it needs a letter it can sign that closes the bill for good. Skip the paper and you either leave money on the table or reopen a bill you thought was closed.",
+      "ask": "What goes to the lienholder before you ever pick up the phone?"
+    },
+    "rules": {
+      "say": "Four rules carry this. First, you negotiate from the audited balance, never the billed one: Riverton at $6,105.00, Peach State at $1,860.00, $7,965.00 in all. Second, the written Reduction Request goes first, with Atty. Thorne's written authority already on file. Third, on the call you make his ask and nothing outside it, and you log the name, the date and every figure. A counter outside his authority goes back to him the same day. Fourth, no Payoff Letter, no payment, and the letter says full and final, with no balance billing or collections. Then you update the Lien Tracker and the Net Sheet that day.",
+      "ask": "If the provider counters below Atty. Thorne's floor, what do you say on the call?"
+    },
+    "job": {
+      "say": "Here's the job, start to finish. When the audited balance is confirmed, you draft the Reduction Request with the math and get Atty. Thorne's written authority before it goes. When the lienholder responds, you call with the authorized ask and log who you spoke to, when, and every figure. And when the reduction is agreed, you get the signed Payoff Letter, then update the Lien Tracker and the Net Sheet so John Doe can see his net change the same day.",
+      "ask": "Which of these three steps would you check first if a provider later says the bill is still open?"
     }
   },
   "d3m3-a2": {

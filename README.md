@@ -62,6 +62,18 @@ The script applies the CM edits to the EA/PA page and inserts the CM content fro
 
 The Case File page is the Case Flow's John Doe v. Robert Smith profile (`CLIENT_PROFILE_DOC` in `build/cm_casefile.js`, from `CM_CASE_FLOW.case` and `.profile`), which is also the case dossier inside every AI prompt. How it fills in and what trainers see: above, and under *Training Tools hub*.
 
+### ✅ Check Your Work, Full text and the Action Plan
+- **Check Your Work** holds the activity's answers (the highlighted parts). A trainee sees each answer as a blank until they finish the activity and press **✓ I've finished: show the answers** (saved as `revealed` on their Case Flow record); the trainer always sees them, except on the shared slides window, which shows what trainees see. The **📖 Full text** checkpoints follow the same rule.
+- **📖 Full text** opens in its own browser tab, so the slides and the tool beside them stay in view (the old pop-up only when the browser blocks the tab). It carries no tool buttons: the day's tools open once, from its **🧪 Practice Lab** slide, which also opens the Call Simulator when the day has a live call.
+- **Knowledge Check bonus round:** one key takeaway for the whole day, graded with the day's last Knowledge Check block.
+- **The Action Plan** starts as a fill-in template (situation, goal and deadline, action items with owner, due date and tool, risks, UPL check, who is told, follow-up); **📝 Use the template** adds it again.
+- **Lessons before practice:** `build/case-flow/curriculum.cjs` fails if a lesson comes after the Practice Lab has opened in a phase, or if a Skill Activity has no lesson of its module (or of its `prereq` list) before it in teaching order.
+- **Readiness gate:** the Practice Lab slide opens with three key-concept questions, one from each of the day's first three modules (their Knowledge Check pools). A trainee answers each correctly to open the day's tools; a wrong answer shows the reason and can be tried again. Trainers and the shared slides window skip it (`labGate` in `js/cm-case-flow.js`).
+- **John Doe is a passenger and owns no car.** The parked 2019 Honda Civic is his mother Margaret Doe's, on her Bluewater policy (UM rejected by her). The Civic's Property Damage claim and rental are hers: the firm assists her under a separate PD-only engagement, and John's complaint, discovery, settlement papers and demands carry no property damage. `build/case-flow/documents/audit.cjs` fails any document that gives John the Civic or a PD or rental claim. Day 1's *Whose Rental Is It?* activity (d1m3-a3) has the trainee prove it from the records.
+- **Drafts for QC, not blank pages:** when the pre-demand audit closes, Atty. Thorne assigns the drafting to the firm's desks (RS64, CMS Task Log 07/15/2026) and every draft comes back to the CM for QC: the BI demand (RS33), the Host UM and Relative UM demands (RS61), the Mediation Binder (RS62) and the Arbitration Binder (RS63), each with planted errors listed in its manifest key. The BI demand's enclosure set comes back for QC too (RS65, the exhibit packet), and the QC of the demand and of both binders is now worked item by item, with the finished set revealed at the end — 🔍 Exhibit audits, below.
+- **First-party ledger in the pre-demand audit:** PIP where a state requires it; this file has none, so the Specials audit opens on Harbor Point's MedPay ledger (RS31). Day 4 adds *Lien Negotiation Calls* (d3m3-l3): the Reduction Request, the authorized ask and the Payoff Letter.
+- **The passenger fact:** `build/case-flow/documents/audit.cjs` fails any document that makes John Doe a driver or operator, or the Escape his, and checks the Police Report keeps him in the front passenger seat.
+
 ### 🧪 Practice
 
 The top bar has a single **🧪 Practice** item; 🛠 Simulators, 🧰 Tools, 🔥 Roleplay and the Calendar Conflict Resolver are reached from it (`PRACTICE_SUBVIEWS` in `js/cm-updates.js`). The page is the Case Flow's Skill Activities (see above), with an "Any day" row: 📁 Case Documents, a quick roleplay call, the CMS Training Library and the CMS.
@@ -80,9 +92,9 @@ The one practice tool left beside the Skill Activities (Case Flow Day 4; `js/cm-
 - **The trainee sees it** on 📂 Case File: "Dates follow your CMS Date of Loss (moved +N days)", with **Reset to the course's dates** (that CMS DOL is then not followed again until it changes). A new CMS DOL shows a toast and **Update the dates now**.
 - A trainer's case-year preview (`?caseYear=`) shows the course's own dates, with no offset. `check-case-dates.mjs` checks the offset: DOL-and-later dates move by exactly N days, earlier dates and DOBs don't.
 
-**John Doe v. Robert Smith (the Case Flow's document set, `documents/case-flow/`).** 67 simulated documents, `RS01`–`RS67`, in nine folders: intake & retainer, police / witness / video, medical records, bills, insurance and the demands, liens, wages & costs, the Civic's property damage, and the Track B lawsuit and ADR. Every page carries the *SIMULATED DOCUMENT — FICTIONAL PARTIES* footer.
+**John Doe v. Robert Smith (the Case Flow's document set, `documents/case-flow/`).** 69 simulated documents, `RS01`–`RS69`, in nine folders: intake & retainer, police / witness / video, medical records, bills, insurance and the demands, liens, wages & costs, the Civic's property damage, and the Track B lawsuit and ADR. Every page carries the *SIMULATED DOCUMENT — FICTIONAL PARTIES* footer.
 - **What trainees see:** the 📁 Documents page lists them by folder with the CMS upload category; each opens with its Case Flow day (trainers see all), and every Case Flow Skill Activity names the documents it works from ("📁 Work from" on its slide).
-- **Planted discrepancies:** a transposed police report number on the intake sheet, "Driver" and a wrong DOB in the CMS record, a duplicate ledger line, a wrong date of injury on the MRI report, an in-network provider billing the patient, a draft demand with four errors, releases that reach too far, a discovery deadline and a brief date that are wrong, and three draft sets built to be audited — the Demand Package's exhibit packet, the Mediation Binder and the arbitration exhibit folder (`RS61`, `RS64`, `RS66`), each with ten faults. Their finished counterparts (`RS62`, `RS65`, `RS67`) carry no plants: they are the completed packages the trainee is shown once the audit is handed in. Signed in as admin, each document's red 🔑 note says what is planted and what to catch; trainees never see these notes.
+- **Planted discrepancies:** a transposed police report number on the intake sheet, "Driver" and a wrong DOB in the CMS record, a duplicate ledger line, a wrong date of injury on the MRI report, an in-network provider billing the patient, a draft demand with four errors, releases that reach too far, a discovery deadline and a brief date that are wrong, and the Demand Package's own exhibit packet built to be audited (`RS65`), with ten faults in the enclosure set. The three finished sets the audits reveal (`RS66`, `RS68`, `RS69`) carry no plants: they are the completed packages the trainee is shown once the audit is handed in. Signed in as admin, each document's red 🔑 note says what is planted and what to catch; trainees never see these notes.
 - **Source and rebuild:** `build/case-flow/documents/` — `SPEC.md` (what each document holds and plants, written against `curriculum/5-day-flow/case-file.md`), `src/RSNN.html` (each document), `doc.css`, `render.cjs` (HTML → PDF with headless Chromium; the CMS record also to .docx with LibreOffice) and `audit.cjs` (reads every PDF back and checks the footer, the identifiers, each document's facts and that each plant is where it belongs and nowhere else). Metadata: `js/cm-case-flow-docs.js` (also each activity's documents). CI checks every file exists and every activity's documents are real and open by its day (`.github/scripts/check-data.mjs`).
 
 ### 🔍 Exhibit audits, the completed package, and the service confirmation
@@ -94,15 +106,16 @@ Activities now work the set itself, and each one ends with the finished article.
 - **The audit.** The activity's slide **🔍 Audit & the Finished Set** opens a workbench listing every item of the
   draft set, with the call to make on each one — **keep · replace · pull · add · flag for Atty. Thorne** — and a
   note to write. The loophole each item hides is not shown while the audit is open. The three sets: the Demand
-  Package's exhibit packet (`d3m1-a1`, 16 items), the Mediation Binder's six sections (`d4m3-a1`, 17) and the
-  unsorted arbitration folder (`d4m3-a2`, 17). A hand-in with an item uncalled is refused.
+  Package's exhibit packet (`d3m1-a1`, 16 items, `RS65`), the Litigation Desk's draft Mediation Binder
+  (`d4m3-a1`, 17 items, `RS62`) and its draft Arbitration Binder index (`d4m3-a2`, 17 items, `RS63`). A hand-in
+  with an item uncalled is refused.
 - **The completed package.** Handed in, the audit is scored, each item says what it would have cost and what the
   fix was, and the finished set is revealed: the **Demand Package as served** (81 pages, Exhibits A–J), the
   **Mediation Binder as delivered** (six sections, 141 pages, with the defense map) or the **Arbitration Binder as
   exchanged** (six tabs, C-1 to C-18, 174 pages, with the withheld-items list).
-- **Case continuity.** The completed Demand Package (`RS62`) and the memorandum of its service (`RS63`) are in the
-  "📁 Work from" packet of every activity that comes after it, and the finished Mediation Binder (`RS65`) and
-  Arbitration Binder (`RS67`) in the activities that follow them. One Demand Package and one binder run through
+- **Case continuity.** The completed Demand Package (`RS66`) and the memorandum of its service (`RS67`) are in the
+  "📁 Work from" packet of every activity that comes after it, and the finished Mediation Binder (`RS68`) and
+  Arbitration Binder (`RS69`) in the activities that follow them. One Demand Package and one binder run through
   all five days, with one set of figures.
 - **The service confirmation (`✉ Email Workspace`,** on the demand's Your Task slide). Certified mail proves the
   demand left the office; it does not prove when the carrier got it. So the trainee writes the confirmation email
@@ -117,7 +130,7 @@ Activities now work the set itself, and each one ends with the finished article.
   real PDF in the browser from their own email, her reply and what it establishes), **files it into the open case
   in the CMS** under the firm's naming convention — the CMS refuses any other name, exactly as it does for a
   catalogue document — and **backs the case up to their own Google Drive**. The firm's own version of the same
-  memorandum (`RS63`) is there to read theirs against.
+  memorandum (`RS67`) is there to read theirs against.
 - **The trainer sees all of it** with the module's Learning Check: every call and note of the audit with its
   score, the email they sent and how many attempts were refused, the answer they gave to the follow-up, what they
   filed and whether it was backed up.

@@ -46,9 +46,9 @@ for (const [id] of Object.entries(text)) for (const [re, ok, plant] of IDS) {
 }
 // DOB: 08/14/1991 everywhere; RS03 plants 08/14/1990
 for (const [id] of Object.entries(text)) for (const m of T(id).match(/08\/14\/19\d\d/g) || []) if (m !== "08/14/1991" && !(id === "RS03" && m === "08/14/1990")) fails.push(`${id}: DOB ${m}`);
-// the date of loss is 02/06/2026; RS16 plants 02/16/2026 as the "date of injury", and RS61's exhibit index
-// names that plant as the fault to catch (RS62 names it again as the fault that was corrected)
-const DOL_PLANT = new Set(["RS16", "RS61", "RS62"]);
+// the date of loss is 02/06/2026; RS16 plants 02/16/2026 as the "date of injury", and RS65's exhibit index
+// names that plant as the fault to catch (RS66 names it again as the fault that was corrected)
+const DOL_PLANT = new Set(["RS16", "RS65", "RS66"]);
 for (const [id] of Object.entries(text)) if (/date of (loss|injury|accident|collision)\W{0,3}(February 16|02\/16\/2026)/i.test(T(id)) && !DOL_PLANT.has(id)) fails.push(`${id}: a date of loss of 02/16/2026`);
 
 // 3. required facts and plants, document by document
@@ -125,6 +125,29 @@ if (text.RS23 !== undefined) {
   if (lines < 34) fails.push(`RS23: ${lines} $185.00 lines (expected 34)`);
   if (may4 !== 2) fails.push(`RS23: ${may4} ledger lines for DOS 05/04/2026 (expected 2: the planted duplicate)`);
 }
+
+// John Doe is the front-seat PASSENGER of Kevin Alvarez's Escape (Unit 2): no document may make him a driver or an
+// operator of a vehicle in the crash, put him behind the wheel, or call the Escape his. He owns no vehicle: the parked,
+// unoccupied Civic is his mother Margaret Doe's, and its property-damage claim and rental are hers, never his.
+const NOT_DRIVER = [
+  /John (?:A\. )?Doe,? (?:was )?(?:the )?(?:driver|operator)\b/i, /\bdriver:? John (?:A\. )?Doe\b/i, /\boperator:? John (?:A\. )?Doe\b/i,
+  /John (?:A\. )?Doe (?:was )?driving\b/i, /\bDoe'?s? (?:Ford )?Escape\b/i, /John (?:A\. )?Doe,? (?:the )?(?:rear|back)[- ]seat/i
+];
+for (const [id, t] of Object.entries(text)) {
+  const flat = t.replace(/\s+/g, " ");
+  NOT_DRIVER.forEach(re => { const m = flat.match(re); if (m) fails.push(`${id}: “${m[0]}”: John Doe was the Escape's front-seat passenger, never a driver`); });
+}
+if (text.RS07 !== undefined && !has("RS07", /front[- ]seat passenger|front passenger/i)) fails.push("RS07: the Police Report should place John Doe in the Escape's front passenger seat");
+const NOT_OWNER = [
+  /\b(?:John(?: A\.)?|client'?s|plaintiff'?s) (?:own |parked )?(?:2019 )?(?:Honda )?Civic\b/i, /\bhis (?:own |parked )?(?:2019 )?(?:Honda )?Civic\b/i,
+  /\bowner:? John (?:A\. )?Doe\b/i, /\bDOE, John\b[^.]{0,40}\bCivic\b/i, /\b(?:Owner \/ claimant|Renter|Releasor)[^.:]{0,20}:? ?John (?:A\. )?Doe\b/i,
+  /\bJohn (?:A\. )?Doe'?s? rental\b/i, /\bhis rental\b/i, /\bdamage to his property\b/i, /\bPlaintiff'?s property[- ]damage\b/i
+];
+for (const [id, t] of Object.entries(text)) {
+  const flat = t.replace(/\s+/g, " ");
+  NOT_OWNER.forEach(re => { const m = flat.match(re); if (m) fails.push(`${id}: “${m[0]}”: the Civic is Margaret Doe's; John Doe has no property-damage or rental claim`); });
+}
+if (text.RS07 !== undefined && !has("RS07", /DOE, Margaret/)) fails.push("RS07: the Police Report should list Margaret Doe as the parked Civic's owner");
 
 console.log(`Audited ${Object.keys(text).length} of ${DOCS.length} documents.`);
 warn.forEach(w => console.log("warn: " + w));

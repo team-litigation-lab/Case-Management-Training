@@ -475,7 +475,7 @@
       "who": "Leah Moran",
       "role": "adjuster",
       "persona": "Cheerful, efficient PD adjuster closing files before year-end; calls the formula “company standard”; wants a yes today.",
-      "context": "12/10/2026. KM-26-440871-PD, John Doe's 2019 Honda Civic LX: repair $9,255.00; ACV $17,600.00. Keystone offers $792.00 Diminished Value (10% × $17,600.00 × 0.75 × 0.60) and $0 Loss of Use (claimed 48 days × $42.00 = $2,016.00). Independent appraisal: $3,600.00 (05/06/2026). Her emailed release covers “all claims arising from the 02/06/2026 accident.” She asks whether John will take it and insists it is final.",
+      "context": "12/10/2026. KM-26-440871-PD, Margaret Doe's 2019 Honda Civic LX: repair $9,255.00; ACV $17,600.00. Keystone offers $792.00 Diminished Value (10% × $17,600.00 × 0.75 × 0.60) and $0 Loss of Use (claimed 48 days × $42.00 = $2,016.00). Independent appraisal: $3,600.00 (05/06/2026). Her emailed release covers “all claims arising from the 02/06/2026 accident.” She asks whether John will take it and insists it is final.",
       "opening": "Hi, Leah Moran with Keystone, Property Damage, following up my email. Seven ninety-two on the Diminished Value is final. Will Mr. Doe sign so I can get his check out before the holidays?",
       "goals": [
         "Tell her the offer is with Atty. Thorne; nothing accepted or rejected",

@@ -182,6 +182,30 @@ Object.keys(LEGACY).forEach(k => {
     errors.push(`${k} "${LEGACY[k].h}" is planned for Case Flow Day ${[...new Set(targets)].join(" and ")}, which is written, but no block uses it`);
 });
 
+// Foundational lessons before practice: in every phase the lessons all come before the first Skill Activity (the
+// Practice Lab opens after the lessons), and every Skill Activity is preceded, in teaching order, by a lesson of its
+// own module or by the lessons its `prereq` names. No trainee lands in a lab or simulator untaught.
+if(Array.isArray(CF.sequence)){
+  const of = {}; CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { of[b.id] = {b, mod: m.id}; })));
+  const taught = new Set(), lessonsSeen = new Set();
+  CF.sequence.forEach(sd => (sd.phases || []).forEach(ph => {
+    let lab = false;
+    (ph.blocks || []).forEach(id => {
+      const x = of[id]; if(!x) return;
+      if(x.b.kind === "lesson"){
+        if(lab) errors.push(`Day ${sd.n}: lesson ${id} comes after the Practice Lab has opened (lessons first, then practice)`);
+        taught.add(x.mod); lessonsSeen.add(id);
+      }
+      if(x.b.kind === "activity"){
+        lab = true;
+        const pre = [].concat(x.b.prereq || []);
+        if(pre.length ? !pre.every(l => lessonsSeen.has(l)) : !taught.has(x.mod))
+          errors.push(`Day ${sd.n}: activity ${id} has no lesson before it (${pre.length ? "prereq " + pre.join(", ") : "none of module " + x.mod})`);
+      }
+    });
+  }));
+}
+
 if(errors.length){
   console.error("Case Flow curriculum check failed:\n" + errors.map(e => "  • " + e).join("\n"));
   process.exit(1);

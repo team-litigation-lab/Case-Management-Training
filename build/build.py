@@ -260,13 +260,15 @@ s = re.sub(r'<script src="/js/blueprint-content\.js\?v=[^"]*"></script>', '<scri
 # graded-calls moves down beside the dashboard band; lsh-dashboard and show-password are CM-only.
 # EA/PA's Orientation script is EA/PA's own; this course has none (every blueprint is on the Main Portal).
 rep('<script src="/js/graded-calls.js?v=1"></script>\n', "")
+# EA/PA's port of this course's ⧉ side-by-side frame: the course has its own (cm-updates.js), so not loaded here
+s = re.sub(r'<script src="/js/eapa-toolframe\.js\?v=[^"]*"></script>\n?', '', s)
 s = re.sub(r'<script src="/js/eapa-orientation\.js\?v=[^"]*"></script>\n?', "", s)
 rep('<script src="/js/lsh-card-frame.js?v=3"></script>', tags(
     "lsh-dashboard.js?v=4", "graded-calls.js?v=1",
     # The 5-Day Case Management Flow (John Doe v. Robert Smith): after graded-calls.js, because its
     # dashboard wrapper must run on the finished page, and after cm-skillbuilders.js, whose
     # renderLessonCard it wraps.
-    "cm-case-flow-docs.js?v=10", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=18", "cm-case-flow-scripts.js?v=9", "cm-case-flow-sim.js?v=11", "cm-case-flow-exhibits.js?v=1", "cm-case-flow-data.js?v=23", "cm-case-dates.js?v=5", "cm-case-flow.js?v=53",
+    "cm-case-flow-docs.js?v=16", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=23", "cm-case-flow-scripts.js?v=15", "cm-case-flow-sim.js?v=14", "cm-case-flow-exhibits.js?v=1", "cm-case-flow-data.js?v=29", "cm-case-dates.js?v=5", "cm-case-flow.js?v=55",
     "show-password.js?v=1", "lsh-card-frame.js?v=3"))
 
 # Training tools open signed in (js/lsh-tool-links.js, the same file in every LSH course repo: CMS

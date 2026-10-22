@@ -3,22 +3,22 @@
     "d4m3-a1": {
       "title": "Section Audit — the Mediation Binder as drafted",
       "kicker": "Audit all six sections before Atty. Thorne approves delivery.",
-      "source": "RS64",
-      "reveal": "RS65",
+      "source": "RS62",
+      "reveal": "RS68",
       "due": "03/11/2027",
-      "intro": "Atty. Grant Mercer says Keystone will not put a real number on the table while the medical ledger is unverified, and on this draft he is right: it was built from the providers' original bills. Two landmines are in the numbers; the rest are in what the set carries and what it leaves out.",
+      "intro": "The Litigation Desk assembled the binder on 03/02/2027 from the providers' original bills, and Atty. Grant Mercer says Keystone will not put a real number on the table while the medical ledger is unverified. On this draft he is right. Work the six sections.",
       "columns": {
         "ref": "Section",
-        "as": "As drafted"
+        "as": "As assembled"
       },
       "items": [
         {
           "ref": "§1",
-          "what": "Case snapshot sheet",
-          "as": "Parties, counsel and mediator only; no start time, location or video link, and no fee split.",
+          "what": "Snapshot sheet",
+          "as": "Parties, counsel and the session date; start time and location \"to be confirmed\"; mediator's fee \"split 50/50 (assumed)\".",
           "verdict": "replace",
           "kind": "gap",
-          "issue": "On the morning of 03/18/2027 nobody can tell from the binder where to be, when, or who pays the mediator. Atty. Mercer's contact was copied from the answer of 11/12/2026 and has not been verified since.",
+          "issue": "On the morning of 03/18/2027 nobody can tell from the binder where to be or when. And a fee split the firm never agreed to is a bill it did not expect: the order says how the mediator is paid.",
           "fix": "Take the start time, location and the carrier's video link from the mediator's confirmation and the fee split from the mediation order; verify every contact and date it.",
           "proof": [
             "RS57"
@@ -26,38 +26,38 @@
         },
         {
           "ref": "§2",
-          "what": "Confidential mediation statement",
-          "as": "Nine pages, unmarked, with three copies tabbed for the mediator, defense counsel and the carrier.",
-          "verdict": "replace",
+          "what": "Confidential Mediation Statement",
+          "as": "Draft 1, eight pages, in the binder; not yet routed to Atty. Thorne.",
+          "verdict": "flag",
           "kind": "privilege",
-          "issue": "A confidential statement is for the mediator alone. Three tabbed copies hand our position, our concessions and our read of the gap straight to Atty. Mercer and to Keystone, and it cannot be undone.",
-          "fix": "Mark every page for the mediator only, cut it to one copy, route it to Atty. Thorne for approval, and calendar its delivery with the binder.",
+          "issue": "It is our own position and our own concessions, for the mediator alone. A draft of it going out, or going out unapproved, is not the Case Manager's call to make either way.",
+          "fix": "Route it to Atty. Thorne for approval, mark every page for the mediator only, keep it to one copy, and calendar its delivery with the binder.",
           "proof": [
             "RS57"
           ]
         },
         {
-          "ref": "§2",
-          "what": "Master Case Summary (internal)",
-          "as": "Four pages of Atty. Thorne's internal summary, filed behind the statement \"for context\".",
-          "verdict": "pull",
-          "kind": "privilege",
-          "issue": "It sets out our own gap risk, our own valuation and our internal dates. In a binder that three other people will hold, it is the single most damaging page in the set.",
-          "fix": "Pull it to the attorney's set and tell Atty. Thorne it was in the draft. It never goes in a Demand Package, a Mediation Binder or an exhibit set.",
+          "ref": "§3",
+          "what": "The Complaint",
+          "as": "The pre-filing draft: unsigned, no case number, the Property Damage counts missing.",
+          "verdict": "replace",
+          "kind": "loophole",
+          "issue": "A superseded draft is not the operative pleading, and it leaves out counts that are actually in suit. In front of the mediator it invites an argument about what was pleaded at all.",
+          "fix": "Replace it with the Complaint filed 09/24/2026, No. 26-CV-04417, and take the draft out of the binder set entirely.",
           "proof": [
-            "RS04"
+            "RS50",
+            "RS51"
           ]
         },
         {
           "ref": "§3",
-          "what": "The Complaint",
-          "as": "The pre-filing draft: unsigned, no case number, Property Damage not pleaded.",
-          "verdict": "replace",
-          "kind": "loophole",
-          "issue": "A superseded draft is not the operative pleading. It also omits the Property Damage count, so the binder understates what is actually in suit and invites an argument about what was pleaded at all.",
-          "fix": "Replace it with the Complaint filed 09/24/2026, No. 26-CV-04417, and take the draft out of the binder set entirely.",
+          "what": "Answer & Affirmative Defenses, 11/12/2026",
+          "as": "The served copy, with the Complaint, as exhibits M-3 and M-4.",
+          "verdict": "keep",
+          "kind": "gap",
+          "issue": "The operative answer is what the mediator needs: it is the list of everything the other side intends to argue, and this file can answer all of it.",
+          "fix": "Confirm it is the served copy, and that every allegation in it appears in the defense map below.",
           "proof": [
-            "RS50",
             "RS51"
           ]
         },
@@ -67,7 +67,7 @@
           "as": "Not in the set. The pleaded allegations sit in the answer with nothing opposite them.",
           "verdict": "add",
           "kind": "gap",
-          "issue": "Every allegation in the answer of 11/12/2026 is already answerable from documents on this file. Without the map the mediator hears each one answered by a sentence instead of a page, and Atty. Thorne has to find the exhibit himself.",
+          "issue": "Every allegation in the answer is already answerable from documents on this file. Without the map the mediator hears each one answered by a sentence instead of a page, and Atty. Thorne has to find the exhibit himself.",
           "fix": "Add the map: each pleaded allegation against the exhibit that answers it, by exhibit number. Flag the two legal questions for Atty. Thorne rather than answering them.",
           "proof": [
             "RS51",
@@ -77,62 +77,75 @@
         },
         {
           "ref": "§4",
+          "what": "Police Report RPD-26-018842 and Ruth Calloway's statement",
+          "as": "Exhibits M-5 and M-6, the certified report and the signed scene statement.",
+          "verdict": "keep",
+          "kind": "gap",
+          "issue": "The citation and an independent witness who signed at the scene: the answer to the out-of-turn allegation, in the operative copies.",
+          "fix": "Confirm the report is the certified copy and the witness signature and date are legible, and seat both against the out-of-turn allegation in the defense map.",
+          "proof": [
+            "RS07",
+            "RS08"
+          ]
+        },
+        {
+          "ref": "§4",
           "what": "Doorbell-camera stills",
-          "as": "Four stills, grayscale export of the 02/19/2026 working copy.",
+          "as": "Filed with the liability exhibits; the stills on this file are the grayscale export of the 02/19/2026 working copy.",
           "verdict": "replace",
           "kind": "qc",
-          "issue": "The same grayscale export that failed QC in the Demand Package. It is the exhibit that answers \"the Escape entered out of turn\", and in grayscale the stop line is hard to read.",
-          "fix": "Re-export the stills in color from the native file, hash unchanged, and enclose the preservation and chain-of-custody log.",
+          "issue": "The clearest liability proof on the file, and in grayscale the stop line is hard to read. An exhibit the mediator cannot see is an exhibit that argues nothing.",
+          "fix": "Re-export the stills in color from the native file, hash unchanged, and enclose the preservation and chain-of-custody log with them.",
           "proof": [
             "RS09"
           ]
         },
         {
           "ref": "§4",
-          "what": "Riverton Fire EMS Run Report and the event data recorder",
-          "as": "Certified Run Report, and the vendor's download with its chain of custody attached.",
+          "what": "Keystone correspondence",
+          "as": "The carrier's letters, February to April 2026, as exhibits M-7 to M-9.",
           "verdict": "keep",
           "kind": "gap",
-          "issue": "Together they answer the unbelted defense with data rather than testimony: \"restrained front-seat passenger\" on the date of loss, and the belt buckled at 11 mph.",
-          "fix": "Confirm each chain of custody travels with its record, and that both are paired against the unbelted allegation in the defense map.",
-          "proof": [
-            "RS11"
-          ]
-        },
-        {
-          "ref": "§4",
-          "what": "Keystone's acceptance of Property Damage liability and the deposition summary",
-          "as": "Neither is in the set.",
-          "verdict": "add",
-          "kind": "gap",
-          "issue": "Keystone accepted Property Damage liability in writing on 02/17/2026, and John Doe was deposed on 02/18/2027 with the certified transcript already on the file. The binder goes into the room without either.",
-          "fix": "Add the 02/17/2026 letter behind §4, and a deposition summary with the transcript pages on the gap, the April break, the 2021 visits and the seatbelt. Its weight is Atty. Thorne's call.",
+          "issue": "Among them is Keystone's acceptance of Property Damage liability on 02/17/2026, and the rental cutoff that begins the April disruption. Both are the carrier's own writing.",
+          "fix": "Confirm the 02/17/2026 letter and the rental cutoff are in the set; what weight the liability acceptance carries is Atty. Thorne's call, not the binder's.",
           "proof": [
             "RS32"
           ]
         },
         {
-          "ref": "§5",
-          "what": "The medical ledger",
-          "as": "Typed from the bills in the file: Riverton Spine & Rehab $6,290.00, total $16,586.40.",
-          "verdict": "replace",
-          "kind": "arithmetic",
-          "issue": "The Demand Package served 07/20/2026 put the same damages at $16,401.40. Two numbers for one file is exactly the unverified ledger Atty. Mercer named, and the difference is the 05/04/2026 duplicate.",
-          "fix": "Rebuild the ledger line by line from the certified bills in hand: 33 visits × $185.00 = $6,105.00, medical $14,817.40 plus wages $1,584.00 = $16,401.40.",
+          "ref": "§4",
+          "what": "The 02/18/2027 deposition summary",
+          "as": "The desk note says the transcript is received and the summary is not yet added.",
+          "verdict": "add",
+          "kind": "gap",
+          "issue": "The one record of what John Doe said under oath about the gap, the April break, the 2021 visits and the seatbelt, and it is not in the room.",
+          "fix": "Add a summary with the certified transcript pages on each of those four points, marked in the index so Atty. Thorne can reach any of them in seconds.",
           "proof": [
-            "RS23",
-            "RS14",
             "RS62"
           ]
         },
         {
           "ref": "§5",
+          "what": "The medical ledger",
+          "as": "Assembled from the providers' original bills: Riverton Spine & Rehab 34 lines at $6,290.00, medical total $15,002.40.",
+          "verdict": "replace",
+          "kind": "arithmetic",
+          "issue": "The Demand Package served 07/20/2026 put the medical specials at $14,817.40. Two numbers for one file is exactly the unverified ledger Atty. Mercer named, and the difference is the 05/04/2026 duplicate.",
+          "fix": "Rebuild the ledger line by line from the certified bills in hand: 33 attended visits × $185.00 = $6,105.00, medical $14,817.40, with wages $1,584.00 the same $16,401.40 that was served.",
+          "proof": [
+            "RS23",
+            "RS14",
+            "RS66"
+          ]
+        },
+        {
+          "ref": "§5",
           "what": "Crescent Pain & Spine",
-          "as": "Shown as a $3,400.00 open balance, and again as a $3,400.00 lien in the lien summary.",
+          "as": "Shown at $3,400.00, status \"open balance\", and listed to the mediator among the open balances.",
           "verdict": "replace",
           "kind": "loophole",
-          "issue": "Peach State paid Crescent $1,860.00 at the contract rate and the provider cannot bill the member the adjustment. Carried into the binder it concedes $3,400.00 that nobody is owed, straight out of John Doe's net.",
-          "fix": "Show the charge satisfied by the plan's contract payment, proved by Peach State's EOB and the corrected $0.00 statement; open liens are Peach State $1,860.00 plus Riverton Spine & Rehab $6,105.00 = $7,965.00.",
+          "issue": "Peach State paid Crescent $1,860.00 at the contract rate and the in-network provider cannot bill the member the adjustment. Carried into the binder it concedes $3,400.00 that nobody is owed, out of John Doe's net.",
+          "fix": "Show the charge satisfied by the plan's contract payment, proved by Peach State's EOB and the corrected $0.00 statement; the open claims are Peach State $1,860.00 and Riverton Spine & Rehab $6,105.00 = $7,965.00.",
           "proof": [
             "RS26",
             "RS41"
@@ -141,69 +154,70 @@
         {
           "ref": "§5",
           "what": "Riverton Spine & Rehab's Final Itemized Ledger",
-          "as": "Requested 02/08/2027, chased 02/22, red-flagged 03/01; still outstanding, and the line is not marked.",
+          "as": "Not in hand. The line is carried at the billed figure with nothing said about it.",
           "verdict": "flag",
           "kind": "gap",
-          "issue": "An unqualified figure for a record we do not yet hold is how a ledger becomes unverifiable. The chase is the Case Manager's; whether to go further than a second request is not.",
+          "issue": "An unqualified figure for a record we do not yet hold is how a ledger becomes unverifiable a second time. The chase is the Case Manager's; going further than a second request is not.",
           "fix": "Mark the line \"Pending Final Verification\", keep chasing the certified ledger, and put the subpoena question to Atty. Thorne with the request history.",
           "proof": [
             "RS23",
-            "RS64"
-          ]
-        },
-        {
-          "ref": "§5",
-          "what": "Property Damage",
-          "as": "Loss of Use and Diminished Value folded into the same damages ledger.",
-          "verdict": "pull",
-          "kind": "loophole",
-          "issue": "Property Damage sits outside the $40,000 stack and is contested separately. Mixed into the bodily injury ledger it inflates the Specials and lets the carrier attack the whole ledger through the Diminished Value dispute.",
-          "fix": "Set Property Damage out in its own schedule: Loss of Use 48 days × $42.00 = $2,016.00; Diminished Value $3,600.00 on the appraisal against Keystone's $792.00.",
-          "proof": [
             "RS62"
           ]
         },
         {
           "ref": "§5",
           "what": "Northgate wage-and-attendance letter",
-          "as": "Signed original of 06/30/2026, with the 02/09–02/13/2026 call-out record attached.",
+          "as": "The signed original of 06/30/2026, with the medical ledger and the Causation Letter.",
           "verdict": "keep",
           "kind": "gap",
           "issue": "It proves the $1,584.00 wage claim and, separately, that John Doe was calling out of work with neck pain before he ever saw a provider.",
-          "fix": "Confirm the call-out record stays attached to it, so the wage proof and the gap corroboration are read together.",
+          "fix": "Confirm the 02/09–02/13/2026 call-out record stays attached to it, so the wage proof and the gap corroboration are read together.",
           "proof": [
             "RS43"
           ]
         },
         {
+          "ref": "§5",
+          "what": "Margaret Doe's Property Damage claim",
+          "as": "Nowhere in the binder, though the filed Complaint pleads its counts.",
+          "verdict": "add",
+          "kind": "gap",
+          "issue": "A pleaded count the mediator never sees. And once it is added, it has to sit apart: Loss of Use and Diminished Value are not John Doe's bodily injury specials and must never drift into that ledger.",
+          "fix": "Add it as its own schedule, marked as Margaret Doe's claim and outside the $40,000 stack: Loss of Use 48 days × $42.00 = $2,016.00, Diminished Value $3,600.00 against Keystone's $792.00.",
+          "proof": [
+            "RS51",
+            "RS46"
+          ]
+        },
+        {
           "ref": "§6",
-          "what": "Keystone's offer letter of 08/05/2026",
-          "as": "The adjuster's own letter with her stated reasons for $3,500.",
+          "what": "Negotiation Log",
+          "as": "The demand of 07/20/2026 through the suit filed 09/24/2026, with each offer and its date.",
           "verdict": "keep",
           "kind": "gap",
-          "issue": "The carrier's reasons in its own words are what the mediator needs to see, and they are the reasons the record already answers.",
-          "fix": "Confirm it sits with the Negotiation Log so the offer and its answer are read together.",
+          "issue": "Without it nobody in the room is sure of Keystone's last number. With it, every attempt and every silence is dated.",
+          "fix": "Confirm it sits with Keystone's own offer letter of 08/05/2026, so the number and the reasons for it are read together.",
           "proof": [
             "RS35"
           ]
         },
         {
           "ref": "§6",
-          "what": "Negotiation Log, draft release and the UM consent requests",
-          "as": "None of the three is in the set.",
+          "what": "The draft release and the UM consent requests",
+          "as": "Neither is in Section 6.",
           "verdict": "add",
           "kind": "gap",
-          "issue": "Nobody in the room is sure of Keystone's last number, and if the file settles on the day there is no release to sign and no consent on the way to the UM carriers, so the money stops anyway.",
-          "fix": "Add the Negotiation Log from the 07/20/2026 demand to the suit filed 09/24/2026, the draft Limited Release of Robert Smith and Keystone only, and both drafted consent requests.",
+          "issue": "If the file settles on the day there is nothing to sign, and no consent on its way to Harbor Point or Cardinal State, so the money stops anyway.",
+          "fix": "Add the draft Limited Release of Robert Smith and Keystone only, and the drafted consent requests to both UM carriers. Atty. Thorne settles every term in them.",
           "proof": [
-            "RS62",
+            "RS66",
             "RS38"
           ]
         },
         {
           "ref": "—",
           "what": "The delivery date",
-          "as": "Diaried 03/31/2027, the date read off the Scheduling Order.",
+          "as": "Read off the Scheduling Order as 03/31/2027.",
           "verdict": "replace",
           "kind": "calendar",
           "issue": "03/31/2027 is the court's deadline for the mediation to be completed, not the session date. The session is 03/18/2027 and the mediator's confirmation requires the statement and binder seven days before, so 03/31 is twenty days too late.",
@@ -212,83 +226,87 @@
             "RS57",
             "RS55"
           ]
-        },
-        {
-          "ref": "—",
-          "what": "The master index",
-          "as": "No exhibit numbers, no Bates ranges; the printed binder is the only copy of the order.",
-          "verdict": "replace",
-          "kind": "qc",
-          "issue": "Without numbers and ranges nobody can be sent to a page, and a printed binder that is the only index cannot be corrected once three people hold copies.",
-          "fix": "Build the index in the CMS exhibit index, where it governs: every document in exactly one section with its number and Bates range, the PDF OCR-searchable and bookmarked.",
-          "proof": [
-            "RS64"
-          ]
         }
       ],
       "revealNote": "The Mediation Binder as Atty. Thorne approved it on 03/10/2027 and the firm delivered it on 03/11/2027: six sections, 141 pages, with the defense map and the rebuilt ledger. The arbitration exhibits and Day 5 both start from it.",
       "revealPoints": [
-        "Specials rebuilt to $16,401.40, the same figure the Demand Package served on 07/20/2026.",
+        "Medical specials rebuilt to $14,817.40, with wages the $16,401.40 that was served on 07/20/2026.",
         "Open liens $7,965.00: Peach State $1,860.00 and Riverton Spine & Rehab $6,105.00; Crescent $0.00.",
         "Riverton Spine & Rehab marked \"Pending Final Verification\" until its certified ledger arrives.",
         "All five pleaded allegations mapped to answering exhibits; two legal questions flagged, not answered.",
-        "Section 2 marked for the mediator only, one copy; the Master Case Summary withdrawn to the attorney's set.",
+        "Section 2 approved, marked for the mediator only, one copy; the deposition summary added at Section 4.",
         "Delivered 03/11/2027, seven days before the 03/18/2027 session; 03/31/2027 kept as the court's deadline."
       ]
     },
     "d4m3-a2": {
-      "title": "Sorting & QC Audit — the arbitration exhibit folder",
-      "kicker": "Sort into six tabs and apply each tab's QC rule as the record lands.",
-      "source": "RS66",
-      "reveal": "RS67",
+      "title": "Sorting & QC Audit — the arbitration exhibit index",
+      "kicker": "Apply each tab's QC rule before the 06/02/2027 exchange.",
+      "source": "RS63",
+      "reveal": "RS69",
       "due": "06/02/2027",
-      "intro": "Harbor Point and Cardinal State are on the other side of this hearing now, and the folder still holds everything the litigation sub-file collected. Decide for each record which tab it belongs in, or that it is withheld — and apply the QC as you sort, not after.",
+      "intro": "The Litigation Desk's index of 05/14/2027. Keystone tendered at the 03/18/2027 mediation and Robert Smith was dismissed; Harbor Point and Cardinal State now dispute damages and sit on the other side of this hearing. Work it exhibit by exhibit.",
       "columns": {
-        "ref": "Record",
-        "as": "As it came out of the sub-file"
+        "ref": "Ex.",
+        "as": "As assembled"
       },
       "items": [
         {
-          "ref": "#1–3",
-          "what": "BI tender, Limited Release and the dismissal of Robert Smith",
-          "as": "Keystone's 08/12/2026 tender, the release signed 03/18/2027, and the term sheet.",
+          "ref": "C-1",
+          "what": "Snapshot sheet and the arbitrator's fee disclosure",
+          "as": "Tab 1: the parties, the arbitrator and the hearing date, with the fee disclosure.",
           "verdict": "keep",
           "kind": "gap",
-          "issue": "UM opens only once the bodily injury layer is exhausted. These are the threshold exhibits, and they lead the set: nothing about damages matters until exhaustion is proved.",
-          "fix": "Place them at Tab 1 as the first exhibits, C-1 onward, with both Coverage Letters; hold the term sheet itself for Atty. Thorne's decision as a settlement document.",
+          "issue": "The sheet the hearing is run from. The fee disclosure belongs with it, and both carriers' claim numbers and contacts are on it.",
+          "fix": "Confirm each carrier's contact against the file and date the check, and hold a slot for the final brief, never a draft.",
           "proof": [
-            "RS36",
-            "RS38"
+            "RS58",
+            "RS28"
           ]
         },
         {
-          "ref": "#4",
-          "what": "Confidential Mediation Statement, 11 pages",
-          "as": "In the pile, still marked for the mediator only.",
+          "ref": "C-2",
+          "what": "Confidential Mediation Statement, 03/11/2027",
+          "as": "Tab 1, \"for background\", inside the exchange set.",
           "verdict": "pull",
           "kind": "privilege",
-          "issue": "It was delivered to the mediator alone, and the carriers it was written about are now the opposing parties. Exchanging it hands Harbor Point and Cardinal State our position and our concessions in our own words.",
+          "issue": "It was delivered to the mediator alone and marked for the mediator only, and it is about the very carriers that are now the opposing parties. Exchanging it hands Harbor Point and Cardinal State our position in our own words.",
           "fix": "Withhold it from the exchange set and record why. A document marked for the mediator does not travel to the next forum.",
           "proof": [
-            "RS65"
+            "RS57",
+            "RS62"
           ]
         },
         {
-          "ref": "#10",
-          "what": "Complaint — pre-filing draft",
-          "as": "Unsigned, no case number, Property Damage not pleaded.",
+          "ref": "C-3",
+          "what": "Complaint (pre-filing draft) and the Answer",
+          "as": "Tab 2, the superseded draft together with the served answer.",
           "verdict": "pull",
           "kind": "loophole",
-          "issue": "A superseded draft offered as a pleading is an invitation to argue about what was actually pleaded, in a forum where the tort case is no longer the claim at all.",
-          "fix": "Take it out of the set. The filed pleadings go to the attorney's set for Atty. Thorne's decision on whether the tort pleadings are exchanged here.",
+          "issue": "The draft is unsigned, carries no case number and omits pleaded counts. And the tort pleadings belong to a case that has been dismissed as to Robert Smith: whether they are exchanged here at all is not the Case Manager's call.",
+          "fix": "Take the draft out of the file set, move the filed pleadings to the attorney's set, and put the exchange question to Atty. Thorne.",
           "proof": [
-            "RS50"
+            "RS50",
+            "RS51"
           ]
         },
         {
-          "ref": "#12",
-          "what": "Riverton PD Traffic Crash Report",
-          "as": "Public redacted portal copy: witness and party identifiers blacked out.",
+          "ref": "—",
+          "what": "The threshold exhaustion record",
+          "as": "Not in the binder: no Keystone tender, no UM consents, no Limited Release, no order dismissing Robert Smith.",
+          "verdict": "add",
+          "kind": "gap",
+          "issue": "UM opens only once the bodily injury layer is exhausted. Without that record the arbitrator has no reason to reach the damages tabs at all, and both carriers can say so on the first morning.",
+          "fix": "Add them as the first exhibits of Tab 1, with both Coverage Letters: Keystone's 08/12/2026 tender, the UM consents of 08/24 and 08/26/2026, the Limited Release and the dismissal.",
+          "proof": [
+            "RS36",
+            "RS38",
+            "RS37"
+          ]
+        },
+        {
+          "ref": "C-4",
+          "what": "Police Report RPD-26-018842",
+          "as": "Tab 3, the public-redacted portal copy.",
           "verdict": "replace",
           "kind": "qc",
           "issue": "The redactions remove the independent witness and the citation — the two things the report is in the set to prove. Offered this way it proves almost nothing.",
@@ -298,111 +316,99 @@
           ]
         },
         {
-          "ref": "#13",
+          "ref": "C-5",
           "what": "Doorbell-camera stills",
-          "as": "Grayscale export, with the preservation log.",
+          "as": "Tab 3, grayscale photocopies.",
           "verdict": "replace",
           "kind": "qc",
-          "issue": "Third forum, same grayscale export. The carriers dispute damages, not liability, but the mechanism is what makes the injury credible, and an illegible still does not show it.",
+          "issue": "Third forum, same grayscale stills. These carriers dispute damages rather than liability, but the mechanism is what makes the injury credible, and a photocopy does not show it.",
           "fix": "Re-export in color from the native file, hash unchanged, and log the chain of custody with the exhibit.",
           "proof": [
             "RS09"
           ]
         },
         {
-          "ref": "#14",
-          "what": "Event data recorder download",
-          "as": "Vendor report with chain of custody attached.",
+          "ref": "C-6",
+          "what": "The medical ledger at $14,817.40",
+          "as": "Tab 4, with the records and bills, at the audited figure.",
           "verdict": "keep",
-          "kind": "gap",
-          "issue": "Belt buckled, 11 mph: objective data on the mechanism, with a foundation already logged. It belongs in the liability tab as it stands.",
-          "fix": "Log its authentication in the exhibit index with the rest of Tab 3, and keep the vendor's chain of custody with it.",
+          "kind": "arithmetic",
+          "issue": "This is the figure the Demand Package served and the Mediation Binder was rebuilt to: 33 attended visits, the 05/04/2026 duplicate out. It ties.",
+          "fix": "Confirm every line still ties to the bill behind it, and that Riverton Spine & Rehab's certified Final Itemized Ledger is the copy in the set.",
           "proof": [
-            "RS66",
-            "RS11"
+            "RS23",
+            "RS14"
           ]
         },
         {
-          "ref": "#17",
-          "what": "Provider bills and records, six providers",
-          "as": "As received from portals and mailings; no certification from any provider, and none requested.",
-          "verdict": "replace",
+          "ref": "C-6",
+          "what": "Provider certifications",
+          "as": "None requested from any provider or record-holder.",
+          "verdict": "add",
           "kind": "gap",
-          "issue": "An uncertified record is a record a carrier can object to, and the whole $14,817.40 ledger rests on them. Thirty-six days before the exchange, nothing has been asked for.",
+          "issue": "An uncertified record is a record a carrier can object to, and the whole ledger rests on them. Nineteen days before the exchange, nothing has been asked for.",
           "fix": "Request a certification from every provider and from Riverton Fire, Riverton PD and Northgate HR, and log each receipt. Nothing back in 14 days means a second request and a subpoena flag for Atty. Thorne.",
           "proof": [
-            "RS66"
+            "RS63"
           ]
         },
         {
-          "ref": "#18",
-          "what": "Dr. Reyes — Causation Letter",
-          "as": "Signed original of 06/19/2026, silent on the 2021 low-back visits.",
+          "ref": "C-7",
+          "what": "MRI report and the Causation Letter",
+          "as": "Tab 5, Dr. Park's read of 03/13/2026 and Dr. Reyes's letter of 06/19/2026.",
           "verdict": "flag",
           "kind": "gap",
-          "issue": "Defense counsel pressed the prior-injury line at the 02/18/2027 deposition, and these carriers are citing the gap. The letter answers the gap and the degenerative reading, but says nothing about 2021.",
-          "fix": "Pair it with the 2021 records, the providers' own histories and the deposition testimony, and flag to Atty. Thorne whether to seek a supplemental declaration from Dr. Reyes. That is his decision, not the Case Manager's.",
+          "issue": "Together they answer the gap and the \"degenerative\" reading. Neither says anything about the 2021 low-back visits, which is the line defence counsel pressed at the 02/18/2027 deposition.",
+          "fix": "Pair them with the 2021 records and the deposition testimony, and flag to Atty. Thorne whether to seek a supplemental declaration from Dr. Reyes. That is his decision, not the Case Manager's.",
           "proof": [
             "RS19",
-            "RS20"
+            "RS16"
           ]
         },
         {
-          "ref": "#21",
-          "what": "LSH intake questionnaire in the client's hand",
-          "as": "The firm's own intake form, completed 02/09/2026.",
-          "verdict": "pull",
-          "kind": "privilege",
-          "issue": "It is a source the firm works from, not evidence, and it carries the client's own rough first account — including the prior-history note our file had to correct. Exchanged, it becomes an impeachment exhibit against him.",
-          "fix": "Withhold it. The records it pointed us to are the exhibits; the questionnaire itself stays in the file.",
+          "ref": "—",
+          "what": "The 2021 chiropractic records",
+          "as": "Not in the binder at all.",
+          "verdict": "add",
+          "kind": "gap",
+          "issue": "The prior-injury line is answered by what the 2021 records actually say — three visits, low back only, resolved, no cervical complaint. Asserting it without them leaves the carriers' version standing.",
+          "fix": "Add them at Tab 5 with the treating providers' own histories, so the damaging record and the record that answers it are read together.",
           "proof": [
-            "RS01",
+            "RS20",
             "RS02"
           ]
         },
         {
-          "ref": "#22",
-          "what": "John Doe's deposition transcript",
-          "as": "Certified by the reporter, 02/18/2027.",
-          "verdict": "keep",
-          "kind": "gap",
-          "issue": "Certified sworn testimony that he had no prior neck complaint: the human half of the prior medical shield, alongside the 2021 records.",
-          "fix": "Place it at Tab 5 with the pages on the gap, the April break, the 2021 visits and the seatbelt marked in the index.",
+          "ref": "C-8",
+          "what": "Northgate wage letter and the impasse memorandum",
+          "as": "Tab 6, the employer's letter filed together with the internal memo to Atty. Thorne.",
+          "verdict": "pull",
+          "kind": "privilege",
+          "issue": "The memo is work product and a record of settlement communications. Filed because it explains the history, it puts our strategy and every number we discussed in front of the carriers.",
+          "fix": "Pull the memo to the attorney's set for Atty. Thorne's privilege decision and leave Tab 6 to wage proof alone. Nothing is exchanged, and nothing withheld, on the Case Manager's own decision.",
           "proof": [
-            "RS66"
+            "RS63"
           ]
         },
         {
-          "ref": "#23",
-          "what": "Northgate wage-and-attendance letter",
-          "as": "Signed original of 06/30/2026.",
+          "ref": "C-8",
+          "what": "The wage proof itself",
+          "as": "Northgate's signed letter of 06/30/2026.",
           "verdict": "keep",
           "kind": "gap",
           "issue": "Nine shifts × 8 hours × $22.00 = $1,584.00, proved by the employer. Tab 6 takes wage proof and nothing else.",
-          "fix": "Place it alone at Tab 6, with the 02/09–02/13/2026 call-out record attached to it.",
+          "fix": "Leave it at Tab 6 on its own, with the 02/09–02/13/2026 call-out record attached to it.",
           "proof": [
             "RS43"
           ]
         },
         {
-          "ref": "#24",
-          "what": "Impasse memorandum and the Negotiation Log",
-          "as": "Internal memorandum of 09/08/2026 setting out our own strategy, with the log of every offer.",
-          "verdict": "flag",
-          "kind": "privilege",
-          "issue": "Work product and a record of settlement communications. A trainee who files it because it explains the history has put our strategy, and every number we discussed, in front of the carriers.",
-          "fix": "Hold both in the attorney's set and put the privilege and exchange question to Atty. Thorne. Nothing is exchanged, and nothing is withheld, on the Case Manager's own decision.",
-          "proof": [
-            "RS66"
-          ]
-        },
-        {
-          "ref": "Lien",
-          "what": "Harbor Point MedPay, $5,000.00",
-          "as": "Listed on the attorney's-set Lien Sheet because MedPay paid $5,000.00 of the bills.",
+          "ref": "C-9",
+          "what": "Lien Sheet — Harbor Point MedPay, $5,000.00",
+          "as": "Listed as a lien because MedPay paid $5,000.00 of the bills.",
           "verdict": "pull",
           "kind": "loophole",
-          "issue": "Harbor Point gave up any reimbursement right in writing on 03/02/2026, and it is the carrier on the other side of this hearing. Working John Doe's net from a lien it does not hold costs him $5,000.00 it would never have asked for.",
+          "issue": "Harbor Point gave up any reimbursement right in writing on 03/02/2026, and it is the carrier on the other side of this hearing. Working John Doe's net from a lien it does not hold costs him $5,000.00 nobody would have asked for.",
           "fix": "Strike it, citing the 03/02/2026 letter in the threshold record. MedPay paying a bill does not create a lien.",
           "proof": [
             "RS28",
@@ -410,53 +416,52 @@
           ]
         },
         {
-          "ref": "Lien",
-          "what": "Summit Imaging Center, $2,395.00",
-          "as": "Listed at its invoice amount.",
-          "verdict": "pull",
-          "kind": "loophole",
-          "issue": "MedPay paid Summit's invoice in full on 03/25/2026. The provider has no claim left to assert, so the line is $2,395.00 of John Doe's recovery given away to nobody.",
-          "fix": "Strike it against the MedPay payment ledger. A bill that appears in the Specials is not a lien unless someone is still owed it.",
+          "ref": "C-9",
+          "what": "Lien Sheet — Peach State and Riverton Spine & Rehab",
+          "as": "Peach State $1,860.00 and Riverton Spine & Rehab $6,105.00.",
+          "verdict": "keep",
+          "kind": "arithmetic",
+          "issue": "Both are right: the plan's itemized reimbursement claim, and the LOP account at the audited 33 visits. Together they are the $7,965.00 the net is actually worked from.",
+          "fix": "Confirm Crescent and Summit Imaging are shown at $0.00 as well, and reconcile the sheet to $7,965.00 before it goes to Atty. Thorne.",
           "proof": [
-            "RS25",
-            "RS31"
+            "RS41",
+            "RS25"
           ]
         },
         {
-          "ref": "Lien",
-          "what": "Riverton Spine & Rehab, $6,290.00",
-          "as": "Listed from the itemized ledger as received, 34 lines.",
-          "verdict": "replace",
-          "kind": "arithmetic",
-          "issue": "The same 05/04/2026 duplicate, now inside the figure the attorney would negotiate the client's net from. Audited liens are $1,860.00 plus $6,105.00 = $7,965.00, not the $15,545.00 the sheet shows.",
-          "fix": "Correct it to $6,105.00 against the Final Itemized Ledger and the attendance log, and reconcile the sheet to $7,965.00 before it goes to Atty. Thorne.",
+          "ref": "—",
+          "what": "The authentication log",
+          "as": "Not started. No exhibit records how it would be authenticated.",
+          "verdict": "add",
+          "kind": "qc",
+          "issue": "A record with no logged foundation is one the carriers can object to before it is read, and at a hearing that is the same as not having it.",
+          "fix": "Complete the column for every exhibit before the 06/02/2027 exchange, with the forum's evidence rule noted as a question for Atty. Thorne.",
           "proof": [
-            "RS23",
-            "RS14"
+            "RS63"
           ]
         },
         {
           "ref": "—",
           "what": "The arbitration brief's due date",
-          "as": "Diaried 06/12/2027, ten days before the hearing.",
+          "as": "Docketed 06/12/2027, ten days before the hearing.",
           "verdict": "replace",
           "kind": "calendar",
           "issue": "Ten days before the hearing lands on a Saturday. A brief diaried for a day the forum is not open is a brief filed late, in the one filing that frames the whole hearing.",
-          "fix": "Count backward and docket the earlier business day, 06/11/2027, as configured for this training file; confirm the forum's rules with Atty. Thorne. Hold the Tab 1 slot for the final brief, never a draft.",
+          "fix": "Count backward and docket the earlier business day, 06/11/2027, as configured for this training file; confirm the forum's rules with Atty. Thorne.",
           "proof": [
             "RS58"
           ]
         },
         {
           "ref": "—",
-          "what": "Exhibit numbering and the authentication log",
-          "as": "The folder is unsorted and unnumbered: no C-numbers, no Bates ranges, no authentication column.",
-          "verdict": "add",
-          "kind": "qc",
-          "issue": "At the hearing an exhibit nobody can cite is an exhibit nobody uses, and a record with no logged foundation is one the carriers can object to before it is read.",
-          "fix": "Number C-1 onward in the order the tabs run, give each exhibit its Bates range matching its page count, and complete the authentication column before the 06/02/2027 exchange.",
+          "what": "The exchange date",
+          "as": "06/02/2027, twenty days before the hearing, as the notice sets it.",
+          "verdict": "keep",
+          "kind": "calendar",
+          "issue": "This one is right, and it is the date every fix above has to be finished by. Everything in the set is approved before it, or it is not exchanged.",
+          "fix": "Keep it, and work backward from it: the certifications, the colour stills and the certified report all have to land before it.",
           "proof": [
-            "RS66"
+            "RS58"
           ]
         }
       ],
@@ -465,7 +470,7 @@
         "Threshold exhibits lead: the BI tender, both UM consents, the Limited Release and the dismissal.",
         "Every record certified and authenticated; Crescent's certification chased with a subpoena flag.",
         "Tab 5 pairs the 2021 low-back records and the deposition testimony with the MRI read and the Causation Letter.",
-        "Lien Sheet audited from $15,545.00 to $7,965.00: MedPay, Summit and Crescent all at $0.00.",
+        "Lien Sheet audited from $12,965.00 to $7,965.00: MedPay, Summit and Crescent all at $0.00.",
         "Brief docketed 06/11/2027; exchange 06/02/2027; hearing 06/22/2027.",
         "Six items withheld on Atty. Thorne's recorded decision, each with its reason on the file."
       ]

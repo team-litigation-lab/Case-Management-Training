@@ -217,7 +217,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "Which of the three purposes do you think is the easiest one to forget?"
   },
   "summary": {
-   "say": "Now your Self-Summary, where you put the principles in your own words. Here's the scenario. It's 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits. Keystone ended his rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked John for a Recorded Statement. Tell me what you do first, second and third, and what each step protects. This one pulls it all together: the running SOL, a Treatment Gap that's hardening, and the claims work that has to keep moving anyway. Keep in mind, too, that the gap you're watching build here is the same 14 days defense counsel will ask John Doe about at his deposition on Day 5.",
+   "say": "Now your Self-Summary, where you put the principles in your own words. Here's the scenario. It's 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits. Keystone ended Margaret's rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked John for a Recorded Statement. Tell me what you do first, second and third, and what each step protects. This one pulls it all together: the running SOL, a Treatment Gap that's hardening, and the claims work that has to keep moving anyway. Keep in mind, too, that the gap you're watching build here is the same 14 days defense counsel will ask John Doe about at his deposition on Day 5.",
    "ask": "Of those three problems, which one protects the most if you deal with it first?"
   },
   "scale": {
@@ -314,6 +314,20 @@ window.CM_CF_SCRIPTS = {
   "check": {
    "say": "Quick self-check before you log it. Every direction has an owner, every task has a due date, and every task has a verification method recorded. Did you find the mis-assigned card, reassign it to the firm, and write down why? Is the treatment-start follow-up scheduled, with nothing left undated? Here's why that last one matters so much. The treatment follow-up is the hinge into Day 2. John Doe's gap becomes undeniable there, and this is the task that would have caught it. Use your tracker so a gap in care is visible the day it starts, and don't stop at tracking; confirm the work was done correctly.",
    "ask": "If his first appointment slipped, which of your tasks would tell you, and on what date?"
+  }
+ },
+ "d1m3-a3": {
+  "case": {
+   "say": "It's 02/11/2026. Leah Moran at Keystone PD has emailed the firm to confirm the claimant on the 2019 Honda Civic, so a rental can be set up once liability is decided, and ten minutes later John Doe calls. He needs a car for his first appointment, and he wants to know if that rental is his. It's a fair question, and the answer isn't in your memory or in his. It's in the file. Before anyone tells him yes or no, somebody has to work out whose car the Civic is and whose claim the rental belongs to.",
+   "ask": "Which document would you open first to answer him, and why that one?"
+  },
+  "task": {
+   "say": "Your task is an investigation. Use the Police Report, the Intake Sheet, the Intake Supplement and the CMS Intake Record. Establish where John Doe was in the collision, who owns the Civic, and who the claimant on the Civic is. Write it as a CMS Case Note that cites each document, decide whether John Doe has a Property Damage or rental claim of his own, and report it to Atty. Thorne the same day. Then take his call. Give him the fact, route the claim question to the attorney, and fix what he actually needs, which is a ride to treatment.",
+   "ask": "What will you say when he asks you to just book the rental in his name?"
+  },
+  "check": {
+   "say": "Check your work before you log it. Did you take his position, the owner and the claimant each from a named record, with the page? Did you write down the conclusion about his own claim in plain words? Did Atty. Thorne hear it today? And on the call, did you stay on facts and logistics, with nothing said about the claim's value, and did his ride to treatment get solved or escalated with a date?",
+   "ask": "If the owner calls next, what's yours to do and what isn't?"
   }
  },
  "d1m3-kc": {
@@ -533,7 +547,7 @@ window.CM_CF_SCRIPTS = {
   },
   "dodont": {
    "say": "Let's play 3 Clues, 1 Rule with coverages. Each round hides one of this lesson's Dos or Don'ts; clues come one at a time, and you call Do or Don't and name the rule. Three, two or one points, depending on how early you get it. Two facts to carry in. Summit Imaging: $2,395.00 paid by MedPay with nothing to repay, instead of a $2,395.00 LOP balance against John Doe's net. And Crescent: $3,400.00 billed, $1,860.00 paid by Peach State, $1,540.00 written off for good, so Peach State's claim can only start from what it paid. Remember, you route bills in the default order, but when two policies both claim to pay second, that's Atty. Thorne's call.",
-   "ask": "Why does John Doe reach $30,000 of UM at all, when his own policy has none?"
+   "ask": "Why does John Doe reach $30,000 of UM at all, when he has no auto policy of his own?"
   }
  },
  "d2m2-l1": {
@@ -602,6 +616,23 @@ window.CM_CF_SCRIPTS = {
    "ask": "When a provider asks whether they'll be paid in full, how do you answer them?"
   }
  },
+ "d2m2-lop": {
+  "why": {
+   "say": "John Doe needs chiropractic care next week, and nothing he has will pay for it. That's where a Letter of Protection comes in. In plain English, it's the firm's written promise to pay the provider's bill out of the settlement, so he can be treated now instead of waiting. It keeps care moving, and care that keeps moving keeps the file honest. But it isn't free money. It's a balance against his recovery, and he still owes it. So we track it from the day it's signed.",
+   "ask": "If the settlement came in lower than the bills, who would still owe the provider?"
+  },
+  "theory": {
+   "say": "Four ideas carry this lesson. A Letter of Protection is the firm's written promise to pay a provider from the settlement, so it's a claim against John Doe's recovery, not insurance. Payer-first means we check health insurance, MedPay and PIP before we ever reach for one. The LOP balance grows with every visit, so the itemized ledger every thirty days keeps the Liens tab honest. And referrals are options and logistics only: a list, the network status, the booking, and his choice.",
+   "ask": "Which of these four would you check first on a new provider bill?"
+  },
+  "rules": {
+   "say": "Here's how we handle it. First, an LOP is the last resort, so we check health insurance, MedPay and PIP before anything else and write down why none of them works. Second, it gets signed before the first visit and filed. Riverton's was signed on 02/23/2026. Third, we ask for the itemized ledger every thirty days and update the Liens tab, so the balance never surprises anyone. And when John Doe asks where to go, we give him options with the facts, book the one he picks, and log his choice in his own words.",
+   "ask": "Why does it matter that he picks the provider, and not us?"
+  },
+  "job": {
+   "say": "On the job it looks like this. When no payer covers the care, you document the payer check and route the LOP to Atty. Thorne to approve. When it's signed, you file it and set the recurring ledger task. And when John Doe asks where he should go, you hand him two or three options with their locations, hours and network status, disclose any relationship the firm has with them, and book his choice. What you never say is which one is better for his case. That's the line."
+  }
+ },
  "d2m2-l2": {
   "why": {
    "say": "Let me start with a date: 04/07/2026. Does anyone know what was due that day on John Doe's file? It was his week-6 mark of care. And John Doe wasn't there. Here's why that matters. On an LOP, nobody denies the next six visits in real time. Keystone does it later, at the demand, by calling the care unnecessary or the injury minor. That leaves you as the only real-time check that John Doe's plan is working, and the person who acts the very day it isn't.",
@@ -625,7 +656,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m2-a2": {
   "case": {
-   "say": "The clock starts at 04/08/2026, with this alert from Riverton Spine & Rehab on LOP account RSR-26-0412. Under the LOP dated 02/23/2026, John Doe missed 04/03 with no call, and he missed 04/07. His last visit was 04/02/2026. He told their front desk his rental ended and his ride's no longer available. He's booked 04/09 and 04/14 at 4:15 PM, but their 6:00 PM evening schedule is full until the week of 04/20, and he's on the wait list. They're asking you to contact your client. As you work, the file will keep moving, and I'll give you each update when you've earned it, not before.",
+   "say": "The clock starts at 04/08/2026, with this alert from Riverton Spine & Rehab on LOP account RSR-26-0412. Under the LOP dated 02/23/2026, John Doe missed 04/03 with no call, and he missed 04/07. His last visit was 04/02/2026. He told their front desk his mother's rental ended and his ride's no longer available. He's booked 04/09 and 04/14 at 4:15 PM, but their 6:00 PM evening schedule is full until the week of 04/20, and he's on the wait list. They're asking you to contact your client. As you work, the file will keep moving, and I'll give you each update when you've earned it, not before.",
    "ask": "What's the very first thing you'll do today, on 04/08/2026, with this alert in hand?"
   },
   "task": {
@@ -691,7 +722,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "What may you tell Summit Imaging when you decline its LOP request, and what may you not?"
   },
   "summary": {
-   "say": "Now write your Self-Summary. It's 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits, Keystone ended his rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked John for a Recorded Statement. Tell me what you do first, second and third, and what each step protects. A couple of things I'll be looking for. On the 2021 visits, documenting low back versus neck, resolved, no prior neck complaints, is proof; saying they \"don't matter\" is arguing. On medication red flags, the provider hears the safety issue, Atty. Thorne hears the legal one, and you document the conversation.",
+   "say": "Now write your Self-Summary. It's 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits, Keystone ended Margaret's rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked John for a Recorded Statement. Tell me what you do first, second and third, and what each step protects. A couple of things I'll be looking for. On the 2021 visits, documenting low back versus neck, resolved, no prior neck complaints, is proof; saying they \"don't matter\" is arguing. On medication red flags, the provider hears the safety issue, Atty. Thorne hears the legal one, and you document the conversation.",
    "ask": "Which of these three problems would you hand to Atty. Thorne before anything else today?"
   },
   "scale": {
@@ -735,7 +766,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m3-a1": {
   "case": {
-   "say": "Here's what landed on the file on 03/04/2026. The first records are in. Riverton Urgent Care's 02/20/2026 note says onset at the MVA on 02/06/2026, progressively worsening, with numbness to the right hand since 02/18. The EMS Run Report records neck stiffness on 02/06/2026. John Doe's been at Riverton Spine & Rehab since 02/24/2026, and his rental runs to 03/19/2026. And nobody has asked him why he waited 14 days. Atty. Thorne wants him on a recorded call today: open questions, nothing suggested, no opinions on what it means, and a GIRP note when you're done. Before anyone dials, here are the two ways to fail: a leading question or a suggested reason, and any version of \"won't matter\" or \"will hurt the case\".",
+   "say": "Here's what landed on the file on 03/04/2026. The first records are in. Riverton Urgent Care's 02/20/2026 note says onset at the MVA on 02/06/2026, progressively worsening, with numbness to the right hand since 02/18. The EMS Run Report records neck stiffness on 02/06/2026. John Doe's been at Riverton Spine & Rehab since 02/24/2026, and Margaret's rental runs to 03/19/2026. And nobody has asked him why he waited 14 days. Atty. Thorne wants him on a recorded call today: open questions, nothing suggested, no opinions on what it means, and a GIRP note when you're done. Before anyone dials, here are the two ways to fail: a leading question or a suggested reason, and any version of \"won't matter\" or \"will hurt the case\".",
    "ask": "Knowing what's on this file, what question will you be most tempted to ask him first?"
   },
   "task": {
@@ -809,7 +840,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "Who wants to be the Case Manager first while I play John Doe?"
   },
   "summary": {
-   "say": "Time for your Self-Summary. Same date, 04/08/2026. Riverton Spine & Rehab says John Doe has missed two visits, Keystone ended his rental on 03/19, his carpool ended 04/01, and Dana Whitfield wants a Recorded Statement from him. What do you do first, second and third, and what does each step protect? While you're thinking about records, here's something to chew on. Why is a provider's offer to add a line to a chart more dangerous than a missing note? A missing note is a weakness. An altered one is a credibility collapse, and possibly a fraud question.",
+   "say": "Time for your Self-Summary. Same date, 04/08/2026. Riverton Spine & Rehab says John Doe has missed two visits, Keystone ended Margaret's rental on 03/19, his carpool ended 04/01, and Dana Whitfield wants a Recorded Statement from him. What do you do first, second and third, and what does each step protect? While you're thinking about records, here's something to chew on. Why is a provider's offer to add a line to a chart more dangerous than a missing note? A missing note is a weakness. An altered one is a credibility collapse, and possibly a fraud question.",
    "ask": "Why is a provider's offer to change a record more dangerous than a note that's simply missing?"
   },
   "scale": {
@@ -915,7 +946,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "Which two chips on the gate bar does this module turn green?"
   },
   "summary": {
-   "say": "Now your Self-Summary, in your own words. The scenario takes us back to 04/08/2026. Riverton Spine & Rehab reports two missed visits, Keystone ended John's rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked him for a Recorded Statement. Tell me what you do first, second and third, and what each one protects. And while you write, think about this. If you found an error in an exhibit right before the 07/20/2026 service date, the right move is to stop the package, fix every total that cites it, and tell Atty. Thorne before anything goes out. Serving a known error to make the date is the failure.",
+   "say": "Now your Self-Summary, in your own words. The scenario takes us back to 04/08/2026. Riverton Spine & Rehab reports two missed visits, Keystone ended Margaret's rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked him for a Recorded Statement. Tell me what you do first, second and third, and what each one protects. And while you write, think about this. If you found an error in an exhibit right before the 07/20/2026 service date, the right move is to stop the package, fix every total that cites it, and tell Atty. Thorne before anything goes out. Serving a known error to make the date is the failure.",
    "ask": "Which number on this file would you defend line by line to Dana Whitfield, and where does every cent come from?"
   },
   "scale": {
@@ -1012,7 +1043,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "With no check in hand today, what proves exhaustion?"
   },
   "task": {
-   "say": "You're drafting two demands for Atty. Thorne's review, not one. Host UM goes to Marcus Bell at Harbor Point, HP-26-7741, for the $20,000 limit. Relative UM goes to Teresa Okafor at Cardinal State, CS-26-20355, for the $10,000 limit as excess over Host UM. Use the UM templates in the Action Plan Editor. And to answer the last slide's question, exhaustion today is proven by the tender, the consents and the signed Limited Release, with the check copy to follow. That goes on page one of each. Organize the evidence by function, audit each package the way you audited the BI demand, show damages above what's been collected, and answer the gap and “degenerative” with the MRI. You'll hand in two attorney-ready drafts, routed for review with tracked follow-up tasks.",
+   "say": "You're not starting from a blank page. The audit closed on 07/15, and Atty. Thorne assigned the UM demands to the Demand Desk; their drafts are in the file. Your job is QC. Host UM goes to Marcus Bell at Harbor Point, HP-26-7741, for the $20,000 limit; Relative UM goes to Teresa Okafor at Cardinal State, CS-26-20355, for $10,000 as excess over Host UM. Exhaustion is proven by the tender, the consents and the signed Limited Release, with the check copy to follow, and it belongs on page one of each. Check every figure against the audit, answer the gap and “degenerative” with the MRI, and hand in two QC'd drafts routed to Atty. Thorne.",
    "ask": "Why does Cardinal State's demand say excess?"
   },
   "check": {
@@ -1207,6 +1238,20 @@ window.CM_CF_SCRIPTS = {
   "dodont": {
    "say": "Let's play Three Clues, One Rule. Three clues come up, you call Do or Don't, and you name the rule. In play: corrections first, reductions second. Being transparent with John Doe about the savings, so he sees his net rising. Getting every reduction in writing before disbursement. And the traps: a percentage off an inflated bill, a verbal reduction with nothing in writing, paying from a statement instead of the final payoff figure. Now, a warning about an old script you may hear: “reduce or the client refuses the settlement.” That's a threat, and here it's false. After fee and costs, $26,179.92 remains against $7,965.00 of liens. Use true facts instead: a coverage-capped recovery, the audited balance, a certain payment now.",
    "ask": "How would you rewrite “reduce or the client refuses the settlement” using only true facts?"
+  }
+ },
+ "d3m3-l3": {
+  "why": {
+   "say": "Here's a question to start. Riverton Spine & Rehab has agreed to take less. What has to be in the file before a dollar goes out? Most people say the agreement. It's the signed Payoff Letter. A reduction is won on paper first and on the phone second. The lienholder needs to see the audited balance, the recovery, the fee and costs, and the other liens, so it can see why taking less is fair. And it needs a letter it can sign that closes the bill for good. Skip the paper and you either leave money on the table or reopen a bill you thought was closed.",
+   "ask": "What goes to the lienholder before you ever pick up the phone?"
+  },
+  "rules": {
+   "say": "Four rules carry this. First, you negotiate from the audited balance, never the billed one: Riverton at $6,105.00, Peach State at $1,860.00, $7,965.00 in all. Second, the written Reduction Request goes first, with Atty. Thorne's written authority already on file. Third, on the call you make his ask and nothing outside it, and you log the name, the date and every figure. A counter outside his authority goes back to him the same day. Fourth, no Payoff Letter, no payment, and the letter says full and final, with no balance billing or collections. Then you update the Lien Tracker and the Net Sheet that day.",
+   "ask": "If the provider counters below Atty. Thorne's floor, what do you say on the call?"
+  },
+  "job": {
+   "say": "Here's the job, start to finish. When the audited balance is confirmed, you draft the Reduction Request with the math and get Atty. Thorne's written authority before it goes. When the lienholder responds, you call with the authorized ask and log who you spoke to, when, and every figure. And when the reduction is agreed, you get the signed Payoff Letter, then update the Lien Tracker and the Net Sheet so John Doe can see his net change the same day.",
+   "ask": "Which of these three steps would you check first if a provider later says the bill is still open?"
   }
  },
  "d3m3-a2": {
@@ -1523,8 +1568,8 @@ window.CM_CF_SCRIPTS = {
    "ask": "Atty. Mercer says the ledger is unverified. Is he wrong?"
   },
   "audit": {
-   "say": "Atty. Mercer says Keystone won't put a real number on the table while the medical ledger is unverified, and on this draft he's right. The ledger was typed from the original bills, so it comes to sixteen thousand five hundred and eighty-six forty against the sixteen thousand four hundred and one forty we served in July. Crescent shows as a thirty-four hundred dollar open balance that Peach State already paid at the contract rate. Call every section, and watch section two: an unmarked confidential statement tabbed for three people hands our position to the other side. When you hand it in you'll see the binder as we delivered it on the eleventh of March.",
-   "ask": "Two numbers for one file. Which one would you defend in that room?"
+   "say": "This is the index the Litigation Desk assembled on the second of March, and Atty. Mercer says Keystone won't put a real number on the table while the medical ledger is unverified. On this draft he's right. Section five was typed from the providers' original bills, so Riverton Spine and Rehab comes in at six thousand two hundred and ninety on thirty-four lines and the medical total reads fifteen thousand and two forty, against the fourteen thousand eight hundred and seventeen forty we served in July. Crescent shows as an open balance Peach State already paid. Call every section, and tell me what's missing as well as what's wrong. When you hand it in you'll see the binder as we delivered it on the eleventh of March.",
+   "ask": "Two medical totals for one file. Which one would you defend in that room?"
   },
   "check": {
    "say": "Before you log this, run your checks. Section one's snapshot has LSH-2026-MVA-770412, No. 26-CV-04417, Atty. Mercer's verified contacts, and the fee split read from the order. Section three, only the filed complaint and answer. Your defense map gets graded hard: five allegations, five answers, each with an exhibit number, so \"see Medical Records\" isn't a map. Landmine one: Riverton audited to 33 visits at $185.00, $6,105.00, duplicate removed, pending final verification, for $16,401.40. Landmine two: Crescent's $3,400.00 satisfied by Peach State's $1,860.00, with open liens of $7,965.00. Section six's log runs from the 07/20/2026 demand to suit. The release and consent requests are drafts, so leave every term to Atty. Thorne. Then swap binders with your partner and QA each other's index.",
@@ -1559,8 +1604,8 @@ window.CM_CF_SCRIPTS = {
    "ask": "Harbor Point is the other side now. Our attorney's-set Lien Sheet says it is owed $5,000.00. What goes wrong?"
   },
   "audit": {
-   "say": "This is the whole folder, unsorted, and Harbor Point is on the other side of the hearing now. Decide for each record which tab it goes in, or that it's withheld, and apply the QC as you sort rather than after. The confidential mediation statement is sitting in the pile. Nobody has asked a single provider for a certification. And the Lien Sheet claims fifteen thousand five hundred and forty-five dollars, including five thousand for Harbor Point MedPay, which gave up any reimbursement right in writing in March. Audited, the liens are seven thousand nine hundred and sixty-five. When you hand it in you'll see the set we actually exchanged on the second of June.",
-   "ask": "Harbor Point is now the opponent. What changes about what we send?"
+   "say": "The desk's exhibit index, the fourteenth of May, and Harbor Point is on the other side of this hearing now. Decide for each exhibit which tab it belongs in, or that it's withheld, and apply the QC as you sort rather than after. The Confidential Mediation Statement is sitting at C-2 for background. Nobody has asked a single provider for a certification, the authentication log hasn't been started, and tab one has no exhaustion record at all, so there's nothing proving the bodily injury layer is gone. And the Lien Sheet claims five thousand dollars for Harbor Point MedPay, which gave up any reimbursement right in writing in March. When you hand it in you'll see the set we exchanged on the second of June.",
+   "ask": "Harbor Point is the opponent now. What changes about what we send?"
   },
   "check": {
    "say": "Check before you log. Tab one has the snapshot and the 06/11/2027 brief slot, never a draft. Threshold exhibits come first, the $10,000 tender, consents, Limited Release, dismissal and both Coverage Letters. Tab two holds operative versions only, with the pre-filing draft gone. Tab three has the certified RPD-26-018842 and color stills from the native file. Tab four ties $14,817.40 to certified bills, with certifications requested from each provider. On tab five, pull and pair the 2021 records with the MRI read and Causation Letter, but don't argue causation; a supplemental opinion from Dr. Reyes is Atty. Thorne's call. The Lien Sheet drops Harbor Point and Summit, leaving $7,965.00. Tab six is wages, $1,584.00. And the impasse memo is the privilege test. It never goes in tab six.",
@@ -1711,7 +1756,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "Before you start, what are the three steps in counting from a mailed trigger?"
   },
   "summary": {
-   "say": "Now the self-summary, the principles in your own words. Before anyone writes, think about this one: opposing counsel wants two weeks at 4:45 p.m. and says they'll paper it later. Who can say yes? Only Atty. Thorne, and only in writing, the same day. Then your scenario. It's 01/28/2027. John Doe has been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect his Civic. Write out your next five actions in order, and next to each one, who owns it. Be specific about what's yours and what goes to Atty. Thorne.",
+   "say": "Now the self-summary, the principles in your own words. Before anyone writes, think about this one: opposing counsel wants two weeks at 4:45 p.m. and says they'll paper it later. Who can say yes? Only Atty. Thorne, and only in writing, the same day. Then your scenario. It's 01/28/2027. John Doe has been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect Margaret's Civic. Write out your next five actions in order, and next to each one, who owns it. Be specific about what's yours and what goes to Atty. Thorne.",
    "ask": "Opposing counsel wants two weeks at 4:45 p.m. and will paper it later. Who can say yes?"
   },
   "scale": {
@@ -1721,12 +1766,12 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m2-l1": {
   "why": {
-   "say": "Look at this gauge for a second. Which number decides whether John Doe's Civic is totaled? Most of you will say the estimate. It's actually the final bill, $9,255.00, after the supplement. Here's why this matters now. On Track B the Civic isn't a side claim anymore. Its Loss of Use and Diminished Value are pleaded in the suit, and every figure we put forward will be tested in discovery. The repair-against-ACV arithmetic decides which measure of damages applies. And the loss-of-use calendar does double duty: it's also the transportation record that explains the 14-Day Gap. Get the car's numbers right, and you're quietly strengthening the injury case too.",
+   "say": "Look at this gauge for a second. Which number decides whether Margaret Doe's Civic is totaled? Most of you will say the estimate. It's actually the final bill, $9,255.00, after the supplement. Here's why this matters now. The Civic isn't John Doe's claim. It's Margaret Doe's, on the separate PD file the firm opened for her, and Keystone will test every figure we put forward. The repair-against-ACV arithmetic decides which measure of damages applies. And the loss-of-use calendar does double duty: it's also the transportation record that explains the 14-Day Gap. Get the car's numbers right, and you're quietly strengthening the injury case too.",
    "ask": "Which number decides whether the Civic is totaled: the first estimate or the final bill?"
   },
   "rules": {
-   "say": "The goal is to make John Doe whole: his position before 02/06/2026, never a windfall. The $2,315.00 teardown supplement of 03/02/2026 is structural, the A-pillar, so it shows hidden damage and impact force. Courts generally award the lesser of repair cost or the drop in value, so run it on the final bill: $6,940.00 plus $2,315.00 is $9,255.00, 52.6% of the $17,600.00 ACV, under Keystone's 75% line of $13,200.00. Repairable. Loss of Use is claimable for each day without the car or a paid substitute, at Keystone's own $42.00 a day. Allocate the 78 days from 02/06 to 04/24/2026 once, claim only the 48 unpaid, $2,016.00. Keystone's 30-day cap is claims practice, and arguing it is Atty. Thorne's job. You compute and report; you never tell John Doe what his car is worth.",
-   "ask": "Keystone paid for 30 days of rental. Why is John Doe still owed anything for the use of his car?"
+   "say": "The goal is to make John Doe whole: his position before 02/06/2026, never a windfall. The $2,315.00 teardown supplement of 03/02/2026 is structural, the A-pillar, so it shows hidden damage and impact force. Courts generally award the lesser of repair cost or the drop in value, so run it on the final bill: $6,940.00 plus $2,315.00 is $9,255.00, 52.6% of the $17,600.00 ACV, under Keystone's 75% line of $13,200.00. Repairable. Loss of Use is claimable for each day without the car or a paid substitute, at Keystone's own $42.00 a day. Allocate the 78 days from 02/06 to 04/24/2026 once, claim only the 48 unpaid, $2,016.00. Keystone's 30-day cap is claims practice, and arguing it is Atty. Thorne's job. You compute and report; you never tell Margaret Doe what her car is worth.",
+   "ask": "Keystone paid for 30 days of rental. Why is Margaret Doe still owed anything for the use of her car?"
   },
   "job": {
    "say": "On the job, it goes like this. The final repair bill posts with the supplement, so you re-run the total-loss check on $9,255.00 in the Property Damage screen, record 52.6% of $17,600.00, and get Keystone's 75% basis on file in writing. Then the rental ends while the Civic is still in the shop. You log every day without a vehicle, period by period, and land on 12 plus 36, 48 days, with no paid rental day counted. When the 09/24/2026 complaint pleads Loss of Use and Diminished Value, you reconcile the figures across the PD screen, the damages summary and discovery, so $2,016.00 and $3,600.00 match everywhere, and any mismatch goes to Atty. Thorne. And when the deposition is noticed on 01/20/2027, you index the PD severity set for his deposition documents before the 02/04/2027 prep session."
@@ -1779,7 +1824,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "In the pressure scenario, who gives John Doe any instruction about preserving the Civic?"
   },
   "summary": {
-   "say": "Now the self-summary, in your own words. Here's one to chew on first: why does a parked car's A-pillar matter to a neck injury? Because the supplement measures the force that drove the Escape, with John Doe inside, into the Civic. Atty. Thorne uses that in prep; you put it in the set and never tell John Doe what to say. Then your scenario: it's 01/28/2027, John Doe's been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect his Civic. Write your next five actions in order, and who owns each one.",
+   "say": "Now the self-summary, in your own words. Here's one to chew on first: why does a parked car's A-pillar matter to a neck injury? Because the supplement measures the force that drove the Escape, with John Doe inside, into the Civic. Atty. Thorne uses that in prep; you put it in the set and never tell John Doe what to say. Then your scenario: it's 01/28/2027, John Doe's been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect Margaret's Civic. Write your next five actions in order, and who owns each one.",
    "ask": "Why does a parked car's A-pillar matter to a neck injury?"
   },
   "scale": {
@@ -1855,7 +1900,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "Which chip on the readiness strip is hardest to turn green honestly?"
   },
   "summary": {
-   "say": "On to your self-summary. Let's warm up with this: it's 02/03/2027, and John has just resurfaced with a new phone, fifteen days before he testifies. What can't wait until tomorrow? His new number in the CMS, and the audit routed to Atty. Thorne. Keep that urgency in mind. Then write your scenario: it's 01/28/2027, John's been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect his Civic. Give me your next five actions in order, with an owner beside each one.",
+   "say": "On to your self-summary. Let's warm up with this: it's 02/03/2027, and John has just resurfaced with a new phone, fifteen days before he testifies. What can't wait until tomorrow? His new number in the CMS, and the audit routed to Atty. Thorne. Keep that urgency in mind. Then write your scenario: it's 01/28/2027, John's been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect Margaret's Civic. Give me your next five actions in order, with an owner beside each one.",
    "ask": "John just resurfaced fifteen days out. What can't wait until tomorrow?"
   },
   "scale": {
@@ -1964,7 +2009,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "Which document tells us the fee on this file is 40%?"
   },
   "summary": {
-   "say": "Now your self-summary, in your own words. Keep Question 5 in mind as you write, because it's the UPL gate: arithmetic, yes; opinion, no. If you say the lawsuit was or wasn't worth it, you've crossed the line, however good the rest is. Then your scenario: it's 01/28/2027, John's been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect his Civic. Give me your next five actions, in order, and who owns each one.",
+   "say": "Now your self-summary, in your own words. Keep Question 5 in mind as you write, because it's the UPL gate: arithmetic, yes; opinion, no. If you say the lawsuit was or wasn't worth it, you've crossed the line, however good the rest is. Then your scenario: it's 01/28/2027, John's been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect Margaret's Civic. Give me your next five actions, in order, and who owns each one.",
    "ask": "Where exactly is the line between explaining John's net and judging whether suing was worth it?"
   },
   "scale": {

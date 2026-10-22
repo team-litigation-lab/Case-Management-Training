@@ -3,8 +3,8 @@
     "d3m1-a1": {
       "title": "Exhibit Packet Audit — the Demand Package as drafted",
       "kicker": "Audit the enclosure set before Atty. Thorne signs anything.",
-      "source": "RS61",
-      "reveal": "RS62",
+      "source": "RS65",
+      "reveal": "RS66",
       "due": "07/20/2026",
       "intro": "The demand specialist built the enclosure set and typed the Specials from it. Nothing has been re-verified since the pre-demand audit and no corrected record has been chased. Work the set item by item: every loophole here is one Dana Whitfield can use, and every gap is one she will find.",
       "columns": {
@@ -124,12 +124,12 @@
         },
         {
           "ref": "I",
-          "what": "Civic Repair Estimate, supplement and Diminished Value report",
-          "as": "Fourteen pages from the Property Damage sub-file.",
+          "what": "Margaret Doe's Civic: estimate, supplement and Diminished Value report",
+          "as": "Fourteen pages from the Property Damage sub-file, enclosed with the medical exhibits.",
           "verdict": "pull",
           "kind": "loophole",
-          "issue": "Property Damage is a separate claim, KM-26-440871-PD, handled by a different adjuster. Putting it inside a bodily injury demand invites a release that reaches the Civic, and the Diminished Value fight has nothing to do with the $10,000 limit.",
-          "fix": "Pull it. Keep the Civic's claim in its own file and make sure the demand says in terms that Property Damage is not part of the offer or any release under it.",
+          "issue": "It is not even Mr. Doe's claim. The parked Civic is his mother Margaret's, her claim is KM-26-440871-PD with a different adjuster, and putting it inside his bodily injury demand invites a release that reaches her car.",
+          "fix": "Pull it. Keep her claim in its own file, and make sure the demand says in terms that Mr. Doe makes no Property Damage claim and that nothing in it releases hers.",
           "proof": [
             "RS33"
           ]
@@ -226,7 +226,7 @@
     "d3m1-a1": {
       "title": "Service Confirmation — the email the adjuster has to answer",
       "kicker": "Mail proves it left. The email makes the carrier admit when it landed.",
-      "model": "RS63",
+      "model": "RS67",
       "mail": {
         "channel": "Certified mail, return receipt requested",
         "sent": "07/20/2026",
