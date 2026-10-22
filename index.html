@@ -3209,7 +3209,7 @@ const mem = {}; // in-memory fallback if window.storage is unavailable
 const PERSONAL_KEYS = ["day-progress","practice-progress","lab-attempts-global","lab-attempts-by-day","admin-unlocked-days","notes","completed-lab-actions",
   "day10-window","submissions","roleplayHistory","slide-progress","last-slide","attn-detail-findings",
   "calendar-custom","calendar-edits","call-log","inbox-filing","inbox-interactions","inbox-labels","trainee-batch",
-  "quick-check-answers","day-order-migrated","dividers-migrated","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log","lab-subs","case-flow","net-sheet"];
+  "quick-check-answers","day-order-migrated","dividers-migrated","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log","lab-subs","case-flow","net-sheet","doc-filing","drive-setup"];
 const PERSONAL_KEY_SET = new Set(PERSONAL_KEYS);
 let cloudSaveTimer = null;
 function scheduleCloudSave(){
@@ -5260,6 +5260,8 @@ function renderDashboard(){
   </div>
   <div class="dash-layout">
     <div class="dash-main">
+      <!-- 📂 Day 1's first job, and after that a line on whether the backup drive is still in order -->
+      ${window.CMDrive ? CMDrive.slot() : ""}
       <div class="module-grid">
         ${DAYS.map(d=>moduleCard(d)).join("")}
       </div>
@@ -12316,6 +12318,7 @@ function renderAdminDetail(rec){
             ${s.stored && s.dataUrl ? `<a href="${s.dataUrl}" download="${esc(s.fileName)}" class="btn btn-sm btn-ghost">Download</a>` : `<span style="color:var(--ink-soft);font-size:11px;">Too large to store — filename on record only</span>`}
           </div>`).join("")}
       </div>` : ""}
+      ${renderAdminFilingPanel(rec)}
       <div style="margin-top:16px;">
         <div class="sidebar-section-lbl" style="padding-left:0;">AI-Generated Ranking &amp; Review</div>
         <div id="aiReviewWrap-${esc(rec.id)}">${renderAiReviewBlock(rec)}</div>
@@ -12328,6 +12331,41 @@ function renderAdminDetail(rec){
   ${renderFocusAdmin(rec)}
   ${renderFeedbackAdmin(rec)}
     </div>`;
+}
+/* 📤 Document filing and 📂 the Backup Drive, as a trainer reads them.
+   Both are graded, so both belong in the trainee's row: which documents reached the case file in the CMS,
+   under which category, and how many goes each took. "First time right" is the number that matters — a
+   trainee who files every document correctly on the third attempt has learned the panel, not the
+   convention. Read from the trainee's saved progress (the Trainee Audit's own snapshot), so it needs no
+   extra request; a row with nothing saved yet says so. */
+function renderAdminFilingPanel(rec){
+  const x = state.auditExtra[rec.id], data = (x && x.data) || {};
+  const log = data["doc-filing"] || {};
+  const drv = data["drive-setup"] || null;
+  const ids = Object.keys(log);
+  const filed = ids.filter(id=>log[id] && log[id].filed);
+  const first = filed.filter(id=>log[id].attempts === 1);
+  const onDrive = filed.filter(id=>log[id].drive);
+  if(!ids.length && !drv) return `<div style="margin-top:16px;">
+    <div class="sidebar-section-lbl" style="padding-left:0;">Document Filing &amp; Backup Drive</div>
+    <div style="font-size:12.5px;color:var(--ink-soft);padding:2px 0;">Nothing filed yet, and no Backup Drive set up.</div></div>`;
+  return `<div style="margin-top:16px;">
+    <div class="sidebar-section-lbl" style="padding-left:0;">Document Filing &amp; Backup Drive</div>
+    <div style="font-size:12.5px;color:var(--ink-soft);padding:2px 0 8px;">
+      ${filed.length} document${filed.length === 1 ? "" : "s"} filed in the CMS · <b style="color:var(--navy);">${first.length} first time right</b>
+      ${onDrive.length ? ` · ${onDrive.length} kept on the Backup Drive` : ""}
+      ${drv ? ` · Drive set up at ${drv.score}% on ${drv.attempts} attempt${drv.attempts === 1 ? "" : "s"}` : " · Backup Drive not set up yet"}
+    </div>
+    ${ids.map(id=>{
+      const r = log[id] || {};
+      return `<div style="display:flex;justify-content:space-between;gap:12px;font-size:12.5px;padding:4px 0;border-bottom:1px dashed var(--line);">
+        <span>${esc(id)}${r.category ? ` <span style="color:var(--ink-soft);">→ ${esc(r.category)}</span>` : ""}</span>
+        <span style="color:${r.filed ? "var(--success)" : "var(--ink-soft)"};white-space:nowrap;">${
+          r.filed ? `${esc(r.name || "filed")} ${r.attempts === 1 ? "✓ first time" : `· ${r.attempts} attempts`}${r.drive ? " · on drive" : ""}`
+          : `not filed${r.attempts ? ` · ${r.attempts} refused` : ""}`}</span>
+      </div>`;
+    }).join("")}
+  </div>`;
 }
 function renderAdminRoleplayPanel(rec){
   const history = rec.roleplayHistory||[];
@@ -15692,6 +15730,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-cms-case.js?v=cm-2026.10.21-dol"></script>
 <script src="/js/cm-doc-filing.js?v=cm-2026.10.22-send"></script>
 <script src="/js/cm-cms-upload.js?v=cm-2026.10.22-cms-upload"></script>
+<!-- 📂 the trainee's own Backup Drive: the firm's folder structure, built and graded on Day 1 -->
+<script src="/js/cm-drive.js?v=cm-2026.10.22-drive"></script>
 <script src="/js/lsh-topbar.js?v=2"></script>
 <script src="/js/lsh-one-screen.js?v=1"></script>
 </body>
