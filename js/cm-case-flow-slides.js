@@ -978,7 +978,7 @@ window.CM_CF_SLIDES = {
   "clues": {
    "dos": [
     [
-     "John Doe's rental runs out in a few weeks.",
+     "Margaret Doe's rental runs out in a few weeks.",
      "He mentions his carpool might end soon.",
      "You note it and help line up another ride now."
     ],
@@ -1016,7 +1016,7 @@ window.CM_CF_SLIDES = {
   "checks": [
    "**All six sections** present and populated",
    "Treatment direction stated: **treatment hasn't begun**",
-   "Property Damage section names **the rental parameters**",
+   "Property Damage section states **whose claim it is**",
    "Atty. Elijah Thorne listed as **Lead Counsel**",
    "Adverse-contact instruction made urgent, **with a confirmation step**"
   ],
@@ -1200,6 +1200,31 @@ window.CM_CF_SLIDES = {
   ],
   "donts": [
    "Tracking tasks **without confirming they were done**"
+  ]
+ },
+ "d1m3-a3": {
+  "image": "checklist-qa",
+  "situation": "Keystone has authorized a rental for the Civic. John Doe calls asking if it is his. Nobody has written down **whose claim it is**.",
+  "steps": [
+   "Read the **Police Report's vehicle and occupant boxes**",
+   "Find **who owns the Civic** in the intake records",
+   "Name **the PD and rental claimant** from Keystone's letter",
+   "Write a **sourced Case Note** and tell Atty. Thorne",
+   "Answer John Doe **within the UPL line**; solve his ride"
+  ],
+  "deliver": "A **sourced finding** of whose claim it is, reported, and a logged call",
+  "checks": [
+   "**Position, owner and claimant** each from a record",
+   "**Conclusion** on a PD or rental claim for John Doe",
+   "Each finding **cites its document**",
+   "**Atty. Thorne** told the same day",
+   "**Transportation** to treatment arranged"
+  ],
+  "dos": [
+   "Ask: **who owns the claim**, and is that our client?"
+  ],
+  "donts": [
+   "Booking a rental **because the caller asked**"
   ]
  },
  "d1m3-kc": {
@@ -2701,7 +2726,7 @@ window.CM_CF_SLIDES = {
  },
  "d2m2-a2": {
   "image": "car-transport",
-  "situation": "04/08/2026: John Doe missed 04/03 and 04/07; **no visit since 04/02/2026**. Keystone ended his rental 03/19/2026, his carpool ended 04/01/2026, and **the Civic awaits parts**.",
+  "situation": "04/08/2026: John Doe missed 04/03 and 04/07; **no visit since 04/02/2026**. Keystone ended Margaret's rental 03/19/2026, his carpool ended 04/01/2026, and **the Civic awaits parts**.",
   "steps": [
    "Assess: call John Doe **on 04/08/2026**; classify the variance",
    "Coordinate: request **a rental extension** from Keystone PD in writing",
@@ -3970,13 +3995,13 @@ window.CM_CF_SLIDES = {
   "image": "binder-exhibits",
   "situation": "File date 08/31/2026. Keystone tendered $10,000 limits 08/12; consents came 08/24 and 08/26; the **Limited Release was signed** 08/28. Keystone's **check hasn't arrived**. Keystone had called the MRI “degenerative.”",
   "steps": [
-   "Draft **Host UM to Harbor Point** for the $20,000 limit",
-   "Draft **Relative UM to Cardinal State**: $10,000, excess over Host UM",
+   "QC the desk's **Host UM draft** to Harbor Point",
+   "QC **Relative UM to Cardinal State**: excess, not primary",
    "Put **exhaustion proof on page one**; show damages above collections",
    "Answer the gap and “degenerative” **with the MRI**",
    "**Leave the response deadline** blank for Atty. Thorne; route both"
   ],
-  "deliver": "Two attorney-ready UM drafts, **exhaustion proof first**, routed for review",
+  "deliver": "Two QC'd UM drafts, **exhaustion proof first**, routed for review",
   "checks": [
    "Two separate packages, **HP-26-7741 and CS-26-20355**",
    "Relative UM claimed for **damages above $30,000**",
@@ -4614,6 +4639,92 @@ window.CM_CF_SLIDES = {
      "Disbursement day arrives for Riverton Spine & Rehab's check.",
      "A monthly bill from the provider sits on the desk.",
      "The check is cut from that bill, not the signed payoff figure."
+    ]
+   ]
+  }
+ },
+ "d3m3-l3": {
+  "image": "checklist-qa",
+  "hook": "A reduction is won **on paper first**, then on the phone.",
+  "points": [
+   "Negotiate from **the audited balance**: $7,965.00",
+   "Send **the Reduction Request** before you call",
+   "Make **Atty. Thorne's ask**, nothing outside it",
+   "**No Payoff Letter**, no payment"
+  ],
+  "upl": "The authorized ask only; never accept a figure outside it",
+  "job": [
+   [
+    "Audited balance confirmed",
+    "Draft the Reduction Request",
+    "CMS → Documents → Outgoing",
+    "Authority logged first"
+   ],
+   [
+    "Lienholder responds",
+    "Call with the authorized ask",
+    "CMS → Case Notes",
+    "Counter routed the same day"
+   ],
+   [
+    "Reduction agreed",
+    "Get the signed Payoff Letter",
+    "CMS → Net Sheet",
+    "Full-and-final on file"
+   ]
+  ],
+  "dos": [
+   "Send **the request** before the call",
+   "Update the ledger **the same day**"
+  ],
+  "donts": [
+   "A reduction **agreed only by phone**",
+   "An ask **outside his authority**"
+  ],
+  "theory": {
+   "lead": "The lienholder takes less when it can **see the math** and sign a letter that closes the bill.",
+   "concepts": [
+    {
+     "term": "Reduction Request",
+     "text": "The written ask: **audited balance**, recovery, fee and costs, other liens and the common-fund share."
+    },
+    {
+     "term": "Authority",
+     "text": "Atty. Thorne's written floor for each lien: **the CM asks inside it** and routes anything outside."
+    },
+    {
+     "term": "Payoff Letter",
+     "text": "The lienholder's signed **full-and-final** satisfaction: no balance billing, no collections."
+    }
+   ],
+   "pages": [
+    "D3#21",
+    "D3#22"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Riverton's audited balance is $6,105.00.",
+     "A letter with the recovery, fee, costs and other liens goes out first.",
+     "Atty. Thorne's written authority is already in the file."
+    ],
+    [
+     "Peach State agrees to $1,240.00.",
+     "The Net Sheet changes that afternoon.",
+     "John Doe sees his take-home rise before he asks."
+    ]
+   ],
+   "donts": [
+    [
+     "Riverton's biller says $4,580.00 works for them.",
+     "Nothing is sent and nothing comes back signed.",
+     "The full balance reappears a month later."
+    ],
+    [
+     "The provider counters below the floor.",
+     "The CM says yes to close it out.",
+     "Atty. Thorne hears about it after the fact."
     ]
    ]
   }
@@ -6607,14 +6718,14 @@ window.CM_CF_SLIDES = {
  },
  "d5m2-l1": {
   "image": "repair-shop",
-  "hook": "The Civic is pleaded now: **every figure gets tested**, and its dates explain the 14-Day Gap.",
+  "hook": "Margaret's PD file: **every figure gets tested**, and its dates explain the 14-Day Gap.",
   "points": [
    "Make the owner whole: **never a windfall**",
    "$9,255.00 is 52.6% of the ACV, under 75%: **repairable, $3,945.00 to spare**",
    "Claim only **the 48 unpaid days**: 48 × $42.00 = $2,016.00",
    "Keep loss-of-use and gap records **identical, date for date**"
   ],
-  "upl": "Compute, document and report; never tell John Doe what his car is worth",
+  "upl": "Compute, document and report; never tell Margaret Doe what her car is worth",
   "job": [
    [
     "Final repair bill posts",
@@ -6784,7 +6895,7 @@ window.CM_CF_SLIDES = {
    "Put **the critique on paper** for Atty. Thorne"
   ],
   "donts": [
-   "Telling John Doe his car **“lost $3,600.00”**",
+   "Telling Margaret Doe her car **“lost $3,600.00”**",
    "A PD release that **reaches the injury claim**",
    "Promising **sentimental-value recovery** the law won't award"
   ],
@@ -6855,7 +6966,7 @@ window.CM_CF_SLIDES = {
    ],
    "donts": [
     [
-     "John Doe calls asking what his Civic is really worth now.",
+     "Margaret Doe calls asking what her Civic is really worth now.",
      "The Riverton Auto Appraisal of 05/06/2026 sits open on screen.",
      "The Case Manager quotes the appraisal's number to him as settled fact."
     ],

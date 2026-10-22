@@ -125,8 +125,8 @@ if (text.RS23 !== undefined) {
 }
 
 // John Doe is the front-seat PASSENGER of Kevin Alvarez's Escape (Unit 2): no document may make him a driver or an
-// operator of a vehicle in the crash, put him behind the wheel, or call the Escape his. (His Civic was PARKED and
-// unoccupied: it is struck property, not a vehicle he was in.)
+// operator of a vehicle in the crash, put him behind the wheel, or call the Escape his. He owns no vehicle: the parked,
+// unoccupied Civic is his mother Margaret Doe's, and its property-damage claim and rental are hers, never his.
 const NOT_DRIVER = [
   /John (?:A\. )?Doe,? (?:was )?(?:the )?(?:driver|operator)\b/i, /\bdriver:? John (?:A\. )?Doe\b/i, /\boperator:? John (?:A\. )?Doe\b/i,
   /John (?:A\. )?Doe (?:was )?driving\b/i, /\bDoe'?s? (?:Ford )?Escape\b/i, /John (?:A\. )?Doe,? (?:the )?(?:rear|back)[- ]seat/i
@@ -136,6 +136,16 @@ for (const [id, t] of Object.entries(text)) {
   NOT_DRIVER.forEach(re => { const m = flat.match(re); if (m) fails.push(`${id}: “${m[0]}”: John Doe was the Escape's front-seat passenger, never a driver`); });
 }
 if (text.RS07 !== undefined && !has("RS07", /front[- ]seat passenger|front passenger/i)) fails.push("RS07: the Police Report should place John Doe in the Escape's front passenger seat");
+const NOT_OWNER = [
+  /\b(?:John(?: A\.)?|client'?s|plaintiff'?s) (?:own |parked )?(?:2019 )?(?:Honda )?Civic\b/i, /\bhis (?:own |parked )?(?:2019 )?(?:Honda )?Civic\b/i,
+  /\bowner:? John (?:A\. )?Doe\b/i, /\bDOE, John\b[^.]{0,40}\bCivic\b/i, /\b(?:Owner \/ claimant|Renter|Releasor)[^.:]{0,20}:? ?John (?:A\. )?Doe\b/i,
+  /\bJohn (?:A\. )?Doe'?s? rental\b/i, /\bhis rental\b/i, /\bdamage to his property\b/i, /\bPlaintiff'?s property[- ]damage\b/i
+];
+for (const [id, t] of Object.entries(text)) {
+  const flat = t.replace(/\s+/g, " ");
+  NOT_OWNER.forEach(re => { const m = flat.match(re); if (m) fails.push(`${id}: “${m[0]}”: the Civic is Margaret Doe's; John Doe has no property-damage or rental claim`); });
+}
+if (text.RS07 !== undefined && !has("RS07", /DOE, Margaret/)) fails.push("RS07: the Police Report should list Margaret Doe as the parked Civic's owner");
 
 console.log(`Audited ${Object.keys(text).length} of ${DOCS.length} documents.`);
 warn.forEach(w => console.log("warn: " + w));

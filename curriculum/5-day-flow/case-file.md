@@ -42,8 +42,8 @@ while the claim is open) is a different question: PIP/MedPay → private health 
 |---|---|
 | Host driver | **Kevin Alvarez**, John's coworker (separate household). They carpool to work on alternate weeks; 02/06/2026 was Kevin's week. Owns the host vehicle, a **2020 Ford Escape**, insured by Harbor Point (Host UM $20,000; **MedPay $5,000**). |
 | Resident relative | **Margaret Doe**, John's mother. John lives with her at 2214 Maple Hollow Rd. Her own car is insured by Cardinal State Mutual (UM $10,000). Emergency contact on the file. |
-| John's own car | **2019 Honda Civic LX**, 52,300 miles, owned outright, insured by **Bluewater Auto Insurance** (liability + collision, $500 deductible). **UM/UIM rejected in writing** (signed rejection form, 03/14/2024). |
-| Why passenger status matters | As a passenger in a car he does not own, John reaches Host UM (occupant of the host vehicle) and Relative UM (resident relative in a non-owned vehicle). Had he been driving his own Civic, he would reach $10,000: he rejected UM on his own policy, and Cardinal State's policy excludes a resident relative occupying a vehicle he owns that it doesn't insure. |
+| The parked car | **Margaret Doe's 2019 Honda Civic LX**, 52,300 miles, owned outright, insured on her policy by **Bluewater Auto Insurance** (liability + collision, $500 deductible). **UM/UIM rejected in writing by Margaret** (signed rejection form, 03/14/2024). **John owns no car and has no auto policy.** |
+| Why passenger status matters | As a passenger in a car he does not own, John reaches Host UM (occupant of the host vehicle) and Relative UM (resident relative in a non-owned vehicle). He owns no car, so no policy of his own applies; Margaret's Bluewater policy on the Civic has no UM, so it adds no layer. The Civic, its PD claim and its rental are Margaret's, never John's: the firm handles her PD under a separate PD-only engagement. |
 | Defendant | **Robert Smith**, driving a 2017 Chevrolet Silverado; Keystone Mutual BI $10,000 per person; Keystone **PD liability $25,000** (separate from BI and **outside** the $40,000 stack). Address on the Police Report: 118 Larkspur Ln, Riverton. |
 | Employer | **Northgate Distribution** — John is a warehouse shift lead, started 01/12/2026, $22.00/hour, 8-hour shifts. Peach State coverage through Northgate, effective 02/01/2026. |
 
@@ -51,7 +51,7 @@ while the claim is open) is a different question: PIP/MedPay → private health 
 
 All-way stop at **Maple Hollow Rd & Birch Ave** (John's house is the corner lot). Kevin stopped eastbound on
 Maple Hollow and proceeded. Robert Smith, northbound on Birch Ave, did not stop, and struck the Escape's front
-passenger door at about 28 mph; the Escape was pushed into John's Civic, parked at the curb on Birch Ave.
+passenger door at about 28 mph; the Escape was pushed into Margaret's Civic, parked at the curb on Birch Ave.
 - Riverton PD report **RPD-26-018842**: Smith cited for failure to stop at a stop sign.
 - Independent witness: **Ruth Calloway**, 2209 Maple Hollow Rd.
 - **Doorbell-camera video** from 2214 Maple Hollow Rd (Margaret's camera) shows the Escape stopped and Smith
@@ -94,7 +94,7 @@ verified by Northgate HR wage-and-attendance letter. **Total specials: $16,401.4
 
 ### Why the 14-day gap happened (surfaces only when probed properly — Day 2 Module 3)
 
-1. **No transportation.** His Civic was towed from the scene, Kevin's Escape was in the shop, and no rental
+1. **No transportation.** Margaret's Civic was towed from the scene, Kevin's Escape was in the shop, and no rental
    was authorized until 02/18/2026.
 2. He thought it was soreness that would pass; took OTC ibuprofen and lidocaine patches (receipt 02/07/2026).
 3. Cost worry: he wasn't sure his new Peach State coverage (effective 02/01/2026) was active, and didn't know MedPay existed.
@@ -113,7 +113,7 @@ from the provider's missed-visit alert. **A-C-T:** *Assess* — called John 04/0
 PD to extend the rental (refused 04/10), then moved John to evening slots so Margaret could drive him after
 her shift (first open evening slot 04/21); *Track* — confirmed attendance 04/21 and 04/23. The Civic came back 04/24.
 
-### Property Damage (John's Civic — a separate claim with Keystone PD, adjuster **Leah Moran**; outside the $40,000 stack)
+### Property Damage (Margaret's Civic — a separate claim with Keystone PD, adjuster **Leah Moran**; outside the $40,000 stack)
 
 - Towed 02/06; storage 6 days at $45.00 + tow $185.00 = **$455.00** (paid by Keystone).
 - Initial estimate (Riverton Collision Center, 02/16/2026) **$6,940.00**; teardown supplement (03/02/2026)
@@ -195,7 +195,7 @@ before any negotiated reduction, leaving John Doe nothing — which is why the l
 - **09/10/2026** CMS status → Litigation. Harbor Point and Cardinal State notified of the impasse and the intended suit
   (the notice their policies require — Atty. Thorne confirms what is required).
 - **09/24/2026** complaint filed: *John Doe v. Robert Smith*, **State Court of Riverton County, Civil Action No. 26-CV-04417**.
-  Damages pleaded: medical Specials, lost wages, future medical, pain and suffering, and Property Damage (the Civic's Loss of Use and Diminished Value).
+  Damages pleaded: medical Specials, lost wages, future medical, pain and suffering. No Property Damage is pleaded: John owns no vehicle.
 - **Service:** attempts at 118 Larkspur Ln on 10/01, 10/05, 10/08 fail (a neighbor says Smith moved in August).
   Skip-Trace 10/09 → **4410 Quarry Ridge Ct, Millbrook**. Personal service **10/14/2026** by **Allied Process
   Services**; affidavit of service filed 10/16. Answer due **11/13/2026**.
