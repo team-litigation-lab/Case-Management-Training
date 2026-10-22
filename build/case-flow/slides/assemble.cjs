@@ -121,6 +121,11 @@ for (const day of CF.days) {
     } else if(b.kind === "activity"){
       line(b.id, "situation", c.situation, 32, [1, 2]); list(b.id, "steps", c.steps, 3, 5, 12); line(b.id, "deliver", c.deliver, 14); list(b.id, "checks", c.checks, 3, 5, 10);
       if(c.dos) list(b.id, "dos", c.dos, 1, 2, 10); if(c.donts) list(b.id, "donts", c.donts, 1, 2, 10);
+      if(c.grade !== undefined){   // the Grade-A Standard slide before Your Task: a packet or binder's guidelines, inclusions and steps
+        const g = c.grade || {};
+        if(typeof g.title !== "string" || !g.title.trim() || wc(g.title) > 8 || marks(g.title)) errors.push(`${b.id}.grade.title: want ≤ 8 words, no highlight`);
+        list(b.id, "grade.guide", g.guide, 3, 4, 12); list(b.id, "grade.include", g.include, 5, 8, 10); list(b.id, "grade.steps", g.steps, 4, 6, 12);
+      }
     } else {
       list(b.id, "questions", c.questions, b.check.questions.length, b.check.questions.length, 18);
     }

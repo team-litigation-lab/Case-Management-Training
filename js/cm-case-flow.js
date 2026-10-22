@@ -462,9 +462,9 @@ function falloutFor(blockId){
     return {f, done, what: String(what).replace(/\*\*/g, "")};
   }).filter(x => isTrainer() || !x.done);
 }
-const VIEW_LABEL = {audit: "Audit & the Finished Set", why: "Why It Matters", theory: "The Theory", theory2: "The Theory, Continued", frame: "The Framework", rules: "The Rules", map: "The Roadmap", model: "See It", job: "On the Job", dodont: "Do & Don't",
+const VIEW_LABEL = {grade: "The Grade-A Standard", audit: "Audit & the Finished Set", why: "Why It Matters", theory: "The Theory", theory2: "The Theory, Continued", frame: "The Framework", rules: "The Rules", map: "The Roadmap", model: "See It", job: "On the Job", dodont: "Do & Don't",
   case: "Your Case", task: "Your Task", check: "Check Your Work", questions: "Knowledge Check", questions2: "Knowledge Check, Continued", summary: "Self-Summary", scale: "Skill Scale"};
-const VIEW_ICON = {audit: "🔍", why: "💡", theory: "📚", theory2: "📚", frame: "🧭", rules: "📏", map: "🗺", model: "🔍", job: "🛠", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
+const VIEW_ICON = {grade: "🏅", audit: "🔍", why: "💡", theory: "📚", theory2: "📚", frame: "🧭", rules: "📏", map: "🗺", model: "🔍", job: "🛠", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
 const KC_PER = 4;   // Knowledge Check questions on one slide
 /* The Theory: the lesson's concepts from the original Canva decks (build/case-flow/slides/theory-dN.json), four to a
    slide (a deep topic, 6–8 concepts, takes two); then The Framework, the deck page's own table, flowchart or checklist
@@ -477,7 +477,7 @@ function viewsOf(b){
   if(b.kind === "lesson" && b.brief) return ["why", "rules"].concat((b.ops || []).length ? ["job"] : []);   // brief: a condensed overview (Day 5's litigation)
   if(b.kind === "lesson" && b.compact) return ["why"].concat(roadmapOf(b) ? ["map"] : [], theoryViews(b).slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);   // compact: a full topic on fewer slides (Days 2, 4 and 5 keep to their slide budget)
   if(b.kind === "lesson") return ["why"].concat(roadmapOf(b) ? ["map"] : [], theoryViews(b), ["rules"],b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // noGame: the CM introduction (Meet Your Case comes before the first game)
-  if(b.kind === "activity") return ["case", "task"].concat(EX.audits[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);   // compact: no See It slide (the worked model stays in 📖 Full text)
+  if(b.kind === "activity") return ["case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], ["task"], EX.audits[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);   // compact: no See It slide (the worked model stays in 📖 Full text)
   return (copyOf(b).questions.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
 }
 const SMALL = new Set(["a", "an", "the", "and", "or", "but", "nor", "of", "to", "in", "on", "for", "at", "by", "with", "from", "as", "per", "vs.", "v.", "via", "into"]);
@@ -772,6 +772,11 @@ function slideBody(view, l, d){
     case "rules": return `<div class="cfx-split"><ol class="cfx-points">${c.points.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>${art(c.image, "small")}</div>${plainBox(b)}
       ${c.upl ? `<div class="cfx-upl"><b>⚖ UPL Line</b><span>${hl(c.upl)}</span></div>` : ""}`;
     case "audit": return auditSlide(b);
+    case "grade": {   // what a Grade-A packet or binder holds and how it is built, shown before Your Task
+      const g = SLIDES[b.id].grade, col = (cls, h, xs, ol) => `<div class="cfx-grade-c ${cls}"><h3>${h}</h3><${ol ? "ol" : "ul"}>${xs.map(x => `<li>${hl(x)}</li>`).join("")}</${ol ? "ol" : "ul"}></div>`;
+      return `<div class="cfx-fw cfx-grade-w"><h3 class="cfx-fw-t">🏅 ${E(g.title)}</h3><div class="cfx-grade">${col("cfx-grade-g", "📐 Guidelines", g.guide)}${col("cfx-grade-i", "📦 Standard Inclusions", g.include)}${col("cfx-grade-s", "🪜 Steps to Grade A", g.steps, true)}</div>
+        <p class="cfx-fw-note">Build your own version from the downloaded case documents, then upload it to your training Drive and the CMS: the platform audits it against this standard.</p></div>`;
+    }
     case "model": return `<div class="cfx-model">${b.show && b.show.caption ? `<p class="cfx-caption">${E(b.show.caption)}</p>` : ""}${visual(l, b)}</div>`;
     case "job": return `<div class="cfx-job">${c.job.map((r, ri) => `<div class="cfx-flow">${r.map((x, j) => `<div class="cfx-step"><small>${["Trigger", "Task", "Tool", "Checkpoint"][j]}</small><span>${hl(x)}</span></div>`).join('<span class="cfx-arrow">➔</span>')}</div>`).join("")}</div>`;
     case "dodont": return (SLIDES[b.id] || {}).clues ? clueGame(b) : ddList(c);
@@ -1935,6 +1940,7 @@ MODULES.forEach(d => d.lessons.forEach(l => {
     rules: {why: "The rules, and where the Case Manager's role ends.", walk: ((b.tell && b.tell.rules) || []).concat((b.tell && b.tell.upl) || []), ask: n[1] || ""},
     model: {why: (b.show && b.show.caption) || "The model to follow.", talk: b.visual || ""},
     job: {why: "Trigger ➔ Task ➔ Tool ➔ Checkpoint: how it runs on the job.", walk: (b.ops || []).map(r => r.join(" ➔ "))},
+    grade: (SLIDES[b.id] || {}).grade ? {why: SLIDES[b.id].grade.title, walk: ["Guidelines: " + SLIDES[b.id].grade.guide.join("; "), "Standard inclusions: " + SLIDES[b.id].grade.include.join("; "), "Steps: " + SLIDES[b.id].grade.steps.join("; ")].map(x => x.replace(/\*\*/g, ""))} : {},
     dodont: {why: "How this block is graded, and what to watch for.", talk: n.slice(2).join(" "), walk: best},
     case: {why: b.act && b.act.scenario, talk: [SIM.events[b.id] ? (SIM.events[b.id].channel === "voicemail" && SIM.events[b.id].spoken ? `A voicemail just landed on the file (${SIM.events[b.id].date}). Play it, take notes as you would at your desk, and check them before you act.` : `What just landed on the file (${SIM.events[b.id].date}): ${SIM.events[b.id].subject}. ${SIM.events[b.id].body}`) : "", n[0] || ""].filter(Boolean).join(" ")},
     task: {why: b.act && b.act.prompt, walk: b.act ? [`Tool: ${b.act.tool}`, `Output: ${b.act.output}`].concat(SIM.calls[b.id] ? [`Live call: ${SIM.calls[b.id].who}. The trainee must: ${SIM.calls[b.id].goals.join("; ")}.`] : []) : [], ask: n[1] || ""},
@@ -3500,6 +3506,17 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-step span{font:600 18px/1.35 var(--font-ui);color:var(--ink);}
 .cfx-arrow{align-self:center;font-size:22px;color:var(--orange);}
 .cfx-dd{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.cfx-grade{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;text-align:left;}
+.cfx-grade-c{border-radius:14px;padding:10px 14px;animation:cfxIn .3s ease-out both;}
+.cfx-grade-c h3{margin:0 0 6px;font:800 15px var(--font-ui);color:var(--navy);text-transform:uppercase;letter-spacing:.04em;}
+.cfx-grade-c ul,.cfx-grade-c ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font:500 14.5px/1.34 var(--font-ui);color:var(--ink);}
+.cfx-grade-c li{display:list-item;margin:0;padding:0;text-align:left;position:static;}
+.cfx-grade-c li::before{content:none !important;display:none !important;}
+.cfx-grade-c ul li{list-style:disc;} .cfx-grade-c ol li{list-style:decimal;}
+.cfx-grade-c li::marker{color:var(--orange);font-weight:800;}
+.cfx-grade-g{background:#EEF4FF;border:1.5px solid #C7D6F2;}
+.cfx-grade-i{background:#FFF6EC;border:1.5px solid #F3D2B3;animation-delay:.06s;}
+.cfx-grade-s{background:#EEF8F2;border:1.5px solid #BFE3CE;animation-delay:.12s;}
 /* 3 Clues, 1 Rule */
 .cfx-cg{display:flex;flex-direction:column;gap:12px;text-align:left;}
 .cfx-cg-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
@@ -4088,7 +4105,7 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 @media(max-width:760px){
   .cfx{padding:16px 16px 18px !important;}
   .cfx-title{font-size:26px !important;}.cfx-of{display:block;font-size:15px;margin-top:4px;}.cfx-sep{display:none;}
-  .cfx-hero,.cfx-split,.cfx-lesson .cfx-split,.cfx-task,.cfx-dd,.cfx-qs-2,.cfx-theory,.cfx-th-grid,.cfx-fw-flow{grid-template-columns:minmax(0,1fr);}
+  .cfx-hero,.cfx-split,.cfx-lesson .cfx-split,.cfx-task,.cfx-dd,.cfx-grade,.cfx-qs-2,.cfx-theory,.cfx-th-grid,.cfx-fw-flow{grid-template-columns:minmax(0,1fr);}
   .cfx-fw-flow li:not(:last-child)::after{content:"⬇";right:50%;top:auto;bottom:-15px;transform:translateX(50%);}
   .cfx-hook{font-size:24px;}.cfx-situation{font-size:19px;}
   .cfx-points li{font-size:19px;grid-template-columns:36px 1fr;}.cfx-points li::before{width:32px;height:32px;font-size:16px;}

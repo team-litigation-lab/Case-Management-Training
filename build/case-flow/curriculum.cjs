@@ -147,7 +147,7 @@ else {
     if(b.kind === "lesson" && b.brief) return ["why", "rules"].concat((b.ops || []).length ? ["job"] : []);
     if(b.kind === "lesson" && b.compact) return ["why"].concat(map, theory.slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);
     if(b.kind === "lesson") return ["why"].concat(map, theory, ["rules"], b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);
-    if(b.kind === "activity") return ["case", "task"].concat(AUDITS[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);
+    if(b.kind === "activity") return ["case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], ["task"], AUDITS[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);
     return [];   // a Knowledge Check is its own page, not slides
   };
   DECK = CF.sequence.map(sd => { const bs = (sd.phases || []).flatMap(ph => ph.blocks || []).filter(id => STORED[id]).map(id => STORED[id].b);
