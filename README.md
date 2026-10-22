@@ -58,6 +58,31 @@ The script applies the CM edits to the EA/PA page and inserts the CM content fro
     - **Files:** the slides are in `js/blueprint-content.js`. `js/lsh-blueprint.js` is the same file on every LSH platform, and `js/lsh-blueprint-course.js` is the same on every LSH course: copy them from EA-PA-TRAINING when they change there.
     - **Test:** `.github/scripts/blueprint.cjs`.
 
+### The Knowledge Check doesn't flicker
+
+The Knowledge Check is repainted on every answer, every pick and every move between questions. It used
+to write the whole page back with `innerHTML`, which threw away and rebuilt every node each time: the
+page visibly flickered. It showed worst on **Day 3**, whose Countdown Bomb repaints while a CSS fuse
+animation is running and whose rebuilt page is measured and scaled again by `kcFit`.
+
+The page is still built exactly as before and then **morphed** in (`paintInto` in `js/cm-case-flow.js`):
+a node whose markup hasn't changed is left alone, and only what really differs is written. The result is
+the DOM `innerHTML` would have produced — the morph replaces a node whenever it can't patch it — so no
+game mode's markup has to be known there, and nothing flickers because almost nothing is touched. A live
+`<select>`, `<input>` or `<textarea>` keeps what the trainee has typed or chosen, and the bomb's fuse
+keeps its own `animation-delay` while it is running (that delay is worked out from the clock on every
+render, so writing it back would restart the animation).
+
+**One other thing this fixed.** A game's timers hold the day they were started on (the bomb's 20-second
+fuse, the wheel's 2.5-second spin), so one left running while the trainee opened another day painted
+*that* day's quiz over the new one — a Countdown Bomb fuse turning up on Day 4. `gamePaint` now paints
+only the day that is open.
+
+`.github/scripts/kc-morph.cjs` (CI) plays every day, so every game mode (millionaire, jeopardy, bomb,
+wheel, doors): the morphed page is exactly what `innerHTML` would have produced, the card, question and
+unpicked options are the same nodes after an answer, the answer still lands, and the bomb's running fuse
+survives with its delay intact. Against the old `innerHTML` it fails on exactly the Day 3 symptom.
+
 ### Day cards say where the trainee is
 
 A day card's button is the trainee's next step, from their own record (`dayStage` and `moduleCard` in

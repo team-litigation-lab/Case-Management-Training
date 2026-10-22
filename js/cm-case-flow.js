@@ -1833,11 +1833,70 @@ function kcFit(){
   while(box.scrollHeight > box.clientHeight + 1 && z > 0.6){ z = Math.round((z - 0.05) * 100) / 100; w.style.zoom = String(z); }
 }
 window.addEventListener("resize", () => { clearTimeout(state.cfKcFitT); state.cfKcFitT = setTimeout(() => { try{ kcFit(); }catch(e){} }, 120); });
+/* The Knowledge Check is repainted on every answer, every pick and every move between questions. Writing
+   the whole page back with innerHTML threw away and rebuilt every node each time: the page visibly
+   flickered, worst on Day 3, whose Countdown Bomb repaints while a CSS fuse animation is running and
+   whose rebuilt page is measured and scaled again by kcFit.
+   So the new page is built as before and then *morphed* in: a node whose markup hasn't changed is left
+   exactly as it is, and only what really differs is written. The result is the same DOM innerHTML would
+   have produced — morphEl falls back to replacing a node whenever it can't patch it — so no mode's
+   markup has to be known here, and nothing flickers because almost nothing is touched.
+   The fuse is the one exception: its animation-delay is worked out from the clock on every render (so a
+   rebuilt fuse resumes where it was), which would make it differ every time and restart the animation.
+   A fuse that is already running on the same question keeps its own style. */
+const FUSE_SEL = ".cfg-fuse i";
+function sameFuse(cur, next){
+  return cur.matches && cur.matches(FUSE_SEL) && next.matches && next.matches(FUSE_SEL)
+    && cur.closest(".cfg-card") && next.closest && true;
+}
+function morphAttrs(cur, next, keepStyle){
+  for(const a of Array.from(next.attributes)){
+    if(keepStyle && a.name === "style") continue;
+    if(cur.getAttribute(a.name) !== a.value) cur.setAttribute(a.name, a.value);
+  }
+  for(const a of Array.from(cur.attributes)){
+    if(keepStyle && a.name === "style") continue;
+    if(!next.hasAttribute(a.name)) cur.removeAttribute(a.name);
+  }
+}
+function morphEl(cur, next){
+  if(cur.nodeType === 3 && next.nodeType === 3){ if(cur.nodeValue !== next.nodeValue) cur.nodeValue = next.nodeValue; return true; }
+  if(cur.nodeType !== 1 || next.nodeType !== 1 || cur.tagName !== next.tagName) return false;
+  const fuse = sameFuse(cur, next);
+  if(!fuse && cur.outerHTML === next.outerHTML) return true;            // unchanged: left alone
+  // A live <select>, <input> or <textarea> keeps what the trainee has typed or chosen.
+  if(/^(SELECT|INPUT|TEXTAREA)$/.test(cur.tagName)){ morphAttrs(cur, next); return true; }
+  morphAttrs(cur, next, fuse);
+  morphKids(cur, next);
+  return true;
+}
+function morphKids(cur, next){
+  // The live child list, never a snapshot of it: patching a child can replace it, which makes a
+  // snapshot's later entries stale and left a node behind (a mode whose card has one box fewer kept
+  // the box before it — the Countdown Bomb's fuse turned up on the next day's page).
+  const b = Array.from(next.childNodes);
+  for(let i = 0; i < b.length; i++){
+    const cn = cur.childNodes[i];
+    if(!cn){ cur.appendChild(b[i].cloneNode(true)); continue; }
+    if(!morphEl(cn, b[i])) cur.replaceChild(b[i].cloneNode(true), cn);
+  }
+  while(cur.childNodes.length > b.length) cur.removeChild(cur.lastChild);
+}
+function paintInto(w, html){
+  if(!w.firstChild){ w.innerHTML = html; return; }
+  const next = document.createElement("div");
+  next.innerHTML = html;
+  morphKids(w, next);
+}
 let __qdT = null;
 function gamePaint(d){
   if(d && !state.quizSubmitted && Object.keys(state.quizAnswers || {}).length){ clearTimeout(__qdT); __qdT = setTimeout(() => saveQuizDraft(d), 400); }
   const w = document.getElementById("quizWrap"); if(!w) return;
-  w.innerHTML = renderQuiz(d);
+  // Only ever paint the day that is open. A game's own timers (the bomb's 20-second fuse, the wheel's
+  // spin) hold the day they were started on, so one left running while the trainee opens another day
+  // used to paint that day's quiz over this one.
+  if(d && state.dayId && d.id !== state.dayId) return;
+  paintInto(w, renderQuiz(d));
   try{ kcFit(); }catch(e){}
   clearInterval(state.cfClockIv); clearTimeout(state.cfBombT);
   const g = state.cfGame; if(!g) return;
