@@ -904,7 +904,7 @@ window.CM_CF_EXHIBITS = {
    "requests": [
     {
      "doc": "RS16",
-     "corrected": "RS71",
+     "corrected": "RS72",
      "proof": [
       "RS12",
       "RS11"
@@ -1007,7 +1007,7 @@ window.CM_CF_EXHIBITS = {
     },
     {
      "doc": "RS26",
-     "corrected": "RS72",
+     "corrected": "RS73",
      "proof": [
       "RS26",
       "RS17"

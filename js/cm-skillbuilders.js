@@ -603,10 +603,21 @@ window.clientAvatarSvg = function(){ return `<div class="client-photo-img" style
 window.cmToolsMenuHTML = function(){
   const tools = CM_TOOL_DEFAULTS.map(d=>cmTool(d.id)).filter(t=>t.live);
   const open = currentFrame && frameShell && !frameShell.hidden;
+  // 📄 Drafting Tools live in this menu too (no top-bar button of their own): the hub and its three drafting exercises
+  // (each opens as its hub card does: HIPAA here; LOR and Med Provider on the Portal's shared Drafting tool)
+  const drafting = [["drafting", "📄 All Drafting Tools"], ["hipaa", "🩺 HIPAA Drafting"], ["portal", "✉️ LOR Drafting"], ["portal", "🏥 Med Provider Drafting"]];
+  const onDraft = !open && ["drafting", "lor", "hipaa", "medprov"].includes(state.view);
   return `<div class="nav-tools" id="navTools">
-    <button type="button" class="${open?"active":""}" aria-haspopup="true" onclick="cmToggleToolsMenu(event)">🧰 Tools ▾</button>
+    <button type="button" class="${open||onDraft?"active":""}" aria-haspopup="true" onclick="cmToggleToolsMenu(event)">🧰 Tools ▾</button>
     <div class="nav-tools-menu" role="menu">${tools.map(t=>`<button type="button" role="menuitem" class="${open && t.id===currentFrame?"on":""}" onclick="cmPickTool('${t.id}')">${t.icon} ${E(t.short)}</button>`).join("")}
+      <div class="nav-tools-sep" role="presentation">Drafting Tools</div>
+      ${drafting.map(([v, label])=>`<button type="button" role="menuitem" class="${!open && state.view===v?"on":""}" onclick="cmPickDraft('${v}')">${label}</button>`).join("")}
       <button type="button" class="more" onclick="cmPickTool(null)">All tools, sign-in help &amp; my work log</button></div></div>`;
+};
+window.cmPickDraft = function(view){
+  const n = document.getElementById("navTools"); if(n) n.classList.remove("open");
+  if(state.mobileNavOpen && typeof toggleMobileNav==="function") toggleMobileNav();
+  if(view === "portal" && typeof lshOpenPortalDrafting === "function") lshOpenPortalDrafting(); else goto(view === "portal" ? "drafting" : view);
 };
 window.cmToggleToolsMenu = function(e){ if(e) e.stopPropagation(); const n = document.getElementById("navTools"); if(n) n.classList.toggle("open"); };
 window.cmPickTool = function(id){

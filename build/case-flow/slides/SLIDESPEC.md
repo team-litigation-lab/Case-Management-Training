@@ -62,6 +62,8 @@ context the decks gave, not only the rules. Take it from the deck pages that tea
   (**≤ 20 words**, one highlight): what it is and why it matters. Complement The rules; don't repeat them.
   A deep topic (the coverages, the treatment phase: the Standard Treatment Map, MMI, red flags, gaps) may carry
   **6–8**, drawn as The theory and The theory, continued (four to a slide).
+  A concept with more to it than its line may add `more`: **2–6** lines (**≤ 22 words** each, at most one highlight),
+  shown in a pop-up card from the card's ＋ More button. Keep the card itself the one-line idea.
 - `pages` — **1–2** original deck pages (`D1#24` = the Day 1 deck, page 24), the ones its theory comes from. These
   are the decks' page numbers, not the lesson's `sources` (which number the earlier course's topics); never a page
   that shows the archived Apex file's facts. `[]` only for a lesson with no deck behind it.
@@ -82,6 +84,10 @@ context the decks gave, not only the rules. Take it from the deck pages that tea
   dates and figures the task needs; drop the rest.
 - `steps` — the task (from `act.prompt`) as **3–5 imperative steps, ≤ 12 words each**, in order.
 - `deliver` — the expected output (`act.output`) in **≤ 14 words**.
+- `purpose` (optional) — why the task matters to the file, in **≤ 14 words**; shown as 🎯 Purpose beside the steps.
+- `principle` (optional) — the rule the task turns on, in **≤ 12 words**; shown as ⚖️ Principle (without it, the first
+  `dos` item is shown). Each step ends with a link to where it is done (CMS → New Case, → Calendar, → Case Notes,
+  📁 Documents, or the tool it names), drawn from the step's own words: name the place in the step.
 - `checks` — **3–5** verification checkpoints (`act.checkpoints`), **≤ 10 words each**.
 - `dos` / `donts` — **1–2 each** from `best`, ≤ 10 words.
 

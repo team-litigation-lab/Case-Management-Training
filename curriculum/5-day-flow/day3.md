@@ -251,7 +251,7 @@ A left-to-right audit run across the full slide. Far left, a navy vertical gate 
 
 1. Audit against four objectives: Verification (facts match evidence?), Valuation (every dollar justified?), Risk (where will the defense attack?), Compliance (SOL 02/06/2028 docketed; statutory demand terms confirmed by Atty. Thorne).
 2. MMI is a medical determination, never yours: record it from Lakeside Orthopedics' 06/12/2026 note, with the future-care plan. By default, no demand before MMI: the bills are still growing. Demanding earlier (Specials already over the limit, a deadline pressing) is Atty. Thorne's call.
-3. Special damages = Medical Bills + lost wages + Property Damage. The Civic runs on its own Keystone PD claim, outside the $40,000, so John Doe's BI Specials are medical + wages.
+3. Special damages = Medical Bills + lost wages + out-of-pocket costs + Property Damage. Out-of-pocket costs (mileage to treatment at the rate the governing state's rules allow, rides, prescriptions, equipment) come from the trip log and their receipts, and Atty. Thorne decides what the demand claims. The Civic runs on its own Keystone PD claim, outside the $40,000, so John Doe's audited BI Specials are medical + wages.
 4. Audit the medicals in three passes. Chronology: every gap with its documented reason (the 14 days, the 19-day disruption). Coding: duplicate or unbundled lines. Prior history, 5–10 years back: three 2021 low-back chiropractic visits, resolved; no prior neck complaint.
 5. Test every line as reasonable and necessary: fits the mechanism, clinically ordered (the MRI on Dr. Reyes's 03/05/2026 order; the injection after the 03/27/2026 referral), backed by objective findings.
 6. Show billed beside paid. Which column the demand claims turns on the governing collateral-source rule, which varies by state: Atty. Thorne's call, never the ledger's.
@@ -675,7 +675,7 @@ Three rungs build left to right: BI $10,000 (navy, ticked TENDERED 08/12), HOST 
 6. When a carrier offers limits, confirm its terms (coverage, release scope, liens, payee, check date) without accepting; report to Atty. Thorne that day. Only after John Doe decides, on his advice, does the acceptance go out: you draft it, he approves and sends it.
 7. A first-party carrier owes its insured good faith. Never accept verbally under pressure: log the words, put new evidence in writing under Atty. Thorne's deadline, escalate. Bad faith is his call.
 8. Payout: release → check (to John Doe and the firm; he endorses, never the CM) → IOLTA → liens, fee, costs → net. Log each check the day it arrives; deposit it that day if its release is signed, else secure it and expedite signing under Atty. Thorne.
-9. Riverton's PIP is add-on: a collateral source, not a credit to Keystone (confirm the rule). Exhausted and non-subrogated, it creates no lien and no UM cut here. Where PIP applies, set-off, the EMC ceiling and subrogation change the ask.
+9. PIP is used differently by state type. In a no-fault state, PIP is mandatory and pays the injured person's own medical first, whoever caused the crash; a suit against the at-fault driver needs a serious-injury or monetary threshold, and PIP paid is set off. In an at-fault state, the at-fault driver's BI pays the injury claim and add-on PIP pays on top, with the right to sue left open. John Doe's Harbor Point PIP is add-on: a collateral source, not a credit to Keystone (confirm the rule). Exhausted and non-subrogated, it creates no lien and no UM cut here.
 
 > ⚠️ **UPL boundary.** You may assemble the evidence, log and relay offers, and paper what John Doe decided through Atty. Thorne. You may not accept, reject or counter, tell John Doe whether to settle, explain a policy's offset or release language to him, or accuse a carrier of bad faith.
 
@@ -685,8 +685,9 @@ Three rungs build left to right: BI $10,000 (navy, ticked TENDERED 08/12), HOST 
 
 | Reduction | Where it bites | On this file |
 |---|---|---|
-| PIP set-off | No-fault states: value – PIP paid = what the defendant still owes. | Riverton PIP is add-on, not no-fault: a collateral source, not a credit to Keystone (confirm the rule). Exhausted, non-subrogated: no lien, no UM cut. |
-| EMC ceiling | In PIP states, some cap benefits lower without an emergency-medical-condition finding (confirm the rule); Riverton's add-on PIP has no such cap. | PIP paid its full $5,000.00; the rest of the care became Peach State and LOP liens. |
+| PIP in a no-fault state | PIP is mandatory and pays first, whoever was at fault; a suit needs a threshold, and PIP paid is set off. | Not this file. |
+| PIP in an at-fault state | The at-fault driver's BI pays; add-on PIP pays on top, and the right to sue stays open. | John Doe's Harbor Point PIP is add-on: a collateral source, not a credit to Keystone (confirm the rule). Exhausted, non-subrogated: no lien, no UM cut. |
+| EMC ceiling | In PIP states, some cap benefits lower without an emergency-medical-condition finding (confirm the rule); John Doe's Harbor Point PIP has no such cap. | PIP paid its full $5,000.00; the rest of the care became Peach State and LOP liens. |
 | Subrogation | A subrogated carrier liens the settlement: log it, plan the reduction. | Harbor Point, 03/02/2026: no reimbursement right. |
 | UM offset | A reduction policy subtracts the BI from the UM limit. | Add-on: $20,000 of room, not $20,000 – $10,000 = $10,000. |
 
@@ -719,7 +720,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **15%** | Gap and layer logic | UM pays the gap above BI; Relative UM excess over Host UM; $10,000 + $20,000 + $10,000 = $40,000 |
-| 🤖 AI | **20%** | Reductions closed | Offset, PIP non-duplication and PIP reimbursement each tied to the 03/02/2026 letter; add-on PIP: no set-off; no-fault rules stated as where they apply |
+| 🤖 AI | **20%** | Reductions closed | Offset, PIP non-duplication and PIP reimbursement each tied to the 03/02/2026 letter; PIP use contrasted, no-fault against at-fault; John Doe's add-on PIP: no set-off |
 | 🤖 AI | **15%** | Close and paper trail | Coverage, release, liens, payee and check date confirmed; same-day email |
 | 🤖 AI | **10%** | Payout sequence | Release → check → trust → liens, fee and costs → net |
 | 🧑‍🏫 Trainer | **20%** | Strategic judgment | Explains why the gross is protected before the negotiation, and when bracketing does and doesn't fit |
@@ -731,7 +732,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 - Open on Harbor Point's 03/02/2026 letter. Ask which sentence in it is worth $10,000 to John Doe. It is the add-on clause: on a reduction policy, Keystone's $10,000 would have come off the top of the $20,000.
 - Put to the room: “Harbor Point insures Kevin Alvarez's car. Why does it owe John Doe anything, and why will it still fight him?”
-- Watch for trainees who treat the UM carriers as friendly because they are first-party. They turn adversarial at evaluation, and Harbor Point's 09/14 offer proves it. Teach PIP as the doctrine where it applies, not as a fact of this file: where PIP applies, the set-off, the EMC ceiling and a subrogation lien each change the BI ask and the net.
+- Watch for trainees who treat the UM carriers as friendly because they are first-party. They turn adversarial at evaluation, and Harbor Point's 09/14 offer proves it. Teach the contrast: in a no-fault state PIP is mandatory, pays first and is set off, and a suit needs a threshold; in an at-fault state add-on PIP pays on top and the suit stays open. John Doe's Harbor Point PIP is add-on.
 - Bad faith is a legal conclusion. New medical evidence changes a valuation, and on this file it is the residual paresthesia Dr. Reyes documented at MMI; don't call it permanent unless a physician has. The CM's contribution is a dated record of what each carrier knew and said, and anyone who writes “bad faith” to an adjuster has crossed the line.
 
 ---

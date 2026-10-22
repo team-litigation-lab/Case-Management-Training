@@ -117,7 +117,7 @@ record only by a dated addendum, the original kept), and the corrected copy is f
   "title": "…", "kicker": "…", "intro": "…",
   "screen": [{"doc": "RS14", "why": "…"}, {"doc": "RS16"}],
   "requests": [{
-    "doc": "RS16", "corrected": "RS71", "proof": ["RS12"],
+    "doc": "RS16", "corrected": "RS72", "proof": ["RS12"],
     "wrong": "…", "to": "…", "cc": "…", "subject": "…", "attachment": "…", "brief": "…",
     "required": [{"id": "…", "label": "…", "hint": "…", "match": ["regex", …]}],
     "forbidden": [{"id": "…", "label": "…", "why": "…", "match": ["regex", …]}],

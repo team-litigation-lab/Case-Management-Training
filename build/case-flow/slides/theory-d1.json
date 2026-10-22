@@ -2,10 +2,10 @@
   "d1m1-role": {
     "lead": "Case Management is the **end-to-end coordination** of a case from intake to resolution: tracking, handling and moving it, phase by phase.",
     "concepts": [
-      {"term": "What It Ensures", "text": "Timely progression, proper documentation and compliance, clear communication: **the three tests** every task on the file must pass"},
+      {"term": "What It Ensures", "text": "Timely progression, proper documentation and compliance, clear communication: **the three tests** every task on the file must pass", "more": ["Timely progression: no file sits without **a dated task**", "Documentation and compliance: every contact, document and deadline in the CMS the same day", "Communication: client, carriers and providers kept updated, every contact logged"]},
       {"term": "The General Process", "text": "Six stages, from Intake & Case Opening to Billing, Resolution & Closing: **you carry the file** through all six"},
-      {"term": "Case Planning & Strategy Support", "text": "You build the plan and recommend next steps; **strategy itself stays** with Atty. Thorne"},
-      {"term": "Case Health Analysis", "text": "Reading the whole file for risk, not single tasks: **spotting the weak point** before it costs the client"}
+      {"term": "Case Planning & Strategy Support", "text": "You build the plan and recommend next steps; **strategy itself stays** with Atty. Thorne", "more": ["You own the Case Plan draft, its risk flags and your recommendations to counsel", "Atty. Thorne owns accepting the case, value and merits, **demand strategy and amounts**", "Settlement authority, lien compromises and every filing stay with him too"]},
+      {"term": "Case Health Analysis", "text": "Reading the whole file for risk, not single tasks: **spotting the weak point** before it costs the client", "more": ["The usual weak points: **a missed deadline**, a silent client, a gap in treatment", "Flag it to Atty. Thorne the day you see it, with the facts and a recommended next step", "Log it in CMS → Case File → Risk Flags; nothing lives only in email", "Don't wait until you've fixed it yourself: flag first, then work it"]}
     ],
     "pages": ["D1#3", "D1#4"],
     "framework": {
@@ -25,9 +25,9 @@
   "d1m1-case": {
     "lead": "Every file is worked from **its verified facts**: who was hurt, how, which policies apply, and what could weaken the claim.",
     "concepts": [
-      {"term": "The Case Snapshot", "text": "Parties, date of loss, SOL, client position and coverage on one card: **the facts every task reads**"},
+      {"term": "The Case Snapshot", "text": "Parties, date of loss, SOL, client position and coverage on one card: **the facts every task reads**", "more": ["Client John Doe, 34; defendant Robert Smith; Lead Counsel Atty. Elijah Thorne", "SOL docketed **02/06/2028**: every deadline counts from the date of loss", "Stack: $10,000 BI → $20,000 Host UM → $10,000 Relative UM = $40,000", "Health Plan: Peach State, reimbursement right asserted on first notice", "His position in the vehicle: find it in the Police Report, never assume it"]},
       {"term": "Facts of Loss", "text": "How, where and when the collision happened, confirmed by the Police Report and witnesses; **ambiguity here needs counsel**"},
-      {"term": "Critical Case Event", "text": "The one fact the defense will build on; name it early so **counsel plans around it**"},
+      {"term": "Critical Case Event", "text": "The one fact the defense will build on; name it early so **counsel plans around it**", "more": ["On this file: **a Treatment Gap**", "Compare the EMS Run Report's date with the first treatment record", "Record the gap's dates and, later, John Doe's own documented explanation", "Never judge it, and never tell him what it does to the claim: Atty. Thorne's call"]},
       {"term": "The Source Documents", "text": "Intake sheet, supplement and Police Report are the file's sources: **quote the document**, never your memory"}
     ],
     "pages": ["D1#16"],
@@ -50,12 +50,12 @@
     "concepts": [
       {"term": "The Recovery Stack", "text": "Every policy that can pay the claim, layered in the order it pays; **find every layer** at intake"},
       {"term": "Bodily Injury Liability", "text": "The at-fault driver's coverage for injuries he causes others: **the first layer** to pay, and a third-party claim"},
-      {"term": "UM/UIM Coverage", "text": "First-party cover for when the at-fault driver's BI is **missing or too small**; reached through the vehicle or household"},
-      {"term": "Exclusions and Rejections", "text": "A signed UM rejection or an owned-vehicle exclusion **closes a layer**; record the document that does it"},
-      {"term": "MedPay and PIP", "text": "First-party medical coverage paid regardless of fault: **it pays bills first**, while the claim is still open"},
+      {"term": "UM/UIM Coverage", "text": "First-party cover for when the at-fault driver's BI is **missing or too small**; reached through the vehicle or household", "more": ["Reached by status, not ownership: occupant of the vehicle, or **resident relative** of the household", "Host UM: $20,000 at Harbor Point, reached through the host vehicle", "Relative UM: $10,000 at Cardinal State Mutual, through John Doe's resident relative", "His position in the vehicle decides which layers open: record it from the Police Report"]},
+      {"term": "Exclusions and Rejections", "text": "A signed UM rejection or an owned-vehicle exclusion **closes a layer**; record the document that does it", "more": ["On this file: Margaret Doe rejected UM on her Bluewater policy, in writing", "The signed form goes in the file, so **the zero is verified**, not assumed", "Whether an exclusion or rejection applies is Atty. Thorne's call; you record the document"]},
+      {"term": "MedPay and PIP", "text": "First-party medical coverage paid regardless of fault: **it pays bills first**, while the claim is still open", "more": ["MedPay: reasonable accident Medical Bills up to its limit, never wages", "PIP, where a state requires it, also pays **a share of lost wages** and replacement services", "This file: $5,000 PIP at Harbor Point", "Verify PIP or MedPay on every file; never assume it"]},
       {"term": "Property Damage and Collision", "text": "PD liability repairs what the at-fault driver damaged; collision is the owner's own cover. **Neither joins the injury stack**"},
       {"term": "Per-Person vs. Per-Accident Limits", "text": "A split limit caps each injured person at the first figure and **the whole accident** at the second; read both"},
-      {"term": "The Declaration Page", "text": "The carrier's statement of the named insured, covered vehicles, coverages and limits: **written proof of coverage**"}
+      {"term": "The Declaration Page", "text": "The carrier's statement of the named insured, covered vehicles, coverages and limits: **written proof of coverage**", "more": ["Read it line by line: named insured, policy number, **a policy period covering** 02/06/2026", "The insured vehicle and VIN, coverages and limits, deductibles", "Listed or excluded drivers, and any endorsements", "Until it arrives, a limit is preliminary: a phone figure is a lead, never quoted to the client"]}
     ],
     "pages": ["D1#21", "D1#22"],
     "framework": {
@@ -74,8 +74,8 @@
   "d1m1-l2": {
     "lead": "Before clinical planning, the **Regulatory Triple-Check** establishes the claim and your authority to act; the Payer Order then decides who funds care.",
     "concepts": [
-      {"term": "Subrogation", "text": "A payer's right to stand in the client's shoes and **recover what it paid** for accident care"},
-      {"term": "Primary Payer Determination", "text": "Deciding which payer is billed first, so each bill **goes to the right payer** and nothing is paid twice"},
+      {"term": "Subrogation", "text": "A payer's right to stand in the client's shoes and **recover what it paid** for accident care", "more": ["On this file: **Peach State Health Plan** asserted a reimbursement right on first notice", "Record carrier, member ID PSH-55017742 and group GRP-41208 in the lien register the same day", "Flag it against the matter before the first demand is drafted", "Registering a lien isn't conceding it; enforceability and any compromise are Atty. Thorne's"]},
+      {"term": "Primary Payer Determination", "text": "Deciding which payer is billed first, so each bill **goes to the right payer** and nothing is paid twice", "more": ["1. PIP/MedPay, if any applies: verify it, never assume", "2. Private health insurance: here, Peach State Health Plan", "3. LOP/provider liens, last", "Not the Recovery Stack: the Payer Order pays the bills; **the $40,000 stack** pays the claim", "Which payer is primary when policies conflict is Atty. Thorne's call"]},
       {"term": "Letter of Protection", "text": "The firm's written promise to pay a provider from the settlement: **last in the Payer Order**"},
       {"term": "The Client's Net", "text": "What the client keeps once fees, costs and liens are paid: **a late-flagged lien** comes straight out of it"}
     ],
@@ -96,8 +96,8 @@
     "lead": "The No Contact Protocol is a **formal due-diligence record**: it tracks silence, proves the firm tried, and protects it from liability.",
     "concepts": [
       {"term": "Intake Bottlenecks", "text": "Points where work slows, stalls or turns inconsistent; **a silent client** is one, delaying case progression"},
-      {"term": "Due Diligence", "text": "Proof the firm made reasonable, documented efforts to reach the client: **the record that justifies** whatever comes next"},
-      {"term": "Approved Channels", "text": "The contact methods the client and firm agreed at intake; **only approved channels** count as a valid attempt"},
+      {"term": "Due Diligence", "text": "Proof the firm made reasonable, documented efforts to reach the client: **the record that justifies** whatever comes next", "more": ["Log every attempt as you make it: **date, time, channel, outcome**", "An unlogged attempt did not happen", "Escalate by channel, not volume: two voicemails on one number clears the phone rung only", "Step 3: notify Atty. Thorne, document it, assess the SOL and any hearing dates"]},
+      {"term": "Approved Channels", "text": "The contact methods the client and firm agreed at intake; **only approved channels** count as a valid attempt", "more": ["The ladder: 2+ phone attempts → email and text → emergency contact → certified mail or letter", "Step 1 confirms every earlier attempt used **an approved channel**", "Give the client an easy way back: a call window, a text, an upload link"]},
       {"term": "Emergency Contact", "text": "A second person, collected at intake, who can **still reach the client** after they go quiet"}
     ],
     "pages": ["D1#11", "D1#9"],
@@ -119,10 +119,10 @@
   "d1m2-l2": {
     "lead": "The Final Warning Letter **closes the outreach record**: one last documented notice before the firm searches for the client or counsel moves to withdraw.",
     "concepts": [
-      {"term": "Dual Delivery", "text": "Certified mail proves delivery; email gets a response. **Each covers the other's gap**"},
-      {"term": "The Three-Criteria Gate", "text": "An AND gate, not a checklist: the search waits until **all three are true**, so money isn't spent early"},
+      {"term": "Dual Delivery", "text": "Certified mail proves delivery; email gets a response. **Each covers the other's gap**", "more": ["Confirm the current address first: a letter to **a stale address** proves nothing", "Same letter both ways: earlier attempts itemized with dates, a 7–14 day deadline, withdrawal notice", "Keep the certified receipt; log both channels in CMS → Documents → Outgoing"]},
+      {"term": "The Three-Criteria Gate", "text": "An AND gate, not a checklist: the search waits until **all three are true**, so money isn't spent early", "more": ["1. Contact ladder exhausted: phone, email, text and emergency contact, all logged", "2. Final Warning Letter sent by certified mail AND email", "3. Its 7–14 day deadline has passed with no contact", "Then escalate to Atty. Thorne with **the complete log** attached"]},
       {"term": "Skip-Trace", "text": "A paid search for a missing person's current address and contacts; **counsel authorizes it** because it spends firm money"},
-      {"term": "Withdrawal", "text": "Ending representation by Notice of Withdrawal or Motion to Withdraw; **only the attorney decides**, under firm and court rules"}
+      {"term": "Withdrawal", "text": "Ending representation by Notice of Withdrawal or Motion to Withdraw; **only the attorney decides**, under firm and court rules", "more": ["The letter may say withdrawal is possible, **never that it's happening**", "Never write “we are withdrawing” in a letter the attorney hasn't approved", "Only the attorney decides, and tells the client, that representation is ending"]}
     ],
     "pages": [],
     "framework": {
@@ -139,31 +139,20 @@
   "d1m3-l1": {
     "lead": "Client instructions protect the claim from **the client's own good intentions**: what the client says, posts, signs or skips can become evidence.",
     "concepts": [
-      {"term": "Medical vs. Legal Danger", "text": "A medical danger threatens the client's health; a legal danger, like **a gap in care**, threatens the claim"},
+      {"term": "Medical vs. Legal Danger", "text": "A medical danger threatens the client's health; a legal danger, like **a gap in care**, threatens the claim", "more": ["The client starts treatment and keeps every appointment", "Barriers (transport, cost, work) reported to you **before a visit is missed**", "Explain the process, not the stakes: what a missed visit means is Atty. Thorne's to explain"]},
       {"term": "A Clean, Discoverable File", "text": "Everything on the file can reach defense counsel, so instructions stay **factual, never legal opinion**"},
-      {"term": "Letter of Representation", "text": "The notice that the firm represents the client; from then on, adverse contact **routes through the firm**"},
-      {"term": "Rate Cap and Duration", "text": "The authorized daily rate and number of days; **anything beyond them** is the client's own cost"}
+      {"term": "Letter of Representation", "text": "The notice that the firm represents the client; from then on, adverse contact **routes through the firm**", "more": ["No Recorded Statement to the adverse carrier: all adverse contact routes through the firm", "The one carve-out: the adverse carrier may discuss **Property Damage only** with the client", "If a Property Damage call turns to injuries, treatment or the facts of loss, it stops and routes to the firm", "Log every adverse contact in CMS → Communications Log"]},
+      {"term": "Documented Costs", "text": "Every accident-related cost needs its receipt or trip log: **only what is documented** can be recovered", "more": ["Every receipt for an accident-related out-of-pocket expense", "Mileage to and from appointments", "Household help", "Log each expense in CMS → Case Notes the day the client mentions it"]}
     ],
-    "pages": ["D1#44", "D1#28"],
-    "framework": {
-      "title": "The Rental Authorization Check",
-      "kind": "flow",
-      "steps": [
-        {"label": "Whose Coverage Pays the Rental?", "text": "The adverse carrier's **Property Damage** coverage pays the 3P rental; the client's policy only if none"},
-        {"label": "Who Authorizes?", "text": "Confirm who authorizes the rental and check for a rental reimbursement endorsement"},
-        {"label": "Daily Rate Cap", "text": "Record the authorized daily rate before the client collects a vehicle"},
-        {"label": "Duration Limit", "text": "Record the number of covered days: **uncovered days are the client's cost**"}
-      ],
-      "note": "All four go in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
-    }
+    "pages": ["D1#44", "D1#28"]
   },
   "d1m3-l2": {
     "lead": "Property Damage is **a separate claim** with its own measure: repair or total, set against the vehicle's pre-loss value.",
     "concepts": [
       {"term": "The Scene Audit", "text": "Photos, video and damage must match how the crash happened; **the physics must be possible**"},
-      {"term": "Supplemental Estimate", "text": "An added estimate written after teardown finds hidden damage: **proof of impact severity** for the injury claim"},
-      {"term": "Total Loss Threshold", "text": "The repair-to-ACV percentage at which a carrier stops repairing and **pays the value instead**"},
-      {"term": "The Valuation Report", "text": "The carrier's market-based report that sets ACV; **verify it line by line** so the client isn't lowballed"}
+      {"term": "Initial and Supplemental Estimates", "text": "The initial estimate prices visible damage; a supplemental after teardown is **proof of impact severity**", "more": ["The initial estimate prices only the damage visible before the vehicle is taken apart", "Teardown exposes hidden damage; the shop writes a supplemental and sends it to the carrier for approval", "Set the initial estimate against the final body shop bill: the difference shows **hidden structural damage**", "File every estimate and supplemental with its date: physical proof of how hard the impact was"]},
+      {"term": "Total Loss and Valuation", "text": "Past the repair-to-ACV threshold the carrier pays ACV from its Valuation Report: **verify it line by line**", "more": ["The threshold is the repair cost as a percentage of ACV; past it, the carrier totals the vehicle", "ACV is the vehicle's pre-loss market value, set by a Valuation Report (CCC One or similar)", "Check the comparables, mileage, options and condition **line by line** against the client's vehicle", "Route any error to Atty. Thorne with its source; value is never yours to negotiate"]},
+      {"term": "Rental", "text": "Confirm who authorizes it and the daily cap; **usually 30 days maximum** unless the Dec Page says otherwise", "more": ["Whose coverage pays: the adverse carrier's Property Damage coverage; the owner's own policy only if none", "Who authorizes it, and whether the policy carries **a rental reimbursement endorsement**", "The daily rate cap, recorded before the client collects a vehicle: anything above it is the client's cost", "The duration: usually 30 days at most, unless the Dec Page says otherwise", "A comparable vehicle to the client's own, not an upgrade", "Log it all in CMS → Property Damage before collection"]}
     ],
     "pages": ["D2#6"],
     "framework": {
@@ -174,18 +163,40 @@
         ["Photos", "Point-of-impact clarity, including the undercarriage and frame", "Physical proof of the impact behind the injury claim"],
         ["Estimates vs. Actuals", "The insurance estimate against the final body shop bill", "**Supplementals prove hidden** structural damage"],
         ["Total Loss/Value", "The CCC One or other Valuation Report, line by line", "So the client isn't lowballed on the vehicle's value"],
-        ["The Scene Audit", "Photos, video and damage against how the crash happened", "The physics of the claim must be possible"]
+        ["The Scene Audit", "Photos, video and damage against how the crash happened", "The physics of the claim must be possible"],
+        ["Rental", "Who authorizes, daily cap; 30 days max unless the Dec Page differs", "**Uncovered days are the client's cost**"]
       ],
       "note": "Audit Property Damage as carefully as the medicals: it is physical evidence of how hard the impact was."
+    }
+  },
+  "d1m3-rent": {
+    "lead": "A rental is part of **the Property Damage claim**: the owner's, paid only within what the policy authorizes.",
+    "concepts": [
+      {"term": "Whose Claim It Is", "text": "Rental follows the vehicle: it belongs to **the owner's PD claim**, not to a passenger's injury claim"},
+      {"term": "Whose Coverage Pays", "text": "The adverse carrier's Property Damage coverage pays the 3P rental; the owner's policy **only if there's none**", "more": ["On accepted liability, the adverse carrier's Property Damage coverage provides the rental: here, Keystone's", "The owner's own policy, or the rental company's self-insurance, only where there is no 3P coverage", "For example, a liability denial, or a dispute over fault still open", "Get the carrier's rental authorization in writing before the client collects a car"]},
+      {"term": "Rental Reimbursement Endorsement", "text": "Optional coverage on the owner's policy for a rental while the car is repaired: **check the Dec Page**"},
+      {"term": "Rate Cap and Duration", "text": "The authorized daily rate and days, usually 30 at most: **anything beyond them** is the client's cost", "more": ["Record the authorized daily rate before the client collects a vehicle", "Coverage usually runs 30 days at most, unless the Dec Page says otherwise", "Calendar the last covered day and tell the client before it arrives", "A comparable vehicle, not an upgrade: the difference is the client's cost"]}
+    ],
+    "pages": [],
+    "framework": {
+      "title": "The Rental Authorization Check",
+      "kind": "flow",
+      "steps": [
+        {"label": "Whose Coverage Pays the Rental?", "text": "The adverse carrier's **Property Damage** coverage pays the 3P rental; the client's policy only if none"},
+        {"label": "Who Authorizes?", "text": "Confirm who authorizes the rental and check for a rental reimbursement endorsement"},
+        {"label": "Daily Rate Cap", "text": "Record the authorized daily rate before the client collects a vehicle"},
+        {"label": "Duration Limit", "text": "Usually 30 days max unless the Dec Page differs: **uncovered days are the client's cost**"}
+      ],
+      "note": "All four go in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
     }
   },
   "d1m4-l1": {
     "lead": "Early evaluation joins **coverage, liability and projection**: is there money, who is responsible, and how the case is likely to move.",
     "concepts": [
       {"term": "Coverage Determination", "text": "Which policies apply, with what benefits, limits and exclusions: **is there money** to pay the claim?"},
-      {"term": "Liability Assessment", "text": "Who caused the incident and to what degree: **clear, shared or disputed**, and on what evidence"},
-      {"term": "Case Projection", "text": "An early read of risk and trajectory from coverage, liability, injury, treatment and documents; **value stays with counsel**"},
-      {"term": "Strict Compliance", "text": "In a legal framework, Case Management shifts from **best efforts to strict compliance**: every plan deadline is docketed"}
+      {"term": "Liability Assessment", "text": "Who caused the incident and to what degree: **clear, shared or disputed**, and on what evidence", "more": ["Not final until confirmed by the Police Report, **the driver statements**, and any dashcam or other evidence", "Ambiguous? Clarify the facts with the client, then escalate with a short summary of what's unclear", "Never tell the client liability is a sure thing"]},
+      {"term": "Case Projection", "text": "An early read of risk and trajectory from coverage, liability, injury, treatment and documents; **value stays with counsel**", "more": ["Reads coverage, liability, injury severity, treatment expectations and documentation quality", "Preliminary until coverage is **confirmed in writing**; re-project when coverage changes", "States risk and trajectory, never a figure, value or settlement posture"]},
+      {"term": "Strict Compliance", "text": "In a legal framework, Case Management shifts from **best efforts to strict compliance**: every plan deadline is docketed", "more": ["File the Three-Pillar Case Plan within the state's window, **often 30 to 60 days**", "Docket the filing window and route the plan to Atty. Thorne", "Every action item gets an owner and a date; every pillar, measurable goals"]}
     ],
     "pages": ["D1#21", "D1#22"],
     "framework": {
@@ -203,10 +214,10 @@
   "d1m4-l2": {
     "lead": "A Case Plan is a **living, approved document**: drafted in structure, reviewed by counsel, then run.",
     "concepts": [
-      {"term": "Section Templates", "text": "One structure for every plan, so reviewers can **scan it fast** and nothing is missed"},
-      {"term": "The Review Loop", "text": "Draft, route, review, approve, execute; **a return is normal**, a step back into drafting, not a failure"},
+      {"term": "Section Templates", "text": "One structure for every plan, so reviewers can **scan it fast** and nothing is missed", "more": ["Five bands: snapshot & acceptance → coverage, liability, projection → Triple-Check → Three-Pillar Plan → risks", "Owner and date in **their own fields**, not in a sentence", "Adverse facts stated plainly in the risks band: a buried risk hasn't been disclosed"]},
+      {"term": "The Review Loop", "text": "Draft, route, review, approve, execute; **a return is normal**, a step back into drafting, not a failure", "more": ["Draft: edit freely; execute nothing that commits the firm externally", "Routed: keep preparing internally; don't act on the plan's positions", "Returned: address **every comment**, then re-route; never part-execute", "Approved: execute against this version and record it as the operative plan", "Superseded: a material fact changed after approval, so re-route"]},
       {"term": "Pre-Confirmation Stage", "text": "A conclusion still awaiting its proof; when the proof arrives and differs, **the plan is re-routed**"},
-      {"term": "The Audit Trail", "text": "The CMS keeps every version unaltered, so **each approval is provable**, and every note is discoverable"}
+      {"term": "The Audit Trail", "text": "The CMS keeps every version unaltered, so **each approval is provable**, and every note is discoverable", "more": ["Never edit a record in a way that breaks the trail", "Keep treatment notes factual and clinical; strategy stays in the legal track", "Never “this will help the case” in a treatment note"]}
     ],
     "pages": ["D1#25"],
     "framework": {
@@ -227,8 +238,8 @@
     "concepts": [
       {"term": "Fact sharing", "text": "Telling the client what a record says: a date, an amount, **what was sent**, and when"},
       {"term": "Process explanation", "text": "What happens next, what a form is for, and **who decides**; never how it ends"},
-      {"term": "Legal advice", "text": "Any opinion on what his facts mean for **his rights, money or choices**: the attorney's alone"},
-      {"term": "Hear, log, route", "text": "An opinion question is written down word for word and **sent to Atty. Thorne** the same day"}
+      {"term": "Legal advice", "text": "Any opinion on what his facts mean for **his rights, money or choices**: the attorney's alone", "more": ["Never case value, legal strategy, or whether to settle", "Never what a fact (a gap in treatment, **a prior injury**, a missed visit) does to the outcome or money", "A kind reassurance about the outcome (“you'll be fine”) is still advice", "The test: am I telling him what is, or what he should do?"]},
+      {"term": "Hear, log, route", "text": "An opinion question is written down word for word and **sent to Atty. Thorne** the same day", "more": ["The routing line: “That's Atty. Thorne's call; I'll get it to him today”", "Log his words exactly in CMS → Case Notes · Tasks", "Tell him when to expect an answer, so routing never feels like **a brush-off**"]}
     ],
     "pages": [
       "D4#24"

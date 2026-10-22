@@ -63,17 +63,17 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     await page.evaluate(async () => {
         try { localStorage.removeItem('cm-cms-case'); } catch (e) {}
         const r = (await storeGet('case-flow')) || {}; delete r.amend; await storeSet('case-flow', r);
-        const f = (await storeGet('doc-filing')) || {}; delete f.RS71; delete f.RS72; await storeSet('doc-filing', f);
+        const f = (await storeGet('doc-filing')) || {}; delete f.RS72; delete f.RS73; await storeSet('doc-filing', f);
     });
     await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800);
     const A = await page.evaluate((b) => CM_CF_EXHIBITS.amendments[b], BLOCK);
     check(!!A && A.requests.length === 3, `the pre-demand audit has its Amendment Requests: ${A && A.requests.map(q => q.doc).join(', ')}`);
 
     // 1. the corrected copies are shut to a trainee until their request is answered (trainers see them)
-    const shut = await page.evaluate(() => ({ t71: cmDocAvailable(cmDoc('RS71')), t72: cmDocAvailable(cmDoc('RS72')), mri: cmDocAvailable(cmDoc('RS16')) }));
+    const shut = await page.evaluate(() => ({ t71: cmDocAvailable(cmDoc('RS72')), t72: cmDocAvailable(cmDoc('RS73')), mri: cmDocAvailable(cmDoc('RS16')) }));
     check(!shut.t71 && !shut.t72, 'the corrected copies are shut to a trainee before their request');
     check(shut.mri, 'and the original record stays open');
-    const trainerSees = await page.evaluate(() => { state.isAdmin = true; const v = cmDocAvailable(cmDoc('RS71')); state.isAdmin = false; return v; });
+    const trainerSees = await page.evaluate(() => { state.isAdmin = true; const v = cmDocAvailable(cmDoc('RS72')); state.isAdmin = false; return v; });
     check(trainerSees, 'a trainer sees the corrected copy always');
 
     // 2. the workspace opens on the screening; a screening with a record uncalled is refused
@@ -110,11 +110,11 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     check(/Not sent/.test(said) && /findings or impression/i.test(said), `a request that asks the radiologist to change the findings is refused, with why: ${said.replace(/\s+/g, ' ').slice(0, 120)}`);
     said = await send('RS16', mri.model.replace(/With Atty\. Elijah Thorne's approval, copied here, /, ''));
     check(/Not sent/.test(said) && /Thorne/.test(said), 'a request that leaves Atty. Thorne out is refused, with the hint');
-    check(!(await page.evaluate(() => cmDocAvailable(cmDoc('RS71')))), 'nothing refused opens the corrected copy');
+    check(!(await page.evaluate(() => cmDocAvailable(cmDoc('RS72')))), 'nothing refused opens the corrected copy');
     await send('RS16', mri.model);
     const sentMri = await page.evaluate((b) => (CM_CASE_FLOW, true) && document.getElementById('cf-am').innerText, BLOCK);
     check(/Marisol Ortega/.test(sentMri) && /transcription error/.test(sentMri), 'a complete request brings the provider\'s answer');
-    check(await page.evaluate(() => cmDocAvailable(cmDoc('RS71'))), 'and the corrected copy opens to the trainee');
+    check(await page.evaluate(() => cmDocAvailable(cmDoc('RS72'))), 'and the corrected copy opens to the trainee');
     check(/Sent on attempt 4/.test(sentMri) && /Attempt 2 refused: it asks for the findings/i.test(sentMri), 'the feedback counts the refused attempts and says why each was refused');
     check(/you wrote: “[^”]*02\/16\/2026/.test(sentMri), 'and quotes the trainee\'s own email for what it did');
     check(/The firm's model request/.test(sentMri) && /What this protects/.test(sentMri), 'with what the correction protects, and the firm\'s model to read theirs against');
@@ -141,7 +141,7 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
 
     // 6. Crescent's corrected statement; and Riverton's answer, which brings no copy, ends in a decision
     await send('RS26', A.requests.find(q => q.doc === 'RS26').model);
-    check(await page.evaluate(() => cmDocAvailable(cmDoc('RS72'))), 'Crescent\'s corrected $0.00 statement opens on its answer');
+    check(await page.evaluate(() => cmDocAvailable(cmDoc('RS73'))), 'Crescent\'s corrected $0.00 statement opens on its answer');
     said = await send('RS23', A.requests.find(q => q.doc === 'RS23').model + '\n\nWould you accept less if we pay promptly?');
     check(/Not sent/.test(said) && /reduction/i.test(said), 'a correction request that slips in a reduction is refused');
     await send('RS23', A.requests.find(q => q.doc === 'RS23').model);
@@ -156,7 +156,7 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
 
     // 7. it all survives a reload
     await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(2200);
-    const kept = await page.evaluate((b) => { const r = (window.cmCaseFlow && cmDocAvailable(cmDoc('RS71'))); return r; }, BLOCK);
+    const kept = await page.evaluate((b) => { const r = (window.cmCaseFlow && cmDocAvailable(cmDoc('RS72'))); return r; }, BLOCK);
     check(kept, 'after a reload the corrected copy is still open to the trainee');
     await page.evaluate((b) => cmCaseFlow.amend(b), BLOCK);
     await page.waitForSelector('#cf-am .am-req');

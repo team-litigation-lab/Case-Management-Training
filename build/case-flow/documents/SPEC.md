@@ -201,7 +201,7 @@ levels".
 *Plant:* the history line's date of injury reads **02/16/2026** (the DOL is 02/06/2026).
 *Key:* The impression is the answer to "degenerative" (Day 3, Day 5) — quote it exactly. The wrong date goes to
 Atty. Thorne; with his approval the Case Manager asks Summit to review its own record, and Summit corrects it by a dated
-addendum with the original kept (RS71, 07/15/2026). Never ask a provider to change a record to match the file.
+addendum with the original kept (RS72, 07/15/2026). Never ask a provider to change a record to match the file.
 
 **RS17 · Crescent Pain & Spine — Cervical ESI Procedure Note (05/15/2026)** · Day 2 · Medical · `RS_17_Crescent_ESI_Procedure_Note.pdf`
 Dr. Omar Haddad, MD. Pre-procedure diagnosis, consent, fluoroscopic right C5-C6 (or C6-C7 interlaminar approach —
@@ -284,6 +284,14 @@ signed UM/UIM selection/rejection form 03/14/2024.
 **RS31 · Harbor Point — PIP Payment Ledger** · Day 2 · Others · `RS_31_Harbor_Point_PIP_Ledger.pdf`
 The five payments (spec list) at 100% of the billed medical, running balance to $0.00, "PIP limit exhausted 06/26/2026"; a lost-income section: the 80% wage benefit ($1,267.20 on $1,584.00) not payable, limit exhausted before Northgate's 06/30/2026 letter.
 *Key:* Payer order in action; the Crescent bill went to Peach State, not PIP.
+
+**RS71 · PIP Log — John Doe (Harbor Point PIP)** · Day 2 · Case Files · `RS_71_PIP_Log.pdf`
+The firm's own record (LSH Law Group letterhead, Form PIP-100), kept by the Case Manager in CMS → Insurance tab → PIP Log: the PIP claim
+(HP-26-7741, HPA-4402917, Marcus Bell; $5,000.00, 100% medical / 80% lost income; application 02/17/2026, opened 02/24/2026;
+no reimbursement right per the 03/02/2026 letter); the five payments (spec list) with the check numbers from RS31 and the limit
+remaining to $0.00; the 80% wage benefit not payable; care billed elsewhere (Crescent to Peach State, Riverton Spine & Rehab under
+its LOP); an activity log through 07/06/2026, when it was reconciled to RS31.
+*Key:* No plants. It ties to RS31 line for line.
 
 **RS32 · Keystone Mutual — Claim Correspondence (Feb–Apr 2026)** · Day 2 · Others · `RS_32_Keystone_Claim_Correspondence.pdf`
 02/17/2026 Leah Moran: PD liability accepted; 02/18 rental authorized at Rivergate Rentals, $42.00/day, max 30 days;
@@ -479,7 +487,7 @@ The CMS task log Atty. Thorne opened when the pre-demand audit closed: the BI an
 *Key:* Shows the workflow: the desks draft, the CM QCs against the records, Atty. Thorne approves. Note the dependencies: UM opens only once BI is exhausted; the binders are contingent on suit and on a UM dispute.
 
 **RS65 · Harbor Point — PIP Application & Claim Acknowledgement** · Day 2 · Others · `RS_65_Harbor_Point_PIP_Application.pdf`
-John Doe's PIP application, signed 02/17/2026 and sent with the Harbor Point LOR (passenger in Kevin Alvarez's 2020 Ford Escape; household policies: Margaret Doe's Bluewater and Cardinal State, PIP rejected in writing), and Harbor Point's 02/24/2026 acknowledgement: PIP opened under HPA-4402917, $5,000 each person, 100% medical / 80% lost income, bills to be sent with the claim number; wage loss needs an employer verification.
+John Doe's PIP application, signed 02/17/2026 and sent with the Harbor Point LOR (passenger in Kevin Alvarez's 2020 Ford Escape), and Harbor Point's 02/24/2026 acknowledgement: PIP opened under HPA-4402917, $5,000 each person, 100% medical / 80% lost income, bills to be sent with the claim number; wage loss needs an employer verification.
 *Key:* Whose PIP: the vehicle he rode in, because no household policy carries PIP. Riverton's add-on rule: no BI or UM set-off, no reimbursement from the recovery.
 
 ### The audited sets and their finished counterparts
@@ -554,14 +562,14 @@ trainee only once their request is answered (`unlock` in the manifest; trainers 
 requests: `build/case-flow/exhibits/EXHIBITSPEC.md` ("amendments"). Riverton Spine & Rehab does not reissue its
 ledger before the demand (its answer of 07/09/2026), so it has no corrected copy here.
 
-**RS71 · Summit Imaging Center — MRI Corrected History Addendum (07/15/2026)** · Day 3 · Medical · `RS_71_Summit_MRI_Corrected_History_Addendum.pdf`
+**RS72 · Summit Imaging Center — MRI Corrected History Addendum (07/15/2026)** · Day 3 · Medical · `RS_72_Summit_MRI_Corrected_History_Addendum.pdf`
 Dr. Helen Park's addendum to the 03/13/2026 report (accession SIC-MR-26-031307): reason (a transcription error in the
 history), the corrected clinical history ("date of injury 02/06/2026"), the scope (history only; technique, findings
 and impression unchanged and restated), her electronic signature 07/15/2026, and the HIM release record (request
 received 07/06/2026 from LSH Law Group with the HIPAA authorization; released by Marisol Ortega, HIM Supervisor).
 *Key:* No plants. The date fixed and nothing else. Exhibit F of RS67.
 
-**RS72 · Crescent Pain & Spine — Corrected Patient Statement, $0.00 (07/10/2026)** · Day 3 · Bills · `RS_72_Crescent_Corrected_Patient_Statement.pdf`
+**RS73 · Crescent Pain & Spine — Corrected Patient Statement, $0.00 (07/10/2026)** · Day 3 · Bills · `RS_73_Crescent_Corrected_Patient_Statement.pdf`
 Replaces the 07/01/2026 statement on account CPS-30442: the $3,400.00 charge, Peach State's $1,860.00 payment and the
 $1,540.00 in-network contractual adjustment (CO-45) posted 07/10/2026; balance $0.00; the earlier statement withdrawn;
 account paid in full and closed; corrected by Renee Halvorsen, Billing Lead, on the firm's request of 07/06/2026.

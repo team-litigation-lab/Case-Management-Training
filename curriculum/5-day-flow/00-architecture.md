@@ -60,7 +60,7 @@ The existing course teaches the right doctrine on 192 topics, but as slide-by-sl
 |---|---|
 | Host driver | Kevin Alvarez, John's coworker (separate household); owns the host vehicle, insured by Harbor Point (Host UM $20,000 and **MedPay $5,000**) |
 | Resident relative | Margaret Doe, John's mother; her Cardinal State policy carries the $10,000 Relative UM; the file's emergency contact |
-| John's own car | A 2019 Honda Civic, parked at the curb and struck when the host vehicle was pushed into it; insured by Bluewater Auto (UM rejected in writing). That rejection, and the relative policy's owned-vehicle exclusion, are why John would reach only $10,000 had he been driving it |
+| Margaret Doe's car | A 2019 Honda Civic, parked at the curb and struck when the host vehicle was pushed into it; insured by Bluewater Auto (UM rejected in writing). That rejection, and the relative policy's owned-vehicle exclusion, are why John would reach only $10,000 had he been driving it |
 | Outside the stack | MedPay (pays bills, first in the payer order), Keystone's PD coverage (the Civic's repair, loss of use and diminished value) and John's own policy are never part of the $40,000 |
 
 The full case file the content is written against (providers, bills, dates, the net sheet, the litigation calendar) is `case-file.md`; every figure on a slide comes from it.

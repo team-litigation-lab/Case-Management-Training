@@ -36,8 +36,9 @@
     "RS68": "The Service Confirmation (the trainee's email and the adjuster's reply)",
     "RS69": "Revealed when the Mediation Binder audit is handed in",
     "RS70": "Revealed when the Arbitration Binder audit is handed in",
-    "RS71": "Summit's answer to the trainee's Amendment Request (opens when it is sent)",
-    "RS72": "Crescent's answer to the trainee's Amendment Request (opens when it is sent)"
+    "RS71": "The firm's own PIP Log (CMS → Insurance tab → PIP Log)",
+    "RS72": "Summit's answer to the trainee's Amendment Request (opens when it is sent)",
+    "RS73": "Crescent's answer to the trainee's Amendment Request (opens when it is sent)"
   },
   "challenges": {
     "RS01": {
@@ -116,7 +117,7 @@
         "d3m1-a1"
       ],
       "spot": "The MRI history gives 02/16/2026 as the injury date.",
-      "corrected": "RS71"
+      "corrected": "RS72"
     },
     "RS23": {
       "route": "amend",
@@ -142,7 +143,7 @@
         "d3m3-a1"
       ],
       "spot": "The patient statement bills John the $1,540.00 in-network write-off.",
-      "corrected": "RS72"
+      "corrected": "RS73"
     },
     "RS33": {
       "route": "redline",

@@ -6,7 +6,7 @@ packets, the exhibit audits and Amendment Requests (`build/case-flow/exhibits/`)
 document has no route to being caught and fixed, when the documents that prove it open too late for the activity that
 works it, or when a corrected copy has no request behind it.
 
-**72 documents** · **19 plant a challenge** · **2 corrected copies** come back from the trainee's Amendment Requests · D*n* = the Case Flow day.
+**73 documents** · **19 plant a challenge** · **2 corrected copies** come back from the trainee's Amendment Requests · D*n* = the Case Flow day.
 
 ## How the trainee fixes a challenge
 
@@ -30,9 +30,9 @@ works it, or when a corrected copy has no request behind it.
 | RS06 HIPAA Authorization (claim-specific) | The HIPAA authorization expires 02/06/2027, before the litigation records runs. | RS06 (D1) | `docket` | d2m2-a3 (D2), d4m4-a2 (D5) | — |
 | RS02 Intake Supplement — Prior History & Household | Our own intake supplement records the 2021 care as neck and back; the 2021 records show low back only. | RS20 (D2), RS13 (D2) | `cms` | d2m3-a1 (D3) | — |
 | RS09 Doorbell Video — Preservation & Chain of Custody | The doorbell stills on file are grayscale exports, unfit for an exhibit set. | RS09 (D1) | `qc` | d3m1-a1 (D3), d4m3-a1 (D4), d4m3-a2 (D4) | — |
-| RS16 Summit Imaging Center — Cervical MRI Report (03/13/2026) | The MRI history gives 02/16/2026 as the injury date. | RS12 (D2), RS11 (D2) | `amend` | d2m4-a1 (D3), d3m1-a1 (D3) | RS71 Summit Imaging Center — MRI Corrected History Addendum (07/15/2026) |
+| RS16 Summit Imaging Center — Cervical MRI Report (03/13/2026) | The MRI history gives 02/16/2026 as the injury date. | RS12 (D2), RS11 (D2) | `amend` | d2m4-a1 (D3), d3m1-a1 (D3) | RS72 Summit Imaging Center — MRI Corrected History Addendum (07/15/2026) |
 | RS23 Riverton Spine & Rehab — Itemized LOP Ledger | 05/04/2026 is billed twice: 34 lines against 33 visits. | RS14 (D2) | `amend` | d2m4-a1 (D3), d3m1-a1 (D3), d3m3-a2 (D4), d4m3-a1 (D4) | — |
-| RS26 Crescent Pain & Spine — Bill, Peach State EOB & Patient Statement | The patient statement bills John the $1,540.00 in-network write-off. | RS26 (D3) | `amend` | d2m4-a1 (D3), d3m1-a1 (D3), d3m3-a1 (D4) | RS72 Crescent Pain & Spine — Corrected Patient Statement, $0.00 (07/10/2026) |
+| RS26 Crescent Pain & Spine — Bill, Peach State EOB & Patient Statement | The patient statement bills John the $1,540.00 in-network write-off. | RS26 (D3) | `amend` | d2m4-a1 (D3), d3m1-a1 (D3), d3m3-a1 (D4) | RS73 Crescent Pain & Spine — Corrected Patient Statement, $0.00 (07/10/2026) |
 | RS33 BI Time-Limited Demand — DRAFT for audit | The draft demand's deadline, release, Specials total and conditions. | RS34 (D3), RS28 (D2) | `redline` | d3m1-a1 (D3) | RS67 BI Time-Limited Demand Package — FINAL as served (07/20/2026) |
 | RS61 Host UM & Relative UM Demands — DRAFT for QC | Six faults in the draft UM demands. | RS67 (D3), RS28 (D2), RS29 (D2) | `redline` | d3m1-a2 (D3) | — |
 | RS66 Demand Package — Exhibit Packet & Index (DRAFT for audit) | Ten faults in the demand's exhibit packet. | RS07 (D1), RS27 (D2), RS23 (D3), RS26 (D3) | `audit` | d3m1-a1 (D3) | RS67 BI Time-Limited Demand Package — FINAL as served (07/20/2026) |
@@ -54,8 +54,8 @@ with the reason; a complete one brings the provider's answer and the corrected c
 
 | Record | Wrong at the source | Request to | Answer | Corrected copy |
 |---|---|---|---|---|
-| RS16 | The clinical history gives 02/16/2026 as the injury date. The date of loss is 02/06/2026, as the urgent-care note and the EMS Run Report record. | Marisol Ortega, HIM Supervisor | 07/15/2026 | RS71 (opens when the request is sent) |
-| RS26 | The patient statement of 07/01/2026 bills John Doe $1,540.00, the contractual adjustment on the EOB. Crescent is in network and was paid $1,860.00 at the contract rate; it cannot bill the member. | Renee Halvorsen, Billing Lead | 07/10/2026 | RS72 (opens when the request is sent) |
+| RS16 | The clinical history gives 02/16/2026 as the injury date. The date of loss is 02/06/2026, as the urgent-care note and the EMS Run Report record. | Marisol Ortega, HIM Supervisor | 07/15/2026 | RS72 (opens when the request is sent) |
+| RS26 | The patient statement of 07/01/2026 bills John Doe $1,540.00, the contractual adjustment on the EOB. Crescent is in network and was paid $1,860.00 at the contract rate; it cannot bill the member. | Renee Halvorsen, Billing Lead | 07/10/2026 | RS73 (opens when the request is sent) |
 | RS23 | 05/04/2026 is billed twice: 34 lines at $185.00, $6,290.00, against 33 visits in the attendance log. The audited figure is $6,105.00. | Tammy Greer, Office Manager | 07/09/2026 | none before the demand; then: The ledger will not be reissued before the demand, which is to be served 07/20/2026. What do you do? |
 
 ## Every document
@@ -132,8 +132,9 @@ with the reason; a complete one brings the provider's answer and the corrected c
 | RS68 | Demand Service & Adjuster Acknowledgment — Memorandum (as filed) | Insurance, Demands & Negotiation | D3 | Others | The Service Confirmation (the trainee's email and the adjuster's reply) | — | d3m2-a1 (D3), d4m2-a2 (D4), d4m1-a1 (D5) |
 | RS69 | Mediation Binder — FINAL as delivered (03/11/2027) | Litigation & ADR (Track B) | D4 | Litigation | Revealed when the Mediation Binder audit is handed in | — | d4m3-a2 (D4), d5m1-a1 (D5) |
 | RS70 | UM Arbitration Binder — FINAL as exchanged (06/02/2027) | Litigation & ADR (Track B) | D4 | Litigation | Revealed when the Arbitration Binder audit is handed in | — | d5m4-a1 (D5), d5m5-a1 (D5) |
-| RS71 | Summit Imaging Center — MRI Corrected History Addendum (07/15/2026) | Medical Records | D3 (after d2m4-a1's request) | Medical | Summit's answer to the trainee's Amendment Request (opens when it is sent) | Corrects RS16 | d3m1-a1 (D3), d4m3-a1 (D4) |
-| RS72 | Crescent Pain & Spine — Corrected Patient Statement, $0.00 (07/10/2026) | Bills & Invoices | D3 (after d2m4-a1's request) | Bills | Crescent's answer to the trainee's Amendment Request (opens when it is sent) | Corrects RS26 | d3m1-a1 (D3), d4m3-a1 (D4) |
+| RS71 | PIP Log — John Doe (Harbor Point PIP) | Insurance, Demands & Negotiation | D2 | Case Files | The firm's own PIP Log (CMS → Insurance tab → PIP Log) | — | d2m4-a1 (D3) |
+| RS72 | Summit Imaging Center — MRI Corrected History Addendum (07/15/2026) | Medical Records | D3 (after d2m4-a1's request) | Medical | Summit's answer to the trainee's Amendment Request (opens when it is sent) | Corrects RS16 | d3m1-a1 (D3), d4m3-a1 (D4) |
+| RS73 | Crescent Pain & Spine — Corrected Patient Statement, $0.00 (07/10/2026) | Bills & Invoices | D3 (after d2m4-a1's request) | Bills | Crescent's answer to the trainee's Amendment Request (opens when it is sent) | Corrects RS26 | d3m1-a1 (D3), d4m3-a1 (D4) |
 
 ## Open sync items (need a decision before they are changed)
 
