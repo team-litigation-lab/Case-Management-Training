@@ -94,7 +94,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D2#30` | Skill Building: The Math Check — Your Slam-Dunk Liability Case | ✅ BUILT | d3m2-a1, d3m2-kc |
 | `D2#31` | BI Settlement — Phase II: The UM/UIM “Safety Check” | ✅ BUILT | d3m1-l2, d3m1-kc |
 | `D2#32` | BI Settlement: Key Laws & Doctrines | ✅ BUILT | d3m1-l2 |
-| `D2#33` | The Execution: The Release of All Claims (The “Exit” Document) | ✅ BUILT | d3m4-l2, d3m4-a2 |
+| `D2#33` | The Execution: The Release of All Claims (The “Exit” Document) | ✅ BUILT | d3m4-l2, d3m4-a2, d4m2-um, d4m2-a3, d4m2-kc |
 | `D2#34` | The Execution: Settlement Disclosure Statement (The “Truth” Document) | ✅ BUILT | d3m4-l2 |
 | `D2#35` | The Execution: Lien Payoff Letters (The “Verification” Paperwork) | ✅ BUILT | d3m3-a1, d3m3-l2, d3m3-a2, d3m4-l1, d3m4-a1, d3m4-l2, d3m4-a2 |
 | `D2#36` | The Execution: The Settlement Statement (The “Net” Sheet) | ✅ BUILT | d3m4-l1, d3m4-a1, d3m4-l2 |
@@ -112,7 +112,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D3#2` | Beyond Organization: The UM Demand Strategy | ✅ BUILT | d3m1-l2 |
 | `D3#3` | BI Exhaustion & Consent — Mechanic 1: Locking the Escape Hatches | ✅ BUILT | d3m1-l2, d3m1-kc, d5m4-kc |
 | `D3#4` | The UM Demand Package: Turning Risk Management Against the Insurer | ✅ BUILT | d3m1-l2, d3m1-a2 |
-| `D3#5` | UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap | ✅ BUILT | d3m1-l2, d3m1-a2 |
+| `D3#5` | UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap | ✅ BUILT | d3m1-l2, d3m1-a2, d4m2-um, d4m2-a3 |
 | `D3#6` | UM Demand: The Demand Packet — Document Inclusions | ✅ BUILT | d3m1-a2, d3m1-kc |
 | `D3#7` | UM Settlement: How the Settlement Is Calculated | ✅ BUILT | d3m2-l2, d3m2-a2 |
 | `D3#8` | UM Settlement: Negotiation & Settlement | ✅ BUILT | d3m2-l2, d3m2-a2 |
@@ -126,7 +126,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D3#16` | Documents that Matter: Final Pleading & Release Documents (Closing Phase) | ✅ BUILT | d3m1-a2 |
 | `D3#17` | Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit | ✅ BUILT | d3m2-l2, d3m2-a2, d3m2-kc |
 | `D3#18` | Lien Negotiations/Reduction: Common Types of Liens | ✅ BUILT | d3m3-l1, d3m3-a1, d3m3-kc |
-| `D3#19` | Key Legal Doctrines Used for Reduction | ✅ BUILT | d3m3-l1, d3m3-a1, d3m3-kc |
+| `D3#19` | Key Legal Doctrines Used for Reduction | ✅ BUILT | d3m3-l1, d3m3-a1, d3m3-kc, d4m2-um, d4m2-a3, d4m2-kc |
 | `D3#20` | Quantum Meruit Principle — Prior Attorney Liens | ✅ BUILT | d3m3-l1, d3m3-kc |
 | `D3#21` | Increasing the Client's Net | ✅ BUILT | d3m3-l2, d3m3-l3, d3m3-a2, d3m3-kc, d5m5-l1, d5m5-a1 |
 | `D3#22` | Auditing the Billing Before Asking for a Discount | ✅ BUILT | d3m3-l2, d3m3-l3, d3m3-a2, d3m3-kc |
@@ -152,7 +152,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | # | Topic | Status | Where it lives now |
 |---|---|---|---|
 | `D4#1` | Welcome to Day 4: When Pre-Suit Negotiations Stall | ✅ BUILT | d4m1-l1, d4m1-l2, d4m1-kc, d5m4-kc |
-| `D4#2` | Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background | ✅ BUILT | d4m1-l2, d4m1-kc |
+| `D4#2` | Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background | ✅ BUILT | d4m1-l2, d4m1-kc, d4m2-um, d4m2-a3 |
 | `D4#3` | Introducing the Neutral: Assignment & Selection Workflows | ✅ BUILT | d4m1-l2, d4m1-a2, d4m1-kc |
 | `D4#4` | Introducing the Neutral: Extent of Decision-Making Power | ✅ BUILT | d4m1-l2, d4m1-kc |
 | `D4#5` | Mediation Protocols for CMs: Logistics & Scheduling | ✅ BUILT | d4m2-a1, d4m2-l2, d4m2-kc |
@@ -169,7 +169,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D4#16` | Case Phase: Arbitration — The Anatomy of a PI Arbitration | ✅ BUILT | d4m2-l2, d4m2-a2, d4m2-kc |
 | `D4#17` | Arbitration: Operational Mindset — From Compromise to Trial-Ready | ✅ BUILT | d4m2-l2, d4m2-a2, d4m2-kc |
 | `D4#18` | Arbitration Operational Track 1: Critical Timelines & Calendar Hard Rules | ✅ BUILT | d4m2-l1, d4m2-a1, d4m2-a2, d4m2-kc |
-| `D4#19` | Arbitration Operational Track 2: Logistics & Setup Protocols | ✅ BUILT | d4m2-l2, d4m2-a2 |
+| `D4#19` | Arbitration Operational Track 2: Logistics & Setup Protocols | ✅ BUILT | d4m2-um, d4m2-l2, d4m2-a2 |
 | `D4#20` | Ethics & Boundaries: What You Can and Cannot Do at Hearings (UPL) | ✅ BUILT | d1m1-upl, d4m2-l2, d4m2-a2, d4m2-kc |
 | `D4#21` | Arbitration Binders: Section 1 — The Arbitration Submissions | ✅ BUILT | d4m3-l2, d4m3-a2, d4m3-kc |
 | `D4#22` | Arbitration Binders: Section 2 — Core Litigation Pleadings | ✅ BUILT | d4m3-l2, d4m3-a2 |
@@ -286,8 +286,13 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - Newly authored: SOL internal hard date and 90-day internal filing cutoff (firm rule configured for this training file), kept live after filing until Atty. Thorne releases them
 - Newly authored: scheduling-order entry (read each verb) and RFAs docketed separately for the deemed-admission risk
 - Newly authored: calendar-error risk (later or missing costs rights; earlier costs time)
+- LSH Claims Specialist: UM/UIM coverage and exhaustion
+- Newly authored: the first-party vs. third-party mindset shift stated as the CM's opening question on a UM dispute
+- Newly authored: the three-step UM dispute flow (claim submission → impasse → resolution route) with the route read from state law and the policy clause, never chosen
+- Newly authored: bad faith kept off the route fork as a separate suit above the limits, reserved to counsel; each UM layer read and docketed on its own clause
 - Newly authored: court-ordered mediation compels attendance, not agreement
 - Newly authored: where ADR lands on the timeline — pre-litigation and post-filing mediation, contractual pre-filing arbitration and agreed post-filing arbitration, and the Standard Case Progression Roadmap
+- Newly authored: the impasse memo that quotes each layer's clause and asks the route, the per-layer deadline and consolidation as three written questions
 - Newly authored: exhibit numbering, Bates ranges and the master index as the one source of truth
 - Newly authored: authentication, business-records certifications, relaxed evidence rules in arbitration, and mediation confidentiality at the hand-off
 - LSH Claims Specialist: BI liability follow-ups (every 5 business days) and the escalation protocol
@@ -351,6 +356,8 @@ Where neither source had the theory, it was written for this flow and is marked 
 - **The five impasse triggers and the decision-only impasse memo** — Day 4 · Module 1
 - **Backward-counted deadlines move to the earlier business day; the SOL's internal hard date and cutoff** — Day 4 · Module 2
 - **Exhibit numbering, Bates ranges and the master index; authentication and relaxed arbitration evidence rules** — Day 4 · Module 3
+- **The first-party vs. third-party mindset shift, and the three-step UM dispute flow with the resolution route read off the state law and the policy clause rather than chosen** — Day 4 · Module 4 — ADR: UM/UIM Coverage Disputes
+- **Bad faith kept off the UM route fork as a separate suit above the policy limit, reserved to counsel; each UM layer read and docketed on its own clause and its own deadline** — Day 4 · Module 4 — ADR: UM/UIM Coverage Disputes
 - **Three bottleneck families, CMS countermeasure rules and the five-field bottleneck report** — Day 4 · Module 4
 - **KPIs as formulas with targets, and the last day to serve written discovery** — Day 5 · Module 1
 - **Rental cap vs. reasonable repair time, the 17c critique and the PD-only release** — Day 5 · Module 2
