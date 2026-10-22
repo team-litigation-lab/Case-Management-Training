@@ -3555,7 +3555,7 @@ main > .cf-side-presenter{display:none;}
 .cfx-deck-head{display:flex;align-items:center;gap:20px;padding:0 0 4px;margin:0 0 12px;}
 .cfx-logo{height:48px;width:auto;flex:0 0 auto;}
 .cfx-deck-title{margin:0 !important;font:800 33px/1.1 'Poppins','Inter',sans-serif !important;color:#fff !important;letter-spacing:.005em;
-  text-shadow:-2px -2px 0 #DB8437,2px -2px 0 #DB8437,-2px 2px 0 #DB8437,2px 2px 0 #DB8437,0 -2px 0 #DB8437,0 2px 0 #DB8437,-2px 0 0 #DB8437,2px 0 0 #DB8437,0 4px 0 rgba(0,0,0,.18);}
+  -webkit-text-stroke:4px #DB8437;paint-order:stroke fill;stroke-linejoin:round;text-shadow:0 4px 0 rgba(0,0,0,.18);}   /* a true outline (stroke under the fill): smooth edges, unlike stacked shadows */
 .cfx-ribbon{margin:0 0 16px;}
 .cfx-tools{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px;margin-left:auto;font-size:13px;color:#D6DBEA;}
 .cfx-tools + .cfx-full{margin-left:6px;}
@@ -3815,7 +3815,7 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-ag-side p{margin:0;}
 @media(max-width:760px){
   .cfx.cfx-deck{padding:14px 16px 18px !important;}
-  .cfx-deck-head{gap:10px 12px;flex-wrap:wrap;}.cfx-deck-head .slide-dots.cf-head-dots{order:-1;flex:1 1 100%;margin:0 70px 0 0 !important;}.cfx-logo{height:38px;}.cfx-deck-title{font-size:23px !important;}
+  .cfx-deck-head{gap:10px 12px;flex-wrap:wrap;}.cfx-deck-head .slide-dots.cf-head-dots{order:-1;flex:1 1 100%;margin:0 70px 0 0 !important;}.cfx-logo{height:38px;}.cfx-deck-title{font-size:23px !important;-webkit-text-stroke-width:3px;}
   .cfx-ribbon span{font-size:16px;padding:6px 12px;}
   .cfx-deck .cfx-top{flex-wrap:wrap;gap:8px 10px;}.cfx-deck .cfx-title.cfx-pill{white-space:nowrap;font-size:15px !important;padding:5px 12px;}
   .cfx-deck .cfx-kicker{display:none;}.cfx-thumb:nth-child(n+3){display:none;}
