@@ -547,9 +547,8 @@ window.CM_CF_SLIDES = {
   "image": "knowledge-check",
   "questions": [
    "Name the **six stages** in order. What does the CM own at Intake & Case Opening?",
-   "John Doe asks what his case is **worth**. Who answers, and what do you log?",
-   "What must happen **before the matter is created** in the CMS, and on whose names?",
-   "John Doe asks if waiting hurt his case. **Your exact words**, and what you log?"
+   "John Doe asks his case's **worth**, and if waiting hurt it. Your exact words, and what you log?",
+   "What must happen **before the matter is created** in the CMS, and on whose names?"
   ]
  },
  "d1m2-l1": {
@@ -5898,9 +5897,7 @@ window.CM_CF_SLIDES = {
  "d4m2-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Discovery mailed 12/01/2026: compute the response date step by step. What can happen **to an unanswered RFA**?",
-   "SOL 02/06/2028: give the **internal hard date and cutoff** with arithmetic. Why never rely on a weekend roll-forward?",
-   "Explain **forward versus backward counting** using the 01/04/2027 deadline and the 06/22/2027 arbitration brief.",
+   "Discovery mailed 12/01/2026, SOL 02/06/2028: compute **each date with its arithmetic**, both weekend directions, and the RFA risk.",
    "Name the two UM resolution routes, what decides which governs, and where **bad faith** sits.",
    "Place each forum **before or after filing**, say where John Doe's landed, then define non-binding and binding."
   ]

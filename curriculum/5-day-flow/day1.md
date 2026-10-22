@@ -922,9 +922,8 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 #### 2 · Slide Body — Knowledge verification
 
 1. Name the six stages of John Doe's file in order, and say what the Case Manager owns at Intake & Case Opening that nobody else will.
-2. John Doe asks what his case is worth. Who answers, what do you tell him, and what do you log?
+2. John Doe asks you two things on the same call: what his case is worth, and whether waiting to see a doctor hurt it. Say word for word what you tell him on each, who answers them if you do not, and what you record and route in the CMS.
 3. You are opening John Doe's matter in the CMS. What must happen before the matter is created, on whose names, and why does the order matter?
-4. John Doe asks whether waiting to see a doctor hurt his case. Say word for word what you tell him, and what you record in the CMS.
 
 **Best practices & pitfalls**
 

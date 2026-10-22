@@ -826,9 +826,8 @@ window.CM_CASE_FLOW = {
         check: {
           questions: [
             "Name the six stages of John Doe's file in order, and say what the Case Manager owns at Intake & Case Opening that nobody else will.",
-            "John Doe asks what his case is worth. Who answers, what do you tell him, and what do you log?",
-            "You are opening John Doe's matter in the CMS. What must happen before the matter is created, on whose names, and why does the order matter?",
-            "John Doe asks whether waiting to see a doctor hurt his case. Say word for word what you tell him, and what you record in the CMS."
+            "John Doe asks you two things on the same call: what his case is worth, and whether waiting to see a doctor hurt it. Say word for word what you tell him on each, who answers them if you do not, and what you record and route in the CMS.",
+            "You are opening John Doe's matter in the CMS. What must happen before the matter is created, on whose names, and why does the order matter?"
           ],
           summary: [
             "Summarize, in your own words, what you learned opening John Doe's file: the principles, not the clicks.",
@@ -6136,9 +6135,7 @@ window.CM_CASE_FLOW = {
         visual: "The standard knowledge-check split: cream question panel above, navy CM Self-Summary card below-left with the 1–5 skill ladder below-right, and the 60/40 strip with the separate red UPL gate on the far right. Unique to this module: between the question panel and the summary card, a slim full-width HARD-DATE RIBBON of the module's computed dates as mono pills (01/04/2027 · 03/11/2027 · 06/02/2027 · 06/11/2027 · 11/05/2027 · 02/04/2028), each rolled date with a small arrow showing its direction (01/04/2027 forward; 06/11/2027, 11/05/2027 and 02/04/2028 back), and 03/11/2027 and 06/02/2027 marked NO ROLL, so the trainee checks direction before answering.",
         check: {
           questions: [
-            "Defendant's discovery to John Doe was served on his counsel, Atty. Thorne, by U.S. mail on 12/01/2026. Compute his response date step by step, and state what can happen to a Request for Admission left unanswered.",
-            "The SOL is 02/06/2028. Give the internal hard date and the internal filing cutoff with the arithmetic, and explain why the firm never relies on a weekend roll-forward.",
-            "Explain forward versus backward counting off a weekend, using the 01/04/2027 discovery deadline and the brief for the 06/22/2027 arbitration hearing.",
+            "Defendant's discovery to John Doe was served on his counsel, Atty. Thorne, by U.S. mail on 12/01/2026, and the SOL is 02/06/2028, a Sunday. Compute his response date step by step; give the SOL's internal hard date and internal filing cutoff with the arithmetic; explain which way a count moves off a weekend going forward and which way going backward, using that response date and the brief for the 06/22/2027 hearing; and state what can happen to a Request for Admission left unanswered.",
             "Harbor Point’s UM negotiation has reached impasse. Name the two resolution routes a UM/UIM dispute can take, say what decides which one governs, and explain where an Insurance Bad Faith action sits in relation to them. Then say why John Doe’s own Bluewater Auto policy is not a route on this file.",
             "Place mediation and arbitration on the timeline: name what puts each of them before a filing and what puts each of them after one, then say where John Doe's two sessions landed and why. Finish with the sentence you would say to him to explain non-binding, and the sentence for binding."
           ],

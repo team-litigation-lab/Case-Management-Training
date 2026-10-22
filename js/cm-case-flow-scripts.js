@@ -132,7 +132,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m1-kc": {
   "questions": {
-   "say": "Here's your Learning Check on today's foundations. Answer from John Doe's file, in your own words, typed under each question. First, name the six stages of John Doe's file in order, and tell me what the Case Manager owns at Intake and Case Opening that nobody else will. Second, John Doe asks you what his case is worth: who answers, what do you tell him, and what do you log? Third, and this is the one I care most about, you're opening his matter in the CMS: what has to happen before the matter is created, on whose names, and why does the order matter?"
+   "say": "Here's your Learning Check on today's foundations. Answer from John Doe's file, in your own words, typed under each question. First, name the six stages of John Doe's file in order, and tell me what the Case Manager owns at Intake and Case Opening that nobody else will. Second, John Doe asks you two things on one call: what his case is worth, and whether waiting to see a doctor hurt it. Word for word, what do you tell him on each, who answers them if you don't, and what do you record and route? Third, and this is the one I care most about, you're opening his matter in the CMS: what has to happen before the matter is created, on whose names, and why does the order matter?"
   },
   "summary": {
    "say": "Now your Self-Summary: write the principles in your own words, not the clicks. Then think through this scenario. Robert Smith's carrier has already called John Doe, and he needs a car to get to work. What do you tell him today, in what order, and what has to be on the file before tomorrow's claim set-up? Be honest with yourself here. The right answer puts things on the record and sends anything about value or fault to Atty. Thorne.",
@@ -1564,12 +1564,8 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m2-kc": {
   "questions": {
-   "say": "Let's move into the Learning Check. Answer from this file, in your own words, typed under each question. You'll compute John Doe's discovery response date step by step, work out the SOL's internal dates with the arithmetic, and explain forward versus backward counting off a weekend. Question 3 is the direction test, so take your time on it. And for question 5, I'm going to play Laura Whitcomb, Esq. and put the bill question to one of you across the table. I'm grading the very first sentence you say.",
-   "ask": "If the brief lands on Monday 06/14/2027 in your answer, what went wrong in your count?"
-  },
-  "questions2": {
-   "say": "Two more on the same page, and both are about the UM side of this file. First, name the two routes a UM/UIM dispute can take out of an impasse, say what decides which one governs, and tell me where an Insurance Bad Faith action sits in relation to them. Then explain why John Doe’s own Bluewater Auto policy is not one of those routes. Second, place mediation and arbitration on the timeline and define non-binding and binding in the words you would use with John Doe. I am looking for the clause and the state law in the first answer, and plain English in the second.",
-   "ask": "The UM negotiation has failed. Before you tell me what we file, what do you have to read?"
+   "say": "Into the Learning Check, three questions, one for each part of this module. Question 1 is all the date arithmetic in one: the discovery mailed on the first of December, the Sunday statute of limitations, both weekend directions, and what happens to an unanswered Request for Admission. Show me the working, not just the dates. Question 2 is the UM side: the two routes out of an impasse, what decides which one governs, where a bad-faith action sits, and why John’s own Bluewater policy is not a route. Question 3 puts mediation and arbitration on the timeline and asks for non-binding and binding in the words you would use with him.",
+   "ask": "Which of those three would you least like Atty. Thorne to find wrong in your answer, and why?"
   },
   "summary": {
    "say": "Now write your Self-Summary: the principles from this module in your own words. Then take the scenario on the slide. It's 09/04/2026, Keystone has ignored two follow-ups and the 48-hour escalation, and John Doe calls asking why nothing's happening and whether he should just take the $3,500. Write what you say, what you don't say, and what goes to Atty. Thorne today. While you're writing, think about one date on this file you'd always check twice.",
