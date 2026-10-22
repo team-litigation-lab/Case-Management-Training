@@ -1167,13 +1167,13 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 10. The Civic sits in storage while its valuation is disputed. Why settle its disposition quickly?  
    **✓ Storage and towing accrue daily and eat the recovery** · Property Damage must be claimed within 30 days · The body shop will sell it · The carrier stops paying the rental at once  
    *Storage and towing charges accrue daily. Document and escalate a disputed valuation; don't argue it ad hoc with the adjuster.*
-11. Keystone authorized the rental on Margaret Doe's Civic on 02/18/2026. What has to be on the file before she collects the car?  
-   The rental company's name only · **✓ Whose coverage pays, who authorizes it, the daily rate cap and the duration, with the last covered day calendared** · The car she would like and the rate she prefers · Nothing until the first rental invoice arrives  
-   *All four go in CMS → Property Damage before collection, and the last covered day (03/19/2026) goes on the calendar with a warning before it. Uncovered days, and any rate above the cap, are the owner's cost.*
-12. Unless the Dec Page says otherwise, rental coverage usually runs:  
-   7 days · Until the claim settles · **✓ 30 days at most** · As long as the repair takes  
-   *Usually 30 days at most unless the Dec Page says otherwise: confirm the duration in writing and calendar the last covered day. Keystone's rental on the Civic ran 02/18–03/19/2026.*
-13. Keystone authorizes a compact car; the owner picks up an SUV. Who pays the difference?  
+11. On 02/18/2026 Keystone authorizes a rental on the Civic. John Doe calls: he needs a car to get to treatment and asks to pick it up. What do you do?  
+   Set the rental up in his name: he was in the crash and he is the client · Ask Keystone to open a second rental for him under the BI claim · **✓ Explain that the rental belongs to the Civic's owner, Margaret Doe; as a passenger who owns no car he has no PD or rental claim. Then solve his real problem: his rides to treatment** · Tell him to use his mother's rental as his own until she needs it  
+   *Rental follows the vehicle. The Police Report's Unit 3 box names Margaret Doe as the Civic's owner, and John Doe was the Escape's front-seat passenger who owns no car, so the PD and rental claim is hers. Record the finding, tell Atty. Thorne, and treat his need as what it is: transport to care, planned and logged.*
+12. Margaret Doe's rental from Keystone starts 02/18/2026, and her Dec Page sets no longer period. John Doe rides with her to treatment. What goes on the calendar, and why?  
+   Nothing: the rental is her claim, so its end is no concern of John Doe's file · **✓ The rental's last covered day, 03/19/2026 (usually 30 days at most), as a treatment risk, with John Doe's rides planned before it** · A request to extend the rental in John Doe's name · The rental's end at settlement  
+   *Coverage usually runs 30 days at most unless the Dec Page says otherwise. The rental is Margaret Doe's, not John Doe's, but its cutoff takes away his ride to care, so the Case Plan calendars 03/19/2026 as a treatment risk and the rides are planned before it.*
+13. Keystone authorizes a compact car for the Civic; Margaret Doe picks up an SUV. Who pays the difference?  
    Keystone, as the adverse carrier · **✓ The owner: the authorization covers a comparable vehicle, not an upgrade** · The firm, from its costs · Harbor Point, under John Doe's PIP  
    *The authorization covers a comparable vehicle at the authorized daily rate; an upgrade's difference is the owner's cost. Confirm the vehicle class before pickup.*
 

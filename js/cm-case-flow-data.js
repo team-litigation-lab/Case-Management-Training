@@ -1218,13 +1218,13 @@ window.CM_CASE_FLOW = {
         {q: "The Civic sits in storage while its valuation is disputed. Why settle its disposition quickly?",
          opts: ["Storage and towing accrue daily and eat the recovery", "Property Damage must be claimed within 30 days", "The body shop will sell it", "The carrier stops paying the rental at once"],
          a: 0, r: "Storage and towing charges accrue daily. Document and escalate a disputed valuation; don't argue it ad hoc with the adjuster."},
-        {q: "Keystone authorized the rental on Margaret Doe's Civic on 02/18/2026. What has to be on the file before she collects the car?",
-         opts: ["The rental company's name only", "Whose coverage pays, who authorizes it, the daily rate cap and the duration, with the last covered day calendared", "The car she would like and the rate she prefers", "Nothing until the first rental invoice arrives"],
-         a: 1, r: "All four go in CMS → Property Damage before collection, and the last covered day (03/19/2026) goes on the calendar with a warning before it. Uncovered days, and any rate above the cap, are the owner's cost."},
-        {q: "Unless the Dec Page says otherwise, rental coverage usually runs:",
-         opts: ["7 days", "Until the claim settles", "30 days at most", "As long as the repair takes"],
-         a: 2, r: "Usually 30 days at most unless the Dec Page says otherwise: confirm the duration in writing and calendar the last covered day. Keystone's rental on the Civic ran 02/18–03/19/2026."},
-        {q: "Keystone authorizes a compact car; the owner picks up an SUV. Who pays the difference?",
+        {q: "On 02/18/2026 Keystone authorizes a rental on the Civic. John Doe calls: he needs a car to get to treatment and asks to pick it up. What do you do?",
+         opts: ["Set the rental up in his name: he was in the crash and he is the client", "Ask Keystone to open a second rental for him under the BI claim", "Explain that the rental belongs to the Civic's owner, Margaret Doe; as a passenger who owns no car he has no PD or rental claim. Then solve his real problem: his rides to treatment", "Tell him to use his mother's rental as his own until she needs it"],
+         a: 2, r: "Rental follows the vehicle. The Police Report's Unit 3 box names Margaret Doe as the Civic's owner, and John Doe was the Escape's front-seat passenger who owns no car, so the PD and rental claim is hers. Record the finding, tell Atty. Thorne, and treat his need as what it is: transport to care, planned and logged."},
+        {q: "Margaret Doe's rental from Keystone starts 02/18/2026, and her Dec Page sets no longer period. John Doe rides with her to treatment. What goes on the calendar, and why?",
+         opts: ["Nothing: the rental is her claim, so its end is no concern of John Doe's file", "The rental's last covered day, 03/19/2026 (usually 30 days at most), as a treatment risk, with John Doe's rides planned before it", "A request to extend the rental in John Doe's name", "The rental's end at settlement"],
+         a: 1, r: "Coverage usually runs 30 days at most unless the Dec Page says otherwise. The rental is Margaret Doe's, not John Doe's, but its cutoff takes away his ride to care, so the Case Plan calendars 03/19/2026 as a treatment risk and the rides are planned before it."},
+        {q: "Keystone authorizes a compact car for the Civic; Margaret Doe picks up an SUV. Who pays the difference?",
          opts: ["Keystone, as the adverse carrier", "The owner: the authorization covers a comparable vehicle, not an upgrade", "The firm, from its costs", "Harbor Point, under John Doe's PIP"],
          a: 1, r: "The authorization covers a comparable vehicle at the authorized daily rate; an upgrade's difference is the owner's cost. Confirm the vehicle class before pickup."}
       ],
@@ -2462,7 +2462,10 @@ window.CM_CASE_FLOW = {
          a: 0, r: "The IRS standard rates are a reference only. The governing state's rules set the rate, and Atty. Thorne confirms it before anything is claimed."},
         {q: "Harbor Point's check for Lakeside Orthopedics' 06/12/2026 visit is paid on 06/26/2026. Where do you post it?",
          opts: ["In Case Notes only", "In the Lien Tracker, as a PIP lien", "Nowhere: PIP is outside the stack", "In the PIP Log (CMS → Insurance tab → PIP Log): the check, the date of service and the limit remaining, reconciled to Harbor Point's payment history"],
-         a: 3, r: "The PIP Log (RS71) is the firm's record of John Doe's Harbor Point PIP. It ties to Harbor Point's payment history (RS31) line for line: five payments, $5,000.00, $0.00 left after 06/26/2026. Harbor Point has no reimbursement right, so PIP is never a lien."}
+         a: 3, r: "The PIP Log (RS71) is the firm's record of John Doe's Harbor Point PIP. It ties to Harbor Point's payment history (RS31) line for line: five payments, $5,000.00, $0.00 left after 06/26/2026. Harbor Point has no reimbursement right, so PIP is never a lien."},
+        {q: "Checking the PIP Log against the providers' statements: suppose Lakeside Orthopedics' statement still showed $640.00 owed for the 03/27/2026 visit that Harbor Point PIP paid on 04/10/2026. What is it, and what do you do?",
+         opts: ["A lien: add $640.00 to the Lien Tracker", "A billing error: the PIP payment is a credit Lakeside hasn't posted, so send it the payment proof in writing and ask it to correct the account", "A debt: tell John Doe to pay Lakeside", "A reason to ask Harbor Point to pay the visit again"],
+         a: 1, r: "Every provider's statement must show the PIP check or the plan's payment as a credit. A balance on a date of service PIP already paid is a billing error, not a lien and not John Doe's debt: correct it in writing with the payment proof from the PIP Log and Harbor Point's payment history, and log it."}
       ],
       blocks: [
 
