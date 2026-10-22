@@ -826,9 +826,8 @@ window.CM_CASE_FLOW = {
         check: {
           questions: [
             "Name the six stages of John Doe's file in order, and say what the Case Manager owns at Intake & Case Opening that nobody else will.",
-            "John Doe asks what his case is worth. Who answers, what do you tell him, and what do you log?",
-            "You are opening John Doe's matter in the CMS. What must happen before the matter is created, on whose names, and why does the order matter?",
-            "John Doe asks whether waiting to see a doctor hurt his case. Say word for word what you tell him, and what you record in the CMS."
+            "John Doe asks you two things on the same call: what his case is worth, and whether waiting to see a doctor hurt it. Say word for word what you tell him on each, who answers them if you do not, and what you record and route in the CMS.",
+            "You are opening John Doe's matter in the CMS. What must happen before the matter is created, on whose names, and why does the order matter?"
           ],
           summary: [
             "Summarize, in your own words, what you learned opening John Doe's file: the principles, not the clicks.",

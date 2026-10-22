@@ -547,9 +547,8 @@ window.CM_CF_SLIDES = {
   "image": "knowledge-check",
   "questions": [
    "Name the **six stages** in order. What does the CM own at Intake & Case Opening?",
-   "John Doe asks what his case is **worth**. Who answers, and what do you log?",
-   "What must happen **before the matter is created** in the CMS, and on whose names?",
-   "John Doe asks if waiting hurt his case. **Your exact words**, and what you log?"
+   "John Doe asks his case's **worth**, and if waiting hurt it. Your exact words, and what you log?",
+   "What must happen **before the matter is created** in the CMS, and on whose names?"
   ]
  },
  "d1m2-l1": {
