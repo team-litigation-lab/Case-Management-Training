@@ -35,11 +35,13 @@
 <script>window.CM_CASE_YEAR = new URLSearchParams(location.search).get("year"); window.CM_CASE_DOL = new URLSearchParams(location.search).get("dol");   // the CMS Date of Loss offset, days</script>
 <script src="/js/cm-case-flow-docs.js?v=16"></script>
 <script src="/js/cm-case-dates.js?v=5"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 <div class="cdv-bar" id="bar" hidden>
   <div class="t" id="title"></div>
-  <button id="print" type="button">Print / Save as PDF</button>
+  <button id="pdf" type="button">⬇ Download PDF</button>
   <button id="edit" type="button" class="ghost" hidden>Download editable copy (.doc)</button>
 </div>
 <main id="out"><p class="cdv-msg">Loading the document…</p></main>
@@ -50,10 +52,10 @@
   const doc = /^RS\d\d$/.test(id) && (window.CM_CF_DOCS || []).find(d => d.id === id);
   const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"})[c]);
   if(!doc || !D){ out.innerHTML = `<p class="cdv-msg">That case document wasn't found. Open it again from the Case Flow.</p>`; return; }
-  let css, html;
+  let css, html, same;
   try{
     const [c, h] = await Promise.all(["doc.css", id + ".html"].map(f => fetch("/documents/case-flow/html/" + f).then(r => { if(!r.ok) throw new Error(r.status); return r.text(); })));
-    css = c; html = D.all(h);
+    css = c; html = D.all(h); same = html === h;
   }catch(e){
     out.innerHTML = `<p class="cdv-msg">The document couldn't be loaded. <a href="/documents/${doc.file.split("/").map(encodeURIComponent).join("/")}">Open the original</a>.</p>`;
     return;
@@ -67,7 +69,48 @@
   const parts = html.split('<div class="page-break"></div>');
   out.innerHTML = `<div class="cdv-sheet">${parts.map(p => `<table class="cdv-page"><tfoot><tr><td>${foot}</td></tr></tfoot><tbody><tr><td>${p}</td></tr></tbody></table>`).join('<div class="cdv-turn"></div>')}</div>`;
   document.getElementById("bar").hidden = false;
-  document.getElementById("print").onclick = () => window.print();
+  /* ⬇ Download PDF: a file the trainee keeps and works from (their own binder, demand or exhibit set, uploaded to
+     their training Drive / the CMS for the audit), never a print dialog. Dates unchanged: the original PDF itself.
+     Dates rolled forward: the page as shown, rendered to a letter-size PDF here, the footer on every page. */
+  const pdfName = `${id} ${doc.title}`.replace(/[—–]/g, "-").replace(/&/g, "and").replace(/[^\w .,()-]+/g, "").replace(/\s+/g, " ").trim() + ".pdf";
+  const save = (blob) => { const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = pdfName;
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); };
+  const pdfBtn = document.getElementById("pdf");
+  pdfBtn.onclick = async () => {
+    const label = pdfBtn.textContent; pdfBtn.disabled = true; pdfBtn.textContent = "Preparing the PDF…";
+    try{
+      if(same && /\.pdf$/i.test(doc.file)){
+        const r = await fetch("/documents/" + doc.file.split("/").map(encodeURIComponent).join("/"));
+        if(r.ok){ save(await r.blob()); return; }
+      }
+      if(!window.jspdf || !window.html2canvas) throw new Error("PDF tools not loaded");
+      const pdf = new window.jspdf.jsPDF({unit: "pt", format: "letter"}), W = 612, H = 792, TOP = 50, BOTTOM = 46;
+      const PX = 816, k = W / PX, pageH = Math.floor((H - TOP - BOTTOM) / k);   // 96 px to the inch: 816 px is 8.5in
+      const stage = document.createElement("div");
+      stage.style.cssText = `position:fixed;left:-10000px;top:0;width:${PX}px;background:#fff`;
+      document.body.appendChild(stage);
+      const footText = `LSH CASE MANAGEMENT TRAINING — SIMULATED DOCUMENT — FICTIONAL PARTIES — NOT A REAL RECORD · John Doe v. Robert Smith · ${id}`;
+      let first = true;
+      try{
+        for(const part of parts){
+          stage.innerHTML = `<div style="padding:0 72px">${part}</div>`;
+          const scale = 2, cv = await window.html2canvas(stage, {scale, backgroundColor: "#ffffff", useCORS: true, windowWidth: PX});
+          const slice = pageH * scale;
+          for(let y = 0; y < cv.height; y += slice){
+            const h = Math.min(slice, cv.height - y), c = document.createElement("canvas");
+            c.width = cv.width; c.height = h; c.getContext("2d").drawImage(cv, 0, y, cv.width, h, 0, 0, cv.width, h);
+            if(!first) pdf.addPage(); first = false;
+            pdf.addImage(c.toDataURL("image/jpeg", 0.92), "JPEG", 0, TOP, W, h / scale * k);
+            pdf.setFont("helvetica", "normal"); pdf.setFontSize(6.5); pdf.setTextColor(85);
+            pdf.text(footText, 54, H - 24);
+          }
+        }
+      }finally{ stage.remove(); }
+      save(pdf.output("blob"));
+    }catch(e){
+      alert("The PDF couldn't be made here. Check your connection and try again.");
+    }finally{ pdfBtn.disabled = false; pdfBtn.textContent = label; }
+  };
   if(/\.docx$/i.test(doc.file)){   // the editable CMS record: a Word-readable copy with these dates
     const btn = document.getElementById("edit");
     btn.hidden = false;

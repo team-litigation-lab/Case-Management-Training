@@ -333,7 +333,7 @@ Left-to-right intake pipeline across the full slide width. Left third: a muted g
 | Defendant | Robert Smith | At-fault driver. His BI carrier pays first. |
 | Lead Counsel | Atty. Elijah Thorne | Every demand and filing routes through him. |
 | Case Manager | You | Owns the file's movement; does not own legal judgment. |
-| Host driver | Operator of John Doe's vehicle | Source of the $20,000 Host UM layer. |
+| Host driver | Operator of the vehicle John Doe rode in | Source of the $20,000 Host UM layer. |
 | Resident relative | John Doe's household relative | Source of the $10,000 Relative UM layer. |
 
 **Operational mapping**
