@@ -970,7 +970,7 @@ window.CM_CF_SLIDES = {
      },
      {
       "label": "Duration Limit",
-      "text": "Record the number of covered days: **uncovered days are the client's cost**"
+      "text": "Usually 30 days max unless the Dec Page differs: **uncovered days are the client's cost**"
      }
     ],
     "note": "All four go in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
@@ -1112,7 +1112,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Rental",
-     "text": "A comparable vehicle while the client's is out: confirm who authorizes it, **the daily cap and duration**"
+     "text": "Confirm who authorizes it and the daily cap; **usually 30 days maximum** unless the Dec Page says otherwise"
     }
    ],
    "pages": [
@@ -1149,7 +1149,7 @@ window.CM_CF_SLIDES = {
      ],
      [
       "Rental",
-      "Who authorizes it, the daily cap and the duration",
+      "Who authorizes, daily cap; 30 days max unless the Dec Page differs",
       "**Uncovered days are the client's cost**"
      ]
     ],
