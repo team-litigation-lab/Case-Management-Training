@@ -814,7 +814,7 @@ function slideBody(view, l, d){
           return `<details class="cfx-fall"><summary><span class="cfx-fall-i">⚠️</span><b>${E(e.subject)}</b><span class="cfx-fall-from">${icon} ${E(e.from || "")}</span></summary>
             <p>${E(e.body)}</p>${isTrainer() ? `<small class="cfx-fall-why">${x.done ? "Not shown to this trainee: they confirmed" : "Shown because this wasn't confirmed"}: “${E(x.what)}” (${E(x.f.if.activity)})</small>` : ""}</details>`; }).join("")}
         <div class="cfx-sb-grid${vm ? " cfx-sb-vm" : ""}">
-          <div class="cfx-sb-main">${ev ? eventCard(ev, "", b.id, docs.length > 0) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}</div>
+          <div class="cfx-sb-main">${ev ? eventCard(ev, "", b.id, docs.length > 0) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}${docs.length ? art(c.image, "cfx-sb-art") : ""}</div>
           <div class="cfx-sb-docs">${thumbs}</div>
         </div></div>`;
     }
@@ -4231,6 +4231,13 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-sb-grid{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.6fr);gap:18px;align-items:start;}
 .cfx-sb-main .cfx-ev{padding:8px 12px;} .cfx-sb-main .cfx-ev p{font-size:15px !important;line-height:1.45;}
 .cfx-sb-main{display:flex;flex-direction:column;gap:10px;}
+/* the space under the event card holds the activity's own illustration (its slide image), sized to what the documents leave */
+.cfx-sb-grid{align-items:stretch;}
+.cfx-sb-main>:first-child{margin-top:28px;}   /* the card sits a little lower, level with the documents' text */
+.cfx-sb-main>:not(.cfx-sb-art){flex:0 0 auto;}   /* the card keeps its full height; the illustration takes what is left */
+.cfx-sb-grid.cfx-sb-vm{align-items:stretch;}
+.cfx-sb-art{flex:1 1 0;min-height:72px;padding:6px 4px 0;}
+.cfx-sb-art svg{width:100%;height:100%;max-width:400px;max-height:260px;}
 /* the case documents in one row, as big as the column and the screen's height allow (600px images, so they stay legible) */
 .cfx-sb-docs .cfx-docs-row{display:flex;flex-wrap:nowrap;justify-content:center;align-items:flex-start;gap:14px;margin:0;}
 .cfx-sb-docs .cfx-thumb{flex:1 1 0;min-width:0;max-width:min(360px,calc((100vh - 400px) / 1.25));}
