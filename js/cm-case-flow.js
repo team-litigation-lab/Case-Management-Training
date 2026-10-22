@@ -743,7 +743,7 @@ function timeBanner(l){
   const b = l.cf.block, ev = SIM.events[b.id];
   if(!ev) return "";
   const say = b.transition ? `<p>${hl(b.transition)}</p>` : "";
-  if(b.otherMatter) return `<div class="cfx-when cfx-when-other"><div class="cfx-when-top"><b class="cfx-when-jump">📂 A different file</b><span>File date ${E(ev.date)}</span></div>${say}</div>`;
+  if(b.otherMatter) return `<div class="cfx-when cfx-when-other"><div class="cfx-when-top"><b class="cfx-when-jump">📂 A different file</b><span class="cfx-when-date">📆 File date <b>${E(ev.date)}</b></span></div>${say}</div>`;
   const acts = johnDoeActs(), i = acts.findIndex(x => x.cf.block.id === b.id), prev = i > 0 ? acts[i - 1] : null;
   const t = dayMs(ev.date), dol = dayMs(CF.case.dol), sol = dayMs(CF.case.sol), DAY = 864e5;
   let jump = "";
@@ -757,8 +757,9 @@ function timeBanner(l){
     else if(far) jump = gap > 0 ? `⏩ ${spanOf(gap)} later` : `⏪ Back to ${E(ev.date)}, ${spanOf(gap)} before the last task`;
   }
   const left = (sol - t) / DAY;
-  const solLine = left > 0 ? `⚖️ SOL ${E(CF.case.sol)} · ${spanOf(left)} left` : `⚠️ Past the SOL (${E(CF.case.sol)})`;
-  return `<div class="cfx-when${left > 0 ? "" : " cfx-when-late"}"><div class="cfx-when-top">${jump ? `<b class="cfx-when-jump">${jump}</b>` : ""}<span>File date ${E(ev.date)} · ${t > dol ? `${spanOf((t - dol) / DAY)} after the collision` : "the day of the collision"}</span><span class="cfx-when-sol">${solLine}</span></div>${say}</div>`;
+  const solLine = left > 0 ? `⚖️ SOL ${E(CF.case.sol)} · <b>${spanOf(left)} left</b>` : `⚠️ <b>Past the SOL</b> (${E(CF.case.sol)})`;
+  const urgency = left <= 0 ? " cfx-when-late" : left < 183 ? " cfx-when-soon" : "";   // the SOL pill: green, amber inside six months, red once it's past
+  return `<div class="cfx-when${urgency}"><div class="cfx-when-top">${jump ? `<b class="cfx-when-jump">${jump}</b>` : ""}<span class="cfx-when-date">📆 File date <b>${E(ev.date)}</b> · ${t > dol ? `<b>${spanOf((t - dol) / DAY)}</b> after the collision` : "the day of the collision"}</span><span class="cfx-when-sol">${solLine}</span></div>${say}</div>`;
 }
 function slideBody(view, l, d){
   const {block: b, day, mod} = l.cf, c = copyOf(b);
@@ -4000,13 +4001,19 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cf-timeline .cfx-tl-full li.here small{color:#fff;}
 .cf-timeline .cfx-tl-full li.next .cf-tl-b{opacity:.62;}
 /* the time banner on a Skill Activity's Your Case (timeBanner); cfx-time is the countdown button, not this */
-.cfx-when{margin:0 0 10px;padding:8px 12px;border-left:4px solid #DB8437;border-radius:8px;background:rgba(255,255,255,.07);color:#DDE2EE;font:500 13px/1.4 'Inter',sans-serif;}
-.cfx-when-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;}
-.cfx-when-jump{color:#F4B77A;font-weight:800;}
-.cfx-when-sol{margin-left:auto;font:600 12px 'IBM Plex Mono',monospace;color:#CDEBDD;}
-.cfx-when p{margin:4px 0 0;color:#fff;font-weight:600;}
-.cfx-when-other{border-left-color:#AEB6CC;}
-.cfx-when-late{border-left-color:#E5484D;}.cfx-when-late .cfx-when-sol{color:#FF8A8C;}
+/* the time on the file: where the case has moved since the last task, and how long the SOL leaves; made to be noticed */
+.cfx-when{margin:0 0 10px;padding:8px 12px;border:2px solid #DB8437;border-left-width:6px;border-radius:12px;background:linear-gradient(90deg,rgba(219,132,55,.30),rgba(255,255,255,.07) 70%);color:#fff;font:600 15px/1.4 'Inter',sans-serif;animation:cfxWhen 1.4s ease-out 1;}
+.cfx-when-top{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;}
+.cfx-when-jump{background:#DB8437;color:#fff;padding:3px 12px;border-radius:999px;font:800 15px/1.3 'Poppins','Inter',sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.25);}
+.cfx-when-date b{color:#FFD9A8;font-weight:800;}
+.cfx-when-sol{margin-left:auto;padding:3px 12px;border-radius:999px;background:#1F6B47;color:#E6FFF1;font:600 13.5px/1.3 'IBM Plex Mono',monospace;}
+.cfx-when-sol b{font-weight:800;color:#fff;}
+.cfx-when p{margin:6px 0 0;color:#fff;font-weight:600;}
+.cfx-when-other{border-color:#AEB6CC;background:rgba(255,255,255,.08);}.cfx-when-other .cfx-when-jump{background:#5B6787;}
+.cfx-when-soon{border-color:#E0A526;}.cfx-when-soon .cfx-when-sol{background:#A86B12;color:#FFF4DE;}
+.cfx-when-late{border-color:#E5484D;background:linear-gradient(90deg,rgba(229,72,77,.32),rgba(255,255,255,.07) 70%);}.cfx-when-late .cfx-when-sol{background:#B4282D;color:#fff;}
+@keyframes cfxWhen{0%{box-shadow:0 0 0 0 rgba(244,183,122,.75)}100%{box-shadow:0 0 0 14px rgba(244,183,122,0)}}
+@media (prefers-reduced-motion:reduce){.cfx-when{animation:none;}}
 /* today (the real date) is white, apart from the orange file marker, so neither is read as the other */
 .cf-timeline .cfx-tl-full li.today .cf-tl-b{background:#fff;border-color:#fff;color:#12162B;}
 .cf-timeline .cfx-tl-full li.today small{color:#12162B;}
