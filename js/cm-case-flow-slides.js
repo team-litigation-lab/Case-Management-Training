@@ -1729,7 +1729,7 @@ window.CM_CF_SLIDES = {
  },
  "d2m1-a1": {
   "image": "email-outreach",
-  "situation": "File date 02/17/2026. Claims are open with Keystone (BI and PD), Harbor Point (Host UM, MedPay) and Cardinal State, **no adjuster assigned**. **Five letters** must go out today.",
+  "situation": "File date 02/17/2026. Claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, **no adjuster assigned**. **Five letters** must go out today.",
   "steps": [
    "Draft **five letters** on the firm template: three LORs, two notices",
    "Give each its **Attn line, insured, number** and date of loss",
@@ -1760,7 +1760,7 @@ window.CM_CF_SLIDES = {
   "points": [
    "Limits stay **preliminary until a Declaration Page** or Coverage Letter",
    "Get each UM carrier's form **in writing**: add-on or reduced",
-   "Stack **three layers to $40,000**; MedPay and PD are tracked, never added",
+   "Stack **three layers to $40,000**; PIP and PD are tracked, never added",
    "Every open item carries **a dated next follow-up**"
   ],
   "upl": "You record and chase; applying terms or alleging bad faith is Atty. Thorne's call.",
@@ -1790,7 +1790,7 @@ window.CM_CF_SLIDES = {
    "Check each policy period **covers 02/06/2026**"
   ],
   "donts": [
-   "**Adding MedPay or PD** to the stack total",
+   "**Adding PIP or PD** to the stack total",
    "Confirming a limit **from a phone call** or Police Report",
    "An open request with **no next date**"
   ],
@@ -1819,7 +1819,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Stacking Layers",
-     "text": "Only liability and UM layers stack; MedPay, PD and collision coverage are **separate benefits, tracked apart**"
+     "text": "Only liability and UM layers stack; PIP, PD and collision coverage are **separate benefits, tracked apart**"
     },
     {
      "term": "Exclusions and Gaps",
@@ -1934,7 +1934,7 @@ window.CM_CF_SLIDES = {
   "deliver": "A corrected matrix **totalling $40,000**, every status sourced, open items dated, note routed",
   "checks": [
    "BI: **still preliminary**; Declaration Page not until 03/20/2026",
-   "**MedPay out** of the stack: it pays bills, not claims",
+   "**PIP out** of the stack: it pays bills, not claims",
    "Stack total **$45,000 corrected to $40,000**",
    "BI follow-up **logged 03/11/2026**; next by 03/13/2026",
    "Bluewater's “UM: none” chased: **signed rejection form** (03/14/2024)"
@@ -1961,7 +1961,7 @@ window.CM_CF_SLIDES = {
   "points": [
    "Sort every coverage: **whose it is**, and what it pays",
    "Only BI and UM are **the $40,000 Recovery Stack**",
-   "Payer-First: **MedPay, then Peach State**, an LOP last",
+   "Payer-First: **PIP, then Peach State**, an LOP last",
    "Verify PIP and UM in writing; **never assume either**"
   ],
   "upl": "Route bills in the default order; primacy and lien enforceability are Atty. Thorne's",
@@ -1970,17 +1970,17 @@ window.CM_CF_SLIDES = {
     "Coverage confirmed in writing",
     "Place it: stack, Payer Order, outside",
     "CMS → Coverage Matrix",
-    "Stack $40,000; MedPay outside it"
+    "Stack $40,000; PIP outside it"
    ],
    [
     "A provider asks whom to bill",
     "Route it by Payer-First order",
-    "CMS → MedPay ledger",
-    "MedPay, Peach State, then LOP"
+    "CMS → PIP ledger",
+    "PIP, Peach State, then LOP"
    ],
    [
     "A provider asks for an LOP",
-    "Check MedPay and network first",
+    "Check PIP and network first",
     "CMS → Liens → LOP register",
     "Atty. Thorne approves any LOP"
    ]
@@ -1991,8 +1991,8 @@ window.CM_CF_SLIDES = {
    "Keep the Payer Order and **the Recovery Stack apart**"
   ],
   "donts": [
-   "An LOP to a provider **MedPay would have paid**",
-   "MedPay, PD or collision **added to the stack**",
+   "An LOP to a provider **PIP would have paid**",
+   "PIP, PD or collision **added to the stack**",
    "Assuming PIP, or **UM on the client's own policy**"
   ],
   "theory": {
@@ -2058,7 +2058,7 @@ window.CM_CF_SLIDES = {
       "Consent rules guard its subrogation"
      ],
      [
-      "MedPay",
+      "PIP",
       "The occupied vehicle's policy",
       "Medical Bills, no fault needed; no wages",
       "By policy: **verify in writing**"
@@ -2100,7 +2100,7 @@ window.CM_CF_SLIDES = {
     [
      "Two lists sit side by side on John Doe's Insurance tab.",
      "One says who pays the bills first; the other totals $40,000.",
-     "MedPay leads the Payer Order yet adds nothing to the BI and UM layers."
+     "PIP leads the Payer Order yet adds nothing to the BI and UM layers."
     ]
    ],
    "donts": [
@@ -2126,7 +2126,7 @@ window.CM_CF_SLIDES = {
   "image": "treatment-plan",
   "hook": "An LOP **out of Payer Order** turns a payable bill into a lien on his net.",
   "points": [
-   "Run the Payer Order: **MedPay → Peach State → LOP**",
+   "Run the Payer Order: **PIP → Peach State → LOP**",
    "Use an LOP **only where earlier payers can't**",
    "Atty. Thorne sets LOP terms; **never promise payment** amounts, reductions or dates",
    "Be the hub: **warm handoffs**, not phone numbers"
@@ -2140,9 +2140,9 @@ window.CM_CF_SLIDES = {
     "Nothing sent without Atty. Thorne's approval"
    ],
    [
-    "MedPay pays a bill",
+    "PIP pays a bill",
     "Post payment, running total, balance",
-    "CMS → MedPay ledger",
+    "CMS → PIP ledger",
     "$5,000.00 reached 06/12/2026; $0.00 left"
    ],
    [
@@ -2158,7 +2158,7 @@ window.CM_CF_SLIDES = {
    "Reconcile **conflicting provider statements** at once"
   ],
   "donts": [
-   "An LOP **before checking MedPay** and Peach State",
+   "An LOP **before checking PIP** and Peach State",
    "Telling a provider **“paid in full at settlement”**",
    "Mission creep: taking on **every problem John Doe raises**"
   ],
@@ -2212,7 +2212,7 @@ window.CM_CF_SLIDES = {
      },
      {
       "label": "MedPay or PIP",
-      "text": "First-party, regardless of fault, up to its limit; MedPay pays Medical Bills only, never wages"
+      "text": "First-party, regardless of fault, up to its limit; PIP also pays 80% of lost income, MedPay never wages"
      },
      {
       "label": "Health Plan",
@@ -2223,7 +2223,7 @@ window.CM_CF_SLIDES = {
       "text": "Last rung, for care earlier payers can't carry: paid from any recovery, on Atty. Thorne's terms"
      }
     ],
-    "note": "On this file: Harbor Point MedPay, then Peach State, then an LOP. No PIP; providers bill whom they bill"
+    "note": "On this file: Harbor Point PIP, then Peach State, then an LOP; providers bill whom they bill"
    }
   },
   "clues": {
@@ -2236,7 +2236,7 @@ window.CM_CF_SLIDES = {
     [
      "John Doe worries about the envelopes piling up from providers.",
      "Cost worry left unanswered is how a client stops going.",
-     "Summit goes to MedPay, Crescent to Peach State, Riverton under an LOP."
+     "Summit goes to PIP, Crescent to Peach State, Riverton under an LOP."
     ],
     [
      "Riverton's PT note and Dr. Reyes's note describe John Doe differently.",
@@ -2265,12 +2265,12 @@ window.CM_CF_SLIDES = {
  },
  "d2m2-eob": {
   "image": "money-ledger",
-  "hook": "Every bill's story is in **the EOB and the MedPay ledger**: read them before you answer",
+  "hook": "Every bill's story is in **the EOB and the PIP ledger**: read them before you answer",
   "points": [
    "Read billed, allowed, **write-off, paid**, member share, in order",
    "Member responsibility is **the most a provider may bill**",
    "A plan's lien starts at **what it paid**, never billed",
-   "MedPay paid **$5,000.00 in five checks**; exhausted 06/26/2026"
+   "PIP paid **$5,000.00 in five checks**; exhausted 06/26/2026"
   ],
   "upl": "Read and report what payers paid; whether a balance is owed is Atty. Thorne's",
   "job": [
@@ -2281,9 +2281,9 @@ window.CM_CF_SLIDES = {
     "Plan paid $1,860.00 logged"
    ],
    [
-    "A MedPay check clears",
+    "A PIP check clears",
     "Post check and limit remaining",
-    "CMS → MedPay ledger",
+    "CMS → PIP ledger",
     "Ties to Harbor Point's history"
    ],
    [
@@ -2301,10 +2301,10 @@ window.CM_CF_SLIDES = {
   "donts": [
    "A lien logged **at the billed amount**",
    "A contractual write-off treated as **the client's debt**",
-   "A bill sent to MedPay **after 06/26/2026**"
+   "A bill sent to PIP **after 06/26/2026**"
   ],
   "theory": {
-   "lead": "Every payer reports what it did with a bill: the Health Plan in an **Explanation of Benefits**, MedPay in its payment history. Read both before any lien.",
+   "lead": "Every payer reports what it did with a bill: the Health Plan in an **Explanation of Benefits**, PIP in its payment history. Read both before any lien.",
    "concepts": [
     {
      "term": "Explanation of Benefits",
@@ -2327,12 +2327,12 @@ window.CM_CF_SLIDES = {
      "text": "Billing the patient for a contractual write-off: **not allowed in network**, so an error, not a lien"
     },
     {
-     "term": "MedPay Payment History",
-     "text": "The carrier's ledger of every MedPay check: date of service, amount paid and **the limit remaining**"
+     "term": "PIP Payment History",
+     "text": "The carrier's ledger of every PIP check: date of service, amount paid and **the limit remaining**"
     },
     {
      "term": "Exhaustion",
-     "text": "Once MedPay's limit is spent, later bills come back unpaid: **route them to the next payer**"
+     "text": "Once PIP's limit is spent, later bills come back unpaid: **route them to the next payer**"
     },
     {
      "term": "Reconciliation",
@@ -2372,7 +2372,7 @@ window.CM_CF_SLIDES = {
       "text": "Tie it to the provider's statement and the lien register; flag any balance billing"
      }
     ],
-    "note": "MedPay's payment history reads the same way: date of service, billed, paid, check number and the limit remaining"
+    "note": "PIP's payment history reads the same way: date of service, billed, paid, check number and the limit remaining"
    }
   },
   "clues": {
@@ -2414,13 +2414,13 @@ window.CM_CF_SLIDES = {
  },
  "d2m2-a1": {
   "image": "medical-visit",
-  "situation": "02/23/2026. Urgent care's $685.00 went to MedPay. Riverton Spine & Rehab, **out of network** for Peach State, starts care 02/24/2026. On 03/11/2026 Summit Imaging asks for **an LOP for the MRI**.",
+  "situation": "02/23/2026. Urgent care's $685.00 went to PIP. Riverton Spine & Rehab, **out of network** for Peach State, starts care 02/24/2026. On 03/11/2026 Summit Imaging asks for **an LOP for the MRI**.",
   "steps": [
    "Run and record **the Payer Order** for each provider",
    "Prepare Riverton Spine & Rehab's LOP; **route it for signature**",
    "Transmit with the HIPAA authorization; ask for **a missed-visit alert**",
    "Record the assessment and **the 2021 pre-morbid baseline**",
-   "Decline Summit in writing, **naming Harbor Point MedPay**"
+   "Decline Summit in writing, **naming Harbor Point PIP**"
   ],
   "deliver": "One **counsel-approved LOP** sent, one declined with payer named, ledger and baseline recorded",
   "checks": [
@@ -2435,7 +2435,7 @@ window.CM_CF_SLIDES = {
    "Highlight prior history: **never hide it**"
   ],
   "donts": [
-   "An LOP to a provider **MedPay would have paid**",
+   "An LOP to a provider **PIP would have paid**",
    "Answering **“paid in full?”** beyond the LOP's terms"
   ]
  },
@@ -2657,7 +2657,7 @@ window.CM_CF_SLIDES = {
       "Acute",
       "Days 1–14",
       "ER, imaging (MRI/CT), bracing, RICE, initial PT",
-      "Establishing causation and MedPay coverage"
+      "Establishing causation and PIP coverage"
      ],
      [
       "Sub-Acute",
@@ -2793,7 +2793,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "label": "Payer Order",
-     "text": "MedPay first, then health insurance, then LOP or liens"
+     "text": "PIP first, then health insurance, then LOP or liens"
     },
     {
      "label": "Flag the Health Plan",
@@ -4031,7 +4031,7 @@ window.CM_CF_SLIDES = {
   "points": [
    "Build **the battle map** first: net floor, value drivers, attacks, rebuttals",
    "Net floor: **$12,677.63 gross**, above Keystone's $10,000 limit",
-   "Anchor on **$16,401.40 total Specials**, not MedPay's $5,000",
+   "Anchor on **$16,401.40 total Specials**, not PIP's $5,000",
    "Restate the approved demand and name each stall; **make no moves**"
   ],
   "upl": "Present the record, relay offers; never counter, move number or deadline, or value offers.",
@@ -4320,14 +4320,14 @@ window.CM_CF_SLIDES = {
    "Offset answered with **the 03/02/2026 add-on letter**",
    "Counter-package approved, sent 09/16/2026; **no figure below limits**",
    "**Each confirming email**: coverage, release, liens, payee, check date",
-   "Recovery Ledger **$40,000.00 gross**; MedPay, Keystone PD, Bluewater excluded",
+   "Recovery Ledger **$40,000.00 gross**; PIP, Keystone PD, Bluewater excluded",
    "Each UM release signed **before its check**; deposited same day"
   ],
   "dos": [
    "**Quote the carrier**; never paraphrase its reasons"
   ],
   "donts": [
-   "Adding **MedPay or property-damage payments** to the gross",
+   "Adding **PIP or property-damage payments** to the gross",
    "Depositing a UM check **before its release is signed**"
   ]
  },
@@ -4336,7 +4336,7 @@ window.CM_CF_SLIDES = {
   "questions": [
    "**Math-check Keystone's $3,500**: fee, costs, unreduced liens, net. What does it show, and who tells John Doe?",
    "Dana Whitfield cites the 14-Day Gap and a degenerative MRI. Answer both: **four documents** and the radiologist's words.",
-   "No PIP here. What does MedPay's $5,000, **exhausted and non-subrogated**, mean for valuation? What changes where PIP applies?"
+   "Add-on PIP here. What does its $5,000, **exhausted and non-subrogated**, mean for valuation? What changes in a no-fault state?"
   ]
  },
  "d3m3-l1": {
@@ -4759,7 +4759,7 @@ window.CM_CF_SLIDES = {
  "d3m3-kc": {
   "image": "knowledge-check",
   "questions": [
-   "**Statutory, contractual or none?** Peach State, Riverton Spine & Rehab, MedPay, Medicare/Medicaid, prior attorney. Rank liens by reducibility.",
+   "**Statutory, contractual or none?** Peach State, Riverton Spine & Rehab, PIP, Medicare/Medicaid, prior attorney. Rank liens by reducibility.",
    "Peach State is a **fully insured group plan**. Why does that matter to reducing $1,860.00, and who decides?",
    "Show the math, $1,860.00 to $1,240.00, and **name the doctrine**. How does beating the 14-Day Gap support it?"
   ]
@@ -4906,7 +4906,7 @@ window.CM_CF_SLIDES = {
    "Pre-suit fee: **$3,333.33 + $10,000.00 = $13,333.33**",
    "Costs **$486.75, split $121.69 / $365.06**, charged once",
    "Net: **$5,089.98 + $15,269.94 = $20,359.92**",
-   "MedPay and Crescent's write-off **kept off the payables**",
+   "PIP and Crescent's write-off **kept off the payables**",
    "**Future ESIs flagged** to Atty. Thorne before John Doe signs"
   ],
   "dos": [
@@ -4914,7 +4914,7 @@ window.CM_CF_SLIDES = {
   ],
   "donts": [
    "Marking a lien final **from an email or phone call**",
-   "Adding **MedPay's $5,000.00** to the payables"
+   "Adding **PIP's $5,000.00** to the payables"
   ]
  },
  "d3m4-l2": {
@@ -5880,7 +5880,7 @@ window.CM_CF_SLIDES = {
    "Build six sections from **the master index**",
    "Map every pleaded defense **to the exhibit answering it**",
    "Rebuild the ledger from certified bills **to $16,401.40**",
-   "Cross-check balances **against MedPay and Peach State**",
+   "Cross-check balances **against PIP and Peach State**",
    "Add Negotiation Log, release, consent requests; **route to Atty. Thorne**"
   ],
   "deliver": "Indexed, OCR-searchable binder with **an audited ledger**, routed to Atty. Thorne, ready by 03/11/2027",
@@ -6033,7 +6033,7 @@ window.CM_CF_SLIDES = {
  },
  "d4m3-a2": {
   "image": "checklist-qa",
-  "situation": "It is 05/17/2027. **Exchange 06/02/2027**, hearing 06/22/2027. The folder holds a pre-filing draft complaint, grayscale stills, the impasse memo and **a Lien Sheet** listing Harbor Point MedPay and Summit Imaging.",
+  "situation": "It is 05/17/2027. **Exchange 06/02/2027**, hearing 06/22/2027. The folder holds a pre-filing draft complaint, grayscale stills, the impasse memo and **a Lien Sheet** listing Harbor Point PIP and Summit Imaging.",
   "steps": [
    "Sort into six tabs, **applying each QC rule** as you go",
    "Lead with **the BI exhaustion record**",
