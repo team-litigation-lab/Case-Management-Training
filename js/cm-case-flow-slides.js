@@ -2212,7 +2212,7 @@ window.CM_CF_SLIDES = {
      },
      {
       "label": "MedPay or PIP",
-      "text": "First-party, regardless of fault, up to its limit; PIP also pays 80% of lost income, MedPay never wages"
+      "text": "First-party, regardless of fault, to its limit; PIP also pays 80% of wages, MedPay none"
      },
      {
       "label": "Health Plan",
@@ -4336,7 +4336,7 @@ window.CM_CF_SLIDES = {
   "questions": [
    "**Math-check Keystone's $3,500**: fee, costs, unreduced liens, net. What does it show, and who tells John Doe?",
    "Dana Whitfield cites the 14-Day Gap and a degenerative MRI. Answer both: **four documents** and the radiologist's words.",
-   "Add-on PIP here. What does its $5,000, **exhausted and non-subrogated**, mean for valuation? What changes in a no-fault state?"
+   "Add-on PIP: what do its $5,000, **exhausted and non-subrogated**, mean for valuation? And in no-fault?"
   ]
  },
  "d3m3-l1": {
