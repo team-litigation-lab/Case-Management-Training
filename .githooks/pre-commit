@@ -1,0 +1,31 @@
+#!/bin/sh
+# Keep the Case Flow's generated files in step with its lesson data, so a lesson edit never commits with the
+# slides, trainer scripts, simulation or curriculum documents behind it.
+#
+# Install once per clone:  git config core.hooksPath .githooks
+#
+# It runs only when something the build reads has changed, rebuilds, and stages what the rebuild wrote.
+# CI runs the same build and fails if it would have changed anything, so a clone without the hook is caught too.
+set -e
+
+changed=$(git diff --cached --name-only --diff-filter=ACMR)
+case "$changed" in
+  *js/cm-case-flow-data.js*|*js/cm-case-flow-docs.js*|*build/case-flow/*) ;;
+  *) exit 0 ;;
+esac
+
+echo "Case Flow: rebuilding the generated files from the lesson data..."
+node build/case-flow/build.cjs --quiet
+
+# Stage only what the build itself writes; anything else you had in progress is left alone.
+git add -- \
+  js/cm-case-flow-slides.js \
+  js/cm-case-flow-scripts.js \
+  js/cm-case-flow-sim.js \
+  js/cm-case-flow-data.js \
+  js/cm-case-flow-docs.js \
+  curriculum/5-day-flow \
+  build/case-flow/slides build/case-flow/scripts build/case-flow/sim build/case-flow/exhibits \
+  2>/dev/null || true
+
+echo "Case Flow: generated files rebuilt and staged."
