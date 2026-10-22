@@ -1135,7 +1135,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (10 questions):
+**Auto-graded share of the day's Knowledge Check** (13 questions):
 
 1. The Property Damage carve-out in the LOR lets the adverse carrier talk to the client about:  
    Injuries and treatment · **✓ The Property Damage claim only** · Anything except settlement figures · A Recorded Statement  
@@ -1167,6 +1167,15 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 10. The Civic sits in storage while its valuation is disputed. Why settle its disposition quickly?  
    **✓ Storage and towing accrue daily and eat the recovery** · Property Damage must be claimed within 30 days · The body shop will sell it · The carrier stops paying the rental at once  
    *Storage and towing charges accrue daily. Document and escalate a disputed valuation; don't argue it ad hoc with the adjuster.*
+11. Keystone authorized the rental on Margaret Doe's Civic on 02/18/2026. What has to be on the file before she collects the car?  
+   The rental company's name only · **✓ Whose coverage pays, who authorizes it, the daily rate cap and the duration, with the last covered day calendared** · The car she would like and the rate she prefers · Nothing until the first rental invoice arrives  
+   *All four go in CMS → Property Damage before collection, and the last covered day (03/19/2026) goes on the calendar with a warning before it. Uncovered days, and any rate above the cap, are the owner's cost.*
+12. Unless the Dec Page says otherwise, rental coverage usually runs:  
+   7 days · Until the claim settles · **✓ 30 days at most** · As long as the repair takes  
+   *Usually 30 days at most unless the Dec Page says otherwise: confirm the duration in writing and calendar the last covered day. Keystone's rental on the Civic ran 02/18–03/19/2026.*
+13. Keystone authorizes a compact car; the owner picks up an SUV. Who pays the difference?  
+   Keystone, as the adverse carrier · **✓ The owner: the authorization covers a comparable vehicle, not an upgrade** · The firm, from its costs · Harbor Point, under John Doe's PIP  
+   *The authorization covers a comparable vehicle at the authorized daily rate; an upgrade's difference is the owner's cost. Confirm the vehicle class before pickup.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
