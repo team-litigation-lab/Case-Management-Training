@@ -2180,7 +2180,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (11 questions):
+**Auto-graded share of the day's Knowledge Check** (15 questions):
 
 1. On 03/11/2026 Summit Imaging asks for an LOP for John Doe's $2,395.00 MRI. Harbor Point PIP has $3,675.00 left. What do you do?  
    Prepare the LOP for Atty. Thorne's approval, since the provider asked for one · **✓ Decline the LOP and route the bill to PIP, which applies first** · Send the bill to Peach State first, to save PIP for later · Tell Summit it will be paid in full at settlement  
@@ -2215,6 +2215,18 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 11. Which of these is NOT part of the Regulatory Triple-Check?  
    A claim-specific HIPAA authorization that names the incident date · Medicare/Medicaid (BCRC) reporting where the client is 65+ or on SSDI · Payer Order and subrogation management · **✓ The Time-Limit Demand**  
    *The triple-check is HIPAA, Medicare/Medicaid reporting, and the Payer Order. Demands come on Day 3.*
+12. John Doe's rides to treatment ended with the rental cutoff on 03/19/2026. What do you set up so his travel costs can reach the demand?  
+   An estimate of his miles, made at MMI · Nothing: travel to treatment is never recoverable · **✓ A trip log from his first visit (date, provider, round-trip miles), each cost entered with its receipt in the Specials ledger** · A reminder to ask him about it at the demand  
+   *Only what is documented can be recovered, so the log is kept as treatment happens, never rebuilt from memory. What the demand claims, and at what rate, is Atty. Thorne's call.*
+13. Which rate applies to John Doe's treatment mileage?  
+   **✓ The rate the governing state's rules allow, confirmed by Atty. Thorne** · Always the IRS business rate · Whatever rate John Doe asks for · The rental company's daily rate  
+   *The IRS standard rates are a reference only. The governing state's rules set the rate, and Atty. Thorne confirms it before anything is claimed.*
+14. Harbor Point's check for Lakeside Orthopedics' 06/12/2026 visit is paid on 06/26/2026. Where do you post it?  
+   In Case Notes only · In the Lien Tracker, as a PIP lien · Nowhere: PIP is outside the stack · **✓ In the PIP Log (CMS → Insurance tab → PIP Log): the check, the date of service and the limit remaining, reconciled to Harbor Point's payment history**  
+   *The PIP Log (RS71) is the firm's record of John Doe's Harbor Point PIP. It ties to Harbor Point's payment history (RS31) line for line: five payments, $5,000.00, $0.00 left after 06/26/2026. Harbor Point has no reimbursement right, so PIP is never a lien.*
+15. Checking the PIP Log against the providers' statements: suppose Lakeside Orthopedics' statement still showed $640.00 owed for the 03/27/2026 visit that Harbor Point PIP paid on 04/10/2026. What is it, and what do you do?  
+   A lien: add $640.00 to the Lien Tracker · **✓ A billing error: the PIP payment is a credit Lakeside hasn't posted, so send it the payment proof in writing and ask it to correct the account** · A debt: tell John Doe to pay Lakeside · A reason to ask Harbor Point to pay the visit again  
+   *Every provider's statement must show the PIP check or the plan's payment as a credit. A balance on a date of service PIP already paid is a billing error, not a lien and not John Doe's debt: correct it in writing with the payment proof from the PIP Log and Harbor Point's payment history, and log it.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 

@@ -1534,8 +1534,8 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 **Auto-graded share of the day's Knowledge Check** (11 questions):
 
 1. Before the demand, which first-party ledger do you audit on John Doe's file, and what must it show?  
-   Peach State's EOBs: the Health Plan pays before PIP · **✓ Harbor Point's PIP ledger: each payment matched to its bill, the $5,000.00 limit exhausted, and the 80% wage benefit checked** · Peach State's EOBs only · None: first-party payments never touch the demand  
-   *Riverton requires PIP, and John's is Harbor Point's on the Escape: five payments, five bills, $5,000.00, exhausted with the 06/12/2026 visit (paid 06/26/2026). Its 80% wage benefit was never paid, so the full $1,584.00 in lost wages stays in the Specials.*
+   Peach State's EOBs: the Health Plan pays before PIP · **✓ Harbor Point's PIP ledger, reconciled to the PIP Log: each payment matched to its bill, the $5,000.00 limit exhausted, and the 80% wage benefit checked** · Peach State's EOBs only · None: first-party payments never touch the demand  
+   *John Doe's PIP is Harbor Point's, on the Escape he rode in: five payments, five bills, $5,000.00, exhausted with the 06/12/2026 visit (paid 06/26/2026). Its 80% wage benefit was never paid, so the full $1,584.00 in lost wages stays in the Specials.*
 2. Riverton Spine & Rehab billed 34 lines at $185.00, but its treatment notes show 33 visits. After the audit, John Doe's medical Specials are:  
    $15,002.40 · **✓ $14,817.40** · $16,401.40 · $13,277.40  
    *$15,002.40 less the duplicate 05/04/2026 line ($185.00) = $14,817.40. $16,401.40 adds the $1,584.00 in wages; $13,277.40 is the paid-and-owed column, not the billed medical total.*

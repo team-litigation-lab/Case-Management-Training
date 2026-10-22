@@ -1193,7 +1193,10 @@ window.CM_CASE_FLOW = {
          a: 1, r: "Only the resolution of the Property Damage claim. Anything else routes to the firm."},
         {q: "On a rental vehicle, whose coverage provides it?",
          opts: ["The rental company's self-insurance", "The adverse carrier's Property Damage coverage", "The client's own personal auto policy", "The client's Health Plan"],
-         a: 1, r: "The 3P rental comes from the adverse carrier's Property Damage coverage. The client's own policy is used only where there is no 3P coverage."},
+         a: 1, r: "The 3P rental comes from the adverse carrier's Property Damage coverage first. The owner's own policy is the fallback, only where 3P coverage is unavailable."},
+        {q: "The adverse carrier denies liability, so its Property Damage coverage won't pay the rental. What do you check next?",
+         opts: ["Nothing: the owner pays and the rental is lost for good", "The owner's own policy: Collision or Comprehensive for the vehicle, and Rental Reimbursement coverage", "The passenger's injury claim", "The client's Health Plan"],
+         a: 1, r: "The owner's 1P coverage is next: Collision or Comprehensive for the vehicle, and Rental Reimbursement on the Dec Page. If there is none, the owner pays out of pocket and keeps every receipt, claimed for reimbursement in the Property Damage claim."},
         {q: "Actual cash value (ACV) is:",
          opts: ["What is still owed on the loan", "The vehicle's pre-loss market value", "The cost of a new replacement", "The Repair Estimate plus storage"],
          a: 1, r: "Pre-loss market value, not the loan balance and not replacement with new."},
@@ -1217,7 +1220,16 @@ window.CM_CASE_FLOW = {
          a: 1, r: "Loss of Use is a separate claim. Asserting it is counsel's position, and the governing rule is confirmed for the file."},
         {q: "The Civic sits in storage while its valuation is disputed. Why settle its disposition quickly?",
          opts: ["Storage and towing accrue daily and eat the recovery", "Property Damage must be claimed within 30 days", "The body shop will sell it", "The carrier stops paying the rental at once"],
-         a: 0, r: "Storage and towing charges accrue daily. Document and escalate a disputed valuation; don't argue it ad hoc with the adjuster."}
+         a: 0, r: "Storage and towing charges accrue daily. Document and escalate a disputed valuation; don't argue it ad hoc with the adjuster."},
+        {q: "On 02/18/2026 Keystone authorizes a rental on the Civic. John Doe calls: he needs a car to get to treatment and asks to pick it up. What do you do?",
+         opts: ["Set the rental up in his name: he was in the crash and he is the client", "Ask Keystone to open a second rental for him under the BI claim", "Explain that the rental belongs to the Civic's owner, Margaret Doe; as a passenger who owns no car he has no PD or rental claim. Then solve his real problem: his rides to treatment", "Tell him to use his mother's rental as his own until she needs it"],
+         a: 2, r: "Rental follows the vehicle. The Police Report's Unit 3 box names Margaret Doe as the Civic's owner, and John Doe was the Escape's front-seat passenger who owns no car, so the PD and rental claim is hers. Record the finding, tell Atty. Thorne, and treat his need as what it is: transport to care, planned and logged."},
+        {q: "Margaret Doe's rental from Keystone starts 02/18/2026, and her Dec Page sets no longer period. John Doe rides with her to treatment. What goes on the calendar, and why?",
+         opts: ["Nothing: the rental is her claim, so its end is no concern of John Doe's file", "The rental's last covered day, 03/19/2026 (usually 30 days at most), as a treatment risk, with John Doe's rides planned before it", "A request to extend the rental in John Doe's name", "The rental's end at settlement"],
+         a: 1, r: "Coverage usually runs 30 days at most unless the Dec Page says otherwise. The rental is Margaret Doe's, not John Doe's, but its cutoff takes away his ride to care, so the Case Plan calendars 03/19/2026 as a treatment risk and the rides are planned before it."},
+        {q: "Keystone authorizes a compact car for the Civic; Margaret Doe picks up an SUV. Who pays the difference?",
+         opts: ["Keystone, as the adverse carrier", "The owner: the authorization covers a comparable vehicle, not an upgrade", "The firm, from its costs", "Harbor Point, under John Doe's PIP"],
+         a: 1, r: "The authorization covers a comparable vehicle at the authorized daily rate; an upgrade's difference is the owner's cost. Confirm the vehicle class before pickup."}
       ],
       blocks: [
 
@@ -1417,7 +1429,9 @@ window.CM_CASE_FLOW = {
           why: "A rental is the first money question a client asks, and the easiest place for them to get hurt: a car collected on a promise, at a rate or for days nobody authorized, becomes a bill that lands on the client. Rental belongs to the Property Damage claim, so it is the vehicle owner's to make. On this file that is Margaret Doe, the Civic's owner, not John Doe, who was her passenger.",
           rules: [
             "Rental is part of the Property Damage claim, and it belongs to the vehicle's owner. John Doe was a passenger; the Civic is Margaret Doe's, so the rental is hers to claim.",
-            "Find whose coverage pays. The third-party rental comes from the adverse carrier's Property Damage coverage, here Keystone's. The owner's own policy, or the rental company's self-insurance, is used only where there is no 3P coverage, such as a liability denial or an unresolved dispute over fault.",
+            "Find whose coverage pays, in order. First the adverse carrier's Property Damage coverage (3P), here Keystone's, on accepted liability.",
+            "If 3P coverage is unavailable (liability denied or still disputed, no PD coverage on the at-fault driver, or its limit used up), check the owner's own policy (1P): Collision or Comprehensive for the vehicle, and Rental Reimbursement coverage for the rental, on the Dec Page. The 1P carrier pays and then pursues the at-fault party; the owner's deductible is claimed back the same way.",
+            "If no coverage applies at all, the rental and the repair are the owner's out-of-pocket cost. Tell the owner before they collect a car, keep every receipt and invoice in CMS → Documents, and log each amount for reimbursement in the Property Damage claim.",
             "Confirm who authorizes the rental (the adverse carrier on accepted liability, or the owner's own carrier) and check the Dec Page for a rental reimbursement endorsement.",
             "Record the authorized daily rate cap before the client collects a vehicle. Anything above the cap is the client's cost.",
             "Record the duration limit: coverage usually runs 30 days at most, unless the Dec Page says otherwise. Calendar the last covered day and tell the client before it arrives.",
@@ -1454,7 +1468,9 @@ window.CM_CASE_FLOW = {
           "Confirm every rental parameter in writing before the client collects a car.",
           "Calendar the last covered day and warn the client before it.",
           "Pitfall: sending a client to pick up a car before the authorization is confirmed.",
-          "Pitfall: treating the rental as the passenger's claim instead of the owner's."
+          "Pitfall: treating the rental as the passenger's claim instead of the owner's.",
+          "Keep every out-of-pocket rental and repair receipt: it is the proof for reimbursement.",
+          "Pitfall: telling the owner there is no rental before checking their own policy for Rental Reimbursement."
         ],
         sources: [
           "Case file: Keystone Mutual's claim correspondence, the rental authorization and the rental cutoff (RS32)",
@@ -1462,7 +1478,7 @@ window.CM_CASE_FLOW = {
         ],
         rubric: {
           ai: [
-            ["Whose coverage pays", 25, "The adverse carrier's Property Damage coverage for the 3P rental; the owner's policy or the rental company's only without 3P coverage"],
+            ["Whose coverage pays", 25, "In order: the adverse carrier's Property Damage coverage; if unavailable, the owner's Collision or Comprehensive and Rental Reimbursement; if none, out of pocket with every receipt kept for reimbursement"],
             ["Rental parameters", 20, "Authorizer, endorsement, rate cap and duration recorded before collection"],
             ["Whose claim", 15, "The rental placed on the owner's Property Damage claim, not the passenger's"]
           ],
@@ -2444,7 +2460,19 @@ window.CM_CASE_FLOW = {
          a: 1, r: "The Regulatory Triple-Check Payer Order: PIP/MedPay, then private health insurance, then LOP/provider liens."},
         {q: "Which of these is NOT part of the Regulatory Triple-Check?",
          opts: ["A claim-specific HIPAA authorization that names the incident date", "Medicare/Medicaid (BCRC) reporting where the client is 65+ or on SSDI", "Payer Order and subrogation management", "The Time-Limit Demand"],
-         a: 3, r: "The triple-check is HIPAA, Medicare/Medicaid reporting, and the Payer Order. Demands come on Day 3."}
+         a: 3, r: "The triple-check is HIPAA, Medicare/Medicaid reporting, and the Payer Order. Demands come on Day 3."},
+        {q: "John Doe's rides to treatment ended with the rental cutoff on 03/19/2026. What do you set up so his travel costs can reach the demand?",
+         opts: ["An estimate of his miles, made at MMI", "Nothing: travel to treatment is never recoverable", "A trip log from his first visit (date, provider, round-trip miles), each cost entered with its receipt in the Specials ledger", "A reminder to ask him about it at the demand"],
+         a: 2, r: "Only what is documented can be recovered, so the log is kept as treatment happens, never rebuilt from memory. What the demand claims, and at what rate, is Atty. Thorne's call."},
+        {q: "Which rate applies to John Doe's treatment mileage?",
+         opts: ["The rate the governing state's rules allow, confirmed by Atty. Thorne", "Always the IRS business rate", "Whatever rate John Doe asks for", "The rental company's daily rate"],
+         a: 0, r: "The IRS standard rates are a reference only. The governing state's rules set the rate, and Atty. Thorne confirms it before anything is claimed."},
+        {q: "Harbor Point's check for Lakeside Orthopedics' 06/12/2026 visit is paid on 06/26/2026. Where do you post it?",
+         opts: ["In Case Notes only", "In the Lien Tracker, as a PIP lien", "Nowhere: PIP is outside the stack", "In the PIP Log (CMS → Insurance tab → PIP Log): the check, the date of service and the limit remaining, reconciled to Harbor Point's payment history"],
+         a: 3, r: "The PIP Log (RS71) is the firm's record of John Doe's Harbor Point PIP. It ties to Harbor Point's payment history (RS31) line for line: five payments, $5,000.00, $0.00 left after 06/26/2026. Harbor Point has no reimbursement right, so PIP is never a lien."},
+        {q: "Checking the PIP Log against the providers' statements: suppose Lakeside Orthopedics' statement still showed $640.00 owed for the 03/27/2026 visit that Harbor Point PIP paid on 04/10/2026. What is it, and what do you do?",
+         opts: ["A lien: add $640.00 to the Lien Tracker", "A billing error: the PIP payment is a credit Lakeside hasn't posted, so send it the payment proof in writing and ask it to correct the account", "A debt: tell John Doe to pay Lakeside", "A reason to ask Harbor Point to pay the visit again"],
+         a: 1, r: "Every provider's statement must show the PIP check or the plan's payment as a credit. A balance on a date of service PIP already paid is a billing error, not a lien and not John Doe's debt: correct it in writing with the payment proof from the PIP Log and Harbor Point's payment history, and log it."}
       ],
       blocks: [
 
@@ -3641,8 +3669,8 @@ window.CM_CASE_FLOW = {
       about: "AI attorney collaboration: audit John Doe's file to MMI and $16,401.40 in Specials, re-verify the policy-limits targets, and brief Atty. Thorne in a strategy session where he makes the calls.",
       quiz: [
         {q: "Before the demand, which first-party ledger do you audit on John Doe's file, and what must it show?",
-         opts: ["Peach State's EOBs: the Health Plan pays before PIP", "Harbor Point's PIP ledger: each payment matched to its bill, the $5,000.00 limit exhausted, and the 80% wage benefit checked", "Peach State's EOBs only", "None: first-party payments never touch the demand"],
-         a: 1, r: "Riverton requires PIP, and John's is Harbor Point's on the Escape: five payments, five bills, $5,000.00, exhausted with the 06/12/2026 visit (paid 06/26/2026). Its 80% wage benefit was never paid, so the full $1,584.00 in lost wages stays in the Specials."},
+         opts: ["Peach State's EOBs: the Health Plan pays before PIP", "Harbor Point's PIP ledger, reconciled to the PIP Log: each payment matched to its bill, the $5,000.00 limit exhausted, and the 80% wage benefit checked", "Peach State's EOBs only", "None: first-party payments never touch the demand"],
+         a: 1, r: "John Doe's PIP is Harbor Point's, on the Escape he rode in: five payments, five bills, $5,000.00, exhausted with the 06/12/2026 visit (paid 06/26/2026). Its 80% wage benefit was never paid, so the full $1,584.00 in lost wages stays in the Specials."},
         {q: "Riverton Spine & Rehab billed 34 lines at $185.00, but its treatment notes show 33 visits. After the audit, John Doe's medical Specials are:",
          opts: ["$15,002.40", "$14,817.40", "$16,401.40", "$13,277.40"],
          a: 1, r: "$15,002.40 less the duplicate 05/04/2026 line ($185.00) = $14,817.40. $16,401.40 adds the $1,584.00 in wages; $13,277.40 is the paid-and-owed column, not the billed medical total."},
@@ -8526,7 +8554,7 @@ window.CM_CASE_FLOW = {
     ],
     "d2m2-l1": [
       "Treatment is where an injury claim is actually built, and it has to be paid for long before the claim pays anything. The BI and UM money arrives at the end, if at all; providers want paying now. That gap is why the **Payer Order** exists, and why the Case Manager's question changes in this phase from “What does he need?” to “Is the plan working?” Your work becomes three jobs: facilitation (transport, paperwork, scheduling), coordination (every provider working from one plan) and advocacy (stepping in when care is denied or stalls). Each one protects the treatment and, through it, the record that will later prove what the collision did.",
-      "On John Doe's file the default order is Harbor Point PIP, then Peach State, then a Letter of Protection. He claims the $5,000 PIP as a passenger in Kevin Alvarez's 2020 Ford Escape: he is not in Kevin's household, he owns no car, and Margaret Doe rejected PIP in writing on her policies, so no household policy carries it. But providers bill whom they bill. Crescent Pain & Spine is in network with Peach State and billed the plan on 05/15/2026, while PIP still had $640.00 left. PIP pays what it receives in order, so its wage benefit had nothing left when Northgate's wage letter came on 06/30/2026. You track both ledgers and never re-route a claim another payer has paid.",
+      "On John Doe's file the default order is Harbor Point PIP, then Peach State, then a Letter of Protection. He claims the $5,000 PIP as a passenger in Kevin Alvarez's 2020 Ford Escape, because he owns no car. But providers bill whom they bill. Crescent Pain & Spine is in network with Peach State and billed the plan on 05/15/2026, while PIP still had $640.00 left. PIP pays what it receives in order, so its wage benefit had nothing left when Northgate's wage letter came on 06/30/2026. You track both ledgers and never re-route a claim another payer has paid.",
       "An LOP is John Doe's own signed agreement, acknowledged by the firm on Atty. Thorne's terms, that a provider will be paid from any recovery. The firm guarantees nothing, and John stays liable for the bill whatever the outcome. It is used only where earlier payers cannot carry the care: Riverton Spine & Rehab is out of network for Peach State, so its chiropractic and PT run under an LOP. Summit Imaging's request for one on 03/11/2026 was declined, because its MRI could go to PIP. Every LOP balance belongs on a current provider list, updated from each itemized statement, so nothing surprises the $40,000 stack later.",
       "Cause and effect is direct here. An LOP issued where PIP or the Health Plan would have paid turns an ordinary bill into a lien against John Doe's net recovery. A promise to a provider about payment, a reduction or a date binds the firm to something only counsel can authorize. A phone number handed to John instead of a **warm handoff** is where clients drop out, typically at the transitions from urgent care to chiropractic and PT, to orthopedics, imaging and pain management. And an open loop costs later: if Riverton's PT notes stop matching Dr. Alana Reyes's orders, or an authorization lapses unnoticed, the gap in care becomes a gap in the record.",
       "Your lane: route bills, prepare an LOP on Atty. Thorne's approved template, transmit it once he approves, confirm receipt, keep the LOP provider list current and tell a provider which payer to bill. You keep the clinical, legal and financial loops closed and report John's daily function to Atty. Thorne. You do not set LOP terms, sign for him, promise any payment or reduction, or explain to John what the LOP makes him liable for; Atty. Thorne explains that before John signs. Ask the room: a provider asks you to “just confirm they'll be paid in full at settlement”. What can you say, and what has to go to counsel?"
@@ -8631,7 +8659,7 @@ window.CM_CASE_FLOW = {
     "d3m2-l2": [
       "Underinsured motorist coverage is a contract between a carrier and the person it insures, but at evaluation the carrier stands in the shoes of the at-fault driver. It pays what that driver legally owed, minus what was already paid, up to its limit. That double role explains this lesson. Because the carrier owes its insured good faith, it must evaluate honestly; because it is paying the stand-in defendant's share, it will argue every point Keystone argued. The first offer is rarely the last. Reaching the full $40,000 means proving the gap above each layer, closing every reduction in writing first, and papering every move, because a first-party claim is still a contested claim.",
       "Two questions decide what each layer can pay. The first is form: an offset policy cuts UM by the BI payment, while an **add-on** policy pays on top. Harbor Point's 03/02/2026 letter confirms add-on, which answers the limit half of the argument that “BI already compensated him.” The second is damages: for Harbor Point's full $20,000, John Doe's damages must reach at least $30,000, and because Cardinal State's Relative UM is excess over Host UM, its file must show damages above $30,000. On 09/14/2026 Marcus Bell offered $8,000 for Harbor Point, citing the gap and that same argument. Never demand a limit without showing the gap above the layer beneath it.",
-      "The damages half is answered with the same objective record that carried the BI demand: the MRI, the injection on 05/15/2026, the residual right-arm paresthesia at MMI on 06/12/2026 and future care of $3,400 to $6,800, described as Dr. Reyes documented it and not called permanent unless a physician has. MMI is reached, so the liens are worked now, not after the money arrives. PIP does not complicate this file: Riverton's PIP is add-on, a collateral source rather than a credit to Keystone, and Harbor Point's PIP was exhausted with no reimbursement right, so it creates no lien and no UM cut. On a typical file where PIP does apply, set-off, the EMC ceiling and subrogation can each change the ask.",
+      "The damages half is answered with the same objective record that carried the BI demand: the MRI, the injection on 05/15/2026, the residual right-arm paresthesia at MMI on 06/12/2026 and future care of $3,400 to $6,800, described as Dr. Reyes documented it and not called permanent unless a physician has. MMI is reached, so the liens are worked now, not after the money arrives. PIP does not complicate this file: John Doe's Harbor Point PIP is add-on, a collateral source rather than a credit to Keystone, and it was exhausted with no reimbursement right, so it creates no lien and no UM cut. In a no-fault state it would work differently: PIP is mandatory and pays first, a suit needs a serious-injury or monetary threshold, and PIP paid is set off.",
       "When a carrier offers limits, the danger shifts from too little to too fast. You confirm its terms without accepting: coverage, release scope, liens, payee and check date, and you report to Atty. Thorne the same day. A verbal “yes” under pressure can bind the client to terms nobody reviewed, and a release with the wrong scope can undo what the last lesson protected. Only after John Doe decides, on Atty. Thorne's advice, does the acceptance go out, drafted by you and approved and sent by him. Then the **payout chain** runs: release, check to John Doe and the firm, IOLTA trust account, liens, fee and costs, and finally his net. A check is logged the day it arrives.",
       "Your lane is evidence and paper. You assemble the proof, log and relay every offer, and record what John Doe decided through Atty. Thorne: who decided, on whose advice, and when. Bracketing is Atty. Thorne's tool, relayed only on his written, word-for-word instruction. You may not accept, reject or counter, tell John Doe whether to settle, explain a policy's offset or release language to him, or accuse a carrier of bad faith; that is a legal conclusion and his to reach. You never endorse a check. Ask the room: Cardinal State has offered $6,000; who decides whether John Doe takes it, and how does that decision reach the Negotiation Log?"
     ],

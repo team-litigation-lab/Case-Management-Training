@@ -963,6 +963,7 @@ window.CM_CF_SLIDES = {
   "image": "privacy-shield",
   "roadmap": {
    "title": "Client Instructions: the Roadmap",
+   "merge": true,
    "steps": [
     {
      "label": "Give the instructions",
@@ -1212,7 +1213,7 @@ window.CM_CF_SLIDES = {
      "term": "Rental",
      "text": "Confirm who authorizes it and the daily cap; **usually 30 days maximum** unless the Dec Page says otherwise",
      "more": [
-      "Whose coverage pays: the adverse carrier's Property Damage coverage; the owner's own policy only if none",
+      "Whose coverage pays: the adverse carrier's PD coverage first; then the owner's Collision and Rental coverage; else out of pocket",
       "Who authorizes it, and whether the policy carries **a rental reimbursement endorsement**",
       "The daily rate cap, recorded before the client collects a vehicle: anything above it is the client's cost",
       "The duration: usually 30 days at most, unless the Dec Page says otherwise",
@@ -1294,7 +1295,7 @@ window.CM_CF_SLIDES = {
   "hook": "A rental collected **on a promise** becomes the client's bill.",
   "points": [
    "Rental is on **the owner's PD claim**: Margaret Doe's, not John's",
-   "The adverse carrier's **PD coverage** pays the rental",
+   "**3P PD** first; then 1P Collision/Rental; else out of pocket",
    "Confirm authorizer, rate cap and **duration in writing** first",
    "Coverage is **usually 30 days** unless the Dec Page differs"
   ],
@@ -1336,12 +1337,14 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Whose Coverage Pays",
-     "text": "The adverse carrier's Property Damage coverage pays the 3P rental; the owner's policy **only if there's none**",
+     "text": "3P Property Damage coverage first; if unavailable, the owner's **1P Collision and Rental coverage**; otherwise out of pocket",
      "more": [
-      "On accepted liability, the adverse carrier's Property Damage coverage provides the rental: here, Keystone's",
-      "The owner's own policy, or the rental company's self-insurance, only where there is no 3P coverage",
-      "For example, a liability denial, or a dispute over fault still open",
-      "Get the carrier's rental authorization in writing before the client collects a car"
+      "First, 3P: on accepted liability, the adverse carrier's Property Damage coverage provides the rental. Here, Keystone's",
+      "Unavailable when liability is denied or disputed, the at-fault driver has no PD coverage, or its limit is used up",
+      "Then 1P: check the owner's **Collision or Comprehensive** for the vehicle, and Rental Reimbursement coverage on the Dec Page",
+      "The 1P carrier pays, then pursues the at-fault party; the owner's deductible is claimed back the same way",
+      "No coverage at all: the owner pays **out of pocket**. Keep every receipt for reimbursement in the PD claim",
+      "Get each carrier's rental authorization in writing before the client collects a car"
      ]
     },
     {
@@ -1366,7 +1369,7 @@ window.CM_CF_SLIDES = {
     "steps": [
      {
       "label": "Whose Coverage Pays the Rental?",
-      "text": "The adverse carrier's **Property Damage** coverage pays the 3P rental; the client's policy only if none"
+      "text": "3P **Property Damage** first; if unavailable, the owner's 1P Collision and Rental; else out of pocket"
      },
      {
       "label": "Who Authorizes?",
@@ -1379,9 +1382,13 @@ window.CM_CF_SLIDES = {
      {
       "label": "Duration Limit",
       "text": "Usually 30 days max unless the Dec Page differs: **uncovered days are the client's cost**"
+     },
+     {
+      "label": "No Coverage? Keep Receipts",
+      "text": "The owner pays out of pocket: keep **every receipt**, claimed for reimbursement in the PD claim"
      }
     ],
-    "note": "All four go in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
+    "note": "Every check goes in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
    }
   },
   "clues": {
