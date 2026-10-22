@@ -2871,14 +2871,16 @@ function caseNow(){
   return {now, track: trackB ? "B" : trackA ? "A" : ""};
 }
 const fmtMs = t => { const d = new Date(t); return `${String(d.getUTCMonth() + 1).padStart(2, "0")}/${String(d.getUTCDate()).padStart(2, "0")}/${d.getUTCFullYear()}`; };
+/* one screen: each event is a date button; its label pops up on hover, focus or tap */
+const tlItem = (cls, label, date) => `<li class="${cls}"><button type="button" class="cf-tl-b" aria-label="${label} · ${date}"><i></i><small>${date}</small></button><b class="cf-tl-pop">${label}</b></li>`;
 function caseTimeline(n){
   if(!(SIM.timeline || []).length) return "";
   if(!isTrainer()){   // a trainee sees the case only as far as they have worked it
     const {now, track} = caseNow();
     const seen = SIM.timeline.filter(m => (!m.track || m.track === track) && dayMs(m.date) <= (m.lane ? now[m.lane] : now[""]));
     if(!seen.length) return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3><p class="cf-note">The timeline fills in as you work John Doe's file.</p></div>`;
-    const li = list => list.map(m => `<li class="past"><i></i><b>${E(m.label)}</b><small>${E(m.date)}</small></li>`).join("");
-    const at = t => isNaN(t) ? "" : `<li class="here"><i></i><b>You are here</b><small>${E(fmtMs(t))}</small></li>`;
+    const li = list => list.map(m => tlItem("past", E(m.label), E(m.date))).join("");
+    const at = t => isNaN(t) ? "" : tlItem("here", "You are here", E(fmtMs(t)));
     const laned = seen.filter(m => m.lane);
     if(!laned.length) return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3><ol class="cfx-tl cfx-tl-full">${li(seen)}${at(now[""])}</ol></div>`;
     // once the two workstreams have started: the shared file, the workstreams side by side (each with its own "you are here"), then the file again
@@ -2897,10 +2899,10 @@ function caseTimeline(n){
   const row = (list, at, mark = true) => {   // mark: show "you are here" in this row (else only colour what's past)
     const t = dayMs(at); let placed = !mark;
     const li = list.map(m => {
-      const past = !isNaN(t) && dayMs(m.date) <= t, pre = !placed && !isNaN(t) && dayMs(m.date) > t ? (placed = true, `<li class="here"><i></i><b>You are here</b><small>${E(at)}</small></li>`) : "";
-      return pre + `<li class="${past ? "past" : "next"}"><i></i><b>${E(m.label)}</b><small>${E(m.date)}${m.track ? " · Track " + E(m.track) : ""}</small></li>`;
+      const past = !isNaN(t) && dayMs(m.date) <= t, pre = !placed && !isNaN(t) && dayMs(m.date) > t ? (placed = true, tlItem("here", "You are here", E(at))) : "";
+      return pre + tlItem(past ? "past" : "next", E(m.label) + (m.track ? " · Track " + E(m.track) : ""), E(m.date));
     }).join("");
-    return li + (!placed && at && !isNaN(t) ? `<li class="here"><i></i><b>You are here</b><small>${E(at)}</small></li>` : "");
+    return li + (!placed && at && !isNaN(t) ? tlItem("here", "You are here", E(at)) : "");
   };
   const laned = items.filter(m => m.lane), lo = Math.min(...laned.map(m => dayMs(m.date))), hi = Math.max(...laned.map(m => dayMs(m.date)));
   const before = items.filter(m => !m.lane && dayMs(m.date) < lo), after = items.filter(m => !m.lane && dayMs(m.date) > hi);
@@ -3576,7 +3578,7 @@ main > .cf-side-presenter{display:none;}
 .cf-file-page .cf-file-cols{flex:1 1 auto;min-height:0;overflow:auto;}
 /* the timeline takes what it needs and no more (a trainee's is short at first), and scrolls inside
    itself rather than pushing the page past the screen */
-.cf-file-page .cf-file-facts .cf-timeline{flex:0 1 auto;min-height:0;overflow:auto;}
+.cf-file-page .cf-file-facts .cf-timeline{flex:0 1 auto;min-height:0;overflow:visible;}
 .cf-file-facts .cf-timeline{margin:0;}
 .cf-timeline .cf-note{color:#D7DDEA;}   /* the card is navy: the empty-state line has to be light */
 .cf-file-hero{flex:0 0 auto;padding:11px 18px 10px;margin-bottom:9px;}
@@ -3874,6 +3876,21 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cf-lane-h{font:800 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#F4B77A;margin:0 0 10px;}
 .cf-lane-care .cf-lane-h{color:#9BE0B4;}
 .cf-lane .cfx-tl-full li{flex:0 0 calc(100% / 4);}
+/* one screen: the timeline is a wrap of date buttons; each label pops up over the rail */
+.cf-timeline .cfx-tl-full{flex-direction:row !important;flex-wrap:wrap !important;gap:6px;margin:0 0 6px;}
+.cf-timeline .cfx-tl-full::before{display:none !important;}
+.cf-timeline .cfx-tl-full li, .cf-timeline .cf-lane .cfx-tl-full li{flex:0 0 auto !important;padding:0;position:relative;overflow:visible;}
+.cf-tl-b{display:flex;align-items:center;gap:6px;padding:4px 9px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);color:#DDE2EE;cursor:pointer;font:inherit;}
+.cf-tl-b:hover,.cf-tl-b:focus-visible{background:rgba(219,132,55,.3);border-color:#DB8437;outline:none;}
+.cf-timeline .cfx-tl-full li small{order:0;min-width:0 !important;font:600 12px 'IBM Plex Mono',monospace;color:#C9CFE0;}
+.cf-timeline .cfx-tl-full li i{width:9px;height:9px;}
+.cf-timeline .cfx-tl-full li.here .cf-tl-b{background:#DB8437;border-color:#fff;}
+.cf-timeline .cfx-tl-full li.here small{color:#fff;}
+.cf-timeline .cfx-tl-full li.next .cf-tl-b{opacity:.62;}
+.cf-tl-pop{position:absolute;left:50%;top:calc(100% + 8px);transform:translateX(-50%);z-index:20;display:none;width:max-content;max-width:260px;padding:7px 11px;border-radius:10px;background:#12162B;border:1px solid #DB8437;color:#fff;font:700 13.5px/1.35 'Inter',sans-serif;box-shadow:0 8px 20px rgba(0,0,0,.45);}
+.cf-timeline .cfx-tl-full li:hover .cf-tl-pop,.cf-timeline .cfx-tl-full li:focus-within .cf-tl-pop{display:block;}
+.cf-timeline .cfx-tl-full li:first-child .cf-tl-pop{left:0;transform:none;}
+.cf-timeline .cfx-tl-full li:last-child .cf-tl-pop{left:auto;right:0;transform:none;}
 @media(max-width:760px){.cf-lanes{grid-template-columns:minmax(0,1fr);}}
 .cf-timeline h3{margin:0 0 12px;font:800 20px 'Poppins','Inter',sans-serif;color:#fff;}
 @media(max-width:760px){
