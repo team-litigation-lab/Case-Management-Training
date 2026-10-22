@@ -497,6 +497,7 @@ function copyOf(b){   // the block's concise copy, or a condensed fallback from 
     upl: c.upl !== undefined ? c.upl : ((b.tell.upl || [])[0] ? words(b.tell.upl[0], 18) : ""), job: c.job || (b.ops || []).slice(0, 3).map(r => r.map(x => words(x, 7))),
     dos: c.dos || dos.slice(0, 3).map(x => words(x, 12)), donts: c.donts || donts.slice(0, 3).map(x => words(x, 12)), theory: c.theory || null};
   if(b.kind === "activity") return {image: c.image, situation: c.situation || words(b.act.scenario, 36), steps: c.steps || [words(b.act.prompt, 30)],
+    purpose: c.purpose || "", principle: c.principle || (c.dos || dos.map(x => words(x, 12)))[0] || "",
     deliver: c.deliver || words(b.act.output, 18), checks: c.checks || b.act.checkpoints.slice(0, 5).map(x => words(x, 12)),
     dos: c.dos || dos.slice(0, 2).map(x => words(x, 12)), donts: c.donts || donts.slice(0, 2).map(x => words(x, 12))};
   return {image: c.image || "knowledge-check", questions: c.questions || b.check.questions};
@@ -611,6 +612,26 @@ function blockTools(b){
   ids = ids.concat(WORKED_IN[b.id] || []);
   ids = [...new Set(ids)];
   return ids.length ? ids : ["cms"];
+}
+/* Your Task: each step ends with a link to where it's done. The CMS screen a step names (New Case for the Conflict
+   Check, Calendar for a deadline, Case Notes for a note); a step worked from the file's documents opens 📁 Work From
+   (its documents open beside the slide); otherwise the tool the step names, else the block's own tool. */
+const STEP_AT = [
+  [/Conflict Check/i, "cms", "CMS → New Case"],
+  [/Case Notes/, "cms", "CMS → Case Notes"],
+  [/\bDocket\b(?! System)|\bSOL\b|\bcalendar\b(?! Conflict)/i, "cms", "CMS → Calendar"],
+  [/\bParties\b|\broles?\b/i, "cms", "CMS → Parties"],
+  [/source documents?|signed documents?|against (the|its|each) (Police Report|Declaration Page|record|document)/i, "docs", "Documents"]
+];
+function stepLink(text, b){
+  const t = String(text || "").replace(/\*\*/g, ""), hit = STEP_AT.find(([re]) => re.test(t));
+  let id = hit && hit[1], label = hit && hit[2];
+  if(id === "docs" && !(CF_PACKETS[b.id] || []).length){ id = toolLive("docs", b.id) ? "docs" : null; label = "Documents"; }
+  if(id === "cms" && !toolLive("cms", b.id)) id = null;
+  if(!id){ id = toolsIn(t, b.id)[0] || blockTools(b).filter(x => x !== "call")[0]; label = id && TOOL[id] ? TOOL[id].short : ""; }
+  if(!id || !TOOL[id]) return "";
+  const go = id === "docs" && (CF_PACKETS[b.id] || []).length ? `cmCaseFlow.workFrom(this)` : `cmCaseFlow.tool('${id}','${b.id}')`;
+  return ` <button type="button" class="cfx-at" onclick="${go}" title="Open ${E(label)}">${TOOL[id].icon} ${E(label)} ↗</button>`;
 }
 function toolChip(id, blockId, big){
   const t = TOOL[id];
@@ -750,14 +771,15 @@ function slideBody(view, l, d){
     case "task": { const main = blockTools(b).filter(id => id !== "call")[0] || "cms";
       const where = TOOLKIT.find(t => t.id === main), whereName = where ? where.name.replace(/^the /, "the ") : "the CMS";
       return `${plainBox(b)}<div class="cfx-do-now"><b>🧪 Practice Lab: do this now</b><span>Open ${E(whereName)} from today's 🧪 Practice Lab slide (it stays open beside the slides), work the steps below on John Doe's file, ${SIM.calls[b.id] ? "take the live call, " : ""}then hand in what's under <em>Deliver</em> and tick it off on the next slide, <em>Check Your Work</em>.</span></div>
-      <div class="cfx-task"><ol class="cfx-points">${c.steps.map(x => { return `<li><span>${hl(x)}</span></li>`; }).join("")}</ol>
-      <aside class="cfx-side"><div><b>🛠 Where</b><span>${E(b.act.tool)}</span></div>
+      <div class="cfx-task"><ol class="cfx-points">${c.steps.map(x => `<li><span>${hl(x)}${stepLink(x, b)}</span></li>`).join("")}</ol>
+      <aside class="cfx-side">${c.purpose ? `<div class="cfx-why"><b>🎯 Purpose</b><span>${hl(c.purpose)}</span></div>` : ""}
+        ${c.principle ? `<div class="cfx-why"><b>⚖️ Principle</b><span>${hl(c.principle)}</span></div>` : ""}
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}</span>
           <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
         ${serviceOf(b.id) ? `<div class="cfx-call cfx-svb"><b>✉ Service Confirmation</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
           <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the Service Confirmation</button></div>` : ""}
-        <div class="cfx-deliver"><b>📤 Deliver</b><span>${hl(c.deliver)}</span></div></aside></div>`; }
+        <button type="button" class="cfx-deliver" onclick="nextSlide()" title="Hand it in, then check your work"><b>📤 Deliver</b><span>${hl(c.deliver)}</span><em>Hand in &amp; check your work ➔</em></button></aside></div>`; }
     case "check": { const open = answersOpen(b.id);
       return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${open ? hl(x) : masked(x)}</span></label>`).join("")}</div>
       ${open ? (isTrainer() && !inAudience() ? `<p class="cfx-key-note">🔑 Trainer view: the answers. Trainees see blanks until they finish the activity.</p>` : "")
@@ -1522,6 +1544,13 @@ window.cmCaseFlow.tool = function(id, blockId){
     return;
   }
   if(typeof openTool === "function") openTool(id === "call" ? "calls" : id, "split", emailTarget(id, blockId) || undefined);   // a training platform, beside the slide (⧉ Side by side; 🖥 Second screen)
+};
+/* a step's 📁 Documents link: open the slide's Work From list and bring it into view */
+window.cmCaseFlow.workFrom = function(el){
+  const box = el && el.closest(".cfx-task") && el.closest(".cfx-task").querySelector(".cfx-docs");
+  if(!box){ cmCaseFlow.tool("docs"); return; }
+  box.open = true; box.scrollIntoView({block: "nearest", behavior: "smooth"});
+  box.classList.remove("cfx-flash"); void box.offsetWidth; box.classList.add("cfx-flash");
 };
 window.cmCaseFlow.back = function(){
   const r = state.cfReturn; state.cfReturn = null;
@@ -3502,6 +3531,14 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
 .cfx-deliver{background:#FBF1E6 !important;border-color:#F0D2AE !important;}
 .cfx-deliver span{font:600 18px/1.4 var(--font-ui);color:var(--ink);}
+.cfx-side button.cfx-deliver{display:flex;flex-direction:column;gap:6px;text-align:left;border:1px solid;border-radius:14px;padding:12px 14px;cursor:pointer;font:inherit;transition:transform .12s,box-shadow .12s;}
+.cfx-side button.cfx-deliver:hover,.cfx-side button.cfx-deliver:focus-visible{transform:translateY(-1px);box-shadow:0 6px 16px rgba(224,122,31,.25);outline:none;}
+.cfx-side button.cfx-deliver em{align-self:flex-end;font:700 13px var(--font-ui);font-style:normal;color:#fff;background:var(--orange);border-radius:999px;padding:5px 12px;}
+.cfx-side .cfx-why span{font:500 16px/1.4 var(--font-ui);color:var(--ink);}
+.cfx-at{display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:2px 10px;border:1px solid #C9D3EA;border-radius:999px;background:#EEF2FB;color:var(--navy);font:600 14px/1.6 var(--font-ui);cursor:pointer;vertical-align:middle;white-space:nowrap;}
+.cfx-at:hover,.cfx-at:focus-visible{background:var(--navy);color:#fff;border-color:var(--navy);outline:none;}
+@keyframes cfxFlash{0%{box-shadow:0 0 0 3px var(--orange)}100%{box-shadow:0 0 0 0 transparent}}
+.cfx-side .cfx-docs.cfx-flash{animation:cfxFlash 1.2s ease-out;}
 .cfx-check{display:flex;flex-direction:column;gap:12px;}
 .cfx-tick{display:flex;gap:14px;align-items:flex-start;font:500 22px/1.4 var(--font-ui);color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 16px;cursor:pointer;animation:cfxIn .3s ease-out both;}
 .cfx-tick input{width:24px;height:24px;margin-top:3px;accent-color:#2F8F5B;flex:0 0 auto;}

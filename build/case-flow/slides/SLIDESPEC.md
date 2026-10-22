@@ -82,6 +82,10 @@ context the decks gave, not only the rules. Take it from the deck pages that tea
   dates and figures the task needs; drop the rest.
 - `steps` — the task (from `act.prompt`) as **3–5 imperative steps, ≤ 12 words each**, in order.
 - `deliver` — the expected output (`act.output`) in **≤ 14 words**.
+- `purpose` (optional) — why the task matters to the file, in **≤ 14 words**; shown as 🎯 Purpose beside the steps.
+- `principle` (optional) — the rule the task turns on, in **≤ 12 words**; shown as ⚖️ Principle (without it, the first
+  `dos` item is shown). Each step ends with a link to where it is done (CMS → New Case, → Calendar, → Case Notes,
+  📁 Documents, or the tool it names), drawn from the step's own words: name the place in the step.
 - `checks` — **3–5** verification checkpoints (`act.checkpoints`), **≤ 10 words each**.
 - `dos` / `donts` — **1–2 each** from `best`, ≤ 10 words.
 

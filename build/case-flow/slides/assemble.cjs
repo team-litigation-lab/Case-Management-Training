@@ -120,6 +120,7 @@ for (const day of CF.days) {
       const t = theory(b); if(t) out[b.id] = Object.assign({}, c, {theory: t}, k ? {clues: k} : {});
     } else if(b.kind === "activity"){
       line(b.id, "situation", c.situation, 32, [1, 2]); list(b.id, "steps", c.steps, 3, 5, 12); line(b.id, "deliver", c.deliver, 14); list(b.id, "checks", c.checks, 3, 5, 10);
+      if(c.purpose !== undefined) line(b.id, "purpose", c.purpose, 14); if(c.principle !== undefined) line(b.id, "principle", c.principle, 12);
       if(c.dos) list(b.id, "dos", c.dos, 1, 2, 10); if(c.donts) list(b.id, "donts", c.donts, 1, 2, 10);
     } else {
       list(b.id, "questions", c.questions, b.check.questions.length, b.check.questions.length, 18);
