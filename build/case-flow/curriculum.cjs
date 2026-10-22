@@ -51,9 +51,11 @@ const cited = new Map();   // "D1#18" → [block ids]
 });
 if(!(CF.profile || []).some(x => x.after === "d1m1-open")) errors.push("profile: nothing opens with the first Skill Activity (d1m1-open)");
 CF.days.forEach(day => {
-  // four modules a day; Day 5 has two more: the Track B close-out (the award, the liens and the litigated Net Sheet)
-  // and Dropped Cases (closing out a practice matter the attorney has dropped, with its Withdrawal Letters)
-  if(day.modules.length !== (day.n === 5 ? 6 : 4)) errors.push(`Day ${day.n}: ${day.modules.length} modules, expected ${day.n === 5 ? 6 : 4}`);
+  // four modules a day; Day 5 has three more: Litigation Foundations (the court process and the Case
+  // Manager's scope, taught before the day's hands-on work), the Track B close-out (the award, the liens
+  // and the litigated Net Sheet) and Dropped Cases (closing out a practice matter the attorney has
+  // dropped, with its Withdrawal Letters)
+  if(day.modules.length !== (day.n === 5 ? 7 : 4)) errors.push(`Day ${day.n}: ${day.modules.length} modules, expected ${day.n === 5 ? 7 : 4}`);
   ["title", "phase", "objective", "gate", "discussion"].forEach(k => { if(!day[k]) errors.push(`Day ${day.n}: missing ${k}`); });
   if(!(day.fileState || []).length) errors.push(`Day ${day.n}: missing fileState (where the file stands as the day opens)`);
   if(/blueprint/i.test(JSON.stringify(day))) errors.push(`Day ${day.n}: says "blueprint"; the program never uses the word`);

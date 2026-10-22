@@ -6263,6 +6263,265 @@ window.CM_CF_SLIDES = {
    "Keystone's representative arrives on 03/18/2027 **without authority to pay $10,000**. What failed earlier, and your countermeasure?"
   ]
  },
+ "d5m0-l1": {
+  "image": "courthouse",
+  "hook": "A lawsuit is **a sequence, not a conversation**: six stages, each built on the last.",
+  "points": [
+   "Filing starts the case; **service starts the Answer clock**",
+   "The Scheduling Order is **where your calendar comes from**",
+   "Discovery is **the longest stage** — and where you live",
+   "Motions and trial are **the two stages still ahead**"
+  ],
+  "upl": "The stage is a fact you give; what it means is Atty. Thorne's",
+  "dos": [
+   "**Name the stage** before you touch a litigation task",
+   "Keep **pre-litigation out** of the pleadings folder"
+  ],
+  "donts": [
+   "Treating **the filing date** as the Answer trigger",
+   "Knowing only **the stage in front of you**"
+  ],
+  "theory": {
+   "lead": "Six stages, in a fixed order, each built on what the one before it produced: **pre-litigation happens before stage one**.",
+   "concepts": [
+    {
+     "term": "Filing Versus Service",
+     "text": "Filing starts the case and stops the limitations clock; **service obliges the defendant** to answer"
+    },
+    {
+     "term": "The Pleadings Close",
+     "text": "Once the Answer is in, the court issues the Scheduling Order, and **every later date derives from it**"
+    },
+    {
+     "term": "Discovery Is The Long Stage",
+     "text": "Evidence is exchanged so the case is tried or valued **on known facts, not surprise**"
+    },
+    {
+     "term": "Two Stages Still Ahead",
+     "text": "Pre-trial motions and trial follow ADR; **most files resolve before reaching either**"
+    }
+   ],
+   "pages": [
+    "D5#2",
+    "D5#3"
+   ],
+   "framework": {
+    "title": "The Six Stages and This File",
+    "kind": "table",
+    "head": [
+     "Stage",
+     "What it settles",
+     "On 26-CV-04417"
+    ],
+    "rows": [
+     [
+      "1 Complaint & Service",
+      "That the case exists and the defendant knows",
+      "Filed 09/24/2026; served 10/14/2026"
+     ],
+     [
+      "2 Answer & Pleadings",
+      "What is actually in dispute",
+      "Answered 11/12/2026; order 12/10/2026"
+     ],
+     [
+      "3 Discovery",
+      "What each side can prove",
+      "Sets served 12/01 and 12/14/2026"
+     ],
+     [
+      "4 Pre-Trial Motions",
+      "What the judge decides before trial",
+      "Not yet reached"
+     ],
+     [
+      "5 ADR",
+      "Whether the parties resolve it themselves",
+      "Mediation and UM arbitration"
+     ],
+     [
+      "6 Trial & Verdict",
+      "What a jury decides, then appeal",
+      "Not reached; most files never are"
+     ]
+    ]
+   }
+  },
+  "clues": {
+   "dos": [
+    [
+     "A litigation task lands on the file and you open it.",
+     "Before touching it you say aloud where the case has reached.",
+     "Saying it first stops a pleadings assumption ruining discovery work."
+    ],
+    [
+     "The 07/20/2026 demand and its 08/21/2026 lapse came before suit.",
+     "They are not court filings, and 01_PLEADINGS is not their home.",
+     "Keeping them apart in the folders keeps them apart in your head."
+    ]
+   ],
+   "donts": [
+    [
+     "The Complaint went to the clerk on 09/24/2026 and felt underway.",
+     "Robert Smith was not served until 10/14/2026, twenty days later.",
+     "Counting from the earlier event puts the Answer deadline three weeks early."
+    ],
+    [
+     "A Case Manager describes the discovery work before them perfectly.",
+     "Asked what follows once discovery closes, they have no answer.",
+     "Seeing only the current step means the next one arrives unannounced."
+    ]
+   ]
+  }
+ },
+ "d5m0-l2": {
+  "image": "documents-audit",
+  "hook": "Motions are where **a case can be lost on paper**, before any jury hears it.",
+  "points": [
+   "**Summary judgment** ends claims without a trial",
+   "Compel and protective orders **come out of discovery disputes**",
+   "Motions in limine **keep evidence from the jury**",
+   "One motion, **four dates**: file, oppose, reply, hear"
+  ],
+  "upl": "You calendar and assemble; which motion to bring is Atty. Thorne's",
+  "job": [
+   [
+    "Scheduling Order entered",
+    "Calendar the motion cutoff",
+    "CMS → Litigation → Discovery Calendar",
+    "Cutoff carries lead-time reminders"
+   ],
+   [
+    "Atty. Thorne decides to move",
+    "Assemble exhibits to the court's format",
+    "CMS → Documents → 03_MOTIONS",
+    "Accepted on first submission"
+   ],
+   [
+    "A verdict is entered",
+    "Diary post-trial and appeal windows",
+    "CMS → Litigation → Discovery Calendar",
+    "Both calendared the same day"
+   ]
+  ],
+  "dos": [
+   "Work the motion calendar **backwards from the hearing**",
+   "Give every exhibit **its source, date and Bates range**"
+  ],
+  "donts": [
+   "Calendaring **the hearing date and nothing else**",
+   "Assuming **a trial date will hold**"
+  ],
+  "theory": {
+   "lead": "After the discovery cutoff each side asks the judge to decide things before trial: **sometimes the whole case**.",
+   "concepts": [
+    {
+     "term": "Judgment Without Trial",
+     "text": "Summary judgment ends claims where the material facts are **not genuinely in dispute**"
+    },
+    {
+     "term": "Discovery Disputes Reach Court",
+     "text": "A motion to compel forces production; a protective order **limits what may be asked**"
+    },
+    {
+     "term": "Keeping Evidence From A Jury",
+     "text": "Motions in limine exclude specific proof **before the jury ever hears it**"
+    },
+    {
+     "term": "Four Dates, One Trigger",
+     "text": "Every motion carries filing, opposition, reply and hearing dates, **all run off the cutoff**"
+    }
+   ],
+   "pages": [
+    "D5#6"
+   ],
+   "framework": {
+    "title": "From Motion Cutoff To Verdict",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Motion cutoff",
+      "text": "The last date the Scheduling Order allows a pre-trial motion"
+     },
+     {
+      "label": "Briefing",
+      "text": "Filing, opposition and reply, each on its own date"
+     },
+     {
+      "label": "Pre-trial conference",
+      "text": "Pre-trial order, witness and exhibit lists, motions in limine"
+     },
+     {
+      "label": "Trial",
+      "text": "Selection, openings, the cases in chief, closings, instructions"
+     },
+     {
+      "label": "Verdict",
+      "text": "Then post-trial motions and appeal, both on short clocks"
+     }
+    ]
+   }
+  },
+  "clues": {
+   "dos": [
+    [
+     "A motion is coming and one date gets quoted by everyone.",
+     "The opposition and the reply fall due long before it.",
+     "Starting from the end is what reveals the real drafting time."
+    ],
+    [
+     "An exhibit is pulled from fourteen thousand pages of production.",
+     "Counsel cannot cite it without knowing which document it came from.",
+     "An indexed exhibit is usable; an unindexed one gets hunted again."
+    ]
+   ],
+   "donts": [
+    [
+     "The motion is docketed and one date enters the calendar.",
+     "The filing, the opposition and the reply get no entries.",
+     "Those three arrive first, and they are where motions are lost."
+    ],
+    [
+     "A court date is set and the file is treated as settled.",
+     "Continuances reset months of work and cases resolve on courthouse steps.",
+     "A date presumed firm is a file that stops being ready."
+    ]
+   ]
+  }
+ },
+ "d5m0-a2": {
+  "image": "client-call",
+  "situation": "02/02/2027: John Doe calls, anxious, with **eight questions** about the Answer, his 02/18/2027 deposition and mediation. Atty. Thorne is in a hearing until 4:00 p.m.",
+  "steps": [
+   "Name **why each question** is not yours to answer",
+   "Name the document or event, **route the legal part**",
+   "Give **the facts and logistics** you do have",
+   "Send **one escalation** covering all eight",
+   "Log the call: asked, **routed, promised**"
+  ],
+  "deliver": "Eight replies, one file note, **one escalation asking for a time**",
+  "checks": [
+   "**Nothing interpreted**: Answer, discovery, release",
+   "**No prediction** of ruling, mediation or value",
+   "Deposition routed, **date and logistics still given**",
+   "Client **stopped from signing** the unreviewed release",
+   "Every reply gives **something concrete**"
+  ],
+  "dos": [
+   "Attach **a fact or a date** to every routed question"
+  ],
+  "donts": [
+   "Softening a routed question with **an opinion**"
+  ]
+ },
+ "d5m0-kc": {
+  "image": "knowledge-check",
+  "questions": [
+   "Name the **six stages** in order, what each is for, and where 26-CV-04417 sits.",
+   "Mediation fails. Name four pre-trial motions and **the four dates** you calendar.",
+   "John asks his stage, what **comparative negligence** means, and whether the judge will dismiss. Answer all three."
+  ]
+ },
  "d5m1-l1": {
   "image": "courthouse",
   "hook": "An adjuster's deadline bends; **a court's does not**, so the log proves nothing slipped.",

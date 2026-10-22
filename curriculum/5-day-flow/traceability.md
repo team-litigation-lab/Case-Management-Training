@@ -187,15 +187,15 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 
 | # | Topic | Status | Where it lives now |
 |---|---|---|---|
-| `D5#1` | Welcome to Day 5: Stepping into Litigation | ✅ BUILT | d5m1-l1 |
-| `D5#2` | The Case Manager's Tactical Role in Litigation: The Litigation Lifecycle | ✅ BUILT | d5m1-l1, d5m1-l2 |
-| `D5#3` | Phase 1: The Pleadings & Service Stage | ✅ BUILT | d5m1-l1, d5m1-a1 |
+| `D5#1` | Welcome to Day 5: Stepping into Litigation | ✅ BUILT | d5m0-l1, d5m1-l1 |
+| `D5#2` | The Case Manager's Tactical Role in Litigation: The Litigation Lifecycle | ✅ BUILT | d5m0-l1, d5m0-kc, d5m1-l1, d5m1-l2 |
+| `D5#3` | Phase 1: The Pleadings & Service Stage | ✅ BUILT | d5m0-l1, d5m1-l1, d5m1-a1 |
 | `D5#4` | Phase 2: Discovery — A. Interrogatories & Requests for Production | ✅ BUILT | d5m1-l1, d5m1-a1 |
 | `D5#5` | Phase 2: Discovery — B. Deposition Coordination & Preparation | ✅ BUILT | d5m1-l2, d5m1-a2 |
-| `D5#6` | Phase 3: The Trial & Mediation Preparation Stage | ✅ BUILT | d5m1-l2, d5m1-a2 |
-| `D5#7` | The Litigation Mindset: Critical Traps & KPIs | ✅ BUILT | d5m1-l2, d5m1-a2, d5m1-kc |
-| `D5#8` | Preparing Your Client for a Deposition: The Pre-Deposition Audit | ✅ BUILT | d5m3-l1, d5m3-kc |
-| `D5#9` | Discovery Intake Meeting — Pillar 1: De-escalating Anxiety | ✅ BUILT | d5m3-l1, d5m3-a1 |
+| `D5#6` | Phase 3: The Trial & Mediation Preparation Stage | ✅ BUILT | d5m0-l2, d5m0-kc, d5m1-l2, d5m1-a2 |
+| `D5#7` | The Litigation Mindset: Critical Traps & KPIs | ✅ BUILT | d5m0-l2, d5m0-kc, d5m1-l2, d5m1-a2, d5m1-kc |
+| `D5#8` | Preparing Your Client for a Deposition: The Pre-Deposition Audit | ✅ BUILT | d5m0-a2, d5m3-l1, d5m3-kc |
+| `D5#9` | Discovery Intake Meeting — Pillar 1: De-escalating Anxiety | ✅ BUILT | d5m0-a2, d5m3-l1, d5m3-a1 |
 | `D5#10` | Discovery Intake Meeting — Pillar 2: The Essential Testimony Guidelines | ✅ BUILT | d5m3-l1, d5m3-a1, d5m3-l2 |
 | `D5#11` | Discovery Intake Meeting — Pillar 3: Dress Code & Professional Demeanor | ✅ BUILT | d5m3-l1, d5m3-a1 |
 | `D5#12` | Navigating the Silent Traps — Drill A: The “Is That All?” Trap | ✅ BUILT | d5m3-l2, d5m3-a2 |
@@ -206,15 +206,15 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D5#17` | The 7 Golden Rules for Testifying (Rules 4–5) | ✅ BUILT | d5m3-l2, d5m3-a2, d5m3-kc |
 | `D5#18` | The 7 Golden Rules for Testifying (Rules 6–7) | ✅ BUILT | d5m3-l2, d5m3-a2, d5m3-kc |
 | `D5#19` | Professional Presentation: Dress Code & Demeanor | ✅ BUILT | d5m3-l1, d5m3-a1 |
-| `D5#20` | What Happens When Your Lawyer Objects? | ✅ BUILT | d5m3-l2, d5m3-a2, d5m3-kc |
+| `D5#20` | What Happens When Your Lawyer Objects? | ✅ BUILT | d5m0-a2, d5m3-l2, d5m3-a2, d5m3-kc |
 | `D5#21` | The Litigation Toolkit: The Litigation Document Index | ✅ BUILT | d5m1-l1, d5m1-a1, d5m1-kc |
-| `D5#22` | Critical Litigation Processes: Service of Process & E-Filing/Docketing | ✅ BUILT | d5m4-l2, d5m4-a2 |
+| `D5#22` | Critical Litigation Processes: Service of Process & E-Filing/Docketing | ✅ BUILT | d5m0-l1, d5m4-l2, d5m4-a2 |
 | `D5#23` | Critical Litigation Process 3: Third-Party Evidence Subpoenas | ✅ BUILT | d5m4-a1, d5m4-l2 |
 | `D5#24` | The 3 Golden Rules of Litigation File Maintenance | ✅ BUILT | d5m1-l1, d5m1-a1, d5m1-l2, d5m1-a2, d5m1-kc |
 | `D5#25` | Key Performance Indicators (KPIs) for Document Management | ✅ BUILT | d4m4-a1, d5m1-a1, d5m1-l2, d5m1-a2, d5m1-kc |
 | `D5#26` | Advanced Workflow Deep-Dive: The Complaint / Petition | ✅ BUILT | d5m1-l1 |
-| `D5#27` | Written Discovery: Interrogatories, RFPs & RFAs | ✅ BUILT | d5m1-l1, d5m1-a1 |
-| `D5#28` | Master Timeline & Deadline Calculations | ✅ BUILT | d4m2-l1, d4m2-a1, d4m2-kc, d5m1-l1, d5m1-a1, d5m1-a2, d5m1-kc |
+| `D5#27` | Written Discovery: Interrogatories, RFPs & RFAs | ✅ BUILT | d5m0-l2, d5m1-l1, d5m1-a1 |
+| `D5#28` | Master Timeline & Deadline Calculations | ✅ BUILT | d4m2-l1, d4m2-a1, d4m2-kc, d5m0-l2, d5m1-l1, d5m1-a1, d5m1-a2, d5m1-kc |
 | `D5#29` | The Process Server & Evading Defendant Protocol | ✅ BUILT | d5m4-l2, d5m4-a2 |
 | `D5#30` | Subpoena Duces Tecum: Execution Strategy | ✅ BUILT | d5m4-a1, d5m4-l2 |
 | `D5#31` | Litigation File Architecture | ✅ BUILT | d4m1-l2, d4m1-a2, d4m1-kc, d5m1-l1, d5m1-a1, d5m1-kc |
@@ -291,6 +291,10 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: BI liability follow-ups (every 5 business days) and the escalation protocol
 - LSH Claims Specialist: BI liability follow-ups and the escalation protocol
 - LSH Claims Specialist: escalation protocol (supervisor review, internal flag, certified request for a written position)
+- Newly authored: the six-stage spine laid out in order as an orientation, with stage 4 and stage 6 named as ground the rest of the course does not cover
+- Newly authored: pre-trial motions practice (summary judgment, compel, protective order, in limine) and the road from pre-trial conference to verdict, post-trial motions and appeal — stages the course did not previously cover
+- Newly authored: the UPL boundary applied to litigation-stage client questions — motions, defenses, deposition testimony and settlement authority
+- Newly authored: the foundations gate — the stage spine, motions practice and the Case Manager's scope, checked before the day's hands-on work
 - Newly authored: whether e-service adds days (none on this file's rule set; the federal example)
 - LSH Claims Specialist: liability acceptance post-lawsuit (the defense pivots to causation and damages)
 - Newly authored: a scheduling-order date moves only by court order

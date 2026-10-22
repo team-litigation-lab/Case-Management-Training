@@ -1,4 +1,57 @@
 {
+  "d5m0-l1": {
+    "why": {
+      "say": "Before we touch another litigation task today, I want to be sure we all know the shape of the thing we're working inside. John Doe's file has been Civil Action No. 26-CV-04417 since 09/24/2026. Most of you can tell me exactly what you'd do with a discovery request that landed this morning. Far fewer of you can tell me what happens after discovery closes, and that gap is what this block closes. Six stages, in a fixed order, each one built on what the stage before it produced. Everything we did before 09/24 — the demand, the negotiation, the 08/21/2026 lapse — happened before stage one even began.",
+      "ask": "What stage is John Doe's case in today, and what comes after it?"
+    },
+    "theory": {
+      "say": "Here are the six. Stage one, Complaint and Service: we filed on 09/24/2026, and Robert Smith was served on 10/14/2026 after a skip-trace. Those are twenty days apart, and that gap matters enormously, because filing starts the case but service is what obliges the defendant to answer. Stage two, Answer and Pleadings: Mercer and Hale answered on 11/12/2026, and the Scheduling Order followed on 12/10/2026. That order is where your entire calendar comes from. Stage three, Discovery, where this file sits now and where most of your working life sits. Stage four, Pre-Trial Motions. Stage five, ADR, which you worked on Case Flow Day 4. Stage six, Trial and Verdict."
+    },
+    "rules": {
+      "say": "Three things to hold onto. First, service and filing are different acts with different consequences, and if you count the Answer from the filing date you'll be three weeks early every time. Second, the Scheduling Order governs everything after the pleadings close, so you read it once properly and derive every date from it. Third, your value across all six stages is identical: the deadlines, the documents, the appearances and the client knowing where things stand. The strategy inside that structure is Atty. Thorne's, at every stage, without a single exception. The arithmetic of counting those deadlines comes in the next module, against this file's own dates.",
+      "ask": "Why does it matter that filing and service are twenty days apart on this file?"
+    }
+  },
+  "d5m0-l2": {
+    "why": {
+      "say": "Now the part nobody warns you about. Suppose mediation on 26-CV-04417 doesn't resolve it. What happens next? Not trial. The next thing that happens to this file is a motion, and motions are where a case can be lost on paper before any jury hears a word of it. This is the stage the rest of this course doesn't walk you through, and it's the stage with the least forgiving deadlines in the whole lawsuit. So we're going to walk it now, while nothing is on fire.",
+      "ask": "If mediation fails next month, what is the very next thing that happens to this file?"
+    },
+    "theory": {
+      "say": "Four motions you'll meet. Summary judgment argues the undisputed facts entitle a party to judgment with no trial at all — that's the one that can end claims outright, and it's why we gather discovery evidence as carefully as we do. A motion to compel forces a party to hand over discovery they've withheld. A protective order is its mirror: it limits discovery that's overbroad or reaches privileged material — on this file, the scope of those 2021 chiropractic notes. And motions in limine, filed close to trial, keep specific evidence away from the jury. Here, that's the degenerative MRI reading and the 14-Day Gap, from both directions at once."
+    },
+    "rules": {
+      "say": "The pattern I want you to carry out of this room is four dates from one trigger. The Scheduling Order sets the motion cutoff. Off that cutoff run the filing date, the opposition date, the reply date and the hearing date. Calendar all four the day a motion is filed, not just the hearing — the hearing is the one everyone quotes and the first three are where motions are actually lost. Past the motions sits the pre-trial conference, then trial in a fixed order, then the verdict. And after a verdict come post-trial motions and appeal, on windows that run from entry of judgment and are short.",
+      "ask": "Which four dates do you calendar the day a motion is filed?"
+    },
+    "job": {
+      "say": "Operationally this is familiar work in unfamiliar clothes. When the Scheduling Order is entered, the motion cutoff goes on the calendar beside the discovery cutoff, with internal lead time for drafting and review. When Atty. Thorne decides to move, you assemble the exhibits, the deposition excerpts and the declarations to the court's format, and you confirm page limits, formatting and chambers copies before anything is filed. When a verdict comes in, you diary the post-trial and appeal windows that same day, before anyone asks whether we'll use them. What you never do is decide which motion to bring, or what it argues. That is Atty. Thorne's, entirely."
+    }
+  },
+  "d5m0-a2": {
+    "case": {
+      "say": "It's 02/02/2027. John Doe has read Mercer and Hale's Answer, he's had notice of his 02/18/2027 deposition, and he's heard the word mediation twice. He calls you, genuinely anxious, and over eleven minutes he asks you eight questions. Do I have a good case. What does comparative negligence mean, are they saying it was my fault. What should I say at my deposition. How much is my case worth. Do we have to answer all this about my 2021 chiropractor. If they file a motion will the judge throw my case out. Should I take whatever they offer at mediation. Can I just sign the papers you sent. Atty. Thorne is in a hearing until four o'clock.",
+      "ask": "Eight questions. How many of them are yours to answer?"
+    },
+    "task": {
+      "say": "Write your actual reply to each one, in the words you'd use on the call — not a summary of what you'd do. For each question, first put one short line on why it isn't yours, then give the reply itself in three parts: name the document or the event, route the legal part to Atty. Thorne with a concrete timeframe, and give John the facts and logistics you do have. Then write the single file note this call produces and the one escalation message to Atty. Thorne. That escalation asks him for a time, not for an opinion."
+    },
+    "check": {
+      "say": "I'm marking this strictly, and here's what I'm looking for. Nothing interprets the Answer, the discovery requests or the release. Nothing predicts a ruling, a mediation outcome or a number — including the hedged version, the one that starts honestly, just between us. The deposition question routes to Atty. Thorne's prep session, and you still confirm the date, the address and what to bring. The chiropractic question is an objection and privilege decision, so you name the response deadline, not the answer. And the signing question stops him signing and holds the document. Above all: every reply gives John something concrete, so routing never lands on him as a refusal."
+    }
+  },
+  "d5m0-kc": {
+    "questions": {
+      "say": "Time for the Litigation Foundations check. This one is the prerequisite for everything else we do today, so take it seriously. Question one, name the six stages in order, say what each is for in a sentence, and place 26-CV-04417 on that spine with the date that put it there. Question two, mediation has failed: name the four pre-trial motions you might see next, what each asks the court for, and the four dates you calendar the day any one of them is filed. Question three, John asks you three things — his stage, what comparative negligence means, and whether the judge will dismiss. Answer all three as you would on the call.",
+      "ask": "In question three, which of John's three questions is a fact you can simply give him?"
+    },
+    "summary": {
+      "say": "Now the Self-Summary, and I want the shape of a lawsuit here, not the tasks. Tell me in your own words what the stages are and what they're for. Then articulate your scope: name two things on a litigated file that are yours and two that are Atty. Thorne's, and tell me what actually separates them — not a list, the principle underneath it. Then the honest one: what in this module are you least confident about, and what would you need in order to be confident? I read that line before the next module, and it tells me whether motions or trial needs another pass before the day ends."
+    },
+    "scale": {
+      "say": "Rate yourself one to five on each row, honestly. Naming the six stages in order and what each is for. Placing a live file on that spine and saying what comes next. Telling summary judgment, compel, protective orders and in limine apart. Calendaring filing, opposition, reply and hearing from a single trigger. And holding the UPL line on litigation questions while still being useful to the client. That last row is a gate, not a weighting: if you interpreted the comparative negligence defense for John in the activity, a five there doesn't stand, whatever the rest of your work was worth."
+    }
+  },
   "d5m1-l1": {
     "why": {
       "say": "Let me start with a question. Our 07/20/2026 Time-Limited Demand to Keystone lapsed unaccepted on 08/21/2026, and the 48-Hour Mandate got no answer. What's our very next legal step, and who decides it? Right: we file suit, and Atty. Thorne makes that call. On 09/24/2026 John Doe's file became Civil Action No. 26-CV-04417, and that changes everything about how we work. An adjuster's deadline bends. A court's deadline doesn't. That's why we keep a Pleadings Log and a Discovery Calendar, and their whole job is to prove, every single day, that nothing filed, served or owed has slipped. Here's our day: litigation support first, then the Property Damage dispute, then deposition preparation, and we finish with liability disputes and MIA clients.",

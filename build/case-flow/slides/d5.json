@@ -1,4 +1,95 @@
 {
+  "d5m0-l1": {
+    "image": "courthouse",
+    "hook": "A lawsuit is **a sequence, not a conversation**: six stages, each built on the last.",
+    "points": [
+      "Filing starts the case; **service starts the Answer clock**",
+      "The Scheduling Order is **where your calendar comes from**",
+      "Discovery is **the longest stage** — and where you live",
+      "Motions and trial are **the two stages still ahead**"
+    ],
+    "upl": "The stage is a fact you give; what it means is Atty. Thorne's",
+    "dos": [
+      "**Name the stage** before you touch a litigation task",
+      "Keep **pre-litigation out** of the pleadings folder"
+    ],
+    "donts": [
+      "Treating **the filing date** as the Answer trigger",
+      "Knowing only **the stage in front of you**"
+    ]
+  },
+  "d5m0-l2": {
+    "image": "documents-audit",
+    "hook": "Motions are where **a case can be lost on paper**, before any jury hears it.",
+    "points": [
+      "**Summary judgment** ends claims without a trial",
+      "Compel and protective orders **come out of discovery disputes**",
+      "Motions in limine **keep evidence from the jury**",
+      "One motion, **four dates**: file, oppose, reply, hear"
+    ],
+    "upl": "You calendar and assemble; which motion to bring is Atty. Thorne's",
+    "job": [
+      [
+        "Scheduling Order entered",
+        "Calendar the motion cutoff",
+        "CMS → Litigation → Discovery Calendar",
+        "Cutoff carries lead-time reminders"
+      ],
+      [
+        "Atty. Thorne decides to move",
+        "Assemble exhibits to the court's format",
+        "CMS → Documents → 03_MOTIONS",
+        "Accepted on first submission"
+      ],
+      [
+        "A verdict is entered",
+        "Diary post-trial and appeal windows",
+        "CMS → Litigation → Discovery Calendar",
+        "Both calendared the same day"
+      ]
+    ],
+    "dos": [
+      "Work the motion calendar **backwards from the hearing**",
+      "Give every exhibit **its source, date and Bates range**"
+    ],
+    "donts": [
+      "Calendaring **the hearing date and nothing else**",
+      "Assuming **a trial date will hold**"
+    ]
+  },
+  "d5m0-a2": {
+    "image": "client-call",
+    "situation": "02/02/2027: John Doe calls, anxious, with **eight questions** about the Answer, his 02/18/2027 deposition and mediation. Atty. Thorne is in a hearing until 4:00 p.m.",
+    "steps": [
+      "Name **why each question** is not yours to answer",
+      "Name the document or event, **route the legal part**",
+      "Give **the facts and logistics** you do have",
+      "Send **one escalation** covering all eight",
+      "Log the call: asked, **routed, promised**"
+    ],
+    "deliver": "Eight replies, one file note, **one escalation asking for a time**",
+    "checks": [
+      "**Nothing interpreted**: Answer, discovery, release",
+      "**No prediction** of ruling, mediation or value",
+      "Deposition routed, **date and logistics still given**",
+      "Client **stopped from signing** the unreviewed release",
+      "Every reply gives **something concrete**"
+    ],
+    "dos": [
+      "Attach **a fact or a date** to every routed question"
+    ],
+    "donts": [
+      "Softening a routed question with **an opinion**"
+    ]
+  },
+  "d5m0-kc": {
+    "image": "knowledge-check",
+    "questions": [
+      "Name the **six stages** in order, what each is for, and where 26-CV-04417 sits.",
+      "Mediation fails. Name four pre-trial motions and **the four dates** you calendar.",
+      "John asks his stage, what **comparative negligence** means, and whether the judge will dismiss. Answer all three."
+    ]
+  },
   "d5m1-l1": {
     "image": "courthouse",
     "hook": "An adjuster's deadline bends; **a court's does not**, so the log proves nothing slipped.",
@@ -10,9 +101,24 @@
     ],
     "upl": "You track and draft; Atty. Thorne decides; never tell John Doe how to answer",
     "job": [
-      ["Atty. Thorne authorizes suit", "Verify filing date and legal name", "CMS → Litigation → Pleadings Log", "Filed 09/24/2026, inside 02/04/2028 hard date"],
-      ["A service attempt fails", "Log it; escalate at day 14", "CMS → Tasks → Escalate", "Each attempt logged, date and address"],
-      ["Discovery or RFAs land", "Calendar; alert Atty. Thorne on RFAs", "CMS → Calendar · Docket System", "Weekend rolled; RFA alert time-stamped"]
+      [
+        "Atty. Thorne authorizes suit",
+        "Verify filing date and legal name",
+        "CMS → Litigation → Pleadings Log",
+        "Filed 09/24/2026, inside 02/04/2028 hard date"
+      ],
+      [
+        "A service attempt fails",
+        "Log it; escalate at day 14",
+        "CMS → Tasks → Escalate",
+        "Each attempt logged, date and address"
+      ],
+      [
+        "Discovery or RFAs land",
+        "Calendar; alert Atty. Thorne on RFAs",
+        "CMS → Calendar · Docket System",
+        "Weekend rolled; RFA alert time-stamped"
+      ]
     ],
     "dos": [
       "Write **trigger, service method, arithmetic** into every entry",
@@ -63,9 +169,24 @@
     ],
     "upl": "You schedule, assemble, track and relay; never agree an extension or coach testimony",
     "job": [
-      ["Scheduling Order entered 12/10/2026", "Calendar six dates, three alerts each", "CMS → Calendar · Docket System", "18 alerts; order in 01_PLEADINGS"],
-      ["Extension agreed by phone", "Draft confirmation for Atty. Thorne's signature", "Email Workspace · CMS → Calendar", "Sent the same day"],
-      ["Deposition noticed", "Book reporter, link, technology check", "CMS → Calendar · Communications Log", "Packet sent by 02/11/2027"]
+      [
+        "Scheduling Order entered 12/10/2026",
+        "Calendar six dates, three alerts each",
+        "CMS → Calendar · Docket System",
+        "18 alerts; order in 01_PLEADINGS"
+      ],
+      [
+        "Extension agreed by phone",
+        "Draft confirmation for Atty. Thorne's signature",
+        "Email Workspace · CMS → Calendar",
+        "Sent the same day"
+      ],
+      [
+        "Deposition noticed",
+        "Book reporter, link, technology check",
+        "CMS → Calendar · Communications Log",
+        "Packet sent by 02/11/2027"
+      ]
     ],
     "dos": [
       "Call every litigation client **at least every 30 days**",
@@ -124,9 +245,24 @@
     ],
     "upl": "Compute, document and report; never tell John Doe what his car is worth",
     "job": [
-      ["Final repair bill posts", "Re-run total-loss check on $9,255.00", "CMS → Property Damage", "52.6% of $17,600.00 recorded"],
-      ["Rental ends, Civic still in shop", "Log each day without a vehicle", "CMS → Property Damage", "12 + 36 = 48 days"],
-      ["Deposition noticed 01/20/2027", "Add the PD severity set", "CMS → Documents → Deposition set", "Indexed before the 02/04/2027 prep"]
+      [
+        "Final repair bill posts",
+        "Re-run total-loss check on $9,255.00",
+        "CMS → Property Damage",
+        "52.6% of $17,600.00 recorded"
+      ],
+      [
+        "Rental ends, Civic still in shop",
+        "Log each day without a vehicle",
+        "CMS → Property Damage",
+        "12 + 36 = 48 days"
+      ],
+      [
+        "Deposition noticed 01/20/2027",
+        "Add the PD severity set",
+        "CMS → Documents → Deposition set",
+        "Indexed before the 02/04/2027 prep"
+      ]
     ],
     "dos": [
       "Run the threshold on **the final bill**",
@@ -175,9 +311,24 @@
     ],
     "upl": "Calculate, critique and recommend; never make, accept, reject or counter a PD figure",
     "job": [
-      ["Keystone states diminished-value figure", "Draft input request for Atty. Thorne", "CMS → Property Damage → Correspondence", "Base, multipliers, ACV on file"],
-      ["Appraisal received 05/06/2026", "Audit method, data, credentials", "CMS → Property Damage", "Audit note dated; appraisal indexed"],
-      ["Keystone sends a release or check", "Hold it; route to Atty. Thorne", "CMS → Tasks → Escalate", "Reviewed before John Doe sees it"]
+      [
+        "Keystone states diminished-value figure",
+        "Draft input request for Atty. Thorne",
+        "CMS → Property Damage → Correspondence",
+        "Base, multipliers, ACV on file"
+      ],
+      [
+        "Appraisal received 05/06/2026",
+        "Audit method, data, credentials",
+        "CMS → Property Damage",
+        "Audit note dated; appraisal indexed"
+      ],
+      [
+        "Keystone sends a release or check",
+        "Hold it; route to Atty. Thorne",
+        "CMS → Tasks → Escalate",
+        "Reviewed before John Doe sees it"
+      ]
     ],
     "dos": [
       "Make Keystone show **its formula's inputs in writing**",
@@ -234,9 +385,24 @@
     ],
     "upl": "Run the process; never tell John what to say. Substance goes to Atty. Thorne",
     "job": [
-      ["Notice served 01/20/2027", "Calendar sessions, packet, day-before checklist", "Docket System · CMS → Calendar", "02/04, 02/11, 02/16, 02/17, 02/18/2027 calendared"],
-      ["Test call, 02/16/2027", "Technology check on John's device", "CMS → Case Notes", "Each item logged pass or fail"],
-      ["Day before, 02/17/2027", "Confirm with all three; finalize exhibits", "Email Workspace · CMS → Documents", "Three confirmations logged"]
+      [
+        "Notice served 01/20/2027",
+        "Calendar sessions, packet, day-before checklist",
+        "Docket System · CMS → Calendar",
+        "02/04, 02/11, 02/16, 02/17, 02/18/2027 calendared"
+      ],
+      [
+        "Test call, 02/16/2027",
+        "Technology check on John's device",
+        "CMS → Case Notes",
+        "Each item logged pass or fail"
+      ],
+      [
+        "Day before, 02/17/2027",
+        "Confirm with all three; finalize exhibits",
+        "Email Workspace · CMS → Documents",
+        "Three confirmations logged"
+      ]
     ],
     "dos": [
       "**Consistency is credibility**: records, answers and testimony agree",
@@ -286,9 +452,24 @@
     ],
     "upl": "Explain the rules and objections; never tell John how to answer a trap",
     "job": [
-      ["Answer served 11/12/2026", "Map each defense to predicted questions", "Deposition prep log", "Each defense mapped to a trap"],
-      ["Trap map complete", "Confirm records in Atty. Thorne's set", "CMS → Documents", "EMS, MRI, Causation Letter, EDR present"],
-      ["John asks how to answer", "Log in his words; route it", "CMS → Tasks → Escalate", "Routed same day; no wording offered"]
+      [
+        "Answer served 11/12/2026",
+        "Map each defense to predicted questions",
+        "Deposition prep log",
+        "Each defense mapped to a trap"
+      ],
+      [
+        "Trap map complete",
+        "Confirm records in Atty. Thorne's set",
+        "CMS → Documents",
+        "EMS, MRI, Causation Letter, EDR present"
+      ],
+      [
+        "John asks how to answer",
+        "Log in his words; route it",
+        "CMS → Tasks → Escalate",
+        "Routed same day; no wording offered"
+      ]
     ],
     "dos": [
       "**Silence is safe**; rambling is not",
@@ -345,9 +526,24 @@
     ],
     "upl": "Gather, authenticate and index; never tell John his share of fault",
     "job": [
-      ["Answer filed 11/12/2026", "Log each defense separately", "CMS → Litigation → Pleadings Log", "Three lines, each dated 11/12/2026"],
-      ["Defenses logged", "Map evidence to each allegation", "CMS → Litigation → Liability counter-package", "Every item: source and named witness"],
-      ["Item lacks foundation", "Flag for Subpoena Duces Tecum", "CMS → Tasks → Escalate", "Foundation gap and holder named"]
+      [
+        "Answer filed 11/12/2026",
+        "Log each defense separately",
+        "CMS → Litigation → Pleadings Log",
+        "Three lines, each dated 11/12/2026"
+      ],
+      [
+        "Defenses logged",
+        "Map evidence to each allegation",
+        "CMS → Litigation → Liability counter-package",
+        "Every item: source and named witness"
+      ],
+      [
+        "Item lacks foundation",
+        "Flag for Subpoena Duces Tecum",
+        "CMS → Tasks → Escalate",
+        "Foundation gap and holder named"
+      ]
     ],
     "dos": [
       "Answer each allegation **with a document**, not an argument",
@@ -396,9 +592,24 @@
     ],
     "upl": "Run authorized skip-traces and draft notices; never decide alternative service or threaten withdrawal",
     "job": [
-      ["Third failed attempt, 10/08/2026", "Escalate for Skip-Trace authority", "CMS → Tasks → Escalate", "Result logged 10/09/2026"],
-      ["Affidavit filed 10/16/2026", "Docket answer date; weekly check", "Docket System · CMS → Calendar", "Answer due 11/13/2026 calendared"],
-      ["Client unreachable from 01/22/2027", "Run Steps 1–3; draft Step 4", "CMS → Communications Log", "Response date before 02/04/2027"]
+      [
+        "Third failed attempt, 10/08/2026",
+        "Escalate for Skip-Trace authority",
+        "CMS → Tasks → Escalate",
+        "Result logged 10/09/2026"
+      ],
+      [
+        "Affidavit filed 10/16/2026",
+        "Docket answer date; weekly check",
+        "Docket System · CMS → Calendar",
+        "Answer due 11/13/2026 calendared"
+      ],
+      [
+        "Client unreachable from 01/22/2027",
+        "Run Steps 1–3; draft Step 4",
+        "CMS → Communications Log",
+        "Response date before 02/04/2027"
+      ]
     ],
     "dos": [
       "Ask the server for **each attempt's date and time**",
@@ -521,12 +732,32 @@
   "d5m5-l1": {
     "image": "money-ledger",
     "hook": "Same $40,000.00 gross; **suit changes the net** to $14,713.75.",
-    "points": ["Suit filed 09/24/2026: **the 40% tier**, $16,000.00", "Receipt **every litigation cost**: $3,895.25 in all", "Reduce liens **at the fee actually charged**", "Net: **$14,713.75**, routed before John Doe signs"],
+    "points": [
+      "Suit filed 09/24/2026: **the 40% tier**, $16,000.00",
+      "Receipt **every litigation cost**: $3,895.25 in all",
+      "Reduce liens **at the fee actually charged**",
+      "Net: **$14,713.75**, routed before John Doe signs"
+    ],
     "upl": "Explain the arithmetic; whether suing was worth it is Atty. Thorne's.",
     "job": [
-      ["Award received 07/06/2027", "Log it; diary each payment", "CMS → Litigation", "Harbor Point $20,000.00 · Cardinal State $10,000.00"],
-      ["The fund is known", "Send Reduction Requests for approval", "LSH Net Sheet", "$1,116.00 · $4,275.00"],
-      ["Last UM check cleared", "Complete Net Sheet; route statement", "LSH Net Sheet", "Net $14,713.75"]
+      [
+        "Award received 07/06/2027",
+        "Log it; diary each payment",
+        "CMS → Litigation",
+        "Harbor Point $20,000.00 · Cardinal State $10,000.00"
+      ],
+      [
+        "The fund is known",
+        "Send Reduction Requests for approval",
+        "LSH Net Sheet",
+        "$1,116.00 · $4,275.00"
+      ],
+      [
+        "Last UM check cleared",
+        "Complete Net Sheet; route statement",
+        "LSH Net Sheet",
+        "Net $14,713.75"
+      ]
     ],
     "dos": [
       "Show John **the 40% tier** in his retainer",

@@ -2,7 +2,7 @@
 
 **Focus case:** *John Doe v. Robert Smith* · **Lead Counsel:** Attorney Elijah Thorne
 **Course:** LSH Case Management Training (5-Day). The Case Flow is the course; the earlier *John Doe v. Apex Delivery Services* days are archived (kept as they were, off the trainees' dashboard).
-**Status:** the spec every Case Flow block conforms to. All five days are written: 20 modules, 100 blocks.
+**Status:** the spec every Case Flow block conforms to. All five days are written: 21 modules, 118 blocks.
 
 | File | What it is |
 |---|---|
@@ -105,7 +105,9 @@ Day 3's pre-litigation settlement always comes before Day 4's litigation fork: t
 
 ## 4. The rhythm and the block
 
-A module is a unit of scoring: its lessons and Skill Activities, then exactly one Knowledge Check (with its quiz share, Self-Summary, Skill Scale and the trainer's 40%). Four modules a day; the build rejects a module without one Knowledge Check, last.
+A module is a unit of scoring: its lessons and Skill Activities, then exactly one Knowledge Check (with its quiz share, Self-Summary, Skill Scale and the trainer's 40%). Four modules a day, and seven on Day 5; the build rejects a module without one Knowledge Check, last.
+
+**Day 5 opens with a prerequisite.** `d5m0` — *Litigation Foundations: The Court Process & Case Manager Scope* — is taught before any of the day's hands-on work: the six stages of a civil case in order (the course otherwise meets litigation at the fork and assumes the rest), pre-trial motions and the road to verdict (ground no other block covers), and the Case Manager's scope against Lead Counsel's, with the UPL line drawn on litigation questions. Its blocks lead each group of the day's `sequence`, so it is the first thing a trainee meets on Day 5, and its questions join the day's 20-question Knowledge Check — a trainee cannot complete Day 5 without them. Day 5 sits at the 100-slide cap, so its blocks are `compact`; a further block there has to buy its slides from somewhere.
 
 **The teaching order is the `sequence`** (in `js/cm-case-flow-data.js`): each day is a run of Case Phases, following the case's life. Day 1: the Case Manager's role, the case, the raw file, intake and Property Damage, then opening the file in the CMS; then claims and the CM Case Strategy, then creating the action plan. Day 2: client communications; treatment and provider communications (LOPs); the pre-demand audit. Days 3–5: one Case Phase per module. A block keeps its id, rubric, documents and saved work wherever it is taught; the build checks every block is taught exactly once, each phase runs lessons → activities → Learning Check, and no Knowledge Check is taught before the blocks it checks.
 

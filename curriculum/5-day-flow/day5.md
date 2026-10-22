@@ -32,42 +32,46 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 **Module 5 — Litigation & Dropped Cases**
 
-1. *Lesson* — Impasse Triggers & Filing Criteria
-2. *Lesson* — From Pre-Lit to Litigation & ADR
-3. *Lesson* — Identifying Non-Responsive Adjusters, Delayed Records & Scheduling Bottlenecks (condensed)
-4. *Lesson* — Escalation Workflows & Supervisory Reporting Guidelines (condensed)
-5. *Lesson* — Litigation Tracking: the Pleadings Log & the Discovery Calendar (condensed)
-6. *Lesson* — Trial Preparation Checklists & Litigation KPIs (condensed)
-7. *Lesson* — Repair Estimates vs. ACV & Loss-of-Use Allocations (condensed)
-8. *Lesson* — Diminished Value & PD Dispute Resolution (condensed)
-9. *Lesson* — Client Prep for a Virtual Deposition & Injury Narrative Alignment
-10. *Lesson* — Opposing Counsel's Traps & Defending Key Testimony
-11. *Lesson* — Comparative Negligence & the Liability Counter-Package (condensed)
-12. *Lesson* — Skip-Tracing, Process Servers & Certified Notice (condensed)
-13. *Lesson* — Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund (condensed)
-14. *Lesson* — Dropped Cases: the Case Manager's Close-Out (condensed)
-15. *Skill Activity* — Triggering the Litigation Fork
-16. *Skill Activity* — Transition the File to Litigation Status
-17. *Skill Activity* — Automated Countermeasure Triggering in CMS
-18. *Skill Activity* — Bottleneck Resolution Simulation
-19. *Skill Activity* — Pleadings & Discovery Log Maintenance
-20. *Skill Activity* — Trial Prep Checklist Audit & KPI Update
-21. *Skill Activity* — Evaluating Repair Estimates vs. ACV & Loss-of-Use
-22. *Skill Activity* — Diminished Value Calculation & Negotiation Lab
-23. *Skill Activity* — Virtual Deposition Prep Roleplay
-24. *Skill Activity* — Mock Deposition Cross-Examination Handling
-25. *Skill Activity* — Building the Comparative Liability Counter-Package
-26. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch
-27. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award
-28. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
-29. *Knowledge Check* — Litigation Fork Transition Check
-30. *Knowledge Check* — Countermeasure Operational Audit
-31. *Knowledge Check* — Litigation Support Assessment
-32. *Knowledge Check* — PD Dispute Evaluation
-33. *Knowledge Check* — Deposition Readiness Audit
-34. *Knowledge Check* — Final Comprehensive Knowledge Check
-35. *Knowledge Check* — Track B Close-Out Check
-36. *Knowledge Check* — Dropped Case Close-Out Check
+1. *Lesson* — The Six Stages of a Civil Case
+2. *Lesson* — Pre-Trial Motions, Trial & What Comes After
+3. *Lesson* — Impasse Triggers & Filing Criteria
+4. *Lesson* — From Pre-Lit to Litigation & ADR
+5. *Lesson* — Identifying Non-Responsive Adjusters, Delayed Records & Scheduling Bottlenecks (condensed)
+6. *Lesson* — Escalation Workflows & Supervisory Reporting Guidelines (condensed)
+7. *Lesson* — Litigation Tracking: the Pleadings Log & the Discovery Calendar (condensed)
+8. *Lesson* — Trial Preparation Checklists & Litigation KPIs (condensed)
+9. *Lesson* — Repair Estimates vs. ACV & Loss-of-Use Allocations (condensed)
+10. *Lesson* — Diminished Value & PD Dispute Resolution (condensed)
+11. *Lesson* — Client Prep for a Virtual Deposition & Injury Narrative Alignment
+12. *Lesson* — Opposing Counsel's Traps & Defending Key Testimony
+13. *Lesson* — Comparative Negligence & the Liability Counter-Package (condensed)
+14. *Lesson* — Skip-Tracing, Process Servers & Certified Notice (condensed)
+15. *Lesson* — Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund (condensed)
+16. *Lesson* — Dropped Cases: the Case Manager's Close-Out (condensed)
+17. *Skill Activity* — The UPL Line on Litigation Questions
+18. *Skill Activity* — Triggering the Litigation Fork
+19. *Skill Activity* — Transition the File to Litigation Status
+20. *Skill Activity* — Automated Countermeasure Triggering in CMS
+21. *Skill Activity* — Bottleneck Resolution Simulation
+22. *Skill Activity* — Pleadings & Discovery Log Maintenance
+23. *Skill Activity* — Trial Prep Checklist Audit & KPI Update
+24. *Skill Activity* — Evaluating Repair Estimates vs. ACV & Loss-of-Use
+25. *Skill Activity* — Diminished Value Calculation & Negotiation Lab
+26. *Skill Activity* — Virtual Deposition Prep Roleplay
+27. *Skill Activity* — Mock Deposition Cross-Examination Handling
+28. *Skill Activity* — Building the Comparative Liability Counter-Package
+29. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch
+30. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award
+31. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
+32. *Knowledge Check* — Litigation Foundations Knowledge Check
+33. *Knowledge Check* — Litigation Fork Transition Check
+34. *Knowledge Check* — Countermeasure Operational Audit
+35. *Knowledge Check* — Litigation Support Assessment
+36. *Knowledge Check* — PD Dispute Evaluation
+37. *Knowledge Check* — Deposition Readiness Audit
+38. *Knowledge Check* — Final Comprehensive Knowledge Check
+39. *Knowledge Check* — Track B Close-Out Check
+40. *Knowledge Check* — Dropped Case Close-Out Check
 
 **End-of-day discussion (trainer):** It is 01/05/2027. Opposing counsel's paralegal says your client's discovery responses are late, John Doe has changed his phone number, and the deposition is set for 02/18/2027. What do you do today, in what order, and what is Atty. Thorne's call, not yours?
 
@@ -75,9 +79,168 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 5 — Litigation & Dropped Cases
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
-### 5.1.1 Impasse Triggers & Filing Criteria
+### 5.1.1 The Six Stages of a Civil Case
+
+> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Foundations Knowledge Check (`d5m0`)  
+> **Topic:** The civil litigation lifecycle end to end, and where this file sits on it  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D5#1` Welcome to Day 5: Stepping into Litigation · `D5#2` The Case Manager's Tactical Role in Litigation: The Litigation Lifecycle · `D5#3` Phase 1: The Pleadings & Service Stage · `D5#22` Critical Litigation Processes: Service of Process & E-Filing/Docketing · Newly authored: the six-stage spine laid out in order as an orientation, with stage 4 and stage 6 named as ground the rest of the course does not cover
+
+#### 1 · Visual Layout Description
+
+A full-width navy rail across the slide carrying six orange numbered stage badges — ① Complaint & Service ② Answer & Pleadings ③ Discovery ④ Pre-Trial Motions ⑤ ADR ⑥ Trial & Verdict. Under each badge, a white card with the stage's purpose in one line and, in a mono pill, this file's own date for it: 09/24/2026 · 11/12/2026 · 12/01/2026 · (not yet) · mediation set · (not reached). Stage ③ is drawn widest, with a caption “most of your time lives here.” Stages ④ and ⑥ are outlined in orange dashes and tagged NEW GROUND — the two stages the rest of the course does not walk. Bottom left, a small grey key: “Pre-litigation — demand, negotiation, impasse — happens before stage ①.”
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* John Doe's file has been Civil Action No. 26-CV-04417 since 09/24/2026, and from Case Flow Day 4 on you have been working inside a lawsuit. This block gives you the whole shape of one, in order, before you touch another litigation task — because a Case Manager who knows only the stage in front of them cannot tell which dates are immovable, which are negotiable, and which have not arrived yet.
+
+1. A lawsuit is a sequence, not a conversation. Six stages run in a fixed order, each depending on what the one before it produced. Pre-litigation — the demand, the negotiation, the 08/21/2026 lapse and the impasse memo — all happens before stage one.
+2. Stage 1, Complaint and Service. The Complaint states the parties, the court's jurisdiction, the facts, the causes of action and the relief sought; filing it starts the case and stops the limitations clock. Service of process is the formal delivery of the Complaint and summons to the defendant, and it is a separate act with its own deadline: on this file, filed 09/24/2026, served 10/14/2026 after a skip-trace, affidavit filed 10/16/2026.
+3. Stage 2, Answer and Pleadings. The defendant admits or denies each allegation and raises affirmative defenses. Mercer & Hale answered 11/12/2026 pleading comparative negligence, causation and failure to mitigate. When the pleadings close the court issues the Scheduling Order — here 12/10/2026 — and that document governs every date that follows.
+4. Stage 3, Discovery. The formal exchange of evidence, so the case is tried or valued on known facts rather than surprise: interrogatories, requests for production and requests for admission in writing, depositions in person. It is the longest stage and where most of your work sits. 26-CV-04417 is in it now.
+5. Stage 4, Pre-Trial Motions. After the discovery cutoff, each side asks the judge to decide things before trial — including, sometimes, the whole case. This file has not reached it. The next block walks it.
+6. Stage 5, ADR. Mediation and arbitration, often ordered by the court before trial. You have already worked this stage on Case Flow Day 4; it sits here in the sequence.
+7. Stage 6, Trial and Verdict. Jury selection, openings, the cases in chief, closings, instructions, deliberation, verdict — then post-trial motions and appeal, each on short deadlines. Most files never reach it, and this one may not.
+8. Your value across all six is the structure: the deadlines, the documents, the appearances and the client's understanding of where things stand. The strategy inside the structure is Atty. Thorne's, at every stage without exception.
+9. The arithmetic of counting a deadline — triggers, mail days, weekend roll-forward — is worked in the next module against this file's own dates. Here, learn the order; there, learn the count.
+
+> ⚠️ **UPL boundary.** Describing the stages of a lawsuit in general terms to a client is permitted and useful. Telling John Doe what a stage means for his case is not.
+
+> ⚠️ **UPL boundary.** If a client asks which stage his case is in, the answer is a fact from the file and it is yours to give. If he asks what that means for his chances, it is Atty. Thorne's.
+
+#### 2 · Slide Body — Show Them
+
+*The six stages, in order, with this file's own dates*
+
+1. **1 · Complaint & Service** — The case begins and the defendant is formally notified. Filed 09/24/2026; Smith served 10/14/2026; affidavit filed 10/16/2026.
+2. **2 · Answer & Pleadings** — What is actually in dispute gets fixed. Answered 11/12/2026 — comparative negligence, causation, failure to mitigate. Scheduling Order 12/10/2026.
+3. **3 · Discovery** — Evidence is exchanged so nothing is a surprise. Defendant's set mailed 12/01/2026; ours e-served 12/14/2026; John Doe's deposition 02/18/2027. The file is here.
+4. **4 · Pre-Trial Motions** — The judge decides what the jury will and will not see — and sometimes the case itself. Not yet reached on 26-CV-04417.
+5. **5 · ADR** — Mediation and the UM arbitration, worked on Case Flow Day 4. Court-ordered before trial.
+6. **6 · Trial & Verdict** — Selection, openings, proof, closings, verdict — then post-trial motions and appeal on short clocks. Most files resolve before it.
+
+**Best practices & pitfalls**
+
+- Name the stage out loud before you touch a litigation task. Half of the mistakes in a litigated file come from doing a stage-3 task with a stage-2 assumption.
+- Keep pre-litigation and litigation separate in your head and in the folders. The 07/20/2026 Time-Limited Demand and the 08/21/2026 lapse are not pleadings; they do not belong in 01_PLEADINGS.
+- Stage 4 and stage 6 are the two this course does not otherwise walk, and the two most likely to arrive without warning on a file that stalls. Know them before you need them.
+- ⚠️ Pitfall: treating the Complaint's filing date as the start of the Answer clock. It is not — service is. On this file those are twenty days apart, and the skip-trace is why.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Litigation Foundations Knowledge Check (taught on Case Flow Day 5) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Stage sequence | All six stages named in the correct order, with pre-litigation placed before stage 1 |
+| 🤖 AI | **20%** | Stage purpose | Each stage's strategic purpose stated, not just its name |
+| 🤖 AI | **20%** | This file's position | 26-CV-04417 correctly placed in discovery, with the 09/24, 10/14, 11/12 and 12/10 dates attached to their stages |
+| 🧑‍🏫 Trainer | **20%** | Litigation orientation | Can say what comes next on a litigated file without looking it up |
+| 🧑‍🏫 Trainer | **20%** | Scope instinct | Separates the structure that is theirs from the strategy that is Atty. Thorne's, unprompted |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open by asking the room what stage John Doe's case is in today. Most will say “litigation,” which is not an answer. Push until someone says discovery, and then ask what comes after it — that is the gap this block closes.
+- Draw the six stages on the board before showing the slide, and have the room place 09/24/2026, 10/14/2026, 11/12/2026 and 12/01/2026 on it themselves. The twenty-day gap between filing and service is the moment to stop and explain why service, not filing, starts the Answer clock.
+- Flag stages 4 and 6 as new ground deliberately. Trainees who have worked Case Flow Day 4 will assume ADR is the end of the road; it is not, and a file that fails at mediation lands in stage 4 the following week.
+- Legal nuance: the stage names and their order are general to civil practice in the United States; the windows attached to them vary by jurisdiction and by the court's own Scheduling Order. Teach the order as fixed and the counts as always confirmed against the governing rule.
+
+---
+
+### 5.1.2 Pre-Trial Motions, Trial & What Comes After
+
+> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Foundations Knowledge Check (`d5m0`)  
+> **Topic:** Motions practice, the road to verdict, and the Case Manager's filing and calendaring duties at each  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D5#6` Phase 3: The Trial & Mediation Preparation Stage · `D5#7` The Litigation Mindset: Critical Traps & KPIs · `D5#27` Written Discovery: Interrogatories, RFPs & RFAs · `D5#28` Master Timeline & Deadline Calculations · Newly authored: pre-trial motions practice (summary judgment, compel, protective order, in limine) and the road from pre-trial conference to verdict, post-trial motions and appeal — stages the course did not previously cover
+
+#### 1 · Visual Layout Description
+
+Two stacked bands. Upper band, PRE-TRIAL MOTIONS: four navy cards in a row — Summary Judgment, Motion to Compel, Protective Order, Motion in Limine — each with what it asks the court for in one line and, beneath, an orange CM DUTIES strip naming the calendaring and assembly task. Summary Judgment is drawn largest and carries a red chip, “can end the case.” Lower band, THE ROAD TO VERDICT: a horizontal seven-step rail — pre-trial conference ▸ jury selection ▸ openings ▸ plaintiff's case ▸ defense case ▸ closings & instructions ▸ verdict — with a short orange tail continuing past the verdict to two mono pills, POST-TRIAL MOTIONS and APPEAL, both tagged SHORT CLOCK in red. Between the bands, a thin grey rule labelled “motion cutoff — set by the Scheduling Order.”
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* If mediation does not resolve 26-CV-04417, the next thing that happens to the file is a motion — and motions are where a case can be lost on paper, before any jury hears it. This is the stage the rest of this course does not walk, and the one whose deadlines are least forgiving.
+
+1. A motion is a written request for a court order, supported by a brief and by evidence drawn from discovery. It is served on the other side, who files an opposition; the moving party may reply; the court rules on the papers or after a hearing. Every one of those steps has its own date.
+2. Summary judgment argues that the undisputed facts entitle a party to judgment without a trial, in whole or on particular claims. On a file like this one it is typically aimed at liability or at a category of damages — and it is the reason discovery evidence is gathered as carefully as it is.
+3. A motion to compel asks the court to order a party to provide discovery it has withheld. A motion for a protective order is its mirror: it asks the court to limit discovery that is overbroad or reaches privileged or confidential material. Both arrive out of a discovery dispute, after a letter and a conference between counsel.
+4. Motions in limine are filed close to trial to exclude specific evidence before the jury hears it. On this file the “degenerative” MRI reading and the 14-Day Gap are exactly the kind of material each side will try to keep out or let in.
+5. The Scheduling Order sets the motion cutoff. Filing, opposition, reply and hearing dates run off it, and the local rules add page limits, formatting, service requirements and chambers-copy requirements. These are procedural traps, and they are the ones that get noticed.
+6. The pre-trial conference fixes the terms of trial: the pre-trial order, witness and exhibit lists, stipulations, jury instructions, and the motions in limine argued at or just before it.
+7. Trial runs in a fixed order — jury selection, opening statements, the plaintiff's case, the defense case, closing arguments, jury instructions, deliberation, verdict. Court days are unpredictable and witnesses are held on standby.
+8. After a verdict come post-trial motions and the possibility of an appeal, on windows that run from entry of judgment and are short. A judgment also has to be collected, which is its own process.
+9. Trial dates move. A continuance resets months of work, and files settle on the courthouse steps — so a trial-ready file is kept trial-ready without assuming the date will hold.
+10. Across all of it your part is the same as it has been: calendar it, assemble it to the court's format, file it and confirm the filing, and keep the client informed of logistics. Which motion to bring, what it argues and whether to appeal are Atty. Thorne's alone.
+
+> ⚠️ **UPL boundary.** “Will the judge grant their motion?” is a request for a prediction of a ruling. Decline it, give the hearing facts you do have, and route it.
+
+> ⚠️ **UPL boundary.** Never tell a client what a motion means for their case, even when the motion is routine and the answer seems obvious. Name the document, route the meaning.
+
+> ⚠️ **UPL boundary.** Assembling exhibits and deposition excerpts into a brief is yours. Choosing which excerpts make the argument is Atty. Thorne's.
+
+#### 2 · Slide Body — Show Them
+
+*Four motions, what each asks for, and what the Case Manager does*
+
+| Motion | What it asks the court for | Case Manager duties | On this file |
+|---|---|---|---|
+| Summary judgment | Judgment without a trial, because the material facts are not genuinely disputed | Calendar the motion cutoff and the filing, opposition, reply and hearing dates; assemble deposition excerpts, declarations and exhibits to the court's format; confirm page limits and chambers copies; e-file and docket | Likely aimed at liability or at the gap-related damages if the case does not resolve at mediation |
+| Motion to compel | An order that a party provide discovery it has withheld | Pull the discovery log showing what was served, what was due and what is outstanding; assemble the meet-and-confer correspondence; calendar the hearing | The log and the 12/01/2026 and 12/14/2026 rows are the evidence such a motion would rest on |
+| Protective order | A limit on discovery that is overbroad or reaches privileged or confidential material | Identify and segregate the material at issue for Atty. Thorne's review; never make the privilege call; calendar and file | The scope of the 2021 chiropractic notes is the live candidate |
+| Motion in limine | Exclusion of specific evidence before the jury hears it | Index the evidence at issue with its source and Bates range; assemble the excerpts; calendar for the pre-trial conference | The “degenerative” MRI reading and the 14-Day Gap, from both directions |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| The Scheduling Order is entered | Calendar the motion cutoff alongside the discovery cutoff, with internal lead time for drafting and review | CMS → Litigation → Discovery Calendar | The motion cutoff carries its own row with lead-time reminders, not just the court's date |
+| Atty. Thorne decides to move | Assemble the exhibits, excerpts and declarations to the court's format and confirm page limits, formatting and chambers copies before filing | CMS → Documents → 03_MOTIONS | The brief is filed inside the cutoff and accepted on first submission |
+| A motion is filed or received | Docket the filing, opposition, reply and hearing dates the day it lands, and confirm whether the client must attend | CMS → Litigation → Pleadings Log | All four dates are logged from one trigger; John Doe is told the logistics, not the meaning |
+| A verdict is entered | Diary the post-trial motion and appeal windows the same day, from entry of judgment | CMS → Litigation → Discovery Calendar | Both windows are calendared before anyone asks whether they will be used |
+
+**Best practices & pitfalls**
+
+- Work the motion calendar backwards from the hearing, not forwards from the filing: the opposition and reply dates are what squeeze the drafting time.
+- A motion's exhibits are only as good as their index. Every excerpt carries its source document, its date and its Bates range, so counsel can cite it without re-reading the file.
+- When a protective order is in play, segregate the material and stop. Deciding what is privileged is the one thing in this list that has never been a Case Manager's call.
+- ⚠️ Pitfall: calendaring the hearing date and nothing else. The filing, opposition and reply dates are where a motion is actually lost, and they arrive first.
+- ⚠️ Pitfall: assuming a trial date will hold. Keep the file trial-ready and the witnesses warm, and treat a continuance as a re-derivation of every downstream date rather than a shift of them.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Litigation Foundations Knowledge Check (taught on Case Flow Day 5) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Motion identification | Summary judgment, compel, protective order and in limine each matched to what it asks the court for |
+| 🤖 AI | **20%** | Deadline structure | Filing, opposition, reply and hearing named as four dates from one trigger, run off the motion cutoff |
+| 🤖 AI | **10%** | Trial sequence | The road from pre-trial conference to verdict given in order, with post-trial and appeal windows named as short |
+| 🤖 AI | **10%** | CM duties | Calendaring, assembly to format, filing and confirmation named; strategy excluded |
+| 🧑‍🏫 Trainer | **20%** | Procedural care | Treats page limits, formats and chambers copies as substantive, not clerical |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | No prediction of any ruling; no interpretation of a motion for the client; privilege calls left to counsel |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- This is new ground for every trainee in the room, including those who have worked litigated files. Start by asking what happens if mediation fails on 26-CV-04417 — the honest answer is that most will not know, and that is the point of the block.
+- Work summary judgment slowly. The idea that a case can end on paper, without a jury, is the one that changes how trainees treat discovery evidence for the rest of their careers.
+- On the protective order row, stop and say it plainly: segregate and route. A Case Manager who makes a privilege call has crossed the line no matter how obvious the material seemed.
+- The four-dates-from-one-trigger pattern is the transferable skill here. Have the room say it back: filing, opposition, reply, hearing.
+- Legal nuance: motion practice, page limits and chambers-copy requirements are set by each court's local rules and the Scheduling Order. Teach the structure as general and every count and format as confirmed against the governing rule.
+
+---
+
+### 5.1.3 Impasse Triggers & Filing Criteria
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Where Track B leaves Track A, and when a stall becomes an impasse  
@@ -161,7 +324,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.2 From Pre-Lit to Litigation & ADR
+### 5.1.4 From Pre-Lit to Litigation & ADR
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Status, court fields, litigation folders, the Litigation Calendar and the neutral  
@@ -245,7 +408,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.3 Identifying Non-Responsive Adjusters, Delayed Records & Scheduling Bottlenecks
+### 5.1.5 Identifying Non-Responsive Adjusters, Delayed Records & Scheduling Bottlenecks
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Name the bottleneck by the date it threatens  
@@ -327,7 +490,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.4 Escalation Workflows & Supervisory Reporting Guidelines
+### 5.1.6 Escalation Workflows & Supervisory Reporting Guidelines
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** The ladder decides who hears; the report decides whether they can act  
@@ -409,7 +572,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.5 Litigation Tracking: the Pleadings Log & the Discovery Calendar
+### 5.1.7 Litigation Tracking: the Pleadings Log & the Discovery Calendar
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Managing litigation tracking systems, pleadings logs & discovery calendars  
@@ -496,7 +659,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.6 Trial Preparation Checklists & Litigation KPIs
+### 5.1.8 Trial Preparation Checklists & Litigation KPIs
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Trial preparation checklists & tracking litigation KPIs  
@@ -578,7 +741,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.7 Repair Estimates vs. ACV & Loss-of-Use Allocations
+### 5.1.9 Repair Estimates vs. ACV & Loss-of-Use Allocations
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Repairable or total, and what each day without the Civic is worth  
@@ -660,7 +823,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 ---
 
-### 5.1.8 Diminished Value & PD Dispute Resolution
+### 5.1.10 Diminished Value & PD Dispute Resolution
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** What a repaired car still loses, and how the dispute gets resolved  
@@ -739,7 +902,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 ---
 
-### 5.1.9 Client Prep for a Virtual Deposition & Injury Narrative Alignment
+### 5.1.11 Client Prep for a Virtual Deposition & Injury Narrative Alignment
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The audit, the three pillars, and the room John testifies from  
@@ -823,7 +986,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.10 Opposing Counsel's Traps & Defending Key Testimony
+### 5.1.12 Opposing Counsel's Traps & Defending Key Testimony
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The four categories, the seven Golden Rules, and what an objection means  
@@ -906,7 +1069,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.11 Comparative Negligence & the Liability Counter-Package
+### 5.1.13 Comparative Negligence & the Liability Counter-Package
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Three allegations in the 11/12/2026 Answer, and the evidence that answers each  
@@ -987,7 +1150,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.12 Skip-Tracing, Process Servers & Certified Notice
+### 5.1.14 Skip-Tracing, Process Servers & Certified Notice
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Finding the defendant who moved and the client who went quiet  
@@ -1070,7 +1233,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.13 Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund
+### 5.1.15 Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Same $40,000.00, a different net: what suit cost the client, line by line  
@@ -1147,7 +1310,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 ---
 
-### 5.1.14 Dropped Cases: the Case Manager's Close-Out
+### 5.1.16 Dropped Cases: the Case Manager's Close-Out
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** From “Pending Drop” to “Dropped”: the gate, three Withdrawal Letters, their dispatch and the proof  
@@ -1227,7 +1390,94 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 ---
 
-### 5.1.15 Triggering the Litigation Fork
+### 5.1.17 The UPL Line on Litigation Questions
+
+> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Foundations Knowledge Check (`d5m0`)  
+> **Topic:** Routing a client's litigation questions without giving legal advice  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D5#8` Preparing Your Client for a Deposition: The Pre-Deposition Audit · `D5#9` Discovery Intake Meeting — Pillar 1: De-escalating Anxiety · `D5#20` What Happens When Your Lawyer Objects? · Newly authored: the UPL boundary applied to litigation-stage client questions — motions, defenses, deposition testimony and settlement authority
+
+#### 1 · Visual Layout Description
+
+A two-column sorting board. Left column, red-tinted, headed NEVER ANSWER; right column, green-tinted, headed SAY THIS. Eight question cards in quotation marks run down the centre in mono type, each with an empty reply box beside it. Beneath the board, a navy strip holding the three-part reply pattern as numbered chips: ① name what the document or event is ② name the legal part and route it to Atty. Thorne with a timeframe ③ give the facts and logistics you do have. Bottom right, a red gate chip: “UPL is a gate, not a weighting.”
+
+#### 2 · Slide Body — Let Them
+
+**Scenario.** 02/02/2027 · Track B. John Doe has read Mercer & Hale's Answer, received notice of his 02/18/2027 deposition and heard the word mediation twice. He calls you, anxious, and over eleven minutes asks: “Do I have a good case?” · “What does comparative negligence mean — are they saying it was my fault?” · “What should I say at my deposition?” · “How much is my case worth?” · “Do we have to answer all of these questions about my 2021 chiropractor?” · “If they file a motion, will the judge throw my case out?” · “Should I take whatever they offer at mediation?” · “Can I just sign the papers you sent so this moves faster?” Atty. Thorne is in a hearing until 4:00 PM.
+
+**Execution prompt.** Write your actual reply to each of the eight questions, in the words you would use on the call. For each one, first name in a short line why the question is not yours to answer, then give the reply: name the document or event, route the legal part to Atty. Thorne with a concrete timeframe, and give the facts and logistics you do have. Then write the single file note and the one escalation message to Atty. Thorne that this call produces.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → Notes, and the escalation template in CMS → Tasks |
+| **Expected output** | Eight written replies with their reasons, one logged file note, and one escalation message to Atty. Thorne naming what John needs answered and by when. |
+
+**Show Them — reference model**
+
+*The line, at this stage of the file*
+
+| ✅ Do | ❌ Don't |
+|---|---|
+| State facts from the file: dates served, dates due, what was filed and when. | Interpret a pleading, a discovery request, an order or a release for the client. |
+| Give logistics in full: where the deposition is, when to arrive, what to bring, who will be there. | Predict a ruling, a verdict, a mediation number or a case value. |
+| Describe the process in general terms — what a deposition is, what mediation is for. | Advise whether to accept an offer, sign a document or answer a request. |
+| Relay what Atty. Thorne has already told the client, in his words. | Prepare the client's testimony, or suggest how an answer might be phrased. |
+| Commit to a route and a timeframe, then close the loop. | Decide what is privileged or objectionable, however clear it looks. |
+| Log the contact, what was asked, what was routed and what was promised. | Soften a routed question with an opinion — “though honestly, I think you're fine.” |
+
+**Verification checkpoints**
+
+- [ ] No reply interprets the Answer, the affirmative defenses, the discovery requests or the signature pages.
+- [ ] No reply predicts a ruling, a mediation outcome or a case value, including hedged predictions offered “just between us.”
+- [ ] The deposition question routes to attorney preparation, and the reply still confirms the date, the address or link and what to bring.
+- [ ] The 2021 chiropractic question is identified as an objection-and-privilege decision for Atty. Thorne, with the response deadline named rather than the answer.
+- [ ] The signing question stops the client from signing and holds the document until Atty. Thorne has reviewed it with him.
+- [ ] Every reply gives John something concrete — a fact, a date or a committed time — so routing never reads as refusal.
+- [ ] The escalation names all eight questions, flags the deposition and the signature as time-sensitive, and asks for a time, not for an opinion.
+- [ ] The file note records that the call happened, what was asked, what was routed and what was promised.
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| A client asks a legal question | Name the document or event, route the legal part to Atty. Thorne with a timeframe, give the facts you have, log it | CMS → Notes | The note records the question, the routing and the promise; nothing in it is advice |
+| Several legal questions arrive in one call | Send one escalation naming all of them, flagging anything time-sensitive, asking for a time rather than an answer | CMS → Tasks | Atty. Thorne has the full list within the hour, with the deposition and signature flagged |
+| A client is about to sign something unreviewed | Stop the signature and hold the document until counsel has reviewed it with the client | CMS → Documents | Nothing is signed ahead of review; the hold is logged |
+
+**Best practices & pitfalls**
+
+- Routing is only safe if the loop closes. An escalation nobody follows up on is how a client ends up taking advice from a friend instead.
+- Give something concrete with every routed question. “I can't answer that, but your deposition is 02/18 at 10:00 and here is what to bring” is the difference between a boundary and a brush-off.
+- Say the sentence the same way every time until it is automatic: that is a legal question and I am not able to answer it, but I will get it to Atty. Thorne today and come back to you with a time.
+- Identify yourself accurately on every call — Case Manager, working with Atty. Thorne — so nothing you say can be mistaken for counsel.
+- ⚠️ Pitfall: answering the easy one. Eight questions arrive, seven are plainly legal and one looks harmless — “are they saying it was my fault?” — and that is the one that is interpreting a pleading.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Litigation Foundations Knowledge Check (taught on Case Flow Day 5) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **25%** | Boundary accuracy | All eight questions correctly identified as legal, with the specific reason named for each |
+| 🤖 AI | **20%** | Reply quality | Each reply names the document or event, routes with a timeframe, and gives concrete facts or logistics |
+| 🤖 AI | **15%** | Escalation | One message covering all eight, time-sensitive items flagged, asking for a time rather than an opinion |
+| 🧑‍🏫 Trainer | **20%** | Composure | Holds the line with an anxious client without sounding evasive or bureaucratic |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | Not one reply interprets, predicts, advises or coaches — including the hedged aside |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Run at least three of these as live roleplay with you as John Doe, and push. The pressure is the exercise; on paper everyone holds the line.
+- “Are they saying it was my fault?” is the one that catches good trainees. It sounds like a comprehension question and it is an interpretation of a pleading. Let someone answer it wrong, then unpack it.
+- Ask the room what John does if every reply is a refusal with nothing attached. He calls someone less careful. That is the argument for the facts-and-logistics half of the pattern.
+- Point forward: the deposition question is answered properly in the deposition preparation module later today — by Atty. Thorne's prep session, which is exactly where it belongs.
+
+---
+
+### 5.1.18 Triggering the Litigation Fork
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Skill Activity 1 — the impasse memo: Keystone's stonewall on the 14-Day Gap  
@@ -1304,7 +1554,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.16 Transition the File to Litigation Status
+### 5.1.19 Transition the File to Litigation Status
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Skill Activity 2 — re-architect John Doe's file in the CMS  
@@ -1384,7 +1634,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.17 Automated Countermeasure Triggering in CMS
+### 5.1.20 Automated Countermeasure Triggering in CMS
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Skill Activity 1 — rules that fire before the deadline does  
@@ -1462,7 +1712,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.18 Bottleneck Resolution Simulation
+### 5.1.21 Bottleneck Resolution Simulation
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Skill Activity 2 — five problems, nine days, one order  
@@ -1540,7 +1790,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.19 Pleadings & Discovery Log Maintenance
+### 5.1.22 Pleadings & Discovery Log Maintenance
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Skill Activity 1 — repair the log before it costs the case  
@@ -1619,7 +1869,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.20 Trial Prep Checklist Audit & KPI Update
+### 5.1.23 Trial Prep Checklist Audit & KPI Update
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Skill Activity 2 — audit against the order, measure against the target  
@@ -1709,7 +1959,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.21 Evaluating Repair Estimates vs. ACV & Loss-of-Use
+### 5.1.24 Evaluating Repair Estimates vs. ACV & Loss-of-Use
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Skill Activity 1 — audit the Civic's numbers before discovery does  
@@ -1787,7 +2037,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 ---
 
-### 5.1.22 Diminished Value Calculation & Negotiation Lab
+### 5.1.25 Diminished Value Calculation & Negotiation Lab
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Skill Activity 2 — from $792.00 to a recommended range for Atty. Thorne  
@@ -1877,7 +2127,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 ---
 
-### 5.1.23 Virtual Deposition Prep Roleplay
+### 5.1.26 Virtual Deposition Prep Roleplay
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 1 — client injury & 14-Day Gap defense: your segment, his substance  
@@ -1966,7 +2216,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.24 Mock Deposition Cross-Examination Handling
+### 5.1.27 Mock Deposition Cross-Examination Handling
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 2 — observe, log and route; never coach  
@@ -2052,7 +2302,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.25 Building the Comparative Liability Counter-Package
+### 5.1.28 Building the Comparative Liability Counter-Package
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 1 — answer each allegation from the file  
@@ -2129,7 +2379,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.26 Skip-Tracing Execution & Certified Notice Dispatch
+### 5.1.29 Skip-Tracing Execution & Certified Notice Dispatch
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 2 — find the defendant, reach the client, prove both  
@@ -2208,7 +2458,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.27 The Litigation Net Sheet: Disbursing the Award
+### 5.1.30 The Litigation Net Sheet: Disbursing the Award
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Skill Activity — take the award to $14,713.75 on the LSH Net Sheet  
@@ -2280,7 +2530,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 ---
 
-### 5.1.28 Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
+### 5.1.31 Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Skill Activity — a practice matter: three Withdrawal Letters, their dispatch and the Dropped status  
@@ -2354,7 +2604,91 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 ---
 
-### 5.1.29 Litigation Fork Transition Check
+### 5.1.32 Litigation Foundations Knowledge Check
+
+> **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Foundations Knowledge Check (`d5m0`)  
+> **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D5#2` The Case Manager's Tactical Role in Litigation: The Litigation Lifecycle · `D5#6` Phase 3: The Trial & Mediation Preparation Stage · `D5#7` The Litigation Mindset: Critical Traps & KPIs · Newly authored: the foundations gate — the stage spine, motions practice and the Case Manager's scope, checked before the day's hands-on work
+
+#### 1 · Visual Layout Description
+
+Split layout. Upper half: the Litigation Foundations Knowledge Check on the warm cream card with the orange ruled border, three questions numbered in orange; question 3 carries a small red UPL chip. Between the panels, a slim LITIGATION SPINE strip of six mono stage pills, ①–⑥, for the trainee to self-check against. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, and beside it the 1–5 SELF-SCALE as a five-step horizontal ladder with the competency rows beneath. Far right, the 60/40 stacked bar, 60% AI in navy and 40% Trainer in orange, with UPL as a separate red gate chip outside the bar.
+
+#### 2 · Slide Body — Knowledge verification
+
+1. Name the six stages of a civil case in order, say what each one is for in a sentence, and place 26-CV-04417 on that spine as of 01/20/2027 with the date that put it there.
+2. Mediation fails on 26-CV-04417. Name the four pre-trial motions you might see next, what each asks the court for, and the four dates you calendar the day any one of them is filed.
+3. John Doe asks you three things: what stage his case is in, what the comparative negligence defense means for him, and whether the judge will throw the case out. Answer all three as you would on the call, and say for each one why it is or is not yours to answer.
+
+**Best practices & pitfalls**
+
+- Answer question 1 from the spine, not from this file: a Case Manager who can only describe the stage in front of them has not learned the shape.
+- In question 3, the stage question is a fact and the other two are not. Getting that split right matters more than the wording of the replies.
+- ⚠️ Pitfall: naming the four motions but giving only the hearing date. The four dates are the answer.
+
+#### 3 · Knowledge Check & CM Summary
+
+**Case Manager Self-Summary**
+
+- Summarize, in your own words, what you learned about the shape of a lawsuit: the stages and what they are for, not the tasks.
+- Articulate your scope: name two things on a litigated file that are yours and two that are Atty. Thorne's, and say what separates them.
+- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+
+**Skill Scale — self-rate 1–5**
+
+| Competency | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| Naming the six stages of a civil case in order and what each is for | ○ | ○ | ○ | ○ | ○ |
+| Placing a live file on the litigation spine and saying what comes next | ○ | ○ | ○ | ○ | ○ |
+| Distinguishing summary judgment, motions to compel, protective orders and motions in limine | ○ | ○ | ○ | ○ | ○ |
+| Calendaring filing, opposition, reply and hearing from a single motion trigger | ○ | ○ | ○ | ○ | ○ |
+| Holding the UPL line on litigation questions while still being useful to the client | ○ | ○ | ○ | ○ | ○ |
+
+**1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
+
+**Auto-graded share of the day's Knowledge Check** (6 questions):
+
+1. John Doe's Complaint was filed 09/24/2026 and Robert Smith was served 10/14/2026. Which of those two acts starts Smith's obligation to answer?  
+   The filing, because the case legally exists from 09/24/2026 · **✓ The service on 10/14/2026** · The Scheduling Order of 12/10/2026 · Neither — the Answer is due 30 days from the date of loss  
+   *Filing starts the case and stops the limitations clock; service is what obliges the defendant to respond. That is why the affidavit of service is filed and logged — without it the Answer deadline is unestablished and no default can be sought.*
+2. Which stage of a civil case is missing from this list: pleadings, discovery, ADR, trial?  
+   Service of process, which belongs inside the pleadings stage · **✓ Pre-trial motions, between the close of discovery and trial** · The demand, which belongs to the pre-litigation phase · Nothing is missing  
+   *Pre-trial motions sit between the discovery cutoff and trial: summary judgment, motions to compel, protective orders and motions in limine. On 26-CV-04417 they are the stage after the discovery this file is now in.*
+3. A motion for summary judgment asks the court to do what?  
+   Order Atty. Mercer to produce documents he has withheld · Exclude the “degenerative” MRI reading before the jury hears it · **✓ Enter judgment without a trial because the material facts are not genuinely disputed** · Postpone the 02/18/2027 deposition  
+   *Summary judgment ends claims without a trial where the facts are not genuinely in dispute. The other three are a motion to compel, a motion in limine and a continuance.*
+4. John Doe calls after reading Mercer & Hale's Answer and asks you what “comparative negligence” means for his case. What do you do?  
+   Explain the doctrine plainly, since the Answer is already in his hands · Tell him the defenses in an Answer rarely matter · **✓ Name what the document is, say Atty. Thorne will walk him through what the defenses mean, and get that on the calendar** · Forward the Answer again without comment  
+   *Interpreting a pleading for a client is the unauthorized practice of law however plainly it is put. Name the document, route the meaning to Atty. Thorne, and give John a concrete next step.*
+5. Which of these litigation tasks is the Case Manager's, not Atty. Thorne's?  
+   Deciding which affirmative defenses to attack first · **✓ Calendaring the motion cutoff from the Scheduling Order and assembling the exhibits to the court's format** · Deciding whether to move for summary judgment on liability · Advising John Doe whether to accept the mediated number  
+   *Calendaring and assembling are administrative and factual. Which motions to bring, which defenses to attack and what to advise the client are all legal judgment.*
+6. The jury returns a verdict for John Doe. What is the Case Manager's immediate calendaring duty?  
+   Nothing — the file closes on the verdict · **✓ Diary the post-trial motion and appeal windows the day the verdict comes in** · Wait for Atty. Mercer to say whether he will appeal · Re-open the Pleadings Log for the next matter  
+   *Post-trial and appeal windows are short and are not extended casually. They are calendared the day the verdict lands, before anyone asks whether they will be used.*
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Stage spine | Six stages in order with their purposes, and 26-CV-04417 placed in discovery as of 01/20/2027 |
+| 🤖 AI | **20%** | Motions | Four motions matched to what they ask for, with filing, opposition, reply and hearing as the four dates |
+| 🤖 AI | **20%** | Scope split | Two CM duties and two counsel decisions named, with the distinguishing principle stated |
+| 🧑‍🏫 Trainer | **20%** | Foundational grasp | Can orient on a litigated file without being walked through it |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | The stage question answered, the defense and the ruling routed — with something concrete given in each reply |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- This check is the prerequisite for the rest of Case Flow Day 5. A trainee who cannot place the file on the spine will be guessing through the Property Damage Practice Lab and the deposition roleplays.
+- Mark question 3 strictly. A reply that interprets the comparative negligence defense fails the UPL criterion whatever the rest of the answer is worth — UPL is a gate, not a weighting.
+- Collect the Self-Summaries before the next module and read the “least confident” line: it tells you which of the two new stages, motions or trial, needs another pass before the day ends.
+
+---
+
+### 5.1.33 Litigation Fork Transition Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2440,7 +2774,7 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 
 ---
 
-### 5.1.30 Countermeasure Operational Audit
+### 5.1.34 Countermeasure Operational Audit
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2525,7 +2859,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 5.1.31 Litigation Support Assessment
+### 5.1.35 Litigation Support Assessment
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2608,7 +2942,7 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 
 ---
 
-### 5.1.32 PD Dispute Evaluation
+### 5.1.36 PD Dispute Evaluation
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2690,7 +3024,7 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 
 ---
 
-### 5.1.33 Deposition Readiness Audit
+### 5.1.37 Deposition Readiness Audit
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2772,7 +3106,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 5.1.34 Final Comprehensive Knowledge Check
+### 5.1.38 Final Comprehensive Knowledge Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Knowledge Check (all five days) + CM Learning Summary & Self-Scale  
@@ -2852,7 +3186,7 @@ The standard knowledge-check split, extended for the final check. Above the crea
 
 ---
 
-### 5.1.35 Track B Close-Out Check
+### 5.1.39 Track B Close-Out Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2920,7 +3254,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 5.1.36 Dropped Case Close-Out Check
+### 5.1.40 Dropped Case Close-Out Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

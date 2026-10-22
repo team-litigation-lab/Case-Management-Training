@@ -310,6 +310,58 @@ window.CM_CF_SIM = {
     "RS18"
    ]
   },
+  "d5m0-a2": {
+   "date": "02/02/2027",
+   "time": "8:52 a.m.",
+   "channel": "voicemail",
+   "from": "(404) 555-0146 — mobile, not the number on file",
+   "to": "Case Manager",
+   "subject": "John Doe — questions about the Answer, his deposition and mediation",
+   "body": "Voicemail, 1:04. John Doe, anxious, from a number not on file. Eight questions across the Answer's comparative negligence defense, his 02/18/2027 deposition, a possible motion, mediation authority, the 2021 chiropractic records and forms he intends to sign today. Asks for a call back.",
+   "spoken": "Hey, it's John... John Doe. Sorry, I know it's early. I read that paper the other side filed and it says comparative negligence, and... are they saying this was my fault? Because it wasn't. And I got the thing about February eighteenth, the deposition, and I genuinely do not know what I'm supposed to say, so I need somebody to tell me. Also my cousin said if they file some kind of motion the judge can just throw the whole thing out, is that... can that happen? And the mediation — do I have to take whatever they put on the table? Oh, and those forms you emailed, I was going to sign them and send them back today so it moves faster. Um, one more thing, they want my chiropractor records from twenty twenty-one and that was a totally different thing, do we have to give them that? Call me back on this number, the old one's disconnected.",
+   "listen": [
+    {
+     "q": "What is the caller's new contact number, and why does it matter?",
+     "a": "(404) 555-0146 — his number on file is disconnected, so the file must be updated before the deposition.",
+     "match": [
+      "404",
+      "555.?0146",
+      "disconnect"
+     ]
+    },
+    {
+     "q": "Which date did he name, and what is it?",
+     "a": "02/18/2027 — his deposition.",
+     "match": [
+      "(02/18/2027|february eighteen|18th|eighteenth)",
+      "deposition"
+     ]
+    },
+    {
+     "q": "Which document is he about to sign without review?",
+     "a": "The forms emailed to him; he must be stopped from signing until Atty. Thorne reviews them with him.",
+     "match": [
+      "(form|paper|document)",
+      "sign"
+     ]
+    },
+    {
+     "q": "Which discovery request is he objecting to?",
+     "a": "The 2021 chiropractic records.",
+     "match": [
+      "(2021|twenty twenty.?one)",
+      "chiro"
+     ]
+    },
+    {
+     "q": "How many of his questions can you answer yourself?",
+     "a": "None of the legal ones; the deposition date and logistics are facts you can give him.",
+     "match": [
+      "(none|zero|no legal)|logistic|date"
+     ]
+    }
+   ]
+  },
   "d3m1-a1": {
    "date": "07/20/2026",
    "time": "8:05 a.m.",

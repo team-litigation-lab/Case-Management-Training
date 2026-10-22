@@ -1,4 +1,120 @@
 {
+  "d5m0-l1": {
+    "lead": "Six stages, in a fixed order, each built on what the one before it produced: **pre-litigation happens before stage one**.",
+    "concepts": [
+      {
+        "term": "Filing Versus Service",
+        "text": "Filing starts the case and stops the limitations clock; **service obliges the defendant** to answer"
+      },
+      {
+        "term": "The Pleadings Close",
+        "text": "Once the Answer is in, the court issues the Scheduling Order, and **every later date derives from it**"
+      },
+      {
+        "term": "Discovery Is The Long Stage",
+        "text": "Evidence is exchanged so the case is tried or valued **on known facts, not surprise**"
+      },
+      {
+        "term": "Two Stages Still Ahead",
+        "text": "Pre-trial motions and trial follow ADR; **most files resolve before reaching either**"
+      }
+    ],
+    "pages": [
+      "D5#2",
+      "D5#3"
+    ],
+    "framework": {
+      "title": "The Six Stages and This File",
+      "kind": "table",
+      "head": [
+        "Stage",
+        "What it settles",
+        "On 26-CV-04417"
+      ],
+      "rows": [
+        [
+          "1 Complaint & Service",
+          "That the case exists and the defendant knows",
+          "Filed 09/24/2026; served 10/14/2026"
+        ],
+        [
+          "2 Answer & Pleadings",
+          "What is actually in dispute",
+          "Answered 11/12/2026; order 12/10/2026"
+        ],
+        [
+          "3 Discovery",
+          "What each side can prove",
+          "Sets served 12/01 and 12/14/2026"
+        ],
+        [
+          "4 Pre-Trial Motions",
+          "What the judge decides before trial",
+          "Not yet reached"
+        ],
+        [
+          "5 ADR",
+          "Whether the parties resolve it themselves",
+          "Mediation and UM arbitration"
+        ],
+        [
+          "6 Trial & Verdict",
+          "What a jury decides, then appeal",
+          "Not reached; most files never are"
+        ]
+      ]
+    }
+  },
+  "d5m0-l2": {
+    "lead": "After the discovery cutoff each side asks the judge to decide things before trial: **sometimes the whole case**.",
+    "concepts": [
+      {
+        "term": "Judgment Without Trial",
+        "text": "Summary judgment ends claims where the material facts are **not genuinely in dispute**"
+      },
+      {
+        "term": "Discovery Disputes Reach Court",
+        "text": "A motion to compel forces production; a protective order **limits what may be asked**"
+      },
+      {
+        "term": "Keeping Evidence From A Jury",
+        "text": "Motions in limine exclude specific proof **before the jury ever hears it**"
+      },
+      {
+        "term": "Four Dates, One Trigger",
+        "text": "Every motion carries filing, opposition, reply and hearing dates, **all run off the cutoff**"
+      }
+    ],
+    "pages": [
+      "D5#6"
+    ],
+    "framework": {
+      "title": "From Motion Cutoff To Verdict",
+      "kind": "flow",
+      "steps": [
+        {
+          "label": "Motion cutoff",
+          "text": "The last date the Scheduling Order allows a pre-trial motion"
+        },
+        {
+          "label": "Briefing",
+          "text": "Filing, opposition and reply, each on its own date"
+        },
+        {
+          "label": "Pre-trial conference",
+          "text": "Pre-trial order, witness and exhibit lists, motions in limine"
+        },
+        {
+          "label": "Trial",
+          "text": "Selection, openings, the cases in chief, closings, instructions"
+        },
+        {
+          "label": "Verdict",
+          "text": "Then post-trial motions and appeal, both on short clocks"
+        }
+      ]
+    }
+  },
   "d5m1-l1": {
     "lead": "A lawsuit is a **highly structured, court-mandated process**: miss a deadline or misfile a document, and the court can dismiss the case.",
     "concepts": [
@@ -115,7 +231,10 @@
         "text": "Pre-loss market value minus post-loss value; the **lesser-of rule** weighs it against repair cost, capping a Total Loss"
       }
     ],
-    "pages": ["D5#39", "D5#40"],
+    "pages": [
+      "D5#39",
+      "D5#40"
+    ],
     "framework": {
       "title": "Types of Damages You Can Recover",
       "kind": "table",
@@ -164,7 +283,10 @@
         "text": "In suit, a Subpoena Duces Tecum **compels a non-party's records**; a blanket request invites a Motion to Quash"
       }
     ],
-    "pages": ["D5#41", "D5#35"],
+    "pages": [
+      "D5#41",
+      "D5#35"
+    ],
     "framework": {
       "title": "Calculating the Value of the Claim",
       "kind": "table",
