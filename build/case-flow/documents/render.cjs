@@ -12,6 +12,14 @@ global.window = {};
 require(path.join(ROOT, "js/cm-case-flow-docs.js"));
 const DOCS = window.CM_CF_DOCS;
 const css = fs.readFileSync(path.join(SRC, "doc.css"), "utf8");
+/* The case's money is declared once (build/case-flow/figures.cjs): a document writes {{openLiens}} and the figure
+   arrives here, the same way js/cm-figures.js substitutes it in the course and in case-doc.html. */
+const FIG = require("../figures.cjs");
+const FIGS = FIG.tokens(), FIGPCT = FIG.PCT_TOKENS(FIG.spine());
+const figures = s => String(s).replace(/\{\{([a-zA-Z]+)\}\}/g, (whole, name) =>
+  Object.prototype.hasOwnProperty.call(FIGS, name) ? FIG.money(FIGS[name])
+  : Object.prototype.hasOwnProperty.call(FIGPCT, name) ? FIGPCT[name] + "%"
+  : (console.warn(`[render] ${name} is not a figure the spine computes`), whole));
 const want = process.argv.slice(2);
 const footer = id => `<div style="width:100%;font:7px Arial,sans-serif;color:#555;padding:0 0.75in;display:flex;justify-content:space-between;">
   <span>LSH CASE MANAGEMENT TRAINING — SIMULATED DOCUMENT — FICTIONAL PARTIES — NOT A REAL RECORD · John Doe v. Robert Smith · ${id}</span>
@@ -25,7 +33,7 @@ const footer = id => `<div style="width:100%;font:7px Arial,sans-serif;color:#55
     if (want.length && !want.includes(d.id)) continue;
     const src = path.join(SRC, d.id + ".html");
     if (!fs.existsSync(src)) { if (want.length) console.log(`${d.id}: no source (${path.relative(ROOT, src)})`); continue; }
-    const body = fs.readFileSync(src, "utf8");
+    const body = figures(fs.readFileSync(src, "utf8"));
     const html = `<!doctype html><html><head><meta charset="utf-8"><title>${d.id} ${d.title}</title><style>${css}</style></head><body>${body}</body></html>`;
     const out = path.join(ROOT, "documents", d.file.replace(/\.docx$/, ".pdf"));
     fs.mkdirSync(path.dirname(out), {recursive: true});

@@ -1,5 +1,8 @@
 # John Doe v. Robert Smith — the case documents (spec)
 
+> **The case's money comes from one place.** A document writes `{{openLiens}}`, `{{netA}}`, `{{payoffA}}` and the rest where it means a figure on the spine (`build/case-flow/figures.cjs`): `render.cjs` substitutes it before the PDF is drawn and `case-doc.html` does the same in the viewer, so a change to a fact reaches every document. Figures that are facts of their own — a premium, a policy limit, the Property Damage schedule, a Bates range — and **planted** figures a trainee is meant to catch stay written out.
+
+
 The document set every Case Flow day works from: `documents/case-flow/<folder>/RS_NN_<Name>.pdf`, built from
 `documents/case-flow/html/RSNN.html` by `node build/case-flow/documents/render.cjs` (headless Chromium).
 The metadata the program shows (title, folder, CMS category, day, description, trainer key) is

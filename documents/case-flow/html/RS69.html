@@ -44,22 +44,22 @@
 <table class="ledger">
   <tr><th style="width:30%">Provider / source</th><th>Certified record it ties to</th><th class="num" style="width:13%">Amount</th></tr>
   <tr><td>Riverton Urgent Care</td><td>Statement, DOS 02/20/2026, paid in full by Harbor Point PIP 03/09/2026</td><td class="num">$685.00</td></tr>
-  <tr><td>Riverton Spine &amp; Rehab</td><td>33 attended visits &times; $185.00, tied to the attendance log; the second 05/04/2026 line removed as a duplicate. <b>Marked "Pending Final Verification"</b> until the Final Itemized Ledger requested 02/08/2027 arrives.</td><td class="num">$4,625.00</td></tr>
+  <tr><td>Riverton Spine &amp; Rehab</td><td>33 attended visits &times; $185.00, tied to the attendance log; the second 05/04/2026 line removed as a duplicate. <b>Marked "Pending Final Verification"</b> until the Final Itemized Ledger requested 02/08/2027 arrives.</td><td class="num">{{spineRehabOwed}}</td></tr>
   <tr><td>Lakeside Orthopedics</td><td>Statement, 3 visits &times; $640.00, paid by PIP</td><td class="num">$1,920.00</td></tr>
   <tr><td>Summit Imaging Center</td><td>Invoice 03/13/2026, paid by PIP 03/25/2026</td><td class="num">$2,395.00</td></tr>
   <tr><td>Crescent Pain &amp; Spine</td><td>Charge for the 05/15/2026 injection, <b>satisfied in full by Peach State's $1,860.00 contract payment</b>; the $1,540.00 was a contractual adjustment the in-network provider cannot bill the member. Corrected $0.00 patient statement enclosed.</td><td class="num">$3,400.00</td></tr>
   <tr><td>Riverton Drug</td><td>Receipts and Rx history, 02/07&ndash;06/12/2026</td><td class="num">$312.40</td></tr>
-  <tr><td colspan="2" style="text-align:right;"><b>Medical specials</b></td><td class="num"><b>$14,817.40</b></td></tr>
+  <tr><td colspan="2" style="text-align:right;"><b>Medical specials</b></td><td class="num"><b>{{medicalAudited}}</b></td></tr>
   <tr><td>Northgate Distribution</td><td>Wage-and-attendance letter 06/30/2026: 9 shifts &times; 8 h &times; $22.00</td><td class="num">$1,584.00</td></tr>
-  <tr class="total"><td colspan="2" style="text-align:right;">TOTAL SPECIAL DAMAGES &mdash; the same figure the Demand Package served 07/20/2026</td><td class="num">$16,401.40</td></tr>
+  <tr class="total"><td colspan="2" style="text-align:right;">TOTAL SPECIAL DAMAGES &mdash; the same figure the Demand Package served 07/20/2026</td><td class="num">{{specials}}</td></tr>
 </table>
 <table class="ledger compact">
   <tr><th style="width:34%">Open claim against the recovery</th><th>Proved by</th><th class="num" style="width:13%">Amount</th></tr>
   <tr><td>Peach State Health Plan, reimbursement</td><td>Notice of 02/27/2026 and its itemization; the Crescent EOB</td><td class="num">$1,860.00</td></tr>
-  <tr><td>Riverton Spine &amp; Rehab, LOP account</td><td>Audited ledger, 33 visits, pending the Final Itemized Ledger</td><td class="num">$4,625.00</td></tr>
+  <tr><td>Riverton Spine &amp; Rehab, LOP account</td><td>Audited ledger, 33 visits, pending the Final Itemized Ledger</td><td class="num">{{spineRehabOwed}}</td></tr>
   <tr><td>Crescent Pain &amp; Spine</td><td>Paid in full by the plan at the contract rate; no balance to bill</td><td class="num">$0.00</td></tr>
   <tr><td>Harbor Point PIP</td><td>Add-on PIP: no reimbursement from the recovery (03/02/2026 letter)</td><td class="num">$0.00</td></tr>
-  <tr class="total"><td colspan="2" style="text-align:right;">OPEN LIENS</td><td class="num">$6,485.00</td></tr>
+  <tr class="total"><td colspan="2" style="text-align:right;">OPEN LIENS</td><td class="num">{{openLiens}}</td></tr>
 </table>
 <p class="small"><b>Property damage, outside the $40,000 stack.</b> Loss of Use, 48 days &times; $42.00 = $2,016.00;
 Diminished Value $3,600.00 on the independent appraisal against Keystone's $792.00. Set out in its own schedule so
@@ -69,8 +69,8 @@ no figure in it reaches the bodily injury ledger.</p>
 <div class="box"><b>What the audit changed, and why it mattered.</b>
 <table class="ledger compact" style="margin-top:6px;">
   <tr><th style="width:30%">In the draft</th><th style="width:32%">As delivered</th><th>What it would have cost</th></tr>
-  <tr><td>Ledger assembled from the providers' original bills: medical $15,002.40, Riverton Spine &amp; Rehab at $6,290.00 on 34 lines</td><td>Rebuilt from the certified bills in hand: medical $14,817.40, Riverton Spine &amp; Rehab at $6,105.00 on 33 attended visits, marked pending final verification</td><td>Atty. Mercer was right that the ledger was unverified. A figure that does not tie to a certified bill is the reason a carrier declines to put a number on the table.</td></tr>
-  <tr><td>Crescent shown as a $3,400.00 open balance, and listed to the mediator among the open balances</td><td>Shown satisfied by Peach State's $1,860.00 contract payment; nothing owed; open liens $1,860.00 + $4,625.00 = $6,485.00</td><td>$3,400.00 conceded to a provider that cannot bill it, straight out of John Doe's net.</td></tr>
+  <tr><td>Ledger assembled from the providers' original bills: medical $15,002.40, Riverton Spine &amp; Rehab at $6,290.00 on 34 lines</td><td>Rebuilt from the certified bills in hand: medical {{medicalAudited}}, Riverton Spine &amp; Rehab at {{spineRehabAudited}} on 33 attended visits, marked pending final verification</td><td>Atty. Mercer was right that the ledger was unverified. A figure that does not tie to a certified bill is the reason a carrier declines to put a number on the table.</td></tr>
+  <tr><td>Crescent shown as a $3,400.00 open balance, and listed to the mediator among the open balances</td><td>Shown satisfied by Peach State's $1,860.00 contract payment; nothing owed; open liens $1,860.00 + {{spineRehabOwed}} = {{openLiens}}</td><td>$3,400.00 conceded to a provider that cannot bill it, straight out of John Doe's net.</td></tr>
   <tr><td>Pre-filing draft of the Complaint in Section 3</td><td>The filed Complaint of 09/24/2026</td><td>An unsigned draft with no case number, and no property damage pleaded, used as the operative pleading in front of the mediator.</td></tr>
   <tr><td>Grayscale doorbell stills</td><td>Color stills from the native file with the chain-of-custody log</td><td>The clearest liability proof on the file, unreadable at the moment it is needed.</td></tr>
   <tr><td>Section 1 left the start time and location "to be confirmed" and assumed a 50/50 mediator's fee</td><td>Start time, location and the carrier's video link taken from the mediator's confirmation; the fee split read from the mediation order</td><td>A binder nobody can run the morning from, and a fee split the firm never agreed to.</td></tr>

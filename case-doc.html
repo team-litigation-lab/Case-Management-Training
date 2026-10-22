@@ -54,7 +54,8 @@
   let css, html;
   try{
     const [c, h] = await Promise.all(["doc.css", id + ".html"].map(f => fetch("/documents/case-flow/html/" + f).then(r => { if(!r.ok) throw new Error(r.status); return r.text(); })));
-    css = c; html = D.all(h);
+    const FG = window.CM_FIGURES;   // the case's money (js/cm-figures.js), then its dates in the trainee's case year
+    css = c; html = D.all(FG ? FG.text(h) : h);
   }catch(e){
     out.innerHTML = `<p class="cdv-msg">The document couldn't be loaded. <a href="/documents/${doc.file.split("/").map(encodeURIComponent).join("/")}">Open the original</a>.</p>`;
     return;

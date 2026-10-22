@@ -61,6 +61,14 @@ const ok = (c, m) => { console.log((c ? "✓ " : "✗ ") + m); if (!c) fail.push
   ok(lessons.tokens.length === 0, `no token left in the lessons (${lessons.sampled} strings checked, ${[...new Set(lessons.tokens)].join(",")})`);
   ok(lessons.money > 50, `the lessons state the spine's figures (${lessons.money} strings carry the open liens or Track A's net)`);
 
+  // a case document in the viewer: the figures arrive there too (case-doc.html, the same spine)
+  await page.goto(BASE + "case-doc.html?id=RS42", {waitUntil: "networkidle"});
+  await page.waitForSelector(".cdv-sheet", {timeout: 15000}).catch(() => {});
+  const doc = await page.$eval("body", el => el.innerText).catch(() => "");
+  ok(!/\{\{[a-zA-Z]+\}\}/.test(doc), "the Payoff Letter shows no raw token in the viewer");
+  ok(/\$4,625\.00/.test(doc), "it states the balance owed after the audit and MedPay");
+  ok(/\$3,470\.00/.test(doc), "it states the payoff accepted in writing");
+
   await browser.close();
   console.log(fail.length ? `\n${fail.length} FAILED:\n` + fail.join("\n") : "\nall good");
   process.exit(fail.length ? 1 : 0);
