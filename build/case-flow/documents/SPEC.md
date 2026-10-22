@@ -299,7 +299,7 @@ its LOP); an activity log through 07/06/2026, when it was reconciled to RS31.
 *Key:* The rental cutoff starts the disruption (A-C-T). The limits request is how the BI layer was verified.
 
 **RS33 · BI Time-Limited Demand — DRAFT for audit** · Day 3 · Others · `RS_33_BI_Time_Limited_Demand_DRAFT.pdf`
-The demand specialist's draft (dated 07/20/2026) to Dana Whitfield, KM-26-440871, by certified mail and email:
+The demand specialist's draft (dated 07/20/2026) to Dana Whitfield, KM-26-440871, by email:
 liability, injuries and treatment, the gap addressed up front (EMS report, causation letter), specials table
 (medical $14,817.40 audited by line, wages $1,584.00), the offer to settle for the $10,000 limits. Marked "DRAFT —
 for Case Manager audit before Atty. Thorne signs".
@@ -310,9 +310,9 @@ $16,401.40); (4) Smith's **affidavit of no other insurance is missing** from the
 *Key:* All four must be fixed before signature; a general release in our own demand would release the UM claims.
 
 **RS34 · BI Demand — Proof of Delivery** · Day 3 · Others · `RS_34_BI_Demand_Proof_of_Delivery.pdf`
-USPS certified mail receipt (mailed 07/20/2026) and return receipt (green card) signed by Keystone's mail room
-07/22/2026; email delivery confirmation 07/20/2026.
-*Key:* Receipt 07/22/2026 starts the 30-day window → 08/21/2026. Proof of delivery is what makes the deadline real.
+The firm's proof-of-delivery print: the sent email that served the demand (07/20/2026, 4:21 p.m., Demand Package
+attached, 81 pp.) and Dana Whitfield's written acknowledgement of receipt (07/22/2026, 9:06 a.m.), with the log entries.
+*Key:* The written acknowledgement of 07/22/2026 starts the 30-day window → 08/21/2026. Proof of delivery is what makes the deadline real.
 
 **RS35 · Keystone Mutual — Offer Letter (08/05/2026)** · Day 3 · Others · `RS_35_Keystone_Offer_Letter.pdf`
 Dana Whitfield: $3,500 to resolve the BI claim; reasons: "your client waited two weeks to seek any treatment" and
@@ -499,12 +499,12 @@ Case Manager corrects nothing silently. The finished set is RS67.
 
 **RS67 · BI Time-Limited Demand Package — FINAL as served (07/20/2026)** · Day 3 · Others · `RS_67_BI_Demand_Package_FINAL_AS_SERVED.pdf`
 The complete, ready-to-go package as signed and served, shown once the audit is handed in: the demand letter with
-RS33's four faults corrected (30 days **from receipt**; a **Limited Release of Robert Smith and Keystone Mutual
+RS33's four faults corrected (30 days **from the adjuster's written acknowledgement of receipt**; a **Limited Release of Robert Smith and Keystone Mutual
 only**, expressly preserving every UM/UIM claim and the Property Damage claim; Specials **$16,401.40**; Smith's
 affidavit of no other insurance added as condition 3), then the Exhibit Index as served — Exhibits A–J, 81 pages,
 Bates LSH-DEM-000001–000081, each exhibit mapped to the cover-letter section it proves — then a table of what was
-pulled from the draft set and why. Ends with the service record: signed and served 07/20/2026 by certified mail
-(No. 9589 0710 5270 0412 7731 58) and email at 4:21 p.m., return receipt 07/22/2026, acceptance docketed 08/21/2026.
+pulled from the draft set and why. Ends with the service record: signed and served 07/20/2026 by email to the adjuster at 4:21 p.m., receipt
+acknowledged in writing 07/22/2026, acceptance docketed 08/21/2026.
 *Key:* No plants. This is the package every later activity works from: the negotiation, the lien work, the
 Mediation Binder (RS69) and the arbitration exhibits (RS70) all trace to these exhibits and these figures.
 

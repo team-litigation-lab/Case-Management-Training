@@ -1250,7 +1250,7 @@ window.cmCaseFlow.listenClose = function(){ const box = document.getElementById(
    set is revealed: the Demand Package as served, the Mediation Binder as delivered, the Arbitration Binder as
    exchanged, which every later activity then works from (CM_CF_DOC_PACKETS carries it forward).
    An activity that serves something also gets the Service Confirmation ("emails"): the trainee writes the
-   confirmation email that goes out with the certified mailing, the adjuster answers in writing, the trainee
+   email that serves the demand on the adjuster, the adjuster acknowledges receipt in writing, the trainee
    answers the follow-up that tests the UPL line, and then converts the whole exchange into a memorandum, files
    it in the CMS under the firm's naming convention, which keeps it on their Backup Drive in its folder too. Their marks, their email, the
    choice they made and what they filed are kept on their record and shown to their trainer. */
@@ -1394,9 +1394,9 @@ window.cmCaseFlow.auditHandIn = function(blockId){
   benchRepaint(blockId);
 };
 
-/* ---------- the Service Confirmation: the confirmation email, the acknowledgment, and the filed document ----------
-   Proving a demand left the office is half of it. The other half is the email the Case Manager writes with the
-   certified mailing, the adjuster's written acknowledgment — which fixes the date the clock started from the
+/* ---------- the Service Confirmation: the serving email, the acknowledgment, and the filed document ----------
+   Proving a demand left the office is half of it. The other half is the email the Case Manager writes to serve it
+   on the adjuster, and the adjuster's written acknowledgment — which fixes the date the clock started from the
    carrier's own words — and the follow-up that tests whether the Case Manager will move a deadline that is not
    theirs. Then the exchange stops being a mailbox thread: it is converted into a memorandum, filed into the open
    case in the CMS under the firm's naming convention, and backed up to the trainee's Drive. */
@@ -1412,14 +1412,11 @@ function svWorkspace(blockId){
   const e = serviceOf(blockId), r = svRec(blockId), a = auditOf(blockId);
   const sent = !!r.sent, chose = r.choice != null, right = chose && !!(e.press.choices[r.choice] || {}).ok;
   const conv = !!r.converted, filed = !!r.filed, drive = !!r.drive;
-  const mailBox = `<table class="sv-mail"><tr><th>Channel</th><th>Sent</th><th>Proof</th><th>Proof dated</th></tr>
-      <tr><td>${E(e.mail.channel)}</td><td>${E(e.mail.sent)}</td><td>${E(e.mail.proof)}</td><td>${E(e.mail.receipt)}</td></tr></table>
-    <p class="sv-note">Mail proves it left this office. It does not prove the carrier read it, and it is not what the carrier's file will show. That is what the email is for.</p>`;
   const compose = sent
-    ? `<div class="sv-sentmail"><div class="sv-eh"><b>To</b> ${E(e.to)}<br><b>Cc</b> ${E(e.cc || "—")}<br><b>Subject</b> ${E(e.subject)}<br><b>Sent</b> ${E(e.mail.sent)}, 4:21 p.m.<br><b>Attachment</b> ${E(e.attachment)}</div><pre class="sv-body">${E(r.body)}</pre></div>`
+    ? `<div class="sv-sentmail"><div class="sv-eh"><b>To</b> ${E(e.to)}<br><b>Cc</b> ${E(e.cc || "—")}<br><b>Subject</b> ${E(e.subject)}<br><b>Sent</b> ${E(e.sent)}, 4:21 p.m.<br><b>Attachment</b> ${E(e.attachment)}</div><pre class="sv-body">${E(r.body)}</pre></div>`
     : `<p class="sv-brief">${hl(e.brief)}</p>
       <div class="sv-eh"><b>To</b> ${E(e.to)}<br><b>Cc</b> ${E(e.cc || "—")}<br><b>Subject</b> ${E(e.subject)}<br><b>Attachment</b> ${E(e.attachment)}</div>
-      <textarea class="sv-write" id="svw_${E(blockId)}" rows="9" placeholder="Write the email as you would send it." aria-label="Your confirmation email">${E(r.body || "")}</textarea>
+      <textarea class="sv-write" id="svw_${E(blockId)}" rows="9" placeholder="Write the email as you would send it." aria-label="Your email serving the demand">${E(r.body || "")}</textarea>
       <ul class="sv-req">${e.required.map(q => `<li>${E(q.label)}</li>`).join("")}</ul>
       <div class="sv-row"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.svSend('${blockId}')">Send it to the adjuster</button>
         <span class="sv-msg" id="svm_${E(blockId)}" aria-live="polite">${r.tries ? `Not sent yet — ${r.tries} attempt${r.tries === 1 ? "" : "s"}.` : ""}</span></div>`;
@@ -1447,14 +1444,13 @@ function svWorkspace(blockId){
   const model = `<p class="sv-note">The firm's own memorandum for this service, for you to read yours against: ${exDoc(e.model) ? exDocLink(e.model) : E(e.model)}.</p>`;
   return `<div class="cfx-modal-in card lesson-card cfx-sv"><div class="cfx-modal-h"><b>✉ ${E(e.title)}</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>
     <div class="sv-top"><span>${E(e.kicker)}</span>${a && !exRec(blockId).at ? `<span class="sv-warn">Audit the set before you serve it: nothing goes out that has not been audited.</span>` : ""}</div>
-    ${svStep(1, "Confirmed by mail", "done", mailBox)}
-    ${svStep(2, "The confirmation email you send", sent ? "done" : "now", compose)}
-    ${svStep(3, "The adjuster's acknowledgment", sent ? "done" : "wait", reply)}
-    ${svStep(4, "The follow-up that tests the line", chose ? (right ? "done" : "no") : (sent ? "now" : "wait"), press)}
-    ${svStep(5, "Convert the exchange into a document", conv ? "done" : (right ? "now" : "wait"), convert)}
-    ${svStep(6, "File it in the CMS", filed ? "done" : (conv ? "now" : "wait"), file)}
-    ${svStep(7, "Kept on your Backup Drive", drive ? "done" : (filed ? "now" : "wait"), back)}
-    ${svStep(8, "Read yours against the firm's", "note", model)}</div>`;
+    ${svStep(1, "The email that serves the demand", sent ? "done" : "now", compose)}
+    ${svStep(2, "The adjuster's written acknowledgment", sent ? "done" : "wait", reply)}
+    ${svStep(3, "The follow-up that tests the line", chose ? (right ? "done" : "no") : (sent ? "now" : "wait"), press)}
+    ${svStep(4, "Convert the exchange into a document", conv ? "done" : (right ? "now" : "wait"), convert)}
+    ${svStep(5, "File it in the CMS", filed ? "done" : (conv ? "now" : "wait"), file)}
+    ${svStep(6, "Kept on your Backup Drive", drive ? "done" : (filed ? "now" : "wait"), back)}
+    ${svStep(7, "Read yours against the firm's", "note", model)}</div>`;
 }
 window.cmCaseFlow.service = function(blockId){
   if(!serviceOf(blockId) || document.getElementById("cf-sv")) return;   // one workspace at a time, or the email being written is lost behind it
@@ -1522,12 +1518,12 @@ async function svBuild(blockId){
   e.convert.sections.forEach(s => {
     h3(s.h);
     s.lines.forEach(l => para("— " + l));
-    if(/confirmation email/i.test(s.h)){
+    if(/email that served|confirmation email/i.test(s.h)){
       para(`To: ${e.to}`, {size: 9}); para(`Cc: ${e.cc || "—"}`, {size: 9}); para(`Subject: ${e.subject}`, {size: 9});
-      para(`Sent: ${e.mail.sent}, 4:21 p.m. · Attachment: ${e.attachment}`, {size: 9, color: soft});
+      para(`Sent: ${e.sent}, 4:21 p.m. · Attachment: ${e.attachment}`, {size: 9, color: soft});
       String(r.body).split(/\n{2,}/).forEach(p => para(p.replace(/\s*\n\s*/g, " "), {pad: 12}));
     }
-    if(/acknowledg/i.test(s.h)){
+    if(/adjuster's acknowledg/i.test(s.h)){
       para(`From: ${e.reply.from}`, {size: 9}); para(`Sent: ${e.reply.date}, ${e.reply.time}`, {size: 9}); para(`Subject: ${e.reply.subject}`, {size: 9});
       String(e.reply.body).split(/\n{2,}/).forEach(p => para(p.replace(/\s*\n\s*/g, " "), {pad: 12}));
     }
@@ -4210,9 +4206,6 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .sv-n{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;font-weight:800;flex:0 0 auto;}
 .sv-step.sv-done .sv-n{background:#1d5c3a;}
 .sv-b{margin-top:8px;font-size:13.5px;line-height:1.5;}
-.sv-mail{width:100%;border-collapse:collapse;font-size:12.5px;}
-.sv-mail th,.sv-mail td{border:1px solid var(--line);padding:4px 7px;text-align:left;}
-.sv-mail th{background:#F4F6FA;color:var(--navy);}
 .sv-note{color:var(--ink-soft);margin:6px 0 0;}
 .sv-brief{margin:0 0 8px;}
 .sv-eh{font-family:ui-monospace,Menlo,monospace;font-size:12px;background:#F4F6FA;border:1px solid var(--line);border-radius:8px;padding:7px 9px;margin:0 0 8px;line-height:1.6;}

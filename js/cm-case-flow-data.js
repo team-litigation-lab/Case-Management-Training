@@ -190,14 +190,14 @@ window.CM_CASE_FLOW = {
       "Corroboration: EMS report (neck complaint on the DOL) · Northgate attendance (called out 02/09–02/13 citing neck pain) · texts to his mother 02/07–02/15 · the pharmacy receipt · the urgent-care history · Dr. Reyes's Causation Letter (06/19/2026)"
     ]},
     {after: "d3m2-a1", title: "The BI Demand and the Fork", group: "money", items: [
-      "07/20/2026 time-limited BI demand to Keystone for the $10,000 limits, by certified mail and email · received 07/22 · 30-day window → 08/21/2026",
+      "07/20/2026 time-limited BI demand to Keystone for the $10,000 limits, emailed to Dana Whitfield with the 81-page Demand Package · receipt acknowledged in writing 07/22 · 30-day window → 08/21/2026",
       "Conditions: payment of limits, a Limited Release of Robert Smith and Keystone only, and Smith's affidavit of no other insurance",
       "08/05/2026 Keystone offers $3,500, citing the gap and calling the MRI degenerative · 08/06 rebuttal (Atty. Thorne approved): the radiologist's finding, the Causation Letter, the EMS report, the Gap Explanation Record",
       "This is the fork. Track A (Case Flow Day 4): the file settles. Track B (Day 4's ADR, then Day 5's litigation): Keystone stonewalls and the case goes to suit."
     ]},
     {after: "d3m4-a2", title: "Track A: The File Settles", group: "money", items: [
       "08/12/2026 Keystone tenders $10,000 · UM consents 08/24 (Harbor Point) and 08/26 (Cardinal State) · Keystone's General Release (08/14) revised to a Limited Release, signed 08/28 · check into IOLTA 09/04",
-      "08/31 Host UM and Relative UM demands · Harbor Point offers $8,000 (09/14), pays $20,000 limits 09/29 · Cardinal State offers $6,000 (10/01), tenders $10,000 limits 10/06",
+      "08/31 Host UM and Relative UM demands, emailed to Marcus Bell and Teresa Okafor · Harbor Point offers $8,000 (09/14), pays $20,000 limits 09/29 · Cardinal State offers $6,000 (10/01), tenders $10,000 limits 10/06",
       "Gross recovery $40,000.00",
       "Liens: Peach State (fully insured plan) $1,860.00 → $1,240.00 (10/09) · Riverton Spine & Rehab $6,290.00 billed → $6,105.00 audited → $4,580.00 (10/12)",
       "Net Sheet: fee $13,333.33 · costs $486.75 · liens $5,820.00 · net to John Doe $20,359.92 (BI stream $5,089.98, UM stream $15,269.94)",
@@ -3674,8 +3674,8 @@ window.CM_CASE_FLOW = {
          opts: ["The Case Manager, who built the ledger", "Dana Whitfield, Keystone's adjuster", "Peach State, as the plan asserting reimbursement", "Atty. Thorne, under the governing collateral-source rule"],
          a: 3, r: "It turns on a collateral-source rule that varies by state. The Case Manager shows both columns; the choice is counsel's."},
         {q: "In the pre-demand strategy session, which of these may the Case Manager recommend?",
-         opts: ["Serving the demand by certified mail with return receipt and by email, so receipt can be proved", "Demanding the $10,000 BI limits", "Claiming billed rather than paid amounts", "Sending the Host UM demand now, alongside the BI demand"],
-         a: 0, r: "Service method is operational, so you may recommend it, within whatever the governing statute requires for a Time-Limited Demand (Atty. Thorne confirms and approves). The demand figure and billed-vs-paid are his legal calls. A UM demand now would be premature: the UM layers owe nothing until BI is exhausted, and settling BI without their consent is what puts them at risk."},
+         opts: ["Emailing the demand to Dana Whitfield and asking for her written acknowledgement of receipt, so receipt can be proved", "Demanding the $10,000 BI limits", "Claiming billed rather than paid amounts", "Sending the Host UM demand now, alongside the BI demand"],
+         a: 0, r: "Service method is operational, so you may recommend it; Atty. Thorne approves it. The demand figure and billed-vs-paid are his legal calls. A UM demand now would be premature: the UM layers owe nothing until BI is exhausted, and settling BI without their consent is what puts them at risk."},
         {q: "Northgate's HR letter verifies 9 missed shifts at 8 h × $22.00, but five of them (02/09–02/13/2026) fall before John Doe's first treatment and carry no provider work note. In the audited Specials, the Case Manager:",
          opts: ["Drops the five shifts and claims only four: $704.00", "Asks Dr. Reyes for a work note backdated to cover 02/09–02/13/2026", "Keeps $1,584.00, flags the five shifts with Northgate's Attendance Record (called out citing neck pain) as their support, and routes them to Atty. Thorne", "Keeps $1,584.00 and leaves the five shifts unmentioned so Keystone doesn't notice them"],
          a: 2, r: "Flag, never drop, never hide. 9 × 8 h × $22.00 = $1,584.00, verified by Northgate. Five of the shifts fall inside the 14-Day Gap: record them exactly as the Attendance Record shows them, beside John Doe's own explanation of the gap. How they are presented is Atty. Thorne's call."},
@@ -3893,7 +3893,7 @@ window.CM_CASE_FLOW = {
         notes: [
           "Open by reading two first lines aloud: “On 02/06/2026 John Doe was a front-seat passenger…” and “John Doe is at MMI with $16,401.40 in audited Specials against a $10,000 BI limit, and I need your decisions.” Ask which one Atty. Thorne can act on.",
           "Ask the room: “Which risk would you be tempted to leave out of the brief?” It is usually the 2021 low-back visits. Then ask what happens when Keystone finds them first.",
-          "Police the recommend line hard. “Certified mail with return receipt and email, so we can prove receipt” is operational. “We should demand limits” is not the Case Manager's to say, even when the numbers make it look obvious.",
+          "Police the recommend line hard. “Email the demand to Dana Whitfield and get her written acknowledgement of receipt, so we can prove receipt” is operational. “We should demand limits” is not the Case Manager's to say, even when the numbers make it look obvious.",
           "Tie it back to Day 2: the decisions change the picture, so the Case Plan is superseded and re-routed, not quietly edited."
         ]
       },
@@ -3918,7 +3918,7 @@ window.CM_CASE_FLOW = {
             "Decision recorded: the gap addressed up front in the package, its documentation leading",
             "Decision recorded: the UM consent plan. No UM demand until the BI tender is documented. On tender, written consent-to-settle requests to Harbor Point and Cardinal State before the BI settlement is accepted or any release is signed. Each may substitute its own payment of the $10,000 to preserve its subrogation against Robert Smith, within the window its policy or the governing statute sets (Atty. Thorne confirms; the CM dockets it). The demand's terms leave room for those windows. The release is limited to Robert Smith and Keystone.",
             "Billed-vs-paid recorded as Atty. Thorne's decision, in his words",
-            "Recommendations kept operational (e.g., certified mail with return receipt and email; the acceptance window docketed from proof of receipt); no demand figure proposed",
+            "Recommendations kept operational (e.g., email the demand to Dana Whitfield and request her written acknowledgement of receipt; the acceptance window docketed from that acknowledgement); no demand figure proposed",
             "Each decision read back, dated, attributed and tasked with an owner and a date; Case Plan marked superseded and re-routed"
           ]
         },
@@ -4039,11 +4039,11 @@ window.CM_CASE_FLOW = {
       title: "BI & UM Demand Execution",
       about: "From a $10,000 time-limited BI demand that Keystone has to answer, to the Host UM and Relative UM demands behind it: clear terms, proven delivery, BI exhaustion, written consents and a Limited Release.",
       quiz: [
-        {q: "Keystone received the certified-mail BI demand on 07/22/2026. Its 30-day acceptance window closes on:",
+        {q: "Dana Whitfield acknowledged the emailed BI demand in writing on 07/22/2026. Its 30-day acceptance window closes on:",
          opts: ["08/19/2026", "08/21/2026", "08/22/2026", "08/20/2026"],
-         a: 1, r: "The window runs 30 days from receipt: 07/22/2026 + 30 = 08/21/2026, a Friday. 08/19/2026 counts from the 07/20 mailing (the wrong trigger), 08/22/2026 adds a calendar month, and 08/20/2026 counts the day of receipt as day one."},
+         a: 1, r: "The window runs 30 days from her written acknowledgement of receipt: 07/22/2026 + 30 = 08/21/2026, a Friday. 08/19/2026 counts from the 07/20 send date (the wrong trigger), 08/22/2026 adds a calendar month, and 08/20/2026 counts the day of receipt as day one."},
         {q: "Which of these would let Keystone refuse the Time-Limited Demand safely?",
-         opts: ["A window of 30 days from receipt", "A release limited to Robert Smith and Keystone", "A demand for $16,401.40, the full Specials", "Service by certified mail and email"],
+         opts: ["A window of 30 days from receipt", "A release limited to Robert Smith and Keystone", "A demand for $16,401.40, the full Specials", "Service by email to Dana Whitfield, with her written acknowledgement of receipt"],
          a: 2, r: "Keystone's BI limit is $10,000. A demand above the limit is one Keystone cannot accept within its policy, so refusing it generally sets nothing up (confirm the governing rule). The other three are what make the demand hold."},
         {q: "Why can John Doe's file still reach the full $20,000 Host UM limit after Keystone pays $10,000?",
          opts: ["Harbor Point confirmed in writing (03/02/2026) that its UM is add-on, so the BI payment does not reduce it", "UM limits are never reduced by a BI payment", "PIP's $5,000 covers the BI offset", "Cardinal State pays whatever Harbor Point deducts"],
@@ -4055,8 +4055,8 @@ window.CM_CASE_FLOW = {
          opts: ["Damages above the $30,000 already reached through the $10,000 BI and the $20,000 Host UM", "Damages above the $10,000 BI only, the same showing as Harbor Point's package", "Only that John Doe is a resident relative under Margaret Doe's policy (03/09/2026)", "A cross-reference to Harbor Point's package, since the two claims share one file"],
          a: 0, r: "Relative UM is excess: Cardinal State answers only above the $30,000 from BI and Host UM, up to $10,000. Each carrier gets its own complete package with the exhaustion proof on page one; the damages figure itself is Atty. Thorne's valuation."},
         {q: "How is the BI Time-Limited Demand served?",
-         opts: ["Email only", "Certified mail with return receipt AND email, both logged", "Regular mail", "By phone to Dana Whitfield"],
-         a: 1, r: "The letter names what starts the clock. Serve it both ways, log both and docket from receipt."},
+         opts: ["By email, with the deadline docketed from the 07/20/2026 send date", "By email to Dana Whitfield from the Email Workspace, logged, with her written acknowledgement of receipt requested", "Regular mail", "By phone to Dana Whitfield"],
+         a: 1, r: "The letter says the 30 days run from her written acknowledgement of receipt. Email it with the Demand Package attached, log it, and docket from her acknowledgement (07/22/2026), never from the send date."},
         {q: "Under the BI demand's terms, who is released?",
          opts: ["Everyone, both UM carriers included", "Robert Smith and Keystone only, for the BI claim only", "Keystone only", "Robert Smith, Keystone and Harbor Point"],
          a: 1, r: "A Limited Release: Smith and Keystone, the BI claim only. The Civic's PD claim stays open."},
@@ -4076,7 +4076,7 @@ window.CM_CASE_FLOW = {
         kind: "lesson", id: "d3m1-l1",
         title: "Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup",
         topic: "What makes a $10,000 demand one Keystone has to answer",
-        visual: "Left half: a Time-Limited Demand Letter on navy-banded letterhead, five orange numbered badges pinned to its parts: ① the $10,000 amount (within limits), ② the release and affidavit terms (clear), ③ the conditions and the 30 days to meet them (reasonable), ④ the enclosure list (documented), ⑤ the deadline and delivery lines (timed). Right half: a horizontal clock bar running 07/20/2026 SERVED → 07/22/2026 RECEIVED (a navy mono pill with a return-receipt icon) → 08/21/2026 WINDOW CLOSES in orange. Above the bar, a red danger callout: “An ambiguous term is an escape hatch.” Bottom strip, a full-width navy band in white type: CLEAR · REASONABLE · WITHIN LIMITS · DOCUMENTED · TIMED. The argument: each badge is a door Keystone could refuse through, and the demand shuts all five.",
+        visual: "Left half: a Time-Limited Demand Letter on navy-banded letterhead, five orange numbered badges pinned to its parts: ① the $10,000 amount (within limits), ② the release and affidavit terms (clear), ③ the conditions and the 30 days to meet them (reasonable), ④ the enclosure list (documented), ⑤ the deadline and delivery lines (timed). Right half: a horizontal clock bar running 07/20/2026 SERVED → 07/22/2026 ACKNOWLEDGED (a navy mono pill with a reply-email icon) → 08/21/2026 WINDOW CLOSES in orange. Above the bar, a red danger callout: “An ambiguous term is an escape hatch.” Bottom strip, a full-width navy band in white type: CLEAR · REASONABLE · WITHIN LIMITS · DOCUMENTED · TIMED. The argument: each badge is a door Keystone could refuse through, and the demand shuts all five.",
         tell: {
           why: "Robert Smith carries $10,000; John Doe's Specials alone are $16,401.40. A Time-Limited Demand for the limits makes Keystone decide on the record. Vague, over limits, thin or unproven: a refusal costs it nothing. Clear, reasonable, within limits, documented and timed: an unreasonable refusal can matter.",
           rules: [
@@ -4085,7 +4085,7 @@ window.CM_CASE_FLOW = {
             "Clear: every term acceptable as written: $10,000; who is released (Robert Smith and Keystone only) and for what (the BI claim only; the Civic's PD claim stays open); a Limited Release; Smith's affidavit of no other insurance; how to accept and by when; when payment is due after acceptance (Atty. Thorne sets it).",
             "Reasonable: ask only what Keystone can deliver in time. Its limit, a Limited Release and its insured's affidavit qualify; 30 days leaves time to get the affidavit. A condition it can't meet, or a short fuse, is its defense.",
             "Documented: the Big Four complete, enough to evaluate the claim inside the window. A carrier can't be faulted for refusing what it was never shown.",
-            "Timed and proven: the letter names what starts the clock (delivery of the certified mailing). Serve by certified mail, return receipt, AND email; log both; docket from receipt: 07/22/2026 + 30 = 08/21/2026 (Fri).",
+            "Timed and proven: the letter names what starts the clock (the adjuster's written acknowledgement of receipt). Email it to Dana Whitfield from the Email Workspace, the Demand Package attached; log it; docket from her acknowledgement: 07/22/2026 + 30 = 08/21/2026 (Fri). A state's statute can require a specific delivery method for a Time-Limited Demand; Atty. Thorne confirms whether one governs this file.",
             "Answer the gap first: name the 14 days (02/06 → 02/20/2026), say why (no car until 02/18, cost worry, hand numbness from 02/18), and prove continuity: the EMS report, the Northgate call-outs (02/09–02/13), the urgent-care onset note, Dr. Reyes's Causation Letter (06/19/2026).",
             "Lead causation with the 03/13/2026 MRI: a C5-C6 herniation with “no significant degenerative change at the adjacent levels.” That line answers “degenerative.”",
             "Present, don't compile. Demand at MMI (06/12/2026), future care narrated; the 30-Day Rule dockets MMI + 30 (07/12/2026). A later date (07/20/2026) is Atty. Thorne's call, reason recorded.",
@@ -4104,18 +4104,18 @@ window.CM_CASE_FLOW = {
             ["Clear", "Release of Smith and Keystone only; Smith's affidavit", "A vague term is a reason to refuse"],
             ["Reasonable", "Conditions it can meet, 30 days to meet them", "An impossible ask is a safe refusal"],
             ["Documented", "Big Four, the gap answered up front", "Never shown the claim"],
-            ["Timed", "07/22 → 08/21/2026, return receipt on file", "No proof of receipt, no clock"]
+            ["Timed", "07/22 → 08/21/2026, written acknowledgement on file", "No proof of receipt, no clock"]
           ]
         },
         ops: [
           ["MMI declared (06/12/2026)", "Docket MMI + 30 and open the Demand Package task", "Docket System · CMS → Tasks", "07/12/2026 falls on a Sunday. It is an internal target, so the firm works it early, on Fri 07/10; legal deadlines counted forward roll to the next business day (Day 4); a later service date recorded as Atty. Thorne's, with the reason"],
-          ["Atty. Thorne approves the terms", "Record them exactly before drafting", "CMS → Case Notes", "$10,000; Limited Release of Smith and Keystone only, BI claim only (the PD claim excluded); Smith's affidavit; 30 days from receipt to accept; payment due as he sets it"],
-          ["Return receipt comes back showing delivery 07/22/2026", "Compute and docket the acceptance deadline with reminders", "Docket System", "08/21/2026 docketed from the receipt date, not the mailing date"],
+          ["Atty. Thorne approves the terms", "Record them exactly before drafting", "CMS → Case Notes", "$10,000; Limited Release of Smith and Keystone only, BI claim only (the PD claim excluded); Smith's affidavit; 30 days to accept, from the adjuster's written acknowledgement of receipt; payment due as he sets it"],
+          ["Dana Whitfield confirms receipt in writing (07/22/2026)", "Compute and docket the acceptance deadline with reminders", "Docket System", "08/21/2026 docketed from her written acknowledgement, not the send date; if none comes, follow up with her the same day and escalate to Atty. Thorne"],
           ["Keystone writes or calls before the deadline", "Log it word for word and route it to Atty. Thorne", "CMS → Communications Log · CMS → Tasks → Escalate", "Routed the same day; the CM changes nothing on terms or time, and restates the approved terms only where Atty. Thorne's written authority says so"]
         ],
         best: [
           "Know which value-drivers the demand leads with: the MRI herniation, the injection, the residual right-arm paresthesia at MMI, clear liability.",
-          "Docket the deadline from the receipt date on the return receipt, never from the mailing date.",
+          "Docket the deadline from the date of the adjuster's written acknowledgement, never from the send date or a guess.",
           "The window is for acceptance, not payment: Keystone accepted by 08/21/2026 and its check arrived 09/04/2026. When payment is due after acceptance is a separate term Atty. Thorne sets.",
           "Adjusters use gaps to argue the injury was minor, healed early, was over-treated or came from something else. The only gap explanation that holds up against them is John Doe's own factual explanation, supported by verifiable written documentation.",
           "Pitfall: a demand with no stated deadline, or one that doesn't say what starts the clock.",
@@ -4136,7 +4136,7 @@ window.CM_CASE_FLOW = {
         },
         notes: [
           "Open with the arithmetic on the board: $16,401.40 in Specials against a $10,000 policy. Ask: “What makes Keystone pay all of it, inside 30 days?” Then reveal the five elements one at a time.",
-          "Put this to the room: “The email reached Dana Whitfield on 07/20 and the certified mail on 07/22. When does the window close, and how would Keystone know?” The answer is 08/21/2026, because the letter says the clock runs from delivery of the certified mailing.",
+          "Put this to the room: “The demand went to Dana Whitfield by email on 07/20 and she confirmed receipt in writing on 07/22. When does the window close, and how would Keystone know?” The answer is 08/21/2026, because the letter says the clock runs from her written acknowledgement of receipt.",
           "Watch for trainees who call it a “bad-faith letter.” It is a Time-Limited Demand. Whether a refusal is bad faith is a legal conclusion under the governing law, and it is Atty. Thorne's.",
           "The gap goes on page one, not in an appendix. Keystone will lean on it anyway (it does, on 08/05); a demand that explained it first has already answered."
         ]
@@ -4147,29 +4147,30 @@ window.CM_CASE_FLOW = {
         transition: "The audit is done and Atty. Thorne has approved the terms. We serve the Time-Limited Demand on Keystone, and prove it arrived.",
         title: "Serving the $10,000 BI Time-Limit Demand Package",
         topic: "Skill Activity 1 — audit it, serve it, prove it",
-        visual: "A three-column assembly board. Left: the Demand Package as five tabbed cream folders in reading order — TERMS · THE GAP, ANSWERED · MEDICAL SPECIALS · LIABILITY · SPECIAL DAMAGES — each tab carrying an orange numbered badge. Centre: a navy service card with two chips joined by a bold AND, CERTIFIED MAIL (RETURN RECEIPT) and EMAIL, and beneath it a return-receipt icon stamped 07/22/2026 in a mono pill. Right: a docket card with 08/21/2026 set large in orange and two reminder pills above it. Along the bottom, a red danger strip: “Counted from the mailing date = the wrong deadline.” The eye travels left to right: build, serve, prove.",
+        visual: "A three-column assembly board. Left: the Demand Package as five tabbed cream folders in reading order — TERMS · THE GAP, ANSWERED · MEDICAL SPECIALS · LIABILITY · SPECIAL DAMAGES — each tab carrying an orange numbered badge. Centre: a navy service card showing the sent email to DANA WHITFIELD with the 81-page Demand Package attached (07/20/2026), and beneath it her reply, WRITTEN ACKNOWLEDGEMENT, stamped 07/22/2026 in a mono pill. Right: a docket card with 08/21/2026 set large in orange and two reminder pills above it. Along the bottom, a red danger strip: “Counted from the send date = the wrong deadline.” The eye travels left to right: build, serve, prove.",
         act: {
-          scenario: "File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) and the Gap Explanation Record are on file; the pre-demand audit put the Specials at $16,401.40. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.",
-          prompt: "Audit the draft against the Big Four and the Final Scrub, log each deficiency as an assigned CMS task, and assemble the package with the gap answered on page one of the timeline. Once Atty. Thorne has signed, serve it on Keystone by certified mail with return receipt AND by email, and log both. When the return receipt comes back dated 07/22/2026, docket the acceptance deadline from it, with reminders. Graded judgment: what starts the clock, and what you do if Keystone asks for more time.",
+          scenario: "File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) and the Gap Explanation Record are on file; the pre-demand audit put the Specials at $16,401.40. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from Dana Whitfield's written acknowledgement of receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.",
+          prompt: "Audit the draft against the Big Four and the Final Scrub, log each deficiency as an assigned CMS task, and assemble the package with the gap answered on page one of the timeline. Once Atty. Thorne has signed, email it to Dana Whitfield from the Email Workspace with the Demand Package attached, ask her to confirm receipt in writing, and log it. When her written acknowledgement arrives on 07/22/2026, docket the acceptance deadline from it, with reminders. Graded judgment: what starts the clock, and what you do if Keystone asks for more time.",
           tool: "Action Plan Editor → Demand Package · CMS → Documents → Outgoing · Email Workspace · Docket System",
           output: "An audited, served Time-Limited Demand with proof of delivery on file and 08/21/2026 docketed.",
           checkpoints: [
             "Amount $10,000, Keystone's BI limit per its Dec Page (03/20/2026); nothing demanded above limits",
-            "Terms match Atty. Thorne's approval word for word: Limited Release of Robert Smith and Keystone only; Smith's affidavit of no other insurance; 30 days from receipt of the certified mailing",
+            "Terms match Atty. Thorne's approval word for word: Limited Release of Robert Smith and Keystone only; Smith's affidavit of no other insurance; 30 days from Dana Whitfield's written acknowledgement of receipt",
             "Big Four complete: medical Specials $14,817.40; the narrative (mechanism, pain, work and life impact, consistent with the records); liability proof (RPD-26-018842 citation, Ruth Calloway, doorbell video); special damages $1,584.00 wages (Northgate HR letter), the $312.40 Riverton Drug receipts counted once, inside the medical Specials. Total $16,401.40 (billed figures; whether billed or paid amounts are the measure under the governing collateral-source or paid-versus-incurred rule is Atty. Thorne's call; confirm the governing rule)",
             "Final Scrub: the 05/04/2026 duplicate removed (Riverton Spine & Rehab $6,290.00 → $6,105.00), every final balance re-verified with the provider, the 2021 low-back visits disclosed as resolved and a different region",
             "Gap answered on page one: 02/06 → 02/20/2026 with its reasons, the EMS report, the 02/20 urgent-care onset note and the 06/19/2026 Causation Letter; the 19-day disruption (04/02–04/21/2026) explained too",
             "Every bill paired with its medical-necessity why; future ESIs ($3,400–$6,800) in the narrative, not the Specials; the Civic's PD claim (Leah Moran) kept out",
             "Each deficiency logged as a dated, assigned CMS task, not fixed silently",
-            "Signed by Atty. Thorne; served 07/20/2026 by certified mail (return receipt) AND email; both logged",
-            "Return receipt filed; deadline docketed 08/21/2026 (07/22 + 30 days) with reminders",
+            "Signed by Atty. Thorne; emailed to Dana Whitfield 07/20/2026 from the Email Workspace, the 81-page Demand Package (Exhibits A–J) attached; logged",
+            "Her written acknowledgement (07/22/2026, 9:06 a.m.) filed with the sent email as proof of delivery; deadline docketed 08/21/2026 (07/22 + 30 days) with reminders",
             "Any extension request or response from Keystone routed to Atty. Thorne the same day, never answered by the CM"
           ]
         },
         ops: [
           ["Draft package on file", "Audit against the Big Four and the Final Scrub; assign each fix", "CMS → Tasks", "Every deficiency is a dated, assigned task"],
-          ["Atty. Thorne signs", "Serve by certified mail with return receipt and by email", "CMS → Documents → Outgoing · Email Workspace", "Both channels logged 07/20/2026"],
-          ["Return receipt dated 07/22/2026", "Docket the acceptance deadline and reminders", "Docket System", "08/21/2026 on the docket, counted from receipt"]
+          ["Atty. Thorne signs", "Email the demand to Dana Whitfield with the Demand Package attached; ask for written acknowledgement of receipt", "CMS → Documents → Outgoing · Email Workspace", "Sent and logged 07/20/2026"],
+          ["Dana Whitfield acknowledges receipt in writing (07/22/2026)", "Docket the acceptance deadline and reminders", "Docket System", "08/21/2026 on the docket, counted from her acknowledgement"],
+          ["No written acknowledgement", "Follow up with Dana Whitfield the same day; escalate to Atty. Thorne", "Email Workspace · CMS → Tasks → Escalate", "Nothing docketed from the send date or a guess"]
         ],
         best: [
           "Order the package the way the adjuster should read it: the terms, the gap answered, then the proof.",
@@ -4177,7 +4178,7 @@ window.CM_CASE_FLOW = {
           "Re-verify every provider balance in the week of service; a stale balance makes a wrong demand.",
           "Disclose a prior condition, never hide it: in the same region, show aggravation; John Doe's 2021 visits were low back, resolved, with no neck history.",
           "Pitfall: fixing the draft yourself without assigning and tracking the fix.",
-          "Pitfall: counting the window from the mailing date instead of the receipt date.",
+          "Pitfall: counting the window from the send date instead of the written acknowledgement.",
           "Pitfall: answering Dana Whitfield's request for more time yourself."
         ],
         sources: ["D2#13", "D2#14", "D2#15", "D2#17", "D2#18"],
@@ -4185,8 +4186,8 @@ window.CM_CASE_FLOW = {
           ai: [
             ["Package completeness", 20, "Big Four present; $14,817.40 + $1,584.00 = $16,401.40; the 05/04/2026 duplicate removed"],
             ["Terms fidelity", 15, "Amount, release scope, affidavit and window exactly as approved"],
-            ["Service and proof", 15, "Certified mail with return receipt and email, both logged; return receipt filed"],
-            ["Deadline", 10, "08/21/2026 docketed from the 07/22/2026 receipt"]
+            ["Service and proof", 15, "Emailed to Dana Whitfield and logged; her written acknowledgement filed with the sent email"],
+            ["Deadline", 10, "08/21/2026 docketed from the 07/22/2026 written acknowledgement"]
           ],
           trainer: [
             ["Audit judgment", 20, "Found the faults that matter (the gap's placement, the duplicate, stale balances) and assigned each"],
@@ -4195,9 +4196,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         notes: [
-          "Hand out the draft with three planted faults: the 05/04/2026 duplicate still in the draft's billing exhibit (the CMS ledger was corrected in the pre-demand audit), the gap in an appendix, and a deadline of “30 days from the date of this letter.” Nobody mails anything until the audit is logged.",
+          "Hand out the draft with three planted faults: the 05/04/2026 duplicate still in the draft's billing exhibit (the CMS ledger was corrected in the pre-demand audit), the gap in an appendix, and a deadline of “30 days from the date of this letter.” Nobody sends anything until the audit is logged.",
           "Ask the room: “Suppose Dana Whitfield emails on day 25 asking for two more weeks. Who answers?” Atty. Thorne. The CM logs it word for word and routes it the same hour.",
-          "Grade the deadline from the return receipt. A trainee who docketed from the mailing date has the right idea and the wrong day.",
+          "Grade the deadline from the written acknowledgement. A trainee who docketed from the send date has the right idea and the wrong day.",
           "Watch the narrative's prior: three 2021 chiropractic visits for the low back, resolved, and no neck history. Disclosed and distinguished, never hidden."
         ]
       },
@@ -4233,7 +4234,7 @@ window.CM_CASE_FLOW = {
             ["Consent requests", "08/13/2026: the 30-Day Letter to both UM carriers."],
             ["Consents", "Harbor Point 08/24, Cardinal State 08/26/2026."],
             ["Limited release", "08/14 general draft revised; signed 08/28/2026."],
-            ["UM demands", "08/31/2026: Host UM $20,000; Relative UM $10,000, excess."],
+            ["UM demands", "08/31/2026: Host UM $20,000; Relative UM $10,000, excess. Each emailed to its adjuster and logged."],
             ["Check", "09/04/2026 into trust; copy to both UM files."]
           ]
         },
@@ -4297,7 +4298,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Limited Release signed (08/28/2026)", "Draft both UM demands with exhaustion proof on page one", "Action Plan Editor → UM demand templates", "Tender, Dec Page, affidavit, consents and Limited Release present in each"],
-          ["Drafts complete", "Route both to Atty. Thorne for review, deadline and signature", "CMS → Tasks → Escalate · Docket System", "Nothing served before his sign-off; the deadline he sets docketed on service"],
+          ["Drafts complete", "Route both to Atty. Thorne for review, deadline and signature", "CMS → Tasks → Escalate · Docket System", "Nothing sent before his sign-off; then each emailed to its adjuster (Marcus Bell, Teresa Okafor), logged, written acknowledgement requested; the deadline he sets docketed from it"],
           ["Keystone's check received", "Send its copy to Marcus Bell and Teresa Okafor as a supplemental exhibit", "CMS → Documents → Outgoing", "Check copy logged in both UM files the day it reaches trust"]
         ],
         best: [
@@ -4348,7 +4349,7 @@ window.CM_CASE_FLOW = {
             "Identify the one thing in this module you are least confident about (the deadline count, consent and substitution, add-on vs offset, the release), and what you would need in order to be confident."
           ],
           scale: [
-            "Computing and docketing a Time-Limited Demand's deadline from receipt",
+            "Computing and docketing a Time-Limited Demand's deadline from the written acknowledgement of receipt",
             "Auditing a Demand Package against the Big Four and the Final Scrub",
             "Presenting a Treatment Gap and a causation dispute up front",
             "Securing UM consents and a Limited Release before BI closes",
@@ -4377,7 +4378,7 @@ window.CM_CASE_FLOW = {
         },
         notes: [
           "Question 4 is the keystone and a pressure test. The right answer explains the process, not the law: nothing is signed until both consents are in and Atty. Thorne has gone through the release with him; log the call and route it the same day. A trainee who can't say what the consent protects has memorised the dates without the reason.",
-          "Put Question 6 to the room before anyone writes. The right answer still serves by certified mail as approved, since the clock runs from its receipt; logs the auto-reply; asks Keystone in writing for the covering adjuster; and tells Atty. Thorne. Any change to timing or terms is his, not the CM's.",
+          "Put Question 6 to the room before anyone writes. The right answer logs the auto-reply, which is not a written acknowledgement of receipt; follows up the same day and asks Keystone in writing for the covering adjuster; tells Atty. Thorne; and dockets nothing from the send date. Any change to timing or terms is his, not the CM's.",
           "Compare each self-rating with the score. A 5 on a block scored at 60 is a coaching conversation, and so is a 2 on a block they aced.",
           "UPL is a gate: a strong score does not survive an ethics breach."
         ]
@@ -4444,7 +4445,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Keystone receives the demand (07/22/2026)", "Build the battle map and compute the net floor", "CMS → Financial Ledger → Net Sheet · CMS → Case Notes", "Floor $12,677.63 gross on unreduced liens ($12,677.63 – $4,225.88 fee = $8,451.75); each attack matched to a dated document"],
+          ["Dana Whitfield acknowledges the demand in writing (07/22/2026)", "Build the battle map and compute the net floor", "CMS → Financial Ledger → Net Sheet · CMS → Case Notes", "Floor $12,677.63 gross on unreduced liens ($12,677.63 – $4,225.88 fee = $8,451.75); each attack matched to a dated document"],
           ["Adjuster calls with an offer", "Soft lead, professional pause, ask for her data; restate the approved demand", "Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual", "No counter; terms and the 08/21/2026 deadline unchanged"],
           ["Call ends", "Log the offer and the adjuster's exact words; report to Atty. Thorne", "CMS → Communications Log · CMS → Tasks → Escalate", "Logged and reported the same day, reasons quoted verbatim"],
           ["Adjuster stalls (“waiting on authority”)", "Name it and tie it to the deadline in writing", "Email Workspace", "Same-day email cites 08/21/2026; no open-ended callback accepted"]
@@ -4487,7 +4488,7 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 1 — hold the Limits Demand on a recorded call",
         visual: "A call-simulator screen across two-thirds of the slide: a navy header bar reading KEYSTONE MUTUAL · DANA WHITFIELD · KM-26-440871 in mono, and a live transcript where her two attacks are highlighted in red, GAP and DEGENERATIVE, each joined by an orange leader line to an evidence card in the right margin: SUMMIT MRI 03/13/2026, CAUSATION LETTER 06/19/2026, EMS RUN REPORT, GAP EXPLANATION RECORD. Above the transcript, a slim orange authority bar: HOLD $10,000 LIMITS · DEADLINE 08/21/2026 · NO COUNTER. Bottom strip: an offer-log row being filled, 08/05/2026 · $3,500 · REASONS QUOTED · REPORTED TO ATTY. THORNE. The argument: every attack meets a document, never a number.",
         act: {
-          scenario: "File date 08/05/2026. Keystone received the $10,000 time-limited BI demand on 07/22; acceptance runs to 08/21/2026. Dana Whitfield calls with $3,500: John Doe “waited two weeks,” and the MRI is “degenerative.” Atty. Thorne's written authority: restate the Limits Demand and deadline, present the record, no counter, report any offer to him the same day.",
+          scenario: "File date 08/05/2026. Dana Whitfield acknowledged the $10,000 time-limited BI demand in writing on 07/22; acceptance runs to 08/21/2026. Dana Whitfield calls with $3,500: John Doe “waited two weeks,” and the MRI is “degenerative.” Atty. Thorne's written authority: restate the Limits Demand and deadline, present the record, no counter, report any offer to him the same day.",
           prompt: "Run the call with Dana Whitfield in the Call Simulator. Before dialing, do the math check on $3,500: fee, costs, unreduced liens and John Doe's net. On the call, pause after her number and ask what data supports it; name each stall; on the gap, point only to the record: the EMS report, the Gap Explanation Record and Dr. Reyes's Causation Letter, and “degenerative” with Dr. Park's MRI language. Stay inside the written authority. Log the offer with her exact words, report it to Atty. Thorne the same day for him to convey to John Doe, and draft the 08/06 written rebuttal for his approval.",
           tool: "Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual · CMS → Communications Log · Email Workspace",
           output: "A recorded call held inside Atty. Thorne's authority, a math check on $3,500, a logged offer in the adjuster's own words, a same-day report to Atty. Thorne, and the 08/06/2026 rebuttal drafted for his approval.",
@@ -5543,7 +5544,7 @@ window.CM_CASE_FLOW = {
             "Hold the line while you test it (the “Never” rule): never bid against yourself, never apologize for a Limits Demand, never accept “that's all I have” as final. Every adjuster has a supervisor; the 09/02 escalation was that test. Any new number is Atty. Thorne's.",
             "Know what a BI impasse costs. As this file's policies are configured, Host UM pays only after BI is exhausted (paid or tendered at limits), Relative UM behind it: $40,000 frozen behind a $10,000 carrier. Exhaustion rules vary by policy and jurisdiction; Atty. Thorne confirms the governing rule.",
             "Filing is counsel's decision; its inputs are yours to verify. Liability: RPD-26-018842, Ruth Calloway, the doorbell video. Causation: the MRI, the Causation Letter, the EMS report. Damages: $16,401.40 in Specials. Time: SOL 02/06/2028, internal cutoff 11/05/2027.",
-            "Record the lapse; don't interpret it. Proof of delivery (07/22) and the 08/21 lapse may bear on Robert Smith's exposure above his limits: Atty. Thorne's analysis, never yours to raise with Keystone or John Doe."
+            "Record the lapse; don't interpret it. Proof of delivery (the sent email and Dana Whitfield's written acknowledgement, 07/22) and the 08/21 lapse may bear on Robert Smith's exposure above his limits: Atty. Thorne's analysis, never yours to raise with Keystone or John Doe."
           ],
           upl: [
             "You may document the impasse, report dates and figures, and ask Atty. Thorne for a decision. You may not recommend suit, value the claim, assess Robert Smith's exposure above his limits, or tell John Doe whether to take $3,500.",
@@ -5557,7 +5558,7 @@ window.CM_CASE_FLOW = {
           rows: [
             ["Same offer, no new reason", "$3,500 on 08/05; “final” on 08/12", "Communications Log"],
             ["Objection kept after rebuttal", "The gap and a “degenerative” MRI, answered 08/06", "Rebuttal and delivery proof"],
-            ["Demand deadline passed", "Time-Limited Demand lapsed 08/21/2026", "Return receipt (07/22); calendar"],
+            ["Demand deadline passed", "Time-Limited Demand lapsed 08/21/2026", "Written acknowledgement (07/22); calendar"],
             ["Follow-ups unanswered", "08/24 and 08/31", "Sent emails; log"],
             ["Escalation ignored", "Claims supervisor 09/02; nothing by 09/04", "Escalation email; log"]
           ]
@@ -5603,13 +5604,13 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 1 — the impasse memo: Keystone's stonewall on the 14-Day Gap",
         visual: "A single memo page on white letterhead, a navy header band reading IMPASSE MEMO · TO ATTY. ELIJAH THORNE · 09/08/2026. Four orange-numbered sections run down the page: ① CHRONOLOGY, a dated ledger from 07/20 to 09/04 with a proof chip (receipt, email, log) at the right of each row ② KEYSTONE'S GROUNDS AND OUR REBUTTAL ③ THE FROZEN STACK, three rows with the two UM rows hatched gray behind a padlock ④ DECISION REQUESTED, a cream box holding questions, not answers. In the right margin, a red-bordered guard rail lists what the memo never contains: a recommendation to sue, a value, an excess-exposure opinion.",
         act: {
-          scenario: "File date 09/08/2026, Track B. Keystone Mutual (Dana Whitfield, KM-26-440871) offered $3,500 on 08/05, citing the 14-Day Gap and a “degenerative” MRI. The 08/06 rebuttal changed nothing: on 08/12 Keystone called $3,500 “final”. The 07/20 Time-Limited Demand (received 07/22) lapsed on 08/21. Follow-ups on 08/24 and 08/31 asked for a response and the evidence Keystone relies on; neither was answered. The 48-Hour Mandate escalation to Keystone's claims supervisor on 09/02 drew nothing by 09/04. Harbor Point and Cardinal State are waiting on BI. The 08/06 rebuttal sent Dr. Helen Park's MRI read (“no significant degenerative change at the adjacent levels”), Dr. Reyes's 06/19/2026 Causation Letter, the EMS report and the Gap Explanation Record. Documented specials: $14,817.40 medical + $1,584.00 lost wages. SOL 02/06/2028 (a Sunday); firm internal hard date 02/04/2028; internal filing cutoff 11/05/2027.",
+          scenario: "File date 09/08/2026, Track B. Keystone Mutual (Dana Whitfield, KM-26-440871) offered $3,500 on 08/05, citing the 14-Day Gap and a “degenerative” MRI. The 08/06 rebuttal changed nothing: on 08/12 Keystone called $3,500 “final”. The 07/20 Time-Limited Demand (acknowledged in writing 07/22) lapsed on 08/21. Follow-ups on 08/24 and 08/31 asked for a response and the evidence Keystone relies on; neither was answered. The 48-Hour Mandate escalation to Keystone's claims supervisor on 09/02 drew nothing by 09/04. Harbor Point and Cardinal State are waiting on BI. The 08/06 rebuttal sent Dr. Helen Park's MRI read (“no significant degenerative change at the adjacent levels”), Dr. Reyes's 06/19/2026 Causation Letter, the EMS report and the Gap Explanation Record. Documented specials: $14,817.40 medical + $1,584.00 lost wages. SOL 02/06/2028 (a Sunday); firm internal hard date 02/04/2028; internal filing cutoff 11/05/2027.",
           prompt: "Draft the impasse memo to Atty. Elijah Thorne. Build a dated chronology of every event from the 07/20/2026 demand to 09/04, each tied to its proof in the Communications Log. State Keystone's grounds and the rebuttal evidence it has not answered. Show the frozen stack layer by layer with the documented Specials, then the SOL and internal dates. End with the decision you need from him, framed as questions. Graded judgment: the memo documents and asks; it recommends nothing legal, because filing is his decision.",
           tool: "Action Plan Editor → Memo · CMS → Communications Log · CMS → Tasks → Escalate",
           output: "A dated, sourced impasse memo routed to Atty. Thorne, asking for a decision and recommending none.",
           checkpoints: [
-            "Chronology complete and in order: 07/20 demand (received 07/22), 08/05 offer $3,500, 08/06 rebuttal, 08/12 “final”, 08/21 lapse, 08/24 and 08/31 follow-ups, 09/02 escalation, 09/04 no response",
-            "Every event tied to its proof: return receipt, sent email or Communications Log entry",
+            "Chronology complete and in order: 07/20 demand (acknowledged in writing 07/22), 08/05 offer $3,500, 08/06 rebuttal, 08/12 “final”, 08/21 lapse, 08/24 and 08/31 follow-ups, 09/02 escalation, 09/04 no response",
+            "Every event tied to its proof: the adjuster's written acknowledgement, sent email or Communications Log entry",
             "Keystone's grounds stated as Keystone gave them: the 14-Day Gap and a “degenerative” MRI",
             "Unanswered rebuttal listed: Dr. Helen Park's “no significant degenerative change at the adjacent levels”, Dr. Reyes's 06/19/2026 Causation Letter, the EMS report, the Gap Explanation Record",
             "Frozen stack shown: $10,000 BI unexhausted → $20,000 Host UM and $10,000 Relative UM closed; $40,000 total, $30,000 of it unreachable",
@@ -8389,7 +8390,7 @@ window.CM_CASE_FLOW = {
           ai: [
             ["Stack and Payer Order", 15, "$10,000 → $20,000 → $10,000 = $40,000 in order; PIP, Keystone PD and Bluewater outside it; Payer Order correct"],
             ["Gap and documentation", 10, "14 days (02/06 → 02/20/2026); reasons and corroboration named, including Dr. Reyes's 06/19/2026 letter"],
-            ["Settlement mechanics", 15, "08/21/2026 (30 days from receipt on 07/22); written consent before the release; $20,359.92 reconciled with the 25% / 75% allocation"],
+            ["Settlement mechanics", 15, "08/21/2026 (30 days from the written acknowledgement on 07/22); written consent before the release; $20,359.92 reconciled with the 25% / 75% allocation"],
             ["Litigation and liability", 10, "The fork explained; mediation non-binding, arbitration binding; each allegation matched to its evidence"],
             ["Completeness", 10, "Every question answered substantively"]
           ],
@@ -8625,14 +8626,14 @@ window.CM_CASE_FLOW = {
       "The first sentence on this file is short: MMI 06/12/2026, $16,401.40 in audited Specials against a $10,000 BI limit, and decisions needed before any demand is drafted. Facts follow, each sourced. The defense will test whether the **trinity** agrees: John Doe's account, the physical force of the impact and the medicals showing a C5-C6 herniation. Liability goes in final form: the Riverton PD report RPD-26-018842 citing Robert Smith for failure to stop, checked for any contributory-negligence note; Ruth Calloway's contact re-confirmed; the doorbell video squared with the scene. Property Damage proves force: Smith struck the Escape's front passenger door, John Doe's door, at about 28 mph, and Margaret Doe's Civic needed $9,255.00 in repairs.",
       "Risks are briefed through the defense's eyes, each paired with the document that answers it or an honest statement that none does. On this file the list is long: the 14-Day Gap, the 19-day disruption, the 2021 low-back visits, a possible “degenerative” reading of the MRI, the declined EMS transport, social media, a “minor impact” label, venue. Some have strong answers, such as Dr. Park's line that there is “no significant degenerative change at the adjacent levels.” Others rest mainly on John Doe's account. The temptation is to leave out the weakest one. The effect is predictable: Atty. Thorne learns about it from Keystone, at the worst moment, having built a strategy that assumed it was not there.",
       "A briefing only matters if its decisions survive the meeting. The questions only Atty. Thorne can answer are the demand's figure, terms and time limit, billed or paid, how the gap is presented, and the UM consent plan, including the consent windows and the substitution right. You lay out options with their operational consequences: who is served and how, what gets docketed, what must happen before any release is signed. Then you record each decision the same day, in his words and dated, with a task, an owner and a date, and mark the Case Plan superseded. An unrecorded decision drifts; weeks later the demand gets built on someone's memory of what he said.",
-      "Your lane is operational. You may recommend a service method, the sequence of tasks, what to request and when: “certified mail with return receipt and email, so we can prove receipt” is a Case Manager's recommendation. The demand figure, its terms and time limit, billed or paid, how the gap is argued and when UM opens are Atty. Thorne's. “Specials exceed the BI limit” is a finding; “we should demand limits” is his call, even when the numbers make it look obvious. Ask the room: when Atty. Thorne turns to you and asks what you think the demand should be, what exactly do you give him?"
+      "Your lane is operational. You may recommend a service method, the sequence of tasks, what to request and when: “email the demand to the adjuster and ask for her written acknowledgement of receipt, so we can prove receipt” is a Case Manager's recommendation. The demand figure, its terms and time limit, billed or paid, how the gap is argued and when UM opens are Atty. Thorne's. “Specials exceed the BI limit” is a finding; “we should demand limits” is his call, even when the numbers make it look obvious. Ask the room: when Atty. Thorne turns to you and asks what you think the demand should be, what exactly do you give him?"
     ],
     "d3m1-l1": [
       "A liability insurer controls the defense and settlement of claims against its insured, and in many states that control comes with a duty: to give fair consideration to a reasonable offer to settle within the policy limits. If it unreasonably refuses and a later judgment exceeds the limits, the insurer may be exposed beyond them. The rules vary, and some states set required terms by statute. A **Time-Limited Demand** exists to put that choice on the record. But the duty only bites on a demand the insurer could actually accept: one within limits, clear, reasonable, documented and timed. A vague, oversized, thin or unproven demand can be refused at no cost.",
       "John Doe's numbers explain why this matters. Robert Smith carries $10,000 with Keystone; the audited Specials alone are $16,401.40. Before anything is drafted, the foundation is confirmed: the SOL docketed for 02/06/2028; liability through Smith's stop-sign citation in RPD-26-018842, Ruth Calloway and the doorbell video; coverage through Keystone's Dec Page of 03/20/2026. The terms Atty. Thorne approved are the full $10,000 limit; a **Limited Release** of Robert Smith and Keystone only, for the BI claim only, leaving the Civic's PD claim open; Smith's affidavit of no other insurance; and 30 days, long enough for Keystone to obtain the affidavit. A condition the carrier cannot meet, or too short a fuse, becomes its defense.",
       "Documented means the Big Four are complete, because a carrier cannot be faulted for refusing what it was never shown. The gap goes on page one, not in an appendix: the 14 days from 02/06 to 02/20/2026, why (no car until 02/18, cost worry, hand numbness from 02/18), and the proof of continuity in the EMS report, the Northgate call-outs of 02/09–02/13, the urgent-care onset note and Dr. Reyes's Causation Letter of 06/19/2026. Causation leads with the 03/13/2026 MRI and Dr. Park's words, “no significant degenerative change at the adjacent levels.” MMI was 06/12/2026, so the 30-Day Rule dockets 07/12/2026; serving on 07/20/2026 instead was Atty. Thorne's call, with his reason recorded.",
-      "Timing is where a sound demand most often fails on a technicality. The letter names what starts the clock: delivery of the certified mailing. It went out 07/20/2026 by certified mail, return receipt, and by email, both logged; the receipt came back 07/22/2026, so the window closes 08/21/2026, a Friday. A trainee who dockets from the mailing date has the right idea and the wrong day, and an early or late deadline hands Keystone an argument that the demand was never valid. The same goes for a duplicate line left in an exhibit or an ambiguous release term: each one turns a refusal that might matter into one that costs Keystone nothing. The **proof of delivery** is itself evidence.",
-      "Your lane is to build, audit, serve and prove delivery of the demand Atty. Thorne approved and signed. You never set or change its terms, and you never grant an extension: if Dana Whitfield asks for more time, you log her words and route them to him the same hour. Bad faith is a legal conclusion under the governing law, so you never use the phrase with the adjuster, and any exposure above $10,000 is Atty. Thorne's analysis. If John Doe asks what the claim is worth or whether he should accept an offer, that goes to Atty. Thorne too. Ask the room: the email reached Keystone on 07/20 and the certified mail on 07/22; when does the window close, and how would Keystone know?"
+      "Timing is where a sound demand most often fails on a technicality. The letter names what starts the clock: the adjuster's written acknowledgement of receipt. It was emailed to Dana Whitfield on 07/20/2026 from the Email Workspace, the 81-page Demand Package attached, and logged; she confirmed receipt in writing on 07/22/2026, so the window closes 08/21/2026, a Friday. Had no acknowledgement come, you would follow up with her the same day and escalate to Atty. Thorne. A trainee who dockets from the send date has the right idea and the wrong day, and an early or late deadline hands Keystone an argument that the demand was never valid. The same goes for a duplicate line left in an exhibit or an ambiguous release term: each one turns a refusal that might matter into one that costs Keystone nothing. The **proof of delivery**, the sent email and her written reply, is itself evidence.",
+      "Your lane is to build, audit, serve and prove delivery of the demand Atty. Thorne approved and signed. You never set or change its terms, and you never grant an extension: if Dana Whitfield asks for more time, you log her words and route them to him the same hour. Bad faith is a legal conclusion under the governing law, so you never use the phrase with the adjuster, and any exposure above $10,000 is Atty. Thorne's analysis. If John Doe asks what the claim is worth or whether he should accept an offer, that goes to Atty. Thorne too. Ask the room: the demand went to Dana Whitfield by email on 07/20 and she confirmed receipt in writing on 07/22; when does the window close, and how would Keystone know?"
     ],
     "d3m1-l2": [
       "Uninsured and underinsured motorist coverage is first-party insurance: a carrier promises its own insured to pay what an at-fault driver owed but could not cover. Because it sits above the at-fault driver's policy, it expects that policy to be used up first; that is the logic of **exhaustion**. Because the UM carrier can try to recover what it pays from the at-fault driver, it also needs that claim kept alive; that is why policies require consent before the injured person releases the driver, and often let the UM carrier substitute its own check instead. Release the driver without consent and you may have destroyed the carrier's subrogation right, and with it the coverage.",
@@ -8727,7 +8728,7 @@ window.CM_CASE_FLOW = {
     ],
     "d4m1-l1": [
       "Pre-suit negotiation is voluntary. A carrier can read the best Demand Package ever built and still say no, and nothing in a letter can make it pay. That is why the system offers **formal dispute resolution**: litigation, where a court can compel evidence and enter a judgment; mediation, where a neutral helps the parties talk but can never force agreement; and arbitration, a trial-like hearing that usually ends in a binding award. Each exists because private bargaining sometimes fails. The point at which it has failed is called an impasse, and recognizing it honestly, by its triggers and not by anyone's frustration, is the doorway between pre-suit work and the courthouse.",
-      "Track B returns to the same file at 08/05/2026. The Time-Limited Demand went to Keystone by certified mail and email on 07/20/2026, was received 07/22, and its 30-day window ran to 08/21/2026. Keystone offered $3,500, citing the 14-Day Gap and calling the MRI degenerative. The 08/06 rebuttal answered both grounds with Dr. Helen Park's “no significant degenerative change at the adjacent levels”, Dr. Reyes's Causation Letter and the EMS report. On 08/12 Keystone called $3,500 “final” without answering any of it, and the demand lapsed 08/21. Follow-ups on 08/24 and 08/31 went unanswered, the 09/02 escalation reached claims supervisor Greg Holloway, and by 09/04 there was still silence.",
+      "Track B returns to the same file at 08/05/2026. The Time-Limited Demand was emailed to Dana Whitfield on 07/20/2026, was acknowledged in writing 07/22, and its 30-day window ran to 08/21/2026. Keystone offered $3,500, citing the 14-Day Gap and calling the MRI degenerative. The 08/06 rebuttal answered both grounds with Dr. Helen Park's “no significant degenerative change at the adjacent levels”, Dr. Reyes's Causation Letter and the EMS report. On 08/12 Keystone called $3,500 “final” without answering any of it, and the demand lapsed 08/21. Follow-ups on 08/24 and 08/31 went unanswered, the 09/02 escalation reached claims supervisor Greg Holloway, and by 09/04 there was still silence.",
       "Why does one stubborn carrier matter so much? As this file's policies are configured, **BI exhaustion** comes first: Host UM at Harbor Point pays only after Keystone's $10,000 is paid or tendered at limits, and Relative UM at Cardinal State stacks behind Host UM. So $40,000 of coverage sits frozen behind a $10,000 carrier. That is the real cost of a BI impasse, and it is why your record must show the inputs counsel weighs: liability (RPD-26-018842, Ruth Calloway, the doorbell video), causation (the MRI, the Causation Letter, the EMS report), damages ($16,401.40 in Specials) and time (SOL 02/06/2028, internal cutoff 11/05/2027).",
       "Cause and effect runs both ways. A dated, sourced impasse record lets Atty. Thorne decide in one read, and the 09/08/2026 memo is that record. A record built on “they're being difficult” forces him to rebuild the timeline himself while the clock runs. The “Never” rule protects the file too: bidding against yourself teaches Keystone that silence lowers the number, and treating “that's all I have” as final skips the supervisor who may have more authority. Words matter after the lapse as well. Any letter to Keystone after 08/21/2026 could affect the lapse Atty. Thorne is analyzing, which is why every one uses wording he approved.",
       "Your lane is the evidence and the dates. You document each trigger, report figures, and ask Atty. Thorne for a decision. Whether the file is at impasse, whether to sue, what the claim is worth, and what the lapse may mean for Robert Smith's exposure above his limits are all his. If Keystone calls with a new number, you write it down, confirm nothing, and route it to him the same day. If John Doe asks whether he should just take the $3,500, that question goes to counsel too. Ask the room: which of the five triggers on this file would you find hardest to prove from the log alone, and why?"

@@ -4321,7 +4321,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "label": "Serve and docket",
-     "text": "Certified mail and email; **docket from receipt**"
+     "text": "Email it to Dana; **docket from her acknowledgement**"
     }
    ]
   },
@@ -4329,7 +4329,7 @@ window.CM_CF_SLIDES = {
   "points": [
    "Demand **within limits**: $10,000, Keystone's full BI limit",
    "Make **every term acceptable as written**; release Smith and Keystone only",
-   "Serve certified mail AND email; **docket from receipt**: 08/21/2026",
+   "Email it to Dana Whitfield; **docket from her acknowledgement**: 08/21/2026",
    "Answer the 14-day gap and lead causation with the **03/13/2026 MRI**"
   ],
   "upl": "Serve and prove the demand; never set terms, extend deadlines or value the claim.",
@@ -4341,10 +4341,10 @@ window.CM_CF_SLIDES = {
     "07/12/2026 Sunday: work it Fri 07/10"
    ],
    [
-    "Return receipt shows 07/22/2026",
+    "Dana's written acknowledgement (07/22/2026)",
     "Docket the acceptance deadline",
     "Docket System",
-    "08/21/2026, from receipt, not mailing"
+    "08/21/2026, from acknowledgement, not sending"
    ],
    [
     "Keystone writes or calls",
@@ -4354,7 +4354,7 @@ window.CM_CF_SLIDES = {
    ]
   ],
   "dos": [
-   "Docket from the **return receipt date**, never the mailing date",
+   "Docket from the **written acknowledgement**, never the send date",
    "Lead with the value-drivers: the **MRI herniation** and injection",
    "The window is for **acceptance, not payment**"
   ],
@@ -4384,7 +4384,7 @@ window.CM_CF_SLIDES = {
       "Clear: every term acceptable as written; releases Robert Smith and Keystone only, BI claim only",
       "Reasonable: conditions Keystone can meet, with 30 days to meet them",
       "Documented: the Big Four complete, the gap answered up front",
-      "Timed: the clock runs from delivery of the certified mailing; 07/22/2026 + 30 = 08/21/2026",
+      "Timed: the clock runs from the adjuster's written acknowledgement of receipt; 07/22/2026 + 30 = 08/21/2026",
       "Terms, extensions and any bad-faith call are Atty. Thorne's; the CM builds, serves and proves delivery"
      ]
     },
@@ -4437,9 +4437,9 @@ window.CM_CF_SLIDES = {
   "clues": {
    "dos": [
     [
-     "The Keystone demand left the office by certified mail on 07/20/2026.",
-     "The green card came back showing delivery on 07/22/2026.",
-     "Thirty days from that signed card lands on 08/21/2026, not 08/19."
+     "The Keystone demand went to Dana Whitfield by email on 07/20/2026.",
+     "Her reply on 07/22/2026 confirms the 81-page package arrived.",
+     "Thirty days from her reply lands on 08/21/2026, not 08/19."
     ],
     [
      "Dana Whitfield opens the Keystone package and reads page one.",
@@ -4478,12 +4478,12 @@ window.CM_CF_SLIDES = {
    "Audit the draft against **the Big Four** and the Final Scrub",
    "Log each deficiency as **an assigned CMS task**",
    "Assemble the package with **the gap answered** on page one",
-   "Once signed, serve by **certified mail AND email**; log both",
-   "Docket **08/21/2026 from the receipt** dated 07/22/2026, with reminders"
+   "Once signed, **email it to Dana Whitfield**; log it",
+   "Docket **08/21/2026 from her acknowledgement** dated 07/22/2026, with reminders"
   ],
-  "deliver": "An audited, served demand with **proof of delivery** and 08/21/2026 docketed",
+  "deliver": "An audited, emailed demand with **written acknowledgement** and 08/21/2026 docketed",
   "purpose": "Keystone's 30 days run from receipt: **without proof, no deadline** to hold",
-  "principle": "The clock starts at **proven receipt, not mailing**",
+  "principle": "The clock starts at **her written acknowledgement**, not sending",
   "grade": {
    "title": "The Grade-A Time-Limited Demand",
    "guide": [
@@ -4514,14 +4514,14 @@ window.CM_CF_SLIDES = {
    "**$10,000 BI limit**; terms match Atty. Thorne's approval exactly",
    "Big Four complete; **Specials total $16,401.40**",
    "Gap answered **on page one**; each deficiency an assigned task",
-   "Served by **certified mail AND email**; 08/21/2026 docketed",
+   "Emailed and logged; **08/21/2026 docketed** from her acknowledgement",
    "Any extension request **routed to Atty. Thorne** same day"
   ],
   "dos": [
    "Re-verify **every provider balance** in the week of service"
   ],
   "donts": [
-   "Counting the window **from the mailing date**",
+   "Counting the window **from the send date**",
    "Answering **Dana Whitfield's request for time** yourself"
   ]
  },
