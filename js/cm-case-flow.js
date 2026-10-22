@@ -2839,6 +2839,20 @@ if(typeof renderDashboard === "function"){
   };
 }
 
+/* ---------- 🎯 My Focus: its trainer-feedback chips and the day's feedback pop-up name Case Flow Days 1–5 ---------- */
+if(typeof renderWorkOnNextPanel === "function"){
+  const __won = renderWorkOnNextPanel;
+  renderWorkOnNextPanel = function(){ return relabelAll(__won.apply(this, arguments)); };
+}
+if(typeof openDayFeedback === "function"){
+  const __dayFb = openDayFeedback;
+  openDayFeedback = window.openDayFeedback = function(){
+    const r = __dayFb.apply(this, arguments);   // the pop-up is on the page before its first await
+    document.querySelectorAll(".fb-modal .mh-day").forEach(n => { n.textContent = relabelAll(n.textContent); });
+    return r;
+  };
+}
+
 /* ---------- the Admin page: each trainee's progress and audit count the Case Flow's days ---------- */
 if(typeof adminDayStats === "function"){
   adminDayStats = function(rec){
