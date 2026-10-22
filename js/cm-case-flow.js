@@ -790,9 +790,9 @@ function slideBody(view, l, d){
     }
     case "task": { const main = blockTools(b).filter(id => id !== "call")[0] || "cms";
       const where = TOOLKIT.find(t => t.id === main), whereName = where ? where.name.replace(/^the /, "the ") : "the CMS";
-      return `${plainBox(b)}<div class="cfx-do-now"><b>🧪 Practice Lab: do this now</b><span>Open ${E(whereName)} from today's 🧪 Practice Lab slide (it stays open beside the slides), work the steps below on John Doe's file, ${SIM.calls[b.id] ? "take the live call, " : ""}then hand in what's under <em>Deliver</em> and tick it off on the next slide, <em>Check Your Work</em>.</span></div>
+      return `${plainBox(b)}<div class="cfx-do-now"><b>🧪 Practice Lab: do this now</b><span>Open ${E(whereName)} with the button under <em>Where</em> (or from today's 🧪 Practice Lab slide, so it stays open beside the slides), work the steps below on John Doe's file, ${SIM.calls[b.id] ? "take the live call, " : ""}then hand in what's under <em>Deliver</em> and tick it off on the next slide, <em>Check Your Work</em>.</span></div>
       <div class="cfx-task"><ol class="cfx-points">${c.steps.map(x => { return `<li><span>${hl(x)}</span></li>`; }).join("")}</ol>
-      <aside class="cfx-side"><div><b>🛠 Where</b><span>${E(b.act.tool)}</span></div>
+      <aside class="cfx-side"><div><b>🛠 Where</b><span>${E(b.act.tool)}</span><div class="cfx-btns">${toolChips(blockTools(b).filter(id => id !== "call"), b.id, true)}</div></div>
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}</span>
           <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
