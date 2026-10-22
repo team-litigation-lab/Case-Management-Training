@@ -40,7 +40,7 @@ overrides it**. A fact a document needs that is in neither is added to case-file
 - **Riverton Drug ($312.40):** 02/07 OTC ibuprofen + lidocaine patches $38.60 · 02/20 Rx cyclobenzaprine + naproxen $64.20 ·
   03/05 Rx meloxicam $42.80 · 03/27 Rx gabapentin $58.40 · 04/21 OTC lidocaine patches $29.80 · 05/15 Rx methylprednisolone
   $36.20 · 06/12 Rx gabapentin refill $42.40.
-- **MedPay (Harbor Point, $5,000.00):** 03/09 Riverton Urgent Care $685.00 · 03/16 Lakeside 03/05 visit $640.00 ·
+- **PIP (Harbor Point, $5,000.00):** 03/09 Riverton Urgent Care $685.00 · 03/16 Lakeside 03/05 visit $640.00 ·
   03/25 Summit Imaging $2,395.00 · 04/10 Lakeside 03/27 visit $640.00 · 06/26 Lakeside 06/12 visit $640.00 (exhausted).
 - **Peach State EOB (Crescent Pain & Spine, DOS 05/15/2026):** billed $3,400.00 · allowed $1,860.00 · paid $1,860.00 (06/03/2026) ·
   contractual adjustment $1,540.00 · member responsibility $0.00.
@@ -169,7 +169,7 @@ the scene. Restrained (rebuts "unbelted").
 **RS12 · Riverton Urgent Care — Visit Note (02/20/2026)** · Day 1 · Medical · `RS_12_Urgent_Care_Note.pdf`
 Nina Patel, PA-C. HPI exactly: "onset at MVA 02/06/2026, progressively worsening; numbness to right hand since
 02/18." Exam, assessment (cervical strain, r/o cervical radiculopathy), plan (cyclobenzaprine + naproxen Rx, refer
-orthopedics, recommend chiropractic/PT), payer: Harbor Point MedPay (claim HP-26-7741).
+orthopedics, recommend chiropractic/PT), payer: Harbor Point PIP (claim HP-26-7741).
 *Plant:* none. *Key:* First treatment: 14 days after the DOL. The history ties onset to the collision.
 
 **RS13 · Riverton Spine & Rehab — Initial Evaluation & LOP** · Day 2 · Medical · `RS_13_Spine_Rehab_Initial_Eval_and_LOP.pdf`
@@ -231,7 +231,7 @@ The receipts (spec list) and a printed Rx history; total $312.40.
 ### Bills & invoices (folder `bills`)
 
 **RS22 · Riverton Urgent Care — Statement** · Day 2 · Bills · `RS_22_Urgent_Care_Statement.pdf`
-DOS 02/20/2026, $685.00, paid by Harbor Point MedPay 03/09/2026, balance $0.00.
+DOS 02/20/2026, $685.00, paid by Harbor Point PIP 03/09/2026, balance $0.00.
 
 **RS23 · Riverton Spine & Rehab — Itemized LOP Ledger** · Day 2 · Bills · `RS_23_Spine_Rehab_Itemized_LOP_Ledger.pdf`
 Tammy Greer, office manager, statement date 06/30/2026: one line per visit date at $185.00, **34 lines**, total
@@ -240,11 +240,11 @@ Tammy Greer, office manager, statement date 06/30/2026: one line per visit date 
 *Key:* 33 visits match the attendance log (RS14); the second 05/04 line is a duplicate. Audited balance $6,105.00.
 
 **RS24 · Lakeside Orthopedics — Statement** · Day 2 · Bills · `RS_24_Lakeside_Orthopedics_Statement.pdf`
-Three visits 03/05, 03/27, 06/12/2026 at $640.00 = $1,920.00; MedPay payments 03/16, 04/10, 06/26/2026; balance $0.00.
+Three visits 03/05, 03/27, 06/12/2026 at $640.00 = $1,920.00; PIP payments 03/16, 04/10, 06/26/2026; balance $0.00.
 
 **RS25 · Summit Imaging Center — Invoice** · Day 2 · Invoices · `RS_25_Summit_Imaging_Invoice.pdf`
-Cervical MRI without contrast 03/13/2026, $2,395.00 (technical + professional), paid by MedPay 03/25/2026, $0.00.
-Note: "LOP requested 03/11/2026 — not required (MedPay coverage confirmed)".
+Cervical MRI without contrast 03/13/2026, $2,395.00 (technical + professional), paid by PIP 03/25/2026, $0.00.
+Note: "LOP requested 03/11/2026 — not required (PIP coverage confirmed)".
 
 **RS26 · Crescent Pain & Spine — Bill, Peach State EOB & Patient Statement** · Day 2 · Bills · `RS_26_Crescent_Bill_EOB_and_Statement.pdf`
 Page 1: claim to Peach State, DOS 05/15/2026, $3,400.00. Page 2: Peach State EOB (spec figures). Page 3: a Crescent
@@ -263,9 +263,9 @@ $20,000; PD $25,000; no UM; policy period covering 02/06/2026. Cover letter from
 *Key:* BI $10,000 per person confirmed 03/20/2026 — the first layer. PD $25,000 is outside the stack.
 
 **RS28 · Harbor Point Insurance — Declarations, Coverage Letter & Arbitration Clause** · Day 2 · Others · `RS_28_Harbor_Point_Dec_Page_and_Coverage_Letter.pdf`
-Dec page HPA-4402917 (Kevin Alvarez, 2020 Ford Escape; UM $20,000/$40,000 add-on/excess; MedPay $5,000). Marcus
-Bell's coverage letter 03/02/2026: John covered as an occupant; no reimbursement right on MedPay; UM add-on, not
-reduced by BI; no MedPay non-duplication reduction. Policy excerpt: UM arbitration clause (either party may demand
+Dec page HPA-4402917 (Kevin Alvarez, 2020 Ford Escape; UM $20,000/$40,000 add-on/excess; PIP $5,000). Marcus
+Bell's coverage letter 03/02/2026: John covered as an occupant; no reimbursement right on PIP; UM add-on, not
+reduced by BI; no PIP non-duplication reduction. Policy excerpt: UM arbitration clause (either party may demand
 arbitration of damages disputes) and the consent-to-settle condition.
 *Key:* Second layer. Consent before any BI settlement; the arbitration clause drives Track B's forum (RS57).
 
@@ -280,9 +280,9 @@ Dec page BWA-209-66184 (John Doe, 2019 Honda Civic LX; liability 25/50/25; colli
 signed UM/UIM selection/rejection form 03/14/2024.
 *Key:* Margaret's policy on the Civic: UM rejected in writing, so it adds no UM layer for John. Her collision coverage is a route for her own PD claim, not his.
 
-**RS31 · Harbor Point — MedPay Payment Ledger** · Day 2 · Others · `RS_31_Harbor_Point_MedPay_Ledger.pdf`
-The five payments (spec list), running balance to $0.00, "MedPay limit exhausted 06/26/2026".
-*Key:* Payer order in action; the Crescent bill went to Peach State, not MedPay.
+**RS31 · Harbor Point — PIP Payment Ledger** · Day 2 · Others · `RS_31_Harbor_Point_PIP_Ledger.pdf`
+The five payments (spec list) at 100% of the billed medical, running balance to $0.00, "PIP limit exhausted 06/26/2026"; a lost-income section: the 80% wage benefit ($1,267.20 on $1,584.00) not payable, limit exhausted before Northgate's 06/30/2026 letter.
+*Key:* Payer order in action; the Crescent bill went to Peach State, not PIP.
 
 **RS32 · Keystone Mutual — Claim Correspondence (Feb–Apr 2026)** · Day 2 · Others · `RS_32_Keystone_Claim_Correspondence.pdf`
 02/17/2026 Leah Moran: PD liability accepted; 02/18 rental authorized at Rivergate Rentals, $42.00/day, max 30 days;
@@ -459,3 +459,7 @@ released; UM consents attached.
 Atty. Thorne's certificate: John Doe's verified answers to interrogatories, responses to requests for production and
 responses to requests for admission served by U.S. mail on Atty. Grant Mercer 01/04/2027.
 *Key:* Proves the RFA responses were timely (due 01/04/2027).
+
+**RS65 · Harbor Point — PIP Application & Claim Acknowledgement** · Day 2 · Others · `RS_65_Harbor_Point_PIP_Application.pdf`
+John Doe's PIP application, signed 02/17/2026 and sent with the Harbor Point LOR (passenger in Kevin Alvarez's 2020 Ford Escape; household policies: Margaret Doe's Bluewater and Cardinal State, PIP rejected in writing), and Harbor Point's 02/24/2026 acknowledgement: PIP opened under HPA-4402917, $5,000 each person, 100% medical / 80% lost income, bills to be sent with the claim number; wage loss needs an employer verification.
+*Key:* Whose PIP: the vehicle he rode in, because no household policy carries PIP. Riverton's add-on rule: no BI or UM set-off, no reimbursement from the recovery.
