@@ -1295,6 +1295,27 @@ function auditBench(blockId){
       : `<div class="ab-foot"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.auditHandIn('${blockId}')">Hand in the audit</button>
         <span>Call every item first. Once it is handed in you see what the file says about each one, and the completed package.</span></div>`}</div>`;
 }
+/* ---------- every pop-up moves: drag it by its title bar ----------
+   The Full text, the exhibit audits and the Service Confirmation open over the slide. Dragged aside, the dimming lifts
+   and the slide and the documents behind it can be used while the pop-up stays open. The offset lives on the outer
+   layer (--cfx-dx / --cfx-dy), so a pop-up that repaints its panel stays where it was put. */
+document.addEventListener("pointerdown", e => {
+  const h = e.target.closest && e.target.closest(".cfx-modal-h");
+  if(!h || e.button !== 0 || e.target.closest("button, a, input, select, textarea")) return;
+  const o = h.closest(".cfx-modal"), inner = h.closest(".cfx-modal-in"); if(!o || !inner) return;
+  e.preventDefault();
+  if(!o.classList.contains("cfx-modal-moved")){ const st = o.scrollTop; o.classList.add("cfx-modal-moved"); inner.scrollTop = st; }
+  const px = v => parseFloat(o.style.getPropertyValue(v)) || 0, dx0 = px("--cfx-dx"), dy0 = px("--cfx-dy");
+  const r = inner.getBoundingClientRect(), left0 = r.left - dx0, top0 = r.top - dy0, x0 = e.clientX, y0 = e.clientY;
+  const move = ev => {   // the title bar never leaves the screen
+    const left = Math.min(Math.max(left0 + dx0 + ev.clientX - x0, 120 - r.width), innerWidth - 120);
+    const top = Math.min(Math.max(top0 + dy0 + ev.clientY - y0, 0), innerHeight - 48);
+    o.style.setProperty("--cfx-dx", (left - left0) + "px"); o.style.setProperty("--cfx-dy", (top - top0) + "px");
+    o.style.setProperty("--cfx-mh", Math.max(160, innerHeight - top - 12) + "px");   // the panel ends on the screen, scrolling inside
+  };
+  const up = () => { removeEventListener("pointermove", move); removeEventListener("pointerup", up); removeEventListener("pointercancel", up); };
+  addEventListener("pointermove", move); addEventListener("pointerup", up); addEventListener("pointercancel", up);
+});
 window.cmCaseFlow.audit = function(blockId){
   if(!auditOf(blockId) || document.getElementById("cf-bench")) return;   // one workbench at a time
   const o = document.createElement("div"); o.className = "cfx-modal"; o.id = "cf-bench"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Exhibit audit");
@@ -1307,7 +1328,13 @@ window.cmCaseFlow.audit = function(blockId){
 };
 function benchRepaint(blockId){
   const o = document.getElementById("cf-bench"); if(!o) return;
-  o.innerHTML = auditBench(blockId);
+  repaintModal(o, auditBench(blockId));
+}
+// a pop-up's panel repainted where it is: a moved pop-up scrolls its own panel, so that scroll is kept too
+function repaintModal(o, html){
+  const inner = o.querySelector(".cfx-modal-in"), st = inner ? inner.scrollTop : 0;
+  o.innerHTML = html;
+  const next = o.querySelector(".cfx-modal-in"); if(next && st) next.scrollTop = st;
 }
 let exT = null;
 window.cmCaseFlow.auditMark = function(blockId, i, v){
@@ -1403,7 +1430,7 @@ window.cmCaseFlow.service = function(blockId){
   document.addEventListener("keydown", esc, true);
   document.body.appendChild(o);
 };
-function svRepaint(blockId){ const o = document.getElementById("cf-sv"); if(o) o.innerHTML = svWorkspace(blockId); }
+function svRepaint(blockId){ const o = document.getElementById("cf-sv"); if(o) repaintModal(o, svWorkspace(blockId)); }
 window.cmCaseFlow.svSend = function(blockId){
   const e = serviceOf(blockId), r = svRec(blockId); if(!e || r.sent) return;
   const el = document.getElementById("svw_" + blockId), text = ((el && el.value) || "").trim();
@@ -4052,6 +4079,12 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-modal{position:fixed;inset:0;z-index:9999;background:rgba(20,26,44,.55);display:flex;align-items:flex-start;justify-content:center;padding:4vh 16px;overflow:auto;}
 .cfx-modal-in{max-width:980px;width:100%;padding:18px 24px !important;}
 .cfx-modal-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;font-size:17px;color:var(--navy);}
+.cfx-modal-in{transform:translate(var(--cfx-dx,0px),var(--cfx-dy,0px));transition:none;}
+.cfx-modal-h{cursor:move;touch-action:none;user-select:none;}
+.cfx-modal-h button,.cfx-modal-h a{cursor:pointer;}
+.cfx-modal-moved{background:transparent;pointer-events:none;overflow:hidden;}
+.cfx-modal-moved .cfx-modal-in{pointer-events:auto;max-height:var(--cfx-mh,92vh);overflow:auto;padding-top:0 !important;box-shadow:0 18px 50px rgba(20,26,44,.35);}
+.cfx-modal-moved .cfx-modal-h{position:sticky;top:0;z-index:2;margin:0 -24px 10px;padding:14px 24px 10px;background:#fff;border-bottom:1px solid #E6E8F0;}
 @media(max-width:760px){
   .cfx{padding:16px 16px 18px !important;}
   .cfx-title{font-size:26px !important;}.cfx-of{display:block;font-size:15px;margin-top:4px;}.cfx-sep{display:none;}
