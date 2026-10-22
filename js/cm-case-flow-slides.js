@@ -1146,6 +1146,11 @@ window.CM_CF_SLIDES = {
       "The Scene Audit",
       "Photos, video and damage against how the crash happened",
       "The physics of the claim must be possible"
+     ],
+     [
+      "Rental",
+      "Who authorizes it, the daily cap and the duration",
+      "**Uncovered days are the client's cost**"
      ]
     ],
     "note": "Audit Property Damage as carefully as the medicals: it is physical evidence of how hard the impact was."

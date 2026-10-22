@@ -174,7 +174,8 @@
         ["Photos", "Point-of-impact clarity, including the undercarriage and frame", "Physical proof of the impact behind the injury claim"],
         ["Estimates vs. Actuals", "The insurance estimate against the final body shop bill", "**Supplementals prove hidden** structural damage"],
         ["Total Loss/Value", "The CCC One or other Valuation Report, line by line", "So the client isn't lowballed on the vehicle's value"],
-        ["The Scene Audit", "Photos, video and damage against how the crash happened", "The physics of the claim must be possible"]
+        ["The Scene Audit", "Photos, video and damage against how the crash happened", "The physics of the claim must be possible"],
+        ["Rental", "Who authorizes it, the daily cap and the duration", "**Uncovered days are the client's cost**"]
       ],
       "note": "Audit Property Damage as carefully as the medicals: it is physical evidence of how hard the impact was."
     }

@@ -161,7 +161,7 @@
       "ask": "Why would a supplemental estimate matter to the injury claim, not just the repair?"
     },
     "frame": {
-      "say": "This is the Property Damage deep dive, four things to look at. Photos first: you want point-of-impact clarity, including the undercarriage and the frame, because that's physical proof of the impact behind the injury claim. Then estimates versus actuals: put the insurance estimate next to the final body shop bill, because supplementals prove hidden structural damage. Then Total Loss and value: go through the CCC One or other Valuation Report line by line, so the client isn't lowballed on what the car was worth. And the scene audit: photos, video and damage, checked against how the crash happened. The physics of the claim has to be possible.",
+      "say": "This is the Property Damage deep dive, five things to look at. Photos first: you want point-of-impact clarity, including the undercarriage and the frame, because that's physical proof of the impact behind the injury claim. Then estimates versus actuals: put the insurance estimate next to the final body shop bill, because supplementals prove hidden structural damage. Then Total Loss and value: go through the CCC One or other Valuation Report line by line, so the client isn't lowballed on what the car was worth. And the scene audit: photos, video and damage, checked against how the crash happened. The physics of the claim has to be possible. And rental: check who authorizes it, the daily cap and the duration against the policy, because uncovered days are the client's cost.",
       "ask": "If the final body shop bill comes in well above the first estimate, what does that tell you?"
     },
     "rules": {
