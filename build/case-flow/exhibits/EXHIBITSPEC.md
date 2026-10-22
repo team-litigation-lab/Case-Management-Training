@@ -1,0 +1,111 @@
+# Exhibit audits, completed packages and the service confirmation — content spec
+
+Three things a Case Manager does with a document set, which a Skill Activity's prose can describe but only a
+worked artefact can teach:
+
+1. **The audit.** An activity that assembles or serves a set gets the set itself — the draft Demand Package's
+   exhibits, the draft Mediation Binder's sections, the unsorted arbitration folder — as a packet the trainee
+   works item by item: keep it, replace it, pull it, add what is missing, or flag it for the attorney. Each item
+   carries the loophole or evidentiary gap it hides and the documents that prove it.
+2. **The completed package.** Once the audit is handed in, the finished, ready-to-go set is revealed: the
+   Demand Package as served, the Mediation Binder as delivered, the Arbitration Binder as exchanged. The
+   trainee compares their audit against it, and every later activity works from the same finished set, so the
+   file carries one Demand Package and one binder through all five days.
+3. **The service confirmation.** Proving a demand went out by mail is half of it. The other half is the
+   confirmation email the Case Manager writes, the adjuster's written acknowledgment, and converting that
+   exchange into a document filed in the CMS and backed up to Drive.
+
+Output: `build/case-flow/exhibits/<part>.json` (`d3.json`, `d4.json`), assembled into
+`js/cm-case-flow-exhibits.js` (`window.CM_CF_EXHIBITS`) by `node build/case-flow/exhibits/assemble.cjs`
+(`--check` validates only, in CI). Facts come only from `curriculum/5-day-flow/case-file.md`, the block
+(`js/cm-case-flow-data.js`) and the document set (`js/cm-case-flow-docs.js`, `build/case-flow/documents/SPEC.md`).
+A finding here never contradicts a document's trainer key; it is the same plant, stated as the work.
+
+```json
+{
+  "audits": {
+    "d3m1-a1": {
+      "title": "…", "kicker": "…", "source": "RS61", "reveal": "RS62", "due": "07/20/2026",
+      "intro": "…",
+      "columns": {"ref": "Exhibit", "as": "As drafted"},
+      "items": [
+        { "ref": "A", "what": "…", "as": "…", "verdict": "replace", "kind": "loophole",
+          "issue": "…", "fix": "…", "proof": ["RS07"] }
+      ],
+      "revealNote": "…",
+      "revealPoints": ["…"]
+    }
+  },
+  "emails": { "d3m1-a1": { … } }
+}
+```
+
+## audits — one per Skill Activity that works a document set
+
+- `title` — what the panel is called, ≤ 9 words, naming the set.
+- `kicker` — the job in one line, ≤ 16 words, imperative.
+- `source` — the document id of the draft set the trainee audits. It must be in that activity's
+  `CM_CF_DOC_PACKETS` packet, so the trainee can open it beside the panel.
+- `reveal` — the document id of the completed set, shown only once the audit is handed in. It must **not** be in
+  the activity's packet: it is the answer.
+- `due` — the case date by which the audited set must be out, `MM/DD/YYYY`.
+- `intro` — ≤ 55 words: where the file stands, and what the audit is for.
+- `columns.ref` / `columns.as` — the two column headings the set needs ("Exhibit"/"As drafted",
+  "Section"/"As drafted", "Record"/"As it came out of the file").
+- `items` — 12–18 per audit, in the set's own order:
+  - `ref` — the item's place in the set (`"A"`, `"§5"`, `"#13"`), or `"—"` for something missing.
+  - `what` — the document or figure, ≤ 14 words.
+  - `as` — how the draft has it, ≤ 26 words. For a missing item, what the set does not have.
+  - `verdict` — one of `keep` · `replace` · `pull` · `add` · `flag`. `flag` means it stays, and the decision
+    is the attorney's: it is the UPL boundary as a verdict.
+  - `kind` — `loophole` (the other side could use it) · `gap` (the record does not prove what it must) ·
+    `privilege` (ours, and not theirs to see) · `qc` (the copy is not fit to use) · `arithmetic` (a figure that
+    does not tie) · `calendar` (a date counted from the wrong event).
+  - `issue` — ≤ 44 words: what it would cost, concretely, naming the party who would use it. A `keep` item's
+    `issue` says what makes the copy fit to use.
+  - `fix` — ≤ 36 words: the task, and who does it. A `keep` item's `fix` is what to confirm before service.
+  - `proof` — 1–4 document ids from `js/cm-case-flow-docs.js` that settle the point. Each must open on or
+    before the day the activity is taught.
+- `revealNote` — ≤ 45 words: what the completed set is, and that later activities work from it.
+- `revealPoints` — 4–6 lines, ≤ 24 words each: the figures and terms the finished set carries, so a trainee can
+  mark their own audit against it.
+
+Every audit needs at least three `keep` items (a trainee who marks everything wrong has not audited anything),
+at least one `flag`, and at least one `add`.
+
+## emails — the service confirmation
+
+One per activity that serves something. The trainee writes the email, the other side answers, and the exchange
+becomes a filed document.
+
+```json
+"d3m1-a1": {
+  "title": "…", "kicker": "…", "model": "RS63",
+  "mail": {"channel": "…", "sent": "07/20/2026", "proof": "…", "receipt": "07/22/2026"},
+  "to": "…", "cc": "…", "subject": "…", "attachment": "…",
+  "brief": "…",
+  "required": [{"id": "receipt-date", "label": "…", "hint": "…", "match": ["regex", …]}],
+  "reply": {"from": "…", "date": "…", "time": "…", "subject": "…", "body": "…"},
+  "press": {"from": "…", "date": "…", "subject": "…", "body": "…",
+            "choices": [{"label": "…", "ok": false, "why": "…"}]},
+  "convert": {"title": "…", "category": "Others", "type": "Others",
+              "sections": [{"h": "…", "lines": ["…"]}], "establishes": ["…"]}
+}
+```
+- `brief` — ≤ 50 words: what the email must do, in the Case Manager's own terms, with the UPL line.
+- `required` — 4–6 elements the email must contain. Each `match` pattern is tested case-insensitively against
+  what the trainee wrote; every pattern must match a correct email and none of them a wrong one. `hint` is
+  shown only after a failed send, ≤ 20 words.
+- `reply` — the acknowledgment, in the other party's voice, ≤ 130 words, written so it fixes the date and the
+  completeness of the set from their own words. No emoji, no HTML.
+- `press` — the follow-up the other side sends next, with 2–4 `choices`: exactly one is `ok`. This is the UPL
+  test; `why` says what each choice would cost, ≤ 30 words.
+- `convert` — the memorandum the trainee files: its `sections` are the headings and the lines under each, and
+  `establishes` is what the acknowledgment proves. `category` is the CMS Doc Hub category and `type` the type
+  part of the firm's file name. `model` is the document id of the finished memorandum.
+
+## Rules
+- Plain, realistic voices; an adjuster sounds like an adjuster. No emoji, no HTML, no "blueprint".
+- Every UPL boundary holds: the Case Manager audits, assembles, asks and files; the attorney decides terms,
+  privilege, extensions and what is exchanged.
+- Every date `MM/DD/YYYY`, every figure as `case-file.md` has it, every document id real, every word limit kept.
