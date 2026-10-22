@@ -260,6 +260,8 @@ s = re.sub(r'<script src="/js/blueprint-content\.js\?v=[^"]*"></script>', '<scri
 # graded-calls moves down beside the dashboard band; lsh-dashboard and show-password are CM-only.
 # EA/PA's Orientation script is EA/PA's own; this course has none (every blueprint is on the Main Portal).
 rep('<script src="/js/graded-calls.js?v=1"></script>\n', "")
+# EA/PA's port of this course's ⧉ side-by-side frame: the course has its own (cm-updates.js), so not loaded here
+s = re.sub(r'<script src="/js/eapa-toolframe\.js\?v=[^"]*"></script>\n?', '', s)
 s = re.sub(r'<script src="/js/eapa-orientation\.js\?v=[^"]*"></script>\n?', "", s)
 rep('<script src="/js/lsh-card-frame.js?v=3"></script>', tags(
     "lsh-dashboard.js?v=4", "graded-calls.js?v=1",
