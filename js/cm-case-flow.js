@@ -821,15 +821,18 @@ function slideBody(view, l, d){
     case "task": { const main = blockTools(b).filter(id => id !== "call")[0] || "cms";
       const where = TOOLKIT.find(t => t.id === main), whereName = where ? where.name.replace(/^the /, "the ") : "the CMS";
       /* the busiest slides were shrunk to fit: the Practice Lab note is one line, and the things to do (the live call,
-         the service confirmation) sit under the steps, so the two columns are about the same height */
-      return `${plainBox(b)}<div class="cfx-do-now"><b>🧪 Practice Lab</b><span>Open ${E(whereName)} from today's Practice Lab, work the steps on John Doe's file${SIM.calls[b.id] ? ", take the live call" : ""}, then <em>Deliver</em> and <em>Check Your Work</em>.</span></div>
+         the service confirmation) sit under the steps, so the two columns are about the same height; with both, the
+         service confirmation goes to the right column */
+      return `${plainBox(b)}<div class="cfx-do-now"><b>🧪 Practice Lab</b><span>Work the steps in ${E(whereName)}${SIM.calls[b.id] ? ", take the live call" : ""}, then <em>Deliver</em>.</span></div>
       <div class="cfx-task"><div class="cfx-task-main"><ol class="cfx-points">${c.steps.map(x => `<li><span>${hl(x)}${stepLink(x, b)}</span></li>`).join("")}</ol>
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}</span>
           <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
-        ${serviceOf(b.id) ? `<div class="cfx-call cfx-svb"><b>✉ Service Confirmation</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
+        ${serviceOf(b.id) && !SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ Service Confirmation</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
           <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the Service Confirmation</button></div>` : ""}</div>
       <aside class="cfx-side">${c.purpose || c.principle ? `<div class="cfx-why">${c.purpose ? `<b>🎯 Purpose</b><span>${hl(c.purpose)}</span>` : ""}${c.principle ? `<b>⚖️ Principle</b><span>${hl(c.principle)}</span>` : ""}</div>` : ""}
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
+        ${serviceOf(b.id) && SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ Service Confirmation</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
+          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the Service Confirmation</button></div>` : ""}
         <button type="button" class="cfx-deliver" onclick="nextSlide()" title="Hand it in, then check your work"><b>📤 Deliver</b><span>${hl(c.deliver)}</span><em>Hand in &amp; check your work ➔</em></button></aside></div>`; }
     case "check": { const open = answersOpen(b.id);
       return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${open ? (justRevealed === b.id ? hl(x).replace(/class="cfx-hl"/g, 'class="cfx-hl cfx-unblur"') : hl(x)) : masked(x)}</span></label>`).join("")}</div>
@@ -3671,7 +3674,16 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-fw-note{margin:12px 0 0;text-align:center;font:600 15px/1.4 var(--font-ui);color:var(--ink-soft,#5B6178);}
 
 .cfx-task{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:24px;align-items:start;}
-.cfx-task .cfx-points li{font-size:22px;}
+.cfx-task .cfx-points li{font-size:22px;line-height:1.35;}
+/* Your Task fits its card: steps closer together, and each step's link small enough to sit on the step's own line */
+.cfx-task .cfx-points{gap:8px;}
+.cfx-task .cfx-at{margin-left:4px;padding:0 8px;font-size:12.5px;line-height:1.7;}
+.cfx-task .cfx-side{gap:9px;}
+.cfx-task .cfx-side > div,.cfx-task .cfx-side .cfx-docs{padding:9px 12px;}
+.cfx-task .cfx-side .cfx-why span{font-size:15px;}
+.cfx-task .cfx-side button.cfx-deliver{padding:9px 12px;gap:4px;}
+.cfx-task .cfx-side .cfx-deliver span{font-size:16px;}
+.cfx-sheet .cfx-do-now{padding:6px 14px;margin-bottom:10px;}
 .cfx-side{display:flex;flex-direction:column;gap:12px;}
 .cfx-side > div{background:#F6F7FB;border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;font-size:15px;}
 .cfx-side b{font:700 13px var(--font-ui);color:var(--navy);text-transform:uppercase;letter-spacing:.05em;}
