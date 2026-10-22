@@ -36,7 +36,7 @@ const CLIENT_PROFILE_DOC = [
     "Payer Order (who pays the Medical Bills while the claim is open) is a different question from the stack: PIP/MedPay → private health insurance → LOP/provider liens"
   ]},
   {section:"People and Vehicles", items:[
-    "Host driver: Kevin Alvarez, John's coworker (separate household); they carpool on alternate weeks and 02/06/2026 was Kevin's week. He owns the host vehicle, a 2020 Ford Escape, insured by Harbor Point (Host UM $20,000; MedPay $5,000).",
+    "Host driver: Kevin Alvarez, John's coworker (separate household); they carpool on alternate weeks and 02/06/2026 was Kevin's week. He owns the host vehicle, a 2020 Ford Escape, insured by Harbor Point (Host UM $20,000; PIP $5,000).",
     "Resident relative: Margaret Doe, John's mother; John lives with her at 2214 Maple Hollow Rd. Her car is insured by Cardinal State Mutual (UM $10,000). Emergency contact on the file."
   ]},
   {section:"The Vehicles and Who Insures Them", items:[
@@ -54,21 +54,21 @@ const CLIENT_PROFILE_DOC = [
   ]},
   {section:"Injury and Treatment", items:[
     "Injury: cervical strain; C5-C6 right paracentral disc herniation with mild right foraminal narrowing · prior: three chiropractic visits in 2021 for low-back stiffness, resolved; no prior neck complaints",
-    "02/20/2026 Riverton Urgent Care: first treatment, \"onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18\" · $685.00 (MedPay)"
+    "02/20/2026 Riverton Urgent Care: first treatment, \"onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18\" · $685.00 (PIP)"
   ]},
   {section:"The Treatment Record", items:[
     "02/24–04/02/2026 Riverton Spine & Rehab (chiro + PT, out of network for Peach State): 16 visits under an LOP signed 02/23/2026",
-    "03/05/2026 Lakeside Orthopedics, Dr. Alana Reyes: initial consult, orders MRI · $640.00 (MedPay)",
-    "03/13/2026 Summit Imaging Center, cervical MRI (Dr. Helen Park): C5-C6 herniation, \"no significant degenerative change at the adjacent levels\" · $2,395.00 (MedPay)",
-    "03/27/2026 Lakeside Orthopedics follow-up, referral to pain management · $640.00 (MedPay)",
+    "03/05/2026 Lakeside Orthopedics, Dr. Alana Reyes: initial consult, orders MRI · $640.00 (PIP)",
+    "03/13/2026 Summit Imaging Center, cervical MRI (Dr. Helen Park): C5-C6 herniation, \"no significant degenerative change at the adjacent levels\" · $2,395.00 (PIP)",
+    "03/27/2026 Lakeside Orthopedics follow-up, referral to pain management · $640.00 (PIP)",
     "04/02 → 04/21/2026: disrupted care, 19 days with no visits (missed 04/03, 04/07, 04/09, 04/14)",
     "04/21–06/05/2026 Riverton Spine & Rehab: 17 visits, care resumed (LOP)",
     "05/15/2026 Crescent Pain & Spine, Dr. Omar Haddad: cervical epidural steroid injection · billed $3,400.00, Peach State paid $1,860.00 at contract rate (no balance billing)",
-    "06/12/2026 Lakeside Orthopedics: MMI · residual intermittent right-arm paresthesia · possible 1–2 repeat ESIs within 24 months ($3,400–$6,800 future medical) · $640.00 (MedPay, now exhausted)",
+    "06/12/2026 Lakeside Orthopedics: MMI · residual intermittent right-arm paresthesia · possible 1–2 repeat ESIs within 24 months ($3,400–$6,800 future medical) · $640.00 (PIP, now exhausted)",
     "02/07–06/2026 Riverton Drug: prescriptions and OTC · $312.40, John out of pocket"
   ]},
   {section:"Coverage Confirmations", items:[
-    "Harbor Point (03/02/2026, in writing): no reimbursement right on MedPay; its UM is add-on (excess), not reduced by the BI payment, with no MedPay non-duplication reduction",
+    "Harbor Point (03/02/2026, in writing): no reimbursement right on PIP; its UM is add-on (excess), not reduced by the BI payment, with no PIP non-duplication reduction",
     "Cardinal State: Teresa Okafor assigned as adjuster 03/03/2026; John confirmed in writing (03/09/2026) as a resident relative occupying a non-owned vehicle",
     "Keystone disclosed nothing before a written request with authorizations; BI $10,000 confirmed by its Declaration Page 03/20/2026"
   ]},
@@ -89,14 +89,14 @@ const CLIENT_PROFILE_DOC = [
   ]},
   {section:"Treatment & Pre-Demand: Specials and the A-C-T Response", items:[
     "Riverton Spine & Rehab billed 34 lines × $185.00 = $6,290.00, but 05/04/2026 is a duplicate: 33 visits = $6,105.00 after audit",
-    "MedPay paid in date order $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00 (exhausted 06/2026)",
+    "PIP paid in date order $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00 (exhausted 06/2026)",
     "Medical specials: $15,002.40 billed → $14,817.40 after the audit · lost wages: 9 shifts × 8 h × $22.00 = $1,584.00 (Northgate HR letter) · total Specials $16,401.40",
     "A-C-T: Assess, called John 04/08 · Coordinate, asked Keystone PD to extend the rental (refused 04/10), then moved John to evening slots so Margaret could drive him (first open slot 04/21) · Track, attendance confirmed 04/21 and 04/23 · the Civic came back 04/24"
   ]},
   {section:"Why the 14-Day Gap Happened", items:[
     "No transportation: the Civic was towed from the scene, Kevin's Escape was in the shop, and no rental was authorized until 02/18/2026",
     "He thought it was soreness that would pass; took OTC ibuprofen and lidocaine patches (receipt 02/07/2026)",
-    "Cost worry: unsure his new Peach State coverage (effective 02/01/2026) was active; didn't know MedPay existed",
+    "Cost worry: unsure his new Peach State coverage (effective 02/01/2026) was active; didn't know PIP existed",
     "Symptoms escalated: numbness into his right hand from 02/18; he worked 02/18–02/19 and went to urgent care on his first day off, 02/20/2026",
     "Corroboration: EMS report (neck complaint on the DOL) · Northgate attendance (called out 02/09–02/13 citing neck pain) · texts to his mother 02/07–02/15 · the pharmacy receipt · the urgent-care history · Dr. Reyes's Causation Letter (06/19/2026)"
   ]},

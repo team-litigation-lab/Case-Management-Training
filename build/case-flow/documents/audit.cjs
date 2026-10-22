@@ -81,7 +81,8 @@ const NEED = {
   RS28: [/\$20,000/, /\$5,000/, /03\/02\/2026|March 2, 2026/, /arbitrat/i],
   RS29: [/\$10,000/, /03\/09\/2026|March 9, 2026/, /Okafor/],
   RS30: [/03\/14\/2024|March 14, 2024/, /reject/i],
-  RS31: [/\$5,000\.00/, /06\/26\/2026/],
+  RS31: [/\$5,000\.00/, /06\/26\/2026/, /80%/, /\$1,267\.20/],
+  RS65: [/02\/17\/2026/, /02\/24\/2026/, /\$5,000\.00/, /PIP rejected in writing/i, /passenger/i, /100%/, /80%/],
   RS32: [/03\/19\/2026|March 19, 2026/, /\$42\.00/],
   RS33: [/\$16,410\.40/, /08\/19\/2026|August 19, 2026/, /full and final release of all claims/i],
   RS34: [/07\/22\/2026|July 22, 2026/],
@@ -146,6 +147,11 @@ for (const [id, t] of Object.entries(text)) {
   NOT_OWNER.forEach(re => { const m = flat.match(re); if (m) fails.push(`${id}: “${m[0]}”: the Civic is Margaret Doe's; John Doe has no property-damage or rental claim`); });
 }
 if (text.RS07 !== undefined && !has("RS07", /DOE, Margaret/)) fails.push("RS07: the Police Report should list Margaret Doe as the parked Civic's owner");
+
+// PIP: Riverton is an add-on PIP state and John Doe claims the $5,000 PIP on the Escape he rode in (Harbor Point). No document
+// may still call the first-party medical coverage MedPay / Medical Payments.
+for (const [id] of Object.entries(text)) { const m = T(id).match(/\bMed ?Pay\b|Medical Payments/); if (m) fails.push(`${id}: “${m[0]}”: this file's first-party medical coverage is Harbor Point PIP`); }
+if (text.RS28 !== undefined && !has("RS28", /Personal Injury Protection/i)) fails.push("RS28: Harbor Point's declarations should show Part B Personal Injury Protection ($5,000)");
 
 console.log(`Audited ${Object.keys(text).length} of ${DOCS.length} documents.`);
 warn.forEach(w => console.log("warn: " + w));

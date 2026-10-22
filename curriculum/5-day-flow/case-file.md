@@ -34,13 +34,15 @@ BI must be exhausted (paid or tendered at limits) before Host UM opens; Relative
 A UM demand before the BI tender is premature; settling or releasing BI without the UM carriers' written consent can forfeit the stack. **Payer Order** (who pays the Medical Bills
 while the claim is open) is a different question: PIP/MedPay → private health insurance → LOP/provider liens.
 
+**PIP (Riverton's rule).** Riverton is an **add-on PIP state**: every auto policy carries $5,000 of Personal Injury Protection unless the named insured rejects it in writing. PIP pays **100% of reasonable accident medical expenses and 80% of lost income**, regardless of fault, with no deductible. It is add-on, not no-fault: it does not reduce BI or UM, and Riverton bars a PIP carrier from recovering what it paid out of its insured's settlement. **Whose PIP:** a household policy with PIP comes first; John owns no car, and Margaret Doe rejected PIP in writing on both her Bluewater and Cardinal State policies, so John claims PIP as a passenger on the vehicle he rode in: **Harbor Point's PIP on Kevin Alvarez's Escape, $5,000** (claim HP-26-7741). PIP application signed 02/17/2026 and sent with the Harbor Point LOR; Harbor Point acknowledged it and opened PIP on 02/24/2026 (RS65).
+
 ## 2. The file from Day 2 on
 
 ### People and vehicles
 
 | | |
 |---|---|
-| Host driver | **Kevin Alvarez**, John's coworker (separate household). They carpool to work on alternate weeks; 02/06/2026 was Kevin's week. Owns the host vehicle, a **2020 Ford Escape**, insured by Harbor Point (Host UM $20,000; **MedPay $5,000**). |
+| Host driver | **Kevin Alvarez**, John's coworker (separate household). They carpool to work on alternate weeks; 02/06/2026 was Kevin's week. Owns the host vehicle, a **2020 Ford Escape**, insured by Harbor Point (Host UM $20,000; **PIP $5,000**). |
 | Resident relative | **Margaret Doe**, John's mother. John lives with her at 2214 Maple Hollow Rd. Her own car is insured by Cardinal State Mutual (UM $10,000). Emergency contact on the file. |
 | The parked car | **Margaret Doe's 2019 Honda Civic LX**, 52,300 miles, owned outright, insured on her policy by **Bluewater Auto Insurance** (liability + collision, $500 deductible). **UM/UIM rejected in writing by Margaret** (signed rejection form, 03/14/2024). **John owns no car and has no auto policy.** |
 | Why passenger status matters | As a passenger in a car he does not own, John reaches Host UM (occupant of the host vehicle) and Relative UM (resident relative in a non-owned vehicle). He owns no car, so no policy of his own applies; Margaret's Bluewater policy on the Civic has no UM, so it adds no layer. The Civic, its PD claim and its rental are Margaret's, never John's: the firm handles her PD under a separate PD-only engagement. |
@@ -66,25 +68,26 @@ passenger door at about 28 mph; the Escape was pushed into Margaret's Civic, par
 
 | Date | Provider | Event | Billed | Paid by |
 |---|---|---|---|---|
-| 02/20/2026 | Riverton Urgent Care | First treatment. Note: "onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18." | $685.00 | Harbor Point MedPay |
+| 02/20/2026 | Riverton Urgent Care | First treatment. Note: "onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18." | $685.00 | Harbor Point PIP |
 | 02/24–04/02/2026 | **Riverton Spine & Rehab** (chiropractic + PT; out of network for Peach State) | 16 visits under an **LOP signed 02/23/2026** | — | LOP |
-| 03/05/2026 | **Lakeside Orthopedics, Dr. Alana Reyes** | Initial consult; orders MRI | $640.00 | MedPay |
-| 03/13/2026 | **Summit Imaging Center** | Cervical MRI (read by Dr. Helen Park): C5-C6 herniation; "no significant degenerative change at the adjacent levels" | $2,395.00 | MedPay (Summit asked for an LOP on 03/11; declined because MedPay applies first) |
-| 03/27/2026 | Lakeside Orthopedics | Follow-up; refers to pain management | $640.00 | MedPay |
+| 03/05/2026 | **Lakeside Orthopedics, Dr. Alana Reyes** | Initial consult; orders MRI | $640.00 | PIP |
+| 03/13/2026 | **Summit Imaging Center** | Cervical MRI (read by Dr. Helen Park): C5-C6 herniation; "no significant degenerative change at the adjacent levels" | $2,395.00 | PIP (Summit asked for an LOP on 03/11; declined because PIP applies first) |
+| 03/27/2026 | Lakeside Orthopedics | Follow-up; refers to pain management | $640.00 | PIP |
 | 04/02 → 04/21/2026 | — | **Disrupted care: 19 days with no visits** (missed 04/03, 04/07, 04/09, 04/14) | — | — |
 | 04/21–06/05/2026 | Riverton Spine & Rehab | 17 visits; care resumed | — | LOP |
 | 05/15/2026 | **Crescent Pain & Spine, Dr. Omar Haddad** | Cervical epidural steroid injection | $3,400.00 | **Peach State paid $1,860.00** (contract rate; provider wrote off the rest and cannot balance-bill) |
-| 06/12/2026 | Lakeside Orthopedics | **MMI** declared; residual intermittent right-arm paresthesia; future care: possibly 1–2 repeat ESIs within 24 months at $3,400 each (future medical $3,400–$6,800; narrative, not Specials) | $640.00 | MedPay (MedPay exhausted at $5,000.00) |
+| 06/12/2026 | Lakeside Orthopedics | **MMI** declared; residual intermittent right-arm paresthesia; future care: possibly 1–2 repeat ESIs within 24 months at $3,400 each (future medical $3,400–$6,800; narrative, not Specials) | $640.00 | PIP (PIP exhausted at $5,000.00) |
 | 02/07–06/2026 | Riverton Drug | Prescriptions and OTC (receipt 02/07/2026 for ibuprofen and lidocaine patches) | $312.40 | John, out of pocket |
 
 - Riverton Spine & Rehab bills **34 lines × $185.00 = $6,290.00**, but one is a **duplicate (05/04/2026)**:
   33 real visits = **$6,105.00** after audit.
-- MedPay paid in date order: $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = **$5,000.00** (exhausted 06/2026).
-  Crescent Pain & Spine is in network with Peach State and billed the plan directly at its contract rate; MedPay pays
+- PIP paid in date order: $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = **$5,000.00** (exhausted 06/2026).
+  Crescent Pain & Spine is in network with Peach State and billed the plan directly at its contract rate; PIP pays
   the bills submitted to it, and its last $640.00 paid Lakeside's 06/12/2026 visit. The Payer Order is the default;
   providers bill whom they bill, and the CM tracks both ledgers rather than re-routing a paid claim.
-  Harbor Point confirmed in writing (03/02/2026): **no reimbursement right** on MedPay against John's recovery;
-  its UM is **add-on (excess)** — not reduced by the BI payment — and has **no MedPay non-duplication reduction**.
+  Harbor Point confirmed in writing (03/02/2026): **no reimbursement right** on PIP against John's recovery;
+  its UM is **add-on (excess)** — not reduced by the BI payment — and has **no PIP non-duplication reduction**.
+- PIP's 80% wage benefit (9 shifts, $1,584.00 × 80% = $1,267.20) was never paid: the medical bills used the $5,000 limit by 06/26/2026, and Northgate's wage-and-attendance letter came 06/30/2026. The full $1,584.00 stays in the Specials.
 - Cardinal State confirmed in writing (03/09/2026) that John is covered as a resident relative occupying a non-owned vehicle.
 - Keystone gave its $10,000 BI limit verbally on the set-up call but would not confirm it in writing (no Declaration Page) before a written request with signed authorizations; BI limit $10,000 confirmed in writing by Keystone's Declaration Page on 03/20/2026.
 
@@ -97,7 +100,7 @@ verified by Northgate HR wage-and-attendance letter. **Total specials: $16,401.4
 1. **No transportation.** Margaret's Civic was towed from the scene, Kevin's Escape was in the shop, and no rental
    was authorized until 02/18/2026.
 2. He thought it was soreness that would pass; took OTC ibuprofen and lidocaine patches (receipt 02/07/2026).
-3. Cost worry: he wasn't sure his new Peach State coverage (effective 02/01/2026) was active, and didn't know MedPay existed.
+3. Cost worry: he wasn't sure his new Peach State coverage (effective 02/01/2026) was active, and didn't know PIP existed.
 4. Symptoms escalated: numbness into his right hand from 02/18/2026. He worked 02/18–02/19 and went to urgent care on his first day off, 02/20/2026.
 
 Corroboration: EMS report (neck complaint on the DOL), Northgate Attendance Record (called out 02/09–02/13
@@ -232,7 +235,7 @@ before any negotiated reduction, leaving John Doe nothing — which is why the l
   (John's deposition, videoconference) $645.50 + certified records for the arbitration binder $160.00.
 - **Liens:** Peach State $1,860.00 reduced at the fee actually charged (40% = $744.00) → **$1,116.00**, accepted in
   writing **07/14/2027 (Wed)**; Riverton Spine & Rehab audited $6,105.00 → **$4,275.00**, signed Payoff Letter
-  **07/16/2027 (Fri)**; total **$5,391.00**. MedPay, Crescent's write-off and the MedPay-paid providers stay at $0.00.
+  **07/16/2027 (Fri)**; total **$5,391.00**. PIP, Crescent's write-off and the PIP-paid providers stay at $0.00.
 - Harbor Point's check **07/20/2027 (Tue)**, Cardinal State's **07/22/2027 (Thu)**; John signs the Settlement
   Statement **07/29/2027 (Thu)**; **disbursement 07/30/2027 (Fri)**.
 - **Net to John Doe: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75** (Track A: $20,359.92; the
@@ -260,7 +263,7 @@ the facts above. Fictional throughout; no real carrier, provider or firm.
 | Firm | **LSH Law Group**, 500 Commerce St, Suite 1200, Riverton · (555) 010-4000 · Case Manager line ext. 214 · file LSH-2026-MVA-770412 |
 | Intake | Intake call **02/09/2026 (Mon)**; retainer and HIPAA authorization signed in the office the same day |
 | Keystone Mutual Insurance | Claims, P.O. Box 4100, Riverton · Robert Smith's policy **KMI-PA-7731045** · BI claim KM-26-440871 (Dana Whitfield, BI adjuster; **Greg Holloway**, claims supervisor) · PD claim KM-26-440871-PD (Leah Moran) |
-| Harbor Point Insurance | 77 Harbor Point Blvd, Riverton · Kevin Alvarez's policy **HPA-4402917** (2020 Ford Escape) · claim HP-26-7741 (Marcus Bell) · UM $20,000 / $40,000; MedPay $5,000 |
+| Harbor Point Insurance | 77 Harbor Point Blvd, Riverton · Kevin Alvarez's policy **HPA-4402917** (2020 Ford Escape) · claim HP-26-7741 (Marcus Bell) · UM $20,000 / $40,000; PIP $5,000 |
 | Cardinal State Mutual | 1200 Cardinal Way, Millbrook · Margaret Doe's policy **CSM-AU-5580213** (2018 Toyota Camry) · claim CS-26-20355 (Teresa Okafor) · UM $10,000 / $20,000 |
 | Bluewater Auto Insurance | John Doe's policy **BWA-209-66184** (2019 Honda Civic LX) · liability 25/50/25 + collision ($500 deductible) · UM/UIM rejected in writing 03/14/2024 |
 | Peach State Health Plan | Subrogation & Recovery Unit, P.O. Box 2210, Riverton · member PSH-55017742 · group GRP-41208 (Northgate Distribution; **fully insured** group plan) · recovery analyst **Dion Carver** · first notice of reimbursement rights **02/27/2026** |

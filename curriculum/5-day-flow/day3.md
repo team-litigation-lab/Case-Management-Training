@@ -257,7 +257,7 @@ A left-to-right audit run across the full slide. Far left, a navy vertical gate 
 6. Show billed beside paid. Which column the demand claims turns on the governing collateral-source rule, which varies by state: Atty. Thorne's call, never the ledger's.
 7. Lost wages need the employer's wage letter and a provider's work note. Northgate verifies 9 shifts × 8 h × $22.00 = $1,584.00; flag the five shifts before first treatment, which have no note.
 8. Future medical is economic damage but not an incurred charge: the possible repeat injections ($3,400–$6,800) stay out of the audited total and go in the narrative, with the MMI note behind them. How they are claimed is Atty. Thorne's call.
-9. Identify every lien and subrogation interest. Plan: Peach State's $1,860.00, funding type recorded. Consensual: the LOP. MedPay: no reimbursement right against John Doe (03/02/2026). Ask Harbor Point in writing whether it reserves MedPay subrogation against Robert Smith; record the answer and route it to Atty. Thorne.
+9. Identify every lien and subrogation interest. Plan: Peach State's $1,860.00, funding type recorded. Consensual: the LOP. PIP: no reimbursement right against John Doe (03/02/2026). Ask Harbor Point in writing whether it reserves PIP subrogation against Robert Smith; record the answer and route it to Atty. Thorne.
 10. Audit the limits one last time: per person, no step-down, each UM layer's form. Present, don't compile: $16,401.40 already exceeds the $10,000 BI limit, and proving it document by document makes a carrier fear a jury.
 
 > ⚠️ **UPL boundary.** You audit, total, flag and lay out options. You do not value the case, choose billed or paid, or set the demand figure: the audit reaches Atty. Thorne as findings, not conclusions.
@@ -269,9 +269,9 @@ A left-to-right audit run across the full slide. Far left, a navy vertical gate 
 | Order | Layer | Limit | Re-verify before the ask |
 |---|---|---|---|
 | 1 | BI — Keystone Mutual | $10,000 | Per person (03/20/2026 Dec Page); confirm no step-down |
-| 2 | Host UM — Harbor Point | $20,000 | Add-on; no MedPay offset (03/02/2026 letter); opens after the BI tender |
+| 2 | Host UM — Harbor Point | $20,000 | Add-on; no PIP offset (03/02/2026 letter); opens after the BI tender |
 | 3 | Relative UM — Cardinal State Mutual | $10,000 | Coverage (03/09/2026 letter); UM form and other-insurance clause from the certified policy; priority is Atty. Thorne's call |
-| Not a layer | MedPay · Keystone PD | — | Neither counts toward the $40,000 |
+| Not a layer | PIP · Keystone PD | — | Neither counts toward the $40,000 |
 
 **Operational mapping**
 
@@ -587,7 +587,7 @@ A battle map across the full slide width: four orange-numbered stations on a nav
 1. The battle map comes before the first call: net floor, three value drivers, the adjuster's top two attacks with the documents that answer them, and the rebuttal. Here both attacks are known: the gap and the “degenerative” MRI.
 2. Net floor = liens + costs + fee; below it John Doe receives $0. $7,965.00 + $486.75 = $8,451.75; × 1.5 for the one-third fee = $12,677.63 gross, above Keystone's $10,000 limit. Every layer and lien reduction matters.
 3. Value drivers: Smith ran the stop sign on video, with an independent witness (the citation helps the demand; whether a jury hears of it depends on the evidence rule); an objective C5-C6 herniation and injection; residual right-arm paresthesia at MMI.
-4. Anchor on total Specials, $16,401.40, not MedPay's $5,000; lead with what MedPay bought: urgent care, Lakeside, the MRI that found the herniation. Chiropractic and PT ran under the LOP.
+4. Anchor on total Specials, $16,401.40, not PIP's $5,000; lead with what PIP bought: urgent care, Lakeside, the MRI that found the herniation. Chiropractic and PT ran under the LOP.
 5. Soft lead: confirm Dana Whitfield has the package, point her to the MRI, restate the demand and its 08/21/2026 deadline as Atty. Thorne approved them, ask for her evaluation. What the firm does if she refuses is his to say. After a low number, pause; ask her data.
 6. Anchor and hold: the demand stands as Atty. Thorne approved it. Never apologise for it; you make no moves (“never bid against yourself” is the rule he negotiates by). “That's all I have” is never final on day one.
 7. Stalls are built to wear you down. Name the stall, answer with facts, ask for a good-faith offer on the undisputed injury. The demand expires 08/21/2026; only Atty. Thorne can move it.
@@ -622,8 +622,8 @@ A battle map across the full slide width: four orange-numbered stations on a nav
 - Personalize every answer to John Doe's record; a template rebuttal gets a template offer.
 - ⚠️ Pitfall: softening the demand to seem reasonable.
 - ⚠️ Pitfall: negotiating without knowing the client's net floor.
-- ⚠️ Pitfall: anchoring on the $5,000 MedPay figure instead of total Specials.
-- ⚠️ Pitfall: Specials that don't reconcile to the ledger. Know what MedPay paid ($5,000.00) for the Net Sheet; whether payer information goes to Keystone is Atty. Thorne's call.
+- ⚠️ Pitfall: anchoring on the $5,000 PIP figure instead of total Specials.
+- ⚠️ Pitfall: Specials that don't reconcile to the ledger. Know what PIP paid ($5,000.00) for the Net Sheet; whether payer information goes to Keystone is Atty. Thorne's call.
 - ⚠️ Pitfall: accepting an open-ended “I'll get back to you.”
 
 #### 3 · Knowledge Check & CM Summary
@@ -661,7 +661,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 #### 1 · Visual Layout Description
 
-Three rungs build left to right: BI $10,000 (navy, ticked TENDERED 08/12), HOST UM $20,000 (navy-soft), RELATIVE UM $10,000 (orange), with a running-total pill above each ($10,000 → $30,000 → $40,000) ending in a large Fraunces $40,000 GROSS. Under the Host UM rung sit three struck-through red chips, the reductions that do not apply here (BI OFFSET · MEDPAY NON-DUPLICATION · MEDPAY LIEN), tied by one mono pill: HARBOR POINT LETTER 03/02/2026. A grey chip, NO PIP ON THIS FILE, sits apart. Bottom strip: a cream card, CONFIRM SCOPE · RELEASE · LIENS · PAYEE · CHECK DATE → CONFIRMING EMAIL. The argument: the gross is protected by documents checked before the negotiation.
+Three rungs build left to right: BI $10,000 (navy, ticked TENDERED 08/12), HOST UM $20,000 (navy-soft), RELATIVE UM $10,000 (orange), with a running-total pill above each ($10,000 → $30,000 → $40,000) ending in a large Fraunces $40,000 GROSS. Under the Host UM rung sit three struck-through red chips, the reductions that do not apply here (BI OFFSET · PIP NON-DUPLICATION · PIP LIEN), tied by one mono pill: HARBOR POINT LETTER 03/02/2026. A grey chip, PIP IS ADD-ON: NO SET-OFF, sits apart. Bottom strip: a cream card, CONFIRM SCOPE · RELEASE · LIENS · PAYEE · CHECK DATE → CONFIRMING EMAIL. The argument: the gross is protected by documents checked before the negotiation.
 
 #### 2 · Slide Body — Tell Them
 
@@ -675,7 +675,7 @@ Three rungs build left to right: BI $10,000 (navy, ticked TENDERED 08/12), HOST 
 6. When a carrier offers limits, confirm its terms (coverage, release scope, liens, payee, check date) without accepting; report to Atty. Thorne that day. Only after John Doe decides, on his advice, does the acceptance go out: you draft it, he approves and sends it.
 7. A first-party carrier owes its insured good faith. Never accept verbally under pressure: log the words, put new evidence in writing under Atty. Thorne's deadline, escalate. Bad faith is his call.
 8. Payout: release → check (to John Doe and the firm; he endorses, never the CM) → IOLTA → liens, fee, costs → net. Log each check the day it arrives; deposit it that day if its release is signed, else secure it and expedite signing under Atty. Thorne.
-9. MedPay is not PIP: in most states a collateral source, not a credit to Keystone (confirm the rule). Exhausted and non-subrogated, it creates no lien and no UM cut here. Where PIP applies, set-off, the EMC ceiling and subrogation change the ask.
+9. Riverton's PIP is add-on: a collateral source, not a credit to Keystone (confirm the rule). Exhausted and non-subrogated, it creates no lien and no UM cut here. Where PIP applies, set-off, the EMC ceiling and subrogation change the ask.
 
 > ⚠️ **UPL boundary.** You may assemble the evidence, log and relay offers, and paper what John Doe decided through Atty. Thorne. You may not accept, reject or counter, tell John Doe whether to settle, explain a policy's offset or release language to him, or accuse a carrier of bad faith.
 
@@ -685,8 +685,8 @@ Three rungs build left to right: BI $10,000 (navy, ticked TENDERED 08/12), HOST 
 
 | Reduction | Where it bites | On this file |
 |---|---|---|
-| PIP set-off | No-fault states: value – PIP paid = what the defendant still owes. | No PIP. MedPay is not PIP: usually a collateral source, not a credit to Keystone (confirm the rule). Exhausted, non-subrogated: no lien, no UM cut. |
-| EMC ceiling | In PIP states, some cap benefits lower without an emergency-medical-condition finding (confirm the rule); this file has no PIP. | MedPay paid its full $5,000.00; the rest of the care became Peach State and LOP liens. |
+| PIP set-off | No-fault states: value – PIP paid = what the defendant still owes. | Riverton PIP is add-on, not no-fault: a collateral source, not a credit to Keystone (confirm the rule). Exhausted, non-subrogated: no lien, no UM cut. |
+| EMC ceiling | In PIP states, some cap benefits lower without an emergency-medical-condition finding (confirm the rule); Riverton's add-on PIP has no such cap. | PIP paid its full $5,000.00; the rest of the care became Peach State and LOP liens. |
 | Subrogation | A subrogated carrier liens the settlement: log it, plan the reduction. | Harbor Point, 03/02/2026: no reimbursement right. |
 | UM offset | A reduction policy subtracts the BI from the UM limit. | Add-on: $20,000 of room, not $20,000 – $10,000 = $10,000. |
 
@@ -719,7 +719,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **15%** | Gap and layer logic | UM pays the gap above BI; Relative UM excess over Host UM; $10,000 + $20,000 + $10,000 = $40,000 |
-| 🤖 AI | **20%** | Reductions closed | Offset, MedPay non-duplication and MedPay reimbursement each tied to the 03/02/2026 letter; no PIP on the file; PIP rules stated as where they apply |
+| 🤖 AI | **20%** | Reductions closed | Offset, PIP non-duplication and PIP reimbursement each tied to the 03/02/2026 letter; add-on PIP: no set-off; no-fault rules stated as where they apply |
 | 🤖 AI | **15%** | Close and paper trail | Coverage, release, liens, payee and check date confirmed; same-day email |
 | 🤖 AI | **10%** | Payout sequence | Release → check → trust → liens, fee and costs → net |
 | 🧑‍🏫 Trainer | **20%** | Strategic judgment | Explains why the gross is protected before the negotiation, and when bracketing does and doesn't fit |
@@ -775,7 +775,7 @@ A call-simulator screen across the left two-thirds: a navy header bar reading AI
 - [ ] First substantive question is open and covers 02/06/2026 to 02/20/2026; zero leading questions, and no reason introduced before John Doe raised it
 - [ ] Reason 1, in his words: no transportation (Civic towed from the scene, Kevin Alvarez's Escape in the shop, no rental until 02/18/2026)
 - [ ] Reason 2, in his words: he thought it was soreness that would pass, and took OTC ibuprofen and lidocaine patches
-- [ ] Reason 3, in his words: unsure his Peach State coverage (effective 02/01/2026) was active; didn't know MedPay existed
+- [ ] Reason 3, in his words: unsure his Peach State coverage (effective 02/01/2026) was active; didn't know PIP existed
 - [ ] Reason 4, in his words: numbness into his right hand from 02/18/2026; worked 02/18–02/19; urgent care on his first day off, 02/20/2026
 - [ ] Corroboration surfaced: texts to Margaret Doe 02/07–02/15, Northgate call-outs 02/09–02/13 citing neck pain, the 02/07/2026 Riverton Drug receipt; texts to be kept unaltered
 - [ ] No statement that the gap “won't matter” or “will hurt the case”; any effect or value question logged and routed to Atty. Thorne
@@ -929,7 +929,7 @@ A full-width Specials ledger on a cream card, provider rows in mono under five c
 
 **Scenario.** File date: early July 2026. Lakeside Orthopedics declared MMI on 06/12/2026; Dr. Reyes's Causation Letter arrived 06/19/2026. Every bill is in: Riverton Urgent Care $685.00; Riverton Spine & Rehab's statement, 34 lines × $185.00 = $6,290.00, with its visit notes; Lakeside Orthopedics three visits at $640.00; Summit Imaging $2,395.00; Crescent Pain & Spine $3,400.00 (Peach State paid $1,860.00); Riverton Drug $312.40. Northgate's HR letter verifies 9 missed shifts at 8 h × $22.00.
 
-**Execution prompt.** Build John Doe's audited Specials ledger in the CMS. Start with the first-party medical-payment ledger, PIP where a state requires it and here Harbor Point's MedPay ledger: match each payment to its bill and confirm whether the limit is exhausted. Enter each provider's charges with dates, billed amount and who paid. Reconcile Riverton Spine & Rehab's billed lines against its visit notes and remove any line no visit supports. Total the medical, add the verified wages, and show billed beside paid. Put future medical in the narrative, not the ledger. List every lien with its amount, and re-verify the three policy-limits targets in order. Graded judgment: what you flag for Atty. Thorne instead of deciding it yourself.
+**Execution prompt.** Build John Doe's audited Specials ledger in the CMS. Start with the first-party medical-payment ledger, here Harbor Point's PIP ledger: match each payment to its bill and confirm whether the limit is exhausted. Enter each provider's charges with dates, billed amount and who paid. Reconcile Riverton Spine & Rehab's billed lines against its visit notes and remove any line no visit supports. Total the medical, add the verified wages, and show billed beside paid. Put future medical in the narrative, not the ledger. List every lien with its amount, and re-verify the three policy-limits targets in order. Graded judgment: what you flag for Atty. Thorne instead of deciding it yourself.
 
 | | |
 |---|---|
@@ -938,16 +938,16 @@ A full-width Specials ledger on a cream card, provider rows in mono under five c
 
 **Verification checkpoints**
 
-- [ ] First-party medical-payment ledger audited (PIP where a state requires it; on this file there is no PIP, so Harbor Point's MedPay ledger): five payments matched to five bills ($685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00), the limit exhausted with the 06/12/2026 payment, no wages paid, and nothing billed to MedPay after exhaustion
+- [ ] First-party ledger audited (Harbor Point's PIP ledger): five payments matched to five bills ($685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00), the limit exhausted with the 06/12/2026 payment, nothing billed to PIP after exhaustion, and the 80% wage benefit unpaid because the limit ran out before Northgate's 06/30/2026 letter, so the full $1,584.00 stays in the Specials
 - [ ] Riverton Spine & Rehab reconciled: 33 visits in the notes (16 from 02/24 to 04/02/2026, 17 from 04/21 to 06/05/2026) against 34 lines; the 05/04/2026 duplicate ($185.00) removed: $6,290.00 → $6,105.00. A corrected itemized statement requested from Riverton Spine & Rehab (a billing correction, not a reduction). Until it arrives, the Lien Tracker shows $6,290.00 claimed and $6,105.00 audited; any reduction is Atty. Thorne's to negotiate.
 - [ ] Medical: $685.00 + $6,105.00 + $640.00 + $2,395.00 + $640.00 + $3,400.00 + $640.00 + $312.40 = $14,817.40 (down from $15,002.40)
 - [ ] Wages: 9 shifts × 8 h × $22.00 = $1,584.00, Northgate HR letter attached; total Specials $14,817.40 + $1,584.00 = $16,401.40
 - [ ] Wage proof: each missed shift matched to a visit record or provider work note; the five shifts 02/09–02/13/2026, before first treatment, flagged with Northgate's Attendance Record (called out citing neck pain) as their support
-- [ ] Billed beside paid: MedPay $5,000.00 on its five bills; Peach State $1,860.00 on Crescent's $3,400.00 (write-off $3,400.00 – $1,860.00 = $1,540.00, no balance billing); LOP $6,105.00 owed; $312.40 paid by John Doe; paid-and-owed column $5,000.00 + $1,860.00 + $6,105.00 + $312.40 = $13,277.40 ($14,817.40 – $1,540.00)
+- [ ] Billed beside paid: PIP $5,000.00 on its five bills; Peach State $1,860.00 on Crescent's $3,400.00 (write-off $3,400.00 – $1,860.00 = $1,540.00, no balance billing); LOP $6,105.00 owed; $312.40 paid by John Doe; paid-and-owed column $5,000.00 + $1,860.00 + $6,105.00 + $312.40 = $13,277.40 ($14,817.40 – $1,540.00)
 - [ ] Billed-vs-paid choice routed to Atty. Thorne under the governing collateral-source rule, not made in the ledger
 - [ ] Future medical ($3,400–$6,800: 1–2 repeat injections within 24 months) recorded in the narrative, outside the $16,401.40
-- [ ] Liens listed: Peach State $1,860.00 (plan funding type recorded) and Riverton Spine & Rehab $6,105.00 after audit, in the CMS → Liens register, mirrored to the Lien Tracker; MedPay recorded as carrying no reimbursement right against John Doe's recovery (Harbor Point, in writing, 03/02/2026); Harbor Point's position on MedPay subrogation against Robert Smith and Keystone requested in writing and routed to Atty. Thorne, since it would compete for the same $10,000 BI limit
-- [ ] Targets in order: $10,000 BI → $20,000 Host UM → $10,000 Relative UM = $40,000; each target re-checked against its written source: BI per person (03/20/2026 Dec Page), Host UM add-on (03/02/2026 letter), Relative UM coverage (03/09/2026) plus its form and excess clause; MedPay and Keystone PD marked as not in the stack
+- [ ] Liens listed: Peach State $1,860.00 (plan funding type recorded) and Riverton Spine & Rehab $6,105.00 after audit, in the CMS → Liens register, mirrored to the Lien Tracker; PIP recorded as carrying no reimbursement right against John Doe's recovery (Harbor Point, in writing, 03/02/2026); Harbor Point's position on PIP subrogation against Robert Smith and Keystone requested in writing and routed to Atty. Thorne, since it would compete for the same $10,000 BI limit
+- [ ] Targets in order: $10,000 BI → $20,000 Host UM → $10,000 Relative UM = $40,000; each target re-checked against its written source: BI per person (03/20/2026 Dec Page), Host UM add-on (03/02/2026 letter), Relative UM coverage (03/09/2026) plus its form and excess clause; PIP and Keystone PD marked as not in the stack
 - [ ] Liability proof confirmed and listed in the audit: the final Riverton PD report RPD-26-018842 (not the exchange-of-information form), Robert Smith cited for failure to stop, no contributory-negligence note on John Doe; Ruth Calloway's contact re-confirmed and her account checked against her first statement for drift; the 2214 Maple Hollow Rd doorbell-camera video preserved and matched to the Escape being pushed into the parked Civic
 - [ ] Reasonable and necessary: each charge tied to the collision in the provider's own records and to a clinical basis (MRI ordered 03/05/2026; injection after the 03/27/2026 referral); Riverton Drug receipts attached, from 02/07/2026
 
@@ -977,7 +977,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 |---|---|---|---|
 | 🤖 AI | **15%** | Duplicate caught | 05/04/2026 line removed; Riverton Spine & Rehab at $6,105.00 |
 | 🤖 AI | **20%** | Totals | $14,817.40 medical + $1,584.00 wages = $16,401.40, to the cent |
-| 🤖 AI | **15%** | Billed vs paid | MedPay $5,000.00 and Peach State $1,860.00 shown against billed; paid-and-owed $13,277.40 |
+| 🤖 AI | **15%** | Billed vs paid | PIP $5,000.00 and Peach State $1,860.00 shown against billed; paid-and-owed $13,277.40 |
 | 🤖 AI | **10%** | Liens and targets | Both liens listed; $10,000 → $20,000 → $10,000 in order |
 | 🧑‍🏫 Trainer | **20%** | Flag judgment | Routes billed-vs-paid and the pre-treatment wage shifts to Atty. Thorne rather than deciding them |
 | 🧑‍🏫 Trainer | **10%** | Authority boundary | No figure presented as what the case is worth |
@@ -1280,8 +1280,8 @@ A call-simulator screen across two-thirds of the slide: a navy header bar readin
 - [ ] Reported to Atty. Thorne on 08/05/2026; he, not the CM, conveys the offer to John Doe
 - [ ] Written rebuttal drafted for Atty. Thorne's approval, ready to send 08/06/2026
 - [ ] If Dana Whitfield raises the April break, the 19-day disruption (04/02–04/21/2026) is answered from the Gap Explanation Record's A-C-T entry (rental ended 03/19, carpool ended 04/01, evening slots from 04/21, attendance confirmed 04/21 and 04/23), not conceded as non-compliance
-- [ ] First Net Sheet generated from the bills on Keystone's 08/12/2026 tender, every figure entered from its source: gross $10,000.00 (MedPay and the property-damage payments left out), the pre-suit 33⅓% fee $3,333.33, the receipted costs $486.75
-- [ ] Provider ledger built and audited line by line: charges in Total Charges, each payment in its payer's column, the 05/04/2026 duplicate ($185.00) and Crescent's $1,540.00 in-network write-off in Adjustments, the MedPay-paid providers at a zero balance; liens audited $7,965.00
+- [ ] First Net Sheet generated from the bills on Keystone's 08/12/2026 tender, every figure entered from its source: gross $10,000.00 (PIP and the property-damage payments left out), the pre-suit 33⅓% fee $3,333.33, the receipted costs $486.75
+- [ ] Provider ledger built and audited line by line: charges in Total Charges, each payment in its payer's column, the 05/04/2026 duplicate ($185.00) and Crescent's $1,540.00 in-network write-off in Adjustments, the PIP-paid providers at a zero balance; liens audited $7,965.00
 - [ ] The BI-only net read out loud: $10,000.00 – $3,333.33 – $486.75 = $6,179.92 against $7,965.00 of unreduced liens, and what that says about the UM layers and the reductions still to come
 - [ ] Sheet checked against the file, then the corrected Net Sheet opened and every differing line accounted for
 
@@ -1361,7 +1361,7 @@ A Negotiation Log fills the slide: two carrier swimlanes on a shared date axis f
 - [ ] Harbor Point's $20,000 (09/29/2026) logged; acceptance recorded as John Doe's informed decision through Atty. Thorne
 - [ ] Cardinal State's $6,000 (10/01/2026) logged and reported the same day; its $10,000 tender (10/06/2026) accepted only on John Doe's decision through Atty. Thorne
 - [ ] Each confirming email states the coverage and claim number, the release scope, how liens are handled (paid from the firm's trust account, not by the carrier), the payee and the check date
-- [ ] Recovery Ledger: $10,000.00 + $20,000.00 + $10,000.00 = $40,000.00 gross; MedPay, Keystone PD and Bluewater excluded
+- [ ] Recovery Ledger: $10,000.00 + $20,000.00 + $10,000.00 = $40,000.00 gross; PIP, Keystone PD and Bluewater excluded
 - [ ] Each UM release signed and returned before its check arrived; checks received and deposited to IOLTA the same day (10/05 and 10/13/2026)
 - [ ] Carrier-conduct entries dated and quoted for Atty. Thorne; no “bad faith” accusation sent by the CM
 - [ ] Net Sheet updated from the BI settlement's sheet, not rebuilt from memory: gross $40,000.00, the fee still at the pre-suit 33⅓% ($13,333.33), costs as receipted
@@ -1385,7 +1385,7 @@ A Negotiation Log fills the slide: two carrier swimlanes on a shared date axis f
 - Quote the carrier; never paraphrase its reasons.
 - If an adjuster says the number is above their authority, ask who holds it and get that person involved.
 - ⚠️ Pitfall: logging a tender without who accepted it, on whose advice, and when.
-- ⚠️ Pitfall: adding MedPay or the Civic's property-damage payments to the gross.
+- ⚠️ Pitfall: adding PIP or the Civic's property-damage payments to the gross.
 - ⚠️ Pitfall: depositing a UM check before its release is signed, or leaving it unlogged.
 
 #### 3 · Knowledge Check & CM Summary
@@ -1410,7 +1410,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 - Put Harbor Point's 09/14 reasons on the board beside its own 03/02/2026 letter. The carrier's argument is answered by its own paper; let the room see that before anyone drafts.
 - Ask: “Cardinal State has offered $6,000. Who decides whether John Doe takes it, and how does that decision reach the log?”
 - Grade the attribution on every acceptance. “Accepted” is incomplete; who decided, on whose advice, and when is the entry.
-- The gross is $40,000.00 and nothing else. A trainee who adds MedPay's $5,000 or Keystone's property-damage payments has mixed the Payer Order or the PD claim into the stack.
+- The gross is $40,000.00 and nothing else. A trainee who adds PIP's $5,000 or Keystone's property-damage payments has mixed the Payer Order or the PD claim into the stack.
 - The Net Sheet is updated here, not started again: it is the same sheet they built at the BI settlement, now carrying the revised, ongoing and final treatment bills and lien balances. Ask what moved, and what document moved it.
 - The trap is treating a Final Ledger as audited. Riverton's final LOP ledger still carries the 05/04/2026 duplicate: a trainee who updates the line to $6,290.00 has undone their own audit. The corrected sheet, after their own check, shows it to them.
 
@@ -1547,8 +1547,8 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 **Auto-graded share of the day's Knowledge Check** (11 questions):
 
 1. Before the demand, which first-party ledger do you audit on John Doe's file, and what must it show?  
-   A PIP ledger: every state requires PIP · **✓ Harbor Point's MedPay ledger: each payment matched to its bill and the $5,000.00 limit exhausted, since there is no PIP on this file** · Peach State's EOBs only · None: first-party payments never touch the demand  
-   *PIP exists only where a state requires it; this file has none, so the first-party ledger is Harbor Point's MedPay: five payments, five bills, $5,000.00, exhausted on 06/12/2026.*
+   Peach State's EOBs: the Health Plan pays before PIP · **✓ Harbor Point's PIP ledger: each payment matched to its bill, the $5,000.00 limit exhausted, and the 80% wage benefit checked** · Peach State's EOBs only · None: first-party payments never touch the demand  
+   *Riverton requires PIP, and John's is Harbor Point's on the Escape: five payments, five bills, $5,000.00, exhausted with the 06/12/2026 visit (paid 06/26/2026). Its 80% wage benefit was never paid, so the full $1,584.00 in lost wages stays in the Specials.*
 2. Riverton Spine & Rehab billed 34 lines at $185.00, but its treatment notes show 33 visits. After the audit, John Doe's medical Specials are:  
    $15,002.40 · **✓ $14,817.40** · $16,401.40 · $13,277.40  
    *$15,002.40 less the duplicate 05/04/2026 line ($185.00) = $14,817.40. $16,401.40 adds the $1,584.00 in wages; $13,277.40 is the paid-and-owed column, not the billed medical total.*
@@ -1656,7 +1656,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
    A window of 30 days from receipt · A release limited to Robert Smith and Keystone · **✓ A demand for $16,401.40, the full Specials** · Service by certified mail and email  
    *Keystone's BI limit is $10,000. A demand above the limit is one Keystone cannot accept within its policy, so refusing it generally sets nothing up (confirm the governing rule). The other three are what make the demand hold.*
 3. Why can John Doe's file still reach the full $20,000 Host UM limit after Keystone pays $10,000?  
-   **✓ Harbor Point confirmed in writing (03/02/2026) that its UM is add-on, so the BI payment does not reduce it** · UM limits are never reduced by a BI payment · MedPay's $5,000 covers the BI offset · Cardinal State pays whatever Harbor Point deducts  
+   **✓ Harbor Point confirmed in writing (03/02/2026) that its UM is add-on, so the BI payment does not reduce it** · UM limits are never reduced by a BI payment · PIP's $5,000 covers the BI offset · Cardinal State pays whatever Harbor Point deducts  
    *Add-on UM is not reduced by the BI payment. Under an offset form the $10,000 BI would come off the $20,000 limit, leaving $10,000. Offset rules vary by state and policy, which is why the carrier's written confirmation is the source.*
 4. When must Harbor Point's and Cardinal State's consents to settle be in writing?  
    Only if a UM carrier asks for one · Before Keystone's check clears the trust account · Within 30 days after the BI release is signed · **✓ Before John Doe signs Keystone's release**  
@@ -1719,7 +1719,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 1. Keystone offered $3,500 on 08/05/2026. Run the math check: fee, costs, unreduced liens and John Doe's net. What does the result tell Atty. Thorne, and who tells John Doe?
 2. Dana Whitfield says the 14-Day Gap proves the crash didn't hurt John Doe and the MRI is degenerative. Answer both from the file, naming four documents and quoting the radiologist.
-3. There is no PIP on this file. Explain what MedPay's $5,000, exhausted and non-subrogated, means for the valuation baseline, and what would change where PIP applies.
+3. Explain what the $5,000 add-on PIP, exhausted and non-subrogated, means for the valuation baseline, and what would change in a no-fault state.
 
 **Best practices & pitfalls**
 
@@ -1771,7 +1771,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 |---|---|---|---|
 | 🤖 AI | **15%** | Math accuracy | $1,166.67 fee, $486.75 costs, $1,846.58 against $7,965.00, net $0.00 |
 | 🤖 AI | **15%** | Gap rebuttal | Four dated documents; Dr. Park's sentence quoted exactly |
-| 🤖 AI | **20%** | Baseline and offset | MedPay exhausted and non-subrogated; add-on UM per the 03/02/2026 letter; Relative UM above $30,000; what PIP would change |
+| 🤖 AI | **20%** | Baseline and offset | PIP exhausted and non-subrogated; add-on UM per the 03/02/2026 letter; Relative UM above $30,000; what PIP would change |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slide |
@@ -1784,7 +1784,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 - Question 1 is the keystone. A trainee who can't show that $3,500 nets John Doe $0.00 has been negotiating without a floor; re-teach the battle map before moving on.
 - Put question 6 to the room aloud before anyone writes: “The offer dies at 5:00 p.m. and Atty. Thorne is unreachable. What do you say?” The right answer refuses a verbal yes without rejecting the offer, asks for the offer and its deadline in writing, logs the words, and reaches Atty. Thorne. It never accepts or rejects for John Doe.
-- On question 3, listen for the difference between “no PIP here” and “no reduction anywhere.” The file is clean because Harbor Point said so in writing on 03/02/2026, not because the doctrine doesn't exist.
+- On question 3, listen for the difference between “no set-off here” and “no reduction anywhere.” The file is clean because Harbor Point said so in writing on 03/02/2026, not because the doctrine doesn't exist.
 - UPL is a gate: a strong score does not survive an ethics breach.
 
 ---

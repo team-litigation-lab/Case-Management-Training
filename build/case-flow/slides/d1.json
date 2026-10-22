@@ -137,7 +137,7 @@
       "steps": [
         {"label": "HIPAA authorization", "text": "Claim-specific, naming the incident date"},
         {"label": "Medicare and Medicaid check", "text": "Age and SSDI status verified, **the answer recorded**"},
-        {"label": "Payer Order", "text": "MedPay first, then health insurance, then LOP or liens"},
+        {"label": "Payer Order", "text": "PIP first, then health insurance, then LOP or liens"},
         {"label": "Flag the Health Plan", "text": "Reimbursement right logged **on first notice**"},
         {"label": "Lien register", "text": "Carrier, member ID and group number, the same day"}
       ]

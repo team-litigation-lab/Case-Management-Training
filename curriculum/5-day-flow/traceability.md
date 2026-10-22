@@ -248,13 +248,13 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: information protection on third-party claims, LOR acknowledgement
 - LSH Claims Specialist: Declaration Pages, certified copy of policy, policy limits and limit types
 - LSH Claims Specialist: follow-up cadence, LOR acknowledgement, statement of insurance disclosure
-- Newly authored: verifying the UM form and MedPay terms at set-up; the regulatory and policy deadline backstop
+- Newly authored: verifying the UM form and PIP terms at set-up; the regulatory and policy deadline backstop
 - LSH Claims Specialist: Declaration Pages, coverage verification and follow-up
-- Newly authored: verifying the UM form and MedPay terms at set-up
+- Newly authored: verifying the UM form and PIP terms at set-up
 - LSH Claims Specialist: LOR components, information protection, acknowledgement and limits disclosure
 - D1 Task Overview: Billing, Resolution & Closing
 - LSH Claims Specialist: MedPay vs. PIP (Medical Bills regardless of fault, no lost wages)
-- Newly authored: LOP issuance guidelines and the MedPay exhaustion ledger
+- Newly authored: LOP issuance guidelines and the PIP exhaustion ledger
 - Case file: Riverton Spine & Rehab, chiro and PT under an LOP signed 02/23/2026 (RS23, the itemized LOP ledger)
 - Newly authored: Letters of Protection, and the Case Manager's part in client-provider referrals within the UPL line
 - Newly authored: redirecting a referral to the client's choice of facility, and the downstream task list (each task done or delegated with an owner and a due date)
@@ -337,13 +337,13 @@ Where neither source had the theory, it was written for this flow and is marked 
 - **The three-criteria Skip-Trace gate** — Day 1 · Module 2 — the No Contact Protocol has the steps; the trigger rule is new
 - **The five-band Case Plan wrapping the Three-Pillar Plan, and the review-loop states** — Day 1 · Module 4
 - **The two-track fork: one file settling on Day 3 (Track A) and going to suit on Days 4–5 (Track B) from the same 08/05/2026 negotiation** — Days 3–5 — the brief's day order, made one coherent file
-- **UM notice at claim set-up (notice is not a demand) and verifying each UM form and MedPay's terms in writing** — Day 2 · Module 1
-- **LOP issuance guidelines and the MedPay exhaustion ledger** — Day 2 · Module 2
+- **UM notice at claim set-up (notice is not a demand) and verifying each UM form and PIP's terms in writing** — Day 2 · Module 1
+- **LOP issuance guidelines and the PIP exhaustion ledger** — Day 2 · Module 2
 - **Redirecting a referral to the client's choice of facility, and the downstream task list: each task done or delegated with an owner and a due date** — Day 2 · Module 2
 - **The non-leading gap interview, recording a client call with consent stated, and the Gap Explanation Record format** — Day 2 · Module 3
 - **Billed vs. paid Specials routed to counsel, and the strategy-briefing protocol for Lead Counsel** — Day 2 · Module 4
 - **The five elements of a Time-Limited Demand that holds up, and the Limited Release as the guard on the UM claims** — Day 3 · Module 1
-- **The net-floor gross-up for a percentage fee, and PIP valuation doctrine carried over to MedPay** — Day 3 · Module 2
+- **The net-floor gross-up for a percentage fee, and PIP valuation doctrine carried over to PIP** — Day 3 · Module 2
 - **The 'verified none' lien inventory and pro-rata distribution worked on the BI-only illustration** — Day 3 · Module 3
 - **Trust handling (cleared funds, disputed shares held) and the UM release audit points** — Day 3 · Module 4
 - **The Track B close-out: the 07/06/2027 arbitration award, liens reduced at the 40% tier and the litigated LSH Net Sheet** — Day 5 · Module 5 — the case file had stopped at the hearing; written so the litigation track ends in a disbursement

@@ -36,10 +36,10 @@ const BLANK = {};
    The provider ledger as the bills and statements prove it (RS22–RS26, RS41, RS42): charges in Total Charges, each
    payer in its own column, audit corrections in Adjustments. Zero-balance lines stay at zero and off the payables. */
 const REF_LEDGER = {
-  B25: "Urgent care", C25: "Riverton Urgent Care (DOS 02/20/2026) — paid in full by Harbor Point MedPay, 03/09/2026", D25: 685, G25: 685,
+  B25: "Urgent care", C25: "Riverton Urgent Care (DOS 02/20/2026) — paid in full by Riverton PIP", D25: 685, E25: 685,
   B26: "Chiro / PT (LOP)", C26: "Riverton Spine & Rehab — itemized LOP ledger, 34 lines billed against 33 documented visits", D26: 6290, H26: 185,
-  B27: "Orthopedics", C27: "Lakeside Orthopedics — 3 visits × $640.00, paid by MedPay (03/16, 04/10, 06/26/2026)", D27: 1920, G27: 1920,
-  B28: "MRI", C28: "Summit Imaging Center — cervical MRI 03/13/2026, paid by MedPay 03/25/2026", D28: 2395, G28: 2395,
+  B27: "Orthopedics", C27: "Lakeside Orthopedics — 3 visits × $640.00, paid by Riverton PIP (the 06/12/2026 payment exhausted the $5,000.00 limit)", D27: 1920, E27: 1920,
+  B28: "MRI", C28: "Summit Imaging Center — cervical MRI 03/13/2026, paid by Riverton PIP", D28: 2395, E28: 2395,
   B29: "Pain management", C29: "Crescent Pain & Spine — ESI 05/15/2026, in network: the $1,540.00 write-off is not a balance", D29: 3400, F29: 1860, H29: 1540,
   B30: "Health plan lien", C30: "Peach State Health Plan — itemized reimbursement claim (fully insured group plan)", D30: 1860,
   B42: "Pre-Settlement Funding", C42: "None reported", B43: "Prior Attorney", C43: "None"
@@ -65,19 +65,19 @@ const STAGES = {
   bi: {
     file: "A", label: "Track A · BI settlement: the first Net Sheet from the bills", when: "08/12/2026 — Keystone Mutual tenders its $10,000.00 BI limits",
     how: [
-      "Section 1 — the gross actually recovered: Keystone Mutual's $10,000.00 BI limits, tendered 08/12/2026 (KM-26-440871). Harbor Point's MedPay and the property damage to Margaret's Civic are not recovery.",
+      "Section 1 — the gross actually recovered: Keystone Mutual's $10,000.00 BI limits, tendered 08/12/2026 (KM-26-440871). Riverton's PIP payments and the property damage to Margaret's Civic are not recovery.",
       "Section 2 — the fee rate from the signed Retainer Agreement (the pre-suit tier: no suit has been filed), then every receipted cost from the Case Cost Ledger, on the row it belongs to.",
       "Section 3 — build the provider ledger line by line from the medical and treatment bills: Riverton Urgent Care, Riverton Spine & Rehab, Lakeside Orthopedics, Summit Imaging, Crescent Pain & Spine, and Peach State's reimbursement claim. Charges in Total Charges, each payment in its own payer column, audit corrections in Adjustments.",
       "Audit every bill before you type it: the 05/04/2026 line billed twice on Riverton's ledger is an Adjustment, not a balance, and Crescent's $1,540.00 patient statement is the in-network contractual write-off.",
-      "Reduced Bill — nothing is reduced yet, so each open lien carries its audited balance and the MedPay-paid providers stay at zero.",
+      "Reduced Bill — nothing is reduced yet, so each open lien carries its audited balance and the PIP-paid providers stay at zero.",
       "Then read Section 4: what the BI layer alone leaves John Doe is the reason the UM layers matter."
     ],
     checks: [
-      {cell: "L7", want: 10000, why: "Gross at the BI settlement: Keystone Mutual's $10,000.00 BI limits, tendered 08/12/2026. MedPay and the property-damage payments are not recovery."},
+      {cell: "L7", want: 10000, why: "Gross at the BI settlement: Keystone Mutual's $10,000.00 BI limits, tendered 08/12/2026. PIP and the property-damage payments are not recovery."},
       {cell: "L11", want: 3333.33, why: "The fee is 33⅓% pre-suit (no suit filed): one-third of $10,000.00 = $3,333.33. Typing 33.33% gives $3,333.00."},
       {cell: "L20", want: 486.75, why: "Receipted costs: Police Report $25.00, records and billing $214.75, certified mail $72.00, MRI disc $25.00, postage and copies $150.00 = $486.75."},
       {cell: "I26", want: 6105, why: "Riverton Spine & Rehab: 34 lines billed, 33 visits in the notes. The 05/04/2026 duplicate ($185.00) goes in Adjustments: $6,290.00 → $6,105.00 audited."},
-      {cell: "I44", want: 7965, why: "Liens audited before any reduction: Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $7,965.00. Crescent's write-off and the MedPay-paid providers stay at zero."},
+      {cell: "I44", want: 7965, why: "Liens audited before any reduction: Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $7,965.00. Crescent's write-off and the PIP-paid providers stay at zero."},
       {cell: "L44", want: 7965, why: "Nothing is reduced yet, so the payables are the audited balances: $1,860.00 + $6,105.00 = $7,965.00."},
       {cell: "L52", want: -1785.08, why: "BI alone leaves John Doe nothing: $10,000.00 – $3,333.33 – $486.75 = $6,179.92 against $7,965.00 of unreduced liens, so the sheet runs $1,785.08 short. That is the case for the UM layers, and for every reduction."}
     ],
@@ -94,7 +94,7 @@ const STAGES = {
       "Check your sheet, then open the corrected sheet and self-audit every line you changed."
     ],
     checks: [
-      {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (MedPay and PD are not recovery)."},
+      {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (PIP and PD are not recovery)."},
       {cell: "L11", want: 13333.33, why: "The fee is 33⅓% pre-suit (no suit filed): one-third of $40,000.00 = $13,333.33. Typing 33.33% gives $13,332.00."},
       {cell: "I26", want: 6105, why: "Riverton's final LOP ledger still carries the 05/04/2026 duplicate ($185.00): audited $6,290.00 → $6,105.00, corrected in writing before any reduction is asked."},
       {cell: "I44", want: 7965, why: "The verified balances at the UM settlement: Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $7,965.00."},
@@ -108,7 +108,7 @@ const STAGES = {
     how: [
       "Audit Riverton Spine & Rehab's final ledger line by line against the visit notes before asking for anything, and put the correction in Adjustments.",
       "Enter a reduction in Reduced Bill only once it is accepted in writing: Peach State's acceptance (10/09/2026) and Riverton's signed Payoff Letter (10/12/2026).",
-      "Leave the zero-balance lines at zero: a line paid by MedPay, or written off in network, is never a payable."
+      "Leave the zero-balance lines at zero: a line paid by PIP, or written off in network, is never a payable."
     ],
     checks: [
       {cell: "I26", want: 6105, why: "Riverton Spine & Rehab: 34 lines billed, 33 visits in the notes. The 05/04/2026 duplicate ($185.00) goes in Adjustments: $6,290.00 → $6,105.00 audited."},
@@ -128,7 +128,7 @@ const STAGES = {
       "Section 4 is what John Doe signs for: tie it to the Trust Ledger before it goes to Atty. Thorne."
     ],
     checks: [
-      {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (MedPay and PD are not recovery)."},
+      {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (PIP and PD are not recovery)."},
       {cell: "L11", want: 13333.33, why: "The fee is 33⅓% pre-suit (no suit filed): one-third of $40,000.00 = $13,333.33. Typing 33.33% gives $13,332.00."},
       {cell: "L20", want: 486.75, why: "Receipted costs: Police Report $25.00, records and billing $214.75, certified mail $72.00, MRI disc $25.00, postage and copies $150.00 = $486.75."},
       {cell: "L26", want: 4580, why: "Riverton Spine & Rehab: audited $6,105.00, accepted $4,580.00 in its signed Payoff Letter (10/12/2026)."},
@@ -232,7 +232,7 @@ function render(){
         <tr class="tot"><td>Total Attorney Costs</td><td></td><td class="m">${out("L20")}</td></tr>
         <tr class="tot"><td>Total Fees &amp; Costs</td><td></td><td class="m">${out("L21")}</td></tr></table></section>
     <section class="ns-sec"><h2>3. Medical Provider Ledger &amp; Lien Reductions</h2>
-      <div class="ns-scroll"><table class="ns-t ns-ledger"><tr><th>Provider Type</th><th>Provider Name</th><th class="m">Total Charges</th><th class="m">PIP Payments</th><th class="m">Health Payments</th><th class="m">Med Pay</th><th class="m">Adjustments</th><th class="m">Balance Owed</th><th class="m">Max Offer</th><th class="m">Low Offer</th><th class="m">Reduced Bill</th></tr>
+      <div class="ns-scroll"><table class="ns-t ns-ledger"><tr><th>Provider Type</th><th>Provider Name</th><th class="m">Total Charges</th><th class="m">PIP Payments</th><th class="m">Health Payments</th><th class="m">PIP</th><th class="m">Adjustments</th><th class="m">Balance Owed</th><th class="m">Max Offer</th><th class="m">Low Offer</th><th class="m">Reduced Bill</th></tr>
         ${LEDGER.map(r => `${r === 42 ? '<tr class="gap"><td colspan="11"></td></tr>' : ""}<tr><td>${inp("B" + r)}</td><td>${inp("C" + r, "wide")}</td>${["D", "E", "F", "G", "H"].map(col => `<td class="m">${inp(col + r, "", true)}</td>`).join("")}<td class="m">${out("I" + r)}</td>${["J", "K", "L"].map(col => `<td class="m">${inp(col + r, "", true)}</td>`).join("")}</tr>`).join("")}
         <tr class="tot"><td colspan="7">Total Liens &amp; Reductions</td><td class="m">${out("I44")}</td><td class="m">${out("J44")}</td><td class="m">${out("K44")}</td><td class="m">${out("L44")}</td></tr></table></div></section>
     <section class="ns-sec"><h2>4. Final Client Disbursement Calculation</h2>
@@ -356,7 +356,7 @@ function download(cells, tag){
   COSTS.forEach(([r, l]) => { set("B" + r, l); set("C" + r, c["C" + r]); set("L" + r, num(c["L" + r])); });
   set("B20", "Total Attorney Costs"); f("L20", "SUM(L12:L19)"); set("B21", "Total Fees & Costs"); f("L21", "L11+L20");
   set("B23", "3. MEDICAL PROVIDER LEDGER & LIEN REDUCTIONS");
-  ["Provider Type", "Provider Name", "Total Charges", "PIP Payments", "Health Payments", "Med Pay", "Adjustments", "Balance Owed", "Max Offer", "Low Offer", "Reduced Bill"].forEach((h, i) => set("BCDEFGHIJKL"[i] + "24", h));
+  ["Provider Type", "Provider Name", "Total Charges", "PIP Payments", "Health Payments", "PIP", "Adjustments", "Balance Owed", "Max Offer", "Low Offer", "Reduced Bill"].forEach((h, i) => set("BCDEFGHIJKL"[i] + "24", h));
   LEDGER.forEach(r => { set("B" + r, c["B" + r]); set("C" + r, c["C" + r]); ["D", "E", "F", "G", "H", "J", "K", "L"].forEach(col => { if(c[col + r] !== undefined && c[col + r] !== "") set(col + r, num(c[col + r])); }); f("I" + r, `D${r}-E${r}-F${r}-G${r}-H${r}`); if(ws["L" + r] == null) set("L" + r, 0); });
   set("B44", "Total Liens & Reductions"); ["I", "J", "K", "L"].forEach(col => f(col + "44", `SUM(${col}25:${col}43)`));
   set("B46", "4. FINAL CLIENT DISBURSEMENT CALCULATION"); set("B47", "Calculation"); set("L47", "Amount");
