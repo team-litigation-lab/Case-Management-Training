@@ -16,7 +16,7 @@
    see who filed the repository right the first time.
 
    It also files a document the course itself produced — the Service Confirmation's memorandum, built from the
-   trainee's own confirmation email and the adjuster's acknowledgment (cmDocFiling.fileBytes) — through the same
+   trainee's own confirmation email and the adjuster's acknowledgment (cmDocFiling.send) — through the same
    name check and the same upload, and asks the CMS to back the case's filed documents up to the trainee's own
    Google Drive (cmDocFiling.drive); the backup is the CMS's, and the course only asks for it.
 
@@ -166,20 +166,21 @@ const mimeOf = (file)=>{
           xlsx:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}[ext] || "application/octet-stream";
 };
 
-/* ---------- a document the course itself produced ----------
-   The Case Flow's Service Confirmation converts an email exchange into a memorandum and files it the same way a
-   catalogue document is filed: the trainee writes the name, the CMS checks it against caseFileName and refuses
-   anything that doesn't follow the convention, and the bytes go through the same upload. Nothing here decides a
-   name or corrects one. */
-async function fileBytes(req){
+/* ---------- send: one document the course produced, to the CMS ----------
+   The same upload this panel uses, for a document the course made rather than one from the case documents:
+   the letters a trainee drafts (js/cm-cms-upload.js) and the Service Confirmation's memorandum
+   (js/cm-case-flow.js) both file through here, so a drafted document and a case document take one road.
+   The trainee writes the name and the CMS checks it against caseFileName; what is refused here is only what
+   could never reach the CMS at all, each with the reason to show the trainee. Nothing decides a name. */
+async function send(d){
   if(!caseOpen()) return {ok: false, error: "No case is open in the CMS. Press 🗂 Open CMS, then open your own case (or save it, so it is given its Case ID)."};
-  const name = String((req && req.name) || "").trim();
+  const name = String((d && d.name) || "").trim();
   if(!name) return {ok: false, error: "Write the file name first."};
-  const bytes = req && req.bytes;
+  const bytes = d && d.bytes;
   if(!(bytes instanceof ArrayBuffer) || !bytes.byteLength) return {ok: false, error: "The document did not reach this step. Build it again."};
-  if(!CATEGORIES.includes(req.category)) return {ok: false, error: `"${req.category}" is not a Doc Hub category. The categories are: ${CATEGORIES.join(", ")}.`};
-  return await askCms({lsh: "cms-doc-file", name, category: req.category, original: req.original || name,
-    mime: req.mime || "application/pdf", summary: req.summary || name, bytes}, "cms-doc-filed", [bytes]);
+  if(!CATEGORIES.includes(d.category)) return {ok: false, error: `"${d.category}" is not a Doc Hub category. The categories are: ${CATEGORIES.join(", ")}.`};
+  return await askCms({lsh: "cms-doc-file", name, category: d.category, original: d.original || name,
+    mime: d.mime || "application/pdf", summary: d.summary || name, bytes}, "cms-doc-filed", [bytes]);
 }
 
 /* ---------- backing the case's filed documents up to the trainee's Drive ----------
@@ -200,7 +201,7 @@ function health(){
   return {filed: all.filter(x=>x.filed).length, firstTime: all.filter(x=>x.filed && x.attempts === 1).length,
           attempts: all.reduce((n, x)=>n + (x.attempts || 0), 0)};
 }
-window.cmDocFiling = {panel, file, fileBytes, drive, health, categories: CATEGORIES, expectedCategory, CATEGORIES, relayOrigins: ()=> RELAY_ORIGINS.map(String)};
+window.cmDocFiling = {panel, file, send, drive, health, categories: CATEGORIES, expectedCategory, CATEGORIES, relayOrigins: ()=> RELAY_ORIGINS.map(String)};
 
 /* ---------- relaying a simulator's document to the CMS ----------
    The LSH Training Portal (and a local server while the checks run) may ask; nobody else. The message

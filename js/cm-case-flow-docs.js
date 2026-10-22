@@ -31,7 +31,7 @@ window.CM_CF_DOCS = [
   {id:"RS04", folder:"intake", file:"case-flow/intake/RS_04_Master_Case_Summary_ATTORNEY_ONLY.pdf", title:"Master Case Summary — Attorney Only", cms:"Case Files", day:1,
    desc:"Atty. Thorne's internal summary: liability, the coverage stack, the gap risk, SOL and internal dates.",
    key:"Internal work product: never in a Demand Package, Mediation Binder or arbitration exhibit set."},
-  {id:"RS05", folder:"intake", file:"case-flow/intake/RS_05_Retainer_Agreement.pdf", title:"Contingent Fee Retainer Agreement", cms:"Case Files", day:1,
+  {id:"RS05", folder:"intake", file:"case-flow/intake/RS_05_Retainer_Agreement.pdf", title:"Contingency Fee Agreement", cms:"Case Files", day:1,
    desc:"Signed 02/09/2026: 33⅓% before suit, 40% once suit is filed; costs, client duties, lien authority.",
    key:"Fee tier turns on whether suit is filed (Track A 33⅓%; Track B 40%). Fee is on gross; costs come from the client's share after the fee — the Net Sheet follows this."},
   {id:"RS06", folder:"intake", file:"case-flow/intake/RS_06_HIPAA_Authorization.pdf", title:"HIPAA Authorization (claim-specific)", cms:"Case Files", day:1,

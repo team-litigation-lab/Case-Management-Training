@@ -1445,11 +1445,11 @@ window.cmCaseFlow.svFile = async function(blockId){
   const say = h => { if(msg) msg.innerHTML = h; };
   r.nameTried = name;
   if(!name){ say("Write the file name first, the firm's way."); return; }
-  if(!window.cmDocFiling || typeof cmDocFiling.fileBytes !== "function"){ say("Filing isn't available on this page."); return; }
+  if(!window.cmDocFiling || typeof cmDocFiling.send !== "function"){ say("Filing isn't available on this page."); return; }
   const bytes = SV_BYTES[blockId];
   if(!bytes || !bytes.byteLength){ say("Build the document again, then file it: the file didn't reach this step."); return; }
   say("Filing…");
-  const out = await cmDocFiling.fileBytes({name, category: e.convert.category, original: "Demand-Service-Acknowledgment.pdf",
+  const out = await cmDocFiling.send({name, category: e.convert.category, original: "Demand-Service-Acknowledgment.pdf",
     mime: "application/pdf", summary: e.convert.title, bytes: bytes.slice(0)});
   if(out && out.ok){
     r.filed = {name: out.name, category: out.category || e.convert.category, at: new Date().toISOString()}; r.problems = [];
@@ -3592,6 +3592,9 @@ main > .cf-side-presenter{display:none;}
 .dfl-bad{font-size:12.3px;color:#8A2F26;background:rgba(253,232,228,.7);border-left:3px solid #9B3A30;border-radius:0 8px 8px 0;padding:6px 10px;}
 .dfl-bad ul{margin:4px 0 0;padding-left:18px;}
 .dfl-ok{font-size:12.3px;color:#1F5B3A;margin-top:4px;}
+/* 📤 a drafting activity filing the one letter it drafted (js/cm-cms-upload.js) */
+.dfl-one{margin:14px 0 2px;}
+.dfl-one .dfl-row:first-of-type{border-top:none;padding-top:4px;}
 .dfl-done{opacity:.95;}
 /* the Case ID the CMS gave, not typed (js/cm-cms-case.js) */
 .cfx-log-from:not(:empty){font-size:11px;font-weight:700;color:#1F4E79;background:rgba(214,231,248,.75);border-radius:999px;padding:2px 8px;}

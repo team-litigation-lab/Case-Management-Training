@@ -15615,7 +15615,7 @@ window.downloadProjectCompliance6Pdf = downloadProjectCompliance6Pdf;
    that was clicked, and any failure is shown on screen instead of
    disappearing silently in the browser console.
    ============================================================ */
-var APP_BUILD = "cm-2026.10.15-portal-blueprint";
+var APP_BUILD = "cm-2026.10.22-cms-upload";
 console.info("LSH EA/PA portal build", APP_BUILD);
 let busyDepth = 0;
 function showActionError(e, label){
@@ -15665,9 +15665,9 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-hipaa-data.js?v=1"></script>
 <script src="/js/cm-medprov-data.js?v=1"></script>
 <script src="/js/cm-lor.js?v=3"></script>
-<script src="/js/cm-hipaa.js?v=2"></script>
+<script src="/js/cm-hipaa.js?v=cm-2026.10.22-cms-upload"></script>
 <script src="/js/cm-medprov.js?v=2"></script>
-<script src="/js/cm-drafting.js?v=1"></script>
+<script src="/js/cm-drafting.js?v=cm-2026.10.22-cms-upload"></script>
 <script src="/js/daily-activities.js?v=3"></script>
 <script src="/js/checkin.js?v=1"></script>
 <script src="/js/portal-link.js?v=3"></script>
@@ -15690,7 +15690,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/lsh-card-frame.js?v=3"></script>
 <script src="/js/lsh-tool-links.js?v=cm-2026.10.08-portal"></script>
 <script src="/js/cm-cms-case.js?v=cm-2026.10.21-dol"></script>
-<script src="/js/cm-doc-filing.js?v=cm-2026.10.22-exhibits"></script>
+<script src="/js/cm-doc-filing.js?v=cm-2026.10.22-send"></script>
+<script src="/js/cm-cms-upload.js?v=cm-2026.10.22-cms-upload"></script>
 <script src="/js/lsh-topbar.js?v=2"></script>
 <script src="/js/lsh-one-screen.js?v=1"></script>
 </body>

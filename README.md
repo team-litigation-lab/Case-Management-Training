@@ -268,7 +268,7 @@ Activities now work the set itself, and each one ends with the finished article.
   filed and whether it was backed up.
 - **Source and rebuild:** `build/case-flow/exhibits/` — `EXHIBITSPEC.md` (the shape and the word limits),
   `d3.json` and `d4.json` (the content), `assemble.cjs` → `js/cm-case-flow-exhibits.js`. The UI is in
-  `js/cm-case-flow.js`; the filing and the Drive request are `js/cm-doc-filing.js` (`fileBytes`, `drive`), which
+  `js/cm-case-flow.js`; the filing and the Drive request are `js/cm-doc-filing.js` (`send`, the same road the drafting activities file through, and `drive`), which
   the CMS answers through its `course-bridge.js`. CI checks the content against the spec and runs the whole
   workflow in a browser (`.github/scripts/exhibit-audit.cjs`).
 

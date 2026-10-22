@@ -3,6 +3,10 @@
    Links to the three drafting tools: LOR (js/cm-lor.js), HIPAA (js/cm-hipaa.js) and Med Provider
    (js/cm-medprov.js) — the Van Law Firm templates, formatted the way Foundational-Training's LOR
    Drafting Activity is. Loaded after all three, since it shows each tool's own card.
+   The HIPAA activity ends in the CMS: the form it drafts is uploaded into the client's case file under
+   the right tab, named the firm's way, and graded on both (js/cm-cms-upload.js). The LOR and Med Provider
+   activities open the Portal's shared drafting tool, so their upload belongs to that tool; this course
+   already relays a Portal tool's document to the CMS (the relay in js/cm-doc-filing.js).
    ============================================================ */
 (function(){
 "use strict";
@@ -11,7 +15,7 @@ function renderPage(){
   if(!state.traineeId && !state.isAdmin && !state.adminPreview) return `<div class="card" style="padding:28px;">Sign in to open the Drafting Tools.</div>`;
   const cards = [window.cmLorCard, window.cmHipaaCard, window.cmMedprovCard].filter(Boolean).map(fn => fn()).join("");
   return `<div class="lor-hero"><p class="lor-eyebrow">📄 Resource Library</p><h1>Drafting Tools</h1>
-      <p>Three standalone drafting activities in the firm's own letter templates — a HIPAA authorization form, a Letter of Representation, and a medical provider's lien and records-request letters. None of them touches the CMS; each one is downloaded and uploaded by hand.</p></div>
+      <p>Three drafting activities in the firm's own letter templates — a HIPAA authorization form, a Letter of Representation, and a medical provider's lien and records-request letters. The HIPAA form is drafted here and then uploaded in the CMS, into your client's case file under the right tab and named the firm's way; both are graded, and ⬇ Download PDF is there too, for the client's Drive. The LOR and Med Provider activities open on the Training Portal.</p></div>
     <div class="drafting-cards">${cards}</div>`;
 }
 
