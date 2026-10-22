@@ -100,7 +100,7 @@ A fork diagram fills the upper two-thirds. From the left, a single navy trunk la
 6. Hold the line while you test it (the “Never” rule): never bid against yourself, never apologize for a Limits Demand, never accept “that's all I have” as final. Every adjuster has a supervisor; the 09/02 escalation was that test. Any new number is Atty. Thorne's.
 7. Know what a BI impasse costs. As this file's policies are configured, Host UM pays only after BI is exhausted (paid or tendered at limits), Relative UM behind it: $40,000 frozen behind a $10,000 carrier. Exhaustion rules vary by policy and jurisdiction; Atty. Thorne confirms the governing rule.
 8. Filing is counsel's decision; its inputs are yours to verify. Liability: RPD-26-018842, Ruth Calloway, the doorbell video. Causation: the MRI, the Causation Letter, the EMS report. Damages: $16,401.40 in Specials. Time: SOL 02/06/2028, internal cutoff 11/05/2027.
-9. Record the lapse; don't interpret it. Proof of delivery (07/22) and the 08/21 lapse may bear on Robert Smith's exposure above his limits: Atty. Thorne's analysis, never yours to raise with Keystone or John Doe.
+9. Record the lapse; don't interpret it. Proof of delivery (the sent email and Dana Whitfield's written acknowledgement, 07/22) and the 08/21 lapse may bear on Robert Smith's exposure above his limits: Atty. Thorne's analysis, never yours to raise with Keystone or John Doe.
 
 > ⚠️ **UPL boundary.** You may document the impasse, report dates and figures, and ask Atty. Thorne for a decision. You may not recommend suit, value the claim, assess Robert Smith's exposure above his limits, or tell John Doe whether to take $3,500.
 
@@ -114,7 +114,7 @@ A fork diagram fills the upper two-thirds. From the left, a single navy trunk la
 |---|---|---|
 | Same offer, no new reason | $3,500 on 08/05; “final” on 08/12 | Communications Log |
 | Objection kept after rebuttal | The gap and a “degenerative” MRI, answered 08/06 | Rebuttal and delivery proof |
-| Demand deadline passed | Time-Limited Demand lapsed 08/21/2026 | Return receipt (07/22); calendar |
+| Demand deadline passed | Time-Limited Demand lapsed 08/21/2026 | Written acknowledgement (07/22); calendar |
 | Follow-ups unanswered | 08/24 and 08/31 | Sent emails; log |
 | Escalation ignored | Claims supervisor 09/02; nothing by 09/04 | Escalation email; log |
 
@@ -1240,7 +1240,7 @@ A single memo page on white letterhead, a navy header band reading IMPASSE MEMO 
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** File date 09/08/2026, Track B. Keystone Mutual (Dana Whitfield, KM-26-440871) offered $3,500 on 08/05, citing the 14-Day Gap and a “degenerative” MRI. The 08/06 rebuttal changed nothing: on 08/12 Keystone called $3,500 “final”. The 07/20 Time-Limited Demand (received 07/22) lapsed on 08/21. Follow-ups on 08/24 and 08/31 asked for a response and the evidence Keystone relies on; neither was answered. The 48-Hour Mandate escalation to Keystone's claims supervisor on 09/02 drew nothing by 09/04. Harbor Point and Cardinal State are waiting on BI. The 08/06 rebuttal sent Dr. Helen Park's MRI read (“no significant degenerative change at the adjacent levels”), Dr. Reyes's 06/19/2026 Causation Letter, the EMS report and the Gap Explanation Record. Documented specials: $14,817.40 medical + $1,584.00 lost wages. SOL 02/06/2028 (a Sunday); firm internal hard date 02/04/2028; internal filing cutoff 11/05/2027.
+**Scenario.** File date 09/08/2026, Track B. Keystone Mutual (Dana Whitfield, KM-26-440871) offered $3,500 on 08/05, citing the 14-Day Gap and a “degenerative” MRI. The 08/06 rebuttal changed nothing: on 08/12 Keystone called $3,500 “final”. The 07/20 Time-Limited Demand (acknowledged in writing 07/22) lapsed on 08/21. Follow-ups on 08/24 and 08/31 asked for a response and the evidence Keystone relies on; neither was answered. The 48-Hour Mandate escalation to Keystone's claims supervisor on 09/02 drew nothing by 09/04. Harbor Point and Cardinal State are waiting on BI. The 08/06 rebuttal sent Dr. Helen Park's MRI read (“no significant degenerative change at the adjacent levels”), Dr. Reyes's 06/19/2026 Causation Letter, the EMS report and the Gap Explanation Record. Documented specials: $14,817.40 medical + $1,584.00 lost wages. SOL 02/06/2028 (a Sunday); firm internal hard date 02/04/2028; internal filing cutoff 11/05/2027.
 
 **Execution prompt.** Draft the impasse memo to Atty. Elijah Thorne. Build a dated chronology of every event from the 07/20/2026 demand to 09/04, each tied to its proof in the Communications Log. State Keystone's grounds and the rebuttal evidence it has not answered. Show the frozen stack layer by layer with the documented Specials, then the SOL and internal dates. End with the decision you need from him, framed as questions. Graded judgment: the memo documents and asks; it recommends nothing legal, because filing is his decision.
 
@@ -1251,8 +1251,8 @@ A single memo page on white letterhead, a navy header band reading IMPASSE MEMO 
 
 **Verification checkpoints**
 
-- [ ] Chronology complete and in order: 07/20 demand (received 07/22), 08/05 offer $3,500, 08/06 rebuttal, 08/12 “final”, 08/21 lapse, 08/24 and 08/31 follow-ups, 09/02 escalation, 09/04 no response
-- [ ] Every event tied to its proof: return receipt, sent email or Communications Log entry
+- [ ] Chronology complete and in order: 07/20 demand (acknowledged in writing 07/22), 08/05 offer $3,500, 08/06 rebuttal, 08/12 “final”, 08/21 lapse, 08/24 and 08/31 follow-ups, 09/02 escalation, 09/04 no response
+- [ ] Every event tied to its proof: the adjuster's written acknowledgement, sent email or Communications Log entry
 - [ ] Keystone's grounds stated as Keystone gave them: the 14-Day Gap and a “degenerative” MRI
 - [ ] Unanswered rebuttal listed: Dr. Helen Park's “no significant degenerative change at the adjacent levels”, Dr. Reyes's 06/19/2026 Causation Letter, the EMS report, the Gap Explanation Record
 - [ ] Frozen stack shown: $10,000 BI unexhausted → $20,000 Host UM and $10,000 Relative UM closed; $40,000 total, $30,000 of it unreachable
@@ -2833,7 +2833,7 @@ The standard knowledge-check split, extended for the final check. Above the crea
 |---|---|---|---|
 | 🤖 AI | **15%** | Stack and Payer Order | $10,000 → $20,000 → $10,000 = $40,000 in order; PIP, Keystone PD and Bluewater outside it; Payer Order correct |
 | 🤖 AI | **10%** | Gap and documentation | 14 days (02/06 → 02/20/2026); reasons and corroboration named, including Dr. Reyes's 06/19/2026 letter |
-| 🤖 AI | **15%** | Settlement mechanics | 08/21/2026 (30 days from receipt on 07/22); written consent before the release; $20,359.92 reconciled with the 25% / 75% allocation |
+| 🤖 AI | **15%** | Settlement mechanics | 08/21/2026 (30 days from the written acknowledgement on 07/22); written consent before the release; $20,359.92 reconciled with the 25% / 75% allocation |
 | 🤖 AI | **10%** | Litigation and liability | The fork explained; mediation non-binding, arbitration binding; each allegation matched to its evidence |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |

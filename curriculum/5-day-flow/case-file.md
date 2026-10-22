@@ -142,10 +142,16 @@ her shift (first open evening slot 04/21); *Track* — confirmed attendance 04/2
 
 ## 3. Day 3 — the demands, and Track A: the file settles
 
-- **07/20/2026 (Mon)** BI **Time-Limited Demand** to Keystone (Dana Whitfield) for the $10,000 limits, by
-  certified mail (return receipt) and email; received 07/22/2026; **acceptance window 30 days from receipt →
-  08/21/2026 (Fri)**. Conditions: payment of limits, a **Limited Release** of Robert Smith and Keystone only,
-  and Robert Smith's **affidavit of no other insurance**. Atty. Thorne settles the terms; the CM builds and
+- **07/20/2026 (Mon)** BI **Time-Limited Demand** to Keystone (Dana Whitfield) for the $10,000 limits,
+  emailed to Dana Whitfield from the Email Workspace with the 81-page Demand Package (Exhibits A–J) attached,
+  and logged. Dana Whitfield confirms receipt in writing by reply email on 07/22/2026 (9:06 a.m.); the letter
+  states the 30 days run from her written acknowledgement of receipt, so the **acceptance window runs to
+  08/21/2026 (Fri)**. Proof of delivery is the sent email plus her written acknowledgement; no
+  certified mail. A state's statute can require a specific delivery method for a Time-Limited Demand;
+  Atty. Thorne confirms whether one governs. With no written acknowledgement, the CM follows up with the
+  adjuster the same day and escalates to Atty. Thorne; the deadline is never docketed from the send date.
+  Conditions: payment of limits, a **Limited Release** of Robert Smith and Keystone only, and Robert Smith's
+  **affidavit of no other insurance**. Atty. Thorne settles the terms; the CM builds and
   serves the package and proves delivery. The package addresses the gap up front (EMS report, Causation Letter).
 - **08/05/2026** Keystone offers **$3,500**, citing the 14-day gap and calling the MRI findings degenerative.
 - **08/06/2026** CM sends the rebuttal Atty. Thorne approved: the radiologist's "no degenerative change at the
@@ -158,7 +164,8 @@ her shift (first open evening slot 04/21); *Track* — confirmed attendance 04/2
   would have released the UM claims — and was revised to a Limited Release, **signed 08/28/2026**.
   Keystone's check received **09/04/2026** into the IOLTA trust account.
 - **08/31/2026** Host UM demand to Harbor Point ($20,000) and Relative UM demand to Cardinal State ($10,000, as
-  excess over Host UM).
+  excess over Host UM), each emailed to its adjuster (Marcus Bell; Teresa Okafor), logged, with written
+  acknowledgement of receipt requested.
 - Harbor Point offers $8,000 (09/14; cites the gap and "BI already compensated him"); the CM's counter-package
   goes 09/16; **Harbor Point pays $20,000 limits 09/29/2026** (check received 10/05).
 - Cardinal State offers $6,000 (10/01); **tenders $10,000 limits 10/06/2026** (check received 10/13).
