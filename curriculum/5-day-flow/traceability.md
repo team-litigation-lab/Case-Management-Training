@@ -284,6 +284,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - Newly authored: scheduling-order entry (read each verb) and RFAs docketed separately for the deemed-admission risk
 - Newly authored: calendar-error risk (later or missing costs rights; earlier costs time)
 - Newly authored: court-ordered mediation compels attendance, not agreement
+- Newly authored: where ADR lands on the timeline — pre-litigation and post-filing mediation, contractual pre-filing arbitration and agreed post-filing arbitration, and the Standard Case Progression Roadmap
 - Newly authored: exhibit numbering, Bates ranges and the master index as the one source of truth
 - Newly authored: authentication, business-records certifications, relaxed evidence rules in arbitration, and mediation confidentiality at the hand-off
 - LSH Claims Specialist: BI liability follow-ups (every 5 business days) and the escalation protocol

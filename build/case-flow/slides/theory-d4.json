@@ -65,12 +65,12 @@
     }
   },
   "d4m2-l2": {
-    "lead": "Mediation is **negotiation toward compromise**, non-binding; arbitration is an adversarial hearing where a neutral acts as judge and issues a binding Award.",
+    "lead": "Mediation and arbitration can each come **before or after a lawsuit is filed**: the process, the court's rules and the negotiations decide.",
     "concepts": [
-      {"term": "Zero Decision Power", "text": "The mediator facilitates and negotiates but cannot rule; **the parties keep control** over whether to sign"},
-      {"term": "Absolute Decision Power", "text": "The arbitrator is a private judge and finder of fact who **can exclude evidence** and award damages"},
-      {"term": "Trial-Ready Standard", "text": "Because appeal is drastically limited, treat the hearing with **a multi-day trial's precision**, not a compromise mindset"},
-      {"term": "Unauthorized Practice of Law", "text": "Arguing, speaking on the record or representing John Doe is practicing law; **without a license it's UPL**"}
+      {"term": "Non-Binding (Mediation)", "text": "Both sides must agree: **nobody is forced to settle**, and the parties keep control of the outcome"},
+      {"term": "Binding (Arbitration)", "text": "The arbitrator's decision is final and **enforceable like a court order**, reviewed on narrow grounds"},
+      {"term": "Before Filing", "text": "Mediation after treatment and the demand; arbitration only where **a signed clause** compels it"},
+      {"term": "After Filing", "text": "Mediation often **ordered during discovery**; arbitration by the parties' agreement to leave court"}
     ],
     "pages": ["D4#5", "D4#20"],
     "framework": {
