@@ -2,14 +2,14 @@
 
 **Phase:** Pre-demand audit, the demand & settlement negotiation · **Focus case:** John Doe v. Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
 
-**Objective.** Probe the 14-Day Gap with John Doe on a recorded call, inside the UPL line, and complete the Gap Explanation Record from his own documented facts; audit the file to MMI and $16,401.40 in Specials; brief Atty. Thorne in the pre-demand strategy session; serve a time-limited BI demand that holds up; structure the Host UM and Relative UM demands behind it; then negotiate Track A to a $40,000 gross recovery with both UM consents.
+**Objective.** Probe the 14-Day Gap with John Doe on a recorded call, inside the UPL line, and complete the Gap Explanation Record from his own documented facts; audit the file to MMI and $16,450.19 in Specials; brief Atty. Thorne in the pre-demand strategy session; serve a time-limited BI demand that holds up; structure the Host UM and Relative UM demands behind it; then negotiate Track A to a $40,000 gross recovery with both UM consents.
 
-**Gate to the next day.** Gap Explanation Record complete, from John Doe's own documented facts · Specials audited at $16,401.40 · demand strategy approved by Atty. Thorne · BI Time-Limited Demand served with proof of delivery · Host UM and Relative UM demands drafted · Track A negotiated to $40,000 gross, both UM consents in hand
+**Gate to the next day.** Gap Explanation Record complete, from John Doe's own documented facts · Specials audited at $16,450.19 · demand strategy approved by Atty. Thorne · BI Time-Limited Demand served with proof of delivery · Host UM and Relative UM demands drafted · Track A negotiated to $40,000 gross, both UM consents in hand
 
 **The file as this day opens.**
 
 - Treatment complete: MMI 06/12/2026; the 14-day initial gap and the 19-day disruption are on the file, and the Gap Explanation Record is still to be completed from John Doe's own documented facts.
-- Specials: $14,817.40 medical after the audit + $1,584.00 wages = $16,401.40.
+- Specials: $14,817.40 medical after the audit + $1,584.00 wages + $48.79 mileage = $16,450.19.
 - The Recovery Stack: $10,000 BI (Keystone Mutual), $20,000 Host UM (Harbor Point), $10,000 Relative UM (Cardinal State Mutual), $40,000.
 - Peach State's reimbursement claim and Riverton Spine & Rehab's LOP balance are open on the file.
 
@@ -243,7 +243,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 #### 1 · Visual Layout Description
 
-A left-to-right audit run across the full slide. Far left, a navy vertical gate labelled MMI · 06/12/2026 with a green ✓; nothing enters the ledger until it is passed. Centre, a cream ledger card with the provider rows in mono; the Riverton Spine & Rehab row shows $6,290.00 struck through in red, replaced by $6,105.00, with an orange badge: –$185.00 · 05/04/2026 DUPLICATE. Under it, the sum in large Fraunces: $14,817.40 + $1,584.00 = $16,401.40. A grey card, FUTURE MEDICAL · NARRATIVE, sits deliberately outside the ledger frame. Right third: three numbered targets bottom-up, ① $10,000 BI ② $20,000 HOST UM ③ $10,000 RELATIVE UM, each with a mono source pill. The argument: an audited number, inside its frame, aimed at limits in order.
+A left-to-right audit run across the full slide. Far left, a navy vertical gate labelled MMI · 06/12/2026 with a green ✓; nothing enters the ledger until it is passed. Centre, a cream ledger card with the provider rows in mono; the Riverton Spine & Rehab row shows $6,290.00 struck through in red, replaced by $6,105.00, with an orange badge: –$185.00 · 05/04/2026 DUPLICATE. Under it, the sum in large Fraunces: $14,817.40 + $1,584.00 + $48.79 = $16,450.19. A grey card, FUTURE MEDICAL · NARRATIVE, sits deliberately outside the ledger frame. Right third: three numbered targets bottom-up, ① $10,000 BI ② $20,000 HOST UM ③ $10,000 RELATIVE UM, each with a mono source pill. The argument: an audited number, inside its frame, aimed at limits in order.
 
 #### 2 · Slide Body — Tell Them
 
@@ -258,7 +258,7 @@ A left-to-right audit run across the full slide. Far left, a navy vertical gate 
 7. Lost wages need the employer's wage letter and a provider's work note. Northgate verifies 9 shifts × 8 h × $22.00 = $1,584.00; flag the five shifts before first treatment, which have no note.
 8. Future medical is economic damage but not an incurred charge: the possible repeat injections ($3,400–$6,800) stay out of the audited total and go in the narrative, with the MMI note behind them. How they are claimed is Atty. Thorne's call.
 9. Identify every lien and subrogation interest. Plan: Peach State's $1,860.00, funding type recorded. Consensual: the LOP. PIP: no reimbursement right against John Doe (03/02/2026). Ask Harbor Point in writing whether it reserves PIP subrogation against Robert Smith; record the answer and route it to Atty. Thorne.
-10. Audit the limits one last time: per person, no step-down, each UM layer's form. Present, don't compile: $16,401.40 already exceeds the $10,000 BI limit, and proving it document by document makes a carrier fear a jury.
+10. Audit the limits one last time: per person, no step-down, each UM layer's form. Present, don't compile: $16,450.19 already exceeds the $10,000 BI limit, and proving it document by document makes a carrier fear a jury.
 
 > ⚠️ **UPL boundary.** You audit, total, flag and lay out options. You do not value the case, choose billed or paid, or set the demand figure: the audit reaches Atty. Thorne as findings, not conclusions.
 
@@ -299,7 +299,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | Specials formula | Medical + wages = $16,401.40; Property Damage on its own claim; future medical outside the total |
+| 🤖 AI | **20%** | Specials formula | Medical + wages + mileage = $16,450.19; Property Damage on its own claim; future medical outside the total |
 | 🤖 AI | **10%** | MMI gate | MMI 06/12/2026 recorded from the provider's note before any demand step |
 | 🤖 AI | **15%** | Billed vs paid | Both columns shown; the choice routed to Atty. Thorne |
 | 🤖 AI | **15%** | Targets | $10,000 BI → $20,000 Host UM → $10,000 Relative UM, each re-verified from its written source |
@@ -332,7 +332,7 @@ A single brief page fills the centre of the slide, a white card with five horizo
 
 *Why:* Atty. Thorne makes the strategy calls from your brief. A brief that opens with the chronology buries the decision; one that hides a risk misleads him; one that makes the call for him crosses a line.
 
-1. Bottom line first, in one sentence: where the file stands and what you need. Here: MMI 06/12/2026; $16,401.40 in audited Specials against a $10,000 BI limit; decisions needed before any demand is drafted.
+1. Bottom line first, in one sentence: where the file stands and what you need. Here: MMI 06/12/2026; $16,450.19 in audited Specials against a $10,000 BI limit; decisions needed before any demand is drafted.
 2. Facts next, audited and sourced. The trinity must agree: the narrative (John Doe's account), the physicality (the force of the impact), the medicals (the C5-C6 herniation). If one is out of line, say so first: that is the defense's easy out.
 3. Liability proof in final form: the final Riverton PD report RPD-26-018842 (Smith cited for failure to stop), checked for a contributory-negligence note; Ruth Calloway's contact re-confirmed and her account checked for drift; the doorbell video squared with the scene.
 4. Property Damage proves force, in final figures. Lead with John Doe's door, the Escape's, struck at about 28 mph (request photos if not on file). Then the Civic: $6,940.00 → $9,255.00 with a $2,315.00 A-pillar supplement, 52.6% of its $17,600.00 ACV: repairable under this file's 75% threshold (it varies by state).
@@ -348,7 +348,7 @@ A single brief page fills the centre of the slide, a white card with five horizo
 
 *The briefing protocol, in the order counsel reads it*
 
-1. **Bottom line** — MMI; $16,401.40 against a $10,000 BI limit; decisions needed.
+1. **Bottom line** — MMI; $16,450.19 against a $10,000 BI limit; decisions needed.
 2. **Facts, audited** — The trinity aligned; liability proof final; every fact sourced.
 3. **Risks, with answers** — Gap → the Gap Explanation Record and Dr. Reyes's Causation Letter; disruption → the A-C-T record; 2021 low back → a different region, resolved; “degenerative” → “no significant degenerative change at the adjacent levels.”
 4. **Decisions needed** — Each one a question for Atty. Thorne.
@@ -385,7 +385,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 |---|---|---|---|
 | 🤖 AI | **20%** | Protocol order | Bottom line, facts, risks, decisions, options, record, in that order |
 | 🤖 AI | **15%** | Risk pairing | Gap, disruption, 2021 prior and “degenerative” each paired with its answering document |
-| 🤖 AI | **15%** | Package readiness | One-page memo; exhibit index that matches; ask inputs (limits in order, $16,401.40) |
+| 🤖 AI | **15%** | Package readiness | One-page memo; exhibit index that matches; ask inputs (limits in order, $16,450.19) |
 | 🤖 AI | **10%** | Decision record | Each decision dated, attributed to Atty. Thorne and tasked |
 | 🧑‍🏫 Trainer | **15%** | Candor | Bad facts surfaced plainly, not softened or left for counsel to find |
 | 🧑‍🏫 Trainer | **10%** | Concision | Counsel could decide from the first page |
@@ -395,7 +395,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 #### 5 · Speaker Notes
 
-- Open by reading two first lines aloud: “On 02/06/2026 John Doe was a front-seat passenger…” and “John Doe is at MMI with $16,401.40 in audited Specials against a $10,000 BI limit, and I need your decisions.” Ask which one Atty. Thorne can act on.
+- Open by reading two first lines aloud: “On 02/06/2026 John Doe was a front-seat passenger…” and “John Doe is at MMI with $16,450.19 in audited Specials against a $10,000 BI limit, and I need your decisions.” Ask which one Atty. Thorne can act on.
 - Ask the room: “Which risk would you be tempted to leave out of the brief?” It is usually the 2021 low-back visits. Then ask what happens when Keystone finds them first.
 - Police the recommend line hard. “Certified mail with return receipt and email, so we can prove receipt” is operational. “We should demand limits” is not the Case Manager's to say, even when the numbers make it look obvious.
 - Tie it back to Day 2: the decisions change the picture, so the Case Plan is superseded and re-routed, not quietly edited.
@@ -415,7 +415,7 @@ Left half: a Time-Limited Demand Letter on navy-banded letterhead, five orange n
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* Robert Smith carries $10,000; John Doe's Specials alone are $16,401.40. A Time-Limited Demand for the limits makes Keystone decide on the record. Vague, over limits, thin or unproven: a refusal costs it nothing. Clear, reasonable, within limits, documented and timed: an unreasonable refusal can matter.
+*Why:* Robert Smith carries $10,000; John Doe's Specials alone are $16,450.19. A Time-Limited Demand for the limits makes Keystone decide on the record. Vague, over limits, thin or unproven: a refusal costs it nothing. Clear, reasonable, within limits, documented and timed: an unreasonable refusal can matter.
 
 1. Confirm the foundation first: SOL docketed (02/06/2028); liability (Smith's stop-sign citation, RPD-26-018842; Ruth Calloway; the doorbell video); coverage (BI $10,000, Keystone's Dec Page, 03/20/2026).
 2. Within limits: $10,000, Keystone's full BI limit. A demand above it is one Keystone can't accept within its policy, so refusing it generally sets nothing up.
@@ -479,7 +479,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 #### 5 · Speaker Notes
 
-- Open with the arithmetic on the board: $16,401.40 in Specials against a $10,000 policy. Ask: “What makes Keystone pay all of it, inside 30 days?” Then reveal the five elements one at a time.
+- Open with the arithmetic on the board: $16,450.19 in Specials against a $10,000 policy. Ask: “What makes Keystone pay all of it, inside 30 days?” Then reveal the five elements one at a time.
 - Put this to the room: “The email reached Dana Whitfield on 07/20 and the certified mail on 07/22. When does the window close, and how would Keystone know?” The answer is 08/21/2026, because the letter says the clock runs from delivery of the certified mailing.
 - Watch for trainees who call it a “bad-faith letter.” It is a Time-Limited Demand. Whether a refusal is bad faith is a legal conclusion under the governing law, and it is Atty. Thorne's.
 - The gap goes on page one, not in an appendix. Keystone will lean on it anyway (it does, on 08/05); a demand that explained it first has already answered.
@@ -587,7 +587,7 @@ A battle map across the full slide width: four orange-numbered stations on a nav
 1. The battle map comes before the first call: net floor, three value drivers, the adjuster's top two attacks with the documents that answer them, and the rebuttal. Here both attacks are known: the gap and the “degenerative” MRI.
 2. Net floor = liens + costs + fee; below it John Doe receives $0. $7,965.00 + $486.75 = $8,451.75; × 1.5 for the one-third fee = $12,677.63 gross, above Keystone's $10,000 limit. Every layer and lien reduction matters.
 3. Value drivers: Smith ran the stop sign on video, with an independent witness (the citation helps the demand; whether a jury hears of it depends on the evidence rule); an objective C5-C6 herniation and injection; residual right-arm paresthesia at MMI.
-4. Anchor on total Specials, $16,401.40, not PIP's $5,000; lead with what PIP bought: urgent care, Lakeside, the MRI that found the herniation. Chiropractic and PT ran under the LOP.
+4. Anchor on total Specials, $16,450.19, not PIP's $5,000; lead with what PIP bought: urgent care, Lakeside, the MRI that found the herniation. Chiropractic and PT ran under the LOP.
 5. Soft lead: confirm Dana Whitfield has the package, point her to the MRI, restate the demand and its 08/21/2026 deadline as Atty. Thorne approved them, ask for her evaluation. What the firm does if she refuses is his to say. After a low number, pause; ask her data.
 6. Anchor and hold: the demand stands as Atty. Thorne approved it. Never apologise for it; you make no moves (“never bid against yourself” is the rule he negotiates by). “That's all I have” is never final on day one.
 7. Stalls are built to wear you down. Name the stall, answer with facts, ask for a good-faith offer on the undisputed injury. The demand expires 08/21/2026; only Atty. Thorne can move it.
@@ -923,7 +923,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 #### 1 · Visual Layout Description
 
-A full-width Specials ledger on a cream card, provider rows in mono under five columns: Date · Provider · Billed · Paid by · Status. The Riverton Spine & Rehab row is expanded into its 34 billed lines as a dense strip of small tiles; one tile, 05/04/2026, is outlined in red with a DUPLICATE tag and an orange badge, –$185.00. Right margin: a vertical totals rail — $15,002.40 struck through in grey, then $14,817.40 medical, + $1,584.00 wages, = $16,401.40 in large Fraunces. Below the ledger, two narrow cards: BILLED vs PAID in two mono columns, and FUTURE MEDICAL · NARRATIVE ONLY, set outside the totals rail. The red tile is the focal point.
+A full-width Specials ledger on a cream card, provider rows in mono under five columns: Date · Provider · Billed · Paid by · Status. The Riverton Spine & Rehab row is expanded into its 34 billed lines as a dense strip of small tiles; one tile, 05/04/2026, is outlined in red with a DUPLICATE tag and an orange badge, –$185.00. Right margin: a vertical totals rail — $15,002.40 struck through in grey, then $14,817.40 medical, + $1,584.00 wages, + $48.79 mileage, = $16,450.19 in large Fraunces. Below the ledger, two narrow cards: BILLED vs PAID in two mono columns, and FUTURE MEDICAL · NARRATIVE ONLY, set outside the totals rail. The red tile is the focal point.
 
 #### 2 · Slide Body — Let Them
 
@@ -934,18 +934,19 @@ A full-width Specials ledger on a cream card, provider rows in mono under five c
 | | |
 |---|---|
 | **Tool / interface** | CMS → Financial Ledger → Specials · CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Insurance tab |
-| **Expected output** | An audited Specials ledger at $16,401.40 with billed and paid side by side, a lien list, the targets in order, and a flag list routed to Atty. Thorne. |
+| **Expected output** | An audited Specials ledger at $16,450.19 with billed and paid side by side, a lien list, the targets in order, and a flag list routed to Atty. Thorne. |
 
 **Verification checkpoints**
 
 - [ ] First-party ledger audited (Harbor Point's PIP ledger): five payments matched to five bills ($685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00), the limit exhausted with the 06/12/2026 payment, nothing billed to PIP after exhaustion, and the 80% wage benefit unpaid because the limit ran out before Northgate's 06/30/2026 letter, so the full $1,584.00 stays in the Specials
 - [ ] Riverton Spine & Rehab reconciled: 33 visits in the notes (16 from 02/24 to 04/02/2026, 17 from 04/21 to 06/05/2026) against 34 lines; the 05/04/2026 duplicate ($185.00) removed: $6,290.00 → $6,105.00. A corrected itemized statement requested from Riverton Spine & Rehab (a billing correction, not a reduction). Until it arrives, the Lien Tracker shows $6,290.00 claimed and $6,105.00 audited; any reduction is Atty. Thorne's to negotiate.
 - [ ] Medical: $685.00 + $6,105.00 + $640.00 + $2,395.00 + $640.00 + $3,400.00 + $640.00 + $312.40 = $14,817.40 (down from $15,002.40)
-- [ ] Wages: 9 shifts × 8 h × $22.00 = $1,584.00, Northgate HR letter attached; total Specials $14,817.40 + $1,584.00 = $16,401.40
+- [ ] Mileage: John Doe's Medical Mileage Log (RS71), 19 round trips to care 04/21–06/12/2026, 238 mi × $0.205 = $48.79, out of pocket and repaid from the settlement; never the PD rental, which is Margaret Doe's claim
+- [ ] Wages: 9 shifts × 8 h × $22.00 = $1,584.00, Northgate HR letter attached; total Specials $14,817.40 + $1,584.00 + $48.79 = $16,450.19
 - [ ] Wage proof: each missed shift matched to a visit record or provider work note; the five shifts 02/09–02/13/2026, before first treatment, flagged with Northgate's Attendance Record (called out citing neck pain) as their support
 - [ ] Billed beside paid: PIP $5,000.00 on its five bills; Peach State $1,860.00 on Crescent's $3,400.00 (write-off $3,400.00 – $1,860.00 = $1,540.00, no balance billing); LOP $6,105.00 owed; $312.40 paid by John Doe; paid-and-owed column $5,000.00 + $1,860.00 + $6,105.00 + $312.40 = $13,277.40 ($14,817.40 – $1,540.00)
 - [ ] Billed-vs-paid choice routed to Atty. Thorne under the governing collateral-source rule, not made in the ledger
-- [ ] Future medical ($3,400–$6,800: 1–2 repeat injections within 24 months) recorded in the narrative, outside the $16,401.40
+- [ ] Future medical ($3,400–$6,800: 1–2 repeat injections within 24 months) recorded in the narrative, outside the $16,450.19
 - [ ] Liens listed: Peach State $1,860.00 (plan funding type recorded) and Riverton Spine & Rehab $6,105.00 after audit, in the CMS → Liens register, mirrored to the Lien Tracker; PIP recorded as carrying no reimbursement right against John Doe's recovery (Harbor Point, in writing, 03/02/2026); Harbor Point's position on PIP subrogation against Robert Smith and Keystone requested in writing and routed to Atty. Thorne, since it would compete for the same $10,000 BI limit
 - [ ] Targets in order: $10,000 BI → $20,000 Host UM → $10,000 Relative UM = $40,000; each target re-checked against its written source: BI per person (03/20/2026 Dec Page), Host UM add-on (03/02/2026 letter), Relative UM coverage (03/09/2026) plus its form and excess clause; PIP and Keystone PD marked as not in the stack
 - [ ] Liability proof confirmed and listed in the audit: the final Riverton PD report RPD-26-018842 (not the exchange-of-information form), Robert Smith cited for failure to stop, no contributory-negligence note on John Doe; Ruth Calloway's contact re-confirmed and her account checked against her first statement for drift; the 2214 Maple Hollow Rd doorbell-camera video preserved and matched to the Escape being pushed into the parked Civic
@@ -976,7 +977,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **15%** | Duplicate caught | 05/04/2026 line removed; Riverton Spine & Rehab at $6,105.00 |
-| 🤖 AI | **20%** | Totals | $14,817.40 medical + $1,584.00 wages = $16,401.40, to the cent |
+| 🤖 AI | **20%** | Totals | $14,817.40 medical + $1,584.00 wages + $48.79 mileage = $16,450.19, to the cent |
 | 🤖 AI | **15%** | Billed vs paid | PIP $5,000.00 and Peach State $1,860.00 shown against billed; paid-and-owed $13,277.40 |
 | 🤖 AI | **10%** | Liens and targets | Both liens listed; $10,000 → $20,000 → $10,000 in order |
 | 🧑‍🏫 Trainer | **20%** | Flag judgment | Routes billed-vs-paid and the pre-treatment wage shifts to Atty. Thorne rather than deciding them |
@@ -990,7 +991,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 - Hand out the bills, not the totals. Trainees who add Riverton Spine & Rehab's statement without counting the visits in its notes will land on $15,002.40; let them, then ask how many visits the notes show.
 - Ask the room: “Peach State paid $1,860.00 on a $3,400.00 bill. Which number goes in the demand?” The only right answer: both go in front of Atty. Thorne, and he decides.
 - The wage check is the subtle one. Five of the nine shifts fall inside the 14-Day Gap, before any provider saw John Doe. Record them exactly as the Attendance Record shows them; what they mean is Atty. Thorne's to weigh. Flag them; never drop them.
-- Grade to the cent. $16,401.40 is the day's gate figure; any other total means a line is wrong.
+- Grade to the cent. $16,450.19 is the day's gate figure; any other total means a line is wrong.
 
 ---
 
@@ -1007,7 +1008,7 @@ A two-pane Call Simulator screen. Left pane: the session transcript as alternati
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** File date: early July 2026, before any demand is drafted. Your audit is done: MMI 06/12/2026; Specials $16,401.40 ($14,817.40 medical after the duplicate came out + $1,584.00 wages); liens $1,860.00 (Peach State) and $6,105.00 (the LOP); targets $10,000 BI → $20,000 Host UM → $10,000 Relative UM. The Gap Explanation Record (06/22/2026) and Dr. Reyes's 06/19/2026 Causation Letter are in the file. Atty. Thorne has called the pre-demand strategy session.
+**Scenario.** File date: early July 2026, before any demand is drafted. Your audit is done: MMI 06/12/2026; Specials $16,450.19 ($14,817.40 medical after the duplicate came out + $1,584.00 wages + $48.79 mileage); liens $1,860.00 (Peach State) and $6,105.00 (the LOP); targets $10,000 BI → $20,000 Host UM → $10,000 Relative UM. The Gap Explanation Record (06/22/2026) and Dr. Reyes's 06/19/2026 Causation Letter are in the file. Atty. Thorne has called the pre-demand strategy session.
 
 **Execution prompt.** Run the pre-demand strategy session with AI Atty. Elijah Thorne. Brief him in protocol order: bottom line, audited facts, risks with their answering documents, the decisions he must make, and each option's operational consequences. Answer his challenges with objective facts, not adjectives. Recommend only on operations; ask for his decision on everything legal. Read back each decision before you close. Then record the decisions in the CMS, open a task for each, and re-route the Case Plan.
 
@@ -1018,8 +1019,8 @@ A two-pane Call Simulator screen. Left pane: the session transcript as alternati
 
 **Verification checkpoints**
 
-- [ ] Opens with the bottom line: MMI 06/12/2026, $16,401.40 in Specials against the $10,000 BI limit, decisions needed
-- [ ] Figures exact: $14,817.40 + $1,584.00 = $16,401.40; billed and paid both shown; future medical ($3,400–$6,800) presented as narrative
+- [ ] Opens with the bottom line: MMI 06/12/2026, $16,450.19 in Specials against the $10,000 BI limit, decisions needed
+- [ ] Figures exact: $14,817.40 + $1,584.00 + $48.79 = $16,450.19; billed and paid both shown; future medical ($3,400–$6,800) presented as narrative
 - [ ] Low-speed challenge met with the trinity in objective facts: Smith ran the stop sign (cited) and struck the Escape's front passenger door, John Doe's door, at about 28 mph; the Escape was pushed into the parked Civic, which needed a $2,315.00 A-pillar structural supplement; the 03/13/2026 MRI shows a C5-C6 herniation
 - [ ] Gap challenge met with documents, not apology: the EMS neck complaint on 02/06/2026; the reasons from the recorded call (no car until the 02/18/2026 rental; numbness from 02/18/2026); the urgent-care onset note; the Attendance Record; Dr. Reyes's 06/19/2026 Causation Letter; the disruption with its A-C-T record
 - [ ] Risks raised unprompted: the 2021 low-back visits (a different region, resolved) and “degenerative” (the radiologist: “no significant degenerative change at the adjacent levels”)
@@ -1056,7 +1057,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **15%** | Protocol order | Bottom line first; facts, risks, decisions, options in order |
-| 🤖 AI | **15%** | Figure accuracy | $16,401.40, the limits in order and every date stated exactly |
+| 🤖 AI | **15%** | Figure accuracy | $16,450.19, the limits in order and every date stated exactly |
 | 🤖 AI | **20%** | Decisions recorded | Time-limited $10,000 BI demand to be served 07/20/2026; gap up front; UM consent plan; billed or paid — each dated and attributed |
 | 🤖 AI | **10%** | Tasks and re-route | A task per decision with owner and date; plan re-routed |
 | 🧑‍🏫 Trainer | **15%** | Challenge handling | Meets the low-speed and gap challenges calmly, with objective, sourced facts |
@@ -1069,7 +1070,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 - Set the simulator so AI Atty. Thorne interrupts within the first minute: “Keystone will call this low-speed.” A trainee who answers with adjectives (“it was a serious crash”) has missed the point; objective facts only.
 - Ask the observers: “What did Atty. Thorne decide, in his words?” If they can't quote it, the trainee didn't read it back.
-- Watch for the trap in the script: AI Atty. Thorne asks, “What do you think we should demand?” The right answer gives him the inputs (the limits in order, $16,401.40, the future medical) and hands the figure back to him.
+- Watch for the trap in the script: AI Atty. Thorne asks, “What do you think we should demand?” The right answer gives him the inputs (the limits in order, $16,450.19, the future medical) and hands the figure back to him.
 - Grade the decision record, not the conversation: each decision dated, attributed and tasked, or the session didn't happen.
 
 ---
@@ -1087,7 +1088,7 @@ A three-column assembly board. Left: the Demand Package as five tabbed cream fol
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) and the Gap Explanation Record are on file; the pre-demand audit put the Specials at $16,401.40. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.
+**Scenario.** File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) and the Gap Explanation Record are on file; the pre-demand audit put the Specials at $16,450.19. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.
 
 **Execution prompt.** Audit the draft against the Big Four and the Final Scrub, log each deficiency as an assigned CMS task, and assemble the package with the gap answered on page one of the timeline. Once Atty. Thorne has signed, serve it on Keystone by certified mail with return receipt AND by email, and log both. When the return receipt comes back dated 07/22/2026, docket the acceptance deadline from it, with reminders. Graded judgment: what starts the clock, and what you do if Keystone asks for more time.
 
@@ -1100,7 +1101,7 @@ A three-column assembly board. Left: the Demand Package as five tabbed cream fol
 
 - [ ] Amount $10,000, Keystone's BI limit per its Dec Page (03/20/2026); nothing demanded above limits
 - [ ] Terms match Atty. Thorne's approval word for word: Limited Release of Robert Smith and Keystone only; Smith's affidavit of no other insurance; 30 days from receipt of the certified mailing
-- [ ] Big Four complete: medical Specials $14,817.40; the narrative (mechanism, pain, work and life impact, consistent with the records); liability proof (RPD-26-018842 citation, Ruth Calloway, doorbell video); special damages $1,584.00 wages (Northgate HR letter), the $312.40 Riverton Drug receipts counted once, inside the medical Specials. Total $16,401.40 (billed figures; whether billed or paid amounts are the measure under the governing collateral-source or paid-versus-incurred rule is Atty. Thorne's call; confirm the governing rule)
+- [ ] Big Four complete: medical Specials $14,817.40; the narrative (mechanism, pain, work and life impact, consistent with the records); liability proof (RPD-26-018842 citation, Ruth Calloway, doorbell video); special damages $1,584.00 wages (Northgate HR letter) and $48.79 medical mileage (John Doe's Medical Mileage Log, Exhibit K), the $312.40 Riverton Drug receipts counted once, inside the medical Specials. Total $16,450.19 (billed figures; whether billed or paid amounts are the measure under the governing collateral-source or paid-versus-incurred rule is Atty. Thorne's call; confirm the governing rule)
 - [ ] Final Scrub: the 05/04/2026 duplicate removed (Riverton Spine & Rehab $6,290.00 → $6,105.00), every final balance re-verified with the provider, the 2021 low-back visits disclosed as resolved and a different region
 - [ ] Gap answered on page one: 02/06 → 02/20/2026 with its reasons, the EMS report, the 02/20 urgent-care onset note and the 06/19/2026 Causation Letter; the 19-day disruption (04/02–04/21/2026) explained too
 - [ ] Every bill paired with its medical-necessity why; future ESIs ($3,400–$6,800) in the narrative, not the Specials; the Civic's PD claim (Leah Moran) kept out
@@ -1135,7 +1136,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | Package completeness | Big Four present; $14,817.40 + $1,584.00 = $16,401.40; the 05/04/2026 duplicate removed |
+| 🤖 AI | **20%** | Package completeness | Big Four present; $14,817.40 + $1,584.00 + $48.79 = $16,450.19; the 05/04/2026 duplicate removed |
 | 🤖 AI | **15%** | Terms fidelity | Amount, release scope, affidavit and window exactly as approved |
 | 🤖 AI | **15%** | Service and proof | Certified mail with return receipt and email, both logged; return receipt filed |
 | 🤖 AI | **10%** | Deadline | 08/21/2026 docketed from the 07/22/2026 receipt |
@@ -1183,7 +1184,7 @@ Two demand letters side by side on white letterhead: left HOST UM · HARBOR POIN
 - [ ] Exhaustion on page one of each: Keystone's tender (08/12/2026), its Dec Page (03/20/2026), Smith's affidavit (08/10/2026), the consents (08/24 and 08/26/2026), the signed Limited Release (08/28/2026); the check copy listed to follow, with a task
 - [ ] Coverage: each UM Dec Page; Harbor Point's add-on letter (03/02/2026); Cardinal State's resident-relative letter (03/09/2026)
 - [ ] Liability still proven: RPD-26-018842 citation, Ruth Calloway, the doorbell video, and the Civic's $9,255.00 repair, including the $2,315.00 A-pillar structural supplement (03/02/2026), as evidence of force, not a claim
-- [ ] Economic: itemized line-item bills, not balance-forward statements ($14,817.40); Northgate wage letter ($1,584.00); future ESIs ($3,400–$6,800); Peach State's $1,860.00 ledger current
+- [ ] Economic: itemized line-item bills, not balance-forward statements ($14,817.40); Northgate wage letter ($1,584.00); John Doe's Medical Mileage Log ($48.79); future ESIs ($3,400–$6,800); Peach State's $1,860.00 ledger current
 - [ ] Non-economic: the narrative of pain and life impact, carried by the MRI (03/13/2026), Dr. Reyes's Causation Letter stating causation explicitly (06/19/2026) and the MMI note (06/12/2026: residual right-arm paresthesia)
 - [ ] A two-page treatment summary matching each diagnosis, with its code, to its treatment, not a record dump
 - [ ] Gap and “degenerative” answered up front: “no significant degenerative change at the adjacent levels,” the Causation Letter, the EMS report, the Gap Explanation Record (the 14-day gap and the 19-day disruption)
@@ -1495,7 +1496,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 #### 1 · Visual Layout Description
 
-The standard knowledge-check split, with one Day-2-specific addition above the question panel: a full-width DAY 2 GATE bar of six connected chips — LORs ACKNOWLEDGED · COVERAGE VERIFIED · MMI DOCUMENTED · GAP RECORD COMPLETE · SPECIALS $16,401.40 · STRATEGY APPROVED — each with a tick state, and a closed navy barrier at the right end labelled DAY 3 with a small note: “opens when all six are green.” Below, the navy CM SELF-SUMMARY card with three prompts beside the 1–5 SKILL SCALE ladder; far right, the 60/40 bar with UPL as a separate red gate chip.
+The standard knowledge-check split, with one Day-2-specific addition above the question panel: a full-width DAY 2 GATE bar of six connected chips — LORs ACKNOWLEDGED · COVERAGE VERIFIED · MMI DOCUMENTED · GAP RECORD COMPLETE · SPECIALS $16,450.19 · STRATEGY APPROVED — each with a tick state, and a closed navy barrier at the right end labelled DAY 3 with a small note: “opens when all six are green.” Below, the navy CM SELF-SUMMARY card with three prompts beside the 1–5 SKILL SCALE ladder; far right, the 60/40 bar with UPL as a separate red gate chip.
 
 #### 2 · Slide Body — Knowledge verification
 
@@ -1535,8 +1536,8 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
    Peach State's EOBs: the Health Plan pays before PIP · **✓ Harbor Point's PIP ledger: each payment matched to its bill, the $5,000.00 limit exhausted, and the 80% wage benefit checked** · Peach State's EOBs only · None: first-party payments never touch the demand  
    *Riverton requires PIP, and John's is Harbor Point's on the Escape: five payments, five bills, $5,000.00, exhausted with the 06/12/2026 visit (paid 06/26/2026). Its 80% wage benefit was never paid, so the full $1,584.00 in lost wages stays in the Specials.*
 2. Riverton Spine & Rehab billed 34 lines at $185.00, but its treatment notes show 33 visits. After the audit, John Doe's medical Specials are:  
-   $15,002.40 · **✓ $14,817.40** · $16,401.40 · $13,277.40  
-   *$15,002.40 less the duplicate 05/04/2026 line ($185.00) = $14,817.40. $16,401.40 adds the $1,584.00 in wages; $13,277.40 is the paid-and-owed column, not the billed medical total.*
+   $15,002.40 · **✓ $14,817.40** · $16,450.19 · $13,277.40  
+   *$15,002.40 less the duplicate 05/04/2026 line ($185.00) = $14,817.40. $16,450.19 adds the $1,584.00 in wages and $48.79 in mileage; $13,277.40 is the paid-and-owed column, not the billed medical total.*
 3. Lakeside Orthopedics declared MMI on 06/12/2026 and noted possibly 1–2 repeat injections within 24 months. Where does that $3,400–$6,800 go?  
    Into the Specials ledger at $6,800 · Nowhere: it hasn't been incurred · **✓ Into the demand narrative as future medical, outside the Specials total** · Onto Riverton Spine & Rehab's LOP balance  
    *The audited Specials total is charges already incurred. Future care is still economic damage, presented in the narrative with the MMI note behind it, never mixed into the audited total.*
@@ -1569,7 +1570,7 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | Specials accuracy | $6,290.00 → $6,105.00; $14,817.40 + $1,584.00 = $16,401.40 |
+| 🤖 AI | **20%** | Specials accuracy | $6,290.00 → $6,105.00; $14,817.40 + $1,584.00 + $48.79 = $16,450.19 |
 | 🤖 AI | **15%** | Audit doctrine | Four objectives; MMI gate; future medical outside the Specials; billed vs paid shown |
 | 🤖 AI | **15%** | Defense-eye pairing | Four risks, each with its answering document |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
@@ -1582,8 +1583,8 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 
 #### 5 · Speaker Notes
 
-- Open with the gate bar: this module turns the last two chips green, Specials audited at $16,401.40 and strategy approved by Atty. Thorne. The demand does not go out until all six are.
-- Ask the room: “Which number on this file would you defend line by line to Dana Whitfield?” It should be $16,401.40, and they should be able to say where every cent comes from.
+- Open with the gate bar: this module turns the last two chips green, Specials audited at $16,450.19 and strategy approved by Atty. Thorne. The demand does not go out until all six are.
+- Ask the room: “Which number on this file would you defend line by line to Dana Whitfield?” It should be $16,450.19, and they should be able to say where every cent comes from.
 - Question 6 is the pressure scenario. The right answer stops the package, corrects the exhibit and every total that cites it, tells Atty. Thorne before anything is served, and lets him decide whether the 07/20/2026 service holds. Serving a known error to make the date is the failure.
 - Question 5 separates the trainee who knows the rule from the one who would pick a column. An answer that chooses billed or paid for the demand loses the UPL marks.
 
@@ -1638,7 +1639,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
    08/19/2026 · **✓ 08/21/2026** · 08/22/2026 · 08/20/2026  
    *The window runs 30 days from receipt: 07/22/2026 + 30 = 08/21/2026, a Friday. 08/19/2026 counts from the 07/20 mailing (the wrong trigger), 08/22/2026 adds a calendar month, and 08/20/2026 counts the day of receipt as day one.*
 2. Which of these would let Keystone refuse the Time-Limited Demand safely?  
-   A window of 30 days from receipt · A release limited to Robert Smith and Keystone · **✓ A demand for $16,401.40, the full Specials** · Service by certified mail and email  
+   A window of 30 days from receipt · A release limited to Robert Smith and Keystone · **✓ A demand for $16,450.19, the full Specials** · Service by certified mail and email  
    *Keystone's BI limit is $10,000. A demand above the limit is one Keystone cannot accept within its policy, so refusing it generally sets nothing up (confirm the governing rule). The other three are what make the demand hold.*
 3. Why can John Doe's file still reach the full $20,000 Host UM limit after Keystone pays $10,000?  
    **✓ Harbor Point confirmed in writing (03/02/2026) that its UM is add-on, so the BI payment does not reduce it** · UM limits are never reduced by a BI payment · PIP's $5,000 covers the BI offset · Cardinal State pays whatever Harbor Point deducts  
@@ -1747,8 +1748,8 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
    The Case Manager, because it is the full limit · **✓ John Doe, on his informed decision, conveyed through Atty. Thorne** · Atty. Thorne alone, without troubling the client · Harbor Point, as the primary UM carrier  
    *Settlement is the client's decision. Atty. Thorne advises him and conveys it; the Case Manager logs the decision and drafts the acceptance email for Atty. Thorne to approve.*
 5. Before the first call with Dana Whitfield, the battle map sets John Doe's net floor. With $7,965.00 in unreduced liens, $486.75 in costs and the one-third fee, what gross does he need just to reach $0.00 net?  
-   $8,451.75 · **✓ $12,677.63** · $10,000.00 · $16,401.40  
-   *Liens + costs = $7,965.00 + $486.75 = $8,451.75; × 1.5 for the one-third fee = $12,677.63 gross. That is above Keystone's $10,000 limit, which is why every UM layer and lien reduction matters. $8,451.75 forgets the fee; $16,401.40 is the Specials.*
+   $8,451.75 · **✓ $12,677.63** · $10,000.00 · $16,450.19  
+   *Liens + costs = $7,965.00 + $486.75 = $8,451.75; × 1.5 for the one-third fee = $12,677.63 gross. That is above Keystone's $10,000 limit, which is why every UM layer and lien reduction matters. $8,451.75 forgets the fee; $16,450.19 is the Specials.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 

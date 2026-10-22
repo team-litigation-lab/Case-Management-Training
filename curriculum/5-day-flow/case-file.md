@@ -93,7 +93,13 @@ passenger door at about 28 mph; the Escape was pushed into Margaret's Civic, par
 
 **Medical Specials** billed: $15,002.40 before audit → **$14,817.40** after removing the duplicate.
 **Lost wages**: 9 missed shifts (02/09–02/13, 03/05, 03/13, 05/15, 05/18) × 8 h × $22.00 = **$1,584.00**,
-verified by Northgate HR wage-and-attendance letter. **Total specials: $16,401.40.**
+verified by Northgate HR wage-and-attendance letter.
+**Medical mileage** (out of pocket): 19 round trips to care from 2214 Maple Hollow Rd after Keystone ended the rental
+and the carpool stopped, 04/21–06/12/2026: 17 evening visits to Riverton Spine & Rehab (04/21–06/05, 12 mi each),
+Crescent Pain & Spine 05/15 (18 mi) and Lakeside Orthopedics 06/12 (16 mi) = 238 mi × $0.205 (the IRS medical rate
+for 2026 travel before 07/01) = **$48.79**, from John's Medical Mileage Log (RS71). The PD rental is Margaret's claim
+and never his ride to care; the settlement repays this, so it is in the Specials and every demand.
+**Total specials: $14,817.40 + $1,584.00 + $48.79 = $16,450.19.**
 
 ### Why the 14-day gap happened (surfaces only when probed properly — Day 2 Module 3)
 
@@ -180,7 +186,8 @@ her shift (first open evening slot 04/21); *Track* — confirmed attendance 04/2
 | Riverton Spine & Rehab (reduced) | $4,580.00 | $1,145.00 | $3,435.00 |
 | **Net to John Doe** | **$20,359.92** | **$5,089.98** | **$15,269.94** |
 
-(Costs and liens are allocated to the streams pro rata to gross, 25% / 75%.)
+(Costs and liens are allocated to the streams pro rata to gross, 25% / 75%.) John's $48.79 mileage is repaid from his
+net; it is his own out-of-pocket loss, not a lien or a case cost, so it adds no line here.
 
 **Pro-rata illustration** (for the lien lesson): had only the $10,000 BI been recovered, $10,000.00 − $3,333.33 fee
 − $486.75 costs = **$6,179.92** would be left against $7,965.00 of unreduced liens ($1,860.00 + $6,105.00). Shared
@@ -198,7 +205,7 @@ before any negotiated reduction, leaving John Doe nothing — which is why the l
 - **09/10/2026** CMS status → Litigation. Harbor Point and Cardinal State notified of the impasse and the intended suit
   (the notice their policies require — Atty. Thorne confirms what is required).
 - **09/24/2026** complaint filed: *John Doe v. Robert Smith*, **State Court of Riverton County, Civil Action No. 26-CV-04417**.
-  Damages pleaded: medical Specials, lost wages, future medical, pain and suffering. No Property Damage is pleaded: John owns no vehicle.
+  Damages pleaded: medical Specials, lost wages, out-of-pocket medical mileage, future medical, pain and suffering. No Property Damage is pleaded: John owns no vehicle.
 - **Service:** attempts at 118 Larkspur Ln on 10/01, 10/05, 10/08 fail (a neighbor says Smith moved in August).
   Skip-Trace 10/09 → **4410 Quarry Ridge Ct, Millbrook**. Personal service **10/14/2026** by **Allied Process
   Services**; affidavit of service filed 10/16. Answer due **11/13/2026**.
@@ -276,6 +283,7 @@ the facts above. Fictional throughout; no real carrier, provider or firm.
 | Crescent Pain & Spine | 41 Crescent Ct · **Dr. Omar Haddad, MD** · in network with Peach State |
 | Prior care (2021) | **Birch Avenue Chiropractic**, Dr. Lena Ford, DC · three visits 05/04, 05/11, 05/18/2021 · low-back stiffness, resolved, released to full activity |
 | Riverton Drug | 1500 Birch Ave · total $312.40 (OTC receipt 02/07/2026 $38.60; prescriptions and OTC through 06/2026) |
+| Medical mileage | John Doe's **Medical Mileage Log** (RS71), kept by John and signed 06/30/2026 · 19 round trips from 2214 Maple Hollow Rd, 04/21–06/12/2026 · Riverton Spine & Rehab 12 mi, Crescent Pain & Spine 18 mi, Lakeside Orthopedics 16 mi round trip · 238 mi × $0.205 = $48.79 |
 | Northgate Distribution | 900 Industrial Pkwy, Riverton · HR: **Angela Ruiz**, HR manager · wage-and-attendance letter 06/30/2026 |
 | Witness | **Ruth Calloway**, 2209 Maple Hollow Rd · signed statement to Officer Garner on scene |
 | Doorbell video | Margaret Doe's camera at 2214 Maple Hollow Rd · clip 07:09:41–07:10:26 · copy secured 02/19/2026 (USB, SHA-256 logged) |

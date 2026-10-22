@@ -131,7 +131,7 @@
           "verdict": "replace",
           "kind": "arithmetic",
           "issue": "The Demand Package served 07/20/2026 put the medical specials at $14,817.40. Two numbers for one file is exactly the unverified ledger Atty. Mercer named, and the difference is the 05/04/2026 duplicate.",
-          "fix": "Rebuild the ledger line by line from the certified bills in hand: 33 attended visits × $185.00 = $6,105.00, medical $14,817.40, with wages $1,584.00 the same $16,401.40 that was served.",
+          "fix": "Rebuild the ledger line by line from the certified bills in hand: 33 attended visits × $185.00 = $6,105.00, medical $14,817.40, with wages $1,584.00 and mileage $48.79 the same $16,450.19 that was served.",
           "proof": [
             "RS23",
             "RS14",
@@ -230,7 +230,7 @@
       ],
       "revealNote": "The Mediation Binder as Atty. Thorne approved it on 03/10/2027 and the firm delivered it on 03/11/2027: six sections, 141 pages, with the defense map and the rebuilt ledger. The arbitration exhibits and Day 5 both start from it.",
       "revealPoints": [
-        "Medical specials rebuilt to $14,817.40, with wages the $16,401.40 that was served on 07/20/2026.",
+        "Medical specials rebuilt to $14,817.40, with wages and mileage the $16,450.19 that was served on 07/20/2026.",
         "Open liens $7,965.00: Peach State $1,860.00 and Riverton Spine & Rehab $6,105.00; Crescent $0.00.",
         "Riverton Spine & Rehab marked \"Pending Final Verification\" until its certified ledger arrives.",
         "All five pleaded allegations mapped to answering exhibits; two legal questions flagged, not answered.",
@@ -385,19 +385,19 @@
           "verdict": "pull",
           "kind": "privilege",
           "issue": "The memo is work product and a record of settlement communications. Filed because it explains the history, it puts our strategy and every number we discussed in front of the carriers.",
-          "fix": "Pull the memo to the attorney's set for Atty. Thorne's privilege decision and leave Tab 6 to wage proof alone. Nothing is exchanged, and nothing withheld, on the Case Manager's own decision.",
+          "fix": "Pull the memo to the attorney's set for Atty. Thorne's privilege decision and leave Tab 6 to the wage and mileage proof alone. Nothing is exchanged, and nothing withheld, on the Case Manager's own decision.",
           "proof": [
             "RS63"
           ]
         },
         {
           "ref": "C-8",
-          "what": "The wage proof itself",
-          "as": "Northgate's signed letter of 06/30/2026.",
+          "what": "The wage and mileage proof itself",
+          "as": "Northgate's signed letter of 06/30/2026, and John Doe's Medical Mileage Log of 06/30/2026.",
           "verdict": "keep",
           "kind": "gap",
-          "issue": "Nine shifts × 8 hours × $22.00 = $1,584.00, proved by the employer. Tab 6 takes wage proof and nothing else.",
-          "fix": "Leave it at Tab 6 on its own, with the 02/09–02/13/2026 call-out record attached to it.",
+          "issue": "Nine shifts × 8 hours × $22.00 = $1,584.00, proved by the employer, and 238 miles to care × $0.205 = $48.79, proved by the client's log. Tab 6 takes economic-loss proof and nothing else.",
+          "fix": "Leave both at Tab 6 on their own, with the 02/09–02/13/2026 call-out record attached to the wage letter.",
           "proof": [
             "RS43"
           ]
@@ -465,7 +465,7 @@
           ]
         }
       ],
-      "revealNote": "The Arbitration Binder as Atty. Thorne approved it on 05/29/2027 and the firm exchanged it on 06/02/2027: six tabs, exhibits C-1 to C-18, 174 pages, with the withheld-items list and the audited Lien Sheet.",
+      "revealNote": "The Arbitration Binder as Atty. Thorne approved it on 05/29/2027 and the firm exchanged it on 06/02/2027: six tabs, exhibits C-1 to C-19, 175 pages, with the withheld-items list and the audited Lien Sheet.",
       "revealPoints": [
         "Threshold exhibits lead: the BI tender, both UM consents, the Limited Release and the dismissal.",
         "Every record certified and authenticated; Crescent's certification chased with a subpoena flag.",

@@ -300,6 +300,8 @@ from **receipt** (07/22 → 08/21/2026); (2) release term "**a full and final re
 limited release of Robert Smith and Keystone only; (3) the specials total reads **$16,410.40** (the lines add to
 $16,401.40); (4) Smith's **affidavit of no other insurance is missing** from the conditions.
 *Key:* All four must be fixed before signature; a general release in our own demand would release the UM claims.
+The table was typed from the draft exhibit set (RS66), which has no mileage log, so it also lacks the $48.79
+medical mileage (RS71): the exhibit audit catches that (RS66, finding 11), and the served total is $16,450.19.
 
 **RS34 · BI Demand — Proof of Delivery** · Day 3 · Others · `RS_34_BI_Demand_Proof_of_Delivery.pdf`
 USPS certified mail receipt (mailed 07/20/2026) and return receipt (green card) signed by Keystone's mail room
@@ -360,6 +362,14 @@ missed shifts (spec list) with reason codes (02/09–02/13 "called out — neck 
 **RS44 · LSH Law Group — Case Cost Ledger** · Day 3 · Case Files · `RS_44_Case_Cost_Ledger.pdf`
 Costs advanced through settlement (spec list) = $486.75, each with date, payee and receipt reference.
 *Key:* $486.75 on the net sheet; costs come from the client's share after the fee (RS05).
+
+**RS71 · John Doe — Medical Mileage Log** · Day 2 · Others · `RS_71_Medical_Mileage_Log.pdf`
+The client's own log, signed 06/30/2026 and handed to the Case Manager for the Specials: every round trip to care
+from 2214 Maple Hollow Rd after Keystone ended the rental and the carpool stopped, 04/21–06/12/2026: the 17 evening
+visits to Riverton Spine & Rehab (12 mi), Crescent Pain & Spine 05/15 (18 mi), Lakeside Orthopedics 06/12 (16 mi);
+238 mi × $0.205 (the IRS medical rate for 2026 travel before 07/01) = $48.79. Every date matches RS14, RS17 and RS18.
+*Plant:* none. *Key:* $48.79 out-of-pocket Specials, repaid from the settlement and carried into every demand; the PD
+rental was Margaret Doe's claim and never his ride to care. Served as Demand Exhibit K and Arbitration Exhibit C-19.
 
 ### Property damage (folder `property`)
 
@@ -476,7 +486,7 @@ The demand specialist's enclosure set for RS33, prepared 07/17/2026: a cover she
 counts, Bates ranges and the source of each copy, a table of what the cover letter says the set proves, and the
 blank audit sheet the Case Manager fills in (keep / replace / pull, what is wrong or missing, the fix and who does
 it). Marked "DRAFT EXHIBIT PACKET — for Case Manager audit before Atty. Thorne signs".
-*Plants (ten, this is the loophole audit):* (1) Exhibit A cites the Police Report as **RPD-26-018824** (it is
+*Plants (eleven, this is the loophole audit):* (1) Exhibit A cites the Police Report as **RPD-26-018824** (it is
 RPD-26-018842, RS07); (2) Exhibit C is the **grayscale** still export (RS09); (3) Exhibit E carries Riverton Spine &
 Rehab's **34-line, $6,290.00** ledger with the 05/04/2026 duplicate (RS23); (4) Exhibit E also carries Crescent's
 patient statement billing John **$1,540.00**, a contractual adjustment an in-network provider cannot bill (RS26);
@@ -485,16 +495,18 @@ estimate and Diminished Value report for **Margaret Doe's** Civic, her claim and
 (7) Exhibit J encloses the **Master Case Summary** (work product, RS04) and the client's **HIPAA authorization**
 (RS06); (8) Bates ranges **overlap** (E runs 000016–66, F runs 000064–66); (9) **missing** the Gap Explanation
 Record, so the 19-day April disruption has no exhibit; (10) **missing** Keystone's declarations page and limits
-letter of 03/20/2026 (RS27), the proof of the limit the demand is built on.
+letter of 03/20/2026 (RS27), the proof of the limit the demand is built on; (11) **missing** John Doe's Medical
+Mileage Log (RS71), so the Specials typed from the set stop at $16,401.40 and leave out the $48.79 he can recover
+only from the settlement.
 *Key:* Audited against the file, not against the draft's own figures. Every fix is a dated, assigned CMS task; the
 Case Manager corrects nothing silently. The finished set is RS67.
 
 **RS67 · BI Time-Limited Demand Package — FINAL as served (07/20/2026)** · Day 3 · Others · `RS_67_BI_Demand_Package_FINAL_AS_SERVED.pdf`
 The complete, ready-to-go package as signed and served, shown once the audit is handed in: the demand letter with
 RS33's four faults corrected (30 days **from receipt**; a **Limited Release of Robert Smith and Keystone Mutual
-only**, expressly preserving every UM/UIM claim and the Property Damage claim; Specials **$16,401.40**; Smith's
-affidavit of no other insurance added as condition 3), then the Exhibit Index as served — Exhibits A–J, 81 pages,
-Bates LSH-DEM-000001–000081, each exhibit mapped to the cover-letter section it proves — then a table of what was
+only**, expressly preserving every UM/UIM claim and the Property Damage claim; Specials **$16,450.19**, with the $48.79 medical mileage from RS71 added; Smith's
+affidavit of no other insurance added as condition 3), then the Exhibit Index as served — Exhibits A–K, 82 pages,
+Bates LSH-DEM-000001–000082, each exhibit mapped to the cover-letter section it proves — then a table of what was
 pulled from the draft set and why. Ends with the service record: signed and served 07/20/2026 by certified mail
 (No. 9589 0710 5270 0412 7731 58) and email at 4:21 p.m., return receipt 07/22/2026, acceptance docketed 08/21/2026.
 *Key:* No plants. This is the package every later activity works from: the negotiation, the lien work, the
@@ -507,21 +519,21 @@ Whitfield's written acknowledgment of 07/22/2026, what the acknowledgment establ
 same-day action taken, and where the memorandum and its thread are filed (CMS → Doc Hub → Others under the firm's
 naming convention, Communications Log, the Insurance tab's Demand record, and the Google Drive backup folder).
 *Key:* No plants. The acknowledgment fixes 07/22/2026 from the carrier's own writing and confirms the set is
-complete at 81 pages, Exhibits A–J, closing the "we never got all of it" argument. "I may come back to you about
+complete at 82 pages, Exhibits A–K, closing the "we never got all of it" argument. "I may come back to you about
 the time frame" is a request **flagged for Atty. Thorne**, never an extension the Case Manager grants.
 
 **RS69 · Mediation Binder — FINAL as delivered (03/11/2027)** · Day 4 · Litigation · `RS_69_Mediation_Binder_FINAL_AS_DELIVERED.pdf`
 The complete six-section binder as approved 03/10/2027 and delivered 03/11/2027, shown once the audit is handed in:
 the master index (Sections 1–6, 141 pages, Bates LSH-MED-000001–000141, OCR-searchable and bookmarked), the Section 3
 defense map pairing each of the five pleaded allegations with the exhibit that answers it (and the two legal
-questions flagged for Atty. Thorne), the Section 5 ledger rebuilt line by line to **$16,401.40** with open liens
+questions flagged for Atty. Thorne), the Section 5 ledger rebuilt line by line to **$16,450.19** with open liens
 **$7,965.00**, the Property Damage schedule kept separate, a table of what the audit changed and what each fault
 would have cost, and the delivery record.
 *Key:* No plants. Built from RS67 and audited against the Litigation Desk's draft index (RS62); the starting point for RS70 and for Day 5.
 
 **RS70 · UM Arbitration Binder — FINAL as exchanged (06/02/2027)** · Day 4 · Litigation · `RS_70_Arbitration_Binder_FINAL_AS_EXCHANGED.pdf`
 The complete six-tab binder as approved 05/29/2027 and exchanged 06/02/2027, shown once the audit is handed in: the
-master exhibit index (Tabs 1–6, exhibits C-1 to C-18, 174 pages, Bates LSH-ARB-000001–000174) with each tab's QC
+master exhibit index (Tabs 1–6, exhibits C-1 to C-19, 175 pages, Bates LSH-ARB-000001–000175) with each tab's QC
 rule in its row, the withheld-items list with Atty. Thorne's recorded reason for each, the Lien Sheet audited from
 $15,545.00 to **$7,965.00**, a table of what the sort and QC changed, and the exchange record.
 *Key:* No plants. Threshold exhibits lead (the BI tender, the UM consents, the Limited Release and the dismissal);

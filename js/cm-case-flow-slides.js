@@ -3453,7 +3453,7 @@ window.CM_CF_SLIDES = {
      "The defense's attacks are rehearsed in-house before Keystone sees anything."
     ],
     [
-     "$16,401.40 in Specials sits against a $10,000 BI limit.",
+     "$16,450.19 in Specials sits against a $10,000 BI limit.",
      "Peach State's $1,860.00 and Riverton's LOP wait behind that limit.",
      "Each interest gets registered while the ask is still being built."
     ],
@@ -3472,7 +3472,7 @@ window.CM_CF_SLIDES = {
     [
      "Lakeside's MMI note mentions possible repeat injections.",
      "They could cost $3,400 to $6,800 down the road.",
-     "That range gets folded into the audited $16,401.40 total."
+     "That range gets folded into the audited $16,450.19 total."
     ],
     [
      "Settlement paperwork is signed and the file feels finished.",
@@ -3492,10 +3492,10 @@ window.CM_CF_SLIDES = {
    "Put **future medical in the narrative**, not the ledger",
    "List every lien; **re-verify the three targets** in order"
   ],
-  "deliver": "An **audited ledger at $16,401.40**, billed beside paid, liens, targets, flags routed",
+  "deliver": "An **audited ledger at $16,450.19**, billed beside paid, liens, targets, flags routed",
   "checks": [
    "**05/04/2026 duplicate removed**: $6,290.00 → $6,105.00",
-   "**Specials $16,401.40**: $14,817.40 medical + $1,584.00 wages",
+   "**Specials $16,450.19**: medical + wages + $48.79 mileage",
    "**Five pre-treatment shifts flagged**, with Northgate's Attendance Record",
    "Billed-vs-paid choice **routed to Atty. Thorne**",
    "**Liens listed**: Peach State $1,860.00, LOP $6,105.00"
@@ -3636,7 +3636,7 @@ window.CM_CF_SLIDES = {
  },
  "d2m4-a2": {
   "image": "strategy-session",
-  "situation": "Early July 2026, before any demand. Your audit: MMI 06/12/2026, **Specials $16,401.40**, liens $1,860.00 and $6,105.00, targets **$10,000 → $20,000 → $10,000**. Atty. Thorne has called the strategy session.",
+  "situation": "Early July 2026, before any demand. Your audit: MMI 06/12/2026, **Specials $16,450.19**, liens $1,860.00 and $6,105.00, targets **$10,000 → $20,000 → $10,000**. Atty. Thorne has called the strategy session.",
   "steps": [
    "Brief in protocol order: **bottom line first**",
    "Then audited facts, **risks with their documents**, decisions, options",
@@ -3816,7 +3816,7 @@ window.CM_CF_SLIDES = {
  },
  "d3m1-a1": {
   "image": "checklist-qa",
-  "situation": "File date 07/20/2026. MMI reached; Specials $16,401.40. Atty. Thorne approved **$10,000 limits**, a Limited Release of Smith and Keystone, Smith's affidavit, 30 days from receipt. The draft awaits **your final audit**.",
+  "situation": "File date 07/20/2026. MMI reached; Specials $16,450.19. Atty. Thorne approved **$10,000 limits**, a Limited Release of Smith and Keystone, Smith's affidavit, 30 days from receipt. The draft awaits **your final audit**.",
   "steps": [
    "Audit the draft against **the Big Four** and the Final Scrub",
    "Log each deficiency as **an assigned CMS task**",
@@ -3827,7 +3827,7 @@ window.CM_CF_SLIDES = {
   "deliver": "An audited, served demand with **proof of delivery** and 08/21/2026 docketed",
   "checks": [
    "**$10,000 BI limit**; terms match Atty. Thorne's approval exactly",
-   "Big Four complete; **Specials total $16,401.40**",
+   "Big Four complete; **Specials total $16,450.19**",
    "Gap answered **on page one**; each deficiency an assigned task",
    "Served by **certified mail AND email**; 08/21/2026 docketed",
    "Any extension request **routed to Atty. Thorne** same day"
@@ -4030,7 +4030,7 @@ window.CM_CF_SLIDES = {
   "points": [
    "Build **the battle map** first: net floor, value drivers, attacks, rebuttals",
    "Net floor: **$12,677.63 gross**, above Keystone's $10,000 limit",
-   "Anchor on **$16,401.40 total Specials**, not PIP's $5,000",
+   "Anchor on **$16,450.19 total Specials**, not PIP's $5,000",
    "Restate the approved demand and name each stall; **make no moves**"
   ],
   "upl": "Present the record, relay offers; never counter, move number or deadline, or value offers.",
@@ -6047,7 +6047,7 @@ window.CM_CF_SLIDES = {
   "steps": [
    "Build six sections from **the master index**",
    "Map every pleaded defense **to the exhibit answering it**",
-   "Rebuild the ledger from certified bills **to $16,401.40**",
+   "Rebuild the ledger from certified bills **to $16,450.19**",
    "Cross-check balances **against PIP and Peach State**",
    "Add Negotiation Log, release, consent requests; **route to Atty. Thorne**"
   ],

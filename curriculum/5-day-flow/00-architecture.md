@@ -95,7 +95,7 @@ Case Flow Day N opens when the Day N-1 Knowledge Check is passed (70%), for trai
 | Day | Gate to the next |
 |---|---|
 | 1 Opening the File & the Case Strategy | Matter opened in the CMS · PD onboarding tracked · LORs out and the stack verified at $40,000 · Regulatory Triple-Check cleared · Case Plan routed |
-| 2 Client, Treatment & Pre-Demand | No Contact Protocol run and logged · LOPs out and providers coordinated · treatment documented to MMI · Gap Justification Record · Specials audited at $16,401.40 · demand strategy approved |
+| 2 Client, Treatment & Pre-Demand | No Contact Protocol run and logged · LOPs out and providers coordinated · treatment documented to MMI · Gap Justification Record · Specials audited at $16,450.19 · demand strategy approved |
 | 3 Demands & Settlements (Track A) | BI tender, UM consents and limited release · $40,000 gross · liens resolved · net sheet and trust ledger reconciled · closing memo |
 | 4 Litigation Fork (Track B) | impasse documented and suit authorized · Litigation status · hard-rule calendar audited · mediation and arbitration binders verified · bottleneck log current |
 | 5 Dispute Resolution & Litigation (Track B) | pleadings and discovery log · trial-prep checklist and KPIs · PD recommendation · deposition readiness · liability counter-package |

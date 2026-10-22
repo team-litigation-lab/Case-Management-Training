@@ -763,10 +763,10 @@ window.CM_CF_SIM = {
    "who": "Atty. Elijah Thorne",
    "role": "attorney",
    "persona": "Exacting senior trial lawyer, short on time. Plays the adjuster to test you. Wants facts, not adjectives; bristles at any valuation from staff.",
-   "context": "07/08/2026, before any demand. MMI 06/12; Specials $16,401.40 ($14,817.40 medical after the 05/04 duplicate came out, plus $1,584.00 wages); liens $1,860.00 Peach State and $6,105.00 LOP; targets $10,000 BI, $20,000 Host UM, $10,000 Relative UM. He pushes: low-speed impact, the 14-day gap, the “degenerative” MRI, and asks what the case is worth. Briefed well, he decides: a time-limited BI demand served 07/20/2026, the gap addressed up front, no UM demand before a documented BI tender, billed-vs-paid his call.",
+   "context": "07/08/2026, before any demand. MMI 06/12; Specials $16,450.19 ($14,817.40 medical after the 05/04 duplicate came out, plus $1,584.00 wages and $48.79 mileage); liens $1,860.00 Peach State and $6,105.00 LOP; targets $10,000 BI, $20,000 Host UM, $10,000 Relative UM. He pushes: low-speed impact, the 14-day gap, the “degenerative” MRI, and asks what the case is worth. Briefed well, he decides: a time-limited BI demand served 07/20/2026, the gap addressed up front, no UM demand before a documented BI tender, billed-vs-paid his call.",
    "opening": "I've got twenty minutes. Bottom line first. Then tell me why Keystone shouldn't call this a low-speed bump with a guy who waited two weeks to see a doctor.",
    "goals": [
-    "Lead with the bottom line: MMI, $16,401.40 Specials, $10,000 BI limit",
+    "Lead with the bottom line: MMI, $16,450.19 Specials, $10,000 BI limit",
     "Meet each challenge with dated documents, not adjectives",
     "Get his decisions: demand, the gap, UM consents, billed-vs-paid",
     "Read back each decision; task it with an owner and date"
@@ -833,7 +833,7 @@ window.CM_CF_SIM = {
    "who": "Atty. Elijah Thorne",
    "role": "attorney",
    "persona": "Lead counsel, sharp and short on time; wants the chronology cold; will test whether the Case Manager tries to recommend suit.",
-   "context": "09/08/2026, Track B. Keystone offered $3,500 on 08/05 and called it “final” 08/12; the demand lapsed 08/21; follow-ups 08/24 and 08/31 and the 09/02 supervisor escalation went unanswered through 09/04. Unexhausted BI freezes $20,000 Host UM and $10,000 Relative UM. Specials $16,401.40. SOL 02/06/2028 (Sunday); hard date 02/04/2028; cutoff 11/05/2027. Thorne asks “So, do we sue?” and “What's Smith worth above his limits?” He wants facts and questions, not advice.",
+   "context": "09/08/2026, Track B. Keystone offered $3,500 on 08/05 and called it “final” 08/12; the demand lapsed 08/21; follow-ups 08/24 and 08/31 and the 09/02 supervisor escalation went unanswered through 09/04. Unexhausted BI freezes $20,000 Host UM and $10,000 Relative UM. Specials $16,450.19. SOL 02/06/2028 (Sunday); hard date 02/04/2028; cutoff 11/05/2027. Thorne asks “So, do we sue?” and “What's Smith worth above his limits?” He wants facts and questions, not advice.",
    "opening": "Okay, I've got ten minutes. Walk me through Keystone from the demand to today, and then tell me: do we file?",
    "goals": [
     "Give the dated chronology, 07/20 to 09/04, each event with its proof",

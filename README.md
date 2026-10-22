@@ -228,7 +228,7 @@ The one practice tool left beside the Skill Activities (Case Flow Day 4; `js/cm-
 
 **John Doe v. Robert Smith (the Case Flow's document set, `documents/case-flow/`).** 70 simulated documents, `RS01`–`RS70`, in nine folders: intake & retainer, police / witness / video, medical records, bills, insurance and the demands, liens, wages & costs, the Civic's property damage, and the Track B lawsuit and ADR. Every page carries the *SIMULATED DOCUMENT — FICTIONAL PARTIES* footer.
 - **What trainees see:** the 📁 Documents page lists them by folder with the CMS upload category; each opens with its Case Flow day (trainers see all), and every Case Flow Skill Activity names the documents it works from ("📁 Work from" on its slide).
-- **Planted discrepancies:** a transposed police report number on the intake sheet, "Driver" and a wrong DOB in the CMS record, a duplicate ledger line, a wrong date of injury on the MRI report, an in-network provider billing the patient, a draft demand with four errors, releases that reach too far, a discovery deadline and a brief date that are wrong, and the Demand Package's own exhibit packet built to be audited (`RS66`), with ten faults in the enclosure set. The three finished sets the audits reveal (`RS67`, `RS69`, `RS70`) carry no plants: they are the completed packages the trainee is shown once the audit is handed in. Signed in as admin, each document's red 🔑 note says what is planted and what to catch; trainees never see these notes.
+- **Planted discrepancies:** a transposed police report number on the intake sheet, "Driver" and a wrong DOB in the CMS record, a duplicate ledger line, a wrong date of injury on the MRI report, an in-network provider billing the patient, a draft demand with four errors, releases that reach too far, a discovery deadline and a brief date that are wrong, and the Demand Package's own exhibit packet built to be audited (`RS66`), with eleven faults in the enclosure set. The three finished sets the audits reveal (`RS67`, `RS69`, `RS70`) carry no plants: they are the completed packages the trainee is shown once the audit is handed in. Signed in as admin, each document's red 🔑 note says what is planted and what to catch; trainees never see these notes.
 - **Source and rebuild:** `build/case-flow/documents/` — `SPEC.md` (what each document holds and plants, written against `curriculum/5-day-flow/case-file.md`), `src/RSNN.html` (each document), `doc.css`, `render.cjs` (HTML → PDF with headless Chromium; the CMS record also to .docx with LibreOffice) and `audit.cjs` (reads every PDF back and checks the footer, the identifiers, each document's facts and that each plant is where it belongs and nowhere else). Metadata: `js/cm-case-flow-docs.js` (also each activity's documents). CI checks every file exists and every activity's documents are real and open by its day (`.github/scripts/check-data.mjs`).
 
 ### 🔍 Exhibit audits, the completed package, and the service confirmation
@@ -240,13 +240,13 @@ Activities now work the set itself, and each one ends with the finished article.
 - **The audit.** The activity's slide **🔍 Audit & the Finished Set** opens a workbench listing every item of the
   draft set, with the call to make on each one — **keep · replace · pull · add · flag for Atty. Thorne** — and a
   note to write. The loophole each item hides is not shown while the audit is open. The three sets: the Demand
-  Package's exhibit packet (`d3m1-a1`, 16 items, `RS66`), the Litigation Desk's draft Mediation Binder
+  Package's exhibit packet (`d3m1-a1`, 17 items, `RS66`), the Litigation Desk's draft Mediation Binder
   (`d4m3-a1`, 17 items, `RS62`) and its draft Arbitration Binder index (`d4m3-a2`, 17 items, `RS63`). A hand-in
   with an item uncalled is refused.
 - **The completed package.** Handed in, the audit is scored, each item says what it would have cost and what the
-  fix was, and the finished set is revealed: the **Demand Package as served** (81 pages, Exhibits A–J), the
+  fix was, and the finished set is revealed: the **Demand Package as served** (82 pages, Exhibits A–K), the
   **Mediation Binder as delivered** (six sections, 141 pages, with the defense map) or the **Arbitration Binder as
-  exchanged** (six tabs, C-1 to C-18, 174 pages, with the withheld-items list).
+  exchanged** (six tabs, C-1 to C-19, 175 pages, with the withheld-items list).
 - **Case continuity.** The completed Demand Package (`RS67`) and the memorandum of its service (`RS68`) are in the
   "📁 Work from" packet of every activity that comes after it, and the finished Mediation Binder (`RS69`) and
   Arbitration Binder (`RS70`) in the activities that follow them. One Demand Package and one binder run through
@@ -257,7 +257,7 @@ Activities now work the set itself, and each one ends with the finished article.
   the thirty days run from *receipt*, ask her to confirm the date and the set, and route every question about the
   terms to Atty. Thorne. An email that leaves any of that out is refused with what is missing, and nothing is
   sent. A complete one brings **Dana Whitfield's written acknowledgment**, which fixes 07/22/2026 from the
-  carrier's own words and confirms the set is complete at 81 pages. Then she asks for two more weeks: the answer
+  carrier's own words and confirms the set is complete at 82 pages. Then she asks for two more weeks: the answer
   that grants it, the answer that refuses it and saying nothing all fail; only recording it and routing it to
   Atty. Thorne goes on.
 - **Converted, filed and backed up.** The trainee then **converts the exchange into a memorandum** (built as a

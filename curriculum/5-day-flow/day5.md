@@ -99,7 +99,7 @@ A fork diagram fills the upper two-thirds. From the left, a single navy trunk la
 5. Name the carrier's ground. Keystone's $3,500 rests on the 14-Day Gap and a “degenerative” MRI; the 08/06 rebuttal answered both; the 08/12 “final” answered none of it.
 6. Hold the line while you test it (the “Never” rule): never bid against yourself, never apologize for a Limits Demand, never accept “that's all I have” as final. Every adjuster has a supervisor; the 09/02 escalation was that test. Any new number is Atty. Thorne's.
 7. Know what a BI impasse costs. As this file's policies are configured, Host UM pays only after BI is exhausted (paid or tendered at limits), Relative UM behind it: $40,000 frozen behind a $10,000 carrier. Exhaustion rules vary by policy and jurisdiction; Atty. Thorne confirms the governing rule.
-8. Filing is counsel's decision; its inputs are yours to verify. Liability: RPD-26-018842, Ruth Calloway, the doorbell video. Causation: the MRI, the Causation Letter, the EMS report. Damages: $16,401.40 in Specials. Time: SOL 02/06/2028, internal cutoff 11/05/2027.
+8. Filing is counsel's decision; its inputs are yours to verify. Liability: RPD-26-018842, Ruth Calloway, the doorbell video. Causation: the MRI, the Causation Letter, the EMS report. Damages: $16,450.19 in Specials. Time: SOL 02/06/2028, internal cutoff 11/05/2027.
 9. Record the lapse; don't interpret it. Proof of delivery (07/22) and the 08/21 lapse may bear on Robert Smith's exposure above his limits: Atty. Thorne's analysis, never yours to raise with Keystone or John Doe.
 
 > ⚠️ **UPL boundary.** You may document the impasse, report dates and figures, and ask Atty. Thorne for a decision. You may not recommend suit, value the claim, assess Robert Smith's exposure above his limits, or tell John Doe whether to take $3,500.
@@ -263,7 +263,7 @@ A Track B timeline runs across the full slide on a navy rail, hard dates as mono
 1. A bottleneck is any dependency that can stop the file reaching a hard date. Log it the day it starts, with the hard date it threatens; age it daily.
 2. Non-responsive adjuster: follow up every 5 business days and log date, time, method and outcome. Keystone left 08/24 and 08/31/2026 unanswered, then the 09/02 escalation.
 3. Silence is a position. Record it as dated facts (“no response to 08/24, 08/31 or 09/02”), never as “adjuster busy”. With BI unexhausted, Host UM and Relative UM cannot open.
-4. Delayed records: a request unanswered after 14 days is a bottleneck, not a wait. The biggest mediation bottleneck is an unverified ledger: Specials $16,401.40, Riverton Spine & Rehab audited to $6,105.00, Peach State asserting $1,860.00.
+4. Delayed records: a request unanswered after 14 days is a bottleneck, not a wait. The biggest mediation bottleneck is an unverified ledger: Specials $16,450.19, Riverton Spine & Rehab audited to $6,105.00, Peach State asserting $1,860.00.
 5. Missing decision-maker: a representative without authority to pay sinks a mediation. Verified ledgers reach Keystone via defense counsel, as Atty. Thorne directs, in time for an authority raise.
 6. Brief alignment: the confidential statement and binder reach Hon. Carla Benton (Ret.) by 03/11/2027 with every critical exhibit (MRI, Causation Letter, Police Report, doorbell video). A late brief stalls her.
 7. Arbitration is binding: no second hearing. An exhibit not exchanged by 06/02/2027 can be excluded; one that is illegible or not a fair and accurate copy can be excluded or given little weight. Print stills in color from the native file so nothing turns on quality.
@@ -1240,7 +1240,7 @@ A single memo page on white letterhead, a navy header band reading IMPASSE MEMO 
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** File date 09/08/2026, Track B. Keystone Mutual (Dana Whitfield, KM-26-440871) offered $3,500 on 08/05, citing the 14-Day Gap and a “degenerative” MRI. The 08/06 rebuttal changed nothing: on 08/12 Keystone called $3,500 “final”. The 07/20 Time-Limited Demand (received 07/22) lapsed on 08/21. Follow-ups on 08/24 and 08/31 asked for a response and the evidence Keystone relies on; neither was answered. The 48-Hour Mandate escalation to Keystone's claims supervisor on 09/02 drew nothing by 09/04. Harbor Point and Cardinal State are waiting on BI. The 08/06 rebuttal sent Dr. Helen Park's MRI read (“no significant degenerative change at the adjacent levels”), Dr. Reyes's 06/19/2026 Causation Letter, the EMS report and the Gap Explanation Record. Documented specials: $14,817.40 medical + $1,584.00 lost wages. SOL 02/06/2028 (a Sunday); firm internal hard date 02/04/2028; internal filing cutoff 11/05/2027.
+**Scenario.** File date 09/08/2026, Track B. Keystone Mutual (Dana Whitfield, KM-26-440871) offered $3,500 on 08/05, citing the 14-Day Gap and a “degenerative” MRI. The 08/06 rebuttal changed nothing: on 08/12 Keystone called $3,500 “final”. The 07/20 Time-Limited Demand (received 07/22) lapsed on 08/21. Follow-ups on 08/24 and 08/31 asked for a response and the evidence Keystone relies on; neither was answered. The 48-Hour Mandate escalation to Keystone's claims supervisor on 09/02 drew nothing by 09/04. Harbor Point and Cardinal State are waiting on BI. The 08/06 rebuttal sent Dr. Helen Park's MRI read (“no significant degenerative change at the adjacent levels”), Dr. Reyes's 06/19/2026 Causation Letter, the EMS report and the Gap Explanation Record. Documented specials: $14,817.40 medical + $1,584.00 lost wages + $48.79 mileage. SOL 02/06/2028 (a Sunday); firm internal hard date 02/04/2028; internal filing cutoff 11/05/2027.
 
 **Execution prompt.** Draft the impasse memo to Atty. Elijah Thorne. Build a dated chronology of every event from the 07/20/2026 demand to 09/04, each tied to its proof in the Communications Log. State Keystone's grounds and the rebuttal evidence it has not answered. Show the frozen stack layer by layer with the documented Specials, then the SOL and internal dates. End with the decision you need from him, framed as questions. Graded judgment: the memo documents and asks; it recommends nothing legal, because filing is his decision.
 
@@ -1256,7 +1256,7 @@ A single memo page on white letterhead, a navy header band reading IMPASSE MEMO 
 - [ ] Keystone's grounds stated as Keystone gave them: the 14-Day Gap and a “degenerative” MRI
 - [ ] Unanswered rebuttal listed: Dr. Helen Park's “no significant degenerative change at the adjacent levels”, Dr. Reyes's 06/19/2026 Causation Letter, the EMS report, the Gap Explanation Record
 - [ ] Frozen stack shown: $10,000 BI unexhausted → $20,000 Host UM and $10,000 Relative UM closed; $40,000 total, $30,000 of it unreachable
-- [ ] Specials stated as documented facts: $14,817.40 medical + $1,584.00 lost wages = $16,401.40
+- [ ] Specials stated as documented facts: $14,817.40 medical + $1,584.00 lost wages + $48.79 mileage + $48.79 mileage = $16,450.19
 - [ ] Clock: SOL 02/06/2028 (a Sunday), internal hard date 02/04/2028, internal filing cutoff 11/05/2027 (423 days from 09/08/2026)
 - [ ] Decision requested as questions for Atty. Thorne (does he authorize suit; what notice Harbor Point and Cardinal State need; what John Doe is told, and by whom); no sentence recommends suit, values the claim or assesses Robert Smith's exposure above his limits
 - [ ] No new number sent to Keystone (never bid against yourself), and nothing said to John Doe about the $3,500
@@ -1288,7 +1288,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 |---|---|---|---|
 | 🤖 AI | **20%** | Chronology accuracy | All nine events, correct and in order, 07/20/2026 to 09/04/2026 |
 | 🤖 AI | **15%** | Proof | Each event tied to a receipt, email or log entry |
-| 🤖 AI | **15%** | Stack and Specials | $10,000 / $20,000 / $10,000 = $40,000; $30,000 frozen; Specials $16,401.40 |
+| 🤖 AI | **15%** | Stack and Specials | $10,000 / $20,000 / $10,000 = $40,000; $30,000 frozen; Specials $16,450.19 |
 | 🤖 AI | **10%** | Clock and routing | SOL and internal dates correct; memo routed 09/08/2026 |
 | 🧑‍🏫 Trainer | **20%** | Decision readiness | Counsel could decide from the memo without a follow-up question |
 | 🧑‍🏫 Trainer | **20%** | UPL boundary | No recommendation, valuation or excess-exposure opinion; nothing sent to Keystone or said to John Doe |

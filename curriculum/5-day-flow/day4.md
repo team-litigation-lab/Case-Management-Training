@@ -580,7 +580,7 @@ A three-step flow across the full slide on cream, each step a white orange-borde
 6. Read each layer on its own. Harbor Point's arbitration clause does not speak for Cardinal State: get Cardinal State's UM form and its dispute-resolution and other-insurance clauses from the certified policy and route both to Atty. Thorne. Whether the two are heard together is his call; on this file they were consolidated into the 06/22/2027 hearing.
 7. A route carries its own clock. Every layer has its own limitation on filing suit or serving a demand for arbitration, set by the policy or by statute, and it is not the tort SOL of 02/06/2028. Ask Atty. Thorne each policy's deadline in writing and docket only from his written answer.
 8. Track the route in the CMS the day it is set, so nobody has to guess what this file is doing: the ADR tab with its type UM / UIM arbitration and How It Was Set as Required by the policy or contract, the provider, the hard dates, and the case status moved to the route it is actually on.
-9. Nothing about the route changes what the UM claim has to prove. The Demand Package still carries the injuries, the Specials of $16,401.40, the wage loss and the documented proof that Keystone's $10,000 was exhausted; and the 14-Day Gap will be put to John Doe again at the hearing, by a carrier reading his own policy.
+9. Nothing about the route changes what the UM claim has to prove. The Demand Package still carries the injuries, the Specials of $16,450.19, the wage loss and the documented proof that Keystone's $10,000 was exhausted; and the 14-Day Gap will be put to John Doe again at the hearing, by a carrier reading his own policy.
 
 > ⚠️ **UPL boundary.** You read the clause and the statute, lay both before Atty. Thorne, docket what he confirms and tell John Doe what happens next procedurally: the date, the place, what to bring, who will be in the room. Which route governs, whether an offer is unreasonably low, and whether Harbor Point's handling amounts to statutory bad faith are legal opinions, and they are Atty. Thorne's alone.
 
@@ -590,7 +590,7 @@ A three-step flow across the full slide on cream, each step a white orange-borde
 
 | Step | Action | What it takes on this file |
 |---|---|---|
-| 1 · Claim submission | UM Demand Package | Served 08/31/2026 to Harbor Point and Cardinal State: injuries, records, $16,401.40 in Specials, the wage letter, and documented proof that Robert Smith's $10,000 BI limit was exhausted and consented to |
+| 1 · Claim submission | UM Demand Package | Served 08/31/2026 to Harbor Point and Cardinal State: injuries, records, $16,450.19 in Specials, the wage letter, and documented proof that Robert Smith's $10,000 BI limit was exhausted and consented to |
 | 2 · Dispute | Impasse | Harbor Point offers $8,000 (09/14/2026) and Cardinal State $6,000 (10/01/2026) against $30,000 of UM limits; impasse memo to Atty. Thorne |
 | 3 · Resolution route | Demand for Arbitration, or file suit against the carrier | Read the governing state law and each policy's clause. Harbor Point's UM policy has a binding arbitration clause: invoked 04/05/2027, heard 06/22/2027 before Laura Whitcomb, Esq. Where no clause binds, a civil suit against the carrier; a bad-faith action is a separate suit, and Atty. Thorne's call |
 | Not a route | John Doe's own Bluewater Auto policy | UM/UIM rejected in writing 03/14/2024: there is no third layer and no third route |
@@ -740,7 +740,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 #### 1 · Visual Layout Description
 
-An open binder seen from above fills the left two-thirds: six navy divider tabs stepped down its right edge, each with an orange numbered badge ①–⑥ and its section name, and beside each tab a cream card listing this file's documents as mono pills (RPD-26-018842 · EDR · MRI 03/13/2026 · $16,401.40). Across the top runs a slim navy bar, MASTER INDEX — ONE SOURCE OF TRUTH, with column chips Exhibit · Bates · Source · Status and thin orange leader lines running from index rows down into the tabs. Right third: a large stopwatch chip, 5 SECONDS, above a red danger callout: “Drafts and superseded pleadings never enter the binder.” The leader lines run from the index into the binder, never back: that is the argument.
+An open binder seen from above fills the left two-thirds: six navy divider tabs stepped down its right edge, each with an orange numbered badge ①–⑥ and its section name, and beside each tab a cream card listing this file's documents as mono pills (RPD-26-018842 · EDR · MRI 03/13/2026 · $16,450.19). Across the top runs a slim navy bar, MASTER INDEX — ONE SOURCE OF TRUTH, with column chips Exhibit · Bates · Source · Status and thin orange leader lines running from index rows down into the tabs. Right third: a large stopwatch chip, 5 SECONDS, above a red danger callout: “Drafts and superseded pleadings never enter the binder.” The leader lines run from the index into the binder, never back: that is the argument.
 
 #### 2 · Slide Body — Tell Them
 
@@ -751,7 +751,7 @@ An open binder seen from above fills the left two-thirds: six navy divider tabs 
 3. One master index in the CMS is the single source of truth: section, exhibit number, description, date, source, Bates range and status for each document. The binder prints from the index, never the reverse.
 4. Exhibit numbers belong to the proceeding (4-1, 4-2…): a late document takes the next number; a set others hold is never renumbered. Bates numbers belong to the page: stamped once at production (DOE 000001).
 5. Section 3 holds only the operative pleadings (09/24/2026 complaint, 11/12/2026 answer), no drafts. The answer pleads comparative negligence (out of turn, unbelted), causation (the gap, a “degenerative” MRI) and failure to mitigate; a defense argued but never pleaded is flagged to Atty. Thorne.
-6. Section 5's ledger ties line by line to the certified invoices and HR letter, each correction documented (duplicate removed: $6,290.00 → $6,105.00): $14,817.40 medical + $1,584.00 wages = $16,401.40. Future care ($3,400–$6,800) is narrative.
+6. Section 5's ledger ties line by line to the certified invoices and HR letter, each correction documented (duplicate removed: $6,290.00 → $6,105.00): $14,817.40 medical + $1,584.00 wages + $48.79 mileage = $16,450.19. Future care ($3,400–$6,800) is narrative.
 7. Section 6's log fixes the baseline (Keystone's $3,500, “final” 08/12/2026). A draft Limited Release lets Atty. Thorne fix terms in writing before anyone leaves, conditioned on both UM carriers' written consent (each may substitute its own check to keep subrogation). Its scope (BI only: John Doe pleads no PD claim) is his call.
 8. You are the QA and logistics auditor: sets for Atty. Thorne, the mediator and John Doe (or one digital set), every PDF OCR-searchable, statement delivered by 03/11/2027, binder audited against the index 48 hours out.
 
@@ -767,7 +767,7 @@ An open binder seen from above fills the left two-thirds: six navy divider tabs 
 | 2 · Briefs | Our confidential statement; the defense's, if exchanged | Ours to the mediator only, by 03/11/2027 |
 | 3 · Core pleadings | Complaint 09/24/2026; answer and defenses 11/12/2026 | Operative versions only |
 | 4 · Key evidence & liability | RPD-26-018842, Ruth Calloway, doorbell stills, EMS report, EDR, deposition summary | Summary + highlighted transcript pages |
-| 5 · Damages, financials & experts | Ledger, Northgate HR letter, MRI, Causation Letter, Gap Explanation Record | Ledger = sources: $16,401.40 |
+| 5 · Damages, financials & experts | Ledger, Northgate HR letter, MRI, Causation Letter, Gap Explanation Record | Ledger = sources: $16,450.19 |
 | 6 · Settlement history & drafts | Negotiation Log from 07/20/2026; draft release (Smith, Keystone) | Baseline stated; scope and UM consents flagged for Atty. Thorne |
 
 **Operational mapping**
@@ -796,7 +796,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 |---|---|---|---|
 | 🤖 AI | **20%** | Section order and contents | Six sections in order, each with this file's documents |
 | 🤖 AI | **20%** | Indexing rules | Exhibit numbers per proceeding, Bates stamped once, master index fields, one source of truth |
-| 🤖 AI | **20%** | Figures and dates | $14,817.40 + $1,584.00 = $16,401.40; pleadings 09/24/2026 and 11/12/2026; delivery 03/11/2027; session 03/18/2027 |
+| 🤖 AI | **20%** | Figures and dates | $14,817.40 + $1,584.00 + $48.79 = $16,450.19; pleadings 09/24/2026 and 11/12/2026; delivery 03/11/2027; session 03/18/2027 |
 | 🧑‍🏫 Trainer | **25%** | Purpose over procedure | Explains how an indexed binder protects Atty. Thorne's position in the room, not just how it is filed |
 | 🧑‍🏫 Trainer | **15%** | UPL boundary | Arguments, positions and numbers left to Atty. Thorne; the statement kept confidential to the mediator |
 
@@ -848,7 +848,7 @@ Two panels joined by a heavy orange arrow labelled THE GAP DISPUTE CARRIES OVER.
 | 3 · Liability & biomechanics | Certified RPD-26-018842; doorbell stills; event data recorder | Identifiers redacted per forum; citation's use: Atty. Thorne; color |
 | 4 · Medical damages | Treatment chart; ledger $14,817.40; provider records and bills; MRI 03/13/2026; Dr. Reyes's orders and Causation Letter | Ledger = certified invoices |
 | 5 · Prior medical shield | 2021 chiropractic: three low-back visits, resolved; no prior neck complaint; work history | Paired with the MRI read and a medical opinion |
-| 6 · Economic losses | Northgate HR letter ($1,584.00) | Wage proof only |
+| 6 · Economic losses | Northgate HR letter ($1,584.00); John Doe's Medical Mileage Log ($48.79) | Economic-loss proof only |
 | Attorney's set — not for exchange | Audited Lien Sheet; negotiation ledger; tort complaint and answer | Atty. Thorne decides |
 
 **Operational mapping**
@@ -877,7 +877,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Tab order and contents | Six tabs in order with this file's documents; the BI exhaustion record leads |
-| 🤖 AI | **20%** | QC rules | Retainer paid, operative arbitration pleadings, redaction, color, ledger = invoices, prior record paired, wage proof only |
+| 🤖 AI | **20%** | QC rules | Retainer paid, operative arbitration pleadings, redaction, color, ledger = invoices, prior record paired, economic-loss proof only |
 | 🤖 AI | **20%** | Evidentiary basics | Authentication, business-records certification, chain of custody, “confirm the forum's rules” |
 | 🧑‍🏫 Trainer | **20%** | Mediation vs. arbitration | Explains why the arbitration record is less forgiving than the Mediation Binder |
 | 🧑‍🏫 Trainer | **20%** | UPL boundary | Exchange, privilege and argument left to Atty. Thorne; no argument to the arbitrator or the carriers |
@@ -1489,7 +1489,7 @@ A three-column workbench. Left: the draft binder as a grey stack topped by two r
 
 **Scenario.** It is 03/04/2027 on Track B. John Doe was deposed on 02/18/2027 and the certified transcript is in the file. The confidential statement and binder are due to Hon. Carla Benton (Ret.) on 03/11/2027 for the 03/18/2027 mediation. The draft binder, built from the providers' original bills instead of the audited demand ledger, carries Riverton Spine & Rehab at $6,290.00 and lists Crescent Pain & Spine's $3,400.00 as an open balance, and Atty. Grant Mercer has written that Keystone “will not put a real number on the table” while the medical ledger is unverified. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027 (second request 02/22, red-flagged 03/01), is still outstanding. The Litigation Desk's draft index is in the file (RS62), assigned on the 07/15/2026 task log (RS64): QC it, do not rebuild it from nothing.
 
-**Execution prompt.** Assemble the six-section Mediation Binder from the master index, starting from the 07/20/2026 Demand Package. Seat each document in one section with its exhibit number and Bates range, and map every allegation in the 11/12/2026 answer to the exhibit that answers it. Run the pre-mediation audit: rebuild the ledger from the certified bills in hand to $16,401.40, and cross-check each provider balance against what PIP and Peach State already paid. Add the Negotiation Log, a draft Limited Release and the UM consent requests, then route it all to Atty. Thorne before delivery.
+**Execution prompt.** Assemble the six-section Mediation Binder from the master index, starting from the 07/20/2026 Demand Package. Seat each document in one section with its exhibit number and Bates range, and map every allegation in the 11/12/2026 answer to the exhibit that answers it. Run the pre-mediation audit: rebuild the ledger from the certified bills in hand to $16,450.19, and cross-check each provider balance against what PIP and Peach State already paid. Add the Negotiation Log, a draft Limited Release and the UM consent requests, then route it all to Atty. Thorne before delivery.
 
 | | |
 |---|---|
@@ -1503,7 +1503,7 @@ A three-column workbench. Left: the draft binder as a grey stack topped by two r
 - [ ] Section 3: the Complaint of 09/24/2026 and the answer of 11/12/2026 only, no draft; all three pleaded defenses listed
 - [ ] Defense map: out of turn → RPD-26-018842, Ruth Calloway, doorbell video; unbelted → event data recorder (belt buckled), EMS report (“restrained”); the gap → EMS report (neck stiffness on the DOL), Gap Explanation Record and the 06/19/2026 Causation Letter; “degenerative” → the MRI read; failure to mitigate → the A-C-T record. Two legal questions flagged for Atty. Thorne, not answered: whether seatbelt evidence is admissible or can reduce damages here, and whether the Escape's alleged out-of-turn entry can affect a passenger's recovery; confirm the governing rule
 - [ ] Section 4 also holds the key correspondence (Keystone's 02/17/2026 acceptance of PD liability; what weight it carries is Atty. Thorne's call) and the 02/18/2027 deposition summary with highlighted transcript pages on the gap, the disruption, the 2021 visits and the seatbelt
-- [ ] Landmine 1: ledger rebuilt from the certified bills in hand, with Riverton Spine & Rehab's original 34-line bill audited to 33 visits × $185.00 = $6,105.00 (05/04/2026 duplicate removed) and marked “Pending Final Verification” until its certified ledger arrives; $14,817.40 medical + $1,584.00 wages = $16,401.40
+- [ ] Landmine 1: ledger rebuilt from the certified bills in hand, with Riverton Spine & Rehab's original 34-line bill audited to 33 visits × $185.00 = $6,105.00 (05/04/2026 duplicate removed) and marked “Pending Final Verification” until its certified ledger arrives; $14,817.40 medical + $1,584.00 wages + $48.79 mileage = $16,450.19
 - [ ] Landmine 2: Crescent's $3,400.00 bill shown as satisfied by Peach State's $1,860.00 contract payment, proved by Peach State's EOB (no balance billing); open liens Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $7,965.00
 - [ ] Section 5 carries no PD claim: the Civic is Margaret Doe's, and her Keystone PD claim runs on its own file, outside John Doe's demand and the $40,000 stack
 - [ ] Section 6: Negotiation Log 07/20/2026 demand → $3,500 (08/05) → rebuttal (08/06) → $3,500 “final” (08/12) → lapse (08/21) → suit (09/24); draft release limited to Robert Smith and Keystone; consent requests to Harbor Point and Cardinal State drafted
@@ -1515,7 +1515,7 @@ A three-column workbench. Left: the draft binder as a grey stack topped by two r
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | Binder due 03/11/2027 | Build the six sections from the master index | CMS → Documents → Mediation Binder | Every document in one section, numbered and Bates-ranged |
-| Opposing counsel calls the ledger unverified | Chase the outstanding certified ledger and rebuild from what is certified | Medical Records Requests | Ledger ties to invoices and the Northgate HR letter: $14,817.40 + $1,584.00 = $16,401.40 |
+| Opposing counsel calls the ledger unverified | Chase the outstanding certified ledger and rebuild from what is certified | Medical Records Requests | Ledger ties to invoices and the Northgate HR letter: $14,817.40 + $1,584.00 + $48.79 = $16,450.19 |
 | Binder audited | Route binder and statement to Atty. Thorne; deliver on approval | CMS → Tasks → Escalate · Email Workspace | Approved before delivery; delivery to the mediator logged by 03/11/2027 |
 
 **Best practices & pitfalls**
@@ -1535,7 +1535,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **15%** | Section completeness | All six sections built with this file's documents; each document in exactly one section |
-| 🤖 AI | **15%** | Ledger audit | 33 visits = $6,105.00; $14,817.40 + $1,584.00 = $16,401.40 |
+| 🤖 AI | **15%** | Ledger audit | 33 visits = $6,105.00; $14,817.40 + $1,584.00 + $48.79 = $16,450.19 |
 | 🤖 AI | **10%** | Lien cross-check | Crescent's bill satisfied by Peach State's $1,860.00; open liens total $7,965.00 |
 | 🤖 AI | **10%** | Defense map | All five pleaded allegations mapped to answering exhibits |
 | 🤖 AI | **10%** | Dates and delivery | Pleadings, negotiation-log dates and the 03/11/2027 delivery all correct |
@@ -1585,7 +1585,7 @@ A sorting board. Left column: the unsorted folder as a pile of white document ca
 - [ ] Tab 4: treatment chart and ledger $14,817.40 tied to certified bills; a certification requested from each provider (Riverton Urgent Care, Riverton Spine & Rehab, Lakeside Orthopedics, Summit Imaging Center, Crescent Pain & Spine, Riverton Drug) and from Riverton Fire (EMS), Riverton PD and Northgate HR, receipt logged; none in 14 days → second request and subpoena flag (Crescent's, requested 05/05/2027, due 05/19); Causation Letter 06/19/2026 flagged: an opinion, not a business record, admitted per the forum's rules; the gap proved by its underlying records, the Gap Explanation Record's synthesis left for the brief
 - [ ] Landmine 1, Tab 5: the 2021 records (three low-back chiropractic visits, resolved), the treating providers' own histories and John's 02/18/2027 deposition testimony showing no prior neck complaint, paired with the MRI's “no significant degenerative change at the adjacent levels” and the Causation Letter; if the letter is silent on the 2021 visits, flagged to Atty. Thorne to decide whether to seek a supplemental declaration from Dr. Reyes; the firm's intake questionnaire is privileged: a source, never an exhibit
 - [ ] Landmine 2, attorney's set: Lien Sheet stripped of Harbor Point PIP and Summit Imaging (PIP paid Summit's $2,395.00; no PIP reimbursement right, per the 03/02/2026 letter in the threshold record); liens Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $7,965.00; Crescent holds none
-- [ ] Tab 6, wage proof only: Northgate HR letter, 9 shifts × 8 h × $22.00 = $1,584.00; the negotiation ledger (07/20/2026 demand to the executed settlement documents, no session offers) kept in the attorney's set
+- [ ] Tab 6, economic-loss proof only: Northgate HR letter, 9 shifts × 8 h × $22.00 = $1,584.00, and John Doe's Medical Mileage Log, 238 mi × $0.205 = $48.79; the negotiation ledger (07/20/2026 demand to the executed settlement documents, no session offers) kept in the attorney's set
 - [ ] Impasse memo, negotiation ledger and Lien Sheet flagged for Atty. Thorne's privilege and exchange decision, none placed in the exchange set by the CM
 - [ ] Master index: C-numbers sequential, Bates ranges match page counts, authentication column complete, forum's evidence rule noted as “confirm with Atty. Thorne”; set approved before the 06/02/2027 exchange
 

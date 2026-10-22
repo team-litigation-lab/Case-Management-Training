@@ -32,14 +32,14 @@ const EMAIL = [
     '',
     "Atty. Elijah Thorne signed the Time-Limited Demand on John Doe's bodily injury claim today, and it went",
     'out this afternoon by certified mail, return receipt requested, No. 9589 0710 5270 0412 7731 58. The',
-    'complete Demand Package is attached to this email as well: the demand letter and Exhibits A through J,',
-    '81 pages.',
+    'complete Demand Package is attached to this email as well: the demand letter and Exhibits A through K,',
+    '82 pages.',
     '',
     "The acceptance window runs 30 days from Keystone Mutual's receipt of the certified mailing, not from the",
     'date of the letter.',
     '',
     'Please confirm by reply the date Keystone received the certified mailing, the date you received this',
-    'email, and that the package is complete at 81 pages.',
+    'email, and that the package is complete at 82 pages.',
     '',
     'Any question about the terms, the amount or an extension should go to Atty. Thorne directly; I will route',
     'anything that reaches me to him the same day.',
@@ -136,7 +136,7 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     check(!(await page.$('#cf-bench .ab-sel')), 'the calls are closed once it is handed in');
     const revealed = await page.locator('#cf-bench .ab-rev').innerText();
     check(/FINAL as served/.test(revealed), `and the completed package is revealed: ${revealed.replace(/\s+/g, ' ').slice(0, 110)}`);
-    check(/16,401\.40/.test(revealed), 'with the figures the finished set carries, to mark the audit against');
+    check(/16,450\.19/.test(revealed), 'with the figures the finished set carries, to mark the audit against');
     check(/would have cost|Fix:/.test(await benchText()), 'and every item now says what it would have cost, and the fix');
     await page.evaluate(() => document.getElementById('cf-bench').remove());
     await page.waitForTimeout(600);
@@ -156,7 +156,7 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     const short = await page.evaluate((b) => { document.querySelector('#cf-sv .sv-write').value = 'Got it, thanks.'; cmCaseFlow.svSend(b); return document.querySelector('#cf-sv .sv-msg').innerText; }, BLOCK);
     check(/Not sent/.test(short), `an email too short to do the job is refused: ${short.replace(/\s+/g, ' ').slice(0, 80)}`);
     const partial = await page.evaluate((b) => {
-        document.querySelector('#cf-sv .sv-write').value = window.__E.replace(/30 days/, 'soon').replace(/81 pages/g, 'the full set');
+        document.querySelector('#cf-sv .sv-write').value = window.__E.replace(/30 days/, 'soon').replace(/82 pages/g, 'the full set');
         cmCaseFlow.svSend(b); return document.querySelector('#cf-sv .sv-msg').innerText;
     }, BLOCK);
     check(/Not sent/.test(partial) && /30 days|page count|receipt/i.test(partial), `and one that leaves out what the clock runs from is refused with what is missing: ${partial.replace(/\s+/g, ' ').slice(0, 120)}`);

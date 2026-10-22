@@ -202,6 +202,19 @@ window.CM_CF_EXHIBITS = {
     },
     {
      "ref": "—",
+     "what": "John Doe's Medical Mileage Log",
+     "as": "Not in the set. The Specials typed from it stop at medical and wages, $16,401.40.",
+     "verdict": "add",
+     "kind": "gap",
+     "issue": "238 miles to care, 19 round trips 04/21–06/12/2026 at $0.205: $48.79 that only the settlement repays him. A demand that leaves it out never recovers it. The PD rental was Margaret Doe's claim, never his ride.",
+     "fix": "Add the signed log as the last exhibit, carry $48.79 into the special damages and correct the total to $16,450.19 before Atty. Thorne signs.",
+     "proof": [
+      "RS71",
+      "RS14"
+     ]
+    },
+    {
+     "ref": "—",
      "what": "Each deficiency as a dated, assigned CMS task",
      "as": "The draft asks the Case Manager to tell the specialist what to change.",
      "verdict": "flag",
@@ -214,13 +227,13 @@ window.CM_CF_EXHIBITS = {
      ]
     }
    ],
-   "revealNote": "The Demand Package as Atty. Thorne signed and served it on 07/20/2026: the letter with its four faults corrected and the Exhibit Index as served, 81 pages. Every later activity on this file works from this set.",
+   "revealNote": "The Demand Package as Atty. Thorne signed and served it on 07/20/2026: the letter with its four faults corrected, the $48.79 mileage added as Exhibit K, and the Exhibit Index as served, 82 pages. Every later activity on this file works from this set.",
    "revealPoints": [
-    "Specials $14,817.40 medical + $1,584.00 wages = $16,401.40, every line tied to a certified bill.",
+    "Specials $14,817.40 medical + $1,584.00 wages + $48.79 mileage = $16,450.19, every line tied to a certified bill or the mileage log.",
     "Acceptance runs 30 days from Keystone's receipt of the certified mailing, not from the date of the letter.",
     "A Limited Release of Robert Smith and Keystone Mutual only, preserving every UM/UIM claim and the Property Damage claim.",
     "Robert Smith's affidavit of no other insurance added as condition 3.",
-    "Exhibits A–J, 81 pages, Bates LSH-DEM-000001–000081, each exhibit mapped to the section it proves.",
+    "Exhibits A–K, 82 pages, Bates LSH-DEM-000001–000082, each exhibit mapped to the section it proves.",
     "Received 07/22/2026, so the acceptance window closes 08/21/2026, docketed with reminders."
    ]
   },
@@ -355,7 +368,7 @@ window.CM_CF_EXHIBITS = {
      "verdict": "replace",
      "kind": "arithmetic",
      "issue": "The Demand Package served 07/20/2026 put the medical specials at $14,817.40. Two numbers for one file is exactly the unverified ledger Atty. Mercer named, and the difference is the 05/04/2026 duplicate.",
-     "fix": "Rebuild the ledger line by line from the certified bills in hand: 33 attended visits × $185.00 = $6,105.00, medical $14,817.40, with wages $1,584.00 the same $16,401.40 that was served.",
+     "fix": "Rebuild the ledger line by line from the certified bills in hand: 33 attended visits × $185.00 = $6,105.00, medical $14,817.40, with wages $1,584.00 and mileage $48.79 the same $16,450.19 that was served.",
      "proof": [
       "RS23",
       "RS14",
@@ -454,7 +467,7 @@ window.CM_CF_EXHIBITS = {
    ],
    "revealNote": "The Mediation Binder as Atty. Thorne approved it on 03/10/2027 and the firm delivered it on 03/11/2027: six sections, 141 pages, with the defense map and the rebuilt ledger. The arbitration exhibits and Day 5 both start from it.",
    "revealPoints": [
-    "Medical specials rebuilt to $14,817.40, with wages the $16,401.40 that was served on 07/20/2026.",
+    "Medical specials rebuilt to $14,817.40, with wages and mileage the $16,450.19 that was served on 07/20/2026.",
     "Open liens $7,965.00: Peach State $1,860.00 and Riverton Spine & Rehab $6,105.00; Crescent $0.00.",
     "Riverton Spine & Rehab marked \"Pending Final Verification\" until its certified ledger arrives.",
     "All five pleaded allegations mapped to answering exhibits; two legal questions flagged, not answered.",
@@ -609,19 +622,19 @@ window.CM_CF_EXHIBITS = {
      "verdict": "pull",
      "kind": "privilege",
      "issue": "The memo is work product and a record of settlement communications. Filed because it explains the history, it puts our strategy and every number we discussed in front of the carriers.",
-     "fix": "Pull the memo to the attorney's set for Atty. Thorne's privilege decision and leave Tab 6 to wage proof alone. Nothing is exchanged, and nothing withheld, on the Case Manager's own decision.",
+     "fix": "Pull the memo to the attorney's set for Atty. Thorne's privilege decision and leave Tab 6 to the wage and mileage proof alone. Nothing is exchanged, and nothing withheld, on the Case Manager's own decision.",
      "proof": [
       "RS63"
      ]
     },
     {
      "ref": "C-8",
-     "what": "The wage proof itself",
-     "as": "Northgate's signed letter of 06/30/2026.",
+     "what": "The wage and mileage proof itself",
+     "as": "Northgate's signed letter of 06/30/2026, and John Doe's Medical Mileage Log of 06/30/2026.",
      "verdict": "keep",
      "kind": "gap",
-     "issue": "Nine shifts × 8 hours × $22.00 = $1,584.00, proved by the employer. Tab 6 takes wage proof and nothing else.",
-     "fix": "Leave it at Tab 6 on its own, with the 02/09–02/13/2026 call-out record attached to it.",
+     "issue": "Nine shifts × 8 hours × $22.00 = $1,584.00, proved by the employer, and 238 miles to care × $0.205 = $48.79, proved by the client's log. Tab 6 takes economic-loss proof and nothing else.",
+     "fix": "Leave both at Tab 6 on their own, with the 02/09–02/13/2026 call-out record attached to the wage letter.",
      "proof": [
       "RS43"
      ]
@@ -689,7 +702,7 @@ window.CM_CF_EXHIBITS = {
      ]
     }
    ],
-   "revealNote": "The Arbitration Binder as Atty. Thorne approved it on 05/29/2027 and the firm exchanged it on 06/02/2027: six tabs, exhibits C-1 to C-18, 174 pages, with the withheld-items list and the audited Lien Sheet.",
+   "revealNote": "The Arbitration Binder as Atty. Thorne approved it on 05/29/2027 and the firm exchanged it on 06/02/2027: six tabs, exhibits C-1 to C-19, 175 pages, with the withheld-items list and the audited Lien Sheet.",
    "revealPoints": [
     "Threshold exhibits lead: the BI tender, both UM consents, the Limited Release and the dismissal.",
     "Every record certified and authenticated; Crescent's certification chased with a subpoena flag.",
@@ -714,7 +727,7 @@ window.CM_CF_EXHIBITS = {
    "to": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
    "cc": "Elijah Thorne <ethorne@lshlawgroup.example>",
    "subject": "Time-Limited Demand served today — John Doe / Robert Smith — Claim KM-26-440871",
-   "attachment": "LSH-2026-MVA-770412_Doe-John_Demand-Package_2026-07-20.pdf (81 pp.)",
+   "attachment": "LSH-2026-MVA-770412_Doe-John_Demand-Package_2026-07-20.pdf (82 pp.)",
    "brief": "Write the email that goes out with the certified mailing. It must say what was served and how, say the clock runs from Keystone's receipt, and ask her to confirm the receipt date and that the set is complete. Terms and extensions go to Atty. Thorne.",
    "required": [
     {
@@ -728,12 +741,12 @@ window.CM_CF_EXHIBITS = {
     },
     {
      "id": "package",
-     "label": "Says what is attached: the Demand Package, 81 pages, Exhibits A–J",
+     "label": "Says what is attached: the Demand Package, 82 pages, Exhibits A–K",
      "hint": "Name the package, the page count and the exhibit range, so she cannot say part was missing.",
      "match": [
-      "81",
+      "82",
       "exhibit",
-      "\\bA\\b.{0,12}\\bJ\\b|A through J|A-J|A–J"
+      "\\bA\\b.{0,12}\\bK\\b|A through K|A-K|A–K"
      ]
     },
     {
@@ -769,7 +782,7 @@ window.CM_CF_EXHIBITS = {
     "date": "07/22/2026",
     "time": "9:06 a.m.",
     "subject": "RE: Time-Limited Demand served today — John Doe / Robert Smith — Claim KM-26-440871",
-    "body": "Confirming receipt. The certified envelope was delivered to our Riverton claims office this morning, July 22, and I signed for it. Your email of July 20 with the attachment is in the file as well; the PDF opens at 81 pages and the index runs A through J, so I show it complete.\n\nI have logged the demand as received 07/22/2026 and diaried it for evaluation. I will need to review the imaging and the treatment records before I can respond to the number. I may come back to you about the time frame."
+    "body": "Confirming receipt. The certified envelope was delivered to our Riverton claims office this morning, July 22, and I signed for it. Your email of July 20 with the attachment is in the file as well; the PDF opens at 82 pages and the index runs A through K, so I show it complete.\n\nI have logged the demand as received 07/22/2026 and diaried it for evaluation. I will need to review the imaging and the treatment records before I can respond to the number. I may come back to you about the time frame."
    },
    "press": {
     "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
@@ -810,7 +823,7 @@ window.CM_CF_EXHIBITS = {
       "lines": [
        "BI Time-Limited Demand, signed by Atty. Elijah Thorne 07/20/2026, served the same day.",
        "Certified mail, return receipt requested, USPS No. 9589 0710 5270 0412 7731 58; green card returned bearing 07/22/2026.",
-       "Email of 07/20/2026, 4:21 p.m., with the full Demand Package as one bookmarked PDF, 81 pages, Exhibits A–J."
+       "Email of 07/20/2026, 4:21 p.m., with the full Demand Package as one bookmarked PDF, 82 pages, Exhibits A–K."
       ]
      },
      {
@@ -846,7 +859,7 @@ window.CM_CF_EXHIBITS = {
     "establishes": [
      "Keystone received the certified mailing on 07/22/2026, in the adjuster's own writing, matching the signed return receipt.",
      "The acceptance window therefore closes 08/21/2026, counted from receipt and not from the date of the letter.",
-     "The package is complete at 81 pages, Exhibits A–J, so \"we never got all of it\" is answered by her own email.",
+     "The package is complete at 82 pages, Exhibits A–K, so \"we never got all of it\" is answered by her own email.",
      "The time frame was raised, flagged and routed to Atty. Thorne. It was not an extension and was not granted.",
      "No valuation, no view of the offer and no agreement to any term was given by the Case Manager."
     ]
