@@ -784,6 +784,8 @@ window.CM_CF_SLIDES = {
    "Decide whether **Step 3 notification** is warranted, and the impact"
   ],
   "deliver": "A Step 1 review and an **unbroken, contemporaneous** Step 2 outreach log",
+  "purpose": "With the SOL running and treatment unstarted, **an unlogged attempt** never happened",
+  "principle": "Review the deadlines first; **a new channel** beats a repeat call",
   "checks": [
    "Step 1 review done **before any outreach**",
    "**Every entry**: date, time, channel, outcome",
@@ -932,6 +934,8 @@ window.CM_CF_SLIDES = {
    "Record the Skip-Trace criteria and **Atty. Thorne's Step 5 authority**"
   ],
   "deliver": "A **send-ready Final Warning Letter**, both deliveries logged, escalation recorded",
+  "purpose": "This letter is **the last notice** before Atty. Thorne decides on withdrawal",
+  "principle": "State facts, a dated deadline and how to respond; **never legal consequences**",
   "checks": [
    "**DOL 02/06/2026** and file reference present",
    "Deadline is **a date inside 7–14 days**",
@@ -1094,6 +1098,8 @@ window.CM_CF_SLIDES = {
    "**Log delivery** with date and method"
   ],
   "deliver": "A complete, delivered, logged packet **specific to John Doe's file**",
+  "purpose": "The other side **has already called him**: a generic packet arrives too late",
+  "principle": "All adverse carrier contact **goes through the firm**",
   "checks": [
    "**All six sections** present and populated",
    "Treatment direction stated: **treatment hasn't begun**",
@@ -1416,6 +1422,8 @@ window.CM_CF_SLIDES = {
    "Schedule the **treatment-start follow-up**"
   ],
   "deliver": "A tracked task set with **correct owners, dates and verification**",
+  "purpose": "Untracked directions are hopes; **tracked tasks** expose a Treatment Gap the day it starts",
+  "principle": "Every task needs **an owner, a date and proof** it happened",
   "checks": [
    "Every task has **an owner and due date**",
    "**Verification method** recorded for each task",
@@ -1441,6 +1449,8 @@ window.CM_CF_SLIDES = {
    "Answer John Doe **within the UPL line**; solve his ride"
   ],
   "deliver": "A **sourced finding** of whose claim it is, reported, and a logged call",
+  "purpose": "Whose claim it is decides every call after: **guess wrong** and the file follows",
+  "principle": "A claim belongs to **the vehicle's owner**, proven by the records",
   "checks": [
    "**Position, owner and claimant** each from a record",
    "**Conclusion** on a PD or rental claim for John Doe",
@@ -1612,6 +1622,8 @@ window.CM_CF_SLIDES = {
    "**Route the flag** to Atty. Thorne"
   ],
   "deliver": "A **precisely computed, prominently flagged** and routed treatment-gap record",
+  "purpose": "Everything after turns on this flag; **an unexplained gap** does more damage",
+  "principle": "Record **exact dates and facts only**; its meaning is Atty. Thorne's",
   "checks": [
    "Gap: **14 days, 02/06/2026 to 02/20/2026**",
    "Gap recorded; **a watch set** for later breaks",
@@ -1771,6 +1783,8 @@ window.CM_CF_SLIDES = {
    "Docket the filing window, then **route to Atty. Thorne**"
   ],
   "deliver": "A complete, routed plan counsel could **set strategy from** without a follow-up question",
+  "purpose": "This plan is **the gate**: the Treatment Phase doesn't begin until it's routed",
+  "principle": "Report facts and preliminary numbers; **strategy is Atty. Thorne's** to set",
   "checks": [
    "Snapshot: DOL 02/06/2026, SOL 02/06/2028, **client a passenger**",
    "Coverage **$10,000 / $20,000 / $10,000**, total $40,000",
@@ -1997,6 +2011,8 @@ window.CM_CF_SLIDES = {
    "Verify the total, record the pursuit order, **mark the projection preliminary**"
   ],
   "deliver": "A three-layer Coverage Matrix **totalling $40,000**, each layer classified, ordered and attributed",
+  "purpose": "Every projection rests on this stack: **one unconfirmed limit** misleads them all",
+  "principle": "BI pays first; **UM opens only** once BI is exhausted",
   "checks": [
    "Limits **$10,000 / $20,000 / $10,000**; total $40,000",
    "Order recorded: **BI → Host UM → Relative UM**",
@@ -2022,6 +2038,8 @@ window.CM_CF_SLIDES = {
    "Send by preferred method; **calendar the acknowledgement checks**"
   ],
   "deliver": "Five letters **signed, sent and logged**, each correctly addressed, follow-ups calendared",
+  "purpose": "One wrong letter risks **the UM coverage** or hands Keystone his private details",
+  "principle": "Every letter is notice, **never a demand**, and counsel signs it",
   "checks": [
    "Cardinal State: **“Attn: Claims Department”**, not a guessed name",
    "**Correct insured** on each: Robert Smith, Kevin Alvarez, Margaret Doe",
@@ -2236,6 +2254,8 @@ window.CM_CF_SLIDES = {
    "Route a **three-line audit note** to Atty. Thorne"
   ],
   "deliver": "A corrected matrix **totalling $40,000**, every status sourced, open items dated, note routed",
+  "purpose": "Every later decision reads this matrix: **one unsourced cell** misstates the $40,000 stack",
+  "principle": "Nothing is confirmed **without a document behind it**",
   "checks": [
    "BI: **still preliminary**; Declaration Page not until 03/20/2026",
    "**PIP out** of the stack: it pays bills, not claims",
@@ -2783,6 +2803,8 @@ window.CM_CF_SLIDES = {
    "Decline Summit in writing, **naming Harbor Point PIP**"
   ],
   "deliver": "One **counsel-approved LOP** sent, one declined with payer named, ledger and baseline recorded",
+  "purpose": "A needless LOP makes **a bill PIP would pay** a lien on his recovery",
+  "principle": "**An LOP comes last**, after PIP and Peach State",
   "checks": [
    "Signed by John Doe and Atty. Thorne **before 02/24/2026**",
    "Baseline: 2021 visits **low back, resolved**; no prior neck",
@@ -3232,6 +3254,8 @@ window.CM_CF_SLIDES = {
    "Confirm **attendance once care resumes**"
   ],
   "deliver": "A complete A-C-T record, with **attendance confirmed 04/21 and 04/23/2026**",
+  "purpose": "**A transport barrier** left unsolved becomes a documented break in his care",
+  "principle": "**Solve the barrier**, not the client: coordinate care, never direct it",
   "checks": [
    "Missed visits: **04/03, 04/07, 04/09 and 04/14/2026**",
    "04/02/2026 → 04/21/2026 = **19 days**",
@@ -3259,6 +3283,8 @@ window.CM_CF_SLIDES = {
    "Write the GIRP note and **report to Atty. Thorne**"
   ],
   "deliver": "A CMS task list: every task **Done by me** or Delegated, owner and date",
+  "purpose": "A referral he won't attend **opens a new Treatment Gap** in his care",
+  "principle": "**The facility is his choice**; the care is his doctors'",
   "checks": [
    "Crescent **verified in network** with Peach State, not hearsay",
    "Crescent's 05/15/2026 slot: **no new Treatment Gap**",
@@ -3441,6 +3467,8 @@ window.CM_CF_SLIDES = {
    "State what must happen **before any compromise**"
   ],
   "deliver": "A **dated, flagged lien record** you could negotiate from on Day 4",
+  "purpose": "An unflagged lien surfaces at disbursement, **too late to negotiate** from strength",
+  "principle": "Register it early; **only Atty. Thorne** can authorize a compromise",
   "checks": [
    "Carrier: **Peach State Health Plan**",
    "**PSH-55017742 and GRP-41208** both entered",
@@ -3647,6 +3675,8 @@ window.CM_CF_SLIDES = {
    "File **a privileged GIRP note** the same day"
   ],
   "deliver": "**All four reasons**, in his words, on a consented, privileged recording; GIRP note filed",
+  "purpose": "A suggested reason proves nothing: **only his own words**, backed by documents, hold up",
+  "principle": "**Investigate, don't advocate**: never put a reason in his mouth",
   "checks": [
    "**Zero leading questions**; no reason introduced first",
    "**Four reasons in his words**: transport, soreness, coverage, numbness",
@@ -3851,6 +3881,8 @@ window.CM_CF_SLIDES = {
    "Run **a defense-eye pass**, then route to Atty. Thorne"
   ],
   "deliver": "A routed record of **both interruptions**, every reason beside a dated document",
+  "purpose": "The defense will test every reason: **an undocumented one** must say so",
+  "principle": "**One dated document** per reason, or it's marked “account only”",
   "checks": [
    "14 days, 02/06/2026 → 02/20/2026; **19 days**, 04/02/2026 → 04/21/2026",
    "Escalation quoted exactly: **“onset at MVA 02/06/2026”**",
@@ -4067,6 +4099,8 @@ window.CM_CF_SLIDES = {
    "List every lien; **re-verify the three targets** in order"
   ],
   "deliver": "An **audited ledger at $16,401.40**, billed beside paid, liens, targets, flags routed",
+  "purpose": "One unproved line hands the defense **a reason to doubt** every figure",
+  "principle": "**Audit, don't total**: every line needs its visit or source",
   "checks": [
    "**05/04/2026 duplicate removed**: $6,290.00 → $6,105.00",
    "**Specials $16,401.40**: $14,817.40 medical + $1,584.00 wages",
@@ -4233,6 +4267,8 @@ window.CM_CF_SLIDES = {
    "**Read back each decision**; record and task it; re-route the plan"
   ],
   "deliver": "A recorded session and dated decision record, each **attributed to Atty. Thorne**, tasked",
+  "purpose": "The demand follows this session: **an unrecorded decision** leaves the file adrift",
+  "principle": "**Operations are yours to recommend**; every legal decision is Atty. Thorne's",
   "checks": [
    "Low-speed challenge: **about 28 mph**, $2,315.00 A-pillar supplement, C5-C6 herniation",
    "Gap met **with documents, not apology**",
@@ -4440,6 +4476,8 @@ window.CM_CF_SLIDES = {
    "Docket **08/21/2026 from the receipt** dated 07/22/2026, with reminders"
   ],
   "deliver": "An audited, served demand with **proof of delivery** and 08/21/2026 docketed",
+  "purpose": "Keystone's 30 days run from receipt: **without proof, no deadline** to hold",
+  "principle": "The clock starts at **proven receipt, not mailing**",
   "checks": [
    "**$10,000 BI limit**; terms match Atty. Thorne's approval exactly",
    "Big Four complete; **Specials total $16,401.40**",
@@ -4640,6 +4678,8 @@ window.CM_CF_SLIDES = {
    "**Leave the response deadline** blank for Atty. Thorne; route both"
   ],
   "deliver": "Two QC'd UM drafts, **exhaustion proof first**, routed for review",
+  "purpose": "Each draft reaches a carrier as written: **one missed error** travels with it",
+  "principle": "Prove the BI layer is spent **before asking UM** for more",
   "checks": [
    "Two separate packages, **HP-26-7741 and CS-26-20355**",
    "Relative UM claimed for **damages above $30,000**",
@@ -4818,6 +4858,8 @@ window.CM_CF_SLIDES = {
    "Draft **the 08/06/2026 rebuttal** for his approval"
   ],
   "deliver": "A call **held inside Atty. Thorne's authority**, logged offer, same-day report, drafted rebuttal",
+  "purpose": "A careless word on this call **cracks the demand** before 08/21/2026",
+  "principle": "Hold **inside the written authority**; the record answers every stall",
   "checks": [
    "$3,500 **nets John Doe $0.00** after fee, costs and liens",
    "Pause used; **asked what data supports $3,500**",
@@ -4987,6 +5029,8 @@ window.CM_CF_SLIDES = {
    "Prove **$40,000 gross** on the Recovery Ledger"
   ],
   "deliver": "A complete Negotiation Log, approved counter-package, confirming emails, Recovery Ledger at **$40,000.00 gross**",
+  "purpose": "The gross sets every later number: **one wrong entry** skews John Doe's net",
+  "principle": "John Doe decides **through Atty. Thorne**; you log and confirm",
   "checks": [
    "Offset answered with **the 03/02/2026 add-on letter**",
    "Counter-package approved, sent 09/16/2026; **no figure below limits**",
@@ -5169,6 +5213,8 @@ window.CM_CF_SLIDES = {
    "Record **every absent claimant** as a verified “none”"
   ],
   "deliver": "A signature-ready request, absent claimants cleared, $1,240.00 recorded **once confirmed in writing**",
+  "purpose": "Every lien dollar left unproved comes out of **John Doe's net**",
+  "principle": "A lien is **what the plan paid**, never what was billed",
   "checks": [
    "Lien is **what the plan paid**: $1,860.00, not $3,400.00 billed",
    "Classified **contractual, not statutory**; fully insured recorded",
@@ -5462,6 +5508,8 @@ window.CM_CF_SLIDES = {
    "When the manager agrees to $4,580.00, say **it goes to Atty. Thorne**"
   ],
   "deliver": "Audited $6,105.00, a logged call, **a signed $4,580.00 Payoff Letter**, recomputed Net Sheet",
+  "purpose": "Without a signed Payoff Letter, **balance billing can follow** John Doe",
+  "principle": "Nothing is settled **until it's signed in writing**",
   "checks": [
    "34 billed lines **against 33 documented visits**",
    "Correction first: **$6,290.00 – $185.00 = $6,105.00**",
@@ -5648,6 +5696,8 @@ window.CM_CF_SLIDES = {
    "**Tie both tabs** to the Trust Ledger"
   ],
   "deliver": "A two-tab Net Sheet reaching **$20,359.92 both ways**, routed to Atty. Thorne",
+  "purpose": "John Doe signs on this Net Sheet: **one wrong cent** misstates his net",
+  "principle": "Every figure must **tie to the Trust Ledger**, both ways",
   "checks": [
    "Pre-suit fee: **$3,333.33 + $10,000.00 = $13,333.33**",
    "Costs **$486.75, split $121.69 / $365.06**, charged once",
@@ -5843,6 +5893,8 @@ window.CM_CF_SLIDES = {
    "Queue **one command per Net Sheet line**; show $0.00"
   ],
   "deliver": "A redline memo before John Doe sees the draft; **five commands to $0.00**",
+  "purpose": "An over-broad release could **cost John Doe $30,000** in UM",
+  "principle": "No command until **every condition precedent clears**",
   "checks": [
    "**“All other … insurers”** quoted: $30,000 of the $40,000 stack",
    "Memo routed 08/14; **draft withheld from John Doe**",
@@ -7633,6 +7685,8 @@ window.CM_CF_SLIDES = {
    "Record both misses honestly; **report them to Atty. Thorne** today"
   ],
   "deliver": "A **corrected, source-linked log** and calendar, RFA compliance proved, misses reported the same day",
+  "purpose": "A missed RFA deadline can mean **deemed admissions** against John Doe",
+  "principle": "A miss is logged and reported, **never quietly fixed**",
   "checks": [
    "Interrogatories and RFPs corrected **from 12/31/2026 to 01/04/2027**",
    "RFA row (15) added with a **red deemed-admission flag**",
@@ -7801,6 +7855,8 @@ window.CM_CF_SLIDES = {
    "Name **the two items** you route to Atty. Thorne first, and why"
   ],
   "deliver": "A checklist matching **the order date for date**, and a complete KPI tracker",
+  "purpose": "A checklist that drifts from the order lets **a court date pass** unprepared",
+  "principle": "**The Scheduling Order governs**; read the checklist against it, never from memory",
   "checks": [
    "Our expert disclosure corrected **from 04/15/2027 to 03/15/2027**",
    "Mediation recorded as **completed by 03/31/2027**",
@@ -7973,6 +8029,8 @@ window.CM_CF_SLIDES = {
    "Flag Keystone's two arguments for Atty. Thorne, **without answering them**"
   ],
   "deliver": "A corrected PD worksheet: repairable at 52.6%, **48 days, $2,016.00 claimed**, defenses flagged",
+  "purpose": "These numbers get produced: **one double count** discredits every other figure",
+  "principle": "Each day of Loss of Use is **claimed once, with evidence**",
   "checks": [
    "**$9,255.00 is 52.6%** of $17,600.00: repairable",
    "Stale 39.4% check corrected **with a dated note**",
@@ -8144,6 +8202,8 @@ window.CM_CF_SLIDES = {
    "Route the release; send the range **to Atty. Thorne for authority**"
   ],
   "deliver": "A one-page PD memo: **a recommended range**, release flagged, routed to Atty. Thorne",
+  "purpose": "A loose word to Leah Moran becomes **an offer without authority**",
+  "principle": "You recommend the range; **authority to settle is Atty. Thorne's**",
   "checks": [
    "“17c” rebuilt: **$1,760.00 × 0.75 × 0.60** = $792.00",
    "Dispute totalled: **$5,616.00 claimed** against $792.00 offered",
@@ -8326,6 +8386,8 @@ window.CM_CF_SLIDES = {
    "Have **Atty. Thorne's gap set** ready to share"
   ],
   "deliver": "A delivered segment, a logistics record, and **substantive questions routed** in John's words",
+  "purpose": "A calm, prepared John gives **shorter, more accurate answers** on 02/18/2027",
+  "principle": "Calm John with **the process, never a prediction**",
   "checks": [
    "Logistics exact: **02/18/2027, 10:00 a.m.**, Riverton Court Reporting",
    "Pause drilled **on neutral questions only**",
@@ -8494,6 +8556,8 @@ window.CM_CF_SLIDES = {
    "**Coach nothing**; route the log to Atty. Thorne"
   ],
   "deliver": "A **timestamped Trap Log**, scored against the seven Golden Rules, routed before the debrief",
+  "purpose": "Atty. Thorne's debrief is only as good as **the log you keep**",
+  "principle": "Observe and record; **any signal to John** is coaching",
   "checks": [
    "All **six assigned traps** logged",
    "Gap entry: **14 days**, 02/06/2026 to 02/20/2026",
@@ -8667,6 +8731,8 @@ window.CM_CF_SLIDES = {
    "Close with questions **only Atty. Thorne can answer**"
   ],
   "deliver": "An **allegation-by-allegation counter-package** with full foundation, a draft Exhibit A, questions routed",
+  "purpose": "Each of Mercer's three defenses needs **a documented, authenticated answer**",
+  "principle": "Evidence without foundation **may never reach the jury**",
   "checks": [
    "**Three separate rows**: out of turn, unbelted, failure to mitigate",
    "EDR's 11 mph used **as corroboration only**",
@@ -8836,6 +8902,8 @@ window.CM_CF_SLIDES = {
    "Assess John's **Skip-Trace gate** on Day 2's three criteria"
   ],
   "deliver": "A service record through the answer date; **a certified notice dispatched**, both deliveries logged",
+  "purpose": "An unserved defendant stalls the case; **an unreachable client** imperils his deposition",
+  "principle": "**Proof of delivery** isn't proof he read it: send both ways",
   "checks": [
    "4410 Quarry Ridge Ct, Millbrook chosen on **two current sources**",
    "**Answer due 11/13/2026** docketed (10/14 + 30)",
@@ -9009,6 +9077,8 @@ window.CM_CF_SLIDES = {
    "**Route the Settlement Statement** to Atty. Thorne"
   ],
   "deliver": "A Net Sheet reaching **$14,713.75**, every cost and lien proved",
+  "purpose": "The client's money moves on this sheet: **one wrong line** shortchanges John Doe",
+  "principle": "**No document, no payment**: receipts for costs, Payoff Letters for liens",
   "checks": [
    "Fee at 40%: **$16,000.00**",
    "Costs receipted: **$3,895.25**",
@@ -9180,6 +9250,8 @@ window.CM_CF_SLIDES = {
    "Log, follow up 12/16/2026, then **switch to Dropped**"
   ],
   "deliver": "Three letters for his signature and **a close-out log to Dropped**",
+  "purpose": "Denise must learn **time limits apply**; carriers must learn only that we're out",
+  "principle": "The reason goes **only to the client**, in Atty. Thorne's words",
   "checks": [
    "Gate confirmed **before any letter goes out**",
    "The reason **only in Denise's letter**",

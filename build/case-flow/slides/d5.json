@@ -36,6 +36,8 @@
       "Record both misses honestly; **report them to Atty. Thorne** today"
     ],
     "deliver": "A **corrected, source-linked log** and calendar, RFA compliance proved, misses reported the same day",
+    "purpose": "A missed RFA deadline can mean **deemed admissions** against John Doe",
+    "principle": "A miss is logged and reported, **never quietly fixed**",
     "checks": [
       "Interrogatories and RFPs corrected **from 12/31/2026 to 01/04/2027**",
       "RFA row (15) added with a **red deemed-admission flag**",
@@ -89,6 +91,8 @@
       "Name **the two items** you route to Atty. Thorne first, and why"
     ],
     "deliver": "A checklist matching **the order date for date**, and a complete KPI tracker",
+    "purpose": "A checklist that drifts from the order lets **a court date pass** unprepared",
+    "principle": "**The Scheduling Order governs**; read the checklist against it, never from memory",
     "checks": [
       "Our expert disclosure corrected **from 04/15/2027 to 03/15/2027**",
       "Mediation recorded as **completed by 03/31/2027**",
@@ -148,6 +152,8 @@
       "Flag Keystone's two arguments for Atty. Thorne, **without answering them**"
     ],
     "deliver": "A corrected PD worksheet: repairable at 52.6%, **48 days, $2,016.00 claimed**, defenses flagged",
+    "purpose": "These numbers get produced: **one double count** discredits every other figure",
+    "principle": "Each day of Loss of Use is **claimed once, with evidence**",
     "checks": [
       "**$9,255.00 is 52.6%** of $17,600.00: repairable",
       "Stale 39.4% check corrected **with a dated note**",
@@ -200,6 +206,8 @@
       "Route the release; send the range **to Atty. Thorne for authority**"
     ],
     "deliver": "A one-page PD memo: **a recommended range**, release flagged, routed to Atty. Thorne",
+    "purpose": "A loose word to Leah Moran becomes **an offer without authority**",
+    "principle": "You recommend the range; **authority to settle is Atty. Thorne's**",
     "checks": [
       "“17c” rebuilt: **$1,760.00 × 0.75 × 0.60** = $792.00",
       "Dispute totalled: **$5,616.00 claimed** against $792.00 offered",
@@ -260,6 +268,8 @@
       "Have **Atty. Thorne's gap set** ready to share"
     ],
     "deliver": "A delivered segment, a logistics record, and **substantive questions routed** in John's words",
+    "purpose": "A calm, prepared John gives **shorter, more accurate answers** on 02/18/2027",
+    "principle": "Calm John with **the process, never a prediction**",
     "checks": [
       "Logistics exact: **02/18/2027, 10:00 a.m.**, Riverton Court Reporting",
       "Pause drilled **on neutral questions only**",
@@ -311,6 +321,8 @@
       "**Coach nothing**; route the log to Atty. Thorne"
     ],
     "deliver": "A **timestamped Trap Log**, scored against the seven Golden Rules, routed before the debrief",
+    "purpose": "Atty. Thorne's debrief is only as good as **the log you keep**",
+    "principle": "Observe and record; **any signal to John** is coaching",
     "checks": [
       "All **six assigned traps** logged",
       "Gap entry: **14 days**, 02/06/2026 to 02/20/2026",
@@ -369,6 +381,8 @@
       "Close with questions **only Atty. Thorne can answer**"
     ],
     "deliver": "An **allegation-by-allegation counter-package** with full foundation, a draft Exhibit A, questions routed",
+    "purpose": "Each of Mercer's three defenses needs **a documented, authenticated answer**",
+    "principle": "Evidence without foundation **may never reach the jury**",
     "checks": [
       "**Three separate rows**: out of turn, unbelted, failure to mitigate",
       "EDR's 11 mph used **as corroboration only**",
@@ -422,6 +436,8 @@
       "Assess John's **Skip-Trace gate** on Day 2's three criteria"
     ],
     "deliver": "A service record through the answer date; **a certified notice dispatched**, both deliveries logged",
+    "purpose": "An unserved defendant stalls the case; **an unreachable client** imperils his deposition",
+    "principle": "**Proof of delivery** isn't proof he read it: send both ways",
     "checks": [
       "4410 Quarry Ridge Ct, Millbrook chosen on **two current sources**",
       "**Answer due 11/13/2026** docketed (10/14 + 30)",
@@ -496,6 +512,8 @@
       "Log, follow up 12/16/2026, then **switch to Dropped**"
     ],
     "deliver": "Three letters for his signature and **a close-out log to Dropped**",
+    "purpose": "Denise must learn **time limits apply**; carriers must learn only that we're out",
+    "principle": "The reason goes **only to the client**, in Atty. Thorne's words",
     "checks": [
       "Gate confirmed **before any letter goes out**",
       "The reason **only in Denise's letter**",
@@ -548,6 +566,8 @@
       "**Route the Settlement Statement** to Atty. Thorne"
     ],
     "deliver": "A Net Sheet reaching **$14,713.75**, every cost and lien proved",
+    "purpose": "The client's money moves on this sheet: **one wrong line** shortchanges John Doe",
+    "principle": "**No document, no payment**: receipts for costs, Payoff Letters for liens",
     "checks": [
       "Fee at 40%: **$16,000.00**",
       "Costs receipted: **$3,895.25**",

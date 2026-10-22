@@ -809,8 +809,7 @@ function slideBody(view, l, d){
       const where = TOOLKIT.find(t => t.id === main), whereName = where ? where.name.replace(/^the /, "the ") : "the CMS";
       return `${plainBox(b)}<div class="cfx-do-now"><b>🧪 Practice Lab: do this now</b><span>Open ${E(whereName)} from today's 🧪 Practice Lab slide (it stays open beside the slides), work the steps below on John Doe's file, ${SIM.calls[b.id] ? "take the live call, " : ""}then hand in what's under <em>Deliver</em> and tick it off on the next slide, <em>Check Your Work</em>.</span></div>
       <div class="cfx-task"><ol class="cfx-points">${c.steps.map(x => `<li><span>${hl(x)}${stepLink(x, b)}</span></li>`).join("")}</ol>
-      <aside class="cfx-side">${c.purpose ? `<div class="cfx-why"><b>🎯 Purpose</b><span>${hl(c.purpose)}</span></div>` : ""}
-        ${c.principle ? `<div class="cfx-why"><b>⚖️ Principle</b><span>${hl(c.principle)}</span></div>` : ""}
+      <aside class="cfx-side">${c.purpose || c.principle ? `<div class="cfx-why">${c.purpose ? `<b>🎯 Purpose</b><span>${hl(c.purpose)}</span>` : ""}${c.principle ? `<b>⚖️ Principle</b><span>${hl(c.principle)}</span>` : ""}</div>` : ""}
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}</span>
           <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
@@ -3606,6 +3605,7 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-side button.cfx-deliver:hover,.cfx-side button.cfx-deliver:focus-visible{transform:translateY(-1px);box-shadow:0 6px 16px rgba(224,122,31,.25);outline:none;}
 .cfx-side button.cfx-deliver em{align-self:flex-end;font:700 13px var(--font-ui);font-style:normal;color:#fff;background:var(--orange);border-radius:999px;padding:5px 12px;}
 .cfx-side .cfx-why span{font:500 16px/1.4 var(--font-ui);color:var(--ink);}
+.cfx-side .cfx-why span + b{margin-top:6px;padding-top:8px;border-top:1px solid var(--line);}
 .cfx-at{display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:2px 10px;border:1px solid #C9D3EA;border-radius:999px;background:#EEF2FB;color:var(--navy);font:600 14px/1.6 var(--font-ui);cursor:pointer;vertical-align:middle;white-space:nowrap;}
 .cfx-at:hover,.cfx-at:focus-visible{background:var(--navy);color:#fff;border-color:var(--navy);outline:none;}
 @keyframes cfxFlash{0%{box-shadow:0 0 0 3px var(--orange)}100%{box-shadow:0 0 0 0 transparent}}
