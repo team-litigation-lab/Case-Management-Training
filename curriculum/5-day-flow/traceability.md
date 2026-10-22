@@ -291,6 +291,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - Newly authored: the three-step UM dispute flow (claim submission → impasse → resolution route) with the route read from state law and the policy clause, never chosen
 - Newly authored: bad faith kept off the route fork as a separate suit above the limits, reserved to counsel; each UM layer read and docketed on its own clause
 - Newly authored: court-ordered mediation compels attendance, not agreement
+- Newly authored: where ADR lands on the timeline — pre-litigation and post-filing mediation, contractual pre-filing arbitration and agreed post-filing arbitration, and the Standard Case Progression Roadmap
 - Newly authored: the impasse memo that quotes each layer's clause and asks the route, the per-layer deadline and consolidation as three written questions
 - Newly authored: exhibit numbering, Bates ranges and the master index as the one source of truth
 - Newly authored: authentication, business-records certifications, relaxed evidence rules in arbitration, and mediation confidentiality at the hand-off

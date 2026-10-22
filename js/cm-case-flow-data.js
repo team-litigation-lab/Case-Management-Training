@@ -5698,7 +5698,13 @@ window.CM_CASE_FLOW = {
          a: 2, r: "A first-party claim is made against coverage John Doe himself can call on under his own contract: Host UM (Harbor Point, as an occupant of Kevin Alvarez’s Escape) and Relative UM (Cardinal State, as a resident relative). Keystone’s BI and PD claims are third-party claims against the at-fault driver’s carrier."},
         {q: "An Insurance Bad Faith lawsuit differs from the UM claim itself because:",
          opts: ["It is heard by the same arbitrator at the same hearing", "It replaces the UM claim once arbitration is demanded", "It is a separate court action for the carrier’s unreasonable handling, and can reach beyond the UM policy limit", "It is the Case Manager’s to initiate once an offer is clearly too low"],
-         a: 2, r: "Bad faith sits off the UM dispute’s fork: a separate suit about how the carrier handled the claim, which is why it can reach above the limits. You record the handling dates as facts; whether the conduct is actionable is Atty. Thorne’s opinion alone."}
+         a: 2, r: "Bad faith sits off the UM dispute’s fork: a separate suit about how the carrier handled the claim, which is why it can reach above the limits. You record the handling dates as facts; whether the conduct is actionable is Atty. Thorne’s opinion alone."},
+        {q: "John Doe asks when mediation and arbitration happen in a personal injury case. The accurate answer is:",
+         opts: ["Only after a lawsuit is filed", "Only before a lawsuit is filed, as part of the demand", "Either before filing or after it, depending on the process, the court's local rules and how the negotiations go", "Only when the trial date has already been set"],
+         a: 2, r: "Neither forum has one fixed place on the timeline. Pre-litigation mediation follows completed treatment and the demand when both sides want to avoid court costs; most personal injury mediations are post-filing and many are court-ordered during discovery. Arbitration comes before filing when a signed clause compels it, and after filing when the parties agree to leave the court system."},
+        {q: "Harbor Point and Cardinal State dispute damages and the file goes to binding arbitration on 06/22/2027. Laura Whitcomb, Esq. issues her award. In plain words to John Doe, that award is:",
+         opts: ["A recommendation either side may accept or reject", "Non-binding until he signs it, as at mediation", "Final and enforceable like a court order, with court review on narrow grounds only", "Automatically reheard by a jury if he disagrees"],
+         a: 2, r: "Binding means the decision is final and enforced like a court order; courts review it on narrow grounds only (some policies or statutes allow a trial de novo — confirm the governing rule). Mediation is the non-binding one: both sides must agree and nobody is forced to settle. What the award means for his recovery is Atty. Thorne's to explain, not yours."}
       ],
       blocks: [
 
@@ -5917,10 +5923,14 @@ window.CM_CASE_FLOW = {
         kind: "lesson", id: "d4m2-l2", compact: true,
         title: "Mediation vs. Binding Arbitration & the UPL Line at Hearings",
         topic: "Two neutrals, two standards, one boundary",
-        visual: "Two forum cards face each other across the slide, joined by a bold orange arrow labelled COMPROMISE → TRIAL-READY. Left, a navy-soft card: MEDIATION · 03/18/2027 · HON. CARLA BENTON (RET.), with three chips: NON-BINDING · CONFIDENTIAL · FACILITATES. Right, a solid navy card, visibly heavier: BINDING ARBITRATION · 06/22/2027 · LAURA WHITCOMB, ESQ., with three chips: ACTS AS JUDGE · BINDING AWARD · APPEAL LIMITED, and a mono hard-date strip beneath it (06/02 · 06/11 · 06/22/2027). Across the bottom, a full-width red-bordered UPL bar in two halves: CM CAN (observe · log directives · update the CMS) in navy, CM NEVER (argue · speak on the record · speak for John Doe · negotiate) in red. The bar spans both cards: the line is the same at both tables.",
+        visual: "Two forum cards face each other across the slide, joined by a bold orange arrow labelled COMPROMISE → TRIAL-READY. Left, a navy-soft card: MEDIATION · 03/18/2027 · HON. CARLA BENTON (RET.), with three chips: NON-BINDING · CONFIDENTIAL · FACILITATES. Right, a solid navy card, visibly heavier: BINDING ARBITRATION · 06/22/2027 · LAURA WHITCOMB, ESQ., with three chips: ACTS AS JUDGE · BINDING AWARD · APPEAL LIMITED, and a mono hard-date strip beneath it (06/02 · 06/11 · 06/22/2027). Across the bottom, a full-width red-bordered UPL bar in two halves: CM CAN (observe · log directives · update the CMS) in navy, CM NEVER (argue · speak on the record · speak for John Doe · negotiate) in red. The bar spans both cards: the line is the same at both tables. Above both cards, a slim full-width timeline strip marks where ADR can land: BEFORE FILING (pre-litigation mediation · pre-filing arbitration clause) on the left in navy-soft, a vertical orange COMPLAINT FILED marker in the middle, and AFTER FILING (court-ordered mediation · agreed binding arbitration) on the right, with both of this file's sessions pinned on the right-hand half.",
         tell: {
           why: "Two neutrals, three months apart. Hon. Carla Benton (Ret.) can only help the parties agree; Laura Whitcomb, Esq. decides, and her award stands with almost no appeal. Prepare for both alike and you bring a compromise file to a trial-ready hearing.",
           rules: [
+            "ADR is not one fixed step on the timeline. Mediation and arbitration can each come before a lawsuit is filed or after it; which it is depends on the process, the court's local rules and how the negotiations go. Neither is a stop between the demand and a jury trial that every file makes.",
+            "Before suit: pre-litigation mediation usually follows the client's completed treatment and the formal demand, when both sides would rather avoid court costs, legal fees and a public record. Pre-filing arbitration comes from a contract the client signed before or during the incident — rideshare user terms, a treatment consent, a nursing-home agreement — and can bar a standard court lawsuit altogether. Whether a clause applies to this file is Atty. Thorne's analysis, never yours.",
+            "After suit: most personal injury mediations are post-filing, many of them court-ordered during discovery before a trial date is assigned; parties can also agree to pull a filed case out of court into binding arbitration instead of a long jury trial. On this file Keystone's stonewall sent the matter to suit, then to the court-ordered mediation of 03/18/2027 and, under Harbor Point's UM clause, to binding arbitration on 06/22/2027.",
+            "Say both words in plain language before you use them with John Doe. Non-binding (mediation): both sides have to agree, and nobody is forced to settle. Binding (arbitration): the arbitrator's decision is final and enforceable like a court order. You explain which process is scheduled and when; what either one does to his claim is Atty. Thorne's to tell him.",
             "Mediation is facilitated compromise: non-binding, confidential under the governing statute or court rule (exceptions include a signed settlement). Court-ordered means John Doe must attend, not agree. When a deal binds (party signatures, or counsel with authority) varies: confirm the governing rule. Here: 03/18/2027.",
             "Binding arbitration, as Harbor Point's clause provides, is an adversarial hearing: the arbitrator acts as judge; courts review her award only on narrow grounds. Confirm the policy and statute; some allow a trial de novo. Here BI settled at mediation, and the UM carriers' dispute over the gap went to a decision.",
             "Know the limits. Split limits cap BI per person (Keystone: $10,000, PD separate); a combined single limit is one figure for BI and PD. Damages found are reduced first by the $10,000 BI paid; Harbor Point's add-on UM pays above that up to $20,000, Cardinal State's $10,000 behind it. How an award applies is Atty. Thorne's analysis.",
@@ -5968,12 +5978,13 @@ window.CM_CASE_FLOW = {
           "Pitfall: “helpfully” answering the arbitrator directly.",
           "Pitfall: logging bench directives the next day from memory."
         ],
-        sources: ["D4#5", "D4#16", "D4#17", "D4#19", "D4#20", "Newly authored: court-ordered mediation compels attendance, not agreement"],
+        sources: ["D4#5", "D4#16", "D4#17", "D4#19", "D4#20", "Newly authored: court-ordered mediation compels attendance, not agreement", "Newly authored: where ADR lands on the timeline — pre-litigation and post-filing mediation, contractual pre-filing arbitration and agreed post-filing arbitration, and the Standard Case Progression Roadmap"],
         rubric: {
           ai: [
-            ["Forum distinctions", 20, "Non-binding, confidential compromise vs. binding award with limited appeal, each tied to its neutral"],
+            ["Forum distinctions", 20, "Non-binding, confidential compromise vs. binding award with limited appeal, each tied to its neutral; both terms said in plain words"],
+            ["ADR timing", 10, "Each forum placed before or after filing, with what puts it there: the demand, the court's rules, a signed arbitration clause, the parties' agreement; this file's two sessions placed post-filing"],
             ["Logistics protocol", 15, "3–4 windows first; rooms or breakouts; interpreter; 2-hour buffer; retainer confirmed in writing"],
-            ["Hearing duties", 15, "Observe and document, log directives as given, calendar and memo the same day"],
+            ["Hearing duties", 5, "Observe and document, log directives as given, calendar and memo the same day"],
             ["Limits in play", 10, "Split vs. combined single limit explained; $20,000 and $10,000 UM limits named"]
           ],
           trainer: [
@@ -5982,6 +5993,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         notes: [
+          "Start on the roadmap, before either neutral is named. Ask the room where ADR sits between the demand and a trial, and let them argue about it: the answer is that it can sit on either side of the filing. Then put the four boxes up — mediation before suit, mediation after suit, arbitration before suit, arbitration after suit — and ask which two this file used, and why.",
+          "Teach non-binding and binding in plain words before any question is asked: both sides must agree, nobody is forced to settle; the decision is final and enforced like a court order. A trainee who can't say those two sentences cleanly will say something worse to John Doe.",
+          "Pre-filing arbitration is the one most trainees have never met. Give them the three places it comes from — rideshare terms, a treatment consent, a nursing-home contract — and say plainly that a clause can close the courthouse door, and that whether it applies here is Atty. Thorne's call.",
           "Open with the two neutrals' names side by side and ask what each can do to John Doe's case. Hon. Carla Benton (Ret.) can't decide it; any deal needs his agreement through Atty. Thorne; Laura Whitcomb, Esq. can decide it.",
           "Ask the room: “The mediation was court-ordered. Did John Doe have to settle?” Draw out the answer: ordered to attend, never to agree.",
           "Watch for trainees who treat logistics as clerical. The private room, the 2-hour buffer and the interpreter check are what let Atty. Thorne and John Doe think clearly in a session where nobody else may speak for them.",
@@ -6125,7 +6139,8 @@ window.CM_CASE_FLOW = {
             "Defendant's discovery to John Doe was served on his counsel, Atty. Thorne, by U.S. mail on 12/01/2026. Compute his response date step by step, and state what can happen to a Request for Admission left unanswered.",
             "The SOL is 02/06/2028. Give the internal hard date and the internal filing cutoff with the arithmetic, and explain why the firm never relies on a weekend roll-forward.",
             "Explain forward versus backward counting off a weekend, using the 01/04/2027 discovery deadline and the brief for the 06/22/2027 arbitration hearing.",
-            "Harbor Point’s UM negotiation has reached impasse. Name the two resolution routes a UM/UIM dispute can take, say what decides which one governs, and explain where an Insurance Bad Faith action sits in relation to them. Then say why John Doe’s own Bluewater Auto policy is not a route on this file."
+            "Harbor Point’s UM negotiation has reached impasse. Name the two resolution routes a UM/UIM dispute can take, say what decides which one governs, and explain where an Insurance Bad Faith action sits in relation to them. Then say why John Doe’s own Bluewater Auto policy is not a route on this file.",
+            "Place mediation and arbitration on the timeline: name what puts each of them before a filing and what puts each of them after one, then say where John Doe's two sessions landed and why. Finish with the sentence you would say to him to explain non-binding, and the sentence for binding."
           ],
           summary: [
             "Summarize what you learned about hard rules and the two forums on this file: the principles, not the clicks.",
@@ -6140,6 +6155,7 @@ window.CM_CASE_FLOW = {
             "Distinguishing mediation from binding arbitration on a live file",
             "Telling a first-party UM claim apart from a third-party BI claim",
             "Reading a UM resolution route off the state law and the policy clause",
+            "Placing each forum before or after a filing, and explaining non-binding and binding in plain words",
             "Holding the UPL line at a mediation or a hearing"
           ]
         },
@@ -6152,7 +6168,7 @@ window.CM_CASE_FLOW = {
           ai: [
             ["Deadline arithmetic", 20, "01/04/2027 with the mail days and the Sunday; brief 06/11/2027 counted backward"],
             ["SOL cutoffs", 10, "02/04/2028 and 11/05/2027, arithmetic shown"],
-            ["Forum logistics", 15, "Windows, fee schedule, retainer and layout owned before 06/22/2027; bench directives logged as given and calendared the same day"],
+            ["Forum logistics", 15, "Windows, fee schedule, retainer and layout owned before 06/22/2027; bench directives logged as given and calendared the same day; each forum placed correctly before or after a filing"],
             ["UM resolution routes", 10, "Mandatory arbitration vs. a civil suit against the carrier, decided by the state law and the policy clause; bad faith separate and above the limits; Bluewater’s 03/14/2024 rejection explained"],
             ["Completeness", 5, "Every question answered substantively"]
           ],
