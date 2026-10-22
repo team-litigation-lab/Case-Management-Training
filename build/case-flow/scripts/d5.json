@@ -105,7 +105,7 @@
   },
   "d5m2-l1": {
     "why": {
-      "say": "Look at this gauge for a second. Which number decides whether Margaret Doe's Civic is totaled? Most of you will say the estimate. It's actually the final bill, $9,255.00, after the supplement. Here's why this matters now. On Track B the Civic isn't a side claim anymore. Its Loss of Use and Diminished Value are pleaded in the suit, and every figure we put forward will be tested in discovery. The repair-against-ACV arithmetic decides which measure of damages applies. And the loss-of-use calendar does double duty: it's also the transportation record that explains the 14-Day Gap. Get the car's numbers right, and you're quietly strengthening the injury case too.",
+      "say": "Look at this gauge for a second. Which number decides whether Margaret Doe's Civic is totaled? Most of you will say the estimate. It's actually the final bill, $9,255.00, after the supplement. Here's why this matters now. The Civic isn't John Doe's claim. It's Margaret Doe's, on the separate PD file the firm opened for her, and Keystone will test every figure we put forward. The repair-against-ACV arithmetic decides which measure of damages applies. And the loss-of-use calendar does double duty: it's also the transportation record that explains the 14-Day Gap. Get the car's numbers right, and you're quietly strengthening the injury case too.",
       "ask": "Which number decides whether the Civic is totaled: the first estimate or the final bill?"
     },
     "theory": {

@@ -34,24 +34,25 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 1. *Lesson* — Statutory Liens, Health Subrogation & Provider Balances
 2. *Lesson* — Pro-Rata Distribution & Medical Bill Reduction
-3. *Lesson* — The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker
-4. *Lesson* — Release Audits, Trust Accounting & Disbursement Commands
-5. *Lesson* — Court Hard Rules, SOL Cutoffs & the Master Calendar
-6. *Lesson* — Mediation vs. Binding Arbitration & the UPL Line at Hearings
-7. *Lesson* — The Mediation Binder & Exhibit Indexing
-8. *Lesson* — Arbitration Exhibits & Evidentiary Rules
-9. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab
-10. *Skill Activity* — Provider Balance Negotiation Exercises
-11. *Skill Activity* — Completing the Final Dual-Tab Net Sheet
-12. *Skill Activity* — Release Audit & Disbursement Command Triggering
-13. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs
-14. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping
-15. *Skill Activity* — Assembling the 6-Section Mediation Binder
-16. *Skill Activity* — Assembling the 6-Tab Arbitration Binder
-17. *Knowledge Check* — Lien Reduction Verification
-18. *Knowledge Check* — Final Accounting Check
-19. *Knowledge Check* — ADR & Calendar Compliance Check
-20. *Knowledge Check* — Binder Assembly Verification
+3. *Lesson* — Lien Negotiation Calls: the Reduction Request, the Ask and the Payoff Letter (condensed)
+4. *Lesson* — The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker
+5. *Lesson* — Release Audits, Trust Accounting & Disbursement Commands
+6. *Lesson* — Court Hard Rules, SOL Cutoffs & the Master Calendar
+7. *Lesson* — Mediation vs. Binding Arbitration & the UPL Line at Hearings
+8. *Lesson* — The Mediation Binder & Exhibit Indexing
+9. *Lesson* — Arbitration Exhibits & Evidentiary Rules
+10. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab
+11. *Skill Activity* — Provider Balance Negotiation Exercises
+12. *Skill Activity* — Completing the Final Dual-Tab Net Sheet
+13. *Skill Activity* — Release Audit & Disbursement Command Triggering
+14. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs
+15. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping
+16. *Skill Activity* — Assembling the 6-Section Mediation Binder
+17. *Skill Activity* — Assembling the 6-Tab Arbitration Binder
+18. *Knowledge Check* — Lien Reduction Verification
+19. *Knowledge Check* — Final Accounting Check
+20. *Knowledge Check* — ADR & Calendar Compliance Check
+21. *Knowledge Check* — Binder Assembly Verification
 
 **End-of-day discussion (trainer):** Keystone's draft release arrives on 08/14/2026 releasing “all other persons, firms, corporations and insurers.” Harbor Point hasn't answered the consent request, and Atty. Thorne is out of the office until Monday. What do you do, and what must not happen before he is back?
 
@@ -59,7 +60,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 4 — Reductions, Lien Negotiation & ADR
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 4.1.1 Statutory Liens, Health Subrogation & Provider Balances
 
@@ -229,7 +230,79 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 4) and that day
 
 ---
 
-### 4.1.3 The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker
+### 4.1.3 Lien Negotiation Calls: the Reduction Request, the Ask and the Payoff Letter
+
+> **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR (condensed) · scored with Lien Reduction Verification (`d3m3`)  
+> **Topic:** From the audited balance to a signed full-and-final payoff  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D3#21` Increasing the Client's Net · `D3#22` Auditing the Billing Before Asking for a Discount · Newly authored: lien negotiation calls, from the Pre-Demand & Reduction File Review Protocols handout (LSH Knowledge Base, CM Training · Day 4)
+
+#### 1 · Visual Layout Description
+
+A three-step ladder on the left: REDUCTION REQUEST → THE CALL → PAYOFF LETTER, each rung a navy card with an orange badge. On the right, a lien card for Riverton Spine & Rehab: $6,290.00 struck through, $6,105.00 audited, $4,580.00 agreed, with a green FULL AND FINAL stamp.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* A reduction is won on paper before it is won on the phone. The lienholder needs the audited balance, the reason a reduction is fair and a payoff it can sign. A CM who calls without the request, or pays without the letter, leaves money on the table or reopens a closed bill.
+
+1. Negotiate from the audited balance, never the billed one: Riverton Spine & Rehab $6,105.00, Peach State $1,860.00, $7,965.00 in all.
+2. Send the written Reduction Request first: the audited balance, the recovery, the fee and costs, the other liens and the common-fund share, with Atty. Thorne's written authority on file.
+3. On the call, make Atty. Thorne's ask and nothing outside it. Note the name, the date and every figure; a counter outside his authority goes back to him the same day.
+4. Argue on true facts only: never invent a smaller fund or say the client will refuse the settlement.
+5. No Payoff Letter, no payment: the signed letter states full and final satisfaction and no balance billing or collections.
+6. Update the Lien Tracker and the Net Sheet the day a reduction is confirmed, and show John Doe the change in his net.
+
+> ⚠️ **UPL boundary.** You draft, calculate and make the authorized ask. You never accept a figure outside Atty. Thorne's written authority, promise a provider payment, or tell John Doe a bill is invalid.
+
+#### 2 · Slide Body — Show Them
+
+*From audited balance to signed payoff (Track A figures)*
+
+| Lienholder | Audited | Agreed | Saved | Payoff Letter |
+|---|---|---|---|---|
+| Peach State Health Plan | $1,860.00 | $1,240.00 | $620.00 | Signed, full and final |
+| Riverton Spine & Rehab | $6,105.00 | $4,580.00 | $1,525.00 | Signed, full and final |
+| Total | $7,965.00 | $5,820.00 | $2,145.00 | Both on file before disbursement |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Audited balance confirmed | Draft the Reduction Request with the math; get Atty. Thorne's written authority | CMS → Documents → Outgoing · CMS → Tasks → Escalate | Authority logged before the request goes |
+| Lienholder responds | Call with the authorized ask; log the name, date and figures | CMS → Case Notes · CMS → Liens | Counter outside authority routed the same day |
+| Reduction agreed | Obtain the signed Payoff Letter; update the Lien Tracker and Net Sheet | CMS → Financial Ledger → Net Sheet | Full-and-final language on file |
+
+**Best practices & pitfalls**
+
+- Paper first, phone second.
+- Update the ledger the day a reduction is confirmed.
+- ⚠️ Pitfall: agreeing to a reduction on the phone with nothing in writing.
+- ⚠️ Pitfall: making an ask outside Atty. Thorne's written authority.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Lien Reduction Verification (taught on Case Flow Day 4) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Reduction Request | Audited balance, recovery, fee, costs and other liens stated |
+| 🤖 AI | **20%** | Authority | Every ask inside Atty. Thorne's written authority |
+| 🤖 AI | **20%** | Payoff Letter | Full and final; no balance billing or collections |
+| 🧑‍🏫 Trainer | **20%** | Negotiation ethics | True facts only; no bluff |
+| 🧑‍🏫 Trainer | **20%** | Record keeping | Names, dates and figures logged; ledger updated the same day |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Ask the room what goes out before the phone call. Anyone who says the call has skipped the Reduction Request.
+- Play the provider who asks “so what's the client getting?” The answer is facts from the Net Sheet, never a threat.
+
+---
+
+### 4.1.4 The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** One Net Sheet, two streams, every dollar's origin visible  
@@ -315,7 +388,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.4 Release Audits, Trust Accounting & Disbursement Commands
+### 4.1.5 Release Audits, Trust Accounting & Disbursement Commands
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** No money moves until every gate behind it is closed  
@@ -398,7 +471,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.5 Court Hard Rules, SOL Cutoffs & the Master Calendar
+### 4.1.6 Court Hard Rules, SOL Cutoffs & the Master Calendar
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** The dates the law sets, and the earlier dates the firm dockets  
@@ -482,7 +555,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.6 Mediation vs. Binding Arbitration & the UPL Line at Hearings
+### 4.1.7 Mediation vs. Binding Arbitration & the UPL Line at Hearings
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Two neutrals, two standards, one boundary  
@@ -564,7 +637,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.7 The Mediation Binder & Exhibit Indexing
+### 4.1.8 The Mediation Binder & Exhibit Indexing
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Six sections, one master index, and the five-second rule  
@@ -644,7 +717,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.8 Arbitration Exhibits & Evidentiary Rules
+### 4.1.9 Arbitration Exhibits & Evidentiary Rules
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** From a binder that persuades to the record a binding award rests on  
@@ -726,7 +799,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.9 Health Subrogation & Statutory Lien Reduction Lab
+### 4.1.10 Health Subrogation & Statutory Lien Reduction Lab
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Skill Activity 1 — reduce Peach State, clear the statutory side  
@@ -813,7 +886,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 4) and that day
 
 ---
 
-### 4.1.10 Provider Balance Negotiation Exercises
+### 4.1.11 Provider Balance Negotiation Exercises
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Skill Activity 2 — the reduction call to the chiropractor  
@@ -890,7 +963,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 4) and that day
 
 ---
 
-### 4.1.11 Completing the Final Dual-Tab Net Sheet
+### 4.1.12 Completing the Final Dual-Tab Net Sheet
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity 1 — take $40,000.00 to $20,359.92, and prove every line  
@@ -969,7 +1042,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.12 Release Audit & Disbursement Command Triggering
+### 4.1.13 Release Audit & Disbursement Command Triggering
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity 2 — catch the line that costs $30,000, then move the money  
@@ -1048,7 +1121,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.13 Auditing Court Hard Rules & Setting Calendar Cutoffs
+### 4.1.14 Auditing Court Hard Rules & Setting Calendar Cutoffs
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 1 — find the dates that would cost the file  
@@ -1140,7 +1213,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.14 ADR Rules Matrix & UPL Boundary Mapping
+### 4.1.15 ADR Rules Matrix & UPL Boundary Mapping
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 2 — what changes from compromise to decision  
@@ -1226,7 +1299,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.15 Assembling the 6-Section Mediation Binder
+### 4.1.16 Assembling the 6-Section Mediation Binder
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Skill Activity 1 — build it, audit it, route it before 03/11/2027  
@@ -1306,7 +1379,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.16 Assembling the 6-Tab Arbitration Binder
+### 4.1.17 Assembling the 6-Tab Arbitration Binder
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Skill Activity 2 — sort, QC and defuse two landmines before 06/02/2027  
@@ -1383,7 +1456,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.17 Lien Reduction Verification
+### 4.1.18 Lien Reduction Verification
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1468,7 +1541,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 4.1.18 Final Accounting Check
+### 4.1.19 Final Accounting Check
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1568,7 +1641,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 4.1.19 ADR & Calendar Compliance Check
+### 4.1.20 ADR & Calendar Compliance Check
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1653,7 +1726,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 4.1.20 Binder Assembly Verification
+### 4.1.21 Binder Assembly Verification
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

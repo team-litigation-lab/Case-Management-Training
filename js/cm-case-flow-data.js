@@ -4791,6 +4791,57 @@ window.CM_CASE_FLOW = {
       },
 
       {
+        kind: "lesson", id: "d3m3-l3", brief: true,
+        title: "Lien Negotiation Calls: the Reduction Request, the Ask and the Payoff Letter",
+        topic: "From the audited balance to a signed full-and-final payoff",
+        visual: "A three-step ladder on the left: REDUCTION REQUEST → THE CALL → PAYOFF LETTER, each rung a navy card with an orange badge. On the right, a lien card for Riverton Spine & Rehab: $6,290.00 struck through, $6,105.00 audited, $4,580.00 agreed, with a green FULL AND FINAL stamp.",
+        tell: {
+          why: "A reduction is won on paper before it is won on the phone. The lienholder needs the audited balance, the reason a reduction is fair and a payoff it can sign. A CM who calls without the request, or pays without the letter, leaves money on the table or reopens a closed bill.",
+          rules: [
+            "Negotiate from the audited balance, never the billed one: Riverton Spine & Rehab $6,105.00, Peach State $1,860.00, $7,965.00 in all.",
+            "Send the written Reduction Request first: the audited balance, the recovery, the fee and costs, the other liens and the common-fund share, with Atty. Thorne's written authority on file.",
+            "On the call, make Atty. Thorne's ask and nothing outside it. Note the name, the date and every figure; a counter outside his authority goes back to him the same day.",
+            "Argue on true facts only: never invent a smaller fund or say the client will refuse the settlement.",
+            "No Payoff Letter, no payment: the signed letter states full and final satisfaction and no balance billing or collections.",
+            "Update the Lien Tracker and the Net Sheet the day a reduction is confirmed, and show John Doe the change in his net."
+          ],
+          upl: [
+            "You draft, calculate and make the authorized ask. You never accept a figure outside Atty. Thorne's written authority, promise a provider payment, or tell John Doe a bill is invalid."
+          ]
+        },
+        show: {
+          caption: "From audited balance to signed payoff (Track A figures)",
+          type: "table",
+          head: ["Lienholder", "Audited", "Agreed", "Saved", "Payoff Letter"],
+          rows: [
+            ["Peach State Health Plan", "$1,860.00", "$1,240.00", "$620.00", "Signed, full and final"],
+            ["Riverton Spine & Rehab", "$6,105.00", "$4,580.00", "$1,525.00", "Signed, full and final"],
+            ["Total", "$7,965.00", "$5,820.00", "$2,145.00", "Both on file before disbursement"]
+          ]
+        },
+        ops: [
+          ["Audited balance confirmed", "Draft the Reduction Request with the math; get Atty. Thorne's written authority", "CMS → Documents → Outgoing · CMS → Tasks → Escalate", "Authority logged before the request goes"],
+          ["Lienholder responds", "Call with the authorized ask; log the name, date and figures", "CMS → Case Notes · CMS → Liens", "Counter outside authority routed the same day"],
+          ["Reduction agreed", "Obtain the signed Payoff Letter; update the Lien Tracker and Net Sheet", "CMS → Financial Ledger → Net Sheet", "Full-and-final language on file"]
+        ],
+        best: [
+          "Paper first, phone second.",
+          "Update the ledger the day a reduction is confirmed.",
+          "Pitfall: agreeing to a reduction on the phone with nothing in writing.",
+          "Pitfall: making an ask outside Atty. Thorne's written authority."
+        ],
+        sources: ["D3#21", "D3#22", "Newly authored: lien negotiation calls, from the Pre-Demand & Reduction File Review Protocols handout (LSH Knowledge Base, CM Training · Day 4)"],
+        rubric: {
+          ai: [["Reduction Request", 20, "Audited balance, recovery, fee, costs and other liens stated"], ["Authority", 20, "Every ask inside Atty. Thorne's written authority"], ["Payoff Letter", 20, "Full and final; no balance billing or collections"]],
+          trainer: [["Negotiation ethics", 20, "True facts only; no bluff"], ["Record keeping", 20, "Names, dates and figures logged; ledger updated the same day"]]
+        },
+        notes: [
+          "Ask the room what goes out before the phone call. Anyone who says the call has skipped the Reduction Request.",
+          "Play the provider who asks “so what's the client getting?” The answer is facts from the Net Sheet, never a threat."
+        ]
+      },
+
+      {
         kind: "activity", id: "d3m3-a2",
         title: "Provider Balance Negotiation Exercises",
         topic: "Skill Activity 2 — the reduction call to the chiropractor",
@@ -8080,7 +8131,7 @@ window.CM_CASE_FLOW = {
        headings: {"d2m3-l1": "Pre-Demand: the Gap Explanation Record", "d2m3-l2": "Pre-Demand: the Gap Explanation Record", "d2m3-a1": "Skill Building: the Gap Explanation Record", "d2m3-a2": "Skill Building: the Gap Explanation Record", "d2m4-l1": "Pre-Demand Case Auditing", "d2m4-l2": "Pre-Demand Case Auditing", "d3m1-l1": "Demand", "d3m1-l2": "Demand", "d2m4-a1": "Skill Building: Pre-Demand Case Auditing", "d2m4-a2": "Skill Building: Pre-Demand Case Auditing", "d3m1-a1": "Skill Building: Demand", "d3m1-a2": "Skill Building: Demand", "d3m2-l1": "Settlement Negotiations", "d3m2-l2": "Settlement Negotiations", "d3m2-a1": "Skill Building: Settlement Negotiations", "d3m2-a2": "Skill Building: Settlement Negotiations"}}
     ]},
     {n: 4, phases: [
-      {title: "Reductions, Lien Negotiation & ADR", lead: "Module 4", blocks: ["d3m3-l1", "d3m3-l2", "d3m4-l1", "d3m4-l2", "d4m2-l1", "d4m2-l2", "d4m3-l1", "d4m3-l2", "d3m3-a1", "d3m3-a2", "d3m4-a1", "d3m4-a2", "d4m2-a1", "d4m2-a2", "d4m3-a1", "d4m3-a2", "d3m3-kc", "d3m4-kc", "d4m2-kc", "d4m3-kc"],
+      {title: "Reductions, Lien Negotiation & ADR", lead: "Module 4", blocks: ["d3m3-l1", "d3m3-l2", "d3m3-l3", "d3m4-l1", "d3m4-l2", "d4m2-l1", "d4m2-l2", "d4m3-l1", "d4m3-l2", "d3m3-a1", "d3m3-a2", "d3m4-a1", "d3m4-a2", "d4m2-a1", "d4m2-a2", "d4m3-a1", "d4m3-a2", "d3m3-kc", "d3m4-kc", "d4m2-kc", "d4m3-kc"],
        headings: {"d3m3-l1": "Lien Negotiations & Reduction", "d3m3-l2": "Lien Negotiations & Reduction", "d3m4-l1": "Disbursement & Closing a Case", "d3m4-l2": "Disbursement & Closing a Case", "d4m2-l1": "ADR: Mediation & Arbitration", "d4m2-l2": "ADR: Mediation & Arbitration", "d4m3-l1": "ADR: The Binders", "d4m3-l2": "ADR: The Binders", "d3m3-a1": "Skill Building: Lien Negotiations", "d3m3-a2": "Skill Building: Lien Negotiations", "d3m4-a1": "Skill Building: Disbursement & Closing", "d3m4-a2": "Skill Building: Disbursement & Closing", "d4m2-a1": "Skill Building: ADR", "d4m2-a2": "Skill Building: ADR", "d4m3-a1": "Skill Building: ADR", "d4m3-a2": "Skill Building: ADR"}}
     ]},
     {n: 5, phases: [

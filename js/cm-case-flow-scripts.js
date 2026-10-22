@@ -1236,6 +1236,20 @@ window.CM_CF_SCRIPTS = {
    "ask": "How would you rewrite “reduce or the client refuses the settlement” using only true facts?"
   }
  },
+ "d3m3-l3": {
+  "why": {
+   "say": "Here's a question to start. Riverton Spine & Rehab has agreed to take less. What has to be in the file before a dollar goes out? Most people say the agreement. It's the signed Payoff Letter. A reduction is won on paper first and on the phone second. The lienholder needs to see the audited balance, the recovery, the fee and costs, and the other liens, so it can see why taking less is fair. And it needs a letter it can sign that closes the bill for good. Skip the paper and you either leave money on the table or reopen a bill you thought was closed.",
+   "ask": "What goes to the lienholder before you ever pick up the phone?"
+  },
+  "rules": {
+   "say": "Four rules carry this. First, you negotiate from the audited balance, never the billed one: Riverton at $6,105.00, Peach State at $1,860.00, $7,965.00 in all. Second, the written Reduction Request goes first, with Atty. Thorne's written authority already on file. Third, on the call you make his ask and nothing outside it, and you log the name, the date and every figure. A counter outside his authority goes back to him the same day. Fourth, no Payoff Letter, no payment, and the letter says full and final, with no balance billing or collections. Then you update the Lien Tracker and the Net Sheet that day.",
+   "ask": "If the provider counters below Atty. Thorne's floor, what do you say on the call?"
+  },
+  "job": {
+   "say": "Here's the job, start to finish. When the audited balance is confirmed, you draft the Reduction Request with the math and get Atty. Thorne's written authority before it goes. When the lienholder responds, you call with the authorized ask and log who you spoke to, when, and every figure. And when the reduction is agreed, you get the signed Payoff Letter, then update the Lien Tracker and the Net Sheet so John Doe can see his net change the same day.",
+   "ask": "Which of these three steps would you check first if a provider later says the bill is still open?"
+  }
+ },
  "d3m3-a2": {
   "case": {
    "say": "It's 10/09/2026, and Peach State has accepted $1,240.00 in writing. Here's what just landed from Riverton Spine & Rehab: John Doe's Final Itemized Ledger under the 02/23/2026 Letter of Protection, 34 visits at $185.00, balance $6,290.00. They understand the case is settling and want to know when to expect payment in full. Visit notes are attached. Atty. Thorne has set a target for Riverton in writing, and the Reduction Request is yours to draft. We're running this one live. One of you will make the call, and the billing manager is going to push back: “We gave him 33 visits on a promise of payment, and you want a discount?” Your answer is the audit and the true facts, not sympathy.",
@@ -1740,7 +1754,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m2-l1": {
   "why": {
-   "say": "Look at this gauge for a second. Which number decides whether Margaret Doe's Civic is totaled? Most of you will say the estimate. It's actually the final bill, $9,255.00, after the supplement. Here's why this matters now. On Track B the Civic isn't a side claim anymore. Its Loss of Use and Diminished Value are pleaded in the suit, and every figure we put forward will be tested in discovery. The repair-against-ACV arithmetic decides which measure of damages applies. And the loss-of-use calendar does double duty: it's also the transportation record that explains the 14-Day Gap. Get the car's numbers right, and you're quietly strengthening the injury case too.",
+   "say": "Look at this gauge for a second. Which number decides whether Margaret Doe's Civic is totaled? Most of you will say the estimate. It's actually the final bill, $9,255.00, after the supplement. Here's why this matters now. The Civic isn't John Doe's claim. It's Margaret Doe's, on the separate PD file the firm opened for her, and Keystone will test every figure we put forward. The repair-against-ACV arithmetic decides which measure of damages applies. And the loss-of-use calendar does double duty: it's also the transportation record that explains the 14-Day Gap. Get the car's numbers right, and you're quietly strengthening the injury case too.",
    "ask": "Which number decides whether the Civic is totaled: the first estimate or the final bill?"
   },
   "rules": {

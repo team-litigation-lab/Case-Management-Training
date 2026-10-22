@@ -4643,6 +4643,92 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
+ "d3m3-l3": {
+  "image": "checklist-qa",
+  "hook": "A reduction is won **on paper first**, then on the phone.",
+  "points": [
+   "Negotiate from **the audited balance**: $7,965.00",
+   "Send **the Reduction Request** before you call",
+   "Make **Atty. Thorne's ask**, nothing outside it",
+   "**No Payoff Letter**, no payment"
+  ],
+  "upl": "The authorized ask only; never accept a figure outside it",
+  "job": [
+   [
+    "Audited balance confirmed",
+    "Draft the Reduction Request",
+    "CMS → Documents → Outgoing",
+    "Authority logged first"
+   ],
+   [
+    "Lienholder responds",
+    "Call with the authorized ask",
+    "CMS → Case Notes",
+    "Counter routed the same day"
+   ],
+   [
+    "Reduction agreed",
+    "Get the signed Payoff Letter",
+    "CMS → Net Sheet",
+    "Full-and-final on file"
+   ]
+  ],
+  "dos": [
+   "Send **the request** before the call",
+   "Update the ledger **the same day**"
+  ],
+  "donts": [
+   "A reduction **agreed only by phone**",
+   "An ask **outside his authority**"
+  ],
+  "theory": {
+   "lead": "The lienholder takes less when it can **see the math** and sign a letter that closes the bill.",
+   "concepts": [
+    {
+     "term": "Reduction Request",
+     "text": "The written ask: **audited balance**, recovery, fee and costs, other liens and the common-fund share."
+    },
+    {
+     "term": "Authority",
+     "text": "Atty. Thorne's written floor for each lien: **the CM asks inside it** and routes anything outside."
+    },
+    {
+     "term": "Payoff Letter",
+     "text": "The lienholder's signed **full-and-final** satisfaction: no balance billing, no collections."
+    }
+   ],
+   "pages": [
+    "D3#21",
+    "D3#22"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Riverton's audited balance is $6,105.00.",
+     "A letter with the recovery, fee, costs and other liens goes out first.",
+     "Atty. Thorne's written authority is already in the file."
+    ],
+    [
+     "Peach State agrees to $1,240.00.",
+     "The Net Sheet changes that afternoon.",
+     "John Doe sees his take-home rise before he asks."
+    ]
+   ],
+   "donts": [
+    [
+     "Riverton's biller says $4,580.00 works for them.",
+     "Nothing is sent and nothing comes back signed.",
+     "The full balance reappears a month later."
+    ],
+    [
+     "The provider counters below the floor.",
+     "The CM says yes to close it out.",
+     "Atty. Thorne hears about it after the fact."
+    ]
+   ]
+  }
+ },
  "d3m3-a2": {
   "image": "negotiation",
   "situation": "10/09/2026: Peach State accepted $1,240.00. Riverton Spine & Rehab's ledger bills **34 lines × $185.00 = $6,290.00**. Atty. Thorne set a written target; **no lien is paid** until resolved in writing.",
@@ -6602,7 +6688,7 @@ window.CM_CF_SLIDES = {
  },
  "d5m2-l1": {
   "image": "repair-shop",
-  "hook": "The Civic is pleaded now: **every figure gets tested**, and its dates explain the 14-Day Gap.",
+  "hook": "Margaret's PD file: **every figure gets tested**, and its dates explain the 14-Day Gap.",
   "points": [
    "Make the owner whole: **never a windfall**",
    "$9,255.00 is 52.6% of the ACV, under 75%: **repairable, $3,945.00 to spare**",

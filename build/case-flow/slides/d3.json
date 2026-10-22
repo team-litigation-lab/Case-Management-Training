@@ -321,6 +321,45 @@
       "Paying **from a statement**, not the payoff figure"
     ]
   },
+  "d3m3-l3": {
+    "image": "checklist-qa",
+    "hook": "A reduction is won **on paper first**, then on the phone.",
+    "points": [
+      "Negotiate from **the audited balance**: $7,965.00",
+      "Send **the Reduction Request** before you call",
+      "Make **Atty. Thorne's ask**, nothing outside it",
+      "**No Payoff Letter**, no payment"
+    ],
+    "upl": "The authorized ask only; never accept a figure outside it",
+    "job": [
+      [
+        "Audited balance confirmed",
+        "Draft the Reduction Request",
+        "CMS → Documents → Outgoing",
+        "Authority logged first"
+      ],
+      [
+        "Lienholder responds",
+        "Call with the authorized ask",
+        "CMS → Case Notes",
+        "Counter routed the same day"
+      ],
+      [
+        "Reduction agreed",
+        "Get the signed Payoff Letter",
+        "CMS → Net Sheet",
+        "Full-and-final on file"
+      ]
+    ],
+    "dos": [
+      "Send **the request** before the call",
+      "Update the ledger **the same day**"
+    ],
+    "donts": [
+      "A reduction **agreed only by phone**",
+      "An ask **outside his authority**"
+    ]
+  },
   "d3m3-a2": {
     "image": "negotiation",
     "situation": "10/09/2026: Peach State accepted $1,240.00. Riverton Spine & Rehab's ledger bills **34 lines × $185.00 = $6,290.00**. Atty. Thorne set a written target; **no lien is paid** until resolved in writing.",

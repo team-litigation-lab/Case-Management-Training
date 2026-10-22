@@ -288,6 +288,20 @@
       "ask": "Who checked Summit Imaging, which asked for an LOP on 03/11/2026?"
     }
   },
+  "d3m3-l3": {
+    "why": {
+      "say": "Here's a question to start. Riverton Spine & Rehab has agreed to take less. What has to be in the file before a dollar goes out? Most people say the agreement. It's the signed Payoff Letter. A reduction is won on paper first and on the phone second. The lienholder needs to see the audited balance, the recovery, the fee and costs, and the other liens, so it can see why taking less is fair. And it needs a letter it can sign that closes the bill for good. Skip the paper and you either leave money on the table or reopen a bill you thought was closed.",
+      "ask": "What goes to the lienholder before you ever pick up the phone?"
+    },
+    "rules": {
+      "say": "Four rules carry this. First, you negotiate from the audited balance, never the billed one: Riverton at $6,105.00, Peach State at $1,860.00, $7,965.00 in all. Second, the written Reduction Request goes first, with Atty. Thorne's written authority already on file. Third, on the call you make his ask and nothing outside it, and you log the name, the date and every figure. A counter outside his authority goes back to him the same day. Fourth, no Payoff Letter, no payment, and the letter says full and final, with no balance billing or collections. Then you update the Lien Tracker and the Net Sheet that day.",
+      "ask": "If the provider counters below Atty. Thorne's floor, what do you say on the call?"
+    },
+    "job": {
+      "say": "Here's the job, start to finish. When the audited balance is confirmed, you draft the Reduction Request with the math and get Atty. Thorne's written authority before it goes. When the lienholder responds, you call with the authorized ask and log who you spoke to, when, and every figure. And when the reduction is agreed, you get the signed Payoff Letter, then update the Lien Tracker and the Net Sheet so John Doe can see his net change the same day.",
+      "ask": "Which of these three steps would you check first if a provider later says the bill is still open?"
+    }
+  },
   "d3m3-a2": {
     "case": {
       "say": "It's 10/09/2026, and Peach State has accepted $1,240.00 in writing. Here's what just landed from Riverton Spine & Rehab: John Doe's Final Itemized Ledger under the 02/23/2026 Letter of Protection, 34 visits at $185.00, balance $6,290.00. They understand the case is settling and want to know when to expect payment in full. Visit notes are attached. Atty. Thorne has set a target for Riverton in writing, and the Reduction Request is yours to draft. We're running this one live. One of you will make the call, and the billing manager is going to push back: “We gave him 33 visits on a promise of payment, and you want a discount?” Your answer is the audit and the true facts, not sympathy.",
