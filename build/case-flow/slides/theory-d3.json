@@ -2,10 +2,10 @@
   "d3m1-l1": {
     "lead": "A demand is not a request for money; it is a **presentation of a debt owed**, built on the legal and procedural foundation.",
     "concepts": [
-      {"term": "Legal and Procedural Foundation", "text": "Three pillars every demand stands on: SOL, Liability Framework, Coverage Analysis. Know **the why behind the paperwork**."},
-      {"term": "The Time-Limited Demand", "text": "A within-limits demand with a stated window: it **forces a decision on the record**; an unreasonable refusal can matter."},
-      {"term": "The Why Factor", "text": "Every bill carries **why the treatment was necessary**: the adjuster evaluates a documented recovery, not a pile of invoices."},
-      {"term": "The Final Scrub", "text": "Before it goes out, check for **common adjuster traps**: billing overlaps, an unexplained pre-existing condition, unverified balances."}
+      {"term": "Legal and Procedural Foundation", "text": "Three pillars every demand stands on: SOL, Liability Framework, Coverage Analysis. Know **the why behind the paperwork**.", "more": ["SOL: docketed, 02/06/2028 on John Doe's file", "Liability: Smith's stop-sign citation, Ruth Calloway and the doorbell video", "Coverage: Keystone's Dec Page (03/20/2026), BI limit $10,000", "Confirm all three before the demand is drafted"]},
+      {"term": "The Time-Limited Demand", "text": "A within-limits demand with a stated window: it **forces a decision on the record**; an unreasonable refusal can matter.", "more": ["**Within limits**: $10,000, Keystone's full BI limit", "Clear: every term acceptable as written; releases Robert Smith and Keystone only, BI claim only", "Reasonable: conditions Keystone can meet, with 30 days to meet them", "Documented: the Big Four complete, the gap answered up front", "Timed: the clock runs from delivery of the certified mailing; 07/22/2026 + 30 = 08/21/2026", "Terms, extensions and any bad-faith call are Atty. Thorne's; the CM builds, serves and proves delivery"]},
+      {"term": "The Why Factor", "text": "Every bill carries **why the treatment was necessary**: the adjuster evaluates a documented recovery, not a pile of invoices.", "more": ["Lead causation with the 03/13/2026 MRI: a C5-C6 herniation, then the injection", "Demand at MMI (06/12/2026), with future care narrated", "Specials on John Doe's file: $14,817.40 medical + $1,584.00 wages = **$16,401.40 total**", "Specials also cover documented out-of-pocket costs: trip-log mileage to treatment, rides, prescriptions, equipment", "The mileage rate follows the governing state's rules, confirmed by Atty. Thorne"]},
+      {"term": "The Final Scrub", "text": "Before it goes out, check for **common adjuster traps**: billing overlaps, an unexplained pre-existing condition, unverified balances.", "more": ["Name the 14-Day Gap first: 02/06 → 02/20/2026, no car until 02/18, cost worry, numbness from 02/18", "Prove continuity: EMS report, Northgate call-outs (02/09–02/13), urgent-care onset note, Dr. Reyes's Causation Letter", "Answer “degenerative” with the MRI: **no significant degenerative change** at the adjacent levels", "Never leave the gap out of the timeline and hope Keystone misses it"]}
     ],
     "pages": ["D2#19", "D2#13"],
     "framework": {
@@ -23,13 +23,13 @@
     "lead": "UM is **the client's financial safety net**: once the at-fault policy is exhausted, first-party coverage makes up the difference, up to its limits.",
     "concepts": [
       {"term": "The Net Check", "text": "The gross settlement doesn't matter to the client; **only the net check** does, after fees and unreduced liens."},
-      {"term": "BI Exhaustion", "text": "The at-fault carrier pays its full limit. That **pulls the contract trigger**: the UM claim becomes a second phase."},
-      {"term": "Consent and Subrogation Waiver", "text": "The UM carrier consents and waives subrogation, or substitutes its own check: **the UM claim survives** the BI release."},
+      {"term": "BI Exhaustion", "text": "The at-fault carrier pays its full limit. That **pulls the contract trigger**: the UM claim becomes a second phase.", "more": ["Keystone tendered its $10,000 limit on 08/12/2026", "Exhaustion proof: Keystone's Dec Page (03/20/2026) and Smith's affidavit of no other insurance (08/10/2026)", "Notice of both UM claims went out in 03/2026; only the demand waits", "Exhaustion clauses vary by policy and state: Atty. Thorne confirms the governing rule"]},
+      {"term": "Consent and Subrogation Waiver", "text": "The UM carrier consents and waives subrogation, or substitutes its own check: **the UM claim survives** the BI release.", "more": ["The 30-Day Letter went to Harbor Point and Cardinal State on 08/13/2026, the day after the tender", "Consents in writing: Harbor Point 08/24, Cardinal State 08/26/2026", "**No release to John Doe** for signature before both consents and Atty. Thorne's approval", "Keystone's 08/14 draft freed “all other … insurers”; the Limited Release, signed 08/28, names Smith and Keystone only"]},
       {"term": "Front-Load the Proof", "text": "The at-fault Dec Page, signed release and consents up front **strip the technicality defense** on page one."},
       {"term": "First-Party Contract Claim", "text": "The UM carrier insures the client, so the claim shifts **from third-party to first-party**: a contract claim, yet adversarial."},
       {"term": "The Gap", "text": "UM doesn't simply pay its limit: it pays **the gap between damages** and what was already collected."},
-      {"term": "Offset vs. Add-On", "text": "An offset policy subtracts the BI from its UM limit; **add-on or stacked coverage** pays on top."},
-      {"term": "Relative UM as Excess", "text": "Relative UM answers only **above the primary layers**: the gap it pays starts where BI and Host UM end."}
+      {"term": "Offset vs. Add-On", "text": "An offset policy subtracts the BI from its UM limit; **add-on or stacked coverage** pays on top.", "more": ["Harbor Point confirmed add-on in writing (03/02/2026): $20,000 of room", "Offset would have left only $20,000 – $10,000 = $10,000", "Cardinal State's 03/09 letter confirms coverage, not form: get no offset and no anti-stacking cap in writing", "Enforceability is a coverage question for Atty. Thorne; the CM records the source"]},
+      {"term": "Relative UM as Excess", "text": "Relative UM answers only **above the primary layers**: the gap it pays starts where BI and Host UM end.", "more": ["Cardinal State: Margaret Doe's policy, John Doe covered as a resident relative (03/09/2026)", "Pays above the $30,000 from BI and Host UM, up to $10,000", "Its package must show damages above $30,000; the valuation is Atty. Thorne's", "Priority between UM policies is Atty. Thorne's call"]}
     ],
     "pages": ["D3#5", "D3#9"],
     "framework": {
@@ -49,9 +49,9 @@
     "lead": "In PI law the demand letter is **your opening move**; adjusters protect the carrier by undervaluing claims, so negotiation is prepared, not improvised.",
     "concepts": [
       {"term": "The Pitch", "text": "A demand that reads like a template **gets treated like one**; a tailored presentation earns a real evaluation."},
-      {"term": "Value Drivers", "text": "The few facts that would **scare a jury**: they create the carrier's risk, so every call leads with them."},
-      {"term": "Anticipate the Response", "text": "Name your **top two weaknesses** before the adjuster does, and have the documents that answer them in hand."},
-      {"term": "The Professional Pause", "text": "Silence after a low number **shifts the burden back**: the adjuster must justify the figure with data."}
+      {"term": "Value Drivers", "text": "The few facts that would **scare a jury**: they create the carrier's risk, so every call leads with them.", "more": ["Smith ran the stop sign on video, with an independent witness", "An objective C5-C6 herniation on the MRI, and an injection", "Residual right-arm paresthesia at MMI (06/12/2026)", "Anchor on **total Specials, $16,401.40**, not PIP's $5,000"]},
+      {"term": "Anticipate the Response", "text": "Name your **top two weaknesses** before the adjuster does, and have the documents that answer them in hand.", "more": ["Keystone's top two on this file: the 14-Day Gap and the “degenerative” MRI", "Gap: EMS report, 02/09–02/13 call-outs, 02/07 receipt, numbness from 02/18, Causation Letter (06/19/2026)", "MRI: Dr. Park, “no significant degenerative change at the adjacent levels”", "Present the record, **never your own view** of what it means"]},
+      {"term": "The Professional Pause", "text": "Silence after a low number **shifts the burden back**: the adjuster must justify the figure with data.", "more": ["Soft lead: confirm Dana Whitfield has the package and point her to the MRI", "Restate the demand and its 08/21/2026 deadline as Atty. Thorne approved them", "After a low number, pause, then ask for **her data**", "No counter, no move: only Atty. Thorne moves the number or the deadline", "Log her exact words; report the offer to Atty. Thorne that day"]}
     ],
     "pages": ["D2#21", "D2#27"],
     "framework": {
@@ -71,8 +71,8 @@
     "concepts": [
       {"term": "Weak File vs. Legal Trap", "text": "Raw charts and a casual letter carry no risk; a coded summary on a clock **raises the carrier's risk**."},
       {"term": "Documents by Function", "text": "The package sorts proof by job: **coverage, liability, damages**. Diagnostics and a causation narrative answer pre-existing-condition defenses."},
-      {"term": "The Bracketing Technique", "text": "Paired ranges that **build a bridge** across a gap, then close in the middle. Atty. Thorne makes every move."},
-      {"term": "PIP Set-Off", "text": "In no-fault states the law generally bars **double recovery**: value minus PIP paid is what the defendant still owes."}
+      {"term": "The Bracketing Technique", "text": "Paired ranges that **build a bridge** across a gap, then close in the middle. Atty. Thorne makes every move.", "more": ["Atty. Thorne sets the range and makes every move", "The CM relays a bracket only on his **written, word-for-word instruction**", "Against a documented gap, he may simply hold", "A move with no reciprocal move from the carrier is his to make or refuse"]},
+      {"term": "PIP Set-Off", "text": "In no-fault states the law generally bars **double recovery**: value minus PIP paid is what the defendant still owes.", "more": ["On this file PIP is add-on: a collateral source, not a credit to Keystone; confirm the rule", "PIP paid its full $5,000.00; the rest of the care became Peach State and LOP liens", "Exhausted and non-subrogated: no lien and no UM cut here", "Where PIP applies, set-off, the EMC ceiling and subrogation **change the ask**"]}
     ],
     "pages": ["D3#8", "D3#7"],
     "framework": {
@@ -91,10 +91,10 @@
   "d3m3-l1": {
     "lead": "Not all liens are created equal: **legal backing decides negotiability**, from statutory claims that bend least to provider balances that bend most.",
     "concepts": [
-      {"term": "Medical Provider Liens", "text": "Providers treating on an LOP: **high negotiability**, often willing to take a reduction to get paid now."},
-      {"term": "Health Insurance Subrogation", "text": "A private plan's reimbursement right: moderate, shaped by the **Made Whole and Common Fund** doctrines."},
-      {"term": "Medicare and Medicaid", "text": "Government payers bound by **strict federal or state formulas**: low negotiability, and slow to process."},
-      {"term": "ERISA Plans", "text": "Self-funded employer plans governed by federal law: **very low negotiability**, notoriously difficult to reduce."}
+      {"term": "Medical Provider Liens", "text": "Providers treating on an LOP: **high negotiability**, often willing to take a reduction to get paid now.", "more": ["Riverton Spine & Rehab: $6,290.00 billed on the LOP; audit before any ask", "Crescent Pain & Spine took Peach State's contract rate: no balance billing of John Doe", "No lien is compromised without Atty. Thorne's express authority"]},
+      {"term": "Health Insurance Subrogation", "text": "A private plan's reimbursement right: moderate, shaped by the **Made Whole and Common Fund** doctrines.", "more": ["Peach State Health Plan asserts $1,860.00; a fully insured plan", "Made whole: in many jurisdictions the insurer takes nothing until the client is fully compensated", "Common fund: Atty. Thorne asked for the fee share, **one-third off: $1,240.00**", "Whether John Doe was made whole is Atty. Thorne's analysis"]},
+      {"term": "Medicare and Medicaid", "text": "Government payers bound by **strict federal or state formulas**: low negotiability, and slow to process.", "more": ["Medicare on this file: none, from the Day 2 SSDI/BCRC check", "Medicaid: verified separately, no state-agency interest", "Record each “none” with its source and date, **the way you record** a lien"]},
+      {"term": "ERISA Plans", "text": "Self-funded employer plans governed by federal law: **very low negotiability**, notoriously difficult to reduce.", "more": ["Funding decides the law: obtain the plan documents first", "Self-funded: federal law and the plan's own terms; fully insured: generally state insurance law", "Peach State is fully insured; the governing-law call is Atty. Thorne's"]}
     ],
     "pages": ["D3#20"],
     "framework": {
@@ -115,8 +115,8 @@
     "concepts": [
       {"term": "Upcoding", "text": "Billing a higher service level than the records support, like **Level 5 for Level 3**: the record decides."},
       {"term": "Unbundling", "text": "Splitting one service into separately billed parts to **inflate the total**; the records show what was one treatment."},
-      {"term": "Pro-Rata Distribution", "text": "Equal-priority liens split a short fund **in proportion**: each lien's amount over all liens, times what's left."},
-      {"term": "The Common Fund Doctrine", "text": "The lienholder shouldn't get **a free ride** on the work and costs that created the fund it's repaid from."}
+      {"term": "Pro-Rata Distribution", "text": "Equal-priority liens split a short fund **in proportion**: each lien's amount over all liens, times what's left.", "more": ["Applies when the fund can't pay every lien and no statute or agreement sets an order", "Medicare, a statutory hospital lien or some Medicaid recoveries may take priority; confirm the governing rule", "BI-only illustration: $10,000.00 – $3,333.33 fee – $486.75 costs = $6,179.92", "Peach State $1,860.00 ÷ $7,965.00 → $1,443.15; Riverton $6,105.00 ÷ $7,965.00 → $4,736.77", "Compute from the fraction, not the rounded percentage: **John Doe nets $0.00**", "Track A's fund covers both liens: never tell a provider it would take only a share"]},
+      {"term": "The Common Fund Doctrine", "text": "The lienholder shouldn't get **a free ride** on the work and costs that created the fund it's repaid from.", "more": ["In many states a lienholder reduces by its proportional share of the fee and costs", "The fee share follows the retainer: 33⅓% pre-suit, 40% once suit is filed", "Binds some lienholders, only persuades others; an LOP provider is often outside it", "Atty. Thorne argues it; the CM shows the math"]}
     ],
     "pages": ["D3#24", "D3#23"],
     "framework": {
@@ -136,15 +136,18 @@
     "concepts": [
       {
         "term": "Reduction Request",
-        "text": "The written ask: **audited balance**, recovery, fee and costs, other liens and the common-fund share."
+        "text": "The written ask: **audited balance**, recovery, fee and costs, other liens and the common-fund share.",
+        "more": ["Built on audited balances: Riverton Spine & Rehab $6,105.00, Peach State $1,860.00", "Atty. Thorne's written authority on file before it goes", "**Paper first, phone second**"]
       },
       {
         "term": "Authority",
-        "text": "Atty. Thorne's written floor for each lien: **the CM asks inside it** and routes anything outside."
+        "text": "Atty. Thorne's written floor for each lien: **the CM asks inside it** and routes anything outside.",
+        "more": ["On the call, note the name, the date and every figure", "A counter outside it goes back to Atty. Thorne **the same day**", "Argue on true facts only: never a smaller fund, never a client refusal", "Never accept a figure outside it or promise a provider payment"]
       },
       {
         "term": "Payoff Letter",
-        "text": "The lienholder's signed **full-and-final** satisfaction: no balance billing, no collections."
+        "text": "The lienholder's signed **full-and-final** satisfaction: no balance billing, no collections.",
+        "more": ["Pay from the payoff figure, never a statement", "On this file: Peach State $1,240.00, Riverton Spine & Rehab $4,580.00, **$2,145.00 saved**", "Update the Lien Tracker and Net Sheet the day it's confirmed; show John Doe his net"]
       }
     ],
     "pages": [
@@ -155,10 +158,10 @@
   "d3m4-l1": {
     "lead": "The Net Sheet is the tool for **transparency and case control**: it shows every dollar's origin and destination before anything leaves trust.",
     "concepts": [
-      {"term": "Third-Party BI Stream", "text": "The at-fault driver's carrier; exhausting its limit is usually **a legal prerequisite** to first-party UM."},
-      {"term": "First-Party UM Stream", "text": "The client's own or **a resident relative's policy**; triggers only once BI is exhausted or the driver is uninsured."},
-      {"term": "The Double-Dipping Trap", "text": "Carriers audit files closely; tracing every dollar's source keeps liens paid correctly, **without cross-contaminating funds**."},
-      {"term": "The Final Aggregate Net", "text": "Both streams side by side show the client **the compounding power** of the coverages and what negotiation added."}
+      {"term": "Third-Party BI Stream", "text": "The at-fault driver's carrier; exhausting its limit is usually **a legal prerequisite** to first-party UM.", "more": ["Keystone, $10,000.00; fee 33⅓%, $3,333.33; costs at 25%, $121.69", "Liens allocated 25%: Peach State $310.00, Riverton Spine & Rehab $1,145.00", "Net from this stream: **$5,089.98 to John Doe**"]},
+      {"term": "First-Party UM Stream", "text": "The client's own or **a resident relative's policy**; triggers only once BI is exhausted or the driver is uninsured.", "more": ["Harbor Point $20,000.00 + Cardinal State $10,000.00 = $30,000.00", "Fee $10,000.00; costs $365.06, the remainder after the BI share", "Liens allocated 75%: Peach State $930.00, Riverton Spine & Rehab $3,435.00", "Net from this stream: **$15,269.94 to John Doe**"]},
+      {"term": "The Double-Dipping Trap", "text": "Carriers audit files closely; tracing every dollar's source keeps liens paid correctly, **without cross-contaminating funds**.", "more": ["Harbor Point's PIP paid $5,000.00 of the bills: a payment source on the Lien Tracker, never recovery", "Charge each cost once, as one line or split pro rata (25% / 75% here)", "Every cost needs a receipt: five on this file, $486.75", "Never mix BI and UM money on one undifferentiated line"]},
+      {"term": "The Final Aggregate Net", "text": "Both streams side by side show the client **the compounding power** of the coverages and what negotiation added.", "more": ["Down the streams: $5,089.98 + $15,269.94 = $20,359.92", "Across the total: $40,000.00 – $13,820.08 – $5,820.00 = $20,359.92", "BI alone: $6,179.92 against $7,965.00 of unreduced liens, **John Doe nets $0.00**", "Possible repeat ESIs ($3,400–$6,800) flagged for Atty. Thorne: the settlement is full and final", "Atty. Thorne reviews the Net Sheet and explains it to John Doe before he signs"]}
     ],
     "pages": ["D3#25", "D3#26"],
     "framework": {
@@ -175,10 +178,10 @@
   "d3m4-l2": {
     "lead": "The release is **the contract that ends the dispute**; disbursement then moves money only through verification, documentation, authorization and reconciliation.",
     "concepts": [
-      {"term": "Release of All Claims", "text": "The exit document that **ends the right to sue**; its scope decides which claims and carriers survive."},
-      {"term": "Settlement Disclosure Statement", "text": "The truth document: gross to net, and that **full and final** means no return for more money."},
+      {"term": "Release of All Claims", "text": "The exit document that **ends the right to sue**; its scope decides which claims and carriers survive.", "more": ["Read line by line: who is released, which claims, what John Doe promises", "Keystone's 08/14 draft reached “all other … insurers”: it would have cost John Doe $30,000", "The BI release leaves the Civic's Property Damage claim open with Keystone PD", "Both UM consents (08/24, 08/26) came before the BI release was signed 08/28", "Indemnity: John Doe repays the carrier if a lienholder later pursues it, so **every lien is paid**", "Every term is Atty. Thorne's; the CM flags and routes, never explains a clause"]},
+      {"term": "Settlement Disclosure Statement", "text": "The truth document: gross to net, and that **full and final** means no return for more money.", "more": ["Shows how $40,000.00 becomes $20,359.92 for John Doe", "Contingent-fee rules commonly require one (for example, ABA Model Rule 1.5(c)); confirm the governing rule", "Where a cooling-off period applies, no check is cut before it ends", "John Doe signed 10/21, after Atty. Thorne explained it"]},
       {"term": "Satisfaction of Lien", "text": "A provider's signed letter that its lien is paid: it **prevents collections against the client** later."},
-      {"term": "Dismissal With Prejudice", "text": "Where suit was filed, the court is told it's over; with prejudice means the case **can't be refiled**."}
+      {"term": "Dismissal With Prejudice", "text": "Where suit was filed, the court is told it's over; with prejudice means the case **can't be refiled**.", "more": ["No suit was filed on Track A: no dismissal needed", "Where suit is pending: prepare the stipulation for the attorneys' signatures", "Docket it and confirm the court's entry; a forgotten dismissal leaves a live case"]}
     ],
     "pages": ["D2#35", "D3#32"],
     "framework": {

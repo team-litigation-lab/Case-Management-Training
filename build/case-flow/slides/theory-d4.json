@@ -2,10 +2,10 @@
   "d4m1-l1": {
     "lead": "An impasse is **a stall the record proves**: the carrier holds its number after every rebuttal, follow-up and escalation, and the file reaches the litigation fork.",
     "concepts": [
-      {"term": "The Stall", "text": "An adjuster's delay line, such as “waiting on authority”, meant to **wear you down**; log it, never accept it"},
-      {"term": "The Rebuttal", "text": "Each stall gets a factual answer and a firm reply date; **a rebuttal left unanswered** becomes evidence of impasse"},
+      {"term": "The Stall", "text": "An adjuster's delay line, such as “waiting on authority”, meant to **wear you down**; log it, never accept it", "more": ["Log each stall the day it happens, with its date and proof, in the Communications Log", "Never accept “that's all I have” as final: every adjuster has **a supervisor**", "Escalate a silent adjuster to that supervisor before calling impasse", "Impasse rests on its triggers, not frustration; whether the file is there is Atty. Thorne's call"]},
+      {"term": "The Rebuttal", "text": "Each stall gets a factual answer and a firm reply date; **a rebuttal left unanswered** becomes evidence of impasse", "more": ["Keystone's grounds: the 14-Day Gap and a “degenerative” MRI", "The 08/06 rebuttal answered both; the 08/12 “final” answered **none of it**", "Unanswered rebuttal evidence: Dr. Helen Park's MRI read, Dr. Reyes's Causation Letter, the EMS report, the Gap Explanation Record", "Any new number Keystone offers goes to Atty. Thorne the same day; never bid against yourself"]},
       {"term": "Reasons in Writing", "text": "Ask the carrier to state **its reasons in writing**; a named ground can be rebutted, a vague one cannot"},
-      {"term": "The Four Elements", "text": "Duty, breach, causation and damages: **what any suit must prove**, so each needs a verified exhibit"}
+      {"term": "The Four Elements", "text": "Duty, breach, causation and damages: **what any suit must prove**, so each needs a verified exhibit", "more": ["Liability (duty and breach): RPD-26-018842, Ruth Calloway, the doorbell video", "Causation: the MRI, Dr. Reyes's Causation Letter, the EMS report", "Damages: **$16,401.40 in Specials**, $14,817.40 medical + $1,584.00 wages", "Time: SOL 02/06/2028, internal filing cutoff 11/05/2027", "Filing is counsel's decision; verifying each input against its document is yours"]}
     ],
     "pages": ["D2#29"],
     "framework": {
@@ -23,10 +23,10 @@
   "d4m1-l2": {
     "lead": "Filing the Complaint **formally initiates the lawsuit**: the file moves from negotiation to court procedure, and later to a neutral the parties select or a court appoints.",
     "concepts": [
-      {"term": "The Complaint", "text": "Counsel drafts the legal arguments; the Case Manager **verifies the factual foundation** beneath them"},
+      {"term": "The Complaint", "text": "Counsel drafts the legal arguments; the Case Manager **verifies the factual foundation** beneath them", "more": ["Filed 09/24/2026 in the State Court of Riverton County, against Robert Smith", "Saved as Complaint_Filed_Stamped.pdf in 01_PLEADINGS, never scan001.pdf", "The fee tier moves from 33⅓% to **40% on filing**, not on the status change", "Robert Smith served 10/14/2026; his answer due 11/13/2026"]},
       {"term": "Anatomy of a Complaint", "text": "Caption, jurisdiction, factual allegations, causes of action, prayer for relief: **five sections to check** against the file"},
-      {"term": "Pre-Filing Verification", "text": "The Statute Date, the defendant's **exact legal name** and a business's Registered Agent, confirmed before counsel signs"},
-      {"term": "Panel Strike List", "text": "AAA or JAMS sends candidates; each side vets, ranks and **strikes names** before a docketed cutoff"}
+      {"term": "Pre-Filing Verification", "text": "The Statute Date, the defendant's **exact legal name** and a business's Registered Agent, confirmed before counsel signs", "more": ["SOL 02/06/2028 falls on a Sunday: internal hard date 02/04/2028", "Internal filing cutoff 11/05/2027; the firm never relies on a weekend roll-forward", "Court fields filled only from the record; the case number stays “Pending” until filing", "Filing target 09/24/2026, with a 48-hour audit on 09/22/2026", "Anything guessed ends up on a pleading: **confirm it from the record**"]},
+      {"term": "Panel Strike List", "text": "AAA or JAMS sends candidates; each side vets, ranks and **strikes names** before a docketed cutoff", "more": ["Pull each candidate's resume and prior-award history for Atty. Thorne", "Docket the strike deadline **the day the list arrives**", "Rankings and strikes are approved by counsel, never chosen by you", "A missed strike deadline can mean accepting a default appointment"]}
     ],
     "pages": ["D5#31", "D4#4"],
     "framework": {
@@ -48,7 +48,7 @@
     "concepts": [
       {"term": "Documents Become Evidence", "text": "After filing, a missing or misfiled page is no longer clerical: it **can jeopardize a trial**"},
       {"term": "Weekly Court Processes", "text": "Litigation runs on recurring court processes you execute **every week**, each one driven by the calendar"},
-      {"term": "Built-In Notice Periods", "text": "Many steps carry a built-in wait, like notice to opposing counsel **before a third-party subpoena**; docket the wait"},
+      {"term": "Built-In Notice Periods", "text": "Many steps carry a built-in wait, like notice to opposing counsel **before a third-party subpoena**; docket the wait", "more": ["Count the court's way: **exclude the trigger day**, include the last", "Served by mail: this file's rule set adds 3 days; e-service adds nothing", "A forward count landing on a weekend moves to the next business day; a backward count, to the earlier one", "Record the trigger, the rule and the arithmetic on every entry", "Rule unclear? Docket the conservative date and flag it to Atty. Thorne"]},
       {"term": "Tracking Compliance", "text": "A deadline someone else owes still needs **a check-in before it**: call the records office days ahead"}
     ],
     "pages": ["D4#21", "D5#28"],
@@ -67,10 +67,10 @@
   "d4m2-um": {
     "lead": "A UM/UIM claim is a **first-party claim** against the client's own policy, so the impasse route is set by that contract and the state's law.",
     "concepts": [
-      {"term": "First-Party Claim", "text": "Made against **the client's own coverage**, under a contract he pays premiums on"},
+      {"term": "First-Party Claim", "text": "Made against **the client's own coverage**, under a contract he pays premiums on", "more": ["On this file: Harbor Point (Host UM) and Cardinal State (Relative UM)", "Harbor Point: John Doe as an occupant of Kevin Alvarez's Escape", "Cardinal State: John Doe as a resident relative of Margaret Doe", "His own Bluewater Auto policy adds nothing: **UM/UIM rejected in writing** 03/14/2024", "Same evidence as the BI claim; the relationship, the duties and the route out differ"]},
       {"term": "Third-Party Claim", "text": "Made against **the at-fault driver's carrier**, here Keystone Mutual for Robert Smith"},
-      {"term": "Mandatory Arbitration Clause", "text": "A policy term sending the dispute to an arbitrator; the firm files **a Demand for Arbitration**"},
-      {"term": "Insurance Bad Faith", "text": "A separate suit for unreasonable handling, which **can exceed the policy limit**"}
+      {"term": "Mandatory Arbitration Clause", "text": "A policy term sending the dispute to an arbitrator; the firm files **a Demand for Arbitration**", "more": ["Read the governing state law and **each policy's own clause** before anything is calendared", "Harbor Point's UM policy has one; it does not speak for Cardinal State", "Quote the clause to Atty. Thorne; a paraphrase is already an interpretation", "Where no clause binds, a failed UM negotiation becomes a civil suit against the carrier", "Each layer has its own suit or demand deadline, not the 02/06/2028 SOL; docket only from Atty. Thorne's written answer"]},
+      {"term": "Insurance Bad Faith", "text": "A separate suit for unreasonable handling, which **can exceed the policy limit**", "more": ["Grounds: a carrier that unreasonably delayed, denied or mishandled the claim", "Record the handling dates as facts; whether they are actionable is **Atty. Thorne's alone**", "Never tell John Doe or Marcus Bell a carrier is acting in bad faith"]}
     ],
     "pages": ["D2#33", "D4#2"],
     "framework": {
@@ -87,8 +87,8 @@
   "d4m2-l2": {
     "lead": "Mediation and arbitration can each come **before or after a lawsuit is filed**: the process, the court's rules and the negotiations decide.",
     "concepts": [
-      {"term": "Non-Binding (Mediation)", "text": "Both sides must agree: **nobody is forced to settle**, and the parties keep control of the outcome"},
-      {"term": "Binding (Arbitration)", "text": "The arbitrator's decision is final and **enforceable like a court order**, reviewed on narrow grounds"},
+      {"term": "Non-Binding (Mediation)", "text": "Both sides must agree: **nobody is forced to settle**, and the parties keep control of the outcome", "more": ["Court-ordered means John Doe **must attend, not agree**", "Confidential under the governing statute or court rule; a signed settlement is an exception", "When a deal binds varies: party signatures, or counsel with authority; confirm the rule", "On this file: Hon. Carla Benton (Ret.), 03/18/2027"]},
+      {"term": "Binding (Arbitration)", "text": "The arbitrator's decision is final and **enforceable like a court order**, reviewed on narrow grounds", "more": ["Courts vacate or correct an award only on narrow grounds: fraud, partiality, misconduct, evident miscalculation", "Short deadlines apply; some policies or statutes allow a trial de novo: confirm the governing rule", "No appeal on the merits, so prep is **right the first time**", "On this file: Laura Whitcomb, Esq., 06/22/2027, on the UM claims", "What the award means for John Doe's recovery is Atty. Thorne's to explain"]},
       {"term": "Before Filing", "text": "Mediation after treatment and the demand; arbitration only where **a signed clause** compels it"},
       {"term": "After Filing", "text": "Mediation often **ordered during discovery**; arbitration by the parties' agreement to leave court"}
     ],
@@ -112,10 +112,10 @@
     "concepts": [
       {"term": "Executive Summary & Administration", "text": "The first thing counsel sees: a one-page snapshot that **sets the basic framework** of parties, order and schedule"},
       {"term": "The Mediation Briefs", "text": "Both sides' arguments **read side by side**, so counsel can prepare rebuttals before the session"},
-      {"term": "Core Pleadings", "text": "The legal framework: the filed documents that **define what the suit is about**"},
+      {"term": "Core Pleadings", "text": "The legal framework: the filed documents that **define what the suit is about**", "more": ["Operative versions only: complaint 09/24/2026, answer and defenses 11/12/2026; no drafts", "The answer pleads comparative negligence: out of turn, unbelted", "It also pleads causation (the gap, a “degenerative” MRI) and failure to mitigate", "Each pleaded defense needs an answering exhibit in Section 4 or 5", "A defense argued but never pleaded is **flagged to Atty. Thorne**"]},
       {"term": "Key Evidence & Liability", "text": "The “smoking guns”: **raw evidence of liability**, from reports to stills and highlighted deposition pages"},
-      {"term": "Damages, Financials & Experts", "text": "The section that **justifies counsel's dollar figure**: records, bills, wage proof and expert reports"},
-      {"term": "Settlement History & Drafts", "text": "The closing section that **prepares counsel to finalize** any deal reached, before anyone leaves the room"}
+      {"term": "Damages, Financials & Experts", "text": "The section that **justifies counsel's dollar figure**: records, bills, wage proof and expert reports", "more": ["The ledger ties line by line to the certified invoices and the Northgate HR letter", "$14,817.40 medical + $1,584.00 wages = **$16,401.40 in Specials**", "Each correction documented: duplicate removed, Riverton Spine & Rehab $6,290.00 → $6,105.00", "Future care ($3,400–$6,800) stays narrative, not a ledger line", "The dollar figure is Atty. Thorne's; you verify its sources"]},
+      {"term": "Settlement History & Drafts", "text": "The closing section that **prepares counsel to finalize** any deal reached, before anyone leaves the room", "more": ["Negotiation Log from 07/20/2026; baseline: Keystone's $3,500, “final” 08/12/2026", "A draft Limited Release lets counsel fix terms in writing before anyone leaves", "Conditioned on both UM carriers' **written consent**; each may substitute its own check", "Release scope (BI only) is Atty. Thorne's call"]}
     ],
     "pages": ["D4#7", "D4#8"],
     "framework": {
@@ -137,9 +137,9 @@
     "lead": "The Arbitration Binder is **a trial-ready evidentiary record**, not a reference packet: it is submitted directly to a private judge who decides.",
     "concepts": [
       {"term": "Operational Tracks", "text": "Your arbitration role is operational: **timelines, scheduling and documents**, run with rigid precision"},
-      {"term": "Arbitration Brief Deadline", "text": "The absolute cutoff for claims, **exhibit indexes and witness lists**, sent to the arbitrator and opposing counsel"},
-      {"term": "Arbitration Submissions", "text": "The foundational paperwork that **sets the ground rules** for the whole proceeding, so it leads the binder"},
-      {"term": "Evidentiary Exclusion", "text": "A missing page or grayscale print **can be excluded**, and a binding award leaves no second chance"}
+      {"term": "Arbitration Brief Deadline", "text": "The absolute cutoff for claims, **exhibit indexes and witness lists**, sent to the arbitrator and opposing counsel", "more": ["Due 10 days before the 06/22/2027 hearing: Saturday 06/12/2027", "A backward count moves to the earlier business day: docketed **Friday 06/11/2027**", "Rolling it forward to Monday files the brief late", "Exhibit exchange comes first, on 06/02/2027"]},
+      {"term": "Arbitration Submissions", "text": "The foundational paperwork that **sets the ground rules** for the whole proceeding, so it leads the binder", "more": ["The threshold leads: UM opens only because **BI is exhausted**", "Prove it with executed documents: Keystone's $10,000 tender, the UM consents, the Limited Release", "Plus Robert Smith's dismissal; never the Mediation Statement", "QC: retainers paid, and the final brief, not a draft"]},
+      {"term": "Evidentiary Exclusion", "text": "A missing page or grayscale print **can be excluded**, and a binding award leaves no second chance", "more": ["Authenticate each exhibit with the custodian's **business-records certification**", "One certification per provider, covering every date exhibited; a causation opinion is not a business record", "Keep video and data native and unaltered, with a chain-of-custody log", "Anything not exchanged by 06/02/2027 may not count", "Relaxed evidence rules or not, build to the strict standard: admitted is not persuasive"]}
     ],
     "pages": ["D4#25", "D4#21"],
     "framework": {
@@ -160,10 +160,10 @@
   "d4m4-l1": {
     "lead": "Bottlenecks come in two kinds: **compromise traps** that stall a mediation, and trial-ready landmines that can sink a binding arbitration.",
     "concepts": [
-      {"term": "Compromise Traps", "text": "Unverified ledgers, absent authority and late briefs **give the defense a reason** to stall at mediation"},
+      {"term": "Compromise Traps", "text": "Unverified ledgers, absent authority and late briefs **give the defense a reason** to stall at mediation", "more": ["Unverified ledger: Specials $16,401.40; Riverton Spine & Rehab audited to $6,105.00; Peach State asserting $1,860.00", "Missing decision-maker: Keystone's attendee with authority unconfirmed 10 days out", "Late brief: statement and binder due to Hon. Carla Benton (Ret.) by **03/11/2027**", "Verified ledgers reach Keystone via defense counsel, as Atty. Thorne directs, in time for an authority raise"]},
       {"term": "Trial-Ready Landmines", "text": "Excluded exhibits, unshielded priors and missed cutoffs at arbitration **cost evidence you can't recover**"},
-      {"term": "The Prior Medical Shield", "text": "The defense uses prior records to argue **pre-existing degenerative conditions**; the shield answers with records and expert opinion"},
-      {"term": "Operational Countermeasures", "text": "Two habits clear most bottlenecks early: **a 48-hour audit** and lien reconciliation against EOBs"}
+      {"term": "The Prior Medical Shield", "text": "The defense uses prior records to argue **pre-existing degenerative conditions**; the shield answers with records and expert opinion", "more": ["On this file: 2021 chiropractic, three low-back visits, resolved", "No prior neck complaint; work history filed alongside", "Paired with the MRI read and **an expert declaration**, as Atty. Thorne directs", "Whether an expert is retained is Atty. Thorne's call"]},
+      {"term": "Operational Countermeasures", "text": "Two habits clear most bottlenecks early: **a 48-hour audit** and lien reconciliation against EOBs", "more": ["48 hours before every hard date: ledgers against EOBs, binder completeness, OCR on the set", "Whatever the audit finds is **escalated that day**", "A dependency still open 10 days out gets a red flag and a word to Atty. Thorne"]}
     ],
     "pages": ["D4#33", "D4#35"],
     "framework": {
@@ -185,8 +185,8 @@
     "lead": "Escalation is **a variance loop**: monitor each item against its expected course, and when progress stalls, route it up before the date is lost.",
     "concepts": [
       {"term": "Variance Detected", "text": "The moment an item **departs from its expected course**; that departure, not frustration, starts the escalation"},
-      {"term": "The Escalation Ladder", "text": "Each problem goes to **the lowest capable rung**, so counsel's time is spent on decisions only he can make"},
-      {"term": "Decision-Ready Report", "text": "A report built so the supervisor can **act in one read**, without redoing your research"},
+      {"term": "The Escalation Ladder", "text": "Each problem goes to **the lowest capable rung**, so counsel's time is spent on decisions only he can make", "more": ["Rung 1: the source, on the follow-up cadence", "Rung 2: its supervisor or office manager, with a written Notice of Delay", "Rung 3: Atty. Thorne, where legal tools live; he decides, signs and sends", "48-Hour Mandate: Keystone's 08/31 follow-up → supervisor 09/02 → silence 09/04 → memo 09/08/2026", "Hard date 10 days out? Red-flag it and tell him **in parallel**"]},
+      {"term": "Decision-Ready Report", "text": "A report built so the supervisor can **act in one read**, without redoing your research", "more": ["Blocker: who owes what, such as Dana Whitfield holding at $3,500", "Started: the first unanswered follow-up, 08/24/2026 on Keystone", "Threatens: the hard date at risk, such as the SOL filing cutoff 11/05/2027", "Tried: each rung, with its date, method and result", "The ask: **one decision and its date**; no recommendation on filing"]},
       {"term": "The Critical Thinking Audit", "text": "Before a hard date, test the file against **the defense's stated position** and escalate any gap you find"}
     ],
     "pages": ["D1#45"],
