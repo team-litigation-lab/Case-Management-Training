@@ -1,5 +1,5 @@
 // Checks the Case Flow's date roll-forward (js/cm-case-dates.js) against every word of the case: the course
-// content (data, slides, simulation, document list) and the 60 case documents (documents/case-flow/html/).
+// content (data, slides, simulation, document list) and the 67 case documents (documents/case-flow/html/).
 // For the base year and each future year the case can move to:
 //   · every weekday written beside a date is that date's weekday (deadline drills, the Sunday SOL);
 //   · the SOL is still exactly DOL + 2 years; Labor Day and Memorial Day are still those holidays;
@@ -14,7 +14,7 @@ const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "../.
 const ctx = {window: {}, location: {search: ""}, URLSearchParams,
   sessionStorage: {getItem: () => null, setItem() {}, removeItem() {}}, localStorage: {getItem: () => null, setItem() {}}};
 vm.createContext(ctx);
-for (const f of ["cm-case-flow-docs.js", "cm-case-flow-slides.js", "cm-case-flow-scripts.js", "cm-case-flow-sim.js", "cm-case-flow-data.js", "cm-case-dates.js"])
+for (const f of ["cm-case-flow-docs.js", "cm-case-flow-slides.js", "cm-case-flow-scripts.js", "cm-case-flow-sim.js", "cm-case-flow-exhibits.js", "cm-case-flow-data.js", "cm-case-dates.js"])
   vm.runInContext(fs.readFileSync(path.join(ROOT, "js", f), "utf8"), ctx, {filename: f});
 const W = ctx.window, D = W.CM_CASE_DATES;
 const fails = [];
@@ -22,7 +22,7 @@ const fails = [];
 // every string of the course content, and every case document
 const strings = [];
 const walk = (o, at) => { if (typeof o === "string") strings.push([at, o]); else if (o && typeof o === "object") for (const [k, v] of Object.entries(o)) if (!["id", "file", "folder", "image", "kind", "cms", "tool"].includes(k)) walk(v, at + "." + k); };
-for (const k of ["CM_CASE_FLOW", "CM_CF_SLIDES", "CM_CF_SIM", "CM_CF_DOCS", "CM_CF_SCRIPTS"]) walk(W[k], k);
+for (const k of ["CM_CASE_FLOW", "CM_CF_SLIDES", "CM_CF_SIM", "CM_CF_DOCS", "CM_CF_SCRIPTS", "CM_CF_EXHIBITS"]) walk(W[k], k);
 const HTML = path.join(ROOT, "documents/case-flow/html");
 for (const f of fs.readdirSync(HTML).filter(f => /^RS\d\d\.html$/.test(f))) strings.push([f, fs.readFileSync(path.join(HTML, f), "utf8")]);
 if (strings.filter(([a]) => /^RS/.test(a)).length !== W.CM_CF_DOCS.length) fails.push(`documents/case-flow/html has ${strings.filter(([a]) => /^RS/.test(a)).length} documents; the manifest lists ${W.CM_CF_DOCS.length}`);

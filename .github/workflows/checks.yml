@@ -44,6 +44,8 @@ jobs:
         run: node build/case-flow/scripts/assemble.cjs --check
       - name: Case Flow simulation (an event for every activity, a call in every Case Phase, fallout, the timeline; the assembled file in step)
         run: node build/case-flow/sim/assemble.cjs --check
+      - name: Case Flow exhibit audits (the draft set, the completed package, the service confirmation; the assembled file in step)
+        run: node build/case-flow/exhibits/assemble.cjs --check
       - name: Defined terms capitalized as specified (build/case-flow/terms.json)
         run: node build/case-flow/terms.cjs --check
       - name: Case Flow dates roll forward exactly (weekdays, the two-year SOL, holidays; no date left behind)
@@ -85,6 +87,10 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/doc-filing.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: The exhibit audit, the completed package and the Email Workspace (the set audited, the finished set revealed, the service confirmation filed and backed up; the CMS answered by the test)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/exhibit-audit.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: Relaying a Portal simulator's document to the CMS (the records simulator's records and bills reach the CMS beside the lesson; only the Portal may ask)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules

@@ -46,8 +46,10 @@ for (const [id] of Object.entries(text)) for (const [re, ok, plant] of IDS) {
 }
 // DOB: 08/14/1991 everywhere; RS03 plants 08/14/1990
 for (const [id] of Object.entries(text)) for (const m of T(id).match(/08\/14\/19\d\d/g) || []) if (m !== "08/14/1991" && !(id === "RS03" && m === "08/14/1990")) fails.push(`${id}: DOB ${m}`);
-// the date of loss is 02/06/2026; RS16 plants 02/16/2026 as the "date of injury"
-for (const [id] of Object.entries(text)) if (/date of (loss|injury|accident|collision)\W{0,3}(February 16|02\/16\/2026)/i.test(T(id)) && id !== "RS16") fails.push(`${id}: a date of loss of 02/16/2026`);
+// the date of loss is 02/06/2026; RS16 plants 02/16/2026 as the "date of injury", and RS61's exhibit index
+// names that plant as the fault to catch (RS62 names it again as the fault that was corrected)
+const DOL_PLANT = new Set(["RS16", "RS61", "RS62"]);
+for (const [id] of Object.entries(text)) if (/date of (loss|injury|accident|collision)\W{0,3}(February 16|02\/16\/2026)/i.test(T(id)) && !DOL_PLANT.has(id)) fails.push(`${id}: a date of loss of 02/16/2026`);
 
 // 3. required facts and plants, document by document
 const NEED = {

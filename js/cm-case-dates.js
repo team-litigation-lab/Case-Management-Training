@@ -10,7 +10,7 @@
    year they started on (caseYear on their Case Flow record, set by js/cm-case-flow.js) until they finish, so dates
    never jump mid-course. A trainer can preview a year with ?caseYear=2029 (?caseYear=off ends the preview).
    Loaded after the Case Flow content and before js/cm-case-flow.js: it rewrites the dates in CM_CASE_FLOW,
-   CM_CF_SLIDES, CM_CF_SIM, CM_CF_DOCS and CM_CF_SCRIPTS (the trainer scripts) in place; case-doc.html does the same to the case documents.
+   CM_CF_SLIDES, CM_CF_SIM, CM_CF_DOCS, CM_CF_SCRIPTS (the trainer scripts) and CM_CF_EXHIBITS (the exhibit audits) in place; case-doc.html does the same to the case documents.
    The CMS's Date of Loss leads: when the trainee's John Doe case in the CMS has another DOL (the CMS moves the SOL and
    every later date with it, case-dates.js there), the course moves its dates the same way, on top of the year: every
    date on or after the DOL moves by the same number of days, and dates of birth and earlier dates stay. The offset
@@ -208,7 +208,7 @@
     dol(){ const [y, m, d] = move(2026, 2, 6, S + O); return `${pad(m)}/${pad(d)}/${y}`; },
   };
   window.CM_CASE_DATES = api;
-  ["CM_CASE_FLOW", "CM_CF_SLIDES", "CM_CF_SIM", "CM_CF_DOCS", "CM_CF_SCRIPTS"].forEach(k => {
+  ["CM_CASE_FLOW", "CM_CF_SLIDES", "CM_CF_SIM", "CM_CF_DOCS", "CM_CF_SCRIPTS", "CM_CF_EXHIBITS"].forEach(k => {
     if(!window[k]) return;
     if(S) apply(window[k], S);
     if(O) apply(window[k], O, ROLLED_DOL);

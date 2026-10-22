@@ -15,6 +15,11 @@
    because the convention is the thing being learned. Each document's attempts are kept, so a trainer can
    see who filed the repository right the first time.
 
+   It also files a document the course itself produced — the Email Workspace's memorandum, built from the
+   trainee's own confirmation email and the adjuster's acknowledgment (cmDocFiling.fileBytes) — through the same
+   name check and the same upload, and asks the CMS to back the case's filed documents up to the trainee's own
+   Google Drive (cmDocFiling.drive); the backup is the CMS's, and the course only asks for it.
+
    What is needed: the CMS open beside the lesson (🗂 Open CMS) with the trainee's own case open in it. The
    panel says so when it isn't, and nothing else is blocked.  Course side of the CMS's course-bridge.js.
 
@@ -161,13 +166,41 @@ const mimeOf = (file)=>{
           xlsx:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}[ext] || "application/octet-stream";
 };
 
+/* ---------- a document the course itself produced ----------
+   The Case Flow's Email Workspace converts an email exchange into a memorandum and files it the same way a
+   catalogue document is filed: the trainee writes the name, the CMS checks it against caseFileName and refuses
+   anything that doesn't follow the convention, and the bytes go through the same upload. Nothing here decides a
+   name or corrects one. */
+async function fileBytes(req){
+  if(!caseOpen()) return {ok: false, error: "No case is open in the CMS. Press 🗂 Open CMS, then open your own case (or save it, so it is given its Case ID)."};
+  const name = String((req && req.name) || "").trim();
+  if(!name) return {ok: false, error: "Write the file name first."};
+  const bytes = req && req.bytes;
+  if(!(bytes instanceof ArrayBuffer) || !bytes.byteLength) return {ok: false, error: "The document did not reach this step. Build it again."};
+  if(!CATEGORIES.includes(req.category)) return {ok: false, error: `"${req.category}" is not a Doc Hub category. The categories are: ${CATEGORIES.join(", ")}.`};
+  return await askCms({lsh: "cms-doc-file", name, category: req.category, original: req.original || name,
+    mime: req.mime || "application/pdf", summary: req.summary || name, bytes}, "cms-doc-filed", [bytes]);
+}
+
+/* ---------- backing the case's filed documents up to the trainee's Drive ----------
+   The backup itself is the CMS's (its drive-backup.js, through its own /api/drive-backup): the course only asks
+   for it and reports what came back, so the Google connection, the folder and the files stay the CMS's business.
+   A CMS without Google sign-in set up, or an account not connected yet, says so and nothing else is blocked. */
+async function drive(){
+  if(!caseOpen()) return {ok: false, error: "Open your own case in the CMS first."};
+  const out = await askCms({lsh: "cms-drive-backup"}, "cms-drive-backed-up");
+  if(out && out.ok) return out;
+  if(out && out.error) return out;
+  return {ok: false, error: "The CMS didn't answer the backup request. Is your case open in it?"};
+}
+
 /* How healthy the repository is: what has been filed, and what was filed right the first time. */
 function health(){
   const all = Object.values(log());
   return {filed: all.filter(x=>x.filed).length, firstTime: all.filter(x=>x.filed && x.attempts === 1).length,
           attempts: all.reduce((n, x)=>n + (x.attempts || 0), 0)};
 }
-window.cmDocFiling = {panel, file, health, categories: CATEGORIES, expectedCategory, CATEGORIES, relayOrigins: ()=> RELAY_ORIGINS.map(String)};
+window.cmDocFiling = {panel, file, fileBytes, drive, health, categories: CATEGORIES, expectedCategory, CATEGORIES, relayOrigins: ()=> RELAY_ORIGINS.map(String)};
 
 /* ---------- relaying a simulator's document to the CMS ----------
    The LSH Training Portal (and a local server while the checks run) may ask; nobody else. The message

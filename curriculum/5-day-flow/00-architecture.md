@@ -11,7 +11,8 @@
 | `build/case-flow/curriculum.cjs` | Writes `dayN.md` and `traceability.md` from the data, and validates the curriculum's rules. |
 | `curriculum/5-day-flow/day1.md` … `day5.md` | The per-block curriculum spec, one file a day (generated). |
 | `curriculum/5-day-flow/case-file.md` | The canonical case file: every party, date, bill, offer, lien and deadline the five days use. |
-| `build/case-flow/documents/` | The case documents (60, `documents/case-flow/`): `SPEC.md` (each document's facts, plants and trainer key), the sources, the renderer and the audit. Metadata and each activity's documents: `js/cm-case-flow-docs.js`. |
+| `build/case-flow/documents/` | The case documents (67, `documents/case-flow/`): `SPEC.md` (each document's facts, plants and trainer key), the sources, the renderer and the audit. Metadata and each activity's documents: `js/cm-case-flow-docs.js`. |
+| `build/case-flow/exhibits/` | The exhibit audits, the completed-package reveals and the service confirmation: `EXHIBITSPEC.md`, `dN.json`, `assemble.cjs` → `js/cm-case-flow-exhibits.js`. |
 | `curriculum/5-day-flow/traceability.md` | Where every existing topic's theory lives now (generated). |
 
 ---
@@ -114,12 +115,14 @@ Each block is one topic in this course's own lesson shape, drawn as a short run 
 | Block | Its slides |
 |---|---|
 | Lesson | **Why It Matters** (the hook, from Tell Them's why) · **The Rules** (3–4 rules, the UPL boundary boxed) · **See It** (Show Them's visual) · **On the Job** (Trigger ➔ Task ➔ Tool ➔ Checkpoint) · **Do & Don't** (Best Practices & Pitfalls) |
-| Skill Activity | **Your Case** (Let Them's scenario) · **Your Task** (the steps, the tool to open, the documents, what to deliver) · **See It** (the reference model, if any) · **Check Your Work** (the verification checkpoints, as a tick list) |
+| Skill Activity | **Your Case** (Let Them's scenario) · **Your Task** (the steps, the tool to open, the documents, what to deliver) · **Audit & the Finished Set** (where the activity works a document set) · **See It** (the reference model, if any) · **Check Your Work** (the verification checkpoints, as a tick list) |
 | Knowledge Check | **Knowledge Check** (the questions, four to a slide, each with an answer box) · **Self-Summary** (saved, AI-reviewed with the answers) · **Skill Scale** (and Submit for review) |
 
 **On screen, each Case Phase is taught in three parts:** its lessons back to back as one uninterrupted discussion, then its Skill Activities and real-time practice, then its Learning Check. The blocks themselves keep the rhythm above; only the order on screen changes.
 
 The words on these slides are a distillation of the block, never new content: written to `build/case-flow/slides/SLIDESPEC.md` (word limits per field, one highlight per line, an image per block) in `build/case-flow/slides/dN.json`, and assembled into `js/cm-case-flow-slides.js` by `build/case-flow/slides/assemble.cjs` (`--check` in CI). The block's full text — and its rubric — stay behind **📖 Full text** on every slide, and in Presenter view, which carries one script per slide. The illustrations are inline SVGs in `js/cm-case-flow-art.js`.
+
+**An activity that works a document set audits it, and then sees the finished one.** Serving the Demand Package and assembling the two binders each carry the draft set as a packet the trainee calls item by item (keep · replace · pull · add · flag), with the loophole or evidentiary gap each item hides held back until the audit is handed in; then the audit is scored and the completed set is revealed — the Demand Package as served, the Mediation Binder as delivered, the Arbitration Binder as exchanged. Those completed sets are in the `CM_CF_DOC_PACKETS` packet of every activity that comes after, so one Demand Package and one binder run through all five days with one set of figures. Serving the demand also carries the **Email Workspace**: the confirmation email the trainee writes beside the certified mailing, the adjuster's written acknowledgment (which fixes the receipt date from the carrier's own words), the extension request that tests the UPL line, and the exchange converted into a memorandum, filed into the open case in the CMS under the firm's naming convention and backed up to the trainee's Drive. Content: `build/case-flow/exhibits/EXHIBITSPEC.md`; the trainee's calls, notes, email, answer and filing go on their record and to their trainer with the module's Learning Check.
 
 The same block also fills the course's native fields (`fourPart`, `layout`, `trainerCue`), so search, the SOP and Presenter view read it like any other topic.
 

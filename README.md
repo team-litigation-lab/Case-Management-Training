@@ -80,10 +80,52 @@ The one practice tool left beside the Skill Activities (Case Flow Day 4; `js/cm-
 - **The trainee sees it** on 📂 Case File: "Dates follow your CMS Date of Loss (moved +N days)", with **Reset to the course's dates** (that CMS DOL is then not followed again until it changes). A new CMS DOL shows a toast and **Update the dates now**.
 - A trainer's case-year preview (`?caseYear=`) shows the course's own dates, with no offset. `check-case-dates.mjs` checks the offset: DOL-and-later dates move by exactly N days, earlier dates and DOBs don't.
 
-**John Doe v. Robert Smith (the Case Flow's document set, `documents/case-flow/`).** 60 simulated documents, `RS01`–`RS60`, in nine folders: intake & retainer, police / witness / video, medical records, bills, insurance and the demands, liens, wages & costs, the Civic's property damage, and the Track B lawsuit and ADR. Every page carries the *SIMULATED DOCUMENT — FICTIONAL PARTIES* footer.
+**John Doe v. Robert Smith (the Case Flow's document set, `documents/case-flow/`).** 67 simulated documents, `RS01`–`RS67`, in nine folders: intake & retainer, police / witness / video, medical records, bills, insurance and the demands, liens, wages & costs, the Civic's property damage, and the Track B lawsuit and ADR. Every page carries the *SIMULATED DOCUMENT — FICTIONAL PARTIES* footer.
 - **What trainees see:** the 📁 Documents page lists them by folder with the CMS upload category; each opens with its Case Flow day (trainers see all), and every Case Flow Skill Activity names the documents it works from ("📁 Work from" on its slide).
-- **Planted discrepancies:** a transposed police report number on the intake sheet, "Driver" and a wrong DOB in the CMS record, a duplicate ledger line, a wrong date of injury on the MRI report, an in-network provider billing the patient, a draft demand with four errors, releases that reach too far, a discovery deadline and a brief date that are wrong. Signed in as admin, each document's red 🔑 note says what is planted and what to catch; trainees never see these notes.
+- **Planted discrepancies:** a transposed police report number on the intake sheet, "Driver" and a wrong DOB in the CMS record, a duplicate ledger line, a wrong date of injury on the MRI report, an in-network provider billing the patient, a draft demand with four errors, releases that reach too far, a discovery deadline and a brief date that are wrong, and three draft sets built to be audited — the Demand Package's exhibit packet, the Mediation Binder and the arbitration exhibit folder (`RS61`, `RS64`, `RS66`), each with ten faults. Their finished counterparts (`RS62`, `RS65`, `RS67`) carry no plants: they are the completed packages the trainee is shown once the audit is handed in. Signed in as admin, each document's red 🔑 note says what is planted and what to catch; trainees never see these notes.
 - **Source and rebuild:** `build/case-flow/documents/` — `SPEC.md` (what each document holds and plants, written against `curriculum/5-day-flow/case-file.md`), `src/RSNN.html` (each document), `doc.css`, `render.cjs` (HTML → PDF with headless Chromium; the CMS record also to .docx with LibreOffice) and `audit.cjs` (reads every PDF back and checks the footer, the identifiers, each document's facts and that each plant is where it belongs and nowhere else). Metadata: `js/cm-case-flow-docs.js` (also each activity's documents). CI checks every file exists and every activity's documents are real and open by its day (`.github/scripts/check-data.mjs`).
+
+### 🔍 Exhibit audits, the completed package, and the service confirmation
+
+A Case Manager does not read a document set and leave it in a folder: they audit it before it leaves the office,
+and the difference between an audited set and a draft one is money out of the client's pocket. Three Skill
+Activities now work the set itself, and each one ends with the finished article.
+
+- **The audit.** The activity's slide **🔍 Audit & the Finished Set** opens a workbench listing every item of the
+  draft set, with the call to make on each one — **keep · replace · pull · add · flag for Atty. Thorne** — and a
+  note to write. The loophole each item hides is not shown while the audit is open. The three sets: the Demand
+  Package's exhibit packet (`d3m1-a1`, 16 items), the Mediation Binder's six sections (`d4m3-a1`, 17) and the
+  unsorted arbitration folder (`d4m3-a2`, 17). A hand-in with an item uncalled is refused.
+- **The completed package.** Handed in, the audit is scored, each item says what it would have cost and what the
+  fix was, and the finished set is revealed: the **Demand Package as served** (81 pages, Exhibits A–J), the
+  **Mediation Binder as delivered** (six sections, 141 pages, with the defense map) or the **Arbitration Binder as
+  exchanged** (six tabs, C-1 to C-18, 174 pages, with the withheld-items list).
+- **Case continuity.** The completed Demand Package (`RS62`) and the memorandum of its service (`RS63`) are in the
+  "📁 Work from" packet of every activity that comes after it, and the finished Mediation Binder (`RS65`) and
+  Arbitration Binder (`RS67`) in the activities that follow them. One Demand Package and one binder run through
+  all five days, with one set of figures.
+- **The service confirmation (`✉ Email Workspace`,** on the demand's Your Task slide). Certified mail proves the
+  demand left the office; it does not prove when the carrier got it. So the trainee writes the confirmation email
+  that goes out with the mailing — it has to name the certified number, the package and its page count, say that
+  the thirty days run from *receipt*, ask her to confirm the date and the set, and route every question about the
+  terms to Atty. Thorne. An email that leaves any of that out is refused with what is missing, and nothing is
+  sent. A complete one brings **Dana Whitfield's written acknowledgment**, which fixes 07/22/2026 from the
+  carrier's own words and confirms the set is complete at 81 pages. Then she asks for two more weeks: the answer
+  that grants it, the answer that refuses it and saying nothing all fail; only recording it and routing it to
+  Atty. Thorne goes on.
+- **Converted, filed and backed up.** The trainee then **converts the exchange into a memorandum** (built as a
+  real PDF in the browser from their own email, her reply and what it establishes), **files it into the open case
+  in the CMS** under the firm's naming convention — the CMS refuses any other name, exactly as it does for a
+  catalogue document — and **backs the case up to their own Google Drive**. The firm's own version of the same
+  memorandum (`RS63`) is there to read theirs against.
+- **The trainer sees all of it** with the module's Learning Check: every call and note of the audit with its
+  score, the email they sent and how many attempts were refused, the answer they gave to the follow-up, what they
+  filed and whether it was backed up.
+- **Source and rebuild:** `build/case-flow/exhibits/` — `EXHIBITSPEC.md` (the shape and the word limits),
+  `d3.json` and `d4.json` (the content), `assemble.cjs` → `js/cm-case-flow-exhibits.js`. The UI is in
+  `js/cm-case-flow.js`; the filing and the Drive request are `js/cm-doc-filing.js` (`fileBytes`, `drive`), which
+  the CMS answers through its `course-bridge.js`. CI checks the content against the spec and runs the whole
+  workflow in a browser (`.github/scripts/exhibit-audit.cjs`).
 
 **Templates** (`js/cm-documents.js`): the blank forms and sample releases in `documents/templates/`.
 
@@ -181,6 +223,7 @@ The document-heavy folders (`decks/`, `documents/`) are kept in **Cloudflare R2*
   - A long slide's next and previous pages change in place. Case Flow slides are scaled to fit one screen and never split, so on CI's day (12, Case Flow Day 2) this part is reported as skipped.
   - A resize lays the slide out again without animation.
   - The slides window never reloads itself for an update.
+- **The exhibit audit, the completed package and the Email Workspace** (`.github/scripts/exhibit-audit.cjs`): the audit is one of the day's slides and gives nothing away; the workbench lists every item with a call to make; a hand-in with an item uncalled is refused; a complete one is scored, marks the wrong call and reveals the completed package; the finished set is carried into the activities that follow; an email that does not do the job is refused with what is missing; a complete one brings the acknowledgment; the answer that moves the attorney's deadline stops the work and the one that routes it does not; and the memorandum is built, refused under a wrong name, filed under the convention and backed up — with all of it on the trainee's record for their trainer. The CMS is answered by the test.
 - **Every slide fits on one screen** (`.github/scripts/fit.cjs`): every slide of every day ends inside the window with its Previous / Next bar at 1366×768 and 1920×1080, nothing in it scrolls, and none is split onto a second page.
 - **Every page fits on one screen** (`.github/scripts/one-screen.cjs`): at 1366×768, 1920×1080 and 1280×720 the window never scrolls on any page or lesson, the footer line stays on the screen, a lesson page needs no scrolling at all, and on a page that does scroll inside its body the bottom is reachable and `window.scrollY` / `window.scrollTo()` work on it. At 900×800, under the one-screen layout, nothing is cut off.
 - **Server requests** (`.github/scripts/requests.cjs`):
@@ -189,7 +232,7 @@ The document-heavy folders (`decks/`, `documents/`) are kept in **Cloudflare R2*
   - a server that doesn't answer doesn't sign the trainee out; a revoke does;
   - the Trainee Audit reads every trainee in two requests, and its progress columns in one.
 
-To run them locally: `node .github/scripts/check-site.mjs`, `node .github/scripts/tool-links.cjs`, `node .github/scripts/check-data.mjs`, then `node .github/scripts/server.mjs 8787 &` and `node .github/scripts/smoke.cjs http://localhost:8787/` and `node .github/scripts/presenter.cjs http://localhost:8787/ 12` and `node .github/scripts/requests.cjs http://localhost:8787/` and (needs Playwright).
+To run them locally: `node .github/scripts/check-site.mjs`, `node .github/scripts/tool-links.cjs`, `node .github/scripts/check-data.mjs`, then `node .github/scripts/server.mjs 8787 &` and `node .github/scripts/smoke.cjs http://localhost:8787/` and `node .github/scripts/presenter.cjs http://localhost:8787/ 12` and `node .github/scripts/requests.cjs http://localhost:8787/` and `node .github/scripts/exhibit-audit.cjs http://localhost:8787/` (needs Playwright).
 
 ## Checks: Builds from the EA/PA portal
 
