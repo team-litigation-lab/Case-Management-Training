@@ -12,7 +12,7 @@
   "files": {
     "js/cm-case-flow-data.js": {
       "locked": true,
-      "sha256": "d174ced3fc04225d9fd7588e7037a0117b4ab65af38999e8e4b8c53d23fc69b0",
+      "sha256": "a600013256a53562d802dfa7ff2eea2773827f7f0ecd761ff722d81b279e6bc2",
       "what": "Lesson data — the source of truth for every module"
     },
     "build/case-flow/exhibits/d3.json": {
@@ -27,7 +27,7 @@
     },
     "build/case-flow/scripts/d1.json": {
       "locked": true,
-      "sha256": "864f1b1abdb833e02acf6f1d1cdbd5581dd9a066d592f3233b05a2a2c1c4750c",
+      "sha256": "8b7943117830424c4854b513e22d41cce15ce3a48ddf9e1d35f309087656a82e",
       "what": "Content sources"
     },
     "build/case-flow/scripts/d2.json": {
@@ -67,7 +67,7 @@
     },
     "build/case-flow/slides/clues-d2.json": {
       "locked": true,
-      "sha256": "0c041454b10f19687f56bb84785241e0ae477e1bd8db31debe5c19adf0b4ec32",
+      "sha256": "78b4f8a9205461ca0e86663a0e900787361c3b7b50b11ed90b81de83fc625118",
       "what": "Content sources"
     },
     "build/case-flow/slides/clues-d3.json": {
@@ -87,7 +87,7 @@
     },
     "build/case-flow/slides/d1.json": {
       "locked": true,
-      "sha256": "2ee58136872c871995288381f8fc3442c03f12abfa9de9d2aafdd80373b5e7aa",
+      "sha256": "f3c8fd24c79692cc5b249d5550674a4948ed441094c9e872dcd3bbc8bd771fc9",
       "what": "Content sources"
     },
     "build/case-flow/slides/d2.json": {
@@ -117,7 +117,7 @@
     },
     "build/case-flow/slides/theory-d1.json": {
       "locked": true,
-      "sha256": "19fa806406bb9bb1b0e2648409f647ac599e3838deb0793954bcf3c66b31fee9",
+      "sha256": "773c35838be8c3db85e80866bdcdbc3e04153656f4bc6fd2376f1f7c6aa2a0ab",
       "what": "Content sources"
     },
     "build/case-flow/slides/theory-d2.json": {
@@ -147,12 +147,12 @@
     },
     "js/cm-case-flow-slides.js": {
       "locked": true,
-      "sha256": "ccfda4ba74d037eeea3c301748017ddfa0cdb491c6f46e8c01788b738d6e6d84",
+      "sha256": "154f4daa8575d4cceaee931d91fce39ea0e4861f5e3e842e9c669d9e9aea77cd",
       "what": "Built from the sources — what trainees load"
     },
     "js/cm-case-flow-scripts.js": {
       "locked": true,
-      "sha256": "5b75b1bfe6c639f99dd938a38db5ba08dad10bf034d5b64ba5a2fb3f7c42ff43",
+      "sha256": "4ba445cb3a068cd5b913dd1a88d6d3ba16deafa30d9fe0aebddfc16e4d7c7a90",
       "what": "Built from the sources — what trainees load"
     },
     "js/cm-case-flow-sim.js": {
@@ -187,7 +187,7 @@
     },
     "curriculum/5-day-flow/day1.md": {
       "locked": true,
-      "sha256": "6519256e3fb56e2cbb1b0d6256622bd0be39f022d87b001ae560fa1ccf7fa333",
+      "sha256": "b984d2af2db2de9fef8b163c7f27e3768af96d3a3c20ecd7a299b202ea3822ac",
       "what": "Curriculum documents, built from the sources"
     },
     "curriculum/5-day-flow/day2.md": {
