@@ -65,7 +65,7 @@ const STAGES = {
   bi: {
     file: "A", label: "Track A · BI settlement: the first Net Sheet from the bills", when: "08/12/2026 — Keystone Mutual tenders its $10,000.00 BI limits",
     how: [
-      "Section 1 — the gross actually recovered: Keystone Mutual's $10,000.00 BI limits, tendered 08/12/2026 (KM-26-440871). Harbor Point's MedPay and the Civic's property damage are not recovery.",
+      "Section 1 — the gross actually recovered: Keystone Mutual's $10,000.00 BI limits, tendered 08/12/2026 (KM-26-440871). Harbor Point's MedPay and the property damage to Margaret's Civic are not recovery.",
       "Section 2 — the fee rate from the signed Retainer Agreement (the pre-suit tier: no suit has been filed), then every receipted cost from the Case Cost Ledger, on the row it belongs to.",
       "Section 3 — build the provider ledger line by line from the medical and treatment bills: Riverton Urgent Care, Riverton Spine & Rehab, Lakeside Orthopedics, Summit Imaging, Crescent Pain & Spine, and Peach State's reimbursement claim. Charges in Total Charges, each payment in its own payer column, audit corrections in Adjustments.",
       "Audit every bill before you type it: the 05/04/2026 line billed twice on Riverton's ledger is an Adjustment, not a balance, and Crescent's $1,540.00 patient statement is the in-network contractual write-off.",
