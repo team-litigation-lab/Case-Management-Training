@@ -266,7 +266,7 @@ rep('<script src="/js/lsh-card-frame.js?v=3"></script>', tags(
     # The 5-Day Case Management Flow (John Doe v. Robert Smith): after graded-calls.js, because its
     # dashboard wrapper must run on the finished page, and after cm-skillbuilders.js, whose
     # renderLessonCard it wraps.
-    "cm-case-flow-docs.js?v=13", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=21", "cm-case-flow-scripts.js?v=12", "cm-case-flow-sim.js?v=14", "cm-case-flow-data.js?v=26", "cm-case-dates.js?v=5", "cm-case-flow.js?v=53",
+    "cm-case-flow-docs.js?v=14", "cm-case-flow-art.js?v=3", "cm-case-flow-slides.js?v=21", "cm-case-flow-scripts.js?v=12", "cm-case-flow-sim.js?v=14", "cm-case-flow-data.js?v=27", "cm-case-dates.js?v=5", "cm-case-flow.js?v=53",
     "show-password.js?v=1", "lsh-card-frame.js?v=3"))
 
 # Training tools open signed in (js/lsh-tool-links.js, the same file in every LSH course repo: CMS

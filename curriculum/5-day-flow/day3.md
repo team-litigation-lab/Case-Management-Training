@@ -929,7 +929,7 @@ A full-width Specials ledger on a cream card, provider rows in mono under five c
 
 **Scenario.** File date: early July 2026. Lakeside Orthopedics declared MMI on 06/12/2026; Dr. Reyes's Causation Letter arrived 06/19/2026. Every bill is in: Riverton Urgent Care $685.00; Riverton Spine & Rehab's statement, 34 lines × $185.00 = $6,290.00, with its visit notes; Lakeside Orthopedics three visits at $640.00; Summit Imaging $2,395.00; Crescent Pain & Spine $3,400.00 (Peach State paid $1,860.00); Riverton Drug $312.40. Northgate's HR letter verifies 9 missed shifts at 8 h × $22.00.
 
-**Execution prompt.** Build John Doe's audited Specials ledger in the CMS. Enter each provider's charges with dates, billed amount and who paid. Reconcile Riverton Spine & Rehab's billed lines against its visit notes and remove any line no visit supports. Total the medical, add the verified wages, and show billed beside paid. Put future medical in the narrative, not the ledger. List every lien with its amount, and re-verify the three policy-limits targets in order. Graded judgment: what you flag for Atty. Thorne instead of deciding it yourself.
+**Execution prompt.** Build John Doe's audited Specials ledger in the CMS. Start with the first-party medical-payment ledger, PIP where a state requires it and here Harbor Point's MedPay ledger: match each payment to its bill and confirm whether the limit is exhausted. Enter each provider's charges with dates, billed amount and who paid. Reconcile Riverton Spine & Rehab's billed lines against its visit notes and remove any line no visit supports. Total the medical, add the verified wages, and show billed beside paid. Put future medical in the narrative, not the ledger. List every lien with its amount, and re-verify the three policy-limits targets in order. Graded judgment: what you flag for Atty. Thorne instead of deciding it yourself.
 
 | | |
 |---|---|
@@ -938,6 +938,7 @@ A full-width Specials ledger on a cream card, provider rows in mono under five c
 
 **Verification checkpoints**
 
+- [ ] First-party medical-payment ledger audited (PIP where a state requires it; on this file there is no PIP, so Harbor Point's MedPay ledger): five payments matched to five bills ($685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00), the limit exhausted with the 06/12/2026 payment, no wages paid, and nothing billed to MedPay after exhaustion
 - [ ] Riverton Spine & Rehab reconciled: 33 visits in the notes (16 from 02/24 to 04/02/2026, 17 from 04/21 to 06/05/2026) against 34 lines; the 05/04/2026 duplicate ($185.00) removed: $6,290.00 → $6,105.00. A corrected itemized statement requested from Riverton Spine & Rehab (a billing correction, not a reduction). Until it arrives, the Lien Tracker shows $6,290.00 claimed and $6,105.00 audited; any reduction is Atty. Thorne's to negotiate.
 - [ ] Medical: $685.00 + $6,105.00 + $640.00 + $2,395.00 + $640.00 + $3,400.00 + $640.00 + $312.40 = $14,817.40 (down from $15,002.40)
 - [ ] Wages: 9 shifts × 8 h × $22.00 = $1,584.00, Northgate HR letter attached; total Specials $14,817.40 + $1,584.00 = $16,401.40
@@ -1528,36 +1529,39 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (10 questions):
+**Auto-graded share of the day's Knowledge Check** (11 questions):
 
-1. Riverton Spine & Rehab billed 34 lines at $185.00, but its treatment notes show 33 visits. After the audit, John Doe's medical Specials are:  
+1. Before the demand, which first-party ledger do you audit on John Doe's file, and what must it show?  
+   A PIP ledger: every state requires PIP · **✓ Harbor Point's MedPay ledger: each payment matched to its bill and the $5,000.00 limit exhausted, since there is no PIP on this file** · Peach State's EOBs only · None: first-party payments never touch the demand  
+   *PIP exists only where a state requires it; this file has none, so the first-party ledger is Harbor Point's MedPay: five payments, five bills, $5,000.00, exhausted on 06/12/2026.*
+2. Riverton Spine & Rehab billed 34 lines at $185.00, but its treatment notes show 33 visits. After the audit, John Doe's medical Specials are:  
    $15,002.40 · **✓ $14,817.40** · $16,401.40 · $13,277.40  
    *$15,002.40 less the duplicate 05/04/2026 line ($185.00) = $14,817.40. $16,401.40 adds the $1,584.00 in wages; $13,277.40 is the paid-and-owed column, not the billed medical total.*
-2. Lakeside Orthopedics declared MMI on 06/12/2026 and noted possibly 1–2 repeat injections within 24 months. Where does that $3,400–$6,800 go?  
+3. Lakeside Orthopedics declared MMI on 06/12/2026 and noted possibly 1–2 repeat injections within 24 months. Where does that $3,400–$6,800 go?  
    Into the Specials ledger at $6,800 · Nowhere: it hasn't been incurred · **✓ Into the demand narrative as future medical, outside the Specials total** · Onto Riverton Spine & Rehab's LOP balance  
    *The audited Specials total is charges already incurred. Future care is still economic damage, presented in the narrative with the MMI note behind it, never mixed into the audited total.*
-3. Crescent Pain & Spine billed $3,400.00 for the injection; Peach State paid $1,860.00 and Crescent wrote off the rest. Who decides whether the demand claims the billed or the paid amount?  
+4. Crescent Pain & Spine billed $3,400.00 for the injection; Peach State paid $1,860.00 and Crescent wrote off the rest. Who decides whether the demand claims the billed or the paid amount?  
    The Case Manager, who built the ledger · Dana Whitfield, Keystone's adjuster · Peach State, as the plan asserting reimbursement · **✓ Atty. Thorne, under the governing collateral-source rule**  
    *It turns on a collateral-source rule that varies by state. The Case Manager shows both columns; the choice is counsel's.*
-4. In the pre-demand strategy session, which of these may the Case Manager recommend?  
+5. In the pre-demand strategy session, which of these may the Case Manager recommend?  
    **✓ Serving the demand by certified mail with return receipt and by email, so receipt can be proved** · Demanding the $10,000 BI limits · Claiming billed rather than paid amounts · Sending the Host UM demand now, alongside the BI demand  
    *Service method is operational, so you may recommend it, within whatever the governing statute requires for a Time-Limited Demand (Atty. Thorne confirms and approves). The demand figure and billed-vs-paid are his legal calls. A UM demand now would be premature: the UM layers owe nothing until BI is exhausted, and settling BI without their consent is what puts them at risk.*
-5. Northgate's HR letter verifies 9 missed shifts at 8 h × $22.00, but five of them (02/09–02/13/2026) fall before John Doe's first treatment and carry no provider work note. In the audited Specials, the Case Manager:  
+6. Northgate's HR letter verifies 9 missed shifts at 8 h × $22.00, but five of them (02/09–02/13/2026) fall before John Doe's first treatment and carry no provider work note. In the audited Specials, the Case Manager:  
    Drops the five shifts and claims only four: $704.00 · Asks Dr. Reyes for a work note backdated to cover 02/09–02/13/2026 · **✓ Keeps $1,584.00, flags the five shifts with Northgate's Attendance Record (called out citing neck pain) as their support, and routes them to Atty. Thorne** · Keeps $1,584.00 and leaves the five shifts unmentioned so Keystone doesn't notice them  
    *Flag, never drop, never hide. 9 × 8 h × $22.00 = $1,584.00, verified by Northgate. Five of the shifts fall inside the 14-Day Gap: record them exactly as the Attendance Record shows them, beside John Doe's own explanation of the gap. How they are presented is Atty. Thorne's call.*
-6. Who determines MMI on John Doe's file?  
+7. Who determines MMI on John Doe's file?  
    The Case Manager, from the bills · **✓ His treating provider: Lakeside Orthopedics' 06/12/2026 note** · Keystone's adjuster · Atty. Thorne  
    *MMI is a medical determination, never yours: record it from the treating provider's note, with the future-care plan.*
-7. Which four objectives does the pre-demand audit test?  
+8. Which four objectives does the pre-demand audit test?  
    **✓ Verification, Valuation, Risk, Compliance** · Speed, Volume, Tone, Format · Liability, Venue, Jury, Judge · Clinical, Functional, Financial, Legal  
    *Do the facts match the evidence, is every dollar justified, where will the defense attack, and are the SOL and any statutory terms confirmed?*
-8. Why does Margaret Doe's Civic stay out of his BI Specials?  
+9. Why does Margaret Doe's Civic stay out of his BI Specials?  
    **✓ It runs on its own Keystone PD claim, outside the $40,000** · Property Damage is never recoverable · Bluewater already paid it · It is future medical  
    *Special damages include Property Damage, but the Civic is on its own PD claim, so the BI Specials are medical plus wages.*
-9. Briefing Atty. Thorne for the strategy session, what comes first?  
+10. Briefing Atty. Thorne for the strategy session, what comes first?  
    The full chronology · **✓ The bottom line in one sentence: where the file stands and what you need** · The risks · Your recommended demand figure  
    *Bottom line first. A brief that opens with the chronology buries the decision, and the demand figure is his call.*
-10. After the strategy session, how are Atty. Thorne's decisions recorded?  
+11. After the strategy session, how are Atty. Thorne's decisions recorded?  
    From memory at the end of the week · **✓ The same day, in his words and dated, with a task for each and the Case Plan re-routed** · Only in an email · In the demand letter  
    *Record the decisions the same day, attributed and dated; a task for each with an owner and a date; the Case Plan marked superseded and re-routed.*
 
