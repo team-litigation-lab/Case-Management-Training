@@ -137,3 +137,28 @@ audit that follows either one passes. Keeping the sources consistent is the docu
 - Every UPL boundary holds: the Case Manager audits, assembles, asks and files; the attorney decides terms,
   privilege, extensions and what is exchanged.
 - Every date `MM/DD/YYYY`, every figure as `case-file.md` has it, every document id real, every word limit kept.
+
+## Notes & Action Plan (`notes`)
+
+One per activity whose Your Case slide is a message to work (the voicemail on `d1m3-a1`): it takes the place of
+the document thumbnails beside it. The trainee transcribes the message (graded against `transcribe.facts`, then the
+transcript, `spoken` from the sim event, and the facts are shown as the answer key), writes an action plan (graded
+against `plan.required`; each step's `key` is its answer key, shown once the plan is handed in), then works the plan:
+the `emails` in the Email Simulator (refused while one leaves out a `required` element or matches a `forbid`
+pattern, answered with `reply` once it doesn't) and the `call` (the activity's live call in `build/case-flow/sim`).
+
+```json
+"d1m3-a1": {
+  "title": "…", "kicker": "…",
+  "transcribe": {"brief": "…", "facts": [{"label": "…", "match": ["regex", …]}]},
+  "plan": {"brief": "…", "required": [{"id": "…", "label": "…", "hint": "…", "match": ["regex"], "key": "…"}]},
+  "emails": [{"id": "…", "title": "…", "why": "…", "to": "…", "cc": "…", "subject": "…", "brief": "…",
+              "required": [{"id": "…", "label": "…", "hint": "…", "match": ["regex"]}],
+              "forbid": [{"match": "regex", "why": "…"}],
+              "reply": {"from": "…", "date": "MM/DD/YYYY", "time": "…", "subject": "…", "body": "…"}}],
+  "call": {"title": "…", "why": "…", "goals": ["…"]}
+}
+```
+Every `match` pattern must match a correct answer and none of the wrong ones; `forbid` catches what must not be
+said (an injury detail to the adverse carrier). The record (`REC.notes`) goes to the trainer with the module's
+Learning Check.

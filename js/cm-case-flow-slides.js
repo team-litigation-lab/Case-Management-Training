@@ -1091,60 +1091,60 @@ window.CM_CF_SLIDES = {
  },
  "d1m3-a1": {
   "image": "client-call",
-  "situation": "John Doe's retainer is signed and the matter is open. **Nothing has been sent** yet, and **Robert Smith's carrier** has already called him.",
+  "situation": "John Doe's voicemail: **Keystone asked to record him**, his neck is stiff, and **nothing has reached him** from the firm.",
   "steps": [
-   "Build **all six packet sections**",
-   "Fill each with the **firm's standing instructions**",
-   "Make the **Property Damage section** specific to this file",
-   "Name **the most urgent instruction** and how you'll confirm understanding",
-   "**Log delivery** with date and method"
+   "**Transcribe the voicemail**, then write your action plan",
+   "Email Dana Whitfield: **no direct contact**; statements through the firm",
+   "Call John: his neck, **treatment status**, next steps, no outside talk",
+   "Coordinate his first visit **with Riverton Urgent Care**",
+   "Send the **Direction Packet**; log every contact in the CMS"
   ],
-  "deliver": "A complete, delivered, logged packet **specific to John Doe's file**",
-  "purpose": "The other side **has already called him**: a generic packet arrives too late",
-  "principle": "All adverse carrier contact **goes through the firm**",
+  "deliver": "A graded plan, both emails sent, the call taken, **the packet logged**",
+  "purpose": "The other side **has already called him**: today's plan stops the next call",
+  "principle": "Recorded Statements are requested **through the firm**, never from the client",
   "checks": [
-   "**All six sections** present and populated",
-   "Treatment direction stated: **treatment hasn't begun**",
-   "Property Damage section states **whose claim it is**",
-   "Atty. Elijah Thorne listed as **Lead Counsel**",
-   "Adverse-contact instruction made urgent, **with a confirmation step**"
+   "Transcript and **action plan** handed in",
+   "Dana told in writing: **no direct contact**",
+   "His neck and **treatment status** checked; next steps given",
+   "Riverton Urgent Care contacted; **Direction Packet** logged",
+   "No Recorded Statement, no outside talk: **he repeated it**"
   ],
   "dos": [
-   "Plan how you'll know **he read it**"
+   "Tell the carrier **in writing**, not only John"
   ],
   "donts": [
-   "A **generic packet** that ignores the file's history"
+   "Telling Dana **anything about his injuries**"
   ]
  },
  "d1m3-l2": {
   "image": "repair-shop",
   "roadmap": {
-   "title": "Property Damage: the Roadmap",
+   "title": "Property Damage, End to End",
    "merge": true,
    "steps": [
     {
-     "label": "Written estimate first",
-     "text": "No Repair Estimate, **no position** with the client"
+     "label": "Liability accepted",
+     "text": "Verify the carrier **accepted PD liability in writing**"
     },
     {
-     "label": "Inspection window",
-     "text": "Five days from the letter; record when it opens"
+     "label": "Inspection and estimates",
+     "text": "Inspection window recorded; the estimate, then each supplemental"
     },
     {
-     "label": "Audit estimate and photos",
-     "text": "Bill against estimate; point of impact, frame, undercarriage"
+     "label": "Towing and storage",
+     "text": "Fees grow daily: **settle who pays** and move the car"
     },
     {
-     "label": "Repair or Total Loss",
-     "text": "The carrier's threshold against **actual cash value**, in writing"
+     "label": "Total Loss valuation",
+     "text": "Repair cost against ACV; check the Valuation Report"
     },
     {
-     "label": "Loss of Use",
-     "text": "Each day without a vehicle, at a comparable rental rate"
+     "label": "Personal contents",
+     "text": "Items in the vehicle: list, photos, receipts, claimed on PD"
     },
     {
-     "label": "Escalate disputes",
-     "text": "Document and route; no ad hoc arguing with adjusters"
+     "label": "Rental coordination",
+     "text": "Carrier pays; **the firm coordinates**, never provides or pays"
     }
    ]
   },
@@ -1228,41 +1228,41 @@ window.CM_CF_SLIDES = {
     "D2#6"
    ],
    "framework": {
-    "title": "Property Damage (PD) Deep Dive",
+    "title": "Property Damage Severity and the BI Roadmap",
     "kind": "table",
     "head": [
-     "Check",
-     "What you audit",
-     "Why it matters"
+     "Case phase",
+     "What the PD shows",
+     "How it strengthens BI"
     ],
     "rows": [
      [
-      "Photos",
-      "Point-of-impact clarity, including the undercarriage and frame",
-      "Physical proof of the impact behind the injury claim"
+      "Intake",
+      "Tow from the scene, airbags, crush photos",
+      "Flags a serious injury early; **preserve the evidence**"
      ],
      [
-      "Estimates vs. Actuals",
-      "The insurance estimate against the final body shop bill",
-      "**Supplementals prove hidden** structural damage"
+      "Treatment",
+      "Major structural impact, frame or pillar damage",
+      "The force matches the injuries the providers record"
      ],
      [
-      "Total Loss/Value",
-      "The CCC One or other Valuation Report, line by line",
-      "So the client isn't lowballed on the vehicle's value"
+      "Demand",
+      "Estimates, supplementals, repair cost, photos",
+      "**Answers the low-impact defense** before it is raised"
      ],
      [
-      "The Scene Audit",
-      "Photos, video and damage against how the crash happened",
-      "The physics of the claim must be possible"
+      "Negotiation",
+      "The same photos and repair figures, on file",
+      "Keeps the injury claim from being called minor"
      ],
      [
-      "Rental",
-      "Who authorizes, daily cap; 30 days max unless the Dec Page differs",
-      "**Uncovered days are the client's cost**"
+      "Litigation",
+      "Preserved vehicle, photos, repair records",
+      "Physical proof for experts and trial"
      ]
     ],
-    "note": "Audit Property Damage as carefully as the medicals: it is physical evidence of how hard the impact was."
+    "note": "Audit Property Damage as carefully as the medicals: it is **physical evidence** of how hard the impact was."
    }
   },
   "clues": {
@@ -1297,7 +1297,7 @@ window.CM_CF_SLIDES = {
   "hook": "A rental collected **on a promise** becomes the client's bill.",
   "points": [
    "Rental is on **the owner's PD claim**: Margaret Doe's, not John's",
-   "The adverse carrier's **PD coverage** pays the rental",
+   "The carrier's **PD coverage** pays; the firm only coordinates",
    "Confirm authorizer, rate cap and **duration in writing** first",
    "Coverage is **usually 30 days** unless the Dec Page differs"
   ],
@@ -1342,6 +1342,7 @@ window.CM_CF_SLIDES = {
      "text": "The adverse carrier's Property Damage coverage pays the 3P rental; the owner's policy **only if there's none**",
      "more": [
       "On accepted liability, the adverse carrier's Property Damage coverage provides the rental: here, Keystone's",
+      "The law firm never provides or pays for a rental: it **coordinates with the carrier**",
       "The owner's own policy, or the rental company's self-insurance, only where there is no 3P coverage",
       "For example, a liability denial, or a dispute over fault still open",
       "Get the carrier's rental authorization in writing before the client collects a car"
@@ -2834,6 +2835,19 @@ window.CM_CF_SLIDES = {
    "Referrals: **options and logistics**, never which care"
   ],
   "upl": "Give the options and book **his choice**; never recommend a provider",
+  "document": {
+   "name": "Letter of Protection",
+   "doc": "RS13",
+   "definition": "The firm's signed promise that a provider's **reasonable charges are paid** from any recovery, so treatment starts now; not insurance.",
+   "purpose": "Lets care continue when no payer applies: the provider **defers collection** in exchange for payment protected from the settlement, judgment or verdict.",
+   "evidence": "Fixes the lien: Riverton Spine & Rehab's charges come from the recovery, and it shows **John Doe stays responsible** whether or not there is one.",
+   "handling": [
+    "Check **every payer first**; Atty. Thorne approves the LOP",
+    "Signed **before the first visit**: Riverton's 02/23/2026, first visit 02/24",
+    "File it; request **the itemized ledger** every 30 days",
+    "What it means for his recovery is **Atty. Thorne's to explain**"
+   ]
+  },
   "job": [
    [
     "No payer covers the care",
@@ -3875,6 +3889,141 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
+ "d2m3-cause": {
+  "image": "medical-visit",
+  "hook": "Proving negligence is **only half the battle**: prove the collision caused the harm.",
+  "points": [
+   "Fault proves negligence; **causation and damages** must be proved too",
+   "A medical professional writes it, to **reasonable medical probability**",
+   "Atty. Thorne requests it; you **assemble, track and check**",
+   "Check it against the file: **date of loss, level, visits**"
+  ],
+  "upl": "You request, track, check and file; **never draft or coach** the opinion",
+  "document": {
+   "name": "Causation Letter",
+   "doc": "RS19",
+   "definition": "A formal letter: a **medical professional's opinion** linking the accident to the specific injuries, from a treating physician, surgeon or independent medical expert.",
+   "purpose": "Proves the half negligence can't: that the defendant's conduct **directly caused** the specific harm, medical expenses and ongoing limitations claimed.",
+   "evidence": "Its opinions, held more likely than not, tie the C5-C6 herniation to 02/06/2026 and **answer the 14-Day Gap** and 2021 visits.",
+   "handling": [
+    "Atty. Thorne requests it; you **assemble the record set** and docket follow-up",
+    "On arrival, **check it against the file**: date of loss, level, visits",
+    "File it under Medical; **cite it** on the Gap Explanation Record",
+    "**Never draft or coach** the opinion; what it means stays Atty. Thorne's"
+   ]
+  },
+  "job": [
+   [
+    "Atty. Thorne seeks an opinion",
+    "Assemble records; docket follow-up",
+    "Records Requests · Calendar",
+    "Request under his signature"
+   ],
+   [
+    "Letter arrives 06/19/2026",
+    "Check it against the file",
+    "CMS → Documents → Medical",
+    "Mismatches flagged to Atty. Thorne"
+   ],
+   [
+    "Letter checked",
+    "File it; cite it; route it",
+    "Gap Explanation Record · Tasks",
+    "Cited on the 14-day band"
+   ]
+  ],
+  "dos": [
+   "Send the doctor **the complete record set**, priors included",
+   "Read the letter **against the file** the day it arrives",
+   "Check every injury claimed has **a medical link**"
+  ],
+  "donts": [
+   "Suggesting or **shaping the doctor's words**",
+   "Leaving **the 2021 records** out of the set",
+   "Telling John Doe the letter **raises his claim's value**"
+  ],
+  "theory": {
+   "lead": "Negligence is **only half the battle**: a personal injury claim must also prove causation and damages, and a Causation Letter is medicine's proof of the link.",
+   "concepts": [
+    {
+     "term": "The Two Halves",
+     "text": "Duty and breach prove negligence; **causation and damages** prove what it cost. A claim needs both halves proved.",
+     "more": [
+      "Negligence on this file: Robert Smith's citation for failure to stop, Ruth Calloway, the doorbell video",
+      "Causation: the collision caused the C5-C6 herniation, the treatment it needed and the residual right-arm symptoms",
+      "Damages: the expenses and limitations that follow, **proved by records**, not adjectives"
+     ]
+    },
+    {
+     "term": "Who Writes It",
+     "text": "A treating physician or surgeon who examined the patient, or **an independent medical expert** who reviews the records.",
+     "more": [
+      "Dr. Alana Reyes, orthopaedic spine surgeon at Lakeside Orthopedics, saw John Doe on 03/05, 03/27 and 06/12/2026",
+      "A treating doctor's opinion rests on her own exams; an expert's rests on **the records she reads**",
+      "Either way, Atty. Thorne requests it, with the client's written authorization"
+     ]
+    },
+    {
+     "term": "Reasonable Medical Probability",
+     "text": "The standard its opinions are held to: **more likely than not**. “Possibly” or “could be” generally falls short.",
+     "more": [
+      "Dr. Reyes holds each opinion “to a reasonable degree of medical probability”",
+      "The exact standard varies by state: **Atty. Thorne confirms** the governing rule",
+      "Weak wording is flagged to him; nobody asks the doctor to strengthen it"
+     ]
+    },
+    {
+     "term": "Aggravation and Prior Conditions",
+     "text": "A prior injury in the same region makes it an aggravation question; John Doe's 2021 care was **a different region**.",
+     "more": [
+      "Birch Avenue Chiropractic, 2021: three low-back visits, resolved; no prior neck complaint",
+      "Dr. Reyes: the 2021 care is unrelated and **has no bearing** on the cervical injury",
+      "Whether aggravation or the eggshell rule matters at all is Atty. Thorne's call"
+     ]
+    }
+   ],
+   "pages": [
+    "D3#17",
+    "D2#15"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Atty. Thorne's request letter to Dr. Reyes is going out.",
+     "Birch Avenue Chiropractic's 2021 low-back notes sit in the file.",
+     "Every chart, the 2021 ones too, travels with the request."
+    ],
+    [
+     "Dr. Reyes's letter dated 06/19/2026 lands on the desk.",
+     "The MRI's history line once carried a 02/16/2026 injury date.",
+     "Date of loss, level, side and visit dates get compared that day."
+    ],
+    [
+     "Robert Smith's citation for failure to stop is on file.",
+     "Keystone can concede fault and still pay little.",
+     "Each injury and expense gets tied to a physician's opinion."
+    ]
+   ],
+   "donts": [
+    [
+     "Dr. Reyes's first version reads a little cautious.",
+     "An email to Lakeside Orthopedics proposes stronger phrasing.",
+     "It offers a ready-made sentence for Dr. Reyes to sign."
+    ],
+    [
+     "The request set for Dr. Reyes is being assembled.",
+     "Birch Avenue Chiropractic's low-back visits feel risky to include.",
+     "They stay behind, and the opinion is silent about them."
+    ],
+    [
+     "John Doe calls after hearing the letter arrived.",
+     "He asks what it means for his case.",
+     "The answer given is that it makes his case worth more."
+    ]
+   ]
+  }
+ },
  "d2m3-a2": {
   "image": "calendar-gap",
   "situation": "06/22/2026. MMI reached 06/12/2026; Dr. Reyes's **06/19/2026 Causation Letter** is in. Atty. Thorne wants **the Gap Explanation Record** before the pre-demand strategy session.",
@@ -3909,7 +4058,8 @@ window.CM_CF_SLIDES = {
   "questions": [
    "Name the **four reasons** for the 14-day gap and, beside each, its corroborating document and date.",
    "Rewrite “Was it because you had no car?” **without suggesting the reason**. What does the leading version cost?",
-   "“Is this gap going to wreck my case?” Give **your exact answer**, then what you do next."
+   "“Is this gap going to wreck my case?” Give **your exact answer**, then what you do next.",
+   "Fault is proved. What else must the file prove, with **which document**, and whose part is what?"
   ]
  },
  "d2m4-l1": {

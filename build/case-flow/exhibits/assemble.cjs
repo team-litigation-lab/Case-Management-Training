@@ -88,13 +88,13 @@ function unsourced(text, pool){
   return [...new Set(missing)];
 }
 
-const out = {audits: {}, emails: {}};
+const out = {audits: {}, emails: {}, notes: {}};
 const AUDIT_OF = out.audits;   // an activity's audit, for the confirmation on the same activity
 for (const f of fs.readdirSync(HERE).filter(f => /^d\d\.json$/.test(f)).sort()){
   let part;
   try{ part = JSON.parse(fs.readFileSync(path.join(HERE, f), "utf8")); }
   catch(e){ errors.push(`${f}: not valid JSON (${e.message})`); continue; }
-  for (const k of Object.keys(part)) if(!["audits", "emails"].includes(k)) errors.push(`${f}: unknown key "${k}"`);
+  for (const k of Object.keys(part)) if(!["audits", "emails", "notes"].includes(k)) errors.push(`${f}: unknown key "${k}"`);
 
   for (const [id, a] of Object.entries(part.audits || {})){
     const at = `${f} audits.${id}`, b = BLOCKS[id], day = taughtOn[id] || (b && b.day);
@@ -207,6 +207,42 @@ for (const f of fs.readdirSync(HERE).filter(f => /^d\d\.json$/.test(f)).sort()){
       }
     }
     out.emails[id] = e;
+  }
+  // Notes & Action Plan: a message on the file transcribed and checked against what was said, an action plan graded
+  // against the steps it must hold (each with its answer key), and the emails and the call that work the plan
+  const rx = (w, p) => { try{ new RegExp(p, "i"); }catch(err){ errors.push(`${w}: not a valid regular expression (${err.message})`); } };
+  for (const [id, n] of Object.entries(part.notes || {})){
+    const at = `${f} notes.${id}`, b = BLOCKS[id];
+    if(!b || b.kind !== "activity"){ errors.push(`${at}: not a Skill Activity in js/cm-case-flow-data.js`); continue; }
+    if(out.notes[id]) errors.push(`${at}: a second Notes & Action Plan for the same activity`);
+    cap(`${at}.title`, n.title, 11, "title"); cap(`${at}.kicker`, n.kicker, 16, "kicker");
+    const t = n.transcribe || {}, facts = t.facts || [];
+    cap(`${at}.transcribe.brief`, t.brief, 40, "brief");
+    if(facts.length < 3 || facts.length > 8) errors.push(`${at}.transcribe.facts: ${facts.length}, expected 3–8`);
+    facts.forEach((x, i) => { cap(`${at}.transcribe.facts[${i}].label`, x.label, 16, "label"); if(!(x.match || []).length) errors.push(`${at}.transcribe.facts[${i}].match: none`); (x.match || []).forEach((p, j) => rx(`${at}.transcribe.facts[${i}].match[${j}]`, p)); });
+    const pl = n.plan || {}, req = pl.required || [], ids = new Set();
+    cap(`${at}.plan.brief`, pl.brief, 40, "brief");
+    if(req.length < 3 || req.length > 8) errors.push(`${at}.plan.required: ${req.length}, expected 3–8`);
+    req.forEach((r, i) => { const w = `${at}.plan.required[${i}]`;
+      if(!r.id || ids.has(r.id)) errors.push(`${w}: missing or duplicate id`); ids.add(r.id);
+      cap(`${w}.label`, r.label, 14, "label"); cap(`${w}.hint`, r.hint, 26, "hint"); cap(`${w}.key`, r.key, 40, "answer key");
+      if(!(r.match || []).length) errors.push(`${w}.match: none`); (r.match || []).forEach((p, j) => rx(`${w}.match[${j}]`, p)); });
+    (n.emails || []).forEach((e, i) => { const w = `${at}.emails[${i}]`;
+      if(!e.id) errors.push(`${w}: missing id`);
+      cap(`${w}.title`, e.title, 10, "title"); cap(`${w}.why`, e.why, 24, "why"); cap(`${w}.brief`, e.brief, 50, "brief");
+      ["to", "subject"].forEach(k => { if(!e[k]) errors.push(`${w}.${k}: missing`); });
+      const rq = e.required || [];
+      if(rq.length < 3 || rq.length > 6) errors.push(`${w}.required: ${rq.length}, expected 3–6`);
+      rq.forEach((r, k) => { cap(`${w}.required[${k}].label`, r.label, 14, "label"); cap(`${w}.required[${k}].hint`, r.hint, 24, "hint"); (r.match || []).forEach((p, j) => rx(`${w}.required[${k}].match[${j}]`, p)); if(!(r.match || []).length) errors.push(`${w}.required[${k}].match: none`); });
+      (e.forbid || []).forEach((x, k) => { rx(`${w}.forbid[${k}].match`, x.match); cap(`${w}.forbid[${k}].why`, x.why, 24, "why"); });
+      const rep = e.reply || {};
+      if(!DATE.test(rep.date || "")) errors.push(`${w}.reply.date: "${rep.date}" is not MM/DD/YYYY`);
+      ["from", "time", "subject"].forEach(k => { if(!rep[k]) errors.push(`${w}.reply.${k}: missing`); });
+      cap(`${w}.reply.body`, rep.body, 90, "reply body");
+    });
+    if(n.call){ cap(`${at}.call.title`, n.call.title, 10, "title"); cap(`${at}.call.why`, n.call.why, 24, "why");
+      if(!(n.call.goals || []).length) errors.push(`${at}.call.goals: none`); (n.call.goals || []).forEach((g, k) => cap(`${at}.call.goals[${k}]`, g, 16, "goal")); }
+    out.notes[id] = n;
   }
 }
 if(!Object.keys(out.audits).length) errors.push("no audits found in build/case-flow/exhibits/dN.json");

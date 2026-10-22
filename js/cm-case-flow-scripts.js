@@ -247,16 +247,16 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m3-a1": {
   "case": {
-   "say": "John Doe's retainer is signed and his matter is open in the CMS. Nothing has gone out to him yet. And a voicemail just landed on the file, dated 02/10/2026. Before we talk about it, play it, and take notes the way you would at your own desk: who called, what happened, what he needs, which number to call back. Then check your notes against the message before you act. One detail in there changes what this packet has to do, so listen for it.",
-   "ask": "From the voicemail alone, what has already happened on this file that the packet now has to deal with?"
+   "say": "John Doe's retainer is signed and his matter is open, but nothing has gone out to him yet. And a voicemail just landed on the file, dated 02/10/2026. Where you'd normally see documents beside it, you've got your Notes and Action Plan instead. Play the message and type it out as he says it, start to finish. When you hand it in, you'll see the transcript and every fact you should have caught. Then you write your plan, in the order you'd work it today, and that's graded too, with the answer key straight after.",
+   "ask": "From the voicemail alone, what has already happened on this file that your plan has to deal with first?"
   },
   "task": {
-   "say": "Now you'll assemble John Doe's onboarding Direction Packet in CMS Onboarding, under Direction Packet. Build all six sections and populate each with the firm's standing instructions, and make the Property Damage section specific to this file. Then, because the adverse carrier has already called him, tell me which instruction is now most urgent and how you'll confirm he understood it. You'll also take a live call from John Doe. Route all Keystone contact to the firm, no Recorded Statement, have him repeat the instruction back, give him the treatment direction, since he hasn't started, and confirm the Property Damage details and how he'll get the packet. Then log delivery. What you hand in is a complete, delivered, logged packet.",
-   "ask": "Read your treatment direction out loud. Would it make John Doe book an appointment today?"
+   "say": "Now you work the plan. First, an email to Dana Whitfield at Keystone: the firm represents John Doe, she doesn't contact him directly, and any request for a Recorded Statement comes through the firm. Not a word about his neck. Then call John back on his cell. Ask about the stiff neck and whether he's seen anyone, tell him the next steps, and have him say the instruction back: no Recorded Statement, and no talking about the case with anyone outside the firm. Then coordinate his first visit with Riverton Urgent Care. Last, the Direction Packet, all six sections, delivered, and every contact logged.",
+   "ask": "Why does the instruction go to Dana in writing, and not only to John on the phone?"
   },
   "check": {
-   "say": "Let's check the packet before you log it. All six sections should be there and populated, with every standing instruction showing up in the Do's and Don'ts. Is the treatment direction stated with real urgency, given that treatment hasn't begun? Does the Property Damage section name the rental parameters you need to confirm? Your communication protocol should route all adverse carrier contact to the firm, and the contacts list should show Atty. Elijah Thorne as Lead Counsel. Delivery logged, with date and method. And did you name the adverse-contact instruction as the urgent one, with a real confirmation step? Sending isn't confirming. Now I'll play John Doe, confused, in pain, already called by the other side, and receive one of your packets.",
-   "ask": "How will you actually know John Doe read the packet, not just received it?"
+   "say": "Let's check the work before you log it. Your transcript and plan are handed in, and you've read them against the key. Dana has it in writing: the firm represents him, no direct contact, statements through the firm, and nothing about his injuries. On the call, you asked about his neck and his treatment status, gave him next steps, and he repeated the instruction back to you. Riverton Urgent Care knows he's coming and where records go. The packet has all six sections, the Property Damage section names the Civic's owner, and every contact is logged. And Atty. Thorne heard today that Keystone called a represented client.",
+   "ask": "How will you actually know John Doe understood the instruction, not just heard it?"
   }
  },
  "d1m3-l2": {
@@ -265,11 +265,11 @@ window.CM_CF_SCRIPTS = {
    "ask": "Has anyone here had a car totalled? Did the payout match what you still owed on it?"
   },
   "theory": {
-   "say": "Property Damage has its own road: the written Repair Estimate first, the five-day inspection window, the estimate audited against the body shop bill, repair or Total Loss against actual cash value, Loss of Use, and any dispute documented and escalated. Now the ideas behind it. The scene audit checks that the photos, video and damage match how the crash happened. The initial estimate prices what you can see; a supplemental, written after teardown, is proof of impact severity for the injury claim too. Past the repair-to-ACV threshold, the carrier pays the vehicle's value from its Valuation Report, and you verify that report line by line. And rental: confirm who authorizes it and the daily cap. Coverage usually runs 30 days at most, unless the Dec Page says otherwise.",
+   "say": "Property Damage runs end to end in six steps, and you just need the process. First, verify the carrier accepted PD liability in writing. Then the inspection and the estimates, the initial one and each supplemental. Then towing and storage, which grow every day, so settle who pays. Then Total Loss: repair cost against actual cash value, from the carrier's Valuation Report, checked line by line. Then any personal contents in the car, listed with photos and receipts. And last, the rental, which the carrier pays and the firm only coordinates. The scene audit sits under all of it: the damage has to match how the crash happened.",
    "ask": "Why would a supplemental estimate matter to the injury claim, not just the repair?"
   },
   "frame": {
-   "say": "This is the Property Damage deep dive, five things to look at. Photos first: you want point-of-impact clarity, including the undercarriage and the frame, because that's physical proof of the impact behind the injury claim. Then estimates versus actuals: put the insurance estimate next to the final body shop bill, because supplementals prove hidden structural damage. Then Total Loss and value: go through the CCC One or other Valuation Report line by line, so the client isn't lowballed on what the car was worth. And the scene audit: photos, video and damage, checked against how the crash happened. The physics of the claim has to be possible. And rental: check who authorizes it and the daily cap, and remember coverage usually stops at 30 days unless the Dec Page says otherwise, because uncovered days are the client's cost.",
+   "say": "Here's why Property Damage matters to John Doe's injury claim, phase by phase. At intake, a tow from the scene, airbags and crush photos flag a serious injury early, so preserve them. During treatment, major structural damage, a frame or a pillar, shows the force behind the injuries his providers are recording. At the demand, the estimates, the supplementals and the photos answer the low-impact defense before Keystone raises it. In negotiation, the same proof keeps the injury from being called minor. And in litigation, the preserved vehicle and the repair records are physical evidence for the experts. Audit the Property Damage as carefully as you audit the medicals.",
    "ask": "If the final body shop bill comes in well above the first estimate, what does that tell you?"
   },
   "rules": {
@@ -301,7 +301,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "Which of these four checks do you think clients most often get burned on?"
   },
   "rules": {
-   "say": "Here are the rules. Rental is part of the Property Damage claim and belongs to the owner; John Doe was a passenger, so this one is Margaret Doe's. The adverse carrier's Property Damage coverage pays the rental; the owner's own policy only if there's no third-party coverage. Confirm who authorizes it and check the Dec Page for an endorsement. Record the daily rate cap and the duration before pickup, usually 30 days unless the Dec Page says otherwise, and calendar the last covered day. A comparable car, not an upgrade. File Keystone's authorization and record every number in the Property Damage section. And if a carrier's rental call drifts into injuries, it stops.",
+   "say": "Here are the rules. Rental is part of the Property Damage claim, and the law firm never provides it or pays for it: the carrier pays, and the firm coordinates it with the carrier. It belongs to the owner; John Doe was a passenger, so this one is Margaret Doe's. The adverse carrier's PD coverage pays; the owner's own policy only if there's no third-party coverage. Confirm who authorizes it, check the Dec Page for an endorsement, and record the daily cap and the duration before pickup, usually 30 days. Calendar the last covered day. A comparable car, not an upgrade. And if a rental call drifts into injuries, it stops.",
    "ask": "If Keystone authorizes a compact car and Margaret picks up an SUV, who pays the difference?"
   },
   "model": {
@@ -634,6 +634,10 @@ window.CM_CF_SCRIPTS = {
    "say": "John Doe needs chiropractic care next week, and nothing he has will pay for it. That's where a Letter of Protection comes in. In plain English, it's the firm's written promise to pay the provider's bill out of the settlement, so he can be treated now instead of waiting. It keeps care moving, and care that keeps moving keeps the file honest. But it isn't free money. It's a balance against his recovery, and he still owes it. So we track it from the day it's signed.",
    "ask": "If the settlement came in lower than the bills, who would still owe the provider?"
   },
+  "doc": {
+   "say": "Before you prepare or file one, let's break the Letter of Protection down. It's the firm's signed promise that a provider's reasonable charges will be paid from any recovery, so treatment can start now. It isn't insurance. Its legal purpose is to keep care going when no payer applies: the provider defers collection, and in return its charges are protected from the settlement, judgment or verdict. Its evidentiary role is to fix the lien. Riverton Spine & Rehab's letter, acknowledged on 02/23/2026, is why its charges come out of John Doe's recovery, and it says plainly that he stays responsible whether or not there is one. Your handling is to check every payer first, get it signed before the first visit, request the ledger every 30 days, and leave its meaning to Atty. Thorne.",
+   "ask": "Why does the letter say John Doe stays responsible even if there's no recovery?"
+  },
   "theory": {
    "say": "Four ideas carry this lesson. A Letter of Protection is the firm's written promise to pay a provider from the settlement, so it's a claim against John Doe's recovery, not insurance. Payer-first means we check health insurance, MedPay and PIP before we ever reach for one. The LOP balance grows with every visit, so the itemized ledger every thirty days keeps the Liens tab honest. And referrals are options and logistics only: a list, the network status, the booking, and his choice.",
    "ask": "Which of these four would you check first on a new provider bill?"
@@ -839,6 +843,36 @@ window.CM_CF_SCRIPTS = {
    "ask": "Why would your fingerprints on Dr. Reyes's wording make her letter worthless?"
   }
  },
+ "d2m3-cause": {
+  "why": {
+   "say": "Robert Smith was cited for failure to stop, and Ruth Calloway saw it happen. So does Keystone owe John Doe anything yet? Not quite. Proving negligence is only half the battle in personal injury law. The other half is causation and damages: proving that this collision, and nothing else, caused his C5-C6 herniation, his Medical Bills and the right-arm symptoms he still has. Keystone already has two other causes lined up, the 14-day gap and his 2021 chiropractic visits. The document that links the crash to the injury is the Causation Letter, and on this file it's Dr. Alana Reyes's letter of 06/19/2026. The demand, the rebuttal and every binder after it lean on that letter.",
+   "ask": "If Keystone admitted fault tomorrow, what could it still refuse to pay for?"
+  },
+  "doc": {
+   "say": "Let's break this document down before you ever handle one. A Causation Letter is a formal opinion from a medical professional, a treating physician, a surgeon or an independent medical expert, linking the accident to the specific injuries. Its legal purpose is the half negligence can't prove: that the defendant's conduct directly caused the harm, the medical expenses and the ongoing limitations claimed. Its evidentiary role on our file is big. Dr. Reyes holds her opinions more likely than not, ties the herniation to 02/06/2026, and answers both the gap and the 2021 visits. Your handling is the letter's path, never its words. Atty. Thorne requests it, you assemble the records and docket the follow-up, you check it against the file when it lands, and you file it and cite it.",
+   "ask": "Which part of handling this letter belongs to you, and which part never does?"
+  },
+  "theory": {
+   "say": "Four ideas sit under this lesson. First, the two halves. Duty and breach prove negligence; causation and damages prove what it cost, and a claim needs both. Second, who writes it: a treating physician or surgeon who examined the patient, or an independent medical expert who reviews the records. Dr. Reyes is John Doe's treating spine surgeon. Third, reasonable medical probability, which simply means more likely than not. Words like possibly or could be generally fall short, and the exact standard is Atty. Thorne's to confirm. Fourth, prior conditions. A prior injury in the same region turns the question into aggravation. John Doe's 2021 care was for his low back, a different region, and Dr. Reyes says it's unrelated.",
+   "ask": "Why does it matter that the 2021 visits were for his low back and not his neck?"
+  },
+  "rules": {
+   "say": "Here are the rules that keep this letter worth something. Atty. Thorne requests it, in his own letter, with John Doe's written authorization. You build the record set Dr. Reyes needs, and that means everything: the EMS report, the urgent-care note, Riverton Spine & Rehab's notes, the MRI report, Crescent's procedure note, and the 2021 Birch Avenue records too. Then you docket the follow-up and track the reply. The day it arrives, you check it against the file: date of loss 02/06/2026, C5-C6 on the right, the visit dates, the records she lists. A mismatch goes to Atty. Thorne. You file it under Medical, dated 06/19/2026, and cite it on the Gap Explanation Record. And you never draft, edit or suggest a word of it.",
+   "ask": "Why send Dr. Reyes the 2021 records when they're the defense's argument?"
+  },
+  "model": {
+   "say": "This table turns Dr. Reyes's letter into a map of the fight. Her four opinions are on the left, the defense each one answers is in the middle, and the records holding it up are on the right. The delay is clinically consistent, which answers he waited two weeks, with the EMS report and the 02/20 urgent-care note behind it. The herniation was more likely than not caused by the collision, which answers degenerative, backed by the MRI's no significant degenerative change at the adjacent levels. The 2021 care is unrelated, which answers a pre-existing condition. And the treatment was reasonable and necessary, with future injections anticipated in the 06/12 MMI note. Every opinion rests on a record, and that's why the record set matters so much.",
+   "ask": "Which opinion would be weakest if one record were missing from her set?"
+  },
+  "job": {
+   "say": "On the job it runs in four beats. When Atty. Thorne decides to request a causation opinion, you assemble the record set, prior records included, for his letter, and put the follow-up on the calendar. When the letter arrives on 06/19/2026, you check the date of loss, the injury level and side, the visit dates and the records listed against the file, and you log each one as matching or quote the mismatch and flag it. Once it's checked, you file it and cite it on the Gap Explanation Record's 14-day band and in the audit's risks. And when the Demand Package comes together, the letter goes in beside the MRI report and the EMS report, served on 07/20/2026.",
+   "ask": "What would you do if the letter listed the wrong date of loss?"
+  },
+  "dodont": {
+   "say": "Time for 3 Clues, 1 Rule. One clue at a time, and as soon as you know, call Do or Don't and name the rule. The good habits here are treating causation as half the case, sending the doctor the complete record set with the prior records in it, and reading the letter against the file the day it arrives. The traps are the ones that feel helpful. Suggesting the doctor's wording, or asking her to make it stronger. Leaving the 2021 records out so she never has to deal with them. And telling John Doe the letter means his case is worth more. Each of those either weakens the letter or crosses the UPL line.",
+   "ask": "Which of those traps would feel most tempting on a busy day, and why?"
+  }
+ },
  "d2m3-a2": {
   "case": {
    "say": "I'm putting the adjuster's four arguments on the board: not serious, recovered early, treatment unnecessary, another cause. Your record is going to answer each one with a document, not a sentence. Here's what landed on 06/22/2026. John Doe reached MMI on 06/12/2026, and Dr. Alana Reyes's Causation Letter of 06/19/2026 is in. She says delayed presentation is clinically consistent with a disc injury whose radicular symptoms evolve over days to weeks, and that the injury was more likely than not caused by the collision. Atty. Thorne wants the Gap Explanation Record before the pre-demand session, with both interruptions at exact dates, every reason beside its dated document, \"account only\" where there isn't one, and a defense-eye pass first.",
@@ -859,7 +893,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m3-kc": {
   "questions": {
-   "say": "Before the written check, let's do question 3 out loud. I'll be John Doe, and one of you is the Case Manager. I'm going to ask you, \"Is this gap going to wreck my case?\" and if I hear \"don't worry\", I'm stopping us right there. Then write your answers from this file, in your own words. Name the four reasons for the 14-day gap, each with its corroborating document and date. Rewrite \"Was it because you had no car?\" so it surfaces the same reason without suggesting it, and explain what the leading version costs. Question 2 matters most here, so take your time with it.",
+   "say": "Before the written check, let's do question 3 out loud. I'll be John Doe, and one of you is the Case Manager. When I ask, \"Is this gap going to wreck my case?\", the first \"don't worry\" stops us. Then write your answers from this file. Name the four reasons for the 14-day gap, each with its document and date. Rewrite \"Was it because you had no car?\" without suggesting the reason, and say what the leading version costs. And for the last one: Robert Smith's citation proves fault, so tell me what else the file must prove, which document proves it, and your part and not your part in getting it.",
    "ask": "Who wants to be the Case Manager first while I play John Doe?"
   },
   "summary": {

@@ -462,9 +462,9 @@ function falloutFor(blockId){
     return {f, done, what: String(what).replace(/\*\*/g, "")};
   }).filter(x => isTrainer() || !x.done);
 }
-const VIEW_LABEL = {grade: "The Grade-A Standard", audit: "Audit & the Finished Set", why: "Why It Matters", theory: "The Theory", theory2: "The Theory, Continued", frame: "The Framework", rules: "The Rules", map: "The Roadmap", model: "See It", job: "On the Job", dodont: "Do & Don't",
+const VIEW_LABEL = {grade: "The Grade-A Standard", audit: "Audit & the Finished Set", why: "Why It Matters", doc: "The Document", theory: "The Theory", theory2: "The Theory, Continued", frame: "The Framework", rules: "The Rules", map: "The Roadmap", model: "See It", job: "On the Job", dodont: "Do & Don't",
   case: "Your Case", task: "Your Task", check: "Check Your Work", questions: "Knowledge Check", questions2: "Knowledge Check, Continued", summary: "Self-Summary", scale: "Skill Scale"};
-const VIEW_ICON = {grade: "🏅", audit: "🔍", why: "💡", theory: "📚", theory2: "📚", frame: "🧭", rules: "📏", map: "🗺", model: "🔍", job: "🛠", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
+const VIEW_ICON = {grade: "🏅", audit: "🔍", why: "💡", doc: "📄", theory: "📚", theory2: "📚", frame: "🧭", rules: "📏", map: "🗺", model: "🔍", job: "🛠", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
 const KC_PER = 4;   // Knowledge Check questions on one slide
 /* The Theory: the lesson's concepts from the original Canva decks (build/case-flow/slides/theory-dN.json), four to a
    slide (a deep topic, 6–8 concepts, takes two); then The Framework, the deck page's own table, flowchart or checklist
@@ -476,10 +476,13 @@ const roadmapOf = b => (SLIDES[b.id] || {}).roadmap || null;   // a complex less
 const mapView = b => roadmapOf(b) && !roadmapOf(b).merge ? ["map"] : [];
 const mapStrip = b => { const r = roadmapOf(b); return r && r.merge ? `<ol class="cfx-map-strip" style="--n:${r.steps.length > 4 ? Math.ceil(r.steps.length / 2) : r.steps.length}" aria-label="${E(r.title)}">${r.steps.map((x, i) => `<li><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span></li>`).join("")}</ol>` : ""; };
 const theoryViews = b => { const t = theoryOf(b); return !t ? [] : (t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]).concat(t.framework ? ["frame"] : []); };
+/* a lesson that introduces a legal or medical document opens with The Document (what it is, its legal purpose, its
+   evidentiary role, how the Case Manager handles it) before anything asks the trainee to work with it */
+const docView = b => (SLIDES[b.id] || {}).document ? ["doc"] : [];
 function viewsOf(b){
-  if(b.kind === "lesson" && b.brief) return ["why", "rules"].concat((b.ops || []).length ? ["job"] : []);   // brief: a condensed overview (Day 5's litigation)
-  if(b.kind === "lesson" && b.compact) return ["why"].concat(mapView(b), theoryViews(b).slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);   // compact: a full topic on fewer slides (Days 2, 4 and 5 keep to their slide budget)
-  if(b.kind === "lesson") return ["why"].concat(mapView(b), theoryViews(b), ["rules"],b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // noGame: the CM introduction (Meet Your Case comes before the first game)
+  if(b.kind === "lesson" && b.brief) return ["why"].concat(docView(b), ["rules"]).concat((b.ops || []).length ? ["job"] : []);   // brief: a condensed overview (Day 5's litigation)
+  if(b.kind === "lesson" && b.compact) return ["why"].concat(docView(b), mapView(b), theoryViews(b).slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);   // compact: a full topic on fewer slides (Days 2, 4 and 5 keep to their slide budget)
+  if(b.kind === "lesson") return ["why"].concat(docView(b), mapView(b), theoryViews(b), ["rules"],b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // noGame: the CM introduction (Meet Your Case comes before the first game)
   if(b.kind === "activity") return ["case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], ["task"], EX.audits[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);   // compact: no See It slide (the worked model stays in 📖 Full text)
   return (copyOf(b).questions.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
 }
@@ -634,6 +637,8 @@ const STEP_AT = [
 ];
 function stepLink(text, b){
   const t = String(text || "").replace(/\*\*/g, ""), hit = STEP_AT.find(([re]) => re.test(t));
+  // a step worked in the Notes & Action Plan (the transcript, the plan, its emails) opens it
+  if(notesOf(b.id) && /transcribe|action plan|^email|coordinate/i.test(t)) return ` <button type="button" class="cfx-at" onclick="cmCaseFlow.notes('${b.id}')" title="Open the Notes &amp; Action Plan">📝 ${/^email|coordinate/i.test(t) ? "Email Simulator" : "Notes"} ↗</button>`;
   let id = hit && hit[1], label = hit && hit[2];
   if(id === "docs" && !(CF_PACKETS[b.id] || []).length){ id = toolLive("docs", b.id) ? "docs" : null; label = "Documents"; }
   if(id === "cms" && !toolLive("cms", b.id)) id = null;
@@ -791,6 +796,15 @@ function slideBody(view, l, d){
           : `<div class="cfx-fw-list">${steps.map((x, i) => `<div style="animation-delay:${i * .05}s"><b>${E(x.label)}</b><span>${hl(x.text)}</span></div>`).join("")}</div>`;
       return `<div class="cfx-fw"><h3 class="cfx-fw-t">${E(String(f.title).replace(/,?\s*\(?Steps?\s+\d+\s*[–-]\s*\d+\)?\s*$/i, ""))}</h3>${body}${f.note ? `<p class="cfx-fw-note">${hl(f.note)}</p>` : ""}</div>`;
     }
+    case "doc": {   // The Document: what it is, why the law cares, what it proves, and the Case Manager's handling
+      const d = c.document, f = d.doc && CF_DOCS.find(x => x.id === d.doc);
+      const card = (cls, h, body) => `<div class="cfx-doc-c ${cls}"><h3>${h}</h3>${body}</div>`;
+      return `<div class="cfx-fw cfx-doc"><h3 class="cfx-fw-t">📄 ${E(d.name)}</h3><div class="cfx-doc-w">
+        <div class="cfx-doc-g">${card("cfx-doc-def", "What it is", `<p>${hl(d.definition)}</p>`)}${card("cfx-doc-pur", "Its legal purpose", `<p>${hl(d.purpose)}</p>`)}
+          ${card("cfx-doc-ev", "What it proves", `<p>${hl(d.evidence)}</p>`)}${card("cfx-doc-cm", "How you handle it", `<ul>${d.handling.map(x => `<li>${hl(x)}</li>`).join("")}</ul>`)}</div>
+        ${f ? `<a class="cfx-thumb cfx-doc-f" href="${E(docUrl(f))}" target="_blank" rel="noopener" title="${E(f.desc)}" onclick="return cmCaseFlow.doc(event,'${f.id}')"><img src="/decks/cf-docs/${E(f.id)}.webp" alt="" loading="lazy"><span>On John Doe's file: ${E(f.title)}</span></a>` : ""}</div>
+        <p class="cfx-fw-note">Know the document before you're asked to work with it.</p></div>`;
+    }
     case "map": { const r = roadmapOf(b), steps = r.steps;
       return `<div class="cfx-fw cfx-map"><h3 class="cfx-fw-t">🗺 ${E(r.title)}</h3><ol class="cfx-fw-flow" style="--n:${steps.length}">${steps.map((x, i) => `<li style="animation-delay:${i * .07}s"><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span></li>`).join("")}</ol><p class="cfx-fw-note">Where this lesson is going: each step is taught next, before anything asks you to do it.</p></div>`;
     }
@@ -808,13 +822,13 @@ function slideBody(view, l, d){
     case "case": {
       const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(Boolean).slice(0, 4);
       const ev = SIM.events[b.id], fall = falloutFor(b.id), vm = ev && ev.channel === "voicemail" && ev.spoken;
-      const thumbs = docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
+      const thumbs = notesOf(b.id) ? npCard(b.id) : docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
       return `<div class="cfx-sb">${timeBanner(l)}
         ${fall.map(x => { const e = x.f.then.event, [icon] = CHANNEL[e.channel] || ["⚠️"];
           return `<details class="cfx-fall"><summary><span class="cfx-fall-i">⚠️</span><b>${E(e.subject)}</b><span class="cfx-fall-from">${icon} ${E(e.from || "")}</span></summary>
             <p>${E(e.body)}</p>${isTrainer() ? `<small class="cfx-fall-why">${x.done ? "Not shown to this trainee: they confirmed" : "Shown because this wasn't confirmed"}: “${E(x.what)}” (${E(x.f.if.activity)})</small>` : ""}</details>`; }).join("")}
         <div class="cfx-sb-grid${vm ? " cfx-sb-vm" : ""}">
-          <div class="cfx-sb-main">${ev ? eventCard(ev, "", b.id, docs.length > 0) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}</div>
+          <div class="cfx-sb-main">${ev ? eventCard(ev, "", b.id, docs.length > 0 || !!notesOf(b.id)) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}</div>
           <div class="cfx-sb-docs">${thumbs}</div>
         </div></div>`;
     }
@@ -831,6 +845,8 @@ function slideBody(view, l, d){
           <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the Service Confirmation</button></div>` : ""}</div>
       <aside class="cfx-side">${c.purpose || c.principle ? `<div class="cfx-why">${c.purpose ? `<b>🎯 Purpose</b><span>${hl(c.purpose)}</span>` : ""}${c.principle ? `<b>⚖️ Principle</b><span>${hl(c.principle)}</span>` : ""}</div>` : ""}
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
+        ${notesOf(b.id) ? `<div class="cfx-call cfx-svb"><b>📝 Notes &amp; Action Plan</b><span>${npParts(b.id).filter(p => p.done).length} of ${npParts(b.id).length} done</span>
+          <button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.notes('${b.id}')">📝 Open</button></div>` : ""}
         ${serviceOf(b.id) && SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ Service Confirmation</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
           <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the Service Confirmation</button></div>` : ""}
         <button type="button" class="cfx-deliver" onclick="nextSlide()" title="Hand it in, then check your work"><b>📤 Deliver</b><span>${hl(c.deliver)}</span><em>Hand in &amp; check your work ➔</em></button></aside></div>`; }
@@ -862,7 +878,7 @@ const BLOCK = {};
 CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { BLOCK[b.id] = b; })));
 function actDone(id){
   const b = BLOCK[id]; if(!b) return false;
-  return ((REC.reached || {})[id] || 0) >= viewsOf(b).length || ((REC.ticks || {})[id] || []).some(Boolean) || !!(REC.work || {})[id] || !!((REC.listen || {})[id] || {}).at || !!(REC.calls || {})[id];
+  return ((REC.reached || {})[id] || 0) >= viewsOf(b).length || ((REC.ticks || {})[id] || []).some(Boolean) || !!(REC.work || {})[id] || !!((REC.listen || {})[id] || {}).at || !!((REC.notes || {})[id] || {}).txAt || !!(REC.calls || {})[id];
 }
 const actOpened = id => !!(REC.reached || {})[id] || actDone(id);
 /* each tool once per slide: a slide names its tools in the top row, in the Your Task "Where" box, beside a step or
@@ -1203,9 +1219,9 @@ function voicemailCard(e, blockId, extra){
       <div class="cfx-ev-h"><span class="cfx-ev-i">📳</span><span class="cfx-ev-ch">Voicemail</span><span class="cfx-ev-from">${E(e.from || "")}</span>
         <span class="cfx-ev-when">${E(e.date || "")}${e.time ? " · " + E(e.time) : ""}</span></div>
       <div class="cfx-vm-body"><span class="cfx-vm-wave" aria-hidden="true">${"<i></i>".repeat(18)}</span>
-        <div><b>1 new message</b> · ${vmLength(e)}<br><small>Listen first: the transcript opens after your Listening Check.</small></div></div>
+        <div><b>1 new message</b> · ${vmLength(e)}<br><small>${notesOf(blockId) ? "Listen, then transcribe it in your Notes &amp; Action Plan." : "Listen first: the transcript opens after your Listening Check."}</small></div></div>
       <div class="cfx-vm-row"><button type="button" class="btn btn-orange btn-sm cfx-vm-play" onclick="cmCaseFlow.vmPlay('${blockId}')">${vmRec(blockId).plays ? "↻ Play again" : "▶ Play"}</button>
-        <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.listen('${blockId}')">🎧 Listening Check</button>
+        ${notesOf(blockId) ? `<button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.notes('${blockId}')">📝 Transcribe</button>` : `<button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.listen('${blockId}')">🎧 Listening Check</button>`}
         <span class="cfx-vm-st">${E(vmStatus(blockId))}</span></div>
     </div>`;
 }
@@ -1254,7 +1270,7 @@ window.cmCaseFlow.listenClose = function(){ const box = document.getElementById(
    answers the follow-up that tests the UPL line, and then converts the whole exchange into a memorandum, files
    it in the CMS under the firm's naming convention, which keeps it on their Backup Drive in its folder too. Their marks, their email, the
    choice they made and what they filed are kept on their record and shown to their trainer. */
-const EX = Object.assign({audits: {}, emails: {}}, window.CM_CF_EXHIBITS || {});
+const EX = Object.assign({audits: {}, emails: {}, notes: {}}, window.CM_CF_EXHIBITS || {});
 const VERDICT = {
   keep: {label: "Keep as is", icon: "✓", hint: "The copy is fit to use and belongs in the set."},
   replace: {label: "Replace it", icon: "↻", hint: "It belongs in the set, but not this copy or not this figure."},
@@ -1608,6 +1624,126 @@ window.cmCaseFlow.svDrive = async function(blockId){
   say(out && out.why === "no-folder" ? "That folder isn't in your Backup Drive. Put the missing folders back from the dashboard, then try again."
     : "Your Backup Drive isn't built yet. Build it from the card on your dashboard, then keep this document on it.");
 };
+/* ---------- Notes & Action Plan: a message on the file, taken down and turned into work ----------
+   In place of the documents beside a voicemail, the trainee works it the way the desk does: types the message as
+   said (checked against what was said, then the transcript and the facts it had to catch are shown), writes the
+   action plan (graded against the steps it must hold, each with its answer key once handed in), then works the plan:
+   the emails (Email Simulator: refused while one leaves out what it must say or says what it must not, answered
+   once it does) and the client check-in on the live call. Content: build/case-flow/exhibits (notes); the record
+   (REC.notes) goes to the trainer with the module's Learning Check. */
+const notesOf = id => EX.notes[id] || null;
+function npRec(id){ REC.notes = REC.notes || {}; const r = (REC.notes[id] = REC.notes[id] || {tx: "", txAt: null, txGot: [], plan: "", planAt: null, planGot: [], mails: {}});
+  r.mails = r.mails || {}; return r; }
+const npHit = (pats, text) => (pats || []).every(p => { try{ return new RegExp(p, "i").test(text || ""); }catch(e){ return false; } });
+const npMail = (r, id) => (r.mails[id] = r.mails[id] || {body: "", sent: null, tries: 0});
+/* how far the trainee is: each part, done or not, in the order it's worked */
+function npParts(blockId){
+  const n = notesOf(blockId), r = npRec(blockId);
+  return [{k: "tx", label: "Transcribe the voicemail", done: !!r.txAt}, {k: "plan", label: "Write your action plan", done: !!r.planAt}]
+    .concat((n.emails || []).map(e => ({k: "mail-" + e.id, label: e.title.replace(/^Email Simulator — /, "Email "), done: !!npMail(r, e.id).sent})))
+    .concat(n.call ? [{k: "call", label: n.call.title.replace(/ \(Call Simulator\)$/, ""), done: !!(REC.calls || {})[blockId]}] : []);
+}
+function npCard(blockId){
+  const n = notesOf(blockId), parts = npParts(blockId), r = npRec(blockId);
+  const sc = r.txAt ? ` · transcript ${r.txGot.filter(Boolean).length}/${n.transcribe.facts.length}` : "", pl = r.planAt ? ` · plan ${r.planGot.filter(Boolean).length}/${n.plan.required.length}` : "";
+  return `<div class="cfx-np"><b>📝 Notes &amp; Action Plan</b><span class="cfx-np-k">${E(n.kicker)}</span>
+    <ol>${parts.map(p => `<li class="${p.done ? "ok" : ""}">${p.done ? "✓" : "○"} ${E(p.label)}</li>`).join("")}</ol>
+    <div class="cfx-np-r"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.notes('${blockId}')">📝 ${parts.some(p => p.done) ? "Continue" : "Open"} Notes &amp; Action Plan</button><small>${parts.filter(p => p.done).length} of ${parts.length} done${sc}${pl}</small></div></div>`;
+}
+function npEmail(blockId, e, open){
+  const r = npRec(blockId), m = npMail(r, e.id), sent = !!m.sent;
+  const head = `<div class="sv-eh"><b>To</b> ${E(e.to)}${e.cc ? `<br><b>Cc</b> ${E(e.cc)}` : ""}<br><b>Subject</b> ${E(e.subject)}${sent ? `<br><b>Sent</b> ${E(new Date(m.sent).toLocaleString())}` : ""}</div>`;
+  if(sent) return `<p class="sv-note">${E(e.why)}</p><div class="sv-sentmail">${head}<pre class="sv-body">${E(m.body)}</pre>
+      <div class="sv-eh"><b>From</b> ${E(e.reply.from)}<br><b>Sent</b> ${E(e.reply.date)}, ${E(e.reply.time)}<br><b>Subject</b> ${E(e.reply.subject)}</div><pre class="sv-body">${E(e.reply.body)}</pre></div>`;
+  if(!open) return `<p class="sv-note">${E(e.why)}</p>`;
+  return `<p class="sv-note">${E(e.why)}</p><p class="sv-brief">${hl(e.brief)}</p>${head}
+    <textarea class="sv-write" id="npm_${E(blockId)}_${E(e.id)}" rows="7" placeholder="Write the email as you would send it." aria-label="${E(e.title)}" oninput="cmCaseFlow.npDraft('${blockId}','m:${e.id}',this.value)">${E(m.body || "")}</textarea>
+    <ul class="sv-req">${e.required.map(q => `<li>${E(q.label)}</li>`).join("")}</ul>
+    <div class="sv-row"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.npSend('${blockId}','${e.id}')">✉ Send</button>
+      <span class="sv-msg" id="npmm_${E(blockId)}_${E(e.id)}" aria-live="polite">${m.tries ? `Not sent yet — ${m.tries} attempt${m.tries === 1 ? "" : "s"}.` : ""}</span></div>`;
+}
+function npWorkspace(blockId){
+  const n = notesOf(blockId), r = npRec(blockId), ev = SIM.events[blockId] || {}, vm = vmRec(blockId);
+  const txDone = !!r.txAt, planDone = !!r.planAt, t = n.transcribe, p = n.plan;
+  const tx = txDone
+    ? `<pre class="sv-body">${E(r.tx)}</pre>
+      <div class="np-key"><b>Answer key: what was said</b><p>${E(ev.spoken || "")}</p>
+        <ul>${t.facts.map((f, i) => `<li class="${r.txGot[i] ? "ok" : "miss"}">${r.txGot[i] ? "✓ Caught" : "✗ Missed"} · ${E(f.label)}</li>`).join("")}</ul></div>`
+    : `<p class="sv-brief">${hl(t.brief)}</p>
+      <div class="sv-row"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.vmPlay('${blockId}')">${vm.plays ? "↻ Play again" : "▶ Play the voicemail"}</button><span class="sv-note">${E(ev.from || "")} · ${E(ev.date || "")}${ev.time ? " · " + E(ev.time) : ""}</span></div>
+      <textarea class="sv-write" id="npt_${E(blockId)}" rows="6" placeholder="Type the message as you hear it." aria-label="Your transcript of the voicemail" oninput="cmCaseFlow.npDraft('${blockId}','tx',this.value)">${E(r.tx || "")}</textarea>
+      <div class="sv-row"><button type="button" class="btn btn-navy" onclick="cmCaseFlow.npTx('${blockId}')">Check my transcript</button><span class="sv-msg" id="nptm_${E(blockId)}" aria-live="polite"></span></div>`;
+  const plan = planDone
+    ? `<pre class="sv-body">${E(r.plan)}</pre>
+      <div class="np-key"><b>Answer key: the plan, step by step</b><ol>${p.required.map((q, i) => `<li class="${r.planGot[i] ? "ok" : "miss"}"><b>${r.planGot[i] ? "✓" : "✗"} ${E(q.label)}</b><br>${E(q.key)}</li>`).join("")}</ol></div>`
+    : !txDone ? "" : `<p class="sv-brief">${hl(p.brief)}</p>
+      <textarea class="sv-write" id="npp_${E(blockId)}" rows="8" placeholder="1. …&#10;2. …" aria-label="Your action plan" oninput="cmCaseFlow.npDraft('${blockId}','plan',this.value)">${E(r.plan || "")}</textarea>
+      <div class="sv-row"><button type="button" class="btn btn-navy" onclick="cmCaseFlow.npPlan('${blockId}')">Hand in my plan</button><span class="sv-msg" id="nppm_${E(blockId)}" aria-live="polite"></span></div>`;
+  const called = !!(REC.calls || {})[blockId];
+  const call = n.call ? `<p class="sv-note">${E(n.call.why)}</p><ul class="sv-req">${n.call.goals.map(g => `<li>${E(g)}</li>`).join("")}</ul>
+    <div class="sv-row">${planDone ? `<button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.npCall('${blockId}')">📞 ${called ? "Call again" : "Take the call"}</button>` : ""}${called ? `<span class="sv-ok">✓ Call taken ${E(new Date(REC.calls[blockId].at).toLocaleDateString())}</span>` : ""}</div>` : "";
+  let k = 2;
+  return `<div class="cfx-modal-in card lesson-card cfx-sv cfx-npw"><div class="cfx-modal-h"><b>📝 ${E(n.title)}</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>
+    <div class="sv-top"><span>${E(n.kicker)}</span></div>
+    ${svStep(1, "Transcribe the voicemail", txDone ? "done" : "now", tx)}
+    ${svStep(2, "Your action plan (graded)", planDone ? "done" : (txDone ? "now" : "wait"), plan)}
+    ${(n.emails || []).map(e => { k++; const s = !!npMail(r, e.id).sent; return svStep(k, e.title, s ? "done" : (planDone ? "now" : "wait"), npEmail(blockId, e, planDone)); }).join("")}
+    ${n.call ? svStep(++k, n.call.title, called ? "done" : (planDone ? "now" : "wait"), call) : ""}</div>`;
+}
+window.cmCaseFlow.notes = function(blockId){
+  if(!notesOf(blockId) || document.getElementById("cf-np")) return;
+  const o = document.createElement("div"); o.className = "cfx-modal"; o.id = "cf-np"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Notes & Action Plan");
+  o.innerHTML = npWorkspace(blockId);
+  const close = () => { persist(); o.remove(); document.removeEventListener("keydown", esc, true); if(typeof render === "function") render(); };
+  const esc = ev => { if(ev.key === "Escape"){ ev.stopPropagation(); close(); } };
+  o.addEventListener("click", ev => { if(ev.target === o || ev.target.closest(".cfx-modal-h button")) close(); });
+  document.addEventListener("keydown", esc, true);
+  document.body.appendChild(o);
+};
+function npRepaint(blockId){ const o = document.getElementById("cf-np"); if(o) repaintModal(o, npWorkspace(blockId)); }
+let npT = null;
+window.cmCaseFlow.npDraft = function(blockId, k, v){
+  const r = npRec(blockId), t = String(v).slice(0, 4000);
+  if(k === "tx" && !r.txAt) r.tx = t; else if(k === "plan" && !r.planAt) r.plan = t;
+  else if(k.startsWith("m:")){ const m = npMail(r, k.slice(2)); if(!m.sent) m.body = t; }
+  clearTimeout(npT); npT = setTimeout(persist, 600);
+};
+const npWords = t => String(t || "").split(/\s+/).filter(Boolean).length;
+window.cmCaseFlow.npTx = function(blockId){
+  const n = notesOf(blockId), r = npRec(blockId), el = document.getElementById("npt_" + blockId), msg = document.getElementById("nptm_" + blockId);
+  if(!n || r.txAt) return;
+  r.tx = ((el && el.value) || r.tx || "").trim().slice(0, 4000);
+  if(!vmRec(blockId).plays && !isTrainer()){ if(msg) msg.textContent = "Play the voicemail first: the transcript is of what you hear."; return; }
+  if(npWords(r.tx) < 25){ if(msg) msg.textContent = "Take more of it down: type the message as he says it, start to finish."; return; }
+  r.txGot = n.transcribe.facts.map(f => npHit(f.match, r.tx)); r.txAt = new Date().toISOString(); persist();
+  if(typeof toast === "function") toast(`You caught ${r.txGot.filter(Boolean).length} of ${n.transcribe.facts.length}. The transcript and the answer key are open.`);
+  npRepaint(blockId);
+};
+window.cmCaseFlow.npPlan = function(blockId){
+  const n = notesOf(blockId), r = npRec(blockId), el = document.getElementById("npp_" + blockId), msg = document.getElementById("nppm_" + blockId);
+  if(!n || r.planAt || !r.txAt) return;
+  r.plan = ((el && el.value) || r.plan || "").trim().slice(0, 4000);
+  if(npWords(r.plan) < 30){ if(msg) msg.textContent = "A plan names each step, who it's with and what it must achieve. Write it out."; return; }
+  r.planGot = n.plan.required.map(q => npHit(q.match, r.plan)); r.planAt = new Date().toISOString(); persist();
+  if(typeof toast === "function") toast(`Your plan holds ${r.planGot.filter(Boolean).length} of ${n.plan.required.length} steps. The answer key is open; now work the plan.`);
+  npRepaint(blockId);
+};
+window.cmCaseFlow.npSend = function(blockId, id){
+  const n = notesOf(blockId), e = n && (n.emails || []).find(x => x.id === id), r = npRec(blockId), m = e && npMail(r, id);
+  if(!e || m.sent || !r.planAt) return;
+  const el = document.getElementById(`npm_${blockId}_${id}`), msg = document.getElementById(`npmm_${blockId}_${id}`), text = ((el && el.value) || m.body || "").trim();
+  m.body = text.slice(0, 4000);
+  const no = html => { m.tries++; persist(); if(msg) msg.innerHTML = `<b>Not sent.</b> ${html}`; };
+  if(npWords(text) < 35) return no("An email this short cannot do the job. Work through the list above.");
+  const bad = (e.forbid || []).filter(x => npHit([x.match], text));
+  if(bad.length) return no(`<ul>${bad.map(x => `<li>${E(x.why)}</li>`).join("")}</ul>`);
+  const missing = e.required.filter(q => !npHit(q.match, text));
+  if(missing.length) return no(`It leaves out:<ul>${missing.map(q => `<li>${E(q.label)} — ${E(q.hint)}</li>`).join("")}</ul>`);
+  m.sent = new Date().toISOString(); persist();
+  if(typeof toast === "function") toast("Sent. The reply is in the thread.");
+  npRepaint(blockId);
+};
+window.cmCaseFlow.npCall = function(blockId){ const o = document.getElementById("cf-np"); if(o) o.remove(); persist(); cmCaseFlow.call(blockId); };
 window.cmCaseFlow.tool = function(id, blockId){
   if(id === "call" && blockId && SIM.calls[blockId]) return cmCaseFlow.call(blockId);
   if(id === "netsheet" && typeof openPane === "function"){   // the firm's Net Sheet (net-sheet.html), over the slide at full width (its ledger is wide), checked at this step's stage
@@ -1983,13 +2119,14 @@ MODULES.forEach(d => d.lessons.forEach(l => {
     theory: theoryOf(b) ? {why: String(theoryOf(b).lead).replace(/\*\*/g, ""), walk: theoryOf(b).concepts.slice(0, theoryOf(b).concepts.length > TH_PER ? Math.ceil(theoryOf(b).concepts.length / 2) : TH_PER).map(x => `${x.term}: ${String(x.text).replace(/\*\*/g, "")}`), ask: "Which of these have you met before, and where would it show up on John Doe's file?"} : {},
     theory2: theoryOf(b) ? {why: "The theory, continued.", walk: theoryOf(b).concepts.slice(Math.ceil(theoryOf(b).concepts.length / 2)).map(x => `${x.term}: ${String(x.text).replace(/\*\*/g, "")}`)} : {},
     frame: theoryOf(b) && theoryOf(b).framework ? {why: theoryOf(b).framework.title, walk: (theoryOf(b).framework.rows || []).map(r => r.map(x => String(x).replace(/\*\*/g, "")).join(" · ")).concat((theoryOf(b).framework.steps || []).map(x => `${x.label}: ${String(x.text).replace(/\*\*/g, "")}`)), ask: "Walk the room through it on John Doe's file: where is he on this right now?"} : {},
+    doc: (SLIDES[b.id] || {}).document ? {why: `${SLIDES[b.id].document.name}: what it is, why the law cares, what it proves, and how you handle it.`, walk: ["definition", "purpose", "evidence"].map(k => String(SLIDES[b.id].document[k]).replace(/\*\*/g, "")).concat(SLIDES[b.id].document.handling.map(x => String(x).replace(/\*\*/g, "")))} : {},
     map: roadmapOf(b) ? {why: roadmapOf(b).title, walk: roadmapOf(b).steps.map(x => `${x.label}: ${String(x.text).replace(/\*\*/g, "")}`)} : {},
     rules: {why: "The rules, and where the Case Manager's role ends.", walk: ((b.tell && b.tell.rules) || []).concat((b.tell && b.tell.upl) || []), ask: n[1] || ""},
     model: {why: (b.show && b.show.caption) || "The model to follow.", talk: b.visual || ""},
     job: {why: "Trigger ➔ Task ➔ Tool ➔ Checkpoint: how it runs on the job.", walk: (b.ops || []).map(r => r.join(" ➔ "))},
     grade: (SLIDES[b.id] || {}).grade ? {why: SLIDES[b.id].grade.title, walk: ["Guidelines: " + SLIDES[b.id].grade.guide.join("; "), "Standard inclusions: " + SLIDES[b.id].grade.include.join("; "), "Steps: " + SLIDES[b.id].grade.steps.join("; ")].map(x => x.replace(/\*\*/g, ""))} : {},
     dodont: {why: "How this block is graded, and what to watch for.", talk: n.slice(2).join(" "), walk: best},
-    case: {why: b.act && b.act.scenario, talk: [SIM.events[b.id] ? (SIM.events[b.id].channel === "voicemail" && SIM.events[b.id].spoken ? `A voicemail just landed on the file (${SIM.events[b.id].date}). Play it, take notes as you would at your desk, and check them before you act.` : `What just landed on the file (${SIM.events[b.id].date}): ${SIM.events[b.id].subject}. ${SIM.events[b.id].body}`) : "", n[0] || ""].filter(Boolean).join(" ")},
+    case: {why: b.act && b.act.scenario, talk: [SIM.events[b.id] ? (SIM.events[b.id].channel === "voicemail" && SIM.events[b.id].spoken ? `A voicemail just landed on the file (${SIM.events[b.id].date}). ${notesOf(b.id) ? "Play it, transcribe it and write the action plan in the Notes & Action Plan (each graded, with its answer key), then work the plan: the emails and the call." : "Play it, take notes as you would at your desk, and check them before you act."}` : `What just landed on the file (${SIM.events[b.id].date}): ${SIM.events[b.id].subject}. ${SIM.events[b.id].body}`) : "", n[0] || ""].filter(Boolean).join(" ")},
     task: {why: b.act && b.act.prompt, walk: b.act ? [`Tool: ${b.act.tool}`, `Output: ${b.act.output}`].concat(SIM.calls[b.id] ? [`Live call: ${SIM.calls[b.id].who}. The trainee must: ${SIM.calls[b.id].goals.join("; ")}.`] : []) : [], ask: n[1] || ""},
     check: {why: "Check the work against the verification checkpoints.", talk: n.slice(2).join(" "), walk: ((b.act && b.act.checkpoints) || []).concat(best)},
     questions: {why: "Knowledge check: answers come from this file, in the trainee's own words, typed under each question.", walk: ((b.check && b.check.questions) || []).slice(0, KC_PER), talk: n[0] || ""},
@@ -2918,7 +3055,12 @@ function workLogged(mine, m){
     const e = EX.emails[x.id], r = mine.service[x.id], c = r.choice != null ? e.press.choices[r.choice] : null;
     return `<div class="cf-tr-work"><b>✉ ${E(e.title)}:</b> sent after ${E(r.tries || 0)} rejected attempt${(r.tries || 0) === 1 ? "" : "s"}${c ? ` · follow-up answered ${c.ok ? "correctly" : "wrongly"}: “${E(c.label)}”` : " · follow-up not answered"}${r.filed ? ` · filed as <code>${E(r.filed.name)}</code> under ${E(r.filed.category)}` : " · not filed"}${r.drive ? " · backed up to Drive" : ""}<br><i>${E(r.body || "—")}</i></div>`;
   }).join("");
-  const extra = aud + svs;
+  const nps = m.blocks.filter(x => x.kind === "activity" && EX.notes[x.id] && ((mine.notes || {})[x.id] || {}).txAt).map(x => {
+    const n = EX.notes[x.id], r = mine.notes[x.id], pl = n.plan.required;
+    return `<div class="cf-tr-work"><b>📝 ${E(n.title)}:</b> transcript ${E(r.txGot.filter(Boolean).length)}/${E(n.transcribe.facts.length)} facts caught${r.planAt ? ` · plan ${E(r.planGot.filter(Boolean).length)}/${E(pl.length)} steps` : " · plan not handed in"}${(n.emails || []).map(e => { const mm = (r.mails || {})[e.id] || {}; return ` · ${E(e.title.replace(/^Email Simulator — /, ""))}: ${mm.sent ? `sent after ${E(mm.tries || 0)} rejected attempt${(mm.tries || 0) === 1 ? "" : "s"}` : "not sent"}`; }).join("")}${n.call ? ` · call ${(mine.calls || {})[x.id] ? "taken" : "not taken"}` : ""}
+      <br><i>Transcript:</i> ${E(r.tx || "—")}${r.planAt ? pl.map((q, i) => `<br>${r.planGot[i] ? "✓" : "✗"} ${E(q.label)}`).join("") + `<br><i>Plan:</i> ${E(r.plan)}` : ""}${(n.emails || []).filter(e => ((r.mails || {})[e.id] || {}).sent).map(e => `<br><i>${E(e.title)}:</i> ${E(r.mails[e.id].body)}`).join("")}</div>`;
+  }).join("");
+  const extra = aud + svs + nps;
   if(heard) return heard + extra + (rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "");
   if(extra) return extra + (rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "");
   return rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "";
@@ -3593,6 +3735,31 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-grade-g{background:#EEF4FF;border:1.5px solid #C7D6F2;}
 .cfx-grade-i{background:#FFF6EC;border:1.5px solid #F3D2B3;animation-delay:.06s;}
 .cfx-grade-s{background:#EEF8F2;border:1.5px solid #BFE3CE;animation-delay:.12s;}
+/* The Document: a legal or medical document broken down before the task that uses it */
+.cfx-doc-w{display:flex;gap:16px;align-items:stretch;}
+.cfx-doc-g{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;}
+.cfx-doc-c{border-radius:14px;padding:10px 14px;background:#fff;border:1.5px solid #E6DED2;border-top:5px solid var(--orange);animation:cfxIn .3s ease-out both;}
+.cfx-doc-c h3{margin:0 0 4px;font:800 14px var(--font-ui);color:var(--navy);text-transform:uppercase;letter-spacing:.04em;}
+.cfx-doc-c p{margin:0;font:500 17px/1.4 var(--font-ui);color:var(--ink);}
+.cfx-doc-c ul{margin:0;padding-left:20px;font:500 16px/1.35 var(--font-ui);color:var(--ink);}
+.cfx-doc-c li{list-style:disc;} .cfx-doc-c li::marker{color:var(--orange);}
+.cfx-doc-pur{border-top-color:var(--navy);animation-delay:.05s;} .cfx-doc-ev{border-top-color:#2E8B57;animation-delay:.1s;} .cfx-doc-cm{background:#FFF6EC;animation-delay:.15s;}
+.cfx-doc-f{flex:0 0 170px;align-self:center;}
+@media (max-width:900px){.cfx-doc-w{flex-direction:column;}.cfx-doc-g{grid-template-columns:1fr;}.cfx-doc-f{align-self:flex-start;}}
+/* Notes & Action Plan: on the Your Case slide in place of the documents, and its workspace */
+.cfx-np{background:#fff;border:1.5px solid #E6DED2;border-left:5px solid var(--orange);border-radius:14px;padding:12px 16px;display:flex;flex-direction:column;gap:6px;text-align:left;}
+.cfx-np>b{font:800 17px var(--font-ui);color:var(--navy);}
+.cfx-np-k{font:500 14.5px/1.35 var(--font-ui);color:var(--ink-soft);}
+.cfx-np ol{margin:2px 0;padding:0;list-style:none;display:grid;gap:3px;justify-items:start;text-align:left;font:600 15px/1.35 var(--font-ui);color:var(--ink);}
+.cfx-np li{display:block;text-align:left;margin:0;padding:0;position:static;list-style:none;}
+.cfx-np li::before{content:none !important;display:none !important;}
+.cfx-np li.ok{color:#1d5c3a;}
+.cfx-np-r{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:4px;}
+.cfx-np-r small{color:var(--ink-soft);font-size:13px;}
+.np-key{margin-top:8px;border:1px solid #BFE3CE;background:#F3F9F5;border-radius:10px;padding:8px 12px;}
+.np-key p{margin:4px 0;font-style:italic;}
+.np-key ul,.np-key ol{margin:4px 0 0;padding-left:20px;display:grid;gap:4px;}
+.np-key li.ok{color:#1d5c3a;} .np-key li.miss{color:#A2410F;}
 /* 3 Clues, 1 Rule */
 .cfx-cg{display:flex;flex-direction:column;gap:12px;text-align:left;}
 .cfx-cg-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
