@@ -3659,9 +3659,13 @@ function esc(s){ return (s+"").replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','
 async function callAIText(prompt, maxTokens, timeoutMs, feature){
   // Retry rate-limit / overload / transient server errors with backoff.
   const waits = [2500, 6000, 12000];
+  let reauthed = false;
   for(let attempt=0;;attempt++){
     try{ return await callAITextOnce(prompt, maxTokens, timeoutMs, feature); }
     catch(e){
+      // an expired session: sign the trainee in again and send once more, as authFetch does for everything else
+      if(e && e.status===401 && !reauthed && !state.isAdmin && !state.adminPreview){ reauthed = true; if(await reauthTrainee()){ attempt--; continue; } }
+      if(e && e.status===401 && (state.isAdmin || state.adminPreview)) toast("Your admin session expired — click 🛡 Admin and sign in again.");
       const retryable = e && (e.status===429 || e.status===529 || e.status===503 || e.status===502 || (e.status===500 && !/not configured|api key|x-api-key/i.test(e.message||"")));
       if(!retryable || attempt>=waits.length) throw e;
       await new Promise(r=>setTimeout(r, waits[attempt] + Math.random()*800));
@@ -3693,6 +3697,17 @@ async function callAITextOnce(prompt, maxTokens, timeoutMs, feature){
   }finally{
     clearTimeout(timeoutId);
   }
+}
+// The line a call shows when the AI couldn't answer, with the reason, so the trainee (and their trainer) knows what to do.
+function aiTroubleLine(e, what){
+  const st = e && e.status, m = String((e && e.message) || "");
+  const why = st===401 ? "your session has expired: reload the page, or open the program again from the Portal"
+    : (st===429 || /rate limit/i.test(m)) ? "the AI is busy right now: wait a minute, then try again"
+    : /timed out/i.test(m) ? "the AI took too long to answer: try again"
+    : /No AI key|not configured/i.test(m) ? "the AI isn't set up on this site: tell your trainer"
+    : (st===502 || st===503 || st===529) ? "the AI service is having trouble: try again in a moment"
+    : "the AI couldn't be reached: check your connection and try again";
+  return `[${what || "No reply"} — ${why}.]`;
 }
 async function callAIJson(prompt, maxTokens, timeoutMs, feature){
   function extractAndParse(text){
@@ -4723,7 +4738,7 @@ Open immediately with the specific, in-character problem itself — never a gene
     const opening = await callAIText(prompt, 150, undefined, "chat");
     s.chatHistory = [{role:"client", text: opening.trim().replace(/^["“]+|["”]+$/g,"")}];
   }catch(e){
-    s.chatHistory = [{role:"client", text:"[Connection issue generating the scenario — try Restart below.]"}];
+    s.chatHistory = [{role:"client", text:aiTroubleLine(e, "The call couldn't start").replace(/\.\]$/, "; then press Restart below.]")}];
   }
   render();
   VoiceCall.say("rp", s.chatHistory[0].text);
@@ -4821,7 +4836,7 @@ Respond with the next line only — 1-3 sentences, realistic in tone for this si
     s.chatHistory.push({role:"client", text: reply.trim().replace(/^["“]+|["”]+$/g,"")});
   }catch(e){
     s.chatHistory = s.chatHistory.filter(m=>!m.pending);
-    s.chatHistory.push({role:"client", text:"[Connection issue — try sending again.]"});
+    s.chatHistory.push({role:"client", text:aiTroubleLine(e).replace(/try again\.\]$/, "send it again.]")});
   }
   rpRenderChatWindow();
   const lastRp = s.chatHistory[s.chatHistory.length-1];
@@ -9831,7 +9846,7 @@ Open immediately with how this specific caller would actually start the call —
     const opening = await callAIText(prompt, 150, undefined, "chat");
     ic.chatHistory = [{role:"caller", text: opening.trim().replace(/^["“]+|["”]+$/g,"")}];
   }catch(e){
-    ic.chatHistory = [{role:"caller", text:"[Connection issue generating the call — try Restart below.]"}];
+    ic.chatHistory = [{role:"caller", text:aiTroubleLine(e, "The call couldn't start").replace(/\.\]$/, "; then press Restart below.]")}];
   }
   refreshIntakeCallPart();
   VoiceCall.say("intake", ic.chatHistory[0].text);
@@ -9913,7 +9928,7 @@ Respond with the next line only — 1-3 sentences, realistic in tone for this ca
     ic.chatHistory.push({role:"caller", text: reply.trim().replace(/^["“]+|["”]+$/g,"")});
   }catch(e){
     ic.chatHistory = ic.chatHistory.filter(m=>!m.pending);
-    ic.chatHistory.push({role:"caller", text:"[Connection issue — try sending again.]"});
+    ic.chatHistory.push({role:"caller", text:aiTroubleLine(e).replace(/try again\.\]$/, "send it again.]")});
   }
   const icWin = document.getElementById("intakeCallChatWindow");
   if(icWin){ icWin.innerHTML = renderIntakeCallChatWindow(); icWin.scrollTop = icWin.scrollHeight; }
@@ -14141,7 +14156,7 @@ Respond with the next line only — 1-3 sentences, stressed but not cartoonish, 
     toolState.cr.chatHistory.push({role:"client", text: reply});
   }catch(e){
     toolState.cr.chatHistory = toolState.cr.chatHistory.filter(m=>!m.pending);
-    toolState.cr.chatHistory.push({role:"client", text:"[Connection issue — try sending again.]"});
+    toolState.cr.chatHistory.push({role:"client", text:aiTroubleLine(e).replace(/try again\.\]$/, "send it again.]")});
   }
   crRenderChatWindow();
 }
@@ -14349,7 +14364,7 @@ Respond with the next line only — 1-3 sentences, stressed but not cartoonish, 
     toolState.c6cr.chatHistory.push({role:"client", text: reply});
   }catch(e){
     toolState.c6cr.chatHistory = toolState.c6cr.chatHistory.filter(m=>!m.pending);
-    toolState.c6cr.chatHistory.push({role:"client", text:"[Connection issue — try sending again.]"});
+    toolState.c6cr.chatHistory.push({role:"client", text:aiTroubleLine(e).replace(/try again\.\]$/, "send it again.]")});
   }
   d6crRenderChatWindow();
 }
