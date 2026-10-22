@@ -48,6 +48,8 @@ for (const d of CM_CF_DOCS) {
     if (!(d.day >= 1 && d.day <= 5)) problems.push(`Case Flow document ${d.id}: day ${d.day} isn't a Case Flow day`);
     if (!d.title || !d.desc || !d.cms) problems.push(`Case Flow document ${d.id}: needs a title, desc and cms`);
     if (!d.file || !fs.existsSync(path.join(ROOT, 'documents', d.file))) problems.push(`Case Flow document ${d.id} "${d.title}": documents/${d.file} is missing`);
+    // its first-page thumbnail, which an activity's Your Case slide shows (a missing one is a blank box on the slide)
+    if (!fs.existsSync(path.join(ROOT, 'decks/cf-docs', d.id + '.webp'))) problems.push(`Case Flow document ${d.id} "${d.title}": decks/cf-docs/${d.id}.webp is missing; make it with: python3 build/case-flow/documents/thumbs.py ${d.id}`);
 }
 // an activity's day is the day the course teaches it (CM_CASE_FLOW.sequence), not the module it is stored in
 const taughtOn = {};

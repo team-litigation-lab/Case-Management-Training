@@ -402,7 +402,7 @@
     "hook": "A rental collected **on a promise** becomes the client's bill.",
     "points": [
       "Rental is on **the owner's PD claim**: Margaret Doe's, not John's",
-      "The renter's own policy is **usually primary**",
+      "The adverse carrier's **PD coverage** pays the rental",
       "Confirm authorizer, rate cap and **duration in writing** first",
       "Coverage is **usually 30 days** unless the Dec Page differs"
     ],
@@ -471,7 +471,7 @@
     "image": "property-damage",
     "questions": [
       "List the firm's **standing instructions** for a new client, and the harm each prevents.",
-      "Before a rental: what must be confirmed, **whose policy is usually primary**, and what happens to uncovered days?",
+      "Before a rental: what must be confirmed, **whose coverage provides it**, and what happens to uncovered days?",
       "What does **actual cash value** mean and not mean, and why does the loan-balance mix-up mislead clients?"
     ]
   },

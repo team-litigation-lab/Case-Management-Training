@@ -152,7 +152,7 @@
       {"term": "The Scene Audit", "text": "Photos, video and damage must match how the crash happened; **the physics must be possible**"},
       {"term": "Initial and Supplemental Estimates", "text": "The initial estimate prices visible damage; a supplemental after teardown is **proof of impact severity**", "more": ["The initial estimate prices only the damage visible before the vehicle is taken apart", "Teardown exposes hidden damage; the shop writes a supplemental and sends it to the carrier for approval", "Set the initial estimate against the final body shop bill: the difference shows **hidden structural damage**", "File every estimate and supplemental with its date: physical proof of how hard the impact was"]},
       {"term": "Total Loss and Valuation", "text": "Past the repair-to-ACV threshold the carrier pays ACV from its Valuation Report: **verify it line by line**", "more": ["The threshold is the repair cost as a percentage of ACV; past it, the carrier totals the vehicle", "ACV is the vehicle's pre-loss market value, set by a Valuation Report (CCC One or similar)", "Check the comparables, mileage, options and condition **line by line** against the client's vehicle", "Route any error to Atty. Thorne with its source; value is never yours to negotiate"]},
-      {"term": "Rental", "text": "Confirm who authorizes it and the daily cap; **usually 30 days maximum** unless the Dec Page says otherwise", "more": ["Whose policy is primary: usually the renter's own; the rental company follows a written denial", "Who authorizes it, and whether the policy carries **a rental reimbursement endorsement**", "The daily rate cap, recorded before the client collects a vehicle: anything above it is the client's cost", "The duration: usually 30 days at most, unless the Dec Page says otherwise", "A comparable vehicle to the client's own, not an upgrade", "Log it all in CMS → Property Damage before collection"]}
+      {"term": "Rental", "text": "Confirm who authorizes it and the daily cap; **usually 30 days maximum** unless the Dec Page says otherwise", "more": ["Whose coverage pays: the adverse carrier's Property Damage coverage; the owner's own policy only if none", "Who authorizes it, and whether the policy carries **a rental reimbursement endorsement**", "The daily rate cap, recorded before the client collects a vehicle: anything above it is the client's cost", "The duration: usually 30 days at most, unless the Dec Page says otherwise", "A comparable vehicle to the client's own, not an upgrade", "Log it all in CMS → Property Damage before collection"]}
     ],
     "pages": ["D2#6"],
     "framework": {
@@ -173,7 +173,7 @@
     "lead": "A rental is part of **the Property Damage claim**: the owner's, paid only within what the policy authorizes.",
     "concepts": [
       {"term": "Whose Claim It Is", "text": "Rental follows the vehicle: it belongs to **the owner's PD claim**, not to a passenger's injury claim"},
-      {"term": "Primary Policy", "text": "The renter's own auto policy usually pays first; the rental company follows **a written denial**", "more": ["The renter's personal auto policy is usually primary", "The rental company is usually self-insured and pays only after the personal policy denies", "Get that denial in writing before relying on the rental company's coverage"]},
+      {"term": "Whose Coverage Pays", "text": "The adverse carrier's Property Damage coverage pays the 3P rental; the owner's policy **only if there's none**", "more": ["On accepted liability, the adverse carrier's Property Damage coverage provides the rental: here, Keystone's", "The owner's own policy, or the rental company's self-insurance, only where there is no 3P coverage", "For example, a liability denial, or a dispute over fault still open", "Get the carrier's rental authorization in writing before the client collects a car"]},
       {"term": "Rental Reimbursement Endorsement", "text": "Optional coverage on the owner's policy for a rental while the car is repaired: **check the Dec Page**"},
       {"term": "Rate Cap and Duration", "text": "The authorized daily rate and days, usually 30 at most: **anything beyond them** is the client's cost", "more": ["Record the authorized daily rate before the client collects a vehicle", "Coverage usually runs 30 days at most, unless the Dec Page says otherwise", "Calendar the last covered day and tell the client before it arrives", "A comparable vehicle, not an upgrade: the difference is the client's cost"]}
     ],
@@ -182,7 +182,7 @@
       "title": "The Rental Authorization Check",
       "kind": "flow",
       "steps": [
-        {"label": "Whose Policy Is Primary?", "text": "The renter's own policy is usually primary; the rental company follows a written denial"},
+        {"label": "Whose Coverage Pays the Rental?", "text": "The adverse carrier's **Property Damage** coverage pays the 3P rental; the client's policy only if none"},
         {"label": "Who Authorizes?", "text": "Confirm who authorizes the rental and check for a rental reimbursement endorsement"},
         {"label": "Daily Rate Cap", "text": "Record the authorized daily rate before the client collects a vehicle"},
         {"label": "Duration Limit", "text": "Usually 30 days max unless the Dec Page differs: **uncovered days are the client's cost**"}

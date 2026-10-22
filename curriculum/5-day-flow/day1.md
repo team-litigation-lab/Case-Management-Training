@@ -631,14 +631,14 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 #### 1 · Visual Layout Description
 
-A four-chip flow across the upper half: WHOSE POLICY IS PRIMARY? → WHO AUTHORIZES? → DAILY RATE CAP → DURATION LIMIT, with “usually 30 days unless the Dec Page says otherwise” under the last chip. Lower half, left: Keystone's Form KM-PD 210 rental authorization (RS32) with the rate and the covered days circled in orange. Right: a cream card headed WHOSE CLAIM? naming the Civic's owner, Margaret Doe, with John Doe struck through as a passenger. An orange tag along the bottom: “uncovered days are the client's cost.”
+A four-chip flow across the upper half: WHOSE COVERAGE PAYS? → WHO AUTHORIZES? → DAILY RATE CAP → DURATION LIMIT, with “usually 30 days unless the Dec Page says otherwise” under the last chip. Lower half, left: Keystone's Form KM-PD 210 rental authorization (RS32) with the rate and the covered days circled in orange. Right: a cream card headed WHOSE CLAIM? naming the Civic's owner, Margaret Doe, with John Doe struck through as a passenger. An orange tag along the bottom: “uncovered days are the client's cost.”
 
 #### 2 · Slide Body — Tell Them
 
 *Why:* A rental is the first money question a client asks, and the easiest place for them to get hurt: a car collected on a promise, at a rate or for days nobody authorized, becomes a bill that lands on the client. Rental belongs to the Property Damage claim, so it is the vehicle owner's to make. On this file that is Margaret Doe, the Civic's owner, not John Doe, who was her passenger.
 
 1. Rental is part of the Property Damage claim, and it belongs to the vehicle's owner. John Doe was a passenger; the Civic is Margaret Doe's, so the rental is hers to claim.
-2. Find whose policy is primary. On a rental, the renter's own personal auto policy is usually primary; the rental company is usually self-insured and steps in only after the personal policy denies, in a formal written denial.
+2. Find whose coverage pays. The third-party rental comes from the adverse carrier's Property Damage coverage, here Keystone's. The owner's own policy, or the rental company's self-insurance, is used only where there is no 3P coverage, such as a liability denial or an unresolved dispute over fault.
 3. Confirm who authorizes the rental (the adverse carrier on accepted liability, or the owner's own carrier) and check the Dec Page for a rental reimbursement endorsement.
 4. Record the authorized daily rate cap before the client collects a vehicle. Anything above the cap is the client's cost.
 5. Record the duration limit: coverage usually runs 30 days at most, unless the Dec Page says otherwise. Calendar the last covered day and tell the client before it arrives.
@@ -663,7 +663,7 @@ A four-chip flow across the upper half: WHOSE POLICY IS PRIMARY? → WHO AUTHORI
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| The owner asks about a rental | Confirm the primary policy, the authorizer, the endorsement, the rate cap and the duration | CMS → Property Damage | All five recorded before collection |
+| The owner asks about a rental | Confirm whose coverage pays, the authorizer, the endorsement, the rate cap and the duration | CMS → Property Damage | All five recorded before collection |
 | The carrier's rental authorization arrives | File it; calendar the last covered day | CMS → Documents · Calendar | Authorization filed; cutoff calendared |
 | The rental cutoff nears | Tell the owner in writing; plan John Doe's rides to treatment | CMS → Case Notes · Tasks | Owner told; rides to treatment planned |
 
@@ -682,7 +682,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **25%** | Rental hierarchy | Personal policy primary; written denial before rental-company self-insurance |
+| 🤖 AI | **25%** | Whose coverage pays | The adverse carrier's Property Damage coverage for the 3P rental; the owner's policy or the rental company's only without 3P coverage |
 | 🤖 AI | **20%** | Rental parameters | Authorizer, endorsement, rate cap and duration recorded before collection |
 | 🤖 AI | **15%** | Whose claim | The rental placed on the owner's Property Damage claim, not the passenger's |
 | 🧑‍🏫 Trainer | **25%** | Client-facing clarity | Limits explained so the client is never surprised by a bill |
@@ -1106,7 +1106,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 #### 2 · Slide Body — Knowledge verification
 
 1. List the firm's standing instructions for a new personal injury client and, for each, the specific harm it prevents.
-2. Before anyone collects a rental, what must be confirmed, and whose policy is usually primary? On John Doe's file, whose rental is it, and how do the records tell you?
+2. Before anyone collects a rental, what must be confirmed, and whose coverage provides the rental? On John Doe's file, whose rental is it, and how do the records tell you?
 3. Explain what actual cash value means, what it does not mean, and why confusing it with the loan balance misleads the client.
 
 **Best practices & pitfalls**
@@ -1140,9 +1140,9 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 1. The Property Damage carve-out in the LOR lets the adverse carrier talk to the client about:  
    Injuries and treatment · **✓ The Property Damage claim only** · Anything except settlement figures · A Recorded Statement  
    *Only the resolution of the Property Damage claim. Anything else routes to the firm.*
-2. On a rental vehicle, whose policy is usually primary?  
-   The rental company's self-insurance · **✓ The renter's own personal auto policy** · The at-fault driver's BI · The client's Health Plan  
-   *The rental company usually steps in only after the personal policy denies, in writing.*
+2. On a rental vehicle, whose coverage provides it?  
+   The rental company's self-insurance · **✓ The adverse carrier's Property Damage coverage** · The client's own personal auto policy · The client's Health Plan  
+   *The 3P rental comes from the adverse carrier's Property Damage coverage. The client's own policy is used only where there is no 3P coverage.*
 3. Actual cash value (ACV) is:  
    What is still owed on the loan · **✓ The vehicle's pre-loss market value** · The cost of a new replacement · The Repair Estimate plus storage  
    *Pre-loss market value, not the loan balance and not replacement with new.*
@@ -1173,7 +1173,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Instruction recall | Standing instructions listed with the harm each prevents |
-| 🤖 AI | **15%** | Rental | Primary policy, authorization, rate cap and duration named |
+| 🤖 AI | **15%** | Rental | Whose coverage provides it, authorization, rate cap and duration named |
 | 🤖 AI | **15%** | ACV definition | Pre-loss market value, expressly not the loan balance |
 | 🤖 AI | **10%** | Entitlement completeness | Storage, towing and Loss of Use all identified |
 | 🧑‍🏫 Trainer | **15%** | Scenario handling | Routes the contact correctly and logs it, without legal explanation to the client |

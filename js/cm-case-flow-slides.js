@@ -1206,7 +1206,7 @@ window.CM_CF_SLIDES = {
      "term": "Rental",
      "text": "Confirm who authorizes it and the daily cap; **usually 30 days maximum** unless the Dec Page says otherwise",
      "more": [
-      "Whose policy is primary: usually the renter's own; the rental company follows a written denial",
+      "Whose coverage pays: the adverse carrier's Property Damage coverage; the owner's own policy only if none",
       "Who authorizes it, and whether the policy carries **a rental reimbursement endorsement**",
       "The daily rate cap, recorded before the client collects a vehicle: anything above it is the client's cost",
       "The duration: usually 30 days at most, unless the Dec Page says otherwise",
@@ -1288,7 +1288,7 @@ window.CM_CF_SLIDES = {
   "hook": "A rental collected **on a promise** becomes the client's bill.",
   "points": [
    "Rental is on **the owner's PD claim**: Margaret Doe's, not John's",
-   "The renter's own policy is **usually primary**",
+   "The adverse carrier's **PD coverage** pays the rental",
    "Confirm authorizer, rate cap and **duration in writing** first",
    "Coverage is **usually 30 days** unless the Dec Page differs"
   ],
@@ -1329,12 +1329,13 @@ window.CM_CF_SLIDES = {
      "text": "Rental follows the vehicle: it belongs to **the owner's PD claim**, not to a passenger's injury claim"
     },
     {
-     "term": "Primary Policy",
-     "text": "The renter's own auto policy usually pays first; the rental company follows **a written denial**",
+     "term": "Whose Coverage Pays",
+     "text": "The adverse carrier's Property Damage coverage pays the 3P rental; the owner's policy **only if there's none**",
      "more": [
-      "The renter's personal auto policy is usually primary",
-      "The rental company is usually self-insured and pays only after the personal policy denies",
-      "Get that denial in writing before relying on the rental company's coverage"
+      "On accepted liability, the adverse carrier's Property Damage coverage provides the rental: here, Keystone's",
+      "The owner's own policy, or the rental company's self-insurance, only where there is no 3P coverage",
+      "For example, a liability denial, or a dispute over fault still open",
+      "Get the carrier's rental authorization in writing before the client collects a car"
      ]
     },
     {
@@ -1358,8 +1359,8 @@ window.CM_CF_SLIDES = {
     "kind": "flow",
     "steps": [
      {
-      "label": "Whose Policy Is Primary?",
-      "text": "The renter's own policy is usually primary; the rental company follows a written denial"
+      "label": "Whose Coverage Pays the Rental?",
+      "text": "The adverse carrier's **Property Damage** coverage pays the 3P rental; the client's policy only if none"
      },
      {
       "label": "Who Authorizes?",
@@ -1458,7 +1459,7 @@ window.CM_CF_SLIDES = {
   "image": "property-damage",
   "questions": [
    "List the firm's **standing instructions** for a new client, and the harm each prevents.",
-   "Before a rental: what must be confirmed, **whose policy is usually primary**, and what happens to uncovered days?",
+   "Before a rental: what must be confirmed, **whose coverage provides it**, and what happens to uncovered days?",
    "What does **actual cash value** mean and not mean, and why does the loan-balance mix-up mislead clients?"
   ]
  },
@@ -3611,8 +3612,8 @@ window.CM_CF_SLIDES = {
      "He gets the chance to fix anything the summary got off."
     ],
     [
-     "John Doe's rental ends on 03/19/2026.",
-     "His 03/05/2026 consult with Dr. Reyes still needs a ride.",
+     "John Doe's 03/05/2026 consult with Dr. Reyes gets confirmed.",
+     "Margaret Doe's rental, his ride to care, ends 03/19/2026.",
      "Transport gets lined up now, so no new break in care appears."
     ]
    ],
