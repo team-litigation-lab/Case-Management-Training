@@ -69,7 +69,7 @@ Trainees read the file on the **📁 Case File page**, which is John Doe v. Robe
 
 ### Two tracks: the litigation fork
 
-Day 3 follows **Track A**: Keystone tenders the BI limits, both UM carriers pay theirs, and the file settles for $40,000 gross and $20,359.92 net to John Doe. Day 4 returns to the same moment, 08/05/2026, and follows **Track B**: Keystone holds at $3,500 on the 14-Day Gap and stonewalls, and because BI must be exhausted before UM opens, the whole $40,000 is frozen behind a $10,000 carrier. The file goes to suit, mediation and UM arbitration (Day 4) and through discovery to deposition (Day 5). The same facts run under both tracks; every block's header line names its track on Days 3–5, so a trainee always knows which one they are on.
+Day 3 follows **Track A**: Keystone tenders the BI limits, both UM carriers pay theirs, and the file settles for $40,000 gross and $21,469.92 net to John Doe. Day 4 returns to the same moment, 08/05/2026, and follows **Track B**: Keystone holds at $3,500 on the 14-Day Gap and stonewalls, and because BI must be exhausted before UM opens, the whole $40,000 is frozen behind a $10,000 carrier. The file goes to suit, mediation and UM arbitration (Day 4) and through discovery to deposition (Day 5). The same facts run under both tracks; every block's header line names its track on Days 3–5, so a trainee always knows which one they are on.
 
 ### The critical fact — the 14-Day Treatment Gap
 

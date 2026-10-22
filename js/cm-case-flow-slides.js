@@ -5566,13 +5566,157 @@ window.CM_CF_SLIDES = {
    "Rolling 11/06/2027 **forward to Monday**"
   ]
  },
+ "d4m2-um": {
+  "image": "coverage-check",
+  "hook": "A UM claim is made against **our own client's insurance**, not the other driver's.",
+  "points": [
+   "Third party: Keystone. **First party: Harbor Point and Cardinal State**",
+   "The route is **read off the clause**, never chosen",
+   "Mandatory arbitration: file a **Demand for Arbitration**, not a complaint",
+   "Bad faith is **a separate suit**, above the policy limit"
+  ],
+  "upl": "Read the clause, route it to Atty. Thorne; never call an offer unreasonable.",
+  "job": [
+   [
+    "UM offers come back low",
+    "Memo with both clauses quoted",
+    "CMS → Case Notes",
+    "Sent same day, uninterpreted"
+   ],
+   [
+    "Clauses in hand",
+    "Ask the route per layer",
+    "CMS → Tasks → Atty. Thorne",
+    "Nothing recommended, everything asked"
+   ],
+   [
+    "Route decided in writing",
+    "Open the ADR entry",
+    "CMS → ADR tab",
+    "Typed UM / UIM arbitration"
+   ]
+  ],
+  "dos": [
+   "Say **first party or third party** before anything else",
+   "Quote the clause; **a paraphrase is interpretation**"
+  ],
+  "donts": [
+   "**Filing suit** where the policy sends it to arbitration",
+   "Reading Harbor Point's clause **onto Cardinal State**",
+   "Telling John Doe the carrier is **acting in bad faith**"
+  ],
+  "theory": {
+   "lead": "A UM/UIM claim is a **first-party claim** against the client's own policy, so the impasse route is set by that contract and the state's law.",
+   "concepts": [
+    {
+     "term": "First-Party Claim",
+     "text": "Made against **the client's own coverage**, under a contract he pays premiums on"
+    },
+    {
+     "term": "Third-Party Claim",
+     "text": "Made against **the at-fault driver's carrier**, here Keystone Mutual for Robert Smith"
+    },
+    {
+     "term": "Mandatory Arbitration Clause",
+     "text": "A policy term sending the dispute to an arbitrator; the firm files **a Demand for Arbitration**"
+    },
+    {
+     "term": "Insurance Bad Faith",
+     "text": "A separate suit for unreasonable handling, which **can exceed the policy limit**"
+    }
+   ],
+   "pages": [
+    "D2#33",
+    "D4#2"
+   ],
+   "framework": {
+    "title": "The UM Dispute Flow",
+    "kind": "flow",
+    "steps": [
+     {
+      "label": "Claim submission",
+      "text": "The UM Demand Package, with proof the at-fault limits were exhausted"
+     },
+     {
+      "label": "Dispute",
+      "text": "The carrier offers far under value, or denies liability or coverage"
+     },
+     {
+      "label": "Resolution route",
+      "text": "Demand for Arbitration, or suit against the carrier: state law and the clause decide"
+     }
+    ],
+    "note": "Bad faith sits off this flow: a separate action about the carrier's handling, and Atty. Thorne's call alone."
+   }
+  },
+  "clues": {
+   "dos": [
+    [
+     "Keystone insured the driver who ran the stop sign.",
+     "Harbor Point and Cardinal State insure our own side.",
+     "Which it is changes the duties, the defences and the exit."
+    ],
+    [
+     "Marcus Bell will not move off his 09/14/2026 number.",
+     "Atty. Thorne needs the policy's own words in front of him.",
+     "You copy the paragraph across rather than summarise it."
+    ]
+   ],
+   "donts": [
+    [
+     "The UM negotiation with Harbor Point has plainly failed.",
+     "Its policy says where a dispute under it is decided.",
+     "You reach for a complaint because the BI claim went that way."
+    ],
+    [
+     "Two UM layers, two carriers, two certified policies.",
+     "Only one of them has arrived with its paragraph legible.",
+     "You assume the second one says what the first one does."
+    ],
+    [
+     "John Doe rings, angry about an offer worth a third.",
+     "Whether handling was unreasonable is a legal opinion.",
+     "You agree with him on the phone and name the consequence."
+    ]
+   ]
+  }
+ },
  "d4m2-l2": {
   "image": "mediation-table",
   "hook": "Hon. Carla Benton (Ret.) helps parties agree; **Laura Whitcomb, Esq. decides**, with almost no appeal.",
+  "roadmap": {
+   "title": "Standard Case Progression Roadmap",
+   "steps": [
+    {
+     "label": "Demand & Negotiation",
+     "text": "Treatment ends, the demand goes out and **the carrier evaluates it**"
+    },
+    {
+     "label": "Pre-Litigation Mediation",
+     "text": "Optional: both sides mediate **before any complaint is filed**"
+    },
+    {
+     "label": "Pre-Filing Arbitration",
+     "text": "Only where **a signed clause** compels arbitration instead of court"
+    },
+    {
+     "label": "Complaint Filed",
+     "text": "Negotiation fails, suit is filed and **the court's clock starts**"
+    },
+    {
+     "label": "Discovery & Mediation",
+     "text": "Evidence exchanged; courts often **order mediation before a trial date**"
+    },
+    {
+     "label": "Arbitration Or Trial",
+     "text": "Parties may agree to binding arbitration; otherwise **the case is tried**"
+    }
+   ]
+  },
   "points": [
+   "Each forum can land **before or after the complaint is filed**",
    "Court-ordered mediation means John Doe **must attend, not agree**",
    "Binding arbitration: **the arbitrator acts as judge**; court review is narrow",
-   "Collect **3–4 windows** from everyone before contacting the mediator",
    "Golden Rule: **never argue**, speak on the record or represent John Doe"
   ],
   "upl": "Run logistics, exhibits and notes; never argue, negotiate or advise on a number.",
@@ -5606,23 +5750,23 @@ window.CM_CF_SLIDES = {
    "Logging bench directives **the next day from memory**"
   ],
   "theory": {
-   "lead": "Mediation is **negotiation toward compromise**, non-binding; arbitration is an adversarial hearing where a neutral acts as judge and issues a binding Award.",
+   "lead": "Mediation and arbitration can each come **before or after a lawsuit is filed**: the process, the court's rules and the negotiations decide.",
    "concepts": [
     {
-     "term": "Zero Decision Power",
-     "text": "The mediator facilitates and negotiates but cannot rule; **the parties keep control** over whether to sign"
+     "term": "Non-Binding (Mediation)",
+     "text": "Both sides must agree: **nobody is forced to settle**, and the parties keep control of the outcome"
     },
     {
-     "term": "Absolute Decision Power",
-     "text": "The arbitrator is a private judge and finder of fact who **can exclude evidence** and award damages"
+     "term": "Binding (Arbitration)",
+     "text": "The arbitrator's decision is final and **enforceable like a court order**, reviewed on narrow grounds"
     },
     {
-     "term": "Trial-Ready Standard",
-     "text": "Because appeal is drastically limited, treat the hearing with **a multi-day trial's precision**, not a compromise mindset"
+     "term": "Before Filing",
+     "text": "Mediation after treatment and the demand; arbitration only where **a signed clause** compels it"
     },
     {
-     "term": "Unauthorized Practice of Law",
-     "text": "Arguing, speaking on the record or representing John Doe is practicing law; **without a license it's UPL**"
+     "term": "After Filing",
+     "text": "Mediation often **ordered during discovery**; arbitration by the parties' agreement to leave court"
     }
    ],
    "pages": [
@@ -5726,12 +5870,39 @@ window.CM_CF_SLIDES = {
    "Treating the UM carriers **as friendly**"
   ]
  },
+ "d4m2-a3": {
+  "image": "documents-audit",
+  "situation": "10/02/2026. Harbor Point offers **$8,000 of $20,000**; Cardinal State **$6,000 of $10,000**. Both refuse to move.",
+  "steps": [
+   "Write the impasse memo: **offers against the limits**",
+   "Quote **each layer's dispute-resolution clause** verbatim",
+   "Ask the route, the deadline and consolidation **in writing**",
+   "Open the ADR entry and **hold every date**",
+   "Draft John Doe's **procedural** explanation"
+  ],
+  "deliver": "An impasse memo, a routed CMS file, **no opinion in either**",
+  "checks": [
+   "Both named as **first-party** claims",
+   "$8,000 / $20,000 and **$6,000 / $10,000**",
+   "Harbor Point's clause **quoted, not paraphrased**",
+   "Cardinal State's certified policy **marked outstanding**",
+   "**Nothing docketed** before his written answer"
+  ],
+  "dos": [
+   "Give each layer **its own clause and deadline**"
+  ],
+  "donts": [
+   "Docketing an arbitration deadline **from the tort SOL**"
+  ]
+ },
  "d4m2-kc": {
   "image": "knowledge-check",
   "questions": [
    "Discovery mailed 12/01/2026: compute the response date step by step. What can happen **to an unanswered RFA**?",
    "SOL 02/06/2028: give the **internal hard date and cutoff** with arithmetic. Why never rely on a weekend roll-forward?",
-   "Explain **forward versus backward counting** using the 01/04/2027 deadline and the 06/22/2027 arbitration brief."
+   "Explain **forward versus backward counting** using the 01/04/2027 deadline and the 06/22/2027 arbitration brief.",
+   "Name the two UM resolution routes, what decides which governs, and where **bad faith** sits.",
+   "Place each forum **before or after filing**, say where John Doe's landed, then define non-binding and binding."
   ]
  },
  "d4m3-l1": {

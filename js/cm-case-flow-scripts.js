@@ -1490,14 +1490,36 @@ window.CM_CF_SCRIPTS = {
    "ask": "Did you recompute each date from its trigger document, or from the entry you were checking?"
   }
  },
+ "d4m2-um": {
+  "why": {
+   "say": "Before we talk procedure, one question. Whose insurance company are we fighting? Keystone insured Robert Smith, the man who ran the stop sign, so that claim is against somebody else's carrier. Harbor Point and Cardinal State are different. They are John's own coverage, under contracts he can call on, and that changes what this file is. When Harbor Point came back with eight thousand dollars against a twenty thousand dollar limit, we did not simply head for court the way the bodily injury claim would have. Harbor Point's own policy says where a dispute under it is decided, and reading that clause is our job before a single date goes on the calendar.",
+   "ask": "What changes about a claim when the insurance company on the other end of it is our own client's?"
+  },
+  "theory": {
+   "say": "Let's name the two shapes. A third-party claim is made against the at-fault driver's carrier: Keystone, for Robert Smith. A first-party claim is made against your own insurance, on the policy you pay the premiums for. Here that is Harbor Point for Host UM and Cardinal State for Relative UM. Plain English for the client: one is a claim against the other driver's insurance, the other is a claim against your own. Then there is the mandatory arbitration clause, a policy term that sends the dispute to an arbitrator, so the firm files a Demand for Arbitration instead of a complaint. And off to one side, insurance bad faith: a separate suit about unreasonable handling, which can reach above the policy limit.",
+   "ask": "Why would a carrier rather have a UM dispute heard by an arbitrator than by a jury?"
+  },
+  "rules": {
+   "say": "Start by knowing which claim you are on, because the evidence is the same but the relationship is not. Next, John's own Bluewater policy is not a UM layer at all: he rejected UM in writing in March of twenty twenty-four. He reaches UM by status instead, as an occupant of Kevin Alvarez's Escape and as a resident relative of his mother, Margaret. Third, and say this one back to me later: the route is read, never chosen. State law and the clause in the policy the claim is made under decide it. Fourth, read each layer on its own. Harbor Point's clause does not speak for Cardinal State. And every route carries its own clock, which is not the tort statute of limitations in February of twenty twenty-eight. Ask Atty. Thorne in writing, and docket only from his answer.",
+   "ask": "If Harbor Point's policy has an arbitration clause, what do we know about Cardinal State's?"
+  },
+  "job": {
+   "say": "On the job this is four triggers. When the UM offers come back low, you write the impasse memo the same day and you pull both carriers' dispute-resolution clauses from the certified policies, quoted and not interpreted. When the clauses and the statute are in hand, you lay the route options before Atty. Thorne as findings, with each layer's own filing or demand deadline put to him as a question. When he decides in writing, you record it: the ADR entry typed as UM slash UIM arbitration, how it was set as required by the policy or contract, and the case status matching the route. And when arbitration is invoked, you docket the hearing and everything counted back from it, and you tell John what happens procedurally and nothing more.",
+   "ask": "Which of those four steps is the one trainees skip, and what does skipping it cost?"
+  }
+ },
  "d4m2-l2": {
   "why": {
    "say": "Two names, side by side: Hon. Carla Benton (Ret.) and Laura Whitcomb, Esq. Tell me what each one can do to John Doe's case. Judge Benton is our mediator, and she can't decide anything. She can only help the parties agree, and any deal needs John's agreement, through Atty. Thorne. Laura Whitcomb is the arbitrator, and she decides. Her award stands with almost no appeal. These two sessions are three months apart, and here's the danger. If you prepare for both the same way, you'll walk a compromise file into a trial-ready hearing. That's the mistake this lesson is built to prevent.",
    "ask": "What can Hon. Carla Benton do to John Doe's case that Laura Whitcomb can't, and the other way around?"
   },
+  "map": {
+   "say": "Before we name either neutral, look at where these sessions sit. Treatment ends, the demand goes out, the carrier evaluates it. If both sides want to avoid court costs, legal fees and a public record, they can mediate right there, before a single page is filed. Arbitration can come that early too, but only where the client signed a clause that sends the dispute out of court, like rideshare terms or a treatment consent. When negotiation fails, as it did with Keystone, the complaint is filed and the court's clock starts. Discovery runs, and many courts order mediation before they will give you a trial date. After that, the parties can agree to binding arbitration, or the case is tried. Both of John Doe's sessions sit on the filed side of that line.",
+   "ask": "Does mediation happen before a lawsuit is filed or after it?"
+  },
   "theory": {
-   "say": "Here's the core distinction. Mediation is negotiation toward compromise, and it's non-binding. Arbitration is an adversarial hearing where the neutral acts as a judge and issues a binding Award. The mediator has zero decision power. She facilitates and negotiates, but she can't rule, so the parties keep control over whether to sign. The arbitrator has absolute decision power. She's a private judge and finder of fact who can exclude evidence and award damages. Since appeal is so limited, we treat that hearing with a multi-day trial's precision. And through all of it, remember: arguing, speaking on the record or representing John Doe is practicing law. Without a license, that's UPL.",
-   "ask": "Where have you already seen the difference between helping someone agree and deciding for them?"
+   "say": "Two words, and I want you saying them in plain language. Non-binding, which is mediation: both sides have to agree, so nobody is forced to settle and the parties keep control of the outcome. Binding, which is arbitration: the decision is final and enforced like a court order, and a court will only look at it on very narrow grounds. Then where each one sits. Before filing, mediation usually comes after treatment and the demand, and arbitration comes only where a signed clause compels it. After filing, mediation is often ordered during discovery, and arbitration happens when the parties agree to leave the court system. Those four cards are what you explain to John Doe. What either one does to his claim is Atty. Thorne's to tell him.",
+   "ask": "Say it to me as you would to John Doe: what does non-binding mean, and what does binding mean?"
   },
   "rules": {
    "say": "Mediation is facilitated compromise: non-binding and confidential under the governing rule. Court-ordered means John Doe must attend, not agree. Binding arbitration, like Harbor Point's clause, makes the arbitrator the judge, with narrow court review. Here, BI settled at mediation on 03/18/2027, and the UM carriers' dispute over the gap went to a decision. Know the limits: damages are reduced first by the $10,000 BI paid, Harbor Point pays above that up to $20,000, Cardinal State's $10,000 behind it, and how an award applies is Atty. Thorne's analysis. For mediation, collect 3 to 4 windows first, book a private room, check the interpreter, hold his 2-hour buffer. For arbitration, contact the arbitrator's office only as he directs, and confirm the retainer in writing. And the Golden Rule: you never argue, speak on the record or represent John Doe. Asked about a bill, you defer and hand him the document.",
@@ -1522,10 +1544,28 @@ window.CM_CF_SCRIPTS = {
    "ask": "Say your deferral line out loud once: what are the exact words you'll use at the hearing?"
   }
  },
+ "d4m2-a3": {
+  "case": {
+   "say": "It is the second of October twenty twenty-six, and we are on Track B. The UM demands went out at the end of August, after Keystone tendered its ten thousand in bodily injury limits on the twelfth with both UM carriers' written consents and a Limited Release signed on the twenty-eighth. Now the answers are in. Marcus Bell at Harbor Point offers eight thousand against a twenty thousand dollar Host UM limit, and he is calling the fourteen-day gap a causation problem. Teresa Okafor at Cardinal State offers six thousand against ten thousand. Harbor Point's policy has a binding arbitration clause. Cardinal State's certified policy was requested and has not arrived.",
+   "ask": "Fourteen thousand offered against thirty thousand of limits. What is our first move, and what is not?"
+  },
+  "task": {
+   "say": "Route the impasse. Write the memo to Atty. Thorne: the offers set against the limits, Harbor Point's stated reason, and each layer's dispute-resolution clause quoted word for word, with Cardinal State's marked as outstanding. Lay out both routes and what each would require operationally. Then ask him three things in writing: which route governs on each layer, each layer's own suit or arbitration-demand deadline, and whether the two should be heard together. Set the CMS up to carry his answer, with the ADR entry, the status, and a task per open question. Draft the calendar entries, but do not save them. Then write what you will say to John when he calls to ask what happens now.",
+   "ask": "Why do we draft the calendar entries and hold them instead of simply docketing them today?"
+  },
+  "check": {
+   "say": "Check your work against this. Both claims named as first-party claims, distinct from the Keystone claim that closed in August. The figures exact, with their dates. Exhaustion documented rather than assumed. Harbor Point's clause quoted and called binding, with no interpretation. Cardinal State treated as its own layer, its certified policy marked outstanding, with a chase task, and Harbor Point's clause never read onto it. Both routes laid out with their operational consequences. Bad faith raised only as a question, with the handling dates recorded as facts. Three written questions asked. Nothing docketed, and the tort statute of limitations not used as a UM deadline. And the explanation to John procedural only: what a Demand for Arbitration is, that a neutral decides rather than a jury, and that Atty. Thorne will go through what it means.",
+   "ask": "Whose work would you rather hand to Atty. Thorne: the memo with an answer in it, or the one with three questions?"
+  }
+ },
  "d4m2-kc": {
   "questions": {
    "say": "Let's move into the Learning Check. Answer from this file, in your own words, typed under each question. You'll compute John Doe's discovery response date step by step, work out the SOL's internal dates with the arithmetic, and explain forward versus backward counting off a weekend. Question 3 is the direction test, so take your time on it. And for question 5, I'm going to play Laura Whitcomb, Esq. and put the bill question to one of you across the table. I'm grading the very first sentence you say.",
    "ask": "If the brief lands on Monday 06/14/2027 in your answer, what went wrong in your count?"
+  },
+  "questions2": {
+   "say": "Two more on the same page, and both are about the UM side of this file. First, name the two routes a UM/UIM dispute can take out of an impasse, say what decides which one governs, and tell me where an Insurance Bad Faith action sits in relation to them. Then explain why John Doe’s own Bluewater Auto policy is not one of those routes. Second, place mediation and arbitration on the timeline and define non-binding and binding in the words you would use with John Doe. I am looking for the clause and the state law in the first answer, and plain English in the second.",
+   "ask": "The UM negotiation has failed. Before you tell me what we file, what do you have to read?"
   },
   "summary": {
    "say": "Now write your Self-Summary: the principles from this module in your own words. Then take the scenario on the slide. It's 09/04/2026, Keystone has ignored two follow-ups and the 48-hour escalation, and John Doe calls asking why nothing's happening and whether he should just take the $3,500. Write what you say, what you don't say, and what goes to Atty. Thorne today. While you're writing, think about one date on this file you'd always check twice.",

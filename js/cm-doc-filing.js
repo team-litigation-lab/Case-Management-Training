@@ -167,7 +167,12 @@ function health(){
   return {filed: all.filter(x=>x.filed).length, firstTime: all.filter(x=>x.filed && x.attempts === 1).length,
           attempts: all.reduce((n, x)=>n + (x.attempts || 0), 0)};
 }
-window.cmDocFiling = {panel, file, health, categories: CATEGORIES, expectedCategory, CATEGORIES, relayOrigins: ()=> RELAY_ORIGINS.map(String)};
+/* send: one document to the CMS, the same upload this panel uses. js/cm-cms-upload.js files the
+   letters a trainee drafts through it, so a drafted document and a case document take one road. */
+const send = (d)=> askCms({lsh:"cms-doc-file", name:d.name, category:d.category, original:d.original || d.name,
+                           mime:d.mime || "application/pdf", summary:d.summary || d.name, bytes:d.bytes},
+                          "cms-doc-filed", d.bytes ? [d.bytes] : []);
+window.cmDocFiling = {panel, file, send, health, categories: CATEGORIES, expectedCategory, CATEGORIES, relayOrigins: ()=> RELAY_ORIGINS.map(String)};
 
 /* ---------- relaying a simulator's document to the CMS ----------
    The LSH Training Portal (and a local server while the checks run) may ask; nobody else. The message

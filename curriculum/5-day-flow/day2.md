@@ -174,7 +174,7 @@ A horizontal five-stage status track across the upper half — REPORTED → NOTI
 3. Read the Declaration Page line by line: named insured, policy number, a policy period covering 02/06/2026, the insured vehicle and VIN, coverages and limits, deductibles, listed or excluded drivers, endorsements.
 4. Record the limit type: Keystone's Declaration Page shows BI $10,000 per person, the cap on one injured person's claim. Per-accident, aggregate and combined single limits read differently; ask when unclear.
 5. Ask each UM carrier for its form in writing: add-on, or reduced by the BI payment. Harbor Point confirmed on 03/02/2026: add-on (excess), no PIP non-duplication, no reimbursement right on PIP.
-6. Track everything; stack only three layers: $10,000 BI + $20,000 Host UM + $10,000 Relative UM = $40,000. PIP ($5,000), Keystone's PD coverage ($25,000) and Bluewater's collision coverage are tracked, never added.
+6. Track everything; stack only three layers: $10,000 BI + $20,000 Host UM + $10,000 Relative UM = $40,000. PIP ($5,000), MedPay ($1,500), Keystone's PD coverage ($25,000) and Bluewater's collision coverage are tracked, never added.
 7. Verify exclusions and gaps as carefully as limits. John Doe rejected UM on his Bluewater policy in writing (03/14/2024): the signed form goes in the file, so the zero is verified, not assumed.
 8. Firm cadence: a claim not opened on the call, follow up in 24–48 hours; an LOR not acknowledged, by the third business day; any other open request, a dated next follow-up within two business days. A past date with nothing logged is an audit failure.
 9. Regulatory backstop: many states set deadlines for a carrier to acknowledge a claim and answer written communications; some require limits disclosure on a qualifying written request. Confirm the governing rule; docket it.
@@ -221,8 +221,8 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Status discipline | Each layer's status matches its source; nothing confirmed without a written document |
-| 🤖 AI | **15%** | Stack integrity | $40,000; PIP, Keystone PD and Bluewater tracked outside it |
-| 🤖 AI | **10%** | UM terms recorded | Harbor Point add-on, no PIP non-duplication, no PIP reimbursement right, sourced 03/02/2026 |
+| 🤖 AI | **15%** | Stack integrity | $40,000; PIP, MedPay, Keystone PD and Bluewater tracked outside it |
+| 🤖 AI | **10%** | UM terms recorded | Harbor Point add-on, no PIP non-duplication, no PIP or MedPay reimbursement right, sourced 03/02/2026 |
 | 🤖 AI | **15%** | Follow-up hygiene | Every open item has a future follow-up date; the firm cadence applied |
 | 🧑‍🏫 Trainer | **20%** | Deadline judgment | Treats regulatory and policy deadlines as rules to confirm with counsel and docket, not to quote |
 | 🧑‍🏫 Trainer | **20%** | UPL boundary | No coverage interpretation or regulatory threat offered to a carrier or the client |
@@ -325,7 +325,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 #### 1 · Visual Layout Description
 
-A two-tier slide. The top tier is a coverage map: eight cards in three colour groups. Navy, THIRD-PARTY: Keystone BI $10,000 · Keystone PD $25,000. Orange, FIRST-PARTY: Harbor Point Host UM $20,000 · Cardinal State Relative UM $10,000 · Harbor Point PIP $5,000 · Bluewater collision ($500 deductible). Green, HEALTH: Peach State Health Plan. A crossed-out grey card: Bluewater UM, rejected 03/14/2024. Each card carries a small tag for what it pays: THE CLAIM, THE BILLS or THE CAR, and only the three THE CLAIM cards are joined by a bracket labelled RECOVERY STACK $40,000. The bottom tier is a staircase running down left to right, titled THE PAYER-FIRST PRINCIPLE: MedPay/PIP → Health Plan → Letter of Protection, each step lower than the last, labelled pays regardless of fault · contract rate, reimbursement right · paid from the recovery. Bottom-right, an orange callout: “Out of order = a lien that didn't have to exist.”
+A two-tier slide. The top tier is a coverage map: eight cards in three colour groups. Navy, THIRD-PARTY: Keystone BI $10,000 · Keystone PD $25,000. Orange, FIRST-PARTY: Harbor Point Host UM $20,000 · Cardinal State Relative UM $10,000 · Harbor Point PIP $5,000 · Harbor Point MedPay $1,500 · Bluewater collision ($500 deductible). Green, HEALTH: Peach State Health Plan. A crossed-out grey card: Bluewater UM, rejected 03/14/2024. Each card carries a small tag for what it pays: THE CLAIM, THE BILLS or THE CAR, and only the three THE CLAIM cards are joined by a bracket labelled RECOVERY STACK $40,000. The bottom tier is a staircase running down left to right, titled THE PAYER-FIRST PRINCIPLE: MedPay/PIP → Health Plan → Letter of Protection, each step lower than the last, labelled pays regardless of fault · contract rate, reimbursement right · paid from the recovery. Bottom-right, an orange callout: “Out of order = a lien that didn't have to exist.”
 
 #### 2 · Slide Body — Tell Them
 
@@ -418,10 +418,10 @@ Centre-right, a cream ledger card with a navy header bar, PIP · HARBOR POINT ·
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* Treatment is the file's engine room, and someone has to pay for it while the claim is open. On John Doe's file three payers stand in a default order: Harbor Point PIP, then Peach State, then a Letter of Protection. An LOP issued out of order turns a bill an earlier payer would have paid into a lien against John Doe's net.
+*Why:* Treatment is the file's engine room, and someone has to pay for it while the claim is open. On John Doe's file four payers stand in a default order: Harbor Point PIP, then Harbor Point MedPay, then Peach State, then a Letter of Protection. An LOP issued out of order turns a bill an earlier payer would have paid into a lien against John Doe's net.
 
 1. The treatment-phase question changes from “What does he need?” to “Is the plan working?” Your three jobs: facilitation (transport, paperwork, scheduling), coordination (every provider on one plan), advocacy (step in when care is denied or stalls).
-2. Run the Payer Order: Harbor Point PIP → Peach State → LOP. John Doe claims the $5,000 PIP as a passenger in Kevin Alvarez's 2020 Ford Escape: a passenger who is not in the owner's household claims PIP on the vehicle he rode in, and no household policy carries PIP (Margaret Doe rejected it in writing).
+2. Run the Payer Order: Harbor Point PIP → Harbor Point MedPay → Peach State → LOP. John Doe claims the $5,000 PIP as a passenger in Kevin Alvarez's 2020 Ford Escape: a passenger who is not in the owner's household claims PIP on the vehicle he rode in, and no household policy carries PIP (Margaret Doe rejected it in writing).
 3. The order is a default: providers bill whom they bill. PIP pays what it gets, in date order; its wage benefit had nothing left when Northgate's wage letter came on 06/30/2026. Crescent Pain & Spine billed Peach State on 05/15/2026 with $640.00 of PIP left: track both ledgers; never re-route a paid claim. Who is primary (coordination of benefits, governing law) is Atty. Thorne's call.
 4. An LOP is John Doe's signed agreement, acknowledged by the firm on Atty. Thorne's terms, that a provider is paid from any recovery. The firm guarantees nothing; John Doe stays liable whatever the outcome, as Atty. Thorne explains before he signs. Use one only where earlier payers can't: Riverton Spine & Rehab is out of network.
 5. LOP terms are Atty. Thorne's: his approved template, his signature, what happens if there is no recovery. You prepare, route, transmit once approved, and confirm receipt. Never promise a provider a payment amount, a reduction or a date.
@@ -1162,6 +1162,7 @@ A full-width CMS Coverage Matrix in a white card with a navy header bar: six row
 | 2 · Host UM | Harbor Point · HP-26-7741 · Marcus Bell | $20,000 · Confirmed 03/02/2026 · UM form: — | None |
 | 3 · Relative UM | Cardinal State · CS-26-20355 · Not yet assigned | $10,000 · Confirmed 03/09/2026 | None |
 | 4 · PIP | Harbor Point · PIP | $5,000 · Confirmed 03/02/2026 | None |
+| Outside · MedPay | Harbor Point · MedPay | $1,500 · Confirmed 03/02/2026 · exhausted 03/2026 | None |
 | Outside · PD | Keystone · Leah Moran | $25,000 · PD liability accepted 02/17/2026 | Per PD file |
 | Outside · Bluewater | Bluewater Auto · John Doe's policy | UM: none · source: — | None |
 
@@ -1946,7 +1947,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 |---|---|---|---|
 | 🤖 AI | **15%** | LOR mechanics | Five letters, insureds and Attn lines correct; third-party letter limited to the client's name |
 | 🤖 AI | **20%** | Verification status | Host UM 03/02/2026 and Relative UM 03/09/2026 confirmed in writing; BI preliminary until 03/20/2026 |
-| 🤖 AI | **15%** | Stack discipline | $40,000 stack; PIP and Keystone PD tracked outside it; add-on effect stated correctly |
+| 🤖 AI | **15%** | Stack discipline | $40,000 stack; PIP, MedPay and Keystone PD tracked outside it; add-on effect stated correctly |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slide |

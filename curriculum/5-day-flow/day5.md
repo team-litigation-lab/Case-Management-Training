@@ -1079,18 +1079,18 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 #### 1 · Visual Layout Description
 
-Two tall ledger cards side by side on cream: TRACK A (navy header) and TRACK B (orange header), with the same five rows (Gross, Fee, Costs, Liens, Net). Both gross rows read $40,000.00; on Track B the fee, costs and liens rows are highlighted in orange; the net rows read $20,359.92 and $14,713.75 in large mono type. Between the cards, a slim arrow labelled SUIT FILED 09/24/2026 · 40% TIER. At the foot, a red chip: “No Payoff Letter, no payment.”
+Two tall ledger cards side by side on cream: TRACK A (navy header) and TRACK B (orange header), with the same five rows (Gross, Fee, Costs, Liens, Net). Both gross rows read $40,000.00; on Track B the fee, costs and liens rows are highlighted in orange; the net rows read $21,469.92 and $15,748.75 in large mono type. Between the cards, a slim arrow labelled SUIT FILED 09/24/2026 · 40% TIER. At the foot, a red chip: “No Payoff Letter, no payment.”
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* Keystone's stonewall turned a $40,000.00 settlement into a lawsuit, a mediation and an arbitration. The 07/06/2027 award brings in the same $40,000.00 gross as Track A, yet John Doe nets $14,713.75, not $20,359.92. The Net Sheet shows him exactly why, line by line, before he signs.
+*Why:* Keystone's stonewall turned a $40,000.00 settlement into a lawsuit, a mediation and an arbitration. The 07/06/2027 award brings in the same $40,000.00 gross as Track A, yet John Doe nets $15,748.75, not $21,469.92. The Net Sheet shows him exactly why, line by line, before he signs.
 
 1. The award ends the case, not the work. Laura Whitcomb's 07/06/2027 award finds John Doe's damages exceed the UM limits and awards Harbor Point's $20,000.00 and Cardinal State's $10,000.00; with Keystone's $10,000.00 BI tendered at the 03/18/2027 mediation, the gross is $40,000.00.
 2. The fee follows the retainer, not the outcome. Suit was filed 09/24/2026, so the 40% tier applies: $16,000.00. Atty. Thorne confirms the fee on each stream from the retainer before the Net Sheet is drafted.
 3. Litigation costs need the same receipts as pre-suit costs: filing fee and summons $218.00, Allied Process Services $285.00, mediation (Hon. Carla Benton, plaintiff's half) $1,200.00, arbitration (plaintiff's share of Laura Whitcomb's fee) $900.00, Riverton Court Reporting $645.50 and certified records for the binder $160.00, plus the pre-suit $486.75: $3,895.25.
-4. A litigated fund still pays only what is owed. The liens are Peach State's $1,860.00 and Riverton Spine & Rehab's audited $6,105.00; PIP, Crescent's write-off and the PIP-paid providers stay at zero.
-5. Reduce against the fund the litigation built. Peach State's procurement-cost reduction follows the fee actually charged: 40% of $1,860.00 is $744.00, accepted at $1,116.00 on 07/14/2027. Riverton Spine & Rehab accepts $4,275.00 in a signed Payoff Letter dated 07/16/2027.
-6. Net: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75. Nothing leaves trust until both UM checks have cleared, every Payoff Letter is in Documents and John Doe has signed the Settlement Statement.
+4. A litigated fund still pays only what is owed. The liens are Peach State's $1,860.00 and Riverton Spine & Rehab's $4,625.00 owed after the audit and MedPay; PIP, Crescent's write-off and the PIP-paid providers stay at zero.
+5. Reduce against the fund the litigation built. Peach State's procurement-cost reduction follows the fee actually charged: 40% of $1,860.00 is $744.00, accepted at $1,116.00 on 07/14/2027. Riverton Spine & Rehab accepts $3,240.00 in a signed Payoff Letter dated 07/16/2027.
+6. Net: $40,000.00 – $16,000.00 – $3,895.25 – $4,356.00 = $15,748.75. Nothing leaves trust until both UM checks have cleared, every Payoff Letter is in Documents and John Doe has signed the Settlement Statement.
 
 > ⚠️ **UPL boundary.** You build and explain the arithmetic and the documents. Whether suing was worth it, whether the fee tier was fair and whether John should sign are Atty. Thorne's to discuss with him.
 
@@ -1103,16 +1103,16 @@ Two tall ledger cards side by side on cream: TRACK A (navy header) and TRACK B (
 | Gross $40,000.00 | Gross $40,000.00 |
 | Fee 33⅓%: $13,333.33 | Fee 40% (suit filed 09/24/2026): $16,000.00 |
 | Costs: $486.75 | Costs: $3,895.25 |
-| Liens: $1,240.00 + $4,580.00 = $5,820.00 | Liens: $1,116.00 + $4,275.00 = $5,391.00 |
-| Net to John Doe: $20,359.92 | Net to John Doe: $14,713.75 |
+| Liens: $1,240.00 + $3,470.00 = $4,710.00 | Liens: $1,116.00 + $3,240.00 = $4,356.00 |
+| Net to John Doe: $21,469.92 | Net to John Doe: $15,748.75 |
 
 **Operational mapping**
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | Award received (07/06/2027) | Log it and diary each carrier's payment | CMS → Litigation · CMS → Calendar | Harbor Point $20,000.00 · Cardinal State $10,000.00 |
-| The fund is known | Send the Reduction Requests for Atty. Thorne's approval | LSH Net Sheet · CMS → Liens | Peach State $1,116.00 · Riverton Spine & Rehab $4,275.00 |
-| Last UM check cleared | Complete the Net Sheet and route the Settlement Statement | LSH Net Sheet · CMS → Tasks → Escalate | Net $14,713.75, routed before John Doe signs |
+| The fund is known | Send the Reduction Requests for Atty. Thorne's approval | LSH Net Sheet · CMS → Liens | Peach State $1,116.00 · Riverton Spine & Rehab $3,240.00 |
+| Last UM check cleared | Complete the Net Sheet and route the Settlement Statement | LSH Net Sheet · CMS → Tasks → Escalate | Net $15,748.75, routed before John Doe signs |
 
 **Best practices & pitfalls**
 
@@ -1132,8 +1132,8 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 |---|---|---|---|
 | 🤖 AI | **15%** | Fee tier | The 40% tier applied once suit was filed: $16,000.00 |
 | 🤖 AI | **15%** | Litigation costs | Seven receipted items = $3,895.25, each with its source |
-| 🤖 AI | **15%** | Lien reductions | Peach State at the 40% rate to $1,116.00; Riverton Spine & Rehab $4,275.00 with its Payoff Letter |
-| 🤖 AI | **15%** | Net | $14,713.75, reconciled to the trust deposits |
+| 🤖 AI | **15%** | Lien reductions | Peach State at the 40% rate to $1,116.00; Riverton Spine & Rehab $3,240.00 with its Payoff Letter |
+| 🤖 AI | **15%** | Net | $15,748.75, reconciled to the trust deposits |
 | 🧑‍🏫 Trainer | **20%** | Client explanation | Explains the difference from a pre-suit settlement as plain arithmetic, without opinion |
 | 🧑‍🏫 Trainer | **20%** | UPL boundary | Leaves the worth of the lawsuit and the fee's fairness to Atty. Thorne |
 
@@ -2211,33 +2211,33 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 ### 5.1.27 The Litigation Net Sheet: Disbursing the Award
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
-> **Topic:** Skill Activity — take the award to $14,713.75 on the LSH Net Sheet  
+> **Topic:** Skill Activity — take the award to $15,748.75 on the LSH Net Sheet  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#21` Increasing the Client's Net · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D3#27` Key Takeaway — The Value of a Case Manager · `D3#28` Skill Building: The “Doe v. Apex” Final Net Challenge · Newly authored: the Track B close-out
 
 #### 1 · Visual Layout Description
 
-The LSH Net Sheet fills the slide in its four navy-headed sections. Section 1 reads Gross $40,000.00 with three carrier chips (Keystone, Harbor Point, Cardinal State); Section 2 shows Attorney Fees at 40% = $16,000.00 with an orange SUIT FILED tag and seven receipt rows totalling $3,895.25; Section 3 lists the providers with Peach State reduced to $1,116.00 and Riverton Spine & Rehab to $4,275.00, the zero-balance rows greyed with NOT PAYABLE chips; Section 4 ends on a large orange NET CLIENT DISBURSEMENT $14,713.75.
+The LSH Net Sheet fills the slide in its four navy-headed sections. Section 1 reads Gross $40,000.00 with three carrier chips (Keystone, Harbor Point, Cardinal State); Section 2 shows Attorney Fees at 40% = $16,000.00 with an orange SUIT FILED tag and seven receipt rows totalling $3,895.25; Section 3 lists the providers with Peach State reduced to $1,116.00 and Riverton Spine & Rehab to $3,240.00, the zero-balance rows greyed with NOT PAYABLE chips; Section 4 ends on a large orange NET CLIENT DISBURSEMENT $15,748.75.
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** File date 07/22/2027. Laura Whitcomb's 07/06/2027 award gave Harbor Point's $20,000.00 and Cardinal State's $10,000.00; their checks arrived 07/20 and today, joining Keystone's $10,000.00 held in trust since 03/29/2027: $40,000.00. Peach State accepted $1,116.00 (07/14) and Riverton Spine & Rehab $4,275.00 (07/16), both in writing. Every litigation cost is receipted.
+**Scenario.** File date 07/22/2027. Laura Whitcomb's 07/06/2027 award gave Harbor Point's $20,000.00 and Cardinal State's $10,000.00; their checks arrived 07/20 and today, joining Keystone's $10,000.00 held in trust since 03/29/2027: $40,000.00. Peach State accepted $1,116.00 (07/14) and Riverton Spine & Rehab $3,240.00 (07/16), both in writing. Every litigation cost is receipted.
 
 **Execution prompt.** Complete John Doe's LSH Net Sheet for the litigated recovery. Section 1: the gross by carrier. Section 2: the 40% fee the retainer sets once suit is filed, and every receipted cost, pre-suit and litigation, on its row. Section 3: every provider and payer with charges, payments, adjustments and balance owed, and each lien's reduced figure with its Payoff Letter. Section 4: the net to John Doe. Tie it to the Trust Ledger and route the Settlement Statement to Atty. Thorne. Graded judgment: what you explain to John about the difference from a pre-suit settlement, and what you leave to Atty. Thorne.
 
 | | |
 |---|---|
 | **Tool / interface** | LSH Net Sheet · CMS → Financial Ledger → Trust · CMS → Tasks → Escalate |
-| **Expected output** | A Net Sheet reaching $14,713.75, every cost and lien proved, routed to Atty. Thorne before John Doe signs. |
+| **Expected output** | A Net Sheet reaching $15,748.75, every cost and lien proved, routed to Atty. Thorne before John Doe signs. |
 
 **Verification checkpoints**
 
 - [ ] Gross: Keystone $10,000.00 (mediation, 03/18/2027) + Harbor Point $20,000.00 + Cardinal State $10,000.00 (award, 07/06/2027) = $40,000.00
 - [ ] Fee at the 40% tier (suit filed 09/24/2026): $16,000.00, confirmed by Atty. Thorne from the retainer
 - [ ] Costs receipted: $486.75 pre-suit + $218.00 filing + $285.00 service + $1,200.00 mediation + $900.00 arbitration + $645.50 court reporter + $160.00 certified records = $3,895.25
-- [ ] Liens: Peach State $1,860.00 → $1,116.00 (40% procurement-cost reduction, $744.00, 07/14/2027); Riverton Spine & Rehab $6,290.00 → audited $6,105.00 → $4,275.00 (Payoff Letter 07/16/2027); total $5,391.00
+- [ ] Liens: Peach State $1,860.00 → $1,116.00 (40% procurement-cost reduction, $744.00, 07/14/2027); Riverton Spine & Rehab $6,290.00 → audited $6,105.00 → $4,625.00 owed after MedPay → $3,240.00 (Payoff Letter 07/16/2027); total $4,356.00
 - [ ] Zero-balance lines kept off the payables with their source: PIP $5,000.00, Crescent's $1,540.00 write-off, the PIP-paid providers
-- [ ] Net: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75; the trust deposits of $40,000.00 tie to the gross
+- [ ] Net: $40,000.00 – $16,000.00 – $3,895.25 – $4,356.00 = $15,748.75; the trust deposits of $40,000.00 tie to the gross
 - [ ] Nothing disbursed until both UM checks clear and John Doe signs the Settlement Statement (07/29/2027); disbursement 07/30/2027
 - [ ] The difference from a pre-suit settlement explained to John Doe as arithmetic; whether suing was worth it routed to Atty. Thorne
 
@@ -2245,8 +2245,8 @@ The LSH Net Sheet fills the slide in its four navy-headed sections. Section 1 re
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Last UM check received (07/22/2027) | Post it and complete the Net Sheet | LSH Net Sheet | Gross $40,000.00 · net $14,713.75 |
-| Liens accepted in writing | Log the reduced figures and Payoff Letters | LSH Net Sheet · CMS → Documents | Peach State $1,116.00 · Riverton Spine & Rehab $4,275.00 |
+| Last UM check received (07/22/2027) | Post it and complete the Net Sheet | LSH Net Sheet | Gross $40,000.00 · net $15,748.75 |
+| Liens accepted in writing | Log the reduced figures and Payoff Letters | LSH Net Sheet · CMS → Documents | Peach State $1,116.00 · Riverton Spine & Rehab $3,240.00 |
 | Net Sheet ties to trust | Route the Settlement Statement | CMS → Tasks → Escalate | Routed before John Doe signs |
 
 **Best practices & pitfalls**
@@ -2266,8 +2266,8 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 |---|---|---|---|
 | 🤖 AI | **15%** | Gross and fee | $40,000.00 by carrier; 40% = $16,000.00 |
 | 🤖 AI | **15%** | Costs | $3,895.25 from seven receipted items |
-| 🤖 AI | **15%** | Liens | $1,116.00 and $4,275.00 with their Payoff Letters; zero-balance lines off the payables |
-| 🤖 AI | **15%** | Net | $14,713.75, tied to the trust deposits |
+| 🤖 AI | **15%** | Liens | $1,116.00 and $3,240.00 with their Payoff Letters; zero-balance lines off the payables |
+| 🤖 AI | **15%** | Net | $15,748.75, tied to the trust deposits |
 | 🧑‍🏫 Trainer | **20%** | Explaining the difference | Plain arithmetic to John Doe: fee tier, costs, liens |
 | 🧑‍🏫 Trainer | **20%** | UPL boundary | No opinion on the lawsuit's worth or the fee; routed to Atty. Thorne |
 
@@ -2788,7 +2788,7 @@ The standard knowledge-check split, extended for the final check. Above the crea
 
 1. List John Doe's Recovery Stack in its order of operations, with each limit and the total, and name three coverages on this file that are not part of it. Then state the Payer Order for his Medical Bills.
 2. When did the window on the 07/20/2026 BI Time-Limited Demand close, and why that date? On Track A, what had to come from Harbor Point and Cardinal State before the BI release was signed?
-3. Track A nets John Doe $20,359.92 from $40,000.00. Name every deduction with its figure, and explain how costs and liens split between the BI and UM streams.
+3. Track A nets John Doe $21,469.92 from $40,000.00. Name every deduction with its figure, and explain how costs and liens split between the BI and UM streams.
 
 **Best practices & pitfalls**
 
@@ -2834,7 +2834,7 @@ The standard knowledge-check split, extended for the final check. Above the crea
 |---|---|---|---|
 | 🤖 AI | **15%** | Stack and Payer Order | $10,000 → $20,000 → $10,000 = $40,000 in order; PIP, Keystone PD and Bluewater outside it; Payer Order correct |
 | 🤖 AI | **10%** | Gap and documentation | 14 days (02/06 → 02/20/2026); reasons and corroboration named, including Dr. Reyes's 06/19/2026 letter |
-| 🤖 AI | **15%** | Settlement mechanics | 08/21/2026 (30 days from receipt on 07/22); written consent before the release; $20,359.92 reconciled with the 25% / 75% allocation |
+| 🤖 AI | **15%** | Settlement mechanics | 08/21/2026 (30 days from receipt on 07/22); written consent before the release; $21,469.92 reconciled with the 25% / 75% allocation |
 | 🤖 AI | **10%** | Litigation and liability | The fork explained; mediation non-binding, arbitration binding; each allegation matched to its evidence |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
@@ -2848,7 +2848,7 @@ The standard knowledge-check split, extended for the final check. Above the crea
 
 - This is the last check before Track B's close-out. Tell the room it spans all five days and is answered from one file: names, dates and figures, not general rules.
 - Put Question 7 to the room aloud before anyone writes: “John asks how to explain the gap. What do you say?” The only right answer listens, tells him Atty. Thorne will go through it with him, escalates at once and logs the call. The Gap Record is already in counsel's prep set, and the 2021 low-back visits sit in the medical-history category clients most often underreport, which defense counsel already has.
-- Question 4 is the arithmetic gate: $40,000.00 less the $13,333.33 fee, $486.75 in costs and the $1,240.00 and $4,580.00 liens leaves $20,359.92. A trainee who cannot reconcile it to the cent goes back to Track A's disbursement.
+- Question 4 is the arithmetic gate: $40,000.00 less the $13,333.33 fee, $486.75 in costs and the $1,240.00 and $3,470.00 liens leaves $21,469.92. A trainee who cannot reconcile it to the cent goes back to Track A's disbursement.
 - Compare self-ratings with scores across all five days. A 5 on the UPL competency from a trainee who coached John in Question 7 does not pass: UPL is a gate, not a weight.
 
 ---
@@ -2862,11 +2862,11 @@ The standard knowledge-check split, extended for the final check. Above the crea
 
 #### 1 · Visual Layout Description
 
-Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange; beside it, the two nets stacked as chips, TRACK A $20,359.92 and TRACK B $14,713.75. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, beside the 1–5 SKILL SCALE as a five-step horizontal ladder. Far right, the 60/40 split as a stacked bar, with UPL as a separate red gate chip below it.
+Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange; beside it, the two nets stacked as chips, TRACK A $21,469.92 and TRACK B $15,748.75. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, beside the 1–5 SKILL SCALE as a five-step horizontal ladder. Far right, the 60/40 split as a stacked bar, with UPL as a separate red gate chip below it.
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Take the $40,000.00 award to John Doe's $14,713.75: name every deduction with its figure and its source.
+1. Take the $40,000.00 award to John Doe's $15,748.75: name every deduction with its figure and its source.
 2. Why is the fee 40% on this file, and which document says so? Who confirms it before the Net Sheet is drafted?
 3. Peach State accepted $1,240.00 on Track A and $1,116.00 on Track B. Show both reductions and why they differ.
 
@@ -2895,9 +2895,9 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **Auto-graded share of the day's Knowledge Check** (2 questions):
 
-1. Track B recovers the same $40,000.00 gross as Track A. Why does John Doe net $14,713.75 instead of $20,359.92?  
+1. Track B recovers the same $40,000.00 gross as Track A. Why does John Doe net $15,748.75 instead of $21,469.92?  
    The arbitrator reduced the award for the 14-Day Gap · **✓ Suit was filed: the fee moved to 40% ($16,000.00) and costs rose to $3,895.25** · The UM carriers paid less than their limits · Peach State's lien grew with interest  
-   *Same gross, different deductions: 40% once suit was filed ($16,000.00 against $13,333.33), $3,895.25 in receipted costs against $486.75, and liens of $5,391.00 against $5,820.00. $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75.*
+   *Same gross, different deductions: 40% once suit was filed ($16,000.00 against $13,333.33), $3,895.25 in receipted costs against $486.75, and liens of $4,356.00 against $4,710.00. $40,000.00 – $16,000.00 – $3,895.25 – $4,356.00 = $15,748.75.*
 2. Peach State asserts $1,860.00 against the litigated fund. What does the procurement-cost reduction at this file's fee produce?  
    $1,240.00 · **✓ $1,116.00** · $744.00 · $1,860.00  
    *The reduction follows the fee actually charged: 40% of $1,860.00 is $744.00, so $1,860.00 – $744.00 = $1,116.00, accepted in writing 07/14/2027. Track A's $1,240.00 reflected the 33⅓% pre-suit fee.*
@@ -2906,7 +2906,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | Net Sheet arithmetic | $40,000.00 → $14,713.75 with every deduction and its source |
+| 🤖 AI | **20%** | Net Sheet arithmetic | $40,000.00 → $15,748.75 with every deduction and its source |
 | 🤖 AI | **20%** | Fee and lien doctrine | The 40% tier from the retainer; reductions at the fee actually charged |
 | 🤖 AI | **20%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **20%** | Strategic articulation | The stated next action is the right one and the reasoning holds |

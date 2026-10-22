@@ -5,7 +5,9 @@
    block, with only the fill-in lines editable. Unlike those two, there is nothing to assign — every
    trainee drafts the same HIPAA authorization form, the firm's own template, straight away.
 
-   A STANDALONE activity — nothing here opens or touches the CMS; see NO_CASE_FILE below. The
+   The form is FILED IN THE CMS when it is drafted: the trainee opens their client's case file in the CMS
+   beside the lesson and uploads it under the right tab, named the firm's way, and is graded on both (see
+   js/cm-cms-upload.js and FILE_IN_CMS below). ⬇ Download PDF stays beside it, for the client's Drive. The
    acknowledgement date, signature and "Relationship to Patient" line are the client's to complete
    and sign, not the VA's, so they stay fixed, uneditable text — the trainee drafts the form up to
    the point it's ready to send the client for signature.
@@ -21,7 +23,7 @@ const TPL = window.CM_HIPAA_TEMPLATE;
 const e = v => esc(String(v == null ? "" : v));
 const isTrainee = () => !!state.traineeId && !state.isAdmin;
 const adminOn = () => !!state.isAdmin && !state.adminPreview;
-const NO_CASE_FILE = "Do <b>not</b> create a case file in the CMS for this activity, and do not link it to any case file. This is a standalone drafting exercise: draft the form here and download it.";
+const FILE_IN_CMS = "Draft the form here, then <b>upload it in the CMS</b>: open your client's case file, file it under the right tab and name it the firm's way. You are graded on the tab you choose and the name you apply. ⬇ Download PDF is still there for the client's Drive.";
 
 const H = {id:null, draft:null, loading:false, err:"", timer:null, saving:false, savedAt:null};
 const blank = () => ({v:1, fields:{}, checks:{}, updatedAt:""});
@@ -102,7 +104,7 @@ function letterLines(){
 }
 
 function notice(){
-  return `<div class="lor-warn" role="note"><span class="lor-warn-ic">⚠</span><div><b class="lor-warn-h">Standalone activity — no CMS case file.</b><p>${NO_CASE_FILE}</p></div></div>`;
+  return `<div class="lor-warn" role="note"><span class="lor-warn-ic">📤</span><div><b class="lor-warn-h">Filed in the CMS — under the right tab, named the firm's way.</b><p>${FILE_IN_CMS}</p></div></div>`;
 }
 function steps(){
   const list = [
@@ -110,8 +112,15 @@ function steps(){
     "Section I: enter the name of the provider or facility you are sending this authorization to.",
     "Section II: enter the date of the injury or accident (the records requested run from that date to present).",
     "Section V: the \"valid beginning on\" date is filled in for you and is always today; enter that same date again for \"expires 5 years from\".",
-    "Leave the Date, Signature and Relationship to Patient lines at the bottom blank — the client completes and signs those, not you."];
+    "Leave the Date, Signature and Relationship to Patient lines at the bottom blank — the client completes and signs those, not you.",
+    "Upload the finished form in the CMS, under the tab the firm files it in and named the CMS's way. Keep the ⬇ Download PDF copy for the client's Drive."];
   return `<details class="card lor-steps"><summary>📋 Instructions for this activity</summary><ol>${list.map(x => `<li>${x}</li>`).join("")}</ol></details>`;
+}
+/* 📤 the same form, filed in the CMS: js/cm-cms-upload.js checks the tab, the CMS checks the name. */
+function uploadPanel(){
+  if(!window.cmCmsUpload) return "";
+  cmCmsUpload.register("hipaa", {title: "HIPAA Compliant Authorization Form", lines: ()=> letterLines()});
+  return cmCmsUpload.panel("hipaa");
 }
 function renderPage(){
   if(!state.traineeId && !state.isAdmin && !state.adminPreview) return `<div class="card" style="padding:28px;">Sign in to open the HIPAA Drafting tool.</div>`;
@@ -133,11 +142,12 @@ function renderPage(){
     ${notice()}${steps()}
     <section class="lor-ed"><div class="card lor-paper">${renderLetter()}</div>
       <div class="lor-actions">
-        <button class="btn btn-navy" type="button" onclick="CMHipaa.pdf()">⬇ Download the form (PDF)</button>
+        <button class="btn btn-navy" type="button" onclick="CMHipaa.pdf()">⬇ Download PDF</button>
         <button class="btn btn-ghost" type="button" onclick="CMHipaa.word()">⬇ Download as Word</button>
         <button class="btn btn-ghost btn-sm" type="button" onclick="CMHipaa.copyName()">📋 Copy the file name</button>
         <span class="lor-save" id="hipaaSave"></span></div>
-      <p class="lor-muted lor-naming">File name: <code>${e(fileNameFor())}</code></p></section>`;
+      <p class="lor-muted lor-naming">Download file name: <code>${e(fileNameFor())}</code></p>
+      ${uploadPanel()}</section>`;
 }
 
 const pdfSafe = s => String(s == null ? "" : s).replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
@@ -193,7 +203,7 @@ window.render = function(){
 };
 window.cmHipaaCard = function(){
   return `<div class="card fts-card"><h3>🔏 HIPAA Drafting</h3>
-    <p class="fts-note">Draft the HIPAA Compliant Authorization Form, in the firm's own template, ready for the client to sign. A standalone activity — no CMS case file.</p>
+    <p class="fts-note">Draft the HIPAA Compliant Authorization Form, in the firm's own template, ready for the client to sign, then upload it in the CMS under the right tab, named the firm's way — both are graded.</p>
     <div class="fts-tool-act"><button class="btn btn-navy btn-sm" type="button" onclick="goto('hipaa')">Open HIPAA Drafting</button></div></div>`;
 };
 })();

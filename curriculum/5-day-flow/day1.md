@@ -153,7 +153,7 @@ A case card filling the slide like a file folder: top-left the style JOHN DOE v.
 2. Your client: John Doe, 34, a warehouse shift lead at Northgate Distribution. Lead Counsel: Atty. Elijah Thorne. Case Manager: you. Where John Doe was sitting is a fact you find in the records, not one you are given.
 3. The Recovery Stack is $40,000, worked in order: $10,000 BI (Keystone Mutual) → $20,000 Host UM (Harbor Point) → $10,000 Relative UM (Cardinal State Mutual).
 4. His position in the vehicle decides which of those layers he can reach. Work it out from the Police Report and the policies before you name a single carrier.
-5. Health: Peach State Health Plan asserted a reimbursement right on first notice; Harbor Point carries $5,000 PIP on the Escape.
+5. Health: Peach State Health Plan asserted a reimbursement right on first notice; Harbor Point carries $5,000 PIP and $1,500 MedPay on the Escape.
 6. The critical fact: compare the EMS Run Report's date with the first treatment record. The days between them are a Treatment Gap: you record its dates and, later, John Doe's own documented explanation. You never judge it.
 7. The statute of limitations is docketed for 02/06/2028. Every deadline on the file counts from the date of loss.
 

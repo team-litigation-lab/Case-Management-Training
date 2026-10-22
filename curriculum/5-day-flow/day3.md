@@ -247,7 +247,7 @@ A left-to-right audit run across the full slide. Far left, a navy vertical gate 
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* Pre-demand is where most of a file's value is won or lost: The demands that follow can only spend what this audit proves. A duplicate line or an unchecked limit is Keystone's easy out, and $7,965.00 in liens waits behind a $10,000 BI limit.
+*Why:* Pre-demand is where most of a file's value is won or lost: The demands that follow can only spend what this audit proves. A duplicate line or an unchecked limit is Keystone's easy out, and $6,485.00 in liens waits behind a $10,000 BI limit.
 
 1. Audit against four objectives: Verification (facts match evidence?), Valuation (every dollar justified?), Risk (where will the defense attack?), Compliance (SOL 02/06/2028 docketed; statutory demand terms confirmed by Atty. Thorne).
 2. MMI is a medical determination, never yours: record it from Lakeside Orthopedics' 06/12/2026 note, with the future-care plan. By default, no demand before MMI: the bills are still growing. Demanding earlier (Specials already over the limit, a deadline pressing) is Atty. Thorne's call.
@@ -310,7 +310,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 #### 5 · Speaker Notes
 
-- Open on the why: “The demand goes out later today, but what it can claim is decided here.” Then put $7,965.00 in liens beside a $10,000 BI limit and let the room do the arithmetic.
+- Open on the why: “The demand goes out later today, but what it can claim is decided here.” Then put $6,485.00 in liens beside a $10,000 BI limit and let the room do the arithmetic.
 - Ask the room: “Who decides that John Doe reached MMI?” Anyone who says the Case Manager, or John Doe, gets the rule: it is Lakeside Orthopedics' determination, recorded from its 06/12/2026 note.
 - Watch the billed-vs-paid rule. Trainees either pick a column themselves or hide the paid column to keep the number high. Both are wrong: show both and route the choice. Collateral-source rules vary by state; confirm the governing rule.
 - The property-damage carve-out re-seats the classic formula: the Civic's repair runs on Keystone's PD claim, so it never inflates the BI Specials or counts toward the $40,000.
@@ -499,7 +499,7 @@ A six-station horizontal timeline across the slide, stations numbered in orange 
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* BI alone would have left John Doe nothing: $10,000 less fee and costs is $6,179.92 against $7,965.00 in unreduced liens. The UM layers change his net, and a technicality can lose them: a release signed too early, a consent never obtained, a UM demand sent before BI is exhausted.
+*Why:* BI alone would have left John Doe nothing: $10,000 less fee and costs is $6,179.92 against $6,485.00 in unreduced liens. The UM layers change his net, and a technicality can lose them: a release signed too early, a consent never obtained, a UM demand sent before BI is exhausted.
 
 1. BI exhaustion first. Here Host UM opens once Keystone's $10,000 tender (08/12/2026) is documented; exhaustion clauses and their effect vary by policy and state (confirm the governing rule). Notice of both UM claims went out in 03/2026; it's the demand that waits.
 2. Prove Keystone is all there is: its Dec Page (03/20/2026) and Smith's affidavit of no other insurance (08/10/2026). An underinsured claim needs proof of exhaustion, not of no insurance.
@@ -562,7 +562,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 #### 5 · Speaker Notes
 
-- Open on the net, not the gross: “BI alone leaves John Doe nothing.” Show $6,179.92 against $7,965.00, then ask what the UM layers are worth to him.
+- Open on the net, not the gross: “BI alone leaves John Doe nothing.” Show $6,179.92 against $6,485.00, then ask what the UM layers are worth to him.
 - Put this to the room: “Keystone's draft release is in your inbox and Dana Whitfield wants it back today. What's wrong with it?” Make them find “insurers” themselves.
 - Watch for trainees who think consent is a courtesy. It protects the UM carrier's subrogation right, which is exactly why releasing Smith without it can cost the coverage. And the UM carriers are now adversaries: their bad-faith exposure, where the law allows one, is Atty. Thorne's analysis, built on the record the CM assembles.
 - Offset and stacking rules vary by state and by policy. Teach the question, and the source that answers it on this file: Harbor Point's 03/02/2026 letter.
@@ -578,14 +578,14 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 #### 1 · Visual Layout Description
 
-A battle map across the full slide width: four orange-numbered stations on a navy rail, left to right — ① NET FLOOR ② VALUE DRIVERS ③ THEIR TOP TWO ④ REBUTTAL READY. Station ① carries a mono pill, $12,677.63 GROSS, with a small red note: KEYSTONE LIMIT $10,000. Under station ③ hang two red-bordered danger cards, 14-DAY GAP and “DEGENERATIVE” MRI; under station ④, two cream cards answer them, each with mono source pills: EMS REPORT · CAUSATION LETTER 06/19/2026, and SUMMIT MRI 03/13/2026. Top-right, a navy chip: DEMAND EXPIRES 08/21/2026. The argument: every attack on this file is answered before the phone rings.
+A battle map across the full slide width: four orange-numbered stations on a navy rail, left to right — ① NET FLOOR ② VALUE DRIVERS ③ THEIR TOP TWO ④ REBUTTAL READY. Station ① carries a mono pill, $10,457.63 GROSS, with a small red note: KEYSTONE LIMIT $10,000. Under station ③ hang two red-bordered danger cards, 14-DAY GAP and “DEGENERATIVE” MRI; under station ④, two cream cards answer them, each with mono source pills: EMS REPORT · CAUSATION LETTER 06/19/2026, and SUMMIT MRI 03/13/2026. Top-right, a navy chip: DEMAND EXPIRES 08/21/2026. The argument: every attack on this file is answered before the phone rings.
 
 #### 2 · Slide Body — Tell Them
 
 *Why:* Keystone will not argue the crash: Robert Smith was cited and the doorbell camera caught him. It will argue the 14-Day Gap, call the MRI degenerative, and stall toward 08/21/2026. A Case Manager who has mapped both attacks, and the documents that answer them, before the first call turns every stall into a record.
 
 1. The battle map comes before the first call: net floor, three value drivers, the adjuster's top two attacks with the documents that answer them, and the rebuttal. Here both attacks are known: the gap and the “degenerative” MRI.
-2. Net floor = liens + costs + fee; below it John Doe receives $0. $7,965.00 + $486.75 = $8,451.75; × 1.5 for the one-third fee = $12,677.63 gross, above Keystone's $10,000 limit. Every layer and lien reduction matters.
+2. Net floor = liens + costs + fee; below it John Doe receives $0. $6,485.00 + $486.75 = $6,971.75; × 1.5 for the one-third fee = $10,457.63 gross, above Keystone's $10,000 limit. Every layer and lien reduction matters.
 3. Value drivers: Smith ran the stop sign on video, with an independent witness (the citation helps the demand; whether a jury hears of it depends on the evidence rule); an objective C5-C6 herniation and injection; residual right-arm paresthesia at MMI.
 4. Anchor on total Specials, $16,401.40, not PIP's $5,000; lead with what PIP bought: urgent care, Lakeside, the MRI that found the herniation. Chiropractic and PT ran under the LOP.
 5. Soft lead: confirm Dana Whitfield has the package, point her to the MRI, restate the demand and its 08/21/2026 deadline as Atty. Thorne approved them, ask for her evaluation. What the firm does if she refuses is his to say. After a low number, pause; ask her data.
@@ -601,7 +601,7 @@ A battle map across the full slide width: four orange-numbered stations on a nav
 
 *The battle map for Keystone, built before the phone rings*
 
-1. **Net floor** — Liens $7,965.00 + costs $486.75 = $8,451.75; × 1.5 for the fee = $12,677.63 gross.
+1. **Net floor** — Liens $6,485.00 + costs $486.75 = $6,971.75; × 1.5 for the fee = $10,457.63 gross.
 2. **Value drivers** — Cited stop-sign violation on video; C5-C6 herniation and an injection; residuals at MMI.
 3. **Their top two** — The 14-Day Gap. The “degenerative” MRI.
 4. **Rebuttal ready** — EMS report, call-outs, receipt, Causation Letter; Dr. Park's MRI read.
@@ -610,7 +610,7 @@ A battle map across the full slide width: four orange-numbered stations on a nav
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Keystone receives the demand (07/22/2026) | Build the battle map and compute the net floor | CMS → Financial Ledger → Net Sheet · CMS → Case Notes | Floor $12,677.63 gross on unreduced liens ($12,677.63 – $4,225.88 fee = $8,451.75); each attack matched to a dated document |
+| Keystone receives the demand (07/22/2026) | Build the battle map and compute the net floor | CMS → Financial Ledger → Net Sheet · CMS → Case Notes | Floor $10,457.63 gross on unreduced liens ($10,457.63 – $4,225.88 fee = $6,971.75); each attack matched to a dated document |
 | Adjuster calls with an offer | Soft lead, professional pause, ask for her data; restate the approved demand | Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual | No counter; terms and the 08/21/2026 deadline unchanged |
 | Call ends | Log the offer and the adjuster's exact words; report to Atty. Thorne | CMS → Communications Log · CMS → Tasks → Escalate | Logged and reported the same day, reasons quoted verbatim |
 | Adjuster stalls (“waiting on authority”) | Name it and tie it to the deadline in writing | Email Workspace | Same-day email cites 08/21/2026; no open-ended callback accepted |
@@ -635,7 +635,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Battle map complete | Floor, three value drivers, both attacks and a written rebuttal present |
-| 🤖 AI | **15%** | Floor arithmetic | $7,965.00 + $486.75 = $8,451.75 × 1.5 = $12,677.63 gross, compared with the $10,000 limit |
+| 🤖 AI | **15%** | Floor arithmetic | $6,485.00 + $486.75 = $6,971.75 × 1.5 = $10,457.63 gross, compared with the $10,000 limit |
 | 🤖 AI | **15%** | Rebuttal sourcing | Each attack answered by a named, dated document; Dr. Park's sentence quoted exactly |
 | 🤖 AI | **10%** | Log discipline | Offer, date and exact words logged; same-day report to Atty. Thorne |
 | 🧑‍🏫 Trainer | **20%** | Strategic grasp | Explains why the gap and the MRI are Keystone's whole case, and how the record answers each |
@@ -929,7 +929,7 @@ A full-width Specials ledger on a cream card, provider rows in mono under five c
 
 **Scenario.** File date: early July 2026. Lakeside Orthopedics declared MMI on 06/12/2026; Dr. Reyes's Causation Letter arrived 06/19/2026. Every bill is in: Riverton Urgent Care $685.00; Riverton Spine & Rehab's statement, 34 lines × $185.00 = $6,290.00, with its visit notes; Lakeside Orthopedics three visits at $640.00; Summit Imaging $2,395.00; Crescent Pain & Spine $3,400.00 (Peach State paid $1,860.00); Riverton Drug $312.40. Northgate's HR letter verifies 9 missed shifts at 8 h × $22.00.
 
-**Execution prompt.** Build John Doe's audited Specials ledger in the CMS. Start with the first-party medical-payment ledger, here Harbor Point's PIP ledger: match each payment to its bill and confirm whether the limit is exhausted. Enter each provider's charges with dates, billed amount and who paid. Reconcile Riverton Spine & Rehab's billed lines against its visit notes and remove any line no visit supports. Total the medical, add the verified wages, and show billed beside paid. Put future medical in the narrative, not the ledger. List every lien with its amount, and re-verify the three policy-limits targets in order. Graded judgment: what you flag for Atty. Thorne instead of deciding it yourself.
+**Execution prompt.** Build John Doe's audited Specials ledger in the CMS. Start with the first-party medical-payment ledgers, here Harbor Point's PIP and MedPay ledgers: match each payment to its bill and confirm whether each limit is exhausted. Enter each provider's charges with dates, billed amount and who paid. Reconcile Riverton Spine & Rehab's billed lines against its visit notes and remove any line no visit supports. Total the medical, add the verified wages, and show billed beside paid. Put future medical in the narrative, not the ledger. List every lien with its amount, and re-verify the three policy-limits targets in order. Graded judgment: what you flag for Atty. Thorne instead of deciding it yourself.
 
 | | |
 |---|---|
@@ -938,15 +938,15 @@ A full-width Specials ledger on a cream card, provider rows in mono under five c
 
 **Verification checkpoints**
 
-- [ ] First-party ledger audited (Harbor Point's PIP ledger): five payments matched to five bills ($685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00), the limit exhausted with the 06/12/2026 payment, nothing billed to PIP after exhaustion, and the 80% wage benefit unpaid because the limit ran out before Northgate's 06/30/2026 letter, so the full $1,584.00 stays in the Specials
+- [ ] First-party ledgers audited (Harbor Point's PIP and MedPay ledgers): PIP's five payments matched to five bills ($685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00), the limit exhausted with the 06/12/2026 payment; MedPay's $1,480.00 matched to Riverton Spine & Rehab's first eight visits ($185.00 × 8), its $1,500.00 limit exhausted in 03/2026 with $20.00 unusable against a $185.00 charge; nothing billed to PIP after exhaustion, and the 80% wage benefit unpaid because the limit ran out before Northgate's 06/30/2026 letter, so the full $1,584.00 stays in the Specials
 - [ ] Riverton Spine & Rehab reconciled: 33 visits in the notes (16 from 02/24 to 04/02/2026, 17 from 04/21 to 06/05/2026) against 34 lines; the 05/04/2026 duplicate ($185.00) removed: $6,290.00 → $6,105.00. A corrected itemized statement requested from Riverton Spine & Rehab (a billing correction, not a reduction). Until it arrives, the Lien Tracker shows $6,290.00 claimed and $6,105.00 audited; any reduction is Atty. Thorne's to negotiate.
 - [ ] Medical: $685.00 + $6,105.00 + $640.00 + $2,395.00 + $640.00 + $3,400.00 + $640.00 + $312.40 = $14,817.40 (down from $15,002.40)
 - [ ] Wages: 9 shifts × 8 h × $22.00 = $1,584.00, Northgate HR letter attached; total Specials $14,817.40 + $1,584.00 = $16,401.40
 - [ ] Wage proof: each missed shift matched to a visit record or provider work note; the five shifts 02/09–02/13/2026, before first treatment, flagged with Northgate's Attendance Record (called out citing neck pain) as their support
-- [ ] Billed beside paid: PIP $5,000.00 on its five bills; Peach State $1,860.00 on Crescent's $3,400.00 (write-off $3,400.00 – $1,860.00 = $1,540.00, no balance billing); LOP $6,105.00 owed; $312.40 paid by John Doe; paid-and-owed column $5,000.00 + $1,860.00 + $6,105.00 + $312.40 = $13,277.40 ($14,817.40 – $1,540.00)
+- [ ] Billed beside paid: PIP $5,000.00 on its five bills; Peach State $1,860.00 on Crescent's $3,400.00 (write-off $3,400.00 – $1,860.00 = $1,540.00, no balance billing); MedPay $1,480.00 on Riverton Spine & Rehab's first eight visits; LOP $4,625.00 owed; $312.40 paid by John Doe; paid-and-owed column $5,000.00 + $1,860.00 + $6,105.00 + $312.40 = $13,277.40 ($14,817.40 – $1,540.00)
 - [ ] Billed-vs-paid choice routed to Atty. Thorne under the governing collateral-source rule, not made in the ledger
 - [ ] Future medical ($3,400–$6,800: 1–2 repeat injections within 24 months) recorded in the narrative, outside the $16,401.40
-- [ ] Liens listed: Peach State $1,860.00 (plan funding type recorded) and Riverton Spine & Rehab $6,105.00 after audit, in the CMS → Liens register, mirrored to the Lien Tracker; PIP recorded as carrying no reimbursement right against John Doe's recovery (Harbor Point, in writing, 03/02/2026); Harbor Point's position on PIP subrogation against Robert Smith and Keystone requested in writing and routed to Atty. Thorne, since it would compete for the same $10,000 BI limit
+- [ ] Liens listed: Peach State $1,860.00 (plan funding type recorded) and Riverton Spine & Rehab $4,625.00 after the audit and MedPay's $1,480.00, in the CMS → Liens register, mirrored to the Lien Tracker; PIP recorded as carrying no reimbursement right against John Doe's recovery (Harbor Point, in writing, 03/02/2026); Harbor Point's position on PIP subrogation against Robert Smith and Keystone requested in writing and routed to Atty. Thorne, since it would compete for the same $10,000 BI limit
 - [ ] Targets in order: $10,000 BI → $20,000 Host UM → $10,000 Relative UM = $40,000; each target re-checked against its written source: BI per person (03/20/2026 Dec Page), Host UM add-on (03/02/2026 letter), Relative UM coverage (03/09/2026) plus its form and excess clause; PIP and Keystone PD marked as not in the stack
 - [ ] Liability proof confirmed and listed in the audit: the final Riverton PD report RPD-26-018842 (not the exchange-of-information form), Robert Smith cited for failure to stop, no contributory-negligence note on John Doe; Ruth Calloway's contact re-confirmed and her account checked against her first statement for drift; the 2214 Maple Hollow Rd doorbell-camera video preserved and matched to the Escape being pushed into the parked Civic
 - [ ] Reasonable and necessary: each charge tied to the collision in the provider's own records and to a clinical basis (MRI ordered 03/05/2026; injection after the 03/27/2026 referral); Riverton Drug receipts attached, from 02/07/2026
@@ -957,7 +957,7 @@ A full-width Specials ledger on a cream card, provider rows in mono under five c
 |---|---|---|---|
 | All bills in after MMI | Enter and reconcile every provider's charges | CMS → Financial Ledger → Specials | Medical total $14,817.40; the 05/04/2026 duplicate removed and noted |
 | Ledger totals | Show billed beside paid; route the choice and the wage flag | CMS → Tasks → Escalate | Both columns shown; routed to Atty. Thorne with the five pre-treatment shifts named |
-| Audit complete | Register liens and re-verify the targets | CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Insurance tab | $1,860.00 + $6,105.00 = $7,965.00 in liens listed; $40,000 in order |
+| Audit complete | Register liens and re-verify the targets | CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Insurance tab | $1,860.00 + $6,105.00 = $6,485.00 in liens listed; $40,000 in order |
 
 **Best practices & pitfalls**
 
@@ -1007,7 +1007,7 @@ A two-pane Call Simulator screen. Left pane: the session transcript as alternati
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** File date: early July 2026, before any demand is drafted. Your audit is done: MMI 06/12/2026; Specials $16,401.40 ($14,817.40 medical after the duplicate came out + $1,584.00 wages); liens $1,860.00 (Peach State) and $6,105.00 (the LOP); targets $10,000 BI → $20,000 Host UM → $10,000 Relative UM. The Gap Explanation Record (06/22/2026) and Dr. Reyes's 06/19/2026 Causation Letter are in the file. Atty. Thorne has called the pre-demand strategy session.
+**Scenario.** File date: early July 2026, before any demand is drafted. Your audit is done: MMI 06/12/2026; Specials $16,401.40 ($14,817.40 medical after the duplicate came out + $1,584.00 wages); liens $1,860.00 (Peach State) and $4,625.00 (the LOP, after MedPay's $1,480.00); targets $10,000 BI → $20,000 Host UM → $10,000 Relative UM. The Gap Explanation Record (06/22/2026) and Dr. Reyes's 06/19/2026 Causation Letter are in the file. Atty. Thorne has called the pre-demand strategy session.
 
 **Execution prompt.** Run the pre-demand strategy session with AI Atty. Elijah Thorne. Brief him in protocol order: bottom line, audited facts, risks with their answering documents, the decisions he must make, and each option's operational consequences. Answer his challenges with objective facts, not adjectives. Recommend only on operations; ask for his decision on everything legal. Read back each decision before you close. Then record the decisions in the CMS, open a task for each, and re-route the Case Plan.
 
@@ -1269,7 +1269,7 @@ A call-simulator screen across two-thirds of the slide: a navy header bar readin
 
 **Verification checkpoints**
 
-- [ ] Math check before dialing: $3,500 – $1,166.67 fee – $486.75 costs = $1,846.58 against $7,965.00 of unreduced liens → $0.00 to John Doe
+- [ ] Math check before dialing: $3,500 – $1,166.67 fee – $486.75 costs = $1,846.58 against $6,485.00 of unreduced liens → $0.00 to John Doe
 - [ ] Professional pause used; Dana Whitfield asked what data supports $3,500
 - [ ] Gap answered with the Gap Explanation Record and dated documents: EMS report (02/06/2026), call-outs 02/09–02/13, receipt 02/07, numbness from 02/18, Causation Letter 06/19/2026
 - [ ] “Degenerative” answered with Dr. Park's words, “no significant degenerative change at the adjacent levels,” and the low-back-only 2021 history
@@ -1281,8 +1281,8 @@ A call-simulator screen across two-thirds of the slide: a navy header bar readin
 - [ ] Written rebuttal drafted for Atty. Thorne's approval, ready to send 08/06/2026
 - [ ] If Dana Whitfield raises the April break, the 19-day disruption (04/02–04/21/2026) is answered from the Gap Explanation Record's A-C-T entry (rental ended 03/19, carpool ended 04/01, evening slots from 04/21, attendance confirmed 04/21 and 04/23), not conceded as non-compliance
 - [ ] First Net Sheet generated from the bills on Keystone's 08/12/2026 tender, every figure entered from its source: gross $10,000.00 (PIP and the property-damage payments left out), the pre-suit 33⅓% fee $3,333.33, the receipted costs $486.75
-- [ ] Provider ledger built and audited line by line: charges in Total Charges, each payment in its payer's column, the 05/04/2026 duplicate ($185.00) and Crescent's $1,540.00 in-network write-off in Adjustments, the PIP-paid providers at a zero balance; liens audited $7,965.00
-- [ ] The BI-only net read out loud: $10,000.00 – $3,333.33 – $486.75 = $6,179.92 against $7,965.00 of unreduced liens, and what that says about the UM layers and the reductions still to come
+- [ ] Provider ledger built and audited line by line: charges in Total Charges, each payment in its payer's column, the 05/04/2026 duplicate ($185.00) and Crescent's $1,540.00 in-network write-off in Adjustments, the PIP-paid providers at a zero balance; liens audited $6,485.00
+- [ ] The BI-only net read out loud: $10,000.00 – $3,333.33 – $486.75 = $6,179.92 against $6,485.00 of unreduced liens, and what that says about the UM layers and the reductions still to come
 - [ ] Sheet checked against the file, then the corrected Net Sheet opened and every differing line accounted for
 
 **Operational mapping**
@@ -1292,7 +1292,7 @@ A call-simulator screen across two-thirds of the slide: a navy header bar readin
 | Offer made on the call (08/05/2026) | Log it in the adjuster's words; report to Atty. Thorne | CMS → Communications Log · CMS → Tasks → Escalate | Logged and reported 08/05/2026; reasons quoted verbatim |
 | Atty. Thorne approves the rebuttal | Send it with the MRI report, Causation Letter, EMS report and Gap Explanation Record | Email Workspace · CMS → Documents → Outgoing | Sent 08/06/2026, inside the 08/21/2026 window; delivery logged |
 | Keystone tenders the $10,000 limits (08/12/2026) | Log the tender and route it to Atty. Thorne the same day; draft, for his signature, the written confirmation that it is BI only (the Civic's property-damage claim stays open), on the demand's terms: Limited Release, Smith's 08/10 affidavit of no other insurance | CMS → Insurance tab → Negotiation Log · Email Workspace | Tender dated inside the 08/21/2026 window; no release signed before the UM consent-to-settle requests (08/13/2026) are answered |
-| The BI layer is settled | Generate the first Net Sheet from the medical and treatment bills: gross, fee, receipted costs and the audited provider ledger; check it, then self-audit against the corrected sheet | LSH Net Sheet (BI settlement) | Liens audited $7,965.00 against $6,179.92 left after fee and costs: the BI layer alone leaves John Doe nothing |
+| The BI layer is settled | Generate the first Net Sheet from the medical and treatment bills: gross, fee, receipted costs and the audited provider ledger; check it, then self-audit against the corrected sheet | LSH Net Sheet (BI settlement) | Liens audited $6,485.00 against $6,179.92 left after fee and costs: the BI layer alone leaves John Doe nothing |
 
 **Best practices & pitfalls**
 
@@ -1310,7 +1310,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **15%** | Math check and first Net Sheet | $1,166.67 fee, $486.75 costs, $1,846.58 left against $7,965.00, net $0.00, done before dialing; the Net Sheet then built from the bills on the tender, liens audited $7,965.00 |
+| 🤖 AI | **15%** | Math check and first Net Sheet | $1,166.67 fee, $486.75 costs, $1,846.58 left against $6,485.00, net $0.00, done before dialing; the Net Sheet then built from the bills on the tender, liens audited $6,485.00 |
 | 🤖 AI | **20%** | Rebuttal accuracy | Dr. Park's sentence quoted exactly; the gap answered with the Gap Explanation Record and the dated documents |
 | 🤖 AI | **10%** | Demand integrity | $10,000 limits and 08/21/2026 restated; no counter or change of terms |
 | 🤖 AI | **15%** | Log completeness | Date, amount, exact words, same-day report, rebuttal drafted for approval |
@@ -1366,8 +1366,8 @@ A Negotiation Log fills the slide: two carrier swimlanes on a shared date axis f
 - [ ] Carrier-conduct entries dated and quoted for Atty. Thorne; no “bad faith” accusation sent by the CM
 - [ ] Net Sheet updated from the BI settlement's sheet, not rebuilt from memory: gross $40,000.00, the fee still at the pre-suit 33⅓% ($13,333.33), costs as receipted
 - [ ] Every treatment line re-entered from the revised, ongoing and final bills: Riverton Spine & Rehab's final LOP ledger (02/24–06/05/2026) and Peach State's itemized reimbursement claim, each balance re-verified with the provider before it is changed
-- [ ] The Final Ledger audited again, not taken as correct: the 05/04/2026 duplicate ($185.00) is still on it, so the audited balance stays $6,105.00 and the liens $7,965.00
-- [ ] Reduced Bill left at the audited balances: no reduction has been accepted in writing yet, so the sheet reads $18,214.92 to John Doe, and the lien negotiations are what take it to $20,359.92
+- [ ] The Final Ledger audited again, not taken as correct: the 05/04/2026 duplicate ($185.00) is still on it, so the audited balance stays $6,105.00 and the liens $6,485.00
+- [ ] Reduced Bill left at the audited balances: no reduction has been accepted in writing yet, so the sheet reads $18,214.92 to John Doe, and the lien negotiations are what take it to $21,469.92
 - [ ] Sheet checked against the file, then the corrected Net Sheet opened and every line that changed since the BI settlement accounted for
 
 **Operational mapping**
@@ -1377,7 +1377,7 @@ A Negotiation Log fills the slide: two carrier swimlanes on a shared date axis f
 | Each carrier offer or tender | Log date, amount and the carrier's words; report to Atty. Thorne | CMS → Insurance tab → Negotiation Log | Four carrier entries (09/14, 09/29, 10/01, 10/06/2026) plus the 09/16 counter-package, each reported the same day |
 | John Doe decides, through Atty. Thorne | Record the decision; draft the acceptance email for his approval | Email Workspace · CMS → Case Notes | Decision attributed to John Doe; email sent the same day |
 | Last layer closes (10/06/2026) | Post all three layers to the Recovery Ledger | CMS → Financial Ledger → Net Sheet → Recovery Ledger | Gross = $40,000.00 exactly; nothing outside the stack added |
-| A revised or final bill, ledger or lien statement arrives | Re-verify the balance with the provider, audit the ledger again and update that line of the Net Sheet | LSH Net Sheet (UM settlement) | Gross $40,000.00, liens still audited at $7,965.00, net $18,214.92 before any reduction |
+| A revised or final bill, ledger or lien statement arrives | Re-verify the balance with the provider, audit the ledger again and update that line of the Net Sheet | LSH Net Sheet (UM settlement) | Gross $40,000.00, liens still audited at $6,485.00, net $18,214.92 before any reduction |
 
 **Best practices & pitfalls**
 
@@ -1399,7 +1399,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 | 🤖 AI | **20%** | Log completeness | All four carrier moves and the counter-package logged with date, amount, quoted reasons and a same-day report |
 | 🤖 AI | **15%** | Counter-package content | 03/02/2026 letter, MRI read, Causation Letter, MMI residuals, future care $3,400–$6,800 |
 | 🤖 AI | **10%** | Confirmations | Each acceptance confirmed in a same-day email carrying all five terms |
-| 🤖 AI | **15%** | Gross accuracy and the updated Net Sheet | $40,000.00 from $10,000 + $20,000 + $10,000, nothing else added; the Net Sheet carried forward with the final bills and lien balances, audited at $7,965.00 |
+| 🤖 AI | **15%** | Gross accuracy and the updated Net Sheet | $40,000.00 from $10,000 + $20,000 + $10,000, nothing else added; the Net Sheet carried forward with the final bills and lien balances, audited at $6,485.00 |
 | 🧑‍🏫 Trainer | **15%** | Advocacy quality | The counter-package would move a reasonable adjuster; firm, factual tone |
 | 🧑‍🏫 Trainer | **25%** | Client-decision boundary | Every acceptance John Doe's, through Atty. Thorne; the CM never accepts, counters or values |
 
@@ -1749,9 +1749,9 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **Auto-graded share of the day's Knowledge Check** (5 questions):
 
-1. Keystone offers $3,500 on 08/05/2026. On unreduced liens of $7,965.00, what does John Doe net after the one-third fee and $486.75 in costs?  
+1. Keystone offers $3,500 on 08/05/2026. On unreduced liens of $6,485.00, what does John Doe net after the one-third fee and $486.75 in costs?  
    $2,333.33 · $3,013.25 · **✓ $0.00: the $1,846.58 left cannot cover the liens** · $1,846.58  
-   *$3,500 – $1,166.67 fee – $486.75 costs = $1,846.58, against $7,965.00 of liens. The offer nets John Doe nothing. That is the math check Atty. Thorne needs before he conveys the offer.*
+   *$3,500 – $1,166.67 fee – $486.75 costs = $1,846.58, against $6,485.00 of liens. The offer nets John Doe nothing. That is the math check Atty. Thorne needs before he conveys the offer.*
 2. Dana Whitfield calls John Doe's MRI degenerative. Which answer comes straight from the file?  
    **✓ Dr. Helen Park's read: “no significant degenerative change at the adjacent levels.”** · “John Doe has never had chiropractic care of any kind.” · “Some degeneration is normal at 34, so it doesn't matter.” · “If you drop that argument, we can come down from limits.”  
    *The radiologist's own sentence answers it. John Doe did have chiropractic care (three 2021 low-back visits, resolved), and only Atty. Thorne can move off the Limits Demand.*
@@ -1761,15 +1761,15 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 4. Cardinal State tenders its $10,000 Relative UM limits on 10/06/2026. Who accepts it?  
    The Case Manager, because it is the full limit · **✓ John Doe, on his informed decision, conveyed through Atty. Thorne** · Atty. Thorne alone, without troubling the client · Harbor Point, as the primary UM carrier  
    *Settlement is the client's decision. Atty. Thorne advises him and conveys it; the Case Manager logs the decision and drafts the acceptance email for Atty. Thorne to approve.*
-5. Before the first call with Dana Whitfield, the battle map sets John Doe's net floor. With $7,965.00 in unreduced liens, $486.75 in costs and the one-third fee, what gross does he need just to reach $0.00 net?  
-   $8,451.75 · **✓ $12,677.63** · $10,000.00 · $16,401.40  
-   *Liens + costs = $7,965.00 + $486.75 = $8,451.75; × 1.5 for the one-third fee = $12,677.63 gross. That is above Keystone's $10,000 limit, which is why every UM layer and lien reduction matters. $8,451.75 forgets the fee; $16,401.40 is the Specials.*
+5. Before the first call with Dana Whitfield, the battle map sets John Doe's net floor. With $6,485.00 in unreduced liens, $486.75 in costs and the one-third fee, what gross does he need just to reach $0.00 net?  
+   $6,971.75 · **✓ $10,457.63** · $10,000.00 · $16,401.40  
+   *Liens + costs = $6,485.00 + $486.75 = $6,971.75; × 1.5 for the one-third fee = $10,457.63 gross. That is above Keystone's $10,000 limit, which is why every UM layer and lien reduction matters. $6,971.75 forgets the fee; $16,401.40 is the Specials.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **15%** | Math accuracy | $1,166.67 fee, $486.75 costs, $1,846.58 against $7,965.00, net $0.00 |
+| 🤖 AI | **15%** | Math accuracy | $1,166.67 fee, $486.75 costs, $1,846.58 against $6,485.00, net $0.00 |
 | 🤖 AI | **15%** | Gap rebuttal | Four dated documents; Dr. Park's sentence quoted exactly |
 | 🤖 AI | **20%** | Baseline and offset | PIP exhausted and non-subrogated; add-on UM per the 03/02/2026 letter; Relative UM above $30,000; what PIP would change |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |

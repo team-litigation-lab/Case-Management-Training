@@ -34,7 +34,7 @@ BI must be exhausted (paid or tendered at limits) before Host UM opens; Relative
 A UM demand before the BI tender is premature; settling or releasing BI without the UM carriers' written consent can forfeit the stack. **Payer Order** (who pays the Medical Bills
 while the claim is open) is a different question: PIP/MedPay → private health insurance → LOP/provider liens.
 
-**PIP (Riverton's rule).** Riverton is an **add-on PIP state**: every auto policy carries $5,000 of Personal Injury Protection unless the named insured rejects it in writing. PIP pays **100% of reasonable accident medical expenses and 80% of lost income**, regardless of fault, with no deductible. It is add-on, not no-fault: it does not reduce BI or UM, and Riverton bars a PIP carrier from recovering what it paid out of its insured's settlement. **Whose PIP:** a household policy with PIP comes first; John owns no car, and Margaret Doe rejected PIP in writing on both her Bluewater and Cardinal State policies, so John claims PIP as a passenger on the vehicle he rode in: **Harbor Point's PIP on Kevin Alvarez's Escape, $5,000** (claim HP-26-7741). PIP application signed 02/17/2026 and sent with the Harbor Point LOR; Harbor Point acknowledged it and opened PIP on 02/24/2026 (RS65).
+**PIP (Riverton's rule).** Riverton is an **add-on PIP state**: every auto policy carries $5,000 of Personal Injury Protection unless the named insured rejects it in writing. PIP pays **100% of reasonable accident medical expenses and 80% of lost income**, regardless of fault, with no deductible. It is add-on, not no-fault: it does not reduce BI or UM, and Riverton bars a PIP carrier from recovering what it paid out of its insured's settlement. **Whose PIP:** a household policy with PIP comes first; John owns no car, and Margaret Doe rejected PIP in writing on both her Bluewater and Cardinal State policies, so John claims PIP as a passenger on the vehicle he rode in: **Harbor Point's PIP on Kevin Alvarez's Escape, $5,000**, with the same policy's **$1,500 MedPay** behind it (claim HP-26-7741). PIP application signed 02/17/2026 and sent with the Harbor Point LOR; Harbor Point acknowledged it and opened PIP on 02/24/2026 (RS65).
 
 ## 2. The file from Day 2 on
 
@@ -42,7 +42,7 @@ while the claim is open) is a different question: PIP/MedPay → private health 
 
 | | |
 |---|---|
-| Host driver | **Kevin Alvarez**, John's coworker (separate household). They carpool to work on alternate weeks; 02/06/2026 was Kevin's week. Owns the host vehicle, a **2020 Ford Escape**, insured by Harbor Point (Host UM $20,000; **PIP $5,000**). |
+| Host driver | **Kevin Alvarez**, John's coworker (separate household). They carpool to work on alternate weeks; 02/06/2026 was Kevin's week. Owns the host vehicle, a **2020 Ford Escape**, insured by Harbor Point (Host UM $20,000; **PIP $5,000**; **MedPay $1,500**). |
 | Resident relative | **Margaret Doe**, John's mother. John lives with her at 2214 Maple Hollow Rd. Her own car is insured by Cardinal State Mutual (UM $10,000). Emergency contact on the file. |
 | The parked car | **Margaret Doe's 2019 Honda Civic LX**, 52,300 miles, owned outright, insured on her policy by **Bluewater Auto Insurance** (liability + collision, $500 deductible). **UM/UIM rejected in writing by Margaret** (signed rejection form, 03/14/2024). **John owns no car and has no auto policy.** |
 | Why passenger status matters | As a passenger in a car he does not own, John reaches Host UM (occupant of the host vehicle) and Relative UM (resident relative in a non-owned vehicle). He owns no car, so no policy of his own applies; Margaret's Bluewater policy on the Civic has no UM, so it adds no layer. The Civic, its PD claim and its rental are Margaret's, never John's: the firm handles her PD under a separate PD-only engagement. |
@@ -80,7 +80,7 @@ passenger door at about 28 mph; the Escape was pushed into Margaret's Civic, par
 | 02/07–06/2026 | Riverton Drug | Prescriptions and OTC (receipt 02/07/2026 for ibuprofen and lidocaine patches) | $312.40 | John, out of pocket |
 
 - Riverton Spine & Rehab bills **34 lines × $185.00 = $6,290.00**, but one is a **duplicate (05/04/2026)**:
-  33 real visits = **$6,105.00** after audit.
+  33 real visits = **$6,105.00** after audit; MedPay paid the first eight ($1,480.00), so **$4,625.00** is owed under the LOP.
 - PIP paid in date order: $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = **$5,000.00** (exhausted 06/2026).
   Crescent Pain & Spine is in network with Peach State and billed the plan directly at its contract rate; PIP pays
   the bills submitted to it, and its last $640.00 paid Lakeside's 06/12/2026 visit. The Payer Order is the default;
@@ -165,7 +165,7 @@ her shift (first open evening slot 04/21); *Track* — confirmed attendance 04/2
 - **Gross recovery $40,000.00.**
 - **Liens:** Peach State (a **fully insured** group plan, so state law governs reduction, not ERISA preemption —
   Atty. Thorne's call) asserts **$1,860.00** → accepts **$1,240.00** (a one-third procurement-cost reduction) on 10/09/2026.
-  Riverton Spine & Rehab: billed $6,290.00 → audited **$6,105.00** (duplicate removed) → accepts **$4,580.00** on 10/12/2026.
+  Riverton Spine & Rehab: billed $6,290.00 → audited **$6,105.00** (duplicate removed) → **$4,625.00** owed after MedPay's $1,480.00 → accepts **$3,470.00** on 10/12/2026.
 - Funds cleared 10/20; John signs the Settlement Statement 10/21; **disbursement 10/22/2026**; Trust Ledger to
   $0.00; **closing memo 10/30/2026**; closed-file retention per the firm's schedule (training file: 7 years from closing).
 
@@ -177,13 +177,13 @@ her shift (first open evening slot 04/21); *Track* — confirmed attendance 04/2
 | Fee 33⅓% | $13,333.33 | $3,333.33 | $10,000.00 |
 | Case costs | $486.75 | $121.69 (25%) | $365.06 (75%) |
 | Peach State (reduced) | $1,240.00 | $310.00 | $930.00 |
-| Riverton Spine & Rehab (reduced) | $4,580.00 | $1,145.00 | $3,435.00 |
-| **Net to John Doe** | **$20,359.92** | **$5,089.98** | **$15,269.94** |
+| Riverton Spine & Rehab (reduced) | $3,470.00 | $867.50 | $2,602.50 |
+| **Net to John Doe** | **$21,469.92** | **$5,367.48** | **$16,102.44** |
 
 (Costs and liens are allocated to the streams pro rata to gross, 25% / 75%.)
 
 **Pro-rata illustration** (for the lien lesson): had only the $10,000 BI been recovered, $10,000.00 − $3,333.33 fee
-− $486.75 costs = **$6,179.92** would be left against $7,965.00 of unreduced liens ($1,860.00 + $6,105.00). Shared
+− $486.75 costs = **$6,179.92** would be left against $6,485.00 of unreduced liens ($1,860.00 + $4,625.00). Shared
 pro rata: Peach State 23.35% → **$1,443.15**; Riverton Spine & Rehab 76.65% → **$4,736.77** (total $6,179.92),
 before any negotiated reduction, leaving John Doe nothing — which is why the lien lesson matters.
 
@@ -234,11 +234,11 @@ before any negotiated reduction, leaving John Doe nothing — which is why the l
   fee $1,200.00 + arbitration, plaintiff's share of Laura Whitcomb's fee $900.00 + Riverton Court Reporting
   (John's deposition, videoconference) $645.50 + certified records for the arbitration binder $160.00.
 - **Liens:** Peach State $1,860.00 reduced at the fee actually charged (40% = $744.00) → **$1,116.00**, accepted in
-  writing **07/14/2027 (Wed)**; Riverton Spine & Rehab audited $6,105.00 → **$4,275.00**, signed Payoff Letter
-  **07/16/2027 (Fri)**; total **$5,391.00**. PIP, Crescent's write-off and the PIP-paid providers stay at $0.00.
+  writing **07/14/2027 (Wed)**; Riverton Spine & Rehab $4,625.00 owed → **$3,240.00**, signed Payoff Letter
+  **07/16/2027 (Fri)**; total **$4,356.00**. PIP, Crescent's write-off and the PIP-paid providers stay at $0.00.
 - Harbor Point's check **07/20/2027 (Tue)**, Cardinal State's **07/22/2027 (Thu)**; John signs the Settlement
   Statement **07/29/2027 (Thu)**; **disbursement 07/30/2027 (Fri)**.
-- **Net to John Doe: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75** (Track A: $20,359.92; the
+- **Net to John Doe: $40,000.00 – $16,000.00 – $3,895.25 – $4,356.00 = $15,748.75** (Track A: $21,469.92; the
   difference, $5,646.17, is what the stonewall cost him in fee tier, litigation costs and lien math).
 - **SOL calendar:** 02/06/2028 is a Sunday. Firm rule: never rely on a weekend roll-forward — the internal hard
   date is **02/04/2028 (Fri)**, with an internal filing cutoff 90 days before → 11/06/2027 is a Saturday → **11/05/2027 (Fri)**.

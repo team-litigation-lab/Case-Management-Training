@@ -34,6 +34,17 @@
       ["John Doe's limitation date, 02/06/2028, falls on a Sunday.", "The firm's internal dates sit at 02/04/2028 and 11/05/2027.", "The calendar shows only the Sunday, counting on a grace day."]
     ]
   },
+  "d4m2-um": {
+    "dos": [
+      ["Keystone insured the driver who ran the stop sign.", "Harbor Point and Cardinal State insure our own side.", "Which it is changes the duties, the defences and the exit."],
+      ["Marcus Bell will not move off his 09/14/2026 number.", "Atty. Thorne needs the policy's own words in front of him.", "You copy the paragraph across rather than summarise it."]
+    ],
+    "donts": [
+      ["The UM negotiation with Harbor Point has plainly failed.", "Its policy says where a dispute under it is decided.", "You reach for a complaint because the BI claim went that way."],
+      ["Two UM layers, two carriers, two certified policies.", "Only one of them has arrived with its paragraph legible.", "You assume the second one says what the first one does."],
+      ["John Doe rings, angry about an offer worth a third.", "Whether handling was unreasonable is a legal opinion.", "You agree with him on the phone and name the consequence."]
+    ]
+  },
   "d4m2-l2": {
     "dos": [
       ["Laura Whitcomb, Esq. reacts sharply to a doorbell still on 06/22/2027.", "Afterward, Atty. Thorne needs to know what landed and what did not.", "Your notes on testimony and reactions guide every next step he takes."],
