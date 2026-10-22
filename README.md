@@ -6,6 +6,8 @@ Trainees sign in once, on the LSH Training Portal, and open this program from th
 
 - **Turning it on:** set `PORTAL_SSO_SECRET` (same value as the Portal) as a Worker secret. The admin password (`MASTER_ADMIN_PASSWORD`, the Portal's master admin password) must be set too. Until both are set, `/api/auth/status` reports `portalOnly: false` and the old name + batch form stays. A space or line break around the secret is ignored.
 - **If a Portal launch fails:** the message says why: `bad-signature` means the Portal's and this Worker's `PORTAL_SSO_SECRET` differ; "expired" means the link is old (open the program again from the Portal).
+**Everyone lands on the dashboard.** A trainee and a trainer both open the program on the dashboard, whether they arrive from the Portal or sign in here. A trainer used to be taken straight to the Admin screen, so they never saw the program the way their trainees do; Admin is still one click away on the top bar (🛡 Admin). A trainee who left off inside a lesson or a lab still reopens there. It's `js/portal-gate.js`, the same file in every LSH course repo.
+
 - **Ticket format and engine hooks:** see EA-PA-TRAINING's README (*Sign in on the Main Portal only*). `js/portal-gate.js` is the same file in every LSH course repo; the page is built from the EA-PA-TRAINING engine, which carries the hooks.
 
 The Case Management version of the LSH EA/PA Upskill portal. It runs on the same engine as the EA/PA portal (sign-in and approvals, lessons as slides, Knowledge Checks, the random Task simulator, AI-graded practice, Live Roleplay, feedback, rankings, certificates and admin tools), but all the content is Case Management.
