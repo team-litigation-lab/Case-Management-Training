@@ -515,7 +515,7 @@ The complete six-section binder as approved 03/10/2027 and delivered 03/11/2027,
 the master index (Sections 1–6, 141 pages, Bates LSH-MED-000001–000141, OCR-searchable and bookmarked), the Section 3
 defense map pairing each of the five pleaded allegations with the exhibit that answers it (and the two legal
 questions flagged for Atty. Thorne), the Section 5 ledger rebuilt line by line to **$16,401.40** with open liens
-**$7,965.00**, the Property Damage schedule kept separate, a table of what the audit changed and what each fault
+**$6,485.00**, the Property Damage schedule kept separate, a table of what the audit changed and what each fault
 would have cost, and the delivery record.
 *Key:* No plants. Built from RS67 and audited against the Litigation Desk's draft index (RS62); the starting point for RS70 and for Day 5.
 
@@ -523,6 +523,6 @@ would have cost, and the delivery record.
 The complete six-tab binder as approved 05/29/2027 and exchanged 06/02/2027, shown once the audit is handed in: the
 master exhibit index (Tabs 1–6, exhibits C-1 to C-18, 174 pages, Bates LSH-ARB-000001–000174) with each tab's QC
 rule in its row, the withheld-items list with Atty. Thorne's recorded reason for each, the Lien Sheet audited from
-$15,545.00 to **$7,965.00**, a table of what the sort and QC changed, and the exchange record.
+$11,485.00 to **$6,485.00**, a table of what the sort and QC changed, and the exchange record.
 *Key:* No plants. Threshold exhibits lead (the BI tender, the UM consents, the Limited Release and the dismissal);
 the brief is docketed **06/11/2027**; nothing privileged or settlement-related is in the exchanged set.

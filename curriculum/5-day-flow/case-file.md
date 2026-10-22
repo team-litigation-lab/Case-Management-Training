@@ -184,7 +184,7 @@ her shift (first open evening slot 04/21); *Track* — confirmed attendance 04/2
 
 **Pro-rata illustration** (for the lien lesson): had only the $10,000 BI been recovered, $10,000.00 − $3,333.33 fee
 − $486.75 costs = **$6,179.92** would be left against $6,485.00 of unreduced liens ($1,860.00 + $4,625.00). Shared
-pro rata: Peach State 23.35% → **$1,443.15**; Riverton Spine & Rehab 76.65% → **$4,736.77** (total $6,179.92),
+pro rata: Peach State 28.68% → **$1,772.50**; Riverton Spine & Rehab 71.32% → **$4,407.42** (total $6,179.92),
 before any negotiated reduction, leaving John Doe nothing — which is why the lien lesson matters.
 
 ## 4. Days 4–5 — Track B: the litigation fork (same file, back at 08/05/2026)

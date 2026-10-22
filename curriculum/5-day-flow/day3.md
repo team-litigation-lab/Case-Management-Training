@@ -1367,7 +1367,7 @@ A Negotiation Log fills the slide: two carrier swimlanes on a shared date axis f
 - [ ] Net Sheet updated from the BI settlement's sheet, not rebuilt from memory: gross $40,000.00, the fee still at the pre-suit 33⅓% ($13,333.33), costs as receipted
 - [ ] Every treatment line re-entered from the revised, ongoing and final bills: Riverton Spine & Rehab's final LOP ledger (02/24–06/05/2026) and Peach State's itemized reimbursement claim, each balance re-verified with the provider before it is changed
 - [ ] The Final Ledger audited again, not taken as correct: the 05/04/2026 duplicate ($185.00) is still on it, so the audited balance stays $6,105.00 and the liens $6,485.00
-- [ ] Reduced Bill left at the audited balances: no reduction has been accepted in writing yet, so the sheet reads $18,214.92 to John Doe, and the lien negotiations are what take it to $21,469.92
+- [ ] Reduced Bill left at the audited balances: no reduction has been accepted in writing yet, so the sheet reads $19,694.92 to John Doe, and the lien negotiations are what take it to $21,469.92
 - [ ] Sheet checked against the file, then the corrected Net Sheet opened and every line that changed since the BI settlement accounted for
 
 **Operational mapping**
@@ -1377,7 +1377,7 @@ A Negotiation Log fills the slide: two carrier swimlanes on a shared date axis f
 | Each carrier offer or tender | Log date, amount and the carrier's words; report to Atty. Thorne | CMS → Insurance tab → Negotiation Log | Four carrier entries (09/14, 09/29, 10/01, 10/06/2026) plus the 09/16 counter-package, each reported the same day |
 | John Doe decides, through Atty. Thorne | Record the decision; draft the acceptance email for his approval | Email Workspace · CMS → Case Notes | Decision attributed to John Doe; email sent the same day |
 | Last layer closes (10/06/2026) | Post all three layers to the Recovery Ledger | CMS → Financial Ledger → Net Sheet → Recovery Ledger | Gross = $40,000.00 exactly; nothing outside the stack added |
-| A revised or final bill, ledger or lien statement arrives | Re-verify the balance with the provider, audit the ledger again and update that line of the Net Sheet | LSH Net Sheet (UM settlement) | Gross $40,000.00, liens still audited at $6,485.00, net $18,214.92 before any reduction |
+| A revised or final bill, ledger or lien statement arrives | Re-verify the balance with the provider, audit the ledger again and update that line of the Net Sheet | LSH Net Sheet (UM settlement) | Gross $40,000.00, liens still audited at $6,485.00, net $19,694.92 before any reduction |
 
 **Best practices & pitfalls**
 

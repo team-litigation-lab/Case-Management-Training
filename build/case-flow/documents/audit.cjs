@@ -153,7 +153,7 @@ if (text.RS07 !== undefined && !has("RS07", /DOE, Margaret/)) fails.push("RS07: 
 // First-party medical: Riverton is an add-on PIP state and John Doe claims the $5,000 PIP on the Escape he rode in (Harbor
 // Point), with the same policy's $1,500 Part C MedPay behind it. PIP is the primary layer, so a document that names MedPay
 // without PIP is still working from the old file: only the documents that carry MedPay's own payments may name it at all.
-const MEDPAY_DOCS = new Set(["RS23", "RS28", "RS31", "RS42", "RS63"]);
+const MEDPAY_DOCS = new Set(["RS23", "RS28", "RS31", "RS42", "RS63", "RS70"]);
 for (const [id] of Object.entries(text)) {
   const m = T(id).match(/\bMed ?Pay\b|Medical Payments/);
   if (m && !MEDPAY_DOCS.has(id)) fails.push(`${id}: “${m[0]}”: this file's primary first-party medical coverage is Harbor Point PIP`);

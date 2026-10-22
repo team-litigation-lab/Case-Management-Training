@@ -1133,7 +1133,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 - Start with the zero-balance rows. Ask why PIP's $5,000.00 isn't paid back and why Crescent's write-off isn't owed. A trainee who adds either to the payables has paid John Doe's money away.
 - Ask the room: “If Riverton Spine & Rehab had accepted $3,470.00 only on a phone call, could the line be marked final?” No: no Payoff Letter, no payment.
-- Grade the arithmetic both ways, down each stream and across the total: $13,333.33 + $486.75 + $1,240.00 + $3,470.00 = $19,640.08, and $40,000.00 – $19,640.08 = $21,469.92. A one-cent drift means a stream was rounded on its own.
+- Grade the arithmetic both ways, down each stream and across the total: $13,333.33 + $486.75 + $1,240.00 + $3,470.00 = $18,530.08, and $40,000.00 – $18,530.08 = $21,469.92. A one-cent drift means a stream was rounded on its own.
 - The future-medical flag is the judgment call. Up to $6,800 in possible repeat injections lies ahead, and the settlement is full and final; the CM flags it, and Atty. Thorne has that conversation with John Doe.
 - Close the exercise on the corrected Net Sheet. Once each trainee has checked their own sheet, the finalized reference opens beside it line by line: that comparison is the self-audit, and it is where the habit of proving a figure from its document is formed.
 

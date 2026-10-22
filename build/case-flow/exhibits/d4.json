@@ -145,7 +145,7 @@
           "verdict": "replace",
           "kind": "loophole",
           "issue": "Peach State paid Crescent $1,860.00 at the contract rate and the in-network provider cannot bill the member the adjustment. Carried into the binder it concedes $3,400.00 that nobody is owed, out of John Doe's net.",
-          "fix": "Show the charge satisfied by the plan's contract payment, proved by Peach State's EOB and the corrected $0.00 statement; the open claims are Peach State $1,860.00 and Riverton Spine & Rehab $6,105.00 = $7,965.00.",
+          "fix": "Show the charge satisfied by the plan's contract payment, proved by Peach State's EOB and the corrected $0.00 statement; the open claims are Peach State $1,860.00 and Riverton Spine & Rehab $4,625.00 = $6,485.00.",
           "proof": [
             "RS26",
             "RS41"
@@ -231,7 +231,7 @@
       "revealNote": "The Mediation Binder as Atty. Thorne approved it on 03/10/2027 and the firm delivered it on 03/11/2027: six sections, 141 pages, with the defense map and the rebuilt ledger. The arbitration exhibits and Day 5 both start from it.",
       "revealPoints": [
         "Medical specials rebuilt to $14,817.40, with wages the $16,401.40 that was served on 07/20/2026.",
-        "Open liens $7,965.00: Peach State $1,860.00 and Riverton Spine & Rehab $6,105.00; Crescent $0.00.",
+        "Open liens $6,485.00: Peach State $1,860.00 and Riverton Spine & Rehab $4,625.00; Crescent $0.00.",
         "Riverton Spine & Rehab marked \"Pending Final Verification\" until its certified ledger arrives.",
         "All five pleaded allegations mapped to answering exhibits; two legal questions flagged, not answered.",
         "Section 2 approved, marked for the mediator only, one copy; the deposition summary added at Section 4.",
@@ -418,11 +418,11 @@
         {
           "ref": "C-9",
           "what": "Lien Sheet — Peach State and Riverton Spine & Rehab",
-          "as": "Peach State $1,860.00 and Riverton Spine & Rehab $6,105.00.",
+          "as": "Peach State $1,860.00 and Riverton Spine & Rehab $4,625.00.",
           "verdict": "keep",
           "kind": "arithmetic",
-          "issue": "Both are right: the plan's itemized reimbursement claim, and the LOP account at the audited 33 visits. Together they are the $7,965.00 the net is actually worked from.",
-          "fix": "Confirm Crescent and Summit Imaging are shown at $0.00 as well, and reconcile the sheet to $7,965.00 before it goes to Atty. Thorne.",
+          "issue": "Both are right: the plan's itemized reimbursement claim, and the LOP account at the audited 33 visits. Together they are the $6,485.00 the net is actually worked from.",
+          "fix": "Confirm Crescent and Summit Imaging are shown at $0.00 as well, and reconcile the sheet to $6,485.00 before it goes to Atty. Thorne.",
           "proof": [
             "RS41",
             "RS25"
@@ -470,7 +470,7 @@
         "Threshold exhibits lead: the BI tender, both UM consents, the Limited Release and the dismissal.",
         "Every record certified and authenticated; Crescent's certification chased with a subpoena flag.",
         "Tab 5 pairs the 2021 low-back records and the deposition testimony with the MRI read and the Causation Letter.",
-        "Lien Sheet audited from $12,965.00 to $7,965.00: PIP, Summit and Crescent all at $0.00.",
+        "Lien Sheet audited from $11,485.00 to $6,485.00: PIP, Summit and Crescent all at $0.00.",
         "Brief docketed 06/11/2027; exchange 06/02/2027; hearing 06/22/2027.",
         "Six items withheld on Atty. Thorne's recorded decision, each with its reason on the file."
       ]
