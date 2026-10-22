@@ -42,6 +42,8 @@ jobs:
         run: node .github/scripts/cm-drive.cjs
       - name: The case's money adds up and nothing states a retired figure (one spine, build/case-flow/figures.cjs)
         run: node .github/scripts/check-figures.cjs
+      - name: The case's money reaches the lessons and the practice case (js/cm-figures.js in step)
+        run: node build/case-flow/figures/assemble.cjs --check
       - name: Case Flow curriculum (rhythm, six components, 60/40 rubrics, every existing topic carried)
         run: node build/case-flow/curriculum.cjs --check
       - name: Case Flow slides (concise copy in the spec's limits, the assembled file in step)
@@ -132,6 +134,10 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/requests.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: The case's money reaches the screen (no token left in a lesson; the practice sheet grades from the spine)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/figures-live.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: Graded calls from the CMS Call Simulator (read only by the trainee; the dashboard's Graded calls card)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules

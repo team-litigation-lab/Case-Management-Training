@@ -98,7 +98,7 @@
       [
         "The call with Keystone starts in five minutes.",
         "Nobody has added liens, costs and fee for John Doe yet.",
-        "Below $10,457.63 gross he walks away with zero, and nobody knows."
+        "Below {{netFloor}} gross he walks away with zero, and nobody knows."
       ],
       [
         "Dana Whitfield says she is still waiting on authority.",
@@ -179,7 +179,7 @@
       [
         "Riverton Spine & Rehab bills 34 lines at $185.00 each.",
         "The treatment notes show only 33 visits; 05/04/2026 appears twice.",
-        "The duplicate comes off, then the reduction talk starts from $4,625.00."
+        "The duplicate comes off, then the reduction talk starts from {{spineRehabOwed}}."
       ],
       [
         "Peach State agrees to $1,240.00 on 10/09.",
@@ -187,7 +187,7 @@
         "John Doe sees his take-home climb with each saved dollar."
       ],
       [
-        "Riverton's billing office agrees to $3,470.00 over the phone.",
+        "Riverton's billing office agrees to {{payoffA}} over the phone.",
         "Disbursement is still days away on 10/22.",
         "A signed Payoff Letter with full-and-final language lands in the file."
       ]
@@ -199,7 +199,7 @@
         "Haggling for a percentage off starts from the padded figure."
       ],
       [
-        "Riverton's biller says sure, $3,470.00 works for them.",
+        "Riverton's biller says sure, {{payoffA}} works for them.",
         "Nobody sends or receives a letter about it.",
         "Later the full balance shows up, and nothing proves the deal."
       ],
@@ -225,7 +225,7 @@
     ],
     "donts": [
       [
-        "Riverton's biller says $3,470.00 works for them.",
+        "Riverton's biller says {{payoffA}} works for them.",
         "Nothing is sent and nothing comes back signed.",
         "The full balance reappears a month later."
       ],
@@ -239,7 +239,7 @@
   "d3m4-l1": {
     "dos": [
       [
-        "Riverton's line on the Net Sheet drops from $6,290.00 to $3,470.00.",
+        "Riverton's line on the Net Sheet drops from $6,290.00 to {{payoffA}}.",
         "Atty. Thorne asks why each number moved.",
         "Beside it: the 05/04 duplicate and the one-third procurement-cost basis."
       ],
@@ -249,7 +249,7 @@
         "Two columns, BI and UM, sit next to each other for John Doe."
       ],
       [
-        "John Doe sits down to review his $21,469.92 net.",
+        "John Doe sits down to review his {{netA}} net.",
         "Each fee, cost and lien figure matches its receipt and letter.",
         "He leaves confident the firm counted his recovery honestly."
       ]

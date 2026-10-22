@@ -26,7 +26,7 @@
 "use strict";
 const fs = require("fs");
 const path = require("path");
-const {spine, netSheet, check, RETIRED, money} = require("../../build/case-flow/figures.cjs");
+const {spine, netSheet, check, RETIRED, money, tokens, PCT_TOKENS} = require("../../build/case-flow/figures.cjs");
 
 const ROOT = path.resolve(__dirname, "../..");
 const fails = [];
@@ -35,7 +35,8 @@ const fails = [];
 const DIRS = ["js", "build/case-flow", "documents/case-flow/html", "curriculum/5-day-flow", "build"];
 const FILES = ["index.html", "README.md", "net-sheet.html", "case-doc.html"];
 const EXT = /\.(js|cjs|mjs|json|html|md)$/;
-const SKIP = /node_modules|\.git|build\/case-flow\/figures\.cjs|check-figures\.cjs/;
+// the machinery itself is not content: the spine, its generator and this check all name figures and tokens on purpose
+const SKIP = /node_modules|\.git|build\/case-flow\/figures|check-figures\.cjs/;
 function walk(dir, out = []) {
   for (const e of fs.readdirSync(path.join(ROOT, dir), {withFileTypes: true})) {
     const rel = path.join(dir, e.name);
@@ -63,29 +64,52 @@ for (const f of content) {
   }
 }
 
-/* ---------- 3 · the Net Sheet grades the spine's figures ---------- */
+/* ---------- 3 · the practice sheet grades the spine's figures, and states none of its own ---------- */
+/* js/cm-net-sheet.js no longer types what a cell should hold: it looks the figure up in js/cm-figures.js, which
+   build/case-flow/figures/assemble.cjs writes from the spine. So what is checked here is that the two agree about
+   WHICH cells are graded — nothing graded that the spine does not compute, nothing computed that is not graded —
+   and that no typed figure has crept back in. */
 const NS = path.join(ROOT, "js/cm-net-sheet.js");
-if (!fs.existsSync(NS)) fails.push("js/cm-net-sheet.js is missing: the Net Sheet's graded figures cannot be checked");
+if (!fs.existsSync(NS)) fails.push("js/cm-net-sheet.js is missing: the practice sheet's graded figures cannot be checked");
 else {
   const src = fs.readFileSync(NS, "utf8");
   const want = netSheet(s);
-  let checked = 0;
+  if (/\{cell: "[A-Z]\d+", want:/.test(src))
+    fails.push("js/cm-net-sheet.js: a check types its own figure (`want:`); the practice sheet must take it from js/cm-figures.js");
   for (const [stage, cells] of Object.entries(want)) {
-    // the stage's own block, from its key to the next stage key or the end of STAGES
     const open = src.indexOf(`\n  ${stage}: {`);
     if (open < 0) { fails.push(`js/cm-net-sheet.js: no ${stage} stage, but the spine computes one`); continue; }
     const rest = src.slice(open + 1);
     const next = rest.search(/\n  [a-z]+: \{\n? *file:/);
     const block = next > 0 ? rest.slice(0, next) : rest;
-    for (const [cell, value] of Object.entries(cells)) {
-      const m = new RegExp(`\\{cell: "${cell}", want: (-?[0-9.]+)`).exec(block);
-      if (!m) { fails.push(`js/cm-net-sheet.js ${stage}: no check on ${cell}, which the spine puts at ${money(value)}`); continue; }
-      checked++;
-      if (Math.abs(Number(m[1]) - value) >= 0.005)
-        fails.push(`js/cm-net-sheet.js ${stage}: ${cell} is graded at ${money(Number(m[1]))}, the spine computes ${money(value)}`);
-    }
+    const graded = new Set([...block.matchAll(/\{cell: "([A-Z]\d+)"/g)].map(m => m[1]));
+    for (const cell of Object.keys(cells))
+      if (!graded.has(cell)) fails.push(`js/cm-net-sheet.js ${stage}: ${cell} is not graded, but the spine computes it at ${money(cells[cell])}`);
+    for (const cell of graded)
+      if (!(cell in cells)) fails.push(`js/cm-net-sheet.js ${stage}: ${cell} is graded, but the spine computes no figure for it`);
   }
-  if (checked < 20) fails.push(`js/cm-net-sheet.js: only ${checked} graded figures matched the spine; expected the five stages' checks`);
+}
+
+/* ---------- 4 · js/cm-figures.js is in step with the spine ---------- */
+const GEN = path.join(ROOT, "js/cm-figures.js");
+if (!fs.existsSync(GEN)) fails.push("js/cm-figures.js is missing: run node build/case-flow/figures/assemble.cjs");
+else {
+  const gen = fs.readFileSync(GEN, "utf8");
+  for (const [name, value] of Object.entries(tokens(s))) {
+    const m = new RegExp(`"${name}": (-?[0-9.]+)`).exec(gen);
+    if (!m) fails.push(`js/cm-figures.js: no ${name}; run node build/case-flow/figures/assemble.cjs`);
+    else if (Math.abs(Number(m[1]) - value) >= 0.005)
+      fails.push(`js/cm-figures.js: ${name} is ${money(Number(m[1]))}, the spine computes ${money(value)}; run node build/case-flow/figures/assemble.cjs`);
+  }
+}
+
+/* ---------- 5 · every token the content writes is one the spine knows ---------- */
+const known = new Set([...Object.keys(tokens(s)), ...Object.keys(PCT_TOKENS(s))]);
+for (const f of content) {
+  if (f === "js/cm-figures.js" || f === "README.md") continue;
+  const text = fs.readFileSync(path.join(ROOT, f), "utf8");
+  for (const m of text.matchAll(/\{\{([a-zA-Z]+)\}\}/g))
+    if (!known.has(m[1])) fails.push(`${f}: {{${m[1]}}} is not a figure the spine computes (build/case-flow/figures.cjs tokens())`);
 }
 
 /* ---------- report ---------- */

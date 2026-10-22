@@ -87,7 +87,7 @@
       "from": "CMS",
       "to": "Case Manager",
       "subject": "Trust deposit posted: Cardinal State Mutual $10,000.00",
-      "body": "IOLTA deposit logged: Cardinal State Mutual, CS-26-20355, $10,000.00, not yet cleared. Trust received to date: $40,000.00. Net Sheet: Recovery Ledger incomplete; Lien Tracker incomplete. Written acceptances on file: Peach State $1,240.00 (10/09), Riverton Spine & Rehab $3,470.00 (10/12). Complete both tabs before the Settlement Statement is drafted.",
+      "body": "IOLTA deposit logged: Cardinal State Mutual, CS-26-20355, $10,000.00, not yet cleared. Trust received to date: $40,000.00. Net Sheet: Recovery Ledger incomplete; Lien Tracker incomplete. Written acceptances on file: Peach State $1,240.00 (10/09), Riverton Spine & Rehab {{payoffA}} (10/12). Complete both tabs before the Settlement Statement is drafted.",
       "attachments": [
         "RS41",
         "RS42",
@@ -386,12 +386,12 @@
       "who": "Tammy Greer, Riverton Spine & Rehab",
       "role": "lienholder",
       "persona": "Office manager who runs billing and LOPs; protective of the practice's money; brisk; will deal if the math is fair and in writing.",
-      "context": "10/09/2026. Riverton Spine & Rehab treated John Doe under an LOP signed 02/23/2026. Tammy's ledger shows 34 lines × $185.00 = $6,290.00; the 05/04/2026 line is a duplicate (33 visits, $6,105.00). The firm's approved Reduction Request is in her inbox. Recovery is capped at $40,000 of coverage. She defends the ledger first, concedes the duplicate when shown the dates, then agrees to $3,470.00 and asks, “So we have a deal?”",
+      "context": "10/09/2026. Riverton Spine & Rehab treated John Doe under an LOP signed 02/23/2026. Tammy's ledger shows 34 lines × $185.00 = $6,290.00; the 05/04/2026 line is a duplicate (33 visits, $6,105.00). The firm's approved Reduction Request is in her inbox. Recovery is capped at $40,000 of coverage. She defends the ledger first, concedes the duplicate when shown the dates, then agrees to {{payoffA}} and asks, “So we have a deal?”",
       "opening": "Tammy Greer, Riverton Spine and Rehab. I got your reduction letter. We treated him four months on a promise. Why would we take less than the sixty-two ninety we're owed?",
       "goals": [
         "State the audited balance: 05/04/2026 duplicate removed, $6,105.00",
         "Explain the coverage-capped recovery as facts; ask for reduced payment in full",
-        "Accept nothing on the call; $3,470.00 goes to Atty. Thorne",
+        "Accept nothing on the call; {{payoffA}} goes to Atty. Thorne",
         "Request a signed Payoff Letter: full satisfaction, no balance billing"
       ],
       "line": "The CM negotiates only inside Atty. Thorne's written authority and never accepts a figure on the call."
@@ -400,10 +400,10 @@
       "who": "John Doe",
       "role": "client",
       "persona": "Warehouse shift lead, tired and wary; did his own math on $40,000 and feels shorted; wants a straight answer, not a lecture.",
-      "context": "10/22/2026, disbursement day. John signed the Settlement Statement 10/21. Gross $40,000.00; fee $13,333.33 (33⅓% pre-suit, per the retainer); costs $486.75; Peach State $1,240.00 (asserted $1,860.00); Riverton Spine & Rehab $3,470.00 ($6,290.00 billed); net $21,469.92. He expected two-thirds, about $26,667. He asks why the chiropractor gets paid at all, and who pays if he needs more injections.",
+      "context": "10/22/2026, disbursement day. John signed the Settlement Statement 10/21. Gross $40,000.00; fee $13,333.33 (33⅓% pre-suit, per the retainer); costs $486.75; Peach State $1,240.00 (asserted $1,860.00); Riverton Spine & Rehab {{payoffA}} ($6,290.00 billed); net {{netA}}. He expected two-thirds, about $26,667. He asks why the chiropractor gets paid at all, and who pays if he needs more injections.",
       "opening": "Hey, it's John. This check says twenty thousand three-fifty-nine. Forty grand, lawyers take a third, I figured twenty-six something. Where'd the rest go?",
       "goals": [
-        "Walk each Settlement Statement line to $21,469.92 as plain facts",
+        "Walk each Settlement Statement line to {{netA}} as plain facts",
         "Show both lien reductions and the signed Payoff Letters",
         "Route fee and future-injection questions to Atty. Thorne",
         "Obtain his signed acknowledgment of receipt"
@@ -414,7 +414,7 @@
       "who": "Atty. Elijah Thorne",
       "role": "attorney",
       "persona": "Lead counsel, sharp and short on time; wants the chronology cold; will test whether the Case Manager tries to recommend suit.",
-      "context": "09/08/2026, Track B. Keystone offered $3,500 on 08/05 and called it “final” 08/12; the demand lapsed 08/21; follow-ups 08/24 and 08/31 and the 09/02 supervisor escalation went unanswered through 09/04. Unexhausted BI freezes $20,000 Host UM and $10,000 Relative UM. Specials $16,401.40. SOL 02/06/2028 (Sunday); hard date 02/04/2028; cutoff 11/05/2027. Thorne asks “So, do we sue?” and “What's Smith worth above his limits?” He wants facts and questions, not advice.",
+      "context": "09/08/2026, Track B. Keystone offered $3,500 on 08/05 and called it “final” 08/12; the demand lapsed 08/21; follow-ups 08/24 and 08/31 and the 09/02 supervisor escalation went unanswered through 09/04. Unexhausted BI freezes $20,000 Host UM and $10,000 Relative UM. Specials {{specials}}. SOL 02/06/2028 (Sunday); hard date 02/04/2028; cutoff 11/05/2027. Thorne asks “So, do we sue?” and “What's Smith worth above his limits?” He wants facts and questions, not advice.",
       "opening": "Okay, I've got ten minutes. Walk me through Keystone from the demand to today, and then tell me: do we file?",
       "goals": [
         "Give the dated chronology, 07/20 to 09/04, each event with its proof",
@@ -537,7 +537,7 @@
       "line": "Margaret is not the client: the CM shares nothing on the case and never advises."
     },
     "d5m6-a1": {"who": "Denise Harlow", "role": "client", "persona": "Hurt and embarrassed more than angry; feels the firm gave up because she couldn't pay for therapy. Pushes for an answer on whether her case was worthless.", "context": "12/10/2026, a practice matter, not the Doe file. Denise Harlow was rear-ended 09/19/2026 and treated at Brookside Physical Therapy until 10/29/2026; she has no Health Plan, and Brookside declined a Letter of Protection. Atty. Thorne dropped the case and told her 12/08. Her Withdrawal Letter came by text and email 12/09; Certified Mail is on its way. She asks whether the case was worthless, whether restarting therapy would change things, and what to do now. She calms when she is heard and given a clear next step.", "opening": "Hi, it's Denise Harlow. I got your text with the letter. So that's it? Because I couldn't pay for therapy, my case was just... worthless?", "goals": ["Listen, acknowledge her frustration and confirm the letter reached her", "Give no view on the claim's worth or on restarting treatment", "Point her only to Atty. Thorne's call and the letter's next step", "Log the call and route her questions to Atty. Thorne"], "line": "No view on the claim's worth, no explanation of the drop, no advice: Atty. Thorne's call."},
-    "d5m5-a1": {"who": "John Doe", "role": "client", "persona": "Relieved it's over but upset at the number; a friend kept more from his settlement. Wants to know where his money went.", "context": "07/27/2027. The arbitration award came in 07/06; both UM checks and Keystone's are in trust: $40,000.00. John has the draft Settlement Statement: $15,748.75 to him. He remembers Atty. Thorne mentioning the 40% tier when suit was filed, not the amount. He thinks the arbitrator cut his award for the gap, and asks whether suing was a mistake and whether the fee is fair. He calms with plain arithmetic and a clear next step.", "opening": "Hey, it's John. I got the statement. Forty thousand, and I get fourteen-seven? My buddy settled his case and kept way more than that. Where did it all go?", "goals": ["Walk the deductions in order: fee, costs, liens, net", "Show the 40% tier from his own retainer", "Give the reduced lien figures and their written acceptances", "Route whether suing was worth it to Atty. Thorne"], "line": "Explain the arithmetic only; no opinion on the lawsuit, the fee or the award."}
+    "d5m5-a1": {"who": "John Doe", "role": "client", "persona": "Relieved it's over but upset at the number; a friend kept more from his settlement. Wants to know where his money went.", "context": "07/27/2027. The arbitration award came in 07/06; both UM checks and Keystone's are in trust: $40,000.00. John has the draft Settlement Statement: {{netB}} to him. He remembers Atty. Thorne mentioning the 40% tier when suit was filed, not the amount. He thinks the arbitrator cut his award for the gap, and asks whether suing was a mistake and whether the fee is fair. He calms with plain arithmetic and a clear next step.", "opening": "Hey, it's John. I got the statement. Forty thousand, and I get fourteen-seven? My buddy settled his case and kept way more than that. Where did it all go?", "goals": ["Walk the deductions in order: fee, costs, liens, net", "Show the 40% tier from his own retainer", "Give the reduced lien figures and their written acceptances", "Route whether suing was worth it to Atty. Thorne"], "line": "Explain the arithmetic only; no opinion on the lawsuit, the fee or the award."}
   },
   "fallout": [
     {
@@ -581,7 +581,7 @@
           "channel": "alert",
           "from": "CMS",
           "subject": "Disbursement hold: Riverton Spine & Rehab payoff unsigned",
-          "body": "The $3,470.00 command to Riverton Spine & Rehab rests on a phone note, with no signed Payoff Letter. It cannot be queued, the 10/22/2026 disbursement waits, and nothing yet stops Riverton from balance-billing John Doe."
+          "body": "The {{payoffA}} command to Riverton Spine & Rehab rests on a phone note, with no signed Payoff Letter. It cannot be queued, the 10/22/2026 disbursement waits, and nothing yet stops Riverton from balance-billing John Doe."
         }
       }
     },
@@ -626,7 +626,7 @@
           "channel": "alert",
           "from": "CMS",
           "subject": "Binder audit: Riverton Spine & Rehab still at $6,290.00",
-          "body": "Mediation Binder Section 4 still carries Riverton Spine & Rehab at $6,290.00, the 05/04/2026 duplicate included: medical $15,002.40 against the audited $14,817.40. The binder is due 03/11/2027, and Keystone already calls the ledger unverified."
+          "body": "Mediation Binder Section 4 still carries Riverton Spine & Rehab at $6,290.00, the 05/04/2026 duplicate included: medical $15,002.40 against the audited {{medicalAudited}}. The binder is due 03/11/2027, and Keystone already calls the ledger unverified."
         }
       }
     },
@@ -641,7 +641,7 @@
           "channel": "alert",
           "from": "CMS",
           "subject": "Exchange set audit: Lien Sheet overstated",
-          "body": "The attorney's-set Lien Sheet still lists Harbor Point PIP $5,000.00 and Summit Imaging $2,395.00, and Crescent as open. Liens actually owed: $6,485.00. A $7,395.00 overstatement sits nine days before the 06/02/2027 exchange."
+          "body": "The attorney's-set Lien Sheet still lists Harbor Point PIP $5,000.00 and Summit Imaging $2,395.00, and Crescent as open. Liens actually owed: {{openLiens}}. A $7,395.00 overstatement sits nine days before the 06/02/2027 exchange."
         }
       }
     },

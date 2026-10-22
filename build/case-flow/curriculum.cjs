@@ -33,7 +33,14 @@ for(let n = 1; n <= 5; n++){
 
 const KIND = {lesson: "Lesson", activity: "Skill Activity", check: "Knowledge Check"};
 const money = n => "$" + Number(n).toLocaleString("en-US");
-const md = s => String(s == null ? "" : s).replace(/\|/g, "\\|");
+/* the curriculum notes are read outside the program, where nothing substitutes, so the case's money is resolved
+   as they are written (build/case-flow/figures.cjs; the program itself does it at run time, js/cm-figures.js) */
+const FIG = require("./figures.cjs");
+const FIGS = FIG.tokens(), FIGPCT = FIG.PCT_TOKENS(FIG.spine());
+const figures = s => String(s == null ? "" : s).replace(/\{\{([a-zA-Z]+)\}\}/g, (whole, name) =>
+  Object.prototype.hasOwnProperty.call(FIGS, name) ? FIG.money(FIGS[name])
+  : Object.prototype.hasOwnProperty.call(FIGPCT, name) ? FIGPCT[name] + "%" : whole);
+const md = s => figures(String(s == null ? "" : s)).replace(/\|/g, "\\|");
 const stack = () => CF.case.stack.slice().sort((a, b) => a.order - b.order);
 
 /* ---------- validation ---------- */
@@ -354,10 +361,10 @@ if(!CHECK_ONLY){
   fs.mkdirSync(OUT, {recursive: true});
   CF.days.forEach(day => {
     const f = path.join(OUT, `day${day.n}.md`);
-    fs.writeFileSync(f, dayMd(day));
+    fs.writeFileSync(f, figures(dayMd(day)));
     console.log(`wrote ${path.relative(ROOT, f)}`);
   });
-  fs.writeFileSync(path.join(OUT, "traceability.md"), traceMd());
+  fs.writeFileSync(path.join(OUT, "traceability.md"), figures(traceMd()));
   console.log("wrote curriculum/5-day-flow/traceability.md");
 }
 console.log(`Case Flow: ${CF.days.length} of 5 days · ${blocks} blocks · sequence, six components, 60/40 rubrics, quizzes and sources verified · ${Object.keys(LEGACY).length} existing topics, 0 unplaced · slides a day ${DECK.map(x => x.slides).join(" / ")}`);

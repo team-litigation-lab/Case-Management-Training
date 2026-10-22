@@ -216,7 +216,7 @@ window.CM_CF_EXHIBITS = {
    ],
    "revealNote": "The Demand Package as Atty. Thorne signed and served it on 07/20/2026: the letter with its four faults corrected and the Exhibit Index as served, 81 pages. Every later activity on this file works from this set.",
    "revealPoints": [
-    "Specials $14,817.40 medical + $1,584.00 wages = $16,401.40, every line tied to a certified bill.",
+    "Specials {{medicalAudited}} medical + $1,584.00 wages = {{specials}}, every line tied to a certified bill.",
     "Acceptance runs 30 days from Keystone's receipt of the certified mailing, not from the date of the letter.",
     "A Limited Release of Robert Smith and Keystone Mutual only, preserving every UM/UIM claim and the Property Damage claim.",
     "Robert Smith's affidavit of no other insurance added as condition 3.",
@@ -354,8 +354,8 @@ window.CM_CF_EXHIBITS = {
      "as": "Assembled from the providers' original bills: Riverton Spine & Rehab 34 lines at $6,290.00, medical total $15,002.40.",
      "verdict": "replace",
      "kind": "arithmetic",
-     "issue": "The Demand Package served 07/20/2026 put the medical specials at $14,817.40. Two numbers for one file is exactly the unverified ledger Atty. Mercer named, and the difference is the 05/04/2026 duplicate.",
-     "fix": "Rebuild the ledger line by line from the certified bills in hand: 33 attended visits × $185.00 = $6,105.00, medical $14,817.40, with wages $1,584.00 the same $16,401.40 that was served.",
+     "issue": "The Demand Package served 07/20/2026 put the medical specials at {{medicalAudited}}. Two numbers for one file is exactly the unverified ledger Atty. Mercer named, and the difference is the 05/04/2026 duplicate.",
+     "fix": "Rebuild the ledger line by line from the certified bills in hand: 33 attended visits × $185.00 = $6,105.00, medical {{medicalAudited}}, with wages $1,584.00 the same {{specials}} that was served.",
      "proof": [
       "RS23",
       "RS14",
@@ -369,7 +369,7 @@ window.CM_CF_EXHIBITS = {
      "verdict": "replace",
      "kind": "loophole",
      "issue": "Peach State paid Crescent $1,860.00 at the contract rate and the in-network provider cannot bill the member the adjustment. Carried into the binder it concedes $3,400.00 that nobody is owed, out of John Doe's net.",
-     "fix": "Show the charge satisfied by the plan's contract payment, proved by Peach State's EOB and the corrected $0.00 statement; the open claims are Peach State $1,860.00 and Riverton Spine & Rehab $4,625.00 = $6,485.00.",
+     "fix": "Show the charge satisfied by the plan's contract payment, proved by Peach State's EOB and the corrected $0.00 statement; the open claims are Peach State $1,860.00 and Riverton Spine & Rehab {{spineRehabOwed}} = {{openLiens}}.",
      "proof": [
       "RS26",
       "RS41"
@@ -454,8 +454,8 @@ window.CM_CF_EXHIBITS = {
    ],
    "revealNote": "The Mediation Binder as Atty. Thorne approved it on 03/10/2027 and the firm delivered it on 03/11/2027: six sections, 141 pages, with the defense map and the rebuilt ledger. The arbitration exhibits and Day 5 both start from it.",
    "revealPoints": [
-    "Medical specials rebuilt to $14,817.40, with wages the $16,401.40 that was served on 07/20/2026.",
-    "Open liens $6,485.00: Peach State $1,860.00 and Riverton Spine & Rehab $4,625.00; Crescent $0.00.",
+    "Medical specials rebuilt to {{medicalAudited}}, with wages the {{specials}} that was served on 07/20/2026.",
+    "Open liens {{openLiens}}: Peach State $1,860.00 and Riverton Spine & Rehab {{spineRehabOwed}}; Crescent $0.00.",
     "Riverton Spine & Rehab marked \"Pending Final Verification\" until its certified ledger arrives.",
     "All five pleaded allegations mapped to answering exhibits; two legal questions flagged, not answered.",
     "Section 2 approved, marked for the mediator only, one copy; the deposition summary added at Section 4.",
@@ -553,7 +553,7 @@ window.CM_CF_EXHIBITS = {
     },
     {
      "ref": "C-6",
-     "what": "The medical ledger at $14,817.40",
+     "what": "The medical ledger at {{medicalAudited}}",
      "as": "Tab 4, with the records and bills, at the audited figure.",
      "verdict": "keep",
      "kind": "arithmetic",
@@ -642,11 +642,11 @@ window.CM_CF_EXHIBITS = {
     {
      "ref": "C-9",
      "what": "Lien Sheet — Peach State and Riverton Spine & Rehab",
-     "as": "Peach State $1,860.00 and Riverton Spine & Rehab $4,625.00.",
+     "as": "Peach State $1,860.00 and Riverton Spine & Rehab {{spineRehabOwed}}.",
      "verdict": "keep",
      "kind": "arithmetic",
-     "issue": "Both are right: the plan's itemized reimbursement claim, and the LOP account at the audited 33 visits. Together they are the $6,485.00 the net is actually worked from.",
-     "fix": "Confirm Crescent and Summit Imaging are shown at $0.00 as well, and reconcile the sheet to $6,485.00 before it goes to Atty. Thorne.",
+     "issue": "Both are right: the plan's itemized reimbursement claim, and the LOP account at the audited 33 visits. Together they are the {{openLiens}} the net is actually worked from.",
+     "fix": "Confirm Crescent and Summit Imaging are shown at $0.00 as well, and reconcile the sheet to {{openLiens}} before it goes to Atty. Thorne.",
      "proof": [
       "RS41",
       "RS25"
@@ -694,7 +694,7 @@ window.CM_CF_EXHIBITS = {
     "Threshold exhibits lead: the BI tender, both UM consents, the Limited Release and the dismissal.",
     "Every record certified and authenticated; Crescent's certification chased with a subpoena flag.",
     "Tab 5 pairs the 2021 low-back records and the deposition testimony with the MRI read and the Causation Letter.",
-    "Lien Sheet audited from $11,485.00 to $6,485.00: PIP, Summit and Crescent all at $0.00.",
+    "Lien Sheet audited from {{draftLienSheet}} to {{openLiens}}: PIP, Summit and Crescent all at $0.00.",
     "Brief docketed 06/11/2027; exchange 06/02/2027; hearing 06/22/2027.",
     "Six items withheld on Atty. Thorne's recorded decision, each with its reason on the file."
    ]

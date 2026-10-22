@@ -85,6 +85,8 @@ function spine(f = FACTS) {
   const spineRehabOwed = r2(spineRehabAudited - b.spineRehab.medPay);
   const spineRehabLedgerBalance = r2(b.spineRehab.billed - b.spineRehab.medPay);   // as the provider's own ledger shows it, duplicate still in
   const medPayUnused = r2(f.firstParty.medPay - b.spineRehab.medPay);
+  // what every payer has paid plus what is still owed: the audited medical less the in-network write-off
+  const paidAndOwed = r2(f.firstParty.pip + f.liens.healthPlan.asserted + b.spineRehab.medPay + spineRehabOwed + b.outOfPocket.billed);
 
   // the open liens: the health plan's claim and what is left of the LOP account
   const liensAudited = r2(f.liens.healthPlan.asserted + spineRehabOwed);
@@ -141,7 +143,7 @@ function spine(f = FACTS) {
     um: {gross, fee: A.fee, costs: A.costs, liens: liensAudited, net: r2(gross - A.fee - A.costs - liensAudited)}
   };
 
-  return {gross, costsPreSuit, costsLitigation, billedMedical, medical, wages, specials,
+  return {gross, costsPreSuit, costsLitigation, billedMedical, medical, wages, specials, paidAndOwed,
     spineRehabAudited, spineRehabOwed, spineRehabLedgerBalance, medPayUnused,
     liensAudited, draftLienSheet, A, B, streams, proRata, netFloor, stages};
 }
@@ -190,10 +192,14 @@ function check(s = spine()) {
   const eq = (what, got, want) => { if (Math.abs(got - want) >= 0.005) fails.push(`${what}: ${money(got)}, expected ${money(want)}`); };
   eq("the gross is the three stack layers", s.gross, 40000);
   eq("the Specials are the audited medical plus the wages", s.specials, r2(s.medical + s.wages));
+  eq("paid-and-owed is the audited medical less the in-network write-off", s.paidAndOwed, r2(s.medical - FACTS.bills.painManagement.writeOff));
   eq("Riverton's audited charges are the billed less the duplicate", s.spineRehabAudited, 6105);
   eq("Riverton owes the audited charges less MedPay", s.spineRehabOwed, r2(s.spineRehabAudited - FACTS.bills.spineRehab.medPay));
   eq("the open liens are the health plan's claim plus what Riverton is owed", s.liensAudited, r2(FACTS.liens.healthPlan.asserted + s.spineRehabOwed));
-  eq("MedPay's unused limit is less than one visit", s.medPayUnused, 20);
+  // MedPay is exhausted because what is left cannot cover the next visit — the invariant, not the exact $20.00
+  const visit = FACTS.bills.spineRehab.billed / 34;
+  if (s.medPayUnused < 0) fails.push(`MedPay paid ${money(FACTS.bills.spineRehab.medPay)} against a ${money(FACTS.firstParty.medPay)} limit: more than the coverage`);
+  else if (s.medPayUnused >= visit) fails.push(`MedPay has ${money(s.medPayUnused)} of its limit left, enough for another ${money(visit)} visit: it is not exhausted, so the LOP should have carried less`);
   for (const [t, k] of [[s.A, "A"], [s.B, "B"]]) {
     eq(`Track ${k}'s net is the gross less fee, costs and liens`, t.net, r2(s.gross - t.fee - t.costs - t.liensPaid));
     eq(`Track ${k}'s liens paid are the two accepted figures`, t.liensPaid, r2(t.healthPlan + t.spineRehab));
@@ -211,7 +217,47 @@ function check(s = spine()) {
   return fails;
 }
 
-module.exports = {FACTS, spine, netSheet, check, RETIRED, money, r2, pct};
+/* ---------- the tokens the content writes instead of a figure ----------
+   A lesson, a slide, a trainer script, an exhibit audit or a case document writes {{openLiens}} where it means the
+   open liens, and js/cm-figures.js substitutes the figure at run time — the same way js/cm-case-dates.js rewrites
+   the case's dates in place. Change a fact in FACTS and the lessons and the practice case follow it; nothing is
+   typed twice. A figure that is a fact of its own (a premium, a policy limit, the PD schedule) stays written out. */
+function tokens(s = spine()) {
+  const t = {
+    gross: s.gross,
+    feePreSuit: s.A.fee, feeSuited: s.B.fee,
+    costsPreSuit: s.A.costs, costsLitigation: s.B.costs,
+    specials: s.specials, medicalAudited: s.medical, wages: s.wages,
+    spineRehabBilled: FACTS.bills.spineRehab.billed, spineRehabDuplicate: FACTS.bills.spineRehab.duplicate,
+    spineRehabAudited: s.spineRehabAudited, spineRehabMedPay: FACTS.bills.spineRehab.medPay,
+    spineRehabOwed: s.spineRehabOwed, spineRehabLedgerBalance: s.spineRehabLedgerBalance,
+    medPayLimit: FACTS.firstParty.medPay, medPayUnused: s.medPayUnused, pipLimit: FACTS.firstParty.pip,
+    healthPlanAsserted: FACTS.liens.healthPlan.asserted,
+    openLiens: s.liensAudited, draftLienSheet: s.draftLienSheet,
+    // Track A, settled before suit
+    payoffA: s.A.spineRehab, healthPlanA: s.A.healthPlan, liensPaidA: s.A.liensPaid,
+    healthPlanReductionA: s.A.healthPlanReduction, negotiatedA: s.A.negotiated,
+    deductionsA: s.A.deductions, netA: s.A.net,
+    streamBi: s.streams.bi, streamUm: s.streams.um,
+    costsBi: s.streams.costsBi, costsUm: s.streams.costsUm,
+    healthPlanBi: s.streams.healthPlanBi, healthPlanUm: s.streams.healthPlanUm,
+    payoffBi: s.streams.spineRehabBi, payoffUm: s.streams.spineRehabUm,
+    // Track B, won at arbitration
+    payoffB: s.B.spineRehab, healthPlanB: s.B.healthPlan, liensPaidB: s.B.liensPaid,
+    healthPlanReductionB: s.B.healthPlanReduction, netB: s.B.net,
+    // the BI layer alone, and the floor it sets
+    biOnlyLeft: s.proRata.available, biOnlyShortfall: Math.abs(s.proRata.shortfall),
+    proRataHealthPlan: s.proRata.healthPlan, proRataSpineRehab: s.proRata.spineRehab,
+    netFloorLiensAndCosts: s.netFloor.liensAndCosts, netFloor: s.netFloor.gross,
+    // the Net Sheet's stages
+    netSheetBi: s.stages.bi.net, netSheetUm: s.stages.um.net, feeBiStage: s.stages.bi.fee,
+    paidAndOwed: s.paidAndOwed, writeOff: FACTS.bills.painManagement.writeOff
+  };
+  return t;
+}
+const PCT_TOKENS = s => ({proRataHealthPlanPct: s.proRata.healthPlanPct, proRataSpineRehabPct: s.proRata.spineRehabPct});
+
+module.exports = {FACTS, spine, netSheet, check, RETIRED, money, r2, pct, tokens, PCT_TOKENS};
 
 if (require.main === module) {
   const s = spine(), fails = check(s);

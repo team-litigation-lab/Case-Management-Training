@@ -179,8 +179,8 @@ window.CM_CASE_FLOW = {
     {after: "d2m4-a1", title: "Treatment & Pre-Demand: Specials and the A-C-T Response", group: "money", items: [
       "Riverton Spine & Rehab billed 34 lines × $185.00 = $6,290.00, but 05/04/2026 is a duplicate: 33 visits = $6,105.00 after audit",
       "PIP paid in date order $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00 (exhausted 06/2026)",
-      "MedPay paid Riverton Spine & Rehab's first eight visits, $185.00 × 8 = $1,480.00, exhausting its $1,500.00 limit in 03/2026 ($20.00 left, less than a visit's charge); the LOP carries the rest, $4,625.00 owed after the audit",
-      "Medical specials: $15,002.40 billed → $14,817.40 after the audit · lost wages: 9 shifts × 8 h × $22.00 = $1,584.00 (Northgate HR letter) · total Specials $16,401.40",
+      "MedPay paid Riverton Spine & Rehab's first eight visits, $185.00 × 8 = $1,480.00, exhausting its $1,500.00 limit in 03/2026 ($20.00 left, less than a visit's charge); the LOP carries the rest, {{spineRehabOwed}} owed after the audit",
+      "Medical specials: $15,002.40 billed → {{medicalAudited}} after the audit · lost wages: 9 shifts × 8 h × $22.00 = $1,584.00 (Northgate HR letter) · total Specials {{specials}}",
       "A-C-T: Assess, called John 04/08 · Coordinate, asked Keystone PD to extend the rental (refused 04/10), then moved John to evening slots so Margaret could drive him (first open slot 04/21) · Track, attendance confirmed 04/21 and 04/23 · the Civic came back 04/24"
     ]},
     {after: "d2m3-a2", title: "Why the 14-Day Gap Happened", group: "care", items: [
@@ -200,8 +200,8 @@ window.CM_CASE_FLOW = {
       "08/12/2026 Keystone tenders $10,000 · UM consents 08/24 (Harbor Point) and 08/26 (Cardinal State) · Keystone's General Release (08/14) revised to a Limited Release, signed 08/28 · check into IOLTA 09/04",
       "08/31 Host UM and Relative UM demands · Harbor Point offers $8,000 (09/14), pays $20,000 limits 09/29 · Cardinal State offers $6,000 (10/01), tenders $10,000 limits 10/06",
       "Gross recovery $40,000.00",
-      "Liens: Peach State (fully insured plan) $1,860.00 → $1,240.00 (10/09) · Riverton Spine & Rehab $6,290.00 billed → $6,105.00 audited → $3,470.00 (10/12)",
-      "Net Sheet: fee $13,333.33 · costs $486.75 · liens $4,710.00 · net to John Doe $21,469.92 (BI stream $5,367.48, UM stream $16,102.44)",
+      "Liens: Peach State (fully insured plan) $1,860.00 → $1,240.00 (10/09) · Riverton Spine & Rehab $6,290.00 billed → $6,105.00 audited → {{payoffA}} (10/12)",
+      "Net Sheet: fee $13,333.33 · costs $486.75 · liens {{liensPaidA}} · net to John Doe {{netA}} (BI stream {{streamBi}}, UM stream {{streamUm}})",
       "John signs the Settlement Statement 10/21 · disbursement 10/22/2026 · Trust Ledger to $0.00 · closing memo 10/30/2026"
     ]},
     {after: "d4m1-a1", title: "Track B: The Stonewall", group: "suit", items: [
@@ -234,8 +234,8 @@ window.CM_CASE_FLOW = {
     {after: "d5m5-a1", title: "Track B: Case Won", group: "won", items: [
       "07/06/2027 award, Laura Whitcomb, Esq.: damages exceed the UM limits · Harbor Point $20,000 + Cardinal State $10,000, with Keystone's $10,000 from the 03/18/2027 mediation: gross $40,000.00",
       "Fee at the 40% tier (suit filed 09/24/2026): $16,000.00 · receipted costs $3,895.25 (pre-suit $486.75 + filing, service, mediation, arbitration, court reporter, certified records)",
-      "Liens at the fee actually charged: Peach State $1,860.00 → $1,116.00 (07/14/2027) · Riverton Spine & Rehab $6,105.00 audited → $3,240.00 (07/16/2027)",
-      "Net to John Doe $15,748.75 · Settlement Statement signed 07/29 · disbursed 07/30/2027 ($5,646.17 less than Track A's $21,469.92)"
+      "Liens at the fee actually charged: Peach State $1,860.00 → $1,116.00 (07/14/2027) · Riverton Spine & Rehab $6,105.00 audited → {{payoffB}} (07/16/2027)",
+      "Net to John Doe {{netB}} · Settlement Statement signed 07/29 · disbursed 07/30/2027 ($5,646.17 less than Track A's {{netA}})"
     ]}
   ],
 
@@ -2542,7 +2542,7 @@ window.CM_CASE_FLOW = {
             "The EOB's AC1 remark asks for the plan's accident questionnaire. Route it to Atty. Thorne before John Doe returns it: what it says about the accident and the other insurance is a statement on the file.",
             "PIP sends no EOB, but Harbor Point reports its payments the same way: its payment history (RS31) lists each check by date of service, payee, amount billed, amount paid and the limit remaining. It paid every bill at the amount billed, in the order received.",
             "Harbor Point's five checks: $685.00 (Riverton Urgent Care), $640.00, $640.00 and $640.00 (Lakeside Orthopedics) and $2,395.00 (Summit Imaging) = $5,000.00, exhausted 06/26/2026. Bills it receives after that come back with a notice of exhaustion: send the next one to the next payer in the Payer Order.",
-            "Reconcile every provider to its payers: each statement must show the PIP check or the plan's payment as a credit. A provider still showing a balance on a paid date of service has a billing error, not a lien. Medical Specials keep the billed amounts the audit holds ($14,817.40); the lien register carries only what each payer can claim back."
+            "Reconcile every provider to its payers: each statement must show the PIP check or the plan's payment as a credit. A provider still showing a balance on a paid date of service has a billing error, not a lien. Medical Specials keep the billed amounts the audit holds ({{medicalAudited}}); the lien register carries only what each payer can claim back."
           ],
           upl: [
             "You may read, reconcile and report what an EOB or a payment history shows, and ask a provider in writing to correct an account. Whether a balance is owed, whether a write-off may be billed, and how to answer the plan's accident questionnaire are Atty. Thorne's calls."
@@ -3499,14 +3499,14 @@ window.CM_CASE_FLOW = {
     {
       n: 4, id: "d2m4",
       title: "Pre-Demand Auditing & Strategy Session",
-      about: "AI attorney collaboration: audit John Doe's file to MMI and $16,401.40 in Specials, re-verify the policy-limits targets, and brief Atty. Thorne in a strategy session where he makes the calls.",
+      about: "AI attorney collaboration: audit John Doe's file to MMI and {{specials}} in Specials, re-verify the policy-limits targets, and brief Atty. Thorne in a strategy session where he makes the calls.",
       quiz: [
         {q: "Before the demand, which first-party ledger do you audit on John Doe's file, and what must it show?",
          opts: ["Peach State's EOBs: the Health Plan pays before PIP", "Harbor Point's PIP ledger: each payment matched to its bill, the $5,000.00 limit exhausted, and the 80% wage benefit checked", "Peach State's EOBs only", "None: first-party payments never touch the demand"],
          a: 1, r: "Riverton requires PIP, and John's is Harbor Point's on the Escape: five payments, five bills, $5,000.00, exhausted with the 06/12/2026 visit (paid 06/26/2026). Its 80% wage benefit was never paid, so the full $1,584.00 in lost wages stays in the Specials."},
         {q: "Riverton Spine & Rehab billed 34 lines at $185.00, but its treatment notes show 33 visits. After the audit, John Doe's medical Specials are:",
-         opts: ["$15,002.40", "$14,817.40", "$16,401.40", "$13,277.40"],
-         a: 1, r: "$15,002.40 less the duplicate 05/04/2026 line ($185.00) = $14,817.40. $16,401.40 adds the $1,584.00 in wages; $13,277.40 is the paid-and-owed column, not the billed medical total."},
+         opts: ["$15,002.40", "{{medicalAudited}}", "{{specials}}", "{{paidAndOwed}}"],
+         a: 1, r: "$15,002.40 less the duplicate 05/04/2026 line ($185.00) = {{medicalAudited}}. {{specials}} adds the $1,584.00 in wages; {{paidAndOwed}} is the paid-and-owed column, not the billed medical total."},
         {q: "Lakeside Orthopedics declared MMI on 06/12/2026 and noted possibly 1–2 repeat injections within 24 months. Where does that $3,400–$6,800 go?",
          opts: ["Into the Specials ledger at $6,800", "Nowhere: it hasn't been incurred", "Into the demand narrative as future medical, outside the Specials total", "Onto Riverton Spine & Rehab's LOP balance"],
          a: 2, r: "The audited Specials total is charges already incurred. Future care is still economic damage, presented in the narrative with the MMI note behind it, never mixed into the audited total."},
@@ -3541,9 +3541,9 @@ window.CM_CASE_FLOW = {
         kind: "lesson", id: "d2m4-l1",
         title: "MMI, Special Damages & Policy-Limits Targets",
         topic: "The audit that decides what the demand can claim",
-        visual: "A left-to-right audit run across the full slide. Far left, a navy vertical gate labelled MMI · 06/12/2026 with a green ✓; nothing enters the ledger until it is passed. Centre, a cream ledger card with the provider rows in mono; the Riverton Spine & Rehab row shows $6,290.00 struck through in red, replaced by $6,105.00, with an orange badge: –$185.00 · 05/04/2026 DUPLICATE. Under it, the sum in large Fraunces: $14,817.40 + $1,584.00 = $16,401.40. A grey card, FUTURE MEDICAL · NARRATIVE, sits deliberately outside the ledger frame. Right third: three numbered targets bottom-up, ① $10,000 BI ② $20,000 HOST UM ③ $10,000 RELATIVE UM, each with a mono source pill. The argument: an audited number, inside its frame, aimed at limits in order.",
+        visual: "A left-to-right audit run across the full slide. Far left, a navy vertical gate labelled MMI · 06/12/2026 with a green ✓; nothing enters the ledger until it is passed. Centre, a cream ledger card with the provider rows in mono; the Riverton Spine & Rehab row shows $6,290.00 struck through in red, replaced by $6,105.00, with an orange badge: –$185.00 · 05/04/2026 DUPLICATE. Under it, the sum in large Fraunces: {{medicalAudited}} + $1,584.00 = {{specials}}. A grey card, FUTURE MEDICAL · NARRATIVE, sits deliberately outside the ledger frame. Right third: three numbered targets bottom-up, ① $10,000 BI ② $20,000 HOST UM ③ $10,000 RELATIVE UM, each with a mono source pill. The argument: an audited number, inside its frame, aimed at limits in order.",
         tell: {
-          why: "Pre-demand is where most of a file's value is won or lost: The demands that follow can only spend what this audit proves. A duplicate line or an unchecked limit is Keystone's easy out, and $6,485.00 in liens waits behind a $10,000 BI limit.",
+          why: "Pre-demand is where most of a file's value is won or lost: The demands that follow can only spend what this audit proves. A duplicate line or an unchecked limit is Keystone's easy out, and {{openLiens}} in liens waits behind a $10,000 BI limit.",
           rules: [
             "Audit against four objectives: Verification (facts match evidence?), Valuation (every dollar justified?), Risk (where will the defense attack?), Compliance (SOL 02/06/2028 docketed; statutory demand terms confirmed by Atty. Thorne).",
             "MMI is a medical determination, never yours: record it from Lakeside Orthopedics' 06/12/2026 note, with the future-care plan. By default, no demand before MMI: the bills are still growing. Demanding earlier (Specials already over the limit, a deadline pressing) is Atty. Thorne's call.",
@@ -3554,7 +3554,7 @@ window.CM_CASE_FLOW = {
             "Lost wages need the employer's wage letter and a provider's work note. Northgate verifies 9 shifts × 8 h × $22.00 = $1,584.00; flag the five shifts before first treatment, which have no note.",
             "Future medical is economic damage but not an incurred charge: the possible repeat injections ($3,400–$6,800) stay out of the audited total and go in the narrative, with the MMI note behind them. How they are claimed is Atty. Thorne's call.",
             "Identify every lien and subrogation interest. Plan: Peach State's $1,860.00, funding type recorded. Consensual: the LOP. PIP: no reimbursement right against John Doe (03/02/2026). Ask Harbor Point in writing whether it reserves PIP subrogation against Robert Smith; record the answer and route it to Atty. Thorne.",
-            "Audit the limits one last time: per person, no step-down, each UM layer's form. Present, don't compile: $16,401.40 already exceeds the $10,000 BI limit, and proving it document by document makes a carrier fear a jury."
+            "Audit the limits one last time: per person, no step-down, each UM layer's form. Present, don't compile: {{specials}} already exceeds the $10,000 BI limit, and proving it document by document makes a carrier fear a jury."
           ],
           upl: [
             "You audit, total, flag and lay out options. You do not value the case, choose billed or paid, or set the demand figure: the audit reaches Atty. Thorne as findings, not conclusions."
@@ -3573,8 +3573,8 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["MMI note received (06/12/2026)", "Record MMI and the future-care plan; open the pre-demand audit", "CMS → Case File → Treatment timeline · CMS → Tasks", "MMI dated from the provider's note; audit task has an owner and a date"],
-          ["Final bills and records in", "Build the Specials ledger and reconcile it to the chronology", "CMS → Financial Ledger → Specials", "Every billed date matches a visit; medical total $14,817.40"],
-          ["Ledger reconciled", "Register every lien; record billed beside paid", "CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker", "$1,860.00 and $6,105.00 listed; billed-vs-paid routed to Atty. Thorne"],
+          ["Final bills and records in", "Build the Specials ledger and reconcile it to the chronology", "CMS → Financial Ledger → Specials", "Every billed date matches a visit; medical total {{medicalAudited}}"],
+          ["Ledger reconciled", "Register every lien; record billed beside paid", "CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker", "$1,860.00 and {{spineRehabOwed}} listed; billed-vs-paid routed to Atty. Thorne"],
           ["Before the ask", "Re-verify each limit and record the targets in order", "CMS → Insurance tab → Coverage Matrix", "$10,000 → $20,000 → $10,000 = $40,000, each with its written source"]
         ],
         best: [
@@ -3588,7 +3588,7 @@ window.CM_CASE_FLOW = {
         sources: ["D2#1", "D2#2", "D2#4", "D2#7", "D2#9", "D2#12", "D1#40", "LSH Claims Specialist: policy limits (per person vs. per accident)", "Newly authored: billed vs. paid and the collateral-source routing; future medical kept out of the Specials total"],
         rubric: {
           ai: [
-            ["Specials formula", 20, "Medical + wages = $16,401.40; Property Damage on its own claim; future medical outside the total"],
+            ["Specials formula", 20, "Medical + wages = {{specials}}; Property Damage on its own claim; future medical outside the total"],
             ["MMI gate", 10, "MMI 06/12/2026 recorded from the provider's note before any demand step"],
             ["Billed vs paid", 15, "Both columns shown; the choice routed to Atty. Thorne"],
             ["Targets", 15, "$10,000 BI → $20,000 Host UM → $10,000 Relative UM, each re-verified from its written source"]
@@ -3599,7 +3599,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         notes: [
-          "Open on the why: “The demand goes out later today, but what it can claim is decided here.” Then put $6,485.00 in liens beside a $10,000 BI limit and let the room do the arithmetic.",
+          "Open on the why: “The demand goes out later today, but what it can claim is decided here.” Then put {{openLiens}} in liens beside a $10,000 BI limit and let the room do the arithmetic.",
           "Ask the room: “Who decides that John Doe reached MMI?” Anyone who says the Case Manager, or John Doe, gets the rule: it is Lakeside Orthopedics' determination, recorded from its 06/12/2026 note.",
           "Watch the billed-vs-paid rule. Trainees either pick a column themselves or hide the paid column to keep the number high. Both are wrong: show both and route the choice. Collateral-source rules vary by state; confirm the governing rule.",
           "The property-damage carve-out re-seats the classic formula: the Civic's repair runs on Keystone's PD claim, so it never inflates the BI Specials or counts toward the $40,000."
@@ -3610,31 +3610,31 @@ window.CM_CASE_FLOW = {
         kind: "activity", id: "d2m4-a1",
         title: "Calculating Total Specials & the Special Damages Audit",
         topic: "Skill Activity 1 — audit $15,002.40 down to the number that holds",
-        visual: "A full-width Specials ledger on a cream card, provider rows in mono under five columns: Date · Provider · Billed · Paid by · Status. The Riverton Spine & Rehab row is expanded into its 34 billed lines as a dense strip of small tiles; one tile, 05/04/2026, is outlined in red with a DUPLICATE tag and an orange badge, –$185.00. Right margin: a vertical totals rail — $15,002.40 struck through in grey, then $14,817.40 medical, + $1,584.00 wages, = $16,401.40 in large Fraunces. Below the ledger, two narrow cards: BILLED vs PAID in two mono columns, and FUTURE MEDICAL · NARRATIVE ONLY, set outside the totals rail. The red tile is the focal point.",
+        visual: "A full-width Specials ledger on a cream card, provider rows in mono under five columns: Date · Provider · Billed · Paid by · Status. The Riverton Spine & Rehab row is expanded into its 34 billed lines as a dense strip of small tiles; one tile, 05/04/2026, is outlined in red with a DUPLICATE tag and an orange badge, –$185.00. Right margin: a vertical totals rail — $15,002.40 struck through in grey, then {{medicalAudited}} medical, + $1,584.00 wages, = {{specials}} in large Fraunces. Below the ledger, two narrow cards: BILLED vs PAID in two mono columns, and FUTURE MEDICAL · NARRATIVE ONLY, set outside the totals rail. The red tile is the focal point.",
         act: {
           scenario: "File date: early July 2026. Lakeside Orthopedics declared MMI on 06/12/2026; Dr. Reyes's Causation Letter arrived 06/19/2026. Every bill is in: Riverton Urgent Care $685.00; Riverton Spine & Rehab's statement, 34 lines × $185.00 = $6,290.00, with its visit notes; Lakeside Orthopedics three visits at $640.00; Summit Imaging $2,395.00; Crescent Pain & Spine $3,400.00 (Peach State paid $1,860.00); Riverton Drug $312.40. Northgate's HR letter verifies 9 missed shifts at 8 h × $22.00.",
           prompt: "Build John Doe's audited Specials ledger in the CMS. Start with the first-party medical-payment ledgers, here Harbor Point's PIP and MedPay ledgers: match each payment to its bill and confirm whether each limit is exhausted. Enter each provider's charges with dates, billed amount and who paid. Reconcile Riverton Spine & Rehab's billed lines against its visit notes and remove any line no visit supports. Total the medical, add the verified wages, and show billed beside paid. Put future medical in the narrative, not the ledger. List every lien with its amount, and re-verify the three policy-limits targets in order. Graded judgment: what you flag for Atty. Thorne instead of deciding it yourself.",
           tool: "CMS → Financial Ledger → Specials · CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Insurance tab",
-          output: "An audited Specials ledger at $16,401.40 with billed and paid side by side, a lien list, the targets in order, and a flag list routed to Atty. Thorne.",
+          output: "An audited Specials ledger at {{specials}} with billed and paid side by side, a lien list, the targets in order, and a flag list routed to Atty. Thorne.",
           checkpoints: [
             "First-party ledgers audited (Harbor Point's PIP and MedPay ledgers): PIP's five payments matched to five bills ($685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00), the limit exhausted with the 06/12/2026 payment; MedPay's $1,480.00 matched to Riverton Spine & Rehab's first eight visits ($185.00 × 8), its $1,500.00 limit exhausted in 03/2026 with $20.00 unusable against a $185.00 charge; nothing billed to PIP after exhaustion, and the 80% wage benefit unpaid because the limit ran out before Northgate's 06/30/2026 letter, so the full $1,584.00 stays in the Specials",
             "Riverton Spine & Rehab reconciled: 33 visits in the notes (16 from 02/24 to 04/02/2026, 17 from 04/21 to 06/05/2026) against 34 lines; the 05/04/2026 duplicate ($185.00) removed: $6,290.00 → $6,105.00. A corrected itemized statement requested from Riverton Spine & Rehab (a billing correction, not a reduction). Until it arrives, the Lien Tracker shows $6,290.00 claimed and $6,105.00 audited; any reduction is Atty. Thorne's to negotiate.",
-            "Medical: $685.00 + $6,105.00 + $640.00 + $2,395.00 + $640.00 + $3,400.00 + $640.00 + $312.40 = $14,817.40 (down from $15,002.40)",
-            "Wages: 9 shifts × 8 h × $22.00 = $1,584.00, Northgate HR letter attached; total Specials $14,817.40 + $1,584.00 = $16,401.40",
+            "Medical: $685.00 + $6,105.00 + $640.00 + $2,395.00 + $640.00 + $3,400.00 + $640.00 + $312.40 = {{medicalAudited}} (down from $15,002.40)",
+            "Wages: 9 shifts × 8 h × $22.00 = $1,584.00, Northgate HR letter attached; total Specials {{medicalAudited}} + $1,584.00 = {{specials}}",
             "Wage proof: each missed shift matched to a visit record or provider work note; the five shifts 02/09–02/13/2026, before first treatment, flagged with Northgate's Attendance Record (called out citing neck pain) as their support",
-            "Billed beside paid: PIP $5,000.00 on its five bills; Peach State $1,860.00 on Crescent's $3,400.00 (write-off $3,400.00 – $1,860.00 = $1,540.00, no balance billing); MedPay $1,480.00 on Riverton Spine & Rehab's first eight visits; LOP $4,625.00 owed; $312.40 paid by John Doe; paid-and-owed column $5,000.00 + $1,860.00 + $6,105.00 + $312.40 = $13,277.40 ($14,817.40 – $1,540.00)",
+            "Billed beside paid: PIP $5,000.00 on its five bills; Peach State $1,860.00 on Crescent's $3,400.00 (write-off $3,400.00 – $1,860.00 = $1,540.00, no balance billing); MedPay $1,480.00 on Riverton Spine & Rehab's first eight visits; LOP {{spineRehabOwed}} owed; $312.40 paid by John Doe; paid-and-owed column $5,000.00 + $1,860.00 + {{spineRehabMedPay}} + {{spineRehabOwed}} + $312.40 = {{paidAndOwed}} ({{medicalAudited}} – $1,540.00)",
             "Billed-vs-paid choice routed to Atty. Thorne under the governing collateral-source rule, not made in the ledger",
-            "Future medical ($3,400–$6,800: 1–2 repeat injections within 24 months) recorded in the narrative, outside the $16,401.40",
-            "Liens listed: Peach State $1,860.00 (plan funding type recorded) and Riverton Spine & Rehab $4,625.00 after the audit and MedPay's $1,480.00, in the CMS → Liens register, mirrored to the Lien Tracker; PIP recorded as carrying no reimbursement right against John Doe's recovery (Harbor Point, in writing, 03/02/2026); Harbor Point's position on PIP subrogation against Robert Smith and Keystone requested in writing and routed to Atty. Thorne, since it would compete for the same $10,000 BI limit",
+            "Future medical ($3,400–$6,800: 1–2 repeat injections within 24 months) recorded in the narrative, outside the {{specials}}",
+            "Liens listed: Peach State $1,860.00 (plan funding type recorded) and Riverton Spine & Rehab {{spineRehabOwed}} after the audit and MedPay's $1,480.00, in the CMS → Liens register, mirrored to the Lien Tracker; PIP recorded as carrying no reimbursement right against John Doe's recovery (Harbor Point, in writing, 03/02/2026); Harbor Point's position on PIP subrogation against Robert Smith and Keystone requested in writing and routed to Atty. Thorne, since it would compete for the same $10,000 BI limit",
             "Targets in order: $10,000 BI → $20,000 Host UM → $10,000 Relative UM = $40,000; each target re-checked against its written source: BI per person (03/20/2026 Dec Page), Host UM add-on (03/02/2026 letter), Relative UM coverage (03/09/2026) plus its form and excess clause; PIP and Keystone PD marked as not in the stack",
             "Liability proof confirmed and listed in the audit: the final Riverton PD report RPD-26-018842 (not the exchange-of-information form), Robert Smith cited for failure to stop, no contributory-negligence note on John Doe; Ruth Calloway's contact re-confirmed and her account checked against her first statement for drift; the 2214 Maple Hollow Rd doorbell-camera video preserved and matched to the Escape being pushed into the parked Civic",
             "Reasonable and necessary: each charge tied to the collision in the provider's own records and to a clinical basis (MRI ordered 03/05/2026; injection after the 03/27/2026 referral); Riverton Drug receipts attached, from 02/07/2026"
           ]
         },
         ops: [
-          ["All bills in after MMI", "Enter and reconcile every provider's charges", "CMS → Financial Ledger → Specials", "Medical total $14,817.40; the 05/04/2026 duplicate removed and noted"],
+          ["All bills in after MMI", "Enter and reconcile every provider's charges", "CMS → Financial Ledger → Specials", "Medical total {{medicalAudited}}; the 05/04/2026 duplicate removed and noted"],
           ["Ledger totals", "Show billed beside paid; route the choice and the wage flag", "CMS → Tasks → Escalate", "Both columns shown; routed to Atty. Thorne with the five pre-treatment shifts named"],
-          ["Audit complete", "Register liens and re-verify the targets", "CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Insurance tab", "$1,860.00 + $6,105.00 = $6,485.00 in liens listed; $40,000 in order"]
+          ["Audit complete", "Register liens and re-verify the targets", "CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Insurance tab", "$1,860.00 + {{spineRehabOwed}} = {{openLiens}} in liens listed; $40,000 in order"]
         ],
         best: [
           "Count the visits in the notes before you add up a provider's lines.",
@@ -3647,8 +3647,8 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Duplicate caught", 15, "05/04/2026 line removed; Riverton Spine & Rehab at $6,105.00"],
-            ["Totals", 20, "$14,817.40 medical + $1,584.00 wages = $16,401.40, to the cent"],
-            ["Billed vs paid", 15, "PIP $5,000.00 and Peach State $1,860.00 shown against billed; paid-and-owed $13,277.40"],
+            ["Totals", 20, "{{medicalAudited}} medical + $1,584.00 wages = {{specials}}, to the cent"],
+            ["Billed vs paid", 15, "PIP $5,000.00 and Peach State $1,860.00 shown against billed; paid-and-owed {{paidAndOwed}}"],
             ["Liens and targets", 10, "Both liens listed; $10,000 → $20,000 → $10,000 in order"]
           ],
           trainer: [
@@ -3661,7 +3661,7 @@ window.CM_CASE_FLOW = {
           "Hand out the bills, not the totals. Trainees who add Riverton Spine & Rehab's statement without counting the visits in its notes will land on $15,002.40; let them, then ask how many visits the notes show.",
           "Ask the room: “Peach State paid $1,860.00 on a $3,400.00 bill. Which number goes in the demand?” The only right answer: both go in front of Atty. Thorne, and he decides.",
           "The wage check is the subtle one. Five of the nine shifts fall inside the 14-Day Gap, before any provider saw John Doe. Record them exactly as the Attendance Record shows them; what they mean is Atty. Thorne's to weigh. Flag them; never drop them.",
-          "Grade to the cent. $16,401.40 is the day's gate figure; any other total means a line is wrong."
+          "Grade to the cent. {{specials}} is the day's gate figure; any other total means a line is wrong."
         ]
       },
 
@@ -3673,7 +3673,7 @@ window.CM_CASE_FLOW = {
         tell: {
           why: "Atty. Thorne makes the strategy calls from your brief. A brief that opens with the chronology buries the decision; one that hides a risk misleads him; one that makes the call for him crosses a line.",
           rules: [
-            "Bottom line first, in one sentence: where the file stands and what you need. Here: MMI 06/12/2026; $16,401.40 in audited Specials against a $10,000 BI limit; decisions needed before any demand is drafted.",
+            "Bottom line first, in one sentence: where the file stands and what you need. Here: MMI 06/12/2026; {{specials}} in audited Specials against a $10,000 BI limit; decisions needed before any demand is drafted.",
             "Facts next, audited and sourced. The trinity must agree: the narrative (John Doe's account), the physicality (the force of the impact), the medicals (the C5-C6 herniation). If one is out of line, say so first: that is the defense's easy out.",
             "Liability proof in final form: the final Riverton PD report RPD-26-018842 (Smith cited for failure to stop), checked for a contributory-negligence note; Ruth Calloway's contact re-confirmed and her account checked for drift; the doorbell video squared with the scene.",
             "Property Damage proves force, in final figures. Lead with John Doe's door, the Escape's, struck at about 28 mph (request photos if not on file). Then the Civic: $6,940.00 → $9,255.00 with a $2,315.00 A-pillar supplement, 52.6% of its $17,600.00 ACV: repairable under this file's 75% threshold (it varies by state).",
@@ -3691,7 +3691,7 @@ window.CM_CASE_FLOW = {
           caption: "The briefing protocol, in the order counsel reads it",
           type: "process",
           steps: [
-            ["Bottom line", "MMI; $16,401.40 against a $10,000 BI limit; decisions needed."],
+            ["Bottom line", "MMI; {{specials}} against a $10,000 BI limit; decisions needed."],
             ["Facts, audited", "The trinity aligned; liability proof final; every fact sourced."],
             ["Risks, with answers", "Gap → the Gap Explanation Record and Dr. Reyes's Causation Letter; disruption → the A-C-T record; 2021 low back → a different region, resolved; “degenerative” → “no significant degenerative change at the adjacent levels.”"],
             ["Decisions needed", "Each one a question for Atty. Thorne."],
@@ -3720,7 +3720,7 @@ window.CM_CASE_FLOW = {
           ai: [
             ["Protocol order", 20, "Bottom line, facts, risks, decisions, options, record, in that order"],
             ["Risk pairing", 15, "Gap, disruption, 2021 prior and “degenerative” each paired with its answering document"],
-            ["Package readiness", 15, "One-page memo; exhibit index that matches; ask inputs (limits in order, $16,401.40)"],
+            ["Package readiness", 15, "One-page memo; exhibit index that matches; ask inputs (limits in order, {{specials}})"],
             ["Decision record", 10, "Each decision dated, attributed to Atty. Thorne and tasked"]
           ],
           trainer: [
@@ -3730,7 +3730,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         notes: [
-          "Open by reading two first lines aloud: “On 02/06/2026 John Doe was a front-seat passenger…” and “John Doe is at MMI with $16,401.40 in audited Specials against a $10,000 BI limit, and I need your decisions.” Ask which one Atty. Thorne can act on.",
+          "Open by reading two first lines aloud: “On 02/06/2026 John Doe was a front-seat passenger…” and “John Doe is at MMI with {{specials}} in audited Specials against a $10,000 BI limit, and I need your decisions.” Ask which one Atty. Thorne can act on.",
           "Ask the room: “Which risk would you be tempted to leave out of the brief?” It is usually the 2021 low-back visits. Then ask what happens when Keystone finds them first.",
           "Police the recommend line hard. “Certified mail with return receipt and email, so we can prove receipt” is operational. “We should demand limits” is not the Case Manager's to say, even when the numbers make it look obvious.",
           "Tie it back to Day 2: the decisions change the picture, so the Case Plan is superseded and re-routed, not quietly edited."
@@ -3743,13 +3743,13 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 2 — present the audit; record his decisions",
         visual: "A two-pane Call Simulator screen. Left pane: the session transcript as alternating bubbles, navy for AI ATTY. ELIJAH THORNE and cream for the trainee; two of his bubbles are outlined in orange as challenges: “Keystone will call this low-speed” and “Why should they pay for a gap?” Right pane: a DECISION RECORD card filling as the session runs, rows with orange numbered badges — ① BI DEMAND · TIME-LIMITED · SERVE 07/20/2026 ② GAP · UP FRONT ③ UM · CONSENT PLAN ④ BILLED OR PAID — each stamped DECIDED BY ATTY. THORNE with a task chip. A red strip along the bottom: “The CM recommends operations. Counsel decides.”",
         act: {
-          scenario: "File date: early July 2026, before any demand is drafted. Your audit is done: MMI 06/12/2026; Specials $16,401.40 ($14,817.40 medical after the duplicate came out + $1,584.00 wages); liens $1,860.00 (Peach State) and $4,625.00 (the LOP, after MedPay's $1,480.00); targets $10,000 BI → $20,000 Host UM → $10,000 Relative UM. The Gap Explanation Record (06/22/2026) and Dr. Reyes's 06/19/2026 Causation Letter are in the file. Atty. Thorne has called the pre-demand strategy session.",
+          scenario: "File date: early July 2026, before any demand is drafted. Your audit is done: MMI 06/12/2026; Specials {{specials}} ({{medicalAudited}} medical after the duplicate came out + $1,584.00 wages); liens $1,860.00 (Peach State) and {{spineRehabOwed}} (the LOP, after MedPay's $1,480.00); targets $10,000 BI → $20,000 Host UM → $10,000 Relative UM. The Gap Explanation Record (06/22/2026) and Dr. Reyes's 06/19/2026 Causation Letter are in the file. Atty. Thorne has called the pre-demand strategy session.",
           prompt: "Run the pre-demand strategy session with AI Atty. Elijah Thorne. Brief him in protocol order: bottom line, audited facts, risks with their answering documents, the decisions he must make, and each option's operational consequences. Answer his challenges with objective facts, not adjectives. Recommend only on operations; ask for his decision on everything legal. Read back each decision before you close. Then record the decisions in the CMS, open a task for each, and re-route the Case Plan.",
           tool: "Call Simulator → AI Atty. Elijah Thorne (strategy session) · CMS → Case Notes · CMS → Tasks",
           output: "A recorded strategy session and a dated decision record, each decision attributed to Atty. Thorne with its tasks and owners.",
           checkpoints: [
-            "Opens with the bottom line: MMI 06/12/2026, $16,401.40 in Specials against the $10,000 BI limit, decisions needed",
-            "Figures exact: $14,817.40 + $1,584.00 = $16,401.40; billed and paid both shown; future medical ($3,400–$6,800) presented as narrative",
+            "Opens with the bottom line: MMI 06/12/2026, {{specials}} in Specials against the $10,000 BI limit, decisions needed",
+            "Figures exact: {{medicalAudited}} + $1,584.00 = {{specials}}; billed and paid both shown; future medical ($3,400–$6,800) presented as narrative",
             "Low-speed challenge met with the trinity in objective facts: Smith ran the stop sign (cited) and struck the Escape's front passenger door, John Doe's door, at about 28 mph; the Escape was pushed into the parked Civic, which needed a $2,315.00 A-pillar structural supplement; the 03/13/2026 MRI shows a C5-C6 herniation",
             "Gap challenge met with documents, not apology: the EMS neck complaint on 02/06/2026; the reasons from the recorded call (no car until the 02/18/2026 rental; numbness from 02/18/2026); the urgent-care onset note; the Attendance Record; Dr. Reyes's 06/19/2026 Causation Letter; the disruption with its A-C-T record",
             "Risks raised unprompted: the 2021 low-back visits (a different region, resolved) and “degenerative” (the radiologist: “no significant degenerative change at the adjacent levels”)",
@@ -3778,7 +3778,7 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Protocol order", 15, "Bottom line first; facts, risks, decisions, options in order"],
-            ["Figure accuracy", 15, "$16,401.40, the limits in order and every date stated exactly"],
+            ["Figure accuracy", 15, "{{specials}}, the limits in order and every date stated exactly"],
             ["Decisions recorded", 20, "Time-limited $10,000 BI demand to be served 07/20/2026; gap up front; UM consent plan; billed or paid — each dated and attributed"],
             ["Tasks and re-route", 10, "A task per decision with owner and date; plan re-routed"]
           ],
@@ -3791,7 +3791,7 @@ window.CM_CASE_FLOW = {
         notes: [
           "Set the simulator so AI Atty. Thorne interrupts within the first minute: “Keystone will call this low-speed.” A trainee who answers with adjectives (“it was a serious crash”) has missed the point; objective facts only.",
           "Ask the observers: “What did Atty. Thorne decide, in his words?” If they can't quote it, the trainee didn't read it back.",
-          "Watch for the trap in the script: AI Atty. Thorne asks, “What do you think we should demand?” The right answer gives him the inputs (the limits in order, $16,401.40, the future medical) and hands the figure back to him.",
+          "Watch for the trap in the script: AI Atty. Thorne asks, “What do you think we should demand?” The right answer gives him the inputs (the limits in order, {{specials}}, the future medical) and hands the figure back to him.",
           "Grade the decision record, not the conversation: each decision dated, attributed and tasked, or the session didn't happen."
         ]
       },
@@ -3800,7 +3800,7 @@ window.CM_CASE_FLOW = {
         kind: "check", id: "d2m4-kc",
         title: "Pre-Demand Audit & Day 3 Gate",
         topic: "Knowledge Check + Case Manager Self-Summary & Skill Scale",
-        visual: "The standard knowledge-check split, with one Day-2-specific addition above the question panel: a full-width DAY 2 GATE bar of six connected chips — LORs ACKNOWLEDGED · COVERAGE VERIFIED · MMI DOCUMENTED · GAP RECORD COMPLETE · SPECIALS $16,401.40 · STRATEGY APPROVED — each with a tick state, and a closed navy barrier at the right end labelled DAY 3 with a small note: “opens when all six are green.” Below, the navy CM SELF-SUMMARY card with three prompts beside the 1–5 SKILL SCALE ladder; far right, the 60/40 bar with UPL as a separate red gate chip.",
+        visual: "The standard knowledge-check split, with one Day-2-specific addition above the question panel: a full-width DAY 2 GATE bar of six connected chips — LORs ACKNOWLEDGED · COVERAGE VERIFIED · MMI DOCUMENTED · GAP RECORD COMPLETE · SPECIALS {{specials}} · STRATEGY APPROVED — each with a tick state, and a closed navy barrier at the right end labelled DAY 3 with a small note: “opens when all six are green.” Below, the navy CM SELF-SUMMARY card with three prompts beside the 1–5 SKILL SCALE ladder; far right, the 60/40 bar with UPL as a separate red gate chip.",
         check: {
           questions: [
             "Total John Doe's Specials from the bills: show the Riverton Spine & Rehab correction, the medical total, the wage arithmetic and the final figure.",
@@ -3828,7 +3828,7 @@ window.CM_CASE_FLOW = {
         sources: ["D2#2", "D2#4", "D2#7", "D2#8", "D2#9", "D2#12"],
         rubric: {
           ai: [
-            ["Specials accuracy", 20, "$6,290.00 → $6,105.00; $14,817.40 + $1,584.00 = $16,401.40"],
+            ["Specials accuracy", 20, "$6,290.00 → $6,105.00; {{medicalAudited}} + $1,584.00 = {{specials}}"],
             ["Audit doctrine", 15, "Four objectives; MMI gate; future medical outside the Specials; billed vs paid shown"],
             ["Defense-eye pairing", 15, "Four risks, each with its answering document"],
             ["Completeness", 10, "Every question answered substantively"]
@@ -3841,8 +3841,8 @@ window.CM_CASE_FLOW = {
           ]
         },
         notes: [
-          "Open with the gate bar: this module turns the last two chips green, Specials audited at $16,401.40 and strategy approved by Atty. Thorne. The demand does not go out until all six are.",
-          "Ask the room: “Which number on this file would you defend line by line to Dana Whitfield?” It should be $16,401.40, and they should be able to say where every cent comes from.",
+          "Open with the gate bar: this module turns the last two chips green, Specials audited at {{specials}} and strategy approved by Atty. Thorne. The demand does not go out until all six are.",
+          "Ask the room: “Which number on this file would you defend line by line to Dana Whitfield?” It should be {{specials}}, and they should be able to say where every cent comes from.",
           "Question 6 is the pressure scenario. The right answer stops the package, corrects the exhibit and every total that cites it, tells Atty. Thorne before anything is served, and lets him decide whether the 07/20/2026 service holds. Serving a known error to make the date is the failure.",
           "Question 5 separates the trainee who knows the rule from the one who would pick a column. An answer that chooses billed or paid for the demand loses the UPL marks."
         ]
@@ -3861,12 +3861,12 @@ window.CM_CASE_FLOW = {
     n: 3, id: 13,
     title: "Case Flow Day 3 · Pre-Demand Audit, the Demand & Settlement Negotiation",
     phase: "Pre-demand audit, the demand & settlement negotiation",
-    objective: "Probe the 14-Day Gap with John Doe on a recorded call, inside the UPL line, and complete the Gap Explanation Record from his own documented facts; audit the file to MMI and $16,401.40 in Specials; brief Atty. Thorne in the pre-demand strategy session; serve a time-limited BI demand that holds up; structure the Host UM and Relative UM demands behind it; then negotiate Track A to a $40,000 gross recovery with both UM consents.",
-    gate: "Gap Explanation Record complete, from John Doe's own documented facts · Specials audited at $16,401.40 · demand strategy approved by Atty. Thorne · BI Time-Limited Demand served with proof of delivery · Host UM and Relative UM demands drafted · Track A negotiated to $40,000 gross, both UM consents in hand",
+    objective: "Probe the 14-Day Gap with John Doe on a recorded call, inside the UPL line, and complete the Gap Explanation Record from his own documented facts; audit the file to MMI and {{specials}} in Specials; brief Atty. Thorne in the pre-demand strategy session; serve a time-limited BI demand that holds up; structure the Host UM and Relative UM demands behind it; then negotiate Track A to a $40,000 gross recovery with both UM consents.",
+    gate: "Gap Explanation Record complete, from John Doe's own documented facts · Specials audited at {{specials}} · demand strategy approved by Atty. Thorne · BI Time-Limited Demand served with proof of delivery · Host UM and Relative UM demands drafted · Track A negotiated to $40,000 gross, both UM consents in hand",
     discussion: "It is 07/20/2026. The Specials are audited and Atty. Thorne has approved a policy-limits demand to Keystone. What must be true before the Time-Limited Demand goes out, and what would let Keystone say it never had a fair chance to settle?",
     fileState: [
       "Treatment complete: MMI 06/12/2026; the 14-day initial gap and the 19-day disruption are on the file, and the Gap Explanation Record is still to be completed from John Doe's own documented facts.",
-      "Specials: $14,817.40 medical after the audit + $1,584.00 wages = $16,401.40.",
+      "Specials: {{medicalAudited}} medical after the audit + $1,584.00 wages = {{specials}}.",
       "The Recovery Stack: $10,000 BI (Keystone Mutual), $20,000 Host UM (Harbor Point), $10,000 Relative UM (Cardinal State Mutual), $40,000.",
       "Peach State's reimbursement claim and Riverton Spine & Rehab's LOP balance are open on the file."
     ],
@@ -3882,7 +3882,7 @@ window.CM_CASE_FLOW = {
          opts: ["08/19/2026", "08/21/2026", "08/22/2026", "08/20/2026"],
          a: 1, r: "The window runs 30 days from receipt: 07/22/2026 + 30 = 08/21/2026, a Friday. 08/19/2026 counts from the 07/20 mailing (the wrong trigger), 08/22/2026 adds a calendar month, and 08/20/2026 counts the day of receipt as day one."},
         {q: "Which of these would let Keystone refuse the Time-Limited Demand safely?",
-         opts: ["A window of 30 days from receipt", "A release limited to Robert Smith and Keystone", "A demand for $16,401.40, the full Specials", "Service by certified mail and email"],
+         opts: ["A window of 30 days from receipt", "A release limited to Robert Smith and Keystone", "A demand for {{specials}}, the full Specials", "Service by certified mail and email"],
          a: 2, r: "Keystone's BI limit is $10,000. A demand above the limit is one Keystone cannot accept within its policy, so refusing it generally sets nothing up (confirm the governing rule). The other three are what make the demand hold."},
         {q: "Why can John Doe's file still reach the full $20,000 Host UM limit after Keystone pays $10,000?",
          opts: ["Harbor Point confirmed in writing (03/02/2026) that its UM is add-on, so the BI payment does not reduce it", "UM limits are never reduced by a BI payment", "PIP's $5,000 covers the BI offset", "Cardinal State pays whatever Harbor Point deducts"],
@@ -3917,7 +3917,7 @@ window.CM_CASE_FLOW = {
         topic: "What makes a $10,000 demand one Keystone has to answer",
         visual: "Left half: a Time-Limited Demand Letter on navy-banded letterhead, five orange numbered badges pinned to its parts: ① the $10,000 amount (within limits), ② the release and affidavit terms (clear), ③ the conditions and the 30 days to meet them (reasonable), ④ the enclosure list (documented), ⑤ the deadline and delivery lines (timed). Right half: a horizontal clock bar running 07/20/2026 SERVED → 07/22/2026 RECEIVED (a navy mono pill with a return-receipt icon) → 08/21/2026 WINDOW CLOSES in orange. Above the bar, a red danger callout: “An ambiguous term is an escape hatch.” Bottom strip, a full-width navy band in white type: CLEAR · REASONABLE · WITHIN LIMITS · DOCUMENTED · TIMED. The argument: each badge is a door Keystone could refuse through, and the demand shuts all five.",
         tell: {
-          why: "Robert Smith carries $10,000; John Doe's Specials alone are $16,401.40. A Time-Limited Demand for the limits makes Keystone decide on the record. Vague, over limits, thin or unproven: a refusal costs it nothing. Clear, reasonable, within limits, documented and timed: an unreasonable refusal can matter.",
+          why: "Robert Smith carries $10,000; John Doe's Specials alone are {{specials}}. A Time-Limited Demand for the limits makes Keystone decide on the record. Vague, over limits, thin or unproven: a refusal costs it nothing. Clear, reasonable, within limits, documented and timed: an unreasonable refusal can matter.",
           rules: [
             "Confirm the foundation first: SOL docketed (02/06/2028); liability (Smith's stop-sign citation, RPD-26-018842; Ruth Calloway; the doorbell video); coverage (BI $10,000, Keystone's Dec Page, 03/20/2026).",
             "Within limits: $10,000, Keystone's full BI limit. A demand above it is one Keystone can't accept within its policy, so refusing it generally sets nothing up.",
@@ -3974,7 +3974,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         notes: [
-          "Open with the arithmetic on the board: $16,401.40 in Specials against a $10,000 policy. Ask: “What makes Keystone pay all of it, inside 30 days?” Then reveal the five elements one at a time.",
+          "Open with the arithmetic on the board: {{specials}} in Specials against a $10,000 policy. Ask: “What makes Keystone pay all of it, inside 30 days?” Then reveal the five elements one at a time.",
           "Put this to the room: “The email reached Dana Whitfield on 07/20 and the certified mail on 07/22. When does the window close, and how would Keystone know?” The answer is 08/21/2026, because the letter says the clock runs from delivery of the certified mailing.",
           "Watch for trainees who call it a “bad-faith letter.” It is a Time-Limited Demand. Whether a refusal is bad faith is a legal conclusion under the governing law, and it is Atty. Thorne's.",
           "The gap goes on page one, not in an appendix. Keystone will lean on it anyway (it does, on 08/05); a demand that explained it first has already answered."
@@ -3987,14 +3987,14 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 1 — audit it, serve it, prove it",
         visual: "A three-column assembly board. Left: the Demand Package as five tabbed cream folders in reading order — TERMS · THE GAP, ANSWERED · MEDICAL SPECIALS · LIABILITY · SPECIAL DAMAGES — each tab carrying an orange numbered badge. Centre: a navy service card with two chips joined by a bold AND, CERTIFIED MAIL (RETURN RECEIPT) and EMAIL, and beneath it a return-receipt icon stamped 07/22/2026 in a mono pill. Right: a docket card with 08/21/2026 set large in orange and two reminder pills above it. Along the bottom, a red danger strip: “Counted from the mailing date = the wrong deadline.” The eye travels left to right: build, serve, prove.",
         act: {
-          scenario: "File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) and the Gap Explanation Record are on file; the pre-demand audit put the Specials at $16,401.40. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.",
+          scenario: "File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) and the Gap Explanation Record are on file; the pre-demand audit put the Specials at {{specials}}. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.",
           prompt: "Audit the draft against the Big Four and the Final Scrub, log each deficiency as an assigned CMS task, and assemble the package with the gap answered on page one of the timeline. Once Atty. Thorne has signed, serve it on Keystone by certified mail with return receipt AND by email, and log both. When the return receipt comes back dated 07/22/2026, docket the acceptance deadline from it, with reminders. Graded judgment: what starts the clock, and what you do if Keystone asks for more time.",
           tool: "Action Plan Editor → Demand Package · CMS → Documents → Outgoing · Email Workspace · Docket System",
           output: "An audited, served Time-Limited Demand with proof of delivery on file and 08/21/2026 docketed.",
           checkpoints: [
             "Amount $10,000, Keystone's BI limit per its Dec Page (03/20/2026); nothing demanded above limits",
             "Terms match Atty. Thorne's approval word for word: Limited Release of Robert Smith and Keystone only; Smith's affidavit of no other insurance; 30 days from receipt of the certified mailing",
-            "Big Four complete: medical Specials $14,817.40; the narrative (mechanism, pain, work and life impact, consistent with the records); liability proof (RPD-26-018842 citation, Ruth Calloway, doorbell video); special damages $1,584.00 wages (Northgate HR letter), the $312.40 Riverton Drug receipts counted once, inside the medical Specials. Total $16,401.40 (billed figures; whether billed or paid amounts are the measure under the governing collateral-source or paid-versus-incurred rule is Atty. Thorne's call; confirm the governing rule)",
+            "Big Four complete: medical Specials {{medicalAudited}}; the narrative (mechanism, pain, work and life impact, consistent with the records); liability proof (RPD-26-018842 citation, Ruth Calloway, doorbell video); special damages $1,584.00 wages (Northgate HR letter), the $312.40 Riverton Drug receipts counted once, inside the medical Specials. Total {{specials}} (billed figures; whether billed or paid amounts are the measure under the governing collateral-source or paid-versus-incurred rule is Atty. Thorne's call; confirm the governing rule)",
             "Final Scrub: the 05/04/2026 duplicate removed (Riverton Spine & Rehab $6,290.00 → $6,105.00), every final balance re-verified with the provider, the 2021 low-back visits disclosed as resolved and a different region",
             "Gap answered on page one: 02/06 → 02/20/2026 with its reasons, the EMS report, the 02/20 urgent-care onset note and the 06/19/2026 Causation Letter; the 19-day disruption (04/02–04/21/2026) explained too",
             "Every bill paired with its medical-necessity why; future ESIs ($3,400–$6,800) in the narrative, not the Specials; the Civic's PD claim (Leah Moran) kept out",
@@ -4021,7 +4021,7 @@ window.CM_CASE_FLOW = {
         sources: ["D2#13", "D2#14", "D2#15", "D2#17", "D2#18"],
         rubric: {
           ai: [
-            ["Package completeness", 20, "Big Four present; $14,817.40 + $1,584.00 = $16,401.40; the 05/04/2026 duplicate removed"],
+            ["Package completeness", 20, "Big Four present; {{medicalAudited}} + $1,584.00 = {{specials}}; the 05/04/2026 duplicate removed"],
             ["Terms fidelity", 15, "Amount, release scope, affidavit and window exactly as approved"],
             ["Service and proof", 15, "Certified mail with return receipt and email, both logged; return receipt filed"],
             ["Deadline", 10, "08/21/2026 docketed from the 07/22/2026 receipt"]
@@ -4046,7 +4046,7 @@ window.CM_CASE_FLOW = {
         topic: "Locking the escape hatches before Host UM and Relative UM open",
         visual: "A six-station horizontal timeline across the slide, stations numbered in orange circles on a navy rail: ① TENDER 08/12 ② CONSENT REQUESTS 08/13 ③ CONSENTS 08/24 · 08/26 ④ LIMITED RELEASE 08/28 ⑤ UM DEMANDS 08/31 ⑥ CHECK 09/04, each date in a mono pill. Between stations ③ and ④ a heavy orange gate bar labelled NO RELEASE BEFORE BOTH CONSENTS. Above the rail, a small three-rung ladder on a cream card shows BI $10,000 → HOST UM $20,000 (ADD-ON) → RELATIVE UM $10,000 (EXCESS). Bottom-left, a red danger card quotes Keystone's 08/14 draft: “all other persons, firms, corporations and insurers,” struck through. The argument: sequence is protection.",
         tell: {
-          why: "BI alone would have left John Doe nothing: $10,000 less fee and costs is $6,179.92 against $6,485.00 in unreduced liens. The UM layers change his net, and a technicality can lose them: a release signed too early, a consent never obtained, a UM demand sent before BI is exhausted.",
+          why: "BI alone would have left John Doe nothing: $10,000 less fee and costs is $6,179.92 against {{openLiens}} in unreduced liens. The UM layers change his net, and a technicality can lose them: a release signed too early, a consent never obtained, a UM demand sent before BI is exhausted.",
           rules: [
             "BI exhaustion first. Here Host UM opens once Keystone's $10,000 tender (08/12/2026) is documented; exhaustion clauses and their effect vary by policy and state (confirm the governing rule). Notice of both UM claims went out in 03/2026; it's the demand that waits.",
             "Prove Keystone is all there is: its Dec Page (03/20/2026) and Smith's affidavit of no other insurance (08/10/2026). An underinsured claim needs proof of exhaustion, not of no insurance.",
@@ -4103,7 +4103,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         notes: [
-          "Open on the net, not the gross: “BI alone leaves John Doe nothing.” Show $6,179.92 against $6,485.00, then ask what the UM layers are worth to him.",
+          "Open on the net, not the gross: “BI alone leaves John Doe nothing.” Show $6,179.92 against {{openLiens}}, then ask what the UM layers are worth to him.",
           "Put this to the room: “Keystone's draft release is in your inbox and Dana Whitfield wants it back today. What's wrong with it?” Make them find “insurers” themselves.",
           "Watch for trainees who think consent is a courtesy. It protects the UM carrier's subrogation right, which is exactly why releasing Smith without it can cost the coverage. And the UM carriers are now adversaries: their bad-faith exposure, where the law allows one, is Atty. Thorne's analysis, built on the record the CM assembles.",
           "Offset and stacking rules vary by state and by policy. Teach the question, and the source that answers it on this file: Harbor Point's 03/02/2026 letter."
@@ -4126,7 +4126,7 @@ window.CM_CASE_FLOW = {
             "Exhaustion on page one of each: Keystone's tender (08/12/2026), its Dec Page (03/20/2026), Smith's affidavit (08/10/2026), the consents (08/24 and 08/26/2026), the signed Limited Release (08/28/2026); the check copy listed to follow, with a task",
             "Coverage: each UM Dec Page; Harbor Point's add-on letter (03/02/2026); Cardinal State's resident-relative letter (03/09/2026)",
             "Liability still proven: RPD-26-018842 citation, Ruth Calloway, the doorbell video, and the Civic's $9,255.00 repair, including the $2,315.00 A-pillar structural supplement (03/02/2026), as evidence of force, not a claim",
-            "Economic: itemized line-item bills, not balance-forward statements ($14,817.40); Northgate wage letter ($1,584.00); future ESIs ($3,400–$6,800); Peach State's $1,860.00 ledger current",
+            "Economic: itemized line-item bills, not balance-forward statements ({{medicalAudited}}); Northgate wage letter ($1,584.00); future ESIs ($3,400–$6,800); Peach State's $1,860.00 ledger current",
             "Non-economic: the narrative of pain and life impact, carried by the MRI (03/13/2026), Dr. Reyes's Causation Letter stating causation explicitly (06/19/2026) and the MMI note (06/12/2026: residual right-arm paresthesia)",
             "A two-page treatment summary matching each diagnosis, with its code, to its treatment, not a record dump",
             "Gap and “degenerative” answered up front: “no significant degenerative change at the adjacent levels,” the Causation Letter, the EMS report, the Gap Explanation Record (the 14-day gap and the 19-day disruption)",
@@ -4230,9 +4230,9 @@ window.CM_CASE_FLOW = {
       title: "Adjuster Negotiation & Stall Countermeasures",
       about: "From a $3,500 low-ball to a $40,000 gross: the battle map and net floor, gap rebuttals and stall countermeasures, the UM gap and the reductions that don't apply, and a paper trail for every offer.",
       quiz: [
-        {q: "Keystone offers $3,500 on 08/05/2026. On unreduced liens of $6,485.00, what does John Doe net after the one-third fee and $486.75 in costs?",
+        {q: "Keystone offers $3,500 on 08/05/2026. On unreduced liens of {{openLiens}}, what does John Doe net after the one-third fee and $486.75 in costs?",
          opts: ["$2,333.33", "$3,013.25", "$0.00: the $1,846.58 left cannot cover the liens", "$1,846.58"],
-         a: 2, r: "$3,500 – $1,166.67 fee – $486.75 costs = $1,846.58, against $6,485.00 of liens. The offer nets John Doe nothing. That is the math check Atty. Thorne needs before he conveys the offer."},
+         a: 2, r: "$3,500 – $1,166.67 fee – $486.75 costs = $1,846.58, against {{openLiens}} of liens. The offer nets John Doe nothing. That is the math check Atty. Thorne needs before he conveys the offer."},
         {q: "Dana Whitfield calls John Doe's MRI degenerative. Which answer comes straight from the file?",
          opts: ["Dr. Helen Park's read: “no significant degenerative change at the adjacent levels.”", "“John Doe has never had chiropractic care of any kind.”", "“Some degeneration is normal at 34, so it doesn't matter.”", "“If you drop that argument, we can come down from limits.”"],
          a: 0, r: "The radiologist's own sentence answers it. John Doe did have chiropractic care (three 2021 low-back visits, resolved), and only Atty. Thorne can move off the Limits Demand."},
@@ -4242,9 +4242,9 @@ window.CM_CASE_FLOW = {
         {q: "Cardinal State tenders its $10,000 Relative UM limits on 10/06/2026. Who accepts it?",
          opts: ["The Case Manager, because it is the full limit", "John Doe, on his informed decision, conveyed through Atty. Thorne", "Atty. Thorne alone, without troubling the client", "Harbor Point, as the primary UM carrier"],
          a: 1, r: "Settlement is the client's decision. Atty. Thorne advises him and conveys it; the Case Manager logs the decision and drafts the acceptance email for Atty. Thorne to approve."},
-        {q: "Before the first call with Dana Whitfield, the battle map sets John Doe's net floor. With $6,485.00 in unreduced liens, $486.75 in costs and the one-third fee, what gross does he need just to reach $0.00 net?",
-         opts: ["$6,971.75", "$10,457.63", "$10,000.00", "$16,401.40"],
-         a: 1, r: "Liens + costs = $6,485.00 + $486.75 = $6,971.75; × 1.5 for the one-third fee = $10,457.63 gross. That is above Keystone's $10,000 limit, which is why every UM layer and lien reduction matters. $6,971.75 forgets the fee; $16,401.40 is the Specials."}
+        {q: "Before the first call with Dana Whitfield, the battle map sets John Doe's net floor. With {{openLiens}} in unreduced liens, $486.75 in costs and the one-third fee, what gross does he need just to reach $0.00 net?",
+         opts: ["{{netFloorLiensAndCosts}}", "{{netFloor}}", "$10,000.00", "{{specials}}"],
+         a: 1, r: "Liens + costs = {{openLiens}} + $486.75 = {{netFloorLiensAndCosts}}; × 1.5 for the one-third fee = {{netFloor}} gross. That is above Keystone's $10,000 limit, which is why every UM layer and lien reduction matters. {{netFloorLiensAndCosts}} forgets the fee; {{specials}} is the Specials."}
       ],
       blocks: [
 
@@ -4252,14 +4252,14 @@ window.CM_CASE_FLOW = {
         kind: "lesson", id: "d3m2-l1",
         title: "Countering Adjuster Delay Tactics & Gap Pushback",
         topic: "The battle map, the first call, and the stall rebuttals",
-        visual: "A battle map across the full slide width: four orange-numbered stations on a navy rail, left to right — ① NET FLOOR ② VALUE DRIVERS ③ THEIR TOP TWO ④ REBUTTAL READY. Station ① carries a mono pill, $10,457.63 GROSS, with a small red note: KEYSTONE LIMIT $10,000. Under station ③ hang two red-bordered danger cards, 14-DAY GAP and “DEGENERATIVE” MRI; under station ④, two cream cards answer them, each with mono source pills: EMS REPORT · CAUSATION LETTER 06/19/2026, and SUMMIT MRI 03/13/2026. Top-right, a navy chip: DEMAND EXPIRES 08/21/2026. The argument: every attack on this file is answered before the phone rings.",
+        visual: "A battle map across the full slide width: four orange-numbered stations on a navy rail, left to right — ① NET FLOOR ② VALUE DRIVERS ③ THEIR TOP TWO ④ REBUTTAL READY. Station ① carries a mono pill, {{netFloor}} GROSS, with a small red note: KEYSTONE LIMIT $10,000. Under station ③ hang two red-bordered danger cards, 14-DAY GAP and “DEGENERATIVE” MRI; under station ④, two cream cards answer them, each with mono source pills: EMS REPORT · CAUSATION LETTER 06/19/2026, and SUMMIT MRI 03/13/2026. Top-right, a navy chip: DEMAND EXPIRES 08/21/2026. The argument: every attack on this file is answered before the phone rings.",
         tell: {
           why: "Keystone will not argue the crash: Robert Smith was cited and the doorbell camera caught him. It will argue the 14-Day Gap, call the MRI degenerative, and stall toward 08/21/2026. A Case Manager who has mapped both attacks, and the documents that answer them, before the first call turns every stall into a record.",
           rules: [
             "The battle map comes before the first call: net floor, three value drivers, the adjuster's top two attacks with the documents that answer them, and the rebuttal. Here both attacks are known: the gap and the “degenerative” MRI.",
-            "Net floor = liens + costs + fee; below it John Doe receives $0. $6,485.00 + $486.75 = $6,971.75; × 1.5 for the one-third fee = $10,457.63 gross, above Keystone's $10,000 limit. Every layer and lien reduction matters.",
+            "Net floor = liens + costs + fee; below it John Doe receives $0. {{openLiens}} + $486.75 = {{netFloorLiensAndCosts}}; × 1.5 for the one-third fee = {{netFloor}} gross, above Keystone's $10,000 limit. Every layer and lien reduction matters.",
             "Value drivers: Smith ran the stop sign on video, with an independent witness (the citation helps the demand; whether a jury hears of it depends on the evidence rule); an objective C5-C6 herniation and injection; residual right-arm paresthesia at MMI.",
-            "Anchor on total Specials, $16,401.40, not PIP's $5,000; lead with what PIP bought: urgent care, Lakeside, the MRI that found the herniation. Chiropractic and PT ran under the LOP.",
+            "Anchor on total Specials, {{specials}}, not PIP's $5,000; lead with what PIP bought: urgent care, Lakeside, the MRI that found the herniation. Chiropractic and PT ran under the LOP.",
             "Soft lead: confirm Dana Whitfield has the package, point her to the MRI, restate the demand and its 08/21/2026 deadline as Atty. Thorne approved them, ask for her evaluation. What the firm does if she refuses is his to say. After a low number, pause; ask her data.",
             "Anchor and hold: the demand stands as Atty. Thorne approved it. Never apologise for it; you make no moves (“never bid against yourself” is the rule he negotiates by). “That's all I have” is never final on day one.",
             "Stalls are built to wear you down. Name the stall, answer with facts, ask for a good-faith offer on the undisputed injury. The demand expires 08/21/2026; only Atty. Thorne can move it.",
@@ -4275,14 +4275,14 @@ window.CM_CASE_FLOW = {
           caption: "The battle map for Keystone, built before the phone rings",
           type: "process",
           steps: [
-            ["Net floor", "Liens $6,485.00 + costs $486.75 = $6,971.75; × 1.5 for the fee = $10,457.63 gross."],
+            ["Net floor", "Liens {{openLiens}} + costs $486.75 = {{netFloorLiensAndCosts}}; × 1.5 for the fee = {{netFloor}} gross."],
             ["Value drivers", "Cited stop-sign violation on video; C5-C6 herniation and an injection; residuals at MMI."],
             ["Their top two", "The 14-Day Gap. The “degenerative” MRI."],
             ["Rebuttal ready", "EMS report, call-outs, receipt, Causation Letter; Dr. Park's MRI read."]
           ]
         },
         ops: [
-          ["Keystone receives the demand (07/22/2026)", "Build the battle map and compute the net floor", "CMS → Financial Ledger → Net Sheet · CMS → Case Notes", "Floor $10,457.63 gross on unreduced liens ($10,457.63 – $4,225.88 fee = $6,971.75); each attack matched to a dated document"],
+          ["Keystone receives the demand (07/22/2026)", "Build the battle map and compute the net floor", "CMS → Financial Ledger → Net Sheet · CMS → Case Notes", "Floor {{netFloor}} gross on unreduced liens ({{netFloor}} – $4,225.88 fee = {{netFloorLiensAndCosts}}); each attack matched to a dated document"],
           ["Adjuster calls with an offer", "Soft lead, professional pause, ask for her data; restate the approved demand", "Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual", "No counter; terms and the 08/21/2026 deadline unchanged"],
           ["Call ends", "Log the offer and the adjuster's exact words; report to Atty. Thorne", "CMS → Communications Log · CMS → Tasks → Escalate", "Logged and reported the same day, reasons quoted verbatim"],
           ["Adjuster stalls (“waiting on authority”)", "Name it and tie it to the deadline in writing", "Email Workspace", "Same-day email cites 08/21/2026; no open-ended callback accepted"]
@@ -4301,7 +4301,7 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Battle map complete", 20, "Floor, three value drivers, both attacks and a written rebuttal present"],
-            ["Floor arithmetic", 15, "$6,485.00 + $486.75 = $6,971.75 × 1.5 = $10,457.63 gross, compared with the $10,000 limit"],
+            ["Floor arithmetic", 15, "{{openLiens}} + $486.75 = {{netFloorLiensAndCosts}} × 1.5 = {{netFloor}} gross, compared with the $10,000 limit"],
             ["Rebuttal sourcing", 15, "Each attack answered by a named, dated document; Dr. Park's sentence quoted exactly"],
             ["Log discipline", 10, "Offer, date and exact words logged; same-day report to Atty. Thorne"]
           ],
@@ -4329,7 +4329,7 @@ window.CM_CASE_FLOW = {
           tool: "Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual · CMS → Communications Log · Email Workspace · LSH Net Sheet (BI settlement)",
           output: "A recorded call held inside Atty. Thorne's authority, a math check on $3,500, a logged offer in the adjuster's own words, a same-day report to Atty. Thorne, the 08/06/2026 rebuttal drafted for his approval, and John Doe's first Net Sheet built from the bills on Keystone's tender.",
           checkpoints: [
-            "Math check before dialing: $3,500 – $1,166.67 fee – $486.75 costs = $1,846.58 against $6,485.00 of unreduced liens → $0.00 to John Doe",
+            "Math check before dialing: $3,500 – $1,166.67 fee – $486.75 costs = $1,846.58 against {{openLiens}} of unreduced liens → $0.00 to John Doe",
             "Professional pause used; Dana Whitfield asked what data supports $3,500",
             "Gap answered with the Gap Explanation Record and dated documents: EMS report (02/06/2026), call-outs 02/09–02/13, receipt 02/07, numbness from 02/18, Causation Letter 06/19/2026",
             "“Degenerative” answered with Dr. Park's words, “no significant degenerative change at the adjacent levels,” and the low-back-only 2021 history",
@@ -4341,8 +4341,8 @@ window.CM_CASE_FLOW = {
             "Written rebuttal drafted for Atty. Thorne's approval, ready to send 08/06/2026",
             "If Dana Whitfield raises the April break, the 19-day disruption (04/02–04/21/2026) is answered from the Gap Explanation Record's A-C-T entry (rental ended 03/19, carpool ended 04/01, evening slots from 04/21, attendance confirmed 04/21 and 04/23), not conceded as non-compliance",
             "First Net Sheet generated from the bills on Keystone's 08/12/2026 tender, every figure entered from its source: gross $10,000.00 (PIP and the property-damage payments left out), the pre-suit 33⅓% fee $3,333.33, the receipted costs $486.75",
-            "Provider ledger built and audited line by line: charges in Total Charges, each payment in its payer's column, the 05/04/2026 duplicate ($185.00) and Crescent's $1,540.00 in-network write-off in Adjustments, the PIP-paid providers at a zero balance; liens audited $6,485.00",
-            "The BI-only net read out loud: $10,000.00 – $3,333.33 – $486.75 = $6,179.92 against $6,485.00 of unreduced liens, and what that says about the UM layers and the reductions still to come",
+            "Provider ledger built and audited line by line: charges in Total Charges, each payment in its payer's column, the 05/04/2026 duplicate ($185.00) and Crescent's $1,540.00 in-network write-off in Adjustments, the PIP-paid providers at a zero balance; liens audited {{openLiens}}",
+            "The BI-only net read out loud: $10,000.00 – $3,333.33 – $486.75 = $6,179.92 against {{openLiens}} of unreduced liens, and what that says about the UM layers and the reductions still to come",
             "Sheet checked against the file, then the corrected Net Sheet opened and every differing line accounted for"
           ]
         },
@@ -4361,7 +4361,7 @@ window.CM_CASE_FLOW = {
           ["Offer made on the call (08/05/2026)", "Log it in the adjuster's words; report to Atty. Thorne", "CMS → Communications Log · CMS → Tasks → Escalate", "Logged and reported 08/05/2026; reasons quoted verbatim"],
           ["Atty. Thorne approves the rebuttal", "Send it with the MRI report, Causation Letter, EMS report and Gap Explanation Record", "Email Workspace · CMS → Documents → Outgoing", "Sent 08/06/2026, inside the 08/21/2026 window; delivery logged"],
           ["Keystone tenders the $10,000 limits (08/12/2026)", "Log the tender and route it to Atty. Thorne the same day; draft, for his signature, the written confirmation that it is BI only (the Civic's property-damage claim stays open), on the demand's terms: Limited Release, Smith's 08/10 affidavit of no other insurance", "CMS → Insurance tab → Negotiation Log · Email Workspace", "Tender dated inside the 08/21/2026 window; no release signed before the UM consent-to-settle requests (08/13/2026) are answered"],
-          ["The BI layer is settled", "Generate the first Net Sheet from the medical and treatment bills: gross, fee, receipted costs and the audited provider ledger; check it, then self-audit against the corrected sheet", "LSH Net Sheet (BI settlement)", "Liens audited $6,485.00 against $6,179.92 left after fee and costs: the BI layer alone leaves John Doe nothing"]
+          ["The BI layer is settled", "Generate the first Net Sheet from the medical and treatment bills: gross, fee, receipted costs and the audited provider ledger; check it, then self-audit against the corrected sheet", "LSH Net Sheet (BI settlement)", "Liens audited {{openLiens}} against $6,179.92 left after fee and costs: the BI layer alone leaves John Doe nothing"]
         ],
         best: [
           "Review the case reference sheet before you dial, and never give the BI carrier a way to reach John Doe directly.",
@@ -4373,7 +4373,7 @@ window.CM_CASE_FLOW = {
         sources: ["D2#16", "D2#25", "D2#27", "D2#28", "D2#29", "D2#30", "LSH Claims Specialist: review the case reference sheet before any adjuster call; no backdoor contact with the client"],
         rubric: {
           ai: [
-            ["Math check and first Net Sheet", 15, "$1,166.67 fee, $486.75 costs, $1,846.58 left against $6,485.00, net $0.00, done before dialing; the Net Sheet then built from the bills on the tender, liens audited $6,485.00"],
+            ["Math check and first Net Sheet", 15, "$1,166.67 fee, $486.75 costs, $1,846.58 left against {{openLiens}}, net $0.00, done before dialing; the Net Sheet then built from the bills on the tender, liens audited {{openLiens}}"],
             ["Rebuttal accuracy", 20, "Dr. Park's sentence quoted exactly; the gap answered with the Gap Explanation Record and the dated documents"],
             ["Demand integrity", 10, "$10,000 limits and 08/21/2026 restated; no counter or change of terms"],
             ["Log completeness", 15, "Date, amount, exact words, same-day report, rebuttal drafted for approval"]
@@ -4486,8 +4486,8 @@ window.CM_CASE_FLOW = {
             "Carrier-conduct entries dated and quoted for Atty. Thorne; no “bad faith” accusation sent by the CM",
             "Net Sheet updated from the BI settlement's sheet, not rebuilt from memory: gross $40,000.00, the fee still at the pre-suit 33⅓% ($13,333.33), costs as receipted",
             "Every treatment line re-entered from the revised, ongoing and final bills: Riverton Spine & Rehab's final LOP ledger (02/24–06/05/2026) and Peach State's itemized reimbursement claim, each balance re-verified with the provider before it is changed",
-            "The Final Ledger audited again, not taken as correct: the 05/04/2026 duplicate ($185.00) is still on it, so the audited balance stays $6,105.00 and the liens $6,485.00",
-            "Reduced Bill left at the audited balances: no reduction has been accepted in writing yet, so the sheet reads $19,694.92 to John Doe, and the lien negotiations are what take it to $21,469.92",
+            "The Final Ledger audited again, not taken as correct: the 05/04/2026 duplicate ($185.00) is still on it, so the audited balance stays $6,105.00 and the liens {{openLiens}}",
+            "Reduced Bill left at the audited balances: no reduction has been accepted in writing yet, so the sheet reads {{netSheetUm}} to John Doe, and the lien negotiations are what take it to {{netA}}",
             "Sheet checked against the file, then the corrected Net Sheet opened and every line that changed since the BI settlement accounted for"
           ]
         },
@@ -4495,7 +4495,7 @@ window.CM_CASE_FLOW = {
           ["Each carrier offer or tender", "Log date, amount and the carrier's words; report to Atty. Thorne", "CMS → Insurance tab → Negotiation Log", "Four carrier entries (09/14, 09/29, 10/01, 10/06/2026) plus the 09/16 counter-package, each reported the same day"],
           ["John Doe decides, through Atty. Thorne", "Record the decision; draft the acceptance email for his approval", "Email Workspace · CMS → Case Notes", "Decision attributed to John Doe; email sent the same day"],
           ["Last layer closes (10/06/2026)", "Post all three layers to the Recovery Ledger", "CMS → Financial Ledger → Net Sheet → Recovery Ledger", "Gross = $40,000.00 exactly; nothing outside the stack added"],
-          ["A revised or final bill, ledger or lien statement arrives", "Re-verify the balance with the provider, audit the ledger again and update that line of the Net Sheet", "LSH Net Sheet (UM settlement)", "Gross $40,000.00, liens still audited at $6,485.00, net $19,694.92 before any reduction"]
+          ["A revised or final bill, ledger or lien statement arrives", "Re-verify the balance with the provider, audit the ledger again and update that line of the Net Sheet", "LSH Net Sheet (UM settlement)", "Gross $40,000.00, liens still audited at {{openLiens}}, net {{netSheetUm}} before any reduction"]
         ],
         best: [
           "Write each log entry so Atty. Thorne could defend the file from it cold.",
@@ -4511,7 +4511,7 @@ window.CM_CASE_FLOW = {
             ["Log completeness", 20, "All four carrier moves and the counter-package logged with date, amount, quoted reasons and a same-day report"],
             ["Counter-package content", 15, "03/02/2026 letter, MRI read, Causation Letter, MMI residuals, future care $3,400–$6,800"],
             ["Confirmations", 10, "Each acceptance confirmed in a same-day email carrying all five terms"],
-            ["Gross accuracy and the updated Net Sheet", 15, "$40,000.00 from $10,000 + $20,000 + $10,000, nothing else added; the Net Sheet carried forward with the final bills and lien balances, audited at $6,485.00"]
+            ["Gross accuracy and the updated Net Sheet", 15, "$40,000.00 from $10,000 + $20,000 + $10,000, nothing else added; the Net Sheet carried forward with the final bills and lien balances, audited at {{openLiens}}"]
           ],
           trainer: [
             ["Advocacy quality", 15, "The counter-package would move a reasonable adjuster; firm, factual tone"],
@@ -4560,7 +4560,7 @@ window.CM_CASE_FLOW = {
         sources: ["D2#19", "D2#20", "D2#23", "D2#27", "D2#28", "D2#29", "D2#30", "D3#9", "D3#11", "D3#17"],
         rubric: {
           ai: [
-            ["Math accuracy", 15, "$1,166.67 fee, $486.75 costs, $1,846.58 against $6,485.00, net $0.00"],
+            ["Math accuracy", 15, "$1,166.67 fee, $486.75 costs, $1,846.58 against {{openLiens}}, net $0.00"],
             ["Gap rebuttal", 15, "Four dated documents; Dr. Park's sentence quoted exactly"],
             ["Baseline and offset", 20, "PIP exhausted and non-subrogated; add-on UM per the 03/02/2026 letter; Relative UM above $30,000; what PIP would change"],
             ["Completeness", 10, "Every question answered substantively"]
@@ -4587,7 +4587,7 @@ window.CM_CASE_FLOW = {
     {
       n: 3, id: "d3m3",
       title: "Combined Lien Negotiations & Practice Lab",
-      about: "Every claim on John Doe's $40,000 found and classified, and both liens audited and reduced on Atty. Thorne's authority: Peach State to $1,240.00, Riverton Spine & Rehab to $3,470.00, each confirmed in writing before disbursement.",
+      about: "Every claim on John Doe's $40,000 found and classified, and both liens audited and reduced on Atty. Thorne's authority: Peach State to $1,240.00, Riverton Spine & Rehab to {{payoffA}}, each confirmed in writing before disbursement.",
       quiz: [
         {q: "Why can Peach State's $1,860.00 claim be argued down further than a self-funded ERISA plan's usually can?",
          opts: ["Health Plans have no reimbursement right against an injury recovery", "It paid at a contract rate, so it has no lien at all", "It is a fully insured plan, so state law, not ERISA preemption, generally governs its reduction", "PIP paid first, so the plan's claim is waived"],
@@ -4596,10 +4596,10 @@ window.CM_CASE_FLOW = {
          opts: ["Audits the ledger against the visit records and has the 05/04/2026 duplicate corrected to $6,105.00", "Asks for 50% off the $6,290.00 in the interest of global resolution", "Tells John Doe the bill is inflated and he need not pay it", "Pays the full balance from trust to keep the provider relationship"],
          a: 0, r: "Corrections first, reductions second. 34 lines × $185.00 = $6,290.00, but the records show 33 visits; the reduction is negotiated from the audited $6,105.00, never from an inflated bill."},
         {q: "Had only the $10,000 BI been recovered, $6,179.92 would be left after fee and costs. Shared pro rata, Riverton Spine & Rehab's $6,105.00 lien would receive:",
-         opts: ["$6,105.00", "$3,470.00", "$1,772.50", "$4,407.42"],
-         a: 3, r: "Riverton holds $4,625.00 of the $6,485.00 in audited liens (about 71.32%), so it takes $6,179.92 × $4,625.00 ÷ $6,485.00 = $4,407.42; Peach State takes $6,179.92 × $1,860.00 ÷ $6,485.00 = $1,772.50. John Doe would net nothing, which is why reductions matter."},
-        {q: "Riverton Spine & Rehab's billing manager agrees on a call to accept $3,470.00. The reduction is final when:",
-         opts: ["The call ends with a verbal yes", "Atty. Thorne approves it and the provider's signed Payoff Letter accepts $3,470.00 as full and final satisfaction", "The Case Manager logs the call in the Communications Log", "John Doe agrees to the figure"],
+         opts: ["$6,105.00", "{{payoffA}}", "{{proRataHealthPlan}}", "{{proRataSpineRehab}}"],
+         a: 3, r: "Riverton holds {{spineRehabOwed}} of the {{openLiens}} in audited liens (about 71.32%), so it takes $6,179.92 × {{spineRehabOwed}} ÷ {{openLiens}} = {{proRataSpineRehab}}; Peach State takes $6,179.92 × $1,860.00 ÷ {{openLiens}} = {{proRataHealthPlan}}. John Doe would net nothing, which is why reductions matter."},
+        {q: "Riverton Spine & Rehab's billing manager agrees on a call to accept {{payoffA}}. The reduction is final when:",
+         opts: ["The call ends with a verbal yes", "Atty. Thorne approves it and the provider's signed Payoff Letter accepts {{payoffA}} as full and final satisfaction", "The Case Manager logs the call in the Communications Log", "John Doe agrees to the figure"],
          a: 1, r: "A verbal reduction is not a reduction. No Payoff Letter, no payment: the letter must state full and final satisfaction, and the compromise needs Atty. Thorne's approval."},
         {q: "Peach State paid $1,860.00 on Crescent Pain & Spine's $3,400.00 bill for the 05/15/2026 injection. Building the lien inventory, who can pursue John Doe for the other $1,540.00?",
          opts: ["Crescent Pain & Spine, as an unpaid provider balance", "Peach State, as part of its reimbursement claim", "Harbor Point, through PIP", "Nobody: Crescent took Peach State's contract rate and cannot balance-bill, so the $1,540.00 is recorded as not owed"],
@@ -4749,7 +4749,7 @@ window.CM_CASE_FLOW = {
         kind: "lesson", id: "d3m3-l2",
         title: "Pro-Rata Distribution & Medical Bill Reduction",
         topic: "Audit first, then show the lienholder the math",
-        visual: "Top half: the pro-rata illustration as one long horizontal bar, the $6,179.92 fund, split 28.68% navy (PEACH STATE · $1,772.50) and 71.32% orange (RIVERTON SPINE & REHAB · $4,407.42). A bracket beneath it shows $6,485.00 of liens overhanging the bar's right end in hatched red. At the far right a small card in red: JOHN DOE NETS $0.00. Bottom half: a five-step strip of orange numbered badges, ① Audit ② Correct ③ Calculate ④ Ask with authority ⑤ Confirm in writing, ending in a navy ledger chip, NET SHEET UPDATED. The argument: the math is the leverage, and the audit comes before the ask.",
+        visual: "Top half: the pro-rata illustration as one long horizontal bar, the $6,179.92 fund, split 28.68% navy (PEACH STATE · {{proRataHealthPlan}}) and 71.32% orange (RIVERTON SPINE & REHAB · {{proRataSpineRehab}}). A bracket beneath it shows {{openLiens}} of liens overhanging the bar's right end in hatched red. At the far right a small card in red: JOHN DOE NETS $0.00. Bottom half: a five-step strip of orange numbered badges, ① Audit ② Correct ③ Calculate ④ Ask with authority ⑤ Confirm in writing, ending in a navy ledger chip, NET SHEET UPDATED. The argument: the math is the leverage, and the audit comes before the ask.",
         tell: {
           why: "Half the job is getting money from the carriers; the other half is keeping it from the lienholders. Every dollar a lien gives up lands in John Doe's net. An honest audit and the pro-rata math move a provider further than any plea for a favor.",
           rules: [
@@ -4757,12 +4757,12 @@ window.CM_CASE_FLOW = {
             "Riverton Spine & Rehab billed 34 lines × $185.00 = $6,290.00. The records show 33 visits (16 + 17); the 05/04/2026 line is a duplicate. You negotiate from $6,105.00.",
             "Match each line's code to that day's treatment note. Upcoding, unbundling and duplicate dates get a demand for correction, not a request for a favor. No line may fall between 04/02 and 04/21/2026, the disruption.",
             "Pro rata: when a fund cannot pay every lien in full and no statute or agreement sets an order, liens of equal priority share what is left after fee and costs in proportion to their amounts. Medicare, a statutory hospital lien or some Medicaid recoveries may take priority; confirm the governing rule. Here: two contractual claims.",
-            "Had only the $10,000 BI been recovered: $10,000.00 – $3,333.33 – $486.75 = $6,179.92 against $6,485.00 of liens. Peach State $1,860.00 ÷ $6,485.00 (28.68%) → $1,772.50; Riverton $4,625.00 ÷ $6,485.00 (71.32%) → $4,407.42. Compute from the fraction, not the rounded percentage. John Doe nets nothing.",
+            "Had only the $10,000 BI been recovered: $10,000.00 – $3,333.33 – $486.75 = $6,179.92 against {{openLiens}} of liens. Peach State $1,860.00 ÷ {{openLiens}} (28.68%) → {{proRataHealthPlan}}; Riverton {{spineRehabOwed}} ÷ {{openLiens}} (71.32%) → {{proRataSpineRehab}}. Compute from the fraction, not the rounded percentage. John Doe nets nothing.",
             "Argue on true facts only. On Track A the fund covers both liens: never tell a provider it would take only a share, or that the client will refuse the settlement. The true case: a coverage-capped recovery, fee and costs paid from it, a certain payment now.",
             "Common fund (procurement costs): in many states a lienholder must reduce by its proportional share of the fee and costs that created the fund: the retainer's fee percentage (33⅓% pre-suit, 40% once suit is filed) plus its pro rata share of costs. It binds some and persuades others; confirm the rule. Atty. Thorne argues it.",
             "Ask with authority: send the written request Atty. Thorne approved, then call billing with his target (never a stock 50%), asking for payment in full in the interest of global resolution. A counter outside it goes back to him.",
             "No Payoff Letter, no payment. A signed letter states the payment is full and final satisfaction and that John Doe will not be balance-billed or sent to collections. Pay from the payoff figure, never a statement.",
-            "Update the ledger the day a reduction is confirmed and show John Doe the savings: $1,860.00 + $4,625.00 = $6,485.00 owed → $1,240.00 + $3,470.00 = $4,710.00 paid ($1,775.00 negotiated), plus the $185.00 duplicate removed at audit and MedPay's $1,480.00."
+            "Update the ledger the day a reduction is confirmed and show John Doe the savings: $1,860.00 + {{spineRehabOwed}} = {{openLiens}} owed → $1,240.00 + {{payoffA}} = {{liensPaidA}} paid ({{negotiatedA}} negotiated), plus the $185.00 duplicate removed at audit and MedPay's $1,480.00."
           ],
           upl: [
             "You audit, calculate, draft and, inside Atty. Thorne's written authority, make the ask. You never offer or accept a figure outside it, never promise a provider payment, and never tell John Doe a bill is invalid. A reduction is final only on his approval and a signed Payoff Letter."
@@ -4771,11 +4771,11 @@ window.CM_CASE_FLOW = {
         show: {
           caption: "The pro-rata illustration: BI only, $6,179.92 left after fee and costs",
           type: "table",
-          head: ["Lienholder", "Audited lien", "Share (lien ÷ $6,485.00)", "Paid pro rata"],
+          head: ["Lienholder", "Audited lien", "Share (lien ÷ {{openLiens}})", "Paid pro rata"],
           rows: [
-            ["Peach State Health Plan", "$1,860.00", "28.68%", "$1,772.50"],
-            ["Riverton Spine & Rehab", "$6,105.00", "71.32%", "$4,407.42"],
-            ["Total", "$6,485.00", "100%", "$6,179.92"],
+            ["Peach State Health Plan", "$1,860.00", "28.68%", "{{proRataHealthPlan}}"],
+            ["Riverton Spine & Rehab", "$6,105.00", "71.32%", "{{proRataSpineRehab}}"],
+            ["Total", "{{openLiens}}", "100%", "$6,179.92"],
             ["John Doe's net", "—", "—", "$0.00"]
           ]
         },
@@ -4796,9 +4796,9 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Audit accuracy", 20, "34 lines against 33 visits; the 05/04/2026 duplicate; $6,105.00"],
-            ["Pro-rata math", 20, "Shares computed from each lien ÷ $6,485.00; $1,772.50 + $4,407.42 = $6,179.92"],
+            ["Pro-rata math", 20, "Shares computed from each lien ÷ {{openLiens}}; {{proRataHealthPlan}} + {{proRataSpineRehab}} = $6,179.92"],
             ["Payoff-letter terms", 10, "Full and final satisfaction; no balance billing or collections"],
-            ["Ledger update", 10, "$6,485.00 audited → $4,710.00 paid ($1,775.00 negotiated); net $21,469.92"]
+            ["Ledger update", 10, "{{openLiens}} audited → {{liensPaidA}} paid ({{negotiatedA}} negotiated); net {{netA}}"]
           ],
           trainer: [
             ["Negotiation ethics", 20, "Argument made on true facts; no bluff about the fund or the client's intentions"],
@@ -4808,7 +4808,7 @@ window.CM_CASE_FLOW = {
         notes: [
           "Open with the BI-only table and cover the last row. Ask: “What does John Doe take home?” Then uncover $0.00. That is why this lesson exists.",
           "Ask the room: “Riverton billed $6,290.00. What number do you negotiate from?” Anyone who says $6,290.00 has skipped the audit.",
-          "Watch for the old script, “reduce or the client refuses the settlement.” It is a threat, and on Track A it is false: all three layers have tendered their limits (Cardinal State's check arrives 10/13), and after fee and costs $40,000.00 – $13,333.33 – $486.75 = $26,179.92 remains against $6,485.00 of liens. Make them rewrite it on true facts: a coverage-capped recovery, the audited balance, a certain payment now.",
+          "Watch for the old script, “reduce or the client refuses the settlement.” It is a threat, and on Track A it is false: all three layers have tendered their limits (Cardinal State's check arrives 10/13), and after fee and costs $40,000.00 – $13,333.33 – $486.75 = $26,179.92 remains against {{openLiens}} of liens. Make them rewrite it on true facts: a coverage-capped recovery, the audited balance, a certain payment now.",
           "The legal nuance: the common-fund rule binds some lienholders by statute or case law and only persuades others, and an LOP provider is often outside it. Which it is here is Atty. Thorne's call; confirm the governing rule."
         ]
       },
@@ -4817,11 +4817,11 @@ window.CM_CASE_FLOW = {
         kind: "lesson", id: "d3m3-l3", brief: true,
         title: "Lien Negotiation Calls: the Reduction Request, the Ask and the Payoff Letter",
         topic: "From the audited balance to a signed full-and-final payoff",
-        visual: "A three-step ladder on the left: REDUCTION REQUEST → THE CALL → PAYOFF LETTER, each rung a navy card with an orange badge. On the right, a lien card for Riverton Spine & Rehab: $6,290.00 struck through, $6,105.00 audited, $3,470.00 agreed, with a green FULL AND FINAL stamp.",
+        visual: "A three-step ladder on the left: REDUCTION REQUEST → THE CALL → PAYOFF LETTER, each rung a navy card with an orange badge. On the right, a lien card for Riverton Spine & Rehab: $6,290.00 struck through, $6,105.00 audited, {{payoffA}} agreed, with a green FULL AND FINAL stamp.",
         tell: {
           why: "A reduction is won on paper before it is won on the phone. The lienholder needs the audited balance, the reason a reduction is fair and a payoff it can sign. A CM who calls without the request, or pays without the letter, leaves money on the table or reopens a closed bill.",
           rules: [
-            "Negotiate from the audited balance, never the billed one: Riverton Spine & Rehab $6,105.00, Peach State $1,860.00, $6,485.00 in all.",
+            "Negotiate from the audited balance, never the billed one: Riverton Spine & Rehab $6,105.00, Peach State $1,860.00, {{openLiens}} in all.",
             "Send the written Reduction Request first: the audited balance, the recovery, the fee and costs, the other liens and the common-fund share, with Atty. Thorne's written authority on file.",
             "On the call, make Atty. Thorne's ask and nothing outside it. Note the name, the date and every figure; a counter outside his authority goes back to him the same day.",
             "Argue on true facts only: never invent a smaller fund or say the client will refuse the settlement.",
@@ -4838,8 +4838,8 @@ window.CM_CASE_FLOW = {
           head: ["Lienholder", "Audited", "Agreed", "Saved", "Payoff Letter"],
           rows: [
             ["Peach State Health Plan", "$1,860.00", "$1,240.00", "$620.00", "Signed, full and final"],
-            ["Riverton Spine & Rehab", "$6,105.00", "$3,470.00", "$1,525.00", "Signed, full and final"],
-            ["Total", "$6,485.00", "$4,710.00", "$1,775.00", "Both on file before disbursement"]
+            ["Riverton Spine & Rehab", "$6,105.00", "{{payoffA}}", "$1,525.00", "Signed, full and final"],
+            ["Total", "{{openLiens}}", "{{liensPaidA}}", "{{negotiatedA}}", "Both on file before disbursement"]
           ]
         },
         ops: [
@@ -4868,12 +4868,12 @@ window.CM_CASE_FLOW = {
         kind: "activity", id: "d3m3-a2",
         title: "Provider Balance Negotiation Exercises",
         topic: "Skill Activity 2 — the reduction call to the chiropractor",
-        visual: "A phone-call storyboard in three frames across the slide, each a cream card with an orange numbered badge. ① THE AUDIT: a mini ledger of 34 lines with the 05/04/2026 line struck through in red, $6,290.00 → $6,105.00 in mono. ② THE CALL: a navy speech-bubble pair, CM and RIVERTON BILLING, with a small written-request chip clipped to the CM's bubble. ③ IN WRITING: a signed Payoff Letter with FULL AND FINAL SATISFACTION highlighted in orange and a green ✓ at $3,470.00 · 10/12/2026. Under frame ② a red danger callout: “A yes on the phone is not a reduction.” Bottom right, the net as a mono pill: $21,469.92.",
+        visual: "A phone-call storyboard in three frames across the slide, each a cream card with an orange numbered badge. ① THE AUDIT: a mini ledger of 34 lines with the 05/04/2026 line struck through in red, $6,290.00 → $6,105.00 in mono. ② THE CALL: a navy speech-bubble pair, CM and RIVERTON BILLING, with a small written-request chip clipped to the CM's bubble. ③ IN WRITING: a signed Payoff Letter with FULL AND FINAL SATISFACTION highlighted in orange and a green ✓ at {{payoffA}} · 10/12/2026. Under frame ② a red danger callout: “A yes on the phone is not a reduction.” Bottom right, the net as a mono pill: {{netA}}.",
         act: {
           scenario: "It is 10/09/2026. Peach State has accepted $1,240.00 in writing. Riverton Spine & Rehab's final LOP ledger shows 34 lines × $185.00 = $6,290.00 for chiropractic and PT 02/24–06/05/2026. Atty. Thorne has set a target for Riverton in writing; the Reduction Request is yours to draft for his approval. No lien can be paid until it is resolved in writing.",
-          prompt: "Audit Riverton Spine & Rehab's ledger against the visit records and request a written correction before asking for anything. Draft the Reduction Request for Atty. Thorne's approval, send it once approved, then make the follow-up call to the billing manager in the Call Simulator inside his written authority: state the audited balance, the coverage-capped recovery and the math, and ask for payment in full in the interest of global resolution. The manager agrees to $3,470.00 on the call. The graded call: what you say next, and what must exist before that figure is final and the Net Sheet shows $21,469.92.",
+          prompt: "Audit Riverton Spine & Rehab's ledger against the visit records and request a written correction before asking for anything. Draft the Reduction Request for Atty. Thorne's approval, send it once approved, then make the follow-up call to the billing manager in the Call Simulator inside his written authority: state the audited balance, the coverage-capped recovery and the math, and ask for payment in full in the interest of global resolution. The manager agrees to {{payoffA}} on the call. The graded call: what you say next, and what must exist before that figure is final and the Net Sheet shows {{netA}}.",
           tool: "Call Simulator → AI Billing Manager: Riverton Spine & Rehab · Email Workspace · CMS → Financial Ledger → Net Sheet → Lien Tracker",
-          output: "An audited Riverton balance of $6,105.00, an approved written request and a logged call, a signed Payoff Letter accepting $3,470.00 dated 10/12/2026, and a recomputed Net Sheet.",
+          output: "An audited Riverton balance of $6,105.00, an approved written request and a logged call, a signed Payoff Letter accepting {{payoffA}} dated 10/12/2026, and a recomputed Net Sheet.",
           checkpoints: [
             "Ledger audited line by line: 34 billed lines against 33 documented visits (16 from 02/24 to 04/02/2026, 17 from 04/21 to 06/05/2026)",
             "The 05/04/2026 duplicate, removed from the Specials in the pre-demand audit, is still on Riverton's Final Ledger: written correction requested before any reduction: $6,290.00 – $185.00 = $6,105.00",
@@ -4881,17 +4881,17 @@ window.CM_CASE_FLOW = {
             "Written Reduction Request approved by Atty. Thorne and sent before the call; his target and authority logged",
             "Argument on true facts: a recovery capped at $40,000 of coverage, fee and costs paid from it; no claim that Riverton would take only a share, or that the client will refuse the settlement",
             "Ask framed as payment in full in the interest of global resolution; no payment promised",
-            "$3,470.00 not accepted on the call: the trainee says it goes to Atty. Thorne and will be confirmed in writing",
-            "Signed Payoff Letter on file: $3,470.00 accepted as full and final satisfaction of the LOP; no balance billing or collections against John Doe",
-            "Lien Tracker: $6,290.00 billed → $6,105.00 audited → $3,470.00 accepted 10/12/2026 ($185.00 corrected + MedPay's $1,480.00 + $1,155.00 negotiated = $2,820.00 off the LOP)",
-            "Net Sheet recomputed: $40,000.00 – $13,333.33 – $486.75 – $1,240.00 – $3,470.00 = $21,469.92",
+            "{{payoffA}} not accepted on the call: the trainee says it goes to Atty. Thorne and will be confirmed in writing",
+            "Signed Payoff Letter on file: {{payoffA}} accepted as full and final satisfaction of the LOP; no balance billing or collections against John Doe",
+            "Lien Tracker: $6,290.00 billed → $6,105.00 audited → {{payoffA}} accepted 10/12/2026 ($185.00 corrected + MedPay's $1,480.00 + $1,155.00 negotiated = $2,820.00 off the LOP)",
+            "Net Sheet recomputed: $40,000.00 – $13,333.33 – $486.75 – $1,240.00 – {{payoffA}} = {{netA}}",
             "Savings reported to John Doe as facts, with no advice on the settlement"
           ]
         },
         ops: [
           ["Final LOP ledger received", "Audit it and request the written correction", "Medical Records Requests · Email Workspace", "$6,105.00 confirmed in writing before any reduction is asked"],
           ["Request approved and sent", "Make the follow-up call and log it", "Call Simulator → AI Billing Manager: Riverton Spine & Rehab · CMS → Communications Log", "Call logged with the ask and the answer; no figure accepted on the call"],
-          ["Provider agrees to a figure", "Route it for approval, obtain the signed Payoff Letter, update both tabs", "CMS → Tasks → Escalate · CMS → Financial Ledger → Net Sheet", "Payoff Letter on file; net $21,469.92"]
+          ["Provider agrees to a figure", "Route it for approval, obtain the signed Payoff Letter, update both tabs", "CMS → Tasks → Escalate · CMS → Financial Ledger → Net Sheet", "Payoff Letter on file; net {{netA}}"]
         ],
         best: [
           "Script the call before you dial: the audited balance, the recovery, the math, the ask.",
@@ -4903,7 +4903,7 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Audit result", 20, "05/04/2026 duplicate removed; $6,105.00; nothing billed in the disruption"],
-            ["Ledger and net", 20, "$6,290.00 → $6,105.00 → $3,470.00; net $21,469.92"],
+            ["Ledger and net", 20, "$6,290.00 → $6,105.00 → {{payoffA}}; net {{netA}}"],
             ["Payoff Letter", 10, "Full and final; no balance billing; dated 10/12/2026"],
             ["Request and call record", 10, "Written request approved before it went; the ask and the answer logged"]
           ],
@@ -4914,10 +4914,10 @@ window.CM_CASE_FLOW = {
         },
         notes: [
           "Run it live. One trainee calls; the AI billing manager pushes back: “We gave him 33 visits on a promise of payment, and you want a discount?” The answer is the audit and the true facts of the recovery, not sympathy.",
-          "Ask: “The manager just said yes to $3,470.00. What do you say next?” The right answer thanks them and says the figure goes to Atty. Thorne and will be confirmed in writing.",
+          "Ask: “The manager just said yes to {{payoffA}}. What do you say next?” The right answer thanks them and says the figure goes to Atty. Thorne and will be confirmed in writing.",
           "Grade the audit first. A trainee who opens with a discount on $6,290.00 has negotiated around $185.00 of error the provider should have simply corrected.",
           "Tie it forward to the disbursement: the Payoff Letter is what lets the 10/22/2026 disbursement go out clean.",
-          "On the Net Sheet, a reduction goes in Reduced Bill only once it is accepted in writing. Have them check the sheet and then open the corrected one: the lines that moved are Peach State's $1,240.00 and Riverton's $3,470.00, and nothing else."
+          "On the Net Sheet, a reduction goes in Reduced Bill only once it is accepted in writing. Have them check the sheet and then open the corrected one: the lines that moved are Peach State's $1,240.00 and Riverton's {{payoffA}}, and nothing else."
         ]
       },
 
@@ -4925,7 +4925,7 @@ window.CM_CASE_FLOW = {
         kind: "check", id: "d3m3-kc",
         title: "Lien Reduction Verification",
         topic: "Knowledge Check + Case Manager Self-Summary & Skill Scale",
-        visual: "Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange; question 6 carries a small red PRESSURE chip. Lower half: the CM SELF-SUMMARY on a navy card with white type, three prompts, beside the 1–5 SKILL SCALE as a five-step ladder with six competency rows. A slim right strip: 60/40 stacked bar (AI navy, Trainer orange), UPL a separate red gate chip below it. Between the halves, a LIEN TRACKER STRIP, two rows across four cells headed ASSERTED · AUDITED · REDUCED · IN WRITING: Peach State $1,860.00 · $1,860.00 · $1,240.00 · ✓ and Riverton Spine & Rehab $6,290.00 · $6,105.00 · $4,625.00 · $3,470.00 · ✓. The trainee checks their own answers against the strip before submitting.",
+        visual: "Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange; question 6 carries a small red PRESSURE chip. Lower half: the CM SELF-SUMMARY on a navy card with white type, three prompts, beside the 1–5 SKILL SCALE as a five-step ladder with six competency rows. A slim right strip: 60/40 stacked bar (AI navy, Trainer orange), UPL a separate red gate chip below it. Between the halves, a LIEN TRACKER STRIP, two rows across four cells headed ASSERTED · AUDITED · REDUCED · IN WRITING: Peach State $1,860.00 · $1,860.00 · $1,240.00 · ✓ and Riverton Spine & Rehab $6,290.00 · $6,105.00 · {{spineRehabOwed}} · {{payoffA}} · ✓. The trainee checks their own answers against the strip before submitting.",
         check: {
           questions: [
             "Classify each claim against John Doe's $40,000 (Peach State, Riverton Spine & Rehab, Harbor Point PIP, Medicare/Medicaid, a prior attorney) as statutory, contractual or none, and rank the liens by reducibility.",
@@ -4947,14 +4947,14 @@ window.CM_CASE_FLOW = {
           ]
         },
         best: [
-          "Answer with this file's figures: $1,860.00, $6,290.00, $6,105.00, $1,240.00, $3,470.00.",
+          "Answer with this file's figures: $1,860.00, $6,290.00, $6,105.00, $1,240.00, {{payoffA}}.",
           "Pitfall: a self-rating that doesn't match your answers; your trainer will ask about the gap."
         ],
         sources: ["D3#18", "D3#19", "D3#20", "D3#21", "D3#22", "D2#40"],
         rubric: {
           ai: [
             ["Classification and doctrine", 15, "Liens classified and ranked; fully insured status tied to state law; doctrines named correctly"],
-            ["Lien math", 20, "$1,860.00 – $620.00 = $1,240.00; $1,772.50 + $4,407.42 = $6,179.92; $6,105.00 after the audit"],
+            ["Lien math", 20, "$1,860.00 – $620.00 = $1,240.00; {{proRataHealthPlan}} + {{proRataSpineRehab}} = $6,179.92; $6,105.00 after the audit"],
             ["Written-confirmation steps", 15, "Atty. Thorne's approval, the signed Payoff Letter and the ledger update all named"],
             ["Completeness", 10, "Every question answered substantively"]
           ],
@@ -4980,21 +4980,21 @@ window.CM_CASE_FLOW = {
     {
       n: 4, id: "d3m4",
       title: "Net Sheet Completion & Final Case Closing",
-      about: "From $40,000.00 gross to $21,469.92 in John Doe's hands: the dual-tab Net Sheet, the release audit, trust-account disbursement, and the reconciliation that lets the file close at $0.00.",
+      about: "From $40,000.00 gross to {{netA}} in John Doe's hands: the dual-tab Net Sheet, the release audit, trust-account disbursement, and the reconciliation that lets the file close at $0.00.",
       quiz: [
         {q: "Keystone's 08/14 draft release covered Robert Smith, Keystone and “all other persons, firms, corporations and insurers.” What was the danger?",
          opts: ["It left out the non-admission-of-liability clause", "It would also have released Harbor Point and Cardinal State: $30,000 of the stack", "It had no notary block", "It released only the bodily-injury claim"],
          a: 1, r: "Harbor Point and Cardinal State are insurers. The catch-all line would have released both UM claims; flagged to Atty. Thorne, it was revised to a Limited Release of Robert Smith and Keystone, signed 08/28/2026."},
         {q: "Which of these is a payable line on John Doe's Lien Tracker?",
-         opts: ["Harbor Point PIP, $5,000.00", "Crescent Pain & Spine's written-off balance", "Riverton Spine & Rehab, $3,470.00", "Riverton Spine & Rehab's duplicate 05/04/2026 visit"],
-         a: 2, r: "PIP has no reimbursement right (Harbor Point, 03/02/2026); Crescent wrote off its balance and cannot balance-bill; the duplicate was audited out. Only the reduced liens are paid: Riverton Spine & Rehab $3,470.00 and Peach State $1,240.00."},
+         opts: ["Harbor Point PIP, $5,000.00", "Crescent Pain & Spine's written-off balance", "Riverton Spine & Rehab, {{payoffA}}", "Riverton Spine & Rehab's duplicate 05/04/2026 visit"],
+         a: 2, r: "PIP has no reimbursement right (Harbor Point, 03/02/2026); Crescent wrote off its balance and cannot balance-bill; the duplicate was audited out. Only the reduced liens are paid: Riverton Spine & Rehab {{payoffA}} and Peach State $1,240.00."},
         {q: "When was the first trust check cut on John Doe's settlement, and why not earlier?",
          opts: ["09/04/2026, when Keystone's check arrived", "10/13/2026, when the last check arrived", "10/30/2026, with the closing memo", "After the last funds cleared (10/20) and John Doe signed the Settlement Statement (10/21): disbursement 10/22/2026"],
          a: 3, r: "Nothing is disbursed against uncleared funds or before the client has signed the statement. All three checks had cleared by 10/20 (the last, Cardinal State's, deposited 10/13), John Doe signed 10/21, and Atty. Thorne signed the checks 10/22."},
         {q: "How are the $486.75 in case costs handled on John Doe's Net Sheet?",
          opts: ["Receipted, then split pro rata 25% / 75%: $121.69 BI and $365.06 UM", "Charged in full to each stream", "Absorbed by the firm because no suit was filed", "Taken out of the lienholders' payments"],
          a: 0, r: "Every cost needs a receipt and is charged once. This file allocates costs to the streams pro rata to gross: 25% of $486.75 = $121.69 on BI, and the remaining $365.06 on UM."},
-        {q: "The Net Sheet shows John Doe netting $21,469.92. Lakeside Orthopedics noted possible repeat ESIs ($3,400–$6,800) ahead. Before John Doe signs, the Case Manager:",
+        {q: "The Net Sheet shows John Doe netting {{netA}}. Lakeside Orthopedics noted possible repeat ESIs ($3,400–$6,800) ahead. Before John Doe signs, the Case Manager:",
          opts: ["Holds $6,800.00 of his net in trust to cover the injections", "Tells John Doe the net is enough to cover future care", "Flags it to Atty. Thorne: the settlement is full and final and no carrier pays more, so he has that conversation with John Doe", "Adds the injections to Peach State's lien so the plan pays them later"],
          a: 2, r: "The CM builds and explains the arithmetic but never says whether the net is enough. Future medical was narrated, never in the Specials; with a full and final settlement nothing more comes from Keystone, Harbor Point or Cardinal State. The flag goes to Atty. Thorne."}
       ],
@@ -5004,9 +5004,9 @@ window.CM_CASE_FLOW = {
         kind: "lesson", id: "d3m4-l1",
         title: "The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker",
         topic: "One Net Sheet, two streams, every dollar's origin visible",
-        visual: "A wide two-tab spreadsheet card fills the slide, cream with a navy header bar carrying two tabs: RECOVERY LEDGER (active, orange underline) and LIEN TRACKER (navy-soft, set behind). The ledger has three mono columns, TOTAL · STREAM 1 BI · STREAM 2 UM, and rows Gross, Fee 33⅓%, Costs, Peach State, Riverton Spine & Rehab, closing on a heavy orange-ruled NET row: $21,469.92 = $5,367.48 + $16,102.44. A thin orange connector runs from each lien row back to the Lien Tracker tab, labelled PROVED BY PAYOFF LETTER. Bottom-right, a red danger callout: “BI alone: $0.00 to John Doe.” The argument: every figure on the net row traces to its source.",
+        visual: "A wide two-tab spreadsheet card fills the slide, cream with a navy header bar carrying two tabs: RECOVERY LEDGER (active, orange underline) and LIEN TRACKER (navy-soft, set behind). The ledger has three mono columns, TOTAL · STREAM 1 BI · STREAM 2 UM, and rows Gross, Fee 33⅓%, Costs, Peach State, Riverton Spine & Rehab, closing on a heavy orange-ruled NET row: {{netA}} = {{streamBi}} + {{streamUm}}. A thin orange connector runs from each lien row back to the Lien Tracker tab, labelled PROVED BY PAYOFF LETTER. Bottom-right, a red danger callout: “BI alone: $0.00 to John Doe.” The argument: every figure on the net row traces to its source.",
         tell: {
-          why: "John Doe's $40,000 came from three carriers in two streams and goes out as five checks. The Net Sheet shows every dollar's origin and destination before a cent leaves trust. Had only the $10,000 BI been recovered, $6,179.92 would have met $6,485.00 of unreduced liens, and John would have received nothing.",
+          why: "John Doe's $40,000 came from three carriers in two streams and goes out as five checks. The Net Sheet shows every dollar's origin and destination before a cent leaves trust. Had only the $10,000 BI been recovered, $6,179.92 would have met {{openLiens}} of unreduced liens, and John would have received nothing.",
           rules: [
             "One Net Sheet, two tabs. The Recovery Ledger carries the money in and every deduction; the Lien Tracker proves each lien figure the ledger uses. Neither is final until the two tie out.",
             "Keep the streams apart. Stream 1, third-party BI: Keystone, $10,000.00. Stream 2, first-party UM: Harbor Point $20,000.00 + Cardinal State (resident relative) $10,000.00 = $30,000.00. Stream 2 opened only because BI was exhausted first.",
@@ -5015,7 +5015,7 @@ window.CM_CASE_FLOW = {
             "Every cost needs a receipt: Police Report $25.00, records and billing $214.75, certified mail $72.00, MRI disc $25.00, postage and copies $150.00 = $486.75. Charge it once, as one line or split pro rata; this file splits 25% / 75%: $121.69 / $365.06.",
             "Reduce liens globally against the combined $40,000.00, not provider by provider per policy, then allocate pro rata: Peach State $310.00 / $930.00; Riverton Spine & Rehab $867.50 / $2,602.50.",
             "On the Lien Tracker, Balance Owed = Charges – PIP – Health – MedPay – Adjustments. Each lien shows asserted, audited and reduced amounts and its payoff-letter status. No Payoff Letter, no payment.",
-            "Run the aggregate math on both streams at once: $5,367.48 + $16,102.44 = $21,469.92, and Gross – Fees & Costs – Final Medical Balances: $40,000.00 – $13,820.08 – $4,710.00 = $21,469.92.",
+            "Run the aggregate math on both streams at once: {{streamBi}} + {{streamUm}} = {{netA}}, and Gross – Fees & Costs – Final Medical Balances: $40,000.00 – $13,820.08 – {{liensPaidA}} = {{netA}}.",
             "Test the net against the future care discussed in treatment: possible repeat ESIs ($3,400–$6,800). The settlement is full and final, so no carrier pays more for them. Flag it for Atty. Thorne."
           ],
           upl: [
@@ -5030,12 +5030,12 @@ window.CM_CASE_FLOW = {
               "Gross $40,000.00: Stream 1 BI $10,000.00 (Keystone) · Stream 2 UM $30,000.00 (Harbor Point + Cardinal State).",
               "Fee 33⅓%: $3,333.33 + $10,000.00 = $13,333.33.",
               "Costs, receipted: $121.69 + $365.06 = $486.75.",
-              "Liens from the Lien Tracker, 25% / 75%: $1,455.00 + $4,365.00 = $4,710.00.",
-              "Net to John Doe: $5,367.48 + $16,102.44 = $21,469.92."
+              "Liens from the Lien Tracker, 25% / 75%: $1,455.00 + $4,365.00 = {{liensPaidA}}.",
+              "Net to John Doe: {{streamBi}} + {{streamUm}} = {{netA}}."
             ]},
             {head: "LIEN TRACKER — every figure proved", items: [
               "Peach State: asserted $1,860.00 → reduced $1,240.00 (10/09).",
-              "Riverton Spine & Rehab: $6,290.00 → audited $6,105.00 → reduced $3,470.00 (10/12).",
+              "Riverton Spine & Rehab: $6,290.00 → audited $6,105.00 → reduced {{payoffA}} (10/12).",
               "Harbor Point PIP $5,000.00: no reimbursement right (03/02/2026) → $0.00.",
               "Crescent Pain & Spine: balance written off, no balance-billing → $0.00.",
               "Payoff Letter status on every line."
@@ -5045,8 +5045,8 @@ window.CM_CASE_FLOW = {
         ops: [
           ["Each settlement check received", "Post it to its stream with carrier and check reference", "CMS → Financial Ledger → Net Sheet → Recovery Ledger", "BI $10,000.00 · UM $20,000.00 + $10,000.00 · total $40,000.00"],
           ["Cost incurred", "Attach the receipt and post it once", "CMS → Financial Ledger → Net Sheet → Recovery Ledger", "Five receipts = $486.75; no cost charged to both streams in full"],
-          ["Lien reduction accepted", "Record asserted, audited and reduced figures and the Payoff Letter", "CMS → Financial Ledger → Net Sheet → Lien Tracker", "Peach State $1,240.00 · Riverton Spine & Rehab $3,470.00 · letters dated"],
-          ["Both tabs complete", "Tie the Net Sheet to the Trust Ledger and route it to Atty. Thorne", "CMS → Financial Ledger → Trust · CMS → Tasks → Escalate", "Net $21,469.92 on both; routed before John Doe sees it"]
+          ["Lien reduction accepted", "Record asserted, audited and reduced figures and the Payoff Letter", "CMS → Financial Ledger → Net Sheet → Lien Tracker", "Peach State $1,240.00 · Riverton Spine & Rehab {{payoffA}} · letters dated"],
+          ["Both tabs complete", "Tie the Net Sheet to the Trust Ledger and route it to Atty. Thorne", "CMS → Financial Ledger → Trust · CMS → Tasks → Escalate", "Net {{netA}} on both; routed before John Doe sees it"]
         ],
         best: [
           "One Net Sheet, two clearly separated streams.",
@@ -5064,7 +5064,7 @@ window.CM_CASE_FLOW = {
             ["Stream separation", 15, "BI $10,000.00 and UM $30,000.00 on separate streams; PIP kept out of the gross"],
             ["Fee and cost lines", 15, "$3,333.33 + $10,000.00 fee; five receipted costs = $486.75, split $121.69 / $365.06, charged once"],
             ["Lien Tracker fields", 15, "Asserted, audited, reduced and payoff status for each lien; Balance Owed formula applied"],
-            ["Aggregate math", 15, "$21,469.92 reached both down the streams and across the total"]
+            ["Aggregate math", 15, "{{netA}} reached both down the streams and across the total"]
           ],
           trainer: [
             ["Double-counting reasoning", 15, "Explains why PIP and written-off balances never appear as payables"],
@@ -5073,7 +5073,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         notes: [
-          "Open with the why's counterfactual: write $6,179.92 against $6,485.00 on the board and ask what John Doe would have taken home with the BI stream alone. Nothing. Then show $21,469.92.",
+          "Open with the why's counterfactual: write $6,179.92 against {{openLiens}} on the board and ask what John Doe would have taken home with the BI stream alone. Nothing. Then show {{netA}}.",
           "Ask the room: “Why does Harbor Point's PIP appear on the Lien Tracker but not in the gross?” The answer is double-counting on the ledger: it already paid $5,000.00 of the bills, and it has no reimbursement right on this file.",
           "Watch the rounding. 25% of $486.75 is 121.6875, so BI carries $121.69 and UM takes the remainder, $365.06. Compute the second stream as the remainder and the total never drifts by a cent.",
           "Legal nuance: Peach State is a fully insured plan, so its reduction turned on state law, not ERISA preemption. That was Atty. Thorne's call in the lien negotiation; the CM records the basis and never chooses it."
@@ -5083,31 +5083,31 @@ window.CM_CASE_FLOW = {
       {
         kind: "activity", id: "d3m4-a1",
         title: "Completing the Final Dual-Tab Net Sheet",
-        topic: "Skill Activity 1 — take $40,000.00 to $21,469.92, and prove every line",
-        visual: "Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns ASSERTED · AUDITED · REDUCED · PAYOFF LETTER. The Riverton Spine & Rehab row reads $6,290.00 → $6,105.00 → $4,625.00 → $3,470.00, with an orange strike through the 05/04/2026 duplicate; Peach State reads $1,860.00 → $1,860.00 → $1,240.00. Beneath, three grey zero-balance rows (PIP, Crescent, the PIP-paid providers), each with a NOT PAYABLE chip. Right 40%: a navy stream card with two stacked bars, BI 25% and UM 75%, feeding a large orange NET $21,469.92. A red callout at the foot: “No Payoff Letter, no payment.”",
+        topic: "Skill Activity 1 — take $40,000.00 to {{netA}}, and prove every line",
+        visual: "Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns ASSERTED · AUDITED · REDUCED · PAYOFF LETTER. The Riverton Spine & Rehab row reads $6,290.00 → $6,105.00 → {{spineRehabOwed}} → {{payoffA}}, with an orange strike through the 05/04/2026 duplicate; Peach State reads $1,860.00 → $1,860.00 → $1,240.00. Beneath, three grey zero-balance rows (PIP, Crescent, the PIP-paid providers), each with a NOT PAYABLE chip. Right 40%: a navy stream card with two stacked bars, BI 25% and UM 75%, feeding a large orange NET {{netA}}. A red callout at the foot: “No Payoff Letter, no payment.”",
         act: {
-          scenario: "File date 10/13/2026. Cardinal State's $10,000 check arrived today, joining Keystone's (received 09/04) and Harbor Point's (10/05) in the IOLTA trust account, each deposited only after its release was signed (Keystone 08/28; each UM release before its check): $40,000.00 received; the last check has not cleared. Peach State accepted $1,240.00 on 10/09 and Riverton Spine & Rehab accepted $3,470.00 on 10/12; both written acceptances are in Documents. Costs stand at $486.75. The Net Sheet you built at the BI settlement and updated at the UM settlement is on the file, with the liens still at their audited $6,485.00.",
+          scenario: "File date 10/13/2026. Cardinal State's $10,000 check arrived today, joining Keystone's (received 09/04) and Harbor Point's (10/05) in the IOLTA trust account, each deposited only after its release was signed (Keystone 08/28; each UM release before its check): $40,000.00 received; the last check has not cleared. Peach State accepted $1,240.00 on 10/09 and Riverton Spine & Rehab accepted {{payoffA}} on 10/12; both written acceptances are in Documents. Costs stand at $486.75. The Net Sheet you built at the BI settlement and updated at the UM settlement is on the file, with the liens still at their audited {{openLiens}}.",
           prompt: "Complete John Doe's Net Sheet in both tabs. Recovery Ledger: each check by carrier and stream, the 33⅓% fee per stream, the five receipted costs, and costs and liens split 25% / 75%, down to the net per stream and in total. Lien Tracker: every provider and payer with charges, payments, adjustments and balance owed, then each lien's asserted, audited and reduced figure, the basis of each reduction and its payoff-letter status. Tie both tabs to the Trust Ledger. Check the sheet against the file, then open the corrected, finalized Net Sheet and self-audit every line of your own against it. Graded judgment: what stays off the payables, and what you flag for Atty. Thorne before John signs.",
           tool: "LSH Net Sheet (disbursement) · CMS → Financial Ledger → Net Sheet (Recovery Ledger · Lien Tracker)",
-          output: "A two-tab Net Sheet that reaches $21,469.92 down both streams and across the total, with every lien figure proved and routed to Atty. Thorne.",
+          output: "A two-tab Net Sheet that reaches {{netA}} down both streams and across the total, with every lien figure proved and routed to Atty. Thorne.",
           checkpoints: [
             "Gross by check: Keystone $10,000.00 to Stream 1; Harbor Point $20,000.00 + Cardinal State $10,000.00 = $30,000.00 to Stream 2",
             "Fee at the pre-suit 33⅓% (no suit filed): $3,333.33 + $10,000.00 = $13,333.33",
             "Costs receipted: $25.00 + $214.75 + $72.00 + $25.00 + $150.00 = $486.75, split $121.69 / $365.06 and charged once",
             "Liens split 25% / 75%: Peach State $310.00 / $930.00; Riverton Spine & Rehab $867.50 / $2,602.50",
-            "Net both ways: $5,367.48 + $16,102.44 = $21,469.92, and $40,000.00 – $13,333.33 – $486.75 – $1,240.00 – $3,470.00 = $21,469.92",
+            "Net both ways: {{streamBi}} + {{streamUm}} = {{netA}}, and $40,000.00 – $13,333.33 – $486.75 – $1,240.00 – {{payoffA}} = {{netA}}",
             "Peach State row: asserted $1,860.00, audited $1,860.00 (matches its payment for Crescent's 05/15/2026 injection), reduced $1,240.00 (one-third procurement-cost reduction, $620.00), accepted 10/09/2026",
-            "Riverton Spine & Rehab row: billed $6,290.00, audited $6,105.00 (duplicate 05/04/2026 line, $185.00), $4,625.00 owed after MedPay's $1,480.00, reduced $3,470.00, accepted 10/12/2026",
+            "Riverton Spine & Rehab row: billed $6,290.00, audited $6,105.00 (duplicate 05/04/2026 line, $185.00), {{spineRehabOwed}} owed after MedPay's $1,480.00, reduced {{payoffA}}, accepted 10/12/2026",
             "Zero-balance lines kept off the payables with their source: PIP $5,000.00 (no reimbursement right, 03/02/2026); Crescent $3,400.00 – $1,860.00 = $1,540.00 written off; Riverton Urgent Care, Lakeside Orthopedics and Summit Imaging paid in full by PIP",
             "Payoff status recorded per lien: written figure and date logged, satisfaction of lien marked “to obtain at payment”; no line final on a phone call",
             "Future medical ($3,400–$6,800 in possible repeat ESIs) flagged to Atty. Thorne before John Doe signs: the settlement is full and final, and no carrier pays more",
-            "Ties out: trust deposits $40,000.00 = Recovery Ledger gross; liens owed $1,860.00 + $4,625.00 = $6,485.00, paid $1,240.00 + $3,470.00 = $4,710.00 ($1,775.00 negotiated, plus the $185.00 duplicate removed at audit)",
+            "Ties out: trust deposits $40,000.00 = Recovery Ledger gross; liens owed $1,860.00 + {{spineRehabOwed}} = {{openLiens}}, paid $1,240.00 + {{payoffA}} = {{liensPaidA}} ({{negotiatedA}} negotiated, plus the $185.00 duplicate removed at audit)",
             "Sheet checked against the file, then the corrected, finalized Net Sheet opened and self-audited: every line that differs explained from the document it comes from"
           ]
         },
         ops: [
-          ["Last UM check received (10/13/2026)", "Post the deposit and complete the Recovery Ledger by stream", "CMS → Financial Ledger → Net Sheet → Recovery Ledger", "Streams $10,000.00 / $30,000.00; net $21,469.92"],
-          ["Lien reduction accepted in writing", "Complete the Lien Tracker row and log the Payoff Letter", "CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Documents", "Peach State $1,240.00 (10/09); Riverton Spine & Rehab $3,470.00 (10/12)"],
+          ["Last UM check received (10/13/2026)", "Post the deposit and complete the Recovery Ledger by stream", "CMS → Financial Ledger → Net Sheet → Recovery Ledger", "Streams $10,000.00 / $30,000.00; net {{netA}}"],
+          ["Lien reduction accepted in writing", "Complete the Lien Tracker row and log the Payoff Letter", "CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Documents", "Peach State $1,240.00 (10/09); Riverton Spine & Rehab {{payoffA}} (10/12)"],
           ["Both tabs tie to the Trust Ledger", "Route the draft Settlement Statement with the future-medical flag", "CMS → Tasks → Escalate", "Routed to Atty. Thorne before John Doe sees the statement"]
         ],
         best: [
@@ -5120,7 +5120,7 @@ window.CM_CASE_FLOW = {
         sources: ["D2#35", "D2#36", "D3#25", "D3#27", "D3#28"],
         rubric: {
           ai: [
-            ["Stream arithmetic", 20, "Fee, costs and liens split correctly; $5,367.48 + $16,102.44 = $21,469.92"],
+            ["Stream arithmetic", 20, "Fee, costs and liens split correctly; {{streamBi}} + {{streamUm}} = {{netA}}"],
             ["Lien Tracker accuracy", 15, "Asserted, audited and reduced figures and dates for Peach State and Riverton Spine & Rehab"],
             ["Cost verification", 10, "Five receipted costs = $486.75, charged once"],
             ["Zero-balance discipline", 15, "PIP, Crescent and the PIP-paid providers kept off the payables with sources"]
@@ -5133,8 +5133,8 @@ window.CM_CASE_FLOW = {
         },
         notes: [
           "Start with the zero-balance rows. Ask why PIP's $5,000.00 isn't paid back and why Crescent's write-off isn't owed. A trainee who adds either to the payables has paid John Doe's money away.",
-          "Ask the room: “If Riverton Spine & Rehab had accepted $3,470.00 only on a phone call, could the line be marked final?” No: no Payoff Letter, no payment.",
-          "Grade the arithmetic both ways, down each stream and across the total: $13,333.33 + $486.75 + $1,240.00 + $3,470.00 = $18,530.08, and $40,000.00 – $18,530.08 = $21,469.92. A one-cent drift means a stream was rounded on its own.",
+          "Ask the room: “If Riverton Spine & Rehab had accepted {{payoffA}} only on a phone call, could the line be marked final?” No: no Payoff Letter, no payment.",
+          "Grade the arithmetic both ways, down each stream and across the total: $13,333.33 + $486.75 + $1,240.00 + {{payoffA}} = {{deductionsA}}, and $40,000.00 – {{deductionsA}} = {{netA}}. A one-cent drift means a stream was rounded on its own.",
           "The future-medical flag is the judgment call. Up to $6,800 in possible repeat injections lies ahead, and the settlement is full and final; the CM flags it, and Atty. Thorne has that conversation with John Doe.",
           "Close the exercise on the corrected Net Sheet. Once each trainee has checked their own sheet, the finalized reference opens beside it line by line: that comparison is the self-audit, and it is where the habit of proving a figure from its document is formed."
         ]
@@ -5152,7 +5152,7 @@ window.CM_CASE_FLOW = {
             "A BI release must not reach what is still open: the Civic's property-damage claim runs separately with Keystone PD. Both UM consents come before the BI release is signed: here 08/24 and 08/26, before 08/28.",
             "Non-admission language is standard: Keystone pays to end the claim, not to admit fault. The indemnity and hold-harmless clause binds John Doe to repay the carrier if a lienholder later pursues it, so every lien must be on the Lien Tracker and paid off in writing.",
             "Audit UM releases scope first: Harbor Point's, signed while Cardinal State's claim is open, releases Harbor Point only (“all other … insurers” would reach Cardinal State's $10,000); neither reaches the PD claim. Then indemnity, confidentiality, Medicare (John Doe is no beneficiary: verify it). Terms: Atty. Thorne's call.",
-            "The Settlement Statement shows John Doe how $40,000.00 becomes $21,469.92, and that it is full and final. Contingent-fee rules commonly require one (for example, ABA Model Rule 1.5(c); confirm the governing rule). Where a cooling-off period applies, no check is cut before it ends.",
+            "The Settlement Statement shows John Doe how $40,000.00 becomes {{netA}}, and that it is full and final. Contingent-fee rules commonly require one (for example, ABA Model Rule 1.5(c); confirm the governing rule). Where a cooling-off period applies, no check is cut before it ends.",
             "Log each check on arrival; deposit it to IOLTA that day once its release is signed (else secure it for Atty. Thorne), never to operating. John Doe endorses, never the CM. Nothing is disbursed against uncleared funds (here, before 10/20); a disputed share stays in trust. Confirm the governing trust rule.",
             "Disbursement serves accuracy, compliance and fraud prevention: Verification (conditions precedent) → Documentation (Payoff Letters, receipts with tax IDs, W-9s) → Authorization (Atty. Thorne signs) → Reconciliation ($0.00).",
             "No suit was filed on Track A, so no dismissal is needed. Where a suit is pending, settlement is not over until the court is told: prepare the stipulation of dismissal with prejudice for the attorneys' signatures, docket it and confirm the entry."
@@ -5226,8 +5226,8 @@ window.CM_CASE_FLOW = {
             "Indemnity and hold-harmless clause tied to the Lien Tracker: Peach State and Riverton Spine & Rehab both registered, so John Doe's promise can be kept",
             "Memo routed to Atty. Thorne on 08/14; no wording discussed with Dana Whitfield; draft not sent to John Doe; signature chase held until both UM consents are in",
             "Conditions precedent confirmed for 10/22: Limited Release signed 08/28; both UM releases filed as approved, Harbor Point's checked for any line reaching Cardinal State before John Doe signed; all funds cleared by 10/20; statement signed 10/21; Payoff Letters in hand; no cooling-off period configured for this training file (confirm the governing rule)",
-            "Five commands matching the Net Sheet: to the firm, fee $13,333.33 and costs reimbursed $486.75; Peach State Health Plan $1,240.00; Riverton Spine & Rehab $3,470.00; John Doe $21,469.92",
-            "Ledger arithmetic shown: $40,000.00 – $13,333.33 – $486.75 – $1,240.00 – $3,470.00 – $21,469.92 = $0.00",
+            "Five commands matching the Net Sheet: to the firm, fee $13,333.33 and costs reimbursed $486.75; Peach State Health Plan $1,240.00; Riverton Spine & Rehab {{payoffA}}; John Doe {{netA}}",
+            "Ledger arithmetic shown: $40,000.00 – $13,333.33 – $486.75 – $1,240.00 – {{payoffA}} – {{netA}} = $0.00",
             "Each command's packet complete: payee identity, Payoff Letter or receipts with date, description and tax ID, a current W-9, payment details verified by phone to a number on file, and John Doe's signed Settlement Statement as his payment authorization",
             "Each lien check requests a signed satisfaction of lien; John Doe's check goes with an acknowledgment of receipt to sign",
             "Invoice and payoff references cross-checked so no payee is paid twice",
@@ -5275,7 +5275,7 @@ window.CM_CASE_FLOW = {
         visual: "Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange; beside it, four stacked chips under the heading BEFORE ARCHIVE (MONEY TRAIL · PROOF OF DELIVERY · COMPLIANCE & IDENTITY · CLOSING MEMO), each with an empty tick box. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, beside the 1–5 SKILL SCALE as a five-step horizontal ladder with the competency rows beneath. Far right, the 60/40 split as a stacked bar, 60% AI in navy and 40% Trainer in orange, with UPL as a separate red gate chip below and outside the bar.",
         check: {
           questions: [
-            "Take John Doe's $40,000.00 to his $21,469.92 net, stream by stream. What does each stream carry for fee, costs and liens, and why is the split 25% / 75%?",
+            "Take John Doe's $40,000.00 to his {{netA}} net, stream by stream. What does each stream carry for fee, costs and liens, and why is the split 25% / 75%?",
             "Name the four document sets that must be in the file before it is archived, the item on John Doe's file that satisfies each, and how long the closed file is kept.",
             "The Trust Ledger reads $0.00 after the 10/22/2026 disbursement. Which records prove it, and what would a balance left in trust tell you?"
           ],
@@ -5312,7 +5312,7 @@ window.CM_CASE_FLOW = {
         sources: ["D2#37", "D2#41", "D3#23", "D3#24", "D3#27", "D3#33", "D3#34", "D3#35", "D3#36", "D3#37", "D3#38"],
         rubric: {
           ai: [
-            ["Net Sheet accuracy", 20, "Both streams and the total reach $21,469.92; 25% / 75% explained as pro rata to gross"],
+            ["Net Sheet accuracy", 20, "Both streams and the total reach {{netA}}; 25% / 75% explained as pro rata to gross"],
             ["Reconciliation sets", 15, "Four sets named with this file's items; 7-year retention from closing"],
             ["Closing and dismissal doctrine", 15, "Zero-balance proof; gap answered by the MRI and Dr. Reyes's Causation Letter; dismissal with prejudice only where a suit is pending"],
             ["Completeness", 10, "Every question answered substantively"]
@@ -5325,7 +5325,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         notes: [
-          "Question 1 is the keystone. A trainee who cannot carry $40,000.00 to $21,469.92 down both streams without notes has not finished the Net Sheet; re-teach before moving on.",
+          "Question 1 is the keystone. A trainee who cannot carry $40,000.00 to {{netA}} down both streams without notes has not finished the Net Sheet; re-teach before moving on.",
           "Put question 6 to the room before they write: “Is this a lien we missed, or a bill nobody owes?” Peach State's EOB shows the $1,540.00 ($3,400.00 – $1,860.00) as a contractual write-off Crescent cannot balance-bill. Model answer: verify the bill and its link to the accident against the ledger and the EOB, route it to Atty. Thorne, ask Crescent in writing to correct its account, and tell John Doe today what you are doing and when he will hear back. Whether he owes it is Atty. Thorne's to say.",
           "Question 7 is the operational pincer. The right answer stops, documents every contact and escalates at once; any request for more time goes to Keystone in writing on Atty. Thorne's instruction. A deadline is never a reason to let John Doe sign a release that reaches $30,000 of UM coverage.",
           "Compare each self-rating with the score, and remember UPL is a gate: a strong score does not survive an ethics breach."
@@ -5345,8 +5345,8 @@ window.CM_CASE_FLOW = {
     n: 4, id: 14,
     title: "Case Flow Day 4 · Reductions, Lien Negotiation & ADR",
     phase: "Reductions, lien negotiation & ADR",
-    objective: "With Track A settled at $40,000 gross (Day 3), audit the Limited Release; reduce the liens and the provider balances and disburse a reconciled $21,469.92 net to John Doe; then, where the file does not settle (Track B), run the alternative dispute resolution side: the mediation and arbitration rules and hard dates, the UPL line at hearings, and the mediation and arbitration binders.",
-    gate: "Track A: liens resolved at $1,240.00 and $3,470.00, Net Sheet and Trust Ledger reconciled to $0.00, closing memo filed · ADR: hard-rule calendar set for the mediation and the arbitration, ADR rules matrix complete, Mediation Binder and arbitration exhibits assembled",
+    objective: "With Track A settled at $40,000 gross (Day 3), audit the Limited Release; reduce the liens and the provider balances and disburse a reconciled {{netA}} net to John Doe; then, where the file does not settle (Track B), run the alternative dispute resolution side: the mediation and arbitration rules and hard dates, the UPL line at hearings, and the mediation and arbitration binders.",
+    gate: "Track A: liens resolved at $1,240.00 and {{payoffA}}, Net Sheet and Trust Ledger reconciled to $0.00, closing memo filed · ADR: hard-rule calendar set for the mediation and the arbitration, ADR rules matrix complete, Mediation Binder and arbitration exhibits assembled",
     discussion: "Keystone's draft release arrives on 08/14/2026 releasing “all other persons, firms, corporations and insurers.” Harbor Point hasn't answered the consent request, and Atty. Thorne is out of the office until Monday. What do you do, and what must not happen before he is back?",
     fileState: [
       "Track A: the file settles. BI Time-Limited Demand served 07/20/2026; Keystone offers $3,500 on 08/05 and tenders the $10,000 limits on 08/12.",
@@ -5394,7 +5394,7 @@ window.CM_CASE_FLOW = {
             "Name the carrier's ground. Keystone's $3,500 rests on the 14-Day Gap and a “degenerative” MRI; the 08/06 rebuttal answered both; the 08/12 “final” answered none of it.",
             "Hold the line while you test it (the “Never” rule): never bid against yourself, never apologize for a Limits Demand, never accept “that's all I have” as final. Every adjuster has a supervisor; the 09/02 escalation was that test. Any new number is Atty. Thorne's.",
             "Know what a BI impasse costs. As this file's policies are configured, Host UM pays only after BI is exhausted (paid or tendered at limits), Relative UM behind it: $40,000 frozen behind a $10,000 carrier. Exhaustion rules vary by policy and jurisdiction; Atty. Thorne confirms the governing rule.",
-            "Filing is counsel's decision; its inputs are yours to verify. Liability: RPD-26-018842, Ruth Calloway, the doorbell video. Causation: the MRI, the Causation Letter, the EMS report. Damages: $16,401.40 in Specials. Time: SOL 02/06/2028, internal cutoff 11/05/2027.",
+            "Filing is counsel's decision; its inputs are yours to verify. Liability: RPD-26-018842, Ruth Calloway, the doorbell video. Causation: the MRI, the Causation Letter, the EMS report. Damages: {{specials}} in Specials. Time: SOL 02/06/2028, internal cutoff 11/05/2027.",
             "Record the lapse; don't interpret it. Proof of delivery (07/22) and the 08/21 lapse may bear on Robert Smith's exposure above his limits: Atty. Thorne's analysis, never yours to raise with Keystone or John Doe."
           ],
           upl: [
@@ -5454,7 +5454,7 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 1 — the impasse memo: Keystone's stonewall on the 14-Day Gap",
         visual: "A single memo page on white letterhead, a navy header band reading IMPASSE MEMO · TO ATTY. ELIJAH THORNE · 09/08/2026. Four orange-numbered sections run down the page: ① CHRONOLOGY, a dated ledger from 07/20 to 09/04 with a proof chip (receipt, email, log) at the right of each row ② KEYSTONE'S GROUNDS AND OUR REBUTTAL ③ THE FROZEN STACK, three rows with the two UM rows hatched gray behind a padlock ④ DECISION REQUESTED, a cream box holding questions, not answers. In the right margin, a red-bordered guard rail lists what the memo never contains: a recommendation to sue, a value, an excess-exposure opinion.",
         act: {
-          scenario: "File date 09/08/2026, Track B. Keystone Mutual (Dana Whitfield, KM-26-440871) offered $3,500 on 08/05, citing the 14-Day Gap and a “degenerative” MRI. The 08/06 rebuttal changed nothing: on 08/12 Keystone called $3,500 “final”. The 07/20 Time-Limited Demand (received 07/22) lapsed on 08/21. Follow-ups on 08/24 and 08/31 asked for a response and the evidence Keystone relies on; neither was answered. The 48-Hour Mandate escalation to Keystone's claims supervisor on 09/02 drew nothing by 09/04. Harbor Point and Cardinal State are waiting on BI. The 08/06 rebuttal sent Dr. Helen Park's MRI read (“no significant degenerative change at the adjacent levels”), Dr. Reyes's 06/19/2026 Causation Letter, the EMS report and the Gap Explanation Record. Documented specials: $14,817.40 medical + $1,584.00 lost wages. SOL 02/06/2028 (a Sunday); firm internal hard date 02/04/2028; internal filing cutoff 11/05/2027.",
+          scenario: "File date 09/08/2026, Track B. Keystone Mutual (Dana Whitfield, KM-26-440871) offered $3,500 on 08/05, citing the 14-Day Gap and a “degenerative” MRI. The 08/06 rebuttal changed nothing: on 08/12 Keystone called $3,500 “final”. The 07/20 Time-Limited Demand (received 07/22) lapsed on 08/21. Follow-ups on 08/24 and 08/31 asked for a response and the evidence Keystone relies on; neither was answered. The 48-Hour Mandate escalation to Keystone's claims supervisor on 09/02 drew nothing by 09/04. Harbor Point and Cardinal State are waiting on BI. The 08/06 rebuttal sent Dr. Helen Park's MRI read (“no significant degenerative change at the adjacent levels”), Dr. Reyes's 06/19/2026 Causation Letter, the EMS report and the Gap Explanation Record. Documented specials: {{medicalAudited}} medical + $1,584.00 lost wages. SOL 02/06/2028 (a Sunday); firm internal hard date 02/04/2028; internal filing cutoff 11/05/2027.",
           prompt: "Draft the impasse memo to Atty. Elijah Thorne. Build a dated chronology of every event from the 07/20/2026 demand to 09/04, each tied to its proof in the Communications Log. State Keystone's grounds and the rebuttal evidence it has not answered. Show the frozen stack layer by layer with the documented Specials, then the SOL and internal dates. End with the decision you need from him, framed as questions. Graded judgment: the memo documents and asks; it recommends nothing legal, because filing is his decision.",
           tool: "Action Plan Editor → Memo · CMS → Communications Log · CMS → Tasks → Escalate",
           output: "A dated, sourced impasse memo routed to Atty. Thorne, asking for a decision and recommending none.",
@@ -5464,7 +5464,7 @@ window.CM_CASE_FLOW = {
             "Keystone's grounds stated as Keystone gave them: the 14-Day Gap and a “degenerative” MRI",
             "Unanswered rebuttal listed: Dr. Helen Park's “no significant degenerative change at the adjacent levels”, Dr. Reyes's 06/19/2026 Causation Letter, the EMS report, the Gap Explanation Record",
             "Frozen stack shown: $10,000 BI unexhausted → $20,000 Host UM and $10,000 Relative UM closed; $40,000 total, $30,000 of it unreachable",
-            "Specials stated as documented facts: $14,817.40 medical + $1,584.00 lost wages = $16,401.40",
+            "Specials stated as documented facts: {{medicalAudited}} medical + $1,584.00 lost wages = {{specials}}",
             "Clock: SOL 02/06/2028 (a Sunday), internal hard date 02/04/2028, internal filing cutoff 11/05/2027 (423 days from 09/08/2026)",
             "Decision requested as questions for Atty. Thorne (does he authorize suit; what notice Harbor Point and Cardinal State need; what John Doe is told, and by whom); no sentence recommends suit, values the claim or assesses Robert Smith's exposure above his limits",
             "No new number sent to Keystone (never bid against yourself), and nothing said to John Doe about the $3,500",
@@ -5488,7 +5488,7 @@ window.CM_CASE_FLOW = {
           ai: [
             ["Chronology accuracy", 20, "All nine events, correct and in order, 07/20/2026 to 09/04/2026"],
             ["Proof", 15, "Each event tied to a receipt, email or log entry"],
-            ["Stack and Specials", 15, "$10,000 / $20,000 / $10,000 = $40,000; $30,000 frozen; Specials $16,401.40"],
+            ["Stack and Specials", 15, "$10,000 / $20,000 / $10,000 = $40,000; $30,000 frozen; Specials {{specials}}"],
             ["Clock and routing", 10, "SOL and internal dates correct; memo routed 09/08/2026"]
           ],
           trainer: [
@@ -5885,7 +5885,7 @@ window.CM_CASE_FLOW = {
             "Read each layer on its own. Harbor Point's arbitration clause does not speak for Cardinal State: get Cardinal State's UM form and its dispute-resolution and other-insurance clauses from the certified policy and route both to Atty. Thorne. Whether the two are heard together is his call; on this file they were consolidated into the 06/22/2027 hearing.",
             "A route carries its own clock. Every layer has its own limitation on filing suit or serving a demand for arbitration, set by the policy or by statute, and it is not the tort SOL of 02/06/2028. Ask Atty. Thorne each policy's deadline in writing and docket only from his written answer.",
             "Track the route in the CMS the day it is set, so nobody has to guess what this file is doing: the ADR tab with its type UM / UIM arbitration and How It Was Set as Required by the policy or contract, the provider, the hard dates, and the case status moved to the route it is actually on.",
-            "Nothing about the route changes what the UM claim has to prove. The Demand Package still carries the injuries, the Specials of $16,401.40, the wage loss and the documented proof that Keystone's $10,000 was exhausted; and the 14-Day Gap will be put to John Doe again at the hearing, by a carrier reading his own policy."
+            "Nothing about the route changes what the UM claim has to prove. The Demand Package still carries the injuries, the Specials of {{specials}}, the wage loss and the documented proof that Keystone's $10,000 was exhausted; and the 14-Day Gap will be put to John Doe again at the hearing, by a carrier reading his own policy."
           ],
           upl: [
             "You read the clause and the statute, lay both before Atty. Thorne, docket what he confirms and tell John Doe what happens next procedurally: the date, the place, what to bring, who will be in the room. Which route governs, whether an offer is unreasonably low, and whether Harbor Point's handling amounts to statutory bad faith are legal opinions, and they are Atty. Thorne's alone."
@@ -5896,7 +5896,7 @@ window.CM_CASE_FLOW = {
           type: "table",
           head: ["Step", "Action", "What it takes on this file"],
           rows: [
-            ["1 · Claim submission", "UM Demand Package", "Served 08/31/2026 to Harbor Point and Cardinal State: injuries, records, $16,401.40 in Specials, the wage letter, and documented proof that Robert Smith's $10,000 BI limit was exhausted and consented to"],
+            ["1 · Claim submission", "UM Demand Package", "Served 08/31/2026 to Harbor Point and Cardinal State: injuries, records, {{specials}} in Specials, the wage letter, and documented proof that Robert Smith's $10,000 BI limit was exhausted and consented to"],
             ["2 · Dispute", "Impasse", "Harbor Point offers $8,000 (09/14/2026) and Cardinal State $6,000 (10/01/2026) against $30,000 of UM limits; impasse memo to Atty. Thorne"],
             ["3 · Resolution route", "Demand for Arbitration, or file suit against the carrier", "Read the governing state law and each policy's clause. Harbor Point's UM policy has a binding arbitration clause: invoked 04/05/2027, heard 06/22/2027 before Laura Whitcomb, Esq. Where no clause binds, a civil suit against the carrier; a bad-faith action is a separate suit, and Atty. Thorne's call"],
             ["Not a route", "John Doe's own Bluewater Auto policy", "UM/UIM rejected in writing 03/14/2024: there is no third layer and no third route"]
@@ -6238,7 +6238,7 @@ window.CM_CASE_FLOW = {
         kind: "lesson", id: "d4m3-l1", compact: true,
         title: "The Mediation Binder & Exhibit Indexing",
         topic: "Six sections, one master index, and the five-second rule",
-        visual: "An open binder seen from above fills the left two-thirds: six navy divider tabs stepped down its right edge, each with an orange numbered badge ①–⑥ and its section name, and beside each tab a cream card listing this file's documents as mono pills (RPD-26-018842 · EDR · MRI 03/13/2026 · $16,401.40). Across the top runs a slim navy bar, MASTER INDEX — ONE SOURCE OF TRUTH, with column chips Exhibit · Bates · Source · Status and thin orange leader lines running from index rows down into the tabs. Right third: a large stopwatch chip, 5 SECONDS, above a red danger callout: “Drafts and superseded pleadings never enter the binder.” The leader lines run from the index into the binder, never back: that is the argument.",
+        visual: "An open binder seen from above fills the left two-thirds: six navy divider tabs stepped down its right edge, each with an orange numbered badge ①–⑥ and its section name, and beside each tab a cream card listing this file's documents as mono pills (RPD-26-018842 · EDR · MRI 03/13/2026 · {{specials}}). Across the top runs a slim navy bar, MASTER INDEX — ONE SOURCE OF TRUTH, with column chips Exhibit · Bates · Source · Status and thin orange leader lines running from index rows down into the tabs. Right third: a large stopwatch chip, 5 SECONDS, above a red danger callout: “Drafts and superseded pleadings never enter the binder.” The leader lines run from the index into the binder, never back: that is the argument.",
         tell: {
           why: "Keystone's stonewall on the 14-Day Gap is why John Doe's file is in suit. At the 03/18/2027 mediation Atty. Thorne will have minutes to answer it, so every record, figure and quote must sit in a known place. A binder he must hunt through costs momentum, and can cost a concession.",
           rules: [
@@ -6247,7 +6247,7 @@ window.CM_CASE_FLOW = {
             "One master index in the CMS is the single source of truth: section, exhibit number, description, date, source, Bates range and status for each document. The binder prints from the index, never the reverse.",
             "Exhibit numbers belong to the proceeding (4-1, 4-2…): a late document takes the next number; a set others hold is never renumbered. Bates numbers belong to the page: stamped once at production (DOE 000001).",
             "Section 3 holds only the operative pleadings (09/24/2026 complaint, 11/12/2026 answer), no drafts. The answer pleads comparative negligence (out of turn, unbelted), causation (the gap, a “degenerative” MRI) and failure to mitigate; a defense argued but never pleaded is flagged to Atty. Thorne.",
-            "Section 5's ledger ties line by line to the certified invoices and HR letter, each correction documented (duplicate removed: $6,290.00 → $6,105.00): $14,817.40 medical + $1,584.00 wages = $16,401.40. Future care ($3,400–$6,800) is narrative.",
+            "Section 5's ledger ties line by line to the certified invoices and HR letter, each correction documented (duplicate removed: $6,290.00 → $6,105.00): {{medicalAudited}} medical + $1,584.00 wages = {{specials}}. Future care ($3,400–$6,800) is narrative.",
             "Section 6's log fixes the baseline (Keystone's $3,500, “final” 08/12/2026). A draft Limited Release lets Atty. Thorne fix terms in writing before anyone leaves, conditioned on both UM carriers' written consent (each may substitute its own check to keep subrogation). Its scope (BI only: John Doe pleads no PD claim) is his call.",
             "You are the QA and logistics auditor: sets for Atty. Thorne, the mediator and John Doe (or one digital set), every PDF OCR-searchable, statement delivered by 03/11/2027, binder audited against the index 48 hours out."
           ],
@@ -6264,7 +6264,7 @@ window.CM_CASE_FLOW = {
             ["2 · Briefs", "Our confidential statement; the defense's, if exchanged", "Ours to the mediator only, by 03/11/2027"],
             ["3 · Core pleadings", "Complaint 09/24/2026; answer and defenses 11/12/2026", "Operative versions only"],
             ["4 · Key evidence & liability", "RPD-26-018842, Ruth Calloway, doorbell stills, EMS report, EDR, deposition summary", "Summary + highlighted transcript pages"],
-            ["5 · Damages, financials & experts", "Ledger, Northgate HR letter, MRI, Causation Letter, Gap Explanation Record", "Ledger = sources: $16,401.40"],
+            ["5 · Damages, financials & experts", "Ledger, Northgate HR letter, MRI, Causation Letter, Gap Explanation Record", "Ledger = sources: {{specials}}"],
             ["6 · Settlement history & drafts", "Negotiation Log from 07/20/2026; draft release (Smith, Keystone)", "Baseline stated; scope and UM consents flagged for Atty. Thorne"]
           ]
         },
@@ -6285,7 +6285,7 @@ window.CM_CASE_FLOW = {
           ai: [
             ["Section order and contents", 20, "Six sections in order, each with this file's documents"],
             ["Indexing rules", 20, "Exhibit numbers per proceeding, Bates stamped once, master index fields, one source of truth"],
-            ["Figures and dates", 20, "$14,817.40 + $1,584.00 = $16,401.40; pleadings 09/24/2026 and 11/12/2026; delivery 03/11/2027; session 03/18/2027"]
+            ["Figures and dates", 20, "{{medicalAudited}} + $1,584.00 = {{specials}}; pleadings 09/24/2026 and 11/12/2026; delivery 03/11/2027; session 03/18/2027"]
           ],
           trainer: [
             ["Purpose over procedure", 25, "Explains how an indexed binder protects Atty. Thorne's position in the room, not just how it is filed"],
@@ -6307,7 +6307,7 @@ window.CM_CASE_FLOW = {
         visual: "A three-column workbench. Left: the draft binder as a grey stack topped by two red landmine chips, LEDGER $15,002.40? and CRESCENT $3,400.00 OPEN?, each struck through once fixed. Centre: six navy section cards ①–⑥ with orange badges, filling with mono pills that carry exhibit numbers and Bates ranges. Right: an orange-bordered DEFENSE MAP card pairing each allegation in the 11/12/2026 answer (out of turn · unbelted · the gap · degenerative · failure to mitigate) with its exhibit by an → arrow. Along the bottom, a delivery strip: ROUTE TO ATTY. THORNE → DELIVER BY 03/11/2027 → SESSION 03/18/2027, with a red CONFIDENTIAL — MEDIATOR ONLY chip on the statement. The argument: every pleaded defense already has its page.",
         act: {
           scenario: "It is 03/04/2027 on Track B. John Doe was deposed on 02/18/2027 and the certified transcript is in the file. The confidential statement and binder are due to Hon. Carla Benton (Ret.) on 03/11/2027 for the 03/18/2027 mediation. The draft binder, built from the providers' original bills instead of the audited demand ledger, carries Riverton Spine & Rehab at $6,290.00 and lists Crescent Pain & Spine's $3,400.00 as an open balance, and Atty. Grant Mercer has written that Keystone “will not put a real number on the table” while the medical ledger is unverified. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027 (second request 02/22, red-flagged 03/01), is still outstanding. The Litigation Desk's draft index is in the file (RS62), assigned on the 07/15/2026 task log (RS64): QC it, do not rebuild it from nothing.",
-          prompt: "Assemble the six-section Mediation Binder from the master index, starting from the 07/20/2026 Demand Package. Seat each document in one section with its exhibit number and Bates range, and map every allegation in the 11/12/2026 answer to the exhibit that answers it. Run the pre-mediation audit: rebuild the ledger from the certified bills in hand to $16,401.40, and cross-check each provider balance against what PIP and Peach State already paid. Add the Negotiation Log, a draft Limited Release and the UM consent requests, then route it all to Atty. Thorne before delivery.",
+          prompt: "Assemble the six-section Mediation Binder from the master index, starting from the 07/20/2026 Demand Package. Seat each document in one section with its exhibit number and Bates range, and map every allegation in the 11/12/2026 answer to the exhibit that answers it. Run the pre-mediation audit: rebuild the ledger from the certified bills in hand to {{specials}}, and cross-check each provider balance against what PIP and Peach State already paid. Add the Negotiation Log, a draft Limited Release and the UM consent requests, then route it all to Atty. Thorne before delivery.",
           tool: "CMS → Documents → Mediation Binder · CMS → Documents → Master index · Medical Records Requests",
           output: "A six-section, indexed, OCR-searchable Mediation Binder with an audited ledger, a lien summary and a short audit memo on both landmines, routed to Atty. Thorne and ready for delivery to the mediator by 03/11/2027.",
           checkpoints: [
@@ -6316,8 +6316,8 @@ window.CM_CASE_FLOW = {
             "Section 3: the Complaint of 09/24/2026 and the answer of 11/12/2026 only, no draft; all three pleaded defenses listed",
             "Defense map: out of turn → RPD-26-018842, Ruth Calloway, doorbell video; unbelted → event data recorder (belt buckled), EMS report (“restrained”); the gap → EMS report (neck stiffness on the DOL), Gap Explanation Record and the 06/19/2026 Causation Letter; “degenerative” → the MRI read; failure to mitigate → the A-C-T record. Two legal questions flagged for Atty. Thorne, not answered: whether seatbelt evidence is admissible or can reduce damages here, and whether the Escape's alleged out-of-turn entry can affect a passenger's recovery; confirm the governing rule",
             "Section 4 also holds the key correspondence (Keystone's 02/17/2026 acceptance of PD liability; what weight it carries is Atty. Thorne's call) and the 02/18/2027 deposition summary with highlighted transcript pages on the gap, the disruption, the 2021 visits and the seatbelt",
-            "Landmine 1: ledger rebuilt from the certified bills in hand, with Riverton Spine & Rehab's original 34-line bill audited to 33 visits × $185.00 = $6,105.00 (05/04/2026 duplicate removed) and marked “Pending Final Verification” until its certified ledger arrives; $14,817.40 medical + $1,584.00 wages = $16,401.40",
-            "Landmine 2: Crescent's $3,400.00 bill shown as satisfied by Peach State's $1,860.00 contract payment, proved by Peach State's EOB (no balance billing); open liens Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $6,485.00",
+            "Landmine 1: ledger rebuilt from the certified bills in hand, with Riverton Spine & Rehab's original 34-line bill audited to 33 visits × $185.00 = $6,105.00 (05/04/2026 duplicate removed) and marked “Pending Final Verification” until its certified ledger arrives; {{medicalAudited}} medical + $1,584.00 wages = {{specials}}",
+            "Landmine 2: Crescent's $3,400.00 bill shown as satisfied by Peach State's $1,860.00 contract payment, proved by Peach State's EOB (no balance billing); open liens Peach State $1,860.00 + Riverton Spine & Rehab {{spineRehabOwed}} = {{openLiens}}",
             "Section 5 carries no PD claim: the Civic is Margaret Doe's, and her Keystone PD claim runs on its own file, outside John Doe's demand and the $40,000 stack",
             "Section 6: Negotiation Log 07/20/2026 demand → $3,500 (08/05) → rebuttal (08/06) → $3,500 “final” (08/12) → lapse (08/21) → suit (09/24); draft release limited to Robert Smith and Keystone; consent requests to Harbor Point and Cardinal State drafted",
             "Master index complete: every document in exactly one section with an exhibit number and Bates range; PDF OCR-searchable and bookmarked",
@@ -6326,7 +6326,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Binder due 03/11/2027", "Build the six sections from the master index", "CMS → Documents → Mediation Binder", "Every document in one section, numbered and Bates-ranged"],
-          ["Opposing counsel calls the ledger unverified", "Chase the outstanding certified ledger and rebuild from what is certified", "Medical Records Requests", "Ledger ties to invoices and the Northgate HR letter: $14,817.40 + $1,584.00 = $16,401.40"],
+          ["Opposing counsel calls the ledger unverified", "Chase the outstanding certified ledger and rebuild from what is certified", "Medical Records Requests", "Ledger ties to invoices and the Northgate HR letter: {{medicalAudited}} + $1,584.00 = {{specials}}"],
           ["Binder audited", "Route binder and statement to Atty. Thorne; deliver on approval", "CMS → Tasks → Escalate · Email Workspace", "Approved before delivery; delivery to the mediator logged by 03/11/2027"]
         ],
         best: [
@@ -6340,8 +6340,8 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Section completeness", 15, "All six sections built with this file's documents; each document in exactly one section"],
-            ["Ledger audit", 15, "33 visits = $6,105.00; $14,817.40 + $1,584.00 = $16,401.40"],
-            ["Lien cross-check", 10, "Crescent's bill satisfied by Peach State's $1,860.00; open liens total $6,485.00"],
+            ["Ledger audit", 15, "33 visits = $6,105.00; {{medicalAudited}} + $1,584.00 = {{specials}}"],
+            ["Lien cross-check", 10, "Crescent's bill satisfied by Peach State's $1,860.00; open liens total {{openLiens}}"],
             ["Defense map", 10, "All five pleaded allegations mapped to answering exhibits"],
             ["Dates and delivery", 10, "Pleadings, negotiation-log dates and the 03/11/2027 delivery all correct"]
           ],
@@ -6388,7 +6388,7 @@ window.CM_CASE_FLOW = {
             ["1 · Submissions", "BI exhaustion record; snapshot sheet; final brief; fee disclosures", "Retainers paid; final brief"],
             ["2 · Arbitration pleadings", "Demand; Cardinal State's joinder; each carrier's 04/05/2027 position; any Scheduling Order", "Operative versions only"],
             ["3 · Liability & biomechanics", "Certified RPD-26-018842; doorbell stills; event data recorder", "Identifiers redacted per forum; citation's use: Atty. Thorne; color"],
-            ["4 · Medical damages", "Treatment chart; ledger $14,817.40; provider records and bills; MRI 03/13/2026; Dr. Reyes's orders and Causation Letter", "Ledger = certified invoices"],
+            ["4 · Medical damages", "Treatment chart; ledger {{medicalAudited}}; provider records and bills; MRI 03/13/2026; Dr. Reyes's orders and Causation Letter", "Ledger = certified invoices"],
             ["5 · Prior medical shield", "2021 chiropractic: three low-back visits, resolved; no prior neck complaint; work history", "Paired with the MRI read and a medical opinion"],
             ["6 · Economic losses", "Northgate HR letter ($1,584.00)", "Wage proof only"],
             ["Attorney's set — not for exchange", "Audited Lien Sheet; negotiation ledger; tort complaint and answer", "Atty. Thorne decides"]
@@ -6442,9 +6442,9 @@ window.CM_CASE_FLOW = {
             "Threshold exhibits first: Keystone's $10,000 tender, the UM consents, the Limited Release and Robert Smith's dismissal, with both carriers' Coverage Letters (03/02/2026 and 03/09/2026); nothing from the Confidential Mediation Statement",
             "Tab 2, arbitration pleadings: the demand under Harbor Point's clause, Cardinal State's joinder, each carrier's 04/05/2027 written position and any Scheduling Order, operative versions only; the tort complaint and answer moved to the attorney's set for Atty. Thorne's exchange decision; the pre-filing draft removed",
             "Tab 3: the full, certified RPD-26-018842 (not the public-redacted copy), identifiers redacted as the forum requires, the citation's admissibility flagged for Atty. Thorne; doorbell stills reprinted in color from the native file, chain of custody logged (copy secured 02/19/2026); event data recorder (belt buckled, 11 mph)",
-            "Tab 4: treatment chart and ledger $14,817.40 tied to certified bills; a certification requested from each provider (Riverton Urgent Care, Riverton Spine & Rehab, Lakeside Orthopedics, Summit Imaging Center, Crescent Pain & Spine, Riverton Drug) and from Riverton Fire (EMS), Riverton PD and Northgate HR, receipt logged; none in 14 days → second request and subpoena flag (Crescent's, requested 05/05/2027, due 05/19); Causation Letter 06/19/2026 flagged: an opinion, not a business record, admitted per the forum's rules; the gap proved by its underlying records, the Gap Explanation Record's synthesis left for the brief",
+            "Tab 4: treatment chart and ledger {{medicalAudited}} tied to certified bills; a certification requested from each provider (Riverton Urgent Care, Riverton Spine & Rehab, Lakeside Orthopedics, Summit Imaging Center, Crescent Pain & Spine, Riverton Drug) and from Riverton Fire (EMS), Riverton PD and Northgate HR, receipt logged; none in 14 days → second request and subpoena flag (Crescent's, requested 05/05/2027, due 05/19); Causation Letter 06/19/2026 flagged: an opinion, not a business record, admitted per the forum's rules; the gap proved by its underlying records, the Gap Explanation Record's synthesis left for the brief",
             "Landmine 1, Tab 5: the 2021 records (three low-back chiropractic visits, resolved), the treating providers' own histories and John's 02/18/2027 deposition testimony showing no prior neck complaint, paired with the MRI's “no significant degenerative change at the adjacent levels” and the Causation Letter; if the letter is silent on the 2021 visits, flagged to Atty. Thorne to decide whether to seek a supplemental declaration from Dr. Reyes; the firm's intake questionnaire is privileged: a source, never an exhibit",
-            "Landmine 2, attorney's set: Lien Sheet stripped of Harbor Point PIP and Summit Imaging (PIP paid Summit's $2,395.00; no PIP reimbursement right, per the 03/02/2026 letter in the threshold record); liens Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $6,485.00; Crescent holds none",
+            "Landmine 2, attorney's set: Lien Sheet stripped of Harbor Point PIP and Summit Imaging (PIP paid Summit's $2,395.00; no PIP reimbursement right, per the 03/02/2026 letter in the threshold record); liens Peach State $1,860.00 + Riverton Spine & Rehab {{spineRehabOwed}} = {{openLiens}}; Crescent holds none",
             "Tab 6, wage proof only: Northgate HR letter, 9 shifts × 8 h × $22.00 = $1,584.00; the negotiation ledger (07/20/2026 demand to the executed settlement documents, no session offers) kept in the attorney's set",
             "Impasse memo, negotiation ledger and Lien Sheet flagged for Atty. Thorne's privilege and exchange decision, none placed in the exchange set by the CM",
             "Master index: C-numbers sequential, Bates ranges match page counts, authentication column complete, forum's evidence rule noted as “confirm with Atty. Thorne”; set approved before the 06/02/2027 exchange"
@@ -6452,7 +6452,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Exchange on 06/02/2027, 16 days out", "Sort into six tabs, apply QC, number and Bates-range", "CMS → Litigation → Exhibit index", "C-1 onward; ranges match page counts; all four traps handled"],
-          ["Lien Sheet lists PIP and Summit Imaging", "Reconcile against the PIP payment log, Peach State's EOB and Harbor Point's 03/02/2026 letter", "CMS → Financial Ledger → Net Sheet → Lien Tracker", "Liens $1,860.00 + $6,105.00 = $6,485.00"],
+          ["Lien Sheet lists PIP and Summit Imaging", "Reconcile against the PIP payment log, Peach State's EOB and Harbor Point's 03/02/2026 letter", "CMS → Financial Ledger → Net Sheet → Lien Tracker", "Liens $1,860.00 + {{spineRehabOwed}} = {{openLiens}}"],
           ["Set audited", "Route the set and the flagged items to Atty. Thorne", "CMS → Tasks → Escalate", "Approved, then exchanged by 06/02/2027"]
         ],
         best: [
@@ -6468,7 +6468,7 @@ window.CM_CASE_FLOW = {
             ["Sort accuracy", 15, "Every document in its tab; all four traps handled"],
             ["Threshold and numbering", 15, "Exhaustion record leads; C-numbers sequential; Bates ranges match page counts"],
             ["Prior medical shield", 15, "2021 low-back records paired with the MRI read and the Causation Letter"],
-            ["Lien and wage figures", 15, "PIP and Summit stripped; $1,860.00 + $6,105.00 = $6,485.00; wages $1,584.00"]
+            ["Lien and wage figures", 15, "PIP and Summit stripped; $1,860.00 + {{spineRehabOwed}} = {{openLiens}}; wages $1,584.00"]
           ],
           trainer: [
             ["Landmine reasoning", 20, "Explains how each trap would have hurt John Doe at the hearing"],
@@ -6557,7 +6557,7 @@ window.CM_CASE_FLOW = {
          opts: ["The date the blocker started", "The hard date it threatens", "What was tried, rung by rung, with dates", "Your view of what the claim is worth if it isn't fixed"],
          a: 3, r: "The five fields are the blocker, the date it started, the hard date it threatens, what was tried, and the ask. Value is Atty. Thorne's call and never goes in a Case Manager's report."},
         {q: "On 05/24/2027, Riverton Spine & Rehab's refreshed ledger (05/21) restores the 05/04/2026 duplicate: $6,290.00 against the audited $6,105.00. With exhibits exchanged 06/02/2027, the Case Manager:",
-         opts: ["Escalates it to Atty. Thorne at Rung 3 before anything else", "Exchanges $6,290.00, since it is the provider's latest figure", "Holds the whole exhibit exchange until Riverton issues a corrected ledger", "Fixes it at Rung 1 the same day: returns the audit to Riverton's billing office and keeps $6,105.00 in the set with the duplicate documented, so medical Specials stay $14,817.40"],
+         opts: ["Escalates it to Atty. Thorne at Rung 3 before anything else", "Exchanges $6,290.00, since it is the provider's latest figure", "Holds the whole exhibit exchange until Riverton issues a corrected ledger", "Fixes it at Rung 1 the same day: returns the audit to Riverton's billing office and keeps $6,105.00 in the set with the duplicate documented, so medical Specials stay {{medicalAudited}}"],
          a: 3, r: "Rung 1 problems are solved at Rung 1; the items needing Atty. Thorne's decision (Crescent's certification, Dr. Reyes's declaration, Cardinal State's silence) go to him first. An unverified $6,290.00 invites the carriers to doubt every other number, and holding the exchange for one record is the pitfall."}
       ],
       blocks: [
@@ -6573,7 +6573,7 @@ window.CM_CASE_FLOW = {
             "A bottleneck is any dependency that can stop the file reaching a hard date. Log it the day it starts, with the hard date it threatens; age it daily.",
             "Non-responsive adjuster: follow up every 5 business days and log date, time, method and outcome. Keystone left 08/24 and 08/31/2026 unanswered, then the 09/02 escalation.",
             "Silence is a position. Record it as dated facts (“no response to 08/24, 08/31 or 09/02”), never as “adjuster busy”. With BI unexhausted, Host UM and Relative UM cannot open.",
-            "Delayed records: a request unanswered after 14 days is a bottleneck, not a wait. The biggest mediation bottleneck is an unverified ledger: Specials $16,401.40, Riverton Spine & Rehab audited to $6,105.00, Peach State asserting $1,860.00.",
+            "Delayed records: a request unanswered after 14 days is a bottleneck, not a wait. The biggest mediation bottleneck is an unverified ledger: Specials {{specials}}, Riverton Spine & Rehab audited to $6,105.00, Peach State asserting $1,860.00.",
             "Missing decision-maker: a representative without authority to pay sinks a mediation. Verified ledgers reach Keystone via defense counsel, as Atty. Thorne directs, in time for an authority raise.",
             "Brief alignment: the confidential statement and binder reach Hon. Carla Benton (Ret.) by 03/11/2027 with every critical exhibit (MRI, Causation Letter, Police Report, doorbell video). A late brief stalls her.",
             "Arbitration is binding: no second hearing. An exhibit not exchanged by 06/02/2027 can be excluded; one that is illegible or not a fair and accurate copy can be excluded or given little weight. Print stills in color from the native file so nothing turns on quality.",
@@ -6772,7 +6772,7 @@ window.CM_CASE_FLOW = {
             "Item 2 reported as a gap in the prior-medical shield (Dr. Reyes back 06/01/2027, one day before the 06/02/2027 exchange), with the options framed as questions",
             "Before any rung on item 3, CMS → Parties checked: had either carrier appeared through counsel, logistics would go to that counsel as Atty. Thorne directs, and the ladder would run opposing counsel → Atty. Thorne",
             "Item 3: the 48 hours after the 05/21/2027 (Fri) escalation ran out 05/23/2027, a Sunday, so it reaches Atty. Thorne today at Rung 3; no direct contact with the arbitrator",
-            "Item 4 fixed at Rung 1 the same day: audit returned to Riverton's billing office; the exhibit set keeps $6,105.00 with the 05/04/2026 duplicate documented; medical Specials stay $14,817.40",
+            "Item 4 fixed at Rung 1 the same day: audit returned to Riverton's billing office; the exhibit set keeps $6,105.00 with the 05/04/2026 duplicate documented; medical Specials stay {{medicalAudited}}",
             "Item 5 fixed without escalation: stills reprinted in color, the digital set OCR-scanned, the index re-checked",
             "48-Hour Mandate audit set for Fri 05/28/2027: 48 hours before 06/02/2027 is 05/31/2027, Memorial Day, so the audit moves earlier, never later",
             "Root cause of item 1 named: Crescent's first request went out 05/05/2027, a month after the 04/05/2027 invocation; the binder rule is to request every certification that week. The bottleneck began with our own delay",
@@ -8210,7 +8210,7 @@ window.CM_CASE_FLOW = {
           questions: [
             "List John Doe's Recovery Stack in its order of operations, with each limit and the total, and name three coverages on this file that are not part of it. Then state the Payer Order for his Medical Bills.",
             "When did the window on the 07/20/2026 BI Time-Limited Demand close, and why that date? On Track A, what had to come from Harbor Point and Cardinal State before the BI release was signed?",
-            "Track A nets John Doe $21,469.92 from $40,000.00. Name every deduction with its figure, and explain how costs and liens split between the BI and UM streams."
+            "Track A nets John Doe {{netA}} from $40,000.00. Name every deduction with its figure, and explain how costs and liens split between the BI and UM streams."
           ],
           summary: [
             "Summarize what you learned across all five days of John Doe's file: the principles that carried from intake to deposition, not the clicks.",
@@ -8235,7 +8235,7 @@ window.CM_CASE_FLOW = {
           ai: [
             ["Stack and Payer Order", 15, "$10,000 → $20,000 → $10,000 = $40,000 in order; PIP, Keystone PD and Bluewater outside it; Payer Order correct"],
             ["Gap and documentation", 10, "14 days (02/06 → 02/20/2026); reasons and corroboration named, including Dr. Reyes's 06/19/2026 letter"],
-            ["Settlement mechanics", 15, "08/21/2026 (30 days from receipt on 07/22); written consent before the release; $21,469.92 reconciled with the 25% / 75% allocation"],
+            ["Settlement mechanics", 15, "08/21/2026 (30 days from receipt on 07/22); written consent before the release; {{netA}} reconciled with the 25% / 75% allocation"],
             ["Litigation and liability", 10, "The fork explained; mediation non-binding, arbitration binding; each allegation matched to its evidence"],
             ["Completeness", 10, "Every question answered substantively"]
           ],
@@ -8249,7 +8249,7 @@ window.CM_CASE_FLOW = {
         notes: [
           "This is the last check before Track B's close-out. Tell the room it spans all five days and is answered from one file: names, dates and figures, not general rules.",
           "Put Question 7 to the room aloud before anyone writes: “John asks how to explain the gap. What do you say?” The only right answer listens, tells him Atty. Thorne will go through it with him, escalates at once and logs the call. The Gap Record is already in counsel's prep set, and the 2021 low-back visits sit in the medical-history category clients most often underreport, which defense counsel already has.",
-          "Question 4 is the arithmetic gate: $40,000.00 less the $13,333.33 fee, $486.75 in costs and the $1,240.00 and $3,470.00 liens leaves $21,469.92. A trainee who cannot reconcile it to the cent goes back to Track A's disbursement.",
+          "Question 4 is the arithmetic gate: $40,000.00 less the $13,333.33 fee, $486.75 in costs and the $1,240.00 and {{payoffA}} liens leaves {{netA}}. A trainee who cannot reconcile it to the cent goes back to Track A's disbursement.",
           "Compare self-ratings with scores across all five days. A 5 on the UPL competency from a trainee who coached John in Question 7 does not pass: UPL is a gate, not a weight."
         ]
       }
@@ -8260,11 +8260,11 @@ window.CM_CASE_FLOW = {
       n: 5, id: "d5m5",
       title: "Case Won: The Arbitration Award, Liens & the Litigation Net Sheet",
       about: "Track B closes: the 07/06/2027 award, the liens reduced against a litigated fund, and the LSH Net Sheet that takes $40,000.00 to John Doe at the 40% tier.",
-      quiz: [{"q": "Track B recovers the same $40,000.00 gross as Track A. Why does John Doe net $15,748.75 instead of $21,469.92?", "opts": ["The arbitrator reduced the award for the 14-Day Gap", "Suit was filed: the fee moved to 40% ($16,000.00) and costs rose to $3,895.25", "The UM carriers paid less than their limits", "Peach State's lien grew with interest"], "a": 1, "r": "Same gross, different deductions: 40% once suit was filed ($16,000.00 against $13,333.33), $3,895.25 in receipted costs against $486.75, and liens of $4,356.00 against $4,710.00. $40,000.00 – $16,000.00 – $3,895.25 – $4,356.00 = $15,748.75."}, {"q": "Peach State asserts $1,860.00 against the litigated fund. What does the procurement-cost reduction at this file's fee produce?", "opts": ["$1,240.00", "$1,116.00", "$744.00", "$1,860.00"], "a": 1, "r": "The reduction follows the fee actually charged: 40% of $1,860.00 is $744.00, so $1,860.00 – $744.00 = $1,116.00, accepted in writing 07/14/2027. Track A's $1,240.00 reflected the 33⅓% pre-suit fee."}],
+      quiz: [{"q": "Track B recovers the same $40,000.00 gross as Track A. Why does John Doe net {{netB}} instead of {{netA}}?", "opts": ["The arbitrator reduced the award for the 14-Day Gap", "Suit was filed: the fee moved to 40% ($16,000.00) and costs rose to $3,895.25", "The UM carriers paid less than their limits", "Peach State's lien grew with interest"], "a": 1, "r": "Same gross, different deductions: 40% once suit was filed ($16,000.00 against $13,333.33), $3,895.25 in receipted costs against $486.75, and liens of {{liensPaidB}} against {{liensPaidA}}. $40,000.00 – $16,000.00 – $3,895.25 – {{liensPaidB}} = {{netB}}."}, {"q": "Peach State asserts $1,860.00 against the litigated fund. What does the procurement-cost reduction at this file's fee produce?", "opts": ["$1,240.00", "$1,116.00", "$744.00", "$1,860.00"], "a": 1, "r": "The reduction follows the fee actually charged: 40% of $1,860.00 is $744.00, so $1,860.00 – $744.00 = $1,116.00, accepted in writing 07/14/2027. Track A's $1,240.00 reflected the 33⅓% pre-suit fee."}],
       blocks: [
-        {"kind": "lesson", "id": "d5m5-l1", "brief": true, "title": "Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund", "topic": "Same $40,000.00, a different net: what suit cost the client, line by line", "visual": "Two tall ledger cards side by side on cream: TRACK A (navy header) and TRACK B (orange header), with the same five rows (Gross, Fee, Costs, Liens, Net). Both gross rows read $40,000.00; on Track B the fee, costs and liens rows are highlighted in orange; the net rows read $21,469.92 and $15,748.75 in large mono type. Between the cards, a slim arrow labelled SUIT FILED 09/24/2026 · 40% TIER. At the foot, a red chip: “No Payoff Letter, no payment.”", "tell": {"why": "Keystone's stonewall turned a $40,000.00 settlement into a lawsuit, a mediation and an arbitration. The 07/06/2027 award brings in the same $40,000.00 gross as Track A, yet John Doe nets $15,748.75, not $21,469.92. The Net Sheet shows him exactly why, line by line, before he signs.", "rules": ["The award ends the case, not the work. Laura Whitcomb's 07/06/2027 award finds John Doe's damages exceed the UM limits and awards Harbor Point's $20,000.00 and Cardinal State's $10,000.00; with Keystone's $10,000.00 BI tendered at the 03/18/2027 mediation, the gross is $40,000.00.", "The fee follows the retainer, not the outcome. Suit was filed 09/24/2026, so the 40% tier applies: $16,000.00. Atty. Thorne confirms the fee on each stream from the retainer before the Net Sheet is drafted.", "Litigation costs need the same receipts as pre-suit costs: filing fee and summons $218.00, Allied Process Services $285.00, mediation (Hon. Carla Benton, plaintiff's half) $1,200.00, arbitration (plaintiff's share of Laura Whitcomb's fee) $900.00, Riverton Court Reporting $645.50 and certified records for the binder $160.00, plus the pre-suit $486.75: $3,895.25.", "A litigated fund still pays only what is owed. The liens are Peach State's $1,860.00 and Riverton Spine & Rehab's $4,625.00 owed after the audit and MedPay; PIP, Crescent's write-off and the PIP-paid providers stay at zero.", "Reduce against the fund the litigation built. Peach State's procurement-cost reduction follows the fee actually charged: 40% of $1,860.00 is $744.00, accepted at $1,116.00 on 07/14/2027. Riverton Spine & Rehab accepts $3,240.00 in a signed Payoff Letter dated 07/16/2027.", "Net: $40,000.00 – $16,000.00 – $3,895.25 – $4,356.00 = $15,748.75. Nothing leaves trust until both UM checks have cleared, every Payoff Letter is in Documents and John Doe has signed the Settlement Statement."], "upl": ["You build and explain the arithmetic and the documents. Whether suing was worth it, whether the fee tier was fair and whether John should sign are Atty. Thorne's to discuss with him."]}, "show": {"caption": "Same gross, two nets: what the litigation cost John Doe", "type": "compare", "boxes": [{"head": "TRACK A — settled before suit (10/22/2026)", "items": ["Gross $40,000.00", "Fee 33⅓%: $13,333.33", "Costs: $486.75", "Liens: $1,240.00 + $3,470.00 = $4,710.00", "Net to John Doe: $21,469.92"]}, {"head": "TRACK B — won at arbitration (07/30/2027)", "items": ["Gross $40,000.00", "Fee 40% (suit filed 09/24/2026): $16,000.00", "Costs: $3,895.25", "Liens: $1,116.00 + $3,240.00 = $4,356.00", "Net to John Doe: $15,748.75"]}]}, "ops": [["Award received (07/06/2027)", "Log it and diary each carrier's payment", "CMS → Litigation · CMS → Calendar", "Harbor Point $20,000.00 · Cardinal State $10,000.00"], ["The fund is known", "Send the Reduction Requests for Atty. Thorne's approval", "LSH Net Sheet · CMS → Liens", "Peach State $1,116.00 · Riverton Spine & Rehab $3,240.00"], ["Last UM check cleared", "Complete the Net Sheet and route the Settlement Statement", "LSH Net Sheet · CMS → Tasks → Escalate", "Net $15,748.75, routed before John Doe signs"]], "best": ["Show John the fee tier from his own retainer: 40% once suit was filed.", "Attach a receipt to every litigation cost before it reaches the Net Sheet.", "Reduce liens against the litigated fund at the fee actually charged.", "Pitfall: carrying Track A's 33⅓% fee or its $1,240.00 reduction into the litigated file.", "Pitfall: disbursing Keystone's check, held in trust since 03/29/2027, before the liens are resolved."], "sources": ["D3#21", "D3#23", "D3#24", "D3#25", "D3#27", "Newly authored: the Track B close-out (the 07/06/2027 award and the litigated Net Sheet)"], "rubric": {"ai": [["Fee tier", 15, "The 40% tier applied once suit was filed: $16,000.00"], ["Litigation costs", 15, "Seven receipted items = $3,895.25, each with its source"], ["Lien reductions", 15, "Peach State at the 40% rate to $1,116.00; Riverton Spine & Rehab $3,240.00 with its Payoff Letter"], ["Net", 15, "$15,748.75, reconciled to the trust deposits"]], "trainer": [["Client explanation", 20, "Explains the difference from a pre-suit settlement as plain arithmetic, without opinion"], ["UPL boundary", 20, "Leaves the worth of the lawsuit and the fee's fairness to Atty. Thorne"]]}, "notes": ["Open with the two nets side by side and ask the room what changed. Not the gross: the fee tier, the costs and the lien math.", "Ask: “Peach State's reduction was $620.00 on Track A. Why $744.00 now?” The reduction follows the fee actually charged.", "Stop anyone who reaches for an opinion on whether the lawsuit was worth it. That is Atty. Thorne's conversation with John."]},
-        {"kind": "activity", "id": "d5m5-a1", "title": "The Litigation Net Sheet: Disbursing the Award", "topic": "Skill Activity — take the award to $15,748.75 on the LSH Net Sheet", "visual": "The LSH Net Sheet fills the slide in its four navy-headed sections. Section 1 reads Gross $40,000.00 with three carrier chips (Keystone, Harbor Point, Cardinal State); Section 2 shows Attorney Fees at 40% = $16,000.00 with an orange SUIT FILED tag and seven receipt rows totalling $3,895.25; Section 3 lists the providers with Peach State reduced to $1,116.00 and Riverton Spine & Rehab to $3,240.00, the zero-balance rows greyed with NOT PAYABLE chips; Section 4 ends on a large orange NET CLIENT DISBURSEMENT $15,748.75.", "act": {"scenario": "File date 07/22/2027. Laura Whitcomb's 07/06/2027 award gave Harbor Point's $20,000.00 and Cardinal State's $10,000.00; their checks arrived 07/20 and today, joining Keystone's $10,000.00 held in trust since 03/29/2027: $40,000.00. Peach State accepted $1,116.00 (07/14) and Riverton Spine & Rehab $3,240.00 (07/16), both in writing. Every litigation cost is receipted.", "prompt": "Complete John Doe's LSH Net Sheet for the litigated recovery. Section 1: the gross by carrier. Section 2: the 40% fee the retainer sets once suit is filed, and every receipted cost, pre-suit and litigation, on its row. Section 3: every provider and payer with charges, payments, adjustments and balance owed, and each lien's reduced figure with its Payoff Letter. Section 4: the net to John Doe. Tie it to the Trust Ledger and route the Settlement Statement to Atty. Thorne. Graded judgment: what you explain to John about the difference from a pre-suit settlement, and what you leave to Atty. Thorne.", "tool": "LSH Net Sheet · CMS → Financial Ledger → Trust · CMS → Tasks → Escalate", "output": "A Net Sheet reaching $15,748.75, every cost and lien proved, routed to Atty. Thorne before John Doe signs.", "checkpoints": ["Gross: Keystone $10,000.00 (mediation, 03/18/2027) + Harbor Point $20,000.00 + Cardinal State $10,000.00 (award, 07/06/2027) = $40,000.00", "Fee at the 40% tier (suit filed 09/24/2026): $16,000.00, confirmed by Atty. Thorne from the retainer", "Costs receipted: $486.75 pre-suit + $218.00 filing + $285.00 service + $1,200.00 mediation + $900.00 arbitration + $645.50 court reporter + $160.00 certified records = $3,895.25", "Liens: Peach State $1,860.00 → $1,116.00 (40% procurement-cost reduction, $744.00, 07/14/2027); Riverton Spine & Rehab $6,290.00 → audited $6,105.00 → $4,625.00 owed after MedPay → $3,240.00 (Payoff Letter 07/16/2027); total $4,356.00", "Zero-balance lines kept off the payables with their source: PIP $5,000.00, Crescent's $1,540.00 write-off, the PIP-paid providers", "Net: $40,000.00 – $16,000.00 – $3,895.25 – $4,356.00 = $15,748.75; the trust deposits of $40,000.00 tie to the gross", "Nothing disbursed until both UM checks clear and John Doe signs the Settlement Statement (07/29/2027); disbursement 07/30/2027", "The difference from a pre-suit settlement explained to John Doe as arithmetic; whether suing was worth it routed to Atty. Thorne"]}, "ops": [["Last UM check received (07/22/2027)", "Post it and complete the Net Sheet", "LSH Net Sheet", "Gross $40,000.00 · net $15,748.75"], ["Liens accepted in writing", "Log the reduced figures and Payoff Letters", "LSH Net Sheet · CMS → Documents", "Peach State $1,116.00 · Riverton Spine & Rehab $3,240.00"], ["Net Sheet ties to trust", "Route the Settlement Statement", "CMS → Tasks → Escalate", "Routed before John Doe signs"]], "best": ["Enter every cost from its receipt, on its row.", "Write each reduction's basis on its line.", "Pitfall: carrying Track A's 33⅓% fee into the litigated file.", "Pitfall: paying a lien from a phone call instead of a Payoff Letter."], "sources": ["D3#21", "D3#25", "D3#27", "D3#28", "Newly authored: the Track B close-out"], "rubric": {"ai": [["Gross and fee", 15, "$40,000.00 by carrier; 40% = $16,000.00"], ["Costs", 15, "$3,895.25 from seven receipted items"], ["Liens", 15, "$1,116.00 and $3,240.00 with their Payoff Letters; zero-balance lines off the payables"], ["Net", 15, "$15,748.75, tied to the trust deposits"]], "trainer": [["Explaining the difference", 20, "Plain arithmetic to John Doe: fee tier, costs, liens"], ["UPL boundary", 20, "No opinion on the lawsuit's worth or the fee; routed to Atty. Thorne"]]}, "notes": ["Have each trainee open the Net Sheet beside the slide and check it at the Track B stage. The sheet starts blank, so Track B is built from the bills again, not copied from Track A; the trap is the fee: 33⅓% from habit instead of 40%.", "Once they have checked their own sheet, the corrected Track B sheet opens beside it: walk the fee tier, the seven receipted costs and the two reductions at the 40% rate, line by line against what they entered.", "Ask: “John says a friend kept more from his settlement. What do you say?” Only arithmetic, and a route to Atty. Thorne."]},
-        {"kind": "check", "id": "d5m5-kc", "title": "Track B Close-Out Check", "topic": "Knowledge Check + Case Manager Self-Summary & Skill Scale", "visual": "Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange; beside it, the two nets stacked as chips, TRACK A $21,469.92 and TRACK B $15,748.75. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, beside the 1–5 SKILL SCALE as a five-step horizontal ladder. Far right, the 60/40 split as a stacked bar, with UPL as a separate red gate chip below it.", "check": {"questions": ["Take the $40,000.00 award to John Doe's $15,748.75: name every deduction with its figure and its source.", "Why is the fee 40% on this file, and which document says so? Who confirms it before the Net Sheet is drafted?", "Peach State accepted $1,240.00 on Track A and $1,116.00 on Track B. Show both reductions and why they differ."], "summary": ["Summarize, in your own words, what you learned closing Track B: the principles behind a litigated Net Sheet, not the clicks.", "Articulate your strategy: the award is in and both UM checks are in trust. What is your next action before the 07/30/2027 disbursement, and why is it the right one rather than something else?", "Identify the one thing in this module you are least confident about, and what you would need in order to be confident."], "scale": ["Applying the retainer's fee tier to a litigated recovery", "Proving litigation costs with receipts", "Reducing liens against a litigated fund", "Explaining a Net Sheet to a client without advice"]}, "best": ["Answer from the file: names, dates and figures, not general rules."], "sources": ["D3#23", "D3#24", "D3#27", "Newly authored: the Track B close-out"], "rubric": {"ai": [["Net Sheet arithmetic", 20, "$40,000.00 → $15,748.75 with every deduction and its source"], ["Fee and lien doctrine", 20, "The 40% tier from the retainer; reductions at the fee actually charged"], ["Completeness", 20, "Every question answered substantively"]], "trainer": [["Strategic articulation", 20, "The stated next action is the right one and the reasoning holds"], ["UPL boundary", 20, "No opinion on the worth of the suit, the fee or the award"]]}, "notes": ["This is the last check of the Case Flow: the file is closed from intake to award.", "Question 5 is the UPL gate: arithmetic yes, opinion no. A trainee who says the lawsuit was or wasn't worth it has crossed the line."]}
+        {"kind": "lesson", "id": "d5m5-l1", "brief": true, "title": "Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund", "topic": "Same $40,000.00, a different net: what suit cost the client, line by line", "visual": "Two tall ledger cards side by side on cream: TRACK A (navy header) and TRACK B (orange header), with the same five rows (Gross, Fee, Costs, Liens, Net). Both gross rows read $40,000.00; on Track B the fee, costs and liens rows are highlighted in orange; the net rows read {{netA}} and {{netB}} in large mono type. Between the cards, a slim arrow labelled SUIT FILED 09/24/2026 · 40% TIER. At the foot, a red chip: “No Payoff Letter, no payment.”", "tell": {"why": "Keystone's stonewall turned a $40,000.00 settlement into a lawsuit, a mediation and an arbitration. The 07/06/2027 award brings in the same $40,000.00 gross as Track A, yet John Doe nets {{netB}}, not {{netA}}. The Net Sheet shows him exactly why, line by line, before he signs.", "rules": ["The award ends the case, not the work. Laura Whitcomb's 07/06/2027 award finds John Doe's damages exceed the UM limits and awards Harbor Point's $20,000.00 and Cardinal State's $10,000.00; with Keystone's $10,000.00 BI tendered at the 03/18/2027 mediation, the gross is $40,000.00.", "The fee follows the retainer, not the outcome. Suit was filed 09/24/2026, so the 40% tier applies: $16,000.00. Atty. Thorne confirms the fee on each stream from the retainer before the Net Sheet is drafted.", "Litigation costs need the same receipts as pre-suit costs: filing fee and summons $218.00, Allied Process Services $285.00, mediation (Hon. Carla Benton, plaintiff's half) $1,200.00, arbitration (plaintiff's share of Laura Whitcomb's fee) $900.00, Riverton Court Reporting $645.50 and certified records for the binder $160.00, plus the pre-suit $486.75: $3,895.25.", "A litigated fund still pays only what is owed. The liens are Peach State's $1,860.00 and Riverton Spine & Rehab's {{spineRehabOwed}} owed after the audit and MedPay; PIP, Crescent's write-off and the PIP-paid providers stay at zero.", "Reduce against the fund the litigation built. Peach State's procurement-cost reduction follows the fee actually charged: 40% of $1,860.00 is $744.00, accepted at $1,116.00 on 07/14/2027. Riverton Spine & Rehab accepts {{payoffB}} in a signed Payoff Letter dated 07/16/2027.", "Net: $40,000.00 – $16,000.00 – $3,895.25 – {{liensPaidB}} = {{netB}}. Nothing leaves trust until both UM checks have cleared, every Payoff Letter is in Documents and John Doe has signed the Settlement Statement."], "upl": ["You build and explain the arithmetic and the documents. Whether suing was worth it, whether the fee tier was fair and whether John should sign are Atty. Thorne's to discuss with him."]}, "show": {"caption": "Same gross, two nets: what the litigation cost John Doe", "type": "compare", "boxes": [{"head": "TRACK A — settled before suit (10/22/2026)", "items": ["Gross $40,000.00", "Fee 33⅓%: $13,333.33", "Costs: $486.75", "Liens: $1,240.00 + {{payoffA}} = {{liensPaidA}}", "Net to John Doe: {{netA}}"]}, {"head": "TRACK B — won at arbitration (07/30/2027)", "items": ["Gross $40,000.00", "Fee 40% (suit filed 09/24/2026): $16,000.00", "Costs: $3,895.25", "Liens: $1,116.00 + {{payoffB}} = {{liensPaidB}}", "Net to John Doe: {{netB}}"]}]}, "ops": [["Award received (07/06/2027)", "Log it and diary each carrier's payment", "CMS → Litigation · CMS → Calendar", "Harbor Point $20,000.00 · Cardinal State $10,000.00"], ["The fund is known", "Send the Reduction Requests for Atty. Thorne's approval", "LSH Net Sheet · CMS → Liens", "Peach State $1,116.00 · Riverton Spine & Rehab {{payoffB}}"], ["Last UM check cleared", "Complete the Net Sheet and route the Settlement Statement", "LSH Net Sheet · CMS → Tasks → Escalate", "Net {{netB}}, routed before John Doe signs"]], "best": ["Show John the fee tier from his own retainer: 40% once suit was filed.", "Attach a receipt to every litigation cost before it reaches the Net Sheet.", "Reduce liens against the litigated fund at the fee actually charged.", "Pitfall: carrying Track A's 33⅓% fee or its $1,240.00 reduction into the litigated file.", "Pitfall: disbursing Keystone's check, held in trust since 03/29/2027, before the liens are resolved."], "sources": ["D3#21", "D3#23", "D3#24", "D3#25", "D3#27", "Newly authored: the Track B close-out (the 07/06/2027 award and the litigated Net Sheet)"], "rubric": {"ai": [["Fee tier", 15, "The 40% tier applied once suit was filed: $16,000.00"], ["Litigation costs", 15, "Seven receipted items = $3,895.25, each with its source"], ["Lien reductions", 15, "Peach State at the 40% rate to $1,116.00; Riverton Spine & Rehab {{payoffB}} with its Payoff Letter"], ["Net", 15, "{{netB}}, reconciled to the trust deposits"]], "trainer": [["Client explanation", 20, "Explains the difference from a pre-suit settlement as plain arithmetic, without opinion"], ["UPL boundary", 20, "Leaves the worth of the lawsuit and the fee's fairness to Atty. Thorne"]]}, "notes": ["Open with the two nets side by side and ask the room what changed. Not the gross: the fee tier, the costs and the lien math.", "Ask: “Peach State's reduction was $620.00 on Track A. Why $744.00 now?” The reduction follows the fee actually charged.", "Stop anyone who reaches for an opinion on whether the lawsuit was worth it. That is Atty. Thorne's conversation with John."]},
+        {"kind": "activity", "id": "d5m5-a1", "title": "The Litigation Net Sheet: Disbursing the Award", "topic": "Skill Activity — take the award to {{netB}} on the LSH Net Sheet", "visual": "The LSH Net Sheet fills the slide in its four navy-headed sections. Section 1 reads Gross $40,000.00 with three carrier chips (Keystone, Harbor Point, Cardinal State); Section 2 shows Attorney Fees at 40% = $16,000.00 with an orange SUIT FILED tag and seven receipt rows totalling $3,895.25; Section 3 lists the providers with Peach State reduced to $1,116.00 and Riverton Spine & Rehab to {{payoffB}}, the zero-balance rows greyed with NOT PAYABLE chips; Section 4 ends on a large orange NET CLIENT DISBURSEMENT {{netB}}.", "act": {"scenario": "File date 07/22/2027. Laura Whitcomb's 07/06/2027 award gave Harbor Point's $20,000.00 and Cardinal State's $10,000.00; their checks arrived 07/20 and today, joining Keystone's $10,000.00 held in trust since 03/29/2027: $40,000.00. Peach State accepted $1,116.00 (07/14) and Riverton Spine & Rehab {{payoffB}} (07/16), both in writing. Every litigation cost is receipted.", "prompt": "Complete John Doe's LSH Net Sheet for the litigated recovery. Section 1: the gross by carrier. Section 2: the 40% fee the retainer sets once suit is filed, and every receipted cost, pre-suit and litigation, on its row. Section 3: every provider and payer with charges, payments, adjustments and balance owed, and each lien's reduced figure with its Payoff Letter. Section 4: the net to John Doe. Tie it to the Trust Ledger and route the Settlement Statement to Atty. Thorne. Graded judgment: what you explain to John about the difference from a pre-suit settlement, and what you leave to Atty. Thorne.", "tool": "LSH Net Sheet · CMS → Financial Ledger → Trust · CMS → Tasks → Escalate", "output": "A Net Sheet reaching {{netB}}, every cost and lien proved, routed to Atty. Thorne before John Doe signs.", "checkpoints": ["Gross: Keystone $10,000.00 (mediation, 03/18/2027) + Harbor Point $20,000.00 + Cardinal State $10,000.00 (award, 07/06/2027) = $40,000.00", "Fee at the 40% tier (suit filed 09/24/2026): $16,000.00, confirmed by Atty. Thorne from the retainer", "Costs receipted: $486.75 pre-suit + $218.00 filing + $285.00 service + $1,200.00 mediation + $900.00 arbitration + $645.50 court reporter + $160.00 certified records = $3,895.25", "Liens: Peach State $1,860.00 → $1,116.00 (40% procurement-cost reduction, $744.00, 07/14/2027); Riverton Spine & Rehab $6,290.00 → audited $6,105.00 → {{spineRehabOwed}} owed after MedPay → {{payoffB}} (Payoff Letter 07/16/2027); total {{liensPaidB}}", "Zero-balance lines kept off the payables with their source: PIP $5,000.00, Crescent's $1,540.00 write-off, the PIP-paid providers", "Net: $40,000.00 – $16,000.00 – $3,895.25 – {{liensPaidB}} = {{netB}}; the trust deposits of $40,000.00 tie to the gross", "Nothing disbursed until both UM checks clear and John Doe signs the Settlement Statement (07/29/2027); disbursement 07/30/2027", "The difference from a pre-suit settlement explained to John Doe as arithmetic; whether suing was worth it routed to Atty. Thorne"]}, "ops": [["Last UM check received (07/22/2027)", "Post it and complete the Net Sheet", "LSH Net Sheet", "Gross $40,000.00 · net {{netB}}"], ["Liens accepted in writing", "Log the reduced figures and Payoff Letters", "LSH Net Sheet · CMS → Documents", "Peach State $1,116.00 · Riverton Spine & Rehab {{payoffB}}"], ["Net Sheet ties to trust", "Route the Settlement Statement", "CMS → Tasks → Escalate", "Routed before John Doe signs"]], "best": ["Enter every cost from its receipt, on its row.", "Write each reduction's basis on its line.", "Pitfall: carrying Track A's 33⅓% fee into the litigated file.", "Pitfall: paying a lien from a phone call instead of a Payoff Letter."], "sources": ["D3#21", "D3#25", "D3#27", "D3#28", "Newly authored: the Track B close-out"], "rubric": {"ai": [["Gross and fee", 15, "$40,000.00 by carrier; 40% = $16,000.00"], ["Costs", 15, "$3,895.25 from seven receipted items"], ["Liens", 15, "$1,116.00 and {{payoffB}} with their Payoff Letters; zero-balance lines off the payables"], ["Net", 15, "{{netB}}, tied to the trust deposits"]], "trainer": [["Explaining the difference", 20, "Plain arithmetic to John Doe: fee tier, costs, liens"], ["UPL boundary", 20, "No opinion on the lawsuit's worth or the fee; routed to Atty. Thorne"]]}, "notes": ["Have each trainee open the Net Sheet beside the slide and check it at the Track B stage. The sheet starts blank, so Track B is built from the bills again, not copied from Track A; the trap is the fee: 33⅓% from habit instead of 40%.", "Once they have checked their own sheet, the corrected Track B sheet opens beside it: walk the fee tier, the seven receipted costs and the two reductions at the 40% rate, line by line against what they entered.", "Ask: “John says a friend kept more from his settlement. What do you say?” Only arithmetic, and a route to Atty. Thorne."]},
+        {"kind": "check", "id": "d5m5-kc", "title": "Track B Close-Out Check", "topic": "Knowledge Check + Case Manager Self-Summary & Skill Scale", "visual": "Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange; beside it, the two nets stacked as chips, TRACK A {{netA}} and TRACK B {{netB}}. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, beside the 1–5 SKILL SCALE as a five-step horizontal ladder. Far right, the 60/40 split as a stacked bar, with UPL as a separate red gate chip below it.", "check": {"questions": ["Take the $40,000.00 award to John Doe's {{netB}}: name every deduction with its figure and its source.", "Why is the fee 40% on this file, and which document says so? Who confirms it before the Net Sheet is drafted?", "Peach State accepted $1,240.00 on Track A and $1,116.00 on Track B. Show both reductions and why they differ."], "summary": ["Summarize, in your own words, what you learned closing Track B: the principles behind a litigated Net Sheet, not the clicks.", "Articulate your strategy: the award is in and both UM checks are in trust. What is your next action before the 07/30/2027 disbursement, and why is it the right one rather than something else?", "Identify the one thing in this module you are least confident about, and what you would need in order to be confident."], "scale": ["Applying the retainer's fee tier to a litigated recovery", "Proving litigation costs with receipts", "Reducing liens against a litigated fund", "Explaining a Net Sheet to a client without advice"]}, "best": ["Answer from the file: names, dates and figures, not general rules."], "sources": ["D3#23", "D3#24", "D3#27", "Newly authored: the Track B close-out"], "rubric": {"ai": [["Net Sheet arithmetic", 20, "$40,000.00 → {{netB}} with every deduction and its source"], ["Fee and lien doctrine", 20, "The 40% tier from the retainer; reductions at the fee actually charged"], ["Completeness", 20, "Every question answered substantively"]], "trainer": [["Strategic articulation", 20, "The stated next action is the right one and the reasoning holds"], ["UPL boundary", 20, "No opinion on the worth of the suit, the fee or the award"]]}, "notes": ["This is the last check of the Case Flow: the file is closed from intake to award.", "Question 5 is the UPL gate: arithmetic yes, opinion no. A trainee who says the lawsuit was or wasn't worth it has crossed the line."]}
       ]
     },
 

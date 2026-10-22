@@ -290,7 +290,7 @@
     "The defense's attacks are rehearsed in-house before Keystone sees anything."
    ],
    [
-    "$16,401.40 in Specials sits against a $10,000 BI limit.",
+    "{{specials}} in Specials sits against a $10,000 BI limit.",
     "Peach State's $1,860.00 and Riverton's LOP wait behind that limit.",
     "Each interest gets registered while the ask is still being built."
    ],
@@ -309,7 +309,7 @@
    [
     "Lakeside's MMI note mentions possible repeat injections.",
     "They could cost $3,400 to $6,800 down the road.",
-    "That range gets folded into the audited $16,401.40 total."
+    "That range gets folded into the audited {{specials}} total."
    ],
    [
     "Settlement paperwork is signed and the file feels finished.",

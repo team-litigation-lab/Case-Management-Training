@@ -3344,7 +3344,7 @@ window.CM_CF_SLIDES = {
     "Final bills and records in",
     "Build and reconcile Specials ledger",
     "CMS → Financial Ledger → Specials",
-    "Medical total $14,817.40"
+    "Medical total {{medicalAudited}}"
    ],
    [
     "Before the ask",
@@ -3454,7 +3454,7 @@ window.CM_CF_SLIDES = {
      "The defense's attacks are rehearsed in-house before Keystone sees anything."
     ],
     [
-     "$16,401.40 in Specials sits against a $10,000 BI limit.",
+     "{{specials}} in Specials sits against a $10,000 BI limit.",
      "Peach State's $1,860.00 and Riverton's LOP wait behind that limit.",
      "Each interest gets registered while the ask is still being built."
     ],
@@ -3473,7 +3473,7 @@ window.CM_CF_SLIDES = {
     [
      "Lakeside's MMI note mentions possible repeat injections.",
      "They could cost $3,400 to $6,800 down the road.",
-     "That range gets folded into the audited $16,401.40 total."
+     "That range gets folded into the audited {{specials}} total."
     ],
     [
      "Settlement paperwork is signed and the file feels finished.",
@@ -3493,13 +3493,13 @@ window.CM_CF_SLIDES = {
    "Put **future medical in the narrative**, not the ledger",
    "List every lien; **re-verify the three targets** in order"
   ],
-  "deliver": "An **audited ledger at $16,401.40**, billed beside paid, liens, targets, flags routed",
+  "deliver": "An **audited ledger at {{specials}}**, billed beside paid, liens, targets, flags routed",
   "checks": [
    "**05/04/2026 duplicate removed**: $6,290.00 → $6,105.00",
-   "**Specials $16,401.40**: $14,817.40 medical + $1,584.00 wages",
+   "**Specials {{specials}}**: {{medicalAudited}} medical + $1,584.00 wages",
    "**Five pre-treatment shifts flagged**, with Northgate's Attendance Record",
    "Billed-vs-paid choice **routed to Atty. Thorne**",
-   "**Liens listed**: Peach State $1,860.00, LOP $4,625.00"
+   "**Liens listed**: Peach State $1,860.00, LOP {{spineRehabOwed}}"
   ],
   "dos": [
    "**Count the visits** before adding a provider's lines",
@@ -3637,7 +3637,7 @@ window.CM_CF_SLIDES = {
  },
  "d2m4-a2": {
   "image": "strategy-session",
-  "situation": "Early July 2026, before any demand. Your audit: MMI 06/12/2026, **Specials $16,401.40**, liens $1,860.00 and $6,105.00, targets **$10,000 → $20,000 → $10,000**. Atty. Thorne has called the strategy session.",
+  "situation": "Early July 2026, before any demand. Your audit: MMI 06/12/2026, **Specials {{specials}}**, liens $1,860.00 and {{spineRehabOwed}}, targets **$10,000 → $20,000 → $10,000**. Atty. Thorne has called the strategy session.",
   "steps": [
    "Brief in protocol order: **bottom line first**",
    "Then audited facts, **risks with their documents**, decisions, options",
@@ -3817,7 +3817,7 @@ window.CM_CF_SLIDES = {
  },
  "d3m1-a1": {
   "image": "checklist-qa",
-  "situation": "File date 07/20/2026. MMI reached; Specials $16,401.40. Atty. Thorne approved **$10,000 limits**, a Limited Release of Smith and Keystone, Smith's affidavit, 30 days from receipt. The draft awaits **your final audit**.",
+  "situation": "File date 07/20/2026. MMI reached; Specials {{specials}}. Atty. Thorne approved **$10,000 limits**, a Limited Release of Smith and Keystone, Smith's affidavit, 30 days from receipt. The draft awaits **your final audit**.",
   "steps": [
    "Audit the draft against **the Big Four** and the Final Scrub",
    "Log each deficiency as **an assigned CMS task**",
@@ -3828,7 +3828,7 @@ window.CM_CF_SLIDES = {
   "deliver": "An audited, served demand with **proof of delivery** and 08/21/2026 docketed",
   "checks": [
    "**$10,000 BI limit**; terms match Atty. Thorne's approval exactly",
-   "Big Four complete; **Specials total $16,401.40**",
+   "Big Four complete; **Specials total {{specials}}**",
    "Gap answered **on page one**; each deficiency an assigned task",
    "Served by **certified mail AND email**; 08/21/2026 docketed",
    "Any extension request **routed to Atty. Thorne** same day"
@@ -4030,8 +4030,8 @@ window.CM_CF_SLIDES = {
   "hook": "Map both attacks and their answers before the first call; **every stall becomes a record**.",
   "points": [
    "Build **the battle map** first: net floor, value drivers, attacks, rebuttals",
-   "Net floor: **$10,457.63 gross**, above Keystone's $10,000 limit",
-   "Anchor on **$16,401.40 total Specials**, not PIP's $5,000",
+   "Net floor: **{{netFloor}} gross**, above Keystone's $10,000 limit",
+   "Anchor on **{{specials}} total Specials**, not PIP's $5,000",
    "Restate the approved demand and name each stall; **make no moves**"
   ],
   "upl": "Present the record, relay offers; never counter, move number or deadline, or value offers.",
@@ -4040,7 +4040,7 @@ window.CM_CF_SLIDES = {
     "Keystone receives demand (07/22/2026)",
     "Build battle map; compute net floor",
     "Net Sheet · Case Notes",
-    "Floor $10,457.63; attacks matched to documents"
+    "Floor {{netFloor}}; attacks matched to documents"
    ],
    [
     "Adjuster calls with an offer",
@@ -4140,7 +4140,7 @@ window.CM_CF_SLIDES = {
     [
      "The call with Keystone starts in five minutes.",
      "Nobody has added liens, costs and fee for John Doe yet.",
-     "Below $10,457.63 gross he walks away with zero, and nobody knows."
+     "Below {{netFloor}} gross he walks away with zero, and nobody knows."
     ],
     [
      "Dana Whitfield says she is still waiting on authority.",
@@ -4611,7 +4611,7 @@ window.CM_CF_SLIDES = {
     [
      "Riverton Spine & Rehab bills 34 lines at $185.00 each.",
      "The treatment notes show only 33 visits; 05/04/2026 appears twice.",
-     "The duplicate comes off, then the reduction talk starts from $4,625.00."
+     "The duplicate comes off, then the reduction talk starts from {{spineRehabOwed}}."
     ],
     [
      "Peach State agrees to $1,240.00 on 10/09.",
@@ -4619,7 +4619,7 @@ window.CM_CF_SLIDES = {
      "John Doe sees his take-home climb with each saved dollar."
     ],
     [
-     "Riverton's billing office agrees to $3,470.00 over the phone.",
+     "Riverton's billing office agrees to {{payoffA}} over the phone.",
      "Disbursement is still days away on 10/22.",
      "A signed Payoff Letter with full-and-final language lands in the file."
     ]
@@ -4631,7 +4631,7 @@ window.CM_CF_SLIDES = {
      "Haggling for a percentage off starts from the padded figure."
     ],
     [
-     "Riverton's biller says sure, $3,470.00 works for them.",
+     "Riverton's biller says sure, {{payoffA}} works for them.",
      "Nobody sends or receives a letter about it.",
      "Later the full balance shows up, and nothing proves the deal."
     ],
@@ -4647,7 +4647,7 @@ window.CM_CF_SLIDES = {
   "image": "checklist-qa",
   "hook": "A reduction is won **on paper first**, then on the phone.",
   "points": [
-   "Negotiate from **the audited balance**: $6,485.00",
+   "Negotiate from **the audited balance**: {{openLiens}}",
    "Send **the Reduction Request** before you call",
    "Make **Atty. Thorne's ask**, nothing outside it",
    "**No Payoff Letter**, no payment"
@@ -4717,7 +4717,7 @@ window.CM_CF_SLIDES = {
    ],
    "donts": [
     [
-     "Riverton's biller says $3,470.00 works for them.",
+     "Riverton's biller says {{payoffA}} works for them.",
      "Nothing is sent and nothing comes back signed.",
      "The full balance reappears a month later."
     ],
@@ -4737,15 +4737,15 @@ window.CM_CF_SLIDES = {
    "Draft the Reduction Request; **send it once approved**",
    "Call the billing manager **inside Atty. Thorne's authority**",
    "State the audited balance, recovery and math; ask for **payment in full**",
-   "When the manager agrees to $3,470.00, say **it goes to Atty. Thorne**"
+   "When the manager agrees to {{payoffA}}, say **it goes to Atty. Thorne**"
   ],
-  "deliver": "Owed $4,625.00, a logged call, **a signed $3,470.00 Payoff Letter**, recomputed Net Sheet",
+  "deliver": "Owed {{spineRehabOwed}}, a logged call, **a signed {{payoffA}} Payoff Letter**, recomputed Net Sheet",
   "checks": [
    "34 billed lines **against 33 documented visits**",
    "Correction first: **$6,290.00 – $185.00 = $6,105.00**",
-   "**$3,470.00 not accepted** on the call",
+   "**{{payoffA}} not accepted** on the call",
    "**Signed Payoff Letter**: full and final, no balance billing",
-   "Net Sheet recomputed: **net $21,469.92**"
+   "Net Sheet recomputed: **net {{netA}}**"
   ],
   "dos": [
    "**Script the call** before you dial",
@@ -4771,7 +4771,7 @@ window.CM_CF_SLIDES = {
    "Keep **two streams apart**: BI $10,000.00, UM $30,000.00",
    "Price **the fee per stream**: $3,333.33 + $10,000.00 = $13,333.33",
    "**Every cost needs a receipt**: $486.75, charged once",
-   "Run both streams at once: **net $21,469.92**"
+   "Run both streams at once: **net {{netA}}**"
   ],
   "upl": "Build and explain the arithmetic; never say whether the net is enough.",
   "job": [
@@ -4791,7 +4791,7 @@ window.CM_CF_SLIDES = {
     "Both tabs complete",
     "Tie to trust; route for review",
     "CMS → Financial Ledger → Trust",
-    "Net $21,469.92; Atty. Thorne reviews first"
+    "Net {{netA}}; Atty. Thorne reviews first"
    ]
   ],
   "dos": [
@@ -4857,7 +4857,7 @@ window.CM_CF_SLIDES = {
   "clues": {
    "dos": [
     [
-     "Riverton's line on the Net Sheet drops from $6,290.00 to $3,470.00.",
+     "Riverton's line on the Net Sheet drops from $6,290.00 to {{payoffA}}.",
      "Atty. Thorne asks why each number moved.",
      "Beside it: the 05/04 duplicate and the one-third procurement-cost basis."
     ],
@@ -4867,7 +4867,7 @@ window.CM_CF_SLIDES = {
      "Two columns, BI and UM, sit next to each other for John Doe."
     ],
     [
-     "John Doe sits down to review his $21,469.92 net.",
+     "John Doe sits down to review his {{netA}} net.",
      "Each fee, cost and lien figure matches its receipt and letter.",
      "He leaves confident the firm counted his recovery honestly."
     ]
@@ -4893,7 +4893,7 @@ window.CM_CF_SLIDES = {
  },
  "d3m4-a1": {
   "image": "money-ledger",
-  "situation": "File date 10/13/2026. Cardinal State's check arrived today: **$40,000.00 received**, the last hasn't cleared. Peach State accepted $1,240.00, Riverton Spine & Rehab $3,470.00. Costs $486.75. **Both tabs are half-built**.",
+  "situation": "File date 10/13/2026. Cardinal State's check arrived today: **$40,000.00 received**, the last hasn't cleared. Peach State accepted $1,240.00, Riverton Spine & Rehab {{payoffA}}. Costs $486.75. **Both tabs are half-built**.",
   "steps": [
    "Post each check **by carrier and stream**",
    "Apply **the 33⅓% fee per stream** and receipted costs",
@@ -4901,11 +4901,11 @@ window.CM_CF_SLIDES = {
    "Complete the Lien Tracker: **asserted, audited, reduced**, payoff status",
    "**Tie both tabs** to the Trust Ledger"
   ],
-  "deliver": "A two-tab Net Sheet reaching **$21,469.92 both ways**, routed to Atty. Thorne",
+  "deliver": "A two-tab Net Sheet reaching **{{netA}} both ways**, routed to Atty. Thorne",
   "checks": [
    "Pre-suit fee: **$3,333.33 + $10,000.00 = $13,333.33**",
    "Costs **$486.75, split $121.69 / $365.06**, charged once",
-   "Net: **$5,367.48 + $16,102.44 = $21,469.92**",
+   "Net: **{{streamBi}} + {{streamUm}} = {{netA}}**",
    "PIP and Crescent's write-off **kept off the payables**",
    "**Future ESIs flagged** to Atty. Thorne before John Doe signs"
   ],
@@ -5096,7 +5096,7 @@ window.CM_CF_SLIDES = {
  "d3m4-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Take $40,000.00 to $21,469.92 **stream by stream**: fee, costs, liens. Why the 25% / 75% split?",
+   "Take $40,000.00 to {{netA}} **stream by stream**: fee, costs, liens. Why the 25% / 75% split?",
    "Name **the four document sets** needed before archive, the file's item for each, and the retention period.",
    "The Trust Ledger reads $0.00 after 10/22/2026. **Which records prove it**, and what would a leftover balance mean?"
   ]
@@ -6050,7 +6050,7 @@ window.CM_CF_SLIDES = {
   "steps": [
    "Build six sections from **the master index**",
    "Map every pleaded defense **to the exhibit answering it**",
-   "Rebuild the ledger from certified bills **to $16,401.40**",
+   "Rebuild the ledger from certified bills **to {{specials}}**",
    "Cross-check balances **against PIP and Peach State**",
    "Add Negotiation Log, release, consent requests; **route to Atty. Thorne**"
   ],
@@ -6058,7 +6058,7 @@ window.CM_CF_SLIDES = {
   "checks": [
    "Riverton audited: 33 visits × $185.00 = **$6,105.00**",
    "Crescent's bill **satisfied by Peach State's $1,860.00**",
-   "Open liens: $1,860.00 + $4,625.00 = **$6,485.00**",
+   "Open liens: $1,860.00 + {{spineRehabOwed}} = **{{openLiens}}**",
    "Section 3: **operative pleadings only**, all three defenses listed",
    "Routed to Atty. Thorne; **nothing about value** to Atty. Mercer"
   ],
@@ -6217,7 +6217,7 @@ window.CM_CF_SLIDES = {
    "Threshold exhibits first, **nothing from the Mediation Statement**",
    "Tab 5 shields **the 2021 low-back visits** with answering records",
    "Doorbell stills **reprinted in color** from the native file",
-   "Liens: $1,860.00 + $4,625.00 = **$6,485.00**; Crescent holds none",
+   "Liens: $1,860.00 + {{spineRehabOwed}} = **{{openLiens}}**; Crescent holds none",
    "Draft removed; **impasse memo flagged**, not exchanged"
   ],
   "dos": [
@@ -7784,17 +7784,17 @@ window.CM_CF_SLIDES = {
   "questions": [
    "List the **Recovery Stack in order**, limits and total; name three coverages outside it, then the Payer Order.",
    "When did **the 07/20/2026 demand's window** close? Why? Track A: what must UM carriers give before BI release?",
-   "Track A: $40,000.00 **nets $21,469.92**. Name each deduction's figure and how costs and liens split by stream."
+   "Track A: $40,000.00 **nets {{netA}}**. Name each deduction's figure and how costs and liens split by stream."
   ]
  },
  "d5m5-l1": {
   "image": "money-ledger",
-  "hook": "Same $40,000.00 gross; **suit changes the net** to $15,748.75.",
+  "hook": "Same $40,000.00 gross; **suit changes the net** to {{netB}}.",
   "points": [
    "Suit filed 09/24/2026: **the 40% tier**, $16,000.00",
    "Receipt **every litigation cost**: $3,895.25 in all",
    "Reduce liens **at the fee actually charged**",
-   "Net: **$15,748.75**, routed before John Doe signs"
+   "Net: **{{netB}}**, routed before John Doe signs"
   ],
   "upl": "Explain the arithmetic; whether suing was worth it is Atty. Thorne's.",
   "job": [
@@ -7808,13 +7808,13 @@ window.CM_CF_SLIDES = {
     "The fund is known",
     "Send Reduction Requests for approval",
     "LSH Net Sheet",
-    "$1,116.00 · $3,240.00"
+    "$1,116.00 · {{payoffB}}"
    ],
    [
     "Last UM check cleared",
     "Complete Net Sheet; route statement",
     "LSH Net Sheet",
-    "Net $15,748.75"
+    "Net {{netB}}"
    ]
   ],
   "dos": [
@@ -7890,7 +7890,7 @@ window.CM_CF_SLIDES = {
   "clues": {
    "dos": [
     [
-     "John Doe's litigated net comes in at $15,748.75.",
+     "John Doe's litigated net comes in at {{netB}}.",
      "He asks why settling pre-suit would have paid him more.",
      "His own retainer shows the fee climbs to 40% once suit is filed."
     ],
@@ -7916,7 +7916,7 @@ window.CM_CF_SLIDES = {
  },
  "d5m5-a1": {
   "image": "money-ledger",
-  "situation": "File date 07/22/2027. The award gave **Harbor Point $20,000.00 and Cardinal State $10,000.00**; with Keystone's $10,000.00, **$40,000.00 is in trust**. Peach State accepted $1,116.00, Riverton $3,240.00.",
+  "situation": "File date 07/22/2027. The award gave **Harbor Point $20,000.00 and Cardinal State $10,000.00**; with Keystone's $10,000.00, **$40,000.00 is in trust**. Peach State accepted $1,116.00, Riverton {{payoffB}}.",
   "steps": [
    "Enter **the gross by carrier**: $40,000.00",
    "Apply **the 40% fee** the retainer sets after suit",
@@ -7924,12 +7924,12 @@ window.CM_CF_SLIDES = {
    "Enter each lien's **reduced figure** with its Payoff Letter",
    "**Route the Settlement Statement** to Atty. Thorne"
   ],
-  "deliver": "A Net Sheet reaching **$15,748.75**, every cost and lien proved",
+  "deliver": "A Net Sheet reaching **{{netB}}**, every cost and lien proved",
   "checks": [
    "Fee at 40%: **$16,000.00**",
    "Costs receipted: **$3,895.25**",
-   "Liens: **$1,116.00 + $3,240.00** = $4,356.00",
-   "Net: **$15,748.75**, tied to trust",
+   "Liens: **$1,116.00 + {{payoffB}}** = {{liensPaidB}}",
+   "Net: **{{netB}}**, tied to trust",
    "Nothing paid **until John Doe signs**"
   ],
   "dos": [
@@ -7942,7 +7942,7 @@ window.CM_CF_SLIDES = {
  "d5m5-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Take the award to **$15,748.75**: every deduction, its figure and its source.",
+   "Take the award to **{{netB}}**: every deduction, its figure and its source.",
    "Why is the fee **40% on this file**, which document says so, and who confirms it?",
    "Peach State: $1,240.00 on Track A, $1,116.00 on Track B. **Show both reductions**."
   ]

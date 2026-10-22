@@ -279,7 +279,7 @@ A left-to-right audit run across the full slide. Far left, a navy vertical gate 
 |---|---|---|---|
 | MMI note received (06/12/2026) | Record MMI and the future-care plan; open the pre-demand audit | CMS → Case File → Treatment timeline · CMS → Tasks | MMI dated from the provider's note; audit task has an owner and a date |
 | Final bills and records in | Build the Specials ledger and reconcile it to the chronology | CMS → Financial Ledger → Specials | Every billed date matches a visit; medical total $14,817.40 |
-| Ledger reconciled | Register every lien; record billed beside paid | CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker | $1,860.00 and $6,105.00 listed; billed-vs-paid routed to Atty. Thorne |
+| Ledger reconciled | Register every lien; record billed beside paid | CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker | $1,860.00 and $4,625.00 listed; billed-vs-paid routed to Atty. Thorne |
 | Before the ask | Re-verify each limit and record the targets in order | CMS → Insurance tab → Coverage Matrix | $10,000 → $20,000 → $10,000 = $40,000, each with its written source |
 
 **Best practices & pitfalls**
@@ -943,7 +943,7 @@ A full-width Specials ledger on a cream card, provider rows in mono under five c
 - [ ] Medical: $685.00 + $6,105.00 + $640.00 + $2,395.00 + $640.00 + $3,400.00 + $640.00 + $312.40 = $14,817.40 (down from $15,002.40)
 - [ ] Wages: 9 shifts × 8 h × $22.00 = $1,584.00, Northgate HR letter attached; total Specials $14,817.40 + $1,584.00 = $16,401.40
 - [ ] Wage proof: each missed shift matched to a visit record or provider work note; the five shifts 02/09–02/13/2026, before first treatment, flagged with Northgate's Attendance Record (called out citing neck pain) as their support
-- [ ] Billed beside paid: PIP $5,000.00 on its five bills; Peach State $1,860.00 on Crescent's $3,400.00 (write-off $3,400.00 – $1,860.00 = $1,540.00, no balance billing); MedPay $1,480.00 on Riverton Spine & Rehab's first eight visits; LOP $4,625.00 owed; $312.40 paid by John Doe; paid-and-owed column $5,000.00 + $1,860.00 + $6,105.00 + $312.40 = $13,277.40 ($14,817.40 – $1,540.00)
+- [ ] Billed beside paid: PIP $5,000.00 on its five bills; Peach State $1,860.00 on Crescent's $3,400.00 (write-off $3,400.00 – $1,860.00 = $1,540.00, no balance billing); MedPay $1,480.00 on Riverton Spine & Rehab's first eight visits; LOP $4,625.00 owed; $312.40 paid by John Doe; paid-and-owed column $5,000.00 + $1,860.00 + $1,480.00 + $4,625.00 + $312.40 = $13,277.40 ($14,817.40 – $1,540.00)
 - [ ] Billed-vs-paid choice routed to Atty. Thorne under the governing collateral-source rule, not made in the ledger
 - [ ] Future medical ($3,400–$6,800: 1–2 repeat injections within 24 months) recorded in the narrative, outside the $16,401.40
 - [ ] Liens listed: Peach State $1,860.00 (plan funding type recorded) and Riverton Spine & Rehab $4,625.00 after the audit and MedPay's $1,480.00, in the CMS → Liens register, mirrored to the Lien Tracker; PIP recorded as carrying no reimbursement right against John Doe's recovery (Harbor Point, in writing, 03/02/2026); Harbor Point's position on PIP subrogation against Robert Smith and Keystone requested in writing and routed to Atty. Thorne, since it would compete for the same $10,000 BI limit
@@ -957,7 +957,7 @@ A full-width Specials ledger on a cream card, provider rows in mono under five c
 |---|---|---|---|
 | All bills in after MMI | Enter and reconcile every provider's charges | CMS → Financial Ledger → Specials | Medical total $14,817.40; the 05/04/2026 duplicate removed and noted |
 | Ledger totals | Show billed beside paid; route the choice and the wage flag | CMS → Tasks → Escalate | Both columns shown; routed to Atty. Thorne with the five pre-treatment shifts named |
-| Audit complete | Register liens and re-verify the targets | CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Insurance tab | $1,860.00 + $6,105.00 = $6,485.00 in liens listed; $40,000 in order |
+| Audit complete | Register liens and re-verify the targets | CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Insurance tab | $1,860.00 + $4,625.00 = $6,485.00 in liens listed; $40,000 in order |
 
 **Best practices & pitfalls**
 

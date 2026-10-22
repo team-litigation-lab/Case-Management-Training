@@ -291,7 +291,7 @@
   "d5m5-l1": {
     "dos": [
       [
-        "John Doe's litigated net comes in at $15,748.75.",
+        "John Doe's litigated net comes in at {{netB}}.",
         "He asks why settling pre-suit would have paid him more.",
         "His own retainer shows the fee climbs to 40% once suit is filed."
       ],

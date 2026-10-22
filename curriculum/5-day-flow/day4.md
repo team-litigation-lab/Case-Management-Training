@@ -1507,7 +1507,7 @@ A three-column workbench. Left: the draft binder as a grey stack topped by two r
 - [ ] Defense map: out of turn → RPD-26-018842, Ruth Calloway, doorbell video; unbelted → event data recorder (belt buckled), EMS report (“restrained”); the gap → EMS report (neck stiffness on the DOL), Gap Explanation Record and the 06/19/2026 Causation Letter; “degenerative” → the MRI read; failure to mitigate → the A-C-T record. Two legal questions flagged for Atty. Thorne, not answered: whether seatbelt evidence is admissible or can reduce damages here, and whether the Escape's alleged out-of-turn entry can affect a passenger's recovery; confirm the governing rule
 - [ ] Section 4 also holds the key correspondence (Keystone's 02/17/2026 acceptance of PD liability; what weight it carries is Atty. Thorne's call) and the 02/18/2027 deposition summary with highlighted transcript pages on the gap, the disruption, the 2021 visits and the seatbelt
 - [ ] Landmine 1: ledger rebuilt from the certified bills in hand, with Riverton Spine & Rehab's original 34-line bill audited to 33 visits × $185.00 = $6,105.00 (05/04/2026 duplicate removed) and marked “Pending Final Verification” until its certified ledger arrives; $14,817.40 medical + $1,584.00 wages = $16,401.40
-- [ ] Landmine 2: Crescent's $3,400.00 bill shown as satisfied by Peach State's $1,860.00 contract payment, proved by Peach State's EOB (no balance billing); open liens Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $6,485.00
+- [ ] Landmine 2: Crescent's $3,400.00 bill shown as satisfied by Peach State's $1,860.00 contract payment, proved by Peach State's EOB (no balance billing); open liens Peach State $1,860.00 + Riverton Spine & Rehab $4,625.00 = $6,485.00
 - [ ] Section 5 carries no PD claim: the Civic is Margaret Doe's, and her Keystone PD claim runs on its own file, outside John Doe's demand and the $40,000 stack
 - [ ] Section 6: Negotiation Log 07/20/2026 demand → $3,500 (08/05) → rebuttal (08/06) → $3,500 “final” (08/12) → lapse (08/21) → suit (09/24); draft release limited to Robert Smith and Keystone; consent requests to Harbor Point and Cardinal State drafted
 - [ ] Master index complete: every document in exactly one section with an exhibit number and Bates range; PDF OCR-searchable and bookmarked
@@ -1587,7 +1587,7 @@ A sorting board. Left column: the unsorted folder as a pile of white document ca
 - [ ] Tab 3: the full, certified RPD-26-018842 (not the public-redacted copy), identifiers redacted as the forum requires, the citation's admissibility flagged for Atty. Thorne; doorbell stills reprinted in color from the native file, chain of custody logged (copy secured 02/19/2026); event data recorder (belt buckled, 11 mph)
 - [ ] Tab 4: treatment chart and ledger $14,817.40 tied to certified bills; a certification requested from each provider (Riverton Urgent Care, Riverton Spine & Rehab, Lakeside Orthopedics, Summit Imaging Center, Crescent Pain & Spine, Riverton Drug) and from Riverton Fire (EMS), Riverton PD and Northgate HR, receipt logged; none in 14 days → second request and subpoena flag (Crescent's, requested 05/05/2027, due 05/19); Causation Letter 06/19/2026 flagged: an opinion, not a business record, admitted per the forum's rules; the gap proved by its underlying records, the Gap Explanation Record's synthesis left for the brief
 - [ ] Landmine 1, Tab 5: the 2021 records (three low-back chiropractic visits, resolved), the treating providers' own histories and John's 02/18/2027 deposition testimony showing no prior neck complaint, paired with the MRI's “no significant degenerative change at the adjacent levels” and the Causation Letter; if the letter is silent on the 2021 visits, flagged to Atty. Thorne to decide whether to seek a supplemental declaration from Dr. Reyes; the firm's intake questionnaire is privileged: a source, never an exhibit
-- [ ] Landmine 2, attorney's set: Lien Sheet stripped of Harbor Point PIP and Summit Imaging (PIP paid Summit's $2,395.00; no PIP reimbursement right, per the 03/02/2026 letter in the threshold record); liens Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $6,485.00; Crescent holds none
+- [ ] Landmine 2, attorney's set: Lien Sheet stripped of Harbor Point PIP and Summit Imaging (PIP paid Summit's $2,395.00; no PIP reimbursement right, per the 03/02/2026 letter in the threshold record); liens Peach State $1,860.00 + Riverton Spine & Rehab $4,625.00 = $6,485.00; Crescent holds none
 - [ ] Tab 6, wage proof only: Northgate HR letter, 9 shifts × 8 h × $22.00 = $1,584.00; the negotiation ledger (07/20/2026 demand to the executed settlement documents, no session offers) kept in the attorney's set
 - [ ] Impasse memo, negotiation ledger and Lien Sheet flagged for Atty. Thorne's privilege and exchange decision, none placed in the exchange set by the CM
 - [ ] Master index: C-numbers sequential, Bates ranges match page counts, authentication column complete, forum's evidence rule noted as “confirm with Atty. Thorne”; set approved before the 06/02/2027 exchange
@@ -1597,7 +1597,7 @@ A sorting board. Left column: the unsorted folder as a pile of white document ca
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | Exchange on 06/02/2027, 16 days out | Sort into six tabs, apply QC, number and Bates-range | CMS → Litigation → Exhibit index | C-1 onward; ranges match page counts; all four traps handled |
-| Lien Sheet lists PIP and Summit Imaging | Reconcile against the PIP payment log, Peach State's EOB and Harbor Point's 03/02/2026 letter | CMS → Financial Ledger → Net Sheet → Lien Tracker | Liens $1,860.00 + $6,105.00 = $6,485.00 |
+| Lien Sheet lists PIP and Summit Imaging | Reconcile against the PIP payment log, Peach State's EOB and Harbor Point's 03/02/2026 letter | CMS → Financial Ledger → Net Sheet → Lien Tracker | Liens $1,860.00 + $4,625.00 = $6,485.00 |
 | Set audited | Route the set and the flagged items to Atty. Thorne | CMS → Tasks → Escalate | Approved, then exchanged by 06/02/2027 |
 
 **Best practices & pitfalls**
@@ -1619,7 +1619,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 | 🤖 AI | **15%** | Sort accuracy | Every document in its tab; all four traps handled |
 | 🤖 AI | **15%** | Threshold and numbering | Exhaustion record leads; C-numbers sequential; Bates ranges match page counts |
 | 🤖 AI | **15%** | Prior medical shield | 2021 low-back records paired with the MRI read and the Causation Letter |
-| 🤖 AI | **15%** | Lien and wage figures | PIP and Summit stripped; $1,860.00 + $6,105.00 = $6,485.00; wages $1,584.00 |
+| 🤖 AI | **15%** | Lien and wage figures | PIP and Summit stripped; $1,860.00 + $4,625.00 = $6,485.00; wages $1,584.00 |
 | 🧑‍🏫 Trainer | **20%** | Landmine reasoning | Explains how each trap would have hurt John Doe at the hearing |
 | 🧑‍🏫 Trainer | **20%** | UPL boundary | Privilege, exchange and argument routed to Atty. Thorne; no expert opinion sought without his decision |
 

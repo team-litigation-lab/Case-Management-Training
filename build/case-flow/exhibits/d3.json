@@ -213,7 +213,7 @@
       ],
       "revealNote": "The Demand Package as Atty. Thorne signed and served it on 07/20/2026: the letter with its four faults corrected and the Exhibit Index as served, 81 pages. Every later activity on this file works from this set.",
       "revealPoints": [
-        "Specials $14,817.40 medical + $1,584.00 wages = $16,401.40, every line tied to a certified bill.",
+        "Specials {{medicalAudited}} medical + $1,584.00 wages = {{specials}}, every line tied to a certified bill.",
         "Acceptance runs 30 days from Keystone's receipt of the certified mailing, not from the date of the letter.",
         "A Limited Release of Robert Smith and Keystone Mutual only, preserving every UM/UIM claim and the Property Damage claim.",
         "Robert Smith's affidavit of no other insurance added as condition 3.",
