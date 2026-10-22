@@ -5870,7 +5870,7 @@ window.CM_CASE_FLOW = {
           why: "A BI claim is made against the driver who caused the crash. A UM claim is made against the insurance John Doe pays for himself, and that changes what the file is. Harbor Point and Cardinal State are not opponents the way Keystone is: they are parties to John Doe's own contract, with duties to him and defences drawn from his own policy. When $8,000 and $6,000 came back against $30,000 of UM limits, the file did not simply head for court the way the BI claim would have: Harbor Point's policy says where a UM dispute is decided, and that clause, with the governing state law, is what the Case Manager has to read before a single date is docketed.",
           rules: [
             "Know which kind of claim you are working. Third-party: filed against the at-fault driver's carrier, here Keystone Mutual for Robert Smith. First-party: filed against John Doe's own coverage under his own contract, here Harbor Point (Host UM) and Cardinal State (Relative UM). The evidence is the same; the relationship, the duties and the route out are not.",
-            "John Doe's own Bluewater Auto policy is not a UM layer. He rejected UM/UIM on it in writing on 03/14/2024, so his own named policy adds nothing. He reaches UM by status instead: as an occupant of Kevin Alvarez's Escape (Harbor Point) and as a resident relative of Margaret Doe (Cardinal State).",
+            "John Doe owns no car and has no auto policy of his own, so no policy of his is a UM layer. The one other policy at the scene, Margaret Doe's Bluewater Auto policy on her parked Civic, carries no UM: she rejected it in writing on 03/14/2024, so it adds nothing. He reaches UM by status instead: as an occupant of Kevin Alvarez's Escape (Harbor Point) and as a resident relative of Margaret Doe (Cardinal State).",
             "When a UM negotiation reaches impasse you do not reach for a complaint by reflex. The route is set by the governing state law and by the dispute-resolution clause in the policy the claim is made under: read both, on each layer, before anything is calendared.",
             "Route 1, mandatory arbitration, is the common one. Many UM/UIM policies carry a binding arbitration clause, as Harbor Point's does. The firm does not file a traditional lawsuit; it files a formal Demand for Arbitration. Carriers favour it because it bypasses a jury, narrows discovery and resolves a contract dispute faster and more cheaply.",
             "Route 2, standard litigation, runs in two situations. Some states forbid mandatory arbitration clauses in auto policies, or let the policyholder opt out; where the clause does not bind, a failed UM negotiation becomes a civil suit filed directly against the carrier. Separately, where a carrier has unreasonably delayed, denied or mishandled the claim, the firm may bring an Insurance Bad Faith action, which can reach beyond the UM policy limit. Whether either applies is Atty. Thorne's analysis, never yours.",
@@ -5891,7 +5891,7 @@ window.CM_CASE_FLOW = {
             ["1 · Claim submission", "UM Demand Package", "Served 08/31/2026 to Harbor Point and Cardinal State: injuries, records, $16,401.40 in Specials, the wage letter, and documented proof that Robert Smith's $10,000 BI limit was exhausted and consented to"],
             ["2 · Dispute", "Impasse", "Harbor Point offers $8,000 (09/14/2026) and Cardinal State $6,000 (10/01/2026) against $30,000 of UM limits; impasse memo to Atty. Thorne"],
             ["3 · Resolution route", "Demand for Arbitration, or file suit against the carrier", "Read the governing state law and each policy's clause. Harbor Point's UM policy has a binding arbitration clause: invoked 04/05/2027, heard 06/22/2027 before Laura Whitcomb, Esq. Where no clause binds, a civil suit against the carrier; a bad-faith action is a separate suit, and Atty. Thorne's call"],
-            ["Not a route", "John Doe's own Bluewater Auto policy", "UM/UIM rejected in writing 03/14/2024: there is no third layer and no third route"]
+            ["Not a route", "Margaret Doe's Bluewater Auto policy, on her parked Civic", "UM/UIM rejected in writing by Margaret 03/14/2024, and John owns no car: there is no third layer and no third route"]
           ]
         },
         ops: [
@@ -5917,7 +5917,7 @@ window.CM_CASE_FLOW = {
             ["Tracked and docketed", 10, "ADR entry typed UM / UIM arbitration and set by the policy; each layer's own deadline asked of Atty. Thorne and docketed from his written answer"]
           ],
           trainer: [
-            ["Bluewater handled correctly", 10, "Treats the 03/14/2024 written UM rejection as the reason John Doe's own policy is not a route, and reaches UM by occupancy and residency instead"],
+            ["Bluewater handled correctly", 10, "Knows John owns no car and that Margaret's Bluewater policy carries no UM (she rejected it in writing 03/14/2024), and reaches UM by occupancy and residency instead"],
             ["Client explanation", 10, "Explains the route to John Doe procedurally: what a Demand for Arbitration is, the date, the place, what to bring"],
             ["UPL boundary", 20, "Offers no view on which route governs, on whether an offer is unreasonable, or on bad faith; routes all three to Atty. Thorne"]
           ]
@@ -5926,7 +5926,7 @@ window.CM_CASE_FLOW = {
           "Open with the question, not the answer: “Whose insurance company are we fighting?” Keystone is the at-fault driver's. Harbor Point and Cardinal State are John Doe's own. Let the room sit with that before any procedure is taught.",
           "Humanize the jargon in one breath and keep it: a third-party claim is a claim against the other driver's insurance; a first-party claim is a claim against the insurance you pay for yourself. Trainees who keep saying “the other side” about Harbor Point have not made the shift.",
           "Ask: “The UM negotiation has failed. What do we file?” Anyone who says “a lawsuit” gets the clause read to them. The route is read off the policy and the state's law, never picked because it is the one they know.",
-          "Watch the Bluewater trap. Some trainees will look for UM on John Doe's own named policy because that is where the textbook puts it. It was rejected in writing on 03/14/2024: he reaches UM as an occupant of Kevin Alvarez's Escape and as a resident relative of Margaret Doe.",
+          "Watch the Bluewater trap. Some trainees will look for UM on a policy of John Doe's own, because that is where the textbook puts it. He owns no car and has none. The Bluewater policy is Margaret's, on her parked Civic, and she rejected its UM in writing on 03/14/2024. He reaches UM as an occupant of Kevin Alvarez's Escape and as a resident relative of Margaret Doe.",
           "Hold the bad-faith card off the fork on purpose. Trainees find it exciting because it reaches above the limits; that is exactly why saying it to John Doe, or to Marcus Bell, is Atty. Thorne's to do and not theirs."
         ]
       },
@@ -6150,7 +6150,7 @@ window.CM_CASE_FLOW = {
         check: {
           questions: [
             "Defendant's discovery to John Doe was served on his counsel, Atty. Thorne, by U.S. mail on 12/01/2026, and the SOL is 02/06/2028, a Sunday. Compute his response date step by step; give the SOL's internal hard date and internal filing cutoff with the arithmetic; explain which way a count moves off a weekend going forward and which way going backward, using that response date and the brief for the 06/22/2027 hearing; and state what can happen to a Request for Admission left unanswered.",
-            "Harbor Point’s UM negotiation has reached impasse. Name the two resolution routes a UM/UIM dispute can take, say what decides which one governs, and explain where an Insurance Bad Faith action sits in relation to them. Then say why John Doe’s own Bluewater Auto policy is not a route on this file.",
+            "Harbor Point’s UM negotiation has reached impasse. Name the two resolution routes a UM/UIM dispute can take, say what decides which one governs, and explain where an Insurance Bad Faith action sits in relation to them. Then say why the Bluewater Auto policy on Margaret Doe’s Civic is not a route on this file.",
             "Place mediation and arbitration on the timeline: name what puts each of them before a filing and what puts each of them after one, then say where John Doe's two sessions landed and why. Finish with the sentence you would say to him to explain non-binding, and the sentence for binding."
           ],
           summary: [
@@ -6180,7 +6180,7 @@ window.CM_CASE_FLOW = {
             ["Deadline arithmetic", 20, "01/04/2027 with the mail days and the Sunday; brief 06/11/2027 counted backward"],
             ["SOL cutoffs", 10, "02/04/2028 and 11/05/2027, arithmetic shown"],
             ["Forum logistics", 15, "Windows, fee schedule, retainer and layout owned before 06/22/2027; bench directives logged as given and calendared the same day; each forum placed correctly before or after a filing"],
-            ["UM resolution routes", 10, "Mandatory arbitration vs. a civil suit against the carrier, decided by the state law and the policy clause; bad faith separate and above the limits; Bluewater’s 03/14/2024 rejection explained"],
+            ["UM resolution routes", 10, "Mandatory arbitration vs. a civil suit against the carrier, decided by the state law and the policy clause; bad faith separate and above the limits; why Margaret’s Bluewater policy is no route (no UM: rejected in writing 03/14/2024), John owning no car"],
             ["Completeness", 5, "Every question answered substantively"]
           ],
           trainer: [

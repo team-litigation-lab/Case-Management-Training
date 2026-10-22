@@ -1504,7 +1504,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "Why would a carrier rather have a UM dispute heard by an arbitrator than by a jury?"
   },
   "rules": {
-   "say": "Start by knowing which claim you are on, because the evidence is the same but the relationship is not. Next, John's own Bluewater policy is not a UM layer at all: he rejected UM in writing in March of twenty twenty-four. He reaches UM by status instead, as an occupant of Kevin Alvarez's Escape and as a resident relative of his mother, Margaret. Third, and say this one back to me later: the route is read, never chosen. State law and the clause in the policy the claim is made under decide it. Fourth, read each layer on its own. Harbor Point's clause does not speak for Cardinal State. And every route carries its own clock, which is not the tort statute of limitations in February of twenty twenty-eight. Ask Atty. Thorne in writing, and docket only from his answer.",
+   "say": "Start by knowing which claim you are on, because the evidence is the same but the relationship is not. Next, there is no policy of John's own at all: he owns no car. The Bluewater policy at the scene is his mother Margaret's, on her parked Civic, and she rejected its UM in writing in March of twenty twenty-four. He reaches UM by status instead, as an occupant of Kevin Alvarez's Escape and as a resident relative of Margaret. Third, and say this one back to me later: the route is read, never chosen. State law and the clause in the policy the claim is made under decide it. Fourth, read each layer on its own. Harbor Point's clause does not speak for Cardinal State. And every route carries its own clock, which is not the tort statute of limitations in February of twenty twenty-eight. Ask Atty. Thorne in writing, and docket only from his answer.",
    "ask": "If Harbor Point's policy has an arbitration clause, what do we know about Cardinal State's?"
   },
   "job": {
@@ -1564,7 +1564,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m2-kc": {
   "questions": {
-   "say": "Into the Learning Check, three questions, one for each part of this module. Question 1 is all the date arithmetic in one: the discovery mailed on the first of December, the Sunday statute of limitations, both weekend directions, and what happens to an unanswered Request for Admission. Show me the working, not just the dates. Question 2 is the UM side: the two routes out of an impasse, what decides which one governs, where a bad-faith action sits, and why John’s own Bluewater policy is not a route. Question 3 puts mediation and arbitration on the timeline and asks for non-binding and binding in the words you would use with him.",
+   "say": "Into the Learning Check, three questions, one for each part of this module. Question 1 is all the date arithmetic in one: the discovery mailed on the first of December, the Sunday statute of limitations, both weekend directions, and what happens to an unanswered Request for Admission. Show me the working, not just the dates. Question 2 is the UM side: the two routes out of an impasse, what decides which one governs, where a bad-faith action sits, and why Margaret’s Bluewater policy is not a route. Question 3 puts mediation and arbitration on the timeline and asks for non-binding and binding in the words you would use with him.",
    "ask": "Which of those three would you least like Atty. Thorne to find wrong in your answer, and why?"
   },
   "summary": {
