@@ -1560,12 +1560,8 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m2-kc": {
   "questions": {
-   "say": "Let's move into the Learning Check. Answer from this file, in your own words, typed under each question. You'll compute John Doe's discovery response date step by step, work out the SOL's internal dates with the arithmetic, and explain forward versus backward counting off a weekend. Question 3 is the direction test, so take your time on it. And for question 5, I'm going to play Laura Whitcomb, Esq. and put the bill question to one of you across the table. I'm grading the very first sentence you say.",
-   "ask": "If the brief lands on Monday 06/14/2027 in your answer, what went wrong in your count?"
-  },
-  "questions2": {
-   "say": "Two more on the same page, and both are about the UM side of this file. First, name the two routes a UM/UIM dispute can take out of an impasse, say what decides which one governs, and tell me where an Insurance Bad Faith action sits in relation to them. Then explain why John Doe’s own Bluewater Auto policy is not one of those routes. Second, place mediation and arbitration on the timeline and define non-binding and binding in the words you would use with John Doe. I am looking for the clause and the state law in the first answer, and plain English in the second.",
-   "ask": "The UM negotiation has failed. Before you tell me what we file, what do you have to read?"
+   "say": "Into the Learning Check, three questions, one for each part of this module. Question 1 is all the date arithmetic in one: the discovery mailed on the first of December, the Sunday statute of limitations, both weekend directions, and what happens to an unanswered Request for Admission. Show me the working, not just the dates. Question 2 is the UM side: the two routes out of an impasse, what decides which one governs, where a bad-faith action sits, and why John’s own Bluewater policy is not a route. Question 3 puts mediation and arbitration on the timeline and asks for non-binding and binding in the words you would use with him.",
+   "ask": "Which of those three would you least like Atty. Thorne to find wrong in your answer, and why?"
   },
   "summary": {
    "say": "Now write your Self-Summary: the principles from this module in your own words. Then take the scenario on the slide. It's 09/04/2026, Keystone has ignored two follow-ups and the 48-hour escalation, and John Doe calls asking why nothing's happening and whether he should just take the $3,500. Write what you say, what you don't say, and what goes to Atty. Thorne today. While you're writing, think about one date on this file you'd always check twice.",
