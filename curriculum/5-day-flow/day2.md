@@ -40,25 +40,26 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 5. *Lesson* — LOP Issuance Guidelines, Provider Coordination & PIP Limits
 6. *Lesson* — Explanation of Benefits (EOB) & PIP
 7. *Lesson* — Letters of Protection & the Case Manager's Part in Provider Referrals
-8. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check
-9. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
-10. *Lesson* — The No Contact Protocol — Steps 1 to 3
-11. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
-12. *Skill Activity* — Policy Stack & Coverage Verification
-13. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
-14. *Skill Activity* — CMS Coverage Matrix Audit
-15. *Skill Activity* — Identifying & Flagging the 14-Day Gap
-16. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
-17. *Skill Activity* — Multi-Channel Outreach Logging
-18. *Skill Activity* — Final Warning Letter Drafting
-19. *Skill Activity* — Transmitting LOPs to Medical Providers
-20. *Skill Activity* — Subrogation Lien Flagging in the CMS
-21. *Skill Activity* — Executing the A-C-T Crisis Protocol for Disrupted Care
-22. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
-23. *Knowledge Check* — Coverage Setup Verification Check
-24. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
-25. *Knowledge Check* — Treatment Monitoring Review
-26. *Knowledge Check* — MIA Escalation Knowledge Check
+8. *Lesson* — Rental & Reimbursement of Costs
+9. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check
+10. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
+11. *Lesson* — The No Contact Protocol — Steps 1 to 3
+12. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
+13. *Skill Activity* — Policy Stack & Coverage Verification
+14. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+15. *Skill Activity* — CMS Coverage Matrix Audit
+16. *Skill Activity* — Identifying & Flagging the 14-Day Gap
+17. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
+18. *Skill Activity* — Multi-Channel Outreach Logging
+19. *Skill Activity* — Final Warning Letter Drafting
+20. *Skill Activity* — Transmitting LOPs to Medical Providers
+21. *Skill Activity* — Subrogation Lien Flagging in the CMS
+22. *Skill Activity* — Executing the A-C-T Crisis Protocol for Disrupted Care
+23. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+24. *Knowledge Check* — Coverage Setup Verification Check
+25. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
+26. *Knowledge Check* — Treatment Monitoring Review
+27. *Knowledge Check* — MIA Escalation Knowledge Check
 
 **End-of-day discussion (trainer):** It is 04/08/2026. Keystone confirmed its limit in writing on 03/20, Riverton Spine & Rehab reports John Doe has missed two visits, and Dana Whitfield has asked John for a Recorded Statement. What do you do first, second and third, and what does each protect?
 
@@ -66,7 +67,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 2 — Claim Set Up & Treatment
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 2.1.1 LOR Drafting Mechanics & Three-Carrier Notification
 
@@ -364,9 +365,9 @@ A two-tier slide. The top tier is a coverage map: eight cards in three colour gr
 |---|---|---|---|
 | Each claim is opened | List every coverage, its carrier and what it pays | CMS → Insurance tab | Each tagged third-party, first-party or health |
 | Coverage confirmed in writing | Place it: Recovery Stack, Payer Order or outside both | CMS → Insurance tab → Coverage Matrix | Stack $40,000; PIP, PD and collision outside it |
-| A provider asks whom to bill | Route it by the Payer-First order | CMS → Insurance tab → PIP ledger | PIP first, Peach State next, an LOP last |
+| A provider asks whom to bill | Route it by the Payer-First order | CMS → Insurance tab → PIP Log | PIP first, Peach State next, an LOP last |
 | A provider asks for an LOP | Check PIP and network status first | CMS → Liens → LOP register | Payer check recorded; Atty. Thorne approves any LOP |
-| A payer pays a bill | Post payer, bill and amount on its ledger | CMS → Insurance tab → PIP ledger · CMS → Liens | Every ledger current; no paid claim re-routed |
+| A payer pays a bill | Post payer, bill and amount on its ledger | CMS → Insurance tab → PIP Log · CMS → Liens | Every ledger current; no paid claim re-routed |
 
 **Best practices & pitfalls**
 
@@ -435,7 +436,7 @@ Centre-right, a cream ledger card with a navy header bar, PIP · HARBOR POINT ·
 
 #### 2 · Slide Body — Show Them
 
-*The PIP ledger: paid in date order until $5,000.00 is gone*
+*The PIP Log: paid in date order until $5,000.00 is gone*
 
 | Date | Provider | PIP paid | Running total | Left of $5,000 |
 |---|---|---|---|---|
@@ -450,7 +451,7 @@ Centre-right, a cream ledger card with a navy header bar, PIP · HARBOR POINT ·
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | A provider asks for an LOP | Run the Payer Order; prepare the LOP on counsel's template only for care PIP and Peach State can't carry | CMS → Documents → Outgoing → Route for approval | Payer check recorded before routing; nothing sent without Atty. Thorne's approval |
-| PIP pays a bill | Post the payment, the running total and the balance left | CMS → Insurance tab → PIP ledger | Running total ties to Harbor Point's payments; $5,000.00 reached on the 06/12/2026 visit, $0.00 left |
+| PIP pays a bill | Post the payment, the running total and the balance left | CMS → Insurance tab → PIP Log | Running total ties to Harbor Point's payments; $5,000.00 reached on the 06/12/2026 visit, $0.00 left |
 | An LOP provider's itemized statement arrives | Update the balance and check every line against the visits you tracked | CMS → Liens → LOP register | Balance current (through 04/02/2026: 16 visits × $185.00 = $2,960.00); every billed date is an attended visit |
 | A new referral or provider | Warm handoff: book it with John Doe on the line and confirm the payer before the first visit | Call Simulator → AI John Doe · CMS → Case File → Treatment timeline | Appointment and payer recorded before the visit date |
 
@@ -474,7 +475,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Payer Order | PIP → Peach State → LOP applied to each bill; PIP's 80% wage benefit noted |
-| 🤖 AI | **20%** | PIP ledger | Five payments in date order; running total reaches $5,000.00 on the 06/12/2026 visit; $0.00 left |
+| 🤖 AI | **20%** | PIP Log | Five payments in date order; running total reaches $5,000.00 on the 06/12/2026 visit; $0.00 left |
 | 🤖 AI | **20%** | LOP decisions | LOP to Riverton Spine & Rehab (out of network); Summit Imaging's request declined because PIP applies first |
 | 🧑‍🏫 Trainer | **20%** | Coordination judgment | Sees the hub role (warm handoffs, three closed loops, guarded transitions) and avoids mission creep |
 | 🧑‍🏫 Trainer | **20%** | UPL boundary | No LOP terms set, no payment promised to a provider, no interpretation of the LOP for John Doe |
@@ -513,8 +514,9 @@ Two documents side by side, each read line by line. Left, Peach State's Explanat
 6. A plan's reimbursement claim is what it paid, never what was billed: Peach State's claim on Crescent's bill starts at $1,860.00. When its itemized lien arrives, match every line to an EOB; a line no EOB supports, or one unrelated to the collision, goes to Atty. Thorne.
 7. The EOB's AC1 remark asks for the plan's accident questionnaire. Route it to Atty. Thorne before John Doe returns it: what it says about the accident and the other insurance is a statement on the file.
 8. PIP sends no EOB, but Harbor Point reports its payments the same way: its payment history (RS31) lists each check by date of service, payee, amount billed, amount paid and the limit remaining. It paid every bill at the amount billed, in the order received.
-9. Harbor Point's five checks: $685.00 (Riverton Urgent Care), $640.00, $640.00 and $640.00 (Lakeside Orthopedics) and $2,395.00 (Summit Imaging) = $5,000.00, exhausted 06/26/2026. Bills it receives after that come back with a notice of exhaustion: send the next one to the next payer in the Payer Order.
-10. Reconcile every provider to its payers: each statement must show the PIP check or the plan's payment as a credit. A provider still showing a balance on a paid date of service has a billing error, not a lien. Medical Specials keep the billed amounts the audit holds ($14,817.40); the lien register carries only what each payer can claim back.
+9. Keep the firm's PIP Log (CMS → Insurance tab → PIP Log, printed as RS71) as each PIP event happens: the application and the claim opened, each check with its date of service and the limit remaining, the wage benefit, and the care billed elsewhere. Reconcile it to Harbor Point's payment history line by line.
+10. Harbor Point's five checks: $685.00 (Riverton Urgent Care), $640.00, $640.00 and $640.00 (Lakeside Orthopedics) and $2,395.00 (Summit Imaging) = $5,000.00, exhausted 06/26/2026. Bills it receives after that come back with a notice of exhaustion: send the next one to the next payer in the Payer Order.
+11. Reconcile every provider to its payers: each statement must show the PIP check or the plan's payment as a credit. A provider still showing a balance on a paid date of service has a billing error, not a lien. Medical Specials keep the billed amounts the audit holds ($14,817.40); the lien register carries only what each payer can claim back.
 
 > ⚠️ **UPL boundary.** You may read, reconcile and report what an EOB or a payment history shows, and ask a provider in writing to correct an account. Whether a balance is owed, whether a write-off may be billed, and how to answer the plan's accident questionnaire are Atty. Thorne's calls.
 
@@ -536,7 +538,7 @@ Two documents side by side, each read line by line. Left, Peach State's Explanat
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | An EOB arrives | Post billed, allowed, adjustment, paid and member share against the visit | CMS → Liens · CMS → Documents | Plan paid $1,860.00 logged; claim PS-2605-449021 linked to the visit |
-| A PIP check clears | Post the check, the date of service and the limit remaining | CMS → Insurance tab → PIP ledger | Ledger ties to Harbor Point's payment history, $0.00 left after 06/26/2026 |
+| A PIP check clears | Post the check, the date of service and the limit remaining | CMS → Insurance tab → PIP Log | Ledger ties to Harbor Point's payment history, $0.00 left after 06/26/2026 |
 | A patient statement shows a balance | Compare it with the EOB's member responsibility; route any balance bill | CMS → Liens · Email Workspace | $1,540.00 flagged; Atty. Thorne told the same day; correction request drafted |
 | The plan's itemized lien arrives | Match each line to an EOB and to the collision | CMS → Liens → Peach State | Only EOB-backed, accident-related lines stand |
 
@@ -653,7 +655,81 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.8 Health Subrogation, Payer Order & the Regulatory Triple-Check
+### 2.1.8 Rental & Reimbursement of Costs
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Topic:** What treatment costs the client out of pocket, and how each dollar is documented for the demand  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** Case file: Keystone Mutual's rental cutoff (RS32) and John Doe's transport to treatment · IRS IR-2025-128: the standard mileage rates when this course was written, 20.5 cents medical and 72.5 cents business · Newly authored: reimbursement of out-of-pocket treatment costs and the trip log
+
+#### 1 · Visual Layout Description
+
+A receipt ledger fills the slide: rows for TREATMENT MILEAGE (date · provider · round-trip miles · rate per the governing state's rules), RIDES AND PARKING, PRESCRIPTIONS AND CO-PAYS, MEDICAL EQUIPMENT and RENTAL THE OWNER PAID, each with a receipt thumbnail or a trip-log icon. Right, an orange arrow into a cream card headed DEMAND · SPECIALS, with a red tag on an empty receipt slot: “no receipt, no claim.”
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Treatment costs the client money that no provider's bill shows: the drive to every appointment, the ride when there is no car, the prescription, the brace, the rental the owner paid for past the cutoff. Each is recoverable only if it is documented when it happens. The Case Manager keeps the log; what the demand claims, and at what rate, is Atty. Thorne's call under the governing state's rules.
+
+1. Out-of-pocket costs are Specials: mileage to treatment, rides and parking, prescriptions, co-pays and deductibles, medical equipment, and any rental the owner paid. Each one needs its receipt or its log.
+2. Keep a trip log from the first visit: the date, the provider and the round-trip miles. Mileage is claimed at the rate the governing state's rules allow, and Atty. Thorne confirms it. For reference, the IRS's standard rates when this course was written were 20.5¢ a mile for medical travel and 72.5¢ for business (IR-2025-128); check the current year's rates.
+3. A rental the carrier did not pay (days past the cutoff, a rate above the cap, an upgrade's difference) is the owner's out-of-pocket cost: keep the rental company's receipt and route it to Atty. Thorne with the Property Damage claim.
+4. When the rental ends and the client has no car, transport becomes a barrier to care: plan the rides before a visit is missed, and log what each ride costs.
+5. Check every payer first: PIP or MedPay may reimburse some costs. Record what was paid and by whom, so nothing is claimed twice.
+6. Enter each cost the day its receipt arrives, in CMS → Financial Ledger → Specials, with the receipt filed in CMS → Documents.
+7. Before the demand, total the log and route it to Atty. Thorne. He decides what the demand claims, and at what rate.
+
+> ⚠️ **UPL boundary.** Collect and log the costs. Never tell the client what they are worth or promise they will be repaid; what the demand claims is Atty. Thorne's call.
+
+#### 2 · Slide Body — Show Them
+
+*John Doe's costs after the rental cutoff, handled both ways*
+
+| ✅ Do | ❌ Don't |
+|---|---|
+| “Keep every receipt, and write down each trip: the date, the office and the miles.” | “No need for receipts; we'll estimate it all at the end.” |
+| “Send me a photo of the pharmacy receipt today, and I'll log it.” | “You'll get every penny of that back.” |
+| “Let's set up your ride to Thursday's appointment now.” | “If you can't get a ride, just skip the visit.” |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Treatment starts | Open the trip log; tell the client what to keep | CMS → Case Notes · Tasks | Log open; client told what to keep |
+| A receipt comes in | Enter the cost; file the receipt | CMS → Financial Ledger → Specials · Documents | Entered with its receipt |
+| MMI is reached; the demand is next | Total the log; route it to Atty. Thorne | CMS → Tasks | Totals routed; the rate confirmed by counsel |
+
+**Best practices & pitfalls**
+
+- Start the trip log at the first visit, not at the demand.
+- File each receipt the day it arrives.
+- ⚠️ Pitfall: estimating mileage from memory at the end of treatment.
+- ⚠️ Pitfall: promising the client that every cost will be repaid.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **25%** | Cost coverage | Every kind of out-of-pocket cost named, each with its receipt or log |
+| 🤖 AI | **20%** | Mileage log | Date, provider and round-trip miles; the rate from the governing state's rules, confirmed by counsel |
+| 🤖 AI | **15%** | Payer check | What any payer reimbursed recorded; nothing claimed twice |
+| 🧑‍🏫 Trainer | **25%** | Client coaching | Plain instructions the client will actually follow |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | No promise of repayment; what is claimed left to Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Ask: “John Doe's rides ended with the rental cutoff. What does his next appointment cost him?” Let the room list the costs.
+- Show the trip log: date, provider, round-trip miles. The rate is the governing state's, confirmed by Atty. Thorne; the IRS figures are a reference.
+- Tie it to the demand: these are Specials, and only what is documented reaches the demand.
+
+---
+
+### 2.1.9 Health Subrogation, Payer Order & the Regulatory Triple-Check
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays the bills now, and who gets paid back later  
@@ -732,7 +808,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.9 A-C-T Crisis Protocol & Treatment Monitoring Principles
+### 2.1.10 A-C-T Crisis Protocol & Treatment Monitoring Principles
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Is the plan working, and what you do the day it isn't  
@@ -815,7 +891,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.10 The No Contact Protocol — Steps 1 to 3
+### 2.1.11 The No Contact Protocol — Steps 1 to 3
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Internal review, escalating contact attempts, team notification  
@@ -891,7 +967,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.11 Final Warning Letter & the Skip-Trace Trigger
+### 2.1.12 Final Warning Letter & the Skip-Trace Trigger
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** No Contact Protocol Steps 4 to 6, and when the search begins  
@@ -965,7 +1041,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.12 Policy Stack & Coverage Verification
+### 2.1.13 Policy Stack & Coverage Verification
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — build the ladder to $40,000  
@@ -1053,7 +1129,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.13 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+### 2.1.14 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — five letters, each one right  
@@ -1130,7 +1206,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.14 CMS Coverage Matrix Audit
+### 2.1.15 CMS Coverage Matrix Audit
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 2 — find what the matrix gets wrong  
@@ -1221,7 +1297,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.15 Identifying & Flagging the 14-Day Gap
+### 2.1.16 Identifying & Flagging the 14-Day Gap
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 1 — find the fact that will decide this case  
@@ -1294,7 +1370,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.16 Live Case Plan Draft — John Doe v. Robert Smith
+### 2.1.17 Live Case Plan Draft — John Doe v. Robert Smith
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 2 — the full plan, routed for review  
@@ -1370,7 +1446,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.17 Multi-Channel Outreach Logging
+### 2.1.18 Multi-Channel Outreach Logging
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 1 — build a defensible record  
@@ -1444,7 +1520,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.18 Final Warning Letter Drafting
+### 2.1.19 Final Warning Letter Drafting
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 2 — write the letter that gets answered  
@@ -1519,7 +1595,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.19 Transmitting LOPs to Medical Providers
+### 2.1.20 Transmitting LOPs to Medical Providers
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 1 — one LOP issued, one declined  
@@ -1538,8 +1614,8 @@ Two dated envelopes side by side, each a white card with a navy header. Left, 02
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Liens → LOP register · CMS → Documents → Outgoing · Email Workspace · CMS → Insurance tab → PIP ledger |
-| **Expected output** | One counsel-approved LOP transmitted and confirmed, one LOP request declined with the payer named, a current PIP ledger, and a documented pre-morbid baseline. |
+| **Tool / interface** | CMS → Liens → LOP register · CMS → Documents → Outgoing · Email Workspace · CMS → Insurance tab → PIP Log |
+| **Expected output** | One counsel-approved LOP transmitted and confirmed, one LOP request declined with the payer named, a current PIP Log, and a documented pre-morbid baseline. |
 
 **Verification checkpoints**
 
@@ -1560,7 +1636,7 @@ Two dated envelopes side by side, each a white card with a navy header. Left, 02
 |---|---|---|---|
 | 02/23/2026: Riverton Spine & Rehab needs an LOP before the 02/24/2026 visit | Run the Payer Order, prepare the LOP on the approved template, route it for approval | CMS → Documents → Outgoing → Route for approval | Approved and signed before the first visit |
 | LOP signed | Transmit it with the HIPAA authorization; confirm receipt; open the register entry | Email Workspace · CMS → Liens → LOP register | Receipt confirmed and dated in the Communications Log |
-| 03/11/2026: Summit Imaging asks for an LOP | Decline in writing, naming Harbor Point PIP as the payer; post the ledger | Email Workspace · CMS → Insurance tab → PIP ledger | Reason stated; ledger shows $3,675.00 left before the MRI |
+| 03/11/2026: Summit Imaging asks for an LOP | Decline in writing, naming Harbor Point PIP as the payer; post the ledger | Email Workspace · CMS → Insurance tab → PIP Log | Reason stated; ledger shows $3,675.00 left before the MRI |
 
 **Best practices & pitfalls**
 
@@ -1596,7 +1672,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.20 Subrogation Lien Flagging in the CMS
+### 2.1.21 Subrogation Lien Flagging in the CMS
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — register the claim before it can hurt you  
@@ -1668,7 +1744,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.21 Executing the A-C-T Crisis Protocol for Disrupted Care
+### 2.1.22 Executing the A-C-T Crisis Protocol for Disrupted Care
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — the Transportation Wall, 04/08/2026  
@@ -1756,7 +1832,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.22 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+### 2.1.23 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 3 — the Millbrook booking, 04/22/2026  
@@ -1856,7 +1932,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.23 Coverage Setup Verification Check
+### 2.1.24 Coverage Setup Verification Check
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1964,7 +2040,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 ---
 
-### 2.1.24 Case Plan Audit & the Claim Set Up Gate
+### 2.1.25 Case Plan Audit & the Claim Set Up Gate
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2059,7 +2135,7 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 ---
 
-### 2.1.25 Treatment Monitoring Review
+### 2.1.26 Treatment Monitoring Review
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2094,7 +2170,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 | Competency | 1 | 2 | 3 | 4 | 5 |
 |---|---|---|---|---|---|
 | Reading an EOB line by line, remark codes included | ○ | ○ | ○ | ○ | ○ |
-| Reconciling provider balances to the EOBs and the PIP ledger | ○ | ○ | ○ | ○ | ○ |
+| Reconciling provider balances to the EOBs and the PIP Log | ○ | ○ | ○ | ○ | ○ |
 | Applying the Payer Order: PIP, then the Health Plan, then an LOP | ○ | ○ | ○ | ○ | ○ |
 | Preparing and transmitting an LOP on counsel's terms, and declining one | ○ | ○ | ○ | ○ | ○ |
 | Keeping a PIP exhaustion ledger and LOP balances current | ○ | ○ | ○ | ○ | ○ |
@@ -2164,7 +2240,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 
 ---
 
-### 2.1.26 MIA Escalation Knowledge Check
+### 2.1.27 MIA Escalation Knowledge Check
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

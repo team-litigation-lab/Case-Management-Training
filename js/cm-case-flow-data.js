@@ -1223,9 +1223,9 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d1m3-l1",
-        title: "Client Do's and Don'ts & Rental Authorization",
+        title: "Client Do's and Don'ts",
         topic: "Protecting the claim from the client's own good intentions",
-        visual: "A balanced two-column DO / DON'T board on the upper two-thirds, green-bordered left and red-bordered right, with matched pairs on the same line so each DON'T sits opposite the DO it replaces. Each row carries a small icon in the gutter. Lower third: a rental authorization flow of four connected chips — WHOSE POLICY IS PRIMARY? → WHO AUTHORIZES? → DAILY RATE CAP → DURATION LIMIT — with an orange tag under the last two: “uncovered days are the client's cost.”",
+        visual: "A balanced two-column DO / DON'T board on the upper two-thirds, green-bordered left and red-bordered right, with matched pairs on the same line so each DON'T sits opposite the DO it replaces. Each row carries a small icon in the gutter. Lower third: a strip of three orange tags — NO RECORDED STATEMENT · KEEP EVERY RECEIPT · PROPERTY DAMAGE ONLY — the three instructions clients most often break in week one.",
         tell: {
           why: "Most self-inflicted damage to an injury claim happens in the first two weeks, before the client has been told what not to do: a casual Recorded Statement, a missed appointment or a social-media post becomes part of the record. The Case Manager gives the instructions; what any of it means for the claim is Atty. Thorne's to explain.",
           rules: [
@@ -1235,8 +1235,6 @@ window.CM_CASE_FLOW = {
             "The client signs no release, authorization or settlement document from any carrier until the firm has reviewed it.",
             "The client keeps every receipt and out-of-pocket expense, including mileage to appointments and household help. Only what is documented can be recovered.",
             "Property Damage is the one carve-out from the no-direct-contact rule. The LOR lets the adverse carrier talk to the client about the Property Damage claim only.",
-            "On a rental, the third-party rental is provided by the adverse carrier's Property Damage coverage. The client's own policy, or the rental company's self-insurance, is used only where there is no 3P coverage — for example a liability denial or an unresolved dispute over fault.",
-            "Confirm rental authorization before the client collects a vehicle: who authorizes it, the daily rate cap and the duration limit. Check for a rental reimbursement endorsement on the policy.",
             "The client reports any change of address, phone number or treating provider at once."
           ],
           upl: [
@@ -1251,20 +1249,20 @@ window.CM_CASE_FLOW = {
             "Route every adverse carrier call to the firm.",
             "Start treatment promptly and attend every appointment.",
             "Keep receipts for every accident-related cost.",
-            "Confirm rental authorization, rate cap and duration first.",
+            "Bring every carrier document to the firm before signing.",
             "Report any change of address, phone or provider at once."
           ],
           dont: [
             "Give a Recorded Statement to the other side.",
             "Let treatment lapse, or stop because you feel better.",
             "Assume an undocumented expense can be claimed later.",
-            "Collect a rental before coverage is confirmed in writing.",
+            "Sign a carrier's release or medical authorization yourself.",
             "Post about the collision, the injuries or your activities."
           ]
         },
         ops: [
           ["Retainer signed", "Deliver the standing instructions and log delivery", "CMS → Onboarding", "Delivery logged with date and method"],
-          ["Client asks about a rental", "Confirm the primary policy, the authorization, the rate cap and the duration", "CMS → Property Damage", "All rental parameters recorded before collection"],
+          ["Client mentions an accident-related expense", "Tell him to keep the receipt; log the expense", "CMS → Case Notes", "Receipt requested; expense logged"],
           ["Adverse carrier calls the client directly", "Instruct the client to route it to the firm; log the contact", "CMS → Communications Log", "No Recorded Statement; contact logged"]
         ],
         best: [
@@ -1272,11 +1270,11 @@ window.CM_CASE_FLOW = {
           "Use active listening; a client who feels heard follows instructions.",
           "Pitfall: explaining why a Recorded Statement hurts the claim; that is legal advice. Give the instruction."
         ],
-        sources: ["D1#28", "D1#44", "LSH Claims Specialist: LOR Property Damage carve-out, rental coverage hierarchy, documents to support the claim"],
+        sources: ["D1#28", "D1#44", "LSH Claims Specialist: LOR Property Damage carve-out, documents to support the claim"],
         rubric: {
           ai: [
             ["Instruction coverage", 25, "All standing instructions present, including the Property Damage carve-out"],
-            ["Rental hierarchy", 20, "Personal policy primary; written denial before rental-company self-insurance"],
+            ["Carve-out and receipts", 20, "Property Damage carve-out stated narrowly; every expense documented"],
             ["Delivery logged", 15, "Date and method of delivery recorded"]
           ],
           trainer: [
@@ -1287,7 +1285,7 @@ window.CM_CASE_FLOW = {
         notes: [
           "Run the matched pairs as call-and-response: read a DON'T, have the room give you the DO.",
           "The treatment instruction matters most on this file. John Doe's gap is already forming; say so.",
-          "Rental is where clients get hurt financially. Uncovered days come out of their pocket, and they will blame the firm if nobody told them the limit.",
+          "Receipts start now: tell John Doe to keep every receipt and a log of each trip to treatment. Rental & Reimbursement of Costs, in the Treatment Phase, builds on it.",
           "Watch for trainees explaining why a Recorded Statement hurts the claim. That slides into legal advice; the instruction is the deliverable."
         ]
       },
@@ -1410,6 +1408,75 @@ window.CM_CASE_FLOW = {
         ]
       },
 
+      {
+        kind: "lesson", id: "d1m3-rent",
+        title: "Rental Authorization",
+        topic: "A rental the policy actually pays for, confirmed before the client collects a car",
+        visual: "A four-chip flow across the upper half: WHOSE COVERAGE PAYS? → WHO AUTHORIZES? → DAILY RATE CAP → DURATION LIMIT, with “usually 30 days unless the Dec Page says otherwise” under the last chip. Lower half, left: Keystone's Form KM-PD 210 rental authorization (RS32) with the rate and the covered days circled in orange. Right: a cream card headed WHOSE CLAIM? naming the Civic's owner, Margaret Doe, with John Doe struck through as a passenger. An orange tag along the bottom: “uncovered days are the client's cost.”",
+        tell: {
+          why: "A rental is the first money question a client asks, and the easiest place for them to get hurt: a car collected on a promise, at a rate or for days nobody authorized, becomes a bill that lands on the client. Rental belongs to the Property Damage claim, so it is the vehicle owner's to make. On this file that is Margaret Doe, the Civic's owner, not John Doe, who was her passenger.",
+          rules: [
+            "Rental is part of the Property Damage claim, and it belongs to the vehicle's owner. John Doe was a passenger; the Civic is Margaret Doe's, so the rental is hers to claim.",
+            "Find whose coverage pays. The third-party rental comes from the adverse carrier's Property Damage coverage, here Keystone's. The owner's own policy, or the rental company's self-insurance, is used only where there is no 3P coverage, such as a liability denial or an unresolved dispute over fault.",
+            "Confirm who authorizes the rental (the adverse carrier on accepted liability, or the owner's own carrier) and check the Dec Page for a rental reimbursement endorsement.",
+            "Record the authorized daily rate cap before the client collects a vehicle. Anything above the cap is the client's cost.",
+            "Record the duration limit: coverage usually runs 30 days at most, unless the Dec Page says otherwise. Calendar the last covered day and tell the client before it arrives.",
+            "A comparable vehicle, not an upgrade: the class of car the client lost. An upgrade's difference is the client's cost.",
+            "Get it in writing: Keystone's rental authorization (Form KM-PD 210) is filed in CMS → Documents, and every parameter goes in CMS → Property Damage before collection.",
+            "The Property Damage carve-out lets the adverse carrier discuss the rental with the owner. If the call moves to injuries or the facts of the loss, it stops and routes to the firm."
+          ],
+          upl: [
+            "You confirm coverage facts and explain the process. Whether to dispute a cutoff or a rate, and what the owner should accept, is Atty. Thorne's call."
+          ]
+        },
+        show: {
+          caption: "The rental call, answered both ways",
+          type: "split",
+          do: [
+            "“Before you pick it up, I'll confirm the rate and the days in writing.”",
+            "“Keystone's letter covers a car like yours; an upgrade would be your cost.”",
+            "“Coverage ends on the date in the letter; I'll remind you three days before.”",
+            "“The rental is on Margaret's Property Damage claim, as the Civic's owner.”"
+          ],
+          dont: [
+            "“Go ahead and grab a car; they'll pay for it.”",
+            "“Get whatever you need; we'll sort out the rate later.”",
+            "“Keep it as long as you need it.”",
+            "“Your rental is part of your injury case.”"
+          ]
+        },
+        ops: [
+          ["The owner asks about a rental", "Confirm whose coverage pays, the authorizer, the endorsement, the rate cap and the duration", "CMS → Property Damage", "All five recorded before collection"],
+          ["The carrier's rental authorization arrives", "File it; calendar the last covered day", "CMS → Documents · Calendar", "Authorization filed; cutoff calendared"],
+          ["The rental cutoff nears", "Tell the owner in writing; plan John Doe's rides to treatment", "CMS → Case Notes · Tasks", "Owner told; rides to treatment planned"]
+        ],
+        best: [
+          "Confirm every rental parameter in writing before the client collects a car.",
+          "Calendar the last covered day and warn the client before it.",
+          "Pitfall: sending a client to pick up a car before the authorization is confirmed.",
+          "Pitfall: treating the rental as the passenger's claim instead of the owner's."
+        ],
+        sources: [
+          "Case file: Keystone Mutual's claim correspondence, the rental authorization and the rental cutoff (RS32)",
+          "LSH Claims Specialist: rental coverage hierarchy, the rental reimbursement endorsement, rate cap and duration"
+        ],
+        rubric: {
+          ai: [
+            ["Whose coverage pays", 25, "The adverse carrier's Property Damage coverage for the 3P rental; the owner's policy or the rental company's only without 3P coverage"],
+            ["Rental parameters", 20, "Authorizer, endorsement, rate cap and duration recorded before collection"],
+            ["Whose claim", 15, "The rental placed on the owner's Property Damage claim, not the passenger's"]
+          ],
+          trainer: [
+            ["Client-facing clarity", 25, "Limits explained so the client is never surprised by a bill"],
+            ["UPL boundary", 15, "Coverage facts only; disputes and acceptance routed to Atty. Thorne"]
+          ]
+        },
+        notes: [
+          "Rental is where clients get hurt financially. Uncovered days come out of their pocket, and they will blame the firm if nobody told them the limit.",
+          "Ask the room whose rental this is on John Doe's file. Let them find Margaret Doe; the Civic Investigation activity proves it from the documents.",
+          "Show RS32: the authorization, and later the cutoff. The cutoff is what starts John Doe's transport problem in the Treatment Phase."
+        ]
+      },
       {
         kind: "activity", id: "d1m3-a2",
         title: "Onboarding Direction Assignment in System",
@@ -1542,7 +1609,7 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Instruction recall", 20, "Standing instructions listed with the harm each prevents"],
-            ["Rental", 15, "Primary policy, authorization, rate cap and duration named"],
+            ["Rental", 15, "Whose coverage provides it, authorization, rate cap and duration named"],
             ["ACV definition", 15, "Pre-loss market value, expressly not the loan balance"],
             ["Entitlement completeness", 10, "Storage, towing and Loss of Use all identified"]
           ],
@@ -2343,7 +2410,7 @@ window.CM_CASE_FLOW = {
     {
       n: 2, id: "d2m2",
       title: "Treatment Phase Operations, LOP Issuance & Provider Oversight",
-      about: "Keeping John Doe's treatment moving and paid for: every coverage and the Payer-First Principle, the Health Plan's reimbursement right and the Regulatory Triple-Check, LOPs on counsel's terms, the PIP ledger, and the A-C-T protocol the day care breaks down.",
+      about: "Keeping John Doe's treatment moving and paid for: every coverage and the Payer-First Principle, the Health Plan's reimbursement right and the Regulatory Triple-Check, LOPs on counsel's terms, the PIP Log, and the A-C-T protocol the day care breaks down.",
       quiz: [
         {q: "On 03/11/2026 Summit Imaging asks for an LOP for John Doe's $2,395.00 MRI. Harbor Point PIP has $3,675.00 left. What do you do?",
          opts: ["Prepare the LOP for Atty. Thorne's approval, since the provider asked for one", "Decline the LOP and route the bill to PIP, which applies first", "Send the bill to Peach State first, to save PIP for later", "Tell Summit it will be paid in full at settlement"],
@@ -2421,9 +2488,9 @@ window.CM_CASE_FLOW = {
         ops: [
           ["Each claim is opened", "List every coverage, its carrier and what it pays", "CMS → Insurance tab", "Each tagged third-party, first-party or health"],
           ["Coverage confirmed in writing", "Place it: Recovery Stack, Payer Order or outside both", "CMS → Insurance tab → Coverage Matrix", "Stack $40,000; PIP, PD and collision outside it"],
-          ["A provider asks whom to bill", "Route it by the Payer-First order", "CMS → Insurance tab → PIP ledger", "PIP first, Peach State next, an LOP last"],
+          ["A provider asks whom to bill", "Route it by the Payer-First order", "CMS → Insurance tab → PIP Log", "PIP first, Peach State next, an LOP last"],
           ["A provider asks for an LOP", "Check PIP and network status first", "CMS → Liens → LOP register", "Payer check recorded; Atty. Thorne approves any LOP"],
-          ["A payer pays a bill", "Post payer, bill and amount on its ledger", "CMS → Insurance tab → PIP ledger · CMS → Liens", "Every ledger current; no paid claim re-routed"]
+          ["A payer pays a bill", "Post payer, bill and amount on its ledger", "CMS → Insurance tab → PIP Log · CMS → Liens", "Every ledger current; no paid claim re-routed"]
         ],
         best: [
           "Verify every coverage in writing: a dated Declaration Page or Coverage Letter.",
@@ -2480,7 +2547,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         show: {
-          caption: "The PIP ledger: paid in date order until $5,000.00 is gone",
+          caption: "The PIP Log: paid in date order until $5,000.00 is gone",
           type: "table",
           head: ["Date", "Provider", "PIP paid", "Running total", "Left of $5,000"],
           rows: [
@@ -2493,7 +2560,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["A provider asks for an LOP", "Run the Payer Order; prepare the LOP on counsel's template only for care PIP and Peach State can't carry", "CMS → Documents → Outgoing → Route for approval", "Payer check recorded before routing; nothing sent without Atty. Thorne's approval"],
-          ["PIP pays a bill", "Post the payment, the running total and the balance left", "CMS → Insurance tab → PIP ledger", "Running total ties to Harbor Point's payments; $5,000.00 reached on the 06/12/2026 visit, $0.00 left"],
+          ["PIP pays a bill", "Post the payment, the running total and the balance left", "CMS → Insurance tab → PIP Log", "Running total ties to Harbor Point's payments; $5,000.00 reached on the 06/12/2026 visit, $0.00 left"],
           ["An LOP provider's itemized statement arrives", "Update the balance and check every line against the visits you tracked", "CMS → Liens → LOP register", "Balance current (through 04/02/2026: 16 visits × $185.00 = $2,960.00); every billed date is an attended visit"],
           ["A new referral or provider", "Warm handoff: book it with John Doe on the line and confirm the payer before the first visit", "Call Simulator → AI John Doe · CMS → Case File → Treatment timeline", "Appointment and payer recorded before the visit date"]
         ],
@@ -2511,7 +2578,7 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Payer Order", 20, "PIP → Peach State → LOP applied to each bill; PIP's 80% wage benefit noted"],
-            ["PIP ledger", 20, "Five payments in date order; running total reaches $5,000.00 on the 06/12/2026 visit; $0.00 left"],
+            ["PIP Log", 20, "Five payments in date order; running total reaches $5,000.00 on the 06/12/2026 visit; $0.00 left"],
             ["LOP decisions", 20, "LOP to Riverton Spine & Rehab (out of network); Summit Imaging's request declined because PIP applies first"]
           ],
           trainer: [
@@ -2543,6 +2610,7 @@ window.CM_CASE_FLOW = {
             "A plan's reimbursement claim is what it paid, never what was billed: Peach State's claim on Crescent's bill starts at $1,860.00. When its itemized lien arrives, match every line to an EOB; a line no EOB supports, or one unrelated to the collision, goes to Atty. Thorne.",
             "The EOB's AC1 remark asks for the plan's accident questionnaire. Route it to Atty. Thorne before John Doe returns it: what it says about the accident and the other insurance is a statement on the file.",
             "PIP sends no EOB, but Harbor Point reports its payments the same way: its payment history (RS31) lists each check by date of service, payee, amount billed, amount paid and the limit remaining. It paid every bill at the amount billed, in the order received.",
+            "Keep the firm's PIP Log (CMS → Insurance tab → PIP Log, printed as RS71) as each PIP event happens: the application and the claim opened, each check with its date of service and the limit remaining, the wage benefit, and the care billed elsewhere. Reconcile it to Harbor Point's payment history line by line.",
             "Harbor Point's five checks: $685.00 (Riverton Urgent Care), $640.00, $640.00 and $640.00 (Lakeside Orthopedics) and $2,395.00 (Summit Imaging) = $5,000.00, exhausted 06/26/2026. Bills it receives after that come back with a notice of exhaustion: send the next one to the next payer in the Payer Order.",
             "Reconcile every provider to its payers: each statement must show the PIP check or the plan's payment as a credit. A provider still showing a balance on a paid date of service has a billing error, not a lien. Medical Specials keep the billed amounts the audit holds ($14,817.40); the lien register carries only what each payer can claim back."
           ],
@@ -2565,7 +2633,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["An EOB arrives", "Post billed, allowed, adjustment, paid and member share against the visit", "CMS → Liens · CMS → Documents", "Plan paid $1,860.00 logged; claim PS-2605-449021 linked to the visit"],
-          ["A PIP check clears", "Post the check, the date of service and the limit remaining", "CMS → Insurance tab → PIP ledger", "Ledger ties to Harbor Point's payment history, $0.00 left after 06/26/2026"],
+          ["A PIP check clears", "Post the check, the date of service and the limit remaining", "CMS → Insurance tab → PIP Log", "Ledger ties to Harbor Point's payment history, $0.00 left after 06/26/2026"],
           ["A patient statement shows a balance", "Compare it with the EOB's member responsibility; route any balance bill", "CMS → Liens · Email Workspace", "$1,540.00 flagged; Atty. Thorne told the same day; correction request drafted"],
           ["The plan's itemized lien arrives", "Match each line to an EOB and to the collision", "CMS → Liens → Peach State", "Only EOB-backed, accident-related lines stand"]
         ],
@@ -2608,8 +2676,8 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "02/23/2026: John Doe's first treatment was at Riverton Urgent Care on 02/20/2026 ($685.00, to Harbor Point PIP). Chiropractic and PT at Riverton Spine & Rehab begin 02/24/2026; it is out of network for Peach State. Atty. Thorne has approved the firm's LOP template. John Doe had three chiropractic visits in 2021, for low-back stiffness. 03/11/2026: Summit Imaging Center, booked for the cervical MRI Dr. Reyes ordered on 03/05/2026, asks for an LOP.",
           prompt: "Work both dates. First run the Payer Order for each provider and record the result. On 02/23/2026, prepare Riverton Spine & Rehab's LOP on the approved template, route it to Atty. Thorne for approval and signature, transmit it with the claim-specific HIPAA authorization, and ask for itemized statements and a missed-visit alert; confirm receipt and open the LOP register entry. Record John Doe's assessment, including his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing, naming Harbor Point PIP as the payer, with the ledger to prove it. Graded: no payment promised to either provider.",
-          tool: "CMS → Liens → LOP register · CMS → Documents → Outgoing · Email Workspace · CMS → Insurance tab → PIP ledger",
-          output: "One counsel-approved LOP transmitted and confirmed, one LOP request declined with the payer named, a current PIP ledger, and a documented pre-morbid baseline.",
+          tool: "CMS → Liens → LOP register · CMS → Documents → Outgoing · Email Workspace · CMS → Insurance tab → PIP Log",
+          output: "One counsel-approved LOP transmitted and confirmed, one LOP request declined with the payer named, a current PIP Log, and a documented pre-morbid baseline.",
           checkpoints: [
             "Payer Order run and recorded for each provider: PIP → Peach State → LOP",
             "Riverton Spine & Rehab's LOP justified: out of network for Peach State, and a full course of care PIP's balance can't carry",
@@ -2626,7 +2694,7 @@ window.CM_CASE_FLOW = {
         ops: [
           ["02/23/2026: Riverton Spine & Rehab needs an LOP before the 02/24/2026 visit", "Run the Payer Order, prepare the LOP on the approved template, route it for approval", "CMS → Documents → Outgoing → Route for approval", "Approved and signed before the first visit"],
           ["LOP signed", "Transmit it with the HIPAA authorization; confirm receipt; open the register entry", "Email Workspace · CMS → Liens → LOP register", "Receipt confirmed and dated in the Communications Log"],
-          ["03/11/2026: Summit Imaging asks for an LOP", "Decline in writing, naming Harbor Point PIP as the payer; post the ledger", "Email Workspace · CMS → Insurance tab → PIP ledger", "Reason stated; ledger shows $3,675.00 left before the MRI"]
+          ["03/11/2026: Summit Imaging asks for an LOP", "Decline in writing, naming Harbor Point PIP as the payer; post the ledger", "Email Workspace · CMS → Insurance tab → PIP Log", "Reason stated; ledger shows $3,675.00 left before the MRI"]
         ],
         best: [
           "Run the Payer Order before you open the LOP template, every time.",
@@ -2727,6 +2795,73 @@ window.CM_CASE_FLOW = {
         ]
       },
 
+      {
+        kind: "lesson", id: "d2m2-cost", compact: true,
+        title: "Rental & Reimbursement of Costs",
+        topic: "What treatment costs the client out of pocket, and how each dollar is documented for the demand",
+        visual: "A receipt ledger fills the slide: rows for TREATMENT MILEAGE (date · provider · round-trip miles · rate per the governing state's rules), RIDES AND PARKING, PRESCRIPTIONS AND CO-PAYS, MEDICAL EQUIPMENT and RENTAL THE OWNER PAID, each with a receipt thumbnail or a trip-log icon. Right, an orange arrow into a cream card headed DEMAND · SPECIALS, with a red tag on an empty receipt slot: “no receipt, no claim.”",
+        tell: {
+          why: "Treatment costs the client money that no provider's bill shows: the drive to every appointment, the ride when there is no car, the prescription, the brace, the rental the owner paid for past the cutoff. Each is recoverable only if it is documented when it happens. The Case Manager keeps the log; what the demand claims, and at what rate, is Atty. Thorne's call under the governing state's rules.",
+          rules: [
+            "Out-of-pocket costs are Specials: mileage to treatment, rides and parking, prescriptions, co-pays and deductibles, medical equipment, and any rental the owner paid. Each one needs its receipt or its log.",
+            "Keep a trip log from the first visit: the date, the provider and the round-trip miles. Mileage is claimed at the rate the governing state's rules allow, and Atty. Thorne confirms it. For reference, the IRS's standard rates when this course was written were 20.5¢ a mile for medical travel and 72.5¢ for business (IR-2025-128); check the current year's rates.",
+            "A rental the carrier did not pay (days past the cutoff, a rate above the cap, an upgrade's difference) is the owner's out-of-pocket cost: keep the rental company's receipt and route it to Atty. Thorne with the Property Damage claim.",
+            "When the rental ends and the client has no car, transport becomes a barrier to care: plan the rides before a visit is missed, and log what each ride costs.",
+            "Check every payer first: PIP or MedPay may reimburse some costs. Record what was paid and by whom, so nothing is claimed twice.",
+            "Enter each cost the day its receipt arrives, in CMS → Financial Ledger → Specials, with the receipt filed in CMS → Documents.",
+            "Before the demand, total the log and route it to Atty. Thorne. He decides what the demand claims, and at what rate."
+          ],
+          upl: [
+            "Collect and log the costs. Never tell the client what they are worth or promise they will be repaid; what the demand claims is Atty. Thorne's call."
+          ]
+        },
+        show: {
+          caption: "John Doe's costs after the rental cutoff, handled both ways",
+          type: "split",
+          do: [
+            "“Keep every receipt, and write down each trip: the date, the office and the miles.”",
+            "“Send me a photo of the pharmacy receipt today, and I'll log it.”",
+            "“Let's set up your ride to Thursday's appointment now.”"
+          ],
+          dont: [
+            "“No need for receipts; we'll estimate it all at the end.”",
+            "“You'll get every penny of that back.”",
+            "“If you can't get a ride, just skip the visit.”"
+          ]
+        },
+        ops: [
+          ["Treatment starts", "Open the trip log; tell the client what to keep", "CMS → Case Notes · Tasks", "Log open; client told what to keep"],
+          ["A receipt comes in", "Enter the cost; file the receipt", "CMS → Financial Ledger → Specials · Documents", "Entered with its receipt"],
+          ["MMI is reached; the demand is next", "Total the log; route it to Atty. Thorne", "CMS → Tasks", "Totals routed; the rate confirmed by counsel"]
+        ],
+        best: [
+          "Start the trip log at the first visit, not at the demand.",
+          "File each receipt the day it arrives.",
+          "Pitfall: estimating mileage from memory at the end of treatment.",
+          "Pitfall: promising the client that every cost will be repaid."
+        ],
+        sources: [
+          "Case file: Keystone Mutual's rental cutoff (RS32) and John Doe's transport to treatment",
+          "IRS IR-2025-128: the standard mileage rates when this course was written, 20.5 cents medical and 72.5 cents business",
+          "Newly authored: reimbursement of out-of-pocket treatment costs and the trip log"
+        ],
+        rubric: {
+          ai: [
+            ["Cost coverage", 25, "Every kind of out-of-pocket cost named, each with its receipt or log"],
+            ["Mileage log", 20, "Date, provider and round-trip miles; the rate from the governing state's rules, confirmed by counsel"],
+            ["Payer check", 15, "What any payer reimbursed recorded; nothing claimed twice"]
+          ],
+          trainer: [
+            ["Client coaching", 25, "Plain instructions the client will actually follow"],
+            ["UPL boundary", 15, "No promise of repayment; what is claimed left to Atty. Thorne"]
+          ]
+        },
+        notes: [
+          "Ask: “John Doe's rides ended with the rental cutoff. What does his next appointment cost him?” Let the room list the costs.",
+          "Show the trip log: date, provider, round-trip miles. The rate is the governing state's, confirmed by Atty. Thorne; the IRS figures are a reference.",
+          "Tie it to the demand: these are Specials, and only what is documented reaches the demand."
+        ]
+      },
       {
         kind: "lesson", id: "d2m2-l2", compact: true,
         title: "A-C-T Crisis Protocol & Treatment Monitoring Principles",
@@ -3085,7 +3220,7 @@ window.CM_CASE_FLOW = {
           ],
           scale: [
             "Reading an EOB line by line, remark codes included",
-            "Reconciling provider balances to the EOBs and the PIP ledger",
+            "Reconciling provider balances to the EOBs and the PIP Log",
             "Applying the Payer Order: PIP, then the Health Plan, then an LOP",
             "Preparing and transmitting an LOP on counsel's terms, and declining one",
             "Keeping a PIP exhaustion ledger and LOP balances current",
@@ -3551,7 +3686,7 @@ window.CM_CASE_FLOW = {
           rules: [
             "Audit against four objectives: Verification (facts match evidence?), Valuation (every dollar justified?), Risk (where will the defense attack?), Compliance (SOL 02/06/2028 docketed; statutory demand terms confirmed by Atty. Thorne).",
             "MMI is a medical determination, never yours: record it from Lakeside Orthopedics' 06/12/2026 note, with the future-care plan. By default, no demand before MMI: the bills are still growing. Demanding earlier (Specials already over the limit, a deadline pressing) is Atty. Thorne's call.",
-            "Special damages = Medical Bills + lost wages + Property Damage. The Civic runs on its own Keystone PD claim, outside the $40,000, so John Doe's BI Specials are medical + wages.",
+            "Special damages = Medical Bills + lost wages + out-of-pocket costs + Property Damage. Out-of-pocket costs (mileage to treatment at the rate the governing state's rules allow, rides, prescriptions, equipment) come from the trip log and their receipts, and Atty. Thorne decides what the demand claims. The Civic runs on its own Keystone PD claim, outside the $40,000, so John Doe's audited BI Specials are medical + wages.",
             "Audit the medicals in three passes. Chronology: every gap with its documented reason (the 14 days, the 19-day disruption). Coding: duplicate or unbundled lines. Prior history, 5–10 years back: three 2021 low-back chiropractic visits, resolved; no prior neck complaint.",
             "Test every line as reasonable and necessary: fits the mechanism, clinically ordered (the MRI on Dr. Reyes's 03/05/2026 order; the injection after the 03/27/2026 referral), backed by objective findings.",
             "Show billed beside paid. Which column the demand claims turns on the governing collateral-source rule, which varies by state: Atty. Thorne's call, never the ledger's.",
@@ -4409,7 +4544,7 @@ window.CM_CASE_FLOW = {
             "When a carrier offers limits, confirm its terms (coverage, release scope, liens, payee, check date) without accepting; report to Atty. Thorne that day. Only after John Doe decides, on his advice, does the acceptance go out: you draft it, he approves and sends it.",
             "A first-party carrier owes its insured good faith. Never accept verbally under pressure: log the words, put new evidence in writing under Atty. Thorne's deadline, escalate. Bad faith is his call.",
             "Payout: release → check (to John Doe and the firm; he endorses, never the CM) → IOLTA → liens, fee, costs → net. Log each check the day it arrives; deposit it that day if its release is signed, else secure it and expedite signing under Atty. Thorne.",
-            "Riverton's PIP is add-on: a collateral source, not a credit to Keystone (confirm the rule). Exhausted and non-subrogated, it creates no lien and no UM cut here. Where PIP applies, set-off, the EMC ceiling and subrogation change the ask."
+            "PIP is used differently by state type. In a no-fault state, PIP is mandatory and pays the injured person's own medical first, whoever caused the crash; a suit against the at-fault driver needs a serious-injury or monetary threshold, and PIP paid is set off. In an at-fault state, the at-fault driver's BI pays the injury claim and add-on PIP pays on top, with the right to sue left open. John Doe's Harbor Point PIP is add-on: a collateral source, not a credit to Keystone (confirm the rule). Exhausted and non-subrogated, it creates no lien and no UM cut here."
           ],
           upl: [
             "You may assemble the evidence, log and relay offers, and paper what John Doe decided through Atty. Thorne. You may not accept, reject or counter, tell John Doe whether to settle, explain a policy's offset or release language to him, or accuse a carrier of bad faith."
@@ -4420,8 +4555,9 @@ window.CM_CASE_FLOW = {
           type: "table",
           head: ["Reduction", "Where it bites", "On this file"],
           rows: [
-            ["PIP set-off", "No-fault states: value – PIP paid = what the defendant still owes.", "Riverton PIP is add-on, not no-fault: a collateral source, not a credit to Keystone (confirm the rule). Exhausted, non-subrogated: no lien, no UM cut."],
-            ["EMC ceiling", "In PIP states, some cap benefits lower without an emergency-medical-condition finding (confirm the rule); Riverton's add-on PIP has no such cap.", "PIP paid its full $5,000.00; the rest of the care became Peach State and LOP liens."],
+            ["PIP in a no-fault state", "PIP is mandatory and pays first, whoever was at fault; a suit needs a threshold, and PIP paid is set off.", "Not this file."],
+            ["PIP in an at-fault state", "The at-fault driver's BI pays; add-on PIP pays on top, and the right to sue stays open.", "John Doe's Harbor Point PIP is add-on: a collateral source, not a credit to Keystone (confirm the rule). Exhausted, non-subrogated: no lien, no UM cut."],
+            ["EMC ceiling", "In PIP states, some cap benefits lower without an emergency-medical-condition finding (confirm the rule); John Doe's Harbor Point PIP has no such cap.", "PIP paid its full $5,000.00; the rest of the care became Peach State and LOP liens."],
             ["Subrogation", "A subrogated carrier liens the settlement: log it, plan the reduction.", "Harbor Point, 03/02/2026: no reimbursement right."],
             ["UM offset", "A reduction policy subtracts the BI from the UM limit.", "Add-on: $20,000 of room, not $20,000 – $10,000 = $10,000."]
           ]
@@ -4446,7 +4582,7 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Gap and layer logic", 15, "UM pays the gap above BI; Relative UM excess over Host UM; $10,000 + $20,000 + $10,000 = $40,000"],
-            ["Reductions closed", 20, "Offset, PIP non-duplication and PIP reimbursement each tied to the 03/02/2026 letter; add-on PIP: no set-off; no-fault rules stated as where they apply"],
+            ["Reductions closed", 20, "Offset, PIP non-duplication and PIP reimbursement each tied to the 03/02/2026 letter; PIP use contrasted, no-fault against at-fault; John Doe's add-on PIP: no set-off"],
             ["Close and paper trail", 15, "Coverage, release, liens, payee and check date confirmed; same-day email"],
             ["Payout sequence", 10, "Release → check → trust → liens, fee and costs → net"]
           ],
@@ -4458,7 +4594,7 @@ window.CM_CASE_FLOW = {
         notes: [
           "Open on Harbor Point's 03/02/2026 letter. Ask which sentence in it is worth $10,000 to John Doe. It is the add-on clause: on a reduction policy, Keystone's $10,000 would have come off the top of the $20,000.",
           "Put to the room: “Harbor Point insures Kevin Alvarez's car. Why does it owe John Doe anything, and why will it still fight him?”",
-          "Watch for trainees who treat the UM carriers as friendly because they are first-party. They turn adversarial at evaluation, and Harbor Point's 09/14 offer proves it. Teach PIP as the doctrine where it applies, not as a fact of this file: where PIP applies, the set-off, the EMC ceiling and a subrogation lien each change the BI ask and the net.",
+          "Watch for trainees who treat the UM carriers as friendly because they are first-party. They turn adversarial at evaluation, and Harbor Point's 09/14 offer proves it. Teach the contrast: in a no-fault state PIP is mandatory, pays first and is set off, and a suit needs a threshold; in an at-fault state add-on PIP pays on top and the suit stays open. John Doe's Harbor Point PIP is add-on.",
           "Bad faith is a legal conclusion. New medical evidence changes a valuation, and on this file it is the residual paresthesia Dr. Reyes documented at MMI; don't call it permanent unless a physician has. The CM's contribution is a dated record of what each carrier knew and said, and anyone who writes “bad faith” to an adjuster has crossed the line."
         ]
       },
@@ -8344,8 +8480,7 @@ window.CM_CASE_FLOW = {
       "From the moment of the collision, what a client says and does can become part of the record. Adverse carriers investigate early, statements are recorded, and social-media posts can be collected and read out of context. Most of the damage clients do to their own claims happens in the first two weeks, simply because nobody has yet told them how the process works. The **standing instructions** exist to close that window: they are given on day one, in plain words, and their delivery is logged so the firm can show exactly when the client was told.",
       "Once the Letter of Representation goes out, adverse contact routes through the firm, and the client gives no Recorded Statement and signs no release, authorization or settlement document until the firm has reviewed it. On John Doe's file this is not theoretical: Robert Smith's carrier, Keystone Mutual, has already called him. That makes the communication instruction the urgent one, and you confirm he has understood it rather than assuming he read it. There is one narrow carve-out: Keystone may speak with the owner of a damaged vehicle about the **Property Damage** claim only. If a PD call drifts into injuries, treatment or how the collision happened, it stops and routes to the firm.",
       "The treatment instruction matters most on this file, because John Doe has not started treatment yet. The client starts care, keeps every appointment and tells you about any barrier, whether transport, cost or work, before a visit is missed. He keeps every receipt, including mileage and household help, because only what is documented can be recovered. He reports any change of address, phone or provider at once. You explain the process and why consistency is expected; what a missed visit means for the claim's value is Atty. Thorne's to explain.",
-      "Rentals follow a hierarchy. The adverse carrier's Property Damage coverage provides the third-party rental; a vehicle owner's own policy, or a rental company's self-insurance, comes in only where there is no third-party coverage, such as a liability denial. Before anyone collects a car, you confirm who authorizes it, the daily rate cap and the duration limit, and check for a rental reimbursement endorsement. On this file the rental question attaches to the damaged 2019 Honda Civic, which belongs to Margaret Doe, not to John Doe, who owns no car. Her PD and rental claim runs under a separate PD-only engagement.",
-      "Done well, these instructions keep the record clean and the client's expectations accurate: uncovered rental days do not surprise anyone, and no stray statement reaches the other side. Done badly, the client learns the rules after breaking them and blames the firm for not telling him. Your lane is to deliver the instructions, log them and explain the process. You do not tell John Doe what a Recorded Statement or a missed visit would do to his claim; you give the instruction and route the why to Atty. Thorne. Ask the room: which instruction would you check first, and how would you know he understood it?"
+      "Done well, these instructions keep the record clean and the client's expectations accurate: no undocumented expense is lost, and no stray statement reaches the other side. Done badly, the client learns the rules after breaking them and blames the firm for not telling him. Your lane is to deliver the instructions, log them and explain the process. You do not tell John Doe what a Recorded Statement or a missed visit would do to his claim; you give the instruction and route the why to Atty. Thorne. Ask the room: which instruction would you check first, and how would you know he understood it?"
     ],
     "d1m3-l2": [
       "Property Damage law aims to put the owner back where they were before the loss, and no further. That is the logic of the **“lesser of” rule**: the measure is the cost of repair or the drop in market value, whichever is less. It is also why Total Loss exists. When repair would cost more than the carrier's threshold measured against the vehicle's **actual cash value**, the carrier pays the value instead of fixing it. ACV is the pre-loss market value of that vehicle: not what is owed on a loan, and not the price of a new replacement.",
@@ -8353,6 +8488,12 @@ window.CM_CASE_FLOW = {
       "Property Damage is also evidence. The first estimate is usually written before anyone looks behind the panels; a **supplement** found at teardown is often the best proof of hidden structural damage. Photos that show a clear point of impact, including the undercarriage and frame, tell the story of how hard the collision was. That matters well beyond the car, because the force of the impact is part of the context for the injury claim. A CM who works only from the first estimate leaves that evidence unexamined.",
       "Time costs money on a PD claim. Storage and towing accrue daily, so a vehicle sitting while the disposition is undecided steadily eats into the recovery. Loss of Use exists because an owner deprived of a vehicle has lost something real, measured each day by the cost of a comparable rental, and claimed separately from the repair or ACV payment; the governing state rule must be confirmed for the file. Record the dates without a vehicle as they happen, because days nobody wrote down are days nobody can later prove.",
       "Your lane is to gather estimates, compare figures, verify the Valuation Report and the threshold basis in writing, and report what you find. You do not advise the owner whether to accept a valuation or say what the vehicle is legally worth, and asserting a loss-of-use claim is counsel's position, as is any disputed valuation, which you document and escalate rather than argue with the adjuster. Ask the room: whose car is the Civic, which documents prove it, and what does that mean for who you report each figure to?"
+    ],
+    "d1m3-rent": [
+      "A rental is the first money question most clients ask, and the easiest place for them to get hurt. A car collected on a promise, at a daily rate nobody authorized or for days nobody covered, becomes a bill with the client's name on it. Rental is part of the **Property Damage** claim, so it follows the vehicle: it belongs to the vehicle's owner, not to whoever happens to call about it.",
+      "Rentals follow a hierarchy. The adverse carrier's Property Damage coverage provides the third-party rental once it accepts liability; the owner's own policy, through a rental reimbursement endorsement, or a rental company's self-insurance, comes in only where there is no third-party coverage, such as a liability denial or an unresolved dispute over fault. Before anyone collects a car, you confirm whose coverage pays, who authorizes it, the daily rate cap and the duration. Coverage usually runs 30 days at most unless the Dec Page says otherwise, and a comparable vehicle, not an upgrade.",
+      "On John Doe's file the rental attaches to the damaged 2019 Honda Civic, which belongs to Margaret Doe; John Doe was a passenger and owns no car. Keystone accepted Property Damage liability and authorized the rental on 02/18/2026, capped at 30 days, so it ended on 03/19/2026. Every parameter goes in the Property Damage section before the owner collects a car, the authorization is filed, and the last covered day is on the calendar with a warning before it arrives.",
+      "Cause and effect run past the rental counter. When Keystone's rental ended, so did John Doe's rides to treatment, and a transport barrier is how a gap in care begins; planning his rides before the cutoff is part of this task. Your lane is coverage facts and the process. Whether to dispute a cutoff or a rate, and what the owner should accept, is Atty. Thorne's call. Ask the room: whose claim is the rental on this file, and which document proves it?"
     ],
     "d2m1-l1": [
       "A **Letter of Representation** exists because the moment an injured person hires a lawyer, the conversation with every insurer has to change hands. Until a carrier is told in writing, its adjuster may call the client directly, ask for a Recorded Statement, and build its file from whatever an injured, unrepresented person says. The LOR stops that. It also does three quieter jobs: it gives the carrier formal notice of the claim, which many policies require as a condition of coverage; it starts the carrier's own clock to acknowledge and respond; and it puts the carrier on notice to preserve evidence before it is lost, overwritten or repaired.",
@@ -8402,6 +8543,12 @@ window.CM_CASE_FLOW = {
       "The 30-day ledger is cause and effect at its plainest. Every visit adds $185.00 to a balance that will come out of John Doe's recovery, and 16 visits ran from 02/24/2026 to 04/02/2026 alone. Entered monthly in CMS → Liens, the balance grows in view, and any line that doesn't match a visit he actually attended can be questioned while the dates are fresh. Read for the first time at the end, the same ledger surprises the Net Sheet, and an error is harder to unwind. A balance nobody tracked is still owed; it has only become a surprise.",
       "Referrals carry their own risk. When John Doe asks where to go for care, you may give him a list of providers who accept LOPs or his plan, with their locations, hours and network status, and book the one he chooses. You never recommend one provider over another, promise a result, or say that a treatment will help the case. If the firm has a relationship with a provider on the list, you disclose it. Then you log who was offered, who he chose, and why, in his words. That log matters because a referral that looks steered invites the argument that the care was built for the claim rather than the injury.",
       "Your lane is options and logistics: a list, the network status and the booking, then tracking the LOP from signature to payoff. Which care John Doe receives is for him and his doctors. What the LOP means for his recovery, including what he owes if there is none, is for Atty. Thorne to explain. Ask the room: John says, “Just send me wherever you'd go.” What do you say, and what do you write in the CMS afterward?"
+    ],
+    "d2m2-cost": [
+      "Treatment costs the client money that no provider's bill shows: the drive to every appointment, the ride when there is no car, the prescription, the brace, the rental the owner paid for past the cutoff. Every one is a cost of the collision, and every one is recoverable only if it was documented when it happened. Out-of-pocket costs are part of the Specials, beside the Medical Bills and the lost wages.",
+      "The tool is a trip log kept from the first visit: the date, the provider and the round-trip miles, one line per visit, never rebuilt from memory at the demand. Mileage is claimed at the rate the governing state's rules allow, and Atty. Thorne confirms it; the IRS standard rates are a reference only. Each receipt is entered in CMS → Financial Ledger → Specials the day it arrives and filed in Documents, and every payer is checked first, so nothing PIP or the Health Plan paid is claimed twice.",
+      "On John Doe's file the costs start with the rental cutoff. Keystone's rental on Margaret Doe's Civic ended on 03/19/2026, and with it his rides to treatment; from then on, transport is both a barrier to care and a cost to log. A rental day the carrier did not pay, or a rate above the cap, is the owner's out-of-pocket cost, routed to Atty. Thorne with the Property Damage claim. His audited Specials stay as they are; the log and its receipts go to Atty. Thorne before the demand.",
+      "Done well, every dollar the collision cost the client is on the file with its proof, and the demand can carry it. Done badly, the costs are guessed at the end, or never claimed at all. Your lane is to collect and log; you never tell the client what a cost is worth or promise he will be repaid, and what the demand claims, and at what rate, is Atty. Thorne's call. Ask the room: what is John Doe paying out of his own pocket this week?"
     ],
     "d1m1-l2": [
       "Two questions get confused on almost every new injury file: who pays the Medical Bills while the claim is open, and who pays the claim itself at the end. A Health Plan answers the first, then asks to be repaid out of the second. That **reimbursement right** comes from the plan's contract and the principle that a client should not be paid twice for the same bill. Government payers go further: Medicare's secondary-payer rules require that its conditional payments be repaid, and the MMSEA (2007) reporting regime exists to make sure they are. The **Regulatory Triple-Check** puts these questions at the front of the file, before clinical planning begins.",
@@ -8659,12 +8806,12 @@ window.CM_CASE_FLOW = {
 
   sequence: [
     {n: 1, phases: [
-      {title: "Intake, Claims & Property Damage", lead: "Module 1", blocks: ["d1m1-role", "d1m1-case", "d1m1-upl", "d1m1-l1", "d1m4-l1", "d1m3-l1", "d1m3-l2", "d1m1-open", "d1m3-a1", "d1m3-a2", "d1m3-a3", "d1m1-kc", "d1m3-kc"],
-       headings: {"d1m1-role": "Introduction to Case Management", "d1m1-case": "Meet Your Client: John Doe", "d1m1-upl": "The UPL Line: Fact Sharing vs. Legal Advice", "d1m1-l1": "Intake", "d1m4-l1": "Intake & the Claims", "d1m3-l1": "Property Damage", "d1m3-l2": "Property Damage", "d1m1-open": "Skill Building: Opening the File in the CMS", "d1m3-a1": "Skill Building: Property Damage", "d1m3-a2": "Skill Building: Property Damage", "d1m3-a3": "Skill Building: Property Damage"}}
+      {title: "Intake, Claims & Property Damage", lead: "Module 1", blocks: ["d1m1-role", "d1m1-case", "d1m1-upl", "d1m1-l1", "d1m4-l1", "d1m3-l1", "d1m3-l2", "d1m3-rent", "d1m1-open", "d1m3-a1", "d1m3-a2", "d1m3-a3", "d1m1-kc", "d1m3-kc"],
+       headings: {"d1m1-role": "Introduction to Case Management", "d1m1-case": "Meet Your Client: John Doe", "d1m1-upl": "The UPL Line: Fact Sharing vs. Legal Advice", "d1m1-l1": "Intake", "d1m4-l1": "Intake & the Claims", "d1m3-l1": "Property Damage", "d1m3-l2": "Property Damage", "d1m3-rent": "Property Damage", "d1m1-open": "Skill Building: Opening the File in the CMS", "d1m3-a1": "Skill Building: Property Damage", "d1m3-a2": "Skill Building: Property Damage", "d1m3-a3": "Skill Building: Property Damage"}}
     ]},
     {n: 2, phases: [
-      {title: "Claim Set Up & Treatment", lead: "Module 2", lanes: {"d2m1-l1": "claims", "d2m1-l2": "claims", "d1m4-l2": "claims", "d1m1-a1": "claims", "d2m1-a1": "claims", "d2m1-a2": "claims", "d1m4-a1": "claims", "d1m4-a2": "claims", "d2m1-kc": "claims", "d1m4-kc": "claims", "d2m1-cov": "care", "d2m2-l1": "care", "d2m2-eob": "care", "d2m2-lop": "care", "d1m1-l2": "care", "d2m2-l2": "care", "d1m2-l1": "care", "d1m2-l2": "care", "d1m2-a1": "care", "d1m2-a2": "care", "d2m2-a1": "care", "d1m1-a2": "care", "d2m2-a2": "care", "d2m2-a3": "care", "d2m2-kc": "care", "d1m2-kc": "care"}, blocks: ["d2m1-l1", "d2m1-l2", "d1m4-l2", "d2m1-cov", "d2m2-l1", "d2m2-eob", "d2m2-lop", "d1m1-l2", "d2m2-l2", "d1m2-l1", "d1m2-l2", "d1m1-a1", "d2m1-a1", "d2m1-a2", "d1m4-a1", "d1m4-a2", "d1m2-a1", "d1m2-a2", "d2m2-a1", "d1m1-a2", "d2m2-a2", "d2m2-a3", "d2m1-kc", "d1m4-kc", "d2m2-kc", "d1m2-kc"],
-       headings: {"d2m1-l1": "Claim Set Up", "d2m1-l2": "Claim Set Up", "d1m4-l2": "Claim Set Up: Case Strategy", "d2m1-cov": "Treatment: Who Pays the Bills", "d2m2-l1": "Treatment: Who Pays the Bills", "d2m2-eob": "Treatment: Who Pays the Bills", "d2m2-lop": "Treatment: Who Pays the Bills", "d1m1-l2": "Treatment: Liens & the Regulatory Triple-Check", "d2m2-l2": "Treatment: Monitoring the Care", "d1m2-l1": "Treatment: Client Communications", "d1m2-l2": "Treatment: Client Communications", "d1m1-a1": "Skill Building: CMS Case File Setup", "d2m1-a1": "Skill Building: Draft, Transmit & Log the LORs", "d2m1-a2": "Skill Building: Receive Carrier Claim Correspondence", "d1m4-a1": "Skill Building: Case Strategy", "d1m4-a2": "Skill Building: Case Strategy", "d1m2-a1": "Skill Building: Client Communications", "d1m2-a2": "Skill Building: Client Communications", "d2m2-a1": "Skill Building: Treatment", "d1m1-a2": "Skill Building: Liens", "d2m2-a2": "Skill Building: Treatment", "d2m2-a3": "Skill Building: Treatment"}}
+      {title: "Claim Set Up & Treatment", lead: "Module 2", lanes: {"d2m1-l1": "claims", "d2m1-l2": "claims", "d1m4-l2": "claims", "d1m1-a1": "claims", "d2m1-a1": "claims", "d2m1-a2": "claims", "d1m4-a1": "claims", "d1m4-a2": "claims", "d2m1-kc": "claims", "d1m4-kc": "claims", "d2m1-cov": "care", "d2m2-l1": "care", "d2m2-eob": "care", "d2m2-lop": "care", "d2m2-cost": "care", "d1m1-l2": "care", "d2m2-l2": "care", "d1m2-l1": "care", "d1m2-l2": "care", "d1m2-a1": "care", "d1m2-a2": "care", "d2m2-a1": "care", "d1m1-a2": "care", "d2m2-a2": "care", "d2m2-a3": "care", "d2m2-kc": "care", "d1m2-kc": "care"}, blocks: ["d2m1-l1", "d2m1-l2", "d1m4-l2", "d2m1-cov", "d2m2-l1", "d2m2-eob", "d2m2-lop", "d2m2-cost", "d1m1-l2", "d2m2-l2", "d1m2-l1", "d1m2-l2", "d1m1-a1", "d2m1-a1", "d2m1-a2", "d1m4-a1", "d1m4-a2", "d1m2-a1", "d1m2-a2", "d2m2-a1", "d1m1-a2", "d2m2-a2", "d2m2-a3", "d2m1-kc", "d1m4-kc", "d2m2-kc", "d1m2-kc"],
+       headings: {"d2m1-l1": "Claim Set Up", "d2m1-l2": "Claim Set Up", "d1m4-l2": "Claim Set Up: Case Strategy", "d2m1-cov": "Treatment: Who Pays the Bills", "d2m2-l1": "Treatment: Who Pays the Bills", "d2m2-eob": "Treatment: Who Pays the Bills", "d2m2-lop": "Treatment: Who Pays the Bills", "d2m2-cost": "Treatment: Who Pays the Bills", "d1m1-l2": "Treatment: Liens & the Regulatory Triple-Check", "d2m2-l2": "Treatment: Monitoring the Care", "d1m2-l1": "Treatment: Client Communications", "d1m2-l2": "Treatment: Client Communications", "d1m1-a1": "Skill Building: CMS Case File Setup", "d2m1-a1": "Skill Building: Draft, Transmit & Log the LORs", "d2m1-a2": "Skill Building: Receive Carrier Claim Correspondence", "d1m4-a1": "Skill Building: Case Strategy", "d1m4-a2": "Skill Building: Case Strategy", "d1m2-a1": "Skill Building: Client Communications", "d1m2-a2": "Skill Building: Client Communications", "d2m2-a1": "Skill Building: Treatment", "d1m1-a2": "Skill Building: Liens", "d2m2-a2": "Skill Building: Treatment", "d2m2-a3": "Skill Building: Treatment"}}
     ]},
     {n: 3, phases: [
       {title: "Pre-Demand Audit, the Demand & Settlement Negotiation", lead: "Module 3", lanes: {"d2m3-l1": "care", "d2m3-l2": "care", "d2m3-a1": "care", "d2m3-a2": "care", "d2m3-kc": "care"}, blocks: ["d2m3-l1", "d2m3-l2", "d2m4-l1", "d2m4-l2", "d3m1-l1", "d3m1-l2", "d3m2-l1", "d3m2-l2", "d2m3-a1", "d2m3-a2", "d2m4-a1", "d2m4-a2", "d3m1-a1", "d3m1-a2", "d3m2-a1", "d3m2-a2", "d2m3-kc", "d2m4-kc", "d3m1-kc", "d3m2-kc"],

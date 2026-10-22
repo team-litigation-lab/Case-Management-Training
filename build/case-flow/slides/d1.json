@@ -58,6 +58,8 @@
       "Route **a correction note** to Atty. Thorne in Case Notes"
     ],
     "deliver": "An active matter, **every field verified**, corrections noted to Atty. Thorne",
+    "purpose": "A file opened wrong stays wrong: **every later step** trusts this record",
+    "principle": "The signed source document wins; **the draft is only a lead**",
     "checks": [
       "Conflict Check logged **before the matter existed**",
       "Position corrected **from the Police Report**",
@@ -120,6 +122,8 @@
       "Verify the total, record the pursuit order, **mark the projection preliminary**"
     ],
     "deliver": "A three-layer Coverage Matrix **totalling $40,000**, each layer classified, ordered and attributed",
+    "purpose": "Every projection rests on this stack: **one unconfirmed limit** misleads them all",
+    "principle": "BI pays first; **UM opens only** once BI is exhausted",
     "checks": [
       "Limits **$10,000 / $20,000 / $10,000**; total $40,000",
       "Order recorded: **BI → Host UM → Relative UM**",
@@ -175,6 +179,8 @@
       "State what must happen **before any compromise**"
     ],
     "deliver": "A **dated, flagged lien record** you could negotiate from on Day 4",
+    "purpose": "An unflagged lien surfaces at disbursement, **too late to negotiate** from strength",
+    "principle": "Register it early; **only Atty. Thorne** can authorize a compromise",
     "checks": [
       "Carrier: **Peach State Health Plan**",
       "**PSH-55017742 and GRP-41208** both entered",
@@ -237,6 +243,8 @@
       "Decide whether **Step 3 notification** is warranted, and the impact"
     ],
     "deliver": "A Step 1 review and an **unbroken, contemporaneous** Step 2 outreach log",
+    "purpose": "With the SOL running and treatment unstarted, **an unlogged attempt** never happened",
+    "principle": "Review the deadlines first; **a new channel** beats a repeat call",
     "checks": [
       "Step 1 review done **before any outreach**",
       "**Every entry**: date, time, channel, outcome",
@@ -285,6 +293,8 @@
       "Record the Skip-Trace criteria and **Atty. Thorne's Step 5 authority**"
     ],
     "deliver": "A **send-ready Final Warning Letter**, both deliveries logged, escalation recorded",
+    "purpose": "This letter is **the last notice** before Atty. Thorne decides on withdrawal",
+    "principle": "State facts, a dated deadline and how to respond; **never legal consequences**",
     "checks": [
       "**DOL 02/06/2026** and file reference present",
       "Deadline is **a date inside 7–14 days**",
@@ -309,13 +319,12 @@
   "d1m3-l1": {
     "image": "privacy-shield",
     "roadmap": {
-      "title": "Client Instructions & Rental: the Roadmap",
+      "title": "Client Instructions: the Roadmap",
       "steps": [
         {"label": "Give the instructions", "text": "No Recorded Statement, no posts, no signing without review"},
         {"label": "Treatment and barriers", "text": "Keep every appointment; **report any barrier** before a miss"},
         {"label": "Keep the receipts", "text": "Every expense and mile documented, so it can be claimed"},
-        {"label": "The PD carve-out", "text": "The adverse carrier may discuss **Property Damage only**"},
-        {"label": "Rental authorization", "text": "Who authorizes it, the daily cap and the duration"}
+        {"label": "The PD carve-out", "text": "The adverse carrier may discuss **Property Damage only**"}
       ]
     },
     "hook": "Most self-inflicted claim damage happens **in the first two weeks**, before the client is told.",
@@ -323,12 +332,12 @@
       "**No Recorded Statement** to the adverse carrier; route contact through the firm",
       "Start treatment and **keep every appointment**",
       "**Post nothing**, sign nothing from a carrier until the firm reviews it",
-      "Rental: confirm authorization, **rate cap and duration** before collection"
+      "Keep **every receipt** and a log of each trip to treatment"
     ],
     "upl": "Give the instruction; route questions about claim value to Atty. Thorne",
     "job": [
       ["Retainer signed", "Deliver standing instructions; log delivery", "CMS → Onboarding", "Date and method logged"],
-      ["Client asks about a rental", "Confirm policy, authorization, cap, duration", "CMS → Property Damage", "Recorded before collection"],
+      ["Client mentions an expense", "Keep the receipt; log it", "CMS → Case Notes", "Receipt requested; logged"],
       ["Adverse carrier calls client", "Route to the firm; log contact", "CMS → Communications Log", "No Recorded Statement; logged"]
     ],
     "dos": [
@@ -351,6 +360,8 @@
       "**Log delivery** with date and method"
     ],
     "deliver": "A complete, delivered, logged packet **specific to John Doe's file**",
+    "purpose": "The other side **has already called him**: a generic packet arrives too late",
+    "principle": "All adverse carrier contact **goes through the firm**",
     "checks": [
       "**All six sections** present and populated",
       "Treatment direction stated: **treatment hasn't begun**",
@@ -396,6 +407,30 @@
       "Treating Property Damage as **“just the car”**"
     ]
   },
+  "d1m3-rent": {
+    "image": "car-transport",
+    "hook": "A rental collected **on a promise** becomes the client's bill.",
+    "points": [
+      "Rental is on **the owner's PD claim**: Margaret Doe's, not John's",
+      "The adverse carrier's **PD coverage** pays the rental",
+      "Confirm authorizer, rate cap and **duration in writing** first",
+      "Coverage is **usually 30 days** unless the Dec Page differs"
+    ],
+    "upl": "Confirm coverage facts; **disputes and acceptance** are Atty. Thorne's call",
+    "job": [
+      ["Owner asks about a rental", "Confirm policy, authorizer, cap, duration", "CMS → Property Damage", "Recorded before collection"],
+      ["Authorization arrives", "File it; calendar last day", "CMS → Documents · Calendar", "Cutoff calendared"],
+      ["Rental cutoff nears", "Warn owner; plan treatment rides", "CMS → Case Notes · Tasks", "Owner told; rides planned"]
+    ],
+    "dos": [
+      "Confirm every parameter **in writing** before pickup",
+      "Calendar **the last covered day**; warn early"
+    ],
+    "donts": [
+      "Sending a client for a car **before authorization**",
+      "Treating the rental as **the passenger's claim**"
+    ]
+  },
   "d1m3-a2": {
     "image": "checklist-qa",
     "situation": "John Doe's onboarding packet is **delivered and logged**. The directions must now become **tracked obligations**, not a document sent once.",
@@ -407,6 +442,8 @@
       "Schedule the **treatment-start follow-up**"
     ],
     "deliver": "A tracked task set with **correct owners, dates and verification**",
+    "purpose": "Untracked directions are hopes; **tracked tasks** expose a Treatment Gap the day it starts",
+    "principle": "Every task needs **an owner, a date and proof** it happened",
     "checks": [
       "Every task has **an owner and due date**",
       "**Verification method** recorded for each task",
@@ -428,6 +465,8 @@
       "Answer John Doe **within the UPL line**; solve his ride"
     ],
     "deliver": "A **sourced finding** of whose claim it is, reported, and a logged call",
+    "purpose": "Whose claim it is decides every call after: **guess wrong** and the file follows",
+    "principle": "A claim belongs to **the vehicle's owner**, proven by the records",
     "checks": [
       "**Position, owner and claimant** each from a record",
       "**Conclusion** on a PD or rental claim for John Doe",
@@ -486,6 +525,8 @@
       "**Route the flag** to Atty. Thorne"
     ],
     "deliver": "A **precisely computed, prominently flagged** and routed treatment-gap record",
+    "purpose": "Everything after turns on this flag; **an unexplained gap** does more damage",
+    "principle": "Record **exact dates and facts only**; its meaning is Atty. Thorne's",
     "checks": [
       "Gap: **14 days, 02/06/2026 to 02/20/2026**",
       "Gap recorded; **a watch set** for later breaks",
@@ -536,6 +577,8 @@
       "Docket the filing window, then **route to Atty. Thorne**"
     ],
     "deliver": "A complete, routed plan counsel could **set strategy from** without a follow-up question",
+    "purpose": "This plan is **the gate**: the Treatment Phase doesn't begin until it's routed",
+    "principle": "Report facts and preliminary numbers; **strategy is Atty. Thorne's** to set",
     "checks": [
       "Snapshot: DOL 02/06/2026, SOL 02/06/2028, **client a passenger**",
       "Coverage **$10,000 / $20,000 / $10,000**, total $40,000",

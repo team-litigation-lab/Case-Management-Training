@@ -503,6 +503,7 @@ function copyOf(b){   // the block's concise copy, or a condensed fallback from 
     upl: c.upl !== undefined ? c.upl : ((b.tell.upl || [])[0] ? words(b.tell.upl[0], 18) : ""), job: c.job || (b.ops || []).slice(0, 3).map(r => r.map(x => words(x, 7))),
     dos: c.dos || dos.slice(0, 3).map(x => words(x, 12)), donts: c.donts || donts.slice(0, 3).map(x => words(x, 12)), theory: c.theory || null};
   if(b.kind === "activity") return {image: c.image, situation: c.situation || words(b.act.scenario, 36), steps: c.steps || [words(b.act.prompt, 30)],
+    purpose: c.purpose || "", principle: c.principle || (c.dos || dos.map(x => words(x, 12)))[0] || "",
     deliver: c.deliver || words(b.act.output, 18), checks: c.checks || b.act.checkpoints.slice(0, 5).map(x => words(x, 12)),
     dos: c.dos || dos.slice(0, 2).map(x => words(x, 12)), donts: c.donts || donts.slice(0, 2).map(x => words(x, 12))};
   return {image: c.image || "knowledge-check", questions: c.questions || b.check.questions};
@@ -618,6 +619,26 @@ function blockTools(b){
   ids = [...new Set(ids)];
   return ids.length ? ids : ["cms"];
 }
+/* Your Task: each step ends with a link to where it's done. The CMS screen a step names (New Case for the Conflict
+   Check, Calendar for a deadline, Case Notes for a note); a step worked from the file's documents opens 📁 Work From
+   (its documents open beside the slide); otherwise the tool the step names, else the block's own tool. */
+const STEP_AT = [
+  [/Conflict Check/i, "cms", "CMS → New Case"],
+  [/Case Notes/, "cms", "CMS → Case Notes"],
+  [/\bDocket\b(?! System)|\bSOL\b|\bcalendar\b(?! Conflict)/i, "cms", "CMS → Calendar"],
+  [/\bParties\b|\broles?\b/i, "cms", "CMS → Parties"],
+  [/source documents?|signed documents?|against (the|its|each) (Police Report|Declaration Page|record|document)/i, "docs", "Documents"]
+];
+function stepLink(text, b){
+  const t = String(text || "").replace(/\*\*/g, ""), hit = STEP_AT.find(([re]) => re.test(t));
+  let id = hit && hit[1], label = hit && hit[2];
+  if(id === "docs" && !(CF_PACKETS[b.id] || []).length){ id = toolLive("docs", b.id) ? "docs" : null; label = "Documents"; }
+  if(id === "cms" && !toolLive("cms", b.id)) id = null;
+  if(!id){ id = toolsIn(t, b.id)[0] || blockTools(b).filter(x => x !== "call")[0]; label = id && TOOL[id] ? TOOL[id].short : ""; }
+  if(!id || !TOOL[id]) return "";
+  const go = id === "docs" && (CF_PACKETS[b.id] || []).length ? `cmCaseFlow.workFrom(this)` : `cmCaseFlow.tool('${id}','${b.id}')`;
+  return ` <button type="button" class="cfx-at" onclick="${go}" title="Open ${E(label)}">${TOOL[id].icon} ${E(label)} ↗</button>`;
+}
 function toolChip(id, blockId, big){
   const t = TOOL[id];
   if(!t || !toolLive(id, blockId)) return "";
@@ -727,7 +748,7 @@ function timeBanner(l){
   const b = l.cf.block, ev = SIM.events[b.id];
   if(!ev) return "";
   const say = b.transition ? `<p>${hl(b.transition)}</p>` : "";
-  if(b.otherMatter) return `<div class="cfx-when cfx-when-other"><div class="cfx-when-top"><b class="cfx-when-jump">📂 A different file</b><span>File date ${E(ev.date)}</span></div>${say}</div>`;
+  if(b.otherMatter) return `<div class="cfx-when cfx-when-other"><div class="cfx-when-top"><b class="cfx-when-jump">📂 A different file</b><span class="cfx-when-date">📆 File date <b>${E(ev.date)}</b></span></div>${say}</div>`;
   const acts = johnDoeActs(), i = acts.findIndex(x => x.cf.block.id === b.id), prev = i > 0 ? acts[i - 1] : null;
   const t = dayMs(ev.date), dol = dayMs(CF.case.dol), sol = dayMs(CF.case.sol), DAY = 864e5;
   let jump = "";
@@ -741,8 +762,9 @@ function timeBanner(l){
     else if(far) jump = gap > 0 ? `⏩ ${spanOf(gap)} later` : `⏪ Back to ${E(ev.date)}, ${spanOf(gap)} before the last task`;
   }
   const left = (sol - t) / DAY;
-  const solLine = left > 0 ? `⚖️ SOL ${E(CF.case.sol)} · ${spanOf(left)} left` : `⚠️ Past the SOL (${E(CF.case.sol)})`;
-  return `<div class="cfx-when${left > 0 ? "" : " cfx-when-late"}"><div class="cfx-when-top">${jump ? `<b class="cfx-when-jump">${jump}</b>` : ""}<span>File date ${E(ev.date)} · ${t > dol ? `${spanOf((t - dol) / DAY)} after the collision` : "the day of the collision"}</span><span class="cfx-when-sol">${solLine}</span></div>${say}</div>`;
+  const solLine = left > 0 ? `⚖️ SOL ${E(CF.case.sol)} · <b>${spanOf(left)} left</b>` : `⚠️ <b>Past the SOL</b> (${E(CF.case.sol)})`;
+  const urgency = left <= 0 ? " cfx-when-late" : left < 183 ? " cfx-when-soon" : "";   // the SOL pill: green, amber inside six months, red once it's past
+  return `<div class="cfx-when${urgency}"><div class="cfx-when-top">${jump ? `<b class="cfx-when-jump">${jump}</b>` : ""}<span class="cfx-when-date">📆 File date <b>${E(ev.date)}</b> · ${t > dol ? `<b>${spanOf((t - dol) / DAY)}</b> after the collision` : "the day of the collision"}</span><span class="cfx-when-sol">${solLine}</span></div>${say}</div>`;
 }
 function slideBody(view, l, d){
   const {block: b, day, mod} = l.cf, c = copyOf(b);
@@ -754,7 +776,7 @@ function slideBody(view, l, d){
       const list = !two ? t.concepts : view === "theory" ? t.concepts.slice(0, half) : t.concepts.slice(half);
       return `<div class="cfx-theory cfx-th-solo"><div class="cfx-th-main">
           ${view === "theory" ? (leadSplit(t.lead) ? `<p class="cfx-lead-1">${hl("**" + leadSplit(t.lead)[0] + "**")}</p><p class="cfx-th-lead">${hl(leadSplit(t.lead)[1])}</p>` : `<p class="cfx-th-lead">${hl(t.lead)}</p>`) : `<p class="cfx-th-cont">${E(titleCase(b.topic))}: continued</p>`}
-          <div class="cfx-th-grid">${list.map((x, j) => `<div class="cfx-th-c" style="animation-delay:${j * .05}s"><b>${E(x.term)}</b><span>${hl(x.text)}</span></div>`).join("")}</div></div>
+          <div class="cfx-th-grid">${list.map((x, j) => `<div class="cfx-th-c" style="animation-delay:${j * .05}s"><b>${E(x.term)}</b><span>${hl(x.text)}</span>${(x.more || []).length ? `<button type="button" class="cfx-th-more" onclick="cmCaseFlow.more('${b.id}',${t.concepts.indexOf(x)})" title="More on ${E(x.term)}">＋ More</button>` : ""}</div>`).join("")}</div></div>
       </div>`;
     }
     case "frame": {   // the deck page's structure, drawn in the course's own design
@@ -795,15 +817,17 @@ function slideBody(view, l, d){
     }
     case "task": { const main = blockTools(b).filter(id => id !== "call")[0] || "cms";
       const where = TOOLKIT.find(t => t.id === main), whereName = where ? where.name.replace(/^the /, "the ") : "the CMS";
-      return `${plainBox(b)}<div class="cfx-do-now"><b>🧪 Practice Lab: do this now</b><span>Open ${E(whereName)} with the button under <em>Where</em> (or from today's 🧪 Practice Lab slide, so it stays open beside the slides), work the steps below on John Doe's file, ${SIM.calls[b.id] ? "take the live call, " : ""}then hand in what's under <em>Deliver</em> and tick it off on the next slide, <em>Check Your Work</em>.</span></div>
-      <div class="cfx-task"><ol class="cfx-points">${c.steps.map(x => { return `<li><span>${hl(x)}</span></li>`; }).join("")}</ol>
-      <aside class="cfx-side"><div><b>🛠 Where</b><span>${E(b.act.tool)}</span><div class="cfx-btns">${toolChips(blockTools(b).filter(id => id !== "call"), b.id, true)}</div></div>
-        ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
+      /* the busiest slides were shrunk to fit: the Practice Lab note is one line, and the things to do (the live call,
+         the service confirmation) sit under the steps, so the two columns are about the same height */
+      return `${plainBox(b)}<div class="cfx-do-now"><b>🧪 Practice Lab</b><span>Open ${E(whereName)} from today's Practice Lab, work the steps on John Doe's file${SIM.calls[b.id] ? ", take the live call" : ""}, then <em>Deliver</em> and <em>Check Your Work</em>.</span></div>
+      <div class="cfx-task"><div class="cfx-task-main"><ol class="cfx-points">${c.steps.map(x => `<li><span>${hl(x)}${stepLink(x, b)}</span></li>`).join("")}</ol>
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}</span>
           <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
         ${serviceOf(b.id) ? `<div class="cfx-call cfx-svb"><b>✉ Service Confirmation</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
-          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the Service Confirmation</button></div>` : ""}
-        <div class="cfx-deliver"><b>📤 Deliver</b><span>${hl(c.deliver)}</span></div></aside></div>`; }
+          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the Service Confirmation</button></div>` : ""}</div>
+      <aside class="cfx-side">${c.purpose || c.principle ? `<div class="cfx-why">${c.purpose ? `<b>🎯 Purpose</b><span>${hl(c.purpose)}</span>` : ""}${c.principle ? `<b>⚖️ Principle</b><span>${hl(c.principle)}</span>` : ""}</div>` : ""}
+        ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
+        <button type="button" class="cfx-deliver" onclick="nextSlide()" title="Hand it in, then check your work"><b>📤 Deliver</b><span>${hl(c.deliver)}</span><em>Hand in &amp; check your work ➔</em></button></aside></div>`; }
     case "check": { const open = answersOpen(b.id);
       return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${open ? (justRevealed === b.id ? hl(x).replace(/class="cfx-hl"/g, 'class="cfx-hl cfx-unblur"') : hl(x)) : masked(x)}</span></label>`).join("")}</div>
       ${open ? (isTrainer() && !inAudience() ? `<p class="cfx-key-note">🔑 Trainer view: the answers. Trainees see them blurred until they finish the activity.</p>` : "")
@@ -1596,6 +1620,25 @@ window.cmCaseFlow.tool = function(id, blockId){
     return;
   }
   if(typeof openTool === "function") openTool(id === "call" ? "calls" : id, "split", emailTarget(id, blockId) || undefined);   // a training platform, beside the slide (⧉ Side by side; 🖥 Second screen)
+};
+/* a step's 📁 Documents link: open the slide's Work From list and bring it into view */
+window.cmCaseFlow.workFrom = function(el){
+  const box = el && el.closest(".cfx-task") && el.closest(".cfx-task").querySelector(".cfx-docs");
+  if(!box){ cmCaseFlow.tool("docs"); return; }
+  box.open = true; box.scrollIntoView({block: "nearest", behavior: "smooth"});
+  box.classList.remove("cfx-flash"); void box.offsetWidth; box.classList.add("cfx-flash");
+};
+/* a theory card's ＋ More: the detail that doesn't fit on the card (theory-dN.json concepts[].more), in a pop-up card */
+window.cmCaseFlow.more = function(blockId, i){
+  const t = (SLIDES[blockId] || {}).theory, x = t && t.concepts[i]; if(!x || !(x.more || []).length) return;
+  const o = document.createElement("div"); o.className = "cfx-modal cfx-more"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", x.term);
+  o.innerHTML = `<div class="cfx-modal-in card lesson-card"><div class="cfx-modal-h"><b>${E(x.term)}</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>
+    <p class="cfx-more-lead">${hl(x.text)}</p><ul>${x.more.map(m => `<li>${hl(m)}</li>`).join("")}</ul></div>`;
+  const close = () => { o.remove(); document.removeEventListener("keydown", esc, true); };
+  const esc = e => { if(e.key === "Escape"){ e.stopPropagation(); close(); } };
+  o.addEventListener("click", e => { if(e.target === o || e.target.closest(".cfx-modal-h button")) close(); });
+  document.addEventListener("keydown", esc, true);
+  document.body.appendChild(o); o.querySelector(".cfx-modal-h button").focus();
 };
 window.cmCaseFlow.back = function(){
   const r = state.cfReturn; state.cfReturn = null;
@@ -2954,32 +2997,34 @@ function caseNow(){
 const fmtMs = t => { const d = new Date(t); return `${String(d.getUTCMonth() + 1).padStart(2, "0")}/${String(d.getUTCDate()).padStart(2, "0")}/${d.getUTCFullYear()}`; };
 /* one screen: each event is a date button; its label pops up on hover, focus or tap */
 const tlItem = (cls, label, date) => `<li class="${cls}"><button type="button" class="cf-tl-b" aria-label="${label} · ${date}"><i></i><small>${date.replace(/\/\d\d(\d\d)\b/, "/$1")}</small></button><b class="cf-tl-pop">${label}<span>${date}</span></b></li>`;
-/* Today, from the trainee's own calendar: the case runs on its own dates (02/2026 to 07/2027 in a 5-day course), so
-   the timeline marks the real date apart from where the file is, and neither can be read as the other */
-const todayStr = () => { const d = new Date(), p = n => String(n).padStart(2, "0"); return `${p(d.getMonth() + 1)}/${p(d.getDate())}/${d.getFullYear()}`; };
-// a row is dated entries (events, the file marker, today), drawn in date order; on the same day an event comes first, then the file, then today
+// a row is dated entries (events, then the file marker), drawn in date order; on the same day the event comes first
 const tlRow = es => `<ol class="cfx-tl cfx-tl-full">${es.filter(Boolean).sort((a, b) => a.t - b.t || a.r - b.r).map(e => e.h).join("")}</ol>`;
-const tlToday = () => { const d = todayStr(); return {t: dayMs(d), r: 2, h: tlItem("today", "Today", E(d))}; };
+/* The Case So Far. A trainee sees the whole path of their file from the start, on the dates of their own case year and
+   CMS date of loss (js/cm-case-dates.js has already moved SIM.timeline): the dates they have worked light up and are
+   joined by the trace, "You are here" sits on the newest file date of an activity they have opened, and the dates
+   ahead are hollow, their events unnamed until reached (the timeline never gives away what happens next). */
 function caseTimeline(n){
   if(!(SIM.timeline || []).length) return "";
-  const today = tlToday();
-  if(!isTrainer()){   // a trainee sees the case only as far as they have worked it
+  if(!isTrainer()){
     const {now, track} = caseNow();
-    const seen = SIM.timeline.filter(m => (!m.track || m.track === track) && dayMs(m.date) <= (m.lane ? now[m.lane] : now[""]));
-    if(!seen.length) return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3><p class="cf-note">The timeline fills in as you work John Doe's file.</p></div>`;
-    const ev = m => ({t: dayMs(m.date), r: 0, h: tlItem("past", E(m.label), E(m.date))});
-    const at = t => isNaN(t) ? null : {t, r: 1, h: tlItem("here", "Your file is at", E(fmtMs(t)))};
-    const laned = seen.filter(m => m.lane);
-    if(!laned.length) return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3>${tlRow([...seen.map(ev), at(now[""]), today])}</div>`;
-    // once the two workstreams have started: the shared file, the workstreams side by side (each with its own file marker), then the file again
-    const all = SIM.timeline.filter(m => m.lane && (!m.track || m.track === track)).map(m => dayMs(m.date)), lo = Math.min(...all), hi = Math.max(...all);
-    const before = seen.filter(m => !m.lane && dayMs(m.date) < lo), after = seen.filter(m => !m.lane && dayMs(m.date) > hi);
-    // today goes in the row whose dates it falls among, in both workstreams when it falls in their span
-    const tBefore = today.t < lo, tAfter = today.t > hi, tLanes = !tBefore && !tAfter;
-    return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3>
-      ${before.length || tBefore ? tlRow([...before.map(ev), tBefore && today]) : ""}
-      <div class="cf-lanes">${Object.entries(LANES).map(([k, name]) => `<div class="cf-lane cf-lane-${k}"><div class="cf-lane-h">${E(name)}</div>${tlRow([...laned.filter(m => m.lane === k).map(ev), !after.length && at(now[k]), tLanes && today])}</div>`).join("")}</div>
-      ${after.length || tAfter ? tlRow([...after.map(ev), after.length && at(now[""]), tAfter && today]) : ""}</div>`;
+    const path = SIM.timeline.filter(m => !m.track || m.track === (track || "A"));   // before the fork, the path ahead is Track A's
+    const reached = m => dayMs(m.date) <= (m.lane ? now[m.lane] : now[""]);   // false while nothing is opened (NaN)
+    const ev = m => ({t: dayMs(m.date), r: 0, h: reached(m) ? tlItem("past", E(m.label), E(m.date)) : tlItem("next", "Ahead on the file", E(m.date))});
+    // a row's events with its marker: on the date of an event the trainee has reached, that event is where they are
+    const trace = (list, t) => { const on = isNaN(t) ? null : list.find(m => dayMs(m.date) === t && reached(m));
+      return list.map(m => m === on ? {t, r: 0, h: tlItem("here", "You are here: " + E(m.label), E(m.date))} : ev(m)).concat(!isNaN(t) && !on ? [{t, r: 1, h: tlItem("here", "You are here", E(fmtMs(t)))}] : []); };
+    const done = path.filter(reached).length;
+    const head = `<h3>📅 The Case So Far</h3><p class="cf-tl-sum">${done ? `You've worked <b>${done} of ${path.length}</b> dates on John Doe's file` : "The path of John Doe's file: it lights up as you work it"}</p>`;
+    const laned = path.filter(m => m.lane);
+    if(!laned.length) return `<div class="card cf-timeline cf-trace">${head}${tlRow(trace(path, now[""]))}</div>`;
+    // the shared file, the two workstreams side by side (each with its own marker), then the file again
+    const ts = laned.map(m => dayMs(m.date)), lo = Math.min(...ts), hi = Math.max(...ts);
+    const before = path.filter(m => !m.lane && dayMs(m.date) < lo), after = path.filter(m => !m.lane && dayMs(m.date) > hi);
+    const beyond = now[""] > hi, inLanes = !beyond && now[""] >= lo;   // where the overall marker belongs
+    return `<div class="card cf-timeline cf-trace">${head}
+      ${tlRow(trace(before, !beyond && !inLanes ? now[""] : NaN))}
+      <div class="cf-lanes">${Object.entries(LANES).map(([k, name]) => `<div class="cf-lane cf-lane-${k}"><div class="cf-lane-h">${E(name)}</div>${tlRow(trace(laned.filter(m => m.lane === k), beyond ? NaN : now[k]))}</div>`).join("")}</div>
+      ${tlRow(trace(after, beyond ? now[""] : NaN))}</div>`;
   }
   const track = n >= 4 ? "B" : n === 3 ? "A" : "";
   const items = SIM.timeline.filter(m => !m.track || !track || m.track === track);
@@ -2994,11 +3039,10 @@ function caseTimeline(n){
   const before = items.filter(m => !m.lane && dayMs(m.date) < lo), after = items.filter(m => !m.lane && dayMs(m.date) > hi);
   const pastLanes = dayMs(here[""]) > hi;   // the file is beyond the workstreams: every one of their events is past, and the marker is in the row after
   const lastShared = pastLanes ? here[""] : "";
-  const tBefore = today.t < lo, tAfter = today.t > hi, tLanes = !tBefore && !tAfter;
   return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3>
-    ${tlRow([...row(before, here[""], dayMs(here[""]) < lo), tBefore && today])}
-    <div class="cf-lanes">${Object.entries(LANES).map(([k, name]) => `<div class="cf-lane cf-lane-${k}"><div class="cf-lane-h">${E(name)}</div>${tlRow([...row(laned.filter(m => m.lane === k), pastLanes ? here[""] : here[k], !pastLanes), tLanes && today])}</div>`).join("")}</div>
-    ${tlRow([...row(after, lastShared), tAfter && today])}</div>`;
+    ${tlRow(row(before, here[""], dayMs(here[""]) < lo))}
+    <div class="cf-lanes">${Object.entries(LANES).map(([k, name]) => `<div class="cf-lane cf-lane-${k}"><div class="cf-lane-h">${E(name)}</div>${tlRow(row(laned.filter(m => m.lane === k), pastLanes ? here[""] : here[k], !pastLanes))}</div>`).join("")}</div>
+    ${tlRow(row(after, lastShared))}</div>`;
 }
 function caseFlowProfile(){
   const c = CF.case, secs = CF.profile || [], shown = secs.filter(profileOpen);
@@ -3463,7 +3507,7 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-lab-list .n{flex:none;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font:800 12px/22px var(--font-ui);text-align:center;}
 .cfx-lab-list .t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .cfx-lab-list .ok{color:#1E8A4C;font-weight:800;}
-.cfx-do-now{display:flex;flex-direction:column;gap:4px;background:#EEF4FF;border:1.5px solid #9DB6E8;border-left:6px solid #2457C5;border-radius:12px;padding:10px 16px;margin:0 0 12px;text-align:left;}
+.cfx-do-now{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;background:#EEF4FF;border:1.5px solid #9DB6E8;border-left:6px solid #2457C5;border-radius:12px;padding:10px 16px;margin:0 0 12px;text-align:left;}
 .cfx-do-now b{font:800 16px var(--font-ui);color:#1C3F8F;} .cfx-do-now span{font:500 15.5px/1.45 var(--font-ui);color:var(--ink);}
 .cfx-situation{font:500 25px/1.5 var(--font-ui);color:var(--ink);margin:0;}
 .cfx-art{display:flex;align-items:center;justify-content:center;animation:cfxIn .5s ease both;}
@@ -3565,6 +3609,16 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-th-c b{font:800 15px/1.25 'Poppins','Inter',sans-serif;color:var(--navy);letter-spacing:.01em;}
 .cfx-th-c span{font:500 16px/1.35 var(--font-ui);color:var(--ink);}
 .cfx-th-solo .cfx-th-c span{font-size:17px;}
+.cfx-th-c{position:relative;}
+.cfx-th-more{position:absolute;top:6px;right:8px;border:1px solid #F0D2AE;background:#FBF1E6;color:#B5561A;border-radius:999px;padding:1px 9px;font:700 12px/1.6 var(--font-ui);cursor:pointer;}
+.cfx-th-more:hover,.cfx-th-more:focus-visible{background:var(--orange);border-color:var(--orange);color:#fff;outline:none;}
+.cfx-more{align-items:center;}
+.cfx-more .cfx-modal-in{max-width:560px;border-top:5px solid #DB8437;background:#FFFDF8 !important;backdrop-filter:none !important;opacity:1;box-shadow:0 18px 50px rgba(20,26,44,.35);}
+.cfx-more .cfx-modal-h{display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.cfx-more .cfx-modal-h b{font:800 19px/1.25 'Poppins','Inter',sans-serif;color:var(--navy);}
+.cfx-more mark.cfx-hl{background:linear-gradient(180deg,transparent 52%,#FFD9A8 52%,#FFD9A8 92%,transparent 92%);color:inherit;padding:0 2px;font-weight:700;}
+.cfx-more-lead{margin:10px 0 8px;font:600 16px/1.4 var(--font-ui);color:var(--ink);}
+.cfx-more ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:7px;font:500 16px/1.45 var(--font-ui);color:var(--ink);}
 /* The Framework: the deck's table, flow or checklist, in the course's design */
 .cfx-fw-t{margin:0 0 12px;text-align:center;font:800 22px/1.25 'Poppins','Inter',sans-serif;color:var(--navy);}
 .cfx-fw-scroll{overflow-x:auto;}
@@ -3602,6 +3656,15 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
 .cfx-deliver{background:#FBF1E6 !important;border-color:#F0D2AE !important;}
 .cfx-deliver span{font:600 18px/1.4 var(--font-ui);color:var(--ink);}
+.cfx-side button.cfx-deliver{display:flex;flex-direction:column;gap:6px;text-align:left;border:1px solid;border-radius:14px;padding:12px 14px;cursor:pointer;font:inherit;transition:transform .12s,box-shadow .12s;}
+.cfx-side button.cfx-deliver:hover,.cfx-side button.cfx-deliver:focus-visible{transform:translateY(-1px);box-shadow:0 6px 16px rgba(224,122,31,.25);outline:none;}
+.cfx-side button.cfx-deliver em{align-self:flex-end;font:700 13px var(--font-ui);font-style:normal;color:#fff;background:var(--orange);border-radius:999px;padding:5px 12px;}
+.cfx-side .cfx-why span{font:500 16px/1.4 var(--font-ui);color:var(--ink);}
+.cfx-side .cfx-why span + b{margin-top:6px;padding-top:8px;border-top:1px solid var(--line);}
+.cfx-at{display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:2px 10px;border:1px solid #C9D3EA;border-radius:999px;background:#EEF2FB;color:var(--navy);font:600 14px/1.6 var(--font-ui);cursor:pointer;vertical-align:middle;white-space:nowrap;}
+.cfx-at:hover,.cfx-at:focus-visible{background:var(--navy);color:#fff;border-color:var(--navy);outline:none;}
+@keyframes cfxFlash{0%{box-shadow:0 0 0 3px var(--orange)}100%{box-shadow:0 0 0 0 transparent}}
+.cfx-side .cfx-docs.cfx-flash{animation:cfxFlash 1.2s ease-out;}
 .cfx-check{display:flex;flex-direction:column;gap:12px;}
 .cfx-tick{display:flex;gap:14px;align-items:flex-start;font:500 22px/1.4 var(--font-ui);color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 16px;cursor:pointer;animation:cfxIn .3s ease-out both;}
 .cfx-tick input{width:24px;height:24px;margin-top:3px;accent-color:#2F8F5B;flex:0 0 auto;}
@@ -3972,6 +4035,11 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-ev-fall .cfx-ev-ch{color:#C0392B;}
 .cfx-fall-why{display:block;margin-top:4px;color:#F4B77A;font:600 12px 'Inter',sans-serif;}
 .cfx-sb .cfx-task-card{padding:10px 16px;}.cfx-sb .cfx-task-card .cfx-situation{font-size:18px;margin-top:6px;}
+.cfx-task-main{display:flex;flex-direction:column;gap:12px;min-width:0;}
+.cfx-task-main .cfx-call{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:2px 12px;background:#262B45;border-radius:14px;padding:10px 14px;color:#fff;text-align:left;}
+.cfx-task-main .cfx-call b{grid-column:1;font:700 13px var(--font-ui);color:#F4B77A;text-transform:uppercase;letter-spacing:.05em;}
+.cfx-task-main .cfx-call span{grid-column:1;color:#DDE2EE;font-size:14px;}.cfx-task-main .cfx-call em{color:#9BE0B4;font-style:normal;}
+.cfx-task-main .cfx-call .btn{grid-column:2;grid-row:1 / span 2;}
 .cfx-side .cfx-call{background:#262B45 !important;border-color:#262B45 !important;color:#fff;}
 .cfx-side .cfx-call b{color:#F4B77A;}.cfx-side .cfx-call span{color:#DDE2EE;font-size:14px;}.cfx-side .cfx-call em{color:#9BE0B4;font-style:normal;}
 .cf-call-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:0 0 14px;padding:10px 14px;background:#262B45;color:#DDE2EE;border-radius:12px;font-size:14px;}
@@ -4010,17 +4078,32 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cf-timeline .cfx-tl-full li.here small{color:#fff;}
 .cf-timeline .cfx-tl-full li.next .cf-tl-b{opacity:.62;}
 /* the time banner on a Skill Activity's Your Case (timeBanner); cfx-time is the countdown button, not this */
-.cfx-when{margin:0 0 10px;padding:8px 12px;border-left:4px solid #DB8437;border-radius:8px;background:rgba(255,255,255,.07);color:#DDE2EE;font:500 13px/1.4 'Inter',sans-serif;}
-.cfx-when-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;}
-.cfx-when-jump{color:#F4B77A;font-weight:800;}
-.cfx-when-sol{margin-left:auto;font:600 12px 'IBM Plex Mono',monospace;color:#CDEBDD;}
-.cfx-when p{margin:4px 0 0;color:#fff;font-weight:600;}
-.cfx-when-other{border-left-color:#AEB6CC;}
-.cfx-when-late{border-left-color:#E5484D;}.cfx-when-late .cfx-when-sol{color:#FF8A8C;}
+/* the time on the file: where the case has moved since the last task, and how long the SOL leaves; made to be noticed */
+.cfx-when{margin:0 0 10px;padding:8px 12px;border:2px solid #DB8437;border-left-width:6px;border-radius:12px;background:linear-gradient(90deg,rgba(219,132,55,.30),rgba(255,255,255,.07) 70%);color:#fff;font:600 15px/1.4 'Inter',sans-serif;animation:cfxWhen 1.4s ease-out 1;}
+.cfx-when-top{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;}
+.cfx-when-jump{background:#DB8437;color:#fff;padding:3px 12px;border-radius:999px;font:800 15px/1.3 'Poppins','Inter',sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.25);}
+.cfx-when-date b{color:#FFD9A8;font-weight:800;}
+.cfx-when-sol{margin-left:auto;padding:3px 12px;border-radius:999px;background:#1F6B47;color:#E6FFF1;font:600 13.5px/1.3 'IBM Plex Mono',monospace;}
+.cfx-when-sol b{font-weight:800;color:#fff;}
+.cfx-when p{margin:6px 0 0;color:#fff;font-weight:600;}
+.cfx-when-other{border-color:#AEB6CC;background:rgba(255,255,255,.08);}.cfx-when-other .cfx-when-jump{background:#5B6787;}
+.cfx-when-soon{border-color:#E0A526;}.cfx-when-soon .cfx-when-sol{background:#A86B12;color:#FFF4DE;}
+.cfx-when-late{border-color:#E5484D;background:linear-gradient(90deg,rgba(229,72,77,.32),rgba(255,255,255,.07) 70%);}.cfx-when-late .cfx-when-sol{background:#B4282D;color:#fff;}
+@keyframes cfxWhen{0%{box-shadow:0 0 0 0 rgba(244,183,122,.75)}100%{box-shadow:0 0 0 14px rgba(244,183,122,0)}}
+@media (prefers-reduced-motion:reduce){.cfx-when{animation:none;}}
 /* today (the real date) is white, apart from the orange file marker, so neither is read as the other */
-.cf-timeline .cfx-tl-full li.today .cf-tl-b{background:#fff;border-color:#fff;color:#12162B;}
-.cf-timeline .cfx-tl-full li.today small{color:#12162B;}
-.cf-timeline .cfx-tl-full li.today i{background:#12162B;border-color:#12162B;}
+/* the trace (a trainee's timeline): the dates worked are lit and joined, the marker glows, the dates ahead are hollow */
+.cf-tl-sum{margin:-6px 0 12px;font:500 13.5px/1.4 'Inter',sans-serif;color:#C9CFE0;}.cf-tl-sum b{color:#F4B77A;}
+.cf-trace .cfx-tl-full li.past .cf-tl-b{background:rgba(219,132,55,.28);border-color:#DB8437;color:#fff;}
+.cf-trace .cfx-tl-full li.past i{background:#F4B77A;border-color:#F4B77A;}
+.cf-trace .cfx-tl-full li.past small{color:#fff;}
+.cf-trace .cfx-tl-full li.past + li.past::before,.cf-trace .cfx-tl-full li.past + li.here::before{display:block !important;content:"" !important;position:absolute !important;left:-4px;top:50%;width:4px;height:2px;background:#DB8437;}
+.cf-trace .cfx-tl-full li.here .cf-tl-b{box-shadow:0 0 0 3px rgba(244,183,122,.45);animation:cfTraceHere 2s ease-in-out infinite;}
+.cf-trace .cfx-tl-full li.next .cf-tl-b{opacity:1;background:transparent;border-style:dashed;border-color:rgba(255,255,255,.28);color:#8C95AD;}
+.cf-trace .cfx-tl-full li.next i{background:transparent;}
+.cf-trace .cfx-tl-full li.next small{color:#8C95AD;}
+@keyframes cfTraceHere{0%,100%{box-shadow:0 0 0 3px rgba(244,183,122,.45)}50%{box-shadow:0 0 0 6px rgba(244,183,122,.12)}}
+@media (prefers-reduced-motion:reduce){.cf-trace .cfx-tl-full li.here .cf-tl-b{animation:none;}}
 .cf-tl-pop span{display:block;margin-top:2px;font:600 10.5px 'IBM Plex Mono',monospace;color:#F4B77A;}
 .cf-tl-pop{position:absolute;left:50%;top:calc(100% + 8px);transform:translateX(-50%);z-index:20;display:none;width:max-content;max-width:260px;padding:7px 11px;border-radius:10px;background:#12162B;border:1px solid #DB8437;color:#fff;font:700 12.5px/1.3 'Inter',sans-serif;box-shadow:0 8px 20px rgba(0,0,0,.45);}
 .cf-timeline .cfx-tl-full li:hover .cf-tl-pop,.cf-timeline .cfx-tl-full li:focus-within .cf-tl-pop{display:block;}

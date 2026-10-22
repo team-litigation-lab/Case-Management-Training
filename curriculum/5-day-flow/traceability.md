@@ -237,9 +237,12 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: No Contact Protocol, Steps 4–6; Withdrawal Letters
 - LSH Claims Specialist: Final Warning Letter; sample unresponsive-client letters
 - LSH Claims Specialist: No Contact Protocol
-- LSH Claims Specialist: LOR Property Damage carve-out, rental coverage hierarchy, documents to support the claim
+- LSH Claims Specialist: LOR Property Damage carve-out, documents to support the claim
 - LSH Claims Specialist: client communication protocol
 - LSH Claims Specialist: 5-day inspection window, Loss of Use, tow and storage
+- Case file: Keystone Mutual's claim correspondence, the rental authorization and the rental cutoff (RS32)
+- LSH Claims Specialist: rental coverage hierarchy, the rental reimbursement endorsement, rate cap and duration
+- LSH Claims Specialist: LOR Property Damage carve-out, rental coverage hierarchy, documents to support the claim
 - LSH Claims Specialist: LOR purpose, recipients, drafting components and delivery
 - LSH Claims Specialist: claim set-up call, information protection on third-party claims, LOR acknowledgement and limits disclosure
 - Newly authored: UM notice at set-up (notice, not demand)
@@ -257,6 +260,9 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - Newly authored: LOP issuance guidelines and the PIP exhaustion ledger
 - Case file: Riverton Spine & Rehab, chiro and PT under an LOP signed 02/23/2026 (RS23, the itemized LOP ledger)
 - Newly authored: Letters of Protection, and the Case Manager's part in client-provider referrals within the UPL line
+- Case file: Keystone Mutual's rental cutoff (RS32) and John Doe's transport to treatment
+- IRS IR-2025-128: the standard mileage rates when this course was written, 20.5 cents medical and 72.5 cents business
+- Newly authored: reimbursement of out-of-pocket treatment costs and the trip log
 - Newly authored: redirecting a referral to the client's choice of facility, and the downstream task list (each task done or delegated with an owner and a due date)
 - LSH Claims Specialist: communication skills and professionalism — clarity without jargon, empathy, active listening, paraphrasing, calm reassurance
 - LSH Claims Specialist: LOR — all carrier communication through the firm

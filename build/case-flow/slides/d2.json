@@ -19,7 +19,7 @@
    [
     "A provider asks whom to bill",
     "Route it by Payer-First order",
-    "CMS → PIP ledger",
+    "CMS → PIP Log",
     "PIP, Peach State, then LOP"
    ],
    [
@@ -117,6 +117,8 @@
    "Send by preferred method; **calendar the acknowledgement checks**"
   ],
   "deliver": "Five letters **signed, sent and logged**, each correctly addressed, follow-ups calendared",
+  "purpose": "One wrong letter risks **the UM coverage** or hands Keystone his private details",
+  "principle": "Every letter is notice, **never a demand**, and counsel signs it",
   "checks": [
    "Cardinal State: **“Attn: Claims Department”**, not a guessed name",
    "**Correct insured** on each: Robert Smith, Kevin Alvarez, Margaret Doe",
@@ -185,6 +187,8 @@
    "Route a **three-line audit note** to Atty. Thorne"
   ],
   "deliver": "A corrected matrix **totalling $40,000**, every status sourced, open items dated, note routed",
+  "purpose": "Every later decision reads this matrix: **one unsourced cell** misstates the $40,000 stack",
+  "principle": "Nothing is confirmed **without a document behind it**",
   "checks": [
    "BI: **still preliminary**; Declaration Page not until 03/20/2026",
    "**PIP out** of the stack: it pays bills, not claims",
@@ -228,7 +232,7 @@
    [
     "PIP pays a bill",
     "Post payment, running total, balance",
-    "CMS → PIP ledger",
+    "CMS → PIP Log",
     "$5,000.00 reached 06/12/2026; $0.00 left"
    ],
    [
@@ -269,7 +273,7 @@
    [
     "A PIP check clears",
     "Post check and limit remaining",
-    "CMS → PIP ledger",
+    "CMS → PIP Log",
     "Ties to Harbor Point's history"
    ],
    [
@@ -301,6 +305,8 @@
    "Decline Summit in writing, **naming Harbor Point PIP**"
   ],
   "deliver": "One **counsel-approved LOP** sent, one declined with payer named, ledger and baseline recorded",
+  "purpose": "A needless LOP makes **a bill PIP would pay** a lien on his recovery",
+  "principle": "**An LOP comes last**, after PIP and Peach State",
   "checks": [
    "Signed by John Doe and Atty. Thorne **before 02/24/2026**",
    "Baseline: 2021 visits **low back, resolved**; no prior neck",
@@ -394,6 +400,8 @@
    "Confirm **attendance once care resumes**"
   ],
   "deliver": "A complete A-C-T record, with **attendance confirmed 04/21 and 04/23/2026**",
+  "purpose": "**A transport barrier** left unsolved becomes a documented break in his care",
+  "principle": "**Solve the barrier**, not the client: coordinate care, never direct it",
   "checks": [
    "Missed visits: **04/03, 04/07, 04/09 and 04/14/2026**",
    "04/02/2026 → 04/21/2026 = **19 days**",
@@ -421,6 +429,8 @@
    "Write the GIRP note and **report to Atty. Thorne**"
   ],
   "deliver": "A CMS task list: every task **Done by me** or Delegated, owner and date",
+  "purpose": "A referral he won't attend **opens a new Treatment Gap** in his care",
+  "principle": "**The facility is his choice**; the care is his doctors'",
   "checks": [
    "Crescent **verified in network** with Peach State, not hearsay",
    "Crescent's 05/15/2026 slot: **no new Treatment Gap**",
@@ -526,6 +536,8 @@
    "File **a privileged GIRP note** the same day"
   ],
   "deliver": "**All four reasons**, in his words, on a consented, privileged recording; GIRP note filed",
+  "purpose": "A suggested reason proves nothing: **only his own words**, backed by documents, hold up",
+  "principle": "**Investigate, don't advocate**: never put a reason in his mouth",
   "checks": [
    "**Zero leading questions**; no reason introduced first",
    "**Four reasons in his words**: transport, soreness, coverage, numbness",
@@ -593,6 +605,8 @@
    "Run **a defense-eye pass**, then route to Atty. Thorne"
   ],
   "deliver": "A routed record of **both interruptions**, every reason beside a dated document",
+  "purpose": "The defense will test every reason: **an undocumented one** must say so",
+  "principle": "**One dated document** per reason, or it's marked “account only”",
   "checks": [
    "14 days, 02/06/2026 → 02/20/2026; **19 days**, 04/02/2026 → 04/21/2026",
    "Escalation quoted exactly: **“onset at MVA 02/06/2026”**",
@@ -669,6 +683,8 @@
    "List every lien; **re-verify the three targets** in order"
   ],
   "deliver": "An **audited ledger at $16,401.40**, billed beside paid, liens, targets, flags routed",
+  "purpose": "One unproved line hands the defense **a reason to doubt** every figure",
+  "principle": "**Audit, don't total**: every line needs its visit or source",
   "checks": [
    "**05/04/2026 duplicate removed**: $6,290.00 → $6,105.00",
    "**Specials $16,401.40**: $14,817.40 medical + $1,584.00 wages",
@@ -737,6 +753,8 @@
    "**Read back each decision**; record and task it; re-route the plan"
   ],
   "deliver": "A recorded session and dated decision record, each **attributed to Atty. Thorne**, tasked",
+  "purpose": "The demand follows this session: **an unrecorded decision** leaves the file adrift",
+  "principle": "**Operations are yours to recommend**; every legal decision is Atty. Thorne's",
   "checks": [
    "Low-speed challenge: **about 28 mph**, $2,315.00 A-pillar supplement, C5-C6 herniation",
    "Gap met **with documents, not apology**",
@@ -799,6 +817,45 @@
    "Saying one provider is **better for the case**",
    "Calling the LOP bill **free**",
    "Letting the balance **surprise the Net Sheet**"
+  ]
+ },
+ "d2m2-cost": {
+  "image": "money-ledger",
+  "hook": "Every trip to treatment costs the client: **only a logged cost** reaches the demand.",
+  "points": [
+   "Out-of-pocket costs are **Specials**, each with its receipt",
+   "Log every trip: **date, provider, round-trip miles**",
+   "Mileage rate: **the governing state's rules**, confirmed by counsel",
+   "Rental past the cutoff is **the owner's out-of-pocket** cost"
+  ],
+  "upl": "Log the costs; **never promise repayment**: the claim is Atty. Thorne's",
+  "job": [
+   [
+    "Treatment starts",
+    "Open the trip log",
+    "CMS → Case Notes · Tasks",
+    "Client told what to keep"
+   ],
+   [
+    "A receipt arrives",
+    "Enter cost; file receipt",
+    "CMS → Financial Ledger → Specials",
+    "Entered with its receipt"
+   ],
+   [
+    "MMI; demand next",
+    "Total the log; route it",
+    "CMS → Tasks",
+    "Rate confirmed by counsel"
+   ]
+  ],
+  "dos": [
+   "Start the trip log **at the first visit**",
+   "File each receipt **the day it arrives**"
+  ],
+  "donts": [
+   "Estimating mileage **from memory** at the end",
+   "Promising the client **every cost comes back**"
   ]
  }
 }

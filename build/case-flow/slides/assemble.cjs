@@ -34,6 +34,10 @@ const theory = (b) => {
   else t.concepts.forEach((x, i) => {
     if(!x || typeof x.term !== "string" || !x.term.trim() || wc(x.term) > 5 || marks(x.term)) errors.push(`${id}.theory.concepts[${i}].term: want ≤ 5 words, no highlight`);
     line(id, `theory.concepts[${i}].text`, x && x.text, 20);
+    if(x && x.more !== undefined){   // ＋ More: the detail that doesn't fit on the card, in a pop-up card
+      if(!Array.isArray(x.more) || x.more.length < 2 || x.more.length > 6) errors.push(`${id}.theory.concepts[${i}].more: want 2–6 lines`);
+      else x.more.forEach((m, k) => line(id, `theory.concepts[${i}].more[${k}]`, m, 22, [0, 1]));
+    }
   });
   // pages are the original Canva decks' own pages ("D1#24" = Day 1 deck, page 24, in deck-pages.json),
   // not the lesson's `sources` (those number the earlier course's topics in build/dayN.js)
@@ -120,6 +124,7 @@ for (const day of CF.days) {
       const t = theory(b); if(t) out[b.id] = Object.assign({}, c, {theory: t}, k ? {clues: k} : {});
     } else if(b.kind === "activity"){
       line(b.id, "situation", c.situation, 32, [1, 2]); list(b.id, "steps", c.steps, 3, 5, 12); line(b.id, "deliver", c.deliver, 14); list(b.id, "checks", c.checks, 3, 5, 10);
+      if(c.purpose !== undefined) line(b.id, "purpose", c.purpose, 14); if(c.principle !== undefined) line(b.id, "principle", c.principle, 12);
       if(c.dos) list(b.id, "dos", c.dos, 1, 2, 10); if(c.donts) list(b.id, "donts", c.donts, 1, 2, 10);
       if(c.grade !== undefined){   // the Grade-A Standard slide before Your Task: a packet or binder's guidelines, inclusions and steps
         const g = c.grade || {};

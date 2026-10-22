@@ -2,7 +2,7 @@
   "_about": "The course's defined terms, written exactly so wherever they appear (a plural adds s). build/case-flow/terms.cjs applies them to the sources and checks the course. Add a term here, run node build/case-flow/terms.cjs, then reassemble.",
   "terms": [
     "Mediation Binder", "Final Ledger", "Final Itemized Ledger", "Master Financial Ledger", "Financial Ledger", "Trust Ledger",
-    "Net Sheet", "Payoff Letter", "Negotiation Log", "Communications Log", "Demand Package", "Time-Limited Demand",
+    "Net Sheet", "Payoff Letter", "Negotiation Log", "PIP Log", "Communications Log", "Demand Package", "Time-Limited Demand",
     "Scheduling Order", "Notice of Delay", "Causation Letter", "Police Report", "Run Report", "Valuation Report",
     "Repair Estimate", "Dec Page", "Recorded Statement", "Subpoena Duces Tecum", "Direction Packet", "Case Plan",
     "Payer Order", "Health Plan", "Medical Bill", "Property Damage", "Total Loss", "Diminished Value", "Loss of Use",

@@ -4,7 +4,13 @@
     "concepts": [
       {
         "term": "Your Role by Phase",
-        "text": "Pleadings: track service and draft files; discovery: gather data, prep the client; trial prep: **coordinate schedules, final medicals**"
+        "text": "Pleadings: track service and draft files; discovery: gather data, prep the client; trial prep: **coordinate schedules, final medicals**",
+        "more": [
+          "The Complaint's five parts: caption, jurisdiction, facts, causes of action, prayer for relief",
+          "Atty. Thorne drafts it; before signature, verify **the filing date against the SOL**",
+          "Confirm the defendant's exact legal name from an independent record; a business: its registered agent",
+          "Log every service attempt; unserved at day 14, escalate to Atty. Thorne for Skip-Trace authority"
+        ]
       },
       {
         "term": "Documents Become Evidence",
@@ -12,11 +18,25 @@
       },
       {
         "term": "Written Discovery Tools",
-        "text": "Interrogatories are written questions under oath, RFPs demand documents, RFAs demand admit or deny: all **run on strict deadlines**"
+        "text": "Interrogatories are written questions under oath, RFPs demand documents, RFAs demand admit or deny: all **run on strict deadlines**",
+        "more": [
+          "Interrogatories: John Doe answers under oath and signs the verification page",
+          "RFPs: you compile what they ask for; Atty. Thorne reviews and redacts",
+          "RFAs, the danger zone: one not answered in time **may be deemed admitted**",
+          "Mailed 12/01/2026: + 30 days + 3 mail days = 01/03/2027, a Sunday → 01/04/2027",
+          "Never mail John Doe the 70 requests: book a 60-minute Discovery Intake Meeting"
+        ]
       },
       {
         "term": "The Docket Entry",
-        "text": "Every filing by either side creates a docket entry, and **its clock runs** whether or not the email reached you"
+        "text": "Every filing by either side creates a docket entry, and **its clock runs** whether or not the email reached you",
+        "more": [
+          "File and docket everything from the court, opposing counsel or the server within 48 hours",
+          "Write the trigger, the method of service and **the arithmetic** into every entry",
+          "Never count the trigger day as day one; a weekend deadline rolls to Monday",
+          "Check the docket weekly, never only the e-filing emails: a motion lost in spam still runs",
+          "Unsure of the rule? Calendar the conservative date and confirm it"
+        ]
       }
     ],
     "pages": [
@@ -60,15 +80,35 @@
       },
       {
         "term": "The Deposition",
-        "text": "An oral interview under oath, recorded by a court reporter; you own **the logistics, not the testimony**"
+        "text": "An oral interview under oath, recorded by a court reporter; you own **the logistics, not the testimony**",
+        "more": [
+          "John Doe's: 02/18/2027, 10:00 a.m., by videoconference, Riverton Court Reporting",
+          "Confirm the reporter, send the link, run a technology check, align three calendars",
+          "Send the attorney-approved prep packet a week out: **by 02/11/2027**",
+          "The packet carries ground rules only: listen, pause, never guess, tell the truth",
+          "What John Doe says is for Atty. Thorne's prep sessions"
+        ]
       },
       {
         "term": "The Final Run",
-        "text": "Litigation can take 1 to 3 years, so records and bills are rerun to show **the total cost** of injury"
+        "text": "Litigation can take 1 to 3 years, so records and bills are rerun to show **the total cost** of injury",
+        "more": [
+          "Rerun from every provider; never copy the pre-lit Demand Package",
+          "Run it before expert disclosure, 03/15/2027, and **again before pretrial**, 08/12/2027",
+          "Trial binders are built from these records, indexed and tabbed"
+        ]
       },
       {
         "term": "The Weekly KPI Audit",
-        "text": "Measurable checks you audit weekly, like a server assigned within 48 hours, so a slipping file **shows before it fails**"
+        "text": "Measurable checks you audit weekly, like a server assigned within 48 hours, so a slipping file **shows before it fails**",
+        "more": [
+          "48-Hour Docket Rule: everything received filed and docketed within 48 hours",
+          "RFA Priority Check: Atty. Thorne alerted within the hour RFAs land",
+          "Discovery Countdown: drafts to him **7+ days before** the deadline",
+          "Clean Discovery Check: no blanks, verification page attached",
+          "Zero-Default: no deadline passes without a response or a signed written extension",
+          "30-Day Client Pulse and a 10-day Subpoena Audit; every miss recorded and routed"
+        ]
       }
     ],
     "pages": [
@@ -100,7 +140,13 @@
     "concepts": [
       {
         "term": "PD Cuts Both Ways",
-        "text": "In suit, PD can be **definitive evidence of injury** or the defense's most formidable tool against it"
+        "text": "In suit, PD can be **definitive evidence of injury** or the defense's most formidable tool against it",
+        "more": [
+          "The $2,315.00 teardown supplement, 03/02/2026, is structural: the A-pillar",
+          "Hidden damage for the PD claim, **force for the injury claim**",
+          "No car until the 02/18/2026 rental: the first reason for the 14-Day Gap",
+          "Keep the loss-of-use and gap records identical, date for date"
+        ]
       },
       {
         "term": "Special vs. General Damages",
@@ -108,11 +154,25 @@
       },
       {
         "term": "Valuation Is Contested",
-        "text": "How much the defendant owes is among the **most heavily litigated** PD questions, so courts apply set formulas"
+        "text": "How much the defendant owes is among the **most heavily litigated** PD questions, so courts apply set formulas",
+        "more": [
+          "Loss of Use: each day without the car or a paid substitute, priced at a comparable rental",
+          "Keystone's own $42.00/day rental rate is **the strongest measure**",
+          "Allocate the 78 days once: 12 without a car, 30 paid rental, 36 without a car",
+          "Claim only the 48 unpaid days: 48 × $42.00 = $2,016.00",
+          "Keystone's 30-day rental cap is claims practice; arguing the 36 days is Atty. Thorne's"
+        ]
       },
       {
         "term": "Diminution in Value",
-        "text": "Pre-loss market value minus post-loss value; the **lesser-of rule** weighs it against repair cost, capping a Total Loss"
+        "text": "Pre-loss market value minus post-loss value; the **lesser-of rule** weighs it against repair cost, capping a Total Loss",
+        "more": [
+          "Run it on the final bill: $6,940.00 + $2,315.00 = $9,255.00",
+          "$9,255.00 is 52.6% of the $17,600.00 ACV, under Keystone's 75% line of $13,200.00",
+          "Repairable, with **$3,945.00 to spare**",
+          "Verify the Valuation Report: a low ACV moves the line",
+          "Confirm Keystone's threshold basis in writing"
+        ]
       }
     ],
     "pages": ["D5#39", "D5#40"],
@@ -153,15 +213,36 @@
       },
       {
         "term": "Formula Versus Market",
-        "text": "A carrier formula is claims practice, **not a legal measure**; an appraisal built on market data tests it"
+        "text": "A carrier formula is claims practice, **not a legal measure**; an appraisal built on market data tests it",
+        "more": [
+          "Keystone's 17c: 10% of $17,600.00 = $1,760.00, × 0.75 damage, × 0.60 mileage = $792.00",
+          "The 10% base caps it at $1,760.00, **however severe the damage**",
+          "0.75 is a tier below the top; the A-pillar teardown supports arguing 1.00, Atty. Thorne's call",
+          "0.60 discounts 52,300 miles the ACV already priced: mileage counted twice",
+          "The appraisal's $3,600.00 is 20.5% of ACV, more than twice the formula's ceiling",
+          "Audit the 05/06/2026 appraisal too: its method, data and credentials"
+        ]
       },
       {
         "term": "The Written Basis",
-        "text": "Get the carrier's position and inputs in writing: only **a basis on paper** can be answered with stronger evidence"
+        "text": "Get the carrier's position and inputs in writing: only **a basis on paper** can be answered with stronger evidence",
+        "more": [
+          "Ask Atty. Thorne how to get the 17c worksheet: a discovery request or a written request through counsel",
+          "On file in writing: the base, both multipliers and the ACV used",
+          "Assemble the answer: the appraisal, the supplement, the rental record; escalate to Atty. Thorne",
+          "Never make, accept, reject or counter **a PD figure** yourself"
+        ]
       },
       {
         "term": "Subpoena Duces Tecum",
-        "text": "In suit, a Subpoena Duces Tecum **compels a non-party's records**; a blanket request invites a Motion to Quash"
+        "text": "In suit, a Subpoena Duces Tecum **compels a non-party's records**; a blanket request invites a Motion to Quash",
+        "more": [
+          "Goes out only once Atty. Thorne approves it",
+          "Narrow Exhibit A: patient, date, record types",
+          "Notice opposing counsel first, often 5–10 days (confirm the rule), **then serve the custodian**",
+          "Serve the custodian by process server; call to confirm compliance 5 days before production",
+          "Pay a custodian's invoice the day it arrives"
+        ]
       }
     ],
     "pages": ["D5#41", "D5#35"],
@@ -198,11 +279,26 @@
     "concepts": [
       {
         "term": "The Landmine Audit",
-        "text": "Before any prep meeting, review the file for **what the defense will exploit**, so Atty. Thorne meets it first"
+        "text": "Before any prep meeting, review the file for **what the defense will exploit**, so Atty. Thorne meets it first",
+        "more": [
+          "The 14-Day Gap, 02/06 → 02/20/2026",
+          "The 19-day disruption, 04/02 → 04/21/2026",
+          "The three 2021 low-back chiropractic visits",
+          "The seatbelt, and the “degenerative” MRI",
+          "Also John's signed interrogatory answers and public social media",
+          "Each tied to its source record and routed **before 02/04/2027**"
+        ]
       },
       {
         "term": "Consistency Is Credibility",
-        "text": "The defense compares testimony with signed answers and records; any mismatch **reads as concealment**, so counsel sees it first"
+        "text": "The defense compares testimony with signed answers and records; any mismatch **reads as concealment**, so counsel sees it first",
+        "more": [
+          "Alignment comes from reviewing the records with Atty. Thorne, **never a script**",
+          "Atty. Thorne decides whether an answer is corrected or supplemented",
+          "John testifies to the truth, never to match a document",
+          "Atty. Thorne chooses the review set: a document used to refresh memory may have to be produced",
+          "Never tell John to delete or hide a post"
+        ]
       },
       {
         "term": "The Courtroom Drama Myth",
@@ -254,7 +350,14 @@
     "concepts": [
       {
         "term": "Wide-Open Questioning",
-        "text": "Defense counsel may ask a very broad range of questions to discover the facts: **wide questions are normal**, not attacks"
+        "text": "Defense counsel may ask a very broad range of questions to discover the facts: **wide questions are normal**, not attacks",
+        "more": [
+          "Personal background: work, homes, earlier lawsuits",
+          "The crash mechanics",
+          "Medical history: this injury and anything before it",
+          "Daily life",
+          "Clients underreport medical history most; here, **the 2021 low-back visits**"
+        ]
       },
       {
         "term": "Estimate Versus Guess",
@@ -266,7 +369,14 @@
       },
       {
         "term": "The Objection's Purpose",
-        "text": "An objection is **a formal flag** on the record protecting the witness, not a sign of trouble"
+        "text": "An objection is **a formal flag** on the record protecting the witness, not a sign of trouble",
+        "more": [
+          "“Objection, form” is a routine flag on the record",
+          "John stops and lets the objection finish",
+          "Then he answers **unless Atty. Thorne instructs** him not to; often “You can answer”",
+          "The two-second pause leaves a window to object",
+          "Explain objections ahead of time so John doesn't freeze"
+        ]
       }
     ],
     "pages": [
@@ -311,7 +421,14 @@
     "concepts": [
       {
         "term": "Three Fault Regimes",
-        "text": "Pure, modified and contributory treat one fault finding differently: **the governing rule**, not the percentage alone, decides reduce or bar"
+        "text": "Pure, modified and contributory treat one fault finding differently: **the governing rule**, not the percentage alone, decides reduce or bar",
+        "more": [
+          "Pure: damages fall by John's share, however large",
+          "Modified: damages fall, but recovery is barred at 50% in some states, 51% in others",
+          "Contributory, in a handful of jurisdictions: **any fault bars recovery**",
+          "John at 20%: recovers 80% everywhere except contributory",
+          "Confirm the governing rule; telling John his share of fault is never yours"
+        ]
       },
       {
         "term": "Liability Status",
@@ -319,11 +436,24 @@
       },
       {
         "term": "Fault Versus Mitigation",
-        "text": "Comparative fault concerns the crash; failure to mitigate concerns later care and **trims only avoidable damages**"
+        "text": "Comparative fault concerns the crash; failure to mitigate concerns later care and **trims only avoidable damages**",
+        "more": [
+          "Failure to mitigate targets 19 days without visits, 04/02 → 04/21/2026",
+          "The A-C-T record answers: the 04/08 call, extension refused 04/10, evening slots",
+          "Attendance resumed 04/21 and 04/23",
+          "Burden: **generally the defense's**; confirm the rule"
+        ]
       },
       {
         "term": "The Counter-Package",
-        "text": "An index answering each pleaded allegation with **evidence that can come in**, built for Atty. Thorne's analysis"
+        "text": "An index answering each pleaded allegation with **evidence that can come in**, built for Atty. Thorne's analysis",
+        "more": [
+          "One allegation, one row",
+          "Every item: its source, who can authenticate it, **its chain of custody**",
+          "Doorbell video: preservation asked 02/17/2026, copy secured 02/19/2026, native file unaltered, every transfer logged",
+          "Don't rest liability on report RPD-26-018842: its admissibility varies by state",
+          "No foundation, or a holder won't produce: flag it for a Subpoena Duces Tecum"
+        ]
       }
     ],
     "pages": [],
@@ -369,7 +499,14 @@
       },
       {
         "term": "The Skip-Trace",
-        "text": "A background search of utility, employment and address records that **finds a current address**, run only for permissible purpose"
+        "text": "A background search of utility, employment and address records that **finds a current address**, run only for permissible purpose",
+        "more": [
+          "Run only on Atty. Thorne's authority, through the firm's licensed databases",
+          "Permissible purpose only: **no pretext calls**",
+          "Smith: three failed attempts at 118 Larkspur Ln; 10/09/2026 result, 4410 Quarry Ridge Ct, Millbrook",
+          "Pick the address on recency and two corroborating sources",
+          "A client's Skip-Trace has its own gate: ladder exhausted, Step 4 letter sent, its deadline passed, Atty. Thorne authorizes"
+        ]
       },
       {
         "term": "Alternative Service",
@@ -377,7 +514,14 @@
       },
       {
         "term": "Certified Notice",
-        "text": "Certified mail leaves **a provable mailing record**; with email, it shows the client was told how to respond"
+        "text": "Certified mail leaves **a provable mailing record**; with email, it shows the client was told how to respond",
+        "more": [
+          "The Step 4 Final Warning Letter: certified mail AND email, over Atty. Thorne's signature",
+          "Itemize the attempts; give a 7–14 day response date and how to respond",
+          "John's response date falls before the 02/04/2027 prep: **send by 01/27/2027**",
+          "Confirm the address before certified mail goes out",
+          "Withdrawal goes in only if Atty. Thorne directs it, in his words"
+        ]
       }
     ],
     "pages": [
@@ -416,11 +560,23 @@
     "concepts": [
       {
         "term": "Why cases are dropped",
-        "text": "Unresponsive client, no liability, no coverage, unfinished treatment such as **no Health Plan**, or conflicting information"
+        "text": "Unresponsive client, no liability, no coverage, unfinished treatment such as **no Health Plan**, or conflicting information",
+        "more": [
+          "Whether any reason ends a case is **Atty. Thorne's decision**",
+          "An unresponsive client arrives here only through the No Contact Protocol and its Final Warning Letter",
+          "Then Atty. Thorne chooses a Notice of Withdrawal or, in a filed suit, a Motion to Withdraw"
+        ]
       },
       {
         "term": "The Withdrawal Letter",
-        "text": "A formal notice that **the attorney-client relationship has ended**, directing the client to seek other counsel"
+        "text": "A formal notice that **the attorney-client relationship has ended**, directing the client to seek other counsel",
+        "more": [
+          "One for the client and for every carrier and provider on the file",
+          "From the firm's template, over Atty. Thorne's signature",
+          "Each carries the date, client name, date of loss and claim number",
+          "Saved in Word and PDF",
+          "Only the client's carries **the reason**, in Atty. Thorne's words, and the next step he approves"
+        ]
       },
       {
         "term": "Pending Drop",
@@ -428,7 +584,13 @@
       },
       {
         "term": "Proof of closure",
-        "text": "Certified Mail receipts, dispatch logs and saved letters **protect the firm** if the drop is questioned later"
+        "text": "Certified Mail receipts, dispatch logs and saved letters **protect the firm** if the drop is questioned later",
+        "more": [
+          "Log each dispatch: party, method and date",
+          "Follow up the return receipt, the carrier's acknowledgement, the fax confirmation",
+          "A time-sensitive party gets a call",
+          "Then switch the status to Dropped; **keep the proof**: letters, receipts, logs, Atty. Thorne's note"
+        ]
       }
     ],
     "pages": [],
@@ -465,7 +627,13 @@
     "concepts": [
       {
         "term": "The Common Fund Doctrine",
-        "text": "The attorney's work and costs created the fund, so lienholders contribute **their proportional share** of fees and costs"
+        "text": "The attorney's work and costs created the fund, so lienholders contribute **their proportional share** of fees and costs",
+        "more": [
+          "The reduction follows **the fee actually charged**: 40% on this file",
+          "Peach State: 40% of $1,860.00 is $744.00, accepted at $1,116.00 on 07/14/2027",
+          "Riverton Spine & Rehab accepts $4,275.00 in a signed Payoff Letter dated 07/16/2027",
+          "Send the Reduction Requests for Atty. Thorne's approval once the fund is known"
+        ]
       },
       {
         "term": "The Double-Dipping Trap",
@@ -473,7 +641,13 @@
       },
       {
         "term": "Fee Structure Transparency",
-        "text": "Fees can differ by stream and stage; tracking **each stream's fee separately** keeps the ledger accurate and explainable"
+        "text": "Fees can differ by stream and stage; tracking **each stream's fee separately** keeps the ledger accurate and explainable",
+        "more": [
+          "Suit filed 09/24/2026, so **the 40% tier** applies: $16,000.00 on $40,000.00",
+          "Atty. Thorne confirms each stream's fee from the retainer before the Net Sheet is drafted",
+          "Show John the tier in his own retainer",
+          "Track A, settled before suit, charged 33⅓%: never carry it into this file"
+        ]
       },
       {
         "term": "The Final Payoff Letter",
