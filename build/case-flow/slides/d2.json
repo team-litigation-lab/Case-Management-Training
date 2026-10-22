@@ -19,7 +19,7 @@
    [
     "A provider asks whom to bill",
     "Route it by Payer-First order",
-    "CMS → PIP ledger",
+    "CMS → PIP Log",
     "PIP, Peach State, then LOP"
    ],
    [
@@ -228,7 +228,7 @@
    [
     "PIP pays a bill",
     "Post payment, running total, balance",
-    "CMS → PIP ledger",
+    "CMS → PIP Log",
     "$5,000.00 reached 06/12/2026; $0.00 left"
    ],
    [
@@ -269,7 +269,7 @@
    [
     "A PIP check clears",
     "Post check and limit remaining",
-    "CMS → PIP ledger",
+    "CMS → PIP Log",
     "Ties to Harbor Point's history"
    ],
    [

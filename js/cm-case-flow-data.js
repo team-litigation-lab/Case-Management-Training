@@ -2405,7 +2405,7 @@ window.CM_CASE_FLOW = {
     {
       n: 2, id: "d2m2",
       title: "Treatment Phase Operations, LOP Issuance & Provider Oversight",
-      about: "Keeping John Doe's treatment moving and paid for: every coverage and the Payer-First Principle, the Health Plan's reimbursement right and the Regulatory Triple-Check, LOPs on counsel's terms, the PIP ledger, and the A-C-T protocol the day care breaks down.",
+      about: "Keeping John Doe's treatment moving and paid for: every coverage and the Payer-First Principle, the Health Plan's reimbursement right and the Regulatory Triple-Check, LOPs on counsel's terms, the PIP Log, and the A-C-T protocol the day care breaks down.",
       quiz: [
         {q: "On 03/11/2026 Summit Imaging asks for an LOP for John Doe's $2,395.00 MRI. Harbor Point PIP has $3,675.00 left. What do you do?",
          opts: ["Prepare the LOP for Atty. Thorne's approval, since the provider asked for one", "Decline the LOP and route the bill to PIP, which applies first", "Send the bill to Peach State first, to save PIP for later", "Tell Summit it will be paid in full at settlement"],
@@ -2483,9 +2483,9 @@ window.CM_CASE_FLOW = {
         ops: [
           ["Each claim is opened", "List every coverage, its carrier and what it pays", "CMS → Insurance tab", "Each tagged third-party, first-party or health"],
           ["Coverage confirmed in writing", "Place it: Recovery Stack, Payer Order or outside both", "CMS → Insurance tab → Coverage Matrix", "Stack $40,000; PIP, PD and collision outside it"],
-          ["A provider asks whom to bill", "Route it by the Payer-First order", "CMS → Insurance tab → PIP ledger", "PIP first, Peach State next, an LOP last"],
+          ["A provider asks whom to bill", "Route it by the Payer-First order", "CMS → Insurance tab → PIP Log", "PIP first, Peach State next, an LOP last"],
           ["A provider asks for an LOP", "Check PIP and network status first", "CMS → Liens → LOP register", "Payer check recorded; Atty. Thorne approves any LOP"],
-          ["A payer pays a bill", "Post payer, bill and amount on its ledger", "CMS → Insurance tab → PIP ledger · CMS → Liens", "Every ledger current; no paid claim re-routed"]
+          ["A payer pays a bill", "Post payer, bill and amount on its ledger", "CMS → Insurance tab → PIP Log · CMS → Liens", "Every ledger current; no paid claim re-routed"]
         ],
         best: [
           "Verify every coverage in writing: a dated Declaration Page or Coverage Letter.",
@@ -2542,7 +2542,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         show: {
-          caption: "The PIP ledger: paid in date order until $5,000.00 is gone",
+          caption: "The PIP Log: paid in date order until $5,000.00 is gone",
           type: "table",
           head: ["Date", "Provider", "PIP paid", "Running total", "Left of $5,000"],
           rows: [
@@ -2555,7 +2555,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["A provider asks for an LOP", "Run the Payer Order; prepare the LOP on counsel's template only for care PIP and Peach State can't carry", "CMS → Documents → Outgoing → Route for approval", "Payer check recorded before routing; nothing sent without Atty. Thorne's approval"],
-          ["PIP pays a bill", "Post the payment, the running total and the balance left", "CMS → Insurance tab → PIP ledger", "Running total ties to Harbor Point's payments; $5,000.00 reached on the 06/12/2026 visit, $0.00 left"],
+          ["PIP pays a bill", "Post the payment, the running total and the balance left", "CMS → Insurance tab → PIP Log", "Running total ties to Harbor Point's payments; $5,000.00 reached on the 06/12/2026 visit, $0.00 left"],
           ["An LOP provider's itemized statement arrives", "Update the balance and check every line against the visits you tracked", "CMS → Liens → LOP register", "Balance current (through 04/02/2026: 16 visits × $185.00 = $2,960.00); every billed date is an attended visit"],
           ["A new referral or provider", "Warm handoff: book it with John Doe on the line and confirm the payer before the first visit", "Call Simulator → AI John Doe · CMS → Case File → Treatment timeline", "Appointment and payer recorded before the visit date"]
         ],
@@ -2573,7 +2573,7 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Payer Order", 20, "PIP → Peach State → LOP applied to each bill; PIP's 80% wage benefit noted"],
-            ["PIP ledger", 20, "Five payments in date order; running total reaches $5,000.00 on the 06/12/2026 visit; $0.00 left"],
+            ["PIP Log", 20, "Five payments in date order; running total reaches $5,000.00 on the 06/12/2026 visit; $0.00 left"],
             ["LOP decisions", 20, "LOP to Riverton Spine & Rehab (out of network); Summit Imaging's request declined because PIP applies first"]
           ],
           trainer: [
@@ -2605,6 +2605,7 @@ window.CM_CASE_FLOW = {
             "A plan's reimbursement claim is what it paid, never what was billed: Peach State's claim on Crescent's bill starts at $1,860.00. When its itemized lien arrives, match every line to an EOB; a line no EOB supports, or one unrelated to the collision, goes to Atty. Thorne.",
             "The EOB's AC1 remark asks for the plan's accident questionnaire. Route it to Atty. Thorne before John Doe returns it: what it says about the accident and the other insurance is a statement on the file.",
             "PIP sends no EOB, but Harbor Point reports its payments the same way: its payment history (RS31) lists each check by date of service, payee, amount billed, amount paid and the limit remaining. It paid every bill at the amount billed, in the order received.",
+            "Keep the firm's PIP Log (CMS → Insurance tab → PIP Log, printed as RS71) as each PIP event happens: the application and the claim opened, each check with its date of service and the limit remaining, the wage benefit, and the care billed elsewhere. Reconcile it to Harbor Point's payment history line by line.",
             "Harbor Point's five checks: $685.00 (Riverton Urgent Care), $640.00, $640.00 and $640.00 (Lakeside Orthopedics) and $2,395.00 (Summit Imaging) = $5,000.00, exhausted 06/26/2026. Bills it receives after that come back with a notice of exhaustion: send the next one to the next payer in the Payer Order.",
             "Reconcile every provider to its payers: each statement must show the PIP check or the plan's payment as a credit. A provider still showing a balance on a paid date of service has a billing error, not a lien. Medical Specials keep the billed amounts the audit holds ($14,817.40); the lien register carries only what each payer can claim back."
           ],
@@ -2627,7 +2628,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["An EOB arrives", "Post billed, allowed, adjustment, paid and member share against the visit", "CMS → Liens · CMS → Documents", "Plan paid $1,860.00 logged; claim PS-2605-449021 linked to the visit"],
-          ["A PIP check clears", "Post the check, the date of service and the limit remaining", "CMS → Insurance tab → PIP ledger", "Ledger ties to Harbor Point's payment history, $0.00 left after 06/26/2026"],
+          ["A PIP check clears", "Post the check, the date of service and the limit remaining", "CMS → Insurance tab → PIP Log", "Ledger ties to Harbor Point's payment history, $0.00 left after 06/26/2026"],
           ["A patient statement shows a balance", "Compare it with the EOB's member responsibility; route any balance bill", "CMS → Liens · Email Workspace", "$1,540.00 flagged; Atty. Thorne told the same day; correction request drafted"],
           ["The plan's itemized lien arrives", "Match each line to an EOB and to the collision", "CMS → Liens → Peach State", "Only EOB-backed, accident-related lines stand"]
         ],
@@ -2669,8 +2670,8 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "02/23/2026: John Doe's first treatment was at Riverton Urgent Care on 02/20/2026 ($685.00, to Harbor Point PIP). Chiropractic and PT at Riverton Spine & Rehab begin 02/24/2026; it is out of network for Peach State. Atty. Thorne has approved the firm's LOP template. John Doe had three chiropractic visits in 2021, for low-back stiffness. 03/11/2026: Summit Imaging Center, booked for the cervical MRI Dr. Reyes ordered on 03/05/2026, asks for an LOP.",
           prompt: "Work both dates. First run the Payer Order for each provider and record the result. On 02/23/2026, prepare Riverton Spine & Rehab's LOP on the approved template, route it to Atty. Thorne for approval and signature, transmit it with the claim-specific HIPAA authorization, and ask for itemized statements and a missed-visit alert; confirm receipt and open the LOP register entry. Record John Doe's assessment, including his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing, naming Harbor Point PIP as the payer, with the ledger to prove it. Graded: no payment promised to either provider.",
-          tool: "CMS → Liens → LOP register · CMS → Documents → Outgoing · Email Workspace · CMS → Insurance tab → PIP ledger",
-          output: "One counsel-approved LOP transmitted and confirmed, one LOP request declined with the payer named, a current PIP ledger, and a documented pre-morbid baseline.",
+          tool: "CMS → Liens → LOP register · CMS → Documents → Outgoing · Email Workspace · CMS → Insurance tab → PIP Log",
+          output: "One counsel-approved LOP transmitted and confirmed, one LOP request declined with the payer named, a current PIP Log, and a documented pre-morbid baseline.",
           checkpoints: [
             "Payer Order run and recorded for each provider: PIP → Peach State → LOP",
             "Riverton Spine & Rehab's LOP justified: out of network for Peach State, and a full course of care PIP's balance can't carry",
@@ -2687,7 +2688,7 @@ window.CM_CASE_FLOW = {
         ops: [
           ["02/23/2026: Riverton Spine & Rehab needs an LOP before the 02/24/2026 visit", "Run the Payer Order, prepare the LOP on the approved template, route it for approval", "CMS → Documents → Outgoing → Route for approval", "Approved and signed before the first visit"],
           ["LOP signed", "Transmit it with the HIPAA authorization; confirm receipt; open the register entry", "Email Workspace · CMS → Liens → LOP register", "Receipt confirmed and dated in the Communications Log"],
-          ["03/11/2026: Summit Imaging asks for an LOP", "Decline in writing, naming Harbor Point PIP as the payer; post the ledger", "Email Workspace · CMS → Insurance tab → PIP ledger", "Reason stated; ledger shows $3,675.00 left before the MRI"]
+          ["03/11/2026: Summit Imaging asks for an LOP", "Decline in writing, naming Harbor Point PIP as the payer; post the ledger", "Email Workspace · CMS → Insurance tab → PIP Log", "Reason stated; ledger shows $3,675.00 left before the MRI"]
         ],
         best: [
           "Run the Payer Order before you open the LOP template, every time.",
@@ -3213,7 +3214,7 @@ window.CM_CASE_FLOW = {
           ],
           scale: [
             "Reading an EOB line by line, remark codes included",
-            "Reconciling provider balances to the EOBs and the PIP ledger",
+            "Reconciling provider balances to the EOBs and the PIP Log",
             "Applying the Payer Order: PIP, then the Health Plan, then an LOP",
             "Preparing and transmitting an LOP on counsel's terms, and declining one",
             "Keeping a PIP exhaustion ledger and LOP balances current",
@@ -4533,7 +4534,7 @@ window.CM_CASE_FLOW = {
             "When a carrier offers limits, confirm its terms (coverage, release scope, liens, payee, check date) without accepting; report to Atty. Thorne that day. Only after John Doe decides, on his advice, does the acceptance go out: you draft it, he approves and sends it.",
             "A first-party carrier owes its insured good faith. Never accept verbally under pressure: log the words, put new evidence in writing under Atty. Thorne's deadline, escalate. Bad faith is his call.",
             "Payout: release → check (to John Doe and the firm; he endorses, never the CM) → IOLTA → liens, fee, costs → net. Log each check the day it arrives; deposit it that day if its release is signed, else secure it and expedite signing under Atty. Thorne.",
-            "John Doe's Harbor Point PIP is add-on: a collateral source, not a credit to Keystone (confirm the rule). Exhausted and non-subrogated, it creates no lien and no UM cut here. Where PIP applies, set-off, the EMC ceiling and subrogation change the ask."
+            "PIP is used differently by state type. In a no-fault state, PIP is mandatory and pays the injured person's own medical first, whoever caused the crash; a suit against the at-fault driver needs a serious-injury or monetary threshold, and PIP paid is set off. In an at-fault state, the at-fault driver's BI pays the injury claim and add-on PIP pays on top, with the right to sue left open. John Doe's Harbor Point PIP is add-on: a collateral source, not a credit to Keystone (confirm the rule). Exhausted and non-subrogated, it creates no lien and no UM cut here."
           ],
           upl: [
             "You may assemble the evidence, log and relay offers, and paper what John Doe decided through Atty. Thorne. You may not accept, reject or counter, tell John Doe whether to settle, explain a policy's offset or release language to him, or accuse a carrier of bad faith."
@@ -4544,8 +4545,9 @@ window.CM_CASE_FLOW = {
           type: "table",
           head: ["Reduction", "Where it bites", "On this file"],
           rows: [
-            ["PIP set-off", "No-fault states: value – PIP paid = what the defendant still owes.", "John Doe's Harbor Point PIP is add-on, not no-fault: a collateral source, not a credit to Keystone (confirm the rule). Exhausted, non-subrogated: no lien, no UM cut."],
-            ["EMC ceiling", "In PIP states, some cap benefits lower without an emergency-medical-condition finding (confirm the rule); Riverton's add-on PIP has no such cap.", "PIP paid its full $5,000.00; the rest of the care became Peach State and LOP liens."],
+            ["PIP in a no-fault state", "PIP is mandatory and pays first, whoever was at fault; a suit needs a threshold, and PIP paid is set off.", "Not this file."],
+            ["PIP in an at-fault state", "The at-fault driver's BI pays; add-on PIP pays on top, and the right to sue stays open.", "John Doe's Harbor Point PIP is add-on: a collateral source, not a credit to Keystone (confirm the rule). Exhausted, non-subrogated: no lien, no UM cut."],
+            ["EMC ceiling", "In PIP states, some cap benefits lower without an emergency-medical-condition finding (confirm the rule); John Doe's Harbor Point PIP has no such cap.", "PIP paid its full $5,000.00; the rest of the care became Peach State and LOP liens."],
             ["Subrogation", "A subrogated carrier liens the settlement: log it, plan the reduction.", "Harbor Point, 03/02/2026: no reimbursement right."],
             ["UM offset", "A reduction policy subtracts the BI from the UM limit.", "Add-on: $20,000 of room, not $20,000 – $10,000 = $10,000."]
           ]
@@ -4570,7 +4572,7 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Gap and layer logic", 15, "UM pays the gap above BI; Relative UM excess over Host UM; $10,000 + $20,000 + $10,000 = $40,000"],
-            ["Reductions closed", 20, "Offset, PIP non-duplication and PIP reimbursement each tied to the 03/02/2026 letter; add-on PIP: no set-off; no-fault rules stated as where they apply"],
+            ["Reductions closed", 20, "Offset, PIP non-duplication and PIP reimbursement each tied to the 03/02/2026 letter; PIP use contrasted, no-fault against at-fault; John Doe's add-on PIP: no set-off"],
             ["Close and paper trail", 15, "Coverage, release, liens, payee and check date confirmed; same-day email"],
             ["Payout sequence", 10, "Release → check → trust → liens, fee and costs → net"]
           ],
@@ -4582,7 +4584,7 @@ window.CM_CASE_FLOW = {
         notes: [
           "Open on Harbor Point's 03/02/2026 letter. Ask which sentence in it is worth $10,000 to John Doe. It is the add-on clause: on a reduction policy, Keystone's $10,000 would have come off the top of the $20,000.",
           "Put to the room: “Harbor Point insures Kevin Alvarez's car. Why does it owe John Doe anything, and why will it still fight him?”",
-          "Watch for trainees who treat the UM carriers as friendly because they are first-party. They turn adversarial at evaluation, and Harbor Point's 09/14 offer proves it. Teach PIP as the doctrine where it applies, not as a fact of this file: where PIP applies, the set-off, the EMC ceiling and a subrogation lien each change the BI ask and the net.",
+          "Watch for trainees who treat the UM carriers as friendly because they are first-party. They turn adversarial at evaluation, and Harbor Point's 09/14 offer proves it. Teach the contrast: in a no-fault state PIP is mandatory, pays first and is set off, and a suit needs a threshold; in an at-fault state add-on PIP pays on top and the suit stays open. John Doe's Harbor Point PIP is add-on.",
           "Bad faith is a legal conclusion. New medical evidence changes a valuation, and on this file it is the residual paresthesia Dr. Reyes documented at MMI; don't call it permanent unless a physician has. The CM's contribution is a dated record of what each carrier knew and said, and anyone who writes “bad faith” to an adjuster has crossed the line."
         ]
       },

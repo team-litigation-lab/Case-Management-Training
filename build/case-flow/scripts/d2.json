@@ -178,7 +178,7 @@
  },
  "d2m2-l1": {
   "why": {
-   "say": "I've got John Doe's PIP ledger up, with the right-hand column covered. Harbor Point has paid $685.00, $640.00, $2,395.00 and then $640.00 for the 03/27/2026 visit. How much PIP is left? Take a second. It's $640.00. If you can't keep that column straight, you can't decide an LOP request. Treatment is the file's engine room, and somebody has to pay for it while the claim is open. On this file three payers stand in a default order: Harbor Point PIP, then Peach State, then a Letter of Protection. An LOP issued out of order turns a bill an earlier payer would have paid into a lien against John Doe's net.",
+   "say": "I've got John Doe's PIP Log up, with the right-hand column covered. Harbor Point has paid $685.00, $640.00, $2,395.00 and then $640.00 for the 03/27/2026 visit. How much PIP is left? Take a second. It's $640.00. If you can't keep that column straight, you can't decide an LOP request. Treatment is the file's engine room, and somebody has to pay for it while the claim is open. On this file three payers stand in a default order: Harbor Point PIP, then Peach State, then a Letter of Protection. An LOP issued out of order turns a bill an earlier payer would have paid into a lien against John Doe's net.",
    "ask": "How much PIP does John Doe have left after the 03/27/2026 visit?"
   },
   "theory": {
@@ -198,11 +198,11 @@
    "ask": "Riverton and Summit Imaging both asked for an LOP. Why did only one of them get it?"
   },
   "model": {
-   "say": "Here's the PIP ledger, Harbor Point's $5,000, with five rows paid in date order. Above it there's a gauge draining in five steps, and the last one lands on $0.00 at 06/12/2026, in red. On the left is the payer rail: PIP first, Peach State second, and the LOP third, stamped counsel-approved terms. Then look at the two provider chips along the bottom. Riverton Spine & Rehab has a tick for its LOP. Summit Imaging has a cross, because its bill went to PIP instead. That's the argument of the whole slide. An LOP is the last rung of the Payer Order, not the first answer to a provider who asks.",
+   "say": "Here's the PIP Log, Harbor Point's $5,000, with five rows paid in date order. Above it there's a gauge draining in five steps, and the last one lands on $0.00 at 06/12/2026, in red. On the left is the payer rail: PIP first, Peach State second, and the LOP third, stamped counsel-approved terms. Then look at the two provider chips along the bottom. Riverton Spine & Rehab has a tick for its LOP. Summit Imaging has a cross, because its bill went to PIP instead. That's the argument of the whole slide. An LOP is the last rung of the Payer Order, not the first answer to a provider who asks.",
    "ask": "What would a $2,395.00 LOP for Summit Imaging have cost John Doe at the end?"
   },
   "job": {
-   "say": "Picture a normal month on this file. A provider asks for an LOP. You run the Payer Order and prepare one on counsel's template only for care PIP and Peach State can't carry, then route it for approval from CMS Documents, Outgoing. The payer check is recorded first, and nothing goes out without Atty. Thorne. When PIP pays a bill, you post the payment, the running total and the balance on the PIP ledger, and it ties to Harbor Point, hitting $5,000.00 on the 06/12/2026 visit. When an LOP statement arrives, you update the LOP register and check every line, so through 04/02/2026 that's 16 visits at $185.00, or $2,960.00, all attended. For a new referral, you do a warm handoff with John on the line and confirm the payer before the first visit.",
+   "say": "Picture a normal month on this file. A provider asks for an LOP. You run the Payer Order and prepare one on counsel's template only for care PIP and Peach State can't carry, then route it for approval from CMS Documents, Outgoing. The payer check is recorded first, and nothing goes out without Atty. Thorne. When PIP pays a bill, you post the payment, the running total and the balance on the PIP Log, and it ties to Harbor Point, hitting $5,000.00 on the 06/12/2026 visit. When an LOP statement arrives, you update the LOP register and check every line, so through 04/02/2026 that's 16 visits at $185.00, or $2,960.00, all attended. For a new referral, you do a warm handoff with John on the line and confirm the payer before the first visit.",
    "ask": "If Riverton bills a date John Doe didn't attend, what do you do with that line?"
   },
   "dodont": {
@@ -236,7 +236,7 @@
    "ask": "Which row on Peach State's EOB is the most Crescent may bill John Doe?"
   },
   "job": {
-   "say": "Let's run this as it happens on the file. An EOB arrives, and you post billed, allowed, adjustment, paid and member share against the visit in CMS Liens and Documents, so the $1,860.00 plan payment is logged and claim PS-2605-449021 is linked to the visit. A PIP check clears, and you post it on the PIP ledger with the date of service and the limit remaining, until it ties to Harbor Point's history with $0.00 left after 06/26/2026. Then a patient statement shows a balance. You compare it with the EOB's member responsibility, flag the $1,540.00, tell Atty. Thorne the same day and draft the correction request. And when Peach State's itemized lien arrives, you match each line to an EOB and to the collision, so only those lines stand.",
+   "say": "Let's run this as it happens on the file. An EOB arrives, and you post billed, allowed, adjustment, paid and member share against the visit in CMS Liens and Documents, so the $1,860.00 plan payment is logged and claim PS-2605-449021 is linked to the visit. A PIP check clears, and you post it on the PIP Log with the date of service and the limit remaining, until it ties to Harbor Point's history with $0.00 left after 06/26/2026. Then a patient statement shows a balance. You compare it with the EOB's member responsibility, flag the $1,540.00, tell Atty. Thorne the same day and draft the correction request. And when Peach State's itemized lien arrives, you match each line to an EOB and to the collision, so only those lines stand.",
    "ask": "What would you do with a line on Peach State's lien that no EOB supports?"
   },
   "dodont": {
@@ -284,7 +284,7 @@
    "ask": "Before you open the template, why does Riverton get an LOP?"
   },
   "task": {
-   "say": "Work both dates, and start each one by running the Payer Order and recording the result. On 02/23/2026, you prepare Riverton's LOP on the approved template, route it to Atty. Thorne for approval and signature, and transmit it with the claim-specific HIPAA authorization, asking for itemized statements and a missed-visit alert. Confirm receipt and open the entry in the CMS LOP register. Record John's assessment too, with his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing in the Email Workspace, naming Harbor Point PIP and proving it from the PIP ledger. If Summit still refuses, Atty. Thorne hears before the 03/13/2026 appointment, so the MRI doesn't slip. And you're graded on this: no payment promised to either provider.",
+   "say": "Work both dates, and start each one by running the Payer Order and recording the result. On 02/23/2026, you prepare Riverton's LOP on the approved template, route it to Atty. Thorne for approval and signature, and transmit it with the claim-specific HIPAA authorization, asking for itemized statements and a missed-visit alert. Confirm receipt and open the entry in the CMS LOP register. Record John's assessment too, with his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing in the Email Workspace, naming Harbor Point PIP and proving it from the PIP Log. If Summit still refuses, Atty. Thorne hears before the 03/13/2026 appointment, so the MRI doesn't slip. And you're graded on this: no payment promised to either provider.",
    "ask": "Summit says it won't do the MRI without an LOP. What do you say, and who do you tell?"
   },
   "check": {

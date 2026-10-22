@@ -2278,7 +2278,7 @@ window.CM_CF_SLIDES = {
    [
     "A provider asks whom to bill",
     "Route it by Payer-First order",
-    "CMS → PIP ledger",
+    "CMS → PIP Log",
     "PIP, Peach State, then LOP"
    ],
    [
@@ -2462,7 +2462,7 @@ window.CM_CF_SLIDES = {
    [
     "PIP pays a bill",
     "Post payment, running total, balance",
-    "CMS → PIP ledger",
+    "CMS → PIP Log",
     "$5,000.00 reached 06/12/2026; $0.00 left"
    ],
    [
@@ -2621,7 +2621,7 @@ window.CM_CF_SLIDES = {
    [
     "A PIP check clears",
     "Post check and limit remaining",
-    "CMS → PIP ledger",
+    "CMS → PIP Log",
     "Ties to Harbor Point's history"
    ],
    [
@@ -2689,6 +2689,7 @@ window.CM_CF_SLIDES = {
       "Harbor Point's five checks: $685.00, $640.00 three times, $2,395.00",
       "Total $5,000.00: **exhausted 06/26/2026**",
       "Later bills come back with a notice of exhaustion",
+      "The firm's PIP Log (RS71) tracks each check and the limit remaining",
       "Pitfall: sending a bill to PIP after exhaustion"
      ]
     },
@@ -4893,13 +4894,15 @@ window.CM_CF_SLIDES = {
      ]
     },
     {
-     "term": "PIP Set-Off",
-     "text": "In no-fault states the law generally bars **double recovery**: value minus PIP paid is what the defendant still owes.",
+     "term": "PIP: No-Fault vs. At-Fault",
+     "text": "No-fault: mandatory PIP pays first and **suits need a threshold**; at-fault: add-on PIP pays on top",
      "more": [
-      "On this file PIP is add-on: a collateral source, not a credit to Keystone; confirm the rule",
-      "PIP paid its full $5,000.00; the rest of the care became Peach State and LOP liens",
-      "Exhausted and non-subrogated: no lien and no UM cut here",
-      "Where PIP applies, set-off, the EMC ceiling and subrogation **change the ask**"
+      "No-fault state: PIP is mandatory and pays the client's own medical first, whoever caused the crash",
+      "No-fault: suing the at-fault driver needs a serious-injury or monetary threshold; PIP paid is set off",
+      "At-fault state: the at-fault driver's BI pays the injury claim; add-on PIP pays on top",
+      "At-fault: the right to sue stays open; PIP is a collateral source, not a credit",
+      "John Doe's Harbor Point PIP is add-on: exhausted at $5,000.00, non-subrogated, **no lien and no UM cut**",
+      "Which rule governs is Atty. Thorne's call; record each carrier's written position"
      ]
     }
    ],

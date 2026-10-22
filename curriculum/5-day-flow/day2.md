@@ -365,9 +365,9 @@ A two-tier slide. The top tier is a coverage map: eight cards in three colour gr
 |---|---|---|---|
 | Each claim is opened | List every coverage, its carrier and what it pays | CMS → Insurance tab | Each tagged third-party, first-party or health |
 | Coverage confirmed in writing | Place it: Recovery Stack, Payer Order or outside both | CMS → Insurance tab → Coverage Matrix | Stack $40,000; PIP, PD and collision outside it |
-| A provider asks whom to bill | Route it by the Payer-First order | CMS → Insurance tab → PIP ledger | PIP first, Peach State next, an LOP last |
+| A provider asks whom to bill | Route it by the Payer-First order | CMS → Insurance tab → PIP Log | PIP first, Peach State next, an LOP last |
 | A provider asks for an LOP | Check PIP and network status first | CMS → Liens → LOP register | Payer check recorded; Atty. Thorne approves any LOP |
-| A payer pays a bill | Post payer, bill and amount on its ledger | CMS → Insurance tab → PIP ledger · CMS → Liens | Every ledger current; no paid claim re-routed |
+| A payer pays a bill | Post payer, bill and amount on its ledger | CMS → Insurance tab → PIP Log · CMS → Liens | Every ledger current; no paid claim re-routed |
 
 **Best practices & pitfalls**
 
@@ -436,7 +436,7 @@ Centre-right, a cream ledger card with a navy header bar, PIP · HARBOR POINT ·
 
 #### 2 · Slide Body — Show Them
 
-*The PIP ledger: paid in date order until $5,000.00 is gone*
+*The PIP Log: paid in date order until $5,000.00 is gone*
 
 | Date | Provider | PIP paid | Running total | Left of $5,000 |
 |---|---|---|---|---|
@@ -451,7 +451,7 @@ Centre-right, a cream ledger card with a navy header bar, PIP · HARBOR POINT ·
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | A provider asks for an LOP | Run the Payer Order; prepare the LOP on counsel's template only for care PIP and Peach State can't carry | CMS → Documents → Outgoing → Route for approval | Payer check recorded before routing; nothing sent without Atty. Thorne's approval |
-| PIP pays a bill | Post the payment, the running total and the balance left | CMS → Insurance tab → PIP ledger | Running total ties to Harbor Point's payments; $5,000.00 reached on the 06/12/2026 visit, $0.00 left |
+| PIP pays a bill | Post the payment, the running total and the balance left | CMS → Insurance tab → PIP Log | Running total ties to Harbor Point's payments; $5,000.00 reached on the 06/12/2026 visit, $0.00 left |
 | An LOP provider's itemized statement arrives | Update the balance and check every line against the visits you tracked | CMS → Liens → LOP register | Balance current (through 04/02/2026: 16 visits × $185.00 = $2,960.00); every billed date is an attended visit |
 | A new referral or provider | Warm handoff: book it with John Doe on the line and confirm the payer before the first visit | Call Simulator → AI John Doe · CMS → Case File → Treatment timeline | Appointment and payer recorded before the visit date |
 
@@ -475,7 +475,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Payer Order | PIP → Peach State → LOP applied to each bill; PIP's 80% wage benefit noted |
-| 🤖 AI | **20%** | PIP ledger | Five payments in date order; running total reaches $5,000.00 on the 06/12/2026 visit; $0.00 left |
+| 🤖 AI | **20%** | PIP Log | Five payments in date order; running total reaches $5,000.00 on the 06/12/2026 visit; $0.00 left |
 | 🤖 AI | **20%** | LOP decisions | LOP to Riverton Spine & Rehab (out of network); Summit Imaging's request declined because PIP applies first |
 | 🧑‍🏫 Trainer | **20%** | Coordination judgment | Sees the hub role (warm handoffs, three closed loops, guarded transitions) and avoids mission creep |
 | 🧑‍🏫 Trainer | **20%** | UPL boundary | No LOP terms set, no payment promised to a provider, no interpretation of the LOP for John Doe |
@@ -514,8 +514,9 @@ Two documents side by side, each read line by line. Left, Peach State's Explanat
 6. A plan's reimbursement claim is what it paid, never what was billed: Peach State's claim on Crescent's bill starts at $1,860.00. When its itemized lien arrives, match every line to an EOB; a line no EOB supports, or one unrelated to the collision, goes to Atty. Thorne.
 7. The EOB's AC1 remark asks for the plan's accident questionnaire. Route it to Atty. Thorne before John Doe returns it: what it says about the accident and the other insurance is a statement on the file.
 8. PIP sends no EOB, but Harbor Point reports its payments the same way: its payment history (RS31) lists each check by date of service, payee, amount billed, amount paid and the limit remaining. It paid every bill at the amount billed, in the order received.
-9. Harbor Point's five checks: $685.00 (Riverton Urgent Care), $640.00, $640.00 and $640.00 (Lakeside Orthopedics) and $2,395.00 (Summit Imaging) = $5,000.00, exhausted 06/26/2026. Bills it receives after that come back with a notice of exhaustion: send the next one to the next payer in the Payer Order.
-10. Reconcile every provider to its payers: each statement must show the PIP check or the plan's payment as a credit. A provider still showing a balance on a paid date of service has a billing error, not a lien. Medical Specials keep the billed amounts the audit holds ($14,817.40); the lien register carries only what each payer can claim back.
+9. Keep the firm's PIP Log (CMS → Insurance tab → PIP Log, printed as RS71) as each PIP event happens: the application and the claim opened, each check with its date of service and the limit remaining, the wage benefit, and the care billed elsewhere. Reconcile it to Harbor Point's payment history line by line.
+10. Harbor Point's five checks: $685.00 (Riverton Urgent Care), $640.00, $640.00 and $640.00 (Lakeside Orthopedics) and $2,395.00 (Summit Imaging) = $5,000.00, exhausted 06/26/2026. Bills it receives after that come back with a notice of exhaustion: send the next one to the next payer in the Payer Order.
+11. Reconcile every provider to its payers: each statement must show the PIP check or the plan's payment as a credit. A provider still showing a balance on a paid date of service has a billing error, not a lien. Medical Specials keep the billed amounts the audit holds ($14,817.40); the lien register carries only what each payer can claim back.
 
 > ⚠️ **UPL boundary.** You may read, reconcile and report what an EOB or a payment history shows, and ask a provider in writing to correct an account. Whether a balance is owed, whether a write-off may be billed, and how to answer the plan's accident questionnaire are Atty. Thorne's calls.
 
@@ -537,7 +538,7 @@ Two documents side by side, each read line by line. Left, Peach State's Explanat
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | An EOB arrives | Post billed, allowed, adjustment, paid and member share against the visit | CMS → Liens · CMS → Documents | Plan paid $1,860.00 logged; claim PS-2605-449021 linked to the visit |
-| A PIP check clears | Post the check, the date of service and the limit remaining | CMS → Insurance tab → PIP ledger | Ledger ties to Harbor Point's payment history, $0.00 left after 06/26/2026 |
+| A PIP check clears | Post the check, the date of service and the limit remaining | CMS → Insurance tab → PIP Log | Ledger ties to Harbor Point's payment history, $0.00 left after 06/26/2026 |
 | A patient statement shows a balance | Compare it with the EOB's member responsibility; route any balance bill | CMS → Liens · Email Workspace | $1,540.00 flagged; Atty. Thorne told the same day; correction request drafted |
 | The plan's itemized lien arrives | Match each line to an EOB and to the collision | CMS → Liens → Peach State | Only EOB-backed, accident-related lines stand |
 
@@ -1613,8 +1614,8 @@ Two dated envelopes side by side, each a white card with a navy header. Left, 02
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Liens → LOP register · CMS → Documents → Outgoing · Email Workspace · CMS → Insurance tab → PIP ledger |
-| **Expected output** | One counsel-approved LOP transmitted and confirmed, one LOP request declined with the payer named, a current PIP ledger, and a documented pre-morbid baseline. |
+| **Tool / interface** | CMS → Liens → LOP register · CMS → Documents → Outgoing · Email Workspace · CMS → Insurance tab → PIP Log |
+| **Expected output** | One counsel-approved LOP transmitted and confirmed, one LOP request declined with the payer named, a current PIP Log, and a documented pre-morbid baseline. |
 
 **Verification checkpoints**
 
@@ -1635,7 +1636,7 @@ Two dated envelopes side by side, each a white card with a navy header. Left, 02
 |---|---|---|---|
 | 02/23/2026: Riverton Spine & Rehab needs an LOP before the 02/24/2026 visit | Run the Payer Order, prepare the LOP on the approved template, route it for approval | CMS → Documents → Outgoing → Route for approval | Approved and signed before the first visit |
 | LOP signed | Transmit it with the HIPAA authorization; confirm receipt; open the register entry | Email Workspace · CMS → Liens → LOP register | Receipt confirmed and dated in the Communications Log |
-| 03/11/2026: Summit Imaging asks for an LOP | Decline in writing, naming Harbor Point PIP as the payer; post the ledger | Email Workspace · CMS → Insurance tab → PIP ledger | Reason stated; ledger shows $3,675.00 left before the MRI |
+| 03/11/2026: Summit Imaging asks for an LOP | Decline in writing, naming Harbor Point PIP as the payer; post the ledger | Email Workspace · CMS → Insurance tab → PIP Log | Reason stated; ledger shows $3,675.00 left before the MRI |
 
 **Best practices & pitfalls**
 
@@ -2169,7 +2170,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 | Competency | 1 | 2 | 3 | 4 | 5 |
 |---|---|---|---|---|---|
 | Reading an EOB line by line, remark codes included | ○ | ○ | ○ | ○ | ○ |
-| Reconciling provider balances to the EOBs and the PIP ledger | ○ | ○ | ○ | ○ | ○ |
+| Reconciling provider balances to the EOBs and the PIP Log | ○ | ○ | ○ | ○ | ○ |
 | Applying the Payer Order: PIP, then the Health Plan, then an LOP | ○ | ○ | ○ | ○ | ○ |
 | Preparing and transmitting an LOP on counsel's terms, and declining one | ○ | ○ | ○ | ○ | ○ |
 | Keeping a PIP exhaustion ledger and LOP balances current | ○ | ○ | ○ | ○ | ○ |

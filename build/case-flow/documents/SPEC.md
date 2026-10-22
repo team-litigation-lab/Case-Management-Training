@@ -284,6 +284,14 @@ signed UM/UIM selection/rejection form 03/14/2024.
 The five payments (spec list) at 100% of the billed medical, running balance to $0.00, "PIP limit exhausted 06/26/2026"; a lost-income section: the 80% wage benefit ($1,267.20 on $1,584.00) not payable, limit exhausted before Northgate's 06/30/2026 letter.
 *Key:* Payer order in action; the Crescent bill went to Peach State, not PIP.
 
+**RS71 · PIP Log — John Doe (Harbor Point PIP)** · Day 2 · Case Files · `RS_71_PIP_Log.pdf`
+The firm's own record (LSH Law Group letterhead, Form PIP-100), kept by the Case Manager in CMS → Insurance tab → PIP Log: the PIP claim
+(HP-26-7741, HPA-4402917, Marcus Bell; $5,000.00, 100% medical / 80% lost income; application 02/17/2026, opened 02/24/2026;
+no reimbursement right per the 03/02/2026 letter); the five payments (spec list) with the check numbers from RS31 and the limit
+remaining to $0.00; the 80% wage benefit not payable; care billed elsewhere (Crescent to Peach State, Riverton Spine & Rehab under
+its LOP); an activity log through 07/06/2026, when it was reconciled to RS31.
+*Key:* No plants. It ties to RS31 line for line.
+
 **RS32 · Keystone Mutual — Claim Correspondence (Feb–Apr 2026)** · Day 2 · Others · `RS_32_Keystone_Claim_Correspondence.pdf`
 02/17/2026 Leah Moran: PD liability accepted; 02/18 rental authorized at Rivergate Rentals, $42.00/day, max 30 days;
 02/24 Dana Whitfield: BI acknowledgment; the $10,000 limit given on the set-up call will be confirmed in writing (declarations page) only on a written request with signed authorizations;
