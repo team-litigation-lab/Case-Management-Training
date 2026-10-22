@@ -198,7 +198,19 @@ window.CM_CF_DOCS = [
    key:"BI exhausted on Track B — Host UM and Relative UM open (and go to arbitration)."},
   {id:"RS60", folder:"litigation", file:"case-flow/litigation/RS_60_Certificate_of_Service_Discovery_Responses.pdf", title:"Certificate of Service — Plaintiff's Discovery Responses (01/04/2027)", cms:"Litigation", day:5,
    desc:"Atty. Thorne's Certificate of Service for John Doe's discovery responses, 01/04/2027.",
-   key:"Proves the RFA responses were timely (due 01/04/2027)."}
+   key:"Proves the RFA responses were timely (due 01/04/2027)."},
+  {id:"RS61", folder:"insurance", file:"case-flow/insurance/RS_61_UM_Demands_DRAFT.pdf", title:"Host UM & Relative UM Demands — DRAFT for QC", cms:"Others", day:3,
+   desc:"The Demand Desk's drafts of the $20,000 Host UM demand to Harbor Point and the $10,000 Relative UM demand to Cardinal State (08/28/2026), assigned after the audit, for your QC.",
+   key:"PLANTED: (1) exhaustion proof buried in section 3, not on page one; (2) Relative UM demanded \"payable now and in addition to any other recovery\" — it is excess over BI + Host UM ($30,000); (3) future medical $3,400.00 counted inside the Specials ($19,801.40) — Specials are $16,401.40, future medical goes in the narrative; (4) response deadline filled in — it is Atty. Thorne's to set; (5) \"all medical records\" enclosed instead of a two-page treatment summary; (6) the gap and the \"degenerative\" reading are not answered (MRI adjacent levels, Causation Letter, EMS report, Gap Explanation Record)."},
+  {id:"RS62", folder:"litigation", file:"case-flow/litigation/RS_62_Mediation_Binder_DRAFT.pdf", title:"Mediation Binder — Master Index DRAFT for QC (03/02/2027)", cms:"Litigation", day:4,
+   desc:"The Litigation Desk's draft Mediation Binder index and medical ledger, assembled 03/02/2027, for your QC before it goes to Hon. Carla Benton (Ret.) on 03/11/2027.",
+   key:"PLANTED: (1) ledger from the original bills — Riverton Spine & Rehab $6,290.00 (34 lines) instead of $6,105.00 after the audit, total $15,002.40 instead of $14,817.40; (2) Crescent's $3,400.00 shown open — Peach State paid $1,860.00 at contract rate, no balance billing; (3) the pre-filing draft Complaint (RS50) in Section 3 instead of the filed one (RS51); (4) session time and location left blank and the fee split assumed, not read from the order; (5) deposition summary missing."},
+  {id:"RS63", folder:"litigation", file:"case-flow/litigation/RS_63_Arbitration_Binder_DRAFT.pdf", title:"Arbitration Binder — Exhibit Index DRAFT for QC (05/14/2027)", cms:"Litigation", day:4,
+   desc:"The Litigation Desk's draft Arbitration Binder exhibit index, assembled 05/14/2027, for your QC before the 06/02/2027 exchange.",
+   key:"PLANTED: (1) the brief docketed 06/12/2027, a Saturday — counting back, it moves to Friday 06/11/2027; (2) the Confidential Mediation Statement in the exchange set; (3) the pre-filing draft Complaint; (4) the public-redacted Police Report and grayscale doorbell stills; (5) the impasse memo in the exchange set; (6) Harbor Point MedPay listed as a $5,000.00 lien — no reimbursement right (03/02/2026 letter); (7) the threshold BI exhaustion record, the 2021 records and the authentication log missing."},
+  {id:"RS64", folder:"settlement", file:"case-flow/settlement/RS_64_CMS_Task_Log_Drafting_Assigned.pdf", title:"CMS Task Log — Pre-Demand Audit Closed, Drafting Assigned (07/15/2026)", cms:"Case Files", day:3,
+   desc:"The CMS task log Atty. Thorne opened when the pre-demand audit closed: the BI and UM demands and the two binders assigned to the drafting desks, each returning to the Case Manager for QC.",
+   key:"Shows the workflow: the desks draft, the CM QCs against the records, Atty. Thorne approves. Note the dependencies: UM opens only once BI is exhausted; the binders are contingent on suit and on a UM dispute."}
 ];
 
 /* The documents each Case Flow Skill Activity works from (shown on the activity's slide as "📁 Work from"). */
@@ -212,13 +224,13 @@ window.CM_CF_DOC_PACKETS = {
   "d2m2-a1": ["RS13", "RS12", "RS25", "RS20", "RS31"], "d2m2-a2": ["RS14", "RS32", "RS46"], "d2m2-a3": ["RS15", "RS06", "RS14", "RS40"],
   "d2m3-a1": ["RS12", "RS11", "RS21", "RS43", "RS02"], "d2m3-a2": ["RS19", "RS11", "RS12", "RS15", "RS14", "RS21", "RS43"],
   "d2m4-a1": ["RS18", "RS31", "RS22", "RS23", "RS24", "RS25", "RS26", "RS21", "RS43", "RS14"], "d2m4-a2": ["RS04", "RS18", "RS19", "RS16", "RS17", "RS26", "RS40"],
-  "d3m1-a1": ["RS33", "RS34", "RS16", "RS19"], "d3m1-a2": ["RS36", "RS38", "RS28", "RS29", "RS35"],
+  "d3m1-a1": ["RS33", "RS34", "RS16", "RS19"], "d3m1-a2": ["RS61", "RS64", "RS36", "RS38", "RS28", "RS29", "RS35"],
   "d3m2-a1": ["RS35", "RS16", "RS19", "RS11"], "d3m2-a2": ["RS39", "RS28", "RS29"],
   "d3m3-a1": ["RS40", "RS41", "RS26"], "d3m3-a2": ["RS23", "RS14", "RS42"],
   "d3m4-a1": ["RS41", "RS42", "RS44", "RS05", "RS39", "RS36"], "d3m4-a2": ["RS37", "RS38", "RS41", "RS42"],
   "d4m1-a1": ["RS49", "RS35", "RS04", "RS16", "RS19"], "d4m1-a2": ["RS05", "RS28", "RS09", "RS49"],
   "d4m2-a1": ["RS55", "RS54", "RS04"], "d4m2-a2": ["RS58", "RS59", "RS57", "RS28"],
-  "d4m3-a1": ["RS57", "RS23", "RS26", "RS41", "RS50", "RS51"], "d4m3-a2": ["RS58", "RS50", "RS09", "RS04", "RS31", "RS25"],
+  "d4m3-a1": ["RS62", "RS64", "RS57", "RS23", "RS26", "RS41", "RS50", "RS51"], "d4m3-a2": ["RS63", "RS64", "RS58", "RS50", "RS09", "RS04", "RS31", "RS25"],
   "d4m4-a1": ["RS49", "RS57", "RS23", "RS26"], "d4m4-a2": ["RS58", "RS26", "RS23", "RS09", "RS20", "RS06"],
   "d5m1-a1": ["RS51", "RS52", "RS53", "RS54", "RS55", "RS60"], "d5m1-a2": ["RS55", "RS56", "RS54"],
   "d5m2-a1": ["RS45", "RS46", "RS54"], "d5m2-a2": ["RS47", "RS48", "RS46"],

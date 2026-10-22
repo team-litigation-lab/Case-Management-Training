@@ -3995,13 +3995,13 @@ window.CM_CF_SLIDES = {
   "image": "binder-exhibits",
   "situation": "File date 08/31/2026. Keystone tendered $10,000 limits 08/12; consents came 08/24 and 08/26; the **Limited Release was signed** 08/28. Keystone's **check hasn't arrived**. Keystone had called the MRI “degenerative.”",
   "steps": [
-   "Draft **Host UM to Harbor Point** for the $20,000 limit",
-   "Draft **Relative UM to Cardinal State**: $10,000, excess over Host UM",
+   "QC the desk's **Host UM draft** to Harbor Point",
+   "QC **Relative UM to Cardinal State**: excess, not primary",
    "Put **exhaustion proof on page one**; show damages above collections",
    "Answer the gap and “degenerative” **with the MRI**",
    "**Leave the response deadline** blank for Atty. Thorne; route both"
   ],
-  "deliver": "Two attorney-ready UM drafts, **exhaustion proof first**, routed for review",
+  "deliver": "Two QC'd UM drafts, **exhaustion proof first**, routed for review",
   "checks": [
    "Two separate packages, **HP-26-7741 and CS-26-20355**",
    "Relative UM claimed for **damages above $30,000**",

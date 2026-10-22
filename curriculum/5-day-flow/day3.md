@@ -46,7 +46,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 11. *Skill Activity* — Calculating Total Specials & the Special Damages Audit
 12. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne
 13. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package
-14. *Skill Activity* — Drafting the $20,000 Host UM and $10,000 Relative UM Demands
+14. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
 15. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
 16. *Skill Activity* — Closing the $40,000 Gross Recovery
 17. *Knowledge Check* — UPL & Investigation Review
@@ -1154,7 +1154,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.14 Drafting the $20,000 Host UM and $10,000 Relative UM Demands
+### 3.1.14 QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 2 — two packages, exhaustion proof on page one  
@@ -1169,12 +1169,12 @@ Two demand letters side by side on white letterhead: left HOST UM · HARBOR POIN
 
 **Scenario.** File date 08/31/2026 (Mon). Keystone tendered the $10,000 limits on 08/12/2026, after Smith's affidavit of no other insurance (08/10). Harbor Point consented 08/24, Cardinal State 08/26; the Limited Release of Robert Smith and Keystone was signed 08/28. Keystone's check has not arrived. On 08/05 Keystone had leaned on the 14-day gap and called the MRI degenerative.
 
-**Execution prompt.** Draft two demands for Atty. Thorne's review: Host UM to Harbor Point (Marcus Bell, HP-26-7741) for the $20,000 limit, and Relative UM to Cardinal State (Teresa Okafor, CS-26-20355) for the $10,000 limit as excess over Host UM. Put the exhaustion proof on page one of each. Organize the evidence by function, audit each package as you audited the BI demand, show damages above what has been collected, and answer the gap and “degenerative” with the MRI. Leave the response deadline for Atty. Thorne to set. Graded judgment: what proves exhaustion before the check arrives.
+**Execution prompt.** The pre-demand audit closed 07/15/2026 and Atty. Thorne assigned the UM demands to the Demand Desk (CMS Task Log, RS64); its drafts are in the file (RS61). Do not start from a blank page: QC both drafts against the records and fix every error before they reach Atty. Thorne, so that they become two demands: Host UM to Harbor Point (Marcus Bell, HP-26-7741) for the $20,000 limit, and Relative UM to Cardinal State (Teresa Okafor, CS-26-20355) for the $10,000 limit as excess over Host UM. Put the exhaustion proof on page one of each. Organize the evidence by function, audit each package as you audited the BI demand, show damages above what has been collected, and answer the gap and “degenerative” with the MRI. Leave the response deadline for Atty. Thorne to set. Graded judgment: what proves exhaustion before the check arrives.
 
 | | |
 |---|---|
 | **Tool / interface** | Action Plan Editor → UM demand templates · CMS → Tasks → Escalate |
-| **Expected output** | Two attorney-ready UM demand drafts, exhaustion proof first, routed for review with tracked follow-up tasks. |
+| **Expected output** | Two QC'd, attorney-ready UM demand drafts, exhaustion proof first, each planted error in the desk's draft fixed and noted, routed for review with tracked follow-up tasks. |
 
 **Verification checkpoints**
 

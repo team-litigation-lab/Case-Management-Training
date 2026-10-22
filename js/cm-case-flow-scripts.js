@@ -1039,7 +1039,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "With no check in hand today, what proves exhaustion?"
   },
   "task": {
-   "say": "You're drafting two demands for Atty. Thorne's review, not one. Host UM goes to Marcus Bell at Harbor Point, HP-26-7741, for the $20,000 limit. Relative UM goes to Teresa Okafor at Cardinal State, CS-26-20355, for the $10,000 limit as excess over Host UM. Use the UM templates in the Action Plan Editor. And to answer the last slide's question, exhaustion today is proven by the tender, the consents and the signed Limited Release, with the check copy to follow. That goes on page one of each. Organize the evidence by function, audit each package the way you audited the BI demand, show damages above what's been collected, and answer the gap and “degenerative” with the MRI. You'll hand in two attorney-ready drafts, routed for review with tracked follow-up tasks.",
+   "say": "You're not starting from a blank page. The audit closed on 07/15, and Atty. Thorne assigned the UM demands to the Demand Desk; their drafts are in the file. Your job is QC. Host UM goes to Marcus Bell at Harbor Point, HP-26-7741, for the $20,000 limit; Relative UM goes to Teresa Okafor at Cardinal State, CS-26-20355, for $10,000 as excess over Host UM. Exhaustion is proven by the tender, the consents and the signed Limited Release, with the check copy to follow, and it belongs on page one of each. Check every figure against the audit, answer the gap and “degenerative” with the MRI, and hand in two QC'd drafts routed to Atty. Thorne.",
    "ask": "Why does Cardinal State's demand say excess?"
   },
   "check": {
