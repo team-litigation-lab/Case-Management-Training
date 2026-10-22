@@ -87,7 +87,7 @@ passenger door at about 28 mph; the Escape was pushed into Margaret's Civic, par
   providers bill whom they bill, and the CM tracks both ledgers rather than re-routing a paid claim.
   Harbor Point confirmed in writing (03/02/2026): **no reimbursement right** on PIP against John's recovery;
   its UM is **add-on (excess)** — not reduced by the BI payment — and has **no PIP non-duplication reduction**.
-- PIP's 80% wage benefit (9 shifts, $1,584.00 × 80% = $1,267.20) was never paid: the medical bills used the $5,000 limit by 06/26/2026, and Northgate's wage-and-attendance letter came 06/30/2026. The full $1,584.00 stays in the Specials.
+- PIP's 80% wage benefit (9 shifts, $1,584.00 × 80% = $1,267.20) was never paid: the Medical Bills used the $5,000 limit by 06/26/2026, and Northgate's wage-and-attendance letter came 06/30/2026. The full $1,584.00 stays in the Specials.
 - Cardinal State confirmed in writing (03/09/2026) that John is covered as a resident relative occupying a non-owned vehicle.
 - Keystone gave its $10,000 BI limit verbally on the set-up call but would not confirm it in writing (no Declaration Page) before a written request with signed authorizations; BI limit $10,000 confirmed in writing by Keystone's Declaration Page on 03/20/2026.
 

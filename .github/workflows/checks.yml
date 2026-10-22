@@ -52,6 +52,14 @@ jobs:
         run: node build/case-flow/exhibits/assemble.cjs --check
       - name: Defined terms capitalized as specified (build/case-flow/terms.json)
         run: node build/case-flow/terms.cjs --check
+      - name: The generated files are in step with the lesson data (one rebuild changes nothing)
+        run: |
+          node build/case-flow/build.cjs --quiet
+          if ! git diff --quiet; then
+            echo "::error::A lesson edit landed without its generated files. Run 'node build/case-flow/build.cjs' and commit what it writes."
+            git diff --stat
+            exit 1
+          fi
       - name: Case Flow dates roll forward exactly (weekdays, the two-year SOL, holidays; no date left behind)
         run: node .github/scripts/check-case-dates.mjs
       - name: Documents served from R2 (ranges, 304s, static assets as the fallback)
@@ -107,17 +115,14 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/doc-filing.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-<<<<<<< HEAD
       - name: The exhibit audit, the completed package and the Service Confirmation (the set audited, the finished set revealed, the service confirmation filed and backed up; the CMS answered by the test)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/exhibit-audit.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-=======
       - name: Uploading a drafted letter in the CMS, under the right tab and the firm's convention (the CMS answered by the test)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/cms-upload.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
->>>>>>> origin/main
       - name: Relaying a Portal simulator's document to the CMS (the records simulator's records and bills reach the CMS beside the lesson; only the Portal may ask)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules

@@ -345,6 +345,28 @@ Attendance is taken on the **Main Portal**, not in this course: the LSH Training
 
 What stays here is the trainee's side, `js/checkin.js`: a trainee's first visit each day (Eastern time: EST, or EDT in summer) records their **Time In** on the Worker (`/api/checkin`, which keeps the first one: `checkin:<YYYY-MM-DD>:<id>`, kept 40 days), sent when the page opens, when they come back to the tab, and on their first click or key press if the page was left open overnight, with the Case Flow day they're on ("Case Flow Day N: title") for the sheet. The portal's page shows it (marked "auto") until a trainer sets one. Admins and the 👁 Trainee view never check in. The `attendance:<batch key>:<YYYY-MM-DD>` records the portal writes stay in this course's store under the Worker's rules (admins only).
 
+## ✍️ Editing a lesson or the practice case
+
+The lesson content is the source of truth: `js/cm-case-flow-data.js` (the lessons, Skill Activities, Knowledge Checks and the John Doe practice case), with the slide, trainer-script and simulation copy in `build/case-flow/`. Everything else the course serves is generated from it.
+
+**Edit the content, then run one command:**
+
+```
+node build/case-flow/build.cjs
+```
+
+It rebuilds, in the order the steps depend on each other: the defined terms written back into the sources, then the slides (`js/cm-case-flow-slides.js`), the trainer scripts (`js/cm-case-flow-scripts.js`), the simulation (`js/cm-case-flow-sim.js`) and the curriculum documents (`curriculum/5-day-flow/`). Running it twice changes nothing the second time.
+
+**So you don't have to remember it**, install the hook once per clone:
+
+```
+git config core.hooksPath .githooks
+```
+
+`.githooks/pre-commit` then rebuilds and stages the generated files whenever a commit touches the lesson data or anything under `build/case-flow/`, and leaves any other work in progress alone.
+
+**CI is the backstop**, for a clone without the hook or an edit made in the browser: it runs the same build and fails if the rebuild would have changed anything, naming the command to run. Lesson content and what the course serves therefore cannot drift apart.
+
 ## 📉 Staying under Cloudflare's monthly request allowance
 
 The Cloudflare account is on Workers Paid: **10 million requests a month for the whole account**, shared by every LSH site (the courses, the CMS, the Training Portal and the rest). This course's Worker counts for everything under `/api/` and `/version`; static files (the page, `js/`) are free and don't count. `decks/` and `documents/` now come from R2 through the Worker, so each of those files a browser loads (or re-checks) counts too: see *Documents in R2*. Past the allowance, Cloudflare charges for every extra million requests. Usage is under **Workers & Pages** in the Cloudflare dashboard.
