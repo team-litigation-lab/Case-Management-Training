@@ -268,6 +268,7 @@ Activities now work the set itself, and each one ends with the finished article.
 - **The trainer sees all of it** with the module's Learning Check: every call and note of the audit with its
   score, the email they sent and how many attempts were refused, the answer they gave to the follow-up, what they
   filed and whether it was backed up.
+- **The audits follow the lessons and the case, and the build says so.** Nothing in an audit is a fact of its own: every figure, date and name in one is a restatement of `case-file.md`, the lesson data, the document manifest or the documents that item works from. The assembler requires each one to be found in a source that item actually draws on, so a change to a lesson or to the practice case that leaves an audit behind is a red check naming the item — not an audit that teaches a figure the file no longer carries. It checks the audits against the sources, not the sources against each other; keeping those agreeing is `build/case-flow/documents/audit.cjs`'s job and `terms.cjs`'s.
 - **Source and rebuild:** `build/case-flow/exhibits/` — `EXHIBITSPEC.md` (the shape and the word limits),
   `d3.json` and `d4.json` (the content), `assemble.cjs` → `js/cm-case-flow-exhibits.js`. The UI is in
   `js/cm-case-flow.js`; the filing is `js/cm-doc-filing.js` (`send`, the same road the drafting activities file

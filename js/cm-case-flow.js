@@ -1390,14 +1390,16 @@ window.cmCaseFlow.svChoose = function(blockId, i){
   if(typeof toast === "function") toast(c.ok ? "Right: recorded, routed, and the date stays on the docket." : "That one costs the file. Read why, and remember whose call it was.");
   svRepaint(blockId);
 };
-const SV_BYTES = {};   // the built PDF, held until it is filed (never persisted)
-/* the memorandum: the trainee's own email, the adjuster's words, and what the acknowledgment establishes */
-window.cmCaseFlow.svConvert = async function(blockId){
-  const e = serviceOf(blockId), r = svRec(blockId); if(!e) return;
-  if(!(r.choice != null && (e.press.choices[r.choice] || {}).ok)) return;
-  if(typeof ensureJsPdf === "function" && !(await ensureJsPdf())){ if(typeof toast === "function") toast("Couldn't load the PDF tools — try again."); return; }
+const SV_BYTES = {};   // the built PDF, held for this page's life (a PDF is not worth persisting: it is rebuilt)
+/* the memorandum: the trainee's own email, the adjuster's words, and what the acknowledgment establishes.
+   Everything it is made of is on their record, so it can be built again whenever it is needed — which is how
+   the Drive copy still works for a trainee who files today and builds their drive tomorrow. */
+async function svBuild(blockId){
+  const e = serviceOf(blockId), r = svRec(blockId);
+  if(!e || !(r.choice != null && (e.press.choices[r.choice] || {}).ok)) return null;
+  if(typeof ensureJsPdf === "function" && !(await ensureJsPdf())) return null;
   const {jsPDF} = window.jspdf || {};
-  if(!jsPDF){ if(typeof toast === "function") toast("Couldn't load the PDF tools — try again."); return; }
+  if(!jsPDF) return null;
   const doc = (typeof safeDoc === "function" ? safeDoc(new jsPDF({unit: "pt", format: "letter"})) : new jsPDF({unit: "pt", format: "letter"}));
   const W = doc.internal.pageSize.getWidth(), H = doc.internal.pageSize.getHeight(), M = 54;
   const navy = [38, 43, 69], orange = [219, 132, 55], ink = [40, 42, 58], soft = [110, 116, 140];
@@ -1434,14 +1436,29 @@ window.cmCaseFlow.svConvert = async function(blockId){
   foot();
   let bytes = null;
   try{ bytes = doc.output("arraybuffer"); }catch(err){ bytes = null; }
+  if(bytes) SV_BYTES[blockId] = bytes;
+  return {bytes, pages: page, doc};
+}
+/* The trainee's own press of "Convert": build it, hand them the file, and let them name it for the CMS. */
+window.cmCaseFlow.svConvert = async function(blockId){
+  const e = serviceOf(blockId), r = svRec(blockId); if(!e) return;
+  if(!(r.choice != null && (e.press.choices[r.choice] || {}).ok)) return;
+  const built = await svBuild(blockId);
+  if(!built || !built.bytes){ if(typeof toast === "function") toast("Couldn't build the document — try again."); return; }
   let saved = false;
-  try{ doc.save(String(e.convert.title).replace(/[^\w]+/g, "-").replace(/^-|-$/g, "") + ".pdf"); saved = true; }catch(err){}
-  r.converted = {at: new Date().toISOString(), pages: page, saved};
-  SV_BYTES[blockId] = bytes;
+  try{ built.doc.save(String(e.convert.title).replace(/[^\w]+/g, "-").replace(/^-|-$/g, "") + ".pdf"); saved = true; }catch(err){}
+  r.converted = {at: new Date().toISOString(), pages: built.pages, saved};
   persist();
   if(typeof toast === "function") toast("Document built. Name it the firm's way and file it in the CMS.");
   svRepaint(blockId);
 };
+/* The document as it stands, built again if this page hasn't built it yet. */
+async function svBytes(blockId){
+  const held = SV_BYTES[blockId];
+  if(held && held.byteLength) return held;
+  const built = await svBuild(blockId);
+  return built && built.bytes && built.bytes.byteLength ? built.bytes : null;
+}
 window.cmCaseFlow.svFile = async function(blockId){
   const e = serviceOf(blockId), r = svRec(blockId); if(!e || !r.converted || r.filed) return;
   const el = document.getElementById("svn_" + blockId), name = ((el && el.value) || "").trim();
@@ -1450,9 +1467,9 @@ window.cmCaseFlow.svFile = async function(blockId){
   r.nameTried = name;
   if(!name){ say("Write the file name first, the firm's way."); return; }
   if(!window.cmDocFiling || typeof cmDocFiling.send !== "function"){ say("Filing isn't available on this page."); return; }
-  const bytes = SV_BYTES[blockId];
-  if(!bytes || !bytes.byteLength){ say("Build the document again, then file it: the file didn't reach this step."); return; }
   say("Filing…");
+  const bytes = await svBytes(blockId);
+  if(!bytes){ say("The document could not be built. Press Convert again, then file it."); return; }
   const out = await cmDocFiling.send({name, category: e.convert.category, folder: e.convert.folder,
     original: "Demand-Service-Acknowledgment.pdf",
     mime: "application/pdf", summary: e.convert.title, bytes: bytes.slice(0)});
@@ -1475,10 +1492,11 @@ window.cmCaseFlow.svDrive = async function(blockId){
   const e = serviceOf(blockId), r = svRec(blockId); if(!e || !r.filed || r.drive) return;
   const msg = document.getElementById("svd_" + blockId);
   const say = t => { if(msg) msg.textContent = t; };
-  const bytes = SV_BYTES[blockId];
-  if(!bytes || !bytes.byteLength){ say("Build the document again, then keep it on your Drive."); return; }
   if(!window.cmDocFiling || typeof cmDocFiling.keepOnDrive !== "function"){ say("The Backup Drive isn't available on this page."); return; }
   say("Keeping it on your Drive…");
+  // a trainee who files today and builds their drive tomorrow: the memorandum is built again from their record
+  const bytes = await svBytes(blockId);
+  if(!bytes){ say("The document could not be built again. Press Convert, then keep it on your Drive."); return; }
   const out = await cmDocFiling.keepOnDrive(e.convert.folder, r.filed.name, bytes.slice(0));
   if(out && out.ok){
     r.drive = {at: new Date().toISOString(), folder: out.folder}; r.driveWhy = "";

@@ -42,7 +42,54 @@ function proof(at, ids, day){
   });
 }
 
+/* ---------- the audits follow the lessons and the practice case ----------
+   Nothing in an audit is a fact of its own: every figure, date and name in it is a restatement of the case
+   file, the lesson data, the document manifest or the documents the item cites. So each one has to be found
+   in one of those, and a lesson or case-file change that leaves a figure behind fails here, naming the item
+   — instead of sitting in the course as an audit that teaches the wrong number.
+
+   What counts as a source for an item: curriculum/5-day-flow/case-file.md, the lesson data, the document
+   manifest, and the text of the documents that audit works from (its draft set, its finished set, and every
+   document the item itself cites as proof). Dates of the drafts' own assembly live in those documents, which
+   is why they resolve too. */
+const SOURCE_TEXT = (() => {
+  const read = f => { try{ return fs.readFileSync(path.join(ROOT, f), "utf8"); }catch(e){ return ""; } };
+  return read("curriculum/5-day-flow/case-file.md") + read("js/cm-case-flow-data.js") + read("js/cm-case-flow-docs.js");
+})();
+const docText = (() => {
+  const cache = {};
+  return id => {
+    if(cache[id] != null) return cache[id];
+    const d = docOf(id);
+    let t = d ? `${d.title} ${d.desc} ${d.key}` : "";
+    try{ t += fs.readFileSync(path.join(ROOT, "documents/case-flow/html", id + ".html"), "utf8"); }catch(e){}
+    return (cache[id] = t);
+  };
+})();
+// the same figure written either way, and the ways a date is written in the documents
+const norm = t => String(t).replace(/&[a-z]+;/g, " ").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+const MONEY = /\$[\d,]+(?:\.\d\d)?/g, DATE_IN = /\b\d{2}\/\d{2}\/\d{4}\b/g;
+// The names too, not only the numbers: a carrier, a coverage or a party the course has stopped calling by that
+// name is the drift that reads worst to a trainee. A name is satisfied if the phrase is in the sources, or the
+// phrase without its first word is (so a sentence opening "Request the Final Itemized Ledger" is not a finding),
+// or every capitalised word in it appears somewhere in them.
+const NAME = /\b([A-Z][a-zA-Z'’]+(?:\s+(?:&|of|the|and)\s+|\s+)(?:[A-Z][a-zA-Z'’]+)(?:\s+[A-Z][a-zA-Z'’]+)*)/g;
+const CAPWORD = /[A-Z][a-zA-Z'’]*/g;
+function unsourced(text, pool){
+  const t = String(text || ""), missing = [];
+  for (const re of [MONEY, DATE_IN]) for (const m of t.match(re) || []) if(!pool.includes(m)) missing.push(m);
+  for (const m of t.match(NAME) || []){
+    if(pool.includes(m)) continue;
+    const tail = m.split(/\s+/).slice(1).join(" ");
+    if(tail && pool.includes(tail)) continue;
+    const unknown = (m.match(CAPWORD) || []).filter(w => !pool.includes(w));
+    if(unknown.length) missing.push(`"${unknown.join('", "')}" (in "${m}")`);
+  }
+  return [...new Set(missing)];
+}
+
 const out = {audits: {}, emails: {}};
+const AUDIT_OF = out.audits;   // an activity's audit, for the confirmation on the same activity
 for (const f of fs.readdirSync(HERE).filter(f => /^d\d\.json$/.test(f)).sort()){
   let part;
   try{ part = JSON.parse(fs.readFileSync(path.join(HERE, f), "utf8")); }
@@ -87,6 +134,17 @@ for (const f of fs.readdirSync(HERE).filter(f => /^d\d\.json$/.test(f)).sort()){
     if(by("keep") < 3) errors.push(`${at}.items: ${by("keep")} "keep" items, at least 3 (an audit is not a list of faults)`);
     if(!by("flag")) errors.push(`${at}.items: no "flag" item (the attorney's call is part of the audit)`);
     if(!by("add")) errors.push(`${at}.items: no "add" item (an audit finds what is missing too)`);
+    // every figure and date in this audit, against the sources it is drawn from
+    {
+      const cited = new Set([a.source, a.reveal].concat(items.flatMap(it => it.proof || [])));
+      const pool = norm(SOURCE_TEXT + [...cited].map(docText).join(" "));
+      items.forEach((it, i) => {
+        const gone = unsourced([it.what, it.as, it.issue, it.fix].join(" "), pool);
+        if(gone.length) errors.push(`${at}.items[${i}] "${it.what}": ${gone.join(", ")} is in no source this item draws on (the case file, the lesson data, the manifest, or ${(it.proof || []).concat([a.source]).join(" / ")}). A lesson or case-file change has left it behind.`);
+      });
+      const goneIntro = unsourced(`${a.intro} ${a.revealNote} ${(a.revealPoints || []).join(" ")}`, pool);
+      if(goneIntro.length) errors.push(`${at}: ${goneIntro.join(", ")} is in no source this audit draws on. A lesson or case-file change has left it behind.`);
+    }
     const pts = a.revealPoints || [];
     if(pts.length < 4 || pts.length > 6) errors.push(`${at}.revealPoints: ${pts.length}, expected 4–6`);
     pts.forEach((p, i) => cap(`${at}.revealPoints[${i}]`, p, 24, "reveal point"));
@@ -140,6 +198,17 @@ for (const f of fs.readdirSync(HERE).filter(f => /^d\d\.json$/.test(f)).sort()){
     const est = c.establishes || [];
     if(est.length < 3 || est.length > 6) errors.push(`${at}.convert.establishes: ${est.length}, expected 3–6`);
     est.forEach((x, i) => cap(`${at}.convert.establishes[${i}]`, x, 30, "establishes"));
+    {
+      const pool = norm(SOURCE_TEXT + docText(e.model) + (AUDIT_OF[id] ? docText(AUDIT_OF[id].source) + docText(AUDIT_OF[id].reveal) : ""));
+      const where = {brief: e.brief, "reply.body": (e.reply || {}).body, "press.body": (e.press || {}).body,
+        "convert.sections": ((e.convert || {}).sections || []).flatMap(x => [x.h].concat(x.lines || [])).join(" "),
+        "convert.establishes": ((e.convert || {}).establishes || []).join(" "),
+        required: (e.required || []).map(q => q.label).join(" ")};
+      for (const [k, v] of Object.entries(where)){
+        const gone = unsourced(v, pool);
+        if(gone.length) errors.push(`${at}.${k}: ${gone.join(", ")} is in no source this confirmation draws on (the case file, the lesson data, the manifest or ${e.model}). A lesson or case-file change has left it behind.`);
+      }
+    }
     out.emails[id] = e;
   }
 }
