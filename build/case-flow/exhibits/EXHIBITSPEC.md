@@ -88,7 +88,7 @@ becomes a filed document.
   "reply": {"from": "…", "date": "…", "time": "…", "subject": "…", "body": "…"},
   "press": {"from": "…", "date": "…", "subject": "…", "body": "…",
             "choices": [{"label": "…", "ok": false, "why": "…"}]},
-  "convert": {"title": "…", "category": "Others", "type": "Others",
+  "convert": {"title": "…", "category": "Others", "type": "Others", "folder": "insurance",
               "sections": [{"h": "…", "lines": ["…"]}], "establishes": ["…"]}
 }
 ```
@@ -101,8 +101,10 @@ becomes a filed document.
 - `press` — the follow-up the other side sends next, with 2–4 `choices`: exactly one is `ok`. This is the UPL
   test; `why` says what each choice would cost, ≤ 30 words.
 - `convert` — the memorandum the trainee files: its `sections` are the headings and the lines under each, and
-  `establishes` is what the acknowledgment proves. `category` is the CMS Doc Hub category and `type` the type
-  part of the firm's file name. `model` is the document id of the finished memorandum.
+  `establishes` is what the acknowledgment proves. `category` is the CMS Doc Hub category, `type` the type
+  part of the firm's file name, and `folder` the `CM_CF_DOC_FOLDERS` id of the Backup Drive folder the
+  firm keeps this kind of document in — the filing keeps a copy there, as it does for a case document.
+  `model` is the document id of the finished memorandum.
 
 ## Rules
 - Plain, realistic voices; an adjuster sounds like an adjuster. No emoji, no HTML, no "blueprint".

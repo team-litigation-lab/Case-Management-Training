@@ -12,6 +12,7 @@ global.window = {};
 require(path.join(ROOT, "js/cm-case-flow-data.js"));
 require(path.join(ROOT, "js/cm-case-flow-docs.js"));
 const CF = global.window.CM_CASE_FLOW, DOCS = global.window.CM_CF_DOCS, PACKETS = global.window.CM_CF_DOC_PACKETS;
+const FOLDERS = new Set((global.window.CM_CF_DOC_FOLDERS || []).map(f => f.id));
 
 const errors = [];
 const BLOCKS = {};
@@ -132,6 +133,8 @@ for (const f of fs.readdirSync(HERE).filter(f => /^d\d\.json$/.test(f)).sort()){
     const c = e.convert || {};
     cap(`${at}.convert.title`, c.title, 12, "convert title");
     if(!c.category || !c.type) errors.push(`${at}.convert: needs category and type`);
+    // the Backup Drive folder the filing keeps a copy in (js/cm-drive.js lays the drive out from these)
+    if(!FOLDERS.has(c.folder)) errors.push(`${at}.convert.folder: "${c.folder}" is not a CM_CF_DOC_FOLDERS id (${[...FOLDERS].join(" · ")})`);
     if(!(c.sections || []).length) errors.push(`${at}.convert.sections: none`);
     (c.sections || []).forEach((s, i) => cap(`${at}.convert.sections[${i}].h`, s.h, 10, "section heading"));
     const est = c.establishes || [];

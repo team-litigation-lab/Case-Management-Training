@@ -18,7 +18,7 @@
    name)); the upload uses the CMS's convention, because the CMS is what names files in the case.
 
    The document itself is sent through js/cm-doc-filing.js (cmDocFiling.send), the same upload a trainee
-   would use in the CMS — the same bytes, the same tab, the same name check. Nothing here decides a name.
+   would use in the CMS, which also keeps a copy on their Backup Drive in the folder FOLDER names — the same bytes, the same tab, the same name check. Nothing here decides a name.
 
    Used by the HIPAA Drafting activity (js/cm-hipaa.js), which is the drafting activity this course still
    runs itself. The LOR and Med Provider activities open the Portal's shared drafting tool instead
@@ -60,6 +60,19 @@ const TAB = {
   "medprov:hitech": "Medical Records"
 };
 
+/* And the Backup Drive folder each one belongs in (CM_CF_DOC_FOLDERS, the same file the drive is laid out
+   from): the CMS tab says what kind of document it is, the folder says where the firm keeps it, and they are
+   not always the same question. A HIPAA authorization is filed under Case Files and lives with the retainer;
+   a lien balance verification is filed under Others and lives with the liens. */
+const FOLDER = {
+  "hipaa":          "intake",
+  "lor:lor1p":      "insurance",
+  "lor:lor3p":      "insurance",
+  "medprov:lienbv": "liens",
+  "medprov:medlor": "medical",
+  "medprov:hitech": "medical"
+};
+
 const DOCS = {};                        // the documents the activities on this page have registered
 const log = ()=> (state.cmsUploads = state.cmsUploads || {});
 const recOf = (id)=> log()[id] || null;
@@ -69,9 +82,11 @@ const caseOpen = ()=> (window.CMCase && CMCase.id()) || "";
 const today = ()=>{ const d = new Date(), p = n=> String(n).padStart(2, "0"); return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`; };
 const pattern = (ext)=> `${caseOpen() || "<Case ID>"}_<Last-First>_<Type>_${today()}.${ext || "pdf"}`;
 const tabOf = (d)=> d.tab || TAB[d.id] || "Others";
+const folderOf = (d)=> d.folder || FOLDER[d.id] || "";
 
 /* An activity says what it drafts: its title, the tab the firm files it under (TAB, unless it says
-   otherwise) and how to produce the document itself (lines(), the same lines the download is made from). */
+   otherwise), the Backup Drive folder it belongs in (FOLDER, unless it says otherwise) and how to produce the
+   document itself (lines(), the same lines the download is made from). */
 function register(id, d){
   if(!id || !d || typeof d.lines !== "function") return;
   DOCS[id] = Object.assign({}, DOCS[id], d, {id});
@@ -167,14 +182,19 @@ async function upload(id, btn){
     r.problems = ["This page cannot reach the CMS. Reload the page and try again."];
     say(problemsHTML(r)); await save(); done(); return;
   }
-  const out = await cmDocFiling.send({name, category: tab, original: (d.original || d.id.replace(/\W/g, "_")) + ".pdf",
+  const out = await cmDocFiling.send({name, category: tab, folder: folderOf(d),
+                                      original: (d.original || d.id.replace(/\W/g, "_")) + ".pdf",
                                       mime: "application/pdf", summary: d.title, bytes});
   done();
   if(out && out.ok){
     r.filed = true; r.nameOk = true; r.name = out.name; r.category = out.category || tab;
     r.at = new Date().toISOString(); r.problems = [];
     await save();
+    r.drive = out.drive && out.drive.ok ? out.drive.folder : "";
+    await save();
     if(typeof toast === "function") toast(`Filed in the CMS as ${out.name}.`);
+    if(out.drive && out.drive.ok && typeof toast === "function") toast(`Kept on your Backup Drive under ${out.drive.folder.split("/").pop()}.`);
+    else if(out.drive && out.drive.why === "no-drive" && typeof toast === "function") toast("Filed in the CMS. Your Backup Drive isn't set up yet, so no copy was kept there.");
     row.outerHTML = rowHTML(id);
     return;
   }

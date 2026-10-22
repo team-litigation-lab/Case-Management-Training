@@ -1175,7 +1175,7 @@ window.cmCaseFlow.listenClose = function(){ const box = document.getElementById(
    An activity that serves something also gets the Service Confirmation ("emails"): the trainee writes the
    confirmation email that goes out with the certified mailing, the adjuster answers in writing, the trainee
    answers the follow-up that tests the UPL line, and then converts the whole exchange into a memorandum, files
-   it in the CMS under the firm's naming convention and backs it up to Drive. Their marks, their email, the
+   it in the CMS under the firm's naming convention, which keeps it on their Backup Drive in its folder too. Their marks, their email, the
    choice they made and what they filed are kept on their record and shown to their trainer. */
 const EX = Object.assign({audits: {}, emails: {}}, window.CM_CF_EXHIBITS || {});
 const VERDICT = {
@@ -1296,6 +1296,7 @@ window.cmCaseFlow.auditHandIn = function(blockId){
    carrier's own words — and the follow-up that tests whether the Case Manager will move a deadline that is not
    theirs. Then the exchange stops being a mailbox thread: it is converted into a memorandum, filed into the open
    case in the CMS under the firm's naming convention, and backed up to the trainee's Drive. */
+const folderLabel = (id) => { const f = (window.CM_CF_DOC_FOLDERS || []).find(x => x.id === id); return f ? f.label : String(id || "its folder"); };
 const svNameFor = (e) => {
   const id = (window.CMCase && CMCase.id()) || "<Case ID>";
   return `${id}_Doe-John_${String(e.convert.type).replace(/\s+/g, "-")}_${(e.reply.date || "").split("/").reverse().join("-").replace(/^(\d{4})-(\d{2})-(\d{2})$/, "$1-$3-$2")}.pdf`;
@@ -1329,13 +1330,16 @@ function svWorkspace(blockId){
     <div class="sv-row"><button type="button" class="btn btn-navy" ${right ? "" : "disabled"} onclick="cmCaseFlow.svConvert('${blockId}')">📄 ${conv ? "Build it again" : "Convert the thread into a document"}</button>
       ${conv ? `<span class="sv-ok">✓ ${E(r.converted.pages)} page${r.converted.pages === 1 ? "" : "s"} built${r.converted.saved ? " and downloaded" : ""}</span>` : `<span class="sv-msg">${right ? "" : "Answer the follow-up correctly first."}</span>`}</div>`;
   const file = `<div class="sv-eh"><b>Category</b> ${E(e.convert.category)} &nbsp;<b>Name it</b> <code>&lt;Case ID&gt;_&lt;Last-First&gt;_&lt;Type&gt;_&lt;YYYY-MM-DD&gt;.pdf</code></div>
-    ${filed ? `<span class="sv-ok">✓ Filed in the CMS as <b>${E(r.filed.name)}</b> under ${E(r.filed.category)}</span>`
+    ${filed ? `<span class="sv-ok">✓ Filed in the CMS as <b>${E(r.filed.name)}</b> under ${E(r.filed.category)}</span>${r.drive ? `<br><span class="sv-ok">✓ Kept on your Backup Drive under <b>${E(String(r.drive.folder).split("/").pop())}</b></span>` : ""}`
       : `<div class="sv-row"><input class="sv-name" id="svn_${E(blockId)}" placeholder="${E(svNameFor(e))}" aria-label="File name for the memorandum" value="${E(r.nameTried || "")}">
         <button type="button" class="btn btn-navy" ${conv ? "" : "disabled"} onclick="cmCaseFlow.svFile('${blockId}')">📤 File it in the CMS</button>
         <span class="sv-msg" id="svf_${E(blockId)}" aria-live="polite">${(r.problems || []).length ? r.problems.map(E).join(" · ") : (conv ? "" : "Build the document first.")}</span></div>`}`;
-  const back = `<p class="sv-note">The CMS backs the case's filed documents up to your own Google Drive, under <b>LSH CMS Backups / &lt;Case ID&gt; &lt;Client&gt;</b>. A document that is only in the CMS is one copy.</p>
-    ${drive ? `<span class="sv-ok">✓ ${E(r.drive.summary)}</span>` : `<div class="sv-row"><button type="button" class="btn btn-navy" ${filed ? "" : "disabled"} onclick="cmCaseFlow.svDrive('${blockId}')">☁ Back it up to Drive</button>
-      <span class="sv-msg" id="svd_${E(blockId)}" aria-live="polite">${filed ? "" : "File it in the CMS first."}</span></div>`}`;
+  const back = `<p class="sv-note">The firm keeps a Backup Drive as well as a CMS, and a document you wrote belongs in it like any other: a colleague covering this file looks for it under <b>${E(folderLabel(e.convert.folder))}</b>, where every demand and negotiation document on the case is kept. The CMS is the file of record, so a drive that isn't built yet never undoes the filing &mdash; it just leaves you one copy.</p>
+    ${drive ? `<span class="sv-ok">✓ Kept on your Backup Drive under <b>${E(String(r.drive.folder).split("/").pop())}</b>, with the filing</span>`
+      : `<div class="sv-row">${filed ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.svDrive('${blockId}')">📂 Keep it on my Backup Drive</button>` : ""}
+        <span class="sv-msg" id="svd_${E(blockId)}" aria-live="polite">${!filed ? "File it in the CMS first: the copy is kept with the filing."
+          : r.driveWhy === "no-folder" ? "That folder isn't in your Backup Drive. Put the missing folders back from the dashboard, then try again."
+          : "Your Backup Drive isn't built yet, so no copy was kept. Build it from the card on your dashboard, then keep this document on it."}</span></div>`}`;
   const model = `<p class="sv-note">The firm's own memorandum for this service, for you to read yours against: ${exDoc(e.model) ? exDocLink(e.model) : E(e.model)}.</p>`;
   return `<div class="cfx-modal-in card lesson-card cfx-sv"><div class="cfx-modal-h"><b>✉ ${E(e.title)}</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>
     <div class="sv-top"><span>${E(e.kicker)}</span>${a && !exRec(blockId).at ? `<span class="sv-warn">Audit the set before you serve it: nothing goes out that has not been audited.</span>` : ""}</div>
@@ -1345,7 +1349,7 @@ function svWorkspace(blockId){
     ${svStep(4, "The follow-up that tests the line", chose ? (right ? "done" : "no") : (sent ? "now" : "wait"), press)}
     ${svStep(5, "Convert the exchange into a document", conv ? "done" : (right ? "now" : "wait"), convert)}
     ${svStep(6, "File it in the CMS", filed ? "done" : (conv ? "now" : "wait"), file)}
-    ${svStep(7, "Back it up to Drive", drive ? "done" : (filed ? "now" : "wait"), back)}
+    ${svStep(7, "Kept on your Backup Drive", drive ? "done" : (filed ? "now" : "wait"), back)}
     ${svStep(8, "Read yours against the firm's", "note", model)}</div>`;
 }
 window.cmCaseFlow.service = function(blockId){
@@ -1449,29 +1453,42 @@ window.cmCaseFlow.svFile = async function(blockId){
   const bytes = SV_BYTES[blockId];
   if(!bytes || !bytes.byteLength){ say("Build the document again, then file it: the file didn't reach this step."); return; }
   say("Filing…");
-  const out = await cmDocFiling.send({name, category: e.convert.category, original: "Demand-Service-Acknowledgment.pdf",
+  const out = await cmDocFiling.send({name, category: e.convert.category, folder: e.convert.folder,
+    original: "Demand-Service-Acknowledgment.pdf",
     mime: "application/pdf", summary: e.convert.title, bytes: bytes.slice(0)});
   if(out && out.ok){
     r.filed = {name: out.name, category: out.category || e.convert.category, at: new Date().toISOString()}; r.problems = [];
+    // the same filing keeps it on the trainee's Backup Drive, in the folder this kind of document belongs in
+    if(out.drive && out.drive.ok) r.drive = {at: new Date().toISOString(), folder: out.drive.folder};
+    else r.driveWhy = (out.drive && out.drive.why) || "no-drive";
     persist();
     if(typeof toast === "function") toast(`Filed in the CMS as ${out.name}.`);
+    if(r.drive && typeof toast === "function") toast(`Kept on your Backup Drive under ${String(r.drive.folder).split("/").pop()}.`);
     svRepaint(blockId); return;
   }
   r.problems = (out && out.problems && out.problems.length) ? out.problems : [(out && out.error) || "The CMS did not file it."];
   persist(); say(`<b>Not filed.</b> ${r.problems.map(E).join(" · ")}`);
 };
+/* The memorandum reaches the Backup Drive with the filing. This is the retry, for a trainee whose drive
+   wasn't built or connected when they filed: the copy is made now, from the document they already built. */
 window.cmCaseFlow.svDrive = async function(blockId){
-  const r = svRec(blockId); if(!r.filed || r.drive) return;
+  const e = serviceOf(blockId), r = svRec(blockId); if(!e || !r.filed || r.drive) return;
   const msg = document.getElementById("svd_" + blockId);
   const say = t => { if(msg) msg.textContent = t; };
-  if(!window.cmDocFiling || typeof cmDocFiling.drive !== "function"){ say("The Drive backup isn't available on this page."); return; }
-  say("Backing up…");
-  const out = await cmDocFiling.drive();
+  const bytes = SV_BYTES[blockId];
+  if(!bytes || !bytes.byteLength){ say("Build the document again, then keep it on your Drive."); return; }
+  if(!window.cmDocFiling || typeof cmDocFiling.keepOnDrive !== "function"){ say("The Backup Drive isn't available on this page."); return; }
+  say("Keeping it on your Drive…");
+  const out = await cmDocFiling.keepOnDrive(e.convert.folder, r.filed.name, bytes.slice(0));
   if(out && out.ok){
-    r.drive = {at: new Date().toISOString(), summary: out.summary || "Backed up to your Google Drive."};
-    persist(); if(typeof toast === "function") toast(r.drive.summary); svRepaint(blockId); return;
+    r.drive = {at: new Date().toISOString(), folder: out.folder}; r.driveWhy = "";
+    persist();
+    if(typeof toast === "function") toast(`Kept on your Backup Drive under ${String(out.folder).split("/").pop()}.`);
+    svRepaint(blockId); return;
   }
-  say((out && out.error) || "The backup didn't run. Open the CMS, connect your Google account on the Doc Hub, and try again.");
+  r.driveWhy = (out && out.why) || "no-drive"; persist();
+  say(out && out.why === "no-folder" ? "That folder isn't in your Backup Drive. Put the missing folders back from the dashboard, then try again."
+    : "Your Backup Drive isn't built yet. Build it from the card on your dashboard, then keep this document on it.");
 };
 window.cmCaseFlow.tool = function(id, blockId){
   if(id === "call" && blockId && SIM.calls[blockId]) return cmCaseFlow.call(blockId);
