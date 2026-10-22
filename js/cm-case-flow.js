@@ -511,7 +511,30 @@ function copyOf(b){   // the block's concise copy, or a condensed fallback from 
     dos: c.dos || dos.slice(0, 2).map(x => words(x, 12)), donts: c.donts || donts.slice(0, 2).map(x => words(x, 12))};
   return {image: c.image || "knowledge-check", questions: c.questions || b.check.questions};
 }
-const art = (key, cls) => ART[key] ? `<div class="cfx-art ${cls || ""}" aria-hidden="true">${ART[key]}</div>` : "";
+/* The illustrations move, and the motion means something: a scene's strokes (a check mark, a signature, a line of
+   text) draw themselves as it appears, its sparkles twinkle, and its subject moves the way the scene does — a phone
+   rings, the car drives, the scale weighs, a filing is stamped, a deadline pulses, a document floats. A click replays
+   it. Every scene shares one structure (a background shape, sparkles, a shadow, then the subject), so the subject is
+   grouped after the shadow and each stroked path is given a unit length to draw along. Reduced motion: none of it. */
+const ART_MOTION = {
+  "client-call": "ring", "phone-call": "ring", "intake-interview": "talk", "team-huddle": "talk", "strategy-session": "talk",
+  "car-transport": "drive", "property-damage": "jolt", "repair-shop": "jolt", "skip-trace": "search",
+  "lien-scale": "sway", "negotiation": "sway", "mediation-table": "sway", "arbitration": "sway", "courthouse": "sway",
+  "release-signature": "stamp", "legal-filing": "stamp", "demand-letter": "stamp", "policy-letter": "stamp", "settlement-check": "stamp",
+  "escalation-alert": "pulse", "clock-deadline": "pulse", "calendar-gap": "pulse", "bottleneck": "pulse", "knowledge-check": "pulse",
+  "email-outreach": "send", "privacy-shield": "pulse", "money-ledger": "stamp", "deposition-video": "talk"
+};
+const ART_CACHE = {};
+function artSvg(key){
+  if(ART_CACHE[key]) return ART_CACHE[key];
+  let svg = ART[key];
+  const m = svg.match(/<ellipse[^>]*opacity="0\.08"\/>/);
+  if(m){ const i = svg.indexOf(m[0]) + m[0].length; svg = svg.slice(0, i) + '<g class="cfa-subj">' + svg.slice(i).replace(/<\/svg>\s*$/, "</g></svg>"); }
+  svg = svg.replace(/<path (?=[^>]*fill="none")(?=[^>]*stroke=")/g, '<path pathLength="1" class="cfa-draw" ');
+  return (ART_CACHE[key] = svg);
+}
+const art = (key, cls) => ART[key] ? `<div class="cfx-art ${cls || ""}" data-motion="${ART_MOTION[key] || "float"}" aria-hidden="true" title="Click to replay" onclick="cmCaseFlow.artReplay(this)">${artSvg(key)}</div>` : "";
+window.cmCaseFlow.artReplay = (el) => { el.classList.remove("cfa-on"); void el.offsetWidth; el.classList.add("cfa-on"); };
 /* ---------- the tools and simulators, connected at every step ----------
    Every Case Flow slide carries the tools its step is worked in (🛠 in the slide's top row), each On the Job row
    and each Your Task step opens the tool it names, and Check Your Work logs the reference of what the trainee did
@@ -3711,6 +3734,34 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-do-now b{font:800 16px var(--font-ui);color:#1C3F8F;} .cfx-do-now span{font:500 15.5px/1.45 var(--font-ui);color:var(--ink);}
 .cfx-situation{font:500 25px/1.5 var(--font-ui);color:var(--ink);margin:0;}
 .cfx-art{display:flex;align-items:center;justify-content:center;animation:cfxIn .5s ease both;}
+.cfx-art{cursor:pointer;}
+.cfx-art .cfa-subj{transform-box:fill-box;transform-origin:50% 85%;animation:cfa-float 5s ease-in-out infinite;}
+.cfx-art[data-motion="ring"] .cfa-subj{transform-origin:50% 50%;animation:cfa-ring 3.4s ease-in-out infinite;}
+.cfx-art[data-motion="talk"] .cfa-subj{animation:cfa-talk 2.6s ease-in-out infinite;}
+.cfx-art[data-motion="drive"] .cfa-subj{animation:cfa-drive 4s ease-in-out infinite;}
+.cfx-art[data-motion="jolt"] .cfa-subj{animation:cfa-jolt 4.5s ease-in-out infinite;}
+.cfx-art[data-motion="search"] .cfa-subj{animation:cfa-search 5s ease-in-out infinite;}
+.cfx-art[data-motion="sway"] .cfa-subj{transform-origin:50% 100%;animation:cfa-sway 4.8s ease-in-out infinite;}
+.cfx-art[data-motion="stamp"] .cfa-subj{animation:cfa-stamp 3.6s ease-in-out infinite;}
+.cfx-art[data-motion="pulse"] .cfa-subj{transform-origin:50% 50%;animation:cfa-pulse 2.4s ease-in-out infinite;}
+.cfx-art[data-motion="send"] .cfa-subj{animation:cfa-send 4.2s ease-in-out infinite;}
+.cfx-art svg > circle{transform-box:fill-box;transform-origin:center;animation:cfa-twinkle 2.8s ease-in-out infinite;}
+.cfx-art svg > circle:nth-of-type(2){animation-delay:1.1s;}
+.cfx-art .cfa-draw{stroke-dasharray:1;stroke-dashoffset:1;animation:cfa-draw 1.1s .35s ease-out forwards;}
+.cfx-art.cfa-on .cfa-draw{animation:cfa-draw 1.1s .1s ease-out forwards;}
+@keyframes cfa-draw{to{stroke-dashoffset:0;}}
+@keyframes cfa-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+@keyframes cfa-ring{0%,62%,100%{transform:rotate(0);}66%{transform:rotate(-4deg);}70%{transform:rotate(4deg);}74%{transform:rotate(-3deg);}78%{transform:rotate(3deg);}82%{transform:rotate(0);}}
+@keyframes cfa-talk{0%,100%{transform:translateY(0) scale(1);}30%{transform:translateY(-3px) scale(1.01);}60%{transform:translateY(0) scale(1);}}
+@keyframes cfa-drive{0%{transform:translateX(-10px);}45%{transform:translateX(10px) translateY(-1px);}55%{transform:translateX(10px);}100%{transform:translateX(-10px);}}
+@keyframes cfa-jolt{0%,70%,100%{transform:translateX(0);}74%{transform:translateX(-5px) rotate(-1deg);}78%{transform:translateX(4px) rotate(1deg);}82%{transform:translateX(-2px);}86%{transform:translateX(0);}}
+@keyframes cfa-search{0%,100%{transform:translate(0,0);}25%{transform:translate(6px,-3px);}50%{transform:translate(0,-5px);}75%{transform:translate(-6px,-2px);}}
+@keyframes cfa-sway{0%,100%{transform:rotate(-1.6deg);}50%{transform:rotate(1.6deg);}}
+@keyframes cfa-stamp{0%,55%,100%{transform:translateY(0) scale(1);}65%{transform:translateY(-8px) scale(1.01);}72%{transform:translateY(2px) scale(.99,1.01);}78%{transform:translateY(0) scale(1);}}
+@keyframes cfa-pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.035);}}
+@keyframes cfa-send{0%,100%{transform:translate(0,0);}40%{transform:translate(7px,-6px);}60%{transform:translate(7px,-6px);}}
+@keyframes cfa-twinkle{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.6);}}
+@media (prefers-reduced-motion: reduce){.cfx-art *{animation:none !important;}.cfx-art .cfa-draw{stroke-dashoffset:0;}}
 .cfx-art svg{width:100%;max-width:420px;height:auto;max-height:300px;}
 .cfx-art.small svg{max-width:260px;max-height:200px;}
 @keyframes cfxIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
@@ -4240,7 +4291,8 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-sb-art svg{width:100%;height:100%;max-width:400px;max-height:260px;}
 /* the case documents in one row, as big as the column and the screen's height allow (600px images, so they stay legible) */
 .cfx-sb-docs .cfx-docs-row{display:flex;flex-wrap:nowrap;justify-content:center;align-items:flex-start;gap:14px;margin:0;}
-.cfx-sb-docs .cfx-thumb{flex:1 1 0;min-width:0;max-width:min(360px,calc((100vh - 400px) / 1.25));}
+.cfx-sb-docs{padding-top:22px;}   /* the documents sit a little lower too, level with the card */
+.cfx-sb-docs .cfx-thumb{flex:1 1 0;min-width:0;max-width:min(360px,calc((100vh - 422px) / 1.25));}
 .cfx-sb-docs .cfx-thumb img{border-width:3px;}
 .cfx-sb-docs .cfx-thumb span{font-size:12.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .cfx-ev{background:#fff;color:#1F2433;border-radius:14px;border:2px solid #DB8437;padding:10px 14px;box-shadow:0 6px 18px rgba(0,0,0,.25);text-align:left;}

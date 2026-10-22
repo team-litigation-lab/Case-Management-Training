@@ -115,6 +115,45 @@ function panel(blockId){
 }
 
 /* ---------- filing one document ---------- */
+/* Filing one case document: the category check, the document's own bytes, the CMS's name check, the Backup Drive
+   copy, and the attempt kept on the trainee's record. The panel row and the document viewer (case-doc.html's
+   📤 File in the CMS) both file through here, so a document is filed one way wherever the trainee does it. */
+async function fileDoc(docId, category, name){
+  const d = docOf(docId); if(!d) return {ok:false, problems:["That document isn't in this course."]};
+  const r = log()[docId] = Object.assign({attempts: 0}, recOf(docId));
+  const fail = async (problems)=>{ r.problems = problems; await save(); return {ok:false, problems}; };
+  if(!caseOpen()) return {ok:false, problems:["No case is open in the CMS. Press 🗂 Open CMS, then open your own case (or save it, so it is given its Case ID)."]};
+  if(!category) return {ok:false, problems:["Choose the CMS category you would file this document under."]};
+  r.attempts++;
+  // the category: the repository only stays healthy if each document is where the firm keeps it
+  if(category !== expectedCategory(d)) return fail([`The firm files this document under ${expectedCategory(d)}, not ${category}. A document in the wrong category is a document nobody finds.`]);
+  let bytes = null;
+  try{
+    const res = await fetch(urlOf(d));
+    if(!res.ok) throw new Error(`the document could not be read (${res.status})`);
+    bytes = await res.arrayBuffer();
+  }catch(err){ return fail([`The document could not be read from this course: ${(err && err.message) || "unknown error"}.`]); }
+  // A copy for the backup drive, taken before the original is handed to the CMS (transferring it empties it here).
+  const forDrive = bytes.slice(0);
+  const out = await askCms({lsh:"cms-doc-file", name, category, original: basename(d), mime: mimeOf(basename(d)), summary: d.title, bytes}, "cms-doc-filed", [bytes]);
+  if(!(out && out.ok)) return fail((out && out.problems && out.problems.length) ? out.problems : [(out && out.error) || "The CMS did not file it."]);
+  r.filed = true; r.name = out.name; r.category = out.category || category; r.at = new Date().toISOString(); r.problems = [];
+  await save();
+  if(typeof toast === "function") toast(`Filed in the CMS as ${out.name}.`);
+  // The firm keeps a backup drive as well as a CMS: the same document goes into its folder there, the
+  // one this document already belongs to (d.folder, CM_CF_DOC_FOLDERS). The CMS is the file of record,
+  // so a drive that isn't set up never undoes the filing — the trainee is just told what didn't reach it.
+  let drive = null;
+  if(window.CMDrive){
+    drive = await CMDrive.saveFiled(d.folder, out.name, forDrive);
+    r.drive = drive.ok ? drive.folder : "";
+    await save();
+    if(drive.ok && typeof toast === "function") toast(`Kept on your Backup Drive under ${drive.folder.split("/").pop()}.`);
+    else if(drive.why === "no-drive" && typeof toast === "function") toast("Filed in the CMS. Your Backup Drive isn't set up yet, so no copy was kept there.");
+  }
+  try{ window.dispatchEvent(new CustomEvent("cm-doc-filed", {detail: {docId}})); }catch(e){}
+  return {ok:true, name: out.name, category: r.category, attempts: r.attempts, drive};
+}
 async function file(blockId, docId, btn){
   const d = docOf(docId); if(!d) return;
   const k = `${blockId}__${docId}`.replace(/\W/g, "_");
@@ -122,57 +161,28 @@ async function file(blockId, docId, btn){
   const msg = row.querySelector(".dfl-msg");
   const category = (row.querySelector(".dfl-cat") || {}).value || "";
   const name = ((row.querySelector(".dfl-name") || {}).value || "").trim();
-  const say = (html)=>{ if(msg) msg.innerHTML = html; };
-  const r = log()[docId] = Object.assign({attempts: 0}, recOf(docId));
-
-  if(!caseOpen()){ say(`<div class="dfl-bad"><b>Not filed.</b><ul><li>No case is open in the CMS. Press 🗂 Open CMS, then open your own case (or save it, so it is given its Case ID).</li></ul></div>`); return; }
-  if(!category){ say(`<div class="dfl-bad"><b>Not filed.</b><ul><li>Choose the CMS category you would file this document under.</li></ul></div>`); return; }
-
-  r.attempts++;
-  // the category: the repository only stays healthy if each document is where the firm keeps it
-  if(category !== expectedCategory(d)){
-    r.problems = [`The firm files this document under ${expectedCategory(d)}, not ${category}. A document in the wrong category is a document nobody finds.`];
-    say(problemsHTML(r)); await save(); return;
-  }
   if(btn){ btn.disabled = true; btn.textContent = "Filing…"; }
-  let bytes = null;
-  try{
-    const res = await fetch(urlOf(d));
-    if(!res.ok) throw new Error(`the document could not be read (${res.status})`);
-    bytes = await res.arrayBuffer();
-  }catch(err){
-    r.problems = [`The document could not be read from this course: ${(err && err.message) || "unknown error"}.`];
-    say(problemsHTML(r)); await save();
-    if(btn){ btn.disabled = false; btn.textContent = "File it in the CMS"; }
-    return;
-  }
-  // A copy for the backup drive, taken before the original is handed to the CMS (transferring it empties it here).
-  const forDrive = bytes.slice(0);
-  const out = await askCms({lsh:"cms-doc-file", name, category, original: basename(d), mime: mimeOf(basename(d)), summary: d.title, bytes}, "cms-doc-filed", [bytes]);
+  const out = await fileDoc(docId, category, name);
   if(btn){ btn.disabled = false; btn.textContent = "File it in the CMS"; }
-  if(out && out.ok){
-    r.filed = true; r.name = out.name; r.category = out.category || category; r.at = new Date().toISOString(); r.problems = [];
-    await save();
-    if(typeof toast === "function") toast(`Filed in the CMS as ${out.name}.`);
-    // The firm keeps a backup drive as well as a CMS: the same document goes into its folder there, the
-    // one this document already belongs to (d.folder, CM_CF_DOC_FOLDERS). The CMS is the file of record,
-    // so a drive that isn't set up never undoes the filing — the trainee is just told what didn't reach it.
-    if(window.CMDrive){
-      const drv = await CMDrive.saveFiled(d.folder, out.name, forDrive);
-      r.drive = drv.ok ? drv.folder : "";
-      await save();
-      if(drv.ok && typeof toast === "function") toast(`Kept on your Backup Drive under ${drv.folder.split("/").pop()}.`);
-      else if(drv.why === "no-drive" && typeof toast === "function") toast("Filed in the CMS. Your Backup Drive isn't set up yet, so no copy was kept there.");
-    }
-    row.outerHTML = rowHTML(blockId, d);
-    try{ window.dispatchEvent(new CustomEvent("cm-doc-filed", {detail: {blockId, docId}})); }catch(e){}
-    const count = document.querySelector(`#dfl_${CSS.escape(blockId)} .dfl-count`);
-    if(count){ const p = panel(blockId); const m = /<span class="dfl-count">([^<]*)</.exec(p); if(m) count.textContent = m[1]; }
-    return;
-  }
-  r.problems = (out && out.problems && out.problems.length) ? out.problems : [(out && out.error) || "The CMS did not file it."];
-  say(problemsHTML(r)); await save();
+  if(!out.ok){ if(msg) msg.innerHTML = problemsHTML({problems: out.problems}); return; }
+  if(!row.isConnected) return;
+  row.outerHTML = rowHTML(blockId, d);
+  const count = document.querySelector(`#dfl_${CSS.escape(blockId)} .dfl-count`);
+  if(count){ const p = panel(blockId); const m = /<span class="dfl-count">([^<]*)</.exec(p); if(m) count.textContent = m[1]; }
 }
+/* From the document viewer (case-doc.html): the CMS a filing reaches. One beside the lesson, or a CMS tab this course
+   opened, is used as it is; with neither, the viewer opens a tab in the trainee's click (so the browser allows it) and
+   hands it here, and it goes to the CMS signed in (the Portal ticket, no log-in page) and is asked which case is open. */
+function adoptCmsTab(w){
+  if(!w) return false;
+  (window.__cmsTabs = window.__cmsTabs || []).push(w);
+  const href = (typeof window.cmToolHref === "function" && window.cmToolHref("cms")) || "https://lshcasemanagementtraining-trainingcrm.pages.dev/?program=cm&from=cm";
+  const go = (u)=>{ try{ w.location.href = u; }catch(e){} };
+  if(window.LSHToolLinks) LSHToolLinks.ticketed(href).then(go, ()=>go(href)); else go(href);
+  [2500, 5000, 9000].forEach(t=> setTimeout(()=>{ if(window.CMCase) CMCase.ask(); }, t));
+  return true;
+}
+const cmsReachable = ()=> !!cmsFrame() || (window.__cmsTabs || []).some(w=>w && !w.closed);
 const mimeOf = (file)=>{
   const ext = String(file).split(".").pop().toLowerCase();
   return {pdf:"application/pdf", jpg:"image/jpeg", jpeg:"image/jpeg", png:"image/png", mp4:"video/mp4",
@@ -223,7 +233,7 @@ function health(){
   return {filed: all.filter(x=>x.filed).length, firstTime: all.filter(x=>x.filed && x.attempts === 1).length,
           attempts: all.reduce((n, x)=>n + (x.attempts || 0), 0)};
 }
-window.cmDocFiling = {panel, row: rowHTML, file, send, keepOnDrive, health, categories: CATEGORIES, expectedCategory, CATEGORIES, relayOrigins: ()=> RELAY_ORIGINS.map(String)};
+window.cmDocFiling = {panel, row: rowHTML, file, fileDoc, adoptCmsTab, cmsReachable, caseOpen, namePattern, record: recOf, send, keepOnDrive, health, categories: CATEGORIES, expectedCategory, CATEGORIES, relayOrigins: ()=> RELAY_ORIGINS.map(String)};
 
 /* ---------- relaying a simulator's document to the CMS ----------
    The LSH Training Portal (and a local server while the checks run) may ask; nobody else. The message
