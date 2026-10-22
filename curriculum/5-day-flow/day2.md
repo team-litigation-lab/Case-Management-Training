@@ -1,17 +1,17 @@
-# Case Flow Day 2 — Claim Set Up
+# Case Flow Day 2 — Claim Set Up & Treatment
 
-**Phase:** Claim set up · **Focus case:** John Doe v. Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
+**Phase:** Claim set up & treatment · **Focus case:** John Doe v. Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
 
-**Objective.** Build John Doe's three-layer Policy Stack in the CMS; draft the LORs and notices; transmit and log them; receive the carriers' claim correspondence and audit the Coverage Matrix until the $40,000 stack is verified in writing; and flag the 14-Day Gap and turn it all into an attorney-ready Case Plan.
+**Objective.** Build John Doe's three-layer Policy Stack in the CMS; draft, transmit and log the LORs and notices; receive the carriers' claim correspondence and verify the $40,000 stack in writing; flag the 14-Day Gap and route the Case Plan; then carry the file through treatment: keep John Doe reachable (the No Contact Protocol), route every bill in Payer Order, flag the Health Plan's reimbursement right and clear the Regulatory Triple-Check, and keep care moving through the disruption, to MMI.
 
-**Gate to the next day.** Policy Stack built in the CMS · LORs and notices out and logged · carrier correspondence received and the Coverage Matrix audited · 14-Day Gap flagged · Case Plan routed to Atty. Thorne
+**Gate to the next day.** Policy Stack built in the CMS · LORs and notices out and logged · carrier correspondence received and the Coverage Matrix audited · 14-Day Gap flagged · Case Plan routed to Atty. Thorne · bills routed in Payer Order, LOPs out · Peach State's reimbursement right flagged and the Regulatory Triple-Check cleared · treatment documented to MMI
 
 **The file as this day opens.**
 
 - Matter open in the CMS with the Conflict Check documented; Property Damage onboarding under way.
-- Claims opened by phone 02/16–02/17/2026: $10,000 BI (Keystone Mutual), $20,000 Host UM (Harbor Point), $10,000 Relative UM (Cardinal State Mutual), limits reported but nothing confirmed in writing.
-- Nothing entered in the CMS Insurance tab, and no letter has gone out yet.
-- Peach State Health Plan and Bluewater Auto still to be put on notice; John Doe has not started treatment.
+- Claims opened by phone 02/16–02/17/2026: $10,000 BI (Keystone Mutual), $20,000 Host UM (Harbor Point), $10,000 Relative UM (Cardinal State Mutual), limits reported but nothing confirmed in writing; nothing in the CMS Insurance tab yet.
+- Peach State Health Plan and Bluewater Auto still to be put on notice.
+- Treatment ahead: urgent care 02/20/2026, then Riverton Spine & Rehab under an LOP, Lakeside Orthopedics, an MRI, an injection and MMI; the bills, the liens and the gap arrive as you go.
 
 > Generated from `js/cm-case-flow-data.js` by `build/case-flow/curriculum.cjs`. Edit the data and regenerate; never edit this file by hand. Spec: `00-architecture.md`. Theory map: `traceability.md`.
 
@@ -31,30 +31,46 @@
 
 The day is one module, on John Doe's one file: Lectures (its lessons, one uninterrupted discussion) → Practice (its Skill Activities on the file in the CMS, in the order the work happens) → Knowledge Check. A lesson marked (condensed) is a short overview.
 
-**Module 2 — Claim Set Up**
+**Module 2 — Claim Set Up & Treatment**
 
 1. *Lesson* — LOR Drafting Mechanics & Three-Carrier Notification
 2. *Lesson* — Coverage Verification Tracking & Follow-Up Deadlines
-3. *Lesson* — The Action Plan Editor & Attorney Review Routing
-4. *Skill Activity* — Policy Stack & Coverage Verification
-5. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
-6. *Skill Activity* — CMS Coverage Matrix Audit
-7. *Skill Activity* — Identifying & Flagging the 14-Day Gap
-8. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
-9. *Knowledge Check* — Coverage Setup Verification Check
-10. *Knowledge Check* — Case Plan Audit & Day 2 Gate
+3. *Lesson* — The Action Plan Editor & Attorney Review Routing (condensed)
+4. *Lesson* — Coverages & the Payer-First Principle
+5. *Lesson* — LOP Issuance Guidelines, Provider Coordination & MedPay Limits
+6. *Lesson* — Explanation of Benefits (EOB) & MedPay
+7. *Lesson* — Letters of Protection & the Case Manager's Part in Provider Referrals
+8. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check
+9. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
+10. *Lesson* — The No Contact Protocol — Steps 1 to 3
+11. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
+12. *Skill Activity* — Policy Stack & Coverage Verification
+13. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+14. *Skill Activity* — CMS Coverage Matrix Audit
+15. *Skill Activity* — Identifying & Flagging the 14-Day Gap
+16. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
+17. *Skill Activity* — Multi-Channel Outreach Logging
+18. *Skill Activity* — Final Warning Letter Drafting
+19. *Skill Activity* — Transmitting LOPs to Medical Providers
+20. *Skill Activity* — Subrogation Lien Flagging in the CMS
+21. *Skill Activity* — Executing the A-C-T Crisis Protocol for Disrupted Care
+22. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+23. *Knowledge Check* — Coverage Setup Verification Check
+24. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
+25. *Knowledge Check* — Treatment Monitoring Review
+26. *Knowledge Check* — MIA Escalation Knowledge Check
 
-**End-of-day discussion (trainer):** It is 03/11/2026. Keystone still hasn't confirmed its limit in writing, and John Doe started treatment fourteen days after the crash. Which three actions do you take today, in what order, and what goes in the Case Plan's risks band?
+**End-of-day discussion (trainer):** It is 04/08/2026. Keystone confirmed its limit in writing on 03/20, Riverton Spine & Rehab reports John Doe has missed two visits, and Dana Whitfield has asked John for a Recorded Statement. What do you do first, second and third, and what does each protect?
 
 ---
 
-## Module 2 — Claim Set Up
+## Module 2 — Claim Set Up & Treatment
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 2.1.1 LOR Drafting Mechanics & Three-Carrier Notification
 
-> **Lesson** · Day 2 — Claim set up · Module 2: Claim Set Up · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** One template, five letters, and the rules that make each one different  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#21` Case Study: John Doe v. Apex — Liability Determination · LSH Claims Specialist: LOR purpose, recipients, drafting components and delivery · LSH Claims Specialist: claim set-up call, information protection on third-party claims, LOR acknowledgement and limits disclosure · Newly authored: UM notice at set-up (notice, not demand)
@@ -140,7 +156,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ### 2.1.2 Coverage Verification Tracking & Follow-Up Deadlines
 
-> **Lesson** · Day 2 — Claim set up · Module 2: Claim Set Up · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** From “reported” to “confirmed in writing”, with a date on every open item  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#19` Claim Set-Up: Case Projection — Why the Three Work Together · `D1#20` Case Study: John Doe v. Apex — Coverage Analysis · LSH Claims Specialist: Declaration Pages, certified copy of policy, policy limits and limit types · LSH Claims Specialist: follow-up cadence, LOR acknowledgement, statement of insurance disclosure · Newly authored: verifying the UM form and MedPay terms at set-up; the regulatory and policy deadline backstop
@@ -224,7 +240,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ### 2.1.3 The Action Plan Editor & Attorney Review Routing
 
-> **Lesson** · Day 2 — Claim set up · Module 2: Claim Set Up · scored with Case Plan Audit & Day 2 Gate (`d1m4`)  
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Drafting, routing, and the review loop  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · `D1#25` The “Golden Rule” of US Claim Set-Up · `D1#2` The General Case Management Process
@@ -277,7 +293,7 @@ Two parts. Left: the Word-style editor as a document page with its toolbar, anno
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in Case Plan Audit & Day 2 Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
+Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -300,9 +316,658 @@ Verified in Case Plan Audit & Day 2 Gate (taught on Case Flow Day 2) and that da
 
 ---
 
-### 2.1.4 Policy Stack & Coverage Verification
+### 2.1.4 Coverages & the Payer-First Principle
 
-> **Skill Activity** · Day 2 — Claim set up · Module 2: Claim Set Up · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Topic:** Every policy on John Doe's file, what it pays, and who pays first  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D2#20` The Valuation Baseline: PIP Set-Off (The Credit) · `D2#23` The Valuation Baseline: Subrogation vs. Non-Subrogation · `D2#24` The Valuation Baseline: Strategic PIP “Exhaustion” · D1 Task Overview: Billing, Resolution & Closing
+
+#### 1 · Visual Layout Description
+
+A two-tier slide. The top tier is a coverage map: eight cards in three colour groups. Navy, THIRD-PARTY: Keystone BI $10,000 · Keystone PD $25,000. Orange, FIRST-PARTY: Harbor Point Host UM $20,000 · Cardinal State Relative UM $10,000 · Harbor Point MedPay $5,000 · Bluewater collision ($500 deductible). Green, HEALTH: Peach State Health Plan. A crossed-out grey card: Bluewater UM, rejected 03/14/2024. Each card carries a small tag for what it pays: THE CLAIM, THE BILLS or THE CAR, and only the three THE CLAIM cards are joined by a bracket labelled RECOVERY STACK $40,000. The bottom tier is a staircase running down left to right, titled THE PAYER-FIRST PRINCIPLE: MedPay/PIP → Health Plan → Letter of Protection, each step lower than the last, labelled pays regardless of fault · contract rate, reimbursement right · paid from the recovery. Bottom-right, an orange callout: “Out of order = a lien that didn't have to exist.”
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Every policy on a file pays a different thing, and only some of them pay the Medical Bills while the claim is open. The Payer-First Principle sends each bill to the payer that must pay it first: the no-fault medical coverage, then the Health Plan, and a Letter of Protection only last. In that order a bill is paid once, at the lowest cost, with as little as possible to repay; out of order, the same bill comes back as a lien against John Doe's recovery.
+
+1. Sort every coverage by whose it is. Third-party coverage is the at-fault driver's: Robert Smith's Keystone BI and PD. First-party coverage answers to John Doe's side: Host UM, Relative UM, MedPay and collision. The Health Plan is his own benefit plan, through Northgate Distribution.
+2. Sort it again by what it pays. BI and UM pay the claim at the end; MedPay, PIP and the Health Plan pay the Medical Bills while it is open; PD and collision pay for the car. Only BI and UM are the $40,000 Recovery Stack.
+3. MedPay pays reasonable accident Medical Bills regardless of fault, up to its limit, and never wages. PIP, where a state requires it, also pays a share of lost wages and replacement services. This file has Harbor Point MedPay, $5,000, and no PIP: verify PIP on every file; never assume it.
+4. UM/UIM is reached by status, not ownership. John Doe reaches Host UM as an occupant of Kevin Alvarez's 2020 Ford Escape, and Relative UM as a resident relative of Margaret Doe. His own Bluewater policy adds nothing: UM/UIM was rejected in writing on 03/14/2024.
+5. The Payer-First Principle: MedPay (or PIP) first, the Health Plan next, a Letter of Protection last, and only for care the earlier payers can't carry.
+6. MedPay goes first because it pays regardless of fault, and Harbor Point confirmed in writing (03/02/2026) that it has no reimbursement right against John Doe's recovery: every MedPay dollar is a bill that never becomes a lien.
+7. The Health Plan comes next because an in-network provider is paid at the contract rate and cannot balance-bill. Crescent Pain & Spine billed $3,400.00; Peach State paid $1,860.00. Only what the plan paid can come back as its reimbursement claim.
+8. A Letter of Protection comes last. Riverton Spine & Rehab is out of network for Peach State, so its care runs under an LOP; Summit Imaging's LOP request (03/11/2026) was declined, because MedPay applies first.
+9. Medicare and Medicaid pay after no-fault and liability coverage. A client on Medicare, Medicaid or SSDI is reported to the BCRC; John Doe is 34, so the file records his verified SSDI status.
+10. The order is a default: providers bill whom they bill. Track each payer's ledger, what it paid on which bill, and never re-route a claim another payer has paid. Who is primary when policies conflict is Atty. Thorne's call.
+
+> ⚠️ **UPL boundary.** You may identify the coverages, explain what each one pays and route bills in the default order. Whether a policy applies, which is primary when two conflict, and whether a lien is enforceable are Atty. Thorne's calls.
+
+#### 2 · Slide Body — Show Them
+
+*Every coverage on John Doe's file, and where it sits*
+
+| Coverage | Carrier · limit | Pays | Where it sits |
+|---|---|---|---|
+| BI liability (third-party) | Keystone Mutual · $10,000 per person | The claim | Recovery Stack, layer 1 |
+| Host UM (first-party) | Harbor Point · $20,000, add-on | The claim, once BI is exhausted | Recovery Stack, layer 2 |
+| Relative UM (first-party) | Cardinal State Mutual · $10,000 | The claim, behind Host UM | Recovery Stack, layer 3 |
+| MedPay (first-party, no-fault) | Harbor Point · $5,000 | Medical Bills, regardless of fault | Payer Order 1st; no payback |
+| Health Plan | Peach State Health Plan | Medical Bills, at the contract rate | Payer Order 2nd; reimbursement right |
+| PD liability (third-party) | Keystone Mutual · $25,000 | The Civic, the rental, Loss of Use | Outside the stack |
+| Collision (first-party) | Bluewater · $500 deductible | The Civic, regardless of fault | Outside the stack (his UM: rejected 03/14/2024) |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Each claim is opened | List every coverage, its carrier and what it pays | CMS → Insurance tab | Each tagged third-party, first-party or health |
+| Coverage confirmed in writing | Place it: Recovery Stack, Payer Order or outside both | CMS → Insurance tab → Coverage Matrix | Stack $40,000; MedPay, PD and collision outside it |
+| A provider asks whom to bill | Route it by the Payer-First order | CMS → Insurance tab → MedPay ledger | MedPay first, Peach State next, an LOP last |
+| A provider asks for an LOP | Check MedPay and network status first | CMS → Liens → LOP register | Payer check recorded; Atty. Thorne approves any LOP |
+| A payer pays a bill | Post payer, bill and amount on its ledger | CMS → Insurance tab → MedPay ledger · CMS → Liens | Every ledger current; no paid claim re-routed |
+
+**Best practices & pitfalls**
+
+- Verify every coverage in writing: a dated Declaration Page or Coverage Letter.
+- Confirm the Health Plan was active on the date of loss: Peach State began 02/01/2026.
+- Ask each new provider whether it bills MedPay or the Health Plan before the first visit.
+- Keep the Payer Order and the Recovery Stack on separate lines of the Coverage Matrix.
+- ⚠️ Pitfall: issuing an LOP to a provider MedPay or the Health Plan would have paid.
+- ⚠️ Pitfall: adding MedPay, PD or collision coverage to the $40,000 stack.
+- ⚠️ Pitfall: assuming PIP, or assuming the client's own policy carries UM.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Coverages sorted | Each coverage named by whose it is and what it pays: the claim, the bills or the car |
+| 🤖 AI | **20%** | Payer-First order | MedPay → Peach State → LOP, with the reason for each step |
+| 🤖 AI | **20%** | Stack kept clean | $40,000 is BI + Host UM + Relative UM only; MedPay, PD and collision tracked outside it |
+| 🧑‍🏫 Trainer | **25%** | Grasps the consequence | Explains how an out-of-order LOP becomes a lien against the client's net |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | Applicability, primacy and lien enforceability left to Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open with the question the room always merges: “Who pays the bills now?” is not “Who pays the claim later?” Put the two columns on the board before the slide.
+- Walk the table row by row: whose policy, what does it pay, where does it sit? Let the room place MedPay before you do.
+- Summit Imaging is the lesson in one fact: $2,395.00 paid by MedPay with nothing to repay, instead of a $2,395.00 LOP balance against John Doe's net.
+- Crescent is the Health Plan step: $3,400.00 billed, $1,860.00 paid, $1,540.00 written off for good. Peach State's reimbursement claim can only start from what it paid.
+- Ask why John Doe reaches $30,000 of UM at all. He was a passenger: had he been driving his own Civic, his rejected Bluewater UM would leave only the $10,000 BI.
+- Close on the boundary: you route bills in the default order; when two policies both claim to pay second, that is Atty. Thorne's call.
+
+---
+
+### 2.1.5 LOP Issuance Guidelines, Provider Coordination & MedPay Limits
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Topic:** Who pays which bill, and what only counsel may promise  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · `D1#26` The Treatment Phase — Core Objectives · `D1#30` Handling the Treatment Phase: Proactive Resource Coordination · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · `D1#39` Communication Loops: The “Stakeholder Triad” · LSH Claims Specialist: MedPay vs. PIP (Medical Bills regardless of fault, no lost wages) · Newly authored: LOP issuance guidelines and the MedPay exhaustion ledger
+
+#### 1 · Visual Layout Description
+
+Centre-right, a cream ledger card with a navy header bar, MEDPAY · HARBOR POINT · $5,000, its five rows in mono type. Above it a horizontal fuel gauge drains from navy to empty in five orange-numbered steps, the last landing on $0.00 at 06/12/2026 in a red danger chip. Left third, a vertical payer rail with orange badges ① MEDPAY ② PEACH STATE ③ LOP; the LOP step is a navy card stamped COUNSEL-APPROVED TERMS. Bottom strip, two provider chips side by side: RIVERTON SPINE & REHAB · LOP ✓ and SUMMIT IMAGING · LOP ✗ → MEDPAY. The argument: an LOP is the last rung of the Payer Order, not the first answer to a provider who asks.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Treatment is the file's engine room, and someone has to pay for it while the claim is open. On John Doe's file three payers stand in a default order: Harbor Point MedPay, then Peach State, then a Letter of Protection. An LOP issued out of order turns a bill an earlier payer would have paid into a lien against John Doe's net.
+
+1. The treatment-phase question changes from “What does he need?” to “Is the plan working?” Your three jobs: facilitation (transport, paperwork, scheduling), coordination (every provider on one plan), advocacy (step in when care is denied or stalls).
+2. Run the Payer Order: Harbor Point MedPay → Peach State → LOP. No PIP on this file; John Doe reaches the $5,000 MedPay as an occupant of Kevin Alvarez's 2020 Ford Escape.
+3. The order is a default: providers bill whom they bill. MedPay pays what it gets, in date order, never wages. Crescent Pain & Spine billed Peach State on 05/15/2026 with $640.00 of MedPay left: track both ledgers; never re-route a paid claim. Who is primary (coordination of benefits, governing law) is Atty. Thorne's call.
+4. An LOP is John Doe's signed agreement, acknowledged by the firm on Atty. Thorne's terms, that a provider is paid from any recovery. The firm guarantees nothing; John Doe stays liable whatever the outcome, as Atty. Thorne explains before he signs. Use one only where earlier payers can't: Riverton Spine & Rehab is out of network.
+5. LOP terms are Atty. Thorne's: his approved template, his signature, what happens if there is no recovery. You prepare, route, transmit once approved, and confirm receipt. Never promise a provider a payment amount, a reduction or a date.
+6. Decline an LOP an earlier payer makes unnecessary: Summit Imaging's 03/11/2026 MRI bill goes to MedPay. Every needless LOP is a lien on his net.
+7. Keep the LOP provider list current with balances from each itemized statement, so no bill surprises the $40,000 stack.
+8. Be the hub: warm handoffs (book the provider with him on the line), not phone numbers. Refuse mission creep: does this new problem block the treatment goal?
+9. Keep three loops closed: clinical (Riverton's PT notes match Dr. Reyes's orders), legal (his daily function, reported to Atty. Thorne), financial (the payer updated before a referral or authorization lapses).
+10. Cover all four care groups (restorative care, psychological support, equipment, rehab milestones) and guard each handoff (urgent care → chiropractic/PT → orthopedics → imaging → pain management): clients drop out there.
+
+> ⚠️ **UPL boundary.** You may route bills, prepare an LOP on counsel's template, transmit it once Atty. Thorne approves, and tell a provider which payer to bill. You may not set LOP terms, sign for Atty. Thorne, promise any payment or reduction, or explain to John Doe what the LOP makes him liable for: that is counsel's.
+
+#### 2 · Slide Body — Show Them
+
+*The MedPay ledger: paid in date order until $5,000.00 is gone*
+
+| Date | Provider | MedPay paid | Running total | Left of $5,000 |
+|---|---|---|---|---|
+| 02/20/2026 | Riverton Urgent Care | $685.00 | $685.00 | $4,315.00 |
+| 03/05/2026 | Lakeside Orthopedics | $640.00 | $1,325.00 | $3,675.00 |
+| 03/13/2026 | Summit Imaging Center | $2,395.00 | $3,720.00 | $1,280.00 |
+| 03/27/2026 | Lakeside Orthopedics | $640.00 | $4,360.00 | $640.00 |
+| 06/12/2026 | Lakeside Orthopedics (MMI) | $640.00 | $5,000.00 | $0.00 — exhausted |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| A provider asks for an LOP | Run the Payer Order; prepare the LOP on counsel's template only for care MedPay and Peach State can't carry | CMS → Documents → Outgoing → Route for approval | Payer check recorded before routing; nothing sent without Atty. Thorne's approval |
+| MedPay pays a bill | Post the payment, the running total and the balance left | CMS → Insurance tab → MedPay ledger | Running total ties to Harbor Point's payments; $5,000.00 reached on the 06/12/2026 visit, $0.00 left |
+| An LOP provider's itemized statement arrives | Update the balance and check every line against the visits you tracked | CMS → Liens → LOP register | Balance current (through 04/02/2026: 16 visits × $185.00 = $2,960.00); every billed date is an attended visit |
+| A new referral or provider | Warm handoff: book it with John Doe on the line and confirm the payer before the first visit | Call Simulator → AI John Doe · CMS → Case File → Treatment timeline | Appointment and payer recorded before the visit date |
+
+**Best practices & pitfalls**
+
+- Ask “Is the plan working?” at every treatment-phase contact.
+- End every contact with John Doe: “What is the one thing that might get in the way of your treatment this week?”
+- Reconcile conflicting provider statements at once. A PT note and an orthopedic note that disagree on John Doe's function are a documentation crisis.
+- Tell John Doe which payer is handling which bill, as fact. Cost worry left unanswered is how a client stops going.
+- ⚠️ Pitfall: issuing an LOP because a provider asked, before checking whether MedPay or Peach State pays first.
+- ⚠️ Pitfall: telling a provider “you'll be paid in full at settlement.”
+- ⚠️ Pitfall: mission creep, taking on every problem John Doe raises instead of the ones that block his treatment.
+- ⚠️ Pitfall: sending Atty. Thorne raw records with no functional summary.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Payer Order | MedPay → Peach State → LOP applied to each bill; no PIP on this file |
+| 🤖 AI | **20%** | MedPay ledger | Five payments in date order; running total reaches $5,000.00 on the 06/12/2026 visit; $0.00 left |
+| 🤖 AI | **20%** | LOP decisions | LOP to Riverton Spine & Rehab (out of network); Summit Imaging's request declined because MedPay applies first |
+| 🧑‍🏫 Trainer | **20%** | Coordination judgment | Sees the hub role (warm handoffs, three closed loops, guarded transitions) and avoids mission creep |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | No LOP terms set, no payment promised to a provider, no interpretation of the LOP for John Doe |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open on the ledger with the right-hand column covered. Ask how much MedPay is left after the 03/27/2026 visit ($640.00), then uncover it. A trainee who can't keep this column can't decide an LOP request.
+- Put to the room: “Riverton Spine & Rehab and Summit Imaging both asked for an LOP. Why did one get it and the other not?” The answer is the Payer Order, not the provider's preference.
+- Watch for trainees who treat an LOP as free. It is a promise the firm keeps out of John Doe's recovery, and every dollar on it is a dollar Day 4 has to negotiate.
+- Legal nuance: how MedPay's $5,000 is spent across providers, and what Harbor Point's 03/02/2026 confirmation of no reimbursement right means for the UM claim, are Atty. Thorne's calls. You record the facts and run the ledger.
+
+---
+
+### 2.1.6 Explanation of Benefits (EOB) & MedPay
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Topic:** Reading what each payer paid, and what is still owed  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D4#26` Arbitration Binders: Section 6 — Economic Losses & Lien Reconciliations · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D1#23` Case Planning Framework: The Three-Pillar Case Plan
+
+#### 1 · Visual Layout Description
+
+Two documents side by side, each read line by line. Left, Peach State's Explanation of Benefits for claim PS-2605-449021, with a red stamp THIS IS NOT A BILL: six rows (Billed $3,400.00 · Allowed $1,860.00 · Contractual adjustment $1,540.00 · Deductible/copay $0.00 · Plan paid $1,860.00 · Member responsibility $0.00), each with an orange callout tag naming where it goes on the file (Specials · write-off, owed by nobody · Peach State's reimbursement claim · the most Crescent may bill). Right, Harbor Point's MedPay payment history: five checks in date order with a falling limit bar, $5,000.00 → $0.00, stamped EXHAUSTED 06/26/2026. Below, Crescent's 07/01/2026 patient statement for $1,540.00 with a red question mark, joined by a dashed line to the EOB's $0.00 member-responsibility row and labelled BALANCE BILL?
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Every payer reports what it did with a bill: Peach State in an Explanation of Benefits, Harbor Point in its MedPay payment history. Read line by line, they say what was billed, what was paid, what was written off and what John Doe may still owe. They are the proof behind the Medical Specials, every lien amount, and every answer you give a provider or John Doe about a balance.
+
+1. An EOB is a Health Plan's statement to its member of how it processed one claim, and it says so: THIS IS NOT A BILL. Peach State's EOB of 06/03/2026 (claim PS-2605-449021) covers Crescent Pain & Spine's 05/15/2026 cervical epidural injection.
+2. Read its columns in order: amount billed ($3,400.00) → plan allowed ($1,860.00) → contractual adjustment ($1,540.00, the provider's write-off) → deductible, copay or coinsurance ($0.00) → plan paid ($1,860.00, EFT PSH-EFT-0603-77815) → member responsibility ($0.00).
+3. Read the remark codes: CO-45 means the charge exceeded the in-network fee schedule and the difference is the provider's contractual obligation; AC1 flags the service as possibly accident-related, which is how the plan's reimbursement right attaches to the claim.
+4. Member responsibility is the most an in-network provider may bill the patient. Crescent's patient statement of 07/01/2026 asks John Doe for $1,540.00, the amount the EOB shows as written off: treat it as a balance bill, not a debt and not a lien.
+5. On a balance bill: document it beside the EOB, route it to Atty. Thorne the same day, draft the written request that Crescent correct its account, and tell John Doe what you are doing and when he will hear back. Whether he owes anything is counsel's call.
+6. A plan's reimbursement claim is what it paid, never what was billed: Peach State's claim on Crescent's bill starts at $1,860.00. When its itemized lien arrives, match every line to an EOB; a line no EOB supports, or one unrelated to the collision, goes to Atty. Thorne.
+7. The EOB's AC1 remark asks for the plan's accident questionnaire. Route it to Atty. Thorne before John Doe returns it: what it says about the accident and the other insurance is a statement on the file.
+8. MedPay sends no EOB, but Harbor Point reports its payments the same way: its payment history (RS31) lists each check by date of service, payee, amount billed, amount paid and the limit remaining. It paid every bill at the amount billed, in the order received.
+9. Harbor Point's five checks: $685.00 (Riverton Urgent Care), $640.00, $640.00 and $640.00 (Lakeside Orthopedics) and $2,395.00 (Summit Imaging) = $5,000.00, exhausted 06/26/2026. Bills it receives after that come back with a notice of exhaustion: send the next one to the next payer in the Payer Order.
+10. Reconcile every provider to its payers: each statement must show the MedPay check or the plan's payment as a credit. A provider still showing a balance on a paid date of service has a billing error, not a lien. Medical Specials keep the billed amounts the audit holds ($14,817.40); the lien register carries only what each payer can claim back.
+
+> ⚠️ **UPL boundary.** You may read, reconcile and report what an EOB or a payment history shows, and ask a provider in writing to correct an account. Whether a balance is owed, whether a write-off may be billed, and how to answer the plan's accident questionnaire are Atty. Thorne's calls.
+
+#### 2 · Slide Body — Show Them
+
+*Peach State's EOB for Crescent's 05/15/2026 injection, read line by line*
+
+| EOB line | Amount | What it means | On the file |
+|---|---|---|---|
+| Amount billed | $3,400.00 | Crescent's charge for the injection | Medical Specials |
+| Plan allowed | $1,860.00 | Peach State's in-network fee schedule | The most the plan pays |
+| Contractual adjustment | $1,540.00 | CO-45: the provider's write-off | Owed by nobody |
+| Deductible · copay · coinsurance | $0.00 | John Doe's share under his plan | Nothing to pay |
+| Plan paid | $1,860.00 | EFT PSH-EFT-0603-77815, 06/03/2026 | Peach State's reimbursement claim |
+| Member responsibility | $0.00 | The most Crescent may bill John Doe | Its $1,540.00 statement is a balance bill |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| An EOB arrives | Post billed, allowed, adjustment, paid and member share against the visit | CMS → Liens · CMS → Documents | Plan paid $1,860.00 logged; claim PS-2605-449021 linked to the visit |
+| A MedPay check clears | Post the check, the date of service and the limit remaining | CMS → Insurance tab → MedPay ledger | Ledger ties to Harbor Point's payment history, $0.00 left after 06/26/2026 |
+| A patient statement shows a balance | Compare it with the EOB's member responsibility; route any balance bill | CMS → Liens · Email Workspace | $1,540.00 flagged; Atty. Thorne told the same day; correction request drafted |
+| The plan's itemized lien arrives | Match each line to an EOB and to the collision | CMS → Liens → Peach State | Only EOB-backed, accident-related lines stand |
+
+**Best practices & pitfalls**
+
+- Read every EOB down to the member-responsibility line before you answer a balance question.
+- Ask each provider for an itemized statement that shows every payer's credit.
+- Keep billed and paid on the same CMS line, so neither number is lost.
+- Tell John Doe what you are doing about a bill, and when he will hear back.
+- ⚠️ Pitfall: logging a lien at the billed amount instead of what the plan paid.
+- ⚠️ Pitfall: treating a contractual write-off as a balance the client owes.
+- ⚠️ Pitfall: sending a bill to MedPay after its 06/26/2026 exhaustion.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Reads the EOB | Each line read correctly: billed, allowed, adjustment, member share, plan paid, and the CO-45 and AC1 remarks |
+| 🤖 AI | **20%** | MedPay reconciled | Five checks to $5,000.00, exhausted 06/26/2026, each tied to its provider's statement |
+| 🤖 AI | **20%** | Balance bill handled | Crescent's $1,540.00 identified as the write-off, routed to Atty. Thorne, correction requested in writing |
+| 🧑‍🏫 Trainer | **25%** | Grasps the consequence | Explains how a misread EOB inflates a lien or leaves the client paying a bill he may not owe |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | No answer to whether John Doe owes the balance; the questionnaire goes to counsel |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Hand out RS26 and read the EOB with the room, column by column, before you show the slide. Ask: “What does John Doe owe Crescent?” The EOB says $0.00.
+- Then turn the page to Crescent's 07/01/2026 statement for $1,540.00. Ask: “Is this a lien we missed, or a bill nobody owes?” It is the write-off, billed to the patient.
+- Make the lien point with one number: Peach State can claim back what it paid, $1,860.00, never the $3,400.00 billed.
+- Walk Harbor Point's RS31 down to the $0.00 line on 06/26/2026, and ask where the next bill goes. The Payer Order answers it.
+- Close on the boundary: you read, reconcile and report; whether John Doe owes a balance is Atty. Thorne's call.
+
+---
+
+### 2.1.7 Letters of Protection & the Case Manager's Part in Provider Referrals
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Topic:** What an LOP is, when it is used, and how you help John Doe reach care without steering it  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** Case file: Riverton Spine & Rehab, chiro and PT under an LOP signed 02/23/2026 (RS23, the itemized LOP ledger) · Newly authored: Letters of Protection, and the Case Manager's part in client-provider referrals within the UPL line
+
+#### 1 · Visual Layout Description
+
+A three-party triangle: John Doe at the top, Riverton Spine & Rehab bottom left, LSH Law Group bottom right. The provider-to-firm side is labelled LETTER OF PROTECTION · signed 02/23/2026 · paid from the settlement. A red band across the triangle's centre reads THE UPL LINE: options and logistics, never which care.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* A Letter of Protection (LOP) is the firm's written promise to pay a provider's bill from the settlement, so a client with no way to pay can be treated now. It keeps care going, but it also creates a balance that comes out of John Doe's recovery and a provider who is waiting to be paid. The Case Manager tracks it from the day it is signed; and when a client needs a provider, the Case Manager helps with options and logistics while the choice of care stays with John Doe and his doctors.
+
+1. In plain English, an LOP says: treat the client now, and the firm will pay your bill from the settlement. It is a promise against the recovery, not insurance, and the client still owes the balance.
+2. Use one only when the payers are used up or unavailable: check health insurance, MedPay and PIP first (the Payer-First Principle), and record why the LOP is needed.
+3. Get it signed before the first visit and file it: Riverton Spine & Rehab's LOP was signed 02/23/2026; its ledger shows Financial class LOP / attorney.
+4. Track the LOP balance as it grows: request the itemized ledger every 30 days and enter each update in CMS → Liens, so the Net Sheet never meets a surprise.
+5. Provider referrals: you may share a list of providers who accept LOPs or the client's plan, with their locations, hours and network status, and book the appointment he chooses.
+6. You never recommend one provider over another, promise a result, or say a treatment will help the case. Disclose any relationship the firm has with a provider on the list.
+7. Log every referral and the client's own choice in the CMS: who was offered, who he chose, and why, in his words.
+
+> ⚠️ **UPL boundary.** Options and logistics only: a list, the network status, the booking. Which care he gets is for John Doe and his doctors; what the LOP means for his recovery is for Atty. Thorne.
+
+#### 2 · Slide Body — Show Them
+
+*“Where should I go for my back?” answered both ways*
+
+| ✅ Do | ❌ Don't |
+|---|---|
+| “Here are three providers near you that take an LOP, with their hours and how far each is.” | “Go to Riverton Spine; they write great reports for cases.” |
+| “Crescent Pain & Spine is in network with Peach State; I checked today.” | “Chiropractic will make your case worth more.” |
+| “Which one works for you? I'll book it while we're on the phone.” | “Don't worry about the bill; the LOP means it's free.” |
+| “The firm does refer clients to Riverton Spine & Rehab; you're free to choose any of them.” | “Skip the injection; it won't help.” |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| No payer will cover a provider John Doe needs | Check every payer first; record why an LOP is needed; route to Atty. Thorne to approve | CMS → Insurance · Case Notes | Payer check on file; attorney approval logged |
+| The LOP is signed | File it; set a 30-day ledger request | CMS → Documents · Liens · Tasks | LOP on file; ledger task recurring |
+| John Doe asks where he should go for treatment | Give the list with network status; book his choice; disclose any firm relationship | CMS → Parties · Calendar · Case Notes | Options given, his choice recorded, no recommendation |
+
+**Best practices & pitfalls**
+
+- Check every payer before an LOP: the LOP is the last resort, not the first.
+- Ask for the itemized ledger every 30 days; never let the LOP balance surprise the Net Sheet.
+- Offer two or three options with facts (location, hours, network), and let John Doe choose.
+- ⚠️ Pitfall: telling the client one provider is better for the case.
+- ⚠️ Pitfall: an LOP signed after treatment started, or never filed.
+- ⚠️ Pitfall: forgetting that the client still owes the LOP balance.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **25%** | LOP basics | Explains what an LOP is, when it is used, and that the client still owes the balance |
+| 🤖 AI | **20%** | Tracking | Files the LOP and keeps its balance current in the CMS |
+| 🤖 AI | **15%** | Referral logistics | Gives options with facts and books the client's own choice |
+| 🧑‍🏫 Trainer | **25%** | UPL boundary | No recommendation of a provider or a treatment; any firm relationship disclosed |
+| 🧑‍🏫 Trainer | **15%** | Client care | Plain words; the client's choice recorded in his own words |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Ask: “John Doe has no health insurance that covers chiropractic. How does he get treated next week?” Let the room reach the LOP.
+- Open RS23 and point to Financial class: LOP / attorney, and the LOP signed date. That is the document they will reconcile on Day 3.
+- Role-play the referral: John Doe asks “Where should I go?” Model the answer: options, facts, his choice, logged.
+
+---
+
+### 2.1.8 Health Subrogation, Payer Order & the Regulatory Triple-Check
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Topic:** Who pays the bills now, and who gets paid back later  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#23` Case Planning Framework: The Three-Pillar Case Plan · D1 Task Overview: Billing, Resolution & Closing
+
+#### 1 · Visual Layout Description
+
+A two-lane swimlane running left to right. Upper lane, navy, labelled PAYS THE BILLS NOW — PAYER ORDER: an arrow through PIP/MedPay → Peach State Health Plan → LOP/provider liens. Lower lane, orange, labelled PAYS THE CLAIM LATER — RECOVERY STACK: an arrow through BI → Host UM → Relative UM ending at a SETTLEMENT node. A bold orange return arrow curves from the Health Plan in the upper lane down into the settlement node, labelled REIMBURSEMENT CLAIM. The curve is the heaviest line on the slide. Top-right, three stacked chips form the Regulatory Triple-Check: HIPAA · BCRC · PAYER ORDER, each with a tick box. Bottom-left, a danger-bordered callout: “Flagged late = paid twice.”
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Two different questions get confused on every new file: who pays John Doe's Medical Bills while the claim is open, and who pays the claim itself at the end. The Health Plan answers the first and then asks to be repaid out of the second. A reimbursement claim found after the demand goes out comes out of the client's net.
+
+1. Clear the Regulatory Triple-Check before any clinical planning begins, so the claim is properly established and you are authorized to act.
+2. Check 1, HIPAA: obtain a claim-specific Authorization to Release Medical Information. It names the incident date and permits communication with legal and insurance parties; a generic release may not be adequate.
+3. Check 2, Medicare/Medicaid: if the client is 65+ or on SSDI, report the case to the Benefits Coordination & Recovery Center (BCRC) under MMSEA (2007). Skipping it risks federal penalties and a frozen settlement. John Doe is 34, so the check is his SSDI status: verify it and record the answer.
+4. Check 3, Payer Order: PIP/MedPay first, then private health insurance, then LOP/provider liens. Verify whether any PIP/MedPay applies on this loss; do not assume it.
+5. The Payer Order is not the Recovery Stack. The $40,000 in BI and UM pays the claim; the Payer Order pays the bills while it is open.
+6. A Health Plan that pays accident-related bills asserts a reimbursement right against the settlement. Identify it early so it doesn't surprise you at settlement: flag it on first notice, before the first demand.
+7. Record the plan's carrier, member ID and group number in the CMS lien register the day they are known, and log the BCRC answer in the file.
+8. Never promise a provider or a plan a payment amount. Verify now, negotiate at the lien stage, with authority from Atty. Thorne.
+
+> ⚠️ **UPL boundary.** You may gather lien documentation and report what a plan asserts. You may not advise the client on whether a lien is enforceable, or negotiate a compromise without counsel's authority.
+
+#### 2 · Slide Body — Show Them
+
+*Pays the bills now vs. pays the claim later*
+
+| PAYER ORDER — pays the bills now | RECOVERY STACK — pays the claim later |
+|---|---|
+| 1. PIP/MedPay, if any applies (verify it). | 1. BI — $10,000 (Robert Smith's liability). |
+| 2. Private health insurance: Peach State Health Plan · PSH-55017742 · GRP-41208. | 2. Host UM — $20,000. |
+| 3. LOP/provider liens. | 3. Relative UM — $10,000. |
+| The Health Plan then asserts a reimbursement right against the settlement. | $40,000 total. Our demands are built against these layers. |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Retainer signed | Obtain the claim-specific HIPAA authorization naming the incident date | CMS → Documents | Authorization names 02/06/2026 and permits legal and insurance contact |
+| Client's age and benefits known | Verify SSDI status; report to the BCRC if 65+ or on SSDI | CMS → Case Notes | BCRC answer logged with its date |
+| Health Plan identified | Record carrier, member ID and group; record the Payer Order | CMS → Liens | Lien record exists and is dated; Payer Order noted |
+| Plan pays an accident-related bill | Flag the reimbursement right against the matter | CMS → Liens → Flag | Flag set before any demand is drafted |
+
+**Best practices & pitfalls**
+
+- Clear the triple-check before any clinical planning.
+- Log the BCRC report date (or the verified “not required”) in the file.
+- Identify subrogation interests early so they don't surprise you at settlement.
+- ⚠️ Pitfall: using a generic medical release that doesn't name the incident date.
+- ⚠️ Pitfall: reassuring the client that “insurance will cover it.”
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Triple-check complete | HIPAA authorization, BCRC answer and Payer Order all recorded |
+| 🤖 AI | **20%** | Payer Order | PIP/MedPay → private health insurance → LOP/provider liens, kept separate from the Recovery Stack |
+| 🤖 AI | **20%** | Lien fields and timing | Carrier, member ID and group recorded; flag placed before the first demand |
+| 🧑‍🏫 Trainer | **25%** | Grasps the consequence | Explains how a late-flagged reimbursement claim damages the client's net, not just the paperwork |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | No opinion on enforceability; no payment promised |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Draw the two lanes on the board before you show the slide. Most confusion on this topic is two different questions treated as one.
+- The curving return arrow is the lesson: money goes out to providers early and comes back out of the settlement at the end.
+- On the BCRC check, John Doe's age rules out the 65+ trigger, so ask the room what is left to verify. The answer is SSDI, and the file must record that it was checked.
+- Tie it forward: “On Day 4 you will negotiate this lien down. What you can reduce depends on what you register today.”
+
+---
+
+### 2.1.9 A-C-T Crisis Protocol & Treatment Monitoring Principles
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Topic:** Is the plan working, and what you do the day it isn't  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#27` Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention · `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#31` Treatment Red Flags: PT & Conservative Care, Surgical Protocols · `D1#36` The Standard Treatment Map · `D1#37` Treatment Road Map Mastery & the Clinical Pathway Flowchart · `D1#38` Variance Analysis: Why the Map Fails · `D1#40` The “Golden Standard”: Reasonable and Necessary · `D1#41` Immediate Action Protocol: A-C-T for Red Flags · `D1#42` Illustration & Course Correction: The 6-Week Rule and Objective Metrics · `D1#43` The “Yellow Flag” Warning System · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder
+
+#### 1 · Visual Layout Description
+
+A closed monitoring loop drawn as a navy ring left of centre, with “IS THE PLAN WORKING?” set in Fraunces inside it. At the ring's four o'clock a red DETECT node breaks out into an orange three-step rail running right: ① ASSESS ② COORDINATE ③ TRACK, each a navy card with an orange badge, the TRACK card's arrow curving back up into the ring. Top-right, a treatment-map strip of mono pills, ACUTE · SUB-ACUTE · RESTORATIVE · MMI, with a marker on RESTORATIVE · WEEK 9 · 04/08/2026. Left margin, three stacked variance chips, CLINICAL · PSYCHOSOCIAL · SYSTEMIC, with PSYCHOSOCIAL highlighted. The argument: A-C-T is not a detour from monitoring; it closes back into it.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* On an LOP nobody denies the next six visits in real time. Keystone does it later, at the demand, by calling the care unnecessary or the injury minor. That makes you the only real-time check that John Doe's plan is working, and the person who acts the day it isn't.
+
+1. Monitor outcomes, not attendance alone: ask specific questions (visits, pain, what he can't do at work or home) and hunt barriers: internal (motivation, fear, mood) and external (transport, money, schedule, coverage).
+2. Know where he is on the map: acute (days 1–14: causation and MedPay; on this file, the 14-Day Gap), sub-acute (weeks 2–8: chiropractic/PT, Dr. Reyes, the MRI), restorative (weeks 9–24: injections, return to work), then MMI. On 04/08/2026, day 61, he is in week 9.
+3. Every check-in: “Is he improving?” If not, raise it with the provider: medication, injections, a specialist or a yellow-flag screen is the provider's decision. Record question, answer, date. Six-week rule: 20–30% more range of motion or a lower pain score by week 6; his fell on 04/07/2026 (02/24/2026 + 42 days).
+4. “Reasonable and necessary” is the utilization-review lens (usual for this injury; objective functional gain), not the legal test of what John Doe recovers: confirm that rule. Necessity is the provider's opinion, argued by Atty. Thorne. No disability-index change by week 12 is a plateau: ask the provider about a specialist.
+5. Name the variance before you fix it: clinical (a new complication), psychosocial (yellow flags such as fear-avoidance, catastrophizing, no transport to therapy), systemic (an authorization or referral delay).
+6. A-C-T for every red flag. Assess: medical danger to the provider now, legal danger (missed visits, generic notes) to Atty. Thorne. Coordinate: clarify with the office, remove the barrier. Track: record every fix attempt; that is counsel's why.
+7. In a crisis, adjust the plan first: it is usually the plan, not the client. That is management, not an admission.
+8. Climb the ladder one documented rung at a time: 1 clinical (the office manager), 2 administrative (written notice to the carrier causing the barrier, copied to Atty. Thorne; to Keystone PD, the adverse carrier, property facts only), 3 legal (Atty. Thorne's call, such as an LOP to bypass a stalling payer).
+9. Write every intervention as a GIRP note (Goal, Intervention, Response, Plan): factual, never “this will help the case.” The defense may read it.
+
+> ⚠️ **UPL boundary.** You coordinate care; you don't direct it. Never tell John Doe to add, skip or stop treatment or second-guess a provider, and never tell him missed visits will cut what his claim is worth. Medical questions go to the provider, claim questions to Atty. Thorne.
+
+#### 2 · Slide Body — Show Them
+
+*A-C-T inside the monitoring loop: Track feeds the next “Is the plan working?”*
+
+1. **Monitor** — Attendance, pain, function every contact; week-6 measures due 04/07/2026.
+2. **Detect and classify** — Clinical, psychosocial or systemic. Visits missed from 04/03/2026 for want of transport: psychosocial.
+3. **Assess** — Medical danger → the provider today; legal danger → Atty. Thorne. Here: the 04/08/2026 call to John Doe.
+4. **Coordinate** — Clarify with the clinic, remove the barrier, climb the ladder: rental request, evening slots, Margaret Doe driving.
+5. **Track** — GIRP note; attendance confirmed 04/21 and 04/23/2026; the why on file for counsel.
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Provider's missed-visit alert | Run A-C-T the same day: call John Doe, classify the variance, record it | Call Simulator → AI John Doe · CMS → Case Notes | Call and GIRP note dated the day the alert arrives |
+| Week 6 of care (04/07/2026) | Ask the provider for the re-evaluation measures: range of motion, pain score, disability index. Whether a PHQ-9/GAD-7 screen is indicated is the provider's call; anything putting John Doe's mental health in the record is flagged to Atty. Thorne | Medical Records Requests · CMS → Case File → Treatment timeline | Measures on file, or the missed re-evaluation flagged |
+| Barrier not fixed at the clinical rung | Climb one rung: written notice to the carrier causing it, copied to Atty. Thorne (Keystone PD: property facts only) | Email Workspace · CMS → Tasks → Escalate | Each rung dated in the Communications Log |
+| A red flag that can cost the claim (missed visits, generic notes, passive-only care) | Report it to Atty. Thorne with the fix attempted | CMS → Case File → Risk Flags | Flag routed with the GIRP note attached |
+
+**Best practices & pitfalls**
+
+- Red flags to raise with the provider: more than 12 sessions with no gain and no specialist or imaging suggested; passive-only care (heat, TENS, massage) with no active exercise; two or more missed visits, which the defense reads as an injury not serious enough to treat.
+- Yellow flags (catastrophizing, litigation stress, reliance on passive care or medication) are reported with a plan, in the map's language: “John Doe is in the restorative phase. Psychosocial variance: no transport since 04/01/2026, four visits missed. Plan: evening slots from 04/21/2026 with family transport; attendance tracked.”
+- When progress stalls, re-engage John Doe on his own goal (a full warehouse shift at Northgate without right-arm numbness), with active listening and without pressure.
+- The 14-Day Gap is documented after the fact, from John Doe's own explanation on a recorded call and the dated records that support it. The disruption must never need that reconstruction: record it the day it happens.
+- Proofread laterality in every summary: everything on this file is right-sided (right hand, right paracentral herniation). A left/right switch damages credibility.
+- ⚠️ Pitfall: continuing the plan unchanged through a crisis.
+- ⚠️ Pitfall: blaming the client, or treating a systemic delay as non-compliance, instead of revising the plan.
+- ⚠️ Pitfall: jumping to Atty. Thorne before the clinical and administrative rungs, or fixing a problem without documenting it.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Map and six-week rule | Week 9 on 04/08/2026 (day 61); week 6 of care on 04/07/2026 (02/24/2026 + 42 days); 20–30% expectation stated |
+| 🤖 AI | **15%** | Variance and red flags | Clinical, psychosocial and systemic named; lost transport classed psychosocial; the three PT red flags named |
+| 🤖 AI | **20%** | A-C-T sequence | Assess → Coordinate → Track, with medical danger to the provider and legal danger to Atty. Thorne |
+| 🤖 AI | **10%** | Escalation ladder | Three rungs in order, each documented |
+| 🧑‍🏫 Trainer | **20%** | Monitoring mindset | Treats “Is the plan working?” as an outcomes question and revises the plan, not the client |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | No treatment direction to John Doe, no clinical second-guessing, no value talk about missed visits |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open with a date: 04/07/2026. Ask what was due that day (John Doe's week-6 mark of care), then tell the room he wasn't there.
+- Put to the room: “On an LOP file, who denies unnecessary care, and when?” Keystone, at the demand. Let them work out what that makes the Case Manager.
+- The course's earlier A-C-T names the middle step Clarify. On this file it is Coordinate, and it still opens with the clarifying call to the provider's office. Watch for trainees who skip that call and go straight to fixing.
+- Legal nuance: the A-C-T record is what later answers a failure-to-mitigate argument. Facts, dates and fix attempts; no adjectives about John Doe.
+
+---
+
+### 2.1.10 The No Contact Protocol — Steps 1 to 3
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
+> **Topic:** Internal review, escalating contact attempts, team notification  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** LSH Claims Specialist: No Contact Protocol, Steps 1–3 · `D1#11` Bottleneck: Delayed Client Follow-Up · `D1#9` Common Intake Bottlenecks — Overview · D5 agenda: MIA Clients
+
+#### 1 · Visual Layout Description
+
+A six-station vertical protocol spine down the left third, stations numbered 1–6 in orange circles on a navy rail. Stations 1–3 are in full colour (INTERNAL REVIEW · CONTACT ATTEMPTS · TEAM NOTIFICATION); stations 4–6 are greyed back with a small “next lesson” tag, so the whole protocol is visible but this lesson's scope is clear. The right two-thirds expands station 2 as an escalating channel ladder: PHONE (2+ attempts) → EMAIL + SMS → EMERGENCY CONTACT → CERTIFIED MAIL / FORMAL LETTER, each rung a widening bar. Bottom-right, a red-bordered card: “SOL and hearing dates keep running.”
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* The No Contact Protocol does three jobs at once: it tracks unresponsiveness formally, it establishes due diligence before any withdrawal, and it protects the firm from liability. A client who can't be reached is a file that still has deadlines, and the protocol is the proof the firm did its part.
+
+1. Step 1, Internal Review: before you call anyone, check the case status, the live deadlines and the date of last contact, and confirm every earlier attempt used an approved channel.
+2. Step 2, Contact Attempts, escalating: at least two phone attempts, then email and text, then the emergency contact, then certified mail or a formal letter.
+3. Escalate by channel, not by volume. Two voicemails on one number clears the phone rung and nothing more.
+4. Set a follow-up reminder the moment a request goes out, and give the client an easy way to answer: a call window, a text, an upload link.
+5. Log every attempt in the CMS when you make it: date, time, channel, outcome. An unlogged attempt did not happen.
+6. Step 3, Team Notification: escalate to the attorney or supervisor, document it in the CMS, and assess the case impact, including the statute of limitations and any hearing dates.
+7. Deadlines do not pause for silence. Never let an outreach cycle consume a statutory or court date.
+
+> ⚠️ **UPL boundary.** You may tell the client what the firm needs and by when. You may not advise them on what silence does to their legal rights, and you may not say representation will end. Withdrawal is the attorney's decision at Step 5.
+
+#### 2 · Slide Body — Show Them
+
+*The No Contact Protocol: all six steps; this lesson covers 1–3*
+
+1. **Internal Review** — Case status, live deadlines, date of last contact; approved channels confirmed.
+2. **Contact Attempts** — 2+ phone attempts → email and text → emergency contact → certified mail or letter.
+3. **Team Notification** — Escalate to attorney/supervisor, document in the CMS, assess SOL and hearing dates.
+4. **Final Warning Letter** — Certified mail AND email; 7–14 day deadline. (Next lesson.)
+5. **Decision Point** — The attorney may file a Notice of Withdrawal or a Motion to Withdraw. (Next lesson.)
+6. **File Closure** — “No response – withdrew per protocol”; all proof of attempts retained. (Next lesson.)
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Client misses a scheduled contact or appointment | Step 1: review case status, deadlines and the last contact date | CMS → Case Summary | Live deadlines identified before outreach begins |
+| Internal review complete | Step 2: work the channel ladder; log each attempt | CMS → Communications Log | 2+ phone attempts, then email and text, each with date, time, channel, outcome |
+| Channel ladder exhausted | Step 3: notify Atty. Thorne and assess deadline impact on John Doe's file | CMS → Tasks → Escalate | Escalation documented; SOL (02/06/2028) and any hearing dates assessed |
+
+**Best practices & pitfalls**
+
+- Set follow-up reminders the moment a request goes out.
+- Offer the client an easy way to respond: a call window, text, an upload link.
+- ⚠️ Pitfall: letting a file sit because “we're waiting on the client” without logging attempts.
+- ⚠️ Pitfall: blaming the client for delays that are really process gaps.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Step sequence | Steps 1–3 in order; internal review before outreach |
+| 🤖 AI | **20%** | Channel ladder | 2+ phone attempts, then email and text, not repeats on one channel |
+| 🤖 AI | **20%** | Log completeness | Every attempt carries date, time, channel and outcome |
+| 🧑‍🏫 Trainer | **20%** | Deadline awareness | The Step 3 impact check names the running SOL, not just “escalated to attorney” |
+| 🧑‍🏫 Trainer | **20%** | Boundary discipline | No withdrawal threat; no statement that the case will be closed |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Lead with purpose, not procedure: the protocol protects the client's file and the firm. Trainees who see it as chasing a client miss why the record matters.
+- Step 1 is the step everyone skips; they start dialling. Ask: “What deadline is running on this file right now?” If they can't answer, they aren't ready to make the call.
+- Channel versus volume is the most often failed point. Two voicemails on the same number clears the phone rung and nothing more. Say it twice.
+- The emergency contact was collected at intake for exactly this moment. Intake decisions pay off here.
+
+---
+
+### 2.1.11 Final Warning Letter & the Skip-Trace Trigger
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
+> **Topic:** No Contact Protocol Steps 4 to 6, and when the search begins  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** LSH Claims Specialist: No Contact Protocol, Steps 4–6; Withdrawal Letters · D5 agenda: MIA Clients
+
+#### 1 · Visual Layout Description
+
+Two panels. Left: the Final Warning Letter on white letterhead with a navy band, four required elements called out by orange numbered badges — ① the earlier attempts, itemized ② a response deadline of 7–14 days ③ notice of potential withdrawal ④ how to respond. Above the letter, a chip pair reads CERTIFIED MAIL + EMAIL, joined by a bold AND, because both are required. Right: the Step 5 decision fork on a pale ground. Root, navy: “Response within the deadline?” Yes (green) → RESUME FILE. No (orange) → a three-chip AND gate (ladder exhausted · letter sent · deadline expired) ending in two outcomes: TRIGGER SKIP-TRACE and ATTORNEY DECISION POINT. Draw the gate as a gate, never as a bullet list.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* The Final Warning Letter is the last low-cost step before the firm either spends money to find someone or moves to withdraw. It has to be specific enough to get an answer, and documented enough to justify whichever comes next.
+
+1. Step 4, the Final Warning Letter, goes by certified mail AND email. Both, not either.
+2. It states the earlier attempts, a response deadline of 7 to 14 days, and notice of potential withdrawal.
+3. Send it to the client's current and correct address. Confirm the address first; a letter to a stale address proves nothing.
+4. Step 5, Decision Point: if the client is still unresponsive, the attorney may file a Notice of Withdrawal or a Motion to Withdraw, under firm and court rules. That is counsel's decision.
+5. Step 6, File Closure: mark the file “No response – withdrew per protocol” and keep the communications and the proof of every attempt.
+6. Skip-tracing starts only when all three are true: the contact ladder is exhausted, the letter has been sent, and its deadline has passed.
+7. Skip-tracing is authorized by counsel. Escalate with the complete log attached.
+8. Keep the file moving in parallel. Records requests, coverage verification and deadline tracking do not pause while outreach runs.
+
+> ⚠️ **UPL boundary.** The letter may state the firm's requirements, its deadline and that withdrawal is possible. It may not characterise the strength of the claim or advise the client on what silence does to their legal rights. Only the attorney decides, and tells the client, that representation is ending.
+
+#### 2 · Slide Body — Show Them
+
+*The three-criteria gate: all must be true before the search begins*
+
+1. **Contact ladder exhausted** — 2+ phone attempts, email, text and the emergency contact, all attempted and logged.
+2. **Final Warning Letter sent** — Certified mail AND email, to a confirmed address, stating the 7–14 day deadline.
+3. **Deadline expired** — The response window has passed with no contact from the client.
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Step 3 escalation made, still no response | Draft the Final Warning Letter with a 7–14 day deadline | Action Plan Editor → Warning letter template | Earlier attempts itemized; deadline and withdrawal notice present |
+| Letter ready | Confirm the current address; send by certified mail AND email | CMS → Documents → Outgoing | Both channels used and logged; certified receipt kept |
+| Response deadline expires | Verify all three criteria; escalate to Atty. Thorne for Skip-Trace authority and the Step 5 decision | CMS → Tasks → Escalate | All three criteria evidenced in the log first |
+
+**Best practices & pitfalls**
+
+- Itemize the attempts with dates; “we have tried several times” is not evidence.
+- Ask your in-house help to confirm an address you can't verify.
+- ⚠️ Pitfall: triggering a Skip-Trace on the first criterion alone.
+- ⚠️ Pitfall: writing “we are withdrawing” in a letter the attorney has not approved.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **25%** | Letter elements | Attempts itemized, 7–14 day deadline, withdrawal notice, response method |
+| 🤖 AI | **15%** | Dual delivery | Certified mail and email both used and logged |
+| 🤖 AI | **20%** | Criteria evidence | All three Skip-Trace criteria shown in the log |
+| 🧑‍🏫 Trainer | **20%** | Letter tone | Firm, clear and not threatening; a worried client would respond to it |
+| 🧑‍🏫 Trainer | **20%** | Authority discipline | Withdrawal and Skip-Trace both escalated for counsel's decision |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Hold the room on the AND gate. Trainees reliably trigger the search on the first criterion alone, which spends the firm's money early and weakens the record.
+- Both delivery channels are required. Ask why: certified mail proves delivery, email gets a response.
+- Draw the Step 5 line hard: the CM assembles the record, the attorney decides to withdraw.
+- Day 5 returns to this with advanced skip-tracing, process servers and certified notice. Today is the trigger; Day 5 is the execution.
+
+---
+
+### 2.1.12 Policy Stack & Coverage Verification
+
+> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — build the ladder to $40,000  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#19` Claim Set-Up: Case Projection — Why the Three Work Together · `D1#20` Case Study: John Doe v. Apex — Coverage Analysis · LSH Claims Specialist: CMS Insurance tab SOP, first- and third-party coverage
@@ -388,9 +1053,9 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.5 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+### 2.1.13 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
 
-> **Skill Activity** · Day 2 — Claim set up · Module 2: Claim Set Up · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — five letters, each one right  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#21` Case Study: John Doe v. Apex — Liability Determination · LSH Claims Specialist: LOR drafting, contents, recipients and delivery · LSH Claims Specialist: information protection on third-party claims, LOR acknowledgement · Newly authored: UM notice at set-up (notice, not demand)
@@ -465,9 +1130,9 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.6 CMS Coverage Matrix Audit
+### 2.1.14 CMS Coverage Matrix Audit
 
-> **Skill Activity** · Day 2 — Claim set up · Module 2: Claim Set Up · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 2 — find what the matrix gets wrong  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#20` Case Study: John Doe v. Apex — Coverage Analysis · LSH Claims Specialist: Declaration Pages, coverage verification and follow-up · Newly authored: verifying the UM form and MedPay terms at set-up
@@ -556,9 +1221,9 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.7 Identifying & Flagging the 14-Day Gap
+### 2.1.15 Identifying & Flagging the 14-Day Gap
 
-> **Skill Activity** · Day 2 — Claim set up · Module 2: Claim Set Up · scored with Case Plan Audit & Day 2 Gate (`d1m4`)  
+> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 1 — find the fact that will decide this case  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#44` Handling Treatment Gaps During the Treatment Phase · `D2#13` Treatment Gaps in the Demand Phase
@@ -571,7 +1236,7 @@ A horizontal treatment timeline is the whole slide. Far left, a navy node: DOL �
 
 **Scenario.** John Doe's first treatment records have arrived. The date of loss is 02/06/2026. The first treatment record is dated 02/20/2026; chiropractic care at Riverton Spine & Rehab began on 02/24/2026.
 
-**Execution prompt.** Identify and flag the Treatment Gap in John Doe's file. Compute it exactly, record the initial gap, set the file to catch any later break in care, and state in the risks band what the gap will be used for against the claim. List the likely causes you will investigate, and the steps needed before the gap can be explained. Then route the flag to Atty. Thorne.
+**Execution prompt.** Identify and flag the Treatment Gap in John Doe's file. Compute it exactly, record the initial gap, set the file to catch any later break in care, and record in the risks band the facts only: its dates, its length, and that John Doe's own explanation and its documents are still to be gathered. What the gap means for the claim is Atty. Thorne's to assess. List the documents you will ask John Doe for, and the steps needed before the gap can be explained. Then route the flag to Atty. Thorne.
 
 | | |
 |---|---|
@@ -582,8 +1247,8 @@ A horizontal treatment timeline is the whole slide. Far left, a navy node: DOL �
 
 - [ ] Gap computed as 14 days, 02/06/2026 to 02/20/2026
 - [ ] Initial gap recorded, and a watch set for any later break in care
-- [ ] Defense uses stated: injuries not serious; recovered earlier than claimed; treatment unnecessary; other causes
-- [ ] Likely causes listed to investigate: missed appointments, transportation, cost or co-pays, work schedule, stopping after temporary relief, delayed referrals, imaging or authorizations
+- [ ] Risks band holds facts only: the dates, the 14 days, and “explanation pending: client's own account and supporting documents”; no view on what the gap does to the claim
+- [ ] Documents to request listed: work schedules, doctor availability notes, travel logs, illness records, receipts and messages
 - [ ] Investigation steps recorded: the client's own explanation, supporting documents, provider confirmation
 - [ ] Flag placed prominently in the Case Plan's risks band
 - [ ] Flag routed to Atty. Thorne
@@ -605,7 +1270,7 @@ A horizontal treatment timeline is the whole slide. Far left, a navy node: DOL �
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in Case Plan Audit & Day 2 Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
+Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -624,14 +1289,14 @@ Verified in Case Plan Audit & Day 2 Gate (taught on Case Flow Day 2) and that da
 
 - This is Day 2's most consequential activity. Everything on Days 3 to 5 turns on this flag existing and being accurate.
 - Insist on the exact count. “About two weeks” is not a flag; 02/06 to 02/20 is.
-- Ask the room what the adjuster will say when they see this. Their answers become the Day 5 negotiation.
-- Trainees often record the gap but set no watch for the next break in care. It comes in April (Case Flow Day 3), and a second break undercuts the “he got better” explanation for the first.
+- Ask the room what the adjuster will say when they see this. Their answers become the Day 4 negotiation.
+- Trainees often record the gap but set no watch for the next break in care. It comes in April (the Treatment Phase, later on Case Flow Day 2), and a second break undercuts the “he got better” explanation for the first.
 
 ---
 
-### 2.1.8 Live Case Plan Draft — John Doe v. Robert Smith
+### 2.1.16 Live Case Plan Draft — John Doe v. Robert Smith
 
-> **Skill Activity** · Day 2 — Claim set up · Module 2: Claim Set Up · scored with Case Plan Audit & Day 2 Gate (`d1m4`)  
+> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 2 — the full plan, routed for review  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#8` Case Acceptance Determination · `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#19` Claim Set-Up: Case Projection — Why the Three Work Together · `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#23` Case Planning Framework: The Three-Pillar Case Plan · `D1#44` Handling Treatment Gaps During the Treatment Phase
@@ -642,7 +1307,7 @@ A full-slide editor canvas showing the live plan with all five bands stubbed and
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** Everything from Days 1 and 2 is in the file: parties mapped, the $40,000 stack verified, the onboarding packet delivered and tracked, and the 14-Day Treatment Gap identified. The Regulatory Triple-Check is still open: it clears in the Treatment Phase, before the first bill is routed. Atty. Thorne is waiting on the Case Plan.
+**Scenario.** Everything from Day 1 and Claim Set Up is in the file: parties mapped, the $40,000 stack verified, the onboarding packet delivered and tracked, and the 14-Day Treatment Gap identified. The Regulatory Triple-Check is still open: it clears in the Treatment Phase, before the first bill is routed. Atty. Thorne is waiting on the Case Plan.
 
 **Execution prompt.** Draft the complete Case Plan for John Doe v. Robert Smith. Fill all five bands from today's work: the acceptance decision with its reason; coverage as a stack with its order of operations, liability, and a preliminary projection; the Regulatory Triple-Check, held open until the Treatment Phase; Clinical, Functional and Financial pillars with measurable goals, each action item with an owner and a date; and the risks band with the 14-Day Gap and the risk of a later break in care, prominently, with their consequences. Docket the filing window, then route the plan to Atty. Thorne.
 
@@ -680,7 +1345,7 @@ A full-slide editor canvas showing the live plan with all five bands stubbed and
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in Case Plan Audit & Day 2 Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
+Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -698,16 +1363,502 @@ Verified in Case Plan Audit & Day 2 Gate (taught on Case Flow Day 2) and that da
 
 #### 5 · Speaker Notes
 
-- This is Day 2's capstone. Give it real time; it is the gate, not a wrap-up.
+- This is Claim Set Up's capstone. Give it real time; it is the gate, not a wrap-up.
 - The locked route control is deliberate. If a trainee can't route, ask which band is incomplete.
 - Grade it as Atty. Thorne would read it. If you need to ask a question to set strategy, the plan isn't finished.
-- Close Day 2 by stating the gate: LORs out and logged, stack verified at $40,000, the 14-Day Gap flagged, plan routed. Day 3 doesn't begin until all four are true.
+- Close Claim Set Up by stating the gate: LORs out and logged, stack verified at $40,000, the 14-Day Gap flagged, plan routed. The Treatment Phase doesn't begin until all four are true.
 
 ---
 
-### 2.1.9 Coverage Setup Verification Check
+### 2.1.17 Multi-Channel Outreach Logging
 
-> **Knowledge Check** · Day 2 — Claim set up · Module 2: Claim Set Up · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
+> **Topic:** Skill Activity 1 — build a defensible record  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** LSH Claims Specialist: No Contact Protocol, Step 2 · `D1#11` Bottleneck: Delayed Client Follow-Up
+
+#### 1 · Visual Layout Description
+
+A CMS Communications Log as a table across the full slide width, four rows pre-filled as worked examples and four blank rows outlined in orange for the trainee. Columns: Date · Time · Channel · Outcome · Next action. In the right margin, a vertical coverage tracker of four chips (Phone ×2, Email, SMS, Emergency contact), each grey until its rung is cleared, then orange. Bottom strip, in danger red: a BAD entry, “called client, no answer”, with no date, time or channel, annotated with what is missing.
+
+#### 2 · Slide Body — Let Them
+
+**Scenario.** John Doe has not responded for six days. He missed a scheduled check-in call and his treatment has not begun. Two voicemails have been left on his mobile. Nothing has been logged. An emergency contact was collected at intake.
+
+**Execution prompt.** Run the No Contact Protocol on John Doe's file. Start with the Step 1 internal review: name the deadlines that are live right now. Reconstruct the attempts already made, then carry the Step 2 channel ladder forward. Log every attempt with date, time, channel and outcome, and record the next action with its due date. Finally, state whether Step 3 team notification is warranted and what case impact you would report.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → Case Summary · CMS → Communications Log |
+| **Expected output** | A completed Step 1 review and an unbroken, contemporaneous Step 2 outreach log. |
+
+**Verification checkpoints**
+
+- [ ] Step 1 done: case status, live deadlines and the date of last contact reviewed before any outreach
+- [ ] Earlier voicemails logged with date, time and channel
+- [ ] Phone rung cleared with at least two attempts
+- [ ] Email and SMS both attempted, not repeats on the phone
+- [ ] Emergency contact used as an approved channel
+- [ ] Every entry carries date, time, channel and outcome
+- [ ] Next action recorded with a due date
+- [ ] Step 3 impact names the running SOL (02/06/2028) and the treatment that has not started
+- [ ] No entry threatens withdrawal or case closure
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Six days without contact | Step 1 internal review | CMS → Case Summary | Live deadlines listed |
+| Review complete | Reconstruct and continue the log | CMS → Communications Log | Unbroken log, distinct channels |
+| Ladder cleared, no answer | Step 3 escalation with case impact | CMS → Tasks → Escalate | Atty. Thorne notified; impact recorded |
+
+**Best practices & pitfalls**
+
+- Write each entry as if a supervisor will audit it six months from now.
+- ⚠️ Pitfall: “called client, no answer” with no date, time or channel.
+- ⚠️ Pitfall: three calls to one mobile reported as three channels.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Field completeness | No entry missing date, time, channel or outcome |
+| 🤖 AI | **20%** | Ladder progression | 2+ phone attempts, then email and SMS: genuinely different rungs |
+| 🤖 AI | **10%** | Step 1 evidence | Internal review documented before outreach |
+| 🤖 AI | **10%** | Impact assessment | SOL correctly identified as 02/06/2028 |
+| 🧑‍🏫 Trainer | **25%** | Record defensibility | Would this log hold up if the file were reviewed six months from now? |
+| 🧑‍🏫 Trainer | **15%** | Professional tone | Entries are factual and neutral; no editorialising about the client |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Start by having them read the red BAD entry aloud. “Called client, no answer” is what most of them would have written.
+- Watch for trainees who skip Step 1 and start dialling. Ask what deadline is running before you let them log anything.
+- The emergency contact is the rung most trainees forget. It was collected at intake for this.
+- John Doe's treatment still hasn't begun. This silence is also what becomes the 14-Day Gap; tie it back to the 14-Day Gap flag set in Claim Set Up.
+
+---
+
+### 2.1.18 Final Warning Letter Drafting
+
+> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
+> **Topic:** Skill Activity 2 — write the letter that gets answered  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** LSH Claims Specialist: Final Warning Letter; sample unresponsive-client letters
+
+#### 1 · Visual Layout Description
+
+A split drafting view. Left two-thirds: the live letter draft on white letterhead, the four required elements highlighting in pale orange as they are completed, with a completeness meter above the page from 0/4 to 4/4. A chip pair in the header (CERTIFIED MAIL + EMAIL) must both be ticked before the draft can be sent. Right third: a UPL guard-rail panel on a danger-bordered card listing banned phrases in red strikethrough — “you will lose your case,” “we are withdrawing,” “your claim will be worth less” — each with a compliant navy rewrite directly beneath it.
+
+#### 2 · Slide Body — Let Them
+
+**Scenario.** John Doe has been unreachable for eleven days. The phone rung is cleared, emails and texts have been sent and the emergency contact has been tried, all logged. Step 3 escalation has been made to Atty. Thorne. Treatment still has not begun.
+
+**Execution prompt.** Draft the Step 4 Final Warning Letter to John Doe. Itemize the earlier attempts, set a response deadline inside the 7–14 day window, give notice of potential withdrawal, and state how he should respond. Keep every sentence inside the UPL boundary: nothing on the strength of his claim or the legal consequences of silence, and nothing that announces withdrawal as decided. Then record what must be true before skip-tracing can start, and whose authority the Step 5 decision needs.
+
+| | |
+|---|---|
+| **Tool / interface** | Action Plan Editor → Warning letter template |
+| **Expected output** | A send-ready Final Warning Letter with both deliveries logged, and a recorded escalation. |
+
+**Verification checkpoints**
+
+- [ ] Firm identification and the file reference present
+- [ ] Date of loss stated as 02/06/2026
+- [ ] Earlier attempts itemized with dates
+- [ ] Response deadline inside the 7–14 day window, stated as a date
+- [ ] Notice of potential withdrawal, as possible, not decided
+- [ ] How to respond, with at least two channels
+- [ ] Certified mail AND email both recorded
+- [ ] Current address confirmed before sending
+- [ ] No statement about claim value, legal consequences or settled representation status
+- [ ] Skip-Trace criteria recorded; Step 5 authority noted as Atty. Thorne's
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Eleven days, Step 3 made | Draft the letter | Action Plan Editor | Four elements present |
+| Draft complete | Send by certified mail and email | CMS → Documents → Outgoing | Both logged |
+| Letter sent | Calendar the response deadline | CMS → Calendar | Deadline date on the calendar |
+
+**Best practices & pitfalls**
+
+- Urgent without threatening: say what is needed and by when.
+- ⚠️ Pitfall: a deadline of “as soon as possible.”
+- ⚠️ Pitfall: crossing into legal consequence (“you will lose your case”).
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Element completeness | All four elements; the deadline is a date inside 7–14 days |
+| 🤖 AI | **10%** | Case accuracy | File reference and DOL correct |
+| 🤖 AI | **15%** | Dual delivery | Certified mail and email both recorded |
+| 🤖 AI | **15%** | Banned-phrase scan | No prohibited phrase in the draft |
+| 🧑‍🏫 Trainer | **25%** | Tone and clarity | Would a worried client read this and call back? Firm without being cold. |
+| 🧑‍🏫 Trainer | **15%** | UPL judgment | Withdrawal framed as possible, not announced; no legal-consequence advice |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- The hard part is a letter that is urgent but not threatening. Most first drafts fail one way or the other.
+- “Itemize” means list the attempts with dates.
+- Read the banned and compliant pairs aloud before they draft. It saves a full rewrite.
+- Have two trainees swap drafts and mark each other's against the four elements and the dual delivery before submitting.
+
+---
+
+### 2.1.19 Transmitting LOPs to Medical Providers
+
+> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Topic:** Skill Activity 1 — one LOP issued, one declined  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · `D1#33` Case Planning — Treatment: The Assessment Phase · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · `D1#46` Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain · Newly authored: LOP issuance guidelines and the MedPay exhaustion ledger
+
+#### 1 · Visual Layout Description
+
+Two dated envelopes side by side, each a white card with a navy header. Left, 02/23/2026 → RIVERTON SPINE & REHAB: an outgoing LOP with three orange numbered badges, ① payer check: out of network ② Atty. Thorne's approval and signature ③ receipt confirmed, and a green ✓ transmit stamp. Right, 03/11/2026 → SUMMIT IMAGING CENTER: a decline letter carrying a mono pill MEDPAY LEFT $3,675.00 ≥ MRI $2,395.00 and an orange arrow routing the bill to Harbor Point. Beneath both, a slim cream baseline card: 2021 · LOW BACK · RESOLVED beside 2026 · NECK, two separate outlined zones. A red callout bottom-right: “No amount promised.”
+
+#### 2 · Slide Body — Let Them
+
+**Scenario.** 02/23/2026: John Doe's first treatment was at Riverton Urgent Care on 02/20/2026 ($685.00, to Harbor Point MedPay). Chiropractic and PT at Riverton Spine & Rehab begin 02/24/2026; it is out of network for Peach State. Atty. Thorne has approved the firm's LOP template. John Doe had three chiropractic visits in 2021, for low-back stiffness. 03/11/2026: Summit Imaging Center, booked for the cervical MRI Dr. Reyes ordered on 03/05/2026, asks for an LOP.
+
+**Execution prompt.** Work both dates. First run the Payer Order for each provider and record the result. On 02/23/2026, prepare Riverton Spine & Rehab's LOP on the approved template, route it to Atty. Thorne for approval and signature, transmit it with the claim-specific HIPAA authorization, and ask for itemized statements and a missed-visit alert; confirm receipt and open the LOP register entry. Record John Doe's assessment, including his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing, naming Harbor Point MedPay as the payer, with the ledger to prove it. Graded: no payment promised to either provider.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → Liens → LOP register · CMS → Documents → Outgoing · Email Workspace · CMS → Insurance tab → MedPay ledger |
+| **Expected output** | One counsel-approved LOP transmitted and confirmed, one LOP request declined with the payer named, a current MedPay ledger, and a documented pre-morbid baseline. |
+
+**Verification checkpoints**
+
+- [ ] Payer Order run and recorded for each provider: MedPay → Peach State → LOP
+- [ ] Riverton Spine & Rehab's LOP justified: out of network for Peach State, and a full course of care MedPay's balance can't carry
+- [ ] LOP explained to John Doe by Atty. Thorne and signed by John Doe and by Atty. Thorne on 02/23/2026, before the first visit on 02/24/2026, so the handoff from urgent care opens no new gap; nothing signed by the CM on his behalf
+- [ ] Transmittal carries the claim-specific HIPAA authorization and asks for itemized statements and a missed-visit alert; receipt confirmed and logged
+- [ ] LOP register entry: provider, date signed, out-of-network status, a running balance field
+- [ ] Assessment recorded: clinical (neck pain; right-hand numbness since 02/18; the urgent-care note puts onset at the 02/06/2026 MVA), social (rental authorized 02/18/2026, capped at 30 days, so it ends 03/19/2026: calendared as a treatment risk), vocational (Northgate Distribution shift lead)
+- [ ] Pre-morbid baseline: three 2021 chiropractic visits for low-back stiffness, resolved; no prior neck complaints; body region distinguished, records requested
+- [ ] Summit Imaging's 03/11/2026 request declined in writing with the reason stated (MedPay applies first) and Harbor Point MedPay named as the payer
+- [ ] Decline proved from the ledger: $5,000.00 – $685.00 – $640.00 = $3,675.00 left, enough for the $2,395.00 MRI, leaving $1,280.00
+- [ ] No payment amount, reduction or payment date promised to either provider; Atty. Thorne copied on the decline
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| 02/23/2026: Riverton Spine & Rehab needs an LOP before the 02/24/2026 visit | Run the Payer Order, prepare the LOP on the approved template, route it for approval | CMS → Documents → Outgoing → Route for approval | Approved and signed before the first visit |
+| LOP signed | Transmit it with the HIPAA authorization; confirm receipt; open the register entry | Email Workspace · CMS → Liens → LOP register | Receipt confirmed and dated in the Communications Log |
+| 03/11/2026: Summit Imaging asks for an LOP | Decline in writing, naming Harbor Point MedPay as the payer; post the ledger | Email Workspace · CMS → Insurance tab → MedPay ledger | Reason stated; ledger shows $3,675.00 left before the MRI |
+
+**Best practices & pitfalls**
+
+- Run the Payer Order before you open the LOP template, every time.
+- Ask every LOP provider for itemized statements and a missed-visit alert. The alert is your early warning that care is slipping.
+- Highlight the prior history, never hide it. The eggshell rule (generally, a defendant takes the plaintiff as he finds him and is liable for the full harm even if John Doe was more susceptible; where a prior condition is aggravated, the aggravation, not the prior condition itself, is compensable. Confirm the governing rule.) is Atty. Thorne's to argue; your job is the record: the 2021 visits were low back, resolved, a different region from the neck.
+- ⚠️ Pitfall: issuing an LOP to a provider MedPay would have paid. That bill becomes a lien on John Doe's net.
+- ⚠️ Pitfall: answering a provider's “will we be paid in full?” with anything but the LOP's own terms and a referral to Atty. Thorne.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Payer-order decisions | LOP to Riverton Spine & Rehab (out of network for Peach State); Summit declined because MedPay applies first |
+| 🤖 AI | **15%** | Ledger arithmetic | $3,675.00 left on 03/11/2026; $1,280.00 after the $2,395.00 MRI |
+| 🤖 AI | **15%** | LOP file completeness | Signed 02/23/2026, transmitted with the HIPAA authorization, receipt confirmed, register entry opened |
+| 🤖 AI | **10%** | Assessment and baseline | Clinical, social, vocational and pre-morbid fields recorded; 03/19/2026 rental end calendared; 2021 low back distinguished from the neck |
+| 🧑‍🏫 Trainer | **15%** | Provider communication | A clear, courteous, firm decline that names the payer and invites no dispute |
+| 🧑‍🏫 Trainer | **25%** | UPL boundary | No payment amount, reduction or date promised; terms and signature left to Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Run it in two passes, one per date. On 02/23/2026 the trainee must say why Riverton gets an LOP before opening the template.
+- Put to the room: “Summit says it won't do the MRI without an LOP. What do you say, and who do you tell?” Give the MedPay details; if Summit still refuses, Atty. Thorne hears before the 03/13/2026 appointment, so the MRI doesn't slip.
+- Grade the language. “Your bill is protected on the LOP's terms; for anything beyond them I'll put you in touch with Atty. Thorne” passes. “Don't worry, you'll be paid in full” fails, however friendly.
+- The baseline checkpoint is the eggshell skill in miniature: the trainee records the prior and the difference in body region. Whether aggravation law matters at all is Atty. Thorne's call.
+
+---
+
+### 2.1.20 Subrogation Lien Flagging in the CMS
+
+> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Topic:** Skill Activity 2 — register the claim before it can hurt you  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking
+
+#### 1 · Visual Layout Description
+
+A single annotated CMS Liens screen filling two-thirds of the slide, a white card with a navy header bar. Five fields are called out with orange numbered badges and leader lines to short labels in the right margin: ① Plan carrier ② Member ID ③ Group number ④ Payer Order position ⑤ Reimbursement flag. Below the screen, a slim two-state timeline: a green node, FLAGGED NOW · before demand, and a red node, FOUND AT DISBURSEMENT · client's net is hit, crossed out. Keep the red state on the slide: trainees need to see the failure they are avoiding.
+
+#### 2 · Slide Body — Let Them
+
+**Scenario.** Peach State Health Plan has begun paying John Doe's accident-related treatment. No lien record exists on the matter yet, and the pre-demand audit is still ahead.
+
+**Execution prompt.** Register Peach State Health Plan's reimbursement claim in John Doe's lien register and flag it against the matter. Record the carrier, member ID and group number, its position in the Payer Order, the basis on which reimbursement is asserted, and the date of the flag. Record the Regulatory Triple-Check results alongside it. Then state in one line what must happen before this lien can be compromised.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → Liens |
+| **Expected output** | A dated, flagged lien record complete enough to negotiate from on Day 4. |
+
+**Verification checkpoints**
+
+- [ ] Lien record created against the John Doe matter
+- [ ] Carrier recorded as Peach State Health Plan
+- [ ] Member ID PSH-55017742 and group GRP-41208 both entered
+- [ ] Payer-order position recorded: after PIP/MedPay, before LOP/provider liens
+- [ ] Reimbursement basis noted
+- [ ] Flag dated before any demand is drafted
+- [ ] Triple-Check recorded: HIPAA authorization, BCRC answer, Payer Order
+- [ ] Escalation noted: compromise requires Atty. Thorne's authority
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Plan's first payment posts | Create and flag the lien record | CMS → Liens | Record dated; flag set |
+| Lien record created | Attach the Triple-Check results | CMS → Case Notes | HIPAA, BCRC and Payer Order all recorded |
+| Any request to compromise | Route to Atty. Thorne | CMS → Tasks → Escalate | No compromise discussed without counsel's authority |
+
+**Best practices & pitfalls**
+
+- Registering a lien is not conceding it; Day 4 is where it gets reduced.
+- Keep the LOP provider list current with balances, so no bill surprises the policy limits.
+- ⚠️ Pitfall: finding the lien at disbursement, when there is no time to negotiate from strength.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Record created | Lien exists against the correct matter |
+| 🤖 AI | **25%** | Identifier accuracy | Member ID and group number entered exactly |
+| 🤖 AI | **20%** | Flag timing | Dated and placed pre-demand |
+| 🧑‍🏫 Trainer | **25%** | Documentation quality | A lien negotiator could work from the record cold |
+| 🧑‍🏫 Trainer | **15%** | Authority boundary | Recognised that compromise needs counsel's authority |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Have trainees say the date aloud as they set the flag. Timing is the graded element, and it is the one they will be tempted to defer.
+- Point at the crossed-out red node: a lien found at disbursement is found too late to negotiate from strength.
+- Read one trainee's record to the room as if you were the lien negotiator receiving it on Day 4. Gaps show at once.
+- Remind them that registering a lien is not conceding it.
+
+---
+
+### 2.1.21 Executing the A-C-T Crisis Protocol for Disrupted Care
+
+> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Topic:** Skill Activity 2 — the Transportation Wall, 04/08/2026  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#26` The Treatment Phase — Core Objectives · `D1#27` Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#30` Handling the Treatment Phase: Proactive Resource Coordination · `D1#38` Variance Analysis: Why the Map Fails · `D1#41` Immediate Action Protocol: A-C-T for Red Flags · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder · `D1#47` Skill Building: Handling Client Treatment — “The Transportation Wall”
+
+#### 1 · Visual Layout Description
+
+A horizontal treatment timeline across the slide from 04/02/2026 to 04/24/2026. A hollow red band spans 04/02 → 04/21, labelled 19 DAYS · NO VISITS, with four red ✗ markers at 04/03, 04/07, 04/09 and 04/14. Above the band, the A-C-T steps as three orange-badged navy cards pinned to their dates: ① ASSESS 04/08 ② COORDINATE 04/08 → 04/10 rental refused → 04/21 evening slot ③ TRACK 04/21 · 04/23 with green ✓ markers. A grey mono pill at 04/24 reads CIVIC RETURNED. Below, the three Transportation Wall options as cream cards, A · B · C. The empty red band is the argument: every day of it needs a documented reason.
+
+#### 2 · Slide Body — Let Them
+
+**Scenario.** 04/08/2026: Riverton Spine & Rehab's missed-visit alert. John Doe missed 04/03 and 04/07; his last visit was 04/02/2026. As you work, the file moves: Keystone PD (Leah Moran) answers your rental request on 04/10/2026, the clinic's first open evening slot is 04/21/2026, John Doe misses 04/09 and 04/14 meanwhile, and the Civic comes back from the shop on 04/24/2026.
+
+**Execution prompt.** Execute A-C-T on the Transportation Wall. Assess: call John Doe on 04/08/2026, find the barrier, classify the variance, and decide whether it is a medical or a legal danger. Coordinate: clarify with the clinic, request a rental extension from Keystone PD in writing, and build a transport plan from one of the three Transportation Wall options, saying why. Track: write the GIRP note, report to Atty. Thorne, and confirm attendance once care resumes. Graded: exact dates and the 19-day count; no treatment advice; no talk of what missed visits do to the claim.
+
+| | |
+|---|---|
+| **Tool / interface** | Call Simulator → AI John Doe · Email Workspace · CMS → Case Notes · CMS → Case File → Treatment timeline |
+| **Expected output** | A complete A-C-T record: the call, the variance, each coordination attempt and its result, a GIRP note, the report to Atty. Thorne, and attendance confirmed on 04/21 and 04/23/2026. |
+
+**Show Them — reference model**
+
+*The Transportation Wall: three ways through, and their trade-offs*
+
+1. **Option A · Problem Solver** — You find the ride: a rental extension from the carrier, bus routes, ride vouchers from a non-profit or community program. Never a ride, rental or voucher paid for by the firm: that is financial assistance to a client, Atty. Thorne's call under the governing ethics rule. Fast, but John Doe depends on you.
+2. **Option B · Empowerer** — John Doe finds it with you: who in his household can drive, and when. Slower to start, but it lasts.
+3. **Option C · Clinical Pivot** — Ask the clinic whether an interim home program fits while transport is fixed. The provider decides.
+
+**Verification checkpoints**
+
+- [ ] Assess dated 04/08/2026, the day the alert arrived; barrier recorded: Keystone ended the rental on 03/19/2026 (30-day cap), the carpool ended with Kevin Alvarez's shift change on 04/01/2026, the Civic is awaiting parts
+- [ ] Symptoms asked about on the call; anything new or worse routed to the provider at once
+- [ ] Classified: an external barrier (transport), a psychosocial variance, and a legal danger (missed visits); reported to Atty. Thorne
+- [ ] Rental extension requested in writing from Keystone PD (Leah Moran), property facts only (Civic awaiting parts; repair not complete); nothing about John Doe's treatment or missed visits; the 04/10/2026 refusal (“shop delay”) logged
+- [ ] Transport option chosen and justified; plan: evening slots so Margaret Doe can drive John Doe after her shift, booked with the clinic while John Doe is on the line
+- [ ] Missed visits recorded exactly: 04/03, 04/07, 04/09 and 04/14/2026, four in all
+- [ ] Disruption computed: 04/02/2026 → 04/21/2026 = 19 days without a visit
+- [ ] GIRP note complete (Goal, Intervention, Response, Plan), factual, no opinion on the claim
+- [ ] Ladder documented rung by rung: the clinic, the written request to Keystone PD, Atty. Thorne told of the refusal
+- [ ] Track: attendance confirmed 04/21 and 04/23/2026; the Civic's return on 04/24/2026 noted
+- [ ] No advice to add, skip or stop treatment; nothing said about what missed visits do to the claim's value
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| 04/08/2026: missed-visit alert | Assess: call John Doe, classify the variance, write the GIRP note | Call Simulator → AI John Doe · CMS → Case Notes | Call and note dated 04/08/2026 |
+| Barrier is transport | Coordinate: written rental request to Keystone PD; evening slots with the clinic | Email Workspace · CMS → Property Damage → Correspondence · CMS → Calendar | Request dated; 04/10/2026 refusal logged; 04/21/2026 slot on the calendar |
+| Care resumes 04/21/2026 | Track: confirm attendance with the clinic; report to Atty. Thorne | CMS → Case File → Treatment timeline · CMS → Tasks → Escalate | Attendance on 04/21 and 04/23/2026 confirmed; 19-day disruption recorded with its cause |
+
+**Best practices & pitfalls**
+
+- Facilitation is the treatment phase's first job: a client who can't reach the clinic isn't in treatment, whatever the plan says.
+- Act the day the alert lands. Every day without a plan is another missed visit.
+- Calendar known transport risks: a rental capped at 30 days has an end date (03/19/2026) you could see on 02/18/2026.
+- Log Keystone PD's 04/10/2026 refusal in full. It is part of why care stopped, and part of the loss-of-use claim Atty. Thorne decides how to pursue.
+- ⚠️ Pitfall: accepting “I'll just wait until the car's back” without a plan.
+- ⚠️ Pitfall: telling John Doe that missing therapy “will hurt your case.” It is a value statement, and it pushes treatment for the claim's sake.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Dates exact | Alert and call 04/08/2026; refusal 04/10/2026; missed 04/03, 04/07, 04/09, 04/14; resumed 04/21/2026; 19 days |
+| 🤖 AI | **20%** | A-C-T complete | Assess, Coordinate and Track each recorded with its date and result |
+| 🤖 AI | **10%** | GIRP structure | All four parts present, factual and clinical |
+| 🤖 AI | **10%** | Ladder documented | Clinic, written request to Keystone PD, report to Atty. Thorne, in that order |
+| 🧑‍🏫 Trainer | **15%** | Crisis judgment | Chooses and justifies a transport option that keeps John Doe in care, balancing empowerment and speed |
+| 🧑‍🏫 Trainer | **10%** | Client communication | Active listening; motivates without pressure or blame |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | No treatment advice, no value talk, no firm-funded transport offered, nothing told to Keystone beyond property facts |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Start the clock at 04/08/2026 and release each update only when the trainee earns it: Keystone PD's refusal after the written request, the evening slot after they ask the clinic.
+- Put to the room: “Which option did the file actually use, and why did Option B outlast Option A?” The rental request failed on 04/10/2026; Margaret driving after her shift got John Doe back in care on 04/21/2026, three days before the Civic came back.
+- Watch the call for value talk. “If you miss more therapy your case is worth less” fails the UPL row, however well meant.
+- Nuance: Keystone also holds the BI claim. Keep the rental request to the property facts; what Keystone hears about John Doe's treatment is Atty. Thorne's call.
+
+---
+
+### 2.1.22 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+
+> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Topic:** Skill Activity 3 — the Millbrook booking, 04/22/2026  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#26` The Treatment Phase — Core Objectives · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#30` Handling the Treatment Phase: Proactive Resource Coordination · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · `D1#39` Communication Loops: The “Stakeholder Triad” · `D1#44` Handling Treatment Gaps During the Treatment Phase · Newly authored: redirecting a referral to the client's choice of facility, and the downstream task list (each task done or delegated with an owner and a due date)
+
+#### 1 · Visual Layout Description
+
+The CMS Tasks board fills the slide as a white card with a navy header, JOHN DOE · PAIN-MANAGEMENT REFERRAL, and ten rows. Each row ends in a status chip: green DONE · 04/22/2026 for the CM's own work, orange DELEGATED with the owner's name and a mono due date, grey OPEN · DUE 05/18/2026 for the attendance check. Above the board, a slim calendar strip from 05/13/2026 to 05/18/2026: the 05/14 slot at Millbrook Interventional Pain Center struck through in red, the 05/15 slot at Crescent Pain & Spine in navy with an IN NETWORK · PEACH STATE pill, a bell at 05/13 (reminder call) and a check at 05/18 (attendance). Bottom-right, a red chip: “His choice of facility. Dr. Reyes's care.”
+
+#### 2 · Slide Body — Let Them
+
+**Scenario.** 04/22/2026, 12:18 p.m.: a voicemail from John Doe. Care resumed at Riverton Spine & Rehab on 04/21/2026 on evening slots, with Margaret Doe driving after her shift; the Civic is still in the shop. Yesterday Lakeside Orthopedics' scheduling desk booked the pain-management injection Dr. Alana Reyes referred him for on 03/27/2026 at Millbrook Interventional Pain Center, in Millbrook, for 05/14/2026. John Doe won't go: it is far out in Millbrook, he has no reliable ride there, and he heard it is out of network with Peach State. Dr. Reyes's 03/27/2026 note names Crescent Pain & Spine (Dr. Omar Haddad, 41 Crescent Ct, Riverton). Lakeside's referral coordinator is Janelle Brooks.
+
+**Execution prompt.** Call John Doe back and listen. Where he goes, among the options his doctors find appropriate, is his choice; what care he gets is for Dr. Reyes and the treating provider to decide, so give no medical advice. Verify Crescent's network status with Peach State yourself. Work with Janelle Brooks to redirect the referral to Crescent Pain & Spine, and book its first opening while John Doe is on the line, so no new gap opens. Then handle every task that follows, or delegate it with an owner and a due date: cancel the Millbrook slot; update the CMS Calendar; add Crescent to Parties with its billing details; set up the Peach State billing and note its reimbursement interest; request Crescent's records and bills under the HIPAA authorization; agree a transport plan; write the GIRP note; report to Atty. Thorne; and confirm attendance after 05/15/2026. Graded: exact names and dates, no treatment advice, nothing said about the claim's value.
+
+| | |
+|---|---|
+| **Tool / interface** | Call Simulator → AI John Doe · CMS → Tasks · CMS → Calendar · CMS → Parties · CMS → Liens · ChartSwap · CMS → Case Notes · Email Workspace |
+| **Expected output** | A CMS task list for the redirect, each task Done by me (dated) or Delegated to a named owner with a due date; the 05/15/2026 Crescent appointment on the calendar; a GIRP note and the report to Atty. Thorne. |
+
+**Show Them — reference model**
+
+*The redirect as a task list: every row Done or Delegated, none without an owner*
+
+| Task | Status |
+|---|---|
+| Call John Doe back; record his reasons | Done by me 04/22/2026 |
+| Read Dr. Reyes's 03/27/2026 referral; verify Crescent's network status with Peach State | Done by me 04/22/2026 |
+| Redirect the referral with Janelle Brooks; book Crescent 05/15/2026 with John Doe on the line | Done by me 04/22/2026 |
+| Cancel Millbrook's 05/14/2026 slot | Delegated to Janelle Brooks (Lakeside), due 04/23/2026; cancellation logged by me |
+| CMS Calendar: Millbrook off; Crescent 05/15/2026 on; reminder call 05/13/2026 | Done by me 04/22/2026 |
+| Parties: Crescent Pain & Spine, Dr. Omar Haddad, with its billing details | Done by me 04/22/2026 |
+| Peach State billing in network, no LOP; Lien Tracker flagged for Crescent's claim | Done by me 04/22/2026 |
+| Crescent's records and itemized bill for 05/15/2026, under the HIPAA authorization | Delegated to the records team, due 05/29/2026 |
+| Transport plan; GIRP note; report to Atty. Thorne | Done by me 04/22/2026; ride reconfirmed on 05/13/2026 |
+| Confirm attendance with Crescent | Mine, due 05/18/2026 |
+
+**Verification checkpoints**
+
+- [ ] Voicemail returned on 04/22/2026; John Doe's reasons recorded in his own words: Millbrook is far, he has no reliable ride there (the Civic in the shop, Margaret Doe working days), and he heard it is out of network
+- [ ] Roles kept straight: John Doe chooses where among appropriate options; Dr. Reyes and the treating provider decide the care; no opinion given on the injection or on either facility's medicine
+- [ ] Dr. Reyes's 03/27/2026 note read first: the referral names Crescent Pain & Spine, Dr. Omar Haddad, 41 Crescent Ct
+- [ ] Network status verified with Peach State, not repeated from what John Doe heard: Crescent Pain & Spine is in network (member PSH-55017742, group GRP-41208)
+- [ ] Referral redirected through Janelle Brooks, Lakeside's referral coordinator; Crescent's first opening, 05/15/2026, booked while John Doe is on the line
+- [ ] No new gap: 05/15/2026 is one day after the 05/14/2026 slot it replaces, and PT at Riverton Spine & Rehab continues on its evening slots
+- [ ] Millbrook's 05/14/2026 slot cancelled: delegated to Janelle Brooks (Lakeside booked it), due 04/23/2026; the cancellation confirmed and logged
+- [ ] CMS Calendar: the Millbrook slot removed; Crescent 05/15/2026 added; reminder call to John Doe on 05/13/2026; attendance check on 05/18/2026
+- [ ] Crescent added to Parties as a treating provider: Dr. Omar Haddad, 41 Crescent Ct, Riverton, (555) 010-6900, billing (555) 010-6912; bills Peach State in network; no LOP
+- [ ] Lien Tracker: Peach State's reimbursement interest (Dion Carver, asserted 02/27/2026) flagged to expect Crescent's claim, at what the plan pays as its EOB shows, never the bill
+- [ ] Crescent's records and itemized bill for 05/15/2026 requested under the HIPAA authorization signed 02/09/2026: delegated to the records team, due 05/29/2026
+- [ ] Transport plan agreed with John Doe and recorded; Crescent's pre-procedure instructions passed on as given, not interpreted
+- [ ] GIRP note and a short report to Atty. Thorne on 04/22/2026; no treatment advice and nothing about the claim's value anywhere on the file
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| 04/22/2026: John Doe's voicemail refuses Millbrook | Call back; read Dr. Reyes's referral; verify Crescent with Peach State | Call Simulator → AI John Doe · CMS → Case Notes | Reasons logged; Crescent verified in network |
+| Facility chosen by John Doe | Redirect with Janelle Brooks; book 05/15/2026 with him on the line; cancel Millbrook | CMS → Calendar · CMS → Parties | Old slot off; new slot, reminder and attendance check on |
+| Downstream work | Do each task or delegate it with an owner and a due date; report to Atty. Thorne | CMS → Tasks · ChartSwap · CMS → Liens · Email Workspace | Every task Done or Delegated; none without an owner |
+
+**Best practices & pitfalls**
+
+- Read the referral before you redirect it: Dr. Reyes's 03/27/2026 note already names Crescent Pain & Spine.
+- Verify network status with the plan yourself. What John Doe heard at work is a reason to check, not a fact.
+- Book while the client is on the line. A callback is where a new gap starts.
+- A delegated task has an owner, a due date and your check that it was done.
+- ⚠️ Pitfall: telling John Doe which facility or doctor is better, or whether he needs the injection at all. That is Dr. Reyes's and the treating provider's call.
+- ⚠️ Pitfall: cancelling Millbrook and stopping there. The calendar still shows a no-show, and nobody has asked Crescent for its records.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Facts exact | 04/22/2026 voicemail; Millbrook 05/14/2026 cancelled; Crescent Pain & Spine, Dr. Omar Haddad, 05/15/2026; Peach State member PSH-55017742 |
+| 🤖 AI | **20%** | Task list complete | Cancellation, Calendar, Parties, Peach State and the Lien Tracker, records request, transport, GIRP note, report to Atty. Thorne, attendance check |
+| 🤖 AI | **15%** | Ownership | Every task Done by me with its date, or Delegated to a named owner with a due date |
+| 🤖 AI | **10%** | Continuity of care | Crescent's first opening booked with John Doe on the line; PT continues; no new gap |
+| 🧑‍🏫 Trainer | **10%** | Client handling | Listens, respects John Doe's choice of facility, books with him on the line |
+| 🧑‍🏫 Trainer | **10%** | Coordination judgment | Works through Lakeside's referral coordinator; verifies network status instead of repeating hearsay |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | No treatment advice, no opinion on either facility's care, nothing about the claim's value |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Play the voicemail and stop. Ask: “Who decides where John Doe has the injection, and who decides whether he has it?” He chooses among appropriate options; Dr. Reyes and Crescent decide the care.
+- The trap is the hearsay. John heard Millbrook is out of network. A trainee who repeats that to John or to Lakeside has passed on a rumor; one who checks with Peach State has a fact.
+- Look for the referral note. Dr. Reyes's 03/27/2026 note already names Crescent Pain & Spine, so the trainee who reads it first has a one-call fix.
+- Grade the task list, not just the call. Every row needs Done with a date, or Delegated with an owner and a due date. A row that reads “records: later” fails the ownership dimension.
+- Nuance: Crescent bills Peach State as an in-network provider, so there is no LOP. Peach State's reimbursement claim will start at what it pays, which its EOB will show.
+
+---
+
+### 2.1.23 Coverage Setup Verification Check
+
+> **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#20` Case Study: John Doe v. Apex — Coverage Analysis · LSH Claims Specialist: LOR components, information protection, acknowledgement and limits disclosure
@@ -813,9 +1964,9 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 ---
 
-### 2.1.10 Case Plan Audit & Day 2 Gate
+### 2.1.24 Case Plan Audit & the Claim Set Up Gate
 
-> **Knowledge Check** · Day 2 — Claim set up · Module 2: Claim Set Up · scored with Case Plan Audit & Day 2 Gate (`d1m4`)  
+> **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#8` Case Acceptance Determination · `D1#23` Case Planning Framework: The Three-Pillar Case Plan · `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · `D1#25` The “Golden Rule” of US Claim Set-Up · `D1#44` Handling Treatment Gaps During the Treatment Phase · `D2#13` Treatment Gaps in the Demand Phase
@@ -832,7 +1983,7 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 **Best practices & pitfalls**
 
-- Check all four gate conditions before you move to Day 3.
+- Check all four gate conditions before you move on to the Treatment Phase.
 - ⚠️ Pitfall: quietly editing an approved plan instead of re-routing it.
 
 #### 3 · Knowledge Check & CM Summary
@@ -841,7 +1992,7 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 - Summarize what you learned about turning a raw intake into a file an attorney can set strategy from.
 - Articulate your strategy: the plan is with Atty. Thorne. What is your next action, and what are you waiting on before the one after that?
-- Identify the one thing across Days 1 and 2 you are least confident about, and what you would need in order to be confident.
+- Identify the one thing across Day 1 and Claim Set Up you are least confident about, and what you would need in order to be confident.
 
 **Skill Scale — self-rate 1–5**
 
@@ -876,12 +2027,12 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 6. In the Action Plan Editor, where do an action item's owner and date go?  
    **✓ In the item's own fields** · In a sentence in the item · In the risks band · In a separate email  
    *Put each action item's owner and date in their own fields, not in a sentence.*
-7. Which of these is a defense use of the 14-Day Gap that the flag must name?  
-   **✓ The injuries were not serious** · The SOL has run · The LOR was late · The client was a passenger  
-   *The flag states the defense uses: injuries not serious, recovered earlier than claimed, treatment unnecessary, other causes.*
+7. What does the gap flag in the Case Plan's risks band record?  
+   **✓ The gap's dates and length, and that John Doe's own documented explanation is still to be gathered** · How much the gap will lower the value of the case · The Case Manager's guess at why John Doe waited · The arguments the Case Manager will make to defend the gap  
+   *Facts only: 14 days, 02/06/2026 to 02/20/2026, explanation pending. What the gap means for the claim is Atty. Thorne's to assess; the Case Manager never interprets or defends it.*
 8. Besides the initial 14-day gap, what must the gap flag set up?  
    Nothing more · **✓ A watch for any later break in care** · A demand date · A call to the adjuster  
-   *Record the initial gap and set a watch for any later break in care: a second break undercuts the explanation for the first.*
+   *Record the initial gap and set a watch for any later break in care; document each break the same way: its dates, then the client's own explanation and the records that support it.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -890,7 +2041,7 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 | 🤖 AI | **15%** | Band recall | All five bands and all three pillars named with correct contents |
 | 🤖 AI | **15%** | Coverage accuracy | Limits, total, order of operations; projection preliminary |
 | 🤖 AI | **15%** | Gap computation | 14 days, correct dates, the adjuster's arguments named |
-| 🤖 AI | **10%** | Gate conditions | All four Day 2 gate conditions listed |
+| 🤖 AI | **10%** | Gate conditions | All four Claim Set Up gate conditions listed |
 | 🤖 AI | **5%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Version reasoning | Recognises the approval is superseded and the plan must be re-routed |
 | 🧑‍🏫 Trainer | **10%** | Boundary judgment | The examples are genuinely on the right sides of the line |
@@ -903,7 +2054,194 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 - Question 5 tests version discipline and is the most often failed: the approval is superseded, and the plan must be re-routed, not quietly edited.
 - Question 3 enforces sequential integrity: with an unverified stack, every later demand and lien check reads the wrong numbers.
-- This check closes Day 2. Confirm the gate aloud with the room before releasing anyone to Day 3.
-- Compare scores with self-ratings across Days 1 and 2, not just this check.
+- This check closes Claim Set Up. Confirm the gate aloud with the room before releasing anyone to the Treatment Phase.
+- Compare scores with self-ratings across Day 1 and Claim Set Up, not just this check.
+
+---
+
+### 2.1.25 Treatment Monitoring Review
+
+> **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#32` Treatment Red Flags: Pain Management, Medication & Behavioral Health / TBI · `D1#33` Case Planning — Treatment: The Assessment Phase · `D1#34` Case Planning — Treatment: SMART Goal Setting · `D1#36` The Standard Treatment Map · `D1#37` Treatment Road Map Mastery & the Clinical Pathway Flowchart · `D1#40` The “Golden Standard”: Reasonable and Necessary · `D1#42` Illustration & Course Correction: The 6-Week Rule and Objective Metrics · `D1#46` Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain
+
+#### 1 · Visual Layout Description
+
+The standard knowledge-check split. Upper half: the question panel on the cream card with the orange ruled border, questions numbered in orange. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with three prompts, beside the 1–5 SKILL SCALE ladder with its six competency rows. Module-specific addition across the top: a thin payer rail, MEDPAY → PEACH STATE → LOP, with a small gauge showing MedPay at $0.00 after 06/12/2026. Far right, the 60/40 split as a stacked bar, 60% AI in navy and 40% Trainer in orange, with UPL as a separate red gate chip outside the bar.
+
+#### 2 · Slide Body — Knowledge verification
+
+1. Read Peach State's 06/03/2026 EOB (claim PS-2605-449021) line by line: what does each amount mean, and where does each one go on John Doe's file?
+2. Crescent's 07/01/2026 statement asks John Doe for $1,540.00. What does the EOB show, what do you do, and what do you tell him?
+3. Riverton Spine & Rehab got an LOP on 02/23/2026; Summit Imaging's 03/11/2026 request was declined. Explain both decisions from the Payer Order, and what you may and may not tell either provider.
+
+**Best practices & pitfalls**
+
+- Answer with the file's dates, figures and names, not general rules.
+- ⚠️ Pitfall: a self-rating that doesn't match your answers; your trainer will ask about the gap.
+
+#### 3 · Knowledge Check & CM Summary
+
+**Case Manager Self-Summary**
+
+- Summarize, in your own words, what you learned about keeping John Doe's treatment moving and paid for: the principles, not the clicks.
+- Articulate your strategy: care resumed on 04/21/2026. What is your next monitoring action, and why is it the right one rather than something else?
+- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+
+**Skill Scale — self-rate 1–5**
+
+| Competency | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| Reading an EOB line by line, remark codes included | ○ | ○ | ○ | ○ | ○ |
+| Reconciling provider balances to the EOBs and the MedPay ledger | ○ | ○ | ○ | ○ | ○ |
+| Applying the Payer Order: MedPay, then the Health Plan, then an LOP | ○ | ○ | ○ | ○ | ○ |
+| Preparing and transmitting an LOP on counsel's terms, and declining one | ○ | ○ | ○ | ○ | ○ |
+| Keeping a MedPay exhaustion ledger and LOP balances current | ○ | ○ | ○ | ○ | ○ |
+| Monitoring progress against the treatment map and the six-week rule | ○ | ○ | ○ | ○ | ○ |
+| Running A-C-T and the escalation ladder when care breaks down | ○ | ○ | ○ | ○ | ○ |
+| Holding the UPL line with providers and with John Doe | ○ | ○ | ○ | ○ | ○ |
+
+**1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
+
+**Auto-graded share of the day's Knowledge Check** (11 questions):
+
+1. On 03/11/2026 Summit Imaging asks for an LOP for John Doe's $2,395.00 MRI. Harbor Point MedPay has $3,675.00 left. What do you do?  
+   Prepare the LOP for Atty. Thorne's approval, since the provider asked for one · **✓ Decline the LOP and route the bill to MedPay, which applies first** · Send the bill to Peach State first, to save MedPay for later · Tell Summit it will be paid in full at settlement  
+   *The Payer-First Principle: MedPay pays regardless of fault, and Harbor Point confirmed it has no reimbursement right, so the MRI is paid with nothing to repay. An LOP would have turned it into a $2,395.00 lien against John Doe's net. Never promise a provider payment at settlement.*
+2. Crescent Pain & Spine billed $3,400.00 for the 05/15/2026 injection, and Peach State paid $1,860.00. Why does Peach State's reimbursement claim start at $1,860.00?  
+   Peach State always discounts its claims by about 45% · **✓ Crescent is in network: the plan paid its contract rate, Crescent wrote off the rest and cannot balance-bill, so the plan can only claim what it paid** · The other $1,540.00 is owed by MedPay · John Doe still owes Crescent the $1,540.00, so it is left out of the plan's claim  
+   *A Health Plan's reimbursement claim is what it paid, not what was billed. In network, the $1,540.00 difference is written off for good. That is why the Health Plan comes before an LOP, which carries the full billed amount into the recovery.*
+3. Peach State's 06/03/2026 EOB for Crescent's injection shows billed $3,400.00, plan paid $1,860.00 and member responsibility $0.00. On 07/01/2026 Crescent mails John Doe a statement for $1,540.00. What is it?  
+   A balance John Doe owes, now that his insurance has processed the claim · A new lien to add to the Lien Tracker at $1,540.00 · **✓ A balance bill of the contractual write-off: document it, route it to Atty. Thorne and ask Crescent in writing to correct the account** · Peach State's reimbursement claim  
+   *In network, Crescent agreed to accept the allowed $1,860.00 as payment in full (CO-45), and the EOB shows John Doe's share as $0.00. The $1,540.00 is the write-off: not a debt and not a lien. Whether he owes it is Atty. Thorne's call; you document it, route it, request the correction in writing and tell John Doe what you are doing.*
+4. Where does Peach State's reimbursement claim on Crescent's bill start?  
+   $3,400.00, the amount billed · **✓ $1,860.00, what the plan paid** · $1,540.00, the contractual adjustment · $0.00, because member responsibility is $0.00  
+   *A plan can claim back only what it paid. The EOB's plan-paid line, $1,860.00 (EFT PSH-EFT-0603-77815), is where its claim starts, and its itemized lien must match its EOBs line by line.*
+5. A provider sends Harbor Point a new bill for John Doe on 07/08/2026. What happens, and what do you do?  
+   Harbor Point pays it from the $20,000 Host UM limit · **✓ It comes back with a notice of exhaustion, because MedPay's $5,000.00 was used up on 06/26/2026; the bill goes to the next payer in the Payer Order** · Harbor Point pays it and asks John Doe to repay it from his recovery · It is added to the $40,000 stack  
+   *Harbor Point's payment history (RS31) shows five checks totalling $5,000.00, the last on 06/26/2026, and says bills received after exhaustion are returned with a notice of exhaustion. MedPay payments don't reduce the UM limit, Harbor Point asserts no reimbursement right, and MedPay is never part of the stack.*
+6. On 03/11/2026 Summit Imaging Center asks for an LOP before John Doe's cervical MRI. What do you do?  
+   Issue the LOP on the firm's template so the MRI isn't delayed · Ask Peach State to pre-authorize the MRI, and issue an LOP for anything it won't pay · **✓ Decline: MedPay pays first, so give Summit the Harbor Point MedPay billing details and log the decline** · Tell Summit the firm will guarantee its bill at settlement  
+   *Payer Order: MedPay → Peach State → LOP. MedPay had $3,675.00 left, enough for the $2,395.00 MRI. An unnecessary LOP turns a bill an earlier payer would cover into a lien on John Doe's net, and only Atty. Thorne sets LOP terms or commits the firm to anything.*
+7. Harbor Point MedPay has paid $685.00, $640.00, $2,395.00 and $640.00 in date order. How much is left for Lakeside Orthopedics' 06/12/2026 MMI visit?  
+   **✓ $640.00** · $1,280.00 · $0.00 · $4,360.00  
+   *$685.00 + $640.00 + $2,395.00 + $640.00 = $4,360.00; $5,000.00 – $4,360.00 = $640.00. The 06/12/2026 visit uses it, and MedPay is exhausted at exactly $5,000.00.*
+8. Riverton Spine & Rehab's missed-visit alert reaches you on 04/08/2026. Under A-C-T, what comes first?  
+   Ask Keystone PD to extend the rental · **✓ Call John Doe to assess the barrier, and whether it is a medical or a legal danger** · Write the GIRP note and close the alert · Tell Atty. Thorne that John Doe is non-compliant  
+   *Assess comes first: the 04/08/2026 call finds the barrier (no transport). Coordinate (the rental request, the evening slots) and Track (attendance on 04/21 and 04/23/2026) follow from what the call finds.*
+9. Keystone will point to John Doe's three chiropractic visits in 2021. The Case Manager's job is to:  
+   Leave them out of the file, since they are unrelated · Tell John Doe the eggshell rule means they can't hurt his claim · Argue to the adjuster that a prior injury doesn't matter · **✓ Document the baseline (low back, resolved, no prior neck complaints), distinguish it from the neck injury, and route it to Atty. Thorne**  
+   *Highlight the prior, never hide it. The CM documents the pre-morbid baseline and the difference in body region; whether aggravation or the eggshell rule matters at all is Atty. Thorne's call.*
+10. The correct Payer Order for John Doe's Medical Bills is:  
+   Health Plan → PIP/MedPay → LOP/provider liens · **✓ PIP/MedPay → private health insurance → LOP/provider liens** · LOP/provider liens → Health Plan → PIP/MedPay · Robert Smith's BI carrier pays each bill as it arrives  
+   *The Regulatory Triple-Check Payer Order: PIP/MedPay, then private health insurance, then LOP/provider liens.*
+11. Which of these is NOT part of the Regulatory Triple-Check?  
+   A claim-specific HIPAA authorization that names the incident date · Medicare/Medicaid (BCRC) reporting where the client is 65+ or on SSDI · Payer Order and subrogation management · **✓ The Time-Limit Demand**  
+   *The triple-check is HIPAA, Medicare/Medicaid reporting, and the Payer Order. Demands come on Day 3.*
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Payer and LOP accuracy | MedPay → Peach State → LOP; both LOP decisions explained; MedPay exhausted at $5,000.00 on the 06/12/2026 visit |
+| 🤖 AI | **15%** | Map and monitoring | Restorative, week 9, on 04/08/2026; MMI on 06/12/2026, with the pre-demand audit next (final records, bills and lien amounts requested, every lien identified and verified; resolution follows the recovery); SMART goal with an objective measure and a date; ROM, pain and disability-index measures named |
+| 🤖 AI | **15%** | Baseline and red flags | 2021 low back, resolved, distinguished from the C5-C6 neck injury and the MRI's “no significant degenerative change at the adjacent levels”; medication and behavioral-health flags routed to the provider or Atty. Thorne |
+| 🤖 AI | **15%** | Completeness | Every question answered substantively |
+| 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
+| 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slides |
+| 🧑‍🏫 Trainer | **10%** | UPL boundary | Pressure scenario: nothing promised beyond the LOP's terms; Atty. Thorne's authority named before the visit |
+| 🧑‍🏫 Trainer | **5%** | Self-rating calibration | Self-score is defensible against demonstrated performance |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Question 6 is the pressure scenario. The right answer promises nothing new, points the office manager to the LOP signed on 02/23/2026, and gets Atty. Thorne on it before the appointment, so the 19-day disruption doesn't grow.
+- Question 5 tests the eggshell skill. A trainee who says the 2021 visits “don't matter” has argued; one who documents low back vs. neck, resolved, no prior neck complaints, has proved.
+- Question 7: an opioid with a muscle relaxant and a sedative, a drug screen that doesn't match the prescriptions, doses rising with no change in diagnosis, behavioral notes about general stress rather than the crash, head-injury symptoms first reported months later. The provider hears the safety issue; Atty. Thorne hears the legal one; the conversation is documented.
+- Compare each self-rating with the score. UPL is a gate: a strong score does not survive a payment promise to a provider.
+
+---
+
+### 2.1.26 MIA Escalation Knowledge Check
+
+> **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
+> **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** LSH Claims Specialist: No Contact Protocol · `D1#11` Bottleneck: Delayed Client Follow-Up
+
+#### 1 · Visual Layout Description
+
+The standard knowledge-check split: cream question panel above, navy CM Self-Summary card below-left with the 1–5 skill ladder below-right, and the 60/40 strip with the separate red UPL gate on the far right. Unique to this module: between the question panel and the summary card, a horizontal NO CONTACT PROTOCOL CHECKLIST strip of all six steps as checkboxes with their required actions beneath, so the trainee self-audits the protocol before answering.
+
+#### 2 · Slide Body — Knowledge verification
+
+1. Set out all six steps of the No Contact Protocol in order, with the required action at each step.
+2. State the three purposes the protocol serves, and explain which of them protects the firm rather than the client.
+3. A colleague logs three voicemails to the client's mobile on three days and reports the contact ladder exhausted. Explain what is wrong and what the log should show instead.
+
+**Best practices & pitfalls**
+
+- Use the six-step checklist before you answer.
+- ⚠️ Pitfall: an answer that warns the client about their case.
+
+#### 3 · Knowledge Check & CM Summary
+
+**Case Manager Self-Summary**
+
+- Summarize what you learned about the firm's duty to a client who has gone silent, and what the record has to show.
+- Articulate your strategy: John Doe is on day eleven and still not treating. What do you do next, in what order, and why that order?
+- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+
+**Skill Scale — self-rate 1–5**
+
+| Competency | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| Running the No Contact Protocol's channel ladder | ○ | ○ | ○ | ○ | ○ |
+| Keeping a contemporaneous, defensible Communications Log | ○ | ○ | ○ | ○ | ○ |
+| Drafting a Final Warning Letter that gets a response | ○ | ○ | ○ | ○ | ○ |
+| Applying the three-criteria Skip-Trace gate | ○ | ○ | ○ | ○ | ○ |
+| Keeping the file moving while outreach runs | ○ | ○ | ○ | ○ | ○ |
+| Holding the line between my role and the attorney's decision to withdraw | ○ | ○ | ○ | ○ | ○ |
+
+**1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
+
+**Auto-graded share of the day's Knowledge Check** (4 questions):
+
+1. Under the No Contact Protocol, what comes before any outreach call?  
+   The Final Warning Letter · **✓ An internal review of case status, live deadlines and the date of last contact** · A Skip-Trace · A Motion to Withdraw  
+   *Step 1 is the internal review: you check what is running on the file before you dial.*
+2. Two voicemails on John Doe's mobile, on two days, show that:  
+   The contact ladder is exhausted · **✓ The phone rung is cleared; email, text and the emergency contact still follow** · Skip-tracing can begin · The client has abandoned the case  
+   *Escalate by channel, not by volume.*
+3. The Final Warning Letter is sent by:  
+   Email only · Certified mail only · **✓ Certified mail AND email** · Text message  
+   *Both: certified mail proves delivery and email gets a response. It states the prior attempts, a 7–14 day deadline and notice of potential withdrawal.*
+4. At Step 5 the client is still unresponsive. Who decides whether the firm withdraws?  
+   The Case Manager · **✓ The attorney** · The intake team · The adjuster  
+   *The Case Manager builds the record; the attorney decides on a Notice of Withdrawal or a Motion to Withdraw.*
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Protocol accuracy | All six steps in order with the right actions |
+| 🤖 AI | **15%** | Criteria accuracy | All three Skip-Trace criteria stated as an AND gate |
+| 🤖 AI | **15%** | Letter requirements | Certified mail and email; 7–14 day window |
+| 🤖 AI | **10%** | Completeness | Every question answered substantively |
+| 🧑‍🏫 Trainer | **15%** | Risk identification | Names the running SOL, the hardening Treatment Gap and the stalled claims work |
+| 🧑‍🏫 Trainer | **10%** | Role boundary | Reserves the withdrawal decision to counsel |
+| 🧑‍🏫 Trainer | **5%** | UPL rewrite quality | The rewrite is compliant and still useful |
+| 🧑‍🏫 Trainer | **10%** | Self-Summary & calibration | Specific, honest, and defensible against the score |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Question 2 is easy to answer shallowly. Protection from liability is the purpose trainees omit, and it is why the record is built the way it is.
+- Question 5 is the integration question: the running SOL, the hardening Treatment Gap, and the claims work that must go on anyway.
+- Question 7 is the UPL gate in miniature. A trainee who can't rewrite it compliantly isn't ready for client contact.
+- The gap they are watching build here is the same 14 days defense counsel will ask John Doe about in deposition on Day 5.
 
 ---

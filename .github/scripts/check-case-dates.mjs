@@ -76,5 +76,31 @@ if (!last || last.join("-") !== "2026-2-11") fails.push(`Day 1's last case event
 if (D.freshYear(new Date(Date.UTC(2029, 2, 12))) !== 2029 || D.freshYear(new Date(Date.UTC(2029, 0, 15))) !== 2026 || D.freshYear(new Date(Date.UTC(2031, 5, 1))) !== 2030)
   fails.push("freshYear picks the wrong case year");
 
+// the CMS's Date of Loss leads: with an offset, dates on or after the DOL move by exactly that many days (as the
+// CMS moves the SOL and the rest), and dates of birth and earlier dates stay — in the base year and a rolled year
+function withDol(year, dol) {
+  const c = {window: {CM_CASE_YEAR: String(year), CM_CASE_DOL: String(dol)}, location: {search: ""}, URLSearchParams,
+    sessionStorage: {getItem: () => null, setItem() {}, removeItem() {}}, localStorage: {getItem: () => null, setItem() {}}};
+  vm.createContext(c);
+  vm.runInContext(fs.readFileSync(path.join(ROOT, "js", "cm-case-dates.js"), "utf8"), c, {filename: "cm-case-dates.js"});
+  return c.window.CM_CASE_DATES;
+}
+const SAMPLE = "DOB 03/15/1990. Prior visit 01/10/2026. Collision 02/06/2026; SOL Sunday, February 6, 2028. First visit Feb. 20, 2026, again on 02/27. LSH-2026-MVA-0042, rev. 01/2026.";
+for (const [year, dol, want] of [
+  [2026, 10, "DOB 03/15/1990. Prior visit 01/10/2026. Collision 02/16/2026; SOL Sunday, February 16, 2028. First visit Mar. 2, 2026, again on 03/09. LSH-2026-MVA-0042, rev. 01/2026."],
+  [2026, -3, "DOB 03/15/1990. Prior visit 01/10/2026. Collision 02/03/2026; SOL Sunday, February 3, 2028. First visit Feb. 17, 2026, again on 02/24. LSH-2026-MVA-0042, rev. 01/2026."],
+]) {
+  const Dx = withDol(year, dol), got = Dx.all(SAMPLE);
+  if (got !== want) fails.push(`the CMS Date of Loss offset (${year}, ${dol} days) moved the wrong dates:\n     got  ${got}\n     want ${want}`);
+  if (Dx.dolOffset !== dol) fails.push(`dolOffset should be ${dol}, got ${Dx.dolOffset}`);
+}
+{ // in a rolled year: the year moves first (whole weeks), then the CMS offset from that year's DOL
+  const Dx = withDol(2029, 10), dol29 = Dx.text("02/06/2026");
+  if (Dx.dol() !== Dx.text(dol29, 10)) fails.push(`2029 + 10 days: the collision should be ${Dx.text(dol29, 10)}, got ${Dx.dol()}`);
+  if (Dx.all("03/15/1990 and 01/10/2026") !== Dx.text("03/15/1990 and 01/10/2026")) fails.push("2029 + 10 days: a date before the DOL moved with the CMS offset");
+  if (Dx.offsetFor(Dx.dol()) !== 10 || withDol(2029, 0).offsetFor(dol29) !== 0) fails.push("offsetFor doesn't read a CMS DOL back as its offset");
+}
+if (withDol(2026, 0).all(SAMPLE) !== SAMPLE) fails.push("with no CMS offset the base year's dates should stay as written");
+
 if (fails.length) { console.log(`${fails.length} problem(s):`); fails.slice(0, 80).forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
 console.log(`Case dates: ${strings.length} texts roll forward cleanly to ${years.join(", ")} (weekdays, SOL, holidays) and nothing is left behind.`);

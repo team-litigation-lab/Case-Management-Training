@@ -18,8 +18,9 @@ function viewsOf(b){
   const t = (SLIDES[b.id] || {}).theory;
   const theory = !t ? [] : (t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]).concat(t.framework ? ["frame"] : []);
   if(b.kind === "lesson" && b.brief) return ["why", "rules"].concat((b.ops || []).length ? ["job"] : []);
-  if(b.kind === "lesson") return ["why"].concat(theory, ["rules"], b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);
-  if(b.kind === "activity") return ["case", "task"].concat(b.show ? ["model"] : [], ["check"]);
+  if(b.kind === "lesson" && b.compact) return ["why"].concat((SLIDES[b.id] || {}).roadmap ? ["map"] : [], theory.slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);
+  if(b.kind === "lesson") return ["why"].concat((SLIDES[b.id] || {}).roadmap ? ["map"] : [], theory, ["rules"], b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);
+  if(b.kind === "activity") return ["case", "task"].concat(b.show && !b.compact ? ["model"] : [], ["check"]);
   const qs = (SLIDES[b.id] || {}).questions || b.check.questions;
   return (qs.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
 }
@@ -51,8 +52,8 @@ for (const day of CF.days) for (const m of day.modules) for (const b of m.blocks
   const c = J[b.id]; if(!c){ errors.push(`${b.id}: no script`); continue; }
   const vs = viewsOf(b);
   for (const v of vs) { const x = c[v]; if(!x){ errors.push(`${b.id}.${v}: no script for this slide`); continue; } say(b.id, `${v}.say`, x.say); ask(b.id, `${v}.ask`, x.ask); }
-  // a brief (condensed) lesson keeps its full scripts, unused, so it can be taught in full again
-  for (const v of Object.keys(c)) if(!vs.includes(v) && !b.brief) errors.push(`${b.id}.${v}: the block has no such slide`);
+  // a brief or compact (condensed) block keeps its full scripts, unused, so it can be taught in full again
+  for (const v of Object.keys(c)) if(!vs.includes(v) && !b.brief && !b.compact) errors.push(`${b.id}.${v}: the block has no such slide`);
   out[b.id] = Object.fromEntries(vs.filter(v => c[v]).map(v => [v, c[v].ask ? {say: c[v].say.trim(), ask: c[v].ask.trim()} : {say: c[v].say.trim()}]));
 }
 for (const id of Object.keys(J)) if(!seen.has(id)) errors.push(`${id}: no such block`);

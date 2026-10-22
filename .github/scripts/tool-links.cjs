@@ -156,6 +156,16 @@ function loadToolLinks(stateObj, fetchImpl) {
     // a Call Simulator line's graded calls (the Portal's page, which opens ☎ LSH Ring Channel), and a Training Library case, keep their query too
     const deep = await links.ticketed('https://cm-training-activity.pages.dev/simulators/call.html?program=CM&line=Adjusters%20%26%20Carriers&mode=graded');
     if (!/[?&]ticket=TESTTICKET/.test(deep) || !/mode=graded/.test(deep)) fail(`a graded call link should keep its query and get the ticket: ${deep}`);
+    // the shared Drafting tool on the Portal (js/cm-lor.js and js/cm-medprov.js send trainees there
+    // instead of drafting in the course, so it has to be signed in like any other tool)
+    const drafting = await links.ticketed('https://cm-training-activity.pages.dev/simulators/drafting.html');
+    if (!/[?&]ticket=TESTTICKET/.test(drafting)) fail(`the shared Drafting tool should get the ticket: ${drafting}`);
+    for (const f of ['js/cm-lor.js', 'js/cm-medprov.js']) {
+        const src = fs.readFileSync(path.join(ROOT, f), 'utf8');
+        if (!src.includes('https://cm-training-activity.pages.dev/simulators/drafting.html')) {
+            fail(`${f} should open the shared Drafting tool on the Portal`);
+        }
+    }
     const cmsDeep = await links.ticketed('https://lshcasemanagementtraining-trainingcrm.pages.dev/?program=CM&mock=MC-04');
     if (!/[?&]ticket=TESTTICKET/.test(cmsDeep) || !/mock=MC-04/.test(cmsDeep)) fail(`a Training Library case link should keep its query and get the ticket: ${cmsDeep}`);
 

@@ -11,7 +11,7 @@ const problems = [];
 const ctx = { window: {} };
 vm.createContext(ctx);
 vm.runInContext(fs.readFileSync(path.join(ROOT, 'js/cm-documents.js'), 'utf8'), ctx);
-const { CM_DOCS = [], CM_HANDOUTS = [], CM_DOC_FOLDERS = [] } = ctx.window;
+const { CM_DOCS = [], CM_DOC_FOLDERS = [], CM_KB_URL = '' } = ctx.window;
 
 const seen = new Set();
 const folders = new Set(CM_DOC_FOLDERS.map(f => f.id));
@@ -21,9 +21,8 @@ for (const d of CM_DOCS) {
     if (!d.file || !fs.existsSync(path.join(ROOT, 'documents', d.file))) problems.push(`${d.id} "${d.title}": documents/${d.file} is missing`);
     if (d.folder && !folders.has(d.folder)) problems.push(`${d.id}: unknown folder "${d.folder}"`);
 }
-for (const h of CM_HANDOUTS) {
-    if (!h.file || !fs.existsSync(path.join(ROOT, 'documents', h.file))) problems.push(`Handout "${h.title}": documents/${h.file} is missing`);
-}
+// the handouts are in the LSH Knowledge Base: the course links its Case Management collection through the Portal
+if (!/^https:\/\/cm-training-activity\.pages\.dev\/api\/launch\?tool=kb&to=cmkb$/.test(CM_KB_URL)) problems.push(`CM_KB_URL should open the Knowledge Base's Case Management collection through the Portal: ${CM_KB_URL}`);
 // docPacket(["JD01", …]) and doc:"JD07" references in the tools
 for (const f of fs.readdirSync(path.join(ROOT, 'js')).filter(f => f.endsWith('.js'))) {
     const src = fs.readFileSync(path.join(ROOT, 'js', f), 'utf8');
@@ -63,6 +62,6 @@ for (const a of activities) {
         else if (d.day > a.day) problems.push(`Case Flow activity ${a.id} (Day ${a.day}) works from ${id}, which opens on Day ${d.day}`);
     }
 }
-console.log(`Checked ${CM_DOCS.length} documents and ${CM_HANDOUTS.length} handouts; the Case Flow's ${CM_CF_DOCS.length} documents and ${activities.length} activity packets.`);
+console.log(`Checked ${CM_DOCS.length} documents and the Knowledge Base link; the Case Flow's ${CM_CF_DOCS.length} documents and ${activities.length} activity packets.`);
 if (problems.length) { console.log(`\n${problems.length} problem(s):\n`); problems.forEach((p, i) => console.log(`${i + 1}. ${p}`)); process.exit(1); }
 console.log('All good.');

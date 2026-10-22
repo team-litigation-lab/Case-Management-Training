@@ -35,7 +35,7 @@ const KEY = "doc-filing";
 const docOf = (id)=> (typeof cmDoc === "function" && cmDoc(id)) || null;
 const urlOf = (d)=> typeof cmDocUrl === "function" ? cmDocUrl(d) : "documents/" + d.file;
 // to read it: the document in the page (case-doc.html), never a download; urlOf stays the original file, which is what gets filed
-const viewOf = (d)=> /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}${window.CM_CASE_DATES && CM_CASE_DATES.year ? `&year=${CM_CASE_DATES.year}` : ""}` : urlOf(d);
+const viewOf = (d)=> /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}${window.CM_CASE_DATES && CM_CASE_DATES.year ? `&year=${CM_CASE_DATES.year}` : ""}${window.CM_CASE_DATES && CM_CASE_DATES.dolOffset ? `&dol=${CM_CASE_DATES.dolOffset}` : ""}` : urlOf(d);
 const basename = (d)=> String(d.file || "").split("/").pop();
 const expectedCategory = (d)=> LONG[d.cms] || d.cms || "Others";
 const rid = ()=> "f" + Math.random().toString(36).slice(2, 10);
@@ -54,13 +54,15 @@ function cmsFrame(){
 const caseOpen = ()=> (window.CMCase && CMCase.id()) || "";
 /* Ask the CMS to do one thing and wait for its answer (it echoes the id back). */
 function askCms(msg, replyKind, transfer){
-  const f = cmsFrame();
-  if(!f || !f.contentWindow) return Promise.resolve({ok:false, error:"The CMS isn't open beside this lesson. Press 🗂 Open CMS, sign in if it asks, and open your own case."});
+  // the CMS beside the lesson, or else a CMS tab this course opened (🧰 Tools → New tab)
+  const f = cmsFrame(), tab = (window.__cmsTabs || []).filter(w=>w && !w.closed).pop();
+  const target = (f && f.contentWindow) || tab;
+  if(!target) return Promise.resolve({ok:false, error:"The CMS isn't open beside this lesson. Press 🗂 Open CMS, sign in if it asks, and open your own case."});
   const id = rid();
   return new Promise(res=>{
     const on = (e)=>{ if(e.data && e.data.lsh === replyKind && e.data.id === id){ window.removeEventListener("message", on); res(e.data); } };
     window.addEventListener("message", on);
-    try{ f.contentWindow.postMessage(Object.assign({id}, msg), "*", transfer || []); }
+    try{ target.postMessage(Object.assign({id}, msg), "*", transfer || []); }
     catch(err){ window.removeEventListener("message", on); return res({ok:false, error:"The document could not be sent to the CMS."}); }
     setTimeout(()=>{ window.removeEventListener("message", on); res({ok:false, error:"The CMS didn't answer. Is your case open in it?"}); }, 20000);
   });

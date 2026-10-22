@@ -1,6 +1,6 @@
 /* ============================================================
    LSH Case Management Training — the Training Tools hub (CMS, Docket, Records), the tool frame,
-   Simulators, Handouts and the Calendar Conflict Resolver.
+   Simulators, 📚 Knowledge Base and the Calendar Conflict Resolver.
    Loaded after the main portal script: anything assigned to window
    here replaces the portal function of the same name.
    ============================================================ */
@@ -195,6 +195,12 @@ function cmTool(id){
   let url = String(o.url!=null ? o.url : d.url || "").trim().replace(/\/+$/,"");
   if(id==="calendaring" && /\/simulators\/calendar\.html$/i.test(url)) url = d.url;   // a saved address from before the Calendaring Simulators moved
   if(id==="calls" && /calls=1|trainingcrm\.pages\.dev/i.test(url)) url = d.url;      // a saved address from before the Call Simulator moved to ☎ LSH Ring Channel
+  // A Portal simulator always opens its own page: a saved address on the Portal that names another page (Email Replies saved
+  // as the Email Workspace, a simulators hub address, a page that has moved) goes to the tool's own simulator instead.
+  if(d.portalSim && /cm-training-activity\.pages\.dev/i.test(url)){
+    const own = d.url.replace(/^https:\/\/[^/]+/, "").split("?")[0], saved = url.replace(/^https:\/\/[^/]+/, "").split("?")[0];
+    if(saved !== own) url = d.url;
+  }
   const status = o.status || d.status;
   return Object.assign({}, d, {url, status, live: status==="live" && /^https:\/\//i.test(url)});
 }
@@ -338,6 +344,16 @@ window.openTool = function(id, mode, extra, act){
   if(!t.live){ toast(`${t.icon} ${t.name} is coming soon. For now, log this step as a Task in the CMS.`); return; }
   let href = toolHref(t);
   if(extra) href += (href.includes("?") ? "&" : "?") + extra;
+  // The CMS in a tab: signed in with a fresh ticket (no log-in page, as in the frame), and kept reachable (no noopener), so
+  // "File it in the CMS" and the open-case lookup (js/cm-doc-filing.js, js/cm-cms-case.js) work with a CMS tab too.
+  if(mode==="tab" && id==="cms"){
+    const w = window.open("", "_blank");
+    if(!w){ window.open(href, "_blank", "noopener"); return; }
+    (window.__cmsTabs = window.__cmsTabs || []).push(w);
+    const go = (u)=>{ try{ w.location.href = u; }catch(e){} setTimeout(()=>{ if(window.CMCase) CMCase.ask(); }, 2500); };
+    if(window.LSHToolLinks) LSHToolLinks.ticketed(href).then(go, ()=>go(href)); else go(href);
+    return;
+  }
   if(mode==="tab" || id==="calendaring" || id==="calls"){ window.open(href, "_blank", "noopener"); return; }   // the Calendaring Simulators and the Call Simulator (☎ LSH Ring Channel, through the Portal) use the Portal's sign-in cookie, which a frame doesn't send
   ensureShell();
   currentAct = act || null;
@@ -509,7 +525,7 @@ window.renderLessonCard = function(l, i, d, unused, part){
 };
 
 /* ================================================================
-   VIEWS: Training Tools · Simulators · Handouts (the Case Documents and the Case File are the Case Flow's: js/cm-case-flow.js)
+   VIEWS: Training Tools · Simulators · 📚 Knowledge Base (the Case Documents and the Case File are the Case Flow's: js/cm-case-flow.js)
    ================================================================ */
 window.renderTrainingTools = function(){
   const log = Object.entries(state.cmsLog||{});
@@ -568,14 +584,15 @@ window.saveToolSettings = async function(){
   toast("Tool settings saved for everyone."); render();
 };
 
-window.renderHandouts = function(){
-  const byDay = [1,2,3,4,5].map(n=>({n, items:CM_HANDOUTS.filter(h=>h.day===n)}));
+window.renderHandouts = function(){   // 📚 Knowledge Base: the handouts are in the LSH Knowledge Base now, not on this page
   const tpl = CM_DOCS.filter(d=>d.folder==="templates");
   return `<p class="eyebrow">Reference Library</p>
-    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">📚 Handouts & Templates</h1>
-    <p style="color:var(--ink-soft);font-size:14px;max-width:78ch;margin:0 0 16px">The LSH Case Management handout repository, organized by training day, plus the working templates you'll use in the Skill Builders.</p>
-    ${byDay.map(({n,items})=>`<div class="card" style="padding:14px 18px;margin-bottom:14px"><h3 style="font-size:14px;color:var(--navy);margin:0 0 6px">Case Flow Day ${n} — ${E(String((DAYS.find(d=>d.cf && d.cf.n===n)||{}).title||"").replace(/^Case Flow Day \d+ · /,""))}</h3>
-      ${items.map(h=>`<div class="cm-doc-row"><span class="t">${E(h.title)}</span><a class="btn btn-ghost btn-sm" href="documents/${h.file.split("/").map(encodeURIComponent).join("/")}" target="_blank" rel="noopener">${/\.docx$/i.test(h.file)?"Download":"Open"}</a></div>`).join("")}</div>`).join("")}
+    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">📚 Knowledge Base</h1>
+    <div class="card" style="padding:16px 18px;margin-bottom:14px">
+      <p style="margin:0 0 10px;font-size:14px;max-width:78ch">The Case Management handouts and reference documents are in the <b>LSH Knowledge Base</b>, in the <b>Case Management</b> collection, filed by training day (<i>CM Training · Day 1</i> to <i>Day 5</i>). Search it for anything else the team knows.</p>
+      <a class="btn btn-primary" href="${E(CM_KB_URL)}" target="_blank" rel="noopener">Open the Knowledge Base ↗</a>
+      ${state.isAdmin ? `<p style="margin:12px 0 0;font-size:13px;color:var(--ink-soft);max-width:78ch"><b>Trainers:</b> to add a document, open the Knowledge Base, go to Case Management and press <b>+ Add to Case Management</b>. Type the day's section name (for example <i>CM Training · Day 2 · Claim Set Up &amp; Treatment</i>) and upload the file or write the page. An admin's entry goes live at once.</p>` : ""}
+    </div>
     <div class="card" style="padding:14px 18px"><h3 style="font-size:14px;color:var(--navy);margin:0 0 6px">📝 Templates & blank forms</h3>
       ${tpl.map(d=>`<div class="cm-doc-row"><div><span class="t">${E(d.title)}</span><div class="d">${E(d.desc)}</div></div><a class="btn btn-ghost btn-sm" href="${cmDocUrl(d)}" target="_blank" rel="noopener">${/\.(docx|xlsx)$/i.test(d.file)?"Download":"Open"}</a></div>`).join("")}</div>`;
 };

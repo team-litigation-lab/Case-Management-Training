@@ -1,14 +1,14 @@
-# Case Flow Day 1 — Intake & Property Damage
+# Case Flow Day 1 — Intake, Claims & Property Damage
 
-**Phase:** Intake & Property Damage · **Focus case:** John Doe v. Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
+**Phase:** Intake, claims & Property Damage · **Focus case:** John Doe v. Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
 
-**Objective.** Know the Case Manager's role and the six stages of a file; meet John Doe and his case; read the raw file and make the acceptance decision; open the matter correctly in the CMS with the Conflict Check first; and set up the Property Damage side (the client's do's and don'ts, the rental, the repair or total-loss path).
+**Objective.** Know the Case Manager's role and the six stages of a file; meet John Doe and his case; hold the UPL line; read the raw file, make the acceptance decision and see which claims the file will carry; open the matter correctly in the CMS with the Conflict Check first; and set up the Property Damage side (the client's do's and don'ts, the rental, the repair or total-loss path).
 
-**Gate to the next day.** Matter opened in the CMS with the Conflict Check documented · acceptance decision recorded · PD onboarding directions delivered and assigned in the system
+**Gate to the next day.** Matter opened in the CMS with the Conflict Check documented · acceptance decision recorded · the claims the file carries identified · PD onboarding directions delivered and assigned in the system
 
 **The file as this day opens.**
 
-- A raw file from “On the Records”: date of loss 02/06/2026, statute of limitations 02/06/2028, John Doe a front-seat passenger in the host vehicle.
+- A raw file from “On the Records”: date of loss 02/06/2026, statute of limitations 02/06/2028; the client's position and the facts of loss are in the Police Report, to be read, not assumed.
 - Nothing is in the CMS yet: no Conflict Check, no matter, no parties.
 - John Doe's Civic was damaged in the crash; the Property Damage claim and the rental are still to be set up.
 - John Doe has not started treatment.
@@ -31,31 +31,32 @@
 
 The day is one module, on John Doe's one file: Lectures (its lessons, one uninterrupted discussion) → Practice (its Skill Activities on the file in the CMS, in the order the work happens) → Knowledge Check. A lesson marked (condensed) is a short overview.
 
-**Module 1 — Intake & Property Damage**
+**Module 1 — Intake, Claims & Property Damage**
 
 1. *Lesson* — The Case Manager's Role
 2. *Lesson* — Meet Your Case: John Doe v. Robert Smith
-3. *Lesson* — Ingesting the Raw File
-4. *Lesson* — The Acceptance Decision & the Three-Pillar Case Plan
-5. *Lesson* — Client Do's and Don'ts & Rental Authorization
-6. *Lesson* — Repair Estimates, Total Loss & Loss of Use
-7. *Skill Activity* — Opening John Doe's File in the CMS
-8. *Skill Activity* — Client Onboarding Direction Packet
-9. *Skill Activity* — Onboarding Direction Assignment in System
-10. *Knowledge Check* — CM Fundamentals Knowledge Check
-11. *Knowledge Check* — PD & Onboarding Knowledge Audit
+3. *Lesson* — Fact Sharing vs. Legal Advice: the UPL Line
+4. *Lesson* — Ingesting the Raw File
+5. *Lesson* — The Acceptance Decision & the Three-Pillar Case Plan
+6. *Lesson* — Client Do's and Don'ts & Rental Authorization
+7. *Lesson* — Repair Estimates, Total Loss & Loss of Use
+8. *Skill Activity* — Opening John Doe's File in the CMS
+9. *Skill Activity* — Client Onboarding Direction Packet
+10. *Skill Activity* — Onboarding Direction Assignment in System
+11. *Knowledge Check* — CM Fundamentals Knowledge Check
+12. *Knowledge Check* — PD & Onboarding Knowledge Audit
 
 **End-of-day discussion (trainer):** Robert Smith's carrier has already called John Doe, and he needs a car to get to work. What do you tell him today, in what order, and what has to be on the file before tomorrow's claim set-up?
 
 ---
 
-## Module 1 — Intake & Property Damage
+## Module 1 — Intake, Claims & Property Damage
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check
 
 ### 1.1.1 The Case Manager's Role
 
-> **Lesson** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Owning the file from intake to resolution  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#1` Training Agenda & What Case Management Is · `D1#2` The General Case Management Process · `D1#3` Key Duties of a Case Manager · `D1#4` Understanding Case Phases
@@ -134,7 +135,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ### 1.1.2 Meet Your Case: John Doe v. Robert Smith
 
-> **Lesson** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** The one file you will work for five days  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#19` Claim Set-Up: Case Projection — Why the Three Work Together · curriculum/5-day-flow/case-file.md §1–2: the file at intake, people and vehicles, the collision
@@ -147,15 +148,15 @@ A case card filling the slide like a file folder: top-left the style JOHN DOE v.
 
 *Why:* Every lesson, activity and Learning Check in this course works one file: John Doe v. Robert Smith. Knowing its facts cold (who, when, which policies, what is at risk) is what makes every step you take in the CMS make sense.
 
-1. The collision: 02/06/2026, about 7:10 a.m., at the all-way stop at Maple Hollow Rd & Birch Ave. Robert Smith ran the stop and struck the passenger door of Kevin Alvarez's 2020 Ford Escape; Riverton PD cited him (RPD-26-018842).
-2. Your client: John Doe, 34, a warehouse shift lead at Northgate Distribution, the front-seat passenger. Lead Counsel: Atty. Elijah Thorne. Case Manager: you.
+1. The collision: 02/06/2026, about 7:10 a.m., at the all-way stop at Maple Hollow Rd & Birch Ave. Who ran the stop, which vehicles were involved and who was cited are in the Police Report: read it, don't assume.
+2. Your client: John Doe, 34, a warehouse shift lead at Northgate Distribution. Lead Counsel: Atty. Elijah Thorne. Case Manager: you. Where John Doe was sitting is a fact you find in the records, not one you are given.
 3. The Recovery Stack is $40,000, worked in order: $10,000 BI (Keystone Mutual) → $20,000 Host UM (Harbor Point) → $10,000 Relative UM (Cardinal State Mutual).
-4. John Doe reaches both UM layers because he was a passenger. Driving his own Civic he would reach $10,000: he rejected UM on his own policy.
+4. His position in the vehicle decides which of those layers he can reach. Work it out from the Police Report and the policies before you name a single carrier.
 5. Health: Peach State Health Plan asserted a reimbursement right on first notice; Harbor Point carries $5,000 MedPay on the Escape.
-6. The critical fact: EMS found neck stiffness and he declined transport. His first treatment was 02/20/2026, a 14-Day Treatment Gap the defense will use.
+6. The critical fact: compare the EMS Run Report's date with the first treatment record. The days between them are a Treatment Gap: you record its dates and, later, John Doe's own documented explanation. You never judge it.
 7. The statute of limitations is docketed for 02/06/2028. Every deadline on the file counts from the date of loss.
 
-> ⚠️ **UPL boundary.** You may share facts and explain the process to John Doe. You may not tell him what his case is worth or how the gap will play. That is Atty. Thorne's call.
+> ⚠️ **UPL boundary.** You may share facts and explain the process to John Doe. You may not tell him what his case is worth or what the gap does to his claim. That is Atty. Thorne's call.
 
 #### 2 · Slide Body — Show Them
 
@@ -163,14 +164,14 @@ A case card filling the slide like a file folder: top-left the style JOHN DOE v.
 
 |  | On this file |
 |---|---|
-| Case | John Doe v. Robert Smith · LSH-2026-MVA-770412 · MVA, passenger injury |
+| Case | John Doe v. Robert Smith · LSH-2026-MVA-770412 · motor vehicle collision |
 | Date of loss / SOL | 02/06/2026 · SOL 02/06/2028 |
-| Client | John Doe, front-seat passenger in the host vehicle |
-| Defendant | Robert Smith, cited for failure to stop (RPD-26-018842) |
+| Client | John Doe, 34 · his position in the vehicle: find it in the Police Report |
+| Defendant | Robert Smith · what happened, and any citation: the Police Report |
 | Lead Counsel | Atty. Elijah Thorne |
 | Recovery Stack | $10,000 BI → $20,000 Host UM → $10,000 Relative UM = $40,000 |
 | Health Plan | Peach State · reimbursement right asserted |
-| Critical fact | 14-Day Treatment Gap: first treatment 02/20/2026 |
+| Critical fact | A Treatment Gap: compare the EMS Run Report with the first treatment record |
 
 **Operational mapping**
 
@@ -185,7 +186,7 @@ A case card filling the slide like a file folder: top-left the style JOHN DOE v.
 - Know the stack, the dates and the critical fact before the first call.
 - Trace every fact to its document: Police Report, Declaration Page, medical record.
 - ⚠️ Pitfall: repeating a fact from memory that the documents don't support.
-- ⚠️ Pitfall: treating the 14-day gap as the client's fault rather than a fact to document.
+- ⚠️ Pitfall: treating a gap in treatment as the client's fault rather than a fact to document.
 
 #### 3 · Knowledge Check & CM Summary
 
@@ -197,7 +198,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 |---|---|---|---|
 | 🤖 AI | **25%** | Case facts | DOL, SOL, parties and John Doe's position stated correctly |
 | 🤖 AI | **20%** | Recovery Stack | $40,000 in the order BI → Host UM → Relative UM |
-| 🤖 AI | **15%** | Critical fact | Names the 14-Day Treatment Gap and why it matters |
+| 🤖 AI | **15%** | Critical fact | Finds the Treatment Gap in the records and states its dates, without judging it |
 | 🧑‍🏫 Trainer | **25%** | Fact discipline | Traces facts to documents rather than memory |
 | 🧑‍🏫 Trainer | **15%** | UPL boundary | Shares facts, never value or merits |
 
@@ -212,9 +213,88 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.3 Ingesting the Raw File
+### 1.1.3 Fact Sharing vs. Legal Advice: the UPL Line
 
-> **Lesson** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Topic:** What you may say, and what only Atty. Thorne says  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D4#20` Ethics & Boundaries: What You Can and Cannot Do at Hearings (UPL) · LSH Claims Specialist: communication skills and professionalism — clarity without jargon, calm reassurance · Newly authored: a dedicated, practical UPL lesson: fact sharing vs. legal advice, and the hear-log-route habit
+
+#### 1 · Visual Layout Description
+
+A two-column board split by a red vertical line labelled THE UPL LINE. Left, a green-bordered column headed FACT SHARING · YOU, five speech bubbles in plain words: a date read from a document, the next step in the process, who decides, when an answer is due, what was sent and when. Right, a red-bordered column headed LEGAL ADVICE · ATTY. THORNE, five struck-through bubbles: what the case is worth, whether to settle, what the gap does to the claim, what the law means for him, what to tell an adjuster. Along the bottom, three mono pills: HEAR IT · LOG IT · ROUTE IT TO ATTY. THORNE, THE SAME DAY.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Unauthorized Practice of Law (UPL) means giving legal advice without a law license. A Case Manager who crosses that line, even kindly, can hurt John Doe's case and put the firm at risk. The line itself is simple: you share facts and explain processes; Atty. Thorne gives every opinion on the case.
+
+1. In plain English, legal advice is any opinion about what John Doe's facts mean for his rights, his money or his choices. Only a licensed attorney gives it.
+2. You share facts: a date, an amount on a document, what a record says, who has the file, what was sent and when.
+3. You explain processes: what happens next, what a form is for, how long a step usually takes, and who decides.
+4. You never advise on case value, legal strategy, whether to settle, or how a fact (a gap in treatment, a prior injury, a missed visit) changes the outcome or the money.
+5. When John Doe asks an opinion question, hear it, log it word for word in the CMS and route it to Atty. Thorne the same day. Then tell him when to expect an answer.
+6. Reassure him about the process, never the outcome: “Atty. Thorne will go over this with you” is support; “Don't worry, you'll be fine” is advice.
+7. The test before you speak: am I telling him what is, or what he should do and what it means? The first is yours; the second is Atty. Thorne's.
+
+> ⚠️ **UPL boundary.** You share facts and explain the process. You never give an opinion on value, strategy, settlement or what a fact does to the case: log the question and route it to Atty. Thorne.
+
+#### 2 · Slide Body — Show Them
+
+*The same questions, answered both ways*
+
+| ✅ Do | ❌ Don't |
+|---|---|
+| “The Police Report lists the date of loss as 02/06/2026.” | “Your case is probably worth the policy limits.” |
+| “The next step is a letter to each insurance carrier saying we represent you.” | “I'd take the offer if I were you.” |
+| “That's a question for Atty. Thorne. I've logged it, and he'll call you by Friday.” | “The gap in your treatment will hurt your case.” |
+| “Carriers usually answer within a few weeks; I'll follow up and update you.” | “Don't worry, that won't matter.” |
+| “I'll write down exactly what you told me, and the document that shows it.” | “Tell the adjuster it was the other driver's fault.” |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| John Doe asks what his case is worth | Say it is Atty. Thorne's question; log his words exactly | CMS → Case Notes · Tasks | Routed the same day; no figure given |
+| John Doe asks what happens next | Explain the next step of the process in plain words | CMS → Case Notes | Process explained; no prediction of the outcome |
+| An adjuster or provider asks your view of the case | Decline politely; share only facts the firm has approved | CMS → Communications Log | Nothing said beyond the record; contact logged |
+
+**Best practices & pitfalls**
+
+- Answer what is on the record; route what it means.
+- Use the same routing line every time: “That's Atty. Thorne's call; I'll get it to him today.”
+- Give the client a time frame for the answer, so routing never feels like a brush-off.
+- ⚠️ Pitfall: a kind reassurance about the outcome (“you'll be fine”); it is still legal advice.
+- ⚠️ Pitfall: guessing a value, or what a gap does to the claim, even “off the record”.
+- ⚠️ Pitfall: coaching the client on what to tell an adjuster.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **25%** | Fact vs. advice | Sorts statements into fact sharing and legal advice correctly |
+| 🤖 AI | **20%** | Routing | Logs opinion questions word for word and routes them to Atty. Thorne the same day |
+| 🤖 AI | **15%** | Plain words | Explains the process in plain English, without jargon |
+| 🧑‍🏫 Trainer | **25%** | UPL boundary | No opinion on value, strategy, settlement or what a fact does to the case, even kindly |
+| 🧑‍🏫 Trainer | **15%** | Client care | Routing comes with a time frame and a warm tone |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Ask the room: “John Doe says, ‘Just tell me honestly, is my case any good?’ What do you say?” Collect the answers before showing the board.
+- Sort each answer onto the board: fact sharing or legal advice. Most rooms find at least one kind reassurance that is really advice.
+- Drill the routing line until everyone can say it without notes: “That's Atty. Thorne's call; I've logged it, and he'll get back to you by …”
+- Close: every later lesson carries a UPL Line box. It is this lesson, applied to that step.
+
+---
+
+### 1.1.4 Ingesting the Raw File
+
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** From “On the Records” to a structured matter  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#1` Training Agenda & What Case Management Is · `D1#3` Key Duties of a Case Manager · `D1#4` Understanding Case Phases · `D1#5` Case Phase: Intake — Establishing Control · `D1#6` The Real Intake Workflow · `D1#7` Intake & Initial Client Contact — Gatekeepers of Case Quality · `D1#10` Bottleneck: Incomplete Client Information · `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · `D1#15` Bottleneck: Communication Gaps · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · LSH Claims Specialist: pre-claim data set, Declaration Page, coverage asymmetry
@@ -248,7 +328,7 @@ Left-to-right intake pipeline across the full slide width. Left third: a muted g
 
 | Role | Party | Why this field matters |
 |---|---|---|
-| Client / Plaintiff | John Doe | Front-seat passenger, not a driver. This field opens two UM layers. |
+| Client / Plaintiff | John Doe | Position in the vehicle, read from the Police Report. This field decides which UM layers open. |
 | Defendant | Robert Smith | At-fault driver. His BI carrier pays first. |
 | Lead Counsel | Atty. Elijah Thorne | Every demand and filing routes through him. |
 | Case Manager | You | Owns the file's movement; does not own legal judgment. |
@@ -261,7 +341,7 @@ Left-to-right intake pipeline across the full slide width. Left third: a muted g
 |---|---|---|---|
 | Raw file received from “On the Records” | Run and document the Conflict Check, then verify DOL, parties and signatures against the source documents | CMS → New Case | Conflict Check logged before the file exists; DOL matches the Police Report |
 | Matter created | Docket the SOL and log the retainer and the claim-specific HIPAA authorization | CMS → Calendar · Documents | SOL 02/06/2028 on the calendar; both signatures logged |
-| Parties identified | Map all six roles and record the client's position in the vehicle | CMS → Parties | No party left “unknown”; position = passenger |
+| Parties identified | Map all six roles and record the client's position in the vehicle | CMS → Parties | No party left “unknown”; position recorded from the Police Report |
 | Documents arrive | Name each to the firm's convention and file it under its CMS category | CMS → Documents | Every document findable by its convention name |
 
 **Best practices & pitfalls**
@@ -300,9 +380,9 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.4 The Acceptance Decision & the Three-Pillar Case Plan
+### 1.1.5 The Acceptance Decision & the Three-Pillar Case Plan
 
-> **Lesson** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with Case Plan Audit & Day 2 Gate (`d1m4`)  
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** The document that makes the file move  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#8` Case Acceptance Determination · `D1#14` Bottleneck: Case Eligibility Uncertainty · `D1#17` Skill Building: Intake Decision Challenge & Applied Case Manager Actions · `D1#19` Claim Set-Up: Case Projection — Why the Three Work Together · `D1#21` Case Study: John Doe v. Apex — Liability Determination · `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#23` Case Planning Framework: The Three-Pillar Case Plan
@@ -358,7 +438,7 @@ A five-band vertical architecture, each band a full-width navy or navy-soft bar 
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in Case Plan Audit & Day 2 Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
+Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -381,9 +461,9 @@ Verified in Case Plan Audit & Day 2 Gate (taught on Case Flow Day 2) and that da
 
 ---
 
-### 1.1.5 Client Do's and Don'ts & Rental Authorization
+### 1.1.6 Client Do's and Don'ts & Rental Authorization
 
-> **Lesson** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Protecting the claim from the client's own good intentions  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#44` Handling Treatment Gaps During the Treatment Phase · LSH Claims Specialist: LOR Property Damage carve-out, rental coverage hierarchy, documents to support the claim
@@ -394,10 +474,10 @@ A balanced two-column DO / DON'T board on the upper two-thirds, green-bordered l
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* Most self-inflicted damage to an injury claim happens in the first two weeks, before the client has been told what not to do. A casual Recorded Statement, a gap in treatment or a social-media post can cost more than any negotiation will recover.
+*Why:* Most self-inflicted damage to an injury claim happens in the first two weeks, before the client has been told what not to do: a casual Recorded Statement, a missed appointment or a social-media post becomes part of the record. The Case Manager gives the instructions; what any of it means for the claim is Atty. Thorne's to explain.
 
 1. The client gives no Recorded Statement to the adverse carrier. All adverse contact routes through the firm.
-2. The client starts treatment and keeps every appointment. Explain why consistent treatment matters; gaps become causation arguments against them.
+2. The client starts treatment, keeps every appointment and tells you about any barrier (transport, cost, work) before a visit is missed. Explain the process, not the stakes: what a missed visit means for the claim is Atty. Thorne's to explain.
 3. The client posts nothing about the collision, the injuries or their activities.
 4. The client signs no release, authorization or settlement document from any carrier until the firm has reviewed it.
 5. The client keeps every receipt and out-of-pocket expense, including mileage to appointments and household help. Only what is documented can be recovered.
@@ -461,9 +541,9 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.6 Repair Estimates, Total Loss & Loss of Use
+### 1.1.7 Repair Estimates, Total Loss & Loss of Use
 
-> **Lesson** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Repair, or total? And what the client is owed either way  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · `D5#35` Property Damage: Calculating the Value of the Claim · LSH Claims Specialist: 5-day inspection window, Loss of Use, tow and storage
@@ -542,9 +622,9 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.7 Opening John Doe's File in the CMS
+### 1.1.8 Opening John Doe's File in the CMS
 
-> **Skill Activity** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Skill Activity — from raw file to an active matter  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#5` Case Phase: Intake — Establishing Control · `D1#6` The Real Intake Workflow · `D1#7` Intake & Initial Client Contact — Gatekeepers of Case Quality · `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors
@@ -615,9 +695,9 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.8 Client Onboarding Direction Packet
+### 1.1.9 Client Onboarding Direction Packet
 
-> **Skill Activity** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Skill Activity 1 — assemble what the client gets on day one  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#44` Handling Treatment Gaps During the Treatment Phase · LSH Claims Specialist: client communication protocol
@@ -686,9 +766,9 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.9 Onboarding Direction Assignment in System
+### 1.1.10 Onboarding Direction Assignment in System
 
-> **Skill Activity** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Skill Activity 2 — turn directions into tracked tasks  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#3` Key Duties of a Case Manager · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#44` Handling Treatment Gaps During the Treatment Phase
@@ -756,9 +836,9 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.10 CM Fundamentals Knowledge Check
+### 1.1.11 CM Fundamentals Knowledge Check
 
-> **Knowledge Check** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#1` Training Agenda & What Case Management Is · `D1#5` Case Phase: Intake — Establishing Control · `D1#12` Bottleneck: Conflict Check Delays · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy
@@ -772,6 +852,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 1. Name the six stages of John Doe's file in order, and say what the Case Manager owns at Intake & Case Opening that nobody else will.
 2. John Doe asks what his case is worth. Who answers, what do you tell him, and what do you log?
 3. You are opening John Doe's matter in the CMS. What must happen before the matter is created, on whose names, and why does the order matter?
+4. John Doe asks whether waiting to see a doctor hurt his case. Say word for word what you tell him, and what you record in the CMS.
 
 **Best practices & pitfalls**
 
@@ -799,39 +880,45 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (11 questions):
+**Auto-graded share of the day's Knowledge Check** (13 questions):
 
 1. The three pillars of the Case Plan are:  
    Coverage, Liability, Projection · **✓ Clinical, Functional, Financial** · Intake, Treatment, Demand · HIPAA, BCRC, Payer Order  
    *Clinical (acute interventions), Functional (ADLs and return to work), Financial (Payer Order, subrogation, MMSEA).*
-2. John Doe asks what his case is worth. Who answers?  
+2. Which of these is fact sharing, not legal advice?  
+   **✓ “The Police Report lists the date of loss as 02/06/2026.”** · “Your case is probably worth the policy limits.” · “The gap in your treatment won't matter.” · “I'd accept the first offer if I were you.”  
+   *Reading a fact from a document is fact sharing. Value, settlement and what a fact does to the case are legal advice: Atty. Thorne's alone.*
+3. John Doe asks, “Is waiting to see a doctor going to hurt my case?” What do you do?  
+   Tell him it won't matter, to keep him calm · Tell him it will lower the value, so he's prepared · **✓ Say it's a question for Atty. Thorne, log it word for word, route it today and tell him when to expect an answer** · Explain how adjusters usually argue a gap  
+   *Reassurance, alarm and an account of how gaps are argued are all opinions on his case. Hear it, log it, route it, and give him a time frame.*
+4. John Doe asks what his case is worth. Who answers?  
    The Case Manager, from the Specials · **✓ Atty. Thorne** · Dana Whitfield, the BI adjuster · Nobody until the demand  
    *Value, merits and strategy are Atty. Thorne's calls. The Case Manager logs the question and routes it the same day.*
-3. Opening John Doe's matter in the CMS, what comes first?  
+5. Opening John Doe's matter in the CMS, what comes first?  
    Docketing the SOL · Creating the matter · **✓ The Conflict Check on every party's full legal name** · Calling Keystone Mutual  
    *Nothing moves until the Conflict Check is documented, on full legal names.*
-4. Who owns the legal judgments on John Doe's file: value, merits, strategy and settlement authority?  
+6. Who owns the legal judgments on John Doe's file: value, merits, strategy and settlement authority?  
    The Case Manager · **✓ Atty. Elijah Thorne** · The intake team · Keystone Mutual's adjuster  
    *You own the file's movement: deadlines, documents, carriers, providers and updates. Atty. Thorne owns every legal judgment.*
-5. A call with John Doe was never logged in the CMS. For the file, that call:  
+7. A call with John Doe was never logged in the CMS. For the file, that call:  
    Counts, as long as you remember it · **✓ Didn't happen: the CMS is the single source of truth** · Belongs in an email to yourself · Gets logged at the end of the month  
    *Every contact, document, deadline and decision is logged in the CMS the same day. If it isn't in the CMS, it didn't happen.*
-6. Where was John Doe in the collision on 02/06/2026?  
+8. Where was John Doe in the collision on 02/06/2026?  
    Driving his own Civic · **✓ The front-seat passenger in Kevin Alvarez's 2020 Ford Escape** · A pedestrian at the crossing · Driving Margaret Doe's car  
    *He was the front-seat passenger in the host vehicle; Robert Smith ran the all-way stop and struck the passenger door.*
-7. Which statute of limitations is docketed on John Doe's file?  
+9. Which statute of limitations is docketed on John Doe's file?  
    02/06/2027 · 02/20/2028 · **✓ 02/06/2028** · 02/09/2028  
    *Every deadline counts from the date of loss, 02/06/2026, and the SOL is docketed on day one: 02/06/2028.*
-8. The intake note and the Police Report give different dates of loss. Which do you confirm the date of loss against?  
+10. The intake note and the Police Report give different dates of loss. Which do you confirm the date of loss against?  
    The intake note · The client's memory · **✓ The Police Report** · The adjuster's first call  
    *Confirm it against the Police Report: the SOL, every carrier deadline and the treatment timeline count from it. Document the correction; never fix it silently.*
-9. Why does recording John Doe as a passenger, not a driver, matter so much at intake?  
+11. Why does recording John Doe as a passenger, not a driver, matter so much at intake?  
    **✓ It decides which policies can be reached** · It changes the statute of limitations · It decides which court hears the case · It matters only for the Property Damage claim  
    *Driver, passenger or pedestrian decides which policies can be reached. A mis-mapped party is a lost coverage layer.*
-10. A party on the intake record is left as “unknown”. What does that usually mean?  
+12. A party on the intake record is left as “unknown”. What does that usually mean?  
    Nothing: it can be filled in at the demand · **✓ A coverage layer you haven't found yet** · The party has no insurance · The Conflict Check is complete  
    *Six roles exist on this file; a party left as “unknown” is a coverage layer you have not found yet.*
-11. At the acceptance decision, John Doe's file is Accepted, Escalated or Declined. What must go with the decision?  
+13. At the acceptance decision, John Doe's file is Accepted, Escalated or Declined. What must go with the decision?  
    **✓ A reason someone else can follow** · The case value · The adjuster's approval · Nothing: the status is enough  
    *Record the decision with its reason. If eligibility is uncertain, clarify with the client and escalate to the attorney with a short summary of what is ambiguous.*
 
@@ -859,9 +946,9 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 1.1.11 PD & Onboarding Knowledge Audit
+### 1.1.12 PD & Onboarding Knowledge Audit
 
-> **Knowledge Check** · Day 1 — Intake & Property Damage · Module 1: Intake & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
+> **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · `D5#35` Property Damage: Calculating the Value of the Claim · `D1#44` Handling Treatment Gaps During the Treatment Phase

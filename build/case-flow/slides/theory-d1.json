@@ -36,11 +36,11 @@
       "kind": "table",
       "head": ["Question", "On this file"],
       "rows": [
-        ["Who", "John Doe, passenger; Robert Smith, defendant; Kevin Alvarez, host driver"],
-        ["What", "A collision into the Escape's passenger door; EMS noted neck stiffness"],
+        ["Who", "John Doe, client; Robert Smith, defendant; **the Police Report** names the rest"],
+        ["What", "A two-vehicle collision; what EMS found is in the Run Report"],
         ["When", "02/06/2026, about 7:10 a.m.; SOL docketed 02/06/2028"],
         ["Where", "The all-way stop at Maple Hollow Rd & Birch Ave"],
-        ["How", "Robert Smith **ran the stop**; Riverton PD cited him (RPD-26-018842)"]
+        ["How", "How it happened, and any citation: **read the Police Report**"]
       ],
       "note": "Every answer comes from a document; ambiguous facts of loss or liability go to Atty. Thorne for review."
     }
@@ -221,5 +221,17 @@
       ],
       "note": "The file is discoverable in litigation: write every plan note as if defense counsel will read it."
     }
+  },
+  "d1m1-upl": {
+    "lead": "UPL is giving legal advice without a license; a Case Manager stays on **the fact side** of that line, every time.",
+    "concepts": [
+      {"term": "Fact sharing", "text": "Telling the client what a record says: a date, an amount, **what was sent**, and when"},
+      {"term": "Process explanation", "text": "What happens next, what a form is for, and **who decides**; never how it ends"},
+      {"term": "Legal advice", "text": "Any opinion on what his facts mean for **his rights, money or choices**: the attorney's alone"},
+      {"term": "Hear, log, route", "text": "An opinion question is written down word for word and **sent to Atty. Thorne** the same day"}
+    ],
+    "pages": [
+      "D4#24"
+    ]
   }
 }

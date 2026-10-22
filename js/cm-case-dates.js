@@ -10,7 +10,12 @@
    year they started on (caseYear on their Case Flow record, set by js/cm-case-flow.js) until they finish, so dates
    never jump mid-course. A trainer can preview a year with ?caseYear=2029 (?caseYear=off ends the preview).
    Loaded after the Case Flow content and before js/cm-case-flow.js: it rewrites the dates in CM_CASE_FLOW,
-   CM_CF_SLIDES, CM_CF_SIM, CM_CF_DOCS and CM_CF_SCRIPTS (the trainer scripts) in place; case-doc.html does the same to the case documents. */
+   CM_CF_SLIDES, CM_CF_SIM, CM_CF_DOCS and CM_CF_SCRIPTS (the trainer scripts) in place; case-doc.html does the same to the case documents.
+   The CMS's Date of Loss leads: when the trainee's John Doe case in the CMS has another DOL (the CMS moves the SOL and
+   every later date with it, case-dates.js there), the course moves its dates the same way, on top of the year: every
+   date on or after the DOL moves by the same number of days, and dates of birth and earlier dates stay. The offset
+   (dolOffset, days) is kept on the trainee's Case Flow record and on this device for the year it was taken in
+   (js/cm-case-flow.js reads it from the CMS); case-doc.html is given it as &dol=. */
 (function(){
   const BASE = 2026, DAY = 864e5;
   const utc = (y, m, d) => Date.UTC(y, m - 1, d);
@@ -55,6 +60,15 @@
   const forced = validYear(window.CM_CASE_YEAR);   // case-doc.html: the year of the page that opened it
   const year = forced || preview || pinned || fresh;
   const S = shiftFor(year), K = year - BASE;
+  /* the CMS Date of Loss offset (days) for this year: case-doc.html is told it (&dol=); elsewhere it's this device's,
+     and only for the year it was taken in (a trainer's year preview shows the course's own dates) */
+  const okDays = n => { n = parseInt(n, 10); return Number.isFinite(n) && Math.abs(n) <= 3650 ? n : 0; };
+  let O = 0;
+  try{
+    if(forced) O = okDays(window.CM_CASE_DOL);
+    else if(!preview){ const o = JSON.parse(localStorage.getItem("lsh_case-dol") || "null"); if(o && +o.year === year) O = okDays(o.days); }
+  }catch(e){}
+  const ROLLED_DOL = BASE_DOL + S * DAY;   // the collision in this year, before the CMS offset
 
   /* ---------- rewriting dates in text ---------- */
   const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -117,14 +131,28 @@
     return best || BASE;
   }
 
-  function text(s, shift){
+  /* from (a UTC time): move only dates on or after it, by whole days (the CMS's DOL rule); a year on its own stays */
+  function text(s, shift, from){
     if(typeof s !== "string" || !s) return s;
     const sh = shift == null ? S : shift;
     if(!sh) return s;
-    const k = Math.round(sh / 365.2425), years = yearsIn(s);
+    const k = from == null ? Math.round(sh / 365.2425) : 0, years = yearsIn(s);
     const Y = y => String(+y + k);
     return s.replace(RE, function(){
       const a = arguments, at = a[a.length - 2], g = i => a[i];
+      if(from != null){
+        const kept = (y, m, d) => !(m >= 1 && m <= 12 && d >= 1 && d <= 31) || utc(y, m, d) < from;
+        let b;
+        const ORD = w => ORD_WORDS.indexOf(w.toLowerCase()) + 1;
+        if(g(b = G[0]) !== undefined){ if(kept(+g(b + 5), monthNo(g(b + 3)), +g(b))) return a[0]; }
+        else if(g(b = G[1]) !== undefined){ if(kept(+g(b + 5), monthNo(g(b)), +g(b + 2))) return a[0]; }
+        else if(g(b = G[2]) !== undefined){ if(kept(yearNear(years, at), monthNo(g(b)), ORD(g(b + 2)))) return a[0]; }
+        else if(g(b = G[3]) !== undefined){ if(kept(yearNear(years, at), monthNo(g(b)), +g(b + 2))) return a[0]; }
+        else if(g(b = G[5]) !== undefined){ if(kept(+g(b + 2), +g(b), +g(b + 1))) return a[0]; }
+        else if(g(b = G[6]) !== undefined){ if(kept(+g(b), +g(b + 2), +g(b + 3))) return a[0]; }
+        else if(g(b = G[8]) !== undefined){ if(kept(yearNear(years, at), +g(b), +g(b + 1))) return a[0]; }
+        else return a[0];                                  // a month and year, a year, a matter or claim number
+      }
       let b;
       if(g(b = G[0]) !== undefined){ const [ny, nm, nd] = move(+g(b + 5), monthNo(g(b + 3)), +g(b), sh); return `${nd}${suffix(nd)}${g(b + 2)}${sameAbbr(g(b + 3), nm)}${g(b + 4)}${ny}`; }
       if(g(b = G[1]) !== undefined){ const [ny, nm, nd] = move(+g(b + 5), monthNo(g(b)), +g(b + 2), sh); return `${sameAbbr(g(b), nm)}${g(b + 1)}${nd}${g(b + 3) ? suffix(nd) : ""}${g(b + 4)}${ny}`; }
@@ -143,20 +171,31 @@
 
   /* rewrite every string in a structure, in place (ids, file paths and image names are left alone) */
   const KEEP = new Set(["id", "file", "folder", "image", "kind", "cms", "tool"]);
-  function apply(o, shift, seen){
+  function apply(o, shift, from, seen){
     if(!o || typeof o !== "object") return o;
     seen = seen || new Set(); if(seen.has(o)) return o; seen.add(o);
     for(const key of Object.keys(o)){
       const v = o[key];
-      if(typeof v === "string"){ if(!KEEP.has(key)) o[key] = text(v, shift); }
-      else if(v && typeof v === "object") apply(v, shift, seen);
+      if(typeof v === "string"){ if(!KEEP.has(key)) o[key] = text(v, shift, from); }
+      else if(v && typeof v === "object") apply(v, shift, from, seen);
     }
     return o;
   }
+  /* the year's dates, then the CMS Date of Loss offset on top */
+  const all = s => O ? text(text(s), O, ROLLED_DOL) : text(s);
 
   const api = {
     base: BASE, year, shift: S, years: K, fresh, preview: !!preview, pinnedYear: pinned,
-    shiftFor, freshYear, validYear, text, apply,
+    shiftFor, freshYear, validYear, text, apply, all,
+    /* the CMS Date of Loss offset on this page (days), what a CMS DOL (MM/DD/YYYY) makes it, and keeping it */
+    dolOffset: O,
+    offsetFor(mdY){
+      const m = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(String(mdY || "").trim());
+      if(!m) return null;
+      const n = Math.round((utc(+m[3], +m[1], +m[2]) - ROLLED_DOL) / DAY);
+      return Math.abs(n) <= 3650 ? n : null;
+    },
+    setDolOffset(days, y){ try{ localStorage.setItem("lsh_case-dol", JSON.stringify({year: y || year, days: okDays(days), at: new Date().toISOString()})); }catch(e){} },
     /* the year a trainee's record should be on: theirs if set, else (a record with work from before this
        existed) the base year, else the newest */
     yearForRecord(r){
@@ -166,8 +205,12 @@
     },
     pin(y){ try{ localStorage.setItem("lsh_case-year", JSON.stringify({year: y, at: new Date().toISOString()})); }catch(e){} },
     /* "the case as of …": the collision date on this page, for notes */
-    dol(){ const [y, m, d] = move(2026, 2, 6, S); return `${pad(m)}/${pad(d)}/${y}`; },
+    dol(){ const [y, m, d] = move(2026, 2, 6, S + O); return `${pad(m)}/${pad(d)}/${y}`; },
   };
   window.CM_CASE_DATES = api;
-  if(S) ["CM_CASE_FLOW", "CM_CF_SLIDES", "CM_CF_SIM", "CM_CF_DOCS", "CM_CF_SCRIPTS"].forEach(k => { if(window[k]) apply(window[k], S); });
+  ["CM_CASE_FLOW", "CM_CF_SLIDES", "CM_CF_SIM", "CM_CF_DOCS", "CM_CF_SCRIPTS"].forEach(k => {
+    if(!window[k]) return;
+    if(S) apply(window[k], S);
+    if(O) apply(window[k], O, ROLLED_DOL);
+  });
 })();

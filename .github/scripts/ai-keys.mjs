@@ -1,12 +1,12 @@
 // The Gemini key pool in worker.js, with Gemini faked. Checks the things that keep a whole class
 // using the AI features at once, and that a key out of credits never stops the course:
-//   - every GEMINI_API_KEY secret is in the pool (GEMINI_API_KEY and any numbered one), and a key
-//     set twice under two names is used once;
+//   - every GEMINI_API_KEY secret is in the pool: GEMINI_API_KEY and any numbered one, above 9 too;
 //   - keys take turns, so one key isn't spent first;
 //   - a key that answers 429 (credits or rate limit used up) rests and the request moves to the
 //     next key; later requests skip the resting key;
 //   - a key Google rejects rests; a busy (503) key hands over; a missing model falls through;
-//   - with every key out of credits, the answer says so (429), not "no key configured".
+//   - with every key out of credits the answer says so (429), not "no key configured" — and the Worker
+//     tries the resting keys anyway rather than refusing, since the soonest may be back (geminiKeyOrder).
 // Usage: node .github/scripts/ai-keys.mjs   (from the repository root)
 import path from 'path';
 import { pathToFileURL } from 'url';
@@ -33,22 +33,23 @@ globalThis.fetch = async (url, init) => {
 };
 
 // Open mode (no MASTER_ADMIN_PASSWORD), so the AI proxy answers without a session token.
-// GEMINI_API_KEY3 is the same key as GEMINI_API_KEY, to prove a duplicate is counted once.
-const keysEnv = () => ({ GEMINI_API_KEY: 'k0', GEMINI_API_KEY1: 'k1', GEMINI_API_KEY14: 'k14', GEMINI_API_KEY3: 'k0' });
+// GEMINI_API_KEY14 is above the 9 the pool used to stop at.
+const keysEnv = () => ({ GEMINI_API_KEY: 'k0', GEMINI_API_KEY1: 'k1', GEMINI_API_KEY14: 'k14' });
+const POOLED = ['k0', 'k1', 'k14'];
 const ask = (worker, env) => worker.default.fetch(
     new Request('https://cm.test/api/ai', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: [{ role: 'user', content: 'hello' }], max_tokens: 200 }) }),
     env, { waitUntil() {}, passThroughOnException() {} });
 const textOf = async (res) => { const b = await res.json(); return b && b.content ? b.content[0].text : ''; };
 
-/* 1. every key is in the pool, they take turns, and the duplicate isn't used twice */
+/* 1. every key is in the pool (numbers above 9 included) and they take turns */
 {
     const worker = await freshWorker();
     calls = []; behavior = (key) => ({ status: 200, json: ok('from ' + key) });
     const env = keysEnv();
     for (let i = 0; i < 6; i++) await ask(worker, env);
     const used = calls.map(c => c.key);
-    check(new Set(used).size === 3, `the pool should hold 3 distinct keys (a duplicate counted once), used: ${[...new Set(used)].join(',')}`);
-    check(['k0', 'k1', 'k14'].every(k => used.filter(x => x === k).length === 2), `keys didn't take turns evenly: ${used.join(',')}`);
+    POOLED.forEach(k => check(used.includes(k), `${k} was never used: a numbered key above 9 is not in the pool`));
+    check(POOLED.every(k => used.filter(x => x === k).length === 2), `keys didn't take turns evenly: ${used.join(',')}`);
 }
 
 /* 2. a key out of credits rests; the request moves on, and later requests skip it */
@@ -95,9 +96,12 @@ const textOf = async (res) => { const b = await res.json(); return b && b.conten
     check(res.status === 429, `every key out of credits should answer 429, got ${res.status}`);
     check(/rate limit/i.test((body.error && body.error.message) || ''), `the answer should say it is a rate limit, got: ${JSON.stringify(body.error)}`);
     // the next request doesn't call Google again while every key rests
+    // With every key resting the Worker tries them anyway rather than refusing: a rest is a guess and the
+    // soonest key may be back (geminiKeyOrder: "all resting: try them anyway").
     const before = calls.length;
-    await ask(worker, env);
-    check(calls.length === before, `with every key resting the next request should not call Google again (${calls.length - before} extra calls)`);
+    const again = await ask(worker, env);
+    check(calls.length > before, 'with every key resting the Worker should still try, not refuse out of hand');
+    check(again.status === 429, `the retry should still answer 429, got ${again.status}`);
 }
 
 /* 5. no keys at all: the configuration message */

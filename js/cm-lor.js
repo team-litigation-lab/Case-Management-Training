@@ -300,22 +300,38 @@ window.CMLor = {
 const __renderCmLor = window.render;
 window.render = function(){
   if(state.view !== "lor") return __renderCmLor.apply(this, arguments);
-  if(!state.traineeId && !state.isAdmin && !state.adminPreview){ state.view = "dashboard"; return __renderCmLor.apply(this, arguments); }
-  const app = document.getElementById("app");
-  app.innerHTML = renderTopbar() + `<main class="main-lor">${renderPage()}</main>` + renderFooter();
-  paintSave();
-  try{ afterRender(); }catch(err){}
-  document.querySelectorAll(".lorl-ta").forEach(CMLor.grow);
+  // An old link or bookmark: open the shared tool on the Portal rather than drafting here, and
+  // leave the dashboard behind it. The drafting code below is no longer routed to — it stays for
+  // now so nothing that still calls into it breaks, and comes out in a follow-up.
+  window.lshOpenPortalDrafting();
+  state.view = "dashboard";
+  return __renderCmLor.apply(this, arguments);
 };
 // A card the Drafting Tools hub can show (js/cm-drafting.js).
+/* This drafting activity now lives on the LSH Training Portal, as one shared tool that both this
+   course and Standard Foundational Training open: /simulators/drafting.html. The Portal fills the
+   firm's own .docx and hands that file back, so the download carries the letterhead and logo —
+   this course re-typeset the letter through jsPDF, which is what lost them. js/lsh-tool-links.js
+   puts the signed ticket on the link, so a trainee lands there already signed in. This file still
+   draws the card and still answers its own route, so old links and bookmarks keep working; the
+   drafting itself is on the Portal now. */
+const PORTAL_DRAFTING = "https://cm-training-activity.pages.dev/simulators/drafting.html";
+
+// On window: the card's onclick is an inline attribute, which is read in global scope, not in
+// this file's closure. Both drafting files define the same opener; either one will do.
+window.lshOpenPortalDrafting = function(){
+  if(typeof LSHToolLinks === "object" && LSHToolLinks.ticketed) LSHToolLinks.ticketed(PORTAL_DRAFTING).then(function(u){ location.href = u; });
+  else location.href = PORTAL_DRAFTING;
+};
+
 window.cmLorCard = function(){
   const no = isTrainee() ? myCaseNo() : null;
   if(isTrainee() && L.id !== state.traineeId && !L.loading) load(state.traineeId);
   const note = `${adminOn() ? "Every trainee's case" : "Your case"}: <b>${e(caseName(no || 0))}</b>.`;
   return `<div class="card fts-card"><h3>📄 LOR Drafting</h3>
-    <p class="fts-note">Draft the Letter of Representation for the 1P and the 3P carrier on John Doe v. Robert Smith (the Case Flow's Claim Set Up step), in the firm's own templates, then download them.</p>
+    <p class="fts-note">Draft the Letter of Representation for the 1P and the 3P carrier on John Doe v. Robert Smith (the Case Flow's Claim Set Up step), in the firm's own templates, then download them. It opens on the Training Portal, where the download is the firm's own Word file with your answers written into it — letterhead and logo included, ready to upload to SA.</p>
     <p class="fss-case">${note}</p>
-    <div class="fts-tool-act"><button class="btn btn-navy btn-sm" type="button" onclick="goto('lor')">Open LOR Drafting</button></div></div>`;
+    <div class="fts-tool-act"><button class="btn btn-navy btn-sm" type="button" onclick="lshOpenPortalDrafting()">Open LOR Drafting &rarr;</button></div></div>`;
 };
 
 (function(){ const s = document.createElement("style"); s.id = "cm-lor"; s.textContent = `
