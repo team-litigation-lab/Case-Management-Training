@@ -93,7 +93,7 @@ const NEED = {
   RS39: [/\$8,000/, /\$6,000/, /\$20,000/],
   RS40: [/fully insured/i, /02\/27\/2026|February 27, 2026/],
   RS41: [/\$1,860\.00/, /\$1,240\.00/],
-  RS42: [/\$4,580\.00/, /\$6,105\.00/],
+  RS42: [/\$3,470\.00/, /\$6,105\.00/],
   RS43: [/\$1,584\.00/, /\$22\.00/],
   RS44: [/\$486\.75/],
   RS45: [/\$6,940\.00/, /\$2,315\.00/, /\$9,255\.00/, /\$455\.00/],
@@ -148,9 +148,17 @@ for (const [id, t] of Object.entries(text)) {
 }
 if (text.RS07 !== undefined && !has("RS07", /DOE, Margaret/)) fails.push("RS07: the Police Report should list Margaret Doe as the parked Civic's owner");
 
-// PIP: Riverton is an add-on PIP state and John Doe claims the $5,000 PIP on the Escape he rode in (Harbor Point). No document
-// may still call the first-party medical coverage MedPay / Medical Payments.
-for (const [id] of Object.entries(text)) { const m = T(id).match(/\bMed ?Pay\b|Medical Payments/); if (m) fails.push(`${id}: “${m[0]}”: this file's first-party medical coverage is Harbor Point PIP`); }
+// First-party medical: Riverton is an add-on PIP state and John Doe claims the $5,000 PIP on the Escape he rode in (Harbor
+// Point), with the same policy's $1,500 Part C MedPay behind it. PIP is the primary layer, so a document that names MedPay
+// without PIP is still working from the old file: only the documents that carry MedPay's own payments may name it at all.
+const MEDPAY_DOCS = new Set(["RS23", "RS28", "RS31", "RS42", "RS63"]);
+for (const [id] of Object.entries(text)) {
+  const m = T(id).match(/\bMed ?Pay\b|Medical Payments/);
+  if (m && !MEDPAY_DOCS.has(id)) fails.push(`${id}: “${m[0]}”: this file's primary first-party medical coverage is Harbor Point PIP`);
+}
+if (text.RS31 !== undefined && !has("RS31", /\$1,480\.00/)) fails.push("RS31: the MedPay ledger should show the $1,480.00 paid on Riverton Spine & Rehab's first eight visits");
+if (text.RS23 !== undefined && !has("RS23", /\$4,810\.00/)) fails.push("RS23: Riverton's ledger should carry MedPay's $1,480.00 and an account balance of $4,810.00 (the 05/04/2026 duplicate still in it)");
+if (text.RS42 !== undefined && !has("RS42", /\$4,625\.00/)) fails.push("RS42: the Payoff Letter should show $4,625.00 owing after the audit and MedPay");
 if (text.RS28 !== undefined && !has("RS28", /Personal Injury Protection/i)) fails.push("RS28: Harbor Point's declarations should show Part B Personal Injury Protection ($5,000)");
 
 console.log(`Audited ${Object.keys(text).length} of ${DOCS.length} documents.`);

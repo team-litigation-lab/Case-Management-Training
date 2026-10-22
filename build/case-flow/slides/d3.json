@@ -126,13 +126,13 @@
     "hook": "Map both attacks and their answers before the first call; **every stall becomes a record**.",
     "points": [
       "Build **the battle map** first: net floor, value drivers, attacks, rebuttals",
-      "Net floor: **$12,677.63 gross**, above Keystone's $10,000 limit",
+      "Net floor: **$10,457.63 gross**, above Keystone's $10,000 limit",
       "Anchor on **$16,401.40 total Specials**, not PIP's $5,000",
       "Restate the approved demand and name each stall; **make no moves**"
     ],
     "upl": "Present the record, relay offers; never counter, move number or deadline, or value offers.",
     "job": [
-      ["Keystone receives demand (07/22/2026)", "Build battle map; compute net floor", "Net Sheet · Case Notes", "Floor $12,677.63; attacks matched to documents"],
+      ["Keystone receives demand (07/22/2026)", "Build battle map; compute net floor", "Net Sheet · Case Notes", "Floor $10,457.63; attacks matched to documents"],
       ["Adjuster calls with an offer", "Pause, ask her data, restate demand", "Call Simulator → AI Adjuster", "No counter; 08/21/2026 unchanged"],
       ["Call ends", "Log verbatim; report to Atty. Thorne", "Communications Log · Escalate", "Logged and reported same day"]
     ],
@@ -325,7 +325,7 @@
     "image": "checklist-qa",
     "hook": "A reduction is won **on paper first**, then on the phone.",
     "points": [
-      "Negotiate from **the audited balance**: $7,965.00",
+      "Negotiate from **the audited balance**: $6,485.00",
       "Send **the Reduction Request** before you call",
       "Make **Atty. Thorne's ask**, nothing outside it",
       "**No Payoff Letter**, no payment"
@@ -368,15 +368,15 @@
       "Draft the Reduction Request; **send it once approved**",
       "Call the billing manager **inside Atty. Thorne's authority**",
       "State the audited balance, recovery and math; ask for **payment in full**",
-      "When the manager agrees to $4,580.00, say **it goes to Atty. Thorne**"
+      "When the manager agrees to $3,470.00, say **it goes to Atty. Thorne**"
     ],
-    "deliver": "Audited $6,105.00, a logged call, **a signed $4,580.00 Payoff Letter**, recomputed Net Sheet",
+    "deliver": "Owed $4,625.00, a logged call, **a signed $3,470.00 Payoff Letter**, recomputed Net Sheet",
     "checks": [
       "34 billed lines **against 33 documented visits**",
       "Correction first: **$6,290.00 – $185.00 = $6,105.00**",
-      "**$4,580.00 not accepted** on the call",
+      "**$3,470.00 not accepted** on the call",
       "**Signed Payoff Letter**: full and final, no balance billing",
-      "Net Sheet recomputed: **net $20,359.92**"
+      "Net Sheet recomputed: **net $21,469.92**"
     ],
     "dos": [
       "**Script the call** before you dial",
@@ -402,13 +402,13 @@
       "Keep **two streams apart**: BI $10,000.00, UM $30,000.00",
       "Price **the fee per stream**: $3,333.33 + $10,000.00 = $13,333.33",
       "**Every cost needs a receipt**: $486.75, charged once",
-      "Run both streams at once: **net $20,359.92**"
+      "Run both streams at once: **net $21,469.92**"
     ],
     "upl": "Build and explain the arithmetic; never say whether the net is enough.",
     "job": [
       ["Each settlement check received", "Post it to its stream", "Net Sheet → Recovery Ledger", "BI $10,000.00 · UM $30,000.00"],
       ["Cost incurred", "Attach receipt; post it once", "Recovery Ledger", "Five receipts = $486.75"],
-      ["Both tabs complete", "Tie to trust; route for review", "CMS → Financial Ledger → Trust", "Net $20,359.92; Atty. Thorne reviews first"]
+      ["Both tabs complete", "Tie to trust; route for review", "CMS → Financial Ledger → Trust", "Net $21,469.92; Atty. Thorne reviews first"]
     ],
     "dos": [
       "Every reduction carries **its reason**: audit finding or named basis",
@@ -423,7 +423,7 @@
   },
   "d3m4-a1": {
     "image": "money-ledger",
-    "situation": "File date 10/13/2026. Cardinal State's check arrived today: **$40,000.00 received**, the last hasn't cleared. Peach State accepted $1,240.00, Riverton Spine & Rehab $4,580.00. Costs $486.75. **Both tabs are half-built**.",
+    "situation": "File date 10/13/2026. Cardinal State's check arrived today: **$40,000.00 received**, the last hasn't cleared. Peach State accepted $1,240.00, Riverton Spine & Rehab $3,470.00. Costs $486.75. **Both tabs are half-built**.",
     "steps": [
       "Post each check **by carrier and stream**",
       "Apply **the 33⅓% fee per stream** and receipted costs",
@@ -431,11 +431,11 @@
       "Complete the Lien Tracker: **asserted, audited, reduced**, payoff status",
       "**Tie both tabs** to the Trust Ledger"
     ],
-    "deliver": "A two-tab Net Sheet reaching **$20,359.92 both ways**, routed to Atty. Thorne",
+    "deliver": "A two-tab Net Sheet reaching **$21,469.92 both ways**, routed to Atty. Thorne",
     "checks": [
       "Pre-suit fee: **$3,333.33 + $10,000.00 = $13,333.33**",
       "Costs **$486.75, split $121.69 / $365.06**, charged once",
-      "Net: **$5,089.98 + $15,269.94 = $20,359.92**",
+      "Net: **$5,367.48 + $16,102.44 = $21,469.92**",
       "PIP and Crescent's write-off **kept off the payables**",
       "**Future ESIs flagged** to Atty. Thorne before John Doe signs"
     ],
@@ -512,7 +512,7 @@
   "d3m4-kc": {
     "image": "knowledge-check",
     "questions": [
-      "Take $40,000.00 to $20,359.92 **stream by stream**: fee, costs, liens. Why the 25% / 75% split?",
+      "Take $40,000.00 to $21,469.92 **stream by stream**: fee, costs, liens. Why the 25% / 75% split?",
       "Name **the four document sets** needed before archive, the file's item for each, and the retention period.",
       "The Trust Ledger reads $0.00 after 10/22/2026. **Which records prove it**, and what would a leftover balance mean?"
     ]

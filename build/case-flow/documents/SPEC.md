@@ -280,9 +280,9 @@ Dec page BWA-209-66184 (John Doe, 2019 Honda Civic LX; liability 25/50/25; colli
 signed UM/UIM selection/rejection form 03/14/2024.
 *Key:* Margaret's policy on the Civic: UM rejected in writing, so it adds no UM layer for John. Her collision coverage is a route for her own PD claim, not his.
 
-**RS31 · Harbor Point — PIP Payment Ledger** · Day 2 · Others · `RS_31_Harbor_Point_PIP_Ledger.pdf`
-The five payments (spec list) at 100% of the billed medical, running balance to $0.00, "PIP limit exhausted 06/26/2026"; a lost-income section: the 80% wage benefit ($1,267.20 on $1,584.00) not payable, limit exhausted before Northgate's 06/30/2026 letter.
-*Key:* Payer order in action; the Crescent bill went to Peach State, not PIP.
+**RS31 · Harbor Point — First-Party Medical Benefits Payment Ledger (PIP & MedPay)** · Day 2 · Others · `RS_31_Harbor_Point_PIP_Ledger.pdf`
+Part B PIP: the five payments (spec list) at 100% of the billed medical, running balance to $0.00, "PIP limit exhausted 06/26/2026". MedPay ($1,500.00 limit): one check (03/20/2026) for Riverton Spine & Rehab's first eight visits, 02/24–03/12/2026, $185.00 each = $1,480.00, "MedPay limit exhausted 03/16/2026" — $20.00 left, less than the $185.00 charge for the 03/16/2026 visit. Then a lost-income section: the 80% wage benefit ($1,267.20 on $1,584.00) not payable, limit exhausted before Northgate's 06/30/2026 letter.
+*Key:* Payer order in action; the Crescent bill went to Peach State, not PIP or MedPay (both first-party limits were gone by 05/15/2026). MedPay's $1,480.00 comes off the LOP account: Riverton audits to $6,105.00 and $4,625.00 is owed.
 
 **RS32 · Keystone Mutual — Claim Correspondence (Feb–Apr 2026)** · Day 2 · Others · `RS_32_Keystone_Claim_Correspondence.pdf`
 02/17/2026 Leah Moran: PD liability accepted; 02/18 rental authorized at Rivergate Rentals, $42.00/day, max 30 days;
@@ -345,9 +345,9 @@ satisfaction (a one-third procurement-cost reduction), payment instructions.
 *Key:* Accepted in writing at $1,240.00 — only a written acceptance goes on the net sheet.
 
 **RS42 · Riverton Spine & Rehab — LOP Payoff Letter** · Day 3 · Others · `RS_42_Spine_Rehab_Payoff_Letter.pdf`
-Tammy Greer, 10/12/2026: accepts **$4,580.00** in full satisfaction of the LOP account (audited balance $6,105.00);
+Tammy Greer, 10/12/2026: accepts **$3,470.00** in full satisfaction of the LOP account (audited balance $6,105.00);
 release of lien on payment; payment instructions.
-*Key:* $6,290.00 billed → $6,105.00 audited (duplicate removed) → $4,580.00 accepted.
+*Key:* $6,290.00 billed → $6,105.00 audited (duplicate removed) → $3,470.00 accepted.
 
 ### Settlement & wages (folder `settlement`)
 

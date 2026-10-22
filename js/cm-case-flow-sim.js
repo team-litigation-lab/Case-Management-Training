@@ -406,7 +406,7 @@ window.CM_CF_SIM = {
    "from": "CMS",
    "to": "Case Manager",
    "subject": "Trust deposit posted: Cardinal State Mutual $10,000.00",
-   "body": "IOLTA deposit logged: Cardinal State Mutual, CS-26-20355, $10,000.00, not yet cleared. Trust received to date: $40,000.00. Net Sheet: Recovery Ledger incomplete; Lien Tracker incomplete. Written acceptances on file: Peach State $1,240.00 (10/09), Riverton Spine & Rehab $4,580.00 (10/12). Complete both tabs before the Settlement Statement is drafted.",
+   "body": "IOLTA deposit logged: Cardinal State Mutual, CS-26-20355, $10,000.00, not yet cleared. Trust received to date: $40,000.00. Net Sheet: Recovery Ledger incomplete; Lien Tracker incomplete. Written acceptances on file: Peach State $1,240.00 (10/09), Riverton Spine & Rehab $3,470.00 (10/12). Complete both tabs before the Settlement Statement is drafted.",
    "attachments": [
     "RS41",
     "RS42",
@@ -754,7 +754,7 @@ window.CM_CF_SIM = {
    "who": "Atty. Elijah Thorne",
    "role": "attorney",
    "persona": "Exacting senior trial lawyer, short on time. Plays the adjuster to test you. Wants facts, not adjectives; bristles at any valuation from staff.",
-   "context": "07/08/2026, before any demand. MMI 06/12; Specials $16,401.40 ($14,817.40 medical after the 05/04 duplicate came out, plus $1,584.00 wages); liens $1,860.00 Peach State and $6,105.00 LOP; targets $10,000 BI, $20,000 Host UM, $10,000 Relative UM. He pushes: low-speed impact, the 14-day gap, the “degenerative” MRI, and asks what the case is worth. Briefed well, he decides: a time-limited BI demand served 07/20/2026, the gap addressed up front, no UM demand before a documented BI tender, billed-vs-paid his call.",
+   "context": "07/08/2026, before any demand. MMI 06/12; Specials $16,401.40 ($14,817.40 medical after the 05/04 duplicate came out, plus $1,584.00 wages); liens $1,860.00 Peach State and $4,625.00 LOP; targets $10,000 BI, $20,000 Host UM, $10,000 Relative UM. He pushes: low-speed impact, the 14-day gap, the “degenerative” MRI, and asks what the case is worth. Briefed well, he decides: a time-limited BI demand served 07/20/2026, the gap addressed up front, no UM demand before a documented BI tender, billed-vs-paid his call.",
    "opening": "I've got twenty minutes. Bottom line first. Then tell me why Keystone shouldn't call this a low-speed bump with a guy who waited two weeks to see a doctor.",
    "goals": [
     "Lead with the bottom line: MMI, $16,401.40 Specials, $10,000 BI limit",
@@ -796,12 +796,12 @@ window.CM_CF_SIM = {
    "who": "Tammy Greer, Riverton Spine & Rehab",
    "role": "lienholder",
    "persona": "Office manager who runs billing and LOPs; protective of the practice's money; brisk; will deal if the math is fair and in writing.",
-   "context": "10/09/2026. Riverton Spine & Rehab treated John Doe under an LOP signed 02/23/2026. Tammy's ledger shows 34 lines × $185.00 = $6,290.00; the 05/04/2026 line is a duplicate (33 visits, $6,105.00). The firm's approved Reduction Request is in her inbox. Recovery is capped at $40,000 of coverage. She defends the ledger first, concedes the duplicate when shown the dates, then agrees to $4,580.00 and asks, “So we have a deal?”",
+   "context": "10/09/2026. Riverton Spine & Rehab treated John Doe under an LOP signed 02/23/2026. Tammy's ledger shows 34 lines × $185.00 = $6,290.00; the 05/04/2026 line is a duplicate (33 visits, $6,105.00). The firm's approved Reduction Request is in her inbox. Recovery is capped at $40,000 of coverage. She defends the ledger first, concedes the duplicate when shown the dates, then agrees to $3,470.00 and asks, “So we have a deal?”",
    "opening": "Tammy Greer, Riverton Spine and Rehab. I got your reduction letter. We treated him four months on a promise. Why would we take less than the sixty-two ninety we're owed?",
    "goals": [
     "State the audited balance: 05/04/2026 duplicate removed, $6,105.00",
     "Explain the coverage-capped recovery as facts; ask for reduced payment in full",
-    "Accept nothing on the call; $4,580.00 goes to Atty. Thorne",
+    "Accept nothing on the call; $3,470.00 goes to Atty. Thorne",
     "Request a signed Payoff Letter: full satisfaction, no balance billing"
    ],
    "line": "The CM negotiates only inside Atty. Thorne's written authority and never accepts a figure on the call."
@@ -810,10 +810,10 @@ window.CM_CF_SIM = {
    "who": "John Doe",
    "role": "client",
    "persona": "Warehouse shift lead, tired and wary; did his own math on $40,000 and feels shorted; wants a straight answer, not a lecture.",
-   "context": "10/22/2026, disbursement day. John signed the Settlement Statement 10/21. Gross $40,000.00; fee $13,333.33 (33⅓% pre-suit, per the retainer); costs $486.75; Peach State $1,240.00 (asserted $1,860.00); Riverton Spine & Rehab $4,580.00 ($6,290.00 billed); net $20,359.92. He expected two-thirds, about $26,667. He asks why the chiropractor gets paid at all, and who pays if he needs more injections.",
+   "context": "10/22/2026, disbursement day. John signed the Settlement Statement 10/21. Gross $40,000.00; fee $13,333.33 (33⅓% pre-suit, per the retainer); costs $486.75; Peach State $1,240.00 (asserted $1,860.00); Riverton Spine & Rehab $3,470.00 ($6,290.00 billed); net $21,469.92. He expected two-thirds, about $26,667. He asks why the chiropractor gets paid at all, and who pays if he needs more injections.",
    "opening": "Hey, it's John. This check says twenty thousand three-fifty-nine. Forty grand, lawyers take a third, I figured twenty-six something. Where'd the rest go?",
    "goals": [
-    "Walk each Settlement Statement line to $20,359.92 as plain facts",
+    "Walk each Settlement Statement line to $21,469.92 as plain facts",
     "Show both lien reductions and the signed Payoff Letters",
     "Route fee and future-injection questions to Atty. Thorne",
     "Obtain his signed acknowledgment of receipt"
@@ -964,7 +964,7 @@ window.CM_CF_SIM = {
    "who": "John Doe",
    "role": "client",
    "persona": "Relieved it's over but upset at the number; a friend kept more from his settlement. Wants to know where his money went.",
-   "context": "07/27/2027. The arbitration award came in 07/06; both UM checks and Keystone's are in trust: $40,000.00. John has the draft Settlement Statement: $14,713.75 to him. He remembers Atty. Thorne mentioning the 40% tier when suit was filed, not the amount. He thinks the arbitrator cut his award for the gap, and asks whether suing was a mistake and whether the fee is fair. He calms with plain arithmetic and a clear next step.",
+   "context": "07/27/2027. The arbitration award came in 07/06; both UM checks and Keystone's are in trust: $40,000.00. John has the draft Settlement Statement: $15,748.75 to him. He remembers Atty. Thorne mentioning the 40% tier when suit was filed, not the amount. He thinks the arbitrator cut his award for the gap, and asks whether suing was a mistake and whether the fee is fair. He calms with plain arithmetic and a clear next step.",
    "opening": "Hey, it's John. I got the statement. Forty thousand, and I get fourteen-seven? My buddy settled his case and kept way more than that. Where did it all go?",
    "goals": [
     "Walk the deductions in order: fee, costs, liens, net",
@@ -1137,7 +1137,7 @@ window.CM_CF_SIM = {
      "channel": "alert",
      "from": "CMS",
      "subject": "Disbursement hold: Riverton Spine & Rehab payoff unsigned",
-     "body": "The $4,580.00 command to Riverton Spine & Rehab rests on a phone note, with no signed Payoff Letter. It cannot be queued, the 10/22/2026 disbursement waits, and nothing yet stops Riverton from balance-billing John Doe."
+     "body": "The $3,470.00 command to Riverton Spine & Rehab rests on a phone note, with no signed Payoff Letter. It cannot be queued, the 10/22/2026 disbursement waits, and nothing yet stops Riverton from balance-billing John Doe."
     }
    }
   },
@@ -1197,7 +1197,7 @@ window.CM_CF_SIM = {
      "channel": "alert",
      "from": "CMS",
      "subject": "Exchange set audit: Lien Sheet overstated",
-     "body": "The attorney's-set Lien Sheet still lists Harbor Point PIP $5,000.00 and Summit Imaging $2,395.00, and Crescent as open. Liens actually owed: $7,965.00. A $7,395.00 overstatement sits nine days before the 06/02/2027 exchange."
+     "body": "The attorney's-set Lien Sheet still lists Harbor Point PIP $5,000.00 and Summit Imaging $2,395.00, and Crescent as open. Liens actually owed: $6,485.00. A $7,395.00 overstatement sits nine days before the 06/02/2027 exchange."
     }
    }
   },

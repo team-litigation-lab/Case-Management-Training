@@ -110,8 +110,8 @@ const CLIENT_PROFILE_DOC = [
     "08/12/2026 Keystone tenders $10,000 · UM consents 08/24 (Harbor Point) and 08/26 (Cardinal State) · Keystone's General Release (08/14) revised to a Limited Release, signed 08/28 · check into IOLTA 09/04",
     "08/31 Host UM and Relative UM demands · Harbor Point offers $8,000 (09/14), pays $20,000 limits 09/29 · Cardinal State offers $6,000 (10/01), tenders $10,000 limits 10/06",
     "Gross recovery $40,000.00",
-    "Liens: Peach State (fully insured plan) $1,860.00 → $1,240.00 (10/09) · Riverton Spine & Rehab $6,290.00 billed → $6,105.00 audited → $4,580.00 (10/12)",
-    "Net sheet: fee $13,333.33 · costs $486.75 · liens $5,820.00 · net to John Doe $20,359.92 (BI stream $5,089.98, UM stream $15,269.94)",
+    "Liens: Peach State (fully insured plan) $1,860.00 → $1,240.00 (10/09) · Riverton Spine & Rehab $6,290.00 billed → $6,105.00 audited → $4,625.00 owed after MedPay → $3,470.00 (10/12)",
+    "Net sheet: fee $13,333.33 · costs $486.75 · liens $4,710.00 · net to John Doe $21,469.92 (BI stream $5,367.48, UM stream $16,102.44)",
     "John signs the Settlement Statement 10/21 · disbursement 10/22/2026 · Trust Ledger to $0.00 · closing memo 10/30/2026"
   ]},
   {section:"Track B: The Stonewall", items:[
@@ -145,7 +145,7 @@ const CLIENT_PROFILE_DOC = [
   {section:"Track B: Case Won", items:[
     "07/06/2027 award, Laura Whitcomb, Esq.: damages exceed the UM limits · Harbor Point $20,000 + Cardinal State $10,000, with Keystone's $10,000 from the 03/18/2027 mediation: gross $40,000.00",
     "Fee at the 40% tier (suit filed 09/24/2026): $16,000.00 · receipted costs $3,895.25 (pre-suit $486.75 + filing, service, mediation, arbitration, court reporter, certified records)",
-    "Liens at the fee actually charged: Peach State $1,860.00 → $1,116.00 (07/14/2027) · Riverton Spine & Rehab $6,105.00 audited → $4,275.00 (07/16/2027)",
-    "Net to John Doe $14,713.75 · Settlement Statement signed 07/29 · disbursed 07/30/2027 ($5,646.17 less than Track A's $20,359.92)"
+    "Liens at the fee actually charged: Peach State $1,860.00 → $1,116.00 (07/14/2027) · Riverton Spine & Rehab $4,625.00 owed → $3,240.00 (07/16/2027)",
+    "Net to John Doe $15,748.75 · Settlement Statement signed 07/29 · disbursed 07/30/2027 ($5,721.17 less than Track A's $21,469.92)"
   ]}
 ];

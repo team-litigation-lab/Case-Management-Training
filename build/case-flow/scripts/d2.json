@@ -394,8 +394,8 @@
  },
  "d2m4-l1": {
   "why": {
-   "say": "The demand goes out later today, but what it can claim gets decided right here. Pre-demand is where most of a file's value is won or lost, because The demands that follow can only spend what this audit proves. One duplicate line or one unchecked limit is Keystone's easy out. Now try this arithmetic. There's $7,965.00 in liens waiting behind a $10,000 BI limit. Take a moment and work out what's left before John Doe sees anything from that layer. That's why every dollar in this audit has to be right.",
-   "ask": "With $7,965.00 in liens behind a $10,000 BI limit, how much of that layer is left?"
+   "say": "The demand goes out later today, but what it can claim gets decided right here. Pre-demand is where most of a file's value is won or lost, because The demands that follow can only spend what this audit proves. One duplicate line or one unchecked limit is Keystone's easy out. Now try this arithmetic. There's $6,485.00 in liens waiting behind a $10,000 BI limit. Take a moment and work out what's left before John Doe sees anything from that layer. That's why every dollar in this audit has to be right.",
+   "ask": "With $6,485.00 in liens behind a $10,000 BI limit, how much of that layer is left?"
   },
   "theory": {
    "say": "Think of the full pre-demand audit as the final stress test, the point where we stop collecting information and start using it, leaving the defense zero easy outs. It starts with the trinity of case alignment: narrative, physicality and medicals must all agree, and if one's out of line, the value collapses. Maximum Medical Improvement is the provider's finding that care has plateaued. The incurred Specials are complete, and the audit can begin. Special damages are Medical Bills plus lost wages plus Property Damage, the provable dollar loss, and every line needs a document. And the medical and billing audit runs three passes, chronology for gaps, coding for duplicates and prior history for pre-existing conditions, so we find the weak spots first.",
@@ -418,7 +418,7 @@
    "ask": "What would Keystone have done with that $185.00 duplicate if we hadn't caught it?"
   },
   "job": {
-   "say": "The story starts on 06/12/2026, when the MMI note arrives. You record MMI and the future-care plan on the treatment timeline and open the pre-demand audit as a task with an owner and a date. As the final bills and records come in, you build the Specials ledger and reconcile it against the chronology until every billed date matches a visit and the medical total is $14,817.40. Once the ledger's reconciled, you register every lien and record billed beside paid in the Liens and the Net Sheet's Lien Tracker. That means $1,860.00 and $6,105.00 are listed and the billed-versus-paid question is routed to Atty. Thorne. Finally, before the ask, you re-verify each limit in the Coverage Matrix: $10,000, then $20,000, then $10,000, $40,000 in all, each with its written source.",
+   "say": "The story starts on 06/12/2026, when the MMI note arrives. You record MMI and the future-care plan on the treatment timeline and open the pre-demand audit as a task with an owner and a date. As the final bills and records come in, you build the Specials ledger and reconcile it against the chronology until every billed date matches a visit and the medical total is $14,817.40. Once the ledger's reconciled, you register every lien and record billed beside paid in the Liens and the Net Sheet's Lien Tracker. That means $1,860.00 and $4,625.00 are listed and the billed-versus-paid question is routed to Atty. Thorne. Finally, before the ask, you re-verify each limit in the Coverage Matrix: $10,000, then $20,000, then $10,000, $40,000 in all, each with its written source.",
    "ask": "Why re-verify the limits now, when the Coverage Matrix was confirmed weeks ago?"
   },
   "dodont": {
