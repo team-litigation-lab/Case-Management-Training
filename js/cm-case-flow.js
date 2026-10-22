@@ -2872,7 +2872,7 @@ function caseNow(){
 }
 const fmtMs = t => { const d = new Date(t); return `${String(d.getUTCMonth() + 1).padStart(2, "0")}/${String(d.getUTCDate()).padStart(2, "0")}/${d.getUTCFullYear()}`; };
 /* one screen: each event is a date button; its label pops up on hover, focus or tap */
-const tlItem = (cls, label, date) => `<li class="${cls}"><button type="button" class="cf-tl-b" aria-label="${label} · ${date}"><i></i><small>${date}</small></button><b class="cf-tl-pop">${label}</b></li>`;
+const tlItem = (cls, label, date) => `<li class="${cls}"><button type="button" class="cf-tl-b" aria-label="${label} · ${date}"><i></i><small>${date.replace(/\/\d\d(\d\d)\b/, "/$1")}</small></button><b class="cf-tl-pop">${label}<span>${date}</span></b></li>`;
 function caseTimeline(n){
   if(!(SIM.timeline || []).length) return "";
   if(!isTrainer()){   // a trainee sees the case only as far as they have worked it
@@ -3877,17 +3877,18 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cf-lane-care .cf-lane-h{color:#9BE0B4;}
 .cf-lane .cfx-tl-full li{flex:0 0 calc(100% / 4);}
 /* one screen: the timeline is a wrap of date buttons; each label pops up over the rail */
-.cf-timeline .cfx-tl-full{flex-direction:row !important;flex-wrap:wrap !important;gap:6px;margin:0 0 6px;}
+.cf-timeline .cfx-tl-full{flex-direction:row !important;flex-wrap:wrap !important;gap:4px;margin:0 0 4px;}
 .cf-timeline .cfx-tl-full::before{display:none !important;}
 .cf-timeline .cfx-tl-full li, .cf-timeline .cf-lane .cfx-tl-full li{flex:0 0 auto !important;padding:0;position:relative;overflow:visible;}
-.cf-tl-b{display:flex;align-items:center;gap:6px;padding:4px 9px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);color:#DDE2EE;cursor:pointer;font:inherit;}
+.cf-tl-b{display:flex;align-items:center;gap:5px;padding:2px 7px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);color:#DDE2EE;cursor:pointer;font:inherit;}
 .cf-tl-b:hover,.cf-tl-b:focus-visible{background:rgba(219,132,55,.3);border-color:#DB8437;outline:none;}
-.cf-timeline .cfx-tl-full li small{order:0;min-width:0 !important;font:600 12px 'IBM Plex Mono',monospace;color:#C9CFE0;}
-.cf-timeline .cfx-tl-full li i{width:9px;height:9px;}
+.cf-timeline .cfx-tl-full li small{order:0;min-width:0 !important;font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:-.01em;color:#C9CFE0;}
+.cf-timeline .cfx-tl-full li i{width:6px;height:6px;border-width:1px;}
 .cf-timeline .cfx-tl-full li.here .cf-tl-b{background:#DB8437;border-color:#fff;}
 .cf-timeline .cfx-tl-full li.here small{color:#fff;}
 .cf-timeline .cfx-tl-full li.next .cf-tl-b{opacity:.62;}
-.cf-tl-pop{position:absolute;left:50%;top:calc(100% + 8px);transform:translateX(-50%);z-index:20;display:none;width:max-content;max-width:260px;padding:7px 11px;border-radius:10px;background:#12162B;border:1px solid #DB8437;color:#fff;font:700 13.5px/1.35 'Inter',sans-serif;box-shadow:0 8px 20px rgba(0,0,0,.45);}
+.cf-tl-pop span{display:block;margin-top:2px;font:600 10.5px 'IBM Plex Mono',monospace;color:#F4B77A;}
+.cf-tl-pop{position:absolute;left:50%;top:calc(100% + 8px);transform:translateX(-50%);z-index:20;display:none;width:max-content;max-width:260px;padding:7px 11px;border-radius:10px;background:#12162B;border:1px solid #DB8437;color:#fff;font:700 12.5px/1.3 'Inter',sans-serif;box-shadow:0 8px 20px rgba(0,0,0,.45);}
 .cf-timeline .cfx-tl-full li:hover .cf-tl-pop,.cf-timeline .cfx-tl-full li:focus-within .cf-tl-pop{display:block;}
 .cf-timeline .cfx-tl-full li:first-child .cf-tl-pop{left:0;transform:none;}
 .cf-timeline .cfx-tl-full li:last-child .cf-tl-pop{left:auto;right:0;transform:none;}
