@@ -100,7 +100,8 @@ const problemsHTML = (r)=> `<div class="dfl-bad"><b>Not filed.</b><ul>${(r.probl
 
 function panel(blockId){
   const ids = (window.CM_CF_DOC_PACKETS || {})[blockId] || [];
-  const docs = ids.map(docOf).filter(Boolean);
+  // a corrected copy waits until the trainee's amendment request for it is answered (js/cm-case-flow.js)
+  const docs = ids.map(docOf).filter(Boolean).filter(d=> typeof window.cmDocAvailable !== "function" || window.cmDocAvailable(d));
   if(!docs.length) return "";
   const done = docs.filter(d=>(recOf(d.id) || {}).filed).length;
   const first = docs.filter(d=>{ const r = recOf(d.id) || {}; return r.filed && r.attempts === 1; }).length;
@@ -164,6 +165,7 @@ async function file(blockId, docId, btn){
       else if(drv.why === "no-drive" && typeof toast === "function") toast("Filed in the CMS. Your Backup Drive isn't set up yet, so no copy was kept there.");
     }
     row.outerHTML = rowHTML(blockId, d);
+    try{ window.dispatchEvent(new CustomEvent("cm-doc-filed", {detail: {blockId, docId}})); }catch(e){}
     const count = document.querySelector(`#dfl_${CSS.escape(blockId)} .dfl-count`);
     if(count){ const p = panel(blockId); const m = /<span class="dfl-count">([^<]*)</.exec(p); if(m) count.textContent = m[1]; }
     return;
@@ -221,7 +223,7 @@ function health(){
   return {filed: all.filter(x=>x.filed).length, firstTime: all.filter(x=>x.filed && x.attempts === 1).length,
           attempts: all.reduce((n, x)=>n + (x.attempts || 0), 0)};
 }
-window.cmDocFiling = {panel, file, send, keepOnDrive, health, categories: CATEGORIES, expectedCategory, CATEGORIES, relayOrigins: ()=> RELAY_ORIGINS.map(String)};
+window.cmDocFiling = {panel, row: rowHTML, file, send, keepOnDrive, health, categories: CATEGORIES, expectedCategory, CATEGORIES, relayOrigins: ()=> RELAY_ORIGINS.map(String)};
 
 /* ---------- relaying a simulator's document to the CMS ----------
    The LSH Training Portal (and a local server while the checks run) may ask; nobody else. The message

@@ -60,7 +60,7 @@ Intake 02/09/2026, taken by the intake specialist. Client identity and contact (
 lives with his mother Margaret Doe (emergency contact, same address, phone (555) 010-2291). Position: front-seat
 passenger in Kevin Alvarez's 2020 Ford Escape (coworker carpool). Employer Northgate Distribution, shift lead,
 $22.00/h, started 01/12/2026. Health plan Peach State (member/group). Owns no car; the parked 2019 Civic LX is Margaret's, Bluewater (UM
-"rejected? — client unsure"). Collision summary (all-way stop, Smith rolled through, passenger-door impact, Escape
+"rejected? — Margaret unsure"). Collision summary (all-way stop, Smith rolled through, passenger-door impact, Escape
 pushed into the parked Civic). Police Report number, injuries reported ("neck stiffness, sore; declined ambulance;
 no treatment yet"), carriers as known at intake (Keystone for Smith; Harbor Point for Kevin; Cardinal State for
 Margaret — limits unknown). Intake notes: no treatment yet; told to seek care and keep receipts; preserve the
@@ -73,7 +73,7 @@ UM and Relative UM. No treatment yet: the 14-day gap is already running (first c
 Same intake specialist, 02/09/2026. Prior injuries/claims: "Chiropractic 2021 — Birch Avenue Chiropractic, 3
 visits, **neck and back** stiffness, resolved." No prior claims, no prior counsel, no workers' comp. Household:
 lives with mother (resident relative); Margaret's car insured with Cardinal State. No vehicle of his own; Margaret's Civic and its Bluewater policy;
-"client believes he signed something about UM in 2024". Employment history. Social media: told to stop posting.
+"Margaret believes she signed something about UM in 2024". Employment history. Social media: told to stop posting.
 *Plant:* the 2021 care is recorded as **neck and back**; the 2021 records (RS20) show **low back only**, no neck.
 *Key:* The 2021 visits were low back only (RS20). A "prior neck" note in our own file is exactly what defense counsel
 would use (causation, deposition). Correct it in the CMS with a note citing RS20.
@@ -199,8 +199,9 @@ Radiologist Dr. Helen Park, MD; referring Dr. Alana Reyes. Clinical history line
 foraminal narrowing; other levels; Impression including exactly "no significant degenerative change at the adjacent
 levels".
 *Plant:* the history line's date of injury reads **02/16/2026** (the DOL is 02/06/2026).
-*Key:* The impression is the answer to "degenerative" (Day 3, Day 5) — quote it exactly. Request a corrected history
-addendum from Summit: an adjuster will use a wrong injury date against causation.
+*Key:* The impression is the answer to "degenerative" (Day 3, Day 5) — quote it exactly. The wrong date goes to
+Atty. Thorne; with his approval the Case Manager asks Summit to review its own record, and Summit corrects it by a dated
+addendum with the original kept (RS71, 07/15/2026). Never ask a provider to change a record to match the file.
 
 **RS17 · Crescent Pain & Spine — Cervical ESI Procedure Note (05/15/2026)** · Day 2 · Medical · `RS_17_Crescent_ESI_Procedure_Note.pdf`
 Dr. Omar Haddad, MD. Pre-procedure diagnosis, consent, fluoroscopic right C5-C6 (or C6-C7 interlaminar approach —
@@ -276,7 +277,7 @@ excerpt (a vehicle owned by the insured or a resident relative and not insured u
 *Key:* Third layer, excess over Host UM. He reaches it as Margaret's resident relative occupying a non-owned vehicle.
 
 **RS30 · Bluewater Auto — Declarations & UM Rejection** · Day 2 · Others · `RS_30_Bluewater_Dec_Page_and_UM_Rejection.pdf`
-Dec page BWA-209-66184 (John Doe, 2019 Honda Civic LX; liability 25/50/25; collision $500 ded.; UM/UIM: REJECTED);
+Dec page BWA-209-66184 (Margaret Doe, 2019 Honda Civic LX; liability 25/50/25; collision $500 ded.; UM/UIM: REJECTED);
 signed UM/UIM selection/rejection form 03/14/2024.
 *Key:* Margaret's policy on the Civic: UM rejected in writing, so it adds no UM layer for John. Her collision coverage is a route for her own PD claim, not his.
 
@@ -383,9 +384,9 @@ market data, diminished value **$3,600.00**; appraiser's qualifications.
 **RS48 · Keystone PD — Final Offer & Release (12/10/2026)** · Day 5 · PD · `RS_48_Keystone_PD_Final_Offer_and_Release.pdf`
 Leah Moran: diminished value $792.00 by the "17c" formula (10% of $17,600.00 = $1,760.00 × damage 0.75 × mileage
 0.60), loss of use $0 ("rental provided"), "final"; enclosed release of "**all claims arising from the 02/06/2026
-accident**" for John's signature.
-*Plant:* the PD release reaches **all claims** from the accident — it would release the bodily-injury claim in suit.
-*Key:* Never let John sign a PD release that isn't limited to property damage. 17c caps at 10% and multiplies it down;
+accident**" for Margaret Doe's signature (the Civic is hers).
+*Plant:* the PD release reaches **all claims** from the accident, not only the Civic.
+*Key:* Never let Margaret sign a PD release that isn't limited to property damage; John Doe has no PD claim and signs nothing. 17c caps at 10% and multiplies it down;
 the appraisal is $3,600.00. Route to Atty. Thorne with a recommendation.
 
 ### Litigation & ADR — Track B (folder `litigation`)
@@ -397,13 +398,14 @@ response and the evidence relied on (no reply); 09/02 escalation letter to Greg 
 *Key:* The impasse record: every attempt dated, every silence documented. The demand lapsed 08/21/2026.
 
 **RS50 · Complaint — Pre-Filing Draft (superseded)** · Day 4 · Litigation · `RS_50_Complaint_PRE-FILING_DRAFT.pdf`
-An earlier draft: no case number, "DRAFT 09/15/2026", unsigned, damages paragraph omits property damage.
+An earlier draft: no case number, "DRAFT 09/15/2026", unsigned. Like the filed complaint, it pleads no property damage (the Civic is Margaret Doe's claim).
 *Plant:* it is a superseded draft. *Key:* Never in a binder or exhibit set — use the filed complaint (RS51).
 
 **RS51 · Complaint (filed 09/24/2026)** · Day 4 · Litigation · `RS_51_Complaint_Filed.pdf`
 State Court of Riverton County, *John Doe v. Robert Smith*, Civil Action No. 26-CV-04417; filed stamp 09/24/2026;
-negligence (failure to stop), damages: medical specials, lost wages, future medical, pain and suffering, property
-damage (loss of use and diminished value); jury demand; signed by Atty. Elijah Thorne.
+negligence (failure to stop), damages: medical specials, lost wages, future medical, pain and suffering; no property
+damage is pleaded (John Doe owns no vehicle; the Civic's loss of use and diminished value are Margaret Doe's own claim);
+jury demand; signed by Atty. Elijah Thorne.
 
 **RS52 · Service of Process — Non-Service, Skip-Trace & Affidavit of Service** · Day 5 · Litigation · `RS_52_Service_Skip_Trace_and_Affidavit.pdf`
 Allied Process Services (Miguel Santos): non-service reports 10/01, 10/05, 10/08/2026 at 118 Larkspur Ln (neighbor:
@@ -451,14 +453,30 @@ configured for this training file; confirm the forum's rules).
 **RS59 · Mediated Settlement Term Sheet (03/18/2027)** · Day 4 · Litigation · `RS_59_Mediated_Settlement_Term_Sheet.pdf`
 Signed at mediation: Keystone pays its $10,000 BI limits; limited release of Robert Smith and Keystone only,
 expressly preserving all UM/UIM claims; dismissal of the bodily-injury claims against Robert Smith with prejudice on
-payment, the property-damage claims (loss of use, diminished value; KM-26-440871-PD) expressly excluded and not
-released; UM consents attached.
+payment; Plaintiff makes no property-damage claim (the Civic's claim, KM-26-440871-PD, is Margaret Doe's own and
+is not touched by the release); UM consents attached.
 *Key:* BI exhausted on Track B — Host UM and Relative UM open (and go to arbitration).
 
 **RS60 · Certificate of Service — Plaintiff's Discovery Responses (01/04/2027)** · Day 5 · Litigation · `RS_60_Certificate_of_Service_Discovery_Responses.pdf`
 Atty. Thorne's certificate: John Doe's verified answers to interrogatories, responses to requests for production and
 responses to requests for admission served by U.S. mail on Atty. Grant Mercer 01/04/2027.
 *Key:* Proves the RFA responses were timely (due 01/04/2027).
+
+**RS61 · Host UM & Relative UM Demands — DRAFT for QC** · Day 3 · Others · `RS_61_UM_Demands_DRAFT.pdf`
+The Demand Desk's drafts of the $20,000 Host UM demand to Harbor Point and the $10,000 Relative UM demand to Cardinal State (08/28/2026), assigned after the audit, for your QC.
+*Plants:* (1) exhaustion proof buried in section 3, not on page one; (2) Relative UM demanded "payable now and in addition to any other recovery" — it is excess over BI + Host UM ($30,000); (3) future medical $3,400.00 counted inside the Specials ($19,801.40) — Specials are $16,401.40, future medical goes in the narrative; (4) response deadline filled in — it is Atty. Thorne's to set; (5) "all medical records" enclosed instead of a two-page treatment summary; (6) the gap and the "degenerative" reading are not answered (MRI adjacent levels, Causation Letter, EMS report, Gap Explanation Record).
+
+**RS62 · Mediation Binder — Master Index DRAFT for QC (03/02/2027)** · Day 4 · Litigation · `RS_62_Mediation_Binder_DRAFT.pdf`
+The Litigation Desk's draft Mediation Binder index and medical ledger, assembled 03/02/2027, for your QC before it goes to Hon. Carla Benton (Ret.) on 03/11/2027.
+*Plants:* (1) ledger from the original bills — Riverton Spine & Rehab $6,290.00 (34 lines) instead of $6,105.00 after the audit, total $15,002.40 instead of $14,817.40; (2) Crescent's $3,400.00 shown open — Peach State paid $1,860.00 at contract rate, no balance billing; (3) the pre-filing draft Complaint (RS50) in Section 3 instead of the filed one (RS51); (4) session time and location left blank and the fee split assumed, not read from the order; (5) deposition summary missing.
+
+**RS63 · Arbitration Binder — Exhibit Index DRAFT for QC (05/14/2027)** · Day 4 · Litigation · `RS_63_Arbitration_Binder_DRAFT.pdf`
+The Litigation Desk's draft Arbitration Binder exhibit index, assembled 05/14/2027, for your QC before the 06/02/2027 exchange.
+*Plants:* (1) the brief docketed 06/12/2027, a Saturday — counting back, it moves to Friday 06/11/2027; (2) the Confidential Mediation Statement in the exchange set; (3) the pre-filing draft Complaint; (4) the public-redacted Police Report and grayscale doorbell stills; (5) the impasse memo in the exchange set; (6) Harbor Point PIP listed as a $5,000.00 lien — no reimbursement right (03/02/2026 letter); (7) the threshold BI exhaustion record, the 2021 records and the authentication log missing.
+
+**RS64 · CMS Task Log — Pre-Demand Audit Closed, Drafting Assigned (07/15/2026)** · Day 3 · Case Files · `RS_64_CMS_Task_Log_Drafting_Assigned.pdf`
+The CMS task log Atty. Thorne opened when the pre-demand audit closed: the BI and UM demands and the two binders assigned to the drafting desks, each returning to the Case Manager for QC.
+*Key:* Shows the workflow: the desks draft, the CM QCs against the records, Atty. Thorne approves. Note the dependencies: UM opens only once BI is exhausted; the binders are contingent on suit and on a UM dispute.
 
 **RS65 · Harbor Point — PIP Application & Claim Acknowledgement** · Day 2 · Others · `RS_65_Harbor_Point_PIP_Application.pdf`
 John Doe's PIP application, signed 02/17/2026 and sent with the Harbor Point LOR (passenger in Kevin Alvarez's 2020 Ford Escape; household policies: Margaret Doe's Bluewater and Cardinal State, PIP rejected in writing), and Harbor Point's 02/24/2026 acknowledgement: PIP opened under HPA-4402917, $5,000 each person, 100% medical / 80% lost income, bills to be sent with the claim number; wage loss needs an employer verification.
@@ -523,6 +541,29 @@ would have cost, and the delivery record.
 The complete six-tab binder as approved 05/29/2027 and exchanged 06/02/2027, shown once the audit is handed in: the
 master exhibit index (Tabs 1–6, exhibits C-1 to C-18, 174 pages, Bates LSH-ARB-000001–000174) with each tab's QC
 rule in its row, the withheld-items list with Atty. Thorne's recorded reason for each, the Lien Sheet audited from
-$15,545.00 to **$7,965.00**, a table of what the sort and QC changed, and the exchange record.
+$12,965.00 to **$7,965.00**, a table of what the sort and QC changed, and the exchange record.
 *Key:* No plants. Threshold exhibits lead (the BI tender, the UM consents, the Limited Release and the dismissal);
 the brief is docketed **06/11/2027**; nothing privileged or settlement-related is in the exchanged set.
+
+## The corrected copies (the pre-demand audit's Amendment Requests)
+
+Three records in the set are wrong at their source (RS16, RS23, RS26). In the pre-demand audit (`d2m4-a1`) the Case
+Manager screens the bills and records, finds them, and writes each provider an amendment request; the provider's
+answer comes back, and with it the corrected copy, which the trainee files in the CMS. A corrected copy opens to a
+trainee only once their request is answered (`unlock` in the manifest; trainers see it always). Content for the
+requests: `build/case-flow/exhibits/EXHIBITSPEC.md` ("amendments"). Riverton Spine & Rehab does not reissue its
+ledger before the demand (its answer of 07/09/2026), so it has no corrected copy here.
+
+**RS71 · Summit Imaging Center — MRI Corrected History Addendum (07/15/2026)** · Day 3 · Medical · `RS_71_Summit_MRI_Corrected_History_Addendum.pdf`
+Dr. Helen Park's addendum to the 03/13/2026 report (accession SIC-MR-26-031307): reason (a transcription error in the
+history), the corrected clinical history ("date of injury 02/06/2026"), the scope (history only; technique, findings
+and impression unchanged and restated), her electronic signature 07/15/2026, and the HIM release record (request
+received 07/06/2026 from LSH Law Group with the HIPAA authorization; released by Marisol Ortega, HIM Supervisor).
+*Key:* No plants. The date fixed and nothing else. Exhibit F of RS67.
+
+**RS72 · Crescent Pain & Spine — Corrected Patient Statement, $0.00 (07/10/2026)** · Day 3 · Bills · `RS_72_Crescent_Corrected_Patient_Statement.pdf`
+Replaces the 07/01/2026 statement on account CPS-30442: the $3,400.00 charge, Peach State's $1,860.00 payment and the
+$1,540.00 in-network contractual adjustment (CO-45) posted 07/10/2026; balance $0.00; the earlier statement withdrawn;
+account paid in full and closed; corrected by Renee Halvorsen, Billing Lead, on the firm's request of 07/06/2026.
+*Key:* No plants. Crescent is not an open balance; the only claim on the bill is Peach State's $1,860.00. Exhibit E of RS67.
+

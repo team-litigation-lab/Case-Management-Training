@@ -781,7 +781,7 @@ function slideBody(view, l, d){
     case "job": return `<div class="cfx-job">${c.job.map((r, ri) => `<div class="cfx-flow">${r.map((x, j) => `<div class="cfx-step"><small>${["Trigger", "Task", "Tool", "Checkpoint"][j]}</small><span>${hl(x)}</span></div>`).join('<span class="cfx-arrow">➔</span>')}</div>`).join("")}</div>`;
     case "dodont": return (SLIDES[b.id] || {}).clues ? clueGame(b) : ddList(c);
     case "case": {
-      const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(Boolean).slice(0, 4);
+      const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(docAvail).filter(Boolean).slice(0, 4);
       const ev = SIM.events[b.id], fall = falloutFor(b.id), vm = ev && ev.channel === "voicemail" && ev.spoken;
       const thumbs = docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
       return `<div class="cfx-sb">${timeBanner(l)}
@@ -803,6 +803,8 @@ function slideBody(view, l, d){
           <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
         ${serviceOf(b.id) ? `<div class="cfx-call cfx-svb"><b>✉ Service Confirmation</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
           <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the Service Confirmation</button></div>` : ""}
+        ${amendOf(b.id) ? (s => `<div class="cfx-call cfx-svb"><b>📝 Skill Builder: Amendment Requests</b><span>${E(amendOf(b.id).kicker)}${s.sent ? ` · <em>${s.sent} of ${s.of} sent · ${s.filed} of ${s.copies} corrected copies filed</em>` : ""}</span>
+          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.amend('${b.id}')">📝 Open the Amendment Requests</button></div>`)(amSummary(b.id, amendOf(b.id), amRec(b.id))) : ""}
         <div class="cfx-deliver"><b>📤 Deliver</b><span>${hl(c.deliver)}</span></div></aside></div>`; }
     case "check": { const open = answersOpen(b.id);
       return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${open ? (justRevealed === b.id ? hl(x).replace(/class="cfx-hl"/g, 'class="cfx-hl cfx-unblur"') : hl(x)) : masked(x)}</span></label>`).join("")}</div>
@@ -1223,7 +1225,7 @@ window.cmCaseFlow.listenClose = function(){ const box = document.getElementById(
    answers the follow-up that tests the UPL line, and then converts the whole exchange into a memorandum, files
    it in the CMS under the firm's naming convention, which keeps it on their Backup Drive in its folder too. Their marks, their email, the
    choice they made and what they filed are kept on their record and shown to their trainer. */
-const EX = Object.assign({audits: {}, emails: {}}, window.CM_CF_EXHIBITS || {});
+const EX = Object.assign({audits: {}, emails: {}, amendments: {}}, window.CM_CF_EXHIBITS || {});
 const VERDICT = {
   keep: {label: "Keep as is", icon: "✓", hint: "The copy is fit to use and belongs in the set."},
   replace: {label: "Replace it", icon: "↻", hint: "It belongs in the set, but not this copy or not this figure."},
@@ -1559,6 +1561,177 @@ window.cmCaseFlow.svFile = async function(blockId){
   r.problems = (out && out.problems && out.problems.length) ? out.problems : [(out && out.error) || "The CMS did not file it."];
   persist(); say(`<b>Not filed.</b> ${r.problems.map(E).join(" · ")}`);
 };
+
+/* ---------- the Amendment Requests: records wrong at their source, corrected by the provider ----------
+   A Case Manager never fixes a provider's record. In the pre-demand audit they screen the records and bills,
+   find what is wrong at the source, and — with Atty. Thorne's approval — write each provider a request to correct
+   its own record or statement (build/case-flow/exhibits: "amendments"). A request that leaves out what the provider
+   needs, or asks for something it must not, is refused with the reason and nothing is sent. A complete one brings
+   the provider's answer and, with it, the corrected copy (RS71, RS72), which opens to the trainee from then on —
+   on the Documents page and in every later activity that works from it — and which they file in the CMS the
+   firm's way. Every request ends in written feedback on their work, and their trainer sees all of it. */
+const amendOf = id => (EX.amendments || {})[id] || null;
+function amRec(blockId){ REC.amend = REC.amend || {}; return (REC.amend[blockId] = REC.amend[blockId] || {marks: {}, screened: null, req: {}}); }
+function amReq(blockId, docId){ const r = amRec(blockId); return (r.req[docId] = r.req[docId] || {body: "", tries: 0, log: [], sent: null, choice: null}); }
+/* A corrected copy opens once the trainee's request for it is answered; every other document is as it was. */
+function docAvail(d){
+  if(!d || !d.unlock || isTrainer()) return true;
+  return !!((((REC.amend || {})[d.unlock] || {}).req || {})[d.amends] || {}).sent;
+}
+window.cmDocAvailable = docAvail;
+const AM_FIT = "fit", AM_FIX = "fix";
+const amAsked = a => new Set(a.requests.map(q => q.doc));
+const amScreenScore = (a, r) => a.screen.reduce((n, s) => n + ((r.marks[s.doc] === AM_FIX) === amAsked(a).has(s.doc) ? 1 : 0), 0);
+/* The requests a trainee works: once the screening is checked, every one — those they found, and those they
+   missed (marked so), because a record left wrong is still wrong. */
+const amOpenReqs = (a, r) => r.screened ? a.requests : [];
+const amTest = (q, text) => (q.match || []).every(p => { try{ return new RegExp(p, "i").test(text); }catch(err){ return true; } });
+const amTrips = (q, text) => (q.match || []).some(p => { try{ return new RegExp(p, "i").test(text); }catch(err){ return false; } });
+/* the sentence of the trainee's own email that does each job, quoted back to them in the feedback */
+function amQuote(q, text){
+  const parts = String(text).split(/\n+|(?<!\b(?:Mr|Ms|Mrs|Dr|Atty|No|St)\.)(?<=[.!?])\s+/).map(x => x.trim()).filter(Boolean);
+  const hit = parts.find(x => amTest(q, x)) || parts.find(x => amTrips(q, x));
+  return hit ? (hit.length > 220 ? hit.slice(0, 217) + "…" : hit) : "";
+}
+const amFiled = docId => ((state.docFiling || {})[docId] || {});
+function amSummary(blockId, a, r){
+  const reqs = amOpenReqs(a, r), sent = reqs.filter(q => amReq(blockId, q.doc).sent);
+  const first = sent.filter(q => amReq(blockId, q.doc).tries === 0).length;
+  const copies = reqs.filter(q => q.corrected), filed = copies.filter(q => amFiled(q.corrected).filed);
+  return {sent: sent.length, of: a.requests.length, first, copies: copies.length, filed: filed.length,
+    filedFirst: filed.filter(q => amFiled(q.corrected).attempts === 1).length};
+}
+
+function amWorkspace(blockId){
+  const a = amendOf(blockId), r = amRec(blockId);
+  const asked = amAsked(a), done = !!r.screened;
+  const marked = a.screen.filter(s => r.marks[s.doc]).length;
+  const screenRows = a.screen.map(s => {
+    const d = exDoc(s.doc), mine = r.marks[s.doc] || "", need = asked.has(s.doc), right = done && (mine === AM_FIX) === need;
+    const q = need ? a.requests.find(x => x.doc === s.doc) : null;
+    return `<tr class="${done ? (right ? "ok" : "no") : ""}"><td>${exDocLink(s.doc)}<br><small class="ab-as">${E(d ? d.desc : "")}</small></td>
+      <td class="ab-call">${done
+        ? `<span class="ab-v">${mine === AM_FIX ? "↻ Wrong at its source" : "✓ Fit to use"}</span>${right ? `<span class="ab-ok">✓</span>` : `<br><span class="ab-right">${need ? "↻ Wrong at its source" : "✓ Fit to use"}</span>`}`
+        : `<label class="am-opt"><input type="radio" name="am_${E(blockId)}_${E(s.doc)}" ${mine === AM_FIT ? "checked" : ""} onchange="cmCaseFlow.amMark('${blockId}','${s.doc}','${AM_FIT}')"> Fit to use</label>
+           <label class="am-opt"><input type="radio" name="am_${E(blockId)}_${E(s.doc)}" ${mine === AM_FIX ? "checked" : ""} onchange="cmCaseFlow.amMark('${blockId}','${s.doc}','${AM_FIX}')"> Wrong at its source</label>`}</td>
+      <td>${done ? (need ? `<b>${right ? "You caught it." : "You missed this one."}</b> ${hl(q.wrong)}<br><small>Proved by: ${q.proof.map(exDocLink).join(" · ")}</small>` : `${right ? "" : "<b>It is fit to use.</b> "}${hl(s.why)}`) : ""}</td></tr>`;
+  }).join("");
+  const screen = `<table class="ab-table am-screen"><thead><tr><th>Record or bill</th><th>Your call${done ? " · the file's" : ""}</th><th>${done ? "Why" : ""}</th></tr></thead><tbody>${screenRows}</tbody></table>
+    ${done ? `<p class="sv-ok">Screening: ${amScreenScore(a, r)} of ${a.screen.length} called correctly. Every record wrong at its source gets a request below, including any you missed.</p>`
+      : `<div class="sv-row"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.amScreen('${blockId}')">Check my screening</button><span class="sv-msg" id="ams_${E(blockId)}">${marked} of ${a.screen.length} called</span></div>`}`;
+  const reqs = amOpenReqs(a, r).map((q, i) => amCard(blockId, a, r, q, i)).join("");
+  const s = amSummary(blockId, a, r);
+  const report = done && s.sent === s.of ? `<div class="am-report"><b>📋 Your feedback on this skill builder</b>
+      <ul><li>Screening: <b>${amScreenScore(a, r)} of ${a.screen.length}</b> records called correctly${amScreenScore(a, r) === a.screen.length ? ". You found every record wrong at its source and left the sound ones alone." : ". Read the ✕ rows above: a record missed here goes into the demand wrong."}</li>
+      <li>Requests: <b>${s.sent} of ${s.of}</b> sent, <b>${s.first}</b> the first time${s.first === s.of ? ". Each one gave the provider everything it needed and asked for nothing it shouldn't." : ". The refused attempts are listed on each request with what was missing."}</li>
+      <li>Corrected copies: <b>${s.filed} of ${s.copies}</b> filed in the CMS${s.filed ? `, ${s.filedFirst} first time right` : ""}${s.filed < s.copies ? ". File the rest: a corrected copy in your inbox is not on the case file." : "."}</li></ul></div>` : "";
+  return `<div class="cfx-modal-in card lesson-card cfx-sv"><div class="cfx-modal-h"><b>📝 ${E(a.title)}</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>
+    <div class="sv-top"><span>${E(a.kicker)}</span></div>
+    <p class="sv-brief">${hl(a.intro)}</p>
+    ${report}
+    ${svStep(1, "Screen the records and bills", done ? "done" : "now", screen)}
+    ${reqs}</div>`;
+}
+function amCard(blockId, a, r, q, i){
+  const x = amReq(blockId, q.doc), sent = !!x.sent, src = exDoc(q.doc), missed = r.marks[q.doc] !== AM_FIX;
+  const chose = x.choice != null, nextOk = chose && !!(q.next.choices[x.choice] || {}).ok;
+  const copy = q.corrected ? exDoc(q.corrected) : null, filedRec = copy ? amFiled(copy.id) : {};
+  const finished = sent && (q.next ? chose : !!filedRec.filed);
+  const head = `<p class="am-wrong">${missed ? "<b>You missed this one in the screening.</b> " : ""}${hl(q.wrong)}</p>`;
+  const compose = sent
+    ? `<div class="sv-sentmail"><div class="sv-eh"><b>To</b> ${E(q.to)}<br><b>Cc</b> ${E(q.cc)}<br><b>Subject</b> ${E(q.subject)}<br><b>Attachment</b> ${E(q.attachment)}</div><pre class="sv-body">${E(x.body)}</pre></div>`
+    : `<p class="sv-brief">${hl(q.brief)}</p>
+      <div class="sv-eh"><b>To</b> ${E(q.to)}<br><b>Cc</b> ${E(q.cc)}<br><b>Subject</b> ${E(q.subject)}<br><b>Attachment</b> ${E(q.attachment)}</div>
+      <textarea class="sv-write" id="amw_${E(blockId)}_${E(q.doc)}" rows="9" placeholder="Write the request as you would send it." aria-label="Your request to the provider">${E(x.body || "")}</textarea>
+      <ul class="sv-req">${q.required.map(z => `<li>${E(z.label)}</li>`).join("")}</ul>
+      <div class="sv-row"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.amSend('${blockId}','${q.doc}')">Send the request</button>
+        <span class="sv-msg" id="amm_${E(blockId)}_${E(q.doc)}" aria-live="polite">${x.tries ? `Not sent yet — ${x.tries} attempt${x.tries === 1 ? "" : "s"} refused.` : ""}</span></div>`;
+  const reply = sent ? `<div class="sv-eh"><b>From</b> ${E(q.reply.from)}<br><b>Sent</b> ${E(q.reply.date)}, ${E(q.reply.time)}<br><b>Subject</b> ${E(q.reply.subject)}${copy ? `<br><b>Attachment</b> ${E(copy.title)}` : ""}</div><pre class="sv-body">${E(q.reply.body)}</pre>
+      ${copy ? `<p class="sv-ok">📄 The corrected copy is now in your case documents: ${exDocLink(copy.id)}. It opens beside the original in every activity that works from it.</p>` : ""}` : "";
+  const after = !sent ? "" : copy
+    ? `<p class="sv-note">A corrected copy in your inbox is not on the case file. File it in the CMS beside the original, named the firm's way; the filing keeps it on your Backup Drive too.</p>
+       ${window.cmDocFiling && cmDocFiling.row ? `<div class="dfl">${cmDocFiling.row(blockId, copy)}</div>` : ""}`
+    : `<p class="sv-brief"><b>${E(q.next.q)}</b></p>
+       <div class="sv-choices">${q.next.choices.map((c, k) => `<label class="sv-ch${chose ? (c.ok ? " ok" : (x.choice === k ? " no" : "")) : ""}">
+         <input type="radio" name="amch_${E(blockId)}_${E(q.doc)}" ${x.choice === k ? "checked" : ""} ${chose ? "disabled" : ""} onchange="cmCaseFlow.amChoose('${blockId}','${q.doc}',${k})">
+         <span>${E(c.label)}${chose ? `<br><small>${c.ok ? "✓ " : "✕ "}${E(c.why)}</small>` : ""}</span></label>`).join("")}</div>`;
+  const feedback = sent ? amFeedback(blockId, q, x, copy, filedRec) : "";
+  const label = `${src ? src.title : q.doc}`;
+  return `<div class="am-req">${svStep(i + 2, `Request ${i + 1}: ${label}`, finished ? "done" : "now", head
+    + `<div class="am-sub"><b>✉ Your request</b>${compose}</div>`
+    + (sent ? `<div class="am-sub"><b>↩ The provider's answer</b>${reply}</div><div class="am-sub"><b>${copy ? "📤 File the corrected copy" : "➡ What you do next"}</b>${after}</div>${feedback}` : ""))}</div>`;
+}
+/* the explicit feedback on one request: what the email did, in the trainee's own words; what was refused on the way;
+   the filing; the decision; what the correction protects; and the firm's model to read theirs against */
+function amFeedback(blockId, q, x, copy, filedRec){
+  const did = q.required.map(z => { const quote = amQuote(z, x.body);
+    return `<li>✓ <b>${E(z.label)}</b>${quote ? ` — you wrote: <i>“${E(quote)}”</i>` : ""}</li>`; }).join("");
+  const refused = (x.log || []).map((l, k) => `<li>✕ Attempt ${k + 1} refused: ${l.short ? "too short to do the job" : ""}${(l.tripped || []).map(id => { const z = (q.forbidden || []).find(f => f.id === id); return z ? `it ${E(z.label.charAt(0).toLowerCase() + z.label.slice(1))}` : ""; }).filter(Boolean).join("; ")}${(l.missing || []).length ? `${(l.tripped || []).length || l.short ? "; " : ""}missing: ${l.missing.map(id => { const z = q.required.find(f => f.id === id); return z ? E(z.label) : ""; }).join("; ")}` : ""}</li>`).join("");
+  const tries = x.tries || 0;
+  const filing = copy ? (filedRec.filed ? `<li>✓ Filed in the CMS as <code>${E(filedRec.name)}</code> under ${E(filedRec.category)}${filedRec.attempts === 1 ? ", first time right" : `, after ${E(filedRec.attempts)} attempts`}.</li>` : `<li>… The corrected copy is not filed yet.</li>`) : "";
+  const choice = !copy && x.choice != null ? (c => `<li>${c.ok ? "✓" : "✕"} You chose: <i>${E(c.label)}</i> ${E(c.why)}</li>`)(q.next.choices[x.choice]) : "";
+  return `<div class="am-fb"><b>📋 Feedback on your request</b>
+    <p>${tries === 0 ? "Sent first time: it gave the provider everything it needed and asked for nothing it shouldn't." : `Sent on attempt ${tries + 1}. ${tries} refused before it, each for the reason below; that is what a provider would have bounced back or used against the file.`}</p>
+    <ul class="am-did">${did}${refused}${filing}${choice}</ul>
+    <p><b>What this protects:</b> ${hl(q.protects)}</p>
+    <details><summary>The firm's model request, to read yours against</summary><pre class="sv-body">${E(q.model)}</pre></details></div>`;
+}
+window.cmCaseFlow.amend = function(blockId){
+  if(!amendOf(blockId) || document.getElementById("cf-am")) return;
+  const o = document.createElement("div"); o.className = "cfx-modal"; o.id = "cf-am"; o.dataset.block = blockId; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Amendment Requests");
+  o.innerHTML = amWorkspace(blockId);
+  const close = () => { amKeepDrafts(blockId); persist(); o.remove(); document.removeEventListener("keydown", esc, true); if(typeof render === "function") render(); };
+  const esc = ev => { if(ev.key === "Escape"){ ev.stopPropagation(); close(); } };
+  o.addEventListener("click", ev => { if(ev.target === o || ev.target.closest(".cfx-modal-h button")) close(); });
+  document.addEventListener("keydown", esc, true);
+  document.body.appendChild(o);
+};
+// the emails being written survive a repaint and a close
+function amKeepDrafts(blockId){
+  const a = amendOf(blockId); if(!a) return;
+  a.requests.forEach(q => { const t = document.getElementById(`amw_${blockId}_${q.doc}`), x = amReq(blockId, q.doc); if(t && !x.sent) x.body = t.value.slice(0, 4000); });
+}
+function amRepaint(blockId){ const o = document.getElementById("cf-am"); if(o){ amKeepDrafts(blockId); repaintModal(o, amWorkspace(blockId)); } }
+window.cmCaseFlow.amMark = function(blockId, docId, v){
+  const a = amendOf(blockId), r = amRec(blockId); if(!a || r.screened) return;
+  r.marks[docId] = v === AM_FIX ? AM_FIX : AM_FIT;
+  const m = document.getElementById("ams_" + blockId); if(m) m.textContent = `${a.screen.filter(s => r.marks[s.doc]).length} of ${a.screen.length} called`;
+  clearTimeout(exT); exT = setTimeout(persist, 600);
+};
+window.cmCaseFlow.amScreen = function(blockId){
+  const a = amendOf(blockId), r = amRec(blockId); if(!a || r.screened) return;
+  const left = a.screen.filter(s => !r.marks[s.doc]).length;
+  if(left){ if(typeof toast === "function") toast(`${left} record${left === 1 ? "" : "s"} still to call. A record you didn't look at is one that goes into the demand unchecked.`); return; }
+  r.screened = new Date().toISOString(); persist();
+  if(typeof toast === "function") toast(`Screening checked: ${amScreenScore(a, r)} of ${a.screen.length}. Write the requests below.`);
+  amRepaint(blockId);
+};
+window.cmCaseFlow.amSend = function(blockId, docId){
+  const a = amendOf(blockId), q = a && a.requests.find(z => z.doc === docId), x = amReq(blockId, docId); if(!q || x.sent) return;
+  const el = document.getElementById(`amw_${blockId}_${docId}`), text = ((el && el.value) || "").trim();
+  x.body = text.slice(0, 4000);
+  const msg = document.getElementById(`amm_${blockId}_${docId}`), who = String(q.to).split(/[,<]/)[0].trim();
+  const refuse = (entry, html) => { x.tries++; x.log.push(entry); persist(); if(msg) msg.innerHTML = html; };
+  if(text.split(/\s+/).filter(Boolean).length < 40){ refuse({short: true, missing: [], tripped: []}, `<b>Not sent.</b> A request this short cannot do the job. Work through the list above.`); return; }
+  const tripped = (q.forbidden || []).filter(z => amTrips(z, text));
+  const missing = q.required.filter(z => !amTest(z, text));
+  if(tripped.length || missing.length){
+    refuse({missing: missing.map(z => z.id), tripped: tripped.map(z => z.id)},
+      `<b>Not sent.</b>${tripped.length ? `<ul>${tripped.map(z => `<li><b>${E(z.label)}.</b> ${E(z.why)}</li>`).join("")}</ul>` : ""}${missing.length ? `${who} can't act on this as written:<ul>${missing.map(z => `<li>${E(z.label)} — ${E(z.hint)}</li>`).join("")}</ul>` : ""}`);
+    return;
+  }
+  x.sent = new Date().toISOString(); persist();
+  if(typeof toast === "function") toast(q.corrected ? `Sent. ${who} answered, and the corrected copy is in your case documents.` : `Sent. ${who} answered: read it, then decide what you do next.`);
+  amRepaint(blockId);
+};
+window.cmCaseFlow.amChoose = function(blockId, docId, k){
+  const a = amendOf(blockId), q = a && a.requests.find(z => z.doc === docId), x = amReq(blockId, docId); if(!q || !q.next || x.choice != null) return;
+  x.choice = k; persist();
+  if(typeof toast === "function") toast((q.next.choices[k] || {}).ok ? "Right: the audited figure goes out with its proof, and the correction is chased." : "That one costs the file. Read why.");
+  amRepaint(blockId);
+};
+// a corrected copy filed from the workspace: repaint it so the feedback shows the filing
+window.addEventListener("cm-doc-filed", () => { const o = document.getElementById("cf-am"); if(o && o.dataset.block) amRepaint(o.dataset.block); });
 /* The memorandum reaches the Backup Drive with the filing. This is the retry, for a trainee whose drive
    wasn't built or connected when they filed: the copy is made now, from the document they already built. */
 window.cmCaseFlow.svDrive = async function(blockId){
@@ -2846,6 +3019,7 @@ function caseYearNote(mine){
   const y = DATES.yearForRecord(mine);
   return `<p class="cf-note">📅 <b>Case year ${E(y)}</b>: this trainee's file has the collision on ${E(DATES.text("02/06/2026", DATES.shiftFor(y)))}, and their answers quote that year's dates.${y !== DATES.year ? ` You are seeing ${E(DATES.year)}: <a href="?caseYear=${E(y)}">see the course in ${E(y)}</a>.` : ""}</p>`;
 }
+let snapDocFiling = null;   // the trainee's doc-filing record, while their trainer panel is drawn
 function workLogged(mine, m){
   const rows = m.blocks.filter(x => x.kind === "activity").map(x => ({x, w: (mine.work || {})[x.id]})).filter(r => r.w);
   const heard = m.blocks.filter(x => x.kind === "activity" && ((mine.listen || {})[x.id] || {}).at).map(x => { const h = mine.listen[x.id], ev = SIM.events[x.id]; return `<div class="cf-tr-work"><b>🎧 Listening Check (${E(x.title)}):</b> ${E(h.score)}/${E((ev.listen || []).length)} caught · played ${E(h.plays)}×${(ev.listen || []).map((q, j) => `<br>${h.got[j] ? "✓" : "✗"} ${E(q.q)} <i>${E(h.answers[j] || "—")}</i>`).join("")}</div>`; }).join("");
@@ -2857,7 +3031,14 @@ function workLogged(mine, m){
     const e = EX.emails[x.id], r = mine.service[x.id], c = r.choice != null ? e.press.choices[r.choice] : null;
     return `<div class="cf-tr-work"><b>✉ ${E(e.title)}:</b> sent after ${E(r.tries || 0)} rejected attempt${(r.tries || 0) === 1 ? "" : "s"}${c ? ` · follow-up answered ${c.ok ? "correctly" : "wrongly"}: “${E(c.label)}”` : " · follow-up not answered"}${r.filed ? ` · filed as <code>${E(r.filed.name)}</code> under ${E(r.filed.category)}` : " · not filed"}${r.drive ? " · backed up to Drive" : ""}<br><i>${E(r.body || "—")}</i></div>`;
   }).join("");
-  const extra = aud + svs;
+  const ams = m.blocks.filter(x => x.kind === "activity" && EX.amendments[x.id] && ((mine.amend || {})[x.id] || {}).screened).map(x => {
+    const a = EX.amendments[x.id], r = mine.amend[x.id], asked = amAsked(a), filing = (snapDocFiling || {});
+    const sc = a.screen.reduce((n, s) => n + ((r.marks[s.doc] === AM_FIX) === asked.has(s.doc) ? 1 : 0), 0);
+    return `<div class="cf-tr-work"><b>📝 ${E(a.title)}:</b> screening ${E(sc)}/${E(a.screen.length)}${a.screen.filter(s => (r.marks[s.doc] === AM_FIX) !== asked.has(s.doc)).map(s => ` · ✗ ${E(s.doc)} called ${r.marks[s.doc] === AM_FIX ? "wrong at its source" : "fit to use"}`).join("")}
+      ${a.requests.map(q => { const t = (r.req || {})[q.doc] || {}, c = q.next && t.choice != null ? q.next.choices[t.choice] : null, f = q.corrected ? (filing[q.corrected] || {}) : null;
+        return `<br>${t.sent ? "✓" : "…"} <b>${E(q.doc)}</b> ${t.sent ? `sent after ${E(t.tries || 0)} refused attempt${(t.tries || 0) === 1 ? "" : "s"}` : `not sent (${E(t.tries || 0)} refused)`}${(t.log || []).map((l, k) => ` · try ${k + 1}: ${l.short ? "too short" : [].concat((l.tripped || []).map(id => "tripped " + id), (l.missing || []).length ? ["missing " + l.missing.join(", ")] : []).join("; ")}`).join("")}${c ? ` · next step ${c.ok ? "right" : "wrong"}: “${E(c.label)}”` : ""}${f ? (f.filed ? ` · ${E(q.corrected)} filed as <code>${E(f.name)}</code>${f.attempts === 1 ? " (first time right)" : ` (${E(f.attempts)} attempts)`}` : ` · ${E(q.corrected)} not filed`) : ""}${t.body ? `<br><i>${E(t.body)}</i>` : ""}`; }).join("")}</div>`;
+  }).join("");
+  const extra = aud + svs + ams;
   if(heard) return heard + extra + (rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "");
   if(extra) return extra + (rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "");
   return rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "";
@@ -2872,6 +3053,7 @@ function trainerPanel(rec){
   const work = (state.traineeWork || {})[rec.id];
   if(!work || work.loading || !work.feedback) return "";
   const mine = (work.snap || {})[KEY] || {modules: {}}, given = work.feedback.caseFlow || {}, sid = cssId(rec.id);
+  snapDocFiling = (work.snap || {})["doc-filing"] || null;
   const rows = checksTaught().map(({n, phase, m, b}) => {
     const r = mine.modules[m.id] || {}, t = given[m.id] || {};
     const c = composite(Object.assign({}, r, {trainer: t}));
@@ -3166,24 +3348,25 @@ window.cmCaseFlow.doc = function(ev, id){
 const docUrl = d => /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}${DATES && DATES.year ? `&year=${DATES.year}` : ""}${DATES && DATES.dolOffset ? `&dol=${DATES.dolOffset}` : ""}`
   : typeof cmDocUrl === "function" ? cmDocUrl(d) : "documents/" + d.file;
 function docLine(blockId){
-  const docs = (CF_PACKETS[blockId] || []).map(id => CF_DOCS.find(d => d.id === id)).filter(Boolean);
+  const all = (CF_PACKETS[blockId] || []).map(id => CF_DOCS.find(d => d.id === id)).filter(Boolean), docs = all.filter(docAvail), held = all.length - docs.length;
   if(!docs.length) return "";
-  return `<div class="cf-docline"><b>📁 Work from</b>${docs.map(d => `<a href="${E(docUrl(d))}" target="_blank" rel="noopener" title="${E(d.desc)}" onclick="return cmCaseFlow.doc(event,'${d.id}')">${E(d.title)}</a>`).join("")}</div>`;
+  return `<div class="cf-docline"><b>📁 Work from</b>${docs.map(d => `<a href="${E(docUrl(d))}" target="_blank" rel="noopener" title="${E(d.desc)}" onclick="return cmCaseFlow.doc(event,'${d.id}')">${E(d.title)}</a>`).join("")}${held ? `<span class="cf-note">🔒 ${held} corrected cop${held === 1 ? "y opens" : "ies open"} once your Amendment Requests (Pre-Demand Case Auditing) are answered.</span>` : ""}</div>`;
 }
-const docOpen = d => !!(state.isAdmin || state.adminPreview) || dayUnlocked(cfIdOf(d.day));
+const docOpen = d => !!(state.isAdmin || state.adminPreview) || (dayUnlocked(cfIdOf(d.day)) && docAvail(d));
 function caseFlowDocuments(){
   const shown = CF_DOCS.filter(docOpen), locked = CF_DOCS.filter(d => !docOpen(d));
   const tpl = (window.CM_DOCS || []).filter(d => d.folder === "templates");
   const row = d => `<div class="cm-doc-row"><div><span class="t">${E(d.title)}</span> <span style="font-size:11px;color:var(--ink-soft)">· ${d.folder === "templates" ? "Any day" : "Case Flow Day " + d.day}</span><div class="d">${E(d.desc)}</div>${state.isAdmin && d.key ? `<div class="cm-key">🔑 ${E(d.key)}</div>` : ""}</div>
       <div style="display:flex;gap:6px;align-items:center"><span class="cms">CMS: ${E(d.cms)}</span><a class="btn btn-ghost btn-sm" href="${E(docUrl(d))}" target="_blank" rel="noopener"${/^RS\d\d$/.test(d.id) ? ` onclick="return cmCaseFlow.doc(event,'${d.id}')"` : ""}>${!/^RS\d\d$/.test(d.id) && /\.(docx|xlsx)$/i.test(d.file) ? "Download" : "Open"}</a></div></div>`;
-  const folders = CF_FOLDERS.map(fo => ({fo, items: shown.filter(d => d.folder === fo.id), later: locked.filter(d => d.folder === fo.id).length})).filter(x => x.items.length || x.later);
+  const heldBy = d => dayUnlocked(cfIdOf(d.day)) && !docAvail(d);   // open by its day, waiting on the trainee's Amendment Request
+  const folders = CF_FOLDERS.map(fo => ({fo, items: shown.filter(d => d.folder === fo.id), later: locked.filter(d => d.folder === fo.id && !heldBy(d)).length, held: locked.filter(d => d.folder === fo.id && heldBy(d)).length})).filter(x => x.items.length || x.later || x.held);
   return `<p class="eyebrow">Case Documents</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">📁 Case Documents: ${E(CF.case.style)}</h1>
     <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 14px">The working file for John Doe v. Robert Smith: intake, police and video, Medical Records and bills, the carriers' policies and letters, liens, the Civic's Property Damage, and (Track B) the lawsuit. Each document opens with its Case Flow day, and each Skill Activity lists the ones it works from. Each shows the <b>CMS upload category</b> to use when you add it to the case in the CMS. Read them the way a Case Manager does: verify every fact against its source, and flag what doesn't match.</p>
     <div class="cf-docs-switch-row"><div class="lsh-subtabs cf-docs-switch" role="tablist"><button type="button" role="tab" onclick="goto('clientprofile')">Case File</button><button type="button" role="tab" class="on" aria-selected="true">📁 Documents</button></div></div>
     ${state.isAdmin ? `<div class="card" style="padding:12px 16px;margin-bottom:16px;border-left:4px solid var(--danger);font-size:12.8px">🔑 <b>Trainer view:</b> the red notes under each document are the audit key: planted discrepancies and what a strong trainee should catch. Trainees don't see them. Every document's plants are listed in build/case-flow/documents/SPEC.md.</div>` : ""}
-    ${folders.map(({fo, items, later}) => `<div class="card cm-lib-folder" style="padding:14px 18px"><h3>${fo.icon} ${E(fo.label)} <span style="font-weight:500;color:var(--ink-soft);font-size:12px">(${items.length})</span></h3>
-      ${items.map(row).join("")}${later ? `<div class="cf-note">🔒 ${later} more open with later Case Flow days.</div>` : ""}</div>`).join("")}
+    ${folders.map(({fo, items, later, held}) => `<div class="card cm-lib-folder" style="padding:14px 18px"><h3>${fo.icon} ${E(fo.label)} <span style="font-weight:500;color:var(--ink-soft);font-size:12px">(${items.length})</span></h3>
+      ${items.map(row).join("")}${later ? `<div class="cf-note">🔒 ${later} more open with later Case Flow days.</div>` : ""}${held ? `<div class="cf-note">🔒 ${held} corrected cop${held === 1 ? "y opens" : "ies open"} once your Amendment Request to the provider is answered (Pre-Demand Case Auditing → 📝 Amendment Requests).</div>` : ""}</div>`).join("")}
     ${tpl.length ? `<div class="card cm-lib-folder" style="padding:14px 18px"><h3>📝 Templates &amp; Blank Forms <span style="font-weight:500;color:var(--ink-soft);font-size:12px">(${tpl.length})</span></h3>${tpl.map(row).join("")}</div>` : ""}
 `;
 }
@@ -4078,6 +4261,19 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .sv-ch.ok{border-color:#BBD4C4;background:#F3F9F5;}
 .sv-ch.no{border-color:#E6B4A8;background:#FDF4F2;}
 .sv-ch small{color:var(--ink-soft);}
+.am-opt{display:block;white-space:nowrap;font-size:13px;cursor:pointer;}
+.am-wrong{margin:0 0 8px;}
+.am-sub{margin-top:10px;}
+.am-sub>b{display:block;color:var(--navy);font-size:13px;margin-bottom:5px;}
+.am-fb,.am-report{margin-top:12px;border:1px solid #C9D3E6;background:#F5F8FD;border-radius:12px;padding:10px 14px;font-size:13.5px;line-height:1.5;}
+.am-report{margin:0 0 10px;border-color:#BBD4C4;background:#F3F9F5;}
+.am-fb>b,.am-report>b{color:var(--navy);}
+.am-fb p{margin:6px 0;}
+.am-did,.am-report ul{margin:6px 0;padding-left:20px;display:grid;gap:3px;}
+.am-did{list-style:none;padding-left:4px;}
+.am-did i{color:var(--ink-soft);}
+.am-fb details{margin-top:6px;}
+.am-fb summary{cursor:pointer;color:var(--navy);font-weight:700;}
 .sv-sentmail{display:grid;gap:8px;}
 @media(max-width:760px){
   .ab-table,.ab-table thead,.ab-table tbody,.ab-table tr,.ab-table td{display:block;width:auto;}

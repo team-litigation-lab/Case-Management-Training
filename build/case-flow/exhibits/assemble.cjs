@@ -88,13 +88,13 @@ function unsourced(text, pool){
   return [...new Set(missing)];
 }
 
-const out = {audits: {}, emails: {}};
+const out = {audits: {}, emails: {}, amendments: {}};
 const AUDIT_OF = out.audits;   // an activity's audit, for the confirmation on the same activity
 for (const f of fs.readdirSync(HERE).filter(f => /^d\d\.json$/.test(f)).sort()){
   let part;
   try{ part = JSON.parse(fs.readFileSync(path.join(HERE, f), "utf8")); }
   catch(e){ errors.push(`${f}: not valid JSON (${e.message})`); continue; }
-  for (const k of Object.keys(part)) if(!["audits", "emails"].includes(k)) errors.push(`${f}: unknown key "${k}"`);
+  for (const k of Object.keys(part)) if(!["audits", "emails", "amendments"].includes(k)) errors.push(`${f}: unknown key "${k}"`);
 
   for (const [id, a] of Object.entries(part.audits || {})){
     const at = `${f} audits.${id}`, b = BLOCKS[id], day = taughtOn[id] || (b && b.day);
@@ -211,6 +211,88 @@ for (const f of fs.readdirSync(HERE).filter(f => /^d\d\.json$/.test(f)).sort()){
     }
     out.emails[id] = e;
   }
+  /* amendments — the pre-demand audit's Amendment Requests: the records screened, and for each one wrong at its
+     source the request the Case Manager writes, the provider's answer and the corrected copy it brings back */
+  for (const [id, a] of Object.entries(part.amendments || {})){
+    const at = `${f} amendments.${id}`, b = BLOCKS[id], day = taughtOn[id] || (b && b.day);
+    if(!b || b.kind !== "activity"){ errors.push(`${at}: not a Skill Activity in js/cm-case-flow-data.js`); continue; }
+    if(out.amendments[id]) errors.push(`${at}: a second set of amendment requests for the same activity`);
+    cap(`${at}.title`, a.title, 9, "title");
+    cap(`${at}.kicker`, a.kicker, 16, "kicker");
+    cap(`${at}.intro`, a.intro, 55, "intro");
+    const packet = PACKETS[id] || [], reqs = a.requests || [], screen = a.screen || [];
+    const asked = new Set(reqs.map(r => r.doc));
+    if(screen.length < 6 || screen.length > 14) errors.push(`${at}.screen: ${screen.length} documents, expected 6–14`);
+    screen.forEach((s, i) => {
+      const w = `${at}.screen[${i}]`;
+      if(!docOf(s.doc)){ errors.push(`${w}: ${s.doc} is not a document`); return; }
+      if(!packet.includes(s.doc)) errors.push(`${w}: ${s.doc} is not in this activity's CM_CF_DOC_PACKETS packet, so the trainee cannot open it`);
+      if(asked.has(s.doc)){ if(s.why) errors.push(`${w}: ${s.doc} needs an amendment; its feedback is the request's "wrong", not a "why"`); }
+      else cap(`${w}.why`, s.why, 30, "why it is fit to use");
+    });
+    if(screen.filter(s => !asked.has(s.doc)).length < 3) errors.push(`${at}.screen: at least 3 documents must be fit to use (screening is not a list of faults)`);
+    if(reqs.length < 1 || reqs.length > 4) errors.push(`${at}.requests: ${reqs.length}, expected 1–4`);
+    reqs.forEach((r, i) => {
+      const w = `${at}.requests[${i}]`, d = docOf(r.doc);
+      if(!d){ errors.push(`${w}.doc: ${r.doc} is not a document`); return; }
+      if(!screen.some(s => s.doc === r.doc)) errors.push(`${w}.doc: ${r.doc} is not among the documents screened`);
+      if(!/PLANTED/.test(d.key || "")) errors.push(`${w}.doc: ${r.doc} has no PLANTED key; an amendment request is for a record wrong at its source`);
+      if(r.corrected != null){
+        const c = docOf(r.corrected);
+        if(!c) errors.push(`${w}.corrected: ${r.corrected} is not a document`);
+        else{
+          if(c.amends !== r.doc) errors.push(`${w}.corrected: ${r.corrected} must carry amends:"${r.doc}" in the manifest`);
+          if(c.unlock !== id) errors.push(`${w}.corrected: ${r.corrected} must carry unlock:"${id}" in the manifest (it opens when this request is answered)`);
+          if(packet.includes(r.corrected)) errors.push(`${w}.corrected: ${r.corrected} is in the activity's packet; the corrected copy is the answer and must not be`);
+          if(c.day > day) errors.push(`${w}.corrected: ${r.corrected} opens on Day ${c.day}, after this activity (Day ${day})`);
+        }
+      }else if(!r.next) errors.push(`${w}: a request that brings back no corrected copy needs "next", the decision it leaves`);
+      proof(`${w}.proof`, r.proof, day);
+      cap(`${w}.wrong`, r.wrong, 40, "what is wrong");
+      cap(`${w}.brief`, r.brief, 55, "brief");
+      cap(`${w}.protects`, r.protects, 45, "what the correction protects");
+      ["to", "cc", "subject", "attachment"].forEach(k => { if(!r[k]) errors.push(`${w}.${k}: missing`); });
+      const req = r.required || [];
+      if(req.length < 4 || req.length > 6) errors.push(`${w}.required: ${req.length}, expected 4–6`);
+      if(!req.some(q => q.match.some(p => /thorne/i.test(p)))) errors.push(`${w}.required: no element routes the request through Atty. Thorne (a record that looks wrong goes to him first)`);
+      const seen = new Set();
+      req.concat(r.forbidden || []).forEach((q, j) => {
+        const v = `${w}.${j < req.length ? `required[${j}]` : `forbidden[${j - req.length}]`}`;
+        if(!q.id) errors.push(`${v}: missing id`); else if(seen.has(q.id)) errors.push(`${v}: duplicate id "${q.id}"`); else seen.add(q.id);
+        cap(`${v}.label`, q.label, 14, "label");
+        if(j < req.length) cap(`${v}.hint`, q.hint, 24, "hint"); else cap(`${v}.why`, q.why, 40, "why");
+        if(!Array.isArray(q.match) || !q.match.length) errors.push(`${v}.match: needs at least one pattern`);
+        (q.match || []).forEach((p, k) => { try{ new RegExp(p, "i"); }catch(err){ errors.push(`${v}.match[${k}]: not a valid regular expression (${err.message})`); } });
+      });
+      // the model request passes every element and trips nothing: proof the patterns accept a correct email
+      cap(`${w}.model`, r.model, 170, "model request");
+      req.forEach(q => { if(!(q.match || []).every(p => { try{ return new RegExp(p, "i").test(r.model || ""); }catch(e){ return true; } })) errors.push(`${w}.required "${q.id}": the model request does not pass it, so a correct email would be refused`); });
+      (r.forbidden || []).forEach(q => { if((q.match || []).some(p => { try{ return new RegExp(p, "i").test(r.model || ""); }catch(e){ return false; } })) errors.push(`${w}.forbidden "${q.id}": the model request trips it, so a correct email would be refused`); });
+      const rep = r.reply || {};
+      if(!DATE.test(rep.date || "")) errors.push(`${w}.reply.date: "${rep.date}" is not MM/DD/YYYY`);
+      ["from", "time", "subject"].forEach(k => { if(!rep[k]) errors.push(`${w}.reply.${k}: missing`); });
+      cap(`${w}.reply.body`, rep.body, 130, "reply body");
+      if(r.next){
+        cap(`${w}.next.q`, r.next.q, 30, "question");
+        const ch = r.next.choices || [];
+        if(ch.length < 2 || ch.length > 4) errors.push(`${w}.next.choices: ${ch.length}, expected 2–4`);
+        if(ch.filter(c => c.ok).length !== 1) errors.push(`${w}.next.choices: exactly one choice is ok`);
+        ch.forEach((c, k) => { cap(`${w}.next.choices[${k}].label`, c.label, 30, "choice"); cap(`${w}.next.choices[${k}].why`, c.why, 40, "why"); });
+      }
+      // every figure, date and name, against the sources this request draws on
+      const pool = norm(SOURCE_TEXT + [r.doc, r.corrected].concat(r.proof || []).filter(Boolean).map(docText).join(" "));
+      const gone = unsourced([r.wrong, r.brief, r.protects, rep.body, String(r.model || "").replace(/^Dear [^\n]*\n/, ""), r.next ? r.next.q + " " + r.next.choices.map(c => c.label + " " + c.why).join(" ") : "",
+        req.map(q => q.label).join(". ")].join(". "), pool);
+      if(gone.length) errors.push(`${w} (${r.doc}): ${gone.join(", ")} is in no source this request draws on (the case file, the lesson data, the manifest, or ${[r.doc, r.corrected].concat(r.proof || []).filter(Boolean).join(" / ")}). A lesson or case-file change has left it behind.`);
+    });
+    // every planted document in the packet that a provider must correct is screened (a missed plant is a missed request)
+    {
+      const pool = norm(SOURCE_TEXT + screen.map(s => docText(s.doc)).join(" "));
+      const gone = unsourced(`${a.intro} ${screen.map(s => s.why || "").join(" ")}`, pool);
+      if(gone.length) errors.push(`${at}: ${gone.join(", ")} is in no source the screening draws on. A lesson or case-file change has left it behind.`);
+    }
+    out.amendments[id] = a;
+  }
 }
 if(!Object.keys(out.audits).length) errors.push("no audits found in build/case-flow/exhibits/dN.json");
 
@@ -229,7 +311,7 @@ const nItems = Object.values(out.audits).reduce((n, a) => n + a.items.length, 0)
 if(CHECK){
   const have = fs.existsSync(OUT) ? fs.readFileSync(OUT, "utf8") : "";
   if(have !== text){ console.log("js/cm-case-flow-exhibits.js is out of step with build/case-flow/exhibits/*.json.\nRun: node build/case-flow/exhibits/assemble.cjs"); process.exit(1); }
-  console.log(`Exhibit audits: ${Object.keys(out.audits).length} audits, ${nItems} items, ${Object.keys(out.emails).length} service confirmation(s), js/cm-case-flow-exhibits.js in step`);
+  console.log(`Exhibit audits: ${Object.keys(out.audits).length} audits, ${nItems} items, ${Object.keys(out.emails).length} service confirmation(s), ${Object.values(out.amendments).reduce((n, a) => n + a.requests.length, 0)} amendment request(s), js/cm-case-flow-exhibits.js in step`);
 }else{
   fs.writeFileSync(OUT, text);
   console.log(`wrote js/cm-case-flow-exhibits.js: ${Object.keys(out.audits).length} audits, ${nItems} items, ${Object.keys(out.emails).length} service confirmation(s)`);

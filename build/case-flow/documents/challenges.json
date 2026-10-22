@@ -1,0 +1,273 @@
+{
+  "_about": "The document inventory's own data (build/case-flow/documents/inventory.cjs). obtained: how each kind of document reaches the file, by folder, with per-document overrides. challenges: for every document whose manifest key is PLANTED, the route the trainee takes to fix it, the documents that prove it, and the activities where it is worked. open: sync items found in the inventory sweep that need a decision before they are changed.",
+  "routes": {
+    "cms": "Correct our own record in the CMS, with a note citing the source document",
+    "amend": "Amendment Request to the provider (Email Workspace), with Atty. Thorne's approval; the provider corrects its own record",
+    "records": "Request it through ChartSwap (Medical Records Requests) on a live HIPAA authorization",
+    "docket": "Docket the correct date (Docket System · CMS → Calendar), counted from the right event",
+    "redline": "Redline it and route it to Atty. Thorne before anyone signs or serves it",
+    "route": "Route it to Atty. Thorne the same day; the decision is his",
+    "audit": "Work it item by item in the exhibit audit (keep · replace · pull · add · flag)",
+    "qc": "Fix the copy before it goes into any set (re-export, certify, replace)"
+  },
+  "obtained": {
+    "intake": "From the client at intake (signed in the office)",
+    "police": "Records request to Riverton PD / preserved from the client",
+    "medical": "ChartSwap (Medical Records Requests) on the HIPAA authorization (RS06)",
+    "bills": "ChartSwap itemized bills, or the provider's billing office",
+    "insurance": "Carrier correspondence (Email Workspace · mail)",
+    "liens": "The lienholder's own writing",
+    "settlement": "Employer (Northgate HR) or the firm's own ledger",
+    "property": "Keystone PD, the shop and the appraiser (Margaret Doe's claim)",
+    "litigation": "Court E-Filing, service of process and opposing counsel"
+  },
+  "obtainedOverride": {
+    "RS03": "The CMS record the trainee opens on Day 1",
+    "RS04": "The firm's own attorney work product",
+    "RS20": "ChartSwap (Medical Records Requests): the 2021 prior records, requested on the HIPAA authorization",
+    "RS33": "The firm's Demand Desk (draft for QC)",
+    "RS44": "The firm's own cost ledger",
+    "RS61": "The firm's Demand Desk (draft for QC)",
+    "RS62": "The firm's Litigation Desk (draft for QC)",
+    "RS63": "The firm's Litigation Desk (draft for QC)",
+    "RS64": "The CMS Task Log",
+    "RS66": "The firm's Demand Desk (draft for audit)",
+    "RS67": "Revealed when the exhibit audit is handed in",
+    "RS68": "The Service Confirmation (the trainee's email and the adjuster's reply)",
+    "RS69": "Revealed when the Mediation Binder audit is handed in",
+    "RS70": "Revealed when the Arbitration Binder audit is handed in",
+    "RS71": "Summit's answer to the trainee's Amendment Request (opens when it is sent)",
+    "RS72": "Crescent's answer to the trainee's Amendment Request (opens when it is sent)"
+  },
+  "challenges": {
+    "RS01": {
+      "route": "cms",
+      "proof": [
+        "RS07"
+      ],
+      "in": [
+        "d1m1-open"
+      ],
+      "spot": "The Police Report number on the intake sheet is transposed (RPD-26-018824)."
+    },
+    "RS02": {
+      "route": "cms",
+      "proof": [
+        "RS20",
+        "RS13"
+      ],
+      "in": [
+        "d2m3-a1"
+      ],
+      "spot": "Our own intake supplement records the 2021 care as neck and back; the 2021 records show low back only."
+    },
+    "RS03": {
+      "route": "cms",
+      "proof": [
+        "RS01",
+        "RS07"
+      ],
+      "in": [
+        "d1m1-open"
+      ],
+      "spot": "The CMS record has John Doe as Driver and a 1990 DOB."
+    },
+    "RS06": {
+      "route": "docket",
+      "proof": [
+        "RS06"
+      ],
+      "in": [
+        "d2m2-a3",
+        "d4m4-a2"
+      ],
+      "spot": "The HIPAA authorization expires 02/06/2027, before the litigation records runs."
+    },
+    "RS07": {
+      "route": "cms",
+      "proof": [
+        "RS28"
+      ],
+      "in": [
+        "d4m3-a2"
+      ],
+      "spot": "The Police Report lists the Escape as a 2021 (the declarations page: 2020)."
+    },
+    "RS09": {
+      "route": "qc",
+      "proof": [
+        "RS09"
+      ],
+      "in": [
+        "d3m1-a1",
+        "d4m3-a1",
+        "d4m3-a2"
+      ],
+      "spot": "The doorbell stills on file are grayscale exports, unfit for an exhibit set."
+    },
+    "RS16": {
+      "route": "amend",
+      "proof": [
+        "RS12",
+        "RS11"
+      ],
+      "in": [
+        "d2m4-a1",
+        "d3m1-a1"
+      ],
+      "spot": "The MRI history gives 02/16/2026 as the injury date.",
+      "corrected": "RS71"
+    },
+    "RS23": {
+      "route": "amend",
+      "proof": [
+        "RS14"
+      ],
+      "in": [
+        "d2m4-a1",
+        "d3m1-a1",
+        "d3m3-a2",
+        "d4m3-a1"
+      ],
+      "spot": "05/04/2026 is billed twice: 34 lines against 33 visits."
+    },
+    "RS26": {
+      "route": "amend",
+      "proof": [
+        "RS26"
+      ],
+      "in": [
+        "d2m4-a1",
+        "d3m1-a1",
+        "d3m3-a1"
+      ],
+      "spot": "The patient statement bills John the $1,540.00 in-network write-off.",
+      "corrected": "RS72"
+    },
+    "RS33": {
+      "route": "redline",
+      "proof": [
+        "RS34",
+        "RS28"
+      ],
+      "in": [
+        "d3m1-a1"
+      ],
+      "spot": "The draft demand's deadline, release, Specials total and conditions.",
+      "corrected": "RS67"
+    },
+    "RS37": {
+      "route": "redline",
+      "proof": [
+        "RS38"
+      ],
+      "in": [
+        "d3m4-a2"
+      ],
+      "spot": "Keystone's draft release reaches all other insurers, the UM carriers included."
+    },
+    "RS48": {
+      "route": "route",
+      "proof": [
+        "RS48"
+      ],
+      "in": [
+        "d5m2-a2"
+      ],
+      "spot": "Margaret Doe's PD release reaches all claims from the accident."
+    },
+    "RS50": {
+      "route": "audit",
+      "proof": [
+        "RS51"
+      ],
+      "in": [
+        "d4m3-a1",
+        "d4m3-a2"
+      ],
+      "spot": "A superseded, unsigned pre-filing draft of the Complaint."
+    },
+    "RS54": {
+      "route": "docket",
+      "proof": [
+        "RS54"
+      ],
+      "in": [
+        "d4m2-a1"
+      ],
+      "spot": "The cover letter says responses are due 12/31/2026; served by mail they are due 01/04/2027."
+    },
+    "RS58": {
+      "route": "docket",
+      "proof": [
+        "RS58"
+      ],
+      "in": [
+        "d4m2-a2"
+      ],
+      "spot": "The arbitration brief date falls on a Saturday; docket the Friday before."
+    },
+    "RS61": {
+      "route": "redline",
+      "proof": [
+        "RS67",
+        "RS28",
+        "RS29"
+      ],
+      "in": [
+        "d3m1-a2"
+      ],
+      "spot": "Six faults in the draft UM demands."
+    },
+    "RS62": {
+      "route": "audit",
+      "proof": [
+        "RS67",
+        "RS51",
+        "RS57"
+      ],
+      "in": [
+        "d4m3-a1"
+      ],
+      "spot": "The draft Mediation Binder's ledger, pleading and session details.",
+      "corrected": "RS69"
+    },
+    "RS63": {
+      "route": "audit",
+      "proof": [
+        "RS69",
+        "RS59",
+        "RS28"
+      ],
+      "in": [
+        "d4m3-a2"
+      ],
+      "spot": "The draft Arbitration Binder's brief date, pulls, lien and missing threshold record.",
+      "corrected": "RS70"
+    },
+    "RS66": {
+      "route": "audit",
+      "proof": [
+        "RS07",
+        "RS27",
+        "RS23",
+        "RS26"
+      ],
+      "in": [
+        "d3m1-a1"
+      ],
+      "spot": "Ten faults in the demand's exhibit packet.",
+      "corrected": "RS67"
+    }
+  },
+  "open": [
+    "RS03 and RS04 (02/10/2026) already carry the claim numbers, adjusters and the BI limit that d1m1-a1 says arrive on 02/16–02/17/2026. Decide whether to blank them as \"claim not yet opened\".",
+    "Some packets hand a trainee records dated after the activity: d2m2-a1 (02/23/2026) has RS20 (05/28/2026) and RS13 (02/24/2026); d1m4-a1 has RS14 (printed 06/30/2026); d2m1-a2 (03/11/2026) has RS27 (03/20/2026) and RS30, whose signed UM rejection its checkpoint says has not arrived yet.",
+    "RS29 quotes Cardinal State's Other Insurance clause and its excess form, while d2m1-a2's checkpoint says the 03/09/2026 letter does not state them. Either trim RS29 or the checkpoint.",
+    "The manifest's day and SPEC.md's day differ for RS11–RS19, RS21–RS24, RS26, RS37, RS40–RS45 and RS49. The manifest decides when a trainee sees a document; SPEC.md should follow it, or the manifest should move earlier where a document is worked before it opens.",
+    "RS54 holds 25 interrogatories, 27 requests for production and 14 requests for admission, but its cover letter, the case file, RS60 and d4m2-a1 say 30 and 15. Add three requests for production and one request for admission (none about property damage).",
+    "RS44 (as of 10/16/2026) carries Track A's 08/31/2026 UM-demand mailings, but Track B (d5m5-a1) uses it as the $486.75 pre-suit cost figure.",
+    "RS64 (printed 07/15/2026) already names the 03/2027 mediation and 05/2027 arbitration dates.",
+    "RS02's planted \"neck and back\" cannot be proved on Day 1 (RS20 opens on Day 2), and no Day 1 checkpoint asks for it; the first activity that can prove it is d2m3-a1. RS07's 2021 Escape and RS06's expiry are planted but no checkpoint credits catching them."
+  ]
+}
