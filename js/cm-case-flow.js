@@ -3557,6 +3557,12 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-model{font-size:18px;}
 .cfx-model .cfx-caption{font:600 20px var(--font-ui);color:var(--navy-soft);margin:0 0 12px;}
 .cfx-model table{font-size:17px;}
+/* See It's Do / Don't board (the shared compare layout), at slide size */
+.cfx-model .lesson-compare{gap:18px;margin:0;}
+.cfx-model .lesson-compare .chead{padding:12px 18px;font-size:22px;}
+.cfx-model .lesson-compare .cbody{padding:16px 20px;}
+.cfx-model .lesson-compare .citem{font:500 20px/1.4 var(--font-ui);padding-left:26px;margin-bottom:12px;}
+.cfx-model .lesson-compare .citem::before{top:9px;width:11px;height:11px;}
 .cfx-job{display:flex;flex-direction:column;gap:16px;}
 .cfx-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:10px;align-items:stretch;animation:cfxIn .3s ease-out both;}
 .cfx-flow:nth-child(2){animation-delay:.1s}.cfx-flow:nth-child(3){animation-delay:.2s}
@@ -3976,6 +3982,11 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
   .lesson-stage .cfx-ribbon > span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(13px,1.1vw,17px) !important;}
   .lesson-stage .cfx-deck > .cfx-body{flex:1 1 0;min-height:0;display:flex;flex-direction:column;overflow:hidden;}
   .lesson-stage .cfx-body > .cfx-sheet{flex:1 1 auto;min-height:0;overflow:hidden;}
+  /* a short slide sits in the middle of its sheet, not at the top; auto margins centre it and give way to nothing
+     once the slide is full, so a tall slide is never pushed or clipped */
+  .lesson-stage .cfx-body > .cfx-sheet{display:flex;flex-direction:column;}
+  .lesson-stage .cfx-body > .cfx-sheet > :first-child{margin-top:auto;}
+  .lesson-stage .cfx-body > .cfx-sheet > :last-child{margin-bottom:auto;}
   /* the day's closing line sits over the middle of the Previous / Next bar, so the last slide keeps the same frame */
   .lesson-stage:has(> .cf-stage-card){position:relative;}
   .lesson-stage > .cf-stage-card ~ .slide-done-banner{position:absolute;left:0;right:0;bottom:6px;z-index:3;margin:0 auto !important;width:max-content;max-width:min(52%,640px);padding:6px 14px !important;font-size:13px !important;line-height:1.35;text-align:center;}
