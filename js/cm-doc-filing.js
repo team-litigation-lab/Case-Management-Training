@@ -15,7 +15,7 @@
    because the convention is the thing being learned. Each document's attempts are kept, so a trainer can
    see who filed the repository right the first time.
 
-   It also files a document the course itself produced — the Email Workspace's memorandum, built from the
+   It also files a document the course itself produced — the Service Confirmation's memorandum, built from the
    trainee's own confirmation email and the adjuster's acknowledgment (cmDocFiling.fileBytes) — through the same
    name check and the same upload, and asks the CMS to back the case's filed documents up to the trainee's own
    Google Drive (cmDocFiling.drive); the backup is the CMS's, and the course only asks for it.
@@ -167,7 +167,7 @@ const mimeOf = (file)=>{
 };
 
 /* ---------- a document the course itself produced ----------
-   The Case Flow's Email Workspace converts an email exchange into a memorandum and files it the same way a
+   The Case Flow's Service Confirmation converts an email exchange into a memorandum and files it the same way a
    catalogue document is filed: the trainee writes the name, the CMS checks it against caseFileName and refuses
    anything that doesn't follow the convention, and the bytes go through the same upload. Nothing here decides a
    name or corrects one. */

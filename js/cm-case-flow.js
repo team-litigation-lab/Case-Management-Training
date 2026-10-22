@@ -530,6 +530,46 @@ const TOOL = Object.fromEntries(TOOLKIT.map(t => [t.id, t]));
    Disbursement (Track A, settled before suit) and its close-out once the case is won (Track B). Each block of those
    modules opens it at that stage (js/cm-net-sheet.js STAGES). */
 const NET_MODS = {d3m2: "recovery", d3m3: "liens", d3m4: "final", d5m5: "litigation"};
+/* The email practice a step opens, aimed at the step rather than at a page of choices (the Portal's
+   simulators/email.js and email-replies.html read these):
+     ✉ Email Workspace  → inbox=1, the ready-made inbox the trainee's program starts on (the CM Monday
+                           inbox on this course), opened straight away instead of the chooser;
+     📨 Email Replies    → email=<id>, the one scenario the step is about (the ids in the Portal's
+                           reply-packs/emails.json). EMAIL_NEED maps a block to its scenario; a block
+                           with no entry opens the list filtered to the course, as before. */
+/* A Case Manager's day is negotiating and communicating in writing, so each activity that is practice
+   at one of those opens the Email Replies scenario for that need — the adjuster, the lienholder, the
+   provider's billing desk, the client, the attorney — rather than a list of eleven to pick from. The
+   ids are the Portal's (simulators/reply-packs/emails.json); a block listed here is also offered Email
+   Replies among its tools (blockTools), and a block that isn't listed is unaffected.
+   Which scenario belongs to which activity is a curriculum decision: this is the mapping by the need
+   each activity practises, and it is meant to be edited here as the Case Flow changes. A scenario is
+   used for more than one activity where the need is the same skill (an adjuster is negotiated with more
+   than once). */
+const EMAIL_NEED = {
+  // Negotiating
+  "d3m1-a1": "cm_adjuster_statement",         // serving the BI time-limit demand: the adjuster's demands back
+  "d3m2-a1": "cm_adjuster_statement",         // MRI findings against the 14-day gap
+  "d5m2-a2": "cm_adjuster_statement",         // diminished value, argued with the carrier
+  "d3m3-a1": "cm_hospital_lien",              // statutory lien reduction: the hospital's $45,000 notice
+  "d3m3-a2": "cm_lop_provider",               // provider balance negotiation
+  "d2m2-a1": "cm_lop_provider",               // transmitting LOPs: the provider's balance question
+  "d5m1-a1": "cm_extension",                  // pleadings and discovery: opposing counsel's extension
+  // Communicating
+  "d1m2-a1": "all_web_inquiry",               // multi-channel outreach: a prospective client's inquiry
+  "d1m3-a1": "cm_spouse",                     // onboarding directions: what a spouse may be told
+  "d2m2-a2": "cm_client_bills_collections",   // A-C-T crisis protocol: the client whose bills keep coming
+  "d2m3-a1": "cm_client_bills_collections",   // probing the treatment gap with the client
+  "d2m3-a2": "cm_records_dob",                // the gap justification record: a records request refused
+  "d2m4-a2": "cm_attorney_status",            // the pre-demand strategy session: "where are we?"
+  "d3m2-a2": "cm_client_net",                 // closing the gross recovery: "where is my money"
+  "d3m4-a2": "all_wire_phish"                 // release and disbursement: fraudulent wire instructions
+};
+function emailTarget(id, blockId){
+  if(id === "email") return "inbox=1";
+  if(id === "replies") return EMAIL_NEED[blockId] ? "email=" + EMAIL_NEED[blockId] : "";
+  return "";
+}
 const NET_STAGE = {};
 Object.keys(STORED).forEach(id => { const st = NET_MODS[STORED[id].mod.id]; if(st) NET_STAGE[id] = st; });
 /* The records, docket and court-filing platforms, at the steps where that work happens on John Doe's file (on top of
@@ -567,6 +607,7 @@ function blockTools(b){
   else ids = ["cms", "docs"];
   if(NET_STAGE[b.id]) ids.push("netsheet");   // every block of a Case Phase that works the money
   if(b.id === "d2m1-a1") ids.push("lor");   // Generating Formal LORs: drafted in LOR Drafting, logged in the CMS
+  if(EMAIL_NEED[b.id]) ids.push("replies");   // practice at the negotiating or communicating this step needs (EMAIL_NEED)
   ids = ids.concat(WORKED_IN[b.id] || []);
   ids = [...new Set(ids)];
   return ids.length ? ids : ["cms"];
@@ -714,8 +755,8 @@ function slideBody(view, l, d){
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}</span>
           <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
-        ${serviceOf(b.id) ? `<div class="cfx-call cfx-svb"><b>✉ Email Workspace</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
-          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the Email Workspace</button></div>` : ""}
+        ${serviceOf(b.id) ? `<div class="cfx-call cfx-svb"><b>✉ Service Confirmation</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
+          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the Service Confirmation</button></div>` : ""}
         <div class="cfx-deliver"><b>📤 Deliver</b><span>${hl(c.deliver)}</span></div></aside></div>`; }
     case "check": { const open = answersOpen(b.id);
       return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${open ? hl(x) : masked(x)}</span></label>`).join("")}</div>
@@ -1131,7 +1172,7 @@ window.cmCaseFlow.listenClose = function(){ const box = document.getElementById(
    or flag it for the attorney — with the loophole or evidentiary gap each item hides. Handed in, the finished
    set is revealed: the Demand Package as served, the Mediation Binder as delivered, the Arbitration Binder as
    exchanged, which every later activity then works from (CM_CF_DOC_PACKETS carries it forward).
-   An activity that serves something also gets the Email Workspace ("emails"): the trainee writes the
+   An activity that serves something also gets the Service Confirmation ("emails"): the trainee writes the
    confirmation email that goes out with the certified mailing, the adjuster answers in writing, the trainee
    answers the follow-up that tests the UPL line, and then converts the whole exchange into a memorandum, files
    it in the CMS under the firm's naming convention and backs it up to Drive. Their marks, their email, the
@@ -1172,7 +1213,7 @@ function auditSlide(b){
         <small>Nothing is scored until you hand it in, and nothing is corrected quietly: every finding is a dated, assigned task.</small></div>
     </div>
     <div class="cfx-aud-act"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.audit('${b.id}')">🔍 Open the audit workbench</button>
-      ${sv ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.service('${b.id}')">✉ Email Workspace</button>` : ""}
+      ${sv ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.service('${b.id}')">✉ Service Confirmation</button>` : ""}
       <span class="cfx-aud-note">${E(a.kicker)}</span></div></div>`;
   return `<div class="cfx-aud cfx-aud-done">${head}
     <div class="cfx-aud-row">
@@ -1183,7 +1224,7 @@ function auditSlide(b){
     </div>
     <ul class="cfx-aud-points">${a.revealPoints.map(p => `<li>${hl(p)}</li>`).join("")}</ul>
     <div class="cfx-aud-act"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.audit('${b.id}')">🔍 Compare your audit, item by item</button>
-      ${sv ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.service('${b.id}')">✉ Email Workspace</button>` : ""}</div></div>`;
+      ${sv ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.service('${b.id}')">✉ Service Confirmation</button>` : ""}</div></div>`;
 }
 
 /* the workbench: every item of the set, the call the trainee makes, and after hand-in what the file says */
@@ -1249,7 +1290,7 @@ window.cmCaseFlow.auditHandIn = function(blockId){
   benchRepaint(blockId);
 };
 
-/* ---------- the Email Workspace: the confirmation email, the acknowledgment, and the filed document ----------
+/* ---------- the Service Confirmation: the confirmation email, the acknowledgment, and the filed document ----------
    Proving a demand left the office is half of it. The other half is the email the Case Manager writes with the
    certified mailing, the adjuster's written acknowledgment — which fixes the date the clock started from the
    carrier's own words — and the follow-up that tests whether the Case Manager will move a deadline that is not
@@ -1309,7 +1350,7 @@ function svWorkspace(blockId){
 }
 window.cmCaseFlow.service = function(blockId){
   if(!serviceOf(blockId) || document.getElementById("cf-sv")) return;   // one workspace at a time, or the email being written is lost behind it
-  const o = document.createElement("div"); o.className = "cfx-modal"; o.id = "cf-sv"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Email Workspace");
+  const o = document.createElement("div"); o.className = "cfx-modal"; o.id = "cf-sv"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Service Confirmation");
   o.innerHTML = svWorkspace(blockId);
   const close = () => { const t = document.getElementById("svw_" + blockId); if(t) { svRec(blockId).body = t.value.slice(0, 4000); persist(); } o.remove(); document.removeEventListener("keydown", esc, true); if(typeof render === "function") render(); };
   const esc = ev => { if(ev.key === "Escape"){ ev.stopPropagation(); close(); } };
@@ -1445,7 +1486,7 @@ window.cmCaseFlow.tool = function(id, blockId){
     goto.apply(null, PAGE[id]);
     return;
   }
-  if(typeof openTool === "function") openTool(id === "call" ? "calls" : id, "split");   // a training platform, beside the slide (⧉ Side by side; 🖥 Second screen)
+  if(typeof openTool === "function") openTool(id === "call" ? "calls" : id, "split", emailTarget(id, blockId) || undefined);   // a training platform, beside the slide (⧉ Side by side; 🖥 Second screen)
 };
 window.cmCaseFlow.back = function(){
   const r = state.cfReturn; state.cfReturn = null;
@@ -2317,14 +2358,74 @@ function kcFit(){
   while(box.scrollHeight > box.clientHeight + 1 && z > 0.6){ z = Math.round((z - 0.05) * 100) / 100; w.style.zoom = String(z); }
 }
 window.addEventListener("resize", () => { clearTimeout(state.cfKcFitT); state.cfKcFitT = setTimeout(() => { try{ kcFit(); }catch(e){} }, 120); });
+/* The Knowledge Check is repainted on every answer, every pick and every move between questions. Writing
+   the whole page back with innerHTML threw away and rebuilt every node each time: the page visibly
+   flickered, worst on Day 3, whose Countdown Bomb repaints while a CSS fuse animation is running and
+   whose rebuilt page is measured and scaled again by kcFit.
+   So the new page is built as before and then *morphed* in: a node whose markup hasn't changed is left
+   exactly as it is, and only what really differs is written. The result is the same DOM innerHTML would
+   have produced — morphEl falls back to replacing a node whenever it can't patch it — so no mode's
+   markup has to be known here, and nothing flickers because almost nothing is touched.
+   The fuse is the one exception: its animation-delay is worked out from the clock on every render (so a
+   rebuilt fuse resumes where it was), which would make it differ every time and restart the animation.
+   A fuse that is already running on the same question keeps its own style. */
+const FUSE_SEL = ".cfg-fuse i";
+function sameFuse(cur, next){
+  return cur.matches && cur.matches(FUSE_SEL) && next.matches && next.matches(FUSE_SEL)
+    && cur.closest(".cfg-card") && next.closest && true;
+}
+function morphAttrs(cur, next, keepStyle){
+  for(const a of Array.from(next.attributes)){
+    if(keepStyle && a.name === "style") continue;
+    if(cur.getAttribute(a.name) !== a.value) cur.setAttribute(a.name, a.value);
+  }
+  for(const a of Array.from(cur.attributes)){
+    if(keepStyle && a.name === "style") continue;
+    if(!next.hasAttribute(a.name)) cur.removeAttribute(a.name);
+  }
+}
+function morphEl(cur, next){
+  if(cur.nodeType === 3 && next.nodeType === 3){ if(cur.nodeValue !== next.nodeValue) cur.nodeValue = next.nodeValue; return true; }
+  if(cur.nodeType !== 1 || next.nodeType !== 1 || cur.tagName !== next.tagName) return false;
+  const fuse = sameFuse(cur, next);
+  if(!fuse && cur.outerHTML === next.outerHTML) return true;            // unchanged: left alone
+  // A live <select>, <input> or <textarea> keeps what the trainee has typed or chosen.
+  if(/^(SELECT|INPUT|TEXTAREA)$/.test(cur.tagName)){ morphAttrs(cur, next); return true; }
+  morphAttrs(cur, next, fuse);
+  morphKids(cur, next);
+  return true;
+}
+function morphKids(cur, next){
+  // The live child list, never a snapshot of it: patching a child can replace it, which makes a
+  // snapshot's later entries stale and left a node behind (a mode whose card has one box fewer kept
+  // the box before it — the Countdown Bomb's fuse turned up on the next day's page).
+  const b = Array.from(next.childNodes);
+  for(let i = 0; i < b.length; i++){
+    const cn = cur.childNodes[i];
+    if(!cn){ cur.appendChild(b[i].cloneNode(true)); continue; }
+    if(!morphEl(cn, b[i])) cur.replaceChild(b[i].cloneNode(true), cn);
+  }
+  while(cur.childNodes.length > b.length) cur.removeChild(cur.lastChild);
+}
+function paintInto(w, html){
+  if(!w.firstChild){ w.innerHTML = html; return; }
+  const next = document.createElement("div");
+  next.innerHTML = html;
+  morphKids(w, next);
+}
 let __qdT = null;
 function gamePaint(d){
   if(d && !state.quizSubmitted && Object.keys(state.quizAnswers || {}).length){ clearTimeout(__qdT); __qdT = setTimeout(() => saveQuizDraft(d), 400); }
   const w = document.getElementById("quizWrap"); if(!w) return;
-  // No flicker: repainting the same question (answering it, Ask a Friend, a token) keeps its card still; only a new
-  // question card plays its entrance (cfgIn starts from transparent, so replaying it blinked the card on every click).
+  // Only ever paint the day that is open. A game's own timers (the bomb's 20-second fuse, the wheel's
+  // spin) hold the day they were started on, so one left running while the trainee opens another day
+  // used to paint that day's quiz over this one.
+  if(d && state.dayId && d.id !== state.dayId) return;
+  // No flicker, from both ends. The page is morphed in rather than written back whole (paintInto), so a
+  // node whose markup hasn't changed is left alone; and only a new question card plays its entrance
+  // (cfgIn starts from transparent, so replaying it blinked the card on every click).
   const prevQ = w.dataset.cfq;
-  w.innerHTML = renderQuiz(d);
+  paintInto(w, renderQuiz(d));
   const shownCard = w.querySelector(".cfg-card"), shownQ = shownCard ? String(shownCard.dataset.q) : "";
   w.classList.toggle("cfg-same", !!shownQ && shownQ === prevQ); w.dataset.cfq = shownQ;
   try{ kcFit(); }catch(e){}
@@ -2985,6 +3086,16 @@ function caseFlowPractice(){
   const tabs = `<div class="cf-px-tabs" role="tablist">${MODULES.map(d => `<button type="button" role="tab" aria-selected="${d.cf.n === sel}" class="cf-px-tab${d.cf.n === sel ? " on" : ""}" onclick="cmCaseFlow.pxDay(${d.cf.n})">Day ${d.cf.n}${dayUnlocked(d.id) ? (kcDone(d) ? " ✓" : "") : " 🔒"}<small>${E((CF.days.find(x => x.n === d.cf.n) || {}).phase || "")}</small></button>`).join("")}</div>`;
   const days = MODULES.filter(d => d.cf.n === sel).map(d => {
     const open = dayUnlocked(d.id), day = CF.days.find(x => x.n === d.cf.n);
+    /* One tools access for the session, not a set of chips on every activity. A day's activities are
+       worked in the same few platforms, so the chips repeated down the page were the same two or three
+       buttons over and over, and a trainee opening one from the wrong row landed on the wrong step.
+       The day's distinct tools are offered once, at the top of the day, each opening on that day's first
+       activity that uses it; every activity row still names the tool it is worked in, in words. The
+       per-step buttons stay where they belong, on the activity's own slide (the 🛠 Where box). */
+    const firstFor = {};
+    d.lessons.forEach((l, li) => { if(l.cf.block.kind !== "activity") return;
+      blockTools(l.cf.block).forEach(id => { if(firstFor[id] === undefined) firstFor[id] = {blockId: l.cf.block.id, li}; }); });
+    const sessionTools = open ? Object.keys(firstFor).map(id => toolChip(id, firstFor[id].blockId)).filter(Boolean).join("") : "";
     // the module's Practice, in the order the work happens, grouped under each activity's heading
     const groups = [];
     d.lessons.forEach((l, li) => { if(l.cf.block.kind !== "activity") return; const t = l.cf.heading.replace(/^Skill Building:\s*/, ""), last = groups[groups.length - 1];
@@ -2992,11 +3103,13 @@ function caseFlowPractice(){
     const mods = groups.map(({title, acts}, gi) => {
       return `<div class="cf-px-mod"><div class="cf-px-mh">${d.cf.n}.${gi + 1} · ${E(title)}</div>
         ${acts.map(({b, li}) => `<div class="cf-px-act"><div><b>${E(b.title)}</b>
-            <div class="cf-px-meta"><span>🛠 ${E(b.act.tool)} ${open ? toolChips(blockTools(b), b.id) : ""}</span><span>📤 ${E(b.act.output)}</span>${(CF_PACKETS[b.id] || []).length ? `<span>📁 ${CF_PACKETS[b.id].length} documents</span>` : ""}</div></div>
+            <div class="cf-px-meta"><span>🛠 ${E(b.act.tool)}</span><span>📤 ${E(b.act.output)}</span>${(CF_PACKETS[b.id] || []).length ? `<span>📁 ${CF_PACKETS[b.id].length} documents</span>` : ""}</div></div>
           ${open ? `<button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.openBlock(${d.id},${li})">Open</button>` : `<span class="cf-px-lock">🔒</span>`}</div>`).join("")}</div>`;
     }).join("");
     return `<div class="card px-day"><div class="px-day-h"><div><h2>Case Flow Day ${d.cf.n}${open ? "" : " · 🔒"}${day.track ? ` <span class="cf-px-track">${E(day.track)}</span>` : ""}</h2><div class="sub">${E(day.phase)}</div></div>
         <span class="px-prog">${kcDone(d) ? "Knowledge Check passed ✓" : open ? "In progress" : "Opens when the day before is passed"}</span></div>
+      ${sessionTools ? `<div class="cf-px-tools"><b>🛠 Tools for this session</b><div class="cf-px-toolrow">${sessionTools}</div>
+        <small>Each opens on the first activity of the day that is worked in it. Every step's own tools are on its slide.</small></div>` : ""}
       <div class="cf-px-mods">${mods}</div></div>`;
   }).join("");
   const any = [
@@ -3013,9 +3126,14 @@ function caseFlowPractice(){
 `;
 }
 if(typeof window.renderPracticeHub === "function") window.renderPracticeHub = () => caseFlowPractice();
+window.cmCaseFlowTest = {blockTools, EMAIL_NEED, emailTarget};   // .github/scripts/practice-tools.cjs
 
 /* ---------- styles: only what the course's own classes don't already give ---------- */
 const st = document.createElement("style"); st.id = "cm-case-flow"; st.textContent = `
+.cf-px-tools{margin:0 0 14px;padding:12px 14px;background:#F7F8FB;border:1px solid var(--line,#D6DAE4);border-radius:12px;}
+.cf-px-tools > b{display:block;font:800 12.5px var(--font-ui);color:var(--navy);letter-spacing:.04em;text-transform:uppercase;}
+.cf-px-toolrow{display:flex;gap:8px;flex-wrap:wrap;margin:9px 0 0;}
+.cf-px-tools small{display:block;margin-top:8px;font-size:12px;color:var(--ink-soft,#5B6178);}
 .cfg{position:relative;width:100%;box-sizing:border-box;}
 #quizWrap:has(.cfg){width:100%;}
 .cfg-title{display:flex;justify-content:center;align-items:center;gap:10px;margin:0 0 8px;}
@@ -3725,7 +3843,7 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
   .cfx-tl li:nth-child(1),.cfx-tl li:nth-child(7){display:none;}
   .cfx-tl b{font-size:10.5px;}
 }
-/* the exhibit audit, the completed package and the Email Workspace */
+/* the exhibit audit, the completed package and the Service Confirmation */
 .cfx-aud{display:grid;gap:12px;}
 .cfx-aud-h{display:flex;flex-wrap:wrap;align-items:center;gap:10px;}
 .cfx-aud-due{font-size:13px;color:var(--ink-soft);}

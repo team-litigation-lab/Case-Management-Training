@@ -58,6 +58,138 @@ The script applies the CM edits to the EA/PA page and inserts the CM content fro
     - **Files:** the slides are in `js/blueprint-content.js`. `js/lsh-blueprint.js` is the same file on every LSH platform, and `js/lsh-blueprint-course.js` is the same on every LSH course: copy them from EA-PA-TRAINING when they change there.
     - **Test:** `.github/scripts/blueprint.cjs`.
 
+### One tools access per session on the Practice page
+
+This is the 🧪 **Practice page**, not the Practice Lab slide in the deck (that one is above: one slide
+per module, which the day's tools open from). The same rule, on the other surface.
+
+🧪 Practice lists each day's Skill Activities. Every activity row used to carry its own row of tool
+buttons, which on a single day was the same two or three platforms repeated down the page (Day 3 showed
+19 of them), and opening one from the wrong row took the trainee to the wrong step.
+
+The day now offers its tools **once**, in a **🛠 Tools for this session** row at the top of the day: each
+distinct platform the day's activities are worked in, once, each opening on the **first activity of that
+day worked in it**. Every activity row still names the tool it is worked in, in words, and still has its
+**Open** button for the activity itself. A locked day offers no tools. The per-step buttons stay where
+they belong — on the activity's own slide, in its 🛠 Where box — so a step still opens exactly the tool
+that step needs.
+
+`.github/scripts/practice-tools.cjs` (CI) checks every day: one row, each tool in it once, every tool the
+day's activities use and nothing else, each opening on the day's first activity worked in it, no tool
+buttons left on the activity rows, and nothing offered on a locked day.
+
+### The admin side is not the trainee's
+
+A signed-in trainee is never offered an admin log-in, an admin view, or a trainer's notes: they see
+their own record and nothing else. This is now a **rule**, `traineeSide()` in `index.html` (a trainee is
+signed in and isn't an admin), not a configuration:
+
+- the 🛡 **Admin** button is off the top bar — `index.html`'s copy by this rule, and the course's own
+  (`js/cm-updates.js`) because it now shows the button to admins only — and so is **🛡 Sign In as
+  Trainer** on the Facilitator Guide;
+- `openAdmin()` does nothing for them, so the admin password box can't be reached;
+- `goto('admin')` lands them on their **own dashboard**. It used to show "Admin access required — use
+  the Admin button to sign in", which is an admin log-in on the trainee side;
+- the Facilitator Guide isn't in their navigation, and speaker notes, scripts and answer keys stay in
+  Presenter view and the Speaker Notes PDF as before.
+
+**Why a rule and not a setting.** The buttons used to be hidden on `state.portalOnly`, which comes from
+`/api/auth/status` — so a trainee whose status call didn't land (offline, or the account's daily request
+limit) was shown the 🛡 Admin button and its password box. An admin is signed in as an admin and never
+as a trainee, so nothing changes for them; neither does the log-in screen, which still offers an admin
+their way in.
+
+Trainees see **their own** score and no one else's (there is no cohort leaderboard): 👁 Review Score on a
+day they've passed, their score on the day card, and 🎯 Focus. Score cards across programs are consolidated on the Main Portal, whose
+`/progress.html` is admin-only both in the page and on the server (`requireSession(..., {adminOnly:
+true})`).
+
+`.github/scripts/trainee-side.cjs` (CI) signs in as a trainee **with `portalOnly` false** — the case this
+guards — and checks every one of their pages for an admin or trainer sign-in, that `openAdmin()` opens
+no box, that the admin view sends them to their dashboard without inviting a sign-in, that the
+Facilitator Guide isn't in their navigation, and that their own score is theirs to see; then that an
+admin still has the button and the view.
+
+### Practice at negotiating and communicating, by the need
+
+A Case Manager's day is negotiating and communicating in writing, so each activity that is practice at
+one of those opens the **Email Replies** scenario for that need — the adjuster, the lienholder, the
+provider's billing desk, the client, the attorney — instead of a list of eleven to pick from. The
+mapping is `EMAIL_NEED` in `js/cm-case-flow.js`, keyed by block id; a block listed there is also offered
+Email Replies among its tools, and a block that isn't listed is unaffected.
+
+| Need | Activities | Opens |
+| --- | --- | --- |
+| Negotiating | the BI time-limit demand, MRI against the 14-day gap, diminished value | the adjuster's reply |
+| | statutory lien reduction | the hospital's $45,000 lien notice |
+| | provider balance negotiation, transmitting LOPs | the provider's balance question |
+| | pleadings and discovery | opposing counsel's extension request |
+| Communicating | multi-channel outreach | a prospective client's inquiry |
+| | onboarding directions | what a spouse may be told |
+| | the A-C-T crisis protocol, probing the treatment gap | the client whose bills keep coming |
+| | the gap justification record | a records request refused |
+| | the pre-demand strategy session | the attorney's "where are we?" |
+| | closing the gross recovery | the client's "where is my money" |
+| | release and disbursement | fraudulent wire instructions |
+
+**Which scenario belongs to which activity is a curriculum decision**, so the table is meant to be
+edited in `EMAIL_NEED` as the Case Flow changes; a scenario is reused where the need is the same skill.
+The ✉ Email Workspace, separately, opens the inbox the trainee's program starts on (`inbox=1`).
+
+Both need the Training Portal's side of it (`simulators/email-replies.html` reads `?email=`,
+`simulators/email.js` reads `?inbox=`); without it the parameters are simply ignored and the trainee
+gets the list as before. `.github/scripts/practice-tools.cjs` (CI) checks that every activity named
+still exists in the Case Flow, that every scenario named is one the Portal serves, that a named activity
+is offered Email Replies and opens it on its own scenario, and that an activity with no entry is
+untouched.
+
+### The Knowledge Check doesn't flicker
+
+The Knowledge Check is repainted on every answer, every pick and every move between questions. It used
+to write the whole page back with `innerHTML`, which threw away and rebuilt every node each time: the
+page visibly flickered. It showed worst on **Day 3**, whose Countdown Bomb repaints while a CSS fuse
+animation is running and whose rebuilt page is measured and scaled again by `kcFit`.
+
+The page is still built exactly as before and then **morphed** in (`paintInto` in `js/cm-case-flow.js`):
+a node whose markup hasn't changed is left alone, and only what really differs is written. The result is
+the DOM `innerHTML` would have produced — the morph replaces a node whenever it can't patch it — so no
+game mode's markup has to be known there, and nothing flickers because almost nothing is touched. A live
+`<select>`, `<input>` or `<textarea>` keeps what the trainee has typed or chosen, and the bomb's fuse
+keeps its own `animation-delay` while it is running (that delay is worked out from the clock on every
+render, so writing it back would restart the animation).
+
+**One other thing this fixed.** A game's timers hold the day they were started on (the bomb's 20-second
+fuse, the wheel's 2.5-second spin), so one left running while the trainee opened another day painted
+*that* day's quiz over the new one — a Countdown Bomb fuse turning up on Day 4. `gamePaint` now paints
+only the day that is open.
+
+`.github/scripts/kc-morph.cjs` (CI) plays every day, so every game mode (millionaire, jeopardy, bomb,
+wheel, doors): the morphed page is exactly what `innerHTML` would have produced, the card, question and
+unpicked options are the same nodes after an answer, the answer still lands, and the bomb's running fuse
+survives with its delay intact. Against the old `innerHTML` it fails on exactly the Day 3 symptom.
+
+### Day cards say where the trainee is
+
+A day card's button is the trainee's next step, from their own record:
+
+| Their record | The card says |
+| --- | --- |
+| Nothing yet | **Start** |
+| Slides worked, or a Knowledge Check taken | **Continue**, with how far the slides got and the Knowledge Check score beside the **70% to pass** |
+| Passed (70%) | **Review** · "Completed" |
+
+`moduleCard` in `index.html` draws Start and Review; the wrapper in `js/cm-updates.js` rewrites a day
+that is started but not passed as **Continue** and adds the progress line.
+
+**A Knowledge Check under the pass mark is recorded.** 70% is what marks a day complete — so 13 of 20
+(65%) does not — but the attempt is kept either way: `progress[day].score` is the best of every attempt
+and `.history` holds them all, and a worse retake never lowers the best. The card showing only "Start"
+with nothing about the score is what read as the day not having been recorded at all. 🎯 Focus still
+lists any day under 70%.
+
+`.github/scripts/day-progress.cjs` (CI) checks each state of a day, and that a failing attempt is kept
+and never lowers the best score.
+
 ### 📂 Case File
 
 The Case File page is the Case Flow's John Doe v. Robert Smith profile (`CLIENT_PROFILE_DOC` in `build/cm_casefile.js`, from `CM_CASE_FLOW.case` and `.profile`), which is also the case dossier inside every AI prompt. How it fills in and what trainers see: above, and under *Training Tools hub*.
@@ -117,7 +249,7 @@ Activities now work the set itself, and each one ends with the finished article.
   "📁 Work from" packet of every activity that comes after it, and the finished Mediation Binder (`RS69`) and
   Arbitration Binder (`RS70`) in the activities that follow them. One Demand Package and one binder run through
   all five days, with one set of figures.
-- **The service confirmation (`✉ Email Workspace`,** on the demand's Your Task slide). Certified mail proves the
+- **The service confirmation (`✉ Service Confirmation`,** on the demand's Your Task slide; not to be confused with the Portal's ✉ Email Workspace simulator above). Certified mail proves the
   demand left the office; it does not prove when the carrier got it. So the trainee writes the confirmation email
   that goes out with the mailing — it has to name the certified number, the package and its page count, say that
   the thirty days run from *receipt*, ask her to confirm the date and the set, and route every question about the
@@ -236,7 +368,7 @@ The document-heavy folders (`decks/`, `documents/`) are kept in **Cloudflare R2*
   - A long slide's next and previous pages change in place. Case Flow slides are scaled to fit one screen and never split, so on CI's day (12, Case Flow Day 2) this part is reported as skipped.
   - A resize lays the slide out again without animation.
   - The slides window never reloads itself for an update.
-- **The exhibit audit, the completed package and the Email Workspace** (`.github/scripts/exhibit-audit.cjs`): the audit is one of the day's slides and gives nothing away; the workbench lists every item with a call to make; a hand-in with an item uncalled is refused; a complete one is scored, marks the wrong call and reveals the completed package; the finished set is carried into the activities that follow; an email that does not do the job is refused with what is missing; a complete one brings the acknowledgment; the answer that moves the attorney's deadline stops the work and the one that routes it does not; and the memorandum is built, refused under a wrong name, filed under the convention and backed up — with all of it on the trainee's record for their trainer. The CMS is answered by the test.
+- **The exhibit audit, the completed package and the Service Confirmation** (`.github/scripts/exhibit-audit.cjs`): the audit is one of the day's slides and gives nothing away; the workbench lists every item with a call to make; a hand-in with an item uncalled is refused; a complete one is scored, marks the wrong call and reveals the completed package; the finished set is carried into the activities that follow; an email that does not do the job is refused with what is missing; a complete one brings the acknowledgment; the answer that moves the attorney's deadline stops the work and the one that routes it does not; and the memorandum is built, refused under a wrong name, filed under the convention and backed up — with all of it on the trainee's record for their trainer. The CMS is answered by the test.
 - **Every slide fits on one screen** (`.github/scripts/fit.cjs`): every slide of every day ends inside the window with its Previous / Next bar at 1366×768 and 1920×1080, nothing in it scrolls, and none is split onto a second page.
 - **Every page fits on one screen** (`.github/scripts/one-screen.cjs`): at 1366×768, 1920×1080 and 1280×720 the window never scrolls on any page or lesson, the footer line stays on the screen, a lesson page needs no scrolling at all, and on a page that does scroll inside its body the bottom is reachable and `window.scrollY` / `window.scrollTo()` work on it. At 900×800, under the one-screen layout, nothing is cut off.
 - **Server requests** (`.github/scripts/requests.cjs`):
@@ -270,7 +402,7 @@ This repository is its own Worker, separate from the EA/PA portal (EA-PA-TRAININ
 3. Secrets (Settings → Variables and Secrets), the same as EA/PA:
    - `MASTER_ADMIN_PASSWORD`: admin sign-in (the LSH Training Portal's master admin password: one password on every platform); setting it switches on secure mode. Set it as a Secret.
   - `AI_GATEWAY_SECRET`: optional (a Secret; the same value as on the Portal). When set, every AI call goes to the Main Portal's shared AI gateway (`/api/ai-gateway`): one master key pool and one shared budget for every call flow, counted per program. Without it this Worker uses its own `GEMINI_API_KEY` pool.
-   - `GEMINI_API_KEY`: AI grading and roleplays (Gemini is the only AI provider, as in EA/PA). More keys join the pool by name: `GEMINI_API_KEY1`, `GEMINI_API_KEY2` … `GEMINI_API_KEY14`, `GEMINI_API_KEY15`, `GEMINI_API_KEY16` (any number). They take turns, one request each; a key that hits its limit or runs out of credits rests (a minute for a per-minute limit, an hour for a daily one or no credits, 10 minutes if Google rejects it) and the next key answers, so a class never stops when one key's credits run out. Add each as a Secret on this Worker; no code change is needed. `/version` shows how many keys are in the pool. Same rules as the CMS (`functions/_ai.js`) and the Portal's AI gateway.
+   - `GEMINI_API_KEY`: AI grading and roleplays (Gemini is the only AI provider, as in EA/PA). More keys join the pool by name: `GEMINI_API_KEY1`, `GEMINI_API_KEY2` … `GEMINI_API_KEY14`, `GEMINI_API_KEY15`, `GEMINI_API_KEY16` (any number). They take turns, one request each; a key that hits its limit or runs out of credits rests (a minute for a per-minute limit, an hour for a daily one or no credits, 10 minutes if Google rejects it) and the next key answers, so a class never stops when one key's credits run out. Add each as a Secret on this Worker; no code change is needed. `/version` shows how many keys are in the pool. Same rules as the CMS (`functions/_ai.js`) and the Portal's AI gateway. `.github/scripts/ai-keys.mjs` (CI, with Gemini faked) holds the pool to it: every numbered key is used (above 9 too), keys take turns, a key out of credits rests while the next answers, a rejected key is never asked twice, and with every key resting the Worker still tries rather than refusing.
    - `SESSION_SECRET`: optional.
    - `PORTAL_SSO_SECRET`: the Portal sign-in secret (see the top of this README); it also signs the tickets that open the CMS without a log-in page (`/api/auth/tool-ticket`).
 4. After the first deploy, sign in as admin → **🧰 Tools** to check the CMS address (default `https://lshcasemanagementtraining-trainingcrm.pages.dev`, the CaseManagementTraining app). The Docket System, Medical Records Requests and Court E-Filing are Live by default and point at the LSH Training Portal. If an admin saved tool addresses before they went live, open **Admin: tool addresses** once and set them to Live with their portal addresses.

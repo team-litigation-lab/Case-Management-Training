@@ -1,8 +1,8 @@
-// 🔍 The exhibit audit, the completed package and the Email Workspace (js/cm-case-flow.js, js/cm-case-flow-exhibits.js).
+// 🔍 The exhibit audit, the completed package and the Service Confirmation (js/cm-case-flow.js, js/cm-case-flow-exhibits.js).
 //
 // A Skill Activity that assembles or serves a document set audits the set itself: the trainee calls every
 // item (keep · replace · pull · add · flag), hands it in, and only then sees what the file says about each
-// one and the completed package. An activity that serves something also gets the Email Workspace: the
+// one and the completed package. An activity that serves something also gets the Service Confirmation: the
 // confirmation email that goes out with the certified mailing, the adjuster's written acknowledgment, the
 // follow-up that tests the UPL line, and the exchange converted into a memorandum, filed into the open case
 // in the CMS under the firm's convention and backed up to Drive.
@@ -151,7 +151,7 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     });
     check(forward.length >= 6 && !forward.includes(BLOCK), `the completed Demand Package is carried into ${forward.length} later activities, and not into its own: ${forward.slice(0, 4).join(', ')}…`);
 
-    // 5. the Email Workspace: an email that does not do the job is refused with what is missing
+    // 5. the Service Confirmation: an email that does not do the job is refused with what is missing
     await page.evaluate((t) => { window.__E = t; }, EMAIL);
     await page.evaluate((b) => cmCaseFlow.service(b), BLOCK);
     await page.waitForSelector('#cf-sv .sv-write');
