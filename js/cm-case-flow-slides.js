@@ -620,6 +620,7 @@ window.CM_CF_SLIDES = {
   "image": "phone-call",
   "roadmap": {
    "title": "The No Contact Protocol: the Roadmap",
+   "merge": true,
    "steps": [
     {
      "label": "Internal review",
@@ -1119,6 +1120,7 @@ window.CM_CF_SLIDES = {
   "image": "repair-shop",
   "roadmap": {
    "title": "Property Damage: the Roadmap",
+   "merge": true,
    "steps": [
     {
      "label": "Written estimate first",
@@ -3306,6 +3308,7 @@ window.CM_CF_SLIDES = {
   "image": "money-ledger",
   "roadmap": {
    "title": "Who Pays What: the Roadmap",
+   "merge": true,
    "steps": [
     {
      "label": "HIPAA authorization",
@@ -3496,6 +3499,7 @@ window.CM_CF_SLIDES = {
   "image": "intake-interview",
   "roadmap": {
    "title": "The Gap Interview: the Roadmap",
+   "merge": true,
    "steps": [
     {
      "label": "Plan the questions",
@@ -4297,6 +4301,7 @@ window.CM_CF_SLIDES = {
   "image": "demand-letter",
   "roadmap": {
    "title": "The Time-Limited Demand: the Roadmap",
+   "merge": true,
    "steps": [
     {
      "label": "Confirm the foundation",
@@ -5287,6 +5292,7 @@ window.CM_CF_SLIDES = {
   "image": "lien-scale",
   "roadmap": {
    "title": "Reducing the Liens: the Roadmap",
+   "merge": true,
    "steps": [
     {
      "label": "Audit the bill",
@@ -5769,6 +5775,7 @@ window.CM_CF_SLIDES = {
   "image": "release-signature",
   "roadmap": {
    "title": "From Release to $0.00: the Roadmap",
+   "merge": true,
    "steps": [
     {
      "label": "Audit the release",
@@ -6625,6 +6632,7 @@ window.CM_CF_SLIDES = {
   "hook": "Hon. Carla Benton (Ret.) helps parties agree; **Laura Whitcomb, Esq. decides**, with almost no appeal.",
   "roadmap": {
    "title": "Standard Case Progression Roadmap",
+   "merge": true,
    "steps": [
     {
      "label": "Demand & Negotiation",

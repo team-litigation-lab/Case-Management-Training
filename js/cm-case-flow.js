@@ -474,7 +474,7 @@ const theoryOf = b => (SLIDES[b.id] || {}).theory || null;
 const roadmapOf = b => (SLIDES[b.id] || {}).roadmap || null;   // a complex lesson opens with its roadmap: the steps ahead, before any of them is taught or tested
 /* a roadmap marked `merge` is no slide of its own: it opens The Theory as a strip of its steps (a short lesson keeps both on one slide) */
 const mapView = b => roadmapOf(b) && !roadmapOf(b).merge ? ["map"] : [];
-const mapStrip = b => { const r = roadmapOf(b); return r && r.merge ? `<ol class="cfx-map-strip" style="--n:${r.steps.length}" aria-label="${E(r.title)}">${r.steps.map((x, i) => `<li><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span></li>`).join("")}</ol>` : ""; };
+const mapStrip = b => { const r = roadmapOf(b); return r && r.merge ? `<ol class="cfx-map-strip" style="--n:${r.steps.length > 4 ? Math.ceil(r.steps.length / 2) : r.steps.length}" aria-label="${E(r.title)}">${r.steps.map((x, i) => `<li><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span></li>`).join("")}</ol>` : ""; };
 const theoryViews = b => { const t = theoryOf(b); return !t ? [] : (t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]).concat(t.framework ? ["frame"] : []); };
 function viewsOf(b){
   if(b.kind === "lesson" && b.brief) return ["why", "rules"].concat((b.ops || []).length ? ["job"] : []);   // brief: a condensed overview (Day 5's litigation)
@@ -3556,7 +3556,7 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-plain dd{margin:0;color:#4A5068;}
 .cfx-map .cfx-fw-note{margin-top:14px;}
 /* a merged roadmap: its steps as one row across the top of The Theory */
-.cfx-map-strip{list-style:none;margin:0 0 14px;padding:0 0 12px;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));grid-auto-flow:column;gap:10px;border-bottom:2px dashed #F0D2AE;}
+.cfx-map-strip{list-style:none;margin:0 0 14px;padding:0 0 12px;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:10px 14px;border-bottom:2px dashed #F0D2AE;}
 .cfx-map-strip li{display:grid !important;grid-template-columns:28px minmax(0,1fr);column-gap:8px;align-items:start;text-align:left !important;}
 .cfx-map-strip .cfx-fw-n{grid-column:1;grid-row:1 / span 2;position:static;margin:0;flex:none;}
 .cfx-map-strip b,.cfx-map-strip li > span:last-child{grid-column:2;text-align:left;}

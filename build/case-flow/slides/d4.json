@@ -201,6 +201,7 @@
     "hook": "Hon. Carla Benton (Ret.) helps parties agree; **Laura Whitcomb, Esq. decides**, with almost no appeal.",
     "roadmap": {
       "title": "Standard Case Progression Roadmap",
+      "merge": true,
       "steps": [
         {"label": "Demand & Negotiation", "text": "Treatment ends, the demand goes out and **the carrier evaluates it**"},
         {"label": "Pre-Litigation Mediation", "text": "Optional: both sides mediate **before any complaint is filed**"},

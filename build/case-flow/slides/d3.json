@@ -3,6 +3,7 @@
     "image": "demand-letter",
     "roadmap": {
       "title": "The Time-Limited Demand: the Roadmap",
+      "merge": true,
       "steps": [
         {"label": "Confirm the foundation", "text": "SOL, liability and coverage, each from its document"},
         {"label": "Within limits, clear terms", "text": "$10,000; who and what is released; **how to accept**"},
@@ -350,6 +351,7 @@
     "image": "lien-scale",
     "roadmap": {
       "title": "Reducing the Liens: the Roadmap",
+      "merge": true,
       "steps": [
         {"label": "Audit the bill", "text": "Line by line against the records; **corrections first**"},
         {"label": "Run the math", "text": "Pro rata shares, computed from the fraction"},
@@ -516,6 +518,7 @@
     "image": "release-signature",
     "roadmap": {
       "title": "From Release to $0.00: the Roadmap",
+      "merge": true,
       "steps": [
         {"label": "Audit the release", "text": "Who is released, which claims, **what John promises**"},
         {"label": "UM consents first", "text": "Both consents in before the BI release is signed"},
