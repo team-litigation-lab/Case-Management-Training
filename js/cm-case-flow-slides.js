@@ -3082,8 +3082,8 @@ window.CM_CF_SLIDES = {
      "He gets the chance to fix anything the summary got off."
     ],
     [
-     "Margaret Doe's rental ends on 03/19/2026.",
-     "John Doe's 03/05/2026 consult with Dr. Reyes still needs a ride.",
+     "John Doe's 03/05/2026 consult with Dr. Reyes gets confirmed.",
+     "Margaret Doe's rental, his ride to care, ends 03/19/2026.",
      "Transport gets lined up now, so no new break in care appears."
     ]
    ],
