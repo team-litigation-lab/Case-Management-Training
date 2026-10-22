@@ -11,8 +11,8 @@ worked artefact can teach:
    Demand Package as served, the Mediation Binder as delivered, the Arbitration Binder as exchanged. The
    trainee compares their audit against it, and every later activity works from the same finished set, so the
    file carries one Demand Package and one binder through all five days.
-3. **The service confirmation.** Proving a demand went out by mail is half of it. The other half is the
-   confirmation email the Case Manager writes, the adjuster's written acknowledgment, and converting that
+3. **The service confirmation.** Demands go to the adjuster by email; no certified mail. The Case Manager
+   writes the email that serves it, the adjuster acknowledges receipt in writing (the clock runs from that), and converting that
    exchange into a document filed in the CMS and backed up to Drive.
 
 Output: `build/case-flow/exhibits/<part>.json` (`d3.json`, `d4.json`), assembled into
@@ -81,7 +81,7 @@ becomes a filed document.
 ```json
 "d3m1-a1": {
   "title": "…", "kicker": "…", "model": "RS63",
-  "mail": {"channel": "…", "sent": "07/20/2026", "proof": "…", "receipt": "07/22/2026"},
+  "sent": "07/20/2026",
   "to": "…", "cc": "…", "subject": "…", "attachment": "…",
   "brief": "…",
   "required": [{"id": "receipt-date", "label": "…", "hint": "…", "match": ["regex", …]}],

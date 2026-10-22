@@ -138,6 +138,7 @@
     "image": "money-ledger",
     "roadmap": {
       "title": "Who Pays What: the Roadmap",
+      "merge": true,
       "steps": [
         {"label": "HIPAA authorization", "text": "Claim-specific, naming the incident date"},
         {"label": "Medicare and Medicaid check", "text": "Age and SSDI status verified, **the answer recorded**"},
@@ -203,6 +204,7 @@
     "image": "phone-call",
     "roadmap": {
       "title": "The No Contact Protocol: the Roadmap",
+      "merge": true,
       "steps": [
         {"label": "Internal review", "text": "Case status, live deadlines, last contact, channels used"},
         {"label": "Contact attempts", "text": "Phone twice, email and text, emergency contact, **certified mail**"},
@@ -377,6 +379,7 @@
     "image": "repair-shop",
     "roadmap": {
       "title": "Property Damage: the Roadmap",
+      "merge": true,
       "steps": [
         {"label": "Written estimate first", "text": "No Repair Estimate, **no position** with the client"},
         {"label": "Inspection window", "text": "Five days from the letter; record when it opens"},

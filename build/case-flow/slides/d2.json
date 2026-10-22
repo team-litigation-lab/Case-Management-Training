@@ -459,6 +459,7 @@
   "image": "intake-interview",
   "roadmap": {
    "title": "The Gap Interview: the Roadmap",
+   "merge": true,
    "steps": [
     {
      "label": "Plan the questions",
