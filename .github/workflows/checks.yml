@@ -79,6 +79,10 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/cms-case.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: The admin side is not the trainee's (no admin log-in, view or trainer's notes for a trainee)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/trainee-side.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: One tools access per Practice Lab session (not on every activity row)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules

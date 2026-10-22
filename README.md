@@ -75,6 +75,37 @@ that step needs.
 day's activities use and nothing else, each opening on the day's first activity worked in it, no tool
 buttons left on the activity rows, and nothing offered on a locked day.
 
+### The admin side is not the trainee's
+
+A signed-in trainee is never offered an admin log-in, an admin view, or a trainer's notes: they see
+their own record and nothing else. This is now a **rule**, `traineeSide()` in `index.html` (a trainee is
+signed in and isn't an admin), not a configuration:
+
+- the 🛡 **Admin** button is off the top bar (both copies — `index.html` and the course's own in
+  `js/cm-updates.js`), and so is **🛡 Sign In as Trainer** on the Facilitator Guide;
+- `openAdmin()` does nothing for them, so the admin password box can't be reached;
+- `goto('admin')` lands them on their **own dashboard**. It used to show "Admin access required — use
+  the Admin button to sign in", which is an admin log-in on the trainee side;
+- the Facilitator Guide isn't in their navigation, and speaker notes, scripts and answer keys stay in
+  Presenter view and the Speaker Notes PDF as before.
+
+**Why a rule and not a setting.** The buttons used to be hidden on `state.portalOnly`, which comes from
+`/api/auth/status` — so a trainee whose status call didn't land (offline, or the account's daily request
+limit) was shown the 🛡 Admin button and its password box. An admin is signed in as an admin and never
+as a trainee, so nothing changes for them; neither does the log-in screen, which still offers an admin
+their way in.
+
+Trainees see **their own** score: 👁 Review Score on a day they've passed, their best score on the day
+card, and 🎯 Focus. Score cards across programs are consolidated on the Main Portal, whose
+`/progress.html` is admin-only both in the page and on the server (`requireSession(..., {adminOnly:
+true})`).
+
+`.github/scripts/trainee-side.cjs` (CI) signs in as a trainee **with `portalOnly` false** — the case this
+guards — and checks every one of their pages for an admin or trainer sign-in, that `openAdmin()` opens
+no box, that the admin view sends them to their dashboard without inviting a sign-in, that the
+Facilitator Guide isn't in their navigation, and that their own score is theirs to see; then that an
+admin still has the button and the view.
+
 ### Practice at negotiating and communicating, by the need
 
 A Case Manager's day is negotiating and communicating in writing, so each activity that is practice at

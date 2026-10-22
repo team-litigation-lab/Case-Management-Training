@@ -12,6 +12,9 @@
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
 const BASE = process.argv[2] || 'http://localhost:8787/';
+// a trainee of this run's own, so saved drafts from an earlier run don't bleed in; letters only,
+// because the sign-in refuses a name with digits in it
+const uniq = () => Array.from({ length: 6 }, () => 'abcdefghijklmnopqrstuvwxyz'[Math.floor(Math.random() * 26)]).join('');
 
 (async () => {
     const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
@@ -21,7 +24,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
     await page.goto(BASE, { waitUntil: 'load' }); await page.waitForTimeout(800);
     // A trainee of this run's own: answers are saved as a draft on the trainee's record, so a reused
     // name would start the next run with questions already answered (and a game back on its board).
-    await signIn(page, 'Morph', 'Test' + Date.now().toString(36), 'B100926');
+    await signIn(page, 'Morph', 'Trainee' + uniq(), 'B100926');
     await page.evaluate(async () => {
         const key = 'trainee:' + state.traineeId;
         const r = await fetch('/api/storage/get', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key }) }).then(r => r.json());
