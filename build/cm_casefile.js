@@ -40,13 +40,13 @@ const CLIENT_PROFILE_DOC = [
     "Resident relative: Margaret Doe, John's mother; John lives with her at 2214 Maple Hollow Rd. Her car is insured by Cardinal State Mutual (UM $10,000). Emergency contact on the file."
   ]},
   {section:"The Vehicles and Who Insures Them", items:[
-    "John's own car: 2019 Honda Civic LX, 52,300 miles, owned outright, insured by Bluewater Auto Insurance (liability + collision, $500 deductible). UM/UIM rejected in writing (03/14/2024).",
-    "Why passenger status matters: as a passenger in a car he doesn't own, John reaches Host UM and Relative UM. Driving his own Civic, he would reach $10,000: he rejected UM on his own policy, and Cardinal State excludes a resident relative in a vehicle he owns that it doesn't insure.",
+    "The parked car: Margaret's 2019 Honda Civic LX, 52,300 miles, owned outright, insured by Bluewater Auto Insurance on her policy (liability + collision, $500 deductible); UM/UIM rejected in writing by Margaret (03/14/2024). John owns no car and has no auto policy.",
+    "Why passenger status matters: as a passenger in a car he doesn't own, John reaches Host UM and Relative UM. He owns no car, so no policy of his own applies, and Margaret's Bluewater policy on the Civic carries no UM (rejected), so it adds no layer.",
     "Defendant: Robert Smith, driving a 2017 Chevrolet Silverado · Keystone Mutual BI $10,000 per person; PD liability $25,000 (separate, outside the $40,000 stack) · address on the Police Report: 118 Larkspur Ln, Riverton",
     "Employer: Northgate Distribution · warehouse shift lead since 01/12/2026 · $22.00/hour, 8-hour shifts · Peach State coverage through Northgate, effective 02/01/2026"
   ]},
   {section:"The Collision: 02/06/2026, about 7:10 a.m.", items:[
-    "All-way stop at Maple Hollow Rd & Birch Ave. Kevin stopped eastbound and proceeded; Robert Smith, northbound on Birch Ave, didn't stop and struck the Escape's front passenger door at about 28 mph, pushing it into John's parked Civic.",
+    "All-way stop at Maple Hollow Rd & Birch Ave. Kevin stopped eastbound and proceeded; Robert Smith, northbound on Birch Ave, didn't stop and struck the Escape's front passenger door at about 28 mph, pushing it into Margaret's parked Civic.",
     "Riverton PD report RPD-26-018842: Smith cited for failure to stop at a stop sign",
     "Independent witness: Ruth Calloway, 2209 Maple Hollow Rd",
     "Doorbell-camera video (Margaret's camera at 2214 Maple Hollow Rd) shows the Escape stopped and Smith rolling through · preservation told to John 02/17, copy secured 02/19/2026",
@@ -73,10 +73,10 @@ const CLIENT_PROFILE_DOC = [
     "Keystone disclosed nothing before a written request with authorizations; BI $10,000 confirmed by its Declaration Page 03/20/2026"
   ]},
   {section:"The Disruption", items:[
-    "Keystone ended John's rental 03/19/2026 (30-day cap) while the Civic waited for parts; Kevin's shift changed 04/01/2026, ending the carpool.",
+    "Keystone ended Margaret's rental 03/19/2026 (30-day cap) while the Civic waited for parts; Kevin's shift changed 04/01/2026, ending the carpool.",
     "John missed PT visits from 04/03; the CM learned of it 04/08/2026 from Riverton Spine & Rehab's missed-visit alert."
   ]},
-  {section:"Property Damage: John's Civic", items:[
+  {section:"Property Damage: Margaret's Civic", items:[
     "A separate claim with Keystone PD (adjuster Leah Moran), outside the $40,000 stack · PD liability accepted 02/17/2026",
     "Tow $185.00 + 6 days' storage at $45.00 = $455.00 (Keystone paid)",
     "Estimate $6,940.00 (Riverton Collision Center, 02/16) + teardown supplement $2,315.00 (03/02) = $9,255.00 repair, paid to the shop 04/24/2026 · ACV $17,600.00, so repair is 52.6% of ACV: repairable, not a Total Loss",

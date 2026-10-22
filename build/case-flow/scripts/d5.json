@@ -95,7 +95,7 @@
       "ask": "Before you start, what are the three steps in counting from a mailed trigger?"
     },
     "summary": {
-      "say": "Now the self-summary, the principles in your own words. Before anyone writes, think about this one: opposing counsel wants two weeks at 4:45 p.m. and says they'll paper it later. Who can say yes? Only Atty. Thorne, and only in writing, the same day. Then your scenario. It's 01/28/2027. John Doe has been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect his Civic. Write out your next five actions in order, and next to each one, who owns it. Be specific about what's yours and what goes to Atty. Thorne.",
+      "say": "Now the self-summary, the principles in your own words. Before anyone writes, think about this one: opposing counsel wants two weeks at 4:45 p.m. and says they'll paper it later. Who can say yes? Only Atty. Thorne, and only in writing, the same day. Then your scenario. It's 01/28/2027. John Doe has been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect Margaret's Civic. Write out your next five actions in order, and next to each one, who owns it. Be specific about what's yours and what goes to Atty. Thorne.",
       "ask": "Opposing counsel wants two weeks at 4:45 p.m. and will paper it later. Who can say yes?"
     },
     "scale": {
@@ -105,7 +105,7 @@
   },
   "d5m2-l1": {
     "why": {
-      "say": "Look at this gauge for a second. Which number decides whether John Doe's Civic is totaled? Most of you will say the estimate. It's actually the final bill, $9,255.00, after the supplement. Here's why this matters now. On Track B the Civic isn't a side claim anymore. Its Loss of Use and Diminished Value are pleaded in the suit, and every figure we put forward will be tested in discovery. The repair-against-ACV arithmetic decides which measure of damages applies. And the loss-of-use calendar does double duty: it's also the transportation record that explains the 14-Day Gap. Get the car's numbers right, and you're quietly strengthening the injury case too.",
+      "say": "Look at this gauge for a second. Which number decides whether Margaret Doe's Civic is totaled? Most of you will say the estimate. It's actually the final bill, $9,255.00, after the supplement. Here's why this matters now. The Civic isn't John Doe's claim. It's Margaret Doe's, on the separate PD file the firm opened for her, and Keystone will test every figure we put forward. The repair-against-ACV arithmetic decides which measure of damages applies. And the loss-of-use calendar does double duty: it's also the transportation record that explains the 14-Day Gap. Get the car's numbers right, and you're quietly strengthening the injury case too.",
       "ask": "Which number decides whether the Civic is totaled: the first estimate or the final bill?"
     },
     "theory": {
@@ -117,8 +117,8 @@
       "ask": "Where would John Doe's $2,016.00 Loss of Use claim sit among these three?"
     },
     "rules": {
-      "say": "The goal is to make John Doe whole: his position before 02/06/2026, never a windfall. The $2,315.00 teardown supplement of 03/02/2026 is structural, the A-pillar, so it shows hidden damage and impact force. Courts generally award the lesser of repair cost or the drop in value, so run it on the final bill: $6,940.00 plus $2,315.00 is $9,255.00, 52.6% of the $17,600.00 ACV, under Keystone's 75% line of $13,200.00. Repairable. Loss of Use is claimable for each day without the car or a paid substitute, at Keystone's own $42.00 a day. Allocate the 78 days from 02/06 to 04/24/2026 once, claim only the 48 unpaid, $2,016.00. Keystone's 30-day cap is claims practice, and arguing it is Atty. Thorne's job. You compute and report; you never tell John Doe what his car is worth.",
-      "ask": "Keystone paid for 30 days of rental. Why is John Doe still owed anything for the use of his car?"
+      "say": "The goal is to make John Doe whole: his position before 02/06/2026, never a windfall. The $2,315.00 teardown supplement of 03/02/2026 is structural, the A-pillar, so it shows hidden damage and impact force. Courts generally award the lesser of repair cost or the drop in value, so run it on the final bill: $6,940.00 plus $2,315.00 is $9,255.00, 52.6% of the $17,600.00 ACV, under Keystone's 75% line of $13,200.00. Repairable. Loss of Use is claimable for each day without the car or a paid substitute, at Keystone's own $42.00 a day. Allocate the 78 days from 02/06 to 04/24/2026 once, claim only the 48 unpaid, $2,016.00. Keystone's 30-day cap is claims practice, and arguing it is Atty. Thorne's job. You compute and report; you never tell Margaret Doe what her car is worth.",
+      "ask": "Keystone paid for 30 days of rental. Why is Margaret Doe still owed anything for the use of her car?"
     },
     "model": {
       "say": "This is the same threshold gauge from Day 1, now carrying John Doe's numbers. The bar runs from zero to the ACV of $17,600.00, with the threshold at 75%, $13,200.00. The grey chip is the $6,940.00 estimate at 39.4%, and the orange chip is the final bill, $9,255.00, at 52.6%, the jump being the $2,315.00 A-pillar supplement. Underneath is a ribbon of all 78 days from 02/06 to 04/24/2026. Red for the first 12, navy for the 30 days of rental Keystone paid, $1,260.00, then red again for the last 36. Those two red stretches are the Loss of Use: 48 days at $42.00, $2,016.00. Keystone paid for the middle and nothing on either side.",
@@ -143,7 +143,7 @@
     },
     "frame": {
       "say": "So how do we value the claim? Three ideas. First, the lesser-of rule: the owner gets the lesser of the repair cost or the drop in market value, and a car that costs more to fix than it was worth is a Total Loss. Second, Diminished Value: the market value a car still loses after a proper repair. Many courts add it on top of the repair, as long as the total stays under the pre-loss value. Third, special value. Where there's no market at all, say an heirloom, some courts use the actual value to the owner, but sentimental value is still excluded. It's an exception, not the rule. For a 2019 Civic, the first two are what we're working with.",
-      "ask": "Which of these three measures actually applies to John Doe's Civic right now?"
+      "ask": "Which of these three measures actually applies to Margaret Doe's Civic right now?"
     },
     "rules": {
       "say": "Diminished Value is what a car still loses after a proper repair, because buyers pay less for a damage history, and many jurisdictions allow it against the at-fault driver. Many courts add it to the repair, under pre-loss value: $9,255.00 plus $3,600.00 is $12,855.00, under $17,600.00. It's a market loss, not a feeling. Keystone's 17c figure comes from a Georgia class-action settlement, not a legal measure. Critique it: no damage, however severe, gets past $1,760.00 on this car, and the appraisal's 20.5% is more than twice that ceiling. The 0.75 tier sits below the top, severe structural tier, and 0.60 counts the 52,300 miles twice. Test our own appraisal too. PD settles only on a property-damage-only release Atty. Thorne has reviewed. You calculate and critique; you never make, accept or counter a figure.",
@@ -199,7 +199,7 @@
       "ask": "In the pressure scenario, who gives John Doe any instruction about preserving the Civic?"
     },
     "summary": {
-      "say": "Now the self-summary, in your own words. Here's one to chew on first: why does a parked car's A-pillar matter to a neck injury? Because the supplement measures the force that drove the Escape, with John Doe inside, into the Civic. Atty. Thorne uses that in prep; you put it in the set and never tell John Doe what to say. Then your scenario: it's 01/28/2027, John Doe's been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect his Civic. Write your next five actions in order, and who owns each one.",
+      "say": "Now the self-summary, in your own words. Here's one to chew on first: why does a parked car's A-pillar matter to a neck injury? Because the supplement measures the force that drove the Escape, with John Doe inside, into the Civic. Atty. Thorne uses that in prep; you put it in the set and never tell John Doe what to say. Then your scenario: it's 01/28/2027, John Doe's been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect Margaret's Civic. Write your next five actions in order, and who owns each one.",
       "ask": "Why does a parked car's A-pillar matter to a neck injury?"
     },
     "scale": {
@@ -307,7 +307,7 @@
       "ask": "Which chip on the readiness strip is hardest to turn green honestly?"
     },
     "summary": {
-      "say": "On to your self-summary. Let's warm up with this: it's 02/03/2027, and John has just resurfaced with a new phone, fifteen days before he testifies. What can't wait until tomorrow? His new number in the CMS, and the audit routed to Atty. Thorne. Keep that urgency in mind. Then write your scenario: it's 01/28/2027, John's been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect his Civic. Give me your next five actions in order, with an owner beside each one.",
+      "say": "On to your self-summary. Let's warm up with this: it's 02/03/2027, and John has just resurfaced with a new phone, fifteen days before he testifies. What can't wait until tomorrow? His new number in the CMS, and the audit routed to Atty. Thorne. Keep that urgency in mind. Then write your scenario: it's 01/28/2027, John's been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect Margaret's Civic. Give me your next five actions in order, with an owner beside each one.",
       "ask": "John just resurfaced fifteen days out. What can't wait until tomorrow?"
     },
     "scale": {
@@ -521,7 +521,7 @@
       "ask": "Which document tells us the fee on this file is 40%?"
     },
     "summary": {
-      "say": "Now your self-summary, in your own words. Keep Question 5 in mind as you write, because it's the UPL gate: arithmetic, yes; opinion, no. If you say the lawsuit was or wasn't worth it, you've crossed the line, however good the rest is. Then your scenario: it's 01/28/2027, John's been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect his Civic. Give me your next five actions, in order, and who owns each one.",
+      "say": "Now your self-summary, in your own words. Keep Question 5 in mind as you write, because it's the UPL gate: arithmetic, yes; opinion, no. If you say the lawsuit was or wasn't worth it, you've crossed the line, however good the rest is. Then your scenario: it's 01/28/2027, John's been unreachable for six days, his deposition is noticed for 02/18/2027, and defense counsel wants to inspect Margaret's Civic. Give me your next five actions, in order, and who owns each one.",
       "ask": "Where exactly is the line between explaining John's net and judging whether suing was worth it?"
     },
     "scale": {

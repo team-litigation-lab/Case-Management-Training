@@ -1,565 +1,804 @@
 {
-  "d2m1-cov": {
-    "image": "insurance-stack",
-    "hook": "Send each bill to **the right first payer**, or it comes back as a lien",
-    "points": [
-      "Sort every coverage: **whose it is**, and what it pays",
-      "Only BI and UM are **the $40,000 Recovery Stack**",
-      "Payer-First: **MedPay, then Peach State**, an LOP last",
-      "Verify PIP and UM in writing; **never assume either**"
-    ],
-    "upl": "Route bills in the default order; primacy and lien enforceability are Atty. Thorne's",
-    "job": [
-      ["Coverage confirmed in writing", "Place it: stack, Payer Order, outside", "CMS → Coverage Matrix", "Stack $40,000; MedPay outside it"],
-      ["A provider asks whom to bill", "Route it by Payer-First order", "CMS → MedPay ledger", "MedPay, Peach State, then LOP"],
-      ["A provider asks for an LOP", "Check MedPay and network first", "CMS → Liens → LOP register", "Atty. Thorne approves any LOP"]
-    ],
-    "dos": [
-      "Verify every coverage in writing: **a dated Declaration Page**",
-      "Confirm the Health Plan was **active on the loss date**",
-      "Keep the Payer Order and **the Recovery Stack apart**"
-    ],
-    "donts": [
-      "An LOP to a provider **MedPay would have paid**",
-      "MedPay, PD or collision **added to the stack**",
-      "Assuming PIP, or **UM on the client's own policy**"
-    ]
-  },
-  "d2m1-l1": {
-    "image": "policy-letter",
-    "roadmap": {
-      "title": "Three Carriers, One Day: the Roadmap",
-      "steps": [
-        {"label": "Draft on template", "text": "One LOR per carrier, **each naming its own insured**"},
-        {"label": "Request and preserve", "text": "Limits, Dec Pages, photos, video and vehicle data"},
-        {"label": "Protect the client", "text": "Third-party letter: his name only, nothing more"},
-        {"label": "Send and log", "text": "Each carrier's preferred method; Atty. Thorne signs"},
-        {"label": "Follow up", "text": "No acknowledgement by **the third business day**: call"}
-      ]
+ "d2m1-cov": {
+  "image": "insurance-stack",
+  "hook": "Send each bill to **the right first payer**, or it comes back as a lien",
+  "points": [
+   "Sort every coverage: **whose it is**, and what it pays",
+   "Only BI and UM are **the $40,000 Recovery Stack**",
+   "Payer-First: **MedPay, then Peach State**, an LOP last",
+   "Verify PIP and UM in writing; **never assume either**"
+  ],
+  "upl": "Route bills in the default order; primacy and lien enforceability are Atty. Thorne's",
+  "job": [
+   [
+    "Coverage confirmed in writing",
+    "Place it: stack, Payer Order, outside",
+    "CMS → Coverage Matrix",
+    "Stack $40,000; MedPay outside it"
+   ],
+   [
+    "A provider asks whom to bill",
+    "Route it by Payer-First order",
+    "CMS → MedPay ledger",
+    "MedPay, Peach State, then LOP"
+   ],
+   [
+    "A provider asks for an LOP",
+    "Check MedPay and network first",
+    "CMS → Liens → LOP register",
+    "Atty. Thorne approves any LOP"
+   ]
+  ],
+  "dos": [
+   "Verify every coverage in writing: **a dated Declaration Page**",
+   "Confirm the Health Plan was **active on the loss date**",
+   "Keep the Payer Order and **the Recovery Stack apart**"
+  ],
+  "donts": [
+   "An LOP to a provider **MedPay would have paid**",
+   "MedPay, PD or collision **added to the stack**",
+   "Assuming PIP, or **UM on the client's own policy**"
+  ]
+ },
+ "d2m1-l1": {
+  "image": "policy-letter",
+  "roadmap": {
+   "title": "Three Carriers, One Day: the Roadmap",
+   "steps": [
+    {
+     "label": "Draft on template",
+     "text": "One LOR per carrier, **each naming its own insured**"
     },
-    "hook": "The LOR moves every carrier onto the firm; one wrong letter risks **$30,000 of UM coverage**.",
-    "points": [
-      "Name the **right insured** on each: Robert Smith, Kevin Alvarez, Margaret Doe",
-      "Notify **all three stack carriers** now: late notice hands them a defense",
-      "**Notice, not demand**: no UM payment request before the documented BI tender",
-      "Keystone gets **John Doe's name only**: no phone, address, birth date, employer"
-    ],
-    "upl": "You draft and send; Atty. Thorne signs. Never value the claim or argue fault.",
-    "job": [
-      ["Claims opened 02/16–02/17/2026", "Log number, adjuster, delivery method", "CMS → Insurance tab", "Number, adjuster or “none yet”, method"],
-      ["LOR set drafted", "Route all five for signature", "CMS → Documents → Outgoing", "Signed by counsel, never the CM"],
-      ["Letters served 02/17/2026", "Log delivery; calendar acknowledgement check", "CMS → Communications Log", "Follow-up 02/20/2026 if carrier silent"]
-    ],
-    "dos": [
-      "Confirm **claim number and adjuster** on every claim call",
-      "Keep claim-opening facts **general and verifiable**",
-      "Treat other coverage as **a question for Atty. Thorne**"
-    ],
-    "donts": [
-      "A UM letter that **reads as a demand**",
-      "The client's **phone, address or birth date** to Keystone",
-      "A **guessed adjuster name** for Cardinal State"
-    ]
-  },
-  "d2m1-a1": {
-    "image": "email-outreach",
-    "situation": "File date 02/17/2026. Claims are open with Keystone (BI and PD), Harbor Point (Host UM, MedPay) and Cardinal State, **no adjuster assigned**. **Five letters** must go out today.",
-    "steps": [
-      "Draft **five letters** on the firm template: three LORs, two notices",
-      "Give each its **Attn line, insured, number** and date of loss",
-      "Request **limits, Declaration Pages**, additional coverage and preservation",
-      "Route the set to **Atty. Thorne for signature**",
-      "Send by preferred method; **calendar the acknowledgement checks**"
-    ],
-    "deliver": "Five letters **signed, sent and logged**, each correctly addressed, follow-ups calendared",
-    "checks": [
-      "Cardinal State: **“Attn: Claims Department”**, not a guessed name",
-      "**Correct insured** on each: Robert Smith, Kevin Alvarez, Margaret Doe",
-      "Keystone: **John Doe's name only**; PD carve-out for the Civic",
-      "No UM letter **asks for payment**",
-      "All signed and sent 02/17/2026; **follow-up 02/20/2026** if silent"
-    ],
-    "dos": [
-      "Read each letter **against the claim-call log** before signature",
-      "Tell John Doe: PD may call **about the Civic only**"
-    ],
-    "donts": [
-      "One letter copied five times, **insured left as Robert Smith**",
-      "**Sending before signature** because a carrier said “today”"
-    ]
-  },
-  "d2m1-l2": {
-    "image": "coverage-check",
-    "hook": "An unverified coverage fact is a guess: put **a source behind every “confirmed”**.",
-    "points": [
-      "Limits stay **preliminary until a Declaration Page** or Coverage Letter",
-      "Get each UM carrier's form **in writing**: add-on or reduced",
-      "Stack **three layers to $40,000**; MedPay and PD are tracked, never added",
-      "Every open item carries **a dated next follow-up**"
-    ],
-    "upl": "You record and chase; applying terms or alleging bad faith is Atty. Thorne's call.",
-    "job": [
-      ["Written coverage confirmation arrives", "Enter limit, form, source, date", "CMS → Insurance tab", "Confirmed only with document attached"],
-      ["Adjuster assigned: Teresa Okafor, 03/03/2026", "Replace “not yet assigned” with contact", "CMS → Insurance tab · Parties", "No stale “not yet assigned” entry"],
-      ["Follow-up date arrives, item open", "Follow up, log, set next date", "CMS → Calendar · Communications Log", "No open item with past date"]
-    ],
-    "dos": [
-      "Log a verbal limit at once, **marked verbal**",
-      "Keep **a paper trail** on every Keystone request",
-      "Check each policy period **covers 02/06/2026**"
-    ],
-    "donts": [
-      "**Adding MedPay or PD** to the stack total",
-      "Confirming a limit **from a phone call** or Police Report",
-      "An open request with **no next date**"
-    ]
-  },
-  "d2m1-a2": {
-    "image": "insurance-stack",
-    "situation": "File date 03/11/2026. A colleague's Coverage Matrix **totals $45,000**. The file holds Harbor Point's 03/02/2026 confirmation, Cardinal State's 03/09/2026 letter and **no Keystone Declaration Page** yet.",
-    "steps": [
-      "Check **every row against its document**",
-      "Correct each error, **citing document and date**",
-      "Restore the **$40,000 stack total**; leave correct rows alone",
-      "Clear each **past-due follow-up**: act, then set a date",
-      "Route a **three-line audit note** to Atty. Thorne"
-    ],
-    "deliver": "A corrected matrix **totalling $40,000**, every status sourced, open items dated, note routed",
-    "checks": [
-      "BI: **still preliminary**; Declaration Page not until 03/20/2026",
-      "**MedPay out** of the stack: it pays bills, not claims",
-      "Stack total **$45,000 corrected to $40,000**",
-      "BI follow-up **logged 03/11/2026**; next by 03/13/2026",
-      "Bluewater's “UM: none” chased: **signed rejection form** (03/14/2024)"
-    ],
-    "dos": [
-      "Open the letter **before you change the cell**"
-    ],
-    "donts": [
-      "**Marking BI confirmed** because $10,000 is expected",
-      "Fixing the total **without finding why**"
-    ]
-  },
-  "d2m1-kc": {
-    "image": "knowledge-check",
-    "questions": [
-      "Name every coverage, whose it is and what it pays. Which **three are the $40,000 stack**?",
-      "Give each layer of the **Policy Stack** you built in the CMS: carrier, claim, limit, party, order.",
-      "Name the **five letters** sent 02/17/2026: for each, the insured named and how it was addressed."
-    ]
-  },
-  "d2m2-l1": {
-    "image": "treatment-plan",
-    "hook": "An LOP **out of Payer Order** turns a payable bill into a lien on his net.",
-    "points": [
-      "Run the Payer Order: **MedPay → Peach State → LOP**",
-      "Use an LOP **only where earlier payers can't**",
-      "Atty. Thorne sets LOP terms; **never promise payment** amounts, reductions or dates",
-      "Be the hub: **warm handoffs**, not phone numbers"
-    ],
-    "upl": "You prepare and route LOPs; never set terms, sign, promise payment or explain liability.",
-    "job": [
-      ["Provider asks for an LOP", "Run Payer Order; prepare if needed", "CMS → Documents → Outgoing", "Nothing sent without Atty. Thorne's approval"],
-      ["MedPay pays a bill", "Post payment, running total, balance", "CMS → MedPay ledger", "$5,000.00 reached 06/12/2026; $0.00 left"],
-      ["LOP statement arrives", "Update balance; check lines against visits", "CMS → Liens → LOP register", "Every billed date an attended visit"]
-    ],
-    "dos": [
-      "Ask **“Is the plan working?”** at every contact",
-      "Tell John Doe **which payer handles which bill**",
-      "Reconcile **conflicting provider statements** at once"
-    ],
-    "donts": [
-      "An LOP **before checking MedPay** and Peach State",
-      "Telling a provider **“paid in full at settlement”**",
-      "Mission creep: taking on **every problem John Doe raises**"
-    ]
-  },
-  "d2m2-eob": {
-    "image": "money-ledger",
-    "hook": "Every bill's story is in **the EOB and the MedPay ledger**: read them before you answer",
-    "points": [
-      "Read billed, allowed, **write-off, paid**, member share, in order",
-      "Member responsibility is **the most a provider may bill**",
-      "A plan's lien starts at **what it paid**, never billed",
-      "MedPay paid **$5,000.00 in five checks**; exhausted 06/26/2026"
-    ],
-    "upl": "Read and report what payers paid; whether a balance is owed is Atty. Thorne's",
-    "job": [
-      ["An EOB arrives", "Post billed, allowed, paid, member share", "CMS → Liens", "Plan paid $1,860.00 logged"],
-      ["A MedPay check clears", "Post check and limit remaining", "CMS → MedPay ledger", "Ties to Harbor Point's history"],
-      ["A patient statement shows a balance", "Compare with member responsibility", "CMS → Liens · Email Workspace", "Balance bill routed to Atty. Thorne"]
-    ],
-    "dos": [
-      "Read every EOB to **the member-responsibility line**",
-      "Keep billed and paid **on the same CMS line**",
-      "Tell John Doe **what you are doing** about a bill"
-    ],
-    "donts": [
-      "A lien logged **at the billed amount**",
-      "A contractual write-off treated as **the client's debt**",
-      "A bill sent to MedPay **after 06/26/2026**"
-    ]
-  },
-  "d2m2-a1": {
-    "image": "medical-visit",
-    "situation": "02/23/2026. Urgent care's $685.00 went to MedPay. Riverton Spine & Rehab, **out of network** for Peach State, starts care 02/24/2026. On 03/11/2026 Summit Imaging asks for **an LOP for the MRI**.",
-    "steps": [
-      "Run and record **the Payer Order** for each provider",
-      "Prepare Riverton Spine & Rehab's LOP; **route it for signature**",
-      "Transmit with the HIPAA authorization; ask for **a missed-visit alert**",
-      "Record the assessment and **the 2021 pre-morbid baseline**",
-      "Decline Summit in writing, **naming Harbor Point MedPay**"
-    ],
-    "deliver": "One **counsel-approved LOP** sent, one declined with payer named, ledger and baseline recorded",
-    "checks": [
-      "Signed by John Doe and Atty. Thorne **before 02/24/2026**",
-      "Baseline: 2021 visits **low back, resolved**; no prior neck",
-      "Rental ends 03/19/2026: **calendared as a treatment risk**",
-      "Decline proved: **$3,675.00 left**, enough for the $2,395.00 MRI",
-      "**No payment promised** to either provider"
-    ],
-    "dos": [
-      "Run the Payer Order **before the LOP template**, every time",
-      "Highlight prior history: **never hide it**"
-    ],
-    "donts": [
-      "An LOP to a provider **MedPay would have paid**",
-      "Answering **“paid in full?”** beyond the LOP's terms"
-    ]
-  },
-  "d2m2-l2": {
-    "image": "escalation-alert",
-    "roadmap": {
-      "title": "Treatment Monitoring: the Roadmap",
-      "steps": [
-        {"label": "Check in", "text": "Visits, pain, function, and **any barrier**"},
-        {"label": "Name the variance", "text": "Clinical, psychosocial or systemic"},
-        {"label": "Assess", "text": "Medical danger to the provider; legal danger to Atty. Thorne"},
-        {"label": "Coordinate", "text": "Clarify with the office; **remove the barrier**"},
-        {"label": "Track", "text": "Every fix attempt in a GIRP note, facts only"}
-      ]
+    {
+     "label": "Request and preserve",
+     "text": "Limits, Dec Pages, photos, video and vehicle data"
     },
-    "hook": "On an LOP, you are **the only real-time check** that John Doe's plan is working.",
-    "points": [
-      "Monitor **outcomes, not attendance** alone; hunt the barriers",
-      "Week 6 (04/07/2026): **20–30% more range of motion** or lower pain",
-      "**A-C-T every red flag**; write each intervention as a GIRP note",
-      "Adjust the plan first; **climb one documented rung** at a time"
-    ],
-    "upl": "You coordinate care, never direct it, and never tie missed visits to claim value.",
-    "job": [
-      ["Missed-visit alert arrives", "A-C-T same day: call John Doe", "Call Simulator → AI John Doe", "Call and note same day"],
-      ["Week 6 of care (04/07/2026)", "Request re-evaluation measures from provider", "Medical Records Requests", "Measures on file, or flagged"],
-      ["Barrier survives the clinical rung", "Notice the carrier; copy Atty. Thorne", "CMS → Tasks → Escalate", "Each rung dated in log"]
-    ],
-    "dos": [
-      "Raise **two or more missed visits** with the provider",
-      "**Proofread laterality**: everything on this file is right-sided",
-      "Record the disruption **the day it happens**"
-    ],
-    "donts": [
-      "**Continuing the plan unchanged** through a crisis",
-      "**Blaming the client** for a systemic delay",
-      "Jumping to Atty. Thorne **before the first two rungs**"
-    ]
-  },
-  "d2m2-a2": {
-    "image": "car-transport",
-    "situation": "04/08/2026: John Doe missed 04/03 and 04/07; **no visit since 04/02/2026**. Keystone ended his rental 03/19/2026, his carpool ended 04/01/2026, and **the Civic awaits parts**.",
-    "steps": [
-      "Assess: call John Doe **on 04/08/2026**; classify the variance",
-      "Coordinate: request **a rental extension** from Keystone PD in writing",
-      "Build the transport plan from one **Transportation Wall option**, saying why",
-      "Track: write **the GIRP note**; report to Atty. Thorne",
-      "Confirm **attendance once care resumes**"
-    ],
-    "deliver": "A complete A-C-T record, with **attendance confirmed 04/21 and 04/23/2026**",
-    "checks": [
-      "Missed visits: **04/03, 04/07, 04/09 and 04/14/2026**",
-      "04/02/2026 → 04/21/2026 = **19 days**",
-      "Keystone PD request: **property facts only**; 04/10/2026 refusal logged",
-      "**Evening slots booked** with John Doe on the line",
-      "**No treatment advice**, no talk of claim value"
-    ],
-    "dos": [
-      "**Act the day** the alert lands",
-      "Calendar **known transport risks**, like a rental's end date"
-    ],
-    "donts": [
-      "Telling John Doe missed therapy **“will hurt your case”**",
-      "Accepting **“I'll just wait”** without a plan"
-    ]
-  },
-  "d2m2-a3": {
-    "image": "checklist-qa",
-    "situation": "04/22/2026: John Doe's voicemail. Lakeside booked his injection at **Millbrook Interventional Pain Center** for 05/14/2026. He won't go: too far, no ride, and he **heard it's out of network**.",
-    "steps": [
-      "Call John Doe back: **his choice of facility**, no medical advice",
-      "Redirect the referral to **Crescent Pain & Spine** with Janelle Brooks",
-      "Book **05/15/2026** with John Doe on the line; cancel Millbrook",
-      "Calendar, Parties, Peach State, records, transport: **done or delegated**",
-      "Write the GIRP note and **report to Atty. Thorne**"
-    ],
-    "deliver": "A CMS task list: every task **Done by me** or Delegated, owner and date",
-    "checks": [
-      "Crescent **verified in network** with Peach State, not hearsay",
-      "Crescent's 05/15/2026 slot: **no new Treatment Gap**",
-      "Millbrook cancelled; **calendar and reminders** updated",
-      "Records request **delegated with an owner** and due date",
-      "**No medical advice**; no talk of claim value"
-    ],
-    "dos": [
-      "Read **Dr. Reyes's referral note** before you call anyone",
-      "Give every open task **an owner and a date**"
-    ],
-    "donts": [
-      "Telling John Doe **which facility is better** medically",
-      "Repeating **what John heard** about the network, unverified"
-    ]
-  },
-  "d2m2-kc": {
-    "image": "knowledge-check",
-    "questions": [
-      "Read Peach State's 06/03/2026 EOB line by line. What does **each amount** mean for the file?",
-      "Crescent bills John Doe $1,540.00 on 07/01/2026. **What do you do**, and what do you tell him?",
-      "Using **the Payer Order**, explain Riverton's LOP and Summit's decline, and what you may tell each provider."
-    ]
-  },
-  "d2m3-l1": {
-    "image": "intake-interview",
-    "roadmap": {
-      "title": "The Gap Interview: the Roadmap",
-      "steps": [
-        {"label": "Plan the questions", "text": "Read the records; write questions, **never expected answers**"},
-        {"label": "Open on the record", "text": "Date, participants, your role, his consent, privacy"},
-        {"label": "Ask open, follow his words", "text": "Broad first, his words next, closed questions last"},
-        {"label": "Ask for the paper", "text": "Work schedules, doctor notes, travel logs, **illness records**"},
-        {"label": "Read it back", "text": "He corrects your summary; opinion questions routed"},
-        {"label": "Record and task", "text": "His words as given; a dated task per document"}
-      ]
+    {
+     "label": "Protect the client",
+     "text": "Third-party letter: his name only, nothing more"
     },
-    "hook": "The gap explanation that holds up is **John Doe's own**, backed by documents.",
-    "points": [
-      "Investigate, don't advocate: write **questions only**, never expected answers",
-      "Funnel: **open first**, closed questions last, one at a time",
-      "**Never lead**: a suggested reason gets agreement, not information",
-      "Record **only with his spoken consent**; protect privilege"
-    ],
-    "upl": "Never say what the gap does to his case; route that to Atty. Thorne.",
-    "job": [
-      ["Records show the 14-day gap", "Write a questions-only plan", "CMS → Case Notes", "Plan saved; no reason named"],
-      ["Call connects", "Consent and privacy on record", "Call Simulator → AI John Doe", "Consent before first substantive question"],
-      ["Carrier asks for Recorded Statement", "Refer to firm; tell Atty. Thorne", "CMS → Communications Log", "No statement without Atty. Thorne"]
-    ],
-    "dos": [
-      "**Ask open**, follow his words, close last",
-      "Paraphrase back and **let him correct you**",
-      "**Prevent the next gap** now; it's cheaper than explaining it"
-    ],
-    "donts": [
-      "A question that **names the reason** you expect",
-      "Reassuring or alarming him: **both are case opinions**",
-      "**Blaming the client** for the gap"
-    ]
+    {
+     "label": "Send and log",
+     "text": "Each carrier's preferred method; Atty. Thorne signs"
+    },
+    {
+     "label": "Follow up",
+     "text": "No acknowledgement by **the third business day**: call"
+    }
+   ]
   },
-  "d2m3-a1": {
-    "image": "client-call",
-    "situation": "03/04/2026. EMS recorded neck stiffness on 02/06/2026; urgent care on 02/20/2026 noted **onset at the MVA** and right-hand numbness since 02/18. Nobody has asked **why he waited 14 days**.",
-    "steps": [
-      "Open on the record: **date, participants, consent**, privacy",
-      "Ask **open questions** first; closed only to pin dates, documents",
-      "Ask **who he told** and what he kept",
-      "Read his account back; **restate the standing instruction**",
-      "File **a privileged GIRP note** the same day"
-    ],
-    "deliver": "**All four reasons**, in his words, on a consented, privileged recording; GIRP note filed",
-    "checks": [
-      "**Zero leading questions**; no reason introduced first",
-      "**Four reasons in his words**: transport, soreness, coverage, numbness",
-      "Corroboration: texts, **02/09–02/13 call-outs**, 02/07/2026 receipt",
-      "**No opinion** on what the gap does",
-      "GIRP note **filed 03/04/2026**, labelled privileged"
-    ],
-    "dos": [
-      "**Let a pause run**; silence draws out detail",
-      "Put his words **in quotation marks**"
-    ],
-    "donts": [
-      "**Rescuing a hesitant client** with a suggested reason",
-      "Ending the call without asking **who he told**"
-    ]
+  "hook": "The LOR moves every carrier onto the firm; one wrong letter risks **$30,000 of UM coverage**.",
+  "points": [
+   "Name the **right insured** on each: Robert Smith, Kevin Alvarez, Margaret Doe",
+   "Notify **all three stack carriers** now: late notice hands them a defense",
+   "**Notice, not demand**: no UM payment request before the documented BI tender",
+   "Keystone gets **John Doe's name only**: no phone, address, birth date, employer"
+  ],
+  "upl": "You draft and send; Atty. Thorne signs. Never value the claim or argue fault.",
+  "job": [
+   [
+    "Claims opened 02/16–02/17/2026",
+    "Log number, adjuster, delivery method",
+    "CMS → Insurance tab",
+    "Number, adjuster or “none yet”, method"
+   ],
+   [
+    "LOR set drafted",
+    "Route all five for signature",
+    "CMS → Documents → Outgoing",
+    "Signed by counsel, never the CM"
+   ],
+   [
+    "Letters served 02/17/2026",
+    "Log delivery; calendar acknowledgement check",
+    "CMS → Communications Log",
+    "Follow-up 02/20/2026 if carrier silent"
+   ]
+  ],
+  "dos": [
+   "Confirm **claim number and adjuster** on every claim call",
+   "Keep claim-opening facts **general and verifiable**",
+   "Treat other coverage as **a question for Atty. Thorne**"
+  ],
+  "donts": [
+   "A UM letter that **reads as a demand**",
+   "The client's **phone, address or birth date** to Keystone",
+   "A **guessed adjuster name** for Cardinal State"
+  ]
+ },
+ "d2m1-a1": {
+  "image": "email-outreach",
+  "situation": "File date 02/17/2026. Claims are open with Keystone (BI and PD), Harbor Point (Host UM, MedPay) and Cardinal State, **no adjuster assigned**. **Five letters** must go out today.",
+  "steps": [
+   "Draft **five letters** on the firm template: three LORs, two notices",
+   "Give each its **Attn line, insured, number** and date of loss",
+   "Request **limits, Declaration Pages**, additional coverage and preservation",
+   "Route the set to **Atty. Thorne for signature**",
+   "Send by preferred method; **calendar the acknowledgement checks**"
+  ],
+  "deliver": "Five letters **signed, sent and logged**, each correctly addressed, follow-ups calendared",
+  "checks": [
+   "Cardinal State: **“Attn: Claims Department”**, not a guessed name",
+   "**Correct insured** on each: Robert Smith, Kevin Alvarez, Margaret Doe",
+   "Keystone: **John Doe's name only**; PD carve-out for the Civic",
+   "No UM letter **asks for payment**",
+   "All signed and sent 02/17/2026; **follow-up 02/20/2026** if silent"
+  ],
+  "dos": [
+   "Read each letter **against the claim-call log** before signature",
+   "Tell John Doe: PD may call **about the Civic only**"
+  ],
+  "donts": [
+   "One letter copied five times, **insured left as Robert Smith**",
+   "**Sending before signature** because a carrier said “today”"
+  ]
+ },
+ "d2m1-l2": {
+  "image": "coverage-check",
+  "hook": "An unverified coverage fact is a guess: put **a source behind every “confirmed”**.",
+  "points": [
+   "Limits stay **preliminary until a Declaration Page** or Coverage Letter",
+   "Get each UM carrier's form **in writing**: add-on or reduced",
+   "Stack **three layers to $40,000**; MedPay and PD are tracked, never added",
+   "Every open item carries **a dated next follow-up**"
+  ],
+  "upl": "You record and chase; applying terms or alleging bad faith is Atty. Thorne's call.",
+  "job": [
+   [
+    "Written coverage confirmation arrives",
+    "Enter limit, form, source, date",
+    "CMS → Insurance tab",
+    "Confirmed only with document attached"
+   ],
+   [
+    "Adjuster assigned: Teresa Okafor, 03/03/2026",
+    "Replace “not yet assigned” with contact",
+    "CMS → Insurance tab · Parties",
+    "No stale “not yet assigned” entry"
+   ],
+   [
+    "Follow-up date arrives, item open",
+    "Follow up, log, set next date",
+    "CMS → Calendar · Communications Log",
+    "No open item with past date"
+   ]
+  ],
+  "dos": [
+   "Log a verbal limit at once, **marked verbal**",
+   "Keep **a paper trail** on every Keystone request",
+   "Check each policy period **covers 02/06/2026**"
+  ],
+  "donts": [
+   "**Adding MedPay or PD** to the stack total",
+   "Confirming a limit **from a phone call** or Police Report",
+   "An open request with **no next date**"
+  ]
+ },
+ "d2m1-a2": {
+  "image": "insurance-stack",
+  "situation": "File date 03/11/2026. A colleague's Coverage Matrix **totals $45,000**. The file holds Harbor Point's 03/02/2026 confirmation, Cardinal State's 03/09/2026 letter and **no Keystone Declaration Page** yet.",
+  "steps": [
+   "Check **every row against its document**",
+   "Correct each error, **citing document and date**",
+   "Restore the **$40,000 stack total**; leave correct rows alone",
+   "Clear each **past-due follow-up**: act, then set a date",
+   "Route a **three-line audit note** to Atty. Thorne"
+  ],
+  "deliver": "A corrected matrix **totalling $40,000**, every status sourced, open items dated, note routed",
+  "checks": [
+   "BI: **still preliminary**; Declaration Page not until 03/20/2026",
+   "**MedPay out** of the stack: it pays bills, not claims",
+   "Stack total **$45,000 corrected to $40,000**",
+   "BI follow-up **logged 03/11/2026**; next by 03/13/2026",
+   "Bluewater's “UM: none” chased: **signed rejection form** (03/14/2024)"
+  ],
+  "dos": [
+   "Open the letter **before you change the cell**"
+  ],
+  "donts": [
+   "**Marking BI confirmed** because $10,000 is expected",
+   "Fixing the total **without finding why**"
+  ]
+ },
+ "d2m1-kc": {
+  "image": "knowledge-check",
+  "questions": [
+   "Name every coverage, whose it is and what it pays. Which **three are the $40,000 stack**?",
+   "Give each layer of the **Policy Stack** you built in the CMS: carrier, claim, limit, party, order.",
+   "Name the **five letters** sent 02/17/2026: for each, the insured named and how it was addressed."
+  ]
+ },
+ "d2m2-l1": {
+  "image": "treatment-plan",
+  "hook": "An LOP **out of Payer Order** turns a payable bill into a lien on his net.",
+  "points": [
+   "Run the Payer Order: **MedPay → Peach State → LOP**",
+   "Use an LOP **only where earlier payers can't**",
+   "Atty. Thorne sets LOP terms; **never promise payment** amounts, reductions or dates",
+   "Be the hub: **warm handoffs**, not phone numbers"
+  ],
+  "upl": "You prepare and route LOPs; never set terms, sign, promise payment or explain liability.",
+  "job": [
+   [
+    "Provider asks for an LOP",
+    "Run Payer Order; prepare if needed",
+    "CMS → Documents → Outgoing",
+    "Nothing sent without Atty. Thorne's approval"
+   ],
+   [
+    "MedPay pays a bill",
+    "Post payment, running total, balance",
+    "CMS → MedPay ledger",
+    "$5,000.00 reached 06/12/2026; $0.00 left"
+   ],
+   [
+    "LOP statement arrives",
+    "Update balance; check lines against visits",
+    "CMS → Liens → LOP register",
+    "Every billed date an attended visit"
+   ]
+  ],
+  "dos": [
+   "Ask **“Is the plan working?”** at every contact",
+   "Tell John Doe **which payer handles which bill**",
+   "Reconcile **conflicting provider statements** at once"
+  ],
+  "donts": [
+   "An LOP **before checking MedPay** and Peach State",
+   "Telling a provider **“paid in full at settlement”**",
+   "Mission creep: taking on **every problem John Doe raises**"
+  ]
+ },
+ "d2m2-eob": {
+  "image": "money-ledger",
+  "hook": "Every bill's story is in **the EOB and the MedPay ledger**: read them before you answer",
+  "points": [
+   "Read billed, allowed, **write-off, paid**, member share, in order",
+   "Member responsibility is **the most a provider may bill**",
+   "A plan's lien starts at **what it paid**, never billed",
+   "MedPay paid **$5,000.00 in five checks**; exhausted 06/26/2026"
+  ],
+  "upl": "Read and report what payers paid; whether a balance is owed is Atty. Thorne's",
+  "job": [
+   [
+    "An EOB arrives",
+    "Post billed, allowed, paid, member share",
+    "CMS → Liens",
+    "Plan paid $1,860.00 logged"
+   ],
+   [
+    "A MedPay check clears",
+    "Post check and limit remaining",
+    "CMS → MedPay ledger",
+    "Ties to Harbor Point's history"
+   ],
+   [
+    "A patient statement shows a balance",
+    "Compare with member responsibility",
+    "CMS → Liens · Email Workspace",
+    "Balance bill routed to Atty. Thorne"
+   ]
+  ],
+  "dos": [
+   "Read every EOB to **the member-responsibility line**",
+   "Keep billed and paid **on the same CMS line**",
+   "Tell John Doe **what you are doing** about a bill"
+  ],
+  "donts": [
+   "A lien logged **at the billed amount**",
+   "A contractual write-off treated as **the client's debt**",
+   "A bill sent to MedPay **after 06/26/2026**"
+  ]
+ },
+ "d2m2-a1": {
+  "image": "medical-visit",
+  "situation": "02/23/2026. Urgent care's $685.00 went to MedPay. Riverton Spine & Rehab, **out of network** for Peach State, starts care 02/24/2026. On 03/11/2026 Summit Imaging asks for **an LOP for the MRI**.",
+  "steps": [
+   "Run and record **the Payer Order** for each provider",
+   "Prepare Riverton Spine & Rehab's LOP; **route it for signature**",
+   "Transmit with the HIPAA authorization; ask for **a missed-visit alert**",
+   "Record the assessment and **the 2021 pre-morbid baseline**",
+   "Decline Summit in writing, **naming Harbor Point MedPay**"
+  ],
+  "deliver": "One **counsel-approved LOP** sent, one declined with payer named, ledger and baseline recorded",
+  "checks": [
+   "Signed by John Doe and Atty. Thorne **before 02/24/2026**",
+   "Baseline: 2021 visits **low back, resolved**; no prior neck",
+   "Rental ends 03/19/2026: **calendared as a treatment risk**",
+   "Decline proved: **$3,675.00 left**, enough for the $2,395.00 MRI",
+   "**No payment promised** to either provider"
+  ],
+  "dos": [
+   "Run the Payer Order **before the LOP template**, every time",
+   "Highlight prior history: **never hide it**"
+  ],
+  "donts": [
+   "An LOP to a provider **MedPay would have paid**",
+   "Answering **“paid in full?”** beyond the LOP's terms"
+  ]
+ },
+ "d2m2-l2": {
+  "image": "escalation-alert",
+  "roadmap": {
+   "title": "Treatment Monitoring: the Roadmap",
+   "steps": [
+    {
+     "label": "Check in",
+     "text": "Visits, pain, function, and **any barrier**"
+    },
+    {
+     "label": "Name the variance",
+     "text": "Clinical, psychosocial or systemic"
+    },
+    {
+     "label": "Assess",
+     "text": "Medical danger to the provider; legal danger to Atty. Thorne"
+    },
+    {
+     "label": "Coordinate",
+     "text": "Clarify with the office; **remove the barrier**"
+    },
+    {
+     "label": "Track",
+     "text": "Every fix attempt in a GIRP note, facts only"
+    }
+   ]
   },
-  "d2m3-l2": {
-    "image": "documents-audit",
-    "hook": "Records made at the time prove continuity; **a record made to order** destroys the case.",
-    "points": [
-      "Read every history for **mechanism, onset and body region**",
-      "**Never request** a change, back-date or excuse note to order",
-      "Flag conflicting histories **to Atty. Thorne**; never resolve them yourself",
-      "Never hide an interruption: **show its dates**, same complaints before and after"
-    ],
-    "upl": "You collect, compare and flag; never tell a provider what to write.",
-    "job": [
-      ["A provider record arrives", "Compare mechanism, onset, body region", "CMS → Treatment timeline", "Consistent, or conflict quoted and flagged"],
-      ["Histories conflict", "Flag to Atty. Thorne; change nothing", "CMS → Tasks → Escalate", "Same day; no wording requests"],
-      ["Work or excuse note arrives", "Check signer, date, covered days", "CMS → Documents", "Every covered day matches a visit"]
-    ],
-    "dos": [
-      "Collect **what already exists** before asking for anything new",
-      "**Quote records exactly**; never strengthen a history",
-      "Keep **every interruption visible** on the timeline"
-    ],
-    "donts": [
-      "A “clarify” request that **tells them what to write**",
-      "**Leaving the gap out** of the timeline"
-    ]
+  "hook": "On an LOP, you are **the only real-time check** that John Doe's plan is working.",
+  "points": [
+   "Monitor **outcomes, not attendance** alone; hunt the barriers",
+   "Week 6 (04/07/2026): **20–30% more range of motion** or lower pain",
+   "**A-C-T every red flag**; write each intervention as a GIRP note",
+   "Adjust the plan first; **climb one documented rung** at a time"
+  ],
+  "upl": "You coordinate care, never direct it, and never tie missed visits to claim value.",
+  "job": [
+   [
+    "Missed-visit alert arrives",
+    "A-C-T same day: call John Doe",
+    "Call Simulator → AI John Doe",
+    "Call and note same day"
+   ],
+   [
+    "Week 6 of care (04/07/2026)",
+    "Request re-evaluation measures from provider",
+    "Medical Records Requests",
+    "Measures on file, or flagged"
+   ],
+   [
+    "Barrier survives the clinical rung",
+    "Notice the carrier; copy Atty. Thorne",
+    "CMS → Tasks → Escalate",
+    "Each rung dated in log"
+   ]
+  ],
+  "dos": [
+   "Raise **two or more missed visits** with the provider",
+   "**Proofread laterality**: everything on this file is right-sided",
+   "Record the disruption **the day it happens**"
+  ],
+  "donts": [
+   "**Continuing the plan unchanged** through a crisis",
+   "**Blaming the client** for a systemic delay",
+   "Jumping to Atty. Thorne **before the first two rungs**"
+  ]
+ },
+ "d2m2-a2": {
+  "image": "car-transport",
+  "situation": "04/08/2026: John Doe missed 04/03 and 04/07; **no visit since 04/02/2026**. Keystone ended Margaret's rental 03/19/2026, his carpool ended 04/01/2026, and **the Civic awaits parts**.",
+  "steps": [
+   "Assess: call John Doe **on 04/08/2026**; classify the variance",
+   "Coordinate: request **a rental extension** from Keystone PD in writing",
+   "Build the transport plan from one **Transportation Wall option**, saying why",
+   "Track: write **the GIRP note**; report to Atty. Thorne",
+   "Confirm **attendance once care resumes**"
+  ],
+  "deliver": "A complete A-C-T record, with **attendance confirmed 04/21 and 04/23/2026**",
+  "checks": [
+   "Missed visits: **04/03, 04/07, 04/09 and 04/14/2026**",
+   "04/02/2026 → 04/21/2026 = **19 days**",
+   "Keystone PD request: **property facts only**; 04/10/2026 refusal logged",
+   "**Evening slots booked** with John Doe on the line",
+   "**No treatment advice**, no talk of claim value"
+  ],
+  "dos": [
+   "**Act the day** the alert lands",
+   "Calendar **known transport risks**, like a rental's end date"
+  ],
+  "donts": [
+   "Telling John Doe missed therapy **“will hurt your case”**",
+   "Accepting **“I'll just wait”** without a plan"
+  ]
+ },
+ "d2m2-a3": {
+  "image": "checklist-qa",
+  "situation": "04/22/2026: John Doe's voicemail. Lakeside booked his injection at **Millbrook Interventional Pain Center** for 05/14/2026. He won't go: too far, no ride, and he **heard it's out of network**.",
+  "steps": [
+   "Call John Doe back: **his choice of facility**, no medical advice",
+   "Redirect the referral to **Crescent Pain & Spine** with Janelle Brooks",
+   "Book **05/15/2026** with John Doe on the line; cancel Millbrook",
+   "Calendar, Parties, Peach State, records, transport: **done or delegated**",
+   "Write the GIRP note and **report to Atty. Thorne**"
+  ],
+  "deliver": "A CMS task list: every task **Done by me** or Delegated, owner and date",
+  "checks": [
+   "Crescent **verified in network** with Peach State, not hearsay",
+   "Crescent's 05/15/2026 slot: **no new Treatment Gap**",
+   "Millbrook cancelled; **calendar and reminders** updated",
+   "Records request **delegated with an owner** and due date",
+   "**No medical advice**; no talk of claim value"
+  ],
+  "dos": [
+   "Read **Dr. Reyes's referral note** before you call anyone",
+   "Give every open task **an owner and a date**"
+  ],
+  "donts": [
+   "Telling John Doe **which facility is better** medically",
+   "Repeating **what John heard** about the network, unverified"
+  ]
+ },
+ "d2m2-kc": {
+  "image": "knowledge-check",
+  "questions": [
+   "Read Peach State's 06/03/2026 EOB line by line. What does **each amount** mean for the file?",
+   "Crescent bills John Doe $1,540.00 on 07/01/2026. **What do you do**, and what do you tell him?",
+   "Using **the Payer Order**, explain Riverton's LOP and Summit's decline, and what you may tell each provider."
+  ]
+ },
+ "d2m3-l1": {
+  "image": "intake-interview",
+  "roadmap": {
+   "title": "The Gap Interview: the Roadmap",
+   "steps": [
+    {
+     "label": "Plan the questions",
+     "text": "Read the records; write questions, **never expected answers**"
+    },
+    {
+     "label": "Open on the record",
+     "text": "Date, participants, your role, his consent, privacy"
+    },
+    {
+     "label": "Ask open, follow his words",
+     "text": "Broad first, his words next, closed questions last"
+    },
+    {
+     "label": "Ask for the paper",
+     "text": "Work schedules, doctor notes, travel logs, **illness records**"
+    },
+    {
+     "label": "Read it back",
+     "text": "He corrects your summary; opinion questions routed"
+    },
+    {
+     "label": "Record and task",
+     "text": "His words as given; a dated task per document"
+    }
+   ]
   },
-  "d2m3-a2": {
-    "image": "calendar-gap",
-    "situation": "06/22/2026. MMI reached 06/12/2026; Dr. Reyes's **06/19/2026 Causation Letter** is in. Atty. Thorne wants **the Gap Explanation Record** before the pre-demand strategy session.",
-    "steps": [
-      "Cover both: 14-day gap and **19-day disruption**, exact dates",
-      "Pair every reason with **a dated document**",
-      "Tag reasons with no document **“account only”**",
-      "Write **facts and citations only**; nothing from the privileged call",
-      "Run **a defense-eye pass**, then route to Atty. Thorne"
-    ],
-    "deliver": "A routed record of **both interruptions**, every reason beside a dated document",
-    "checks": [
-      "14 days, 02/06/2026 → 02/20/2026; **19 days**, 04/02/2026 → 04/21/2026",
-      "Escalation quoted exactly: **“onset at MVA 02/06/2026”**",
-      "Continuity: EMS report, call-outs, **06/19/2026 Causation Letter**",
-      "Carpool ending and Escape in shop: **“account only”**",
-      "Social media checked; **nothing deleted or advised deleted**"
-    ],
-    "dos": [
-      "**One reason per row**, one dated document per reason",
-      "Keep **the work-product layer** in the CMS"
-    ],
-    "donts": [
-      "Documenting the 14-day gap and **forgetting the 19-day disruption**",
-      "Presenting **the client's word as documented**"
-    ]
-  },
-  "d2m3-kc": {
-    "image": "knowledge-check",
-    "questions": [
-      "Name the **four reasons** for the 14-day gap and, beside each, its corroborating document and date.",
-      "Rewrite “Was it because you had no car?” **without suggesting the reason**. What does the leading version cost?",
-      "“Is this gap going to wreck my case?” Give **your exact answer**, then what you do next."
-    ]
-  },
-  "d2m4-l1": {
-    "image": "checklist-qa",
-    "hook": "Most value is won or lost here: the demands spend only **what this audit proves**.",
-    "points": [
-      "MMI is **a medical determination**; record it from the 06/12/2026 note",
-      "BI Specials are **medical plus wages**; the Civic runs separately",
-      "Show **billed beside paid**; which one to claim is Atty. Thorne's call",
-      "Future care ($3,400–$6,800) stays **out of the audited total**"
-    ],
-    "upl": "You audit and flag; valuing, billed-or-paid and the demand figure are Atty. Thorne's.",
-    "job": [
-      ["MMI note received 06/12/2026", "Record MMI; open the audit", "CMS → Treatment timeline", "MMI dated from provider's note"],
-      ["Final bills and records in", "Build and reconcile Specials ledger", "CMS → Financial Ledger → Specials", "Medical total $14,817.40"],
-      ["Before the ask", "Re-verify each limit, in order", "CMS → Coverage Matrix", "$40,000, each with written source"]
-    ],
-    "dos": [
-      "**Stress-test the file** before the defense does",
-      "Identify **every lien before the demand**",
-      "Record **the source of every figure**"
-    ],
-    "donts": [
-      "Sending the demand and **hoping nobody checks**",
-      "**Adding future care** to the Specials",
-      "Discovering a lien **after the release** is signed"
-    ]
-  },
-  "d2m4-a1": {
-    "image": "money-ledger",
-    "situation": "Early July 2026, after MMI 06/12/2026. Medical Bills **total $15,002.40**; Riverton Spine & Rehab bills **34 lines × $185.00**; Northgate verifies 9 missed shifts at 8 h × $22.00.",
-    "steps": [
-      "Enter each provider's **charges, dates and payer**",
-      "Reconcile Riverton Spine & Rehab's lines **against its visit notes**",
-      "Total medical, **add verified wages**, show billed beside paid",
-      "Put **future medical in the narrative**, not the ledger",
-      "List every lien; **re-verify the three targets** in order"
-    ],
-    "deliver": "An **audited ledger at $16,401.40**, billed beside paid, liens, targets, flags routed",
-    "checks": [
-      "**05/04/2026 duplicate removed**: $6,290.00 → $6,105.00",
-      "**Specials $16,401.40**: $14,817.40 medical + $1,584.00 wages",
-      "**Five pre-treatment shifts flagged**, with Northgate's Attendance Record",
-      "Billed-vs-paid choice **routed to Atty. Thorne**",
-      "**Liens listed**: Peach State $1,860.00, LOP $6,105.00"
-    ],
-    "dos": [
-      "**Count the visits** before adding a provider's lines",
-      "Keep the **duplicate's removal visible**"
-    ],
-    "donts": [
-      "**Totaling the statement** instead of auditing it",
-      "Dropping **the paid column** because it shrinks the number"
-    ]
-  },
-  "d2m4-l2": {
-    "image": "binder-exhibits",
-    "hook": "Atty. Thorne decides from your brief: lead with **the decision, not the chronology**.",
-    "points": [
-      "**Bottom line first**: where the file stands, what you need",
-      "Facts next, **audited and sourced**; the trinity must agree",
-      "Name each risk **with its answering document**, or say none",
-      "Frame decisions as **questions only he can answer**"
-    ],
-    "upl": "Recommend on operations only; the demand, billed-or-paid and the UM timing are Atty. Thorne's.",
-    "job": [
-      ["Audit complete", "Draft one-page memo and exhibit index", "Action Plan Editor → Pre-demand brief", "Exhibit labels match their pages"],
-      ["Brief ready", "Book session; send memo ahead", "CMS → Calendar · Email Workspace", "Held before any demand drafted"],
-      ["Session held", "Record decisions in counsel's words", "CMS → Case Notes", "Each decision dated, attributed, tasked"]
-    ],
-    "dos": [
-      "Bring **the bad facts** yourself",
-      "Find **discrepancies before the defense** does",
-      "Check **public social media**; never suggest deleting"
-    ],
-    "donts": [
-      "A summary memo that **runs to three pages**",
-      "An exhibit index whose **page numbers don't match**",
-      "Briefing **the initial PD estimate**, not the final figure"
-    ]
-  },
-  "d2m4-a2": {
-    "image": "strategy-session",
-    "situation": "Early July 2026, before any demand. Your audit: MMI 06/12/2026, **Specials $16,401.40**, liens $1,860.00 and $6,105.00, targets **$10,000 → $20,000 → $10,000**. Atty. Thorne has called the strategy session.",
-    "steps": [
-      "Brief in protocol order: **bottom line first**",
-      "Then audited facts, **risks with their documents**, decisions, options",
-      "Answer challenges with **objective facts, not adjectives**",
-      "Recommend only on operations; **ask for his decision** on everything legal",
-      "**Read back each decision**; record and task it; re-route the plan"
-    ],
-    "deliver": "A recorded session and dated decision record, each **attributed to Atty. Thorne**, tasked",
-    "checks": [
-      "Low-speed challenge: **about 28 mph**, $2,315.00 A-pillar supplement, C5-C6 herniation",
-      "Gap met **with documents, not apology**",
-      "Decision recorded: **time-limited BI demand**, served 07/20/2026",
-      "UM plan: **no UM demand** before a documented BI tender",
-      "**No demand figure proposed**; recommendations stay operational"
-    ],
-    "dos": [
-      "**Read back every decision** before the session ends"
-    ],
-    "donts": [
-      "**Apologizing for the gap** instead of explaining it",
-      "Leaving with **“sounds good”** instead of a decision"
-    ]
-  },
-  "d2m4-kc": {
-    "image": "knowledge-check",
-    "questions": [
-      "Total the specials: show the **Riverton Spine & Rehab correction**, the medical total, wage arithmetic and final figure.",
-      "Who **determines MMI**, when was John Doe's, and why must the demand wait? Where does $3,400–$6,800 go?",
-      "Name **the four audit objectives** and one finding each produced on this file."
-    ]
-  }
+  "hook": "The gap explanation that holds up is **John Doe's own**, backed by documents.",
+  "points": [
+   "Investigate, don't advocate: write **questions only**, never expected answers",
+   "Funnel: **open first**, closed questions last, one at a time",
+   "**Never lead**: a suggested reason gets agreement, not information",
+   "Record **only with his spoken consent**; protect privilege"
+  ],
+  "upl": "Never say what the gap does to his case; route that to Atty. Thorne.",
+  "job": [
+   [
+    "Records show the 14-day gap",
+    "Write a questions-only plan",
+    "CMS → Case Notes",
+    "Plan saved; no reason named"
+   ],
+   [
+    "Call connects",
+    "Consent and privacy on record",
+    "Call Simulator → AI John Doe",
+    "Consent before first substantive question"
+   ],
+   [
+    "Carrier asks for Recorded Statement",
+    "Refer to firm; tell Atty. Thorne",
+    "CMS → Communications Log",
+    "No statement without Atty. Thorne"
+   ]
+  ],
+  "dos": [
+   "**Ask open**, follow his words, close last",
+   "Paraphrase back and **let him correct you**",
+   "**Prevent the next gap** now; it's cheaper than explaining it"
+  ],
+  "donts": [
+   "A question that **names the reason** you expect",
+   "Reassuring or alarming him: **both are case opinions**",
+   "**Blaming the client** for the gap"
+  ]
+ },
+ "d2m3-a1": {
+  "image": "client-call",
+  "situation": "03/04/2026. EMS recorded neck stiffness on 02/06/2026; urgent care on 02/20/2026 noted **onset at the MVA** and right-hand numbness since 02/18. Nobody has asked **why he waited 14 days**.",
+  "steps": [
+   "Open on the record: **date, participants, consent**, privacy",
+   "Ask **open questions** first; closed only to pin dates, documents",
+   "Ask **who he told** and what he kept",
+   "Read his account back; **restate the standing instruction**",
+   "File **a privileged GIRP note** the same day"
+  ],
+  "deliver": "**All four reasons**, in his words, on a consented, privileged recording; GIRP note filed",
+  "checks": [
+   "**Zero leading questions**; no reason introduced first",
+   "**Four reasons in his words**: transport, soreness, coverage, numbness",
+   "Corroboration: texts, **02/09–02/13 call-outs**, 02/07/2026 receipt",
+   "**No opinion** on what the gap does",
+   "GIRP note **filed 03/04/2026**, labelled privileged"
+  ],
+  "dos": [
+   "**Let a pause run**; silence draws out detail",
+   "Put his words **in quotation marks**"
+  ],
+  "donts": [
+   "**Rescuing a hesitant client** with a suggested reason",
+   "Ending the call without asking **who he told**"
+  ]
+ },
+ "d2m3-l2": {
+  "image": "documents-audit",
+  "hook": "Records made at the time prove continuity; **a record made to order** destroys the case.",
+  "points": [
+   "Read every history for **mechanism, onset and body region**",
+   "**Never request** a change, back-date or excuse note to order",
+   "Flag conflicting histories **to Atty. Thorne**; never resolve them yourself",
+   "Never hide an interruption: **show its dates**, same complaints before and after"
+  ],
+  "upl": "You collect, compare and flag; never tell a provider what to write.",
+  "job": [
+   [
+    "A provider record arrives",
+    "Compare mechanism, onset, body region",
+    "CMS → Treatment timeline",
+    "Consistent, or conflict quoted and flagged"
+   ],
+   [
+    "Histories conflict",
+    "Flag to Atty. Thorne; change nothing",
+    "CMS → Tasks → Escalate",
+    "Same day; no wording requests"
+   ],
+   [
+    "Work or excuse note arrives",
+    "Check signer, date, covered days",
+    "CMS → Documents",
+    "Every covered day matches a visit"
+   ]
+  ],
+  "dos": [
+   "Collect **what already exists** before asking for anything new",
+   "**Quote records exactly**; never strengthen a history",
+   "Keep **every interruption visible** on the timeline"
+  ],
+  "donts": [
+   "A “clarify” request that **tells them what to write**",
+   "**Leaving the gap out** of the timeline"
+  ]
+ },
+ "d2m3-a2": {
+  "image": "calendar-gap",
+  "situation": "06/22/2026. MMI reached 06/12/2026; Dr. Reyes's **06/19/2026 Causation Letter** is in. Atty. Thorne wants **the Gap Explanation Record** before the pre-demand strategy session.",
+  "steps": [
+   "Cover both: 14-day gap and **19-day disruption**, exact dates",
+   "Pair every reason with **a dated document**",
+   "Tag reasons with no document **“account only”**",
+   "Write **facts and citations only**; nothing from the privileged call",
+   "Run **a defense-eye pass**, then route to Atty. Thorne"
+  ],
+  "deliver": "A routed record of **both interruptions**, every reason beside a dated document",
+  "checks": [
+   "14 days, 02/06/2026 → 02/20/2026; **19 days**, 04/02/2026 → 04/21/2026",
+   "Escalation quoted exactly: **“onset at MVA 02/06/2026”**",
+   "Continuity: EMS report, call-outs, **06/19/2026 Causation Letter**",
+   "Carpool ending and Escape in shop: **“account only”**",
+   "Social media checked; **nothing deleted or advised deleted**"
+  ],
+  "dos": [
+   "**One reason per row**, one dated document per reason",
+   "Keep **the work-product layer** in the CMS"
+  ],
+  "donts": [
+   "Documenting the 14-day gap and **forgetting the 19-day disruption**",
+   "Presenting **the client's word as documented**"
+  ]
+ },
+ "d2m3-kc": {
+  "image": "knowledge-check",
+  "questions": [
+   "Name the **four reasons** for the 14-day gap and, beside each, its corroborating document and date.",
+   "Rewrite “Was it because you had no car?” **without suggesting the reason**. What does the leading version cost?",
+   "“Is this gap going to wreck my case?” Give **your exact answer**, then what you do next."
+  ]
+ },
+ "d2m4-l1": {
+  "image": "checklist-qa",
+  "hook": "Most value is won or lost here: the demands spend only **what this audit proves**.",
+  "points": [
+   "MMI is **a medical determination**; record it from the 06/12/2026 note",
+   "BI Specials are **medical plus wages**; the Civic runs separately",
+   "Show **billed beside paid**; which one to claim is Atty. Thorne's call",
+   "Future care ($3,400–$6,800) stays **out of the audited total**"
+  ],
+  "upl": "You audit and flag; valuing, billed-or-paid and the demand figure are Atty. Thorne's.",
+  "job": [
+   [
+    "MMI note received 06/12/2026",
+    "Record MMI; open the audit",
+    "CMS → Treatment timeline",
+    "MMI dated from provider's note"
+   ],
+   [
+    "Final bills and records in",
+    "Build and reconcile Specials ledger",
+    "CMS → Financial Ledger → Specials",
+    "Medical total $14,817.40"
+   ],
+   [
+    "Before the ask",
+    "Re-verify each limit, in order",
+    "CMS → Coverage Matrix",
+    "$40,000, each with written source"
+   ]
+  ],
+  "dos": [
+   "**Stress-test the file** before the defense does",
+   "Identify **every lien before the demand**",
+   "Record **the source of every figure**"
+  ],
+  "donts": [
+   "Sending the demand and **hoping nobody checks**",
+   "**Adding future care** to the Specials",
+   "Discovering a lien **after the release** is signed"
+  ]
+ },
+ "d2m4-a1": {
+  "image": "money-ledger",
+  "situation": "Early July 2026, after MMI 06/12/2026. Medical Bills **total $15,002.40**; Riverton Spine & Rehab bills **34 lines × $185.00**; Northgate verifies 9 missed shifts at 8 h × $22.00.",
+  "steps": [
+   "Enter each provider's **charges, dates and payer**",
+   "Reconcile Riverton Spine & Rehab's lines **against its visit notes**",
+   "Total medical, **add verified wages**, show billed beside paid",
+   "Put **future medical in the narrative**, not the ledger",
+   "List every lien; **re-verify the three targets** in order"
+  ],
+  "deliver": "An **audited ledger at $16,401.40**, billed beside paid, liens, targets, flags routed",
+  "checks": [
+   "**05/04/2026 duplicate removed**: $6,290.00 → $6,105.00",
+   "**Specials $16,401.40**: $14,817.40 medical + $1,584.00 wages",
+   "**Five pre-treatment shifts flagged**, with Northgate's Attendance Record",
+   "Billed-vs-paid choice **routed to Atty. Thorne**",
+   "**Liens listed**: Peach State $1,860.00, LOP $6,105.00"
+  ],
+  "dos": [
+   "**Count the visits** before adding a provider's lines",
+   "Keep the **duplicate's removal visible**"
+  ],
+  "donts": [
+   "**Totaling the statement** instead of auditing it",
+   "Dropping **the paid column** because it shrinks the number"
+  ]
+ },
+ "d2m4-l2": {
+  "image": "binder-exhibits",
+  "hook": "Atty. Thorne decides from your brief: lead with **the decision, not the chronology**.",
+  "points": [
+   "**Bottom line first**: where the file stands, what you need",
+   "Facts next, **audited and sourced**; the trinity must agree",
+   "Name each risk **with its answering document**, or say none",
+   "Frame decisions as **questions only he can answer**"
+  ],
+  "upl": "Recommend on operations only; the demand, billed-or-paid and the UM timing are Atty. Thorne's.",
+  "job": [
+   [
+    "Audit complete",
+    "Draft one-page memo and exhibit index",
+    "Action Plan Editor → Pre-demand brief",
+    "Exhibit labels match their pages"
+   ],
+   [
+    "Brief ready",
+    "Book session; send memo ahead",
+    "CMS → Calendar · Email Workspace",
+    "Held before any demand drafted"
+   ],
+   [
+    "Session held",
+    "Record decisions in counsel's words",
+    "CMS → Case Notes",
+    "Each decision dated, attributed, tasked"
+   ]
+  ],
+  "dos": [
+   "Bring **the bad facts** yourself",
+   "Find **discrepancies before the defense** does",
+   "Check **public social media**; never suggest deleting"
+  ],
+  "donts": [
+   "A summary memo that **runs to three pages**",
+   "An exhibit index whose **page numbers don't match**",
+   "Briefing **the initial PD estimate**, not the final figure"
+  ]
+ },
+ "d2m4-a2": {
+  "image": "strategy-session",
+  "situation": "Early July 2026, before any demand. Your audit: MMI 06/12/2026, **Specials $16,401.40**, liens $1,860.00 and $6,105.00, targets **$10,000 → $20,000 → $10,000**. Atty. Thorne has called the strategy session.",
+  "steps": [
+   "Brief in protocol order: **bottom line first**",
+   "Then audited facts, **risks with their documents**, decisions, options",
+   "Answer challenges with **objective facts, not adjectives**",
+   "Recommend only on operations; **ask for his decision** on everything legal",
+   "**Read back each decision**; record and task it; re-route the plan"
+  ],
+  "deliver": "A recorded session and dated decision record, each **attributed to Atty. Thorne**, tasked",
+  "checks": [
+   "Low-speed challenge: **about 28 mph**, $2,315.00 A-pillar supplement, C5-C6 herniation",
+   "Gap met **with documents, not apology**",
+   "Decision recorded: **time-limited BI demand**, served 07/20/2026",
+   "UM plan: **no UM demand** before a documented BI tender",
+   "**No demand figure proposed**; recommendations stay operational"
+  ],
+  "dos": [
+   "**Read back every decision** before the session ends"
+  ],
+  "donts": [
+   "**Apologizing for the gap** instead of explaining it",
+   "Leaving with **“sounds good”** instead of a decision"
+  ]
+ },
+ "d2m4-kc": {
+  "image": "knowledge-check",
+  "questions": [
+   "Total the specials: show the **Riverton Spine & Rehab correction**, the medical total, wage arithmetic and final figure.",
+   "Who **determines MMI**, when was John Doe's, and why must the demand wait? Where does $3,400–$6,800 go?",
+   "Name **the four audit objectives** and one finding each produced on this file."
+  ]
+ },
+ "d2m2-lop": {
+  "image": "client-call",
+  "hook": "An LOP gets John Doe treated now, paid **from the settlement**.",
+  "points": [
+   "An LOP is **a promise against the recovery**, not insurance",
+   "Use it **only after every payer** is checked",
+   "Track the balance: **ledger every 30 days**",
+   "Referrals: **options and logistics**, never which care"
+  ],
+  "upl": "Give the options and book **his choice**; never recommend a provider",
+  "job": [
+   [
+    "No payer covers the care",
+    "Check payers; route to counsel",
+    "CMS → Insurance · Case Notes",
+    "Payer check on file"
+   ],
+   [
+    "The LOP is signed",
+    "File it; set ledger task",
+    "CMS → Liens · Tasks",
+    "Balance tracked monthly"
+   ],
+   [
+    "“Where should I go?”",
+    "Give options; book his choice",
+    "CMS → Parties · Calendar",
+    "His choice logged, no advice"
+   ]
+  ],
+  "dos": [
+   "Check **every payer** before an LOP",
+   "Give **options with facts**; he chooses",
+   "Disclose **any firm relationship**"
+  ],
+  "donts": [
+   "Saying one provider is **better for the case**",
+   "Calling the LOP bill **free**",
+   "Letting the balance **surprise the Net Sheet**"
+  ]
+ }
 }

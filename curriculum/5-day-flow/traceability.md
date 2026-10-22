@@ -37,7 +37,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#25` | The “Golden Rule” of US Claim Set-Up | ✅ BUILT | d1m4-l2, d1m4-kc |
 | `D1#26` | The Treatment Phase — Core Objectives | ✅ BUILT | d2m2-l1, d2m2-a2, d2m2-a3 |
 | `D1#27` | Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention | ✅ BUILT | d2m2-l2, d2m2-a2 |
-| `D1#28` | Treatment Phase: Essential Client Communication Strategies | ✅ BUILT | d1m3-l1, d1m3-a1, d2m2-l2, d2m3-l1, d2m3-a1, d2m3-kc |
+| `D1#28` | Treatment Phase: Essential Client Communication Strategies | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a3, d2m2-l2, d2m3-l1, d2m3-a1, d2m3-kc |
 | `D1#29` | Handling the Treatment Phase: Clinical Documentation (GIRP) | ✅ BUILT | d2m2-l2, d2m2-a2, d2m2-a3, d2m3-a1, d2m3-kc |
 | `D1#30` | Handling the Treatment Phase: Proactive Resource Coordination | ✅ BUILT | d2m2-l1, d2m2-a2, d2m2-a3 |
 | `D1#31` | Treatment Red Flags: PT & Conservative Care, Surgical Protocols | ✅ BUILT | d2m2-l2 |
@@ -53,7 +53,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#41` | Immediate Action Protocol: A-C-T for Red Flags | ✅ BUILT | d2m2-l2, d2m2-a2 |
 | `D1#42` | Illustration & Course Correction: The 6-Week Rule and Objective Metrics | ✅ BUILT | d2m2-l2, d2m2-kc |
 | `D1#43` | The “Yellow Flag” Warning System | ✅ BUILT | d2m2-l2 |
-| `D1#44` | Handling Treatment Gaps During the Treatment Phase | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a2, d1m3-kc, d1m4-a1, d1m4-a2, d1m4-kc, d2m2-a3, d2m3-l1, d2m3-a1, d2m3-l2, d2m3-a2, d2m3-kc, d5m4-kc |
+| `D1#44` | Handling Treatment Gaps During the Treatment Phase | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a2, d1m3-a3, d1m3-kc, d1m4-a1, d1m4-a2, d1m4-kc, d2m2-a3, d2m3-l1, d2m3-a1, d2m3-l2, d2m3-a2, d2m3-kc, d5m4-kc |
 | `D1#45` | Common Bottlenecks: Escalation Protocol & the Escalation Ladder | ✅ BUILT | d2m2-l2, d2m2-a2, d4m4-l2, d4m4-a2, d4m4-kc |
 | `D1#46` | Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain | ✅ BUILT | d2m2-a1, d2m2-kc |
 | `D1#47` | Skill Building: Handling Client Treatment — “The Transportation Wall” | ✅ BUILT | d2m2-a2 |
@@ -128,8 +128,8 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D3#18` | Lien Negotiations/Reduction: Common Types of Liens | ✅ BUILT | d3m3-l1, d3m3-a1, d3m3-kc |
 | `D3#19` | Key Legal Doctrines Used for Reduction | ✅ BUILT | d3m3-l1, d3m3-a1, d3m3-kc |
 | `D3#20` | Quantum Meruit Principle — Prior Attorney Liens | ✅ BUILT | d3m3-l1, d3m3-kc |
-| `D3#21` | Increasing the Client's Net | ✅ BUILT | d3m3-l2, d3m3-a2, d3m3-kc, d5m5-l1, d5m5-a1 |
-| `D3#22` | Auditing the Billing Before Asking for a Discount | ✅ BUILT | d3m3-l2, d3m3-a2, d3m3-kc |
+| `D3#21` | Increasing the Client's Net | ✅ BUILT | d3m3-l2, d3m3-l3, d3m3-a2, d3m3-kc, d5m5-l1, d5m5-a1 |
+| `D3#22` | Auditing the Billing Before Asking for a Discount | ✅ BUILT | d3m3-l2, d3m3-l3, d3m3-a2, d3m3-kc |
 | `D3#23` | The Net Sheet: Purpose of a Combined BI/UM Net Sheet | ✅ BUILT | d3m4-l1, d3m4-kc, d5m5-l1, d5m5-kc |
 | `D3#24` | The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) | ✅ BUILT | d3m4-l1, d3m4-kc, d5m4-kc, d5m5-l1, d5m5-kc |
 | `D3#25` | The Net Sheet: The LSH Corporate Net Sheet Ledger | ✅ BUILT | d2m2-eob, d3m4-l1, d3m4-a1, d5m5-l1, d5m5-a1 |
@@ -255,6 +255,8 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - D1 Task Overview: Billing, Resolution & Closing
 - LSH Claims Specialist: MedPay vs. PIP (Medical Bills regardless of fault, no lost wages)
 - Newly authored: LOP issuance guidelines and the MedPay exhaustion ledger
+- Case file: Riverton Spine & Rehab, chiro and PT under an LOP signed 02/23/2026 (RS23, the itemized LOP ledger)
+- Newly authored: Letters of Protection, and the Case Manager's part in client-provider referrals within the UPL line
 - Newly authored: redirecting a referral to the client's choice of facility, and the downstream task list (each task done or delegated with an owner and a due date)
 - LSH Claims Specialist: communication skills and professionalism — clarity without jargon, empathy, active listening, paraphrasing, calm reassurance
 - LSH Claims Specialist: LOR — all carrier communication through the firm
@@ -272,6 +274,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: review the case reference sheet before any adjuster call; no backdoor contact with the client
 - Newly authored: plan funding status (self-funded vs. fully insured) decides the law that governs a health-plan reduction; the verified-none inventory of absent lienholders
 - Newly authored: the pro-rata distribution rule worked on the BI-only illustration; the pro-rata argument restated on true facts for a fund that covers every lien
+- Newly authored: lien negotiation calls, from the Pre-Demand & Reduction File Review Protocols handout (LSH Knowledge Base, CM Training · Day 4)
 - Newly authored: trust-account handling (same-day IOLTA deposit once the release is signed, client endorsement, no disbursement against uncleared funds, disputed shares held in trust); the contingent-fee Settlement Statement (ABA Model Rule 1.5(c) as an example); the UM release's Medicare and confidentiality terms
 - LSH Claims Specialist: liability denial and disputes — the dispute path to litigation; duty, breach, causation and damages; ask for the denial's reasons and evidence in writing
 - Newly authored: the five impasse triggers, each proved from the file
