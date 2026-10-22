@@ -38,6 +38,8 @@ jobs:
         run: node .github/scripts/ai-keys.mjs
       - name: Case documents and handouts exist, document references resolve
         run: node .github/scripts/check-data.mjs
+      - name: The trainee's Backup Drive (the firm's folder structure, where a filed document lands, and the Day 1 grading)
+        run: node .github/scripts/cm-drive.cjs
       - name: Case Flow curriculum (rhythm, six components, 60/40 rubrics, every existing topic carried)
         run: node build/case-flow/curriculum.cjs --check
       - name: Case Flow slides (concise copy in the spec's limits, the assembled file in step)

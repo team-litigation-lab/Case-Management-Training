@@ -140,12 +140,24 @@ async function file(blockId, docId, btn){
     if(btn){ btn.disabled = false; btn.textContent = "File it in the CMS"; }
     return;
   }
+  // A copy for the backup drive, taken before the original is handed to the CMS (transferring it empties it here).
+  const forDrive = bytes.slice(0);
   const out = await askCms({lsh:"cms-doc-file", name, category, original: basename(d), mime: mimeOf(basename(d)), summary: d.title, bytes}, "cms-doc-filed", [bytes]);
   if(btn){ btn.disabled = false; btn.textContent = "File it in the CMS"; }
   if(out && out.ok){
     r.filed = true; r.name = out.name; r.category = out.category || category; r.at = new Date().toISOString(); r.problems = [];
     await save();
     if(typeof toast === "function") toast(`Filed in the CMS as ${out.name}.`);
+    // The firm keeps a backup drive as well as a CMS: the same document goes into its folder there, the
+    // one this document already belongs to (d.folder, CM_CF_DOC_FOLDERS). The CMS is the file of record,
+    // so a drive that isn't set up never undoes the filing — the trainee is just told what didn't reach it.
+    if(window.CMDrive){
+      const drv = await CMDrive.saveFiled(d.folder, out.name, forDrive);
+      r.drive = drv.ok ? drv.folder : "";
+      await save();
+      if(drv.ok && typeof toast === "function") toast(`Kept on your Backup Drive under ${drv.folder.split("/").pop()}.`);
+      else if(drv.why === "no-drive" && typeof toast === "function") toast("Filed in the CMS. Your Backup Drive isn't set up yet, so no copy was kept there.");
+    }
     row.outerHTML = rowHTML(blockId, d);
     const count = document.querySelector(`#dfl_${CSS.escape(blockId)} .dfl-count`);
     if(count){ const p = panel(blockId); const m = /<span class="dfl-count">([^<]*)</.exec(p); if(m) count.textContent = m[1]; }
