@@ -36,6 +36,8 @@
       "End with the decision needed, **framed as questions**"
     ],
     "deliver": "A dated, sourced memo to Atty. Thorne: **asks for a decision**, recommends none",
+    "purpose": "Atty. Thorne decides suit from this memo; **an undated impasse** proves nothing",
+    "principle": "Document the impasse and ask; **the decision is counsel's**",
     "checks": [
       "Nine events, **07/20 to 09/04**, each tied to proof",
       "Keystone's grounds **in Keystone's words**: 14-Day Gap, “degenerative” MRI",
@@ -89,6 +91,8 @@
       "Seed the Litigation Calendar **with 48-hour audits**"
     ],
     "deliver": "Litigation status with every field, folder, notice and date **on Atty. Thorne's authority**",
+    "purpose": "Court dates, fees and notices all run **from this transition**",
+    "principle": "Record only what **Atty. Thorne authorized**; leave unknowns marked Pending",
     "checks": [
       "Status dated 09/10/2026, **citing the 09/09/2026 authorization**",
       "Case number reads **“Pending — assigned on filing”**",
@@ -174,6 +178,8 @@
       "Rank errors by risk; **route the log** to Atty. Thorne"
     ],
     "deliver": "A verified calendar and **a ranked correction log** routed to Atty. Thorne",
+    "purpose": "One mis-counted day can **deem 15 RFAs admitted** or end the claim",
+    "principle": "A re-keyed date is a guess **until its trigger proves it**",
     "checks": [
       "Responses corrected to **01/04/2027 (Mon)**",
       "RFA entry added: **“deemed admitted if unanswered”**",
@@ -237,6 +243,8 @@
       "Route both **to Atty. Thorne**"
     ],
     "deliver": "A two-forum matrix, **dates hard-coded**, and a UPL map, routed to Atty. Thorne",
+    "purpose": "A binding award has **almost no appeal**: a missed date can't be undone",
+    "principle": "Facilitate and defer; **only Atty. Thorne speaks** to the arbitrator",
     "checks": [
       "Mediation: Hon. Carla Benton (Ret.) **facilitates only**; non-binding",
       "Arbitration: Laura Whitcomb, Esq. **acts as judge**; binding",
@@ -264,6 +272,8 @@
       "Draft John Doe's **procedural** explanation"
     ],
     "deliver": "An impasse memo, a routed CMS file, **no opinion in either**",
+    "purpose": "Two UM layers, two clauses: **a misread route** sends the claim the wrong way",
+    "principle": "Quote the clause and ask; **the route is Atty. Thorne's**",
     "checks": [
       "Both named as **first-party** claims",
       "$8,000 / $20,000 and **$6,000 / $10,000**",
@@ -318,6 +328,8 @@
       "Add Negotiation Log, release, consent requests; **route to Atty. Thorne**"
     ],
     "deliver": "Indexed, OCR-searchable binder with **an audited ledger**, routed to Atty. Thorne, ready by 03/11/2027",
+    "purpose": "Keystone won't put a real number up **while the ledger is unverified**",
+    "principle": "Only audited, certified figures **reach the mediator's binder**",
     "grade": {
       "title": "The Grade-A Mediation Binder",
       "guide": [
@@ -397,6 +409,8 @@
       "Strip liens **to what is owed**; flag privileged items for Atty. Thorne"
     ],
     "deliver": "A six-tab, C-numbered binder, authentication log and audited Lien Sheet, **routed to Atty. Thorne**",
+    "purpose": "The binding award rests **on this exhibit set** alone",
+    "principle": "Nothing is exchanged **until Atty. Thorne approves** the set",
     "grade": {
       "title": "The Grade-A Arbitration Binder",
       "guide": [
@@ -483,6 +497,8 @@
       "Calibrate on Keystone, then **fire all four** on the mediation calendar"
     ],
     "deliver": "Four calibrated rules; every firing **dated, actioned and owned**",
+    "purpose": "Riverton's missing ledger **threatens the 03/11/2027 binder** unless rules fire early",
+    "principle": "You chase and escalate; **legal tools stay Atty. Thorne's**",
     "checks": [
       "Calibration: Rule 1 fires **09/02/2026 and 09/04/2026**",
       "Rule 2 fires 02/22/2027: **Notice of Delay** sent",
@@ -535,6 +551,8 @@
       "Date **the 48-hour audit** before the exchange"
     ],
     "deliver": "Sequenced triage of all five, and **one five-field report** sent 05/24/2027",
+    "purpose": "Five problems converge on **the 06/02/2027 exchange**, and none can wait",
+    "principle": "Sequence by lead time: **the longest wait starts first**",
     "checks": [
       "All five mapped to **the 06/02/2027 exchange**",
       "Items 1–3 in **one report**, nearest hard date first",
