@@ -3034,6 +3034,9 @@ main > .cf-side-presenter{display:none;}
 .dfl-bad{font-size:12.3px;color:#8A2F26;background:rgba(253,232,228,.7);border-left:3px solid #9B3A30;border-radius:0 8px 8px 0;padding:6px 10px;}
 .dfl-bad ul{margin:4px 0 0;padding-left:18px;}
 .dfl-ok{font-size:12.3px;color:#1F5B3A;margin-top:4px;}
+/* 📤 a drafting activity filing the one letter it drafted (js/cm-cms-upload.js) */
+.dfl-one{margin:14px 0 2px;}
+.dfl-one .dfl-row:first-of-type{border-top:none;padding-top:4px;}
 .dfl-done{opacity:.95;}
 /* the Case ID the CMS gave, not typed (js/cm-cms-case.js) */
 .cfx-log-from:not(:empty){font-size:11px;font-weight:700;color:#1F4E79;background:rgba(214,231,248,.75);border-radius:999px;padding:2px 8px;}

@@ -85,6 +85,10 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/doc-filing.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: Uploading a drafted letter in the CMS, under the right tab and the firm's convention (the CMS answered by the test)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/cms-upload.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: Relaying a Portal simulator's document to the CMS (the records simulator's records and bills reach the CMS beside the lesson; only the Portal may ask)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
