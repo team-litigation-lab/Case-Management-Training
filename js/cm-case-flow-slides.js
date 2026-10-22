@@ -2116,7 +2116,7 @@ window.CM_CF_SLIDES = {
     [
      "A new file arrives and coverage gets filled in from memory.",
      "No-fault wage benefits are presumed without a Declaration Page behind them.",
-     "John Doe's Bluewater UM was rejected in writing on 03/14/2024."
+     "On 03/14/2024 Margaret Doe signed away UM on the Bluewater coverage for her Civic."
     ]
    ]
   }
@@ -5656,7 +5656,7 @@ window.CM_CF_SLIDES = {
      "Which it is changes the duties, the defences and the exit."
     ],
     [
-     "Marcus Bell will not move off his 09/14/2026 number.",
+     "Marcus Bell will not move off his 03/31/2027 number.",
      "Atty. Thorne needs the policy's own words in front of him.",
      "You copy the paragraph across rather than summarise it."
     ]
@@ -5871,7 +5871,7 @@ window.CM_CF_SLIDES = {
  },
  "d4m2-a3": {
   "image": "documents-audit",
-  "situation": "10/02/2026. Harbor Point offers **$8,000 of $20,000**; Cardinal State **$6,000 of $10,000**. Both refuse to move.",
+  "situation": "04/05/2027. Harbor Point offers **$8,000 of $20,000**; Cardinal State **$6,000 of $10,000**. Both refuse to move.",
   "steps": [
    "Write the impasse memo: **offers against the limits**",
    "Quote **each layer's dispute-resolution clause** verbatim",

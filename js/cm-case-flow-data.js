@@ -726,7 +726,7 @@ window.CM_CASE_FLOW = {
             ["Defendant", "Robert Smith", "At-fault driver. His BI carrier pays first."],
             ["Lead Counsel", "Atty. Elijah Thorne", "Every demand and filing routes through him."],
             ["Case Manager", "You", "Owns the file's movement; does not own legal judgment."],
-            ["Host driver", "Operator of John Doe's vehicle", "Source of the $20,000 Host UM layer."],
+            ["Host driver", "Operator of the vehicle John Doe rode in", "Source of the $20,000 Host UM layer."],
             ["Resident relative", "John Doe's household relative", "Source of the $10,000 Relative UM layer."]
           ]
         },
@@ -1920,8 +1920,8 @@ window.CM_CASE_FLOW = {
       about: "Setting the claims up in order: the Policy Stack built in the CMS, the LOR set to all three stack carriers and the notices outside the stack, transmitted and logged, then the carriers' correspondence received and every coverage tracked from “reported” to “confirmed in writing” in the CMS Coverage Matrix.",
       quiz: [
         {q: "Which coverages make up John Doe's $40,000 Recovery Stack?",
-         opts: ["Keystone BI, Harbor Point Host UM and Cardinal State Relative UM", "Keystone BI, Host UM, Relative UM and Harbor Point PIP", "Keystone BI, Keystone PD and Host UM", "Host UM, Relative UM and his own Bluewater UM"],
-         a: 0, r: "Only the coverages that pay the claim stack: $10,000 BI + $20,000 Host UM + $10,000 Relative UM. PIP pays bills now (Payer Order), PD pays for the car, and John Doe rejected UM on his Bluewater policy in writing on 03/14/2024."},
+         opts: ["Keystone BI, Harbor Point Host UM and Cardinal State Relative UM", "Keystone BI, Host UM, Relative UM and Harbor Point PIP", "Keystone BI, Keystone PD and Host UM", "Host UM, Relative UM and Margaret Doe's Bluewater UM"],
+         a: 0, r: "Only the coverages that pay the claim stack: $10,000 BI + $20,000 Host UM + $10,000 Relative UM. PIP pays bills now (Payer Order), PD pays for the car, and Margaret Doe rejected UM on her Bluewater policy in writing on 03/14/2024."},
         {q: "On John Doe v. Robert Smith, in what order must the coverage layers be pursued?",
          opts: ["Host UM → BI → Relative UM", "BI → Host UM → Relative UM", "Relative UM → Host UM → BI", "All three at once, in parallel"],
          a: 1, r: "BI pays first. Host UM opens once BI is exhausted or tendered, and Relative UM stacks behind Host UM."},
@@ -1989,7 +1989,7 @@ window.CM_CASE_FLOW = {
             ["Keystone Mutual", "BI KM-26-440871 · PD carve-out for the Civic", "Robert Smith", "Dana Whitfield (PD copy: Leah Moran)"],
             ["Harbor Point", "Host UM HP-26-7741 · PIP", "Kevin Alvarez", "Marcus Bell"],
             ["Cardinal State", "Relative UM CS-26-20355", "Margaret Doe", "Claims Department (no adjuster yet)"],
-            ["Bluewater (notice)", "Own policy: collision option; UM rejection form", "John Doe", "Claims Department (policy no. in subject)"],
+            ["Bluewater (notice)", "Margaret's policy on her Civic: collision option; UM rejection form", "Margaret Doe", "Claims Department (policy no. in subject)"],
             ["Peach State (notice)", "Reimbursement right · PSH-55017742 · GRP-41208", "John Doe (member)", "Recovery unit"]
           ]
         },
@@ -2099,7 +2099,7 @@ window.CM_CASE_FLOW = {
           checkpoints: [
             "Five letters: LORs to Keystone, Harbor Point and Cardinal State; notices to Bluewater and Peach State",
             "Attn lines: Dana Whitfield (KM-26-440871), Marcus Bell (HP-26-7741), and “Attn: Claims Department” for Cardinal State (CS-26-20355), not a guessed name",
-            "Insured named correctly on each: Robert Smith, Kevin Alvarez, Margaret Doe; John Doe on Bluewater",
+            "Insured named correctly on each: Robert Smith, Kevin Alvarez, Margaret Doe; Margaret Doe on Bluewater too",
             "Subject lines carry the claim number and DOL 02/06/2026; Bluewater's carries the policy number; Peach State's carries PSH-55017742 and GRP-41208",
             "Keystone's letter gives John Doe's name only (no DOB, phone, address, employer or treatment detail) and confines the PD carve-out to the Civic, with 5 business days from the date of the letter to inspect the Civic",
             "Every LOR requests limits, any additional coverage, Declaration Pages and preservation; Keystone's names the photos, statements, the Silverado and its EDR data, and any video; Harbor Point's asks that the Escape and its EDR data be preserved before any repair or salvage",
@@ -2156,7 +2156,7 @@ window.CM_CASE_FLOW = {
             "Record the limit type: Keystone's Declaration Page shows BI $10,000 per person, the cap on one injured person's claim. Per-accident, aggregate and combined single limits read differently; ask when unclear.",
             "Ask each UM carrier for its form in writing: add-on, or reduced by the BI payment. Harbor Point confirmed on 03/02/2026: add-on (excess), no PIP non-duplication, no reimbursement right on PIP.",
             "Track everything; stack only three layers: $10,000 BI + $20,000 Host UM + $10,000 Relative UM = $40,000. PIP ($5,000), Keystone's PD coverage ($25,000) and Bluewater's collision coverage are tracked, never added.",
-            "Verify exclusions and gaps as carefully as limits. John Doe rejected UM on his Bluewater policy in writing (03/14/2024): the signed form goes in the file, so the zero is verified, not assumed.",
+            "Verify exclusions and gaps as carefully as limits. Margaret Doe rejected UM on her Bluewater policy in writing (03/14/2024): the signed form goes in the file, so the zero is verified, not assumed.",
             "Firm cadence: a claim not opened on the call, follow up in 24–48 hours; an LOR not acknowledged, by the third business day; any other open request, a dated next follow-up within two business days. A past date with nothing logged is an audit failure.",
             "Regulatory backstop: many states set deadlines for a carrier to acknowledge a claim and answer written communications; some require limits disclosure on a qualifying written request. Confirm the governing rule; docket it.",
             "The policies set John Doe's duties too: prompt notice, proof of loss for PIP, and any UM notice or limitation rule separate from the 02/06/2028 SOL. Atty. Thorne confirms each; you docket it."
@@ -2246,7 +2246,7 @@ window.CM_CASE_FLOW = {
             ["3 · Relative UM", "Cardinal State · CS-26-20355 · Not yet assigned", "$10,000 · Confirmed 03/09/2026", "None"],
             ["4 · PIP", "Harbor Point · PIP", "$5,000 · Confirmed 03/02/2026", "None"],
             ["Outside · PD", "Keystone · Leah Moran", "$25,000 · PD liability accepted 02/17/2026", "Per PD file"],
-            ["Outside · Bluewater", "Bluewater Auto · John Doe's policy", "UM: none · source: —", "None"]
+            ["Outside · Bluewater", "Bluewater Auto · Margaret Doe's policy", "UM: none · source: —", "None"]
           ]
         },
         ops: [
@@ -2392,7 +2392,7 @@ window.CM_CASE_FLOW = {
             "Sort every coverage by whose it is. Third-party coverage is the at-fault driver's: Robert Smith's Keystone BI and PD. First-party coverage answers to John Doe's side: Host UM, Relative UM, PIP and collision. The Health Plan is his own benefit plan, through Northgate Distribution.",
             "Sort it again by what it pays. BI and UM pay the claim at the end; MedPay, PIP and the Health Plan pay the Medical Bills while it is open; PD and collision pay for the car. Only BI and UM are the $40,000 Recovery Stack.",
             "MedPay pays reasonable accident Medical Bills regardless of fault, up to its limit, and never wages. PIP, where a state requires it, also pays a share of lost wages and replacement services. This file has PIP: Riverton requires it, and John Doe claims the $5,000 PIP on Kevin Alvarez's Escape, the vehicle he rode in, at Harbor Point. Verify PIP on every file; never assume it.",
-            "UM/UIM is reached by status, not ownership. John Doe reaches Host UM as an occupant of Kevin Alvarez's 2020 Ford Escape, and Relative UM as a resident relative of Margaret Doe. His own Bluewater policy adds nothing: UM/UIM was rejected in writing on 03/14/2024.",
+            "UM/UIM is reached by status, not ownership. John Doe reaches Host UM as an occupant of Kevin Alvarez's 2020 Ford Escape, and Relative UM as a resident relative of Margaret Doe. He owns no car, and Margaret Doe's Bluewater policy on her parked Civic adds nothing: she rejected UM/UIM on it in writing on 03/14/2024.",
             "The Payer-First Principle: PIP (or MedPay where a state has no PIP) first, the Health Plan next, a Letter of Protection last, and only for care the earlier payers can't carry.",
             "PIP goes first because it pays regardless of fault, and Harbor Point confirmed in writing (03/02/2026) that it has no reimbursement right against John Doe's recovery: every PIP dollar is a bill that never becomes a lien.",
             "The Health Plan comes next because an in-network provider is paid at the contract rate and cannot balance-bill. Crescent Pain & Spine billed $3,400.00; Peach State paid $1,860.00. Only what the plan paid can come back as its reimbursement claim.",
@@ -2415,7 +2415,7 @@ window.CM_CASE_FLOW = {
             ["PIP (first-party, no-fault)", "Harbor Point · $5,000", "Medical Bills, regardless of fault", "Payer Order 1st; no payback"],
             ["Health Plan", "Peach State Health Plan", "Medical Bills, at the contract rate", "Payer Order 2nd; reimbursement right"],
             ["PD liability (third-party)", "Keystone Mutual · $25,000", "The Civic, the rental, Loss of Use", "Outside the stack"],
-            ["Collision (first-party)", "Bluewater · $500 deductible", "The Civic, regardless of fault", "Outside the stack (his UM: rejected 03/14/2024)"]
+            ["Collision (first-party)", "Bluewater · $500 deductible", "The Civic, regardless of fault", "Margaret's, outside the stack (her UM: rejected 03/14/2024)"]
           ]
         },
         ops: [
@@ -5865,7 +5865,7 @@ window.CM_CASE_FLOW = {
         kind: "lesson", id: "d4m2-um", compact: true,
         title: "UM/UIM Disputes & Resolution Routes",
         topic: "A claim against your own client's carrier, and the two roads out of an impasse",
-        visual: "A three-step flow across the full slide on cream, each step a white orange-bordered card that opens as a pop-up context card on click. ① CLAIM SUBMISSION · UM DEMAND PACKAGE (08/31/2026), its card listing the proof of exhaustion. ② DISPUTE · IMPASSE (09/14 $8,000 · 10/01 $6,000), its card holding the impasse memo. ③ RESOLUTION ROUTE, drawn as a fork: the upper arm, heavier and navy, DEMAND FOR ARBITRATION · HARBOR POINT CLAUSE, running to a mono date strip 06/22/2027; the lower arm, outlined, FILE SUIT AGAINST THE CARRIER, tagged STATE LAW BARS OR LETS THE INSURED OPT OUT. A separate red-bordered card stands off to the side, deliberately off the fork: BAD FAITH · A SEPARATE SUIT · ABOVE THE POLICY LIMIT · ATTY. THORNE DECIDES. Above the fork, a navy banner: THE ROUTE IS READ, NEVER CHOSEN. Along the top edge, two facing chips: THIRD PARTY → ROBERT SMITH'S CARRIER and FIRST PARTY → OUR OWN CLIENT'S CARRIER.",
+        visual: "A three-step flow across the full slide on cream, each step a white orange-bordered card that opens as a pop-up context card on click. ① CLAIM SUBMISSION · UM DEMAND PACKAGE (03/22/2027), its card listing the proof of exhaustion. ② DISPUTE · IMPASSE (03/31 $8,000 · 04/02 $6,000), its card holding the impasse memo. ③ RESOLUTION ROUTE, drawn as a fork: the upper arm, heavier and navy, DEMAND FOR ARBITRATION · HARBOR POINT CLAUSE, running to a mono date strip 06/22/2027; the lower arm, outlined, FILE SUIT AGAINST THE CARRIER, tagged STATE LAW BARS OR LETS THE INSURED OPT OUT. A separate red-bordered card stands off to the side, deliberately off the fork: BAD FAITH · A SEPARATE SUIT · ABOVE THE POLICY LIMIT · ATTY. THORNE DECIDES. Above the fork, a navy banner: THE ROUTE IS READ, NEVER CHOSEN. Along the top edge, two facing chips: THIRD PARTY → ROBERT SMITH'S CARRIER and FIRST PARTY → OUR OWN CLIENT'S CARRIER.",
         tell: {
           why: "A BI claim is made against the driver who caused the crash. A UM claim is made against the insurance John Doe pays for himself, and that changes what the file is. Harbor Point and Cardinal State are not opponents the way Keystone is: they are parties to John Doe's own contract, with duties to him and defences drawn from his own policy. When $8,000 and $6,000 came back against $30,000 of UM limits, the file did not simply head for court the way the BI claim would have: Harbor Point's policy says where a UM dispute is decided, and that clause, with the governing state law, is what the Case Manager has to read before a single date is docketed.",
           rules: [
@@ -5888,14 +5888,14 @@ window.CM_CASE_FLOW = {
           type: "table",
           head: ["Step", "Action", "What it takes on this file"],
           rows: [
-            ["1 · Claim submission", "UM Demand Package", "Served 08/31/2026 to Harbor Point and Cardinal State: injuries, records, $16,401.40 in Specials, the wage letter, and documented proof that Robert Smith's $10,000 BI limit was exhausted and consented to"],
-            ["2 · Dispute", "Impasse", "Harbor Point offers $8,000 (09/14/2026) and Cardinal State $6,000 (10/01/2026) against $30,000 of UM limits; impasse memo to Atty. Thorne"],
+            ["1 · Claim submission", "UM Demand Package", "Served 03/22/2027 to Harbor Point and Cardinal State, after Keystone's tender at the 03/18/2027 mediation: injuries, records, $16,401.40 in Specials, the wage letter, and documented proof that Robert Smith's $10,000 BI limit was exhausted and consented to"],
+            ["2 · Dispute", "Impasse", "Harbor Point offers $8,000 (03/31/2027) and Cardinal State $6,000 (04/02/2027) against $30,000 of UM limits; both hold on 04/05/2027, citing the gap; impasse memo to Atty. Thorne"],
             ["3 · Resolution route", "Demand for Arbitration, or file suit against the carrier", "Read the governing state law and each policy's clause. Harbor Point's UM policy has a binding arbitration clause: invoked 04/05/2027, heard 06/22/2027 before Laura Whitcomb, Esq. Where no clause binds, a civil suit against the carrier; a bad-faith action is a separate suit, and Atty. Thorne's call"],
             ["Not a route", "Margaret Doe's Bluewater Auto policy, on her parked Civic", "UM/UIM rejected in writing by Margaret 03/14/2024, and John owns no car: there is no third layer and no third route"]
           ]
         },
         ops: [
-          ["UM offers come back low (09/14 and 10/01/2026)", "Write the impasse memo; pull Harbor Point's and Cardinal State's dispute-resolution clauses from the certified policies", "CMS → Case Notes · CMS → Insurance tab → Coverage Matrix", "Memo to Atty. Thorne the same day, with both clauses attached and neither interpreted"],
+          ["UM offers come back low (03/31 and 04/02/2027)", "Write the impasse memo; pull Harbor Point's and Cardinal State's dispute-resolution clauses from the certified policies", "CMS → Case Notes · CMS → Insurance tab → Coverage Matrix", "Memo to Atty. Thorne the same day, with both clauses attached and neither interpreted"],
           ["Clauses and the governing statute in hand", "Lay the route options before Atty. Thorne as findings, with each layer's own filing or demand deadline as a question", "CMS → Tasks → Atty. Thorne", "Both layers presented separately; no route recommended; every deadline asked, not assumed"],
           ["Route decided in writing", "Record it, set the case status and open the ADR entry", "CMS → ADR tab · CMS → Case Status", "ADR Type UM / UIM arbitration; How It Was Set Required by the policy or contract; status matches the route"],
           ["Arbitration invoked 04/05/2027", "Docket the hearing and its backward-counted dates; tell John Doe what happens procedurally", "CMS → Calendar → Master calendar", "06/02, 06/11 and 06/22/2027 entered with alerts; John Doe told the date, place and what to bring, and nothing about value"]
@@ -6088,14 +6088,14 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 3 — read the clause, route the dispute, track it in the CMS",
         visual: "A two-pane working screen. Left, two stacked policy cards with a highlighted clause block in each: HARBOR POINT · HOST UM · $20,000 shows its arbitration paragraph lit in orange with a mono pill BINDING; CARDINAL STATE · RELATIVE UM · $10,000 shows the same region greyed, stamped CERTIFIED POLICY REQUESTED and a question chip CLAUSE? Right, the CMS ADR tab part-filled: ADR TYPE = UM / UIM ARBITRATION, HOW IT WAS SET = REQUIRED BY THE POLICY OR CONTRACT, with three empty mono date fields and a navy task card, DEADLINE PER LAYER — ASK ATTY. THORNE. Across the bottom a red strip: NO ROUTE IS DOCKETED UNTIL HE ANSWERS IN WRITING.",
         act: {
-          scenario: "File date 10/02/2026, Track B. The UM demands went out 08/31/2026, after Keystone tendered its $10,000 BI limits on 08/12/2026 with both UM carriers' written consents (Harbor Point 08/24, Cardinal State 08/26) and a Limited Release signed 08/28. Harbor Point's Marcus Bell (HP-26-7741) offered $8,000 on 09/14/2026 against a $20,000 Host UM limit, calling the 14-Day Gap a causation problem. Cardinal State's Teresa Okafor (CS-26-20355) offered $6,000 on 10/01/2026 against a $10,000 Relative UM limit. Harbor Point's UM policy contains a binding arbitration clause; Cardinal State's certified policy has been requested and has not arrived. Suit against Robert Smith was filed 09/24/2026; the tort SOL is 02/06/2028.",
+          scenario: "File date 04/05/2027, Track B. Keystone tendered its $10,000 BI limits at the 03/18/2027 mediation; both UM carriers consented in writing, the Limited Release was signed and Robert Smith was dismissed. The UM demands went out 03/22/2027. Harbor Point's Marcus Bell (HP-26-7741) offered $8,000 on 03/31/2027 against a $20,000 Host UM limit, calling the 14-Day Gap a causation problem. Cardinal State's Teresa Okafor (CS-26-20355) offered $6,000 on 04/02/2027 against a $10,000 Relative UM limit. Today both refuse to move. Harbor Point's UM policy contains a binding arbitration clause; Cardinal State's certified policy has been requested and has not arrived. The suit against Robert Smith, filed 09/24/2026, ended with his dismissal after the mediation; the tort SOL is 02/06/2028.",
           prompt: "Route the UM impasse. Write the impasse memo to Atty. Thorne: the offers against the limits, Harbor Point's stated reason, and the dispute-resolution clause of each layer quoted, not paraphrased, with Cardinal State's marked as outstanding. Lay out both resolution routes and what each would require operationally, and ask him, in writing, for the governing route on each layer, each layer's own suit or arbitration-demand deadline, and whether the two should be heard together. Then set up the CMS to carry the answer: the ADR entry, the case status, a task per open question, and the calendar entries you will make once he answers. Finally, draft what you will say to John Doe when he calls to ask what happens now.",
           tool: "CMS → Case Notes · CMS → Insurance tab → Coverage Matrix · CMS → ADR tab · CMS → Tasks · CMS → Calendar",
           output: "An impasse memo with both clauses quoted and three written questions to Atty. Thorne, a CMS file that shows the route, and a procedural explanation for John Doe with no opinion in it.",
           checkpoints: [
-            "Both claims named as first-party claims under John Doe's own contract, distinct from the Keystone third-party claim that closed on 08/12/2026",
-            "Offers set against the limits exactly: $8,000 against $20,000 (Harbor Point, 09/14/2026) and $6,000 against $10,000 (Cardinal State, 10/01/2026), $14,000 against $30,000 in all",
-            "Exhaustion documented, not assumed: Keystone's $10,000 tender 08/12/2026, both UM consents (08/24 and 08/26) and the Limited Release signed 08/28",
+            "Both claims named as first-party claims under John Doe's own contract, distinct from the Keystone third-party claim that closed at the 03/18/2027 mediation",
+            "Offers set against the limits exactly: $8,000 against $20,000 (Harbor Point, 03/31/2027) and $6,000 against $10,000 (Cardinal State, 04/02/2027), $14,000 against $30,000 in all",
+            "Exhaustion documented, not assumed: Keystone's $10,000 tender at the 03/18/2027 mediation, both UM consents, the Limited Release and the order dismissing Robert Smith",
             "Harbor Point's arbitration clause quoted verbatim and identified as binding; no interpretation offered",
             "Cardinal State treated as its own layer: the certified policy and its dispute-resolution and other-insurance clauses recorded as outstanding, with a chase task, and Harbor Point's clause never read onto it",
             "Both routes laid out with their operational consequences: a Demand for Arbitration and its forum dates, or a civil suit against the carrier where state law bars the clause or permits opt-out",
@@ -6107,7 +6107,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Cardinal State's offer lands 10/01/2026", "Write the impasse memo with both clauses quoted", "CMS → Case Notes", "Memo dated 10/02/2026; Cardinal State's clause marked outstanding"],
+          ["Both UM carriers hold at their offers, 04/05/2027", "Write the impasse memo with both clauses quoted", "CMS → Case Notes", "Memo dated 04/05/2027; Cardinal State's clause marked outstanding"],
           ["Certified policy outstanding", "Chase it and log the request", "CMS → Tasks", "Chase task with an owner and a date; the gap stated in the memo, not filled in"],
           ["Questions sent to Atty. Thorne", "Hold every date; draft the entries without saving them", "CMS → Calendar", "Nothing docketed; the drafts wait on his written answer"],
           ["John Doe calls to ask what happens now", "Explain the procedure; route value and conduct to Atty. Thorne", "CMS → Case Notes → Client Communications", "Call logged the same day with what was said and what was routed"]
@@ -6123,7 +6123,7 @@ window.CM_CASE_FLOW = {
         sources: ["D2#33", "D3#5", "D3#19", "D4#2", "Newly authored: the impasse memo that quotes each layer's clause and asks the route, the per-layer deadline and consolidation as three written questions"],
         rubric: {
           ai: [
-            ["Figures and dates", 15, "$8,000 / $20,000 and $6,000 / $10,000 with their dates; exhaustion evidenced by the 08/12, 08/24, 08/26 and 08/28/2026 record"],
+            ["Figures and dates", 15, "$8,000 / $20,000 and $6,000 / $10,000 with their dates; exhaustion evidenced by the 03/18/2027 tender, the consents, the Limited Release and the dismissal"],
             ["Clause handling", 20, "Harbor Point's clause quoted and identified as binding; Cardinal State's recorded as outstanding and read separately"],
             ["Routes laid out", 15, "Both routes with their operational consequences; bad faith kept separate and above the limits"],
             ["Nothing assumed", 10, "No date docketed before the written answer; the tort SOL not used as a UM deadline"]
@@ -6137,7 +6137,7 @@ window.CM_CASE_FLOW = {
         notes: [
           "Grade the memo on whether Atty. Thorne could make three decisions from it without opening the file. If he would have to go looking for the clause, it failed.",
           "The commonest failure is a trainee who writes “Harbor Point's policy requires arbitration, so we will file a Demand for Arbitration on…” — a route decided and a date set in one sentence. Both are his.",
-          "Second commonest: Cardinal State folded into Harbor Point's clause because both are UM. Make them say what they actually have from Cardinal State, which on 10/02/2026 is a requested policy and nothing else.",
+          "Second commonest: Cardinal State folded into Harbor Point's clause because both are UM. Make them say what they actually have from Cardinal State, which on 04/05/2027 is a requested policy and nothing else.",
           "Run the client call live if there is time. John Doe will ask whether the insurance company is allowed to do this. The right answer explains the procedure and promises Atty. Thorne's call, and says nothing about whether it is allowed."
         ]
       },
@@ -6945,7 +6945,7 @@ window.CM_CASE_FLOW = {
         best: [
           "Write the trigger, the method of service and the arithmetic into every calendar entry.",
           "Every interrogatory set we send asks the three baseline questions: all insurance (primary, excess, umbrella), course and scope of employment, and surveillance. The file's verified stack is $40,000 (BI → Host UM → Relative UM); what any answer means for coverage is a question for Atty. Thorne.",
-          "Property Damage is pleaded too (the Civic's Loss of Use and Diminished Value): physical evidence of the impact, and something the defense will test.",
+          "No Property Damage is pleaded: John Doe owns no vehicle, and the Civic's Loss of Use and Diminished Value are Margaret's own claim. Its damage is still physical evidence of the impact, and the defense will test it.",
           "In the Discovery Intake Meeting, walk John Doe through every request and record his own answers, in his words, into the response template for Atty. Thorne's review; flag every request that may call for an objection or privilege (including the scope of the 2021 chiropractic notes) for his decision; never suggest an answer. Then compile what the RFPs ask for: Northgate's wage letter, the Medical Records and bills, the 2021 chiropractic notes.",
           "Pitfall: a perfect Complaint filed one day after the SOL.",
           "Pitfall: missing a court deadline the way you might let an adjuster's deadline slide.",
@@ -7254,7 +7254,7 @@ window.CM_CASE_FLOW = {
         topic: "Repairable or total, and what each day without the Civic is worth",
         visual: "A horizontal threshold gauge across the top half, the same instrument as Day 1's, now carrying Margaret Doe's numbers: a bar from $0 to ACV $17,600.00, a bold navy THRESHOLD marker at 75% labelled $13,200.00, a grey chip at $6,940.00 (estimate, 39.4%) and an orange chip at $9,255.00 (final, 52.6%), joined by an orange arrow tagged +$2,315.00 A-PILLAR SUPPLEMENT. Lower half: a 78-day calendar ribbon from 02/06 to 04/24/2026 in three segments: red 12 days, navy 30 days (RENTAL PAID $1,260.00), red 36 days. A brace under the two red segments reads LOSS OF USE 48 × $42.00 = $2,016.00. The argument: Keystone paid for the middle and nothing on either side.",
         tell: {
-          why: "On Track B the Civic is no longer a side claim: its Loss of Use and Diminished Value are pleaded in the suit, and every figure will be tested in discovery. The repair-against-ACV arithmetic decides which measure of damages applies, and the loss-of-use calendar is the transportation record that explains the 14-Day Gap.",
+          why: "On Track B the Civic is still Margaret's own claim, outside John Doe's suit (he owns no vehicle, so no Property Damage is pleaded), but with the case in litigation every figure on the file can be tested in discovery. The repair-against-ACV arithmetic decides which measure of damages applies, and the loss-of-use calendar is the transportation record that explains the 14-Day Gap.",
           rules: [
             "When negligence damages property, the law aims to make the owner whole: Margaret Doe's position before 02/06/2026, never a windfall. Test every PD figure against it.",
             "Three damage types are recoverable. Economic (special): repair, tow and storage, rental, Loss of Use, Diminished Value. Non-economic (general): pain and suffering, on the injury side. Punitive: to punish egregious conduct such as DUI; none is pleaded here.",
@@ -7286,7 +7286,7 @@ window.CM_CASE_FLOW = {
         ops: [
           ["Final repair bill posts with the supplement", "Re-run the total-loss check on $9,255.00 and record the basis", "CMS → Property Damage", "52.6% of $17,600.00 recorded; Keystone's 75% basis on file in writing"],
           ["Rental ends with the Civic still in the shop", "Log each day without a vehicle, period by period", "CMS → Property Damage → Loss of Use", "12 + 36 = 48 days; no paid rental day counted"],
-          ["Loss of Use and Diminished Value pleaded in the 09/24/2026 complaint", "Reconcile the PD figures across the PD screen, the damages summary and discovery", "CMS → Litigation → Pleadings Log", "$2,016.00 and $3,600.00 match everywhere; any mismatch escalated to Atty. Thorne"],
+          ["Suit filed 09/24/2026 with no Property Damage pleaded (John Doe owns no vehicle)", "Keep Margaret's PD figures consistent across the PD screen, the damages summary and anything produced in discovery", "CMS → Case Notes", "$2,016.00 and $3,600.00 match everywhere; any mismatch escalated to Atty. Thorne"],
           ["John Doe's deposition noticed 01/20/2027", "Add the PD severity set (photos, estimate, 03/02/2026 supplement, rental dates) to Atty. Thorne's deposition documents", "CMS → Documents → Deposition set", "Indexed before the 02/04/2027 prep session"]
         ],
         best: [
@@ -7510,7 +7510,7 @@ window.CM_CASE_FLOW = {
           "Start with the release, not the math. Ask who opened Leah Moran's attachment. A trainee who forwards it to Margaret Doe has failed the lab before computing anything.",
           "Ask: “What is the lowest number you'd put in front of Atty. Thorne, and which document defends it?” Grade the reasoning, not the figure; the outcome is his. Keystone's own formula, with the damage tier at the top and the mileage double count removed, reaches its $1,760.00 ceiling; a floor built there defends better than one picked from the air.",
           "In the call, AI Leah Moran presses: “Can you just tell me if he'll take it?” The only right answer is that the offer is with Atty. Thorne and the firm will respond.",
-          "Nuance: the range is internal work product for counsel. With the items pleaded and Robert Smith represented by Atty. Grant Mercer, how and with whom PD is negotiated is Atty. Thorne's choice."
+          "Nuance: the range is internal work product for counsel. With suit pending and Robert Smith represented by Atty. Grant Mercer, how and with whom Margaret's PD is negotiated is Atty. Thorne's choice."
         ]
       },
 

@@ -105,7 +105,7 @@ A distribution fan reads left to right. Left: a white LOR page on navy firm lett
 | Keystone Mutual | BI KM-26-440871 · PD carve-out for the Civic | Robert Smith | Dana Whitfield (PD copy: Leah Moran) |
 | Harbor Point | Host UM HP-26-7741 · PIP | Kevin Alvarez | Marcus Bell |
 | Cardinal State | Relative UM CS-26-20355 | Margaret Doe | Claims Department (no adjuster yet) |
-| Bluewater (notice) | Own policy: collision option; UM rejection form | John Doe | Claims Department (policy no. in subject) |
+| Bluewater (notice) | Margaret's policy on her Civic: collision option; UM rejection form | Margaret Doe | Claims Department (policy no. in subject) |
 | Peach State (notice) | Reimbursement right · PSH-55017742 · GRP-41208 | John Doe (member) | Recovery unit |
 
 **Operational mapping**
@@ -175,7 +175,7 @@ A horizontal five-stage status track across the upper half — REPORTED → NOTI
 4. Record the limit type: Keystone's Declaration Page shows BI $10,000 per person, the cap on one injured person's claim. Per-accident, aggregate and combined single limits read differently; ask when unclear.
 5. Ask each UM carrier for its form in writing: add-on, or reduced by the BI payment. Harbor Point confirmed on 03/02/2026: add-on (excess), no PIP non-duplication, no reimbursement right on PIP.
 6. Track everything; stack only three layers: $10,000 BI + $20,000 Host UM + $10,000 Relative UM = $40,000. PIP ($5,000), Keystone's PD coverage ($25,000) and Bluewater's collision coverage are tracked, never added.
-7. Verify exclusions and gaps as carefully as limits. John Doe rejected UM on his Bluewater policy in writing (03/14/2024): the signed form goes in the file, so the zero is verified, not assumed.
+7. Verify exclusions and gaps as carefully as limits. Margaret Doe rejected UM on her Bluewater policy in writing (03/14/2024): the signed form goes in the file, so the zero is verified, not assumed.
 8. Firm cadence: a claim not opened on the call, follow up in 24–48 hours; an LOR not acknowledged, by the third business day; any other open request, a dated next follow-up within two business days. A past date with nothing logged is an audit failure.
 9. Regulatory backstop: many states set deadlines for a carrier to acknowledge a claim and answer written communications; some require limits disclosure on a qualifying written request. Confirm the governing rule; docket it.
 10. The policies set John Doe's duties too: prompt notice, proof of loss for PIP, and any UM notice or limitation rule separate from the 02/06/2028 SOL. Atty. Thorne confirms each; you docket it.
@@ -334,7 +334,7 @@ A two-tier slide. The top tier is a coverage map: eight cards in three colour gr
 1. Sort every coverage by whose it is. Third-party coverage is the at-fault driver's: Robert Smith's Keystone BI and PD. First-party coverage answers to John Doe's side: Host UM, Relative UM, PIP and collision. The Health Plan is his own benefit plan, through Northgate Distribution.
 2. Sort it again by what it pays. BI and UM pay the claim at the end; MedPay, PIP and the Health Plan pay the Medical Bills while it is open; PD and collision pay for the car. Only BI and UM are the $40,000 Recovery Stack.
 3. MedPay pays reasonable accident Medical Bills regardless of fault, up to its limit, and never wages. PIP, where a state requires it, also pays a share of lost wages and replacement services. This file has PIP: Riverton requires it, and John Doe claims the $5,000 PIP on Kevin Alvarez's Escape, the vehicle he rode in, at Harbor Point. Verify PIP on every file; never assume it.
-4. UM/UIM is reached by status, not ownership. John Doe reaches Host UM as an occupant of Kevin Alvarez's 2020 Ford Escape, and Relative UM as a resident relative of Margaret Doe. His own Bluewater policy adds nothing: UM/UIM was rejected in writing on 03/14/2024.
+4. UM/UIM is reached by status, not ownership. John Doe reaches Host UM as an occupant of Kevin Alvarez's 2020 Ford Escape, and Relative UM as a resident relative of Margaret Doe. He owns no car, and Margaret Doe's Bluewater policy on her parked Civic adds nothing: she rejected UM/UIM on it in writing on 03/14/2024.
 5. The Payer-First Principle: PIP (or MedPay where a state has no PIP) first, the Health Plan next, a Letter of Protection last, and only for care the earlier payers can't carry.
 6. PIP goes first because it pays regardless of fault, and Harbor Point confirmed in writing (03/02/2026) that it has no reimbursement right against John Doe's recovery: every PIP dollar is a bill that never becomes a lien.
 7. The Health Plan comes next because an in-network provider is paid at the contract rate and cannot balance-bill. Crescent Pain & Spine billed $3,400.00; Peach State paid $1,860.00. Only what the plan paid can come back as its reimbursement claim.
@@ -356,7 +356,7 @@ A two-tier slide. The top tier is a coverage map: eight cards in three colour gr
 | PIP (first-party, no-fault) | Harbor Point · $5,000 | Medical Bills, regardless of fault | Payer Order 1st; no payback |
 | Health Plan | Peach State Health Plan | Medical Bills, at the contract rate | Payer Order 2nd; reimbursement right |
 | PD liability (third-party) | Keystone Mutual · $25,000 | The Civic, the rental, Loss of Use | Outside the stack |
-| Collision (first-party) | Bluewater · $500 deductible | The Civic, regardless of fault | Outside the stack (his UM: rejected 03/14/2024) |
+| Collision (first-party) | Bluewater · $500 deductible | The Civic, regardless of fault | Margaret's, outside the stack (her UM: rejected 03/14/2024) |
 
 **Operational mapping**
 
@@ -1079,7 +1079,7 @@ A letter-assembly workbench. Centre: the firm-letterhead LOR template as a white
 
 - [ ] Five letters: LORs to Keystone, Harbor Point and Cardinal State; notices to Bluewater and Peach State
 - [ ] Attn lines: Dana Whitfield (KM-26-440871), Marcus Bell (HP-26-7741), and “Attn: Claims Department” for Cardinal State (CS-26-20355), not a guessed name
-- [ ] Insured named correctly on each: Robert Smith, Kevin Alvarez, Margaret Doe; John Doe on Bluewater
+- [ ] Insured named correctly on each: Robert Smith, Kevin Alvarez, Margaret Doe; Margaret Doe on Bluewater too
 - [ ] Subject lines carry the claim number and DOL 02/06/2026; Bluewater's carries the policy number; Peach State's carries PSH-55017742 and GRP-41208
 - [ ] Keystone's letter gives John Doe's name only (no DOB, phone, address, employer or treatment detail) and confines the PD carve-out to the Civic, with 5 business days from the date of the letter to inspect the Civic
 - [ ] Every LOR requests limits, any additional coverage, Declaration Pages and preservation; Keystone's names the photos, statements, the Silverado and its EDR data, and any video; Harbor Point's asks that the Escape and its EDR data be preserved before any repair or salvage
@@ -1163,7 +1163,7 @@ A full-width CMS Coverage Matrix in a white card with a navy header bar: six row
 | 3 · Relative UM | Cardinal State · CS-26-20355 · Not yet assigned | $10,000 · Confirmed 03/09/2026 | None |
 | 4 · PIP | Harbor Point · PIP | $5,000 · Confirmed 03/02/2026 | None |
 | Outside · PD | Keystone · Leah Moran | $25,000 · PD liability accepted 02/17/2026 | Per PD file |
-| Outside · Bluewater | Bluewater Auto · John Doe's policy | UM: none · source: — | None |
+| Outside · Bluewater | Bluewater Auto · Margaret Doe's policy | UM: none · source: — | None |
 
 **Verification checkpoints**
 
@@ -1904,8 +1904,8 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 **Auto-graded share of the day's Knowledge Check** (12 questions):
 
 1. Which coverages make up John Doe's $40,000 Recovery Stack?  
-   **✓ Keystone BI, Harbor Point Host UM and Cardinal State Relative UM** · Keystone BI, Host UM, Relative UM and Harbor Point PIP · Keystone BI, Keystone PD and Host UM · Host UM, Relative UM and his own Bluewater UM  
-   *Only the coverages that pay the claim stack: $10,000 BI + $20,000 Host UM + $10,000 Relative UM. PIP pays bills now (Payer Order), PD pays for the car, and John Doe rejected UM on his Bluewater policy in writing on 03/14/2024.*
+   **✓ Keystone BI, Harbor Point Host UM and Cardinal State Relative UM** · Keystone BI, Host UM, Relative UM and Harbor Point PIP · Keystone BI, Keystone PD and Host UM · Host UM, Relative UM and Margaret Doe's Bluewater UM  
+   *Only the coverages that pay the claim stack: $10,000 BI + $20,000 Host UM + $10,000 Relative UM. PIP pays bills now (Payer Order), PD pays for the car, and Margaret Doe rejected UM on her Bluewater policy in writing on 03/14/2024.*
 2. On John Doe v. Robert Smith, in what order must the coverage layers be pursued?  
    Host UM → BI → Relative UM · **✓ BI → Host UM → Relative UM** · Relative UM → Host UM → BI · All three at once, in parallel  
    *BI pays first. Host UM opens once BI is exhausted or tendered, and Relative UM stacks behind Host UM.*

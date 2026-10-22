@@ -130,8 +130,8 @@ her shift (first open evening slot 04/21); *Track* — confirmed attendance 04/2
   03/20–04/24 (36 days) = 48 days × $42.00 = **$2,016.00**; Keystone offers $0.
 - **Disputed:** Diminished Value — independent appraisal (Riverton Auto Appraisal, 05/06/2026) **$3,600.00**;
   Keystone's "17c" formula offer **$792.00** (10% of $17,600.00 = $1,760.00 × damage multiplier 0.75 × mileage multiplier 0.60).
-- Track A (Day 3) does not resolve the PD dispute (it runs on its own claim). Track B (Days 4–5) includes the
-  Loss of Use and Diminished Value in the lawsuit; Day 5 Module 2 works the dispute. **The outcome is left
+- Track A (Day 3) does not resolve the PD dispute (it runs on its own claim). Track B (Days 4–5) does not plead
+  them in John Doe's suit (he owns no vehicle; the Civic is Margaret's): the dispute stays on her own Keystone PD claim, and Day 5 Module 2 works it. **The outcome is left
   open** (whatever a trainee proposes needs Atty. Thorne's authority).
 
 ### Retainer and costs
@@ -221,7 +221,9 @@ before any negotiated reduction, leaving John Doe nothing — which is why the l
 - **03/11/2027** Confidential Mediation Statement and binder due to the mediator (7 days before).
 - **03/18/2027** court-ordered mediation, **Hon. Carla Benton (Ret.)**. Keystone tenders the **$10,000 BI limits**
   at mediation. BI is exhausted; UM consents obtained; Limited Release; Robert Smith dismissed.
-- **04/05/2027** Harbor Point and Cardinal State dispute damages (the gap). Harbor Point's UM arbitration clause
+- **03/22/2027 (Mon)** UM demands to Harbor Point (Host UM $20,000) and Cardinal State (Relative UM $10,000), with the proof of
+  exhaustion. Harbor Point offers **$8,000** (03/31/2027); Cardinal State **$6,000** (04/02/2027).
+- **04/05/2027** Harbor Point and Cardinal State hold, disputing damages (the gap). Harbor Point's UM arbitration clause
   is invoked; Cardinal State joins one consolidated **binding arbitration**, arbitrator **Laura Whitcomb, Esq.**
   Hearing **06/22/2027 (Tue)**; exhibit exchange 20 days before → **06/02/2027**; arbitration brief 10 days
   before → 06/12/2027 is a Saturday → **docket 06/11/2027 (Fri)** (counting backward, move to the earlier business day).
@@ -265,7 +267,7 @@ the facts above. Fictional throughout; no real carrier, provider or firm.
 | Keystone Mutual Insurance | Claims, P.O. Box 4100, Riverton · Robert Smith's policy **KMI-PA-7731045** · BI claim KM-26-440871 (Dana Whitfield, BI adjuster; **Greg Holloway**, claims supervisor) · PD claim KM-26-440871-PD (Leah Moran) |
 | Harbor Point Insurance | 77 Harbor Point Blvd, Riverton · Kevin Alvarez's policy **HPA-4402917** (2020 Ford Escape) · claim HP-26-7741 (Marcus Bell) · UM $20,000 / $40,000; PIP $5,000 |
 | Cardinal State Mutual | 1200 Cardinal Way, Millbrook · Margaret Doe's policy **CSM-AU-5580213** (2018 Toyota Camry) · claim CS-26-20355 (Teresa Okafor) · UM $10,000 / $20,000 |
-| Bluewater Auto Insurance | John Doe's policy **BWA-209-66184** (2019 Honda Civic LX) · liability 25/50/25 + collision ($500 deductible) · UM/UIM rejected in writing 03/14/2024 |
+| Bluewater Auto Insurance | Margaret Doe's policy **BWA-209-66184** (2019 Honda Civic LX) · liability 25/50/25 + collision ($500 deductible) · UM/UIM rejected in writing by Margaret 03/14/2024 |
 | Peach State Health Plan | Subrogation & Recovery Unit, P.O. Box 2210, Riverton · member PSH-55017742 · group GRP-41208 (Northgate Distribution; **fully insured** group plan) · recovery analyst **Dion Carver** · first notice of reimbursement rights **02/27/2026** |
 | Riverton PD | Officer **Thomas Garner #2217** · report RPD-26-018842 |
 | Riverton Fire EMS | Medic 7 · run RF-26-0206-114 · paramedic **J. Ortiz** · on scene 07:18 |

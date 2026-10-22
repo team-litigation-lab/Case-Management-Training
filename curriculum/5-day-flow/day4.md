@@ -566,7 +566,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 #### 1 · Visual Layout Description
 
-A three-step flow across the full slide on cream, each step a white orange-bordered card that opens as a pop-up context card on click. ① CLAIM SUBMISSION · UM DEMAND PACKAGE (08/31/2026), its card listing the proof of exhaustion. ② DISPUTE · IMPASSE (09/14 $8,000 · 10/01 $6,000), its card holding the impasse memo. ③ RESOLUTION ROUTE, drawn as a fork: the upper arm, heavier and navy, DEMAND FOR ARBITRATION · HARBOR POINT CLAUSE, running to a mono date strip 06/22/2027; the lower arm, outlined, FILE SUIT AGAINST THE CARRIER, tagged STATE LAW BARS OR LETS THE INSURED OPT OUT. A separate red-bordered card stands off to the side, deliberately off the fork: BAD FAITH · A SEPARATE SUIT · ABOVE THE POLICY LIMIT · ATTY. THORNE DECIDES. Above the fork, a navy banner: THE ROUTE IS READ, NEVER CHOSEN. Along the top edge, two facing chips: THIRD PARTY → ROBERT SMITH'S CARRIER and FIRST PARTY → OUR OWN CLIENT'S CARRIER.
+A three-step flow across the full slide on cream, each step a white orange-bordered card that opens as a pop-up context card on click. ① CLAIM SUBMISSION · UM DEMAND PACKAGE (03/22/2027), its card listing the proof of exhaustion. ② DISPUTE · IMPASSE (03/31 $8,000 · 04/02 $6,000), its card holding the impasse memo. ③ RESOLUTION ROUTE, drawn as a fork: the upper arm, heavier and navy, DEMAND FOR ARBITRATION · HARBOR POINT CLAUSE, running to a mono date strip 06/22/2027; the lower arm, outlined, FILE SUIT AGAINST THE CARRIER, tagged STATE LAW BARS OR LETS THE INSURED OPT OUT. A separate red-bordered card stands off to the side, deliberately off the fork: BAD FAITH · A SEPARATE SUIT · ABOVE THE POLICY LIMIT · ATTY. THORNE DECIDES. Above the fork, a navy banner: THE ROUTE IS READ, NEVER CHOSEN. Along the top edge, two facing chips: THIRD PARTY → ROBERT SMITH'S CARRIER and FIRST PARTY → OUR OWN CLIENT'S CARRIER.
 
 #### 2 · Slide Body — Tell Them
 
@@ -590,8 +590,8 @@ A three-step flow across the full slide on cream, each step a white orange-borde
 
 | Step | Action | What it takes on this file |
 |---|---|---|
-| 1 · Claim submission | UM Demand Package | Served 08/31/2026 to Harbor Point and Cardinal State: injuries, records, $16,401.40 in Specials, the wage letter, and documented proof that Robert Smith's $10,000 BI limit was exhausted and consented to |
-| 2 · Dispute | Impasse | Harbor Point offers $8,000 (09/14/2026) and Cardinal State $6,000 (10/01/2026) against $30,000 of UM limits; impasse memo to Atty. Thorne |
+| 1 · Claim submission | UM Demand Package | Served 03/22/2027 to Harbor Point and Cardinal State, after Keystone's tender at the 03/18/2027 mediation: injuries, records, $16,401.40 in Specials, the wage letter, and documented proof that Robert Smith's $10,000 BI limit was exhausted and consented to |
+| 2 · Dispute | Impasse | Harbor Point offers $8,000 (03/31/2027) and Cardinal State $6,000 (04/02/2027) against $30,000 of UM limits; both hold on 04/05/2027, citing the gap; impasse memo to Atty. Thorne |
 | 3 · Resolution route | Demand for Arbitration, or file suit against the carrier | Read the governing state law and each policy's clause. Harbor Point's UM policy has a binding arbitration clause: invoked 04/05/2027, heard 06/22/2027 before Laura Whitcomb, Esq. Where no clause binds, a civil suit against the carrier; a bad-faith action is a separate suit, and Atty. Thorne's call |
 | Not a route | Margaret Doe's Bluewater Auto policy, on her parked Civic | UM/UIM rejected in writing by Margaret 03/14/2024, and John owns no car: there is no third layer and no third route |
 
@@ -599,7 +599,7 @@ A three-step flow across the full slide on cream, each step a white orange-borde
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| UM offers come back low (09/14 and 10/01/2026) | Write the impasse memo; pull Harbor Point's and Cardinal State's dispute-resolution clauses from the certified policies | CMS → Case Notes · CMS → Insurance tab → Coverage Matrix | Memo to Atty. Thorne the same day, with both clauses attached and neither interpreted |
+| UM offers come back low (03/31 and 04/02/2027) | Write the impasse memo; pull Harbor Point's and Cardinal State's dispute-resolution clauses from the certified policies | CMS → Case Notes · CMS → Insurance tab → Coverage Matrix | Memo to Atty. Thorne the same day, with both clauses attached and neither interpreted |
 | Clauses and the governing statute in hand | Lay the route options before Atty. Thorne as findings, with each layer's own filing or demand deadline as a question | CMS → Tasks → Atty. Thorne | Both layers presented separately; no route recommended; every deadline asked, not assumed |
 | Route decided in writing | Record it, set the case status and open the ADR entry | CMS → ADR tab · CMS → Case Status | ADR Type UM / UIM arbitration; How It Was Set Required by the policy or contract; status matches the route |
 | Arbitration invoked 04/05/2027 | Docket the hearing and its backward-counted dates; tell John Doe what happens procedurally | CMS → Calendar → Master calendar | 06/02, 06/11 and 06/22/2027 entered with alerts; John Doe told the date, place and what to bring, and nothing about value |
@@ -1228,7 +1228,7 @@ A two-pane working screen. Left, two stacked policy cards with a highlighted cla
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** File date 10/02/2026, Track B. The UM demands went out 08/31/2026, after Keystone tendered its $10,000 BI limits on 08/12/2026 with both UM carriers' written consents (Harbor Point 08/24, Cardinal State 08/26) and a Limited Release signed 08/28. Harbor Point's Marcus Bell (HP-26-7741) offered $8,000 on 09/14/2026 against a $20,000 Host UM limit, calling the 14-Day Gap a causation problem. Cardinal State's Teresa Okafor (CS-26-20355) offered $6,000 on 10/01/2026 against a $10,000 Relative UM limit. Harbor Point's UM policy contains a binding arbitration clause; Cardinal State's certified policy has been requested and has not arrived. Suit against Robert Smith was filed 09/24/2026; the tort SOL is 02/06/2028.
+**Scenario.** File date 04/05/2027, Track B. Keystone tendered its $10,000 BI limits at the 03/18/2027 mediation; both UM carriers consented in writing, the Limited Release was signed and Robert Smith was dismissed. The UM demands went out 03/22/2027. Harbor Point's Marcus Bell (HP-26-7741) offered $8,000 on 03/31/2027 against a $20,000 Host UM limit, calling the 14-Day Gap a causation problem. Cardinal State's Teresa Okafor (CS-26-20355) offered $6,000 on 04/02/2027 against a $10,000 Relative UM limit. Today both refuse to move. Harbor Point's UM policy contains a binding arbitration clause; Cardinal State's certified policy has been requested and has not arrived. The suit against Robert Smith, filed 09/24/2026, ended with his dismissal after the mediation; the tort SOL is 02/06/2028.
 
 **Execution prompt.** Route the UM impasse. Write the impasse memo to Atty. Thorne: the offers against the limits, Harbor Point's stated reason, and the dispute-resolution clause of each layer quoted, not paraphrased, with Cardinal State's marked as outstanding. Lay out both resolution routes and what each would require operationally, and ask him, in writing, for the governing route on each layer, each layer's own suit or arbitration-demand deadline, and whether the two should be heard together. Then set up the CMS to carry the answer: the ADR entry, the case status, a task per open question, and the calendar entries you will make once he answers. Finally, draft what you will say to John Doe when he calls to ask what happens now.
 
@@ -1239,9 +1239,9 @@ A two-pane working screen. Left, two stacked policy cards with a highlighted cla
 
 **Verification checkpoints**
 
-- [ ] Both claims named as first-party claims under John Doe's own contract, distinct from the Keystone third-party claim that closed on 08/12/2026
-- [ ] Offers set against the limits exactly: $8,000 against $20,000 (Harbor Point, 09/14/2026) and $6,000 against $10,000 (Cardinal State, 10/01/2026), $14,000 against $30,000 in all
-- [ ] Exhaustion documented, not assumed: Keystone's $10,000 tender 08/12/2026, both UM consents (08/24 and 08/26) and the Limited Release signed 08/28
+- [ ] Both claims named as first-party claims under John Doe's own contract, distinct from the Keystone third-party claim that closed at the 03/18/2027 mediation
+- [ ] Offers set against the limits exactly: $8,000 against $20,000 (Harbor Point, 03/31/2027) and $6,000 against $10,000 (Cardinal State, 04/02/2027), $14,000 against $30,000 in all
+- [ ] Exhaustion documented, not assumed: Keystone's $10,000 tender at the 03/18/2027 mediation, both UM consents, the Limited Release and the order dismissing Robert Smith
 - [ ] Harbor Point's arbitration clause quoted verbatim and identified as binding; no interpretation offered
 - [ ] Cardinal State treated as its own layer: the certified policy and its dispute-resolution and other-insurance clauses recorded as outstanding, with a chase task, and Harbor Point's clause never read onto it
 - [ ] Both routes laid out with their operational consequences: a Demand for Arbitration and its forum dates, or a civil suit against the carrier where state law bars the clause or permits opt-out
@@ -1255,7 +1255,7 @@ A two-pane working screen. Left, two stacked policy cards with a highlighted cla
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Cardinal State's offer lands 10/01/2026 | Write the impasse memo with both clauses quoted | CMS → Case Notes | Memo dated 10/02/2026; Cardinal State's clause marked outstanding |
+| Both UM carriers hold at their offers, 04/05/2027 | Write the impasse memo with both clauses quoted | CMS → Case Notes | Memo dated 04/05/2027; Cardinal State's clause marked outstanding |
 | Certified policy outstanding | Chase it and log the request | CMS → Tasks | Chase task with an owner and a date; the gap stated in the memo, not filled in |
 | Questions sent to Atty. Thorne | Hold every date; draft the entries without saving them | CMS → Calendar | Nothing docketed; the drafts wait on his written answer |
 | John Doe calls to ask what happens now | Explain the procedure; route value and conduct to Atty. Thorne | CMS → Case Notes → Client Communications | Call logged the same day with what was said and what was routed |
@@ -1277,7 +1277,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **15%** | Figures and dates | $8,000 / $20,000 and $6,000 / $10,000 with their dates; exhaustion evidenced by the 08/12, 08/24, 08/26 and 08/28/2026 record |
+| 🤖 AI | **15%** | Figures and dates | $8,000 / $20,000 and $6,000 / $10,000 with their dates; exhaustion evidenced by the 03/18/2027 tender, the consents, the Limited Release and the dismissal |
 | 🤖 AI | **20%** | Clause handling | Harbor Point's clause quoted and identified as binding; Cardinal State's recorded as outstanding and read separately |
 | 🤖 AI | **15%** | Routes laid out | Both routes with their operational consequences; bad faith kept separate and above the limits |
 | 🤖 AI | **10%** | Nothing assumed | No date docketed before the written answer; the tort SOL not used as a UM deadline |
@@ -1291,7 +1291,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 - Grade the memo on whether Atty. Thorne could make three decisions from it without opening the file. If he would have to go looking for the clause, it failed.
 - The commonest failure is a trainee who writes “Harbor Point's policy requires arbitration, so we will file a Demand for Arbitration on…” — a route decided and a date set in one sentence. Both are his.
-- Second commonest: Cardinal State folded into Harbor Point's clause because both are UM. Make them say what they actually have from Cardinal State, which on 10/02/2026 is a requested policy and nothing else.
+- Second commonest: Cardinal State folded into Harbor Point's clause because both are UM. Make them say what they actually have from Cardinal State, which on 04/05/2027 is a requested policy and nothing else.
 - Run the client call live if there is time. John Doe will ask whether the insurance company is allowed to do this. The right answer explains the procedure and promises Atty. Thorne's call, and says nothing about whether it is allowed.
 
 ---
