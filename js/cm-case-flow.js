@@ -703,6 +703,41 @@ function plainBox(b){
   if(!ts.length) return "";
   return `<details class="cfx-plain"${ts.length <= 3 ? " open" : ""}><summary>📖 <b>In plain English</b> · ${ts.map(E).join(" · ")}</summary><dl>${ts.map(t => `<div><dt>${E(t)}</dt><dd>${E(CF.plain[t])}</dd></div>`).join("")}</dl></details>`;
 }
+/* Time on the file. The course is five days; John Doe's case runs from the collision to the award over a year and a
+   half, and its Skill Activities are taught by topic, not in date order. So each one's Your Case opens by saying how
+   the file has moved since the last task (later, back to an earlier date, the other workstream, or into Track B),
+   how long after the collision it is, what stage the file is at (the activity's `transition`), and how much of the
+   SOL is left. All of it is worked out from the case's own dates, so it follows the case year and the CMS's DOL. */
+const SPAN_DAYS = 14;   // a move of less than two weeks is the same stretch of work: no jump is announced
+function spanOf(days){
+  days = Math.abs(Math.round(days));
+  if(days < SPAN_DAYS) return days === 1 ? "1 day" : `${days} days`;
+  if(days < 60) return `${Math.round(days / 7)} weeks`;
+  const mo = Math.round(days / 30.44), y = Math.floor(mo / 12), m = mo % 12;
+  return [y ? `${y} year${y > 1 ? "s" : ""}` : "", m ? `${m} month${m > 1 ? "s" : ""}` : ""].filter(Boolean).join(" ");
+}
+const johnDoeActs = () => MODULES.flatMap(d => d.lessons).filter(l => l.cf.block.kind === "activity" && !l.cf.block.otherMatter && SIM.events[l.cf.block.id]);
+function timeBanner(l){
+  const b = l.cf.block, ev = SIM.events[b.id];
+  if(!ev) return "";
+  const say = b.transition ? `<p>${hl(b.transition)}</p>` : "";
+  if(b.otherMatter) return `<div class="cfx-when cfx-when-other"><div class="cfx-when-top"><b class="cfx-when-jump">📂 A different file</b><span>File date ${E(ev.date)}</span></div>${say}</div>`;
+  const acts = johnDoeActs(), i = acts.findIndex(x => x.cf.block.id === b.id), prev = i > 0 ? acts[i - 1] : null;
+  const t = dayMs(ev.date), dol = dayMs(CF.case.dol), sol = dayMs(CF.case.sol), DAY = 864e5;
+  let jump = "";
+  if(!prev) jump = "📅 Day one on the file";
+  else {
+    const gap = (t - dayMs(SIM.events[prev.cf.block.id].date)) / DAY, far = Math.abs(gap) >= SPAN_DAYS;
+    const intoB = trackOf(l.cf.mod.id) === "B" && trackOf(prev.cf.mod.id) !== "B";
+    const lanes = l.cf.lane && prev.cf.lane && l.cf.lane !== prev.cf.lane;
+    if(intoB) jump = `🔀 Track B: the same file, had it not settled${gap < 0 && far ? `, back to ${E(ev.date)}` : ""}`;
+    else if(lanes) jump = `⇄ Meanwhile, on ${E(LANES[l.cf.lane])}${far ? (gap < 0 ? `, back to ${E(ev.date)}` : `, ${spanOf(gap)} later`) : ""}`;
+    else if(far) jump = gap > 0 ? `⏩ ${spanOf(gap)} later` : `⏪ Back to ${E(ev.date)}, ${spanOf(gap)} before the last task`;
+  }
+  const left = (sol - t) / DAY;
+  const solLine = left > 0 ? `⚖️ SOL ${E(CF.case.sol)} · ${spanOf(left)} left` : `⚠️ Past the SOL (${E(CF.case.sol)})`;
+  return `<div class="cfx-when${left > 0 ? "" : " cfx-when-late"}"><div class="cfx-when-top">${jump ? `<b class="cfx-when-jump">${jump}</b>` : ""}<span>File date ${E(ev.date)} · ${t > dol ? `${spanOf((t - dol) / DAY)} after the collision` : "the day of the collision"}</span><span class="cfx-when-sol">${solLine}</span></div>${say}</div>`;
+}
 function slideBody(view, l, d){
   const {block: b, day, mod} = l.cf, c = copyOf(b);
   switch(view){
@@ -738,7 +773,7 @@ function slideBody(view, l, d){
       const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(Boolean).slice(0, 4);
       const ev = SIM.events[b.id], fall = falloutFor(b.id), vm = ev && ev.channel === "voicemail" && ev.spoken;
       const thumbs = docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
-      return `<div class="cfx-sb">
+      return `<div class="cfx-sb">${timeBanner(l)}
         ${fall.map(x => { const e = x.f.then.event, [icon] = CHANNEL[e.channel] || ["⚠️"];
           return `<details class="cfx-fall"><summary><span class="cfx-fall-i">⚠️</span><b>${E(e.subject)}</b><span class="cfx-fall-from">${icon} ${E(e.from || "")}</span></summary>
             <p>${E(e.body)}</p>${isTrainer() ? `<small class="cfx-fall-why">${x.done ? "Not shown to this trainee: they confirmed" : "Shown because this wasn't confirmed"}: “${E(x.what)}” (${E(x.f.if.activity)})</small>` : ""}</details>`; }).join("")}
@@ -2856,6 +2891,9 @@ const CF_FILE_TABS = [
   {id: "won", label: "🏆 Case Won", title: "Track B: where the suit stands, and how it ends"}
 ];
 /* the whole case: the shared file, the two workstreams that run in parallel (each with "you are here"), then the file again */
+/* an activity's track: A (the demand, settlement, liens and disbursement) or B (the litigation fork and its close-out);
+   none before the file forks */
+const trackOf = modId => /^d4m|^d5m[1-5]$/.test(modId) ? "B" : /^d3m/.test(modId) ? "A" : "";
 /* where the trainee's file stands: the newest event of each activity they have opened, overall and per workstream */
 function caseNow(){
   const now = {"": NaN, claims: NaN, care: NaN}, max = (a, b) => isNaN(a) ? b : Math.max(a, b);
@@ -2866,7 +2904,7 @@ function caseNow(){
     const t = dayMs(e.date); now[""] = max(now[""], t);
     if(l.cf.lane) now[l.cf.lane] = max(now[l.cf.lane], t);
     const m = l.cf.mod.id;   // Track A: the demand, settlement, liens and disbursement (d3m*); Track B: the litigation fork and its close-out
-    if(/^d4m|^d5m[1-5]$/.test(m)) trackB = true; else if(/^d3m/.test(m)) trackA = true;
+    const tk = trackOf(m); if(tk === "B") trackB = true; else if(tk === "A") trackA = true;
   }));
   return {now, track: trackB ? "B" : trackA ? "A" : ""};
 }
@@ -3891,6 +3929,14 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cf-timeline .cfx-tl-full li.here .cf-tl-b{background:#DB8437;border-color:#fff;}
 .cf-timeline .cfx-tl-full li.here small{color:#fff;}
 .cf-timeline .cfx-tl-full li.next .cf-tl-b{opacity:.62;}
+/* the time banner on a Skill Activity's Your Case (timeBanner); cfx-time is the countdown button, not this */
+.cfx-when{margin:0 0 10px;padding:8px 12px;border-left:4px solid #DB8437;border-radius:8px;background:rgba(255,255,255,.07);color:#DDE2EE;font:500 13px/1.4 'Inter',sans-serif;}
+.cfx-when-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;}
+.cfx-when-jump{color:#F4B77A;font-weight:800;}
+.cfx-when-sol{margin-left:auto;font:600 12px 'IBM Plex Mono',monospace;color:#CDEBDD;}
+.cfx-when p{margin:4px 0 0;color:#fff;font-weight:600;}
+.cfx-when-other{border-left-color:#AEB6CC;}
+.cfx-when-late{border-left-color:#E5484D;}.cfx-when-late .cfx-when-sol{color:#FF8A8C;}
 /* today (the real date) is white, apart from the orange file marker, so neither is read as the other */
 .cf-timeline .cfx-tl-full li.today .cf-tl-b{background:#fff;border-color:#fff;color:#12162B;}
 .cf-timeline .cfx-tl-full li.today small{color:#12162B;}

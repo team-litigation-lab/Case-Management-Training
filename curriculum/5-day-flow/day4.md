@@ -46,9 +46,9 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 12. *Skill Activity* — Provider Balance Negotiation Exercises
 13. *Skill Activity* — Completing the Final Dual-Tab Net Sheet
 14. *Skill Activity* — Release Audit & Disbursement Command Triggering
-15. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs
-16. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping
-17. *Skill Activity* — Routing the UM Impasse: Arbitration or Court
+15. *Skill Activity* — Routing the UM Impasse: Arbitration or Court
+16. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs
+17. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping
 18. *Skill Activity* — Assembling the 6-Section Mediation Binder
 19. *Skill Activity* — Assembling the 6-Tab Arbitration Binder
 20. *Knowledge Check* — Lien Reduction Verification
@@ -1215,7 +1215,88 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.15 Auditing Court Hard Rules & Setting Calendar Cutoffs
+### 4.1.15 Routing the UM Impasse: Arbitration or Court
+
+> **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
+> **Topic:** Skill Activity 3 — read the clause, route the dispute, track it in the CMS  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D3#5` UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap · `D3#19` Key Legal Doctrines Used for Reduction · `D4#2` Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background · Newly authored: the impasse memo that quotes each layer's clause and asks the route, the per-layer deadline and consolidation as three written questions
+
+#### 1 · Visual Layout Description
+
+A two-pane working screen. Left, two stacked policy cards with a highlighted clause block in each: HARBOR POINT · HOST UM · $20,000 shows its arbitration paragraph lit in orange with a mono pill BINDING; CARDINAL STATE · RELATIVE UM · $10,000 shows the same region greyed, stamped CERTIFIED POLICY REQUESTED and a question chip CLAUSE? Right, the CMS ADR tab part-filled: ADR TYPE = UM / UIM ARBITRATION, HOW IT WAS SET = REQUIRED BY THE POLICY OR CONTRACT, with three empty mono date fields and a navy task card, DEADLINE PER LAYER — ASK ATTY. THORNE. Across the bottom a red strip: NO ROUTE IS DOCKETED UNTIL HE ANSWERS IN WRITING.
+
+#### 2 · Slide Body — Let Them
+
+**Scenario.** File date 10/02/2026, Track B. The UM demands went out 08/31/2026, after Keystone tendered its $10,000 BI limits on 08/12/2026 with both UM carriers' written consents (Harbor Point 08/24, Cardinal State 08/26) and a Limited Release signed 08/28. Harbor Point's Marcus Bell (HP-26-7741) offered $8,000 on 09/14/2026 against a $20,000 Host UM limit, calling the 14-Day Gap a causation problem. Cardinal State's Teresa Okafor (CS-26-20355) offered $6,000 on 10/01/2026 against a $10,000 Relative UM limit. Harbor Point's UM policy contains a binding arbitration clause; Cardinal State's certified policy has been requested and has not arrived. Suit against Robert Smith was filed 09/24/2026; the tort SOL is 02/06/2028.
+
+**Execution prompt.** Route the UM impasse. Write the impasse memo to Atty. Thorne: the offers against the limits, Harbor Point's stated reason, and the dispute-resolution clause of each layer quoted, not paraphrased, with Cardinal State's marked as outstanding. Lay out both resolution routes and what each would require operationally, and ask him, in writing, for the governing route on each layer, each layer's own suit or arbitration-demand deadline, and whether the two should be heard together. Then set up the CMS to carry the answer: the ADR entry, the case status, a task per open question, and the calendar entries you will make once he answers. Finally, draft what you will say to John Doe when he calls to ask what happens now.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → Case Notes · CMS → Insurance tab → Coverage Matrix · CMS → ADR tab · CMS → Tasks · CMS → Calendar |
+| **Expected output** | An impasse memo with both clauses quoted and three written questions to Atty. Thorne, a CMS file that shows the route, and a procedural explanation for John Doe with no opinion in it. |
+
+**Verification checkpoints**
+
+- [ ] Both claims named as first-party claims under John Doe's own contract, distinct from the Keystone third-party claim that closed on 08/12/2026
+- [ ] Offers set against the limits exactly: $8,000 against $20,000 (Harbor Point, 09/14/2026) and $6,000 against $10,000 (Cardinal State, 10/01/2026), $14,000 against $30,000 in all
+- [ ] Exhaustion documented, not assumed: Keystone's $10,000 tender 08/12/2026, both UM consents (08/24 and 08/26) and the Limited Release signed 08/28
+- [ ] Harbor Point's arbitration clause quoted verbatim and identified as binding; no interpretation offered
+- [ ] Cardinal State treated as its own layer: the certified policy and its dispute-resolution and other-insurance clauses recorded as outstanding, with a chase task, and Harbor Point's clause never read onto it
+- [ ] Both routes laid out with their operational consequences: a Demand for Arbitration and its forum dates, or a civil suit against the carrier where state law bars the clause or permits opt-out
+- [ ] Bad faith raised only as a question for Atty. Thorne, with Harbor Point's handling dates recorded as facts; no assertion that any conduct was unreasonable
+- [ ] Three written questions asked: the governing route per layer, each layer's own suit or arbitration-demand deadline, and whether the layers are consolidated
+- [ ] Nothing docketed from assumption: the calendar entries are drafted and held, to be entered only from his written answer; the tort SOL 02/06/2028 is not used as a UM deadline
+- [ ] CMS set up to carry the answer: ADR Type UM / UIM arbitration, How It Was Set Required by the policy or contract, status matching the route, a task per open question with an owner and a date
+- [ ] The explanation to John Doe is procedural only: what a Demand for Arbitration is in plain words, that a neutral will decide rather than a jury, and that Atty. Thorne will go through what it means for his claim; no view on the offers, the limits or the carrier's conduct
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Cardinal State's offer lands 10/01/2026 | Write the impasse memo with both clauses quoted | CMS → Case Notes | Memo dated 10/02/2026; Cardinal State's clause marked outstanding |
+| Certified policy outstanding | Chase it and log the request | CMS → Tasks | Chase task with an owner and a date; the gap stated in the memo, not filled in |
+| Questions sent to Atty. Thorne | Hold every date; draft the entries without saving them | CMS → Calendar | Nothing docketed; the drafts wait on his written answer |
+| John Doe calls to ask what happens now | Explain the procedure; route value and conduct to Atty. Thorne | CMS → Case Notes → Client Communications | Call logged the same day with what was said and what was routed |
+
+**Best practices & pitfalls**
+
+- Quote the clause and stop; the memo's job is to put the words in front of counsel.
+- Give each layer its own section, its own clause and its own deadline question.
+- Record the handling dates that a bad-faith question would turn on, and ask the question rather than answer it.
+- ⚠️ Pitfall: docketing an arbitration-demand deadline from the tort SOL.
+- ⚠️ Pitfall: assuming consolidation because both layers are UM.
+- ⚠️ Pitfall: telling John Doe the firm is suing Harbor Point before Atty. Thorne has read the clause.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Figures and dates | $8,000 / $20,000 and $6,000 / $10,000 with their dates; exhaustion evidenced by the 08/12, 08/24, 08/26 and 08/28/2026 record |
+| 🤖 AI | **20%** | Clause handling | Harbor Point's clause quoted and identified as binding; Cardinal State's recorded as outstanding and read separately |
+| 🤖 AI | **15%** | Routes laid out | Both routes with their operational consequences; bad faith kept separate and above the limits |
+| 🤖 AI | **10%** | Nothing assumed | No date docketed before the written answer; the tort SOL not used as a UM deadline |
+| 🧑‍🏫 Trainer | **15%** | Memo quality | Counsel can decide from it: offers against limits, clauses verbatim, questions numbered |
+| 🧑‍🏫 Trainer | **10%** | Client explanation | Plain, procedural and calm; no value, no conduct, no prediction |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | Recommends nothing legal; the route, the deadlines and bad faith all go to Atty. Thorne as questions |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Grade the memo on whether Atty. Thorne could make three decisions from it without opening the file. If he would have to go looking for the clause, it failed.
+- The commonest failure is a trainee who writes “Harbor Point's policy requires arbitration, so we will file a Demand for Arbitration on…” — a route decided and a date set in one sentence. Both are his.
+- Second commonest: Cardinal State folded into Harbor Point's clause because both are UM. Make them say what they actually have from Cardinal State, which on 10/02/2026 is a requested policy and nothing else.
+- Run the client call live if there is time. John Doe will ask whether the insurance company is allowed to do this. The right answer explains the procedure and promises Atty. Thorne's call, and says nothing about whether it is allowed.
+
+---
+
+### 4.1.16 Auditing Court Hard Rules & Setting Calendar Cutoffs
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 1 — find the dates that would cost the file  
@@ -1307,7 +1388,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.16 ADR Rules Matrix & UPL Boundary Mapping
+### 4.1.17 ADR Rules Matrix & UPL Boundary Mapping
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 2 — what changes from compromise to decision  
@@ -1390,87 +1471,6 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 - Ask the room: “On 03/18/2027 the other side was Robert Smith. Who is it on 06/22/2027, and what are they disputing?” The answer is the UM carriers, and the gap.
 - Watch the brief date. Trainees who learned the forward rule apply it here and land on Monday 06/14/2027, after the deadline.
 - Grade the scripted deferral hardest. A trainee who audited the Riverton Spine & Rehab bill knows the answer and will want to give it; that is exactly the moment the Golden Rule exists for.
-
----
-
-### 4.1.17 Routing the UM Impasse: Arbitration or Court
-
-> **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
-> **Topic:** Skill Activity 3 — read the clause, route the dispute, track it in the CMS  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D3#5` UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap · `D3#19` Key Legal Doctrines Used for Reduction · `D4#2` Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background · Newly authored: the impasse memo that quotes each layer's clause and asks the route, the per-layer deadline and consolidation as three written questions
-
-#### 1 · Visual Layout Description
-
-A two-pane working screen. Left, two stacked policy cards with a highlighted clause block in each: HARBOR POINT · HOST UM · $20,000 shows its arbitration paragraph lit in orange with a mono pill BINDING; CARDINAL STATE · RELATIVE UM · $10,000 shows the same region greyed, stamped CERTIFIED POLICY REQUESTED and a question chip CLAUSE? Right, the CMS ADR tab part-filled: ADR TYPE = UM / UIM ARBITRATION, HOW IT WAS SET = REQUIRED BY THE POLICY OR CONTRACT, with three empty mono date fields and a navy task card, DEADLINE PER LAYER — ASK ATTY. THORNE. Across the bottom a red strip: NO ROUTE IS DOCKETED UNTIL HE ANSWERS IN WRITING.
-
-#### 2 · Slide Body — Let Them
-
-**Scenario.** File date 10/02/2026, Track B. The UM demands went out 08/31/2026, after Keystone tendered its $10,000 BI limits on 08/12/2026 with both UM carriers' written consents (Harbor Point 08/24, Cardinal State 08/26) and a Limited Release signed 08/28. Harbor Point's Marcus Bell (HP-26-7741) offered $8,000 on 09/14/2026 against a $20,000 Host UM limit, calling the 14-Day Gap a causation problem. Cardinal State's Teresa Okafor (CS-26-20355) offered $6,000 on 10/01/2026 against a $10,000 Relative UM limit. Harbor Point's UM policy contains a binding arbitration clause; Cardinal State's certified policy has been requested and has not arrived. Suit against Robert Smith was filed 09/24/2026; the tort SOL is 02/06/2028.
-
-**Execution prompt.** Route the UM impasse. Write the impasse memo to Atty. Thorne: the offers against the limits, Harbor Point's stated reason, and the dispute-resolution clause of each layer quoted, not paraphrased, with Cardinal State's marked as outstanding. Lay out both resolution routes and what each would require operationally, and ask him, in writing, for the governing route on each layer, each layer's own suit or arbitration-demand deadline, and whether the two should be heard together. Then set up the CMS to carry the answer: the ADR entry, the case status, a task per open question, and the calendar entries you will make once he answers. Finally, draft what you will say to John Doe when he calls to ask what happens now.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Case Notes · CMS → Insurance tab → Coverage Matrix · CMS → ADR tab · CMS → Tasks · CMS → Calendar |
-| **Expected output** | An impasse memo with both clauses quoted and three written questions to Atty. Thorne, a CMS file that shows the route, and a procedural explanation for John Doe with no opinion in it. |
-
-**Verification checkpoints**
-
-- [ ] Both claims named as first-party claims under John Doe's own contract, distinct from the Keystone third-party claim that closed on 08/12/2026
-- [ ] Offers set against the limits exactly: $8,000 against $20,000 (Harbor Point, 09/14/2026) and $6,000 against $10,000 (Cardinal State, 10/01/2026), $14,000 against $30,000 in all
-- [ ] Exhaustion documented, not assumed: Keystone's $10,000 tender 08/12/2026, both UM consents (08/24 and 08/26) and the Limited Release signed 08/28
-- [ ] Harbor Point's arbitration clause quoted verbatim and identified as binding; no interpretation offered
-- [ ] Cardinal State treated as its own layer: the certified policy and its dispute-resolution and other-insurance clauses recorded as outstanding, with a chase task, and Harbor Point's clause never read onto it
-- [ ] Both routes laid out with their operational consequences: a Demand for Arbitration and its forum dates, or a civil suit against the carrier where state law bars the clause or permits opt-out
-- [ ] Bad faith raised only as a question for Atty. Thorne, with Harbor Point's handling dates recorded as facts; no assertion that any conduct was unreasonable
-- [ ] Three written questions asked: the governing route per layer, each layer's own suit or arbitration-demand deadline, and whether the layers are consolidated
-- [ ] Nothing docketed from assumption: the calendar entries are drafted and held, to be entered only from his written answer; the tort SOL 02/06/2028 is not used as a UM deadline
-- [ ] CMS set up to carry the answer: ADR Type UM / UIM arbitration, How It Was Set Required by the policy or contract, status matching the route, a task per open question with an owner and a date
-- [ ] The explanation to John Doe is procedural only: what a Demand for Arbitration is in plain words, that a neutral will decide rather than a jury, and that Atty. Thorne will go through what it means for his claim; no view on the offers, the limits or the carrier's conduct
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Cardinal State's offer lands 10/01/2026 | Write the impasse memo with both clauses quoted | CMS → Case Notes | Memo dated 10/02/2026; Cardinal State's clause marked outstanding |
-| Certified policy outstanding | Chase it and log the request | CMS → Tasks | Chase task with an owner and a date; the gap stated in the memo, not filled in |
-| Questions sent to Atty. Thorne | Hold every date; draft the entries without saving them | CMS → Calendar | Nothing docketed; the drafts wait on his written answer |
-| John Doe calls to ask what happens now | Explain the procedure; route value and conduct to Atty. Thorne | CMS → Case Notes → Client Communications | Call logged the same day with what was said and what was routed |
-
-**Best practices & pitfalls**
-
-- Quote the clause and stop; the memo's job is to put the words in front of counsel.
-- Give each layer its own section, its own clause and its own deadline question.
-- Record the handling dates that a bad-faith question would turn on, and ask the question rather than answer it.
-- ⚠️ Pitfall: docketing an arbitration-demand deadline from the tort SOL.
-- ⚠️ Pitfall: assuming consolidation because both layers are UM.
-- ⚠️ Pitfall: telling John Doe the firm is suing Harbor Point before Atty. Thorne has read the clause.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **15%** | Figures and dates | $8,000 / $20,000 and $6,000 / $10,000 with their dates; exhaustion evidenced by the 08/12, 08/24, 08/26 and 08/28/2026 record |
-| 🤖 AI | **20%** | Clause handling | Harbor Point's clause quoted and identified as binding; Cardinal State's recorded as outstanding and read separately |
-| 🤖 AI | **15%** | Routes laid out | Both routes with their operational consequences; bad faith kept separate and above the limits |
-| 🤖 AI | **10%** | Nothing assumed | No date docketed before the written answer; the tort SOL not used as a UM deadline |
-| 🧑‍🏫 Trainer | **15%** | Memo quality | Counsel can decide from it: offers against limits, clauses verbatim, questions numbered |
-| 🧑‍🏫 Trainer | **10%** | Client explanation | Plain, procedural and calm; no value, no conduct, no prediction |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | Recommends nothing legal; the route, the deadlines and bad faith all go to Atty. Thorne as questions |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Grade the memo on whether Atty. Thorne could make three decisions from it without opening the file. If he would have to go looking for the clause, it failed.
-- The commonest failure is a trainee who writes “Harbor Point's policy requires arbitration, so we will file a Demand for Arbitration on…” — a route decided and a date set in one sentence. Both are his.
-- Second commonest: Cardinal State folded into Harbor Point's clause because both are UM. Make them say what they actually have from Cardinal State, which on 10/02/2026 is a requested policy and nothing else.
-- Run the client call live if there is time. John Doe will ask whether the insurance company is allowed to do this. The right answer explains the procedure and promises Atty. Thorne's call, and says nothing about whether it is allowed.
 
 ---
 

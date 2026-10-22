@@ -208,6 +208,25 @@ if(Array.isArray(CF.sequence)){
   }));
 }
 
+
+/* Time on the file (timeBanner in js/cm-case-flow.js). The course compresses a year and a half of John Doe's case
+   into five days and teaches it by topic, so each module's first Skill Activity, in teaching order, carries a
+   `transition`: what stage the file is at. And every activity on his file happens before the SOL, so no step of the
+   course has the firm working a claim the law has already closed. A practice matter (`otherMatter`) is not on his clock. */
+if(Array.isArray(CF.sequence)){
+  const SIMEV = (() => { require(path.join(ROOT, "js/cm-case-flow-sim.js")); return (global.window.CM_CF_SIM || {}).events || {}; })();
+  const ms = v => { const [m, d, y] = String(v || "").split("/").map(Number); return y ? Date.UTC(y, m - 1, d) : NaN; };
+  const sol = ms(CF.case.sol), opened = new Set();
+  if(isNaN(sol)) errors.push(`case.sol "${CF.case.sol}" is not a MM/DD/YYYY date`);
+  CF.sequence.forEach(sd => (sd.phases || []).forEach(ph => (ph.blocks || []).forEach(id => {
+    const x = STORED[id]; if(!x || x.b.kind !== "activity") return;
+    if(!opened.has(x.mod.id)){ opened.add(x.mod.id);
+      if(!String(x.b.transition || "").trim()) errors.push(`${id}: opens module ${x.mod.id} in teaching order but has no transition (what stage the file is at)`); }
+    const e = SIMEV[id];
+    if(!x.b.otherMatter && e && !(ms(e.date) < sol)) errors.push(`${id}: its event (${e.date}) is not before the SOL (${CF.case.sol}), so the firm would be working a closed claim`);
+  })));
+}
+
 if(errors.length){
   console.error("Case Flow curriculum check failed:\n" + errors.map(e => "  • " + e).join("\n"));
   process.exit(1);
