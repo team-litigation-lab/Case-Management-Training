@@ -410,8 +410,8 @@ function fullText(l, d){
     + S(3, "Trigger ➔ Task ➔ Tool ➔ Checkpoint", opsTable(b.ops))
     + S(4, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
   if(b.kind === "activity") return S(1, "Let Them — the scenario", `<div class="scenario-card"><div class="stag">John Doe v. Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
-    + S(2, "Let Them — execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span><span class="cfx-btns">${toolButtons(b.act.tool + (SIM.calls[b.id] ? " Call Simulator" : ""), b.id)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
-    + S(3, "Verification checkpoints", ul(b.act.checkpoints))
+    + S(2, "Let Them — execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
+    + S(3, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once you finish the activity and reveal the answers on its Check Your Work slide.</p>`)
     + S(4, "Trigger ➔ Task ➔ Tool ➔ Checkpoint", opsTable(b.ops))
     + S(5, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
   return S(1, "Knowledge verification", `<ol class="cf-q">${b.check.questions.map(q => `<li>${E(q)}</li>`).join("")}</ol>`)
@@ -483,6 +483,11 @@ const titleCase = t => String(t || "").split(/(\s+|—|–|\/)/).map((w, i, a) =
 }).join("");
 const leadSplit = t => { const m = String(t || "").match(/^\*\*([^*]+?[.!?:])\*\*\s+(.+)$/); return m ? [m[1], m[2]] : null; };
 const hl = t => E(t).replace(/\*\*(.+?)\*\*/g, '<mark class="cfx-hl">$1</mark>');
+/* Check Your Work holds the answers (the **marked** parts): a trainee sees blanks until they finish the activity and
+   reveal them; the trainer always sees them, except on the shared slides window (the audience sees what trainees see). */
+const masked = t => E(t).replace(/\*\*(.+?)\*\*/g, '<span class="cfx-blank" title="Your answer, from the file">______</span>');
+const inAudience = () => typeof document !== "undefined" && !!document.body && document.body.classList.contains("audience-mode");
+const answersOpen = id => (isTrainer() && !inAudience()) || !!((REC.revealed || {})[id]);
 const words = (t, n) => { const w = String(t || "").replace(/\s+/g, " ").trim().split(" "); return w.length <= n ? w.join(" ") : w.slice(0, n).join(" ").replace(/[,;:]$/, "") + "…"; };
 const firstSentence = t => (String(t || "").match(/^.*?[.!?](\s|$)/) || [t])[0].trim();
 function copyOf(b){   // the block's concise copy, or a condensed fallback from its full text
@@ -709,8 +714,11 @@ function slideBody(view, l, d){
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}</span>
           <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
         <div class="cfx-deliver"><b>📤 Deliver</b><span>${hl(c.deliver)}</span></div></aside></div>`; }
-    case "check": return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${hl(x)}</span></label>`).join("")}</div>
-      ${c.donts.length ? `<div class="cfx-watch"><b>⚠️ Watch For</b>${c.donts.map(x => `<span>${hl(x)}</span>`).join("")}</div>` : ""}${workLog(b)}`;
+    case "check": { const open = answersOpen(b.id);
+      return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${open ? hl(x) : masked(x)}</span></label>`).join("")}</div>
+      ${open ? (isTrainer() && !inAudience() ? `<p class="cfx-key-note">🔑 Trainer view: the answers. Trainees see blanks until they finish the activity.</p>` : "")
+        : `<div class="cfx-reveal"><span>Work the activity in the tool first, then compare: each blank is an answer your file should hold.</span><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.reveal('${b.id}')">✓ I've finished: show the answers</button></div>`}
+      ${c.donts.length ? `<div class="cfx-watch"><b>⚠️ Watch For</b>${c.donts.map(x => `<span>${hl(x)}</span>`).join("")}</div>` : ""}${workLog(b)}`; }
     case "questions": case "questions2": {   // each question with its answer box; answers save as they're typed
       const from = view === "questions2" ? KC_PER : 0, m = rec(mod.id), last = from + KC_PER >= c.questions.length;
       return `<ol class="cfx-points cfx-qs cfx-qs-2 cfx-kc" style="counter-reset:cfx ${from}">${c.questions.slice(from, from + KC_PER).map((q, j) => `<li><span><span class="cfx-kc-q">${hl(q)}</span>
@@ -780,6 +788,15 @@ if(!document.getElementById("cfx-deck-font")){
 window.cmCaseFlow = window.cmCaseFlow || {};
 window.cmCaseFlow.full = function(dayId, i){
   const d = cfDay(dayId), l = d && d.lessons[i]; if(!l) return;
+  // its own browser tab, so the slides and the tool beside them stay in view; the pop-up only when tabs are blocked
+  const w = window.open("", "_blank");
+  if(w && w.document){
+    const head = [...document.querySelectorAll('link[rel="stylesheet"], style')].map(n => n.outerHTML).join("");
+    w.document.open();
+    w.document.write(`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${E(titleCase(l.cf.block.title))} — Full Text</title><base href="${location.origin}/">${head}<style>body{background:#F4F5FA;margin:0;padding:24px 16px}.cfx-full-page{max-width:980px;margin:0 auto;padding:18px 24px !important}</style></head><body><div class="card lesson-card cfx-full-page"><h2 style="margin:0 0 12px">📖 ${E(titleCase(l.cf.block.title))} — Full Text</h2>${strip()}${fullText(l, d)}</div></body></html>`);
+    w.document.close();
+    return;
+  }
   const o = document.createElement("div"); o.className = "cfx-modal"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Full text");
   o.innerHTML = `<div class="cfx-modal-in card lesson-card"><div class="cfx-modal-h"><b>📖 ${E(titleCase(l.cf.block.title))} — Full Text</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>${strip()}${fullText(l, d)}</div>`;
   const close = () => { o.remove(); document.removeEventListener("keydown", esc, true); };
@@ -1350,7 +1367,7 @@ if(typeof window.renderOpenRoleplay === "function" || typeof renderOpenRoleplay 
    where each step is done without repeating the buttons; a live call is taken from its own activity's Your Task. */
 function labTools(d){
   const at = {};
-  d.lessons.forEach(l => { const b = l.cf.block; if(b.kind === "activity") blockTools(b).forEach(id => { if(id !== "call" && !at[id]) at[id] = b.id; }); });
+  d.lessons.forEach(l => { const b = l.cf.block; if(b.kind === "activity") blockTools(b).concat(SIM.calls[b.id] ? ["call"] : []).forEach(id => { if(!at[id]) at[id] = b.id; }); });
   if(typeof relatedTools === "function" && relatedTools(d.id).some(t => t.id === "calendar") && !at.calendar) at.calendar = "";
   const order = TOOLKIT.map(t => t.id);
   return Object.entries(at).sort((a, b) => order.indexOf(a[0]) - order.indexOf(b[0]));
@@ -1701,10 +1718,12 @@ if(typeof submitQuiz === "function"){
    questions, Self-Summary and Skill Scale. One Submit scores the quiz and sends every module to the AI reviewer
    against its rubric, automatically (no separate "Submit for review"); the results fit one screen. */
 const words3 = (x, n) => String(x || "").trim().split(/\s+/).filter(Boolean).length >= n;
-const kcMods = d => d.lessons.filter(l => l.cf.block.kind === "check").map(l => ({b: l.cf.block, mod: l.cf.mod, ph: l.cf.phase}));
-// The bonus round is one takeaway per module: the Self-Summary's first prompt, in a few sentences
+// The bonus round is ONE takeaway for the whole day (saves time): a short summary of the day, written against and
+// graded with the day's last Knowledge Check block, which stands for the day.
+const kcMods = d => { const all = d.lessons.filter(l => l.cf.block.kind === "check").map(l => ({b: l.cf.block, mod: l.cf.mod, ph: l.cf.phase}));
+  return all.length ? [all[all.length - 1]] : []; };
 const TAKEAWAY_MIN = 8;
-const takeawayOf = b => b.check.summary[0];
+const takeawayOf = b => `Your key takeaway from today, in one short summary: what you learned across the day's lessons and activities on John Doe's file, and what you will do differently on the job. (Start from: ${b.check.summary[0]})`;
 function modMissing(b, modId){   // what's left to do on a module's Learning Check, or "" when it's complete
   const m = rec(modId), n = String(m.answers[0] || "").trim().split(/\s+/).filter(Boolean).length;
   return n >= TAKEAWAY_MIN ? "" : n ? `add to your takeaway (at least ${TAKEAWAY_MIN} words; ${n} so far)` : "write your takeaway";
@@ -1899,7 +1918,7 @@ function gameQuiz(d){
       <div class="cfg-tally"><span><b>${right}</b> of ${n} right</span>${g.mode === "millionaire" ? "" : `<span><b class="cfg-count" data-to="${g.pts}">${g.pts.toLocaleString()}</b> points</span>`}<span>best streak <b>${g.best}</b></span></div>
       ${earned ? `<div class="cfg-earn">🤝 <b>+${earned} Ask a Friend token${earned === 1 ? "" : "s"}</b> for your next round: a hint from your AI colleague on a question you're stuck on</div>` : ""}
       ${gameBadges(d, g).length ? `<div class="cfg-badges">${gameBadges(d, g).map(([i, t, x]) => `<span class="cfg-badge"><i>${i}</i><b>${t}</b><small>${x}</small></span>`).join("")}</div>` : ""}
-      <button class="btn btn-primary" style="padding:13px 28px;" type="button" onclick="cmCaseFlow.kcPart('written')">Bonus round: your takeaways →</button></div>`;
+      <button class="btn btn-primary" style="padding:13px 28px;" type="button" onclick="cmCaseFlow.kcPart('written')">Bonus round: your key takeaway →</button></div>`;
   // the board / the wheel / the doors come before a question
   if(g.mode === "jeopardy" && (state.cfJq == null || g.log[state.cfJq] && state.cfGameShow !== state.cfJq && state.cfJAns !== state.cfJq)){
     return `<div class="cfg">${hud}${titleRow}${finished ? clear : `<p class="cfg-hint">Pick a category and a value. One square hides a <b>Daily Double</b>.</p>`}${jeopardyBoard(d, g)}</div>`;
@@ -2057,7 +2076,7 @@ if(typeof renderQuiz === "function"){
     const mods = kcMods(d), done = mods.filter(x => !modMissing(x.b, x.mod.id)).length, answered = Object.keys(state.quizAnswers || {}).length;
     const part = state.cfKcPart === "written" && state.cfKcDay === d.id ? "written" : "quiz";
     const step = (k, label, sub) => `<button type="button" class="cf-kc-step${part === k ? " on" : ""}" onclick="cmCaseFlow.kcPart('${k}')"><b>${label}</b><small>${sub}</small></button>`;
-    const steps = `<div class="cf-kc-steps">${step("quiz", `① ${(GAMES[(state.cfGame && state.cfGame.day === d.id && state.cfGame.mode) || (state.cfGameMode || {})[d.id] || GAME_DAY[d.cf.n]] || GAMES.millionaire).icon} The Quiz Game`, `${answered} of ${d.quiz.length} played`)}${step("written", "② Bonus round: your takeaways", `${done} of ${mods.length} written${takeawayScore(d).pct == null ? " · graded when you submit" : ` · graded ${takeawayScore(d).pct}%`}`)}</div>`;
+    const steps = `<div class="cf-kc-steps">${step("quiz", `① ${(GAMES[(state.cfGame && state.cfGame.day === d.id && state.cfGame.mode) || (state.cfGameMode || {})[d.id] || GAME_DAY[d.cf.n]] || GAMES.millionaire).icon} The Quiz Game`, `${answered} of ${d.quiz.length} played`)}${step("written", "② Bonus round: your key takeaway", `${done} of ${mods.length} written${takeawayScore(d).pct == null ? " · graded when you submit" : ` · graded ${takeawayScore(d).pct}%`}`)}</div>`;
     const prog = (state.progress || {})[d.id];
     const head = `<div class="cf-kc-head"><button type="button" class="cf-kc-back" onclick="cmCaseFlow.kcBack(${d.id})" title="Back to the slide you were on">← Lessons</button>
       <b>Case Flow Day ${d.cf.n} · ${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</b><span class="tag">Knowledge Check · ${d.quiz.length} questions</span>
@@ -2094,6 +2113,7 @@ const status = (modId, t) => { const el = document.getElementById(`cfss_st_${mod
 window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
   draft(modId){ readForm(modId); clearTimeout(draftTimer); draftTimer = setTimeout(() => { persist(); status(modId, "Draft saved"); }, 900); },
   rate(modId, j, n){ rec(modId).scale[j] = n; persist(); },
+  reveal(blockId){ (REC.revealed = REC.revealed || {})[blockId] = new Date().toISOString(); persist(); if(typeof render === "function") render(); },
   tick(blockId, j, on){ REC.ticks = REC.ticks || {}; (REC.ticks[blockId] = REC.ticks[blockId] || [])[j] = !!on; persist(); },
   kcDraft(modId, j, v){ rec(modId).kc[j] = v; clearTimeout(draftTimer); draftTimer = setTimeout(() => { persist(); status(modId, "Draft saved"); }, 900); },
   async save(modId){ const m = readForm(modId); m.savedAt = new Date().toISOString(); await persist(); status(modId, "Saved " + new Date(m.savedAt).toLocaleString()); },
@@ -2473,6 +2493,55 @@ if(typeof window.renderClientProfile === "function" && Array.isArray(CF.profile)
   window.cmCaseFlow.profile = () => { if(state.view !== "clientprofile" && typeof goto === "function") return goto("clientprofile"); render(); window.scrollTo(0, 0); };   // the dashboard's "Case profile" button
 }
 
+/* ---------- the Action Plan: a template the trainee fills in ----------
+   The Action Plan note starts as a form in plain text: each section labelled, each answer a blank to fill, so a
+   trainee writes the plan rather than wondering what goes in it. An empty Action Plan gets it again; 📝 Use the
+   template puts it back on demand (below what is already written). */
+const PLAN_TEMPLATE = [
+  "ACTION PLAN · John Doe v. Robert Smith",
+  "Date: ____________    Case Flow Day / phase: ____________",
+  "",
+  "1. SITUATION (facts from the file only, with the document each comes from)",
+  "   - ____________",
+  "",
+  "2. GOAL AND DEADLINE (what must be true, by when: SOL, carrier or court date)",
+  "   - Goal: ____________",
+  "   - Deadline: ____________",
+  "",
+  "3. ACTION ITEMS (one per line: task, owner, due date, tool)",
+  "   - Task: ____________ | Owner: ____________ | Due: ____________ | Tool: ____________",
+  "   - Task: ____________ | Owner: ____________ | Due: ____________ | Tool: ____________",
+  "   - Task: ____________ | Owner: ____________ | Due: ____________ | Tool: ____________",
+  "",
+  "4. RISKS AND FLAGS (gaps, liens, coverage, deadlines; facts only, no opinion on value)",
+  "   - ____________",
+  "",
+  "5. UPL CHECK (anything the client asked that only the attorney can answer, and when it was routed)",
+  "   - ____________",
+  "",
+  "6. WHO IS TOLD (attorney, client, carrier, provider) and how",
+  "   - ____________",
+  "",
+  "7. FOLLOW-UP (the date you check again, and what you check)",
+  "   - ____________"
+].join("\n");
+if(typeof window.ensureDefaultNote === "function"){
+  const __ensure = window.ensureDefaultNote;
+  window.ensureDefaultNote = function(){
+    __ensure.apply(this, arguments);
+    const plan = (state.notes || []).find(n => /action plan/i.test(n.title || ""));
+    if(plan && !String(plan.content || "").trim()) plan.content = PLAN_TEMPLATE;
+  };
+}
+window.cmCaseFlow.planTemplate = function(){
+  if(typeof ensureDefaultNote === "function") ensureDefaultNote();
+  const plan = (state.notes || []).find(n => /action plan/i.test(n.title || "")); if(!plan) return;
+  plan.content = String(plan.content || "").trim() ? plan.content + "\n\n" + PLAN_TEMPLATE : PLAN_TEMPLATE;
+  plan.updatedAt = new Date().toISOString();
+  if(typeof storeSet === "function") storeSet("notes", state.notes);
+  if(typeof render === "function") render();
+};
+
 /* ---------- My Notes & Action Plan: one screen ----------
    The page's title in a column on the left, with the way back to the Case Flow at its foot; the note editor takes
    the rest of the width and the height of the screen (its page scrolls inside); Download (PDF) and, after an
@@ -2487,7 +2556,7 @@ if(typeof window.renderNotes === "function" && typeof window.renderNoteCard === 
       <section class="page-hero cf-notes-hero"><p class="eyebrow">Personal Workspace</p><h1>My Notes &amp; Action Plan</h1>
         <p>Your action plan, takeaways, and anything else worth keeping. It saves automatically, and <b>Review</b> gives quick feedback on quality, professionalism and compliance before you finalize anything.</p>${back}</section>
       <div class="cf-notes-main"><div id="notesList">${state.notes.map(n => renderNoteCard(n)).join("")}</div>
-        <div class="cf-notes-foot"><button type="button" class="btn btn-ghost" onclick="downloadNotesPdf()">⬇ Download All Notes (PDF)</button>${next}</div></div></div>`;
+        <div class="cf-notes-foot"><button type="button" class="btn btn-ghost" onclick="cmCaseFlow.planTemplate()" title="Add the fill-in Action Plan template to your plan">📝 Use the template</button><button type="button" class="btn btn-ghost" onclick="downloadNotesPdf()">⬇ Download All Notes (PDF)</button>${next}</div></div></div>`;
   };
 }
 
@@ -3285,6 +3354,9 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
   .cfx-tl li:nth-child(1),.cfx-tl li:nth-child(7){display:none;}
   .cfx-tl b{font-size:10.5px;}
 }
+.cfx-blank{display:inline-block;min-width:4.5em;border-bottom:2px dotted #E8862A;color:transparent;}
+.cfx-reveal{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:10px 0;padding:10px 14px;border-radius:10px;background:#FFF6EC;font-size:14px;}
+.cfx-key-note{font-size:12.5px;color:var(--ink-soft);margin:6px 0;}
 .cfx-modal{position:fixed;inset:0;z-index:9999;background:rgba(20,26,44,.55);display:flex;align-items:flex-start;justify-content:center;padding:4vh 16px;overflow:auto;}
 .cfx-modal-in{max-width:980px;width:100%;padding:18px 24px !important;}
 .cfx-modal-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;font-size:17px;color:var(--navy);}
