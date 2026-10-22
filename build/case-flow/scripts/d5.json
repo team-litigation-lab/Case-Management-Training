@@ -528,5 +528,23 @@
       "say": "And here we are, the very last rating of the course. Score yourself 1 to 5 on each competency, then submit it for review. I'll sit down with your rating beside your score, and if there's a wide gap either way, we'll talk it through together. You've carried one file from intake to award. Be as honest about yourself as you've been with John's numbers.",
       "ask": "Looking back across the whole Case Flow, which skill do you feel strongest in now?"
     }
+  },
+  "d5m1-subp": {
+    "why": {
+      "say": "Here's a question to start us off. Where does evidence come from when the person holding it isn't part of the lawsuit? Robert Smith has to answer our discovery, but a hospital's records custodian doesn't, and Ruth Calloway doesn't have to come to court just because we'd like her there. A subpoena is the court's command that reaches them. That power comes with rules, and a careless subpoena loses the very evidence it was meant to secure. Serve it out of order, write it too broadly, or let the records come back after discovery closes on 05/28/2027, and Atty. Thorne could walk into trial without them. So today we learn to run both kinds, records and trial, cleanly.",
+      "ask": "Who on John Doe's file holds evidence we need but owes us nothing unless the court commands it?"
+    },
+    "theory": {
+      "say": "There are two tools here, and they do two different jobs. A Subpoena Duces Tecum commands a non-party to produce documents. You reach for it when a hospital, a cell phone provider or an employer won't hand records over voluntarily. A trial subpoena commands a witness to appear and testify, so fact witnesses, treating physicians and police officers legally show up. Then there's the scope warning. A blanket request for all records of any kind is what the other side calls a fishing expedition, and the defense or the third party can move to quash it. The deck's model is narrow: emergency room records, triage notes and imaging, for one client, for the accident date only. And the pipeline always runs in the same order. You draft, you notice opposing counsel, you serve the custodian, and you track compliance. Notice comes first.",
+      "ask": "Why would a court care whether a subpoena is narrow, even when the records are about our own client?"
+    },
+    "rules": {
+      "say": "Here's how it runs on John Doe's file. The trigger is a refused request, or a record Atty. Thorne needs from its custodian. You ask him whether he wants a records subpoena, and he decides, signs and issues it. You draft on the court-approved form, with the case style, Civil Action No. 26-CV-04417, the named custodian and a narrow Exhibit A: one subject, exact dates, named record types. A copy goes to Atty. Grant Mercer first, and only after the notice period the governing rule sets does Allied Process Services serve the custodian. Five days before production you make the compliance call, and you pay the copy invoice promptly. Everything comes back before 05/28/2027. Trial subpoenas go only to the witnesses Atty. Thorne names, tasked against 08/12/2027 and 09/13/2027.",
+      "ask": "If the custodian tells you on the compliance call that the request is too broad, what do you do?"
+    },
+    "job": {
+      "say": "Let's walk one records subpoena through the work. Say Atty. Thorne needs the Riverton Fire Run Report produced by its custodian. You route that question to him through Tasks, and you draft nothing until he decides. Once he approves, you build it from the subpoena template with a narrow Exhibit A: run RF-26-0206-114, Medic 7, John Doe, 02/06/2026 only. The notice to Atty. Mercer is dated before service, every single time. Then, while it's open, you review its row in the subpoena log every ten days, you call the custodian five days before production, and you log each reading with its date. Any miss goes to Atty. Thorne. And when Atty. Thorne names his trial witnesses, those subpoenas get tasked against pretrial and the trial calendar, with the proof of service filed.",
+      "ask": "Which two dates on a subpoena log row tell you, at a glance, whether notice came first?"
+    }
   }
 }

@@ -39,20 +39,21 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 4. *Lesson* — Strategy Briefing Protocols with Lead Counsel
 5. *Lesson* — Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup
 6. *Lesson* — Secondary UM Demand Structuring & Policy Stacking Rules
-7. *Lesson* — Countering Adjuster Delay Tactics & Gap Pushback
-8. *Lesson* — Securing Maximum Gross Policy-Limit Settlements
-9. *Skill Activity* — Probe the 14-Day Treatment Gap with AI John Doe
-10. *Skill Activity* — Gap Explanation Record Creation
-11. *Skill Activity* — Calculating Total Specials & the Special Damages Audit
-12. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne
-13. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package
-14. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
-15. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
-16. *Skill Activity* — Closing the $40,000 Gross Recovery
-17. *Knowledge Check* — UPL & Investigation Review
-18. *Knowledge Check* — Pre-Demand Audit & Day 3 Gate
-19. *Knowledge Check* — Demand Execution Audit
-20. *Knowledge Check* — Negotiation Mastery Check
+7. *Lesson* — Building the Demand Package: the Big Four, the Human Story & the Final Scrub
+8. *Lesson* — Countering Adjuster Delay Tactics & Gap Pushback
+9. *Lesson* — Securing Maximum Gross Policy-Limit Settlements
+10. *Skill Activity* — Probe the 14-Day Treatment Gap with AI John Doe
+11. *Skill Activity* — Gap Explanation Record Creation
+12. *Skill Activity* — Calculating Total Specials & the Special Damages Audit
+13. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne
+14. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package
+15. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
+16. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
+17. *Skill Activity* — Closing the $40,000 Gross Recovery
+18. *Knowledge Check* — UPL & Investigation Review
+19. *Knowledge Check* — Pre-Demand Audit & Day 3 Gate
+20. *Knowledge Check* — Demand Execution Audit
+21. *Knowledge Check* — Negotiation Mastery Check
 
 **End-of-day discussion (trainer):** It is 07/20/2026. The Specials are audited and Atty. Thorne has approved a policy-limits demand to Keystone. What must be true before the Time-Limited Demand goes out, and what would let Keystone say it never had a fair chance to settle?
 
@@ -60,7 +61,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 3 — Pre-Demand Audit, the Demand & Settlement Negotiation
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 3.1.1 Interview Techniques & UPL Boundaries in Client Investigation
 
@@ -569,7 +570,92 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.7 Countering Adjuster Delay Tactics & Gap Pushback
+### 3.1.7 Building the Demand Package: the Big Four, the Human Story & the Final Scrub
+
+> **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
+> **Topic:** What each part of the package proves, and the adjuster trap each one shuts  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D2#14` The Demand Packet Checklist: The “Big Four” · `D2#15` Demand: Quality Control — The “Final Scrub” · `D2#17` Demand: Best Practices · `D3#4` The UM Demand Package: Turning Risk Management Against the Insurer · `D3#5` UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap · `D3#6` UM Demand: The Demand Packet — Document Inclusions · `D3#12` Documents that Matter: Threshold & Coverage Documents · `D3#13` Documents that Matter: Liability & Causation Documents · `D3#14` Documents that Matter: Special Damages Documents (Economic Hard Costs) · `D3#15` Documents that Matter: General Damages Documents (Non-Economic Value) · `D3#16` Documents that Matter: Final Pleading & Release Documents (Closing Phase) · Newly authored: the Demand Package taught by function, each part paired with the adjuster trap it shuts, and proof of exhaustion distinguished from proof of uninsured status on an underinsured file
+
+#### 1 · Visual Layout Description
+
+An exhibit-index board fills the slide: six cream tabbed folders standing in a row on a navy shelf, each tab carrying an orange numbered badge: ① MEDICAL SPECIALS $14,817.40 ② THE HUMAN STORY ③ LIABILITY PROOF ④ SPECIAL DAMAGES $1,584.00, then, past a thin orange divider labelled UM PACKAGE ADDS, ⑤ THRESHOLD & COVERAGE ⑥ GENERAL DAMAGES. Under each folder a small red chip names the trap it shuts: DOUBLE BILLING · “MINOR, HEALED EARLY” · “TOO MINOR TO INJURE” · UNVERIFIED WAGES · TECHNICALITY · “PRE-EXISTING.” Left of the shelf, a slim stack of 300 loose chart pages greyed out and struck through; right of it, a crisp two-page treatment summary with a navy clip. Across the top, a navy band in white type: FINAL SCRUB · OVERLAPS · PRIOR DISCLOSED · BALANCES VERIFIED, with a mono pill $16,401.40. The argument: every folder proves one thing, and an empty folder is the adjuster's discount.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* On 08/05/2026 Keystone offered $3,500 against $16,401.40 in Specials, leaning on the two openings a package can leave: the 14-day gap and a “degenerative” MRI. An adjuster pays limits when the package carries legal risk: every claim proven by its own document, in an order he can't misread. You build that package twice on this file: the BI demand served 07/20/2026 and, once BI closes, the UM demands of 08/31/2026.
+
+1. Build the Big Four before Atty. Thorne reviews the demand: Medical Specials, the Narrative, Liability Proof, Special Damages. Each answers one question the adjuster asks (what it cost, what it did to him, who caused it, what else he lost); a weak one is his reason to discount the rest.
+2. Medical Specials: one itemized line per provider, date of service and billed amount, from line-item bills, never balance-forward statements, reconciled to the audited ledger: $14,817.40, with Riverton Spine & Rehab at $6,105.00 (33 visits) once the 05/04/2026 duplicate came out. Each line carries its why: the treatment it paid for and who ordered it.
+3. Put a two-page treatment summary in front, matching each diagnosis to its treatment (the cervical strain and C5-C6 herniation to the chiropractic and PT, Dr. Reyes's MRI order, the 05/15/2026 injection). The full records go behind it as exhibits: 300 pages of raw charts get read by no one.
+4. The Human Story: how the injury changed John Doe's work and daily life, drawn only from his own words (the recorded call, his texts to his mother) and the records. A Northgate shift lead since 01/12/2026; five shifts missed 02/09–02/13 citing neck pain; numbness into his right hand from 02/18; his mother driving him to evening therapy from 04/21; residual right-arm paresthesia at MMI. You draft it for Atty. Thorne's review and never embellish it.
+5. Liability Proof: the final Police Report (RPD-26-018842, Smith cited for failure to stop), Ruth Calloway's signed statement, the doorbell clip (07:09:41–07:10:26, SHA-256 logged) and the Property Damage photos. Structural damage answers “too minor to injure”: the Civic's $2,315.00 A-pillar supplement is evidence of force, not a claim; the PD claim stays Margaret Doe's.
+6. Special Damages: Northgate's wage-and-attendance letter (06/30/2026: 9 shifts × 8 h × $22.00 = $1,584.00) and every out-of-pocket receipt, each tied to its line. Riverton Drug's $312.40 counts once, inside the medical Specials: total $16,401.40. Future ESIs ($3,400–$6,800) go in the narrative, never the Specials.
+7. Run the Final Scrub in the week of service. Billing overlaps: one date of service, one line. The prior condition disclosed and distinguished, never hidden: three 2021 visits for the low back, resolved, no neck history. Balance verification: call every provider for its final balance and log the name and date, so the figure is exact.
+8. The UM package is new and built by function, never the BI demand re-addressed. Threshold & Coverage leads: each UM carrier's coverage proof and, because Smith was insured, Keystone's exhaustion proof. Proof of uninsured status (a DMV suspension letter, the supposed carrier's denial, a Police Report noting a phantom vehicle) belongs only to a truly uninsured claim. Add Peach State's current $1,860.00 ledger to the special damages.
+9. General Damages need objective proof: the 03/13/2026 MRI, Dr. Reyes's Causation Letter (06/19/2026) stating causation explicitly, the MMI note (06/12/2026). A Whole Person Impairment rating is the strongest answer to a pre-existing-condition defense. Dr. Reyes's note carries none, so ask Atty. Thorne whether to request one; the rating itself is Dr. Reyes's to give.
+10. Final Pleading & Release: the formal UM letter's figure, deadline and terms are Atty. Thorne's. When a UM carrier's Release and Trust Agreement arrives, read it against the 08/28/2026 Limited Release, flag any term that conflicts, and leave the explaining to Atty. Thorne.
+
+> ⚠️ **UPL boundary.** You assemble, order and audit the package and draft the Human Story for review. The demand figure, the deadline, the terms, the photo the demand leads with, every causation argument and whether to request an impairment rating are Atty. Thorne's; every clinical opinion is the provider's. Never add to John Doe's story what the records don't hold.
+
+#### 2 · Slide Body — Show Them
+
+*Each part of John Doe's package, what it proves, and the trap it shuts*
+
+| Part | What it proves on this file | The trap it shuts |
+|---|---|---|
+| Medical Specials | $14,817.40, line-item, the 05/04/2026 duplicate gone | Double billing, stale balances |
+| The Human Story | Shifts missed, right-hand numbness, paresthesia at MMI | “Minor, healed early” |
+| Liability Proof | RPD-26-018842 citation, Ruth Calloway, the doorbell clip, PD photos | “Too minor to injure” |
+| Special Damages | Northgate's letter: 9 shifts, $1,584.00 | An unverified wage claim |
+| Threshold & Coverage (UM) | Each UM carrier's coverage proof; Keystone's exhaustion proof | A technicality defense |
+| General Damages (UM) | The MRI, the Causation Letter, the MMI note; any impairment rating | “Pre-existing,” “degenerative” |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| MMI declared (06/12/2026) | Open the Demand Package task; request each provider's itemized line-item bill; ask John Doe for his impact in his own words | CMS → Tasks · Medical Records Requests · Call Simulator → AI John Doe | Every provider requested; his words recorded before the narrative is drafted |
+| The week of service | Run the Final Scrub: overlaps, the prior disclosed, every final balance by phone | CMS → Financial Ledger → Specials · CMS → Case Notes | Each balance confirmed with a name and date; $16,401.40 ties out |
+| Draft package assembled | Index every exhibit by function; route the package and the narrative to Atty. Thorne | Action Plan Editor → Demand Package · CMS → Tasks → Escalate | Every exhibit indexed to a part; narrative marked draft for review |
+| Limited Release signed (08/28/2026) | Rebuild each UM package by function; route the impairment-rating question | Action Plan Editor → UM demand templates · CMS → Tasks → Escalate | Two complete packages; the rating question with Atty. Thorne |
+
+**Best practices & pitfalls**
+
+- Order the package the way the adjuster reads it: the terms, the gap answered, then the proof, with an exhibit index naming what each document proves.
+- Write the Human Story in facts and dates: “He missed five shifts in his fifth week at Northgate” carries more than “his life was devastated.”
+- Pair each Property Damage photo with the injury it explains; structural damage answers the low-impact argument before it is made.
+- Keep future care (repeat ESIs, $3,400–$6,800) in the narrative, never in the Specials total.
+- ⚠️ Pitfall: a 300-page record dump with no summary; the adjuster reads none of it and offers little.
+- ⚠️ Pitfall: a narrative that says more than the records do; one embellished line costs the whole story its credibility.
+- ⚠️ Pitfall: hiding the 2021 low-back visits. Disclosed and distinguished, they are a non-issue; found by the adjuster, they are a credibility problem.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Big Four complete | Medical Specials $14,817.40 line-item, the Narrative, Liability Proof and Special Damages $1,584.00; total $16,401.40 |
+| 🤖 AI | **20%** | Function and trap | Each part of the package named with what it proves on this file and the adjuster trap it shuts |
+| 🤖 AI | **20%** | UM threshold and damages | Exhaustion proof and coverage proof, not proof of uninsured status; MRI, Causation Letter, MMI note; impairment rating raised with Atty. Thorne |
+| 🧑‍🏫 Trainer | **20%** | Narrative integrity | Human Story drawn from John Doe's words and the records; nothing embellished; the 2021 visits disclosed and distinguished |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | Figure, terms, lead photo, causation argument and the impairment-rating request left to Atty. Thorne; clinical opinions to the provider |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open on two numbers: $16,401.40 in Specials, and Keystone's $3,500 on 08/05/2026. Ask what Keystone found to lean on: the gap and “degenerative.” Then show which part of the package is built to shut each one.
+- Put a weak line on the board, “John's life was devastated,” and have the room rewrite it from the record: five shifts missed 02/09–02/13, numbness into his right hand from 02/18, residual right-arm paresthesia at MMI.
+- Watch for trainees who put proof of uninsured status in John Doe's UM packages. Smith was insured: the threshold here is exhaustion of Keystone's $10,000.
+- The impairment rating: Dr. Reyes's MMI note carries none. The Case Manager asks Atty. Thorne whether to request one; the rating itself is Dr. Reyes's clinical call.
+
+---
+
+### 3.1.8 Countering Adjuster Delay Tactics & Gap Pushback
 
 > **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** The battle map, the first call, and the stall rebuttals  
@@ -652,7 +738,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.8 Securing Maximum Gross Policy-Limit Settlements
+### 3.1.9 Securing Maximum Gross Policy-Limit Settlements
 
 > **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** The UM gap, the reductions that don't apply, and closing at limits  
@@ -737,7 +823,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.9 Probe the 14-Day Treatment Gap with AI John Doe
+### 3.1.10 Probe the 14-Day Treatment Gap with AI John Doe
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 1 — Call Simulator: the 14-Day Gap, in his words  
@@ -826,7 +912,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 ---
 
-### 3.1.10 Gap Explanation Record Creation
+### 3.1.11 Gap Explanation Record Creation
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 2 — every reason beside its proof, for both interruptions  
@@ -915,7 +1001,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 ---
 
-### 3.1.11 Calculating Total Specials & the Special Damages Audit
+### 3.1.12 Calculating Total Specials & the Special Damages Audit
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity 1 — audit $15,002.40 down to the number that holds  
@@ -995,7 +1081,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ---
 
-### 3.1.12 Pre-Demand Strategy Session with AI Atty. Elijah Thorne
+### 3.1.13 Pre-Demand Strategy Session with AI Atty. Elijah Thorne
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity 2 — present the audit; record his decisions  
@@ -1075,7 +1161,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ---
 
-### 3.1.13 Serving the $10,000 BI Time-Limit Demand Package
+### 3.1.14 Serving the $10,000 BI Time-Limit Demand Package
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 1 — audit it, serve it, prove it  
@@ -1156,7 +1242,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.14 QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
+### 3.1.15 QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 2 — two packages, exhaustion proof on page one  
@@ -1236,7 +1322,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.15 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
+### 3.1.16 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 1 — hold the Limits Demand on a recorded call  
@@ -1325,7 +1411,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.16 Closing the $40,000 Gross Recovery
+### 3.1.17 Closing the $40,000 Gross Recovery
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 2 — work both UM layers to limits, on the record  
@@ -1403,7 +1489,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.17 UPL & Investigation Review
+### 3.1.18 UPL & Investigation Review
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1488,7 +1574,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 ---
 
-### 3.1.18 Pre-Demand Audit & Day 3 Gate
+### 3.1.19 Pre-Demand Audit & Day 3 Gate
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1591,7 +1677,7 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 
 ---
 
-### 3.1.19 Demand Execution Audit
+### 3.1.20 Demand Execution Audit
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Demand Execution Audit + CM Learning Summary & Self-Scale  
@@ -1634,7 +1720,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (10 questions):
+**Auto-graded share of the day's Knowledge Check** (12 questions):
 
 1. Dana Whitfield acknowledged the emailed BI demand in writing on 07/22/2026. Its 30-day acceptance window closes on:  
    08/19/2026 · **✓ 08/21/2026** · 08/22/2026 · 08/20/2026  
@@ -1666,6 +1752,12 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 10. Keystone's 08/14 draft release frees “all other persons, firms, corporations and insurers.” What do you do?  
    Send it to John Doe to sign · **✓ Flag it to Atty. Thorne: it would release both UM carriers** · Sign it for the firm · Ignore the wording  
    *Limit the release to Robert Smith and Keystone, and to the BI claim. The Limited Release was signed 08/28/2026.*
+11. Building John Doe's Host UM package for Harbor Point, which documents prove the threshold?  
+   A DMV suspension letter for Robert Smith · **✓ Harbor Point's coverage proof plus Keystone's exhaustion proof: its tender, Dec Page, Smith's affidavit and the signed Limited Release** · A Police Report noting a phantom vehicle · John Doe's own auto Dec Page  
+   *Smith was insured, so the UM claim rests on exhausting Keystone's $10,000, proven by the tender, Keystone's Dec Page, Smith's affidavit and the Limited Release, plus Harbor Point's own coverage proof. Proof of uninsured status (a DMV suspension, a phantom vehicle) belongs to a truly uninsured claim. John Doe owns no car and has no auto policy.*
+12. Which line belongs in the Human Story the Case Manager drafts for Atty. Thorne's review?  
+   “John's life was devastated, and he may never work again.” · “His claim is worth at least the $10,000 limit.” · **✓ “He missed five shifts at Northgate (02/09–02/13) citing neck pain, and at MMI still has intermittent right-arm paresthesia.”** · “Future injections of $3,400–$6,800 are added to his Specials.”  
+   *The Human Story says only what John Doe's words and the records support, in facts and dates. An embellished line costs the story its credibility, value is Atty. Thorne's, and future care belongs in the narrative, never in the Specials total.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1691,7 +1783,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 3.1.20 Negotiation Mastery Check
+### 3.1.21 Negotiation Mastery Check
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Knowledge Check + CM Learning Summary & Self-Scale  

@@ -98,5 +98,77 @@
       ["An email to Atty. Thorne reports that Keystone still is not responding.", "To act, he first digs up every follow-up himself.", "It closes with a two-word request for guidance and nothing else."],
       ["The 06/02/2027 exhibit exchange arrives with one provider still outstanding.", "No extension from Atty. Thorne is on the docket.", "The set waits for the straggler, and 06/02/2027 slips past."]
     ]
+  },
+  "d3m4-close": {
+    "dos": [
+      [
+        "The Trust Ledger reads $0.00 and the box is nearly packed.",
+        "A stranger picks up John Doe's file years from now.",
+        "Can one dollar be followed from Keystone's check to its payee?"
+      ],
+      [
+        "Peach State and Riverton Spine & Rehab each get their checks.",
+        "Weeks later, nobody answers requests for signed paperwork.",
+        "The satisfaction request travels in the same envelope as the check."
+      ],
+      [
+        "A statement arrives after the closing letter has gone out.",
+        "Peach State's EOB shows $1,540.00 as a contractual adjustment.",
+        "The first question sorts it into one of two kinds."
+      ]
+    ],
+    "donts": [
+      [
+        "All five checks went out on 10/22/2026.",
+        "The box is sealed and the file marked Archived.",
+        "Nothing in it shows John Doe got his $20,359.92."
+      ],
+      [
+        "John Doe calls, upset about a statement that came yesterday.",
+        "The money is gone and the file is closed.",
+        "He hears that it's his to sort out now."
+      ],
+      [
+        "Storage space is tight in the closed-file room.",
+        "The trust journal on John Doe's file is three years old.",
+        "The shredder takes it anyway."
+      ]
+    ]
+  },
+  "d4m3-prior": {
+    "dos": [
+      [
+        "Defense counsel spent time on the 2021 visits at the deposition.",
+        "Laura Whitcomb, Esq. will see those visits one way or another.",
+        "Tab 5 opens with them, already set against the neck injury."
+      ],
+      [
+        "Tab 5 compares two sets of medical files, five years apart.",
+        "One set is about stiffness low in the spine.",
+        "Each comparison line says low back, or cervical spine and arm."
+      ],
+      [
+        "A line in Tab 5 describes how the 2021 care ended.",
+        "The chart itself says “resolved” and “released to full activity”.",
+        "Those exact phrases appear in Tab 5, in quotation marks."
+      ]
+    ],
+    "donts": [
+      [
+        "Your Tab 5 notes describe the condition of John Doe's spine.",
+        "Dr. Park's read already says what the scan showed.",
+        "Your draft adds your own medical conclusion about the neck."
+      ],
+      [
+        "Birch Avenue Chiropractic's file is slow to arrive.",
+        "John Doe remembers 2021 as a few back adjustments.",
+        "Tab 5 holds a typed paragraph from his memory instead."
+      ],
+      [
+        "The audit lines up every provider's intake form side by side.",
+        "One form disagrees with the others about the past.",
+        "You edit it to match before Atty. Thorne sees it."
+      ]
+    ]
   }
 }
