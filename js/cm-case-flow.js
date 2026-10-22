@@ -1652,8 +1652,8 @@ const PRESENTER_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 
   + '<path d="M114 103Q122 109 130 103" fill="none" stroke="#7A4A32" stroke-width="2.2" stroke-linecap="round"/>'
   + '<circle cx="97" cy="100" r="3" fill="#F4B77A"/><circle cx="147" cy="100" r="3" fill="#F4B77A"/>'
   + '</svg>';
-/* A Case Flow slide is one card: the dots and the slide go in .cf-stage-card, the full width of the stage, and
-   Previous / Next sit under it (the presenter stands in the side column, sidePresenter()). Everything stays inside #lessonStage, so full screen and the slide's fit still work. */
+/* A Case Flow slide is one card: the dots, the slide and the Previous / Next strip (with the last slide's
+   Continue to Knowledge Check and its banner) go in .cf-stage-card, the full width of the stage (the presenter stands in the side column, sidePresenter()). Everything stays inside #lessonStage, so full screen and the slide's fit still work. */
 function cfStage(html){
   if(typeof html !== "string" || html.indexOf("cfx-deck") < 0 || html.indexOf("stage-body") < 0) return html;
   const t = document.createElement("template"); t.innerHTML = html;
@@ -1666,7 +1666,8 @@ function cfStage(html){
     dots.classList.add("cf-dots-bar"); dots.title = `Step ${at + 1} of ${n}`;
     dots.innerHTML = `<span class="cf-dots-fill" style="width:${((at + 1) / n * 100).toFixed(1)}%"></span>`;
   }
-  body.before(card); if(dots) card.appendChild(dots); card.appendChild(body);
+  const after = [...t.content.querySelectorAll(".slide-nav, .slide-done-banner")].filter(x => x.parentNode === body.parentNode);
+  body.before(card); if(dots) card.appendChild(dots); card.appendChild(body); after.forEach(x => card.appendChild(x));
   body.querySelectorAll(":scope > .stage-presenter").forEach(x => x.remove());
   return t.innerHTML;
 }
@@ -3513,10 +3514,10 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-sepline{display:none !important;}
 .cfx.cfx-deck{background:#262B45 !important;color:#fff;border:0 !important;padding:16px 28px 22px !important;}
 /* one card: the slide's design sits directly on the card (no second card inside it), the full width of the stage;
-   Previous / Next sit under it, on the page (cfStage() builds this from the engine's stage); the presenter is in the side column */
+   Previous / Next sit inside it as a glass strip (cfStage() builds this from the engine's stage); the presenter is in the side column */
 .lesson-stage:has(> .cf-stage-card){background:transparent !important;box-shadow:none !important;padding:0 !important;border-radius:0 !important;overflow:visible !important;
   display:grid !important;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;}
-.cf-stage-card{grid-column:1;grid-row:1;position:relative;overflow:hidden;min-width:0;background:#262B45;border-radius:20px;padding:16px 20px 14px;box-shadow:0 18px 40px -22px rgba(20,24,48,.65);}
+.cf-stage-card{grid-column:1;grid-row:1;position:relative;overflow:hidden;overflow:clip;min-width:0;background:#262B45;border-radius:20px;padding:16px 20px 14px;box-shadow:0 18px 40px -22px rgba(20,24,48,.65);}
 .cf-stage-card::before{content:"";position:absolute;top:0;right:0;width:min(200px,20%);height:46px;border-radius:0 0 0 100%;background:#DB8437;opacity:.95;pointer-events:none;}
 .cf-stage-card > *{position:relative;z-index:1;}
 .cf-stage-card .slide-dots{padding-right:min(190px,19%);}   /* the dots stop short of the orange corner */
@@ -3534,13 +3535,15 @@ main > .cf-side-presenter{display:none;}
   body.cm-tf-split.cm-tf-open main > .cf-side-presenter{display:none !important;}
 }
 .cf-side-presenter svg{display:block;width:100%;height:auto;filter:drop-shadow(0 10px 14px rgba(20,24,48,.25));}
-.lesson-stage > .cf-stage-card ~ .slide-nav, .lesson-stage > .cf-stage-card ~ .slide-done-banner{grid-column:1 / -1;}
-.lesson-stage > .cf-stage-card ~ .slide-nav{margin:10px 0 0 !important;padding:8px 12px;background:rgba(255,255,255,.82);border:1px solid rgba(38,43,69,.12);border-radius:14px;backdrop-filter:blur(6px);}
-.lesson-stage > .cf-stage-card ~ .slide-nav .slide-counter{color:#262B45 !important;}
-.lesson-stage > .cf-stage-card ~ .slide-nav .btn-ghost{background:#fff;border:1px solid rgba(38,43,69,.2);}
+.cf-stage-card > .slide-nav{margin:12px 0 0 !important;padding:8px 12px;background:rgba(38,43,69,.72);border:1px solid rgba(255,255,255,.22);border-radius:14px;backdrop-filter:blur(6px);}
+.cf-stage-card > .slide-nav .slide-counter{color:#E6E8F2 !important;}
+.cf-stage-card > .slide-nav .btn-ghost{background:#fff;border:1px solid rgba(38,43,69,.2);}
+@media(max-width:760px){.cf-stage-card > .slide-nav{position:sticky;bottom:6px;z-index:4;}}   /* on a phone the strip stays in reach while the slide scrolls */
+.cf-stage-card > .slide-done-banner{margin:10px 0 0;background:rgba(255,255,255,.08);border:1px solid rgba(240,192,138,.35);}
 .lesson-stage:fullscreen:has(> .cf-stage-card){background:#1F2440 !important;padding:2.5vh 2vw !important;grid-template-rows:minmax(0,1fr) auto;height:100vh;box-sizing:border-box;}
 .lesson-stage:fullscreen > .cf-stage-card{display:flex;flex-direction:column;min-height:0;height:100%;box-sizing:border-box;}
 .lesson-stage:fullscreen > .cf-stage-card .stage-body{display:flex !important;flex-direction:column;flex:1;min-height:0;}
+.lesson-stage:fullscreen > .cf-stage-card > .slide-nav, .lesson-stage:fullscreen > .cf-stage-card > .slide-done-banner{flex:0 0 auto;}
 .cfx-deck > *{position:relative;z-index:1;}
 .cfx-deck-head{display:flex;align-items:center;gap:20px;padding:0 0 10px;margin:0 0 16px;border-bottom:2px solid rgba(255,255,255,.88);}
 .cfx-logo{height:48px;width:auto;flex:0 0 auto;}
