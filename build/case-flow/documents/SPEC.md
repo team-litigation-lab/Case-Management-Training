@@ -94,7 +94,7 @@ analysis, health plan reimbursement, the treatment-gap risk, SOL 02/06/2028 (Sun
 WORK PRODUCT — DO NOT PRODUCE".
 *Plant:* none. *Key:* Internal work product: never in a demand package, mediation binder or arbitration exhibit set.
 
-**RS05 · Contingent Fee Retainer Agreement** · Day 1 · Case Files · `RS_05_Retainer_Agreement.pdf`
+**RS05 · Contingency Fee Agreement** · Day 1 · Case Files · `RS_05_Retainer_Agreement.pdf`
 LSH Law Group and John Doe, executed 02/09/2026, re the 02/06/2026 collision. Fee 33⅓% of gross recovery before
 suit; 40% of gross recovery once a lawsuit is filed. Costs reimbursed from the client's share after the fee
 (fee on gross). Client duties (no direct contact with carriers, keep appointments, keep us informed of address and
