@@ -2995,32 +2995,34 @@ function caseNow(){
 const fmtMs = t => { const d = new Date(t); return `${String(d.getUTCMonth() + 1).padStart(2, "0")}/${String(d.getUTCDate()).padStart(2, "0")}/${d.getUTCFullYear()}`; };
 /* one screen: each event is a date button; its label pops up on hover, focus or tap */
 const tlItem = (cls, label, date) => `<li class="${cls}"><button type="button" class="cf-tl-b" aria-label="${label} · ${date}"><i></i><small>${date.replace(/\/\d\d(\d\d)\b/, "/$1")}</small></button><b class="cf-tl-pop">${label}<span>${date}</span></b></li>`;
-/* Today, from the trainee's own calendar: the case runs on its own dates (02/2026 to 07/2027 in a 5-day course), so
-   the timeline marks the real date apart from where the file is, and neither can be read as the other */
-const todayStr = () => { const d = new Date(), p = n => String(n).padStart(2, "0"); return `${p(d.getMonth() + 1)}/${p(d.getDate())}/${d.getFullYear()}`; };
-// a row is dated entries (events, the file marker, today), drawn in date order; on the same day an event comes first, then the file, then today
+// a row is dated entries (events, then the file marker), drawn in date order; on the same day the event comes first
 const tlRow = es => `<ol class="cfx-tl cfx-tl-full">${es.filter(Boolean).sort((a, b) => a.t - b.t || a.r - b.r).map(e => e.h).join("")}</ol>`;
-const tlToday = () => { const d = todayStr(); return {t: dayMs(d), r: 2, h: tlItem("today", "Today", E(d))}; };
+/* The Case So Far. A trainee sees the whole path of their file from the start, on the dates of their own case year and
+   CMS date of loss (js/cm-case-dates.js has already moved SIM.timeline): the dates they have worked light up and are
+   joined by the trace, "You are here" sits on the newest file date of an activity they have opened, and the dates
+   ahead are hollow, their events unnamed until reached (the timeline never gives away what happens next). */
 function caseTimeline(n){
   if(!(SIM.timeline || []).length) return "";
-  const today = tlToday();
-  if(!isTrainer()){   // a trainee sees the case only as far as they have worked it
+  if(!isTrainer()){
     const {now, track} = caseNow();
-    const seen = SIM.timeline.filter(m => (!m.track || m.track === track) && dayMs(m.date) <= (m.lane ? now[m.lane] : now[""]));
-    if(!seen.length) return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3><p class="cf-note">The timeline fills in as you work John Doe's file.</p></div>`;
-    const ev = m => ({t: dayMs(m.date), r: 0, h: tlItem("past", E(m.label), E(m.date))});
-    const at = t => isNaN(t) ? null : {t, r: 1, h: tlItem("here", "Your file is at", E(fmtMs(t)))};
-    const laned = seen.filter(m => m.lane);
-    if(!laned.length) return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3>${tlRow([...seen.map(ev), at(now[""]), today])}</div>`;
-    // once the two workstreams have started: the shared file, the workstreams side by side (each with its own file marker), then the file again
-    const all = SIM.timeline.filter(m => m.lane && (!m.track || m.track === track)).map(m => dayMs(m.date)), lo = Math.min(...all), hi = Math.max(...all);
-    const before = seen.filter(m => !m.lane && dayMs(m.date) < lo), after = seen.filter(m => !m.lane && dayMs(m.date) > hi);
-    // today goes in the row whose dates it falls among, in both workstreams when it falls in their span
-    const tBefore = today.t < lo, tAfter = today.t > hi, tLanes = !tBefore && !tAfter;
-    return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3>
-      ${before.length || tBefore ? tlRow([...before.map(ev), tBefore && today]) : ""}
-      <div class="cf-lanes">${Object.entries(LANES).map(([k, name]) => `<div class="cf-lane cf-lane-${k}"><div class="cf-lane-h">${E(name)}</div>${tlRow([...laned.filter(m => m.lane === k).map(ev), !after.length && at(now[k]), tLanes && today])}</div>`).join("")}</div>
-      ${after.length || tAfter ? tlRow([...after.map(ev), after.length && at(now[""]), tAfter && today]) : ""}</div>`;
+    const path = SIM.timeline.filter(m => !m.track || m.track === (track || "A"));   // before the fork, the path ahead is Track A's
+    const reached = m => dayMs(m.date) <= (m.lane ? now[m.lane] : now[""]);   // false while nothing is opened (NaN)
+    const ev = m => ({t: dayMs(m.date), r: 0, h: reached(m) ? tlItem("past", E(m.label), E(m.date)) : tlItem("next", "Ahead on the file", E(m.date))});
+    // a row's events with its marker: on the date of an event the trainee has reached, that event is where they are
+    const trace = (list, t) => { const on = isNaN(t) ? null : list.find(m => dayMs(m.date) === t && reached(m));
+      return list.map(m => m === on ? {t, r: 0, h: tlItem("here", "You are here: " + E(m.label), E(m.date))} : ev(m)).concat(!isNaN(t) && !on ? [{t, r: 1, h: tlItem("here", "You are here", E(fmtMs(t)))}] : []); };
+    const done = path.filter(reached).length;
+    const head = `<h3>📅 The Case So Far</h3><p class="cf-tl-sum">${done ? `You've worked <b>${done} of ${path.length}</b> dates on John Doe's file` : "The path of John Doe's file: it lights up as you work it"}</p>`;
+    const laned = path.filter(m => m.lane);
+    if(!laned.length) return `<div class="card cf-timeline cf-trace">${head}${tlRow(trace(path, now[""]))}</div>`;
+    // the shared file, the two workstreams side by side (each with its own marker), then the file again
+    const ts = laned.map(m => dayMs(m.date)), lo = Math.min(...ts), hi = Math.max(...ts);
+    const before = path.filter(m => !m.lane && dayMs(m.date) < lo), after = path.filter(m => !m.lane && dayMs(m.date) > hi);
+    const beyond = now[""] > hi, inLanes = !beyond && now[""] >= lo;   // where the overall marker belongs
+    return `<div class="card cf-timeline cf-trace">${head}
+      ${tlRow(trace(before, !beyond && !inLanes ? now[""] : NaN))}
+      <div class="cf-lanes">${Object.entries(LANES).map(([k, name]) => `<div class="cf-lane cf-lane-${k}"><div class="cf-lane-h">${E(name)}</div>${tlRow(trace(laned.filter(m => m.lane === k), beyond ? NaN : now[k]))}</div>`).join("")}</div>
+      ${tlRow(trace(after, beyond ? now[""] : NaN))}</div>`;
   }
   const track = n >= 4 ? "B" : n === 3 ? "A" : "";
   const items = SIM.timeline.filter(m => !m.track || !track || m.track === track);
@@ -3035,11 +3037,10 @@ function caseTimeline(n){
   const before = items.filter(m => !m.lane && dayMs(m.date) < lo), after = items.filter(m => !m.lane && dayMs(m.date) > hi);
   const pastLanes = dayMs(here[""]) > hi;   // the file is beyond the workstreams: every one of their events is past, and the marker is in the row after
   const lastShared = pastLanes ? here[""] : "";
-  const tBefore = today.t < lo, tAfter = today.t > hi, tLanes = !tBefore && !tAfter;
   return `<div class="card cf-timeline"><h3>📅 The Case So Far</h3>
-    ${tlRow([...row(before, here[""], dayMs(here[""]) < lo), tBefore && today])}
-    <div class="cf-lanes">${Object.entries(LANES).map(([k, name]) => `<div class="cf-lane cf-lane-${k}"><div class="cf-lane-h">${E(name)}</div>${tlRow([...row(laned.filter(m => m.lane === k), pastLanes ? here[""] : here[k], !pastLanes), tLanes && today])}</div>`).join("")}</div>
-    ${tlRow([...row(after, lastShared), tAfter && today])}</div>`;
+    ${tlRow(row(before, here[""], dayMs(here[""]) < lo))}
+    <div class="cf-lanes">${Object.entries(LANES).map(([k, name]) => `<div class="cf-lane cf-lane-${k}"><div class="cf-lane-h">${E(name)}</div>${tlRow(row(laned.filter(m => m.lane === k), pastLanes ? here[""] : here[k], !pastLanes))}</div>`).join("")}</div>
+    ${tlRow(row(after, lastShared))}</div>`;
 }
 function caseFlowProfile(){
   const c = CF.case, secs = CF.profile || [], shown = secs.filter(profileOpen);
@@ -4072,9 +4073,18 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 @keyframes cfxWhen{0%{box-shadow:0 0 0 0 rgba(244,183,122,.75)}100%{box-shadow:0 0 0 14px rgba(244,183,122,0)}}
 @media (prefers-reduced-motion:reduce){.cfx-when{animation:none;}}
 /* today (the real date) is white, apart from the orange file marker, so neither is read as the other */
-.cf-timeline .cfx-tl-full li.today .cf-tl-b{background:#fff;border-color:#fff;color:#12162B;}
-.cf-timeline .cfx-tl-full li.today small{color:#12162B;}
-.cf-timeline .cfx-tl-full li.today i{background:#12162B;border-color:#12162B;}
+/* the trace (a trainee's timeline): the dates worked are lit and joined, the marker glows, the dates ahead are hollow */
+.cf-tl-sum{margin:-6px 0 12px;font:500 13.5px/1.4 'Inter',sans-serif;color:#C9CFE0;}.cf-tl-sum b{color:#F4B77A;}
+.cf-trace .cfx-tl-full li.past .cf-tl-b{background:rgba(219,132,55,.28);border-color:#DB8437;color:#fff;}
+.cf-trace .cfx-tl-full li.past i{background:#F4B77A;border-color:#F4B77A;}
+.cf-trace .cfx-tl-full li.past small{color:#fff;}
+.cf-trace .cfx-tl-full li.past + li.past::before,.cf-trace .cfx-tl-full li.past + li.here::before{display:block !important;content:"" !important;position:absolute !important;left:-4px;top:50%;width:4px;height:2px;background:#DB8437;}
+.cf-trace .cfx-tl-full li.here .cf-tl-b{box-shadow:0 0 0 3px rgba(244,183,122,.45);animation:cfTraceHere 2s ease-in-out infinite;}
+.cf-trace .cfx-tl-full li.next .cf-tl-b{opacity:1;background:transparent;border-style:dashed;border-color:rgba(255,255,255,.28);color:#8C95AD;}
+.cf-trace .cfx-tl-full li.next i{background:transparent;}
+.cf-trace .cfx-tl-full li.next small{color:#8C95AD;}
+@keyframes cfTraceHere{0%,100%{box-shadow:0 0 0 3px rgba(244,183,122,.45)}50%{box-shadow:0 0 0 6px rgba(244,183,122,.12)}}
+@media (prefers-reduced-motion:reduce){.cf-trace .cfx-tl-full li.here .cf-tl-b{animation:none;}}
 .cf-tl-pop span{display:block;margin-top:2px;font:600 10.5px 'IBM Plex Mono',monospace;color:#F4B77A;}
 .cf-tl-pop{position:absolute;left:50%;top:calc(100% + 8px);transform:translateX(-50%);z-index:20;display:none;width:max-content;max-width:260px;padding:7px 11px;border-radius:10px;background:#12162B;border:1px solid #DB8437;color:#fff;font:700 12.5px/1.3 'Inter',sans-serif;box-shadow:0 8px 20px rgba(0,0,0,.45);}
 .cf-timeline .cfx-tl-full li:hover .cf-tl-pop,.cf-timeline .cfx-tl-full li:focus-within .cf-tl-pop{display:block;}
