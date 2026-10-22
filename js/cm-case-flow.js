@@ -734,7 +734,7 @@ function slideBody(view, l, d){
       const list = !two ? t.concepts : view === "theory" ? t.concepts.slice(0, half) : t.concepts.slice(half);
       return `<div class="cfx-theory cfx-th-solo"><div class="cfx-th-main">
           ${view === "theory" ? (leadSplit(t.lead) ? `<p class="cfx-lead-1">${hl("**" + leadSplit(t.lead)[0] + "**")}</p><p class="cfx-th-lead">${hl(leadSplit(t.lead)[1])}</p>` : `<p class="cfx-th-lead">${hl(t.lead)}</p>`) : `<p class="cfx-th-cont">${E(titleCase(b.topic))}: continued</p>`}
-          <div class="cfx-th-grid">${list.map((x, j) => `<div class="cfx-th-c" style="animation-delay:${j * .05}s"><b>${E(x.term)}</b><span>${hl(x.text)}</span></div>`).join("")}</div></div>
+          <div class="cfx-th-grid">${list.map((x, j) => `<div class="cfx-th-c" style="animation-delay:${j * .05}s"><b>${E(x.term)}</b><span>${hl(x.text)}</span>${(x.more || []).length ? `<button type="button" class="cfx-th-more" onclick="cmCaseFlow.more('${b.id}',${t.concepts.indexOf(x)})" title="More on ${E(x.term)}">＋ More</button>` : ""}</div>`).join("")}</div></div>
       </div>`;
     }
     case "frame": {   // the deck page's structure, drawn in the course's own design
@@ -1551,6 +1551,18 @@ window.cmCaseFlow.workFrom = function(el){
   if(!box){ cmCaseFlow.tool("docs"); return; }
   box.open = true; box.scrollIntoView({block: "nearest", behavior: "smooth"});
   box.classList.remove("cfx-flash"); void box.offsetWidth; box.classList.add("cfx-flash");
+};
+/* a theory card's ＋ More: the detail that doesn't fit on the card (theory-dN.json concepts[].more), in a pop-up card */
+window.cmCaseFlow.more = function(blockId, i){
+  const t = (SLIDES[blockId] || {}).theory, x = t && t.concepts[i]; if(!x || !(x.more || []).length) return;
+  const o = document.createElement("div"); o.className = "cfx-modal cfx-more"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", x.term);
+  o.innerHTML = `<div class="cfx-modal-in card lesson-card"><div class="cfx-modal-h"><b>${E(x.term)}</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>
+    <p class="cfx-more-lead">${hl(x.text)}</p><ul>${x.more.map(m => `<li>${hl(m)}</li>`).join("")}</ul></div>`;
+  const close = () => { o.remove(); document.removeEventListener("keydown", esc, true); };
+  const esc = e => { if(e.key === "Escape"){ e.stopPropagation(); close(); } };
+  o.addEventListener("click", e => { if(e.target === o || e.target.closest(".cfx-modal-h button")) close(); });
+  document.addEventListener("keydown", esc, true);
+  document.body.appendChild(o); o.querySelector(".cfx-modal-h button").focus();
 };
 window.cmCaseFlow.back = function(){
   const r = state.cfReturn; state.cfReturn = null;
@@ -3494,6 +3506,16 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-th-c b{font:800 15px/1.25 'Poppins','Inter',sans-serif;color:var(--navy);letter-spacing:.01em;}
 .cfx-th-c span{font:500 16px/1.35 var(--font-ui);color:var(--ink);}
 .cfx-th-solo .cfx-th-c span{font-size:17px;}
+.cfx-th-c{position:relative;}
+.cfx-th-more{position:absolute;top:6px;right:8px;border:1px solid #F0D2AE;background:#FBF1E6;color:#B5561A;border-radius:999px;padding:1px 9px;font:700 12px/1.6 var(--font-ui);cursor:pointer;}
+.cfx-th-more:hover,.cfx-th-more:focus-visible{background:var(--orange);border-color:var(--orange);color:#fff;outline:none;}
+.cfx-more{align-items:center;}
+.cfx-more .cfx-modal-in{max-width:560px;border-top:5px solid #DB8437;background:#FFFDF8 !important;backdrop-filter:none !important;opacity:1;box-shadow:0 18px 50px rgba(20,26,44,.35);}
+.cfx-more .cfx-modal-h{display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.cfx-more .cfx-modal-h b{font:800 19px/1.25 'Poppins','Inter',sans-serif;color:var(--navy);}
+.cfx-more mark.cfx-hl{background:linear-gradient(180deg,transparent 52%,#FFD9A8 52%,#FFD9A8 92%,transparent 92%);color:inherit;padding:0 2px;font-weight:700;}
+.cfx-more-lead{margin:10px 0 8px;font:600 16px/1.4 var(--font-ui);color:var(--ink);}
+.cfx-more ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:7px;font:500 16px/1.45 var(--font-ui);color:var(--ink);}
 /* The Framework: the deck's table, flow or checklist, in the course's design */
 .cfx-fw-t{margin:0 0 12px;text-align:center;font:800 22px/1.25 'Poppins','Inter',sans-serif;color:var(--navy);}
 .cfx-fw-scroll{overflow-x:auto;}
