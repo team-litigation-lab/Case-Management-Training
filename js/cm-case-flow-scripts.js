@@ -316,6 +316,20 @@ window.CM_CF_SCRIPTS = {
    "ask": "If his first appointment slipped, which of your tasks would tell you, and on what date?"
   }
  },
+ "d1m3-a3": {
+  "case": {
+   "say": "It's 02/11/2026. Leah Moran at Keystone PD has emailed the firm to confirm the claimant on the 2019 Honda Civic, so a rental can be set up once liability is decided, and ten minutes later John Doe calls. He needs a car for his first appointment, and he wants to know if that rental is his. It's a fair question, and the answer isn't in your memory or in his. It's in the file. Before anyone tells him yes or no, somebody has to work out whose car the Civic is and whose claim the rental belongs to.",
+   "ask": "Which document would you open first to answer him, and why that one?"
+  },
+  "task": {
+   "say": "Your task is an investigation. Use the Police Report, the Intake Sheet, the Intake Supplement and the CMS Intake Record. Establish where John Doe was in the collision, who owns the Civic, and who the claimant on the Civic is. Write it as a CMS Case Note that cites each document, decide whether John Doe has a Property Damage or rental claim of his own, and report it to Atty. Thorne the same day. Then take his call. Give him the fact, route the claim question to the attorney, and fix what he actually needs, which is a ride to treatment.",
+   "ask": "What will you say when he asks you to just book the rental in his name?"
+  },
+  "check": {
+   "say": "Check your work before you log it. Did you take his position, the owner and the claimant each from a named record, with the page? Did you write down the conclusion about his own claim in plain words? Did Atty. Thorne hear it today? And on the call, did you stay on facts and logistics, with nothing said about the claim's value, and did his ride to treatment get solved or escalated with a date?",
+   "ask": "If the owner calls next, what's yours to do and what isn't?"
+  }
+ },
  "d1m3-kc": {
   "questions": {
    "say": "This is your Learning Check for Property Damage and onboarding. Every answer comes from John Doe's file, in your own words, typed right under each question. First, the firm's standing instructions for a new injury client and the specific harm each one prevents. Second, what has to be confirmed before John Doe collects a rental, whose policy is usually primary, and what happens to days outside the authorization. Third, what actual cash value means, what it doesn't mean, and why confusing it with something else misleads the client. Take your time on that one; I want understanding, not a memorised definition."

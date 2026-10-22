@@ -1202,6 +1202,9 @@ window.CM_CASE_FLOW = {
         {q: "A vehicle is a Total Loss when:",
          opts: ["The client no longer wants it", "The cost to repair reaches the carrier's threshold measured against its actual cash value", "Any frame damage is found", "The repair takes longer than 30 days"],
          a: 1, r: "Confirm the threshold basis the carrier is applying, in writing. Actual cash value is the pre-loss market value."},
+        {q: "Keystone asks the firm to confirm the claimant on the parked 2019 Honda Civic. From the records, whose Property Damage and rental claim is it?",
+         opts: ["John Doe's: he called about the rental first", "The owner's, as the Police Report and the intake records show; John Doe, a passenger who owns no car, has none", "Kevin Alvarez's, as host driver", "Robert Smith's carrier decides whose it is"],
+         a: 1, r: "The claim belongs to the vehicle's owner, found in the Police Report's Unit 3 box and the Intake Supplement. A passenger who owns no car has no PD or rental claim; the CM records the finding and tells the attorney."},
         {q: "An owner is without her car while it is in the shop. Loss of Use is:",
          opts: ["Included in the repair payment", "Claimable for each day without a vehicle, measured by a comparable rental, separately from the repair or ACV payment", "Owed only if the car is a Total Loss", "Paid by her Health Plan"],
          a: 1, r: "Loss of Use is a separate claim. Asserting it is counsel's position, and the governing rule is confirmed for the file."},
@@ -1445,6 +1448,56 @@ window.CM_CASE_FLOW = {
           "The planted mis-assignment is the graded element. Don't hint at which card it is.",
           "Press on verification: “How will you know this happened?” A task with no verification is a hope, not a task.",
           "The treatment follow-up is the hinge into Day 2. John Doe's gap becomes undeniable there; this task is what would have caught it."
+        ]
+      },
+
+      {
+        kind: "activity", id: "d1m3-a3",
+        title: "Whose Rental Is It? The Civic Investigation",
+        topic: "Skill Activity 3 — investigate the PD and rental claim from the records",
+        visual: "An evidence board: four document cards (Police Report, Intake Sheet, Intake Supplement, Keystone PD letter) pinned in a row, each with one highlighted field and a red string running to a central card that reads OWNER · CLAIMANT · OUR CLIENT? with three blank lines.",
+        act: {
+          scenario: "02/11/2026. Keystone PD (Leah Moran) emails the firm to confirm the claimant on the 2019 Honda Civic so a rental can be set up once liability is decided. John Doe calls: he needs a car to get to his first appointment and asks whether the rental is his. Nobody has yet written down whose claim it is.",
+          prompt: "Before anyone answers John Doe, investigate. From the Police Report, the Intake Sheet, the Intake Supplement and the CMS Intake Record, establish where John Doe was in the collision, who owns the Civic and who the PD and rental claimant is. Write the finding as a CMS Case Note that cites each source, decide whether John Doe has a Property Damage or rental claim of his own, and report it to Atty. Thorne. Then answer John Doe's call within the UPL line and solve his real problem: a ride to treatment.",
+          tool: "CMS → Case Notes · CMS → Property Damage · Call Simulator",
+          output: "A sourced Case Note naming the Civic's owner and the PD and rental claimant, a report to Atty. Thorne, and a logged call with John Doe that arranges his transportation without advising anyone on the claim.",
+          checkpoints: [
+            "John Doe's position in the collision taken from the Police Report, not assumed",
+            "The Civic's owner named from the Police Report and the Intake Supplement",
+            "The PD and rental claimant named from the owner, with the Intake Record's carrier line",
+            "Conclusion recorded: John Doe has no PD or rental claim of his own",
+            "Each finding cites its source document and page",
+            "Atty. Thorne told the same day; the owner's claim left to the owner and the attorney",
+            "No advice to John Doe or the owner about the PD claim or its value",
+            "John Doe's transportation to treatment arranged or escalated"
+          ]
+        },
+        ops: [
+          ["Rental authorization arrives", "Read the records before answering anyone", "CMS → Documents", "Owner and claimant found in the file"],
+          ["Ownership established", "Write the sourced Case Note", "CMS → Case Notes", "Each fact cites its document"],
+          ["Client asks about the rental", "State the fact, route the claim question to Atty. Thorne, solve the ride", "Call Simulator · CMS → Tasks", "Call logged; transportation task dated"]
+        ],
+        best: [
+          "Read the Police Report's vehicle and occupant boxes before you set up any PD claim.",
+          "Ask of every claim: who owns it, and is that person our client?",
+          "Pitfall: setting up a rental in the client's name because he is the one who called."
+        ],
+        sources: ["D1#28", "D1#44", "LSH Claims Specialist: LOR Property Damage carve-out, rental coverage hierarchy, documents to support the claim"],
+        rubric: {
+          ai: [
+            ["Evidence", 25, "Position, owner and claimant each taken from a named record"],
+            ["Conclusion", 20, "No PD or rental claim for John Doe; whose claim it is, stated"],
+            ["UPL boundary", 15, "Nothing said to John Doe or the owner about the claim's merits or value"]
+          ],
+          trainer: [
+            ["Investigative reasoning", 25, "Reconciles the records and notices what the client's call assumes"],
+            ["Client care", 15, "Solves the real need, a ride to treatment, the same day"]
+          ]
+        },
+        notes: [
+          "Don't tell the room whose car it is. The Police Report's Unit 3 box and the Intake Supplement settle it; make them find both.",
+          "The trap is the call: John Doe asks for the rental and a helpful trainee books it in his name. Grade that as the failure it is.",
+          "The finding goes to Atty. Thorne; whether the firm helps the owner is his decision, not the CM's."
         ]
       },
 
@@ -8011,8 +8064,8 @@ window.CM_CASE_FLOW = {
      gives a block its own workstream on a day that runs both. `workstream` ("claims" or "care") is the module's lane on the case timeline. */
   sequence: [
     {n: 1, phases: [
-      {title: "Intake, Claims & Property Damage", lead: "Module 1", blocks: ["d1m1-role", "d1m1-case", "d1m1-upl", "d1m1-l1", "d1m4-l1", "d1m3-l1", "d1m3-l2", "d1m1-open", "d1m3-a1", "d1m3-a2", "d1m1-kc", "d1m3-kc"],
-       headings: {"d1m1-role": "Introduction to Case Management", "d1m1-case": "Meet Your Client: John Doe", "d1m1-upl": "The UPL Line: Fact Sharing vs. Legal Advice", "d1m1-l1": "Intake", "d1m4-l1": "Intake & the Claims", "d1m3-l1": "Property Damage", "d1m3-l2": "Property Damage", "d1m1-open": "Skill Building: Opening the File in the CMS", "d1m3-a1": "Skill Building: Property Damage", "d1m3-a2": "Skill Building: Property Damage"}}
+      {title: "Intake, Claims & Property Damage", lead: "Module 1", blocks: ["d1m1-role", "d1m1-case", "d1m1-upl", "d1m1-l1", "d1m4-l1", "d1m3-l1", "d1m3-l2", "d1m1-open", "d1m3-a1", "d1m3-a2", "d1m3-a3", "d1m1-kc", "d1m3-kc"],
+       headings: {"d1m1-role": "Introduction to Case Management", "d1m1-case": "Meet Your Client: John Doe", "d1m1-upl": "The UPL Line: Fact Sharing vs. Legal Advice", "d1m1-l1": "Intake", "d1m4-l1": "Intake & the Claims", "d1m3-l1": "Property Damage", "d1m3-l2": "Property Damage", "d1m1-open": "Skill Building: Opening the File in the CMS", "d1m3-a1": "Skill Building: Property Damage", "d1m3-a2": "Skill Building: Property Damage", "d1m3-a3": "Skill Building: Property Damage"}}
     ]},
     {n: 2, phases: [
       {title: "Claim Set Up & Treatment", lead: "Module 2", lanes: {"d2m1-l1": "claims", "d2m1-l2": "claims", "d1m4-l2": "claims", "d1m1-a1": "claims", "d2m1-a1": "claims", "d2m1-a2": "claims", "d1m4-a1": "claims", "d1m4-a2": "claims", "d2m1-kc": "claims", "d1m4-kc": "claims", "d2m1-cov": "care", "d2m2-l1": "care", "d2m2-eob": "care", "d2m2-lop": "care", "d1m1-l2": "care", "d2m2-l2": "care", "d1m2-l1": "care", "d1m2-l2": "care", "d1m2-a1": "care", "d1m2-a2": "care", "d2m2-a1": "care", "d1m1-a2": "care", "d2m2-a2": "care", "d2m2-a3": "care", "d2m2-kc": "care", "d1m2-kc": "care"}, blocks: ["d2m1-l1", "d2m1-l2", "d1m4-l2", "d2m1-cov", "d2m2-l1", "d2m2-eob", "d2m2-lop", "d1m1-l2", "d2m2-l2", "d1m2-l1", "d1m2-l2", "d1m1-a1", "d2m1-a1", "d2m1-a2", "d1m4-a1", "d1m4-a2", "d1m2-a1", "d1m2-a2", "d2m2-a1", "d1m1-a2", "d2m2-a2", "d2m2-a3", "d2m1-kc", "d1m4-kc", "d2m2-kc", "d1m2-kc"],

@@ -42,6 +42,15 @@
       "subject": "Onboarding directions staged as task cards: review before activation",
       "body": "LSH-2026-MVA-770412. John Doe's Direction Packet was delivered and logged 02/10/2026. Its directions are staged as draft task cards; a card cannot activate without an owner, a due date and a verification method. No treatment start is recorded, and no follow-up is on the calendar."
     },
+    "d1m3-a3": {
+      "date": "02/11/2026",
+      "time": "9:40 a.m.",
+      "channel": "email",
+      "from": "Leah Moran, Keystone Mutual PD (lmoran@keystonemutual.example)",
+      "to": "LSH Law Group",
+      "subject": "KM-26-440871-PD: claimant and rental contact, 2019 Honda Civic LX",
+      "body": "We are opening the property-damage claim for the 2019 Honda Civic LX struck on 02/06/2026. Please confirm the vehicle owner and claimant, and a contact number for the rental, so that a rental can be set up with Rivergate Rentals once our liability decision is made."
+    },
     "d2m1-a1": {
       "date": "02/17/2026",
       "time": "8:20 a.m.",

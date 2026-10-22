@@ -1016,7 +1016,7 @@ window.CM_CF_SLIDES = {
   "checks": [
    "**All six sections** present and populated",
    "Treatment direction stated: **treatment hasn't begun**",
-   "Property Damage section states **whose claim it is**, from the records",
+   "Property Damage section states **whose claim it is**",
    "Atty. Elijah Thorne listed as **Lead Counsel**",
    "Adverse-contact instruction made urgent, **with a confirmation step**"
   ],
@@ -1200,6 +1200,31 @@ window.CM_CF_SLIDES = {
   ],
   "donts": [
    "Tracking tasks **without confirming they were done**"
+  ]
+ },
+ "d1m3-a3": {
+  "image": "checklist-qa",
+  "situation": "Keystone has authorized a rental for the Civic. John Doe calls asking if it is his. Nobody has written down **whose claim it is**.",
+  "steps": [
+   "Read the **Police Report's vehicle and occupant boxes**",
+   "Find **who owns the Civic** in the intake records",
+   "Name **the PD and rental claimant** from Keystone's letter",
+   "Write a **sourced Case Note** and tell Atty. Thorne",
+   "Answer John Doe **within the UPL line**; solve his ride"
+  ],
+  "deliver": "A **sourced finding** of whose claim it is, reported, and a logged call",
+  "checks": [
+   "**Position, owner and claimant** each from a record",
+   "**Conclusion** on a PD or rental claim for John Doe",
+   "Each finding **cites its document**",
+   "**Atty. Thorne** told the same day",
+   "**Transportation** to treatment arranged"
+  ],
+  "dos": [
+   "Ask: **who owns the claim**, and is that our client?"
+  ],
+  "donts": [
+   "Booking a rental **because the caller asked**"
   ]
  },
  "d1m3-kc": {
