@@ -37,7 +37,7 @@ const START_B = Object.assign({}, START, {C11: ""});
 /* what the file says at each stage (build/case-flow: d2m4-a1, d3m3-a2, d3m4-a1) */
 const STAGES = {
   recovery: {file: "A", label: "Track A · Settlement: the gross and the fee", checks: [
-    {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (MedPay and PD are not recovery)."},
+    {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (PIP and PD are not recovery)."},
     {cell: "L11", want: 13333.33, why: "The fee is 33⅓% pre-suit (no suit filed): one-third of $40,000.00 = $13,333.33. Typing 33.33% gives $13,332.00."},
   ]},
   liens: {file: "A", label: "Track A · Lien negotiations", checks: [
@@ -48,7 +48,7 @@ const STAGES = {
     {cell: "L44", want: 5820, why: "Reduced liens: $1,240.00 + $4,580.00 = $5,820.00."},
   ]},
   final: {file: "A", label: "Track A · Disbursement: the final Net Sheet", checks: [
-    {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (MedPay and PD are not recovery)."},
+    {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (PIP and PD are not recovery)."},
     {cell: "L11", want: 13333.33, why: "The fee is 33⅓% pre-suit (no suit filed): one-third of $40,000.00 = $13,333.33. Typing 33.33% gives $13,332.00."},
     {cell: "L20", want: 486.75, why: "Receipted costs: Police Report $25.00, records and billing $214.75, certified mail $72.00, MRI disc $25.00, postage and copies $150.00 = $486.75."},
     {cell: "L26", want: 4580, why: "Riverton Spine & Rehab: audited $6,105.00, accepted $4,580.00 in its signed Payoff Letter (10/12/2026)."},
@@ -136,7 +136,7 @@ function render(){
         <tr class="tot"><td>Total Attorney Costs</td><td></td><td class="m">${out("L20")}</td></tr>
         <tr class="tot"><td>Total Fees &amp; Costs</td><td></td><td class="m">${out("L21")}</td></tr></table></section>
     <section class="ns-sec"><h2>3. Medical Provider Ledger &amp; Lien Reductions</h2>
-      <div class="ns-scroll"><table class="ns-t ns-ledger"><tr><th>Provider Type</th><th>Provider Name</th><th class="m">Total Charges</th><th class="m">PIP Payments</th><th class="m">Health Payments</th><th class="m">Med Pay</th><th class="m">Adjustments</th><th class="m">Balance Owed</th><th class="m">Max Offer</th><th class="m">Low Offer</th><th class="m">Reduced Bill</th></tr>
+      <div class="ns-scroll"><table class="ns-t ns-ledger"><tr><th>Provider Type</th><th>Provider Name</th><th class="m">Total Charges</th><th class="m">PIP Payments</th><th class="m">Health Payments</th><th class="m">PIP</th><th class="m">Adjustments</th><th class="m">Balance Owed</th><th class="m">Max Offer</th><th class="m">Low Offer</th><th class="m">Reduced Bill</th></tr>
         ${LEDGER.map(r => `${r === 42 ? '<tr class="gap"><td colspan="11"></td></tr>' : ""}<tr><td>${inp("B" + r)}</td><td>${inp("C" + r, "wide")}</td>${["D", "E", "F", "G", "H"].map(col => `<td class="m">${inp(col + r, "", true)}</td>`).join("")}<td class="m">${out("I" + r)}</td>${["J", "K", "L"].map(col => `<td class="m">${inp(col + r, "", true)}</td>`).join("")}</tr>`).join("")}
         <tr class="tot"><td colspan="7">Total Liens &amp; Reductions</td><td class="m">${out("I44")}</td><td class="m">${out("J44")}</td><td class="m">${out("K44")}</td><td class="m">${out("L44")}</td></tr></table></div></section>
     <section class="ns-sec"><h2>4. Final Client Disbursement Calculation</h2>
@@ -183,7 +183,7 @@ function download(){
   COSTS.forEach(([r, l]) => { set("B" + r, l); set("C" + r, c["C" + r]); set("L" + r, num(c["L" + r])); });
   set("B20", "Total Attorney Costs"); f("L20", "SUM(L12:L19)"); set("B21", "Total Fees & Costs"); f("L21", "L11+L20");
   set("B23", "3. MEDICAL PROVIDER LEDGER & LIEN REDUCTIONS");
-  ["Provider Type", "Provider Name", "Total Charges", "PIP Payments", "Health Payments", "Med Pay", "Adjustments", "Balance Owed", "Max Offer", "Low Offer", "Reduced Bill"].forEach((h, i) => set("BCDEFGHIJKL"[i] + "24", h));
+  ["Provider Type", "Provider Name", "Total Charges", "PIP Payments", "Health Payments", "PIP", "Adjustments", "Balance Owed", "Max Offer", "Low Offer", "Reduced Bill"].forEach((h, i) => set("BCDEFGHIJKL"[i] + "24", h));
   LEDGER.forEach(r => { set("B" + r, c["B" + r]); set("C" + r, c["C" + r]); ["D", "E", "F", "G", "H", "J", "K", "L"].forEach(col => { if(c[col + r] !== undefined && c[col + r] !== "") set(col + r, num(c[col + r])); }); f("I" + r, `D${r}-E${r}-F${r}-G${r}-H${r}`); if(ws["L" + r] == null) set("L" + r, 0); });
   set("B44", "Total Liens & Reductions"); ["I", "J", "K", "L"].forEach(col => f(col + "44", `SUM(${col}25:${col}43)`));
   set("B46", "4. FINAL CLIENT DISBURSEMENT CALCULATION"); set("B47", "Calculation"); set("L47", "Amount");
