@@ -1,0 +1,10 @@
+# The CMS is locked. These files are frozen — .github/scripts/cms-locked.cjs fails Checks on any change to
+# one of them, and the lock manifest itself cannot be edited without review, so the lock cannot be lifted
+# quietly in the same pull request that changes the CMS.
+#
+# Review here is the second gate, not the first: the red check is what stops the edit.
+/js/cm-cms-case.js        @team-litigation-lab/case-management-training
+/js/cm-cms-upload.js      @team-litigation-lab/case-management-training
+/js/cm-doc-filing.js      @team-litigation-lab/case-management-training
+/.github/cms-lock.json    @team-litigation-lab/case-management-training
+/.github/scripts/cms-locked.cjs  @team-litigation-lab/case-management-training

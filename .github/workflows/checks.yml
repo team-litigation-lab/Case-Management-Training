@@ -28,6 +28,8 @@ jobs:
           node-version: 22
       - name: JavaScript syntax, local files, JSON
         run: node .github/scripts/check-site.mjs
+      - name: The CMS is locked (its modules are frozen; a change to one fails here on purpose)
+        run: node .github/scripts/cms-locked.cjs
       - name: Batch IDs are B + MMDDYY (the page and the Worker read them the same way; older codes keep working)
         run: node .github/scripts/batch-id.cjs
       - name: Single sign-on (the Portal is the only way a trainee gets in; a missing PORTAL_SSO_SECRET says so)
@@ -107,17 +109,14 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/doc-filing.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-<<<<<<< HEAD
       - name: The exhibit audit, the completed package and the Service Confirmation (the set audited, the finished set revealed, the service confirmation filed and backed up; the CMS answered by the test)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/exhibit-audit.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-=======
       - name: Uploading a drafted letter in the CMS, under the right tab and the firm's convention (the CMS answered by the test)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/cms-upload.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
->>>>>>> origin/main
       - name: Relaying a Portal simulator's document to the CMS (the records simulator's records and bills reach the CMS beside the lesson; only the Portal may ask)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
