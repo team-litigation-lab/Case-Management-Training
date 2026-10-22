@@ -17,8 +17,8 @@
    money arrives: the BI settlement (?stage=bi — the first Net Sheet, generated from the medical and treatment
    bills on Keystone's $10,000 tender), the UM settlement (?stage=um — the same sheet updated with the revised,
    ongoing and final treatment bills and lien balances, at $40,000.00 gross), Lien Negotiations (?stage=liens) and
-   Disbursement (?stage=final, $20,359.92). Track B (case won at arbitration) has its own close-out
-   (?stage=litigation, $14,713.75). Each track is its own sheet.
+   Disbursement (?stage=final, $21,469.92). Track B (case won at arbitration) has its own close-out
+   (?stage=litigation, $15,748.75). Each track is its own sheet.
    "Download" gives the sheet as an .xlsx, formulas and all, to open in Excel or upload to Google Sheets. */
 (function(){
 "use strict";
@@ -37,7 +37,7 @@ const BLANK = {};
    payer in its own column, audit corrections in Adjustments. Zero-balance lines stay at zero and off the payables. */
 const REF_LEDGER = {
   B25: "Urgent care", C25: "Riverton Urgent Care (DOS 02/20/2026) — paid in full by Riverton PIP", D25: 685, E25: 685,
-  B26: "Chiro / PT (LOP)", C26: "Riverton Spine & Rehab — itemized LOP ledger, 34 lines billed against 33 documented visits", D26: 6290, H26: 185,
+  B26: "Chiro / PT (LOP)", C26: "Riverton Spine & Rehab — itemized LOP ledger, 34 lines billed against 33 documented visits; MedPay paid its first eight", D26: 6290, G26: 1480, H26: 185,
   B27: "Orthopedics", C27: "Lakeside Orthopedics — 3 visits × $640.00, paid by Riverton PIP (the 06/12/2026 payment exhausted the $5,000.00 limit)", D27: 1920, E27: 1920,
   B28: "MRI", C28: "Summit Imaging Center — cervical MRI 03/13/2026, paid by Riverton PIP", D28: 2395, E28: 2395,
   B29: "Pain management", C29: "Crescent Pain & Spine — ESI 05/15/2026, in network: the $1,540.00 write-off is not a balance", D29: 3400, F29: 1860, H29: 1540,
@@ -67,8 +67,8 @@ const STAGES = {
     how: [
       "Section 1 — the gross actually recovered: Keystone Mutual's $10,000.00 BI limits, tendered 08/12/2026 (KM-26-440871). Riverton's PIP payments and the property damage to Margaret's Civic are not recovery.",
       "Section 2 — the fee rate from the signed Retainer Agreement (the pre-suit tier: no suit has been filed), then every receipted cost from the Case Cost Ledger, on the row it belongs to.",
-      "Section 3 — build the provider ledger line by line from the medical and treatment bills: Riverton Urgent Care, Riverton Spine & Rehab, Lakeside Orthopedics, Summit Imaging, Crescent Pain & Spine, and Peach State's reimbursement claim. Charges in Total Charges, each payment in its own payer column, audit corrections in Adjustments.",
-      "Audit every bill before you type it: the 05/04/2026 line billed twice on Riverton's ledger is an Adjustment, not a balance, and Crescent's $1,540.00 patient statement is the in-network contractual write-off.",
+      "Section 3 — build the provider ledger line by line from the medical and treatment bills: Riverton Urgent Care, Riverton Spine & Rehab, Lakeside Orthopedics, Summit Imaging, Crescent Pain & Spine, and Peach State's reimbursement claim. Charges in Total Charges, each payment in its own payer column — PIP's five payments, MedPay's $1,480.00 on Riverton's first eight visits — and audit corrections in Adjustments.",
+      "Audit every bill before you type it: the 05/04/2026 line billed twice on Riverton's ledger is an Adjustment, not a balance; Crescent's $1,540.00 patient statement is the in-network contractual write-off; and the first-party payments come off the charges, so what is owed is what the ledger leaves.",
       "Reduced Bill — nothing is reduced yet, so each open lien carries its audited balance and the PIP-paid providers stay at zero.",
       "Then read Section 4: what the BI layer alone leaves John Doe is the reason the UM layers matter."
     ],
@@ -76,19 +76,19 @@ const STAGES = {
       {cell: "L7", want: 10000, why: "Gross at the BI settlement: Keystone Mutual's $10,000.00 BI limits, tendered 08/12/2026. PIP and the property-damage payments are not recovery."},
       {cell: "L11", want: 3333.33, why: "The fee is 33⅓% pre-suit (no suit filed): one-third of $10,000.00 = $3,333.33. Typing 33.33% gives $3,333.00."},
       {cell: "L20", want: 486.75, why: "Receipted costs: Police Report $25.00, records and billing $214.75, certified mail $72.00, MRI disc $25.00, postage and copies $150.00 = $486.75."},
-      {cell: "I26", want: 6105, why: "Riverton Spine & Rehab: 34 lines billed, 33 visits in the notes. The 05/04/2026 duplicate ($185.00) goes in Adjustments: $6,290.00 → $6,105.00 audited."},
-      {cell: "I44", want: 7965, why: "Liens audited before any reduction: Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $7,965.00. Crescent's write-off and the PIP-paid providers stay at zero."},
-      {cell: "L44", want: 7965, why: "Nothing is reduced yet, so the payables are the audited balances: $1,860.00 + $6,105.00 = $7,965.00."},
-      {cell: "L52", want: -1785.08, why: "BI alone leaves John Doe nothing: $10,000.00 – $3,333.33 – $486.75 = $6,179.92 against $7,965.00 of unreduced liens, so the sheet runs $1,785.08 short. That is the case for the UM layers, and for every reduction."}
+      {cell: "I26", want: 4625, why: "Riverton Spine & Rehab: 34 lines billed, 33 visits in the notes. The 05/04/2026 duplicate ($185.00) goes in Adjustments and MedPay's $1,480.00 in Med Pay, so $6,290.00 audits to $6,105.00 and $4,625.00 is owed."},
+      {cell: "I44", want: 6485, why: "Liens audited before any reduction: Peach State $1,860.00 + Riverton Spine & Rehab $4,625.00 = $6,485.00. Crescent's write-off and the PIP-paid providers stay at zero."},
+      {cell: "L44", want: 6485, why: "Nothing is reduced yet, so the payables are the balances owed: $1,860.00 + $4,625.00 = $6,485.00."},
+      {cell: "L52", want: -305.08, why: "BI alone still leaves John Doe nothing: $10,000.00 – $3,333.33 – $486.75 = $6,179.92 against $6,485.00 of unreduced liens, so the sheet runs $305.08 short even after MedPay's $1,480.00. That is the case for the UM layers, and for every reduction."}
     ],
-    cells: ref({C7: "Keystone Mutual BI limits, tendered 08/12/2026 (KM-26-440871)", L7: 10000, C11: "33⅓%", L26: 6105, L30: 1860}, REF_COSTS_A)
+    cells: ref({C7: "Keystone Mutual BI limits, tendered 08/12/2026 (KM-26-440871)", L7: 10000, C11: "33⅓%", L26: 4625, L30: 1860}, REF_COSTS_A)
   },
   um: {
     file: "A", label: "Track A · UM settlement: the bills and lien balances updated", when: "10/06/2026 — both UM layers have tendered their limits",
     how: [
       "Section 1 — add both UM layers to the gross: Harbor Point's Host UM $20,000.00 (paid 09/29/2026) and Cardinal State's Relative UM $10,000.00 (tendered 10/06/2026). $40,000.00 recovered in all.",
       "Section 2 — the fee stays on the pre-suit tier (the file settled without suit); bring the costs up to date from the Case Cost Ledger, each with its receipt.",
-      "Section 3 — update every treatment line from the bills and statements that came in after the BI settlement: Riverton Spine & Rehab's final LOP ledger (02/24–06/05/2026) and Peach State's itemized reimbursement claim.",
+      "Section 3 — update every treatment line from the bills and statements that came in after the BI settlement: Riverton Spine & Rehab's final LOP ledger (02/24–06/05/2026, MedPay's $1,480.00 credited) and Peach State's itemized reimbursement claim.",
       "Re-verify each balance with the provider before you change a figure, and re-run the audit on the final ledger: the 05/04/2026 duplicate is still on it.",
       "Reduced Bill still carries the audited balance: the reductions are negotiated next, and only a written acceptance moves that column.",
       "Check your sheet, then open the corrected sheet and self-audit every line you changed."
@@ -96,12 +96,12 @@ const STAGES = {
     checks: [
       {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (PIP and PD are not recovery)."},
       {cell: "L11", want: 13333.33, why: "The fee is 33⅓% pre-suit (no suit filed): one-third of $40,000.00 = $13,333.33. Typing 33.33% gives $13,332.00."},
-      {cell: "I26", want: 6105, why: "Riverton's final LOP ledger still carries the 05/04/2026 duplicate ($185.00): audited $6,290.00 → $6,105.00, corrected in writing before any reduction is asked."},
-      {cell: "I44", want: 7965, why: "The verified balances at the UM settlement: Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $7,965.00."},
-      {cell: "L44", want: 7965, why: "No reduction has been accepted in writing yet (Peach State 10/09, Riverton 10/12/2026), so the payables are still the audited $7,965.00."},
-      {cell: "L52", want: 18214.92, why: "Before the reductions: $40,000.00 – $13,333.33 – $486.75 – $7,965.00 = $18,214.92. The lien negotiations take it to $20,359.92."}
+      {cell: "I26", want: 4625, why: "Riverton's final LOP ledger still carries the 05/04/2026 duplicate ($185.00): audited $6,290.00 → $6,105.00, corrected in writing before any reduction is asked, less MedPay's $1,480.00 = $4,625.00 owed."},
+      {cell: "I44", want: 6485, why: "The verified balances at the UM settlement: Peach State $1,860.00 + Riverton Spine & Rehab $4,625.00 = $6,485.00."},
+      {cell: "L44", want: 6485, why: "No reduction has been accepted in writing yet (Peach State 10/09, Riverton 10/12/2026), so the payables are still the audited $6,485.00."},
+      {cell: "L52", want: 19694.92, why: "Before the reductions: $40,000.00 – $13,333.33 – $486.75 – $6,485.00 = $19,694.92. The lien negotiations take it to $21,469.92."}
     ],
-    cells: ref(REF_GROSS_A, {C11: "33⅓%", L26: 6105, L30: 1860}, REF_COSTS_A)
+    cells: ref(REF_GROSS_A, {C11: "33⅓%", L26: 4625, L30: 1860}, REF_COSTS_A)
   },
   liens: {
     file: "A", label: "Track A · Lien negotiations", when: "10/12/2026 — both reductions accepted in writing",
@@ -111,13 +111,13 @@ const STAGES = {
       "Leave the zero-balance lines at zero: a line paid by PIP, or written off in network, is never a payable."
     ],
     checks: [
-      {cell: "I26", want: 6105, why: "Riverton Spine & Rehab: 34 lines billed, 33 visits in the notes. The 05/04/2026 duplicate ($185.00) goes in Adjustments: $6,290.00 → $6,105.00 audited."},
-      {cell: "I44", want: 7965, why: "Liens audited before any reduction: Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $7,965.00. Zero-balance lines stay at zero."},
+      {cell: "I26", want: 4625, why: "Riverton Spine & Rehab: 34 lines billed, 33 visits in the notes. The 05/04/2026 duplicate ($185.00) goes in Adjustments and MedPay's $1,480.00 in Med Pay, so $6,290.00 audits to $6,105.00 and $4,625.00 is owed."},
+      {cell: "I44", want: 6485, why: "Liens audited before any reduction: Peach State $1,860.00 + Riverton Spine & Rehab $4,625.00 = $6,485.00. Zero-balance lines stay at zero."},
       {cell: "L30", want: 1240, why: "Peach State: $1,860.00 less the one-third procurement-cost reduction ($620.00) = $1,240.00, accepted in writing 10/09/2026."},
-      {cell: "L26", want: 4580, why: "Riverton Spine & Rehab: audited $6,105.00, accepted $4,580.00 in its signed Payoff Letter (10/12/2026)."},
-      {cell: "L44", want: 5820, why: "Reduced liens: $1,240.00 + $4,580.00 = $5,820.00."}
+      {cell: "L26", want: 3470, why: "Riverton Spine & Rehab: audited $6,105.00, accepted $3,470.00 in its signed Payoff Letter (10/12/2026)."},
+      {cell: "L44", want: 4710, why: "Reduced liens: $1,240.00 + $3,470.00 = $4,710.00."}
     ],
-    cells: ref(REF_GROSS_A, {C11: "33⅓%", L26: 4580, L30: 1240}, REF_COSTS_A)
+    cells: ref(REF_GROSS_A, {C11: "33⅓%", L26: 3470, L30: 1240}, REF_COSTS_A)
   },
   final: {
     file: "A", label: "Track A · Disbursement: the final Net Sheet", when: "10/13/2026 — the last UM check is in trust",
@@ -131,12 +131,12 @@ const STAGES = {
       {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (PIP and PD are not recovery)."},
       {cell: "L11", want: 13333.33, why: "The fee is 33⅓% pre-suit (no suit filed): one-third of $40,000.00 = $13,333.33. Typing 33.33% gives $13,332.00."},
       {cell: "L20", want: 486.75, why: "Receipted costs: Police Report $25.00, records and billing $214.75, certified mail $72.00, MRI disc $25.00, postage and copies $150.00 = $486.75."},
-      {cell: "L26", want: 4580, why: "Riverton Spine & Rehab: audited $6,105.00, accepted $4,580.00 in its signed Payoff Letter (10/12/2026)."},
+      {cell: "L26", want: 3470, why: "Riverton Spine & Rehab: audited $6,105.00, accepted $3,470.00 in its signed Payoff Letter (10/12/2026)."},
       {cell: "L30", want: 1240, why: "Peach State: $1,860.00 less the one-third procurement-cost reduction ($620.00) = $1,240.00, accepted in writing 10/09/2026."},
-      {cell: "L44", want: 5820, why: "Reduced liens: $1,240.00 + $4,580.00 = $5,820.00. Zero-balance lines stay off the payables."},
-      {cell: "L52", want: 20359.92, why: "Net to John Doe: $40,000.00 – $13,333.33 – $486.75 – $5,820.00 = $20,359.92."}
+      {cell: "L44", want: 4710, why: "Reduced liens: $1,240.00 + $3,470.00 = $4,710.00. Zero-balance lines stay off the payables."},
+      {cell: "L52", want: 21469.92, why: "Net to John Doe: $40,000.00 – $13,333.33 – $486.75 – $4,710.00 = $21,469.92."}
     ],
-    cells: ref(REF_GROSS_A, {C11: "33⅓%", L26: 4580, L30: 1240}, REF_COSTS_A)
+    cells: ref(REF_GROSS_A, {C11: "33⅓%", L26: 3470, L30: 1240}, REF_COSTS_A)
   },
   litigation: {
     file: "B", label: "Track B · Case won: the litigated Net Sheet", when: "07/22/2027 — the award is collected",
@@ -150,13 +150,13 @@ const STAGES = {
       {cell: "L7", want: 40000, why: "Gross: Keystone $10,000.00 (mediation, 03/18/2027) + Harbor Point $20,000.00 + Cardinal State $10,000.00 (award, 07/06/2027) = $40,000.00."},
       {cell: "L11", want: 16000, why: "Suit was filed 09/24/2026, so the retainer's 40% tier applies: $16,000.00. The 33⅓% pre-suit rate would give $13,333.33."},
       {cell: "L20", want: 3895.25, why: "Receipted costs: pre-suit $486.75 + filing $218.00 + Allied Process Services $285.00 + mediation $1,200.00 + arbitration $900.00 + Riverton Court Reporting $645.50 + certified records $160.00 = $3,895.25."},
-      {cell: "I26", want: 6105, why: "Riverton Spine & Rehab is still audited first: the 05/04/2026 duplicate ($185.00) in Adjustments, $6,290.00 → $6,105.00."},
-      {cell: "L26", want: 4275, why: "Riverton Spine & Rehab accepted $4,275.00 in its signed Payoff Letter (07/16/2027)."},
+      {cell: "I26", want: 4625, why: "Riverton Spine & Rehab is still audited first: the 05/04/2026 duplicate ($185.00) in Adjustments and MedPay's $1,480.00 in Med Pay, $6,290.00 → $6,105.00 → $4,625.00 owed."},
+      {cell: "L26", want: 3240, why: "Riverton Spine & Rehab accepted $3,240.00 in its signed Payoff Letter (07/16/2027)."},
       {cell: "L30", want: 1116, why: "Peach State's reduction follows the fee actually charged: 40% of $1,860.00 = $744.00, so $1,116.00, accepted in writing 07/14/2027."},
-      {cell: "L44", want: 5391, why: "Reduced liens: $1,116.00 + $4,275.00 = $5,391.00."},
-      {cell: "L52", want: 14713.75, why: "Net to John Doe: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75."}
+      {cell: "L44", want: 4356, why: "Reduced liens: $1,116.00 + $3,240.00 = $4,356.00."},
+      {cell: "L52", want: 15748.75, why: "Net to John Doe: $40,000.00 – $16,000.00 – $3,895.25 – $4,356.00 = $15,748.75."}
     ],
-    cells: ref({C7: "Keystone $10,000.00 (mediation 03/18/2027) + Harbor Point $20,000.00 + Cardinal State $10,000.00 (award 07/06/2027)", L7: 40000, C11: "40%", L26: 4275, L30: 1116}, REF_COSTS_B)
+    cells: ref({C7: "Keystone $10,000.00 (mediation 03/18/2027) + Harbor Point $20,000.00 + Cardinal State $10,000.00 (award 07/06/2027)", L7: 40000, C11: "40%", L26: 3240, L30: 1116}, REF_COSTS_B)
   }
 };
 const PARAM = new URLSearchParams(location.search).get("stage");
