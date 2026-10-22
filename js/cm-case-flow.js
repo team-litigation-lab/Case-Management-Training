@@ -492,7 +492,34 @@ const NET_MODS = {d3m2: "recovery", d3m3: "liens", d3m4: "final", d5m5: "litigat
      📨 Email Replies    → email=<id>, the one scenario the step is about (the ids in the Portal's
                            reply-packs/emails.json). EMAIL_NEED maps a block to its scenario; a block
                            with no entry opens the list filtered to the course, as before. */
-const EMAIL_NEED = {};
+/* A Case Manager's day is negotiating and communicating in writing, so each activity that is practice
+   at one of those opens the Email Replies scenario for that need — the adjuster, the lienholder, the
+   provider's billing desk, the client, the attorney — rather than a list of eleven to pick from. The
+   ids are the Portal's (simulators/reply-packs/emails.json); a block listed here is also offered Email
+   Replies among its tools (blockTools), and a block that isn't listed is unaffected.
+   Which scenario belongs to which activity is a curriculum decision: this is the mapping by the need
+   each activity practises, and it is meant to be edited here as the Case Flow changes. A scenario is
+   used for more than one activity where the need is the same skill (an adjuster is negotiated with more
+   than once). */
+const EMAIL_NEED = {
+  // Negotiating
+  "d3m1-a1": "cm_adjuster_statement",         // serving the BI time-limit demand: the adjuster's demands back
+  "d3m2-a1": "cm_adjuster_statement",         // MRI findings against the 14-day gap
+  "d5m2-a2": "cm_adjuster_statement",         // diminished value, argued with the carrier
+  "d3m3-a1": "cm_hospital_lien",              // statutory lien reduction: the hospital's $45,000 notice
+  "d3m3-a2": "cm_lop_provider",               // provider balance negotiation
+  "d2m2-a1": "cm_lop_provider",               // transmitting LOPs: the provider's balance question
+  "d5m1-a1": "cm_extension",                  // pleadings and discovery: opposing counsel's extension
+  // Communicating
+  "d1m2-a1": "all_web_inquiry",               // multi-channel outreach: a prospective client's inquiry
+  "d1m3-a1": "cm_spouse",                     // onboarding directions: what a spouse may be told
+  "d2m2-a2": "cm_client_bills_collections",   // A-C-T crisis protocol: the client whose bills keep coming
+  "d2m3-a1": "cm_client_bills_collections",   // probing the treatment gap with the client
+  "d2m3-a2": "cm_records_dob",                // the gap justification record: a records request refused
+  "d2m4-a2": "cm_attorney_status",            // the pre-demand strategy session: "where are we?"
+  "d3m2-a2": "cm_client_net",                 // closing the gross recovery: "where is my money"
+  "d3m4-a2": "all_wire_phish"                 // release and disbursement: fraudulent wire instructions
+};
 function emailTarget(id, blockId){
   if(id === "email") return "inbox=1";
   if(id === "replies") return EMAIL_NEED[blockId] ? "email=" + EMAIL_NEED[blockId] : "";
@@ -535,6 +562,7 @@ function blockTools(b){
   else ids = ["cms", "docs"];
   if(NET_STAGE[b.id]) ids.push("netsheet");   // every block of a Case Phase that works the money
   if(b.id === "d2m1-a1") ids.push("lor");   // Generating Formal LORs: drafted in LOR Drafting, logged in the CMS
+  if(EMAIL_NEED[b.id]) ids.push("replies");   // practice at the negotiating or communicating this step needs (EMAIL_NEED)
   ids = ids.concat(WORKED_IN[b.id] || []);
   ids = [...new Set(ids)];
   return ids.length ? ids : ["cms"];
@@ -2534,7 +2562,7 @@ function caseFlowPractice(){
 `;
 }
 if(typeof window.renderPracticeHub === "function") window.renderPracticeHub = () => caseFlowPractice();
-window.cmCaseFlowTest = {blockTools};   // .github/scripts/practice-tools.cjs: what a block is worked in
+window.cmCaseFlowTest = {blockTools, EMAIL_NEED, emailTarget};   // .github/scripts/practice-tools.cjs
 
 /* ---------- styles: only what the course's own classes don't already give ---------- */
 const st = document.createElement("style"); st.id = "cm-case-flow"; st.textContent = `

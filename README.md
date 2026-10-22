@@ -75,6 +75,39 @@ that step needs.
 day's activities use and nothing else, each opening on the day's first activity worked in it, no tool
 buttons left on the activity rows, and nothing offered on a locked day.
 
+### Practice at negotiating and communicating, by the need
+
+A Case Manager's day is negotiating and communicating in writing, so each activity that is practice at
+one of those opens the **Email Replies** scenario for that need — the adjuster, the lienholder, the
+provider's billing desk, the client, the attorney — instead of a list of eleven to pick from. The
+mapping is `EMAIL_NEED` in `js/cm-case-flow.js`, keyed by block id; a block listed there is also offered
+Email Replies among its tools, and a block that isn't listed is unaffected.
+
+| Need | Activities | Opens |
+| --- | --- | --- |
+| Negotiating | the BI time-limit demand, MRI against the 14-day gap, diminished value | the adjuster's reply |
+| | statutory lien reduction | the hospital's $45,000 lien notice |
+| | provider balance negotiation, transmitting LOPs | the provider's balance question |
+| | pleadings and discovery | opposing counsel's extension request |
+| Communicating | multi-channel outreach | a prospective client's inquiry |
+| | onboarding directions | what a spouse may be told |
+| | the A-C-T crisis protocol, probing the treatment gap | the client whose bills keep coming |
+| | the gap justification record | a records request refused |
+| | the pre-demand strategy session | the attorney's "where are we?" |
+| | closing the gross recovery | the client's "where is my money" |
+| | release and disbursement | fraudulent wire instructions |
+
+**Which scenario belongs to which activity is a curriculum decision**, so the table is meant to be
+edited in `EMAIL_NEED` as the Case Flow changes; a scenario is reused where the need is the same skill.
+The ✉ Email Workspace, separately, opens the inbox the trainee's program starts on (`inbox=1`).
+
+Both need the Training Portal's side of it (`simulators/email-replies.html` reads `?email=`,
+`simulators/email.js` reads `?inbox=`); without it the parameters are simply ignored and the trainee
+gets the list as before. `.github/scripts/practice-tools.cjs` (CI) checks that every activity named
+still exists in the Case Flow, that every scenario named is one the Portal serves, that a named activity
+is offered Email Replies and opens it on its own scenario, and that an activity with no entry is
+untouched.
+
 ### The Knowledge Check doesn't flicker
 
 The Knowledge Check is repainted on every answer, every pick and every move between questions. It used

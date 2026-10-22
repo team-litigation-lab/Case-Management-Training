@@ -15362,7 +15362,9 @@ function renderMatchBoard(prefix, cardTexts, zoneLabels){
       </div>
     </div>`;
 }
-function cssId(s){ return s.replace(/[^a-z0-9]/gi,"").toLowerCase(); }
+// Never throws on a record with no id: one malformed trainee record used to take the whole Admin page
+// down with it (renderCertAdmin → cssId), instead of just showing that row without its id.
+function cssId(s){ return String(s == null ? "" : s).replace(/[^a-z0-9]/gi,"").toLowerCase(); }
 function renderMatchCard(prefix,i,text){
   return `<div class="match-card" id="${prefix}Card-${i}" draggable="true" ondragstart="event.dataTransfer.setData('text/plain','${i}')">${esc(text)}</div>`;
 }

@@ -25,7 +25,9 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
     await page.evaluate(async () => {
         const key = 'trainee:' + state.traineeId;
         const r = await fetch('/api/storage/get', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key }) }).then(r => r.json());
-        const rec = JSON.parse(r.value || '{}'); rec.approved = true;
+        // keep the record's own id: writing {approved:true} over a record that hasn't been saved yet
+        // leaves an id-less trainee behind, which the Admin page then has to cope with
+        const rec = JSON.parse(r.value || '{}'); rec.approved = true; if (!rec.id) rec.id = state.traineeId;
         await fetch('/api/storage/set', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key, value: JSON.stringify(rec) }) });
     });
     await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500);
