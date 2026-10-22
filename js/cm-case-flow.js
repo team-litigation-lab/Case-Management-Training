@@ -2494,6 +2494,16 @@ function caseFlowPractice(){
   const tabs = `<div class="cf-px-tabs" role="tablist">${MODULES.map(d => `<button type="button" role="tab" aria-selected="${d.cf.n === sel}" class="cf-px-tab${d.cf.n === sel ? " on" : ""}" onclick="cmCaseFlow.pxDay(${d.cf.n})">Day ${d.cf.n}${dayUnlocked(d.id) ? (kcDone(d) ? " ✓" : "") : " 🔒"}<small>${E((CF.days.find(x => x.n === d.cf.n) || {}).phase || "")}</small></button>`).join("")}</div>`;
   const days = MODULES.filter(d => d.cf.n === sel).map(d => {
     const open = dayUnlocked(d.id), day = CF.days.find(x => x.n === d.cf.n);
+    /* One tools access for the session, not a set of chips on every activity. A day's activities are
+       worked in the same few platforms, so the chips repeated down the page were the same two or three
+       buttons over and over, and a trainee opening one from the wrong row landed on the wrong step.
+       The day's distinct tools are offered once, at the top of the day, each opening on that day's first
+       activity that uses it; every activity row still names the tool it is worked in, in words. The
+       per-step buttons stay where they belong, on the activity's own slide (the 🛠 Where box). */
+    const firstFor = {};
+    d.lessons.forEach((l, li) => { if(l.cf.block.kind !== "activity") return;
+      blockTools(l.cf.block).forEach(id => { if(firstFor[id] === undefined) firstFor[id] = {blockId: l.cf.block.id, li}; }); });
+    const sessionTools = open ? Object.keys(firstFor).map(id => toolChip(id, firstFor[id].blockId)).filter(Boolean).join("") : "";
     // the module's Practice, in the order the work happens, grouped under each activity's heading
     const groups = [];
     d.lessons.forEach((l, li) => { if(l.cf.block.kind !== "activity") return; const t = l.cf.heading.replace(/^Skill Building:\s*/, ""), last = groups[groups.length - 1];
@@ -2501,11 +2511,13 @@ function caseFlowPractice(){
     const mods = groups.map(({title, acts}, gi) => {
       return `<div class="cf-px-mod"><div class="cf-px-mh">${d.cf.n}.${gi + 1} · ${E(title)}</div>
         ${acts.map(({b, li}) => `<div class="cf-px-act"><div><b>${E(b.title)}</b>
-            <div class="cf-px-meta"><span>🛠 ${E(b.act.tool)} ${open ? toolChips(blockTools(b), b.id) : ""}</span><span>📤 ${E(b.act.output)}</span>${(CF_PACKETS[b.id] || []).length ? `<span>📁 ${CF_PACKETS[b.id].length} documents</span>` : ""}</div></div>
+            <div class="cf-px-meta"><span>🛠 ${E(b.act.tool)}</span><span>📤 ${E(b.act.output)}</span>${(CF_PACKETS[b.id] || []).length ? `<span>📁 ${CF_PACKETS[b.id].length} documents</span>` : ""}</div></div>
           ${open ? `<button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.openBlock(${d.id},${li})">Open</button>` : `<span class="cf-px-lock">🔒</span>`}</div>`).join("")}</div>`;
     }).join("");
     return `<div class="card px-day"><div class="px-day-h"><div><h2>Case Flow Day ${d.cf.n}${open ? "" : " · 🔒"}${day.track ? ` <span class="cf-px-track">${E(day.track)}</span>` : ""}</h2><div class="sub">${E(day.phase)}</div></div>
         <span class="px-prog">${kcDone(d) ? "Knowledge Check passed ✓" : open ? "In progress" : "Opens when the day before is passed"}</span></div>
+      ${sessionTools ? `<div class="cf-px-tools"><b>🛠 Tools for this session</b><div class="cf-px-toolrow">${sessionTools}</div>
+        <small>Each opens on the first activity of the day that is worked in it. Every step's own tools are on its slide.</small></div>` : ""}
       <div class="cf-px-mods">${mods}</div></div>`;
   }).join("");
   const any = [
@@ -2522,9 +2534,14 @@ function caseFlowPractice(){
 `;
 }
 if(typeof window.renderPracticeHub === "function") window.renderPracticeHub = () => caseFlowPractice();
+window.cmCaseFlowTest = {blockTools};   // .github/scripts/practice-tools.cjs: what a block is worked in
 
 /* ---------- styles: only what the course's own classes don't already give ---------- */
 const st = document.createElement("style"); st.id = "cm-case-flow"; st.textContent = `
+.cf-px-tools{margin:0 0 14px;padding:12px 14px;background:#F7F8FB;border:1px solid var(--line,#D6DAE4);border-radius:12px;}
+.cf-px-tools > b{display:block;font:800 12.5px var(--font-ui);color:var(--navy);letter-spacing:.04em;text-transform:uppercase;}
+.cf-px-toolrow{display:flex;gap:8px;flex-wrap:wrap;margin:9px 0 0;}
+.cf-px-tools small{display:block;margin-top:8px;font-size:12px;color:var(--ink-soft,#5B6178);}
 .cfg{position:relative;width:100%;box-sizing:border-box;}
 #quizWrap:has(.cfg){width:100%;}
 .cfg-title{display:flex;justify-content:center;align-items:center;gap:10px;margin:0 0 8px;}

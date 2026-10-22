@@ -58,6 +58,23 @@ The script applies the CM edits to the EA/PA page and inserts the CM content fro
     - **Files:** the slides are in `js/blueprint-content.js`. `js/lsh-blueprint.js` is the same file on every LSH platform, and `js/lsh-blueprint-course.js` is the same on every LSH course: copy them from EA-PA-TRAINING when they change there.
     - **Test:** `.github/scripts/blueprint.cjs`.
 
+### One tools access per Practice Lab session
+
+🧪 Practice lists each day's Skill Activities. Every activity row used to carry its own row of tool
+buttons, which on a single day was the same two or three platforms repeated down the page (Day 3 showed
+19 of them), and opening one from the wrong row took the trainee to the wrong step.
+
+The day now offers its tools **once**, in a **🛠 Tools for this session** row at the top of the day: each
+distinct platform the day's activities are worked in, once, each opening on the **first activity of that
+day worked in it**. Every activity row still names the tool it is worked in, in words, and still has its
+**Open** button for the activity itself. A locked day offers no tools. The per-step buttons stay where
+they belong — on the activity's own slide, in its 🛠 Where box — so a step still opens exactly the tool
+that step needs.
+
+`.github/scripts/practice-tools.cjs` (CI) checks every day: one row, each tool in it once, every tool the
+day's activities use and nothing else, each opening on the day's first activity worked in it, no tool
+buttons left on the activity rows, and nothing offered on a locked day.
+
 ### The Knowledge Check doesn't flicker
 
 The Knowledge Check is repainted on every answer, every pick and every move between questions. It used
