@@ -343,6 +343,10 @@
     "check": {
       "say": "Before you log this, run your checks. Section one's snapshot has LSH-2026-MVA-770412, No. 26-CV-04417, Atty. Mercer's verified contacts, and the fee split read from the order. Section three, only the filed complaint and answer. Your defense map gets graded hard: five allegations, five answers, each with an exhibit number, so \"see Medical Records\" isn't a map. Landmine one: Riverton audited to 33 visits at $185.00, $6,105.00, duplicate removed, pending final verification, for $16,401.40. Landmine two: Crescent's $3,400.00 satisfied by Peach State's $1,860.00, with open liens of $6,485.00. Section six's log runs from the 07/20/2026 demand to suit. The release and consent requests are drafts, so leave every term to Atty. Thorne. Then swap binders with your partner and QA each other's index.",
       "ask": "When you swap with your partner, which exhibit number in their defense map will you check first?"
+    },
+    "audit": {
+      "say": "This is the index the Litigation Desk assembled on the second of March, and Atty. Mercer says Keystone won't put a real number on the table while the medical ledger is unverified. On this draft he's right. Section five was typed from the providers' original bills, so Riverton Spine and Rehab comes in at six thousand two hundred and ninety on thirty-four lines and the medical total reads fifteen thousand and two forty, against the fourteen thousand eight hundred and seventeen forty we served in July. Crescent shows as an open balance Peach State already paid. Call every section, and tell me what's missing as well as what's wrong. When you hand it in you'll see the binder as we delivered it on the eleventh of March.",
+      "ask": "Two medical totals for one file. Which one would you defend in that room?"
     }
   },
   "d4m3-a2": {
@@ -357,6 +361,10 @@
     "check": {
       "say": "Check before you log. Tab one has the snapshot and the 06/11/2027 brief slot, never a draft. Threshold exhibits come first, the $10,000 tender, consents, Limited Release, dismissal and both Coverage Letters. Tab two holds operative versions only, with the pre-filing draft gone. Tab three has the certified RPD-26-018842 and color stills from the native file. Tab four ties $14,817.40 to certified bills, with certifications requested from each provider. On tab five, pull and pair the 2021 records with the MRI read and Causation Letter, but don't argue causation; a supplemental opinion from Dr. Reyes is Atty. Thorne's call. The Lien Sheet drops Harbor Point and Summit, leaving $6,485.00. Tab six is wages, $1,584.00. And the impasse memo is the privilege test. It never goes in tab six.",
       "ask": "Where did you put the 09/08/2026 impasse memo, and who decides whether it's ever exchanged?"
+    },
+    "audit": {
+      "say": "The desk's exhibit index, the fourteenth of May, and Harbor Point is on the other side of this hearing now. Decide for each exhibit which tab it belongs in, or that it's withheld, and apply the QC as you sort rather than after. The Confidential Mediation Statement is sitting at C-2 for background. Nobody has asked a single provider for a certification, the authentication log hasn't been started, and tab one has no exhaustion record at all, so there's nothing proving the bodily injury layer is gone. And the Lien Sheet claims five thousand dollars for Harbor Point MedPay, which gave up any reimbursement right in writing in March. When you hand it in you'll see the set we exchanged on the second of June.",
+      "ask": "Harbor Point is the opponent now. What changes about what we send?"
     }
   },
   "d4m3-kc": {

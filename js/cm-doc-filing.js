@@ -15,6 +15,11 @@
    because the convention is the thing being learned. Each document's attempts are kept, so a trainer can
    see who filed the repository right the first time.
 
+   It also files a document the course itself produced — the Service Confirmation's memorandum, built from the
+   trainee's own confirmation email and the adjuster's acknowledgment (cmDocFiling.send) — through the same
+   name check and the same upload, and asks the CMS to back the case's filed documents up to the trainee's own
+   Google Drive (cmDocFiling.drive); the backup is the CMS's, and the course only asks for it.
+
    What is needed: the CMS open beside the lesson (🗂 Open CMS) with the trainee's own case open in it. The
    panel says so when it isn't, and nothing else is blocked.  Course side of the CMS's course-bridge.js.
 
@@ -140,12 +145,24 @@ async function file(blockId, docId, btn){
     if(btn){ btn.disabled = false; btn.textContent = "File it in the CMS"; }
     return;
   }
+  // A copy for the backup drive, taken before the original is handed to the CMS (transferring it empties it here).
+  const forDrive = bytes.slice(0);
   const out = await askCms({lsh:"cms-doc-file", name, category, original: basename(d), mime: mimeOf(basename(d)), summary: d.title, bytes}, "cms-doc-filed", [bytes]);
   if(btn){ btn.disabled = false; btn.textContent = "File it in the CMS"; }
   if(out && out.ok){
     r.filed = true; r.name = out.name; r.category = out.category || category; r.at = new Date().toISOString(); r.problems = [];
     await save();
     if(typeof toast === "function") toast(`Filed in the CMS as ${out.name}.`);
+    // The firm keeps a backup drive as well as a CMS: the same document goes into its folder there, the
+    // one this document already belongs to (d.folder, CM_CF_DOC_FOLDERS). The CMS is the file of record,
+    // so a drive that isn't set up never undoes the filing — the trainee is just told what didn't reach it.
+    if(window.CMDrive){
+      const drv = await CMDrive.saveFiled(d.folder, out.name, forDrive);
+      r.drive = drv.ok ? drv.folder : "";
+      await save();
+      if(drv.ok && typeof toast === "function") toast(`Kept on your Backup Drive under ${drv.folder.split("/").pop()}.`);
+      else if(drv.why === "no-drive" && typeof toast === "function") toast("Filed in the CMS. Your Backup Drive isn't set up yet, so no copy was kept there.");
+    }
     row.outerHTML = rowHTML(blockId, d);
     const count = document.querySelector(`#dfl_${CSS.escape(blockId)} .dfl-count`);
     if(count){ const p = panel(blockId); const m = /<span class="dfl-count">([^<]*)</.exec(p); if(m) count.textContent = m[1]; }
@@ -161,18 +178,42 @@ const mimeOf = (file)=>{
           xlsx:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}[ext] || "application/octet-stream";
 };
 
+/* ---------- send: one document the course produced, to the CMS ----------
+   The same upload this panel uses, for a document the course made rather than one from the case documents:
+   the letters a trainee drafts (js/cm-cms-upload.js) and the Service Confirmation's memorandum
+   (js/cm-case-flow.js) both file through here, so a drafted document and a case document take one road.
+   The trainee writes the name and the CMS checks it against caseFileName; what is refused here is only what
+   could never reach the CMS at all, each with the reason to show the trainee. Nothing decides a name. */
+async function send(d){
+  if(!caseOpen()) return {ok: false, error: "No case is open in the CMS. Press 🗂 Open CMS, then open your own case (or save it, so it is given its Case ID)."};
+  const name = String((d && d.name) || "").trim();
+  if(!name) return {ok: false, error: "Write the file name first."};
+  const bytes = d && d.bytes;
+  if(!(bytes instanceof ArrayBuffer) || !bytes.byteLength) return {ok: false, error: "The document did not reach this step. Build it again."};
+  if(!CATEGORIES.includes(d.category)) return {ok: false, error: `"${d.category}" is not a Doc Hub category. The categories are: ${CATEGORIES.join(", ")}.`};
+  return await askCms({lsh: "cms-doc-file", name, category: d.category, original: d.original || name,
+    mime: d.mime || "application/pdf", summary: d.summary || name, bytes}, "cms-doc-filed", [bytes]);
+}
+
+/* ---------- backing the case's filed documents up to the trainee's Drive ----------
+   The backup itself is the CMS's (its drive-backup.js, through its own /api/drive-backup): the course only asks
+   for it and reports what came back, so the Google connection, the folder and the files stay the CMS's business.
+   A CMS without Google sign-in set up, or an account not connected yet, says so and nothing else is blocked. */
+async function drive(){
+  if(!caseOpen()) return {ok: false, error: "Open your own case in the CMS first."};
+  const out = await askCms({lsh: "cms-drive-backup"}, "cms-drive-backed-up");
+  if(out && out.ok) return out;
+  if(out && out.error) return out;
+  return {ok: false, error: "The CMS didn't answer the backup request. Is your case open in it?"};
+}
+
 /* How healthy the repository is: what has been filed, and what was filed right the first time. */
 function health(){
   const all = Object.values(log());
   return {filed: all.filter(x=>x.filed).length, firstTime: all.filter(x=>x.filed && x.attempts === 1).length,
           attempts: all.reduce((n, x)=>n + (x.attempts || 0), 0)};
 }
-/* send: one document to the CMS, the same upload this panel uses. js/cm-cms-upload.js files the
-   letters a trainee drafts through it, so a drafted document and a case document take one road. */
-const send = (d)=> askCms({lsh:"cms-doc-file", name:d.name, category:d.category, original:d.original || d.name,
-                           mime:d.mime || "application/pdf", summary:d.summary || d.name, bytes:d.bytes},
-                          "cms-doc-filed", d.bytes ? [d.bytes] : []);
-window.cmDocFiling = {panel, file, send, health, categories: CATEGORIES, expectedCategory, CATEGORIES, relayOrigins: ()=> RELAY_ORIGINS.map(String)};
+window.cmDocFiling = {panel, file, send, drive, health, categories: CATEGORIES, expectedCategory, CATEGORIES, relayOrigins: ()=> RELAY_ORIGINS.map(String)};
 
 /* ---------- relaying a simulator's document to the CMS ----------
    The LSH Training Portal (and a local server while the checks run) may ask; nobody else. The message

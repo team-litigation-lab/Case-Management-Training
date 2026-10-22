@@ -138,6 +138,8 @@ else {
      Lab slide) stay within SLIDE_CAP, and no day runs far from the others (half to one and a half times the median).
      A heavy day condenses its blocks (`compact`, `brief`) instead of carrying more slides. */
   const SLIDES = (() => { require(path.join(ROOT, "js/cm-case-flow-slides.js")); return global.window.CM_CF_SLIDES || {}; })();
+  // an activity that audits a document set draws one more slide (build/case-flow/exhibits), so it counts here too
+  const AUDITS = (() => { require(path.join(ROOT, "js/cm-case-flow-exhibits.js")); return (global.window.CM_CF_EXHIBITS || {}).audits || {}; })();
   const SLIDE_CAP = 100, TH_PER = 4;
   const viewsOf = b => {
     const t = (SLIDES[b.id] || {}).theory, map = (SLIDES[b.id] || {}).roadmap ? ["map"] : [];
@@ -145,7 +147,7 @@ else {
     if(b.kind === "lesson" && b.brief) return ["why", "rules"].concat((b.ops || []).length ? ["job"] : []);
     if(b.kind === "lesson" && b.compact) return ["why"].concat(map, theory.slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);
     if(b.kind === "lesson") return ["why"].concat(map, theory, ["rules"], b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);
-    if(b.kind === "activity") return ["case", "task"].concat(b.show && !b.compact ? ["model"] : [], ["check"]);
+    if(b.kind === "activity") return ["case", "task"].concat(AUDITS[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);
     return [];   // a Knowledge Check is its own page, not slides
   };
   DECK = CF.sequence.map(sd => { const bs = (sd.phases || []).flatMap(ph => ph.blocks || []).filter(id => STORED[id]).map(id => STORED[id].b);

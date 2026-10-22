@@ -1,0 +1,377 @@
+{
+  "audits": {
+    "d3m1-a1": {
+      "title": "Exhibit Packet Audit — the Demand Package as drafted",
+      "kicker": "Audit the enclosure set before Atty. Thorne signs anything.",
+      "source": "RS66",
+      "reveal": "RS67",
+      "due": "07/20/2026",
+      "intro": "The demand specialist built the enclosure set and typed the Specials from it. Nothing has been re-verified since the pre-demand audit and no corrected record has been chased. Work the set item by item: every loophole here is one Dana Whitfield can use, and every gap is one she will find.",
+      "columns": {
+        "ref": "Exhibit",
+        "as": "As drafted"
+      },
+      "items": [
+        {
+          "ref": "A",
+          "what": "Riverton PD Traffic Crash Report",
+          "as": "Cited as RPD-26-018824; portal download of 02/26/2026.",
+          "verdict": "replace",
+          "kind": "loophole",
+          "issue": "The report is RPD-26-018842. A demand that cites a report number that does not exist invites the adjuster to say our liability proof cannot be located, and the transposition is already in our own intake sheet.",
+          "fix": "Order the certified complete report under the correct number, correct the intake record with a note citing the report, and assign both as dated CMS tasks.",
+          "proof": [
+            "RS07",
+            "RS01"
+          ]
+        },
+        {
+          "ref": "B",
+          "what": "Signed witness statement — Ruth Calloway",
+          "as": "Scene original, scanned; signed and dated 02/06/2026.",
+          "verdict": "keep",
+          "kind": "qc",
+          "issue": "An independent witness who signed at the scene is the answer to the comparative-negligence line defense counsel pressed later. The copy is the signed original.",
+          "fix": "Confirm the signature and date are legible on the scan, and that a signed follow-up statement has been requested before memories fade.",
+          "proof": [
+            "RS08"
+          ]
+        },
+        {
+          "ref": "C",
+          "what": "Doorbell-camera stills and video",
+          "as": "Four stills, grayscale export of the 02/19/2026 working copy.",
+          "verdict": "replace",
+          "kind": "qc",
+          "issue": "The clearest liability proof on the file, and in grayscale the stop line and the signal are hard to read. An exhibit the adjuster cannot see is an exhibit she can ignore.",
+          "fix": "Re-export the four stills in color from the native file, hash unchanged, and enclose the preservation and chain-of-custody log with them.",
+          "proof": [
+            "RS09"
+          ]
+        },
+        {
+          "ref": "D",
+          "what": "Riverton Fire EMS Run Report",
+          "as": "Certified copy, run RF-26-0206-114, from Riverton Fire records.",
+          "verdict": "keep",
+          "kind": "gap",
+          "issue": "This is the document that answers the fourteen days: a neck complaint recorded at the scene on the date of loss, and \"restrained front-seat passenger\" against the later unbelted defense.",
+          "fix": "Confirm it is the certified copy and that the demand's section 3 quotes it, not paraphrases it.",
+          "proof": [
+            "RS11"
+          ]
+        },
+        {
+          "ref": "E",
+          "what": "Riverton Spine & Rehab itemized LOP ledger",
+          "as": "34 lines, $6,290.00, as the provider's portal produced it.",
+          "verdict": "replace",
+          "kind": "arithmetic",
+          "issue": "05/04/2026 is billed twice. The attendance log shows 33 attended visits, so the audited figure is 33 × $185.00 = $6,105.00. A demand built on a duplicate is a demand the carrier can discredit line by line.",
+          "fix": "Request the Final Itemized Ledger with the duplicate removed, re-verify the balance with the provider in the week of service, and update the Specials.",
+          "proof": [
+            "RS23",
+            "RS14"
+          ]
+        },
+        {
+          "ref": "E",
+          "what": "Crescent Pain & Spine patient statement",
+          "as": "Bills John Doe $1,540.00 as due from the patient.",
+          "verdict": "replace",
+          "kind": "loophole",
+          "issue": "The $1,540.00 is the contractual adjustment. Crescent is in network, was paid $1,860.00 at the contract rate, and cannot balance-bill the member. Enclosing it asserts a balance that does not exist and invites a lien that does not exist.",
+          "fix": "Ask Crescent for a corrected $0.00 patient statement, enclose it with Peach State's EOB, and never list Crescent as an open balance.",
+          "proof": [
+            "RS26"
+          ]
+        },
+        {
+          "ref": "F",
+          "what": "Summit Imaging cervical MRI report",
+          "as": "Dr. Helen Park's read; the history line gives the date of injury as 02/16/2026.",
+          "verdict": "replace",
+          "kind": "loophole",
+          "issue": "The date of loss is 02/06/2026. A ten-day error inside our own causation exhibit is exactly what an adjuster uses to argue the herniation came from something else, and it sits on the one document that answers \"degenerative\".",
+          "fix": "Request a corrected history addendum from Summit Imaging and enclose the report with it; keep Dr. Park's impression quoted word for word in the letter.",
+          "proof": [
+            "RS16"
+          ]
+        },
+        {
+          "ref": "G",
+          "what": "Dr. Alana Reyes — Causation Letter",
+          "as": "Signed original of 06/19/2026 from Lakeside Orthopedics.",
+          "verdict": "keep",
+          "kind": "gap",
+          "issue": "The centrepiece: it ties the delayed presentation and the C5-C6 herniation to the collision to a reasonable degree of medical probability, and puts the 2021 low-back care outside the claim.",
+          "fix": "Confirm it is the signed original and that the letter's section 3 cites it by date rather than summarising its opinion in our own words.",
+          "proof": [
+            "RS19"
+          ]
+        },
+        {
+          "ref": "H",
+          "what": "Northgate Distribution wage-and-attendance letter",
+          "as": "Signed original of 06/30/2026 from Northgate HR.",
+          "verdict": "keep",
+          "kind": "gap",
+          "issue": "It proves the $1,584.00 twice over: nine missed shifts for the wage claim, and the 02/09–02/13/2026 call-outs that show symptoms before first treatment.",
+          "fix": "Confirm the call-out record is attached to it, so the wage proof and the gap corroboration travel together.",
+          "proof": [
+            "RS43"
+          ]
+        },
+        {
+          "ref": "I",
+          "what": "Margaret Doe's Civic: estimate, supplement and Diminished Value report",
+          "as": "Fourteen pages from the Property Damage sub-file, enclosed with the medical exhibits.",
+          "verdict": "pull",
+          "kind": "loophole",
+          "issue": "It is not even Mr. Doe's claim. The parked Civic is his mother Margaret's, her claim is KM-26-440871-PD with a different adjuster, and putting it inside his bodily injury demand invites a release that reaches her car.",
+          "fix": "Pull it. Keep her claim in its own file, and make sure the demand says in terms that Mr. Doe makes no Property Damage claim and that nothing in it releases hers.",
+          "proof": [
+            "RS33"
+          ]
+        },
+        {
+          "ref": "J",
+          "what": "Master Case Summary (internal)",
+          "as": "Four pages of Atty. Thorne's internal summary, enclosed \"for context\".",
+          "verdict": "pull",
+          "kind": "privilege",
+          "issue": "It names our own gap risk, our own valuation and our internal dates. Sent to the adverse carrier it hands Keystone our weaknesses and our number, and it can never be taken back.",
+          "fix": "Pull it. It never goes in a Demand Package, a Mediation Binder or an arbitration exhibit set; flag to Atty. Thorne that it was in the draft.",
+          "proof": [
+            "RS04"
+          ]
+        },
+        {
+          "ref": "J",
+          "what": "Claim-specific HIPAA authorization",
+          "as": "The client's signed authorization, enclosed with the internal summary.",
+          "verdict": "pull",
+          "kind": "privilege",
+          "issue": "An authorization is how the firm gets records from providers. Handing it to the adverse carrier gives Keystone a route to John Doe's medical file that we do not control and did not have to give.",
+          "fix": "Pull it. Keystone receives the records we choose to enclose; calendar the authorization's renewal before it expires on 02/06/2027.",
+          "proof": [
+            "RS06"
+          ]
+        },
+        {
+          "ref": "—",
+          "what": "The exhibit index's own Bates ranges",
+          "as": "Exhibit E runs LSH-DEM-000016–66 and Exhibit F runs LSH-DEM-000064–66.",
+          "verdict": "replace",
+          "kind": "arithmetic",
+          "issue": "The two ranges overlap, so three pages belong to two exhibits at once. Once the carrier cites a Bates number, nobody can be sure which document was meant — and the index is the one thing both sides rely on.",
+          "fix": "Re-number the set once the pulls and replacements are done, so every page sits in exactly one exhibit and the ranges match the page counts.",
+          "proof": [
+            "RS61"
+          ]
+        },
+        {
+          "ref": "—",
+          "what": "Gap Explanation Record",
+          "as": "Not in the set. The nineteen-day April disruption has no exhibit at all.",
+          "verdict": "add",
+          "kind": "gap",
+          "issue": "The letter explains the fourteen days, then leaves the April break to be discovered. Keystone will call it failure to mitigate, and the answer — the rental ending 03/19, the carpool ending 04/01, evening visits from 04/21 — is nowhere in the enclosures.",
+          "fix": "Add the Gap Explanation Record: every entry with its underlying record, both intervals, and the A-C-T account of the April break with the attendance log behind it.",
+          "proof": [
+            "RS14",
+            "RS21",
+            "RS43",
+            "RS11"
+          ]
+        },
+        {
+          "ref": "—",
+          "what": "Keystone's declarations page and limits letter",
+          "as": "Not in the set, though the letter's opening relies on it.",
+          "verdict": "add",
+          "kind": "gap",
+          "issue": "The whole demand rests on $10,000 being the per-person bodily injury limit. The proof is Keystone's own letter of 03/20/2026. Without it the demand asserts the limit instead of showing it.",
+          "fix": "Add the declarations page and the 03/20/2026 cover letter as the last exhibit, and cite it in the letter's opening and in section 5.",
+          "proof": [
+            "RS27"
+          ]
+        },
+        {
+          "ref": "—",
+          "what": "Each deficiency as a dated, assigned CMS task",
+          "as": "The draft asks the Case Manager to tell the specialist what to change.",
+          "verdict": "flag",
+          "kind": "privilege",
+          "issue": "Fixing a draft quietly leaves no record of who found what, and no way to prove the set was audited before it went out. The terms, the amount and the deadline are Atty. Thorne's and are not the Case Manager's to change at all.",
+          "fix": "Log every finding above as a dated, assigned task; route the corrected set and the audit note to Atty. Thorne for signature. Change no term.",
+          "proof": [
+            "RS33",
+            "RS04"
+          ]
+        }
+      ],
+      "revealNote": "The Demand Package as Atty. Thorne signed and served it on 07/20/2026: the letter with its four faults corrected and the Exhibit Index as served, 81 pages. Every later activity on this file works from this set.",
+      "revealPoints": [
+        "Specials $14,817.40 medical + $1,584.00 wages = $16,401.40, every line tied to a certified bill.",
+        "Acceptance runs 30 days from Keystone's receipt of the certified mailing, not from the date of the letter.",
+        "A Limited Release of Robert Smith and Keystone Mutual only, preserving every UM/UIM claim and the Property Damage claim.",
+        "Robert Smith's affidavit of no other insurance added as condition 3.",
+        "Exhibits A–J, 81 pages, Bates LSH-DEM-000001–000081, each exhibit mapped to the section it proves.",
+        "Received 07/22/2026, so the acceptance window closes 08/21/2026, docketed with reminders."
+      ]
+    }
+  },
+  "emails": {
+    "d3m1-a1": {
+      "title": "Service Confirmation — the email the adjuster has to answer",
+      "kicker": "Mail proves it left. The email makes the carrier admit when it landed.",
+      "model": "RS68",
+      "mail": {
+        "channel": "Certified mail, return receipt requested",
+        "sent": "07/20/2026",
+        "proof": "USPS No. 9589 0710 5270 0412 7731 58",
+        "receipt": "07/22/2026"
+      },
+      "to": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+      "cc": "Elijah Thorne <ethorne@lshlawgroup.example>",
+      "subject": "Time-Limited Demand served today — John Doe / Robert Smith — Claim KM-26-440871",
+      "attachment": "LSH-2026-MVA-770412_Doe-John_Demand-Package_2026-07-20.pdf (81 pp.)",
+      "brief": "Write the email that goes out with the certified mailing. It must say what was served and how, say the clock runs from Keystone's receipt, and ask her to confirm the receipt date and that the set is complete. Terms and extensions go to Atty. Thorne.",
+      "required": [
+        {
+          "id": "certified",
+          "label": "Names the certified mailing and its tracking number",
+          "hint": "Say it went by certified mail, return receipt requested, and give the number.",
+          "match": [
+            "certif",
+            "9589\\s*0710\\s*5270\\s*0412\\s*7731\\s*58|958907105270041277315 8|9589071052700412773158"
+          ]
+        },
+        {
+          "id": "package",
+          "label": "Says what is attached: the Demand Package, 81 pages, Exhibits A–J",
+          "hint": "Name the package, the page count and the exhibit range, so she cannot say part was missing.",
+          "match": [
+            "81",
+            "exhibit",
+            "\\bA\\b.{0,12}\\bJ\\b|A through J|A-J|A–J"
+          ]
+        },
+        {
+          "id": "clock",
+          "label": "States that the 30 days run from receipt, not the date of the letter",
+          "hint": "The window runs from receipt of the certified mailing. Say so in terms.",
+          "match": [
+            "30 day|thirty day",
+            "receipt|receiv"
+          ]
+        },
+        {
+          "id": "ask",
+          "label": "Asks her to confirm the receipt date and that the set is complete",
+          "hint": "Ask for the date Keystone received the mailing and for confirmation the package is complete.",
+          "match": [
+            "confirm",
+            "date"
+          ]
+        },
+        {
+          "id": "upl",
+          "label": "Routes terms, amount and any extension to Atty. Thorne",
+          "hint": "Point every question about the terms or the deadline to Atty. Thorne, by name.",
+          "match": [
+            "thorne",
+            "term|extension|deadline|time frame|amount"
+          ]
+        }
+      ],
+      "reply": {
+        "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+        "date": "07/22/2026",
+        "time": "9:06 a.m.",
+        "subject": "RE: Time-Limited Demand served today — John Doe / Robert Smith — Claim KM-26-440871",
+        "body": "Confirming receipt. The certified envelope was delivered to our Riverton claims office this morning, July 22, and I signed for it. Your email of July 20 with the attachment is in the file as well; the PDF opens at 81 pages and the index runs A through J, so I show it complete.\n\nI have logged the demand as received 07/22/2026 and diaried it for evaluation. I will need to review the imaging and the treatment records before I can respond to the number. I may come back to you about the time frame."
+      },
+      "press": {
+        "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+        "date": "07/23/2026",
+        "subject": "RE: Time-Limited Demand — extension request",
+        "body": "One more thing. Our medical review is backed up and I will not have an evaluation inside thirty days. Can we agree to two more weeks on the acceptance date? If you can just confirm by reply I will note the file at September 4 and we can skip the paperwork.",
+        "choices": [
+          {
+            "label": "Reply that two weeks is fine and note it on the file.",
+            "ok": false,
+            "why": "The Case Manager has just moved a deadline Atty. Thorne set. It is his term to change, and a reply like this can be held against the demand later."
+          },
+          {
+            "label": "Reply that the demand stands as written and any request must go in writing to Atty. Thorne; forward it the same day.",
+            "ok": true,
+            "why": "Correct. Nothing is granted and nothing is refused: the request is recorded, routed the same day, and the 08/21/2026 date stays on the docket until he says otherwise."
+          },
+          {
+            "label": "Say nothing and let the deadline run.",
+            "ok": false,
+            "why": "An unanswered request is still a request on the file. If Keystone later says it asked and got no response, silence is the record we are left with."
+          },
+          {
+            "label": "Reply that no extensions are granted on a Time-Limited Demand.",
+            "ok": false,
+            "why": "That is a decision on the terms, and a refusal is as much the attorney's call as an agreement. The Case Manager does not answer it either way."
+          }
+        ]
+      },
+      "convert": {
+        "title": "Demand Service & Adjuster Acknowledgment — memorandum to file",
+        "category": "Others",
+        "type": "Others",
+        "sections": [
+          {
+            "h": "1 · What was served, and how",
+            "lines": [
+              "BI Time-Limited Demand, signed by Atty. Elijah Thorne 07/20/2026, served the same day.",
+              "Certified mail, return receipt requested, USPS No. 9589 0710 5270 0412 7731 58; green card returned bearing 07/22/2026.",
+              "Email of 07/20/2026, 4:21 p.m., with the full Demand Package as one bookmarked PDF, 81 pages, Exhibits A–J."
+            ]
+          },
+          {
+            "h": "2 · The confirmation email the Case Manager sent",
+            "lines": []
+          },
+          {
+            "h": "3 · The adjuster's acknowledgment",
+            "lines": []
+          },
+          {
+            "h": "4 · What the acknowledgment establishes",
+            "lines": []
+          },
+          {
+            "h": "5 · Action taken the same day",
+            "lines": [
+              "Acknowledgment forwarded to Atty. Thorne 07/22/2026, flagged \"adjuster raises time frame — your call\".",
+              "Communications Log updated with both emails, quoted in the adjuster's own words.",
+              "Docket entry 08/21/2026 created from the receipt date, not the mailing date, with reminders at 14 and 7 days and on the day.",
+              "No reply sent on the time frame."
+            ]
+          },
+          {
+            "h": "6 · Where this memorandum is filed",
+            "lines": [
+              "CMS → Doc Hub → Others, named the firm's way, with the return receipt appended.",
+              "CMS → Insurance tab → Demand: Time-Limited Demand yes, served 07/20/2026, received 07/22/2026, acceptance 08/21/2026.",
+              "Google Drive: LSH CMS Backups / <Case ID> <Client>, backed up from the case's Doc Hub."
+            ]
+          }
+        ],
+        "establishes": [
+          "Keystone received the certified mailing on 07/22/2026, in the adjuster's own writing, matching the signed return receipt.",
+          "The acceptance window therefore closes 08/21/2026, counted from receipt and not from the date of the letter.",
+          "The package is complete at 81 pages, Exhibits A–J, so \"we never got all of it\" is answered by her own email.",
+          "The time frame was raised, flagged and routed to Atty. Thorne. It was not an extension and was not granted.",
+          "No valuation, no view of the offer and no agreement to any term was given by the Case Manager."
+        ]
+      }
+    }
+  }
+}

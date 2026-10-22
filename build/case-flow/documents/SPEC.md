@@ -463,3 +463,66 @@ responses to requests for admission served by U.S. mail on Atty. Grant Mercer 01
 **RS65 · Harbor Point — PIP Application & Claim Acknowledgement** · Day 2 · Others · `RS_65_Harbor_Point_PIP_Application.pdf`
 John Doe's PIP application, signed 02/17/2026 and sent with the Harbor Point LOR (passenger in Kevin Alvarez's 2020 Ford Escape; household policies: Margaret Doe's Bluewater and Cardinal State, PIP rejected in writing), and Harbor Point's 02/24/2026 acknowledgement: PIP opened under HPA-4402917, $5,000 each person, 100% medical / 80% lost income, bills to be sent with the claim number; wage loss needs an employer verification.
 *Key:* Whose PIP: the vehicle he rode in, because no household policy carries PIP. Riverton's add-on rule: no BI or UM set-off, no reimbursement from the recovery.
+
+### The audited sets and their finished counterparts
+
+Three Skill Activities audit a draft set and are then shown the finished one: the Demand Package's exhibit
+packet (RS66 → RS67), the Litigation Desk's draft Mediation Binder (RS62 → RS69) and its draft Arbitration
+Binder index (RS63 → RS70). The drafts carry the plants; the finished sets carry none, and every activity that
+comes after works from them. Content for the audits: `build/case-flow/exhibits/EXHIBITSPEC.md`.
+
+**RS66 · Demand Package — Exhibit Packet & Index (DRAFT for audit)** · Day 3 · Others · `RS_66_Demand_Exhibit_Packet_DRAFT.pdf`
+The demand specialist's enclosure set for RS33, prepared 07/17/2026: a cover sheet, the Exhibit A–J index with page
+counts, Bates ranges and the source of each copy, a table of what the cover letter says the set proves, and the
+blank audit sheet the Case Manager fills in (keep / replace / pull, what is wrong or missing, the fix and who does
+it). Marked "DRAFT EXHIBIT PACKET — for Case Manager audit before Atty. Thorne signs".
+*Plants (ten, this is the loophole audit):* (1) Exhibit A cites the Police Report as **RPD-26-018824** (it is
+RPD-26-018842, RS07); (2) Exhibit C is the **grayscale** still export (RS09); (3) Exhibit E carries Riverton Spine &
+Rehab's **34-line, $6,290.00** ledger with the 05/04/2026 duplicate (RS23); (4) Exhibit E also carries Crescent's
+patient statement billing John **$1,540.00**, a contractual adjustment an in-network provider cannot bill (RS26);
+(5) Exhibit F is the MRI with the **02/16/2026** history date and no corrected addendum (RS16); (6) Exhibit I is the
+estimate and Diminished Value report for **Margaret Doe's** Civic, her claim and not Mr. Doe's;
+(7) Exhibit J encloses the **Master Case Summary** (work product, RS04) and the client's **HIPAA authorization**
+(RS06); (8) Bates ranges **overlap** (E runs 000016–66, F runs 000064–66); (9) **missing** the Gap Explanation
+Record, so the 19-day April disruption has no exhibit; (10) **missing** Keystone's declarations page and limits
+letter of 03/20/2026 (RS27), the proof of the limit the demand is built on.
+*Key:* Audited against the file, not against the draft's own figures. Every fix is a dated, assigned CMS task; the
+Case Manager corrects nothing silently. The finished set is RS67.
+
+**RS67 · BI Time-Limited Demand Package — FINAL as served (07/20/2026)** · Day 3 · Others · `RS_67_BI_Demand_Package_FINAL_AS_SERVED.pdf`
+The complete, ready-to-go package as signed and served, shown once the audit is handed in: the demand letter with
+RS33's four faults corrected (30 days **from receipt**; a **Limited Release of Robert Smith and Keystone Mutual
+only**, expressly preserving every UM/UIM claim and the Property Damage claim; Specials **$16,401.40**; Smith's
+affidavit of no other insurance added as condition 3), then the Exhibit Index as served — Exhibits A–J, 81 pages,
+Bates LSH-DEM-000001–000081, each exhibit mapped to the cover-letter section it proves — then a table of what was
+pulled from the draft set and why. Ends with the service record: signed and served 07/20/2026 by certified mail
+(No. 9589 0710 5270 0412 7731 58) and email at 4:21 p.m., return receipt 07/22/2026, acceptance docketed 08/21/2026.
+*Key:* No plants. This is the package every later activity works from: the negotiation, the lien work, the
+Mediation Binder (RS69) and the arbitration exhibits (RS70) all trace to these exhibits and these figures.
+
+**RS68 · Demand Service & Adjuster Acknowledgment — Memorandum (as filed)** · Day 3 · Others · `RS_68_Demand_Service_and_Acknowledgment_Memo.pdf`
+The model for the Service Confirmation activity: a memorandum to file dated 07/22/2026 holding the service table
+(both channels and their proof), the Case Manager's confirmation email of 07/20/2026 reproduced in full, Dana
+Whitfield's written acknowledgment of 07/22/2026, what the acknowledgment establishes and what it does not, the
+same-day action taken, and where the memorandum and its thread are filed (CMS → Doc Hub → Others under the firm's
+naming convention, Communications Log, the Insurance tab's Demand record, and the Google Drive backup folder).
+*Key:* No plants. The acknowledgment fixes 07/22/2026 from the carrier's own writing and confirms the set is
+complete at 81 pages, Exhibits A–J, closing the "we never got all of it" argument. "I may come back to you about
+the time frame" is a request **flagged for Atty. Thorne**, never an extension the Case Manager grants.
+
+**RS69 · Mediation Binder — FINAL as delivered (03/11/2027)** · Day 4 · Litigation · `RS_69_Mediation_Binder_FINAL_AS_DELIVERED.pdf`
+The complete six-section binder as approved 03/10/2027 and delivered 03/11/2027, shown once the audit is handed in:
+the master index (Sections 1–6, 141 pages, Bates LSH-MED-000001–000141, OCR-searchable and bookmarked), the Section 3
+defense map pairing each of the five pleaded allegations with the exhibit that answers it (and the two legal
+questions flagged for Atty. Thorne), the Section 5 ledger rebuilt line by line to **$16,401.40** with open liens
+**$7,965.00**, the Property Damage schedule kept separate, a table of what the audit changed and what each fault
+would have cost, and the delivery record.
+*Key:* No plants. Built from RS67 and audited against the Litigation Desk's draft index (RS62); the starting point for RS70 and for Day 5.
+
+**RS70 · UM Arbitration Binder — FINAL as exchanged (06/02/2027)** · Day 4 · Litigation · `RS_70_Arbitration_Binder_FINAL_AS_EXCHANGED.pdf`
+The complete six-tab binder as approved 05/29/2027 and exchanged 06/02/2027, shown once the audit is handed in: the
+master exhibit index (Tabs 1–6, exhibits C-1 to C-18, 174 pages, Bates LSH-ARB-000001–000174) with each tab's QC
+rule in its row, the withheld-items list with Atty. Thorne's recorded reason for each, the Lien Sheet audited from
+$15,545.00 to **$7,965.00**, a table of what the sort and QC changed, and the exchange record.
+*Key:* No plants. Threshold exhibits lead (the BI tender, the UM consents, the Limited Release and the dismissal);
+the brief is docketed **06/11/2027**; nothing privileged or settlement-related is in the exchanged set.
