@@ -12,13 +12,26 @@
 #
 # It runs on its own, not inside Checks, for two reasons: the whole suite doesn't need to run daily,
 # and EA/PA drifting shouldn't turn an unrelated CM pull request red. Pull requests that touch the
-# build itself do get it.
+# build itself do get it, and only those: build/build.py, the four build/cm_*.js files it reads, the
+# two logos it inlines, and this check. build/case-flow/ is the course's own content pipeline (the
+# lessons, slides, scripts and simulation), which build.py never reads, so a lesson or slide edit no
+# longer runs an EA/PA check. EA/PA was the course's starting structure; the course has since gone
+# its own way.
+#
+# index.html is left out on purpose, though the check compares the built page with it: nearly every
+# pull request bumps a cache version there, and a script added to it is still caught by the daily run.
 name: Builds from the EA/PA portal
 
 on:
   pull_request:
     paths:
-      - 'build/**'
+      - 'build/build.py'
+      - 'build/cm_calendar.js'
+      - 'build/cm_casefile.js'
+      - 'build/cm_practice_tools.js'
+      - 'build/cm_roleplay.js'
+      - 'js/lsh-logo-dark.png'
+      - 'favicon.png'
       - '.github/scripts/build-from-eapa.mjs'
       - '.github/workflows/build-from-eapa.yml'
   schedule:
