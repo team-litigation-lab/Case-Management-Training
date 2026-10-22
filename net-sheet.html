@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>LSH Net Sheet</title>
-<!-- The firm's LSH Net Sheet for John Doe v. Robert Smith (js/cm-net-sheet.js). The Case Flow opens it beside the
-     slide (or on a second screen): net-sheet.html?stage=recovery|liens|final|litigation&year=2026 -->
+<!-- The firm's LSH Net Sheet for John Doe v. Robert Smith (js/cm-net-sheet.js), blank: the trainee builds it from the
+     bills. The Case Flow opens it beside the slide (or on a second screen):
+     net-sheet.html?stage=bi|um|liens|final|litigation&year=2026 (?stage=recovery still opens the BI settlement) -->
 <style>
   :root { --navy: #262B45; --orange: #DB8437; --ink: #1E2233; --soft: #5B6178; --line: #D6DAE4; --in: #FFF7D6; --paper: #F5F6FA; }
   html, body { background: var(--paper); }
@@ -44,24 +45,49 @@
   tr.net .ns-out { background: #E6F2EA; color: #1F5E38; }
   tr.gap td { height: 8px; border: 0; }
   small { color: var(--soft); }
+  /* the stage's own instructions: what to build here, and from what */
+  #ns-brief { background: #fff; border: 1px solid var(--line); border-left: 5px solid var(--navy); border-radius: 12px; padding: 10px 14px; margin: 0 0 14px; font-size: 13.5px; }
+  #ns-brief .ns-when { color: var(--soft); font-size: 12.5px; }
+  #ns-brief ol { margin: 8px 0 0; padding-left: 20px; }
+  #ns-brief li { margin: 4px 0; }
+  #ns-brief .ns-gate { margin: 8px 0 0; font-size: 12.5px; color: var(--soft); }
+  /* the corrected, finalized Net Sheet, revealed after the trainee's own audit */
+  #ns-ref { border: 2px solid var(--navy); border-radius: 12px; padding: 12px 14px 4px; margin: 0 0 16px; background: #FBFCFE; }
+  #ns-ref .ns-ref-head { margin: 0 0 12px; }
+  #ns-ref .ns-ref-head b { display: block; font-size: 15px; color: var(--navy); }
+  #ns-ref .ns-ref-head small { display: block; margin: 4px 0 8px; }
+  #ns-ref .ns-sec { border-color: #E3E7EF; }
+  #ns-ref .ns-ref-dl { background: #F4B77A; color: var(--navy); border: 0; border-radius: 8px; padding: 6px 10px; font: 700 12.5px Arial, Helvetica, sans-serif; cursor: pointer; }
+  #ns-ref .ns-ref-note { margin: 8px 0 0; font-size: 12.5px; color: var(--soft); }
+  #ns-ref .ns-ref-why { margin: 0 0 10px; font-size: 12.5px; }
+  #ns-ref .ns-ref-why b { color: var(--navy); }
+  #ns-ref .ns-ref-why ul { margin: 6px 0 0; padding-left: 18px; }
+  #ns-ref .ns-ref-why li { margin: 3px 0; }
+  .ns-ref-ok { color: var(--ink); }
+  .ns-ref-fix { color: #B54A3F; font-weight: 700; }
+  .ns-ref-mine { display: block; font-size: 11.5px; color: var(--soft); }
+  .ns-bar button[disabled] { opacity: .45; cursor: not-allowed; }
   @media (max-width: 640px) { main { padding: 10px 8px 30px; } }
 </style>
 <script>window.CM_CASE_YEAR = new URLSearchParams(location.search).get("year");</script>
 <script src="/js/cm-case-dates.js?v=3"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
-<script src="/js/cm-net-sheet.js?v=4"></script>
+<script src="/js/cm-net-sheet.js?v=5"></script>
 </head>
 <body>
 <div class="ns-bar">
   <div class="t">📊 LSH Net Sheet<small>John Doe v. Robert Smith · <span id="ns-track"></span> · <span id="ns-status">Loading…</span></small></div>
   <select id="ns-stage" aria-label="Check against"></select>
   <button id="ns-check-btn" type="button">Check my sheet</button>
+  <button id="ns-ref-btn" type="button" disabled>✓ Corrected sheet</button>
   <button id="ns-dl" type="button" class="ghost">⬇ Download (.xlsx)</button>
   <button id="ns-reset" type="button" class="ghost">Start over</button>
 </div>
 <main>
-  <p class="ns-lead">The firm's Net Sheet, filled from John Doe's bills. Type in the <b>yellow</b> cells; the grey ones are the template's formulas. Verify every figure against its source document before you enter it, then <b>Check my sheet</b> against the file. Your sheet is kept with your progress; <b>Download</b> gives it to you as a spreadsheet for Excel or Google Sheets.</p>
+  <p class="ns-lead">The firm's Net Sheet, <b>blank</b>: every figure on it is yours to work out from John Doe's file. Type in the <b>yellow</b> cells; the grey ones are the template's formulas. Build the provider ledger from the medical and treatment bills, audit each bill line by line, and verify every figure against its source document before you enter it. Then <b>Check my sheet</b> against the file, and open the <b>corrected sheet</b> to review your own work line by line. Your sheet is kept with your progress; <b>Download</b> gives it to you as a spreadsheet for Excel or Google Sheets.</p>
+  <div id="ns-brief"></div>
   <div id="ns-check" hidden></div>
+  <div id="ns-ref" hidden></div>
   <div id="ns"></div>
 </main>
 </body>

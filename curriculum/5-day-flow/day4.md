@@ -913,12 +913,12 @@ A call-simulator screen across two-thirds of the slide: a navy header bar readin
 
 **Scenario.** File date 08/05/2026. Keystone received the $10,000 time-limited BI demand on 07/22; acceptance runs to 08/21/2026. Dana Whitfield calls with $3,500: John Doe “waited two weeks,” and the MRI is “degenerative.” Atty. Thorne's written authority: restate the Limits Demand and deadline, present the record, no counter, report any offer to him the same day.
 
-**Execution prompt.** Run the call with Dana Whitfield in the Call Simulator. Before dialing, do the math check on $3,500: fee, costs, unreduced liens and John Doe's net. On the call, pause after her number and ask what data supports it; name each stall; on the gap, point only to the record: the EMS report, the Gap Explanation Record and Dr. Reyes's Causation Letter, and “degenerative” with Dr. Park's MRI language. Stay inside the written authority. Log the offer with her exact words, report it to Atty. Thorne the same day for him to convey to John Doe, and draft the 08/06 written rebuttal for his approval.
+**Execution prompt.** Run the call with Dana Whitfield in the Call Simulator. Before dialing, do the math check on $3,500: fee, costs, unreduced liens and John Doe's net. On the call, pause after her number and ask what data supports it; name each stall; on the gap, point only to the record: the EMS report, the Gap Explanation Record and Dr. Reyes's Causation Letter, and “degenerative” with Dr. Park's MRI language. Stay inside the written authority. Log the offer with her exact words, report it to Atty. Thorne the same day for him to convey to John Doe, and draft the 08/06 written rebuttal for his approval. Then, once Keystone tenders its $10,000 limits on 08/12/2026, generate John Doe's first Net Sheet on the blank LSH Net Sheet from the medical and treatment bills themselves: the gross recovered, the fee the retainer sets pre-suit, the receipted costs, and a provider ledger audited line by line. Check it against the file, then open the corrected sheet and self-audit what the BI layer alone leaves him.
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual · CMS → Communications Log · Email Workspace |
-| **Expected output** | A recorded call held inside Atty. Thorne's authority, a math check on $3,500, a logged offer in the adjuster's own words, a same-day report to Atty. Thorne, and the 08/06/2026 rebuttal drafted for his approval. |
+| **Tool / interface** | Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual · CMS → Communications Log · Email Workspace · LSH Net Sheet (BI settlement) |
+| **Expected output** | A recorded call held inside Atty. Thorne's authority, a math check on $3,500, a logged offer in the adjuster's own words, a same-day report to Atty. Thorne, the 08/06/2026 rebuttal drafted for his approval, and John Doe's first Net Sheet built from the bills on Keystone's tender. |
 
 **Show Them — reference model**
 
@@ -944,6 +944,10 @@ A call-simulator screen across two-thirds of the slide: a navy header bar readin
 - [ ] Reported to Atty. Thorne on 08/05/2026; he, not the CM, conveys the offer to John Doe
 - [ ] Written rebuttal drafted for Atty. Thorne's approval, ready to send 08/06/2026
 - [ ] If Dana Whitfield raises the April break, the 19-day disruption (04/02–04/21/2026) is answered from the Gap Explanation Record's A-C-T entry (rental ended 03/19, carpool ended 04/01, evening slots from 04/21, attendance confirmed 04/21 and 04/23), not conceded as non-compliance
+- [ ] First Net Sheet generated from the bills on Keystone's 08/12/2026 tender, every figure entered from its source: gross $10,000.00 (MedPay and the property-damage payments left out), the pre-suit 33⅓% fee $3,333.33, the receipted costs $486.75
+- [ ] Provider ledger built and audited line by line: charges in Total Charges, each payment in its payer's column, the 05/04/2026 duplicate ($185.00) and Crescent's $1,540.00 in-network write-off in Adjustments, the MedPay-paid providers at a zero balance; liens audited $7,965.00
+- [ ] The BI-only net read out loud: $10,000.00 – $3,333.33 – $486.75 = $6,179.92 against $7,965.00 of unreduced liens, and what that says about the UM layers and the reductions still to come
+- [ ] Sheet checked against the file, then the corrected Net Sheet opened and every differing line accounted for
 
 **Operational mapping**
 
@@ -952,6 +956,7 @@ A call-simulator screen across two-thirds of the slide: a navy header bar readin
 | Offer made on the call (08/05/2026) | Log it in the adjuster's words; report to Atty. Thorne | CMS → Communications Log · CMS → Tasks → Escalate | Logged and reported 08/05/2026; reasons quoted verbatim |
 | Atty. Thorne approves the rebuttal | Send it with the MRI report, Causation Letter, EMS report and Gap Explanation Record | Email Workspace · CMS → Documents → Outgoing | Sent 08/06/2026, inside the 08/21/2026 window; delivery logged |
 | Keystone tenders the $10,000 limits (08/12/2026) | Log the tender and route it to Atty. Thorne the same day; draft, for his signature, the written confirmation that it is BI only (the Civic's property-damage claim stays open), on the demand's terms: Limited Release, Smith's 08/10 affidavit of no other insurance | CMS → Insurance tab → Negotiation Log · Email Workspace | Tender dated inside the 08/21/2026 window; no release signed before the UM consent-to-settle requests (08/13/2026) are answered |
+| The BI layer is settled | Generate the first Net Sheet from the medical and treatment bills: gross, fee, receipted costs and the audited provider ledger; check it, then self-audit against the corrected sheet | LSH Net Sheet (BI settlement) | Liens audited $7,965.00 against $6,179.92 left after fee and costs: the BI layer alone leaves John Doe nothing |
 
 **Best practices & pitfalls**
 
@@ -969,7 +974,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 4) and that day's
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **15%** | Math check | $1,166.67 fee, $486.75 costs, $1,846.58 left against $7,965.00, net $0.00, done before dialing |
+| 🤖 AI | **15%** | Math check and first Net Sheet | $1,166.67 fee, $486.75 costs, $1,846.58 left against $7,965.00, net $0.00, done before dialing; the Net Sheet then built from the bills on the tender, liens audited $7,965.00 |
 | 🤖 AI | **20%** | Rebuttal accuracy | Dr. Park's sentence quoted exactly; the gap answered with the Gap Explanation Record and the dated documents |
 | 🤖 AI | **10%** | Demand integrity | $10,000 limits and 08/21/2026 restated; no counter or change of terms |
 | 🤖 AI | **15%** | Log completeness | Date, amount, exact words, same-day report, rebuttal drafted for approval |
@@ -984,6 +989,8 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 4) and that day's
 - Ask: “Which sentence will you read to her word for word?” It is Dr. Park's: “no significant degenerative change at the adjacent levels.”
 - Grade the math before the call. A trainee who dials without knowing that $3,500 nets John Doe $0.00 is negotiating blind. Fail anyone who says “let me see what I can do” or names a number: the authority was written down so that nobody improvises it.
 - Track A: after the 08/06 rebuttal and Smith's affidavit of no other insurance on 08/10, Keystone tenders the $10,000 on 08/12/2026. Track B, later today, returns to this call and plays the other ending.
+- The Net Sheet opens blank, as it should: nothing on it is pre-filled, so the trainee reads each bill, audits it and types the figure. Watch for a provider name typed from memory instead of the statement, and for the $185.00 duplicate and Crescent's $1,540.00 write-off entered as balances rather than Adjustments.
+- Hold the corrected sheet back until they have checked their own. It opens only after “Check my sheet”, the way the demand draft is audited before the completed package is handed out; then walk the differences line by line and ask what document each figure came from.
 
 ---
 
@@ -1002,12 +1009,12 @@ A Negotiation Log fills the slide: two carrier swimlanes on a shared date axis f
 
 **Scenario.** File date 09/14/2026. Keystone's $10,000 is in trust (received 09/04). The Host UM ($20,000) and Relative UM ($10,000) demands went out 08/31. Today Marcus Bell offers $8,000 for Harbor Point, citing the gap and “BI already compensated him.” Ahead: counter-package 09/16; Harbor Point pays its $20,000 limits 09/29; Cardinal State (Teresa Okafor) offers $6,000 on 10/01 and tenders its $10,000 limits 10/06.
 
-**Execution prompt.** Work both UM claims to resolution in the Negotiation Log. Log Harbor Point's $8,000 with its stated reasons and report it to Atty. Thorne the same day. Assemble the 09/16 counter-package for his approval: Harbor Point's 03/02/2026 letter, the MRI read, Dr. Reyes's Causation Letter, the MMI residuals and future care. Log every later move. For each acceptance, record John Doe's informed decision through Atty. Thorne, then draft the acceptance email for his approval, sent that day: coverage, release, liens, payee, check date. Close by proving $40,000 gross.
+**Execution prompt.** Work both UM claims to resolution in the Negotiation Log. Log Harbor Point's $8,000 with its stated reasons and report it to Atty. Thorne the same day. Assemble the 09/16 counter-package for his approval: Harbor Point's 03/02/2026 letter, the MRI read, Dr. Reyes's Causation Letter, the MMI residuals and future care. Log every later move. For each acceptance, record John Doe's informed decision through Atty. Thorne, then draft the acceptance email for his approval, sent that day: coverage, release, liens, payee, check date. Close by proving $40,000 gross. Then bring the Net Sheet you built at the BI settlement up to date: both UM layers in the gross, the costs as receipted, and every treatment line re-entered from the revised, ongoing and final bills and lien statements that have arrived since — each balance re-verified with the provider, and the Final Ledgers audited again. Check it, then self-audit against the corrected sheet.
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Insurance tab → Negotiation Log · Email Workspace · CMS → Financial Ledger → Net Sheet → Recovery Ledger |
-| **Expected output** | A complete Negotiation Log for both UM layers, an approved counter-package, a confirming email for each acceptance, and a Recovery Ledger at $40,000.00 gross. |
+| **Tool / interface** | CMS → Insurance tab → Negotiation Log · Email Workspace · LSH Net Sheet (UM settlement) · CMS → Financial Ledger → Net Sheet → Recovery Ledger |
+| **Expected output** | A complete Negotiation Log for both UM layers, an approved counter-package, a confirming email for each acceptance, a Recovery Ledger at $40,000.00 gross, and the Net Sheet updated to the final treatment bills and lien balances. |
 
 **Verification checkpoints**
 
@@ -1021,6 +1028,11 @@ A Negotiation Log fills the slide: two carrier swimlanes on a shared date axis f
 - [ ] Recovery Ledger: $10,000.00 + $20,000.00 + $10,000.00 = $40,000.00 gross; MedPay, Keystone PD and Bluewater excluded
 - [ ] Each UM release signed and returned before its check arrived; checks received and deposited to IOLTA the same day (10/05 and 10/13/2026)
 - [ ] Carrier-conduct entries dated and quoted for Atty. Thorne; no “bad faith” accusation sent by the CM
+- [ ] Net Sheet updated from the BI settlement's sheet, not rebuilt from memory: gross $40,000.00, the fee still at the pre-suit 33⅓% ($13,333.33), costs as receipted
+- [ ] Every treatment line re-entered from the revised, ongoing and final bills: Riverton Spine & Rehab's final LOP ledger (02/24–06/05/2026) and Peach State's itemized reimbursement claim, each balance re-verified with the provider before it is changed
+- [ ] The Final Ledger audited again, not taken as correct: the 05/04/2026 duplicate ($185.00) is still on it, so the audited balance stays $6,105.00 and the liens $7,965.00
+- [ ] Reduced Bill left at the audited balances: no reduction has been accepted in writing yet, so the sheet reads $18,214.92 to John Doe, and the lien negotiations are what take it to $20,359.92
+- [ ] Sheet checked against the file, then the corrected Net Sheet opened and every line that changed since the BI settlement accounted for
 
 **Operational mapping**
 
@@ -1029,6 +1041,7 @@ A Negotiation Log fills the slide: two carrier swimlanes on a shared date axis f
 | Each carrier offer or tender | Log date, amount and the carrier's words; report to Atty. Thorne | CMS → Insurance tab → Negotiation Log | Four carrier entries (09/14, 09/29, 10/01, 10/06/2026) plus the 09/16 counter-package, each reported the same day |
 | John Doe decides, through Atty. Thorne | Record the decision; draft the acceptance email for his approval | Email Workspace · CMS → Case Notes | Decision attributed to John Doe; email sent the same day |
 | Last layer closes (10/06/2026) | Post all three layers to the Recovery Ledger | CMS → Financial Ledger → Net Sheet → Recovery Ledger | Gross = $40,000.00 exactly; nothing outside the stack added |
+| A revised or final bill, ledger or lien statement arrives | Re-verify the balance with the provider, audit the ledger again and update that line of the Net Sheet | LSH Net Sheet (UM settlement) | Gross $40,000.00, liens still audited at $7,965.00, net $18,214.92 before any reduction |
 
 **Best practices & pitfalls**
 
@@ -1050,7 +1063,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 4) and that day's
 | 🤖 AI | **20%** | Log completeness | All four carrier moves and the counter-package logged with date, amount, quoted reasons and a same-day report |
 | 🤖 AI | **15%** | Counter-package content | 03/02/2026 letter, MRI read, Causation Letter, MMI residuals, future care $3,400–$6,800 |
 | 🤖 AI | **10%** | Confirmations | Each acceptance confirmed in a same-day email carrying all five terms |
-| 🤖 AI | **15%** | Gross accuracy | $40,000.00 from $10,000 + $20,000 + $10,000; nothing else added |
+| 🤖 AI | **15%** | Gross accuracy and the updated Net Sheet | $40,000.00 from $10,000 + $20,000 + $10,000, nothing else added; the Net Sheet carried forward with the final bills and lien balances, audited at $7,965.00 |
 | 🧑‍🏫 Trainer | **15%** | Advocacy quality | The counter-package would move a reasonable adjuster; firm, factual tone |
 | 🧑‍🏫 Trainer | **25%** | Client-decision boundary | Every acceptance John Doe's, through Atty. Thorne; the CM never accepts, counters or values |
 
@@ -1062,6 +1075,8 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 4) and that day's
 - Ask: “Cardinal State has offered $6,000. Who decides whether John Doe takes it, and how does that decision reach the log?”
 - Grade the attribution on every acceptance. “Accepted” is incomplete; who decided, on whose advice, and when is the entry.
 - The gross is $40,000.00 and nothing else. A trainee who adds MedPay's $5,000 or Keystone's property-damage payments has mixed the Payer Order or the PD claim into the stack.
+- The Net Sheet is updated here, not started again: it is the same sheet they built at the BI settlement, now carrying the revised, ongoing and final treatment bills and lien balances. Ask what moved, and what document moved it.
+- The trap is treating a Final Ledger as audited. Riverton's final LOP ledger still carries the 05/04/2026 duplicate: a trainee who updates the line to $6,290.00 has undone their own audit. The corrected sheet, after their own check, shows it to them.
 
 ---
 
@@ -1226,6 +1241,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 4) and that day
 - Ask: “The manager just said yes to $4,580.00. What do you say next?” The right answer thanks them and says the figure goes to Atty. Thorne and will be confirmed in writing.
 - Grade the audit first. A trainee who opens with a discount on $6,290.00 has negotiated around $185.00 of error the provider should have simply corrected.
 - Tie it forward to the disbursement: the Payoff Letter is what lets the 10/22/2026 disbursement go out clean.
+- On the Net Sheet, a reduction goes in Reduced Bill only once it is accepted in writing. Have them check the sheet and then open the corrected one: the lines that moved are Peach State's $1,240.00 and Riverton's $4,580.00, and nothing else.
 
 ---
 
@@ -1242,13 +1258,13 @@ Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns A
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** File date 10/13/2026. Cardinal State's $10,000 check arrived today, joining Keystone's (received 09/04) and Harbor Point's (10/05) in the IOLTA trust account, each deposited only after its release was signed (Keystone 08/28; each UM release before its check): $40,000.00 received; the last check has not cleared. Peach State accepted $1,240.00 on 10/09 and Riverton Spine & Rehab accepted $4,580.00 on 10/12; both written acceptances are in Documents. Costs stand at $486.75. Both Net Sheet tabs are half-built from the demand phase.
+**Scenario.** File date 10/13/2026. Cardinal State's $10,000 check arrived today, joining Keystone's (received 09/04) and Harbor Point's (10/05) in the IOLTA trust account, each deposited only after its release was signed (Keystone 08/28; each UM release before its check): $40,000.00 received; the last check has not cleared. Peach State accepted $1,240.00 on 10/09 and Riverton Spine & Rehab accepted $4,580.00 on 10/12; both written acceptances are in Documents. Costs stand at $486.75. The Net Sheet you built at the BI settlement and updated at the UM settlement is on the file, with the liens still at their audited $7,965.00.
 
-**Execution prompt.** Complete John Doe's Net Sheet in both tabs. Recovery Ledger: each check by carrier and stream, the 33⅓% fee per stream, the five receipted costs, and costs and liens split 25% / 75%, down to the net per stream and in total. Lien Tracker: every provider and payer with charges, payments, adjustments and balance owed, then each lien's asserted, audited and reduced figure, the basis of each reduction and its payoff-letter status. Tie both tabs to the Trust Ledger. Graded judgment: what stays off the payables, and what you flag for Atty. Thorne before John signs.
+**Execution prompt.** Complete John Doe's Net Sheet in both tabs. Recovery Ledger: each check by carrier and stream, the 33⅓% fee per stream, the five receipted costs, and costs and liens split 25% / 75%, down to the net per stream and in total. Lien Tracker: every provider and payer with charges, payments, adjustments and balance owed, then each lien's asserted, audited and reduced figure, the basis of each reduction and its payoff-letter status. Tie both tabs to the Trust Ledger. Check the sheet against the file, then open the corrected, finalized Net Sheet and self-audit every line of your own against it. Graded judgment: what stays off the payables, and what you flag for Atty. Thorne before John signs.
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Financial Ledger → Net Sheet (Recovery Ledger · Lien Tracker) |
+| **Tool / interface** | LSH Net Sheet (disbursement) · CMS → Financial Ledger → Net Sheet (Recovery Ledger · Lien Tracker) |
 | **Expected output** | A two-tab Net Sheet that reaches $20,359.92 down both streams and across the total, with every lien figure proved and routed to Atty. Thorne. |
 
 **Verification checkpoints**
@@ -1264,6 +1280,7 @@ Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns A
 - [ ] Payoff status recorded per lien: written figure and date logged, satisfaction of lien marked “to obtain at payment”; no line final on a phone call
 - [ ] Future medical ($3,400–$6,800 in possible repeat ESIs) flagged to Atty. Thorne before John Doe signs: the settlement is full and final, and no carrier pays more
 - [ ] Ties out: trust deposits $40,000.00 = Recovery Ledger gross; liens audited $1,860.00 + $6,105.00 = $7,965.00, paid $1,240.00 + $4,580.00 = $5,820.00 ($2,145.00 negotiated, plus the $185.00 duplicate removed at audit)
+- [ ] Sheet checked against the file, then the corrected, finalized Net Sheet opened and self-audited: every line that differs explained from the document it comes from
 
 **Operational mapping**
 
@@ -1305,6 +1322,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 - Ask the room: “If Riverton Spine & Rehab had accepted $4,580.00 only on a phone call, could the line be marked final?” No: no Payoff Letter, no payment.
 - Grade the arithmetic both ways, down each stream and across the total: $13,333.33 + $486.75 + $1,240.00 + $4,580.00 = $19,640.08, and $40,000.00 – $19,640.08 = $20,359.92. A one-cent drift means a stream was rounded on its own.
 - The future-medical flag is the judgment call. Up to $6,800 in possible repeat injections lies ahead, and the settlement is full and final; the CM flags it, and Atty. Thorne has that conversation with John Doe.
+- Close the exercise on the corrected Net Sheet. Once each trainee has checked their own sheet, the finalized reference opens beside it line by line: that comparison is the self-audit, and it is where the habit of proving a figure from its document is formed.
 
 ---
 

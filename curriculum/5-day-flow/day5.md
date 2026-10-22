@@ -2275,7 +2275,8 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 #### 5 · Speaker Notes
 
-- Have each trainee open the Net Sheet beside the slide and check it at the Track B stage. The trap is the fee: 33⅓% from habit instead of 40%.
+- Have each trainee open the Net Sheet beside the slide and check it at the Track B stage. The sheet starts blank, so Track B is built from the bills again, not copied from Track A; the trap is the fee: 33⅓% from habit instead of 40%.
+- Once they have checked their own sheet, the corrected Track B sheet opens beside it: walk the fee tier, the seven receipted costs and the two reductions at the 40% rate, line by line against what they entered.
 - Ask: “John says a friend kept more from his settlement. What do you say?” Only arithmetic, and a route to Atty. Thorne.
 
 ---

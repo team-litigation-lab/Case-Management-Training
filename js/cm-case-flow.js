@@ -523,10 +523,14 @@ const TOOLKIT = [
 const TOOL = Object.fromEntries(TOOLKIT.map(t => [t.id, t]));
 /* The LSH Net Sheet is where the money is worked, and only there: Day 4's Settlement Negotiations, Lien Negotiations and
    Disbursement (Track A, settled before suit) and its close-out once the case is won (Track B). Each block of those
-   modules opens it at that stage (js/cm-net-sheet.js STAGES). */
-const NET_MODS = {d3m2: "recovery", d3m3: "liens", d3m4: "final", d5m5: "litigation"};
+   modules opens it at that stage (js/cm-net-sheet.js STAGES), and Settlement Negotiations opens it twice: the sheet is
+   generated from the bills when the BI layer settles, and updated when both UM layers do (NET_BLOCKS). */
+const NET_MODS = {d3m2: "bi", d3m3: "liens", d3m4: "final", d5m5: "litigation"};
+const NET_BLOCKS = {"d3m2-a2": "um"};   // Closing the $40,000 Gross Recovery: the UM settlement's updated sheet
+// what the pane is called at each stage, so the trainee can see which sheet they are on
+const NET_PANE = {bi: "Track A · BI settlement", um: "Track A · UM settlement", liens: "Track A · liens", final: "Track A · disbursement", litigation: "Track B (case won)"};
 const NET_STAGE = {};
-Object.keys(STORED).forEach(id => { const st = NET_MODS[STORED[id].mod.id]; if(st) NET_STAGE[id] = st; });
+Object.keys(STORED).forEach(id => { const st = NET_BLOCKS[id] || NET_MODS[STORED[id].mod.id]; if(st) NET_STAGE[id] = st; });
 /* The records, docket and court-filing platforms, at the steps where that work happens on John Doe's file (on top of
    any the step's own text names): ChartSwap for the records and itemized bills behind treatment, specials, liens and
    discovery; the Docket System for every court date the litigation track sets; Court E-Filing for the complaint,
@@ -1109,7 +1113,7 @@ window.cmCaseFlow.tool = function(id, blockId){
   if(id === "call" && blockId && SIM.calls[blockId]) return cmCaseFlow.call(blockId);
   if(id === "netsheet" && typeof openPane === "function"){   // the firm's Net Sheet (net-sheet.html), over the slide at full width (its ledger is wide), checked at this step's stage
     const st = NET_STAGE[blockId] || "final";
-    openPane("netsheet", new URL(`net-sheet.html?stage=${st}${DATES ? "&year=" + DATES.year : ""}`, location.href).href, `LSH Net Sheet · ${st === "litigation" ? "Track B (case won)" : "Track A (settled)"}`, "📊", "full");
+    openPane("netsheet", new URL(`net-sheet.html?stage=${st}${DATES ? "&year=" + DATES.year : ""}`, location.href).href, `LSH Net Sheet · ${NET_PANE[st] || "Track A (settled)"}`, "📊", "full");
     return;
   }
   if(PAGE[id]){   // one of the course's own pages: go there, with a way back to this slide
@@ -2270,11 +2274,18 @@ function workLogged(mine, m){
   if(heard) return heard + (rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "");
   return rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "";
 }
-const NET_LABEL = {recovery: "Track A · settlement", liens: "Track A · liens", final: "Track A · final", litigation: "Track B · case won"};
+const NET_LABEL = {bi: "Track A · BI settlement", um: "Track A · UM settlement", liens: "Track A · liens", final: "Track A · final", litigation: "Track B · case won"};
+/* Every stage of the module's sheet: Settlement Negotiations has two (the BI settlement's first sheet and the UM
+   settlement's updated one), and each line says whether the trainee opened the corrected sheet afterwards. */
 function netLogged(snap, m){
-  const ns = snap["net-sheet"], stage = (m.blocks.map(x => NET_STAGE[x.id]).filter(Boolean))[0];
-  const sheet = ns && (ns.files ? ns.files[stage === "litigation" ? "B" : "A"] : ns), r = stage && sheet && sheet.checks && sheet.checks[stage];
-  return r ? `<div class="cf-tr-work"><b>📊 Net Sheet (${E(NET_LABEL[stage])}):</b> ${E(r.passed)}/${E(r.total)} tie out · checked ${E(new Date(r.at).toLocaleDateString())}${r.items.filter(x => !x.ok).map(x => ` · ✗ ${E(x.cell)} = ${E(x.got)}`).join("")}</div>` : "";
+  const ns = snap["net-sheet"], stages = [...new Set(m.blocks.map(x => NET_STAGE[x.id]).filter(Boolean))];
+  return stages.map(stage => {
+    const sheet = ns && (ns.files ? ns.files[stage === "litigation" ? "B" : "A"] : ns), checks = (sheet && sheet.checks) || {};
+    const r = checks[stage] || (stage === "bi" ? checks.recovery : null);   // a sheet checked when Settlement Negotiations was one stage
+    if(!r) return "";
+    const seen = (sheet.revealed || {})[stage];
+    return `<div class="cf-tr-work"><b>📊 Net Sheet (${E(NET_LABEL[stage])}):</b> ${E(r.passed)}/${E(r.total)} tie out · checked ${E(new Date(r.at).toLocaleDateString())}${r.items.filter(x => !x.ok).map(x => ` · ✗ ${E(x.cell)} = ${E(x.got)}`).join("")} · ${seen ? `corrected sheet reviewed ${E(new Date(seen).toLocaleDateString())}` : "corrected sheet not opened"}</div>`;
+  }).join("");
 }
 function trainerPanel(rec){
   const work = (state.traineeWork || {})[rec.id];
