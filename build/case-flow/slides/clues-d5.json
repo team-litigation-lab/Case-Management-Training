@@ -313,5 +313,41 @@
         "Money leaves trust anyway, and the medical payers are still waiting."
       ]
     ]
+  },
+  "d5m1-subp": {
+    "dos": [
+      [
+        "A records subpoena for John Doe's file is about to be drafted.",
+        "The Scheduling Order entered 12/10/2026 sits pinned at the front.",
+        "Notice period, service and production are counted against discovery's end."
+      ],
+      [
+        "Atty. Mercer's office notices a subpoena to one of John Doe's providers.",
+        "Any objection to it belongs to Atty. Thorne alone.",
+        "It is docketed and on his desk before the afternoon ends."
+      ],
+      [
+        "Ruth Calloway is one of the witnesses Atty. Thorne may name.",
+        "The trial calendar opens 09/13/2027, not on one fixed day.",
+        "Her phone number and address are rechecked and logged each review."
+      ]
+    ],
+    "donts": [
+      [
+        "A Subpoena Duces Tecum to Riverton Fire EMS is signed.",
+        "Allied Process Services reaches the records custodian on day one.",
+        "Defense counsel learns of it only when the production arrives."
+      ],
+      [
+        "A custodian receives a subpoena for John Doe's file.",
+        "Exhibit A names no dates and no document types.",
+        "The defense calls it a fishing expedition and moves to quash."
+      ],
+      [
+        "The 09/13/2027 trial calendar is getting close.",
+        "Paramedic J. Ortiz from Medic 7 seems a useful person to call.",
+        "The Case Manager drafts a subpoena for him unasked."
+      ]
+    ]
   }
 }

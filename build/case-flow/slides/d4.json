@@ -576,5 +576,87 @@
       "Walk Rule 1 on Keystone: follow-ups, **the 48-Hour Mandate escalation**, the hand-off to Atty. Thorne, every date.",
       "Keystone's representative arrives on 03/18/2027 **without authority to pay $10,000**. What failed earlier, and your countermeasure?"
     ]
+  },
+  "d3m4-close": {
+    "image": "checklist-qa",
+    "hook": "A ledger at $0.00 opens the close; **four verified document sets** let it be archived.",
+    "points": [
+      "**No archive** until all four document sets are verified",
+      "Zero balance proved by **three records agreeing**, all checks cleared",
+      "Tag every document; **docket its disposition date**",
+      "Late bill: verify, classify, **route to Atty. Thorne** the same day"
+    ],
+    "upl": "Assemble, verify, draft and route; who owes a late bill is Atty. Thorne's.",
+    "job": [
+      [
+        "Ledger at $0.00 (10/22/2026)",
+        "Build money trail, zero-balance report",
+        "CMS → Financial Ledger → Trust",
+        "Three records agree at $0.00"
+      ],
+      [
+        "Closing memo (10/30/2026)",
+        "Tag documents; docket disposition dates",
+        "CMS → Case Summary · Calendar",
+        "Disposition 7 years from closing"
+      ],
+      [
+        "Bill after the closing letter",
+        "Verify, classify, route, tell John Doe",
+        "CMS → Tasks → Escalate",
+        "Routed and John told same day"
+      ]
+    ],
+    "dos": [
+      "Run **the audit-ready test** before asking to archive",
+      "Collect satisfactions and receipt **with the payment**",
+      "Ask first: missed lien, or **a bill nobody owes**?"
+    ],
+    "donts": [
+      "Archiving **without John Doe's signed receipt**",
+      "Telling John Doe a late bill is **“not our problem”**",
+      "Destroying financial records **before the retention date**"
+    ]
+  },
+  "d4m3-prior": {
+    "image": "mri-scan",
+    "hook": "Answer “it was already there” **from the certified record**, before the carriers raise it.",
+    "points": [
+      "Get the **complete certified 2021 chart**, never a summary",
+      "Prove resolution, **a different body region** and the symptom-free interval",
+      "Pair it with **Dr. Park's MRI read** and the Causation Letter",
+      "Flag every mismatch to Atty. Thorne; **never correct a record**"
+    ],
+    "upl": "Build and flag the record; causation, aggravation and experts are Atty. Thorne's.",
+    "job": [
+      [
+        "Arbitration invoked 04/05/2027",
+        "Request certified 2021 chart",
+        "Medical Records Requests",
+        "Every 2021 date certified"
+      ],
+      [
+        "Prior chart received",
+        "Build the side-by-side comparison",
+        "CMS → Litigation → Exhibit index",
+        "Every cell cites a record"
+      ],
+      [
+        "Mismatch or silent Causation Letter",
+        "Flag to Atty. Thorne",
+        "CMS → Tasks → Escalate",
+        "Flag dated; nothing altered"
+      ]
+    ],
+    "dos": [
+      "Put the prior in **your binder first**",
+      "**Name the body region** in every line",
+      "Use **the records' own words**, never adjectives"
+    ],
+    "donts": [
+      "Writing **“not degenerative”** in your own summary",
+      "**A summary** in place of the certified chart",
+      "**Correcting a conflicting history** instead of flagging it"
+    ]
   }
 }

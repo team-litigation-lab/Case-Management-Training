@@ -37,24 +37,26 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 3. *Lesson* — Lien Negotiation Calls: the Reduction Request, the Ask and the Payoff Letter (condensed)
 4. *Lesson* — The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker
 5. *Lesson* — Release Audits, Trust Accounting & Disbursement Commands
-6. *Lesson* — Court Hard Rules, SOL Cutoffs & the Master Calendar
-7. *Lesson* — UM/UIM Disputes & Resolution Routes
-8. *Lesson* — Mediation vs. Binding Arbitration & the UPL Line at Hearings
-9. *Lesson* — The Mediation Binder & Exhibit Indexing
-10. *Lesson* — Arbitration Exhibits & Evidentiary Rules
-11. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab
-12. *Skill Activity* — Provider Balance Negotiation Exercises
-13. *Skill Activity* — Completing the Final Dual-Tab Net Sheet
-14. *Skill Activity* — Release Audit & Disbursement Command Triggering
-15. *Skill Activity* — Routing the UM Impasse: Arbitration or Court
-16. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs
-17. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping
-18. *Skill Activity* — Assembling the 6-Section Mediation Binder
-19. *Skill Activity* — Assembling the 6-Tab Arbitration Binder
-20. *Knowledge Check* — Lien Reduction Verification
-21. *Knowledge Check* — Final Accounting Check
-22. *Knowledge Check* — ADR & Calendar Compliance Check
-23. *Knowledge Check* — Binder Assembly Verification
+6. *Lesson* — Closing the File: Final Reconciliation, the Closing Memo, the Closing Letter & Retention
+7. *Lesson* — Court Hard Rules, SOL Cutoffs & the Master Calendar
+8. *Lesson* — UM/UIM Disputes & Resolution Routes
+9. *Lesson* — Mediation vs. Binding Arbitration & the UPL Line at Hearings
+10. *Lesson* — The Mediation Binder & Exhibit Indexing
+11. *Lesson* — Arbitration Exhibits & Evidentiary Rules
+12. *Lesson* — The Prior Medical Shield: Answering the Pre-Existing-Condition Defense from the Record
+13. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab
+14. *Skill Activity* — Provider Balance Negotiation Exercises
+15. *Skill Activity* — Completing the Final Dual-Tab Net Sheet
+16. *Skill Activity* — Release Audit & Disbursement Command Triggering
+17. *Skill Activity* — Routing the UM Impasse: Arbitration or Court
+18. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs
+19. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping
+20. *Skill Activity* — Assembling the 6-Section Mediation Binder
+21. *Skill Activity* — Assembling the 6-Tab Arbitration Binder
+22. *Knowledge Check* — Lien Reduction Verification
+23. *Knowledge Check* — Final Accounting Check
+24. *Knowledge Check* — ADR & Calendar Compliance Check
+25. *Knowledge Check* — Binder Assembly Verification
 
 **End-of-day discussion (trainer):** Keystone's draft release arrives on 08/14/2026 releasing “all other persons, firms, corporations and insurers.” Harbor Point hasn't answered the consent request, and Atty. Thorne is out of the office until Monday. What do you do, and what must not happen before he is back?
 
@@ -62,7 +64,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 4 — Reductions, Lien Negotiation & ADR
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 4.1.1 Statutory Liens, Health Subrogation & Provider Balances
 
@@ -473,7 +475,94 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.6 Court Hard Rules, SOL Cutoffs & the Master Calendar
+### 4.1.6 Closing the File: Final Reconciliation, the Closing Memo, the Closing Letter & Retention
+
+> **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
+> **Topic:** After $0.00: the four document sets that let a file be archived, and the bill that comes after  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D3#29` Case Phase: Disbursement — Core Objectives · `D3#33` Final Case Reconciliation Checklist: Net Sheet (The “Money Trail”) · `D3#34` Final Case Reconciliation Checklist: Proof of Delivery/Completion · `D3#35` Final Case Reconciliation Checklist: Compliance & Identity Verification · `D3#36` Final Case Reconciliation Checklist: The Internal “Closing Memo” · `D3#37` Final Case Reconciliation: Retention & Disposition Schedule · `D3#38` Skill Building: Closing a Case — John Doe v. Apex Delivery Final Tasks · Newly authored: the closing letter's contents; the three-way zero-balance proof (bank statement, trust journal, client ledger); the post-closing late-bill drill on Crescent Pain & Spine's contractual write-off
+
+#### 1 · Visual Layout Description
+
+A tall archive box at the right edge of the slide, navy, with a faded orange ARCHIVED stamp, locked behind a gate. Leading to it from the left, four stacked cream cards, each with an empty orange tick box: ① MONEY TRAIL ($40,000.00 IN · $40,000.00 OUT · $0.00) ② PROOF OF DELIVERY (2 SATISFACTIONS · JOHN DOE'S RECEIPT) ③ COMPLIANCE & IDENTITY (PAYER DISCLOSURE · W-9) ④ CLOSING MEMO · 10/30/2026. Above the box, a mono pill: RETENTION · 7 YEARS FROM CLOSING. Bottom-left, a red envelope labelled LATE BILL? arrives after the gate, with a leader line to two chips, MISSED LIEN · BILL NOBODY OWES, and a routing arrow to an ATTY. THORNE card. The argument: $0.00 opens the close; only four verified sets lock it, and the file must still answer the bill that comes after.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* The Trust Ledger reached $0.00 on 10/22/2026, but John Doe's file is not closed yet. A file archived without its money trail, its satisfactions and its closing memo cannot answer an auditor, a lienholder, or John himself when a bill arrives after the money is gone. Closing is the proof that every dollar landed where the Net Sheet said it would.
+
+1. Nothing is marked Archived until four document sets are verified present: the money trail, proof of delivery, compliance and identity, and the internal closing memo. The test: could an outside auditor trace every dollar from carrier check to payee from the file alone?
+2. Set 1, the money trail: an itemized list of every check in and out, each with its bank confirmation number. In: Keystone $10,000.00 (09/04/2026), Harbor Point $20,000.00 (received 10/05), Cardinal State $10,000.00 (received 10/13). Out on 10/22/2026: fee $13,333.33, costs $486.75, Peach State $1,240.00, Riverton Spine & Rehab $4,580.00, John Doe $20,359.92.
+3. Close the trail with a zero-balance report: approved budget (the signed Settlement Statement, $40,000.00) – total disbursed ($40,000.00) = $0.00. It is proved three ways, the bank statement, the trust journal and John Doe's client ledger agreeing, and only once all five checks have cleared; an uncashed check is followed up and its funds stay in trust.
+4. The trail must also show the controls: a second person reviewed every disbursement against its Net Sheet line, and each payee's payment details were verified by phone to a number already on file. A changed or unverified wiring instruction is a red flag: the payment stops until it is verified, and Atty. Thorne is told.
+5. Set 2, proof of delivery: each lienholder's signed satisfaction (paid in full, no future claim against John Doe or the claim), from Peach State and Riverton Spine & Rehab, and John Doe's signed acknowledgment of receipt. A certificate of completion belongs only to a repair paid from trust: the Civic's $9,255.00 repair was paid by Keystone PD directly to the shop.
+6. Set 3, compliance and identity: John Doe's signed duplication-of-benefits (payer-disclosure) statement naming every payer (Harbor Point PIP $5,000.00, Peach State $1,860.00, his own $312.40), so every reimbursement claim is known; and a current W-9 for any 1099 reporting, never the intake copy.
+7. Set 4, the internal closing memo (10/30/2026): one page a stranger understands in two minutes. Case summary, how it started versus how it ended; discrepancy notes for every figure that moved (Riverton Spine & Rehab $6,290.00 → $6,105.00 → $4,580.00; Peach State $1,860.00 → $1,240.00); exception reports for any policy waiver, or “none granted”. Note that Margaret Doe's Property Damage claim runs separately and stays open.
+8. The closing letter goes to John Doe before the file is archived: drafted by you, signed by Atty. Thorne. It states what was received, what was paid and to whom, the satisfactions received, his net and how long the file is kept. It reports facts; anything about what John owes or should do is Atty. Thorne's wording.
+9. Retention: tag every document by type and docket its disposition date. The deck's standard schedule: financial records 7 years, then digital deletion; eligibility documents 3–5 years, then archival or off-site storage; correspondence 3 years, then purged from the active server. The firm's schedule and any stricter rule control: this training file keeps the closed file 7 years from closing.
+10. A bill after the closing letter: verify it and its link to the accident against the ledger, the EOBs and the Payoff Letters, then classify it: a lien we missed, or a bill nobody owes. Route it to Atty. Thorne the same day, on his instruction ask the provider in writing to correct its account, and tell John Doe that day what you are doing and when he will hear back. The release's indemnity clause is John's promise that every lien was paid: who answers for the bill is Atty. Thorne's call.
+
+> ⚠️ **UPL boundary.** You assemble, verify, draft and route. You never tell John Doe whether he owes a late bill, never sign the closing letter, and never shorten a retention period: Atty. Thorne decides who answers for a bill, signs the letter and approves any departure from the firm's schedule.
+
+#### 2 · Slide Body — Show Them
+
+*Closing John Doe's file: from a ledger at $0.00 to a file that can be archived*
+
+1. **Ledger at $0.00** — 10/22/2026: five checks signed by Atty. Thorne; $40,000.00 in, $40,000.00 out.
+2. **Money trail** — Three deposits and five checks, each with its bank confirmation number; zero balance proved by bank statement, trust journal and client ledger once all five clear.
+3. **Proof of delivery** — Peach State and Riverton Spine & Rehab satisfactions; John Doe's signed receipt. No completion certificate: no repair was paid from trust.
+4. **Compliance and identity** — John Doe's signed payer disclosure (PIP $5,000.00, Peach State $1,860.00, his own $312.40); a current W-9.
+5. **Closing letter** — Drafted by the CM, signed by Atty. Thorne: what was paid, to whom, and the satisfactions received.
+6. **Closing memo** — 10/30/2026: how it started versus how it ended, discrepancy notes, exceptions; the Property Damage claim noted as open.
+7. **Retention, then archive** — Every document tagged by type; disposition review docketed 7 years from closing.
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Ledger at $0.00 (10/22/2026) | Build the money trail: three deposits, five disbursements, confirmation numbers and the zero-balance report | CMS → Financial Ledger → Trust | Bank statement, trust journal and client ledger agree at $0.00 once all five checks clear |
+| Satisfactions and John Doe's receipt returned | File proof of delivery, the payer-disclosure statement and a current W-9; draft the closing letter | CMS → Documents · CMS → Documents → Outgoing | All four sets present; letter signed by Atty. Thorne and sent before archive |
+| Closing memo written (10/30/2026) | Tag every document by type and docket each disposition date | CMS → Case Summary · CMS → Calendar | Discrepancies explained; disposition review 7 years from closing |
+| A bill arrives after the closing letter | Verify and classify it, route it to Atty. Thorne, and tell John Doe the same day | CMS → Tasks → Escalate · Email Workspace | Routed and John Doe told the day it arrives; correction request drafted |
+
+**Best practices & pitfalls**
+
+- Run the audit-ready test before you ask to archive: give the file to someone who never worked it and ask them to trace Riverton Spine & Rehab's $4,580.00 from deposit to payee.
+- Collect the lien satisfactions and John Doe's receipt with the payment; chase anything missing with the Kickback Protocol: exactly what is missing, and by when.
+- Write the closing memo for a stranger years from now: dates, figures and reasons, no adjectives.
+- Ask the late-bill question first: a lien we missed, or a bill nobody owes? Drill: a statement for Crescent Pain & Spine's $1,540.00 is answered by Peach State's EOB, a contractual write-off Crescent cannot balance-bill.
+- Two-person review on every disbursement, and payment details verified by phone to a number already on file.
+- ⚠️ Pitfall: archiving at $0.00 without John Doe's signed acknowledgment of receipt or the lien satisfactions.
+- ⚠️ Pitfall: telling John Doe a late bill is “not our problem”, or telling him he owes it.
+- ⚠️ Pitfall: destroying financial records before their retention date, or docketing no disposition date at all.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Four document sets | Money trail, proof of delivery, compliance and identity, closing memo, each with John Doe's item |
+| 🤖 AI | **15%** | Money trail and zero balance | Three deposits and five disbursements itemized with confirmation numbers; $40,000.00 – $40,000.00 = $0.00 proved three ways |
+| 🤖 AI | **15%** | Closing memo and letter | Memo: summary, discrepancy notes (Riverton Spine & Rehab, Peach State), exceptions, open Property Damage claim; letter for Atty. Thorne's signature before archive |
+| 🤖 AI | **10%** | Retention and late bill | Documents tagged and disposition docketed 7 years from closing; late bill verified, classified and routed the same day |
+| 🧑‍🏫 Trainer | **15%** | Audit-ready judgment | Refuses to archive at $0.00 until every set is present, and says what each missing item would cost |
+| 🧑‍🏫 Trainer | **10%** | Client communication | Tells John Doe the same day what is being done about a late bill and when he will hear back, without blame or promises |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | Never says whether John Doe owes a bill; the closing letter is Atty. Thorne's to sign; no change to the retention schedule |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Start at 10/22/2026 with the ledger at $0.00 and ask: “Can we archive today?” Make the room list what is still missing: confirmation numbers, both satisfactions, John Doe's receipt, the payer disclosure, a current W-9, the closing letter and the memo.
+- The late-bill drill: a statement for Crescent's $1,540.00 arrives after the closing letter. Model answer: verify it against Peach State's EOB (a contractual write-off, no balance billing), route it to Atty. Thorne the same day, on his instruction ask Crescent in writing to correct its account, and tell John Doe today what is happening. Whether he owes anything is Atty. Thorne's to say.
+- Retention trips people. The deck's schedule purges correspondence from the active server at 3 years, but this firm keeps the closed training file 7 years from closing, and the stricter rule controls. Ask which of John Doe's documents are financial records.
+- Legal nuance: the payer disclosure is not a promise that nothing else paid. Other sources did, and recovering those bills is generally allowed (collateral source; confirm the governing rule). Its job is to make sure every reimbursement claim is known, so the release's indemnity promise can be kept.
+
+---
+
+### 4.1.7 Court Hard Rules, SOL Cutoffs & the Master Calendar
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** The dates the law sets, and the earlier dates the firm dockets  
@@ -557,7 +646,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.7 UM/UIM Disputes & Resolution Routes
+### 4.1.8 UM/UIM Disputes & Resolution Routes
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** A claim against your own client's carrier, and the two roads out of an impasse  
@@ -641,7 +730,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.8 Mediation vs. Binding Arbitration & the UPL Line at Hearings
+### 4.1.9 Mediation vs. Binding Arbitration & the UPL Line at Hearings
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Two neutrals, two standards, one boundary  
@@ -731,7 +820,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.9 The Mediation Binder & Exhibit Indexing
+### 4.1.10 The Mediation Binder & Exhibit Indexing
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Six sections, one master index, and the five-second rule  
@@ -811,7 +900,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.10 Arbitration Exhibits & Evidentiary Rules
+### 4.1.11 Arbitration Exhibits & Evidentiary Rules
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** From a binder that persuades to the record a binding award rests on  
@@ -893,7 +982,95 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.11 Health Subrogation & Statutory Lien Reduction Lab
+### 4.1.12 The Prior Medical Shield: Answering the Pre-Existing-Condition Defense from the Record
+
+> **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
+> **Topic:** Tab 5: the 2021 baseline, laid beside the injury, before the carriers raise it  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D4#25` Arbitration Binders: Section 5 — The Prior Medical Shield · `D4#27` Skill Building: The PI Critical Thinking Audit Challenge (Arbitration) · `D4#30` Common Bottlenecks: Arbitration (The Trial-Ready Landmines) · `D1#33` Case Planning — Treatment: The Assessment Phase · `D1#46` Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain · `D2#7` Master Audit Checklist: Medical & Billing Audit · Newly authored: the five-component shield on this file, the body-region side-by-side, the consistency audit and the harm-to-timeline check
+
+#### 1 · Visual Layout Description
+
+A split comparison board titled TAB 5 · THE PRIOR MEDICAL SHIELD. Left column, small and in greyed cream: 2021 · BIRCH AVENUE CHIROPRACTIC, a spine silhouette with only the lower back tinted, three mono date pills 05/04 · 05/11 · 05/18/2021, and a green stamp RESOLVED · RELEASED TO FULL ACTIVITY. Right column, larger and navy: SINCE 02/06/2026, the same silhouette with the neck tinted orange and labelled C5-C6 RIGHT PARACENTRAL, above two cream cards: MRI 03/13/2026 · DR. HELEN PARK quoting “no significant degenerative change at the adjacent levels”, and CAUSATION LETTER 06/19/2026 · DR. ALANA REYES. Between the columns, a horizontal bar labelled SYMPTOM-FREE INTERVAL running from 05/18/2021 to 02/06/2026, with a NORTHGATE · 01/12/2026 chip near its end. Across the top, three red defense chips, each struck through by an orange arrow to its answer: PRE-EXISTING → A DIFFERENT REGION · DEGENERATIVE → DR. PARK'S READ · CONTINUATION → RESOLVED IN 2021. Bottom-right, a grey routing card: ATTY. THORNE ARGUES · DECIDES ON A DECLARATION. The argument: every defense move is answered by a document, never by an adjective.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* The defense line on John Doe's file has always been “it was already there”: Keystone called the MRI “degenerative” on 08/05/2026, the 11/12/2026 Answer pleads causation on it, and defense counsel worked the 2021 low-back visits at the 02/18/2027 deposition. Harbor Point and Cardinal State now dispute damages, and Laura Whitcomb, Esq. decides bindingly on 06/22/2027. If Tab 5 does not answer the prior from the record, nothing after the award can.
+
+1. Disclose the prior; never hide it. Defense counsel worked the three 2021 low-back visits at the 02/18/2027 deposition, so the arbitrator should meet them first in Tab 5, already distinguished. A prior the other side introduces looks concealed.
+2. Know the defense's moves: a pre-existing condition, “degenerative” imaging, the current injury as a continuation of the old one, and often “no baseline pre-accident imaging”. Each move needs its own answering document in Tab 5.
+3. Component 1, the complete prior chart: request Birch Avenue Chiropractic's (Dr. Lena Ford, DC) full records for 05/04, 05/11 and 05/18/2021 (intake form, every visit note, any imaging, the discharge) with a business-records certification covering each date. Never a summary, and never John Doe's recollection.
+4. Component 2, resolution: show from the chart how many visits, when care ended and how: three visits, the last on 05/18/2021, low-back stiffness resolved, released to full activity. Use the record's words, not yours.
+5. Component 3, the body region: lay the 2021 complaint beside the injury since 02/06/2026, line by line (region, complaint, imaging, outcome): low back then; neck and right arm now, a C5-C6 right paracentral herniation. Whether any 2021 imaging exists, the certified chart answers; never assume it.
+6. Component 4, the symptom-free interval (05/18/2021 to 02/06/2026): prove it with records, not adjectives: the release to full activity, his work (Northgate warehouse shift lead, 8-hour shifts, from 01/12/2026) and every post-collision history recording no prior neck complaint. A hole in the proof is flagged, never filled.
+7. Component 5, pair the prior with the current medicine in the same tab: Dr. Helen Park's 03/13/2026 MRI read, “no significant degenerative change at the adjacent levels”, and Dr. Alana Reyes's Causation Letter (06/19/2026). If the letter is silent on the 2021 visits, flag it: a supplemental declaration or a retained expert is Atty. Thorne's decision.
+8. Run a consistency audit: every provider intake form and history (Riverton Urgent Care, Riverton Spine & Rehab, Lakeside Orthopedics, Crescent Pain & Spine), the deposition testimony and the 2021 chart must tell the same prior history. Flag any mismatch to Atty. Thorne with both records attached; never correct a record or ask John Doe to. The firm's own intake questionnaire is a privileged source, never an exhibit.
+9. Check every claimed harm against the dated medical timeline before the brief is docketed (06/11/2027): each element of damages, such as the residual intermittent right-arm paresthesia recorded at MMI on 06/12/2026, must point to a dated record. A harm with no record is flagged, not argued.
+10. Time it: request the prior chart and its certification the week arbitration is invoked (04/05/2027), and red-flag any shield piece still open 10 days before the 06/02/2027 exchange.
+
+> ⚠️ **UPL boundary.** You request, certify, compare, index and flag. You never write that the injury is new, “not degenerative” or an aggravation, never interpret the MRI, and never tell John Doe or a carrier what the 2021 visits mean for his claim. The eggshell and aggravation arguments, and any expert or declaration, are Atty. Thorne's; medical opinions are the providers'.
+
+#### 2 · Slide Body — Show Them
+
+*Tab 5's side-by-side: the 2021 baseline against the injury since 02/06/2026, every cell from a certified record*
+
+|  | Before: 2021 | Since 02/06/2026 |
+|---|---|---|
+| Provider | Birch Avenue Chiropractic, Dr. Lena Ford, DC | Riverton Fire EMS; Riverton Urgent Care; Riverton Spine & Rehab; Lakeside Orthopedics; Summit Imaging Center; Crescent Pain & Spine |
+| Dates | Three visits: 05/04, 05/11 and 05/18/2021 | Neck complaint on the date of loss (EMS); first treatment 02/20/2026 |
+| Region | Low back | Neck (cervical) and right arm |
+| Complaint and finding | Low-back stiffness | Cervical strain; C5-C6 right paracentral herniation; right-hand numbness from 02/18/2026 |
+| Imaging | Whatever the certified chart shows; never assumed | MRI 03/13/2026, Dr. Helen Park: “no significant degenerative change at the adjacent levels” |
+| Outcome | Resolved; released to full activity | MMI 06/12/2026; residual intermittent right-arm paresthesia |
+| Proof in Tab 5 | The complete chart, certified for every date | Certified records; Dr. Reyes's Causation Letter (06/19/2026); a declaration only if Atty. Thorne directs |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Arbitration invoked 04/05/2027 | Request Birch Avenue Chiropractic's complete 2021 chart with a business-records certification | Medical Records Requests | Full chart for 05/04, 05/11 and 05/18/2021, certified; not a summary |
+| Prior chart received | Build the side-by-side comparison from the certified records, quoting their words | CMS → Litigation → Exhibit index | Every cell cites a record and page |
+| A history mismatch, or a Causation Letter silent on 2021 | Flag it to Atty. Thorne with the records attached; he decides on a supplemental declaration | CMS → Tasks → Escalate | Flag dated; no record or testimony altered |
+| Tab 5 assembled | Check every claimed harm against the dated treatment timeline; route the tab for approval | CMS → Case File → Treatment timeline | Approved before the 06/02/2027 exchange |
+
+**Best practices & pitfalls**
+
+- Put the prior in your own binder first, already distinguished.
+- Name the body region in every line: the 2021 visits were low back; everything since 02/06/2026 is neck and right arm.
+- Use the records' own words (“resolved”, “released to full activity”, “no significant degenerative change at the adjacent levels”), never adjectives.
+- Proofread laterality and levels: right side, C5-C6. One slip in Tab 5 hands the carriers a credibility point.
+- ⚠️ Pitfall: leaving the prior out and letting the carriers introduce it.
+- ⚠️ Pitfall: writing “not pre-existing” or “not degenerative” in your own summary; that is a medical opinion and Atty. Thorne's argument.
+- ⚠️ Pitfall: a summary, or John Doe's memory of 2021, in place of the certified chart.
+- ⚠️ Pitfall: correcting a conflicting history instead of flagging it.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **10%** | Defense theory named | Pre-existing, “degenerative” imaging, continuation and the no-baseline-imaging line, each matched to an answering document |
+| 🤖 AI | **25%** | Five shield components | Certified 2021 chart for every date; resolution; low back vs. neck side-by-side; the interval proved by records; Dr. Park's read and the Causation Letter paired |
+| 🤖 AI | **15%** | Consistency and timeline audit | Every history and the deposition checked against the 2021 chart; every claimed harm tied to a dated record; mismatches flagged, not fixed |
+| 🤖 AI | **10%** | Timing | Requests the week of 04/05/2027; open pieces red-flagged before the 06/02/2027 exchange |
+| 🧑‍🏫 Trainer | **20%** | Disclose and distinguish | Explains why the prior goes in Tab 5 rather than being left for the carriers to introduce |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | No causation, degeneration or aggravation opinion; the declaration and the argument left to Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open with the defense's one sentence: “It was already there.” Then ask who on this file has already said it, and when: Keystone on 08/05/2026, the Answer on 11/12/2026, defense counsel at the 02/18/2027 deposition.
+- Draw the two columns on the board and let the room fill them from the case file. The point lands when they write “low back” on the left and “neck and right arm” on the right.
+- Watch for trainees who write “not degenerative” in their own words. Make them replace it with Dr. Park's sentence, in quotation marks, with the date of the read.
+- The eggshell rule (generally, the defendant takes the plaintiff as he finds him; an aggravation is compensable) is Atty. Thorne's to argue, and the governing rule must be confirmed. The Case Manager's work is the record both arguments rest on.
+
+---
+
+### 4.1.13 Health Subrogation & Statutory Lien Reduction Lab
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Skill Activity 1 — reduce Peach State, clear the statutory side  
@@ -980,7 +1157,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 4) and that day
 
 ---
 
-### 4.1.12 Provider Balance Negotiation Exercises
+### 4.1.14 Provider Balance Negotiation Exercises
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Skill Activity 2 — the reduction call to the chiropractor  
@@ -1057,7 +1234,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 4) and that day
 
 ---
 
-### 4.1.13 Completing the Final Dual-Tab Net Sheet
+### 4.1.15 Completing the Final Dual-Tab Net Sheet
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity 1 — take $40,000.00 to $20,359.92, and prove every line  
@@ -1136,7 +1313,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.14 Release Audit & Disbursement Command Triggering
+### 4.1.16 Release Audit & Disbursement Command Triggering
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity 2 — catch the line that costs $30,000, then move the money  
@@ -1215,7 +1392,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.15 Routing the UM Impasse: Arbitration or Court
+### 4.1.17 Routing the UM Impasse: Arbitration or Court
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 3 — read the clause, route the dispute, track it in the CMS  
@@ -1296,7 +1473,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.16 Auditing Court Hard Rules & Setting Calendar Cutoffs
+### 4.1.18 Auditing Court Hard Rules & Setting Calendar Cutoffs
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 1 — find the dates that would cost the file  
@@ -1388,7 +1565,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.17 ADR Rules Matrix & UPL Boundary Mapping
+### 4.1.19 ADR Rules Matrix & UPL Boundary Mapping
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 2 — what changes from compromise to decision  
@@ -1474,7 +1651,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.18 Assembling the 6-Section Mediation Binder
+### 4.1.20 Assembling the 6-Section Mediation Binder
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Skill Activity 1 — build it, audit it, route it before 03/11/2027  
@@ -1554,7 +1731,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.19 Assembling the 6-Tab Arbitration Binder
+### 4.1.21 Assembling the 6-Tab Arbitration Binder
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Skill Activity 2 — sort, QC and defuse two landmines before 06/02/2027  
@@ -1631,7 +1808,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.20 Lien Reduction Verification
+### 4.1.22 Lien Reduction Verification
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1716,7 +1893,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 4.1.21 Final Accounting Check
+### 4.1.23 Final Accounting Check
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1774,7 +1951,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (5 questions):
+**Auto-graded share of the day's Knowledge Check** (7 questions):
 
 1. Keystone's 08/14 draft release covered Robert Smith, Keystone and “all other persons, firms, corporations and insurers.” What was the danger?  
    It left out the non-admission-of-liability clause · **✓ It would also have released Harbor Point and Cardinal State: $30,000 of the stack** · It had no notary block · It released only the bodily-injury claim  
@@ -1791,6 +1968,12 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 5. The Net Sheet shows John Doe netting $20,359.92. Lakeside Orthopedics noted possible repeat ESIs ($3,400–$6,800) ahead. Before John Doe signs, the Case Manager:  
    Holds $6,800.00 of his net in trust to cover the injections · Tells John Doe the net is enough to cover future care · **✓ Flags it to Atty. Thorne: the settlement is full and final and no carrier pays more, so he has that conversation with John Doe** · Adds the injections to Peach State's lien so the plan pays them later  
    *The CM builds and explains the arithmetic but never says whether the net is enough. Future medical was narrated, never in the Specials; with a full and final settlement nothing more comes from Keystone, Harbor Point or Cardinal State. The flag goes to Atty. Thorne.*
+6. John Doe's Trust Ledger reads $0.00 after the 10/22/2026 disbursement. When can the file be marked Archived?  
+   Now: a zero balance means every payee was paid · Once Atty. Thorne has signed the five checks · **✓ Once all four document sets are verified present: money trail, proof of delivery, compliance and identity, and the closing memo** · Once the 7-year retention period has run  
+   *$0.00 starts the close; it does not finish it. The file is archived only when an outsider could trace every dollar from it: confirmation numbers and the three-way zero-balance proof, the lien satisfactions and John Doe's signed receipt, his payer disclosure and a current W-9, and the closing memo of 10/30/2026.*
+7. After the closing letter, a statement arrives asking John Doe for a balance on his accident treatment. He calls, upset. What does the Case Manager do?  
+   Tells him the file is closed, so it is not the firm's problem · Tells him he owes it and should pay it to protect his credit · **✓ Verifies the bill against the ledger, EOBs and Payoff Letters, routes it to Atty. Thorne the same day, and tells John Doe what is being done and when he will hear back** · Pays it from the trust account to keep him satisfied  
+   *Verify, classify (a lien we missed, or a bill nobody owes), route the same day, and keep John Doe informed. The release's indemnity clause makes a missed lien serious, but whether he owes the bill, and who answers for it, is Atty. Thorne's call; the trust account is at $0.00 and holds nothing to pay it from.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1816,7 +1999,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 4.1.22 ADR & Calendar Compliance Check
+### 4.1.24 ADR & Calendar Compliance Check
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1920,7 +2103,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 4.1.23 Binder Assembly Verification
+### 4.1.25 Binder Assembly Verification
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1963,7 +2146,7 @@ The standard knowledge-check split: the question panel on the warm cream card wi
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (5 questions):
+**Auto-graded share of the day's Knowledge Check** (7 questions):
 
 1. The 11/12/2026 answer pleads that John Doe was unbelted. Which exhibits in Section 4 of the Mediation Binder answer it?  
    **✓ The event data recorder (belt buckled) and the EMS Run Report** · The MRI read and Dr. Reyes's Causation Letter · The Police Report's citation and Ruth Calloway's statement · The Northgate Attendance Record and the 02/07/2026 pharmacy receipt  
@@ -1980,6 +2163,12 @@ The standard knowledge-check split: the question panel on the warm cream card wi
 5. Sorting the unsorted folder for the 06/22/2027 Arbitration Binder, you find the 09/08/2026 impasse memo to Atty. Thorne. Where does it go?  
    **✓ Flagged for Atty. Thorne's privilege and exchange decision, and kept out of the exchange set** · Tab 6, because it explains the negotiation history · Tab 1 with the submissions, since it shows BI was not paid · Tab 2 with the arbitration pleadings  
    *An internal memo in an exchanged set cannot be unsent. The CM flags; Atty. Thorne decides what is withheld as privileged and what is exchanged. The BI exhaustion threshold is proved with executed documents: Keystone's tender, the UM consents, the Limited Release and Robert Smith's dismissal.*
+6. Building Tab 5's side-by-side comparison, which line belongs in the Case Manager's work product?  
+   “The 2021 condition was not degenerative, so the herniation is new.” · **✓ “2021: three chiropractic visits (05/04–05/18/2021) for low-back stiffness, resolved. MRI 03/13/2026, Dr. Helen Park: ‘no significant degenerative change at the adjacent levels’.”** · “The collision aggravated John Doe's prior back condition.” · “John Doe is an eggshell plaintiff and recovers in full.”  
+   *The Case Manager states dated facts in the records' own words. Whether the injury is new, degenerative or an aggravation is a medical opinion or Atty. Thorne's argument, and the eggshell rule is his to argue under the governing law.*
+7. On a typical file, the consistency audit finds one provider's intake form that contradicts the rest of the client's prior history. What does the Case Manager do?  
+   Correct the form so it matches the other records · Leave the form out of the Arbitration Binder · Ask the client to sign a corrected form · **✓ Flag it to Atty. Thorne with the conflicting records attached, and change nothing**  
+   *A mismatch is a credibility question only counsel can decide how to handle. Altering, dropping or re-signing a record could look like concealment; the Case Manager flags it, dated, with both records attached.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 

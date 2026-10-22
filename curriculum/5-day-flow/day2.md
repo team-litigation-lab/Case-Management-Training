@@ -39,27 +39,28 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 4. *Lesson* — Coverages & the Payer-First Principle
 5. *Lesson* — LOP Issuance Guidelines, Provider Coordination & PIP Limits
 6. *Lesson* — Explanation of Benefits (EOB) & PIP
-7. *Lesson* — Letters of Protection & the Case Manager's Part in Provider Referrals
-8. *Lesson* — Rental & Reimbursement of Costs
-9. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check
-10. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
-11. *Lesson* — The No Contact Protocol — Steps 1 to 3
-12. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
-13. *Skill Activity* — Policy Stack & Coverage Verification
-14. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
-15. *Skill Activity* — CMS Coverage Matrix Audit
-16. *Skill Activity* — Identifying & Flagging the 14-Day Gap
-17. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
-18. *Skill Activity* — Multi-Channel Outreach Logging
-19. *Skill Activity* — Final Warning Letter Drafting
-20. *Skill Activity* — Transmitting LOPs to Medical Providers
-21. *Skill Activity* — Subrogation Lien Flagging in the CMS
-22. *Skill Activity* — Executing the A-C-T Crisis Protocol for Disrupted Care
-23. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
-24. *Knowledge Check* — Coverage Setup Verification Check
-25. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
-26. *Knowledge Check* — Treatment Monitoring Review
-27. *Knowledge Check* — MIA Escalation Knowledge Check
+7. *Lesson* — PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement (condensed)
+8. *Lesson* — Letters of Protection & the Case Manager's Part in Provider Referrals
+9. *Lesson* — Rental & Reimbursement of Costs
+10. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check
+11. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
+12. *Lesson* — The No Contact Protocol — Steps 1 to 3
+13. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
+14. *Skill Activity* — Policy Stack & Coverage Verification
+15. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+16. *Skill Activity* — CMS Coverage Matrix Audit
+17. *Skill Activity* — Identifying & Flagging the 14-Day Gap
+18. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
+19. *Skill Activity* — Multi-Channel Outreach Logging
+20. *Skill Activity* — Final Warning Letter Drafting
+21. *Skill Activity* — Transmitting LOPs to Medical Providers
+22. *Skill Activity* — Subrogation Lien Flagging in the CMS
+23. *Skill Activity* — Executing the A-C-T Crisis Protocol for Disrupted Care
+24. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+25. *Knowledge Check* — Coverage Setup Verification Check
+26. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
+27. *Knowledge Check* — Treatment Monitoring Review
+28. *Knowledge Check* — MIA Escalation Knowledge Check
 
 **End-of-day discussion (trainer):** It is 04/08/2026. Keystone confirmed its limit in writing on 03/20, Riverton Spine & Rehab reports John Doe has missed two visits, and Dana Whitfield has asked John for a Recorded Statement. What do you do first, second and third, and what does each protect?
 
@@ -67,7 +68,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 2 — Claim Set Up & Treatment
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 2.1.1 LOR Drafting Mechanics & Three-Carrier Notification
 
@@ -578,7 +579,93 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.7 Letters of Protection & the Case Manager's Part in Provider Referrals
+### 2.1.7 PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
+> **Topic:** Where PIP's $5,000 lands, and what that means for the settlement later  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D2#20` The Valuation Baseline: PIP Set-Off (The Credit) · `D2#21` The Valuation Baseline: PIP as a Severity Signal · `D2#22` The Valuation Baseline: The EMC and the Benefit Ceiling · `D2#23` The Valuation Baseline: Subrogation vs. Non-Subrogation · `D2#24` The Valuation Baseline: Strategic PIP “Exhaustion”
+
+#### 1 · Visual Layout Description
+
+A single horizontal bar labelled HARBOR POINT PIP · $5,000 · ONE LIMIT, filled left to right in date order by five navy segments: Riverton Urgent Care $685.00 · Lakeside $640.00 · Summit Imaging MRI $2,395.00 · Lakeside $640.00 · Lakeside $640.00, ending at a red marker EXHAUSTED 06/26/2026. Just past the marker, a greyed-out wage chip, WAGE BENEFIT 80% · $1,267.20 · NEVER PAID, with a small calendar tag WAGE LETTER 06/30/2026. Below the bar, two lanes of bills: an upper lane tagged FIXED COSTS (urgent care, orthopedics, imaging) with arrows up into the bar, and a lower orange lane tagged LOP · NEGOTIABLE AT THE END (Riverton Spine & Rehab, chiropractic and PT) running beneath it. To the right, four small question cards stacked, each with a green or grey answer chip for this file: SET-OFF? — add-on, doesn't reduce BI or UM · PAYBACK? — none (03/02/2026 letter) · EMC CEILING? — none on this PIP · SEVERITY SIGNAL? — slow spend, read the Specials. Bottom, a thin navy rule: “Forecast it; Atty. Thorne decides the routing.”
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* PIP is spent once, and only once. Where its dollars land decides which bills are left for the Health Plan, a Letter of Protection and, at the end, John Doe's recovery. The same ledger tells a BI adjuster how serious the case is, and in some states whether the defendant gets a credit for it. A Case Manager who forecasts the PIP limit, checks for the conditions that cap it and keeps its ledger exact protects the client's net long before the demand.
+
+1. Strategic exhaustion: on a typical file, PIP does the most good on the hard, fixed costs (ER, EMS, imaging, specialist visits). Hospitals and imaging centers rarely reduce at the end of a case; LOP providers often will, so continuing chiropractic and PT under an LOP leaves more of the BI money for the client.
+2. John Doe's file shows the pattern: PIP paid Riverton Urgent Care ($685.00), Lakeside Orthopedics ($640.00 three times) and Summit Imaging's MRI ($2,395.00); his chiropractic and PT ran under Riverton Spine & Rehab's LOP (signed 02/23/2026), and Summit's 03/11/2026 LOP request was declined because PIP applies first.
+3. Your part is the forecast, not the choice. After every PIP check, record the limit left, the bills still coming and the wage claim. When a bill could go to PIP or an LOP, lay out both routes with the figures for Atty. Thorne: routing outside the default Payer Order and every LOP's terms are his. Never re-route a claim another payer has paid.
+4. The limit is shared. Medical Bills and the 80% wage benefit draw on one $5,000, paid in the order Harbor Point receives them. John Doe's bills used it by 06/26/2026; Northgate's wage-and-attendance letter came 06/30/2026, so the $1,267.20 wage benefit was never paid. Send wage proof the day you have it. The full $1,584.00 stays in the Specials.
+5. The EMC ceiling, on a typical file in a state that uses it: PIP pays its full limit only if a treating physician documents an Emergency Medical Condition. Without the finding, benefits are capped lower (for example, $2,500 of a $10,000 limit), and every bill above the cap falls to the Health Plan, an LOP and, in the end, the BI settlement.
+6. Where an EMC rule applies, check the first treating records for the finding early in treatment. If it isn't there, ask the provider whether an EMC was assessed and documented: the finding is the physician's clinical judgment, never yours to suggest. Then flag to Atty. Thorne how many bills will move down the Payer Order. John Doe's Harbor Point PIP has no EMC ceiling: it paid its full $5,000.00.
+7. The set-off: the law generally prevents double recovery, so where set-off applies the defendant's carrier takes credit for what PIP paid. Gross Settlement Value − PIP Paid = Defendant's Remaining Liability: on a typical file, $60,000 − $10,000 = $50,000. A subrogated PIP carrier liens the settlement instead; you log the lien and Atty. Thorne negotiates it.
+8. Riverton is add-on, not no-fault: PIP does not reduce BI or UM, and Riverton bars a PIP carrier from recovering what it paid out of its insured's settlement. Harbor Point confirmed in writing on 03/02/2026: no reimbursement right and no PIP non-duplication reduction. Keep each carrier's written position on the file; whether any set-off is argued is Atty. Thorne's call.
+9. PIP as a severity signal: BI adjusters read how fast the limit was spent, and a limit gone in days on ER and imaging bills reads as a serious case. John Doe's PIP ran from 02/20/2026 to 06/26/2026 because most of his care was billed to the LOP and Peach State, so the PIP figure understates the file. The measure is the Specials ($14,817.40 medical, $16,401.40 with wages), never PIP's $5,000; how severity is argued is Atty. Thorne's.
+10. Keep every PIP-paid bill at its billed amount in the Specials and at $0.00 owed in the balances, and tie the PIP Log to Harbor Point's payment history line by line. A PIP-paid bill counted as unpaid, or Specials quoted without what PIP paid, is the error an adjuster uses to cut a demand's credibility.
+
+> ⚠️ **UPL boundary.** You may forecast the PIP limit, keep its ledger, ask a provider whether an EMC finding was documented and record each carrier's written position. Routing outside the default Payer Order, LOP terms, set-off and severity arguments are Atty. Thorne's calls; the EMC finding is the physician's.
+
+#### 2 · Slide Body — Show Them
+
+*PIP's weight at settlement: a typical file, and John Doe's*
+
+| Question | On a typical file | John Doe's Harbor Point PIP |
+|---|---|---|
+| What did PIP pay for? | Fixed costs first (ER, EMS, imaging); soft-tissue care under LOPs | Urgent care, Lakeside three times, Summit's MRI: $5,000.00; chiropractic and PT under the LOP |
+| How fast was it spent? | A limit gone in days on ER bills signals a serious case | 02/20/2026 to 06/26/2026: slow, because most care was billed elsewhere |
+| Was an EMC finding needed? | In EMC states, no finding can cap PIP (for example, $2,500 of $10,000) | No EMC ceiling: the full $5,000.00 paid |
+| Does the BI carrier get a set-off? | Where set-off applies: Gross Settlement Value − PIP Paid = Defendant's Remaining Liability | Add-on: PIP does not reduce BI or UM; any argument is Atty. Thorne's |
+| Does PIP want its money back? | A subrogated carrier liens the settlement: log it | No: Harbor Point, 03/02/2026, no reimbursement right |
+| Was the wage benefit used? | Medical Bills and wages share one limit | No: bills used it by 06/26/2026; $1,267.20 never paid; $1,584.00 stays in the Specials |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| A PIP check clears | Record the limit left, the bills still coming and the wage claim | CMS → Insurance tab → PIP Log | Forecast shows when PIP runs out |
+| A bill could go to PIP or an LOP | Lay out both routes with the figures | Email Workspace | Atty. Thorne's routing decision logged; no paid claim re-routed |
+| First treating records arrive (EMC states) | Check the PIP rule and the records for an EMC finding | Medical Records Requests · CMS → Insurance tab | Finding, or its absence, flagged to Atty. Thorne |
+| PIP is exhausted | Post what PIP paid by bill beside the billed Specials | CMS → Insurance tab → PIP Log · CMS → Liens | PIP-paid bills at $0.00 owed; billed totals kept |
+
+**Best practices & pitfalls**
+
+- Read each PIP check as a forecast: what's left, and what's still coming.
+- Get each carrier's set-off and reimbursement position in writing, as Harbor Point's 03/02/2026 letter does.
+- Check early whether the governing PIP rule has an EMC condition, and whether the records carry the finding.
+- Keep billed and PIP-paid on the same line, so the Specials and the balances both reconcile.
+- ⚠️ Pitfall: counting a PIP-paid bill as unpaid.
+- ⚠️ Pitfall: quoting the Specials without the PIP Log beside them.
+- ⚠️ Pitfall: spending PIP on negotiable care while fixed-cost bills wait.
+- ⚠️ Pitfall: asking a provider to make an EMC finding.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Strategic exhaustion | Explains why PIP on fixed costs, with later care under an LOP, protects the net, and shows it on John Doe's PIP Log |
+| 🤖 AI | **20%** | EMC and set-off | States the EMC ceiling and the set-off formula as general doctrine, and John Doe's add-on position from the 03/02/2026 letter |
+| 🤖 AI | **20%** | Ledger kept exact | PIP-paid bills at billed in the Specials and $0.00 owed; the shared limit and the unpaid $1,267.20 wage benefit explained |
+| 🧑‍🏫 Trainer | **25%** | Grasps the consequence | Explains how where PIP lands changes what falls to the Health Plan, the LOP and the client's net |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | Routing choices, set-off and severity arguments left to Atty. Thorne; the EMC finding left to the physician |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Draw one bar on the board, $5,000, and fill it with Harbor Point's five checks. Ask what John Doe's bills would look like if PIP had paid chiropractic visits instead of the MRI.
+- Keep the EMC rule clearly general: John Doe's Harbor Point PIP has no EMC ceiling. The skill is checking for the rule and the finding, never asking a doctor to make one.
+- Work the set-off formula with the typical numbers ($60,000 − $10,000 = $50,000), then ask why it doesn't apply here: Riverton is add-on, and Harbor Point's 03/02/2026 letter is on the file.
+- Close on the boundary: you forecast and keep the ledger; how PIP is argued to an adjuster is Atty. Thorne's.
+
+---
+
+### 2.1.8 Letters of Protection & the Case Manager's Part in Provider Referrals
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** What an LOP is, when it is used, and how you help John Doe reach care without steering it  
@@ -655,7 +742,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.8 Rental & Reimbursement of Costs
+### 2.1.9 Rental & Reimbursement of Costs
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** What treatment costs the client out of pocket, and how each dollar is documented for the demand  
@@ -729,7 +816,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.9 Health Subrogation, Payer Order & the Regulatory Triple-Check
+### 2.1.10 Health Subrogation, Payer Order & the Regulatory Triple-Check
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays the bills now, and who gets paid back later  
@@ -808,7 +895,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.10 A-C-T Crisis Protocol & Treatment Monitoring Principles
+### 2.1.11 A-C-T Crisis Protocol & Treatment Monitoring Principles
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Is the plan working, and what you do the day it isn't  
@@ -891,7 +978,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.11 The No Contact Protocol — Steps 1 to 3
+### 2.1.12 The No Contact Protocol — Steps 1 to 3
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Internal review, escalating contact attempts, team notification  
@@ -967,7 +1054,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.12 Final Warning Letter & the Skip-Trace Trigger
+### 2.1.13 Final Warning Letter & the Skip-Trace Trigger
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** No Contact Protocol Steps 4 to 6, and when the search begins  
@@ -1041,7 +1128,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.13 Policy Stack & Coverage Verification
+### 2.1.14 Policy Stack & Coverage Verification
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — build the ladder to $40,000  
@@ -1129,7 +1216,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.14 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+### 2.1.15 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — five letters, each one right  
@@ -1206,7 +1293,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.15 CMS Coverage Matrix Audit
+### 2.1.16 CMS Coverage Matrix Audit
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 2 — find what the matrix gets wrong  
@@ -1297,7 +1384,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.16 Identifying & Flagging the 14-Day Gap
+### 2.1.17 Identifying & Flagging the 14-Day Gap
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 1 — find the fact that will decide this case  
@@ -1370,7 +1457,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.17 Live Case Plan Draft — John Doe v. Robert Smith
+### 2.1.18 Live Case Plan Draft — John Doe v. Robert Smith
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 2 — the full plan, routed for review  
@@ -1446,7 +1533,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.18 Multi-Channel Outreach Logging
+### 2.1.19 Multi-Channel Outreach Logging
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 1 — build a defensible record  
@@ -1520,7 +1607,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.19 Final Warning Letter Drafting
+### 2.1.20 Final Warning Letter Drafting
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 2 — write the letter that gets answered  
@@ -1595,7 +1682,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.20 Transmitting LOPs to Medical Providers
+### 2.1.21 Transmitting LOPs to Medical Providers
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 1 — one LOP issued, one declined  
@@ -1672,7 +1759,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.21 Subrogation Lien Flagging in the CMS
+### 2.1.22 Subrogation Lien Flagging in the CMS
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — register the claim before it can hurt you  
@@ -1744,7 +1831,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.22 Executing the A-C-T Crisis Protocol for Disrupted Care
+### 2.1.23 Executing the A-C-T Crisis Protocol for Disrupted Care
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — the Transportation Wall, 04/08/2026  
@@ -1832,7 +1919,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.23 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+### 2.1.24 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 3 — the Millbrook booking, 04/22/2026  
@@ -1932,7 +2019,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.24 Coverage Setup Verification Check
+### 2.1.25 Coverage Setup Verification Check
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2040,7 +2127,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 ---
 
-### 2.1.25 Case Plan Audit & the Claim Set Up Gate
+### 2.1.26 Case Plan Audit & the Claim Set Up Gate
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2083,7 +2170,7 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (8 questions):
+**Auto-graded share of the day's Knowledge Check** (14 questions):
 
 1. Once the claim is set up, the Case Plan is typically filed within:  
    7 days · **✓ 30–60 days, depending on the state** · 6 months · After Maximum Medical Improvement  
@@ -2109,6 +2196,24 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 8. Besides the initial 14-day gap, what must the gap flag set up?  
    Nothing more · **✓ A watch for any later break in care** · A demand date · A call to the adjuster  
    *Record the initial gap and set a watch for any later break in care; document each break the same way: its dates, then the client's own explanation and the records that support it.*
+9. What belongs in the Pre-Morbid Status part of John Doe's assessment?  
+   **✓ His prior injuries, treatment and claims, with dates and providers, and a request for those records** · The Case Manager's view on whether an old injury was aggravated by the crash · Only the care he receives after 02/06/2026 · Nothing, unless a carrier raises a prior injury  
+   *The baseline separates a pre-existing condition from an accident injury. The Case Manager records it as facts and requests the records; whether anything was aggravated is the provider's opinion and Atty. Thorne's argument.*
+10. Which goal could the Case Manager draft for the provider to confirm?  
+   “Reduce John Doe's pain.” · “Get John Doe back to normal soon.” · **✓ “John Doe works full 8-hour shifts at Northgate by the 12-week review, on a measure the provider confirms.”** · “Keep John Doe in treatment until the case settles.”  
+   *It is Specific (a full shift), Measurable (the provider's measure), Relevant (his work and the injury claimed) and Time-bound (a dated review). The provider confirms it is Achievable and sets the measure; the Case Manager only drafts it.*
+11. On the Standard Treatment Map, the acute phase is days 1–14 from the date of loss. What is the Case Manager's focus in it?  
+   Monitoring range-of-motion gains · **✓ Establishing causation and PIP coverage** · Identifying barriers to return to work · Determining Maximum Medical Improvement  
+   *Acute: causation and PIP. Functional gains are the sub-acute focus, return-to-work barriers the restorative, and MMI the maintenance phase.*
+12. At week 6 of care a client shows no gain in range of motion or pain score. What does the Case Manager do?  
+   Tell the client to see a specialist · Wait for the adjuster's decision on more sessions · **✓ Name the variance, ask the provider what is planned, and record the answer** · Tell the client the stall will lower his claim  
+   *The 6-Week Rule says course-correct now, not after a denial. Any change in care is the provider's decision; the Case Manager asks, records question, answer and date, and reports the facts to Atty. Thorne.*
+13. A client's PT notes show 14 sessions with no change in range of motion or pain, and no specialist or imaging has been suggested. What does the Case Manager do?  
+   Tell the client to stop PT and see an orthopedist · **✓ Log it as a red flag, ask the provider's office whether a referral is being considered, and report it to Atty. Thorne** · Wait for the adjuster to deny further visits · Nothing: the Case Manager tracks attendance only  
+   *Over 12 sessions with no gain and no referral is a PT red flag. The Case Manager reports the facts and asks the question; the referral is the provider's decision.*
+14. On a check-in, a client says the clinic is a waste of his time and he is thinking of quitting. Which response is motivational interviewing?  
+   “If you quit, it will hurt your case.” · **✓ “It sounds like that clinic isn't a good fit for you. Let's look at why.”** · “You have to go; the doctor ordered it.” · “Fine, I'll cancel your appointments.”  
+   *Rolling with resistance: don't argue, pivot to his reason and take it to the provider. What quitting means for the claim is Atty. Thorne's to explain.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -2135,7 +2240,7 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 ---
 
-### 2.1.26 Treatment Monitoring Review
+### 2.1.27 Treatment Monitoring Review
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2180,7 +2285,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (15 questions):
+**Auto-graded share of the day's Knowledge Check** (17 questions):
 
 1. On 03/11/2026 Summit Imaging asks for an LOP for John Doe's $2,395.00 MRI. Harbor Point PIP has $3,675.00 left. What do you do?  
    Prepare the LOP for Atty. Thorne's approval, since the provider asked for one · **✓ Decline the LOP and route the bill to PIP, which applies first** · Send the bill to Peach State first, to save PIP for later · Tell Summit it will be paid in full at settlement  
@@ -2227,6 +2332,12 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 15. Checking the PIP Log against the providers' statements: suppose Lakeside Orthopedics' statement still showed $640.00 owed for the 03/27/2026 visit that Harbor Point PIP paid on 04/10/2026. What is it, and what do you do?  
    A lien: add $640.00 to the Lien Tracker · **✓ A billing error: the PIP payment is a credit Lakeside hasn't posted, so send it the payment proof in writing and ask it to correct the account** · A debt: tell John Doe to pay Lakeside · A reason to ask Harbor Point to pay the visit again  
    *Every provider's statement must show the PIP check or the plan's payment as a credit. A balance on a date of service PIP already paid is a billing error, not a lien and not John Doe's debt: correct it in writing with the payment proof from the PIP Log and Harbor Point's payment history, and log it.*
+16. On a typical file in a state with an Emergency Medical Condition rule, the first treating records show no EMC finding. What do you do?  
+   Ask the treating physician to add an EMC finding so the full limit pays · **✓ Ask the provider whether an EMC was assessed and documented, and flag to Atty. Thorne which bills will move down the Payer Order if it wasn't** · Assume the full PIP limit until the carrier refuses a bill · Move all further treatment to LOPs at once  
+   *Without the finding, an EMC state can cap PIP (for example, $2,500 of a $10,000 limit), pushing bills onto the Health Plan, LOPs and the BI settlement. The finding is the physician's clinical judgment, never yours to suggest; you check, ask whether it was documented and flag the consequence to Atty. Thorne. John Doe's Harbor Point PIP has no EMC ceiling.*
+17. Harbor Point PIP paid Summit Imaging's $2,395.00 MRI, while John Doe's chiropractic and PT ran under Riverton Spine & Rehab's LOP. Why does that pattern protect a client's net on a typical file?  
+   **✓ Imaging and hospital bills are fixed and rarely reduced at the end, while an LOP balance can still be negotiated, so less of the recovery goes to bills** · PIP pays imaging at a higher rate than chiropractic care · LOP bills are left out of the Specials · Harbor Point repays the LOP provider at settlement  
+   *Strategic exhaustion: PIP spent on non-negotiable hard costs leaves the negotiable LOP balance behind, which preserves more of the BI money for the client. The LOP bills stay in the Specials at their billed amounts; any reduction is Atty. Thorne's to negotiate, and you never promise a provider one.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -2252,7 +2363,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 
 ---
 
-### 2.1.27 MIA Escalation Knowledge Check
+### 2.1.28 MIA Escalation Knowledge Check
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

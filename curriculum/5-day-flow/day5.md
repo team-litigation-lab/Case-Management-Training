@@ -38,36 +38,37 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 4. *Lesson* — Escalation Workflows & Supervisory Reporting Guidelines (condensed)
 5. *Lesson* — Litigation Tracking: the Pleadings Log & the Discovery Calendar (condensed)
 6. *Lesson* — Trial Preparation Checklists & Litigation KPIs (condensed)
-7. *Lesson* — Repair Estimates vs. ACV & Loss-of-Use Allocations (condensed)
-8. *Lesson* — Diminished Value & PD Dispute Resolution (condensed)
-9. *Lesson* — Client Prep for a Virtual Deposition & Injury Narrative Alignment
-10. *Lesson* — Opposing Counsel's Traps & Defending Key Testimony
-11. *Lesson* — Comparative Negligence & the Liability Counter-Package (condensed)
-12. *Lesson* — Skip-Tracing, Process Servers & Certified Notice (condensed)
-13. *Lesson* — Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund (condensed)
-14. *Lesson* — Dropped Cases: the Case Manager's Close-Out (condensed)
-15. *Skill Activity* — Triggering the Litigation Fork
-16. *Skill Activity* — Transition the File to Litigation Status
-17. *Skill Activity* — Automated Countermeasure Triggering in CMS
-18. *Skill Activity* — Bottleneck Resolution Simulation
-19. *Skill Activity* — Pleadings & Discovery Log Maintenance
-20. *Skill Activity* — Trial Prep Checklist Audit & KPI Update
-21. *Skill Activity* — Evaluating Repair Estimates vs. ACV & Loss-of-Use
-22. *Skill Activity* — Diminished Value Calculation & Negotiation Lab
-23. *Skill Activity* — Virtual Deposition Prep Roleplay
-24. *Skill Activity* — Mock Deposition Cross-Examination Handling
-25. *Skill Activity* — Building the Comparative Liability Counter-Package
-26. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch
-27. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award
-28. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
-29. *Knowledge Check* — Litigation Fork Transition Check
-30. *Knowledge Check* — Countermeasure Operational Audit
-31. *Knowledge Check* — Litigation Support Assessment
-32. *Knowledge Check* — PD Dispute Evaluation
-33. *Knowledge Check* — Deposition Readiness Audit
-34. *Knowledge Check* — Final Comprehensive Knowledge Check
-35. *Knowledge Check* — Track B Close-Out Check
-36. *Knowledge Check* — Dropped Case Close-Out Check
+7. *Lesson* — Subpoena Management: Records Subpoenas (Duces Tecum) & Trial Subpoenas
+8. *Lesson* — Repair Estimates vs. ACV & Loss-of-Use Allocations (condensed)
+9. *Lesson* — Diminished Value & PD Dispute Resolution (condensed)
+10. *Lesson* — Client Prep for a Virtual Deposition & Injury Narrative Alignment
+11. *Lesson* — Opposing Counsel's Traps & Defending Key Testimony
+12. *Lesson* — Comparative Negligence & the Liability Counter-Package (condensed)
+13. *Lesson* — Skip-Tracing, Process Servers & Certified Notice (condensed)
+14. *Lesson* — Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund (condensed)
+15. *Lesson* — Dropped Cases: the Case Manager's Close-Out (condensed)
+16. *Skill Activity* — Triggering the Litigation Fork
+17. *Skill Activity* — Transition the File to Litigation Status
+18. *Skill Activity* — Automated Countermeasure Triggering in CMS
+19. *Skill Activity* — Bottleneck Resolution Simulation
+20. *Skill Activity* — Pleadings & Discovery Log Maintenance
+21. *Skill Activity* — Trial Prep Checklist Audit & KPI Update
+22. *Skill Activity* — Evaluating Repair Estimates vs. ACV & Loss-of-Use
+23. *Skill Activity* — Diminished Value Calculation & Negotiation Lab
+24. *Skill Activity* — Virtual Deposition Prep Roleplay
+25. *Skill Activity* — Mock Deposition Cross-Examination Handling
+26. *Skill Activity* — Building the Comparative Liability Counter-Package
+27. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch
+28. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award
+29. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
+30. *Knowledge Check* — Litigation Fork Transition Check
+31. *Knowledge Check* — Countermeasure Operational Audit
+32. *Knowledge Check* — Litigation Support Assessment
+33. *Knowledge Check* — PD Dispute Evaluation
+34. *Knowledge Check* — Deposition Readiness Audit
+35. *Knowledge Check* — Final Comprehensive Knowledge Check
+36. *Knowledge Check* — Track B Close-Out Check
+37. *Knowledge Check* — Dropped Case Close-Out Check
 
 **End-of-day discussion (trainer):** It is 01/05/2027. Opposing counsel's paralegal says your client's discovery responses are late, John Doe has changed his phone number, and the deposition is set for 02/18/2027. What do you do today, in what order, and what is Atty. Thorne's call, not yours?
 
@@ -75,7 +76,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 5 — Litigation & Dropped Cases
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 5.1.1 Impasse Triggers & Filing Criteria
 
@@ -578,7 +579,92 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.7 Repair Estimates vs. ACV & Loss-of-Use Allocations
+### 5.1.7 Subpoena Management: Records Subpoenas (Duces Tecum) & Trial Subpoenas
+
+> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
+> **Topic:** Commanding evidence from outside the suit: in order, narrow and on time  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D5#6` Phase 3: The Trial & Mediation Preparation Stage · `D5#23` Critical Litigation Process 3: Third-Party Evidence Subpoenas · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#30` Subpoena Duces Tecum: Execution Strategy · `D5#31` Litigation File Architecture · Newly authored: trial subpoenas tasked against the pretrial and trial-calendar dates; service rules and witness fees confirmed with the court's rules · Newly authored: a subpoena noticed by the defense is docketed and routed to Atty. Thorne
+
+#### 1 · Visual Layout Description
+
+Left two-thirds: a horizontal four-station pipeline on a navy rail, each station a navy card with an orange badge: ① DRAFT ② NOTICE ③ SERVE ④ TRACK. Between ② and ③ a gate chip reads NOTICE FIRST · ATTY. GRANT MERCER, and ③ carries a mono pill, REGISTERED AGENT / RECORDS CUSTODIAN. Above station ①, an Exhibit A card narrowing through three stacked filters, SUBJECT · DATES · RECORD TYPES, with the phrase “all records of any kind” struck through in red beside a red MOTION TO QUASH chip. A red vertical cutoff line, DISCOVERY CLOSES 05/28/2027, stands to the right of ④; every return arrow lands left of it and drops into a tabbed TRIAL BINDER icon. Right third, a separate cream lane for trial subpoenas: four witness chips (Ruth Calloway · Officer Thomas Garner #2217 · Dr. Alana Reyes · Dr. Helen Park) under the label IF ATTY. THORNE NAMES THEM, pointing to two date pills, PRETRIAL 08/12/2027 and TRIAL CALENDAR 09/13/2027. Along the bottom, one row of the subpoena log in mono type with a 10-DAY AUDIT badge. The argument: order, scope and timing decide whether the evidence arrives.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Some of the evidence John Doe's case needs sits with people outside the suit: a records custodian who won't release a file, a witness who has no duty to come to court unless commanded. A subpoena is the court's command that reaches them. A careless one, served out of order, written too broadly or returning after discovery closes on 05/28/2027, loses the evidence it was meant to secure.
+
+1. Two subpoenas, two jobs. A Subpoena Duces Tecum commands a non-party to produce documents; a trial subpoena commands a witness (a fact witness, a treating physician, a police officer) to appear and testify, so they legally show up. Robert Smith's own documents come through Requests for Production, not a subpoena.
+2. The trigger is a refusal or a custodian need: a hospital, cell phone provider or employer ignores or refuses a request made with John Doe's authorization, or Atty. Thorne needs a record produced by its custodian. Flag it as a question (“Do you want a records subpoena?”); he decides, signs and issues it.
+3. Draft on the court-approved Subpoena Duces Tecum form only: the case style (John Doe v. Robert Smith, State Court of Riverton County, Civil Action No. 26-CV-04417), the named custodian, the production date and place, and Exhibit A. Route the draft to Atty. Thorne for review and signature.
+4. Write Exhibit A narrow: one subject, an exact date range, named record types. The deck's model: “Any and all emergency room records, triage notes, and radiological imaging regarding [Client] for the treatment date of [Accident Date] only.” Never “all records of any kind”: that is an overly broad fishing expedition, and the defense or the third party can move to quash it.
+5. Notice before service, always. A copy goes to opposing counsel, here Atty. Grant Mercer of Mercer & Hale LLP, before the third party is served; most states set a notice period, often 5 to 10 days. Confirm the governing rule and calendar the earliest service date from it.
+6. Formal service by process server on the facility's Registered Agent or records custodian; on this file, Allied Process Services. The signed subpoena and the proof of service are filed in 05_SUBPOENAS.
+7. Track compliance: call the records or legal department 5 days before the production date to confirm the records are being compiled, and pay the custodian's copy invoice promptly. The call is logistics only; an objection or a scope question goes to Atty. Thorne.
+8. Work backward from the Scheduling Order: notice, service and production must all land before discovery closes on 05/28/2027. A subpoena planned too late is raised with Atty. Thorne now; whether anything can still issue is his call under the court's rule.
+9. One subpoena log row per subpoena: recipient, Exhibit A scope, approval date, notice date, service date, production due date, compliance-call date, invoice, status. Review every open row every 10 days (the Subpoena Audit), route each miss, and index and tab every return for the trial binder.
+10. Trial subpoenas go only to the witnesses Atty. Thorne names. On this file the candidates are Ruth Calloway, Officer Thomas Garner #2217, Dr. Alana Reyes and Dr. Helen Park; each is tasked against pretrial on 08/12/2027 and the 09/13/2027 trial calendar. Who may serve them, how far ahead, and whether a witness fee goes with them: confirm the court's rules.
+
+> ⚠️ **UPL boundary.** You draft from Atty. Thorne's instructions, calendar, arrange service, track returns and log every record received. You never decide to subpoena anyone, choose a witness, sign or issue a subpoena, set or argue its scope with a custodian or Atty. Mercer's office, or answer a Motion to Quash.
+
+#### 2 · Slide Body — Show Them
+
+*One records subpoena on John Doe's file, from the flag to the trial binder*
+
+1. **Flag** — A request is refused or ignored, or a record must come from its custodian. Ask Atty. Thorne: “Do you want a records subpoena?” He decides.
+2. **Draft** — Court-approved form; Civil Action No. 26-CV-04417; the Riverton Fire EMS records custodian; Exhibit A: the Run Report for run RF-26-0206-114 (Medic 7), patient John Doe, 02/06/2026 only. Atty. Thorne reviews and signs.
+3. **Notice** — A copy to Atty. Grant Mercer, Mercer & Hale LLP, 10 Court Sq, before the custodian is served; the notice period per the governing rule (often 5 to 10 days).
+4. **Serve** — Allied Process Services serves the records custodian; proof of service filed in 05_SUBPOENAS; the log row updated the same day.
+5. **Track** — Compliance call 5 days before production; invoice paid promptly; the row reviewed every 10 days; production due before 05/28/2027.
+6. **Log the return** — Records logged as received, indexed and tabbed for the trial binder; Atty. Thorne told they are in.
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| A records request is refused or ignored, or a record must come from its custodian | Flag it to Atty. Thorne as a question: “Do you want a records subpoena?” | CMS → Tasks → Escalate | Question routed with the refused request attached; nothing drafted until he decides |
+| Atty. Thorne approves a Subpoena Duces Tecum | Draft on the court-approved form with a narrow Exhibit A; serve notice on Atty. Mercer, then arrange service on the custodian | Action Plan Editor → Subpoena template · Court E-Filing | Exhibit A names one subject, exact dates and record types; notice dated before service |
+| Every 10 days while a subpoena is open | Review each row; compliance call 5 days before production; pay the invoice | CMS → Litigation → Subpoena log · CMS → Calendar | Every open row has a dated reading; each miss routed to Atty. Thorne |
+| Atty. Thorne names his trial witnesses | Draft the trial subpoenas; arrange service under the court's rules; log the proof | Action Plan Editor → Subpoena template · CMS → Calendar | Tasked against 08/12/2027 and 09/13/2027; proof of service in 05_SUBPOENAS |
+
+**Best practices & pitfalls**
+
+- Read every Exhibit A against three questions: whose records, which dates, which record types? Anything wider goes back.
+- Count back from 05/28/2027 before you draft, so the notice period, service and production all close before discovery does.
+- When Atty. Mercer's office notices a subpoena to one of John Doe's providers, docket it within 48 hours and route it to Atty. Thorne the same day; any objection is his.
+- Keep each trial witness's contact details current and logged: a trial calendar is not a fixed day.
+- ⚠️ Pitfall: the custodian served before Atty. Mercer has notice.
+- ⚠️ Pitfall: an Exhibit A asking for “all records of any kind”.
+- ⚠️ Pitfall: a production date that falls after discovery closes on 05/28/2027.
+- ⚠️ Pitfall: a trial subpoena drafted for a witness Atty. Thorne has not named.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Pipeline order | Draft → notice to Atty. Mercer → service on the custodian → compliance call, in that order |
+| 🤖 AI | **15%** | Exhibit A scope | One subject, an exact date range, named record types; never “all records” |
+| 🤖 AI | **15%** | Timing | Notice, service and production before 05/28/2027; trial subpoenas tasked against 08/12/2027 and 09/13/2027; notice period confirmed from the rule, not invented |
+| 🤖 AI | **15%** | Subpoena log | Every field present; the 10-day review and the 5-day compliance call calendared |
+| 🧑‍🏫 Trainer | **20%** | Authority line | Atty. Thorne decides, signs, sets scope and names witnesses; the Case Manager drafts, notices, arranges service and tracks |
+| 🧑‍🏫 Trainer | **20%** | Custodian and defense contact | Compliance calls stay logistics; objections, scope questions and defense subpoenas routed, never argued |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Ask the room who on John Doe's file holds evidence but owes the firm nothing. A records custodian and Ruth Calloway are the two to draw out: neither is a party, so only a subpoena commands them.
+- Read out an Exhibit A that asks for “all records of any kind” and have trainees narrow it aloud to one subject, one date range and named record types. The deck's model wording is the target.
+- Ask: “What goes wrong if Allied Process Services serves the custodian before Atty. Mercer has the copy?” The notice rule exists so the other side can object before a non-party produces; serving out of order invites a challenge to the subpoena and the records.
+- Legal nuance: notice periods, who may serve, witness fees and how a party gets a non-party's records all vary by court. Teach the order and the habit, and send every number to the governing rule through Atty. Thorne.
+
+---
+
+### 5.1.8 Repair Estimates vs. ACV & Loss-of-Use Allocations
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Repairable or total, and what each day without the Civic is worth  
@@ -660,7 +746,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 ---
 
-### 5.1.8 Diminished Value & PD Dispute Resolution
+### 5.1.9 Diminished Value & PD Dispute Resolution
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** What a repaired car still loses, and how the dispute gets resolved  
@@ -739,7 +825,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 ---
 
-### 5.1.9 Client Prep for a Virtual Deposition & Injury Narrative Alignment
+### 5.1.10 Client Prep for a Virtual Deposition & Injury Narrative Alignment
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The audit, the three pillars, and the room John testifies from  
@@ -823,7 +909,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.10 Opposing Counsel's Traps & Defending Key Testimony
+### 5.1.11 Opposing Counsel's Traps & Defending Key Testimony
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The four categories, the seven Golden Rules, and what an objection means  
@@ -906,7 +992,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.11 Comparative Negligence & the Liability Counter-Package
+### 5.1.12 Comparative Negligence & the Liability Counter-Package
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Three allegations in the 11/12/2026 Answer, and the evidence that answers each  
@@ -987,7 +1073,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.12 Skip-Tracing, Process Servers & Certified Notice
+### 5.1.13 Skip-Tracing, Process Servers & Certified Notice
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Finding the defendant who moved and the client who went quiet  
@@ -1070,7 +1156,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.13 Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund
+### 5.1.14 Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Same $40,000.00, a different net: what suit cost the client, line by line  
@@ -1147,7 +1233,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 ---
 
-### 5.1.14 Dropped Cases: the Case Manager's Close-Out
+### 5.1.15 Dropped Cases: the Case Manager's Close-Out
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** From “Pending Drop” to “Dropped”: the gate, three Withdrawal Letters, their dispatch and the proof  
@@ -1227,7 +1313,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 ---
 
-### 5.1.15 Triggering the Litigation Fork
+### 5.1.16 Triggering the Litigation Fork
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Skill Activity 1 — the impasse memo: Keystone's stonewall on the 14-Day Gap  
@@ -1304,7 +1390,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.16 Transition the File to Litigation Status
+### 5.1.17 Transition the File to Litigation Status
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Skill Activity 2 — re-architect John Doe's file in the CMS  
@@ -1384,7 +1470,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.17 Automated Countermeasure Triggering in CMS
+### 5.1.18 Automated Countermeasure Triggering in CMS
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Skill Activity 1 — rules that fire before the deadline does  
@@ -1462,7 +1548,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.18 Bottleneck Resolution Simulation
+### 5.1.19 Bottleneck Resolution Simulation
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Skill Activity 2 — five problems, nine days, one order  
@@ -1540,7 +1626,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.19 Pleadings & Discovery Log Maintenance
+### 5.1.20 Pleadings & Discovery Log Maintenance
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Skill Activity 1 — repair the log before it costs the case  
@@ -1619,7 +1705,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.20 Trial Prep Checklist Audit & KPI Update
+### 5.1.21 Trial Prep Checklist Audit & KPI Update
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Skill Activity 2 — audit against the order, measure against the target  
@@ -1709,7 +1795,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.21 Evaluating Repair Estimates vs. ACV & Loss-of-Use
+### 5.1.22 Evaluating Repair Estimates vs. ACV & Loss-of-Use
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Skill Activity 1 — audit the Civic's numbers before discovery does  
@@ -1787,7 +1873,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 ---
 
-### 5.1.22 Diminished Value Calculation & Negotiation Lab
+### 5.1.23 Diminished Value Calculation & Negotiation Lab
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Skill Activity 2 — from $792.00 to a recommended range for Atty. Thorne  
@@ -1877,7 +1963,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 ---
 
-### 5.1.23 Virtual Deposition Prep Roleplay
+### 5.1.24 Virtual Deposition Prep Roleplay
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 1 — client injury & 14-Day Gap defense: your segment, his substance  
@@ -1966,7 +2052,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.24 Mock Deposition Cross-Examination Handling
+### 5.1.25 Mock Deposition Cross-Examination Handling
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 2 — observe, log and route; never coach  
@@ -2052,7 +2138,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.25 Building the Comparative Liability Counter-Package
+### 5.1.26 Building the Comparative Liability Counter-Package
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 1 — answer each allegation from the file  
@@ -2129,7 +2215,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.26 Skip-Tracing Execution & Certified Notice Dispatch
+### 5.1.27 Skip-Tracing Execution & Certified Notice Dispatch
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 2 — find the defendant, reach the client, prove both  
@@ -2208,7 +2294,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.27 The Litigation Net Sheet: Disbursing the Award
+### 5.1.28 The Litigation Net Sheet: Disbursing the Award
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Skill Activity — take the award to $14,713.75 on the LSH Net Sheet  
@@ -2280,7 +2366,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 ---
 
-### 5.1.28 Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
+### 5.1.29 Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Skill Activity — a practice matter: three Withdrawal Letters, their dispatch and the Dropped status  
@@ -2354,7 +2440,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 ---
 
-### 5.1.29 Litigation Fork Transition Check
+### 5.1.30 Litigation Fork Transition Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2440,7 +2526,7 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 
 ---
 
-### 5.1.30 Countermeasure Operational Audit
+### 5.1.31 Countermeasure Operational Audit
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2525,7 +2611,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 5.1.31 Litigation Support Assessment
+### 5.1.32 Litigation Support Assessment
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2569,7 +2655,7 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (4 questions):
+**Auto-graded share of the day's Knowledge Check** (6 questions):
 
 1. John Doe's responses to the 12/01/2026 set are docketed for 01/04/2027, as computed in the calendar audit. On 01/05/2027 you reconcile the Pleadings Log to the docket calendar. Which entry proves the file met that deadline?  
    The 01/04/2027 due date in the calendar row · A note that John Doe reviewed the drafts with Atty. Thorne · **✓ The Certificate of Service dated 01/04/2027, logged and filed to 04_DISCOVERY_DEFENDANT_TO_PLAINTIFF** · Atty. Mercer's silence since the responses went out  
@@ -2583,6 +2669,12 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 4. Which of these is a litigation KPI, written so it can be measured?  
    **✓ Discovery Countdown: draft responses reach Atty. Thorne at least 7 days before the court deadline** · Keep a close eye on discovery deadlines · Call the client whenever there is news from the court · Review subpoenas when time allows  
    *A KPI has a formula and a target. For the 01/04/2027 deadline the Discovery Countdown target is 12/28/2026 (7 days before 01/04/2027). Litigation clients are called at least every 30 days, news or not, and subpoenas are audited every 10 days.*
+5. Atty. Thorne approves a Subpoena Duces Tecum to the Riverton Fire EMS records custodian. In what order does the Case Manager move it?  
+   Have the custodian served, then send Atty. Mercer a copy once the records arrive · **✓ Draft it on the court-approved form, serve a copy on Atty. Grant Mercer, have the custodian formally served after the notice period, then make the compliance call** · Email the draft to the custodian and ask for voluntary compliance before anyone else sees it · File it and wait for the custodian to call when the records are ready  
+   *Notice to opposing counsel comes before the non-party is served; most states set a notice period, often 5 to 10 days, so confirm the governing rule. Then a process server serves the Registered Agent or records custodian, and a compliance call goes out 5 days before production.*
+6. Which Exhibit A is least likely to draw a Motion to Quash?  
+   All records of any kind relating to John Doe · Every medical, billing and employment record of John Doe, of any date · **✓ The Run Report for Riverton Fire run RF-26-0206-114 (Medic 7), patient John Doe, 02/06/2026 only** · Any documents the custodian believes may be relevant to the lawsuit  
+   *A narrow Exhibit A names one subject, an exact date range and named record types. A blanket request is an overly broad fishing expedition that the defense or the third party can move to quash. The scope itself is Atty. Thorne's to set.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -2608,7 +2700,7 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 
 ---
 
-### 5.1.32 PD Dispute Evaluation
+### 5.1.33 PD Dispute Evaluation
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2690,7 +2782,7 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 
 ---
 
-### 5.1.33 Deposition Readiness Audit
+### 5.1.34 Deposition Readiness Audit
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2772,7 +2864,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 5.1.34 Final Comprehensive Knowledge Check
+### 5.1.35 Final Comprehensive Knowledge Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Knowledge Check (all five days) + CM Learning Summary & Self-Scale  
@@ -2852,7 +2944,7 @@ The standard knowledge-check split, extended for the final check. Above the crea
 
 ---
 
-### 5.1.35 Track B Close-Out Check
+### 5.1.36 Track B Close-Out Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2920,7 +3012,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 5.1.36 Dropped Case Close-Out Check
+### 5.1.37 Dropped Case Close-Out Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

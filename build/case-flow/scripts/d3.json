@@ -443,5 +443,22 @@
       "say": "Here's the last Skill Scale of the day. Score yourself 1 to 5 on each competency, from building a dual-stream Net Sheet that ties to the Trust Ledger, to holding the UPL boundary on releases, money and the client's questions. I'll put your rating next to your score, and any wide gap, high or low, is something we'll talk through together. As always, UPL is a gate, and a strong score doesn't survive an ethics breach. Submit it for review when you're done, and well done on Track A.",
       "ask": "Looking back over Track A, which competency grew the most for you?"
     }
+  },
+  "d3m1-pkg": {
+    "why": {
+      "say": "On 08/05/2026 Keystone offered $3,500 on a claim with $16,401.40 in Specials. Its two reasons were the 14-day gap and a “degenerative” MRI. That's what an adjuster does with any opening a package leaves him. So today isn't about the demand letter; it's about everything behind it. The package has parts, and each part proves one thing: the bills, the story, the fault, the wages, and for the UM carriers, the coverage and the exhaustion. A part that's missing or sloppy is the adjuster's discount. And you build this package twice on John Doe's file: the BI demand served 07/20/2026, and the UM demands that go out 08/31/2026.",
+      "ask": "If you were Dana Whitfield, which part of a Demand Package would you open first, looking for a reason to pay less?"
+    },
+    "theory": {
+      "say": "A Demand Package is a presentation of proof by function. Each part answers one question the adjuster asks, and a missing part is his discount. First, the Big Four: Medical Specials, the Narrative, Liability Proof and Special Damages, all flawless before Atty. Thorne reviews. Second, the Human Story: how the injury changed John Doe's work and daily life, told only from his words and the records. Third, the weak file against the legal trap. Three hundred pages of raw charts and a letter that says our client hurts get a lowball; a two-page summary and a strict clock make refusing limits risky. Fourth, documents by function: the UM package sorted into coverage, liability, special damages, general damages, and the release.",
+      "ask": "Which of the Big Four do you think Keystone found weakest when it offered $3,500?"
+    },
+    "rules": {
+      "say": "Here's how you build it. Medical Specials come from line-item bills, reconciled to the audit: $14,817.40, with the 05/04/2026 duplicate gone, and every line carries its why. A two-page treatment summary goes in front of the records. The Human Story comes from John Doe's own words and the records: five shifts missed at Northgate, numbness into his right hand from 02/18, paresthesia at MMI. You draft it, Atty. Thorne reviews it, and nobody embellishes it. Liability Proof is the Police Report, Ruth Calloway, the doorbell clip and the Property Damage photos. Special Damages is Northgate's $1,584.00 letter, for $16,401.40 in all. Then the Final Scrub: no overlaps, the 2021 low-back visits disclosed, every balance confirmed by phone. For UM, rebuild by function, with exhaustion proof, not proof of uninsured status.",
+      "ask": "Why is proof of uninsured status the wrong threshold document for John Doe's UM packages?"
+    },
+    "job": {
+      "say": "On the job it runs like this. When MMI is declared on 06/12/2026, you open the Demand Package task, request every provider's line-item bill, and ask John Doe how the injury changed his days, in his own words. In the week of service you run the Final Scrub: overlaps, the prior disclosed, and a call to every provider for its final balance, with a name and a date in the notes, until $16,401.40 ties out. Then you index every exhibit by what it proves and route the package and the narrative to Atty. Thorne. And once the Limited Release is signed on 08/28/2026, you rebuild each UM package by function, and the question of an impairment rating goes to Atty. Thorne, not to Dr. Reyes from you."
+    }
   }
 }
