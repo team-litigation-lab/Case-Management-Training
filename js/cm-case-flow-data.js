@@ -350,6 +350,10 @@ window.CM_CASE_FLOW = {
     "Discovery": "The court process where each side must share its evidence.",
     "Mediation": "A settlement meeting led by a neutral who can't decide the case.",
     "Arbitration": "A hearing where a neutral decides the case.",
+    "Third-Party Claim": "A claim you make against the at-fault driver’s insurance company.",
+    "First-Party Claim": "A claim you make against your own insurance company, on the policy you pay the premiums for.",
+    "Arbitration Clause": "A term in a policy saying a dispute under it is decided by an arbitrator instead of a court.",
+    "Demand for Arbitration": "The formal filing that starts an arbitration, used instead of a complaint when the policy sends the dispute there.",
     "Withdrawal Letter": "The letter telling the client, carriers and providers that the firm no longer represents the client."
   },
 
@@ -378,6 +382,8 @@ window.CM_CASE_FLOW = {
     ["The five impasse triggers and the decision-only impasse memo", "Day 4 · Module 1"],
     ["Backward-counted deadlines move to the earlier business day; the SOL's internal hard date and cutoff", "Day 4 · Module 2"],
     ["Exhibit numbering, Bates ranges and the master index; authentication and relaxed arbitration evidence rules", "Day 4 · Module 3"],
+    ["The first-party vs. third-party mindset shift, and the three-step UM dispute flow with the resolution route read off the state law and the policy clause rather than chosen", "Day 4 · Module 4 — ADR: UM/UIM Coverage Disputes"],
+    ["Bad faith kept off the UM route fork as a separate suit above the policy limit, reserved to counsel; each UM layer read and docketed on its own clause and its own deadline", "Day 4 · Module 4 — ADR: UM/UIM Coverage Disputes"],
     ["Three bottleneck families, CMS countermeasure rules and the five-field bottleneck report", "Day 4 · Module 4"],
     ["KPIs as formulas with targets, and the last day to serve written discovery", "Day 5 · Module 1"],
     ["Rental cap vs. reasonable repair time, the 17c critique and the PD-only release", "Day 5 · Module 2"],
@@ -5683,7 +5689,16 @@ window.CM_CASE_FLOW = {
          a: 3, r: "Speaking to the merits before the arbitrator is the unauthorized practice of law, even when your answer is right. Defer politely and put the document in counsel's hands."},
         {q: "The Scheduling Order says mediation is to be “completed by 03/31/2027.” The re-keyed calendar shows “Mediation session 03/31/2027.” The correct fix is:",
          opts: ["Leave it: the order names the date", "Re-enter it as a deadline, “completed by 03/31/2027”, with a task to collect 3–4 windows from Atty. Thorne, John Doe and opposing counsel before the mediator's office is contacted", "Call Hon. Carla Benton's office and book 03/31/2027", "Roll it forward to 04/01/2027 to leave time for the session"],
-         a: 1, r: "Read each verb in the order: “completed by” sets when the session must be over, not when it is held. Windows are gathered from every party before the neutral hears from you; the session was held 03/18/2027, inside the deadline."}
+         a: 1, r: "Read each verb in the order: “completed by” sets when the session must be over, not when it is held. Windows are gathered from every party before the neutral hears from you; the session was held 03/18/2027, inside the deadline."},
+        {q: "Harbor Point offers $8,000 against its $20,000 Host UM limit and will not move. Before anything is calendared, the Case Manager:",
+         opts: ["Drafts a civil complaint against Harbor Point, the way the BI claim would have gone to suit", "Reads the governing state law and Harbor Point’s own dispute-resolution clause, quotes the clause to Atty. Thorne and asks which route governs", "Files a Demand for Arbitration, since UM policies normally require arbitration", "Tells Marcus Bell the offer is unreasonable and that bad faith is being considered"],
+         a: 1, r: "The route out of a UM impasse is read off the governing state law and the policy the claim is made under, never chosen by reflex or by habit. The clause goes to Atty. Thorne quoted, not interpreted, and the decision is his."},
+        {q: "Which of these is a first-party claim on John Doe’s file?",
+         opts: ["The BI claim against Keystone Mutual for Robert Smith", "The Keystone PD claim on the Civic", "The Host UM claim against Harbor Point", "The Peach State Health Plan reimbursement claim"],
+         a: 2, r: "A first-party claim is made against coverage John Doe himself can call on under his own contract: Host UM (Harbor Point, as an occupant of Kevin Alvarez’s Escape) and Relative UM (Cardinal State, as a resident relative). Keystone’s BI and PD claims are third-party claims against the at-fault driver’s carrier."},
+        {q: "An Insurance Bad Faith lawsuit differs from the UM claim itself because:",
+         opts: ["It is heard by the same arbitrator at the same hearing", "It replaces the UM claim once arbitration is demanded", "It is a separate court action for the carrier’s unreasonable handling, and can reach beyond the UM policy limit", "It is the Case Manager’s to initiate once an offer is clearly too low"],
+         a: 2, r: "Bad faith sits off the UM dispute’s fork: a separate suit about how the carrier handled the claim, which is why it can reach above the limits. You record the handling dates as facts; whether the conduct is actionable is Atty. Thorne’s opinion alone."}
       ],
       blocks: [
 
@@ -5825,6 +5840,76 @@ window.CM_CASE_FLOW = {
           "Put to the room: “12/31/2026 is wrong and 11/08/2027 is wrong. Which one could cost John Doe his claim?” The early date costs time; the late one costs rights.",
           "Watch for the missing RFA entry. Trainees fix what is on the screen and miss what isn't, and the deemed-admission risk is the nearest deadline on this calendar and one of the most severe.",
           "Legal nuance: many courts accept a Monday filing when a limitation period ends on a Sunday. The firm rule refuses to rely on it, and which rule governs is Atty. Thorne's call. A trainee who calls opposing counsel about an extension fails the authority row."
+        ]
+      },
+
+      {
+        kind: "lesson", id: "d4m2-um", compact: true,
+        title: "UM/UIM Disputes & Resolution Routes",
+        topic: "A claim against your own client's carrier, and the two roads out of an impasse",
+        visual: "A three-step flow across the full slide on cream, each step a white orange-bordered card that opens as a pop-up context card on click. ① CLAIM SUBMISSION · UM DEMAND PACKAGE (08/31/2026), its card listing the proof of exhaustion. ② DISPUTE · IMPASSE (09/14 $8,000 · 10/01 $6,000), its card holding the impasse memo. ③ RESOLUTION ROUTE, drawn as a fork: the upper arm, heavier and navy, DEMAND FOR ARBITRATION · HARBOR POINT CLAUSE, running to a mono date strip 06/22/2027; the lower arm, outlined, FILE SUIT AGAINST THE CARRIER, tagged STATE LAW BARS OR LETS THE INSURED OPT OUT. A separate red-bordered card stands off to the side, deliberately off the fork: BAD FAITH · A SEPARATE SUIT · ABOVE THE POLICY LIMIT · ATTY. THORNE DECIDES. Above the fork, a navy banner: THE ROUTE IS READ, NEVER CHOSEN. Along the top edge, two facing chips: THIRD PARTY → ROBERT SMITH'S CARRIER and FIRST PARTY → OUR OWN CLIENT'S CARRIER.",
+        tell: {
+          why: "A BI claim is made against the driver who caused the crash. A UM claim is made against the insurance John Doe pays for himself, and that changes what the file is. Harbor Point and Cardinal State are not opponents the way Keystone is: they are parties to John Doe's own contract, with duties to him and defences drawn from his own policy. When $8,000 and $6,000 came back against $30,000 of UM limits, the file did not simply head for court the way the BI claim would have: Harbor Point's policy says where a UM dispute is decided, and that clause, with the governing state law, is what the Case Manager has to read before a single date is docketed.",
+          rules: [
+            "Know which kind of claim you are working. Third-party: filed against the at-fault driver's carrier, here Keystone Mutual for Robert Smith. First-party: filed against John Doe's own coverage under his own contract, here Harbor Point (Host UM) and Cardinal State (Relative UM). The evidence is the same; the relationship, the duties and the route out are not.",
+            "John Doe's own Bluewater Auto policy is not a UM layer. He rejected UM/UIM on it in writing on 03/14/2024, so his own named policy adds nothing. He reaches UM by status instead: as an occupant of Kevin Alvarez's Escape (Harbor Point) and as a resident relative of Margaret Doe (Cardinal State).",
+            "When a UM negotiation reaches impasse you do not reach for a complaint by reflex. The route is set by the governing state law and by the dispute-resolution clause in the policy the claim is made under: read both, on each layer, before anything is calendared.",
+            "Route 1, mandatory arbitration, is the common one. Many UM/UIM policies carry a binding arbitration clause, as Harbor Point's does. The firm does not file a traditional lawsuit; it files a formal Demand for Arbitration. Carriers favour it because it bypasses a jury, narrows discovery and resolves a contract dispute faster and more cheaply.",
+            "Route 2, standard litigation, runs in two situations. Some states forbid mandatory arbitration clauses in auto policies, or let the policyholder opt out; where the clause does not bind, a failed UM negotiation becomes a civil suit filed directly against the carrier. Separately, where a carrier has unreasonably delayed, denied or mishandled the claim, the firm may bring an Insurance Bad Faith action, which can reach beyond the UM policy limit. Whether either applies is Atty. Thorne's analysis, never yours.",
+            "Read each layer on its own. Harbor Point's arbitration clause does not speak for Cardinal State: get Cardinal State's UM form and its dispute-resolution and other-insurance clauses from the certified policy and route both to Atty. Thorne. Whether the two are heard together is his call; on this file they were consolidated into the 06/22/2027 hearing.",
+            "A route carries its own clock. Every layer has its own limitation on filing suit or serving a demand for arbitration, set by the policy or by statute, and it is not the tort SOL of 02/06/2028. Ask Atty. Thorne each policy's deadline in writing and docket only from his written answer.",
+            "Track the route in the CMS the day it is set, so nobody has to guess what this file is doing: the ADR tab with its type UM / UIM arbitration and How It Was Set as Required by the policy or contract, the provider, the hard dates, and the case status moved to the route it is actually on.",
+            "Nothing about the route changes what the UM claim has to prove. The Demand Package still carries the injuries, the Specials of $16,401.40, the wage loss and the documented proof that Keystone's $10,000 was exhausted; and the 14-Day Gap will be put to John Doe again at the hearing, by a carrier reading his own policy."
+          ],
+          upl: [
+            "You read the clause and the statute, lay both before Atty. Thorne, docket what he confirms and tell John Doe what happens next procedurally: the date, the place, what to bring, who will be in the room. Which route governs, whether an offer is unreasonably low, and whether Harbor Point's handling amounts to statutory bad faith are legal opinions, and they are Atty. Thorne's alone."
+          ]
+        },
+        show: {
+          caption: "The UM dispute flow, worked on John Doe's file",
+          type: "table",
+          head: ["Step", "Action", "What it takes on this file"],
+          rows: [
+            ["1 · Claim submission", "UM Demand Package", "Served 08/31/2026 to Harbor Point and Cardinal State: injuries, records, $16,401.40 in Specials, the wage letter, and documented proof that Robert Smith's $10,000 BI limit was exhausted and consented to"],
+            ["2 · Dispute", "Impasse", "Harbor Point offers $8,000 (09/14/2026) and Cardinal State $6,000 (10/01/2026) against $30,000 of UM limits; impasse memo to Atty. Thorne"],
+            ["3 · Resolution route", "Demand for Arbitration, or file suit against the carrier", "Read the governing state law and each policy's clause. Harbor Point's UM policy has a binding arbitration clause: invoked 04/05/2027, heard 06/22/2027 before Laura Whitcomb, Esq. Where no clause binds, a civil suit against the carrier; a bad-faith action is a separate suit, and Atty. Thorne's call"],
+            ["Not a route", "John Doe's own Bluewater Auto policy", "UM/UIM rejected in writing 03/14/2024: there is no third layer and no third route"]
+          ]
+        },
+        ops: [
+          ["UM offers come back low (09/14 and 10/01/2026)", "Write the impasse memo; pull Harbor Point's and Cardinal State's dispute-resolution clauses from the certified policies", "CMS → Case Notes · CMS → Insurance tab → Coverage Matrix", "Memo to Atty. Thorne the same day, with both clauses attached and neither interpreted"],
+          ["Clauses and the governing statute in hand", "Lay the route options before Atty. Thorne as findings, with each layer's own filing or demand deadline as a question", "CMS → Tasks → Atty. Thorne", "Both layers presented separately; no route recommended; every deadline asked, not assumed"],
+          ["Route decided in writing", "Record it, set the case status and open the ADR entry", "CMS → ADR tab · CMS → Case Status", "ADR Type UM / UIM arbitration; How It Was Set Required by the policy or contract; status matches the route"],
+          ["Arbitration invoked 04/05/2027", "Docket the hearing and its backward-counted dates; tell John Doe what happens procedurally", "CMS → Calendar → Master calendar", "06/02, 06/11 and 06/22/2027 entered with alerts; John Doe told the date, place and what to bring, and nothing about value"]
+        ],
+        best: [
+          "Say which kind of claim you are on before you say anything else about it: first party or third party decides everything that follows.",
+          "Quote the clause in your memo and let it speak; a paraphrase is already an interpretation.",
+          "Docket each UM layer's own deadline separately, from Atty. Thorne's written answer.",
+          "Pitfall: filing, or telling the client the firm is filing, a lawsuit when the policy sends the dispute to arbitration.",
+          "Pitfall: reading Harbor Point's arbitration clause onto Cardinal State's policy.",
+          "Pitfall: telling John Doe the carrier is acting in bad faith, or that he can recover above his limits."
+        ],
+        sources: ["D2#33", "D3#5", "D3#19", "D4#2", "D4#19", "LSH Claims Specialist: UM/UIM coverage and exhaustion", "Newly authored: the first-party vs. third-party mindset shift stated as the CM's opening question on a UM dispute", "Newly authored: the three-step UM dispute flow (claim submission → impasse → resolution route) with the route read from state law and the policy clause, never chosen", "Newly authored: bad faith kept off the route fork as a separate suit above the limits, reserved to counsel; each UM layer read and docketed on its own clause"],
+        rubric: {
+          ai: [
+            ["First party vs. third party", 15, "Names Keystone as the third-party claim and Harbor Point and Cardinal State as first-party claims under John Doe's own contract, and says what changes"],
+            ["The two routes", 20, "Mandatory arbitration by Demand for Arbitration (Harbor Point's clause) vs. a civil suit against the carrier where state law bars the clause or allows opt-out; bad faith as a separate suit above the limits"],
+            ["Route is read, not chosen", 15, "Reads the governing state law and each layer's own clause; Cardinal State read separately from Harbor Point"],
+            ["Tracked and docketed", 10, "ADR entry typed UM / UIM arbitration and set by the policy; each layer's own deadline asked of Atty. Thorne and docketed from his written answer"]
+          ],
+          trainer: [
+            ["Bluewater handled correctly", 10, "Treats the 03/14/2024 written UM rejection as the reason John Doe's own policy is not a route, and reaches UM by occupancy and residency instead"],
+            ["Client explanation", 10, "Explains the route to John Doe procedurally: what a Demand for Arbitration is, the date, the place, what to bring"],
+            ["UPL boundary", 20, "Offers no view on which route governs, on whether an offer is unreasonable, or on bad faith; routes all three to Atty. Thorne"]
+          ]
+        },
+        notes: [
+          "Open with the question, not the answer: “Whose insurance company are we fighting?” Keystone is the at-fault driver's. Harbor Point and Cardinal State are John Doe's own. Let the room sit with that before any procedure is taught.",
+          "Humanize the jargon in one breath and keep it: a third-party claim is a claim against the other driver's insurance; a first-party claim is a claim against the insurance you pay for yourself. Trainees who keep saying “the other side” about Harbor Point have not made the shift.",
+          "Ask: “The UM negotiation has failed. What do we file?” Anyone who says “a lawsuit” gets the clause read to them. The route is read off the policy and the state's law, never picked because it is the one they know.",
+          "Watch the Bluewater trap. Some trainees will look for UM on John Doe's own named policy because that is where the textbook puts it. It was rejected in writing on 03/14/2024: he reaches UM as an occupant of Kevin Alvarez's Escape and as a resident relative of Margaret Doe.",
+          "Hold the bad-faith card off the fork on purpose. Trainees find it exciting because it reaches above the limits; that is exactly why saying it to John Doe, or to Marcus Bell, is Atty. Thorne's to do and not theirs."
         ]
       },
 
@@ -5971,6 +6056,66 @@ window.CM_CASE_FLOW = {
       },
 
       {
+        kind: "activity", id: "d4m2-a3", compact: true,
+        title: "Routing the UM Impasse: Arbitration or Court",
+        topic: "Skill Activity 3 — read the clause, route the dispute, track it in the CMS",
+        visual: "A two-pane working screen. Left, two stacked policy cards with a highlighted clause block in each: HARBOR POINT · HOST UM · $20,000 shows its arbitration paragraph lit in orange with a mono pill BINDING; CARDINAL STATE · RELATIVE UM · $10,000 shows the same region greyed, stamped CERTIFIED POLICY REQUESTED and a question chip CLAUSE? Right, the CMS ADR tab part-filled: ADR TYPE = UM / UIM ARBITRATION, HOW IT WAS SET = REQUIRED BY THE POLICY OR CONTRACT, with three empty mono date fields and a navy task card, DEADLINE PER LAYER — ASK ATTY. THORNE. Across the bottom a red strip: NO ROUTE IS DOCKETED UNTIL HE ANSWERS IN WRITING.",
+        act: {
+          scenario: "File date 10/02/2026, Track B. The UM demands went out 08/31/2026, after Keystone tendered its $10,000 BI limits on 08/12/2026 with both UM carriers' written consents (Harbor Point 08/24, Cardinal State 08/26) and a Limited Release signed 08/28. Harbor Point's Marcus Bell (HP-26-7741) offered $8,000 on 09/14/2026 against a $20,000 Host UM limit, calling the 14-Day Gap a causation problem. Cardinal State's Teresa Okafor (CS-26-20355) offered $6,000 on 10/01/2026 against a $10,000 Relative UM limit. Harbor Point's UM policy contains a binding arbitration clause; Cardinal State's certified policy has been requested and has not arrived. Suit against Robert Smith was filed 09/24/2026; the tort SOL is 02/06/2028.",
+          prompt: "Route the UM impasse. Write the impasse memo to Atty. Thorne: the offers against the limits, Harbor Point's stated reason, and the dispute-resolution clause of each layer quoted, not paraphrased, with Cardinal State's marked as outstanding. Lay out both resolution routes and what each would require operationally, and ask him, in writing, for the governing route on each layer, each layer's own suit or arbitration-demand deadline, and whether the two should be heard together. Then set up the CMS to carry the answer: the ADR entry, the case status, a task per open question, and the calendar entries you will make once he answers. Finally, draft what you will say to John Doe when he calls to ask what happens now.",
+          tool: "CMS → Case Notes · CMS → Insurance tab → Coverage Matrix · CMS → ADR tab · CMS → Tasks · CMS → Calendar",
+          output: "An impasse memo with both clauses quoted and three written questions to Atty. Thorne, a CMS file that shows the route, and a procedural explanation for John Doe with no opinion in it.",
+          checkpoints: [
+            "Both claims named as first-party claims under John Doe's own contract, distinct from the Keystone third-party claim that closed on 08/12/2026",
+            "Offers set against the limits exactly: $8,000 against $20,000 (Harbor Point, 09/14/2026) and $6,000 against $10,000 (Cardinal State, 10/01/2026), $14,000 against $30,000 in all",
+            "Exhaustion documented, not assumed: Keystone's $10,000 tender 08/12/2026, both UM consents (08/24 and 08/26) and the Limited Release signed 08/28",
+            "Harbor Point's arbitration clause quoted verbatim and identified as binding; no interpretation offered",
+            "Cardinal State treated as its own layer: the certified policy and its dispute-resolution and other-insurance clauses recorded as outstanding, with a chase task, and Harbor Point's clause never read onto it",
+            "Both routes laid out with their operational consequences: a Demand for Arbitration and its forum dates, or a civil suit against the carrier where state law bars the clause or permits opt-out",
+            "Bad faith raised only as a question for Atty. Thorne, with Harbor Point's handling dates recorded as facts; no assertion that any conduct was unreasonable",
+            "Three written questions asked: the governing route per layer, each layer's own suit or arbitration-demand deadline, and whether the layers are consolidated",
+            "Nothing docketed from assumption: the calendar entries are drafted and held, to be entered only from his written answer; the tort SOL 02/06/2028 is not used as a UM deadline",
+            "CMS set up to carry the answer: ADR Type UM / UIM arbitration, How It Was Set Required by the policy or contract, status matching the route, a task per open question with an owner and a date",
+            "The explanation to John Doe is procedural only: what a Demand for Arbitration is in plain words, that a neutral will decide rather than a jury, and that Atty. Thorne will go through what it means for his claim; no view on the offers, the limits or the carrier's conduct"
+          ]
+        },
+        ops: [
+          ["Cardinal State's offer lands 10/01/2026", "Write the impasse memo with both clauses quoted", "CMS → Case Notes", "Memo dated 10/02/2026; Cardinal State's clause marked outstanding"],
+          ["Certified policy outstanding", "Chase it and log the request", "CMS → Tasks", "Chase task with an owner and a date; the gap stated in the memo, not filled in"],
+          ["Questions sent to Atty. Thorne", "Hold every date; draft the entries without saving them", "CMS → Calendar", "Nothing docketed; the drafts wait on his written answer"],
+          ["John Doe calls to ask what happens now", "Explain the procedure; route value and conduct to Atty. Thorne", "CMS → Case Notes → Client Communications", "Call logged the same day with what was said and what was routed"]
+        ],
+        best: [
+          "Quote the clause and stop; the memo's job is to put the words in front of counsel.",
+          "Give each layer its own section, its own clause and its own deadline question.",
+          "Record the handling dates that a bad-faith question would turn on, and ask the question rather than answer it.",
+          "Pitfall: docketing an arbitration-demand deadline from the tort SOL.",
+          "Pitfall: assuming consolidation because both layers are UM.",
+          "Pitfall: telling John Doe the firm is suing Harbor Point before Atty. Thorne has read the clause."
+        ],
+        sources: ["D2#33", "D3#5", "D3#19", "D4#2", "Newly authored: the impasse memo that quotes each layer's clause and asks the route, the per-layer deadline and consolidation as three written questions"],
+        rubric: {
+          ai: [
+            ["Figures and dates", 15, "$8,000 / $20,000 and $6,000 / $10,000 with their dates; exhaustion evidenced by the 08/12, 08/24, 08/26 and 08/28/2026 record"],
+            ["Clause handling", 20, "Harbor Point's clause quoted and identified as binding; Cardinal State's recorded as outstanding and read separately"],
+            ["Routes laid out", 15, "Both routes with their operational consequences; bad faith kept separate and above the limits"],
+            ["Nothing assumed", 10, "No date docketed before the written answer; the tort SOL not used as a UM deadline"]
+          ],
+          trainer: [
+            ["Memo quality", 15, "Counsel can decide from it: offers against limits, clauses verbatim, questions numbered"],
+            ["Client explanation", 10, "Plain, procedural and calm; no value, no conduct, no prediction"],
+            ["UPL boundary", 15, "Recommends nothing legal; the route, the deadlines and bad faith all go to Atty. Thorne as questions"]
+          ]
+        },
+        notes: [
+          "Grade the memo on whether Atty. Thorne could make three decisions from it without opening the file. If he would have to go looking for the clause, it failed.",
+          "The commonest failure is a trainee who writes “Harbor Point's policy requires arbitration, so we will file a Demand for Arbitration on…” — a route decided and a date set in one sentence. Both are his.",
+          "Second commonest: Cardinal State folded into Harbor Point's clause because both are UM. Make them say what they actually have from Cardinal State, which on 10/02/2026 is a requested policy and nothing else.",
+          "Run the client call live if there is time. John Doe will ask whether the insurance company is allowed to do this. The right answer explains the procedure and promises Atty. Thorne's call, and says nothing about whether it is allowed."
+        ]
+      },
+
+      {
         kind: "check", id: "d4m2-kc",
         title: "ADR & Calendar Compliance Check",
         topic: "Knowledge Check + Case Manager Self-Summary & Skill Scale",
@@ -5979,7 +6124,8 @@ window.CM_CASE_FLOW = {
           questions: [
             "Defendant's discovery to John Doe was served on his counsel, Atty. Thorne, by U.S. mail on 12/01/2026. Compute his response date step by step, and state what can happen to a Request for Admission left unanswered.",
             "The SOL is 02/06/2028. Give the internal hard date and the internal filing cutoff with the arithmetic, and explain why the firm never relies on a weekend roll-forward.",
-            "Explain forward versus backward counting off a weekend, using the 01/04/2027 discovery deadline and the brief for the 06/22/2027 arbitration hearing."
+            "Explain forward versus backward counting off a weekend, using the 01/04/2027 discovery deadline and the brief for the 06/22/2027 arbitration hearing.",
+            "Harbor Point’s UM negotiation has reached impasse. Name the two resolution routes a UM/UIM dispute can take, say what decides which one governs, and explain where an Insurance Bad Faith action sits in relation to them. Then say why John Doe’s own Bluewater Auto policy is not a route on this file."
           ],
           summary: [
             "Summarize what you learned about hard rules and the two forums on this file: the principles, not the clicks.",
@@ -5992,6 +6138,8 @@ window.CM_CASE_FLOW = {
             "Setting the SOL's internal hard date and filing cutoff",
             "Auditing a calendar and ranking errors by risk",
             "Distinguishing mediation from binding arbitration on a live file",
+            "Telling a first-party UM claim apart from a third-party BI claim",
+            "Reading a UM resolution route off the state law and the policy clause",
             "Holding the UPL line at a mediation or a hearing"
           ]
         },
@@ -5999,13 +6147,14 @@ window.CM_CASE_FLOW = {
           "Show the arithmetic for every date; an answer without it can't be checked.",
           "Pitfall: answering the arbitrator's question correctly, and so answering it at all."
         ],
-        sources: ["D5#28", "D4#18", "D4#17", "D4#16", "D4#20", "D4#5"],
+        sources: ["D5#28", "D4#18", "D4#17", "D4#16", "D4#20", "D4#5", "D2#33", "D3#19"],
         rubric: {
           ai: [
             ["Deadline arithmetic", 20, "01/04/2027 with the mail days and the Sunday; brief 06/11/2027 counted backward"],
             ["SOL cutoffs", 10, "02/04/2028 and 11/05/2027, arithmetic shown"],
-            ["Forum logistics", 20, "Windows, fee schedule, retainer and layout owned before 06/22/2027; bench directives logged as given and calendared the same day"],
-            ["Completeness", 10, "Every question answered substantively"]
+            ["Forum logistics", 15, "Windows, fee schedule, retainer and layout owned before 06/22/2027; bench directives logged as given and calendared the same day"],
+            ["UM resolution routes", 10, "Mandatory arbitration vs. a civil suit against the carrier, decided by the state law and the policy clause; bad faith separate and above the limits; Bluewater’s 03/14/2024 rejection explained"],
+            ["Completeness", 5, "Every question answered substantively"]
           ],
           trainer: [
             ["Strategic articulation", 15, "The stated next action is the right one and the reasoning holds"],
@@ -8131,8 +8280,8 @@ window.CM_CASE_FLOW = {
        headings: {"d2m3-l1": "Pre-Demand: the Gap Explanation Record", "d2m3-l2": "Pre-Demand: the Gap Explanation Record", "d2m3-a1": "Skill Building: the Gap Explanation Record", "d2m3-a2": "Skill Building: the Gap Explanation Record", "d2m4-l1": "Pre-Demand Case Auditing", "d2m4-l2": "Pre-Demand Case Auditing", "d3m1-l1": "Demand", "d3m1-l2": "Demand", "d2m4-a1": "Skill Building: Pre-Demand Case Auditing", "d2m4-a2": "Skill Building: Pre-Demand Case Auditing", "d3m1-a1": "Skill Building: Demand", "d3m1-a2": "Skill Building: Demand", "d3m2-l1": "Settlement Negotiations", "d3m2-l2": "Settlement Negotiations", "d3m2-a1": "Skill Building: Settlement Negotiations", "d3m2-a2": "Skill Building: Settlement Negotiations"}}
     ]},
     {n: 4, phases: [
-      {title: "Reductions, Lien Negotiation & ADR", lead: "Module 4", blocks: ["d3m3-l1", "d3m3-l2", "d3m3-l3", "d3m4-l1", "d3m4-l2", "d4m2-l1", "d4m2-l2", "d4m3-l1", "d4m3-l2", "d3m3-a1", "d3m3-a2", "d3m4-a1", "d3m4-a2", "d4m2-a1", "d4m2-a2", "d4m3-a1", "d4m3-a2", "d3m3-kc", "d3m4-kc", "d4m2-kc", "d4m3-kc"],
-       headings: {"d3m3-l1": "Lien Negotiations & Reduction", "d3m3-l2": "Lien Negotiations & Reduction", "d3m4-l1": "Disbursement & Closing a Case", "d3m4-l2": "Disbursement & Closing a Case", "d4m2-l1": "ADR: Mediation & Arbitration", "d4m2-l2": "ADR: Mediation & Arbitration", "d4m3-l1": "ADR: The Binders", "d4m3-l2": "ADR: The Binders", "d3m3-a1": "Skill Building: Lien Negotiations", "d3m3-a2": "Skill Building: Lien Negotiations", "d3m4-a1": "Skill Building: Disbursement & Closing", "d3m4-a2": "Skill Building: Disbursement & Closing", "d4m2-a1": "Skill Building: ADR", "d4m2-a2": "Skill Building: ADR", "d4m3-a1": "Skill Building: ADR", "d4m3-a2": "Skill Building: ADR"}}
+      {title: "Reductions, Lien Negotiation & ADR", lead: "Module 4", blocks: ["d3m3-l1", "d3m3-l2", "d3m3-l3", "d3m4-l1", "d3m4-l2", "d4m2-l1", "d4m2-um", "d4m2-l2", "d4m3-l1", "d4m3-l2", "d3m3-a1", "d3m3-a2", "d3m4-a1", "d3m4-a2", "d4m2-a1", "d4m2-a2", "d4m2-a3", "d4m3-a1", "d4m3-a2", "d3m3-kc", "d3m4-kc", "d4m2-kc", "d4m3-kc"],
+       headings: {"d3m3-l1": "Lien Negotiations & Reduction", "d3m3-l2": "Lien Negotiations & Reduction", "d3m4-l1": "Disbursement & Closing a Case", "d3m4-l2": "Disbursement & Closing a Case", "d4m2-l1": "ADR: UM Disputes, Mediation & Arbitration", "d4m2-um": "ADR: UM Disputes, Mediation & Arbitration", "d4m2-l2": "ADR: UM Disputes, Mediation & Arbitration", "d4m3-l1": "ADR: The Binders", "d4m3-l2": "ADR: The Binders", "d3m3-a1": "Skill Building: Lien Negotiations", "d3m3-a2": "Skill Building: Lien Negotiations", "d3m4-a1": "Skill Building: Disbursement & Closing", "d3m4-a2": "Skill Building: Disbursement & Closing", "d4m2-a1": "Skill Building: ADR", "d4m2-a2": "Skill Building: ADR", "d4m2-a3": "Skill Building: UM/UIM Coverage Disputes", "d4m3-a1": "Skill Building: ADR", "d4m3-a2": "Skill Building: ADR"}}
     ]},
     {n: 5, phases: [
       {title: "Litigation & Dropped Cases", lead: "Module 5", blocks: ["d4m1-l1", "d4m1-l2", "d4m4-l1", "d4m4-l2", "d5m1-l1", "d5m1-l2", "d5m2-l1", "d5m2-l2", "d5m3-l1", "d5m3-l2", "d5m4-l1", "d5m4-l2", "d5m5-l1", "d5m6-l1", "d4m1-a1", "d4m1-a2", "d4m4-a1", "d4m4-a2", "d5m1-a1", "d5m1-a2", "d5m2-a1", "d5m2-a2", "d5m3-a1", "d5m3-a2", "d5m4-a1", "d5m4-a2", "d5m5-a1", "d5m6-a1", "d4m1-kc", "d4m4-kc", "d5m1-kc", "d5m2-kc", "d5m3-kc", "d5m4-kc", "d5m5-kc", "d5m6-kc"],

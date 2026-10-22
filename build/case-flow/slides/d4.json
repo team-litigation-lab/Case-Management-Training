@@ -138,6 +138,31 @@
       "Relying on **the SOL's weekend roll-forward**"
     ]
   },
+  "d4m2-um": {
+    "image": "coverage-check",
+    "hook": "A UM claim is made against **our own client's insurance**, not the other driver's.",
+    "points": [
+      "Third party: Keystone. **First party: Harbor Point and Cardinal State**",
+      "The route is **read off the clause**, never chosen",
+      "Mandatory arbitration: file a **Demand for Arbitration**, not a complaint",
+      "Bad faith is **a separate suit**, above the policy limit"
+    ],
+    "upl": "Read the clause, route it to Atty. Thorne; never call an offer unreasonable.",
+    "job": [
+      ["UM offers come back low", "Memo with both clauses quoted", "CMS → Case Notes", "Sent same day, uninterpreted"],
+      ["Clauses in hand", "Ask the route per layer", "CMS → Tasks → Atty. Thorne", "Nothing recommended, everything asked"],
+      ["Route decided in writing", "Open the ADR entry", "CMS → ADR tab", "Typed UM / UIM arbitration"]
+    ],
+    "dos": [
+      "Say **first party or third party** before anything else",
+      "Quote the clause; **a paraphrase is interpretation**"
+    ],
+    "donts": [
+      "**Filing suit** where the policy sends it to arbitration",
+      "Reading Harbor Point's clause **onto Cardinal State**",
+      "Telling John Doe the carrier is **acting in bad faith**"
+    ]
+  },
   "d4m2-a1": {
     "image": "calendar-gap",
     "situation": "12/10/2026: the Scheduling Order in No. 26-CV-04417 was entered. Discovery, including **15 RFAs**, was mailed 12/01/2026. SOL 02/06/2028. A colleague re-keyed the calendar: **unverified, no alerts**.",
@@ -217,12 +242,34 @@
       "Treating the UM carriers **as friendly**"
     ]
   },
+  "d4m2-a3": {
+    "image": "documents-audit",
+    "situation": "10/02/2026. Harbor Point offers **$8,000 of $20,000**; Cardinal State **$6,000 of $10,000**. Both refuse to move.",
+    "steps": [
+      "Write the impasse memo: **offers against the limits**",
+      "Quote **each layer's dispute-resolution clause** verbatim",
+      "Ask the route, the deadline and consolidation **in writing**",
+      "Open the ADR entry and **hold every date**",
+      "Draft John Doe's **procedural** explanation"
+    ],
+    "deliver": "An impasse memo, a routed CMS file, **no opinion in either**",
+    "checks": [
+      "Both named as **first-party** claims",
+      "$8,000 / $20,000 and **$6,000 / $10,000**",
+      "Harbor Point's clause **quoted, not paraphrased**",
+      "Cardinal State's certified policy **marked outstanding**",
+      "**Nothing docketed** before his written answer"
+    ],
+    "dos": ["Give each layer **its own clause and deadline**"],
+    "donts": ["Docketing an arbitration deadline **from the tort SOL**"]
+  },
   "d4m2-kc": {
     "image": "knowledge-check",
     "questions": [
       "Discovery mailed 12/01/2026: compute the response date step by step. What can happen **to an unanswered RFA**?",
       "SOL 02/06/2028: give the **internal hard date and cutoff** with arithmetic. Why never rely on a weekend roll-forward?",
-      "Explain **forward versus backward counting** using the 01/04/2027 deadline and the 06/22/2027 arbitration brief."
+      "Explain **forward versus backward counting** using the 01/04/2027 deadline and the 06/22/2027 arbitration brief.",
+      "Name the two UM resolution routes, what decides which governs, and where **bad faith** sits."
     ]
   },
   "d4m3-l1": {

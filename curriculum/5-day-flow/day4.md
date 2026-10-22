@@ -38,21 +38,23 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 4. *Lesson* — The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker
 5. *Lesson* — Release Audits, Trust Accounting & Disbursement Commands
 6. *Lesson* — Court Hard Rules, SOL Cutoffs & the Master Calendar
-7. *Lesson* — Mediation vs. Binding Arbitration & the UPL Line at Hearings
-8. *Lesson* — The Mediation Binder & Exhibit Indexing
-9. *Lesson* — Arbitration Exhibits & Evidentiary Rules
-10. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab
-11. *Skill Activity* — Provider Balance Negotiation Exercises
-12. *Skill Activity* — Completing the Final Dual-Tab Net Sheet
-13. *Skill Activity* — Release Audit & Disbursement Command Triggering
-14. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs
-15. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping
-16. *Skill Activity* — Assembling the 6-Section Mediation Binder
-17. *Skill Activity* — Assembling the 6-Tab Arbitration Binder
-18. *Knowledge Check* — Lien Reduction Verification
-19. *Knowledge Check* — Final Accounting Check
-20. *Knowledge Check* — ADR & Calendar Compliance Check
-21. *Knowledge Check* — Binder Assembly Verification
+7. *Lesson* — UM/UIM Disputes & Resolution Routes
+8. *Lesson* — Mediation vs. Binding Arbitration & the UPL Line at Hearings
+9. *Lesson* — The Mediation Binder & Exhibit Indexing
+10. *Lesson* — Arbitration Exhibits & Evidentiary Rules
+11. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab
+12. *Skill Activity* — Provider Balance Negotiation Exercises
+13. *Skill Activity* — Completing the Final Dual-Tab Net Sheet
+14. *Skill Activity* — Release Audit & Disbursement Command Triggering
+15. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs
+16. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping
+17. *Skill Activity* — Routing the UM Impasse: Arbitration or Court
+18. *Skill Activity* — Assembling the 6-Section Mediation Binder
+19. *Skill Activity* — Assembling the 6-Tab Arbitration Binder
+20. *Knowledge Check* — Lien Reduction Verification
+21. *Knowledge Check* — Final Accounting Check
+22. *Knowledge Check* — ADR & Calendar Compliance Check
+23. *Knowledge Check* — Binder Assembly Verification
 
 **End-of-day discussion (trainer):** Keystone's draft release arrives on 08/14/2026 releasing “all other persons, firms, corporations and insurers.” Harbor Point hasn't answered the consent request, and Atty. Thorne is out of the office until Monday. What do you do, and what must not happen before he is back?
 
@@ -60,7 +62,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 4 — Reductions, Lien Negotiation & ADR
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 4.1.1 Statutory Liens, Health Subrogation & Provider Balances
 
@@ -555,7 +557,91 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.7 Mediation vs. Binding Arbitration & the UPL Line at Hearings
+### 4.1.7 UM/UIM Disputes & Resolution Routes
+
+> **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
+> **Topic:** A claim against your own client's carrier, and the two roads out of an impasse  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D3#5` UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap · `D3#19` Key Legal Doctrines Used for Reduction · `D4#2` Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background · `D4#19` Arbitration Operational Track 2: Logistics & Setup Protocols · LSH Claims Specialist: UM/UIM coverage and exhaustion · Newly authored: the first-party vs. third-party mindset shift stated as the CM's opening question on a UM dispute · Newly authored: the three-step UM dispute flow (claim submission → impasse → resolution route) with the route read from state law and the policy clause, never chosen · Newly authored: bad faith kept off the route fork as a separate suit above the limits, reserved to counsel; each UM layer read and docketed on its own clause
+
+#### 1 · Visual Layout Description
+
+A three-step flow across the full slide on cream, each step a white orange-bordered card that opens as a pop-up context card on click. ① CLAIM SUBMISSION · UM DEMAND PACKAGE (08/31/2026), its card listing the proof of exhaustion. ② DISPUTE · IMPASSE (09/14 $8,000 · 10/01 $6,000), its card holding the impasse memo. ③ RESOLUTION ROUTE, drawn as a fork: the upper arm, heavier and navy, DEMAND FOR ARBITRATION · HARBOR POINT CLAUSE, running to a mono date strip 06/22/2027; the lower arm, outlined, FILE SUIT AGAINST THE CARRIER, tagged STATE LAW BARS OR LETS THE INSURED OPT OUT. A separate red-bordered card stands off to the side, deliberately off the fork: BAD FAITH · A SEPARATE SUIT · ABOVE THE POLICY LIMIT · ATTY. THORNE DECIDES. Above the fork, a navy banner: THE ROUTE IS READ, NEVER CHOSEN. Along the top edge, two facing chips: THIRD PARTY → ROBERT SMITH'S CARRIER and FIRST PARTY → OUR OWN CLIENT'S CARRIER.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* A BI claim is made against the driver who caused the crash. A UM claim is made against the insurance John Doe pays for himself, and that changes what the file is. Harbor Point and Cardinal State are not opponents the way Keystone is: they are parties to John Doe's own contract, with duties to him and defences drawn from his own policy. When $8,000 and $6,000 came back against $30,000 of UM limits, the file did not simply head for court the way the BI claim would have: Harbor Point's policy says where a UM dispute is decided, and that clause, with the governing state law, is what the Case Manager has to read before a single date is docketed.
+
+1. Know which kind of claim you are working. Third-party: filed against the at-fault driver's carrier, here Keystone Mutual for Robert Smith. First-party: filed against John Doe's own coverage under his own contract, here Harbor Point (Host UM) and Cardinal State (Relative UM). The evidence is the same; the relationship, the duties and the route out are not.
+2. John Doe's own Bluewater Auto policy is not a UM layer. He rejected UM/UIM on it in writing on 03/14/2024, so his own named policy adds nothing. He reaches UM by status instead: as an occupant of Kevin Alvarez's Escape (Harbor Point) and as a resident relative of Margaret Doe (Cardinal State).
+3. When a UM negotiation reaches impasse you do not reach for a complaint by reflex. The route is set by the governing state law and by the dispute-resolution clause in the policy the claim is made under: read both, on each layer, before anything is calendared.
+4. Route 1, mandatory arbitration, is the common one. Many UM/UIM policies carry a binding arbitration clause, as Harbor Point's does. The firm does not file a traditional lawsuit; it files a formal Demand for Arbitration. Carriers favour it because it bypasses a jury, narrows discovery and resolves a contract dispute faster and more cheaply.
+5. Route 2, standard litigation, runs in two situations. Some states forbid mandatory arbitration clauses in auto policies, or let the policyholder opt out; where the clause does not bind, a failed UM negotiation becomes a civil suit filed directly against the carrier. Separately, where a carrier has unreasonably delayed, denied or mishandled the claim, the firm may bring an Insurance Bad Faith action, which can reach beyond the UM policy limit. Whether either applies is Atty. Thorne's analysis, never yours.
+6. Read each layer on its own. Harbor Point's arbitration clause does not speak for Cardinal State: get Cardinal State's UM form and its dispute-resolution and other-insurance clauses from the certified policy and route both to Atty. Thorne. Whether the two are heard together is his call; on this file they were consolidated into the 06/22/2027 hearing.
+7. A route carries its own clock. Every layer has its own limitation on filing suit or serving a demand for arbitration, set by the policy or by statute, and it is not the tort SOL of 02/06/2028. Ask Atty. Thorne each policy's deadline in writing and docket only from his written answer.
+8. Track the route in the CMS the day it is set, so nobody has to guess what this file is doing: the ADR tab with its type UM / UIM arbitration and How It Was Set as Required by the policy or contract, the provider, the hard dates, and the case status moved to the route it is actually on.
+9. Nothing about the route changes what the UM claim has to prove. The Demand Package still carries the injuries, the Specials of $16,401.40, the wage loss and the documented proof that Keystone's $10,000 was exhausted; and the 14-Day Gap will be put to John Doe again at the hearing, by a carrier reading his own policy.
+
+> ⚠️ **UPL boundary.** You read the clause and the statute, lay both before Atty. Thorne, docket what he confirms and tell John Doe what happens next procedurally: the date, the place, what to bring, who will be in the room. Which route governs, whether an offer is unreasonably low, and whether Harbor Point's handling amounts to statutory bad faith are legal opinions, and they are Atty. Thorne's alone.
+
+#### 2 · Slide Body — Show Them
+
+*The UM dispute flow, worked on John Doe's file*
+
+| Step | Action | What it takes on this file |
+|---|---|---|
+| 1 · Claim submission | UM Demand Package | Served 08/31/2026 to Harbor Point and Cardinal State: injuries, records, $16,401.40 in Specials, the wage letter, and documented proof that Robert Smith's $10,000 BI limit was exhausted and consented to |
+| 2 · Dispute | Impasse | Harbor Point offers $8,000 (09/14/2026) and Cardinal State $6,000 (10/01/2026) against $30,000 of UM limits; impasse memo to Atty. Thorne |
+| 3 · Resolution route | Demand for Arbitration, or file suit against the carrier | Read the governing state law and each policy's clause. Harbor Point's UM policy has a binding arbitration clause: invoked 04/05/2027, heard 06/22/2027 before Laura Whitcomb, Esq. Where no clause binds, a civil suit against the carrier; a bad-faith action is a separate suit, and Atty. Thorne's call |
+| Not a route | John Doe's own Bluewater Auto policy | UM/UIM rejected in writing 03/14/2024: there is no third layer and no third route |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| UM offers come back low (09/14 and 10/01/2026) | Write the impasse memo; pull Harbor Point's and Cardinal State's dispute-resolution clauses from the certified policies | CMS → Case Notes · CMS → Insurance tab → Coverage Matrix | Memo to Atty. Thorne the same day, with both clauses attached and neither interpreted |
+| Clauses and the governing statute in hand | Lay the route options before Atty. Thorne as findings, with each layer's own filing or demand deadline as a question | CMS → Tasks → Atty. Thorne | Both layers presented separately; no route recommended; every deadline asked, not assumed |
+| Route decided in writing | Record it, set the case status and open the ADR entry | CMS → ADR tab · CMS → Case Status | ADR Type UM / UIM arbitration; How It Was Set Required by the policy or contract; status matches the route |
+| Arbitration invoked 04/05/2027 | Docket the hearing and its backward-counted dates; tell John Doe what happens procedurally | CMS → Calendar → Master calendar | 06/02, 06/11 and 06/22/2027 entered with alerts; John Doe told the date, place and what to bring, and nothing about value |
+
+**Best practices & pitfalls**
+
+- Say which kind of claim you are on before you say anything else about it: first party or third party decides everything that follows.
+- Quote the clause in your memo and let it speak; a paraphrase is already an interpretation.
+- Docket each UM layer's own deadline separately, from Atty. Thorne's written answer.
+- ⚠️ Pitfall: filing, or telling the client the firm is filing, a lawsuit when the policy sends the dispute to arbitration.
+- ⚠️ Pitfall: reading Harbor Point's arbitration clause onto Cardinal State's policy.
+- ⚠️ Pitfall: telling John Doe the carrier is acting in bad faith, or that he can recover above his limits.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | First party vs. third party | Names Keystone as the third-party claim and Harbor Point and Cardinal State as first-party claims under John Doe's own contract, and says what changes |
+| 🤖 AI | **20%** | The two routes | Mandatory arbitration by Demand for Arbitration (Harbor Point's clause) vs. a civil suit against the carrier where state law bars the clause or allows opt-out; bad faith as a separate suit above the limits |
+| 🤖 AI | **15%** | Route is read, not chosen | Reads the governing state law and each layer's own clause; Cardinal State read separately from Harbor Point |
+| 🤖 AI | **10%** | Tracked and docketed | ADR entry typed UM / UIM arbitration and set by the policy; each layer's own deadline asked of Atty. Thorne and docketed from his written answer |
+| 🧑‍🏫 Trainer | **10%** | Bluewater handled correctly | Treats the 03/14/2024 written UM rejection as the reason John Doe's own policy is not a route, and reaches UM by occupancy and residency instead |
+| 🧑‍🏫 Trainer | **10%** | Client explanation | Explains the route to John Doe procedurally: what a Demand for Arbitration is, the date, the place, what to bring |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | Offers no view on which route governs, on whether an offer is unreasonable, or on bad faith; routes all three to Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open with the question, not the answer: “Whose insurance company are we fighting?” Keystone is the at-fault driver's. Harbor Point and Cardinal State are John Doe's own. Let the room sit with that before any procedure is taught.
+- Humanize the jargon in one breath and keep it: a third-party claim is a claim against the other driver's insurance; a first-party claim is a claim against the insurance you pay for yourself. Trainees who keep saying “the other side” about Harbor Point have not made the shift.
+- Ask: “The UM negotiation has failed. What do we file?” Anyone who says “a lawsuit” gets the clause read to them. The route is read off the policy and the state's law, never picked because it is the one they know.
+- Watch the Bluewater trap. Some trainees will look for UM on John Doe's own named policy because that is where the textbook puts it. It was rejected in writing on 03/14/2024: he reaches UM as an occupant of Kevin Alvarez's Escape and as a resident relative of Margaret Doe.
+- Hold the bad-faith card off the fork on purpose. Trainees find it exciting because it reaches above the limits; that is exactly why saying it to John Doe, or to Marcus Bell, is Atty. Thorne's to do and not theirs.
+
+---
+
+### 4.1.8 Mediation vs. Binding Arbitration & the UPL Line at Hearings
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Two neutrals, two standards, one boundary  
@@ -637,7 +723,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.8 The Mediation Binder & Exhibit Indexing
+### 4.1.9 The Mediation Binder & Exhibit Indexing
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Six sections, one master index, and the five-second rule  
@@ -717,7 +803,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.9 Arbitration Exhibits & Evidentiary Rules
+### 4.1.10 Arbitration Exhibits & Evidentiary Rules
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** From a binder that persuades to the record a binding award rests on  
@@ -799,7 +885,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.10 Health Subrogation & Statutory Lien Reduction Lab
+### 4.1.11 Health Subrogation & Statutory Lien Reduction Lab
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Skill Activity 1 — reduce Peach State, clear the statutory side  
@@ -886,7 +972,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 4) and that day
 
 ---
 
-### 4.1.11 Provider Balance Negotiation Exercises
+### 4.1.12 Provider Balance Negotiation Exercises
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Skill Activity 2 — the reduction call to the chiropractor  
@@ -963,7 +1049,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 4) and that day
 
 ---
 
-### 4.1.12 Completing the Final Dual-Tab Net Sheet
+### 4.1.13 Completing the Final Dual-Tab Net Sheet
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity 1 — take $40,000.00 to $20,359.92, and prove every line  
@@ -1042,7 +1128,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.13 Release Audit & Disbursement Command Triggering
+### 4.1.14 Release Audit & Disbursement Command Triggering
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity 2 — catch the line that costs $30,000, then move the money  
@@ -1121,7 +1207,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.14 Auditing Court Hard Rules & Setting Calendar Cutoffs
+### 4.1.15 Auditing Court Hard Rules & Setting Calendar Cutoffs
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 1 — find the dates that would cost the file  
@@ -1213,7 +1299,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.15 ADR Rules Matrix & UPL Boundary Mapping
+### 4.1.16 ADR Rules Matrix & UPL Boundary Mapping
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 2 — what changes from compromise to decision  
@@ -1299,7 +1385,88 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.16 Assembling the 6-Section Mediation Binder
+### 4.1.17 Routing the UM Impasse: Arbitration or Court
+
+> **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
+> **Topic:** Skill Activity 3 — read the clause, route the dispute, track it in the CMS  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D3#5` UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap · `D3#19` Key Legal Doctrines Used for Reduction · `D4#2` Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background · Newly authored: the impasse memo that quotes each layer's clause and asks the route, the per-layer deadline and consolidation as three written questions
+
+#### 1 · Visual Layout Description
+
+A two-pane working screen. Left, two stacked policy cards with a highlighted clause block in each: HARBOR POINT · HOST UM · $20,000 shows its arbitration paragraph lit in orange with a mono pill BINDING; CARDINAL STATE · RELATIVE UM · $10,000 shows the same region greyed, stamped CERTIFIED POLICY REQUESTED and a question chip CLAUSE? Right, the CMS ADR tab part-filled: ADR TYPE = UM / UIM ARBITRATION, HOW IT WAS SET = REQUIRED BY THE POLICY OR CONTRACT, with three empty mono date fields and a navy task card, DEADLINE PER LAYER — ASK ATTY. THORNE. Across the bottom a red strip: NO ROUTE IS DOCKETED UNTIL HE ANSWERS IN WRITING.
+
+#### 2 · Slide Body — Let Them
+
+**Scenario.** File date 10/02/2026, Track B. The UM demands went out 08/31/2026, after Keystone tendered its $10,000 BI limits on 08/12/2026 with both UM carriers' written consents (Harbor Point 08/24, Cardinal State 08/26) and a Limited Release signed 08/28. Harbor Point's Marcus Bell (HP-26-7741) offered $8,000 on 09/14/2026 against a $20,000 Host UM limit, calling the 14-Day Gap a causation problem. Cardinal State's Teresa Okafor (CS-26-20355) offered $6,000 on 10/01/2026 against a $10,000 Relative UM limit. Harbor Point's UM policy contains a binding arbitration clause; Cardinal State's certified policy has been requested and has not arrived. Suit against Robert Smith was filed 09/24/2026; the tort SOL is 02/06/2028.
+
+**Execution prompt.** Route the UM impasse. Write the impasse memo to Atty. Thorne: the offers against the limits, Harbor Point's stated reason, and the dispute-resolution clause of each layer quoted, not paraphrased, with Cardinal State's marked as outstanding. Lay out both resolution routes and what each would require operationally, and ask him, in writing, for the governing route on each layer, each layer's own suit or arbitration-demand deadline, and whether the two should be heard together. Then set up the CMS to carry the answer: the ADR entry, the case status, a task per open question, and the calendar entries you will make once he answers. Finally, draft what you will say to John Doe when he calls to ask what happens now.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → Case Notes · CMS → Insurance tab → Coverage Matrix · CMS → ADR tab · CMS → Tasks · CMS → Calendar |
+| **Expected output** | An impasse memo with both clauses quoted and three written questions to Atty. Thorne, a CMS file that shows the route, and a procedural explanation for John Doe with no opinion in it. |
+
+**Verification checkpoints**
+
+- [ ] Both claims named as first-party claims under John Doe's own contract, distinct from the Keystone third-party claim that closed on 08/12/2026
+- [ ] Offers set against the limits exactly: $8,000 against $20,000 (Harbor Point, 09/14/2026) and $6,000 against $10,000 (Cardinal State, 10/01/2026), $14,000 against $30,000 in all
+- [ ] Exhaustion documented, not assumed: Keystone's $10,000 tender 08/12/2026, both UM consents (08/24 and 08/26) and the Limited Release signed 08/28
+- [ ] Harbor Point's arbitration clause quoted verbatim and identified as binding; no interpretation offered
+- [ ] Cardinal State treated as its own layer: the certified policy and its dispute-resolution and other-insurance clauses recorded as outstanding, with a chase task, and Harbor Point's clause never read onto it
+- [ ] Both routes laid out with their operational consequences: a Demand for Arbitration and its forum dates, or a civil suit against the carrier where state law bars the clause or permits opt-out
+- [ ] Bad faith raised only as a question for Atty. Thorne, with Harbor Point's handling dates recorded as facts; no assertion that any conduct was unreasonable
+- [ ] Three written questions asked: the governing route per layer, each layer's own suit or arbitration-demand deadline, and whether the layers are consolidated
+- [ ] Nothing docketed from assumption: the calendar entries are drafted and held, to be entered only from his written answer; the tort SOL 02/06/2028 is not used as a UM deadline
+- [ ] CMS set up to carry the answer: ADR Type UM / UIM arbitration, How It Was Set Required by the policy or contract, status matching the route, a task per open question with an owner and a date
+- [ ] The explanation to John Doe is procedural only: what a Demand for Arbitration is in plain words, that a neutral will decide rather than a jury, and that Atty. Thorne will go through what it means for his claim; no view on the offers, the limits or the carrier's conduct
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Cardinal State's offer lands 10/01/2026 | Write the impasse memo with both clauses quoted | CMS → Case Notes | Memo dated 10/02/2026; Cardinal State's clause marked outstanding |
+| Certified policy outstanding | Chase it and log the request | CMS → Tasks | Chase task with an owner and a date; the gap stated in the memo, not filled in |
+| Questions sent to Atty. Thorne | Hold every date; draft the entries without saving them | CMS → Calendar | Nothing docketed; the drafts wait on his written answer |
+| John Doe calls to ask what happens now | Explain the procedure; route value and conduct to Atty. Thorne | CMS → Case Notes → Client Communications | Call logged the same day with what was said and what was routed |
+
+**Best practices & pitfalls**
+
+- Quote the clause and stop; the memo's job is to put the words in front of counsel.
+- Give each layer its own section, its own clause and its own deadline question.
+- Record the handling dates that a bad-faith question would turn on, and ask the question rather than answer it.
+- ⚠️ Pitfall: docketing an arbitration-demand deadline from the tort SOL.
+- ⚠️ Pitfall: assuming consolidation because both layers are UM.
+- ⚠️ Pitfall: telling John Doe the firm is suing Harbor Point before Atty. Thorne has read the clause.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Figures and dates | $8,000 / $20,000 and $6,000 / $10,000 with their dates; exhaustion evidenced by the 08/12, 08/24, 08/26 and 08/28/2026 record |
+| 🤖 AI | **20%** | Clause handling | Harbor Point's clause quoted and identified as binding; Cardinal State's recorded as outstanding and read separately |
+| 🤖 AI | **15%** | Routes laid out | Both routes with their operational consequences; bad faith kept separate and above the limits |
+| 🤖 AI | **10%** | Nothing assumed | No date docketed before the written answer; the tort SOL not used as a UM deadline |
+| 🧑‍🏫 Trainer | **15%** | Memo quality | Counsel can decide from it: offers against limits, clauses verbatim, questions numbered |
+| 🧑‍🏫 Trainer | **10%** | Client explanation | Plain, procedural and calm; no value, no conduct, no prediction |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | Recommends nothing legal; the route, the deadlines and bad faith all go to Atty. Thorne as questions |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Grade the memo on whether Atty. Thorne could make three decisions from it without opening the file. If he would have to go looking for the clause, it failed.
+- The commonest failure is a trainee who writes “Harbor Point's policy requires arbitration, so we will file a Demand for Arbitration on…” — a route decided and a date set in one sentence. Both are his.
+- Second commonest: Cardinal State folded into Harbor Point's clause because both are UM. Make them say what they actually have from Cardinal State, which on 10/02/2026 is a requested policy and nothing else.
+- Run the client call live if there is time. John Doe will ask whether the insurance company is allowed to do this. The right answer explains the procedure and promises Atty. Thorne's call, and says nothing about whether it is allowed.
+
+---
+
+### 4.1.18 Assembling the 6-Section Mediation Binder
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Skill Activity 1 — build it, audit it, route it before 03/11/2027  
@@ -1379,7 +1546,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.17 Assembling the 6-Tab Arbitration Binder
+### 4.1.19 Assembling the 6-Tab Arbitration Binder
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Skill Activity 2 — sort, QC and defuse two landmines before 06/02/2027  
@@ -1456,7 +1623,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.18 Lien Reduction Verification
+### 4.1.20 Lien Reduction Verification
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1541,7 +1708,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 4.1.19 Final Accounting Check
+### 4.1.21 Final Accounting Check
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1641,12 +1808,12 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 4.1.20 ADR & Calendar Compliance Check
+### 4.1.22 ADR & Calendar Compliance Check
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D5#28` Master Timeline & Deadline Calculations · `D4#18` Arbitration Operational Track 1: Critical Timelines & Calendar Hard Rules · `D4#17` Arbitration: Operational Mindset — From Compromise to Trial-Ready · `D4#16` Case Phase: Arbitration — The Anatomy of a PI Arbitration · `D4#20` Ethics & Boundaries: What You Can and Cannot Do at Hearings (UPL) · `D4#5` Mediation Protocols for CMs: Logistics & Scheduling
+> **Theory extracted from:** `D5#28` Master Timeline & Deadline Calculations · `D4#18` Arbitration Operational Track 1: Critical Timelines & Calendar Hard Rules · `D4#17` Arbitration: Operational Mindset — From Compromise to Trial-Ready · `D4#16` Case Phase: Arbitration — The Anatomy of a PI Arbitration · `D4#20` Ethics & Boundaries: What You Can and Cannot Do at Hearings (UPL) · `D4#5` Mediation Protocols for CMs: Logistics & Scheduling · `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D3#19` Key Legal Doctrines Used for Reduction
 
 #### 1 · Visual Layout Description
 
@@ -1657,6 +1824,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 1. Defendant's discovery to John Doe was served on his counsel, Atty. Thorne, by U.S. mail on 12/01/2026. Compute his response date step by step, and state what can happen to a Request for Admission left unanswered.
 2. The SOL is 02/06/2028. Give the internal hard date and the internal filing cutoff with the arithmetic, and explain why the firm never relies on a weekend roll-forward.
 3. Explain forward versus backward counting off a weekend, using the 01/04/2027 discovery deadline and the brief for the 06/22/2027 arbitration hearing.
+4. Harbor Point’s UM negotiation has reached impasse. Name the two resolution routes a UM/UIM dispute can take, say what decides which one governs, and explain where an Insurance Bad Faith action sits in relation to them. Then say why John Doe’s own Bluewater Auto policy is not a route on this file.
 
 **Best practices & pitfalls**
 
@@ -1680,11 +1848,13 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 | Setting the SOL's internal hard date and filing cutoff | ○ | ○ | ○ | ○ | ○ |
 | Auditing a calendar and ranking errors by risk | ○ | ○ | ○ | ○ | ○ |
 | Distinguishing mediation from binding arbitration on a live file | ○ | ○ | ○ | ○ | ○ |
+| Telling a first-party UM claim apart from a third-party BI claim | ○ | ○ | ○ | ○ | ○ |
+| Reading a UM resolution route off the state law and the policy clause | ○ | ○ | ○ | ○ | ○ |
 | Holding the UPL line at a mediation or a hearing | ○ | ○ | ○ | ○ | ○ |
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (5 questions):
+**Auto-graded share of the day's Knowledge Check** (8 questions):
 
 1. Defendant's discovery to John Doe was served on his counsel, Atty. Thorne, by U.S. mail on 12/01/2026. As configured for this training file, his responses are due:  
    12/31/2026 · 01/03/2027 · **✓ 01/04/2027** · 01/13/2027  
@@ -1701,6 +1871,15 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 5. The Scheduling Order says mediation is to be “completed by 03/31/2027.” The re-keyed calendar shows “Mediation session 03/31/2027.” The correct fix is:  
    Leave it: the order names the date · **✓ Re-enter it as a deadline, “completed by 03/31/2027”, with a task to collect 3–4 windows from Atty. Thorne, John Doe and opposing counsel before the mediator's office is contacted** · Call Hon. Carla Benton's office and book 03/31/2027 · Roll it forward to 04/01/2027 to leave time for the session  
    *Read each verb in the order: “completed by” sets when the session must be over, not when it is held. Windows are gathered from every party before the neutral hears from you; the session was held 03/18/2027, inside the deadline.*
+6. Harbor Point offers $8,000 against its $20,000 Host UM limit and will not move. Before anything is calendared, the Case Manager:  
+   Drafts a civil complaint against Harbor Point, the way the BI claim would have gone to suit · **✓ Reads the governing state law and Harbor Point’s own dispute-resolution clause, quotes the clause to Atty. Thorne and asks which route governs** · Files a Demand for Arbitration, since UM policies normally require arbitration · Tells Marcus Bell the offer is unreasonable and that bad faith is being considered  
+   *The route out of a UM impasse is read off the governing state law and the policy the claim is made under, never chosen by reflex or by habit. The clause goes to Atty. Thorne quoted, not interpreted, and the decision is his.*
+7. Which of these is a first-party claim on John Doe’s file?  
+   The BI claim against Keystone Mutual for Robert Smith · The Keystone PD claim on the Civic · **✓ The Host UM claim against Harbor Point** · The Peach State Health Plan reimbursement claim  
+   *A first-party claim is made against coverage John Doe himself can call on under his own contract: Host UM (Harbor Point, as an occupant of Kevin Alvarez’s Escape) and Relative UM (Cardinal State, as a resident relative). Keystone’s BI and PD claims are third-party claims against the at-fault driver’s carrier.*
+8. An Insurance Bad Faith lawsuit differs from the UM claim itself because:  
+   It is heard by the same arbitrator at the same hearing · It replaces the UM claim once arbitration is demanded · **✓ It is a separate court action for the carrier’s unreasonable handling, and can reach beyond the UM policy limit** · It is the Case Manager’s to initiate once an offer is clearly too low  
+   *Bad faith sits off the UM dispute’s fork: a separate suit about how the carrier handled the claim, which is why it can reach above the limits. You record the handling dates as facts; whether the conduct is actionable is Atty. Thorne’s opinion alone.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1708,8 +1887,9 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 |---|---|---|---|
 | 🤖 AI | **20%** | Deadline arithmetic | 01/04/2027 with the mail days and the Sunday; brief 06/11/2027 counted backward |
 | 🤖 AI | **10%** | SOL cutoffs | 02/04/2028 and 11/05/2027, arithmetic shown |
-| 🤖 AI | **20%** | Forum logistics | Windows, fee schedule, retainer and layout owned before 06/22/2027; bench directives logged as given and calendared the same day |
-| 🤖 AI | **10%** | Completeness | Every question answered substantively |
+| 🤖 AI | **15%** | Forum logistics | Windows, fee schedule, retainer and layout owned before 06/22/2027; bench directives logged as given and calendared the same day |
+| 🤖 AI | **10%** | UM resolution routes | Mandatory arbitration vs. a civil suit against the carrier, decided by the state law and the policy clause; bad faith separate and above the limits; Bluewater’s 03/14/2024 rejection explained |
+| 🤖 AI | **5%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slide |
 | 🧑‍🏫 Trainer | **10%** | UPL boundary | The hearing answer defers to Atty. Thorne on the record; the mediation answer escalates rather than accepts |
@@ -1726,7 +1906,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 4.1.21 Binder Assembly Verification
+### 4.1.23 Binder Assembly Verification
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
