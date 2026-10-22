@@ -766,7 +766,7 @@ A closed monitoring loop drawn as a navy ring left of centre, with “IS THE PLA
 1. **Monitor** — Attendance, pain, function every contact; week-6 measures due 04/07/2026.
 2. **Detect and classify** — Clinical, psychosocial or systemic. Visits missed from 04/03/2026 for want of transport: psychosocial.
 3. **Assess** — Medical danger → the provider today; legal danger → Atty. Thorne. Here: the 04/08/2026 call to John Doe.
-4. **Coordinate** — Clarify with the clinic, remove the barrier, climb the ladder: rental request, evening slots, Margaret Doe driving.
+4. **Coordinate** — Clarify with the clinic, remove the barrier, climb the ladder: rides under the LOP or reimbursed, evening slots, Margaret Doe driving.
 5. **Track** — GIRP note; attendance confirmed 04/21 and 04/23/2026; the why on file for counsel.
 
 **Operational mapping**
@@ -1677,13 +1677,13 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 #### 1 · Visual Layout Description
 
-A horizontal treatment timeline across the slide from 04/02/2026 to 04/24/2026. A hollow red band spans 04/02 → 04/21, labelled 19 DAYS · NO VISITS, with four red ✗ markers at 04/03, 04/07, 04/09 and 04/14. Above the band, the A-C-T steps as three orange-badged navy cards pinned to their dates: ① ASSESS 04/08 ② COORDINATE 04/08 → 04/10 rental refused → 04/21 evening slot ③ TRACK 04/21 · 04/23 with green ✓ markers. A grey mono pill at 04/24 reads CIVIC RETURNED. Below, the three Transportation Wall options as cream cards, A · B · C. The empty red band is the argument: every day of it needs a documented reason.
+A horizontal treatment timeline across the slide from 04/02/2026 to 04/24/2026. A hollow red band spans 04/02 → 04/21, labelled 19 DAYS · NO VISITS, with four red ✗ markers at 04/03, 04/07, 04/09 and 04/14. Above the band, the A-C-T steps as three orange-badged navy cards pinned to their dates: ① ASSESS 04/08 ② COORDINATE 04/08 → LOP or reimbursed rides → 04/21 evening slot ③ TRACK 04/21 · 04/23 with green ✓ markers. A grey mono pill at 04/24 reads CIVIC RETURNED. Below, the three Transportation Wall options as cream cards, A · B · C. The empty red band is the argument: every day of it needs a documented reason.
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** 04/08/2026: Riverton Spine & Rehab's missed-visit alert. John Doe missed 04/03 and 04/07; his last visit was 04/02/2026. As you work, the file moves: Keystone PD (Leah Moran) answers your rental request on 04/10/2026, the clinic's first open evening slot is 04/21/2026, John Doe misses 04/09 and 04/14 meanwhile, and the Civic comes back from the shop on 04/24/2026.
+**Scenario.** 04/08/2026: Riverton Spine & Rehab's missed-visit alert. John Doe missed 04/03 and 04/07; his last visit was 04/02/2026. As you work, the file moves: Keystone PD refuses to extend Margaret Doe's rental on 04/10/2026 (her PD claim, not his ride to care), the clinic's first open evening slot is 04/21/2026, John Doe misses 04/09 and 04/14 meanwhile, and the Civic comes back from the shop on 04/24/2026.
 
-**Execution prompt.** Execute A-C-T on the Transportation Wall. Assess: call John Doe on 04/08/2026, find the barrier, classify the variance, and decide whether it is a medical or a legal danger. Coordinate: clarify with the clinic, request a rental extension from Keystone PD in writing, and build a transport plan from one of the three Transportation Wall options, saying why. Track: write the GIRP note, report to Atty. Thorne, and confirm attendance once care resumes. Graded: exact dates and the 19-day count; no treatment advice; no talk of what missed visits do to the claim.
+**Execution prompt.** Execute A-C-T on the Transportation Wall. Assess: call John Doe on 04/08/2026, find the barrier, classify the variance, and decide whether it is a medical or a legal danger. Coordinate: clarify with the clinic, cover his rides to care under the LOP or as reimbursed out-of-pocket costs, not through the PD rental, and build a transport plan from one of the three Transportation Wall options, saying why. Track: write the GIRP note, report to Atty. Thorne, and confirm attendance once care resumes. Graded: exact dates and the 19-day count; no treatment advice; no talk of what missed visits do to the claim.
 
 | | |
 |---|---|
@@ -1694,7 +1694,7 @@ A horizontal treatment timeline across the slide from 04/02/2026 to 04/24/2026. 
 
 *The Transportation Wall: three ways through, and their trade-offs*
 
-1. **Option A · Problem Solver** — You find the ride: a rental extension from the carrier, bus routes, ride vouchers from a non-profit or community program. Never a ride, rental or voucher paid for by the firm: that is financial assistance to a client, Atty. Thorne's call under the governing ethics rule. Fast, but John Doe depends on you.
+1. **Option A · Problem Solver** — You find the ride: transport under the LOP, rides he pays for and is reimbursed for with receipts kept, bus routes, ride vouchers from a non-profit or community program. Not the PD rental: that is Margaret Doe's claim. Never a ride, rental or voucher paid for by the firm: that is financial assistance to a client, Atty. Thorne's call under the governing ethics rule. Fast, but John Doe depends on you.
 2. **Option B · Empowerer** — John Doe finds it with you: who in his household can drive, and when. Slower to start, but it lasts.
 3. **Option C · Clinical Pivot** — Ask the clinic whether an interim home program fits while transport is fixed. The provider decides.
 
@@ -1703,12 +1703,12 @@ A horizontal treatment timeline across the slide from 04/02/2026 to 04/24/2026. 
 - [ ] Assess dated 04/08/2026, the day the alert arrived; barrier recorded: Keystone ended the rental on 03/19/2026 (30-day cap), the carpool ended with Kevin Alvarez's shift change on 04/01/2026, the Civic is awaiting parts
 - [ ] Symptoms asked about on the call; anything new or worse routed to the provider at once
 - [ ] Classified: an external barrier (transport), a psychosocial variance, and a legal danger (missed visits); reported to Atty. Thorne
-- [ ] Rental extension requested in writing from Keystone PD (Leah Moran), property facts only (Civic awaiting parts; repair not complete); nothing about John Doe's treatment or missed visits; the 04/10/2026 refusal (“shop delay”) logged
+- [ ] Rides to care covered under the LOP (transport asked of Riverton Spine & Rehab; any new or amended LOP routed to Atty. Thorne to sign) or paid by John Doe and reimbursed, receipts and mileage logged; not through the PD rental, which is Margaret Doe's claim; Keystone's 04/10/2026 refusal to extend her rental (“shop delay”) noted
 - [ ] Transport option chosen and justified; plan: evening slots so Margaret Doe can drive John Doe after her shift, booked with the clinic while John Doe is on the line
 - [ ] Missed visits recorded exactly: 04/03, 04/07, 04/09 and 04/14/2026, four in all
 - [ ] Disruption computed: 04/02/2026 → 04/21/2026 = 19 days without a visit
 - [ ] GIRP note complete (Goal, Intervention, Response, Plan), factual, no opinion on the claim
-- [ ] Ladder documented rung by rung: the clinic, the written request to Keystone PD, Atty. Thorne told of the refusal
+- [ ] Ladder documented rung by rung: the clinic, the LOP or reimbursement route, Atty. Thorne told
 - [ ] Track: attendance confirmed 04/21 and 04/23/2026; the Civic's return on 04/24/2026 noted
 - [ ] No advice to add, skip or stop treatment; nothing said about what missed visits do to the claim's value
 
@@ -1717,7 +1717,7 @@ A horizontal treatment timeline across the slide from 04/02/2026 to 04/24/2026. 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | 04/08/2026: missed-visit alert | Assess: call John Doe, classify the variance, write the GIRP note | Call Simulator → AI John Doe · CMS → Case Notes | Call and note dated 04/08/2026 |
-| Barrier is transport | Coordinate: written rental request to Keystone PD; evening slots with the clinic | Email Workspace · CMS → Property Damage → Correspondence · CMS → Calendar | Request dated; 04/10/2026 refusal logged; 04/21/2026 slot on the calendar |
+| Barrier is transport | Coordinate: rides under the LOP or reimbursed; evening slots with the clinic | Email Workspace · CMS → Case Notes · CMS → Calendar | Ride route and receipts logged; any LOP change to Atty. Thorne; 04/21/2026 slot on the calendar |
 | Care resumes 04/21/2026 | Track: confirm attendance with the clinic; report to Atty. Thorne | CMS → Case File → Treatment timeline · CMS → Tasks → Escalate | Attendance on 04/21 and 04/23/2026 confirmed; 19-day disruption recorded with its cause |
 
 **Best practices & pitfalls**
@@ -1725,8 +1725,9 @@ A horizontal treatment timeline across the slide from 04/02/2026 to 04/24/2026. 
 - Facilitation is the treatment phase's first job: a client who can't reach the clinic isn't in treatment, whatever the plan says.
 - Act the day the alert lands. Every day without a plan is another missed visit.
 - Calendar known transport risks: a rental capped at 30 days has an end date (03/19/2026) you could see on 02/18/2026.
-- Log Keystone PD's 04/10/2026 refusal in full. It is part of why care stopped, and part of the loss-of-use claim Atty. Thorne decides how to pursue.
+- Rides to care go under the LOP or are reimbursed with receipts. The PD rental is Margaret Doe's claim, not his transport plan; Keystone's 04/10/2026 refusal to extend it belongs to her loss-of-use claim.
 - ⚠️ Pitfall: accepting “I'll just wait until the car's back” without a plan.
+- ⚠️ Pitfall: writing to Keystone PD for John Doe's ride. The rental is Margaret Doe's PD claim; his rides go under the LOP or are reimbursed.
 - ⚠️ Pitfall: telling John Doe that missing therapy “will hurt your case.” It is a value statement, and it pushes treatment for the claim's sake.
 
 #### 3 · Knowledge Check & CM Summary
@@ -1740,19 +1741,19 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 | 🤖 AI | **20%** | Dates exact | Alert and call 04/08/2026; refusal 04/10/2026; missed 04/03, 04/07, 04/09, 04/14; resumed 04/21/2026; 19 days |
 | 🤖 AI | **20%** | A-C-T complete | Assess, Coordinate and Track each recorded with its date and result |
 | 🤖 AI | **10%** | GIRP structure | All four parts present, factual and clinical |
-| 🤖 AI | **10%** | Ladder documented | Clinic, written request to Keystone PD, report to Atty. Thorne, in that order |
+| 🤖 AI | **10%** | Ladder documented | Clinic, LOP or reimbursement route, report to Atty. Thorne, in that order |
 | 🧑‍🏫 Trainer | **15%** | Crisis judgment | Chooses and justifies a transport option that keeps John Doe in care, balancing empowerment and speed |
 | 🧑‍🏫 Trainer | **10%** | Client communication | Active listening; motivates without pressure or blame |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | No treatment advice, no value talk, no firm-funded transport offered, nothing told to Keystone beyond property facts |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | No treatment advice, no value talk, no firm-funded transport offered, no LOP signed or promised by the Case Manager |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
 #### 5 · Speaker Notes
 
-- Start the clock at 04/08/2026 and release each update only when the trainee earns it: Keystone PD's refusal after the written request, the evening slot after they ask the clinic.
-- Put to the room: “Which option did the file actually use, and why did Option B outlast Option A?” The rental request failed on 04/10/2026; Margaret driving after her shift got John Doe back in care on 04/21/2026, three days before the Civic came back.
+- Start the clock at 04/08/2026 and release each update only when the trainee earns it: the clinic's answer on transport under the LOP after they ask for it, the evening slot after they ask for one.
+- Put to the room: “Which option did the file actually use, and why did Option B outlast Option A?” Keystone refused to extend Margaret Doe's rental on 04/10/2026; Margaret driving after her shift got John Doe back in care on 04/21/2026, three days before the Civic came back.
 - Watch the call for value talk. “If you miss more therapy your case is worth less” fails the UPL row, however well meant.
-- Nuance: Keystone also holds the BI claim. Keep the rental request to the property facts; what Keystone hears about John Doe's treatment is Atty. Thorne's call.
+- Nuance: the PD rental is Margaret Doe's claim, not John Doe's transport. A trainee who writes to Keystone PD for his ride is on the wrong claim, and Keystone also holds the BI claim: what it hears about his treatment is Atty. Thorne's call.
 
 ---
 
@@ -2129,7 +2130,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
    *$685.00 + $640.00 + $2,395.00 + $640.00 = $4,360.00; $5,000.00 – $4,360.00 = $640.00. The 06/12/2026 visit uses it, and PIP is exhausted at exactly $5,000.00.*
 8. Riverton Spine & Rehab's missed-visit alert reaches you on 04/08/2026. Under A-C-T, what comes first?  
    Ask Keystone PD to extend the rental · **✓ Call John Doe to assess the barrier, and whether it is a medical or a legal danger** · Write the GIRP note and close the alert · Tell Atty. Thorne that John Doe is non-compliant  
-   *Assess comes first: the 04/08/2026 call finds the barrier (no transport). Coordinate (the rental request, the evening slots) and Track (attendance on 04/21 and 04/23/2026) follow from what the call finds.*
+   *Assess comes first: the 04/08/2026 call finds the barrier (no transport). Coordinate (rides under the LOP or reimbursed, the evening slots) and Track (attendance on 04/21 and 04/23/2026) follow from what the call finds.*
 9. Keystone will point to John Doe's three chiropractic visits in 2021. The Case Manager's job is to:  
    Leave them out of the file, since they are unrelated · Tell John Doe the eggshell rule means they can't hurt his claim · Argue to the adjuster that a prior injury doesn't matter · **✓ Document the baseline (low back, resolved, no prior neck complaints), distinguish it from the neck injury, and route it to Atty. Thorne**  
    *Highlight the prior, never hide it. The CM documents the pre-morbid baseline and the difference in body region; whether aggravation or the eggshell rule matters at all is Atty. Thorne's call.*

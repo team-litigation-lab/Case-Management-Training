@@ -2728,7 +2728,7 @@ window.CM_CF_SLIDES = {
   "situation": "04/08/2026: John Doe missed 04/03 and 04/07; **no visit since 04/02/2026**. Keystone ended Margaret's rental 03/19/2026, his carpool ended 04/01/2026, and **the Civic awaits parts**.",
   "steps": [
    "Assess: call John Doe **on 04/08/2026**; classify the variance",
-   "Coordinate: request **a rental extension** from Keystone PD in writing",
+   "Coordinate: rides to care **under the LOP or reimbursed**",
    "Build the transport plan from one **Transportation Wall option**, saying why",
    "Track: write **the GIRP note**; report to Atty. Thorne",
    "Confirm **attendance once care resumes**"
@@ -2737,7 +2737,7 @@ window.CM_CF_SLIDES = {
   "checks": [
    "Missed visits: **04/03, 04/07, 04/09 and 04/14/2026**",
    "04/02/2026 → 04/21/2026 = **19 days**",
-   "Keystone PD request: **property facts only**; 04/10/2026 refusal logged",
+   "Rides: **LOP or reimbursed**, never the PD rental",
    "**Evening slots booked** with John Doe on the line",
    "**No treatment advice**, no talk of claim value"
   ],
@@ -3083,7 +3083,7 @@ window.CM_CF_SLIDES = {
     ],
     [
      "John Doe's 03/05/2026 consult with Dr. Reyes gets confirmed.",
-     "Margaret Doe's rental, his ride to care, ends 03/19/2026.",
+     "His rides after 03/19/2026 go under the LOP or get reimbursed.",
      "Transport gets lined up now, so no new break in care appears."
     ]
    ],
