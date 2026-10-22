@@ -8299,6 +8299,14 @@ window.CM_CASE_FLOW = {
      hours. A block marked `compact` keeps its full discussion time on fewer slides (no second Theory slide, no
      Framework, See It or Do & Don't), so Days 2, 4 and 5 keep to the slide budget curriculum.cjs checks. `lanes`
      gives a block its own workstream on a day that runs both. `workstream` ("claims" or "care") is the module's lane on the case timeline. */
+  /* ---------- the foundation behind each lesson, for discussion ----------
+     A lesson's slides carry its rules; this carries the knowledge under them, as a discussion the trainer leads
+     and the trainee can read: the theory of the stage, the facts on John Doe's file, the principles a Case Manager
+     works by, what follows from doing it well or badly, and where the Case Manager's part ends and Atty. Thorne's
+     begins. Shown first in each lesson's 📖 Full text. One entry per lesson (curriculum.cjs --check), in paragraphs. */
+  discuss: {
+  },
+
   sequence: [
     {n: 1, phases: [
       {title: "Intake, Claims & Property Damage", lead: "Module 1", blocks: ["d1m1-role", "d1m1-case", "d1m1-upl", "d1m1-l1", "d1m4-l1", "d1m3-l1", "d1m3-l2", "d1m1-open", "d1m3-a1", "d1m3-a2", "d1m3-a3", "d1m1-kc", "d1m3-kc"],

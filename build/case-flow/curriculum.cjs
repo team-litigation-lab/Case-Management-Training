@@ -227,6 +227,16 @@ if(Array.isArray(CF.sequence)){
   })));
 }
 
+
+/* The foundation behind each lesson (CF.discuss): every lesson carries one, of at least four paragraphs, and every
+   entry names a lesson that exists, so a renamed block can't leave its discussion behind. */
+{
+  const D = CF.discuss || {}, lessons = Object.values(STORED).filter(x => x.b.kind === "lesson").map(x => x.b.id);
+  lessons.forEach(id => { const n = (D[id] || []).filter(p => String(p).trim()).length;
+    if(n < 4) errors.push(`${id}: its foundation for discussion (CF.discuss) has ${n} paragraph(s); every lesson needs at least four`); });
+  Object.keys(D).forEach(id => { if(!STORED[id] || STORED[id].b.kind !== "lesson") errors.push(`discuss.${id}: no lesson has this id`); });
+}
+
 if(errors.length){
   console.error("Case Flow curriculum check failed:\n" + errors.map(e => "  • " + e).join("\n"));
   process.exit(1);

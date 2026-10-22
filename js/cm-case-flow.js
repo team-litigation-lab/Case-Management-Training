@@ -404,11 +404,16 @@ function selfSummary(b, day, mod, part){   // part: "qs" (the prompts) or "scale
 /* ---------- the full text of a block (the curriculum as written), behind "📖 Full text" ---------- */
 function fullText(l, d){
   const {block: b} = l.cf;
-  if(b.kind === "lesson") return S(1, "Tell Them — the rules and the strategic why", `<p class="cf-why">${E(b.tell.why)}</p>${ul(b.tell.rules)}`
+  if(b.kind === "lesson"){
+    // the foundation (CF.discuss) comes first: the knowledge the rules stand on, for the discussion
+    const found = (CF.discuss || {})[b.id] || [], n = found.length ? 1 : 0;
+    return (n ? S(1, "The Foundation — for discussion", `<div class="cf-discuss">${found.map(p => `<p>${hl(p)}</p>`).join("")}</div>`) : "")
+      + S(1 + n, "Tell Them — the rules and the strategic why", `<p class="cf-why">${E(b.tell.why)}</p>${ul(b.tell.rules)}`
       + (b.tell.upl || []).map(u => renderCallout({type: "warning", label: "UPL boundary", text: u})).join(""))
-    + S(2, showLabel(b, "Show Them"), visual(l, b))
-    + S(3, "Trigger ➔ Task ➔ Tool ➔ Checkpoint", opsTable(b.ops))
-    + S(4, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
+    + S(2 + n, showLabel(b, "Show Them"), visual(l, b))
+    + S(3 + n, "Trigger ➔ Task ➔ Tool ➔ Checkpoint", opsTable(b.ops))
+    + S(4 + n, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
+  }
   if(b.kind === "activity") return S(1, "Let Them — the scenario", `<div class="scenario-card"><div class="stag">John Doe v. Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
     + S(2, "Let Them — execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
     + S(3, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once you finish the activity and reveal the answers on its Check Your Work slide.</p>`)
@@ -3388,6 +3393,7 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-dot{width:10px;height:10px;border-radius:50%;background:#E3E6EE;transition:transform .2s ease;}
 .cfx-dot.done{background:var(--navy-soft);}
 .cfx-dot.on{background:var(--orange);transform:scale(1.35);box-shadow:0 0 0 3px rgba(224,122,31,.18);}
+.cf-discuss p{margin:0 0 12px;font-size:15px;line-height:1.65;max-width:72ch;}.cf-discuss p:last-child{margin-bottom:0;}
 .cfx-full{margin-left:auto;border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font:600 12.5px var(--font-ui);color:var(--navy);cursor:pointer;}
 .cfx-full:hover{border-color:var(--orange);color:var(--orange-deep);}
 .cfx-title{font:700 34px/1.15 'Fraunces',Georgia,serif !important;color:var(--navy) !important;margin:6px 0 16px !important;letter-spacing:-.01em;position:relative;}
