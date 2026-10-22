@@ -483,10 +483,11 @@ const titleCase = t => String(t || "").split(/(\s+|—|–|\/)/).map((w, i, a) =
 }).join("");
 const leadSplit = t => { const m = String(t || "").match(/^\*\*([^*]+?[.!?:])\*\*\s+(.+)$/); return m ? [m[1], m[2]] : null; };
 const hl = t => E(t).replace(/\*\*(.+?)\*\*/g, '<mark class="cfx-hl">$1</mark>');
-/* Check Your Work holds the answers (the **marked** parts): a trainee sees blanks until they finish the activity and
+/* Check Your Work holds the answers (the **marked** parts): a trainee sees them blurred in place (no gap in the sentence) until they finish the activity and
    reveal them; the trainer always sees them, except on the shared slides window (the audience sees what trainees see). */
-const masked = t => E(t).replace(/\*\*(.+?)\*\*/g, '<span class="cfx-blank" title="Your answer, from the file">______</span>');
+const masked = t => E(t).replace(/\*\*(.+?)\*\*/g, '<span class="cfx-blank" title="Your answer, from the file: shown when you finish" aria-hidden="true">$1</span>');
 const inAudience = () => typeof document !== "undefined" && !!document.body && document.body.classList.contains("audience-mode");
+let justRevealed = null;   // the block whose answers were just revealed: they animate from blurred to clear once
 const answersOpen = id => (isTrainer() && !inAudience()) || !!((REC.revealed || {})[id]);
 const words = (t, n) => { const w = String(t || "").replace(/\s+/g, " ").trim().split(" "); return w.length <= n ? w.join(" ") : w.slice(0, n).join(" ").replace(/[,;:]$/, "") + "…"; };
 const firstSentence = t => (String(t || "").match(/^.*?[.!?](\s|$)/) || [t])[0].trim();
@@ -794,9 +795,9 @@ function slideBody(view, l, d){
           <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the Service Confirmation</button></div>` : ""}
         <div class="cfx-deliver"><b>📤 Deliver</b><span>${hl(c.deliver)}</span></div></aside></div>`; }
     case "check": { const open = answersOpen(b.id);
-      return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${open ? hl(x) : masked(x)}</span></label>`).join("")}</div>
-      ${open ? (isTrainer() && !inAudience() ? `<p class="cfx-key-note">🔑 Trainer view: the answers. Trainees see blanks until they finish the activity.</p>` : "")
-        : `<div class="cfx-reveal"><span>Work the activity in the tool first, then compare: each blank is an answer your file should hold.</span><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.reveal('${b.id}')">✓ I've finished: show the answers</button></div>`}
+      return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${open ? (justRevealed === b.id ? hl(x).replace(/class="cfx-hl"/g, 'class="cfx-hl cfx-unblur"') : hl(x)) : masked(x)}</span></label>`).join("")}</div>
+      ${open ? (isTrainer() && !inAudience() ? `<p class="cfx-key-note">🔑 Trainer view: the answers. Trainees see them blurred until they finish the activity.</p>` : "")
+        : `<div class="cfx-reveal"><span>Work the activity in the tool first, then compare: each blurred part is an answer your file should hold.</span><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.reveal('${b.id}')">✓ I've finished: show the answers</button></div>`}
       ${c.donts.length ? `<div class="cfx-watch"><b>⚠️ Watch For</b>${c.donts.map(x => `<span>${hl(x)}</span>`).join("")}</div>` : ""}${workLog(b)}`; }
     case "questions": case "questions2": {   // each question with its answer box; answers save as they're typed
       const from = view === "questions2" ? KC_PER : 0, m = rec(mod.id), last = from + KC_PER >= c.questions.length;
@@ -2636,7 +2637,7 @@ const status = (modId, t) => { const el = document.getElementById(`cfss_st_${mod
 window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
   draft(modId){ readForm(modId); clearTimeout(draftTimer); draftTimer = setTimeout(() => { persist(); status(modId, "Draft saved"); }, 900); },
   rate(modId, j, n){ rec(modId).scale[j] = n; persist(); },
-  reveal(blockId){ (REC.revealed = REC.revealed || {})[blockId] = new Date().toISOString(); persist(); if(typeof render === "function") render(); },
+  reveal(blockId){ (REC.revealed = REC.revealed || {})[blockId] = new Date().toISOString(); persist(); justRevealed = blockId; if(typeof render === "function") render(); justRevealed = null; },   // the answers clear from blurred on this one render
   tick(blockId, j, on){ REC.ticks = REC.ticks || {}; (REC.ticks[blockId] = REC.ticks[blockId] || [])[j] = !!on; persist(); },
   kcDraft(modId, j, v){ rec(modId).kc[j] = v; clearTimeout(draftTimer); draftTimer = setTimeout(() => { persist(); status(modId, "Draft saved"); }, 900); },
   async save(modId){ const m = readForm(modId); m.savedAt = new Date().toISOString(); await persist(); status(modId, "Saved " + new Date(m.savedAt).toLocaleString()); },
@@ -3564,10 +3565,10 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .lesson-stage:has(> .cf-stage-card){background:transparent !important;box-shadow:none !important;padding:0 !important;border-radius:0 !important;overflow:visible !important;
   display:grid !important;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;}
 .cf-stage-card{grid-column:1;grid-row:1;position:relative;overflow:hidden;min-width:0;background:rgba(30,35,64,.9);backdrop-filter:blur(12px) saturate(1.1);-webkit-backdrop-filter:blur(12px) saturate(1.1);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:16px 20px 14px;box-shadow:0 18px 40px -22px rgba(20,24,48,.65);}
-/* the card is glass over the page's background; line ornaments at its top-right and bottom-left corners (and in the sheet's bottom-right) */
+/* the card is glass over the page's background; line ornaments at three corners, drawn inside the card's padding so they never cross the slide */
 .cf-stage-card::before, .cf-stage-card::after{content:"";position:absolute;pointer-events:none;background-repeat:no-repeat;}
-.cf-stage-card::before{top:6px;right:6px;width:90px;height:70px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='70' viewBox='0 0 90 70' fill='none' stroke-linecap='round'%3E%3Cpath d='M6 8H76V60' stroke='%23DB8437' stroke-width='1.6'/%3E%3Cpath d='M22 14H70V44' stroke='%238E97C4' stroke-width='1.2'/%3E%3Cpath d='M40 4H84V24' stroke='%23DB8437' stroke-width='1.2'/%3E%3Ccircle cx='6' cy='8' r='2.2' fill='%23DB8437' stroke='none'/%3E%3Ccircle cx='76' cy='60' r='2.2' fill='%23DB8437' stroke='none'/%3E%3Ccircle cx='22' cy='14' r='1.8' fill='%238E97C4' stroke='none'/%3E%3Ccircle cx='70' cy='44' r='1.8' fill='%238E97C4' stroke='none'/%3E%3Ccircle cx='84' cy='24' r='1.8' fill='%23DB8437' stroke='none'/%3E%3C/svg%3E");}
-.cf-stage-card::after{bottom:6px;left:6px;width:70px;height:70px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70' fill='none' stroke-linecap='round'%3E%3Cpath d='M10 6V60H62' stroke='%23DB8437' stroke-width='1.6'/%3E%3Cpath d='M16 20V54H44' stroke='%238E97C4' stroke-width='1.2'/%3E%3Cpath d='M4 34V66H28' stroke='%23DB8437' stroke-width='1.2'/%3E%3Ccircle cx='10' cy='6' r='2.2' fill='%23DB8437' stroke='none'/%3E%3Ccircle cx='62' cy='60' r='2.2' fill='%23DB8437' stroke='none'/%3E%3Ccircle cx='16' cy='20' r='1.8' fill='%238E97C4' stroke='none'/%3E%3Ccircle cx='44' cy='54' r='1.8' fill='%238E97C4' stroke='none'/%3E%3Crect x='1' y='31' width='6' height='6' fill='%23DB8437' stroke='none'/%3E%3C/svg%3E");}
+.cf-stage-card::before{top:0;right:0;width:96px;height:96px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96' fill='none' stroke-linecap='round'%3E%3Cg transform='rotate(180 48 48)'%3E%3Cpath d='M12 14V84H82' stroke='%23DB8437' stroke-width='1.6'/%3E%3Cpath d='M6 30V66M30 90H66' stroke='%238E97C4' stroke-width='1.2'/%3E%3Ccircle cx='12' cy='14' r='2.2' fill='%23DB8437'/%3E%3Ccircle cx='82' cy='84' r='2.2' fill='%23DB8437'/%3E%3Ccircle cx='6' cy='30' r='1.6' fill='%238E97C4'/%3E%3Ccircle cx='66' cy='90' r='1.6' fill='%238E97C4'/%3E%3C/g%3E%3C/svg%3E");}
+.cf-stage-card::after{bottom:0;left:0;right:0;height:96px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96' fill='none' stroke-linecap='round'%3E%3Cg transform='translate(0 0)'%3E%3Cpath d='M12 14V84H82' stroke='%23DB8437' stroke-width='1.6'/%3E%3Cpath d='M6 30V66M30 90H66' stroke='%238E97C4' stroke-width='1.2'/%3E%3Ccircle cx='12' cy='14' r='2.2' fill='%23DB8437'/%3E%3Ccircle cx='82' cy='84' r='2.2' fill='%23DB8437'/%3E%3Ccircle cx='6' cy='30' r='1.6' fill='%238E97C4'/%3E%3Ccircle cx='66' cy='90' r='1.6' fill='%238E97C4'/%3E%3C/g%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96' fill='none' stroke-linecap='round'%3E%3Cg transform='matrix(-1 0 0 1 96 0)'%3E%3Cpath d='M12 14V84H82' stroke='%23DB8437' stroke-width='1.6'/%3E%3Cpath d='M6 30V66M30 90H66' stroke='%238E97C4' stroke-width='1.2'/%3E%3Ccircle cx='12' cy='14' r='2.2' fill='%23DB8437'/%3E%3Ccircle cx='82' cy='84' r='2.2' fill='%23DB8437'/%3E%3Ccircle cx='6' cy='30' r='1.6' fill='%238E97C4'/%3E%3Ccircle cx='66' cy='90' r='1.6' fill='%238E97C4'/%3E%3C/g%3E%3C/svg%3E");background-position:left bottom,right bottom;}
 .cf-stage-card > *{position:relative;z-index:1;}
 .cf-stage-card .slide-dots{padding-right:90px;}   /* the dots stop short of the corner ornament */
 .cf-stage-card .slide-dots.cf-dots-bar{display:block;height:6px;border-radius:3px;background:rgba(255,255,255,.18);margin:6px 90px 12px 0;padding:0;}
@@ -3832,7 +3833,7 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-deck .cfx-kicker{background:transparent;border-color:rgba(255,255,255,.35);color:#F4B77A;}
 .cfx-deck .cfx-dot{background:rgba(255,255,255,.25);}.cfx-deck .cfx-dot.done{background:#AEB6CC;}
 .cfx-deck .cfx-full{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.35);color:#fff;}
-.cfx-sheet{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150' fill='none'%3E%3Cpath d='M122 6V128M130 20V128' stroke='%23DB8437' stroke-width='1.2'/%3E%3Cpath d='M138 0V140' stroke='%23262B45' stroke-width='1.2'/%3E%3Cpath d='M4 122H118M18 130H118' stroke='%23DB8437' stroke-width='1.2'/%3E%3Cpath d='M0 140H138' stroke='%23262B45' stroke-width='1.2'/%3E%3Cpath d='M84 150L150 92' stroke='%23262B45' stroke-width='1.2'/%3E%3Ccircle cx='116' cy='118' r='8' stroke='%23DB8437' stroke-width='1.2'/%3E%3Crect x='133' y='133' width='6' height='6' stroke='%23DB8437' stroke-width='1.2'/%3E%3C/svg%3E") no-repeat right 8px bottom 8px / 110px;color:var(--ink);border:1px solid rgba(255,255,255,.6);border-radius:14px;padding:18px 24px;box-shadow:0 8px 22px rgba(0,0,0,.18);}
+.cfx-sheet{background:#fff;color:var(--ink);border:1px solid rgba(255,255,255,.6);border-radius:14px;padding:18px 24px;box-shadow:0 8px 22px rgba(0,0,0,.18);}
 .cfx-sheet .cfx-art.small svg{max-height:200px;}
 /* Skill Building opener: the case documents, the challenge ribbon, the situation */
 .cfx-docs-row{display:flex;gap:14px;justify-content:center;margin:0 0 12px;}
@@ -4035,7 +4036,11 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
   .ab-table td{border:0;padding:4px 6px;}
   .cfx-aud-intro{font-size:15px;}
 }
-.cfx-blank{display:inline-block;min-width:4.5em;border-bottom:2px dotted #E8862A;color:transparent;}
+.cfx-blank{filter:blur(7px);user-select:none;pointer-events:none;color:var(--ink);background:#FCE3C6;border-radius:4px;padding:0 2px;font-weight:700;animation:cfxBlurPulse 2.4s ease-in-out infinite;}   /* the answer, blurred in place until revealed; a slow pulse marks it as hidden */
+@keyframes cfxBlurPulse{0%,100%{filter:blur(7px);opacity:1;}50%{filter:blur(9px);opacity:.7;}}
+.cfx-unblur{animation:cfxUnblur .9s ease-out both;}
+@keyframes cfxUnblur{from{filter:blur(8px);opacity:.6;}to{filter:blur(0);opacity:1;}}
+@media(prefers-reduced-motion:reduce){.cfx-blank{animation:none;}.cfx-unblur{animation:none;}}
 .cfx-reveal{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:10px 0;padding:10px 14px;border-radius:10px;background:#FFF6EC;font-size:14px;}
 .cfx-key-note{font-size:12.5px;color:var(--ink-soft);margin:6px 0;}
 .cfx-modal{position:fixed;inset:0;z-index:9999;background:rgba(20,26,44,.55);display:flex;align-items:flex-start;justify-content:center;padding:4vh 16px;overflow:auto;}
