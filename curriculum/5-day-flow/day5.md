@@ -2289,7 +2289,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 #### 1 · Visual Layout Description
 
-A PRACTICE MATTER banner in orange across the top: DENISE CARVER · LSH-2026-MVA-781205 · NOT JOHN DOE'S FILE. Left half, three stacked letter cards, each with a navy header (CLIENT · GRANITE SHIELD · BROOKSIDE PT) and a method chip (TEXT + EMAIL + CERTIFIED MAIL · EMAIL · FAX); only the client card carries an orange REASON line. Right half, the close-out log as a checklist: gate ✓ 12/08/2026, letters saved WORD + PDF, dispatch 12/09/2026, follow-up 12/16/2026, and a status pill turning from PENDING DROP to DROPPED. Bottom-right, a red chip: “Worthless? Not yours to say.”
+A PRACTICE MATTER banner in orange across the top: DENISE HARLOW · LSH-2026-MVA-781205 · NOT JOHN DOE'S FILE. Left half, three stacked letter cards, each with a navy header (CLIENT · GRANITE SHIELD · BROOKSIDE PT) and a method chip (TEXT + EMAIL + CERTIFIED MAIL · EMAIL · FAX); only the client card carries an orange REASON line. Right half, the close-out log as a checklist: gate ✓ 12/08/2026, letters saved WORD + PDF, dispatch 12/09/2026, follow-up 12/16/2026, and a status pill turning from PENDING DROP to DROPPED. Bottom-right, a red chip: “Worthless? Not yours to say.”
 
 #### 2 · Slide Body — Let Them
 

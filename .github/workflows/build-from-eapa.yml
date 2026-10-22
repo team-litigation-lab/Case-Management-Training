@@ -3,26 +3,41 @@
 # build/build.py turns EA-PA-TRAINING's index.html into this course's. Nothing used to run it, so
 # when EA/PA moved its day data into js/days/dayN/lessons.js the script broke and stayed broken:
 # every rebuild would have produced EA/PA's ten-day course in CM styling, and nobody would have
-# known until someone tried. This runs the build against EA/PA's current main so that drift is a
-# red check, not a surprise.
+# known until someone tried. This runs the build against EA/PA's current main, so that a change to
+# the build is tested against the page it edits.
 #
 # When this goes red, EA/PA has changed something build/build.py edits. The log names the anchor.
 # Nothing is broken for trainees by it on its own — the deployed page is the committed index.html,
 # not a fresh build — but the course can't pick up EA/PA's features until the edit is updated.
 #
-# It runs on its own, not inside Checks, for two reasons: the whole suite doesn't need to run daily,
-# and EA/PA drifting shouldn't turn an unrelated CM pull request red. Pull requests that touch the
-# build itself do get it.
+# It runs on its own, not inside Checks, so that EA/PA drifting never turns an unrelated CM pull
+# request red. Pull requests that touch the build itself get it, and only those: build/build.py, the four build/cm_*.js files it reads, the
+# two logos it inlines, and this check. build/case-flow/ is the course's own content pipeline (the
+# lessons, slides, scripts and simulation), which build.py never reads, so a lesson or slide edit no
+# longer runs an EA/PA check. EA/PA was the course's starting structure; the course has since gone
+# its own way.
+#
+# index.html is left out on purpose, though the check compares the built page with it: nearly every
+# pull request bumps a cache version there.
+#
+# There is no daily run any more. It watched for EA/PA drifting away from the course, and the course
+# now goes its own way, so that drift is expected rather than a fault. A script added to index.html,
+# or a change on EA/PA's side, is therefore no longer checked against the build until someone edits
+# the build or runs this by hand (Actions → Builds from the EA/PA portal → Run workflow).
 name: Builds from the EA/PA portal
 
 on:
   pull_request:
     paths:
-      - 'build/**'
+      - 'build/build.py'
+      - 'build/cm_calendar.js'
+      - 'build/cm_casefile.js'
+      - 'build/cm_practice_tools.js'
+      - 'build/cm_roleplay.js'
+      - 'js/lsh-logo-dark.png'
+      - 'favicon.png'
       - '.github/scripts/build-from-eapa.mjs'
       - '.github/workflows/build-from-eapa.yml'
-  schedule:
-    - cron: '41 6 * * *'   # daily, a few minutes off the hour so it isn't queued with everything else
   workflow_dispatch:
 
 permissions:
