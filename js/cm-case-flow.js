@@ -472,11 +472,14 @@ const KC_PER = 4;   // Knowledge Check questions on one slide
 const TH_PER = 4;
 const theoryOf = b => (SLIDES[b.id] || {}).theory || null;
 const roadmapOf = b => (SLIDES[b.id] || {}).roadmap || null;   // a complex lesson opens with its roadmap: the steps ahead, before any of them is taught or tested
+/* a roadmap marked `merge` is no slide of its own: it opens The Theory as a strip of its steps (a short lesson keeps both on one slide) */
+const mapView = b => roadmapOf(b) && !roadmapOf(b).merge ? ["map"] : [];
+const mapStrip = b => { const r = roadmapOf(b); return r && r.merge ? `<ol class="cfx-map-strip" style="--n:${r.steps.length}" aria-label="${E(r.title)}">${r.steps.map((x, i) => `<li><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span></li>`).join("")}</ol>` : ""; };
 const theoryViews = b => { const t = theoryOf(b); return !t ? [] : (t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]).concat(t.framework ? ["frame"] : []); };
 function viewsOf(b){
   if(b.kind === "lesson" && b.brief) return ["why", "rules"].concat((b.ops || []).length ? ["job"] : []);   // brief: a condensed overview (Day 5's litigation)
-  if(b.kind === "lesson" && b.compact) return ["why"].concat(roadmapOf(b) ? ["map"] : [], theoryViews(b).slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);   // compact: a full topic on fewer slides (Days 2, 4 and 5 keep to their slide budget)
-  if(b.kind === "lesson") return ["why"].concat(roadmapOf(b) ? ["map"] : [], theoryViews(b), ["rules"],b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // noGame: the CM introduction (Meet Your Case comes before the first game)
+  if(b.kind === "lesson" && b.compact) return ["why"].concat(mapView(b), theoryViews(b).slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);   // compact: a full topic on fewer slides (Days 2, 4 and 5 keep to their slide budget)
+  if(b.kind === "lesson") return ["why"].concat(mapView(b), theoryViews(b), ["rules"],b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // noGame: the CM introduction (Meet Your Case comes before the first game)
   if(b.kind === "activity") return ["case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], ["task"], EX.audits[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);   // compact: no See It slide (the worked model stays in 📖 Full text)
   return (copyOf(b).questions.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
 }
@@ -774,7 +777,7 @@ function slideBody(view, l, d){
     case "theory": case "theory2": {
       const t = c.theory, half = Math.ceil(t.concepts.length / 2), two = t.concepts.length > TH_PER;
       const list = !two ? t.concepts : view === "theory" ? t.concepts.slice(0, half) : t.concepts.slice(half);
-      return `<div class="cfx-theory cfx-th-solo"><div class="cfx-th-main">
+      return `<div class="cfx-theory cfx-th-solo"><div class="cfx-th-main">${view === "theory" ? mapStrip(b) : ""}
           ${view === "theory" ? (leadSplit(t.lead) ? `<p class="cfx-lead-1">${hl("**" + leadSplit(t.lead)[0] + "**")}</p><p class="cfx-th-lead">${hl(leadSplit(t.lead)[1])}</p>` : `<p class="cfx-th-lead">${hl(t.lead)}</p>`) : `<p class="cfx-th-cont">${E(titleCase(b.topic))}: continued</p>`}
           <div class="cfx-th-grid">${list.map((x, j) => `<div class="cfx-th-c" style="animation-delay:${j * .05}s"><b>${E(x.term)}</b><span>${hl(x.text)}</span>${(x.more || []).length ? `<button type="button" class="cfx-th-more" onclick="cmCaseFlow.more('${b.id}',${t.concepts.indexOf(x)})" title="More on ${E(x.term)}">＋ More</button>` : ""}</div>`).join("")}</div></div>
       </div>`;
@@ -3552,11 +3555,25 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-plain dt{font-weight:700;color:#262B45;white-space:nowrap;}
 .cfx-plain dd{margin:0;color:#4A5068;}
 .cfx-map .cfx-fw-note{margin-top:14px;}
+/* a merged roadmap: its steps as one row across the top of The Theory */
+.cfx-map-strip{list-style:none;margin:0 0 14px;padding:0 0 12px;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));grid-auto-flow:column;gap:10px;border-bottom:2px dashed #F0D2AE;}
+.cfx-map-strip li{display:grid !important;grid-template-columns:28px minmax(0,1fr);column-gap:8px;align-items:start;text-align:left !important;}
+.cfx-map-strip .cfx-fw-n{grid-column:1;grid-row:1 / span 2;position:static;margin:0;flex:none;}
+.cfx-map-strip b,.cfx-map-strip li > span:last-child{grid-column:2;text-align:left;}
+.cfx .cfx-map-strip li::before{display:none !important;content:none !important;}
+.cfx-map-strip b{font:800 14.5px/1.25 'Poppins','Inter',sans-serif;color:var(--navy);}
+.cfx-map-strip li > span:last-child{font:500 13.5px/1.35 var(--font-ui);color:var(--ink);}
 .cfx-lesson .cfx-dd > div{display:flex;flex-direction:column;align-items:center;}
 .cfx-lesson .cfx-dd h3{text-align:center;}
 .cfx-model{font-size:18px;}
 .cfx-model .cfx-caption{font:600 20px var(--font-ui);color:var(--navy-soft);margin:0 0 12px;}
 .cfx-model table{font-size:17px;}
+/* See It's Do / Don't board (the shared compare layout), at slide size */
+.cfx-model .lesson-compare{gap:18px;margin:0;}
+.cfx-model .lesson-compare .chead{padding:12px 18px;font-size:22px;}
+.cfx-model .lesson-compare .cbody{padding:16px 20px;}
+.cfx-model .lesson-compare .citem{font:500 20px/1.4 var(--font-ui);padding-left:26px;margin-bottom:12px;}
+.cfx-model .lesson-compare .citem::before{top:9px;width:11px;height:11px;}
 .cfx-job{display:flex;flex-direction:column;gap:16px;}
 .cfx-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:10px;align-items:stretch;animation:cfxIn .3s ease-out both;}
 .cfx-flow:nth-child(2){animation-delay:.1s}.cfx-flow:nth-child(3){animation-delay:.2s}
@@ -3976,6 +3993,11 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
   .lesson-stage .cfx-ribbon > span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(13px,1.1vw,17px) !important;}
   .lesson-stage .cfx-deck > .cfx-body{flex:1 1 0;min-height:0;display:flex;flex-direction:column;overflow:hidden;}
   .lesson-stage .cfx-body > .cfx-sheet{flex:1 1 auto;min-height:0;overflow:hidden;}
+  /* a short slide sits in the middle of its sheet, not at the top; auto margins centre it and give way to nothing
+     once the slide is full, so a tall slide is never pushed or clipped */
+  .lesson-stage .cfx-body > .cfx-sheet{display:flex;flex-direction:column;}
+  .lesson-stage .cfx-body > .cfx-sheet > :first-child{margin-top:auto;}
+  .lesson-stage .cfx-body > .cfx-sheet > :last-child{margin-bottom:auto;}
   /* the day's closing line sits over the middle of the Previous / Next bar, so the last slide keeps the same frame */
   .lesson-stage:has(> .cf-stage-card){position:relative;}
   .lesson-stage > .cf-stage-card ~ .slide-done-banner{position:absolute;left:0;right:0;bottom:6px;z-index:3;margin:0 auto !important;width:max-content;max-width:min(52%,640px);padding:6px 14px !important;font-size:13px !important;line-height:1.35;text-align:center;}

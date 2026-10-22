@@ -320,6 +320,7 @@
     "image": "privacy-shield",
     "roadmap": {
       "title": "Client Instructions: the Roadmap",
+      "merge": true,
       "steps": [
         {"label": "Give the instructions", "text": "No Recorded Statement, no posts, no signing without review"},
         {"label": "Treatment and barriers", "text": "Keep every appointment; **report any barrier** before a miss"},

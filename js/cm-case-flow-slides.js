@@ -963,6 +963,7 @@ window.CM_CF_SLIDES = {
   "image": "privacy-shield",
   "roadmap": {
    "title": "Client Instructions: the Roadmap",
+   "merge": true,
    "steps": [
     {
      "label": "Give the instructions",
