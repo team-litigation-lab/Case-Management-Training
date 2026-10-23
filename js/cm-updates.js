@@ -148,6 +148,7 @@ ol.sopx-s-list li{padding-left:58px;} ol.sopx-s-list li::before{content:counter(
 .pv-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;} .pv-nav .btn-ghost{background:#fff;}
 .pv-nav select{font:inherit;font-size:13px;border-radius:8px;border:none;padding:7px 8px;max-width:52%;color:var(--navy);}
 .pv-next{margin-top:10px;font-size:13px;color:#C9CDE3;} .pv-next b{color:#fff;}
+.pv-next-mini{margin-top:8px;max-width:380px;}
 .pv-cues{background:#FFFDF8;color:var(--ink);border-radius:14px;padding:16px 18px;max-height:calc(100vh - 150px);overflow:auto;position:sticky;top:80px;}
 .pv-cues .pv-label{color:var(--orange-deep);}
 .pv-cues h3{font-family:'Fraunces',Georgia,serif;color:var(--navy);font-size:19px;margin:0 0 10px;line-height:1.25;}
@@ -843,6 +844,8 @@ function presenterNextText(d){
   if((state.presentPages||1) > 1 && (state.presentPage||0) < state.presentPages-1) return `${esc(daySlideTitle(d, slides[idx]))} — page ${(state.presentPage||0)+2}`;
   return slides[idx+1] ? esc(daySlideTitle(d, slides[idx+1])) : "End of today's slides — Knowledge Check";
 }
+// Up next, in miniature: the console is the trainer's own tab, never shared, so the next slide can be shown here
+function presenterNextMini(d, idx){ return typeof slidePeekMini === "function" ? slidePeekMini(d, idx) : ""; }
 function renderPresenterConsole(d){
   const slides = buildDaySlides(d);
   const idx = Math.min(state.lessonSlide||0, slides.length-1); state.lessonSlide = idx;
@@ -864,6 +867,7 @@ function renderPresenterConsole(d){
             <button class="btn btn-primary" onclick="presenterStep(1)">Next →</button>
           </div>
           <div class="pv-next"><b>Up next:</b> <span id="pvNext">${presenterNextText(d)}</span></div>
+          <div class="pv-next-mini" id="pvNextMini" data-slide="${idx}">${presenterNextMini(d, idx)}</div>
           <p class="pv-tip">In Google Meet: <b>Present now → A window</b> → pick <b>“LSH Slides — share this window”</b>. Keep this tab for yourself; use ← → keys here to move the slides. To show the room a tool or a document beside the slide, click its button in the slides window: it opens ⧉ Side by side there.</p>
         </section>
         <aside class="pv-cues"><div class="pv-label">Your notes — only you can see these</div><div id="pvCues">${presenterCues(d, slides[idx])}</div></aside>
@@ -876,6 +880,7 @@ function presenterRefresh(){
   const slides = buildDaySlides(d), idx = state.lessonSlide||0;
   const c = document.getElementById("pvCount"); if(c) c.textContent = presenterCountText(d);
   const n = document.getElementById("pvNext"); if(n) n.innerHTML = presenterNextText(d);
+  const nm = document.getElementById("pvNextMini"); if(nm && nm.dataset.slide !== String(idx)){ nm.dataset.slide = String(idx); nm.innerHTML = presenterNextMini(d, idx); }
   const j = document.getElementById("pvJump"); if(j) j.value = String(idx);
   const cueKey = idx + "|" + (state.presentSecsFor===idx ? (state.presentSecs||[]).join(",") + "|" + (state.presentPage||0) + "/" + (state.presentPages||1) : "");
   const cu = document.getElementById("pvCues"); if(cu && cu.dataset.slide !== cueKey){ cu.dataset.slide = cueKey; cu.innerHTML = presenterCues(d, slides[idx]); cu.parentElement.scrollTop = 0; }
