@@ -2170,7 +2170,7 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (14 questions):
+**Auto-graded share of the day's Knowledge Check** (16 questions):
 
 1. Once the claim is set up, the Case Plan is typically filed within:  
    7 days · **✓ 30–60 days, depending on the state** · 6 months · After Maximum Medical Improvement  
@@ -2214,6 +2214,12 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 14. On a check-in, a client says the clinic is a waste of his time and he is thinking of quitting. Which response is motivational interviewing?  
    “If you quit, it will hurt your case.” · **✓ “It sounds like that clinic isn't a good fit for you. Let's look at why.”** · “You have to go; the doctor ordered it.” · “Fine, I'll cancel your appointments.”  
    *Rolling with resistance: don't argue, pivot to his reason and take it to the provider. What quitting means for the claim is Atty. Thorne's to explain.*
+15. On a Florida PIP file, who can make the Emergency Medical Condition (EMC) determination that opens the full $10,000 medical benefit?  
+   Any treating provider, including a chiropractor · **✓ An MD or DO, a dentist, a physician assistant or an advanced practice registered nurse** · The Case Manager, from the intake call · The PIP adjuster  
+   *Under Fla. Stat. § 627.736(1)(a), only an MD, DO, dentist, PA or APRN can determine an EMC. A chiropractor may give initial care but cannot make the finding; without it, medical benefits stop at $2,500.*
+16. John Doe's PIP claim is under Harbor Point's $5,000 PIP in Riverton. How does the EMC rule apply to it?  
+   His PIP is capped at $2,500 until a physician finds an EMC · He lost PIP medical benefits because he first treated on day 14 · **✓ It does not apply: Riverton is an add-on PIP state with no EMC rule** · Only his chiropractic bills are capped  
+   *The EMC rule is Florida's. Riverton has no EMC rule and no 14-day condition; John's 02/20/2026 visit falling on day 14 matters only as a Florida hypothetical.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 

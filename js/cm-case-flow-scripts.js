@@ -485,6 +485,19 @@ window.CM_CF_SCRIPTS = {
    "say": "Let's close with 3 Clues, 1 Rule. Each round hides one Do or Don't about red flags, yellow flags and motivational interviewing. I'll show three clues one at a time; call Do or Don't as soon as you've got it, and name the rule. Three points for the first clue, two for the second, one for the third. While you play, keep one line in mind. You can listen, reflect and keep John Doe engaged in the plan his providers set. You can't tell him that missing visits will hurt his case, and you can't decide a screen, a medication or a referral."
   }
  },
+ "d1m4-emc": {
+  "why": {
+   "say": "PIP isn't one national rule. Every state writes its own, and the Emergency Medical Condition rule is Florida's. On a Florida file it decides, within days of the accident, whether PIP pays any medical benefits at all, and whether the client has $2,500 or $10,000 to draw on. Miss it and no demand letter fixes it later. Now, John Doe's file is in Riverton. Riverton is an add-on PIP state with no EMC rule, so his $5,000 of Harbor Point PIP isn't capped by one. But the day you open a Florida file, the clock starts at the date of loss, and you're the one who calendars it.",
+   "ask": "Before you apply any PIP rule to a file, what's the first fact you need to check?"
+  },
+  "rules": {
+   "say": "Here's Florida's rule, Fla. Stat. section 627.736. PIP is $10,000, paying 80% of reasonable medical expenses and 60% of lost income. Initial care has to happen within 14 days after the accident, or PIP pays nothing for medical. The full $10,000 is there only if an MD, a DO, a dentist, a physician assistant or an advanced practice registered nurse determines there was an Emergency Medical Condition. Without that, medical stops at $2,500. A chiropractor can give the initial care but can't make the EMC finding, and massage and acupuncture aren't covered. Had John's file been in Florida, 02/20/2026 was day 14, the last day inside the window. And always confirm the current statute.",
+   "ask": "Could Dr. Mark Ellison, John's chiropractor, make an EMC determination under Florida's rule?"
+  },
+  "job": {
+   "say": "Let's walk a Florida file. At intake you calendar the 14-day initial-care deadline from the date of loss, and you tell the client that deadline and where and when care is available. That's facts and logistics, never a medical recommendation. When the first record arrives, you check three things: the date against day 14, who saw him, and whether an EMC determination is written down. If a qualifying provider's record doesn't have one, you ask the office whether it was assessed and request it in the records. You keep the $2,500 or $10,000 bucket current in the PIP Log, and a missing EMC or a late first visit goes to Atty. Thorne the same day. The provider decides the EMC; Atty. Thorne decides what it means."
+  }
+ },
  "d1m4-a1": {
   "case": {
    "say": "This is Day 2's most consequential activity. Everything on Days 3 to 5 turns on this flag existing and being accurate. On 03/13/2026, a CMS notice: Riverton Urgent Care's 02/20/2026 note and Riverton Spine & Rehab's visits since 02/24/2026 are now indexed to the treatment timeline, right beside the 02/06/2026 EMS Run Report. The date of loss is 02/06/2026. The first treatment falls 14 days later. And look at the last line of the notice: Risk Flags, none recorded. Nobody has flagged this yet. That's your job.",
@@ -1267,6 +1280,20 @@ window.CM_CF_SCRIPTS = {
    "ask": "If Dana Whitfield raises the April break, which record answers the 19-day disruption?"
   }
  },
+ "d3m2-bins": {
+  "case": {
+   "say": "It's 08/12/2026, a Wednesday, and Dana Whitfield has just tendered Keystone's $10,000 BI limits, inside the 08/21 window. Good news, and John Doe will hear about it soon. But no check has issued, no release is signed, and the UM layers haven't even been demanded yet. Atty. Thorne's memo asks for one thing before he sits down with John: the BI settlement Net Sheet. Stream 1 on his 25% working allocation, and Stream 1 standing alone. The liens are where they were on 08/05: Peach State at $1,860.00 and Riverton Spine & Rehab at $6,105.00 audited, nothing reduced. So picture John on the phone tomorrow saying Keystone paid ten thousand, where's my share.",
+   "ask": "If John Doe asks why he can't have his share of Keystone's $10,000 now, what does the math say?"
+  },
+  "task": {
+   "say": "You'll build Stream 1 in the LSH Net Sheet. Enter the $10,000.00 gross as tendered, not received. Take the fee at the pre-suit 33⅓% from the retainer, that's $3,333.33, and the five receipted costs, $486.75. Enter both liens as they stand today and leave the reduction column blank. Then run Atty. Thorne's 25% allocation: $121.69 of costs and $1,991.25 of liens, down to a projected net of $4,553.73, and label it a projection with what it assumes. Beside it, run the BI-alone fact pattern: $6,179.92 left against $7,965.00, shared pro rata, John at $0.00. Route it to Atty. Thorne today with the trust-hold flag. The allocation and anything about value are his.",
+   "ask": "Which figure on your sheet would you never read to John Doe, and why?"
+  },
+  "check": {
+   "say": "Check yourself before you route it. Is the fee $3,333.33, and not $3,333.00 from typing 33.33%? Are the liens $1,860.00 and $6,105.00, with no reduction pencilled in, because nobody has agreed one? Is Stream 2 open, with nothing entered? Is $4,553.73 marked as a projection, with the allocation and the open UM layers written beside it? Does the BI-alone pattern show $6,179.92 against $7,965.00, a $1,785.08 shortfall, Peach State $1,443.15 and Riverton Spine & Rehab $4,736.77, and John Doe at $0.00? And did you flag, as a fact, that the money can't be paid out on its own and stays in trust until the liens resolve, and leave the rest to Atty. Thorne?",
+   "ask": "You posted Keystone's $10,000 to the Trust Ledger today. What's wrong with that entry?"
+  }
+ },
  "d3m2-l2": {
   "why": {
    "say": "I've got Harbor Point's 03/02/2026 letter up, and I want you to find the sentence in it that's worth $10,000 to John Doe. Give it a second. It's the add-on clause. On a reduction policy, Keystone's $10,000 would have come straight off the top of the $20,000. Once Keystone tenders, the money that makes John Doe whole sits with two first-party carriers that insure him, and both of them will argue against him. We reach $40,000 by proving the gap above each layer, closing every reduction in writing first, and papering every single move.",
@@ -1308,6 +1335,20 @@ window.CM_CF_SCRIPTS = {
   "check": {
    "say": "Run this check before you log your work. Is Harbor Point's 09/14 offer logged with both reasons quoted and reported the same day? Does the counter-package answer the offset half with the 03/02/2026 letter and the damages half with the medical proof, including the MMI residuals and future care of $3,400 to $6,800? Did it go out 09/16 with no figure below limits from you? For Harbor Point's $20,000 on 09/29 and Cardinal State's $10,000 tender on 10/06, is each acceptance recorded as John Doe's informed decision through Atty. Thorne, with who, on whose advice, and when? “Accepted” alone is incomplete. Your Recovery Ledger should read $40,000.00 and nothing else. Add PIP's $5,000 or Keystone's property-damage payments and you've mixed in money that doesn't belong.",
    "ask": "Was each UM release signed before its check arrived on 10/05 and 10/13?"
+  }
+ },
+ "d3m2-umns": {
+  "case": {
+   "say": "It's the sixth of October. Teresa Okafor has just tendered Cardinal State's ten thousand dollar Relative UM limits, and John accepted through Atty. Thorne. Harbor Point's twenty thousand has been in trust since yesterday, and Keystone's ten thousand since the fourth of September. So the stack is closed at forty thousand, but only thirty thousand is actually in the account. The liens haven't moved yet: Peach State asserts eighteen sixty, and Riverton Spine and Rehab's account is sixty-one oh five after our audit. Atty. Thorne's memo asks for the UM settlement Net Sheet before he goes through it with John.",
+   "ask": "Of everything on this file today, which numbers are firm, and which are still going to move?"
+  },
+  "task": {
+   "say": "You're building Stream 2, the UM column, as it stands today. Post Harbor Point and Cardinal State to the Recovery Ledger, and show which check is in trust and which is only tendered. Take the pre-suit one-third fee. Then allocate costs and liens to Stream 2 at seventy-five percent, pro rata to gross, with each lien at its asserted or audited figure, not the reduction you hope for. Mark every figure that can still change, and write what will change it. Tie Stream 2 to Stream 1 and to the Trust Ledger. Then the part I'm grading hardest: the questions Atty. Thorne has to answer before John sees this sheet. It goes to him, not to John.",
+   "ask": "Why does Stream 2 carry only seventy-five percent of the costs and liens, when it's the bigger check?"
+  },
+  "check": {
+   "say": "Check it to the cent. Gross thirty thousand. Fee ten thousand even. Costs: Stream 1 takes one twenty-one sixty-nine, so Stream 2 takes the remainder, three sixty-five oh six. Peach State, thirteen ninety-five. Riverton Spine and Rehab, forty-five seventy-eight seventy-five, on the audited figure, not the billed one. Projected net, thirteen thousand six sixty-one nineteen, labelled a projection. Add Stream 1's forty-five fifty-three seventy-three and you get eighteen thousand two fourteen ninety-two, which is forty thousand less the whole fee, the costs and the unreduced liens. Is Harbor Point's PIP at zero, with its 03/02 letter cited? Is Cardinal State receivable, not received? And are your four questions written down and routed today?",
+   "ask": "John calls tomorrow and asks if he's getting thirteen thousand. What do you tell him?"
   }
  },
  "d3m2-kc": {
@@ -1619,6 +1660,20 @@ window.CM_CF_SCRIPTS = {
    "ask": "What does Margaret Doe still hold today, and who holds the Escape's event data recorder?"
   }
  },
+ "d4m1-efile": {
+  "case": {
+   "say": "It's the twenty-second of September twenty twenty-six, and we're on Track B. The file went to Litigation on the tenth, on Atty. Thorne's authorization, and the filing target is the twenty-fourth, so today is our forty-eight-hour audit. This morning he approved his Complaint against Robert Smith in the State Court of Riverton County. What we don't have yet is the civil cover sheet and the summons. And there's a trap in the CMS: an older draft from the fifteenth, stamped not for filing, unsigned, no case number. Once the envelope is accepted, the fee tier moves to forty percent and the court's clocks start.",
+   "ask": "Two Complaints sit in the CMS today. How will you make sure the right one reaches the court?"
+  },
+  "task": {
+   "say": "Four moves. First, tag Nadia Brooks on the Litigation Desk with a task she can act on without calling you: the cover sheet and the summons, built from the Complaint he approved this morning, due tonight, routed to Atty. Thorne for signature. He signs on the twenty-third. Second, on the twenty-fourth, you build the envelope in Court E-Filing: the caption, the court, the three documents, the filing attorney and the two hundred eighteen dollar fee, and you open every page to check his signature first. Third, when it's accepted, you record the case number, file the stamped Complaint, the summons and the conference notice, and post the fee. Fourth, you calendar what the filing starts, and you hold what it doesn't.",
+   "ask": "Which deadline can you calendar the day you file, and which one has to wait? Why?"
+  },
+  "check": {
+   "say": "Check your work against this. Your task to Nadia names the documents, the approved Complaint, the due date and Atty. Thorne as signer. Nothing went in unsigned, and the September fifteenth draft never left the CMS. The envelope was accepted on the twenty-fourth as twenty-six CV zero four four one seven, and that number replaced Pending in the court fields. Three named PDFs sit in zero one pleadings, and costs read seven hundred four dollars seventy-five. The service deadline is January twenty-second, twenty twenty-seven, a Friday, a hundred and twenty days out, with alerts. Allied Process Services has its hand-off. The conference is December tenth at nine, with Atty. Thorne attending. And the answer date says set on service.",
+   "ask": "If the answer date had been calendared today, what would it have been counted from, and why is that wrong?"
+  }
+ },
  "d4m1-kc": {
   "questions": {
    "say": "Okay, time for the Learning Check. Answer each question from this file, in your own words, and type your answer right under the question. Start with question 1, because it's the foundation: explain the fork, what's the same on Track B as on Track A, what changes on 08/12/2026, and why a $10,000 carrier freezes all $40,000. If you can't explain that last part in plain words, flag me, and we'll revisit Day 2's order of operations together before moving on.",
@@ -1663,6 +1718,20 @@ window.CM_CF_SCRIPTS = {
   "check": {
    "say": "Here's what your audit should show before you log it. Responses corrected to Monday 01/04/2027, since 12/01 plus 30 plus 3 lands on Sunday 01/03. The RFA entry added, all 15 due 01/04/2027, flagged deemed admitted if unanswered. People fix what's on the screen and miss what isn't, and that's the nearest, most severe deadline here. Expert disclosures un-swapped. Mediation entered as completed by 03/31/2027. Internal hard date 02/04/2028 added. Filing cutoff corrected from 11/08/2027 to 11/05/2027, rolled earlier, never forward. Correct entries verified and left alone. Errors ranked, rights ahead of time. Many courts accept a Monday filing after a Sunday deadline, but the firm won't rely on it, and calling opposing counsel about an extension fails the authority row.",
    "ask": "Did you recompute each date from its trigger document, or from the entry you were checking?"
+  }
+ },
+ "d4m2-medcal": {
+  "case": {
+   "say": "It's 01/08/2027, a Friday, and the Notice of Mediation was filed this morning. Hon. Carla Benton (Ret.), the mediator Atty. Thorne picked from the four windows we collected on 12/17, will see us on Thursday 03/18/2027 at 9:30 a.m., in person at her office. The statement and binder are due 7 days before, and John Doe has to be there. The order of referral from 12/10 says more than that: each party attends, lead counsel attends, and Keystone sends someone with full authority to settle. The fees are split equally, and our half is $1,200.00. Remember, our 12/10 audit already put “completed by 03/31/2027” on the calendar.",
+   "ask": "How many separate dates do you think this one notice creates on John Doe's file?"
+  },
+  "task": {
+   "say": "You'll work it in the Calendaring Simulators and mirror everything to the CMS Calendar. Verify the trigger first: the notice beat the order's 30-day rule, and 03/18 sits 13 days inside 03/31, so link that existing deadline and close the windows task instead of keying either again. Enter the session with its attendees. Then count back: binder due 03/11, Atty. Thorne's approval by 03/09, the binder QC on 03/04, the Litigation Desk's draft index on 03/02. Count forward to the mediator's report on 03/25. Get John's written confirmation and set his reminders. Open a cost task for the $1,200.00. And flag for Atty. Thorne that Harbor Point and Cardinal State must consent in writing before any BI settlement.",
+   "ask": "If Keystone tenders its limits at the table on 03/18, what can't happen until both UM carriers answer?"
+  },
+  "check": {
+   "say": "Here's what your calendar should show. The session once, on Thursday 03/18/2027 at 9:30 a.m., linked to the 03/31 deadline rather than duplicating it. Statement and binder on Thursday 03/11, no roll needed. Approval by Tuesday 03/09, QC on Thursday 03/04, draft index on Tuesday 03/02. The mediator's report watched on 03/25. John's confirmation requested today with a tickler on 01/15. The fee as half of $2,400.00, which takes advanced costs from $989.75 to $2,189.75, but only once the invoice is receipted. The UM flag with its arithmetic: 30 days from a 03/18 notice runs to Saturday 04/17. And the one conflict: our expert disclosure on Monday 03/15 lands between binder and session.",
+   "ask": "Which entry on your calendar did you count from another entry instead of from its trigger document?"
   }
  },
  "d4m2-um": {
@@ -1713,6 +1782,20 @@ window.CM_CF_SCRIPTS = {
   "check": {
    "say": "Check your matrix before you log it. Mediation: Hon. Carla Benton facilitates only, non-binding, held 03/18/2027 inside 03/31/2027. Arbitration: Laura Whitcomb acts as judge, binding award, narrow review, under Harbor Point's clause with Cardinal State joined. Opposing parties went from Robert Smith to the UM carriers, who are now the other side. Limits in play: $20,000 plus $10,000, so $30,000. Exhibits 06/02/2027. The brief is the trap: 10 days back is Saturday 06/12, so it moves to Friday 06/11, never Monday 06/14. Logistics and your UPL map are in. And your deferral: \"I'm the Case Manager providing administrative assistance; Atty. Thorne will address that.\" If you audited the Riverton Spine & Rehab bill, you'll want to answer. Don't.",
    "ask": "Say your deferral line out loud once: what are the exact words you'll use at the hearing?"
+  }
+ },
+ "d4m2-arbcal": {
+  "case": {
+   "say": "It's Monday, 04/26/2027, and Laura Whitcomb's scheduling letter has just landed. The consolidated UM arbitration against Harbor Point and Cardinal State is set for Tuesday, 06/22/2027, at 9:00 a.m. Exhibits and witness lists are exchanged 20 days before, and briefs are due 10 days before. The plaintiff's share of her fee is $900.00. Keystone's $10,000 went in at the 03/18/2027 mediation and Robert Smith is out of the case, but the master calendar still shows the court's dates from the 12/10/2026 Scheduling Order, and the SOL entries. One date is fixed now, and everything else on this file for the next nine weeks hangs off it.",
+   "ask": "Before you open anything, name every date that has to count back from 06/22/2027. Which ones are not in the letter at all?"
+  },
+  "task": {
+   "say": "You'll start in the Docket System. Enter the hearing and re-anchor the exchange and brief entries to the letter, so the letter is their trigger, not the memo from 04/05. Then work in the Calendaring Simulators and count back the internal dates: the Litigation Desk's draft index, the day binder QC opens, the last day to send the certified-records requests, and their chase. Hold John's attendance confirmation, the prep session Atty. Thorne will lead and the technology check on the CMS Calendar. Route the $900.00 to accounting as a case cost. Last, check it all against the master calendar. The SOL entries stay. The court's dates in a suit that ended with Robert Smith's dismissal go to Atty. Thorne as a question, not into the bin.",
+   "ask": "The records have to be in hand when binder QC opens. So which date do you count the request deadline back from?"
+  },
+  "check": {
+   "say": "Check your entries. Hearing 06/22/2027 at 9:00 a.m., exchange 06/02/2027, and the brief on Friday 06/11/2027, because 10 days back is a Saturday and a backward count moves earlier, never to Monday 06/14. Binder QC opens Monday 05/17/2027, 16 days before the exchange, with the draft index due Friday 05/14. Records requests out by Monday 05/03/2027, which is 05/17 less the 14-day custodian window, with a chase tickler on each. John confirmed by 04/21, the prep session proposed for 06/15 and the tech check 06/21. The $900.00 is a case cost. The SOL hard date 02/04/2028 and the 11/05/2027 cutoff are untouched, and the court dates are kept, marked and asked about. No award date anywhere.",
+   "ask": "Why is there no entry for the award, when every other date in this arbitration is on the calendar?"
   }
  },
  "d4m2-a3": {

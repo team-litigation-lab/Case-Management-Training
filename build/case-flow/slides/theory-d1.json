@@ -611,5 +611,49 @@
       ],
       "note": "Medical danger reaches the provider the same day; legal danger reaches Atty. Thorne. Then A-C-T runs."
     }
+  },
+  "d1m4-emc": {
+    "lead": "PIP is written state by state. **The EMC rule is Florida's**: 14 days to initial care, and an EMC finding decides $2,500 or $10,000",
+    "concepts": [
+      {
+        "term": "Personal Injury Protection (PIP)",
+        "text": "First-party coverage paid regardless of fault, written **state by state**: limits, percentages and conditions change at the state line",
+        "more": [
+          "Florida PIP: $10,000, paying 80% of reasonable medical expenses and 60% of lost income",
+          "Riverton PIP, John Doe's file: Harbor Point $5,000, paying 100% of medical and 80% of lost income",
+          "Riverton has **no EMC rule** and no 14-day condition"
+        ]
+      },
+      {
+        "term": "Emergency Medical Condition (EMC)",
+        "text": "Acute symptoms, possibly severe pain, serious enough that **no immediate care** could seriously jeopardize health or bodily function",
+        "more": [
+          "Acute symptoms of sufficient severity, which may include severe pain",
+          "Absent immediate care, expected to cause serious jeopardy to health, impairment of bodily functions, or dysfunction of an organ or part",
+          "Whether it exists is **the provider's clinical judgment**"
+        ]
+      },
+      {
+        "term": "The 14-Day Rule",
+        "text": "Florida PIP pays no medical benefits unless initial care is received **within 14 days** after the accident",
+        "more": [
+          "Count from the date of loss and docket the 14th day at intake",
+          "Hypothetical: a 02/06/2026 date of loss puts day 14 on **02/20/2026**, John Doe's first visit"
+        ]
+      },
+      {
+        "term": "The Benefit Ceiling",
+        "text": "An MD, DO, dentist, PA or APRN's EMC finding opens **the full $10,000**; without it, $2,500",
+        "more": [
+          "A chiropractor may give initial care but **cannot make the finding**",
+          "Massage and acupuncture are not reimbursable under Florida PIP",
+          "Confirm the current statute: Florida has repeatedly considered repealing PIP"
+        ]
+      }
+    ],
+    "pages": [
+      "D1#27",
+      "D1#39"
+    ]
   }
 }

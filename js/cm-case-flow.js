@@ -589,6 +589,7 @@ function emailTarget(id, blockId){
 }
 const NET_STAGE = {};
 Object.keys(STORED).forEach(id => { const st = NET_MODS[STORED[id].mod.id]; if(st) NET_STAGE[id] = st; });
+Object.assign(NET_STAGE, {"d3m2-bins": "bi", "d3m2-umns": "um"});   // the settlement-stage sheets, one per stream
 /* The records, docket and court-filing platforms, at the steps where that work happens on John Doe's file (on top of
    any the step's own text names): ChartSwap for the records and itemized bills behind treatment, specials, liens and
    discovery; the Docket System for every court date the litigation track sets; Court E-Filing for the complaint,

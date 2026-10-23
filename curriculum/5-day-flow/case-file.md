@@ -267,7 +267,7 @@ before any negotiated reduction, leaving John Doe nothing — which is why the l
   exhaustion. Harbor Point offers **$8,000** (03/31/2027); Cardinal State **$6,000** (04/02/2027).
 - **04/05/2027** Harbor Point and Cardinal State hold, disputing damages (the gap). Harbor Point's UM arbitration clause
   is invoked; Cardinal State joins one consolidated **binding arbitration**, arbitrator **Laura Whitcomb, Esq.**
-  **04/19/2027 (Mon)** Laura Whitcomb's scheduling letter sets the hearing: **06/22/2027 (Tue), 9:00 a.m.**; exhibit exchange 20 days before → **06/02/2027**; arbitration brief 10 days
+  **04/26/2027 (Mon)** Laura Whitcomb's Notice of Hearing (after the 04/23 scheduling call) sets the hearing: **06/22/2027 (Tue), 9:00 a.m.**; exhibit exchange 20 days before → **06/02/2027**; arbitration brief 10 days
   before → 06/12/2027 is a Saturday → **docket 06/11/2027 (Fri)** (counting backward, move to the earlier business day).
 - **07/06/2027 (Tue) award (case won):** Laura Whitcomb finds John Doe's damages exceed the UM limits and awards
   **Harbor Point $20,000** (host UM) and **Cardinal State $10,000** (relative UM, excess). Keystone's $10,000 BI
