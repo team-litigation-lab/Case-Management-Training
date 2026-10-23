@@ -215,7 +215,7 @@ her shift (first open evening slot 04/21); *Track* — confirmed attendance 04/2
     Kettering. On a call that day John says he never contacted or signed with the firm and did not know of it; he calls
     back after speaking with his mother, who confirms she signed it after hearing a radio advertisement. The evidentiary
     packet (factual summary, timeline, signature comparison, work-product audit, hold record) goes to Atty. Thorne.
-  - **10/16/2026 (Fri)** Atty. Thorne's letter repudiates the lien and asks for its written withdrawal. **10/19/2026 (Mon)**
+  - **10/16/2026 (Fri)** Atty. Thorne's letter repudiates the lien and asks for its written withdrawal by 10/20. **10/19/2026 (Mon)**
     Vance & Kettering withdraws the notice of lien in writing and claims no fee. Atty. Thorne releases the hold the same
     day; all correspondence is filed in the CMS and kept on the Backup Drive. Every later date and figure stands: funds
     cleared 10/20, Settlement Statement 10/21, disbursement 10/22, net $20,359.92.
@@ -345,6 +345,6 @@ the facts above. Fictional throughout; no real carrier, provider or firm.
 | Witness | **Ruth Calloway**, 2209 Maple Hollow Rd · signed statement to Officer Garner on scene |
 | Doorbell video | Margaret Doe's camera at 2214 Maple Hollow Rd · clip 07:09:41–07:10:26 · copy secured 02/19/2026 (USB, SHA-256 logged) |
 | Property Damage | **Riverton Collision Center** (estimator Paul Diaz) · tow and storage **Riverton Towing** · rental **Rivergate Rentals** · DV appraisal **Riverton Auto Appraisal** (Carl Benning) |
-| Settlement execution (Track A) | Notary **Renee Castillo**, Notary Public, Riverton County (LSH Law Group office) · Keystone release forms KM-REL-100 (draft) and KM-REL-100-L (Limited Release) · Keystone check **no. 0048213** |
-| Outside firm (Track A lien) | **Vance & Kettering Injury Law, LLC**, 88 Foundry Row, Millbrook · (555) 010-8800 · Atty. **Corbin Vance**, cvance@vancekettering.example · never retained by John Doe |
+| Settlement execution (Track A) | Notary **Renee Castillo**, Notary Public, Riverton County (LSH Law Group office; commission no. NP-0522190, expires 03/31/2030) · Keystone release forms KM-REL-100 (draft) and KM-REL-100-L (Limited Release) · Keystone check **no. 0048213** |
+| Outside firm (Track A lien) | **Vance & Kettering Injury Law, LLC**, 88 Foundry Row, Millbrook · (555) 010-8800 · Atty. **Corbin Vance**, cvance@vancekettering.example · intake coordinator Paige Lusk · never retained by John Doe |
 | Litigation | Process server **Allied Process Services** (Miguel Santos) · Skip-Trace **TraceLine Investigations** · defense **Atty. Grant Mercer, Mercer & Hale LLP**, 10 Court Sq, Riverton · court reporter **Riverton Court Reporting** |
