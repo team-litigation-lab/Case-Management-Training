@@ -3,7 +3,7 @@
     "lead": "A demand is not a request for money; it is a **presentation of a debt owed**, built on the legal and procedural foundation.",
     "concepts": [
       {"term": "Legal and Procedural Foundation", "text": "Three pillars every demand stands on: SOL, Liability Framework, Coverage Analysis. Know **the why behind the paperwork**.", "more": ["SOL: docketed, 02/06/2028 on John Doe's file", "Liability: Smith's stop-sign citation, Ruth Calloway and the doorbell video", "Coverage: Keystone's Dec Page (03/20/2026), BI limit $10,000", "Confirm all three before the demand is drafted"]},
-      {"term": "The Time-Limited Demand", "text": "A within-limits demand with a stated window: it **forces a decision on the record**; an unreasonable refusal can matter.", "more": ["**Within limits**: $10,000, Keystone's full BI limit", "Clear: every term acceptable as written; releases Robert Smith and Keystone only, BI claim only", "Reasonable: conditions Keystone can meet, with 30 days to meet them", "Documented: the Big Four complete, the gap answered up front", "Timed: the clock runs from delivery of the certified mailing; 07/22/2026 + 30 = 08/21/2026", "Terms, extensions and any bad-faith call are Atty. Thorne's; the CM builds, serves and proves delivery"]},
+      {"term": "The Time-Limited Demand", "text": "A within-limits demand with a stated window: it **forces a decision on the record**; an unreasonable refusal can matter.", "more": ["**Within limits**: $10,000, Keystone's full BI limit", "Clear: every term acceptable as written; releases Robert Smith and Keystone only, BI claim only", "Reasonable: conditions Keystone can meet, with 30 days to meet them", "Documented: the Big Four complete, the gap answered up front", "Timed: the clock runs from the adjuster's written acknowledgement of receipt; 07/22/2026 + 30 = 08/21/2026", "Terms, extensions and any bad-faith call are Atty. Thorne's; the CM builds, serves and proves delivery"]},
       {"term": "The Why Factor", "text": "Every bill carries **why the treatment was necessary**: the adjuster evaluates a documented recovery, not a pile of invoices.", "more": ["Lead causation with the 03/13/2026 MRI: a C5-C6 herniation, then the injection", "Demand at MMI (06/12/2026), with future care narrated", "Specials on John Doe's file: $14,817.40 medical + $1,584.00 wages = **$16,401.40 total**", "Specials also cover documented out-of-pocket costs: trip-log mileage to treatment, rides, prescriptions, equipment", "The mileage rate follows the governing state's rules, confirmed by Atty. Thorne"]},
       {"term": "The Final Scrub", "text": "Before it goes out, check for **common adjuster traps**: billing overlaps, an unexplained pre-existing condition, unverified balances.", "more": ["Name the 14-Day Gap first: 02/06 → 02/20/2026, no car until 02/18, cost worry, numbness from 02/18", "Prove continuity: EMS report, Northgate call-outs (02/09–02/13), urgent-care onset note, Dr. Reyes's Causation Letter", "Answer “degenerative” with the MRI: **no significant degenerative change** at the adjacent levels", "Never leave the gap out of the timeline and hope Keystone misses it"]}
     ],
@@ -195,5 +195,55 @@
       ],
       "note": "Disbursement serves accuracy, compliance and fraud prevention: no gate opens before the one before it closes."
     }
+  },
+  "d3m1-pkg": {
+    "lead": "A Demand Package is **a presentation of proof by function**: each part answers one adjuster question, and a missing part is the adjuster's discount.",
+    "concepts": [
+      {
+        "term": "The Big Four",
+        "text": "Medical Specials, the Narrative, Liability Proof, Special Damages: **flawless before attorney review**, each with its document",
+        "more": [
+          "Medical Specials: one line per provider and date of service, reconciled to the audit: **$14,817.40**",
+          "The Narrative: the Human Story, how the injury changed his work and daily life",
+          "Liability Proof: RPD-26-018842, Ruth Calloway's statement, the doorbell clip, the Property Damage photos",
+          "Special Damages: Northgate's wage letter ($1,584.00) and out-of-pocket receipts, each tied to a line"
+        ]
+      },
+      {
+        "term": "The Human Story",
+        "text": "How the injury changed work, family and daily life, **told only from his words** and the records",
+        "more": [
+          "A Northgate warehouse shift lead since 01/12/2026; five shifts missed 02/09–02/13 citing neck pain",
+          "Numbness into his right hand from 02/18; his mother drove him to evening therapy from 04/21",
+          "At MMI (06/12/2026): residual intermittent right-arm paresthesia; repeat injections possible within 24 months",
+          "Drafted by the Case Manager for **Atty. Thorne's review**; nothing the records can't carry"
+        ]
+      },
+      {
+        "term": "Weak File vs. Legal Trap",
+        "text": "Raw charts and a casual letter invite a lowball; **a summary with a clock** makes refusing limits risky",
+        "more": [
+          "Weak: 300 pages of raw chiropractic charts. Trap: **a two-page summary** matching each diagnosis to its treatment",
+          "Weak: “Our client hurts, please pay.” Trap: a formal package with future care and a strict response clock",
+          "The clock, the figure and any bad-faith analysis are Atty. Thorne's; the record is yours"
+        ]
+      },
+      {
+        "term": "Documents by Function",
+        "text": "The UM package sorted by what each document proves: **five functions**, from coverage to release",
+        "more": [
+          "Threshold & Coverage: each UM carrier's coverage proof and Keystone's exhaustion proof",
+          "Liability & Causation: the Police Report, scene and Property Damage photos, the neutral witness, the video",
+          "Special Damages: line-item bills, Northgate's wage verification, Peach State's current $1,860.00 ledger",
+          "General Damages: the MRI, the Causation Letter and a **Whole Person Impairment rating**, if Atty. Thorne requests one",
+          "Final Pleading & Release: the formal UM letter; the carrier's Release and Trust Agreement, read for conflicts",
+          "Proof of uninsured status (DMV suspension, a carrier's denial, a phantom vehicle) is for a truly uninsured claim"
+        ]
+      }
+    ],
+    "pages": [
+      "D2#16",
+      "D3#7"
+    ]
   }
 }

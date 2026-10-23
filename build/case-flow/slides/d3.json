@@ -3,29 +3,30 @@
     "image": "demand-letter",
     "roadmap": {
       "title": "The Time-Limited Demand: the Roadmap",
+      "merge": true,
       "steps": [
         {"label": "Confirm the foundation", "text": "SOL, liability and coverage, each from its document"},
         {"label": "Within limits, clear terms", "text": "$10,000; who and what is released; **how to accept**"},
         {"label": "A reasonable window", "text": "Conditions Keystone can meet; 30 days"},
         {"label": "Document it", "text": "The package complete enough to evaluate inside the window"},
-        {"label": "Serve and docket", "text": "Certified mail and email; **docket from receipt**"}
+        {"label": "Serve and docket", "text": "Email it to Dana; **docket from her acknowledgement**"}
       ]
     },
     "hook": "A clear, timed **$10,000 Limits Demand** makes Keystone decide on the record.",
     "points": [
       "Demand **within limits**: $10,000, Keystone's full BI limit",
       "Make **every term acceptable as written**; release Smith and Keystone only",
-      "Serve certified mail AND email; **docket from receipt**: 08/21/2026",
+      "Email it to Dana Whitfield; **docket from her acknowledgement**: 08/21/2026",
       "Answer the 14-day gap and lead causation with the **03/13/2026 MRI**"
     ],
     "upl": "Serve and prove the demand; never set terms, extend deadlines or value the claim.",
     "job": [
       ["MMI declared (06/12/2026)", "Docket MMI + 30", "Docket System · CMS → Tasks", "07/12/2026 Sunday: work it Fri 07/10"],
-      ["Return receipt shows 07/22/2026", "Docket the acceptance deadline", "Docket System", "08/21/2026, from receipt, not mailing"],
+      ["Dana's written acknowledgement (07/22/2026)", "Docket the acceptance deadline", "Docket System", "08/21/2026, from acknowledgement, not sending"],
       ["Keystone writes or calls", "Log verbatim; route to Atty. Thorne", "CMS → Communications Log", "Same day; the CM changes nothing"]
     ],
     "dos": [
-      "Docket from the **return receipt date**, never the mailing date",
+      "Docket from the **written acknowledgement**, never the send date",
       "Lead with the value-drivers: the **MRI herniation** and injection",
       "The window is for **acceptance, not payment**"
     ],
@@ -42,12 +43,12 @@
       "Audit the draft against **the Big Four** and the Final Scrub",
       "Log each deficiency as **an assigned CMS task**",
       "Assemble the package with **the gap answered** on page one",
-      "Once signed, serve by **certified mail AND email**; log both",
-      "Docket **08/21/2026 from the receipt** dated 07/22/2026, with reminders"
+      "Once signed, **email it to Dana Whitfield**; log it",
+      "Docket **08/21/2026 from her acknowledgement** dated 07/22/2026, with reminders"
     ],
-    "deliver": "An audited, served demand with **proof of delivery** and 08/21/2026 docketed",
+    "deliver": "An audited, emailed demand with **written acknowledgement** and 08/21/2026 docketed",
     "purpose": "Keystone's 30 days run from receipt: **without proof, no deadline** to hold",
-    "principle": "The clock starts at **proven receipt, not mailing**",
+    "principle": "The clock starts at **her written acknowledgement**, not sending",
     "grade": {
       "title": "The Grade-A Time-Limited Demand",
       "guide": [
@@ -78,14 +79,14 @@
       "**$10,000 BI limit**; terms match Atty. Thorne's approval exactly",
       "Big Four complete; **Specials total $16,401.40**",
       "Gap answered **on page one**; each deficiency an assigned task",
-      "Served by **certified mail AND email**; 08/21/2026 docketed",
+      "Emailed and logged; **08/21/2026 docketed** from her acknowledgement",
       "Any extension request **routed to Atty. Thorne** same day"
     ],
     "dos": [
       "Re-verify **every provider balance** in the week of service"
     ],
     "donts": [
-      "Counting the window **from the mailing date**",
+      "Counting the window **from the send date**",
       "Answering **Dana Whitfield's request for time** yourself"
     ]
   },
@@ -350,6 +351,7 @@
     "image": "lien-scale",
     "roadmap": {
       "title": "Reducing the Liens: the Roadmap",
+      "merge": true,
       "steps": [
         {"label": "Audit the bill", "text": "Line by line against the records; **corrections first**"},
         {"label": "Run the math", "text": "Pro rata shares, computed from the fraction"},
@@ -516,6 +518,7 @@
     "image": "release-signature",
     "roadmap": {
       "title": "From Release to $0.00: the Roadmap",
+      "merge": true,
       "steps": [
         {"label": "Audit the release", "text": "Who is released, which claims, **what John promises**"},
         {"label": "UM consents first", "text": "Both consents in before the BI release is signed"},
@@ -582,6 +585,47 @@
       "Take $40,000.00 to $20,359.92 **stream by stream**: fee, costs, liens. Why the 25% / 75% split?",
       "Name **the four document sets** needed before archive, the file's item for each, and the retention period.",
       "The Trust Ledger reads $0.00 after 10/22/2026. **Which records prove it**, and what would a leftover balance mean?"
+    ]
+  },
+  "d3m1-pkg": {
+    "image": "documents-audit",
+    "hook": "A package that proves **every claim by function** leaves the adjuster no cheap way out.",
+    "points": [
+      "The Big Four, **flawless before Atty. Thorne reviews** the demand",
+      "Draft the Human Story **from John Doe's words** and records only",
+      "Final Scrub: overlaps, the prior disclosed, **every balance verified** by phone",
+      "Rebuild each UM package **by function**, never the BI re-addressed"
+    ],
+    "upl": "Assemble and draft for review; **figure, terms and causation** are Atty. Thorne's",
+    "job": [
+      [
+        "MMI declared (06/12/2026)",
+        "Request line-item bills; impact statement",
+        "CMS → Tasks · Medical Records Requests",
+        "Every provider requested"
+      ],
+      [
+        "The week of service",
+        "Run the Final Scrub",
+        "CMS → Financial Ledger → Specials",
+        "$16,401.40 ties out, balances confirmed"
+      ],
+      [
+        "Limited Release signed (08/28/2026)",
+        "Rebuild UM packages by function",
+        "Action Plan Editor → UM demand templates",
+        "Two complete packages, indexed"
+      ]
+    ],
+    "dos": [
+      "Write the story in **facts and dates**, not adjectives",
+      "Pair each Property Damage photo with **the injury it explains**",
+      "Keep future ESIs **in the narrative**, not the Specials"
+    ],
+    "donts": [
+      "A **300-page record dump** with no summary",
+      "A narrative that **says more than the records**",
+      "**Hiding the 2021 low-back visits** from the adjuster"
     ]
   }
 }

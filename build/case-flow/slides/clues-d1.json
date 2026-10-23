@@ -335,5 +335,113 @@
         "You hand him a script: say the other driver ran it."
       ]
     ]
+  },
+  "d1m4-tplan": {
+    "dos": [
+      [
+        "It's 02/09/2026, and John Doe is describing his neck on the intake call.",
+        "Your note quotes his description word for word, not your summary of it.",
+        "The note is dated and sits beside the Run Report's “neck stiffness”."
+      ],
+      [
+        "The intake call reaches John Doe's medical history.",
+        "You ask whether he has ever hurt his neck or back before.",
+        "Any providers and dates he names go in the file, with requests sent."
+      ],
+      [
+        "The care coordination section of the Case Plan lists four groups.",
+        "No provider has prescribed equipment or counseling for John Doe.",
+        "Those two lines carry a dated note saying so, instead of sitting blank."
+      ]
+    ],
+    "donts": [
+      [
+        "A colleague drafts John Doe's Clinical pillar from the EMS Run Report alone.",
+        "Nothing in it says how he will reach appointments without a car.",
+        "His job's physical demands at Northgate appear nowhere."
+      ],
+      [
+        "The Functional pillar needs a goal for John Doe's return to work.",
+        "The draft reads: “Reduce pain and get back to normal.”",
+        "No scale, no number and no review date sit beside it."
+      ],
+      [
+        "On a typical file, a new client mentions an old injury at intake.",
+        "The CM's note declares it has no link to the crash.",
+        "No provider has said so, and Atty. Thorne hasn't seen it."
+      ]
+    ]
+  },
+  "d1m4-tmap": {
+    "dos": [
+      [
+        "You open a fresh note after a call with John Doe.",
+        "A colleague reading it later needs to place him on the map.",
+        "The first line reads: acute, day 3 from the DOL."
+      ],
+      [
+        "Atty. Thorne asks for a status update on a client.",
+        "The provider's note lists a diagnosis and a pain score.",
+        "Your update says lifting at work and sleeping are now limited."
+      ],
+      [
+        "Care has started and the weeks of visits are adding up.",
+        "The adjuster will look for a functional gain at week 6.",
+        "At week 4 you ask the office for range of motion and pain scores."
+      ]
+    ],
+    "donts": [
+      [
+        "A client's visits taper off over a few weeks.",
+        "The chart shows the plan changed, but nobody asked the provider why.",
+        "Months later the defense finds the change and an empty note."
+      ],
+      [
+        "A referral for imaging sits waiting on an insurer's approval.",
+        "Visits stall for three weeks while the paperwork moves.",
+        "Your note puts the missed visits down to him."
+      ],
+      [
+        "Twelve therapy sessions in, the pain score still reads 10/10.",
+        "You note it and plan to see what the adjuster says.",
+        "The next six sessions are refused before anyone called the provider."
+      ]
+    ]
+  },
+  "d1m4-tcare": {
+    "dos": [
+      [
+        "Once John Doe's care starts, you call him between visits.",
+        "“How are you?” gets “Fine” and nothing worth recording.",
+        "Visits kept, the pain score and lifting at work each get asked."
+      ],
+      [
+        "On a check-in, a client says, “I'm done lifting boxes, forever.”",
+        "Your GIRP note could say “catastrophizing”, or it could quote him.",
+        "The note keeps his exact sentence and the date he said it."
+      ],
+      [
+        "A drug screen comes back without the prescribed medication in it.",
+        "The prescriber's office gets a call with dates and one question.",
+        "The client hears no suspicion about it from the Case Manager."
+      ]
+    ],
+    "donts": [
+      [
+        "A client says the clinic is a waste of his time.",
+        "The Case Manager explains, point by point, why he is off base.",
+        "Then adds that missed visits will cost him at settlement."
+      ],
+      [
+        "A client sounds afraid to turn his neck at all.",
+        "An email to the provider reports the fear, and nothing more.",
+        "No question, no next step, no date to follow up."
+      ],
+      [
+        "Months into a case, headaches and memory lapses first appear.",
+        "The ER record from the collision mentions no memory loss.",
+        "The file already treats the new complaint as settled evidence."
+      ]
+    ]
   }
 }

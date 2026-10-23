@@ -245,5 +245,372 @@
     "pages": [
       "D4#24"
     ]
+  },
+  "d1m4-tplan": {
+    "lead": "Before a plan can be built, understand the **whole person**: more than the medical records. Then set defensible goals and map the interventions they need.",
+    "concepts": [
+      {
+        "term": "Whole-Person Assessment",
+        "text": "The person, not just the chart: assessment is **more than reviewing records**, and it comes before the plan"
+      },
+      {
+        "term": "Clinical Evaluation",
+        "text": "Physical, **cognitive and psychological** impairments, recorded as reported and documented, never diagnosed by you",
+        "more": [
+          "John Doe today: “neck stiffness” on the EMS Run Report, and he **declined transport**",
+          "No treatment yet, so record his symptoms in his own words, with the date"
+        ]
+      },
+      {
+        "term": "Social Determinants",
+        "text": "Housing, family support, financial stability: **the barriers** that turn a plan into a Treatment Gap",
+        "more": [
+          "He lives with his mother, Margaret Doe, at 2214 Maple Hollow Rd",
+          "He owns no car, and **Margaret's Civic** was damaged in the crash",
+          "Ask how he will reach care, and whether cost is stopping him"
+        ]
+      },
+      {
+        "term": "Pre-Morbid Status",
+        "text": "The client's baseline: it **separates a pre-existing condition** from an accident-related injury",
+        "more": [
+          "Ask about every prior injury, treatment and claim, with dates and providers",
+          "**Request the prior records**; never leave them for the defense to find",
+          "Whether a prior condition was aggravated is the provider's opinion and Atty. Thorne's argument"
+        ]
+      },
+      {
+        "term": "Vocational/Educational Outlook",
+        "text": "Can the client return to the previous role, or will he **need retraining**?",
+        "more": [
+          "Northgate Distribution warehouse shift lead since 01/12/2026",
+          "**$22.00/hour, 8-hour shifts**; record the job's physical demands in his words"
+        ]
+      },
+      {
+        "term": "Defensible Goals",
+        "text": "In a PI file, goals must satisfy **clinicians and adjusters alike**: an objective measure and a date"
+      },
+      {
+        "term": "Care Coordination Strategy",
+        "text": "Maps the specific interventions the goals need, in **four standard groups**",
+        "more": [
+          "Acute/Restorative Care: surgery, physiotherapy, occupational therapy",
+          "Psychological Support: counseling or CBT for PTSD, anxiety or **adjustment disorders**",
+          "Durable Medical Equipment: sourcing wheelchairs, ramps or assistive technology",
+          "Rehabilitation Milestones: inpatient to outpatient to home-based care"
+        ]
+      },
+      {
+        "term": "Rehabilitation Milestones",
+        "text": "Inpatient to outpatient to home-based care: **each transition** is where a gap can open",
+        "more": [
+          "John Doe declined transport, so his care would begin as outpatient care",
+          "Calendar each handoff and **confirm the first visit** happened"
+        ]
+      }
+    ],
+    "pages": [
+      "D1#36",
+      "D1#37"
+    ],
+    "framework": {
+      "title": "SMART Goal Setting",
+      "kind": "table",
+      "head": [
+        "Attribute",
+        "What it means",
+        "In a PI case"
+      ],
+      "rows": [
+        [
+          "Specific",
+          "Name the function, not “get better”",
+          "“Ambulate 50 meters with a rolling walker,” not “improve mobility”"
+        ],
+        [
+          "Measurable",
+          "A standardized scale an adjuster can verify",
+          "ROM %, ODI/VAS, FIM, PHQ-9, sessions attended"
+        ],
+        [
+          "Achievable",
+          "Realistic for the injury and the prognosis",
+          "The provider's prognosis sets the target, never the claim"
+        ],
+        [
+          "Relevant",
+          "Tied directly to the injuries claimed",
+          "Daily living and return to work"
+        ],
+        [
+          "Time-bound",
+          "A clear milestone to review against",
+          "“By the 12-week review”; “ROM up 30% within two months”"
+        ]
+      ],
+      "note": "Defensible to clinicians and adjusters alike: the provider sets target and measure; the CM writes the goal into the Case Plan."
+    }
+  },
+  "d1m4-tmap": {
+    "lead": "Mastering the Standard Treatment Map separates a Case Manager who **observes a recovery from one who drives it**: deviations trigger denials and IMEs.",
+    "concepts": [
+      {
+        "term": "The Standard Treatment Map",
+        "text": "The usual route of care after a crash, from EMS to long-term pain management, read **stop by stop**",
+        "more": [
+          "Emergency response: EMS and the emergency room stabilize and assess",
+          "Diagnostics: MRI and radiology find the underlying injury",
+          "Rehabilitation: chiropractic care and physical therapy",
+          "Surgical interventions: orthopedics, pain management and, by severity, surgery and post-operative care",
+          "Long-term care: long-term pain management that sustains recovery and prevents relapse",
+          "A skipped or out-of-order stop needs **a documented clinical reason**"
+        ]
+      },
+      {
+        "term": "The Clinical Pathway",
+        "text": "At each check-in one question, **“Is the patient improving?”**: yes continues the map, no opens the variance loop",
+        "more": [
+          "Phase 1: verify PIP and put the mechanism of injury (MOI) on record",
+          "Phase 2: conservative care and imaging, with “Is the patient improving?” asked at every check-in",
+          "No: the variance loop. Medication or injections, an ortho or neuro referral, a psychological screen for yellow flags",
+          "Phase 3: work hardening, an FCE, and whether surgery is indicated",
+          "Phase 4, MMI: the impairment rating, final lien resolution, settlement support",
+          "Every branch is **the provider's decision**; you raise it and record the answer"
+        ]
+      },
+      {
+        "term": "Variance Analysis",
+        "text": "When care drifts off the map, **diagnose the why** before the insurer stops paying for it",
+        "more": [
+          "Clinical: a secondary complication, such as radiating nerve pain that wasn't in the first report",
+          "Psychosocial: yellow flags such as fear-avoidance, depression or no transport to therapy",
+          "Systemic: an insurer's delay authorizing an MRI or a specialist referral",
+          "The fix depends on the type: **a systemic delay is not non-compliance**"
+        ]
+      },
+      {
+        "term": "Reasonable and Necessary",
+        "text": "The utilization-review test: usual for the mechanism of injury, with **objective functional gain**, not pain alone",
+        "more": [
+          "Reasonable: is the treatment common for this mechanism of injury (MOI)?",
+          "Necessary: is there objective evidence, not just reported pain, that function is improving?",
+          "Necessity is **the provider's opinion**, argued by Atty. Thorne; you put the measures on file"
+        ]
+      },
+      {
+        "term": "The 6-Week Rule",
+        "text": "Adjusters look for a functional gap at week 6: expect **20–30% more range of motion** or less pain",
+        "more": [
+          "Count the six weeks from the first visit, not from the date of loss",
+          "Pain is scored on the VAS, from zero to ten",
+          "Still 10/10 after 12 PT sessions? **Raise it with the provider now**",
+          "Don't wait for the adjuster to deny the next six sessions"
+        ]
+      },
+      {
+        "term": "The Red Flag Rule",
+        "text": "No change in the disability index after 12 weeks of PT is **a plateau**: ask about a specialist",
+        "more": [
+          "The map's answer to a plateau is a specialist or a second opinion, not more of the same",
+          "Whether to refer is **the provider's call**; you ask and record the answer"
+        ]
+      },
+      {
+        "term": "Objective Metrics",
+        "text": "Standard measures that put recovery in numbers an insurer reads; **the provider chooses and orders them**",
+        "more": [
+          "Oswestry (low back) or DASH (arm, shoulder, hand): disability in daily activities, every 30 days",
+          "Gait analysis: mobility and fall risk, for lower-extremity injuries",
+          "PHQ-9 / GAD-7: depression and anxiety screens, when physical progress stalls",
+          "FCE, the Functional Capacity Evaluation: before return to work or at MMI",
+          "A screen that puts mental health in the record is **flagged to Atty. Thorne**"
+        ]
+      },
+      {
+        "term": "The Stakeholder Triad",
+        "text": "You route information between clinic, counsel and payer; **one broken loop** can stall a case for months",
+        "more": [
+          "Clinical loop: therapy notes match the physician's orders; “90% recovered” against “total disability” is a documentation crisis",
+          "Ask both providers to clarify a conflict and tell Atty. Thorne; **never resolve it yourself**",
+          "Legal loop: status reports to Atty. Thorne in functional terms, what he can't do at work and home",
+          "Financial loop: update the payer before a referral or authorization lapses, so a lapse isn't read as non-compliance"
+        ]
+      }
+    ],
+    "pages": [
+      "D1#40",
+      "D1#46"
+    ],
+    "framework": {
+      "title": "The Standard Treatment Map",
+      "kind": "table",
+      "head": [
+        "Phase",
+        "Timeline",
+        "Typical interventions",
+        "Case Management focus"
+      ],
+      "rows": [
+        [
+          "Acute",
+          "Days 1–14",
+          "ER or urgent care, imaging (MRI/CT), bracing, RICE, initial PT",
+          "Establishing causation (the MOI) and **PIP coverage**"
+        ],
+        [
+          "Sub-acute",
+          "Weeks 2–8",
+          "Active PT 2–3 times weekly, specialist follow-up",
+          "Monitoring functional gains: range of motion, weight-bearing"
+        ],
+        [
+          "Restorative",
+          "Weeks 9–24 (months 2–6)",
+          "Work hardening, injections, psychological adjustment",
+          "Identifying barriers to return to work"
+        ],
+        [
+          "Maintenance",
+          "6 months+",
+          "Home exercise program, as-needed (PRN) visits",
+          "Determining Maximum Medical Improvement (MMI)"
+        ],
+        [
+          "MMI / discharge",
+          "When the provider declares it",
+          "Permanent impairment rating; an FCE if ordered",
+          "Final lien resolution and settlement support for Atty. Thorne"
+        ]
+      ],
+      "note": "Every intervention is the provider's order; the Case Manager tracks the phase, spots the variance and asks."
+    }
+  },
+  "d1m4-tcare": {
+    "lead": "Know the standard US treatment protocols so you can see **a deviation**: in the records as red flags, on the phone as yellow flags.",
+    "concepts": [
+      {
+        "term": "Red Flag",
+        "text": "A deviation from standard treatment that signals **medical danger**, a stagnating case, or over-treatment for billing",
+        "more": [
+          "Medical danger (fever, hardware failure) goes to the provider **the same day**",
+          "Legal danger (missed visits, generic notes) goes to Atty. Thorne",
+          "Once a flag is spotted, A-C-T runs: Assess, Coordinate, Track"
+        ]
+      },
+      {
+        "term": "PT & Conservative Care",
+        "text": "PT is **the baseline of treatment**; its flags signal a case stagnating or over-treated for billing",
+        "more": [
+          "Over 12 sessions with no range-of-motion or pain change, and no specialist or imaging suggested",
+          "Heat packs, TENS or massage with **no active exercise**: feel-good care adjusters discount",
+          "Two or more missed visits: the defense reads an injury not serious enough to treat"
+        ]
+      },
+      {
+        "term": "Surgical Protocols",
+        "text": "Surgery is a claim's most valuable element; its flags concern **safety and Standard of Care**",
+        "more": [
+          "Surgery such as a spinal fusion before PT or injections, outside an emergency: **a Reasonable Necessity flag**",
+          "Left and right switched in the records: credibility damage at trial",
+          "“Just wait until the follow-up” for fever or redness: a malpractice concern",
+          "Sharp or mechanical pain after surgery may mean a loose screw or retained sponge; the provider hears it today"
+        ]
+      },
+      {
+        "term": "Pain Management & Medication",
+        "text": "The most scrutinised area of care, under opioid regulations and **Medical Necessity audits**",
+        "more": [
+          "Opioid + muscle relaxant + sedative, “the Holy Trinity”: a safety risk, and a liability if he has an accident medicated",
+          "Doses rising with no change in diagnosis: failing treatment or forming dependency",
+          "A drug screen without the prescribed drug, or with an illicit one: **facts to the prescriber**, never an accusation"
+        ]
+      },
+      {
+        "term": "Behavioral Health / TBI",
+        "text": "High-value cases handled with **utmost discretion**: claims must be tied to the accident and validated",
+        "more": [
+          "Notes on “general life stress”, not the accident's trauma: rarely covered, and costs challenged as unreasonable",
+          "No memory loss at the ER, then significant symptoms months later: **the provider validates** before anyone relies on it",
+          "Record the date each symptom was first reported, and tell Atty. Thorne"
+        ]
+      },
+      {
+        "term": "Yellow Flags",
+        "text": "Psychosocial barriers that **derail the map**, heard in conversation more often than read in records",
+        "more": [
+          "Fear-avoidance: avoiding movement or therapy for fear of pain",
+          "Catastrophizing: “I will never walk again” despite minor clinical findings",
+          "Litigation stress: conflict with the defense side slowing recovery",
+          "Iatrogenic factors: reliance on opioids, or on passive care (ice, heat) over **active exercise**",
+          "Whether a PHQ-9 or GAD-7 screen is indicated is the provider's call"
+        ]
+      },
+      {
+        "term": "Motivational Interviewing",
+        "text": "Keeps a client committed when **the newness wears off**, by drawing out his own reasons to continue",
+        "more": [
+          "OARS: Open-ended questions, Affirmations, Reflective listening, Summaries",
+          "Developing discrepancy: the gap between what he does now and **his long-term goal**",
+          "Rolling with resistance: don't argue, pivot: “That clinic isn't a good fit for you. Let's look at why.”",
+          "Boundaries prevent burnout; active listening means he feels heard"
+        ]
+      },
+      {
+        "term": "The Mid-Treatment Plateau",
+        "text": "At the midpoint, excitement wanes and hard work begins; **adherence drops** unless someone re-engages him",
+        "more": [
+          "Course correction: Assess Response, Evaluate Efficacy, Adjust Intervention",
+          "A client not reaching his goals: **usually the plan**, not the person",
+          "A plan change is proactive management, not an admission; the change itself is the provider's"
+        ]
+      }
+    ],
+    "pages": [
+      "D1#34",
+      "D1#32"
+    ],
+    "framework": {
+      "title": "Treatment Red Flags by Specialty",
+      "kind": "table",
+      "head": [
+        "Specialty",
+        "Red flag",
+        "What it signals"
+      ],
+      "rows": [
+        [
+          "PT & Conservative Care",
+          "Over 12 sessions, no range-of-motion or pain gain, no referral",
+          "A stagnating case"
+        ],
+        [
+          "PT & Conservative Care",
+          "Heat, TENS or massage only; no active exercise",
+          "Over-treatment adjusters discount"
+        ],
+        [
+          "Surgical Protocols",
+          "Surgery advised before PT or injections, outside an emergency",
+          "A Reasonable Necessity flag"
+        ],
+        [
+          "Surgical Protocols",
+          "Post-op fever, redness or sharp pain left “until the follow-up”",
+          "Medical danger: the provider, today"
+        ],
+        [
+          "Pain Management & Medication",
+          "Opioid + relaxant + sedative; doses rising; a drug-screen mismatch",
+          "Safety risk, dependency or diversion"
+        ],
+        [
+          "Behavioral Health / TBI",
+          "“General life stress” notes; head-injury symptoms first reported months later",
+          "Costs challenged; needs the provider's validation"
+        ]
+      ],
+      "note": "Medical danger reaches the provider the same day; legal danger reaches Atty. Thorne. Then A-C-T runs."
+    }
   }
 }

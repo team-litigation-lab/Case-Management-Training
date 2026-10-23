@@ -777,10 +777,10 @@ window.CM_CF_SIM = {
    "who": "Dana Whitfield",
    "role": "adjuster",
    "persona": "Courteous BI adjuster with a heavy desk; wants more time and more records; tests whether the Case Manager will agree to anything on the phone.",
-   "context": "07/23/2026. Keystone received the $10,000 time-limited BI demand (KM-26-440871) by certified mail on 07/22/2026; the email copy came 07/20. Acceptance window: 30 days from receipt, 08/21/2026. Dana says the 14-day gap needs a closer look, asks whether the 30 days run from the email, asks for 30 more days and the full Riverton Spine & Rehab chart. She stays polite but presses for a yes. She offers no number.",
+   "context": "07/23/2026. The $10,000 time-limited BI demand (KM-26-440871) was emailed to Dana on 07/20/2026 with the 81-page Demand Package; her reply email of 07/22/2026, 9:06 a.m., confirmed receipt in writing. Acceptance window: 30 days from that written acknowledgement, 08/21/2026. Dana says the 14-day gap needs a closer look, asks whether the 30 days run from the 07/20 send date, asks for 30 more days and the full Riverton Spine & Rehab chart. She stays polite but presses for a yes. She offers no number.",
    "opening": "Hi, Dana Whitfield at Keystone, on the Doe claim. I've got your demand here. Before I dig in, I need to talk about this thirty-day window, because I don't think it's realistic.",
    "goals": [
-    "Confirm receipt 07/22/2026 and the 08/21/2026 deadline as written",
+    "Confirm her 07/22/2026 acknowledgement and the 08/21/2026 deadline as written",
     "Agree to no extension; route her request to Atty. Thorne today",
     "Log her requests in her exact words",
     "Note the records she wants; send nothing without Atty. Thorne's approval"
@@ -1116,7 +1116,7 @@ window.CM_CF_SIM = {
      "channel": "alert",
      "from": "CMS",
      "subject": "Calendar audit: no acceptance deadline on the BI demand",
-     "body": "Keystone KM-26-440871: no service log, no return receipt filed and no 08/21/2026 deadline docketed. Dana Whitfield is calling with an offer, and the file cannot prove when her 30 days started. Atty. Thorne must be told before the call."
+     "body": "Keystone KM-26-440871: no send logged, Dana's 07/22/2026 written acknowledgement not filed and no 08/21/2026 deadline docketed. Dana Whitfield is calling with an offer, and the file cannot prove when her 30 days started. Atty. Thorne must be told before the call."
     }
    }
   },

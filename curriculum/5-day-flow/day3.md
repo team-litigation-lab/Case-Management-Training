@@ -39,20 +39,21 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 4. *Lesson* — Strategy Briefing Protocols with Lead Counsel
 5. *Lesson* — Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup
 6. *Lesson* — Secondary UM Demand Structuring & Policy Stacking Rules
-7. *Lesson* — Countering Adjuster Delay Tactics & Gap Pushback
-8. *Lesson* — Securing Maximum Gross Policy-Limit Settlements
-9. *Skill Activity* — Probe the 14-Day Treatment Gap with AI John Doe
-10. *Skill Activity* — Gap Explanation Record Creation
-11. *Skill Activity* — Calculating Total Specials & the Special Damages Audit
-12. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne
-13. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package
-14. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
-15. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
-16. *Skill Activity* — Closing the $40,000 Gross Recovery
-17. *Knowledge Check* — UPL & Investigation Review
-18. *Knowledge Check* — Pre-Demand Audit & Day 3 Gate
-19. *Knowledge Check* — Demand Execution Audit
-20. *Knowledge Check* — Negotiation Mastery Check
+7. *Lesson* — Building the Demand Package: the Big Four, the Human Story & the Final Scrub
+8. *Lesson* — Countering Adjuster Delay Tactics & Gap Pushback
+9. *Lesson* — Securing Maximum Gross Policy-Limit Settlements
+10. *Skill Activity* — Probe the 14-Day Treatment Gap with AI John Doe
+11. *Skill Activity* — Gap Explanation Record Creation
+12. *Skill Activity* — Calculating Total Specials & the Special Damages Audit
+13. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne
+14. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package
+15. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
+16. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
+17. *Skill Activity* — Closing the $40,000 Gross Recovery
+18. *Knowledge Check* — UPL & Investigation Review
+19. *Knowledge Check* — Pre-Demand Audit & Day 3 Gate
+20. *Knowledge Check* — Demand Execution Audit
+21. *Knowledge Check* — Negotiation Mastery Check
 
 **End-of-day discussion (trainer):** It is 07/20/2026. The Specials are audited and Atty. Thorne has approved a policy-limits demand to Keystone. What must be true before the Time-Limited Demand goes out, and what would let Keystone say it never had a fair chance to settle?
 
@@ -60,7 +61,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 3 — Pre-Demand Audit, the Demand & Settlement Negotiation
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 3.1.1 Interview Techniques & UPL Boundaries in Client Investigation
 
@@ -397,7 +398,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 - Open by reading two first lines aloud: “On 02/06/2026 John Doe was a front-seat passenger…” and “John Doe is at MMI with $16,401.40 in audited Specials against a $10,000 BI limit, and I need your decisions.” Ask which one Atty. Thorne can act on.
 - Ask the room: “Which risk would you be tempted to leave out of the brief?” It is usually the 2021 low-back visits. Then ask what happens when Keystone finds them first.
-- Police the recommend line hard. “Certified mail with return receipt and email, so we can prove receipt” is operational. “We should demand limits” is not the Case Manager's to say, even when the numbers make it look obvious.
+- Police the recommend line hard. “Email the demand to Dana Whitfield and get her written acknowledgement of receipt, so we can prove receipt” is operational. “We should demand limits” is not the Case Manager's to say, even when the numbers make it look obvious.
 - Tie it back to Day 2: the decisions change the picture, so the Case Plan is superseded and re-routed, not quietly edited.
 
 ---
@@ -411,7 +412,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 #### 1 · Visual Layout Description
 
-Left half: a Time-Limited Demand Letter on navy-banded letterhead, five orange numbered badges pinned to its parts: ① the $10,000 amount (within limits), ② the release and affidavit terms (clear), ③ the conditions and the 30 days to meet them (reasonable), ④ the enclosure list (documented), ⑤ the deadline and delivery lines (timed). Right half: a horizontal clock bar running 07/20/2026 SERVED → 07/22/2026 RECEIVED (a navy mono pill with a return-receipt icon) → 08/21/2026 WINDOW CLOSES in orange. Above the bar, a red danger callout: “An ambiguous term is an escape hatch.” Bottom strip, a full-width navy band in white type: CLEAR · REASONABLE · WITHIN LIMITS · DOCUMENTED · TIMED. The argument: each badge is a door Keystone could refuse through, and the demand shuts all five.
+Left half: a Time-Limited Demand Letter on navy-banded letterhead, five orange numbered badges pinned to its parts: ① the $10,000 amount (within limits), ② the release and affidavit terms (clear), ③ the conditions and the 30 days to meet them (reasonable), ④ the enclosure list (documented), ⑤ the deadline and delivery lines (timed). Right half: a horizontal clock bar running 07/20/2026 SERVED → 07/22/2026 ACKNOWLEDGED (a navy mono pill with a reply-email icon) → 08/21/2026 WINDOW CLOSES in orange. Above the bar, a red danger callout: “An ambiguous term is an escape hatch.” Bottom strip, a full-width navy band in white type: CLEAR · REASONABLE · WITHIN LIMITS · DOCUMENTED · TIMED. The argument: each badge is a door Keystone could refuse through, and the demand shuts all five.
 
 #### 2 · Slide Body — Tell Them
 
@@ -422,7 +423,7 @@ Left half: a Time-Limited Demand Letter on navy-banded letterhead, five orange n
 3. Clear: every term acceptable as written: $10,000; who is released (Robert Smith and Keystone only) and for what (the BI claim only; the Civic's PD claim stays open); a Limited Release; Smith's affidavit of no other insurance; how to accept and by when; when payment is due after acceptance (Atty. Thorne sets it).
 4. Reasonable: ask only what Keystone can deliver in time. Its limit, a Limited Release and its insured's affidavit qualify; 30 days leaves time to get the affidavit. A condition it can't meet, or a short fuse, is its defense.
 5. Documented: the Big Four complete, enough to evaluate the claim inside the window. A carrier can't be faulted for refusing what it was never shown.
-6. Timed and proven: the letter names what starts the clock (delivery of the certified mailing). Serve by certified mail, return receipt, AND email; log both; docket from receipt: 07/22/2026 + 30 = 08/21/2026 (Fri).
+6. Timed and proven: the letter names what starts the clock (the adjuster's written acknowledgement of receipt). Email it to Dana Whitfield from the Email Workspace, the Demand Package attached; log it; docket from her acknowledgement: 07/22/2026 + 30 = 08/21/2026 (Fri). A state's statute can require a specific delivery method for a Time-Limited Demand; Atty. Thorne confirms whether one governs this file.
 7. Answer the gap first: name the 14 days (02/06 → 02/20/2026), say why (no car until 02/18, cost worry, hand numbness from 02/18), and prove continuity: the EMS report, the Northgate call-outs (02/09–02/13), the urgent-care onset note, Dr. Reyes's Causation Letter (06/19/2026).
 8. Lead causation with the 03/13/2026 MRI: a C5-C6 herniation with “no significant degenerative change at the adjacent levels.” That line answers “degenerative.”
 9. Present, don't compile. Demand at MMI (06/12/2026), future care narrated; the 30-Day Rule dockets MMI + 30 (07/12/2026). A later date (07/20/2026) is Atty. Thorne's call, reason recorded.
@@ -440,21 +441,21 @@ Left half: a Time-Limited Demand Letter on navy-banded letterhead, five orange n
 | Clear | Release of Smith and Keystone only; Smith's affidavit | A vague term is a reason to refuse |
 | Reasonable | Conditions it can meet, 30 days to meet them | An impossible ask is a safe refusal |
 | Documented | Big Four, the gap answered up front | Never shown the claim |
-| Timed | 07/22 → 08/21/2026, return receipt on file | No proof of receipt, no clock |
+| Timed | 07/22 → 08/21/2026, written acknowledgement on file | No proof of receipt, no clock |
 
 **Operational mapping**
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | MMI declared (06/12/2026) | Docket MMI + 30 and open the Demand Package task | Docket System · CMS → Tasks | 07/12/2026 falls on a Sunday. It is an internal target, so the firm works it early, on Fri 07/10; legal deadlines counted forward roll to the next business day (Day 4); a later service date recorded as Atty. Thorne's, with the reason |
-| Atty. Thorne approves the terms | Record them exactly before drafting | CMS → Case Notes | $10,000; Limited Release of Smith and Keystone only, BI claim only (the PD claim excluded); Smith's affidavit; 30 days from receipt to accept; payment due as he sets it |
-| Return receipt comes back showing delivery 07/22/2026 | Compute and docket the acceptance deadline with reminders | Docket System | 08/21/2026 docketed from the receipt date, not the mailing date |
+| Atty. Thorne approves the terms | Record them exactly before drafting | CMS → Case Notes | $10,000; Limited Release of Smith and Keystone only, BI claim only (the PD claim excluded); Smith's affidavit; 30 days to accept, from the adjuster's written acknowledgement of receipt; payment due as he sets it |
+| Dana Whitfield confirms receipt in writing (07/22/2026) | Compute and docket the acceptance deadline with reminders | Docket System | 08/21/2026 docketed from her written acknowledgement, not the send date; if none comes, follow up with her the same day and escalate to Atty. Thorne |
 | Keystone writes or calls before the deadline | Log it word for word and route it to Atty. Thorne | CMS → Communications Log · CMS → Tasks → Escalate | Routed the same day; the CM changes nothing on terms or time, and restates the approved terms only where Atty. Thorne's written authority says so |
 
 **Best practices & pitfalls**
 
 - Know which value-drivers the demand leads with: the MRI herniation, the injection, the residual right-arm paresthesia at MMI, clear liability.
-- Docket the deadline from the receipt date on the return receipt, never from the mailing date.
+- Docket the deadline from the date of the adjuster's written acknowledgement, never from the send date or a guess.
 - The window is for acceptance, not payment: Keystone accepted by 08/21/2026 and its check arrived 09/04/2026. When payment is due after acceptance is a separate term Atty. Thorne sets.
 - Adjusters use gaps to argue the injury was minor, healed early, was over-treated or came from something else. The only gap explanation that holds up against them is John Doe's own factual explanation, supported by verifiable written documentation.
 - ⚠️ Pitfall: a demand with no stated deadline, or one that doesn't say what starts the clock.
@@ -480,7 +481,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 #### 5 · Speaker Notes
 
 - Open with the arithmetic on the board: $16,401.40 in Specials against a $10,000 policy. Ask: “What makes Keystone pay all of it, inside 30 days?” Then reveal the five elements one at a time.
-- Put this to the room: “The email reached Dana Whitfield on 07/20 and the certified mail on 07/22. When does the window close, and how would Keystone know?” The answer is 08/21/2026, because the letter says the clock runs from delivery of the certified mailing.
+- Put this to the room: “The demand went to Dana Whitfield by email on 07/20 and she confirmed receipt in writing on 07/22. When does the window close, and how would Keystone know?” The answer is 08/21/2026, because the letter says the clock runs from her written acknowledgement of receipt.
 - Watch for trainees who call it a “bad-faith letter.” It is a Time-Limited Demand. Whether a refusal is bad faith is a legal conclusion under the governing law, and it is Atty. Thorne's.
 - The gap goes on page one, not in an appendix. Keystone will lean on it anyway (it does, on 08/05); a demand that explained it first has already answered.
 
@@ -522,7 +523,7 @@ A six-station horizontal timeline across the slide, stations numbered in orange 
 2. **Consent requests** — 08/13/2026: the 30-Day Letter to both UM carriers.
 3. **Consents** — Harbor Point 08/24, Cardinal State 08/26/2026.
 4. **Limited release** — 08/14 general draft revised; signed 08/28/2026.
-5. **UM demands** — 08/31/2026: Host UM $20,000; Relative UM $10,000, excess.
+5. **UM demands** — 08/31/2026: Host UM $20,000; Relative UM $10,000, excess. Each emailed to its adjuster and logged.
 6. **Check** — 09/04/2026 into trust; copy to both UM files.
 
 **Operational mapping**
@@ -569,7 +570,92 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.7 Countering Adjuster Delay Tactics & Gap Pushback
+### 3.1.7 Building the Demand Package: the Big Four, the Human Story & the Final Scrub
+
+> **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
+> **Topic:** What each part of the package proves, and the adjuster trap each one shuts  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D2#14` The Demand Packet Checklist: The “Big Four” · `D2#15` Demand: Quality Control — The “Final Scrub” · `D2#17` Demand: Best Practices · `D3#4` The UM Demand Package: Turning Risk Management Against the Insurer · `D3#5` UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap · `D3#6` UM Demand: The Demand Packet — Document Inclusions · `D3#12` Documents that Matter: Threshold & Coverage Documents · `D3#13` Documents that Matter: Liability & Causation Documents · `D3#14` Documents that Matter: Special Damages Documents (Economic Hard Costs) · `D3#15` Documents that Matter: General Damages Documents (Non-Economic Value) · `D3#16` Documents that Matter: Final Pleading & Release Documents (Closing Phase) · Newly authored: the Demand Package taught by function, each part paired with the adjuster trap it shuts, and proof of exhaustion distinguished from proof of uninsured status on an underinsured file
+
+#### 1 · Visual Layout Description
+
+An exhibit-index board fills the slide: six cream tabbed folders standing in a row on a navy shelf, each tab carrying an orange numbered badge: ① MEDICAL SPECIALS $14,817.40 ② THE HUMAN STORY ③ LIABILITY PROOF ④ SPECIAL DAMAGES $1,584.00, then, past a thin orange divider labelled UM PACKAGE ADDS, ⑤ THRESHOLD & COVERAGE ⑥ GENERAL DAMAGES. Under each folder a small red chip names the trap it shuts: DOUBLE BILLING · “MINOR, HEALED EARLY” · “TOO MINOR TO INJURE” · UNVERIFIED WAGES · TECHNICALITY · “PRE-EXISTING.” Left of the shelf, a slim stack of 300 loose chart pages greyed out and struck through; right of it, a crisp two-page treatment summary with a navy clip. Across the top, a navy band in white type: FINAL SCRUB · OVERLAPS · PRIOR DISCLOSED · BALANCES VERIFIED, with a mono pill $16,401.40. The argument: every folder proves one thing, and an empty folder is the adjuster's discount.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* On 08/05/2026 Keystone offered $3,500 against $16,401.40 in Specials, leaning on the two openings a package can leave: the 14-day gap and a “degenerative” MRI. An adjuster pays limits when the package carries legal risk: every claim proven by its own document, in an order he can't misread. You build that package twice on this file: the BI demand served 07/20/2026 and, once BI closes, the UM demands of 08/31/2026.
+
+1. Build the Big Four before Atty. Thorne reviews the demand: Medical Specials, the Narrative, Liability Proof, Special Damages. Each answers one question the adjuster asks (what it cost, what it did to him, who caused it, what else he lost); a weak one is his reason to discount the rest.
+2. Medical Specials: one itemized line per provider, date of service and billed amount, from line-item bills, never balance-forward statements, reconciled to the audited ledger: $14,817.40, with Riverton Spine & Rehab at $6,105.00 (33 visits) once the 05/04/2026 duplicate came out. Each line carries its why: the treatment it paid for and who ordered it.
+3. Put a two-page treatment summary in front, matching each diagnosis to its treatment (the cervical strain and C5-C6 herniation to the chiropractic and PT, Dr. Reyes's MRI order, the 05/15/2026 injection). The full records go behind it as exhibits: 300 pages of raw charts get read by no one.
+4. The Human Story: how the injury changed John Doe's work and daily life, drawn only from his own words (the recorded call, his texts to his mother) and the records. A Northgate shift lead since 01/12/2026; five shifts missed 02/09–02/13 citing neck pain; numbness into his right hand from 02/18; his mother driving him to evening therapy from 04/21; residual right-arm paresthesia at MMI. You draft it for Atty. Thorne's review and never embellish it.
+5. Liability Proof: the final Police Report (RPD-26-018842, Smith cited for failure to stop), Ruth Calloway's signed statement, the doorbell clip (07:09:41–07:10:26, SHA-256 logged) and the Property Damage photos. Structural damage answers “too minor to injure”: the Civic's $2,315.00 A-pillar supplement is evidence of force, not a claim; the PD claim stays Margaret Doe's.
+6. Special Damages: Northgate's wage-and-attendance letter (06/30/2026: 9 shifts × 8 h × $22.00 = $1,584.00) and every out-of-pocket receipt, each tied to its line. Riverton Drug's $312.40 counts once, inside the medical Specials: total $16,401.40. Future ESIs ($3,400–$6,800) go in the narrative, never the Specials.
+7. Run the Final Scrub in the week of service. Billing overlaps: one date of service, one line. The prior condition disclosed and distinguished, never hidden: three 2021 visits for the low back, resolved, no neck history. Balance verification: call every provider for its final balance and log the name and date, so the figure is exact.
+8. The UM package is new and built by function, never the BI demand re-addressed. Threshold & Coverage leads: each UM carrier's coverage proof and, because Smith was insured, Keystone's exhaustion proof. Proof of uninsured status (a DMV suspension letter, the supposed carrier's denial, a Police Report noting a phantom vehicle) belongs only to a truly uninsured claim. Add Peach State's current $1,860.00 ledger to the special damages.
+9. General Damages need objective proof: the 03/13/2026 MRI, Dr. Reyes's Causation Letter (06/19/2026) stating causation explicitly, the MMI note (06/12/2026). A Whole Person Impairment rating is the strongest answer to a pre-existing-condition defense. Dr. Reyes's note carries none, so ask Atty. Thorne whether to request one; the rating itself is Dr. Reyes's to give.
+10. Final Pleading & Release: the formal UM letter's figure, deadline and terms are Atty. Thorne's. When a UM carrier's Release and Trust Agreement arrives, read it against the 08/28/2026 Limited Release, flag any term that conflicts, and leave the explaining to Atty. Thorne.
+
+> ⚠️ **UPL boundary.** You assemble, order and audit the package and draft the Human Story for review. The demand figure, the deadline, the terms, the photo the demand leads with, every causation argument and whether to request an impairment rating are Atty. Thorne's; every clinical opinion is the provider's. Never add to John Doe's story what the records don't hold.
+
+#### 2 · Slide Body — Show Them
+
+*Each part of John Doe's package, what it proves, and the trap it shuts*
+
+| Part | What it proves on this file | The trap it shuts |
+|---|---|---|
+| Medical Specials | $14,817.40, line-item, the 05/04/2026 duplicate gone | Double billing, stale balances |
+| The Human Story | Shifts missed, right-hand numbness, paresthesia at MMI | “Minor, healed early” |
+| Liability Proof | RPD-26-018842 citation, Ruth Calloway, the doorbell clip, PD photos | “Too minor to injure” |
+| Special Damages | Northgate's letter: 9 shifts, $1,584.00 | An unverified wage claim |
+| Threshold & Coverage (UM) | Each UM carrier's coverage proof; Keystone's exhaustion proof | A technicality defense |
+| General Damages (UM) | The MRI, the Causation Letter, the MMI note; any impairment rating | “Pre-existing,” “degenerative” |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| MMI declared (06/12/2026) | Open the Demand Package task; request each provider's itemized line-item bill; ask John Doe for his impact in his own words | CMS → Tasks · Medical Records Requests · Call Simulator → AI John Doe | Every provider requested; his words recorded before the narrative is drafted |
+| The week of service | Run the Final Scrub: overlaps, the prior disclosed, every final balance by phone | CMS → Financial Ledger → Specials · CMS → Case Notes | Each balance confirmed with a name and date; $16,401.40 ties out |
+| Draft package assembled | Index every exhibit by function; route the package and the narrative to Atty. Thorne | Action Plan Editor → Demand Package · CMS → Tasks → Escalate | Every exhibit indexed to a part; narrative marked draft for review |
+| Limited Release signed (08/28/2026) | Rebuild each UM package by function; route the impairment-rating question | Action Plan Editor → UM demand templates · CMS → Tasks → Escalate | Two complete packages; the rating question with Atty. Thorne |
+
+**Best practices & pitfalls**
+
+- Order the package the way the adjuster reads it: the terms, the gap answered, then the proof, with an exhibit index naming what each document proves.
+- Write the Human Story in facts and dates: “He missed five shifts in his fifth week at Northgate” carries more than “his life was devastated.”
+- Pair each Property Damage photo with the injury it explains; structural damage answers the low-impact argument before it is made.
+- Keep future care (repeat ESIs, $3,400–$6,800) in the narrative, never in the Specials total.
+- ⚠️ Pitfall: a 300-page record dump with no summary; the adjuster reads none of it and offers little.
+- ⚠️ Pitfall: a narrative that says more than the records do; one embellished line costs the whole story its credibility.
+- ⚠️ Pitfall: hiding the 2021 low-back visits. Disclosed and distinguished, they are a non-issue; found by the adjuster, they are a credibility problem.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Big Four complete | Medical Specials $14,817.40 line-item, the Narrative, Liability Proof and Special Damages $1,584.00; total $16,401.40 |
+| 🤖 AI | **20%** | Function and trap | Each part of the package named with what it proves on this file and the adjuster trap it shuts |
+| 🤖 AI | **20%** | UM threshold and damages | Exhaustion proof and coverage proof, not proof of uninsured status; MRI, Causation Letter, MMI note; impairment rating raised with Atty. Thorne |
+| 🧑‍🏫 Trainer | **20%** | Narrative integrity | Human Story drawn from John Doe's words and the records; nothing embellished; the 2021 visits disclosed and distinguished |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | Figure, terms, lead photo, causation argument and the impairment-rating request left to Atty. Thorne; clinical opinions to the provider |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open on two numbers: $16,401.40 in Specials, and Keystone's $3,500 on 08/05/2026. Ask what Keystone found to lean on: the gap and “degenerative.” Then show which part of the package is built to shut each one.
+- Put a weak line on the board, “John's life was devastated,” and have the room rewrite it from the record: five shifts missed 02/09–02/13, numbness into his right hand from 02/18, residual right-arm paresthesia at MMI.
+- Watch for trainees who put proof of uninsured status in John Doe's UM packages. Smith was insured: the threshold here is exhaustion of Keystone's $10,000.
+- The impairment rating: Dr. Reyes's MMI note carries none. The Case Manager asks Atty. Thorne whether to request one; the rating itself is Dr. Reyes's clinical call.
+
+---
+
+### 3.1.8 Countering Adjuster Delay Tactics & Gap Pushback
 
 > **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** The battle map, the first call, and the stall rebuttals  
@@ -610,7 +696,7 @@ A battle map across the full slide width: four orange-numbered stations on a nav
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Keystone receives the demand (07/22/2026) | Build the battle map and compute the net floor | CMS → Financial Ledger → Net Sheet · CMS → Case Notes | Floor $12,677.63 gross on unreduced liens ($12,677.63 – $4,225.88 fee = $8,451.75); each attack matched to a dated document |
+| Dana Whitfield acknowledges the demand in writing (07/22/2026) | Build the battle map and compute the net floor | CMS → Financial Ledger → Net Sheet · CMS → Case Notes | Floor $12,677.63 gross on unreduced liens ($12,677.63 – $4,225.88 fee = $8,451.75); each attack matched to a dated document |
 | Adjuster calls with an offer | Soft lead, professional pause, ask for her data; restate the approved demand | Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual | No counter; terms and the 08/21/2026 deadline unchanged |
 | Call ends | Log the offer and the adjuster's exact words; report to Atty. Thorne | CMS → Communications Log · CMS → Tasks → Escalate | Logged and reported the same day, reasons quoted verbatim |
 | Adjuster stalls (“waiting on authority”) | Name it and tie it to the deadline in writing | Email Workspace | Same-day email cites 08/21/2026; no open-ended callback accepted |
@@ -652,7 +738,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.8 Securing Maximum Gross Policy-Limit Settlements
+### 3.1.9 Securing Maximum Gross Policy-Limit Settlements
 
 > **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** The UM gap, the reductions that don't apply, and closing at limits  
@@ -737,7 +823,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.9 Probe the 14-Day Treatment Gap with AI John Doe
+### 3.1.10 Probe the 14-Day Treatment Gap with AI John Doe
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 1 — Call Simulator: the 14-Day Gap, in his words  
@@ -826,7 +912,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 ---
 
-### 3.1.10 Gap Explanation Record Creation
+### 3.1.11 Gap Explanation Record Creation
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 2 — every reason beside its proof, for both interruptions  
@@ -915,7 +1001,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 ---
 
-### 3.1.11 Calculating Total Specials & the Special Damages Audit
+### 3.1.12 Calculating Total Specials & the Special Damages Audit
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity 1 — audit $15,002.40 down to the number that holds  
@@ -996,7 +1082,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ---
 
-### 3.1.12 Pre-Demand Strategy Session with AI Atty. Elijah Thorne
+### 3.1.13 Pre-Demand Strategy Session with AI Atty. Elijah Thorne
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity 2 — present the audit; record his decisions  
@@ -1029,7 +1115,7 @@ A two-pane Call Simulator screen. Left pane: the session transcript as alternati
 - [ ] Decision recorded: the gap addressed up front in the package, its documentation leading
 - [ ] Decision recorded: the UM consent plan. No UM demand until the BI tender is documented. On tender, written consent-to-settle requests to Harbor Point and Cardinal State before the BI settlement is accepted or any release is signed. Each may substitute its own payment of the $10,000 to preserve its subrogation against Robert Smith, within the window its policy or the governing statute sets (Atty. Thorne confirms; the CM dockets it). The demand's terms leave room for those windows. The release is limited to Robert Smith and Keystone.
 - [ ] Billed-vs-paid recorded as Atty. Thorne's decision, in his words
-- [ ] Recommendations kept operational (e.g., certified mail with return receipt and email; the acceptance window docketed from proof of receipt); no demand figure proposed
+- [ ] Recommendations kept operational (e.g., email the demand to Dana Whitfield and request her written acknowledgement of receipt; the acceptance window docketed from that acknowledgement); no demand figure proposed
 - [ ] Each decision read back, dated, attributed and tasked with an owner and a date; Case Plan marked superseded and re-routed
 
 **Operational mapping**
@@ -1076,7 +1162,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ---
 
-### 3.1.13 Serving the $10,000 BI Time-Limit Demand Package
+### 3.1.14 Serving the $10,000 BI Time-Limit Demand Package
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 1 — audit it, serve it, prove it  
@@ -1085,13 +1171,13 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 #### 1 · Visual Layout Description
 
-A three-column assembly board. Left: the Demand Package as five tabbed cream folders in reading order — TERMS · THE GAP, ANSWERED · MEDICAL SPECIALS · LIABILITY · SPECIAL DAMAGES — each tab carrying an orange numbered badge. Centre: a navy service card with two chips joined by a bold AND, CERTIFIED MAIL (RETURN RECEIPT) and EMAIL, and beneath it a return-receipt icon stamped 07/22/2026 in a mono pill. Right: a docket card with 08/21/2026 set large in orange and two reminder pills above it. Along the bottom, a red danger strip: “Counted from the mailing date = the wrong deadline.” The eye travels left to right: build, serve, prove.
+A three-column assembly board. Left: the Demand Package as five tabbed cream folders in reading order — TERMS · THE GAP, ANSWERED · MEDICAL SPECIALS · LIABILITY · SPECIAL DAMAGES — each tab carrying an orange numbered badge. Centre: a navy service card showing the sent email to DANA WHITFIELD with the 81-page Demand Package attached (07/20/2026), and beneath it her reply, WRITTEN ACKNOWLEDGEMENT, stamped 07/22/2026 in a mono pill. Right: a docket card with 08/21/2026 set large in orange and two reminder pills above it. Along the bottom, a red danger strip: “Counted from the send date = the wrong deadline.” The eye travels left to right: build, serve, prove.
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) and the Gap Explanation Record are on file; the pre-demand audit put the Specials at $16,401.40. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.
+**Scenario.** File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) and the Gap Explanation Record are on file; the pre-demand audit put the Specials at $16,401.40. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from Dana Whitfield's written acknowledgement of receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.
 
-**Execution prompt.** Audit the draft against the Big Four and the Final Scrub, log each deficiency as an assigned CMS task, and assemble the package with the gap answered on page one of the timeline. Once Atty. Thorne has signed, serve it on Keystone by certified mail with return receipt AND by email, and log both. When the return receipt comes back dated 07/22/2026, docket the acceptance deadline from it, with reminders. Graded judgment: what starts the clock, and what you do if Keystone asks for more time.
+**Execution prompt.** Audit the draft against the Big Four and the Final Scrub, log each deficiency as an assigned CMS task, and assemble the package with the gap answered on page one of the timeline. Once Atty. Thorne has signed, email it to Dana Whitfield from the Email Workspace with the Demand Package attached, ask her to confirm receipt in writing, and log it. When her written acknowledgement arrives on 07/22/2026, docket the acceptance deadline from it, with reminders. Graded judgment: what starts the clock, and what you do if Keystone asks for more time.
 
 | | |
 |---|---|
@@ -1101,14 +1187,14 @@ A three-column assembly board. Left: the Demand Package as five tabbed cream fol
 **Verification checkpoints**
 
 - [ ] Amount $10,000, Keystone's BI limit per its Dec Page (03/20/2026); nothing demanded above limits
-- [ ] Terms match Atty. Thorne's approval word for word: Limited Release of Robert Smith and Keystone only; Smith's affidavit of no other insurance; 30 days from receipt of the certified mailing
+- [ ] Terms match Atty. Thorne's approval word for word: Limited Release of Robert Smith and Keystone only; Smith's affidavit of no other insurance; 30 days from Dana Whitfield's written acknowledgement of receipt
 - [ ] Big Four complete: medical Specials $14,817.40; the narrative (mechanism, pain, work and life impact, consistent with the records); liability proof (RPD-26-018842 citation, Ruth Calloway, doorbell video); special damages $1,584.00 wages (Northgate HR letter), the $312.40 Riverton Drug receipts counted once, inside the medical Specials. Total $16,401.40 (billed figures; whether billed or paid amounts are the measure under the governing collateral-source or paid-versus-incurred rule is Atty. Thorne's call; confirm the governing rule)
 - [ ] Final Scrub: the 05/04/2026 duplicate removed (Riverton Spine & Rehab $6,290.00 → $6,105.00), every final balance re-verified with the provider, the 2021 low-back visits disclosed as resolved and a different region
 - [ ] Gap answered on page one: 02/06 → 02/20/2026 with its reasons, the EMS report, the 02/20 urgent-care onset note and the 06/19/2026 Causation Letter; the 19-day disruption (04/02–04/21/2026) explained too
 - [ ] Every bill paired with its medical-necessity why; future ESIs ($3,400–$6,800) in the narrative, not the Specials; the Civic's PD claim (Leah Moran) kept out
 - [ ] Each deficiency logged as a dated, assigned CMS task, not fixed silently
-- [ ] Signed by Atty. Thorne; served 07/20/2026 by certified mail (return receipt) AND email; both logged
-- [ ] Return receipt filed; deadline docketed 08/21/2026 (07/22 + 30 days) with reminders
+- [ ] Signed by Atty. Thorne; emailed to Dana Whitfield 07/20/2026 from the Email Workspace, the 81-page Demand Package (Exhibits A–J) attached; logged
+- [ ] Her written acknowledgement (07/22/2026, 9:06 a.m.) filed with the sent email as proof of delivery; deadline docketed 08/21/2026 (07/22 + 30 days) with reminders
 - [ ] Any extension request or response from Keystone routed to Atty. Thorne the same day, never answered by the CM
 
 **Operational mapping**
@@ -1116,8 +1202,9 @@ A three-column assembly board. Left: the Demand Package as five tabbed cream fol
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | Draft package on file | Audit against the Big Four and the Final Scrub; assign each fix | CMS → Tasks | Every deficiency is a dated, assigned task |
-| Atty. Thorne signs | Serve by certified mail with return receipt and by email | CMS → Documents → Outgoing · Email Workspace | Both channels logged 07/20/2026 |
-| Return receipt dated 07/22/2026 | Docket the acceptance deadline and reminders | Docket System | 08/21/2026 on the docket, counted from receipt |
+| Atty. Thorne signs | Email the demand to Dana Whitfield with the Demand Package attached; ask for written acknowledgement of receipt | CMS → Documents → Outgoing · Email Workspace | Sent and logged 07/20/2026 |
+| Dana Whitfield acknowledges receipt in writing (07/22/2026) | Docket the acceptance deadline and reminders | Docket System | 08/21/2026 on the docket, counted from her acknowledgement |
+| No written acknowledgement | Follow up with Dana Whitfield the same day; escalate to Atty. Thorne | Email Workspace · CMS → Tasks → Escalate | Nothing docketed from the send date or a guess |
 
 **Best practices & pitfalls**
 
@@ -1126,7 +1213,7 @@ A three-column assembly board. Left: the Demand Package as five tabbed cream fol
 - Re-verify every provider balance in the week of service; a stale balance makes a wrong demand.
 - Disclose a prior condition, never hide it: in the same region, show aggravation; John Doe's 2021 visits were low back, resolved, with no neck history.
 - ⚠️ Pitfall: fixing the draft yourself without assigning and tracking the fix.
-- ⚠️ Pitfall: counting the window from the mailing date instead of the receipt date.
+- ⚠️ Pitfall: counting the window from the send date instead of the written acknowledgement.
 - ⚠️ Pitfall: answering Dana Whitfield's request for more time yourself.
 
 #### 3 · Knowledge Check & CM Summary
@@ -1139,8 +1226,8 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 |---|---|---|---|
 | 🤖 AI | **20%** | Package completeness | Big Four present; $14,817.40 + $1,584.00 = $16,401.40; the 05/04/2026 duplicate removed |
 | 🤖 AI | **15%** | Terms fidelity | Amount, release scope, affidavit and window exactly as approved |
-| 🤖 AI | **15%** | Service and proof | Certified mail with return receipt and email, both logged; return receipt filed |
-| 🤖 AI | **10%** | Deadline | 08/21/2026 docketed from the 07/22/2026 receipt |
+| 🤖 AI | **15%** | Service and proof | Emailed to Dana Whitfield and logged; her written acknowledgement filed with the sent email |
+| 🤖 AI | **10%** | Deadline | 08/21/2026 docketed from the 07/22/2026 written acknowledgement |
 | 🧑‍🏫 Trainer | **20%** | Audit judgment | Found the faults that matter (the deadline, the release, the Specials total, the missing affidavit, and the packet's exhibits) and assigned each |
 | 🧑‍🏫 Trainer | **10%** | Gap presentation | Gap acknowledged plainly with its corroboration; not hidden, not over-argued |
 | 🧑‍🏫 Trainer | **10%** | UPL / authority boundary | Terms, extensions and replies left to Atty. Thorne; nothing signed for him |
@@ -1151,12 +1238,12 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 - Hand out the draft demand with its four planted faults: the deadline “30 days from the date of this letter” (it runs from receipt), a release of “all claims” instead of a Limited Release, Specials of $16,410.40 where the lines add to $16,401.40, and Smith's affidavit missing from the conditions. Its exhibit packet carries ten more, worked in the audit. Nobody mails anything until the audit is logged.
 - Ask the room: “Suppose Dana Whitfield emails on day 25 asking for two more weeks. Who answers?” Atty. Thorne. The CM logs it word for word and routes it the same hour.
-- Grade the deadline from the return receipt. A trainee who docketed from the mailing date has the right idea and the wrong day.
+- Grade the deadline from the written acknowledgement. A trainee who docketed from the send date has the right idea and the wrong day.
 - Watch the narrative's prior: three 2021 chiropractic visits for the low back, resolved, and no neck history. Disclosed and distinguished, never hidden.
 
 ---
 
-### 3.1.14 QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
+### 3.1.15 QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 2 — two packages, exhaustion proof on page one  
@@ -1196,7 +1283,7 @@ Two demand letters side by side on white letterhead: left HOST UM · HARBOR POIN
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | Limited Release signed (08/28/2026) | Draft both UM demands with exhaustion proof on page one | Action Plan Editor → UM demand templates | Tender, Dec Page, affidavit, consents and Limited Release present in each |
-| Drafts complete | Route both to Atty. Thorne for review, deadline and signature | CMS → Tasks → Escalate · Docket System | Nothing served before his sign-off; the deadline he sets docketed on service |
+| Drafts complete | Route both to Atty. Thorne for review, deadline and signature | CMS → Tasks → Escalate · Docket System | Nothing sent before his sign-off; then each emailed to its adjuster (Marcus Bell, Teresa Okafor), logged, written acknowledgement requested; the deadline he sets docketed from it |
 | Keystone's check received | Send its copy to Marcus Bell and Teresa Okafor as a supplemental exhibit | CMS → Documents → Outgoing | Check copy logged in both UM files the day it reaches trust |
 
 **Best practices & pitfalls**
@@ -1236,7 +1323,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.15 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
+### 3.1.16 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 1 — hold the Limits Demand on a recorded call  
@@ -1249,7 +1336,7 @@ A call-simulator screen across two-thirds of the slide: a navy header bar readin
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** File date 08/05/2026. Keystone received the $10,000 time-limited BI demand on 07/22; acceptance runs to 08/21/2026. Dana Whitfield calls with $3,500: John Doe “waited two weeks,” and the MRI is “degenerative.” Atty. Thorne's written authority: restate the Limits Demand and deadline, present the record, no counter, report any offer to him the same day.
+**Scenario.** File date 08/05/2026. Dana Whitfield acknowledged the $10,000 time-limited BI demand in writing on 07/22; acceptance runs to 08/21/2026. Dana Whitfield calls with $3,500: John Doe “waited two weeks,” and the MRI is “degenerative.” Atty. Thorne's written authority: restate the Limits Demand and deadline, present the record, no counter, report any offer to him the same day.
 
 **Execution prompt.** Run the call with Dana Whitfield in the Call Simulator. Before dialing, do the math check on $3,500: fee, costs, unreduced liens and John Doe's net. On the call, pause after her number and ask what data supports it; name each stall; on the gap, point only to the record: the EMS report, the Gap Explanation Record and Dr. Reyes's Causation Letter, and “degenerative” with Dr. Park's MRI language. Stay inside the written authority. Log the offer with her exact words, report it to Atty. Thorne the same day for him to convey to John Doe, and draft the 08/06 written rebuttal for his approval.
 
@@ -1325,7 +1412,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.16 Closing the $40,000 Gross Recovery
+### 3.1.17 Closing the $40,000 Gross Recovery
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 2 — work both UM layers to limits, on the record  
@@ -1403,7 +1490,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.17 UPL & Investigation Review
+### 3.1.18 UPL & Investigation Review
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1488,7 +1575,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 ---
 
-### 3.1.18 Pre-Demand Audit & Day 3 Gate
+### 3.1.19 Pre-Demand Audit & Day 3 Gate
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1546,8 +1633,8 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
    The Case Manager, who built the ledger · Dana Whitfield, Keystone's adjuster · Peach State, as the plan asserting reimbursement · **✓ Atty. Thorne, under the governing collateral-source rule**  
    *It turns on a collateral-source rule that varies by state. The Case Manager shows both columns; the choice is counsel's.*
 5. In the pre-demand strategy session, which of these may the Case Manager recommend?  
-   **✓ Serving the demand by certified mail with return receipt and by email, so receipt can be proved** · Demanding the $10,000 BI limits · Claiming billed rather than paid amounts · Sending the Host UM demand now, alongside the BI demand  
-   *Service method is operational, so you may recommend it, within whatever the governing statute requires for a Time-Limited Demand (Atty. Thorne confirms and approves). The demand figure and billed-vs-paid are his legal calls. A UM demand now would be premature: the UM layers owe nothing until BI is exhausted, and settling BI without their consent is what puts them at risk.*
+   **✓ Emailing the demand to Dana Whitfield and asking for her written acknowledgement of receipt, so receipt can be proved** · Demanding the $10,000 BI limits · Claiming billed rather than paid amounts · Sending the Host UM demand now, alongside the BI demand  
+   *Service method is operational, so you may recommend it; Atty. Thorne approves it. The demand figure and billed-vs-paid are his legal calls. A UM demand now would be premature: the UM layers owe nothing until BI is exhausted, and settling BI without their consent is what puts them at risk.*
 6. Northgate's HR letter verifies 9 missed shifts at 8 h × $22.00, but five of them (02/09–02/13/2026) fall before John Doe's first treatment and carry no provider work note. In the audited Specials, the Case Manager:  
    Drops the five shifts and claims only four: $704.00 · Asks Dr. Reyes for a work note backdated to cover 02/09–02/13/2026 · **✓ Keeps $1,584.00, flags the five shifts with Northgate's Attendance Record (called out citing neck pain) as their support, and routes them to Atty. Thorne** · Keeps $1,584.00 and leaves the five shifts unmentioned so Keystone doesn't notice them  
    *Flag, never drop, never hide. 9 × 8 h × $22.00 = $1,584.00, verified by Northgate. Five of the shifts fall inside the 14-Day Gap: record them exactly as the Attendance Record shows them, beside John Doe's own explanation of the gap. How they are presented is Atty. Thorne's call.*
@@ -1591,7 +1678,7 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 
 ---
 
-### 3.1.19 Demand Execution Audit
+### 3.1.20 Demand Execution Audit
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Demand Execution Audit + CM Learning Summary & Self-Scale  
@@ -1625,7 +1712,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 | Competency | 1 | 2 | 3 | 4 | 5 |
 |---|---|---|---|---|---|
-| Computing and docketing a Time-Limited Demand's deadline from receipt | ○ | ○ | ○ | ○ | ○ |
+| Computing and docketing a Time-Limited Demand's deadline from the written acknowledgement of receipt | ○ | ○ | ○ | ○ | ○ |
 | Auditing a Demand Package against the Big Four and the Final Scrub | ○ | ○ | ○ | ○ | ○ |
 | Presenting a Treatment Gap and a causation dispute up front | ○ | ○ | ○ | ○ | ○ |
 | Securing UM consents and a Limited Release before BI closes | ○ | ○ | ○ | ○ | ○ |
@@ -1634,13 +1721,13 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (10 questions):
+**Auto-graded share of the day's Knowledge Check** (12 questions):
 
-1. Keystone received the certified-mail BI demand on 07/22/2026. Its 30-day acceptance window closes on:  
+1. Dana Whitfield acknowledged the emailed BI demand in writing on 07/22/2026. Its 30-day acceptance window closes on:  
    08/19/2026 · **✓ 08/21/2026** · 08/22/2026 · 08/20/2026  
-   *The window runs 30 days from receipt: 07/22/2026 + 30 = 08/21/2026, a Friday. 08/19/2026 counts from the 07/20 mailing (the wrong trigger), 08/22/2026 adds a calendar month, and 08/20/2026 counts the day of receipt as day one.*
+   *The window runs 30 days from her written acknowledgement of receipt: 07/22/2026 + 30 = 08/21/2026, a Friday. 08/19/2026 counts from the 07/20 send date (the wrong trigger), 08/22/2026 adds a calendar month, and 08/20/2026 counts the day of receipt as day one.*
 2. Which of these would let Keystone refuse the Time-Limited Demand safely?  
-   A window of 30 days from receipt · A release limited to Robert Smith and Keystone · **✓ A demand for $16,401.40, the full Specials** · Service by certified mail and email  
+   A window of 30 days from receipt · A release limited to Robert Smith and Keystone · **✓ A demand for $16,401.40, the full Specials** · Service by email to Dana Whitfield, with her written acknowledgement of receipt  
    *Keystone's BI limit is $10,000. A demand above the limit is one Keystone cannot accept within its policy, so refusing it generally sets nothing up (confirm the governing rule). The other three are what make the demand hold.*
 3. Why can John Doe's file still reach the full $20,000 Host UM limit after Keystone pays $10,000?  
    **✓ Harbor Point confirmed in writing (03/02/2026) that its UM is add-on, so the BI payment does not reduce it** · UM limits are never reduced by a BI payment · PIP's $5,000 covers the BI offset · Cardinal State pays whatever Harbor Point deducts  
@@ -1652,8 +1739,8 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
    **✓ Damages above the $30,000 already reached through the $10,000 BI and the $20,000 Host UM** · Damages above the $10,000 BI only, the same showing as Harbor Point's package · Only that John Doe is a resident relative under Margaret Doe's policy (03/09/2026) · A cross-reference to Harbor Point's package, since the two claims share one file  
    *Relative UM is excess: Cardinal State answers only above the $30,000 from BI and Host UM, up to $10,000. Each carrier gets its own complete package with the exhaustion proof on page one; the damages figure itself is Atty. Thorne's valuation.*
 6. How is the BI Time-Limited Demand served?  
-   Email only · **✓ Certified mail with return receipt AND email, both logged** · Regular mail · By phone to Dana Whitfield  
-   *The letter names what starts the clock. Serve it both ways, log both and docket from receipt.*
+   By email, with the deadline docketed from the 07/20/2026 send date · **✓ By email to Dana Whitfield from the Email Workspace, logged, with her written acknowledgement of receipt requested** · Regular mail · By phone to Dana Whitfield  
+   *The letter says the 30 days run from her written acknowledgement of receipt. Email it with the Demand Package attached, log it, and docket from her acknowledgement (07/22/2026), never from the send date.*
 7. Under the BI demand's terms, who is released?  
    Everyone, both UM carriers included · **✓ Robert Smith and Keystone only, for the BI claim only** · Keystone only · Robert Smith, Keystone and Harbor Point  
    *A Limited Release: Smith and Keystone, the BI claim only. The Civic's PD claim stays open.*
@@ -1666,6 +1753,12 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 10. Keystone's 08/14 draft release frees “all other persons, firms, corporations and insurers.” What do you do?  
    Send it to John Doe to sign · **✓ Flag it to Atty. Thorne: it would release both UM carriers** · Sign it for the firm · Ignore the wording  
    *Limit the release to Robert Smith and Keystone, and to the BI claim. The Limited Release was signed 08/28/2026.*
+11. Building John Doe's Host UM package for Harbor Point, which documents prove the threshold?  
+   A DMV suspension letter for Robert Smith · **✓ Harbor Point's coverage proof plus Keystone's exhaustion proof: its tender, Dec Page, Smith's affidavit and the signed Limited Release** · A Police Report noting a phantom vehicle · John Doe's own auto Dec Page  
+   *Smith was insured, so the UM claim rests on exhausting Keystone's $10,000, proven by the tender, Keystone's Dec Page, Smith's affidavit and the Limited Release, plus Harbor Point's own coverage proof. Proof of uninsured status (a DMV suspension, a phantom vehicle) belongs to a truly uninsured claim. John Doe owns no car and has no auto policy.*
+12. Which line belongs in the Human Story the Case Manager drafts for Atty. Thorne's review?  
+   “John's life was devastated, and he may never work again.” · “His claim is worth at least the $10,000 limit.” · **✓ “He missed five shifts at Northgate (02/09–02/13) citing neck pain, and at MMI still has intermittent right-arm paresthesia.”** · “Future injections of $3,400–$6,800 are added to his Specials.”  
+   *The Human Story says only what John Doe's words and the records support, in facts and dates. An embellished line costs the story its credibility, value is Atty. Thorne's, and future care belongs in the narrative, never in the Specials total.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1685,13 +1778,13 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 #### 5 · Speaker Notes
 
 - Question 4 is the keystone and a pressure test. The right answer explains the process, not the law: nothing is signed until both consents are in and Atty. Thorne has gone through the release with him; log the call and route it the same day. A trainee who can't say what the consent protects has memorised the dates without the reason.
-- Put Question 6 to the room before anyone writes. The right answer still serves by certified mail as approved, since the clock runs from its receipt; logs the auto-reply; asks Keystone in writing for the covering adjuster; and tells Atty. Thorne. Any change to timing or terms is his, not the CM's.
+- Put Question 6 to the room before anyone writes. The right answer logs the auto-reply, which is not a written acknowledgement of receipt; follows up the same day and asks Keystone in writing for the covering adjuster; tells Atty. Thorne; and dockets nothing from the send date. Any change to timing or terms is his, not the CM's.
 - Compare each self-rating with the score. A 5 on a block scored at 60 is a coaching conversation, and so is a 2 on a block they aced.
 - UPL is a gate: a strong score does not survive an ethics breach.
 
 ---
 
-### 3.1.20 Negotiation Mastery Check
+### 3.1.21 Negotiation Mastery Check
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Knowledge Check + CM Learning Summary & Self-Scale  

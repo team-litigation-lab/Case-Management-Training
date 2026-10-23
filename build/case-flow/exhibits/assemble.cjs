@@ -162,10 +162,7 @@ for (const f of fs.readdirSync(HERE).filter(f => /^d\d\.json$/.test(f)).sort()){
     if(!docOf(e.model)) errors.push(`${at}.model: ${e.model} is not a document`);
     else if((PACKETS[id] || []).includes(e.model)) errors.push(`${at}.model: ${e.model} is in the activity's packet; the model is the answer and must not be`);
     else if(docOf(e.model).day > day) errors.push(`${at}.model: ${e.model} opens on Day ${docOf(e.model).day}, after this activity (Day ${day})`);
-    const m = e.mail || {};
-    if(!DATE.test(m.sent || "")) errors.push(`${at}.mail.sent: "${m.sent}" is not MM/DD/YYYY`);
-    if(!DATE.test(m.receipt || "")) errors.push(`${at}.mail.receipt: "${m.receipt}" is not MM/DD/YYYY`);
-    if(!m.channel || !m.proof) errors.push(`${at}.mail: needs channel and proof`);
+    if(!DATE.test(e.sent || "")) errors.push(`${at}.sent: "${e.sent}" is not MM/DD/YYYY`);
     const req = e.required || [];
     if(req.length < 4 || req.length > 6) errors.push(`${at}.required: ${req.length}, expected 4–6`);
     const seen = new Set();

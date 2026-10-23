@@ -459,6 +459,7 @@
   "image": "intake-interview",
   "roadmap": {
    "title": "The Gap Interview: the Roadmap",
+   "merge": true,
    "steps": [
     {
      "label": "Plan the questions",
@@ -857,5 +858,46 @@
    "Estimating mileage **from memory** at the end",
    "Promising the client **every cost comes back**"
   ]
- }
+ },
+  "d2m2-pip": {
+    "image": "lien-scale",
+    "hook": "**Where PIP's $5,000 lands** decides what's left for John Doe's net.",
+    "points": [
+      "Spend PIP on **fixed costs**; negotiable care runs under LOPs",
+      "Forecast the shared limit; **routing choices are Atty. Thorne's**",
+      "No EMC finding can **cap PIP** in EMC states",
+      "Riverton's add-on PIP **doesn't reduce BI or UM**"
+    ],
+    "upl": "Forecast and report PIP; routing, set-off and severity arguments are Atty. Thorne's",
+    "job": [
+      [
+        "A PIP check clears",
+        "Record limit left, bills coming",
+        "CMS → PIP Log",
+        "Exhaustion date forecast"
+      ],
+      [
+        "Bill could go PIP or LOP",
+        "Lay out both routes' figures",
+        "Email Workspace",
+        "Atty. Thorne's decision logged"
+      ],
+      [
+        "First treating records arrive",
+        "Check EMC rule and finding",
+        "Medical Records Requests",
+        "Finding or absence flagged"
+      ]
+    ],
+    "dos": [
+      "Get set-off and reimbursement positions **in writing**",
+      "Keep billed and **PIP-paid on one line**",
+      "Check **the EMC rule** early in treatment"
+    ],
+    "donts": [
+      "Counting a PIP-paid bill **as unpaid**",
+      "Quoting the Specials **without the PIP Log**",
+      "Asking a provider **to make an EMC finding**"
+    ]
+  }
 }

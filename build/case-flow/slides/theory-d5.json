@@ -695,5 +695,55 @@
       ],
       "note": "Nothing leaves trust until both UM checks clear and every Payoff Letter is in Documents."
     }
+  },
+  "d5m1-subp": {
+    "lead": "Litigation runs on **court-commanded evidence**: a subpoena makes a non-party produce records or a witness appear, and a careless one gets quashed.",
+    "concepts": [
+      {
+        "term": "Subpoena Duces Tecum",
+        "text": "Commands a non-party to **produce documents** when a hospital, cell provider or employer won't do it voluntarily",
+        "more": [
+          "“Duces tecum” means bring it with you: a command to produce documents",
+          "Drafted on the court-approved form: case style, target entity, production date, and a precise Exhibit A",
+          "Served by process server on the facility's **Registered Agent** or records custodian",
+          "Goes out only once Atty. Thorne decides, signs and issues it"
+        ]
+      },
+      {
+        "term": "Trial Subpoena",
+        "text": "Compels a witness to appear and testify, so fact witnesses, treating physicians and officers **legally show up**",
+        "more": [
+          "Drafted only for the witnesses **Atty. Thorne names**",
+          "This file's candidates: Ruth Calloway, Officer Thomas Garner #2217, Dr. Alana Reyes, Dr. Helen Park",
+          "Tasked against pretrial 08/12/2027 and the 09/13/2027 trial calendar",
+          "Service, timing and any witness fee: confirm the court's rules"
+        ]
+      },
+      {
+        "term": "The Scope Warning",
+        "text": "A blanket “all records” request is **a fishing expedition**; the defense or the third party moves to quash",
+        "more": [
+          "The deck's model wording, narrowed three ways:",
+          "“Any and all emergency room records, triage notes, and radiological imaging regarding [Client] for the treatment date of [Accident Date] only.”",
+          "One subject, an exact date range, **named record types**",
+          "Narrow is also faster: a custodian can comply with a request it can read"
+        ]
+      },
+      {
+        "term": "The Four-Step Pipeline",
+        "text": "Draft, notice opposing counsel, serve the custodian, track compliance: **notice comes first**, often 5–10 days before",
+        "more": [
+          "Draft on the court-approved form",
+          "Notice to opposing counsel before the third party; confirm **the governing rule**",
+          "Formal service by process server on the Registered Agent",
+          "Compliance call to the records or legal department 5 days before the deadline",
+          "Pay the custodian's copy invoice promptly; an unpaid invoice delays production"
+        ]
+      }
+    ],
+    "pages": [
+      "D5#28",
+      "D5#35"
+    ]
   }
 }

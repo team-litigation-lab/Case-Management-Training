@@ -2,9 +2,9 @@
   "d3m1-l1": {
     "dos": [
       [
-        "The Keystone demand left the office by certified mail on 07/20/2026.",
-        "The green card came back showing delivery on 07/22/2026.",
-        "Thirty days from that signed card lands on 08/21/2026, not 08/19."
+        "The Keystone demand went to Dana Whitfield by email on 07/20/2026.",
+        "Her reply on 07/22/2026 confirms the 81-page package arrived.",
+        "Thirty days from her reply lands on 08/21/2026, not 08/19."
       ],
       [
         "Dana Whitfield opens the Keystone package and reads page one.",
@@ -305,6 +305,42 @@
         "An email arrives saying Riverton has new bank details.",
         "It asks that the payoff go to the new account.",
         "The check is wired with no call to a number on file."
+      ]
+    ]
+  },
+  "d3m1-pkg": {
+    "dos": [
+      [
+        "The draft narrative reaches you for a final read.",
+        "One line calls John Doe's life “devastated.”",
+        "You swap it for five shifts missed, 02/09 to 02/13."
+      ],
+      [
+        "The Civic's teardown found a bent A-pillar.",
+        "The supplement came to $2,315.00, a structural repair.",
+        "Its photo sits beside the C5-C6 herniation on the MRI."
+      ],
+      [
+        "Dr. Reyes notes one or two repeat ESIs may follow.",
+        "Each would cost $3,400 within 24 months.",
+        "The Specials total stays at $16,401.40."
+      ]
+    ],
+    "donts": [
+      [
+        "Riverton Spine & Rehab sends every chart it has.",
+        "The stack runs to hundreds of pages.",
+        "It goes to Keystone with no summary on top."
+      ],
+      [
+        "The story draft is due to Atty. Thorne today.",
+        "It says John Doe can no longer lift anything.",
+        "No chart or note on the file says that."
+      ],
+      [
+        "Birch Avenue Chiropractic treated John Doe in 2021.",
+        "Three appointments, all for low-back stiffness.",
+        "The package leaves them out, hoping Keystone misses them."
       ]
     ]
   }

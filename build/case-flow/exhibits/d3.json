@@ -214,38 +214,33 @@
       "revealNote": "The Demand Package as Atty. Thorne signed and served it on 07/20/2026: the letter with its four faults corrected and the Exhibit Index as served, 81 pages. Every later activity on this file works from this set.",
       "revealPoints": [
         "Specials $14,817.40 medical + $1,584.00 wages = $16,401.40, every line tied to a certified bill.",
-        "Acceptance runs 30 days from Keystone's receipt of the certified mailing, not from the date of the letter.",
+        "Acceptance runs 30 days from the adjuster's written acknowledgement of receipt, not from the date of the letter.",
         "A Limited Release of Robert Smith and Keystone Mutual only, preserving every UM/UIM claim and the Property Damage claim.",
         "Robert Smith's affidavit of no other insurance added as condition 3.",
         "Exhibits A–J, 81 pages, Bates LSH-DEM-000001–000081, each exhibit mapped to the section it proves.",
-        "Received 07/22/2026, so the acceptance window closes 08/21/2026, docketed with reminders."
+        "Receipt acknowledged in writing 07/22/2026, so the acceptance window closes 08/21/2026, docketed with reminders."
       ]
     }
   },
   "emails": {
     "d3m1-a1": {
       "title": "Service Confirmation — the email the adjuster has to answer",
-      "kicker": "Mail proves it left. The email makes the carrier admit when it landed.",
+      "kicker": "Sending proves it left. Her written acknowledgement proves when it landed.",
       "model": "RS68",
-      "mail": {
-        "channel": "Certified mail, return receipt requested",
-        "sent": "07/20/2026",
-        "proof": "USPS No. 9589 0710 5270 0412 7731 58",
-        "receipt": "07/22/2026"
-      },
+      "sent": "07/20/2026",
       "to": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
       "cc": "Elijah Thorne <ethorne@lshlawgroup.example>",
       "subject": "Time-Limited Demand served today — John Doe / Robert Smith — Claim KM-26-440871",
       "attachment": "LSH-2026-MVA-770412_Doe-John_Demand-Package_2026-07-20.pdf (81 pp.)",
-      "brief": "Write the email that goes out with the certified mailing. It must say what was served and how, say the clock runs from Keystone's receipt, and ask her to confirm the receipt date and that the set is complete. Terms and extensions go to Atty. Thorne.",
+      "brief": "Write the email that serves the demand on the adjuster. Say it is served by this email, list what is attached, say the clock runs from her written acknowledgement of receipt, and ask her to confirm the receipt date and a complete set. Terms go to Atty. Thorne.",
       "required": [
         {
-          "id": "certified",
-          "label": "Names the certified mailing and its tracking number",
-          "hint": "Say it went by certified mail, return receipt requested, and give the number.",
+          "id": "served",
+          "label": "Says the demand is served on her by this email",
+          "hint": "Say in terms that the signed demand is served on her with this email.",
           "match": [
-            "certif",
-            "9589\\s*0710\\s*5270\\s*0412\\s*7731\\s*58|958907105270041277315 8|9589071052700412773158"
+            "serv",
+            "this email|attached|enclosed"
           ]
         },
         {
@@ -260,20 +255,20 @@
         },
         {
           "id": "clock",
-          "label": "States that the 30 days run from receipt, not the date of the letter",
-          "hint": "The window runs from receipt of the certified mailing. Say so in terms.",
+          "label": "States that the 30 days run from her written acknowledgement of receipt",
+          "hint": "The window runs from her written acknowledgement of receipt, not the letter date or send date. Say so.",
           "match": [
             "30 day|thirty day",
-            "receipt|receiv"
+            "acknowledg"
           ]
         },
         {
           "id": "ask",
           "label": "Asks her to confirm the receipt date and that the set is complete",
-          "hint": "Ask for the date Keystone received the mailing and for confirmation the package is complete.",
+          "hint": "Ask her to confirm in writing the date she received the email and that the package is complete.",
           "match": [
             "confirm",
-            "date"
+            "date|receipt|receiv"
           ]
         },
         {
@@ -291,7 +286,7 @@
         "date": "07/22/2026",
         "time": "9:06 a.m.",
         "subject": "RE: Time-Limited Demand served today — John Doe / Robert Smith — Claim KM-26-440871",
-        "body": "Confirming receipt. The certified envelope was delivered to our Riverton claims office this morning, July 22, and I signed for it. Your email of July 20 with the attachment is in the file as well; the PDF opens at 81 pages and the index runs A through J, so I show it complete.\n\nI have logged the demand as received 07/22/2026 and diaried it for evaluation. I will need to review the imaging and the treatment records before I can respond to the number. I may come back to you about the time frame."
+        "body": "Confirming receipt. Your email of July 20 with the demand and its attachment is in the file, received and opened this morning, July 22; the PDF opens at 81 pages and the index runs A through J, so I show it complete.\n\nI have logged the demand as received 07/22/2026 and diaried it for evaluation. I will need to review the imaging and the treatment records before I can respond to the number. I may come back to you about the time frame."
       },
       "press": {
         "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
@@ -331,12 +326,12 @@
             "h": "1 · What was served, and how",
             "lines": [
               "BI Time-Limited Demand, signed by Atty. Elijah Thorne 07/20/2026, served the same day.",
-              "Certified mail, return receipt requested, USPS No. 9589 0710 5270 0412 7731 58; green card returned bearing 07/22/2026.",
-              "Email of 07/20/2026, 4:21 p.m., with the full Demand Package as one bookmarked PDF, 81 pages, Exhibits A–J."
+              "Served by email to the adjuster, 07/20/2026, 4:21 p.m., with the full Demand Package as one bookmarked PDF, 81 pages, Exhibits A–J.",
+              "Receipt acknowledged in writing by Dana Whitfield, 07/22/2026, 9:06 a.m."
             ]
           },
           {
-            "h": "2 · The confirmation email the Case Manager sent",
+            "h": "2 · The email that served the demand",
             "lines": []
           },
           {
@@ -352,22 +347,22 @@
             "lines": [
               "Acknowledgment forwarded to Atty. Thorne 07/22/2026, flagged \"adjuster raises time frame — your call\".",
               "Communications Log updated with both emails, quoted in the adjuster's own words.",
-              "Docket entry 08/21/2026 created from the receipt date, not the mailing date, with reminders at 14 and 7 days and on the day.",
+              "Docket entry 08/21/2026 created from the written acknowledgement, not the send date, with reminders at 14 and 7 days and on the day.",
               "No reply sent on the time frame."
             ]
           },
           {
             "h": "6 · Where this memorandum is filed",
             "lines": [
-              "CMS → Doc Hub → Others, named the firm's way, with the return receipt appended.",
+              "CMS → Doc Hub → Others, named the firm's way, with both emails reproduced in full.",
               "CMS → Insurance tab → Demand: Time-Limited Demand yes, served 07/20/2026, received 07/22/2026, acceptance 08/21/2026.",
               "Your Backup Drive → 05 Insurance, Demands & Negotiation — the same copy, kept with the filing."
             ]
           }
         ],
         "establishes": [
-          "Keystone received the certified mailing on 07/22/2026, in the adjuster's own writing, matching the signed return receipt.",
-          "The acceptance window therefore closes 08/21/2026, counted from receipt and not from the date of the letter.",
+          "Keystone acknowledged receipt in writing on 07/22/2026, in the adjuster's own words, so the start date comes from the carrier and not from us.",
+          "The acceptance window therefore closes 08/21/2026, counted from her written acknowledgement and not from the send date.",
           "The package is complete at 81 pages, Exhibits A–J, so \"we never got all of it\" is answered by her own email.",
           "The time frame was raised, flagged and routed to Atty. Thorne. It was not an extension and was not granted.",
           "No valuation, no view of the offer and no agreement to any term was given by the Case Manager."

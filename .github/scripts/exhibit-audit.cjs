@@ -3,7 +3,7 @@
 // A Skill Activity that assembles or serves a document set audits the set itself: the trainee calls every
 // item (keep · replace · pull · add · flag), hands it in, and only then sees what the file says about each
 // one and the completed package. An activity that serves something also gets the Service Confirmation: the
-// confirmation email that goes out with the certified mailing, the adjuster's written acknowledgment, the
+// email that serves the demand on the adjuster, the adjuster's written acknowledgment, the
 // follow-up that tests the UPL line, and the exchange converted into a memorandum, filed into the open case
 // in the CMS under the firm's convention and backed up to Drive.
 // Checks, in a browser: the audit slide is in the day's slides; the workbench lists every item with a call to
@@ -30,16 +30,15 @@ const check = (ok, m) => { console.log((ok ? 'PASS ' : 'FAIL ') + m); if (!ok) f
 const EMAIL = [
     'Ms. Whitfield,',
     '',
-    "Atty. Elijah Thorne signed the Time-Limited Demand on John Doe's bodily injury claim today, and it went",
-    'out this afternoon by certified mail, return receipt requested, No. 9589 0710 5270 0412 7731 58. The',
-    'complete Demand Package is attached to this email as well: the demand letter and Exhibits A through J,',
-    '81 pages.',
+    "Atty. Elijah Thorne signed the Time-Limited Demand on John Doe's bodily injury claim today, and it is",
+    'served on you with this email. The complete Demand Package is attached: the demand letter and Exhibits',
+    'A through J, 81 pages.',
     '',
-    "The acceptance window runs 30 days from Keystone Mutual's receipt of the certified mailing, not from the",
-    'date of the letter.',
+    'The acceptance window runs 30 days from your written acknowledgement of receipt, not from the date of',
+    'the letter.',
     '',
-    'Please confirm by reply the date Keystone received the certified mailing, the date you received this',
-    'email, and that the package is complete at 81 pages.',
+    'Please confirm by reply the date you received this email and its attachment, and that the package is',
+    'complete at 81 pages.',
     '',
     'Any question about the terms, the amount or an extension should go to Atty. Thorne directly; I will route',
     'anything that reaches me to him the same day.',
@@ -152,7 +151,7 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     await page.evaluate((t) => { window.__E = t; }, EMAIL);
     await page.evaluate((b) => cmCaseFlow.service(b), BLOCK);
     await page.waitForSelector('#cf-sv .sv-write');
-    check(/Certified mail, return receipt requested/.test(await page.locator('#cf-sv').innerText()), 'the mailing is already proved, and the email is the step after it');
+    check(!/certified mail|return receipt/i.test(await page.locator('#cf-sv').innerText()) && (await page.locator('#cf-sv .sv-step').first().innerText()).includes('serves the demand'), 'the demand is served by the email itself, with no certified mailing step before it');
     const short = await page.evaluate((b) => { document.querySelector('#cf-sv .sv-write').value = 'Got it, thanks.'; cmCaseFlow.svSend(b); return document.querySelector('#cf-sv .sv-msg').innerText; }, BLOCK);
     check(/Not sent/.test(short), `an email too short to do the job is refused: ${short.replace(/\s+/g, ' ').slice(0, 80)}`);
     const partial = await page.evaluate((b) => {
@@ -234,7 +233,7 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     check(!!kept && kept.folder === 'insurance', `in the folder this kind of document belongs in, not one the trainee picks: ${kept && kept.folder}`);
     // the step's own words: "Backup Drive" appears in every state of it, the not-kept state included, so the
     // done marker is what is checked — and that the not-kept wording is gone.
-    const driveStep = await page.locator('#cf-sv .sv-step').nth(6).innerText();
+    const driveStep = await page.locator('#cf-sv .sv-step').nth(5).innerText();
     check(/✓ Kept on your Backup Drive under/.test(driveStep), `the step says the copy was kept, and names the folder: ${driveStep.replace(/\s+/g, ' ').slice(0, 110)}`);
     // the step's standing note explains what happens when a drive isn't built, so the absence to check is the
     // offer to do it, not that wording
@@ -250,7 +249,7 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     await page.evaluate(() => { state.isAdmin = true; });
     await page.evaluate((b) => cmCaseFlow.service(b), BLOCK);
     await page.waitForSelector('#cf-sv .sv-step');
-    const notKept = await page.locator('#cf-sv .sv-step').nth(6).innerText();
+    const notKept = await page.locator('#cf-sv .sv-step').nth(5).innerText();
     check(/Keep it on my Backup Drive/.test(notKept) && !/✓ Kept on your Backup Drive/.test(notKept),
         `a filing that never reached the drive offers to do it, after a reload: ${notKept.replace(/\s+/g, ' ').slice(0, 100)}`);
     // with no drive at all, the retry refuses and says what to do rather than reporting success
@@ -263,7 +262,7 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     await page.waitForTimeout(900);
     const late = await page.evaluate(() => window.__drive || null);
     check(!!late && late.folder === 'insurance' && late.name === name, `and once the drive is built the copy is made, same folder, same name: ${JSON.stringify(late)}`);
-    check(/✓ Kept on your Backup Drive under/.test(await page.locator('#cf-sv .sv-step').nth(6).innerText()), 'and the step turns green only then');
+    check(/✓ Kept on your Backup Drive under/.test(await page.locator('#cf-sv .sv-step').nth(5).innerText()), 'and the step turns green only then');
 
     // 9. all of it reaches the trainer
     const trainer = await page.evaluate(async () => {
