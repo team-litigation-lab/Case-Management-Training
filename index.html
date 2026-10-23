@@ -250,6 +250,7 @@ button{font-family:inherit;cursor:pointer;}
 
 
 main{flex:1;max-width:1400px;margin:0 auto;padding:36px 20px 80px;width:100%;animation:pageIn .35s ease both;}
+main.no-page-in{animation:none;}
 @keyframes pageIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
 
 .footer-note{
@@ -2271,7 +2272,7 @@ em.warn{font-style:normal;color:var(--danger);}
 .di-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:6px 0 12px;}
 .di-strip > div{background:#F3F5FB;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:2px;} .di-strip span{font-size:22px;} .di-strip b{color:var(--navy);font-size:14px;} .di-strip em{font-style:normal;font-size:12.5px;color:var(--ink-soft);}
 .di-warm{background:rgba(255,248,239,.66);border:1px solid #F0D2AE;border-radius:12px;padding:12px 16px;} .di-warm > span{font-size:12.5px;color:var(--ink-soft);}
-.nav-back-row{margin:0 0 12px;} .nav-back{font:inherit;font-size:13px;font-weight:700;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;box-shadow:0 1px 2px rgba(20,30,60,.06);} .nav-back:hover{border-color:var(--orange);color:var(--orange);}
+.nav-back-row{margin:0 0 12px;} .nav-back-mini{flex:0 0 auto;padding:6px 11px !important;} .nav-back{font:inherit;font-size:13px;font-weight:700;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;box-shadow:0 1px 2px rgba(20,30,60,.06);} .nav-back:hover{border-color:var(--orange);color:var(--orange);}
 .quiz-key-locked{background:#FFF8EF;border:1px solid #F0D2AE;border-radius:12px;padding:12px 16px;font-size:14px;color:var(--ink);margin:0 0 14px;}
 .di-wq{margin-top:10px;} .di-wq-q{font-weight:700;font-size:14px;color:var(--navy);margin-bottom:6px;} .di-wq-opts{display:flex;flex-direction:column;gap:6px;} .di-wq-opt{display:flex;gap:8px;align-items:flex-start;text-align:left;font:inherit;font-size:13.5px;background:#fff;border:1px solid #E6D6C2;border-radius:9px;padding:7px 10px;cursor:pointer;color:var(--ink);} .di-wq-opt span{font-weight:800;color:var(--ink-soft);min-width:14px;} .di-wq-opt:hover:not([disabled]){border-color:var(--orange);background:#FFFDF9;} .di-wq-opt[disabled]{cursor:default;} .di-wq-opt.ok{border-color:#3F7D58;background:#EEF7F1;color:#2E6546;font-weight:700;} .di-wq-opt.no{border-color:#C9544A;background:#FCEFEE;color:#9B3A32;} .di-wq-opt.dim{opacity:.6;} .di-wq-fb{font-size:13px;margin-top:6px;color:var(--ink-soft);} .di-wq-fb.ok b{color:#3F7D58;} .di-wq-fb.no b{color:#9B3A32;} .di-wq-hint{font-size:12px;color:var(--ink-soft);margin-top:4px;font-style:italic;}
 .di-warm details{margin-top:8px;} .di-warm summary{cursor:pointer;font-weight:700;font-size:14px;color:var(--navy);} .di-warm ol{margin:6px 0 0;padding-left:22px;} .di-warm li{font-size:13.5px;} .di-warm li.ok{font-weight:800;color:#3F7D58;} .di-warm p{font-size:13px;color:var(--ink-soft);margin:6px 0 0;}
@@ -2354,7 +2355,13 @@ em.warn{font-style:normal;color:var(--danger);}
 .sm-here{font-size:11px;font-weight:800;color:#DB8437;white-space:nowrap;}
 /* the dashboard hero's 🗺 Roadmap button (top right) and its pop-up */
 .dash-hero{position:relative;}
-.dash-roadmap-btn{position:absolute;top:0;right:0;z-index:2;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff;border-radius:999px;padding:6px 14px;font:inherit;font-size:12.5px;font-weight:800;cursor:pointer;}
+/* top right of the hero: ▶ Continue where you left off (the day and slide named), then 🗺 Roadmap */
+.dash-hero-btns{position:absolute;top:0;right:0;z-index:2;display:flex;gap:8px;align-items:center;max-width:58%;}
+.dash-resume-btn{display:flex;align-items:baseline;gap:8px;min-width:0;max-width:100%;border:0;border-radius:999px;background:#DB8437;color:#fff;padding:7px 16px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(219,132,55,.45);white-space:nowrap;}
+.dash-resume-btn span{font-size:12px;font-weight:600;opacity:.92;overflow:hidden;text-overflow:ellipsis;min-width:0;}
+.dash-resume-btn span::before{content:"· ";}
+.dash-resume-btn:hover{background:#B5651F;}
+.dash-roadmap-btn{flex:0 0 auto;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff;border-radius:999px;padding:6px 14px;font:inherit;font-size:12.5px;font-weight:800;cursor:pointer;}
 .dash-roadmap-btn:hover{background:#E8833A;border-color:#E8833A;}
 .rm-modal{position:fixed;inset:0;z-index:1000;background:rgba(15,20,40,.55);display:flex;align-items:center;justify-content:center;padding:16px;}
 .rm-box{position:relative;background:#fff;border-radius:16px;padding:22px 24px;max-width:1100px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 20px 50px rgba(0,0,0,.3);}
@@ -2522,7 +2529,11 @@ body::before{opacity:.40;}
   .topbar,.btn-primary,.btn-navy{background-image:none;box-shadow:none;}
 }
 </style>
-<script src="/js/portal-gate.js?v=2026.10.21-dashboard"></script>
+<script src="/js/portal-gate.js?v=2026.10.23-dashboard"></script>
+<!-- The page stays hidden until startup has drawn the page you land on, so it appears once, complete: no blank shell, top bar
+     alone or half-drawn dashboard first (the background photo shows meanwhile). bootShown() lifts it; 4 seconds at most. -->
+<style>html.lsh-booting #app{visibility:hidden;}</style>
+<script>document.documentElement.classList.add("lsh-booting");setTimeout(function(){document.documentElement.classList.remove("lsh-booting");},4000);</script>
 </head>
 <body>
 <div id="app"></div>
@@ -3223,7 +3234,7 @@ const ELIAS_VOICE_NOTE_AUDIO_SRC = ELIAS_VOICE_NOTE_AUDIO_DATAURI;
 const CLIENT_AVATAR_SRC = "";
 
 const state = {
-  view:"clientprofile",
+  view:"dashboard",
   dayId:null,
   toolId:null,
   quizAnswers:{},
@@ -5349,7 +5360,7 @@ function renderDashboard(){
   <div class="dash-top">
       ${renderSurpriseTaskCard()}
       <div class="dash-hero">
-        <button type="button" class="dash-roadmap-btn" onclick="openRoadmap()" title="See all ${DAYS.length} days at a glance">🗺 Roadmap</button>
+        <div class="dash-hero-btns">${resumeLabel() ? `<button type="button" class="dash-resume-btn" onclick="resumeWhereLeftOff()" title="Back to ${esc(resumeLabel())}">▶ Continue where you left off<span>${esc(String(resumeLabel()).replace(/^Case Flow /, ""))}</span></button>` : ""}<button type="button" class="dash-roadmap-btn" onclick="openRoadmap()" title="See all ${DAYS.length} days at a glance">🗺 Roadmap</button></div>
         <div class="dash-hero-text">
           <p class="eyebrow">LEGAL CASE MANAGEMENT ACCELERATOR</p>
           <h1><span class="hl"><svg class="hero-spark hero-spark-lead" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 L24.5 15.5 L38 20 L24.5 24.5 L20 38 L15.5 24.5 L2 20 L15.5 15.5 Z" fill="#F0C08A"/><path d="M33 3 L34.6 7.4 L39 9 L34.6 10.6 L33 15 L31.4 10.6 L27 9 L31.4 7.4 Z" fill="#fff"/><circle cx="6" cy="33" r="2.4" fill="#B5651F"/></svg>Case Management Professional Development Workshop<svg class="hero-spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 L24.5 15.5 L38 20 L24.5 24.5 L20 38 L15.5 24.5 L2 20 L15.5 15.5 Z" fill="#F0C08A"/><path d="M33 3 L34.6 7.4 L39 9 L34.6 10.6 L33 15 L31.4 10.6 L27 9 L31.4 7.4 Z" fill="#fff"/><circle cx="6" cy="33" r="2.4" fill="#B5651F"/></svg></span></h1>
@@ -5383,7 +5394,6 @@ function renderDashboard(){
         ${DAYS.map(d=>moduleCard(d)).join("")}
       </div>
           <div class="hero-actions bottom-actions">${[
-            resumeLabel() ? `<button class="btn btn-primary resume-btn" onclick="resumeWhereLeftOff()">▶ Resume where you left off <span>${esc(resumeLabel())}</span></button>` : "",
             (()=>{ if(!state.traineeId) return ""; const c = certData();
               return c.eligible
                 ? `<button class="btn cert-hero-btn" onclick="downloadCertificatePdf(null)">🎓 Download my Certificate</button><button class="btn btn-ghost cert-hero-view" onclick="openCertificate()">View</button>`
@@ -5970,7 +5980,9 @@ function render(){
   else if(state.view==="activities") body = typeof renderActivitiesPage==="function" ? renderActivitiesPage() : "";
   else if(state.view==="orientation") body = state.isAdmin ? renderOrientation() : renderDashboard();
   const presenterView = false;   // the presenter now lives inside the lesson stage
-  app.innerHTML = renderTopbar() + `<main class="${state.view==="dashboard"?"main-dash":""}${presenterView?" has-presenter":""}"><div id="navBackSlot"></div>${body}</main>` + (presenterView ? `<img class="slide-presenter" src="${PRESENTER_IMG}" alt="" aria-hidden="true">` : "")
+  // the page fades in only when you move to another page: a redraw of the same page (startup draws it a few times) stays still
+  const pageKey = [state.view, state.dayId, state.toolId].join("|"), samePage = pageKey === window.__lshPageKey; window.__lshPageKey = pageKey;
+  app.innerHTML = renderTopbar() + `<main class="${state.view==="dashboard"?"main-dash":""}${presenterView?" has-presenter":""}${samePage?" no-page-in":""}"><div id="navBackSlot"></div>${body}</main>` + (presenterView ? `<img class="slide-presenter" src="${PRESENTER_IMG}" alt="" aria-hidden="true">` : "")
     + ((state.traineeId && !state.isAdmin && !["login","pendingApproval","registrationDenied","dashboard","day"].includes(state.view)) ? `<button type="button" class="tfb-fab" onclick="openTraineeFeedback(${state.view==="day"?state.dayId:"null"})" title="Share feedback about the platform, lessons or facilitator" aria-label="Share feedback">💬<span class="fab-label"> Feedback</span></button>` : "")
     + renderFooter();
   afterRender();
@@ -6024,7 +6036,14 @@ function routeHash(){
 }
 // The address this tab opened with (a duplicated tab, or ⧉ "open in new tab"). Nothing may
 // overwrite it until start-up has opened that page (state.routeReady).
-const BOOT_ROUTE_HASH = String(location.hash||"");
+/* Every visit lands on the dashboard. Only ⧉ Open in new tab (?nt=1) opens a page by its address; anything else in the
+   address (a refresh, a bookmark, the Portal's link) is dropped, so nothing opens on one page and then jumps to another. */
+const BOOT_NEW_TAB = /[?&]nt=1(&|$)/.test(location.search);
+const BOOT_ROUTE_HASH = BOOT_NEW_TAB ? String(location.hash||"") : "";
+try{
+  const q = location.search.replace(/([?&])nt=1(&|$)/, (m, a, b)=> b ? a : "").replace(/[?&]$/, "");
+  if(BOOT_NEW_TAB || String(location.hash).indexOf("#/")===0) history.replaceState(history.state, "", location.pathname + q + BOOT_ROUTE_HASH);
+}catch(e){}
 function restoreBootRouteHash(){
   if(BOOT_ROUTE_HASH.indexOf("#/")===0 && location.hash!==BOOT_ROUTE_HASH){ try{ history.replaceState(history.state, "", location.pathname + location.search + BOOT_ROUTE_HASH); }catch(e){} }
 }
@@ -6080,7 +6099,11 @@ function fillNavBack(){
   const slot = document.getElementById("navBackSlot"); if(!slot) return;
   const prev = ["login","pendingApproval","registrationDenied","dashboard"].includes(state.view) ? "" : navBackTarget();
   const label = prev && routeLabel(prev);
-  slot.innerHTML = label ? `<div class="nav-back-row"><button type="button" class="nav-back" onclick="navBack()" title="Go back to the page you were on">← Back to ${esc(label)}</button></div>` : "";
+  const btn = label ? `<button type="button" class="nav-back" onclick="navBack()" title="Go back to the page you were on">← Back to ${esc(label)}</button>` : "";
+  // the Case File fills the screen to the last line: its Back sits at the start of its own tab row instead of a row of its own
+  const row = document.querySelector("#app > main .cf-file-tabs");
+  if(row){ slot.innerHTML = ""; const old = row.querySelector(":scope > .nav-back"); if(old) old.remove(); if(label) row.insertAdjacentHTML("afterbegin", `<button type="button" class="nav-back nav-back-mini" onclick="navBack()" title="Back to ${esc(label)}" aria-label="Back to ${esc(label)}">←</button>`); return; }   // just the arrow: the row is full on a laptop
+  slot.innerHTML = btn ? `<div class="nav-back-row">${btn}</div>` : "";
 }
 function navBack(){ if(routeDepth()>0) history.back(); else goto("dashboard"); }
 window.navBack = navBack;
@@ -6099,8 +6122,9 @@ function openRouteFromHash(){
   goto(r.view, r.id);
   return true;
 }
-function openInNewTab(){ syncRouteHash(); window.open(location.href, "_blank"); }
-function openRouteInNewTab(hash){ window.open(location.pathname + location.search + hash, "_blank"); }
+const newTabUrl = (hash)=> location.pathname + (location.search ? location.search + "&" : "?") + "nt=1" + hash;   // ?nt=1: this tab opens the page it was asked for
+function openInNewTab(){ syncRouteHash(); window.open(newTabUrl(routeHash() || ""), "_blank"); }
+function openRouteInNewTab(hash){ window.open(newTabUrl(hash), "_blank"); }
 window.addEventListener("hashchange", ()=>{
   if(!(state.traineeId || state.isAdmin) || ["login","pendingApproval","registrationDenied"].includes(state.view)) return;
   if(location.hash && location.hash!==routeHash()) openRouteFromHash();
@@ -6354,9 +6378,8 @@ async function submitLoginInner(){
   await syncToLedger(true);
   const status = await getApprovalStatus(state.traineeId);
   if(status==="approved"){
-    state.view = "clientprofile";
+    state.view = "dashboard";   // every sign-in lands on the dashboard; "Resume where you left off" is there
     startApprovalPolling(state.traineeId);
-    if(state.lastView && RESUMABLE_VIEWS.includes(state.lastView.view) && state.lastView.view!=="clientprofile"){ const lv = state.lastView; resumeWhereLeftOff(lv); toast("Welcome back — picking up where you left off."); return; }
   }else if(status==="rejected"){
     state.view = "registrationDenied";
   }else{
@@ -6735,6 +6758,7 @@ function startUpdateChecks(){
 }
 window.applyUpdate = applyUpdate;
 /* ---------- boot ---------- */
+function bootShown(){ requestAnimationFrame(()=>document.documentElement.classList.remove("lsh-booting")); }
 (async function init(){
   startLiveUpdates();
   startUpdateChecks();
@@ -6743,7 +6767,7 @@ window.applyUpdate = applyUpdate;
   if(state.adminToken && (await authStatus())) state.isAdmin = true;
   if(state.isAdmin && !state.adminToken && (await authStatus())){ state.isAdmin = false; setTimeout(()=>{ toast("Secure mode is on — please sign in to Admin again with the admin password."); }, 600); }
   if(state.traineeId && (await authStatus()) && !state.authToken){
-    if(!(await reauthTrainee())){ state.traineeId = ""; await storeSet("trainee-id", ""); state.view = "login"; render(); return; }
+    if(!(await reauthTrainee())){ state.traineeId = ""; await storeSet("trainee-id", ""); state.view = "login"; render(); bootShown(); return; }
   }
   if(state.traineeId && await cloudRestore(state.traineeId)) await loadAll();
   loadPublishedContent().then(()=>{ if(["day","dashboard","admin"].includes(state.view)) render(); });
@@ -6757,8 +6781,9 @@ window.applyUpdate = applyUpdate;
       // Returning trainee: reopen the page they were on (refresh / closed tab).
       // A page address in the URL (a duplicated tab, or ⧉ "open in new tab") wins over the bookmark.
       restoreBootRouteHash();
-      if(parseRouteHash()){ state.resumePending = true; setTimeout(()=>{ state.resumePending = false; if(!openRouteFromHash()) resumeWhereLeftOff(state.lastView); state.routeReady = true; syncRouteHash(); fillNavBack(); }, 0); }
-      else if(state.lastView && RESUMABLE_VIEWS.includes(state.lastView.view) && state.lastView.view!=="clientprofile"){ const lv = state.lastView; state.resumePending = true; setTimeout(()=>{ resumeWhereLeftOff(lv); state.routeReady = true; syncRouteHash(); fillNavBack(); }, 0); }
+      // the dashboard (its "Resume where you left off" button reopens the last page); a ⧉ new tab opens its own page
+      state.view = "dashboard";
+      if(parseRouteHash()){ state.resumePending = true; setTimeout(()=>{ state.resumePending = false; openRouteFromHash(); state.routeReady = true; syncRouteHash(); fillNavBack(); }, 0); }
       try{
         const rec = await sharedGet("trainee:"+state.traineeId);
         if(rec) state.assignedRoleplay = rec.assignedRoleplay || null;
@@ -6772,6 +6797,7 @@ window.applyUpdate = applyUpdate;
   }
   if(!state.resumePending) state.routeReady = true;
   render();
+  setTimeout(bootShown, 0);   // after a ⧉ new tab's page (queued just before) has been opened
 })();
 
 /* ============================================================
