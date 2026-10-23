@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /* Merges the trainer scripts (build/case-flow/scripts/d1.json … d5.json, written to SCRIPTSPEC.md) into
-   js/cm-case-flow-scripts.js (window.CM_CF_SCRIPTS), and checks them: every slide of every Case Flow block has
-   one, nothing else does, and each reads as something said out loud (45–150 words, no lists, labels, arrows or
+   js/cm-case-flow-scripts.js (window.CM_CF_SCRIPTS), with the day slides' scripts (days.json: the Training Agenda, the
+   Practice Lab, the End-of-Day Discussion) under CM_CF_SCRIPTS._days, and checks them: every slide of every Case Flow block has
+   one, nothing else does, and each reads as something said out loud (45–230 words, no lists, labels, arrows or
    stage directions; one question to the room at most; {name} where a trainee is called on).
      node build/case-flow/scripts/assemble.cjs [--check]   (--check: validate only, write nothing) */
 const fs = require("fs"), path = require("path");
@@ -64,7 +65,19 @@ for (const day of CF.days) for (const m of day.modules) for (const b of m.blocks
   out[b.id] = Object.fromEntries(vs.filter(v => c[v]).map(v => [v, c[v].ask ? {say: c[v].say.trim(), ask: c[v].ask.trim()} : {say: c[v].say.trim()}]));
 }
 for (const id of Object.keys(J)) if(!seen.has(id)) errors.push(`${id}: no such block`);
-const n = Object.values(out).reduce((a, x) => a + Object.keys(x).length, 0);
+const n = Object.values(out).reduce((a, x) => a + Object.keys(x).length, 0), nBlocks = Object.keys(out).length;
+// the day's own slides, outside any block (days.json): the opening Training Agenda, the Practice Lab, and the
+// End-of-Day Discussion before the Knowledge Check. Under "_days", by Case Flow day, so the case dates roll in them too.
+const DAYF = path.join(__dirname, "days.json"), SLOTS = ["agenda", "lab", "wrap"];
+if(fs.existsSync(DAYF)){
+  const days = JSON.parse(fs.readFileSync(DAYF, "utf8")); out._days = {};
+  for (const [k, c] of Object.entries(days)) {
+    if(!CF.days.some(d => String(d.n) === k)){ errors.push(`days.json ${k}: no such Case Flow day`); continue; }
+    for (const v of Object.keys(c)) if(!SLOTS.includes(v)) errors.push(`days.json ${k}.${v}: want one of ${SLOTS.join(", ")}`);
+    out._days[k] = Object.fromEntries(SLOTS.filter(v => c[v]).map(v => { say(`day ${k}`, `${v}.say`, c[v].say); ask(`day ${k}`, `${v}.ask`, c[v].ask);
+      return [v, c[v].ask ? {say: c[v].say.trim(), ask: c[v].ask.trim()} : {say: c[v].say.trim()}]; }));
+  }
+}
 if(errors.length){ console.log(`${errors.length} problem(s):`); errors.slice(0, 60).forEach((e, i) => console.log(`${i + 1}. ${e}`)); }
 const OUT = path.join(ROOT, "js/cm-case-flow-scripts.js"), text = `/* The trainer's scripts: what the trainer says on each Case Flow slide (Presenter view's "Script — read aloud",
    and the day's Trainer Speaker Notes), assembled from build/case-flow/scripts/dN.json by
@@ -74,9 +87,9 @@ window.CM_CF_SCRIPTS = ${JSON.stringify(out, null, 1)};
 `;
 if(process.argv.includes("--check")){
   if(!fs.existsSync(OUT) || fs.readFileSync(OUT, "utf8") !== text){ errors.push("js/cm-case-flow-scripts.js is out of date: run node build/case-flow/scripts/assemble.cjs"); console.log(errors[errors.length - 1]); }
-  else if(!errors.length) console.log(`Trainer scripts: ${n} slides across ${Object.keys(out).length} blocks, every one spoken, js/cm-case-flow-scripts.js in step`);
+  else if(!errors.length) console.log(`Trainer scripts: ${n} slides across ${nBlocks} blocks${out._days ? ` and the day slides of Day ${Object.keys(out._days).join(", ")}` : ""}, every one spoken, js/cm-case-flow-scripts.js in step`);
 } else if(n){
   fs.writeFileSync(OUT, text);
-  console.log(`wrote js/cm-case-flow-scripts.js: ${n} slides, ${Object.keys(out).length} blocks`);
+  console.log(`wrote js/cm-case-flow-scripts.js: ${n} slides, ${nBlocks} blocks`);
 }
 process.exit(errors.length ? 1 : 0);
