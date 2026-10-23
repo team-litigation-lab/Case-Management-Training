@@ -2356,7 +2356,8 @@ em.warn{font-style:normal;color:var(--danger);}
 /* the dashboard hero's 🗺 Roadmap button (top right) and its pop-up */
 .dash-hero{position:relative;}
 /* top right of the hero: ▶ Continue where you left off (the day and slide named), then 🗺 Roadmap */
-.dash-hero-btns{position:absolute;top:0;right:0;z-index:2;display:flex;gap:8px;align-items:center;max-width:58%;}
+.dash-hero-row{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 0 4px;margin-top:8px;border-top:1px solid rgba(255,255,255,.12);}
+.dash-hero-row .dash-resume-btn{max-width:min(720px,100%);}
 .dash-resume-btn{display:flex;align-items:baseline;gap:8px;min-width:0;max-width:100%;border:0;border-radius:999px;background:#DB8437;color:#fff;padding:7px 16px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(219,132,55,.45);white-space:nowrap;}
 .dash-resume-btn span{font-size:12px;font-weight:600;opacity:.92;overflow:hidden;text-overflow:ellipsis;min-width:0;}
 .dash-resume-btn span::before{content:"· ";}
@@ -5360,7 +5361,6 @@ function renderDashboard(){
   <div class="dash-top">
       ${renderSurpriseTaskCard()}
       <div class="dash-hero">
-        <div class="dash-hero-btns">${resumeLabel() ? `<button type="button" class="dash-resume-btn" onclick="resumeWhereLeftOff()" title="Back to ${esc(resumeLabel())}">▶ Continue where you left off<span>${esc(String(resumeLabel()).replace(/^Case Flow /, ""))}</span></button>` : ""}<button type="button" class="dash-roadmap-btn" onclick="openRoadmap()" title="See all ${DAYS.length} days at a glance">🗺 Roadmap</button></div>
         <div class="dash-hero-text">
           <p class="eyebrow">LEGAL CASE MANAGEMENT ACCELERATOR</p>
           <h1><span class="hl"><svg class="hero-spark hero-spark-lead" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 L24.5 15.5 L38 20 L24.5 24.5 L20 38 L15.5 24.5 L2 20 L15.5 15.5 Z" fill="#F0C08A"/><path d="M33 3 L34.6 7.4 L39 9 L34.6 10.6 L33 15 L31.4 10.6 L27 9 L31.4 7.4 Z" fill="#fff"/><circle cx="6" cy="33" r="2.4" fill="#B5651F"/></svg>Case Management Professional Development Workshop<svg class="hero-spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 L24.5 15.5 L38 20 L24.5 24.5 L20 38 L15.5 24.5 L2 20 L15.5 15.5 Z" fill="#F0C08A"/><path d="M33 3 L34.6 7.4 L39 9 L34.6 10.6 L33 15 L31.4 10.6 L27 9 L31.4 7.4 Z" fill="#fff"/><circle cx="6" cy="33" r="2.4" fill="#B5651F"/></svg></span></h1>
@@ -5370,20 +5370,8 @@ function renderDashboard(){
         </div>
       </div>
 
-      <div class="step-timeline">
-        ${DAYS.map((d,i)=>{
-          const prog = state.progress[d.id];
-          const unlocked = dayUnlocked(d.id);
-          const isCurrent = d.id===nextDayId() && !(prog&&prog.done);
-          const status = (prog&&prog.done ? "st-done" : (unlocked?"st-open":"st-locked")) + (isCurrent?" st-current":"");
-          const nextDone = i<DAYS.length-1 && state.progress[DAYS[i+1].id] && state.progress[DAYS[i+1].id].done;
-          const dashFilled = prog&&prog.done && nextDone;
-          return `<div class="step-node">
-            <div class="step-circle ${status}" onclick="${unlocked?`scrollToModule(${d.id})`:''}" title="Day ${d.id} — ${esc(d.title)}">${prog&&prog.done?'✓':d.id}</div>
-            ${i<DAYS.length-1?`<div class="step-dash ${dashFilled?'filled':''}"></div>`:''}
-          </div>`;
-        }).join("")}
-      </div>
+      <!-- where the day circles were: ▶ Continue where you left off and 🗺 Roadmap, centred under the title -->
+      <div class="dash-hero-row">${resumeLabel() ? `<button type="button" class="dash-resume-btn" onclick="resumeWhereLeftOff()" title="Back to ${esc(resumeLabel())}">▶ Continue where you left off<span>${esc(String(resumeLabel()).replace(/^Case Flow /, ""))}</span></button>` : ""}<button type="button" class="dash-roadmap-btn" onclick="openRoadmap()" title="See all ${DAYS.length} days at a glance">🗺 Roadmap</button></div>
 
   </div>
   <div class="dash-layout">
