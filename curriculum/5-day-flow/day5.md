@@ -58,16 +58,17 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 24. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch
 25. *Lesson* — Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund (condensed)
 26. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award
-27. *Lesson* — Dropped Cases: the Case Manager's Close-Out (condensed)
-28. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
-29. *Knowledge Check* — Litigation Fork Transition Check
-30. *Knowledge Check* — Countermeasure Operational Audit
-31. *Knowledge Check* — Litigation Support Assessment
-32. *Knowledge Check* — PD Transition Check
-33. *Knowledge Check* — Deposition Readiness Audit
-34. *Knowledge Check* — Final Comprehensive Knowledge Check
-35. *Knowledge Check* — Track B Close-Out Check
-36. *Knowledge Check* — Dropped Case Close-Out Check
+27. *Skill Activity* — Backup File Maintenance: the Final Audit and the Close-Out
+28. *Lesson* — Dropped Cases: the Case Manager's Close-Out (condensed)
+29. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
+30. *Knowledge Check* — Litigation Fork Transition Check
+31. *Knowledge Check* — Countermeasure Operational Audit
+32. *Knowledge Check* — Litigation Support Assessment
+33. *Knowledge Check* — PD Transition Check
+34. *Knowledge Check* — Deposition Readiness Audit
+35. *Knowledge Check* — Final Comprehensive Knowledge Check
+36. *Knowledge Check* — Track B Close-Out Check
+37. *Knowledge Check* — Dropped Case Close-Out Check
 
 **End-of-day discussion (trainer):** It is 01/05/2027. Opposing counsel's paralegal says your client's discovery responses are late, John Doe has changed his phone number, and the deposition is set for 02/18/2027. What do you do today, in what order, and what is Atty. Thorne's call, not yours?
 
@@ -75,7 +76,7 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 
 ## Module 5 — Litigation & Dropped Cases
 
-**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 5.1.1 Impasse Triggers & Filing Criteria
 
@@ -2191,7 +2192,78 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 ---
 
-### 5.1.27 Dropped Cases: the Case Manager's Close-Out
+### 5.1.27 Backup File Maintenance: the Final Audit and the Close-Out
+
+> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
+> **Topic:** Skill Activity — back up the litigation file, run the final audit and prepare the case for Closed Files  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · `D3#28` Skill Building: The “Doe v. Apex” Final Net Challenge · LSH firm standard: backup drive folder hierarchy
+
+#### 1 · Visual Layout Description
+
+The Doe-John folder tree with every folder ticked green and 09 Litigation & ADR opened: the Complaint, the affidavit of service, the Answer, the Scheduling Order, the mediation term sheet and both binders. Beside it a closing checklist card with every line ticked, ending ATTY. THORNE SIGN-OFF. A dashed orange arrow runs from Doe-John to 04 Closed Files, labeled AFTER SIGN-OFF, THE FIRM'S WAY.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** 07/30/2027, 3:00 p.m. The award was disbursed today: John Doe signed the Settlement Statement on 07/29/2027 and every lien is paid on its Payoff Letter. The litigation file is on the CMS: the Complaint (filed 09/24/2026), the service of process and affidavit of service, Atty. Grant Mercer's Answer (11/12/2026), the Scheduling Order (12/10/2026), the mediated settlement term sheet (03/18/2027) and the Mediation and Arbitration Binders as delivered. Atty. Thorne will sign off the close once the file is complete, on the CMS and on the backup.
+
+**Execution prompt.** File the litigation and ADR documents from 📁 Work From in the CMS, so each lands in 09 Litigation & ADR on your Backup Drive. Then run the final backup audit: open 📂 My Backup Drive, run ✓ Check my drive, and confirm the count of backed-up documents equals the documents filed in the CMS across all nine folders, with every superseded version labeled and no draft left unlabeled. Then write the closing checklist in Case Notes for Atty. Thorne's sign-off: every folder complete; every lien's Payoff Letter and the Settlement Statement on the drive; the closing letter sent and backed up; the last drive check clean; and the close-out step the firm takes after sign-off: the whole Doe-John folder moves, unchanged inside, under 04 Closed Files, with the closing date logged. Do not move the folder in your training drive; the course checks it where it is.
+
+| | |
+|---|---|
+| **Tool / interface** | Backup Drive · CMS → Documents · CMS → Case Notes |
+| **Expected output** | The litigation and ADR documents backed up in 09 Litigation & ADR, a final audit with every filed document on the drive and a clean check, and a closing checklist in Case Notes ready for Atty. Thorne's sign-off. |
+
+**Verification checkpoints**
+
+- [ ] The Complaint, the service papers, the Answer, the Scheduling Order and the mediation term sheet in 09 Litigation & ADR
+- [ ] The final count: every document filed in the CMS backed up in its folder
+- [ ] Superseded versions labeled and drafts marked as drafts across all nine folders
+- [ ] ✓ Check my drive run with no folder missing
+- [ ] The closing checklist in Case Notes, ending with Atty. Thorne's sign-off and the move to 04 Closed Files
+- [ ] The client folder left in place in the training drive
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Litigation documents filed | File each so its copy lands in 09 Litigation & ADR | CMS → Documents | All on the backup |
+| Award disbursed | Run the final backup audit | Backup Drive | Backed up equals filed; check clean |
+| File complete | Write the closing checklist for sign-off | CMS → Case Notes | Every line answered |
+| Atty. Thorne signs off | The firm moves Doe-John under 04 Closed Files | Backup Drive | Moved whole, closing date logged |
+
+**Best practices & pitfalls**
+
+- Close the backup the way you opened it: by the standard, checked, with nothing left in a folder of its own making.
+- A file is closed when the attorney signs off, not when the money goes out.
+- ⚠️ Pitfall: moving the client folder before sign-off, then filing a late document into a case nobody can find.
+- ⚠️ Pitfall: unlabeled drafts in a closed file; a reader years later can't tell which complaint was filed.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Litigation file backed up | Litigation and ADR documents in 09 Litigation & ADR |
+| 🤖 AI | **25%** | Final audit | Backed up equals filed across every folder; superseded and draft versions labeled; drive check clean |
+| 🤖 AI | **15%** | Closing checklist | Every closing line in Case Notes, ending with sign-off and the move to 04 Closed Files |
+| 🧑‍🏫 Trainer | **25%** | Close-out judgment | Knows the folder moves only after Atty. Thorne's sign-off, and why |
+| 🧑‍🏫 Trainer | **15%** | Findability | Finds any named document from intake to award on the drive in seconds |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- This is the last backup job of the course. Call out a Day 1 document (the HIPAA authorization) and a Day 5 one (the Answer); time how long each takes to open.
+- Ask: “Why not move it to Closed Files today?” Because a late document, a lien refund or a client call can still arrive, and the file stays open until Atty. Thorne signs off.
+- Show the trainer report in the Trainee Audit: Proficient means built, nothing missing and every filed document backed up.
+
+---
+
+### 5.1.28 Dropped Cases: the Case Manager's Close-Out
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** From “Pending Drop” to “Dropped”: the gate, three Withdrawal Letters, their dispatch and the proof  
@@ -2271,7 +2343,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 ---
 
-### 5.1.28 Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
+### 5.1.29 Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Skill Activity — a practice matter: three Withdrawal Letters, their dispatch and the Dropped status  
@@ -2345,7 +2417,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 ---
 
-### 5.1.29 Litigation Fork Transition Check
+### 5.1.30 Litigation Fork Transition Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2437,7 +2509,7 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 
 ---
 
-### 5.1.30 Countermeasure Operational Audit
+### 5.1.31 Countermeasure Operational Audit
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2522,7 +2594,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 5.1.31 Litigation Support Assessment
+### 5.1.32 Litigation Support Assessment
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2611,7 +2683,7 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 
 ---
 
-### 5.1.32 PD Transition Check
+### 5.1.33 PD Transition Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Transition Check (`d5m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2694,7 +2766,7 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 
 ---
 
-### 5.1.33 Deposition Readiness Audit
+### 5.1.34 Deposition Readiness Audit
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2776,7 +2848,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 5.1.34 Final Comprehensive Knowledge Check
+### 5.1.35 Final Comprehensive Knowledge Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Knowledge Check (all five days) + CM Learning Summary & Self-Scale  
@@ -2856,7 +2928,7 @@ The standard knowledge-check split, extended for the final check. Above the crea
 
 ---
 
-### 5.1.35 Track B Close-Out Check
+### 5.1.36 Track B Close-Out Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2924,7 +2996,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 5.1.36 Dropped Case Close-Out Check
+### 5.1.37 Dropped Case Close-Out Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

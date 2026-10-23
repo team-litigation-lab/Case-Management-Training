@@ -46,21 +46,22 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 11. *Lesson* — Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup
 12. *Lesson* — Secondary UM Demand Structuring & Policy Stacking Rules
 13. *Lesson* — Building the Demand Package: the Big Four, the Human Story & the Final Scrub
-14. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package
-15. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
-16. *Lesson* — Countering Adjuster Delay Tactics & Gap Pushback
-17. *Lesson* — The BI Settlement and the UM Consent to Settle & Subrogation Waiver
-18. *Lesson* — Securing Maximum Gross Policy-Limit Settlements
-19. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
-20. *Skill Activity* — Settlement Release Clause Review & Attorney Approval
-21. *Skill Activity* — Client Execution, Transmittal to Keystone & Check Confirmation
-22. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender
-23. *Skill Activity* — Closing the $40,000 Gross Recovery
-24. *Skill Activity* — The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
-25. *Knowledge Check* — UPL & Investigation Review
-26. *Knowledge Check* — Pre-Demand Audit & Day 3 Gate
-27. *Knowledge Check* — Demand Execution Audit
-28. *Knowledge Check* — Negotiation Mastery Check
+14. *Skill Activity* — Backup File Maintenance: the Pre-Demand Backup Audit
+15. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package
+16. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
+17. *Lesson* — Countering Adjuster Delay Tactics & Gap Pushback
+18. *Lesson* — The BI Settlement and the UM Consent to Settle & Subrogation Waiver
+19. *Lesson* — Securing Maximum Gross Policy-Limit Settlements
+20. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
+21. *Skill Activity* — Settlement Release Clause Review & Attorney Approval
+22. *Skill Activity* — Client Execution, Transmittal to Keystone & Check Confirmation
+23. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender
+24. *Skill Activity* — Closing the $40,000 Gross Recovery
+25. *Skill Activity* — The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
+26. *Knowledge Check* — UPL & Investigation Review
+27. *Knowledge Check* — Pre-Demand Audit & Day 3 Gate
+28. *Knowledge Check* — Demand Execution Audit
+29. *Knowledge Check* — Negotiation Mastery Check
 
 **End-of-day discussion (trainer):** It is 07/20/2026. The Specials are audited and Atty. Thorne has approved a policy-limits demand to Keystone. What must be true before the Time-Limited Demand goes out, and what would let Keystone say it never had a fair chance to settle?
 
@@ -68,7 +69,7 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 
 ## Module 3 — Pre-Demand Audit, the Demand & Settlement Negotiation
 
-**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 3.1.1 Interview Techniques & UPL Boundaries in Client Investigation
 
@@ -1166,7 +1167,78 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.14 Serving the $10,000 BI Time-Limit Demand Package
+### 3.1.14 Backup File Maintenance: the Pre-Demand Backup Audit
+
+> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
+> **Topic:** Skill Activity — audit the backup against the CMS before the demand goes out  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · LSH firm standard: backup drive folder hierarchy
+
+#### 1 · Visual Layout Description
+
+A two-column audit sheet: CMS on the left, BACKUP DRIVE on the right, rows linked by green ticks, one row with a red gap. Below it a counter reads 18 OF 18 BACKED UP. In the 03, 04 and 07 folder chips, a current document sits on top of a greyed copy stamped SUPERSEDED. On the right, the Demand Package chip drops into 05 Insurance, Demands & Negotiation with an orange DRAFT FOR AUDIT tag.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** 07/17/2026, 3:00 p.m. The pre-demand audit closed on 07/15/2026 and the BI Time-Limited Demand is served on 07/20/2026. Since the last backup, corrected documents have replaced earlier ones: Summit Imaging's corrected-history addendum to the MRI report (07/15/2026), Crescent Pain & Spine's corrected $0.00 patient statement (07/10/2026, replacing the 07/01/2026 statement) and the final Lost Wage Verification Record (07/01/2026, replacing the 06/23/2026 draft worksheet). The demand specialist's draft demand and exhibit packet are on the file for audit.
+
+**Execution prompt.** Audit your Backup Drive against the CMS before the demand goes out. Open 📂 My Backup Drive and compare its count of backed-up documents with the documents filed in the CMS; for any filed document not on the drive, back it up from 📁 Work From. For each corrected document, put the current version in its folder and keep the version it replaces beside it, renamed with SUPERSEDED and the date of the version that replaced it: the MRI addendum in 03 Medical Records, Crescent's corrected statement in 04 Bills & Invoices, the final wage record in 07 Wages & Costs. File the draft demand and the exhibit packet so they land in 05 Insurance, Demands & Negotiation, labeled as drafts. Run ✓ Check my drive, and record the audit in Case Notes: X of Y backed up, what you replaced and what you labeled.
+
+| | |
+|---|---|
+| **Tool / interface** | Backup Drive · CMS → Documents · CMS → Case Notes |
+| **Expected output** | A backup that matches the CMS document for document, superseded versions kept and labeled, the demand drafts in 05 Insurance, Demands & Negotiation, a clean drive check and the audit recorded in Case Notes. |
+
+**Verification checkpoints**
+
+- [ ] Every document filed in the CMS is on the drive: X of Y backed up, with X equal to Y
+- [ ] The MRI addendum, Crescent's corrected $0.00 statement and the final wage record each in its folder as the current version
+- [ ] The 07/01/2026 Crescent statement and the 06/23/2026 wage worksheet kept, renamed SUPERSEDED with the replacing version's date; nothing deleted
+- [ ] The draft demand and the exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT
+- [ ] ✓ Check my drive run with no folder missing
+- [ ] The audit in Case Notes: the count, what was replaced and what was labeled
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Demand about to be served | Compare the drive with the CMS | Backup Drive | X of Y backed up, X equal to Y |
+| Corrected versions on file | Put the current version in its folder, label the superseded one | Backup Drive | Both kept, the old one marked SUPERSEDED |
+| Draft Demand Package on file | File it so it lands in 05 Insurance, Demands & Negotiation | CMS → Documents | Labeled DRAFT |
+| Audit done | Run ✓ Check my drive and record the audit | CMS → Case Notes | Clean check, count recorded |
+
+**Best practices & pitfalls**
+
+- Audit the backup before every outgoing package: what the adjuster receives must be on the firm's own drive first.
+- Supersede, never delete: the old version explains why the new one exists.
+- ⚠️ Pitfall: two files with the same name in one folder and no way to tell which is current.
+- ⚠️ Pitfall: leaving the draft demand in 01 Intake & Retainer because it was opened from the Case Files tab.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **25%** | Backup matches the CMS | Every filed document backed up: X of Y with X equal to Y |
+| 🤖 AI | **20%** | Superseded versions | Current versions in their folders; superseded versions kept and labeled with the replacing date |
+| 🤖 AI | **15%** | Demand Package placed | Draft demand and exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT; drive check clean |
+| 🧑‍🏫 Trainer | **25%** | Audit discipline | Works the CMS list one document at a time rather than eyeballing folders |
+| 🧑‍🏫 Trainer | **15%** | Explaining the audit | Case Note states the count and the changes plainly for Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Before anyone opens the drive, ask: “If Keystone says it never got the corrected statement, where do we prove which version was current on 07/20?” The labeled backup is the answer.
+- Check the labels: SUPERSEDED with the replacing version's date. A label without a date doesn't tell a colleague which is current.
+- Have two trainees read out their X of Y. A gap is a document the firm can't put its hand on if the CMS is down.
+
+---
+
+### 3.1.15 Serving the $10,000 BI Time-Limit Demand Package
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 1 — audit it, serve it, prove it  
@@ -1248,7 +1320,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.15 QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
+### 3.1.16 QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 2 — two packages, exhaustion proof on page one  
@@ -1328,7 +1400,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.16 Countering Adjuster Delay Tactics & Gap Pushback
+### 3.1.17 Countering Adjuster Delay Tactics & Gap Pushback
 
 > **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** The battle map, the first call, and the stall rebuttals  
@@ -1411,7 +1483,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.17 The BI Settlement and the UM Consent to Settle & Subrogation Waiver
+### 3.1.18 The BI Settlement and the UM Consent to Settle & Subrogation Waiver
 
 > **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Why Keystone's $10,000 can't close until Harbor Point and Cardinal State sign off  
@@ -1489,7 +1561,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.18 Securing Maximum Gross Policy-Limit Settlements
+### 3.1.19 Securing Maximum Gross Policy-Limit Settlements
 
 > **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** The UM gap, the reductions that don't apply, and closing at limits  
@@ -1574,7 +1646,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.19 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
+### 3.1.20 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 1 — hold the Limits Demand on a recorded call  
@@ -1664,7 +1736,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.20 Settlement Release Clause Review & Attorney Approval
+### 3.1.21 Settlement Release Clause Review & Attorney Approval
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 2 — audit Keystone's release clause by clause, then route it  
@@ -1740,7 +1812,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.21 Client Execution, Transmittal to Keystone & Check Confirmation
+### 3.1.22 Client Execution, Transmittal to Keystone & Check Confirmation
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 3 — the signing session, the executed packet and the money into trust  
@@ -1815,7 +1887,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.22 The BI Settlement Net Sheet: Stream 1 at the Tender
+### 3.1.23 The BI Settlement Net Sheet: Stream 1 at the Tender
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity — what Keystone's $10,000 does, and doesn't, do on its own  
@@ -1895,7 +1967,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.23 Closing the $40,000 Gross Recovery
+### 3.1.24 Closing the $40,000 Gross Recovery
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 4 — work both UM layers to limits, on the record  
@@ -1974,7 +2046,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.24 The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
+### 3.1.25 The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity — project the UM stream to the cent, mark what will move, ask Atty. Thorne  
@@ -2055,7 +2127,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.25 UPL & Investigation Review
+### 3.1.26 UPL & Investigation Review
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2154,7 +2226,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 ---
 
-### 3.1.26 Pre-Demand Audit & Day 3 Gate
+### 3.1.27 Pre-Demand Audit & Day 3 Gate
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2263,7 +2335,7 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 
 ---
 
-### 3.1.27 Demand Execution Audit
+### 3.1.28 Demand Execution Audit
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Demand Execution Audit + CM Learning Summary & Self-Scale  
@@ -2369,7 +2441,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 3.1.28 Negotiation Mastery Check
+### 3.1.29 Negotiation Mastery Check
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Knowledge Check + CM Learning Summary & Self-Scale  

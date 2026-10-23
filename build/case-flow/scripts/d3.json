@@ -284,10 +284,6 @@
     "job": {
       "say": "On the job, it runs in three beats. When the provider's Final Ledger arrives, you audit each line against the visit records you requested, and you ask in writing for any error to be corrected. On John Doe's file, that's 33 visits matched, the 05/04/2026 duplicate removed, and $6,105.00 in the Lien Tracker. With the audited balance confirmed, you draft the Reduction Request with the math and get Atty. Thorne's written authority, escalated through CMS, logged before the request goes out or any call is made. And when a reduction is agreed, you get the signed Payoff Letter, update the Lien Tracker and the Net Sheet, and recompute the net that same day. A Case Manager I trained once won a gorgeous 30% off a provider bill, celebrated with the whole team, then found two duplicate visits on it. She'd negotiated a discount on money the provider was never owed. Audit first, celebrate second.",
       "ask": "{name}, which of those three beats would you be most tempted to rush, and what would it cost John Doe?"
-    },
-    "dodont": {
-      "say": "Let's play Three Clues, One Rule. Three clues come up, you call Do or Don't, and you name the rule. {name}, you're on the buzzer. In play: corrections first, reductions second. Being upfront with John Doe about the savings, so he sees his net rising. Getting every reduction in writing before disbursement. And the traps: a percentage off an inflated bill, a verbal reduction with nothing in writing, paying from a statement instead of the final payoff figure. Now, a warning about an old script you may hear: “reduce or the client refuses the settlement.” That's a threat, and here it's false. After fee and costs, $26,179.92 remains against $7,965.00 of liens. Use true facts instead: a coverage-capped recovery, the audited balance, a certain payment now. And your mystery for the next lesson. Riverton agrees to take less. What has to be sitting in the file before a single dollar goes out? {name}, I want your answer before I show you.",
-      "ask": "{name}, how would you rewrite “reduce or the client refuses the settlement” using only true facts?"
     }
   },
   "d3m3-a1": {
@@ -378,10 +374,6 @@
     "job": {
       "say": "On the job, the Net Sheet builds as the file moves. Each settlement check that arrives gets posted to its stream on the Recovery Ledger, with carrier and check reference: BI $10,000.00, UM $20,000.00 plus $10,000.00, $40,000.00 total. Each cost gets its receipt attached and is posted once; five receipts make $486.75, and nothing is charged to both streams in full. When a lien reduction is accepted, the Lien Tracker gets the asserted, audited and reduced figures and the Payoff Letter: Peach State $1,240.00, Riverton Spine & Rehab $4,580.00, letters dated. And once both tabs are complete, you tie the Net Sheet to the Trust Ledger, net $20,359.92 on both, and route it to Atty. Thorne before John Doe ever sees it. Why does that order matter? Because the first number a client sees is the number he remembers forever. Show him a draft that's off by a hundred dollars, and you'll be explaining that hundred dollars until the day the file closes.",
       "ask": "{name}, why does the Net Sheet go to Atty. Thorne before John Doe ever sees it?"
-    },
-    "dodont": {
-      "say": "Time for Three Clues, One Rule. I reveal three clues, you call Do or Don't, then name the rule. {name}, you're keeping score. The rules this time: one Net Sheet, two clearly separated streams. Every reduction carries its reason, an audit finding like the 05/04/2026 duplicate or a named basis like the one-third reduction. Show the streams side by side so John Doe sees what the work produced, from Keystone's $3,500 offer to its $10,000, and then $30,000 more from UM. And the traps: BI and UM mixed on one line, one cost charged to both streams, a cost with no receipt or a lien with no Payoff Letter. Watch your rounding too. BI carries $121.69 of the costs, and UM takes the remainder, $365.06. Now your mystery for the next lesson. There's one line, a single line, in Keystone's draft release that could have cost John Doe $30,000. {name}, start thinking about where a line like that would hide.",
-      "ask": "{name}, why do we compute the UM share as the remainder instead of rounding it on its own?"
     }
   },
   "d3m4-l2": {
@@ -569,6 +561,20 @@
     },
     "check": {
       "say": "Before you hand the packet over, check it. Was the notice logged and routed on 10/14, with nothing sent to the firm? Is the $6,666.67 hold in place on Atty. Thorne's instruction, and does the Action Plan show it? Did you compare the signatures and cross-reference the dates against 02/09 and 07/20? Did you quote their time record rather than characterize it? Is John Doe's account in his words, with no view from you on the lien? And does every sentence in the packet state a fact tied to a document, with validity, quantum meruit and any reply left on Atty. Thorne's list?"
+    }
+  },
+  "d3-drive": {
+    "case": {
+      "say": "It's 07/17/2026, three in the afternoon. The pre-demand audit closed on Wednesday, and the demand to Keystone goes out Monday. In the last two weeks three documents were corrected: the MRI got an addendum fixing the history, Crescent sent a corrected statement down to zero, and the wage record went from a draft worksheet to a final. The specialist's draft demand and exhibit packet are on the file for audit. Here's the question nobody asks until it's too late. If the CMS went down on Monday morning, could you put your hand on every page of that demand from the backup? {name}, what's your guess for how many firms could?",
+      "ask": "{name}, if Keystone says it never saw the corrected Crescent statement, where do we prove which version was current?"
+    },
+    "task": {
+      "say": "Here's your job: a backup audit before the demand goes out. Open My Backup Drive and compare the count of documents backed up with what's filed in the CMS. Any gap, back it up from Work From. Then the corrected documents. The current version goes in its folder, and the version it replaces stays right beside it, renamed SUPERSEDED with the date of the version that replaced it. Nothing gets deleted. The MRI addendum in Medical Records, Crescent's corrected statement in Bills, the final wage record in Wages and Costs. Then file the draft demand and the exhibit packet so they land in Insurance, Demands and Negotiation, labeled DRAFT. Run Check my drive, and record the audit in Case Notes. Lazy: eyeballing folders. High value: the CMS list, one document at a time.",
+      "ask": "{name}, why keep the superseded version at all, instead of deleting it?"
+    },
+    "check": {
+      "say": "Before you move on, check yourself. {name}, what's your X of Y? They should be the same number. Are the three current versions in Medical Records, Bills and Wages and Costs? Is every old version still there, labeled SUPERSEDED with a date? Are the draft demand and packet in Insurance, Demands and Negotiation, marked DRAFT? Did Check my drive come back clean? And does your Case Note give the count, what you replaced and what you labeled, in plain words Atty. Thorne can read in ten seconds? That's the standard before any package leaves this firm.",
+      "ask": "{name}, a label that says SUPERSEDED but no date. What's wrong with it?"
     }
   }
 }

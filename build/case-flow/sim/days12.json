@@ -1,5 +1,17 @@
 {
   "events": {
+    "d2-drive": {
+      "date": "04/24/2026",
+      "time": "3:30 p.m.",
+      "channel": "alert",
+      "from": "CMS",
+      "to": "Case Manager",
+      "subject": "Backup drive: a bill filed under 03 Medical Records (LSH-2026-MVA-770412)",
+      "body": "Treatment documents filed since 02/20/2026: 4. On the backup drive, Summit Imaging Center's invoice for the 03/13/2026 cervical MRI ($2,395.00) sits in 03 Medical Records. Firm standard: records in 03 Medical Records, bills and invoices in 04 Bills & Invoices, every filed document backed up the day it is filed, and the drive checked.",
+      "attachments": [
+        "RS25"
+      ]
+    },
     "d2m4-wage": {
       "date": "06/22/2026",
       "time": "8:35 a.m.",

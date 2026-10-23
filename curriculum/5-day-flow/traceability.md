@@ -21,8 +21,8 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#9` | Common Intake Bottlenecks — Overview | ✅ BUILT | d1m2-l1 |
 | `D1#10` | Bottleneck: Incomplete Client Information | ✅ BUILT | d1m1-l1 |
 | `D1#11` | Bottleneck: Delayed Client Follow-Up | ✅ BUILT | d1m2-l1, d1m2-a1, d1m2-kc |
-| `D1#12` | Bottleneck: Conflict Check Delays | ✅ BUILT | d1m1-l1, d1m1-open, d1m1-drive, d1m1-kc |
-| `D1#13` | Bottleneck: Intake Form Errors | ✅ BUILT | d1m1-l1, d1m1-open, d1m1-drive |
+| `D1#12` | Bottleneck: Conflict Check Delays | ✅ BUILT | d1m1-l1, d1m1-open, d1m1-drive, d1m1-kc, d2-drive, d3-drive, d4-drive, d5-drive |
+| `D1#13` | Bottleneck: Intake Form Errors | ✅ BUILT | d1m1-l1, d1m1-open, d1m1-drive, d2-drive, d3-drive, d4-drive, d5-drive |
 | `D1#14` | Bottleneck: Case Eligibility Uncertainty | ✅ BUILT | d1m4-l1 |
 | `D1#15` | Bottleneck: Communication Gaps | ✅ BUILT | d1m1-l1, d2m1-first |
 | `D1#16` | Tools for Case Planning & the PI Case Lifecycle Strategy | ✅ BUILT | d1m1-case, d1m1-l1, d1m1-kc, d1m3-a2, d1m4-a1, d2m2-sum |
@@ -128,14 +128,14 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D3#18` | Lien Negotiations/Reduction: Common Types of Liens | ✅ BUILT | d3m3-l1, d3m3-a1, d3m3-kc |
 | `D3#19` | Key Legal Doctrines Used for Reduction | ✅ BUILT | d3m3-l1, d3m3-a1, d3m3-kc, d4m2-um, d4m2-a3, d4m2-kc |
 | `D3#20` | Quantum Meruit Principle — Prior Attorney Liens | ✅ BUILT | d3m3-l1, d3m3-kc, d3m4-pal |
-| `D3#21` | Increasing the Client's Net | ✅ BUILT | d3m3-l2, d3m3-l3, d3m3-a2, d3m3-kc, d5m5-l1, d5m5-a1 |
+| `D3#21` | Increasing the Client's Net | ✅ BUILT | d3m3-l2, d3m3-l3, d3m3-a2, d3m3-kc, d4-drive, d5m5-l1, d5m5-a1 |
 | `D3#22` | Auditing the Billing Before Asking for a Discount | ✅ BUILT | d3m3-l2, d3m3-l3, d3m3-a2, d3m3-kc |
 | `D3#23` | The Net Sheet: Purpose of a Combined BI/UM Net Sheet | ✅ BUILT | d3m2-bins, d3m2-umns, d3m4-l1, d3m4-kc, d5m5-l1, d5m5-kc |
 | `D3#24` | The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) | ✅ BUILT | d3m2-bins, d3m2-umns, d3m4-l1, d3m4-kc, d5m4-kc, d5m5-l1, d5m5-kc |
 | `D3#25` | The Net Sheet: The LSH Corporate Net Sheet Ledger | ✅ BUILT | d2m2-eob, d3m2-umns, d3m4-l1, d3m4-a1, d5m5-l1, d5m5-a1 |
 | `D3#26` | The Net Sheet: Case Manager Protocols for Dual Settlements | ✅ BUILT | d3m2-bins, d3m2-rel, d3m2-umns, d3m4-l1, d3m4-l2, d3m4-a2 |
 | `D3#27` | Key Takeaway — The Value of a Case Manager | ✅ BUILT | d3m4-l1, d3m4-a1, d3m4-kc, d5m5-l1, d5m5-a1, d5m5-kc |
-| `D3#28` | Skill Building: The “Doe v. Apex” Final Net Challenge | ✅ BUILT | d3m4-a1, d5m5-a1 |
+| `D3#28` | Skill Building: The “Doe v. Apex” Final Net Challenge | ✅ BUILT | d3m4-a1, d5m5-a1, d5-drive |
 | `D3#29` | Case Phase: Disbursement — Core Objectives | ✅ BUILT | d3m4-l2, d3m4-close, d3m4-pal, d3m4-a2 |
 | `D3#30` | Disbursement: The Workflow | ✅ BUILT | d3m4-l2, d3m4-a2 |
 | `D3#31` | Disbursement: Documentation Checklist | ✅ BUILT | d3m4-a2 |

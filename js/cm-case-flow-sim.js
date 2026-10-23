@@ -4,6 +4,18 @@
    Do not edit here: edit the JSON and assemble again. */
 window.CM_CF_SIM = {
  "events": {
+  "d2-drive": {
+   "date": "04/24/2026",
+   "time": "3:30 p.m.",
+   "channel": "alert",
+   "from": "CMS",
+   "to": "Case Manager",
+   "subject": "Backup drive: a bill filed under 03 Medical Records (LSH-2026-MVA-770412)",
+   "body": "Treatment documents filed since 02/20/2026: 4. On the backup drive, Summit Imaging Center's invoice for the 03/13/2026 cervical MRI ($2,395.00) sits in 03 Medical Records. Firm standard: records in 03 Medical Records, bills and invoices in 04 Bills & Invoices, every filed document backed up the day it is filed, and the drive checked.",
+   "attachments": [
+    "RS25"
+   ]
+  },
   "d2m4-wage": {
    "date": "06/22/2026",
    "time": "8:35 a.m.",
@@ -434,6 +446,42 @@ window.CM_CF_SIM = {
     "RS16",
     "RS19",
     "RS18"
+   ]
+  },
+  "d3-drive": {
+   "date": "07/17/2026",
+   "time": "3:00 p.m.",
+   "channel": "memo",
+   "from": "Atty. Elijah Thorne",
+   "to": "Case Manager",
+   "subject": "Backup audit before Monday's demand",
+   "body": "Before the Keystone demand goes out 07/20, audit the backup against the CMS: every filed document in its folder, the corrected MRI addendum, Crescent statement and wage record in place with the versions they replace kept and labeled SUPERSEDED, and the draft demand and exhibit packet in 05 Insurance, Demands & Negotiation marked DRAFT. Count in Case Notes.",
+   "attachments": [
+    "RS72",
+    "RS73",
+    "RS95"
+   ]
+  },
+  "d4-drive": {
+   "date": "10/23/2026",
+   "time": "2:00 p.m.",
+   "channel": "alert",
+   "from": "CMS",
+   "to": "Case Manager",
+   "subject": "Backup drive: a folder deleted from a case backup",
+   "body": "A shared-folder clean-up this week deleted a lien folder from a case backup. Run the drive check on LSH-2026-MVA-770412 before filing into it: a copy sent to a folder that isn't there is a document the firm has lost. Today's papers for 06 Liens & Reimbursement and 07 Wages & Costs are filed in the CMS."
+  },
+  "d5-drive": {
+   "date": "07/30/2027",
+   "time": "3:00 p.m.",
+   "channel": "memo",
+   "from": "Atty. Elijah Thorne",
+   "to": "Case Manager",
+   "subject": "Doe close-out: final backup audit, then my sign-off",
+   "body": "The award is disbursed. Before I sign off the close, I want the litigation file in 09 Litigation & ADR, a final backup audit with every filed document on the drive, a clean drive check, and your closing checklist in Case Notes. The folder moves to 04 Closed Files after I sign, not before.",
+   "attachments": [
+    "RS51",
+    "RS53"
    ]
   },
   "d4m2-arbcal": {

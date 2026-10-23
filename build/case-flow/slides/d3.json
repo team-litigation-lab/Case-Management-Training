@@ -862,5 +862,32 @@
     "donts": [
       "Charging **all costs and liens** to the UM stream"
     ]
+  },
+  "d3-drive": {
+    "image": "documents-audit",
+    "situation": "07/17/2026, 3:00 p.m. The demand is served **on 07/20/2026**, and **three corrected versions** have arrived.",
+    "steps": [
+      "Compare **📂 Backup Drive with the CMS**: X of Y",
+      "Back up **every filed document** still missing",
+      "Current version in its folder, old one **SUPERSEDED**",
+      "Draft demand and packet into **05 Insurance**",
+      "Run **✓ Check my drive**; record the audit"
+    ],
+    "deliver": "A backup that **matches the CMS** before the demand goes out",
+    "purpose": "What the adjuster gets must be **on our drive first**",
+    "principle": "**Supersede, never delete**: label the old version",
+    "checks": [
+      "**X of Y backed up**, X equal to Y",
+      "**Current versions** in 03, 04 and 07",
+      "Old versions **labeled SUPERSEDED** with a date",
+      "Demand drafts in **05**, labeled DRAFT",
+      "**✓ Check my drive** clean; audit in Case Notes"
+    ],
+    "dos": [
+      "Audit the backup **before every package**"
+    ],
+    "donts": [
+      "Two files, **one name**, no way to tell"
+    ]
   }
 }

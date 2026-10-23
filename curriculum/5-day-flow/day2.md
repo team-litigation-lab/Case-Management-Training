@@ -61,9 +61,10 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 26. *Lesson* — Coverage & Subrogation: the Treatment Phase Summary
 27. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
 28. *Skill Activity* — The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol
-29. *Knowledge Check* — Coverage Setup Verification Check
-30. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
-31. *Knowledge Check* — Treatment Monitoring Review
+29. *Skill Activity* — Backup File Maintenance: Records and Bills in Their Folders
+30. *Knowledge Check* — Coverage Setup Verification Check
+31. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
+32. *Knowledge Check* — Treatment Monitoring Review
 
 **End-of-day discussion (trainer):** It is 04/08/2026. Keystone confirmed its limit in writing on 03/20, Riverton Spine & Rehab reports John Doe has missed two visits, and Dana Whitfield has asked John for a Recorded Statement. What do you do first, second and third, and what does each protect?
 
@@ -71,7 +72,7 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 
 ## Module 2 — Claim Set Up & Treatment
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 2.1.1 Coverage Verification Tracking & Follow-Up Deadlines
 
@@ -2405,7 +2406,77 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.29 Coverage Setup Verification Check
+### 2.1.29 Backup File Maintenance: Records and Bills in Their Folders
+
+> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Topic:** Skill Activity — back up the treatment documents and keep the records apart from the bills  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · LSH firm standard: backup drive folder hierarchy
+
+#### 1 · Visual Layout Description
+
+The Doe-John folder tree on the left, opened at 03 Medical Records and 04 Bills & Invoices side by side. Into 03 drop the Urgent Care visit note, the Spine & Rehab evaluation with its LOP and the Lakeside consult; into 04 drops the Summit Imaging invoice. One chip, SUMMIT IMAGING INVOICE, sits in 03 with a red MISFILED tag and an orange arrow lifting it across into 04. On the right, a green ✓ CHECK MY DRIVE stamp over a counter: FILED IN THE CMS 4 · ON THE DRIVE 4.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** 04/24/2026, 3:30 p.m. John Doe is back in care at Riverton Spine & Rehab, and the treatment documents of the last two months are filed in the CMS: Riverton Urgent Care's first visit note (02/20/2026), Riverton Spine & Rehab's initial evaluation with the Letter of Protection (02/23–02/24/2026), Lakeside Orthopedics' consult and follow-up (03/05 and 03/27/2026) and Summit Imaging Center's invoice for the 03/13/2026 cervical MRI ($2,395.00). A colleague who helped with the backup last week saved the Summit Imaging invoice into 03 Medical Records.
+
+**Execution prompt.** File each of the four documents in the CMS from 📁 Work From if it isn't filed yet, so the copy lands on your Backup Drive in the folder its kind belongs in: the visit notes, the evaluation and the consult in 03 Medical Records, the invoice in 04 Bills & Invoices. Open your Google Drive and find the Summit Imaging invoice your colleague put in 03 Medical Records; move it into 04 Bills & Invoices. Then open 📂 My Backup Drive and run ✓ Check my drive. Last, write the records-vs-bills rule in Case Notes in two sentences: what goes in each folder, and why a bill in the records folder is a damages problem.
+
+| | |
+|---|---|
+| **Tool / interface** | Backup Drive · CMS → Documents · CMS → Case Notes |
+| **Expected output** | Four treatment documents filed in the CMS and backed up in their folders, the misfiled invoice moved to 04 Bills & Invoices, a clean drive check, and the records-vs-bills rule in Case Notes. |
+
+**Verification checkpoints**
+
+- [ ] Riverton Urgent Care's visit note, Riverton Spine & Rehab's evaluation with the LOP and Lakeside Orthopedics' consult in 03 Medical Records
+- [ ] Summit Imaging Center's $2,395.00 invoice in 04 Bills & Invoices, moved out of 03 Medical Records, not copied twice
+- [ ] Every document filed in the CMS today is on the drive: the dashboard count of backed-up documents matches what you filed
+- [ ] ✓ Check my drive run with no folder missing
+- [ ] The records-vs-bills rule in Case Notes: records say what was done to John Doe, bills say what it cost
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Treatment documents arrive | File each in the CMS so its copy reaches the drive | CMS → Documents | Each in its folder on the backup |
+| A bill found among the records | Move it to 04 Bills & Invoices | Backup Drive | One copy, in the bills folder |
+| Backup brought up to date | Run ✓ Check my drive | Backup Drive | No folder missing |
+| The rule applied | Record the records-vs-bills rule | CMS → Case Notes | Two sentences, in your own words |
+
+**Best practices & pitfalls**
+
+- Back up the day you file, not at the end of the month; the backup is only as good as its last day.
+- Records hold what the provider wrote about the body; bills hold what it charged. The Specials audit reads the bills folder.
+- ⚠️ Pitfall: a second copy of the invoice left behind in 03 Medical Records, so the file holds two answers.
+- ⚠️ Pitfall: filing the LOP under bills because it is about money; it travels with the provider's evaluation.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **25%** | Documents backed up | All four filed in the CMS and on the drive in 03 Medical Records or 04 Bills & Invoices |
+| 🤖 AI | **20%** | Misfile corrected | The Summit Imaging invoice moved to 04 Bills & Invoices, with no copy left in 03 |
+| 🤖 AI | **15%** | Drive confirmed | ✓ Check my drive run with no folder missing |
+| 🧑‍🏫 Trainer | **25%** | Records-vs-bills rule | Explains the rule and why a misfiled bill drops out of the Specials |
+| 🧑‍🏫 Trainer | **15%** | Findability | Finds the Lakeside consult and the Summit invoice on the drive in seconds |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Ask the room before they move anything: “Where would the Specials audit look for the Summit invoice?” The answer is the rule.
+- Watch for trainees who copy the invoice into 04 and leave the original in 03. Two copies in two folders is a second misfile.
+- Point at the dashboard count: documents filed in the CMS and documents on the drive should be the same number at the end of every day.
+
+---
+
+### 2.1.30 Coverage Setup Verification Check
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2528,7 +2599,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 ---
 
-### 2.1.30 Case Plan Audit & the Claim Set Up Gate
+### 2.1.31 Case Plan Audit & the Claim Set Up Gate
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2647,7 +2718,7 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 ---
 
-### 2.1.31 Treatment Monitoring Review
+### 2.1.32 Treatment Monitoring Review
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

@@ -576,5 +576,19 @@
       "say": "Three moments on the job. When MMI is declared, you close the chronology and audit the Specials in the CMS and the Net Sheet, every bill tied to a dated record. When a gap or a missed visit shows up, you pair it with its documented reason the same week, in Case Notes and the Gap Explanation Record. And when the demand or a binder is assembled, you map each claim to the record that proves it in the Packet Builder, so no figure or finding goes out without its source.",
       "ask": "{name}, what would you check first if a binder's damages tab didn't tie to the Specials?"
     }
+  },
+  "d4-drive": {
+    "case": {
+      "say": "It's 10/23/2026, two in the afternoon. Track A's money went out yesterday, and the closing letter goes to John today. The lien file is finished: Peach State accepted twelve forty in writing, Riverton Spine and Rehab sent its Payoff Letter, and Vance and Kettering's charging lien came in, got repudiated and was withdrawn. And this week a colleague tidying shared folders deleted a lien folder from a case backup. Nobody noticed. Quick poll: {name}, how long do you think a deleted folder goes unnoticed at a busy firm?",
+      "ask": "{name}, which single document proves Vance and Kettering has no claim on the fee?"
+    },
+    "task": {
+      "say": "Here's the drill. In your own Google Drive, delete Liens and Reimbursement from John's folder. Yes, on purpose. Then open My Backup Drive and run Check my drive. Read what it says is missing, and why that folder matters. Use Put the missing folders back, and run the check again until nothing is missing. Then back up today's papers by filing them in the CMS from Work From: Peach State's acceptance, Riverton's Payoff Letter and the three prior-attorney lien documents into Liens and Reimbursement; the cost ledger and the closing letter into Wages and Costs. Then a Case Note: what was missing, how you found it, what you put back, what's on the drive now. Lazy: rebuilding the folder by hand. High value: let the check find it and the standard put it back.",
+      "ask": "{name}, why run Check my drive before you file into a folder, and not after?"
+    },
+    "check": {
+      "say": "Check yourself, and I'm calling on a few of you. Did your first check name Liens and Reimbursement as missing? Did you put it back, and did the second check come back clean? Are all five lien documents in Liens and Reimbursement? The cost ledger and the closing letter in Wages and Costs? Does the number backed up match what you filed? {name}, read me your Case Note. What was lost, how you found it, what you restored. A lien is only closed when its written answer is on the file and on the backup.",
+      "ask": "{name}, a colleague recreates a deleted folder by hand, one letter off. What will Check my drive say, and what do you do?"
+    }
   }
 }
