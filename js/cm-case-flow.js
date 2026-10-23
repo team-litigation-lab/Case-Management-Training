@@ -567,6 +567,7 @@ const TOOLKIT = [
   {id: "docs", icon: "📁", short: "Documents", name: "the Case Documents", re: /Case Documents/},
   {id: "lor", icon: "📄", short: "LOR Drafting", name: "LOR Drafting (John Doe v. Robert Smith)", re: /\bLORs?\b|Letters? of Representation/},
   {id: "packet", icon: "📚", short: "Packet Builder", name: "the Packet Builder (Demand Packets & Binders)", re: /Packet Builder/},
+  {id: "drive", icon: "📂", short: "Backup Drive", name: "My Backup Drive (your linked Google Drive)", re: /Backup Drive/},
 ];
 const TOOL = Object.fromEntries(TOOLKIT.map(t => [t.id, t]));
 /* The LSH Net Sheet is where the money is worked, and only there: Day 4's Settlement Negotiations, Lien Negotiations and
@@ -651,6 +652,7 @@ function toolLive(id, blockId){
   if(id === "call") return !!(blockId && SIM.calls[blockId]) || (typeof cmTool === "function" && !!cmTool("calls"));
   if(id === "netsheet") return !!(blockId && NET_STAGE[blockId]);
   if(id === "lor") return !!(blockId && LOR_BLOCKS.has(blockId)) && typeof window.cmLorCard === "function";
+  if(id === "drive") return !!(window.CMDrive && CMDrive.show);   // js/cm-drive.js: the 📂 Backup Drive panel
   if(PAGE[id]) return id !== "calendar" || (typeof PRACTICE_TOOLS !== "undefined" && PRACTICE_TOOLS.some(t => t.id === "calendar"));
   return typeof openTool === "function" && typeof cmTool === "function" && !!cmTool(id);
 }
@@ -676,6 +678,7 @@ function blockTools(b){
    Check, Calendar for a deadline, Case Notes for a note); a step worked from the file's documents opens 📁 Work From
    (its documents open beside the slide); otherwise the tool the step names, else the block's own tool. */
 const STEP_AT = [
+  [/Backup Drive|\bhierarchy\b|Check my drive/i, "drive", "Backup Drive"],
   [/Conflict Check/i, "cms", "CMS → New Case"],
   [/Case Notes/, "cms", "CMS → Case Notes"],
   [/\bDocket\b(?! System)|\bSOL\b|\bcalendar\b(?! Conflict)/i, "cms", "CMS → Calendar"],
@@ -958,8 +961,16 @@ function noteReached(b, p){
 }
 const BLOCK = {};
 CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { BLOCK[b.id] = b; })));
+/* Backup File Maintenance is graded by the Worker (/api/drive), not on the slide: done once the hierarchy was
+   graded as built and a drive check since then found every folder in place. */
+const DRIVE_ACT = "d1m1-drive";
+function driveDone(){
+  const D = window.CMDrive && CMDrive.status && CMDrive.status();
+  return !!(D && D.built && D.checkedAt && (!D.builtAt || D.checkedAt >= D.builtAt) && !(D.lastMissing || []).length);
+}
 function actDone(id){
   const b = BLOCK[id]; if(!b) return false;
+  if(id === DRIVE_ACT && driveDone()) return true;
   return ((REC.reached || {})[id] || 0) >= viewsOf(b).length || ((REC.ticks || {})[id] || []).some(Boolean) || !!(REC.work || {})[id] || !!((REC.listen || {})[id] || {}).at || !!((REC.notes || {})[id] || {}).txAt || !!(REC.calls || {})[id];
 }
 const actOpened = id => !!(REC.reached || {})[id] || actDone(id);
@@ -2087,6 +2098,7 @@ window.cmCaseFlow.npSend = function(blockId, id){
 };
 window.cmCaseFlow.npCall = function(blockId){ const o = document.getElementById("cf-np"); if(o) o.remove(); persist(); cmCaseFlow.call(blockId); };
 window.cmCaseFlow.tool = function(id, blockId){
+  if(id === "drive" && window.CMDrive) return CMDrive.show();   // the Backup Drive panel: link Google Drive, build and check the firm's folders
   if(id === "call" && blockId && SIM.calls[blockId]) return cmCaseFlow.call(blockId);
   if(id === "netsheet" && typeof openPane === "function"){   // the firm's Net Sheet (net-sheet.html), over the slide at full width (its ledger is wide), checked at this step's stage
     const st = NET_STAGE[blockId] || "final";

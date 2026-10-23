@@ -48,6 +48,15 @@
         {"q": "What hasn't he received from the firm?", "a": "Anything at all yet: no paperwork from the firm.", "match": ["nothing|anything|paperwork|packet|letter|welcome|onboarding|documents?"]}
       ]
     },
+    "d1m1-drive": {
+      "date": "02/09/2026",
+      "time": "4:30 p.m.",
+      "channel": "alert",
+      "from": "CMS",
+      "to": "Case Manager",
+      "subject": "Backup drive: no case file built for LSH-2026-MVA-770412",
+      "body": "John Doe's matter is active and its intake documents are filed in the CMS. No backup drive is linked for this matter and no folders exist for it. Firm standard: the case file is built on the backup drive to the firm hierarchy on the day the matter opens, and checked."
+    },
     "d1m3-a2": {
       "date": "02/11/2026",
       "time": "8:05 a.m.",
