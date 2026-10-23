@@ -58,6 +58,7 @@
         "RS13"
       ],
       "in": [
+        "d2m2-a1",
         "d2m3-a1"
       ],
       "spot": "Our own intake supplement records the 2021 care as neck and back; the 2021 records show low back only."
@@ -90,6 +91,7 @@
         "RS28"
       ],
       "in": [
+        "d2m1-a2",
         "d4m3-a2"
       ],
       "spot": "The Police Report lists the Escape as a 2021 (the declarations page: 2020)."
@@ -262,13 +264,7 @@
     }
   },
   "open": [
-    "RS03 and RS04 (02/10/2026) already carry the claim numbers, adjusters and the BI limit that d1m1-a1 says arrive on 02/16–02/17/2026. Decide whether to blank them as \"claim not yet opened\".",
-    "Some packets hand a trainee records dated after the activity: d2m2-a1 (02/23/2026) has RS20 (05/28/2026) and RS13 (02/24/2026); d1m4-a1 has RS14 (printed 06/30/2026); d2m1-a2 (03/11/2026) has RS27 (03/20/2026) and RS30, whose signed UM rejection its checkpoint says has not arrived yet.",
-    "RS29 quotes Cardinal State's Other Insurance clause and its excess form, while d2m1-a2's checkpoint says the 03/09/2026 letter does not state them. Either trim RS29 or the checkpoint.",
-    "The manifest's day and SPEC.md's day differ for RS11–RS19, RS21–RS24, RS26, RS37, RS40–RS45 and RS49. The manifest decides when a trainee sees a document; SPEC.md should follow it, or the manifest should move earlier where a document is worked before it opens.",
-    "RS54 holds 25 interrogatories, 27 requests for production and 14 requests for admission, but its cover letter, the case file, RS60 and d4m2-a1 say 30 and 15. Add three requests for production and one request for admission (none about property damage).",
-    "RS44 (as of 10/16/2026) carries Track A's 08/31/2026 UM-demand mailings, but Track B (d5m5-a1) uses it as the $486.75 pre-suit cost figure.",
-    "RS64 (printed 07/15/2026) already names the 03/2027 mediation and 05/2027 arbitration dates.",
-    "RS02's planted \"neck and back\" cannot be proved on Day 1 (RS20 opens on Day 2), and no Day 1 checkpoint asks for it; the first activity that can prove it is d2m3-a1. RS07's 2021 Escape and RS06's expiry are planted but no checkpoint credits catching them."
+    "d2m2-a1 (02/23 and 03/11/2026) proves Summit's decline from Harbor Point's PIP payment history (RS31), which runs to 06/26/2026; a PIP ledger as of 03/11/2026 would fit the date better.",
+    "RS32 (Keystone letters, February–April 2026) reaches d2m1-a2 on 03/11/2026 with its later letters in it; splitting it by date would keep the April letters for later activities."
   ]
 }

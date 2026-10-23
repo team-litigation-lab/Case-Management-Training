@@ -605,8 +605,9 @@ A full-width CMS Coverage Matrix in a white card with a navy header bar: six row
 - [ ] Bluewater: “UM: none” has no source; the signed UM rejection form (03/14/2024) chased from Bluewater, filed as the source when it arrives, with a dated follow-up until then
 - [ ] Keystone PD row kept outside the stack, neither moved in nor deleted: Leah Moran, PD liability accepted 02/17/2026; its $25,000 limit marked preliminary until Keystone's Declaration Page (03/20/2026)
 - [ ] Every correction cites its document and date; no row reads “confirmed” without one
-- [ ] Relative UM: coverage confirmed 03/09/2026 (resident relative, non-owned vehicle); the letter does not state its UM form or the other-insurance clause that places it behind Host UM. Written request to Teresa Okafor for both and for a certified copy of the policy, with a dated follow-up (credited, not a false positive)
-- [ ] Audit note to Atty. Thorne: confirmed in writing (Host UM; Relative UM coverage), preliminary (BI; Relative UM form and excess clause), escalated (the missing Bluewater form; any coverage question)
+- [ ] Relative UM: coverage confirmed 03/09/2026 (resident relative, non-owned vehicle); the letter quotes the other-insurance clause that places it behind Host UM, but not its UM form (add-on, or reduced by the BI payment). Written request to Teresa Okafor for the form and for a certified copy of the policy, with a dated follow-up (credited, not a false positive)
+- [ ] The Escape's year: the Police Report lists a 2021, Harbor Point's Declaration Page a 2020; the CMS follows the Declaration Page, with the discrepancy noted and both sources cited (credited, an unplanted finding)
+- [ ] Audit note to Atty. Thorne: confirmed in writing (Host UM; Relative UM coverage), preliminary (BI; Relative UM form: add-on or reduced by the BI payment, which the 03/09/2026 letter does not say), escalated (the missing Bluewater form; any coverage question)
 
 **Operational mapping**
 
@@ -643,7 +644,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 #### 5 · Speaker Notes
 
-- Give them the staged matrix and the file documents and nothing else. Don't say how many errors there are; finding all six is the grade. The six: BI marked confirmed; the past-due BI follow-up; the blank Host UM form; Cardinal State's adjuster; PIP in the stack ($45,000); the missing Bluewater rejection form. A seventh, unplanted finding, Cardinal State's unstated UM form and excess clause, is correct: credit it outside the six.
+- Give them the staged matrix and the file documents and nothing else. Don't say how many errors there are; finding all six is the grade. The six: BI marked confirmed; the past-due BI follow-up; the blank Host UM form; Cardinal State's adjuster; PIP in the stack ($45,000); the missing Bluewater rejection form. A seventh, unplanted finding, Cardinal State's unstated UM form (its 03/09/2026 letter confirms the excess clause but not whether the coverage is add-on or reduced by the BI payment), is correct: credit it outside the six. So is an eighth: the Police Report's 2021 Escape against Harbor Point's 2020 on the Declaration Page, the reconciliation taught in Liability Investigation.
 - The BI row is the graded judgment. On 03/11/2026 the only defensible status is preliminary: Keystone's Declaration Page arrives 03/20/2026.
 - Watch for false positives. The Keystone PD row belongs outside the stack: marking its $25,000 preliminary is correct; moving it into the stack or deleting it is the false positive, and confuses “tracked” with “stacked”.
 - Read one audit note aloud as Atty. Thorne would. In ten seconds he should know what is confirmed, what is not, and what he must decide.
@@ -1666,6 +1667,7 @@ Two dated envelopes side by side, each a white card with a navy header. Left, 02
 - [ ] LOP register entry: provider, date signed, out-of-network status, a running balance field
 - [ ] Assessment recorded: clinical (neck pain; right-hand numbness since 02/18; the urgent-care note puts onset at the 02/06/2026 MVA), social (rental authorized 02/18/2026, capped at 30 days, so it ends 03/19/2026: calendared as a treatment risk), vocational (Northgate Distribution shift lead)
 - [ ] Pre-morbid baseline: three 2021 chiropractic visits for low-back stiffness, resolved; no prior neck complaints; body region distinguished, records requested
+- [ ] Our own intake supplement (RS02) records the 2021 care as “neck and back”; John Doe describes low back only: the discrepancy flagged to Atty. Thorne, nothing corrected until the 2021 records arrive (credited)
 - [ ] Summit Imaging's 03/11/2026 request declined in writing with the reason stated (PIP applies first) and Harbor Point PIP named as the payer
 - [ ] Decline proved from the ledger: $5,000.00 – $685.00 – $640.00 = $3,675.00 left, enough for the $2,395.00 MRI, leaving $1,280.00
 - [ ] No payment amount, reduction or payment date promised to either provider; Atty. Thorne copied on the decline
@@ -1764,6 +1766,7 @@ The CMS Tasks board fills the slide as a white card with a navy header, JOHN DOE
 - [ ] Crescent added to Parties as a treating provider: Dr. Omar Haddad, 41 Crescent Ct, Riverton, (555) 010-6900, billing (555) 010-6912; bills Peach State in network; no LOP
 - [ ] Lien Tracker: Peach State's reimbursement interest (Dion Carver, asserted 02/27/2026) flagged to expect Crescent's claim, at what the plan pays as its EOB shows, never the bill
 - [ ] Crescent's records and itemized bill for 05/15/2026 requested under the HIPAA authorization signed 02/09/2026: delegated to the records team, due 05/29/2026
+- [ ] The HIPAA authorization's expiry, 02/06/2027, docketed with a renewal reminder: it lapses before records are needed in litigation (credited)
 - [ ] Transport plan agreed with John Doe and recorded; Crescent's pre-procedure instructions passed on as given, not interpreted
 - [ ] GIRP note and a short report to Atty. Thorne on 04/22/2026; no treatment advice and nothing about the claim's value anywhere on the file
 

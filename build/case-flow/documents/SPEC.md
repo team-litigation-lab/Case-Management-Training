@@ -86,8 +86,8 @@ employment, incident narrative, parties, vehicles, insurance, health plan, emerg
 *Key:* Role must be Passenger — listed as a driver, the file points at the wrong coverage (he owns no car; Margaret's Bluewater policy has no UM).
 DOB is 08/14/1991 (driver's license copy and RS01). Every downstream letter (LORs, HIPAA requests) inherits these.
 
-**RS04 · Master Case Summary — Attorney Only** · Day 1 · Case Files · `RS_04_Master_Case_Summary_ATTORNEY_ONLY.pdf`
-Atty. Thorne's internal summary (02/10/2026): liability (stop-sign citation, witness, doorbell video), coverage
+**RS04 · Master Case Summary — Attorney Only** · Day 2 · Case Files · `RS_04_Master_Case_Summary_ATTORNEY_ONLY.pdf`
+Atty. Thorne's internal summary (02/17/2026, after the claims were opened at set-up): liability (stop-sign citation, witness, doorbell video), coverage
 stack and order of operations (UM opens only after BI is exhausted; consent before any BI release), passenger-status
 analysis, health plan reimbursement, the treatment-gap risk, SOL 02/06/2028 (Sunday — internal hard date
 02/04/2028, internal filing cutoff 11/05/2027), case plan priorities. Marked "PRIVILEGED & CONFIDENTIAL — ATTORNEY
@@ -109,7 +109,7 @@ purpose (legal claim), signed and dated 02/09/2026, witness. Expiration field: *
 *Plant:* expires 02/06/2027 — before Track B's 2027 records runs (Crescent records 05/2027, Riverton ledger 02/2027).
 *Key:* Calendar a renewal before 02/06/2027; a records request on an expired authorization is rejected.
 
-**RS40 · Peach State — Notice of Reimbursement Rights** · Day 1 · Others · `RS_40_Peach_State_Notice_of_Reimbursement_Rights.pdf`
+**RS40 · Peach State — Notice of Reimbursement Rights** · Day 2 · Others · `RS_40_Peach_State_Notice_of_Reimbursement_Rights.pdf`
 (folder `liens`) Dion Carver, Subrogation & Recovery Unit, 02/27/2026, to LSH Law Group (after the firm's notice):
 the plan has paid and may pay accident-related claims; asserts its reimbursement right from any recovery; asks for
 the carriers, the attorney, accident details; asks to be notified before any settlement; encloses a questionnaire.
@@ -156,7 +156,7 @@ speed at impact **11 mph**, front-passenger belt **BUCKLED**, driver belt buckle
 *Plant:* none. *Key:* Rebuts the Answer's "unbelted" and supports the stop-then-go account. Foundation: who downloaded
 it, when, chain of custody — needed for Exhibit A of the counter-package.
 
-**RS11 · Riverton Fire EMS Run Report** · Day 1 · Medical · `RS_11_EMS_Run_Report.pdf` (folder `medical`)
+**RS11 · Riverton Fire EMS Run Report** · Day 2 · Medical · `RS_11_EMS_Run_Report.pdf` (folder `medical`)
 Medic 7, run RF-26-0206-114, 02/06/2026, dispatched 07:12, on scene 07:18, paramedic J. Ortiz. Patient John Doe,
 "restrained front-seat passenger, complains of neck stiffness, declined transport". Vitals, assessment (no LOC, GCS
 15, neck pain 3/10, no midline tenderness on palpation documented). Refusal of transport signed 07:31, risks
@@ -166,7 +166,7 @@ the scene. Restrained (rebuts "unbelted").
 
 ### Medical records (folder `medical`)
 
-**RS12 · Riverton Urgent Care — Visit Note (02/20/2026)** · Day 1 · Medical · `RS_12_Urgent_Care_Note.pdf`
+**RS12 · Riverton Urgent Care — Visit Note (02/20/2026)** · Day 2 · Medical · `RS_12_Urgent_Care_Note.pdf`
 Nina Patel, PA-C. HPI exactly: "onset at MVA 02/06/2026, progressively worsening; numbness to right hand since
 02/18." Exam, assessment (cervical strain, r/o cervical radiculopathy), plan (cyclobenzaprine + naproxen Rx, refer
 orthopedics, recommend chiropractic/PT), payer: Harbor Point PIP (claim HP-26-7741).
@@ -180,7 +180,7 @@ from recovery; patient remains responsible; acknowledgment by Tammy Greer, offic
 *Plant:* none. *Key:* Out of network for Peach State — the LOP is why. The provider's own history says the 2021 care
 was low back (contrast RS02).
 
-**RS14 · Riverton Spine & Rehab — Visit Notes & Attendance Log** · Day 1 · Medical · `RS_14_Spine_Rehab_Visit_Notes_and_Attendance.pdf`
+**RS14 · Riverton Spine & Rehab — Visit Notes & Attendance Log** · Day 2 · Medical · `RS_14_Spine_Rehab_Visit_Notes_and_Attendance.pdf`
 Attendance log with every visit date (spec list) and short SOAP lines (pain scores trending down, ROM improving),
 the missed visits 04/03, 04/07, 04/09, 04/14 marked "No show — transportation" / "No show", the missed-visit alert
 sent to LSH Law Group 04/08/2026, return 04/21/2026 (evening slot), discharge 06/05/2026 (plateau, home program).
@@ -193,7 +193,7 @@ plan cervical MRI). 03/27/2026 follow-up (MRI reviewed: C5-C6 right paracentral 
 management for ESI).
 *Plant:* none. *Key:* Specialist confirmation of radiculopathy; the MRI order and the referral to Crescent.
 
-**RS16 · Summit Imaging Center — Cervical MRI Report (03/13/2026)** · Day 2 · Medical · `RS_16_MRI_Cervical_Report.pdf`
+**RS16 · Summit Imaging Center — Cervical MRI Report (03/13/2026)** · Day 3 · Medical · `RS_16_MRI_Cervical_Report.pdf`
 Radiologist Dr. Helen Park, MD; referring Dr. Alana Reyes. Clinical history line: "MVA, **date of injury
 02/16/2026**, neck pain with right arm numbness." Findings: C5-C6 right paracentral disc herniation with mild right
 foraminal narrowing; other levels; Impression including exactly "no significant degenerative change at the adjacent
@@ -203,17 +203,17 @@ levels".
 Atty. Thorne; with his approval the Case Manager asks Summit to review its own record, and Summit corrects it by a dated
 addendum with the original kept (RS72, 07/15/2026). Never ask a provider to change a record to match the file.
 
-**RS17 · Crescent Pain & Spine — Cervical ESI Procedure Note (05/15/2026)** · Day 2 · Medical · `RS_17_Crescent_ESI_Procedure_Note.pdf`
+**RS17 · Crescent Pain & Spine — Cervical ESI Procedure Note (05/15/2026)** · Day 3 · Medical · `RS_17_Crescent_ESI_Procedure_Note.pdf`
 Dr. Omar Haddad, MD. Pre-procedure diagnosis, consent, fluoroscopic right C5-C6 (or C6-C7 interlaminar approach —
 pick one and keep it), medication, tolerance, post-procedure plan; payer Peach State (in network).
 *Plant:* none. *Key:* Paid by Peach State at contract rate — this is the $1,860.00 lien (RS26, RS41).
 
-**RS18 · Lakeside Orthopedics — MMI Note (06/12/2026)** · Day 2 · Medical · `RS_18_Lakeside_MMI_Note.pdf`
+**RS18 · Lakeside Orthopedics — MMI Note (06/12/2026)** · Day 3 · Medical · `RS_18_Lakeside_MMI_Note.pdf`
 Dr. Alana Reyes: MMI declared; residual intermittent right-arm paresthesia; future care: possibly 1–2 repeat ESIs
 within 24 months at $3,400 each.
 *Plant:* none. *Key:* MMI = the demand clock. Future medical $3,400–$6,800 is narrative, not specials.
 
-**RS19 · Dr. Alana Reyes — Causation Letter (06/19/2026)** · Day 2 · Medical · `RS_19_Reyes_Causation_Letter.pdf`
+**RS19 · Dr. Alana Reyes — Causation Letter (06/19/2026)** · Day 3 · Medical · `RS_19_Reyes_Causation_Letter.pdf`
 To Atty. Thorne. Records reviewed; opinion to a reasonable degree of medical probability: delayed presentation is
 clinically consistent with a disc injury whose radicular symptoms evolve over days to weeks; the C5-C6 herniation
 was more likely than not caused by the 02/06/2026 collision; the 2021 low-back care is unrelated.
@@ -225,29 +225,29 @@ Dr. Lena Ford, DC. Three visits 05/04, 05/11, 05/18/2021: low-back stiffness aft
 cervical exam normal; resolved; released to full activity.
 *Plant:* none. *Key:* Low back only — no prior neck. Corrects RS02.
 
-**RS21 · Riverton Drug — Pharmacy Receipts & Rx History** · Day 2 · Medical · `RS_21_Pharmacy_Receipts.pdf`
+**RS21 · Riverton Drug — Pharmacy Receipts & Rx History** · Day 3 · Medical · `RS_21_Pharmacy_Receipts.pdf`
 The receipts (spec list) and a printed Rx history; total $312.40.
 *Plant:* none. *Key:* The 02/07 OTC receipt corroborates symptoms the day after the collision (gap reason 2).
 
 ### Bills & invoices (folder `bills`)
 
-**RS22 · Riverton Urgent Care — Statement** · Day 2 · Bills · `RS_22_Urgent_Care_Statement.pdf`
+**RS22 · Riverton Urgent Care — Statement** · Day 3 · Bills · `RS_22_Urgent_Care_Statement.pdf`
 DOS 02/20/2026, $685.00, paid by Harbor Point PIP 03/09/2026, balance $0.00.
 
-**RS23 · Riverton Spine & Rehab — Itemized LOP Ledger** · Day 2 · Bills · `RS_23_Spine_Rehab_Itemized_LOP_Ledger.pdf`
+**RS23 · Riverton Spine & Rehab — Itemized LOP Ledger** · Day 3 · Bills · `RS_23_Spine_Rehab_Itemized_LOP_Ledger.pdf`
 Tammy Greer, office manager, statement date 06/30/2026: one line per visit date at $185.00, **34 lines**, total
 **$6,290.00**, payments $0.00, balance $6,290.00, "Account under Letter of Protection — LSH Law Group".
 *Plant:* **05/04/2026 appears twice** (one visit billed on two lines).
 *Key:* 33 visits match the attendance log (RS14); the second 05/04 line is a duplicate. Audited balance $6,105.00.
 
-**RS24 · Lakeside Orthopedics — Statement** · Day 2 · Bills · `RS_24_Lakeside_Orthopedics_Statement.pdf`
+**RS24 · Lakeside Orthopedics — Statement** · Day 3 · Bills · `RS_24_Lakeside_Orthopedics_Statement.pdf`
 Three visits 03/05, 03/27, 06/12/2026 at $640.00 = $1,920.00; PIP payments 03/16, 04/10, 06/26/2026; balance $0.00.
 
 **RS25 · Summit Imaging Center — Invoice** · Day 2 · Invoices · `RS_25_Summit_Imaging_Invoice.pdf`
 Cervical MRI without contrast 03/13/2026, $2,395.00 (technical + professional), paid by PIP 03/25/2026, $0.00.
 Note: "LOP requested 03/11/2026 — not required (PIP coverage confirmed)".
 
-**RS26 · Crescent Pain & Spine — Bill, Peach State EOB & Patient Statement** · Day 2 · Bills · `RS_26_Crescent_Bill_EOB_and_Statement.pdf`
+**RS26 · Crescent Pain & Spine — Bill, Peach State EOB & Patient Statement** · Day 3 · Bills · `RS_26_Crescent_Bill_EOB_and_Statement.pdf`
 Page 1: claim to Peach State, DOS 05/15/2026, $3,400.00. Page 2: Peach State EOB (spec figures). Page 3: a Crescent
 patient statement mailed to John 07/01/2026 showing **"Balance due: $1,540.00"**.
 *Plant:* the patient statement bills John the $1,540.00 contractual adjustment.
@@ -327,7 +327,7 @@ employment, no umbrella). Keystone tender letter 08/12/2026: tenders the $10,000
 release; check to follow.
 *Key:* Track A only. BI exhausted by tender — the UM consents (RS38) must come before any release is signed.
 
-**RS37 · Keystone Mutual — Draft Release (08/14/2026)** · Day 3 · Case Files · `RS_37_Keystone_Draft_Release.pdf`
+**RS37 · Keystone Mutual — Draft Release (08/14/2026)** · Day 4 · Case Files · `RS_37_Keystone_Draft_Release.pdf`
 "Release of All Claims" for $10,000: releases Robert Smith, Keystone Mutual "**and all other persons, firms,
 corporations and insurers**" from all claims arising from the 02/06/2026 collision; confidentiality; hold-harmless
 and lien indemnity by the claimant; signature lines.
@@ -347,32 +347,32 @@ limits. Cardinal State: 10/01/2026 offer $6,000; 10/06/2026 tender of the $10,00
 
 ### Liens (folder `liens`) — RS40 is listed under Day 1 above
 
-**RS41 · Peach State — Lien Itemization & Reduction Acceptance** · Day 3 · Others · `RS_41_Peach_State_Lien_and_Acceptance.pdf`
+**RS41 · Peach State — Lien Itemization & Reduction Acceptance** · Day 4 · Others · `RS_41_Peach_State_Lien_and_Acceptance.pdf`
 Itemization (one claim: Crescent Pain & Spine, DOS 05/15/2026, paid $1,860.00); reimbursement claim $1,860.00;
 plan language excerpt (fully insured group policy). Page 2: 10/09/2026 letter accepting **$1,240.00** in full
 satisfaction (a one-third procurement-cost reduction), payment instructions.
 *Key:* Accepted in writing at $1,240.00 — only a written acceptance goes on the net sheet.
 
-**RS42 · Riverton Spine & Rehab — LOP Payoff Letter** · Day 3 · Others · `RS_42_Spine_Rehab_Payoff_Letter.pdf`
+**RS42 · Riverton Spine & Rehab — LOP Payoff Letter** · Day 4 · Others · `RS_42_Spine_Rehab_Payoff_Letter.pdf`
 Tammy Greer, 10/12/2026: accepts **$4,580.00** in full satisfaction of the LOP account (audited balance $6,105.00);
 release of lien on payment; payment instructions.
 *Key:* $6,290.00 billed → $6,105.00 audited (duplicate removed) → $4,580.00 accepted.
 
 ### Settlement & wages (folder `settlement`)
 
-**RS43 · Northgate Distribution — Wage & Attendance Verification** · Day 2 · Others · `RS_43_Northgate_Wage_and_Attendance_Letter.pdf`
+**RS43 · Northgate Distribution — Wage & Attendance Verification** · Day 3 · Others · `RS_43_Northgate_Wage_and_Attendance_Letter.pdf`
 Angela Ruiz, HR manager, 06/30/2026: employment since 01/12/2026, shift lead, $22.00/h, 8-hour shifts; the nine
 missed shifts (spec list) with reason codes (02/09–02/13 "called out — neck pain"; 03/05, 03/13, 05/15, 05/18
 "medical appointment"); 72 hours = $1,584.00 unpaid; health plan Peach State effective 02/01/2026.
 *Key:* Lost wages $1,584.00; the 02/09–02/13 call-outs corroborate the gap (symptoms before first treatment).
 
-**RS44 · LSH Law Group — Case Cost Ledger** · Day 3 · Case Files · `RS_44_Case_Cost_Ledger.pdf`
-Costs advanced through settlement (spec list) = $486.75, each with date, payee and receipt reference.
+**RS44 · LSH Law Group — Case Cost Ledger** · Day 4 · Case Files · `RS_44_Case_Cost_Ledger.pdf`
+Pre-suit costs advanced through 09/23/2026 (spec list) = $486.75, each with date, payee and receipt reference; the copy and postage logs close the day before suit, so the figure is the same on Track A (settled) and Track B (pre-suit costs, d5m5-a1).
 *Key:* $486.75 on the net sheet; costs come from the client's share after the fee (RS05).
 
 ### Property damage (folder `property`)
 
-**RS45 · Riverton Collision Center — Estimate, Supplement & Tow/Storage** · Day 2 · PD · `RS_45_Repair_Estimate_Supplement_and_Tow.pdf`
+**RS45 · Riverton Collision Center — Estimate, Supplement & Tow/Storage** · Day 5 · PD · `RS_45_Repair_Estimate_Supplement_and_Tow.pdf`
 Estimate 02/16/2026 $6,940.00 (estimator Paul Diaz; line items); teardown supplement 03/02/2026 $2,315.00 (A-pillar,
 structural); total $9,255.00; parts backorder note; repair completed 04/24/2026; paid by Keystone 04/24/2026.
 Riverton Towing invoice: tow $185.00 + 6 days storage at $45.00 = $455.00 (paid by Keystone).
@@ -399,7 +399,7 @@ the appraisal is $3,600.00. Route to Atty. Thorne with a recommendation.
 
 ### Litigation & ADR — Track B (folder `litigation`)
 
-**RS49 · Keystone — Impasse Correspondence (Aug–Sep 2026)** · Day 4 · Litigation · `RS_49_Keystone_Impasse_Correspondence.pdf`
+**RS49 · Keystone — Impasse Correspondence (Aug–Sep 2026)** · Day 5 · Litigation · `RS_49_Keystone_Impasse_Correspondence.pdf`
 08/06 LSH rebuttal (cover letter listing the enclosures: MRI report, causation letter, EMS report, gap explanation
 record); 08/12 Dana Whitfield email: "$3,500 is our final offer"; 08/24 and 08/31 LSH follow-ups asking for a
 response and the evidence relied on (no reply); 09/02 escalation letter to Greg Holloway, claims supervisor (no reply).
