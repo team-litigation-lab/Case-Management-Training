@@ -52,10 +52,10 @@ const uniq = () => Array.from({ length: 6 }, () => 'abcdefghijklmnopqrstuvwxyz'[
             d.lessons.forEach((l) => { if (l.cf.block.kind !== 'activity') return;
                 (window.cmCaseFlowTest ? window.cmCaseFlowTest.blockTools(l.cf.block) : []).forEach(id => {
                     wanted.add(id); if (firstFor[id] === undefined) firstFor[id] = l.cf.block.id; }); });
-            out.push({ day: d.cf.n, rows: day.querySelectorAll('.cf-px-act').length,
+            out.push({ day: d.cf.n, rows: day.querySelectorAll('.cf-px-tile').length,
                 inRow, wanted: [...wanted], firstFor,
-                onActs: [...day.querySelectorAll('.cf-px-act [data-tool]')].length,
-                namesTool: [...day.querySelectorAll('.cf-px-act .cf-px-meta')].every(m => /🛠/.test(m.textContent)),
+                onActs: [...day.querySelectorAll('.cf-px-tile [data-tool]')].length,
+                namesTool: [...day.querySelectorAll('.cf-px-tile .cf-px-m')].every(m => /🛠/.test(m.textContent)),
                 opensOn: row ? [...row.querySelectorAll('[data-tool]')].map(b => (b.getAttribute('onclick').match(/'([^']*)'\s*\)$/) || [])[1]) : [] });
         }
         // a locked day offers nothing

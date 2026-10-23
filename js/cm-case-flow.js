@@ -3770,29 +3770,28 @@ function caseFlowPractice(){
     const groups = [];
     d.lessons.forEach((l, li) => { if(l.cf.block.kind !== "activity") return; const t = l.cf.heading.replace(/^Skill Building:\s*/, ""), last = groups[groups.length - 1];
       if(last && last.title === t) last.acts.push({b: l.cf.block, li}); else groups.push({title: t, acts: [{b: l.cf.block, li}]}); });
-    const mods = groups.map(({title, acts}, gi) => {
-      return `<div class="cf-px-mod"><div class="cf-px-mh">${d.cf.n}.${gi + 1} · ${E(title)}</div>
-        ${acts.map(({b, li}) => `<div class="cf-px-act"><div><b>${E(b.title)}</b>
-            <div class="cf-px-meta"><span>🛠 ${E(b.act.tool)}</span><span>📤 ${E(b.act.output)}</span>${(CF_PACKETS[b.id] || []).length ? `<span>📁 ${CF_PACKETS[b.id].length} documents</span>` : ""}</div></div>
-          ${open ? `<button class="btn btn-ghost btn-sm" onclick="cmCaseFlow.openBlock(${d.id},${li})">Open</button>` : `<span class="cf-px-lock">🔒</span>`}</div>`).join("")}</div>`;
-    }).join("");
-    return `<div class="card px-day"><div class="px-day-h"><div><h2>Case Flow Day ${d.cf.n}${open ? "" : " · 🔒"}${day.track ? ` <span class="cf-px-track">${E(day.track)}</span>` : ""}</h2><div class="sub">${E(day.phase)}</div></div>
-        <span class="px-prog">${kcDone(d) ? "Knowledge Check passed ✓" : open ? "In progress" : "Opens when the day before is passed"}</span></div>
-      ${sessionTools ? `<div class="cf-px-tools"><b>🛠 Tools for this session</b><div class="cf-px-toolrow">${sessionTools}</div>
-        <small>Each opens on the first activity of the day that is worked in it. Every step's own tools are on its slide.</small></div>` : ""}
-      <div class="cf-px-mods">${mods}</div></div>`;
+    // one screen: every activity a compact tile (its topic, title, tool and documents; the output on hover), in a grid
+    const mods = groups.map(({title, acts}, gi) => acts.map(({b, li}) => {
+      const tool = String(b.act.tool || "").split("·")[0].split("→")[0].trim(), docs = (CF_PACKETS[b.id] || []).length;
+      return `<div class="cf-px-tile${open ? "" : " locked"}"${open ? ` role="button" tabindex="0" onclick="cmCaseFlow.openBlock(${d.id},${li})" onkeydown="if(event.key==='Enter')cmCaseFlow.openBlock(${d.id},${li})"` : ""} title="${E("Deliver: " + b.act.output)}">
+          <span class="cf-px-k">${d.cf.n}.${gi + 1} · ${E(title)}${SIM.calls[b.id] ? " · 📞" : ""}</span>
+          <b>${E(b.title)}</b>
+          <span class="cf-px-m"><span>🛠 ${E(tool)}</span>${docs ? `<span>📁 ${docs}</span>` : ""}${!isTrainer() && actDone(b.id) ? `<span class="ok">✓ Worked</span>` : ""}<span class="go">${open ? "Open →" : "🔒"}</span></span>
+        </div>`; }).join("")).join("");
+    return `<div class="card px-day cf-px-day"><div class="cf-px-dh"><h2>Day ${d.cf.n} · ${E(day.phase)}${open ? "" : " · 🔒"}${day.track ? ` <span class="cf-px-track">${E(day.track)}</span>` : ""}</h2>
+        <span class="cf-px-prog">${kcDone(d) ? "Knowledge Check passed ✓" : open ? "In progress" : "Opens when the day before is passed"}</span></div>
+      ${sessionTools ? `<div class="cf-px-tools" title="Each opens on the first activity of the day that is worked in it. Every step's own tools are on its slide."><b>🛠 Tools</b><div class="cf-px-toolrow">${sessionTools}</div></div>` : ""}
+      <div class="cf-px-grid">${mods}</div></div>`;
   }).join("");
   const any = [
     `<button class="btn btn-ghost btn-sm" onclick="goto('casedocs')">📁 Case Documents</button>`,
     typeof rpLaunchQuickPractice === "function" ? `<button class="btn btn-ghost btn-sm" onclick="rpLaunchQuickPractice()">🎲 Quick roleplay call</button>` : "",
     typeof openTool === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openTool('cms',null,'library=1')">📚 CMS Training Library</button>` : "",
     typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS</button>` : ""].join("");
-  return `<p class="eyebrow">Practice</p>
-    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🧪 Practice: The Case Flow Skill Activities</h1>
-    <p style="color:var(--ink-soft);font-size:14px;max-width:84ch;margin:0 0 14px">Every hands-on exercise of the 5-Day Legal Case Management Flow, on the live file <b>${E(CF.case.style)}</b>: each day's Skill Activities, in the order the work happens, every one worked on John Doe's file in the CMS (with the Call Simulator or the email workspace where it names them), from the documents it lists. Each opens with its day and goes straight to its slide.</p>
+  // one screen: a single header line, the day tabs, then the day's tiles; the any-day links ride in the header
+  return `<div class="cf-px-page"><div class="cf-px-head"><h1>🧪 Practice <span>The Case Flow Skill Activities, on ${E(CF.case.style)}: each opens on its slide.</span></h1><div class="cf-px-any">${any}</div></div>
     ${tabs}
-    ${days}
-    <div class="card" style="padding:14px 18px;margin-bottom:14px"><b style="color:var(--navy)">Any day</b><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">${any}</div></div>
+    ${days}</div>
 `;
 }
 if(typeof window.renderPracticeHub === "function") window.renderPracticeHub = () => caseFlowPractice();
@@ -4937,6 +4936,31 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cf-docline a{color:var(--navy-soft);text-decoration:underline;text-decoration-color:var(--orange-soft);text-underline-offset:2px;}
 .cf-docline a:not(:last-child)::after{content:" ·";color:var(--ink-soft);}
 .cf-px-mods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+.cf-px-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 10px;}
+.cf-px-head h1{margin:0;font:800 22px/1.2 'Fraunces',Georgia,serif;color:var(--navy);}
+.cf-px-head h1 span{font:500 13px var(--font-ui);color:var(--ink-soft);margin-left:8px;}
+.cf-px-any{display:flex;gap:6px;flex-wrap:wrap;}
+.cf-px-page .cf-px-tabs{margin:0 0 10px;}
+.cf-px-page .cf-px-tab{padding:6px 12px;}
+.cf-px-page .cf-px-tab small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;}
+.cf-px-day{padding:12px 14px !important;}
+.cf-px-dh{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 8px;}
+.cf-px-dh h2{margin:0;font:800 18px/1.25 'Fraunces',Georgia,serif;color:var(--navy);}
+.cf-px-prog{font:700 12px var(--font-ui);color:var(--ink-soft);}
+.cf-px-day .cf-px-tools{display:flex;align-items:center;gap:10px;margin:0 0 10px;padding:7px 10px;}
+.cf-px-day .cf-px-tools > b{flex:0 0 auto;}
+.cf-px-day .cf-px-toolrow{margin:0;}
+.cf-px-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:7px;}
+.cf-px-tile{display:flex;flex-direction:column;gap:2px;padding:7px 10px;border:1px solid var(--line);border-left:4px solid #DB8437;border-radius:10px;background:#fff;cursor:pointer;transition:transform .12s,box-shadow .12s;min-width:0;}
+.cf-px-tile:hover,.cf-px-tile:focus-visible{transform:translateY(-1px);box-shadow:0 8px 18px -12px rgba(20,24,48,.45);outline:none;}
+.cf-px-tile.locked{cursor:default;opacity:.7;border-left-color:#B8BCCB;}
+.cf-px-k{font:700 10.5px var(--font-ui);letter-spacing:.04em;text-transform:uppercase;color:var(--orange-deep);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.cf-px-tile b{font:700 13px/1.25 var(--font-ui);min-height:2.5em;color:var(--navy);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.cf-px-m{display:flex;gap:10px;align-items:center;font-size:11.5px;color:var(--ink-soft);margin-top:auto;}
+.cf-px-m > span{white-space:nowrap;}
+.cf-px-m > span:first-child{overflow:hidden;text-overflow:ellipsis;min-width:0;}
+.cf-px-m .ok{color:#2E7D4F;font-weight:700;white-space:nowrap;}
+.cf-px-m .go{margin-left:auto;font-weight:800;color:var(--navy);white-space:nowrap;}
 .cf-px-mod{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff;}
 .cf-px-mh{font:700 13px var(--font-ui);color:var(--navy);margin-bottom:6px;}
 .cf-px-act{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:7px 0;border-top:1px dashed var(--line);}
