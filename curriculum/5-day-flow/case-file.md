@@ -73,7 +73,9 @@ passenger door at about 28 mph; the Escape was pushed into Margaret's Civic, par
 | 03/05/2026 | **Lakeside Orthopedics, Dr. Alana Reyes** | Initial consult; orders MRI | $640.00 | PIP |
 | 03/13/2026 | **Summit Imaging Center** | Cervical MRI (read by Dr. Helen Park): C5-C6 herniation; "no significant degenerative change at the adjacent levels" | $2,395.00 | PIP (Summit asked for an LOP on 03/11; declined because PIP applies first) |
 | 03/27/2026 | Lakeside Orthopedics | Follow-up; refers to pain management | $640.00 | PIP |
-| 04/02 → 04/21/2026 | — | **Disrupted care: 19 days with no visits** (missed 04/03, 04/07, 04/09, 04/14) | — | — |
+| 04/02 → 04/21/2026 | — | **Disrupted care: 19 days with no visits** (missed 04/03, 04/07, 04/09, 04/14): the near-drop, driven by crash-related anxiety (below) | — | — |
+| 04/20/2026 | Lakeside Orthopedics, Dr. Reyes | Telephone encounter: anxiety and avoidance after the collision; referral for counseling through Northgate's EAP | $0.00 (no charge) | — |
+| 04/24–06/05/2026 | **Stonebridge EAP Services, Renee Castillo, LPC** (Northgate's EAP) | Six counseling sessions by video | $0.00 (employer-paid) | — |
 | 04/21–06/05/2026 | Riverton Spine & Rehab | 17 visits; care resumed | — | LOP |
 | 05/15/2026 | **Crescent Pain & Spine, Dr. Omar Haddad** | Cervical epidural steroid injection | $3,400.00 | **Peach State paid $1,860.00** (contract rate; provider wrote off the rest and cannot balance-bill) |
 | 06/12/2026 | Lakeside Orthopedics | **MMI** declared; residual intermittent right-arm paresthesia; future care: possibly 1–2 repeat ESIs within 24 months at $3,400 each (future medical $3,400–$6,800; narrative, not Specials) | $640.00 | PIP (PIP exhausted at $5,000.00) |
@@ -108,13 +110,51 @@ citing neck pain), texts to his mother 02/07–02/15 about neck pain, the pharma
 history, and Dr. Reyes's **Causation Letter (06/19/2026)**: delayed presentation is clinically consistent with
 a disc injury whose radicular symptoms evolve over days to weeks; injury more likely than not caused by the collision.
 
-### Why the disruption happened (Day 2 Module 2 — the A-C-T protocol)
+### Why the disruption happened: the near-drop (Day 2 Module 2 — A-C-T and the No Contact Protocol)
 
-Keystone ended the rental on 03/19/2026 (30-day cap) while the Civic sat waiting for parts; Kevin's shift
-changed on 04/01/2026, ending the carpool. John missed four PT visits. The CM learned of it on **04/08/2026**
-from the provider's missed-visit alert. **A-C-T:** *Assess* — called John 04/08; *Coordinate* — asked Keystone
-PD to extend the rental (refused 04/10), then moved John to evening slots so Margaret could drive him after
-her shift (first open evening slot 04/21); *Track* — confirmed attendance 04/21 and 04/23. The Civic came back 04/24.
+The 19 days (last visit 04/02, missed 04/03, 04/07, 04/09, 04/14, care resumed 04/21/2026) were not willful
+non-compliance. The cause the file establishes is **crash-related anxiety, panic and low mood**, documented by Dr.
+Reyes and a licensed counselor. **Background, true but not the cause:** Keystone ended Margaret's rental on 03/19/2026
+(30-day cap) while the Civic waited for parts; John then rode to PT with Kevin Alvarez after work until Kevin's shift
+changed on 04/01/2026, ending the carpool. The Civic came back 04/24.
+
+**What happened.** On 04/02/2026 Margaret left work early to drive John to his 4:15 PM visit. On the way home they
+stopped at the all-way stop at Maple Hollow Rd & Birch Ave (the corner of their own house, where the collision
+happened) as a pickup came up Birch Ave. John had what he calls a panic attack (pounding heart, could not breathe) and
+got out of the car at the corner. After that he could not make himself ride in a car to appointments, slept badly with
+nightmares of the crash, felt low and stayed in his room, stopped playing pickup basketball, and stopped answering
+calls because he was ashamed to explain. He kept working his Northgate shifts (no missed shifts in April), riding the
+city bus, whose route does not pass the corner.
+
+**The drop-warning protocol (the No Contact Protocol, run inside A-C-T's Assess):**
+
+| Date | What happened |
+|---|---|
+| 03/31/2026 (Tue) | Last logged contact: the CM's routine check-in call |
+| 04/03 (Fri), 04/07 (Tue) | Missed visits, no call; the clinic's reminder calls unanswered |
+| **04/08/2026 (Wed)** | Riverton Spine & Rehab's missed-visit alert, 10:52 a.m. Step 1 internal review (SOL 02/06/2028; week-6 re-evaluation missed 04/07; last contact 03/31). Notice 1: call to (555) 010-2288, voicemail, 11:20 a.m.; text, 11:24 a.m. |
+| 04/09 (Thu) | Missed visit. Notice 2: second call, voicemail, 9:05 a.m.; re-engagement email to john.doe@example.com, 9:12 a.m. |
+| **04/10/2026 (Fri)** | Emergency contact: Margaret Doe, 12:30 p.m. John is safe and working but "keeping to himself"; she will pass on the message; no case details shared. Step 3: escalated to Atty. Thorne, 1:15 p.m.; he approves the letter. **10-Day Final Warning Letter** (RS76) by certified mail AND email, 4:05 p.m.: respond by **04/20/2026 (Mon)**; withdrawal possible, not decided; nothing about the claim. CMS status flag **Drop Warning**, deadline calendared |
+| 04/13 (Mon) | Certified-mail receipt signed "M. Doe". Notice 3: text that the letter has been sent and the date it asks for |
+| 04/14 (Tue) | Missed visit |
+| 04/16 (Thu) | The CMS 14-day no-visit trigger fires (04/02 + 14 days) |
+| **04/17/2026 (Fri)** | **John resurfaces**, 4:48 p.m., calling the CM's line (ext. 214), the last business day before the deadline. Trauma-informed, UPL-compliant interview (he declines recording; same-day privileged GIRP note in his words, read back to him). With his consent: a telephone appointment requested from Dr. Reyes's office (scheduling only; he tells her himself); evening PT slots booked under the 02/23/2026 LOP (Tue/Thu 6:00 PM from 04/21), Margaret driving after her shift by a route that avoids the corner. Atty. Thorne told the same day; he approves clearing the Drop Warning |
+| **04/20/2026 (Mon)** | Dr. Reyes's telephone encounter, **no charge** (RS77): anxiety, panic and avoidance of car travel since the collision, worse since 04/02; sleep disturbance; low mood; referral for counseling evaluation through Northgate's Employee Assistance Program (EAP); PT may resume. **File restored:** Drop Warning cleared, the 14-day gap trigger reset, the Action Plan updated |
+| 04/21 (Tue), 04/23 (Thu) | Care resumes; attendance confirmed |
+| 04/24/2026 (Fri) | EAP intake by video, **Stonebridge EAP Services, Renee Castillo, LPC**: six sessions at **no charge** (employer-paid): 04/24, 05/01, 05/08, 05/22, 05/29, 06/05/2026 |
+| 05/04 (Mon) · 05/06 (Wed) | Atty. Thorne decides the counseling records come into the file; John signs a specific authorization for the counselor's treatment summary (not psychotherapy notes) |
+| 06/10/2026 (Wed) | Counseling Summary Letter (RS78), requested by Atty. Thorne's letter of 05/27/2026 |
+| 06/15/2026 (Mon) | John's signed Personal Impact Statement, in his own words (RS79) |
+
+**No new bills.** The 04/20 telephone encounter and the EAP sessions cost nothing: the Medical Specials stay
+$14,817.40, total Specials $16,401.40, and the PIP and LOP ledgers are unchanged. The mental anguish is non-economic
+damages (pain and suffering), documented for the BI demand; whether and how it is presented is Atty. Thorne's call.
+
+**Corroboration (the Gap Explanation Record's disruption band):** the attendance log and missed-visit alert (RS14),
+the outreach log and notices (RS75), the Final Warning Letter and its certified receipt (RS76), Dr. Reyes's 04/20
+note and referral (RS77), the counseling summary (RS78), John's Personal Impact Statement (RS79, his account), and
+Margaret Doe, who was in the car on 04/02 (a statement from her flagged for Atty. Thorne's decision). The 04/17
+GIRP note is privileged and is never cited outside the firm.
 
 ### Property Damage (Margaret's Civic — a separate claim with Keystone PD, adjuster **Leah Moran**; outside the $40,000 stack)
 
@@ -286,6 +326,8 @@ the facts above. Fictional throughout; no real carrier, provider or firm.
 | Prior care (2021) | **Birch Avenue Chiropractic**, Dr. Lena Ford, DC · three visits 05/04, 05/11, 05/18/2021 · low-back stiffness, resolved, released to full activity |
 | Riverton Drug | 1500 Birch Ave · total $312.40 (OTC receipt 02/07/2026 $38.60; prescriptions and OTC through 06/2026) |
 | Northgate Distribution | 900 Industrial Pkwy, Riverton · HR: **Angela Ruiz**, HR manager · wage-and-attendance letter 06/30/2026 |
+| Northgate EAP | Employer-paid Employee Assistance Program, six sessions a concern at no cost to the employee · administered by **Stonebridge EAP Services**, 410 Granite Way, Suite 300, Riverton · (555) 010-7700 · counselor **Renee Castillo, LPC** · EAP case SEAP-26-1187 |
+| The near-drop record | Outreach log and notices (RS75) · Final Warning Letter 04/10/2026, certified mail 7026 0410 0001 3382 5590, receipt signed "M. Doe" 04/13/2026 (RS76) · Dr. Reyes's telephone encounter 04/20/2026, 20 minutes, not billed, referral faxed to Stonebridge the same day (RS77) · counseling summary 06/10/2026 (RS78) · Personal Impact Statement signed 06/15/2026 (RS79) · Margaret Doe's phone (555) 010-2291 |
 | Witness | **Ruth Calloway**, 2209 Maple Hollow Rd · signed statement to Officer Garner on scene |
 | Doorbell video | Margaret Doe's camera at 2214 Maple Hollow Rd · clip 07:09:41–07:10:26 · copy secured 02/19/2026 (USB, SHA-256 logged) |
 | Property Damage | **Riverton Collision Center** (estimator Paul Diaz) · tow and storage **Riverton Towing** · rental **Rivergate Rentals** · DV appraisal **Riverton Auto Appraisal** (Carl Benning) |
