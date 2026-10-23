@@ -20,6 +20,17 @@ Keyed by block id, then by slide (the block's views, in order: a lesson is why �
 frame · rules · model · job · dodont; an activity is case · task · model · check; a Learning Check is
 questions · summary · scale; only the slides the block actually has). Every slide of every block has one.
 
+## The day's own slides
+
+`days.json` holds the scripts for the slides outside any block, by Case Flow day: `agenda` (the opening
+Training Agenda), `lab` (the Practice Lab, before the first Skill Activity) and `wrap` (the End-of-Day
+Discussion, before the Knowledge Check; its say puts the day's discussion question to the room). Same
+voice and limits as a block's slides. A day without them keeps the generic notes.
+
+```json
+{ "1": { "agenda": { "say": "…", "ask": "…" }, "lab": { "say": "…" }, "wrap": { "say": "…", "ask": "…" } } }
+```
+
 ## The voice
 
 A person talking to the room, not notes about it, built on the trainer's training DNA (below).
