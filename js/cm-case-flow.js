@@ -534,6 +534,7 @@ const TOOLKIT = [
   {id: "plan", icon: "📝", short: "Action Plan", name: "your Action Plan", re: /Action Plan Editor|action plan/i},
   {id: "docs", icon: "📁", short: "Documents", name: "the Case Documents", re: /Case Documents/},
   {id: "lor", icon: "📄", short: "LOR Drafting", name: "LOR Drafting (John Doe v. Robert Smith)", re: /\bLORs?\b|Letters? of Representation/},
+  {id: "packet", icon: "📚", short: "Packet Builder", name: "the Packet Builder (Demand Packets & Binders)", re: /Packet Builder/},
 ];
 const TOOL = Object.fromEntries(TOOLKIT.map(t => [t.id, t]));
 /* The LSH Net Sheet is where the money is worked, and only there: Day 4's Settlement Negotiations, Lien Negotiations and
@@ -575,7 +576,16 @@ const EMAIL_NEED = {
   "d3m2-a2": "cm_client_net",                 // closing the gross recovery: "where is my money"
   "d3m4-a2": "all_wire_phish"                 // release and disbursement: fraudulent wire instructions
 };
+/* The Training Portal's Packet Builder (simulators/demand-packet.html) assembles the packet these steps put together, as
+   one PDF (cover letter, index, demand, PIP log, bills, records; or the binders' numbered tabs), and files it into the
+   case in the CMS beside the slide through this course's relay (js/cm-doc-filing.js). Each step opens the packet it
+   builds, with the trainee's open case. */
+const PACKET_TYPE = {"d3m1-pkg": "demand", "d3m1-a1": "demand", "d4m3-l1": "mediation", "d4m3-a1": "mediation", "d4m3-l2": "arbitration", "d4m3-a2": "arbitration"};
 function emailTarget(id, blockId){
+  if(id === "packet"){
+    const c = window.CMCase && CMCase.id && CMCase.id();
+    return "type=" + (PACKET_TYPE[blockId] || "demand") + (c ? "&case=" + encodeURIComponent(c) : "");
+  }
   if(id === "email") return "inbox=1";
   if(id === "replies") return EMAIL_NEED[blockId] ? "email=" + EMAIL_NEED[blockId] : "";
   return "";
@@ -590,6 +600,7 @@ const WORKED_IN = {
   "d2m2-a1": ["records"], "d2m2-a2": ["records"], "d2m2-a3": ["records"], "d2m3-a2": ["records"], "d2m4-a1": ["records"], "d3m3-a2": ["records"],
   "d4m1-a2": ["docket", "efiling"], "d4m2-a2": ["docket"], "d5m1-a1": ["efiling", "docket", "records"], "d5m1-a2": ["docket"],
   "d5m3-a1": ["docket"], "d5m4-a2": ["efiling"],
+  "d3m1-pkg": ["packet"], "d3m1-a1": ["packet"], "d4m3-l1": ["packet"], "d4m3-a1": ["packet"], "d4m3-l2": ["packet"], "d4m3-a2": ["packet"],
   "d2m2-l1": ["records"], "d2m2-l2": ["records"], "d2m4-l1": ["records"], "d4m1-l2": ["efiling", "docket"], "d4m2-l1": ["docket"], "d5m1-l1": ["efiling", "docket"], "d5m1-l2": ["docket"]};
 /* LOR Drafting (js/cm-lor.js, on John Doe's file with no assignment) is the claims phase's: Claim Set Up drafts the LORs */
 const LOR_BLOCKS = new Set();
