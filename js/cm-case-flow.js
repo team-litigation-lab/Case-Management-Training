@@ -2149,6 +2149,8 @@ function groupAdminTabs(out){
    after an activity worked in the Action Plan Editor, a second one carries on to the next step */
 function syncReturn(){
   let pill = document.getElementById("cf-return"), go = document.getElementById("cf-return-next");
+  // the dashboard has its own ▶ Continue where you left off: no floating Back / Next over it, and reaching it ends the way back
+  if(state.view === "dashboard") state.cfReturn = null;
   const r = state.cfReturn, show = !!r && state.view !== "day";
   if(r && state.view === "day") state.cfReturn = null;
   if(!show){ if(pill) pill.hidden = true; if(go) go.hidden = true; return; }
