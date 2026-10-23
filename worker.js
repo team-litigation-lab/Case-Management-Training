@@ -844,6 +844,15 @@ export default {
       const tok = secure ? await readToken(env, request) : { role: "a", id: "open-mode" };
       if (!tok) return json({ error: "Sign-in required" }, 401);
 
+      /* ---------- a session that is still in use is renewed before it runs out ----------
+         The page asks for a fresh token in the last hours of a valid one (an admin's lasts 12 hours, a trainee's
+         30 days), so a trainer's tab left open through a long day never drops a live call with "Sign-in
+         required". An expired token is never renewed: that still takes a sign-in. */
+      if (path === "/api/auth/refresh") {
+        if (!secure) return json({ token: "" });
+        return json({ token: await makeToken(env, tok.role, tok.id, tok.role === "a" ? 12 : 24 * 30) });
+      }
+
       /* ---------- training tools open signed in (js/lsh-tool-links.js) ----------
          A fresh Portal-style ticket for the trainee signed in here, so the CMS (which takes the Portal's
          ticket, signed with the same PORTAL_SSO_SECRET) opens without its log-in page. Trainees only:

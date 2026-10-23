@@ -1,5 +1,6 @@
 {
   "d1m1-role": {
+    "theoryFirst": true,
     "image": "team-huddle",
     "hook": "You own **the file's movement**; Atty. Thorne owns every legal judgment.",
     "points": [
@@ -354,39 +355,39 @@
   },
   "d1m3-a1": {
     "image": "client-call",
-    "situation": "John Doe's retainer is signed and the matter is open. **Nothing has been sent** yet, and **Robert Smith's carrier** has already called him.",
+    "situation": "John Doe's voicemail: **Keystone asked to record him**, his neck is stiff, and **nothing has reached him** from the firm.",
     "steps": [
-      "Build **all six packet sections**",
-      "Fill each with the **firm's standing instructions**",
-      "Make the **Property Damage section** specific to this file",
-      "Name **the most urgent instruction** and how you'll confirm understanding",
-      "**Log delivery** with date and method"
+      "**Transcribe the voicemail**, then write your action plan",
+      "Email Dana Whitfield: **no direct contact**; statements through the firm",
+      "Call John: his neck, **treatment status**, next steps, no outside talk",
+      "Coordinate his first visit **with Riverton Urgent Care**",
+      "Send the **Direction Packet**; log every contact in the CMS"
     ],
-    "deliver": "A complete, delivered, logged packet **specific to John Doe's file**",
-    "purpose": "The other side **has already called him**: a generic packet arrives too late",
-    "principle": "All adverse carrier contact **goes through the firm**",
+    "deliver": "A graded plan, both emails sent, the call taken, **the packet logged**",
+    "purpose": "The other side **has already called him**: today's plan stops the next call",
+    "principle": "Recorded Statements are requested **through the firm**, never from the client",
     "checks": [
-      "**All six sections** present and populated",
-      "Treatment direction stated: **treatment hasn't begun**",
-      "Property Damage section states **whose claim it is**",
-      "Atty. Elijah Thorne listed as **Lead Counsel**",
-      "Adverse-contact instruction made urgent, **with a confirmation step**"
+      "Transcript and **action plan** handed in",
+      "Dana told in writing: **no direct contact**",
+      "His neck and **treatment status** checked; next steps given",
+      "Riverton Urgent Care contacted; **Direction Packet** logged",
+      "No Recorded Statement, no outside talk: **he repeated it**"
     ],
-    "dos": ["Plan how you'll know **he read it**"],
-    "donts": ["A **generic packet** that ignores the file's history"]
+    "dos": ["Tell the carrier **in writing**, not only John"],
+    "donts": ["Telling Dana **anything about his injuries**"]
   },
   "d1m3-l2": {
     "image": "repair-shop",
     "roadmap": {
-      "title": "Property Damage: the Roadmap",
+      "title": "Property Damage, End to End",
       "merge": true,
       "steps": [
-        {"label": "Written estimate first", "text": "No Repair Estimate, **no position** with the client"},
-        {"label": "Inspection window", "text": "Five days from the letter; record when it opens"},
-        {"label": "Audit estimate and photos", "text": "Bill against estimate; point of impact, frame, undercarriage"},
-        {"label": "Repair or Total Loss", "text": "The carrier's threshold against **actual cash value**, in writing"},
-        {"label": "Loss of Use", "text": "Each day without a vehicle, at a comparable rental rate"},
-        {"label": "Escalate disputes", "text": "Document and route; no ad hoc arguing with adjusters"}
+        {"label": "Liability accepted", "text": "Verify the carrier **accepted PD liability in writing**"},
+        {"label": "Inspection and estimates", "text": "Inspection window recorded; the estimate, then each supplemental"},
+        {"label": "Towing and storage", "text": "Fees grow daily: **settle who pays** and move the car"},
+        {"label": "Total Loss valuation", "text": "Repair cost against ACV; check the Valuation Report"},
+        {"label": "Personal contents", "text": "Items in the vehicle: list, photos, receipts, claimed on PD"},
+        {"label": "Rental coordination", "text": "Carrier pays; **the firm coordinates**, never provides or pays"}
       ]
     },
     "hook": "Property Damage is the client's first test of the firm, and **physical evidence of impact**.",

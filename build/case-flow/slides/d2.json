@@ -595,6 +595,60 @@
    "**Leaving the gap out** of the timeline"
   ]
  },
+ "d2m3-cause": {
+  "image": "medical-visit",
+  "hook": "Proving negligence is **only half the battle**: prove the collision caused the harm.",
+  "points": [
+   "Fault proves negligence; **causation and damages** must be proved too",
+   "A medical professional writes it, to **reasonable medical probability**",
+   "Atty. Thorne requests it; you **assemble, track and check**",
+   "Check it against the file: **date of loss, level, visits**"
+  ],
+  "upl": "You request, track, check and file; **never draft or coach** the opinion",
+  "document": {
+   "name": "Causation Letter",
+   "doc": "RS19",
+   "definition": "A formal letter: a **medical professional's opinion** linking the accident to the specific injuries, from a treating physician, surgeon or independent medical expert.",
+   "purpose": "Proves the half negligence can't: that the defendant's conduct **directly caused** the specific harm, medical expenses and ongoing limitations claimed.",
+   "evidence": "Its opinions, held more likely than not, tie the C5-C6 herniation to 02/06/2026 and **answer the 14-Day Gap** and 2021 visits.",
+   "handling": [
+    "Atty. Thorne requests it; you **assemble the record set** and docket follow-up",
+    "On arrival, **check it against the file**: date of loss, level, visits",
+    "File it under Medical; **cite it** on the Gap Explanation Record",
+    "**Never draft or coach** the opinion; what it means stays Atty. Thorne's"
+   ]
+  },
+  "job": [
+   [
+    "Atty. Thorne seeks an opinion",
+    "Assemble records; docket follow-up",
+    "Records Requests · Calendar",
+    "Request under his signature"
+   ],
+   [
+    "Letter arrives 06/19/2026",
+    "Check it against the file",
+    "CMS → Documents → Medical",
+    "Mismatches flagged to Atty. Thorne"
+   ],
+   [
+    "Letter checked",
+    "File it; cite it; route it",
+    "Gap Explanation Record · Tasks",
+    "Cited on the 14-day band"
+   ]
+  ],
+  "dos": [
+   "Send the doctor **the complete record set**, priors included",
+   "Read the letter **against the file** the day it arrives",
+   "Check every injury claimed has **a medical link**"
+  ],
+  "donts": [
+   "Suggesting or **shaping the doctor's words**",
+   "Leaving **the 2021 records** out of the set",
+   "Telling John Doe the letter **raises his claim's value**"
+  ]
+ },
  "d2m3-a2": {
   "image": "calendar-gap",
   "situation": "06/22/2026. MMI reached 06/12/2026; Dr. Reyes's **06/19/2026 Causation Letter** is in. Atty. Thorne wants **the Gap Explanation Record** before the pre-demand strategy session.",
@@ -629,7 +683,8 @@
   "questions": [
    "Name the **four reasons** for the 14-day gap and, beside each, its corroborating document and date.",
    "Rewrite “Was it because you had no car?” **without suggesting the reason**. What does the leading version cost?",
-   "“Is this gap going to wreck my case?” Give **your exact answer**, then what you do next."
+   "“Is this gap going to wreck my case?” Give **your exact answer**, then what you do next.",
+   "Fault is proved. What else must the file prove, with **which document**, and whose part is what?"
   ]
  },
  "d2m4-l1": {
@@ -789,6 +844,19 @@
    "Referrals: **options and logistics**, never which care"
   ],
   "upl": "Give the options and book **his choice**; never recommend a provider",
+  "document": {
+   "name": "Letter of Protection",
+   "doc": "RS13",
+   "definition": "The firm's signed promise that a provider's **reasonable charges are paid** from any recovery, so treatment starts now; not insurance.",
+   "purpose": "Lets care continue when no payer applies: the provider **defers collection** in exchange for payment protected from the settlement, judgment or verdict.",
+   "evidence": "Fixes the lien: Riverton Spine & Rehab's charges come from the recovery, and it shows **John Doe stays responsible** whether or not there is one.",
+   "handling": [
+    "Check **every payer first**; Atty. Thorne approves the LOP",
+    "Signed **before the first visit**: Riverton's 02/23/2026, first visit 02/24",
+    "File it; request **the itemized ledger** every 30 days",
+    "What it means for his recovery is **Atty. Thorne's to explain**"
+   ]
+  },
   "job": [
    [
     "No payer covers the care",

@@ -1,0 +1,93 @@
+{
+  "notes": {
+    "d1m3-a1": {
+      "title": "Notes & Action Plan — John Doe's voicemail",
+      "kicker": "Take it down word for word, plan every step, then work the plan.",
+      "transcribe": {
+        "brief": "Play the voicemail and type what John Doe says, as close to word for word as you can. The facts in it decide your plan.",
+        "facts": [
+          {"label": "John Doe called; call him back on his cell, (555) 010-2288", "match": ["john", "2288"]},
+          {"label": "Dana from Keystone Mutual, the other driver's carrier, called him", "match": ["keystone|dana"]},
+          {"label": "She asked to record what happened", "match": ["record"]},
+          {"label": "He said he'd think about it; she's calling back today", "match": ["think|today|call(s|ing|ed)? (him |me )?back"]},
+          {"label": "His neck is still stiff, worse in the morning", "match": ["neck", "stiff|sore|pain|hurt"]},
+          {"label": "He hasn't received anything from the firm yet", "match": ["nothing|anything|paperwork"]}
+        ]
+      },
+      "plan": {
+        "brief": "Write your action plan in the order you'd work it today. Name each step, who it's with, and what it must achieve.",
+        "required": [
+          {"id": "callback", "label": "Call John Doe back today on his cell", "hint": "Your first move is the client: call him back on (555) 010-2288, not the work line.", "match": ["call", "john|client|him"], "key": "Call John Doe back today on his cell, (555) 010-2288, not the Northgate line the voicemail came from."},
+          {"id": "nors", "label": "Tell him: no Recorded Statement, and no talking to Keystone", "hint": "The instruction he needs before Dana calls back: no Recorded Statement; every carrier call goes to the firm.", "match": ["record|statement", "firm|\\bus\\b|our office|refer|route"], "key": "Instruct him: no Recorded Statement to Keystone, and if Dana calls again, he refers her to the firm. Have him say it back."},
+          {"id": "checkin", "label": "Check in on his neck and whether he has been seen", "hint": "He said his neck is still stiff. Ask about it, and whether he has seen anyone yet.", "match": ["neck|symptom|stiff|pain|feel", "seen|treat|doctor|provider|appointment|care|clinic"], "key": "Check in on the stiff neck and confirm whether he has been seen by anyone; outline next steps: get evaluated now."},
+          {"id": "dana", "label": "Email Dana Whitfield: no direct contact; statements through the firm", "hint": "Keystone has called a represented client. Tell Dana in writing: contact the firm, not John; any statement request comes through the firm.", "match": ["dana|keystone|adjuster|carrier", "email|write|writing|letter|notice"], "key": "Email Dana Whitfield at Keystone today: the firm represents John Doe; all contact goes to the firm, not to him; any Recorded Statement request goes through the firm. Copy Atty. Thorne."},
+          {"id": "provider", "label": "Coordinate with the treatment facility", "hint": "Treatment hasn't started. Contact the facility to confirm his status and set up his first visit.", "match": ["urgent care|clinic|provider|facility|doctor|riverton"], "key": "Contact Riverton Urgent Care: confirm he has not been seen, how he can be seen this week, how an accident visit is billed, and where records and bills go."},
+          {"id": "log", "label": "Tell Atty. Thorne and log it all in the CMS", "hint": "The carrier contacted a represented client: Atty. Thorne hears it today, and every call and email is logged.", "match": ["thorne|attorney", "log|cms|note"], "key": "Tell Atty. Thorne the same day that Keystone contacted a represented client and asked to record him; log the voicemail, call and emails in the CMS Communications Log."}
+        ]
+      },
+      "emails": [
+        {
+          "id": "dana",
+          "title": "Email Simulator — Dana Whitfield, Keystone Mutual",
+          "why": "Keystone called a represented client and asked to record him. Stop it in writing, today.",
+          "to": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+          "cc": "Elijah Thorne <ethorne@lshlawgroup.example>",
+          "subject": "John Doe — represented by LSH Law Group — collision of 02/06/2026",
+          "brief": "Tell Dana the firm represents John Doe, that she must not contact him directly, and that any Recorded Statement request comes through the firm. Atty. Thorne's letter of representation follows. Give nothing about his injuries or treatment.",
+          "required": [
+            {"id": "represent", "label": "Says the firm represents John Doe", "hint": "Open with the fact: LSH Law Group represents John Doe for the 02/06/2026 collision.", "match": ["represent", "john|mr\\.? doe"]},
+            {"id": "nocontact", "label": "Tells her not to contact him directly", "hint": "Say it plainly: no further direct contact with John Doe; all contact goes to the firm.", "match": ["(not|no|stop|cease|refrain)\\b.{0,60}(contact|call|speak|communicat)|(contact|communication)s?.{0,40}(through|to) (the firm|our office|us|me)"]},
+            {"id": "statement", "label": "Any Recorded Statement request comes through the firm", "hint": "She asked to record him. Any request for a statement must be made to the firm.", "match": ["statement|record", "firm|our office|through us|to us|thorne"]},
+            {"id": "thorne", "label": "Names Atty. Thorne and the letter of representation to follow", "hint": "Say Atty. Elijah Thorne is counsel and his letter of representation follows.", "match": ["thorne"]}
+          ],
+          "forbid": [
+            {"match": "neck|stiff|\\bsore|\\bpain|doctor|clinic|urgent care|hospital|\\bseen\\b", "why": "Nothing about his injuries or treatment goes to the adverse carrier. Take it out."},
+            {"match": "fault|\\bworth|\\bvalue|settle", "why": "No fault, value or settlement talk: that's Atty. Thorne's, and this email is only a notice."}
+          ],
+          "reply": {
+            "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+            "date": "02/10/2026",
+            "time": "2:14 p.m.",
+            "subject": "RE: John Doe — represented by LSH Law Group — collision of 02/06/2026",
+            "body": "Received, thank you. I have noted our file that Mr. Doe is represented by your office and I will not contact him directly. Any request for a statement will come to your office. I will look for Atty. Thorne's letter of representation; please include the claimant's information when it is sent."
+          }
+        },
+        {
+          "id": "provider",
+          "title": "Email Simulator — Riverton Urgent Care",
+          "why": "Treatment hasn't started. Confirm his status with the facility and clear the way for his first visit.",
+          "to": "Front Desk, Riverton Urgent Care <frontdesk@rivertonurgentcare.example>",
+          "cc": "",
+          "subject": "Patient coordination — John Doe, DOB 08/14/1991 — motor vehicle accident 02/06/2026",
+          "brief": "Ask Riverton Urgent Care whether John Doe has been seen, how he can be seen this week, and how an accident visit is billed. Say the firm represents him and ask that records and bills come to the firm under his HIPAA authorization.",
+          "required": [
+            {"id": "patient", "label": "Identifies the patient: name and date of birth", "hint": "A facility can't look anyone up without the name and date of birth: John Doe, 08/14/1991.", "match": ["john", "08/14/1991|8/14/1991|1991"]},
+            {"id": "status", "label": "Asks whether he has been seen and when he can be", "hint": "Ask about his status: has he been seen, and how he can be seen this week.", "match": ["seen|visit|appointment|walk", "\\?|whether|confirm|availab|schedul"]},
+            {"id": "mva", "label": "Says it's a motor vehicle accident, with the date", "hint": "Say it's a car accident of 02/06/2026: it decides how the visit is billed.", "match": ["accident|collision|mva|motor vehicle", "02/06/2026|2/6/2026|feb(ruary)? 6"]},
+            {"id": "records", "label": "Firm represents him; records and bills to the firm, HIPAA attached", "hint": "Say the firm represents him and ask that records and bills come to the firm; mention the HIPAA authorization.", "match": ["represent", "record|bill", "hipaa|authori[sz]ation"]}
+          ],
+          "forbid": [
+            {"match": "keystone|dana|Recorded Statement|fault|settle|lawsuit|\\bworth|\\bvalue", "why": "The facility needs the patient, the date and the billing route, not the claim. Leave the carrier and the case out of it."}
+          ],
+          "reply": {
+            "from": "Front Desk, Riverton Urgent Care <frontdesk@rivertonurgentcare.example>",
+            "date": "02/10/2026",
+            "time": "3:40 p.m.",
+            "subject": "RE: Patient coordination — John Doe, DOB 08/14/1991",
+            "body": "We have no visit on file for John Doe. We see walk-ins every day, 8 a.m. to 8 p.m., at 1450 Birch Ave; for a motor vehicle accident please have him bring his ID and the auto insurance information for the vehicle he was in, since we bill the auto carrier first. Once a visit is complete, we will send records and bills to your office on receipt of the signed HIPAA authorization."
+          }
+        }
+      ],
+      "call": {
+        "title": "Client check-in — John Doe (Call Simulator)",
+        "why": "He's sore, rattled and alone with the carrier's callback. Calm him, check on him, and give him the instruction.",
+        "goals": [
+          "Ask about the stiff neck, and whether he has seen anyone yet",
+          "Outline next steps: get evaluated this week; the packet is on its way",
+          "No Recorded Statement: Keystone's calls go to the firm",
+          "Discuss the case with no one outside the firm; have him repeat it"
+        ]
+      }
+    }
+  }
+}

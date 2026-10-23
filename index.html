@@ -3278,10 +3278,27 @@ document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState=
    ============================================================ */
 state.authToken = (()=>{ try{ return localStorage.getItem("lsh_auth_token")||""; }catch(e){ return ""; } })();
 state.adminToken = (()=>{ try{ return sessionStorage.getItem("lsh_admin_token")||""; }catch(e){ return ""; } })();
+// a token is "<role>.<subject>.<expiry ms>.<signature>": live while its expiry is ahead
+function tokenLive(t){ const p = String(t||"").split("."); return p.length===4 && Number(p[2]) > Date.now() + 30000; }
 function authHeaders(){
-  const t = (state.isAdmin && state.adminToken) || state.authToken;
+  // an admin token that has run out falls back to the trainee's own, if that one is still live
+  const t = [state.isAdmin && state.adminToken, state.authToken].find(tokenLive) || (state.isAdmin && state.adminToken) || state.authToken;
   return Object.assign({"Content-Type":"application/json"}, t ? {"Authorization":"Bearer "+t} : {});
 }
+/* a session in use is renewed in its last three hours (worker.js /api/auth/refresh), checked every ten minutes,
+   so a long training day never ends a live call on "your session has expired" */
+async function refreshTokens(){
+  for(const [t, set] of [[state.adminToken, setAdminToken], [state.authToken, setTraineeToken]]){
+    const p = String(t||"").split("."), left = p.length===4 ? Number(p[2]) - Date.now() : 0;
+    if(left <= 30000 || left > 3*3600e3) continue;
+    try{
+      const r = await fetch("/api/auth/refresh", {method:"POST", headers:{"Content-Type":"application/json", "Authorization":"Bearer "+t}, body:"{}"});
+      const j = r.ok ? await r.json() : {};
+      if(j.token) set(j.token);
+    }catch(e){}
+  }
+}
+setInterval(refreshTokens, 10*60e3); setTimeout(refreshTokens, 5000);
 function setTraineeToken(t){ state.authToken = t||""; try{ t ? localStorage.setItem("lsh_auth_token", t) : localStorage.removeItem("lsh_auth_token"); }catch(e){} }
 function setAdminToken(t){ state.adminToken = t||""; try{ t ? sessionStorage.setItem("lsh_admin_token", t) : sessionStorage.removeItem("lsh_admin_token"); }catch(e){} }
 async function authStatus(){
@@ -3701,7 +3718,7 @@ async function callAITextOnce(prompt, maxTokens, timeoutMs, feature){
 // The line a call shows when the AI couldn't answer, with the reason, so the trainee (and their trainer) knows what to do.
 function aiTroubleLine(e, what){
   const st = e && e.status, m = String((e && e.message) || "");
-  const why = st===401 ? "your session has expired: reload the page, or open the program again from the Portal"
+  const why = st===401 ? (state.isAdmin && state.adminToken && !tokenLive(state.adminToken) ? "your admin sign-in has run out (it lasts 12 hours): sign in to Admin again, then try the call again" : "your session has expired: reload the page, or open the program again from the Portal")
     : (st===429 || /rate limit/i.test(m)) ? "the AI is busy right now: wait a minute, then try again"
     : /timed out/i.test(m) ? "the AI took too long to answer: try again"
     : /No AI key|not configured/i.test(m) ? "the AI isn't set up on this site: tell your trainer"
@@ -15753,12 +15770,12 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/graded-calls.js?v=1"></script>
 <script src="/js/cm-case-flow-docs.js?v=23"></script>
 <script src="/js/cm-case-flow-art.js?v=3"></script>
-<script src="/js/cm-case-flow-slides.js?v=46"></script>
-<script src="/js/cm-case-flow-scripts.js?v=32"></script>
-<script src="/js/cm-case-flow-sim.js?v=22"></script>
-<script src="/js/cm-case-flow-exhibits.js?v=5"></script>
-<script src="/js/cm-case-flow-data.js?v=49"></script>
-<script src="/js/cm-case-dates.js?v=7"></script>
+<script src="/js/cm-case-flow-slides.js?v=48"></script>
+<script src="/js/cm-case-flow-scripts.js?v=35"></script>
+<script src="/js/cm-case-flow-sim.js?v=23"></script>
+<script src="/js/cm-case-flow-exhibits.js?v=7"></script>
+<script src="/js/cm-case-flow-data.js?v=50"></script>
+<script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow.js?v=89"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=3"></script>

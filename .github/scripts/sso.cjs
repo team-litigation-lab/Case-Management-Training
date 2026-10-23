@@ -107,6 +107,18 @@ async function ticketFor(payloadObj, secret) {
     const names = ((rank.body && rank.body.trainees) || []).map(t => t.name);
     if (rank.status !== 200 || names.length !== 1 || names[0] !== 'Ana C.') fail(`a trainee's /api/ranking should hold only themselves, got ${JSON.stringify(names)}`);
 
+    // 7. a session still in use is renewed (a long day never drops a live call); an expired or forged token is not
+    if (adminTicket.body && adminTicket.body.token) {
+        const t0 = adminTicket.body.token, exp0 = Number(t0.split('.')[2]);
+        await new Promise(r => setTimeout(r, 5));
+        const ren = await call(env, '/api/auth/refresh', {}, { Authorization: 'Bearer ' + t0 });
+        const t1 = ren.body && ren.body.token;
+        if (ren.status !== 200 || !t1 || t1.split('.')[0] !== 'a' || !(Number(t1.split('.')[2]) > exp0)) fail(`a live admin token should be renewed with a later expiry, got ${JSON.stringify(ren)}`);
+        const parts = t0.split('.'); parts[2] = String(Date.now() - 1000);
+        const stale = await call(env, '/api/auth/refresh', {}, { Authorization: 'Bearer ' + parts.join('.') });
+        if (stale.status !== 401) fail(`an expired (or re-dated) token must not be renewed, got ${stale.status}`);
+    }
+
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
     console.log('Single sign-on: the Portal is the only way a trainee gets in, a typed name + batch is refused, a missing PORTAL_SSO_SECRET says so, a trainee sees only their own ranking, and a trainer signed in on the Portal gets in with no second password, once per ticket.');
 })().catch(e => { console.error(e); process.exit(1); });

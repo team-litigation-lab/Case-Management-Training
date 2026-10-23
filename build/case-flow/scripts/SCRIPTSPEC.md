@@ -16,7 +16,7 @@ in CI). A slide without a script here falls back to the script the course builds
 }
 ```
 
-Keyed by block id, then by slide (the block's views, in order: a lesson is why · theory · theory2 ·
+Keyed by block id, then by slide (the block's views, in order: a lesson is why · doc (when it introduces a document) · theory · theory2 ·
 frame · rules · model · job · dodont; an activity is case · task · model · check; a Learning Check is
 questions · summary · scale; only the slides the block actually has). Every slide of every block has one.
 
