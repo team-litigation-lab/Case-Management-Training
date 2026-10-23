@@ -10,9 +10,10 @@
    signed in here (good for 5 minutes, so a copied link is no use later) and the link carries it.
      • Every link and window.open to the CMS or a Portal simulator gets the ticket on the way out (click, middle-click,
        New tab ↗), and LSHToolLinks.ticketed(url) gives a frame's address with it.
-     • Admins and the 👁 Trainee view are left alone: an admin's ticket never signs anyone in
-       (admins type the admin password), and a preview isn't a trainee.
-     • A ticket is asked for only when a tool is opened (one request; reused for 3 minutes).
+     • A trainer (signed in with the admin password or from the Portal, the 👁 Trainee view included) gets the
+       Portal's own administrator ticket, so the CMS opens on their trainer account, never its log-in page. The CMS
+       takes an administrator's ticket once, so a trainer's is never reused: each tool opened asks for its own.
+     • A ticket is asked for only when a tool is opened (one request; a trainee's is reused for 3 minutes).
      • No secret on the Worker, or the request fails: the link opens as it is (the CMS's own
        sign-in), so nothing is ever blocked.
    ============================================================ */
@@ -22,9 +23,13 @@ const PORTAL_HOSTS = [/^([a-z0-9-]+\.)?cm-training-activity\.pages\.dev$/];     
 const isTool = (url)=>{ try{ const u = new URL(url, location.href);
   return CMS_HOSTS.some(re=>re.test(u.hostname)) || (PORTAL_HOSTS.some(re=>re.test(u.hostname)) && /^\/simulators(\.html|\/|$)/.test(u.pathname)); }catch(e){ return false; } };
 const signedTrainee = ()=> typeof state === "object" && !!state.traineeId && !state.isAdmin && !state.adminPreview && !!state.authToken;
+const signedTrainer = ()=> typeof state === "object" && (!!state.isAdmin || !!state.adminPreview) && !!state.adminToken;
+const signedIn = ()=> signedTrainee() || signedTrainer();
 
 let cached = null, cachedAt = 0, pending = null;
 function ticket(){
+  if(signedTrainer()) return fetch("/api/auth/tool-ticket", {method:"POST", headers: authHeaders(), body:"{}"})   // a trainer's: once only, never cached
+    .then(r=>r.ok ? r.json() : {}).then(j=>(j && j.ticket) || "").catch(()=>"");
   if(cached && Date.now() - cachedAt < 3 * 60 * 1000) return Promise.resolve(cached);
   if(pending) return pending;
   pending = fetch("/api/auth/tool-ticket", {method:"POST", headers: authHeaders(), body:"{}"})
@@ -36,9 +41,9 @@ function withTicket(url, t){
   if(!t) return url;
   try{ const u = new URL(url, location.href); u.searchParams.set("ticket", t); return u.toString(); }catch(e){ return url; }
 }
-// The address with a fresh ticket (a CMS link, for a trainee); anything else comes back as it is.
+// The address with a fresh ticket (a CMS link, for a trainee or a trainer); anything else comes back as it is.
 function ticketed(url){
-  if(!isTool(url) || !signedTrainee()) return Promise.resolve(url);
+  if(!isTool(url) || !signedIn()) return Promise.resolve(url);
   return ticket().then(t=>withTicket(url, t));
 }
 // Opens a tool in a new tab: the tab opens at once (so the browser doesn't block it), then goes to the signed link.
@@ -51,14 +56,14 @@ function openTool(url, target){
 }
 const __open = window.open;
 window.open = function(url, target, features){
-  if(url && isTool(url) && signedTrainee() && (!target || target === "_blank")) return openTool(String(url), target);
+  if(url && isTool(url) && signedIn() && (!target || target === "_blank")) return openTool(String(url), target);
   return __open.apply(window, arguments);
 };
 // Links: the ticket is added on the way out (left click, middle click, Ctrl/⌘-click).
 function onLink(e){
   if(e.defaultPrevented || (e.type === "auxclick" && e.button !== 1)) return;
   const a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
-  if(!a || !isTool(a.href) || !signedTrainee()) return;
+  if(!a || !isTool(a.href) || !signedIn()) return;
   e.preventDefault();
   const newTab = e.type === "auxclick" || e.ctrlKey || e.metaKey || e.shiftKey || (a.target && a.target !== "_self");
   if(newTab) openTool(a.href, "_blank");
