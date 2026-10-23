@@ -1,8 +1,7 @@
-/* ✏️ Script editor (trainers): the slides aren't edited, the trainer's script for each slide is. Presenter view's
-   notes and Admin → Trainer Cues put an ✏️ Edit script button under every slide's script; it opens a split screen, the slide on the left and its
-   script on the right (read aloud, then the question for the room), so the trainer writes against what the room sees.
-   Saved edits are shared by every trainer (the admin-only shared record scripts:edits) and read everywhere a script
-   is: Trainer Cues, Presenter view and the Speaker Notes PDF. */
+/* ✏️ Script editor (trainers): the slides aren't edited, the trainer's script for each slide is. In Presenter view,
+   ✏️ Edit script under the notes turns them into the editor in place (read aloud, then the question for the room),
+   beside the slide the room sees. Saved edits are shared by every trainer (the admin-only shared record scripts:edits)
+   and read everywhere a script is: Presenter view and the Speaker Notes PDF. */
 (function(){
 "use strict";
 const KEY = "scripts:edits";
@@ -42,7 +41,7 @@ if(typeof window.renderPresenterNote === "function"){
   const __note = window.renderPresenterNote;
   window.renderPresenterNote = function(d, l, part){
     const h = __note.apply(this, arguments);
-    if(!isAdmin() || !d || !l) return h;
+    if(!isAdmin() || !d || !l || !(typeof state !== "undefined" && state.presenting)) return h;   // edited in Presenter view only
     load();
     const i = (d.lessons || []).indexOf(l); if(i < 0) return h;
     const ed = !!edits[`${d.id}::${l.h}::p${part || 1}`];

@@ -377,63 +377,27 @@
     "donts": ["Telling Dana **anything about his injuries**"]
   },
   "d1m3-l2": {
-    "image": "repair-shop",
-    "roadmap": {
-      "title": "Property Damage, End to End",
-      "merge": true,
-      "steps": [
-        {"label": "Liability accepted", "text": "Verify the carrier **accepted PD liability in writing**"},
-        {"label": "Inspection and estimates", "text": "Inspection window recorded; the estimate, then each supplemental"},
-        {"label": "Towing and storage", "text": "Fees grow daily: **settle who pays** and move the car"},
-        {"label": "Total Loss valuation", "text": "Repair cost against ACV; check the Valuation Report"},
-        {"label": "Personal contents", "text": "Items in the vehicle: list, photos, receipts, claimed on PD"},
-        {"label": "Rental coordination", "text": "Carrier pays; **the firm coordinates**, never provides or pays"}
-      ]
-    },
-    "hook": "Property Damage is the client's first test of the firm, and **physical evidence of impact**.",
+    "image": "property-damage",
+    "hook": "The Civic is Margaret's claim; for John Doe, PD is **evidence of the impact**.",
     "points": [
-      "Get **the written Repair Estimate** before discussing any outcome",
-      "Total Loss: confirm the carrier's **threshold basis in writing**",
-      "ACV is **pre-loss market value**: not the loan balance, not a replacement",
-      "Loss of Use is **claimed separately**, per day without a vehicle"
+      "Read **the Police Report's units** first: who rode, who owns",
+      "Photos, estimate and supplement **feed the BI claim** as evidence",
+      "Rental, Loss of Use, Diminished Value **stay on Margaret's claim**",
+      "The rental's last day reaches his care: **calendar and coordinate**"
     ],
-    "upl": "Report figures; never advise on accepting a valuation or the vehicle's legal worth",
+    "upl": "Sort and refer; never advise Margaret Doe or **value her PD claim**",
     "job": [
-      ["Repair Estimate received", "Log; compare with ACV, final bill", "CMS → Property Damage", "Comparison recorded"],
-      ["Carrier states a disposition", "Confirm threshold basis, Valuation Report", "CMS → Property Damage → Correspondence", "Basis confirmed, not assumed"],
-      ["Client is without a vehicle", "Record dates; open loss-of-use claim", "CMS → Property Damage", "Dates recorded; claimed separately"]
+      ["PD document arrives", "Index on John Doe's file", "CMS → Documents", "Filed as BI evidence"],
+      ["Question about Civic's claim", "Log it; refer to Atty. Thorne", "CMS → Case Notes · Tasks", "Referred the same day"],
+      ["PD date touches his care", "Calendar it; plan his rides", "Calendar · CMS → Tasks", "Rides planned before it"]
     ],
     "dos": [
-      "Check supplementals: often the best proof of **hidden damage**",
-      "Verify the Valuation Report so **the client isn't lowballed**"
+      "Ask of every PD fact: **does it touch our case**?",
+      "Index photos and estimates **the day they arrive**"
     ],
     "donts": [
-      "Working only from **the initial estimate**",
+      "Opening **a rental claim in John's name**",
       "Treating Property Damage as **“just the car”**"
-    ]
-  },
-  "d1m3-rent": {
-    "image": "car-transport",
-    "hook": "A rental collected **on a promise** becomes the client's bill.",
-    "points": [
-      "Rental is on **the owner's PD claim**: Margaret Doe's, not John's",
-      "**3P PD** first; then 1P Collision/Rental; else out of pocket",
-      "Confirm authorizer, rate cap and **duration in writing** first",
-      "Coverage is **usually 30 days** unless the Dec Page differs"
-    ],
-    "upl": "Confirm coverage facts; **disputes and acceptance** are Atty. Thorne's call",
-    "job": [
-      ["Owner asks about a rental", "Confirm policy, authorizer, cap, duration", "CMS → Property Damage", "Recorded before collection"],
-      ["Authorization arrives", "File it; calendar last day", "CMS → Documents · Calendar", "Cutoff calendared"],
-      ["Rental cutoff nears", "Warn owner; plan treatment rides", "CMS → Case Notes · Tasks", "Owner told; rides planned"]
-    ],
-    "dos": [
-      "Confirm every parameter **in writing** before pickup",
-      "Calendar **the last covered day**; warn early"
-    ],
-    "donts": [
-      "Sending a client for a car **before authorization**",
-      "Treating the rental as **the passenger's claim**"
     ]
   },
   "d1m3-a2": {
@@ -460,38 +424,38 @@
     "donts": ["Tracking tasks **without confirming they were done**"]
   },
   "d1m3-a3": {
-    "image": "checklist-qa",
-    "situation": "Keystone has authorized a rental for the Civic. John Doe calls asking if it is his. Nobody has written down **whose claim it is**.",
+    "image": "documents-audit",
+    "situation": "02/11/2026: Keystone PD asks **who the Civic's claimant is**. Six PD items wait in the tray, and John Doe asks **if the rental is his**.",
     "steps": [
-      "Read the **Police Report's vehicle and occupant boxes**",
-      "Find **who owns the Civic** in the intake records",
-      "Name **the PD and rental claimant** from Keystone's letter",
-      "Write a **sourced Case Note** and tell Atty. Thorne",
-      "Answer John Doe **within the UPL line**; solve his ride"
+      "Read **the Police Report's units** before sorting anything",
+      "Sort each item: **BI evidence, coordinate, or Margaret's**",
+      "Index the evidence on John Doe's file in **CMS → Documents**",
+      "Refer Margaret's questions to **Atty. Thorne** in CMS → Tasks",
+      "End the Case Note with **the one-line answer**"
     ],
-    "deliver": "A **sourced finding** of whose claim it is, reported, and a logged call",
-    "purpose": "Whose claim it is decides every call after: **guess wrong** and the file follows",
-    "principle": "A claim belongs to **the vehicle's owner**, proven by the records",
+    "deliver": "A sorted Case Note ending in **one line: does PD touch our case?**",
+    "purpose": "Sorting first keeps **Margaret's PD claim** off John Doe's file",
+    "principle": "PD touches our case **as evidence, never as his claim**",
     "checks": [
-      "**Position, owner and claimant** each from a record",
-      "**Conclusion** on a PD or rental claim for John Doe",
-      "Each finding **cites its document**",
-      "**Atty. Thorne** told the same day",
-      "**Transportation** to treatment arranged"
+      "Who rode and who owns, **from the Police Report**",
+      "Photos, tow record, Police Report **indexed as BI evidence**",
+      "Rental, Loss of Use, repair figure **left on Margaret's claim**",
+      "Rental's last day **set to be calendared**; rides planned",
+      "Note ends with **the one-line answer**"
     ],
     "dos": [
-      "Ask: **who owns the claim**, and is that our client?"
+      "**Sort before you act**: the records say whose"
     ],
     "donts": [
-      "Booking a rental **because the caller asked**"
+      "Handling **Margaret's Loss of Use** on John Doe's file"
     ]
   },
   "d1m3-kc": {
-    "image": "property-damage",
+    "image": "knowledge-check",
     "questions": [
       "List the firm's **standing instructions** for a new client, and the harm each prevents.",
-      "Before a rental: what must be confirmed, **whose coverage provides it**, and what happens to uncovered days?",
-      "What does **actual cash value** mean and not mean, and why does the loan-balance mix-up mislead clients?"
+      "Name two PD items that **feed John Doe's claim** and two that stay Margaret's, and why.",
+      "John asks if Margaret's rental can be his: **what do the records show**, and what do you coordinate?"
     ]
   },
   "d1m4-l1": {

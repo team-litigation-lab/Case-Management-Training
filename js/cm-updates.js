@@ -855,7 +855,7 @@ function renderPresenterConsole(d){
       <div class="pv-head">
         <div class="pv-title"><b>🖥 Presenter view</b> · Day ${d.id} — ${esc(d.title)}</div>
         <div class="pv-meta"><span id="pvCount">${presenterCountText(d)}</span><span class="pv-timer" id="pvTimer">00:00</span><span class="pv-aud on" id="pvAud">● Slides window open</span></div>
-        <div class="pv-actions"><button class="btn btn-ghost btn-sm" onclick="presenterReopen()">↗ Re-open slides window</button><button class="btn btn-primary btn-sm" onclick="presenterEnd()">■ End</button></div>
+        <div class="pv-actions"><button class="btn btn-ghost btn-sm" onclick="downloadDayScriptsPdf(${d.id})" title="Every slide's script for this day, as a PDF">⬇ Speaker Notes (PDF)</button><button class="btn btn-ghost btn-sm" onclick="presenterReopen()">↗ Re-open slides window</button><button class="btn btn-primary btn-sm" onclick="presenterEnd()">■ End</button></div>
       </div>
       <div class="pv-grid">
         <section>
@@ -1219,7 +1219,7 @@ function sopRunOfShow(dRaw){
   const add = (mins, s)=>{ steps.push(Object.assign({from:t, to:t+mins}, s)); t += mins; };
   add(15, {pre:true, title:"Before trainees join", do:[
     `Admin → <b>Trainee Audit</b>: approve anyone new; check everyone has Day ${d.id} unlocked (the previous day's work submitted).`,
-    `Open <b>Admin → Trainer Cues → Day ${d.id}</b> in a second window, or use Presenter view (below) which shows the cues for each slide.`,
+    `Use Presenter view (below): it shows your notes for each slide, and ✏️ Edit script changes them there.`,
     `Open Day ${d.id} → slides → <b>🖥 Presenter view</b>. Allow pop-ups. In Google Meet: <b>Present now → A window</b> → “LSH Slides — share this window”.`,
     `Pick your random-task moment (step marked below) and how long trainees get (15–30 min).`]});
   add(5, {title:"Welcome, recap & today's objectives", do:[
@@ -1329,7 +1329,7 @@ function sopProgramFlow(){
     <section class="card sopf-card" style="margin-top:14px;"><h3>I want to… → go here</h3>
       <table class="log-table sopx-table sopf-map"><thead><tr><th>I want to…</th><th>Where</th></tr></thead><tbody>
         <tr><td>Share only the slides while I see my notes</td><td>Day → slides → <b>🖥 Presenter view</b></td></tr>
-        <tr><td>See cues, discussion cases and scripts for a day</td><td>Admin → <b>Trainer Cues</b> (or Presenter view)</td></tr>
+        <tr><td>See cues, discussion cases and scripts for a day</td><td><b>Presenter view</b> (⬇ Speaker Notes PDF for the whole day)</td></tr>
         <tr><td>Show the day's plan to the room</td><td>Admin → SOP Reference → <b>🎤 Present</b></td></tr>
         <tr><td>Drop an unannounced task on trainees</td><td>Admin → Trainee Audit → <b>🎲 Random Task Injection</b></td></tr>
         <tr><td>Approve, reset attempts, write feedback, set focus</td><td>Admin → <b>Trainee Audit</b> → View Detail</td></tr>

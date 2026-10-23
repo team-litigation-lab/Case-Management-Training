@@ -2,7 +2,7 @@
 
 **Phase:** Litigation & Dropped Cases · **Focus case:** John Doe v. Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
 
-**Objective.** On Track B, document the impasse and move the file into litigation without losing a deadline; keep the pleadings and discovery logs, the trial-prep checklist and the Property Damage dispute moving; prepare John Doe for his deposition; handle a comparative-negligence defense and a client who goes missing; disburse the arbitration award on the Litigation Net Sheet; and close out a dropped practice matter with its Withdrawal Letters.
+**Objective.** On Track B, document the impasse and move the file into litigation without losing a deadline; keep the pleadings and discovery logs, the trial-prep checklist moving; sort which Property Damage outcomes on Margaret Doe's separate claim reach John Doe's settlement (a release that must not reach his BI claim) and which stay on her file; prepare John Doe for his deposition; handle a comparative-negligence defense and a client who goes missing; disburse the arbitration award on the Litigation Net Sheet; and close out a dropped practice matter with its Withdrawal Letters.
 
 **Gate to the next day.** Track B: impasse documented, file in Litigation status, bottlenecks escalated, pleadings and discovery logs current, deposition prep done, award disbursed on the Litigation Net Sheet · practice drop closed out: Withdrawal Letters sent, status Dropped · Case Flow complete
 
@@ -46,30 +46,28 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 12. *Lesson* — Subpoena Management: Records Subpoenas (Duces Tecum) & Trial Subpoenas
 13. *Skill Activity* — Pleadings & Discovery Log Maintenance
 14. *Skill Activity* — Trial Prep Checklist Audit & KPI Update
-15. *Lesson* — Repair Estimates vs. ACV & Loss-of-Use Allocations (condensed)
-16. *Lesson* — Diminished Value & PD Dispute Resolution (condensed)
-17. *Skill Activity* — Evaluating Repair Estimates vs. ACV & Loss-of-Use
-18. *Skill Activity* — Diminished Value Calculation & Negotiation Lab
-19. *Lesson* — Client Prep for a Virtual Deposition & Injury Narrative Alignment
-20. *Lesson* — Opposing Counsel's Traps & Defending Key Testimony
-21. *Skill Activity* — Virtual Deposition Prep Roleplay
-22. *Skill Activity* — Mock Deposition Cross-Examination Handling
-23. *Lesson* — Comparative Negligence & the Liability Counter-Package (condensed)
-24. *Lesson* — Skip-Tracing, Process Servers & Certified Notice (condensed)
-25. *Skill Activity* — Building the Comparative Liability Counter-Package
-26. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch
-27. *Lesson* — Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund (condensed)
-28. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award
-29. *Lesson* — Dropped Cases: the Case Manager's Close-Out (condensed)
-30. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
-31. *Knowledge Check* — Litigation Fork Transition Check
-32. *Knowledge Check* — Countermeasure Operational Audit
-33. *Knowledge Check* — Litigation Support Assessment
-34. *Knowledge Check* — PD Dispute Evaluation
-35. *Knowledge Check* — Deposition Readiness Audit
-36. *Knowledge Check* — Final Comprehensive Knowledge Check
-37. *Knowledge Check* — Track B Close-Out Check
-38. *Knowledge Check* — Dropped Case Close-Out Check
+15. *Lesson* — Property Damage at Settlement: Does It Touch Our Case? (condensed)
+16. *Skill Activity* — Does It Touch Our Settlement? Keystone's Final PD Position
+17. *Lesson* — Client Prep for a Virtual Deposition & Injury Narrative Alignment
+18. *Lesson* — Opposing Counsel's Traps & Defending Key Testimony
+19. *Skill Activity* — Virtual Deposition Prep Roleplay
+20. *Skill Activity* — Mock Deposition Cross-Examination Handling
+21. *Lesson* — Comparative Negligence & the Liability Counter-Package (condensed)
+22. *Lesson* — Skip-Tracing, Process Servers & Certified Notice (condensed)
+23. *Skill Activity* — Building the Comparative Liability Counter-Package
+24. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch
+25. *Lesson* — Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund (condensed)
+26. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award
+27. *Lesson* — Dropped Cases: the Case Manager's Close-Out (condensed)
+28. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
+29. *Knowledge Check* — Litigation Fork Transition Check
+30. *Knowledge Check* — Countermeasure Operational Audit
+31. *Knowledge Check* — Litigation Support Assessment
+32. *Knowledge Check* — PD Transition Check
+33. *Knowledge Check* — Deposition Readiness Audit
+34. *Knowledge Check* — Final Comprehensive Knowledge Check
+35. *Knowledge Check* — Track B Close-Out Check
+36. *Knowledge Check* — Dropped Case Close-Out Check
 
 **End-of-day discussion (trainer):** It is 01/05/2027. Opposing counsel's paralegal says your client's discovery responses are late, John Doe has changed his phone number, and the deposition is set for 02/18/2027. What do you do today, in what order, and what is Atty. Thorne's call, not yours?
 
@@ -77,7 +75,7 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 
 ## Module 5 — Litigation & Dropped Cases
 
-**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 5.1.1 Impasse Triggers & Filing Criteria
 
@@ -1231,337 +1229,157 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.15 Repair Estimates vs. ACV & Loss-of-Use Allocations
+### 5.1.15 Property Damage at Settlement: Does It Touch Our Case?
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with PD Dispute Evaluation (`d5m2`)  
-> **Topic:** Repairable or total, and what each day without the Civic is worth  
+> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with PD Transition Check (`d5m2`)  
+> **Topic:** Which Property Damage outcomes reach John Doe's settlement, and which stay on Margaret Doe's file  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · `D5#35` Property Damage: Calculating the Value of the Claim · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · LSH Claims Specialist: Property Damage and collision coverage, Loss of Use, tow and storage · Newly authored: a carrier's rental cap against the reasonable-repair-time measure of Loss of Use (Restatement (Second) of Torts § 928(b) as an example)
+> **Theory extracted from:** `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · `D5#35` Property Damage: Calculating the Value of the Claim · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · LSH Claims Specialist: Property Damage coverage outside the BI stack · Newly authored: the PD-only release, and the transition between the PD and BI files
 
 #### 1 · Visual Layout Description
 
-A horizontal threshold gauge across the top half, the same instrument as Day 1's, now carrying Margaret Doe's numbers: a bar from $0 to ACV $17,600.00, a bold navy THRESHOLD marker at 75% labelled $13,200.00, a grey chip at $6,940.00 (estimate, 39.4%) and an orange chip at $9,255.00 (final, 52.6%), joined by an orange arrow tagged +$2,315.00 A-PILLAR SUPPLEMENT. Lower half: a 78-day calendar ribbon from 02/06 to 04/24/2026 in three segments: red 12 days, navy 30 days (RENTAL PAID $1,260.00), red 36 days. A brace under the two red segments reads LOSS OF USE 48 × $42.00 = $2,016.00. The argument: Keystone paid for the middle and nothing on either side.
+A two-column sorting board. Left, navy, headed REACHES JOHN DOE'S SETTLEMENT: three cards, the “ALL CLAIMS” release stamped HOLD · ROUTE, the severity set (photos, the 02/16/2026 estimate, the $2,315.00 supplement) and the rental dates 02/18 and 03/19/2026 marked MATCH BOTH FILES. Right, cream, headed STAYS ON MARGARET DOE'S FILE: Loss of Use $2,016.00 vs $0 and Diminished Value $3,600.00 vs $792.00, under a note: Keystone PD $25,000, outside the $40,000 stack. A red-bordered strip along the bottom: “PD-only release. Never the BI claim.”
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* On Track B the Civic is still Margaret's own claim, outside John Doe's suit (he owns no vehicle, so no Property Damage is pleaded), but with the case in litigation every figure on the file can be tested in discovery. The repair-against-ACV arithmetic decides which measure of damages applies, and the loss-of-use calendar is the transportation record that explains the 14-Day Gap.
+*Why:* John Doe's suit is in discovery, and Margaret Doe's Civic claim is still open on the separate PD-only file the firm opened for her: Keystone offers $792.00 for Diminished Value and $0 for Loss of Use. None of that is John Doe's claim. Three PD outcomes can still reach his settlement: a release worded too widely, the severity evidence the PD file produced, and the transportation dates behind his gap. The Case Manager's job is to tell which is which, and route.
 
-1. When negligence damages property, the law aims to make the owner whole: Margaret Doe's position before 02/06/2026, never a windfall. Test every PD figure against it.
-2. Three damage types are recoverable. Economic (special): repair, tow and storage, rental, Loss of Use, Diminished Value. Non-economic (general): pain and suffering, on the injury side. Punitive: to punish egregious conduct such as DUI; none is pleaded here.
-3. PD is also evidence of impact severity: the $2,315.00 teardown supplement (03/02/2026) is structural, the A-pillar, showing hidden damage for the PD claim and force for the injury claim.
-4. Courts generally award the lesser of the repair cost or the drop in market value: a car costing more to fix than it was worth is a Total Loss, capped at its value. Confirm Keystone's threshold basis in writing.
-5. Run it on the final bill: $6,940.00 + $2,315.00 = $9,255.00, 52.6% of the $17,600.00 ACV, under Keystone's 75% line of $13,200.00. Repairable, with $3,945.00 to spare. Verify the Valuation Report: a low ACV moves the line.
-6. Loss of Use is claimable for each day without the car or a paid substitute, measured by a comparable rental; Keystone's own $42.00/day rate is the strongest measure. Authority is state law (for example, Restatement (Second) of Torts § 928(b)); confirm the governing rule.
-7. Allocate each of the 78 days from 02/06 to 04/24/2026 once; claim only the 48 unpaid: 48 × $42.00 = $2,016.00. A paid rental day claimed twice is a windfall.
-8. Keystone's 30-day cap is claims practice; the legal measure generally runs for the reasonable repair time. Keystone blames “shop delay”; the record shows a parts backorder. Arguing the 36 days is for Atty. Thorne.
-9. The loss-of-use dates are gap evidence too: no car until the 02/18/2026 rental is the first reason for the 14-Day Gap, and the 03/19 cut-off fed the disrupted care. Keep both records identical, date for date.
-10. Keystone's PD coverage ($25,000) pays this claim, outside the $40,000 stack. Bluewater's collision went unused: Keystone accepted PD liability on 02/17/2026.
+1. Our case is John Doe's BI claim in suit (No. 26-CV-04417). No Property Damage is pleaded: he owns no vehicle, and the Civic's Loss of Use and Diminished Value are Margaret Doe's own claim, on her separate PD file.
+2. A PD-only release must never release the BI claim. Keystone's 12/10/2026 release reaches “all claims arising from the 02/06/2026 accident” and asks “Mr. Doe” to sign: hold it, route its language to Atty. Thorne the same day, and John Doe signs nothing.
+3. Check the claim number on every PD paper: the PD claim is KM-26-440871-PD; John Doe's BI claim is KM-26-440871. A PD document that names the BI claim, or John Doe, goes to Atty. Thorne before anyone signs.
+4. The PD file's evidence already works for John Doe: the photos, the 02/16/2026 estimate and the $2,315.00 A-pillar supplement (03/02/2026) are in his severity set as proof of impact force. Keep them identical on both files.
+5. The PD dates touch his gap: no car until the 02/18/2026 rental, and the 03/19/2026 cutoff. His gap record and Margaret Doe's PD record must match, date for date.
+6. The money stays separate: Keystone's $25,000 PD limit sits outside the $40,000 stack. Whatever Margaret Doe's Loss of Use or Diminished Value settles for, John Doe's Specials, liens, stack and Net Sheet don't move.
+7. Refer, don't negotiate: every PD figure, offer or call is logged on Margaret Doe's file and routed to Atty. Thorne. The CM never accepts, rejects, counters or values a PD figure.
 
-> ⚠️ **UPL boundary.** You may compute, allocate, document and report PD figures to Atty. Thorne. You may not tell Margaret Doe what her car or its use is worth, whether to accept a Keystone figure, or how a court will measure her damages.
-
-> ⚠️ **UPL boundary.** You may put the PD and rental record in Atty. Thorne's deposition set; you may not rehearse John Doe's answers about the gap or the car.
+> ⚠️ **UPL boundary.** You may sort the outcomes, check a release's scope against the claim numbers, and route. You may not explain a release to John Doe or Margaret Doe, tell either what a PD figure is worth, or say what a PD outcome does to the value of John Doe's case.
 
 #### 2 · Slide Body — Show Them
 
-*Every day from 02/06 to 04/24/2026, allocated once*
+*Keystone's final PD position, sorted*
 
-| Period | Days | What happened | Loss of Use |
-|---|---|---|---|
-| 02/06–02/17/2026 | 12 | Towed and stored; no car; liability accepted 02/17 | $504.00 claimed |
-| 02/18–03/19/2026 | 30 | Rental, $42.00/day: $1,260.00 paid by Keystone | None: already paid |
-| 03/20–04/24/2026 | 36 | Rental capped; parts backorder; extension refused 04/10 | $1,512.00 claimed |
-| Total | 78 | 48 unpaid days × $42.00; Keystone: $0 | $2,016.00 claimed |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Final repair bill posts with the supplement | Re-run the total-loss check on $9,255.00 and record the basis | CMS → Property Damage | 52.6% of $17,600.00 recorded; Keystone's 75% basis on file in writing |
-| Rental ends with the Civic still in the shop | Log each day without a vehicle, period by period | CMS → Property Damage → Loss of Use | 12 + 36 = 48 days; no paid rental day counted |
-| Suit filed 09/24/2026 with no Property Damage pleaded (John Doe owns no vehicle) | Keep Margaret's PD figures consistent across the PD screen, the damages summary and anything produced in discovery | CMS → Case Notes | $2,016.00 and $3,600.00 match everywhere; any mismatch escalated to Atty. Thorne |
-| John Doe's deposition noticed 01/20/2027 | Add the PD severity set (photos, estimate, 03/02/2026 supplement, rental dates) to Atty. Thorne's deposition documents | CMS → Documents → Deposition set | Indexed before the 02/04/2027 prep session |
-
-**Best practices & pitfalls**
-
-- Run the threshold on the final bill, never the first estimate.
-- Use Keystone's own $42.00 rental rate as the value of a day's use; a carrier struggles to dispute its own number.
-- ⚠️ Pitfall: claiming the 30 paid rental days again as Loss of Use.
-- ⚠️ Pitfall: treating Property Damage as “just the car”; the supplement is impact evidence for the injury claim.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Threshold arithmetic | $6,940.00 + $2,315.00 = $9,255.00; 52.6% of $17,600.00; the 75% line at $13,200.00 |
-| 🤖 AI | **20%** | Day allocation | 78 days split 12 / 30 / 36, each counted once; 48 × $42.00 = $2,016.00 |
-| 🤖 AI | **20%** | Doctrine | Make-whole aim, the three damage types and the lesser-of rule stated correctly |
-| 🧑‍🏫 Trainer | **25%** | Evidentiary reasoning | Connects the supplement and the loss-of-use dates to the injury claim and the gap |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | No valuation or acceptance advice to Margaret Doe; the 36-day argument left to Atty. Thorne |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Open with the gauge. Ask which number decides whether the Civic is totaled; most will say the estimate. It is the final bill, $9,255.00, after the supplement.
-- Put it to the room: “Keystone paid for 30 days of rental. Why is Margaret Doe still owed anything for the use of her car?” Make them find the two red segments on either side.
-- Tie it to Day 5's gap work: the 12 days without a car are the first of the four reasons for the 14-Day Gap, and the 02/18/2026 rental date is in the PD record, not just John Doe's memory. Expect defense counsel to build a causation trap on that fortnight at deposition; the record answers it, and Atty. Thorne, not the CM, prepares Margaret Doe.
-- Legal nuance: whether parts-backorder days are recoverable, and how far a carrier's cap binds, vary by jurisdiction. Watch for the 78-day double count; the make-whole principle answers it, and it is not a technicality.
-
----
-
-### 5.1.16 Diminished Value & PD Dispute Resolution
-
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with PD Dispute Evaluation (`d5m2`)  
-> **Topic:** What a repaired car still loses, and how the dispute gets resolved  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D5#35` Property Damage: Calculating the Value of the Claim · `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · LSH Claims Specialist: liability disputes — written basis, stronger evidence, escalation to the attorney · Newly authored: Diminished Value, the repair-plus-residual-loss measure (Restatement (Second) of Torts § 928 as an example), the 17c formula and its critique, the PD-only release
-
-#### 1 · Visual Layout Description
-
-A balanced two-column face-off. Left, a navy card headed KEYSTONE'S 17c: the formula as a descending staircase of three mono pills, $1,760.00 → × 0.75 → × 0.60, landing on $792.00, each step tagged in red with its flaw (10% CAP · TIER · MILEAGE TWICE). Right, an orange-bordered cream card headed THE MARKET: $3,600.00 set large in Fraunces, with three evidence chips beneath it (appraisal 05/06/2026 · A-pillar supplement · photos). A thin horizontal rule between the cards marks the $1,760.00 ceiling; the $3,600.00 sits visibly above it. Bottom strip, red-bordered: “PD release only. Never all claims.” The argument: the formula cannot reach the market.
-
-#### 2 · Slide Body — Tell Them
-
-*Why:* A Civic with an A-pillar repair in its history is worth less than one never hit, and Margaret Doe didn't cause that loss. Keystone's $792.00 comes from a formula; the $3,600.00 from a market appraisal. The difference is pleaded on Track B: the CM builds the evidence and Atty. Thorne makes the argument.
-
-1. Diminished Value is the market value a car still loses after a proper repair: buyers pay less for a damage history. Many jurisdictions allow it against the at-fault driver.
-2. It sits beside the lesser-of rule: where a repair leaves a residual loss, many courts add it to the repair cost (for example, Restatement (Second) of Torts § 928), kept under the pre-loss value: $9,255.00 + $3,600.00 = $12,855.00, under $17,600.00. Confirm the governing rule.
-3. It is a market loss, not a feeling. The measure is fair market value. Where an item has no market (an heirloom), some courts use actual value to the owner, still excluding sentimental value; a few allow emotional-distress damages for intentional destruction. Neither fits a 2019 Civic.
-4. Keystone's “17c” figure is a carrier formula from a Georgia class-action settlement, not a legal measure of damages: 10% of $17,600.00 = $1,760.00, × damage 0.75, × mileage 0.60 = $792.00.
-5. Critique the cap: no damage, however severe, yields more than $1,760.00 on ther car. The appraisal's $3,600.00 is 20.5% of ACV, more than twice the formula's ceiling.
-6. Critique the multipliers: 0.75 is the formula's ‘major structural’ tier; the A-pillar teardown supports arguing for its top, ‘severe structural’ tier (1.00), Atty. Thorne's argument to make; 0.60 discounts 52,300 miles the $17,600.00 ACV already priced in, counting mileage twice.
-7. Test your own evidence too: the Riverton Auto Appraisal (05/06/2026) post-dates the 04/24/2026 repair, so it valued the repaired car; check its method and credentials.
-8. Resolve on evidence: get Keystone's position and inputs in writing, by the route Atty. Thorne chooses, assemble the answer (appraisal, supplement, rental record) and escalate to him. Outside John Doe's suit, the items resolve where he takes them: negotiation, appraisal, or Margaret's own small-claims filing.
-9. PD is settled only on a property-damage-only release Atty. Thorne has reviewed. A release reaching “all claims” from 02/06/2026 could reach more than the Civic; Margaret Doe signs nothing from Keystone until the firm has reviewed it.
-
-> ⚠️ **UPL boundary.** You may calculate, critique the formula on paper, assemble the evidence and recommend a range to Atty. Thorne. You may not make, accept, reject or counter any PD figure, tell Margaret Doe what her car has lost in value or whether to take Keystone's offer, or explain a release to her.
-
-#### 2 · Slide Body — Show Them
-
-*The same Civic, two numbers: a formula against the market*
-
-| KEYSTONE'S 17c — $792.00 | THE APPRAISAL — $3,600.00 |
-|---|---|
-| Base: 10% of $17,600.00 = $1,760.00, a ceiling set before any damage is scored. | Riverton Auto Appraisal, 05/06/2026, after the 04/24/2026 repair. |
-| × 0.75 damage: the A-pillar scored a tier below the top. | 20.5% of ACV: more than twice the formula's ceiling. |
-| × 0.60 mileage: 52,300 miles discounted again, though the ACV priced them. | Corroborated by the $2,315.00 structural supplement and the photos. |
-| No market data anywhere in the calculation. | Audited for method, data and credentials first. |
+| PD outcome | Reaches John Doe's settlement? | Where it goes |
+|---|---|---|
+| The “all claims” release | Yes, if signed: it could reach the BI claim | Hold; route to Atty. Thorne |
+| Photos, estimate, $2,315.00 supplement | Yes: already his severity evidence | His severity set, kept identical |
+| Rental dates 02/18 and 03/19/2026 | Yes: his transportation and gap record | Match both files |
+| Loss of Use, $2,016.00 vs $0 | No: Margaret Doe's PD claim | Her PD file |
+| Diminished Value, $3,600.00 vs $792.00 | No: Margaret Doe's PD claim | Her PD file |
 
 **Operational mapping**
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Keystone states its diminished-value figure | Ask Atty. Thorne how to obtain the 17c worksheet and every input (a discovery request or a written request through counsel), and draft it for his review | CMS → Property Damage → Correspondence | Base, both multipliers and the ACV used on file in writing |
-| Appraisal received (05/06/2026) | Audit its method, data and credentials; index it as the diminished-value evidence | CMS → Property Damage · CMS → Documents | Audit note dated; appraisal indexed |
-| Keystone sends a PD release or check | Hold it and route the release language to Atty. Thorne | CMS → Tasks → Escalate | Release scope reviewed by Atty. Thorne before Margaret Doe sees a signature line |
+| Keystone PD sends a release | Check its scope and claim number; hold it; route it to Atty. Thorne | CMS → Tasks → Escalate | Routed the same day; nobody asked to sign |
+| Keystone restates a PD figure | Log it on Margaret Doe's PD file, not in John Doe's figures | CMS → Communications Log | John Doe's Net Sheet unchanged |
+| Discovery asks for the PD documents | Confirm the severity set and the rental dates match the PD file | CMS → Documents | Photos, estimate, supplement and dates identical |
 
 **Best practices & pitfalls**
 
-- Make Keystone show its formula's inputs in writing; a number without its math can't be answered.
-- Put the critique on paper for Atty. Thorne; an adjuster call is not where it gets argued.
-- ⚠️ Pitfall: telling Margaret Doe her car “lost $3,600.00”; that is a valuation opinion.
-- ⚠️ Pitfall: a PD release that reaches the injury claim.
-- ⚠️ Pitfall: promising sentimental-value recovery the law won't award.
+- Read every PD release for its scope and claim number before anything else.
+- Keep the severity set and the rental dates identical on both files.
+- ⚠️ Pitfall: forwarding a PD release to John Doe “just so he can see it.”
+- ⚠️ Pitfall: moving John Doe's settlement figures because Margaret Doe's PD claim moved.
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's auto-graded questions.
+Verified in PD Transition Check (taught on Case Flow Day 5) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | 17c arithmetic | 10% × $17,600.00 = $1,760.00 × 0.75 × 0.60 = $792.00 |
-| 🤖 AI | **20%** | Critique | The 10% cap, the damage tier and the mileage double count each named; 20.5% against 10% |
-| 🤖 AI | **20%** | Doctrine | Residual market loss added to the repair beside the lesser-of rule; $12,855.00 under $17,600.00; market value, not sentiment; PD-only release |
-| 🧑‍🏫 Trainer | **25%** | Dispute judgment | Evidence-led; escalates rather than argues; keeps the release risk in view |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | No figure made, accepted, rejected or valued for Margaret Doe |
+| 🤖 AI | **20%** | Release scope | The “all claims” language and the claim number checked; the release held and routed |
+| 🤖 AI | **25%** | The sort | Severity evidence and rental dates on John Doe's side; Loss of Use and Diminished Value on Margaret Doe's file |
+| 🤖 AI | **15%** | Money kept separate | $25,000 PD outside the $40,000 stack; John Doe's figures unchanged |
+| 🧑‍🏫 Trainer | **25%** | Transition judgment | Says in one line which PD outcomes reach John Doe's settlement and why |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | No figure valued, accepted or countered; no release explained to either client |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
 #### 5 · Speaker Notes
 
-- Write $792.00 and $3,600.00 on the board, far apart. Build the $792.00 from the formula in front of the room, one multiplication at a time, so they see where each cut comes from.
-- Ask: “If this Civic had the worst structural damage a repairable car can have, what is the most the 17c formula could pay?” The answer, $1,760.00, is the whole critique of the cap.
-- Watch for trainees who treat the appraisal as gospel. Make them audit it as hard as they audited Keystone's ACV; the defense will.
-- Legal nuance: Diminished Value against an at-fault driver is recognised in many states but not all, and first-party Diminished Value under one's own collision coverage is a separate, narrower question. How Robert Smith's comparative-negligence defense (his 11/12/2026 Answer) touches a parked car's claim is Atty. Thorne's analysis.
+- Open with the release, not the numbers. Ask who would forward it to John Doe; anyone who would has found the lesson's trap.
+- Put $792.00 and $3,600.00 on the board, then ask what either does to John Doe's Net Sheet. The answer, nothing, is the point.
+- Tie it back to Day 1: the same sort, now at settlement. Evidence and dates reach his case; the PD figures never do.
+- Nuance: how a release is worded and who signs it are Atty. Thorne's questions. The CM's part is to catch it and route it the same day.
 
 ---
 
-### 5.1.17 Evaluating Repair Estimates vs. ACV & Loss-of-Use
+### 5.1.16 Does It Touch Our Settlement? Keystone's Final PD Position
 
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Dispute Evaluation (`d5m2`)  
-> **Topic:** Skill Activity 1 — audit the Civic's numbers before discovery does  
+> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Transition Check (`d5m2`)  
+> **Topic:** Skill Activity 1 — sort Keystone's final PD position between John Doe's case and Margaret Doe's file  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D5#35` Property Damage: Calculating the Value of the Claim · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · LSH Claims Specialist: Property Damage coverage, Loss of Use, tow and storage
+> **Theory extracted from:** `D5#35` Property Damage: Calculating the Value of the Claim · `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · LSH Claims Specialist: liability disputes — written basis, escalation to the attorney · Newly authored: the PD-only release, and the transition between the PD and BI files
 
 #### 1 · Visual Layout Description
 
-An annotated CMS Property Damage worksheet fills the left two-thirds: a white card with a navy header bar and two staged entries struck through in red, the 39.4% total-loss check on the $6,940.00 estimate and the 78-day, $3,276.00 loss-of-use line, each with an orange numbered badge pointing to its corrected value in the margin (52.6% on $9,255.00; 48 days, $2,016.00). The right third is an evidence column of three cream cards, one per period (12 · 30 · 36 days), each listing its proof as mono pills. A red-bordered strip along the bottom reads PRODUCED WRONG = IMPEACHED. The argument: fix the record before the defense reads it.
+A memo on the left two-thirds, headed TO ATTY. THORNE — DOES IT TOUCH JOHN'S CASE?, with five rows each carrying a YES or NO chip and a one-line reason: the release (YES · HOLD), the severity set (YES · MATCH), the rental dates (YES · MATCH), Loss of Use (NO), Diminished Value (NO). On the right, Keystone's release with “all claims arising from the 02/06/2026 accident” circled in red and a red stamp: NOT FOR SIGNATURE · ROUTED. A bottom bar holds the memo's one-line answer.
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** File date 12/2026: the requests mailed 12/01/2026 have arrived. Leah Moran (Keystone PD) asks Margaret Doe's PD file for every document supporting her Property Damage claim (reply due 01/04/2027). The total-loss and loss-of-use entries on the CMS Property Damage screen, untouched since April, show a total-loss check run on the $6,940.00 estimate (39.4% of ACV) and a loss-of-use line of 78 days × $42.00 = $3,276.00. Keystone still offers $0 for Loss of Use.
+**Scenario.** File date 12/10/2026. Leah Moran (Keystone PD) emails Keystone's final position on the Civic: $792.00 for Diminished Value and $0 for Loss of Use. Her attached release covers “all claims arising from the 02/06/2026 accident” and asks “Mr. Doe” to sign so payment can issue; she will call this afternoon. John Doe's suit is in discovery, and Atty. Thorne wants to know what, if anything, this changes for John.
 
-**Execution prompt.** Audit and correct the Civic's numbers before anything is produced. Re-run the total-loss check on the final repair against the $17,600.00 ACV and Keystone's 75% threshold, and list what you would verify in Keystone's Valuation Report. Rebuild the loss-of-use ledger day by day from 02/06 to 04/24/2026, allocating each day once, and correct the claim. Attach the evidence for each period, and index the severity set: the photos and the estimate against the final bill. Then flag for Atty. Thorne the two arguments Keystone will make against the unpaid days, without answering them, and date the task ahead of the response deadline.
+**Execution prompt.** Sort Keystone's position item by item: the release, the Diminished Value figure, the Loss of Use figure, the photos and estimates already in John Doe's severity set, and the rental dates. For each, decide whether it reaches John Doe's settlement or stays on Margaret Doe's PD file, and say why in one line. Check the release's scope and claim number, hold it and route it to Atty. Thorne. Confirm the severity set and the rental dates match the PD file. Take Leah Moran's call without accepting, rejecting or countering anything. Close with a short memo to Atty. Thorne that ends in one line: does this PD outcome touch John Doe's case, and how?
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Property Damage → Loss of Use · CMS → Documents · CMS → Tasks → Escalate |
-| **Expected output** | A corrected PD worksheet (repairable at 52.6% of ACV; 48 days and $2,016.00 claimed) with each period evidenced and Keystone's defenses flagged for Atty. Thorne. |
+| **Tool / interface** | CMS → Case Notes · CMS → Documents · Call Simulator → AI Adjuster: Leah Moran, Keystone Mutual (PD) · CMS → Tasks → Escalate |
+| **Expected output** | A short memo to Atty. Thorne sorting each PD outcome, the release held and routed, the severity set confirmed, and the call logged. |
 
 **Verification checkpoints**
 
-- [ ] Final repair recomputed: $6,940.00 + $2,315.00 = $9,255.00
-- [ ] Threshold run on the final repair: $9,255.00 is 52.6% of $17,600.00, under $13,200.00 (75%) → repairable
-- [ ] The stale 39.4% check corrected with a dated note, not silently overwritten
-- [ ] Valuation-report checks listed: comparables, the LX trim, 52,300 miles, condition
-- [ ] Severity set indexed: point-of-impact, frame and A-pillar photos, and the 02/16/2026 estimate set against the final bill
-- [ ] 78 days allocated once: 12 (02/06–02/17) + 30 (02/18–03/19) + 36 (03/20–04/24)
-- [ ] Loss of Use corrected from $3,276.00 to 48 × $42.00 = $2,016.00; the 30 paid days ($1,260.00) excluded
-- [ ] Each period evidenced: tow and storage record and Keystone's 02/17/2026 acceptance for the 12; the 02/18/2026 rental authorization for the 30; the 04/10/2026 extension refusal and 04/24/2026 completion for the 36
-- [ ] Tow and storage ($455.00) and the rental recorded as paid by Keystone, not claimed again
-- [ ] Keystone's two defenses flagged, not argued: days before it accepted liability, and “shop delay”
-- [ ] Escalation to Atty. Thorne dated on or before 12/28/2026 (the Discovery Countdown, 7 days before 01/04/2027); nothing produced without his review
+- [ ] Release flagged: “all claims arising from the 02/06/2026 accident” could reach John Doe's BI claim; routed to Atty. Thorne the same day
+- [ ] Nobody asked to sign: not John Doe, and not Margaret Doe before Atty. Thorne has reviewed it
+- [ ] Claim numbers checked: the PD claim is KM-26-440871-PD, the BI claim KM-26-440871
+- [ ] Diminished Value ($792.00 against $3,600.00) and Loss of Use ($0 against $2,016.00) sorted to Margaret Doe's PD file
+- [ ] John Doe's figures unchanged: Keystone's $25,000 PD limit sits outside the $40,000 stack; no lien or Net Sheet line moves
+- [ ] Severity set confirmed: the photos, the 02/16/2026 estimate and the $2,315.00 supplement match the PD file
+- [ ] Rental dates 02/18 and 03/19/2026 match John Doe's gap record
+- [ ] Leah Moran told only that the position is with Atty. Thorne; the call logged in her words
+- [ ] The memo ends with the answer: PD reaches John Doe's settlement through the release and the evidence, never through its figures
 
 **Operational mapping**
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Requests for Production ask for the PD documents | Audit the PD screen and correct stale figures with dated notes | CMS → Property Damage | Threshold on $9,255.00; Loss of Use $2,016.00; each correction dated |
-| Keystone's defenses identified | Flag them to Atty. Thorne with each period's evidence | CMS → Tasks → Escalate | Task dated on or before 12/28/2026 |
-| Worksheet corrected | Assemble the PD evidence set for Atty. Thorne's production review | CMS → Documents | Every period evidenced; nothing produced before his review |
+| Keystone's final PD position arrives with a release | Sort each outcome; hold the release | CMS → Case Notes | Each outcome sorted with its reason |
+| Release language reaches “all claims” | Route it to Atty. Thorne the same day | CMS → Tasks → Escalate | Escalated; nobody asked to sign |
+| Leah Moran calls for an answer | Log her words; say it is with Atty. Thorne | Call Simulator · CMS → Communications Log | No figure accepted, rejected or countered |
 
 **Best practices & pitfalls**
 
-- Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).
-- Correct a wrong figure with a dated note; never overwrite the history.
-- Evidence each period, not just the total: the defense attacks periods.
-- ⚠️ Pitfall: producing a worksheet that still says $3,276.00; one double count lets the defense attack every other number.
-- ⚠️ Pitfall: arguing “shop delay” with the adjuster yourself.
+- Lead the memo to Atty. Thorne with the decision he must make, then the sort (Decision First).
+- Read the release before the numbers.
+- ⚠️ Pitfall: forwarding Keystone's release to John Doe or Margaret Doe “just so they can see it.”
+- ⚠️ Pitfall: telling Leah Moran “we'd probably take” any figure.
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's auto-graded questions.
+Verified in PD Transition Check (taught on Case Flow Day 5) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **15%** | Threshold | $9,255.00 = 52.6% of $17,600.00, under $13,200.00; the 39.4% entry corrected |
-| 🤖 AI | **15%** | Day allocation | 12 + 30 + 36 = 78 days, each counted once |
-| 🤖 AI | **15%** | Loss-of-use figure | 48 × $42.00 = $2,016.00; $3,276.00 corrected; $1,260.00 and $455.00 not claimed again |
-| 🤖 AI | **15%** | Evidence and deadline | Each period evidenced; severity photos and supplement indexed; escalation dated on or before 12/28/2026 |
-| 🧑‍🏫 Trainer | **20%** | Audit judgment | Found both staged errors and explained what producing them would cost |
-| 🧑‍🏫 Trainer | **10%** | Record vs. argument | Flagged Keystone's defenses with the evidence, without arguing them |
-| 🧑‍🏫 Trainer | **10%** | UPL boundary | Nothing sent to Keystone or produced without Atty. Thorne's review |
+| 🤖 AI | **20%** | Release | Scope and claim number checked; held and routed the same day; nobody asked to sign |
+| 🤖 AI | **25%** | The sort | Release, severity set and rental dates on John Doe's side; Loss of Use and Diminished Value on Margaret Doe's file |
+| 🤖 AI | **15%** | Figures kept separate | PD outside the $40,000 stack; John Doe's liens and Net Sheet unchanged |
+| 🧑‍🏫 Trainer | **25%** | Transition judgment | The memo's one-line answer is right and defended |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | Nothing accepted, rejected or countered; no release explained to either client |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
 #### 5 · Speaker Notes
 
-- Don't tell them there are two staged errors. The trainee who re-runs the threshold on $9,255.00 and catches the 78-day double count is doing the job; the one who tidies the formatting isn't.
-- Ask the room: “If the defense receives a worksheet claiming $3,276.00, what happens to the credibility of the $3,600.00 appraisal?” That is why the audit comes before production.
-- Grade the evidence column hardest. The 12 pre-rental days are proved by the tow and storage record and Keystone's own 02/17/2026 acceptance, not by Margaret Doe's word.
-- What is produced, and how discovery is answered, is Atty. Thorne's decision. The CM prepares the set; the responses go out over his signature.
+- Start with the attachment. Ask who opened the release and what it covers; a trainee who forwards it to John Doe has missed the lab before sorting anything.
+- In the call, AI Leah Moran presses: “Can you just tell me if he'll take it?” The only right answer is that the position is with Atty. Thorne.
+- Grade the memo's last line hardest: the release and the evidence reach his case; the figures don't.
 
 ---
 
-### 5.1.18 Diminished Value Calculation & Negotiation Lab
-
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Dispute Evaluation (`d5m2`)  
-> **Topic:** Skill Activity 2 — from $792.00 to a recommended range for Atty. Thorne  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D5#35` Property Damage: Calculating the Value of the Claim · `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · LSH Claims Specialist: liability disputes — written basis, stronger evidence, escalation to the attorney · Newly authored: the 17c critique and the recommended negotiating range
-
-#### 1 · Visual Layout Description
-
-A negotiation board across the slide. Left: a vertical number line from $0 to $5,616.00, Keystone's $792.00 low in navy and the claimed $5,616.00 at the top in orange; between them an empty orange bracket labelled RECOMMENDED RANGE — FOR ATTY. THORNE'S AUTHORITY, which the trainee fills. Right: the 17c rebuilt as three stacked mono pills ($1,760.00 → × 0.75 → × 0.60 = $792.00), each with a red critique tag. Bottom-right, a red-bordered callout over a release thumbnail: “ALL CLAIMS” — HOLD, ROUTE TO COUNSEL. The argument: the CM builds the range; only counsel can use it.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** File date 12/10/2026. The Scheduling Order requires mediation by 03/31/2027. Leah Moran (Keystone PD) emails that $792.00 for Diminished Value and $0 for Loss of Use are final, attaching a release of “all claims arising from the 02/06/2026 accident” for Margaret Doe's signature, then calls to ask whether Margaret Doe will take it. Atty. Thorne wants your recommendation.
-
-**Execution prompt.** Work the diminished-value dispute to a recommendation. Rebuild Keystone's 17c figure from the $17,600.00 ACV, then critique its 10% cap and both multipliers against the 03/02/2026 supplement and the 05/06/2026 appraisal. Set out the whole PD dispute, claimed against offered, and recommend a negotiating range: a top and a floor, each with its evidence and arithmetic. Take Leah Moran's call and answer her email without accepting, rejecting or countering anything, route the release, and send the range to Atty. Thorne for authority.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Property Damage · Email Workspace · Call Simulator → AI Adjuster: Leah Moran, Keystone Mutual (PD) · CMS → Tasks → Escalate |
-| **Expected output** | A one-page PD dispute memo: the 17c rebuilt and critiqued, a recommended range with its evidence, the release flagged, and the call and email logged, routed to Atty. Thorne. |
-
-**Show Them — reference model**
-
-*The dispute on one page*
-
-| Item | Claimed | Offered | Evidence |
-|---|---|---|---|
-| Loss of Use, 02/06–02/17 (12 days) | $504.00 | $0 | Tow and storage record; 02/17 acceptance |
-| Loss of Use, 03/20–04/24 (36 days) | $1,512.00 | $0 | 04/10 refusal; 04/24 completion |
-| Diminished Value | $3,600.00 | $792.00 | Appraisal 05/06/2026; A-pillar supplement |
-| Total in dispute | $5,616.00 | $792.00 | Difference $4,824.00 |
-
-**Verification checkpoints**
-
-- [ ] 17c rebuilt: 10% × $17,600.00 = $1,760.00; × 0.75 = $1,320.00; × 0.60 = $792.00
-- [ ] The 10% cap named: the formula can never exceed $1,760.00 on ther car
-- [ ] Both multipliers challenged: 0.75 against the $2,315.00 A-pillar supplement (03/02/2026); 0.60 as a second discount for 52,300 miles the ACV already priced in
-- [ ] Appraisal compared: $3,600.00 (20.5% of ACV) against $792.00 (4.5%); difference $2,808.00
-- [ ] Dispute totalled: $2,016.00 + $3,600.00 = $5,616.00 claimed against $792.00 offered
-- [ ] Range has a top and a floor, each traced to a document with the arithmetic shown, and the weakest item (the 36 “shop delay” days) named; the floor sits above $792.00
-- [ ] Make-whole check shown: $9,255.00 + $3,600.00 = $12,855.00, below the $17,600.00 pre-loss value
-- [ ] Limit check: $455.00 + $9,255.00 + $1,260.00 = $10,970.00 paid, + $5,616.00 disputed = $16,586.00, inside Keystone's $25,000 PD limit; any other claim on that limit (the Escape) flagged for Atty. Thorne
-- [ ] Release flagged: the “all claims” language routed to Atty. Thorne; nothing sent to Margaret Doe to sign
-- [ ] Call and email logged; Leah Moran told only that the offer is with Atty. Thorne; no figure accepted, rejected or countered
-- [ ] Recommendation routed to Atty. Thorne as a task, evidence attached, marked “for authority”
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Keystone restates $792.00 and $0 with a release | Log the email and the call; acknowledge receipt only | Email Workspace · CMS → Communications Log | Both logged 12/10/2026; no position taken |
-| Release received | Route the release language to Atty. Thorne and hold it from Margaret Doe | CMS → Tasks → Escalate | Escalated the same day; Margaret Doe not asked to sign |
-| Range drafted | Send the memo and the evidence to Atty. Thorne for authority | CMS → Tasks → Escalate | His decision recorded before anything goes to Keystone |
-| Atty. Thorne sets authority | Record it in his words and calendar the next step | CMS → Case Notes · Calendar | Authority dated; nothing used beyond it |
-
-**Best practices & pitfalls**
-
-- Recommend with arithmetic: every number in the range traces to a document.
-- Give Atty. Thorne the weak point too: the 36 “shop delay” days are where Keystone will push hardest.
-- ⚠️ Pitfall: telling Leah Moran “we'd probably take” any figure; that is an offer made without authority.
-- ⚠️ Pitfall: forwarding Keystone's release to Margaret Doe “just so she can see it.”
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **15%** | 17c arithmetic | $1,760.00 × 0.75 × 0.60 = $792.00, each step shown |
-| 🤖 AI | **15%** | Critique | Cap, damage tier and mileage double count, each tied to the supplement or the ACV |
-| 🤖 AI | **15%** | Dispute totals | $5,616.00 against $792.00; $2,808.00 diminished-value difference; $12,855.00 make-whole check; $16,586.00 inside the $25,000 PD limit |
-| 🤖 AI | **15%** | Range construction | Top and floor each traced to evidence with arithmetic; floor above $792.00 |
-| 🧑‍🏫 Trainer | **15%** | Negotiation judgment | A range Atty. Thorne could use: realistic, with the weak points named |
-| 🧑‍🏫 Trainer | **10%** | Release risk | Saw that the release could reach the injury claim and held it |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | Nothing accepted, rejected or countered; Margaret Doe not asked to sign; the adjuster told only that it is with counsel |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Start with the release, not the math. Ask who opened Leah Moran's attachment. A trainee who forwards it to Margaret Doe has failed the lab before computing anything.
-- Ask: “What is the lowest number you'd put in front of Atty. Thorne, and which document defends it?” Grade the reasoning, not the figure; the outcome is his. Keystone's own formula, with the damage tier at the top and the mileage double count removed, reaches its $1,760.00 ceiling; a floor built there defends better than one picked from the air.
-- In the call, AI Leah Moran presses: “Can you just tell me if he'll take it?” The only right answer is that the offer is with Atty. Thorne and the firm will respond.
-- Nuance: the range is internal work product for counsel. With suit pending and Robert Smith represented by Atty. Grant Mercer, how and with whom Margaret's PD is negotiated is Atty. Thorne's choice.
-
----
-
-### 5.1.19 Client Prep for a Virtual Deposition & Injury Narrative Alignment
+### 5.1.17 Client Prep for a Virtual Deposition & Injury Narrative Alignment
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The audit, the three pillars, and the room John testifies from  
@@ -1645,7 +1463,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.20 Opposing Counsel's Traps & Defending Key Testimony
+### 5.1.18 Opposing Counsel's Traps & Defending Key Testimony
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The four categories, the seven Golden Rules, and what an objection means  
@@ -1728,7 +1546,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.21 Virtual Deposition Prep Roleplay
+### 5.1.19 Virtual Deposition Prep Roleplay
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 1 — client injury & 14-Day Gap defense: your segment, his substance  
@@ -1817,7 +1635,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.22 Mock Deposition Cross-Examination Handling
+### 5.1.20 Mock Deposition Cross-Examination Handling
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 2 — observe, log and route; never coach  
@@ -1903,7 +1721,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.23 Comparative Negligence & the Liability Counter-Package
+### 5.1.21 Comparative Negligence & the Liability Counter-Package
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Three allegations in the 11/12/2026 Answer, and the evidence that answers each  
@@ -1984,7 +1802,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.24 Skip-Tracing, Process Servers & Certified Notice
+### 5.1.22 Skip-Tracing, Process Servers & Certified Notice
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Finding the defendant who moved and the client who went quiet  
@@ -2067,7 +1885,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.25 Building the Comparative Liability Counter-Package
+### 5.1.23 Building the Comparative Liability Counter-Package
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 1 — answer each allegation from the file  
@@ -2144,7 +1962,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.26 Skip-Tracing Execution & Certified Notice Dispatch
+### 5.1.24 Skip-Tracing Execution & Certified Notice Dispatch
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 2 — find the defendant, reach the client, prove both  
@@ -2224,7 +2042,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.27 Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund
+### 5.1.25 Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Same $40,000.00, a different net: what suit cost the client, line by line  
@@ -2301,7 +2119,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 ---
 
-### 5.1.28 The Litigation Net Sheet: Disbursing the Award
+### 5.1.26 The Litigation Net Sheet: Disbursing the Award
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Skill Activity — take the award to $14,713.75 on the LSH Net Sheet  
@@ -2373,7 +2191,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 ---
 
-### 5.1.29 Dropped Cases: the Case Manager's Close-Out
+### 5.1.27 Dropped Cases: the Case Manager's Close-Out
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** From “Pending Drop” to “Dropped”: the gate, three Withdrawal Letters, their dispatch and the proof  
@@ -2453,7 +2271,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 ---
 
-### 5.1.30 Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
+### 5.1.28 Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Skill Activity — a practice matter: three Withdrawal Letters, their dispatch and the Dropped status  
@@ -2527,7 +2345,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 ---
 
-### 5.1.31 Litigation Fork Transition Check
+### 5.1.29 Litigation Fork Transition Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2619,7 +2437,7 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 
 ---
 
-### 5.1.32 Countermeasure Operational Audit
+### 5.1.30 Countermeasure Operational Audit
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2704,7 +2522,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 5.1.33 Litigation Support Assessment
+### 5.1.31 Litigation Support Assessment
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2793,89 +2611,90 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 
 ---
 
-### 5.1.34 PD Dispute Evaluation
+### 5.1.32 PD Transition Check
 
-> **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Dispute Evaluation (`d5m2`)  
+> **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Transition Check (`d5m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · `D5#35` Property Damage: Calculating the Value of the Claim · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive
 
 #### 1 · Visual Layout Description
 
-The standard knowledge-check split (cream question panel with orange-numbered questions, navy Self-Summary card, the 1–5 ladder, the 60/40 strip with the separate red UPL gate). Module-specific addition: a PD LEDGER STRIP between the panels, four cells in mono type: Repair $9,255.00 · 52.6% | Loss of Use 48 days · $2,016.00 vs $0 | Diminished Value $3,600.00 vs $792.00 | Recommendation → Atty. Thorne. The last cell is orange-bordered and empty until the trainee states the next action. The strip is the whole dispute at a glance; the questions make them defend each cell.
+The standard knowledge-check split (cream question panel with orange-numbered questions, navy Self-Summary card, the 1–5 ladder, the 60/40 strip with the separate red UPL gate). Module-specific addition: a SORT STRIP between the panels, two cells in mono type: REACHES JOHN DOE'S SETTLEMENT | STAYS ON MARGARET DOE'S FILE, which the trainee fills before answering.
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Show whether Margaret Doe's Civic is a Total Loss: the final repair, the ACV, Keystone's threshold and the percentage, with the arithmetic.
-2. Allocate the 78 days from 02/06 to 04/24/2026. Which are claimed as Loss of Use, at what rate and for how much, and why are the rental days excluded?
-3. Name the three types of damages, place the Civic's repair, Loss of Use and Diminished Value among them, and say what conduct a punitive claim requires.
+1. Keystone's 12/10/2026 release covers “all claims arising from the 02/06/2026 accident.” Why must it never reach John Doe, and what do you do with it?
+2. Sort Keystone's final PD position: which items reach John Doe's settlement, and which stay on Margaret Doe's file? Say why for each.
+3. Which PD documents already serve John Doe's case, and what must stay identical between his file and Margaret Doe's?
 
 **Best practices & pitfalls**
 
-- Answer with the file's own numbers and dates, and show the arithmetic.
+- Answer with the file's own numbers, dates and claim numbers.
 - ⚠️ Pitfall: a self-rating that doesn't match your answers; your trainer will ask about the gap.
 
 #### 3 · Knowledge Check & CM Summary
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned about valuing and disputing Property Damage on Margaret Doe's file: the principles, not the clicks.
-- Articulate your strategy: the PD dispute stands at $5,616.00 claimed against $792.00 offered. What is your next action, and why is it the right one rather than something else?
+- Summarize, in your own words, how Property Damage touches John Doe's case at settlement, and how it doesn't.
+- Articulate your strategy: Leah Moran wants an answer today and her release is on your desk. What is your next action, and why that one?
 - Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
 
 **Skill Scale — self-rate 1–5**
 
 | Competency | 1 | 2 | 3 | 4 | 5 |
 |---|---|---|---|---|---|
-| Running the total-loss threshold on the final repair figure | ○ | ○ | ○ | ○ | ○ |
-| Allocating loss-of-use days without double counting | ○ | ○ | ○ | ○ | ○ |
-| Placing PD items among the damage types and applying the lesser-of rule | ○ | ○ | ○ | ○ | ○ |
-| Rebuilding and critiquing a 17c diminished-value offer | ○ | ○ | ○ | ○ | ○ |
-| Building an evidence-backed negotiating range for counsel | ○ | ○ | ○ | ○ | ○ |
-| Holding the UPL boundary when a carrier or defense counsel presses for an answer | ○ | ○ | ○ | ○ | ○ |
+| Reading a release for its scope and claim number | ○ | ○ | ○ | ○ | ○ |
+| Sorting PD outcomes between the client's case and the owner's file | ○ | ○ | ○ | ○ | ○ |
+| Keeping PD figures out of the client's settlement figures | ○ | ○ | ○ | ○ | ○ |
+| Keeping the severity set and the rental dates identical on both files | ○ | ○ | ○ | ○ | ○ |
+| Holding the UPL boundary when a carrier presses for an answer | ○ | ○ | ○ | ○ | ○ |
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (4 questions):
+**Auto-graded share of the day's Knowledge Check** (5 questions):
 
-1. Margaret Doe's Civic: final repair $9,255.00, ACV $17,600.00, Keystone's total-loss threshold 75%. The Civic is:  
-   A Total Loss: the supplement pushed the repair past half the ACV · **✓ Repairable: $9,255.00 is 52.6% of ACV, under the $13,200.00 line** · A Total Loss: structural damage always totals a car · Repairable only on the $6,940.00 estimate, not on the final bill  
-   *$9,255.00 is 52.6% of $17,600.00. The line is 75% × $17,600.00 = $13,200.00, so the Civic is repairable with $3,945.00 to spare. Run it on the final bill, never the first estimate.*
-2. Keystone paid Margaret Doe's rental for 02/18–03/19/2026. Which days make up the $2,016.00 loss-of-use claim?  
-   **✓ 02/06–02/17 and 03/20–04/24/2026: 48 days without a car or a paid rental** · All 78 days from 02/06 to 04/24/2026 · Only the 30 rental days, at a higher daily rate · Only the 36 days of parts delay  
-   *12 + 36 = 48 unpaid days × $42.00 = $2,016.00. The 30 paid days are excluded: claiming them again would pay Margaret Doe twice for the same day.*
-3. On Margaret Doe's Civic, what holds Keystone's 17c diminished-value formula to $1,760.00 at most, whatever the damage?  
-   The mileage multiplier of 0.60 · The $25,000 PD limit · **✓ The 10% base: 10% of the $17,600.00 ACV, set before any multiplier** · The date of the appraisal  
-   *17c starts from 10% of value, $1,760.00 here, and the multipliers can only reduce it. The $3,600.00 appraisal is 20.5% of ACV, a figure the formula can never reach.*
-4. Leah Moran tells you Keystone's $792.00 is final and asks you to confirm Margaret Doe will take it. You:  
-   Accept it, since anything beats $0 · Reject it and counter at $3,600.00 · Tell Margaret Doe it's a fair offer and let her decide · **✓ Log it, tell her it is with Atty. Thorne, and route it to him the same day**  
-   *The CM never makes, accepts, rejects or counters a PD figure, and never values an offer for the client. The CM records and routes; Atty. Thorne decides.*
+1. Keystone PD's 12/10/2026 release covers “all claims arising from the 02/06/2026 accident” and asks “Mr. Doe” to sign. You:  
+   Send it to John Doe to sign, since he was in the crash · Send it to Margaret Doe to sign, since it is her PD claim · **✓ Hold it, log it and route its language to Atty. Thorne the same day: a release reaching beyond the Civic could reach John Doe's BI claim, and nobody signs until he has reviewed it** · Sign the firm's acknowledgment and return it  
+   *A PD-only release must never release the bodily-injury claim. The CM checks the scope and the claim number, holds the release, and routes it; Atty. Thorne decides what is signed, and John Doe signs nothing.*
+2. Keystone's final PD position is $792.00 for Diminished Value and $0 for Loss of Use. What does it change on John Doe's settlement figures?  
+   His Net Sheet drops by the difference · **✓ Nothing: Loss of Use and Diminished Value are Margaret Doe's PD claim, paid under Keystone's $25,000 PD limit outside the $40,000 stack; his Specials, liens and stack don't move** · His liens rise · Keystone's BI limit falls by $792.00  
+   *PD figures stay on Margaret Doe's file. Whatever her Loss of Use or Diminished Value settles for, John Doe's Specials, liens, stack and Net Sheet are unaffected.*
+3. Which PD items are already working for John Doe's case?  
+   Margaret Doe's rental receipts, as his damages · **✓ The photos, the 02/16/2026 estimate and the $2,315.00 A-pillar supplement, indexed in his severity set as proof of impact force** · The Diminished Value appraisal, as his damages · Keystone's 17c worksheet  
+   *The PD file's severity evidence is already in John Doe's set. Keep it identical on both files; the PD claim itself stays Margaret Doe's.*
+4. Where does the Civic's rental touch John Doe's case?  
+   Nowhere: it is Margaret Doe's claim · **✓ In his transportation history: no car until the 02/18/2026 rental and the 03/19/2026 cutoff sit behind his gap and disrupted care, so both records must match date for date** · As a damages item in his suit · As a lien on his settlement  
+   *The rental is Margaret Doe's claim, but its dates are part of John Doe's gap record. The CM keeps the two records identical; what the dates mean at deposition is Atty. Thorne's to prepare.*
+5. Leah Moran calls: “Will Mr. Doe take the $792.00 so I can close this?” You:  
+   Say yes, since anything beats $0 · Counter at $3,600.00 · Tell her it sounds fair and you'll ask him · **✓ Log her words, tell her the position is with Atty. Thorne, and route it the same day**  
+   *The CM never accepts, rejects, counters or values a PD figure. Log, say it is with Atty. Thorne, and route.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | Threshold and allocation | $9,255.00 = 52.6% of $17,600.00, under $13,200.00; 48 × $42.00 = $2,016.00 with the 30 rental days excluded |
-| 🤖 AI | **15%** | 17c and critique | $1,760.00 × 0.75 × 0.60 = $792.00; the cap, the tier and the mileage double count |
-| 🤖 AI | **15%** | Doctrine | Three damage types, make-whole, the lesser-of rule, the sentimental-value limit |
-| 🤖 AI | **10%** | Completeness | Every question answered substantively |
-| 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action fits a $5,616.00 against $792.00 dispute and the reasoning holds |
+| 🤖 AI | **20%** | Release | Scope beyond the Civic named; held and routed; nobody signs before Atty. Thorne's review |
+| 🤖 AI | **20%** | The sort | Release, severity set and dates on John Doe's side; Loss of Use and Diminished Value on Margaret Doe's file |
+| 🤖 AI | **20%** | Completeness | Every question answered with the file's figures and claim numbers |
+| 🧑‍🏫 Trainer | **15%** | Strategic articulation | The next action fits the release on the desk and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slide |
-| 🧑‍🏫 Trainer | **10%** | UPL boundary | Inspection and offer both routed to Atty. Thorne; nothing agreed with defense counsel; no value given to Margaret Doe |
+| 🧑‍🏫 Trainer | **10%** | UPL boundary | No PD figure accepted, rejected, countered or valued; no release explained |
 | 🧑‍🏫 Trainer | **5%** | Self-rating calibration | Self-score is defensible against demonstrated performance |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
 #### 5 · Speaker Notes
 
-- Question 6 is the pressure scenario. The right answer agrees to nothing, logs the call, and gets both the inspection request and the offer to Atty. Thorne at once; any instruction to Margaret Doe to preserve the Civic is Atty. Thorne's to give, and the CM relays it.
-- After Question 7, ask the room: “Why does a parked car's A-pillar matter to a neck injury?” The supplement measures the force that drove the Escape, with John Doe inside, into the Civic. Atty. Thorne uses it in prep; the CM puts it in the set and never tells Margaret Doe what to say.
+- The release question is the gate. The right answer holds it, routes it the same day and asks nobody to sign.
+- After the sort question, ask the room: “What does $792.00 do to John Doe's Net Sheet?” Nothing; that is the transition.
 - Compare each self-rating with the score. A 5 on a block scored at 60 is a coaching conversation, and so is a 2 on a block they aced.
-- UPL is a gate: a strong score does not survive an ethics breach. On this module the breach to watch for is a PD figure accepted, rejected or valued for Margaret Doe.
+- UPL is a gate: a strong score does not survive an ethics breach. On this module the breach to watch for is a PD figure accepted, countered or valued, or a release explained.
 
 ---
 
-### 5.1.35 Deposition Readiness Audit
+### 5.1.33 Deposition Readiness Audit
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2957,7 +2776,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 5.1.36 Final Comprehensive Knowledge Check
+### 5.1.34 Final Comprehensive Knowledge Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Knowledge Check (all five days) + CM Learning Summary & Self-Scale  
@@ -3037,7 +2856,7 @@ The standard knowledge-check split, extended for the final check. Above the crea
 
 ---
 
-### 5.1.37 Track B Close-Out Check
+### 5.1.35 Track B Close-Out Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -3105,7 +2924,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 5.1.38 Dropped Case Close-Out Check
+### 5.1.36 Dropped Case Close-Out Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

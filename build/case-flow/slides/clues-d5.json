@@ -74,57 +74,26 @@
   "d5m2-l1": {
     "dos": [
       [
-        "The Civic's first Repair Estimate reads $6,940.00.",
-        "A $2,315.00 teardown supplement arrives 03/02/2026, showing A-pillar damage.",
-        "Total $9,255.00, 52.6% of the $17,600.00 ACV: still repairable."
+        "Keystone PD mails a settlement paper for the Civic on 12/10/2026.",
+        "Its wording covers everything arising from the 02/06/2026 accident.",
+        "Before anything else, you compare it against KM-26-440871-PD."
       ],
       [
-        "The Civic sits in the shop from 02/06 to 04/24/2026.",
-        "Loss of Use needs a dollar figure for each day without a car.",
-        "Keystone's own per-day car price sets the measure; it can hardly argue."
+        "Defense counsel requests the photos and estimates from Margaret's PD record.",
+        "The same photos already sit in John Doe's severity set.",
+        "You compare them page by page, date by date, before production."
       ]
     ],
     "donts": [
       [
-        "Seventy-eight days pass between the crash and the repair finishing.",
-        "Keystone already covered a substitute vehicle for part of that stretch.",
-        "Those covered days land on the Loss of Use claim a second time."
+        "Keystone's PD release arrives addressed for “Mr. Doe” to sign.",
+        "Its wording reaches everything from the 02/06/2026 accident.",
+        "Someone emails it to the client “just so he can see it.”"
       ],
       [
-        "The Civic's A-pillar was torn up in the 02/06/2026 crash.",
-        "That structural damage shows the force John Doe's body absorbed.",
-        "The teardown supplement gets filed away as a mere vehicle side issue."
-      ]
-    ]
-  },
-  "d5m2-l2": {
-    "dos": [
-      [
-        "Keystone offers $792.00 in Diminished Value on the 2019 Civic.",
-        "The figure comes from the 17c method: 10%, then 0.75, then 0.60.",
-        "The firm asks Keystone to show its math, on record, multiplier by multiplier."
-      ],
-      [
-        "Keystone's 17c cap means no damage can top $1,760.00 here.",
-        "The 0.60 mileage factor counts 52,300 miles the ACV already priced.",
-        "Those flaws go into a memo for counsel, not an adjuster call."
-      ]
-    ],
-    "donts": [
-      [
-        "Margaret Doe calls asking what her Civic is really worth now.",
-        "The Riverton Auto Appraisal of 05/06/2026 sits open on screen.",
-        "The Case Manager quotes the appraisal's number to him as settled fact."
-      ],
-      [
-        "Keystone mails a PD release for John Doe to sign.",
-        "Its language covers all matters arising from 02/06/2026.",
-        "One signature on a car paper could end the bodily-harm lawsuit."
-      ],
-      [
-        "John Doe tells the Case Manager how much the Civic means.",
-        "The law measures a 2019 Civic by fair market price alone.",
-        "Someone tells him the heartstrings will be paid for too."
+        "Keystone holds firm at $792.00 for the Civic's Diminished Value.",
+        "John Doe's Net Sheet sits on the screen beside it.",
+        "A Case Manager trims his figures to match the car offer."
       ]
     ]
   },

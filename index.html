@@ -3172,7 +3172,7 @@ const CLIENT_PROFILE_DOC = [
   ]},
   {section:"Track B: From Impasse to Suit", items:[
     "09/08 impasse memo to Atty. Thorne · 09/09 suit authorized, 40% fee tier discussed with John · 09/10 CMS status → Litigation; Harbor Point and Cardinal State notified",
-    "09/24/2026 complaint filed: John Doe v. Robert Smith, State Court of Riverton County, Civil Action No. 26-CV-04417 (medical Specials, wages, future medical, pain and suffering, the Civic's Loss of Use and Diminished Value)",
+    "09/24/2026 complaint filed: John Doe v. Robert Smith, State Court of Riverton County, Civil Action No. 26-CV-04417 (medical Specials, wages, future medical, pain and suffering; no Property Damage is pleaded: the Civic's Loss of Use and Diminished Value stay on Margaret's own PD claim)",
     "Mediation 03/18/2027, Hon. Carla Benton (Ret.) · statement and binder due 03/11 · consolidated binding UM arbitration 06/22/2027, Laura Whitcomb, Esq. (exhibits 06/02, brief docketed 06/11)",
     "SOL: 02/06/2028 is a Sunday; never rely on a weekend roll-forward. Internal hard date 02/04/2028; internal filing cutoff 11/05/2027"
   ]},
@@ -3185,7 +3185,7 @@ const CLIENT_PROFILE_DOC = [
     "12/10/2026 scheduling order: plaintiff's experts 03/15/2027 · defense experts 04/15 · mediation by 03/31 · discovery closes 05/28 · pretrial 08/12 · trial calendar 09/13/2027",
     "John's deposition noticed 01/20/2027 for 02/18/2027, 10:00 a.m., by videoconference (Riverton Court Reporting)",
     "John unreachable from 01/22/2027 (lost phone, new number) · Margaret Doe is the emergency contact",
-    "Property Damage still disputed: Loss of Use $2,016.00 vs $0; Diminished Value $3,600.00 vs $792.00; any proposal needs Atty. Thorne's authority"
+    "Margaret's separate PD claim still disputed (Loss of Use $2,016.00 vs $0; Diminished Value $3,600.00 vs $792.00): it stays on her file and moves none of John Doe's figures; any PD release is checked so it cannot reach his BI claim"
   ]},
   {section:"Track B: Where the Suit Stands", items:[
     "Skip-Trace 10/09 → 4410 Quarry Ridge Ct, Millbrook · served 10/14/2026 by Allied Process Services · affidavit filed 10/16 · answer was due 11/13",
@@ -4155,9 +4155,9 @@ function renderFacilitatorGuide(){
       <h3>Recommended Session Structure (per day)</h3>
       <ul>
         <li><b>~75–120 minutes,</b> depending on the day's topic count. Each day's timing plan is in <b>Admin → SOP Reference</b> (every day now has one, auto-built from the live content).</li>
-        <li><b>Screen-share the trainee view</b> while you keep <b>Admin → Trainer Cues</b> open in a second window: each topic has a Trainer Cue, an Applied Discussion Case and a <b>🎙 Verbal Discussion Script</b> (open, ask, listen for, probe, correct, wrap). Use "✨ Write a short speaker script" for a 7–10 minute word-for-word version, or download the day's scripts as a PDF.</li>
+        <li><b>Screen-share the trainee view</b> in <b>Presenter view</b>, which shows your notes beside the slide (✏️ Edit script changes them there): each topic has a Trainer Cue, an Applied Discussion Case and a <b>🎙 Verbal Discussion Script</b> (open, ask, listen for, probe, correct, wrap). Use "✨ Write a short speaker script" for a 7–10 minute word-for-word version, or download the day's scripts as a PDF.</li>
         <li><b>Skill Builders is where the learning sticks.</b> Have trainees complete it live, then debrief. Their work auto-saves (💾) and they can resume after a refresh.</li>
-        <li><b>End-of-day discussion</b> is in Trainer Cues for each day — raise it live before the Knowledge Check.</li>
+        <li><b>End-of-day discussion</b> is in Presenter view's notes for each day — raise it live before the Knowledge Check.</li>
         <li><b>Knowledge Check:</b> 70% marks the day complete ✓. Failing doesn't block progress — trainees see a clear "cleared to proceed / retake optional" message.</li>
       </ul>
     </div>
@@ -4176,7 +4176,7 @@ function renderFacilitatorGuide(){
       <h3>Your Daily Trainer Workflow</h3>
       <ol>
         <li><b>Approve new registrations</b> in Trainee Audit (registration is name + batch).</li>
-        <li><b>Run the session</b> using the SOP plan, Trainer Cues and scripts.</li>
+        <li><b>Run the session</b> using the SOP plan and Presenter view's notes and scripts.</li>
         <li><b>Review daily feedback:</b> when a trainee finishes a day's Knowledge Check or Skill Builders, a review is auto-drafted (setting: <b>💬 Daily reviews</b> at the top of Trainee Audit). Open <b>View Detail → Day-by-Day Feedback</b>, edit, and <b>Send</b> — or use <b>✨ Draft for all active days</b> and <b>📤 Send all drafts</b>. Trainees see it on the day card and in <b>🎯 Focus</b>.</li>
         <li><b>Set personal Focus items</b> in View Detail → <b>🎯 Trainer focus</b> (priority + day). They're pinned at the top of the trainee's Focus panel; you'll see when they're seen and marked done.</li>
         <li><b>Check Rankings</b> and each trainee's competency picture; trainees see their own rank within their batch and a 7-skill Competency Profile.</li>
@@ -4339,7 +4339,7 @@ const ROLEPLAY_CATEGORIES = [
     {id:"cf-d4m1-a1", label:"Atty. Elijah Thorne: Triggering the Litigation Fork", fixedOpening:"Okay, I've got ten minutes. Walk me through Keystone from the demand to today, and then tell me: do we file?", context:"Atty. Elijah Thorne (attorney). 09/08/2026, Track B. Keystone offered $3,500 on 08/05 and called it “final” 08/12; the demand lapsed 08/21; follow-ups 08/24 and 08/31 and the 09/02 supervisor escalation went unanswered through 09/04. Unexhausted BI freezes $20,000 Host UM and $10,000 Relative UM. Specials $16,401.40. SOL 02/06/2028 (Sunday); hard date 02/04/2028; cutoff 11/05/2027. Thorne asks “So, do we sue?” and “What's Smith worth above his limits?” He wants facts and questions, not advice. How they come across: Lead counsel, sharp and short on time; wants the chronology cold; will test whether the Case Manager tries to recommend suit. The Case Manager must: Give the dated chronology, 07/20 to 09/04, each event with its proof; Show $30,000 of the $40,000 stack frozen behind BI; State SOL 02/06/2028, hard date 02/04/2028, cutoff 11/05/2027; Frame the decisions as questions for him; recommend nothing. UPL line: Filing, exposure and value are Atty. Thorne's calls; the CM documents and asks."},
     {id:"cf-d4m4-a2", label:"Teresa Okafor: Bottleneck Resolution Simulation", fixedOpening:"This is Teresa Okafor at Cardinal State. My supervisor forwarded your email. You didn't need to go over my head. What exactly do you need from me?", context:"Teresa Okafor (adjuster). 05/24/2027, Track B. Consolidated UM arbitration before Laura Whitcomb, Esq.: exhibit exchange 06/02/2027, hearing 06/22/2027. Harbor Point confirmed format and exchange method 05/20; Cardinal State (CS-26-20355) never answered. The CM escalated to Teresa's supervisor in writing 05/21; the item reached Atty. Thorne today. CMS shows no counsel appeared. Teresa finally calls back, resents the escalation, says “we'll do whatever Harbor Point does,” mentions “our lawyer” vaguely, and tries to argue the gap. How they come across: Cardinal State UM adjuster, defensive about the supervisor escalation; defers to Harbor Point; vague about whether counsel is involved. The Case Manager must: Ask whether Cardinal State has counsel; if so, logistics go there; Get the hearing format and exchange method confirmed in writing; Confirm the 06/02/2027 exchange and 06/22/2027 hearing; Decline any talk of the gap or value; update Atty. Thorne. UPL line: The CM handles logistics only; damages, the gap and value are Atty. Thorne's."},
     {id:"cf-d5m1-a1", label:"Jenna Price, Atty. Mercer's paralegal: Pleadings & Discovery Log Maintenance", fixedOpening:"Hi, Jenna again at Mercer and Hale. We have nothing from you on our discovery, and the admissions were due yesterday. Grant asked me to confirm they're deemed admitted.", context:"Jenna Price, Atty. Mercer's paralegal (paralegal). 01/05/2027, No. 26-CV-04417. Defendant's discovery, including 15 Requests for Admission, was mailed 12/01/2026; responses were due 01/04/2027. The firm's Certificate of Service shows John Doe's verified responses mailed to Atty. Mercer 01/04/2027; they have not arrived there yet. Jenna says nothing came in, calls the RFAs “deemed admitted,” and asks the CM to “just confirm” they were late. She accepts being told Atty. Thorne will respond today. How they come across: Polite but pointed defense paralegal; fishing for a concession that the Requests for Admission are deemed admitted. The Case Manager must: Log her words verbatim, with the time of the call; Take no position on timeliness or deemed admissions; Route to Atty. Thorne today with the 01/04/2027 Certificate of Service; Tell her only that Atty. Thorne will respond. UPL line: The CM never argues the rules or concedes anything to opposing counsel; Atty. Thorne answers."},
-    {id:"cf-d5m2-a2", label:"Leah Moran: Diminished Value Calculation & Negotiation Lab", fixedOpening:"Hi, Leah Moran with Keystone, property damage, following up my email. Seven ninety-two on the diminished value is final. Will Mr. Doe sign so I can get his check out before the holidays?", context:"Leah Moran (adjuster). 12/10/2026. KM-26-440871-PD, Margaret Doe's 2019 Honda Civic LX: repair $9,255.00; ACV $17,600.00. Keystone offers $792.00 Diminished Value (10% × $17,600.00 × 0.75 × 0.60) and $0 Loss of Use (claimed 48 days × $42.00 = $2,016.00). Independent appraisal: $3,600.00 (05/06/2026). Her emailed release covers “all claims arising from the 02/06/2026 accident.” She asks whether John will take it and insists it is final. How they come across: Cheerful, efficient PD adjuster closing files before year-end; calls the formula “company standard”; wants a yes today. The Case Manager must: Tell her the offer is with Atty. Thorne; nothing accepted or rejected; Make no counter and quote no figure; Note the “all claims” release scope; route it to Atty. Thorne; Log the call and her exact words. UPL line: The CM never accepts, rejects or counters; a release goes to Atty. Thorne, never to John to sign."},
+    {id:"cf-d5m2-a1", label:"Leah Moran: Does It Touch Our Settlement? Keystone's Final PD Position", fixedOpening:"Hi, Leah Moran with Keystone, Property Damage, following up my email. Seven ninety-two on the Diminished Value is final. Will Mr. Doe sign so I can get the check out before the holidays?", context:"Leah Moran (adjuster). 12/10/2026. KM-26-440871-PD, Margaret Doe's 2019 Honda Civic LX, on her separate PD file; John Doe's BI suit (26-CV-04417) is in discovery. Keystone's final PD position: $792.00 Diminished Value and $0 Loss of Use. Her emailed release covers “all claims arising from the 02/06/2026 accident” and asks “Mr. Doe” to sign. She asks whether he'll take it and sign, and insists it is final. How they come across: Cheerful, efficient PD adjuster closing files before year-end; calls the formula “company standard”; wants a yes and a signature today. The Case Manager must: Tell her the position is with Atty. Thorne; nothing accepted or rejected; Make no counter and quote no figure; Note the “all claims” release scope and claim number; route it to Atty. Thorne; Log the call and her exact words. UPL line: The CM never accepts, rejects or counters; a PD release goes to Atty. Thorne, and John Doe signs nothing."},
     {id:"cf-d5m3-a1", label:"John Doe: Virtual Deposition Prep Roleplay", fixedOpening:"Hey, sorry about the phone thing. This is my new number. So, the deposition. Are they going to yell at me like on TV? And what do I say about the two weeks?", context:"John Doe (client). 02/04/2027, Track B. John was unreachable 01/22–02/03 after losing his phone; Margaret reached him 02/03; he has a new number. Deposition 02/18/2027, 10:00 a.m., by videoconference, Riverton Court Reporting; test call 02/16. Atty. Thorne listens and takes the substance after the CM's segment. John asks what to say about the 14-day gap, the missed April therapy, the seatbelt, his 2021 chiropractor visits and the “degenerative” MRI, and whether he will win. How they come across: Anxious and earnest; expects a TV cross-examination; wants to be told what to say; worried about his job and the outcome. The Case Manager must: Confirm his new number, with Margaret as backup contact; State the logistics exactly; set the 02/16/2027 test call; Explain the setting and the pause; drill neutral questions only; Route each substantive question to Atty. Thorne in John's words. UPL line: The CM never scripts testimony, answers substance or predicts the outcome; Atty. Thorne handles the substance."},
     {id:"cf-d5m3-a2", label:"Atty. Grant Mercer: Mock Deposition Cross-Examination Handling", fixedOpening:"Mr. Doe, good afternoon. You understand you're under oath, just as if we were in a courtroom? Let's start easy. Tell me everything you did the morning of February sixth.", context:"Atty. Grant Mercer (counsel). 02/16/2027, mock cross-examination led by Atty. Thorne. AI Mercer questions AI John Doe; Thorne defends and objects; the CM is muted and keeps the Trap Log. Traps: “Is that all?”, compound questions, “degenerative” (MRI 03/13/2026: no significant degenerative change at the adjacent levels), the gap mischaracterised (14 days, 02/06–02/20/2026), the seatbelt (EMS “restrained”; EDR buckled), the 2021 low-back visits, the silent stare. He never addresses the CM. How they come across: Polished, patient defense counsel in a mock cross; friendly tone, sharp traps; uses silence; aims at the gap, prior care and the seatbelt. The Case Manager must: Log each trap with its timestamp and Mercer's exact words; Set the record fact and source beside each mischaracterisation; Log every objection and whether John stopped talking; Route the Trap Log to Atty. Thorne before the debrief. UPL line: The CM observes and logs; no signal, message or coaching to John, during or after."},
     {id:"cf-d5m4-a2", label:"Margaret Doe: Skip-Tracing Execution & Certified Notice Dispatch", fixedOpening:"This is Margaret Doe, John's mom. You left me a message. Is everything alright? He lost his phone, he's got a new number. Is he in trouble over this deposition?", context:"Margaret Doe (family). 02/03/2027, Track B. John has been unreachable since 01/22 (lost his phone; new number). His deposition is 02/18/2027, with prep sessions 02/04 and 02/16; a certified warning letter went to 2214 Maple Hollow Rd. The CM left Margaret a voicemail; she calls back, says John is fine and working, and gives his new number if asked. She asks whether he will “lose the case” and what the letter means. She is not the client. How they come across: Worried mother and emergency contact; protective; asks what happens if John misses the deposition; wants to help but has no authority. The Case Manager must: Verify her identity against the emergency-contact record; Say only that the firm needs John to call, and how; Share no case details or consequences of missing the deposition; Log the call and any new number, to verify with John. UPL line: Margaret is not the client: the CM shares nothing on the case and never advises."},
@@ -11178,7 +11178,7 @@ function sopLiveSections(d){
   const sec = [];
   sec.push({h:"Session plan (auto-built from the portal)", type:"table", headers:["Segment","Time","What happens"], rows:[
     ["Open & recap", "5 min", `Welcome, recap yesterday's Focus items, state today's objective: ${d.objective||d.title}.`],
-    ["Topics 1–"+lessons.length, `~${Math.round(lessons.length*2.5)} min`, "Screen-share the lesson slides; use each topic's Trainer Cue and Verbal Discussion Script (Admin → Trainer Cues)."],
+    ["Topics 1–"+lessons.length, `~${Math.round(lessons.length*2.5)} min`, "Screen-share the lesson slides; use each topic's Trainer Cue and Verbal Discussion Script (Presenter view)."],
     ["Skill Builders", "15–20 min", tools.length ? `${tools.map(t=>t.title).join(", ")} — trainees complete it live; debrief afterwards.` : "No Skill Builders for this day."],
     ["End-of-day discussion", "5–10 min", d.discussionQuestion || "Open discussion on the day's hardest topic."],
     ["Knowledge Check", "10 min", `${d.quiz.length} questions · 70% marks the day complete (not required to move on).`]
@@ -11442,6 +11442,7 @@ function renderAdmin(){
         <p style="color:var(--ink-soft);font-size:14px;">Use the Admin button in the top navigation to sign in.</p>
       </div>`;
   }
+  if(state.adminTab==="cues") state.adminTab = "audit";   // the trainer's scripts are read and edited in Presenter view
   const tab = state.adminTab || "audit";
   const tabBar = `
     <div class="admin-tabs" style="display:flex;gap:8px;margin-bottom:20px;border-bottom:1px solid var(--line);">
@@ -11449,7 +11450,6 @@ function renderAdmin(){
       <button class="admin-tab-btn ${tab==='batches'?'active':''}" onclick="setAdminTab('batches')">📁 Batch Folders</button>
       <button class="admin-tab-btn ${tab==='rankings'?'active':''}" onclick="setAdminTab('rankings')">Rankings</button>
       <button class="admin-tab-btn ${tab==='sop'?'active':''}" onclick="setAdminTab('sop')">SOP Reference</button>
-      <button class="admin-tab-btn ${tab==='cues'?'active':''}" onclick="setAdminTab('cues')">Trainer Cues</button>
       <button class="admin-tab-btn ${tab==='studio'?'active':''}" onclick="setAdminTab('studio')">Content Studio</button>
       <button class="admin-tab-btn ${tab==='tfeedback'?'active':''}" onclick="setAdminTab('tfeedback')">Trainee Feedback</button>
       <button class="admin-tab-btn ${tab==='activities'?'active':''}" onclick="setAdminTab('activities')">📋 Activities</button>
@@ -11458,7 +11458,6 @@ function renderAdmin(){
   if(tab==="activities") return tabBar + (typeof renderAdminActivities==="function" ? renderAdminActivities() : "");
   if(tab==="fbstyle") return tabBar + (typeof renderAdminFeedbackStyle==="function" ? renderAdminFeedbackStyle() : "");
   if(tab==="sop") return tabBar + renderAdminSOP();
-  if(tab==="cues") return tabBar + renderAdminTrainerCues();
   if(tab==="studio") return tabBar + renderAdminStudio();
   if(tab==="tfeedback") return tabBar + renderAdminTraineeFeedback();
   if(tab==="rankings") return tabBar + renderAdminRankings();
@@ -15833,7 +15832,7 @@ window.addEventListener("unhandledrejection", (ev)=>{ const e = ev.reason; if(e 
 window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message && !/ResizeObserver|Script error/.test(ev.message)) showActionError(new Error(ev.message), ""); });
 
 </script>
-<script src="/js/cm-updates.js?v=32"></script>
+<script src="/js/cm-updates.js?v=33"></script>
 <script src="/js/cm-documents.js?v=3"></script>
 <script src="/js/cm-skillbuilders.js?v=cm-2026.10.23-efiling"></script>
 <script src="/js/cm-lor-data.js?v=1"></script>
@@ -15847,22 +15846,22 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/checkin.js?v=1"></script>
 <script src="/js/portal-link.js?v=3"></script>
 <!-- 🧭 Blueprints: the Trainer blueprint (blueprint-content.js) and the Trainee blueprint (Orientation, /blueprint.pdf) rebuilt after every deploy -->
-<script src="/js/blueprint-content.js?v=6"></script>
+<script src="/js/blueprint-content.js?v=7"></script>
 <script src="/js/lsh-blueprint-course.js?v=2"></script>
 <script src="/js/lsh-blueprint.js?v=2"></script>
 <script src="/js/lsh-dashboard.js?v=6"></script>
 <script src="/js/graded-calls.js?v=1"></script>
-<script src="/js/cm-case-flow-docs.js?v=25"></script>
+<script src="/js/cm-case-flow-docs.js?v=26"></script>
 <script src="/js/cm-case-flow-art.js?v=3"></script>
-<script src="/js/cm-case-flow-slides.js?v=55"></script>
-<script src="/js/cm-case-flow-scripts.js?v=42"></script>
-<script src="/js/cm-case-flow-sim.js?v=23"></script>
+<script src="/js/cm-case-flow-slides.js?v=56"></script>
+<script src="/js/cm-case-flow-scripts.js?v=43"></script>
+<script src="/js/cm-case-flow-sim.js?v=24"></script>
 <script src="/js/cm-case-flow-exhibits.js?v=7"></script>
-<script src="/js/cm-case-flow-data.js?v=57"></script>
+<script src="/js/cm-case-flow-data.js?v=58"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=1"></script>
-<script src="/js/cm-case-flow.js?v=106"></script>
-<script src="/js/cm-script-editor.js?v=4"></script>
+<script src="/js/cm-case-flow.js?v=108"></script>
+<script src="/js/cm-script-editor.js?v=5"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=4"></script>
 <script src="/js/lsh-tool-links.js?v=cm-2026.10.23-trainer-sso"></script>

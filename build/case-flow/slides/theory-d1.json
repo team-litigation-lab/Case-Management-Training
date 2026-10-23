@@ -147,12 +147,12 @@
     "pages": ["D1#44", "D1#28"]
   },
   "d1m3-l2": {
-    "lead": "Property Damage is **a separate claim** with its own measure: repair or total, set against the vehicle's pre-loss value.",
+    "lead": "Property Damage is **the owner's separate claim**; for a passenger's injury case it is evidence of the impact, and sometimes a date that reaches care.",
     "concepts": [
-      {"term": "The Scene Audit", "text": "Photos, video and damage must match how the crash happened; **the physics must be possible**"},
-      {"term": "Initial and Supplemental Estimates", "text": "The initial estimate prices visible damage; a supplemental after teardown is **proof of impact severity**", "more": ["The initial estimate prices only the damage visible before the vehicle is taken apart", "Teardown exposes hidden damage; the shop writes a supplemental and sends it to the carrier for approval", "Set the initial estimate against the final body shop bill: the difference shows **hidden structural damage**", "File every estimate and supplemental with its date: physical proof of how hard the impact was"]},
-      {"term": "Total Loss and Valuation", "text": "Past the repair-to-ACV threshold the carrier pays ACV from its Valuation Report: **verify it line by line**", "more": ["The threshold is the repair cost as a percentage of ACV; past it, the carrier totals the vehicle", "ACV is the vehicle's pre-loss market value, set by a Valuation Report (CCC One or similar)", "Check the comparables, mileage, options and condition **line by line** against the client's vehicle", "Route any error to Atty. Thorne with its source; value is never yours to negotiate"]},
-      {"term": "Rental", "text": "Confirm who authorizes it and the daily cap; **usually 30 days maximum** unless the Dec Page says otherwise", "more": ["Whose coverage pays: the adverse carrier's PD coverage first; then the owner's Collision and Rental coverage; else out of pocket", "Who authorizes it, and whether the policy carries **a rental reimbursement endorsement**", "The daily rate cap, recorded before the client collects a vehicle: anything above it is the client's cost", "The duration: usually 30 days at most, unless the Dec Page says otherwise", "A comparable vehicle to the client's own, not an upgrade", "Log it all in CMS → Property Damage before collection"]}
+      {"term": "Whose Claim It Is", "text": "PD follows the vehicle: it belongs to **the owner's claim**, not to a passenger who owns no car"},
+      {"term": "PD as Evidence", "text": "Photos, estimates and supplements show the force: **proof of impact severity** for the injury claim"},
+      {"term": "Coordinate, Don't Handle", "text": "Where an owner's PD date reaches the client's care, **calendar it and plan around it**"},
+      {"term": "Refer the Owner's Claim", "text": "Questions on the owner's rental, Loss of Use or value **go to the attorney**, logged the same day"}
     ],
     "pages": ["D2#6"],
     "framework": {
@@ -166,29 +166,7 @@
         ["Negotiation", "The same photos and repair figures, on file", "Keeps the injury claim from being called minor"],
         ["Litigation", "Preserved vehicle, photos, repair records", "Physical proof for experts and trial"]
       ],
-      "note": "Audit Property Damage as carefully as the medicals: it is **physical evidence** of how hard the impact was."
-    }
-  },
-  "d1m3-rent": {
-    "lead": "A rental is part of **the Property Damage claim**: the owner's, paid only within what the policy authorizes.",
-    "concepts": [
-      {"term": "Whose Claim It Is", "text": "Rental follows the vehicle: it belongs to **the owner's PD claim**, not to a passenger's injury claim"},
-      {"term": "Whose Coverage Pays", "text": "3P Property Damage coverage first; if unavailable, the owner's **1P Collision and Rental coverage**; otherwise out of pocket", "more": ["First, 3P: on accepted liability, the adverse carrier's Property Damage coverage provides the rental. Here, Keystone's", "Unavailable when liability is denied or disputed, the at-fault driver has no PD coverage, or its limit is used up", "Then 1P: check the owner's **Collision or Comprehensive** for the vehicle, and Rental Reimbursement coverage on the Dec Page", "The 1P carrier pays, then pursues the at-fault party; the owner's deductible is claimed back the same way", "No coverage at all: the owner pays **out of pocket**. Keep every receipt for reimbursement in the PD claim", "Get each carrier's rental authorization in writing before pickup: the firm **coordinates it**, never provides or pays for it"]},
-      {"term": "Rental Reimbursement Endorsement", "text": "Optional coverage on the owner's policy for a rental while the car is repaired: **check the Dec Page**"},
-      {"term": "Rate Cap and Duration", "text": "The authorized daily rate and days, usually 30 at most: **anything beyond them** is the client's cost", "more": ["Record the authorized daily rate before the client collects a vehicle", "Coverage usually runs 30 days at most, unless the Dec Page says otherwise", "Calendar the last covered day and tell the client before it arrives", "A comparable vehicle, not an upgrade: the difference is the client's cost"]}
-    ],
-    "pages": [],
-    "framework": {
-      "title": "The Rental Authorization Check",
-      "kind": "flow",
-      "steps": [
-        {"label": "Whose Coverage Pays the Rental?", "text": "3P **Property Damage** first; if unavailable, the owner's 1P Collision and Rental; else out of pocket"},
-        {"label": "Who Authorizes?", "text": "Confirm who authorizes the rental and check for a rental reimbursement endorsement"},
-        {"label": "Daily Rate Cap", "text": "Record the authorized daily rate before the client collects a vehicle"},
-        {"label": "Duration Limit", "text": "Usually 30 days max unless the Dec Page differs: **uncovered days are the client's cost**"},
-        {"label": "No Coverage? Keep Receipts", "text": "The owner pays out of pocket: keep **every receipt**, claimed for reimbursement in the PD claim"}
-      ],
-      "note": "Every check goes in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
+      "note": "The PD claim stays the owner's; its severity is **physical evidence** for the injury claim in every phase."
     }
   },
   "d1m4-l1": {

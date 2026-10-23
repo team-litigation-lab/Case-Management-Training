@@ -1118,111 +1118,61 @@ window.CM_CF_SLIDES = {
   ]
  },
  "d1m3-l2": {
-  "image": "repair-shop",
-  "roadmap": {
-   "title": "Property Damage, End to End",
-   "merge": true,
-   "steps": [
-    {
-     "label": "Liability accepted",
-     "text": "Verify the carrier **accepted PD liability in writing**"
-    },
-    {
-     "label": "Inspection and estimates",
-     "text": "Inspection window recorded; the estimate, then each supplemental"
-    },
-    {
-     "label": "Towing and storage",
-     "text": "Fees grow daily: **settle who pays** and move the car"
-    },
-    {
-     "label": "Total Loss valuation",
-     "text": "Repair cost against ACV; check the Valuation Report"
-    },
-    {
-     "label": "Personal contents",
-     "text": "Items in the vehicle: list, photos, receipts, claimed on PD"
-    },
-    {
-     "label": "Rental coordination",
-     "text": "Carrier pays; **the firm coordinates**, never provides or pays"
-    }
-   ]
-  },
-  "hook": "Property Damage is the client's first test of the firm, and **physical evidence of impact**.",
+  "image": "property-damage",
+  "hook": "The Civic is Margaret's claim; for John Doe, PD is **evidence of the impact**.",
   "points": [
-   "Get **the written Repair Estimate** before discussing any outcome",
-   "Total Loss: confirm the carrier's **threshold basis in writing**",
-   "ACV is **pre-loss market value**: not the loan balance, not a replacement",
-   "Loss of Use is **claimed separately**, per day without a vehicle"
+   "Read **the Police Report's units** first: who rode, who owns",
+   "Photos, estimate and supplement **feed the BI claim** as evidence",
+   "Rental, Loss of Use, Diminished Value **stay on Margaret's claim**",
+   "The rental's last day reaches his care: **calendar and coordinate**"
   ],
-  "upl": "Report figures; never advise on accepting a valuation or the vehicle's legal worth",
+  "upl": "Sort and refer; never advise Margaret Doe or **value her PD claim**",
   "job": [
    [
-    "Repair Estimate received",
-    "Log; compare with ACV, final bill",
-    "CMS → Property Damage",
-    "Comparison recorded"
+    "PD document arrives",
+    "Index on John Doe's file",
+    "CMS → Documents",
+    "Filed as BI evidence"
    ],
    [
-    "Carrier states a disposition",
-    "Confirm threshold basis, Valuation Report",
-    "CMS → Property Damage → Correspondence",
-    "Basis confirmed, not assumed"
+    "Question about Civic's claim",
+    "Log it; refer to Atty. Thorne",
+    "CMS → Case Notes · Tasks",
+    "Referred the same day"
    ],
    [
-    "Client is without a vehicle",
-    "Record dates; open loss-of-use claim",
-    "CMS → Property Damage",
-    "Dates recorded; claimed separately"
+    "PD date touches his care",
+    "Calendar it; plan his rides",
+    "Calendar · CMS → Tasks",
+    "Rides planned before it"
    ]
   ],
   "dos": [
-   "Check supplementals: often the best proof of **hidden damage**",
-   "Verify the Valuation Report so **the client isn't lowballed**"
+   "Ask of every PD fact: **does it touch our case**?",
+   "Index photos and estimates **the day they arrive**"
   ],
   "donts": [
-   "Working only from **the initial estimate**",
+   "Opening **a rental claim in John's name**",
    "Treating Property Damage as **“just the car”**"
   ],
   "theory": {
-   "lead": "Property Damage is **a separate claim** with its own measure: repair or total, set against the vehicle's pre-loss value.",
+   "lead": "Property Damage is **the owner's separate claim**; for a passenger's injury case it is evidence of the impact, and sometimes a date that reaches care.",
    "concepts": [
     {
-     "term": "The Scene Audit",
-     "text": "Photos, video and damage must match how the crash happened; **the physics must be possible**"
+     "term": "Whose Claim It Is",
+     "text": "PD follows the vehicle: it belongs to **the owner's claim**, not to a passenger who owns no car"
     },
     {
-     "term": "Initial and Supplemental Estimates",
-     "text": "The initial estimate prices visible damage; a supplemental after teardown is **proof of impact severity**",
-     "more": [
-      "The initial estimate prices only the damage visible before the vehicle is taken apart",
-      "Teardown exposes hidden damage; the shop writes a supplemental and sends it to the carrier for approval",
-      "Set the initial estimate against the final body shop bill: the difference shows **hidden structural damage**",
-      "File every estimate and supplemental with its date: physical proof of how hard the impact was"
-     ]
+     "term": "PD as Evidence",
+     "text": "Photos, estimates and supplements show the force: **proof of impact severity** for the injury claim"
     },
     {
-     "term": "Total Loss and Valuation",
-     "text": "Past the repair-to-ACV threshold the carrier pays ACV from its Valuation Report: **verify it line by line**",
-     "more": [
-      "The threshold is the repair cost as a percentage of ACV; past it, the carrier totals the vehicle",
-      "ACV is the vehicle's pre-loss market value, set by a Valuation Report (CCC One or similar)",
-      "Check the comparables, mileage, options and condition **line by line** against the client's vehicle",
-      "Route any error to Atty. Thorne with its source; value is never yours to negotiate"
-     ]
+     "term": "Coordinate, Don't Handle",
+     "text": "Where an owner's PD date reaches the client's care, **calendar it and plan around it**"
     },
     {
-     "term": "Rental",
-     "text": "Confirm who authorizes it and the daily cap; **usually 30 days maximum** unless the Dec Page says otherwise",
-     "more": [
-      "Whose coverage pays: the adverse carrier's PD coverage first; then the owner's Collision and Rental coverage; else out of pocket",
-      "Who authorizes it, and whether the policy carries **a rental reimbursement endorsement**",
-      "The daily rate cap, recorded before the client collects a vehicle: anything above it is the client's cost",
-      "The duration: usually 30 days at most, unless the Dec Page says otherwise",
-      "A comparable vehicle to the client's own, not an upgrade",
-      "Log it all in CMS → Property Damage before collection"
-     ]
+     "term": "Refer the Owner's Claim",
+     "text": "Questions on the owner's rental, Loss of Use or value **go to the attorney**, logged the same day"
     }
    ],
    "pages": [
@@ -1263,160 +1213,32 @@ window.CM_CF_SLIDES = {
       "Physical proof for experts and trial"
      ]
     ],
-    "note": "Audit Property Damage as carefully as the medicals: it is **physical evidence** of how hard the impact was."
+    "note": "The PD claim stays the owner's; its severity is **physical evidence** for the injury claim in every phase."
    }
   },
   "clues": {
    "dos": [
     [
-     "The Escape comes back from the body shop with a final bill.",
-     "The bill runs higher than the insurer's first written figure.",
-     "Those extra line items reveal structural harm nobody saw at inspection."
+     "Keystone's PD adjuster sends the Civic's damage photos to the firm.",
+     "Before filing them, you check what they prove about John Doe.",
+     "They show the force his body took, so they go in his file."
     ],
     [
-     "The carrier declares the vehicle a Total Loss.",
-     "Its offer rests on a CCC One figure for pre-loss value.",
-     "You check the comparables before John Doe hears any number."
+     "A body shop's estimate for the Civic lands in the firm's inbox.",
+     "It lists crushed panels and a bent pillar on the passenger side.",
+     "Within the hour it is indexed as severity evidence for John."
     ]
    ],
    "donts": [
     [
-     "The carrier's appraiser writes up the Escape the week after the crash.",
-     "That first figure goes straight into the file as final.",
-     "Nobody compares it against the body shop's closing bill or supplementals."
+     "John Doe calls; he needs a way to get to treatment.",
+     "Keystone has offered Margaret a car while the Civic is repaired.",
+     "A new PD file opens with John Doe listed as owner."
     ],
     [
-     "The repair photos show a crushed door on one side.",
-     "Frame photos could show how hard the impact really was.",
-     "The vehicle file is treated as fender paperwork, apart from the injury claim."
-    ]
-   ]
-  }
- },
- "d1m3-rent": {
-  "image": "car-transport",
-  "hook": "A rental collected **on a promise** becomes the client's bill.",
-  "points": [
-   "Rental is on **the owner's PD claim**: Margaret Doe's, not John's",
-   "**3P PD** first; then 1P Collision/Rental; else out of pocket",
-   "Confirm authorizer, rate cap and **duration in writing** first",
-   "Coverage is **usually 30 days** unless the Dec Page differs"
-  ],
-  "upl": "Confirm coverage facts; **disputes and acceptance** are Atty. Thorne's call",
-  "job": [
-   [
-    "Owner asks about a rental",
-    "Confirm policy, authorizer, cap, duration",
-    "CMS → Property Damage",
-    "Recorded before collection"
-   ],
-   [
-    "Authorization arrives",
-    "File it; calendar last day",
-    "CMS → Documents · Calendar",
-    "Cutoff calendared"
-   ],
-   [
-    "Rental cutoff nears",
-    "Warn owner; plan treatment rides",
-    "CMS → Case Notes · Tasks",
-    "Owner told; rides planned"
-   ]
-  ],
-  "dos": [
-   "Confirm every parameter **in writing** before pickup",
-   "Calendar **the last covered day**; warn early"
-  ],
-  "donts": [
-   "Sending a client for a car **before authorization**",
-   "Treating the rental as **the passenger's claim**"
-  ],
-  "theory": {
-   "lead": "A rental is part of **the Property Damage claim**: the owner's, paid only within what the policy authorizes.",
-   "concepts": [
-    {
-     "term": "Whose Claim It Is",
-     "text": "Rental follows the vehicle: it belongs to **the owner's PD claim**, not to a passenger's injury claim"
-    },
-    {
-     "term": "Whose Coverage Pays",
-     "text": "3P Property Damage coverage first; if unavailable, the owner's **1P Collision and Rental coverage**; otherwise out of pocket",
-     "more": [
-      "First, 3P: on accepted liability, the adverse carrier's Property Damage coverage provides the rental. Here, Keystone's",
-      "Unavailable when liability is denied or disputed, the at-fault driver has no PD coverage, or its limit is used up",
-      "Then 1P: check the owner's **Collision or Comprehensive** for the vehicle, and Rental Reimbursement coverage on the Dec Page",
-      "The 1P carrier pays, then pursues the at-fault party; the owner's deductible is claimed back the same way",
-      "No coverage at all: the owner pays **out of pocket**. Keep every receipt for reimbursement in the PD claim",
-      "Get each carrier's rental authorization in writing before pickup: the firm **coordinates it**, never provides or pays for it"
-     ]
-    },
-    {
-     "term": "Rental Reimbursement Endorsement",
-     "text": "Optional coverage on the owner's policy for a rental while the car is repaired: **check the Dec Page**"
-    },
-    {
-     "term": "Rate Cap and Duration",
-     "text": "The authorized daily rate and days, usually 30 at most: **anything beyond them** is the client's cost",
-     "more": [
-      "Record the authorized daily rate before the client collects a vehicle",
-      "Coverage usually runs 30 days at most, unless the Dec Page says otherwise",
-      "Calendar the last covered day and tell the client before it arrives",
-      "A comparable vehicle, not an upgrade: the difference is the client's cost"
-     ]
-    }
-   ],
-   "pages": [],
-   "framework": {
-    "title": "The Rental Authorization Check",
-    "kind": "flow",
-    "steps": [
-     {
-      "label": "Whose Coverage Pays the Rental?",
-      "text": "3P **Property Damage** first; if unavailable, the owner's 1P Collision and Rental; else out of pocket"
-     },
-     {
-      "label": "Who Authorizes?",
-      "text": "Confirm who authorizes the rental and check for a rental reimbursement endorsement"
-     },
-     {
-      "label": "Daily Rate Cap",
-      "text": "Record the authorized daily rate before the client collects a vehicle"
-     },
-     {
-      "label": "Duration Limit",
-      "text": "Usually 30 days max unless the Dec Page differs: **uncovered days are the client's cost**"
-     },
-     {
-      "label": "No Coverage? Keep Receipts",
-      "text": "The owner pays out of pocket: keep **every receipt**, claimed for reimbursement in the PD claim"
-     }
-    ],
-    "note": "Every check goes in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
-   }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Margaret Doe's Civic is in the shop after the crash.",
-     "Leah Moran says Keystone will cover a rental car.",
-     "You wait for Form KM-PD 210 before sending her anywhere."
-    ],
-    [
-     "Keystone's letter gives Margaret Doe a fixed number of rental days.",
-     "You put the final day on the CMS calendar.",
-     "Three days ahead of it, you call her with the date."
-    ]
-   ],
-   "donts": [
-    [
-     "Margaret Doe needs a car to get to work tomorrow.",
-     "Keystone has not yet confirmed a rate or any days.",
-     "You tell her to go pick one up anyway."
-    ],
-    [
-     "John Doe rode in the front seat of the Civic.",
-     "He calls asking for a rental of his own.",
-     "You open a rental file in his name."
+     "The Civic's repair photos come in with the tow bill.",
+     "They get filed with the car paperwork, far from the medical records.",
+     "At demand time, nobody shows the adjuster how hard the hit was."
     ]
    ]
   }
@@ -1449,38 +1271,38 @@ window.CM_CF_SLIDES = {
   ]
  },
  "d1m3-a3": {
-  "image": "checklist-qa",
-  "situation": "Keystone has authorized a rental for the Civic. John Doe calls asking if it is his. Nobody has written down **whose claim it is**.",
+  "image": "documents-audit",
+  "situation": "02/11/2026: Keystone PD asks **who the Civic's claimant is**. Six PD items wait in the tray, and John Doe asks **if the rental is his**.",
   "steps": [
-   "Read the **Police Report's vehicle and occupant boxes**",
-   "Find **who owns the Civic** in the intake records",
-   "Name **the PD and rental claimant** from Keystone's letter",
-   "Write a **sourced Case Note** and tell Atty. Thorne",
-   "Answer John Doe **within the UPL line**; solve his ride"
+   "Read **the Police Report's units** before sorting anything",
+   "Sort each item: **BI evidence, coordinate, or Margaret's**",
+   "Index the evidence on John Doe's file in **CMS → Documents**",
+   "Refer Margaret's questions to **Atty. Thorne** in CMS → Tasks",
+   "End the Case Note with **the one-line answer**"
   ],
-  "deliver": "A **sourced finding** of whose claim it is, reported, and a logged call",
-  "purpose": "Whose claim it is decides every call after: **guess wrong** and the file follows",
-  "principle": "A claim belongs to **the vehicle's owner**, proven by the records",
+  "deliver": "A sorted Case Note ending in **one line: does PD touch our case?**",
+  "purpose": "Sorting first keeps **Margaret's PD claim** off John Doe's file",
+  "principle": "PD touches our case **as evidence, never as his claim**",
   "checks": [
-   "**Position, owner and claimant** each from a record",
-   "**Conclusion** on a PD or rental claim for John Doe",
-   "Each finding **cites its document**",
-   "**Atty. Thorne** told the same day",
-   "**Transportation** to treatment arranged"
+   "Who rode and who owns, **from the Police Report**",
+   "Photos, tow record, Police Report **indexed as BI evidence**",
+   "Rental, Loss of Use, repair figure **left on Margaret's claim**",
+   "Rental's last day **set to be calendared**; rides planned",
+   "Note ends with **the one-line answer**"
   ],
   "dos": [
-   "Ask: **who owns the claim**, and is that our client?"
+   "**Sort before you act**: the records say whose"
   ],
   "donts": [
-   "Booking a rental **because the caller asked**"
+   "Handling **Margaret's Loss of Use** on John Doe's file"
   ]
  },
  "d1m3-kc": {
-  "image": "property-damage",
+  "image": "knowledge-check",
   "questions": [
    "List the firm's **standing instructions** for a new client, and the harm each prevents.",
-   "Before a rental: what must be confirmed, **whose coverage provides it**, and what happens to uncovered days?",
-   "What does **actual cash value** mean and not mean, and why does the loan-balance mix-up mislead clients?"
+   "Name two PD items that **feed John Doe's claim** and two that stay Margaret's, and why.",
+   "John asks if Margaret's rental can be his: **what do the records show**, and what do you coordinate?"
   ]
  },
  "d1m4-l1": {
@@ -10574,349 +10396,128 @@ window.CM_CF_SLIDES = {
   ]
  },
  "d5m2-l1": {
-  "image": "repair-shop",
-  "hook": "Margaret's PD file: **every figure gets tested**, and its dates explain the 14-Day Gap.",
+  "image": "release-signature",
+  "hook": "Margaret's PD figures never move John's settlement; **a wide release could**.",
   "points": [
-   "Make the owner whole: **never a windfall**",
-   "$9,255.00 is 52.6% of the ACV, under 75%: **repairable, $3,945.00 to spare**",
-   "Claim only **the 48 unpaid days**: 48 × $42.00 = $2,016.00",
-   "Keep loss-of-use and gap records **identical, date for date**"
+   "A PD-only release **never releases the BI claim**",
+   "Check **the claim number**: KM-26-440871-PD, not KM-26-440871",
+   "Photos, estimate, supplement: **already John's severity set**",
+   "$25,000 PD sits **outside the $40,000 stack**"
   ],
-  "upl": "Compute, document and report; never tell Margaret Doe what her car is worth",
+  "upl": "Sort, check and route; **never explain a release** or value a PD figure",
   "job": [
    [
-    "Final repair bill posts",
-    "Re-run total-loss check on $9,255.00",
-    "CMS → Property Damage",
-    "52.6% of $17,600.00 recorded"
+    "Keystone PD sends a release",
+    "Check scope; hold; route",
+    "CMS → Tasks → Escalate",
+    "Nobody asked to sign"
    ],
    [
-    "Rental ends, Civic still in shop",
-    "Log each day without a vehicle",
-    "CMS → Property Damage",
-    "12 + 36 = 48 days"
+    "Keystone restates a PD figure",
+    "Log on Margaret's PD file",
+    "CMS → Communications Log",
+    "John's Net Sheet unchanged"
    ],
    [
-    "Deposition noticed 01/20/2027",
-    "Add the PD severity set",
-    "CMS → Documents → Deposition set",
-    "Indexed before the 02/04/2027 prep"
+    "Discovery asks for PD documents",
+    "Match severity set and dates",
+    "CMS → Documents",
+    "Both files identical"
    ]
   ],
   "dos": [
-   "Run the threshold on **the final bill**",
-   "Use Keystone's own **$42.00 rental rate**"
+   "Read every PD release for **scope and claim number**",
+   "Keep the severity set and dates **identical on both files**"
   ],
   "donts": [
-   "Claiming **the 30 paid rental days** again",
-   "Treating Property Damage as **“just the car”**"
+   "Forwarding a PD release **to John Doe**",
+   "Moving John's figures because **Margaret's PD claim moved**"
   ],
   "theory": {
-   "lead": "Property Damage is **a cornerstone of civil litigation**: the law's mechanism for making an owner financially whole after negligence harms their property.",
+   "lead": "At settlement, Property Damage is **a separate claim with its own release**: it reaches the injury case only through its paper and its evidence.",
    "concepts": [
     {
      "term": "PD Cuts Both Ways",
-     "text": "In suit, PD can be **definitive evidence of injury** or the defense's most formidable tool against it",
-     "more": [
-      "The $2,315.00 teardown supplement, 03/02/2026, is structural: the A-pillar",
-      "Hidden damage for the PD claim, **force for the injury claim**",
-      "No car until the 02/18/2026 rental: the first reason for the 14-Day Gap",
-      "Keep the loss-of-use and gap records identical, date for date"
-     ]
+     "text": "In suit, PD damage can be **definitive evidence of injury** or the defense's tool against it"
     },
     {
-     "term": "Special vs. General Damages",
-     "text": "Special damages are quantifiable losses; general damages are subjective. Every PD figure is special, **proved by documents**"
+     "term": "The PD-Only Release",
+     "text": "A release settles what it names: **scope and claim number** decide whether it reaches further"
     },
     {
-     "term": "Valuation Is Contested",
-     "text": "How much the defendant owes is among the **most heavily litigated** PD questions, so courts apply set formulas",
-     "more": [
-      "Loss of Use: each day without the car or a paid substitute, priced at a comparable rental",
-      "Keystone's own $42.00/day rental rate is **the strongest measure**",
-      "Allocate the 78 days once: 12 without a car, 30 paid rental, 36 without a car",
-      "Claim only the 48 unpaid days: 48 × $42.00 = $2,016.00",
-      "Keystone's 30-day rental cap is claims practice; arguing the 36 days is Atty. Thorne's"
-     ]
+     "term": "Separate Limits, Separate Money",
+     "text": "PD liability pays the owner's property loss **outside the injury stack**; it moves no injury figure"
     },
     {
-     "term": "Diminution in Value",
-     "text": "Pre-loss market value minus post-loss value; the **lesser-of rule** weighs it against repair cost, capping a Total Loss",
-     "more": [
-      "Run it on the final bill: $6,940.00 + $2,315.00 = $9,255.00",
-      "$9,255.00 is 52.6% of the $17,600.00 ACV, under Keystone's 75% line of $13,200.00",
-      "Repairable, with **$3,945.00 to spare**",
-      "Verify the Valuation Report: a low ACV moves the line",
-      "Confirm Keystone's threshold basis in writing"
-     ]
+     "term": "One Record, Two Files",
+     "text": "Evidence and dates shared by both files must **match date for date**, because the defense compares them"
     }
    ],
    "pages": [
     "D5#39",
     "D5#40"
-   ],
-   "framework": {
-    "title": "Types of Damages You Can Recover",
-    "kind": "table",
-    "head": [
-     "Type of damage",
-     "What it covers",
-     "On a PD claim"
-    ],
-    "rows": [
-     [
-      "Economic (special)",
-      "Quantifiable financial losses, **proved by documents**",
-      "Repair, tow and storage, rental, Loss of Use, Diminished Value"
-     ],
-     [
-      "Non-economic (general)",
-      "Subjective losses: pain and suffering, emotional distress, loss of consortium",
-      "Claimed on the injury side, not the property side"
-     ],
-     [
-      "Punitive (exemplary)",
-      "Punishes egregious, reckless or intentional misconduct and deters others",
-      "Conduct such as DUI; none is pleaded on this file"
-     ]
-    ],
-    "note": "The goal is not a windfall: restore the owner to the financial position held before the incident."
-   }
+   ]
   },
   "clues": {
    "dos": [
     [
-     "The Civic's first Repair Estimate reads $6,940.00.",
-     "A $2,315.00 teardown supplement arrives 03/02/2026, showing A-pillar damage.",
-     "Total $9,255.00, 52.6% of the $17,600.00 ACV: still repairable."
+     "Keystone PD mails a settlement paper for the Civic on 12/10/2026.",
+     "Its wording covers everything arising from the 02/06/2026 accident.",
+     "Before anything else, you compare it against KM-26-440871-PD."
     ],
     [
-     "The Civic sits in the shop from 02/06 to 04/24/2026.",
-     "Loss of Use needs a dollar figure for each day without a car.",
-     "Keystone's own per-day car price sets the measure; it can hardly argue."
+     "Defense counsel requests the photos and estimates from Margaret's PD record.",
+     "The same photos already sit in John Doe's severity set.",
+     "You compare them page by page, date by date, before production."
     ]
    ],
    "donts": [
     [
-     "Seventy-eight days pass between the crash and the repair finishing.",
-     "Keystone already covered a substitute vehicle for part of that stretch.",
-     "Those covered days land on the Loss of Use claim a second time."
+     "Keystone's PD release arrives addressed for “Mr. Doe” to sign.",
+     "Its wording reaches everything from the 02/06/2026 accident.",
+     "Someone emails it to the client “just so he can see it.”"
     ],
     [
-     "The Civic's A-pillar was torn up in the 02/06/2026 crash.",
-     "That structural damage shows the force John Doe's body absorbed.",
-     "The teardown supplement gets filed away as a mere vehicle side issue."
+     "Keystone holds firm at $792.00 for the Civic's Diminished Value.",
+     "John Doe's Net Sheet sits on the screen beside it.",
+     "A Case Manager trims his figures to match the car offer."
     ]
    ]
   }
  },
  "d5m2-a1": {
-  "image": "money-ledger",
-  "situation": "12/2026: RFPs ask for every PD document, **due 01/04/2027**. The PD screen tests Total Loss on the $6,940.00 estimate and claims **78 days, $3,276.00**. Keystone offers $0 for Loss of Use.",
-  "steps": [
-   "Re-run the total-loss check on **the final repair**",
-   "List what to verify in **Keystone's Valuation Report**",
-   "Rebuild Loss of Use **day by day**, each day once",
-   "Evidence each period; **index the severity set**",
-   "Flag Keystone's two arguments for Atty. Thorne, **without answering them**"
-  ],
-  "deliver": "A corrected PD worksheet: repairable at 52.6%, **48 days, $2,016.00 claimed**, defenses flagged",
-  "purpose": "These numbers get produced: **one double count** discredits every other figure",
-  "principle": "Each day of Loss of Use is **claimed once, with evidence**",
-  "checks": [
-   "**$9,255.00 is 52.6%** of $17,600.00: repairable",
-   "Stale 39.4% check corrected **with a dated note**",
-   "78 days allocated once: **12 + 30 + 36**",
-   "Loss of Use corrected to **48 × $42.00 = $2,016.00**",
-   "Escalated to Atty. Thorne **on or before 12/28/2026**"
-  ],
-  "dos": [
-   "Evidence each period, **not just the total**",
-   "Correct with a dated note; **never overwrite the history**"
-  ],
-  "donts": [
-   "Arguing **“shop delay” with the adjuster** yourself",
-   "Producing a worksheet that **still says $3,276.00**"
-  ]
- },
- "d5m2-l2": {
-  "image": "negotiation",
-  "hook": "$792.00 is a formula, $3,600.00 a market appraisal: **you build the evidence**.",
-  "points": [
-   "Diminished Value is **market value lost** after a proper repair",
-   "Keystone's “17c” is **a carrier formula**, not a legal measure",
-   "The 10% cap: **never above $1,760.00**, however severe the damage",
-   "PD settles only on a **property-damage-only release** Atty. Thorne reviewed"
-  ],
-  "upl": "Calculate, critique and recommend; never make, accept, reject or counter a PD figure",
-  "job": [
-   [
-    "Keystone states diminished-value figure",
-    "Draft input request for Atty. Thorne",
-    "CMS → Property Damage → Correspondence",
-    "Base, multipliers, ACV on file"
-   ],
-   [
-    "Appraisal received 05/06/2026",
-    "Audit method, data, credentials",
-    "CMS → Property Damage",
-    "Audit note dated; appraisal indexed"
-   ],
-   [
-    "Keystone sends a release or check",
-    "Hold it; route to Atty. Thorne",
-    "CMS → Tasks → Escalate",
-    "Reviewed before John Doe sees it"
-   ]
-  ],
-  "dos": [
-   "Make Keystone show **its formula's inputs in writing**",
-   "Put **the critique on paper** for Atty. Thorne"
-  ],
-  "donts": [
-   "Telling Margaret Doe her car **“lost $3,600.00”**",
-   "A PD release that **reaches the injury claim**",
-   "Promising **sentimental-value recovery** the law won't award"
-  ],
-  "theory": {
-   "lead": "The law measures property at **fair market value**, so what a repaired car still loses is a market loss, proved with market evidence.",
-   "concepts": [
-    {
-     "term": "Market Value, Not Sentiment",
-     "text": "Standard law values property at market; special value to an owner is **an exception, not the rule**"
-    },
-    {
-     "term": "Formula Versus Market",
-     "text": "A carrier formula is claims practice, **not a legal measure**; an appraisal built on market data tests it",
-     "more": [
-      "Keystone's 17c: 10% of $17,600.00 = $1,760.00, × 0.75 damage, × 0.60 mileage = $792.00",
-      "The 10% base caps it at $1,760.00, **however severe the damage**",
-      "0.75 is a tier below the top; the A-pillar teardown supports arguing 1.00, Atty. Thorne's call",
-      "0.60 discounts 52,300 miles the ACV already priced: mileage counted twice",
-      "The appraisal's $3,600.00 is 20.5% of ACV, more than twice the formula's ceiling",
-      "Audit the 05/06/2026 appraisal too: its method, data and credentials"
-     ]
-    },
-    {
-     "term": "The Written Basis",
-     "text": "Get the carrier's position and inputs in writing: only **a basis on paper** can be answered with stronger evidence",
-     "more": [
-      "Ask Atty. Thorne how to get the 17c worksheet: a discovery request or a written request through counsel",
-      "On file in writing: the base, both multipliers and the ACV used",
-      "Assemble the answer: the appraisal, the supplement, the rental record; escalate to Atty. Thorne",
-      "Never make, accept, reject or counter **a PD figure** yourself"
-     ]
-    },
-    {
-     "term": "Subpoena Duces Tecum",
-     "text": "In suit, a Subpoena Duces Tecum **compels a non-party's records**; a blanket request invites a Motion to Quash",
-     "more": [
-      "Goes out only once Atty. Thorne approves it",
-      "Narrow Exhibit A: patient, date, record types",
-      "Notice opposing counsel first, often 5–10 days (confirm the rule), **then serve the custodian**",
-      "Serve the custodian by process server; call to confirm compliance 5 days before production",
-      "Pay a custodian's invoice the day it arrives"
-     ]
-    }
-   ],
-   "pages": [
-    "D5#41",
-    "D5#35"
-   ],
-   "framework": {
-    "title": "Calculating the Value of the Claim",
-    "kind": "table",
-    "head": [
-     "Measure",
-     "How courts apply it",
-     "Its limit"
-    ],
-    "rows": [
-     [
-      "The lesser-of rule",
-      "The lesser of repair cost or the drop in market value",
-      "Costs more to fix than it was worth: a Total Loss"
-     ],
-     [
-      "Diminished Value",
-      "Market value a car still loses after a proper repair",
-      "Many courts add it to repair, kept under pre-loss value"
-     ],
-     [
-      "Special value",
-      "No market (an heirloom): some courts use actual value to the owner",
-      "Sentimental value is still excluded: **an exception, not the rule**"
-     ]
-    ],
-    "note": "Every measure starts from fair market value; confirm the governing rule with Atty. Thorne."
-   }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Keystone offers $792.00 in Diminished Value on the 2019 Civic.",
-     "The figure comes from the 17c method: 10%, then 0.75, then 0.60.",
-     "The firm asks Keystone to show its math, on record, multiplier by multiplier."
-    ],
-    [
-     "Keystone's 17c cap means no damage can top $1,760.00 here.",
-     "The 0.60 mileage factor counts 52,300 miles the ACV already priced.",
-     "Those flaws go into a memo for counsel, not an adjuster call."
-    ]
-   ],
-   "donts": [
-    [
-     "Margaret Doe calls asking what her Civic is really worth now.",
-     "The Riverton Auto Appraisal of 05/06/2026 sits open on screen.",
-     "The Case Manager quotes the appraisal's number to him as settled fact."
-    ],
-    [
-     "Keystone mails a PD release for John Doe to sign.",
-     "Its language covers all matters arising from 02/06/2026.",
-     "One signature on a car paper could end the bodily-harm lawsuit."
-    ],
-    [
-     "John Doe tells the Case Manager how much the Civic means.",
-     "The law measures a 2019 Civic by fair market price alone.",
-     "Someone tells him the heartstrings will be paid for too."
-    ]
-   ]
-  }
- },
- "d5m2-a2": {
   "image": "phone-call",
-  "situation": "12/10/2026: Leah Moran (Keystone PD) says **$792.00 and $0 final**, sends an **“all claims” release** for John Doe, and asks if he'll take it. Atty. Thorne wants your recommendation.",
+  "situation": "12/10/2026: Keystone PD's final position is **$792.00 and $0**, with a release of **“all claims”** for “Mr. Doe” to sign. Leah Moran calls this afternoon.",
   "steps": [
-   "Rebuild Keystone's “17c” figure from **the $17,600.00 ACV**",
-   "Critique its **10% cap and both multipliers**",
-   "Set out claimed against offered; recommend **a top and a floor**",
-   "Answer Leah Moran **without accepting, rejecting or countering**",
-   "Route the release; send the range **to Atty. Thorne for authority**"
+   "Read the release: **its scope and claim number**",
+   "Hold it; route it to Atty. Thorne in **CMS → Tasks → Escalate**",
+   "Sort each outcome: **John's case or Margaret's file**",
+   "Take Leah Moran's call **without accepting or countering**",
+   "Write the memo ending in **the one-line answer**"
   ],
-  "deliver": "A one-page PD memo: **a recommended range**, release flagged, routed to Atty. Thorne",
-  "purpose": "A loose word to Leah Moran becomes **an offer without authority**",
-  "principle": "You recommend the range; **authority to settle is Atty. Thorne's**",
+  "deliver": "A memo sorting each PD outcome, **the release routed**, the call logged",
+  "purpose": "One signature on a wide release could **reach John's BI claim**",
+  "principle": "PD reaches John's settlement **through the release, never its figures**",
   "checks": [
-   "“17c” rebuilt: **$1,760.00 × 0.75 × 0.60** = $792.00",
-   "Dispute totalled: **$5,616.00 claimed** against $792.00 offered",
-   "Floor **sits above $792.00**; weakest item named",
-   "Release flagged; **nothing sent to John Doe** to sign",
-   "Leah Moran told only the **offer is with Atty. Thorne**"
+   "“All claims” release **routed the same day**",
+   "**Nobody asked to sign** before Atty. Thorne's review",
+   "Diminished Value and Loss of Use **on Margaret's file**",
+   "John's liens and Net Sheet **unchanged**",
+   "Leah Moran told only **it is with Atty. Thorne**"
   ],
   "dos": [
-   "Recommend with arithmetic: every number **traces to a document**"
+   "Read **the release before the numbers**"
   ],
   "donts": [
-   "Telling Leah Moran **“we'd probably take”** any figure",
-   "Forwarding **Keystone's release to John Doe**"
+   "Telling Leah Moran **“we'd probably take”** any figure"
   ]
  },
  "d5m2-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Is the Civic a **Total Loss**? Show the final repair, ACV, Keystone's threshold and percentage, with the arithmetic.",
-   "Allocate **the 78 days**: which are claimed, at what rate, for how much? Why exclude rental days?",
-   "Name **the three damage types**; place repair, Loss of Use, Diminished Value. Punitive damages require what conduct?"
+   "Keystone's release covers **“all claims”**: why must it never reach John Doe, and what do you do?",
+   "Sort Keystone's final PD position: **which items reach John's settlement**, and which stay Margaret's?",
+   "Which PD documents **already serve John's case**, and what must match on both files?"
   ]
  },
  "d5m3-l1": {

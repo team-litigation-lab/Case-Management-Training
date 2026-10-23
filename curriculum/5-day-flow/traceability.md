@@ -53,7 +53,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#41` | Immediate Action Protocol: A-C-T for Red Flags | ✅ BUILT | d2m2-l2, d2m2-a2 |
 | `D1#42` | Illustration & Course Correction: The 6-Week Rule and Objective Metrics | ✅ BUILT | d1m4-tmap, d2m2-l2, d2m2-kc |
 | `D1#43` | The “Yellow Flag” Warning System | ✅ BUILT | d1m4-tmap, d1m4-tcare, d2m2-l2 |
-| `D1#44` | Handling Treatment Gaps During the Treatment Phase | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a2, d1m3-a3, d1m3-kc, d1m4-a1, d1m4-a2, d1m4-kc, d2m2-a3, d2m2-sum, d2m3-l1, d2m3-a1, d2m3-l2, d2m3-a2, d2m3-kc, d4m3-tx, d5m4-kc |
+| `D1#44` | Handling Treatment Gaps During the Treatment Phase | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a2, d1m3-kc, d1m4-a1, d1m4-a2, d1m4-kc, d2m2-a3, d2m2-sum, d2m3-l1, d2m3-a1, d2m3-l2, d2m3-a2, d2m3-kc, d4m3-tx, d5m4-kc |
 | `D1#45` | Common Bottlenecks: Escalation Protocol & the Escalation Ladder | ✅ BUILT | d2m2-l2, d2m2-a2, d4m4-l2, d4m4-a2, d4m4-kc |
 | `D1#46` | Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain | ✅ BUILT | d2m2-a1, d2m2-kc, d2m3-cause, d4m3-prior |
 | `D1#47` | Skill Building: Handling Client Treatment — “The Transportation Wall” | ✅ BUILT | d2m2-a2 |
@@ -67,7 +67,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D2#3` | The Auditing Checklist: The Trinity of Case Alignment | ✅ BUILT | d2m4-l2, d2m4-a2 |
 | `D2#4` | Master Audit Checklist: Financial & Lien Verification | ✅ BUILT | d2m4-l1, d2m4-wage, d2m4-a1, d2m4-kc |
 | `D2#5` | Master Audit Checklist: Liability & Liability Proof | ✅ BUILT | d2m4-l2 |
-| `D2#6` | Master Audit Checklist: Property Damage (PD) Deep Dive | ✅ BUILT | d1m3-l2, d1m3-kc, d2m4-l2, d2m4-a2, d5m2-l1, d5m2-a1, d5m2-kc |
+| `D2#6` | Master Audit Checklist: Property Damage (PD) Deep Dive | ✅ BUILT | d1m3-l2, d1m3-a3, d1m3-kc, d2m4-l2, d2m4-a2, d5m2-l1, d5m2-kc |
 | `D2#7` | Master Audit Checklist: Medical & Billing Audit | ✅ BUILT | d2m4-l1, d2m4-wage, d2m4-a1, d2m4-kc, d4m3-prior |
 | `D2#8` | The “Defense-Eye” Audit (Red Flag Detection) | ✅ BUILT | d2m3-a2, d2m4-l2, d2m4-a2, d2m4-kc |
 | `D2#9` | Pre-Demand: Final Package Readiness | ✅ BUILT | d2m4-l1, d2m4-a1, d2m4-l2, d2m4-a2, d2m4-kc |
@@ -220,8 +220,8 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D5#31` | Litigation File Architecture | ✅ BUILT | d4m1-l2, d4m1-a2, d4m1-efile, d4m1-kc, d5m1-l1, d5m1-a1, d5m1-subp, d5m1-kc |
 | `D5#32` | Advanced KPIs for Litigation Case Managers | ✅ BUILT | d4m4-l2, d5m1-a1, d5m1-l2, d5m1-a2, d5m1-kc |
 | `D5#33` | Skill Building: The Ultimate Case Management — Jordan Davies | ✅ BUILT | d5m1-a2, d5m1-kc |
-| `D5#34` | Property Damage in Litigation: Types of Damages You Can Recover | ✅ BUILT | d1m3-l2, d5m2-l1, d5m2-l2, d5m2-a2, d5m2-kc |
-| `D5#35` | Property Damage: Calculating the Value of the Claim | ✅ BUILT | d1m3-l2, d1m3-kc, d5m2-l1, d5m2-a1, d5m2-l2, d5m2-a2, d5m2-kc |
+| `D5#34` | Property Damage in Litigation: Types of Damages You Can Recover | ✅ BUILT | d1m3-l2, d5m2-l1, d5m2-a1, d5m2-kc |
+| `D5#35` | Property Damage: Calculating the Value of the Claim | ✅ BUILT | d1m3-l2, d1m3-kc, d5m2-l1, d5m2-a1, d5m2-kc |
 
 ## Firm doctrine from outside this course
 
@@ -239,10 +239,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: No Contact Protocol
 - LSH Claims Specialist: LOR Property Damage carve-out, documents to support the claim
 - LSH Claims Specialist: client communication protocol
-- LSH Claims Specialist: 5-day inspection window, Loss of Use, tow and storage
-- Case file: Keystone Mutual's claim correspondence, the rental authorization and the rental cutoff (RS32)
-- LSH Claims Specialist: rental coverage hierarchy, the rental reimbursement endorsement, rate cap and duration
-- LSH Claims Specialist: LOR Property Damage carve-out, rental coverage hierarchy, documents to support the claim
+- LSH Claims Specialist: LOR Property Damage carve-out, Property Damage severity as evidence for the injury claim
 - Newly authored: John Doe's intake assessment and the draft SMART goal
 - Newly authored: Florida's EMC rule stated explicitly (Fla. Stat. § 627.736(1)(a): 14-day initial care, EMC by MD, DO, dentist, PA or APRN, $2,500 vs $10,000, 80% medical and 60% lost income, chiropractor cannot determine EMC, no massage or acupuncture) and contrasted with Riverton's add-on PIP, which has no EMC rule
 - LSH Claims Specialist: LOR purpose, recipients, drafting components and delivery
@@ -335,12 +332,9 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - Newly authored: trial subpoenas tasked against the pretrial and trial-calendar dates; service rules and witness fees confirmed with the court's rules
 - Newly authored: a subpoena noticed by the defense is docketed and routed to Atty. Thorne
 - Newly authored: the last day to serve written discovery, counted back from the discovery cutoff
-- LSH Claims Specialist: Property Damage and collision coverage, Loss of Use, tow and storage
-- Newly authored: a carrier's rental cap against the reasonable-repair-time measure of Loss of Use (Restatement (Second) of Torts § 928(b) as an example)
-- LSH Claims Specialist: Property Damage coverage, Loss of Use, tow and storage
-- LSH Claims Specialist: liability disputes — written basis, stronger evidence, escalation to the attorney
-- Newly authored: Diminished Value, the repair-plus-residual-loss measure (Restatement (Second) of Torts § 928 as an example), the 17c formula and its critique, the PD-only release
-- Newly authored: the 17c critique and the recommended negotiating range
+- LSH Claims Specialist: Property Damage coverage outside the BI stack
+- Newly authored: the PD-only release, and the transition between the PD and BI files
+- LSH Claims Specialist: liability disputes — written basis, escalation to the attorney
 - Newly authored: remote-deposition room protocol; refreshed-memory documents; social-media preservation
 - Newly authored: remote-deposition room protocol
 - Newly authored: compound and loaded-question traps
@@ -399,7 +393,7 @@ Where neither source had the theory, it was written for this flow and is marked 
 - **Bad faith kept off the UM route fork as a separate suit above the policy limit, reserved to counsel; each UM layer read and docketed on its own clause and its own deadline** — Day 4 · Module 4 — ADR: UM/UIM Coverage Disputes
 - **Three bottleneck families, CMS countermeasure rules and the five-field bottleneck report** — Day 4 · Module 4
 - **KPIs as formulas with targets, and the last day to serve written discovery** — Day 5 · Module 1
-- **Rental cap vs. reasonable repair time, the 17c critique and the PD-only release** — Day 5 · Module 2
+- **Property Damage as a transition: which PD outcomes reach John Doe's settlement (the PD-only release, the severity set, the rental dates) and which stay on Margaret Doe's file** — Day 5 · Module 2
 - **The remote-deposition room protocol and compound or loaded-question traps** — Day 5 · Module 3
 - **Authentication and chain of custody in the liability counter-package; the No Contact Protocol against a deposition date** — Day 5 · Module 4
 - **The Case Manager's close-out of a Dropped Case: the Pending Drop gate, Withdrawal Letters to the client, carriers and providers (the reason only in the client's), each send method, the Dropped status and its proof; no health insurance as a drop reason; the Denise Harlow practice matter** — Day 5 · Module 6 — from the firm's Claims Specialist deck “Dropped Cases”; the No Contact Protocol stays in Client Communications, and John Doe's case is never dropped
