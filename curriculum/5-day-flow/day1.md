@@ -29,7 +29,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file: Lectures (its lessons, one uninterrupted discussion) → Practice (its Skill Activities on the file in the CMS, in the order the work happens) → Knowledge Check. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, run topic by topic: a topic's lessons, then its Skill Building (its Skill Activities on the file in the CMS, Your Task first, then Your Case), then a short brainstorm, then the next topic; the Knowledge Check closes the day. A lesson marked (condensed) is a short overview.
 
 **Module 1 — Intake, Claims & Property Damage**
 
@@ -37,15 +37,15 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 2. *Lesson* — The Case Manager's Role
 3. *Lesson* — Fact Sharing vs. Legal Advice: the UPL Line
 4. *Lesson* — Ingesting the Raw File
-5. *Lesson* — The Acceptance Decision & the Three-Pillar Case Plan
-6. *Lesson* — The Treatment Assessment, SMART Goals & the Care Coordination Plan
-7. *Lesson* — The Standard Treatment Map: Phases, Timelines & Course Correction
-8. *Lesson* — Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
-9. *Lesson* — The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000 (condensed)
-10. *Lesson* — Client Do's and Don'ts
-11. *Lesson* — Repair Estimates, Total Loss & Loss of Use
-12. *Lesson* — Rental Authorization
-13. *Skill Activity* — Opening John Doe's File in the CMS
+5. *Skill Activity* — Opening John Doe's File in the CMS
+6. *Lesson* — The Acceptance Decision & the Three-Pillar Case Plan
+7. *Lesson* — The Treatment Assessment, SMART Goals & the Care Coordination Plan
+8. *Lesson* — The Standard Treatment Map: Phases, Timelines & Course Correction
+9. *Lesson* — Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
+10. *Lesson* — The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000 (condensed)
+11. *Lesson* — Client Do's and Don'ts
+12. *Lesson* — Repair Estimates, Total Loss & Loss of Use
+13. *Lesson* — Rental Authorization
 14. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet
 15. *Skill Activity* — Onboarding Direction Assignment in System
 16. *Skill Activity* — Whose Rental Is It? The Civic Investigation
@@ -58,7 +58,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 1 — Intake, Claims & Property Damage
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check
 
 ### 1.1.1 Meet Your Case: John Doe v. Robert Smith
 
@@ -386,7 +386,80 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.5 The Acceptance Decision & the Three-Pillar Case Plan
+### 1.1.5 Opening John Doe's File in the CMS
+
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Topic:** Skill Activity — from raw file to an active matter  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#5` Case Phase: Intake — Establishing Control · `D1#6` The Real Intake Workflow · `D1#7` Intake & Initial Client Contact — Gatekeepers of Case Quality · `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors
+
+#### 1 · Visual Layout Description
+
+The CMS New Case screen as a large mock-up on the left two-thirds: a Conflict Check panel at the top with a green LOGGED stamp, then the matter fields (DOL, SOL, client position) with two fields outlined in orange where the draft was wrong. On the right, a vertical checklist of the intake documents (intake sheet, supplement, CMS record, retainer, HIPAA, Police Report), each with a filed tick and its CMS category in mono type.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** 02/09/2026. The raw file from “On the Records” is in: the New Client Intake Sheet, the intake supplement, the signed retainer and claim-specific HIPAA authorization, and the Riverton PD crash report. A colleague keyed a draft intake record into the CMS. Atty. Thorne wants the matter active today.
+
+**Execution prompt.** Open John Doe's matter in the CMS. Run and document the Conflict Check on every party's full legal name before anything else. Verify the draft intake record field by field against the source documents (date of loss, names and roles, John Doe's position, date of birth, report number) and correct each error with its source, never silently. Docket the SOL (02/06/2028) with reminders, map all six roles, log the retainer and the HIPAA authorization, and file every intake document under its CMS category, named to the firm's convention. Route a short note of what you corrected to Atty. Thorne.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → New Case · Parties · Calendar · Documents · Case Notes |
+| **Expected output** | An active matter: Conflict Check logged first, every field verified against its source, six roles mapped, SOL docketed, intake documents filed, corrections noted to Atty. Thorne. |
+
+**Verification checkpoints**
+
+- [ ] Conflict Check documented before the matter was created, on full legal names
+- [ ] Date of loss 02/06/2026 confirmed against the Police Report; SOL 02/06/2028 docketed with reminders
+- [ ] John Doe recorded as the front-seat passenger, not the driver
+- [ ] Errors caught and corrected with their source: the position and the date of birth in the draft record, the transposed report number on the intake sheet
+- [ ] All six roles mapped; none left “unknown”
+- [ ] Retainer and HIPAA authorization logged with their signing date (02/09/2026)
+- [ ] Every intake document filed under its CMS category and named to convention
+- [ ] Corrections summarized to Atty. Thorne in Case Notes
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Raw file received | Run and document the Conflict Check on full legal names | CMS → New Case | Conflict Check logged before the matter exists |
+| Draft record keyed | Verify every field against its source document and correct with the source | CMS → Case File · Documents | No field accepted from the draft unchecked |
+| Matter active | Docket the SOL, map the parties, file the intake documents | CMS → Calendar · Parties · Documents | SOL 02/06/2028 with reminders; six roles; every document filed |
+
+**Best practices & pitfalls**
+
+- Verify against the Police Report and signed documents, not the draft.
+- Note every correction and its source in Case Notes.
+- ⚠️ Pitfall: accepting “Driver” in the position field because it was pre-filled.
+- ⚠️ Pitfall: filing documents before naming them to the convention.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Conflict Check first | Documented before the matter was created, on full legal names |
+| 🤖 AI | **25%** | Field verification | Position, date of birth and report number corrected with their sources |
+| 🤖 AI | **20%** | Matter set-up | SOL docketed with reminders, six roles mapped, intake documents filed by category |
+| 🧑‍🏫 Trainer | **25%** | Verification discipline | Checked every field against a document rather than the draft |
+| 🧑‍🏫 Trainer | **15%** | Communication | Corrections routed to Atty. Thorne in a short, factual note |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Give the room ten minutes in the CMS before you say anything about the planted errors.
+- Ask who changed the position field and on what evidence. The answer must be a document: the Police Report and the intake sheet.
+- If someone corrects the date of birth without noting the source, stop them: an unexplained change is a new error.
+- Close by opening the Case Notes: the note to Atty. Thorne is part of the work, not an extra.
+
+---
+
+### 1.1.6 The Acceptance Decision & the Three-Pillar Case Plan
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** The document that makes the file move  
@@ -467,7 +540,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 1.1.6 The Treatment Assessment, SMART Goals & the Care Coordination Plan
+### 1.1.7 The Treatment Assessment, SMART Goals & the Care Coordination Plan
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Know the whole person before you plan the care  
@@ -552,7 +625,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 1.1.7 The Standard Treatment Map: Phases, Timelines & Course Correction
+### 1.1.8 The Standard Treatment Map: Phases, Timelines & Course Correction
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Where he should be on the map, and what you do when he isn't  
@@ -638,7 +711,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 1.1.8 Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
+### 1.1.9 Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** What you watch for in the records, what you listen for on the phone, and how you keep him in his plan  
@@ -727,7 +800,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 1.1.9 The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000
+### 1.1.10 The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage (condensed) · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** A state-specific PIP rule: what Florida requires, who can make the finding, and why Riverton's file has no such rule  
@@ -814,7 +887,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 1.1.10 Client Do's and Don'ts
+### 1.1.11 Client Do's and Don'ts
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Protecting the claim from the client's own good intentions  
@@ -892,7 +965,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.11 Repair Estimates, Total Loss & Loss of Use
+### 1.1.12 Repair Estimates, Total Loss & Loss of Use
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Repair, or total? And what the client is owed either way  
@@ -977,7 +1050,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.12 Rental Authorization
+### 1.1.13 Rental Authorization
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** A rental the policy actually pays for, confirmed before the client collects a car  
@@ -1055,79 +1128,6 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 - Rental is where clients get hurt financially. Uncovered days come out of their pocket, and they will blame the firm if nobody told them the limit.
 - Ask the room whose rental this is on John Doe's file. Let them find Margaret Doe; the Civic Investigation activity proves it from the documents.
 - Show RS32: the authorization, and later the cutoff. The cutoff is what starts John Doe's transport problem in the Treatment Phase.
-
----
-
-### 1.1.13 Opening John Doe's File in the CMS
-
-> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
-> **Topic:** Skill Activity — from raw file to an active matter  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D1#5` Case Phase: Intake — Establishing Control · `D1#6` The Real Intake Workflow · `D1#7` Intake & Initial Client Contact — Gatekeepers of Case Quality · `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors
-
-#### 1 · Visual Layout Description
-
-The CMS New Case screen as a large mock-up on the left two-thirds: a Conflict Check panel at the top with a green LOGGED stamp, then the matter fields (DOL, SOL, client position) with two fields outlined in orange where the draft was wrong. On the right, a vertical checklist of the intake documents (intake sheet, supplement, CMS record, retainer, HIPAA, Police Report), each with a filed tick and its CMS category in mono type.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** 02/09/2026. The raw file from “On the Records” is in: the New Client Intake Sheet, the intake supplement, the signed retainer and claim-specific HIPAA authorization, and the Riverton PD crash report. A colleague keyed a draft intake record into the CMS. Atty. Thorne wants the matter active today.
-
-**Execution prompt.** Open John Doe's matter in the CMS. Run and document the Conflict Check on every party's full legal name before anything else. Verify the draft intake record field by field against the source documents (date of loss, names and roles, John Doe's position, date of birth, report number) and correct each error with its source, never silently. Docket the SOL (02/06/2028) with reminders, map all six roles, log the retainer and the HIPAA authorization, and file every intake document under its CMS category, named to the firm's convention. Route a short note of what you corrected to Atty. Thorne.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → New Case · Parties · Calendar · Documents · Case Notes |
-| **Expected output** | An active matter: Conflict Check logged first, every field verified against its source, six roles mapped, SOL docketed, intake documents filed, corrections noted to Atty. Thorne. |
-
-**Verification checkpoints**
-
-- [ ] Conflict Check documented before the matter was created, on full legal names
-- [ ] Date of loss 02/06/2026 confirmed against the Police Report; SOL 02/06/2028 docketed with reminders
-- [ ] John Doe recorded as the front-seat passenger, not the driver
-- [ ] Errors caught and corrected with their source: the position and the date of birth in the draft record, the transposed report number on the intake sheet
-- [ ] All six roles mapped; none left “unknown”
-- [ ] Retainer and HIPAA authorization logged with their signing date (02/09/2026)
-- [ ] Every intake document filed under its CMS category and named to convention
-- [ ] Corrections summarized to Atty. Thorne in Case Notes
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Raw file received | Run and document the Conflict Check on full legal names | CMS → New Case | Conflict Check logged before the matter exists |
-| Draft record keyed | Verify every field against its source document and correct with the source | CMS → Case File · Documents | No field accepted from the draft unchecked |
-| Matter active | Docket the SOL, map the parties, file the intake documents | CMS → Calendar · Parties · Documents | SOL 02/06/2028 with reminders; six roles; every document filed |
-
-**Best practices & pitfalls**
-
-- Verify against the Police Report and signed documents, not the draft.
-- Note every correction and its source in Case Notes.
-- ⚠️ Pitfall: accepting “Driver” in the position field because it was pre-filled.
-- ⚠️ Pitfall: filing documents before naming them to the convention.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **15%** | Conflict Check first | Documented before the matter was created, on full legal names |
-| 🤖 AI | **25%** | Field verification | Position, date of birth and report number corrected with their sources |
-| 🤖 AI | **20%** | Matter set-up | SOL docketed with reminders, six roles mapped, intake documents filed by category |
-| 🧑‍🏫 Trainer | **25%** | Verification discipline | Checked every field against a document rather than the draft |
-| 🧑‍🏫 Trainer | **15%** | Communication | Corrections routed to Atty. Thorne in a short, factual note |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Give the room ten minutes in the CMS before you say anything about the planted errors.
-- Ask who changed the position field and on what evidence. The answer must be a document: the Police Report and the intake sheet.
-- If someone corrects the date of birth without noting the source, stop them: an unexplained change is a new error.
-- Close by opening the Case Notes: the note to Atty. Thorne is part of the work, not an extra.
 
 ---
 
