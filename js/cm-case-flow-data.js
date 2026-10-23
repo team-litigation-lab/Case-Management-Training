@@ -195,19 +195,13 @@ window.CM_CASE_FLOW = {
       "08/05/2026 Keystone offers $3,500, citing the gap and calling the MRI degenerative · 08/06 rebuttal (Atty. Thorne approved): the radiologist's finding, the Causation Letter, the EMS report, the Gap Explanation Record",
       "This is the fork. Track A (Case Flow Day 4): the file settles. Track B (Day 4's ADR, then Day 5's litigation): Keystone stonewalls and the case goes to suit."
     ]},
-    {after: "d3m2-exec", title: "Track A: The BI Release, Executed", group: "money", items: [
-      "08/14/2026 Keystone's draft Release of All Claims: the catch-all \"all other … insurers\", Property Damage and Loss of Use, confidentiality, an unlimited indemnify-and-defend clause, no UM reservation, no payment date · Keystone holds its check until each UM carrier consents and waives subrogation",
-      "Consent and waiver requests 08/13 to Harbor Point and Cardinal State (Bluewater is not a UM layer: UM rejected 03/14/2024) · consents and waivers 08/24 and 08/26",
-      "Clause review to Atty. Thorne 08/14 · approved 08/17 · Keystone's Limited Release 08/19: Smith and Keystone only, UM and Civic claims reserved, no confidentiality, payment within 14 days",
-      "Signing session 08/28/2026: Atty. Thorne goes through the release first; signed before notary Renee Castillo · sent to Dana Whitfield with both waivers and the W-9 · acknowledged 08/31 · check no. 0048213 issued 09/01, into IOLTA 09/04"
-    ]},
     {after: "d3m4-a2", title: "Track A: The File Settles", group: "money", items: [
-      "08/12/2026 Keystone tenders $10,000 · UM consents 08/24 (Harbor Point) and 08/26 (Cardinal State) · Keystone's General Release (08/14) revised to a Limited Release, signed 08/28 · check into IOLTA 09/04",
+      "08/12/2026 Keystone tenders $10,000, its check held until both UM waivers arrive · consents and waivers 08/24 (Harbor Point) and 08/26 (Cardinal State) · Keystone's General Release (08/14) amended on Atty. Thorne's approval to a Limited Release, signed before a notary 08/28 · check no. 0048213 into IOLTA 09/04",
       "08/31 Host UM and Relative UM demands, emailed to Marcus Bell and Teresa Okafor · Harbor Point offers $8,000 (09/14), pays $20,000 limits 09/29 · Cardinal State offers $6,000 (10/01), tenders $10,000 limits 10/06",
       "Gross recovery $40,000.00",
       "Liens: Peach State (fully insured plan) $1,860.00 → $1,240.00 (10/09) · Riverton Spine & Rehab $6,290.00 billed → $6,105.00 audited → $4,580.00 (10/12)",
       "Net Sheet: fee $13,333.33 · costs $486.75 · liens $5,820.00 · net to John Doe $20,359.92 (BI stream $5,089.98, UM stream $15,269.94)",
-      "Vance & Kettering asserts a charging lien 10/14 ($6,666.67, on an agreement signed only by Margaret Doe 07/27): hold placed, packet to Atty. Thorne 10/15, repudiated 10/16, withdrawn 10/19",
+      "Vance & Kettering's charging lien (10/14, $6,666.67; agreement signed only by Margaret Doe): held, repudiated 10/16, withdrawn 10/19",
       "John signs the Settlement Statement 10/21 · disbursement 10/22/2026 · Trust Ledger to $0.00 · closing memo 10/30/2026"
     ]},
     {after: "d4m1-a1", title: "Track B: The Stonewall", group: "suit", items: [
