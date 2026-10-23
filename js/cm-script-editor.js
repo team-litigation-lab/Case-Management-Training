@@ -107,6 +107,8 @@ function open(){
       <button type="button" class="btn btn-navy btn-sm" onclick="cmScriptEditor.save()">Save speaker notes</button></div>`;
   [...cu.children].forEach(x => { x.style.display = "none"; });
   cu.insertBefore(f, cu.firstChild); cu.parentElement.scrollTop = 0;
+  // bring the editor into view: on a small screen the notes sit below the slide, or behind the slides window
+  f.scrollIntoView({behavior: "smooth", block: "start"});
   document.addEventListener("keydown", onKey);
   paintBar();
   f.querySelector("#se-say").focus();
