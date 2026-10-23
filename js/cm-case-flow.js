@@ -768,14 +768,14 @@ if(typeof nextSlide === "function"){
     return __next.apply(this, arguments);
   };
 }
-/* 🎓 Finish Training (the last day's Knowledge Check, once passed): the certificate when every day is passed, else the
-   dashboard with the days still open */
+/* 🎓 Finish Training (the last day's Knowledge Check, once passed): the Congratulations & Thank You slide */
 window.cmCaseFlow = window.cmCaseFlow || {};
 window.cmCaseFlow.finish = function(){
-  const open = DAYS.filter(x => !((state.progress || {})[x.id] || {}).done);
-  if(!open.length && typeof openCertificate === "function") return openCertificate();
-  if(typeof goto === "function") goto("dashboard");
-  if(typeof toast === "function") toast(`🎓 Almost there: pass the Knowledge Check for ${open.map(x => "Day " + (x.cf ? x.cf.n : x.id)).join(", ")} to finish the training and get your certificate.`);
+  // the course closes on its Congratulations & Thank You slide (the certificate stays on the dashboard)
+  const d = DAYS.find(x => isLastCfDay(x)); if(!d || typeof goto !== "function") return;
+  goto("day", d.id); state.dayViewMode = "slides";
+  const k = buildDaySlides(d).findIndex(x => x.type === "closing");
+  state.lessonSlide = k >= 0 ? k : 0; if(typeof render === "function") render(); window.scrollTo(0, 0);
 };
 window.cmCaseFlow = window.cmCaseFlow || {};
 window.cmCaseFlow.cg = function(id, act, arg){
@@ -2387,28 +2387,24 @@ function labQuestions(d){
     const m = CF.days.flatMap(x => x.modules).find(x => x.blocks.some(b => b.id === id)); if(m && !mods.includes(m)) mods.push(m); });
   return mods.filter(m => (m.quiz || []).length).slice(0, 3).map(m => m.quiz[0]);
 }
-/* The course's last slide (Day 5, before its Knowledge Check): the case is finished, so no Action Plan, a congratulations
-   on what the trainee carried John Doe's file through, and a thank-you card */
+/* The course's last slide (Day 5, before its Knowledge Check): the case is finished, so no Action Plan, a celebratory
+   congratulations and a bold thank-you card */
 const isLastCfDay = d => !!(d && d.cf) && d.cf.n === Math.max(...CF.days.map(x => x.n));
 function closingSlide(d){
   const c = CF.case;
-  const did = [["📂", "Opened", `${c.style}, from the first call`], ["🧱", "Built and verified", `the ${money(c.total)} Recovery Stack`],
-    ["🩺", "Kept care moving", "through the 14-day gap and the April disruption"], ["📤", "Served", "the BI Time-Limited Demand and its exhibits"],
-    ["⚖️", "Carried it", "through negotiation, liens, arbitration and the courtroom"], ["✅", "Closed it", "with every lien satisfied in writing"]];
   return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; THE CASE IS CLOSED</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-closing">
       <div class="cfx-deck-head"><h2 class="cfx-deck-title">🎉 Congratulations</h2></div>
       <div class="cfx-body"><div class="cfx-sheet cfx-close">
-        <div class="cfx-close-hero"><span class="cfx-close-badge" aria-hidden="true">🎓</span>
-          <div><b>You worked John Doe's file from intake to the close.</b><span>Five days, one file, every step a Case Manager owns.</span></div></div>
-        <ul class="cfx-close-did">${did.map(([i, a, b]) => `<li><span aria-hidden="true">${i}</span><b>${E(a)}</b> ${E(b)}</li>`).join("")}</ul>
+        <div class="cfx-close-burst" aria-hidden="true"><span>🎊</span><span>🎓</span><span>🎉</span></div>
+        <p class="cfx-close-cheer">You did it!</p>
         <div class="cfx-thanks" role="note" aria-label="Thank you card">
           <p class="cfx-thanks-h">Thank you</p>
           <p>Thank you for the care you put into John Doe's file this week: every document checked, every deadline docketed, every
           call made with the client in mind. That is what a Case Manager brings to a firm, and to the people it represents.</p>
           <p class="cfx-thanks-sig">With gratitude,<br><span>${E(c.counsel)}</span> and the LSH Training team</p>
         </div>
-        <p class="cfx-close-next">One last step: today's Knowledge Check.</p>
+        <p class="cfx-close-next">${((state.progress || {})[d.id] || {}).done ? "✓ Knowledge Check passed: your training is complete." : "One last step: today's Knowledge Check."}</p>
       </div></div>
     </div>`;
 }
@@ -3857,6 +3853,25 @@ window.cmCaseFlow.doc = function(ev, id){
 };
 const docUrl = d => /^RS\d\d$/.test(d.id) ? `case-doc.html?id=${d.id}${DATES && DATES.year ? `&year=${DATES.year}` : ""}${DATES && DATES.dolOffset ? `&dol=${DATES.dolOffset}` : ""}`
   : typeof cmDocUrl === "function" ? cmDocUrl(d) : "documents/" + d.file;
+/* Open, never download: a Word or Excel file opens in Office's online viewer, everything else in its own tab */
+const openUrl = d => !/^RS\d\d$/.test(d.id) && /\.(docx|xlsx)$/i.test(d.file)
+  ? "https://view.officeapps.live.com/op/view.aspx?src=" + encodeURIComponent(new URL(docUrl(d), location.href).href) : docUrl(d);
+/* ☁️ Add to GDrive (Back up files): the Case Manager keeps an organized backup of the case file. The file goes to the
+   trainee's Backup Drive (js/cm-drive.js through cmDocFiling.keepOnDrive) in the folder its kind belongs in. */
+async function backupDoc(btn, id){
+  const d = CF_DOCS.concat(window.CM_DOCS || []).find(x => x.id === id);
+  if(!d || !window.cmDocFiling || !cmDocFiling.keepOnDrive) return toast("Back up isn't available here.");
+  const label = btn.textContent; btn.disabled = true; btn.textContent = "Backing up…";
+  try{
+    const r = await fetch("documents/" + d.file.split("/").map(encodeURIComponent).join("/"));
+    if(!r.ok) throw new Error(r.status);
+    const out = await cmDocFiling.keepOnDrive(d.folder, d.file.split("/").pop(), await r.arrayBuffer());
+    if(out && out.ok){ btn.textContent = "✓ In GDrive"; toast(`Backed up to your Drive under ${String(out.folder).split("/").pop()}.`); return; }
+    toast(out && out.why === "no-drive" ? "Your Backup Drive isn't set up yet. Connect it, then try again." : "The backup didn't reach your Drive. Try again.");
+  }catch(e){ toast("The backup didn't reach your Drive. Check your connection and try again."); }
+  finally{ btn.disabled = false; if(btn.textContent === "Backing up…") btn.textContent = label; }
+}
+window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {backup: backupDoc});
 function docLine(blockId){
   const all = (CF_PACKETS[blockId] || []).map(id => CF_DOCS.find(d => d.id === id)).filter(Boolean), docs = all.filter(docAvail), held = all.length - docs.length;
   if(!docs.length) return "";
@@ -3867,7 +3882,7 @@ function caseFlowDocuments(){
   const shown = CF_DOCS.filter(docOpen), locked = CF_DOCS.filter(d => !docOpen(d));
   const tpl = (window.CM_DOCS || []).filter(d => d.folder === "templates");
   const row = d => `<div class="cm-doc-row"><div><span class="t">${E(d.title)}</span> <span style="font-size:11px;color:var(--ink-soft)">· ${d.folder === "templates" ? "Any day" : "Case Flow Day " + d.day}</span><div class="d">${E(d.desc)}</div>${state.isAdmin && d.key ? `<div class="cm-key">🔑 ${E(d.key)}</div>` : ""}</div>
-      <div style="display:flex;gap:6px;align-items:center"><span class="cms">CMS: ${E(d.cms)}</span><a class="btn btn-ghost btn-sm" href="${E(docUrl(d))}" target="_blank" rel="noopener"${/^RS\d\d$/.test(d.id) ? ` onclick="return cmCaseFlow.doc(event,'${d.id}')"` : ""}>${!/^RS\d\d$/.test(d.id) && /\.(docx|xlsx)$/i.test(d.file) ? "Download" : "Open"}</a></div></div>`;
+      <div style="display:flex;gap:6px;align-items:center"><span class="cms">CMS: ${E(d.cms)}</span><a class="btn btn-ghost btn-sm" href="${E(openUrl(d))}" target="_blank" rel="noopener"${/^RS\d\d$/.test(d.id) ? ` onclick="return cmCaseFlow.doc(event,'${d.id}')"` : ""}>Open</a><button type="button" class="btn btn-ghost btn-sm" title="Back up this file to your Google Drive, in its case folder" onclick="cmCaseFlow.backup(this,'${E(d.id)}')">☁️ Add to GDrive</button></div></div>`;
   const heldBy = d => dayUnlocked(cfIdOf(d.day)) && !docAvail(d);   // open by its day, waiting on the trainee's Amendment Request
   const folders = CF_FOLDERS.map(fo => ({fo, items: shown.filter(d => d.folder === fo.id), later: locked.filter(d => d.folder === fo.id && !heldBy(d)).length, held: locked.filter(d => d.folder === fo.id && heldBy(d)).length})).filter(x => x.items.length || x.later || x.held);
   return `<p class="eyebrow">Case Documents</p>
@@ -4294,20 +4309,18 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-cg{display:flex;flex-direction:column;gap:12px;text-align:left;}
 .cf-kc-finish{margin-left:auto;background:#1F7A4A;color:#fff;border:0;border-radius:999px;padding:8px 18px;font:800 14px 'Inter',sans-serif;box-shadow:0 4px 12px rgba(31,122,74,.35);}
 .cf-kc-finish:hover{background:#17603A;}
-.cfx-close{display:flex;flex-direction:column;gap:14px;text-align:left;}
-.cfx-close-hero{display:flex;gap:14px;align-items:center;}
-.cfx-close-badge{font-size:46px;line-height:1;}
-.cfx-close-hero b{display:block;font:800 22px/1.25 'Poppins','Inter',sans-serif;color:#262B45;}
-.cfx-close-hero span{font:600 14.5px 'Inter',sans-serif;color:#5B6579;}
-.cfx-close-did{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
-.cfx-close-did li{background:#F6F7FB;border:1px solid #E2E6EF;border-radius:10px;padding:9px 11px;font:500 13.5px/1.35 'Inter',sans-serif;color:#2C3142;}
-.cfx-close-did li span{margin-right:6px;} .cfx-close-did li b{color:#262B45;}
-.cfx-thanks{background:#FFFDF8;border:2px solid #DB8437;border-radius:16px;padding:16px 22px;box-shadow:0 8px 20px rgba(219,132,55,.18);}
-.cfx-thanks p{margin:0 0 8px;font:500 15px/1.5 'Inter',sans-serif;color:#2C3142;}
-.cfx-thanks .cfx-thanks-h{font:700 30px/1.1 'Fraunces',Georgia,serif;color:#B5651F;margin-bottom:8px;}
-.cfx-thanks .cfx-thanks-sig{margin:0;font-weight:600;} .cfx-thanks .cfx-thanks-sig span{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:17px;color:#262B45;}
+.cfx-close{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;}
+.cfx-close-burst{display:flex;gap:22px;font-size:64px;line-height:1;}
+.cfx-close-burst span{display:inline-block;animation:cfxPop 1.6s ease-in-out infinite alternate;}
+.cfx-close-burst span:nth-child(2){animation-delay:.3s;font-size:78px;} .cfx-close-burst span:nth-child(3){animation-delay:.6s;}
+@keyframes cfxPop{from{transform:translateY(0) rotate(-6deg);}to{transform:translateY(-8px) rotate(6deg);}}
+@media(prefers-reduced-motion:reduce){.cfx-close-burst span{animation:none;}}
+.cfx-close-cheer{margin:0;font:800 34px/1.1 'Poppins','Inter',sans-serif;color:#262B45;}
+.cfx-thanks{max-width:820px;background:#FFF8EC;border:4px solid #DB8437;border-radius:18px;padding:22px 30px;box-shadow:0 12px 28px rgba(219,132,55,.28);}
+.cfx-thanks p{margin:0 0 10px;font:700 18px/1.5 'Inter',sans-serif;color:#1F2433;}
+.cfx-thanks .cfx-thanks-h{font:800 44px/1.1 'Fraunces',Georgia,serif;color:#B5651F;margin-bottom:12px;}
+.cfx-thanks .cfx-thanks-sig{margin:0;font-weight:700;} .cfx-thanks .cfx-thanks-sig span{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:21px;color:#262B45;}
 .cfx-close-next{margin:0;text-align:center;font:700 14px 'Inter',sans-serif;color:#262B45;}
-@media(max-width:900px){.cfx-close-did{grid-template-columns:1fr 1fr;}}
 .cfx-cg-nudge{animation:cfgShake .45s ease;}
 .cfx-cg-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 .cfx-cg-marq{display:flex;flex-direction:column;background:linear-gradient(135deg,#1B2A4A,#2B3F6B);border:2px solid var(--orange);border-radius:14px;padding:6px 16px;box-shadow:0 0 0 3px rgba(232,119,34,.18);}

@@ -67,7 +67,8 @@
 <body>
 <div class="cdv-bar" id="bar" hidden>
   <div class="t" id="title"></div>
-  <button id="pdf" type="button">⬇ Download PDF</button>
+  <button id="pdf" type="button">📄 Open PDF</button>
+  <button id="gdrive" type="button">☁️ Add to GDrive (Back up files)</button>
   <button id="cms" type="button" hidden>📤 File in the CMS</button>
   <button id="xpick" type="button" hidden>📎 Choose the exhibits</button>
   <button id="edit" type="button" class="ghost" hidden>Download editable copy (.doc)</button>
@@ -105,19 +106,18 @@
   const parts = html.split('<div class="page-break"></div>');
   out.innerHTML = `<div class="cdv-sheet">${parts.map(p => `<table class="cdv-page"><tfoot><tr><td>${foot}</td></tr></tfoot><tbody><tr><td>${p}</td></tr></tbody></table>`).join('<div class="cdv-turn"></div>')}</div>`;
   document.getElementById("bar").hidden = false;
-  /* ⬇ Download PDF: a file the trainee keeps and works from (their own binder, demand or exhibit set, uploaded to
+  /* 📄 Open PDF: a file the trainee keeps and works from (their own binder, demand or exhibit set, uploaded to
      their training Drive / the CMS for the audit), never a print dialog. Dates unchanged: the original PDF itself.
      Dates rolled forward: the page as shown, rendered to a letter-size PDF here, the footer on every page. */
   const pdfName = `${id} ${doc.title}`.replace(/[—–]/g, "-").replace(/&/g, "and").replace(/[^\w .,()-]+/g, "").replace(/\s+/g, " ").trim() + ".pdf";
-  const save = (blob) => { const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = pdfName;
-    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); };
+  // 📄 Open PDF: the PDF opens in a new tab (the browser's own viewer saves or prints it from there)
+  const show = (blob, win) => { const u = URL.createObjectURL(blob); if(win && !win.closed) win.location.href = u; else window.open(u, "_blank");
+    setTimeout(() => URL.revokeObjectURL(u), 60000); };
   const pdfBtn = document.getElementById("pdf");
-  pdfBtn.onclick = async () => {
-    const label = pdfBtn.textContent; pdfBtn.disabled = true; pdfBtn.textContent = "Preparing the PDF…";
-    try{
+  const makePdf = async () => {
       if(same && /\.pdf$/i.test(doc.file)){
         const r = await fetch("/documents/" + doc.file.split("/").map(encodeURIComponent).join("/"));
-        if(r.ok){ save(await r.blob()); return; }
+        if(r.ok) return await r.blob();
       }
       if(!window.jspdf || !window.html2canvas) throw new Error("PDF tools not loaded");
       const pdf = new window.jspdf.jsPDF({unit: "pt", format: "letter"}), W = 612, H = 792, TOP = 50, BOTTOM = 46;
@@ -142,10 +142,30 @@
           }
         }
       }finally{ stage.remove(); }
-      save(pdf.output("blob"));
-    }catch(e){
-      alert("The PDF couldn't be made here. Check your connection and try again.");
-    }finally{ pdfBtn.disabled = false; pdfBtn.textContent = label; }
+      return pdf.output("blob");
+  };
+  pdfBtn.onclick = async () => {
+    const label = pdfBtn.textContent; pdfBtn.disabled = true; pdfBtn.textContent = "Preparing the PDF…";
+    const win = window.open("", "_blank");   // opened in the click, so the browser allows it
+    try{ show(await makePdf(), win); }
+    catch(e){ if(win) win.close(); alert("The PDF couldn't be made here. Check your connection and try again."); }
+    finally{ pdfBtn.disabled = false; pdfBtn.textContent = label; }
+  };
+  /* ☁️ Add to GDrive (Back up files): the Case Manager keeps an organized backup of the case file — this PDF goes into
+     the trainee's Backup Drive (js/cm-drive.js, through the course page's cmDocFiling.keepOnDrive), in the folder its
+     kind belongs in, so the drive mirrors the case file the way the CMS does. */
+  const gBtn = document.getElementById("gdrive");
+  gBtn.onclick = async () => {
+    const hostW = [window.parent !== window ? window.parent : null, window.opener].find(w => { try{ return !!(w && w.cmDocFiling && w.cmDocFiling.keepOnDrive); }catch(e){ return false; } });
+    if(!hostW){ alert("Open this document from the course (📁 Work From, or 📁 Case Documents) to back it up to your Drive."); return; }
+    const label = gBtn.textContent; gBtn.disabled = true; gBtn.textContent = "Backing up…";
+    try{
+      const bytes = await (await makePdf()).arrayBuffer();
+      const r = await hostW.cmDocFiling.keepOnDrive(doc.folder, pdfName, bytes);
+      if(r && r.ok){ gBtn.textContent = `✓ Backed up to ${String(r.folder).split("/").pop()}`; return; }
+      alert(r && r.why === "no-drive" ? "Your Backup Drive isn't set up yet. Connect it from the course, then try again." : "The backup didn't reach your Drive. Try again.");
+    }catch(e){ alert("The backup didn't reach your Drive. Check your connection and try again."); }
+    finally{ gBtn.disabled = false; if(gBtn.textContent === "Backing up…") gBtn.textContent = label; }
   };
   /* 📤 File in the CMS: this document filed into the trainee's own case in the CMS from here, the firm's way. The course
      page that opened this viewer (the frame's parent, or the tab's opener) holds the trainee's session, the CMS beside
