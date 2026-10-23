@@ -3,12 +3,12 @@
 // every outbound tool link carries a short-lived Portal-style ticket (js/lsh-tool-links.js, /api/auth/tool-ticket).
 // This test covers both halves, with no server and no browser:
 //   1. The Worker's /api/auth/tool-ticket: a signed-in trainee gets a ticket that verifies against
-//      PORTAL_SSO_SECRET and carries their name, batch and a 5-minute expiry; an admin never gets one
-//      (an admin's ticket signs nobody in); without the secret it says so; an unapproved or archived
-//      trainee is refused.
+//      PORTAL_SSO_SECRET and carries their name, batch and a 5-minute expiry; a trainer gets the Portal's
+//      administrator ticket ({r: "a"}, no trainee name); without the secret it says so; an unapproved or
+//      archived trainee is refused.
 //   2. js/lsh-tool-links.js: every address in the Training Tools hub (js/cm-skillbuilders.js) is
-//      recognized as a tool, and ticketed() adds ?ticket= to it for a trainee and leaves it alone for
-//      an admin, the 👁 Trainee view and anything that isn't a tool.
+//      recognized as a tool, and ticketed() adds ?ticket= to it for a trainee and for a trainer (the 👁 Trainee
+//      view included, a fresh one each time) and leaves anything that isn't a tool, or anyone not signed in, alone.
 // Usage: node .github/scripts/tool-links.cjs   (from the repository root)
 const fs = require('fs');
 const path = require('path');
@@ -101,16 +101,25 @@ function loadToolLinks(stateObj, fetchImpl) {
                 if (!(left > 0 && left <= 5 * 60 * 1000 + 2000)) fail(`the ticket should be good for about 5 minutes, not ${Math.round(left / 1000)}s`);
             }
         }
-        // An admin never gets one: admins type the admin password on every LSH site, and an administrator's
-        // ticket signs nobody in. The refusal has to come from the role, not from there being no record to
-        // read: an admin's token is subject "admin", so a trainee record under that name is seeded first.
+        // A trainer gets the Portal's administrator ticket: {r: "a"}, signed the same way, good for 5 minutes, and
+        // never a trainee's name (an admin's token is subject "admin": a trainee record under that name is seeded
+        // first, so the ticket has to come from the role, not from a record that happens to be there).
         const admin = await call(env, '/api/auth/admin', { passphrase: 'ci-pass' });
         if (!admin.body || !admin.body.token) fail(`the admin password should sign an admin in: ${JSON.stringify(admin)}`);
         else {
             await env.LSH_KV.put('cm:trainee:admin', JSON.stringify({ id: 'admin', name: 'Ad Min', firstName: 'Ad', lastName: 'Min', batch: 'B100926', approved: true }));
             const adminTicket = await call(env, '/api/auth/tool-ticket', {}, { Authorization: 'Bearer ' + admin.body.token });
-            if (adminTicket.status !== 403 || (adminTicket.body && adminTicket.body.ticket)) {
-                fail(`an admin should not get a tool ticket (403, no ticket), got ${JSON.stringify(adminTicket)}`);
+            if (adminTicket.status !== 200 || !adminTicket.body || !adminTicket.body.ticket) fail(`a trainer should get a tool ticket: ${JSON.stringify(adminTicket)}`);
+            else {
+                const [payload, sig] = String(adminTicket.body.ticket).split('.');
+                if (sig !== await sign(payload, SECRET)) fail("the trainer's ticket should be signed with PORTAL_SSO_SECRET");
+                let claims = null; try { claims = JSON.parse(unb64url(payload)); } catch (e) { fail("the trainer's ticket payload should be readable JSON"); }
+                if (claims) {
+                    if (claims.r !== 'a') fail(`the trainer's ticket should be the Portal's administrator ticket (r: "a"): ${JSON.stringify(claims)}`);
+                    if (claims.first || claims.last || claims.b) fail(`the trainer's ticket must not carry a trainee's name or batch: ${JSON.stringify(claims)}`);
+                    const left = claims.exp - Date.now();
+                    if (!(left > 0 && left <= 5 * 60 * 1000 + 2000)) fail(`the trainer's ticket should be good for about 5 minutes, not ${Math.round(left / 1000)}s`);
+                }
             }
             await env.LSH_KV.delete('cm:trainee:admin');
         }
@@ -174,13 +183,19 @@ function loadToolLinks(stateObj, fetchImpl) {
         if (links.isTool(other)) fail(`${other} should not be treated as a training tool`);
         if (await links.ticketed(other) !== other) fail(`${other} should be left as it is`);
     }
-    // an admin and the 👁 Trainee view are left alone
-    for (const who of [{ traineeId: 'x', authToken: 't', isAdmin: true }, { traineeId: 'x', authToken: 't', isAdmin: false, adminPreview: true }, { traineeId: '', authToken: '' }]) {
-        const l = loadToolLinks(who, () => Promise.reject(new Error('an admin should not ask for a ticket')));
+    // a trainer and the 👁 Trainee view get a ticket too, a fresh one for every tool (the CMS takes a trainer's once)
+    for (const who of [{ traineeId: '', authToken: '', isAdmin: true, adminToken: 'a-token' }, { traineeId: 'x', authToken: 't', isAdmin: false, adminPreview: true, adminToken: 'a-token' }]) {
+        let n = 0;
+        const l = loadToolLinks(who, (u) => { n++; return fetchTicket(u); });
         const url = tools[0] ? tools[0].url : 'https://lshcasemanagementtraining-trainingcrm.pages.dev';
-        if (await l.ticketed(url) !== url) fail(`${JSON.stringify(who)}: the address should be left as it is`);
+        for (let k = 0; k < 2; k++) if (!/[?&]ticket=TESTTICKET/.test(await l.ticketed(url))) fail(`${JSON.stringify(who)}: a trainer's tool link should carry ?ticket=`);
+        if (n !== 2) fail(`${JSON.stringify(who)}: a trainer's ticket is used once, so each tool should ask for its own (asked ${n} times for 2)`);
     }
+    // nobody signed in: left alone
+    { const l = loadToolLinks({ traineeId: '', authToken: '' }, () => Promise.reject(new Error('nobody is signed in: no ticket to ask for')));
+      const url = tools[0] ? tools[0].url : 'https://lshcasemanagementtraining-trainingcrm.pages.dev';
+      if (await l.ticketed(url) !== url) fail('with nobody signed in, the address should be left as it is'); }
 
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-    console.log(`Training tools open signed in: the Worker signs a 5-minute ticket for a trainee (never for an admin), and all ${tools.length} tool addresses carry it on the way out.`);
+    console.log(`Training tools open signed in: the Worker signs a 5-minute ticket for a trainee and for a trainer, and all ${tools.length} tool addresses carry it on the way out.`);
 })().catch(e => { console.error(e); process.exit(1); });
