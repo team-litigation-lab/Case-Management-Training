@@ -166,6 +166,21 @@ her shift (first open evening slot 04/21); *Track* — confirmed attendance 04/2
 - Case costs through settlement: **$486.75** (Police Report $25.00; Medical Records and billing $214.75;
   certified mail $72.00; MRI images on disc $25.00; postage and copies $150.00).
 
+### Corrections requested before the demand (the pre-demand audit's Amendment Requests)
+
+Three records are wrong **at their source**. A Case Manager does not fix a provider's record: they ask the provider,
+in writing, to correct it, and file the corrected copy beside the original. All three requests go out **07/06/2026
+(Mon)**, during the pre-demand audit, each with the claim-specific HIPAA authorization.
+
+| Record | Wrong at the source | Request to | Answer |
+|---|---|---|---|
+| Summit Imaging MRI (RS16) | History line gives 02/16/2026 as the injury date (the DOL is 02/06/2026) | Summit Imaging Center, Health Information Management (**Marisol Ortega**, HIM Supervisor): correct the date only, never the findings | **Corrected history addendum, 07/15/2026** (RS72): date of injury 02/06/2026; findings and impression unchanged |
+| Crescent Pain & Spine patient statement (RS26) | Bills John the **$1,540.00** contractual adjustment; Crescent is in network, paid $1,860.00 by Peach State, and cannot balance-bill | Crescent Patient Billing (**Renee Halvorsen**, Billing Lead) | **Corrected statement, $0.00, 07/10/2026** (RS73): adjustment posted, account closed |
+| Riverton Spine & Rehab itemized ledger (RS23) | 05/04/2026 billed twice: 34 lines, $6,290.00, against 33 visits | Riverton Spine & Rehab (**Tammy Greer**, office manager) | **07/09/2026:** the ledger is reissued only when the LOP account closes. No corrected copy before the demand: the demand goes out on the audited **$6,105.00** with the attendance log, the Lien Tracker shows $6,290.00 claimed / $6,105.00 audited, and a follow-up is docketed. (The Final Itemized Ledger is requested again 02/08/2027; the refreshed ledger that arrives 05/24/2027 still carries the duplicate, so the audited $6,105.00 stands on the attendance log.) |
+
+The Demand Package as served (RS67) carries the two corrected copies (Exhibit E: Crescent's $0.00 statement; Exhibit F:
+the MRI with its addendum) and Riverton Spine & Rehab's ledger audited to 33 visits, $6,105.00.
+
 ## 3. Day 3 — the demands, and Track A: the file settles
 
 - **07/20/2026 (Mon)** BI **Time-Limited Demand** to Keystone (Dana Whitfield) for the $10,000 limits,
@@ -314,10 +329,10 @@ the facts above. Fictional throughout; no real carrier, provider or firm.
 | Riverton PD | Officer **Thomas Garner #2217** · report RPD-26-018842 |
 | Riverton Fire EMS | Medic 7 · run RF-26-0206-114 · paramedic **J. Ortiz** · on scene 07:18 |
 | Riverton Urgent Care | 1450 Birch Ave · **Nina Patel, PA-C** |
-| Riverton Spine & Rehab | 300 Mill St · **Dr. Mark Ellison, DC** (chiropractic) · **Sara Lin, DPT** (PT) · billing and LOP: **Tammy Greer**, office manager · $185.00 per visit (chiro + PT, one line per visit date) |
+| Riverton Spine & Rehab | 300 Mill St · **Dr. Mark Ellison, DC** (chiropractic) · **Sara Lin, DPT** (PT) · billing and LOP: **Tammy Greer**, office manager (tgreer@rivertonspinerehab.example) · $185.00 per visit (chiro + PT, one line per visit date) |
 | Lakeside Orthopedics | 2 Lakeside Dr · **Dr. Alana Reyes, MD** · $640.00 per visit (03/05, 03/27, 06/12/2026) |
-| Summit Imaging Center | 88 Summit Pkwy · radiologist **Dr. Helen Park, MD** · $2,395.00 cervical MRI without contrast |
-| Crescent Pain & Spine | 41 Crescent Ct · **Dr. Omar Haddad, MD** · in network with Peach State |
+| Summit Imaging Center | 88 Summit Pkwy · radiologist **Dr. Helen Park, MD** · $2,395.00 cervical MRI without contrast · records and amendments: Health Information Management, **Marisol Ortega**, HIM Supervisor (him@summitimaging.example) |
+| Crescent Pain & Spine | 41 Crescent Ct · **Dr. Omar Haddad, MD** · in network with Peach State · Patient Billing: **Renee Halvorsen**, Billing Lead (billing@crescentpainspine.example), account CPS-30442 |
 | Prior care (2021) | **Birch Avenue Chiropractic**, Dr. Lena Ford, DC · three visits 05/04, 05/11, 05/18/2021 · low-back stiffness, resolved, released to full activity |
 | Riverton Drug | 1500 Birch Ave · total $312.40 (OTC receipt 02/07/2026 $38.60; prescriptions and OTC through 06/2026) |
 | Northgate Distribution | 900 Industrial Pkwy, Riverton · HR: **Angela Ruiz**, HR manager · wage-and-attendance letter 06/30/2026 |

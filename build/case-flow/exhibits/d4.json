@@ -39,10 +39,10 @@
         {
           "ref": "§3",
           "what": "The Complaint",
-          "as": "The pre-filing draft: unsigned, no case number, the Property Damage counts missing.",
+          "as": "The pre-filing draft: unsigned, no case number, marked DRAFT 09/15/2026.",
           "verdict": "replace",
           "kind": "loophole",
-          "issue": "A superseded draft is not the operative pleading, and it leaves out counts that are actually in suit. In front of the mediator it invites an argument about what was pleaded at all.",
+          "issue": "A superseded draft is not the operative pleading. In front of the mediator, and in Mercer's hands, it invites an argument about what was pleaded at all.",
           "fix": "Replace it with the Complaint filed 09/24/2026, No. 26-CV-04417, and take the draft out of the binder set entirely.",
           "proof": [
             "RS50",
@@ -178,12 +178,12 @@
         },
         {
           "ref": "§5",
-          "what": "Margaret Doe's Property Damage claim",
-          "as": "Nowhere in the binder, though the filed Complaint pleads its counts.",
-          "verdict": "add",
+          "what": "Property Damage in the damages section",
+          "as": "None: Section 5 carries John Doe's bodily injury damages only.",
+          "verdict": "keep",
           "kind": "gap",
-          "issue": "A pleaded count the mediator never sees. And once it is added, it has to sit apart: Loss of Use and Diminished Value are not John Doe's bodily injury specials and must never drift into that ledger.",
-          "fix": "Add it as its own schedule, marked as Margaret Doe's claim and outside the $40,000 stack: Loss of Use 48 days × $42.00 = $2,016.00, Diminished Value $3,600.00 against Keystone's $792.00.",
+          "issue": "Right as drafted. John Doe's suit pleads no Property Damage: Loss of Use and Diminished Value are Margaret Doe's own claim with Keystone PD, and a figure of hers in his ledger is a figure Mercer would strike.",
+          "fix": "Confirm before delivery that no Property Damage figure ($2,016.00 Loss of Use, $3,600.00 Diminished Value) has drifted into Section 5 or the lien summary.",
           "proof": [
             "RS51",
             "RS46"
@@ -217,10 +217,10 @@
         {
           "ref": "—",
           "what": "The delivery date",
-          "as": "Read off the Scheduling Order as 03/31/2027.",
-          "verdict": "replace",
+          "as": "Due to the mediator 03/11/2027, as the draft's header has it.",
+          "verdict": "keep",
           "kind": "calendar",
-          "issue": "03/31/2027 is the court's deadline for the mediation to be completed, not the session date. The session is 03/18/2027 and the mediator's confirmation requires the statement and binder seven days before, so 03/31 is twenty days too late.",
+          "issue": "Right as drafted: seven days before the 03/18/2027 session, as the mediator's confirmation requires. 03/31/2027 is the court's deadline for the mediation to be completed, not a delivery date.",
           "fix": "Docket delivery for 03/11/2027 with the approval step ahead of it, and keep 03/31/2027 on the calendar as the court's completion deadline.",
           "proof": [
             "RS57",
@@ -296,11 +296,11 @@
           "verdict": "add",
           "kind": "gap",
           "issue": "UM opens only once the bodily injury layer is exhausted. Without that record the arbitrator has no reason to reach the damages tabs at all, and both carriers can say so on the first morning.",
-          "fix": "Add them as the first exhibits of Tab 1, with both Coverage Letters: Keystone's 08/12/2026 tender, the UM consents of 08/24 and 08/26/2026, the Limited Release and the dismissal.",
+          "fix": "Add them as the first exhibits of Tab 1, with both Coverage Letters: the Mediated Settlement Term Sheet of 03/18/2027 with Keystone's tender and both UM consents, the Limited Release and the dismissal.",
           "proof": [
-            "RS36",
-            "RS38",
-            "RS37"
+            "RS59",
+            "RS28",
+            "RS29"
           ]
         },
         {

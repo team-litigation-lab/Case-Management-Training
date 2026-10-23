@@ -1139,7 +1139,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 A vertical three-rung ladder in the centre of the slide, built bottom-up so the stacking order reads physically. Rung 1 (bottom, navy): BI $10,000. Rung 2 (navy-soft): HOST UM $20,000. Rung 3 (top, orange): RELATIVE UM $10,000. Each rung is a rounded bar carrying its carrier, claim number and adjuster in small mono type on the right. To the right, a vertical orange brace spans all three rungs with the total, $40,000, set large in Fraunces. Below, one empty verification checkbox per layer in an orange-bordered card headed VERIFY EACH LAYER. The rungs are numbered 1-2-3 bottom to top and never reordered.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date 02/17/2026, before the letters go out. All three carriers opened claims by phone on 02/16–02/17/2026 and reported their limits on the set-up calls. Nothing is confirmed in writing: today's LORs will request each Declaration Page, and Keystone, the third-party carrier, will want authorizations first. Nothing has been entered in the CMS Insurance tab.
 
@@ -1227,7 +1227,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 A letter-assembly workbench. Centre: the firm-letterhead LOR template as a white page with six orange-badged slots — ① Attn ② Subject line ③ Client and insured ④ Injury notice and demand-to-follow ⑤ Requests: limits, Dec Pages, additional coverage, preservation ⑥ Signature, ATTY. ELIJAH THORNE. Left margin: five tabs, one per letter, the three stack carriers in navy and the two notices in grey. Right margin: a delivery rail of three chips — ROUTED FOR SIGNATURE → SENT BY PREFERRED METHOD → ACK DUE 02/19 · FOLLOW UP 02/20. Two red danger callouts: over slot ③ on the Keystone tab, “Name only”; over slot ④ on both UM tabs, “Notice, not demand.”
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date 02/17/2026. Claims were opened by phone 02/16–02/17/2026: Keystone Mutual BI KM-26-440871 (Dana Whitfield) and PD (Leah Moran; PD liability accepted today), Harbor Point HP-26-7741 (Marcus Bell; Host UM and PIP), Cardinal State Mutual CS-26-20355 (no adjuster assigned). Each carrier's preferred delivery method is in the Communications Log. John Doe has not started treatment.
 
@@ -1304,7 +1304,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 A full-width CMS Coverage Matrix in a white card with a navy header bar: six rows, deliberately imperfect. A navy rail on the left marks the stack rows; PIP sits wrongly inside it as row 4. A thin grey divider separates the outside-the-stack rows on a grey rail. The footer total, $45,000, is set large. On the answer reveal only, hollow red audit rings appear on the planted errors, the footer is struck through in red with $40,000 beside it, and the PIP row drops below the divider. Right margin: an audit-note card addressed to ATTY. ELIJAH THORNE with three headed lines — CONFIRMED IN WRITING · PRELIMINARY · ESCALATED. The argument: the matrix is only as good as the document behind each cell.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date 03/11/2026. A colleague kept John Doe's Coverage Matrix. In the file: Harbor Point's written confirmation (03/02/2026), Cardinal State's assignment of Teresa Okafor (03/03/2026) and Coverage Letter (03/09/2026), and Keystone's written request with authorizations, sent, with no Declaration Page yet. This morning Summit Imaging asked for an LOP; declined, because PIP applies first.
 
@@ -1395,7 +1395,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 A horizontal treatment timeline is the whole slide. Far left, a navy node: DOL · 02/06/2026. From it runs a conspicuous empty span, a hatched hollow orange band with no event markers, fourteen day-ticks wide, labelled NO TREATMENT · 14 DAYS. At its right end a node, FIRST TREATMENT · 02/20/2026, after which visit markers begin, running into a dashed span ahead labelled WATCH: ANY LATER BREAK IN CARE. Beneath, three consequence cards fan out from the hollow band on orange leader lines: CAUSATION CHALLENGE · VALUATION PRESSURE · CREDIBILITY ATTACK. The emptiness of the band is the message; never fill it with decoration.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** John Doe's first treatment records have arrived. The date of loss is 02/06/2026. The first treatment record is dated 02/20/2026; chiropractic care at Riverton Spine & Rehab began on 02/24/2026.
 
@@ -1468,7 +1468,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 A full-slide editor canvas showing the live plan with all five bands stubbed and their required fields outlined in orange. A completion meter runs across the top in five segments that fill as each band is completed. The risks band carries a red required marker so it can't be skipped silently. Bottom-right, the ROUTE FOR REVIEW control is greyed out and locked until all five segments are filled, with a label: “all five bands required.” The lock is the argument: the tool won't let an incomplete plan reach counsel.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** Everything from Day 1 and Claim Set Up is in the file: parties mapped, the $40,000 stack verified, the onboarding packet delivered and tracked, and the 14-Day Treatment Gap identified. The Regulatory Triple-Check is still open: it clears in the Treatment Phase, before the first bill is routed. Atty. Thorne is waiting on the Case Plan.
 
@@ -1544,7 +1544,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 A CMS Communications Log as a table across the full slide width, four rows pre-filled as worked examples and four blank rows outlined in orange for the trainee. Columns: Date · Time · Channel · Outcome · Next action. In the right margin, a vertical coverage tracker of four chips (Phone ×2, Email, SMS, Emergency contact), each grey until its rung is cleared, then orange. Bottom strip, in danger red: a BAD entry, “called client, no answer”, with no date, time or channel, annotated with what is missing.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** John Doe has not responded for six days. He missed a scheduled check-in call and his treatment has not begun. Two voicemails have been left on his mobile. Nothing has been logged. An emergency contact was collected at intake.
 
@@ -1618,7 +1618,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 A split drafting view. Left two-thirds: the live letter draft on white letterhead, the four required elements highlighting in pale orange as they are completed, with a completeness meter above the page from 0/4 to 4/4. A chip pair in the header (CERTIFIED MAIL + EMAIL) must both be ticked before the draft can be sent. Right third: a UPL guard-rail panel on a danger-bordered card listing banned phrases in red strikethrough — “you will lose your case,” “we are withdrawing,” “your claim will be worth less” — each with a compliant navy rewrite directly beneath it.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** John Doe has been unreachable for eleven days. The phone rung is cleared, emails and texts have been sent and the emergency contact has been tried, all logged. Step 3 escalation has been made to Atty. Thorne. Treatment still has not begun.
 
@@ -1693,7 +1693,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 Two dated envelopes side by side, each a white card with a navy header. Left, 02/23/2026 → RIVERTON SPINE & REHAB: an outgoing LOP with three orange numbered badges, ① payer check: out of network ② Atty. Thorne's approval and signature ③ receipt confirmed, and a green ✓ transmit stamp. Right, 03/11/2026 → SUMMIT IMAGING CENTER: a decline letter carrying a mono pill PIP LEFT $3,675.00 ≥ MRI $2,395.00 and an orange arrow routing the bill to Harbor Point. Beneath both, a slim cream baseline card: 2021 · LOW BACK · RESOLVED beside 2026 · NECK, two separate outlined zones. A red callout bottom-right: “No amount promised.”
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** 02/23/2026: John Doe's first treatment was at Riverton Urgent Care on 02/20/2026 ($685.00, to Harbor Point PIP). Chiropractic and PT at Riverton Spine & Rehab begin 02/24/2026; it is out of network for Peach State. Atty. Thorne has approved the firm's LOP template. John Doe had three chiropractic visits in 2021, for low-back stiffness. 03/11/2026: Summit Imaging Center, booked for the cervical MRI Dr. Reyes ordered on 03/05/2026, asks for an LOP.
 
@@ -1770,7 +1770,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 A single annotated CMS Liens screen filling two-thirds of the slide, a white card with a navy header bar. Five fields are called out with orange numbered badges and leader lines to short labels in the right margin: ① Plan carrier ② Member ID ③ Group number ④ Payer Order position ⑤ Reimbursement flag. Below the screen, a slim two-state timeline: a green node, FLAGGED NOW · before demand, and a red node, FOUND AT DISBURSEMENT · client's net is hit, crossed out. Keep the red state on the slide: trainees need to see the failure they are avoiding.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** Peach State Health Plan has begun paying John Doe's accident-related treatment. No lien record exists on the matter yet, and the pre-demand audit is still ahead.
 
@@ -1842,7 +1842,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 A horizontal treatment timeline across the slide from 04/02/2026 to 04/24/2026. A hollow red band spans 04/02 → 04/21, labelled 19 DAYS · NO VISITS, with four red ✗ markers at 04/03, 04/07, 04/09 and 04/14. Above the band, the A-C-T steps as three orange-badged navy cards pinned to their dates: ① ASSESS 04/08 ② COORDINATE 04/08 → 04/10 rental refused → 04/21 evening slot ③ TRACK 04/21 · 04/23 with green ✓ markers. A grey mono pill at 04/24 reads CIVIC RETURNED. Below, the three Transportation Wall options as cream cards, A · B · C. The empty red band is the argument: every day of it needs a documented reason.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** 04/08/2026: Riverton Spine & Rehab's missed-visit alert. John Doe missed 04/03 and 04/07; his last visit was 04/02/2026. As you work, the file moves: Keystone PD (Leah Moran) answers your rental request on 04/10/2026, the clinic's first open evening slot is 04/21/2026, John Doe misses 04/09 and 04/14 meanwhile, and the Civic comes back from the shop on 04/24/2026.
 
@@ -1930,7 +1930,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 The CMS Tasks board fills the slide as a white card with a navy header, JOHN DOE · PAIN-MANAGEMENT REFERRAL, and ten rows. Each row ends in a status chip: green DONE · 04/22/2026 for the CM's own work, orange DELEGATED with the owner's name and a mono due date, grey OPEN · DUE 05/18/2026 for the attendance check. Above the board, a slim calendar strip from 05/13/2026 to 05/18/2026: the 05/14 slot at Millbrook Interventional Pain Center struck through in red, the 05/15 slot at Crescent Pain & Spine in navy with an IN NETWORK · PEACH STATE pill, a bell at 05/13 (reminder call) and a check at 05/18 (attendance). Bottom-right, a red chip: “His choice of facility. Dr. Reyes's care.”
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** 04/22/2026, 12:18 p.m.: a voicemail from John Doe. Care resumed at Riverton Spine & Rehab on 04/21/2026 on evening slots, with Margaret Doe driving after her shift; the Civic is still in the shop. Yesterday Lakeside Orthopedics' scheduling desk booked the pain-management injection Dr. Alana Reyes referred him for on 03/27/2026 at Millbrook Interventional Pain Center, in Millbrook, for 05/14/2026. John Doe won't go: it is far out in Millbrook, he has no reliable ride there, and he heard it is out of network with Peach State. Dr. Reyes's 03/27/2026 note names Crescent Pain & Spine (Dr. Omar Haddad, 41 Crescent Ct, Riverton). Lakeside's referral coordinator is Janelle Brooks.
 
