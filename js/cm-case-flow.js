@@ -4691,6 +4691,7 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-ag-side{background:#FFFDF8;color:var(--ink);border:3px solid #DB8437;border-radius:20px;padding:12px 20px;font:500 17px/1.5 'Inter',sans-serif;text-align:left;}
 .cfx-ag-side .cfx-ag-day{margin:0 0 8px;font:800 22px/1.25 'Poppins','Inter',sans-serif;color:#262B45;}
 .cfx-ag-side p{margin:0;}
+.cfx-ag-side p:not(.cfx-ag-day){font-weight:700;color:#1A1E2E;}   /* the day's objective, bold enough to read on a projector */
 /* a long, interleaved day: the objective on top, the agenda in two columns read down */
 .cfx-ag.cfx-ag-long{grid-template-columns:minmax(0,1fr);gap:14px;}
 .cfx-ag-long .cfx-ag-side{order:-1;padding:10px 18px;font-size:15px;}
