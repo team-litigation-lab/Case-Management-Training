@@ -32,6 +32,8 @@ jobs:
         run: node .github/scripts/batch-id.cjs
       - name: Single sign-on (the Portal is the only way a trainee gets in; a missing PORTAL_SSO_SECRET says so)
         run: node .github/scripts/sso.cjs
+      - name: Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400)
+        run: node .github/scripts/worker-guards.cjs
       - name: Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's)
         run: node .github/scripts/tool-links.cjs
       - name: Gemini key pool (every numbered key is used, keys take turns, a key out of credits rests; Google answered by the test)

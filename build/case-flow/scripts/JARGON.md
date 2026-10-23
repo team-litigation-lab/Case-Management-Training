@@ -384,10 +384,10 @@ Confirm: how fault is split, and whether a client's share can bar recovery, vari
 Confirm: what the forum's rules require to authenticate video; Atty. Thorne decides.
 
 
-### Conflict Resolver / Docket System
-**Plain words:** The Docket System is the firm's official calendar of deadlines, each with its rule, owner and reminders. The Case Docket & Calendar Conflict Resolver is the CMS screen where you check every calendar entry against the document it came from and fix the ones keyed wrong.
+### Conflict Resolver / Court E-Filing
+**Plain words:** Court E-Filing is where the firm files with the court and keeps the case's court dates and deadlines, each with its rule, owner and reminders. The Case Docket & Calendar Conflict Resolver is the CMS screen where you check every calendar entry against the document it came from and fix the ones keyed wrong.
 
-**Say it like this:** "The Docket System is the calendar. The Conflict Resolver is the fact-checker for the calendar. A deadline someone typed from memory is a rumor; a deadline you recomputed from the 12/10/2026 Scheduling Order is a fact. Count 30, add 3 for mail, and if it lands on a Sunday, move it forward."
+**Say it like this:** "Court E-Filing is the calendar. The Conflict Resolver is the fact-checker for the calendar. A deadline someone typed from memory is a rumor; a deadline you recomputed from the 12/10/2026 Scheduling Order is a fact. Count 30, add 3 for mail, and if it lands on a Sunday, move it forward."
 
 **Why it matters for the settlement:** One wrong deadline can mean deemed-admitted requests or a missed filing, and that hands the other side leverage for free.
 

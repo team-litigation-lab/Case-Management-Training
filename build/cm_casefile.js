@@ -62,7 +62,9 @@ const CLIENT_PROFILE_DOC = [
     "03/13/2026 Summit Imaging Center, cervical MRI (Dr. Helen Park): C5-C6 herniation, \"no significant degenerative change at the adjacent levels\" · $2,395.00 (PIP)",
     "03/27/2026 Lakeside Orthopedics follow-up, referral to pain management · $640.00 (PIP)",
     "04/02 → 04/21/2026: disrupted care, 19 days with no visits (missed 04/03, 04/07, 04/09, 04/14)",
+    "04/20/2026 Lakeside Orthopedics, Dr. Reyes: telephone encounter, no charge · anxiety and avoidance of car travel after the collision; referral to counseling through Northgate's EAP",
     "04/21–06/05/2026 Riverton Spine & Rehab: 17 visits, care resumed (LOP)",
+    "04/24–06/05/2026 Stonebridge EAP Services (Northgate's EAP), Renee Castillo, LPC: six counseling sessions by video, no charge",
     "05/15/2026 Crescent Pain & Spine, Dr. Omar Haddad: cervical epidural steroid injection · billed $3,400.00, Peach State paid $1,860.00 at contract rate (no balance billing)",
     "06/12/2026 Lakeside Orthopedics: MMI · residual intermittent right-arm paresthesia · possible 1–2 repeat ESIs within 24 months ($3,400–$6,800 future medical) · $640.00 (PIP, now exhausted)",
     "02/07–06/2026 Riverton Drug: prescriptions and OTC · $312.40, John out of pocket"
@@ -73,8 +75,9 @@ const CLIENT_PROFILE_DOC = [
     "Keystone disclosed nothing before a written request with authorizations; BI $10,000 confirmed by its Declaration Page 03/20/2026"
   ]},
   {section:"The Disruption", items:[
-    "Keystone ended Margaret's rental 03/19/2026 (30-day cap) while the Civic waited for parts; Kevin's shift changed 04/01/2026, ending the carpool.",
-    "John missed PT visits from 04/03; the CM learned of it 04/08/2026 from Riverton Spine & Rehab's missed-visit alert."
+    "John missed PT from 04/03 and answered no one; the CM learned of it 04/08/2026 from Riverton Spine & Rehab's missed-visit alert and ran the No Contact Protocol: notices 04/08 and 04/09, Margaret Doe 04/10, a 10-day Final Warning Letter 04/10 (respond by 04/20), status Drop Warning.",
+    "John called 04/17, the last business day before the deadline: on 04/02, stopped at the collision corner by his house, he had panicked in the car, and since then he had avoided riding in cars, slept badly and felt low. Not willful non-compliance: crash-related anxiety.",
+    "Background, not the cause: Keystone ended Margaret's rental 03/19/2026 (30-day cap) while the Civic waited for parts; Kevin's shift changed 04/01/2026, ending the carpool."
   ]},
   {section:"Property Damage: Margaret's Civic", items:[
     "A separate claim with Keystone PD (adjuster Leah Moran), outside the $40,000 stack · PD liability accepted 02/17/2026",
@@ -91,7 +94,8 @@ const CLIENT_PROFILE_DOC = [
     "Riverton Spine & Rehab billed 34 lines × $185.00 = $6,290.00, but 05/04/2026 is a duplicate: 33 visits = $6,105.00 after audit",
     "PIP paid in date order $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00 (exhausted 06/2026)",
     "Medical specials: $15,002.40 billed → $14,817.40 after the audit · lost wages: 9 shifts × 8 h × $22.00 = $1,584.00 (Northgate HR letter) · total Specials $16,401.40",
-    "A-C-T: Assess, called John 04/08 · Coordinate, asked Keystone PD to extend the rental (refused 04/10), then moved John to evening slots so Margaret could drive him (first open slot 04/21) · Track, attendance confirmed 04/21 and 04/23 · the Civic came back 04/24"
+    "A-C-T: Assess, the No Contact Protocol from 04/08 until John called 04/17 (trauma-informed interview) · Coordinate, Dr. Reyes by phone 04/20 (no charge; referral to Northgate's EAP), evening slots under the LOP with Margaret driving (from 04/21) · Track, file restored 04/20 (Drop Warning cleared, 14-day trigger reset, Action Plan updated), attendance confirmed 04/21 and 04/23",
+    "Mental anguish, documented for the non-economic damages: Dr. Reyes's 04/20/2026 note; six EAP counseling sessions 04/24–06/05/2026 at no charge, summary 06/10/2026; John's Personal Impact Statement 06/15/2026. No new bills: Specials stay $16,401.40"
   ]},
   {section:"Why the 14-Day Gap Happened", items:[
     "No transportation: the Civic was towed from the scene, Kevin's Escape was in the shop, and no rental was authorized until 02/18/2026",

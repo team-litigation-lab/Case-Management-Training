@@ -103,13 +103,15 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
         for (let i = 0; i < slides.length; i++) {
             state.lessonSlide = i; render(); await sleep(0);
             const aud = document.querySelector('.cfx-aud');
-            if (aud) return { slide: i, of: slides.length, text: aud.textContent.replace(/\s+/g, ' ').trim().slice(0, 200) };
+            // Day 3 carries more than one audit (the wage worksheet comes before the demand): find this activity's
+            if (aud && aud.textContent.includes(CM_CF_EXHIBITS.audits[block].title)) return { slide: i, of: slides.length, text: aud.textContent.replace(/\s+/g, ' ').trim().slice(0, 200), sim: !!aud.querySelector('.cfx-simnote') && /generated in real time/.test(aud.textContent) };
         }
         return null;
     }, BLOCK);
     check(!!slide, `the audit is one of Case Flow Day 3's slides: ${JSON.stringify(slide && slide.slide)} of ${slide && slide.of}`);
     check(!!slide && /Exhibit Packet Audit/.test(slide.text), `and it names the set being audited: ${slide && slide.text.slice(0, 90)}`);
     check(!!slide && !/FINAL as served/.test(slide.text), 'and does not give the completed package away before the audit is handed in');
+    check(!!slide && slide.sim, 'and says plainly that its results are generated in real time for accelerated training');
 
     const bench = async () => { await page.evaluate((b) => cmCaseFlow.audit(b), BLOCK); await page.waitForSelector('#cf-bench .ab-table'); };
     const benchText = () => page.evaluate(() => document.getElementById('cf-bench').textContent.replace(/\s+/g, ' ').trim());
@@ -121,6 +123,7 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     check((await page.locator('#cf-bench .ab-sel').count()) === n, 'each one with a call to make');
     check((await page.locator('#cf-bench .ab-note').count()) === n, 'and a note to write');
     check(!/would have cost/i.test(await benchText()), 'and says nothing yet about what each item would cost');
+    check(/generated in real time, strictly for accelerated training/.test(await benchText()), 'the workbench carries the real-time training disclaimer');
 
     // 3. a hand-in with an item uncalled is refused, and nothing is revealed
     await page.evaluate((b) => { CM_CF_EXHIBITS.audits[b].items.forEach((it, i) => { if (i) cmCaseFlow.auditMark(b, i, it.verdict); }); cmCaseFlow.auditHandIn(b); }, BLOCK);
@@ -152,6 +155,7 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     await page.evaluate((b) => cmCaseFlow.service(b), BLOCK);
     await page.waitForSelector('#cf-sv .sv-write');
     check(!/certified mail|return receipt/i.test(await page.locator('#cf-sv').innerText()) && (await page.locator('#cf-sv .sv-step').first().innerText()).includes('serves the demand'), 'the demand is served by the email itself, with no certified mailing step before it');
+    check(/generated in real time, strictly for accelerated training/.test(await page.locator('#cf-sv').innerText()), 'the Service Confirmation carries the real-time training disclaimer');
     const short = await page.evaluate((b) => { document.querySelector('#cf-sv .sv-write').value = 'Got it, thanks.'; cmCaseFlow.svSend(b); return document.querySelector('#cf-sv .sv-msg').innerText; }, BLOCK);
     check(/Not sent/.test(short), `an email too short to do the job is refused: ${short.replace(/\s+/g, ' ').slice(0, 80)}`);
     const partial = await page.evaluate((b) => {
