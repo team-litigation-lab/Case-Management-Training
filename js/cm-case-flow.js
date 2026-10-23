@@ -837,8 +837,8 @@ function slideBody(view, l, d){
       const body = f.kind === "table"
         ? `<div class="cfx-fw-scroll"><table class="cfx-fw-tbl"><thead><tr>${f.head.map(h => `<th>${E(h)}</th>`).join("")}</tr></thead><tbody>${f.rows.map((r, i) => `<tr style="animation-delay:${i * .05}s">${r.map((x, j) => j ? `<td>${hl(x)}</td>` : `<th scope="row">${hl(x)}</th>`).join("")}</tr>`).join("")}</tbody></table></div>`
         : f.kind === "flow"
-          ? `<ol class="cfx-fw-flow" style="--n:${steps.length}">${steps.map((x, i) => `<li style="animation-delay:${i * .07}s"><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span></li>`).join("")}</ol>`
-          : `<div class="cfx-fw-list">${steps.map((x, i) => `<div style="animation-delay:${i * .05}s"><b>${E(x.label)}</b><span>${hl(x.text)}</span></div>`).join("")}</div>`;
+          ? `<ol class="cfx-fw-flow" style="--n:${steps.length}">${steps.map((x, i) => `<li style="animation-delay:${i * .07}s"><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span>${stepMore(b, x, i)}</li>`).join("")}</ol>`
+          : `<div class="cfx-fw-list">${steps.map((x, i) => `<div style="animation-delay:${i * .05}s"><b>${E(x.label)}</b><span>${hl(x.text)}</span>${stepMore(b, x, i)}</div>`).join("")}</div>`;
       return `<div class="cfx-fw"><h3 class="cfx-fw-t">${E(String(f.title).replace(/,?\s*\(?Steps?\s+\d+\s*[–-]\s*\d+\)?\s*$/i, ""))}</h3>${body}${f.note ? `<p class="cfx-fw-note">${hl(f.note)}</p>` : ""}</div>`;
     }
     case "doc": {   // The Document: what it is, why the law cares, what it proves, and the Case Manager's handling
@@ -884,18 +884,18 @@ function slideBody(view, l, d){
          service confirmation goes to the right column */
       return `${plainBox(b)}<div class="cfx-do-now"><b>🧪 Practice Lab</b><span>Work the steps in ${E(whereName)}${SIM.calls[b.id] ? ", take the live call" : ""}, then <em>Deliver</em>.</span></div>
       <div class="cfx-task"><div class="cfx-task-main"><ol class="cfx-points">${c.steps.map(x => `<li><span>${hl(x)}${stepLink(x, b)}</span></li>`).join("")}</ol>
-        ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}</span>
+        ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}<small class="cfx-simnote-s">⏱ Simulated in real time for accelerated training</small></span>
           <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
-        ${serviceOf(b.id) && !SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ Service Confirmation</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
-          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the Service Confirmation</button></div>` : ""}
+        ${serviceOf(b.id) && !SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ ${E(svWords(serviceOf(b.id)).label)}</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
+          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the ${E(svWords(serviceOf(b.id)).label)}</button></div>` : ""}
         ${amendOf(b.id) ? (s => `<div class="cfx-call cfx-svb"><b>📝 Skill Builder: Amendment Requests</b><span>${E(amendOf(b.id).kicker)}${s.sent ? ` · <em>${s.sent} of ${s.of} sent · ${s.filed} of ${s.copies} corrected copies filed</em>` : ""}</span>
           <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.amend('${b.id}')">📝 Open the Amendment Requests</button></div>`)(amSummary(b.id, amendOf(b.id), amRec(b.id))) : ""}</div>
       <aside class="cfx-side">${c.purpose || c.principle ? `<div class="cfx-why">${c.purpose ? `<b>🎯 Purpose</b><span>${hl(c.purpose)}</span>` : ""}${c.principle ? `<b>⚖️ Principle</b><span>${hl(c.principle)}</span>` : ""}</div>` : ""}
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
         ${notesOf(b.id) ? `<div class="cfx-call cfx-svb"><b>📝 Notes &amp; Action Plan</b><span>${npParts(b.id).filter(p => p.done).length} of ${npParts(b.id).length} done</span>
           <button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.notes('${b.id}')">📝 Open</button></div>` : ""}
-        ${serviceOf(b.id) && SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ Service Confirmation</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
-          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the Service Confirmation</button></div>` : ""}
+        ${serviceOf(b.id) && SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ ${E(svWords(serviceOf(b.id)).label)}</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
+          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the ${E(svWords(serviceOf(b.id)).label)}</button></div>` : ""}
         <button type="button" class="cfx-deliver" onclick="nextSlide()" title="Hand it in, then check your work"><b>📤 Deliver</b><span>${hl(c.deliver)}</span><em>Hand in &amp; check your work ➔</em></button></aside></div>`; }
     case "check": { const open = answersOpen(b.id);
       return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${open ? (justRevealed === b.id ? hl(x).replace(/class="cfx-hl"/g, 'class="cfx-hl cfx-unblur"') : hl(x)) : masked(x)}</span></label>`).join("")}</div>
@@ -1402,6 +1402,18 @@ const EKIND = {loophole: "Loophole", gap: "Evidentiary gap", privilege: "Privile
   qc: "Copy not fit to use", arithmetic: "Figure that doesn't tie", calendar: "Date counted from the wrong event"};
 const auditOf = id => EX.audits[id] || null;
 const serviceOf = id => EX.emails[id] || null;
+/* The simulation's disclaimer. Lien amounts, insurer and provider replies and recovery records arrive here in minutes
+   so the work can be practised in a session; on a real file they take weeks. Shown wherever a simulated party answers:
+   the audit slide and workbench, the Service Confirmation and the live call. */
+const SIM_NOTE = "Training simulation: lien amounts, insurer and provider responses and recovery records are generated in real time, strictly for accelerated training. On a real file they take weeks of administrative back-and-forth.";
+const simNote = () => `<p class="cfx-simnote" role="note"><b>⏱ Real-time results</b> ${E(SIM_NOTE)}</p>`;
+/* The Service Confirmation's own words are the demand's (d3m1-a1); an exchange with another party (a lienholder, an
+   employer) names its own in the email's `labels` (build/case-flow/exhibits/EXHIBITSPEC.md). */
+const svLabels = e => Object.assign({write: "The email that serves the demand", reply: "The adjuster's written acknowledgment",
+  send: "Send it to the adjuster", who: "Dana Whitfield", sentTime: "4:21 p.m.", sentToast: "Sent. Her acknowledgment is in the thread.",
+  warn: "Audit the set before you serve it: nothing goes out that has not been audited.",
+  why: "A thread in a mailbox is not on the case file: a colleague covering the file cannot find it, and it is not in the backup. Converted, filed and backed up, the carrier's own confirmation of the date that started the clock is part of the case.",
+  folderNote: "every demand and negotiation document on the case", rightToast: "Right: recorded, routed, and the date stays on the docket.", aria: "Your email serving the demand", original: "Demand-Service-Acknowledgment.pdf"}, (e && e.labels) || {});
 function exRec(blockId){ REC.audits = REC.audits || {}; return (REC.audits[blockId] = REC.audits[blockId] || {marks: [], notes: [], at: null}); }
 function svRec(blockId){ REC.service = REC.service || {}; return (REC.service[blockId] = REC.service[blockId] || {sent: null, body: "", tries: 0, choice: null, converted: null, filed: null, drive: null}); }
 const exScore = (a, r) => a.items.reduce((n, it, i) => n + (r.marks[i] === it.verdict ? 1 : 0), 0);
@@ -1416,7 +1428,7 @@ function auditSlide(b){
   const src = exDoc(a.source), rev = exDoc(a.reveal);
   const head = `<div class="cfx-aud-h"><span class="cfx-chip">📁 ${E(a.title)}</span>
       <span class="cfx-aud-due">⏰ Out the door by <b>${E(a.due)}</b></span></div>
-    <p class="cfx-aud-intro">${hl(a.intro)}</p>`;
+    <p class="cfx-aud-intro">${hl(a.intro)}</p>${simNote()}`;
   const called = exMarked(r), pct = n ? Math.round(called / n * 100) : 0;
   if(!done) return `<div class="cfx-aud">${head}
     <div class="cfx-aud-row cfx-aud-row3">
@@ -1428,7 +1440,7 @@ function auditSlide(b){
       <div class="cfx-aud-card cfx-aud-calls"><b>Your five calls</b><div class="cfx-aud-vs">${VORDER.map(v => `<span class="cfx-aud-v v-${v}" title="${E(VERDICT[v].hint)}"><i>${VERDICT[v].icon}</i>${E(VERDICT[v].label)}</span>`).join("")}</div></div>
     </div>
     <div class="cfx-aud-act"><button type="button" class="btn btn-orange cfx-aud-go" onclick="cmCaseFlow.audit('${b.id}')">🔍 Open the audit workbench</button>
-      ${sv ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.service('${b.id}')">✉ Service Confirmation</button>` : ""}
+      ${sv ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.service('${b.id}')">✉ ${E(svWords(sv).label)}</button>` : ""}
       <span class="cfx-aud-note">${E(a.kicker)}</span></div></div>`;
   return `<div class="cfx-aud cfx-aud-done">${head}
     <div class="cfx-aud-row">
@@ -1439,7 +1451,7 @@ function auditSlide(b){
     </div>
     <ul class="cfx-aud-points">${a.revealPoints.map(p => `<li>${hl(p)}</li>`).join("")}</ul>
     <div class="cfx-aud-act"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.audit('${b.id}')">🔍 Compare your audit, item by item</button>
-      ${sv ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.service('${b.id}')">✉ Service Confirmation</button>` : ""}</div></div>`;
+      ${sv ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.service('${b.id}')">✉ ${E(svWords(sv).label)}</button>` : ""}</div></div>`;
 }
 
 /* the workbench: every item of the set, the call the trainee makes, and after hand-in what the file says */
@@ -1461,7 +1473,7 @@ function auditBench(blockId){
   const n = a.items.length;
   return `<div class="cfx-modal-in card lesson-card cfx-bench"><div class="cfx-modal-h"><b>🔍 ${E(a.title)}</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>
     <div class="ab-top"><span>${E(a.kicker)}</span>${exDoc(a.source) ? `<span>Open the set beside this: ${exDocLink(a.source)}</span>` : ""}
-      ${done ? `<span class="ab-sc">${exScore(a, r)} of ${n} correct</span>` : `<span class="ab-sc" id="absc_${E(blockId)}">${exMarked(r)} of ${n} called</span>`}</div>
+      ${done ? `<span class="ab-sc">${exScore(a, r)} of ${n} correct</span>` : `<span class="ab-sc" id="absc_${E(blockId)}">${exMarked(r)} of ${n} called</span>`}</div>${simNote()}
     <div class="ab-key">${VORDER.map(v => `<span><b>${VERDICT[v].icon} ${E(VERDICT[v].label)}</b> ${E(VERDICT[v].hint)}</span>`).join("")}</div>
     <table class="ab-table"><thead><tr><th>${E(a.columns.ref)}</th><th>What it is${done ? "" : " · as drafted"}</th><th>Your call${done ? " · the file's" : ""}</th><th>${done ? "What it would have cost, and the fix" : "Your note"}</th></tr></thead><tbody>${rows}</tbody></table>
     ${done ? `<div class="ab-rev"><b>📦 ${E(a.revealNote)}</b><ul>${a.revealPoints.map(p => `<li>${hl(p)}</li>`).join("")}</ul>
@@ -1538,6 +1550,9 @@ window.cmCaseFlow.auditHandIn = function(blockId){
    carrier's own words — and the follow-up that tests whether the Case Manager will move a deadline that is not
    theirs. Then the exchange stops being a mailbox thread: it is converted into a memorandum, filed into the open
    case in the CMS under the firm's naming convention, and backed up to the trainee's Drive. */
+/* The words around an exchange are the demand's by default; an exchange that isn't serving a demand (the no-contact
+   notice to an adjuster, routing a release to Atty. Thorne) names its own in the exhibits: label, write, send, reply. */
+const svWords = (e) => Object.assign({label: "Service Confirmation"}, svLabels(e), e.words || {});   // the panel name, beside the workspace's own labels
 const folderLabel = (id) => { const f = (window.CM_CF_DOC_FOLDERS || []).find(x => x.id === id); return f ? f.label : String(id || "its folder"); };
 const svNameFor = (e) => {
   const id = (window.CMCase && CMCase.id()) || "<Case ID>";
@@ -1547,16 +1562,16 @@ function svStep(n, label, state, body){
   return `<div class="sv-step sv-${state}"><div class="sv-h"><span class="sv-n">${state === "done" ? "✓" : n}</span><b>${E(label)}</b></div>${body ? `<div class="sv-b">${body}</div>` : ""}</div>`;
 }
 function svWorkspace(blockId){
-  const e = serviceOf(blockId), r = svRec(blockId), a = auditOf(blockId);
+  const e = serviceOf(blockId), r = svRec(blockId), a = auditOf(blockId), L = svLabels(e);
   const sent = !!r.sent, chose = r.choice != null, right = chose && !!(e.press.choices[r.choice] || {}).ok;
   const conv = !!r.converted, filed = !!r.filed, drive = !!r.drive;
   const compose = sent
-    ? `<div class="sv-sentmail"><div class="sv-eh"><b>To</b> ${E(e.to)}<br><b>Cc</b> ${E(e.cc || "—")}<br><b>Subject</b> ${E(e.subject)}<br><b>Sent</b> ${E(e.sent)}, 4:21 p.m.<br><b>Attachment</b> ${E(e.attachment)}</div><pre class="sv-body">${E(r.body)}</pre></div>`
+    ? `<div class="sv-sentmail"><div class="sv-eh"><b>To</b> ${E(e.to)}<br><b>Cc</b> ${E(e.cc || "—")}<br><b>Subject</b> ${E(e.subject)}<br><b>Sent</b> ${E(e.sent)}, ${E(L.sentTime)}<br><b>Attachment</b> ${E(e.attachment)}</div><pre class="sv-body">${E(r.body)}</pre></div>`
     : `<p class="sv-brief">${hl(e.brief)}</p>
       <div class="sv-eh"><b>To</b> ${E(e.to)}<br><b>Cc</b> ${E(e.cc || "—")}<br><b>Subject</b> ${E(e.subject)}<br><b>Attachment</b> ${E(e.attachment)}</div>
-      <textarea class="sv-write" id="svw_${E(blockId)}" rows="9" placeholder="Write the email as you would send it." aria-label="Your email serving the demand">${E(r.body || "")}</textarea>
+      <textarea class="sv-write" id="svw_${E(blockId)}" rows="9" placeholder="Write the email as you would send it." aria-label="${E(L.aria)}">${E(r.body || "")}</textarea>
       <ul class="sv-req">${e.required.map(q => `<li>${E(q.label)}</li>`).join("")}</ul>
-      <div class="sv-row"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.svSend('${blockId}')">Send it to the adjuster</button>
+      <div class="sv-row"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.svSend('${blockId}')">${E(L.send)}</button>
         <span class="sv-msg" id="svm_${E(blockId)}" aria-live="polite">${r.tries ? `Not sent yet — ${r.tries} attempt${r.tries === 1 ? "" : "s"}.` : ""}</span></div>`;
   const reply = sent ? `<div class="sv-eh"><b>From</b> ${E(e.reply.from)}<br><b>Sent</b> ${E(e.reply.date)}, ${E(e.reply.time)}<br><b>Subject</b> ${E(e.reply.subject)}</div><pre class="sv-body">${E(e.reply.body)}</pre>
       <ul class="sv-est">${e.convert.establishes.map(x => `<li>${hl(x)}</li>`).join("")}</ul>` : "";
@@ -1564,7 +1579,7 @@ function svWorkspace(blockId){
       <div class="sv-choices">${e.press.choices.map((c, i) => `<label class="sv-ch${chose ? (c.ok ? " ok" : (r.choice === i ? " no" : "")) : ""}">
           <input type="radio" name="svch_${E(blockId)}" ${r.choice === i ? "checked" : ""} ${chose ? "disabled" : ""} onchange="cmCaseFlow.svChoose('${blockId}',${i})">
           <span>${E(c.label)}${chose ? `<br><small>${c.ok ? "✓ " : "✕ "}${E(c.why)}</small>` : ""}</span></label>`).join("")}</div>` : "";
-  const convert = `<p class="sv-note">A thread in a mailbox is not on the case file: a colleague covering the file cannot find it, and it is not in the backup. Converted, filed and backed up, the carrier's own confirmation of the date that started the clock is part of the case.</p>
+  const convert = `<p class="sv-note">${E(L.why)}</p>
     <ul class="sv-sec">${e.convert.sections.map(s => `<li><b>${E(s.h)}</b>${s.lines.length ? `<br>${s.lines.map(E).join("<br>")}` : ""}</li>`).join("")}</ul>
     <div class="sv-row"><button type="button" class="btn btn-navy" ${right ? "" : "disabled"} onclick="cmCaseFlow.svConvert('${blockId}')">📄 ${conv ? "Build it again" : "Convert the thread into a document"}</button>
       ${conv ? `<span class="sv-ok">✓ ${E(r.converted.pages)} page${r.converted.pages === 1 ? "" : "s"} built${r.converted.saved ? " and downloaded" : ""}</span>` : `<span class="sv-msg">${right ? "" : "Answer the follow-up correctly first."}</span>`}</div>`;
@@ -1573,7 +1588,7 @@ function svWorkspace(blockId){
       : `<div class="sv-row"><input class="sv-name" id="svn_${E(blockId)}" placeholder="${E(svNameFor(e))}" aria-label="File name for the memorandum" value="${E(r.nameTried || "")}">
         <button type="button" class="btn btn-navy" ${conv ? "" : "disabled"} onclick="cmCaseFlow.svFile('${blockId}')">📤 File it in the CMS</button>
         <span class="sv-msg" id="svf_${E(blockId)}" aria-live="polite">${(r.problems || []).length ? r.problems.map(E).join(" · ") : (conv ? "" : "Build the document first.")}</span></div>`}`;
-  const back = `<p class="sv-note">The firm keeps a Backup Drive as well as a CMS, and a document you wrote belongs in it like any other: a colleague covering this file looks for it under <b>${E(folderLabel(e.convert.folder))}</b>, where every demand and negotiation document on the case is kept. The CMS is the file of record, so a drive that isn't built yet never undoes the filing &mdash; it just leaves you one copy.</p>
+  const back = `<p class="sv-note">The firm keeps a Backup Drive as well as a CMS, and a document you wrote belongs in it like any other: a colleague covering this file looks for it under <b>${E(folderLabel(e.convert.folder))}</b>, where ${E(L.folderNote)} is kept. The CMS is the file of record, so a drive that isn't built yet never undoes the filing &mdash; it just leaves you one copy.</p>
     ${drive ? `<span class="sv-ok">✓ Kept on your Backup Drive under <b>${E(String(r.drive.folder).split("/").pop())}</b>, with the filing</span>`
       : `<div class="sv-row">${filed ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.svDrive('${blockId}')">📂 Keep it on my Backup Drive</button>` : ""}
         <span class="sv-msg" id="svd_${E(blockId)}" aria-live="polite">${!filed ? "File it in the CMS first: the copy is kept with the filing."
@@ -1581,9 +1596,9 @@ function svWorkspace(blockId){
           : "Your Backup Drive isn't built yet, so no copy was kept. Build it from the card on your dashboard, then keep this document on it."}</span></div>`}`;
   const model = `<p class="sv-note">The firm's own memorandum for this service, for you to read yours against: ${exDoc(e.model) ? exDocLink(e.model) : E(e.model)}.</p>`;
   return `<div class="cfx-modal-in card lesson-card cfx-sv"><div class="cfx-modal-h"><b>✉ ${E(e.title)}</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>
-    <div class="sv-top"><span>${E(e.kicker)}</span>${a && !exRec(blockId).at ? `<span class="sv-warn">Audit the set before you serve it: nothing goes out that has not been audited.</span>` : ""}</div>
-    ${svStep(1, "The email that serves the demand", sent ? "done" : "now", compose)}
-    ${svStep(2, "The adjuster's written acknowledgment", sent ? "done" : "wait", reply)}
+    <div class="sv-top"><span>${E(e.kicker)}</span>${a && L.warn && !exRec(blockId).at ? `<span class="sv-warn">${E(L.warn)}</span>` : ""}</div>${simNote()}
+    ${svStep(1, L.write, sent ? "done" : "now", compose)}
+    ${svStep(2, L.reply, sent ? "done" : "wait", reply)}
     ${svStep(3, "The follow-up that tests the line", chose ? (right ? "done" : "no") : (sent ? "now" : "wait"), press)}
     ${svStep(4, "Convert the exchange into a document", conv ? "done" : (right ? "now" : "wait"), convert)}
     ${svStep(5, "File it in the CMS", filed ? "done" : (conv ? "now" : "wait"), file)}
@@ -1592,7 +1607,7 @@ function svWorkspace(blockId){
 }
 window.cmCaseFlow.service = function(blockId){
   if(!serviceOf(blockId) || document.getElementById("cf-sv")) return;   // one workspace at a time, or the email being written is lost behind it
-  const o = document.createElement("div"); o.className = "cfx-modal"; o.id = "cf-sv"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Service Confirmation");
+  const o = document.createElement("div"); o.className = "cfx-modal"; o.id = "cf-sv"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", svWords(serviceOf(blockId)).label);
   o.innerHTML = svWorkspace(blockId);
   const close = () => { const t = document.getElementById("svw_" + blockId); if(t) { svRec(blockId).body = t.value.slice(0, 4000); persist(); } o.remove(); document.removeEventListener("keydown", esc, true); if(typeof render === "function") render(); };
   const esc = ev => { if(ev.key === "Escape"){ ev.stopPropagation(); close(); } };
@@ -1614,18 +1629,18 @@ window.cmCaseFlow.svSend = function(blockId){
   const missing = e.required.filter(q => !q.match.every(p => { try{ return new RegExp(p, "i").test(text); }catch(err){ return true; } }));
   if(missing.length){
     r.tries++; persist();
-    if(msg) msg.innerHTML = `<b>Not sent.</b> Dana Whitfield can answer this without giving you what you need:<ul>${missing.map(q => `<li>${E(q.label)} — ${E(q.hint)}</li>`).join("")}</ul>`;
+    if(msg) msg.innerHTML = `<b>Not sent.</b> ${E(svLabels(e).who)} can answer this without giving you what you need:<ul>${missing.map(q => `<li>${E(q.label)} — ${E(q.hint)}</li>`).join("")}</ul>`;
     return;
   }
   r.sent = new Date().toISOString(); persist();
-  if(typeof toast === "function") toast("Sent. Her acknowledgment is in the thread.");
+  if(typeof toast === "function") toast(svLabels(e).sentToast);
   svRepaint(blockId);
 };
 window.cmCaseFlow.svChoose = function(blockId, i){
   const e = serviceOf(blockId), r = svRec(blockId); if(!e || r.choice != null) return;
   r.choice = i; persist();
   const c = e.press.choices[i] || {};
-  if(typeof toast === "function") toast(c.ok ? "Right: recorded, routed, and the date stays on the docket." : "That one costs the file. Read why, and remember whose call it was.");
+  if(typeof toast === "function") toast(c.ok ? svLabels(e).rightToast : "That one costs the file. Read why, and remember whose call it was.");
   svRepaint(blockId);
 };
 const SV_BYTES = {};   // the built PDF, held for this page's life (a PDF is not worth persisting: it is rebuilt)
@@ -1656,12 +1671,12 @@ async function svBuild(blockId){
   e.convert.sections.forEach(s => {
     h3(s.h);
     s.lines.forEach(l => para("— " + l));
-    if(/email that served|confirmation email/i.test(s.h)){
+    if(/email that served|confirmation email|email as sent/i.test(s.h)){
       para(`To: ${e.to}`, {size: 9}); para(`Cc: ${e.cc || "—"}`, {size: 9}); para(`Subject: ${e.subject}`, {size: 9});
-      para(`Sent: ${e.sent}, 4:21 p.m. · Attachment: ${e.attachment}`, {size: 9, color: soft});
+      para(`Sent: ${e.sent}, ${svLabels(e).sentTime} · Attachment: ${e.attachment}`, {size: 9, color: soft});
       String(r.body).split(/\n{2,}/).forEach(p => para(p.replace(/\s*\n\s*/g, " "), {pad: 12}));
     }
-    if(/adjuster's acknowledg/i.test(s.h)){
+    if(/adjuster's acknowledg|reply as received/i.test(s.h)){
       para(`From: ${e.reply.from}`, {size: 9}); para(`Sent: ${e.reply.date}, ${e.reply.time}`, {size: 9}); para(`Subject: ${e.reply.subject}`, {size: 9});
       String(e.reply.body).split(/\n{2,}/).forEach(p => para(p.replace(/\s*\n\s*/g, " "), {pad: 12}));
     }
@@ -1709,7 +1724,7 @@ window.cmCaseFlow.svFile = async function(blockId){
   const bytes = await svBytes(blockId);
   if(!bytes){ say("The document could not be built. Press Convert again, then file it."); return; }
   const out = await cmDocFiling.send({name, category: e.convert.category, folder: e.convert.folder,
-    original: "Demand-Service-Acknowledgment.pdf",
+    original: svLabels(e).original,
     mime: "application/pdf", summary: e.convert.title, bytes: bytes.slice(0)});
   if(out && out.ok){
     r.filed = {name: out.name, category: out.category || e.convert.category, at: new Date().toISOString()}; r.problems = [];
@@ -2059,7 +2074,10 @@ window.cmCaseFlow.workFrom = function(el){
   box.open = true; box.scrollIntoView({block: "nearest", behavior: "smooth"});
   box.classList.remove("cfx-flash"); void box.offsetWidth; box.classList.add("cfx-flash");
 };
-/* a theory card's ＋ More: the detail that doesn't fit on the card (theory-dN.json concepts[].more), in a pop-up card */
+/* a theory card's ＋ More: the detail that doesn't fit on the card (theory-dN.json concepts[].more), in a pop-up card;
+   a framework step's (framework.steps[].more) opens the same way, its index written "s<n>", so a flow can be read step by step */
+const stepMore = (b, x, i) => (x.more || []).length ? `<button type="button" class="cfx-th-more" onclick="cmCaseFlow.more('${b.id}','s${i}')" title="More on ${E(x.label)}">＋ More</button>` : "";
+const moreOf = (t, i) => { if(!t) return null; const m = /^s(\d+)$/.exec(String(i)); const c = m ? ((t.framework && t.framework.steps) || [])[+m[1]] : t.concepts[i]; return c && {term: m ? c.label : c.term, text: c.text, more: c.more}; };
 /* In a presentation the pop-up is the room's: opened in the slides window, its live copy in the presenter console or
    from the console's own ＋ More buttons, it opens (and closes) in every window over the presentation channel. */
 const moreCh = (() => { try{ return "BroadcastChannel" in window ? new BroadcastChannel("lsh-present-v1") : null; }catch(e){ return null; } })();
@@ -2072,7 +2090,7 @@ if(moreCh) moreCh.addEventListener("message", e => {
 window.cmCaseFlow.moreShow = function(blockId, i){ if(moreCh) moreCh.postMessage({type: "more", blockId, i}); };
 window.cmCaseFlow.moreHide = function(){ if(moreCh) moreCh.postMessage({type: "moreClose"}); };
 window.cmCaseFlow.more = function(blockId, i, remote){
-  const t = (SLIDES[blockId] || {}).theory, x = t && t.concepts[i]; if(!x || !(x.more || []).length) return;
+  const t = (SLIDES[blockId] || {}).theory, x = moreOf(t, i); if(!x || !(x.more || []).length) return;
   document.querySelectorAll(".cfx-more").forEach(m => m.remove());
   if(!remote && moreAudience() && moreCh) moreCh.postMessage({type: "more", blockId, i});
   const o = document.createElement("div"); o.className = "cfx-modal cfx-more"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", x.term);
@@ -4253,6 +4271,7 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-th-c span{font:500 16px/1.35 var(--font-ui);color:var(--ink);}
 .cfx-th-solo .cfx-th-c span{font-size:17px;}
 .cfx-th-c{position:relative;}
+.cfx-fw-flow li,.cfx-fw-list > div{position:relative;}
 .cfx-th-more{position:absolute;top:6px;right:8px;border:1px solid #F0D2AE;background:#FBF1E6;color:#B5561A;border-radius:999px;padding:1px 9px;font:700 12px/1.6 var(--font-ui);cursor:pointer;}
 .cfx-th-more:hover,.cfx-th-more:focus-visible{background:var(--orange);border-color:var(--orange);color:#fff;outline:none;}
 .cfx-more{align-items:center;}
@@ -4860,6 +4879,9 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-aud-go:hover{filter:brightness(1.05);transform:translateY(-1px);}
 @media(max-width:1100px){.cfx-aud-row3{grid-template-columns:1fr;}}
 .cfx-bench,.cfx-sv{max-width:1180px;}
+.cfx-simnote{margin:0;padding:6px 10px;border-left:3px solid #DB8437;background:rgba(219,132,55,.08);border-radius:6px;font-size:12.5px;line-height:1.4;color:var(--ink-soft);}
+.cfx-simnote b{color:var(--ink);margin-right:4px;}.cfx-modal-in .cfx-simnote{margin:0 0 10px;}
+.cfx-simnote-s{display:block;font-size:11.5px;color:#C9CFDF;margin-top:2px;}
 .ab-top,.sv-top{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;font-size:13px;color:var(--ink-soft);margin-bottom:8px;}
 .ab-sc{margin-left:auto;font-weight:800;color:var(--navy);}
 .sv-warn{color:#A2410F;font-weight:700;}

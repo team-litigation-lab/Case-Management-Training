@@ -161,14 +161,16 @@
       "corrected": "RS67"
     },
     "RS37": {
-      "route": "redline",
+      "route": "audit",
       "proof": [
-        "RS38"
+        "RS36",
+        "RS67"
       ],
       "in": [
-        "d3m4-a2"
+        "d3m2-rel"
       ],
-      "spot": "Keystone's draft release reaches all other insurers, the UM carriers included."
+      "spot": "Keystone's draft release reaches all other insurers, the UM carriers included, plus property damage, indemnity and confidentiality the demand never offered.",
+      "corrected": "RS80"
     },
     "RS48": {
       "route": "route",
@@ -262,6 +264,42 @@
       ],
       "spot": "Ten faults in the demand's exhibit packet.",
       "corrected": "RS67"
+    },
+    "RS90": {
+      "route": "audit",
+      "proof": [
+        "RS25",
+        "RS31"
+      ],
+      "in": [
+        "d1m1-a2"
+      ],
+      "spot": "Peach State's interim itemization claims three lines not from the collision and the Crescent injection at billed, not paid: $3,618.00 instead of $1,860.00.",
+      "corrected": "RS91"
+    },
+    "RS94": {
+      "route": "audit",
+      "proof": [
+        "RS43",
+        "RS93"
+      ],
+      "in": [
+        "d2m4-wage"
+      ],
+      "spot": "The draft wage worksheet claims shifts he worked, a misdated MRI, light duty and overtime he never lost, and drops the five February call-outs: $1,760.00 instead of $1,584.00.",
+      "corrected": "RS95"
+    },
+    "RS84": {
+      "route": "audit",
+      "proof": [
+        "RS05",
+        "RS06"
+      ],
+      "in": [
+        "d3m4-pal"
+      ],
+      "spot": "Vance & Kettering's charging lien rests on an agreement signed only by Margaret Doe, no authority from John Doe, and 0.6 hours of work with no carrier notice.",
+      "corrected": "RS85"
     }
   },
   "open": [

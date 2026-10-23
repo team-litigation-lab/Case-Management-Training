@@ -209,6 +209,8 @@ img[alt="Legal Support Help"]{border-radius:8px;}
 /* The day label sits on the card, which is translucent over the page's photo
    now: --orange-deep measures 4.1:1 there, the navy ink 8:1. */
 .dash-main .module-card.mc-clean .mh-day{color:var(--navy);opacity:1;font-weight:700;letter-spacing:.1em;}
+/* the day cards carry no "Case Flow Day N · Completed" kicker: the title and the button say it, and the card keeps its room */
+.dash-main .module-card .module-head .mh-day{display:none;}
 .dash-main .module-card.mc-clean .mh-title{text-transform:none;letter-spacing:0;font-weight:700;color:var(--navy);}
 .dash-main .module-card.mc-clean .module-start-btn{background:rgba(236,238,245,.62);border:1px solid #DDE1EC;color:var(--navy);border-radius:10px;box-shadow:none;font-weight:700;letter-spacing:.01em;}
 .dash-main .module-card.mc-clean .module-start-btn:hover, .dash-main .module-card.mc-clean:hover .module-start-btn{background:#353B57;border-color:#353B57;color:#fff;}

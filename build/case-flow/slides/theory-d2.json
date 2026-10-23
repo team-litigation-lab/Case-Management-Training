@@ -1,1049 +1,1049 @@
 {
- "d2m1-cov": {
-  "lead": "Every policy answers **two questions**: whose is it, and what does it pay? The Payer-First Principle then decides which payer each Medical Bill goes to first.",
-  "concepts": [
-   {
-    "term": "Third-Party vs. First-Party",
-    "text": "Third-party is the at-fault driver's coverage; first-party answers to the client's side: **who you claim against** changes"
-   },
-   {
-    "term": "The Recovery Stack",
-    "text": "Only coverage that pays the claim stacks: BI, then the UM/UIM layers. **Bills and the car** stay outside"
-   },
-   {
-    "term": "No-Fault Medical Coverage",
-    "text": "MedPay and PIP pay accident Medical Bills **regardless of fault**, fast, while liability is still disputed",
-    "more": [
-     "MedPay: reasonable accident Medical Bills up to its limit, never wages",
-     "PIP, where a state requires it: also a share of lost wages and replacement services",
-     "This file: **$5,000 Harbor Point PIP** on the Escape John Doe rode in",
-     "Verify PIP on every file; never assume it"
-    ]
-   },
-   {
-    "term": "UM by Status",
-    "text": "UM/UIM follows the person: an occupant reaches the vehicle's policy, **a resident relative the household's**",
-    "more": [
-     "Host UM: John Doe was an occupant of Kevin Alvarez's 2020 Ford Escape",
-     "Relative UM: he is a resident relative of Margaret Doe, insured by Cardinal State",
-     "Bluewater adds nothing: **UM rejected in writing** on 03/14/2024",
-     "Together the two UM layers reach $30,000"
-    ]
-   },
-   {
-    "term": "Set-Off and Non-Duplication",
-    "text": "Some policies credit what MedPay or PIP paid against what they owe: **verify the form in writing**"
-   },
-   {
-    "term": "Subrogation vs. Non-Subrogation",
-    "text": "A payer with subrogation claims its payments back from the recovery; without it, **what it paid stays paid**"
-   },
-   {
-    "term": "Contract Rate and Write-Off",
-    "text": "An in-network provider takes the plan's rate and writes off the rest: **no balance billing**, a smaller lien",
-    "more": [
-     "Crescent Pain & Spine billed $3,400.00; Peach State paid $1,860.00",
-     "The $1,540.00 difference is written off for good",
-     "Peach State's reimbursement claim starts from **what it paid**, never what was billed"
-    ]
-   },
-   {
-    "term": "Medicare Secondary Payer",
-    "text": "Medicare pays only after no-fault and liability coverage, and **recovers by statute**; report the case to the BCRC"
-   }
-  ],
-  "pages": [
-   "D2#25",
-   "D3#20"
-  ],
-  "framework": {
-   "title": "What Each Coverage Pays",
-   "kind": "table",
-   "head": [
-    "Coverage",
-    "Whose",
-    "Pays",
-    "Payback risk"
-   ],
-   "rows": [
-    [
-     "BI liability",
-     "The at-fault driver's (third-party)",
-     "The claim, for injuries he caused",
-     "None: it is the recovery"
+  "d2m1-cov": {
+    "lead": "Every policy answers **two questions**: whose is it, and what does it pay? The Payer-First Principle then decides which payer each Medical Bill goes to first.",
+    "concepts": [
+      {
+        "term": "Third-Party vs. First-Party",
+        "text": "Third-party is the at-fault driver's coverage; first-party answers to the client's side: **who you claim against** changes"
+      },
+      {
+        "term": "The Recovery Stack",
+        "text": "Only coverage that pays the claim stacks: BI, then the UM/UIM layers. **Bills and the car** stay outside"
+      },
+      {
+        "term": "No-Fault Medical Coverage",
+        "text": "MedPay and PIP pay accident Medical Bills **regardless of fault**, fast, while liability is still disputed",
+        "more": [
+          "MedPay: reasonable accident Medical Bills up to its limit, never wages",
+          "PIP, where a state requires it: also a share of lost wages and replacement services",
+          "This file: **$5,000 Harbor Point PIP** on the Escape John Doe rode in",
+          "Verify PIP on every file; never assume it"
+        ]
+      },
+      {
+        "term": "UM by Status",
+        "text": "UM/UIM follows the person: an occupant reaches the vehicle's policy, **a resident relative the household's**",
+        "more": [
+          "Host UM: John Doe was an occupant of Kevin Alvarez's 2020 Ford Escape",
+          "Relative UM: he is a resident relative of Margaret Doe, insured by Cardinal State",
+          "Bluewater adds nothing: **UM rejected in writing** on 03/14/2024",
+          "Together the two UM layers reach $30,000"
+        ]
+      },
+      {
+        "term": "Set-Off and Non-Duplication",
+        "text": "Some policies credit what MedPay or PIP paid against what they owe: **verify the form in writing**"
+      },
+      {
+        "term": "Subrogation vs. Non-Subrogation",
+        "text": "A payer with subrogation claims its payments back from the recovery; without it, **what it paid stays paid**"
+      },
+      {
+        "term": "Contract Rate and Write-Off",
+        "text": "An in-network provider takes the plan's rate and writes off the rest: **no balance billing**, a smaller lien",
+        "more": [
+          "Crescent Pain & Spine billed $3,400.00; Peach State paid $1,860.00",
+          "The $1,540.00 difference is written off for good",
+          "Peach State's reimbursement claim starts from **what it paid**, never what was billed"
+        ]
+      },
+      {
+        "term": "Medicare Secondary Payer",
+        "text": "Medicare pays only after no-fault and liability coverage, and **recovers by statute**; report the case to the BCRC"
+      }
     ],
-    [
-     "UM/UIM",
-     "Client side: the vehicle or household",
-     "The claim, when BI is too small",
-     "Consent rules guard its subrogation"
+    "pages": [
+      "D2#25",
+      "D3#20"
     ],
-    [
-     "PIP",
-     "The occupied vehicle's policy",
-     "Medical Bills, no fault needed; no wages",
-     "By policy: **verify in writing**"
-    ],
-    [
-     "PIP",
-     "Client side, where a state requires it",
-     "Medical Bills, part of wages, services",
-     "Set-off or lien, by state law"
-    ],
-    [
-     "Health insurance",
-     "The client's own plan",
-     "Covered care at the contract rate",
-     "**Reimbursement right** on what it paid"
-    ],
-    [
-     "Medicare / Medicaid",
-     "Government payer",
-     "Care, after no-fault and liability",
-     "Recovery by statute; a BCRC report"
-    ]
-   ],
-   "note": "Payer-First: MedPay or PIP, then health insurance, then an LOP. Liability and UM pay the claim, not the bills"
-  }
- },
- "d2m1-l1": {
-  "lead": "Claim set-up is coverage determination: finding **which policies apply** and what limits and exclusions they carry. The LOR puts the firm on each one.",
-  "concepts": [
-   {
-    "term": "Letter of Representation",
-    "text": "The firm's formal notice that it represents the client: **it moves all contact** off the client and onto the firm",
-    "more": [
-     "Names the client, the date of loss, the claim number and **the carrier's insured**",
-     "The insured differs: Robert Smith (Keystone), Kevin Alvarez (Harbor Point), Margaret Doe (Cardinal State)",
-     "States he was injured, a Demand Package will follow, all contact goes to the firm",
-     "Requests limits, additional coverage, every Declaration Page and preservation",
-     "Atty. Thorne signs; you send by the preferred method and log delivery"
-    ]
-   },
-   {
-    "term": "Coverage Determination",
-    "text": "Four questions: is coverage valid, what type applies, what are the limits, any exclusions? **Every LOR request** chases an answer"
-   },
-   {
-    "term": "Liability Assessment",
-    "text": "Who is legally responsible, and how far: **clear, shared or disputed**. Atty. Thorne weighs it; you secure the proof"
-   },
-   {
-    "term": "First- and Third-Party Claims",
-    "text": "Third-party: the other driver's carrier, adverse to the client. First-party: policies covering him. **Each letter differs accordingly**"
-   },
-   {
-    "term": "Information Protection",
-    "text": "The adverse carrier learns only what it must: **anything you give it** can be used against the client",
-    "more": [
-     "Keystone gets John Doe's **name only**",
-     "Never his phone, address, date of birth or employer",
-     "First-party carriers, Harbor Point and Cardinal State, may verify his details",
-     "Nothing more than needed: anything written now is quoted back later"
-    ]
-   },
-   {
-    "term": "Notice vs. Demand",
-    "text": "Notice preserves the claim; a demand asks for payment. **UM notice comes early**; demand follows a documented BI tender",
-    "more": [
-     "All three stack carriers noticed on 02/17/2026",
-     "UM policies carry notice conditions: **late notice hands a defense** to the carrier",
-     "No UM letter asks for payment before the BI tender is documented"
-    ]
-   },
-   {
-    "term": "Preservation Request",
-    "text": "Asks the carrier to keep photos, statements, video, the vehicle and its event data: **liability proof that can vanish**"
-   },
-   {
-    "term": "Acknowledgement",
-    "text": "The carrier's written receipt of the LOR, sometimes stating coverage and limit: **the first written answer** you log",
-    "more": [
-     "Expected within 24–48 hours of the LOR",
-     "None by the **third business day**: follow up",
-     "On this file: letters out 02/17/2026, follow-up dated 02/20/2026",
-     "Keystone may hold written limits until a written request with authorizations Atty. Thorne approves"
-    ]
-   }
-  ],
-  "pages": [
-   "D1#21"
-  ],
-  "framework": {
-   "title": "Coverage Determination and Liability",
-   "kind": "table",
-   "head": [
-    "Coverage Determination",
-    "Liability Assessment"
-   ],
-   "rows": [
-    [
-     "Is there valid insurance coverage?",
-     "Who caused the incident?"
-    ],
-    [
-     "What type of coverage applies?",
-     "Is liability clear, shared or disputed?"
-    ],
-    [
-     "What are the **policy limits**?",
-     "What evidence supports fault?"
-    ],
-    [
-     "Are there exclusions or coverage gaps?",
-     "Are there comparative negligence factors?"
-    ]
-   ],
-   "note": "Every LOR request chases a coverage answer; Atty. Thorne weighs liability, and the preservation request protects its proof"
-  }
- },
- "d2m1-l2": {
-  "lead": "Coverage verification turns a reported fact into **a confirmed one in writing**: every limit, form and exclusion traced to the document that proves it.",
-  "concepts": [
-   {
-    "term": "Coverage Matrix",
-    "text": "One row per carrier, the file's single coverage record: **status, source and date** show what is proven"
-   },
-   {
-    "term": "Verification Statuses",
-    "text": "Reported, noticed, acknowledged, disclosed, confirmed in writing: **only the last is proof**; each earlier status is a lead",
-    "more": [
-     "Reported: claims opened by phone 02/16–02/17/2026",
-     "Noticed: five LORs out 02/17/2026",
-     "Acknowledged: Cardinal State assigns Teresa Okafor 03/03/2026",
-     "Disclosed: Keystone's verbal limit at set-up, **still preliminary**",
-     "Confirmed in writing: Harbor Point 03/02 · Cardinal State 03/09 · Keystone 03/20/2026"
-    ]
-   },
-   {
-    "term": "Declaration Page",
-    "text": "The policy's own summary of who and what it covers, and for how much: **the proof behind a limit**",
-    "more": [
-     "Named insured and policy number",
-     "A policy period that covers 02/06/2026",
-     "The insured vehicle and its VIN: the one in the collision",
-     "Coverages, limits, deductibles, listed or excluded drivers, endorsements",
-     "Keystone's, dated 03/20/2026: **BI $10,000 per person**"
-    ]
-   },
-   {
-    "term": "Limit Types",
-    "text": "**Per person** caps one injured person; per accident caps everyone; a combined single limit is one figure for all"
-   },
-   {
-    "term": "UM Forms",
-    "text": "Add-on (excess) UM pays on top of the BI payment; reduced UM subtracts it. **The form changes the stack**",
-    "more": [
-     "Ask each UM carrier for its form **in writing**",
-     "Harbor Point confirmed 03/02/2026: add-on (excess), no PIP non-duplication",
-     "Had it been reduced: $20,000 − $10,000 = $10,000 Host UM, a $30,000 stack",
-     "Whether a form applies is Atty. Thorne's call; you record it"
-    ]
-   },
-   {
-    "term": "Stacking Layers",
-    "text": "Only liability and UM layers stack; PIP, PD and collision coverage are **separate benefits, tracked apart**"
-   },
-   {
-    "term": "Exclusions and Gaps",
-    "text": "A policy's exclusions matter as much as its limits: **a verified zero** is a fact, an assumed one a guess"
-   },
-   {
-    "term": "Applied Case Manager Actions",
-    "text": "A stalled carrier is a bottleneck: find the root cause, act now, then **prevent the next occurrence**"
-   }
-  ],
-  "pages": [
-   "D1#20",
-   "D1#18"
-  ],
-  "framework": {
-   "title": "Identified Potential Coverage Sources",
-   "kind": "table",
-   "head": [
-    "Coverage type",
-    "Limit or form",
-    "Status proven by",
-    "Notes"
-   ],
-   "rows": [
-    [
-     "BI liability",
-     "Per person, per accident or combined single limit",
-     "Declaration Page or Coverage Letter",
-     "First stack layer; confirm no step-down"
-    ],
-    [
-     "Host UM",
-     "Add-on, or reduced by the BI payment",
-     "The carrier's written form confirmation",
-     "Second layer; opens after the BI tender"
-    ],
-    [
-     "Relative UM",
-     "Add-on or reduced; other-insurance clause",
-     "Certified policy and Coverage Letter",
-     "Third layer; priority is Atty. Thorne's call"
-    ],
-    [
-     "MedPay or PIP",
-     "Medical Bills to its limit, regardless of fault",
-     "Written terms, including any reimbursement right",
-     "**Tracked apart**, never added to the stack"
-    ],
-    [
-     "PD and collision",
-     "Vehicle damage only",
-     "Declaration Page, like any limit",
-     "Separate benefit, outside the stack"
-    ],
-    [
-     "Client's own UM",
-     "Zero if rejected in writing",
-     "The signed rejection form in the file",
-     "A verified zero, not an assumed one"
-    ]
-   ],
-   "note": "Only BI and the UM layers stack; on this file $10,000 + $20,000 + $10,000 = $40,000"
-  }
- },
- "d2m2-l1": {
-  "lead": "Once the claim is set up, the Case Plan runs on **three pillars**: clinical care, functional status and subrogation management, which sets who pays.",
-  "concepts": [
-   {
-    "term": "Payer Order",
-    "text": "The default sequence: MedPay or PIP first, health insurance next, an LOP last. **Order keeps liens down**"
-   },
-   {
-    "term": "MedPay vs. PIP",
-    "text": "First-party coverage for Medical Bills regardless of fault, up to its limit; **unlike PIP, no wages**",
-    "more": [
-     "John Doe's PIP: **$5,000 at Harbor Point**, as a passenger in the Escape",
-     "Paid in date order: $685.00, $640.00, $2,395.00, $640.00, $640.00",
-     "$640.00 left after the 03/27/2026 visit",
-     "Reaches $5,000.00 on the 06/12/2026 MMI visit: nothing left"
-    ]
-   },
-   {
-    "term": "Health Insurance",
-    "text": "Pays covered care at its contract rate, but may hold **a reimbursement right** against the recovery"
-   },
-   {
-    "term": "Letter of Protection",
-    "text": "The client's signed agreement that a provider is paid from any recovery: **a consensual lien** on his net",
-    "more": [
-     "Only for care earlier payers can't carry: Riverton Spine & Rehab is out of network",
-     "Summit Imaging's 03/11/2026 request declined: **PIP pays first**",
-     "Terms, template and signature are Atty. Thorne's; you prepare, route and transmit",
-     "Never promise a provider an amount, a reduction or a date"
-    ]
-   },
-   {
-    "term": "Standard Treatment Map",
-    "text": "The usual route of care: emergency, imaging, chiropractic and PT, orthopedics, pain management, surgery. **Each stop needs a payer**"
-   },
-   {
-    "term": "Monitoring Progress",
-    "text": "Evaluating clinical and functional outcomes, not checking boxes: **ask about the plan**, not just “How are you?”",
-    "more": [
-     "Facilitation: transport, paperwork, scheduling",
-     "Coordination: every provider on one plan",
-     "Advocacy: step in when care is denied or stalls",
-     "End each contact: **what might get in the way** of treatment this week?"
-    ]
-   },
-   {
-    "term": "Crisis Intervention",
-    "text": "Stepping in when care is denied or stalled by bureaucracy: **adjust the plan** to the immediate issue first"
-   },
-   {
-    "term": "Medication Red Flags",
-    "text": "Combined opioid, muscle relaxant and sedative, or rising doses without a new diagnosis: **raise it with the provider**"
-   }
-  ],
-  "pages": [
-   "D1#26",
-   "D1#39"
-  ],
-  "framework": {
-   "title": "The Payer Order",
-   "kind": "flow",
-   "steps": [
-    {
-     "label": "Identify the payers",
-     "text": "Primary payer determination: list every source and its default order; primacy is Atty. Thorne's call"
-    },
-    {
-     "label": "MedPay or PIP",
-     "text": "First-party, regardless of fault, to its limit; PIP also pays 80% of wages, MedPay none"
-    },
-    {
-     "label": "Health Plan",
-     "text": "Pays covered care at its contract rate, but may assert **a reimbursement right** against the recovery"
-    },
-    {
-     "label": "Letter of Protection",
-     "text": "Last rung, for care earlier payers can't carry: paid from any recovery, on Atty. Thorne's terms"
+    "framework": {
+      "title": "What Each Coverage Pays",
+      "kind": "table",
+      "head": [
+        "Coverage",
+        "Whose",
+        "Pays",
+        "Payback risk"
+      ],
+      "rows": [
+        [
+          "BI liability",
+          "The at-fault driver's (third-party)",
+          "The claim, for injuries he caused",
+          "None: it is the recovery"
+        ],
+        [
+          "UM/UIM",
+          "Client side: the vehicle or household",
+          "The claim, when BI is too small",
+          "Consent rules guard its subrogation"
+        ],
+        [
+          "PIP",
+          "The occupied vehicle's policy",
+          "Medical Bills, no fault needed; no wages",
+          "By policy: **verify in writing**"
+        ],
+        [
+          "PIP",
+          "Client side, where a state requires it",
+          "Medical Bills, part of wages, services",
+          "Set-off or lien, by state law"
+        ],
+        [
+          "Health insurance",
+          "The client's own plan",
+          "Covered care at the contract rate",
+          "**Reimbursement right** on what it paid"
+        ],
+        [
+          "Medicare / Medicaid",
+          "Government payer",
+          "Care, after no-fault and liability",
+          "Recovery by statute; a BCRC report"
+        ]
+      ],
+      "note": "Payer-First: MedPay or PIP, then health insurance, then an LOP. Liability and UM pay the claim, not the bills"
     }
-   ],
-   "note": "On this file: Harbor Point PIP, then Peach State, then an LOP; providers bill whom they bill"
-  }
- },
- "d2m2-eob": {
-  "lead": "Every payer reports what it did with a bill: the Health Plan in an **Explanation of Benefits**, PIP in its payment history. Read both before any lien.",
-  "concepts": [
-   {
-    "term": "Explanation of Benefits",
-    "text": "The plan's account of one processed claim: **not a bill**, but proof of who paid what"
-   },
-   {
-    "term": "Billed vs. Allowed",
-    "text": "Billed is the provider's charge; allowed is the plan's fee schedule. **The gap is written off** in network"
-   },
-   {
-    "term": "Remark Codes",
-    "text": "Short codes that explain each line: CO-45 is the fee-schedule write-off, AC1 **flags a possible accident**",
-    "more": [
-     "CO-45: charge above the in-network fee schedule; the difference is the provider's",
-     "AC1: possibly accident-related, which attaches the plan's reimbursement right",
-     "AC1 also brings the plan's accident questionnaire",
-     "Route it to Atty. Thorne **before John Doe returns it**"
-    ]
-   },
-   {
-    "term": "Member Responsibility",
-    "text": "The deductible, copay and coinsurance left to the patient: **the most a provider may bill** in network"
-   },
-   {
-    "term": "Balance Billing",
-    "text": "Billing the patient for a contractual write-off: **not allowed in network**, so an error, not a lien",
-    "more": [
-     "Crescent's 07/01/2026 statement asks John Doe for $1,540.00: **the write-off**",
-     "File it beside the EOB",
-     "Route it to Atty. Thorne the same day",
-     "Draft the written request that Crescent correct its account",
-     "Tell John Doe what you're doing and when he'll hear back",
-     "Whether he owes anything is Atty. Thorne's call"
-    ]
-   },
-   {
-    "term": "PIP Payment History",
-    "text": "The carrier's ledger of every PIP check: date of service, amount paid and **the limit remaining**"
-   },
-   {
-    "term": "Exhaustion",
-    "text": "Once PIP's limit is spent, later bills come back unpaid: **route them to the next payer**",
-    "more": [
-     "Harbor Point's five checks: $685.00, $640.00 three times, $2,395.00",
-     "Total $5,000.00: **exhausted 06/26/2026**",
-     "Later bills come back with a notice of exhaustion",
-     "The firm's PIP Log (RS71) tracks each check and the limit remaining",
-     "Pitfall: sending a bill to PIP after exhaustion"
-    ]
-   },
-   {
-    "term": "Reconciliation",
-    "text": "Matching every provider balance to each payer's EOB or check, so **no paid bill becomes a lien**"
-   }
-  ],
-  "pages": [
-   "D4#35",
-   "D3#20"
-  ],
-  "framework": {
-   "title": "Reading an EOB",
-   "kind": "flow",
-   "steps": [
-    {
-     "label": "Match the claim",
-     "text": "Member ID, claim number, provider and date of service against the CMS treatment record"
-    },
-    {
-     "label": "Billed to allowed",
-     "text": "The charge, the plan's allowed amount, and the contractual adjustment it wrote off"
-    },
-    {
-     "label": "The patient's share",
-     "text": "Deductible, copay and coinsurance: **member responsibility** is the most a provider may bill"
-    },
-    {
-     "label": "What the plan paid",
-     "text": "The payment, its date and its EFT or check number: where any reimbursement claim starts"
-    },
-    {
-     "label": "Read the remark codes",
-     "text": "CO-45 explains the write-off; AC1 flags an accident and the plan's reimbursement right"
-    },
-    {
-     "label": "Reconcile and log",
-     "text": "Tie it to the provider's statement and the lien register; flag any balance billing"
+  },
+  "d2m1-l1": {
+    "lead": "Claim set-up is coverage determination: finding **which policies apply** and what limits and exclusions they carry. The LOR puts the firm on each one.",
+    "concepts": [
+      {
+        "term": "Letter of Representation",
+        "text": "The firm's formal notice that it represents the client: **it moves all contact** off the client and onto the firm",
+        "more": [
+          "Names the client, the date of loss, the claim number and **the carrier's insured**",
+          "The insured differs: Robert Smith (Keystone), Kevin Alvarez (Harbor Point), Margaret Doe (Cardinal State)",
+          "States he was injured, a Demand Package will follow, all contact goes to the firm",
+          "Requests limits, additional coverage, every Declaration Page and preservation",
+          "Atty. Thorne signs; you send by the preferred method and log delivery"
+        ]
+      },
+      {
+        "term": "Coverage Determination",
+        "text": "Four questions: is coverage valid, what type applies, what are the limits, any exclusions? **Every LOR request** chases an answer"
+      },
+      {
+        "term": "Liability Assessment",
+        "text": "Who is legally responsible, and how far: **clear, shared or disputed**. Atty. Thorne weighs it; you secure the proof"
+      },
+      {
+        "term": "First- and Third-Party Claims",
+        "text": "Third-party: the other driver's carrier, adverse to the client. First-party: policies covering him. **Each letter differs accordingly**"
+      },
+      {
+        "term": "Information Protection",
+        "text": "The adverse carrier learns only what it must: **anything you give it** can be used against the client",
+        "more": [
+          "Keystone gets John Doe's **name only**",
+          "Never his phone, address, date of birth or employer",
+          "First-party carriers, Harbor Point and Cardinal State, may verify his details",
+          "Nothing more than needed: anything written now is quoted back later"
+        ]
+      },
+      {
+        "term": "Notice vs. Demand",
+        "text": "Notice preserves the claim; a demand asks for payment. **UM notice comes early**; demand follows a documented BI tender",
+        "more": [
+          "All three stack carriers noticed on 02/17/2026",
+          "UM policies carry notice conditions: **late notice hands a defense** to the carrier",
+          "No UM letter asks for payment before the BI tender is documented"
+        ]
+      },
+      {
+        "term": "Preservation Request",
+        "text": "Asks the carrier to keep photos, statements, video, the vehicle and its event data: **liability proof that can vanish**"
+      },
+      {
+        "term": "Acknowledgement",
+        "text": "The carrier's written receipt of the LOR, sometimes stating coverage and limit: **the first written answer** you log",
+        "more": [
+          "Expected within 24–48 hours of the LOR",
+          "None by the **third business day**: follow up",
+          "On this file: letters out 02/17/2026, follow-up dated 02/20/2026",
+          "Keystone may hold written limits until a written request with authorizations Atty. Thorne approves"
+        ]
+      }
+    ],
+    "pages": [
+      "D1#21"
+    ],
+    "framework": {
+      "title": "Coverage Determination and Liability",
+      "kind": "table",
+      "head": [
+        "Coverage Determination",
+        "Liability Assessment"
+      ],
+      "rows": [
+        [
+          "Is there valid insurance coverage?",
+          "Who caused the incident?"
+        ],
+        [
+          "What type of coverage applies?",
+          "Is liability clear, shared or disputed?"
+        ],
+        [
+          "What are the **policy limits**?",
+          "What evidence supports fault?"
+        ],
+        [
+          "Are there exclusions or coverage gaps?",
+          "Are there comparative negligence factors?"
+        ]
+      ],
+      "note": "Every LOR request chases a coverage answer; Atty. Thorne weighs liability, and the preservation request protects its proof"
     }
-   ],
-   "note": "PIP's payment history reads the same way: date of service, billed, paid, check number and the limit remaining"
-  }
- },
- "d2m2-l2": {
-  "lead": "Mastering **the Standard Treatment Map** separates a Case Manager who observes a recovery from one who drives it; deviations trigger denials and IMEs.",
-  "concepts": [
-   {
-    "term": "Acute and Sub-Acute Phases",
-    "text": "Days 1–14: ER, imaging, initial PT, documenting causation. Weeks 2–8: active PT, specialists, **measuring functional gains**"
-   },
-   {
-    "term": "Restorative and Maintenance Phases",
-    "text": "Weeks 9–24: injections, work hardening, **barriers to return to work**. Then home exercise and as-needed visits"
-   },
-   {
-    "term": "Maximum Medical Improvement",
-    "text": "The provider's finding that further care won't improve the condition: **it closes the treatment phase** and opens pre-demand"
-   },
-   {
-    "term": "Variance Analysis",
-    "text": "When a client drifts off the map, identify why first: **clinical, psychosocial or systemic**, before funding stops",
-    "more": [
-     "Clinical: a new complication",
-     "Psychosocial: yellow flags like fear-avoidance or catastrophizing, or no transport to therapy",
-     "Systemic: an authorization or referral delay",
-     "This file: visits missed from 04/03/2026 for want of transport, **a psychosocial variance**"
-    ]
-   },
-   {
-    "term": "A-C-T Protocol",
-    "text": "The immediate action for any red flag: Assess the danger, Coordinate the fix, Track it. **Documentation supplies counsel's why**",
-    "more": [
-     "Climb one documented rung at a time",
-     "Rung 1, clinical: the provider's office manager",
-     "Rung 2, administrative: written notice to the carrier causing it, copied to Atty. Thorne",
-     "Rung 3, legal: **Atty. Thorne's call**, such as an LOP",
-     "Write each step as a GIRP note: Goal, Intervention, Response, Plan"
-    ]
-   },
-   {
-    "term": "Reasonable and Necessary",
-    "text": "The utilization-review test: common for the mechanism of injury, and **objective functional gain**, not subjective pain alone"
-   },
-   {
-    "term": "SMART Goals",
-    "text": "Specific, Measurable, Achievable, Relevant, Time-bound: goals **defensible to clinicians and adjusters** alike, like the week-6 measures",
-    "more": [
-     "Week 6: 20–30% more range of motion or a lower pain score",
-     "John Doe's week 6: 04/07/2026, 02/24/2026 + 42 days",
-     "No disability-index change by week 12: **a plateau**; ask the provider about a specialist"
-    ]
-   },
-   {
-    "term": "Stakeholder Triad",
-    "text": "Clinical, legal and financial loops, with you as the router: **one broken loop** can stall a case for months"
-   }
-  ],
-  "pages": [
-   "D1#40",
-   "D1#44"
-  ],
-  "framework": {
-   "title": "The Standard Treatment Map",
-   "kind": "table",
-   "head": [
-    "Phase",
-    "Window",
-    "Typical interventions",
-    "Case Manager focus"
-   ],
-   "rows": [
-    [
-     "Acute",
-     "Days 1–14",
-     "ER, imaging (MRI/CT), bracing, RICE, initial PT",
-     "Establishing causation and PIP coverage"
+  },
+  "d2m1-l2": {
+    "lead": "Coverage verification turns a reported fact into **a confirmed one in writing**: every limit, form and exclusion traced to the document that proves it.",
+    "concepts": [
+      {
+        "term": "Coverage Matrix",
+        "text": "One row per carrier, the file's single coverage record: **status, source and date** show what is proven"
+      },
+      {
+        "term": "Verification Statuses",
+        "text": "Reported, noticed, acknowledged, disclosed, confirmed in writing: **only the last is proof**; each earlier status is a lead",
+        "more": [
+          "Reported: claims opened by phone 02/16–02/17/2026",
+          "Noticed: five LORs out 02/17/2026",
+          "Acknowledged: Cardinal State assigns Teresa Okafor 03/03/2026",
+          "Disclosed: Keystone's verbal limit at set-up, **still preliminary**",
+          "Confirmed in writing: Harbor Point 03/02 · Cardinal State 03/09 · Keystone 03/20/2026"
+        ]
+      },
+      {
+        "term": "Declaration Page",
+        "text": "The policy's own summary of who and what it covers, and for how much: **the proof behind a limit**",
+        "more": [
+          "Named insured and policy number",
+          "A policy period that covers 02/06/2026",
+          "The insured vehicle and its VIN: the one in the collision",
+          "Coverages, limits, deductibles, listed or excluded drivers, endorsements",
+          "Keystone's, dated 03/20/2026: **BI $10,000 per person**"
+        ]
+      },
+      {
+        "term": "Limit Types",
+        "text": "**Per person** caps one injured person; per accident caps everyone; a combined single limit is one figure for all"
+      },
+      {
+        "term": "UM Forms",
+        "text": "Add-on (excess) UM pays on top of the BI payment; reduced UM subtracts it. **The form changes the stack**",
+        "more": [
+          "Ask each UM carrier for its form **in writing**",
+          "Harbor Point confirmed 03/02/2026: add-on (excess), no PIP non-duplication",
+          "Had it been reduced: $20,000 − $10,000 = $10,000 Host UM, a $30,000 stack",
+          "Whether a form applies is Atty. Thorne's call; you record it"
+        ]
+      },
+      {
+        "term": "Stacking Layers",
+        "text": "Only liability and UM layers stack; PIP, PD and collision coverage are **separate benefits, tracked apart**"
+      },
+      {
+        "term": "Exclusions and Gaps",
+        "text": "A policy's exclusions matter as much as its limits: **a verified zero** is a fact, an assumed one a guess"
+      },
+      {
+        "term": "Applied Case Manager Actions",
+        "text": "A stalled carrier is a bottleneck: find the root cause, act now, then **prevent the next occurrence**"
+      }
     ],
-    [
-     "Sub-Acute",
-     "Weeks 2–8",
-     "Active PT 2–3 times weekly, specialist follow-up",
-     "Functional gains; week-6 check: 20–30% better range of motion"
+    "pages": [
+      "D1#20",
+      "D1#18"
     ],
-    [
-     "Restorative",
-     "Weeks 9–24",
-     "Work hardening, injections, psychological adjustment",
-     "Identifying barriers to return to work"
-    ],
-    [
-     "Maintenance",
-     "After week 24",
-     "Home exercise program, as-needed visits",
-     "Watching for the provider's MMI finding"
-    ],
-    [
-     "MMI",
-     "The endpoint",
-     "The provider finds further care won't improve the condition",
-     "Treatment closes; **pre-demand audit opens**"
-    ]
-   ],
-   "note": "Deviations from the map are the main trigger for denials and IMEs; name the variance before funding stops"
-  }
- },
- "d2m3-l1": {
-  "lead": "The Golden Rule: coordinate, don't commingle. The medical plan and the legal claim are **two parallel tracks** that never cross-contaminate, even in a gap interview.",
-  "concepts": [
-   {
-    "term": "Case Manager Neutrality",
-    "text": "Legal opinions in medical or call notes let the defense **impeach your neutrality**; record facts, never conclusions"
-   },
-   {
-    "term": "Gaps as Legal Danger",
-    "text": "Under A-C-T, a gap in care is **a legal danger**, not medical: it routes to Atty. Thorne",
-    "more": [
-     "After each reason, ask **what shows it in writing**",
-     "A work schedule, a doctor's availability note, a travel log, a text or a receipt",
-     "Open a dated task for each document",
-     "Record his explanation in his words, beside its document; no view on value"
-    ]
-   },
-   {
-    "term": "Active Listening",
-    "text": "Reflect and paraphrase his words, then summarize: he **feels heard and corrects** what you got wrong",
-    "more": [
-     "Funnel: **broad open questions first**, then follow-ups on his own words",
-     "Closed questions last, only to pin a date, a name or a document",
-     "One question at a time; let pauses run",
-     "Never lead: a question that names a reason gets agreement, not information"
-    ]
-   },
-   {
-    "term": "Attorney-Client Privilege",
-    "text": "Confidential firm-client communication is privileged; **a third person** in the conversation can put that protection at risk",
-    "more": [
-     "Record only with consent: date, who is on the call, **his spoken yes**",
-     "Confirm he can talk privately",
-     "Ask Atty. Thorne before anyone joins",
-     "Label the recording privileged",
-     "Keystone asks for a Recorded Statement: he declines and refers it to the firm"
-    ]
-   }
-  ],
-  "pages": [
-   "D1#28",
-   "D1#44"
-  ],
-  "framework": {
-   "title": "The A-C-T Immediate Action Protocol",
-   "kind": "flow",
-   "steps": [
-    {
-     "label": "Assess",
-     "text": "Medical danger (fever, hardware failure) → the provider today; legal danger (gaps, generic notes) → Atty. Thorne"
-    },
-    {
-     "label": "Coordinate",
-     "text": "Clarify with the provider's office, then remove the barrier the client names: transport, scheduling, referrals"
-    },
-    {
-     "label": "Track",
-     "text": "Document the flag and each fix attempt that day: **counsel's why** if a provider is dropped"
-    },
-    {
-     "label": "Back to monitoring",
-     "text": "Track feeds the next check-in: is the plan working?"
+    "framework": {
+      "title": "Identified Potential Coverage Sources",
+      "kind": "table",
+      "head": [
+        "Coverage type",
+        "Limit or form",
+        "Status proven by",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "BI liability",
+          "Per person, per accident or combined single limit",
+          "Declaration Page or Coverage Letter",
+          "First stack layer; confirm no step-down"
+        ],
+        [
+          "Host UM",
+          "Add-on, or reduced by the BI payment",
+          "The carrier's written form confirmation",
+          "Second layer; opens after the BI tender"
+        ],
+        [
+          "Relative UM",
+          "Add-on or reduced; other-insurance clause",
+          "Certified policy and Coverage Letter",
+          "Third layer; priority is Atty. Thorne's call"
+        ],
+        [
+          "MedPay or PIP",
+          "Medical Bills to its limit, regardless of fault",
+          "Written terms, including any reimbursement right",
+          "**Tracked apart**, never added to the stack"
+        ],
+        [
+          "PD and collision",
+          "Vehicle damage only",
+          "Declaration Page, like any limit",
+          "Separate benefit, outside the stack"
+        ],
+        [
+          "Client's own UM",
+          "Zero if rejected in writing",
+          "The signed rejection form in the file",
+          "A verified zero, not an assumed one"
+        ]
+      ],
+      "note": "Only BI and the UM layers stack; on this file $10,000 + $20,000 + $10,000 = $40,000"
     }
-   ],
-   "note": "For a gap in care, Assess is already answered: a legal danger, routed to Atty. Thorne"
-  }
- },
- "d2m3-l2": {
-  "lead": "Case Managers must understand **the why behind the paperwork**: continuity is proved by what the record already shows, never by what it is asked to say.",
-  "concepts": [
-   {
-    "term": "Continuity of Care",
-    "text": "An unbroken path along the Standard Treatment Map, each step following from the last: **the chain an adjuster tests**"
-   },
-   {
-    "term": "Treatment Gap",
-    "text": "Any break in care, before first treatment or midstream. Adjusters read it as **minor, healed or unrelated**"
-   },
-   {
-    "term": "Records Made at the Time",
-    "text": "Written by EMS, providers and employers as events happened: **strongest proof**, since nobody wrote them for the claim",
-    "more": [
-     "EMS Run Report: neck stiffness, 02/06/2026",
-     "Urgent-care note, 02/20/2026: onset at the collision",
-     "Northgate call-outs, 02/09–02/13",
-     "The 02/07/2026 Riverton Drug receipt",
-     "The full text thread to Margaret Doe, **not chosen screenshots**"
-    ]
-   },
-   {
-    "term": "Consistent Histories",
-    "text": "Each provider's history repeats mechanism, onset and body region; **agreement across charts** is what makes continuity credible",
-    "more": [
-     "Mechanism: the collision",
-     "Onset: 02/06/2026",
-     "Body region: neck and right arm; the earlier chiropractic visits were low back",
-     "A conflict goes to Atty. Thorne that day: **never resolve it yourself**"
-    ]
-   },
-   {
-    "term": "Causation Opinion",
-    "text": "A treating doctor's opinion linking injury to collision: **the bridge across a gap**, requested by Atty. Thorne",
-    "more": [
-     "You assemble the records for his request letter and track the reply",
-     "You **never draft or suggest** its words"
-    ]
-   },
-   {
-    "term": "Record Integrity",
-    "text": "A record changes only by its author's dated addendum: altering one **can be evidence tampering** or fraud"
-   },
-   {
-    "term": "Excuse Notes",
-    "text": "A work note proves only what its author saw or ordered at a visit: **unexamined days need other proof**",
-    "more": [
-     "Check the signer and the visit date",
-     "Check that the days covered follow from that visit",
-     "02/09–02/13, before any exam: **Northgate's Attendance Record** is the proof",
-     "Never request a note written to order"
-    ]
-   },
-   {
-    "term": "Generic Notes",
-    "text": "Notes that don't tie complaints to the collision weaken causation: under A-C-T, **flag them to Atty. Thorne**"
-   }
-  ],
-  "pages": [
-   "D1#44",
-   "D1#39"
-  ],
-  "framework": {
-   "title": "Treatment Red Flags",
-   "kind": "table",
-   "head": [
-    "Area",
-    "Red flag",
-    "What it signals"
-   ],
-   "rows": [
-    [
-     "Physical therapy",
-     "Over 12 sessions with no gain; no specialist or imaging suggested",
-     "A stalled plan, or care read as **over-treatment**"
+  },
+  "d2m2-l1": {
+    "lead": "Once the claim is set up, the Case Plan runs on **three pillars**: clinical care, functional status and subrogation management, which sets who pays.",
+    "concepts": [
+      {
+        "term": "Payer Order",
+        "text": "The default sequence: MedPay or PIP first, health insurance next, an LOP last. **Order keeps liens down**"
+      },
+      {
+        "term": "MedPay vs. PIP",
+        "text": "First-party coverage for Medical Bills regardless of fault, up to its limit; **unlike PIP, no wages**",
+        "more": [
+          "John Doe's PIP: **$5,000 at Harbor Point**, as a passenger in the Escape",
+          "Paid in date order: $685.00, $640.00, $2,395.00, $640.00, $640.00",
+          "$640.00 left after the 03/27/2026 visit",
+          "Reaches $5,000.00 on the 06/12/2026 MMI visit: nothing left"
+        ]
+      },
+      {
+        "term": "Health Insurance",
+        "text": "Pays covered care at its contract rate, but may hold **a reimbursement right** against the recovery"
+      },
+      {
+        "term": "Letter of Protection",
+        "text": "The client's signed agreement that a provider is paid from any recovery: **a consensual lien** on his net",
+        "more": [
+          "Only for care earlier payers can't carry: Riverton Spine & Rehab is out of network",
+          "Summit Imaging's 03/11/2026 request declined: **PIP pays first**",
+          "Terms, template and signature are Atty. Thorne's; you prepare, route and transmit",
+          "Never promise a provider an amount, a reduction or a date"
+        ]
+      },
+      {
+        "term": "Standard Treatment Map",
+        "text": "The usual route of care: emergency, imaging, chiropractic and PT, orthopedics, pain management, surgery. **Each stop needs a payer**"
+      },
+      {
+        "term": "Monitoring Progress",
+        "text": "Evaluating clinical and functional outcomes, not checking boxes: **ask about the plan**, not just “How are you?”",
+        "more": [
+          "Facilitation: transport, paperwork, scheduling",
+          "Coordination: every provider on one plan",
+          "Advocacy: step in when care is denied or stalls",
+          "End each contact: **what might get in the way** of treatment this week?"
+        ]
+      },
+      {
+        "term": "Crisis Intervention",
+        "text": "Stepping in when care is denied or stalled by bureaucracy: **adjust the plan** to the immediate issue first"
+      },
+      {
+        "term": "Medication Red Flags",
+        "text": "Combined opioid, muscle relaxant and sedative, or rising doses without a new diagnosis: **raise it with the provider**"
+      }
     ],
-    [
-     "Physical therapy",
-     "Passive care only: heat packs, TENS, massage, no active exercise",
-     "Feel-good care that adjusters discount"
+    "pages": [
+      "D1#26",
+      "D1#39"
     ],
-    [
-     "Attendance",
-     "Two or more missed appointments",
-     "Defense argues the injury wasn't serious enough to treat"
-    ],
-    [
-     "Surgery",
-     "Surgery recommended before PT or injections, outside an emergency",
-     "A reasonable-and-necessary challenge"
-    ],
-    [
-     "Pain management",
-     "Opioid, muscle relaxant and sedative together; doses rising, diagnosis unchanged",
-     "A safety risk; treatment failing or dependency forming"
-    ],
-    [
-     "Records",
-     "Left and right switched; notes on life stress, not the collision",
-     "Credibility and causation weakened"
-    ]
-   ],
-   "note": "Under A-C-T, raise medical flags with the provider and legal flags with Atty. Thorne; you never direct care"
-  }
- },
- "d2m3-cause": {
-  "lead": "Negligence is **only half the battle**: a personal injury claim must also prove causation and damages, and a Causation Letter is medicine's proof of the link.",
-  "concepts": [
-   {
-    "term": "The Two Halves",
-    "text": "Duty and breach prove negligence; **causation and damages** prove what it cost. A claim needs both halves proved.",
-    "more": [
-     "Negligence on this file: Robert Smith's citation for failure to stop, Ruth Calloway, the doorbell video",
-     "Causation: the collision caused the C5-C6 herniation, the treatment it needed and the residual right-arm symptoms",
-     "Damages: the expenses and limitations that follow, **proved by records**, not adjectives"
-    ]
-   },
-   {
-    "term": "Who Writes It",
-    "text": "A treating physician or surgeon who examined the patient, or **an independent medical expert** who reviews the records.",
-    "more": [
-     "Dr. Alana Reyes, orthopaedic spine surgeon at Lakeside Orthopedics, saw John Doe on 03/05, 03/27 and 06/12/2026",
-     "A treating doctor's opinion rests on her own exams; an expert's rests on **the records she reads**",
-     "Either way, Atty. Thorne requests it, with the client's written authorization"
-    ]
-   },
-   {
-    "term": "Reasonable Medical Probability",
-    "text": "The standard its opinions are held to: **more likely than not**. “Possibly” or “could be” generally falls short.",
-    "more": [
-     "Dr. Reyes holds each opinion “to a reasonable degree of medical probability”",
-     "The exact standard varies by state: **Atty. Thorne confirms** the governing rule",
-     "Weak wording is flagged to him; nobody asks the doctor to strengthen it"
-    ]
-   },
-   {
-    "term": "Aggravation and Prior Conditions",
-    "text": "A prior injury in the same region makes it an aggravation question; John Doe's 2021 care was **a different region**.",
-    "more": [
-     "Birch Avenue Chiropractic, 2021: three low-back visits, resolved; no prior neck complaint",
-     "Dr. Reyes: the 2021 care is unrelated and **has no bearing** on the cervical injury",
-     "Whether aggravation or the eggshell rule matters at all is Atty. Thorne's call"
-    ]
-   }
-  ],
-  "pages": [
-   "D3#17",
-   "D2#15"
-  ]
- },
- "d2m4-l1": {
-  "lead": "A full pre-demand audit is **the final stress test**: the move from collecting information to using it, leaving the defense zero easy outs.",
-  "concepts": [
-   {
-    "term": "Trinity of Case Alignment",
-    "text": "Narrative, physicality and medicals **must all agree**; if one is out of line, the case value collapses"
-   },
-   {
-    "term": "Maximum Medical Improvement",
-    "text": "The provider's finding that care has reached its plateau: **the incurred Specials are complete**, and the audit can begin"
-   },
-   {
-    "term": "Special Damages",
-    "text": "Medical Bills + lost wages + Property Damage: the provable dollar loss. **Every line needs a document**",
-    "more": [
-     "Medical: **$14,817.40**, every billed date matched to a visit",
-     "Lost wages: 9 shifts × 8 h × $22.00 = $1,584.00, verified by Northgate",
-     "Audited BI Specials: $16,401.40",
-     "Out-of-pocket costs from the trip log and their receipts",
-     "The Civic runs on its own Keystone PD claim, outside the $40,000",
-     "Future care stays out of the audited total"
-    ]
-   },
-   {
-    "term": "Medical and Billing Audit",
-    "text": "Three passes: chronology for gaps, coding for duplicates, prior history for pre-existing conditions. **Find weak spots first**",
-    "more": [
-     "Chronology: the 14 days and the 19-day disruption, each with its documented reason",
-     "Coding: duplicate or unbundled lines",
-     "Prior history, 5–10 years back: low-back chiropractic visits, resolved; **no prior neck complaint**",
-     "Every line: fits the mechanism, clinically ordered, backed by objective findings"
-    ]
-   },
-   {
-    "term": "Liens and Subrogation",
-    "text": "Health Plans, government payers and LOP providers may claim repayment from the recovery: **every lien shrinks the net**",
-    "more": [
-     "Peach State: $1,860.00, funding type recorded",
-     "Consensual: the LOP, $6,105.00",
-     "PIP: no reimbursement right against John Doe (03/02/2026)",
-     "Ask Harbor Point in writing whether it reserves PIP subrogation against Robert Smith",
-     "**$7,965.00 in liens** behind a $10,000 BI limit"
-    ]
-   },
-   {
-    "term": "Property Damage Deep Dive",
-    "text": "Photos of the point of impact, estimate against final bill, supplements: **PD proves the force** behind the injury"
-   },
-   {
-    "term": "Defense-Eye Audit",
-    "text": "Read the file as the adjuster will: social media, a minor-impact (MIST) label, venue. **Name each value killer**"
-   },
-   {
-    "term": "Policy-Limits Targets",
-    "text": "Verified limits in the order they open: what each policy can pay, **not the claim's worth**"
-   }
-  ],
-  "pages": [
-   "D2#4",
-   "D1#40"
-  ],
-  "framework": {
-   "title": "The Master Audit Checklist",
-   "kind": "table",
-   "head": [
-    "Audit area",
-    "Checkpoint",
-    "What to verify"
-   ],
-   "rows": [
-    [
-     "Financial and liens",
-     "Special Damages",
-     "Medical Bills + lost wages + PD, every line documented"
-    ],
-    [
-     "Financial and liens",
-     "Lost wages",
-     "Employer's wage letter plus a provider's work note; without both, usually rejected"
-    ],
-    [
-     "Financial and liens",
-     "Lien resolution",
-     "**Every subrogation interest**: statutory, Health Plan, consensual LOP"
-    ],
-    [
-     "Liability proof",
-     "Report, witnesses, scene",
-     "Final report; witness contact and statement drift; the physics possible"
-    ],
-    [
-     "Property Damage deep dive",
-     "Photos, estimates, Total Loss",
-     "Point of impact clear; supplements show hidden structural damage"
-    ],
-    [
-     "Medical and billing",
-     "Chronology, coding, prior history",
-     "Every gap explained; no duplicate codes; 5–10 years of history"
-    ]
-   ],
-   "note": "Opened at MMI, when the incurred Specials are complete; every finding goes to Atty. Thorne, who sets the demand"
-  }
- },
- "d2m4-l2": {
-  "lead": "A pre-demand audit is the file's sanity check; the strategy brief carries **its findings, not conclusions**, to Atty. Thorne, who makes every call.",
-  "concepts": [
-   {
-    "term": "Core Audit Objectives",
-    "text": "Verification (facts match evidence), Valuation (every dollar justified), Risk, Compliance: **the brief reports each**",
-    "more": [
-     "The brief runs in counsel's order: **bottom line first**, in one sentence",
-     "Facts next, audited and sourced",
-     "Risks, each paired with the document that answers it",
-     "Decisions needed, as questions only Atty. Thorne can answer",
-     "Options with their operational consequences; decisions recorded the same day, in his words"
-    ]
-   },
-   {
-    "term": "Statement Drift",
-    "text": "A witness whose story changes between tellings: **drift is a defense opening**, so the brief flags it"
-   },
-   {
-    "term": "Value Killers",
-    "text": "The defense-eye audit looks for what shrinks a claim: social media, a MIST label, venue. **Counsel weighs each one**",
-    "more": [
-     "Gap → the Gap Explanation Record and Dr. Reyes's Causation Letter",
-     "Disruption → the A-C-T record",
-     "Earlier low-back visits → a different region, resolved",
-     "A MIST label → **the structural supplement** answers it",
-     "No answering document: **say none does**"
-    ]
-   },
-   {
-    "term": "Short-Funded Settlement",
-    "text": "When the math is wrong or liens are missed, **the client takes home nothing**: lien totals belong in every brief"
-   }
-  ],
-  "pages": [
-   "D2#3",
-   "D2#9"
-  ],
-  "framework": {
-   "title": "Core Objectives of the Pre-Demand Audit",
-   "kind": "list",
-   "steps": [
-    {
-     "label": "Verification",
-     "text": "Do the facts match the physical evidence: photos, the Police Report, the scene?"
-    },
-    {
-     "label": "Valuation",
-     "text": "Are damages calculated accurately: bills, wages and future care, each justified by a document?"
-    },
-    {
-     "label": "Risk Assessment",
-     "text": "Weak spots the defense will argue: comparative negligence, social media, a MIST label, venue"
-    },
-    {
-     "label": "Compliance",
-     "text": "Statutory requirements met before the demand issues, the **Statute of Limitations** first"
+    "framework": {
+      "title": "The Payer Order",
+      "kind": "flow",
+      "steps": [
+        {
+          "label": "Identify the payers",
+          "text": "Primary payer determination: list every source and its default order; primacy is Atty. Thorne's call"
+        },
+        {
+          "label": "MedPay or PIP",
+          "text": "First-party, regardless of fault, to its limit; PIP also pays 80% of wages, MedPay none"
+        },
+        {
+          "label": "Health Plan",
+          "text": "Pays covered care at its contract rate, but may assert **a reimbursement right** against the recovery"
+        },
+        {
+          "label": "Letter of Protection",
+          "text": "Last rung, for care earlier payers can't carry: paid from any recovery, on Atty. Thorne's terms"
+        }
+      ],
+      "note": "On this file: Harbor Point PIP, then Peach State, then an LOP; providers bill whom they bill"
     }
-   ],
-   "note": "The audit is the file's sanity check: the brief reports each objective's findings; Atty. Thorne draws the conclusions"
-  }
- },
- "d2m2-lop": {
-  "lead": "A **Letter of Protection** keeps care going when no payer will: the firm promises the provider payment from the settlement.",
-  "concepts": [
-   {
-    "term": "Letter of Protection (LOP)",
-    "text": "The firm's written promise to pay a provider's bill from the settlement: **a claim against the recovery**, not insurance",
-    "more": [
-     "Signed before the first visit, and filed",
-     "Riverton Spine & Rehab's: signed 02/23/2026, Financial class LOP / attorney",
-     "The client **still owes the balance**",
-     "What it means for his recovery is Atty. Thorne's to explain"
+  },
+  "d2m2-eob": {
+    "lead": "Every payer reports what it did with a bill: the Health Plan in an **Explanation of Benefits**, PIP in its payment history. Read both before any lien.",
+    "concepts": [
+      {
+        "term": "Explanation of Benefits",
+        "text": "The plan's account of one processed claim: **not a bill**, but proof of who paid what"
+      },
+      {
+        "term": "Billed vs. Allowed",
+        "text": "Billed is the provider's charge; allowed is the plan's fee schedule. **The gap is written off** in network"
+      },
+      {
+        "term": "Remark Codes",
+        "text": "Short codes that explain each line: CO-45 is the fee-schedule write-off, AC1 **flags a possible accident**",
+        "more": [
+          "CO-45: charge above the in-network fee schedule; the difference is the provider's",
+          "AC1: possibly accident-related, which attaches the plan's reimbursement right",
+          "AC1 also brings the plan's accident questionnaire",
+          "Route it to Atty. Thorne **before John Doe returns it**"
+        ]
+      },
+      {
+        "term": "Member Responsibility",
+        "text": "The deductible, copay and coinsurance left to the patient: **the most a provider may bill** in network"
+      },
+      {
+        "term": "Balance Billing",
+        "text": "Billing the patient for a contractual write-off: **not allowed in network**, so an error, not a lien",
+        "more": [
+          "Crescent's 07/01/2026 statement asks John Doe for $1,540.00: **the write-off**",
+          "File it beside the EOB",
+          "Route it to Atty. Thorne the same day",
+          "Draft the written request that Crescent correct its account",
+          "Tell John Doe what you're doing and when he'll hear back",
+          "Whether he owes anything is Atty. Thorne's call"
+        ]
+      },
+      {
+        "term": "PIP Payment History",
+        "text": "The carrier's ledger of every PIP check: date of service, amount paid and **the limit remaining**"
+      },
+      {
+        "term": "Exhaustion",
+        "text": "Once PIP's limit is spent, later bills come back unpaid: **route them to the next payer**",
+        "more": [
+          "Harbor Point's five checks: $685.00, $640.00 three times, $2,395.00",
+          "Total $5,000.00: **exhausted 06/26/2026**",
+          "Later bills come back with a notice of exhaustion",
+          "The firm's PIP Log (RS71) tracks each check and the limit remaining",
+          "Pitfall: sending a bill to PIP after exhaustion"
+        ]
+      },
+      {
+        "term": "Reconciliation",
+        "text": "Matching every provider balance to each payer's EOB or check, so **no paid bill becomes a lien**"
+      }
+    ],
+    "pages": [
+      "D4#35",
+      "D3#20"
+    ],
+    "framework": {
+      "title": "Reading an EOB",
+      "kind": "flow",
+      "steps": [
+        {
+          "label": "Match the claim",
+          "text": "Member ID, claim number, provider and date of service against the CMS treatment record"
+        },
+        {
+          "label": "Billed to allowed",
+          "text": "The charge, the plan's allowed amount, and the contractual adjustment it wrote off"
+        },
+        {
+          "label": "The patient's share",
+          "text": "Deductible, copay and coinsurance: **member responsibility** is the most a provider may bill"
+        },
+        {
+          "label": "What the plan paid",
+          "text": "The payment, its date and its EFT or check number: where any reimbursement claim starts"
+        },
+        {
+          "label": "Read the remark codes",
+          "text": "CO-45 explains the write-off; AC1 flags an accident and the plan's reimbursement right"
+        },
+        {
+          "label": "Reconcile and log",
+          "text": "Tie it to the provider's statement and the lien register; flag any balance billing"
+        }
+      ],
+      "note": "PIP's payment history reads the same way: date of service, billed, paid, check number and the limit remaining"
+    }
+  },
+  "d2m2-l2": {
+    "lead": "Mastering **the Standard Treatment Map** separates a Case Manager who observes a recovery from one who drives it; deviations trigger denials and IMEs.",
+    "concepts": [
+      {
+        "term": "Acute and Sub-Acute Phases",
+        "text": "Days 1–14: ER, imaging, initial PT, documenting causation. Weeks 2–8: active PT, specialists, **measuring functional gains**"
+      },
+      {
+        "term": "Restorative and Maintenance Phases",
+        "text": "Weeks 9–24: injections, work hardening, **barriers to return to work**. Then home exercise and as-needed visits"
+      },
+      {
+        "term": "Maximum Medical Improvement",
+        "text": "The provider's finding that further care won't improve the condition: **it closes the treatment phase** and opens pre-demand"
+      },
+      {
+        "term": "Variance Analysis",
+        "text": "When a client drifts off the map, identify why first: **clinical, psychosocial or systemic**, before funding stops",
+        "more": [
+          "Clinical: a new complication",
+          "Psychosocial: yellow flags like fear-avoidance or catastrophizing, or no transport to therapy",
+          "Systemic: an authorization or referral delay",
+          "This file: John silent from 04/03/2026, **crash-related anxiety**, found once he was reached"
+        ]
+      },
+      {
+        "term": "A-C-T Protocol",
+        "text": "The immediate action for any red flag: Assess the danger, Coordinate the fix, Track it. **Documentation supplies counsel's why**",
+        "more": [
+          "Climb one documented rung at a time",
+          "Rung 1, clinical: the provider's office manager",
+          "Rung 2, administrative: written notice to the carrier causing it, copied to Atty. Thorne",
+          "Rung 3, legal: **Atty. Thorne's call**, such as an LOP",
+          "Write each step as a GIRP note: Goal, Intervention, Response, Plan"
+        ]
+      },
+      {
+        "term": "Reasonable and Necessary",
+        "text": "The utilization-review test: common for the mechanism of injury, and **objective functional gain**, not subjective pain alone"
+      },
+      {
+        "term": "SMART Goals",
+        "text": "Specific, Measurable, Achievable, Relevant, Time-bound: goals **defensible to clinicians and adjusters** alike, like the week-6 measures",
+        "more": [
+          "Week 6: 20–30% more range of motion or a lower pain score",
+          "John Doe's week 6: 04/07/2026, 02/24/2026 + 42 days",
+          "No disability-index change by week 12: **a plateau**; ask the provider about a specialist"
+        ]
+      },
+      {
+        "term": "Stakeholder Triad",
+        "text": "Clinical, legal and financial loops, with you as the router: **one broken loop** can stall a case for months"
+      }
+    ],
+    "pages": [
+      "D1#40",
+      "D1#44"
+    ],
+    "framework": {
+      "title": "The Standard Treatment Map",
+      "kind": "table",
+      "head": [
+        "Phase",
+        "Window",
+        "Typical interventions",
+        "Case Manager focus"
+      ],
+      "rows": [
+        [
+          "Acute",
+          "Days 1–14",
+          "ER, imaging (MRI/CT), bracing, RICE, initial PT",
+          "Establishing causation and PIP coverage"
+        ],
+        [
+          "Sub-Acute",
+          "Weeks 2–8",
+          "Active PT 2–3 times weekly, specialist follow-up",
+          "Functional gains; week-6 check: 20–30% better range of motion"
+        ],
+        [
+          "Restorative",
+          "Weeks 9–24",
+          "Work hardening, injections, psychological adjustment",
+          "Identifying barriers to return to work"
+        ],
+        [
+          "Maintenance",
+          "After week 24",
+          "Home exercise program, as-needed visits",
+          "Watching for the provider's MMI finding"
+        ],
+        [
+          "MMI",
+          "The endpoint",
+          "The provider finds further care won't improve the condition",
+          "Treatment closes; **pre-demand audit opens**"
+        ]
+      ],
+      "note": "Deviations from the map are the main trigger for denials and IMEs; name the variance before funding stops"
+    }
+  },
+  "d2m3-l1": {
+    "lead": "The Golden Rule: coordinate, don't commingle. The medical plan and the legal claim are **two parallel tracks** that never cross-contaminate, even in a gap interview.",
+    "concepts": [
+      {
+        "term": "Case Manager Neutrality",
+        "text": "Legal opinions in medical or call notes let the defense **impeach your neutrality**; record facts, never conclusions"
+      },
+      {
+        "term": "Gaps as Legal Danger",
+        "text": "Under A-C-T, a gap in care is **a legal danger**, not medical: it routes to Atty. Thorne",
+        "more": [
+          "After each reason, ask **what shows it in writing**",
+          "A work schedule, a doctor's availability note, a travel log, a text or a receipt",
+          "Open a dated task for each document",
+          "Record his explanation in his words, beside its document; no view on value"
+        ]
+      },
+      {
+        "term": "Active Listening",
+        "text": "Reflect and paraphrase his words, then summarize: he **feels heard and corrects** what you got wrong",
+        "more": [
+          "Funnel: **broad open questions first**, then follow-ups on his own words",
+          "Closed questions last, only to pin a date, a name or a document",
+          "One question at a time; let pauses run",
+          "Never lead: a question that names a reason gets agreement, not information"
+        ]
+      },
+      {
+        "term": "Attorney-Client Privilege",
+        "text": "Confidential firm-client communication is privileged; **a third person** in the conversation can put that protection at risk",
+        "more": [
+          "Record only with consent: date, who is on the call, **his spoken yes**",
+          "Confirm he can talk privately",
+          "Ask Atty. Thorne before anyone joins",
+          "Label the recording privileged",
+          "Keystone asks for a Recorded Statement: he declines and refers it to the firm"
+        ]
+      }
+    ],
+    "pages": [
+      "D1#28",
+      "D1#44"
+    ],
+    "framework": {
+      "title": "The A-C-T Immediate Action Protocol",
+      "kind": "flow",
+      "steps": [
+        {
+          "label": "Assess",
+          "text": "Medical danger (fever, hardware failure) → the provider today; legal danger (gaps, generic notes) → Atty. Thorne"
+        },
+        {
+          "label": "Coordinate",
+          "text": "Clarify with the provider's office, then remove the barrier the client names: transport, scheduling, referrals"
+        },
+        {
+          "label": "Track",
+          "text": "Document the flag and each fix attempt that day: **counsel's why** if a provider is dropped"
+        },
+        {
+          "label": "Back to monitoring",
+          "text": "Track feeds the next check-in: is the plan working?"
+        }
+      ],
+      "note": "For a gap in care, Assess is already answered: a legal danger, routed to Atty. Thorne"
+    }
+  },
+  "d2m3-l2": {
+    "lead": "Case Managers must understand **the why behind the paperwork**: continuity is proved by what the record already shows, never by what it is asked to say.",
+    "concepts": [
+      {
+        "term": "Continuity of Care",
+        "text": "An unbroken path along the Standard Treatment Map, each step following from the last: **the chain an adjuster tests**"
+      },
+      {
+        "term": "Treatment Gap",
+        "text": "Any break in care, before first treatment or midstream. Adjusters read it as **minor, healed or unrelated**"
+      },
+      {
+        "term": "Records Made at the Time",
+        "text": "Written by EMS, providers and employers as events happened: **strongest proof**, since nobody wrote them for the claim",
+        "more": [
+          "EMS Run Report: neck stiffness, 02/06/2026",
+          "Urgent-care note, 02/20/2026: onset at the collision",
+          "Northgate call-outs, 02/09–02/13",
+          "The 02/07/2026 Riverton Drug receipt",
+          "The full text thread to Margaret Doe, **not chosen screenshots**"
+        ]
+      },
+      {
+        "term": "Consistent Histories",
+        "text": "Each provider's history repeats mechanism, onset and body region; **agreement across charts** is what makes continuity credible",
+        "more": [
+          "Mechanism: the collision",
+          "Onset: 02/06/2026",
+          "Body region: neck and right arm; the earlier chiropractic visits were low back",
+          "A conflict goes to Atty. Thorne that day: **never resolve it yourself**"
+        ]
+      },
+      {
+        "term": "Causation Opinion",
+        "text": "A treating doctor's opinion linking injury to collision: **the bridge across a gap**, requested by Atty. Thorne",
+        "more": [
+          "You assemble the records for his request letter and track the reply",
+          "You **never draft or suggest** its words"
+        ]
+      },
+      {
+        "term": "Record Integrity",
+        "text": "A record changes only by its author's dated addendum: altering one **can be evidence tampering** or fraud"
+      },
+      {
+        "term": "Excuse Notes",
+        "text": "A work note proves only what its author saw or ordered at a visit: **unexamined days need other proof**",
+        "more": [
+          "Check the signer and the visit date",
+          "Check that the days covered follow from that visit",
+          "02/09–02/13, before any exam: **Northgate's Attendance Record** is the proof",
+          "Never request a note written to order"
+        ]
+      },
+      {
+        "term": "Generic Notes",
+        "text": "Notes that don't tie complaints to the collision weaken causation: under A-C-T, **flag them to Atty. Thorne**"
+      }
+    ],
+    "pages": [
+      "D1#44",
+      "D1#39"
+    ],
+    "framework": {
+      "title": "Treatment Red Flags",
+      "kind": "table",
+      "head": [
+        "Area",
+        "Red flag",
+        "What it signals"
+      ],
+      "rows": [
+        [
+          "Physical therapy",
+          "Over 12 sessions with no gain; no specialist or imaging suggested",
+          "A stalled plan, or care read as **over-treatment**"
+        ],
+        [
+          "Physical therapy",
+          "Passive care only: heat packs, TENS, massage, no active exercise",
+          "Feel-good care that adjusters discount"
+        ],
+        [
+          "Attendance",
+          "Two or more missed appointments",
+          "Defense argues the injury wasn't serious enough to treat"
+        ],
+        [
+          "Surgery",
+          "Surgery recommended before PT or injections, outside an emergency",
+          "A reasonable-and-necessary challenge"
+        ],
+        [
+          "Pain management",
+          "Opioid, muscle relaxant and sedative together; doses rising, diagnosis unchanged",
+          "A safety risk; treatment failing or dependency forming"
+        ],
+        [
+          "Records",
+          "Left and right switched; notes on life stress, not the collision",
+          "Credibility and causation weakened"
+        ]
+      ],
+      "note": "Under A-C-T, raise medical flags with the provider and legal flags with Atty. Thorne; you never direct care"
+    }
+  },
+  "d2m3-cause": {
+    "lead": "Negligence is **only half the battle**: a personal injury claim must also prove causation and damages, and a Causation Letter is medicine's proof of the link.",
+    "concepts": [
+      {
+        "term": "The Two Halves",
+        "text": "Duty and breach prove negligence; **causation and damages** prove what it cost. A claim needs both halves proved.",
+        "more": [
+          "Negligence on this file: Robert Smith's citation for failure to stop, Ruth Calloway, the doorbell video",
+          "Causation: the collision caused the C5-C6 herniation, the treatment it needed and the residual right-arm symptoms",
+          "Damages: the expenses and limitations that follow, **proved by records**, not adjectives"
+        ]
+      },
+      {
+        "term": "Who Writes It",
+        "text": "A treating physician or surgeon who examined the patient, or **an independent medical expert** who reviews the records.",
+        "more": [
+          "Dr. Alana Reyes, orthopaedic spine surgeon at Lakeside Orthopedics, saw John Doe on 03/05, 03/27 and 06/12/2026",
+          "A treating doctor's opinion rests on her own exams; an expert's rests on **the records she reads**",
+          "Either way, Atty. Thorne requests it, with the client's written authorization"
+        ]
+      },
+      {
+        "term": "Reasonable Medical Probability",
+        "text": "The standard its opinions are held to: **more likely than not**. “Possibly” or “could be” generally falls short.",
+        "more": [
+          "Dr. Reyes holds each opinion “to a reasonable degree of medical probability”",
+          "The exact standard varies by state: **Atty. Thorne confirms** the governing rule",
+          "Weak wording is flagged to him; nobody asks the doctor to strengthen it"
+        ]
+      },
+      {
+        "term": "Aggravation and Prior Conditions",
+        "text": "A prior injury in the same region makes it an aggravation question; John Doe's 2021 care was **a different region**.",
+        "more": [
+          "Birch Avenue Chiropractic, 2021: three low-back visits, resolved; no prior neck complaint",
+          "Dr. Reyes: the 2021 care is unrelated and **has no bearing** on the cervical injury",
+          "Whether aggravation or the eggshell rule matters at all is Atty. Thorne's call"
+        ]
+      }
+    ],
+    "pages": [
+      "D3#17",
+      "D2#15"
     ]
-   },
-   {
-    "term": "Payer-First",
-    "text": "Health insurance, MedPay and PIP are checked first; the LOP is **the last resort**, and the reason is recorded"
-   },
-   {
-    "term": "The LOP Balance",
-    "text": "Grows with every visit; the itemized ledger every 30 days keeps **the Liens tab and the Net Sheet** current"
-   },
-   {
-    "term": "Provider Referrals",
-    "text": "Options and logistics only: a list, network status, the booking. **The client chooses**; any firm relationship is disclosed",
-    "more": [
-     "A list of providers who accept an LOP or the client's plan",
-     "Each with location, hours and network status",
-     "Book the appointment **he chooses**",
-     "Never recommend one provider, promise a result, or say care helps the case",
-     "Log who was offered, who he chose and why, in his words"
-    ]
-   }
-  ],
-  "pages": []
- },
- "d2m2-cost": {
-  "lead": "Treatment costs the client money no provider bill shows: **documented when it happens**, it can reach the demand.",
-  "concepts": [
-   {
-    "term": "Out-of-Pocket Costs",
-    "text": "Mileage, rides, parking, prescriptions, co-pays, equipment and any rental the owner paid: **each with its receipt**",
-    "more": [
-     "Mileage to and from every treatment visit",
-     "Rides and parking when the client has no car",
-     "Prescriptions, co-pays and deductibles",
-     "Medical equipment: a brace, a cervical pillow, a TENS unit",
-     "A rental the owner paid: days past the cutoff, or a rate above the cap"
-    ]
-   },
-   {
-    "term": "The Trip Log",
-    "text": "Date, provider and round-trip miles for every visit, **kept from the first appointment**",
-    "more": [
-     "One line per visit: the date, the provider and the round-trip miles",
-     "Kept as treatment happens, never rebuilt from memory at the demand",
-     "Mileage is claimed at the rate the governing state's rules allow; Atty. Thorne confirms it",
-     "For reference, the IRS rates when this course was written: **20.5¢ a mile medical**, 72.5¢ business"
-    ]
-   },
-   {
-    "term": "Rental Reimbursement",
-    "text": "A rental the carrier didn't pay is **the owner's out-of-pocket cost**: receipt filed, routed with the PD claim",
-    "more": [
-     "Days past the carrier's cutoff",
-     "A daily rate above the authorized cap",
-     "An upgrade's difference over a comparable vehicle",
-     "Keep the rental company's receipt and route it to Atty. Thorne"
-    ]
-   },
-   {
-    "term": "Into the Demand",
-    "text": "Each cost entered in **the Specials ledger** the day its receipt arrives; counsel decides what is claimed"
-   }
-  ],
-  "pages": []
- },
+  },
+  "d2m4-l1": {
+    "lead": "A full pre-demand audit is **the final stress test**: the move from collecting information to using it, leaving the defense zero easy outs.",
+    "concepts": [
+      {
+        "term": "Trinity of Case Alignment",
+        "text": "Narrative, physicality and medicals **must all agree**; if one is out of line, the case value collapses"
+      },
+      {
+        "term": "Maximum Medical Improvement",
+        "text": "The provider's finding that care has reached its plateau: **the incurred Specials are complete**, and the audit can begin"
+      },
+      {
+        "term": "Special Damages",
+        "text": "Medical Bills + lost wages + Property Damage: the provable dollar loss. **Every line needs a document**",
+        "more": [
+          "Medical: **$14,817.40**, every billed date matched to a visit",
+          "Lost wages: 9 shifts × 8 h × $22.00 = $1,584.00, verified by Northgate",
+          "Audited BI Specials: $16,401.40",
+          "Out-of-pocket costs from the trip log and their receipts",
+          "The Civic runs on its own Keystone PD claim, outside the $40,000",
+          "Future care stays out of the audited total"
+        ]
+      },
+      {
+        "term": "Medical and Billing Audit",
+        "text": "Three passes: chronology for gaps, coding for duplicates, prior history for pre-existing conditions. **Find weak spots first**",
+        "more": [
+          "Chronology: the 14 days and the 19-day disruption, each with its documented reason",
+          "Coding: duplicate or unbundled lines",
+          "Prior history, 5–10 years back: low-back chiropractic visits, resolved; **no prior neck complaint**",
+          "Every line: fits the mechanism, clinically ordered, backed by objective findings"
+        ]
+      },
+      {
+        "term": "Liens and Subrogation",
+        "text": "Health Plans, government payers and LOP providers may claim repayment from the recovery: **every lien shrinks the net**",
+        "more": [
+          "Peach State: $1,860.00, funding type recorded",
+          "Consensual: the LOP, $6,105.00",
+          "PIP: no reimbursement right against John Doe (03/02/2026)",
+          "Ask Harbor Point in writing whether it reserves PIP subrogation against Robert Smith",
+          "**$7,965.00 in liens** behind a $10,000 BI limit"
+        ]
+      },
+      {
+        "term": "Property Damage Deep Dive",
+        "text": "Photos of the point of impact, estimate against final bill, supplements: **PD proves the force** behind the injury"
+      },
+      {
+        "term": "Defense-Eye Audit",
+        "text": "Read the file as the adjuster will: social media, a minor-impact (MIST) label, venue. **Name each value killer**"
+      },
+      {
+        "term": "Policy-Limits Targets",
+        "text": "Verified limits in the order they open: what each policy can pay, **not the claim's worth**"
+      }
+    ],
+    "pages": [
+      "D2#4",
+      "D1#40"
+    ],
+    "framework": {
+      "title": "The Master Audit Checklist",
+      "kind": "table",
+      "head": [
+        "Audit area",
+        "Checkpoint",
+        "What to verify"
+      ],
+      "rows": [
+        [
+          "Financial and liens",
+          "Special Damages",
+          "Medical Bills + lost wages + PD, every line documented"
+        ],
+        [
+          "Financial and liens",
+          "Lost wages",
+          "Employer's wage letter plus a provider's work note; without both, usually rejected"
+        ],
+        [
+          "Financial and liens",
+          "Lien resolution",
+          "**Every subrogation interest**: statutory, Health Plan, consensual LOP"
+        ],
+        [
+          "Liability proof",
+          "Report, witnesses, scene",
+          "Final report; witness contact and statement drift; the physics possible"
+        ],
+        [
+          "Property Damage deep dive",
+          "Photos, estimates, Total Loss",
+          "Point of impact clear; supplements show hidden structural damage"
+        ],
+        [
+          "Medical and billing",
+          "Chronology, coding, prior history",
+          "Every gap explained; no duplicate codes; 5–10 years of history"
+        ]
+      ],
+      "note": "Opened at MMI, when the incurred Specials are complete; every finding goes to Atty. Thorne, who sets the demand"
+    }
+  },
+  "d2m4-l2": {
+    "lead": "A pre-demand audit is the file's sanity check; the strategy brief carries **its findings, not conclusions**, to Atty. Thorne, who makes every call.",
+    "concepts": [
+      {
+        "term": "Core Audit Objectives",
+        "text": "Verification (facts match evidence), Valuation (every dollar justified), Risk, Compliance: **the brief reports each**",
+        "more": [
+          "The brief runs in counsel's order: **bottom line first**, in one sentence",
+          "Facts next, audited and sourced",
+          "Risks, each paired with the document that answers it",
+          "Decisions needed, as questions only Atty. Thorne can answer",
+          "Options with their operational consequences; decisions recorded the same day, in his words"
+        ]
+      },
+      {
+        "term": "Statement Drift",
+        "text": "A witness whose story changes between tellings: **drift is a defense opening**, so the brief flags it"
+      },
+      {
+        "term": "Value Killers",
+        "text": "The defense-eye audit looks for what shrinks a claim: social media, a MIST label, venue. **Counsel weighs each one**",
+        "more": [
+          "Gap → the Gap Explanation Record and Dr. Reyes's Causation Letter",
+          "Disruption → the A-C-T record",
+          "Earlier low-back visits → a different region, resolved",
+          "A MIST label → **the structural supplement** answers it",
+          "No answering document: **say none does**"
+        ]
+      },
+      {
+        "term": "Short-Funded Settlement",
+        "text": "When the math is wrong or liens are missed, **the client takes home nothing**: lien totals belong in every brief"
+      }
+    ],
+    "pages": [
+      "D2#3",
+      "D2#9"
+    ],
+    "framework": {
+      "title": "Core Objectives of the Pre-Demand Audit",
+      "kind": "list",
+      "steps": [
+        {
+          "label": "Verification",
+          "text": "Do the facts match the physical evidence: photos, the Police Report, the scene?"
+        },
+        {
+          "label": "Valuation",
+          "text": "Are damages calculated accurately: bills, wages and future care, each justified by a document?"
+        },
+        {
+          "label": "Risk Assessment",
+          "text": "Weak spots the defense will argue: comparative negligence, social media, a MIST label, venue"
+        },
+        {
+          "label": "Compliance",
+          "text": "Statutory requirements met before the demand issues, the **Statute of Limitations** first"
+        }
+      ],
+      "note": "The audit is the file's sanity check: the brief reports each objective's findings; Atty. Thorne draws the conclusions"
+    }
+  },
+  "d2m2-lop": {
+    "lead": "A **Letter of Protection** keeps care going when no payer will: the firm promises the provider payment from the settlement.",
+    "concepts": [
+      {
+        "term": "Letter of Protection (LOP)",
+        "text": "The firm's written promise to pay a provider's bill from the settlement: **a claim against the recovery**, not insurance",
+        "more": [
+          "Signed before the first visit, and filed",
+          "Riverton Spine & Rehab's: signed 02/23/2026, Financial class LOP / attorney",
+          "The client **still owes the balance**",
+          "What it means for his recovery is Atty. Thorne's to explain"
+        ]
+      },
+      {
+        "term": "Payer-First",
+        "text": "Health insurance, MedPay and PIP are checked first; the LOP is **the last resort**, and the reason is recorded"
+      },
+      {
+        "term": "The LOP Balance",
+        "text": "Grows with every visit; the itemized ledger every 30 days keeps **the Liens tab and the Net Sheet** current"
+      },
+      {
+        "term": "Provider Referrals",
+        "text": "Options and logistics only: a list, network status, the booking. **The client chooses**; any firm relationship is disclosed",
+        "more": [
+          "A list of providers who accept an LOP or the client's plan",
+          "Each with location, hours and network status",
+          "Book the appointment **he chooses**",
+          "Never recommend one provider, promise a result, or say care helps the case",
+          "Log who was offered, who he chose and why, in his words"
+        ]
+      }
+    ],
+    "pages": []
+  },
+  "d2m2-cost": {
+    "lead": "Treatment costs the client money no provider bill shows: **documented when it happens**, it can reach the demand.",
+    "concepts": [
+      {
+        "term": "Out-of-Pocket Costs",
+        "text": "Mileage, rides, parking, prescriptions, co-pays, equipment and any rental the owner paid: **each with its receipt**",
+        "more": [
+          "Mileage to and from every treatment visit",
+          "Rides and parking when the client has no car",
+          "Prescriptions, co-pays and deductibles",
+          "Medical equipment: a brace, a cervical pillow, a TENS unit",
+          "A rental the owner paid: days past the cutoff, or a rate above the cap"
+        ]
+      },
+      {
+        "term": "The Trip Log",
+        "text": "Date, provider and round-trip miles for every visit, **kept from the first appointment**",
+        "more": [
+          "One line per visit: the date, the provider and the round-trip miles",
+          "Kept as treatment happens, never rebuilt from memory at the demand",
+          "Mileage is claimed at the rate the governing state's rules allow; Atty. Thorne confirms it",
+          "For reference, the IRS rates when this course was written: **20.5¢ a mile medical**, 72.5¢ business"
+        ]
+      },
+      {
+        "term": "Rental Reimbursement",
+        "text": "A rental the carrier didn't pay is **the owner's out-of-pocket cost**: receipt filed, routed with the PD claim",
+        "more": [
+          "Days past the carrier's cutoff",
+          "A daily rate above the authorized cap",
+          "An upgrade's difference over a comparable vehicle",
+          "Keep the rental company's receipt and route it to Atty. Thorne"
+        ]
+      },
+      {
+        "term": "Into the Demand",
+        "text": "Each cost entered in **the Specials ledger** the day its receipt arrives; counsel decides what is claimed"
+      }
+    ],
+    "pages": []
+  },
   "d2m2-pip": {
     "lead": "PIP pays regardless of fault, so a BI settlement must account for it: **where PIP is spent**, how fast, and whether it is credited or repaid.",
     "concepts": [
@@ -1081,54 +1081,107 @@
       "D2#26"
     ]
   },
- "d2m1-liab": {
-  "lead": "Liability assessment asks **who is legally responsible**, and to what degree, from evidence: the report, witnesses, video and vehicle data.",
-  "concepts": [
-   {
-    "term": "The Police Report",
-    "text": "The baseline: the crash mechanics, **citations issued** and the officer's scene observations"
-   },
-   {
-    "term": "Independent Witness",
-    "text": "A neutral account, the **strongest answer** to a disputed version of events"
-   },
-   {
-    "term": "Preservation",
-    "text": "Video and vehicle data are lost unless **preserved early**, with a chain of custody"
-   },
-   {
-    "term": "Comparative Negligence",
-    "text": "The defense moves fault toward the plaintiff; **each share** reduces the recovery"
-   }
-  ],
-  "pages": [
-   "D1#21",
-   "D3#15"
-  ]
- },
- "d2m1-first": {
-  "lead": "The Case Manager is **the central router** of information; a note to the attorney must make his decision quick and clear.",
-  "concepts": [
-   {
-    "term": "The Legal Loop",
-    "text": "Keeping the attorney informed so **decisions are made on time**"
-   },
-   {
-    "term": "Decision First",
-    "text": "The note opens with **the decision needed** and its deadline"
-   },
-   {
-    "term": "Options and Consequences",
-    "text": "Each option with **what follows from it**, so the choice stays his"
-   },
-   {
-    "term": "The Record",
-    "text": "The note and his answer **logged the same day** in the CMS"
-   }
-  ],
-  "pages": [
-   "D1#42",
-   "D2#10"
-  ]
- }
+  "d2m2-sum": {
+    "lead": "One page for the Treatment Phase's money: **who pays which bill**, who wants paying back, and the two flags that must go up on time.",
+    "concepts": [
+      {
+        "term": "Every Coverage, Sorted",
+        "text": "Each policy sorted by **whose it is** and what it pays: the claim, the bills or the car",
+        "more": [
+          "Third-party: Robert Smith's Keystone BI $10,000 and PD $25,000",
+          "First-party: Host UM $20,000, Relative UM $10,000, Harbor Point PIP $5,000, Bluewater collision",
+          "Health: Peach State Health Plan, through Northgate, effective 02/01/2026",
+          "Only **BI, Host UM and Relative UM** make the $40,000 Recovery Stack",
+          "Margaret Doe rejected UM on her Bluewater policy in writing on 03/14/2024: it adds nothing"
+        ]
+      },
+      {
+        "term": "The Payer-First Principle",
+        "text": "Each bill goes first to the payer that must pay it: **PIP, then Peach State, then an LOP**",
+        "more": [
+          "PIP pays regardless of fault, and Harbor Point has **no reimbursement right** (03/02/2026)",
+          "Peach State pays at the contract rate: Crescent billed $3,400.00, the plan paid $1,860.00",
+          "An LOP last, for care earlier payers can't carry: Riverton Spine & Rehab, out of network",
+          "Summit Imaging's 03/11/2026 LOP request declined: PIP had $3,675.00 left",
+          "Providers bill whom they bill: track every ledger, never re-route a paid claim"
+        ]
+      },
+      {
+        "term": "Health Subrogation and Triple-Check",
+        "text": "A plan that pays accident bills claims them back from the recovery: **only what it paid**",
+        "more": [
+          "Triple-Check first: HIPAA authorization, BCRC (John Doe is 34: SSDI verified), **the Payer Order**",
+          "The Payer Order pays the bills now; the $40,000 stack pays the claim later",
+          "Peach State's interim ledger asserted $3,618.00; audited, it confirmed **$1,860.00** on 06/24/2026",
+          "Unrelated, pre-existing or pre-loss lines, and billed-not-paid amounts, come off in writing",
+          "A fully insured plan: any reduction turns on state law, Atty. Thorne's call at the lien stage"
+        ]
+      },
+      {
+        "term": "The Two CMS Flags",
+        "text": "A lien and a gap are flagged **the day you know**, in facts only, and routed",
+        "more": [
+          "Lien: CMS → Liens → Flag on first notice (02/27/2026), and **before any demand**",
+          "Record carrier, member ID PSH-55017742, group GRP-41208, Payer Order position, basis and flag date",
+          "Gap: flag the day records show first care 02/20/2026, **14 days** after the 02/06/2026 loss",
+          "Risks band holds facts only: dates, count, explanation pending; routed to Atty. Thorne",
+          "Watch for any later break: the 04/08/2026 alert flagged 04/02 → 04/21/2026, 19 days"
+        ]
+      }
+    ],
+    "pages": [
+      "D2#25",
+      "D1#22"
+    ]
+  },
+  "d2m1-liab": {
+    "lead": "Liability assessment asks **who is legally responsible**, and to what degree, from evidence: the report, witnesses, video and vehicle data.",
+    "concepts": [
+      {
+        "term": "The Police Report",
+        "text": "The baseline: the crash mechanics, **citations issued** and the officer's scene observations"
+      },
+      {
+        "term": "Independent Witness",
+        "text": "A neutral account, the **strongest answer** to a disputed version of events"
+      },
+      {
+        "term": "Preservation",
+        "text": "Video and vehicle data are lost unless **preserved early**, with a chain of custody"
+      },
+      {
+        "term": "Comparative Negligence",
+        "text": "The defense moves fault toward the plaintiff; **each share** reduces the recovery"
+      }
+    ],
+    "pages": [
+      "D1#21",
+      "D3#15"
+    ]
+  },
+  "d2m1-first": {
+    "lead": "The Case Manager is **the central router** of information; a note to the attorney must make his decision quick and clear.",
+    "concepts": [
+      {
+        "term": "The Legal Loop",
+        "text": "Keeping the attorney informed so **decisions are made on time**"
+      },
+      {
+        "term": "Decision First",
+        "text": "The note opens with **the decision needed** and its deadline"
+      },
+      {
+        "term": "Options and Consequences",
+        "text": "Each option with **what follows from it**, so the choice stays his"
+      },
+      {
+        "term": "The Record",
+        "text": "The note and his answer **logged the same day** in the CMS"
+      }
+    ],
+    "pages": [
+      "D1#42",
+      "D2#10"
+    ]
+  }
 }

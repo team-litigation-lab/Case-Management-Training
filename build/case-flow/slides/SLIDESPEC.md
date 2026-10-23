@@ -90,7 +90,8 @@ context the decks gave, not only the rules. Take it from the deck pages that tea
   - `title` — the deck's name for it, **≤ 8 words**, no highlight ("The Standard Treatment Map").
   - `kind` — `"table"`: `head` (2–4 column headings, ≤ 4 words) and `rows` (2–6 rows of that many cells, ≤ 12 words
     each); or `"flow"` (a sequence, drawn with arrows) / `"list"` (cards): `steps`, 3–6 of `{label ≤ 5 words, text ≤ 16
-    words}`.
+    words}`. A step with more to it than its line may add `more` (2–6 lines, ≤ 22 words each, at most one highlight),
+    opened from the step's ＋ More button as a pop-up card, the same as a concept's.
   - `note` (optional) — one line under it, **≤ 22 words**.
   - At most one highlight in any cell or step text; none is required. The same doctrine rule: never Apex's facts.
 

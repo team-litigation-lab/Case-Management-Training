@@ -64,7 +64,11 @@ const theory = (b) => {
       else f.rows.forEach((r, i) => { if(!Array.isArray(r) || r.length !== (f.head || []).length) errors.push(`${id}.theory.framework.rows[${i}]: want ${(f.head || []).length} cells`); else r.forEach((x, j) => cell(`rows[${i}][${j}]`, x, 12)); });
     } else if(f && (f.kind === "flow" || f.kind === "list")){
       if(!Array.isArray(f.steps) || f.steps.length < 3 || f.steps.length > 6) errors.push(`${id}.theory.framework.steps: want 3–6`);
-      else f.steps.forEach((x, i) => { cell(`steps[${i}].label`, x && x.label, 5); cell(`steps[${i}].text`, x && x.text, 16); });
+      else f.steps.forEach((x, i) => { cell(`steps[${i}].label`, x && x.label, 5); cell(`steps[${i}].text`, x && x.text, 16);
+        if(x && x.more !== undefined){   // ＋ More on a step: its pop-up card, as on a concept
+          if(!Array.isArray(x.more) || x.more.length < 2 || x.more.length > 6) errors.push(`${id}.theory.framework.steps[${i}].more: want 2–6 lines`);
+          else x.more.forEach((m, k) => line(id, `theory.framework.steps[${i}].more[${k}]`, m, 22, [0, 1]));
+        } });
     } else if(f) errors.push(`${id}.theory.framework.kind: want table, flow or list`);
     if(f && f.note !== undefined) cell("note", f.note, 22);
   }
