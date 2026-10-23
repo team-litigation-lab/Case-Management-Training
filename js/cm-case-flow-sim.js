@@ -4,6 +4,21 @@
    Do not edit here: edit the JSON and assemble again. */
 window.CM_CF_SIM = {
  "events": {
+  "d2m4-wage": {
+   "date": "06/22/2026",
+   "time": "8:35 a.m.",
+   "channel": "alert",
+   "from": "CMS",
+   "to": "Case Manager",
+   "subject": "MMI recorded: lost wages unverified",
+   "body": "LSH-2026-MVA-770412. MMI recorded 06/12/2026. Lost wages rest on a draft worksheet from the client's account ($1,760.00), not yet verified. John Doe signed Northgate Distribution's employee authorization this morning. Task: Employer Wage Verification (Angela Ruiz, HR) and the wage reconciliation, due before the Special Damages Audit on 07/01/2026.",
+   "attachments": [
+    "RS94",
+    "RS12",
+    "RS15",
+    "RS17"
+   ]
+  },
   "d1m1-open": {
    "date": "02/09/2026",
    "time": "1:12 p.m.",
@@ -689,6 +704,20 @@ window.CM_CF_SIM = {
   }
  },
  "calls": {
+  "d2m2-a1": {
+   "who": "Tammy Greer",
+   "role": "provider",
+   "persona": "Brisk, friendly office manager at a busy clinic. Wants the LOP squared away before the first visit; pushes on insurance, visit cadence and whether the firm guarantees payment.",
+   "context": "02/23/2026, afternoon. Riverton Spine & Rehab (chiropractic and PT, out of network for Peach State) has John Doe booked for his evaluation 02/24/2026. The LOP signed today by John Doe and Atty. Thorne was emailed with the HIPAA authorization. Harbor Point PIP (claim HP-26-7741) paid his urgent-care visit. Tammy asks why not bill Peach State or PIP, how often he will come, where records and statements go, and whether the firm guarantees full payment and when. Answered with facts, she confirms the LOP and the appointment.",
+   "opening": "Riverton Spine and Rehab, this is Tammy. I've got the LOP you emailed. Before I put Mr. Doe on tomorrow's schedule, I have a few questions about how we're getting paid.",
+   "goals": [
+    "Introduce John Doe's case; confirm LOP acceptance and the 02/24/2026 evaluation",
+    "Answer insurance status with facts: PIP open, out of network for Peach State",
+    "Set records and billing: 30-day itemized statements, missed-visit alert, HIPAA authorization",
+    "Promise no payment amount, reduction or date; route those to Atty. Thorne"
+   ],
+   "line": "Facts and logistics only: the cadence is the provider's plan of care, and payment terms are Atty. Thorne's."
+  },
   "d1m3-a1": {
    "who": "John Doe",
    "role": "client",
@@ -985,6 +1014,21 @@ window.CM_CF_SIM = {
   }
  },
  "fallout": [
+  {
+   "if": {
+    "activity": "d2m4-wage",
+    "check": 2
+   },
+   "then": {
+    "activity": "d2m4-a2",
+    "event": {
+     "channel": "memo",
+     "from": "Atty. Elijah Thorne",
+     "subject": "Doe: five February shifts, nobody told me",
+     "body": "Keystone will see Northgate's call-outs for 02/09–02/13/2026 the moment we serve the wage proof. I am seeing them in your ledger first, with no flag and no corroboration attached. Bring the call-out record, the EMS report and the 02/07 receipt to today's session."
+    }
+   }
+  },
   {
    "if": {
     "activity": "d1m1-open",
