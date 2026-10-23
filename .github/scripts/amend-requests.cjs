@@ -2,13 +2,13 @@
 //
 // A Case Manager never fixes a provider's record. In Pre-Demand Case Auditing (d2m4-a1) the trainee screens the
 // records and bills, finds the ones wrong at their source, and writes each provider a request — with Atty. Thorne's
-// approval — to correct its own record or statement. The provider's answer brings the corrected copy, which then
-// opens to the trainee everywhere the file uses it, and is filed in the CMS the firm's way. Each request ends in
+// approval — to correct its own record or statement. The provider's answer brings the corrected copy, which opens
+// once their trainer unlocks it, then everywhere the file uses it, and is filed in the CMS the firm's way. Each request ends in
 // written feedback on the trainee's work, quoting what their own email did.
-// Checks, in a browser: the corrected copies are shut to a trainee before their request; a screening with a record
+// Checks, in a browser: the corrected copies are shut to a trainee until their trainer unlocks them; a screening with a record
 // uncalled is refused; a checked screening is scored, marks the wrong call and opens every request (a missed one
 // marked so); a request that is too short, that asks the radiologist to change the findings, or that leaves out
-// Atty. Thorne is refused with the reason and nothing is sent; a complete one brings the provider's answer and opens
+// Atty. Thorne is refused with the reason and nothing is sent; a complete one brings the provider's answer, and the trainer's unlock opens
 // the corrected copy; the copy is filed in the CMS under the convention (a wrong category refused first); the
 // feedback quotes the trainee's own email and counts the refused attempts; the request that brings no corrected copy
 // ends in a decision, scored; and all of it survives a reload.
@@ -64,6 +64,8 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
         try { localStorage.removeItem('cm-cms-case'); } catch (e) {}
         const r = (await storeGet('case-flow')) || {}; delete r.amend; await storeSet('case-flow', r);
         const f = (await storeGet('doc-filing')) || {}; delete f.RS72; delete f.RS73; await storeSet('doc-filing', f);
+        const t = state.traineeId && await sharedGet('trainee:' + state.traineeId); if (t) { t.unlockedCopies = []; await sharedSet('trainee:' + state.traineeId, t); }
+        state.adminUnlockedCopies = []; await storeSet('admin-unlocked-copies', []);
     });
     await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800);
     const A = await page.evaluate((b) => CM_CF_EXHIBITS.amendments[b], BLOCK);
@@ -114,7 +116,10 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     await send('RS16', mri.model);
     const sentMri = await page.evaluate((b) => (CM_CASE_FLOW, true) && document.getElementById('cf-am').innerText, BLOCK);
     check(/Marisol Ortega/.test(sentMri) && /transcription error/.test(sentMri), 'a complete request brings the provider\'s answer');
-    check(await page.evaluate(() => cmDocAvailable(cmDoc('RS72'))), 'and the corrected copy opens to the trainee');
+    check(!(await page.evaluate(() => cmDocAvailable(cmDoc('RS72')))), 'an answered request does not open the corrected copy by itself');
+    check(/opens once your trainer unlocks it/.test(sentMri), 'and the trainee is told their trainer unlocks it');
+    await page.evaluate(async (ids) => { /* the trainer's unlock: saved on the trainee record, as Admin → Trainee Audit does */ const r = state.traineeId && await sharedGet('trainee:' + state.traineeId); if (r) { r.unlockedCopies = ids; await sharedSet('trainee:' + state.traineeId, r); } state.adminUnlockedCopies = ids; await storeSet('admin-unlocked-copies', ids); }, ['RS72']);
+    check(await page.evaluate(() => cmDocAvailable(cmDoc('RS72'))), 'the corrected copy opens once the trainer unlocks it');
     check(/Sent on attempt 4/.test(sentMri) && /Attempt 2 refused: it asks for the findings/i.test(sentMri), 'the feedback counts the refused attempts and says why each was refused');
     check(/you wrote: “[^”]*02\/16\/2026/.test(sentMri), 'and quotes the trainee\'s own email for what it did');
     check(/The firm's model request/.test(sentMri) && /What this protects/.test(sentMri), 'with what the correction protects, and the firm\'s model to read theirs against');
@@ -141,7 +146,9 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
 
     // 6. Crescent's corrected statement; and Riverton's answer, which brings no copy, ends in a decision
     await send('RS26', A.requests.find(q => q.doc === 'RS26').model);
-    check(await page.evaluate(() => cmDocAvailable(cmDoc('RS73'))), 'Crescent\'s corrected $0.00 statement opens on its answer');
+    check(!(await page.evaluate(() => cmDocAvailable(cmDoc('RS73')))), 'Crescent\'s corrected $0.00 statement stays shut on its answer');
+    await page.evaluate(async (ids) => { /* the trainer's unlock: saved on the trainee record, as Admin → Trainee Audit does */ const r = state.traineeId && await sharedGet('trainee:' + state.traineeId); if (r) { r.unlockedCopies = ids; await sharedSet('trainee:' + state.traineeId, r); } state.adminUnlockedCopies = ids; await storeSet('admin-unlocked-copies', ids); }, ['RS72', 'RS73']);
+    check(await page.evaluate(() => cmDocAvailable(cmDoc('RS73'))), 'and opens once the trainer unlocks it');
     said = await send('RS23', A.requests.find(q => q.doc === 'RS23').model + '\n\nWould you accept less if we pay promptly?');
     check(/Not sent/.test(said) && /reduction/i.test(said), 'a correction request that slips in a reduction is refused');
     await send('RS23', A.requests.find(q => q.doc === 'RS23').model);
