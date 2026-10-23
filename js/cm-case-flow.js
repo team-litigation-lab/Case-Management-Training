@@ -2951,7 +2951,7 @@ function cfResult(d){
   const msg = lastPassed ? `That's a wrap on Case Flow Day ${d.cf.n}. Well done.` : "Not quite 70% yet. See which questions you missed below, then retake when you're ready.";
   const history = (state.progress[d.id] && state.progress[d.id].history) || [];
   const next = d.cf.n < MODULES.length ? (dayUnlocked(cfIdOf(d.cf.n + 1)) ? `<button class="btn btn-primary" onclick="goToNextDay(${d.id})">Continue to Case Flow Day ${d.cf.n + 1} →</button>` : "")
-    : (typeof certData === "function" && certData().eligible ? `<button class="btn btn-primary" onclick="openCertificate()">🎓 View Certificate of Completion</button>` : "");
+    : (lastPassed ? `<button class="btn btn-primary" onclick="cmCaseFlow.finish()">🎓 Finish Training</button>` : "");   // the last day: the Congratulations slide
   return `<div class="card quiz-result cf-kc-result">
       <div class="cf-kcr-top">
         <div class="cf-kcr-score">${typeof sealSvg === "function" ? sealSvg({size: 72, label: lastScore + "%", done: lastPassed}) : ""}<div><div class="big">${lastCorrect} / ${lastTotal} correct</div><div class="sub">${msg}</div></div>
