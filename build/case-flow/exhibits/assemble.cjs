@@ -158,6 +158,10 @@ for (const f of fs.readdirSync(HERE).filter(f => /^d\d\.json$/.test(f)).sort()){
     cap(`${at}.title`, e.title, 11, "title");
     cap(`${at}.kicker`, e.kicker, 16, "kicker");
     cap(`${at}.brief`, e.brief, 50, "brief");
+    if(e.words !== undefined){   // an exchange that isn't serving a demand names its own panel and steps
+      const w = e.words || {};
+      Object.keys(w).forEach(k => { if(!["label", "write", "send", "reply"].includes(k)) errors.push(`${at}.words.${k}: unknown (label · write · send · reply)`); else cap(`${at}.words.${k}`, w[k], 8, "words"); });
+    }
     ["to", "subject", "attachment"].forEach(k => { if(!e[k]) errors.push(`${at}.${k}: missing`); });
     if(!docOf(e.model)) errors.push(`${at}.model: ${e.model} is not a document`);
     else if((PACKETS[id] || []).includes(e.model)) errors.push(`${at}.model: ${e.model} is in the activity's packet; the model is the answer and must not be`);

@@ -518,6 +518,18 @@ naming convention, Communications Log, the Insurance tab's Demand record, and th
 complete at 81 pages, Exhibits A–J, closing the "we never got all of it" argument. "I may come back to you about
 the time frame" is a request **flagged for Atty. Thorne**, never an extension the Case Manager grants.
 
+**RS99 · Representation Notice to Keystone & Adjuster Acknowledgment — Memorandum (as filed)** · Day 1 · Others · `RS_99_Representation_Notice_to_Keystone_Memo.pdf`
+The model for the notice in the Client Onboarding Direction Packet activity: a memorandum to file dated 02/11/2026,
+triggered by John Doe's voicemail of 02/10/2026 (Dana from Keystone Mutual called him on 02/09/2026 asking what
+happened and whether she could record it). It holds the Case Manager's email to Dana Whitfield of 02/10/2026, 10:05 a.m.
+(Atty. Thorne copied: the firm represents John Doe, no direct contact, any Recorded Statement request in writing to
+Atty. Thorne, the formal Letter of Representation to follow at claim set-up), her written acknowledgment of 02/10/2026,
+2:35 p.m. (file noted represented; she spoke with him briefly on 02/09/2026 to open the claim; no statement taken),
+her follow-up of 02/11/2026 asking for his cell and a time for a recorded statement and how it was routed, what the
+exchange establishes, the call-back to John on (555) 010-2288, and where the memorandum is filed.
+*Key:* No plants. No claim number yet (assigned at claim set-up); nothing about fault or value said to the carrier;
+the statement request is Atty. Thorne's, neither agreed nor refused by the Case Manager.
+
 **RS69 · Mediation Binder — FINAL as delivered (03/11/2027)** · Day 4 · Litigation · `RS_69_Mediation_Binder_FINAL_AS_DELIVERED.pdf`
 The complete six-section binder as approved 03/10/2027 and delivered 03/11/2027, shown once the audit is handed in:
 the master index (Sections 1–6, 141 pages, Bates LSH-MED-000001–000141, OCR-searchable and bookmarked), the Section 3

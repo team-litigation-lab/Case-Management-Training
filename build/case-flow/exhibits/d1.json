@@ -1,0 +1,59 @@
+{
+  "emails": {
+    "d1m3-a1": {
+      "title": "Representation Notice — the email that stops direct contact",
+      "kicker": "Keystone has already called him. From today, every contact comes to the firm.",
+      "words": {"label": "Notice to the Adjuster", "write": "Your notice to Keystone's adjuster", "send": "Send it to Dana Whitfield", "reply": "The adjuster's written acknowledgment"},
+      "model": "RS99",
+      "sent": "02/10/2026",
+      "to": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+      "cc": "Elijah Thorne <ethorne@lshlawgroup.example>",
+      "subject": "John Doe — collision of 02/06/2026 with your insured Robert Smith — represented by LSH Law Group",
+      "attachment": "None: the formal Letter of Representation follows at claim set-up",
+      "brief": "Write to the adjuster who called John Doe: the firm represents him, all contact comes to this office and never to him directly, any Recorded Statement request goes in writing to Atty. Thorne, and she should confirm. Fault, the crash and value are not yours to discuss.",
+      "required": [
+        {"id": "represent", "label": "Says LSH Law Group represents John Doe", "hint": "Open with who you represent: John Doe, by LSH Law Group, Atty. Thorne lead counsel.", "match": ["represent", "doe"]},
+        {"id": "no-contact", "label": "Tells her not to contact John Doe directly; all contact to the firm", "hint": "Say plainly: no direct contact with Mr. Doe; every contact comes to this office.", "match": ["contact", "direct|this office|our office|the firm|through"]},
+        {"id": "statement", "label": "Puts any Recorded Statement request in writing to Atty. Thorne", "hint": "Say he will not give a statement to her, and any request goes in writing to Atty. Thorne.", "match": ["statement", "thorne"]},
+        {"id": "confirm", "label": "Asks her to confirm the file shows him represented", "hint": "Ask her to confirm by reply that Keystone's file now shows him represented by the firm.", "match": ["confirm"]}
+      ],
+      "reply": {
+        "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+        "date": "02/10/2026",
+        "time": "2:35 p.m.",
+        "subject": "RE: John Doe — collision of 02/06/2026 with your insured Robert Smith — represented by LSH Law Group",
+        "body": "Received. I have noted our file that Mr. Doe is represented by your office and that contact goes through you. For the record, I spoke with Mr. Doe briefly on 02/09/2026 to open the claim; no statement was taken. I will send the claim number to your office once it is assigned."
+      },
+      "press": {
+        "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+        "date": "02/11/2026",
+        "subject": "RE: John Doe — Recorded Statement",
+        "body": "Thanks. To move this along, could Mr. Doe give me a short Recorded Statement this week? It takes ten minutes and it helps us look at liability sooner. If you send me his cell number and a good time, I will set it up with him directly.",
+        "choices": [
+          {"label": "Send her John's cell number and a time this week.", "ok": false, "why": "You have just arranged the very contact you told her to stop, and whether John gives a statement to the adverse carrier is Atty. Thorne's decision."},
+          {"label": "Reply that any statement request goes in writing to Atty. Thorne and contact stays with the firm; forward it today.", "ok": true, "why": "Correct. Nothing is agreed and nothing is refused for John: the request is recorded, routed the same day, and the no-contact line holds."},
+          {"label": "Reply that John declines because liability is clear from the Police Report.", "ok": false, "why": "Declining for him and arguing fault are not yours. The request goes to Atty. Thorne, and liability is his to discuss."}
+        ]
+      },
+      "convert": {
+        "title": "Representation Notice to Keystone & Adjuster Acknowledgment — memorandum to file",
+        "category": "Others",
+        "folder": "insurance",
+        "type": "Others",
+        "sections": [
+          {"h": "1 · What was sent, and why", "lines": ["John Doe's voicemail of 02/10/2026: Dana from Keystone Mutual called him on 02/09/2026 asking what happened and whether she could record it.", "Notice emailed to Dana Whitfield 02/10/2026, Atty. Thorne copied; acknowledged in writing the same day."]},
+          {"h": "2 · The notice the Case Manager sent", "lines": []},
+          {"h": "3 · The adjuster's acknowledgment", "lines": []},
+          {"h": "4 · The follow-up, and how it was handled", "lines": ["Recorded Statement request of 02/11/2026 answered: any request goes in writing to Atty. Thorne; contact stays with the firm.", "Forwarded to Atty. Thorne the same day, flagged \"statement request — your call\". No number given."]},
+          {"h": "5 · Where this memorandum is filed", "lines": ["CMS → Doc Hub → Others, named the firm's way.", "Your Backup Drive → 05 Insurance, Demands & Negotiation, the same copy."]}
+        ],
+        "establishes": [
+          "Keystone knows, in its adjuster's own words, that John Doe is represented and that contact goes through the firm, from 02/10/2026.",
+          "No statement was taken on 02/09/2026, on the adjuster's own account.",
+          "The statement request was routed to Atty. Thorne in writing; the Case Manager decided nothing about it.",
+          "Nothing about fault, the crash or the value of the claim was said to the carrier."
+        ]
+      }
+    }
+  }
+}

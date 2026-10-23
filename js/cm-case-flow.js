@@ -826,7 +826,7 @@ function slideBody(view, l, d){
             <p>${E(e.body)}</p>${isTrainer() ? `<small class="cfx-fall-why">${x.done ? "Not shown to this trainee: they confirmed" : "Shown because this wasn't confirmed"}: “${E(x.what)}” (${E(x.f.if.activity)})</small>` : ""}</details>`; }).join("")}
         <div class="cfx-sb-grid${vm ? " cfx-sb-vm" : ""}">
           <div class="cfx-sb-main">${ev ? eventCard(ev, "", b.id, docs.length > 0) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}</div>
-          <div class="cfx-sb-docs">${thumbs}</div>
+          <div class="cfx-sb-docs">${ev && ev.notes ? notesPanel(ev, b.id) : thumbs}</div>
         </div></div>`;
     }
     case "task": { const main = blockTools(b).filter(id => id !== "call")[0] || "cms";
@@ -838,12 +838,12 @@ function slideBody(view, l, d){
       <div class="cfx-task"><div class="cfx-task-main"><ol class="cfx-points">${c.steps.map(x => `<li><span>${hl(x)}${stepLink(x, b)}</span></li>`).join("")}</ol>
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}</span>
           <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
-        ${serviceOf(b.id) && !SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ Service Confirmation</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
-          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the Service Confirmation</button></div>` : ""}</div>
+        ${serviceOf(b.id) && !SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ ${E(svWords(serviceOf(b.id)).label)}</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
+          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the ${E(svWords(serviceOf(b.id)).label)}</button></div>` : ""}</div>
       <aside class="cfx-side">${c.purpose || c.principle ? `<div class="cfx-why">${c.purpose ? `<b>🎯 Purpose</b><span>${hl(c.purpose)}</span>` : ""}${c.principle ? `<b>⚖️ Principle</b><span>${hl(c.principle)}</span>` : ""}</div>` : ""}
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
-        ${serviceOf(b.id) && SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ Service Confirmation</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
-          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the Service Confirmation</button></div>` : ""}
+        ${serviceOf(b.id) && SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ ${E(svWords(serviceOf(b.id)).label)}</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
+          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the ${E(svWords(serviceOf(b.id)).label)}</button></div>` : ""}
         <button type="button" class="cfx-deliver" onclick="nextSlide()" title="Hand it in, then check your work"><b>📤 Deliver</b><span>${hl(c.deliver)}</span><em>Hand in &amp; check your work ➔</em></button></aside></div>`; }
     case "check": { const open = answersOpen(b.id);
       return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${open ? (justRevealed === b.id ? hl(x).replace(/class="cfx-hl"/g, 'class="cfx-hl cfx-unblur"') : hl(x)) : masked(x)}</span></label>`).join("")}</div>
@@ -873,7 +873,7 @@ const BLOCK = {};
 CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { BLOCK[b.id] = b; })));
 function actDone(id){
   const b = BLOCK[id]; if(!b) return false;
-  return ((REC.reached || {})[id] || 0) >= viewsOf(b).length || ((REC.ticks || {})[id] || []).some(Boolean) || !!(REC.work || {})[id] || !!((REC.listen || {})[id] || {}).at || !!(REC.calls || {})[id];
+  return ((REC.reached || {})[id] || 0) >= viewsOf(b).length || ((REC.ticks || {})[id] || []).some(Boolean) || !!(REC.work || {})[id] || !!((REC.listen || {})[id] || {}).at || !!((REC.notesPlan || {})[id] || {}).at || !!(REC.calls || {})[id];
 }
 const actOpened = id => !!(REC.reached || {})[id] || actDone(id);
 /* each tool once per slide: a slide names its tools in the top row, in the Your Task "Where" box, beside a step or
@@ -1161,6 +1161,7 @@ function vmPaint(blockId){
 }
 function vmStatus(blockId){
   const r = vmRec(blockId), e = SIM.events[blockId];
+  if(e.notes){ const n = npRec(blockId); if(n.at) return `Notes & Action Plan ${n.score}% · played ${r.plays}×`; return r.plays ? `Played ${r.plays}× · now transcribe it and plan` : "Not played yet"; }
   if(r.at) return `Listening Check ${r.score}/${(e.listen || []).length} · played ${r.plays}×`;
   return r.plays ? `Played ${r.plays}× · now check your notes` : "Not played yet";
 }
@@ -1246,7 +1247,8 @@ function voicemailCard(e, blockId, extra){
       <div class="cfx-vm-body"><span class="cfx-vm-wave" aria-hidden="true">${"<i></i>".repeat(18)}</span>
         <div><b>1 new message</b> · ${vmLength(e)}<br><small>Listen first: the transcript opens after your Listening Check.</small></div></div>
       <div class="cfx-vm-row"><button type="button" class="btn btn-orange btn-sm cfx-vm-play" onclick="cmCaseFlow.vmPlay('${blockId}')">${vmRec(blockId).plays ? "↻ Play again" : "▶ Play"}</button>
-        <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.listen('${blockId}')">🎧 Listening Check</button>
+        ${e.notes ? `<button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.np('${blockId}')">📝 Notes &amp; Action Plan</button>`
+          : `<button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.listen('${blockId}')">🎧 Listening Check</button>`}
         <span class="cfx-vm-st">${E(vmStatus(blockId))}</span></div>
     </div>`;
 }
@@ -1283,6 +1285,69 @@ window.cmCaseFlow.listenCheck = function(blockId){
   persist(); cmCaseFlow.listen(blockId); vmPaint(blockId);
 };
 window.cmCaseFlow.listenClose = function(){ const box = document.getElementById("cf-vm"); if(box) box.hidden = true; };
+/* ---------- the Notes & Action Plan: a voicemail or statement taken down, and what the Case Manager will do about it ----------
+   A message a Case Manager takes is only half the job: the other half is the plan it sets off. An event with "notes"
+   (build/case-flow/sim) puts this section on its Your Case slide in place of the document thumbnails (the documents
+   stay under 📁 Work From). The trainee transcribes the message and writes their action plan, in order; Check grades
+   both — the transcription on the facts a Case Manager must catch (the event's "listen" points), the plan on the
+   actions it must hold ("notes.plan") — and then opens the complete answer key: the message word for word, each fact,
+   and the firm's plan line by line, so the feedback is immediate. Kept on the trainee's record (REC.notesPlan) and
+   shown to their trainer; Try again keeps the count of attempts. */
+const npRec = id => { REC.notesPlan = REC.notesPlan || {}; return (REC.notesPlan[id] = REC.notesPlan[id] || {tx: "", plan: "", at: null, tries: 0}); };
+const npHit = (pats, t) => (pats || []).every(m => { try{ return new RegExp(m, "i").test(t || ""); }catch(er){ return false; } });
+function notesPanel(e, blockId){
+  const n = npRec(blockId), facts = (e.listen || []).length, acts = e.notes.plan.length;
+  return `<div class="cfx-np" data-np="${blockId}"><b>📝 Notes &amp; Action Plan</b>
+      <small>${E(e.notes.intro || "Transcribe the message, then write your plan of action, in order. Graded; the answer key opens when you check.")}</small>
+      <ol><li>Play the message</li><li>Transcribe it: who, what, when, the number to call back</li><li>Write your action plan, step by step</li></ol>
+      ${n.at ? `<div class="cfx-np-sc"><b>${E(n.score)}%</b><span>${E(n.facts)}/${facts} facts · ${E(n.acts)}/${acts} actions</span></div>` : ""}
+      <button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.np('${blockId}')">${n.at ? "🔑 My notes and the answer key" : "📝 Open the Notes &amp; Action Plan"}</button></div>`;
+}
+window.cmCaseFlow.np = function(blockId){
+  const e = SIM.events[blockId]; if(!e || !e.notes) return;
+  const r = vmRec(blockId), n = npRec(blockId), done = !!n.at, plan = e.notes.plan, facts = e.listen || [];
+  let box = document.getElementById("cf-vm");
+  if(!box){ box = document.createElement("div"); box.id = "cf-vm"; box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true"); document.body.appendChild(box);
+    document.addEventListener("keydown", ev => { if(ev.key === "Escape" && !box.hidden) cmCaseFlow.listenClose(); }); }
+  box.setAttribute("aria-label", "Notes & Action Plan");
+  box.innerHTML = `<div class="cf-vm-card cf-np-card" data-vm="${blockId}">
+      <div class="cf-vm-h"><div><b>📝 Notes &amp; Action Plan</b><span>${E(e.channel === "voicemail" ? "Voicemail" : "Message")} from ${E(e.from)} · ${E(e.date)}${e.time ? " · " + E(e.time) : ""}</span></div>
+        <button type="button" class="cf-vm-x" onclick="cmCaseFlow.listenClose()" aria-label="Close">✕</button></div>
+      ${e.spoken ? `<div class="cfx-vm-row"><button type="button" class="btn btn-orange btn-sm cfx-vm-play" onclick="cmCaseFlow.vmPlay('${blockId}')">${r.plays ? "↻ Play again" : "▶ Play"}</button><span class="cfx-vm-st">${E(vmStatus(blockId))}</span></div>` : ""}
+      <div class="cf-np-cols">
+        <label class="cf-np-f"><b>1 · Your transcription</b><small>Word for word, as you heard it: who called, what happened, what they need, when, and the number to call back.</small>
+          <textarea id="cfnp_tx_${blockId}" rows="8" ${done ? "readonly" : ""} oninput="cmCaseFlow.npDraft('${blockId}','tx',this.value)">${E(n.tx || "")}</textarea></label>
+        <label class="cf-np-f"><b>2 · Your action plan</b><small>${E(e.notes.ask || "What you will do about it, in order: who you contact, by which channel, what you say and what you log.")}</small>
+          <textarea id="cfnp_plan_${blockId}" rows="8" ${done ? "readonly" : ""} oninput="cmCaseFlow.npDraft('${blockId}','plan',this.value)">${E(n.plan || "")}</textarea></label>
+      </div>
+      ${done ? `<div class="cf-vm-score">Your score: <b>${E(n.score)}%</b> · ${E(n.facts)} of ${facts.length} facts caught · ${E(n.acts)} of ${plan.length} actions planned${n.tries > 1 ? ` · attempt ${E(n.tries)}` : ""}</div>
+        <div class="cf-np-key"><h4>🔑 Answer key</h4>
+          <div class="cf-np-kc"><b>The facts the transcription had to catch</b><ul>${facts.map((x, j) => `<li class="${n.gotF[j] ? "ok" : "miss"}">${n.gotF[j] ? "✓" : "✗"} ${E(x.q)} <span>${E(x.a)}</span></li>`).join("")}</ul></div>
+          <div class="cf-np-kc"><b>The firm's action plan</b><ol>${plan.map((x, j) => `<li class="${n.gotA[j] ? "ok" : "miss"}">${n.gotA[j] ? "✓" : "✗"} <b>${E(x.label)}</b> <span>${E(x.key)}</span></li>`).join("")}</ol></div>
+          ${e.spoken ? `<details class="cf-vm-tx" open><summary>📝 The message, word for word</summary><p>${E(e.spoken)}</p></details>` : ""}
+        </div>
+        <div class="cfx-vm-row"><button type="button" class="btn btn-ghost btn-sm" onclick="cmCaseFlow.npRetry('${blockId}')">↻ Try again</button></div>`
+        : `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.npCheck('${blockId}')">Check my notes and plan</button>`}
+    </div>`;
+  const tb = document.querySelector(".topbar"); document.body.style.setProperty("--cf-topbar", tb ? Math.max(0, Math.round(tb.getBoundingClientRect().bottom)) + "px" : "0px");
+  box.hidden = false;
+};
+window.cmCaseFlow.npDraft = function(blockId, k, v){ const n = npRec(blockId); if(n.at) return; n[k] = String(v).slice(0, 4000); clearTimeout(VM.t); VM.t = setTimeout(persist, 600); };
+window.cmCaseFlow.npCheck = function(blockId){
+  const e = SIM.events[blockId], n = npRec(blockId), r = vmRec(blockId);
+  ["tx", "plan"].forEach(k => { const el = document.getElementById(`cfnp_${k}_${blockId}`); if(el) n[k] = el.value.trim().slice(0, 4000); });
+  if(e.spoken && !r.plays){ if(typeof toast === "function") toast("Play the message first: the transcription is of what you hear."); return; }
+  if(!n.tx || !n.plan){ if(typeof toast === "function") toast("Write both: the transcription and your action plan."); return; }
+  const facts = e.listen || [], plan = e.notes.plan;
+  n.gotF = facts.map(x => npHit(x.match, n.tx));
+  n.gotA = plan.map(x => npHit(x.match, n.plan));
+  n.facts = n.gotF.filter(Boolean).length; n.acts = n.gotA.filter(Boolean).length;
+  n.score = Math.round(40 * (facts.length ? n.facts / facts.length : 1) + 60 * (plan.length ? n.acts / plan.length : 1));
+  n.tries = (n.tries || 0) + 1; n.at = new Date().toISOString();
+  persist(); cmCaseFlow.np(blockId); vmPaint(blockId);
+  document.querySelectorAll(`[data-np="${blockId}"]`).forEach(el => { el.outerHTML = notesPanel(e, blockId); });
+};
+window.cmCaseFlow.npRetry = function(blockId){ const n = npRec(blockId); n.at = null; persist(); cmCaseFlow.np(blockId); };
 /* ---------- opening a step's tool ---------- */
 /* ---------- the exhibit audit, the completed package, and the service confirmation ----------
    A Skill Activity that assembles or serves a document set gets the set itself (build/case-flow/exhibits:
@@ -1331,7 +1396,7 @@ function auditSlide(b){
         <small>Nothing is scored until you hand it in, and nothing is corrected quietly: every finding is a dated, assigned task.</small></div>
     </div>
     <div class="cfx-aud-act"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.audit('${b.id}')">🔍 Open the audit workbench</button>
-      ${sv ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.service('${b.id}')">✉ Service Confirmation</button>` : ""}
+      ${sv ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.service('${b.id}')">✉ ${E(svWords(sv).label)}</button>` : ""}
       <span class="cfx-aud-note">${E(a.kicker)}</span></div></div>`;
   return `<div class="cfx-aud cfx-aud-done">${head}
     <div class="cfx-aud-row">
@@ -1342,7 +1407,7 @@ function auditSlide(b){
     </div>
     <ul class="cfx-aud-points">${a.revealPoints.map(p => `<li>${hl(p)}</li>`).join("")}</ul>
     <div class="cfx-aud-act"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.audit('${b.id}')">🔍 Compare your audit, item by item</button>
-      ${sv ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.service('${b.id}')">✉ Service Confirmation</button>` : ""}</div></div>`;
+      ${sv ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.service('${b.id}')">✉ ${E(svWords(sv).label)}</button>` : ""}</div></div>`;
 }
 
 /* the workbench: every item of the set, the call the trainee makes, and after hand-in what the file says */
@@ -1441,6 +1506,10 @@ window.cmCaseFlow.auditHandIn = function(blockId){
    carrier's own words — and the follow-up that tests whether the Case Manager will move a deadline that is not
    theirs. Then the exchange stops being a mailbox thread: it is converted into a memorandum, filed into the open
    case in the CMS under the firm's naming convention, and backed up to the trainee's Drive. */
+/* The words around an exchange are the demand's by default; an exchange that isn't serving a demand (the no-contact
+   notice to an adjuster, routing a release to Atty. Thorne) names its own in the exhibits: label, write, send, reply. */
+const svWords = (e) => Object.assign({label: "Service Confirmation", write: "The email that serves the demand", send: "Send it to the adjuster",
+  reply: "The adjuster's written acknowledgment"}, e.words || {});
 const folderLabel = (id) => { const f = (window.CM_CF_DOC_FOLDERS || []).find(x => x.id === id); return f ? f.label : String(id || "its folder"); };
 const svNameFor = (e) => {
   const id = (window.CMCase && CMCase.id()) || "<Case ID>";
@@ -1457,9 +1526,9 @@ function svWorkspace(blockId){
     ? `<div class="sv-sentmail"><div class="sv-eh"><b>To</b> ${E(e.to)}<br><b>Cc</b> ${E(e.cc || "—")}<br><b>Subject</b> ${E(e.subject)}<br><b>Sent</b> ${E(e.sent)}, 4:21 p.m.<br><b>Attachment</b> ${E(e.attachment)}</div><pre class="sv-body">${E(r.body)}</pre></div>`
     : `<p class="sv-brief">${hl(e.brief)}</p>
       <div class="sv-eh"><b>To</b> ${E(e.to)}<br><b>Cc</b> ${E(e.cc || "—")}<br><b>Subject</b> ${E(e.subject)}<br><b>Attachment</b> ${E(e.attachment)}</div>
-      <textarea class="sv-write" id="svw_${E(blockId)}" rows="9" placeholder="Write the email as you would send it." aria-label="Your email serving the demand">${E(r.body || "")}</textarea>
+      <textarea class="sv-write" id="svw_${E(blockId)}" rows="9" placeholder="Write the email as you would send it." aria-label="Your email">${E(r.body || "")}</textarea>
       <ul class="sv-req">${e.required.map(q => `<li>${E(q.label)}</li>`).join("")}</ul>
-      <div class="sv-row"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.svSend('${blockId}')">Send it to the adjuster</button>
+      <div class="sv-row"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.svSend('${blockId}')">${E(svWords(e).send)}</button>
         <span class="sv-msg" id="svm_${E(blockId)}" aria-live="polite">${r.tries ? `Not sent yet — ${r.tries} attempt${r.tries === 1 ? "" : "s"}.` : ""}</span></div>`;
   const reply = sent ? `<div class="sv-eh"><b>From</b> ${E(e.reply.from)}<br><b>Sent</b> ${E(e.reply.date)}, ${E(e.reply.time)}<br><b>Subject</b> ${E(e.reply.subject)}</div><pre class="sv-body">${E(e.reply.body)}</pre>
       <ul class="sv-est">${e.convert.establishes.map(x => `<li>${hl(x)}</li>`).join("")}</ul>` : "";
@@ -1485,8 +1554,8 @@ function svWorkspace(blockId){
   const model = `<p class="sv-note">The firm's own memorandum for this service, for you to read yours against: ${exDoc(e.model) ? exDocLink(e.model) : E(e.model)}.</p>`;
   return `<div class="cfx-modal-in card lesson-card cfx-sv"><div class="cfx-modal-h"><b>✉ ${E(e.title)}</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>
     <div class="sv-top"><span>${E(e.kicker)}</span>${a && !exRec(blockId).at ? `<span class="sv-warn">Audit the set before you serve it: nothing goes out that has not been audited.</span>` : ""}</div>
-    ${svStep(1, "The email that serves the demand", sent ? "done" : "now", compose)}
-    ${svStep(2, "The adjuster's written acknowledgment", sent ? "done" : "wait", reply)}
+    ${svStep(1, svWords(e).write, sent ? "done" : "now", compose)}
+    ${svStep(2, svWords(e).reply, sent ? "done" : "wait", reply)}
     ${svStep(3, "The follow-up that tests the line", chose ? (right ? "done" : "no") : (sent ? "now" : "wait"), press)}
     ${svStep(4, "Convert the exchange into a document", conv ? "done" : (right ? "now" : "wait"), convert)}
     ${svStep(5, "File it in the CMS", filed ? "done" : (conv ? "now" : "wait"), file)}
@@ -1495,7 +1564,7 @@ function svWorkspace(blockId){
 }
 window.cmCaseFlow.service = function(blockId){
   if(!serviceOf(blockId) || document.getElementById("cf-sv")) return;   // one workspace at a time, or the email being written is lost behind it
-  const o = document.createElement("div"); o.className = "cfx-modal"; o.id = "cf-sv"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Service Confirmation");
+  const o = document.createElement("div"); o.className = "cfx-modal"; o.id = "cf-sv"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", svWords(serviceOf(blockId)).label);
   o.innerHTML = svWorkspace(blockId);
   const close = () => { const t = document.getElementById("svw_" + blockId); if(t) { svRec(blockId).body = t.value.slice(0, 4000); persist(); } o.remove(); document.removeEventListener("keydown", esc, true); if(typeof render === "function") render(); };
   const esc = ev => { if(ev.key === "Escape"){ ev.stopPropagation(); close(); } };
@@ -2966,6 +3035,9 @@ function caseYearNote(mine){
 function workLogged(mine, m){
   const rows = m.blocks.filter(x => x.kind === "activity").map(x => ({x, w: (mine.work || {})[x.id]})).filter(r => r.w);
   const heard = m.blocks.filter(x => x.kind === "activity" && ((mine.listen || {})[x.id] || {}).at).map(x => { const h = mine.listen[x.id], ev = SIM.events[x.id]; return `<div class="cf-tr-work"><b>🎧 Listening Check (${E(x.title)}):</b> ${E(h.score)}/${E((ev.listen || []).length)} caught · played ${E(h.plays)}×${(ev.listen || []).map((q, j) => `<br>${h.got[j] ? "✓" : "✗"} ${E(q.q)} <i>${E(h.answers[j] || "—")}</i>`).join("")}</div>`; }).join("");
+  const noted = m.blocks.filter(x => x.kind === "activity" && ((mine.notesPlan || {})[x.id] || {}).at && (SIM.events[x.id] || {}).notes).map(x => {
+    const h = mine.notesPlan[x.id], ev = SIM.events[x.id];
+    return `<div class="cf-tr-work"><b>📝 Notes &amp; Action Plan (${E(x.title)}):</b> ${E(h.score)}% · ${E(h.facts)}/${E((ev.listen || []).length)} facts · ${E(h.acts)}/${E(ev.notes.plan.length)} actions${h.tries > 1 ? ` · attempt ${E(h.tries)}` : ""}${ev.notes.plan.map((q, j) => `<br>${(h.gotA || [])[j] ? "✓" : "✗"} ${E(q.label)}`).join("")}<br><i>Transcription:</i> ${E(h.tx || "—")}<br><i>Plan:</i> ${E(h.plan || "—")}</div>`; }).join("");
   const aud = m.blocks.filter(x => x.kind === "activity" && EX.audits[x.id] && ((mine.audits || {})[x.id] || {}).at).map(x => {
     const a = EX.audits[x.id], r = mine.audits[x.id], sc = a.items.reduce((n, it, i) => n + (r.marks[i] === it.verdict ? 1 : 0), 0);
     return `<div class="cf-tr-work"><b>🔍 ${E(a.title)}:</b> ${E(sc)}/${E(a.items.length)} called correctly · handed in ${E(new Date(r.at).toLocaleDateString())}${a.items.map((it, i) => `<br>${r.marks[i] === it.verdict ? "✓" : "✗"} ${E(it.ref)} ${E(it.what)} — called <i>${E((VERDICT[r.marks[i]] || {}).label || "—")}</i>${r.notes[i] ? `: “${E(r.notes[i])}”` : ""}`).join("")}</div>`;
@@ -2974,7 +3046,7 @@ function workLogged(mine, m){
     const e = EX.emails[x.id], r = mine.service[x.id], c = r.choice != null ? e.press.choices[r.choice] : null;
     return `<div class="cf-tr-work"><b>✉ ${E(e.title)}:</b> sent after ${E(r.tries || 0)} rejected attempt${(r.tries || 0) === 1 ? "" : "s"}${c ? ` · follow-up answered ${c.ok ? "correctly" : "wrongly"}: “${E(c.label)}”` : " · follow-up not answered"}${r.filed ? ` · filed as <code>${E(r.filed.name)}</code> under ${E(r.filed.category)}` : " · not filed"}${r.drive ? " · backed up to Drive" : ""}<br><i>${E(r.body || "—")}</i></div>`;
   }).join("");
-  const extra = aud + svs;
+  const extra = noted + aud + svs;
   if(heard) return heard + extra + (rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "");
   if(extra) return extra + (rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "");
   return rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "";
@@ -3915,6 +3987,21 @@ main > .cf-side-presenter{display:none;}
 .cfx-vm-st{font:600 12.5px 'Inter',sans-serif;color:#5B6178;}
 /* a voicemail is a short card, so the documents get the room: one row of large pages under it */
 .cfx-sb-grid.cfx-sb-vm{grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:18px;align-items:start;}
+/* the Notes & Action Plan section (in place of the document thumbnails) and its workspace */
+.cfx-np{display:flex;flex-direction:column;gap:8px;background:#FFFDF8;border:1px solid #F0D2AE;border-top:4px solid var(--orange);border-radius:14px;padding:14px 16px;}
+.cfx-np > b{font:800 18px/1.25 'Poppins','Inter',sans-serif;color:var(--navy);}
+.cfx-np small{font:500 14px/1.45 var(--font-ui);color:var(--ink-soft);}
+.cfx-np ol{margin:0;padding-left:20px;font:600 14.5px/1.5 var(--font-ui);color:var(--ink);}
+.cfx-np .btn{align-self:flex-start;}
+.cfx-np-sc{display:flex;gap:10px;align-items:baseline;}.cfx-np-sc b{font:800 22px var(--font-ui);color:var(--navy);}.cfx-np-sc span{font:600 13px var(--font-ui);color:var(--ink-soft);}
+.cf-np-card{max-width:980px !important;}
+.cf-np-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:10px 0;}
+@media(max-width:760px){.cf-np-cols{grid-template-columns:1fr;}}
+.cf-np-f{display:flex;flex-direction:column;gap:4px;}.cf-np-f small{font:500 12.5px/1.4 var(--font-ui);color:var(--ink-soft);}
+.cf-np-f textarea{width:100%;box-sizing:border-box;font:500 14px/1.45 var(--font-ui);border:1px solid #D7DBE6;border-radius:8px;padding:8px;resize:vertical;}
+.cf-np-key{border-top:2px dashed #F0D2AE;margin-top:10px;padding-top:8px;}.cf-np-key h4{margin:0 0 6px;color:var(--navy);}
+.cf-np-kc ul,.cf-np-kc ol{margin:4px 0 10px;padding-left:20px;display:flex;flex-direction:column;gap:4px;font:500 13.5px/1.45 var(--font-ui);}
+.cf-np-kc li span{color:var(--ink-soft);}.cf-np-kc li.ok{color:#1F7A4A;}.cf-np-kc li.miss{color:#B3261E;}.cf-np-kc li.ok span,.cf-np-kc li.miss span{color:var(--ink);}
 .cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-docs-row{gap:12px 18px;}
 .cfx-sb-grid.cfx-sb-vm .cfx-thumb span{font-size:13px;}
 /* the voicemail card itself: phone-sized */

@@ -22,6 +22,19 @@ governing court rules and statutes must always be confirmed.
 | Critical fact | Initial 14-Day Treatment Gap (DOL 02/06/2026 → first treatment 02/20/2026), then disrupted care mid-treatment |
 | Health Plan | Peach State Health Plan · member PSH-55017742 · group GRP-41208 · reimbursement right asserted on first notice |
 
+### First contact from the other side (Day 1)
+
+- **02/09/2026 (evening)** Dana Whitfield of Keystone Mutual calls John Doe to open the claim and asks what happened and
+  whether she can record it; he says he'll think about it. No statement is taken.
+- **02/10/2026, 8:47 a.m.** John's voicemail to the Case Manager (from his work line at Northgate; call back on his cell,
+  (555) 010-2288): Keystone's call, her request to record, nothing received from the firm yet, his neck still stiff,
+  worse in the morning. He has not been seen by anyone.
+- **02/10/2026, 10:05 a.m.** The Case Manager emails Dana Whitfield (Atty. Thorne copied): the firm represents John Doe,
+  no direct contact, any Recorded Statement request in writing to Atty. Thorne, the formal Letter of Representation
+  to follow at claim set-up. She acknowledges in writing at **2:35 p.m.** the same day.
+- **02/11/2026** Dana Whitfield asks for John's cell number and a time for a short Recorded Statement; the Case Manager
+  replies that any request goes in writing to Atty. Thorne and forwards it to him the same day. Memorandum: RS99.
+
 ### The Recovery Stack — $40,000 (order of operations: BI → Host UM → Relative UM)
 
 | # | Layer | Carrier | Claim | Adjuster | Limit |

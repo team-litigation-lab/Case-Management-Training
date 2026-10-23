@@ -41,6 +41,12 @@ What lands on the file and starts the activity: the realistic trigger, as the tr
   pattern must match a trainee's correct note, case-insensitive). The course plays it like a voicemail box and keeps
   the transcript hidden until the trainee checks their notes. `from` is the caller ID, which may not be the number
   to call back.
+- **A Notes & Action Plan** (`"notes"`, on an event with `listen` points): the Your Case slide carries a section, in place
+  of the document thumbnails, where the trainee transcribes the message and writes their action plan; both are graded
+  (the transcription on the `listen` points, the plan on `notes.plan`) and the full answer key opens on Check:
+  `{"intro": "≤ 30 words", "ask": "≤ 30 words", "plan": [{"label": "≤ 14 words", "key": "the firm's own step, ≤ 45 words",
+  "match": ["regex", …]}]}`, 4–8 actions in the order the Case Manager takes them; every pattern must match its own `key`
+  and a trainee's correct plan line, case-insensitive.
 - The date must match the activity's own scenario date where it gives one, and sit in the right place on the
   case timeline. A CMS-generated trigger is `"channel": "alert", "from": "CMS"`.
 - Atty. Thorne's internal asks are `"channel": "memo"` or `"email"` from `Atty. Elijah Thorne`.

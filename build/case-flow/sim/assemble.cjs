@@ -50,6 +50,19 @@ function event(at, e, max){
       else x.match.forEach(m => { try{ const re = new RegExp(m, "i"); if(!re.test(x.a)) err(`${at}.listen[${j}].match /${m}/ doesn't match its own answer`); }catch(er){ err(`${at}.listen[${j}].match /${m}/: ${er.message}`); } });
     });
   }
+  // the Notes & Action Plan: the message transcribed (graded on its listen points) and the plan it sets off
+  if(e.notes !== undefined){
+    const n = e.notes || {};
+    if(!(e.listen || []).length) err(`${at}.notes: needs the event's listen points (the transcription is graded on them)`);
+    if(n.intro !== undefined) text(`${at}.notes.intro`, n.intro, 30);
+    if(n.ask !== undefined) text(`${at}.notes.ask`, n.ask, 30);
+    if(!Array.isArray(n.plan) || n.plan.length < 4 || n.plan.length > 8) err(`${at}.notes.plan: want 4–8 actions`);
+    else n.plan.forEach((x, j) => {
+      text(`${at}.notes.plan[${j}].label`, x.label, 14); text(`${at}.notes.plan[${j}].key`, x.key, 45);
+      if(!Array.isArray(x.match) || !x.match.length) err(`${at}.notes.plan[${j}].match: want 1+ patterns`);
+      else x.match.forEach(m => { try{ const re = new RegExp(m, "i"); if(!re.test(x.key)) err(`${at}.notes.plan[${j}].match /${m}/ doesn't match its own key`); }catch(er){ err(`${at}.notes.plan[${j}].match /${m}/: ${er.message}`); } });
+    });
+  }
 }
 // every activity: an event, in date order with the activities before it on its track
 ACTS.forEach(id => event(`events.${id}`, sim.events[id], 60));

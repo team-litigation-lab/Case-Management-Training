@@ -68,7 +68,75 @@ window.CM_CF_SIM = {
       "nothing|anything|paperwork|packet|letter|welcome|onboarding|documents?"
      ]
     }
-   ]
+   ],
+   "notes": {
+    "intro": "Transcribe John Doe's voicemail as you heard it, then write your plan for today, in order. Both are graded, and the answer key opens when you check.",
+    "ask": "What you will do today, in order: who you contact and how, what you tell them, what you set up and what you log.",
+    "plan": [
+     {
+      "label": "Call John Doe back today, on his cell",
+      "key": "Call John back today on his cell, (555) 010-2288: the caller ID is his work line at Northgate, not the number he asked for.",
+      "match": [
+       "call",
+       "cell|2288|mobile"
+      ]
+     },
+     {
+      "label": "No Recorded Statement: every Keystone request goes through the firm",
+      "key": "Tell him to give Keystone no Recorded Statement and no account of the crash: any request to record him goes through the firm, to Atty. Thorne. Have him repeat it back.",
+      "match": [
+       "record",
+       "firm|thorne|us\\b|attorney"
+      ]
+     },
+     {
+      "label": "Email Dana at Keystone: the firm represents him, no direct contact",
+      "key": "Email Dana Whitfield at Keystone Mutual today: LSH Law Group represents John Doe, all contact comes to the firm, she is not to call him directly, and any statement request goes to Atty. Thorne.",
+      "match": [
+       "dana|keystone|adjuster",
+       "email|e-mail|letter|notice|notify|write"
+      ]
+     },
+     {
+      "label": "Check in on his symptoms and his treatment status",
+      "key": "Ask about the stiff neck (worse in the mornings) and whether he has seen anyone: he has not, so give him the treatment direction to be evaluated, and log what he says in his words.",
+      "match": [
+       "neck|symptom|stiff|pain",
+       "treat|doctor|seen|evaluat|appointment|medical|care"
+      ]
+     },
+     {
+      "label": "Remind him to talk to nobody outside the firm about the crash",
+      "key": "Remind him not to discuss the crash, his injuries or the claim with anyone outside the firm: no carrier, no social media, nobody who calls asking.",
+      "match": [
+       "anyone|anybody|nobody|no one|outside|social media|other people|third part"
+      ]
+     },
+     {
+      "label": "Send the Direction Packet today and confirm he has it",
+      "key": "Deliver his onboarding Direction Packet today, log the date and method, and confirm he received it and read the adverse-contact instruction.",
+      "match": [
+       "packet|onboarding|direction",
+       "send|deliver|email|mail|give|get"
+      ]
+     },
+     {
+      "label": "Set a task to confirm his first appointment with the facility",
+      "key": "Set a CMS task to follow up: once he books his first appointment, confirm its status directly with the treating facility by phone or email, and log it.",
+      "match": [
+       "task|follow[- ]?up|remind|diary|calendar",
+       "appointment|facility|provider|clinic|doctor|urgent care"
+      ]
+     },
+     {
+      "label": "Log the voicemail, the call and the email in the CMS today",
+      "key": "Log the voicemail, your call-back and the email to Dana in the CMS Communications Log the same day, with times and what was said.",
+      "match": [
+       "log|case note|communications|cms"
+      ]
+     }
+    ]
+   }
   },
   "d1m3-a2": {
    "date": "02/11/2026",
@@ -698,8 +766,8 @@ window.CM_CF_SIM = {
    "goals": [
     "Route all Keystone contact to the firm; no Recorded Statement",
     "Confirm he understood by having him repeat the instruction",
-    "State the packet's treatment direction, since treatment hasn't begun",
-    "Confirm Property Damage details and the packet's delivery method"
+    "Direct him to be seen, since treatment hasn't begun; confirm how the packet arrives",
+    "Check his stiff neck and treatment status; nobody outside the firm hears about it"
    ],
    "line": "Give the firm's instructions only; fault, claim value and legal effect go to Atty. Thorne."
   },
