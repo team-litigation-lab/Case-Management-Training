@@ -137,7 +137,7 @@
       "ask": "What changes about a claim when the insurance company on the other end of it is our own client's?"
     },
     "theory": {
-      "say": "Let's name the two shapes. A third-party claim is made against the at-fault driver's carrier: Keystone, for Robert Smith. A first-party claim is made against your own insurance, on the policy you pay the premiums for. Here that is Harbor Point for Host UM and Cardinal State for Relative UM. Plain English for the client: one is a claim against the other driver's insurance, the other is a claim against your own. Then there is the mandatory arbitration clause, a policy term that sends the dispute to an arbitrator, so the firm files a Demand for Arbitration instead of a complaint. And off to one side, insurance bad faith: a separate suit about unreasonable handling, which can reach above the policy limit.",
+      "say": "Let's name the two shapes, in plain words. A third-party claim is a claim against the other driver's insurance: Keystone, for Robert Smith. A first-party claim is a claim on insurance that covers you, usually a policy you pay premiums on. John owns no car, so he reaches it by status: Harbor Point as a passenger in Kevin's Escape, Cardinal State as Margaret's resident relative. Then the two roads out of an impasse. Mandatory arbitration, where the policy sends the dispute to an arbitrator and the firm files a Demand for Arbitration. Or court, where state law bars that clause or lets the insured opt out, and the firm sues the carrier itself. Bad faith is a separate suit again, and whether it applies is Atty. Thorne's call.",
       "ask": "Why would a carrier rather have a UM dispute heard by an arbitrator than by a jury?"
     },
     "frame": {

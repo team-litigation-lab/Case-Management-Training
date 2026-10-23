@@ -798,8 +798,8 @@ function slideBody(view, l, d){
       const body = f.kind === "table"
         ? `<div class="cfx-fw-scroll"><table class="cfx-fw-tbl"><thead><tr>${f.head.map(h => `<th>${E(h)}</th>`).join("")}</tr></thead><tbody>${f.rows.map((r, i) => `<tr style="animation-delay:${i * .05}s">${r.map((x, j) => j ? `<td>${hl(x)}</td>` : `<th scope="row">${hl(x)}</th>`).join("")}</tr>`).join("")}</tbody></table></div>`
         : f.kind === "flow"
-          ? `<ol class="cfx-fw-flow" style="--n:${steps.length}">${steps.map((x, i) => `<li style="animation-delay:${i * .07}s"><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span></li>`).join("")}</ol>`
-          : `<div class="cfx-fw-list">${steps.map((x, i) => `<div style="animation-delay:${i * .05}s"><b>${E(x.label)}</b><span>${hl(x.text)}</span></div>`).join("")}</div>`;
+          ? `<ol class="cfx-fw-flow" style="--n:${steps.length}">${steps.map((x, i) => `<li style="animation-delay:${i * .07}s"><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span>${stepMore(b, x, i)}</li>`).join("")}</ol>`
+          : `<div class="cfx-fw-list">${steps.map((x, i) => `<div style="animation-delay:${i * .05}s"><b>${E(x.label)}</b><span>${hl(x.text)}</span>${stepMore(b, x, i)}</div>`).join("")}</div>`;
       return `<div class="cfx-fw"><h3 class="cfx-fw-t">${E(String(f.title).replace(/,?\s*\(?Steps?\s+\d+\s*[–-]\s*\d+\)?\s*$/i, ""))}</h3>${body}${f.note ? `<p class="cfx-fw-note">${hl(f.note)}</p>` : ""}</div>`;
     }
     case "map": { const r = roadmapOf(b), steps = r.steps;
@@ -1671,9 +1671,14 @@ window.cmCaseFlow.workFrom = function(el){
   box.open = true; box.scrollIntoView({block: "nearest", behavior: "smooth"});
   box.classList.remove("cfx-flash"); void box.offsetWidth; box.classList.add("cfx-flash");
 };
-/* a theory card's ＋ More: the detail that doesn't fit on the card (theory-dN.json concepts[].more), in a pop-up card */
-window.cmCaseFlow.more = function(blockId, i){
-  const t = (SLIDES[blockId] || {}).theory, x = t && t.concepts[i]; if(!x || !(x.more || []).length) return;
+/* a theory card's ＋ More: the detail that doesn't fit on the card (theory-dN.json concepts[].more), in a pop-up card;
+   a framework step's (framework.steps[].more) opens the same way, so a flow can be read step by step */
+const stepMore = (b, x, i) => (x.more || []).length ? `<button type="button" class="cfx-th-more" onclick="cmCaseFlow.more('${b.id}',${i},'step')" title="More on ${E(x.label)}">＋ More</button>` : "";
+window.cmCaseFlow.more = function(blockId, i, kind){
+  const t = (SLIDES[blockId] || {}).theory;
+  const c = kind === "step" ? ((t && t.framework && t.framework.steps) || [])[i] : t && t.concepts[i];
+  const x = c && {term: kind === "step" ? c.label : c.term, text: c.text, more: c.more};
+  if(!x || !(x.more || []).length) return;
   const o = document.createElement("div"); o.className = "cfx-modal cfx-more"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", x.term);
   o.innerHTML = `<div class="cfx-modal-in card lesson-card"><div class="cfx-modal-h"><b>${E(x.term)}</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>
     <p class="cfx-more-lead">${hl(x.text)}</p><ul>${x.more.map(m => `<li>${hl(m)}</li>`).join("")}</ul></div>`;
@@ -3691,6 +3696,7 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-th-c span{font:500 16px/1.35 var(--font-ui);color:var(--ink);}
 .cfx-th-solo .cfx-th-c span{font-size:17px;}
 .cfx-th-c{position:relative;}
+.cfx-fw-flow li,.cfx-fw-list > div{position:relative;}
 .cfx-th-more{position:absolute;top:6px;right:8px;border:1px solid #F0D2AE;background:#FBF1E6;color:#B5561A;border-radius:999px;padding:1px 9px;font:700 12px/1.6 var(--font-ui);cursor:pointer;}
 .cfx-th-more:hover,.cfx-th-more:focus-visible{background:var(--orange);border-color:var(--orange);color:#fff;outline:none;}
 .cfx-more{align-items:center;}

@@ -7559,39 +7559,46 @@ window.CM_CF_SLIDES = {
    "Telling John Doe the carrier is **acting in bad faith**"
   ],
   "theory": {
-   "lead": "A UM/UIM claim is a **first-party claim** against the client's own policy, so the impasse route is set by that contract and the state's law.",
+   "lead": "A UM/UIM claim is a **first-party claim** under coverage that protects the client, so the impasse route is set by that contract and the state's law.",
    "concepts": [
     {
      "term": "First-Party Claim",
-     "text": "Made against **the client's own coverage**, under a contract he pays premiums on",
+     "text": "A claim under coverage that protects **the client himself**, not the other driver",
      "more": [
-      "On this file: Harbor Point (Host UM) and Cardinal State (Relative UM)",
+      "In plain words: a claim on insurance that covers you, usually **a policy you pay premiums on**",
+      "John Doe owns no car, so he reaches UM **by his status**, not a policy of his own",
       "Harbor Point: John Doe as an occupant of Kevin Alvarez's Escape",
       "Cardinal State: John Doe as a resident relative of Margaret Doe",
-      "Margaret Doe's Bluewater Auto policy adds nothing: **UM/UIM rejected in writing** 03/14/2024",
-      "Same evidence as the BI claim; the relationship, the duties and the route out differ"
+      "Margaret Doe's Bluewater Auto policy adds nothing: **UM/UIM rejected in writing** 03/14/2024"
      ]
     },
     {
      "term": "Third-Party Claim",
-     "text": "Made against **the at-fault driver's carrier**, here Keystone Mutual for Robert Smith"
+     "text": "A claim against **the at-fault driver's carrier**, here Keystone Mutual for Robert Smith",
+     "more": [
+      "In plain words: you claim against **the other driver's insurance**, not your own",
+      "When it fails, the firm sues the driver at fault, not his carrier",
+      "Same injuries, same records and **the same $16,401.40 in Specials** prove both claims"
+     ]
     },
     {
      "term": "Mandatory Arbitration Clause",
      "text": "A policy term sending the dispute to an arbitrator; the firm files **a Demand for Arbitration**",
      "more": [
+      "Carriers favour it: **no jury**, narrower discovery, a faster and cheaper decision",
       "Read the governing state law and **each policy's own clause** before anything is calendared",
       "Harbor Point's UM policy has one; it does not speak for Cardinal State",
       "Quote the clause to Atty. Thorne; a paraphrase is already an interpretation",
-      "Where no clause binds, a failed UM negotiation becomes a civil suit against the carrier",
       "Each layer has its own suit or demand deadline, not the 02/06/2028 SOL; docket only from Atty. Thorne's written answer"
      ]
     },
     {
-     "term": "Insurance Bad Faith",
-     "text": "A separate suit for unreasonable handling, which **can exceed the policy limit**",
+     "term": "Court Litigation",
+     "text": "Where no clause binds, **a civil suit against the carrier**; bad faith is a separate suit",
      "more": [
-      "Grounds: a carrier that unreasonably delayed, denied or mishandled the claim",
+      "Some states bar mandatory arbitration in auto policies or let the insured **opt out**",
+      "Then a failed UM negotiation becomes a civil suit filed directly against the carrier",
+      "Bad faith: unreasonable delay, denial or handling, **a separate action** that can exceed the limit",
       "Record the handling dates as facts; whether they are actionable is **Atty. Thorne's alone**",
       "Never tell John Doe or Marcus Bell a carrier is acting in bad faith"
      ]
@@ -7607,15 +7614,31 @@ window.CM_CF_SLIDES = {
     "steps": [
      {
       "label": "Claim submission",
-      "text": "The UM Demand Package, with proof the at-fault limits were exhausted"
+      "text": "The UM Demand Package, with proof the at-fault limits were exhausted",
+      "more": [
+       "The UM Demand Package: injuries, records, **Specials of $16,401.40** and the wage letter",
+       "Proof of exhaustion: Keystone's $10,000 tender, both UM consents and the Limited Release",
+       "On this file: served 03/22/2027 to Harbor Point and Cardinal State"
+      ]
      },
      {
       "label": "Dispute",
-      "text": "The carrier offers far under value, or denies liability or coverage"
+      "text": "The carrier offers far under value, or denies liability or coverage",
+      "more": [
+       "Harbor Point offers $8,000 (03/31/2027) against **a $20,000 limit**",
+       "Cardinal State offers $6,000 (04/02/2027) against a $10,000 limit",
+       "Both hold on 04/05/2027, citing the gap: **the impasse memo** goes to Atty. Thorne"
+      ]
      },
      {
       "label": "Resolution route",
-      "text": "Demand for Arbitration, or suit against the carrier: state law and the clause decide"
+      "text": "Demand for Arbitration, or suit against the carrier: state law and the clause decide",
+      "more": [
+       "Read **the governing state law** and each policy's own clause",
+       "Harbor Point's clause binds: a Demand for Arbitration, heard 06/22/2027 before Laura Whitcomb, Esq.",
+       "Where no clause binds: a civil suit filed against the carrier",
+       "The route is **Atty. Thorne's decision**, recorded in the CMS ADR tab"
+      ]
      }
     ],
     "note": "Bad faith sits off this flow: a separate action about the carrier's handling, and Atty. Thorne's call alone."
