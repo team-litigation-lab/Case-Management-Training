@@ -170,7 +170,7 @@ her shift (first open evening slot 04/21); *Track* — confirmed attendance 04/2
     subrogation against Robert Smith** (the UM Subrogation Waiver / Consent to Settle). Bluewater Auto is not asked:
     Margaret's Civic policy carries no UM (rejected in writing 03/14/2024), so it is not a UM layer.
   - The draft's clauses as the Case Manager audits them: the catch-all discharge of "all other … insurers" (would release
-    Harbor Point and Cardinal State, $30,000 of the stack); "property damage and loss of use" among the claims released
+    Harbor Point and Cardinal State, $30,000 of the stack); "Property Damage and Loss of Use" among the claims released
     (the Civic's claim, KM-26-440871-PD, is Margaret's, open with Leah Moran); a **confidentiality** clause (no term of the
     demand, and it would bar showing the release to the UM carriers as proof of exhaustion); a lien warranty with an
     **indemnify, defend and hold harmless** obligation including attorney's fees; no reservation of the UM/UIM claims; no

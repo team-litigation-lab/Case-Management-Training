@@ -304,11 +304,11 @@ window.CM_CF_EXHIBITS = {
     },
     {
      "ref": "Recital",
-     "what": "Claims released: bodily injury, property damage and loss of use",
-     "as": "“including all claims for bodily injury, property damage and loss of use”.",
+     "what": "Claims released: bodily injury, Property Damage and Loss of Use",
+     "as": "“including all claims for bodily injury, Property Damage and Loss of Use”.",
      "verdict": "replace",
      "kind": "loophole",
-     "issue": "The Civic's property damage and loss-of-use claim is Margaret Doe's, open with Leah Moran on KM-26-440871-PD. John Doe cannot release it, and Keystone PD would cite the wording against it.",
+     "issue": "The Civic's Property Damage and loss-of-use claim is Margaret Doe's, open with Leah Moran on KM-26-440871-PD. John Doe cannot release it, and Keystone PD would cite the wording against it.",
      "fix": "Propose: the bodily injury claim only, with the Civic's claim expressly reserved. Route to Atty. Thorne.",
      "proof": [
       "RS32",
@@ -1287,10 +1287,10 @@ window.CM_CF_EXHIBITS = {
     },
     {
      "id": "property",
-     "label": "Says the release reaches the Civic's open property damage claim",
-     "hint": "The draft releases property damage and loss of use: the Civic's claim is Margaret's and still open.",
+     "label": "Says the release reaches the Civic's open Property Damage claim",
+     "hint": "The draft releases Property Damage and Loss of Use: the Civic's claim is Margaret's and still open.",
      "match": [
-      "property damage|loss of use|civic"
+      "Property Damage|Loss of Use|civic"
      ]
     },
     {
@@ -1373,7 +1373,7 @@ window.CM_CF_EXHIBITS = {
       "h": "1 · What the review found",
       "lines": [
        "Keystone's Release of All Claims, Form KM-REL-100, received 08/14/2026 with Dana Whitfield's cover letter.",
-       "Catch-all: would release Harbor Point and Cardinal State, $30,000 of the stack. Property damage and loss of use: the Civic's claim is Margaret Doe's.",
+       "Catch-all: would release Harbor Point and Cardinal State, $30,000 of the stack. Property Damage and Loss of Use: the Civic's claim is Margaret Doe's.",
        "No UM reservation; a confidentiality clause; an unlimited indemnify-and-defend clause; no payment date.",
        "Unknown injuries, Medicare and governing law flagged for Atty. Thorne."
       ]

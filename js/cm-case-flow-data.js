@@ -196,7 +196,7 @@ window.CM_CASE_FLOW = {
       "This is the fork. Track A (Case Flow Day 4): the file settles. Track B (Day 4's ADR, then Day 5's litigation): Keystone stonewalls and the case goes to suit."
     ]},
     {after: "d3m2-exec", title: "Track A: The BI Release, Executed", group: "money", items: [
-      "08/14/2026 Keystone's draft Release of All Claims: the catch-all \"all other … insurers\", property damage and loss of use, confidentiality, an unlimited indemnify-and-defend clause, no UM reservation, no payment date · Keystone holds its check until each UM carrier consents and waives subrogation",
+      "08/14/2026 Keystone's draft Release of All Claims: the catch-all \"all other … insurers\", Property Damage and Loss of Use, confidentiality, an unlimited indemnify-and-defend clause, no UM reservation, no payment date · Keystone holds its check until each UM carrier consents and waives subrogation",
       "Consent and waiver requests 08/13 to Harbor Point and Cardinal State (Bluewater is not a UM layer: UM rejected 03/14/2024) · consents and waivers 08/24 and 08/26",
       "Clause review to Atty. Thorne 08/14 · approved 08/17 · Keystone's Limited Release 08/19: Smith and Keystone only, UM and Civic claims reserved, no confidentiality, payment within 14 days",
       "Signing session 08/28/2026: Atty. Thorne goes through the release first; signed before notary Renee Castillo · sent to Dana Whitfield with both waivers and the W-9 · acknowledged 08/31 · check no. 0048213 issued 09/01, into IOLTA 09/04"
@@ -5252,7 +5252,7 @@ window.CM_CASE_FLOW = {
             "The BI adjuster asks for the same paper. Keystone's 08/14/2026 cover letter makes payment conditional on each UM carrier's written consent and waiver: it does not want its insured exposed to a later subrogation claim. Send the waivers with the executed release.",
             "Read each consent for what it covers: Harbor Point (08/24) and Cardinal State (08/26) consent to a release of Robert Smith and Keystone only, waive subrogation against Smith, will not substitute a check, and keep the UM claims open. A consent that reaches further, or a substitution, goes to Atty. Thorne.",
             "No signature before both. John Doe signs the Limited Release (08/28/2026) only after both consents are in writing and Atty. Thorne has approved the release and gone through it with him.",
-            "File the consents where the UM claims will need them: the front of each UM demand package, beside the tender, Keystone's Dec Page, Smith's affidavit and the signed Limited Release."
+            "File the consents where the UM claims will need them: the front of each UM Demand Package, beside the tender, Keystone's Dec Page, Smith's affidavit and the signed Limited Release."
           ],
           upl: [
             "You identify the UM carriers, prepare the consent requests for Atty. Thorne's signature, docket the windows, chase the replies and match each consent to the release. You never tell John Doe or a carrier what the consent clause means, whether a substitution is good or bad for him, or whether he may sign."
@@ -5314,7 +5314,7 @@ window.CM_CASE_FLOW = {
           output: "An audited release with proposed amendments, Atty. Thorne's written approval on file, and the review memorandum filed in the CMS and Drive.",
           checkpoints: [
             "The catch-all “all other … insurers” quoted and replaced: it would release Harbor Point ($20,000) and Cardinal State ($10,000)",
-            "Claims released limited to bodily injury: “property damage and loss of use” reaches the Civic's claim, which is Margaret Doe's (KM-26-440871-PD, Leah Moran)",
+            "Claims released limited to bodily injury: “Property Damage and Loss of Use” reaches the Civic's claim, which is Margaret Doe's (KM-26-440871-PD, Leah Moran)",
             "An express reservation of the UM/UIM claims (HP-26-7741, CS-26-20355) added",
             "The confidentiality clause pulled: no term of the demand, and it would bar proof of exhaustion to the UM carriers",
             "The indemnify, defend and hold-harmless clause narrowed to the liens on the file paid from trust, no defense, no attorney's fees",
@@ -5340,7 +5340,7 @@ window.CM_CASE_FLOW = {
         sources: ["D2#31", "D2#33", "D3#16", "D3#26", "Newly authored: the clause-by-clause release audit as a keep, replace, pull, add or flag call, with proposed amendments routed to the attorney before the client sees the release"],
         rubric: {
           ai: [
-            ["Problem clauses found", 25, "Catch-all, property damage, confidentiality, indemnity found; UM reservation and payment date added"],
+            ["Problem clauses found", 25, "Catch-all, Property Damage, confidentiality, indemnity found; UM reservation and payment date added"],
             ["Flags and keeps", 15, "Unknown injuries, Medicare and governing law flagged; parties, $10,000.00, non-admission, signature block kept"],
             ["Routing record", 20, "Review emailed 08/14/2026; approval 08/17 filed; memorandum filed in the CMS and Drive"]
           ],

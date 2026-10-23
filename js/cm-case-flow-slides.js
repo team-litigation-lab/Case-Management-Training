@@ -5920,7 +5920,7 @@ window.CM_CF_SLIDES = {
   "principle": "You propose the fixes; **Atty. Thorne decides** every term",
   "checks": [
    "Catch-all **“all other … insurers”** replaced",
-   "Property damage cut; **UM claims reserved**",
+   "Property Damage cut; **UM claims reserved**",
    "Confidentiality pulled; **indemnity narrowed**; payment date added",
    "Unknown injuries, Medicare, governing law **flagged for Atty. Thorne**",
    "Approved 08/17; **nothing sent to John Doe**"
