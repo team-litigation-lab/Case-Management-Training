@@ -1032,6 +1032,36 @@ function agendaSlide(d){
         <div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div></div></div>
     </div>`;
 }
+/* ---------- the Training Agenda's speaker notes ----------
+   What the trainer says over each day's agenda slide, in the voice of the slide scripts (build/case-flow/scripts/
+   SCRIPTSPEC.md: first person to the room, John Doe's file, no lists). The welcome and the question are written for
+   each day; the run of the day is read from the slide itself (its parts, minutes, activities and questions), so the
+   notes and the slide can never disagree. Shown in Presenter view, on Admin → Trainer Cues and in the Speaker Notes PDF. */
+const AGENDA_NOTES = {
+  1: {open: "Welcome, everyone, and thanks for being here on time. For the next five days you're the Case Manager on one file, John Doe v. Robert Smith, Atty. Elijah Thorne's case, and everything we do this week happens on that file. Right now it's a raw file: nothing is in the CMS yet, John Doe hasn't started treatment, and there's a damaged car on it that nobody has sorted out.",
+      ask: "Before we start, who has worked on a personal injury file before, and which part of it did you handle?"},
+  2: {open: "Morning, everyone. Yesterday we opened John Doe's matter in the CMS, ran the Conflict Check and got the Property Damage side moving. Today the three claims are reported by phone, but nothing is confirmed in writing yet, and John Doe is about to start treatment. So today is about setting the claims up properly and then carrying him through treatment without losing him.",
+      ask: "Think about the file as we left it yesterday: what's the one thing on it you'd want confirmed in writing before anything else today?"},
+  3: {open: "Welcome back. John Doe has finished treatment and reached MMI, the Specials stand at $16,401.40, and there's a 14-day gap on the file that we still have to explain from his own documented facts. Today we audit the file, brief Atty. Thorne, serve a demand that holds up and negotiate it.",
+      ask: "Before the demand goes out, what on John Doe's file would an adjuster use against us first?"},
+  4: {open: "Morning, everyone. On Track A the file settles at $40,000 gross. Today we finish that settlement properly: the release, the liens, the provider balances and a net to John Doe that reconciles to the cent. Then we go back and follow the same file down Track B, where it doesn't settle, into mediation and arbitration and the binders that go with them.",
+      ask: "Once the $40,000 comes in, whose money is it, and who has to be paid before John Doe sees a dollar?"},
+  5: {open: "Welcome to our last day. On Track B the carrier let the demand lapse, so today John Doe's file goes into litigation: the impasse, the complaint, discovery, his deposition and, at the end, the award and the Litigation Net Sheet. We'll also close out a separate matter that's being dropped, and do it the right way.",
+      ask: "When a file goes into suit, what changes in your day as the Case Manager, and what stays exactly the same?"}
+};
+function agendaNotes(d){
+  const n = d.cf.n, w = AGENDA_NOTES[n] || {}, sc = daySchedule(d), parts = lectureParts(d);
+  const acts = d.lessons.filter(l => l.cf.block.kind === "activity").length, q = (d.quiz || []).length, next = cfDayByN(n + 1);
+  const lectures = parts.map(p => `${p.title} for about ${p.mins} minutes`);
+  const say = [w.open || `Welcome, everyone. Let's pick John Doe's file up where we left it.`,
+    `Here's how today runs, and it's all on the slide. We start with the lectures: ${andList(lectures)}.`
+      + (parts.length > 1 && sc.buffer >= 10 ? " We'll take a ten-minute break about halfway through." : ""),
+    `Then it's Practice: ${acts} Skill Activit${acts === 1 ? "y" : "ies"} on John Doe's file, about ${sc.practice} minutes, worked in the CMS and the tools, not on paper.`,
+    `We finish with the Knowledge Check, ${q} question${q === 1 ? "" : "s"} in about ${sc.kc} minutes, and you need 70% ${next || n < 5 ? `to open Day ${n + 1}` : "to finish the Case Flow"}.`,
+    `By the end of today you'll ${firstAim(d)}.`].join(" ");
+  return {say, ask: w.ask || ""};
+}
+
 /* ---------- the live call: the course's own roleplay engine, on John Doe v. Robert Smith ---------- */
 function caseDossier(){
   const c = CF.case;
@@ -1951,9 +1981,13 @@ window.cmCaseFlow.labGo = function(dayId, li){
   const idx = slides.findIndex(sl => sl.type === "topic" && sl.lessonIndex === li && sl.part === 1);
   if(idx >= 0 && typeof goToSlide === "function") goToSlide(idx);
 };
-if(typeof presenterCues === "function"){   // Presenter view: the trainer's note for the Practice Lab slide
+if(typeof presenterCues === "function"){   // Presenter view: the trainer's notes for the Training Agenda and the Practice Lab slides
   const __cues = presenterCues;
   presenterCues = function(d, slide){
+    if(slide && slide.type === "taskOverview" && cfDay(d && d.id)){
+      const a = agendaNotes(d);
+      return `<h3>Training Agenda</h3><div class="pn-part">🎙 Script — read aloud</div><p>${E(a.say)}</p>${a.ask ? `<p><b>Ask:</b> ${E(a.ask)}</p>` : ""}`;
+    }
     if(!(slide && slide.type === "practiceLab" && cfDay(d && d.id))) return __cues.apply(this, arguments);
     const n = d.lessons.filter(l => l.cf.block.kind === "activity").length;
     return `<h3>Practice Lab</h3><p>Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. Then run today's ${n} Skill Activities in order: each opens with Your Case, then Your Task and Check Your Work. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
@@ -2026,7 +2060,8 @@ MODULES.forEach(d => d.lessons.forEach(l => {
    with what the trainer says at each step in their own words. The engine's run of show described the old course
    (dividers, Quick Checks, Skill Builders); the rest of the SOP page is unchanged. */
 const lc1 = t => String(t || "").replace(/\.$/, "").replace(/^[A-Z](?=[a-z])/, c => c.toLowerCase());
-const firstAim = d => lc1(String(d.objective || d.title).replace(/\s*\([^)]*\)/g, "").split(/,\s|;\s/)[0]);   // the objective's opening clause, said aloud
+// the objective's opening clause, said aloud; a setting clause first ("With Track A settled …", "On Track B") is skipped for the aim itself
+const firstAim = d => lc1(String(d.objective || d.title).replace(/\s*\([^)]*\)/g, "").split(/,\s|;\s/).find(c => !/^(with|on|where)\b/i.test(c.trim())) || d.title);
 const andList = xs => xs.length < 2 ? (xs[0] || "") : xs.slice(0, -1).join(", ") + " and " + xs[xs.length - 1];
 if(typeof window.sopRunOfShow === "function"){
   const __ros = window.sopRunOfShow;
@@ -2186,6 +2221,7 @@ if(typeof window.renderAdminTrainerCues === "function"){
         <h2 style="color:var(--navy);font-size:19px;margin:0;">${E(d.title)}</h2>
         <button class="btn btn-navy btn-sm" onclick="downloadDayScriptsPdf(${d.id})">⬇ Download the Speaker Notes (PDF)</button>
       </div>
+      ${(a => `<div class="card" style="padding:14px 18px;margin-bottom:12px;"><div class="pn-part">📅 Training Agenda — read aloud</div><p style="margin:6px 0;">${E(a.say)}</p>${a.ask ? `<p style="margin:6px 0 0;"><b>Ask:</b> ${E(a.ask)}</p>` : ""}</div>`)(agendaNotes(d))}
       ${d.cf.n === 1 && typeof renderMeetClientTrainerGuide === "function" ? `<div class="card" style="padding:14px 18px;margin-bottom:12px;">${renderMeetClientTrainerGuide()}</div>` : ""}
       ${d.discussionQuestion ? `<div class="card discussion-card" style="margin-bottom:12px;">
         <div class="discussion-tag">💬 End-of-Day Discussion</div>
@@ -2207,6 +2243,10 @@ if(typeof window.buildDayScriptLines === "function"){
   window.buildDayScriptLines = function(d){
     if(!d || !d.cf) return __lines.apply(this, arguments);
     const lines = [`## ${d.title}: Trainer Speaker Notes`];
+    const ag = agendaNotes(d);
+    lines.push("## Training Agenda", "SLIDE: TRAINING AGENDA", ag.say);
+    if(ag.ask) lines.push(`ASK: ${ag.ask}`);
+    lines.push("---");
     d.cf.phases.forEach(ph => {
       const ls = d.lessons.map((l, i) => [l, i]).filter(([l]) => l.cf.phase === ph); if(!ls.length) return;
       lines.push(`## ${ph.lead === "Case Phase" ? `Case Phase ${ph.n}` : ph.lead}: ${ph.title}`);
