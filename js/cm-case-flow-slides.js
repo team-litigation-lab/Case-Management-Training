@@ -10429,7 +10429,7 @@ window.CM_CF_SLIDES = {
    [
     "Subpoena approved",
     "Notice Atty. Mercer, then serve",
-    "Action Plan Editor → Subpoena template",
+    "CMS → Documents → Subpoena template",
     "Notice dated before service"
    ],
    [
@@ -11807,7 +11807,7 @@ window.CM_CF_SLIDES = {
    [
     "Pending Drop, client told",
     "Prepare each party's letter",
-    "Action Plan Editor",
+    "CMS → Documents",
     "Word and PDF saved"
    ],
    [

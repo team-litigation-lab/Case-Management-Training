@@ -266,7 +266,7 @@ A single memo page on white letterhead, a navy header band reading IMPASSE MEMO 
 
 | | |
 |---|---|
-| **Tool / interface** | Action Plan Editor → Memo · CMS → Communications Log · CMS → Tasks → Escalate |
+| **Tool / interface** | CMS → Documents → Memo · CMS → Communications Log · CMS → Tasks → Escalate |
 | **Expected output** | A dated, sourced impasse memo routed to Atty. Thorne, asking for a decision and recommending none. |
 
 **Verification checkpoints**
@@ -287,7 +287,7 @@ A single memo page on white letterhead, a navy header band reading IMPASSE MEMO 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | 09/04/2026: the 48-Hour Mandate window (09/02 → 09/04) closes unanswered | Stop waiting: open the escalation task to Atty. Thorne; pull every contact and verify each date against its proof | CMS → Communications Log | Nine events, 07/20 to 09/04, each matched to a receipt, email or log entry |
-| Chronology verified | Draft the memo: record, grounds, frozen stack, clock, decision requested | Action Plan Editor → Memo | All three layers shown; SOL and internal dates correct |
+| Chronology verified | Draft the memo: record, grounds, frozen stack, clock, decision requested | CMS → Documents → Memo | All three layers shown; SOL and internal dates correct |
 | Memo complete | Route it to Atty. Thorne for decision | CMS → Tasks → Escalate | Routed Tue 09/08/2026, the first business day after Labor Day; no recommendation in the text |
 
 **Best practices & pitfalls**
@@ -1020,9 +1020,9 @@ Left two-thirds: a horizontal four-station pipeline on a navy rail, each station
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | A records request is refused or ignored, or a record must come from its custodian | Flag it to Atty. Thorne as a question: “Do you want a records subpoena?” | CMS → Tasks → Escalate | Question routed with the refused request attached; nothing drafted until he decides |
-| Atty. Thorne approves a Subpoena Duces Tecum | Draft on the court-approved form with a narrow Exhibit A; serve notice on Atty. Mercer, then arrange service on the custodian | Action Plan Editor → Subpoena template · Court E-Filing | Exhibit A names one subject, exact dates and record types; notice dated before service |
+| Atty. Thorne approves a Subpoena Duces Tecum | Draft on the court-approved form with a narrow Exhibit A; serve notice on Atty. Mercer, then arrange service on the custodian | CMS → Documents → Subpoena template · Court E-Filing | Exhibit A names one subject, exact dates and record types; notice dated before service |
 | Every 10 days while a subpoena is open | Review each row; compliance call 5 days before production; pay the invoice | CMS → Litigation → Subpoena log · CMS → Calendar | Every open row has a dated reading; each miss routed to Atty. Thorne |
-| Atty. Thorne names his trial witnesses | Draft the trial subpoenas; arrange service under the court's rules; log the proof | Action Plan Editor → Subpoena template · CMS → Calendar | Tasked against 08/12/2027 and 09/13/2027; proof of service in 05_SUBPOENAS |
+| Atty. Thorne names his trial witnesses | Draft the trial subpoenas; arrange service under the court's rules; log the proof | CMS → Documents → Subpoena template · CMS → Calendar | Tasked against 08/12/2027 and 09/13/2027; proof of service in 05_SUBPOENAS |
 
 **Best practices & pitfalls**
 
@@ -1156,11 +1156,11 @@ Split slide. Left 55%: the trial-prep checklist as a cream clipboard card with o
 
 **Scenario.** 01/20/2027 · Track B. John Doe's deposition notice just arrived: 02/18/2027, 10:00 a.m., by videoconference, Riverton Court Reporting. The trial-prep checklist was drafted from the calendar as first keyed, before the 12/10/2026 audit, and never reconciled. It shows our expert disclosure on 04/15/2027, “mediation 03/31/2027” as the session date, records subpoenas planned for June 2027, the final records run sourced from the pre-lit Demand Package, no alerts and no deposition tasks. Smith's responses arrived 01/13/2027, never docketed. There is no KPI tracker.
 
-**Execution prompt.** Audit the checklist line by line against the 12/10/2026 Scheduling Order in the Action Plan Editor: every date right, each with an owner and 30-, 14- and 7-day alerts, and the 02/18/2027 deposition logistics and prep document set added. Then build the KPI tracker: define all nine KPIs, each with its formula and target, enter this file's reading with its source, and mark each met, missed or open. Close with one task each for the three review lenses: coverage, treatment, liability. The graded call: name the two items you route to Atty. Thorne first, and why those two.
+**Execution prompt.** Audit the checklist line by line against the 12/10/2026 Scheduling Order in the CMS: every date right, each with an owner and 30-, 14- and 7-day alerts, and the 02/18/2027 deposition logistics and prep document set added. Then build the KPI tracker: define all nine KPIs, each with its formula and target, enter this file's reading with its source, and mark each met, missed or open. Close with one task each for the three review lenses: coverage, treatment, liability. The graded call: name the two items you route to Atty. Thorne first, and why those two.
 
 | | |
 |---|---|
-| **Tool / interface** | Action Plan Editor · CMS → Calendar · CMS → Litigation → KPI tracker |
+| **Tool / interface** | CMS → Calendar · CMS → Litigation → KPI tracker |
 | **Expected output** | A trial-prep checklist that matches the Scheduling Order date for date, and a KPI tracker with a formula, target, sourced reading and status for every KPI. |
 
 **Show Them — reference model**
@@ -1190,7 +1190,7 @@ Split slide. Left 55%: the trial-prep checklist as a cream clipboard card with o
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Scheduling Order on file | Load all six dates into the checklist with an owner and three alerts each | Action Plan Editor · CMS → Calendar | Dates match the 12/10/2026 order exactly; 18 alerts set |
+| Scheduling Order on file | Load all six dates into the checklist with an owner and three alerts each | CMS → Calendar | Dates match the 12/10/2026 order exactly; 18 alerts set |
 | Deposition notice received 01/20/2027 | Docket it; book the reporter, the link and the technology check; calendar the packet | CMS → Calendar · Communications Log | Docketed by 01/22/2027; packet due 02/11/2027 |
 | Weekly docket audit | Update every KPI reading and route each miss | CMS → Litigation → KPI tracker · Tasks → Escalate | Nine KPIs with formula, target, sourced reading and status; misses escalated with a date |
 
@@ -2030,7 +2030,7 @@ Two parallel swimlanes, left to right. Upper lane, navy, ROBERT SMITH — DEFEND
 | Third failed attempt, 10/08/2026; neighbor says Smith moved | Escalate for Skip-Trace authority; send the result to the process server | CMS → Tasks → Escalate · Email Workspace | Skip-Trace result logged 10/09/2026; server re-assigned to 4410 Quarry Ridge Ct |
 | Affidavit of service filed 10/16/2026 | Docket the answer date and set the weekly docket check | Court E-Filing · CMS → Calendar | Answer due 11/13/2026 on the calendar; weekly check recurring |
 | Subpoena Duces Tecum approved by Atty. Thorne | Notice opposing counsel, then serve the custodian by process server | Court E-Filing · CMS → Litigation → Subpoena log | Notice to Atty. Grant Mercer dated before service; compliance call 5 days before production |
-| Client unreachable with a deposition noticed (from 01/22/2027) | Run Steps 1–3; draft the Step 4 notice for Atty. Thorne's signature | CMS → Communications Log · Action Plan Editor | Response date before 02/04/2027; certified mail AND email both logged |
+| Client unreachable with a deposition noticed (from 01/22/2027) | Run Steps 1–3; draft the Step 4 notice for Atty. Thorne's signature | CMS → Communications Log | Response date before 02/04/2027; certified mail AND email both logged |
 
 **Best practices & pitfalls**
 
@@ -2086,7 +2086,7 @@ A three-row counter-package matrix across the full slide width on a white card w
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Litigation → Liability counter-package · Action Plan Editor → Subpoena template |
+| **Tool / interface** | CMS → Litigation → Liability counter-package · CMS → Documents → Subpoena template |
 | **Expected output** | An allegation-by-allegation counter-package with foundation for every item, a draft Exhibit A, and the open legal questions routed to Atty. Thorne. |
 
 **Verification checkpoints**
@@ -2107,7 +2107,7 @@ A three-row counter-package matrix across the full slide width on a white card w
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | Answer received 11/12/2026 | Open the counter-package, one row per allegation | CMS → Litigation → Liability counter-package | Three rows, each with evidence, source, witness and custody |
-| A record will need a custodian | Draft the Subpoena Duces Tecum with a narrow Exhibit A | Action Plan Editor → Subpoena template | Exhibit A names John Doe, 02/06/2026 and specific record types |
+| A record will need a custodian | Draft the Subpoena Duces Tecum with a narrow Exhibit A | CMS → Documents → Subpoena template | Exhibit A names John Doe, 02/06/2026 and specific record types |
 | Package complete | Route to Atty. Thorne with the open legal questions | CMS → Tasks → Escalate | Every question listed; no conclusion drafted as advice |
 
 **Best practices & pitfalls**
@@ -2163,7 +2163,7 @@ Split slide. Left half, PART 1 — SERVICE: a vertical log card (date · time ·
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Tasks → Escalate · Court E-Filing · CMS → Communications Log · Action Plan Editor → Warning letter template · CMS → Documents → Outgoing |
+| **Tool / interface** | CMS → Tasks → Escalate · Court E-Filing · CMS → Communications Log · CMS → Documents → Warning letter template · CMS → Documents → Outgoing |
 | **Expected output** | A service record from Skip-Trace to answer date, and a dispatched certified notice with both deliveries logged and John's Skip-Trace gate assessed. |
 
 **Verification checkpoints**
@@ -2414,7 +2414,7 @@ A six-step horizontal process rail on cream, each step a navy card with an orang
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Status “Pending Drop”, with Atty. Thorne's note that the client was told | Prepare each party's Withdrawal Letter for his signature | Action Plan Editor → Withdrawal Letter template | Client, carrier and provider letters, each saved in Word and PDF |
+| Status “Pending Drop”, with Atty. Thorne's note that the client was told | Prepare each party's Withdrawal Letter for his signature | CMS → Documents → Withdrawal Letter template | Client, carrier and provider letters, each saved in Word and PDF |
 | Letters signed | Send each by its method and log the dispatch | Email Workspace · CMS → Communications Log | Party, method and date logged for every letter |
 | Receipts followed up | Switch the status and file the proof | CMS → Case Status · CMS → Documents | Status “Dropped”; receipts, logs and the attorney's note filed |
 
@@ -2468,11 +2468,11 @@ A PRACTICE MATTER banner in orange across the top: DENISE HARLOW · LSH-2026-MVA
 
 **Scenario.** A practice matter, not John Doe's file: do not open or create it in the CMS. File date 12/09/2026. Denise Harlow (LSH-2026-MVA-781205) was rear-ended at a red light on 09/19/2026. Granite Shield Insurance holds the BI claim, GS-26-48213 (adjuster Paul Ostrander; CRM note: email only). She treated at Brookside Physical Therapy (CRM note: fax only) from 09/24 to 10/29/2026, then stopped: she has no Health Plan to pay for care, and Brookside declined a Letter of Protection. Atty. Thorne has decided to drop the case. Status: Pending Drop. His note, 12/08/2026, 2:10 p.m.: called Denise, told her the firm will close its representation; she understood; address 87 Alder Creek Dr, Riverton confirmed; she prefers text and email (denise.harlow@mail.example). RS05 shows the firm's standard retainer, with the withdrawal terms every client signs.
 
-**Execution prompt.** Close out the drop in the Action Plan Editor. Record the gate you checked. Draft three Withdrawal Letters for Atty. Thorne's signature: to Denise (date, name, date of loss, the reason in his note's words, and the next step he approves: speak to another attorney promptly, because time limits apply), and one each to Granite Shield and to Brookside (date, client, date of loss, claim number, that the firm no longer represents her; nothing about why). Name each send method and why. Then write the close-out log: Word and PDF saved, each dispatch annotated, the follow-up, the switch to Dropped and the proof retained. Graded judgment: what you say if Denise calls to ask whether her case was worthless.
+**Execution prompt.** Close out the drop in the CMS. Record the gate you checked. Draft three Withdrawal Letters for Atty. Thorne's signature: to Denise (date, name, date of loss, the reason in his note's words, and the next step he approves: speak to another attorney promptly, because time limits apply), and one each to Granite Shield and to Brookside (date, client, date of loss, claim number, that the firm no longer represents her; nothing about why). Name each send method and why. Then write the close-out log: Word and PDF saved, each dispatch annotated, the follow-up, the switch to Dropped and the proof retained. Graded judgment: what you say if Denise calls to ask whether her case was worthless.
 
 | | |
 |---|---|
-| **Tool / interface** | Action Plan Editor → Withdrawal Letter template |
+| **Tool / interface** | CMS → Documents → Withdrawal Letter template |
 | **Expected output** | Three Withdrawal Letters ready for Atty. Thorne's signature, a send method for each, and a close-out log from Pending Drop to Dropped. |
 
 **Verification checkpoints**
@@ -2491,9 +2491,9 @@ A PRACTICE MATTER banner in orange across the top: DENISE HARLOW · LSH-2026-MVA
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Pending Drop with Atty. Thorne's 12/08/2026 note | Confirm the gate; draft the three letters | Action Plan Editor → Withdrawal Letter template | Client, Granite Shield and Brookside letters, Word and PDF |
-| Letters signed, 12/09/2026 | Send each by its method and annotate it | Action Plan Editor → close-out log | Text, email and Certified Mail; email; fax |
-| Follow-up, 12/16/2026 | Confirm receipt, then switch the status | Action Plan Editor → close-out log | Dropped; proof retained |
+| Pending Drop with Atty. Thorne's 12/08/2026 note | Confirm the gate; draft the three letters | CMS → Documents → Withdrawal Letter template | Client, Granite Shield and Brookside letters, Word and PDF |
+| Letters signed, 12/09/2026 | Send each by its method and annotate it | CMS → Documents → close-out log | Text, email and Certified Mail; email; fax |
+| Follow-up, 12/16/2026 | Confirm receipt, then switch the status | CMS → Documents → close-out log | Dropped; proof retained |
 
 **Best practices & pitfalls**
 

@@ -1,7 +1,7 @@
 // 📤 File in the CMS, from the document viewer (case-doc.html; js/cm-doc-filing.js fileDoc and adoptCmsTab).
 //
 // A trainee reading a case document beside the slide files it into their case in the CMS from the viewer's own bar,
-// beside ⬇ Download PDF. The course page that opened the viewer does the filing, the same way the 📤 panel does: the
+// beside 📄 Open PDF and ☁️ Add to GDrive. The course page that opened the viewer does the filing, the same way the 📤 panel does: the
 // category check, the CMS's name check, the attempt on the trainee's record. With no CMS open, the CMS opens in a new
 // tab from the trainee's press, signed in (the Portal ticket), and the document files once the CMS says which case
 // is open.
@@ -74,7 +74,7 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     const viewer = await frameEl.contentFrame();
     await viewer.waitForSelector('#cms:not([hidden])', { timeout: 15000 });
     const bar = await viewer.evaluate(() => [...document.querySelectorAll('.cdv-bar button')].filter(b => !b.hidden).map(b => b.textContent.trim()));
-    check(bar.includes('⬇ Download PDF') && bar.includes('📤 File in the CMS'), `File in the CMS sits beside Download PDF: ${bar.join(' · ')}`);
+    check(bar.includes('📄 Open PDF') && bar.includes('☁️ Add to GDrive (Back up files)') && bar.includes('📤 File in the CMS'), `Open PDF, Add to GDrive and File in the CMS sit together: ${bar.join(' · ')}`);
 
     await viewer.click('#cms');
     const cats = await viewer.evaluate(() => [...document.querySelectorAll('#fcat option')].map(o => o.value).filter(Boolean));
