@@ -154,10 +154,6 @@ const CM_TOOL_DEFAULTS = [
    url:"https://lshcasemanagementtraining-trainingcrm.pages.dev",
    desc:"Where the case work actually happens: start the case, key the intake facts, upload each document by category, and log Tasks, Notes, Liens, Chronology and the Financial Ledger.",
    evidence:"CMS Case ID", idHint:"CMS Case ID (e.g. LSH-2026-PI-000123)"},
-  {id:"docket", icon:"⚖️", name:"Docket System (LSH Training Portal)", short:"Docket", status:"live",
-   url:"https://cm-training-activity.pages.dev/simulators/docket.html", portalSim:true,
-   desc:"Law-firm docketing: court notices and mail arrive in an inbox. Put what belongs on the court docket there and calendar every deadline it triggers, with a responsible attorney and reminders. The John Doe assignment uses this course's counting rules; a federal case teaches FRCP 6.",
-   evidence:"Docket reference", idHint:"Docket reference (e.g. DKT-DOE-1234)"},
   {id:"records", icon:"🗂", name:"Medical Records Requests (LSH Training Portal)", short:"Records", status:"live",
    url:"https://cm-training-activity.pages.dev/simulators/records.html", portalSim:true,
    desc:"A medical records request platform on the John Doe file: fix the HIPAA authorization, request records and itemized bills from the right departments, handle rejections, fees and follow-ups, and review and log what comes back before the attorney's date.",
@@ -483,7 +479,7 @@ window.renderCalendarBody = function(body){
       {type:"date", label:"Close of discovery (expert depositions included)", answer:cd("2027-05-28")},
       {type:"date", label:"Pretrial conference (9:00 a.m., Courtroom 4A)", answer:cd("2027-08-12")},
       {type:"date", label:"Jury trial calendar term begins", answer:cd("2027-09-13")}
-    ]) + toolStep("docket", "calendar:docket", "Enter the six Scheduling Order deadlines on the firm docket: the two expert disclosures, mediation, the close of discovery, the pretrial conference (9:00 a.m.) and the trial term. Add a warning alert before each one, and the proposed pretrial order seven days before the conference."));
+    ]) + toolStep("efiling", "calendar:docket", "Enter the six Scheduling Order deadlines in Court E-Filing's case calendar: the two expert disclosures, mediation, the close of discovery, the pretrial conference (9:00 a.m.) and the trial term. Add a warning alert before each one, and the proposed pretrial order seven days before the conference."));
   const labs = ["Calendar Conflict Resolver","Docket Briefing for the Attorney","Proactive CM Tasks","Hard-Code the Scheduling Order Dates"];
   toolState.wizardLabels = labs;
   body.querySelectorAll(".wizard-dot").forEach((d,i)=>{ if(labs[i]) d.title = labs[i]; });
@@ -562,7 +558,7 @@ window.renderCmsSimulator = window.renderTrainingTools;
 
 /* 🛠 Simulators: the shared simulators on the LSH Training Portal (calls, email workspace, email replies, calendaring), opened for CM. */
 window.renderCallSimulator = function(){
-  const calls = cmTool("calls"), mail = cmTool("email"), replies = cmTool("replies"), cal = cmTool("calendaring"), dk = cmTool("docket"), rec = cmTool("records"), ef = cmTool("efiling");
+  const calls = cmTool("calls"), mail = cmTool("email"), replies = cmTool("replies"), cal = cmTool("calendaring"), rec = cmTool("records"), ef = cmTool("efiling");
   const lines = [["☎","Reception & Front Desk","5 calls"],["📥","Intake Calls","5 calls"],["🤝","Client Communication","5 calls"],["⚖","Attorney Reporting","5 calls"],["🛡","Adjusters & Carriers","4 calls"],["🏥","Providers & Records","3 calls"]];
   const card = (t, extra)=> `<div class="card cm-tool${t.live?"":" soon"}">
       <div class="cm-tool-h"><span class="cm-tool-ic">${t.icon}</span><div><b>${E(t.name.replace(/ \((LSH Training Portal|LSH CMS)\)$/,""))}</b><div><span class="cm-badge ${t.live?"live":"soon"}">${t.live?(t.cmsHosted?"● Live in the LSH CMS":t.id==="calls"?"● Live on ☎ LSH Ring Channel":"● Live on the LSH Training Portal"):"Coming soon"}</span></div></div></div>
@@ -572,7 +568,7 @@ window.renderCallSimulator = function(){
   return `<p class="eyebrow">Simulators</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🛠 Simulators</h1>
     <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">The <b>Call Simulator</b> is in the LSH CMS (it opens already signed in, on the Case Management lines; pick a line below for its graded calls). Email, calendar, docketing, medical records and court e-filing practice live on the <b>LSH Training Portal</b>, shared by every program. They open here already set to <b>Case Management</b> and carrying your name and batch, so your scores reach your trainer. On calls the caller speaks: answer by voice (Chrome or Edge, allow the microphone) or by typing. Most calls end with the note the call requires, graded with the call.</p>
-    <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span role="button" tabindex="0" style="cursor:pointer" title="Open this line's graded calls" onclick="openTool('calls',null,'line=${encodeURIComponent(l)}&mode=graded')">${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(mail)}${card(replies)}${card(cal, state.isAdmin ? `<p style="font-size:12.5px;margin:6px 0 0"><button class="btn btn-navy btn-sm" onclick="openTool('calendaring','tab','view=scores')">📊 Calendar Scores (Litigation Week) ↗</button> Grade and give feedback there; scores also show on the Portal's Progress page under this program.</p>` : "")}${card(dk)}${card(rec)}${card(ef)}</div>
+    <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span role="button" tabindex="0" style="cursor:pointer" title="Open this line's graded calls" onclick="openTool('calls',null,'line=${encodeURIComponent(l)}&mode=graded')">${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(mail)}${card(replies)}${card(cal, state.isAdmin ? `<p style="font-size:12.5px;margin:6px 0 0"><button class="btn btn-navy btn-sm" onclick="openTool('calendaring','tab','view=scores')">📊 Calendar Scores (Litigation Week) ↗</button> Grade and give feedback there; scores also show on the Portal's Progress page under this program.</p>` : "")}${card(rec)}${card(ef)}</div>
     <div class="card" style="padding:14px 18px;font-size:12.8px;color:var(--ink-soft)">Want more? Live Roleplay (🔥) has every call on John Doe v. Robert Smith, and the Calendar Conflict Resolver (Case Flow Day 4) has the John Doe docket and the Court's Scheduling Order.${state.isAdmin?` <b>Admin:</b> results appear on the Training Portal's Simulators page when you're signed in there as admin. Addresses are set in 🧰 Tools.`:""}</div>`;
 };
 window.saveToolSettings = async function(){

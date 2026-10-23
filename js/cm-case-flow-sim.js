@@ -4,6 +4,21 @@
    Do not edit here: edit the JSON and assemble again. */
 window.CM_CF_SIM = {
  "events": {
+  "d2m4-wage": {
+   "date": "06/22/2026",
+   "time": "8:35 a.m.",
+   "channel": "alert",
+   "from": "CMS",
+   "to": "Case Manager",
+   "subject": "MMI recorded: lost wages unverified",
+   "body": "LSH-2026-MVA-770412. MMI recorded 06/12/2026. Lost wages rest on a draft worksheet from the client's account ($1,760.00), not yet verified. John Doe signed Northgate Distribution's employee authorization this morning. Task: Employer Wage Verification (Angela Ruiz, HR) and the wage reconciliation, due before the Special Damages Audit on 07/01/2026.",
+   "attachments": [
+    "RS94",
+    "RS12",
+    "RS15",
+    "RS17"
+   ]
+  },
   "d1m1-open": {
    "date": "02/09/2026",
    "time": "1:12 p.m.",
@@ -309,7 +324,7 @@ window.CM_CF_SIM = {
    "from": "Tammy Greer, Riverton Spine & Rehab (tgreer@rivertonspinerehab.example)",
    "to": "Case Manager",
    "subject": "Missed-visit alert: John Doe, LOP account RSR-26-0412",
-   "body": "Per your LOP dated 02/23/2026: John Doe missed 04/03 (no call) and 04/07. He told our front desk his mother's rental ended and his ride is no longer available. He's booked 04/09 and 04/14 at 4:15 PM. Our 6:00 PM evening schedule is full until the week of 04/20; he's on the wait list. Please contact your client.",
+   "body": "Per your LOP dated 02/23/2026: John Doe missed 04/03 and 04/07, no call either time, and he isn't answering our calls or texts. He's still booked 04/09 and 04/14 at 4:15 PM. If evenings would suit him, our 6:00 PM schedule opens Tue/Thu from 04/21. Please contact your client.",
    "attachments": [
     "RS14"
    ]
@@ -523,6 +538,31 @@ window.CM_CF_SIM = {
     "RS35"
    ]
   },
+  "d3m2-rel": {
+   "date": "08/14/2026",
+   "time": "3:18 p.m.",
+   "channel": "email",
+   "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+   "to": "Case Manager, LSH Law Group",
+   "subject": "KM-26-440871 / John Doe: release for signature",
+   "body": "Attached is the release to conclude the bodily injury claim on Keystone's $10,000.00 tender. Please have Mr. Doe sign before a notary and return the original. Before the check issues we need each UM carrier's written consent and subrogation waiver, and your W-9. Cover letter attached.",
+   "attachments": [
+    "RS37"
+   ]
+  },
+  "d3m2-exec": {
+   "date": "08/26/2026",
+   "time": "2:05 p.m.",
+   "channel": "memo",
+   "from": "Atty. Elijah Thorne",
+   "to": "Case Manager",
+   "subject": "Doe: both consents in; schedule the signing",
+   "body": "Cardinal State's consent and waiver came in today; Harbor Point's on Monday. Keystone's Limited Release of 08/19 is approved. Set John's signing for Friday 08/28, 10:00 a.m., here, with Renee Castillo notarizing. I'll go through the release with him first. Then send Keystone the packet and get the check confirmed.",
+   "attachments": [
+    "RS80",
+    "RS38"
+   ]
+  },
   "d3m2-a2": {
    "date": "09/14/2026",
    "time": "11:40 a.m.",
@@ -575,16 +615,29 @@ window.CM_CF_SIM = {
     "RS44"
    ]
   },
-  "d3m4-a2": {
-   "date": "08/14/2026",
-   "time": "3:18 p.m.",
+  "d3m4-pal": {
+   "date": "10/14/2026",
+   "time": "11:47 a.m.",
    "channel": "email",
-   "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
-   "to": "Case Manager, LSH Law Group",
-   "subject": "KM-26-440871 / John Doe: release for signature",
-   "body": "Attached is the release to conclude the bodily injury claim on Keystone's $10,000.00 tender. Please have Mr. Doe sign before a notary and return the original to me. The check will be issued once we receive the executed release.",
+   "from": "Corbin Vance <cvance@vancekettering.example>",
+   "to": "Atty. Elijah Thorne; Case Manager, LSH Law Group",
+   "subject": "NOTICE OF CHARGING LIEN — John Doe, accident 02/06/2026",
+   "body": "This firm was retained 07/27/2026 to represent John Doe. We assert a charging lien and demand one-half of the fee, $6,666.67. Hold the entire settlement and disburse nothing until we are paid. Please have your case manager confirm the fee division in writing by Friday, 10/16. Agreement and time record attached.",
    "attachments": [
-    "RS37"
+    "RS84"
+   ]
+  },
+  "d3m4-a2": {
+   "date": "10/21/2026",
+   "time": "9:30 a.m.",
+   "channel": "alert",
+   "from": "CMS",
+   "to": "Case Manager",
+   "subject": "Disbursement scheduled 10/22/2026: confirm conditions precedent",
+   "body": "Trust: $40,000.00, all funds cleared 10/20. Settlement Statement signed by John Doe 10/21. Payoff Letters on file: Peach State $1,240.00, Riverton Spine & Rehab $4,580.00. Lien hold $6,666.67 released by Atty. Thorne 10/19 (withdrawal on file). Confirm every condition, then queue the commands for his approval.",
+   "attachments": [
+    "RS81",
+    "RS86"
    ]
   },
   "d4m1-a1": {
@@ -851,6 +904,20 @@ window.CM_CF_SIM = {
   }
  },
  "calls": {
+  "d2m2-a1": {
+   "who": "Tammy Greer",
+   "role": "provider",
+   "persona": "Brisk, friendly office manager at a busy clinic. Wants the LOP squared away before the first visit; pushes on insurance, visit cadence and whether the firm guarantees payment.",
+   "context": "02/23/2026, afternoon. Riverton Spine & Rehab (chiropractic and PT, out of network for Peach State) has John Doe booked for his evaluation 02/24/2026. The LOP signed today by John Doe and Atty. Thorne was emailed with the HIPAA authorization. Harbor Point PIP (claim HP-26-7741) paid his urgent-care visit. Tammy asks why not bill Peach State or PIP, how often he will come, where records and statements go, and whether the firm guarantees full payment and when. Answered with facts, she confirms the LOP and the appointment.",
+   "opening": "Riverton Spine and Rehab, this is Tammy. I've got the LOP you emailed. Before I put Mr. Doe on tomorrow's schedule, I have a few questions about how we're getting paid.",
+   "goals": [
+    "Introduce John Doe's case; confirm LOP acceptance and the 02/24/2026 evaluation",
+    "Answer insurance status with facts: PIP open, out of network for Peach State",
+    "Set records and billing: 30-day itemized statements, missed-visit alert, HIPAA authorization",
+    "Promise no payment amount, reduction or date; route those to Atty. Thorne"
+   ],
+   "line": "Facts and logistics only: the cadence is the provider's plan of care, and payment terms are Atty. Thorne's."
+  },
   "d1m3-a1": {
    "who": "John Doe",
    "role": "client",
@@ -896,16 +963,16 @@ window.CM_CF_SIM = {
   "d2m2-a2": {
    "who": "John Doe",
    "role": "client",
-   "persona": "Embarrassed and frustrated; short answers at first. In pain and defensive about the missed visits. Will ask if this ruins his case. Opens up when not judged.",
-   "context": "04/08/2026. Riverton Spine & Rehab reports John missed 04/03 and 04/07; last visit 04/02. Keystone ended Margaret's rental on 03/19 at its 30-day cap; Margaret's Civic is still waiting on parts; Kevin Alvarez's shift changed 04/01, ending the carpool. He has no ride to his 4:15 PM appointments. His neck and right arm still bother him. His mother Margaret works a day shift and could drive him in the evenings, but he only says so if asked who could help.",
-   "opening": "Yeah, I know, I missed a couple. I'm not blowing it off, I swear. I just don't have a way to get there anymore. Is this going to mess up my case?",
+   "persona": "Ashamed and on edge after two weeks of silence; speaks in short bursts, goes quiet when pushed. Opens up to warmth and choices; shuts down at blame or a deadline.",
+   "context": "04/17/2026, 4:48 p.m.; he calls in, three days before the Final Warning Letter's 04/20 date. Last PT 04/02. That day, driven home by his mother, the car stopped at their own corner, Maple Hollow Rd & Birch Ave, where the crash happened, as a pickup came up Birch: he panicked and got out. Since then he avoids cars, sleeps 4–5 hours, feels low, quit basketball, still works (bus). Neck and right hand still bad. Safe. Declines recording. Asks if this ruins his case.",
+   "opening": "Hey... it's John Doe. I got your letter. My mom signed for it. I'm sorry I didn't call back. I just... I didn't know how to say it. Am I getting dropped?",
    "goals": [
-    "Find the barrier and ask about his current symptoms",
-    "Build a transport plan from the options, saying why",
-    "Book evening slots with the clinic while John is on the line",
-    "No treatment advice and nothing on what missed visits mean"
+    "Lead with relief and safety; offer choices, including recording",
+    "Draw out what happened in his words, without labels or blame",
+    "With consent: Dr. Reyes appointment and evening slots under the LOP",
+    "Read back; route claim questions to Atty. Thorne"
    ],
-   "line": "No advice to add, skip or stop care; questions about his claim go to Atty. Thorne."
+   "line": "No diagnosis, no counseling advice, no value talk, no promise about withdrawal; claim questions go to Atty. Thorne."
   },
   "d2m3-a1": {
    "who": "John Doe",
@@ -963,6 +1030,20 @@ window.CM_CF_SIM = {
    ],
    "line": "The CM never accepts, rejects, counters or values; the offer goes to Atty. Thorne to convey."
   },
+  "d3m2-exec": {
+   "who": "John Doe",
+   "role": "client",
+   "persona": "Relieved it's settling but nervous about legal papers; wants to know what he's giving up and whether he can just sign online from work.",
+   "context": "08/26/2026. Both UM consents are in; Keystone's Limited Release (08/19) is approved by Atty. Thorne. Signing set for Friday 08/28, 10:00 a.m., at LSH Law Group, notary Renee Castillo; Keystone requires a notarized wet-ink original. John works a shift that day and asks to e-sign instead, asks what paragraph 3 means, and whether this ends his case. Atty. Thorne will go through the release with him before he signs.",
+   "opening": "Hey, it's John. I got your message about signing something Friday. Can't you just email it and I'll sign on my phone? And what am I actually giving up?",
+   "goals": [
+    "Schedule 08/28, 10:00 a.m., at the office",
+    "Explain the notary, wet-ink original and photo ID in his name",
+    "Route every question about meaning to Atty. Thorne",
+    "Log the call and confirm the time in writing"
+   ],
+   "line": "Logistics only: signatures, notary and ID. Never what a clause means or whether to sign."
+  },
   "d3m3-a2": {
    "who": "Tammy Greer, Riverton Spine & Rehab",
    "role": "lienholder",
@@ -976,6 +1057,20 @@ window.CM_CF_SIM = {
     "Request a signed Payoff Letter: full satisfaction, no balance billing"
    ],
    "line": "The CM negotiates only inside Atty. Thorne's written authority and never accepts a figure on the call."
+  },
+  "d3m4-pal": {
+   "who": "John Doe",
+   "role": "client",
+   "persona": "Confused, then embarrassed; never heard of the firm; protective of his mother once he learns she signed; wants to know if his money is at risk.",
+   "context": "10/15/2026. Vance & Kettering claims a charging lien ($6,666.67) on an agreement dated 07/27/2026, signed only by Margaret Doe. John never contacted or signed with them and didn't know. Asked neutrally, he says so; after calling his mother he calls back: she signed after a radio ad, to help. He asks whether he has to pay them and whether 10/22 is delayed.",
+   "opening": "Vance and what? I've never talked to any other lawyer. You guys are my lawyers. Is somebody trying to take my settlement?",
+   "goals": [
+    "Ask neutrally whether he ever contacted or signed with the firm",
+    "Record his account in his own words",
+    "Route whether he owes them anything to Atty. Thorne",
+    "Tell him what happens next and when he'll hear"
+   ],
+   "line": "Facts only. Never say the lien is invalid, never blame Margaret, never predict the outcome."
   },
   "d3m4-a2": {
    "who": "John Doe",
@@ -1149,6 +1244,21 @@ window.CM_CF_SIM = {
  "fallout": [
   {
    "if": {
+    "activity": "d2m4-wage",
+    "check": 2
+   },
+   "then": {
+    "activity": "d2m4-a2",
+    "event": {
+     "channel": "memo",
+     "from": "Atty. Elijah Thorne",
+     "subject": "Doe: five February shifts, nobody told me",
+     "body": "Keystone will see Northgate's call-outs for 02/09–02/13/2026 the moment we serve the wage proof. I am seeing them in your ledger first, with no flag and no corroboration attached. Bring the call-out record, the EMS report and the 02/07 receipt to today's session."
+    }
+   }
+  },
+  {
+   "if": {
     "activity": "d1m1-open",
     "check": 1
    },
@@ -1232,8 +1342,8 @@ window.CM_CF_SIM = {
     "event": {
      "channel": "alert",
      "from": "CMS",
-     "subject": "Rental end never calendared: rides now out of pocket",
-     "body": "Keystone's rental ended 03/19/2026 (its 30-day cap), as the assessment recorded, but nothing was calendared. Every ride or rental since is out of pocket, with no receipts asked for, and John's transport to care is gone: the clinic's alert is how the firm learns."
+     "subject": "Treatment risk missed: rental end never calendared",
+     "body": "The rental's 03/19/2026 end date was recorded in John Doe's assessment but never calendared as a treatment risk. His rides to care changed twice in two weeks with no check-in set, and the firm learns he has stopped attending, and answering, from the clinic's alert."
     }
    }
   },
@@ -1451,7 +1561,7 @@ window.CM_CF_SIM = {
   },
   {
    "date": "04/02/2026",
-   "label": "Care disrupted · 19 days",
+   "label": "Near-drop · 19 days, no visits",
    "track": "",
    "lane": "care"
   },

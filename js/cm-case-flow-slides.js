@@ -1672,7 +1672,7 @@ window.CM_CF_SLIDES = {
      "term": "Clinical Evaluation",
      "text": "Physical, **cognitive and psychological** impairments, recorded as reported and documented, never diagnosed by you",
      "more": [
-      "John Doe today: “neck stiffness” on the EMS Run Report, and he **declined transport**",
+      "John Doe at intake: “neck stiffness” on the EMS Run Report, and he **declined transport**",
       "No treatment yet, so record his symptoms in his own words, with the date"
      ]
     },
@@ -2997,6 +2997,190 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
+ "d2m1-liab": {
+  "image": "documents-audit",
+  "hook": "**Coverage says there is money**; liability says someone has to pay it.",
+  "points": [
+   "The Police Report first: **read every field**, citation and witness",
+   "**Preserve the video** and vehicle data before anything is lost",
+   "Anticipate **comparative fault**: out of turn, unbelted",
+   "PD acceptance is **not BI acceptance**: record each position"
+  ],
+  "upl": "Gather and preserve the evidence; **fault is Atty. Thorne's call**",
+  "job": [
+   [
+    "Claim set-up opens",
+    "Request and read the report",
+    "CMS → Police tab",
+    "Citation and witness recorded"
+   ],
+   [
+    "Video or vehicle data exists",
+    "Draft the preservation requests",
+    "Email Workspace",
+    "Signed, sent, custody logged"
+   ],
+   [
+    "A carrier states its position",
+    "Record it with its date",
+    "CMS → Insurance tab",
+    "Each position on file"
+   ]
+  ],
+  "dos": [
+   "Read the Police Report **line by line**",
+   "**Preserve first**: video, photos and vehicle data",
+   "Log every liability fact **with its source and date**"
+  ],
+  "donts": [
+   "Treating **PD acceptance** as a BI admission",
+   "Asking a witness **to sign your wording**",
+   "Correcting the file **to match the report** alone"
+  ],
+  "theory": {
+   "lead": "Liability assessment asks **who is legally responsible**, and to what degree, from evidence: the report, witnesses, video and vehicle data.",
+   "concepts": [
+    {
+     "term": "The Police Report",
+     "text": "The baseline: the crash mechanics, **citations issued** and the officer's scene observations"
+    },
+    {
+     "term": "Independent Witness",
+     "text": "A neutral account, the **strongest answer** to a disputed version of events"
+    },
+    {
+     "term": "Preservation",
+     "text": "Video and vehicle data are lost unless **preserved early**, with a chain of custody"
+    },
+    {
+     "term": "Comparative Negligence",
+     "text": "The defense moves fault toward the plaintiff; **each share** reduces the recovery"
+    }
+   ],
+   "pages": [
+    "D1#21",
+    "D3#15"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "The officer's diagram sits on page two of the report.",
+     "A witness name appears in a box near the narrative.",
+     "The unit year differs from what the policy lists."
+    ],
+    [
+     "A doorbell camera at the corner overwrites itself every week.",
+     "The Escape still holds data about the moment of impact.",
+     "On 02/19/2026 a copy left the house with a hash."
+    ],
+    [
+     "An adjuster later asks where a fact came from.",
+     "A note in the CMS reads only “witness saw it”.",
+     "Two months on, nobody remembers which call said what."
+    ]
+   ],
+   "donts": [
+    [
+     "Keystone's letter of 02/17/2026 concerns Margaret Doe's Civic.",
+     "The BI adjuster on John Doe's claim has said nothing yet.",
+     "A demand cites the letter as proof of fault."
+    ],
+    [
+     "Ruth Calloway gave a statement to Officer Garner on scene.",
+     "A typed page arrives for her to sign as written.",
+     "Her words and the page's words differ in two places."
+    ],
+    [
+     "Officer Garner's paperwork lists the Escape as a 2021.",
+     "Harbor Point's Declaration Page lists a 2020.",
+     "Someone edits the CMS to read 2021."
+    ]
+   ]
+  }
+ },
+ "d2m1-first": {
+  "image": "strategy-session",
+  "hook": "**The first line is the decision**; the facts come after it.",
+  "points": [
+   "Open with **the decision and its deadline**",
+   "Then why, then **the facts with their sources**",
+   "Give **every option** and what follows from each",
+   "**One note, one decision**, logged the same day"
+  ],
+  "upl": "You frame the decision; **Atty. Thorne makes it**",
+  "dos": [
+   "Put the decision in **the subject line** too",
+   "Give **each option** and its next step",
+   "Log the note and **his answer** the same day"
+  ],
+  "donts": [
+   "**Telling the story first**, the question last",
+   "A subject line of **“Update”**",
+   "Leaving out **the option you dislike**"
+  ],
+  "theory": {
+   "lead": "The Case Manager is **the central router** of information; a note to the attorney must make his decision quick and clear.",
+   "concepts": [
+    {
+     "term": "The Legal Loop",
+     "text": "Keeping the attorney informed so **decisions are made on time**"
+    },
+    {
+     "term": "Decision First",
+     "text": "The note opens with **the decision needed** and its deadline"
+    },
+    {
+     "term": "Options and Consequences",
+     "text": "Each option with **what follows from it**, so the choice stays his"
+    },
+    {
+     "term": "The Record",
+     "text": "The note and his answer **logged the same day** in the CMS"
+    }
+   ],
+   "pages": [
+    "D1#42",
+    "D2#10"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Atty. Thorne scans forty emails between two hearings.",
+     "Most of them are titled with a client's name alone.",
+     "One of them carries a date and a yes-or-no question."
+    ],
+    [
+     "Summit's LOP request could be approved or declined.",
+     "Each answer leads to a different task the same afternoon.",
+     "The note names what happens after a yes, and after a no."
+    ],
+    [
+     "He replied by text from the courthouse steps.",
+     "A week later the same question reaches him again.",
+     "The CMS shows the question but not his reply."
+    ]
+   ],
+   "donts": [
+    [
+     "The note begins with how Summit's call came in.",
+     "Four paragraphs describe the PIP payments in date order.",
+     "The request for approval appears in the last sentence."
+    ],
+    [
+     "His inbox shows fifteen messages with the same title.",
+     "None of them says what he is being asked.",
+     "The one with a deadline looks like all the others."
+    ],
+    [
+     "The note offers one path and its benefits.",
+     "The other path appears nowhere in the message.",
+     "He approves it without knowing a choice existed."
+    ]
+   ]
+  }
+ },
  "d2m1-a2": {
   "image": "insurance-stack",
   "situation": "File date 03/11/2026. A colleague's Coverage Matrix **totals $45,000**. The file holds Harbor Point's 03/02/2026 confirmation, Cardinal State's 03/09/2026 letter and **no Keystone Declaration Page** yet.",
@@ -3551,12 +3735,12 @@ window.CM_CF_SLIDES = {
   "situation": "02/23/2026. Urgent care's $685.00 went to PIP. Riverton Spine & Rehab, **out of network** for Peach State, starts care 02/24/2026. On 03/11/2026 Summit Imaging asks for **an LOP for the MRI**.",
   "steps": [
    "Run and record **the Payer Order** for each provider",
-   "Prepare Riverton Spine & Rehab's LOP; **route it for signature**",
-   "Transmit with the HIPAA authorization; ask for **a missed-visit alert**",
-   "Record the assessment and **the 2021 pre-morbid baseline**",
+   "Route Riverton's LOP for signature; **transmit with the HIPAA authorization**",
+   "Call Tammy Greer: **confirm LOP acceptance**, secure 02/24/2026",
+   "Write the call up; **open tasks**; file it in the CMS",
    "Decline Summit in writing, **naming Harbor Point PIP**"
   ],
-  "deliver": "One **counsel-approved LOP** sent, one declined with payer named, ledger and baseline recorded",
+  "deliver": "One **counsel-approved LOP** sent and endorsed by call, one declined, all logged",
   "purpose": "A needless LOP makes **a bill PIP would pay** a lien on his recovery",
   "principle": "**An LOP comes last**, after PIP and Peach State",
   "checks": [
@@ -3564,7 +3748,7 @@ window.CM_CF_SLIDES = {
    "Baseline: 2021 visits **low back, resolved**; no prior neck",
    "Rental end 03/19/2026 calendared: after it, **out of pocket**",
    "Decline proved: **$3,675.00 left**, enough for the $2,395.00 MRI",
-   "**No payment promised** to either provider"
+   "Call logged and tasked; **no payment promised** to any provider"
   ],
   "dos": [
    "Run the Payer Order **before the LOP template**, every time",
@@ -3843,10 +4027,10 @@ window.CM_CF_SLIDES = {
   "upl": "You coordinate care, never direct it, and never tie missed visits to claim value.",
   "job": [
    [
-    "Missed-visit alert arrives",
-    "A-C-T same day: call John Doe",
-    "Call Simulator → AI John Doe",
-    "Call and note same day"
+    "Missed-visit alert, client silent",
+    "Reach him: the **No Contact Protocol**",
+    "Communications Log · Call Simulator",
+    "**First attempt** logged same day"
    ],
    [
     "Week 6 of care (04/07/2026)",
@@ -3893,7 +4077,7 @@ window.CM_CF_SLIDES = {
       "Clinical: a new complication",
       "Psychosocial: yellow flags like fear-avoidance or catastrophizing, or no transport to therapy",
       "Systemic: an authorization or referral delay",
-      "This file: visits missed from 04/03/2026 for want of transport, **a psychosocial variance**"
+      "This file: John silent from 04/03/2026, **crash-related anxiety**, found once he was reached"
      ]
     },
     {
@@ -3986,15 +4170,15 @@ window.CM_CF_SLIDES = {
      "Each mention of a side is checked: this file has only one."
     ],
     [
-     "John Doe loses his transport and starts missing PT.",
+     "John Doe stops coming to PT and stops answering calls.",
      "The 14-Day Gap is still being reconstructed after the fact.",
      "This disruption goes in a GIRP note on its very first day."
     ]
    ],
    "donts": [
     [
-     "Four visits are missed after transport disappears in April 2026.",
-     "Evening slots and rides from Margaret Doe sit unused.",
+     "Four visits are missed in April 2026 while John Doe is silent.",
+     "Notices, his mother and a call to his doctor sit unused.",
      "The schedule stays exactly as written, crisis or not."
     ],
     [
@@ -4125,32 +4309,32 @@ window.CM_CF_SLIDES = {
   }
  },
  "d2m2-a2": {
-  "image": "car-transport",
-  "situation": "04/08/2026: John Doe missed 04/03 and 04/07; **no visit since 04/02/2026**. Keystone ended Margaret's rental 03/19/2026, his carpool ended 04/01/2026, and **the Civic awaits parts**.",
+  "image": "phone-call",
+  "situation": "04/08/2026: John Doe missed 04/03 and 04/07 and **answers no one**; last visit 04/02/2026. Notices go unanswered until he calls on **04/17, three days before** the letter's date.",
   "steps": [
-   "Assess: call John Doe **on 04/08/2026**; classify the variance",
-   "Coordinate: request **a rental extension** from Keystone PD in writing",
-   "Build the transport plan from one **Transportation Wall option**, saying why",
-   "Track: write **the GIRP note**; report to Atty. Thorne",
-   "Confirm **attendance once care resumes**"
+   "Step 1 review, then notices by **escalating channel** in the Communications Log",
+   "Escalate; send the **10-day Final Warning Letter** by certified mail and email",
+   "On 04/17, interview him: **safety, choice, his words**, in the Call Simulator",
+   "With his consent, **book Dr. Reyes and evening slots** on the Calendar",
+   "Restore the file in **CMS → Case Status**; confirm 04/21 and 04/23"
   ],
-  "deliver": "A complete A-C-T record, with **attendance confirmed 04/21 and 04/23/2026**",
-  "purpose": "**A transport barrier** left unsolved becomes a documented break in his care",
-  "principle": "**Solve the barrier**, not the client: coordinate care, never direct it",
+  "deliver": "A near-drop record: notices, the letter, **his words**, the file restored",
+  "purpose": "**Silence is a symptom**: find the cause before anyone calls it non-compliance",
+  "principle": "Record his words; **never diagnose, advise or value**",
   "checks": [
-   "Missed visits: **04/03, 04/07, 04/09 and 04/14/2026**",
-   "04/02/2026 → 04/21/2026 = **19 days**",
-   "Keystone PD request: **property facts only**; 04/10/2026 refusal logged",
-   "**Evening slots booked** with John Doe on the line",
-   "**No treatment advice**, no talk of claim value"
+   "Notices by channel: **04/08, 04/09, 04/10**, each logged",
+   "Letter by **certified mail AND email**, respond by 04/20/2026",
+   "His words quoted; **no label, no counseling advice**",
+   "**Drop Warning cleared** 04/20; 14-day trigger reset",
+   "04/02 → 04/21/2026 = **19 days**; attended 04/21 and 04/23"
   ],
   "dos": [
-   "**Act the day** the alert lands",
-   "Calendar **known transport risks**, like a rental's end date"
+   "Lead with **“I'm glad you called”**, not the deadline",
+   "Escalate **by channel, not volume**"
   ],
   "donts": [
-   "Telling John Doe missed therapy **“will hurt your case”**",
-   "Accepting **“I'll just wait”** without a plan"
+   "Telling him **“that sounds like PTSD”**",
+   "Passing **what he told you** to his providers"
   ]
  },
  "d2m2-a3": {
@@ -4338,25 +4522,143 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
+ "d2m2-sum": {
+  "image": "checklist-qa",
+  "hook": "Know who pays, who wants paying back, and **when each flag goes up**",
+  "points": [
+   "Only BI and UM stack: **$40,000**; PIP and PD sit outside",
+   "Bills go **PIP, then Peach State, then an LOP**",
+   "Flag the lien **on first notice**, before any demand",
+   "Flag the gap **the day records show it**: 14 days, routed"
+  ],
+  "upl": "Flag and report facts; **enforceability, compromise and value** are Atty. Thorne's",
+  "job": [
+   [
+    "Reimbursement right first noticed",
+    "Flag the lien, record identifiers",
+    "CMS → Liens → Flag",
+    "Flag dated before any demand"
+   ],
+   [
+    "Plan's itemized ledger arrives",
+    "Audit each line; dispute in writing",
+    "CMS → Liens",
+    "Plan confirms $1,860.00 in writing"
+   ],
+   [
+    "Records show first care 02/20/2026",
+    "Flag the 14-Day Gap; route",
+    "Action Plan Editor → Risks",
+    "Facts only; watch for breaks"
+   ]
+  ],
+  "dos": [
+   "Flag the lien **the day it is known**",
+   "Audit the plan's ledger **line by line**"
+  ],
+  "donts": [
+   "Waiting for **the demand** to flag a lien",
+   "Recording **what the gap means** for value"
+  ],
+  "theory": {
+   "lead": "One page for the Treatment Phase's money: **who pays which bill**, who wants paying back, and the two flags that must go up on time.",
+   "concepts": [
+    {
+     "term": "Every Coverage, Sorted",
+     "text": "Each policy sorted by **whose it is** and what it pays: the claim, the bills or the car",
+     "more": [
+      "Third-party: Robert Smith's Keystone BI $10,000 and PD $25,000",
+      "First-party: Host UM $20,000, Relative UM $10,000, Harbor Point PIP $5,000, Bluewater collision",
+      "Health: Peach State Health Plan, through Northgate, effective 02/01/2026",
+      "Only **BI, Host UM and Relative UM** make the $40,000 Recovery Stack",
+      "Margaret Doe rejected UM on her Bluewater policy in writing on 03/14/2024: it adds nothing"
+     ]
+    },
+    {
+     "term": "The Payer-First Principle",
+     "text": "Each bill goes first to the payer that must pay it: **PIP, then Peach State, then an LOP**",
+     "more": [
+      "PIP pays regardless of fault, and Harbor Point has **no reimbursement right** (03/02/2026)",
+      "Peach State pays at the contract rate: Crescent billed $3,400.00, the plan paid $1,860.00",
+      "An LOP last, for care earlier payers can't carry: Riverton Spine & Rehab, out of network",
+      "Summit Imaging's 03/11/2026 LOP request declined: PIP had $3,675.00 left",
+      "Providers bill whom they bill: track every ledger, never re-route a paid claim"
+     ]
+    },
+    {
+     "term": "Health Subrogation and Triple-Check",
+     "text": "A plan that pays accident bills claims them back from the recovery: **only what it paid**",
+     "more": [
+      "Triple-Check first: HIPAA authorization, BCRC (John Doe is 34: SSDI verified), **the Payer Order**",
+      "The Payer Order pays the bills now; the $40,000 stack pays the claim later",
+      "Peach State's interim ledger asserted $3,618.00; audited, it confirmed **$1,860.00** on 06/24/2026",
+      "Unrelated, pre-existing or pre-loss lines, and billed-not-paid amounts, come off in writing",
+      "A fully insured plan: any reduction turns on state law, Atty. Thorne's call at the lien stage"
+     ]
+    },
+    {
+     "term": "The Two CMS Flags",
+     "text": "A lien and a gap are flagged **the day you know**, in facts only, and routed",
+     "more": [
+      "Lien: CMS → Liens → Flag on first notice (02/27/2026), and **before any demand**",
+      "Record carrier, member ID PSH-55017742, group GRP-41208, Payer Order position, basis and flag date",
+      "Gap: flag the day records show first care 02/20/2026, **14 days** after the 02/06/2026 loss",
+      "Risks band holds facts only: dates, count, explanation pending; routed to Atty. Thorne",
+      "Watch for any later break: the 04/08/2026 alert flagged 04/02 → 04/21/2026, 19 days"
+     ]
+    }
+   ],
+   "pages": [
+    "D2#25",
+    "D1#22"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Timing counts for more than polish in the lien register",
+     "Peach State's letter of 02/27/2026 started the clock",
+     "Same-day entry, dated, with member ID and group"
+    ],
+    [
+     "An interim itemization arrived on 06/10/2026 asserting $3,618.00",
+     "Three entries had no connection with the collision",
+     "Compare each claim with dates, codes and what was paid"
+    ]
+   ],
+   "donts": [
+    [
+     "A reimbursement claim discovered late comes out of the net",
+     "By then there is no time to negotiate from strength",
+     "Disbursement is the worst moment to meet a Health Plan"
+    ],
+    [
+     "The risks band holds dates, a count and a pending note",
+     "Valuation belongs to Atty. Thorne, not the record keeper",
+     "Defense counsel may read every note in the file"
+    ]
+   ]
+  }
+ },
  "d1m1-a2": {
   "image": "lien-scale",
-  "situation": "Peach State Health Plan has begun paying John Doe's accident-related treatment. **No lien record exists** yet, and **the pre-demand audit** is still ahead.",
+  "situation": "03/12/2026: Peach State says claims are in process; **no lien record exists**. 06/10/2026: its interim itemization asserts **$3,618.00** across five lines.",
   "steps": [
-   "Register Peach State's claim and **flag it against the matter**",
-   "Enter carrier, **member ID and group number**",
-   "Record its **payer-order position** and the reimbursement basis",
-   "Date the flag and attach **the Triple-Check results**",
-   "State what must happen **before any compromise**"
+   "Register and **flag Peach State's claim** in CMS → Liens",
+   "Reply to Dion Carver: **request the itemized ledger**",
+   "Audit the 06/10/2026 itemization **line by line**",
+   "Dispute it in the Email Workspace; **get $1,860.00 in writing**",
+   "File the exchange; **route any compromise** to Atty. Thorne"
   ],
-  "deliver": "A **dated, flagged lien record** you could negotiate from on Day 4",
+  "deliver": "A **flagged lien record**, an audited ledger and $1,860.00 confirmed in writing",
   "purpose": "An unflagged lien surfaces at disbursement, **too late to negotiate** from strength",
-  "principle": "Register it early; **only Atty. Thorne** can authorize a compromise",
+  "principle": "Register early, audit what is asserted; **only Atty. Thorne** compromises",
   "checks": [
-   "Carrier: **Peach State Health Plan**",
-   "**PSH-55017742 and GRP-41208** both entered",
+   "**PSH-55017742 and GRP-41208** entered for Peach State",
    "Position: **after PIP/MedPay, before LOP/provider liens**",
+   "**Three unrelated lines** disputed; Crescent at $1,860.00 paid",
    "Flag dated **before any demand** is drafted",
-   "Compromise needs **Atty. Thorne's authority**"
+   "**$1,860.00 confirmed in writing** 06/24/2026; compromise is Atty. Thorne's"
   ],
   "dos": [
    "Registering a lien **is not conceding it**"
@@ -4890,13 +5192,13 @@ window.CM_CF_SLIDES = {
  },
  "d2m3-a2": {
   "image": "calendar-gap",
-  "situation": "06/22/2026. MMI reached 06/12/2026; Dr. Reyes's **06/19/2026 Causation Letter** is in. Atty. Thorne wants **the Gap Explanation Record** before the pre-demand strategy session.",
+  "situation": "06/22/2026. MMI 06/12/2026; Dr. Reyes's **06/19/2026 Causation Letter**, her 04/20 note and the counseling summary are in. Atty. Thorne wants **the Gap Explanation Record** before the pre-demand session.",
   "steps": [
    "Cover both: 14-day gap and **19-day disruption**, exact dates",
    "Pair every reason with **a dated document**",
    "Tag reasons with no document **“account only”**",
-   "Write **facts and citations only**; nothing from the privileged call",
-   "Run **a defense-eye pass**, then route to Atty. Thorne"
+   "Run **a defense-eye pass**, then route to Atty. Thorne",
+   "File **the non-economic records** in the CMS and Drive"
   ],
   "deliver": "A routed record of **both interruptions**, every reason beside a dated document",
   "purpose": "The defense will test every reason: **an undocumented one** must say so",
@@ -4905,7 +5207,7 @@ window.CM_CF_SLIDES = {
    "14 days, 02/06/2026 → 02/20/2026; **19 days**, 04/02/2026 → 04/21/2026",
    "Escalation quoted exactly: **“onset at MVA 02/06/2026”**",
    "Continuity: EMS report, call-outs, **06/19/2026 Causation Letter**",
-   "Carpool ending and Escape in shop: **“account only”**",
+   "Disruption: **Dr. Reyes's 04/20 note**, 06/10 counseling summary",
    "Social media checked; **nothing deleted or advised deleted**"
   ],
   "dos": [
@@ -5106,6 +5408,33 @@ window.CM_CF_SLIDES = {
     ]
    ]
   }
+ },
+ "d2m4-wage": {
+  "image": "documents-audit",
+  "situation": "06/22/2026, after MMI. John Doe signed Northgate's authorization. A **draft worksheet claims $1,760.00** from his memory; **nothing is verified** yet.",
+  "steps": [
+   "Email Angela Ruiz: **request the employer's verification** and payroll",
+   "Match each missed shift **to a provider record**",
+   "Flag 02/09–02/13 to Atty. Thorne: **never drop them**",
+   "Audit the draft worksheet **to the verified total**",
+   "Enter **$1,584.00 in the Specials**; file the correspondence"
+  ],
+  "deliver": "Northgate's verification filed and **$1,584.00 verified**, every shift matched",
+  "purpose": "An unexcused absence is **the line an adjuster attacks** first",
+  "principle": "**The employer's records**, not memory, fix the wage claim",
+  "checks": [
+   "Rate, hours, overtime and job demands **confirmed by Northgate**",
+   "03/05, 03/13, 05/15, 05/18 **matched to provider records**",
+   "**02/09–02/13 flagged**, kept, with Northgate's call-out record",
+   "Draft corrected: **$1,760.00 → $1,584.00**",
+   "**No medical records** sent to the employer"
+  ],
+  "dos": [
+   "Ask the employer for **records, not recollection**"
+  ],
+  "donts": [
+   "Dropping shifts **with no doctor's note**"
+  ]
  },
  "d2m4-a1": {
   "image": "money-ledger",
@@ -5364,13 +5693,13 @@ window.CM_CF_SLIDES = {
    [
     "MMI declared (06/12/2026)",
     "Docket MMI + 30",
-    "Docket System · CMS → Tasks",
+    "Court E-Filing · CMS → Tasks",
     "07/12/2026 Sunday: work it Fri 07/10"
    ],
    [
     "Dana's written acknowledgement (07/22/2026)",
     "Docket the acceptance deadline",
-    "Docket System",
+    "Court E-Filing",
     "08/21/2026, from acknowledgement, not sending"
    ],
    [
@@ -5579,7 +5908,7 @@ window.CM_CF_SLIDES = {
    [
     "Keystone tenders $10,000 (08/12/2026)",
     "Prepare 30-Day Letters for signature",
-    "Consent-to-settle template · Docket System",
+    "Consent-to-settle template · Court E-Filing",
     "Both sent 08/13/2026; windows docketed"
    ],
    [
@@ -6124,6 +6453,171 @@ window.CM_CF_SLIDES = {
   ],
   "donts": [
    "Quoting John Doe **a BI figure** before Atty. Thorne"
+  ]
+ },
+ "d3m2-umw": {
+  "image": "coverage-check",
+  "hook": "Keystone's $10,000 can't close until **both UM carriers** consent and waive subrogation.",
+  "points": [
+   "Release Smith without consent and **the UM claims** can be lost",
+   "Ask **Harbor Point and Cardinal State**; Bluewater has no UM",
+   "The 30-Day Letter goes **the day after the tender**",
+   "John Doe signs only **after both waivers** are in writing"
+  ],
+  "upl": "Request, docket, chase and match; **never interpret** the consent clause",
+  "job": [
+   [
+    "Tender, 08/12/2026",
+    "Draft both consent requests",
+    "Consent-to-settle template",
+    "Sent 08/13, windows docketed"
+   ],
+   [
+    "Keystone holds its check",
+    "Log the payment condition",
+    "CMS → Case Notes",
+    "Signing task on hold"
+   ],
+   [
+    "Consents arrive 08/24, 08/26",
+    "Match scope to the release",
+    "CMS → Documents",
+    "Smith and Keystone only"
+   ]
+  ],
+  "dos": [
+   "Name **the UM layers** before writing any request",
+   "File the waivers **at the front** of each package"
+  ],
+  "donts": [
+   "Asking **Bluewater Auto** for a waiver",
+   "Scheduling the signing **before the second consent**"
+  ],
+  "theory": {
+   "lead": "A UM carrier that pays steps into its insured's shoes, so **its consent and waiver** must come before any release of the at-fault driver.",
+   "concepts": [
+    {
+     "term": "Subrogation",
+     "text": "The paying carrier's right to recover **what it paid** from the at-fault driver.",
+     "more": [
+      "Harbor Point and Cardinal State each hold that right against Robert Smith",
+      "A release signed without their consent can **cut it off**",
+      "Whether the policy then lets a carrier deny the claim is Atty. Thorne's analysis"
+     ]
+    },
+    {
+     "term": "Consent to Settle",
+     "text": "The UM carrier's **written permission** to settle and release the at-fault driver.",
+     "more": [
+      "Requested by the 30-Day Letter, 08/13/2026, for Atty. Thorne's signature",
+      "Harbor Point consented 08/24; Cardinal State **08/26/2026**",
+      "Each consent covers a release of Smith and Keystone only"
+     ]
+    },
+    {
+     "term": "Waiver or substitution",
+     "text": "The carrier either **waives subrogation** or pays the tender itself to keep its claim.",
+     "more": [
+      "Both carriers waived and neither substituted its own check",
+      "A substitution offer goes **straight to Atty. Thorne**"
+     ]
+    },
+    {
+     "term": "The BI payment condition",
+     "text": "Keystone holds its check until **both waivers** arrive with the executed release.",
+     "more": [
+      "Stated in Dana Whitfield's cover letter of 08/14/2026",
+      "Bluewater is not asked: **UM rejected** in writing 03/14/2024",
+      "The waivers go to Keystone with the release on 08/28/2026"
+     ]
+    }
+   ],
+   "pages": [
+    "D2#33",
+    "D3#5"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Read the Coverage Matrix before drafting a single letter.",
+     "Host coverage, then the household policy behind it.",
+     "Two names go on the request, no more."
+    ],
+    [
+     "Open the Host UM package and see the paper first.",
+     "Tender, consent, waiver, signed release, then the medicine.",
+     "The adjuster finds the trigger on page one."
+    ]
+   ],
+   "donts": [
+    [
+     "A letter goes to Margaret's Civic carrier.",
+     "Its UM coverage was turned down in writing long ago.",
+     "A window is spent waiting on a company with nothing to sign."
+    ],
+    [
+     "Harbor Point's letter arrived; Cardinal State's has not.",
+     "John is booked for Friday at ten.",
+     "The notary is waiting when the call comes."
+    ]
+   ]
+  }
+ },
+ "d3m2-rel": {
+  "image": "release-signature",
+  "situation": "File date 08/14/2026. Keystone sends its **Release of All Claims** for John Doe's notarized signature, and holds its check until **both UM waivers** arrive.",
+  "steps": [
+   "Audit **every clause** against the demand's terms in the workbench",
+   "Call each clause and **write the proposed amendment**",
+   "Email the review to **Atty. Thorne** for approval",
+   "Route the adjuster's **side-letter request**; send nothing to John",
+   "File the memorandum in **the CMS and Drive**"
+  ],
+  "deliver": "An audited release, **Atty. Thorne's written approval**, the memo filed",
+  "purpose": "One unread line would **cost John Doe $30,000** of UM",
+  "principle": "You propose the fixes; **Atty. Thorne decides** every term",
+  "checks": [
+   "Catch-all **“all other … insurers”** replaced",
+   "Property Damage cut; **UM claims reserved**",
+   "Confidentiality pulled; **indemnity narrowed**; payment date added",
+   "Unknown injuries, Medicare, governing law **flagged for Atty. Thorne**",
+   "Approved 08/17; **nothing sent to John Doe**"
+  ],
+  "dos": [
+   "**Quote the over-broad words** exactly in the review"
+  ],
+  "donts": [
+   "Agreeing **release wording** with the adjuster",
+   "Sending the draft to John Doe **“to save time”**"
+  ]
+ },
+ "d3m2-exec": {
+  "image": "client-call",
+  "situation": "File date 08/26/2026. **Both consents are in** and Keystone's Limited Release is approved. Keystone wants a notarized original, both waivers and **a W-9 before paying**.",
+  "steps": [
+   "Call John Doe to **schedule the 08/28 signing**",
+   "Confirm **notary, ID and original**; Atty. Thorne explains first",
+   "Email Dana Whitfield **the executed packet**; request acknowledgement",
+   "Route **her payee question** to Atty. Thorne",
+   "Deposit the check; **file the settlement record**"
+  ],
+  "deliver": "An executed release sent, **the check in trust**, the record filed",
+  "purpose": "Keystone pays only on **a complete, executed packet**",
+  "principle": "You confirm signatures; **Atty. Thorne explains** the release",
+  "checks": [
+   "Signing scheduled **after both consents**",
+   "ID matches **“John Doe”**; notarized wet-ink original",
+   "Packet sent 08/28 **with both waivers** and W-9",
+   "**Payee question routed**; no lien assurance given",
+   "Check 0048213 **into IOLTA 09/04/2026**"
+  ],
+  "dos": [
+   "Check **the name on the ID** before the notary arrives"
+  ],
+  "donts": [
+   "Explaining **what a paragraph means** to John Doe",
+   "Promising the adjuster **anything about liens**"
   ]
  },
  "d3m2-l2": {
@@ -7350,32 +7844,60 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
- "d3m4-a2": {
-  "image": "settlement-check",
-  "situation": "Two file dates. 08/14/2026: Keystone's draft release arrives; **UM consents still pending**. 10/21/2026: $40,000.00 cleared by 10/20, statement signed, Payoff Letters in. **Disbursement is 10/22**.",
+ "d3m4-pal": {
+  "image": "escalation-alert",
+  "situation": "File date 10/14/2026. $40,000.00 sits in trust. Vance & Kettering claims **a charging lien** and demands **$6,666.67** of the fee.",
   "steps": [
-   "Part 1: audit Keystone's draft **line by line**",
-   "Flag every line that reaches **past Smith, Keystone or BI**",
-   "State its cost to John Doe; **route a redline memo**",
-   "Part 2: **confirm every condition precedent**",
-   "Queue **one command per Net Sheet line**; show $0.00"
+   "Log the notice; **route it to Atty. Thorne** today",
+   "On his instruction, **hold $6,666.67** and update the Action Plan",
+   "Compare signatures and **cross-reference the dates**",
+   "Ask John Doe, **without opinion**, whether he hired them",
+   "Deliver **the evidentiary packet**; archive in CMS and Drive"
   ],
-  "deliver": "A redline memo before John Doe sees the draft; **five commands to $0.00**",
-  "purpose": "An over-broad release could **cost John Doe $30,000** in UM",
-  "principle": "No command until **every condition precedent clears**",
+  "deliver": "A held amount and **a factual packet** on Atty. Thorne's desk",
+  "purpose": "The disbursement waits on **a dispute only counsel resolves**",
+  "principle": "You build the record; **the attorney answers** the lawyer",
   "checks": [
-   "**“All other … insurers”** quoted: $30,000 of the $40,000 stack",
-   "Memo routed 08/14; **draft withheld from John Doe**",
-   "Five commands **match the Net Sheet** exactly",
-   "Ledger arithmetic shown, **$40,000.00 to $0.00**",
-   "**None released by the CM**; all for Atty. Thorne's signature"
+   "Logged and routed 10/14; **nothing sent** to the firm",
+   "**$6,666.67 held** on Atty. Thorne's instruction",
+   "Agreement signed **only by Margaret Doe**",
+   "**0.6 hours** of work; no carrier notice",
+   "Packet states facts; **validity left to Atty. Thorne**"
   ],
   "dos": [
-   "**Quote the over-broad words** exactly in the memo"
+   "Tie **every finding to a document** on the file"
   ],
   "donts": [
-   "Sending the draft to John Doe **“to save time”**",
-   "Queuing a command **before the funds clear**"
+   "**Replying to the claiming lawyer** yourself",
+   "Telling John Doe the agreement **“doesn't count”**"
+  ]
+ },
+ "d3m4-a2": {
+  "image": "settlement-check",
+  "situation": "File date 10/21/2026. $40,000.00 cleared by 10/20, statement signed, Payoff Letters in, **lien withdrawn 10/19**. **Disbursement is 10/22**.",
+  "steps": [
+   "Confirm **every condition precedent** against its document",
+   "Confirm the **lien hold released** by Atty. Thorne",
+   "Queue **one command per Net Sheet line**",
+   "Show the Trust Ledger reaching **$0.00**",
+   "Request **lien satisfactions** and John Doe's receipt"
+  ],
+  "deliver": "A confirmed checklist and **five commands to $0.00**",
+  "purpose": "Money moves only when **every gate behind it** is closed",
+  "principle": "No command until **every condition precedent clears**",
+  "checks": [
+   "Executed **Limited Release and UM releases** on file",
+   "Funds cleared; **statement signed 10/21**",
+   "**Hold released** after the 10/19 withdrawal",
+   "Five commands **match the Net Sheet** exactly",
+   "**None released by the CM**; all for Atty. Thorne"
+  ],
+  "dos": [
+   "Tick each condition **against its document**"
+  ],
+  "donts": [
+   "Queuing a command **before the funds clear**",
+   "Paying out while **a hold still stands**"
   ]
  },
  "d3m4-kc": {
@@ -7584,7 +8106,7 @@ window.CM_CF_SLIDES = {
    [
     "Folders built",
     "Seed calendar with 48-hour audits",
-    "CMS → Calendar · Docket System",
+    "CMS → Calendar · Court E-Filing",
     "SOL, hard date, cutoff, audits calendared"
    ]
   ],
@@ -7801,7 +8323,7 @@ window.CM_CF_SLIDES = {
    [
     "Scheduling Order entered 12/10/2026",
     "Enter every date; read each verb",
-    "Docket System",
+    "Court E-Filing",
     "“Completed by” entered as deadline"
    ],
    [
@@ -8009,39 +8531,46 @@ window.CM_CF_SLIDES = {
    "Telling John Doe the carrier is **acting in bad faith**"
   ],
   "theory": {
-   "lead": "A UM/UIM claim is a **first-party claim** against the client's own policy, so the impasse route is set by that contract and the state's law.",
+   "lead": "A UM/UIM claim is a **first-party claim** under coverage that protects the client, so the impasse route is set by that contract and the state's law.",
    "concepts": [
     {
      "term": "First-Party Claim",
-     "text": "Made against **the client's own coverage**, under a contract he pays premiums on",
+     "text": "A claim under coverage that protects **the client himself**, not the other driver",
      "more": [
-      "On this file: Harbor Point (Host UM) and Cardinal State (Relative UM)",
+      "In plain words: a claim on insurance that covers you, usually **a policy you pay premiums on**",
+      "John Doe owns no car, so he reaches UM **by his status**, not a policy of his own",
       "Harbor Point: John Doe as an occupant of Kevin Alvarez's Escape",
       "Cardinal State: John Doe as a resident relative of Margaret Doe",
-      "Margaret Doe's Bluewater Auto policy adds nothing: **UM/UIM rejected in writing** 03/14/2024",
-      "Same evidence as the BI claim; the relationship, the duties and the route out differ"
+      "Margaret Doe's Bluewater Auto policy adds nothing: **UM/UIM rejected in writing** 03/14/2024"
      ]
     },
     {
      "term": "Third-Party Claim",
-     "text": "Made against **the at-fault driver's carrier**, here Keystone Mutual for Robert Smith"
+     "text": "A claim against **the at-fault driver's carrier**, here Keystone Mutual for Robert Smith",
+     "more": [
+      "In plain words: you claim against **the other driver's insurance**, not your own",
+      "When it fails, the firm sues the driver at fault, not his carrier",
+      "Same injuries, same records and **the same $16,401.40 in Specials** prove both claims"
+     ]
     },
     {
      "term": "Mandatory Arbitration Clause",
      "text": "A policy term sending the dispute to an arbitrator; the firm files **a Demand for Arbitration**",
      "more": [
+      "Carriers favour it: **no jury**, narrower discovery, a faster and cheaper decision",
       "Read the governing state law and **each policy's own clause** before anything is calendared",
       "Harbor Point's UM policy has one; it does not speak for Cardinal State",
       "Quote the clause to Atty. Thorne; a paraphrase is already an interpretation",
-      "Where no clause binds, a failed UM negotiation becomes a civil suit against the carrier",
       "Each layer has its own suit or demand deadline, not the 02/06/2028 SOL; docket only from Atty. Thorne's written answer"
      ]
     },
     {
-     "term": "Insurance Bad Faith",
-     "text": "A separate suit for unreasonable handling, which **can exceed the policy limit**",
+     "term": "Court Litigation",
+     "text": "Where no clause binds, **a civil suit against the carrier**; bad faith is a separate suit",
      "more": [
-      "Grounds: a carrier that unreasonably delayed, denied or mishandled the claim",
+      "Some states bar mandatory arbitration in auto policies or let the insured **opt out**",
+      "Then a failed UM negotiation becomes a civil suit filed directly against the carrier",
+      "Bad faith: unreasonable delay, denial or handling, **a separate action** that can exceed the limit",
       "Record the handling dates as facts; whether they are actionable is **Atty. Thorne's alone**",
       "Never tell John Doe or Marcus Bell a carrier is acting in bad faith"
      ]
@@ -8057,15 +8586,31 @@ window.CM_CF_SLIDES = {
     "steps": [
      {
       "label": "Claim submission",
-      "text": "The UM Demand Package, with proof the at-fault limits were exhausted"
+      "text": "The UM Demand Package, with proof the at-fault limits were exhausted",
+      "more": [
+       "The UM Demand Package: injuries, records, **Specials of $16,401.40** and the wage letter",
+       "Proof of exhaustion: Keystone's $10,000 tender, both UM consents and the Limited Release",
+       "On this file: served 03/22/2027 to Harbor Point and Cardinal State"
+      ]
      },
      {
       "label": "Dispute",
-      "text": "The carrier offers far under value, or denies liability or coverage"
+      "text": "The carrier offers far under value, or denies liability or coverage",
+      "more": [
+       "Harbor Point offers $8,000 (03/31/2027) against **a $20,000 limit**",
+       "Cardinal State offers $6,000 (04/02/2027) against a $10,000 limit",
+       "Both hold on 04/05/2027, citing the gap: **the impasse memo** goes to Atty. Thorne"
+      ]
      },
      {
       "label": "Resolution route",
-      "text": "Demand for Arbitration, or suit against the carrier: state law and the clause decide"
+      "text": "Demand for Arbitration, or suit against the carrier: state law and the clause decide",
+      "more": [
+       "Read **the governing state law** and each policy's own clause",
+       "Harbor Point's clause binds: a Demand for Arbitration, heard 06/22/2027 before Laura Whitcomb, Esq.",
+       "Where no clause binds: a civil suit filed against the carrier",
+       "The route is **Atty. Thorne's decision**, recorded in the CMS ADR tab"
+      ]
      }
     ],
     "note": "Bad faith sits off this flow: a separate action about the carrier's handling, and Atty. Thorne's call alone."
@@ -8312,7 +8857,7 @@ window.CM_CF_SLIDES = {
   "image": "clock-deadline",
   "situation": "04/26/2027: Laura Whitcomb's letter sets the hearing **06/22/2027 (Tue), 9:00 a.m.** Exhibits 20 days before, brief 10. Calendar **every date hanging off it**.",
   "steps": [
-   "Re-anchor hearing, exhibits and brief **to the letter** in the Docket System",
+   "Re-anchor hearing, exhibits and brief **to the letter** in Court E-Filing",
    "Count back binder QC and **records-request dates** in Calendaring Simulators",
    "Hold attendance, prep and **tech-check dates** on CMS → Calendar",
    "Route the **$900.00 fee share** to accounting as a cost",
@@ -8873,6 +9418,108 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
+ "d4m3-tx": {
+  "image": "treatment-plan",
+  "hook": "**The treatment is the claim**; the record is the proof.",
+  "points": [
+   "The demand waits for **MMI**: the Specials final, the prognosis known",
+   "**Objective findings** carry the weight; describe nothing, quote the MRI",
+   "Every gap **answered on file** before an adjuster cites it",
+   "Future care goes in **the narrative**, never the Specials"
+  ],
+  "upl": "You build and source the record; **value and causation are argued by others**",
+  "job": [
+   [
+    "MMI is declared",
+    "Close chronology, audit the Specials",
+    "CMS → Medical · Net Sheet",
+    "Every bill tied to a record"
+   ],
+   [
+    "A gap is on record",
+    "Pair it with its reason",
+    "Gap Explanation Record",
+    "No break left unanswered"
+   ],
+   [
+    "Demand or binder assembled",
+    "Map each claim to its record",
+    "Packet Builder",
+    "Nothing without its source"
+   ]
+  ],
+  "dos": [
+   "Watch treatment **with the demand in mind**",
+   "Close the chronology **at MMI**",
+   "Keep future care **in the narrative**"
+  ],
+  "donts": [
+   "Describing pain **instead of the finding**",
+   "Putting future care **in the Specials**",
+   "Finding the gaps **in the offer letter**"
+  ],
+  "theory": {
+   "lead": "A claim is proved **visit by visit**: the treatment record decides the Specials, causation and every question an adjuster asks.",
+   "concepts": [
+    {
+     "term": "MMI as the Trigger",
+     "text": "Value needs an end point: at MMI the bills stop growing and **the prognosis is known**"
+    },
+    {
+     "term": "Objective Findings",
+     "text": "Imaging and measured findings carry weight that **complaints alone** do not"
+    },
+    {
+     "term": "Continuity of Care",
+     "text": "Steady care reads as a real injury; **each gap needs its answer**"
+    },
+    {
+     "term": "Special vs. General Damages",
+     "text": "Specials are billed hard costs; **pain, prognosis and future care** are the narrative"
+    }
+   ],
+   "pages": [
+    "D1#40",
+    "D3#16"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Each visit note lands in the file as it arrives.",
+     "Months later a carrier asks what one visit proved.",
+     "The note was read on the day it arrived."
+    ],
+    [
+     "The bills are still growing in early June.",
+     "Lakeside's 06/12/2026 note says improvement has leveled off.",
+     "The chronology is closed and totalled that week."
+    ],
+    [
+     "Dr. Reyes writes that injections may be repeated.",
+     "Nobody has paid for those injections yet.",
+     "The note is quoted under prognosis, with its date."
+    ]
+   ],
+   "donts": [
+    [
+     "The draft says John suffered terrible, constant pain.",
+     "The MRI line about the adjacent levels is missing.",
+     "An adjuster calls the injury minor soft tissue."
+    ],
+    [
+     "The damages total suddenly reads $23,201.40.",
+     "Two injections still in the future were added.",
+     "The audit can no longer tie to a single bill."
+    ],
+    [
+     "On 08/05/2026 Keystone cites the fourteen days at $3,500.",
+     "Nothing on file explains those days yet.",
+     "The answer is drafted only after Keystone writes."
+    ]
+   ]
+  }
+ },
  "d4m3-a2": {
   "image": "checklist-qa",
   "situation": "It is 05/17/2027. **Exchange 06/02/2027**, hearing 06/22/2027. The folder holds a pre-filing draft complaint, grayscale stills, the impasse memo and **a Lien Sheet** listing Harbor Point PIP and Summit Imaging.",
@@ -9306,7 +9953,7 @@ window.CM_CF_SLIDES = {
    [
     "Discovery or RFAs land",
     "Calendar; alert Atty. Thorne on RFAs",
-    "CMS → Calendar · Docket System",
+    "CMS → Calendar · Court E-Filing",
     "Weekend rolled; RFA alert time-stamped"
    ]
   ],
@@ -9472,7 +10119,7 @@ window.CM_CF_SLIDES = {
    [
     "Scheduling Order entered 12/10/2026",
     "Calendar six dates, three alerts each",
-    "CMS → Calendar · Docket System",
+    "CMS → Calendar · Court E-Filing",
     "18 alerts; order in 01_PLEADINGS"
    ],
    [
@@ -10123,7 +10770,7 @@ window.CM_CF_SLIDES = {
    [
     "Notice served 01/20/2027",
     "Calendar sessions, packet, day-before checklist",
-    "Docket System · CMS → Calendar",
+    "Court E-Filing · CMS → Calendar",
     "02/04, 02/11, 02/16, 02/17, 02/18/2027 calendared"
    ],
    [
@@ -10524,7 +11171,7 @@ window.CM_CF_SLIDES = {
      "text": "Comparative fault concerns the crash; failure to mitigate concerns later care and **trims only avoidable damages**",
      "more": [
       "Failure to mitigate targets 19 days without visits, 04/02 → 04/21/2026",
-      "The A-C-T record answers: the 04/08 call, extension refused 04/10, evening slots",
+      "The record answers: the A-C-T follow-up and **a documented clinical cause**",
       "Attendance resumed 04/21 and 04/23",
       "Burden: **generally the defense's**; confirm the rule"
      ]
@@ -10564,7 +11211,7 @@ window.CM_CF_SLIDES = {
      [
       "Failure to mitigate",
       "19 days without visits, 04/02 → 04/21/2026",
-      "The A-C-T record: the 04/08 call, extension refused 04/10, evening slots"
+      "A-C-T record; Dr. Reyes 04/20; counseling summary 06/10"
      ],
      [
       "Causation",
@@ -10651,7 +11298,7 @@ window.CM_CF_SLIDES = {
    [
     "Affidavit filed 10/16/2026",
     "Docket answer date; weekly check",
-    "Docket System · CMS → Calendar",
+    "Court E-Filing · CMS → Calendar",
     "Answer due 11/13/2026 calendared"
    ],
    [

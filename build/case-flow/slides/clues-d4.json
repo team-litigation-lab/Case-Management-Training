@@ -170,5 +170,41 @@
         "You edit it to match before Atty. Thorne sees it."
       ]
     ]
+  },
+  "d4m3-tx": {
+    "dos": [
+      [
+        "Each visit note lands in the file as it arrives.",
+        "Months later a carrier asks what one visit proved.",
+        "The note was read on the day it arrived."
+      ],
+      [
+        "The bills are still growing in early June.",
+        "Lakeside's 06/12/2026 note says improvement has leveled off.",
+        "The chronology is closed and totalled that week."
+      ],
+      [
+        "Dr. Reyes writes that injections may be repeated.",
+        "Nobody has paid for those injections yet.",
+        "The note is quoted under prognosis, with its date."
+      ]
+    ],
+    "donts": [
+      [
+        "The draft says John suffered terrible, constant pain.",
+        "The MRI line about the adjacent levels is missing.",
+        "An adjuster calls the injury minor soft tissue."
+      ],
+      [
+        "The damages total suddenly reads $23,201.40.",
+        "Two injections still in the future were added.",
+        "The audit can no longer tie to a single bill."
+      ],
+      [
+        "On 08/05/2026 Keystone cites the fourteen days at $3,500.",
+        "Nothing on file explains those days yet.",
+        "The answer is drafted only after Keystone writes."
+      ]
+    ]
   }
 }

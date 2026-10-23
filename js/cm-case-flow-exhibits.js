@@ -3,6 +3,405 @@
    Do not edit here: edit the JSON and assemble again. */
 window.CM_CF_EXHIBITS = {
  "audits": {
+  "d1m1-a2": {
+   "title": "Peach State Lien Ledger Audit",
+   "kicker": "Call every line: the collision's care, unrelated, pre-existing, or claimed above what was paid",
+   "source": "RS90",
+   "reveal": "RS91",
+   "due": "06/12/2026",
+   "intro": "06/10/2026. Peach State's interim itemization asserts $3,618.00 against John Doe's recovery. Before any figure goes into the lien register or the demand, every line is checked against the treatment record, the PIP Log and what the plan actually paid.",
+   "columns": {
+    "ref": "Line",
+    "as": "As the plan itemized it"
+   },
+   "items": [
+    {
+     "ref": "Header",
+     "what": "Member ID, group and recovery file",
+     "as": "PSH-55017742 · GRP-41208 · SRU-26-03318; member John Doe; date of incident 02/06/2026",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "The identifiers match the plan's 02/27/2026 notice and the lien register, so every later letter, the reduction request and the final payoff tie to one recovery file.",
+     "fix": "Confirm the three numbers against the notice and the lien register before the dispute goes out; no change.",
+     "proof": [
+      "RS40"
+     ]
+    },
+    {
+     "ref": "Header",
+     "what": "Plan funding",
+     "as": "Fully insured group policy issued to Northgate Distribution",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Funding status decides which law governs any reduction later. It matches the plan's notice, so the lien register records it as stated.",
+     "fix": "Record fully insured in the lien register; which law governs a reduction is Atty. Thorne's call, at the lien stage.",
+     "proof": [
+      "RS40"
+     ]
+    },
+    {
+     "ref": "Header",
+     "what": "Status of the itemization",
+     "as": "INTERIM ITEMIZATION — subject to change as claims are processed",
+     "verdict": "replace",
+     "kind": "gap",
+     "issue": "An interim figure is not a lien amount. Carried into the lien register or the demand, it lets Peach State move the number at disbursement, and the Net Sheet will not tie.",
+     "fix": "Ask in the dispute for a corrected itemization confirmed in writing, stating that no other accident-related claims are in process; Case Manager, by email.",
+     "proof": [
+      "RS90"
+     ]
+    },
+    {
+     "ref": "#1",
+     "what": "Riverton Vision Center, 02/03/2026, Z01.00",
+     "as": "Routine eye exam; paid $95.00 on 02/17/2026; claimed $95.00",
+     "verdict": "pull",
+     "kind": "loophole",
+     "issue": "The date of service is before the 02/06/2026 collision. Left in, Peach State recovers from John Doe's settlement for care that has nothing to do with the claim.",
+     "fix": "Dispute the line in writing as before the loss and unrelated; Case Manager, in the dispute email.",
+     "proof": [
+      "RS90",
+      "RS40"
+     ]
+    },
+    {
+     "ref": "#2",
+     "what": "Summit Imaging Center MRI, 03/13/2026",
+     "as": "Billed $2,395.00; denied 03/27/2026, other coverage primary (PIP); claimed $0.00",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Correct as stated: Harbor Point PIP paid the MRI in full on 03/25/2026, so the plan paid nothing and claims nothing.",
+     "fix": "Confirm against the PIP Log and Summit's invoice; note in the register that the line stays at $0.00.",
+     "proof": [
+      "RS31",
+      "RS25"
+     ]
+    },
+    {
+     "ref": "#3",
+     "what": "Peach State Virtual Care, 03/18/2026, J01.90",
+     "as": "Telehealth visit for acute sinusitis; paid $49.00; claimed $49.00",
+     "verdict": "pull",
+     "kind": "loophole",
+     "issue": "A sinus infection is not a collision injury. Left in, the plan's claim against the settlement grows for care the treatment record never ties to the crash.",
+     "fix": "Dispute the line as unrelated by its diagnosis code; Case Manager, in writing.",
+     "proof": [
+      "RS90"
+     ]
+    },
+    {
+     "ref": "#4",
+     "what": "Riverton Allergy & Asthma Clinic, 05/06/2026, J30.2",
+     "as": "Established-patient visit for allergic rhinitis; paid $74.00; claimed $74.00",
+     "verdict": "pull",
+     "kind": "loophole",
+     "issue": "An established-patient visit for a condition he had before the collision: pre-existing, and unrelated to the neck injury the claim is built on.",
+     "fix": "Dispute the line as a pre-existing, unrelated condition; Case Manager, in writing.",
+     "proof": [
+      "RS90"
+     ]
+    },
+    {
+     "ref": "#5",
+     "what": "Crescent Pain & Spine ESI, 05/15/2026, PS-2605-449021",
+     "as": "Billed $3,400.00; allowed and paid $1,860.00 on 06/03/2026; claimed $3,400.00",
+     "verdict": "replace",
+     "kind": "arithmetic",
+     "issue": "The ledger's own paid column shows $1,860.00. Claiming the billed $3,400.00 would take the $1,540.00 in-network write-off, which the plan never paid, out of John Doe's net.",
+     "fix": "Ask Peach State to correct the line to the $1,860.00 it paid: a plan's reimbursement claim is what it paid.",
+     "proof": [
+      "RS90",
+      "RS15"
+     ]
+    },
+    {
+     "ref": "Total",
+     "what": "Reimbursement claim asserted",
+     "as": "$3,618.00, interim, as of 06/10/2026",
+     "verdict": "replace",
+     "kind": "arithmetic",
+     "issue": "With the three unrelated lines out and Crescent at what was paid, the related claim is $1,860.00. Carried at $3,618.00, the lien register and the Net Sheet overstate what John Doe owes the plan.",
+     "fix": "Show $3,618.00 asserted and under dispute; change the register only when Peach State confirms the corrected figure in writing.",
+     "proof": [
+      "RS90"
+     ]
+    },
+    {
+     "ref": "Cover letter",
+     "what": "Repayment term",
+     "as": "Reimbursed first, in full, without reduction for attorney fees or costs; remit within 30 days of any settlement",
+     "verdict": "flag",
+     "kind": "loophole",
+     "issue": "Agreeing, or answering as if agreed, could give up a reduction for procurement costs that state law may allow on a fully insured plan. That is a legal position, not a filing task.",
+     "fix": "Flag to Atty. Thorne with the plan's notice and, once received, the certificate's provision; commit to nothing on repayment, amount or timing.",
+     "proof": [
+      "RS90",
+      "RS40"
+     ]
+    },
+    {
+     "ref": "Cover letter",
+     "what": "Notice before settlement",
+     "as": "Notify the plan in writing before any settlement is reached",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "The same condition as the plan's 02/27/2026 notice. Honoring it costs nothing and keeps the plan from claiming its rights were prejudiced.",
+     "fix": "Calendar it against the settlement steps; the notice is sent, never a promise of payment.",
+     "proof": [
+      "RS40"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "The plan's reimbursement provision",
+     "as": "Not enclosed: plan documents available on written request",
+     "verdict": "add",
+     "kind": "gap",
+     "issue": "Without the certificate's own language no one can test what the plan may claim or how it can be reduced, and Atty. Thorne needs it before the lien stage.",
+     "fix": "Request the certificate's reimbursement provision in the dispute email; Case Manager.",
+     "proof": [
+      "RS90",
+      "RS40"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "Riverton Spine & Rehab",
+     "as": "Not on the itemization",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Correctly absent: Riverton Spine & Rehab is out of network and treats under the LOP signed 02/23/2026, so the plan paid nothing and has nothing to claim.",
+     "fix": "Confirm that the LOP balance is tracked in its own register entry, never on Peach State's lien.",
+     "proof": [
+      "RS13"
+     ]
+    }
+   ],
+   "revealNote": "Peach State's corrected itemization of 06/24/2026: the reimbursement claim confirmed in writing at $1,860.00. The pre-demand audit, the demand and the lien stage all work from this figure.",
+   "revealPoints": [
+    "Reimbursement claim confirmed in writing: $1,860.00 as of 06/24/2026",
+    "Three lines removed: 02/03/2026 before the loss; 03/18/2026 and 05/06/2026 unrelated",
+    "Crescent Pain & Spine corrected from the billed $3,400.00 to the $1,860.00 paid",
+    "Summit Imaging stays at $0.00: denied, PIP primary",
+    "No other accident-related claims in process; the certificate's Section 11 enclosed",
+    "Any reduction is Atty. Thorne's, at the lien stage"
+   ]
+  },
+  "d2m4-wage": {
+   "title": "Lost Wage Worksheet Audit",
+   "kicker": "Match every missed shift to the employer's record and the treating provider's note",
+   "source": "RS94",
+   "reveal": "RS95",
+   "due": "07/01/2026",
+   "intro": "07/01/2026, the day the Specials audit is due. Northgate's records came on 06/30/2026; the draft worksheet was built from John Doe's memory a week earlier. Call every row against the employer's records and the treating providers' notes, so no absence is left unexcused.",
+   "columns": {
+    "ref": "Row",
+    "as": "As the draft has it"
+   },
+   "items": [
+    {
+     "ref": "Header",
+     "what": "Employer and rate",
+     "as": "Northgate Distribution, $22.00 per hour",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Matches Northgate's letter and its Wage Loss Verification Form: the rate the whole wage claim multiplies.",
+     "fix": "Confirm against the employer's letter and form; no change.",
+     "proof": [
+      "RS43",
+      "RS93"
+     ]
+    },
+    {
+     "ref": "Header",
+     "what": "Shift length",
+     "as": "8 hours",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Northgate records 8-hour day shifts, 40 hours a week, so each missed shift is 8 hours at $22.00, $176.00.",
+     "fix": "Confirm against the payroll records; no change.",
+     "proof": [
+      "RS93"
+     ]
+    },
+    {
+     "ref": "Excluded",
+     "what": "02/09–02/13/2026, five shifts",
+     "as": "Excluded: before first treatment, no doctor's note",
+     "verdict": "flag",
+     "kind": "gap",
+     "issue": "Northgate records all five unpaid as call-outs for neck pain. Dropped, the claim loses $880.00 and the file hides the gap's best corroboration; Keystone will find the call-outs anyway.",
+     "fix": "Restore the five shifts and flag them to Atty. Thorne with the call-out record, the EMS report and the 02/07/2026 receipt; how they are presented is his call.",
+     "proof": [
+      "RS43",
+      "RS11",
+      "RS21",
+      "RS12"
+     ]
+    },
+    {
+     "ref": "1–2",
+     "what": "02/18 and 02/19/2026",
+     "as": "Missed, neck pain; client's account; $176.00 each",
+     "verdict": "pull",
+     "kind": "gap",
+     "issue": "He worked both shifts, as the urgent-care history and Northgate's records show. An adjuster who checks payroll would discredit the whole wage claim on these two rows.",
+     "fix": "Remove both rows, noting the record that disproves them; Case Manager.",
+     "proof": [
+      "RS12",
+      "RS43"
+     ]
+    },
+    {
+     "ref": "3",
+     "what": "03/05/2026",
+     "as": "Orthopedic consult, Lakeside Orthopedics",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Northgate records a medical appointment, and Dr. Reyes's consult note dates the visit: the absence is excused by the record.",
+     "fix": "Attach the consult note as the shift's support.",
+     "proof": [
+      "RS15",
+      "RS43"
+     ]
+    },
+    {
+     "ref": "4",
+     "what": "03/12/2026",
+     "as": "MRI; client's account",
+     "verdict": "replace",
+     "kind": "calendar",
+     "issue": "The MRI was 03/13/2026, and Northgate's unpaid shift is 03/13. A date that matches neither record invites the adjuster to call the shift unsupported.",
+     "fix": "Correct the row to 03/13/2026 and attach Summit's MRI report.",
+     "proof": [
+      "RS16",
+      "RS43"
+     ]
+    },
+    {
+     "ref": "5",
+     "what": "05/15/2026",
+     "as": "Injection, Crescent Pain & Spine",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "The procedure note and Northgate's record agree on the date: the injection excuses the shift.",
+     "fix": "Attach the procedure note as the shift's support.",
+     "proof": [
+      "RS17",
+      "RS43"
+     ]
+    },
+    {
+     "ref": "6",
+     "what": "05/18/2026",
+     "as": "Doctor said rest; client's account; no note attached",
+     "verdict": "replace",
+     "kind": "gap",
+     "issue": "A recollection is not support. Crescent's work note puts him off work 05/15–05/18/2026, and Northgate holds it on file; without it the shift reads as unexcused.",
+     "fix": "Replace the support with Crescent's work note; Case Manager.",
+     "proof": [
+      "RS17",
+      "RS43"
+     ]
+    },
+    {
+     "ref": "Other",
+     "what": "Light duty, 02/20/2026–03/06/2026",
+     "as": "Reduced hours under the urgent-care restrictions, about 20 hours, $440.00",
+     "verdict": "pull",
+     "kind": "arithmetic",
+     "issue": "Northgate accommodated the restrictions at full shifts and full pay; no hours were lost. Claimed, it is a figure the employer's own form contradicts.",
+     "fix": "Strike the line and note that the restrictions were worked at full shifts.",
+     "proof": [
+      "RS93",
+      "RS12"
+     ]
+    },
+    {
+     "ref": "Other",
+     "what": "Overtime lost",
+     "as": "4 hours a week for 2 weeks: 8 hours at $33.00, $264.00",
+     "verdict": "pull",
+     "kind": "arithmetic",
+     "issue": "No overtime was scheduled on any missed shift. Overtime is claimed only when the employer confirms it was scheduled and lost.",
+     "fix": "Strike the line, citing Northgate's form.",
+     "proof": [
+      "RS93"
+     ]
+    },
+    {
+     "ref": "Total",
+     "what": "Lost wages claimed",
+     "as": "$1,760.00",
+     "verdict": "replace",
+     "kind": "arithmetic",
+     "issue": "Nine verified shifts at 8 hours and $22.00 come to $1,584.00. Any other total puts a figure in the Specials the employer will not support.",
+     "fix": "Replace with $1,584.00 and carry it to the Specials and the Net Sheet.",
+     "proof": [
+      "RS43",
+      "RS93"
+     ]
+    },
+    {
+     "ref": "Note",
+     "what": "PIP lost-income benefit",
+     "as": "80% of $1,760.00 = $1,408.00, to be claimed from Harbor Point",
+     "verdict": "replace",
+     "kind": "gap",
+     "issue": "PIP was exhausted on 06/26/2026, so the 80% benefit was never payable. Recording a pending PIP payment would net money out of the Specials that will never come.",
+     "fix": "Record the benefit as not payable; the full $1,584.00 stays in the Specials.",
+     "proof": [
+      "RS31"
+     ]
+    },
+    {
+     "ref": "Note",
+     "what": "2025 W-2",
+     "as": "Request from Northgate",
+     "verdict": "replace",
+     "kind": "gap",
+     "issue": "Northgate hired him on 01/12/2026 and has no 2025 W-2. The request would stall: his 2025 earnings were with Riverton Freight Services.",
+     "fix": "Ask John Doe for his 2025 W-2 from Riverton Freight Services.",
+     "proof": [
+      "RS93",
+      "RS02"
+     ]
+    },
+    {
+     "ref": "Note",
+     "what": "Loss of earning capacity",
+     "as": "Yes, permanent: residual arm numbness (client)",
+     "verdict": "flag",
+     "kind": "loophole",
+     "issue": "Dr. Reyes released him to full duty at MMI on 06/12/2026. Earning capacity is a medical and legal opinion; asserted by staff, it is the first line defense counsel tests.",
+     "fix": "Flag to Atty. Thorne with the MMI note; the Case Manager records facts only.",
+     "proof": [
+      "RS18"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "Employer verification and job demands",
+     "as": "Requested 06/22/2026, pending: no employer form, payroll records or job description behind any row",
+     "verdict": "add",
+     "kind": "gap",
+     "issue": "Without the employer's form and payroll records every row rests on memory, and the physical demands (lifting to 50 lb, forklift) are what tie the restrictions to the job.",
+     "fix": "Add Northgate's Wage Loss Verification Form, payroll records and letter as the worksheet's sources; Case Manager.",
+     "proof": [
+      "RS93",
+      "RS43"
+     ]
+    }
+   ],
+   "revealNote": "The Lost Wage Verification Record of 07/01/2026: nine shifts, each matched to Northgate's record and, after 02/20/2026, a provider's note: $1,584.00. The Specials audit and the demand work from it.",
+   "revealPoints": [
+    "Lost wages verified: 9 shifts × 8 h × $22.00 = $1,584.00",
+    "02/09–02/13/2026 kept and flagged to Atty. Thorne, with the call-out record",
+    "03/05, 03/13, 05/15 and 05/18/2026 each matched to a provider record",
+    "No overtime and no light-duty hours lost; the draft's $1,760.00 struck",
+    "PIP's 80% wage benefit not payable: exhausted 06/26/2026"
+   ]
+  },
   "d3m1-a1": {
    "title": "Exhibit Packet Audit — the Demand Package as drafted",
    "kicker": "Audit the enclosure set before Atty. Thorne signs anything.",
@@ -222,6 +621,418 @@ window.CM_CF_EXHIBITS = {
     "Robert Smith's affidavit of no other insurance added as condition 3.",
     "Exhibits A–J, 81 pages, Bates LSH-DEM-000001–000081, each exhibit mapped to the section it proves.",
     "Receipt acknowledged in writing 07/22/2026, so the acceptance window closes 08/21/2026, docketed with reminders."
+   ]
+  },
+  "d3m2-rel": {
+   "title": "Release Clause Audit — Keystone's draft release",
+   "kicker": "Call every clause before John Doe sees a word of it.",
+   "source": "RS37",
+   "reveal": "RS80",
+   "due": "08/14/2026",
+   "intro": "Keystone tendered its $10,000 limits on 08/12/2026 and sent its own release form today, with a cover letter holding the check until both UM carriers consent and waive subrogation. Measure every clause against the demand's terms and the claims still open on this file, propose the fix, and leave every decision to Atty. Thorne.",
+   "columns": {
+    "ref": "Clause",
+    "as": "As Keystone drafted it"
+   },
+   "items": [
+    {
+     "ref": "Cover",
+     "what": "Keystone's payment condition: each UM carrier's consent and subrogation waiver",
+     "as": "No check issues until Harbor Point's and Cardinal State's written consents and waivers arrive with the executed release and the W-9.",
+     "verdict": "keep",
+     "kind": "gap",
+     "issue": "A fair condition: a UM carrier that keeps its subrogation right could later pursue Robert Smith. It also matches what John Doe needs before signing, so the two tasks run together.",
+     "fix": "Log it as a payment condition, tie the signing task to both consents (requested 08/13/2026), and send the waivers with the executed release.",
+     "proof": [
+      "RS37",
+      "RS36"
+     ]
+    },
+    {
+     "ref": "Caption",
+     "what": "Claimant, insured, policy and date of accident",
+     "as": "John Doe; Robert Smith; policy KMI-PA-7731045; claim KM-26-440871; accident 02/06/2026 at Maple Hollow Road and Birch Avenue.",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Every identifier matches Keystone's Declaration Page and the tender letter, so the release attaches to the right claim and nothing has to be reissued for a typo.",
+     "fix": "Confirm each number against the Declaration Page and the tender letter before the release is routed.",
+     "proof": [
+      "RS36",
+      "RS32"
+     ]
+    },
+    {
+     "ref": "Recital",
+     "what": "Consideration: $10,000.00",
+     "as": "Ten thousand and 00/100 dollars ($10,000.00), the sole consideration.",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "The figure is Keystone's full BI limit as tendered on 08/12/2026 and as the demand asked; a release for less would be a different settlement.",
+     "fix": "Confirm the amount against the tender letter; any change is Atty. Thorne's.",
+     "proof": [
+      "RS36",
+      "RS67"
+     ]
+    },
+    {
+     "ref": "Recital",
+     "what": "Parties released: Robert Smith and Keystone Mutual",
+     "as": "Robert Smith and Keystone Mutual Insurance, and their agents, employees, heirs, successors and assigns.",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "These are the parties the demand offered to release, and the parties both UM carriers consented to John Doe releasing.",
+     "fix": "Keep the named parties exactly as written; confirm against the demand's Limited Release term.",
+     "proof": [
+      "RS67",
+      "RS37"
+     ]
+    },
+    {
+     "ref": "Recital",
+     "what": "Catch-all discharge of every other person and insurer",
+     "as": "“and all other persons, firms, corporations and insurers, whether herein named or not”.",
+     "verdict": "replace",
+     "kind": "loophole",
+     "issue": "Harbor Point and Cardinal State are insurers. Signed as drafted, the release would discharge both UM claims: $30,000 of John Doe's $40,000 stack, gone for a $10,000 check.",
+     "fix": "Propose: Robert Smith and Keystone only, “and no other person, firm, corporation or insurer”. Quote the words exactly in the review to Atty. Thorne.",
+     "proof": [
+      "RS37",
+      "RS28",
+      "RS29"
+     ]
+    },
+    {
+     "ref": "Recital",
+     "what": "Claims released: bodily injury, Property Damage and Loss of Use",
+     "as": "“including all claims for bodily injury, Property Damage and Loss of Use”.",
+     "verdict": "replace",
+     "kind": "loophole",
+     "issue": "The Civic's Property Damage and loss-of-use claim is Margaret Doe's, open with Leah Moran on KM-26-440871-PD. John Doe cannot release it, and Keystone PD would cite the wording against it.",
+     "fix": "Propose: the bodily injury claim only, with the Civic's claim expressly reserved. Route to Atty. Thorne.",
+     "proof": [
+      "RS32",
+      "RS37"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "Reservation of the UM/UIM claims",
+     "as": "Nothing in the release preserves John Doe's claims against Harbor Point or Cardinal State.",
+     "verdict": "add",
+     "kind": "gap",
+     "issue": "Even with the catch-all struck, a silent release invites Harbor Point or Cardinal State to argue the UM claims were compromised. The protection should sit on the face of the document.",
+     "fix": "Propose a clause reserving the UM/UIM claims by carrier, policy and claim number: HP-26-7741 and CS-26-20355. Atty. Thorne approves the wording.",
+     "proof": [
+      "RS28",
+      "RS29"
+     ]
+    },
+    {
+     "ref": "§1",
+     "what": "No admission of liability",
+     "as": "The payment compromises a disputed claim and is not an admission of liability by the released parties.",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Standard: Keystone pays to end the claim, not to admit fault. It costs John Doe nothing and is in every release of this kind.",
+     "fix": "Keep as drafted.",
+     "proof": [
+      "RS37"
+     ]
+    },
+    {
+     "ref": "§2",
+     "what": "Unknown injuries",
+     "as": "Injuries may be permanent and progressive; the releasor relies on his own judgment of their nature and extent.",
+     "verdict": "flag",
+     "kind": "gap",
+     "issue": "Dr. Reyes noted possible repeat injections ($3,400–$6,800). Whether this clause stands, and how it is explained to John Doe, is legal advice.",
+     "fix": "Flag it for Atty. Thorne with the future-care note attached; he decides and goes through it with John Doe before signing.",
+     "proof": [
+      "RS37",
+      "RS67"
+     ]
+    },
+    {
+     "ref": "§3",
+     "what": "Confidentiality of the settlement and the release",
+     "as": "Terms, amount and the release itself not to be disclosed to any person, firm or insurer, with narrow exceptions.",
+     "verdict": "pull",
+     "kind": "loophole",
+     "issue": "Confidentiality was never a term of the demand, and the UM carriers need the signed release as proof of exhaustion. Signed, it would put the UM demands of 08/31/2026 in breach.",
+     "fix": "Propose striking the clause; route to Atty. Thorne with the demand's terms beside it.",
+     "proof": [
+      "RS67",
+      "RS37"
+     ]
+    },
+    {
+     "ref": "§4",
+     "what": "Liens: indemnify, defend and hold harmless",
+     "as": "Releasor warrants every lien is paid and will indemnify, defend and hold harmless, including attorney's fees and costs.",
+     "verdict": "replace",
+     "kind": "loophole",
+     "issue": "An open-ended duty to defend and pay fees on any lien, unlimited in amount, when the file's liens are known: Peach State and Riverton Spine & Rehab.",
+     "fix": "Propose: the liens on the file paid from the firm's trust account; hold harmless limited to the settlement proceeds; no duty to defend, no fees. Atty. Thorne decides.",
+     "proof": [
+      "RS37",
+      "RS67"
+     ]
+    },
+    {
+     "ref": "§5",
+     "what": "Medicare representation",
+     "as": "Releasor is not and has never been a Medicare beneficiary; no conditional payments.",
+     "verdict": "flag",
+     "kind": "gap",
+     "issue": "John Doe signs it as a statement of fact. The facts must come from the file, not from assumption: born 08/14/1991, employed at Northgate, no Medicare.",
+     "fix": "Verify the facts from the intake and the Day 2 check, attach them, and flag the clause for Atty. Thorne's approval.",
+     "proof": [
+      "RS01",
+      "RS37"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "Payment date",
+     "as": "The release says nothing about when Keystone must pay after it is signed.",
+     "verdict": "add",
+     "kind": "calendar",
+     "issue": "Without a date the check can drift while John Doe's release is already signed, and the UM demands wait on proof of payment.",
+     "fix": "Propose a payment term for Atty. Thorne to set; docket it once Keystone agrees.",
+     "proof": [
+      "RS67",
+      "RS37"
+     ]
+    },
+    {
+     "ref": "§6",
+     "what": "Entire agreement; governing law",
+     "as": "Governed by “the laws of the state in which it is signed”.",
+     "verdict": "flag",
+     "kind": "gap",
+     "issue": "Which law governs a release is a legal question, and a vague choice-of-law line can matter if the release is ever disputed.",
+     "fix": "Flag for Atty. Thorne; record his decision on the redline.",
+     "proof": [
+      "RS37"
+     ]
+    },
+    {
+     "ref": "Execution",
+     "what": "Signature, witness and notary block",
+     "as": "John Doe, Releasor; witness; notary jurat; approved as to form by Atty. Thorne.",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Keystone requires a notarized wet-ink original, and the block provides for it. Nothing is signed until the amended release and both consents are in.",
+     "fix": "Keep. Plan the signing: notary, photo ID in the name John Doe, Atty. Thorne's review first.",
+     "proof": [
+      "RS37"
+     ]
+    }
+   ],
+   "revealNote": "The release as Atty. Thorne approved it on 08/17/2026 and Keystone reissued it on 08/19/2026, ready for John Doe's signature. Every later step on this file works from it, and the executed copy follows.",
+   "revealPoints": [
+    "Robert Smith and Keystone only, “and no other person, firm, corporation or insurer”: the UM claims are safe.",
+    "The bodily injury claim only; HP-26-7741, CS-26-20355 and the Civic's claim KM-26-440871-PD reserved.",
+    "Confidentiality struck; the lien clause limited to the liens on the file, paid from trust, no defense or fees.",
+    "Payment within 14 days of Keystone's receipt of the executed release and the W-9.",
+    "Unknown injuries kept, Medicare kept as verified, State of Riverton law: Atty. Thorne's decisions."
+   ]
+  },
+  "d3m4-pal": {
+   "title": "Lien Investigation — Vance & Kettering's charging lien",
+   "kicker": "Test every claim in the notice against the file; leave every conclusion to Atty. Thorne.",
+   "source": "RS84",
+   "reveal": "RS85",
+   "due": "10/15/2026",
+   "intro": "Six days before disbursement an outside firm claims a charging lien and $6,666.67 of the fee, on an agreement dated 07/27/2026. Work its notice, agreement and time record item by item against the file, decide what goes into the evidentiary packet for Atty. Thorne, and what is his alone to decide.",
+   "columns": {
+    "ref": "Claim",
+    "as": "As Vance & Kettering puts it"
+   },
+   "items": [
+    {
+     "ref": "Notice",
+     "what": "Notice of charging lien, dated 10/13/2026",
+     "as": "Emailed to Atty. Thorne and the case manager; received 10/14/2026.",
+     "verdict": "keep",
+     "kind": "calendar",
+     "issue": "The notice itself is the trigger: its receipt date starts the file's response and sets what is held before the 10/22/2026 disbursement.",
+     "fix": "Log it on receipt in the Communications Log, route it to Atty. Thorne the same day, and send nothing to the firm.",
+     "proof": [
+      "RS84"
+     ]
+    },
+    {
+     "ref": "Agreement",
+     "what": "The Contingency Fee Agreement of 07/27/2026",
+     "as": "33⅓% of any gross recovery; binding when signed by the client or the client's representative.",
+     "verdict": "keep",
+     "kind": "gap",
+     "issue": "The firm's own document is the core exhibit: it shows exactly who signed, when, and with what authority attached.",
+     "fix": "Keep the complete copy as received, every page, in the packet and the CMS.",
+     "proof": [
+      "RS84"
+     ]
+    },
+    {
+     "ref": "Client",
+     "what": "Who the client is said to be",
+     "as": "“John Doe (by Margaret Doe, mother)”.",
+     "verdict": "replace",
+     "kind": "gap",
+     "issue": "John Doe is an adult, born 08/14/1991. The agreement attaches no power of attorney or other authority for his mother to act for him; the framing assumes what it must prove.",
+     "fix": "State the facts in the packet instead: adult client, signer Margaret Doe, no authority attached. No conclusion.",
+     "proof": [
+      "RS84",
+      "RS01"
+     ]
+    },
+    {
+     "ref": "Signatures",
+     "what": "Signature lines on the agreement",
+     "as": "Margaret Doe signed as “mother”; the line for John Doe is blank.",
+     "verdict": "keep",
+     "kind": "gap",
+     "issue": "The blank client line is the single most important fact in the dispute, and the copy shows it plainly.",
+     "fix": "Keep it, and put it beside John Doe's own signatures for comparison.",
+     "proof": [
+      "RS84"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "John Doe's signature exemplars",
+     "as": "The notice offers nothing to compare the agreement against.",
+     "verdict": "add",
+     "kind": "gap",
+     "issue": "Without exemplars the packet asserts rather than shows. John Doe signed the firm's fee agreement and HIPAA authorization on 02/09/2026.",
+     "fix": "Add both 02/09/2026 documents to a signature comparison table in the packet.",
+     "proof": [
+      "RS05",
+      "RS06"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "The representation timeline",
+     "as": "The notice gives only its own date of retention, 07/27/2026.",
+     "verdict": "add",
+     "kind": "calendar",
+     "issue": "LSH Law Group was engaged 02/09/2026 and served the demand 07/20/2026, before the agreement existed, with no discharge or substitution anywhere on the file.",
+     "fix": "Add a dated timeline cross-referencing the agreement against the firm's engagement milestones, each line sourced.",
+     "proof": [
+      "RS05",
+      "RS34"
+     ]
+    },
+    {
+     "ref": "Services",
+     "what": "“Substantial services”: investigation, consultation, evaluation",
+     "as": "The firm says it performed substantial services and helped obtain the $40,000.00.",
+     "verdict": "replace",
+     "kind": "loophole",
+     "issue": "Its own time record shows 0.6 hours: an intake with Margaret Doe and a welcome letter to her. Nothing on the claim, and no document on the file is theirs.",
+     "fix": "Replace the claim in the packet with the work-product audit: the time record's entries quoted, against the file's own work.",
+     "proof": [
+      "RS84",
+      "RS44"
+     ]
+    },
+    {
+     "ref": "Carriers",
+     "what": "“Placed the responsible carriers on notice”",
+     "as": "Asserted in the notice, with no letter or date given.",
+     "verdict": "replace",
+     "kind": "loophole",
+     "issue": "Every carrier letter on the file is addressed to LSH Law Group; Keystone, Harbor Point and Cardinal State show no notice from Vance & Kettering.",
+     "fix": "Replace with what the carrier correspondence shows, each letter cited by date.",
+     "proof": [
+      "RS32",
+      "RS38",
+      "RS39"
+     ]
+    },
+    {
+     "ref": "Time record",
+     "what": "Enclosure 2: the firm's time record",
+     "as": "0.4 hours on 07/27/2026 and 0.2 hours on 07/29/2026, both with Margaret Doe; no other entries.",
+     "verdict": "keep",
+     "kind": "gap",
+     "issue": "The firm's own record of what it did. It is the best evidence of the work actually done, in its own words.",
+     "fix": "Keep it whole in the packet; quote it, never characterize it.",
+     "proof": [
+      "RS84"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "John Doe's own account",
+     "as": "The notice speaks for the client without his word.",
+     "verdict": "add",
+     "kind": "gap",
+     "issue": "Only John Doe can say whether he ever retained the firm. Without his account the packet rests on documents alone.",
+     "fix": "On Atty. Thorne's instruction, ask him neutrally on a recorded call, log his words, and give no view on the lien.",
+     "proof": [
+      "RS05"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "The settlement hold and the Action Plan",
+     "as": "The notice asks the firm to hold the entire settlement.",
+     "verdict": "add",
+     "kind": "calendar",
+     "issue": "The 10/22/2026 disbursement depends on this dispute. A hold no one recorded is a hold no one releases.",
+     "fix": "Place the hold Atty. Thorne directs, $6,666.67, in the CMS Trust Ledger; update the Action Plan; record who may release it.",
+     "proof": [
+      "RS84",
+      "RS44"
+     ]
+    },
+    {
+     "ref": "Demand",
+     "what": "One-half of the fee: $6,666.67",
+     "as": "Half of the one-third fee on a $40,000.00 gross.",
+     "verdict": "flag",
+     "kind": "gap",
+     "issue": "Whether any fee is owed, and how much, is a legal determination between lawyers.",
+     "fix": "Flag for Atty. Thorne. The Case Manager never discusses, accepts or counters a fee division.",
+     "proof": [
+      "RS84"
+     ]
+    },
+    {
+     "ref": "Lien",
+     "what": "The charging lien and any quantum meruit claim",
+     "as": "A charging lien against the settlement proceeds.",
+     "verdict": "flag",
+     "kind": "gap",
+     "issue": "Validity, and whether quantum meruit applies at all where no engagement may exist, are Atty. Thorne's calls.",
+     "fix": "List them in the packet as questions for Atty. Thorne, beside the facts that bear on them.",
+     "proof": [
+      "RS84"
+     ]
+    },
+    {
+     "ref": "Ask",
+     "what": "“Your case manager” to confirm the fee division by 10/16",
+     "as": "The notice asks the case manager to confirm the split in writing.",
+     "verdict": "flag",
+     "kind": "loophole",
+     "issue": "Any reply from the Case Manager, even a refusal, is the firm speaking on a fee dispute, and could be quoted back.",
+     "fix": "No reply. Flag the request to Atty. Thorne; he answers the lawyer.",
+     "proof": [
+      "RS84"
+     ]
+    }
+   ],
+   "revealNote": "The evidentiary packet as delivered to Atty. Thorne on 10/15/2026: facts only, each sourced. He repudiated the lien on 10/16; Vance & Kettering withdrew it on 10/19/2026, and he released the hold.",
+   "revealPoints": [
+    "The agreement of 07/27/2026 is signed only by Margaret Doe; John Doe's line is blank and no authority is attached.",
+    "LSH Law Group was engaged 02/09/2026 and served the demand 07/20/2026, before that agreement.",
+    "The firm's time record shows 0.6 hours with Margaret Doe; no carrier received notice from it.",
+    "John Doe's account of 10/15: he never contacted or signed with the firm.",
+    "$6,666.67 held in trust on Atty. Thorne's instruction; validity and any response left to him."
    ]
   },
   "d4m3-a1": {
@@ -701,6 +1512,298 @@ window.CM_CF_EXHIBITS = {
   }
  },
  "emails": {
+  "d1m1-a2": {
+   "title": "Lien Dispute & Written Confirmation — Peach State",
+   "kicker": "Send the line-by-line dispute, get the corrected balance in writing, and file the exchange",
+   "model": "RS92",
+   "sent": "06/12/2026",
+   "to": "Dion Carver, Peach State Health Plan (dcarver@peachstatehealth.example)",
+   "cc": "Atty. Elijah Thorne (ethorne@lshlawgroup.example)",
+   "subject": "Member PSH-55017742 · Recovery file SRU-26-03318 — itemized lien dispute",
+   "attachment": "Peach State's interim itemization of 06/10/2026, marked line by line",
+   "brief": "Dispute the interim itemization in writing, line by line: the three lines that are not the collision's, and Crescent claimed above what the plan paid. Ask for a corrected itemization confirmed in writing and the plan's reimbursement provision. Commit to nothing on repayment or reduction: that is Atty. Thorne's.",
+   "required": [
+    {
+     "id": "ids",
+     "label": "Names the member ID or the recovery file",
+     "hint": "Name PSH-55017742 or SRU-26-03318 so the plan finds the file.",
+     "match": [
+      "PSH-55017742|SRU-26-03318"
+     ]
+    },
+    {
+     "id": "unrelated",
+     "label": "Names the three unrelated lines by date",
+     "hint": "Name 02/03, 03/18 and 05/06, and say why each is not the collision's care.",
+     "match": [
+      "02/03",
+      "03/18",
+      "05/06"
+     ]
+    },
+    {
+     "id": "paid",
+     "label": "Puts Crescent at what the plan paid",
+     "hint": "The plan's claim is what it paid: $1,860.00, not the $3,400.00 billed.",
+     "match": [
+      "1,?860"
+     ]
+    },
+    {
+     "id": "writing",
+     "label": "Asks for a corrected itemization, confirmed in writing",
+     "hint": "Ask for the corrected balance in writing, not by phone.",
+     "match": [
+      "writ",
+      "correct|revis|confirm"
+     ]
+    },
+    {
+     "id": "counsel",
+     "label": "Routes repayment and terms to Atty. Thorne",
+     "hint": "Questions on what the plan will accept go to Atty. Thorne, by name.",
+     "match": [
+      "thorne"
+     ]
+    }
+   ],
+   "reply": {
+    "from": "Dion Carver, Peach State Health Plan (dcarver@peachstatehealth.example)",
+    "date": "06/24/2026",
+    "time": "10:15 a.m.",
+    "subject": "RE: Member PSH-55017742 · Recovery file SRU-26-03318 — itemized lien dispute",
+    "body": "Thank you for your email of June 12. We have reviewed the claim records and agree with your findings. The Riverton Vision Center, Peach State Virtual Care and Riverton Allergy & Asthma Clinic claims are removed as unrelated, and the Crescent Pain & Spine line is corrected to the $1,860.00 the Plan paid. Summit Imaging remains at $0.00.\n\nThe Plan's reimbursement claim is $1,860.00 as of today, and no other accident-related claims are in process. Our corrected itemization and Section 11 of the certificate are attached. Please notify us before any settlement and request a final amount before disbursement.\n\nDion Carver · Recovery Analyst · Peach State Health Plan · SRU-26-03318"
+   },
+   "press": {
+    "from": "Dion Carver, Peach State Health Plan",
+    "date": "06/24/2026",
+    "subject": "RE: RE: Member PSH-55017742 — one more thing",
+    "body": "One more thing so I can close my review. Can you confirm in writing that Mr. Doe will repay the $1,860.00 in full from his settlement, without reduction? And what are the liability carrier's limits, and when do you expect the case to settle? It would help us plan.",
+    "choices": [
+     {
+      "label": "Confirm full repayment: the figure is now right, so agreeing costs nothing",
+      "ok": false,
+      "why": "A written promise of full repayment can waive a reduction Atty. Thorne may seek at the lien stage. Repayment terms are his."
+     },
+     {
+      "label": "Acknowledge the $1,860.00, confirm notice before any settlement, and route the repayment and limits questions to Atty. Thorne",
+      "ok": true,
+      "why": "The facts are acknowledged, the plan's notice condition is honored, and every legal position and disclosure stays with the attorney, routed the same day."
+     },
+     {
+      "label": "Give him Keystone's $10,000 limit and a likely settlement month so he can plan",
+      "ok": false,
+      "why": "What a lienholder is told is counsel's call, and a settlement date is a prediction the Case Manager never makes."
+     }
+    ]
+   },
+   "convert": {
+    "title": "Peach State Lien Audit & Confirmation — memorandum to file",
+    "category": "Others",
+    "type": "Others",
+    "folder": "liens",
+    "sections": [
+     {
+      "h": "1 · The audit and the dispute",
+      "lines": [
+       "Interim itemization of 06/10/2026 audited line by line: $3,618.00 asserted.",
+       "Three lines disputed as unrelated (02/03, 03/18, 05/06/2026); Crescent Pain & Spine corrected to the $1,860.00 paid; Summit Imaging at $0.00."
+      ]
+     },
+     {
+      "h": "2 · The confirmation email as sent",
+      "lines": []
+     },
+     {
+      "h": "3 · The reply as received",
+      "lines": []
+     },
+     {
+      "h": "4 · What the confirmation establishes",
+      "lines": []
+     },
+     {
+      "h": "5 · Filed and updated",
+      "lines": [
+       "CMS → Liens: $3,618.00 asserted → $1,860.00 confirmed 06/24/2026; flag kept.",
+       "CMS → Doc Hub → Others under the firm's naming convention; Communications Log; a copy on the Backup Drive in Liens & Reimbursement.",
+       "Repayment and limits questions routed to Atty. Thorne 06/24/2026. Task: request the final amount before disbursement."
+      ]
+     }
+    ],
+    "establishes": [
+     "The reimbursement claim is $1,860.00, in the plan's own writing, before the demand is drafted",
+     "The plan claims only what it paid, for the collision's care; the three unrelated lines are gone",
+     "No other accident-related claim is in process as of 06/24/2026",
+     "Nothing is compromised: any reduction is Atty. Thorne's, at the lien stage"
+    ]
+   },
+   "labels": {
+    "write": "The dispute email to Peach State",
+    "reply": "Peach State's written confirmation",
+    "send": "Send it to Dion Carver",
+    "who": "Dion Carver",
+    "sentTime": "9:30 a.m.",
+    "sentToast": "Sent. His written confirmation is in the thread.",
+    "warn": "Audit the itemization first: the dispute is built from your calls.",
+    "why": "A thread in a mailbox is not on the case file: a colleague covering the file cannot find it, and it is not in the backup. Converted, filed and backed up, the plan's own confirmation of its lien is part of the case.",
+    "folderNote": "every lien and reimbursement document on the case",
+    "aria": "Your dispute email to Peach State",
+    "original": "Peach-State-Lien-Confirmation.pdf",
+    "rightToast": "Right: acknowledged, routed, and nothing agreed for Atty. Thorne."
+   }
+  },
+  "d2m4-wage": {
+   "title": "Employer Wage Verification — Northgate Distribution",
+   "kicker": "Request the employer's own verification, answer its follow-up, and file the exchange",
+   "model": "RS96",
+   "sent": "06/22/2026",
+   "to": "Angela Ruiz, HR Manager, Northgate Distribution (aruiz@northgatedistribution.example)",
+   "cc": "",
+   "subject": "John Doe (Employee ID NGD-20417) — wage and attendance verification request",
+   "attachment": "Employee authorization signed by John Doe 06/22/2026",
+   "brief": "Ask Northgate for its own records: the Wage Loss Verification Form, payroll records and his W-2, and confirmation of his rate, shift hours, each missed date, any overtime lost and the job's physical demands. Share no medical records and nothing about the claim's value.",
+   "required": [
+    {
+     "id": "dates",
+     "label": "Lists the missed dates to verify",
+     "hint": "Name 02/09 through 02/13, 03/05, 03/13, 05/15 and 05/18 so each is confirmed or corrected.",
+     "match": [
+      "02/09",
+      "03/05",
+      "03/13",
+      "05/15",
+      "05/18"
+     ]
+    },
+    {
+     "id": "rate",
+     "label": "Asks for his hourly rate and shift hours",
+     "hint": "The claim multiplies the rate by the hours: ask for both.",
+     "match": [
+      "rate|hourly",
+      "hours|shift"
+     ]
+    },
+    {
+     "id": "overtime",
+     "label": "Asks whether any overtime was lost",
+     "hint": "Overtime is claimed only if the employer confirms it was scheduled and lost.",
+     "match": [
+      "overtime"
+     ]
+    },
+    {
+     "id": "payroll",
+     "label": "Asks for payroll records or paystubs, and the W-2",
+     "hint": "Ask for paystubs or payroll records for the affected pay periods, and his W-2.",
+     "match": [
+      "paystub|pay stub|payroll",
+      "w-?2"
+     ]
+    },
+    {
+     "id": "demands",
+     "label": "Asks for the physical demands of his job",
+     "hint": "The job's physical demands tie the doctors' restrictions to the work.",
+     "match": [
+      "physical|job duties|job description|demands"
+     ]
+    },
+    {
+     "id": "form",
+     "label": "Asks for the Wage Loss Verification Form",
+     "hint": "Ask the employer to complete the verification form, not just to write back.",
+     "match": [
+      "verification form|wage loss.{0,20}form"
+     ]
+    }
+   ],
+   "reply": {
+    "from": "Angela Ruiz, Northgate Distribution (aruiz@northgatedistribution.example)",
+    "date": "06/30/2026",
+    "time": "2:40 p.m.",
+    "subject": "RE: John Doe (NGD-20417) — wage and attendance verification",
+    "body": "Attached are our wage and attendance letter and the completed Wage Loss Verification Form with payroll records for the three pay periods. To summarize: Mr. Doe is paid $22.00 an hour on 8-hour day shifts. Payroll shows nine unpaid shifts, 72 hours, $1,584.00: 02/09 through 02/13, 03/05, 03/13, 05/15 and 05/18/2026. No overtime was scheduled on any of them. The restrictions from 02/20 and 03/05/2026 were handled within his role at full shifts, with no hours lost. The job requires lifting to 50 lb, forklift work and being on his feet all shift. We have no 2025 W-2 for him; he started 01/12/2026.\n\nAngela Ruiz · HR Manager · Northgate Distribution · (555) 010-6600"
+   },
+   "press": {
+    "from": "Angela Ruiz, Northgate Distribution",
+    "date": "06/30/2026",
+    "subject": "RE: one more question",
+    "body": "One more question from our benefits coordinator. Will John's settlement pay him back for those days, so we know how to code them? And could you send us his MRI and his doctors' notes so we can update his restrictions file?",
+    "choices": [
+     {
+      "label": "Send the MRI and the notes: Northgate has cooperated, and the records are already on file",
+      "ok": false,
+      "why": "His authorization lets Northgate give records to the firm, not the reverse. Sending his medical records to his employer breaches his privacy."
+     },
+     {
+      "label": "Tell her yes: lost wages are part of the claim, so he will be repaid at settlement",
+      "ok": false,
+      "why": "That predicts a recovery and discusses his claim with a third party. What the claim recovers is Atty. Thorne's to discuss, with John Doe."
+     },
+     {
+      "label": "Thank her, send no records, say work-status notes come from John and his providers, and route the claim question to Atty. Thorne",
+      "ok": true,
+      "why": "His privacy is kept, Northgate still gets restrictions from the proper source, and the claim question reaches the attorney the same day."
+     }
+    ]
+   },
+   "convert": {
+    "title": "Employer Wage Verification — memorandum to file",
+    "category": "Others",
+    "type": "Others",
+    "folder": "settlement",
+    "sections": [
+     {
+      "h": "1 · What was asked, and of whom",
+      "lines": [
+       "Angela Ruiz, HR Manager, Northgate Distribution, 06/22/2026, with John Doe's signed authorization."
+      ]
+     },
+     {
+      "h": "2 · The confirmation email as sent",
+      "lines": []
+     },
+     {
+      "h": "3 · The reply as received",
+      "lines": []
+     },
+     {
+      "h": "4 · What the confirmation establishes",
+      "lines": []
+     },
+     {
+      "h": "5 · Filed and updated",
+      "lines": [
+       "CMS → Doc Hub → Others under the firm's naming convention; Communications Log; a copy on the Backup Drive in Wages & Costs.",
+       "Claim question routed to Atty. Thorne 06/30/2026; no medical records sent.",
+       "Tasks: audit the draft wage worksheet (due 07/01/2026); ask John Doe for his 2025 W-2."
+      ]
+     }
+    ],
+    "establishes": [
+     "The rate, hours and nine unpaid shifts come from Northgate's own business records: $1,584.00",
+     "No overtime and no light-duty hours were lost",
+     "The 02/09–02/13/2026 call-outs for neck pain are on the employer's record, flagged to Atty. Thorne",
+     "The 2025 W-2 must come from John Doe (Riverton Freight Services)"
+    ]
+   },
+   "labels": {
+    "write": "The verification request to Northgate HR",
+    "reply": "Northgate's written verification",
+    "send": "Send it to Angela Ruiz",
+    "who": "Angela Ruiz",
+    "sentTime": "9:05 a.m.",
+    "sentToast": "Sent. Her reply and records are in the thread.",
+    "warn": "",
+    "why": "A reply in a mailbox is not on the case file: a colleague covering the file cannot find it, and it is not in the backup. Converted, filed and backed up, the employer's own verification is part of the case.",
+    "folderNote": "every wage and cost document on the case",
+    "aria": "Your verification request to Northgate",
+    "original": "Employer-Wage-Verification.pdf",
+    "rightToast": "Right: no records out, nothing said about the claim, and the question routed."
+   }
+  },
   "d3m1-a1": {
    "title": "Service Confirmation — the email the adjuster has to answer",
    "kicker": "Sending proves it left. Her written acknowledgement proves when it landed.",
@@ -844,6 +1947,304 @@ window.CM_CF_EXHIBITS = {
      "The package is complete at 81 pages, Exhibits A–J, so \"we never got all of it\" is answered by her own email.",
      "The time frame was raised, flagged and routed to Atty. Thorne. It was not an extension and was not granted.",
      "No valuation, no view of the offer and no agreement to any term was given by the Case Manager."
+    ]
+   }
+  },
+  "d3m2-rel": {
+   "title": "Release Review — the clause audit routed to Atty. Thorne",
+   "kicker": "You propose the amendments. Atty. Thorne approves them, in writing, before anyone signs.",
+   "words": {
+    "label": "Release Review to Atty. Thorne",
+    "write": "Your clause review and amendments",
+    "send": "Send it to Atty. Thorne",
+    "reply": "Atty. Thorne's written approval"
+   },
+   "model": "RS82",
+   "sent": "08/14/2026",
+   "to": "Elijah Thorne <ethorne@lshlawgroup.example>",
+   "cc": "",
+   "subject": "For your review and approval: Keystone draft release — John Doe — KM-26-440871",
+   "attachment": "LSH-2026-MVA-770412_Doe-John_Release-Clause-Review_2026-08-14.pdf",
+   "brief": "Write the email that routes your clause review to Atty. Thorne. Say what the catch-all would release, what else the draft reaches or adds, list your proposed amendments, flag the clauses that are his to decide, and confirm nothing has gone to John Doe.",
+   "required": [
+    {
+     "id": "catchall",
+     "label": "Names the catch-all and the UM claims it would release",
+     "hint": "Quote the insurers line and say it would release Harbor Point and Cardinal State.",
+     "match": [
+      "insurer",
+      "harbor point|cardinal|\\bUM\\b|uninsured"
+     ]
+    },
+    {
+     "id": "property",
+     "label": "Says the release reaches the Civic's open Property Damage claim",
+     "hint": "The draft releases Property Damage and Loss of Use: the Civic's claim is Margaret's and still open.",
+     "match": [
+      "Property Damage|Loss of Use|civic"
+     ]
+    },
+    {
+     "id": "confidential",
+     "label": "Raises the confidentiality clause",
+     "hint": "Confidentiality was never a demand term, and the UM carriers need the release.",
+     "match": [
+      "confidential"
+     ]
+    },
+    {
+     "id": "amend",
+     "label": "Proposes the amendments for his approval",
+     "hint": "Say what you propose for each clause, and that the decision is his.",
+     "match": [
+      "amend|propos|redline|revis",
+      "approv|review|decid"
+     ]
+    },
+    {
+     "id": "flags",
+     "label": "Flags the clauses that are his to decide",
+     "hint": "Unknown injuries, Medicare and governing law: name them as his call.",
+     "match": [
+      "medicare|unknown injur|governing law"
+     ]
+    },
+    {
+     "id": "client",
+     "label": "Confirms nothing has gone to John Doe for signature",
+     "hint": "Say the draft has not been sent to the client and won't be until he approves.",
+     "match": [
+      "john|client|mr\\.? doe",
+      "not (been )?sent|haven't sent|have not sent|not gone|nothing (has )?(gone|been sent)|withheld|will not send|won't send|not (be )?(sent|shown)"
+     ]
+    }
+   ],
+   "reply": {
+    "from": "Elijah Thorne <ethorne@lshlawgroup.example>",
+    "date": "08/17/2026",
+    "time": "9:40 a.m.",
+    "subject": "RE: For your review and approval: Keystone draft release — John Doe — KM-26-440871",
+    "body": "Approved as you proposed. Payment within 14 days of Keystone's receipt of the executed release and our W-9. Keep the unknown-injuries clause; I will go through it with John. Keep the Medicare representation as verified. Riverton law.\n\nI have sent the redline to Dana Whitfield this morning. Do not send anything to John until Keystone issues the revised release and both consents are in."
+   },
+   "press": {
+    "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+    "date": "08/18/2026",
+    "subject": "RE: Doe release — side letter?",
+    "body": "Mr. Thorne's redline is with my unit manager and could take a while. To keep things moving, could your client sign our standard form now? We can paper the changes in a side letter afterwards, and I could get the check out next week.",
+    "choices": [
+     {
+      "label": "Send John Doe the standard form now so the check is not delayed.",
+      "ok": false,
+      "why": "John Doe would sign a release that discharges both UM carriers. A side letter promised later protects nothing he has already signed."
+     },
+     {
+      "label": "Agree to the side letter if she confirms it by email.",
+      "ok": false,
+      "why": "That is agreeing release terms with the adjuster, which is Atty. Thorne's alone, and on terms he has just rejected."
+     },
+     {
+      "label": "Reply that nothing goes to the client except the release Atty. Thorne approves, and forward her email to him the same day.",
+      "ok": true,
+      "why": "Correct. Nothing is agreed or argued; the request is logged and routed, and John Doe signs only the approved Limited Release."
+     },
+     {
+      "label": "Tell her the catch-all clause would be unenforceable anyway.",
+      "ok": false,
+      "why": "That is a legal opinion given to the other side. It is not the Case Manager's to give, and it invites her to say signing is harmless."
+     }
+    ]
+   },
+   "convert": {
+    "title": "Release Clause Review & Attorney Approval — memorandum to file",
+    "category": "Others",
+    "type": "Release-Review",
+    "folder": "insurance",
+    "sections": [
+     {
+      "h": "1 · What the review found",
+      "lines": [
+       "Keystone's Release of All Claims, Form KM-REL-100, received 08/14/2026 with Dana Whitfield's cover letter.",
+       "Catch-all: would release Harbor Point and Cardinal State, $30,000 of the stack. Property Damage and Loss of Use: the Civic's claim is Margaret Doe's.",
+       "No UM reservation; a confidentiality clause; an unlimited indemnify-and-defend clause; no payment date.",
+       "Unknown injuries, Medicare and governing law flagged for Atty. Thorne."
+      ]
+     },
+     {
+      "h": "2 · The confirmation email routing the review",
+      "lines": []
+     },
+     {
+      "h": "3 · Atty. Thorne's written approval",
+      "lines": [
+       "Approved 08/17/2026, 9:40 a.m.: amendments as proposed; payment within 14 days; Riverton law.",
+       "Redline sent to Dana Whitfield by Atty. Thorne the same morning."
+      ]
+     },
+     {
+      "h": "4 · What the approval establishes",
+      "lines": []
+     },
+     {
+      "h": "5 · Where this memorandum is filed",
+      "lines": [
+       "CMS → Doc Hub → Others, named the firm's way.",
+       "CMS → Tasks: signing held until both UM consents are in writing.",
+       "Your Backup Drive → Insurance, Demands & Negotiation — the same copy, kept with the filing."
+      ]
+     }
+    ],
+    "establishes": [
+     "Every amendment was Atty. Thorne's decision, in writing, before any term reached the adjuster or John Doe.",
+     "The UM claims and the Civic's claim are protected on the face of the release.",
+     "The request to sign the standard form first was routed, not answered by the Case Manager.",
+     "Keystone accepted the changes and issued its Limited Release on 08/19/2026."
+    ]
+   }
+  },
+  "d3m2-exec": {
+   "title": "Executed Release — the transmittal to Keystone and the check",
+   "kicker": "A complete packet once: release, both waivers, W-9. Then the check, in writing.",
+   "words": {
+    "label": "Executed Release to Keystone",
+    "write": "The email that transmits the release",
+    "send": "Send it to the adjuster",
+    "reply": "The adjuster's acknowledgment and check date"
+   },
+   "model": "RS81",
+   "sent": "08/28/2026",
+   "to": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+   "cc": "Elijah Thorne <ethorne@lshlawgroup.example>",
+   "subject": "Executed Limited Release, UM consents and W-9 — John Doe / Robert Smith — Claim KM-26-440871",
+   "attachment": "LSH-2026-MVA-770412_Doe-John_Executed-Limited-Release_2026-08-28.pdf (with both UM consents and the W-9)",
+   "brief": "Write the email that sends the executed packet to the adjuster. List what is attached, say the original follows by courier, point to the payment term, and ask her to confirm receipt and the check date in writing. Terms and payee questions go to Atty. Thorne.",
+   "required": [
+    {
+     "id": "release",
+     "label": "Says the Limited Release is attached, signed and notarized",
+     "hint": "Name the executed Limited Release and that it was signed before a notary on 08/28.",
+     "match": [
+      "release",
+      "sign|execut",
+      "notar"
+     ]
+    },
+    {
+     "id": "waivers",
+     "label": "Encloses both UM consents and subrogation waivers",
+     "hint": "Keystone made both waivers a payment condition: name Harbor Point and Cardinal State.",
+     "match": [
+      "harbor point",
+      "cardinal",
+      "waiver|consent"
+     ]
+    },
+    {
+     "id": "w9",
+     "label": "Encloses the firm's W-9",
+     "hint": "Keystone asked for the W-9 with the release.",
+     "match": [
+      "w-?9"
+     ]
+    },
+    {
+     "id": "original",
+     "label": "Says the wet-ink original follows by courier",
+     "hint": "Keystone requires the original; say how and when it is coming.",
+     "match": [
+      "original",
+      "courier|overnight|mail"
+     ]
+    },
+    {
+     "id": "ask",
+     "label": "Asks her to confirm receipt and the check date in writing",
+     "hint": "Ask for written confirmation of receipt and when the check issues.",
+     "match": [
+      "confirm",
+      "check",
+      "date|when|issue"
+     ]
+    },
+    {
+     "id": "upl",
+     "label": "Routes terms and payee questions to Atty. Thorne",
+     "hint": "Point any question about terms or the payee to Atty. Thorne, by name.",
+     "match": [
+      "thorne",
+      "term|payee|question"
+     ]
+    }
+   ],
+   "reply": {
+    "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+    "date": "08/31/2026",
+    "time": "9:12 a.m.",
+    "subject": "RE: Executed Limited Release, UM consents and W-9 — John Doe / Robert Smith — Claim KM-26-440871",
+    "body": "Received your email of August 28 with the executed Limited Release, both UM consents and waivers, and the W-9. The original release arrived by courier this morning, August 31. The file is complete for payment.\n\nThe $10,000.00 check will issue tomorrow, 09/01, payable to John Doe and LSH Law Group, by mail to your office."
+   },
+   "press": {
+    "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+    "date": "09/01/2026",
+    "subject": "RE: Doe settlement check 0048213",
+    "body": "Check no. 0048213 issued this morning. One thing from our payment unit: Peach State's reimbursement notice is in our file. Should we have added Peach State as a payee, or can you just confirm in writing that your firm will protect Keystone on that lien? Either way I'd like to close this out today.",
+    "choices": [
+     {
+      "label": "Confirm in writing that the firm will protect Keystone on the Peach State lien.",
+      "ok": false,
+      "why": "That is a new term of the settlement, given by the Case Manager. The lien terms are in §4 of the release, and only Atty. Thorne speaks to them."
+     },
+     {
+      "label": "Ask her to reissue the check with Peach State as a co-payee.",
+      "ok": false,
+      "why": "Changing the payee changes the settlement and can stall John Doe's money for weeks. It is Atty. Thorne's decision."
+     },
+     {
+      "label": "Reply that payee and lien questions are Atty. Thorne's, forward her email to him the same day, and log it.",
+      "ok": true,
+      "why": "Correct. Nothing is promised or changed; the question reaches the person who can answer it, and the check stays as issued until he says otherwise."
+     }
+    ]
+   },
+   "convert": {
+    "title": "BI Settlement Record — executed release, transmittal and check",
+    "category": "Others",
+    "type": "BI-Settlement-Record",
+    "folder": "insurance",
+    "sections": [
+     {
+      "h": "1 · The settlement packet, as executed and sent",
+      "lines": [
+       "Limited Release, Form KM-REL-100-L, signed by John Doe 08/28/2026 before notary Renee Castillo, after Atty. Thorne went through it with him.",
+       "Harbor Point consent and waiver 08/24/2026; Cardinal State consent and waiver 08/26/2026; the firm's W-9.",
+       "Original by overnight courier, received by Keystone 08/31/2026."
+      ]
+     },
+     {
+      "h": "2 · The confirmation email that transmitted the release",
+      "lines": []
+     },
+     {
+      "h": "3 · The adjuster's acknowledgment and check confirmation",
+      "lines": []
+     },
+     {
+      "h": "4 · What the exchange establishes",
+      "lines": []
+     },
+     {
+      "h": "5 · The money and where the record is filed",
+      "lines": [
+       "Keystone check no. 0048213, $10,000.00, issued 09/01/2026; received and deposited to IOLTA 09/04/2026.",
+       "Check copy to Marcus Bell and Teresa Okafor, 09/04/2026.",
+       "CMS → Doc Hub → Others, named the firm's way; your Backup Drive → Insurance, Demands & Negotiation."
+      ]
+     }
+    ],
+    "establishes": [
+     "Keystone received the executed release, both UM waivers and the W-9 on 08/31/2026, in its adjuster's own words.",
+     "Keystone's payment condition, each UM carrier's consent and waiver, was met in full.",
+     "Check no. 0048213 issued 09/01/2026, inside the 14 days of §6, and reached trust 09/04/2026.",
+     "The payee question went to Atty. Thorne; the Case Manager gave no lien assurance."
     ]
    }
   }
