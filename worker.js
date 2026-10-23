@@ -330,7 +330,7 @@ async function viaGateway(env, req, user) {
   try {
     r = await fetch(String(env.PORTAL_URL || "https://cm-training-activity.pages.dev").replace(/\/+$/, "") + "/api/ai-gateway", {
       method: "POST", headers: { "Content-Type": "application/json", "X-Gateway-Key": String(env.AI_GATEWAY_SECRET).trim() },
-      body: JSON.stringify({ module: "cms", user: String(user || "worker").slice(0, 80), system: toText(req.system), messages, maxTokens: Math.min(Math.max(Number(req.max_tokens) || 1024, 128), 4096) })
+      body: JSON.stringify({ module: "cms", fast: isChat(req), user: String(user || "worker").slice(0, 80), system: toText(req.system), messages, maxTokens: Math.min(Math.max(Number(req.max_tokens) || 1024, 128), 4096) })
     });
     data = await r.json().catch(() => null);
   } catch (e) { return json({ error: { message: "The shared AI gateway is unreachable: " + (e && e.message || e) } }, 502); }
@@ -366,6 +366,10 @@ function restGeminiKey(name, status, msg) {
   return !!ms;
 }
 
+// A live call's next line ("chat"): the quick model first, with as little thinking as the model allows and a short answer,
+// so the caller answers in about a second instead of several. Reviews, grading and the rest keep the fuller settings.
+const noThinking = new Set();   // models that refused a thinking setting: not sent to them again (no second request every turn)
+const isChat = (req) => /^(chat|call)$/i.test(String((req && req.feature) || ""));
 async function callGemini(env, rawBody, user) {
   let req; try { req = JSON.parse(rawBody); } catch (e) { return json({ error: "Invalid request" }, 400); }
   if (gatewayOn(env)) return await viaGateway(env, req, user);
@@ -374,11 +378,12 @@ async function callGemini(env, rawBody, user) {
   const payload = {
     contents,
     // extra headroom: newer Gemini models may spend part of the budget "thinking" before answering
-    generationConfig: { maxOutputTokens: Math.min(Math.max((Number(req.max_tokens) || 1024) * 2, 2048), 16384), temperature: 0.7 }
+    generationConfig: { maxOutputTokens: isChat(req) ? 1024 : Math.min(Math.max((Number(req.max_tokens) || 1024) * 2, 2048), 16384), temperature: 0.7 }
   };
   if (req.system) payload.systemInstruction = { parts: [{ text: toText(req.system) }] };
   // Google limits the 2.5 models to accounts that already used them; new projects use 3.8 Flash / 3.5 Flash-Lite.
-  const models = [env.GEMINI_MODEL || "gemini-3.8-flash", "gemini-3.5-flash-lite", "gemini-3.5-flash"].filter((v, i, a) => a.indexOf(v) === i);
+  const models = (isChat(req) ? ["gemini-3.5-flash-lite", env.GEMINI_MODEL || "gemini-3.8-flash", "gemini-3.5-flash"]
+    : [env.GEMINI_MODEL || "gemini-3.8-flash", "gemini-3.5-flash-lite", "gemini-3.5-flash"]).filter((v, i, a) => a.indexOf(v) === i);
   const keys = geminiKeyOrder(env);
   if (!keys.length) return json({ error: "No AI key is configured on this Worker. Add GEMINI_API_KEY (or GEMINI_API_KEY1, GEMINI_API_KEY2, …) as a Secret in Cloudflare." }, 500);
   let last = null;
@@ -386,8 +391,9 @@ async function callGemini(env, rawBody, user) {
   let nextKey = false;
   for (const model of models) {
     const p = JSON.parse(JSON.stringify(payload));
-    if (/2\.5-flash/.test(model)) p.generationConfig.thinkingConfig = { thinkingBudget: 0 };   // 2.5: thinking off
-    else p.generationConfig.thinkingConfig = { thinkingLevel: "low" };                         // 3.x: think briefly → much faster replies
+    if (noThinking.has(model)) delete p.generationConfig.thinkingConfig;
+    else if (/2\.5-flash/.test(model)) p.generationConfig.thinkingConfig = { thinkingBudget: 0 };   // 2.5: thinking off
+    else p.generationConfig.thinkingConfig = { thinkingLevel: isChat(req) ? "minimal" : "low" };   // 3.x: think briefly → much faster replies (a call's line: barely)
     const send = (body) => geminiFetch(env, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
       method: "POST",
       headers: { "Content-Type": "application/json", "x-goog-api-key": String(env[keyName]).trim() },
@@ -396,7 +402,7 @@ async function callGemini(env, rawBody, user) {
     let r = await send(p);
     let data = await r.json().catch(() => ({}));
     if (r.status === 400 && /thinking/i.test((data.error && data.error.message) || "")) {   // model doesn't accept that setting → send without it
-      delete p.generationConfig.thinkingConfig; r = await send(p); data = await r.json().catch(() => ({}));
+      noThinking.add(model); delete p.generationConfig.thinkingConfig; r = await send(p); data = await r.json().catch(() => ({}));
     }
     if (r.ok) {
       const cand = (data.candidates || [])[0] || {};

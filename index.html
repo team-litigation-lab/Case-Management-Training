@@ -3715,15 +3715,20 @@ function esc(s){ return (s+"").replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','
 async function callAIText(prompt, maxTokens, timeoutMs, feature){
   // Retry rate-limit / overload / transient server errors with backoff.
   const waits = [2500, 6000, 12000];
+  // a live call's line: 15 seconds a try, and a try that hangs is sent again at once (twice at most), so one stuck
+  // request never leaves the caller silent for a minute
+  const chat = feature === "chat", chatWaits = [300, 600];
   let reauthed = false;
   for(let attempt=0;;attempt++){
-    try{ return await callAITextOnce(prompt, maxTokens, timeoutMs, feature); }
+    try{ return await callAITextOnce(prompt, maxTokens, timeoutMs || (chat ? 15000 : 0), feature); }
     catch(e){
       // an expired session: sign the trainee in again and send once more, as authFetch does for everything else
       const signIn = e && e.status===401 && /sign-in required/i.test(e.message||"");
       if(signIn && !reauthed && !state.isAdmin && !state.adminPreview){ reauthed = true; if(await reauthTrainee()){ attempt--; continue; } }
       if(signIn && (state.isAdmin || state.adminPreview)) toast("Your admin session expired — click 🛡 Admin and sign in again.");
       const retryable = e && ((e.status===401 && !signIn) || e.status===429 || e.status===529 || e.status===503 || e.status===502 || (e.status===500 && !/not configured|api key|x-api-key/i.test(e.message||"")));
+      const hung = /timed out/i.test((e && e.message) || "");
+      if(chat && (hung || (retryable && e.status!==429))){ if(attempt>=chatWaits.length) throw e; await new Promise(r=>setTimeout(r, chatWaits[attempt])); continue; }
       if(!retryable || attempt>=waits.length) throw e;
       await new Promise(r=>setTimeout(r, waits[attempt] + Math.random()*800));
     }
