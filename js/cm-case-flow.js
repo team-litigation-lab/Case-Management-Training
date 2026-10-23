@@ -1388,16 +1388,19 @@ function auditSlide(b){
   const r = exRec(b.id), done = !!r.at, n = a.items.length, sc = done ? exScore(a, r) : 0, sv = serviceOf(b.id);
   const src = exDoc(a.source), rev = exDoc(a.reveal);
   const head = `<div class="cfx-aud-h"><span class="cfx-chip">📁 ${E(a.title)}</span>
-      <span class="cfx-aud-due">Out the door by <b>${E(a.due)}</b></span></div>
+      <span class="cfx-aud-due">⏰ Out the door by <b>${E(a.due)}</b></span></div>
     <p class="cfx-aud-intro">${hl(a.intro)}</p>`;
+  const called = exMarked(r), pct = n ? Math.round(called / n * 100) : 0;
   if(!done) return `<div class="cfx-aud">${head}
-    <div class="cfx-aud-row">
-      <div class="cfx-aud-card"><b>The set you are auditing</b><span>${src ? exDocLink(a.source) : E(a.source)}</span>
-        <small>${n} items to call: ${VORDER.map(v => VERDICT[v].label.toLowerCase()).join(", ")}.</small></div>
-      <div class="cfx-aud-card"><b>Where you are</b><span class="cfx-aud-prog">${exMarked(r)} of ${n} called</span>
+    <div class="cfx-aud-row cfx-aud-row3">
+      <div class="cfx-aud-card cfx-aud-set">${src ? `<a class="cfx-aud-thumb" href="${E(docUrl(src))}" target="_blank" rel="noopener" onclick="return cmCaseFlow.doc(event,'${src.id}')"><img src="/decks/cf-docs/${src.id}.webp" alt="" loading="lazy"></a>` : ""}
+        <div><b>The set you are auditing</b><span>${src ? exDocLink(a.source) : E(a.source)}</span><small><span class="cfx-aud-n">${n}</span> items to call, one by one</small></div></div>
+      <div class="cfx-aud-card cfx-aud-where"><b>Where you are</b><span class="cfx-aud-prog">${called} of ${n} called</span>
+        <div class="cfx-aud-bar" role="progressbar" aria-valuemin="0" aria-valuemax="${n}" aria-valuenow="${called}"><i style="width:${pct}%"></i></div>
         <small>Nothing is scored until you hand it in, and nothing is corrected quietly: every finding is a dated, assigned task.</small></div>
+      <div class="cfx-aud-card cfx-aud-calls"><b>Your five calls</b><div class="cfx-aud-vs">${VORDER.map(v => `<span class="cfx-aud-v v-${v}" title="${E(VERDICT[v].hint)}"><i>${VERDICT[v].icon}</i>${E(VERDICT[v].label)}</span>`).join("")}</div></div>
     </div>
-    <div class="cfx-aud-act"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.audit('${b.id}')">🔍 Open the audit workbench</button>
+    <div class="cfx-aud-act"><button type="button" class="btn btn-orange cfx-aud-go" onclick="cmCaseFlow.audit('${b.id}')">🔍 Open the audit workbench</button>
       ${sv ? `<button type="button" class="btn btn-navy" onclick="cmCaseFlow.service('${b.id}')">✉ Service Confirmation</button>` : ""}
       <span class="cfx-aud-note">${E(a.kicker)}</span></div></div>`;
   return `<div class="cfx-aud cfx-aud-done">${head}
@@ -4765,6 +4768,29 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-aud-points{margin:0;padding-left:20px;display:grid;gap:3px;font-size:14px;color:var(--ink);}
 .cfx-aud-act{display:flex;flex-wrap:wrap;align-items:center;gap:10px;}
 .cfx-aud-note{font-size:13px;color:var(--ink-soft);}
+.cfx-aud-due{padding:4px 11px;border-radius:999px;background:#FDECEC;border:1px solid #F2B8B8;color:#8E2A2A !important;font-weight:600;}
+.cfx-aud-row3{grid-template-columns:1.25fr 1fr 1.25fr;align-items:stretch;}
+.cfx-aud-card{border-top:4px solid #262B45;box-shadow:0 6px 18px -12px rgba(20,24,48,.35);}
+.cfx-aud-set{display:flex !important;gap:12px;align-items:center;border-top-color:#DB8437;}
+.cfx-aud-set > div{display:grid;gap:4px;min-width:0;}
+.cfx-aud-thumb{flex:0 0 auto;width:74px;border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:0 4px 10px -6px rgba(20,24,48,.5);transition:transform .15s;}
+.cfx-aud-thumb:hover{transform:translateY(-2px) rotate(-1deg);}
+.cfx-aud-thumb img{display:block;width:100%;height:auto;}
+.cfx-aud-n{display:inline-grid;place-items:center;min-width:24px;height:24px;padding:0 6px;border-radius:999px;background:#DB8437;color:#fff;font-weight:800;margin-right:4px;}
+.cfx-aud-prog{font-size:22px !important;}
+.cfx-aud-bar{height:10px;border-radius:999px;background:#E9EBF2;overflow:hidden;margin:2px 0 4px;}
+.cfx-aud-bar i{display:block;height:100%;background:linear-gradient(90deg,#262B45,#DB8437);border-radius:999px;transition:width .4s;}
+.cfx-aud-vs{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+.cfx-aud-v{display:inline-flex;align-items:center;gap:6px;padding:4px 10px 4px 4px;border-radius:999px;font:700 12.5px var(--font-ui);border:1px solid;}
+.cfx-aud-v i{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;font-style:normal;color:#fff;font-size:12px;}
+.cfx-aud-v.v-keep{background:#EAF5EE;border-color:#B9DCC6;color:#22603A;} .cfx-aud-v.v-keep i{background:#2E7D4F;}
+.cfx-aud-v.v-replace{background:#EEF3FB;border-color:#C2D2EC;color:#26457A;} .cfx-aud-v.v-replace i{background:#3B66AE;}
+.cfx-aud-v.v-pull{background:#FDECEC;border-color:#F2B8B8;color:#8E2A2A;} .cfx-aud-v.v-pull i{background:#C0392B;}
+.cfx-aud-v.v-add{background:#FFF4E6;border-color:#F3CFA0;color:#8A4B12;} .cfx-aud-v.v-add i{background:#DB8437;}
+.cfx-aud-v.v-flag{background:#F1EEF8;border-color:#CFC5E6;color:#4A3A7A;} .cfx-aud-v.v-flag i{background:#5E4B9B;}
+.cfx-aud-go{font-size:16px !important;padding:11px 20px !important;background:linear-gradient(135deg,#DB8437,#EFA463) !important;color:#fff !important;border:0 !important;box-shadow:0 10px 22px -12px rgba(219,132,55,.9);}
+.cfx-aud-go:hover{filter:brightness(1.05);transform:translateY(-1px);}
+@media(max-width:1100px){.cfx-aud-row3{grid-template-columns:1fr;}}
 .cfx-bench,.cfx-sv{max-width:1180px;}
 .ab-top,.sv-top{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;font-size:13px;color:var(--ink-soft);margin-bottom:8px;}
 .ab-sc{margin-left:auto;font-weight:800;color:var(--navy);}
