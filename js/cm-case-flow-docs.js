@@ -240,7 +240,10 @@ window.CM_CF_DOCS = [
    key:"The corrected copy RS16 needed: the history's injury date fixed to the DOL (02/06/2026) and nothing else. The request asked for the date only, never a change to the findings: \"no significant degenerative change at the adjacent levels\" stands as read. It is Exhibit F's addendum in the Demand Package as served (RS67) and the copy every binder carries after it."},
   {id:"RS73", folder:"bills", file:"case-flow/bills/RS_73_Crescent_Corrected_Patient_Statement.pdf", title:"Crescent Pain & Spine — Corrected Patient Statement, $0.00 (07/10/2026)", cms:"Bills", day:3, amends:"RS26", unlock:"d2m4-a1",
    desc:"Crescent's corrected statement of 07/10/2026 replacing the 07/01/2026 statement: the $1,540.00 contractual adjustment posted, balance $0.00, account paid in full and closed.",
-   key:"The corrected copy RS26 needed: in network, paid $1,860.00 by Peach State at the contract rate, so the member owes $0.00. It closes Crescent as an open balance; the only claim left on that bill is Peach State's $1,860.00 reimbursement (RS40, RS41). It replaces the $1,540.00 statement in Exhibit E of the Demand Package as served (RS67)."}
+   key:"The corrected copy RS26 needed: in network, paid $1,860.00 by Peach State at the contract rate, so the member owes $0.00. It closes Crescent as an open balance; the only claim left on that bill is Peach State's $1,860.00 reimbursement (RS40, RS41). It replaces the $1,540.00 statement in Exhibit E of the Demand Package as served (RS67)."},
+  {id:"RS74", folder:"settlement", file:"case-flow/settlement/RS_74_Closing_Letter_with_Lien_Payoffs.pdf", title:"LSH Law Group — Closing Letter to John Doe, with Lien Payoff Letters (10/23/2026)", cms:"Case Files", day:4,
+   desc:"Track A's closing letter: what was received, what was paid and to whom (fee, costs, both liens, the $20,359.92 net), the liens satisfied, and the file's closing and retention; Peach State's and Riverton Spine & Rehab's Payoff Letters attached.",
+   key:"The model closed-file letter: every figure ties to the signed Settlement Statement and the Net Sheet ($40,000.00 – $13,333.33 – $486.75 – $1,240.00 – $4,580.00 = $20,359.92), each lien's satisfaction is in the lienholder's own writing (Enclosures A and B), and it gives no tax or legal advice beyond telling John to send any late bill to the firm. Drafted by the Case Manager, signed by Atty. Thorne."}
 ];
 
 /* The documents each Case Flow Skill Activity works from (shown on the activity's slide as "📁 Work from"). */
@@ -266,7 +269,7 @@ window.CM_CF_DOC_PACKETS = {
   "d5m2-a1": ["RS45", "RS46", "RS54"], "d5m2-a2": ["RS47", "RS48", "RS46"],
   "d5m3-a1": ["RS56", "RS20", "RS14"], "d5m3-a2": ["RS53", "RS20", "RS16", "RS12"],
   "d5m4-a1": ["RS53", "RS07", "RS08", "RS09", "RS10", "RS11", "RS14", "RS70"], "d5m4-a2": ["RS52", "RS01"],
-  "d5m5-a1": ["RS05", "RS44", "RS58", "RS59", "RS70"],
+  "d5m5-a1": ["RS05", "RS44", "RS74", "RS58", "RS59", "RS70"],
   "d3m2-bins": ["RS36", "RS05", "RS23", "RS26", "RS40"],
   "d3m2-umns": ["RS39", "RS05", "RS26", "RS23", "RS40", "RS28"],
   "d4m1-efile": ["RS51", "RS50", "RS05", "RS44"],

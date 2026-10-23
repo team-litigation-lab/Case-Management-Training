@@ -575,3 +575,13 @@ $1,540.00 in-network contractual adjustment (CO-45) posted 07/10/2026; balance $
 account paid in full and closed; corrected by Renee Halvorsen, Billing Lead, on the firm's request of 07/06/2026.
 *Key:* No plants. Crescent is not an open balance; the only claim on the bill is Peach State's $1,860.00. Exhibit E of RS67.
 
+
+
+**RS74 · LSH Law Group — Closing Letter to John Doe, with Lien Payoff Letters (10/23/2026)** · Day 4 · Case Files · `RS_74_Closing_Letter_with_Lien_Payoffs.pdf`
+Track A's closing letter from the firm to John Doe, the day after the 10/22/2026 disbursement: the three checks received
+(Keystone $10,000.00 09/04, Harbor Point $20,000.00 10/05, Cardinal State $10,000.00 10/13), the Settlement Statement
+he signed 10/21 paid out (fee $13,333.33, costs $486.75, Peach State $1,240.00, Riverton Spine & Rehab $4,580.00, net
+$20,359.92, trust at $0.00), the liens satisfied in the lienholders' own writing, the instruction to send any late bill
+to the firm, no tax advice, and the file closing 10/30/2026 with seven-year retention. Enclosures: Peach State's
+acceptance (RS41, 10/09/2026) and Riverton Spine & Rehab's Payoff Letter (RS42, 10/12/2026).
+*Plant:* none. *Key:* the model closed-file letter; the trainee follows it for Track B's close-out (d5m5-a1).

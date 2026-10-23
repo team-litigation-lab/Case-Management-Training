@@ -6,7 +6,7 @@ packets, the exhibit audits and Amendment Requests (`build/case-flow/exhibits/`)
 document has no route to being caught and fixed, when the documents that prove it open too late for the activity that
 works it, or when a corrected copy has no request behind it.
 
-**73 documents** · **19 plant a challenge** · **2 corrected copies** come back from the trainee's Amendment Requests · D*n* = the Case Flow day.
+**74 documents** · **19 plant a challenge** · **2 corrected copies** come back from the trainee's Amendment Requests · D*n* = the Case Flow day.
 
 ## How the trainee fixes a challenge
 
@@ -135,6 +135,7 @@ with the reason; a complete one brings the provider's answer and the corrected c
 | RS71 | PIP Log — John Doe (Harbor Point PIP) | Insurance, Demands & Negotiation | D2 | Case Files | The firm's own PIP Log (CMS → Insurance tab → PIP Log) | — | d2m4-a1 (D3) |
 | RS72 | Summit Imaging Center — MRI Corrected History Addendum (07/15/2026) | Medical Records | D3 (after d2m4-a1's request) | Medical | Summit's answer to the trainee's Amendment Request (opens when it is sent) | Corrects RS16 | d3m1-a1 (D3), d4m3-a1 (D4) |
 | RS73 | Crescent Pain & Spine — Corrected Patient Statement, $0.00 (07/10/2026) | Bills & Invoices | D3 (after d2m4-a1's request) | Bills | Crescent's answer to the trainee's Amendment Request (opens when it is sent) | Corrects RS26 | d3m1-a1 (D3), d4m3-a1 (D4) |
+| RS74 | LSH Law Group — Closing Letter to John Doe, with Lien Payoff Letters (10/23/2026) | Wages & Costs | D4 | Case Files | The firm's own closing letter (drafted by the Case Manager, signed by Atty. Thorne), with the lienholders' payoff letters | — | d5m5-a1 (D5) |
 
 ## Open sync items (need a decision before they are changed)
 

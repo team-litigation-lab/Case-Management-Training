@@ -38,7 +38,8 @@
     "RS70": "Revealed when the Arbitration Binder audit is handed in",
     "RS71": "The firm's own PIP Log (CMS → Insurance tab → PIP Log)",
     "RS72": "Summit's answer to the trainee's Amendment Request (opens when it is sent)",
-    "RS73": "Crescent's answer to the trainee's Amendment Request (opens when it is sent)"
+    "RS73": "Crescent's answer to the trainee's Amendment Request (opens when it is sent)",
+    "RS74": "The firm's own closing letter (drafted by the Case Manager, signed by Atty. Thorne), with the lienholders' payoff letters"
   },
   "challenges": {
     "RS01": {

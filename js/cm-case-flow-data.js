@@ -6739,6 +6739,7 @@ window.CM_CASE_FLOW = {
            ]
          },
          notes: [
+          "Show the finished closing letter, RS74 in Case Documents (settlement folder, beside the Case Cost Ledger): every figure ties to the signed Settlement Statement, and each lien's satisfaction is the lienholder's own Payoff Letter, attached as Enclosures A and B.",
            "Start at 10/22/2026 with the ledger at $0.00 and ask: “Can we archive today?” Make the room list what is still missing: confirmation numbers, both satisfactions, John Doe's receipt, the payer disclosure, a current W-9, the closing letter and the memo.",
            "The late-bill drill: a statement for Crescent's $1,540.00 arrives after the closing letter. Model answer: verify it against Peach State's EOB (a contractual write-off, no balance billing), route it to Atty. Thorne the same day, on his instruction ask Crescent in writing to correct its account, and tell John Doe today what is happening. Whether he owes anything is Atty. Thorne's to say.",
            "Retention trips people. The deck's schedule purges correspondence from the active server at 3 years, but this firm keeps the closed training file 7 years from closing, and the stricter rule controls. Ask which of John Doe's documents are financial records.",
