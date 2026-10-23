@@ -2,7 +2,8 @@
 //   1. Renewing a session (/api/auth/trainee under single sign-on) is for the record the trainee is already
 //      signed in to: an id in the body for a same-named trainee's record is ignored.
 //   2. A feedback day a trainee writes is always the auto-review: it can never pass for a trainer's sent review.
-//   3. A certificate record is the trainee's own: never written for, or over, another trainee's.
+//   3. A certificate record is the trainee's own: never written for, or over, another trainee's, never rewritten once
+//      issued, only by an approved trainee; a progress record is capped at 2 MB.
 //   4. A trainee's /api/ranking reads only their own record (not one read per trainee).
 //   5. A body that isn't JSON is a 400, and an unhandled error never sends its stack trace to the browser.
 // Usage: node .github/scripts/worker-guards.cjs   (no server, no browser needed)
@@ -60,6 +61,19 @@ async function ticketFor(payloadObj, secret) {
         const forOther = await call('/api/storage/set', { key: 'cert:LSH-CM-2026-BBBBBB', value: JSON.stringify({ certId: 'LSH-CM-2026-BBBBBB', traineeId: a.id }) }, b.token);
         if (theirs.status === 200) fail('a trainee should not overwrite another trainee\'s certificate');
         if (forOther.status === 200) fail('a trainee should not write a certificate in another trainee\'s name');
+        // ... nor rewrite their own once issued, and the name on it is the server's, not the request's
+        const again = await call('/api/storage/set', { key: 'cert:LSH-CM-2026-AAAAAA', value: JSON.stringify({ certId: 'LSH-CM-2026-AAAAAA', traineeId: a.id, name: 'Someone Else' }) }, a.token);
+        if (again.status === 200) fail('an issued certificate should never be rewritten');
+        const certA = kvGet('cert:LSH-CM-2026-AAAAAA');
+        if (!certA || certA.issuedBy !== 'self' || certA.traineeId !== a.id) fail(`a self-issued certificate should be marked self: ${JSON.stringify(certA)}`);
+        // ... and only an approved trainee records one
+        const recB = kvGet(`trainee:${b.id}`) || {}; store.set(`cm:trainee:${b.id}`, JSON.stringify(Object.assign({}, recB, { approved: false })));
+        const unapproved = await call('/api/storage/set', { key: 'cert:LSH-CM-2026-CCCCCC', value: JSON.stringify({ certId: 'LSH-CM-2026-CCCCCC', traineeId: b.id }) }, b.token);
+        if (unapproved.status === 200) fail('a trainee who isn\'t approved should not record a certificate');
+        store.set(`cm:trainee:${b.id}`, JSON.stringify(recB));
+        // 3b. a progress record has a size cap
+        const huge = await call('/api/storage/set', { key: `progress:${a.id}`, value: JSON.stringify({ data: 'x'.repeat(2100000) }) }, a.token);
+        if (huge.status === 200) fail('a progress record over 2 MB should be refused');
 
         // 4. ranking: a trainee's request reads their own record only
         for (let i = 0; i < 30; i++) store.set(`cm:trainee:t${i}--b100926`, JSON.stringify({ id: `t${i}--b100926`, name: `T ${i}`, batch: 'B100926', approved: true }));

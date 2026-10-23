@@ -6224,7 +6224,11 @@ function applyPageHero(){
   if(!eyebrow){ eyebrow = document.createElement("p"); eyebrow.className = "eyebrow"; eyebrow.textContent = PAGE_EYEBROWS[state.view] || "LSH Case Management Training"; }
   hero.appendChild(eyebrow); hero.appendChild(h1); if(sub) hero.appendChild(sub);
 }
+const ENTRY_ANIMS = new Set(["slideInRight", "slideInLeft", "cfxIn"]);
 function afterRender(){
+  // the same slide redrawn (a live update, a toast, a sync): its fade-ins jump to their end before the first paint
+  const still = document.querySelector(".lesson-slide.still");
+  if(still && still.getAnimations) try{ still.getAnimations({subtree:true}).forEach(a=>{ if(ENTRY_ANIMS.has(a.animationName)) a.finish(); }); }catch(e){}
   try{ placePinnedPeek(); }catch(e){}
   syncRouteHash();
   fillNavBack();
@@ -6616,7 +6620,8 @@ async function liveTick(){
         if(fbChanged || foChanged){
           if(fbChanged) toast("💬 New trainer feedback — open 🎯 Focus to read it.");
           else toast("🎯 Your trainer updated your Focus items.");
-          if(!isTyping() && !document.querySelector(".overlay")) render();
+          // mid-lesson the toast is enough (the slide isn't rebuilt under the trainee); elsewhere the page keeps its scroll
+          if(state.view!=="day" && !isTyping() && !document.querySelector(".overlay")){ const scroll = window.scrollY; render(); window.scrollTo(0, scroll); }
         }
       }
       return;
@@ -7117,6 +7122,8 @@ function renderDaySlideshow(d){
   const isLast = idx===total-1;
 
   const slide = slides[idx];
+  // the slide's entry animation runs when the slide changes, not each time the page is redrawn on the same slide
+  const slideKey = `${d.id}:${idx}`, still = state.animSlideKey===slideKey; state.animSlideKey = slideKey;
   state.lastSlide = state.lastSlide || {};
   if(state.lastSlide[d.id] !== idx){ state.lastSlide[d.id] = idx; storeSet("last-slide", state.lastSlide); }
   const inner = `
@@ -7126,7 +7133,7 @@ function renderDaySlideshow(d){
       }).join("")}
     </div>
     <div class="stage-body">
-      <div class="lesson-slide dir-${state.slideDir||'next'}" id="lessonSlideWrap">
+      <div class="lesson-slide dir-${state.slideDir||'next'}${still?" still":""}" id="lessonSlideWrap">
         ${renderDaySlideContent(d, slide, idx)}
       </div>
       <img class="stage-presenter" src="${PRESENTER_IMG}" alt="" aria-hidden="true">
@@ -7269,8 +7276,9 @@ function refreshLessonSlide(){
   if(document.fullscreenElement && document.fullscreenElement.id==="lessonStage" && updateLessonStage()){ narratorAfterRender(); return; }
   render();
   setTimeout(()=>{
-    const el = document.getElementById("lessonSlideWrap");
-    if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+    // only when the slide's top is out of view: no jump when the trainee is already looking at it
+    const el = document.getElementById("lessonSlideWrap"), top = el && el.getBoundingClientRect().top;
+    if(el && (top < 0 || top > window.innerHeight * 0.4)) el.scrollIntoView({behavior:"smooth", block:"start"});
   }, 30);
 }
 
@@ -15940,7 +15948,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-data.js?v=57"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=1"></script>
-<script src="/js/cm-case-flow.js?v=105"></script>
+<script src="/js/cm-case-flow.js?v=106"></script>
 <script src="/js/cm-script-editor.js?v=4"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=4"></script>
