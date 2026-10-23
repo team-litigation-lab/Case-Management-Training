@@ -2123,18 +2123,10 @@ window.cmCaseFlow.back = function(){
   goto("day", r.dayId);
   setTimeout(() => { state.dayViewMode = "slides"; if(typeof goToSlide === "function" && r.slide != null) goToSlide(r.slide); }, 0);
 };
-/* ---------- Admin: where an admin lands, and the tabs grouped in sections ----------
-   An admin who opens the course (from the Main Portal, or a link with no page in it) lands on the Admin screen,
-   not the trainee dashboard; a link to a page (#/day/…, #/admin, …) still opens that page, and once they've moved
-   on, the Dashboard is theirs to open. The Admin screen's nine tabs are grouped as in Foundational Training: a
-   row of sections, then the open section's tabs. A tab not listed goes under Admin Master Control. */
-const BOOT_HASH = String(location.hash || "").replace(/^#\/?/, "");
-let adminLanded = !!BOOT_HASH;
-function adminLanding(){
-  if(adminLanded || !state.isAdmin || state.adminPreview) return;
-  if(state.view === "dashboard"){ adminLanded = true; setTimeout(() => { if(state.view === "dashboard") goto("admin"); }, 0); }
-  else if(!["login", "pendingApproval"].includes(state.view)) adminLanded = true;
-}
+/* ---------- Admin: the tabs grouped in sections ----------
+   An admin lands on the dashboard like everyone else (🛡 Admin is in the top bar). The Admin screen's nine tabs are
+   grouped as in Foundational Training: a row of sections, then the open section's tabs. A tab not listed goes under
+   Admin Master Control. */
 const ADMIN_GROUPS = [
   {id: "admin", label: "🛡 Admin Master Control", tabs: ["audit", "batches", "rankings", "tfeedback"]},
   {id: "modules", label: "📚 Training Modules", tabs: ["sop", "cues", "studio"]},
@@ -2289,7 +2281,7 @@ if(typeof window.renderDaySlideshow === "function"){
 }
 if(typeof window.afterRender === "function"){
   const __after = window.afterRender;
-  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ syncReturn(); sidePresenter(); kcFit(); fitFileCols(); adminLanding(); yearInSide(); }catch(e){} return r; };
+  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ syncReturn(); sidePresenter(); kcFit(); fitFileCols(); yearInSide(); }catch(e){} return r; };
 }
 /* Check Your Work: the reference of what the trainee did in the tool (a CMS Case ID, an e-filing or request number),
    kept on their record and shown to their trainer with the module's Learning Check */
