@@ -4729,10 +4729,10 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-sb-docs .cfx-thumb span{font-size:12.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .cfx-ev{background:#fff;color:#1F2433;border-radius:14px;border:2px solid #DB8437;padding:10px 14px;box-shadow:0 6px 18px rgba(0,0,0,.25);text-align:left;}
 .cfx-ev-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font:700 12.5px 'Inter',sans-serif;color:#3A4256;}
-.cfx-ev-i{font-size:16px;}.cfx-ev-ch{font:800 11px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#B5651F;}
+.cfx-ev-i{font-size:16px;}.cfx-ev-ch{font:800 12.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#A4561A;}
 .cfx-ev-from{color:#262B45;}.cfx-ev-when{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11.5px;}
-.cfx-ev-subj{margin:4px 0 4px;font:800 20px/1.3 'Poppins','Inter',sans-serif;color:#262B45;}
-.cfx-ev-body{margin:0;font:600 17px/1.5 'Inter',sans-serif;color:#1F2335;}
+.cfx-ev-subj{margin:4px 0 6px;font:800 20px/1.3 'Poppins','Inter',sans-serif;color:#262B45;text-align:center;}
+.cfx-ev-body{margin:0;font:700 17px/1.5 'Inter',sans-serif;color:#1A1E2E;text-align:justify;hyphens:auto;}
 .cfx-ev-att{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;}
 .cfx-ev.cfx-ev-before{border-color:#9AA3B5;padding:6px 12px;opacity:.96;}
 .cfx-ev-before .cfx-ev-subj{font-size:15px;margin:2px 0;}.cfx-sb-main .cfx-ev-before p.cfx-ev-body{font-size:13.5px !important;line-height:1.4;}
