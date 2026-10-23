@@ -708,14 +708,16 @@ function toolButtons(tool, blockId){ return toolChips(toolsIn(tool, blockId), bl
 const ddList = c => `<div class="cfx-dd"><div class="cfx-do"><h3>✅ Do</h3><ul>${c.dos.map(x => `<li>${hl(x)}</li>`).join("")}</ul></div>
       <div class="cfx-dont"><h3>⚠️ Don't</h3><ul>${c.donts.map(x => `<li>${hl(x)}</li>`).join("")}</ul></div></div>`;
 const blockById = id => { for(const d of CF.days) for(const m of d.modules){ const b = m.blocks.find(x => x.id === id); if(b) return b; } return null; };
-const CG_ROUNDS = 3;   // a short game: three rounds, the rest of the rules in the full list (📋)
+const CG_ROUNDS = 4;   // a short game: four rounds, two Dos and two Don'ts, the rest of the rules in the full list (📋)
 const CG = {};   // the game on each lesson's slide, for this visit: {round, shown, calls: {i: {pick, ok, pts}}, list}
 function cgRounds(b){
   const c = copyOf(b), k = SLIDES[b.id].clues;
-  const r = c.dos.map((x, i) => ({side: "do", rule: x, clues: k.dos[i]})).concat(c.donts.map((x, i) => ({side: "dont", rule: x, clues: k.donts[i]})));
   let h = 0; for(const ch of b.id) h = (h * 31 + ch.charCodeAt(0)) >>> 0;   // a fixed mix per lesson: the same for the whole class
-  for(let i = r.length - 1; i > 0; i--){ h = (h * 1103515245 + 12345) >>> 0; const j = h % (i + 1); [r[i], r[j]] = [r[j], r[i]]; }
-  return r.slice(0, CG_ROUNDS);
+  const mix = a => { for(let i = a.length - 1; i > 0; i--){ h = (h * 1103515245 + 12345) >>> 0; const j = h % (i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  // balanced: half the rounds Dos, half Don'ts (as many as the lesson has), then mixed so the order gives nothing away
+  const dos = mix(c.dos.map((x, i) => ({side: "do", rule: x, clues: k.dos[i]}))), donts = mix(c.donts.map((x, i) => ({side: "dont", rule: x, clues: k.donts[i]})));
+  const nd = Math.min(dos.length, Math.ceil(CG_ROUNDS / 2)), nn = Math.min(donts.length, CG_ROUNDS - nd);
+  return mix(dos.slice(0, nd).concat(donts.slice(0, nn), dos.slice(nd, nd + CG_ROUNDS - nd - nn)));
 }
 function clueGame(b){
   const g = CG[b.id] = CG[b.id] || {round: 0, shown: 1, calls: {}, list: false}, rounds = cgRounds(b);
@@ -739,6 +741,27 @@ function clueGame(b){
         <button type="button" class="btn btn-sm cfx-cg-dont" onclick="cmCaseFlow.cg('${b.id}','call','dont')">⚠️ It's a Don't</button>
         <small>${4 - g.shown} pt${g.shown === 3 ? "" : "s"} for a right call now</small></div>`;
   return `<div class="cfx-cg" id="cfxCg-${b.id}">${head}<div class="cfx-cg-stage">${cards}</div>${act}</div>`;
+}
+/* The game locks the slide: a trainee calls every round before Next moves on (a trainer, presenting, isn't held) */
+function cgUnfinished(){
+  if(typeof state === "undefined" || state.isAdmin) return null;
+  if((state.lessonSlide || 0) < (state.maxSlideReached || 0)) return null;   // a slide already passed: going back over it isn't held
+  const el = document.querySelector("#lessonSlideWrap .cfx-cg"); if(!el) return null;
+  const id = el.id.replace(/^cfxCg-/, ""), b = blockById(id), g = CG[id]; if(!b) return null;
+  const left = cgRounds(b).length - Object.keys((g && g.calls) || {}).length;
+  return left > 0 ? {id, left} : null;
+}
+if(typeof nextSlide === "function"){
+  const __next = nextSlide;
+  nextSlide = function(){
+    const u = cgUnfinished();
+    if(u){
+      if(typeof toast === "function") toast(`🔒 Finish 3 Clues, 1 Rule first: ${u.left} round${u.left === 1 ? "" : "s"} left to call.`);
+      const el = document.getElementById("cfxCg-" + u.id); if(el){ el.classList.remove("cfx-cg-nudge"); void el.offsetWidth; el.classList.add("cfx-cg-nudge"); }
+      return;
+    }
+    return __next.apply(this, arguments);
+  };
 }
 window.cmCaseFlow = window.cmCaseFlow || {};
 window.cmCaseFlow.cg = function(id, act, arg){
@@ -4228,6 +4251,7 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .np-key li.ok{color:#1d5c3a;} .np-key li.miss{color:#A2410F;}
 /* 3 Clues, 1 Rule */
 .cfx-cg{display:flex;flex-direction:column;gap:12px;text-align:left;}
+.cfx-cg-nudge{animation:cfgShake .45s ease;}
 .cfx-cg-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 .cfx-cg-marq{display:flex;flex-direction:column;background:linear-gradient(135deg,#1B2A4A,#2B3F6B);border:2px solid var(--orange);border-radius:14px;padding:6px 16px;box-shadow:0 0 0 3px rgba(232,119,34,.18);}
 .cfx-cg-marq b{font:800 22px/1.1 'Poppins',var(--font-ui);color:#fff;letter-spacing:.01em;}
