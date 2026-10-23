@@ -41,6 +41,13 @@ What lands on the file and starts the activity: the realistic trigger, as the tr
   pattern must match a trainee's correct note, case-insensitive). The course plays it like a voicemail box and keeps
   the transcript hidden until the trainee checks their notes. `from` is the caller ID, which may not be the number
   to call back.
+- **What happened just before** (`"before": [ {event}, … ]`, optional): events from the same morning or days that
+  set it up (a client calling back, a letter going out), each a full event (date, channel, from, subject, body ≤ 60
+  words) dated on or before the activity's event. The slide shows them above the event, smaller.
+- **A log snapshot** (`"log": {"title", "head": [2–5 columns], "rows": [{"cells": […], "mark"?: "call"|"email"|"esc"}], "note"?}`,
+  optional): a CMS log as it stands when the event lands (the Communications Log of the No Contact Protocol, say),
+  2–10 rows, ≤ 14 words a cell, a "Date" first column in MM/DD/YYYY. The slide shows it in place of the document
+  thumbnails; the activity's documents stay under Your Task's Work From.
 - The date must match the activity's own scenario date where it gives one, and sit in the right place on the
   case timeline. A CMS-generated trigger is `"channel": "alert", "from": "CMS"`.
 - Atty. Thorne's internal asks are `"channel": "memo"` or `"email"` from `Atty. Elijah Thorne`.

@@ -1,5 +1,74 @@
 {
   "events": {
+    "d4m2-arbcal": {
+      "date": "04/26/2027",
+      "time": "10:15 a.m.",
+      "channel": "email",
+      "from": "Laura Whitcomb, Esq. <lwhitcomb@whitcombadr.example>",
+      "to": "Atty. Elijah Thorne · Marcus Bell, Harbor Point · Teresa Okafor, Cardinal State",
+      "subject": "John Doe v. Harbor Point & Cardinal State (HP-26-7741, CS-26-20355): scheduling",
+      "body": "Following my appointment by agreement of the parties, the consolidated UM arbitration is set for hearing on Tuesday, 06/22/2027, at 9:00 a.m.; one day is reserved. Exhibits and witness lists are exchanged 20 days before the hearing; arbitration briefs are due 10 days before. Each side's share of my fee will be invoiced separately.",
+      "attachments": [
+        "RS58"
+      ]
+    },
+    "d4m2-medcal": {
+      "date": "01/08/2027",
+      "time": "10:20 a.m.",
+      "channel": "email",
+      "from": "Atty. Elijah Thorne <ethorne@lshlawgroup.example>",
+      "to": "Case Manager",
+      "subject": "26-CV-04417: Notice of Mediation filed; calendar it",
+      "body": "Notice of Mediation filed: Hon. Carla Benton (Ret.), Thursday 03/18/2027, 9:30 a.m., at her office. Statement and binder due 7 days before; John must attend. Our half of her fee is $1,200.00. Calendar the session and everything that hangs off it, check it against the Scheduling Order and the master calendar, confirm John, and send me the summary today.",
+      "attachments": [
+        "RS55"
+      ]
+    },
+    "d4m1-efile": {
+      "date": "09/22/2026",
+      "time": "8:15 a.m.",
+      "channel": "memo",
+      "from": "Atty. Elijah Thorne",
+      "to": "Case Manager",
+      "subject": "Doe v. Smith: Complaint approved, file it",
+      "body": "The Complaint against Robert Smith is final and approved; it's in Documents under today's date. Have Nadia Brooks prepare the civil cover sheet and summons around it today. I'll review and sign the set tomorrow. File on the 24th, and nothing goes in the envelope that I haven't signed. Calendar everything the filing starts."
+    },
+    "d3m2-umns": {
+      "date": "10/06/2026",
+      "time": "4:20 p.m.",
+      "channel": "memo",
+      "from": "Atty. Elijah Thorne <ethorne@lshlawgroup.example>",
+      "to": "Case Manager",
+      "subject": "John Doe: UM settlement Net Sheet (Stream 2) for my review",
+      "body": "Cardinal State tendered its $10,000 limits today and John has accepted through me, so both UM layers are resolved. Prepare the UM settlement Net Sheet (Stream 2) for my review before I go through it with John. Liens as they stand today, every moving figure marked as a projection, tied to the BI stream. List your questions for me.",
+      "attachments": [
+        "RS39",
+        "RS05"
+      ]
+    },
+    "d3m2-bins": {
+      "date": "08/12/2026",
+      "time": "2:15 p.m.",
+      "channel": "memo",
+      "from": "Atty. Elijah Thorne",
+      "to": "Case Manager",
+      "subject": "KM-26-440871 / John Doe: BI tender, settlement Net Sheet",
+      "body": "Keystone tendered the $10,000 BI limits this morning; Dana Whitfield's email and Smith's affidavit are attached. Before I go over it with John, I need the BI settlement Net Sheet, Stream 1 only: fee, costs, liens as they stand today. Run it on my 25/75 allocation and standing alone, every projection labelled. Nothing about value goes to John from you.",
+      "attachments": [
+        "RS36"
+      ],
+      "before": [
+        {
+          "date": "08/12/2026",
+          "time": "9:20 a.m.",
+          "channel": "email",
+          "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+          "to": "Case Manager, LSH Law Group",
+          "subject": "KM-26-440871 / John Doe: tender of BI limits",
+          "body": "Keystone Mutual tenders its $10,000.00 bodily injury limit on the terms of your 07/20/2026 demand. Mr. Smith's affidavit of no other insurance (08/10) is attached. I will send the release for signature."
+        }
+      ]
+    },
     "d3m1-a1": {
       "date": "07/20/2026",
       "time": "8:05 a.m.",
@@ -46,7 +115,7 @@
       "date": "09/14/2026",
       "time": "11:40 a.m.",
       "channel": "email",
-      "from": "Marcus Bell <marcus.bell@harborpointins.example>",
+      "from": "Marcus Bell <marcus.bell@harborpoint.example>",
       "to": "Case Manager, LSH Law Group",
       "subject": "HP-26-7741 / John Doe: Host UM offer",
       "body": "We have reviewed your Host UM demand. Harbor Point offers $8,000.00. Your client did not treat for two weeks after the accident, and the BI payment has already compensated him for much of this loss. Offer letter attached. Please let me know your client's position.",

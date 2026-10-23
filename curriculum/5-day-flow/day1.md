@@ -41,15 +41,16 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 6. *Lesson* — The Treatment Assessment, SMART Goals & the Care Coordination Plan
 7. *Lesson* — The Standard Treatment Map: Phases, Timelines & Course Correction
 8. *Lesson* — Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
-9. *Lesson* — Client Do's and Don'ts
-10. *Lesson* — Repair Estimates, Total Loss & Loss of Use
-11. *Lesson* — Rental Authorization
-12. *Skill Activity* — Opening John Doe's File in the CMS
-13. *Skill Activity* — Client Onboarding Direction Packet
-14. *Skill Activity* — Onboarding Direction Assignment in System
-15. *Skill Activity* — Whose Rental Is It? The Civic Investigation
-16. *Knowledge Check* — CM Fundamentals Knowledge Check
-17. *Knowledge Check* — PD & Onboarding Knowledge Audit
+9. *Lesson* — The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000 (condensed)
+10. *Lesson* — Client Do's and Don'ts
+11. *Lesson* — Repair Estimates, Total Loss & Loss of Use
+12. *Lesson* — Rental Authorization
+13. *Skill Activity* — Opening John Doe's File in the CMS
+14. *Skill Activity* — Client Onboarding Direction Packet
+15. *Skill Activity* — Onboarding Direction Assignment in System
+16. *Skill Activity* — Whose Rental Is It? The Civic Investigation
+17. *Knowledge Check* — CM Fundamentals Knowledge Check
+18. *Knowledge Check* — PD & Onboarding Knowledge Audit
 
 **End-of-day discussion (trainer):** Robert Smith's carrier has already called John Doe, and he needs a car to get to work. What do you tell him today, in what order, and what has to be on the file before tomorrow's claim set-up?
 
@@ -57,7 +58,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 1 — Intake, Claims & Property Damage
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check
 
 ### 1.1.1 The Case Manager's Role
 
@@ -726,7 +727,94 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 1.1.9 Client Do's and Don'ts
+### 1.1.9 The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000
+
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage (condensed) · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Topic:** A state-specific PIP rule: what Florida requires, who can make the finding, and why Riverton's file has no such rule  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D2#22` The Valuation Baseline: The EMC and the Benefit Ceiling · `D1#36` The Standard Treatment Map · `D1#37` Treatment Road Map Mastery & the Clinical Pathway Flowchart · `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · Newly authored: Florida's EMC rule stated explicitly (Fla. Stat. § 627.736(1)(a): 14-day initial care, EMC by MD, DO, dentist, PA or APRN, $2,500 vs $10,000, 80% medical and 60% lost income, chiropractor cannot determine EMC, no massage or acupuncture) and contrasted with Riverton's add-on PIP, which has no EMC rule
+
+#### 1 · Visual Layout Description
+
+A two-lane comparison under a thin header strip reading STATE-SPECIFIC: CONFIRM THE STATUTE. Top lane, navy, labelled FLORIDA · FLA. STAT. § 627.736(1)(a): a horizontal timeline starting at a node DOL, a solid band fourteen day-ticks wide labelled INITIAL CARE WITHIN 14 DAYS, ending at a gate. Past the gate the lane forks into two buckets: a small grey bucket labelled $2,500 · NO EMC DETERMINATION and a large orange bucket labelled $10,000 · EMC DETERMINED BY MD · DO · DENTIST · PA · APRN. A small chip on the gate reads CHIROPRACTOR: INITIAL CARE YES · EMC FINDING NO. Under the buckets, a thin rule: PIP PAYS 80% OF MEDICAL · 60% OF LOST INCOME. Bottom lane, muted, labelled RIVERTON · JOHN DOE'S FILE: one plain bar, HARBOR POINT PIP $5,000 · 100% MEDICAL · 80% LOST INCOME, stamped NO EMC RULE · NO 14-DAY CONDITION. Between the lanes, a dashed callout pinned to 02/20/2026 reads HAD THIS FILE BEEN IN FLORIDA: DAY 14, THE LAST DAY INSIDE THE WINDOW (HYPOTHETICAL). The argument: the rule lives in the state's statute, so the Case Manager reads the file's state before working the clock.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* PIP rules are set state by state, and the Emergency Medical Condition rule is Florida's. On a Florida file it decides, within days of the accident, whether PIP pays any medical benefits at all and whether the client has $2,500 or $10,000 to draw on. A missed 14-day window or a missing EMC finding cannot be fixed later by a better demand. John Doe's file is in Riverton, an add-on PIP state with no EMC rule, so his $5,000 of Harbor Point PIP is not capped by one. You still need to know the rule cold, because the day you open a Florida file the clock starts at the date of loss, and you are the one who calendars it.
+
+1. Know which state's PIP rule governs before you work a PIP file. The EMC rule is Florida's (Fla. Stat. § 627.736(1)(a), from the 2012 PIP reform, HB 119). Riverton, John Doe's state, has no EMC rule and no 14-day condition; never apply Florida's rule to his file.
+2. Florida PIP is $10,000 per person. It pays 80% of reasonable medical expenses and 60% of lost gross income, regardless of fault.
+3. The 14-day rule: initial services and care must be received within 14 days after the motor vehicle accident. If they are not, Florida PIP pays nothing for medical benefits. Calendar the 14th day from the date of loss at intake.
+4. The EMC rule: the full $10,000 medical benefit is available only if a physician (MD or DO), a dentist, a physician assistant or an advanced practice registered nurse determines the injured person had an Emergency Medical Condition. Without that determination, medical benefits stop at $2,500.
+5. A chiropractor may provide the initial care inside the 14 days, but a chiropractor cannot make the EMC determination. A file treating only with a chiropractor stays in the $2,500 bucket until a qualifying provider makes the finding.
+6. Massage and acupuncture are not reimbursable under Florida PIP, whoever provides them.
+7. What an EMC is: a medical condition manifesting itself by acute symptoms of sufficient severity, which may include severe pain, such that the absence of immediate medical attention could reasonably be expected to result in serious jeopardy to patient health, serious impairment to bodily functions, or serious dysfunction of a bodily organ or part. Deciding whether that is true is the provider's clinical judgment, never yours.
+8. Request the EMC determination in the records from a qualifying provider, and log which bucket the file is in ($2,500 or $10,000) in the PIP Log as each bill is paid.
+9. Flag a missing EMC determination, or a first visit on or after the 14th day, to Atty. Thorne the day you see it. What it means for the claim is his call.
+10. Confirm the current statute on every Florida file. Florida's legislature has repeatedly considered repealing PIP, so the numbers here are the rule as written since 2013, not a promise that it is still in force.
+
+> ⚠️ **UPL boundary.** The provider decides whether an Emergency Medical Condition exists; Atty. Thorne decides what a missing EMC or a late first visit means for the claim. You calendar, request, log and flag.
+
+> ⚠️ **UPL boundary.** Tell a client the deadline and where and when care is available: facts and logistics only. Never tell him he needs care, what care to get, or that skipping it will hurt his case.
+
+#### 2 · Slide Body — Show Them
+
+*Florida's rule beside Riverton's, with John Doe's dates as a hypothetical contrast (his file is in Riverton: no EMC rule applies to it)*
+
+| Rule point | Florida (Fla. Stat. § 627.736(1)(a)) | Riverton (John Doe's file) | Had this file been in Florida (hypothetical) |
+|---|---|---|---|
+| PIP limit and what it pays | $10,000; 80% of reasonable medical expenses, 60% of lost income | Harbor Point PIP $5,000; 100% of reasonable medical expenses, 80% of lost income | Each bill paid at 80%, not 100% |
+| Initial care deadline | Within 14 days after the accident, or no PIP medical benefits | None | DOL 02/06/2026; first treatment 02/20/2026 is day 14, the last day inside the window |
+| Who can make the EMC determination | MD, DO, dentist, physician assistant, APRN | No EMC rule | Riverton Urgent Care's Nina Patel, PA-C, is a type of provider who could; whether one was made is in her record |
+| Chiropractic care | May give initial care; cannot make the EMC determination | No EMC rule | Riverton Spine & Rehab (Dr. Mark Ellison, DC, chiropractic + PT) could not make the finding |
+| Without an EMC determination | Medical benefits capped at $2,500 | No cap below the $5,000 limit | $2,500 of the $10,000 until a qualifying provider documents an EMC |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| A Florida PIP file is opened at intake | Calendar the 14-day initial-care deadline from the date of loss; tell the client the deadline and where and when care is available (facts and logistics only) | CMS → Calendar · CMS → Communications Log | Deadline docketed the same day; the call logged with no medical recommendation |
+| The first treatment record arrives | Check the visit date against day 14, who saw the client (MD, DO, dentist, PA, APRN or chiropractor), and whether an EMC determination is documented | Medical Records Requests · CMS → Case File → Risk Flags | Date, provider type and EMC status logged with the source record |
+| No EMC determination in a qualifying provider's record | Ask the provider's office whether an EMC was assessed and documented, and request the determination in the records | Medical Records Requests · Email Workspace | Request dated; the provider's answer on file |
+| A PIP payment posts, or a gap is found | Update the $2,500 or $10,000 bucket in the PIP Log; flag a missing EMC or a late first visit to Atty. Thorne | CMS → Insurance tab → PIP Log · CMS → Tasks → Escalate | Bucket current; the flag routed the same day |
+
+**Best practices & pitfalls**
+
+- Read the file's state before you read its PIP: the EMC rule is Florida's, not every state's.
+- Count the 14 days from the date of loss and docket the 14th day at intake, not when the first bill arrives.
+- Write the provider's credential (MD, DO, PA-C, APRN, DC) next to every visit in the treatment log, so an EMC gap shows at a glance.
+- Confirm the current Florida statute before relying on any number in this lesson.
+- ⚠️ Pitfall: telling a Riverton client his PIP is capped at $2,500 without an EMC. Riverton has no EMC rule.
+- ⚠️ Pitfall: treating a chiropractor's note as an EMC determination.
+- ⚠️ Pitfall: telling a client he needs to see a doctor to “get the full $10,000”. Share the deadline and the logistics; the care decision is his and his provider's.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **10%** | State identified | Names Florida as the EMC state and Riverton as having no EMC rule; never applies the cap to John Doe's file |
+| 🤖 AI | **20%** | Florida numbers | States $10,000, 80% medical, 60% lost income, 14 days, $2,500 without an EMC, accurately |
+| 🤖 AI | **15%** | Qualifying providers | Names MD, DO, dentist, PA and APRN; says a chiropractor can give initial care but not the EMC determination |
+| 🤖 AI | **15%** | Hypothetical worked | Places 02/20/2026 as day 14 from 02/06/2026 and labels the Florida contrast as hypothetical |
+| 🧑‍🏫 Trainer | **20%** | Clinical line | Leaves the EMC finding to the provider and gives the client facts and logistics only, no care recommendation |
+| 🧑‍🏫 Trainer | **20%** | Legal line | Flags a missing EMC or late first visit to Atty. Thorne without saying what it does to the claim |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Say it plainly at the start: John Doe's file is in Riverton, which has no EMC rule. This lesson teaches the Florida rule because a Case Manager will meet it, and every John Doe example on the slide is labelled hypothetical.
+- Ask: “On a Florida file with a 02/06/2026 date of loss, what is the last day for initial care?” 02/20/2026, day 14. John's first visit fell on exactly that day; in Florida that is cutting it as close as it gets.
+- Ask: “Can Dr. Mark Ellison make the EMC determination?” No: a chiropractor can give initial care but not the EMC finding. Then: “Who decides whether John had an EMC?” Only the provider.
+- Remind the room that PIP is set state by state and Florida has debated repealing it more than once: confirm the current statute before relying on any number.
+
+---
+
+### 1.1.10 Client Do's and Don'ts
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Protecting the claim from the client's own good intentions  
@@ -804,7 +892,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.10 Repair Estimates, Total Loss & Loss of Use
+### 1.1.11 Repair Estimates, Total Loss & Loss of Use
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Repair, or total? And what the client is owed either way  
@@ -885,7 +973,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.11 Rental Authorization
+### 1.1.12 Rental Authorization
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** A rental the policy actually pays for, confirmed before the client collects a car  
@@ -901,13 +989,15 @@ A four-chip flow across the upper half: WHOSE COVERAGE PAYS? → WHO AUTHORIZES?
 *Why:* A rental is the first money question a client asks, and the easiest place for them to get hurt: a car collected on a promise, at a rate or for days nobody authorized, becomes a bill that lands on the client. Rental belongs to the Property Damage claim, so it is the vehicle owner's to make. On this file that is Margaret Doe, the Civic's owner, not John Doe, who was her passenger.
 
 1. Rental is part of the Property Damage claim, and it belongs to the vehicle's owner. John Doe was a passenger; the Civic is Margaret Doe's, so the rental is hers to claim.
-2. Find whose coverage pays. The third-party rental comes from the adverse carrier's Property Damage coverage, here Keystone's. The owner's own policy, or the rental company's self-insurance, is used only where there is no 3P coverage, such as a liability denial or an unresolved dispute over fault.
-3. Confirm who authorizes the rental (the adverse carrier on accepted liability, or the owner's own carrier) and check the Dec Page for a rental reimbursement endorsement.
-4. Record the authorized daily rate cap before the client collects a vehicle. Anything above the cap is the client's cost.
-5. Record the duration limit: coverage usually runs 30 days at most, unless the Dec Page says otherwise. Calendar the last covered day and tell the client before it arrives.
-6. A comparable vehicle, not an upgrade: the class of car the client lost. An upgrade's difference is the client's cost.
-7. Get it in writing: Keystone's rental authorization (Form KM-PD 210) is filed in CMS → Documents, and every parameter goes in CMS → Property Damage before collection.
-8. The Property Damage carve-out lets the adverse carrier discuss the rental with the owner. If the call moves to injuries or the facts of the loss, it stops and routes to the firm.
+2. Find whose coverage pays, in order. First the adverse carrier's Property Damage coverage (3P), here Keystone's, on accepted liability.
+3. If 3P coverage is unavailable (liability denied or still disputed, no PD coverage on the at-fault driver, or its limit used up), check the owner's own policy (1P): Collision or Comprehensive for the vehicle, and Rental Reimbursement coverage for the rental, on the Dec Page. The 1P carrier pays and then pursues the at-fault party; the owner's deductible is claimed back the same way.
+4. If no coverage applies at all, the rental and the repair are the owner's out-of-pocket cost. Tell the owner before they collect a car, keep every receipt and invoice in CMS → Documents, and log each amount for reimbursement in the Property Damage claim.
+5. Confirm who authorizes the rental (the adverse carrier on accepted liability, or the owner's own carrier) and check the Dec Page for a rental reimbursement endorsement.
+6. Record the authorized daily rate cap before the client collects a vehicle. Anything above the cap is the client's cost.
+7. Record the duration limit: coverage usually runs 30 days at most, unless the Dec Page says otherwise. Calendar the last covered day and tell the client before it arrives.
+8. A comparable vehicle, not an upgrade: the class of car the client lost. An upgrade's difference is the client's cost.
+9. Get it in writing: Keystone's rental authorization (Form KM-PD 210) is filed in CMS → Documents, and every parameter goes in CMS → Property Damage before collection.
+10. The Property Damage carve-out lets the adverse carrier discuss the rental with the owner. If the call moves to injuries or the facts of the loss, it stops and routes to the firm.
 
 > ⚠️ **UPL boundary.** You confirm coverage facts and explain the process. Whether to dispute a cutoff or a rate, and what the owner should accept, is Atty. Thorne's call.
 
@@ -936,6 +1026,8 @@ A four-chip flow across the upper half: WHOSE COVERAGE PAYS? → WHO AUTHORIZES?
 - Calendar the last covered day and warn the client before it.
 - ⚠️ Pitfall: sending a client to pick up a car before the authorization is confirmed.
 - ⚠️ Pitfall: treating the rental as the passenger's claim instead of the owner's.
+- Keep every out-of-pocket rental and repair receipt: it is the proof for reimbursement.
+- ⚠️ Pitfall: telling the owner there is no rental before checking their own policy for Rental Reimbursement.
 
 #### 3 · Knowledge Check & CM Summary
 
@@ -945,7 +1037,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **25%** | Whose coverage pays | The adverse carrier's Property Damage coverage for the 3P rental; the owner's policy or the rental company's only without 3P coverage |
+| 🤖 AI | **25%** | Whose coverage pays | In order: the adverse carrier's Property Damage coverage; if unavailable, the owner's Collision or Comprehensive and Rental Reimbursement; if none, out of pocket with every receipt kept for reimbursement |
 | 🤖 AI | **20%** | Rental parameters | Authorizer, endorsement, rate cap and duration recorded before collection |
 | 🤖 AI | **15%** | Whose claim | The rental placed on the owner's Property Damage claim, not the passenger's |
 | 🧑‍🏫 Trainer | **25%** | Client-facing clarity | Limits explained so the client is never surprised by a bill |
@@ -961,7 +1053,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.12 Opening John Doe's File in the CMS
+### 1.1.13 Opening John Doe's File in the CMS
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Skill Activity — from raw file to an active matter  
@@ -972,7 +1064,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 The CMS New Case screen as a large mock-up on the left two-thirds: a Conflict Check panel at the top with a green LOGGED stamp, then the matter fields (DOL, SOL, client position) with two fields outlined in orange where the draft was wrong. On the right, a vertical checklist of the intake documents (intake sheet, supplement, CMS record, retainer, HIPAA, Police Report), each with a filed tick and its CMS category in mono type.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** 02/09/2026. The raw file from “On the Records” is in: the New Client Intake Sheet, the intake supplement, the signed retainer and claim-specific HIPAA authorization, and the Riverton PD crash report. A colleague keyed a draft intake record into the CMS. Atty. Thorne wants the matter active today.
 
@@ -1034,7 +1126,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.13 Client Onboarding Direction Packet
+### 1.1.14 Client Onboarding Direction Packet
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Skill Activity 1 — assemble what the client gets on day one  
@@ -1045,7 +1137,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 An exploded packet: a central navy folder with six document cards fanned around it in a semicircle, each numbered with an orange badge — ① Do's and Don'ts ② Treatment directions ③ Property Damage and rental ④ Communication protocol ⑤ Document retention ⑥ Firm contacts and escalation path — each showing two or three bullet previews in small type. Beneath the fan, a delivery bar of three chips: PREPARED → DELIVERED → LOGGED, the third noting the required date and method.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** John Doe's retainer is signed and the matter is open in the CMS. Nothing has been sent to him yet, and he has already had one call from Robert Smith's carrier.
 
@@ -1105,7 +1197,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.14 Onboarding Direction Assignment in System
+### 1.1.15 Onboarding Direction Assignment in System
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Skill Activity 2 — turn directions into tracked tasks  
@@ -1116,7 +1208,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 A CMS task board in three columns — ASSIGNED · DUE · VERIFIED — with direction cards moving across them. Each card carries an owner chip (Client or CM), a due date and a small verification icon. Four cards are placed as examples; four wait in the left column for the trainee's owners and dates. One card is deliberately mis-assigned, with the client as owner of a task only the firm can do, and carries a red overdue flag; trainees must catch and reassign it. A slim legend in the right margin maps chip colour to owner.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** John Doe's onboarding packet has been delivered and logged. The directions now need to become tracked obligations, not a document he was sent once.
 
@@ -1175,7 +1267,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.15 Whose Rental Is It? The Civic Investigation
+### 1.1.16 Whose Rental Is It? The Civic Investigation
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Skill Activity 3 — investigate the PD and rental claim from the records  
@@ -1186,7 +1278,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 An evidence board: four document cards (Police Report, Intake Sheet, Intake Supplement, Keystone PD letter) pinned in a row, each with one highlighted field and a red string running to a central card that reads OWNER · CLAIMANT · OUR CLIENT? with three blank lines.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** 02/11/2026. Keystone PD (Leah Moran) emails the firm to confirm the claimant on the 2019 Honda Civic so a rental can be set up once liability is decided. John Doe calls: he needs a car to get to his first appointment and asks whether the rental is his. Nobody has yet written down whose claim it is.
 
@@ -1246,7 +1338,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.16 CM Fundamentals Knowledge Check
+### 1.1.17 CM Fundamentals Knowledge Check
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1355,7 +1447,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 1.1.17 PD & Onboarding Knowledge Audit
+### 1.1.18 PD & Onboarding Knowledge Audit
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1398,45 +1490,48 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (13 questions):
+**Auto-graded share of the day's Knowledge Check** (14 questions):
 
 1. The Property Damage carve-out in the LOR lets the adverse carrier talk to the client about:  
    Injuries and treatment · **✓ The Property Damage claim only** · Anything except settlement figures · A Recorded Statement  
    *Only the resolution of the Property Damage claim. Anything else routes to the firm.*
 2. On a rental vehicle, whose coverage provides it?  
    The rental company's self-insurance · **✓ The adverse carrier's Property Damage coverage** · The client's own personal auto policy · The client's Health Plan  
-   *The 3P rental comes from the adverse carrier's Property Damage coverage. The client's own policy is used only where there is no 3P coverage.*
-3. Actual cash value (ACV) is:  
+   *The 3P rental comes from the adverse carrier's Property Damage coverage first. The owner's own policy is the fallback, only where 3P coverage is unavailable.*
+3. The adverse carrier denies liability, so its Property Damage coverage won't pay the rental. What do you check next?  
+   Nothing: the owner pays and the rental is lost for good · **✓ The owner's own policy: Collision or Comprehensive for the vehicle, and Rental Reimbursement coverage** · The passenger's injury claim · The client's Health Plan  
+   *The owner's 1P coverage is next: Collision or Comprehensive for the vehicle, and Rental Reimbursement on the Dec Page. If there is none, the owner pays out of pocket and keeps every receipt, claimed for reimbursement in the Property Damage claim.*
+4. Actual cash value (ACV) is:  
    What is still owed on the loan · **✓ The vehicle's pre-loss market value** · The cost of a new replacement · The Repair Estimate plus storage  
    *Pre-loss market value, not the loan balance and not replacement with new.*
-4. Which document best proves hidden structural damage?  
+5. Which document best proves hidden structural damage?  
    The initial insurance estimate · **✓ The body shop's supplementals on the final bill** · The client's photos of the interior · The tow receipt  
    *Compare the estimate with the final bill: supplementals are often the best proof of hidden structural damage.*
-5. Before any Property Damage outcome is discussed with John Doe, what must be in the file?  
+6. Before any Property Damage outcome is discussed with John Doe, what must be in the file?  
    The carrier's verbal offer · **✓ The written Repair Estimate** · The rental agreement · The client's own estimate  
    *No estimate, no position: get the written Repair Estimate before discussing any outcome with the client.*
-6. Keystone Mutual's adjuster asks John Doe for a Recorded Statement about the crash. What has the firm told him to do?  
+7. Keystone Mutual's adjuster asks John Doe for a Recorded Statement about the crash. What has the firm told him to do?  
    Give it, briefly · Give it, but only about the Civic · **✓ Give no Recorded Statement: all adverse contact routes through the firm** · Give it if the adjuster promises a quick settlement  
    *The client gives no Recorded Statement to the adverse carrier. Only the Property Damage claim is carved out; injuries and the facts of the loss route to the firm.*
-7. A vehicle is a Total Loss when:  
+8. A vehicle is a Total Loss when:  
    The client no longer wants it · **✓ The cost to repair reaches the carrier's threshold measured against its actual cash value** · Any frame damage is found · The repair takes longer than 30 days  
    *Confirm the threshold basis the carrier is applying, in writing. Actual cash value is the pre-loss market value.*
-8. Keystone asks the firm to confirm the claimant on the parked 2019 Honda Civic. From the records, whose Property Damage and rental claim is it?  
+9. Keystone asks the firm to confirm the claimant on the parked 2019 Honda Civic. From the records, whose Property Damage and rental claim is it?  
    John Doe's: he called about the rental first · **✓ The owner's, as the Police Report and the intake records show; John Doe, a passenger who owns no car, has none** · Kevin Alvarez's, as host driver · Robert Smith's carrier decides whose it is  
    *The claim belongs to the vehicle's owner, found in the Police Report's Unit 3 box and the Intake Supplement. A passenger who owns no car has no PD or rental claim; the CM records the finding and tells the attorney.*
-9. An owner is without her car while it is in the shop. Loss of Use is:  
+10. An owner is without her car while it is in the shop. Loss of Use is:  
    Included in the repair payment · **✓ Claimable for each day without a vehicle, measured by a comparable rental, separately from the repair or ACV payment** · Owed only if the car is a Total Loss · Paid by her Health Plan  
    *Loss of Use is a separate claim. Asserting it is counsel's position, and the governing rule is confirmed for the file.*
-10. The Civic sits in storage while its valuation is disputed. Why settle its disposition quickly?  
+11. The Civic sits in storage while its valuation is disputed. Why settle its disposition quickly?  
    **✓ Storage and towing accrue daily and eat the recovery** · Property Damage must be claimed within 30 days · The body shop will sell it · The carrier stops paying the rental at once  
    *Storage and towing charges accrue daily. Document and escalate a disputed valuation; don't argue it ad hoc with the adjuster.*
-11. On 02/18/2026 Keystone authorizes a rental on the Civic. John Doe calls: he needs a car to get to treatment and asks to pick it up. What do you do?  
+12. On 02/18/2026 Keystone authorizes a rental on the Civic. John Doe calls: he needs a car to get to treatment and asks to pick it up. What do you do?  
    Set the rental up in his name: he was in the crash and he is the client · Ask Keystone to open a second rental for him under the BI claim · **✓ Explain that the rental belongs to the Civic's owner, Margaret Doe; as a passenger who owns no car he has no PD or rental claim. Then solve his real problem: his rides to treatment** · Tell him to use his mother's rental as his own until she needs it  
    *Rental follows the vehicle. The Police Report's Unit 3 box names Margaret Doe as the Civic's owner, and John Doe was the Escape's front-seat passenger who owns no car, so the PD and rental claim is hers. Record the finding, tell Atty. Thorne, and treat his need as what it is: transport to care, planned and logged.*
-12. Margaret Doe's rental from Keystone starts 02/18/2026, and her Dec Page sets no longer period. John Doe rides with her to treatment. What goes on the calendar, and why?  
+13. Margaret Doe's rental from Keystone starts 02/18/2026, and her Dec Page sets no longer period. John Doe rides with her to treatment. What goes on the calendar, and why?  
    Nothing: the rental is her claim, so its end is no concern of John Doe's file · **✓ The rental's last covered day, 03/19/2026 (usually 30 days at most), as a treatment risk, with John Doe's rides planned before it** · A request to extend the rental in John Doe's name · The rental's end at settlement  
    *Coverage usually runs 30 days at most unless the Dec Page says otherwise. The rental is Margaret Doe's, not John Doe's, but its cutoff takes away his ride to care, so the Case Plan calendars 03/19/2026 as a treatment risk and the rides are planned before it.*
-13. Keystone authorizes a compact car for the Civic; Margaret Doe picks up an SUV. Who pays the difference?  
+14. Keystone authorizes a compact car for the Civic; Margaret Doe picks up an SUV. Who pays the difference?  
    Keystone, as the adverse carrier · **✓ The owner: the authorization covers a comparable vehicle, not an upgrade** · The firm, from its costs · Harbor Point, under John Doe's PIP  
    *The authorization covers a comparable vehicle at the authorized daily rate; an upgrade's difference is the owner's cost. Confirm the vehicle class before pickup.*
 

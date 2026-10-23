@@ -106,6 +106,45 @@ becomes a filed document.
   firm keeps this kind of document in — the filing keeps a copy there, as it does for a case document.
   `model` is the document id of the finished memorandum.
 
+## amendments — records wrong at their source (the pre-demand audit's Amendment Requests)
+
+One per activity that screens the file for records a provider must correct. A Case Manager never fixes a provider's
+record or statement: the request goes with Atty. Thorne's approval, the provider corrects its own record (a medical
+record only by a dated addendum, the original kept), and the corrected copy is filed beside the original.
+
+```json
+"d2m4-a1": {
+  "title": "…", "kicker": "…", "intro": "…",
+  "screen": [{"doc": "RS14", "why": "…"}, {"doc": "RS16"}],
+  "requests": [{
+    "doc": "RS16", "corrected": "RS72", "proof": ["RS12"],
+    "wrong": "…", "to": "…", "cc": "…", "subject": "…", "attachment": "…", "brief": "…",
+    "required": [{"id": "…", "label": "…", "hint": "…", "match": ["regex", …]}],
+    "forbidden": [{"id": "…", "label": "…", "why": "…", "match": ["regex", …]}],
+    "reply": {"from": "…", "date": "…", "time": "…", "subject": "…", "body": "…"},
+    "next": {"q": "…", "choices": [{"label": "…", "ok": false, "why": "…"}]},
+    "protects": "…", "model": "…"
+  }]
+}
+```
+- `screen` — 6–14 documents from the activity's packet, the trainee calls each "fit to use" or "wrong at its source".
+  A document that needs a request carries no `why` (its feedback is the request's `wrong`); every other one has a
+  `why` ≤ 30 words saying what makes it sound. At least three are fit to use.
+- `requests` — 1–4, one per document wrong at its source (each must carry `PLANTED` in its manifest key):
+  - `corrected` — the document id of the corrected copy the answer brings, or `null` when the provider does not
+    correct it (then `next` is required: the decision that leaves, 2–4 `choices`, exactly one `ok`). A corrected copy
+    carries `amends` (this document) and `unlock` (this activity) in the manifest, is not in the activity's packet,
+    and opens to a trainee only once their request is sent.
+  - `wrong` ≤ 40 words; `brief` ≤ 55; `protects` ≤ 45 (what the correction protects in the demand).
+  - `required` — 4–6 elements, tested like the service confirmation's; one of them routes the request through
+    Atty. Thorne. `hint` ≤ 24 words. `forbidden` — what a request must never do (ask for clinical findings to change,
+    concede a debt, share the case's value); any match refuses the email with its `why` ≤ 40 words.
+  - `reply` ≤ 130 words, in the provider's voice. `model` ≤ 170 words: the firm's own request. It must pass every
+    `required` element and trip no `forbidden` one — the assembler checks, so a pattern that would refuse a correct
+    email fails the build — and the trainee reads theirs against it in the feedback.
+- Every figure, date and name follows the same rule as the audits: found in the case file, the lesson data, the
+  manifest or the documents the request draws on (`doc`, `corrected`, `proof`).
+
 ## The audits follow the lessons and the practice case
 
 Nothing here is a fact of its own. Every figure, date and name in an audit or a confirmation is a restatement

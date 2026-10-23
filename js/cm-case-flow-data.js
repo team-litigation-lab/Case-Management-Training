@@ -1193,7 +1193,10 @@ window.CM_CASE_FLOW = {
          a: 1, r: "Only the resolution of the Property Damage claim. Anything else routes to the firm."},
         {q: "On a rental vehicle, whose coverage provides it?",
          opts: ["The rental company's self-insurance", "The adverse carrier's Property Damage coverage", "The client's own personal auto policy", "The client's Health Plan"],
-         a: 1, r: "The 3P rental comes from the adverse carrier's Property Damage coverage. The client's own policy is used only where there is no 3P coverage."},
+         a: 1, r: "The 3P rental comes from the adverse carrier's Property Damage coverage first. The owner's own policy is the fallback, only where 3P coverage is unavailable."},
+        {q: "The adverse carrier denies liability, so its Property Damage coverage won't pay the rental. What do you check next?",
+         opts: ["Nothing: the owner pays and the rental is lost for good", "The owner's own policy: Collision or Comprehensive for the vehicle, and Rental Reimbursement coverage", "The passenger's injury claim", "The client's Health Plan"],
+         a: 1, r: "The owner's 1P coverage is next: Collision or Comprehensive for the vehicle, and Rental Reimbursement on the Dec Page. If there is none, the owner pays out of pocket and keeps every receipt, claimed for reimbursement in the Property Damage claim."},
         {q: "Actual cash value (ACV) is:",
          opts: ["What is still owed on the loan", "The vehicle's pre-loss market value", "The cost of a new replacement", "The Repair Estimate plus storage"],
          a: 1, r: "Pre-loss market value, not the loan balance and not replacement with new."},
@@ -1426,7 +1429,9 @@ window.CM_CASE_FLOW = {
           why: "A rental is the first money question a client asks, and the easiest place for them to get hurt: a car collected on a promise, at a rate or for days nobody authorized, becomes a bill that lands on the client. Rental belongs to the Property Damage claim, so it is the vehicle owner's to make. On this file that is Margaret Doe, the Civic's owner, not John Doe, who was her passenger.",
           rules: [
             "Rental is part of the Property Damage claim, and it belongs to the vehicle's owner. John Doe was a passenger; the Civic is Margaret Doe's, so the rental is hers to claim.",
-            "Find whose coverage pays. The third-party rental comes from the adverse carrier's Property Damage coverage, here Keystone's. The owner's own policy, or the rental company's self-insurance, is used only where there is no 3P coverage, such as a liability denial or an unresolved dispute over fault.",
+            "Find whose coverage pays, in order. First the adverse carrier's Property Damage coverage (3P), here Keystone's, on accepted liability.",
+            "If 3P coverage is unavailable (liability denied or still disputed, no PD coverage on the at-fault driver, or its limit used up), check the owner's own policy (1P): Collision or Comprehensive for the vehicle, and Rental Reimbursement coverage for the rental, on the Dec Page. The 1P carrier pays and then pursues the at-fault party; the owner's deductible is claimed back the same way.",
+            "If no coverage applies at all, the rental and the repair are the owner's out-of-pocket cost. Tell the owner before they collect a car, keep every receipt and invoice in CMS → Documents, and log each amount for reimbursement in the Property Damage claim.",
             "Confirm who authorizes the rental (the adverse carrier on accepted liability, or the owner's own carrier) and check the Dec Page for a rental reimbursement endorsement.",
             "Record the authorized daily rate cap before the client collects a vehicle. Anything above the cap is the client's cost.",
             "Record the duration limit: coverage usually runs 30 days at most, unless the Dec Page says otherwise. Calendar the last covered day and tell the client before it arrives.",
@@ -1463,7 +1468,9 @@ window.CM_CASE_FLOW = {
           "Confirm every rental parameter in writing before the client collects a car.",
           "Calendar the last covered day and warn the client before it.",
           "Pitfall: sending a client to pick up a car before the authorization is confirmed.",
-          "Pitfall: treating the rental as the passenger's claim instead of the owner's."
+          "Pitfall: treating the rental as the passenger's claim instead of the owner's.",
+          "Keep every out-of-pocket rental and repair receipt: it is the proof for reimbursement.",
+          "Pitfall: telling the owner there is no rental before checking their own policy for Rental Reimbursement."
         ],
         sources: [
           "Case file: Keystone Mutual's claim correspondence, the rental authorization and the rental cutoff (RS32)",
@@ -1471,7 +1478,7 @@ window.CM_CASE_FLOW = {
         ],
         rubric: {
           ai: [
-            ["Whose coverage pays", 25, "The adverse carrier's Property Damage coverage for the 3P rental; the owner's policy or the rental company's only without 3P coverage"],
+            ["Whose coverage pays", 25, "In order: the adverse carrier's Property Damage coverage; if unavailable, the owner's Collision or Comprehensive and Rental Reimbursement; if none, out of pocket with every receipt kept for reimbursement"],
             ["Rental parameters", 20, "Authorizer, endorsement, rate cap and duration recorded before collection"],
             ["Whose claim", 15, "The rental placed on the owner's Property Damage claim, not the passenger's"]
           ],
@@ -1686,7 +1693,13 @@ window.CM_CASE_FLOW = {
          a: 1, r: "Over 12 sessions with no gain and no referral is a PT red flag. The Case Manager reports the facts and asks the question; the referral is the provider's decision."},
         {q: "On a check-in, a client says the clinic is a waste of his time and he is thinking of quitting. Which response is motivational interviewing?",
          opts: ["“If you quit, it will hurt your case.”", "“It sounds like that clinic isn't a good fit for you. Let's look at why.”", "“You have to go; the doctor ordered it.”", "“Fine, I'll cancel your appointments.”"],
-         a: 1, r: "Rolling with resistance: don't argue, pivot to his reason and take it to the provider. What quitting means for the claim is Atty. Thorne's to explain."}
+         a: 1, r: "Rolling with resistance: don't argue, pivot to his reason and take it to the provider. What quitting means for the claim is Atty. Thorne's to explain."},
+        {q: "On a Florida PIP file, who can make the Emergency Medical Condition (EMC) determination that opens the full $10,000 medical benefit?",
+         opts: ["Any treating provider, including a chiropractor", "An MD or DO, a dentist, a physician assistant or an advanced practice registered nurse", "The Case Manager, from the intake call", "The PIP adjuster"],
+         a: 1, r: "Under Fla. Stat. § 627.736(1)(a), only an MD, DO, dentist, PA or APRN can determine an EMC. A chiropractor may give initial care but cannot make the finding; without it, medical benefits stop at $2,500."},
+        {q: "John Doe's PIP claim is under Harbor Point's $5,000 PIP in Riverton. How does the EMC rule apply to it?",
+         opts: ["His PIP is capped at $2,500 until a physician finds an EMC", "He lost PIP medical benefits because he first treated on day 14", "It does not apply: Riverton is an add-on PIP state with no EMC rule", "Only his chiropractic bills are capped"],
+         a: 2, r: "The EMC rule is Florida's. Riverton has no EMC rule and no 14-day condition; John's 02/20/2026 visit falling on day 14 matters only as a Florida hypothetical."}
       ],
       blocks: [
 
@@ -2144,6 +2157,133 @@ window.CM_CASE_FLOW = {
            "Ask: “Who decides whether a PHQ-9 is indicated?” The provider. The Case Manager hears the flag, records it and asks the question.",
            "Role-play rolling with resistance: one trainee plays a client who calls the clinic a waste of time; the Case Manager pivots to his reason, never argues, and takes it to the provider.",
            "Listen for “missing visits will hurt your case” in the role-plays. That is a claim-value statement, and it belongs to Atty. Thorne."
+         ]
+       },
+       {
+         kind: "lesson", id: "d1m4-emc",
+         brief: true,
+         title: "The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000",
+         topic: "A state-specific PIP rule: what Florida requires, who can make the finding, and why Riverton's file has no such rule",
+         visual: "A two-lane comparison under a thin header strip reading STATE-SPECIFIC: CONFIRM THE STATUTE. Top lane, navy, labelled FLORIDA · FLA. STAT. § 627.736(1)(a): a horizontal timeline starting at a node DOL, a solid band fourteen day-ticks wide labelled INITIAL CARE WITHIN 14 DAYS, ending at a gate. Past the gate the lane forks into two buckets: a small grey bucket labelled $2,500 · NO EMC DETERMINATION and a large orange bucket labelled $10,000 · EMC DETERMINED BY MD · DO · DENTIST · PA · APRN. A small chip on the gate reads CHIROPRACTOR: INITIAL CARE YES · EMC FINDING NO. Under the buckets, a thin rule: PIP PAYS 80% OF MEDICAL · 60% OF LOST INCOME. Bottom lane, muted, labelled RIVERTON · JOHN DOE'S FILE: one plain bar, HARBOR POINT PIP $5,000 · 100% MEDICAL · 80% LOST INCOME, stamped NO EMC RULE · NO 14-DAY CONDITION. Between the lanes, a dashed callout pinned to 02/20/2026 reads HAD THIS FILE BEEN IN FLORIDA: DAY 14, THE LAST DAY INSIDE THE WINDOW (HYPOTHETICAL). The argument: the rule lives in the state's statute, so the Case Manager reads the file's state before working the clock.",
+         tell: {
+           why: "PIP rules are set state by state, and the Emergency Medical Condition rule is Florida's. On a Florida file it decides, within days of the accident, whether PIP pays any medical benefits at all and whether the client has $2,500 or $10,000 to draw on. A missed 14-day window or a missing EMC finding cannot be fixed later by a better demand. John Doe's file is in Riverton, an add-on PIP state with no EMC rule, so his $5,000 of Harbor Point PIP is not capped by one. You still need to know the rule cold, because the day you open a Florida file the clock starts at the date of loss, and you are the one who calendars it.",
+           rules: [
+             "Know which state's PIP rule governs before you work a PIP file. The EMC rule is Florida's (Fla. Stat. § 627.736(1)(a), from the 2012 PIP reform, HB 119). Riverton, John Doe's state, has no EMC rule and no 14-day condition; never apply Florida's rule to his file.",
+             "Florida PIP is $10,000 per person. It pays 80% of reasonable medical expenses and 60% of lost gross income, regardless of fault.",
+             "The 14-day rule: initial services and care must be received within 14 days after the motor vehicle accident. If they are not, Florida PIP pays nothing for medical benefits. Calendar the 14th day from the date of loss at intake.",
+             "The EMC rule: the full $10,000 medical benefit is available only if a physician (MD or DO), a dentist, a physician assistant or an advanced practice registered nurse determines the injured person had an Emergency Medical Condition. Without that determination, medical benefits stop at $2,500.",
+             "A chiropractor may provide the initial care inside the 14 days, but a chiropractor cannot make the EMC determination. A file treating only with a chiropractor stays in the $2,500 bucket until a qualifying provider makes the finding.",
+             "Massage and acupuncture are not reimbursable under Florida PIP, whoever provides them.",
+             "What an EMC is: a medical condition manifesting itself by acute symptoms of sufficient severity, which may include severe pain, such that the absence of immediate medical attention could reasonably be expected to result in serious jeopardy to patient health, serious impairment to bodily functions, or serious dysfunction of a bodily organ or part. Deciding whether that is true is the provider's clinical judgment, never yours.",
+             "Request the EMC determination in the records from a qualifying provider, and log which bucket the file is in ($2,500 or $10,000) in the PIP Log as each bill is paid.",
+             "Flag a missing EMC determination, or a first visit on or after the 14th day, to Atty. Thorne the day you see it. What it means for the claim is his call.",
+             "Confirm the current statute on every Florida file. Florida's legislature has repeatedly considered repealing PIP, so the numbers here are the rule as written since 2013, not a promise that it is still in force."
+           ],
+           upl: [
+             "The provider decides whether an Emergency Medical Condition exists; Atty. Thorne decides what a missing EMC or a late first visit means for the claim. You calendar, request, log and flag.",
+             "Tell a client the deadline and where and when care is available: facts and logistics only. Never tell him he needs care, what care to get, or that skipping it will hurt his case."
+           ]
+         },
+         show: {
+           caption: "Florida's rule beside Riverton's, with John Doe's dates as a hypothetical contrast (his file is in Riverton: no EMC rule applies to it)",
+           type: "table",
+           head: ["Rule point", "Florida (Fla. Stat. § 627.736(1)(a))", "Riverton (John Doe's file)", "Had this file been in Florida (hypothetical)"],
+           rows: [
+             [
+               "PIP limit and what it pays",
+               "$10,000; 80% of reasonable medical expenses, 60% of lost income",
+               "Harbor Point PIP $5,000; 100% of reasonable medical expenses, 80% of lost income",
+               "Each bill paid at 80%, not 100%"
+             ],
+             [
+               "Initial care deadline",
+               "Within 14 days after the accident, or no PIP medical benefits",
+               "None",
+               "DOL 02/06/2026; first treatment 02/20/2026 is day 14, the last day inside the window"
+             ],
+             [
+               "Who can make the EMC determination",
+               "MD, DO, dentist, physician assistant, APRN",
+               "No EMC rule",
+               "Riverton Urgent Care's Nina Patel, PA-C, is a type of provider who could; whether one was made is in her record"
+             ],
+             [
+               "Chiropractic care",
+               "May give initial care; cannot make the EMC determination",
+               "No EMC rule",
+               "Riverton Spine & Rehab (Dr. Mark Ellison, DC, chiropractic + PT) could not make the finding"
+             ],
+             [
+               "Without an EMC determination",
+               "Medical benefits capped at $2,500",
+               "No cap below the $5,000 limit",
+               "$2,500 of the $10,000 until a qualifying provider documents an EMC"
+             ]
+           ]
+         },
+         ops: [
+           [
+             "A Florida PIP file is opened at intake",
+             "Calendar the 14-day initial-care deadline from the date of loss; tell the client the deadline and where and when care is available (facts and logistics only)",
+             "CMS → Calendar · CMS → Communications Log",
+             "Deadline docketed the same day; the call logged with no medical recommendation"
+           ],
+           [
+             "The first treatment record arrives",
+             "Check the visit date against day 14, who saw the client (MD, DO, dentist, PA, APRN or chiropractor), and whether an EMC determination is documented",
+             "Medical Records Requests · CMS → Case File → Risk Flags",
+             "Date, provider type and EMC status logged with the source record"
+           ],
+           [
+             "No EMC determination in a qualifying provider's record",
+             "Ask the provider's office whether an EMC was assessed and documented, and request the determination in the records",
+             "Medical Records Requests · Email Workspace",
+             "Request dated; the provider's answer on file"
+           ],
+           [
+             "A PIP payment posts, or a gap is found",
+             "Update the $2,500 or $10,000 bucket in the PIP Log; flag a missing EMC or a late first visit to Atty. Thorne",
+             "CMS → Insurance tab → PIP Log · CMS → Tasks → Escalate",
+             "Bucket current; the flag routed the same day"
+           ]
+         ],
+         best: [
+           "Read the file's state before you read its PIP: the EMC rule is Florida's, not every state's.",
+           "Count the 14 days from the date of loss and docket the 14th day at intake, not when the first bill arrives.",
+           "Write the provider's credential (MD, DO, PA-C, APRN, DC) next to every visit in the treatment log, so an EMC gap shows at a glance.",
+           "Confirm the current Florida statute before relying on any number in this lesson.",
+           "Pitfall: telling a Riverton client his PIP is capped at $2,500 without an EMC. Riverton has no EMC rule.",
+           "Pitfall: treating a chiropractor's note as an EMC determination.",
+           "Pitfall: telling a client he needs to see a doctor to “get the full $10,000”. Share the deadline and the logistics; the care decision is his and his provider's."
+         ],
+         sources: [
+           "D2#22",
+           "D1#36",
+           "D1#37",
+           "D1#24",
+           "Newly authored: Florida's EMC rule stated explicitly (Fla. Stat. § 627.736(1)(a): 14-day initial care, EMC by MD, DO, dentist, PA or APRN, $2,500 vs $10,000, 80% medical and 60% lost income, chiropractor cannot determine EMC, no massage or acupuncture) and contrasted with Riverton's add-on PIP, which has no EMC rule"
+         ],
+         rubric: {
+           ai: [
+             ["State identified", 10, "Names Florida as the EMC state and Riverton as having no EMC rule; never applies the cap to John Doe's file"],
+             ["Florida numbers", 20, "States $10,000, 80% medical, 60% lost income, 14 days, $2,500 without an EMC, accurately"],
+             [
+               "Qualifying providers",
+               15,
+               "Names MD, DO, dentist, PA and APRN; says a chiropractor can give initial care but not the EMC determination"
+             ],
+             ["Hypothetical worked", 15, "Places 02/20/2026 as day 14 from 02/06/2026 and labels the Florida contrast as hypothetical"]
+           ],
+           trainer: [
+             ["Clinical line", 20, "Leaves the EMC finding to the provider and gives the client facts and logistics only, no care recommendation"],
+             ["Legal line", 20, "Flags a missing EMC or late first visit to Atty. Thorne without saying what it does to the claim"]
+           ]
+         },
+         notes: [
+           "Say it plainly at the start: John Doe's file is in Riverton, which has no EMC rule. This lesson teaches the Florida rule because a Case Manager will meet it, and every John Doe example on the slide is labelled hypothetical.",
+           "Ask: “On a Florida file with a 02/06/2026 date of loss, what is the last day for initial care?” 02/20/2026, day 14. John's first visit fell on exactly that day; in Florida that is cutting it as close as it gets.",
+           "Ask: “Can Dr. Mark Ellison make the EMC determination?” No: a chiropractor can give initial care but not the EMC finding. Then: “Who decides whether John had an EMC?” Only the provider.",
+           "Remind the room that PIP is set state by state and Florida has debated repealing it more than once: confirm the current statute before relying on any number."
          ]
        },
 
@@ -3103,7 +3243,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "activity", id: "d2m2-a1",
-        transition: "Treatment has begun. We send the Letters of Protection, then follow his care, its bills and its liens as they arrive.",
+        transition: "John Doe answered the Final Warning Letter: he called back this morning and is treating. We send the Letters of Protection, then follow his care, its bills and its liens as they arrive.",
         title: "Transmitting LOPs to Medical Providers",
         topic: "Skill Activity 1 — one LOP issued, one declined",
         visual: "Two dated envelopes side by side, each a white card with a navy header. Left, 02/23/2026 → RIVERTON SPINE & REHAB: an outgoing LOP with three orange numbered badges, ① payer check: out of network ② Atty. Thorne's approval and signature ③ receipt confirmed, and a green ✓ transmit stamp. Right, 03/11/2026 → SUMMIT IMAGING CENTER: a decline letter carrying a mono pill PIP LEFT $3,675.00 ≥ MRI $2,395.00 and an orange arrow routing the bill to Harbor Point. Beneath both, a slim cream baseline card: 2021 · LOW BACK · RESOLVED beside 2026 · NECK, two separate outlined zones. A red callout bottom-right: “No amount promised.”",
@@ -4319,7 +4459,7 @@ window.CM_CASE_FLOW = {
           tool: "CMS → Financial Ledger → Specials · CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Insurance tab",
           output: "An audited Specials ledger at $16,401.40 with billed and paid side by side, a lien list, the targets in order, and a flag list routed to Atty. Thorne.",
           checkpoints: [
-            "First-party ledger audited (Harbor Point's PIP ledger): five payments matched to five bills ($685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00), the limit exhausted with the 06/12/2026 payment, nothing billed to PIP after exhaustion, and the 80% wage benefit unpaid because the limit ran out before Northgate's 06/30/2026 letter, so the full $1,584.00 stays in the Specials",
+            "First-party ledger audited (Harbor Point's PIP ledger): five payments matched to five bills ($685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00), the limit exhausted by the payment for the 06/12/2026 visit (paid 06/26/2026), nothing billed to PIP after exhaustion, and the 80% wage benefit unpaid because the limit ran out before Northgate's 06/30/2026 letter, so the full $1,584.00 stays in the Specials",
             "Riverton Spine & Rehab reconciled: 33 visits in the notes (16 from 02/24 to 04/02/2026, 17 from 04/21 to 06/05/2026) against 34 lines; the 05/04/2026 duplicate ($185.00) removed: $6,290.00 → $6,105.00. A corrected itemized statement requested from Riverton Spine & Rehab (a billing correction, not a reduction). Until it arrives, the Lien Tracker shows $6,290.00 claimed and $6,105.00 audited; any reduction is Atty. Thorne's to negotiate.",
             "Medical: $685.00 + $6,105.00 + $640.00 + $2,395.00 + $640.00 + $3,400.00 + $640.00 + $312.40 = $14,817.40 (down from $15,002.40)",
             "Wages: 9 shifts × 8 h × $22.00 = $1,584.00, Northgate HR letter attached; total Specials $14,817.40 + $1,584.00 = $16,401.40",
@@ -4330,7 +4470,8 @@ window.CM_CASE_FLOW = {
             "Liens listed: Peach State $1,860.00 (plan funding type recorded) and Riverton Spine & Rehab $6,105.00 after audit, in the CMS → Liens register, mirrored to the Lien Tracker; PIP recorded as carrying no reimbursement right against John Doe's recovery (Harbor Point, in writing, 03/02/2026); Harbor Point's position on PIP subrogation against Robert Smith and Keystone requested in writing and routed to Atty. Thorne, since it would compete for the same $10,000 BI limit",
             "Targets in order: $10,000 BI → $20,000 Host UM → $10,000 Relative UM = $40,000; each target re-checked against its written source: BI per person (03/20/2026 Dec Page), Host UM add-on (03/02/2026 letter), Relative UM coverage (03/09/2026) plus its form and excess clause; PIP and Keystone PD marked as not in the stack",
             "Liability proof confirmed and listed in the audit: the final Riverton PD report RPD-26-018842 (not the exchange-of-information form), Robert Smith cited for failure to stop, no contributory-negligence note on John Doe; Ruth Calloway's contact re-confirmed and her account checked against her first statement for drift; the 2214 Maple Hollow Rd doorbell-camera video preserved and matched to the Escape being pushed into the parked Civic",
-            "Reasonable and necessary: each charge tied to the collision in the provider's own records and to a clinical basis (MRI ordered 03/05/2026; injection after the 03/27/2026 referral); Riverton Drug receipts attached, from 02/07/2026"
+            "Reasonable and necessary: each charge tied to the collision in the provider's own records and to a clinical basis (MRI ordered 03/05/2026; injection after the 03/27/2026 referral); Riverton Drug receipts attached, from 02/07/2026",
+            "Amendment Requests: the three records wrong at their source found (the MRI history's 02/16/2026, the 05/04/2026 duplicate, Crescent's $1,540.00 statement); each provider asked in writing on 07/06/2026 with Atty. Thorne's approval; Crescent's $0.00 statement (07/10/2026) and Summit's addendum (07/15/2026) filed in the CMS; Riverton Spine & Rehab won't reissue before the account closes, so $6,105.00 goes out with the attendance log"
           ]
         },
         ops: [
@@ -4737,13 +4878,13 @@ window.CM_CASE_FLOW = {
             ["Deadline", 10, "08/21/2026 docketed from the 07/22/2026 written acknowledgement"]
           ],
           trainer: [
-            ["Audit judgment", 20, "Found the faults that matter (the gap's placement, the duplicate, stale balances) and assigned each"],
+            ["Audit judgment", 20, "Found the faults that matter (the deadline, the release, the Specials total, the missing affidavit, and the packet's exhibits) and assigned each"],
             ["Gap presentation", 10, "Gap acknowledged plainly with its corroboration; not hidden, not over-argued"],
             ["UPL / authority boundary", 10, "Terms, extensions and replies left to Atty. Thorne; nothing signed for him"]
           ]
         },
         notes: [
-          "Hand out the draft with three planted faults: the 05/04/2026 duplicate still in the draft's billing exhibit (the CMS ledger was corrected in the pre-demand audit), the gap in an appendix, and a deadline of “30 days from the date of this letter.” Nobody sends anything until the audit is logged.",
+          "Hand out the draft demand with its four planted faults: the deadline “30 days from the date of this letter” (it runs from receipt), a release of “all claims” instead of a Limited Release, Specials of $16,410.40 where the lines add to $16,401.40, and Smith's affidavit missing from the conditions. Its exhibit packet carries ten more, worked in the audit. Nobody mails anything until the audit is logged.",
           "Ask the room: “Suppose Dana Whitfield emails on day 25 asking for two more weeks. Who answers?” Atty. Thorne. The CM logs it word for word and routes it the same hour.",
           "Grade the deadline from the written acknowledgement. A trainee who docketed from the send date has the right idea and the wrong day.",
           "Watch the narrative's prior: three 2021 chiropractic visits for the low back, resolved, and no neck history. Disclosed and distinguished, never hidden."
@@ -5074,7 +5215,19 @@ window.CM_CASE_FLOW = {
          a: 1, r: "Settlement is the client's decision. Atty. Thorne advises him and conveys it; the Case Manager logs the decision and drafts the acceptance email for Atty. Thorne to approve."},
         {q: "Before the first call with Dana Whitfield, the battle map sets John Doe's net floor. With $7,965.00 in unreduced liens, $486.75 in costs and the one-third fee, what gross does he need just to reach $0.00 net?",
          opts: ["$8,451.75", "$12,677.63", "$10,000.00", "$16,401.40"],
-         a: 1, r: "Liens + costs = $7,965.00 + $486.75 = $8,451.75; × 1.5 for the one-third fee = $12,677.63 gross. That is above Keystone's $10,000 limit, which is why every UM layer and lien reduction matters. $8,451.75 forgets the fee; $16,401.40 is the Specials."}
+         a: 1, r: "Liens + costs = $7,965.00 + $486.75 = $8,451.75; × 1.5 for the one-third fee = $12,677.63 gross. That is above Keystone's $10,000 limit, which is why every UM layer and lien reduction matters. $8,451.75 forgets the fee; $16,401.40 is the Specials."},
+        {q: "Keystone tenders its $10,000 BI limits on 08/12/2026. Standing alone, after the one-third fee and $486.75 in costs, what does that money do against $7,965.00 of unreduced liens?",
+         opts: ["Leaves John Doe $6,666.67 to be paid out now", "Leaves $6,179.92 against $7,965.00: shared pro rata, $1,443.15 and $4,736.77, John Doe nets $0.00", "Pays both liens in full and leaves John Doe $2,035.00", "Leaves $4,553.73 for John Doe as soon as the check arrives"],
+         a: 1, r: "$10,000.00 – $3,333.33 – $486.75 = $6,179.92, a $1,785.08 shortfall against $7,965.00. Shared pro rata, Peach State takes $1,443.15 and Riverton Spine & Rehab $4,736.77. $4,553.73 is only a projection on Atty. Thorne's 25% allocation, and it assumes the UM layers are still to come."},
+        {q: "Keystone's $10,000 is tendered on 08/12/2026. What does the Case Manager do with the BI settlement Net Sheet?",
+         opts: ["Call John Doe and tell him his projected BI net", "Enter the hoped-for lien reductions so the net looks right", "Lay it before Atty. Thorne, projections labelled, flagging that the BI money cannot be paid out alone and is held in trust until the liens resolve", "Disburse the fee now and hold only the liens' share"],
+         a: 2, r: "The CM computes, labels and routes the facts. The allocation method, any lien strategy and everything said to John Doe about value are Atty. Thorne's, and a reduction goes on the sheet only once agreed in writing."},
+        {q: "On 10/06/2026 both UM layers are resolved ($30,000.00) and no lien reduction is agreed: Peach State asserts $1,860.00 and Riverton Spine & Rehab stands at $6,105.00 audited. With the 33⅓% fee and $486.75 in costs, what does Stream 2 project to John Doe?",
+         opts: ["$13,661.19", "$15,269.94", "$11,548.25", "$13,522.44"],
+         a: 0, r: "$30,000.00 – $10,000.00 fee – $365.06 costs (75%) – $1,395.00 – $4,578.75 (liens at 75%) = $13,661.19. $15,269.94 assumes reductions nobody has agreed to; $11,548.25 charges all costs and liens to the UM stream; $13,522.44 uses Riverton's billed $6,290.00, duplicate included."},
+        {q: "John Doe calls on 10/07/2026: “So I'm getting about $13,600 from the UM money?” What does the Case Manager say?",
+         opts: ["“Yes, $13,661.19, to the cent.”", "“More than that: the liens always come down, so expect around $15,000.”", "“The sheet is a projection: some figures are still moving. Atty. Thorne will go through it with you,” and the call is logged and routed to him.", "“Less than that: the BI money has to cover the fee first.”"],
+         a: 2, r: "The figure is a projection with the liens unreduced, and explaining it to John Doe is Atty. Thorne's. The CM quotes no net, predicts no reduction and routes the call."}
       ],
       blocks: [
 
@@ -5216,6 +5369,87 @@ window.CM_CASE_FLOW = {
           "Track A: after the 08/06 rebuttal and Smith's affidavit of no other insurance on 08/10, Keystone tenders the $10,000 on 08/12/2026. Track B, later today, returns to this call and plays the other ending."
         ]
       },
+       {
+         kind: "activity", id: "d3m2-bins",
+         compact: true,
+         transition: "Keystone has tendered the $10,000 BI limits. Before John Doe signs anything, Atty. Thorne needs to see on paper what that money does for him, and what it cannot do yet.",
+         title: "The BI Settlement Net Sheet: Stream 1 at the Tender",
+         topic: "Skill Activity — what Keystone's $10,000 does, and doesn't, do on its own",
+         visual: "The LSH Net Sheet across the left half, headed STREAM 1 · BI · KEYSTONE KM-26-440871 with a grey status chip TENDERED 08/12/2026 · NOT RECEIVED. Rows in mono: Gross $10,000.00, Fee 33⅓% $3,333.33, Costs (25%) $121.69, Peach State $465.00, Riverton Spine & Rehab $1,526.25, ending on a dashed orange box PROJECTION $4,553.73. Beside it a greyed Stream 2 column, HOST UM $20,000 · RELATIVE UM $10,000, stamped OPEN · NOT YET DEMANDED. The right third is a red-bordered card, BI STANDING ALONE: a $6,179.92 bar set against a longer $7,965.00 bar, the $1,785.08 gap hatched red, the shares $1,443.15 and $4,736.77 beneath, ending NET TO JOHN DOE $0.00. A navy footer strip: HELD IN TRUST UNTIL THE LIENS RESOLVE · ATTY. THORNE REVIEWS IT WITH JOHN DOE.",
+         act: {
+           scenario: "File date 08/12/2026 (Wed), Track A. This morning Dana Whitfield tendered Keystone's $10,000 BI limits (KM-26-440871) on the Time-Limited Demand's terms, inside the 08/21/2026 window; Robert Smith's affidavit of no other insurance came in on 08/10. No check has issued, no release is signed, and the consent-to-settle requests to Harbor Point and Cardinal State have not gone out. The UM layers (Host UM $20,000, Relative UM $10,000) are not yet demanded. Liens as they stand today: Peach State $1,860.00 asserted; Riverton Spine & Rehab $6,105.00 audited (billed $6,290.00); no reduction requested. Costs receipted: $486.75. Atty. Thorne's memo asks for the BI settlement Net Sheet before he reviews the tender with John Doe: Stream 1 on his 25% / 75% working allocation (BI's share of the $40,000 Recovery Stack), and BI standing alone.",
+           prompt: "Build the settlement-stage Net Sheet for Stream 1 in the LSH Net Sheet. Enter the $10,000.00 gross as tendered, not received, with the 33⅓% pre-suit fee from the Contingency Fee Agreement and the five receipted costs. Enter both liens as they stand on 08/12/2026, asserted or audited, with the reduction column left blank. Leave Stream 2 open, with no recovery entered. Run Atty. Thorne's 25% allocation of costs and liens down to a Stream 1 net, labelled as a projection with what it assumes. Beside it, run the BI-alone fact pattern: what the fee and costs leave, set against the unreduced liens, shared pro rata. Route the sheet to Atty. Thorne through CMS → Tasks → Escalate. Graded judgment: what you lay in front of him as fact (the BI money cannot be paid out on its own and is held in trust until the liens resolve), and what you leave to him: the allocation, any lien strategy and everything said to John Doe about value.",
+           tool: "LSH Net Sheet · CMS → Financial Ledger → Trust · CMS → Tasks → Escalate",
+           output: "A Stream 1 settlement Net Sheet at the 08/12/2026 tender: a labelled 25% projection ($4,553.73) beside the BI-alone fact pattern ($0.00 to John Doe), routed to Atty. Thorne with the trust-hold flag.",
+           checkpoints: [
+             "Status on the sheet: Keystone tender 08/12/2026 (Wed), inside the 08/21/2026 window; marked tendered, not received; no release signed; nothing posted to the Trust Ledger",
+             "Stream 1 gross $10,000.00 (Keystone, KM-26-440871); Stream 2 left open with no recovery entered (Host UM $20,000 and Relative UM $10,000 not yet demanded); PIP's $5,000.00 and Keystone's property-damage payments kept off",
+             "Fee at the pre-suit 33⅓% (Contingency Fee Agreement): one-third of $10,000.00 = $3,333.33 (typing 33.33% gives $3,333.00)",
+             "Costs receipted: $25.00 + $214.75 + $72.00 + $25.00 + $150.00 = $486.75; on the 25% allocation $121.69 to Stream 1, the $365.06 remainder held for Stream 2, charged once",
+             "Liens as they stand on 08/12/2026: Peach State $1,860.00 asserted (its payment for Crescent's 05/15/2026 injection); Riverton Spine & Rehab $6,105.00 audited ($6,290.00 billed less the $185.00 duplicate of 05/04/2026); total $7,965.00; reduction column blank, “not yet requested”",
+             "Projection, labelled with its assumption (Atty. Thorne's 25% / 75% working allocation; the UM layers still to be recovered; liens unreduced): Peach State $465.00 + Riverton Spine & Rehab $1,526.25 = $1,991.25 to Stream 1",
+             "Projected Stream 1 net: $10,000.00 – $3,333.33 – $121.69 – $1,991.25 = $4,553.73, marked PROJECTION, never shown as money John Doe will receive",
+             "BI-alone fact pattern: $10,000.00 – $3,333.33 – $486.75 = $6,179.92 against $7,965.00 of unreduced liens, a shortfall of $1,785.08",
+             "Shared pro rata: Peach State 23.35% → $1,443.15; Riverton Spine & Rehab 76.65% → $4,736.77; total $6,179.92; net to John Doe $0.00",
+             "Trust-hold flag routed as a fact: once received, the BI money goes into the IOLTA trust account and cannot be paid out on its own; it is held until the liens resolve (confirm the governing trust rule)",
+             "Routed to Atty. Thorne on 08/12/2026, before John Doe signs anything; the allocation method, any lien reduction and every word to John Doe about value left to him, with no figure given to John Doe by the CM"
+           ]
+         },
+         ops: [
+           [
+             "Keystone tenders the $10,000 limits (08/12/2026)",
+             "Build Stream 1 at the tender, liens as they stand",
+             "LSH Net Sheet",
+             "Gross $10,000.00 · fee $3,333.33 · liens $7,965.00 unreduced"
+           ],
+           [
+             "Atty. Thorne's 25% / 75% working allocation",
+             "Run the labelled projection and the BI-alone fact pattern",
+             "LSH Net Sheet",
+             "$4,553.73 projected; alone, $6,179.92 against $7,965.00 → $0.00"
+           ],
+           ["Sheet complete", "Route it with the trust-hold flag", "CMS → Tasks → Escalate", "Routed 08/12/2026, before John Doe signs anything"],
+           [
+             "Keystone's check arrives, after the Limited Release is signed",
+             "Post the deposit; hold it",
+             "CMS → Financial Ledger → Trust",
+             "Deposited to IOLTA; nothing disbursed until the liens resolve"
+           ]
+         ],
+         best: [
+           "Label every figure that depends on money not yet in hand as a projection, and say what it assumes.",
+           "Enter each lien as it stands today, asserted or audited; a reduction goes in only when it is agreed in writing.",
+           "Put the BI-alone math beside the projection, so Atty. Thorne sees the floor and the hope on one page.",
+           "Pitfall: posting a tender as money in trust; nothing is deposited until the check arrives after the release is signed.",
+           "Pitfall: charging the full $486.75 of costs to Stream 1 and again to Stream 2.",
+           "Pitfall: telling John Doe what he will “get from the BI” before Atty. Thorne has reviewed the sheet with him."
+         ],
+         sources: [
+           "D2#30",
+           "D3#23",
+           "D3#24",
+           "D3#26",
+           "Newly authored: the settlement-stage BI Net Sheet (Stream 1 at the tender, liens unreduced, projections labelled) and the BI-alone pro-rata fact pattern laid before Atty. Thorne"
+         ],
+         rubric: {
+           ai: [
+             ["Stream 1 arithmetic", 20, "$3,333.33 fee, $121.69 costs, $465.00 + $1,526.25 liens, projected net $4,553.73"],
+             ["BI-alone fact pattern", 15, "$6,179.92 against $7,965.00, shortfall $1,785.08, shares $1,443.15 / $4,736.77, net $0.00"],
+             ["Liens as they stand", 15, "Peach State $1,860.00 asserted, Riverton Spine & Rehab $6,105.00 audited, no reduction entered"],
+             ["Status and labels", 10, "Tendered, not received; Stream 2 open; every projection labelled with its assumption"]
+           ],
+           trainer: [
+             ["Trust-hold flag", 15, "Explains, from the numbers, why the BI money cannot be paid out alone and is held until the liens resolve"],
+             ["UPL boundary", 25, "Allocation, lien strategy and value left to Atty. Thorne; no figure or opinion given to John Doe"]
+           ]
+         },
+         notes: [
+           "Open with the question John Doe will ask: “Keystone paid $10,000. Why can't I have my share now?” Let the room find the answer in the BI-alone math: $6,179.92 left against $7,965.00 of liens, so John nets nothing until the liens resolve.",
+           "Grade the dates. On 08/12/2026 no check has issued and no release is signed; the Limited Release comes 08/28 and Keystone's check reaches trust 09/04. A trainee who posts $10,000.00 to the Trust Ledger today has posted a promise.",
+           "Fail any reduced lien on this sheet. $1,240.00 and $4,580.00 do not exist until 10/09 and 10/12. Later, the final sheet (d3m4-a1) lands Stream 1 at $5,089.98: the $4,553.73 projection plus 25% of the $2,145.00 negotiated off, $536.25.",
+           "The 25% / 75% split is Atty. Thorne's working allocation, not the Case Manager's forecast of the UM claims. The CM computes and labels; he decides the method and what John Doe hears about value."
+         ]
+       },
 
       {
         kind: "lesson", id: "d3m2-l2",
@@ -5344,6 +5578,110 @@ window.CM_CASE_FLOW = {
           "The gross is $40,000.00 and nothing else. A trainee who adds PIP's $5,000 or Keystone's property-damage payments has mixed the Payer Order or the PD claim into the stack."
         ]
       },
+       {
+         kind: "activity", id: "d3m2-umns",
+         compact: true,
+         transition: "Both UM carriers have now paid or tendered their limits. Before Atty. Thorne sits down with John Doe, we put the UM money on the Net Sheet and mark everything that is still moving.",
+         title: "The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes",
+         topic: "Skill Activity — project the UM stream to the cent, mark what will move, ask Atty. Thorne",
+         visual: "The LSH Net Sheet's Recovery Ledger on a white card, with the Stream 2 — UM column lit in navy and the Stream 1 — BI column greyed beside it. Rows top to bottom: HARBOR POINT $20,000.00 with a green IN TRUST 10/05 chip; CARDINAL STATE $10,000.00 with an amber TENDERED · CHECK NOT RECEIVED chip; FEE 33⅓% $10,000.00; COSTS 75% $365.06; PEACH STATE 75% $1,395.00 and RIVERTON SPINE & REHAB 75% $4,578.75, each with an orange dashed border and a PROJECTION tag. At the foot, a large orange NET (PROJECTED) $13,661.19. A thin tie line runs from the Stream 2 net across to the grey Stream 1 net and into a mono pill: $18,214.92 = $40,000.00 – $13,333.33 – $486.75 – $7,965.00. Pinned at the right edge, a navy memo card with four numbered blanks: QUESTIONS FOR ATTY. THORNE.",
+         act: {
+           scenario: "File date 10/06/2026 (Tue), Track A. Today Teresa Okafor tendered Cardinal State's $10,000 Relative UM limits (CS-26-20355), and John Doe accepted through Atty. Thorne. Harbor Point paid its $20,000 Host UM limits (HP-26-7741) on 09/29; the check was received and deposited 10/05 after the release was signed. Keystone's $10,000 BI has been in trust since 09/04. Trust holds $30,000.00; Cardinal State's check has not arrived. Peach State asserts $1,860.00, and its Reduction Request is drafted and held for Atty. Thorne's approval. Riverton Spine & Rehab's LOP account stands at $6,290.00 billed, $6,105.00 after the audit removed the 05/04/2026 duplicate. No lien reduction is agreed. Costs to date: $486.75. At 4:20 p.m. Atty. Thorne asks for the UM settlement Net Sheet for his review before he goes through it with John Doe.",
+           prompt: "Build the Stream 2 (UM) column of John Doe's LSH Net Sheet as it stands today. Post both UM layers to the Recovery Ledger and show which check is in trust and which is only tendered. Apply the pre-suit 33⅓% fee, then allocate costs and liens to Stream 2 at 75%, pro rata to gross, with each lien at its asserted or audited figure, not a hoped-for reduction. Mark every figure that will still change as a projection and say what will change it. Tie Stream 2 to Stream 1 and to the Trust Ledger. Graded judgment: write the questions Atty. Thorne must answer before John Doe sees this sheet, and route it to him, not to John.",
+           tool: "CMS → Financial Ledger → Net Sheet → Recovery Ledger · CMS → Financial Ledger → Trust · CMS → Tasks → Escalate",
+           output: "A Stream 2 Net Sheet projecting $13,661.19 to John Doe, every moving figure marked, tied to Stream 1 and the Trust Ledger, routed to Atty. Thorne with four written questions.",
+           checkpoints: [
+             "Stream 2 gross from the two UM layers only: Harbor Point $20,000.00 (paid 09/29, received 10/05/2026) + Cardinal State $10,000.00 (tendered 10/06/2026) = $30,000.00, 75% of the $40,000.00 stack; Keystone's $10,000.00 stays in Stream 1",
+             "Fee at the pre-suit 33⅓% (no suit filed; retainer RS05): $30,000.00 ÷ 3 = $10,000.00, the one firm line on the sheet; with Stream 1's $3,333.33 the file's fee is $13,333.33",
+             "Costs to date $486.75 allocated pro rata: Stream 1 25% = $121.69 (rounded), Stream 2 the remainder, $486.75 – $121.69 = $365.06; marked projection (costs to date, final at the Settlement Statement)",
+             "Peach State at its asserted $1,860.00: Stream 1 $465.00, Stream 2 $1,860.00 – $465.00 = $1,395.00; marked projection: Reduction Request held for Atty. Thorne's approval, nothing agreed",
+             "Riverton Spine & Rehab at the audited $6,105.00, not the billed $6,290.00 (the $185.00 duplicate of 05/04/2026): Stream 1 $1,526.25, Stream 2 $6,105.00 – $1,526.25 = $4,578.75; marked projection: no reduction requested or agreed",
+             "Projected Stream 2 net: $30,000.00 – $10,000.00 – $365.06 – $1,395.00 – $4,578.75 = $13,661.19, labelled “projection, liens unreduced”",
+             "Harbor Point's $5,000.00 PIP shown at $0.00 on Stream 2 with its source: add-on (excess) UM, no PIP non-duplication reduction and no reimbursement right (Harbor Point's 03/02/2026 letter), so the $20,000.00 is not reduced",
+             "Tied to Stream 1: Stream 1 projects $10,000.00 – $3,333.33 – $121.69 – $465.00 – $1,526.25 = $4,553.73, and $13,661.19 + $4,553.73 = $18,214.92 = $40,000.00 – $13,333.33 – $486.75 – $7,965.00",
+             "Tied to the Trust Ledger: $30,000.00 on deposit (Keystone $10,000.00 since 09/04, Harbor Point $20,000.00 since 10/05/2026); Cardinal State's $10,000.00 shown as receivable, not received; nothing disbursed from either stream",
+             "What moves the projection stated on the sheet: every $1.00 cut from a lien adds $0.75 to Stream 2 and $0.25 to Stream 1; no reduced figure is entered before a written acceptance",
+             "Four questions to Atty. Thorne in writing: (1) the 33⅓% tier on both UM layers; (2) the 25% / 75% pro-rata allocation of costs and liens; (3) authority and timing for both Reduction Requests, including raising the $185.00 duplicate with Tammy Greer; (4) when and in what form John Doe sees a projected sheet",
+             "Routed to Atty. Thorne the same day through CMS → Tasks → Escalate; the sheet is not sent to John Doe and no net figure is quoted to him by the CM"
+           ]
+         },
+         ops: [
+           [
+             "Atty. Thorne's memo, 10/06/2026",
+             "Post both UM layers and the fee to Stream 2",
+             "CMS → Financial Ledger → Net Sheet → Recovery Ledger",
+             "Gross $30,000.00; fee $10,000.00; Cardinal State marked tendered, not received"
+           ],
+           [
+             "Liens as they stand on 10/06/2026",
+             "Allocate costs and liens at 75% and mark each a projection",
+             "CMS → Financial Ledger → Net Sheet → Recovery Ledger",
+             "$365.06 · $1,395.00 · $4,578.75; projected net $13,661.19"
+           ],
+           [
+             "Stream 2 complete",
+             "Tie to Stream 1 and the Trust Ledger",
+             "CMS → Financial Ledger → Trust",
+             "$13,661.19 + $4,553.73 = $18,214.92; $30,000.00 in trust, $10,000.00 receivable"
+           ],
+           [
+             "Sheet ties",
+             "Route the sheet with four written questions",
+             "CMS → Tasks → Escalate",
+             "Routed to Atty. Thorne the same day; nothing sent to John Doe"
+           ]
+         ],
+         best: [
+           "Label every figure that can still move, and write on its line what will move it.",
+           "Compute Stream 1's share of each split and take Stream 2's as the remainder, so the streams add back to the cent.",
+           "Keep money in trust and money only tendered on separate lines until the check clears.",
+           "Pitfall: charging all of the costs and liens to the UM stream because it is the bigger check.",
+           "Pitfall: entering a lien at the reduction you hope for before a written acceptance.",
+           "Pitfall: quoting John Doe a net from a projected sheet."
+         ],
+         sources: [
+           "D3#23",
+           "D3#24",
+           "D3#25",
+           "D3#26",
+           "D2#36",
+           "Newly authored: the settlement-stage Stream 2 Net Sheet on 10/06/2026, liens unreduced, every moving figure marked as a projection, and the written questions for Atty. Thorne"
+         ],
+         rubric: {
+           ai: [
+             [
+               "Stream 2 arithmetic",
+               20,
+               "$30,000.00 gross, $10,000.00 fee, $365.06 costs, $1,395.00 and $4,578.75 liens, $13,661.19 projected net, each shown"
+             ],
+             [
+               "Lien basis on 10/06/2026",
+               15,
+               "Peach State at $1,860.00 asserted, Riverton Spine & Rehab at $6,105.00 audited; no reduced figure entered; PIP at $0.00 with its source"
+             ],
+             [
+               "Projection marking",
+               10,
+               "Every moving line tagged with what will change it; the fee the only firm deduction; Cardinal State shown as receivable"
+             ],
+             ["Tie-out", 15, "$13,661.19 + $4,553.73 = $18,214.92 across the file; $30,000.00 in trust agrees with the ledger"]
+           ],
+           trainer: [
+             [
+               "Questions for Atty. Thorne",
+               20,
+               "Fee tier, allocation, reduction authority and the client presentation asked as questions he can answer from the sheet"
+             ],
+             ["UPL boundary", 20, "No net quoted to John Doe, no reduction proposed to a lienholder, no view on whether the sheet is enough"]
+           ]
+         },
+         notes: [
+           "Put the tempting wrong answers on the board: $11,548.25 (all $486.75 of costs and $7,965.00 of liens charged to the UM stream), $13,522.44 (Riverton Spine & Rehab at its billed $6,290.00) and $15,269.94 (reductions assumed before anyone agreed to them). Only $13,661.19 is true on 10/06/2026.",
+           "Ask the room: “Harbor Point paid John Doe's PIP and his Host UM. Why isn't the $5,000.00 taken off the $20,000.00?” The answer is Harbor Point's own 03/02/2026 letter: add-on UM, no non-duplication reduction, no reimbursement right.",
+           "For your debrief only: on 10/13/2026 (d3m4-a1) Stream 2 reaches $15,269.94. The move, $15,269.94 – $13,661.19 = $1,608.75, is 75% of the $2,145.00 negotiated off the liens ($620.00 + $1,525.00): exactly the $0.75-per-dollar rule on the sheet.",
+           "Stream 1's lines are the BI sheet's work; here they are used only to tie. Grade the client line hard: the CM routes the sheet to Atty. Thorne, and he decides when John Doe sees a projection and explains it."
+         ]
+       },
 
       {
         kind: "check", id: "d3m2-kc",
@@ -6332,7 +6670,13 @@ window.CM_CASE_FLOW = {
          a: 2, r: "The memo documents and asks. Filing, value and any excess exposure are Atty. Thorne's analysis; the Case Manager's job is a record he can decide from."},
         {q: "Atty. Thorne authorized suit on 09/09/2026, the Case Manager changed the status to Litigation on 09/10, and the Complaint was filed 09/24/2026. From which date does the retainer's 40% fee tier apply?",
          opts: ["09/09/2026, the authorization", "09/10/2026, the status change", "09/24/2026, the filing date", "08/21/2026, the date the demand lapsed"],
-         a: 2, r: "Per the retainer, 33⅓% pre-suit and 40% once suit is filed: the tier follows the filing, not the status. Recording 40% from 09/10 changes John Doe's fee two weeks early. Atty. Thorne discussed the tier with John Doe on 09/09; the CM records that, never explains the fee."}
+         a: 2, r: "Per the retainer, 33⅓% pre-suit and 40% once suit is filed: the tier follows the filing, not the status. Recording 40% from 09/10 changes John Doe's fee two weeks early. Atty. Thorne discussed the tier with John Doe on 09/09; the CM records that, never explains the fee."},
+        {q: "On 09/24/2026 the e-filing envelope for John Doe's Complaint is accepted. Which entry belongs on the calendar that day?",
+         opts: ["The answer deadline, 30 days from the filing date", "The service deadline, 01/22/2027 (09/24/2026 + 120 days on this file's rule set), with warning alerts; the answer date is set only once Robert Smith is served", "Only the Case Management Conference, since service dates belong to the process server", "The service deadline counted from the date Atty. Thorne signed, 09/23/2026"],
+         a: 1, r: "Each clock runs from its own trigger. Filing starts the service clock, so 01/22/2027 goes on with alerts the day the envelope is accepted. The answer runs from service, which has not happened yet."},
+        {q: "Two Complaints sit in John Doe's CMS on 09/24/2026: the 09/15/2026 draft stamped NOT FOR FILING, and the set Atty. Thorne signed on 09/23. What does the Case Manager upload?",
+         opts: ["Whichever was saved first, since the content is the same", "The 09/15 draft, signed with Atty. Thorne's e-signature to save time", "Only the set Atty. Thorne signed on 09/23, after checking every page's signature", "Both, so the clerk can choose the operative version"],
+         a: 2, r: "Nothing is filed that Atty. Thorne has not signed, and the Case Manager never signs for him. The signature check is the Case Manager's job even when the paralegal drafted the set."}
       ],
       blocks: [
 
@@ -6590,6 +6934,106 @@ window.CM_CASE_FLOW = {
           "Preservation is the step most trainees skip because the video was secured in February. Ask what Margaret Doe still holds today, and who holds the Escape's event data recorder."
         ]
       },
+       {
+         kind: "activity", id: "d4m1-efile",
+         compact: true,
+         transition: "The file has been in Litigation status since 09/10/2026 and the filing target is 09/24/2026. Atty. Thorne has approved his Complaint; we get it signed, filed and on the calendar.",
+         title: "E-Filing the Complaint & Calendaring Service",
+         topic: "Skill Activity — from approved Complaint to accepted filing and a calendar that runs from it",
+         visual: "A left-to-right relay of four cards on a thin navy rail, each with an orange numbered badge. ① CMS TASK · NADIA BROOKS · LITIGATION DESK: a task card listing CIVIL COVER SHEET · SUMMONS, a due chip 09/22/2026 and a routing arrow to ② ATTY. THORNE · SIGNS 09/23: a signature line with a padlock chip, NOTHING FILES UNSIGNED. ③ COURT E-FILING: an envelope card reading STATE COURT OF RIVERTON COUNTY · COMPLAINT · CIVIL COVER SHEET · SUMMONS · $218.00, and a green ACCEPTED stamp over 26-CV-04417 · 09/24/2026. ④ CALENDAR: three mono date pills, CMC 12/10/2026 9:00 A.M. · SERVICE DEADLINE 01/22/2027 · ANSWER: SET ON SERVICE, the last one dashed and empty. Off the rail, under card ①, a grey draft sheet stamped NOT FOR FILING with a red strike through it: the 09/15/2026 draft that never reaches the envelope.",
+         act: {
+           scenario: "File date 09/22/2026, Track B. The file went to Litigation status on 09/10/2026 on Atty. Thorne's 09/09 authorization; the filing target is 09/24/2026 and today is its 48-hour audit. This morning Atty. Thorne approved his Complaint for John Doe v. Robert Smith in the State Court of Riverton County: negligence and negligence per se; medical Specials, lost wages, future medical and pain and suffering; jury demanded; Smith at 118 Larkspur Ln, Riverton. The CMS also holds his 09/15/2026 draft, stamped NOT FOR FILING, unsigned, with no case number. The civil cover sheet and summons have not been drafted. The fee tier moves from 33⅓% to 40% on the filing date (per the retainer). Pre-suit costs on the ledger: $486.75. Atty. Thorne's 09/10 question on notifying the UM carriers of the filed Complaint is still open.",
+           prompt: "Tag the Litigation Desk paralegal, Nadia Brooks, with a CMS task precise enough to need no follow-up question: which documents, from which approved Complaint, due when, routed to Atty. Thorne for signature. After he signs on 09/23, submit the e-filing envelope in Court E-Filing on 09/24 (caption, court, case type, filing attorney, document types, filing fee), and check every page is signed before it goes in. Record the accepted filing: the civil action number, the filing date, the stamped Complaint, the issued summons and the Notice of Case Management Conference in 01_PLEADINGS, the fee receipt to the costs ledger. Then calendar from the filing: the service deadline with warning alerts, the hand-off to Allied Process Services, the Case Management Conference with Atty. Thorne as attendee, and the answer deadline held until service. Graded judgment: which date can be calendared today and which cannot.",
+           tool: "CMS → Tasks · Court E-Filing · CMS → Litigation → Pleadings Log · CMS → Documents · CMS → Financial Ledger · CMS → Calendar · Docket System",
+           output: "A signed filing set e-filed and accepted as No. 26-CV-04417, recorded in the CMS, and a calendar that runs from the 09/24/2026 filing date.",
+           checkpoints: [
+             "CMS task to Nadia Brooks dated 09/22/2026: civil cover sheet and summons, built from the Complaint Atty. Thorne approved that morning (not the 09/15/2026 draft), due end of day 09/22/2026, routed to Atty. Thorne for signature",
+             "The summons in the task: directed to Robert Smith at 118 Larkspur Ln, Riverton, the address pleaded in the Complaint; the cover sheet: motor vehicle personal injury, jury demanded",
+             "Signature check before upload: Complaint, cover sheet and summons signed by Atty. Thorne on 09/23/2026; the 09/15/2026 draft never uploaded",
+             "Envelope in Court E-Filing: John Doe v. Robert Smith, State Court of Riverton County, new civil case; Complaint (lead), civil cover sheet, summons for issuance; filing attorney Atty. Elijah Thorne, State Bar No. 418207; filing fee and summons $218.00",
+             "Envelope accepted 09/24/2026; court fields updated: Civil Action No. 26-CV-04417 replaces “Pending”, filing date 09/24/2026, service status “Summons issued, not served”",
+             "Pleadings Log row: Complaint filed 09/24/2026, e-file stamp 10:42 a.m., source document linked",
+             "01_PLEADINGS holds Complaint_Filed_Stamped.pdf, Summons_Issued.pdf and Notice_of_Case_Management_Conference.pdf; no scan names",
+             "Fee receipt $218.00 posted to the costs ledger with its receipt: $486.75 + $218.00 = $704.75 in case costs",
+             "Fee tier: 40% shown effective 09/24/2026, the filing date, per the retainer; no fee explanation by the Case Manager",
+             "Service deadline 01/22/2027 (Fri): 09/24/2026 + 120 days, rule set configured for this training file; alerts 11/23/2026 (60 days), 12/23/2026 (30), 01/08/2027 (14) and a 48-hour audit 01/20/2027",
+             "Hand-off of the stamped Complaint and issued summons to Allied Process Services tasked for 09/24/2026, with Smith's pleaded address and a follow-up every 5 days (first 09/29/2026)",
+             "Case Management Conference 12/10/2026 (Thu), 9:00 a.m., by videoconference: Atty. Thorne as attendee, 48-hour audit 12/08/2026 (Tue); answer deadline entered as “set on service: 30 days from service (training rule set)”, no date; the open UM-carrier question re-sent to Atty. Thorne with the filing date"
+           ]
+         },
+         ops: [
+           [
+             "Atty. Thorne approves the Complaint, 09/22/2026",
+             "Tag Nadia Brooks to draft the cover sheet and summons",
+             "CMS → Tasks",
+             "Documents, source, due date and signature route named"
+           ],
+           [
+             "Set signed, 09/23/2026",
+             "Check every signature; submit the envelope",
+             "Court E-Filing",
+             "Only signed documents; $218.00 fee; filing attorney named"
+           ],
+           [
+             "Envelope accepted, 09/24/2026",
+             "Record the number, the documents and the fee",
+             "CMS → Litigation → Pleadings Log · CMS → Documents · CMS → Financial Ledger",
+             "26-CV-04417 entered; three PDFs in 01_PLEADINGS; costs $704.75"
+           ],
+           [
+             "Summons and CMC notice issued",
+             "Calendar service, the hand-off and the conference",
+             "CMS → Calendar · Docket System",
+             "01/22/2027 with alerts; 12/10/2026 with Atty. Thorne; answer set on service"
+           ]
+         ],
+         best: [
+           "Write the task so the paralegal never has to ask: the documents, the source, the due date and who signs.",
+           "Open every page of the envelope before you submit it; the signature check is yours even when the drafting is not.",
+           "Calendar every date from the accepted filing, never from the filing target.",
+           "Pitfall: uploading the 09/15/2026 draft because it was the Complaint saved first in the CMS.",
+           "Pitfall: docketing an answer date before Robert Smith has been served.",
+           "Pitfall: entering the Case Management Conference without Atty. Thorne as attendee."
+         ],
+         sources: [
+           "D5#3",
+           "D5#22",
+           "D5#24",
+           "D5#31",
+           "Newly authored: the filing set tasked to the Litigation Desk, signed by counsel, e-filed and calendared from the accepted filing (09/22–09/24/2026)"
+         ],
+         rubric: {
+           ai: [
+             [
+               "Paralegal task",
+               10,
+               "Nadia Brooks tasked 09/22/2026 with the cover sheet and summons, the approved Complaint as source, a due date and the signature route"
+             ],
+             [
+               "Envelope",
+               15,
+               "Caption, court, case type, document types, filing attorney and $218.00 correct; only signed documents; the 09/15 draft kept out"
+             ],
+             ["Filing record", 15, "26-CV-04417 and 09/24/2026 entered; three PDFs named and in 01_PLEADINGS; costs $704.75; 40% from 09/24/2026"],
+             [
+               "Calendar",
+               20,
+               "01/22/2027 with arithmetic and alerts; Allied hand-off 09/24/2026; CMC 12/10/2026 9:00 a.m. with Atty. Thorne; answer held for service"
+             ]
+           ],
+           trainer: [
+             ["Signature discipline", 15, "Nothing submitted that Atty. Thorne had not signed; the draft caught and left out"],
+             ["Date judgment", 15, "Explains why the service deadline is set today and the answer deadline is not"],
+             ["Authority boundary", 10, "Drafting delegated to the paralegal, signing and the UM-carrier question left with Atty. Thorne"]
+           ]
+         },
+         notes: [
+           "Read the trainee's CMS task to Nadia Brooks aloud as if you were her. If she would have to ask which Complaint, by when or who signs, the task fails.",
+           "Ask: “Two Complaints are in the CMS. Which one goes in the envelope, and how do you know?” The signed one dated 09/23/2026; the 09/15 draft says NOT FOR FILING and has no signature.",
+           "Put to the room: “Why is 01/22/2027 on the calendar today, but no answer date?” The service deadline runs from filing, which has happened; the answer runs from service, which has not.",
+           "The service and Skip-Trace work belongs to a later activity. Here the job ends when the hand-off to Allied Process Services and its follow-ups are tasked."
+         ]
+       },
 
       {
         kind: "check", id: "d4m1-kc",
@@ -6682,7 +7126,19 @@ window.CM_CASE_FLOW = {
          a: 2, r: "Neither forum has one fixed place on the timeline. Pre-litigation mediation follows completed treatment and the demand when both sides want to avoid court costs; most personal injury mediations are post-filing and many are court-ordered during discovery. Arbitration comes before filing when a signed clause compels it, and after filing when the parties agree to leave the court system."},
         {q: "Harbor Point and Cardinal State dispute damages and the file goes to binding arbitration on 06/22/2027. Laura Whitcomb, Esq. issues her award. In plain words to John Doe, that award is:",
          opts: ["A recommendation either side may accept or reject", "Non-binding until he signs it, as at mediation", "Final and enforceable like a court order, with court review on narrow grounds only", "Automatically reheard by a jury if he disagrees"],
-         a: 2, r: "Binding means the decision is final and enforced like a court order; courts review it on narrow grounds only (some policies or statutes allow a trial de novo — confirm the governing rule). Mediation is the non-binding one: both sides must agree and nobody is forced to settle. What the award means for his recovery is Atty. Thorne's to explain, not yours."}
+         a: 2, r: "Binding means the decision is final and enforced like a court order; courts review it on narrow grounds only (some policies or statutes allow a trial de novo — confirm the governing rule). Mediation is the non-binding one: both sides must agree and nobody is forced to settle. What the award means for his recovery is Atty. Thorne's to explain, not yours."},
+        {q: "The Notice of Mediation sets John Doe's session for 03/18/2027 (Thu); the statement and binder are due 7 days before, and the binder QC runs 7 days before that. You calendar:",
+         opts: ["Statement and binder 03/11/2027 (Thu); binder QC 03/04/2027 (Thu)", "Statement and binder 03/24/2027 (Wed); binder QC 03/17/2027 (Wed)", "Statement and binder 03/31/2027 (Wed); binder QC 03/24/2027 (Wed)", "Statement and binder 03/12/2027 (Fri); binder QC 03/05/2027 (Fri)"],
+         a: 0, r: "Count back from the session, its trigger: 03/18 − 7 = 03/11/2027, a Thursday, so no roll; 03/11 − 7 = 03/04/2027. Counting forward from the session puts the binder after it, and 03/31/2027 is the order's completion deadline, not a binder date."},
+        {q: "While calendaring the 03/18/2027 mediation, you note that Harbor Point's and Cardinal State's policies each require their written consent before any settlement with Keystone. What do you do?",
+         opts: ["Nothing until the session: consent only matters if Keystone actually tenders", "Write to both UM carriers today asking them to pre-approve any BI settlement", "Flag the requirement to Atty. Thorne with the 30-day consent window, and let him decide whether and when the carriers are notified", "Tell John Doe he cannot accept a BI offer at mediation without the carriers' approval"],
+         a: 2, r: "A BI release signed without the UM carriers' written consent can forfeit the $30,000 behind it. The CM puts the requirement and the arithmetic in front of Atty. Thorne; contacting the carriers and explaining the consequence to John Doe are his calls."},
+        {q: "Certified records for the Arbitration Binder must be in hand when binder QC opens on 05/17/2027 (Mon), and custodians are given 14 days to respond. What is the last day to send the requests?",
+         opts: ["05/03/2027 (Mon)", "05/19/2027 (Wed)", "05/31/2027 (Mon)", "06/02/2027 (Wed), the exhibit exchange"],
+         a: 0, r: "Count a lead time back from the internal step that needs the item: 05/17/2027 − 14 days = 05/03/2027, a Monday. Counting from the 06/02/2027 exchange leaves no time to sort, QC and route the set to Atty. Thorne, and a request sent later arrives after the binder is being built."},
+        {q: "On 04/26/2027 the master calendar still shows No. 26-CV-04417's discovery close (05/28/2027), pretrial conference (08/12/2027) and trial calendar (09/13/2027). Robert Smith was dismissed after the 03/18/2027 mediation. What does the Case Manager do?",
+         opts: ["Delete all three entries, because the suit is over", "Leave them as they are and say nothing", "Keep them, mark them “Robert Smith dismissed: confirm vacated”, and ask Atty. Thorne in writing which stay live", "Call the court clerk and ask for the dates to be vacated"],
+         a: 2, r: "What the dismissal did to the court's schedule is a legal question for Atty. Thorne. Deleting guesses at the answer; leaving the entries unmarked has the team chasing dates that may not exist. Keep, mark and ask; the SOL hard date 02/04/2028 and the 11/05/2027 cutoff stay unchanged."}
       ],
       blocks: [
 
@@ -6826,6 +7282,98 @@ window.CM_CASE_FLOW = {
           "Legal nuance: many courts accept a Monday filing when a limitation period ends on a Sunday. The firm rule refuses to rely on it, and which rule governs is Atty. Thorne's call. A trainee who calls opposing counsel about an extension fails the authority row."
         ]
       },
+       {
+         kind: "activity", id: "d4m2-medcal",
+         compact: true,
+         transition: "The windows are in and Atty. Thorne has chosen the mediator. Today the Notice of Mediation lands, and we calendar the session and every date that hangs off it.",
+         title: "Calendaring the Mediation: the Session and Every Date That Hangs Off It",
+         topic: "Skill Activity — calendar the 03/18/2027 mediation from its triggers",
+         visual: "A horizontal date rail across the slide from 01/08/2027 to 03/31/2027, the Notice of Mediation as a navy pin at the left edge and the Scheduling Order's red COMPLETED BY 03/31/2027 flag at the right. One large navy session card sits on 03/18/2027 (Thu) · 9:30 a.m. with four attendee chips (ATTY. THORNE · JOHN DOE · CM — LOGISTICS · KEYSTONE — FULL AUTHORITY?). Orange backward arrows run left from it to 03/11/2027 (STATEMENT + BINDER) and on to 03/09, 03/04 and 03/02/2027, each a blank mono pill for the trainee to fill. Below the rail, a grey conflict lane holds the master calendar's own entries (01/13/2027 · 03/15/2027 · 05/28/2027) with one amber overlap marker between 03/11 and 03/18. In the top-right corner, two small cards: a money card, PLAINTIFF'S HALF $1,200.00 → CASE COST, and a red flag card, UM CONSENT BEFORE ANY BI RELEASE → ATTY. THORNE. The argument: one notice, a dozen dates, each counted from its own trigger.",
+         act: {
+           scenario: "File date 01/08/2027 (Fri), Track B. Today the Notice of Mediation was filed in No. 26-CV-04417: court-ordered mediation before Hon. Carla Benton (Ret.), selected by Atty. Thorne from the four windows collected 12/17/2026, on 03/18/2027 (Thu) at 9:30 a.m. at her office. The confidential statement and binder are due 7 days before; client attendance is required. The Order of Referral entered 12/10/2026 with the Scheduling Order requires mediation completed by 03/31/2027, a notice of the mediator and session date within 30 days, attendance by each party, lead counsel and an insurer's representative with full authority to settle, the mediator's report within 7 days after the session, and the mediator's fees divided equally between the sides; the plaintiff's half is $1,200.00. The 12/10/2026 calendar audit already entered “completed by 03/31/2027” and a task to collect the windows. Harbor Point's and Cardinal State's policies each require their written consent before any settlement with Keystone. On the master calendar: Robert Smith's responses to our discovery due 01/13/2027; plaintiff's expert disclosure 03/15/2027; discovery closes 05/28/2027.",
+           prompt: "Calendar the mediation in the Calendaring Simulators and mirror every entry to John Doe's CMS → Calendar. Verify the trigger first: the notice against the order's 30-day selection rule, and the session date against the 03/31/2027 completion deadline, linking to the existing deadline and closing the windows task rather than re-entering either. Enter the session with its attendees and its location. Count the statement-and-binder deadline back from the session, then the internal dates back from that deadline, then the mediator's report forward from the session. Calendar the client's written confirmation, his prep meeting request and his reminders. Track the $1,200.00 fee as a case cost. Flag the UM carriers' consent-to-settle requirement for Atty. Thorne with the 30-day arithmetic. Conflict-check every new date against the master calendar and route the summary to Atty. Thorne the same day, ranking what needs his decision.",
+           tool: "Calendaring Simulators · CMS → Calendar · Docket System · CMS → Tasks · CMS → Case Notes",
+           output: "A mediation calendar of verified, trigger-counted entries mirrored to the CMS, a cost task for the fee, a client-confirmation task, and a same-day summary to Atty. Thorne with the UM consent flag and the one conflict.",
+           checkpoints: [
+             "Trigger verified: the Notice of Mediation filed 01/08/2027 (Fri) meets the order's 30-day rule (12/10/2026 + 30 = 01/09/2027, a Saturday); the 12/10/2026 windows task closed with the notice attached, not re-created",
+             "Session entered once: 03/18/2027 (Thu), 9:30 a.m., in person at Hon. Carla Benton (Ret.)'s office, court-ordered; the day blocked for Atty. Thorne, John Doe and the CM (logistics only)",
+             "Attendance read from the order: each party (John Doe; Robert Smith with Atty. Grant Mercer) and a Keystone representative with full authority to settle; the representative's name logged as “to be confirmed by Atty. Mercer”, not guessed",
+             "Completion deadline verified, not re-entered: 03/18/2027 is 13 days inside 03/31/2027 (Wed); the 12/10/2026 “completed by” entry linked to the session",
+             "Statement and binder: 03/18/2027 − 7 = 03/11/2027 (Thu), a weekday, so no roll; marked confidential, for the mediator only",
+             "Internal dates counted back from 03/11/2027: Litigation Desk's draft index 03/02/2027 (Tue); binder QC 03/04/2027 (Thu), 7 days before; routed to Atty. Thorne for approval by 03/09/2027 (Tue), 2 business days before delivery",
+             "Mediator's report watched forward from the session: 03/18/2027 + 7 = 03/25/2027 (Thu)",
+             "Client: written confirmation of attendance requested 01/08/2027 with a follow-up tickler 01/15/2027 (Fri); prep meeting requested from Atty. Thorne, entered when he sets it; reminders 03/11/2027 and 03/17/2027 (Wed)",
+             "Fee tracked as a cost: the order divides fees equally, so $1,200.00 is half of $2,400.00; costs advanced $486.75 + $218.00 + $285.00 = $989.75 → $2,189.75 once paid; routed to accounting, posted only on the receipted invoice",
+             "UM flag: Harbor Point and Cardinal State each require written consent before any BI settlement, with 30 days from written notice to consent or advance; a tentative settlement noticed 03/18/2027 runs to 04/17/2027 (Sat); routed to Atty. Thorne as a question, no carrier contacted",
+             "Conflict check: plaintiff's expert disclosure 03/15/2027 (Mon) falls between binder delivery and the session, flagged as a workload overlap; 01/13/2027 and 05/28/2027 clear; no conflict on 03/18/2027",
+             "Every entry carries its trigger, rule, arithmetic, owner and alerts in the Calendaring Simulators and the CMS → Calendar; the summary routed to Atty. Thorne on 01/08/2027"
+           ]
+         },
+         ops: [
+           [
+             "Notice of Mediation filed 01/08/2027",
+             "Verify the trigger; enter the session; close the windows task",
+             "Calendaring Simulators · CMS → Calendar",
+             "Session 03/18/2027 entered once; 30-day rule and 03/31/2027 verified"
+           ],
+           [
+             "Session entered",
+             "Count the statement, binder and internal dates back; the report forward",
+             "Docket System",
+             "03/11, 03/09, 03/04, 03/02 and 03/25/2027, each with its arithmetic"
+           ],
+           [
+             "Order divides the mediator's fees equally",
+             "Open the cost task for the plaintiff's $1,200.00 half",
+             "CMS → Tasks → Accounting",
+             "Posted to the Case Cost Ledger only on the receipted invoice"
+           ],
+           [
+             "Calendar built",
+             "Route the summary: the UM consent flag and the 03/15/2027 overlap",
+             "CMS → Tasks → Escalate",
+             "Routed to Atty. Thorne the same day"
+           ]
+         ],
+         best: [
+           "Count each date from its own trigger: the session from the notice, the binder from the session, the QC from the binder.",
+           "Link to the 12/10/2026 entries instead of keying them again; one date, one entry.",
+           "Read the attendance paragraph of the order, then calendar the people it names.",
+           "Pitfall: entering 03/31/2027 as the session or 03/18/2027 as the deadline.",
+           "Pitfall: rolling a backward internal date forward when it lands on a weekend.",
+           "Pitfall: posting the $1,200.00 fee before the invoice arrives, or not tracking it at all."
+         ],
+         sources: [
+           "D4#5",
+           "D5#28",
+           "D4#18",
+           "Newly authored: calendaring a Notice of Mediation from its triggers — the session, the statement-and-binder deadline, backward internal dates, the mediator's report, the client's confirmation, the fee as a cost, and the UM consent-to-settle flag"
+         ],
+         rubric: {
+           ai: [
+             ["Date accuracy", 20, "03/18, 03/11, 03/09, 03/04, 03/02 and 03/25/2027 exactly, with the arithmetic and weekdays shown"],
+             ["Trigger verification", 10, "30-day selection rule and 03/31/2027 deadline verified; existing entries linked, not duplicated"],
+             ["Attendance and client", 10, "Attendees read from the order; John Doe's confirmation, tickler and reminders calendared"],
+             ["Cost tracking", 10, "$1,200.00 as half of $2,400.00; $989.75 → $2,189.75; posted only on the invoice"],
+             ["Conflict check", 10, "03/15/2027 overlap flagged; 01/13 and 05/28/2027 cleared"]
+           ],
+           trainer: [
+             ["Calendar usability", 15, "A colleague could run the mediation from the entries alone: trigger, owner and alerts on each"],
+             ["UM consent flag", 10, "Both carriers' consent requirement and the 04/17/2027 arithmetic put to Atty. Thorne as a question"],
+             [
+               "UPL boundary",
+               15,
+               "No carrier contacted, no value or strategy discussed with John Doe or Atty. Mercer; prep and authority left to Atty. Thorne"
+             ]
+           ]
+         },
+         notes: [
+           "Before anyone opens the simulator, ask the room how many dates one notice creates. Most say two; this file has at least eight, and each has a different trigger.",
+           "Watch for the duplicate. The 12/10/2026 audit already entered “completed by 03/31/2027”; a trainee who keys it again now has two entries that can drift apart. Linking it to the session is the skill.",
+           "The UM flag is the one that can cost money. If Keystone tenders at the table, nothing can be released without Harbor Point's and Cardinal State's written consent. The CM puts the requirement and the 30-day arithmetic in front of Atty. Thorne; whether and when to notify the carriers is his call.",
+           "The conflict check is not about the session day, which is clear. It is the Monday in between: plaintiff's expert disclosure on 03/15/2027 lands after the binder goes out and before the session, and the team needs to know that in January."
+         ]
+       },
 
       {
         kind: "lesson", id: "d4m2-um", compact: true,
@@ -7046,6 +7594,93 @@ window.CM_CASE_FLOW = {
           "Grade the scripted deferral hardest. A trainee who audited the Riverton Spine & Rehab bill knows the answer and will want to give it; that is exactly the moment the Golden Rule exists for."
         ]
       },
+       {
+         kind: "activity", id: "d4m2-arbcal",
+         compact: true,
+         transition: "Laura Whitcomb, Esq. has set the hearing in writing. Now every date that hangs off it goes on the calendar, each computed from her letter.",
+         title: "Calendaring the Arbitration from the Scheduling Letter",
+         topic: "Skill Activity — every date that hangs off the hearing",
+         visual: "A horizontal calendar ribbon from 04/26/2027 to 06/22/2027. At the right end a solid navy anchor pin, HEARING 06/22/2027 9:00 A.M., with the scheduling letter clipped to it as a small white card. Orange arrows run backward from the pin to empty mono date slots (EXCHANGE · BRIEF · BINDER QC · DRAFT INDEX · RECORDS REQUESTS · CLIENT CONFIRMS · PREP · TECH CHECK), each slot with a blank RULE chip beneath it; a grey Saturday tile sits beside the BRIEF slot with a curved arrow pointing left, never right. Above the ribbon, a faint strip of master-calendar entries: three court dates carrying a navy question chip ASK ATTY. THORNE, and at the far right, off the ribbon, a red band SOL 02/04/2028 · CUTOFF 11/05/2027 marked UNCHANGED. The argument: every slot points back to one pin.",
+         act: {
+           scenario: "File date 04/26/2027 (Mon), Track B. Keystone tendered its $10,000 BI limits at the 03/18/2027 mediation and Robert Smith was dismissed. On 04/05/2027 Harbor Point invoked its UM arbitration clause and Cardinal State joined one consolidated binding arbitration before Laura Whitcomb, Esq.; Atty. Thorne has answered the route and consolidation questions, and the hearing, exhibit and brief entries drafted on 04/05/2027 wait for a trigger document. This morning her scheduling letter arrived: hearing 06/22/2027 (Tue), 9:00 a.m.; exhibits and witness lists exchanged 20 days before; briefs due 10 days before (as configured for this training file; confirm the forum's rules). The plaintiff's share of her fee is $900.00. The master calendar still carries the 12/10/2026 Scheduling Order's dates in No. 26-CV-04417 and the SOL entries.",
+           prompt: "Calendar the arbitration from the letter. Enter the hearing and re-anchor the exchange and brief entries to it. Then compute every date that hangs off them, each from its trigger with the rule shown (backward counts move to the earlier business day): the Litigation Desk's draft exhibit index and the opening of binder QC, the certified-records requests and their chase, John Doe's attendance, witness availability, the prep session and the technology check. Route the $900.00 fee share to accounting as a case cost. Finally, check the result against the master calendar: keep the SOL entries, and for the court's dates in the dismissed suit ask Atty. Thorne in writing which stay live, rather than deleting anything.",
+           tool: "Calendaring Simulators · Docket System · CMS → Calendar · CMS → Tasks",
+           output: "A letter-anchored arbitration calendar with every dependent date, its trigger, rule, arithmetic, owner and alerts, the fee share routed as a cost, and one written question to Atty. Thorne on the court dates.",
+           checkpoints: [
+             "Trigger recorded: Laura Whitcomb, Esq.'s scheduling letter of 04/26/2027 (Mon); the hearing, exchange and brief entries drafted on 04/05/2027 re-anchored to it and verified, not entered twice",
+             "Hearing 06/22/2027 (Tue), 9:00 a.m., one day held for Atty. Thorne and the Case Manager",
+             "Exhibit exchange and witness list 06/02/2027 (Wed): 06/22/2027 − 20 days",
+             "Brief 06/11/2027 (Fri): 06/22/2027 − 10 days = 06/12/2027 (Sat); counting backward, the earlier business day; nothing on 06/14/2027",
+             "Binder QC opens 05/17/2027 (Mon): 06/02/2027 − 16 days, room to sort, QC, route to Atty. Thorne and correct; the Litigation Desk's draft exhibit index due the last business day before, 05/14/2027 (Fri)",
+             "Certified-records requests out by 05/03/2027 (Mon): QC opening 05/17/2027 − the 14-day custodian window; a tickler 14 days after each request sends the second request and the subpoena flag to Atty. Thorne",
+             "John Doe's attendance on 06/22/2027 at 9:00 a.m. confirmed in writing by 04/28/2027 (Wed), two business days after the letter; witnesses Atty. Thorne names checked for availability before the 06/02/2027 witness list, tickler 05/17/2027",
+             "Prep session proposed for 06/15/2027 (Tue), 7 days before the hearing, for Atty. Thorne to confirm (he leads it); technology and logistics check 06/21/2027 (Mon), the business day before",
+             "Arbitrator's fee: the plaintiff's share, $900.00, routed to accounting on her invoice and logged as a case cost; written payment confirmation on file by 05/17/2027, when Tab 1 of the binder needs it",
+             "SOL entries unchanged: internal hard date 02/04/2028 (Fri) and filing cutoff 11/05/2027 (Fri); 02/06/2028 (Sun) never relied on",
+             "Court entries in No. 26-CV-04417 (discovery closes 05/28/2027, pretrial conference 08/12/2027, trial calendar 09/13/2027) kept and marked “Robert Smith dismissed: confirm vacated”, with one written question to Atty. Thorne; nothing deleted",
+             "No award date docketed; every entry carries its trigger, rule, arithmetic, owner and alerts at 14, 7 and 1 days, mirrored from the Docket System to CMS → Calendar"
+           ]
+         },
+         ops: [
+           [
+             "Scheduling letter arrives 04/26/2027",
+             "Enter the hearing; re-anchor exchange and brief to the letter",
+             "Docket System · CMS → Calendar",
+             "06/22, 06/02 and 06/11/2027 verified; nothing on 06/14/2027"
+           ],
+           [
+             "Hearing date fixed",
+             "Count back binder QC, records requests and the prep holds",
+             "Calendaring Simulators",
+             "05/03, 05/14, 05/17, 06/15 and 06/21/2027, each with its rule"
+           ],
+           [
+             "Arbitrator's invoice for the plaintiff's share",
+             "Route $900.00 to accounting as a case cost",
+             "CMS → Tasks → Accounting",
+             "Payment confirmation on file by 05/17/2027"
+           ],
+           [
+             "Master calendar checked",
+             "Ask Atty. Thorne which court dates stay live",
+             "CMS → Tasks → Escalate",
+             "Court entries kept and marked until he answers"
+           ]
+         ],
+         best: [
+           "Enter the trigger document first, then every date that counts from it.",
+           "Count a lead time back from the internal step that needs the item, not from the hearing.",
+           "Mark a doubtful entry and ask; never let a calendar go quiet on a date nobody has vacated.",
+           "Pitfall: counting the brief forward to Monday 06/14/2027.",
+           "Pitfall: requesting certified records on a schedule that delivers them after binder QC opens.",
+           "Pitfall: deleting the dismissed suit's court dates on your own reading of the dismissal."
+         ],
+         sources: [
+           "D4#18",
+           "D4#19",
+           "D5#28",
+           "Newly authored: the arbitration calendar computed from the arbitrator's scheduling letter, with internal lead times counted back from the step that needs each item"
+         ],
+         rubric: {
+           ai: [
+             ["Anchor dates", 15, "06/22/2027, 06/02/2027 and 06/11/2027 (not 06/14/2027) re-anchored to the 04/26/2027 letter, not entered twice"],
+             ["Dependent dates", 20, "05/03, 05/14, 05/17, 04/21, 06/15 and 06/21/2027, each with its trigger, rule and arithmetic"],
+             ["Fee as a cost", 10, "$900.00 plaintiff's share routed to accounting and logged as a case cost; confirmation by 05/17/2027"],
+             ["Conflict check", 15, "SOL 02/04/2028 and cutoff 11/05/2027 unchanged; court entries kept and marked; no award date"]
+           ],
+           trainer: [
+             ["Trigger discipline", 15, "Can say, for any entry, which document set it and which rule counts from it"],
+             ["Authority boundary", 15, "Court dates and the prep date go to Atty. Thorne as questions; nothing deleted or decided"],
+             ["Client handling", 10, "John Doe's attendance confirmed in plain, procedural words; nothing on value or outcome"]
+           ]
+         },
+         notes: [
+           "Put the ribbon on the board with only the hearing pin filled. Ask the room to name every date that hangs off it before anyone opens the simulator; the binder QC and the records requests are the ones they forget.",
+           "The records-request date is the teaching point. Counted from the exchange, it looks comfortable; counted from 05/17/2027, when QC opens and the records must already be in hand, it is 05/03/2027. A request that goes out later arrives after the binder is being built.",
+           "On the court dates, a trainee who deletes them has guessed what the dismissal did to the case; a trainee who leaves them unmarked will chase a pretrial conference that may not exist. Marking and asking is the job.",
+           "Grade the fee row for the word “cost”: the $900.00 is advanced by the firm and comes back from John Doe's share under the retainer. Whether it is paid or advanced, and when, is accounting's and Atty. Thorne's process, not the Case Manager's decision."
+         ]
+       },
 
       {
         kind: "activity", id: "d4m2-a3", compact: true,
@@ -9957,29 +10592,36 @@ window.CM_CASE_FLOW = {
       "Timing is set by the Scheduling Order entered 12/10/2026. Discovery closes on 05/28/2027, so the notice period, service and the custodian's production must all land before it. That means counting backward before anything is drafted, and raising a late subpoena with Atty. Thorne as soon as it is spotted. Once a subpoena is out, it is tracked: a compliance call to the records or legal department 5 days before production, the custodian's copy invoice paid promptly, and one log row per subpoena reviewed every 10 days under the Subpoena Audit. When records arrive they are logged, indexed and tabbed, because what comes back by subpoena becomes the exhibits in Atty. Thorne's trial binder.",
       "Trial subpoenas follow the later dates in the same order: pretrial on 08/12/2027 and the trial calendar on 09/13/2027. They are drafted only for the witnesses Atty. Thorne names; on this file the candidates are Ruth Calloway, Officer Thomas Garner #2217, Dr. Alana Reyes and Dr. Helen Park. Who may serve them, how far before trial, and whether a witness fee or mileage must go with them all depend on the court's rules, which are confirmed, not assumed. Because a trial calendar is not a fixed day, each witness's contact details are kept current and logged, so the firm can reach them when the case is called.",
       "The Case Manager's lane is clear. You draft from Atty. Thorne's instructions, calendar every date, arrange service, make the compliance calls, track returns and log every record received. Atty. Thorne decides whether to subpoena anyone, chooses the witnesses, signs and issues the subpoena, sets its scope and answers any objection or Motion to Quash. A compliance call is logistics only: if a custodian pushes back on scope, the question goes to him. When Atty. Mercer's office notices its own subpoena to one of John Doe's providers, you docket it within 48 hours and route it to Atty. Thorne the same day, because whether to object is his call."
+    ],
+    "d1m4-emc": [
+      "Personal Injury Protection is first-party coverage that pays an injured person's Medical Bills and part of their lost income regardless of who caused the crash. It is not one national product. Each state writes its own PIP law, and the details that matter to a Case Manager, the limit, the percentage paid, the deadlines and the conditions, change at the state line. That is why the first question on any PIP file is which state's rule governs. The **Emergency Medical Condition (EMC) rule** is Florida's. It is not a general principle of PIP, and on a file in another state it does not exist unless that state's own statute says so.",
+      "Florida's rule is in Fla. Stat. § 627.736(1)(a), as rewritten by the 2012 PIP reform (HB 119). Florida PIP is $10,000 per person and pays 80% of reasonable medical expenses and 60% of lost gross income. Two conditions sit on top of that. First, initial services and care must be received within 14 days after the motor vehicle accident; if they are not, PIP pays nothing for medical benefits. Second, the full $10,000 medical benefit is available only if a physician (MD or DO), a dentist, a physician assistant or an advanced practice registered nurse determines that the injured person had an Emergency Medical Condition; without that determination, medical benefits are capped at $2,500. A chiropractor may provide the initial care but cannot make the EMC determination, and massage and acupuncture are not reimbursable at all. An EMC means a medical condition manifesting itself by acute symptoms of sufficient severity, which may include severe pain, such that the absence of immediate medical attention could reasonably be expected to result in serious jeopardy to patient health, serious impairment to bodily functions, or serious dysfunction of a bodily organ or part. Florida's legislature has repeatedly considered repealing PIP, so a Case Manager confirms the current statute before relying on any of these numbers.",
+      "John Doe's file is not in Florida. It is in Riverton, an add-on PIP state: every auto policy carries $5,000 of PIP unless the named insured rejects it in writing, it pays 100% of reasonable accident medical expenses and 80% of lost income, and **Riverton has no EMC rule** and no 14-day condition. John owns no car, so he claims as a passenger on Kevin Alvarez's Escape under Harbor Point's $5,000 PIP. Nothing about when he first treated or who treated him caps that benefit. Saying otherwise to John, to a provider or to Harbor Point would be a false statement of his coverage.",
+      "The contrast is still worth working, as a hypothetical. Had this file been in Florida, the date of loss of 02/06/2026 would put the 14-day deadline at 02/20/2026, and John's first visit, at Riverton Urgent Care on 02/20/2026, would have fallen on day 14, the last day inside the window. One more day of delay and Florida PIP would have paid nothing for medical. Nina Patel, PA-C, is the kind of provider who can make an EMC determination; whether she did would be read from her record, never assumed. Riverton Spine & Rehab, where Dr. Mark Ellison, DC, provides chiropractic care with PT, could treat him but could not make the finding, so a Florida file treating only there would sit in the $2,500 bucket. Cause and effect run straight through the calendar: the deadline and the finding decide how much of the bills PIP carries, and what PIP does not carry falls on other payers.",
+      "On a Florida file, your lane is the clock and the record. At intake you calendar the 14-day initial-care deadline from the date of loss and make sure the client knows the deadline and where and when care is available, as facts and logistics, never as a medical recommendation. When records arrive, you check the first visit's date, the provider's credential and whether an EMC determination is documented; if a qualifying provider's record lacks one, you ask the office and request it. You keep the $2,500 or $10,000 bucket current in the PIP Log. Whether an Emergency Medical Condition existed is the provider's clinical decision. A missing EMC or a late first visit goes to Atty. Thorne the day you see it, and what it means for the claim is his to decide."
     ]
   },
 
   sequence: [
     {n: 1, phases: [
-      {title: "Intake, Claims & Property Damage", lead: "Module 1", blocks: ["d1m1-role", "d1m1-case", "d1m1-upl", "d1m1-l1", "d1m4-l1", "d1m4-tplan", "d1m4-tmap", "d1m4-tcare", "d1m3-l1", "d1m3-l2", "d1m3-rent", "d1m1-open", "d1m3-a1", "d1m3-a2", "d1m3-a3", "d1m1-kc", "d1m3-kc"],
-       headings: {"d1m1-role": "Introduction to Case Management", "d1m1-case": "Meet Your Client: John Doe", "d1m1-upl": "The UPL Line: Fact Sharing vs. Legal Advice", "d1m1-l1": "Intake", "d1m4-l1": "Intake & the Claims", "d1m4-tplan": "Case Planning: Treatment", "d1m4-tmap": "Case Planning: Treatment", "d1m4-tcare": "Case Planning: Treatment", "d1m3-l1": "Property Damage", "d1m3-l2": "Property Damage", "d1m3-rent": "Property Damage", "d1m1-open": "Skill Building: Opening the File in the CMS", "d1m3-a1": "Skill Building: Property Damage", "d1m3-a2": "Skill Building: Property Damage", "d1m3-a3": "Skill Building: Property Damage"}}
+      {title: "Intake, Claims & Property Damage", lead: "Module 1", blocks: ["d1m1-role", "d1m1-case", "d1m1-upl", "d1m1-l1", "d1m4-l1", "d1m4-tplan", "d1m4-tmap", "d1m4-tcare", "d1m4-emc", "d1m3-l1", "d1m3-l2", "d1m3-rent", "d1m1-open", "d1m3-a1", "d1m3-a2", "d1m3-a3", "d1m1-kc", "d1m3-kc"],
+       headings: {"d1m1-role": "Introduction to Case Management", "d1m1-case": "Meet Your Client: John Doe", "d1m1-upl": "The UPL Line: Fact Sharing vs. Legal Advice", "d1m1-l1": "Intake", "d1m4-l1": "Intake & the Claims", "d1m4-tplan": "Case Planning: Treatment", "d1m4-tmap": "Case Planning: Treatment", "d1m4-tcare": "Case Planning: Treatment", "d1m4-emc": "Case Planning: Treatment", "d1m3-l1": "Property Damage", "d1m3-l2": "Property Damage", "d1m3-rent": "Property Damage", "d1m1-open": "Skill Building: Opening the File in the CMS", "d1m3-a1": "Skill Building: Property Damage", "d1m3-a2": "Skill Building: Property Damage", "d1m3-a3": "Skill Building: Property Damage"}}
     ]},
     {n: 2, phases: [
       {title: "Claim Set Up & Treatment", lead: "Module 2", lanes: {"d2m1-l1": "claims", "d2m1-l2": "claims", "d1m4-l2": "claims", "d1m1-a1": "claims", "d2m1-a1": "claims", "d2m1-a2": "claims", "d1m4-a1": "claims", "d1m4-a2": "claims", "d2m1-kc": "claims", "d1m4-kc": "claims", "d2m1-cov": "care", "d2m2-l1": "care", "d2m2-eob": "care", "d2m2-pip": "care", "d2m2-lop": "care", "d2m2-cost": "care", "d1m1-l2": "care", "d2m2-l2": "care", "d1m2-l1": "care", "d1m2-l2": "care", "d1m2-a1": "care", "d1m2-a2": "care", "d2m2-a1": "care", "d1m1-a2": "care", "d2m2-a2": "care", "d2m2-a3": "care", "d2m2-kc": "care", "d1m2-kc": "care"}, blocks: ["d2m1-l1", "d2m1-l2", "d1m4-l2", "d2m1-cov", "d2m2-l1", "d2m2-eob", "d2m2-pip", "d2m2-lop", "d2m2-cost", "d1m1-l2", "d2m2-l2", "d1m2-l1", "d1m2-l2", "d1m1-a1", "d2m1-a1", "d2m1-a2", "d1m4-a1", "d1m4-a2", "d1m2-a1", "d1m2-a2", "d2m2-a1", "d1m1-a2", "d2m2-a2", "d2m2-a3", "d2m1-kc", "d1m4-kc", "d2m2-kc", "d1m2-kc"],
        headings: {"d2m1-l1": "Claim Set Up", "d2m1-l2": "Claim Set Up", "d1m4-l2": "Claim Set Up: Case Strategy", "d2m1-cov": "Treatment: Who Pays the Bills", "d2m2-l1": "Treatment: Who Pays the Bills", "d2m2-eob": "Treatment: Who Pays the Bills", "d2m2-pip": "Treatment: Who Pays the Bills", "d2m2-lop": "Treatment: Who Pays the Bills", "d2m2-cost": "Treatment: Who Pays the Bills", "d1m1-l2": "Treatment: Liens & the Regulatory Triple-Check", "d2m2-l2": "Treatment: Monitoring the Care", "d1m2-l1": "Treatment: Client Communications", "d1m2-l2": "Treatment: Client Communications", "d1m1-a1": "Skill Building: CMS Case File Setup", "d2m1-a1": "Skill Building: Draft, Transmit & Log the LORs", "d2m1-a2": "Skill Building: Receive Carrier Claim Correspondence", "d1m4-a1": "Skill Building: Case Strategy", "d1m4-a2": "Skill Building: Case Strategy", "d1m2-a1": "Skill Building: Client Communications", "d1m2-a2": "Skill Building: Client Communications", "d2m2-a1": "Skill Building: Treatment", "d1m1-a2": "Skill Building: Liens", "d2m2-a2": "Skill Building: Treatment", "d2m2-a3": "Skill Building: Treatment"}}
     ]},
     {n: 3, phases: [
-      {title: "Pre-Demand Audit, the Demand & Settlement Negotiation", lead: "Module 3", lanes: {"d2m3-l1": "care", "d2m3-l2": "care", "d2m3-a1": "care", "d2m3-a2": "care", "d2m3-kc": "care"}, blocks: ["d2m3-l1", "d2m3-l2", "d2m4-l1", "d2m4-l2", "d3m1-l1", "d3m1-l2", "d3m1-pkg", "d3m2-l1", "d3m2-l2", "d2m3-a1", "d2m3-a2", "d2m4-a1", "d2m4-a2", "d3m1-a1", "d3m1-a2", "d3m2-a1", "d3m2-a2", "d2m3-kc", "d2m4-kc", "d3m1-kc", "d3m2-kc"],
-       headings: {"d2m3-l1": "Pre-Demand: the Gap Explanation Record", "d2m3-l2": "Pre-Demand: the Gap Explanation Record", "d2m3-a1": "Skill Building: the Gap Explanation Record", "d2m3-a2": "Skill Building: the Gap Explanation Record", "d2m4-l1": "Pre-Demand Case Auditing", "d2m4-l2": "Pre-Demand Case Auditing", "d3m1-l1": "Demand", "d3m1-l2": "Demand", "d3m1-pkg": "Demand", "d2m4-a1": "Skill Building: Pre-Demand Case Auditing", "d2m4-a2": "Skill Building: Pre-Demand Case Auditing", "d3m1-a1": "Skill Building: Demand", "d3m1-a2": "Skill Building: Demand", "d3m2-l1": "Settlement Negotiations", "d3m2-l2": "Settlement Negotiations", "d3m2-a1": "Skill Building: Settlement Negotiations", "d3m2-a2": "Skill Building: Settlement Negotiations"}}
+      {title: "Pre-Demand Audit, the Demand & Settlement Negotiation", lead: "Module 3", lanes: {"d2m3-l1": "care", "d2m3-l2": "care", "d2m3-a1": "care", "d2m3-a2": "care", "d2m3-kc": "care"}, blocks: ["d2m3-l1", "d2m3-l2", "d2m4-l1", "d2m4-l2", "d3m1-l1", "d3m1-l2", "d3m1-pkg", "d3m2-l1", "d3m2-l2", "d2m3-a1", "d2m3-a2", "d2m4-a1", "d2m4-a2", "d3m1-a1", "d3m1-a2", "d3m2-a1", "d3m2-bins", "d3m2-a2", "d3m2-umns", "d2m3-kc", "d2m4-kc", "d3m1-kc", "d3m2-kc"],
+       headings: {"d2m3-l1": "Pre-Demand: the Gap Explanation Record", "d2m3-l2": "Pre-Demand: the Gap Explanation Record", "d2m3-a1": "Skill Building: the Gap Explanation Record", "d2m3-a2": "Skill Building: the Gap Explanation Record", "d2m4-l1": "Pre-Demand Case Auditing", "d2m4-l2": "Pre-Demand Case Auditing", "d3m1-l1": "Demand", "d3m1-l2": "Demand", "d3m1-pkg": "Demand", "d2m4-a1": "Skill Building: Pre-Demand Case Auditing", "d2m4-a2": "Skill Building: Pre-Demand Case Auditing", "d3m1-a1": "Skill Building: Demand", "d3m1-a2": "Skill Building: Demand", "d3m2-l1": "Settlement Negotiations", "d3m2-l2": "Settlement Negotiations", "d3m2-a1": "Skill Building: Settlement Negotiations", "d3m2-bins": "Skill Building: Settlement Negotiations", "d3m2-a2": "Skill Building: Settlement Negotiations", "d3m2-umns": "Skill Building: Settlement Negotiations"}}
     ]},
     {n: 4, phases: [
-      {title: "Reductions, Lien Negotiation & ADR", lead: "Module 4", blocks: ["d3m3-l1", "d3m3-l2", "d3m3-l3", "d3m4-l1", "d3m4-l2", "d3m4-close", "d4m2-l1", "d4m2-um", "d4m2-l2", "d4m3-l1", "d4m3-l2", "d4m3-prior", "d3m3-a1", "d3m3-a2", "d3m4-a1", "d3m4-a2", "d4m2-a3", "d4m2-a1", "d4m2-a2", "d4m3-a1", "d4m3-a2", "d3m3-kc", "d3m4-kc", "d4m2-kc", "d4m3-kc"],
-       headings: {"d3m3-l1": "Lien Negotiations & Reduction", "d3m3-l2": "Lien Negotiations & Reduction", "d3m4-l1": "Disbursement & Closing a Case", "d3m4-l2": "Disbursement & Closing a Case", "d3m4-close": "Disbursement & Closing a Case", "d4m2-l1": "ADR: UM Disputes, Mediation & Arbitration", "d4m2-um": "ADR: UM Disputes, Mediation & Arbitration", "d4m2-l2": "ADR: UM Disputes, Mediation & Arbitration", "d4m3-l1": "ADR: The Binders", "d4m3-l2": "ADR: The Binders", "d4m3-prior": "ADR: The Binders", "d3m3-a1": "Skill Building: Lien Negotiations", "d3m3-a2": "Skill Building: Lien Negotiations", "d3m4-a1": "Skill Building: Disbursement & Closing", "d3m4-a2": "Skill Building: Disbursement & Closing", "d4m2-a1": "Skill Building: ADR", "d4m2-a2": "Skill Building: ADR", "d4m2-a3": "Skill Building: UM/UIM Coverage Disputes", "d4m3-a1": "Skill Building: ADR", "d4m3-a2": "Skill Building: ADR"}}
+      {title: "Reductions, Lien Negotiation & ADR", lead: "Module 4", blocks: ["d3m3-l1", "d3m3-l2", "d3m3-l3", "d3m4-l1", "d3m4-l2", "d3m4-close", "d4m2-l1", "d4m2-um", "d4m2-l2", "d4m3-l1", "d4m3-l2", "d4m3-prior", "d3m3-a1", "d3m3-a2", "d3m4-a1", "d3m4-a2", "d4m2-a3", "d4m2-a1", "d4m2-medcal", "d4m2-a2", "d4m2-arbcal", "d4m3-a1", "d4m3-a2", "d3m3-kc", "d3m4-kc", "d4m2-kc", "d4m3-kc"],
+       headings: {"d3m3-l1": "Lien Negotiations & Reduction", "d3m3-l2": "Lien Negotiations & Reduction", "d3m4-l1": "Disbursement & Closing a Case", "d3m4-l2": "Disbursement & Closing a Case", "d3m4-close": "Disbursement & Closing a Case", "d4m2-l1": "ADR: UM Disputes, Mediation & Arbitration", "d4m2-um": "ADR: UM Disputes, Mediation & Arbitration", "d4m2-l2": "ADR: UM Disputes, Mediation & Arbitration", "d4m3-l1": "ADR: The Binders", "d4m3-l2": "ADR: The Binders", "d4m3-prior": "ADR: The Binders", "d3m3-a1": "Skill Building: Lien Negotiations", "d3m3-a2": "Skill Building: Lien Negotiations", "d3m4-a1": "Skill Building: Disbursement & Closing", "d3m4-a2": "Skill Building: Disbursement & Closing", "d4m2-a1": "Skill Building: ADR", "d4m2-medcal": "Skill Building: ADR", "d4m2-a2": "Skill Building: ADR", "d4m2-arbcal": "Skill Building: ADR", "d4m2-a3": "Skill Building: UM/UIM Coverage Disputes", "d4m3-a1": "Skill Building: ADR", "d4m3-a2": "Skill Building: ADR"}}
     ]},
     {n: 5, phases: [
-      {title: "Litigation & Dropped Cases", lead: "Module 5", blocks: ["d4m1-l1", "d4m1-l2", "d4m4-l1", "d4m4-l2", "d5m1-l1", "d5m1-l2", "d5m1-subp", "d5m2-l1", "d5m2-l2", "d5m3-l1", "d5m3-l2", "d5m4-l1", "d5m4-l2", "d5m5-l1", "d5m6-l1", "d4m1-a1", "d4m1-a2", "d4m4-a1", "d4m4-a2", "d5m1-a1", "d5m1-a2", "d5m2-a1", "d5m2-a2", "d5m3-a1", "d5m3-a2", "d5m4-a1", "d5m4-a2", "d5m5-a1", "d5m6-a1", "d4m1-kc", "d4m4-kc", "d5m1-kc", "d5m2-kc", "d5m3-kc", "d5m4-kc", "d5m5-kc", "d5m6-kc"],
-       headings: {"d4m1-l1": "Litigation", "d4m1-l2": "Litigation", "d4m4-l1": "Litigation", "d4m4-l2": "Litigation", "d5m1-l1": "Litigation", "d5m1-l2": "Litigation", "d5m1-subp": "Litigation", "d5m2-l1": "Litigation", "d5m2-l2": "Litigation", "d5m3-l1": "Litigation", "d5m3-l2": "Litigation", "d5m4-l1": "Litigation", "d5m4-l2": "Litigation", "d5m5-l1": "Case Won: Award & Disbursement", "d5m6-l1": "Dropped Cases & Withdrawal Letters", "d4m1-a1": "Skill Building: Litigation", "d4m1-a2": "Skill Building: Litigation", "d4m4-a1": "Skill Building: Litigation", "d4m4-a2": "Skill Building: Litigation", "d5m1-a1": "Skill Building: Litigation", "d5m1-a2": "Skill Building: Litigation", "d5m2-a1": "Skill Building: Litigation", "d5m2-a2": "Skill Building: Litigation", "d5m3-a1": "Skill Building: Litigation", "d5m3-a2": "Skill Building: Litigation", "d5m4-a1": "Skill Building: Litigation", "d5m4-a2": "Skill Building: Litigation", "d5m5-a1": "Skill Building: Case Won", "d5m6-a1": "Skill Building: Dropped Cases"}}
+      {title: "Litigation & Dropped Cases", lead: "Module 5", blocks: ["d4m1-l1", "d4m1-l2", "d4m4-l1", "d4m4-l2", "d5m1-l1", "d5m1-l2", "d5m1-subp", "d5m2-l1", "d5m2-l2", "d5m3-l1", "d5m3-l2", "d5m4-l1", "d5m4-l2", "d5m5-l1", "d5m6-l1", "d4m1-a1", "d4m1-a2", "d4m1-efile", "d4m4-a1", "d4m4-a2", "d5m1-a1", "d5m1-a2", "d5m2-a1", "d5m2-a2", "d5m3-a1", "d5m3-a2", "d5m4-a1", "d5m4-a2", "d5m5-a1", "d5m6-a1", "d4m1-kc", "d4m4-kc", "d5m1-kc", "d5m2-kc", "d5m3-kc", "d5m4-kc", "d5m5-kc", "d5m6-kc"],
+       headings: {"d4m1-l1": "Litigation", "d4m1-l2": "Litigation", "d4m4-l1": "Litigation", "d4m4-l2": "Litigation", "d5m1-l1": "Litigation", "d5m1-l2": "Litigation", "d5m1-subp": "Litigation", "d5m2-l1": "Litigation", "d5m2-l2": "Litigation", "d5m3-l1": "Litigation", "d5m3-l2": "Litigation", "d5m4-l1": "Litigation", "d5m4-l2": "Litigation", "d5m5-l1": "Case Won: Award & Disbursement", "d5m6-l1": "Dropped Cases & Withdrawal Letters", "d4m1-a1": "Skill Building: Litigation", "d4m1-a2": "Skill Building: Litigation", "d4m1-efile": "Skill Building: Litigation", "d4m4-a1": "Skill Building: Litigation", "d4m4-a2": "Skill Building: Litigation", "d5m1-a1": "Skill Building: Litigation", "d5m1-a2": "Skill Building: Litigation", "d5m2-a1": "Skill Building: Litigation", "d5m2-a2": "Skill Building: Litigation", "d5m3-a1": "Skill Building: Litigation", "d5m3-a2": "Skill Building: Litigation", "d5m4-a1": "Skill Building: Litigation", "d5m4-a2": "Skill Building: Litigation", "d5m5-a1": "Skill Building: Case Won", "d5m6-a1": "Skill Building: Dropped Cases"}}
     ]}
   ]
 };

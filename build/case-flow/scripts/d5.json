@@ -556,5 +556,19 @@
       "say": "Let's run one through. Atty. Thorne needs the Riverton Fire Run Report from its custodian. You route that question to him through Tasks, and you draft nothing until he decides. Once he approves, you build it from the template with a narrow Exhibit A: run RF-26-0206-114, Medic 7, John Doe, 02/06/2026 only. The notice to Atty. Mercer is dated before service, every single time. I once audited a file where the notice and the service had the same date, and the defense argued for a month about which happened first. Nobody wins that argument. Then, while it's open, you review its row in the subpoena log every ten days, call the custodian five days before production, and log each reading with its date. Any miss goes to Atty. Thorne. Why? Because a record that arrives after discovery closes may never reach the jury. So here's your mystery, {name}: which record on John Doe's file is most likely to need a subpoena next?",
       "ask": "{name}, which two dates on a subpoena log row tell you, at a glance, whether notice came first?"
     }
+  },
+  "d4m1-efile": {
+    "case": {
+      "say": "It's the twenty-second of September twenty twenty-six, and we're on Track B. The file went to Litigation on the tenth, on Atty. Thorne's authorization, and the filing target is the twenty-fourth, so today is our forty-eight-hour audit. This morning he approved his Complaint against Robert Smith in the State Court of Riverton County. What we don't have yet is the civil cover sheet and the summons. And there's a trap in the CMS: an older draft from the fifteenth, stamped not for filing, unsigned, no case number. Once the envelope is accepted, the fee tier moves to forty percent and the court's clocks start.",
+      "ask": "Two Complaints sit in the CMS today. How will you make sure the right one reaches the court?"
+    },
+    "task": {
+      "say": "Four moves. First, tag Nadia Brooks on the Litigation Desk with a task she can act on without calling you: the cover sheet and the summons, built from the Complaint he approved this morning, due tonight, routed to Atty. Thorne for signature. He signs on the twenty-third. Second, on the twenty-fourth, you build the envelope in Court E-Filing: the caption, the court, the three documents, the filing attorney and the two hundred eighteen dollar fee, and you open every page to check his signature first. Third, when it's accepted, you record the case number, file the stamped Complaint, the summons and the conference notice, and post the fee. Fourth, you calendar what the filing starts, and you hold what it doesn't.",
+      "ask": "Which deadline can you calendar the day you file, and which one has to wait? Why?"
+    },
+    "check": {
+      "say": "Check your work against this. Your task to Nadia names the documents, the approved Complaint, the due date and Atty. Thorne as signer. Nothing went in unsigned, and the September fifteenth draft never left the CMS. The envelope was accepted on the twenty-fourth as twenty-six CV zero four four one seven, and that number replaced Pending in the court fields. Three named PDFs sit in zero one pleadings, and costs read seven hundred four dollars seventy-five. The service deadline is January twenty-second, twenty twenty-seven, a Friday, a hundred and twenty days out, with alerts. Allied Process Services has its hand-off. The conference is December tenth at nine, with Atty. Thorne attending. And the answer date says set on service.",
+      "ask": "If the answer date had been calendared today, what would it have been counted from, and why is that wrong?"
+    }
   }
 }
