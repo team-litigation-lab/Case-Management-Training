@@ -103,20 +103,20 @@ else {
   CF.sequence.forEach(sd => (sd.phases || []).forEach((ph, pi) => {
     const at = `sequence Day ${sd.n} phase ${pi + 1} "${ph.title || ""}"`;
     if(!ph.title || !(ph.blocks || []).length) errors.push(`${at}: needs a title and blocks`);
-    const rank = {lesson: 0, activity: 1, check: 2};
+    const rank = {lesson: 0, activity: 0, check: 2};   // lessons and their activities interleave; the checks close the phase
     let last = -1;
     (ph.blocks || []).forEach((id, k) => {
       const x = STORED[id];
       if(!x) return errors.push(`${at}: ${id} is not a block`);
       if(TAUGHT[id]) errors.push(`${at}: ${id} is already taught on Day ${TAUGHT[id][0]}`);
       TAUGHT[id] = [sd.n, pi, k];
-      if(rank[x.b.kind] < last) errors.push(`${at}: ${id} (${x.b.kind}) comes after a later part; a phase runs lessons → activities → Learning Check`);
+      if(rank[x.b.kind] < last) errors.push(`${at}: ${id} (${x.b.kind}) comes after a Learning Check; a phase runs Lesson → Skill Building → … → Learning Check`);
       last = Math.max(last, rank[x.b.kind]);
     });
     if(!(ph.blocks || []).some(id => STORED[id] && STORED[id].b.kind === "check")) errors.push(`${at}: ends without a Learning Check`);
   }));
   Object.keys(STORED).forEach(id => { if(!TAUGHT[id]) errors.push(`sequence: ${id} is never taught`); });
-  /* One module a day, on John Doe's one file: Lectures → Practice → Knowledge Check, in four hours, with a 20-question
+  /* One module a day, on John Doe's one file: Lesson → Skill Building → … → Knowledge Check, in four hours, with a 20-question
      Knowledge Check. The day's minutes are js/cm-case-flow.js daySchedule(): 15–20 minutes a topic (4 for a brief,
      condensed one), the Practice (about 10 minutes a Skill Activity, 30–60), a 10–15 minute Knowledge Check and
      20 minutes for the welcome, a break and the close, inside 240. */
@@ -152,7 +152,8 @@ else {
     return [];   // a Knowledge Check is its own page, not slides
   };
   DECK = CF.sequence.map(sd => { const bs = (sd.phases || []).flatMap(ph => ph.blocks || []).filter(id => STORED[id]).map(id => STORED[id].b);
-    return {n: sd.n, slides: 1 + (bs.some(b => b.kind === "activity") ? 1 : 0) + bs.reduce((a, b) => a + viewsOf(b).length, 0)}; });
+    // the agenda, the Practice Lab and the Ready for the Knowledge Check? slide after the last activity
+    return {n: sd.n, slides: 1 + (bs.some(b => b.kind === "activity") ? 2 : 0) + bs.reduce((a, b) => a + viewsOf(b).length, 0)}; });
   const med = DECK.map(x => x.slides).sort((a, b) => a - b)[Math.floor(DECK.length / 2)];
   DECK.forEach(x => {
     if(x.slides > SLIDE_CAP) errors.push(`Day ${x.n}: ${x.slides} slides, over the ${SLIDE_CAP}-slide day (condense its blocks: compact or brief)`);
@@ -185,22 +186,20 @@ Object.keys(LEGACY).forEach(k => {
     errors.push(`${k} "${LEGACY[k].h}" is planned for Case Flow Day ${[...new Set(targets)].join(" and ")}, which is written, but no block uses it`);
 });
 
-// Foundational lessons before practice: in every phase the lessons all come before the first Skill Activity (the
-// Practice Lab opens after the lessons), and every Skill Activity is preceded, in teaching order, by a lesson of its
-// own module or by the lessons its `prereq` names. No trainee lands in a lab or simulator untaught.
+// Lesson, then its Skill Building: a phase interleaves its lessons with the Skill Activities that practise them, and the
+// Knowledge Checks come last. Every Skill Activity is preceded, in teaching order, by a lesson of its own module or by
+// the lessons its `prereq` names, and no lesson or activity follows a Knowledge Check. No trainee lands in a lab untaught.
 if(Array.isArray(CF.sequence)){
   const of = {}; CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { of[b.id] = {b, mod: m.id}; })));
   const taught = new Set(), lessonsSeen = new Set();
   CF.sequence.forEach(sd => (sd.phases || []).forEach(ph => {
-    let lab = false;
+    let checked = false;
     (ph.blocks || []).forEach(id => {
       const x = of[id]; if(!x) return;
-      if(x.b.kind === "lesson"){
-        if(lab) errors.push(`Day ${sd.n}: lesson ${id} comes after the Practice Lab has opened (lessons first, then practice)`);
-        taught.add(x.mod); lessonsSeen.add(id);
-      }
+      if(x.b.kind === "check"){ checked = true; return; }
+      if(checked) errors.push(`Day ${sd.n}: ${x.b.kind} ${id} comes after a Knowledge Check (the checks close the module)`);
+      if(x.b.kind === "lesson"){ taught.add(x.mod); lessonsSeen.add(id); }
       if(x.b.kind === "activity"){
-        lab = true;
         const pre = [].concat(x.b.prereq || []);
         if(pre.length ? !pre.every(l => lessonsSeen.has(l)) : !taught.has(x.mod))
           errors.push(`Day ${sd.n}: activity ${id} has no lesson before it (${pre.length ? "prereq " + pre.join(", ") : "none of module " + x.mod})`);
@@ -335,7 +334,7 @@ function dayMd(day){
     `| **Policy stack** | ${stack().map(l => `${money(l.limit)} ${l.tag}`).join(" / ")} = **${money(c.total)}** |`,
     `| **Health plan** | ${c.health.carrier} · ${c.health.memberId} · ${c.health.group} |`, `| **Critical fact** | ${c.critical} |`, "",
     "## This day's module", "",
-    "The day is one module, on John Doe's one file: Lectures (its lessons, one uninterrupted discussion) → Practice (its Skill Activities on the file in the CMS, in the order the work happens) → Knowledge Check. A lesson marked (condensed) is a short overview.", ""];
+    "The day is one module, on John Doe's one file: Lesson → Skill Building → Lesson → Skill Building → … → Knowledge Check: each topic's lessons are followed straight away by the Skill Activities that practise them on the file in the CMS, and the Knowledge Checks close the day. A lesson marked (condensed) is a short overview.", ""];
   const phases = CF.sequence.find(x => x.n === day.n).phases.map((ph, i) => ({n: i + 1, title: ph.title, lead: ph.lead || `Case Phase ${i + 1}`, blocks: ph.blocks.map(id => STORED[id])}));
   phases.forEach(ph => {
     L.push(`**${ph.lead} — ${ph.title}**`, "", ...ph.blocks.map((x, i) => `${i + 1}. *${KIND[x.b.kind]}* — ${x.b.title}${x.b.brief ? " (condensed)" : ""}`), "");

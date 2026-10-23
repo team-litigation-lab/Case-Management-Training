@@ -1,6 +1,6 @@
 /* The LSH Net Sheet, in the course (net-sheet.html): the firm's own template (documents/templates/
-   LSH_Net_Sheet_v2_FIXED.xlsx, "LSH Net Sheet") with its four sections, rows and formulas, filled from its
-   "Robert Smith Practice" tab, so a trainee works John Doe's settlement math where the Case Flow asks for it, side
+   LSH_Net_Sheet_v2_FIXED.xlsx, "LSH Net Sheet") with its four sections, rows and formulas, the Medical Provider Ledger
+   left blank for the trainee to build from the bills, so a trainee works John Doe's settlement math where the Case Flow asks for it, side
    by side with the slide (or on a second screen):
      1. Settlement Recovery Summary     L7 gross
      2. Attorney Fees & Case Expenses   L11 = L7 × C11 (33⅓% pre-suit), L20 = SUM(L12:L19), L21 = L11 + L20
@@ -22,8 +22,13 @@ const KEY = "net-sheet";
 const COSTS = [[12, "Filing fees & Summons"], [13, "Process Server"], [14, "Mediation"], [15, "CME Videographer"], [16, "Deposition"], [17, "Postage"], [18, "Medical records/bills req."], [19, "File Storage fee"]];
 const LEDGER = [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 42, 43];
 const MONEY_COLS = ["D", "E", "F", "G", "H", "J", "K", "L"];
-// the "Robert Smith Practice" tab, as the firm built it: the provider ledger filled from the bills, the rest for the trainee
+// a blank ledger: the trainee builds the Medical Provider Ledger from the bills, EOBs and payment histories on the file
+// (nothing in section 3 is filled in for them); the fee tier on Track A is the retainer's pre-suit rate
 const START = {
+  C11: "33⅓%",
+};
+// what section 3 used to start with (taken out of sheets saved before the ledger started blank)
+const OLD_START = {
   B25: "Urgent care", C25: "Riverton Urgent Care (DOS 02/20/2026)", D25: 685, G25: 685,
   B26: "Chiro / PT (LOP)", C26: "Riverton Spine & Rehab — itemized LOP ledger as billed", D26: 6290,
   B27: "Orthopedics", C27: "Lakeside Orthopedics (3 visits)", D27: 1920, G27: 1920,
@@ -31,9 +36,8 @@ const START = {
   B29: "Pain management", C29: "Crescent Pain & Spine (ESI 05/15/2026)", D29: 3400, F29: 1860, H29: 1540,
   B30: "Health plan lien (verify!)", C30: "Peach State Health Plan reimbursement claim — fully insured group plan", D30: 1860,
   B42: "Pre-Settlement Funding", C42: "None reported", B43: "Prior Attorney", C43: "None",
-  C11: "33⅓%",
 };
-// Track B starts from the same bills; the fee tier is the trainee's to enter from the retainer
+// Track B starts blank too; the fee tier is the trainee's to enter from the retainer
 const START_B = Object.assign({}, START, {C11: ""});
 /* what the file says at each stage (build/case-flow: d2m4-a1, d3m3-a2, d3m4-a1) */
 const STAGES = {
@@ -89,6 +93,12 @@ async function load(){
   if(v && v.cells && !v.files) v = {v: 2, files: {A: {cells: v.cells, checks: v.checks || {}}}};   // the first version kept one sheet: Track A's
   v = v && v.files ? v : {v: 2, files: {}};
   v.files[FILE] = v.files[FILE] || {cells: Object.assign({}, FILE === "B" ? START_B : START), checks: {}};
+  // sheets started when section 3 came filled in: the values still exactly as they were filled are taken out, once;
+  // anything the trainee typed or changed stays
+  if(!v.blankLedger){
+    Object.values(v.files).forEach(f => { if(f && f.cells) Object.entries(OLD_START).forEach(([k, x]) => { if(f.cells[k] === x) delete f.cells[k]; }); });
+    v.blankLedger = 1;
+  }
   return v;
 }
 let RECORD = null, SHEET = null, saveT = null;
@@ -214,7 +224,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   $("#ns-stage").addEventListener("change", () => showCheck());
   $("#ns-check-btn").addEventListener("click", check);
   $("#ns-dl").addEventListener("click", download);
-  $("#ns-reset").addEventListener("click", () => { if(confirm("Start over from the firm's practice sheet? Your entries on this track's sheet will be cleared.")){ SHEET.cells = Object.assign({}, FILE === "B" ? START_B : START); SHEET.checks = {}; save(); render(); } });
+  $("#ns-reset").addEventListener("click", () => { if(confirm("Start over with a blank sheet? Your entries on this track's sheet will be cleared.")){ SHEET.cells = Object.assign({}, FILE === "B" ? START_B : START); SHEET.checks = {}; save(); render(); } });
   render(); setStatus(host ? "Saved with your progress" : "Saved on this device");
 });
 window.CMNetSheet = {calc: () => calc(), check, STAGES, FILE, get sheet(){ return SHEET; }, get record(){ return RECORD; }};

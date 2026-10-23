@@ -333,5 +333,30 @@
       "D4#29",
       "D4#34"
     ]
+  },
+  "d4m3-tx": {
+    "lead": "A claim is proved **visit by visit**: the treatment record decides the Specials, causation and every question an adjuster asks.",
+    "concepts": [
+      {
+        "term": "MMI as the Trigger",
+        "text": "Value needs an end point: at MMI the bills stop growing and **the prognosis is known**"
+      },
+      {
+        "term": "Objective Findings",
+        "text": "Imaging and measured findings carry weight that **complaints alone** do not"
+      },
+      {
+        "term": "Continuity of Care",
+        "text": "Steady care reads as a real injury; **each gap needs its answer**"
+      },
+      {
+        "term": "Special vs. General Damages",
+        "text": "Specials are billed hard costs; **pain, prognosis and future care** are the narrative"
+      }
+    ],
+    "pages": [
+      "D1#40",
+      "D3#16"
+    ]
   }
 }

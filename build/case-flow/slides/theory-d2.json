@@ -1080,5 +1080,55 @@
       "D2#22",
       "D2#26"
     ]
-  }
+  },
+ "d2m1-liab": {
+  "lead": "Liability assessment asks **who is legally responsible**, and to what degree, from evidence: the report, witnesses, video and vehicle data.",
+  "concepts": [
+   {
+    "term": "The Police Report",
+    "text": "The baseline: the crash mechanics, **citations issued** and the officer's scene observations"
+   },
+   {
+    "term": "Independent Witness",
+    "text": "A neutral account, the **strongest answer** to a disputed version of events"
+   },
+   {
+    "term": "Preservation",
+    "text": "Video and vehicle data are lost unless **preserved early**, with a chain of custody"
+   },
+   {
+    "term": "Comparative Negligence",
+    "text": "The defense moves fault toward the plaintiff; **each share** reduces the recovery"
+   }
+  ],
+  "pages": [
+   "D1#21",
+   "D3#15"
+  ]
+ },
+ "d2m1-first": {
+  "lead": "The Case Manager is **the central router** of information; a note to the attorney must make his decision quick and clear.",
+  "concepts": [
+   {
+    "term": "The Legal Loop",
+    "text": "Keeping the attorney informed so **decisions are made on time**"
+   },
+   {
+    "term": "Decision First",
+    "text": "The note opens with **the decision needed** and its deadline"
+   },
+   {
+    "term": "Options and Consequences",
+    "text": "Each option with **what follows from it**, so the choice stays his"
+   },
+   {
+    "term": "The Record",
+    "text": "The note and his answer **logged the same day** in the CMS"
+   }
+  ],
+  "pages": [
+   "D1#42",
+   "D2#10"
+  ]
+ }
 }
