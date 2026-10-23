@@ -106,6 +106,45 @@ becomes a filed document.
   firm keeps this kind of document in — the filing keeps a copy there, as it does for a case document.
   `model` is the document id of the finished memorandum.
 
+## amendments — records wrong at their source (the pre-demand audit's Amendment Requests)
+
+One per activity that screens the file for records a provider must correct. A Case Manager never fixes a provider's
+record or statement: the request goes with Atty. Thorne's approval, the provider corrects its own record (a medical
+record only by a dated addendum, the original kept), and the corrected copy is filed beside the original.
+
+```json
+"d2m4-a1": {
+  "title": "…", "kicker": "…", "intro": "…",
+  "screen": [{"doc": "RS14", "why": "…"}, {"doc": "RS16"}],
+  "requests": [{
+    "doc": "RS16", "corrected": "RS72", "proof": ["RS12"],
+    "wrong": "…", "to": "…", "cc": "…", "subject": "…", "attachment": "…", "brief": "…",
+    "required": [{"id": "…", "label": "…", "hint": "…", "match": ["regex", …]}],
+    "forbidden": [{"id": "…", "label": "…", "why": "…", "match": ["regex", …]}],
+    "reply": {"from": "…", "date": "…", "time": "…", "subject": "…", "body": "…"},
+    "next": {"q": "…", "choices": [{"label": "…", "ok": false, "why": "…"}]},
+    "protects": "…", "model": "…"
+  }]
+}
+```
+- `screen` — 6–14 documents from the activity's packet, the trainee calls each "fit to use" or "wrong at its source".
+  A document that needs a request carries no `why` (its feedback is the request's `wrong`); every other one has a
+  `why` ≤ 30 words saying what makes it sound. At least three are fit to use.
+- `requests` — 1–4, one per document wrong at its source (each must carry `PLANTED` in its manifest key):
+  - `corrected` — the document id of the corrected copy the answer brings, or `null` when the provider does not
+    correct it (then `next` is required: the decision that leaves, 2–4 `choices`, exactly one `ok`). A corrected copy
+    carries `amends` (this document) and `unlock` (this activity) in the manifest, is not in the activity's packet,
+    and opens to a trainee only once their request is sent.
+  - `wrong` ≤ 40 words; `brief` ≤ 55; `protects` ≤ 45 (what the correction protects in the demand).
+  - `required` — 4–6 elements, tested like the service confirmation's; one of them routes the request through
+    Atty. Thorne. `hint` ≤ 24 words. `forbidden` — what a request must never do (ask for clinical findings to change,
+    concede a debt, share the case's value); any match refuses the email with its `why` ≤ 40 words.
+  - `reply` ≤ 130 words, in the provider's voice. `model` ≤ 170 words: the firm's own request. It must pass every
+    `required` element and trip no `forbidden` one — the assembler checks, so a pattern that would refuse a correct
+    email fails the build — and the trainee reads theirs against it in the feedback.
+- Every figure, date and name follows the same rule as the audits: found in the case file, the lesson data, the
+  manifest or the documents the request draws on (`doc`, `corrected`, `proof`).
+
 ## The audits follow the lessons and the practice case
 
 Nothing here is a fact of its own. Every figure, date and name in an audit or a confirmation is a restatement
@@ -137,3 +176,28 @@ audit that follows either one passes. Keeping the sources consistent is the docu
 - Every UPL boundary holds: the Case Manager audits, assembles, asks and files; the attorney decides terms,
   privilege, extensions and what is exchanged.
 - Every date `MM/DD/YYYY`, every figure as `case-file.md` has it, every document id real, every word limit kept.
+
+## Notes & Action Plan (`notes`)
+
+One per activity whose Your Case slide is a message to work (the voicemail on `d1m3-a1`): it takes the place of
+the document thumbnails beside it. The trainee transcribes the message (graded against `transcribe.facts`, then the
+transcript, `spoken` from the sim event, and the facts are shown as the answer key), writes an action plan (graded
+against `plan.required`; each step's `key` is its answer key, shown once the plan is handed in), then works the plan:
+the `emails` in the Email Simulator (refused while one leaves out a `required` element or matches a `forbid`
+pattern, answered with `reply` once it doesn't) and the `call` (the activity's live call in `build/case-flow/sim`).
+
+```json
+"d1m3-a1": {
+  "title": "…", "kicker": "…",
+  "transcribe": {"brief": "…", "facts": [{"label": "…", "match": ["regex", …]}]},
+  "plan": {"brief": "…", "required": [{"id": "…", "label": "…", "hint": "…", "match": ["regex"], "key": "…"}]},
+  "emails": [{"id": "…", "title": "…", "why": "…", "to": "…", "cc": "…", "subject": "…", "brief": "…",
+              "required": [{"id": "…", "label": "…", "hint": "…", "match": ["regex"]}],
+              "forbid": [{"match": "regex", "why": "…"}],
+              "reply": {"from": "…", "date": "MM/DD/YYYY", "time": "…", "subject": "…", "body": "…"}}],
+  "call": {"title": "…", "why": "…", "goals": ["…"]}
+}
+```
+Every `match` pattern must match a correct answer and none of the wrong ones; `forbid` catches what must not be
+said (an injury detail to the adverse carrier). The record (`REC.notes`) goes to the trainer with the module's
+Learning Check.

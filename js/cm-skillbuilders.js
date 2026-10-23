@@ -219,6 +219,7 @@ function toolHref(t){
   if(batch && !state.isAdmin) q.set("batch", batch);
   return t.url + (t.url.includes("?") ? "&" : "?") + q.toString();
 }
+window.cmToolHref = (id)=>{ const t = cmTool(id); return t && t.live ? toolHref(t) : ""; };   // the CMS a document viewer opens in a tab (js/cm-doc-filing.js)
 window.cmCmsUrl = function(){ return cmTool("cms").url; };
 async function loadToolSettings(){
   try{ const s = await sharedGet("settings:tools"); if(s && typeof s==="object") state.toolSettings = s.tools || s; }catch(e){}

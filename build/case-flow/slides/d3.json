@@ -20,6 +20,19 @@
       "Answer the 14-day gap and lead causation with the **03/13/2026 MRI**"
     ],
     "upl": "Serve and prove the demand; never set terms, extend deadlines or value the claim.",
+    "document": {
+      "name": "Affidavit of No Other Insurance",
+      "doc": "RS36",
+      "definition": "Robert Smith's sworn, notarized statement that Keystone's policy KMI-PA-7731045 is **the only liability coverage** for the 02/06/2026 collision.",
+      "purpose": "A demand condition: before settling at the $10,000 limit, the file needs **sworn proof nothing else** covers Smith: no umbrella, business or employer's policy.",
+      "evidence": "With Keystone's Dec Page, it **proves Keystone is all there is**: Harbor Point and Cardinal State reviewed it before consenting.",
+      "handling": [
+        "Record it as **a demand condition** in the approved terms",
+        "Check it is **sworn and notarized** (08/10/2026) and the policy matches",
+        "File with the tender; **cite it on page one** of UM demands",
+        "What it means for coverage is **Atty. Thorne's to explain**"
+      ]
+    },
     "job": [
       ["MMI declared (06/12/2026)", "Docket MMI + 30", "Docket System · CMS → Tasks", "07/12/2026 Sunday: work it Fri 07/10"],
       ["Dana's written acknowledgement (07/22/2026)", "Docket the acceptance deadline", "Docket System", "08/21/2026, from acknowledgement, not sending"],
@@ -100,6 +113,19 @@
       "Confirm **add-on, not offset**, in writing from each carrier; $40,000 needs both"
     ],
     "upl": "Never interpret a policy or release for John Doe or tell him to sign.",
+    "document": {
+      "name": "UM Consent to Settle",
+      "doc": "RS38",
+      "definition": "A UM carrier's written answer to the 30-Day Letter: it **consents to the BI settlement**, waives subrogation against Smith and won't substitute its check.",
+      "purpose": "Protects the UM carrier's subrogation right: settling and **releasing Smith without it** can cost John Doe the UM coverage.",
+      "evidence": "Harbor Point (08/24) and Cardinal State (08/26/2026) consent to a release of **Smith and Keystone only**: both UM claims stay open.",
+      "handling": [
+        "Prepare both requests for **Atty. Thorne's signature**; sent 08/13/2026",
+        "Docket **each 30-day window**; a carrier may substitute its own check",
+        "**Nothing goes to John Doe** to sign until both consents are in",
+        "File each consent; what it means for the stack is **Atty. Thorne's**"
+      ]
+    },
     "job": [
       ["Keystone tenders $10,000 (08/12/2026)", "Prepare 30-Day Letters for signature", "Consent-to-settle template · Docket System", "Both sent 08/13/2026; windows docketed"],
       ["Draft release arrives (08/14/2026)", "Compare it with approved terms", "CMS → Tasks → Escalate", "Overbreadth flagged; John Doe signs nothing"],
@@ -394,6 +420,19 @@
       "**No Payoff Letter**, no payment"
     ],
     "upl": "The authorized ask only; never accept a figure outside it",
+    "document": {
+      "name": "Payoff Letter",
+      "doc": "RS42",
+      "definition": "A lienholder's signed letter stating the **agreed payoff in full satisfaction**: no balance billing, no collections, and a release of its lien.",
+      "purpose": "Puts the agreed reduction **in writing**: once paid, the account closes at $0.00, and John Doe is never billed for it.",
+      "evidence": "Riverton Spine & Rehab's 10/12/2026 letter: $6,105.00 audited, **$4,580.00 accepted** if paid within 30 days; it backs the disbursement command.",
+      "handling": [
+        "**No Payoff Letter, no payment**: full and final, no balance billing",
+        "Check every figure against **the audited balance** and the agreed reduction",
+        "Docket **the 30-day payment condition** from the letter's date",
+        "Update the Lien Tracker and Net Sheet **the same day**"
+      ]
+    },
     "job": [
       [
         "Audited balance confirmed",
@@ -535,6 +574,19 @@
       "Verify, document, authorize, then **reconcile to $0.00**"
     ],
     "upl": "Audit, flag, prepare, verify; never explain release clauses or sign trust checks.",
+    "document": {
+      "name": "Limited Release",
+      "doc": "RS37",
+      "definition": "The document John Doe signs to end his BI claim: it releases **Robert Smith and Keystone only**, for the $10,000, and nobody else.",
+      "purpose": "Ends the claim against Smith in exchange for payment, while **preserving the UM claims** against Harbor Point and Cardinal State.",
+      "evidence": "Signed 08/28/2026, it is exhaustion proof in each UM demand; Keystone's 08/14 draft reached “all other … insurers”: **$30,000 of UM coverage**.",
+      "handling": [
+        "Audit **every line**: who is released, which claims, what John promises",
+        "Quote over-broad words in **a redline memo** to Atty. Thorne",
+        "No signature until **both UM consents** are in writing",
+        "What a clause means for John is **Atty. Thorne's to explain**"
+      ]
+    },
     "job": [
       ["Settlement agreed or tendered", "Request the W-9; send with release", "CMS → Documents → Outgoing", "No accounting hold on the check"],
       ["Carrier's draft release arrives", "Audit terms; route a redline memo", "Release audit · Escalate", "Every over-broad line quoted, flagged"],
@@ -626,6 +678,60 @@
       "A **300-page record dump** with no summary",
       "A narrative that **says more than the records**",
       "**Hiding the 2021 low-back visits** from the adjuster"
+    ]
+  },
+  "d3m2-bins": {
+    "image": "money-ledger",
+    "situation": "File date 08/12/2026. Keystone **tendered the $10,000 BI limits** today. Atty. Thorne wants the BI settlement Net Sheet **before John Doe signs** anything; liens are still unreduced.",
+    "steps": [
+      "Enter Stream 1 in the LSH Net Sheet: **gross, fee, costs**",
+      "Enter both liens in the Net Sheet **as they stand today**",
+      "Run **the 25% projection**, labelled, in the Net Sheet",
+      "Run **the BI-alone math** in the Net Sheet: $6,179.92 against $7,965.00",
+      "Route it with **the trust-hold flag** via CMS → Tasks → Escalate"
+    ],
+    "deliver": "A Stream 1 Net Sheet, **projections labelled**, routed to Atty. Thorne on 08/12/2026",
+    "purpose": "Alone, the BI money **nets John Doe $0.00**; Atty. Thorne must see why",
+    "principle": "Today's liens, **labelled projections**; value and strategy stay with Atty. Thorne",
+    "checks": [
+      "Fee **$3,333.33**, not $3,333.00 from 33.33%",
+      "Liens **$7,965.00 unreduced**; reduction column left blank",
+      "Projection labelled: **Stream 1 net $4,553.73**",
+      "BI alone: **$6,179.92 against $7,965.00**, net $0.00",
+      "**Trust-hold flag** routed to Atty. Thorne 08/12/2026"
+    ],
+    "dos": [
+      "Label **every projection** with what it assumes"
+    ],
+    "donts": [
+      "Quoting John Doe **a BI figure** before Atty. Thorne"
+    ]
+  },
+  "d3m2-umns": {
+    "image": "money-ledger",
+    "situation": "10/06/2026. Cardinal State tenders **$10,000 limits**; Harbor Point's $20,000 is in trust. Liens unreduced. Atty. Thorne wants the UM Net Sheet before he meets John Doe.",
+    "steps": [
+      "Post **$30,000.00 gross** to Stream 2 on the Recovery Ledger",
+      "Apply **the 33⅓% fee**, then costs at 75%",
+      "Enter liens **as asserted or audited**, each marked projection",
+      "**Tie Stream 2** to Stream 1 and the Trust Ledger",
+      "Escalate the sheet with **four questions** to Atty. Thorne"
+    ],
+    "deliver": "A Stream 2 Net Sheet projecting **$13,661.19**, flagged and routed to Atty. Thorne",
+    "purpose": "John Doe hears this from Atty. Thorne: **no projection may read as final**",
+    "principle": "Mark **every moving figure**; quote no net to John Doe",
+    "checks": [
+      "Fee: **$30,000.00 ÷ 3 = $10,000.00**",
+      "Costs $365.06; liens **$1,395.00 + $4,578.75**",
+      "Projected net **$13,661.19**, labelled projection",
+      "Streams tie: **$13,661.19 + $4,553.73 = $18,214.92**",
+      "Trust **$30,000.00**; Cardinal State $10,000.00 receivable"
+    ],
+    "dos": [
+      "Take Stream 2's share **as the remainder**"
+    ],
+    "donts": [
+      "Charging **all costs and liens** to the UM stream"
     ]
   }
 }

@@ -68,75 +68,7 @@ window.CM_CF_SIM = {
       "nothing|anything|paperwork|packet|letter|welcome|onboarding|documents?"
      ]
     }
-   ],
-   "notes": {
-    "intro": "Transcribe John Doe's voicemail as you heard it, then write your plan for today, in order. Both are graded, and the answer key opens when you check.",
-    "ask": "What you will do today, in order: who you contact and how, what you tell them, what you set up and what you log.",
-    "plan": [
-     {
-      "label": "Call John Doe back today, on his cell",
-      "key": "Call John back today on his cell, (555) 010-2288: the caller ID is his work line at Northgate, not the number he asked for.",
-      "match": [
-       "call",
-       "cell|2288|mobile"
-      ]
-     },
-     {
-      "label": "No Recorded Statement: every Keystone request goes through the firm",
-      "key": "Tell him to give Keystone no Recorded Statement and no account of the crash: any request to record him goes through the firm, to Atty. Thorne. Have him repeat it back.",
-      "match": [
-       "record",
-       "firm|thorne|us\\b|attorney"
-      ]
-     },
-     {
-      "label": "Email Dana at Keystone: the firm represents him, no direct contact",
-      "key": "Email Dana Whitfield at Keystone Mutual today: LSH Law Group represents John Doe, all contact comes to the firm, she is not to call him directly, and any statement request goes to Atty. Thorne.",
-      "match": [
-       "dana|keystone|adjuster",
-       "email|e-mail|letter|notice|notify|write"
-      ]
-     },
-     {
-      "label": "Check in on his symptoms and his treatment status",
-      "key": "Ask about the stiff neck (worse in the mornings) and whether he has seen anyone: he has not, so give him the treatment direction to be evaluated, and log what he says in his words.",
-      "match": [
-       "neck|symptom|stiff|pain",
-       "treat|doctor|seen|evaluat|appointment|medical|care"
-      ]
-     },
-     {
-      "label": "Remind him to talk to nobody outside the firm about the crash",
-      "key": "Remind him not to discuss the crash, his injuries or the claim with anyone outside the firm: no carrier, no social media, nobody who calls asking.",
-      "match": [
-       "anyone|anybody|nobody|no one|outside|social media|other people|third part"
-      ]
-     },
-     {
-      "label": "Send the Direction Packet today and confirm he has it",
-      "key": "Deliver his onboarding Direction Packet today, log the date and method, and confirm he received it and read the adverse-contact instruction.",
-      "match": [
-       "packet|onboarding|direction",
-       "send|deliver|email|mail|give|get"
-      ]
-     },
-     {
-      "label": "Set a task to confirm his first appointment with the facility",
-      "key": "Set a CMS task to follow up: once he books his first appointment, confirm its status directly with the treating facility by phone or email, and log it.",
-      "match": [
-       "task|follow[- ]?up|remind|diary|calendar",
-       "appointment|facility|provider|clinic|doctor|urgent care"
-      ]
-     },
-     {
-      "label": "Log the voicemail, the call and the email in the CMS today",
-      "key": "Log the voicemail, your call-back and the email to Dana in the CMS Communications Log the same day, with times and what was said.",
-      "match": [
-       "log|case note|communications|cms"
-      ]
-     }
-    ]
-   }
+   ]
   },
   "d1m3-a2": {
    "date": "02/11/2026",
@@ -151,7 +83,7 @@ window.CM_CF_SIM = {
    "date": "02/11/2026",
    "time": "9:40 a.m.",
    "channel": "email",
-   "from": "Leah Moran, Keystone Mutual PD (lmoran@keystonemutual.example)",
+   "from": "Leah Moran, Keystone Mutual PD (leah.moran@keystonemutual.example)",
    "to": "LSH Law Group",
    "subject": "KM-26-440871-PD: claimant and rental contact, 2019 Honda Civic LX",
    "body": "We are opening the property-damage claim for the 2019 Honda Civic LX struck on 02/06/2026. Please confirm the vehicle owner and claimant, and a contact number for the rental, so that a rental can be set up with Rivergate Rentals once our liability decision is made."
@@ -253,16 +185,109 @@ window.CM_CF_SIM = {
    "body": "Read your Step 3 note. Eleven days and no word from John, and no treatment that we know of. Draft the Final Warning Letter for my review Monday morning: every attempt with its date, a response date, how to reach us. Certified mail and email. Withdrawal is possible, not decided, and the letter says nothing about his claim.",
    "attachments": [
     "RS05"
-   ]
+   ],
+   "log": {
+    "title": "Communications Log — John Doe · No Contact Protocol",
+    "head": [
+     "Date",
+     "Time",
+     "Channel",
+     "Outcome"
+    ],
+    "rows": [
+     {
+      "mark": "call",
+      "cells": [
+       "02/11/2026",
+       "3:40 p.m.",
+       "Phone, mobile (555) 010-2288",
+       "Attempt 1: no answer; voicemail left"
+      ]
+     },
+     {
+      "mark": "call",
+      "cells": [
+       "02/13/2026",
+       "10:00 a.m.",
+       "Phone, mobile (scheduled check-in)",
+       "Attempt 2: no answer; voicemail left"
+      ]
+     },
+     {
+      "mark": "call",
+      "cells": [
+       "02/16/2026",
+       "9:10 a.m.",
+       "Phone, mobile",
+       "Attempt 3: no answer; voicemail left"
+      ]
+     },
+     {
+      "mark": "email",
+      "cells": [
+       "02/16/2026",
+       "9:30 a.m.",
+       "Email, john.doe@example.com",
+       "Warning 1: call us by 02/18/2026; no reply"
+      ]
+     },
+     {
+      "cells": [
+       "02/16/2026",
+       "9:35 a.m.",
+       "Text, (555) 010-2288",
+       "Delivered; no reply"
+      ]
+     },
+     {
+      "cells": [
+       "02/16/2026",
+       "11:05 a.m.",
+       "Phone, Margaret Doe (emergency contact)",
+       "Reached; message passed; no case details shared"
+      ]
+     },
+     {
+      "mark": "email",
+      "cells": [
+       "02/18/2026",
+       "9:00 a.m.",
+       "Email, john.doe@example.com",
+       "Warning 2: call us by 02/20/2026; no reply"
+      ]
+     },
+     {
+      "mark": "esc",
+      "cells": [
+       "02/20/2026",
+       "4:30 p.m.",
+       "Internal note, Atty. Thorne",
+       "Step 3 team notification"
+      ]
+     }
+    ],
+    "note": "Three calls on three days, then **the email warnings**, then the emergency contact: the ladder is exhausted before Step 3."
+   }
   },
   "d2m2-a1": {
    "date": "02/23/2026",
    "time": "8:52 a.m.",
    "channel": "email",
-   "from": "Tammy Greer, Riverton Spine & Rehab (tgreer@rivertonspine.example)",
+   "from": "Tammy Greer, Riverton Spine & Rehab (tgreer@rivertonspinerehab.example)",
    "to": "Case Manager",
    "subject": "New patient John Doe, evaluation 02/24 — LOP needed",
-   "body": "John Doe is booked for his chiropractic and PT evaluation tomorrow, 02/24. We're out of network with Peach State, so before we see him we'll need a signed Letter of Protection and your HIPAA authorization. Can you get them to me today? Tammy Greer, Office Manager"
+   "body": "John Doe is booked for his chiropractic and PT evaluation tomorrow, 02/24. We're out of network with Peach State, so before we see him we'll need a signed Letter of Protection and your HIPAA authorization. Can you get them to me today? Tammy Greer, Office Manager",
+   "before": [
+    {
+     "date": "02/23/2026",
+     "time": "8:31 a.m.",
+     "channel": "call",
+     "from": "John Doe (555) 010-2288",
+     "to": "Case Manager",
+     "subject": "John Doe calls back after the Final Warning Letter",
+     "body": "The approved Final Warning Letter went out at 8:10 a.m. by email and certified mail. John called at 8:31: he read the email. He saw Riverton Urgent Care on 02/20 and is booked at Riverton Spine & Rehab tomorrow, 02/24. Contact details confirmed; the No Contact Protocol closes; Atty. Thorne told."
+    }
+   ]
   },
   "d2m3-a1": {
    "date": "03/04/2026",
@@ -281,7 +306,7 @@ window.CM_CF_SIM = {
    "date": "04/08/2026",
    "time": "10:52 a.m.",
    "channel": "email",
-   "from": "Tammy Greer, Riverton Spine & Rehab (tgreer@rivertonspine.example)",
+   "from": "Tammy Greer, Riverton Spine & Rehab (tgreer@rivertonspinerehab.example)",
    "to": "Case Manager",
    "subject": "Missed-visit alert: John Doe, LOP account RSR-26-0412",
    "body": "Per your LOP dated 02/23/2026: John Doe missed 04/03 (no call) and 04/07. He told our front desk his mother's rental ended and his ride is no longer available. He's booked 04/09 and 04/14 at 4:15 PM. Our 6:00 PM evening schedule is full until the week of 04/20; he's on the wait list. Please contact your client.",
@@ -387,6 +412,75 @@ window.CM_CF_SIM = {
     "RS18"
    ]
   },
+  "d4m2-arbcal": {
+   "date": "04/26/2027",
+   "time": "10:15 a.m.",
+   "channel": "email",
+   "from": "Laura Whitcomb, Esq. <lwhitcomb@whitcombadr.example>",
+   "to": "Atty. Elijah Thorne · Marcus Bell, Harbor Point · Teresa Okafor, Cardinal State",
+   "subject": "John Doe v. Harbor Point & Cardinal State (HP-26-7741, CS-26-20355): scheduling",
+   "body": "Following my appointment by agreement of the parties, the consolidated UM arbitration is set for hearing on Tuesday, 06/22/2027, at 9:00 a.m.; one day is reserved. Exhibits and witness lists are exchanged 20 days before the hearing; arbitration briefs are due 10 days before. Each side's share of my fee will be invoiced separately.",
+   "attachments": [
+    "RS58"
+   ]
+  },
+  "d4m2-medcal": {
+   "date": "01/08/2027",
+   "time": "10:20 a.m.",
+   "channel": "email",
+   "from": "Atty. Elijah Thorne <ethorne@lshlawgroup.example>",
+   "to": "Case Manager",
+   "subject": "26-CV-04417: Notice of Mediation filed; calendar it",
+   "body": "Notice of Mediation filed: Hon. Carla Benton (Ret.), Thursday 03/18/2027, 9:30 a.m., at her office. Statement and binder due 7 days before; John must attend. Our half of her fee is $1,200.00. Calendar the session and everything that hangs off it, check it against the Scheduling Order and the master calendar, confirm John, and send me the summary today.",
+   "attachments": [
+    "RS55"
+   ]
+  },
+  "d4m1-efile": {
+   "date": "09/22/2026",
+   "time": "8:15 a.m.",
+   "channel": "memo",
+   "from": "Atty. Elijah Thorne",
+   "to": "Case Manager",
+   "subject": "Doe v. Smith: Complaint approved, file it",
+   "body": "The Complaint against Robert Smith is final and approved; it's in Documents under today's date. Have Nadia Brooks prepare the civil cover sheet and summons around it today. I'll review and sign the set tomorrow. File on the 24th, and nothing goes in the envelope that I haven't signed. Calendar everything the filing starts."
+  },
+  "d3m2-umns": {
+   "date": "10/06/2026",
+   "time": "4:20 p.m.",
+   "channel": "memo",
+   "from": "Atty. Elijah Thorne <ethorne@lshlawgroup.example>",
+   "to": "Case Manager",
+   "subject": "John Doe: UM settlement Net Sheet (Stream 2) for my review",
+   "body": "Cardinal State tendered its $10,000 limits today and John has accepted through me, so both UM layers are resolved. Prepare the UM settlement Net Sheet (Stream 2) for my review before I go through it with John. Liens as they stand today, every moving figure marked as a projection, tied to the BI stream. List your questions for me.",
+   "attachments": [
+    "RS39",
+    "RS05"
+   ]
+  },
+  "d3m2-bins": {
+   "date": "08/12/2026",
+   "time": "2:15 p.m.",
+   "channel": "memo",
+   "from": "Atty. Elijah Thorne",
+   "to": "Case Manager",
+   "subject": "KM-26-440871 / John Doe: BI tender, settlement Net Sheet",
+   "body": "Keystone tendered the $10,000 BI limits this morning; Dana Whitfield's email and Smith's affidavit are attached. Before I go over it with John, I need the BI settlement Net Sheet, Stream 1 only: fee, costs, liens as they stand today. Run it on my 25/75 allocation and standing alone, every projection labelled. Nothing about value goes to John from you.",
+   "attachments": [
+    "RS36"
+   ],
+   "before": [
+    {
+     "date": "08/12/2026",
+     "time": "9:20 a.m.",
+     "channel": "email",
+     "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+     "to": "Case Manager, LSH Law Group",
+     "subject": "KM-26-440871 / John Doe: tender of BI limits",
+     "body": "Keystone Mutual tenders its $10,000.00 bodily injury limit on the terms of your 07/20/2026 demand. Mr. Smith's affidavit of no other insurance (08/10) is attached. I will send the release for signature."
+    }
+   ]
+  },
   "d3m1-a1": {
    "date": "07/20/2026",
    "time": "8:05 a.m.",
@@ -433,7 +527,7 @@ window.CM_CF_SIM = {
    "date": "09/14/2026",
    "time": "11:40 a.m.",
    "channel": "email",
-   "from": "Marcus Bell <marcus.bell@harborpointins.example>",
+   "from": "Marcus Bell <marcus.bell@harborpoint.example>",
    "to": "Case Manager, LSH Law Group",
    "subject": "HP-26-7741 / John Doe: Host UM offer",
    "body": "We have reviewed your Host UM demand. Harbor Point offers $8,000.00. Your client did not treat for two weeks after the accident, and the BI payment has already compensated him for much of this loss. Offer letter attached. Please let me know your client's position.",
@@ -764,10 +858,10 @@ window.CM_CF_SIM = {
    "context": "02/10/2026. Retainer signed 02/09; the matter is open; no onboarding packet has reached him. John, 34, a Northgate warehouse shift lead, was the front-seat passenger in coworker Kevin Alvarez's Escape on 02/06. Last night a Keystone Mutual caller asked to record his account; he said he'd think about it, and she said she'd call back. His neck is stiff; he hasn't seen anyone. Margaret's Civic was towed from the scene and he has no car. Calms with clear steps; repeats instructions back if asked.",
    "opening": "Hey, it's John Doe, returning your call. So the other guy's insurance called me last night, a lady from Keystone, wanting to record what happened. She said she'd call back. What do I tell her?",
    "goals": [
-    "Route all Keystone contact to the firm; no Recorded Statement",
-    "Confirm he understood by having him repeat the instruction",
-    "Direct him to be seen, since treatment hasn't begun; confirm how the packet arrives",
-    "Check his stiff neck and treatment status; nobody outside the firm hears about it"
+    "Ask about the stiff neck and whether he has seen anyone yet",
+    "Outline next steps: get evaluated this week; the packet is on its way",
+    "No Recorded Statement: Keystone's calls go to the firm",
+    "Discuss the case with no one outside the firm; have him repeat it"
    ],
    "line": "Give the firm's instructions only; fault, claim value and legal effect go to Atty. Thorne."
   },
@@ -1138,8 +1232,8 @@ window.CM_CF_SIM = {
     "event": {
      "channel": "alert",
      "from": "CMS",
-     "subject": "Treatment risk missed: rental end never calendared",
-     "body": "The rental's 03/19/2026 end date was recorded in John Doe's assessment but never calendared as a treatment risk. He lost his transport three weeks ago with no plan in place, and the firm is learning of it from the clinic's missed-visit alert."
+     "subject": "Rental end never calendared: rides now out of pocket",
+     "body": "Keystone's rental ended 03/19/2026 (its 30-day cap), as the assessment recorded, but nothing was calendared. Every ride or rental since is out of pocket, with no receipts asked for, and John's transport to care is gone: the clinic's alert is how the firm learns."
     }
    }
   },

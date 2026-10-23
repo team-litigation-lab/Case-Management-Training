@@ -23,6 +23,15 @@
   table.cdv-page > tfoot td { padding-top: 18px; }
   .cdv-turn { border-top: 1px dashed #b8bfcc; margin: 28px -0.75in; }
   .cdv-foot { display: flex; justify-content: space-between; gap: 12px; font: 7px Arial, Helvetica, sans-serif; color: #555; }
+  .cdv-file { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; flex-basis: 100%; padding: 8px 0 2px; border-top: 1px solid rgba(255,255,255,.18); }
+  .cdv-file[hidden] { display: none; }
+  .cdv-file select, .cdv-file input { font: 13px Arial, Helvetica, sans-serif; padding: 7px 8px; border-radius: 7px; border: 1px solid #c9cfe0; }
+  .cdv-file input { flex: 1 1 320px; min-width: 0; }
+  .cdv-file small { flex-basis: 100%; font-weight: 400; font-size: 12px; color: #c9cfe0; }
+  .cdv-file small code { color: #fff; }
+  .cdv-fmsg { flex-basis: 100%; font-weight: 400; font-size: 13px; }
+  .cdv-fmsg.bad { color: #ffc9b8; } .cdv-fmsg.ok { color: #b9f0c8; }
+  .cdv-fmsg ul { margin: 4px 0 0; padding-left: 18px; }
   .cdv-msg { max-width: 60ch; margin: 60px auto; padding: 0 16px; font: 15px/1.5 Arial, Helvetica, sans-serif; color: #333; }
   @media (max-width: 760px) { .cdv-sheet { margin: 0; padding: 20px 16px; box-shadow: none; } }
   @media print {
@@ -42,7 +51,15 @@
 <div class="cdv-bar" id="bar" hidden>
   <div class="t" id="title"></div>
   <button id="pdf" type="button">⬇ Download PDF</button>
+  <button id="cms" type="button" hidden>📤 File in the CMS</button>
   <button id="edit" type="button" class="ghost" hidden>Download editable copy (.doc)</button>
+  <div class="cdv-file" id="filebox" hidden>
+    <select id="fcat" aria-label="CMS category"><option value="">CMS category…</option></select>
+    <input id="fname" aria-label="File name, the firm's way">
+    <button id="fgo" type="button">File it</button>
+    <small>Name it <code>&lt;Case ID&gt;_&lt;Last-First&gt;_&lt;Type&gt;_&lt;YYYY-MM-DD&gt;.&lt;ext&gt;</code>: the type is the CMS category you file it under. With no CMS open, it opens in a new tab, already signed in.</small>
+    <div class="cdv-fmsg" id="fmsg" aria-live="polite"></div>
+  </div>
 </div>
 <main id="out"><p class="cdv-msg">Loading the document…</p></main>
 <script>
@@ -110,6 +127,50 @@
     }catch(e){
       alert("The PDF couldn't be made here. Check your connection and try again.");
     }finally{ pdfBtn.disabled = false; pdfBtn.textContent = label; }
+  };
+  /* 📤 File in the CMS: this document filed into the trainee's own case in the CMS from here, the firm's way. The course
+     page that opened this viewer (the frame's parent, or the tab's opener) holds the trainee's session, the CMS beside
+     the lesson and the filing record, so it does the filing (js/cm-doc-filing.js, fileDoc) exactly as the 📤 panel does:
+     the category check, the CMS's name check, the Backup Drive copy. With no CMS open, the CMS opens in a new tab in
+     this click (the browser allows a tab opened by the trainee's own press), signed in with the Portal ticket. */
+  const host = [window.parent !== window ? window.parent : null, window.opener].find(w => { try{ return !!(w && w.cmDocFiling && w.cmDocFiling.fileDoc); }catch(e){ return false; } }) || null;
+  const cmsBtn = document.getElementById("cms"), box = document.getElementById("filebox"), fmsg = document.getElementById("fmsg");
+  const fcat = document.getElementById("fcat"), fname = document.getElementById("fname"), fgo = document.getElementById("fgo");
+  const say = (html, cls) => { fmsg.className = "cdv-fmsg" + (cls ? " " + cls : ""); fmsg.innerHTML = html; };
+  cmsBtn.hidden = false;
+  cmsBtn.onclick = () => {
+    box.hidden = !box.hidden;
+    if(box.hidden) return;
+    if(!host){ say("Open this document from the course (📁 Work From, or 📁 Case Documents) to file it in the CMS from here.", "bad"); fgo.disabled = true; return; }
+    const F = host.cmDocFiling;
+    if(fcat.options.length < 2) fcat.innerHTML += F.categories.map(c => `<option>${esc(c)}</option>`).join("");
+    fname.placeholder = F.namePattern(doc);
+    const rec = F.record(id);
+    if(rec && rec.filed) say(`Already filed in the CMS as <b>${esc(rec.name)}</b> under ${esc(rec.category)}.`, "ok");
+    else if(!F.cmsReachable()) say("The CMS isn't open: pressing File it opens it in a new tab, signed in. Open your John Doe case there.");
+    else say(F.caseOpen() ? `Filing into <b>${esc(F.caseOpen())}</b>, the case open in the CMS.` : "Open your own case in the CMS, then file.");
+  };
+  fgo.onclick = async () => {
+    if(!host) return;
+    const F = host.cmDocFiling, C = host.CMCase;
+    if(!fcat.value){ say("Choose the CMS category you would file this document under.", "bad"); return; }
+    if(!fname.value.trim()){ say("Write the file name first, the firm's way.", "bad"); return; }
+    fgo.disabled = true;
+    try{
+      if(!F.cmsReachable()){
+        const w = window.open("", "_blank");   // in the press itself, so the browser lets the tab open
+        if(!w){ say("Your browser blocked the new tab. Allow pop-ups for this site, or open the CMS from 🧰 Tools, then press File it again.", "bad"); return; }
+        const asked = Date.now();
+        F.adoptCmsTab(w);
+        say("Opening the CMS in a new tab, signed in… Open your John Doe case there; the document files as soon as the CMS says which case is open.");
+        for(let t = 0; t < 120 && !(C && C.heardAt() > asked); t++) await new Promise(r => setTimeout(r, 1000));
+        if(!(C && C.heardAt() > asked)){ say("The CMS hasn't said which case is open yet. Open your John Doe case in the CMS tab, then press File it again.", "bad"); return; }
+      }
+      say("Filing…");
+      const out = await F.fileDoc(id, fcat.value, fname.value.trim());
+      if(out.ok) say(`✓ Filed in the CMS as <b>${esc(out.name)}</b> under ${esc(out.category)}${out.attempts === 1 ? " · first time right" : ` · ${out.attempts} attempts`}${out.drive && out.drive.ok ? " · kept on your Backup Drive" : ""}.`, "ok");
+      else say(`<b>Not filed.</b><ul>${out.problems.map(p => `<li>${esc(p)}</li>`).join("")}</ul>`, "bad");
+    }finally{ fgo.disabled = false; }
   };
   if(/\.docx$/i.test(doc.file)){   // the editable CMS record: a Word-readable copy with these dates
     const btn = document.getElementById("edit");

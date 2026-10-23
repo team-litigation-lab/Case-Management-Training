@@ -16,6 +16,8 @@ esac
 
 echo "Case Flow: rebuilding the generated files from the lesson data..."
 node build/case-flow/build.cjs --quiet
+node build/case-flow/exhibits/assemble.cjs >/dev/null
+node build/case-flow/documents/inventory.cjs >/dev/null
 
 # Stage only what the build itself writes; anything else you had in progress is left alone.
 git add -- \
@@ -24,6 +26,7 @@ git add -- \
   js/cm-case-flow-sim.js \
   js/cm-case-flow-data.js \
   js/cm-case-flow-docs.js \
+  js/cm-case-flow-exhibits.js \
   curriculum/5-day-flow \
   build/case-flow/slides build/case-flow/scripts build/case-flow/sim build/case-flow/exhibits \
   2>/dev/null || true

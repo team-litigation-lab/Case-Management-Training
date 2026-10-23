@@ -40,6 +40,19 @@ function event(at, e, max){
   if(!CHANNELS.includes(e.channel)) err(`${at}.channel: "${e.channel}"`);
   text(`${at}.from`, e.from, 14); text(`${at}.subject`, e.subject, 16); text(`${at}.body`, e.body, max);
   (e.attachments || []).forEach(a => { if(!DOCS.has(a)) err(`${at}.attachments: ${a} isn't a document`); });
+  // what happened just before it (shown above it, smaller), and a snapshot of a CMS log as it stands (in place of the thumbnails)
+  (e.before || []).forEach((x, j) => { if(x.before || x.log) err(`${at}.before[${j}]: no nesting`); event(`${at}.before[${j}]`, x, 60); if(date(x.date) && date(e.date) && toTime(x.date) > toTime(e.date)) err(`${at}.before[${j}]: after the event`); });
+  if(e.log){
+    const g = e.log; text(`${at}.log.title`, g.title, 12);
+    if(!Array.isArray(g.head) || g.head.length < 2 || g.head.length > 5) err(`${at}.log.head: want 2–5 columns`);
+    if(!Array.isArray(g.rows) || g.rows.length < 2 || g.rows.length > 10) err(`${at}.log.rows: want 2–10 rows`);
+    else g.rows.forEach((r, j) => {
+      if(!Array.isArray(r.cells) || r.cells.length !== (g.head || []).length) err(`${at}.log.rows[${j}]: one cell per column`);
+      else { if(g.head[0] === "Date" && !date(r.cells[0])) err(`${at}.log.rows[${j}]: "${r.cells[0]}" isn't MM/DD/YYYY`); r.cells.forEach((x, k) => text(`${at}.log.rows[${j}][${k}]`, x, 14)); }
+      if(r.mark && !["call", "email", "esc"].includes(r.mark)) err(`${at}.log.rows[${j}].mark: "${r.mark}" (call, email, esc)`);
+    });
+    if(g.note) text(`${at}.log.note`, g.note, 30);
+  }
   // a voicemail is heard, not read: what the caller says, and the listening check on it
   if(e.channel === "voicemail" && (e.spoken || e.listen)){
     text(`${at}.spoken`, e.spoken, 160);
@@ -48,19 +61,6 @@ function event(at, e, max){
       text(`${at}.listen[${j}].q`, x.q, 20); text(`${at}.listen[${j}].a`, x.a, 30);
       if(!Array.isArray(x.match) || !x.match.length) err(`${at}.listen[${j}].match: want 1+ patterns`);
       else x.match.forEach(m => { try{ const re = new RegExp(m, "i"); if(!re.test(x.a)) err(`${at}.listen[${j}].match /${m}/ doesn't match its own answer`); }catch(er){ err(`${at}.listen[${j}].match /${m}/: ${er.message}`); } });
-    });
-  }
-  // the Notes & Action Plan: the message transcribed (graded on its listen points) and the plan it sets off
-  if(e.notes !== undefined){
-    const n = e.notes || {};
-    if(!(e.listen || []).length) err(`${at}.notes: needs the event's listen points (the transcription is graded on them)`);
-    if(n.intro !== undefined) text(`${at}.notes.intro`, n.intro, 30);
-    if(n.ask !== undefined) text(`${at}.notes.ask`, n.ask, 30);
-    if(!Array.isArray(n.plan) || n.plan.length < 4 || n.plan.length > 8) err(`${at}.notes.plan: want 4–8 actions`);
-    else n.plan.forEach((x, j) => {
-      text(`${at}.notes.plan[${j}].label`, x.label, 14); text(`${at}.notes.plan[${j}].key`, x.key, 45);
-      if(!Array.isArray(x.match) || !x.match.length) err(`${at}.notes.plan[${j}].match: want 1+ patterns`);
-      else x.match.forEach(m => { try{ const re = new RegExp(m, "i"); if(!re.test(x.key)) err(`${at}.notes.plan[${j}].match /${m}/ doesn't match its own key`); }catch(er){ err(`${at}.notes.plan[${j}].match /${m}/: ${er.message}`); } });
     });
   }
 }

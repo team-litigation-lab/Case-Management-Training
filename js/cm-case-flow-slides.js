@@ -3,6 +3,7 @@
    Do not edit here: edit the JSON and assemble again. */
 window.CM_CF_SLIDES = {
  "d1m1-role": {
+  "theoryFirst": true,
   "image": "team-huddle",
   "hook": "You own **the file's movement**; Atty. Thorne owns every legal judgment.",
   "points": [
@@ -1091,60 +1092,60 @@ window.CM_CF_SLIDES = {
  },
  "d1m3-a1": {
   "image": "client-call",
-  "situation": "John Doe's retainer is signed and the matter is open. **Nothing has been sent** yet, and **Robert Smith's carrier** has already called him.",
+  "situation": "John Doe's voicemail: **Keystone asked to record him**, his neck is stiff, and **nothing has reached him** from the firm.",
   "steps": [
-   "Build **all six packet sections**",
-   "Fill each with the **firm's standing instructions**",
-   "Make the **Property Damage section** specific to this file",
-   "Name **the most urgent instruction** and how you'll confirm understanding",
-   "**Log delivery** with date and method"
+   "**Transcribe the voicemail**, then write your action plan",
+   "Email Dana Whitfield: **no direct contact**; statements through the firm",
+   "Call John: his neck, **treatment status**, next steps, no outside talk",
+   "Coordinate his first visit **with Riverton Urgent Care**",
+   "Send the **Direction Packet**; log every contact in the CMS"
   ],
-  "deliver": "A complete, delivered, logged packet **specific to John Doe's file**",
-  "purpose": "The other side **has already called him**: a generic packet arrives too late",
-  "principle": "All adverse carrier contact **goes through the firm**",
+  "deliver": "A graded plan, both emails sent, the call taken, **the packet logged**",
+  "purpose": "The other side **has already called him**: today's plan stops the next call",
+  "principle": "Recorded Statements are requested **through the firm**, never from the client",
   "checks": [
-   "**All six sections** present and populated",
-   "Treatment direction stated: **treatment hasn't begun**",
-   "Property Damage section states **whose claim it is**",
-   "Atty. Elijah Thorne listed as **Lead Counsel**",
-   "Adverse-contact instruction made urgent, **with a confirmation step**"
+   "Transcript and **action plan** handed in",
+   "Dana told in writing: **no direct contact**",
+   "His neck and **treatment status** checked; next steps given",
+   "Riverton Urgent Care contacted; **Direction Packet** logged",
+   "No Recorded Statement, no outside talk: **he repeated it**"
   ],
   "dos": [
-   "Plan how you'll know **he read it**"
+   "Tell the carrier **in writing**, not only John"
   ],
   "donts": [
-   "A **generic packet** that ignores the file's history"
+   "Telling Dana **anything about his injuries**"
   ]
  },
  "d1m3-l2": {
   "image": "repair-shop",
   "roadmap": {
-   "title": "Property Damage: the Roadmap",
+   "title": "Property Damage, End to End",
    "merge": true,
    "steps": [
     {
-     "label": "Written estimate first",
-     "text": "No Repair Estimate, **no position** with the client"
+     "label": "Liability accepted",
+     "text": "Verify the carrier **accepted PD liability in writing**"
     },
     {
-     "label": "Inspection window",
-     "text": "Five days from the letter; record when it opens"
+     "label": "Inspection and estimates",
+     "text": "Inspection window recorded; the estimate, then each supplemental"
     },
     {
-     "label": "Audit estimate and photos",
-     "text": "Bill against estimate; point of impact, frame, undercarriage"
+     "label": "Towing and storage",
+     "text": "Fees grow daily: **settle who pays** and move the car"
     },
     {
-     "label": "Repair or Total Loss",
-     "text": "The carrier's threshold against **actual cash value**, in writing"
+     "label": "Total Loss valuation",
+     "text": "Repair cost against ACV; check the Valuation Report"
     },
     {
-     "label": "Loss of Use",
-     "text": "Each day without a vehicle, at a comparable rental rate"
+     "label": "Personal contents",
+     "text": "Items in the vehicle: list, photos, receipts, claimed on PD"
     },
     {
-     "label": "Escalate disputes",
-     "text": "Document and route; no ad hoc arguing with adjusters"
+     "label": "Rental coordination",
+     "text": "Carrier pays; **the firm coordinates**, never provides or pays"
     }
    ]
   },
@@ -1215,7 +1216,7 @@ window.CM_CF_SLIDES = {
      "term": "Rental",
      "text": "Confirm who authorizes it and the daily cap; **usually 30 days maximum** unless the Dec Page says otherwise",
      "more": [
-      "Whose coverage pays: the adverse carrier's Property Damage coverage; the owner's own policy only if none",
+      "Whose coverage pays: the adverse carrier's PD coverage first; then the owner's Collision and Rental coverage; else out of pocket",
       "Who authorizes it, and whether the policy carries **a rental reimbursement endorsement**",
       "The daily rate cap, recorded before the client collects a vehicle: anything above it is the client's cost",
       "The duration: usually 30 days at most, unless the Dec Page says otherwise",
@@ -1228,41 +1229,41 @@ window.CM_CF_SLIDES = {
     "D2#6"
    ],
    "framework": {
-    "title": "Property Damage (PD) Deep Dive",
+    "title": "Property Damage Severity and the BI Roadmap",
     "kind": "table",
     "head": [
-     "Check",
-     "What you audit",
-     "Why it matters"
+     "Case phase",
+     "What the PD shows",
+     "How it strengthens BI"
     ],
     "rows": [
      [
-      "Photos",
-      "Point-of-impact clarity, including the undercarriage and frame",
-      "Physical proof of the impact behind the injury claim"
+      "Intake",
+      "Tow from the scene, airbags, crush photos",
+      "Flags a serious injury early; **preserve the evidence**"
      ],
      [
-      "Estimates vs. Actuals",
-      "The insurance estimate against the final body shop bill",
-      "**Supplementals prove hidden** structural damage"
+      "Treatment",
+      "Major structural impact, frame or pillar damage",
+      "The force matches the injuries the providers record"
      ],
      [
-      "Total Loss/Value",
-      "The CCC One or other Valuation Report, line by line",
-      "So the client isn't lowballed on the vehicle's value"
+      "Demand",
+      "Estimates, supplementals, repair cost, photos",
+      "**Answers the low-impact defense** before it is raised"
      ],
      [
-      "The Scene Audit",
-      "Photos, video and damage against how the crash happened",
-      "The physics of the claim must be possible"
+      "Negotiation",
+      "The same photos and repair figures, on file",
+      "Keeps the injury claim from being called minor"
      ],
      [
-      "Rental",
-      "Who authorizes, daily cap; 30 days max unless the Dec Page differs",
-      "**Uncovered days are the client's cost**"
+      "Litigation",
+      "Preserved vehicle, photos, repair records",
+      "Physical proof for experts and trial"
      ]
     ],
-    "note": "Audit Property Damage as carefully as the medicals: it is physical evidence of how hard the impact was."
+    "note": "Audit Property Damage as carefully as the medicals: it is **physical evidence** of how hard the impact was."
    }
   },
   "clues": {
@@ -1297,7 +1298,7 @@ window.CM_CF_SLIDES = {
   "hook": "A rental collected **on a promise** becomes the client's bill.",
   "points": [
    "Rental is on **the owner's PD claim**: Margaret Doe's, not John's",
-   "The adverse carrier's **PD coverage** pays the rental",
+   "**3P PD** first; then 1P Collision/Rental; else out of pocket",
    "Confirm authorizer, rate cap and **duration in writing** first",
    "Coverage is **usually 30 days** unless the Dec Page differs"
   ],
@@ -1339,12 +1340,14 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Whose Coverage Pays",
-     "text": "The adverse carrier's Property Damage coverage pays the 3P rental; the owner's policy **only if there's none**",
+     "text": "3P Property Damage coverage first; if unavailable, the owner's **1P Collision and Rental coverage**; otherwise out of pocket",
      "more": [
-      "On accepted liability, the adverse carrier's Property Damage coverage provides the rental: here, Keystone's",
-      "The owner's own policy, or the rental company's self-insurance, only where there is no 3P coverage",
-      "For example, a liability denial, or a dispute over fault still open",
-      "Get the carrier's rental authorization in writing before the client collects a car"
+      "First, 3P: on accepted liability, the adverse carrier's Property Damage coverage provides the rental. Here, Keystone's",
+      "Unavailable when liability is denied or disputed, the at-fault driver has no PD coverage, or its limit is used up",
+      "Then 1P: check the owner's **Collision or Comprehensive** for the vehicle, and Rental Reimbursement coverage on the Dec Page",
+      "The 1P carrier pays, then pursues the at-fault party; the owner's deductible is claimed back the same way",
+      "No coverage at all: the owner pays **out of pocket**. Keep every receipt for reimbursement in the PD claim",
+      "Get each carrier's rental authorization in writing before pickup: the firm **coordinates it**, never provides or pays for it"
      ]
     },
     {
@@ -1369,7 +1372,7 @@ window.CM_CF_SLIDES = {
     "steps": [
      {
       "label": "Whose Coverage Pays the Rental?",
-      "text": "The adverse carrier's **Property Damage** coverage pays the 3P rental; the client's policy only if none"
+      "text": "3P **Property Damage** first; if unavailable, the owner's 1P Collision and Rental; else out of pocket"
      },
      {
       "label": "Who Authorizes?",
@@ -1382,9 +1385,13 @@ window.CM_CF_SLIDES = {
      {
       "label": "Duration Limit",
       "text": "Usually 30 days max unless the Dec Page differs: **uncovered days are the client's cost**"
+     },
+     {
+      "label": "No Coverage? Keep Receipts",
+      "text": "The owner pays out of pocket: keep **every receipt**, claimed for reimbursement in the PD claim"
      }
     ],
-    "note": "All four go in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
+    "note": "Every check goes in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
    }
   },
   "clues": {
@@ -2233,6 +2240,127 @@ window.CM_CF_SLIDES = {
      "Months into a case, headaches and memory lapses first appear.",
      "The ER record from the collision mentions no memory loss.",
      "The file already treats the new complaint as settled evidence."
+    ]
+   ]
+  }
+ },
+ "d1m4-emc": {
+  "image": "clock-deadline",
+  "hook": "On a Florida file, **the EMC rule** decides PIP within days of the accident.",
+  "points": [
+   "Florida PIP: **$10,000**, paying 80% medical, 60% lost income",
+   "Initial care **within 14 days** of the accident, or no medical benefits",
+   "Only MD, DO, dentist, PA or APRN finds **an EMC**",
+   "No EMC: **capped at $2,500**; Riverton has no EMC rule"
+  ],
+  "upl": "The provider decides the EMC; Atty. Thorne decides what it means",
+  "job": [
+   [
+    "Florida file opened",
+    "Calendar the 14-day deadline",
+    "CMS → Calendar",
+    "Docketed the same day"
+   ],
+   [
+    "First record arrives",
+    "Check date, provider, EMC",
+    "Medical Records Requests",
+    "EMC status logged"
+   ],
+   [
+    "EMC missing or late",
+    "Log bucket; flag Atty. Thorne",
+    "CMS → Insurance tab → PIP Log",
+    "Flag routed same day"
+   ]
+  ],
+  "dos": [
+   "Read **the file's state** before its PIP",
+   "Docket **the 14th day** at intake",
+   "Log **each provider's credential** beside every visit"
+  ],
+  "donts": [
+   "Applying **a $2,500 cap** to Riverton's PIP",
+   "Treating a chiropractor's note as **an EMC determination**",
+   "Telling a client to see a doctor **for the $10,000**"
+  ],
+  "theory": {
+   "lead": "PIP is written state by state. **The EMC rule is Florida's**: 14 days to initial care, and an EMC finding decides $2,500 or $10,000",
+   "concepts": [
+    {
+     "term": "Personal Injury Protection (PIP)",
+     "text": "First-party coverage paid regardless of fault, written **state by state**: limits, percentages and conditions change at the state line",
+     "more": [
+      "Florida PIP: $10,000, paying 80% of reasonable medical expenses and 60% of lost income",
+      "Riverton PIP, John Doe's file: Harbor Point $5,000, paying 100% of medical and 80% of lost income",
+      "Riverton has **no EMC rule** and no 14-day condition"
+     ]
+    },
+    {
+     "term": "Emergency Medical Condition (EMC)",
+     "text": "Acute symptoms, possibly severe pain, serious enough that **no immediate care** could seriously jeopardize health or bodily function",
+     "more": [
+      "Acute symptoms of sufficient severity, which may include severe pain",
+      "Absent immediate care, expected to cause serious jeopardy to health, impairment of bodily functions, or dysfunction of an organ or part",
+      "Whether it exists is **the provider's clinical judgment**"
+     ]
+    },
+    {
+     "term": "The 14-Day Rule",
+     "text": "Florida PIP pays no medical benefits unless initial care is received **within 14 days** after the accident",
+     "more": [
+      "Count from the date of loss and docket the 14th day at intake",
+      "Hypothetical: a 02/06/2026 date of loss puts day 14 on **02/20/2026**, John Doe's first visit"
+     ]
+    },
+    {
+     "term": "The Benefit Ceiling",
+     "text": "An MD, DO, dentist, PA or APRN's EMC finding opens **the full $10,000**; without it, $2,500",
+     "more": [
+      "A chiropractor may give initial care but **cannot make the finding**",
+      "Massage and acupuncture are not reimbursable under Florida PIP",
+      "Confirm the current statute: Florida has repeatedly considered repealing PIP"
+     ]
+    }
+   ],
+   "pages": [
+    "D1#27",
+    "D1#39"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "A new PIP file lands on your desk from intake.",
+     "Florida and Riverton write very different PIP rules.",
+     "You check where the crash happened before reading any limit."
+    ],
+    [
+     "A Florida client calls the firm the week of the crash.",
+     "The date of loss starts a short clock.",
+     "Before hanging up, the deadline goes on the calendar."
+    ],
+    [
+     "Treatment records start arriving from several offices.",
+     "MD, PA-C and DC look alike in a busy log.",
+     "Each visit line shows the letters after the treater's name."
+    ]
+   ],
+   "donts": [
+    [
+     "John Doe asks how much PIP he has left.",
+     "His claim sits under Harbor Point's $5,000 PIP in Riverton.",
+     "The answer quotes a Florida limit for a Riverton file."
+    ],
+    [
+     "A Florida client's first visit was at a chiropractic office.",
+     "The note reads severe neck pain, treated with an adjustment.",
+     "The PIP Log moves to the $10,000 bucket on that note."
+    ],
+    [
+     "A Florida client asks about his PIP benefits by phone.",
+     "The full medical benefit hangs on a provider's finding.",
+     "The call ends with advice to book a physician for the money."
     ]
    ]
   }
@@ -3434,7 +3562,7 @@ window.CM_CF_SLIDES = {
   "checks": [
    "Signed by John Doe and Atty. Thorne **before 02/24/2026**",
    "Baseline: 2021 visits **low back, resolved**; no prior neck",
-   "Rental ends 03/19/2026: **calendared as a treatment risk**",
+   "Rental end 03/19/2026 calendared: after it, **out of pocket**",
    "Decline proved: **$3,675.00 left**, enough for the $2,395.00 MRI",
    "**No payment promised** to either provider"
   ],
@@ -3457,6 +3585,19 @@ window.CM_CF_SLIDES = {
    "Referrals: **options and logistics**, never which care"
   ],
   "upl": "Give the options and book **his choice**; never recommend a provider",
+  "document": {
+   "name": "Letter of Protection",
+   "doc": "RS13",
+   "definition": "The firm's signed promise that a provider's **reasonable charges are paid** from any recovery, so treatment starts now; not insurance.",
+   "purpose": "Lets care continue when no payer applies: the provider **defers collection** in exchange for payment protected from the settlement, judgment or verdict.",
+   "evidence": "Fixes the lien: Riverton Spine & Rehab's charges come from the recovery, and it shows **John Doe stays responsible** whether or not there is one.",
+   "handling": [
+    "Check **every payer first**; Atty. Thorne approves the LOP",
+    "Signed **before the first visit**: Riverton's 02/23/2026, first visit 02/24",
+    "File it; request **the itemized ledger** every 30 days",
+    "What it means for his recovery is **Atty. Thorne's to explain**"
+   ]
+  },
   "job": [
    [
     "No payer covers the care",
@@ -4612,6 +4753,141 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
+ "d2m3-cause": {
+  "image": "medical-visit",
+  "hook": "Proving negligence is **only half the battle**: prove the collision caused the harm.",
+  "points": [
+   "Fault proves negligence; **causation and damages** must be proved too",
+   "A medical professional writes it, to **reasonable medical probability**",
+   "Atty. Thorne requests it; you **assemble, track and check**",
+   "Check it against the file: **date of loss, level, visits**"
+  ],
+  "upl": "You request, track, check and file; **never draft or coach** the opinion",
+  "document": {
+   "name": "Causation Letter",
+   "doc": "RS19",
+   "definition": "A formal letter: a **medical professional's opinion** linking the accident to the specific injuries, from a treating physician, surgeon or independent medical expert.",
+   "purpose": "Proves the half negligence can't: that the defendant's conduct **directly caused** the specific harm, medical expenses and ongoing limitations claimed.",
+   "evidence": "Its opinions, held more likely than not, tie the C5-C6 herniation to 02/06/2026 and **answer the 14-Day Gap** and 2021 visits.",
+   "handling": [
+    "Atty. Thorne requests it; you **assemble the record set** and docket follow-up",
+    "On arrival, **check it against the file**: date of loss, level, visits",
+    "File it under Medical; **cite it** on the Gap Explanation Record",
+    "**Never draft or coach** the opinion; what it means stays Atty. Thorne's"
+   ]
+  },
+  "job": [
+   [
+    "Atty. Thorne seeks an opinion",
+    "Assemble records; docket follow-up",
+    "Records Requests · Calendar",
+    "Request under his signature"
+   ],
+   [
+    "Letter arrives 06/19/2026",
+    "Check it against the file",
+    "CMS → Documents → Medical",
+    "Mismatches flagged to Atty. Thorne"
+   ],
+   [
+    "Letter checked",
+    "File it; cite it; route it",
+    "Gap Explanation Record · Tasks",
+    "Cited on the 14-day band"
+   ]
+  ],
+  "dos": [
+   "Send the doctor **the complete record set**, priors included",
+   "Read the letter **against the file** the day it arrives",
+   "Check every injury claimed has **a medical link**"
+  ],
+  "donts": [
+   "Suggesting or **shaping the doctor's words**",
+   "Leaving **the 2021 records** out of the set",
+   "Telling John Doe the letter **raises his claim's value**"
+  ],
+  "theory": {
+   "lead": "Negligence is **only half the battle**: a personal injury claim must also prove causation and damages, and a Causation Letter is medicine's proof of the link.",
+   "concepts": [
+    {
+     "term": "The Two Halves",
+     "text": "Duty and breach prove negligence; **causation and damages** prove what it cost. A claim needs both halves proved.",
+     "more": [
+      "Negligence on this file: Robert Smith's citation for failure to stop, Ruth Calloway, the doorbell video",
+      "Causation: the collision caused the C5-C6 herniation, the treatment it needed and the residual right-arm symptoms",
+      "Damages: the expenses and limitations that follow, **proved by records**, not adjectives"
+     ]
+    },
+    {
+     "term": "Who Writes It",
+     "text": "A treating physician or surgeon who examined the patient, or **an independent medical expert** who reviews the records.",
+     "more": [
+      "Dr. Alana Reyes, orthopaedic spine surgeon at Lakeside Orthopedics, saw John Doe on 03/05, 03/27 and 06/12/2026",
+      "A treating doctor's opinion rests on her own exams; an expert's rests on **the records she reads**",
+      "Either way, Atty. Thorne requests it, with the client's written authorization"
+     ]
+    },
+    {
+     "term": "Reasonable Medical Probability",
+     "text": "The standard its opinions are held to: **more likely than not**. “Possibly” or “could be” generally falls short.",
+     "more": [
+      "Dr. Reyes holds each opinion “to a reasonable degree of medical probability”",
+      "The exact standard varies by state: **Atty. Thorne confirms** the governing rule",
+      "Weak wording is flagged to him; nobody asks the doctor to strengthen it"
+     ]
+    },
+    {
+     "term": "Aggravation and Prior Conditions",
+     "text": "A prior injury in the same region makes it an aggravation question; John Doe's 2021 care was **a different region**.",
+     "more": [
+      "Birch Avenue Chiropractic, 2021: three low-back visits, resolved; no prior neck complaint",
+      "Dr. Reyes: the 2021 care is unrelated and **has no bearing** on the cervical injury",
+      "Whether aggravation or the eggshell rule matters at all is Atty. Thorne's call"
+     ]
+    }
+   ],
+   "pages": [
+    "D3#17",
+    "D2#15"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Atty. Thorne's request letter to Dr. Reyes is going out.",
+     "Birch Avenue Chiropractic's 2021 low-back notes sit in the file.",
+     "Every chart, the 2021 ones too, travels with the request."
+    ],
+    [
+     "Dr. Reyes's letter dated 06/19/2026 lands on the desk.",
+     "The MRI's history line once carried a 02/16/2026 injury date.",
+     "Date of loss, level, side and visit dates get compared that day."
+    ],
+    [
+     "Robert Smith's citation for failure to stop is on file.",
+     "Keystone can concede fault and still pay little.",
+     "Each injury and expense gets tied to a physician's opinion."
+    ]
+   ],
+   "donts": [
+    [
+     "Dr. Reyes's first version reads a little cautious.",
+     "An email to Lakeside Orthopedics proposes stronger phrasing.",
+     "It offers a ready-made sentence for Dr. Reyes to sign."
+    ],
+    [
+     "The request set for Dr. Reyes is being assembled.",
+     "Birch Avenue Chiropractic's low-back visits feel risky to include.",
+     "They stay behind, and the opinion is silent about them."
+    ],
+    [
+     "John Doe calls after hearing the letter arrived.",
+     "He asks what it means for his case.",
+     "The answer given is that it makes his case worth more."
+    ]
+   ]
+  }
+ },
  "d2m3-a2": {
   "image": "calendar-gap",
   "situation": "06/22/2026. MMI reached 06/12/2026; Dr. Reyes's **06/19/2026 Causation Letter** is in. Atty. Thorne wants **the Gap Explanation Record** before the pre-demand strategy session.",
@@ -4646,7 +4922,8 @@ window.CM_CF_SLIDES = {
   "questions": [
    "Name the **four reasons** for the 14-day gap and, beside each, its corroborating document and date.",
    "Rewrite “Was it because you had no car?” **without suggesting the reason**. What does the leading version cost?",
-   "“Is this gap going to wreck my case?” Give **your exact answer**, then what you do next."
+   "“Is this gap going to wreck my case?” Give **your exact answer**, then what you do next.",
+   "Fault is proved. What else must the file prove, with **which document**, and whose part is what?"
   ]
  },
  "d2m4-l1": {
@@ -5070,6 +5347,19 @@ window.CM_CF_SLIDES = {
    "Answer the 14-day gap and lead causation with the **03/13/2026 MRI**"
   ],
   "upl": "Serve and prove the demand; never set terms, extend deadlines or value the claim.",
+  "document": {
+   "name": "Affidavit of No Other Insurance",
+   "doc": "RS36",
+   "definition": "Robert Smith's sworn, notarized statement that Keystone's policy KMI-PA-7731045 is **the only liability coverage** for the 02/06/2026 collision.",
+   "purpose": "A demand condition: before settling at the $10,000 limit, the file needs **sworn proof nothing else** covers Smith: no umbrella, business or employer's policy.",
+   "evidence": "With Keystone's Dec Page, it **proves Keystone is all there is**: Harbor Point and Cardinal State reviewed it before consenting.",
+   "handling": [
+    "Record it as **a demand condition** in the approved terms",
+    "Check it is **sworn and notarized** (08/10/2026) and the policy matches",
+    "File with the tender; **cite it on page one** of UM demands",
+    "What it means for coverage is **Atty. Thorne's to explain**"
+   ]
+  },
   "job": [
    [
     "MMI declared (06/12/2026)",
@@ -5272,6 +5562,19 @@ window.CM_CF_SLIDES = {
    "Confirm **add-on, not offset**, in writing from each carrier; $40,000 needs both"
   ],
   "upl": "Never interpret a policy or release for John Doe or tell him to sign.",
+  "document": {
+   "name": "UM Consent to Settle",
+   "doc": "RS38",
+   "definition": "A UM carrier's written answer to the 30-Day Letter: it **consents to the BI settlement**, waives subrogation against Smith and won't substitute its check.",
+   "purpose": "Protects the UM carrier's subrogation right: settling and **releasing Smith without it** can cost John Doe the UM coverage.",
+   "evidence": "Harbor Point (08/24) and Cardinal State (08/26/2026) consent to a release of **Smith and Keystone only**: both UM claims stay open.",
+   "handling": [
+    "Prepare both requests for **Atty. Thorne's signature**; sent 08/13/2026",
+    "Docket **each 30-day window**; a carrier may substitute its own check",
+    "**Nothing goes to John Doe** to sign until both consents are in",
+    "File each consent; what it means for the stack is **Atty. Thorne's**"
+   ]
+  },
   "job": [
    [
     "Keystone tenders $10,000 (08/12/2026)",
@@ -5796,6 +6099,33 @@ window.CM_CF_SLIDES = {
    "Letting a gross that **nets below zero** go unchallenged"
   ]
  },
+ "d3m2-bins": {
+  "image": "money-ledger",
+  "situation": "File date 08/12/2026. Keystone **tendered the $10,000 BI limits** today. Atty. Thorne wants the BI settlement Net Sheet **before John Doe signs** anything; liens are still unreduced.",
+  "steps": [
+   "Enter Stream 1 in the LSH Net Sheet: **gross, fee, costs**",
+   "Enter both liens in the Net Sheet **as they stand today**",
+   "Run **the 25% projection**, labelled, in the Net Sheet",
+   "Run **the BI-alone math** in the Net Sheet: $6,179.92 against $7,965.00",
+   "Route it with **the trust-hold flag** via CMS → Tasks → Escalate"
+  ],
+  "deliver": "A Stream 1 Net Sheet, **projections labelled**, routed to Atty. Thorne on 08/12/2026",
+  "purpose": "Alone, the BI money **nets John Doe $0.00**; Atty. Thorne must see why",
+  "principle": "Today's liens, **labelled projections**; value and strategy stay with Atty. Thorne",
+  "checks": [
+   "Fee **$3,333.33**, not $3,333.00 from 33.33%",
+   "Liens **$7,965.00 unreduced**; reduction column left blank",
+   "Projection labelled: **Stream 1 net $4,553.73**",
+   "BI alone: **$6,179.92 against $7,965.00**, net $0.00",
+   "**Trust-hold flag** routed to Atty. Thorne 08/12/2026"
+  ],
+  "dos": [
+   "Label **every projection** with what it assumes"
+  ],
+  "donts": [
+   "Quoting John Doe **a BI figure** before Atty. Thorne"
+  ]
+ },
  "d3m2-l2": {
   "image": "coverage-check",
   "hook": "John Doe's own carriers will argue against him; **prove the gap above each layer**.",
@@ -5965,6 +6295,33 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Adding **PIP or property-damage payments** to the gross",
    "Depositing a UM check **before its release is signed**"
+  ]
+ },
+ "d3m2-umns": {
+  "image": "money-ledger",
+  "situation": "10/06/2026. Cardinal State tenders **$10,000 limits**; Harbor Point's $20,000 is in trust. Liens unreduced. Atty. Thorne wants the UM Net Sheet before he meets John Doe.",
+  "steps": [
+   "Post **$30,000.00 gross** to Stream 2 on the Recovery Ledger",
+   "Apply **the 33⅓% fee**, then costs at 75%",
+   "Enter liens **as asserted or audited**, each marked projection",
+   "**Tie Stream 2** to Stream 1 and the Trust Ledger",
+   "Escalate the sheet with **four questions** to Atty. Thorne"
+  ],
+  "deliver": "A Stream 2 Net Sheet projecting **$13,661.19**, flagged and routed to Atty. Thorne",
+  "purpose": "John Doe hears this from Atty. Thorne: **no projection may read as final**",
+  "principle": "Mark **every moving figure**; quote no net to John Doe",
+  "checks": [
+   "Fee: **$30,000.00 ÷ 3 = $10,000.00**",
+   "Costs $365.06; liens **$1,395.00 + $4,578.75**",
+   "Projected net **$13,661.19**, labelled projection",
+   "Streams tie: **$13,661.19 + $4,553.73 = $18,214.92**",
+   "Trust **$30,000.00**; Cardinal State $10,000.00 receivable"
+  ],
+  "dos": [
+   "Take Stream 2's share **as the remainder**"
+  ],
+  "donts": [
+   "Charging **all costs and liens** to the UM stream"
   ]
  },
  "d3m2-kc": {
@@ -6327,6 +6684,19 @@ window.CM_CF_SLIDES = {
    "**No Payoff Letter**, no payment"
   ],
   "upl": "The authorized ask only; never accept a figure outside it",
+  "document": {
+   "name": "Payoff Letter",
+   "doc": "RS42",
+   "definition": "A lienholder's signed letter stating the **agreed payoff in full satisfaction**: no balance billing, no collections, and a release of its lien.",
+   "purpose": "Puts the agreed reduction **in writing**: once paid, the account closes at $0.00, and John Doe is never billed for it.",
+   "evidence": "Riverton Spine & Rehab's 10/12/2026 letter: $6,105.00 audited, **$4,580.00 accepted** if paid within 30 days; it backs the disbursement command.",
+   "handling": [
+    "**No Payoff Letter, no payment**: full and final, no balance billing",
+    "Check every figure against **the audited balance** and the agreed reduction",
+    "Docket **the 30-day payment condition** from the letter's date",
+    "Update the Lien Tracker and Net Sheet **the same day**"
+   ]
+  },
   "job": [
    [
     "Audited balance confirmed",
@@ -6671,6 +7041,19 @@ window.CM_CF_SLIDES = {
    "Verify, document, authorize, then **reconcile to $0.00**"
   ],
   "upl": "Audit, flag, prepare, verify; never explain release clauses or sign trust checks.",
+  "document": {
+   "name": "Limited Release",
+   "doc": "RS37",
+   "definition": "The document John Doe signs to end his BI claim: it releases **Robert Smith and Keystone only**, for the $10,000, and nobody else.",
+   "purpose": "Ends the claim against Smith in exchange for payment, while **preserving the UM claims** against Harbor Point and Cardinal State.",
+   "evidence": "Signed 08/28/2026, it is exhaustion proof in each UM demand; Keystone's 08/14 draft reached “all other … insurers”: **$30,000 of UM coverage**.",
+   "handling": [
+    "Audit **every line**: who is released, which claims, what John promises",
+    "Quote over-broad words in **a redline memo** to Atty. Thorne",
+    "No signature until **both UM consents** are in writing",
+    "What a clause means for John is **Atty. Thorne's to explain**"
+   ]
+  },
   "job": [
    [
     "Settlement agreed or tendered",
@@ -7356,6 +7739,33 @@ window.CM_CF_SLIDES = {
    "Calling Keystone or Robert Smith **to announce the suit**"
   ]
  },
+ "d4m1-efile": {
+  "image": "legal-filing",
+  "situation": "09/22/2026, Track B. Atty. Thorne approved **his Complaint** this morning. Filing target **09/24/2026**. A 09/15 draft, unsigned, sits in the CMS.",
+  "steps": [
+   "Tag Nadia Brooks in **CMS → Tasks**: cover sheet, summons",
+   "Check **every signature** before you upload",
+   "Submit the envelope in **Court E-Filing**: $218.00",
+   "Record **26-CV-04417** in the Pleadings Log and Documents",
+   "Calendar service, the conference and **answer: set on service**"
+  ],
+  "deliver": "A signed set filed as **26-CV-04417**, recorded and calendared",
+  "purpose": "An unsigned page or an uncalendared date can **sink the suit**",
+  "principle": "Nothing is filed **until Atty. Thorne signs**",
+  "checks": [
+   "Task names documents, source, **due date** and signer",
+   "The **09/15/2026 draft** never uploaded",
+   "Costs **$486.75 + $218.00 = $704.75**",
+   "Service deadline **01/22/2027 (Fri)** with alerts",
+   "CMC **12/10/2026, 9:00 a.m.**, Atty. Thorne attending"
+  ],
+  "dos": [
+   "Calendar from **the accepted filing**, not the target"
+  ],
+  "donts": [
+   "Docketing an answer date **before service**"
+  ]
+ },
  "d4m1-kc": {
   "image": "knowledge-check",
   "questions": [
@@ -7374,6 +7784,19 @@ window.CM_CF_SLIDES = {
    "Docket the SOL to **internal dates**: 02/04/2028 and 11/05/2027"
   ],
   "upl": "You compute, docket and flag; which rule governs, and extensions, are Atty. Thorne's.",
+  "document": {
+   "name": "The Complaint",
+   "doc": "RS51",
+   "definition": "The pleading that **starts the lawsuit**: caption, jurisdiction, facts, causes of action and prayer for relief, drafted and signed by Atty. Thorne.",
+   "purpose": "Filed before the SOL, it **preserves the claim** and puts negligence and negligence per se against Robert Smith before the court.",
+   "evidence": "Filed 09/24/2026 as No. 26-CV-04417, it fixes what is pleaded: **bodily-injury damages only**, $14,817.40 medical and $1,584.00 wages; no Property Damage.",
+   "handling": [
+    "Before signature, **verify the filing date** against the SOL",
+    "Confirm Robert Smith's **exact legal name** from an independent record",
+    "File **the stamped copy** in 01_PLEADINGS as Complaint_Filed_Stamped.pdf",
+    "Use the filed Complaint, **never the pre-filing draft**"
+   ]
+  },
   "job": [
    [
     "Scheduling Order entered 12/10/2026",
@@ -7517,6 +7940,33 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Missing **what isn't on the screen**, like the RFAs",
    "Rolling 11/06/2027 **forward to Monday**"
+  ]
+ },
+ "d4m2-medcal": {
+  "image": "mediation-table",
+  "situation": "01/08/2027: the Notice of Mediation sets **03/18/2027 (Thu), 9:30 a.m.** before Hon. Carla Benton (Ret.). Statement and binder due 7 days before; mediation **completed by 03/31/2027**.",
+  "steps": [
+   "Verify the trigger and **link the 03/31/2027 deadline**",
+   "Enter the session with **its attendees** in the Calendaring Simulators",
+   "Count the binder and internal dates **back from the session**",
+   "Open the client and **$1,200.00 cost** tasks in CMS → Tasks",
+   "Conflict-check, then **route the UM consent flag** to Atty. Thorne"
+  ],
+  "deliver": "A trigger-counted mediation calendar and **a same-day summary** to Atty. Thorne",
+  "purpose": "One notice creates a dozen dates; **one missed date** costs the session",
+  "principle": "Count every date **from its own trigger**",
+  "checks": [
+   "Statement and binder **due 03/11/2027 (Thu)**",
+   "Binder QC 03/04; approval **by 03/09/2027**",
+   "Mediator's report watched **on 03/25/2027**",
+   "Fee **$1,200.00**, half of $2,400.00",
+   "**03/15/2027 overlap** flagged to Atty. Thorne"
+  ],
+  "dos": [
+   "Link to **the 12/10/2026 entries**, never re-key them"
+  ],
+  "donts": [
+   "Contacting **the UM carriers** without Atty. Thorne"
   ]
  },
  "d4m2-um": {
@@ -7881,6 +8331,33 @@ window.CM_CF_SLIDES = {
    "Treating the UM carriers **as friendly**"
   ]
  },
+ "d4m2-arbcal": {
+  "image": "clock-deadline",
+  "situation": "04/26/2027: Laura Whitcomb's letter sets the hearing **06/22/2027 (Tue), 9:00 a.m.** Exhibits 20 days before, brief 10. Calendar **every date hanging off it**.",
+  "steps": [
+   "Re-anchor hearing, exhibits and brief **to the letter** in the Docket System",
+   "Count back binder QC and **records-request dates** in Calendaring Simulators",
+   "Hold attendance, prep and **tech-check dates** on CMS → Calendar",
+   "Route the **$900.00 fee share** to accounting as a cost",
+   "Check the master calendar; **ask Atty. Thorne** about court dates"
+  ],
+  "deliver": "A letter-anchored calendar, **every date with its rule**, questions to Atty. Thorne",
+  "purpose": "Every arbitration task counts back from **one hearing date**",
+  "principle": "A date without **its trigger and rule** is a guess",
+  "checks": [
+   "Brief **06/11/2027 (Fri)**, exhibits 06/02/2027, from the letter",
+   "Records requests out by **05/03/2027 (Mon)**",
+   "Binder QC opens **05/17/2027 (Mon)**; draft index 05/14/2027",
+   "**$900.00 fee share** logged as a case cost",
+   "Court dates kept, **flagged for Atty. Thorne**; SOL dates unchanged"
+  ],
+  "dos": [
+   "Write **the trigger and rule** on every entry"
+  ],
+  "donts": [
+   "Deleting a court date **without Atty. Thorne's answer**"
+  ]
+ },
  "d4m2-a3": {
   "image": "documents-audit",
   "situation": "04/05/2027. Harbor Point offers **$8,000 of $20,000**; Cardinal State **$6,000 of $10,000**. Both refuse to move.",
@@ -7926,6 +8403,19 @@ window.CM_CF_SLIDES = {
    "Section 5's ledger ties **line by line** to certified invoices"
   ],
   "upl": "Build and audit; never discuss value with the mediator, Atty. Mercer or John Doe.",
+  "document": {
+   "name": "Answer & Affirmative Defenses",
+   "doc": "RS53",
+   "definition": "The defendant's response to the Complaint: it **admits or denies each allegation**, then pleads the defenses Robert Smith will rely on.",
+   "purpose": "Tells the court and Atty. Thorne **what Robert Smith disputes**, and on which defenses he will fight the claim.",
+   "evidence": "Filed 11/12/2026 by Atty. Grant Mercer, it is **the defense roadmap**: comparative negligence, causation (the gap, a “degenerative” MRI), failure to mitigate.",
+   "handling": [
+    "Log it in the **Pleadings Log**; file it in 01_PLEADINGS",
+    "Binder Section 3: the **operative pleadings only**, no drafts",
+    "Map **each pleaded defense** to an answering exhibit, or flag it",
+    "What each defense means for the claim is **Atty. Thorne's to judge**"
+   ]
+  },
   "job": [
    [
     "Mediation set for 03/18/2027",

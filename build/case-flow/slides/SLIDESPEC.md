@@ -45,6 +45,21 @@ On the job · Do & Don't.
 - `job` — from `ops`: **up to 3 rows**, each `[trigger, task, tool, checkpoint]`, **≤ 6 words per cell**.
 - `dos` / `donts` — from `best` (practices → dos; "Pitfall: …" → donts): **2–3 each, ≤ 10 words each**.
 
+**The Document** (`document`, in the lesson's copy): **the New Document Instructional Standard.** Whenever a legal or
+medical document enters the curriculum or the CMS workflow (a Causation Letter, a Letter of Protection, an
+affidavit…), the lesson that introduces it carries a `document` breakdown, drawn as its own slide right after Why it
+matters, and before any Skill Activity asks the trainee to request, draft, audit or file that document.
+```json
+"document": {"name": "Causation Letter", "doc": "RS19", "definition": "…", "purpose": "…", "evidence": "…", "handling": ["…", "…", "…"]}
+```
+- `name` — the document's name, **≤ 6 words**, no highlight. `doc` — optional: the case document that is the file's
+  own example (an `RS` id in `js/cm-case-flow-docs.js`), shown as its thumbnail.
+- `definition` (what it is), `purpose` (its legal purpose), `evidence` (its key evidentiary role) — **≤ 24 words each**,
+  one highlight.
+- `handling` — **2–4** lines, **≤ 12 words** each, one highlight: how the Case Manager requests, checks, files and
+  tracks it. Process only: what it means for the claim's value stays Atty. Thorne's.
+- The slide needs its trainer script (`doc` in `build/case-flow/scripts/dN.json`).
+
 **The Theory** (every lesson; in `build/case-flow/slides/theory-dN.json`, keyed by block id): drawn as its own slide
 after Why it matters, beside thumbnails of the original Canva deck pages it comes from. It carries the decks'
 *theory* — the definitions, frameworks, phases and principles behind the lesson — so the run of slides has the
