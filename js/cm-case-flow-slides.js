@@ -2243,6 +2243,127 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
+ "d1m4-emc": {
+  "image": "clock-deadline",
+  "hook": "On a Florida file, **the EMC rule** decides PIP within days of the accident.",
+  "points": [
+   "Florida PIP: **$10,000**, paying 80% medical, 60% lost income",
+   "Initial care **within 14 days** of the accident, or no medical benefits",
+   "Only MD, DO, dentist, PA or APRN finds **an EMC**",
+   "No EMC: **capped at $2,500**; Riverton has no EMC rule"
+  ],
+  "upl": "The provider decides the EMC; Atty. Thorne decides what it means",
+  "job": [
+   [
+    "Florida file opened",
+    "Calendar the 14-day deadline",
+    "CMS → Calendar",
+    "Docketed the same day"
+   ],
+   [
+    "First record arrives",
+    "Check date, provider, EMC",
+    "Medical Records Requests",
+    "EMC status logged"
+   ],
+   [
+    "EMC missing or late",
+    "Log bucket; flag Atty. Thorne",
+    "CMS → Insurance tab → PIP Log",
+    "Flag routed same day"
+   ]
+  ],
+  "dos": [
+   "Read **the file's state** before its PIP",
+   "Docket **the 14th day** at intake",
+   "Log **each provider's credential** beside every visit"
+  ],
+  "donts": [
+   "Applying **a $2,500 cap** to Riverton's PIP",
+   "Treating a chiropractor's note as **an EMC determination**",
+   "Telling a client to see a doctor **for the $10,000**"
+  ],
+  "theory": {
+   "lead": "PIP is written state by state. **The EMC rule is Florida's**: 14 days to initial care, and an EMC finding decides $2,500 or $10,000",
+   "concepts": [
+    {
+     "term": "Personal Injury Protection (PIP)",
+     "text": "First-party coverage paid regardless of fault, written **state by state**: limits, percentages and conditions change at the state line",
+     "more": [
+      "Florida PIP: $10,000, paying 80% of reasonable medical expenses and 60% of lost income",
+      "Riverton PIP, John Doe's file: Harbor Point $5,000, paying 100% of medical and 80% of lost income",
+      "Riverton has **no EMC rule** and no 14-day condition"
+     ]
+    },
+    {
+     "term": "Emergency Medical Condition (EMC)",
+     "text": "Acute symptoms, possibly severe pain, serious enough that **no immediate care** could seriously jeopardize health or bodily function",
+     "more": [
+      "Acute symptoms of sufficient severity, which may include severe pain",
+      "Absent immediate care, expected to cause serious jeopardy to health, impairment of bodily functions, or dysfunction of an organ or part",
+      "Whether it exists is **the provider's clinical judgment**"
+     ]
+    },
+    {
+     "term": "The 14-Day Rule",
+     "text": "Florida PIP pays no medical benefits unless initial care is received **within 14 days** after the accident",
+     "more": [
+      "Count from the date of loss and docket the 14th day at intake",
+      "Hypothetical: a 02/06/2026 date of loss puts day 14 on **02/20/2026**, John Doe's first visit"
+     ]
+    },
+    {
+     "term": "The Benefit Ceiling",
+     "text": "An MD, DO, dentist, PA or APRN's EMC finding opens **the full $10,000**; without it, $2,500",
+     "more": [
+      "A chiropractor may give initial care but **cannot make the finding**",
+      "Massage and acupuncture are not reimbursable under Florida PIP",
+      "Confirm the current statute: Florida has repeatedly considered repealing PIP"
+     ]
+    }
+   ],
+   "pages": [
+    "D1#27",
+    "D1#39"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "A new PIP file lands on your desk from intake.",
+     "Florida and Riverton write very different PIP rules.",
+     "You check where the crash happened before reading any limit."
+    ],
+    [
+     "A Florida client calls the firm the week of the crash.",
+     "The date of loss starts a short clock.",
+     "Before hanging up, the deadline goes on the calendar."
+    ],
+    [
+     "Treatment records start arriving from several offices.",
+     "MD, PA-C and DC look alike in a busy log.",
+     "Each visit line shows the letters after the treater's name."
+    ]
+   ],
+   "donts": [
+    [
+     "John Doe asks how much PIP he has left.",
+     "His claim sits under Harbor Point's $5,000 PIP in Riverton.",
+     "The answer quotes a Florida limit for a Riverton file."
+    ],
+    [
+     "A Florida client's first visit was at a chiropractic office.",
+     "The note reads severe neck pain, treated with an adjustment.",
+     "The PIP Log moves to the $10,000 bucket on that note."
+    ],
+    [
+     "A Florida client asks about his PIP benefits by phone.",
+     "The full medical benefit hangs on a provider's finding.",
+     "The call ends with advice to book a physician for the money."
+    ]
+   ]
+  }
+ },
  "d1m4-a1": {
   "image": "calendar-gap",
   "situation": "John Doe's first treatment records have arrived in the CMS. Find the first treatment date yourself and compare it with **the date of loss**.",
@@ -3440,7 +3561,7 @@ window.CM_CF_SLIDES = {
   "checks": [
    "Signed by John Doe and Atty. Thorne **before 02/24/2026**",
    "Baseline: 2021 visits **low back, resolved**; no prior neck",
-   "Rental ends 03/19/2026: **calendared as a treatment risk**",
+   "Rental end 03/19/2026 calendared: after it, **out of pocket**",
    "Decline proved: **$3,675.00 left**, enough for the $2,395.00 MRI",
    "**No payment promised** to either provider"
   ],
@@ -5802,6 +5923,33 @@ window.CM_CF_SLIDES = {
    "Letting a gross that **nets below zero** go unchallenged"
   ]
  },
+ "d3m2-bins": {
+  "image": "money-ledger",
+  "situation": "File date 08/12/2026. Keystone **tendered the $10,000 BI limits** today. Atty. Thorne wants the BI settlement Net Sheet **before John Doe signs** anything; liens are still unreduced.",
+  "steps": [
+   "Enter Stream 1 in the LSH Net Sheet: **gross, fee, costs**",
+   "Enter both liens in the Net Sheet **as they stand today**",
+   "Run **the 25% projection**, labelled, in the Net Sheet",
+   "Run **the BI-alone math** in the Net Sheet: $6,179.92 against $7,965.00",
+   "Route it with **the trust-hold flag** via CMS → Tasks → Escalate"
+  ],
+  "deliver": "A Stream 1 Net Sheet, **projections labelled**, routed to Atty. Thorne on 08/12/2026",
+  "purpose": "Alone, the BI money **nets John Doe $0.00**; Atty. Thorne must see why",
+  "principle": "Today's liens, **labelled projections**; value and strategy stay with Atty. Thorne",
+  "checks": [
+   "Fee **$3,333.33**, not $3,333.00 from 33.33%",
+   "Liens **$7,965.00 unreduced**; reduction column left blank",
+   "Projection labelled: **Stream 1 net $4,553.73**",
+   "BI alone: **$6,179.92 against $7,965.00**, net $0.00",
+   "**Trust-hold flag** routed to Atty. Thorne 08/12/2026"
+  ],
+  "dos": [
+   "Label **every projection** with what it assumes"
+  ],
+  "donts": [
+   "Quoting John Doe **a BI figure** before Atty. Thorne"
+  ]
+ },
  "d3m2-l2": {
   "image": "coverage-check",
   "hook": "John Doe's own carriers will argue against him; **prove the gap above each layer**.",
@@ -5971,6 +6119,33 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Adding **PIP or property-damage payments** to the gross",
    "Depositing a UM check **before its release is signed**"
+  ]
+ },
+ "d3m2-umns": {
+  "image": "money-ledger",
+  "situation": "10/06/2026. Cardinal State tenders **$10,000 limits**; Harbor Point's $20,000 is in trust. Liens unreduced. Atty. Thorne wants the UM Net Sheet before he meets John Doe.",
+  "steps": [
+   "Post **$30,000.00 gross** to Stream 2 on the Recovery Ledger",
+   "Apply **the 33⅓% fee**, then costs at 75%",
+   "Enter liens **as asserted or audited**, each marked projection",
+   "**Tie Stream 2** to Stream 1 and the Trust Ledger",
+   "Escalate the sheet with **four questions** to Atty. Thorne"
+  ],
+  "deliver": "A Stream 2 Net Sheet projecting **$13,661.19**, flagged and routed to Atty. Thorne",
+  "purpose": "John Doe hears this from Atty. Thorne: **no projection may read as final**",
+  "principle": "Mark **every moving figure**; quote no net to John Doe",
+  "checks": [
+   "Fee: **$30,000.00 ÷ 3 = $10,000.00**",
+   "Costs $365.06; liens **$1,395.00 + $4,578.75**",
+   "Projected net **$13,661.19**, labelled projection",
+   "Streams tie: **$13,661.19 + $4,553.73 = $18,214.92**",
+   "Trust **$30,000.00**; Cardinal State $10,000.00 receivable"
+  ],
+  "dos": [
+   "Take Stream 2's share **as the remainder**"
+  ],
+  "donts": [
+   "Charging **all costs and liens** to the UM stream"
   ]
  },
  "d3m2-kc": {
@@ -7362,6 +7537,33 @@ window.CM_CF_SLIDES = {
    "Calling Keystone or Robert Smith **to announce the suit**"
   ]
  },
+ "d4m1-efile": {
+  "image": "legal-filing",
+  "situation": "09/22/2026, Track B. Atty. Thorne approved **his Complaint** this morning. Filing target **09/24/2026**. A 09/15 draft, unsigned, sits in the CMS.",
+  "steps": [
+   "Tag Nadia Brooks in **CMS → Tasks**: cover sheet, summons",
+   "Check **every signature** before you upload",
+   "Submit the envelope in **Court E-Filing**: $218.00",
+   "Record **26-CV-04417** in the Pleadings Log and Documents",
+   "Calendar service, the conference and **answer: set on service**"
+  ],
+  "deliver": "A signed set filed as **26-CV-04417**, recorded and calendared",
+  "purpose": "An unsigned page or an uncalendared date can **sink the suit**",
+  "principle": "Nothing is filed **until Atty. Thorne signs**",
+  "checks": [
+   "Task names documents, source, **due date** and signer",
+   "The **09/15/2026 draft** never uploaded",
+   "Costs **$486.75 + $218.00 = $704.75**",
+   "Service deadline **01/22/2027 (Fri)** with alerts",
+   "CMC **12/10/2026, 9:00 a.m.**, Atty. Thorne attending"
+  ],
+  "dos": [
+   "Calendar from **the accepted filing**, not the target"
+  ],
+  "donts": [
+   "Docketing an answer date **before service**"
+  ]
+ },
  "d4m1-kc": {
   "image": "knowledge-check",
   "questions": [
@@ -7523,6 +7725,33 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Missing **what isn't on the screen**, like the RFAs",
    "Rolling 11/06/2027 **forward to Monday**"
+  ]
+ },
+ "d4m2-medcal": {
+  "image": "mediation-table",
+  "situation": "01/08/2027: the Notice of Mediation sets **03/18/2027 (Thu), 9:30 a.m.** before Hon. Carla Benton (Ret.). Statement and binder due 7 days before; mediation **completed by 03/31/2027**.",
+  "steps": [
+   "Verify the trigger and **link the 03/31/2027 deadline**",
+   "Enter the session with **its attendees** in the Calendaring Simulators",
+   "Count the binder and internal dates **back from the session**",
+   "Open the client and **$1,200.00 cost** tasks in CMS → Tasks",
+   "Conflict-check, then **route the UM consent flag** to Atty. Thorne"
+  ],
+  "deliver": "A trigger-counted mediation calendar and **a same-day summary** to Atty. Thorne",
+  "purpose": "One notice creates a dozen dates; **one missed date** costs the session",
+  "principle": "Count every date **from its own trigger**",
+  "checks": [
+   "Statement and binder **due 03/11/2027 (Thu)**",
+   "Binder QC 03/04; approval **by 03/09/2027**",
+   "Mediator's report watched **on 03/25/2027**",
+   "Fee **$1,200.00**, half of $2,400.00",
+   "**03/15/2027 overlap** flagged to Atty. Thorne"
+  ],
+  "dos": [
+   "Link to **the 12/10/2026 entries**, never re-key them"
+  ],
+  "donts": [
+   "Contacting **the UM carriers** without Atty. Thorne"
   ]
  },
  "d4m2-um": {
@@ -7862,6 +8091,33 @@ window.CM_CF_SLIDES = {
   "donts": [
    "A brief deadline that **lives only in an email**",
    "Treating the UM carriers **as friendly**"
+  ]
+ },
+ "d4m2-arbcal": {
+  "image": "clock-deadline",
+  "situation": "04/26/2027: Laura Whitcomb's letter sets the hearing **06/22/2027 (Tue), 9:00 a.m.** Exhibits 20 days before, brief 10. Calendar **every date hanging off it**.",
+  "steps": [
+   "Re-anchor hearing, exhibits and brief **to the letter** in the Docket System",
+   "Count back binder QC and **records-request dates** in Calendaring Simulators",
+   "Hold attendance, prep and **tech-check dates** on CMS → Calendar",
+   "Route the **$900.00 fee share** to accounting as a cost",
+   "Check the master calendar; **ask Atty. Thorne** about court dates"
+  ],
+  "deliver": "A letter-anchored calendar, **every date with its rule**, questions to Atty. Thorne",
+  "purpose": "Every arbitration task counts back from **one hearing date**",
+  "principle": "A date without **its trigger and rule** is a guess",
+  "checks": [
+   "Brief **06/11/2027 (Fri)**, exhibits 06/02/2027, from the letter",
+   "Records requests out by **05/03/2027 (Mon)**",
+   "Binder QC opens **05/17/2027 (Mon)**; draft index 05/14/2027",
+   "**$900.00 fee share** logged as a case cost",
+   "Court dates kept, **flagged for Atty. Thorne**; SOL dates unchanged"
+  ],
+  "dos": [
+   "Write **the trigger and rule** on every entry"
+  ],
+  "donts": [
+   "Deleting a court date **without Atty. Thorne's answer**"
   ]
  },
  "d4m2-a3": {

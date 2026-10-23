@@ -659,5 +659,59 @@
       "**A summary** in place of the certified chart",
       "**Correcting a conflicting history** instead of flagging it"
     ]
+  },
+  "d4m2-medcal": {
+    "image": "mediation-table",
+    "situation": "01/08/2027: the Notice of Mediation sets **03/18/2027 (Thu), 9:30 a.m.** before Hon. Carla Benton (Ret.). Statement and binder due 7 days before; mediation **completed by 03/31/2027**.",
+    "steps": [
+      "Verify the trigger and **link the 03/31/2027 deadline**",
+      "Enter the session with **its attendees** in the Calendaring Simulators",
+      "Count the binder and internal dates **back from the session**",
+      "Open the client and **$1,200.00 cost** tasks in CMS → Tasks",
+      "Conflict-check, then **route the UM consent flag** to Atty. Thorne"
+    ],
+    "deliver": "A trigger-counted mediation calendar and **a same-day summary** to Atty. Thorne",
+    "purpose": "One notice creates a dozen dates; **one missed date** costs the session",
+    "principle": "Count every date **from its own trigger**",
+    "checks": [
+      "Statement and binder **due 03/11/2027 (Thu)**",
+      "Binder QC 03/04; approval **by 03/09/2027**",
+      "Mediator's report watched **on 03/25/2027**",
+      "Fee **$1,200.00**, half of $2,400.00",
+      "**03/15/2027 overlap** flagged to Atty. Thorne"
+    ],
+    "dos": [
+      "Link to **the 12/10/2026 entries**, never re-key them"
+    ],
+    "donts": [
+      "Contacting **the UM carriers** without Atty. Thorne"
+    ]
+  },
+  "d4m2-arbcal": {
+    "image": "clock-deadline",
+    "situation": "04/26/2027: Laura Whitcomb's letter sets the hearing **06/22/2027 (Tue), 9:00 a.m.** Exhibits 20 days before, brief 10. Calendar **every date hanging off it**.",
+    "steps": [
+      "Re-anchor hearing, exhibits and brief **to the letter** in the Docket System",
+      "Count back binder QC and **records-request dates** in Calendaring Simulators",
+      "Hold attendance, prep and **tech-check dates** on CMS → Calendar",
+      "Route the **$900.00 fee share** to accounting as a cost",
+      "Check the master calendar; **ask Atty. Thorne** about court dates"
+    ],
+    "deliver": "A letter-anchored calendar, **every date with its rule**, questions to Atty. Thorne",
+    "purpose": "Every arbitration task counts back from **one hearing date**",
+    "principle": "A date without **its trigger and rule** is a guess",
+    "checks": [
+      "Brief **06/11/2027 (Fri)**, exhibits 06/02/2027, from the letter",
+      "Records requests out by **05/03/2027 (Mon)**",
+      "Binder QC opens **05/17/2027 (Mon)**; draft index 05/14/2027",
+      "**$900.00 fee share** logged as a case cost",
+      "Court dates kept, **flagged for Atty. Thorne**; SOL dates unchanged"
+    ],
+    "dos": [
+      "Write **the trigger and rule** on every entry"
+    ],
+    "donts": [
+      "Deleting a court date **without Atty. Thorne's answer**"
+    ]
   }
 }

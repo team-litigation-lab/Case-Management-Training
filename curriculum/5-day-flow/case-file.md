@@ -35,6 +35,32 @@ A UM demand before the BI tender is premature; settling or releasing BI without 
 while the claim is open) is a different question: PIP/MedPay → private health insurance → LOP/provider liens.
 
 **PIP (Riverton's rule).** Riverton is an **add-on PIP state**: every auto policy carries $5,000 of Personal Injury Protection unless the named insured rejects it in writing. PIP pays **100% of reasonable accident medical expenses and 80% of lost income**, regardless of fault, with no deductible. It is add-on, not no-fault: it does not reduce BI or UM, and Riverton bars a PIP carrier from recovering what it paid out of its insured's settlement. **Whose PIP:** John owns no car, so he claims PIP as a passenger on the vehicle he rode in: **Harbor Point's PIP on Kevin Alvarez's Escape, $5,000** (claim HP-26-7741). PIP application signed 02/17/2026 and sent with the Harbor Point LOR; Harbor Point acknowledged it and opened PIP on 02/24/2026 (RS65).
+**Riverton has no Emergency Medical Condition (EMC) rule**: no treat-within-14-days condition and no EMC
+determination caps John's PIP. EMC is a Florida PIP rule (Fla. Stat. § 627.736(1)(a)); the course teaches it as
+the contrast a Case Manager on a Florida file must work to.
+
+### No contact, then back in touch (Day 1 Module 2 — the No Contact Protocol, 02/10–02/23/2026)
+
+Last logged contact with John Doe: **02/10/2026**. The Communications Log the protocol leaves behind (three phone
+attempts on three different days, then the written warnings, then the emergency contact):
+
+| Date | Time | Channel | Outcome |
+|---|---|---|---|
+| 02/11/2026 (Wed) | 3:40 p.m. | Phone, mobile (555) 010-2288 | Attempt 1: no answer; voicemail left |
+| 02/13/2026 (Fri) | 10:00 a.m. | Phone, mobile (the scheduled check-in) | Attempt 2: no answer; voicemail left |
+| 02/16/2026 (Mon) | 9:10 a.m. | Phone, mobile (after the Step 1 review) | Attempt 3: no answer; voicemail left |
+| 02/16/2026 (Mon) | 9:30 a.m. | Email, john.doe@example.com | Warning 1: please call the firm by 02/18/2026; no reply |
+| 02/16/2026 (Mon) | 9:35 a.m. | Text, (555) 010-2288 | Delivered; no reply |
+| 02/16/2026 (Mon) | 11:05 a.m. | Phone, Margaret Doe (emergency contact) | Reached; message passed; no case details shared |
+| 02/18/2026 (Wed) | 9:00 a.m. | Email, john.doe@example.com | Warning 2: please call the firm by 02/20/2026; no reply |
+| 02/20/2026 (Fri) | 4:30 p.m. | Internal note to Atty. Thorne | Step 3 team notification |
+
+The two early voicemails (02/11, 02/13) were left but never logged; the CMS flags it on 02/16 (Day 1 Module 2,
+Skill Activity 1). On **02/21/2026** Atty. Thorne asks for the Final Warning Letter for his review on Monday.
+**02/23/2026 (Mon)**: he approves it and it goes out at 8:10 a.m. by email and certified mail, response date
+**03/05/2026**. **John Doe calls back at 8:31 a.m.**: he read the email; he went to Riverton Urgent Care on
+02/20/2026 and is booked at Riverton Spine & Rehab for 02/24/2026. The No Contact Protocol closes; treatment
+continues. (Why he waited is asked on the recorded call of 03/04/2026, not on this one.)
 
 ## 2. The file from Day 2 on
 
@@ -219,7 +245,13 @@ before any negotiated reduction, leaving John Doe nothing — which is why the l
 - **09/08/2026** impasse memo to Atty. Thorne; 09/09 he authorizes suit and discusses the fee tier (40% on filing) with John.
 - **09/10/2026** CMS status → Litigation. Harbor Point and Cardinal State notified of the impasse and the intended suit
   (the notice their policies require — Atty. Thorne confirms what is required).
-- **09/24/2026** complaint filed: *John Doe v. Robert Smith*, **State Court of Riverton County, Civil Action No. 26-CV-04417**.
+- **09/22/2026 (Tue)** The CM tags the Litigation Desk paralegal, **Nadia Brooks**, in the CMS to prepare the
+  filing set around the complaint Atty. Thorne has drafted and approved: the civil cover sheet and the summons.
+  Atty. Thorne reviews and signs the set on 09/23.
+- **09/24/2026** complaint e-filed through the Riverton County e-filing portal (envelope accepted the same day;
+  filing fee and summons $218.00); the clerk issues the summons and a **Notice of Case Management Conference:
+  12/10/2026 (Thu), 9:00 a.m., by videoconference**. Service deadline under the rule set configured for this
+  training file: 120 days from filing → **01/22/2027 (Fri)**. Complaint filed: *John Doe v. Robert Smith*, **State Court of Riverton County, Civil Action No. 26-CV-04417**.
   Damages pleaded: medical Specials, lost wages, future medical, pain and suffering. No Property Damage is pleaded: John owns no vehicle.
 - **Service:** attempts at 118 Larkspur Ln on 10/01, 10/05, 10/08 fail (a neighbor says Smith moved in August).
   Skip-Trace 10/09 → **4410 Quarry Ridge Ct, Millbrook**. Personal service **10/14/2026** by **Allied Process
@@ -231,9 +263,12 @@ before any negotiated reduction, leaving John Doe nothing — which is why the l
   (15) served on John **by U.S. mail** → 30 days + 3 for mail = 01/03/2027, a Sunday → **due 01/04/2027 (Mon)**.
   Unanswered Requests for Admission may be deemed admitted. (Rule set configured for this training file;
   confirm the court's rules.)
-- **12/10/2026** Scheduling Order: plaintiff's expert disclosure 03/15/2027; defense expert disclosure 04/15/2027;
+- **12/10/2026** Case Management Conference held (Atty. Thorne attends); Scheduling Order entered: plaintiff's expert disclosure 03/15/2027; defense expert disclosure 04/15/2027;
   mediation completed by 03/31/2027; discovery closes 05/28/2027; pretrial conference 08/12/2027; trial calendar 09/13/2027.
 - **12/14/2026** Plaintiff's discovery served on Smith by email (e-service by consent) → his responses due **01/13/2027**.
+- **12/17/2026** Four mediation windows collected from Atty. Thorne, John Doe and defense counsel; Atty. Thorne
+  selects **Hon. Carla Benton (Ret.)**. **01/08/2027 (Fri)** Notice of Mediation: **03/18/2027 (Thu), 9:30 a.m.**,
+  at Hon. Carla Benton's office; statement and binder due 7 days before → **03/11/2027 (Thu)**; client attendance required.
 - **01/20/2027** Notice of John's deposition: **02/18/2027, 10:00 a.m., by videoconference**, Riverton Court Reporting.
 - **01/22–02/03/2027** John goes unreachable (lost his phone, new number). The No Contact Protocol runs; he is
   reached through Margaret (emergency contact) on **02/03/2027**.
@@ -247,7 +282,7 @@ before any negotiated reduction, leaving John Doe nothing — which is why the l
   exhaustion. Harbor Point offers **$8,000** (03/31/2027); Cardinal State **$6,000** (04/02/2027).
 - **04/05/2027** Harbor Point and Cardinal State hold, disputing damages (the gap). Harbor Point's UM arbitration clause
   is invoked; Cardinal State joins one consolidated **binding arbitration**, arbitrator **Laura Whitcomb, Esq.**
-  Hearing **06/22/2027 (Tue)**; exhibit exchange 20 days before → **06/02/2027**; arbitration brief 10 days
+  **04/26/2027 (Mon)** Laura Whitcomb's Notice of Hearing (after the 04/23 scheduling call) sets the hearing: **06/22/2027 (Tue), 9:00 a.m.**; exhibit exchange 20 days before → **06/02/2027**; arbitration brief 10 days
   before → 06/12/2027 is a Saturday → **docket 06/11/2027 (Fri)** (counting backward, move to the earlier business day).
 - **07/06/2027 (Tue) award (case won):** Laura Whitcomb finds John Doe's damages exceed the UM limits and awards
   **Harbor Point $20,000** (host UM) and **Cardinal State $10,000** (relative UM, excess). Keystone's $10,000 BI

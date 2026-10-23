@@ -451,5 +451,33 @@
     "job": {
       "say": "On the job it runs like this. When MMI is declared on 06/12/2026, you open the Demand Package task, request every provider's line-item bill, and ask John Doe how the injury changed his days, in his own words. In the week of service you run the Final Scrub: overlaps, the prior disclosed, and a call to every provider for its final balance, with a name and a date in the notes, until $16,401.40 ties out. Then you index every exhibit by what it proves and route the package and the narrative to Atty. Thorne. And once the Limited Release is signed on 08/28/2026, you rebuild each UM package by function, and the question of an impairment rating goes to Atty. Thorne, not to Dr. Reyes from you."
     }
+  },
+  "d3m2-bins": {
+    "case": {
+      "say": "It's 08/12/2026, a Wednesday, and Dana Whitfield has just tendered Keystone's $10,000 BI limits, inside the 08/21 window. Good news, and John Doe will hear about it soon. But no check has issued, no release is signed, and the UM layers haven't even been demanded yet. Atty. Thorne's memo asks for one thing before he sits down with John: the BI settlement Net Sheet. Stream 1 on his 25% working allocation, and Stream 1 standing alone. The liens are where they were on 08/05: Peach State at $1,860.00 and Riverton Spine & Rehab at $6,105.00 audited, nothing reduced. So picture John on the phone tomorrow saying Keystone paid ten thousand, where's my share.",
+      "ask": "If John Doe asks why he can't have his share of Keystone's $10,000 now, what does the math say?"
+    },
+    "task": {
+      "say": "You'll build Stream 1 in the LSH Net Sheet. Enter the $10,000.00 gross as tendered, not received. Take the fee at the pre-suit 33⅓% from the retainer, that's $3,333.33, and the five receipted costs, $486.75. Enter both liens as they stand today and leave the reduction column blank. Then run Atty. Thorne's 25% allocation: $121.69 of costs and $1,991.25 of liens, down to a projected net of $4,553.73, and label it a projection with what it assumes. Beside it, run the BI-alone fact pattern: $6,179.92 left against $7,965.00, shared pro rata, John at $0.00. Route it to Atty. Thorne today with the trust-hold flag. The allocation and anything about value are his.",
+      "ask": "Which figure on your sheet would you never read to John Doe, and why?"
+    },
+    "check": {
+      "say": "Check yourself before you route it. Is the fee $3,333.33, and not $3,333.00 from typing 33.33%? Are the liens $1,860.00 and $6,105.00, with no reduction pencilled in, because nobody has agreed one? Is Stream 2 open, with nothing entered? Is $4,553.73 marked as a projection, with the allocation and the open UM layers written beside it? Does the BI-alone pattern show $6,179.92 against $7,965.00, a $1,785.08 shortfall, Peach State $1,443.15 and Riverton Spine & Rehab $4,736.77, and John Doe at $0.00? And did you flag, as a fact, that the money can't be paid out on its own and stays in trust until the liens resolve, and leave the rest to Atty. Thorne?",
+      "ask": "You posted Keystone's $10,000 to the Trust Ledger today. What's wrong with that entry?"
+    }
+  },
+  "d3m2-umns": {
+    "case": {
+      "say": "It's the sixth of October. Teresa Okafor has just tendered Cardinal State's ten thousand dollar Relative UM limits, and John accepted through Atty. Thorne. Harbor Point's twenty thousand has been in trust since yesterday, and Keystone's ten thousand since the fourth of September. So the stack is closed at forty thousand, but only thirty thousand is actually in the account. The liens haven't moved yet: Peach State asserts eighteen sixty, and Riverton Spine and Rehab's account is sixty-one oh five after our audit. Atty. Thorne's memo asks for the UM settlement Net Sheet before he goes through it with John.",
+      "ask": "Of everything on this file today, which numbers are firm, and which are still going to move?"
+    },
+    "task": {
+      "say": "You're building Stream 2, the UM column, as it stands today. Post Harbor Point and Cardinal State to the Recovery Ledger, and show which check is in trust and which is only tendered. Take the pre-suit one-third fee. Then allocate costs and liens to Stream 2 at seventy-five percent, pro rata to gross, with each lien at its asserted or audited figure, not the reduction you hope for. Mark every figure that can still change, and write what will change it. Tie Stream 2 to Stream 1 and to the Trust Ledger. Then the part I'm grading hardest: the questions Atty. Thorne has to answer before John sees this sheet. It goes to him, not to John.",
+      "ask": "Why does Stream 2 carry only seventy-five percent of the costs and liens, when it's the bigger check?"
+    },
+    "check": {
+      "say": "Check it to the cent. Gross thirty thousand. Fee ten thousand even. Costs: Stream 1 takes one twenty-one sixty-nine, so Stream 2 takes the remainder, three sixty-five oh six. Peach State, thirteen ninety-five. Riverton Spine and Rehab, forty-five seventy-eight seventy-five, on the audited figure, not the billed one. Projected net, thirteen thousand six sixty-one nineteen, labelled a projection. Add Stream 1's forty-five fifty-three seventy-three and you get eighteen thousand two fourteen ninety-two, which is forty thousand less the whole fee, the costs and the unreduced liens. Is Harbor Point's PIP at zero, with its 03/02 letter cited? Is Cardinal State receivable, not received? And are your four questions written down and routed today?",
+      "ask": "John calls tomorrow and asks if he's getting thirteen thousand. What do you tell him?"
+    }
   }
 }
