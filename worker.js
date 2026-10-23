@@ -222,7 +222,10 @@ async function traineeWrite(env, tok, key, value) {
     merged.id = id;
     await kv.put(key, JSON.stringify(merged)); return null;
   }
-  if (key === `progress:${id}`) { await kv.put(key, value); return null; }
+  if (key === `progress:${id}`) {
+    if (String(value).length > 2000000) return "Too large";
+    await kv.put(key, value); return null;
+  }
   if (key === `feedback:${id}`) {
     // Trainees (auto-review) may add days and mark reviews read — never rewrite a trainer's review.
     const out = existing && existing.days ? JSON.parse(JSON.stringify(existing)) : { days: {} };
@@ -275,10 +278,19 @@ async function traineeWrite(env, tok, key, value) {
     if (String(value).length > 6000000) return "File too large";
     await kv.put(key, value); return null;
   }
-  if (/^tfeedback:[a-z0-9]+$/.test(key) || /^cert:LSH-CM-\d{4}-[A-Z0-9]{6}$/.test(key)) {
-    if (existing && /^tfeedback:/.test(key)) return "Already submitted";
-    if (/^cert:/.test(key) && ((incoming && incoming.traineeId) !== id || (existing && existing.traineeId !== id))) return "Not allowed";
+  if (/^tfeedback:[a-z0-9]+$/.test(key)) {
+    if (existing) return "Already submitted";
+    if (String(value).length > 20000) return "Too large";
     await kv.put(key, value); return null;
+  }
+  if (/^cert:LSH-CM-\d{4}-[A-Z0-9]{6}$/.test(key)) {
+    // A trainee records their own certificate once, and only as an approved trainee: the name, batch and issuer
+    // come from the server's own record, never from the request, and an issued certificate is never rewritten.
+    if ((incoming && incoming.traineeId) !== id || existing) return "Not allowed";
+    let who = null; try { who = JSON.parse((await kv.get(`trainee:${id}`)) || "null"); } catch (e) { /* no record */ }
+    if (!who || who.approved !== true || who.archived) return "Not allowed";
+    const rec = Object.assign({}, incoming, { traineeId: id, name: who.name || incoming.name || "", batch: who.batch || "", issuedBy: "self", issuedAt: new Date().toISOString() });
+    await kv.put(key, JSON.stringify(rec)); return null;
   }
   return "Not allowed";
 }
@@ -759,7 +771,7 @@ export default {
         const m = html.match(/APP_BUILD = "([^"]+)"/);
         // Changes on every Cloudflare deploy; open pages use it to pick up a new version.
         const deployment = (env.CF_VERSION_METADATA && env.CF_VERSION_METADATA.id) || "unknown";
-        return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nDeployment: ${deployment}\nWorker: secure-mode worker.js\nSecure mode: ${adminPass(env) ? "ON" : "OFF"}\nAdmin password: ${adminPassStatus(env)}\nAI provider: ${geminiKeyNames(env).length ? "Google Gemini (" + (env.GEMINI_MODEL || "gemini-3.8-flash") + ", " + geminiKeyNames(env).length + " key" + (geminiKeyNames(env).length === 1 ? "" : "s") + ")" : (gatewayOn(env) ? "Google Gemini via the Portal's AI gateway" : "none — add GEMINI_API_KEY")}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
+        return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nDeployment: ${deployment}\nWorker: secure-mode worker.js\nSecure mode: ${adminPass(env) ? "ON" : "OFF"}\nAdmin password: ${adminPassStatus(env)}\nAI provider: ${geminiKeyNames(env).length ? "Google Gemini" : (gatewayOn(env) ? "Google Gemini via the Portal's AI gateway" : "none — add GEMINI_API_KEY")}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
       }
       if (!path.startsWith("/api/")) {
         const res = (await docFromR2(env, request, path)) || (await env.ASSETS.fetch(request));
@@ -1061,7 +1073,7 @@ export default {
       return json({ error: "Unknown endpoint" }, 404);
     } catch (e) {
       console.error(e);   // the stack goes to the Worker's logs, not to the browser
-      return json({ error: "Unhandled Worker exception.", detail: String((e && e.message) || e) }, 500);
+      return json({ error: "Unhandled Worker exception." }, 500);   // the detail is in the Worker's logs
     }
   }
 };
