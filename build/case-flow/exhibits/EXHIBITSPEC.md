@@ -15,7 +15,7 @@ worked artefact can teach:
    writes the email that serves it, the adjuster acknowledges receipt in writing (the clock runs from that), and converting that
    exchange into a document filed in the CMS and backed up to Drive.
 
-Output: `build/case-flow/exhibits/<part>.json` (`d3.json`, `d4.json`), assembled into
+Output: `build/case-flow/exhibits/<part>.json` (`d2.json`, `d3.json`, `d4.json`), assembled into
 `js/cm-case-flow-exhibits.js` (`window.CM_CF_EXHIBITS`) by `node build/case-flow/exhibits/assemble.cjs`
 (`--check` validates only, in CI). Facts come only from `curriculum/5-day-flow/case-file.md`, the block
 (`js/cm-case-flow-data.js`) and the document set (`js/cm-case-flow-docs.js`, `build/case-flow/documents/SPEC.md`).
@@ -100,6 +100,14 @@ becomes a filed document.
   completeness of the set from their own words. No emoji, no HTML.
 - `press` — the follow-up the other side sends next, with 2–4 `choices`: exactly one is `ok`. This is the UPL
   test; `why` says what each choice would cost, ≤ 30 words.
+- `labels` (optional) — the workspace's own words when the exchange is not a demand served on an adjuster (Day 2's
+  lien confirmation with Peach State, the employer wage verification with Northgate): `write`, `reply` (the step
+  titles), `send` (the button), `who` (named when a send is refused), `sentTime`, `sentToast`, `rightToast`, `warn`
+  (the audit-first warning; `""` when the email comes before the audit), `why` and `folderNote` (the filing notes),
+  `aria`, `original` (the filed file's original name). Left out, each is the demand's. A `convert` section whose
+  heading says "email as sent" or "reply as received" carries the trainee's email or the reply into the memorandum.
+- Every audit and Service Confirmation shows the simulation's disclaimer: lien amounts, insurer and provider responses
+  and recovery records are generated in real time, strictly for accelerated training (on a real file they take weeks).
 - `convert` — the memorandum the trainee files: its `sections` are the headings and the lines under each, and
   `establishes` is what the acknowledgment proves. `category` is the CMS Doc Hub category, `type` the type
   part of the firm's file name, and `folder` the `CM_CF_DOC_FOLDERS` id of the Backup Drive folder the

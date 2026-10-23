@@ -1237,7 +1237,8 @@ window.CM_CF_EXHIBITS = {
     "why": "A thread in a mailbox is not on the case file: a colleague covering the file cannot find it, and it is not in the backup. Converted, filed and backed up, the plan's own confirmation of its lien is part of the case.",
     "folderNote": "every lien and reimbursement document on the case",
     "aria": "Your dispute email to Peach State",
-    "original": "Peach-State-Lien-Confirmation.pdf"
+    "original": "Peach-State-Lien-Confirmation.pdf",
+    "rightToast": "Right: acknowledged, routed, and nothing agreed for Atty. Thorne."
    }
   },
   "d2m4-wage": {
@@ -1387,7 +1388,8 @@ window.CM_CF_EXHIBITS = {
     "why": "A reply in a mailbox is not on the case file: a colleague covering the file cannot find it, and it is not in the backup. Converted, filed and backed up, the employer's own verification is part of the case.",
     "folderNote": "every wage and cost document on the case",
     "aria": "Your verification request to Northgate",
-    "original": "Employer-Wage-Verification.pdf"
+    "original": "Employer-Wage-Verification.pdf",
+    "rightToast": "Right: no records out, nothing said about the claim, and the question routed."
    }
   },
   "d3m1-a1": {
