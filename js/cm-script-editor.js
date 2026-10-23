@@ -46,14 +46,37 @@ if(typeof window.renderPresenterNote === "function"){
     load();
     const i = (d.lessons || []).indexOf(l); if(i < 0) return h;
     const ed = !!edits[`${d.id}::${l.h}::p${part || 1}`];
-    return h + `<div class="se-row">${ed ? `<span class="se-tag">✏️ Edited</span>` : ""}<button type="button" class="btn btn-ghost btn-sm" onclick="cmScriptEditor.open(${JSON.stringify(d.id)},${i},${part || 1})">✏️ Edit script</button></div>`;
+    return h + `<div class="se-row">${ed ? `<span class="se-tag">✏️ Edited</span>` : ""}<button type="button" class="btn btn-ghost btn-sm" onclick="cmScriptEditor.open(${JSON.stringify(d.id)},${i},${part || 1},this)">✏️ Edit script</button></div>`;
   };
 }
-function close(){ const o = document.getElementById("se-over"); if(o) o.remove(); document.removeEventListener("keydown", onKey); }
+function close(){
+  const o = document.getElementById("se-over"); if(o) o.remove(); document.removeEventListener("keydown", onKey);
+  // the in-place editor in Presenter view's notes goes back to the script
+  const f = document.getElementById("se-inline"); if(f){ f.remove(); const cu = document.getElementById("pvCues"); if(cu) cu.dataset.slide = ""; if(typeof presenterRefresh === "function") try{ presenterRefresh(); }catch(e){} }
+}
 function onKey(e){ if(e.key === "Escape") close(); }
-function open(dayId, li, part){
+// Presenter view: the script is edited in place in the notes, so the slide on the console stays in view
+function openInline(d, l, li, part, btn){
+  const cur = current(d, l, part), row = btn.closest(".se-row"), note = row && row.previousElementSibling;
+  if(!row) return false;
+  const f = document.createElement("div");
+  f.id = "se-inline"; f.className = "se-form se-inline";
+  f.innerHTML = `<label>🎙 Read aloud<textarea id="se-say" rows="10">${E(cur.say)}</textarea></label>
+    <label>❓ Ask the room<textarea id="se-ask" rows="3">${E(cur.ask)}</textarea></label>
+    <small>Write <code>{name}</code> where you call on a trainee. Saved for every trainer.</small>
+    <div class="se-msg" id="se-msg" aria-live="polite"></div>
+    <div class="se-btns"><button type="button" class="btn btn-ghost btn-sm" onclick="cmScriptEditor.close()">Cancel</button>
+      <button type="button" class="btn btn-navy btn-sm" onclick="cmScriptEditor.save(${JSON.stringify(d.id)},${li},${part})">Save script</button></div>`;
+  if(note && note.classList.contains("pn")) note.style.display = "none";
+  row.style.display = "none"; row.insertAdjacentElement("afterend", f);
+  document.addEventListener("keydown", onKey);
+  f.querySelector("#se-say").focus();
+  return true;
+}
+function open(dayId, li, part, btn){
   const d = (typeof DAYS !== "undefined" ? DAYS : []).find(x => String(x.id) === String(dayId)), l = d && d.lessons[li]; if(!l) return;
   close();
+  if(btn && btn.closest("#pvCues") && openInline(d, l, li, part, btn)) return;
   const cur = current(d, l, part);
   let slide = "";
   try{ slide = typeof renderDaySlideContent === "function" ? renderDaySlideContent(d, {type: "topic", lessonIndex: li, part}, 0) : ""; }catch(e){ slide = ""; }
@@ -116,6 +139,7 @@ css.textContent = `.se-row{display:flex;justify-content:flex-end;align-items:cen
 .se-form textarea{font:500 14.5px/1.55 'Inter',sans-serif;border:1px solid #CBD2E0;border-radius:10px;padding:10px 12px;resize:vertical;}
 .se-form small{color:#5B6579;font-size:12px;} .se-msg.bad{color:#B42318;font-weight:600;font-size:13px;}
 .se-btns{display:flex;justify-content:flex-end;gap:8px;margin-top:auto;}
+.se-inline{padding:4px 0 8px;} .se-inline textarea{font-size:15px;}
 @media(max-width:900px){.se-split{grid-template-columns:1fr;grid-template-rows:45% 55%;}.se-slide{border-right:0;border-bottom:1px solid #E2E6EF;}}`;
 document.head.appendChild(css);
 window.cmScriptEditor = {open, close, save, load, edits: () => edits};
