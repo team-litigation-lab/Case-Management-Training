@@ -482,5 +482,73 @@
       "say": "Finally, the Skill Scale. Rate each competency from 1 to 5, honestly, then submit it for review. I'll compare your self-rating with your score, and where there's a big gap, we'll sit down and talk it through. And one last reminder: UPL is a gate. A strong score doesn't survive a value conversation with a carrier, no matter how well everything else went.",
       "ask": "Which escalation skill from today do you most want to practice again before your next file?"
     }
+  },
+  "d3m4-close": {
+    "why": {
+      "say": "The Trust Ledger hit $0.00 on 10/22/2026. Five checks went out, $40,000.00 in and $40,000.00 out. So is John Doe's file closed? Not yet. Zero is where closing starts. Think about who might open this file after we've put it away: an auditor, a lienholder, or John Doe himself, holding a bill that turned up after the money was gone. If the file can't show where every dollar went, who signed for it, and why each figure moved, it can't answer any of them. Closing is the proof that every dollar landed where the Net Sheet said it would.",
+      "ask": "If a bill for John Doe's treatment arrived after the closing letter, what would you need to find in the file to answer it?"
+    },
+    "theory": {
+      "say": "The deck's rule is simple. Before a case is marked Archived, the Case Manager verifies four critical document sets, and then the file goes under a retention policy. The four sets are the money trail, proof of delivery, compliance and identity, and the closing memo. The closing memo is the one people skip: one page, written by you, saying how the file started and how it ended, explaining every discrepancy and recording every exception, or saying none was granted. Retention means every document is tagged by type, with its disposition date docketed. And a late bill, the one that shows up after the closing letter, gets verified, classified and routed the same day it arrives.",
+      "ask": "Which of the four sets do you think goes missing most often when a file gets archived?"
+    },
+    "frame": {
+      "say": "Here's the reconciliation checklist on John Doe's file. The money trail is every payment itemized with its transaction ID and a zero-balance confirmation: three deposits, five checks on 10/22/2026, and $0.00. Proof of delivery is the provider lien waivers and the client's signed receipt: Peach State's and Riverton Spine & Rehab's satisfactions, and John Doe's acknowledgment. Compliance and identity is the duplication-of-benefits statement and an updated W-9: his payer disclosure names PIP, Peach State and the $312.40 he paid himself. And the closing memo, dated 10/30/2026, with a line saying Margaret Doe's Property Damage claim is still open. All four present, then every document is tagged for retention.",
+      "ask": "Why does John Doe's file need no certificate of completion?"
+    },
+    "rules": {
+      "say": "Nothing gets archived until all four sets are present, and the test is whether an outside auditor could trace every dollar from the file alone. The money trail lists the three deposits and the five checks of 10/22/2026, each with its confirmation number. The zero balance counts only when the bank statement, the trust journal and John Doe's client ledger agree and every check has cleared. The trail also shows a second reviewer on every disbursement and payment details verified by phone. Proof of delivery is the two satisfactions and John's signed receipt. Compliance is his payer disclosure and a current W-9. The closing memo explains every figure that moved. You draft the closing letter and Atty. Thorne signs it. Tag every document and docket its disposition, 7 years from closing on this file. And a late bill goes to Atty. Thorne the same day.",
+      "ask": "Riverton Spine & Rehab's $6,290.00 became $4,580.00. What does the closing memo say about that, and why?"
+    },
+    "job": {
+      "say": "Here's how it runs. When the ledger hits $0.00 on 10/22/2026, you build the money trail in the Trust Ledger: three deposits, five disbursements, the confirmation numbers and the zero-balance report, and you check that the bank statement, the trust journal and the client ledger agree once all five checks clear. When the satisfactions and John Doe's receipt come back, you file them with his payer disclosure and a current W-9, and you draft the closing letter for Atty. Thorne's signature. With the closing memo on 10/30/2026, you tag every document and docket its disposition, 7 years from closing. And if a bill turns up after the letter, you verify it, classify it, route it to Atty. Thorne and call John Doe that same day.",
+      "ask": "A statement for Crescent's $1,540.00 lands after the closing letter. What's the first document you pull?"
+    }
+  },
+  "d4m3-prior": {
+    "why": {
+      "say": "There's one line the defense has run on John Doe's file from the very first offer: it was already there. Keystone called the MRI degenerative on 08/05/2026. Atty. Grant Mercer's Answer on 11/12/2026 pleaded causation on that same reading. And at the 02/18/2027 deposition, defense counsel spent time on John's three chiropractic visits back in 2021. Now Harbor Point and Cardinal State are disputing damages, and Laura Whitcomb, Esq. decides on 06/22/2027, bindingly. Tab 5 of the Arbitration Binder is where we answer the prior from the record. If it isn't answered there, there's nowhere left to answer it after the award.",
+      "ask": "Why would we put records the carriers could use against John into our own binder?"
+    },
+    "theory": {
+      "say": "The deck puts it bluntly: defense counsel use prior records to argue pre-existing degenerative conditions, and Tab 5, the Prior Medical Shield, answers that before they raise it. The defense makes three moves: it was already there, the imaging is degenerative, and the injury is just a continuation of the old one. Often there's a fourth, that there's no baseline imaging from before the crash. Our answer starts with the pre-morbid baseline, John's condition before 02/06/2026, built from records, not memory. Behind it sits the eggshell idea: generally, a defendant takes the plaintiff as he finds him, and an aggravation is compensable. That's Atty. Thorne's argument, and the rule must be confirmed. And the deck's warning: a prior left unshielded, without a medical opinion beside it, is an arbitration landmine.",
+      "ask": "John's prior was his low back and his injury is his neck. Which of the defense's moves does that answer, and which does it leave open?"
+    },
+    "rules": {
+      "say": "We disclose the prior, never hide it, and we build the shield in five pieces. First, Birch Avenue Chiropractic's complete chart for 05/04, 05/11 and 05/18/2021, certified for every date, never a summary. Second, resolution: three visits, low-back stiffness resolved, released to full activity, in the record's own words. Third, the body region, side by side: low back then, neck and right arm now. Fourth, the interval, proved by records: the release, his Northgate job from 01/12/2026, and every history saying no prior neck complaint. Fifth, Dr. Park's sentence and Dr. Reyes's Causation Letter in the same tab. Then audit every history for consistency and tie every claimed harm to a dated record. A mismatch, or a letter silent on 2021, goes to Atty. Thorne. He decides on a declaration.",
+      "ask": "One provider's intake form disagrees with the rest. Who decides what happens next, and what do you not do?"
+    },
+    "job": {
+      "say": "Here's how it runs on the calendar. Arbitration is invoked on 04/05/2027, and that same week you send Birch Avenue Chiropractic a records request through Medical Records Requests for the complete 2021 chart, with a business-records certification covering all three dates. When it arrives, you build the side-by-side comparison in the exhibit index, and every cell cites a record and a page. If the histories don't line up, or Dr. Reyes's Causation Letter doesn't mention 2021, you escalate to Atty. Thorne through Tasks, Escalate, with the records attached, and you change nothing. Anything still open 10 days before the 06/02/2027 exchange gets a red flag.",
+      "ask": "Why does the prior chart request go out the week arbitration is invoked, not once the binder is built?"
+    }
+  },
+  "d4m2-medcal": {
+    "case": {
+      "say": "It's 01/08/2027, a Friday, and the Notice of Mediation was filed this morning. Hon. Carla Benton (Ret.), the mediator Atty. Thorne picked from the four windows we collected on 12/17, will see us on Thursday 03/18/2027 at 9:30 a.m., in person at her office. The statement and binder are due 7 days before, and John Doe has to be there. The order of referral from 12/10 says more than that: each party attends, lead counsel attends, and Keystone sends someone with full authority to settle. The fees are split equally, and our half is $1,200.00. Remember, our 12/10 audit already put “completed by 03/31/2027” on the calendar.",
+      "ask": "How many separate dates do you think this one notice creates on John Doe's file?"
+    },
+    "task": {
+      "say": "You'll work it in the Calendaring Simulators and mirror everything to the CMS Calendar. Verify the trigger first: the notice beat the order's 30-day rule, and 03/18 sits 13 days inside 03/31, so link that existing deadline and close the windows task instead of keying either again. Enter the session with its attendees. Then count back: binder due 03/11, Atty. Thorne's approval by 03/09, the binder QC on 03/04, the Litigation Desk's draft index on 03/02. Count forward to the mediator's report on 03/25. Get John's written confirmation and set his reminders. Open a cost task for the $1,200.00. And flag for Atty. Thorne that Harbor Point and Cardinal State must consent in writing before any BI settlement.",
+      "ask": "If Keystone tenders its limits at the table on 03/18, what can't happen until both UM carriers answer?"
+    },
+    "check": {
+      "say": "Here's what your calendar should show. The session once, on Thursday 03/18/2027 at 9:30 a.m., linked to the 03/31 deadline rather than duplicating it. Statement and binder on Thursday 03/11, no roll needed. Approval by Tuesday 03/09, QC on Thursday 03/04, draft index on Tuesday 03/02. The mediator's report watched on 03/25. John's confirmation requested today with a tickler on 01/15. The fee as half of $2,400.00, which takes advanced costs from $989.75 to $2,189.75, but only once the invoice is receipted. The UM flag with its arithmetic: 30 days from a 03/18 notice runs to Saturday 04/17. And the one conflict: our expert disclosure on Monday 03/15 lands between binder and session.",
+      "ask": "Which entry on your calendar did you count from another entry instead of from its trigger document?"
+    }
+  },
+  "d4m2-arbcal": {
+    "case": {
+      "say": "It's Monday, 04/26/2027, and Laura Whitcomb's scheduling letter has just landed. The consolidated UM arbitration against Harbor Point and Cardinal State is set for Tuesday, 06/22/2027, at 9:00 a.m. Exhibits and witness lists are exchanged 20 days before, and briefs are due 10 days before. The plaintiff's share of her fee is $900.00. Keystone's $10,000 went in at the 03/18/2027 mediation and Robert Smith is out of the case, but the master calendar still shows the court's dates from the 12/10/2026 Scheduling Order, and the SOL entries. One date is fixed now, and everything else on this file for the next nine weeks hangs off it.",
+      "ask": "Before you open anything, name every date that has to count back from 06/22/2027. Which ones are not in the letter at all?"
+    },
+    "task": {
+      "say": "You'll start in the Docket System. Enter the hearing and re-anchor the exchange and brief entries to the letter, so the letter is their trigger, not the memo from 04/05. Then work in the Calendaring Simulators and count back the internal dates: the Litigation Desk's draft index, the day binder QC opens, the last day to send the certified-records requests, and their chase. Hold John's attendance confirmation, the prep session Atty. Thorne will lead and the technology check on the CMS Calendar. Route the $900.00 to accounting as a case cost. Last, check it all against the master calendar. The SOL entries stay. The court's dates in a suit that ended with Robert Smith's dismissal go to Atty. Thorne as a question, not into the bin.",
+      "ask": "The records have to be in hand when binder QC opens. So which date do you count the request deadline back from?"
+    },
+    "check": {
+      "say": "Check your entries. Hearing 06/22/2027 at 9:00 a.m., exchange 06/02/2027, and the brief on Friday 06/11/2027, because 10 days back is a Saturday and a backward count moves earlier, never to Monday 06/14. Binder QC opens Monday 05/17/2027, 16 days before the exchange, with the draft index due Friday 05/14. Records requests out by Monday 05/03/2027, which is 05/17 less the 14-day custodian window, with a chase tickler on each. John confirmed by 04/21, the prep session proposed for 06/15 and the tech check 06/21. The $900.00 is a case cost. The SOL hard date 02/04/2028 and the 11/05/2027 cutoff are untouched, and the court dates are kept, marked and asked about. No award date anywhere.",
+      "ask": "Why is there no entry for the award, when every other date in this arbitration is on the calendar?"
+    }
   }
 }

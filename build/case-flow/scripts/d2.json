@@ -557,5 +557,18 @@
   "job": {
    "say": "On the job, it runs like this. Treatment starts, so you open the trip log in Case Notes, set a task, and tell John Doe exactly what to keep: every receipt, and every trip with its date, office and miles. When a receipt comes in, you enter the cost in the Financial Ledger under Specials the same day and file the receipt in Documents. And when MMI is reached and the demand is next, you total the log and route it to Atty. Thorne, who confirms the rate and decides what the demand claims."
   }
- }
+ },
+  "d2m2-pip": {
+    "why": {
+      "say": "Here's the thing about PIP: you only get to spend it once. Harbor Point's $5,000 paid five of John Doe's bills, and every dollar of it was a bill his recovery will never have to pay. But where those dollars landed decided what was left for Peach State, for the Letter of Protection, and in the end for John's net. The same ledger tells a BI adjuster how serious the case looks, and in some states whether the defendant gets a credit for it. So a Case Manager who forecasts the limit, checks for anything that caps it and keeps the ledger exact is protecting the client's net months before anyone writes a demand.",
+      "ask": "If PIP had paid twelve chiropractic visits instead of Summit's MRI, what would John Doe's file look like now?"
+    },
+    "rules": {
+      "say": "On a typical file, PIP does the most good on the fixed costs, like the ER, imaging and specialist visits, because hospitals rarely reduce at the end and LOP providers often will. John's file shows it: PIP paid urgent care, Lakeside three times and Summit's $2,395.00 MRI, while chiropractic and PT ran under the LOP. Your part is the forecast, not the choice; routing outside the Payer Order is Atty. Thorne's. Remember the limit is shared: the bills used it by 06/26/2026, so the $1,267.20 wage benefit was never paid. In states with an EMC rule, no documented finding can cap PIP, so you check the records early and never ask a doctor to make one. Where set-off applies, the defendant gets credit for PIP paid. Riverton is add-on: it doesn't reduce BI or UM.",
+      "ask": "John Doe's PIP took four months to run out. Does that mean his case is minor, and what figure tells the real story?"
+    },
+    "job": {
+      "say": "Three moments on the job. When a PIP check clears, you post it in the PIP Log and record what's left, what's still coming and the wage claim, so you can see the exhaustion date before it arrives. When a bill could go to PIP or to an LOP, you lay out both routes with the figures in an email to Atty. Thorne, and you log his decision; you never re-route a claim another payer has already paid. And on a file in an EMC state, when the first treating records arrive, you check the rule and look for the finding. If it's missing, Atty. Thorne hears about it that day."
+    }
+  }
 }

@@ -140,7 +140,7 @@ else {
   const SLIDES = (() => { require(path.join(ROOT, "js/cm-case-flow-slides.js")); return global.window.CM_CF_SLIDES || {}; })();
   // an activity that audits a document set draws one more slide (build/case-flow/exhibits), so it counts here too
   const AUDITS = (() => { require(path.join(ROOT, "js/cm-case-flow-exhibits.js")); return (global.window.CM_CF_EXHIBITS || {}).audits || {}; })();
-  const SLIDE_CAP = 100, TH_PER = 4;
+  const SLIDE_CAP = 110, TH_PER = 4;   // 110: raised from 100 when Day 3 took the Causation Letter lesson
   const viewsOf = b => {
     const t = (SLIDES[b.id] || {}).theory, map = (SLIDES[b.id] || {}).roadmap && !(SLIDES[b.id] || {}).roadmap.merge ? ["map"] : [];
     const theory = !t ? [] : (t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]).concat(t.framework ? ["frame"] : []);
@@ -296,7 +296,7 @@ function blockMd(b, day, phase, k, mod){
     L.push("#### 2 · Slide Body — Show Them", "", showMd(b.show), "");
   }
   if(b.kind === "activity"){
-    L.push("#### 2 · Slide Body — Let Them", "", `**Scenario.** ${b.act.scenario}`, "", `**Execution prompt.** ${b.act.prompt}`, "",
+    L.push("#### 2 · Slide Body — the scenario and the task", "", `**Scenario.** ${b.act.scenario}`, "", `**Execution prompt.** ${b.act.prompt}`, "",
       "| | |", "|---|---|", `| **Tool / interface** | ${md(b.act.tool)} |`, `| **Expected output** | ${md(b.act.output)} |`, "");
     if(b.show) L.push("**Show Them — reference model**", "", showMd(b.show), "");
     L.push("**Verification checkpoints**", "", ...b.act.checkpoints.map(c => `- [ ] ${c}`), "");

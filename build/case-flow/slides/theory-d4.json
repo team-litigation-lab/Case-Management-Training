@@ -200,5 +200,138 @@
       ],
       "note": "Give each rung 48 hours after the second unanswered follow-up. With a hard date 10 days out, tell counsel in parallel."
     }
+  },
+  "d3m4-close": {
+    "lead": "Before a case is marked Archived, the Case Manager verifies **four critical document sets**; then the file is organized under a retention policy.",
+    "concepts": [
+      {
+        "term": "Final Case Reconciliation",
+        "text": "**Four document sets** verified present before a file is marked Archived, so an outsider can trace every dollar.",
+        "more": [
+          "Money trail: every check in and out, bank confirmation numbers, a zero-balance report",
+          "Proof of delivery: Peach State's and Riverton Spine & Rehab's satisfactions; John Doe's signed receipt",
+          "Compliance and identity: John Doe's signed payer disclosure; a current W-9, never the intake copy",
+          "Closing memo: the Case Manager's one-page internal summary, filed 10/30/2026",
+          "Zero balance proved three ways: **bank statement, trust journal, client ledger**"
+        ]
+      },
+      {
+        "term": "The Internal Closing Memo",
+        "text": "One page by the Case Manager: **how it started versus how it ended**, discrepancies and exceptions.",
+        "more": [
+          "Case summary: a passenger, a 14-Day Gap, a $3,500 offer, then a $40,000 three-layer stack",
+          "Discrepancy notes: Riverton Spine & Rehab $6,290.00 → $6,105.00 → $4,580.00; Peach State $1,860.00 → $1,240.00",
+          "Exception reports: any policy waiver granted, or **“none granted”**",
+          "What stays open: Margaret Doe's Property Damage claim with Keystone PD"
+        ]
+      },
+      {
+        "term": "Retention and Disposition",
+        "text": "Closing paperwork follows a retention policy: **each document tagged by type**, its disposition date docketed.",
+        "more": [
+          "Financial records: 7 years (standard), then digital deletion",
+          "Eligibility documents: 3–5 years, then archival or off-site storage",
+          "Correspondence: 3 years, then purged from the active server",
+          "The firm's schedule and any stricter rule control: this training file is kept **7 years from closing**",
+          "Never destroy financial records before their retention date"
+        ]
+      },
+      {
+        "term": "The Post-Closing Late Bill",
+        "text": "A bill arriving after the closing letter: verify it, classify it, **route it the same day**.",
+        "more": [
+          "Verify the bill and its link to the accident against the ledger, the EOBs and the Payoff Letters",
+          "Classify it: **a lien we missed**, or a bill nobody owes",
+          "Route it to Atty. Thorne; on his instruction, ask the provider in writing to correct its account",
+          "Tell John Doe that day what you are doing and when he will hear back",
+          "The release's indemnity clause is John's promise every lien was paid; who answers is Atty. Thorne's call",
+          "Drill: Crescent's $1,540.00 is a contractual write-off on Peach State's EOB, so no balance billing"
+        ]
+      }
+    ],
+    "pages": [
+      "D3#35",
+      "D3#39"
+    ],
+    "framework": {
+      "title": "The Final Case Reconciliation Checklist",
+      "kind": "table",
+      "head": [
+        "Document set",
+        "What it holds",
+        "On John Doe's file"
+      ],
+      "rows": [
+        [
+          "Money trail",
+          "Itemized payments, transaction IDs, zero-balance confirmation",
+          "Three deposits; five checks on 10/22/2026; **$0.00**"
+        ],
+        [
+          "Proof of delivery",
+          "Provider lien waivers; the client's signed acknowledgment of receipt",
+          "Peach State and Riverton Spine & Rehab satisfactions; John Doe's receipt"
+        ],
+        [
+          "Compliance and identity",
+          "Duplication-of-benefits statement; updated W-9 for 1099 reporting",
+          "Payer disclosure: PIP, Peach State, his own $312.40"
+        ],
+        [
+          "Closing memo",
+          "Case summary, discrepancy notes, exception reports",
+          "10/30/2026; Property Damage claim noted as open"
+        ]
+      ],
+      "note": "Before a case is marked Archived, all four sets are verified present; then each document is tagged for the retention schedule."
+    }
+  },
+  "d4m3-prior": {
+    "lead": "Defense counsel use prior records to argue “pre-existing degenerative conditions”; Tab 5, **the Prior Medical Shield**, answers with the baseline before they raise it.",
+    "concepts": [
+      {
+        "term": "The Pre-Existing Defense",
+        "text": "Three moves: it was already there, the imaging is degenerative, the injury is **a continuation**, not new",
+        "more": [
+          "Often a fourth: no baseline pre-accident imaging, so nothing proves the spine was healthy before",
+          "On this file: Keystone called the MRI “degenerative” on 08/05/2026; the 11/12/2026 Answer pleads causation on it",
+          "Defense counsel worked the 2021 low-back visits at **the 02/18/2027 deposition**",
+          "Expect Harbor Point and Cardinal State to press the same line before Laura Whitcomb, Esq."
+        ]
+      },
+      {
+        "term": "Pre-Morbid Baseline",
+        "text": "The client's condition before the crash: the line that separates **pre-existing from accident-related** harm",
+        "more": [
+          "Built from records, not memory: the prior chart, its discharge, the work history",
+          "John Doe's: three 2021 chiropractic visits for low-back stiffness, resolved; **no prior neck complaint**",
+          "Review 5–10 years of history, and find the prior before the defense does"
+        ]
+      },
+      {
+        "term": "Eggshell Plaintiff and Aggravation",
+        "text": "Generally, a defendant takes the plaintiff as found; an aggravated condition's **increase in disability** is compensable",
+        "more": [
+          "Even a more vulnerable plaintiff recovers for the harm the collision caused; confirm the governing rule",
+          "Proving aggravation means proving **the change**: before and after, in records and in function",
+          "On this file the prior is a different region, so the record shows the distinction first",
+          "Which doctrine is argued, and how, is Atty. Thorne's call; you build the record"
+        ]
+      },
+      {
+        "term": "Expert Medical Declaration",
+        "text": "A physician's sworn opinion tying the record together; **an unshielded prior** is an arbitration landmine",
+        "more": [
+          "The deck's QC: pair the prior record with an opinion that the past injury resolved before the crash",
+          "Dr. Reyes's Causation Letter (06/19/2026) is the opinion on file; check whether it addresses 2021",
+          "Seeking a supplemental declaration or retaining an expert is **Atty. Thorne's decision**",
+          "Arbitration is binding: a shield missing at the hearing cannot be added afterwards"
+        ]
+      }
+    ],
+    "pages": [
+      "D4#29",
+      "D4#34"
+    ]
   }
 }

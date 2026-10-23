@@ -417,7 +417,7 @@
     "hook": "A rental collected **on a promise** becomes the client's bill.",
     "points": [
       "Rental is on **the owner's PD claim**: Margaret Doe's, not John's",
-      "The carrier's **PD coverage** pays; the firm only coordinates",
+      "**3P PD** first; then 1P Collision/Rental; else out of pocket",
       "Confirm authorizer, rate cap and **duration in writing** first",
       "Coverage is **usually 30 days** unless the Dec Page differs"
     ],
@@ -626,6 +626,195 @@
       "Reassuring him **about the outcome**",
       "Guessing a value **“off the record”**",
       "Coaching him on **what to tell an adjuster**"
+    ]
+  },
+  "d1m4-tplan": {
+    "image": "medical-visit",
+    "hook": "Assess **the whole person** first, or the plan treats a chart and misses the barrier.",
+    "points": [
+      "Assess **four domains**: clinical, social, pre-morbid, vocational",
+      "Establish the **pre-morbid baseline**; request prior records, never hide them",
+      "Draft **SMART goals**; the provider confirms the measure and date",
+      "Map care in four groups; **calendar every transition**"
+    ],
+    "upl": "Record and coordinate; diagnosis, treatment and psychological care are the provider's call",
+    "job": [
+      [
+        "Intake call complete",
+        "Record four-domain assessment",
+        "CMS → Case Notes",
+        "All four domains dated"
+      ],
+      [
+        "Assessment recorded",
+        "Draft SMART goals, care groups",
+        "Action Plan Editor",
+        "Measure, date, owner on each"
+      ],
+      [
+        "Social risk found",
+        "Calendar it as treatment risk",
+        "Calendar · Risk Flags",
+        "Dated before it's a gap"
+      ]
+    ],
+    "dos": [
+      "Record the assessment **in his own words**, dated",
+      "Ask about prior injuries **plainly and early**",
+      "Record an empty care group as **“none ordered”**"
+    ],
+    "donts": [
+      "Building the plan **from medical records only**",
+      "A goal like “reduce pain” with **no measure or date**",
+      "Calling a prior condition **“unrelated” or “aggravated”**"
+    ]
+  },
+  "d1m4-tmap": {
+    "image": "medical-visit",
+    "hook": "Know where he **should be on the map**, and you'll see the drift before the adjuster.",
+    "points": [
+      "Locate him every check-in: **phase and week**, counted from the DOL",
+      "Not improving? **Name the variance**: clinical, psychosocial or systemic",
+      "Measure function: Oswestry/DASH, PHQ-9/GAD-7, FCE; **the provider orders them**",
+      "No gain by week 6? **Ask the provider now**, before a denial"
+    ],
+    "upl": "You track and ask; **the provider decides care**, Atty. Thorne what it means",
+    "job": [
+      [
+        "Every check-in",
+        "Locate phase and week; ask “improving?”",
+        "Case File → Treatment timeline",
+        "Phase, week, answer, date logged"
+      ],
+      [
+        "Not improving or stop skipped",
+        "Classify variance; ask provider's office",
+        "Medical Records Requests · Case Notes",
+        "Variance named; answer on file"
+      ],
+      [
+        "Variance that can cost claim",
+        "Report facts to Atty. Thorne",
+        "Case File → Risk Flags",
+        "Routed same day, facts only"
+      ]
+    ],
+    "dos": [
+      "Write **phase and week** at the top of every note",
+      "Report **what he can't do**, not just diagnoses",
+      "Request the objective measures **before the six-week mark**"
+    ],
+    "donts": [
+      "Letting care drift **with no reason on file**",
+      "Calling a systemic delay **client non-compliance**",
+      "**Waiting for a denial** before you course-correct"
+    ]
+  },
+  "d1m4-tcare": {
+    "image": "client-call",
+    "roadmap": {
+      "title": "Keeping Him in Care: the Roadmap",
+      "steps": [
+        {
+          "label": "Read the records",
+          "text": "Red flags by specialty: PT, surgery, medication, behavioral health"
+        },
+        {
+          "label": "Listen on the calls",
+          "text": "Yellow flags, written **in his own words**"
+        },
+        {
+          "label": "Talk with OARS",
+          "text": "Open questions, affirmations, reflections, summaries"
+        },
+        {
+          "label": "Work the plateau",
+          "text": "Re-engage him on his goal; ask whether the plan fits"
+        },
+        {
+          "label": "Route it",
+          "text": "Medical danger to the provider, legal to Atty. Thorne; A-C-T"
+        }
+      ]
+    },
+    "hook": "You read every record and hear every call: **spot the flag, route it**, keep him engaged.",
+    "points": [
+      "Red flags by specialty: **PT, surgery, medication, behavioral health**",
+      "Yellow flags: fear-avoidance, catastrophizing, litigation stress, **passive-care reliance**",
+      "Run every contact on **OARS**; roll with resistance, don't argue",
+      "At the plateau, **re-engage on his goal**; it's usually the plan"
+    ],
+    "upl": "Report flags; **the provider decides** care; MI is never medical or legal advice",
+    "job": [
+      [
+        "Record or bill arrives",
+        "Read it against red flags",
+        "CMS → Case File → Risk Flags",
+        "Flag logged with source, date"
+      ],
+      [
+        "Medical-danger flag spotted",
+        "Tell the provider today",
+        "Phone · CMS → Case Notes",
+        "Provider told same day"
+      ],
+      [
+        "Check-in once care starts",
+        "Run OARS; quote yellow flags",
+        "Call Simulator → AI John Doe",
+        "GIRP note same day"
+      ]
+    ],
+    "dos": [
+      "Ask **specific questions**: visits, pain score, function",
+      "Write yellow flags **in his own words**, dated",
+      "Raise medication facts with the provider, **never as accusations**"
+    ],
+    "donts": [
+      "**Arguing with resistance**, or warning him about his case",
+      "Reporting a yellow flag **with no plan**",
+      "Treating late head-injury symptoms **as proof** before validation"
+    ]
+  },
+  "d1m4-emc": {
+    "image": "clock-deadline",
+    "hook": "On a Florida file, **the EMC rule** decides PIP within days of the accident.",
+    "points": [
+      "Florida PIP: **$10,000**, paying 80% medical, 60% lost income",
+      "Initial care **within 14 days** of the accident, or no medical benefits",
+      "Only MD, DO, dentist, PA or APRN finds **an EMC**",
+      "No EMC: **capped at $2,500**; Riverton has no EMC rule"
+    ],
+    "upl": "The provider decides the EMC; Atty. Thorne decides what it means",
+    "job": [
+      [
+        "Florida file opened",
+        "Calendar the 14-day deadline",
+        "CMS → Calendar",
+        "Docketed the same day"
+      ],
+      [
+        "First record arrives",
+        "Check date, provider, EMC",
+        "Medical Records Requests",
+        "EMC status logged"
+      ],
+      [
+        "EMC missing or late",
+        "Log bucket; flag Atty. Thorne",
+        "CMS → Insurance tab → PIP Log",
+        "Flag routed same day"
+      ]
+    ],
+    "dos": [
+      "Read **the file's state** before its PIP",
+      "Docket **the 14th day** at intake",
+      "Log **each provider's credential** beside every visit"
+    ],
+    "donts": [
+      "Applying **a $2,500 cap** to Riverton's PIP",
+      "Treating a chiropractor's note as **an EMC determination**",
+      "Telling a client to see a doctor **for the $10,000**"
     ]
   }
 }

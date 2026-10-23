@@ -293,15 +293,15 @@ window.CM_CF_SCRIPTS = {
    "ask": "John Doe was the passenger. Whose rental claim is it, and how would you prove that from the file?"
   },
   "theory": {
-   "say": "Four ideas. First, whose claim it is. Rental follows the vehicle, so it sits on the owner's Property Damage claim, not on a passenger's injury claim. Here that's Margaret Doe. Second, whose coverage pays. The adverse carrier's Property Damage coverage provides the rental, and the owner's own policy or the rental company's coverage comes in only when there's no third-party coverage. Third, the rental reimbursement endorsement: optional coverage on the owner's policy for a rental while the car's in the shop, and you find it on the Dec Page. Fourth, the rate cap and the duration. The authorized daily rate and the number of days, usually 30 at most. Anything beyond them is the client's cost.",
+   "say": "Four ideas. First, whose claim it is. Rental follows the vehicle, so it sits on the owner's Property Damage claim, not on a passenger's injury claim. Here that's Margaret Doe. Second, whose coverage pays, in order. The adverse carrier's Property Damage coverage first. If that's unavailable, a denial, a dispute, no coverage, we check the owner's own policy: Collision or Comprehensive, and Rental Reimbursement. If there's nothing, the owner pays out of pocket and keeps every receipt for reimbursement. Third, the rental reimbursement endorsement: optional coverage on the owner's policy for a rental while the car's in the shop, and you find it on the Dec Page. Fourth, the rate cap and the duration. The authorized daily rate and the number of days, usually 30 at most. Anything beyond them is the client's cost.",
    "ask": "Where would you look to find out whether Margaret Doe's policy carries a rental reimbursement endorsement?"
   },
   "frame": {
-   "say": "Before any client picks up a rental car, you run four checks. First, whose coverage pays? The adverse carrier's Property Damage coverage provides the rental; the client's own policy only if there's none. Second, who authorizes the rental? Confirm that, and check whether there's a rental reimbursement endorsement on the policy. Third, the daily rate cap: record the authorized rate before the client collects a vehicle. And fourth, the duration limit, the number of covered days. Coverage is usually 30 days at most, unless the Dec Page says otherwise. Days outside that come out of the client's pocket, and if nobody told them, they'll blame the firm.",
+   "say": "Before any client picks up a rental car, you run four checks. First, whose coverage pays? The adverse carrier's Property Damage coverage first; then the owner's own Collision and Rental coverage; and if there's none, out of pocket, receipts kept. Second, who authorizes the rental? Confirm that, and check whether there's a rental reimbursement endorsement on the policy. Third, the daily rate cap: record the authorized rate before the client collects a vehicle. And fourth, the duration limit, the number of covered days. Coverage is usually 30 days at most, unless the Dec Page says otherwise. Days outside that come out of the client's pocket, and if nobody told them, they'll blame the firm.",
    "ask": "Which of these four checks do you think clients most often get burned on?"
   },
   "rules": {
-   "say": "Here are the rules. Rental is part of the Property Damage claim, and the law firm never provides it or pays for it: the carrier pays, and the firm coordinates it with the carrier. It belongs to the owner; John Doe was a passenger, so this one is Margaret Doe's. The adverse carrier's PD coverage pays; the owner's own policy only if there's no third-party coverage. Confirm who authorizes it, check the Dec Page for an endorsement, and record the daily cap and the duration before pickup, usually 30 days. Calendar the last covered day. A comparable car, not an upgrade. And if a rental call drifts into injuries, it stops.",
+   "say": "Here are the rules. Rental is part of the Property Damage claim, never paid by the firm, and belongs to the owner; John Doe was a passenger, so this one is Margaret Doe's. The adverse carrier's Property Damage coverage pays first; if it's unavailable, the owner's Collision and Rental coverage; if neither, out of pocket, every receipt kept for reimbursement. Confirm who authorizes it and check the Dec Page for an endorsement. Record the daily rate cap and the duration before pickup, usually 30 days unless the Dec Page says otherwise, and calendar the last covered day. A comparable car, not an upgrade. File Keystone's authorization and record every number in the Property Damage section. And if a carrier's rental call drifts into injuries, it stops.",
    "ask": "If Keystone authorizes a compact car and Margaret picks up an SUV, who pays the difference?"
   },
   "model": {
@@ -382,6 +382,120 @@ window.CM_CF_SCRIPTS = {
   },
   "dodont": {
    "say": "Let's close with 3 Clues, 1 Rule. Each round hides one Do or Don't about acceptance and the Case Plan. I'll show three clues in turn; call Do or Don't and name the rule. Earlier is better: three points, then two, then one. Keep one line clear while you play. “Request the MRI” is operational, and it's yours. “This case is worth policy limits” is not yours to write. And I know flagging a risk can feel like admitting the case is weak. It isn't. Flagging early is exactly what makes the case defensible later."
+  }
+ },
+ "d1m4-tplan": {
+  "why": {
+   "say": "Before we write a single goal for John Doe, we need to know who he is, not just what hurts. The deck puts it plainly: assessment is more than reviewing medical records. And today, on 02/09/2026, there are no medical records. There's the EMS Run Report, which says restrained front-seat passenger, complains of neck stiffness, declined transport, and there's John himself. If the plan only treats the chart, it misses the things that actually stop care: no car, a new job he can't afford to lose time from, a worry about who pays. Those are the barriers that turn into a Treatment Gap.",
+   "ask": "What could stop John Doe from getting to a first appointment this week?"
+  },
+  "theory": {
+   "say": "The assessment has four domains. Clinical Evaluation covers physical, cognitive and psychological impairments, recorded the way he reports them and the way the records document them, never diagnosed by us. Social Determinants are housing, family support and financial stability. John lives with his mother, Margaret Doe, he owns no car, and her Civic was damaged in the crash. Pre-Morbid Status is his baseline, the thing that separates a pre-existing condition from an accident injury, and nothing's on file for it yet. And the Vocational Outlook asks whether he can go back to his role or will need retraining. He's a warehouse shift lead at Northgate Distribution, on 8-hour shifts at $22.00 an hour.",
+   "ask": "Which of these four domains would you be tempted to skip on a busy intake day?"
+  },
+  "theory2": {
+   "say": "Once you know the person, you set goals and map the care. Goals have to be defensible to clinicians and adjusters alike, so every one carries an objective measure and a date. The Care Coordination Strategy then sorts the interventions into four standard groups. Acute and restorative care, like surgery, physiotherapy and occupational therapy. Psychological support, like counseling or CBT. Durable medical equipment, like wheelchairs, ramps or assistive technology. And rehabilitation milestones, the move from inpatient to outpatient to home-based care. John declined transport, so his care would begin as outpatient care. Every one of those transitions is a place where a gap can open, which is why each one goes on the calendar.",
+   "ask": "Which of the four groups do you think gets forgotten most often on injury files?"
+  },
+  "frame": {
+   "say": "Here's the deck's SMART table. Specific means naming the function, so not improve mobility but ambulate 50 meters with a rolling walker. Measurable means a standardized scale an adjuster can verify: range of motion, a pain or disability score, sessions attended. Achievable means realistic for the prognosis, and the provider's prognosis sets that, never the claim. Relevant means tied directly to the injuries claimed, to his daily living and to getting back to work. Time-bound means a milestone you review against, like by the 12-week review. Notice who owns what. The provider sets the clinical target and the measure. We draft the goal in plain words and write it into the Case Plan.",
+   "ask": "How would you turn “help John get back to work” into a SMART goal?"
+  },
+  "rules": {
+   "say": "Let's put the rules together. Assess the whole person before you plan, and on Day 1 that starts with the intake call and the Run Report. Record clinical findings in his words and the record's words, never as your diagnosis. Look hard at the social side: who he lives with, how he'll reach care, whether cost is holding him back. Ask about every prior injury, treatment and claim, with dates and providers, and request those records; we never leave them for the defense to find. Write down what his job demands. Then turn it into SMART goals the provider confirms, map the care in four groups, and write none ordered where a group is empty. Calendar every transition and social risk before it becomes a gap. The plan coordinates; it never prescribes.",
+   "ask": "If a client mentions an old back injury, what do you write down, and what don't you write?"
+  },
+  "model": {
+   "say": "Here's John Doe's assessment as it stands after the intake call on 02/09/2026. Clinical: the Run Report's neck stiffness, transport declined, no treatment yet, and we still need his own dated description and a first provider's evaluation. Social: he lives with Margaret at 2214 Maple Hollow Rd, owns no car, her Civic was damaged, and he carpools with Kevin Alvarez, so we still need to know how he'll reach care. Pre-morbid: nothing on file yet, and it's shown as an open question, not a blank. Vocational: shift lead at Northgate since 01/12/2026, 8-hour shifts at $22.00 an hour. The last row is a draft SMART goal, full 8-hour shifts by a dated review, waiting for the provider to confirm the measure.",
+   "ask": "Which open question on this table would you close first, and why?"
+  },
+  "job": {
+   "say": "Here's how it runs on the desk. When the intake call's done, you record the four-domain assessment in Case Notes, every domain dated, with anything still unknown listed as an open question. If a prior injury comes up, you request those records through Medical Records Requests and write the baseline as facts: body region, dates, provider, outcome. Once the assessment's recorded, you open the Action Plan Editor and draft the SMART goals and the four care groups into the Clinical and Functional pillars, each goal with a measure, a date and an owner, and you ask the first treating provider to confirm them. And when you spot a social risk, like no ride to care, you calendar it as a treatment risk and flag it before it becomes a gap."
+  },
+  "dodont": {
+   "say": "Let's close with 3 Clues, 1 Rule. Each round hides one Do or Don't about the assessment, the goals and the care plan. I'll show three clues in turn; call Do or Don't and name the rule. Earlier is better: three points, then two, then one. Keep one line in mind while you play. Writing down exactly what a client tells you about an old injury is yours to do. Deciding whether that injury is related to the crash, or was made worse by it, belongs to the provider and to Atty. Thorne."
+  }
+ },
+ "d1m4-tmap": {
+  "why": {
+   "say": "Here's the thing about treatment. Every adjuster, every IME doctor and every defense lawyer who reads John Doe's records will hold them up against a standard map of how recovery is supposed to run. When care drifts off that map, that drift is the main reason carriers deny treatment and order an IME. So you have a choice. You can observe the recovery and learn about the drift when the denial letter arrives. Or you can know the map, see the drift first, ask the provider why, and have the answer on file before anyone turns it into an argument. That second Case Manager is the one we're training. And you won't be directing anybody's care to do it. You'll be tracking, asking and writing it down.",
+   "ask": "When a client's care drifts off schedule, who usually notices first: the Case Manager, the adjuster or defense counsel?"
+  },
+  "theory": {
+   "say": "Four ideas first. The Standard Treatment Map is the usual route of care after a crash, stop by stop: EMS and the emergency room, then imaging, then chiropractic care and therapy, then orthopedics and pain management, and only by severity surgery and post-operative care, ending in long-term pain management. A stop that's skipped or taken out of order needs a clinical reason on file. The Clinical Pathway puts one question at every check-in: is the patient improving? Yes, care continues. No, we're in the variance loop, and the options in it are the provider's decision. Variance analysis means you diagnose the why before the insurer stops paying. And Reasonable and Necessary is the utilization-review test: usual for this mechanism of injury, with objective gains in function, not pain reports alone.",
+   "ask": "Why would a carrier care more about a range-of-motion number than about the client saying he feels better?"
+  },
+  "theory2": {
+   "say": "Four more. The 6-Week Rule: adjusters look for a functional gap at week 6 of care, so the map expects 20 to 30 percent more range of motion or a lower pain score by then. If the client is still at ten out of ten after 12 therapy sessions, you raise it with the provider now. The Red Flag Rule: no change in the disability index after 12 weeks of therapy is a plateau, and the map's answer is a specialist or second opinion, which is the provider's call. Objective metrics put recovery into numbers: Oswestry or DASH every 30 days, gait analysis for leg injuries, PHQ-9 and GAD-7 when progress stalls, an FCE before return to work. And the Stakeholder Triad: clinic, counsel and payer, with you routing between them.",
+   "ask": "Who picks which of those measures a client gets, and who asks for them?"
+  },
+  "frame": {
+   "say": "This is the map itself, phase by phase. Acute is days 1 to 14: the ER or urgent care, imaging, bracing, rest and ice, maybe initial therapy, and our focus is establishing causation and PIP coverage. Sub-acute is weeks 2 to 8: active therapy two or three times a week and specialist follow-up, and we watch functional gains like range of motion. Restorative is weeks 9 to 24: work hardening, injections, psychological support, and we look for barriers to getting back to work. Maintenance is six months on: home exercises and visits as needed, and the question becomes Maximum Medical Improvement. Then MMI and discharge, with an impairment rating, and the file moves to lien resolution. Notice that every intervention is somebody's order, and it's never ours.",
+   "ask": "John Doe's date of loss is 02/06/2026 and he hasn't been treated. Which phase is he in today, and what's our focus?"
+  },
+  "rules": {
+   "say": "Here's how you work the map. Count the phases from the date of loss, and once care starts, count weeks of care from the first visit too. Every check-in, you put him on the map, phase and week, and you ask whether he's improving. If the answer is no, you name the variance before anyone acts on it: clinical, psychosocial or systemic, because the fix depends on the type, and a stuck authorization is never the client's fault. You get objective measures on file, the ones the provider orders. You course-correct on the map's triggers, week 6 and the 12-week plateau, not on a denial, and a real red flag goes into A-C-T, which you'll meet on Day 2. You keep the three loops closed. And through all of it, the provider decides care and Atty. Thorne decides what it means for the case.",
+   "ask": "What's the difference between asking a provider about a specialist and telling John Doe he needs one?"
+  },
+  "model": {
+   "say": "Let's put John Doe on the map today. We have one medical record, the EMS Run Report from 02/06/2026: neck stiffness, and he declined transport. So the map's emergency room stop never happened, and right now he's in the acute phase with no care at all. On a typical file this is when a first evaluation happens, and imaging or early therapy if a provider orders it. For us, every day without an evaluation is simply a fact on the timeline, Atty. Thorne hears about any gap, and our focus is causation facts on file and Harbor Point's $5,000 PIP verified in writing. Further along the table you can see what we'll watch in each later phase: attendance and week-6 measures, return-to-work barriers, and finally the provider's MMI note.",
+   "ask": "If John Doe asks you whether he should go see a doctor, what can you say and what can't you say?"
+  },
+  "job": {
+   "say": "On the job it looks like this. Every check-in with John Doe or a provider, you open the treatment timeline in the CMS, write down his phase, his week from the date of loss and his week of care, and you record whether he's improving, with the date. If the answer is no, or a stop gets skipped, you classify the variance and call the provider's office to ask what's planned, and that answer goes in Case Notes. At week 6 of care and every 30 days after, you request the objective measures. And when a variance could cost the claim, you put a Risk Flag to Atty. Thorne the same day, in the map's language, facts only.",
+   "ask": "What would make you flag a variance to Atty. Thorne the same day rather than at the next status report?"
+  },
+  "dodont": {
+   "say": "Let's close with 3 Clues, 1 Rule. Each round hides one Do or Don't about working the treatment map. I'll show three clues in turn; call Do or Don't and name the rule. Earlier is better: three points, then two, then one. While you play, keep one picture in mind. The map is a yardstick, not a rulebook. A client who's off the map isn't wrong; he's unexplained until the provider explains him. Your job is to get that explanation on file early, in plain functional language, and never to supply it yourself."
+  }
+ },
+ "d1m4-tcare": {
+  "why": {
+   "say": "John Doe hasn't started treatment yet. All we know clinically is the EMS report from 02/06/2026: neck stiffness, and he declined transport. Once he starts care, though, you're the one person on this file who reads every record as it arrives and hears from him between visits. A red flag missed in a record, a yellow flag missed on a call, or a plateau nobody talks about can quietly pull him off the plan his providers set, and leave Atty. Thorne without the facts he needs. So today you get the watch-list and the conversation toolkit. You recognise, you report, and you keep him engaged. Every clinical call stays with the provider.",
+   "ask": "Between appointments, who else on this file is actually hearing from John Doe?"
+  },
+  "map": {
+   "say": "Here's the road for this lesson. First, you read the records for red flags by specialty: PT, surgery, medication and behavioral health. Second, you listen on your calls for yellow flags, and you write them down in his own words. Third, you talk with OARS, which is open questions, affirmations, reflections and summaries. Fourth, you work the mid-treatment plateau by re-engaging him on his own goal and asking whether the plan still fits. And last, you route it: medical danger to the provider, legal danger to Atty. Thorne, and then A-C-T, which we'll run properly on Day 2."
+  },
+  "theory": {
+   "say": "You can't see a deviation from something you don't know, so a Case Manager has to know the standard US treatment protocols. A red flag is that deviation: it signals medical danger, a case that's stagnating, or over-treatment for billing. PT is the baseline of treatment, so its flags tell you the case is stalling or being over-treated. Surgery is the most valuable part of a claim, and its flags are about safety and the Standard of Care. Pain management and medication is the most scrutinised area of all, because of opioid regulations and medical necessity audits. Medical danger, like a fever after surgery, goes to the provider the same day. Legal danger goes to Atty. Thorne.",
+   "ask": "Why do you think adjusters look hardest at medication, of all the specialties?"
+  },
+  "theory2": {
+   "say": "Four more ideas. Behavioral health and head-injury cases are high value, and they're handled with real discretion: the claim has to be tied to the accident and validated by a provider. Yellow flags are psychosocial barriers that derail the map, like fear-avoidance, catastrophizing, litigation stress, and leaning on opioids or passive care. You'll hear those on the phone more often than you'll read them in a record. Motivational interviewing keeps a client committed when the newness of treatment wears off, by drawing out his own reasons to keep going. And the mid-treatment plateau is the point where the excitement fades, the hard work starts, and attendance drops unless someone re-engages him.",
+   "ask": "Which of those yellow flags would you be most likely to miss on a quick call?"
+  },
+  "frame": {
+   "say": "Here are the red flags laid out by specialty. In PT and conservative care, it's more than 12 sessions with no gain in range of motion or pain and no referral, which means the case is stagnating. Or it's heat, TENS or massage only, with no active exercise, which adjusters discount. In surgery, it's surgery advised before PT or injections outside an emergency, which is a reasonable necessity flag, or a fever, redness or sharp pain after surgery that someone says can wait for the follow-up. That one's medical danger, and the provider hears it today. In medication, it's the opioid, relaxant and sedative together, doses rising, or a drug-screen mismatch. And in behavioral health, it's general life stress notes, or head-injury symptoms first reported months later.",
+   "ask": "Which row on this table would you treat as medical danger rather than legal danger?"
+  },
+  "rules": {
+   "say": "You recognise a red flag and report it; the provider judges it, and once you've spotted one, A-C-T runs. In PT, watch for no gain after 12 sessions, passive-only care, and two or more missed visits. In surgery, watch for surgery before conservative care, a left and right switch, and anything after surgery that someone wants to leave until the follow-up. In medication, watch for the Holy Trinity, rising doses and drug-screen mismatches, and raise them with the prescriber as facts and a question, never as an accusation. In behavioral health and TBI, note the date every symptom was first reported. Record yellow flags in his words and report them with a plan. Run every contact on OARS, use discrepancy and rolling with resistance, and at the plateau, re-engage him on his goal. If he's not reaching it, it's usually the plan, not the person.",
+   "ask": "If a client tells you his pain pills make him drowsy at work, what do you say to him, and who do you call?"
+  },
+  "model": {
+   "say": "Here's what OARS sounds like on John Doe's check-ins once care begins. These lines are illustrative, because today he hasn't started treatment. An open question: walk me through how your neck has been since the collision. An affirmation recognises effort, like getting that first appointment booked. A reflection mirrors him: it sounds like the stiffness makes a full shift feel a long way off. A summary gathers the call and asks what you missed. Then the two moves. If he's told you full shifts at Northgate are his goal and therapy starts to feel pointless, you set the two side by side and let him answer. And if he pushes back on a clinic, you don't argue. You pivot, ask why, and take his reason to the provider.",
+   "ask": "What does the file lose if your note says “catastrophizing” instead of his own sentence?"
+  },
+  "job": {
+   "say": "Here's how it looks on the desk. Every time a treatment record, prescription record or bill comes in, you read it against the red flags by specialty and log any flag in Risk Flags, with the source record and the date you first saw it. If it's medical danger, like a fever after surgery or a medication concern, you call the provider's office that same day, note the call in Case Notes, run A-C-T and tell Atty. Thorne. And once John Doe's care starts, every check-in runs on OARS, with specific questions about visits, pain and function. Any yellow flag goes in his own words, and the GIRP note is written the same day.",
+   "ask": "Why log the date you first saw a flag, and not only the date on the record?"
+  },
+  "dodont": {
+   "say": "Let's close with 3 Clues, 1 Rule. Each round hides one Do or Don't about red flags, yellow flags and motivational interviewing. I'll show three clues one at a time; call Do or Don't as soon as you've got it, and name the rule. Three points for the first clue, two for the second, one for the third. While you play, keep one line in mind. You can listen, reflect and keep John Doe engaged in the plan his providers set. You can't tell him that missing visits will hurt his case, and you can't decide a screen, a medication or a referral."
+  }
+ },
+ "d1m4-emc": {
+  "why": {
+   "say": "PIP isn't one national rule. Every state writes its own, and the Emergency Medical Condition rule is Florida's. On a Florida file it decides, within days of the accident, whether PIP pays any medical benefits at all, and whether the client has $2,500 or $10,000 to draw on. Miss it and no demand letter fixes it later. Now, John Doe's file is in Riverton. Riverton is an add-on PIP state with no EMC rule, so his $5,000 of Harbor Point PIP isn't capped by one. But the day you open a Florida file, the clock starts at the date of loss, and you're the one who calendars it.",
+   "ask": "Before you apply any PIP rule to a file, what's the first fact you need to check?"
+  },
+  "rules": {
+   "say": "Here's Florida's rule, Fla. Stat. section 627.736. PIP is $10,000, paying 80% of reasonable medical expenses and 60% of lost income. Initial care has to happen within 14 days after the accident, or PIP pays nothing for medical. The full $10,000 is there only if an MD, a DO, a dentist, a physician assistant or an advanced practice registered nurse determines there was an Emergency Medical Condition. Without that, medical stops at $2,500. A chiropractor can give the initial care but can't make the EMC finding, and massage and acupuncture aren't covered. Had John's file been in Florida, 02/20/2026 was day 14, the last day inside the window. And always confirm the current statute.",
+   "ask": "Could Dr. Mark Ellison, John's chiropractor, make an EMC determination under Florida's rule?"
+  },
+  "job": {
+   "say": "Let's walk a Florida file. At intake you calendar the 14-day initial-care deadline from the date of loss, and you tell the client that deadline and where and when care is available. That's facts and logistics, never a medical recommendation. When the first record arrives, you check three things: the date against day 14, who saw him, and whether an EMC determination is written down. If a qualifying provider's record doesn't have one, you ask the office whether it was assessed and request it in the records. You keep the $2,500 or $10,000 bucket current in the PIP Log, and a missing EMC or a late first visit goes to Atty. Thorne the same day. The provider decides the EMC; Atty. Thorne decides what it means."
   }
  },
  "d1m4-a1": {
@@ -686,6 +800,19 @@ window.CM_CF_SCRIPTS = {
   "job": {
    "say": "Let's walk through a few weeks of this file. A provider's missed-visit alert comes in. That same day, you call AI John Doe, classify the variance and write the GIRP note in Case Notes, dated the day the alert arrived. At week 6, 04/07/2026, you ask the provider for the re-evaluation measures: range of motion, pain score and disability index. Whether a PHQ-9 or GAD-7 screen is indicated is the provider's call, and anything putting his mental health in the record gets flagged to Atty. Thorne. If the barrier isn't fixed at the clinical rung, you climb one rung with a written notice to the carrier causing it, copied to Atty. Thorne, and only property facts to Keystone PD, with each rung dated. Red flags that can cost the claim go to Atty. Thorne with the fix you attempted.",
    "ask": "Why does the GIRP note need to be dated the day the alert arrives, not the day you finish?"
+  }
+ },
+ "d2m2-pip": {
+  "why": {
+   "say": "Here's the thing about PIP: you only get to spend it once. Harbor Point's $5,000 paid five of John Doe's bills, and every dollar of it was a bill his recovery will never have to pay. But where those dollars landed decided what was left for Peach State, for the Letter of Protection, and in the end for John's net. The same ledger tells a BI adjuster how serious the case looks, and in some states whether the defendant gets a credit for it. So a Case Manager who forecasts the limit, checks for anything that caps it and keeps the ledger exact is protecting the client's net months before anyone writes a demand.",
+   "ask": "If PIP had paid twelve chiropractic visits instead of Summit's MRI, what would John Doe's file look like now?"
+  },
+  "rules": {
+   "say": "On a typical file, PIP does the most good on the fixed costs, like the ER, imaging and specialist visits, because hospitals rarely reduce at the end and LOP providers often will. John's file shows it: PIP paid urgent care, Lakeside three times and Summit's $2,395.00 MRI, while chiropractic and PT ran under the LOP. Your part is the forecast, not the choice; routing outside the Payer Order is Atty. Thorne's. Remember the limit is shared: the bills used it by 06/26/2026, so the $1,267.20 wage benefit was never paid. In states with an EMC rule, no documented finding can cap PIP, so you check the records early and never ask a doctor to make one. Where set-off applies, the defendant gets credit for PIP paid. Riverton is add-on: it doesn't reduce BI or UM.",
+   "ask": "John Doe's PIP took four months to run out. Does that mean his case is minor, and what figure tells the real story?"
+  },
+  "job": {
+   "say": "Three moments on the job. When a PIP check clears, you post it in the PIP Log and record what's left, what's still coming and the wage claim, so you can see the exhaustion date before it arrives. When a bill could go to PIP or to an LOP, you lay out both routes with the figures in an email to Atty. Thorne, and you log his decision; you never re-route a claim another payer has already paid. And on a file in an EMC state, when the first treating records arrive, you check the rule and look for the finding. If it's missing, Atty. Thorne hears about it that day."
   }
  },
  "d2m2-a2": {
@@ -1095,6 +1222,23 @@ window.CM_CF_SCRIPTS = {
    "ask": "John Doe is their insured, so why are Harbor Point and Cardinal State now adversaries?"
   }
  },
+ "d3m1-pkg": {
+  "why": {
+   "say": "On 08/05/2026 Keystone offered $3,500 on a claim with $16,401.40 in Specials. Its two reasons were the 14-day gap and a “degenerative” MRI. That's what an adjuster does with any opening a package leaves him. So today isn't about the demand letter; it's about everything behind it. The package has parts, and each part proves one thing: the bills, the story, the fault, the wages, and for the UM carriers, the coverage and the exhaustion. A part that's missing or sloppy is the adjuster's discount. And you build this package twice on John Doe's file: the BI demand served 07/20/2026, and the UM demands that go out 08/31/2026.",
+   "ask": "If you were Dana Whitfield, which part of a Demand Package would you open first, looking for a reason to pay less?"
+  },
+  "theory": {
+   "say": "A Demand Package is a presentation of proof by function. Each part answers one question the adjuster asks, and a missing part is his discount. First, the Big Four: Medical Specials, the Narrative, Liability Proof and Special Damages, all flawless before Atty. Thorne reviews. Second, the Human Story: how the injury changed John Doe's work and daily life, told only from his words and the records. Third, the weak file against the legal trap. Three hundred pages of raw charts and a letter that says our client hurts get a lowball; a two-page summary and a strict clock make refusing limits risky. Fourth, documents by function: the UM package sorted into coverage, liability, special damages, general damages, and the release.",
+   "ask": "Which of the Big Four do you think Keystone found weakest when it offered $3,500?"
+  },
+  "rules": {
+   "say": "Here's how you build it. Medical Specials come from line-item bills, reconciled to the audit: $14,817.40, with the 05/04/2026 duplicate gone, and every line carries its why. A two-page treatment summary goes in front of the records. The Human Story comes from John Doe's own words and the records: five shifts missed at Northgate, numbness into his right hand from 02/18, paresthesia at MMI. You draft it, Atty. Thorne reviews it, and nobody embellishes it. Liability Proof is the Police Report, Ruth Calloway, the doorbell clip and the Property Damage photos. Special Damages is Northgate's $1,584.00 letter, for $16,401.40 in all. Then the Final Scrub: no overlaps, the 2021 low-back visits disclosed, every balance confirmed by phone. For UM, rebuild by function, with exhaustion proof, not proof of uninsured status.",
+   "ask": "Why is proof of uninsured status the wrong threshold document for John Doe's UM packages?"
+  },
+  "job": {
+   "say": "On the job it runs like this. When MMI is declared on 06/12/2026, you open the Demand Package task, request every provider's line-item bill, and ask John Doe how the injury changed his days, in his own words. In the week of service you run the Final Scrub: overlaps, the prior disclosed, and a call to every provider for its final balance, with a name and a date in the notes, until $16,401.40 ties out. Then you index every exhibit by what it proves and route the package and the narrative to Atty. Thorne. And once the Limited Release is signed on 08/28/2026, you rebuild each UM package by function, and the question of an impairment rating goes to Atty. Thorne, not to Dr. Reyes from you."
+  }
+ },
  "d3m1-a2": {
   "case": {
    "say": "Look at the date first. It's Monday, 08/31/2026, and Keystone's check isn't here. Here's what landed from Atty. Thorne. BI is done: Keystone tendered $10,000 on 08/12 after Smith's affidavit of 08/10. Harbor Point consented on 08/24, Cardinal State on 08/26, and the Limited Release of Robert Smith and Keystone was signed 08/28. He wants the Host UM demand to Harbor Point for $20,000 and the Relative UM demand to Cardinal State for $10,000, as excess, with exhaustion on page one of each and the response deadline left blank for him. And remember, on 08/05 Keystone leaned on the 14-day gap and called the MRI degenerative. Expect the UM carriers to try the very same thing.",
@@ -1170,6 +1314,20 @@ window.CM_CF_SCRIPTS = {
    "ask": "If Dana Whitfield raises the April break, which record answers the 19-day disruption?"
   }
  },
+ "d3m2-bins": {
+  "case": {
+   "say": "It's 08/12/2026, a Wednesday, and Dana Whitfield has just tendered Keystone's $10,000 BI limits, inside the 08/21 window. Good news, and John Doe will hear about it soon. But no check has issued, no release is signed, and the UM layers haven't even been demanded yet. Atty. Thorne's memo asks for one thing before he sits down with John: the BI settlement Net Sheet. Stream 1 on his 25% working allocation, and Stream 1 standing alone. The liens are where they were on 08/05: Peach State at $1,860.00 and Riverton Spine & Rehab at $6,105.00 audited, nothing reduced. So picture John on the phone tomorrow saying Keystone paid ten thousand, where's my share.",
+   "ask": "If John Doe asks why he can't have his share of Keystone's $10,000 now, what does the math say?"
+  },
+  "task": {
+   "say": "You'll build Stream 1 in the LSH Net Sheet. Enter the $10,000.00 gross as tendered, not received. Take the fee at the pre-suit 33⅓% from the retainer, that's $3,333.33, and the five receipted costs, $486.75. Enter both liens as they stand today and leave the reduction column blank. Then run Atty. Thorne's 25% allocation: $121.69 of costs and $1,991.25 of liens, down to a projected net of $4,553.73, and label it a projection with what it assumes. Beside it, run the BI-alone fact pattern: $6,179.92 left against $7,965.00, shared pro rata, John at $0.00. Route it to Atty. Thorne today with the trust-hold flag. The allocation and anything about value are his.",
+   "ask": "Which figure on your sheet would you never read to John Doe, and why?"
+  },
+  "check": {
+   "say": "Check yourself before you route it. Is the fee $3,333.33, and not $3,333.00 from typing 33.33%? Are the liens $1,860.00 and $6,105.00, with no reduction pencilled in, because nobody has agreed one? Is Stream 2 open, with nothing entered? Is $4,553.73 marked as a projection, with the allocation and the open UM layers written beside it? Does the BI-alone pattern show $6,179.92 against $7,965.00, a $1,785.08 shortfall, Peach State $1,443.15 and Riverton Spine & Rehab $4,736.77, and John Doe at $0.00? And did you flag, as a fact, that the money can't be paid out on its own and stays in trust until the liens resolve, and leave the rest to Atty. Thorne?",
+   "ask": "You posted Keystone's $10,000 to the Trust Ledger today. What's wrong with that entry?"
+  }
+ },
  "d3m2-l2": {
   "why": {
    "say": "I've got Harbor Point's 03/02/2026 letter up, and I want you to find the sentence in it that's worth $10,000 to John Doe. Give it a second. It's the add-on clause. On a reduction policy, Keystone's $10,000 would have come straight off the top of the $20,000. Once Keystone tenders, the money that makes John Doe whole sits with two first-party carriers that insure him, and both of them will argue against him. We reach $40,000 by proving the gap above each layer, closing every reduction in writing first, and papering every single move.",
@@ -1211,6 +1369,20 @@ window.CM_CF_SCRIPTS = {
   "check": {
    "say": "Run this check before you log your work. Is Harbor Point's 09/14 offer logged with both reasons quoted and reported the same day? Does the counter-package answer the offset half with the 03/02/2026 letter and the damages half with the medical proof, including the MMI residuals and future care of $3,400 to $6,800? Did it go out 09/16 with no figure below limits from you? For Harbor Point's $20,000 on 09/29 and Cardinal State's $10,000 tender on 10/06, is each acceptance recorded as John Doe's informed decision through Atty. Thorne, with who, on whose advice, and when? “Accepted” alone is incomplete. Your Recovery Ledger should read $40,000.00 and nothing else. Add PIP's $5,000 or Keystone's property-damage payments and you've mixed in money that doesn't belong.",
    "ask": "Was each UM release signed before its check arrived on 10/05 and 10/13?"
+  }
+ },
+ "d3m2-umns": {
+  "case": {
+   "say": "It's the sixth of October. Teresa Okafor has just tendered Cardinal State's ten thousand dollar Relative UM limits, and John accepted through Atty. Thorne. Harbor Point's twenty thousand has been in trust since yesterday, and Keystone's ten thousand since the fourth of September. So the stack is closed at forty thousand, but only thirty thousand is actually in the account. The liens haven't moved yet: Peach State asserts eighteen sixty, and Riverton Spine and Rehab's account is sixty-one oh five after our audit. Atty. Thorne's memo asks for the UM settlement Net Sheet before he goes through it with John.",
+   "ask": "Of everything on this file today, which numbers are firm, and which are still going to move?"
+  },
+  "task": {
+   "say": "You're building Stream 2, the UM column, as it stands today. Post Harbor Point and Cardinal State to the Recovery Ledger, and show which check is in trust and which is only tendered. Take the pre-suit one-third fee. Then allocate costs and liens to Stream 2 at seventy-five percent, pro rata to gross, with each lien at its asserted or audited figure, not the reduction you hope for. Mark every figure that can still change, and write what will change it. Tie Stream 2 to Stream 1 and to the Trust Ledger. Then the part I'm grading hardest: the questions Atty. Thorne has to answer before John sees this sheet. It goes to him, not to John.",
+   "ask": "Why does Stream 2 carry only seventy-five percent of the costs and liens, when it's the bigger check?"
+  },
+  "check": {
+   "say": "Check it to the cent. Gross thirty thousand. Fee ten thousand even. Costs: Stream 1 takes one twenty-one sixty-nine, so Stream 2 takes the remainder, three sixty-five oh six. Peach State, thirteen ninety-five. Riverton Spine and Rehab, forty-five seventy-eight seventy-five, on the audited figure, not the billed one. Projected net, thirteen thousand six sixty-one nineteen, labelled a projection. Add Stream 1's forty-five fifty-three seventy-three and you get eighteen thousand two fourteen ninety-two, which is forty thousand less the whole fee, the costs and the unreduced liens. Is Harbor Point's PIP at zero, with its 03/02 letter cited? Is Cardinal State receivable, not received? And are your four questions written down and routed today?",
+   "ask": "John calls tomorrow and asks if he's getting thirteen thousand. What do you tell him?"
   }
  },
  "d3m2-kc": {
@@ -1412,6 +1584,24 @@ window.CM_CF_SCRIPTS = {
    "ask": "What makes it safe for John Doe to sign that indemnity promise?"
   }
  },
+ "d3m4-close": {
+  "why": {
+   "say": "The Trust Ledger hit $0.00 on 10/22/2026. Five checks went out, $40,000.00 in and $40,000.00 out. So is John Doe's file closed? Not yet. Zero is where closing starts. Think about who might open this file after we've put it away: an auditor, a lienholder, or John Doe himself, holding a bill that turned up after the money was gone. If the file can't show where every dollar went, who signed for it, and why each figure moved, it can't answer any of them. Closing is the proof that every dollar landed where the Net Sheet said it would.",
+   "ask": "If a bill for John Doe's treatment arrived after the closing letter, what would you need to find in the file to answer it?"
+  },
+  "theory": {
+   "say": "The deck's rule is simple. Before a case is marked Archived, the Case Manager verifies four critical document sets, and then the file goes under a retention policy. The four sets are the money trail, proof of delivery, compliance and identity, and the closing memo. The closing memo is the one people skip: one page, written by you, saying how the file started and how it ended, explaining every discrepancy and recording every exception, or saying none was granted. Retention means every document is tagged by type, with its disposition date docketed. And a late bill, the one that shows up after the closing letter, gets verified, classified and routed the same day it arrives.",
+   "ask": "Which of the four sets do you think goes missing most often when a file gets archived?"
+  },
+  "rules": {
+   "say": "Nothing gets archived until all four sets are present, and the test is whether an outside auditor could trace every dollar from the file alone. The money trail lists the three deposits and the five checks of 10/22/2026, each with its confirmation number. The zero balance counts only when the bank statement, the trust journal and John Doe's client ledger agree and every check has cleared. The trail also shows a second reviewer on every disbursement and payment details verified by phone. Proof of delivery is the two satisfactions and John's signed receipt. Compliance is his payer disclosure and a current W-9. The closing memo explains every figure that moved. You draft the closing letter and Atty. Thorne signs it. Tag every document and docket its disposition, 7 years from closing on this file. And a late bill goes to Atty. Thorne the same day.",
+   "ask": "Riverton Spine & Rehab's $6,290.00 became $4,580.00. What does the closing memo say about that, and why?"
+  },
+  "job": {
+   "say": "Here's how it runs. When the ledger hits $0.00 on 10/22/2026, you build the money trail in the Trust Ledger: three deposits, five disbursements, the confirmation numbers and the zero-balance report, and you check that the bank statement, the trust journal and the client ledger agree once all five checks clear. When the satisfactions and John Doe's receipt come back, you file them with his payer disclosure and a current W-9, and you draft the closing letter for Atty. Thorne's signature. With the closing memo on 10/30/2026, you tag every document and docket its disposition, 7 years from closing. And if a bill turns up after the letter, you verify it, classify it, route it to Atty. Thorne and call John Doe that same day.",
+   "ask": "A statement for Crescent's $1,540.00 lands after the closing letter. What's the first document you pull?"
+  }
+ },
  "d3m4-a2": {
   "case": {
    "say": "This activity has two dates. Here's the first landing, 08/14/2026, from Keystone on KM-26-440871: the release to conclude the bodily injury claim on its $10,000.00 tender. They want Mr. Doe to sign before a notary and return the original, and the check issues once they have it. The consents requested from Harbor Point and Cardinal State on 08/13 are still pending. Let me read you one line from the draft: “all other persons, firms, corporations and insurers.” Who are those insurers on this file? Then we jump to 10/21/2026. All $40,000.00 had cleared by 10/20, John Doe signed the Settlement Statement this morning, both Payoff Letters are in Documents, and disbursement is set for 10/22.",
@@ -1504,6 +1694,20 @@ window.CM_CF_SCRIPTS = {
    "ask": "What does Margaret Doe still hold today, and who holds the Escape's event data recorder?"
   }
  },
+ "d4m1-efile": {
+  "case": {
+   "say": "It's the twenty-second of September twenty twenty-six, and we're on Track B. The file went to Litigation on the tenth, on Atty. Thorne's authorization, and the filing target is the twenty-fourth, so today is our forty-eight-hour audit. This morning he approved his Complaint against Robert Smith in the State Court of Riverton County. What we don't have yet is the civil cover sheet and the summons. And there's a trap in the CMS: an older draft from the fifteenth, stamped not for filing, unsigned, no case number. Once the envelope is accepted, the fee tier moves to forty percent and the court's clocks start.",
+   "ask": "Two Complaints sit in the CMS today. How will you make sure the right one reaches the court?"
+  },
+  "task": {
+   "say": "Four moves. First, tag Nadia Brooks on the Litigation Desk with a task she can act on without calling you: the cover sheet and the summons, built from the Complaint he approved this morning, due tonight, routed to Atty. Thorne for signature. He signs on the twenty-third. Second, on the twenty-fourth, you build the envelope in Court E-Filing: the caption, the court, the three documents, the filing attorney and the two hundred eighteen dollar fee, and you open every page to check his signature first. Third, when it's accepted, you record the case number, file the stamped Complaint, the summons and the conference notice, and post the fee. Fourth, you calendar what the filing starts, and you hold what it doesn't.",
+   "ask": "Which deadline can you calendar the day you file, and which one has to wait? Why?"
+  },
+  "check": {
+   "say": "Check your work against this. Your task to Nadia names the documents, the approved Complaint, the due date and Atty. Thorne as signer. Nothing went in unsigned, and the September fifteenth draft never left the CMS. The envelope was accepted on the twenty-fourth as twenty-six CV zero four four one seven, and that number replaced Pending in the court fields. Three named PDFs sit in zero one pleadings, and costs read seven hundred four dollars seventy-five. The service deadline is January twenty-second, twenty twenty-seven, a Friday, a hundred and twenty days out, with alerts. Allied Process Services has its hand-off. The conference is December tenth at nine, with Atty. Thorne attending. And the answer date says set on service.",
+   "ask": "If the answer date had been calendared today, what would it have been counted from, and why is that wrong?"
+  }
+ },
  "d4m1-kc": {
   "questions": {
    "say": "Okay, time for the Learning Check. Answer each question from this file, in your own words, and type your answer right under the question. Start with question 1, because it's the foundation: explain the fork, what's the same on Track B as on Track A, what changes on 08/12/2026, and why a $10,000 carrier freezes all $40,000. If you can't explain that last part in plain words, flag me, and we'll revisit Day 2's order of operations together before moving on.",
@@ -1548,6 +1752,20 @@ window.CM_CF_SCRIPTS = {
   "check": {
    "say": "Here's what your audit should show before you log it. Responses corrected to Monday 01/04/2027, since 12/01 plus 30 plus 3 lands on Sunday 01/03. The RFA entry added, all 15 due 01/04/2027, flagged deemed admitted if unanswered. People fix what's on the screen and miss what isn't, and that's the nearest, most severe deadline here. Expert disclosures un-swapped. Mediation entered as completed by 03/31/2027. Internal hard date 02/04/2028 added. Filing cutoff corrected from 11/08/2027 to 11/05/2027, rolled earlier, never forward. Correct entries verified and left alone. Errors ranked, rights ahead of time. Many courts accept a Monday filing after a Sunday deadline, but the firm won't rely on it, and calling opposing counsel about an extension fails the authority row.",
    "ask": "Did you recompute each date from its trigger document, or from the entry you were checking?"
+  }
+ },
+ "d4m2-medcal": {
+  "case": {
+   "say": "It's 01/08/2027, a Friday, and the Notice of Mediation was filed this morning. Hon. Carla Benton (Ret.), the mediator Atty. Thorne picked from the four windows we collected on 12/17, will see us on Thursday 03/18/2027 at 9:30 a.m., in person at her office. The statement and binder are due 7 days before, and John Doe has to be there. The order of referral from 12/10 says more than that: each party attends, lead counsel attends, and Keystone sends someone with full authority to settle. The fees are split equally, and our half is $1,200.00. Remember, our 12/10 audit already put “completed by 03/31/2027” on the calendar.",
+   "ask": "How many separate dates do you think this one notice creates on John Doe's file?"
+  },
+  "task": {
+   "say": "You'll work it in the Calendaring Simulators and mirror everything to the CMS Calendar. Verify the trigger first: the notice beat the order's 30-day rule, and 03/18 sits 13 days inside 03/31, so link that existing deadline and close the windows task instead of keying either again. Enter the session with its attendees. Then count back: binder due 03/11, Atty. Thorne's approval by 03/09, the binder QC on 03/04, the Litigation Desk's draft index on 03/02. Count forward to the mediator's report on 03/25. Get John's written confirmation and set his reminders. Open a cost task for the $1,200.00. And flag for Atty. Thorne that Harbor Point and Cardinal State must consent in writing before any BI settlement.",
+   "ask": "If Keystone tenders its limits at the table on 03/18, what can't happen until both UM carriers answer?"
+  },
+  "check": {
+   "say": "Here's what your calendar should show. The session once, on Thursday 03/18/2027 at 9:30 a.m., linked to the 03/31 deadline rather than duplicating it. Statement and binder on Thursday 03/11, no roll needed. Approval by Tuesday 03/09, QC on Thursday 03/04, draft index on Tuesday 03/02. The mediator's report watched on 03/25. John's confirmation requested today with a tickler on 01/15. The fee as half of $2,400.00, which takes advanced costs from $989.75 to $2,189.75, but only once the invoice is receipted. The UM flag with its arithmetic: 30 days from a 03/18 notice runs to Saturday 04/17. And the one conflict: our expert disclosure on Monday 03/15 lands between binder and session.",
+   "ask": "Which entry on your calendar did you count from another entry instead of from its trigger document?"
   }
  },
  "d4m2-um": {
@@ -1598,6 +1816,20 @@ window.CM_CF_SCRIPTS = {
   "check": {
    "say": "Check your matrix before you log it. Mediation: Hon. Carla Benton facilitates only, non-binding, held 03/18/2027 inside 03/31/2027. Arbitration: Laura Whitcomb acts as judge, binding award, narrow review, under Harbor Point's clause with Cardinal State joined. Opposing parties went from Robert Smith to the UM carriers, who are now the other side. Limits in play: $20,000 plus $10,000, so $30,000. Exhibits 06/02/2027. The brief is the trap: 10 days back is Saturday 06/12, so it moves to Friday 06/11, never Monday 06/14. Logistics and your UPL map are in. And your deferral: \"I'm the Case Manager providing administrative assistance; Atty. Thorne will address that.\" If you audited the Riverton Spine & Rehab bill, you'll want to answer. Don't.",
    "ask": "Say your deferral line out loud once: what are the exact words you'll use at the hearing?"
+  }
+ },
+ "d4m2-arbcal": {
+  "case": {
+   "say": "It's Monday, 04/26/2027, and Laura Whitcomb's scheduling letter has just landed. The consolidated UM arbitration against Harbor Point and Cardinal State is set for Tuesday, 06/22/2027, at 9:00 a.m. Exhibits and witness lists are exchanged 20 days before, and briefs are due 10 days before. The plaintiff's share of her fee is $900.00. Keystone's $10,000 went in at the 03/18/2027 mediation and Robert Smith is out of the case, but the master calendar still shows the court's dates from the 12/10/2026 Scheduling Order, and the SOL entries. One date is fixed now, and everything else on this file for the next nine weeks hangs off it.",
+   "ask": "Before you open anything, name every date that has to count back from 06/22/2027. Which ones are not in the letter at all?"
+  },
+  "task": {
+   "say": "You'll start in the Docket System. Enter the hearing and re-anchor the exchange and brief entries to the letter, so the letter is their trigger, not the memo from 04/05. Then work in the Calendaring Simulators and count back the internal dates: the Litigation Desk's draft index, the day binder QC opens, the last day to send the certified-records requests, and their chase. Hold John's attendance confirmation, the prep session Atty. Thorne will lead and the technology check on the CMS Calendar. Route the $900.00 to accounting as a case cost. Last, check it all against the master calendar. The SOL entries stay. The court's dates in a suit that ended with Robert Smith's dismissal go to Atty. Thorne as a question, not into the bin.",
+   "ask": "The records have to be in hand when binder QC opens. So which date do you count the request deadline back from?"
+  },
+  "check": {
+   "say": "Check your entries. Hearing 06/22/2027 at 9:00 a.m., exchange 06/02/2027, and the brief on Friday 06/11/2027, because 10 days back is a Saturday and a backward count moves earlier, never to Monday 06/14. Binder QC opens Monday 05/17/2027, 16 days before the exchange, with the draft index due Friday 05/14. Records requests out by Monday 05/03/2027, which is 05/17 less the 14-day custodian window, with a chase tickler on each. John confirmed by 04/21, the prep session proposed for 06/15 and the tech check 06/21. The $900.00 is a case cost. The SOL hard date 02/04/2028 and the 11/05/2027 cutoff are untouched, and the court dates are kept, marked and asked about. No award date anywhere.",
+   "ask": "Why is there no entry for the award, when every other date in this arbitration is on the calendar?"
   }
  },
  "d4m2-a3": {
@@ -1684,6 +1916,24 @@ window.CM_CF_SCRIPTS = {
   "job": {
    "say": "Here's how it unfolds. Arbitration's invoked on 04/05/2027, so you open the claimant exhibit index and put the 06/02/2027 exchange and the 06/11/2027 brief on the Docket System that day. As the provider records come in, you go through Medical Records Requests and ask each custodian for a business-records certification, one per provider, covering every date you're exhibiting. Custodians are slow, so don't wait. Once the exchange set is assembled, you route the set and every flagged item to Atty. Thorne through Tasks, Escalate. It has to be approved before 06/02/2027, with no privileged item anywhere in it.",
    "ask": "Why do we request certifications the same week the arbitration is invoked rather than once the binder's built?"
+  }
+ },
+ "d4m3-prior": {
+  "why": {
+   "say": "There's one line the defense has run on John Doe's file from the very first offer: it was already there. Keystone called the MRI degenerative on 08/05/2026. Atty. Grant Mercer's Answer on 11/12/2026 pleaded causation on that same reading. And at the 02/18/2027 deposition, defense counsel spent time on John's three chiropractic visits back in 2021. Now Harbor Point and Cardinal State are disputing damages, and Laura Whitcomb, Esq. decides on 06/22/2027, bindingly. Tab 5 of the Arbitration Binder is where we answer the prior from the record. If it isn't answered there, there's nowhere left to answer it after the award.",
+   "ask": "Why would we put records the carriers could use against John into our own binder?"
+  },
+  "theory": {
+   "say": "The deck puts it bluntly: defense counsel use prior records to argue pre-existing degenerative conditions, and Tab 5, the Prior Medical Shield, answers that before they raise it. The defense makes three moves: it was already there, the imaging is degenerative, and the injury is just a continuation of the old one. Often there's a fourth, that there's no baseline imaging from before the crash. Our answer starts with the pre-morbid baseline, John's condition before 02/06/2026, built from records, not memory. Behind it sits the eggshell idea: generally, a defendant takes the plaintiff as he finds him, and an aggravation is compensable. That's Atty. Thorne's argument, and the rule must be confirmed. And the deck's warning: a prior left unshielded, without a medical opinion beside it, is an arbitration landmine.",
+   "ask": "John's prior was his low back and his injury is his neck. Which of the defense's moves does that answer, and which does it leave open?"
+  },
+  "rules": {
+   "say": "We disclose the prior, never hide it, and we build the shield in five pieces. First, Birch Avenue Chiropractic's complete chart for 05/04, 05/11 and 05/18/2021, certified for every date, never a summary. Second, resolution: three visits, low-back stiffness resolved, released to full activity, in the record's own words. Third, the body region, side by side: low back then, neck and right arm now. Fourth, the interval, proved by records: the release, his Northgate job from 01/12/2026, and every history saying no prior neck complaint. Fifth, Dr. Park's sentence and Dr. Reyes's Causation Letter in the same tab. Then audit every history for consistency and tie every claimed harm to a dated record. A mismatch, or a letter silent on 2021, goes to Atty. Thorne. He decides on a declaration.",
+   "ask": "One provider's intake form disagrees with the rest. Who decides what happens next, and what do you not do?"
+  },
+  "job": {
+   "say": "Here's how it runs on the calendar. Arbitration is invoked on 04/05/2027, and that same week you send Birch Avenue Chiropractic a records request through Medical Records Requests for the complete 2021 chart, with a business-records certification covering all three dates. When it arrives, you build the side-by-side comparison in the exhibit index, and every cell cites a record and a page. If the histories don't line up, or Dr. Reyes's Causation Letter doesn't mention 2021, you escalate to Atty. Thorne through Tasks, Escalate, with the records attached, and you change nothing. Anything still open 10 days before the 06/02/2027 exchange gets a red flag.",
+   "ask": "Why does the prior chart request go out the week arbitration is invoked, not once the binder is built?"
   }
  },
  "d4m3-a2": {
@@ -1830,6 +2080,24 @@ window.CM_CF_SCRIPTS = {
   },
   "job": {
    "say": "Picture a week in the life. The Scheduling Order is entered 12/10/2026. You pin it to the front of the file, calendar all six dates with three alerts each, that's 18 alerts, and file the order in 01_PLEADINGS. Next, Atty. Mercer's office calls and an extension gets agreed by phone. You confirm Atty. Thorne actually approved it, draft the written confirmation for his signature, send it that same day in his name and recalendar; no scheduling-order date moves without a court order. Then the deposition is noticed. You book the reporter, the link and the technology check, and send the attorney-approved packet by 02/11/2027, confirming John Doe got it. And every week you run the docket audit: each KPI shows its formula, its target and a dated reading, and every miss gets routed."
+  }
+ },
+ "d5m1-subp": {
+  "why": {
+   "say": "Here's a question to start us off. Where does evidence come from when the person holding it isn't part of the lawsuit? Robert Smith has to answer our discovery, but a hospital's records custodian doesn't, and Ruth Calloway doesn't have to come to court just because we'd like her there. A subpoena is the court's command that reaches them. That power comes with rules, and a careless subpoena loses the very evidence it was meant to secure. Serve it out of order, write it too broadly, or let the records come back after discovery closes on 05/28/2027, and Atty. Thorne could walk into trial without them. So today we learn to run both kinds, records and trial, cleanly.",
+   "ask": "Who on John Doe's file holds evidence we need but owes us nothing unless the court commands it?"
+  },
+  "theory": {
+   "say": "There are two tools here, and they do two different jobs. A Subpoena Duces Tecum commands a non-party to produce documents. You reach for it when a hospital, a cell phone provider or an employer won't hand records over voluntarily. A trial subpoena commands a witness to appear and testify, so fact witnesses, treating physicians and police officers legally show up. Then there's the scope warning. A blanket request for all records of any kind is what the other side calls a fishing expedition, and the defense or the third party can move to quash it. The deck's model is narrow: emergency room records, triage notes and imaging, for one client, for the accident date only. And the pipeline always runs in the same order. You draft, you notice opposing counsel, you serve the custodian, and you track compliance. Notice comes first.",
+   "ask": "Why would a court care whether a subpoena is narrow, even when the records are about our own client?"
+  },
+  "rules": {
+   "say": "Here's how it runs on John Doe's file. The trigger is a refused request, or a record Atty. Thorne needs from its custodian. You ask him whether he wants a records subpoena, and he decides, signs and issues it. You draft on the court-approved form, with the case style, Civil Action No. 26-CV-04417, the named custodian and a narrow Exhibit A: one subject, exact dates, named record types. A copy goes to Atty. Grant Mercer first, and only after the notice period the governing rule sets does Allied Process Services serve the custodian. Five days before production you make the compliance call, and you pay the copy invoice promptly. Everything comes back before 05/28/2027. Trial subpoenas go only to the witnesses Atty. Thorne names, tasked against 08/12/2027 and 09/13/2027.",
+   "ask": "If the custodian tells you on the compliance call that the request is too broad, what do you do?"
+  },
+  "job": {
+   "say": "Let's walk one records subpoena through the work. Say Atty. Thorne needs the Riverton Fire Run Report produced by its custodian. You route that question to him through Tasks, and you draft nothing until he decides. Once he approves, you build it from the subpoena template with a narrow Exhibit A: run RF-26-0206-114, Medic 7, John Doe, 02/06/2026 only. The notice to Atty. Mercer is dated before service, every single time. Then, while it's open, you review its row in the subpoena log every ten days, you call the custodian five days before production, and you log each reading with its date. Any miss goes to Atty. Thorne. And when Atty. Thorne names his trial witnesses, those subpoenas get tasked against pretrial and the trial calendar, with the proof of service filed.",
+   "ask": "Which two dates on a subpoena log row tell you, at a glance, whether notice came first?"
   }
  },
  "d5m1-a2": {

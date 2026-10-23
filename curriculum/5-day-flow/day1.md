@@ -38,15 +38,19 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 3. *Lesson* — Fact Sharing vs. Legal Advice: the UPL Line
 4. *Lesson* — Ingesting the Raw File
 5. *Lesson* — The Acceptance Decision & the Three-Pillar Case Plan
-6. *Lesson* — Client Do's and Don'ts
-7. *Lesson* — Repair Estimates, Total Loss & Loss of Use
-8. *Lesson* — Rental Authorization
-9. *Skill Activity* — Opening John Doe's File in the CMS
-10. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet
-11. *Skill Activity* — Onboarding Direction Assignment in System
-12. *Skill Activity* — Whose Rental Is It? The Civic Investigation
-13. *Knowledge Check* — CM Fundamentals Knowledge Check
-14. *Knowledge Check* — PD & Onboarding Knowledge Audit
+6. *Lesson* — The Treatment Assessment, SMART Goals & the Care Coordination Plan
+7. *Lesson* — The Standard Treatment Map: Phases, Timelines & Course Correction
+8. *Lesson* — Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
+9. *Lesson* — The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000 (condensed)
+10. *Lesson* — Client Do's and Don'ts
+11. *Lesson* — Repair Estimates, Total Loss & Loss of Use
+12. *Lesson* — Rental Authorization
+13. *Skill Activity* — Opening John Doe's File in the CMS
+14. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet
+15. *Skill Activity* — Onboarding Direction Assignment in System
+16. *Skill Activity* — Whose Rental Is It? The Civic Investigation
+17. *Knowledge Check* — CM Fundamentals Knowledge Check
+18. *Knowledge Check* — PD & Onboarding Knowledge Audit
 
 **End-of-day discussion (trainer):** Robert Smith's carrier has already called John Doe, and he needs a car to get to work. What do you tell him today, in what order, and what has to be on the file before tomorrow's claim set-up?
 
@@ -54,7 +58,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 1 — Intake, Claims & Property Damage
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check
 
 ### 1.1.1 The Case Manager's Role
 
@@ -463,7 +467,354 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 1.1.6 Client Do's and Don'ts
+### 1.1.6 The Treatment Assessment, SMART Goals & the Care Coordination Plan
+
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Topic:** Know the whole person before you plan the care  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#33` Case Planning — Treatment: The Assessment Phase · `D1#34` Case Planning — Treatment: SMART Goal Setting · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · Newly authored: John Doe's Day 1 assessment and the draft SMART goal
+
+#### 1 · Visual Layout Description
+
+Three panels left to right, joined by orange arrows. ① WHOLE-PERSON ASSESSMENT: a navy card split into four equal quadrants, CLINICAL · SOCIAL · PRE-MORBID · VOCATIONAL, each holding one cream fact chip from John Doe's file (NECK STIFFNESS · RUN REPORT 02/06/2026; OWNS NO CAR; NOT YET ON FILE, in amber with a question mark; NORTHGATE SHIFT LEAD · 8-HOUR SHIFTS). ② SMART GOAL: a white card with five stacked orange letter tabs S · M · A · R · T, and a draft goal line under them stamped DRAFT, with a dotted routing line to a small card PROVIDER CONFIRMS MEASURE & DATE. ③ CARE COORDINATION: four outlined boxes, ACUTE/RESTORATIVE · PSYCHOLOGICAL SUPPORT · DME · REHAB MILESTONES; the middle two read NONE ORDERED in grey text rather than standing empty, and the fourth shows a three-step chevron INPATIENT → OUTPATIENT → HOME with a calendar pin on each step. The amber PRE-MORBID chip is the design argument: an open question shown as open, never left blank. A thin rail along the bottom ends in a card: ATTY. ELIJAH THORNE · REVIEW.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* The Case Plan's Clinical and Functional pillars are only as good as the assessment under them. A plan built from the chart treats a diagnosis; a plan built from the whole person also sees the ride that isn't there, the baseline the carrier will ask about and the job the client needs back. On Day 1 John Doe has no medical records yet, so the assessment is the plan's only foundation.
+
+1. Assess the whole person before you plan: it is more than reviewing medical records. On Day 1 John Doe has not started treatment, so the assessment starts from the intake call, the EMS Run Report and what he tells you.
+2. Clinical Evaluation: record the physical, cognitive and psychological impairments as the client reports them and as the records document them, in their words and dated, never as your diagnosis. Here: “neck stiffness” on the Run Report of 02/06/2026, transport declined, no treatment yet.
+3. Social Determinants: housing, family support, financial stability and transport. These are the barriers that turn a plan into a Treatment Gap, so record who he lives with, how he will reach care and whether cost is holding him back.
+4. Pre-Morbid Status: establish the baseline that separates a pre-existing condition from an accident injury. Ask about every prior injury, treatment and claim to the same body region, with dates and providers, and request those records. Never leave them for the defense to find.
+5. Vocational/Educational Outlook: what the job demands and whether he can return to it or will need retraining. Record his role, start date, hours, pay and the job's physical demands in his words.
+6. Turn the assessment into SMART goals: Specific (name the function), Measurable (an objective measure an adjuster can verify: range of motion, a pain or disability score, sessions attended), Achievable (realistic for the prognosis), Relevant (tied to the injuries claimed, daily living and return to work), Time-bound (a dated review).
+7. Goals must be defensible to clinicians and adjusters alike. The provider sets the clinical target and the measure; you draft the goal in plain terms, ask the provider to confirm it, and write it into the Clinical or Functional pillar with an owner and a review date.
+8. Build the Care Coordination Strategy in four groups: Acute/Restorative Care (surgery, physiotherapy, occupational therapy), Psychological Support (counseling or CBT), Durable Medical Equipment (DME), and Rehabilitation Milestones (inpatient → outpatient → home-based). Record an empty group as “none ordered” with the date, never as a blank.
+9. Calendar every transition and every social risk as a treatment risk before it becomes a gap: a provider handoff, a ride that may end, a coverage question.
+10. The plan coordinates; it never prescribes. A specialist, equipment or psychological care is the provider's decision, and anything that puts the client's mental health in the record is flagged to Atty. Thorne first.
+
+> ⚠️ **UPL boundary.** You record what the client and the records say, draft goals for the provider to confirm and coordinate access to care. Diagnosing, choosing treatment, deciding whether psychological care is indicated, and saying whether a prior condition was aggravated belong to the provider and Atty. Thorne.
+
+#### 2 · Slide Body — Show Them
+
+*John Doe's whole-person assessment after the intake call on 02/09/2026, and what it feeds*
+
+| Domain | What the file shows today | What you still need | Feeds the plan |
+|---|---|---|---|
+| Clinical Evaluation | EMS Run Report, 02/06/2026: “restrained front-seat passenger, complains of neck stiffness, declined transport.” No treatment yet. | His symptoms in his own words, dated; the first treating provider's evaluation | Clinical pillar: first visit arranged; a Treatment Gap watch running from 02/06/2026 |
+| Social Determinants | Lives with his mother, Margaret Doe, at 2214 Maple Hollow Rd. Owns no car; Margaret's Civic was damaged in the crash; carpools with Kevin Alvarez on alternate weeks. | How he will reach care, who can drive him, and whether cost is holding him back | Care coordination: a transport plan; the Payer Order explained so cost is not a barrier |
+| Pre-Morbid Status | Nothing on file yet: an open question, not a blank | Every prior injury, treatment or claim to the neck or back, with dates and providers; prior records requested | A baseline note in facts only, routed to Atty. Thorne |
+| Vocational Outlook | Northgate Distribution warehouse shift lead since 01/12/2026; $22.00/hour, 8-hour shifts; Peach State coverage through Northgate, effective 02/01/2026 | The job's physical demands, in his words | Functional pillar: return to full duty, written as a SMART goal |
+| SMART goal (draft) | “John Doe works full 8-hour shifts as a warehouse shift lead at Northgate by the [review date], measured by [the provider's measure].” | The provider's measure, target and review date | Functional pillar once the provider confirms it; owner and review date set |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Intake call complete (02/09/2026) | Record the four-domain assessment: symptoms in his words, home and transport, prior injuries, the job's demands | CMS → Case Notes | All four domains dated; anything unknown listed as an open question |
+| A prior injury or prior care disclosed | Request the prior records and record the baseline as facts: body region, dates, provider, outcome | Medical Records Requests · CMS → Case Notes | Request sent; baseline note in facts only, copied to Atty. Thorne |
+| Assessment recorded | Draft the SMART goals and the four care groups into the Clinical and Functional pillars; ask the first treating provider to confirm each measure and date | Action Plan Editor | Each goal has a measure, a date and an owner; empty groups read “none ordered” |
+| A social risk found (no ride, a cost worry, a handoff) | Calendar it as a treatment risk and flag it | CMS → Calendar · Case File → Risk Flags | Dated task on the calendar before it becomes a gap |
+
+**Best practices & pitfalls**
+
+- Write the assessment in the client's words and the record's words, with dates. Your summary is not evidence.
+- Ask about prior injuries plainly and early. A baseline the firm documents is a defense; one the defense finds first is an attack.
+- Draft goals in terms the client cares about, such as getting back to full shifts at Northgate, so he can see why the plan matters to him.
+- Record an empty care group as “none ordered” with the date, so the plan shows it was considered.
+- ⚠️ Pitfall: building the plan from the medical records only.
+- ⚠️ Pitfall: a goal like “reduce pain” with no measure or date.
+- ⚠️ Pitfall: never raising psychological support with the provider until the demand phase.
+- ⚠️ Pitfall: calling a prior condition “unrelated” or “aggravated” in the file. That is the provider's opinion and Atty. Thorne's argument.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Four domains | Clinical, Social Determinants, Pre-Morbid Status and Vocational Outlook each recorded with John Doe's Day 1 facts, dated, with open questions named |
+| 🤖 AI | **20%** | SMART goal | Specific function, objective measure, realistic, tied to the claimed injury and his work, with a review date; marked for the provider to confirm |
+| 🤖 AI | **20%** | Care coordination | All four groups addressed, empty ones recorded as “none ordered”; transitions and social risks calendared |
+| 🧑‍🏫 Trainer | **20%** | Baseline handling | Prior injuries asked about and records requested; no “unrelated” or “aggravated” labels |
+| 🧑‍🏫 Trainer | **20%** | Clinical boundary | No diagnosis, treatment direction or psychological judgment; goals routed to the provider, mental-health items flagged to Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- The deck's own line carries the lesson: assessment is more than reviewing medical records. On Day 1 John Doe has none, which makes the point for you.
+- Run the deck's discussion case live: turn “help John get back to work” into a SMART goal. Push until it has a measure the provider chooses and a review date.
+- Trainees find the prior-injury question awkward. Reframe it: a baseline the firm documents is a defense; one the defense finds first is an attack.
+- Hold the clinical line: the CM drafts and asks; the provider sets targets, orders equipment and decides on psychological care.
+
+---
+
+### 1.1.7 The Standard Treatment Map: Phases, Timelines & Course Correction
+
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Topic:** Where he should be on the map, and what you do when he isn't  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#36` The Standard Treatment Map · `D1#37` Treatment Road Map Mastery & the Clinical Pathway Flowchart · `D1#38` Variance Analysis: Why the Map Fails · `D1#39` Communication Loops: The “Stakeholder Triad” · `D1#40` The “Golden Standard”: Reasonable and Necessary · `D1#42` Illustration & Course Correction: The 6-Week Rule and Objective Metrics · `D1#43` The “Yellow Flag” Warning System
+
+#### 1 · Visual Layout Description
+
+A horizontal treatment map across the slide: five phase pills on a navy track, ACUTE · DAYS 1–14, SUB-ACUTE · WEEKS 2–8, RESTORATIVE · WEEKS 9–24, MAINTENANCE · 6 MONTHS+, MMI / DISCHARGE, each with a small orange caption of its Case Management focus beneath: CAUSATION & PIP · FUNCTIONAL GAINS · RTW BARRIERS · DETERMINING MMI · LIENS & SETTLEMENT SUPPORT. A pin sits in the ACUTE pill: JOHN DOE · EMS 02/06/2026 · NO CARE YET. Above SUB-ACUTE a diamond, IS HE IMPROVING?, branches: a green arrow on along the track, a red arrow down into a loop of three chips, CLINICAL · PSYCHOSOCIAL · SYSTEMIC, which rejoins the track through one card, THE PROVIDER DECIDES. Along the bottom, three thin lines leave the track for three end cards, CLINIC · ATTY. THORNE · PAYER: the Stakeholder Triad. The argument: the map is a yardstick; the Case Manager reads it, the provider steers.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Every adjuster, IME doctor and defense lawyer who reads John Doe's records will hold them against a standard map of how recovery should run, and deviations from that map are the main reason carriers deny care and order IMEs. A Case Manager who knows the map sees the drift first, asks the provider why, and has the answer on file before anyone turns it into an argument. That is the difference between observing a recovery and driving it: you drive by anticipating and asking, never by choosing the care.
+
+1. Know the phases and their windows, counted from the date of loss: Acute (days 1–14), Sub-acute (weeks 2–8), Restorative (weeks 9–24, months 2–6), Maintenance (6 months+), then MMI / discharge. Once care starts, also count weeks of care from the first visit.
+2. Locate the client at every check-in: phase and week, written at the top of the note. You can't tell “off the map” from “on schedule” without it.
+3. Each phase has its Case Management focus: Acute, establishing causation (the mechanism of injury on record) and PIP coverage; Sub-acute, functional gains (range of motion, weight-bearing); Restorative, barriers to return to work; Maintenance, whether he is approaching MMI.
+4. The map is a sequence of stops: EMS, the emergency room, MRI and radiology, chiropractic care and physical therapy, orthopedics, pain management, surgery, post-operative care, long-term pain management. Not every client reaches every stop, but a stop skipped or taken out of order (surgery before conservative care) needs a documented clinical reason from the provider.
+5. Ask “Is he improving?” at every check-in. Yes: care continues on the map. No: the variance loop, where medication or injections, a specialist referral (ortho or neuro) or a psychological screen for yellow flags is the provider's decision. You raise the question and record question, answer and date.
+6. Name the variance before anyone acts on it: clinical (a secondary complication, such as radiating nerve pain that wasn't in the first report), psychosocial (yellow flags such as fear-avoidance, depression, no transport to therapy), systemic (an authorization or referral delay). The response depends on the type, and a systemic delay is never client non-compliance.
+7. Every item on the map must pass the utilization-review test, Reasonable and Necessary: reasonable, usual for this mechanism of injury; necessary, objective evidence that function is improving, not subjective pain alone. Necessity is the provider's opinion, argued by Atty. Thorne; your part is getting the measures on file.
+8. Track objective metrics, not impressions: Oswestry (low back) or DASH (arm, shoulder, hand) every 30 days; gait analysis for lower-extremity injuries; PHQ-9 / GAD-7 when physical progress stalls; an FCE before return to work or at MMI. You request the measures; the provider chooses and orders them, and a screen that puts mental health in the record is flagged to Atty. Thorne.
+9. Course-correct on the map's triggers, not on a denial. The 6-Week Rule: expect 20–30% more range of motion or a lower VAS pain score by week 6 of care; still 10/10 after 12 PT sessions means raise it with the provider now. The Red Flag Rule: no disability-index change after 12 weeks of PT is a plateau, so ask the provider about a specialist or second opinion. A variance that becomes a red flag goes into A-C-T and the escalation ladder (Day 2).
+10. Keep the Stakeholder Triad closed, and end at MMI. Clinical loop: therapy notes match the physician's orders, and a conflict goes back to both providers and to Atty. Thorne. Legal loop: status reports to Atty. Thorne in functional terms. Financial loop: the payer updated before a referral or authorization lapses. MMI, declared by the provider with any impairment rating, closes the treatment phase and opens lien resolution.
+
+> ⚠️ **UPL boundary.** You track the map and ask; you don't direct the care. Never tell John Doe to add, skip or stop treatment, never pick a test or a specialist, and never tell him what a deviation does to his claim. Clinical questions go to the provider; what a variance means for the case is Atty. Thorne's.
+
+#### 2 · Slide Body — Show Them
+
+*John Doe on the map at intake: where he should be, and what you will watch*
+
+| Phase | On a typical file | On John Doe's file: what you watch | Who decides |
+|---|---|---|---|
+| Acute · days 1–14 from the DOL, 02/06/2026 | A first evaluation (ER or urgent care); imaging, bracing or initial PT if the provider orders them | EMS Run Report 02/06/2026: neck stiffness, declined transport, so no ER stop. No care yet: each day without an evaluation is a fact on the timeline. Causation facts on file; Harbor Point's $5,000 PIP verified in writing | The provider decides the care; you record facts and tell Atty. Thorne of any gap |
+| Sub-acute · weeks 2–8 | Active PT 2–3 times a week; specialist follow-up | Attendance; “Is he improving?” at every contact; range of motion and pain score at week 6 of care | The provider orders the measures; you request and file them |
+| Restorative · weeks 9–24 | Work hardening, injections or psychological support, if ordered | Barriers to return to work; a disability index unchanged after 12 weeks of PT | The provider decides any referral; you ask and record the answer |
+| Maintenance · 6 months+ | Home exercise program; as-needed visits | Whether the provider is approaching MMI | The provider |
+| MMI / discharge | The provider's MMI note and any impairment rating; an FCE if ordered | The treatment phase closes; records and balances go to lien resolution | The provider declares MMI; Atty. Thorne leads what follows |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Every check-in with John Doe or a provider | Locate him on the map (phase, week from the DOL, week of care) and ask “Is he improving?” | CMS → Case File → Treatment timeline | Phase, week, answer and date recorded |
+| The answer is no, or a stop is skipped | Classify the variance and ask the provider's office what is planned | Medical Records Requests · CMS → Case Notes | Variance type named; the provider's answer on file with its date |
+| Week 6 of care, then every 30 days | Request the objective measures: range of motion, pain score, disability index | Medical Records Requests | Measures on file, or the missing re-evaluation flagged |
+| A variance that can cost the claim | Report the facts to Atty. Thorne in the map's language: phase, variance type, the provider's plan | CMS → Case File → Risk Flags | Flag routed the same day, facts only |
+
+**Best practices & pitfalls**
+
+- Write phase and week at the top of every treatment note, so anyone can place the client on the map.
+- Report function, not diagnoses: what he can't do at work and at home is what Atty. Thorne needs.
+- Request the objective measures before the six-week mark of care, not after a denial.
+- Report variances in the map's language: “Phase 2 (sub-acute). Clinical variance: therapy has not reduced the radiating pain. Raised with the treating provider, who is considering a specialist referral.”
+- ⚠️ Pitfall: letting a client drift off the map with no reason on file.
+- ⚠️ Pitfall: treating a systemic delay (an authorization or referral stuck with a payer) as client non-compliance.
+- ⚠️ Pitfall: waiting for the adjuster to deny the next six sessions before course-correcting.
+- ⚠️ Pitfall: a skipped stop (surgery before conservative care) with no documented clinical reason.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Phase table | Acute days 1–14, Sub-acute weeks 2–8, Restorative weeks 9–24, Maintenance 6 months+, then MMI; the Case Management focus of each |
+| 🤖 AI | **15%** | Pathway and variance | “Is he improving?” at every check-in; the variance loop; clinical, psychosocial and systemic named and matched |
+| 🤖 AI | **15%** | Metrics and the standard | Oswestry/DASH, gait analysis, PHQ-9/GAD-7 and FCE matched to when; Reasonable and Necessary defined; 6-Week and Red Flag Rules |
+| 🤖 AI | **10%** | John Doe placed | Acute phase at intake; EMS Run Report 02/06/2026, declined transport, no care yet; causation and PIP as the focus |
+| 🧑‍🏫 Trainer | **20%** | Clinical boundary | Raises questions with the provider; never chooses care, tests or specialists, or tells John Doe to add, skip or stop treatment |
+| 🧑‍🏫 Trainer | **20%** | Triad reporting | Reports to Atty. Thorne in functional terms and the map's language; routes provider conflicts instead of resolving them |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Draw five boxes on the board, ACUTE to MMI, before the slides. Put a pin in ACUTE and ask the room what John Doe's file shows so far: one EMS Run Report and no care.
+- The deck says a good Case Manager “drives” recovery. Pin the word down: drive means anticipate and ask early. Every intervention on the map is a provider's order.
+- Trainees treat the map as a rulebook. It is a yardstick: a client off the map isn't wrong, he is unexplained until the provider explains him, and an unexplained deviation is what a carrier argues with.
+- Hold the timeline. On Day 1 John Doe has not started treatment; don't let the room guess how his care will go. Day 2 lays his actual course on this map.
+
+---
+
+### 1.1.8 Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
+
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Topic:** What you watch for in the records, what you listen for on the phone, and how you keep him in his plan  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#31` Treatment Red Flags: PT & Conservative Care, Surgical Protocols · `D1#32` Treatment Red Flags: Pain Management, Medication & Behavioral Health / TBI · `D1#43` The “Yellow Flag” Warning System
+
+#### 1 · Visual Layout Description
+
+A split stage. Left half, headed IN THE RECORDS: a navy column of four stacked specialty cards, PT & CONSERVATIVE CARE · SURGICAL PROTOCOLS · PAIN MANAGEMENT & MEDICATION · BEHAVIORAL HEALTH / TBI, each with a small red flag chip at its right edge. Right half, headed ON THE PHONE: a speech-bubble column holding four amber yellow-flag chips, FEAR-AVOIDANCE · CATASTROPHIZING · LITIGATION STRESS · PASSIVE-CARE RELIANCE, and under it an orange four-segment ring lettered O · A · R · S. Both halves feed arrows into one full-width routing bar at the bottom: MEDICAL DANGER → THE PROVIDER, TODAY · LEGAL DANGER → ATTY. THORNE · THEN A-C-T. Top-right, a thin progress line that rises, flattens at its midpoint (labelled PLATEAU) and is lifted again by an orange arrow marked RE-ENGAGE ON HIS GOAL. The argument: the Case Manager sees and hears; the provider and counsel decide.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* John Doe has not started treatment yet. Once he does, you are the one person on the file who reads every record as it arrives and hears from him between visits. A red flag missed in a record, a yellow flag missed on a call, or a mid-treatment plateau nobody talks about can pull him off the plan his providers set and leave Atty. Thorne without the facts he needs. Your job is to recognise, report and keep him engaged; every clinical judgment stays with the provider.
+
+1. Learn the standard US treatment protocols so you can see a deviation. A red flag is a deviation that signals medical danger, a stagnating case or over-treatment for billing. You recognise it and report it; the provider judges it. Once you spot one, A-C-T runs.
+2. PT & Conservative Care, the baseline of treatment: more than 12 sessions with no change in range of motion or pain and no specialist or imaging suggested; passive-only care (heat packs, TENS, massage) with no active exercise; two or more missed visits, which the defense reads as an injury not serious enough to treat.
+3. Surgical Protocols, where the flags concern safety and the Standard of Care: surgery (such as a spinal fusion) recommended before PT or injections, outside an emergency, is a Reasonable Necessity flag; a left/right switch in the records damages credibility; “just wait until the follow-up” for fever or redness, or sharp or mechanical pain after surgery, is medical danger that reaches the provider the same day.
+4. Pain Management & Medication, the most scrutinised area (opioid regulations, Medical Necessity audits): an opioid, a muscle relaxant and a sedative together (the “Holy Trinity”), a safety risk and a legal exposure if the client has an accident while medicated; doses rising with no change in diagnosis; a Urine Drug Screen that does not show the prescribed drug, or shows an illicit one.
+5. Raise a medication or drug-screen fact with the prescriber as facts, dates and a question, never as an accusation, and report it to Atty. Thorne. Never discuss it with the client as a suspicion, and never comment on his medications.
+6. Behavioral Health / TBI, high-value and handled with utmost discretion: counseling notes about “general life stress” rather than the accident's trauma (rarely covered, and the costs called unreasonable); no memory loss noted at the ER, then significant head-injury symptoms months later. Record the date each was first reported; validation is the provider's, and Atty. Thorne hears it before anyone treats it as proof.
+7. Yellow flags are psychosocial barriers that derail the map: fear-avoidance (avoiding movement or therapy for fear of pain), catastrophizing (“I'll never walk again” despite minor findings), litigation stress, and iatrogenic factors (reliance on opioids, or on passive care such as ice and heat over active exercise). Record them in his words and report them with a plan; whether a PHQ-9/GAD-7 screen is indicated is the provider's call.
+8. Run every contact on OARS: Open-ended questions, Affirmations, Reflective listening, Summaries. Ask specific questions, not “How are you?”: visits kept, pain, what he can and can't do at work and at home.
+9. Two MI moves for ambivalence. Developing discrepancy: help him see the gap between what he is doing now and his own long-term goal, in his words. Rolling with resistance: if he refuses a service, don't argue, pivot (“It sounds like that specific clinic isn't a good fit for you. Let's look at why.”), and take his reason to the provider.
+10. Expect the mid-treatment plateau: when the newness wears off and the hard work begins, adherence drops. Re-engage him on his own goal, then run the course-correction cycle (Assess Response, Evaluate Efficacy, Adjust Intervention). If he isn't reaching his goals it is usually the plan, not the person: raise it with the provider, whose change it is. That is proactive management, not an admission.
+
+> ⚠️ **UPL boundary.** You recognise and report flags; every clinical judgment is the provider's: a screen, a medication, a referral, a change of plan. Never tell John Doe to add, skip, stop or change a treatment or medication, and never second-guess a provider.
+
+> ⚠️ **UPL boundary.** MI keeps him engaged in the plan his providers set. It is never a channel for medical or legal advice: never “missing visits will hurt your case”. What his conduct means for the claim is Atty. Thorne's to explain.
+
+#### 2 · Slide Body — Show Them
+
+*OARS and the two MI moves on John Doe's check-ins once care begins (illustrative lines: on Day 1 he has not started treatment)*
+
+| Technique | What it does | An illustrative line for John Doe | What you record |
+|---|---|---|---|
+| Open-ended question | Invites his account instead of a yes or no | “Walk me through how your neck has been since the collision on 02/06/2026.” | His words, verbatim, with the date |
+| Affirmation | Recognises effort, not outcome | “Getting that first appointment booked took effort. Thank you for telling me.” | The step he took, as a fact |
+| Reflective listening | Mirrors what he said, so he feels heard and can correct you | “It sounds like the stiffness makes a full shift feel a long way off.” | His concern in his words; a yellow flag if it is one |
+| Summary | Gathers the call so he can correct it | “So: visits kept, stiffness about the same, lifting still hard. What did I miss?” | The summary he confirmed, as the GIRP Response |
+| Developing discrepancy | Sets what he is doing beside the goal he named | If he names full shifts at Northgate as his goal and therapy starts to feel pointless: “You said getting back to full shifts matters most. How does stepping back from therapy fit with that?” | His goal and his answer; no pressure |
+| Rolling with resistance | Pivots to his reason instead of arguing | If he pushes back on a clinic: “It sounds like that clinic isn't a good fit for you. Let's look at why.” | His reason, routed to the provider |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| A treatment record, prescription record or bill arrives | Read it against the red flags by specialty; log any flag with its source record and the date first seen | Medical Records Requests · CMS → Case File → Risk Flags | Every flag logged with its record, specialty and date |
+| A medical-danger flag (fever or sharp pain after surgery, a medication concern) | Report the fact to the provider's office the same day, then run A-C-T and tell Atty. Thorne | Phone · CMS → Case Notes | Provider told the same day; the call note dated |
+| Each client check-in, once care starts | Run OARS: specific questions on visits, pain and function; note any yellow flag in his words | Call Simulator → AI John Doe · CMS → Case Notes | GIRP note the same day: his words, no labels, no advice |
+| A yellow flag or a plateau heard | Report it to the provider with a plan and a question (is a screen or a plan change indicated?); flag anything putting his mental health in the record to Atty. Thorne | Email Workspace · CMS → Case File → Risk Flags | The provider's answer and its date on file |
+
+**Best practices & pitfalls**
+
+- Ask specific questions, never just “How are you?”: visits kept, the pain score, what he can't do at work or at home.
+- Write a yellow flag in his own words (“I'll never lift again”), with the date, not as a label.
+- Raise a medication or drug-screen fact with the provider as facts, dates and a question; never as an accusation, and never with the client.
+- Keep boundaries: Empower (coach him through it rather than doing it for him; the goal is to make you unnecessary) and Prioritize (does this need solving to reach his primary goal, or is it a distraction?).
+- End each treatment-phase contact with: “What is the one thing that might get in the way of you reaching your goal this week?”
+- ⚠️ Pitfall: arguing with resistance, or telling him missed visits will hurt his case.
+- ⚠️ Pitfall: reporting a yellow flag with no plan.
+- ⚠️ Pitfall: treating late-onset head-injury symptoms as proof before the provider validates them.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Red flags by specialty | PT, surgical, medication and behavioral-health/TBI flags each named with what they signal |
+| 🤖 AI | **15%** | Routing | Medical danger to the provider the same day; legal danger to Atty. Thorne; then A-C-T |
+| 🤖 AI | **15%** | Yellow flags and OARS | Yellow flags recorded in the client's words; open questions, affirmations, reflections and summaries applied |
+| 🤖 AI | **10%** | The plateau | Developing discrepancy and rolling with resistance used; the course-correction cycle named |
+| 🧑‍🏫 Trainer | **20%** | Clinical line | Recognises and reports; decides no screen, medication or referral and gives the client no treatment direction |
+| 🧑‍🏫 Trainer | **20%** | MI without pressure | Keeps John Doe engaged in his providers' plan without arguing, pressure or claim-value talk |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- John Doe has not started care on Day 1. Frame the lesson as the watch-list and the toolkit the file will need from his first visit on; the lines in the model are illustrative, not his.
+- Ask: “Who decides whether a PHQ-9 is indicated?” The provider. The Case Manager hears the flag, records it and asks the question.
+- Role-play rolling with resistance: one trainee plays a client who calls the clinic a waste of time; the Case Manager pivots to his reason, never argues, and takes it to the provider.
+- Listen for “missing visits will hurt your case” in the role-plays. That is a claim-value statement, and it belongs to Atty. Thorne.
+
+---
+
+### 1.1.9 The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000
+
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage (condensed) · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Topic:** A state-specific PIP rule: what Florida requires, who can make the finding, and why Riverton's file has no such rule  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D2#22` The Valuation Baseline: The EMC and the Benefit Ceiling · `D1#36` The Standard Treatment Map · `D1#37` Treatment Road Map Mastery & the Clinical Pathway Flowchart · `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · Newly authored: Florida's EMC rule stated explicitly (Fla. Stat. § 627.736(1)(a): 14-day initial care, EMC by MD, DO, dentist, PA or APRN, $2,500 vs $10,000, 80% medical and 60% lost income, chiropractor cannot determine EMC, no massage or acupuncture) and contrasted with Riverton's add-on PIP, which has no EMC rule
+
+#### 1 · Visual Layout Description
+
+A two-lane comparison under a thin header strip reading STATE-SPECIFIC: CONFIRM THE STATUTE. Top lane, navy, labelled FLORIDA · FLA. STAT. § 627.736(1)(a): a horizontal timeline starting at a node DOL, a solid band fourteen day-ticks wide labelled INITIAL CARE WITHIN 14 DAYS, ending at a gate. Past the gate the lane forks into two buckets: a small grey bucket labelled $2,500 · NO EMC DETERMINATION and a large orange bucket labelled $10,000 · EMC DETERMINED BY MD · DO · DENTIST · PA · APRN. A small chip on the gate reads CHIROPRACTOR: INITIAL CARE YES · EMC FINDING NO. Under the buckets, a thin rule: PIP PAYS 80% OF MEDICAL · 60% OF LOST INCOME. Bottom lane, muted, labelled RIVERTON · JOHN DOE'S FILE: one plain bar, HARBOR POINT PIP $5,000 · 100% MEDICAL · 80% LOST INCOME, stamped NO EMC RULE · NO 14-DAY CONDITION. Between the lanes, a dashed callout pinned to 02/20/2026 reads HAD THIS FILE BEEN IN FLORIDA: DAY 14, THE LAST DAY INSIDE THE WINDOW (HYPOTHETICAL). The argument: the rule lives in the state's statute, so the Case Manager reads the file's state before working the clock.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* PIP rules are set state by state, and the Emergency Medical Condition rule is Florida's. On a Florida file it decides, within days of the accident, whether PIP pays any medical benefits at all and whether the client has $2,500 or $10,000 to draw on. A missed 14-day window or a missing EMC finding cannot be fixed later by a better demand. John Doe's file is in Riverton, an add-on PIP state with no EMC rule, so his $5,000 of Harbor Point PIP is not capped by one. You still need to know the rule cold, because the day you open a Florida file the clock starts at the date of loss, and you are the one who calendars it.
+
+1. Know which state's PIP rule governs before you work a PIP file. The EMC rule is Florida's (Fla. Stat. § 627.736(1)(a), from the 2012 PIP reform, HB 119). Riverton, John Doe's state, has no EMC rule and no 14-day condition; never apply Florida's rule to his file.
+2. Florida PIP is $10,000 per person. It pays 80% of reasonable medical expenses and 60% of lost gross income, regardless of fault.
+3. The 14-day rule: initial services and care must be received within 14 days after the motor vehicle accident. If they are not, Florida PIP pays nothing for medical benefits. Calendar the 14th day from the date of loss at intake.
+4. The EMC rule: the full $10,000 medical benefit is available only if a physician (MD or DO), a dentist, a physician assistant or an advanced practice registered nurse determines the injured person had an Emergency Medical Condition. Without that determination, medical benefits stop at $2,500.
+5. A chiropractor may provide the initial care inside the 14 days, but a chiropractor cannot make the EMC determination. A file treating only with a chiropractor stays in the $2,500 bucket until a qualifying provider makes the finding.
+6. Massage and acupuncture are not reimbursable under Florida PIP, whoever provides them.
+7. What an EMC is: a medical condition manifesting itself by acute symptoms of sufficient severity, which may include severe pain, such that the absence of immediate medical attention could reasonably be expected to result in serious jeopardy to patient health, serious impairment to bodily functions, or serious dysfunction of a bodily organ or part. Deciding whether that is true is the provider's clinical judgment, never yours.
+8. Request the EMC determination in the records from a qualifying provider, and log which bucket the file is in ($2,500 or $10,000) in the PIP Log as each bill is paid.
+9. Flag a missing EMC determination, or a first visit on or after the 14th day, to Atty. Thorne the day you see it. What it means for the claim is his call.
+10. Confirm the current statute on every Florida file. Florida's legislature has repeatedly considered repealing PIP, so the numbers here are the rule as written since 2013, not a promise that it is still in force.
+
+> ⚠️ **UPL boundary.** The provider decides whether an Emergency Medical Condition exists; Atty. Thorne decides what a missing EMC or a late first visit means for the claim. You calendar, request, log and flag.
+
+> ⚠️ **UPL boundary.** Tell a client the deadline and where and when care is available: facts and logistics only. Never tell him he needs care, what care to get, or that skipping it will hurt his case.
+
+#### 2 · Slide Body — Show Them
+
+*Florida's rule beside Riverton's, with John Doe's dates as a hypothetical contrast (his file is in Riverton: no EMC rule applies to it)*
+
+| Rule point | Florida (Fla. Stat. § 627.736(1)(a)) | Riverton (John Doe's file) | Had this file been in Florida (hypothetical) |
+|---|---|---|---|
+| PIP limit and what it pays | $10,000; 80% of reasonable medical expenses, 60% of lost income | Harbor Point PIP $5,000; 100% of reasonable medical expenses, 80% of lost income | Each bill paid at 80%, not 100% |
+| Initial care deadline | Within 14 days after the accident, or no PIP medical benefits | None | DOL 02/06/2026; first treatment 02/20/2026 is day 14, the last day inside the window |
+| Who can make the EMC determination | MD, DO, dentist, physician assistant, APRN | No EMC rule | Riverton Urgent Care's Nina Patel, PA-C, is a type of provider who could; whether one was made is in her record |
+| Chiropractic care | May give initial care; cannot make the EMC determination | No EMC rule | Riverton Spine & Rehab (Dr. Mark Ellison, DC, chiropractic + PT) could not make the finding |
+| Without an EMC determination | Medical benefits capped at $2,500 | No cap below the $5,000 limit | $2,500 of the $10,000 until a qualifying provider documents an EMC |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| A Florida PIP file is opened at intake | Calendar the 14-day initial-care deadline from the date of loss; tell the client the deadline and where and when care is available (facts and logistics only) | CMS → Calendar · CMS → Communications Log | Deadline docketed the same day; the call logged with no medical recommendation |
+| The first treatment record arrives | Check the visit date against day 14, who saw the client (MD, DO, dentist, PA, APRN or chiropractor), and whether an EMC determination is documented | Medical Records Requests · CMS → Case File → Risk Flags | Date, provider type and EMC status logged with the source record |
+| No EMC determination in a qualifying provider's record | Ask the provider's office whether an EMC was assessed and documented, and request the determination in the records | Medical Records Requests · Email Workspace | Request dated; the provider's answer on file |
+| A PIP payment posts, or a gap is found | Update the $2,500 or $10,000 bucket in the PIP Log; flag a missing EMC or a late first visit to Atty. Thorne | CMS → Insurance tab → PIP Log · CMS → Tasks → Escalate | Bucket current; the flag routed the same day |
+
+**Best practices & pitfalls**
+
+- Read the file's state before you read its PIP: the EMC rule is Florida's, not every state's.
+- Count the 14 days from the date of loss and docket the 14th day at intake, not when the first bill arrives.
+- Write the provider's credential (MD, DO, PA-C, APRN, DC) next to every visit in the treatment log, so an EMC gap shows at a glance.
+- Confirm the current Florida statute before relying on any number in this lesson.
+- ⚠️ Pitfall: telling a Riverton client his PIP is capped at $2,500 without an EMC. Riverton has no EMC rule.
+- ⚠️ Pitfall: treating a chiropractor's note as an EMC determination.
+- ⚠️ Pitfall: telling a client he needs to see a doctor to “get the full $10,000”. Share the deadline and the logistics; the care decision is his and his provider's.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **10%** | State identified | Names Florida as the EMC state and Riverton as having no EMC rule; never applies the cap to John Doe's file |
+| 🤖 AI | **20%** | Florida numbers | States $10,000, 80% medical, 60% lost income, 14 days, $2,500 without an EMC, accurately |
+| 🤖 AI | **15%** | Qualifying providers | Names MD, DO, dentist, PA and APRN; says a chiropractor can give initial care but not the EMC determination |
+| 🤖 AI | **15%** | Hypothetical worked | Places 02/20/2026 as day 14 from 02/06/2026 and labels the Florida contrast as hypothetical |
+| 🧑‍🏫 Trainer | **20%** | Clinical line | Leaves the EMC finding to the provider and gives the client facts and logistics only, no care recommendation |
+| 🧑‍🏫 Trainer | **20%** | Legal line | Flags a missing EMC or late first visit to Atty. Thorne without saying what it does to the claim |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Say it plainly at the start: John Doe's file is in Riverton, which has no EMC rule. This lesson teaches the Florida rule because a Case Manager will meet it, and every John Doe example on the slide is labelled hypothetical.
+- Ask: “On a Florida file with a 02/06/2026 date of loss, what is the last day for initial care?” 02/20/2026, day 14. John's first visit fell on exactly that day; in Florida that is cutting it as close as it gets.
+- Ask: “Can Dr. Mark Ellison make the EMC determination?” No: a chiropractor can give initial care but not the EMC finding. Then: “Who decides whether John had an EMC?” Only the provider.
+- Remind the room that PIP is set state by state and Florida has debated repealing it more than once: confirm the current statute before relying on any number.
+
+---
+
+### 1.1.10 Client Do's and Don'ts
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Protecting the claim from the client's own good intentions  
@@ -541,7 +892,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.7 Repair Estimates, Total Loss & Loss of Use
+### 1.1.11 Repair Estimates, Total Loss & Loss of Use
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Repair, or total? And what the client is owed either way  
@@ -626,7 +977,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.8 Rental Authorization
+### 1.1.12 Rental Authorization
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** A rental the policy actually pays for, confirmed before the client collects a car  
@@ -643,13 +994,15 @@ A four-chip flow across the upper half: WHOSE COVERAGE PAYS? → WHO AUTHORIZES?
 
 1. Rental is part of the Property Damage claim, and it belongs to the vehicle's owner. John Doe was a passenger; the Civic is Margaret Doe's, so the rental is hers to claim.
 2. The law firm never provides or pays for a rental. It is part of the Property Damage claim, paid by the carrier; the firm coordinates it with the carrier and records every parameter.
-3. Find whose coverage pays. The third-party rental comes from the adverse carrier's Property Damage coverage, here Keystone's. The owner's own policy, or the rental company's self-insurance, is used only where there is no 3P coverage, such as a liability denial or an unresolved dispute over fault.
-4. Confirm who authorizes the rental (the adverse carrier on accepted liability, or the owner's own carrier) and check the Dec Page for a rental reimbursement endorsement.
-5. Record the authorized daily rate cap before the client collects a vehicle. Anything above the cap is the client's cost.
-6. Record the duration limit: coverage usually runs 30 days at most, unless the Dec Page says otherwise. Calendar the last covered day and tell the client before it arrives.
-7. A comparable vehicle, not an upgrade: the class of car the client lost. An upgrade's difference is the client's cost.
-8. Get it in writing: Keystone's rental authorization (Form KM-PD 210) is filed in CMS → Documents, and every parameter goes in CMS → Property Damage before collection.
-9. The Property Damage carve-out lets the adverse carrier discuss the rental with the owner. If the call moves to injuries or the facts of the loss, it stops and routes to the firm.
+3. Find whose coverage pays, in order. First the adverse carrier's Property Damage coverage (3P), here Keystone's, on accepted liability.
+4. If 3P coverage is unavailable (liability denied or still disputed, no PD coverage on the at-fault driver, or its limit used up), check the owner's own policy (1P): Collision or Comprehensive for the vehicle, and Rental Reimbursement coverage for the rental, on the Dec Page. The 1P carrier pays and then pursues the at-fault party; the owner's deductible is claimed back the same way.
+5. If no coverage applies at all, the rental and the repair are the owner's out-of-pocket cost. Tell the owner before they collect a car, keep every receipt and invoice in CMS → Documents, and log each amount for reimbursement in the Property Damage claim.
+6. Confirm who authorizes the rental (the adverse carrier on accepted liability, or the owner's own carrier) and check the Dec Page for a rental reimbursement endorsement.
+7. Record the authorized daily rate cap before the client collects a vehicle. Anything above the cap is the client's cost.
+8. Record the duration limit: coverage usually runs 30 days at most, unless the Dec Page says otherwise. Calendar the last covered day and tell the client before it arrives.
+9. A comparable vehicle, not an upgrade: the class of car the client lost. An upgrade's difference is the client's cost.
+10. Get it in writing: Keystone's rental authorization (Form KM-PD 210) is filed in CMS → Documents, and every parameter goes in CMS → Property Damage before collection.
+11. The Property Damage carve-out lets the adverse carrier discuss the rental with the owner. If the call moves to injuries or the facts of the loss, it stops and routes to the firm.
 
 > ⚠️ **UPL boundary.** You confirm coverage facts and explain the process. Whether to dispute a cutoff or a rate, and what the owner should accept, is Atty. Thorne's call.
 
@@ -678,6 +1031,8 @@ A four-chip flow across the upper half: WHOSE COVERAGE PAYS? → WHO AUTHORIZES?
 - Calendar the last covered day and warn the client before it.
 - ⚠️ Pitfall: sending a client to pick up a car before the authorization is confirmed.
 - ⚠️ Pitfall: treating the rental as the passenger's claim instead of the owner's.
+- Keep every out-of-pocket rental and repair receipt: it is the proof for reimbursement.
+- ⚠️ Pitfall: telling the owner there is no rental before checking their own policy for Rental Reimbursement.
 
 #### 3 · Knowledge Check & CM Summary
 
@@ -687,7 +1042,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **25%** | Whose coverage pays | The adverse carrier's Property Damage coverage for the 3P rental; the owner's policy or the rental company's only without 3P coverage |
+| 🤖 AI | **25%** | Whose coverage pays | In order: the adverse carrier's Property Damage coverage; if unavailable, the owner's Collision or Comprehensive and Rental Reimbursement; if none, out of pocket with every receipt kept for reimbursement |
 | 🤖 AI | **20%** | Rental parameters | Authorizer, endorsement, rate cap and duration recorded before collection |
 | 🤖 AI | **15%** | Whose claim | The rental placed on the owner's Property Damage claim, not the passenger's |
 | 🧑‍🏫 Trainer | **25%** | Client-facing clarity | Limits explained so the client is never surprised by a bill |
@@ -703,7 +1058,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.9 Opening John Doe's File in the CMS
+### 1.1.13 Opening John Doe's File in the CMS
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Skill Activity — from raw file to an active matter  
@@ -714,7 +1069,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 The CMS New Case screen as a large mock-up on the left two-thirds: a Conflict Check panel at the top with a green LOGGED stamp, then the matter fields (DOL, SOL, client position) with two fields outlined in orange where the draft was wrong. On the right, a vertical checklist of the intake documents (intake sheet, supplement, CMS record, retainer, HIPAA, Police Report), each with a filed tick and its CMS category in mono type.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** 02/09/2026. The raw file from “On the Records” is in: the New Client Intake Sheet, the intake supplement, the signed retainer and claim-specific HIPAA authorization, and the Riverton PD crash report. A colleague keyed a draft intake record into the CMS. Atty. Thorne wants the matter active today.
 
@@ -776,7 +1131,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.10 Voicemails & Recorded Statements: the Action Plan and Direction Packet
+### 1.1.14 Voicemails & Recorded Statements: the Action Plan and Direction Packet
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Skill Activity 1 — work the voicemail, then send what the client gets on day one  
@@ -787,7 +1142,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 An exploded packet: a central navy folder with six document cards fanned around it in a semicircle, each numbered with an orange badge — ① Do's and Don'ts ② Treatment directions ③ Property Damage and rental ④ Communication protocol ⑤ Document retention ⑥ Firm contacts and escalation path — each showing two or three bullet previews in small type. Beneath the fan, a delivery bar of three chips: PREPARED → DELIVERED → LOGGED, the third noting the required date and method.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** 02/10/2026, 8:47 a.m.: a voicemail from John Doe. Dana from Keystone Mutual, Robert Smith's carrier, called him last night and asked to record what happened; he said he'd think about it, and she is calling back today. His neck is still stiff and he hasn't seen anyone. Nothing has reached him from the firm yet.
 
@@ -850,7 +1205,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.11 Onboarding Direction Assignment in System
+### 1.1.15 Onboarding Direction Assignment in System
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Skill Activity 2 — turn directions into tracked tasks  
@@ -861,7 +1216,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 A CMS task board in three columns — ASSIGNED · DUE · VERIFIED — with direction cards moving across them. Each card carries an owner chip (Client or CM), a due date and a small verification icon. Four cards are placed as examples; four wait in the left column for the trainee's owners and dates. One card is deliberately mis-assigned, with the client as owner of a task only the firm can do, and carries a red overdue flag; trainees must catch and reassign it. A slim legend in the right margin maps chip colour to owner.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** John Doe's onboarding packet has been delivered and logged. The directions now need to become tracked obligations, not a document he was sent once.
 
@@ -920,7 +1275,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.12 Whose Rental Is It? The Civic Investigation
+### 1.1.16 Whose Rental Is It? The Civic Investigation
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Skill Activity 3 — investigate the PD and rental claim from the records  
@@ -931,7 +1286,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 An evidence board: four document cards (Police Report, Intake Sheet, Intake Supplement, Keystone PD letter) pinned in a row, each with one highlighted field and a red string running to a central card that reads OWNER · CLAIMANT · OUR CLIENT? with three blank lines.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** 02/11/2026. Keystone PD (Leah Moran) emails the firm to confirm the claimant on the 2019 Honda Civic so a rental can be set up once liability is decided. John Doe calls: he needs a car to get to his first appointment and asks whether the rental is his. Nobody has yet written down whose claim it is.
 
@@ -991,7 +1346,7 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.13 CM Fundamentals Knowledge Check
+### 1.1.17 CM Fundamentals Knowledge Check
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1100,7 +1455,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 1.1.14 PD & Onboarding Knowledge Audit
+### 1.1.18 PD & Onboarding Knowledge Audit
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1143,51 +1498,54 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (15 questions):
+**Auto-graded share of the day's Knowledge Check** (16 questions):
 
 1. The Property Damage carve-out in the LOR lets the adverse carrier talk to the client about:  
    Injuries and treatment · **✓ The Property Damage claim only** · Anything except settlement figures · A Recorded Statement  
    *Only the resolution of the Property Damage claim. Anything else routes to the firm.*
 2. On a rental vehicle, whose coverage provides it?  
    The rental company's self-insurance · **✓ The adverse carrier's Property Damage coverage** · The client's own personal auto policy · The client's Health Plan  
-   *The 3P rental comes from the adverse carrier's Property Damage coverage. The client's own policy is used only where there is no 3P coverage.*
-3. Actual cash value (ACV) is:  
+   *The 3P rental comes from the adverse carrier's Property Damage coverage first. The owner's own policy is the fallback, only where 3P coverage is unavailable.*
+3. The adverse carrier denies liability, so its Property Damage coverage won't pay the rental. What do you check next?  
+   Nothing: the owner pays and the rental is lost for good · **✓ The owner's own policy: Collision or Comprehensive for the vehicle, and Rental Reimbursement coverage** · The passenger's injury claim · The client's Health Plan  
+   *The owner's 1P coverage is next: Collision or Comprehensive for the vehicle, and Rental Reimbursement on the Dec Page. If there is none, the owner pays out of pocket and keeps every receipt, claimed for reimbursement in the Property Damage claim.*
+4. Actual cash value (ACV) is:  
    What is still owed on the loan · **✓ The vehicle's pre-loss market value** · The cost of a new replacement · The Repair Estimate plus storage  
    *Pre-loss market value, not the loan balance and not replacement with new.*
-4. Which document best proves hidden structural damage?  
+5. Which document best proves hidden structural damage?  
    The initial insurance estimate · **✓ The body shop's supplementals on the final bill** · The client's photos of the interior · The tow receipt  
    *Compare the estimate with the final bill: supplementals are often the best proof of hidden structural damage.*
-5. Before any Property Damage outcome is discussed with John Doe, what must be in the file?  
+6. Before any Property Damage outcome is discussed with John Doe, what must be in the file?  
    The carrier's verbal offer · **✓ The written Repair Estimate** · The rental agreement · The client's own estimate  
    *No estimate, no position: get the written Repair Estimate before discussing any outcome with the client.*
-6. Keystone Mutual's adjuster asks John Doe for a Recorded Statement about the crash. What has the firm told him to do?  
+7. Keystone Mutual's adjuster asks John Doe for a Recorded Statement about the crash. What has the firm told him to do?  
    Give it, briefly · Give it, but only about the Civic · **✓ Give no Recorded Statement: all adverse contact routes through the firm** · Give it if the adjuster promises a quick settlement  
    *The client gives no Recorded Statement to the adverse carrier. Only the Property Damage claim is carved out; injuries and the facts of the loss route to the firm.*
-7. A vehicle is a Total Loss when:  
+8. A vehicle is a Total Loss when:  
    The client no longer wants it · **✓ The cost to repair reaches the carrier's threshold measured against its actual cash value** · Any frame damage is found · The repair takes longer than 30 days  
    *Confirm the threshold basis the carrier is applying, in writing. Actual cash value is the pre-loss market value.*
-8. Keystone asks the firm to confirm the claimant on the parked 2019 Honda Civic. From the records, whose Property Damage and rental claim is it?  
+9. Keystone asks the firm to confirm the claimant on the parked 2019 Honda Civic. From the records, whose Property Damage and rental claim is it?  
    John Doe's: he called about the rental first · **✓ The owner's, as the Police Report and the intake records show; John Doe, a passenger who owns no car, has none** · Kevin Alvarez's, as host driver · Robert Smith's carrier decides whose it is  
    *The claim belongs to the vehicle's owner, found in the Police Report's Unit 3 box and the Intake Supplement. A passenger who owns no car has no PD or rental claim; the CM records the finding and tells the attorney.*
-9. An owner is without her car while it is in the shop. Loss of Use is:  
+10. An owner is without her car while it is in the shop. Loss of Use is:  
    Included in the repair payment · **✓ Claimable for each day without a vehicle, measured by a comparable rental, separately from the repair or ACV payment** · Owed only if the car is a Total Loss · Paid by her Health Plan  
    *Loss of Use is a separate claim. Asserting it is counsel's position, and the governing rule is confirmed for the file.*
-10. The Civic sits in storage while its valuation is disputed. Why settle its disposition quickly?  
+11. The Civic sits in storage while its valuation is disputed. Why settle its disposition quickly?  
    **✓ Storage and towing accrue daily and eat the recovery** · Property Damage must be claimed within 30 days · The body shop will sell it · The carrier stops paying the rental at once  
    *Storage and towing charges accrue daily. Document and escalate a disputed valuation; don't argue it ad hoc with the adjuster.*
-11. On 02/18/2026 Keystone authorizes a rental on the Civic. John Doe calls: he needs a car to get to treatment and asks to pick it up. What do you do?  
+12. On 02/18/2026 Keystone authorizes a rental on the Civic. John Doe calls: he needs a car to get to treatment and asks to pick it up. What do you do?  
    Set the rental up in his name: he was in the crash and he is the client · Ask Keystone to open a second rental for him under the BI claim · **✓ Explain that the rental belongs to the Civic's owner, Margaret Doe; as a passenger who owns no car he has no PD or rental claim. Then solve his real problem: his rides to treatment** · Tell him to use his mother's rental as his own until she needs it  
    *Rental follows the vehicle. The Police Report's Unit 3 box names Margaret Doe as the Civic's owner, and John Doe was the Escape's front-seat passenger who owns no car, so the PD and rental claim is hers. Record the finding, tell Atty. Thorne, and treat his need as what it is: transport to care, planned and logged.*
-12. Margaret Doe's rental from Keystone starts 02/18/2026, and her Dec Page sets no longer period. John Doe rides with her to treatment. What goes on the calendar, and why?  
+13. Margaret Doe's rental from Keystone starts 02/18/2026, and her Dec Page sets no longer period. John Doe rides with her to treatment. What goes on the calendar, and why?  
    Nothing: the rental is her claim, so its end is no concern of John Doe's file · **✓ The rental's last covered day, 03/19/2026 (usually 30 days at most), as a treatment risk, with John Doe's rides planned before it** · A request to extend the rental in John Doe's name · The rental's end at settlement  
    *Coverage usually runs 30 days at most unless the Dec Page says otherwise. The rental is Margaret Doe's, not John Doe's, but its cutoff takes away his ride to care, so the Case Plan calendars 03/19/2026 as a treatment risk and the rides are planned before it.*
-13. Keystone authorizes a compact car for the Civic; Margaret Doe picks up an SUV. Who pays the difference?  
+14. Keystone authorizes a compact car for the Civic; Margaret Doe picks up an SUV. Who pays the difference?  
    Keystone, as the adverse carrier · **✓ The owner: the authorization covers a comparable vehicle, not an upgrade** · The firm, from its costs · Harbor Point, under John Doe's PIP  
    *The authorization covers a comparable vehicle at the authorized daily rate; an upgrade's difference is the owner's cost. Confirm the vehicle class before pickup.*
-14. Margaret Doe asks whether the law firm will rent her a car while the Civic is repaired. What do you tell her?  
+15. Margaret Doe asks whether the law firm will rent her a car while the Civic is repaired. What do you tell her?  
    Yes: the firm advances it and recovers it at settlement · **✓ No: a rental is part of the Property Damage claim, paid by the carrier; the firm coordinates it with Keystone and never provides or pays for it** · Yes, but only for 30 days · No: rentals are never covered after a collision  
    *Rental falls under the Property Damage claim. The carrier's PD coverage pays it on accepted liability; the firm's part is to coordinate it with the carrier and record the authorization, rate and days.*
-15. Keystone's teardown supplement on the Civic adds $2,315.00 for A-pillar structural damage. Why does it matter beyond the repair bill?  
+16. Keystone's teardown supplement on the Civic adds $2,315.00 for A-pillar structural damage. Why does it matter beyond the repair bill?  
    It doesn't: Property Damage and the injury claim never touch · It raises the firm's fee · **✓ Structural damage is physical proof of how hard the impact was, which answers a low-impact defense to the injury claim** · It makes the Civic a Total Loss  
    *Property Damage severity feeds the injury claim in every phase: the supplemental proves hidden structural damage, the physical evidence of the force. At $9,255.00 against a $13,200.00 threshold the Civic is still repairable.*
 

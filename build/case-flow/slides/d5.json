@@ -589,5 +589,73 @@
       "Why is the fee **40% on this file**, which document says so, and who confirms it?",
       "Peach State: $1,240.00 on Track A, $1,116.00 on Track B. **Show both reductions**."
     ]
+  },
+  "d5m1-subp": {
+    "image": "legal-filing",
+    "hook": "A subpoena **reaches evidence outside the suit**; a careless one loses it.",
+    "points": [
+      "Notice **Atty. Mercer first**, then serve the custodian",
+      "Exhibit A: **one subject, exact dates**, named record types",
+      "Every production lands **before 05/28/2027**",
+      "Trial subpoenas only for **witnesses Atty. Thorne names**"
+    ],
+    "upl": "You draft, notice, serve and track; Atty. Thorne decides, signs and sets scope",
+    "job": [
+      [
+        "Request refused or custodian needed",
+        "Ask: “Do you want a subpoena?”",
+        "CMS → Tasks → Escalate",
+        "Routed before anything is drafted"
+      ],
+      [
+        "Subpoena approved",
+        "Notice Atty. Mercer, then serve",
+        "Action Plan Editor → Subpoena template",
+        "Notice dated before service"
+      ],
+      [
+        "Every 10 days, subpoena open",
+        "Review row; call 5 days out",
+        "CMS → Litigation → Subpoena log",
+        "Dated reading; misses routed"
+      ]
+    ],
+    "dos": [
+      "Count back **from 05/28/2027** before drafting",
+      "Route defense subpoena notices **the same day**",
+      "Keep trial witnesses' **contact details current**"
+    ],
+    "donts": [
+      "Serving the custodian **before Atty. Mercer has notice**",
+      "An Exhibit A asking for **“all records of any kind”**",
+      "A trial subpoena for **an unnamed witness**"
+    ]
+  },
+  "d4m1-efile": {
+    "image": "legal-filing",
+    "situation": "09/22/2026, Track B. Atty. Thorne approved **his Complaint** this morning. Filing target **09/24/2026**. A 09/15 draft, unsigned, sits in the CMS.",
+    "steps": [
+      "Tag Nadia Brooks in **CMS → Tasks**: cover sheet, summons",
+      "Check **every signature** before you upload",
+      "Submit the envelope in **Court E-Filing**: $218.00",
+      "Record **26-CV-04417** in the Pleadings Log and Documents",
+      "Calendar service, the conference and **answer: set on service**"
+    ],
+    "deliver": "A signed set filed as **26-CV-04417**, recorded and calendared",
+    "purpose": "An unsigned page or an uncalendared date can **sink the suit**",
+    "principle": "Nothing is filed **until Atty. Thorne signs**",
+    "checks": [
+      "Task names documents, source, **due date** and signer",
+      "The **09/15/2026 draft** never uploaded",
+      "Costs **$486.75 + $218.00 = $704.75**",
+      "Service deadline **01/22/2027 (Fri)** with alerts",
+      "CMC **12/10/2026, 9:00 a.m.**, Atty. Thorne attending"
+    ],
+    "dos": [
+      "Calendar from **the accepted filing**, not the target"
+    ],
+    "donts": [
+      "Docketing an answer date **before service**"
+    ]
   }
 }

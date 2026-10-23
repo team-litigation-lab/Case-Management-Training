@@ -1043,5 +1043,42 @@
    }
   ],
   "pages": []
- }
+ },
+  "d2m2-pip": {
+    "lead": "PIP pays regardless of fault, so a BI settlement must account for it: **where PIP is spent**, how fast, and whether it is credited or repaid.",
+    "concepts": [
+      {
+        "term": "The Set-Off (The Credit)",
+        "text": "The law prevents double recovery: Gross Settlement Value − PIP Paid = **Defendant's Remaining Liability**, where set-off applies",
+        "more": [
+          "On a typical file: $60,000 − $10,000 PIP paid = $50,000 left for the defendant",
+          "Riverton is add-on: PIP **does not reduce BI or UM**",
+          "Harbor Point, 03/02/2026: no reimbursement right, no PIP non-duplication reduction",
+          "Whether a set-off is argued is Atty. Thorne's call"
+        ]
+      },
+      {
+        "term": "Speed of Exhaustion",
+        "text": "BI adjusters read PIP as **a severity signal**: a limit spent in days on ER bills reads as serious"
+      },
+      {
+        "term": "The EMC Benefit Ceiling",
+        "text": "In EMC states, PIP without an Emergency Medical Condition finding is **capped lower**, for example $2,500 of $10,000",
+        "more": [
+          "The finding is the treating physician's clinical judgment",
+          "Check the first treating records for it **early in treatment**",
+          "No finding: more bills fall to the Health Plan, LOPs and the BI settlement",
+          "John Doe's Harbor Point PIP has no EMC ceiling"
+        ]
+      },
+      {
+        "term": "Strategic Exhaustion",
+        "text": "PIP spent on **non-negotiable hard costs** first; LOP providers reduce at the end more readily than hospitals"
+      }
+    ],
+    "pages": [
+      "D2#22",
+      "D2#26"
+    ]
+  }
 }

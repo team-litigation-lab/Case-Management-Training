@@ -451,5 +451,41 @@
     "You tell him the firm will recover all of it."
    ]
   ]
- }
+ },
+  "d2m2-pip": {
+    "dos": [
+      [
+        "Harbor Point's PIP adjuster explains its position by phone.",
+        "Whether PIP wants its money back changes John Doe's net.",
+        "On 03/02/2026 a signed letter from the carrier lands on the file."
+      ],
+      [
+        "Summit Imaging's MRI shows $2,395.00 in two places on the file.",
+        "The Specials need the charge; the balances need the payment.",
+        "A single CMS row carries both figures side by side."
+      ],
+      [
+        "A new file comes in from a state with a PIP cap.",
+        "Some PIP limits pay in full only with a physician's finding.",
+        "The first urgent-care records are on your desk this week."
+      ]
+    ],
+    "donts": [
+      [
+        "Lakeside's 03/05/2026 visit sits in the balances column.",
+        "Harbor Point's check for that visit cleared weeks ago.",
+        "The ledger still lists $640.00 owed on that date of service."
+      ],
+      [
+        "An adjuster asks for the total medical figure on a call.",
+        "The answer given is the billed total, nothing more.",
+        "Five Harbor Point checks go unmentioned, and credibility drops."
+      ],
+      [
+        "A file sits in a state with a PIP cap.",
+        "The first records carry no emergency medical condition note.",
+        "A call goes to the doctor suggesting what the chart could say."
+      ]
+    ]
+  }
 }

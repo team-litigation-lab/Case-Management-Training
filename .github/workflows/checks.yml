@@ -48,8 +48,10 @@ jobs:
         run: node build/case-flow/scripts/assemble.cjs --check
       - name: Case Flow simulation (an event for every activity, a call in every Case Phase, fallout, the timeline; the assembled file in step)
         run: node build/case-flow/sim/assemble.cjs --check
-      - name: Case Flow exhibit audits (the draft set, the completed package, the service confirmation; the assembled file in step)
+      - name: Case Flow exhibit audits (the draft set, the completed package, the service confirmation, the amendment requests; the assembled file in step)
         run: node build/case-flow/exhibits/assemble.cjs --check
+      - name: Document inventory (every planted challenge can be caught and fixed in the course; corrected copies have a request behind them; the inventory in step)
+        run: node build/case-flow/documents/inventory.cjs --check
       - name: Defined terms capitalized as specified (build/case-flow/terms.json)
         run: node build/case-flow/terms.cjs --check
       - name: The generated files are in step with the lesson data (one rebuild changes nothing)
@@ -119,6 +121,14 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/exhibit-audit.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: The pre-demand Amendment Requests (records screened, requests refused until complete, the corrected copy opened, filed and fed back; the CMS answered by the test)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/amend-requests.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: File in the CMS from the document viewer (beside Download PDF; the CMS opens in a new tab, signed in; the CMS answered by the test)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/doc-viewer-file.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: Notes & Action Plan (the voicemail transcribed and the plan graded with their answer keys; the plan worked in the Email Simulator)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules

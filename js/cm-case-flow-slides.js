@@ -1216,7 +1216,7 @@ window.CM_CF_SLIDES = {
      "term": "Rental",
      "text": "Confirm who authorizes it and the daily cap; **usually 30 days maximum** unless the Dec Page says otherwise",
      "more": [
-      "Whose coverage pays: the adverse carrier's Property Damage coverage; the owner's own policy only if none",
+      "Whose coverage pays: the adverse carrier's PD coverage first; then the owner's Collision and Rental coverage; else out of pocket",
       "Who authorizes it, and whether the policy carries **a rental reimbursement endorsement**",
       "The daily rate cap, recorded before the client collects a vehicle: anything above it is the client's cost",
       "The duration: usually 30 days at most, unless the Dec Page says otherwise",
@@ -1298,7 +1298,7 @@ window.CM_CF_SLIDES = {
   "hook": "A rental collected **on a promise** becomes the client's bill.",
   "points": [
    "Rental is on **the owner's PD claim**: Margaret Doe's, not John's",
-   "The carrier's **PD coverage** pays; the firm only coordinates",
+   "**3P PD** first; then 1P Collision/Rental; else out of pocket",
    "Confirm authorizer, rate cap and **duration in writing** first",
    "Coverage is **usually 30 days** unless the Dec Page differs"
   ],
@@ -1340,13 +1340,14 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Whose Coverage Pays",
-     "text": "The adverse carrier's Property Damage coverage pays the 3P rental; the owner's policy **only if there's none**",
+     "text": "3P Property Damage coverage first; if unavailable, the owner's **1P Collision and Rental coverage**; otherwise out of pocket",
      "more": [
-      "On accepted liability, the adverse carrier's Property Damage coverage provides the rental: here, Keystone's",
-      "The law firm never provides or pays for a rental: it **coordinates with the carrier**",
-      "The owner's own policy, or the rental company's self-insurance, only where there is no 3P coverage",
-      "For example, a liability denial, or a dispute over fault still open",
-      "Get the carrier's rental authorization in writing before the client collects a car"
+      "First, 3P: on accepted liability, the adverse carrier's Property Damage coverage provides the rental. Here, Keystone's",
+      "Unavailable when liability is denied or disputed, the at-fault driver has no PD coverage, or its limit is used up",
+      "Then 1P: check the owner's **Collision or Comprehensive** for the vehicle, and Rental Reimbursement coverage on the Dec Page",
+      "The 1P carrier pays, then pursues the at-fault party; the owner's deductible is claimed back the same way",
+      "No coverage at all: the owner pays **out of pocket**. Keep every receipt for reimbursement in the PD claim",
+      "Get each carrier's rental authorization in writing before pickup: the firm **coordinates it**, never provides or pays for it"
      ]
     },
     {
@@ -1371,7 +1372,7 @@ window.CM_CF_SLIDES = {
     "steps": [
      {
       "label": "Whose Coverage Pays the Rental?",
-      "text": "The adverse carrier's **Property Damage** coverage pays the 3P rental; the client's policy only if none"
+      "text": "3P **Property Damage** first; if unavailable, the owner's 1P Collision and Rental; else out of pocket"
      },
      {
       "label": "Who Authorizes?",
@@ -1384,9 +1385,13 @@ window.CM_CF_SLIDES = {
      {
       "label": "Duration Limit",
       "text": "Usually 30 days max unless the Dec Page differs: **uncovered days are the client's cost**"
+     },
+     {
+      "label": "No Coverage? Keep Receipts",
+      "text": "The owner pays out of pocket: keep **every receipt**, claimed for reimbursement in the PD claim"
      }
     ],
-    "note": "All four go in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
+    "note": "Every check goes in the CMS before collection; the LOR carve-out lets the carrier discuss only Property Damage."
    }
   },
   "clues": {
@@ -1612,6 +1617,750 @@ window.CM_CF_SLIDES = {
      "A new file's liability facts look murky after the verification call.",
      "No summary goes to Atty. Thorne, and no decision gets recorded.",
      "Weeks pass with the file parked, neither accepted nor escalated."
+    ]
+   ]
+  }
+ },
+ "d1m4-tplan": {
+  "image": "medical-visit",
+  "hook": "Assess **the whole person** first, or the plan treats a chart and misses the barrier.",
+  "points": [
+   "Assess **four domains**: clinical, social, pre-morbid, vocational",
+   "Establish the **pre-morbid baseline**; request prior records, never hide them",
+   "Draft **SMART goals**; the provider confirms the measure and date",
+   "Map care in four groups; **calendar every transition**"
+  ],
+  "upl": "Record and coordinate; diagnosis, treatment and psychological care are the provider's call",
+  "job": [
+   [
+    "Intake call complete",
+    "Record four-domain assessment",
+    "CMS → Case Notes",
+    "All four domains dated"
+   ],
+   [
+    "Assessment recorded",
+    "Draft SMART goals, care groups",
+    "Action Plan Editor",
+    "Measure, date, owner on each"
+   ],
+   [
+    "Social risk found",
+    "Calendar it as treatment risk",
+    "Calendar · Risk Flags",
+    "Dated before it's a gap"
+   ]
+  ],
+  "dos": [
+   "Record the assessment **in his own words**, dated",
+   "Ask about prior injuries **plainly and early**",
+   "Record an empty care group as **“none ordered”**"
+  ],
+  "donts": [
+   "Building the plan **from medical records only**",
+   "A goal like “reduce pain” with **no measure or date**",
+   "Calling a prior condition **“unrelated” or “aggravated”**"
+  ],
+  "theory": {
+   "lead": "Before a plan can be built, understand the **whole person**: more than the medical records. Then set defensible goals and map the interventions they need.",
+   "concepts": [
+    {
+     "term": "Whole-Person Assessment",
+     "text": "The person, not just the chart: assessment is **more than reviewing records**, and it comes before the plan"
+    },
+    {
+     "term": "Clinical Evaluation",
+     "text": "Physical, **cognitive and psychological** impairments, recorded as reported and documented, never diagnosed by you",
+     "more": [
+      "John Doe today: “neck stiffness” on the EMS Run Report, and he **declined transport**",
+      "No treatment yet, so record his symptoms in his own words, with the date"
+     ]
+    },
+    {
+     "term": "Social Determinants",
+     "text": "Housing, family support, financial stability: **the barriers** that turn a plan into a Treatment Gap",
+     "more": [
+      "He lives with his mother, Margaret Doe, at 2214 Maple Hollow Rd",
+      "He owns no car, and **Margaret's Civic** was damaged in the crash",
+      "Ask how he will reach care, and whether cost is stopping him"
+     ]
+    },
+    {
+     "term": "Pre-Morbid Status",
+     "text": "The client's baseline: it **separates a pre-existing condition** from an accident-related injury",
+     "more": [
+      "Ask about every prior injury, treatment and claim, with dates and providers",
+      "**Request the prior records**; never leave them for the defense to find",
+      "Whether a prior condition was aggravated is the provider's opinion and Atty. Thorne's argument"
+     ]
+    },
+    {
+     "term": "Vocational/Educational Outlook",
+     "text": "Can the client return to the previous role, or will he **need retraining**?",
+     "more": [
+      "Northgate Distribution warehouse shift lead since 01/12/2026",
+      "**$22.00/hour, 8-hour shifts**; record the job's physical demands in his words"
+     ]
+    },
+    {
+     "term": "Defensible Goals",
+     "text": "In a PI file, goals must satisfy **clinicians and adjusters alike**: an objective measure and a date"
+    },
+    {
+     "term": "Care Coordination Strategy",
+     "text": "Maps the specific interventions the goals need, in **four standard groups**",
+     "more": [
+      "Acute/Restorative Care: surgery, physiotherapy, occupational therapy",
+      "Psychological Support: counseling or CBT for PTSD, anxiety or **adjustment disorders**",
+      "Durable Medical Equipment: sourcing wheelchairs, ramps or assistive technology",
+      "Rehabilitation Milestones: inpatient to outpatient to home-based care"
+     ]
+    },
+    {
+     "term": "Rehabilitation Milestones",
+     "text": "Inpatient to outpatient to home-based care: **each transition** is where a gap can open",
+     "more": [
+      "John Doe declined transport, so his care would begin as outpatient care",
+      "Calendar each handoff and **confirm the first visit** happened"
+     ]
+    }
+   ],
+   "pages": [
+    "D1#36",
+    "D1#37"
+   ],
+   "framework": {
+    "title": "SMART Goal Setting",
+    "kind": "table",
+    "head": [
+     "Attribute",
+     "What it means",
+     "In a PI case"
+    ],
+    "rows": [
+     [
+      "Specific",
+      "Name the function, not “get better”",
+      "“Ambulate 50 meters with a rolling walker,” not “improve mobility”"
+     ],
+     [
+      "Measurable",
+      "A standardized scale an adjuster can verify",
+      "ROM %, ODI/VAS, FIM, PHQ-9, sessions attended"
+     ],
+     [
+      "Achievable",
+      "Realistic for the injury and the prognosis",
+      "The provider's prognosis sets the target, never the claim"
+     ],
+     [
+      "Relevant",
+      "Tied directly to the injuries claimed",
+      "Daily living and return to work"
+     ],
+     [
+      "Time-bound",
+      "A clear milestone to review against",
+      "“By the 12-week review”; “ROM up 30% within two months”"
+     ]
+    ],
+    "note": "Defensible to clinicians and adjusters alike: the provider sets target and measure; the CM writes the goal into the Case Plan."
+   }
+  },
+  "clues": {
+   "dos": [
+    [
+     "It's 02/09/2026, and John Doe is describing his neck on the intake call.",
+     "Your note quotes his description word for word, not your summary of it.",
+     "The note is dated and sits beside the Run Report's “neck stiffness”."
+    ],
+    [
+     "The intake call reaches John Doe's medical history.",
+     "You ask whether he has ever hurt his neck or back before.",
+     "Any providers and dates he names go in the file, with requests sent."
+    ],
+    [
+     "The care coordination section of the Case Plan lists four groups.",
+     "No provider has prescribed equipment or counseling for John Doe.",
+     "Those two lines carry a dated note saying so, instead of sitting blank."
+    ]
+   ],
+   "donts": [
+    [
+     "A colleague drafts John Doe's Clinical pillar from the EMS Run Report alone.",
+     "Nothing in it says how he will reach appointments without a car.",
+     "His job's physical demands at Northgate appear nowhere."
+    ],
+    [
+     "The Functional pillar needs a goal for John Doe's return to work.",
+     "The draft reads: “Reduce pain and get back to normal.”",
+     "No scale, no number and no review date sit beside it."
+    ],
+    [
+     "On a typical file, a new client mentions an old injury at intake.",
+     "The CM's note declares it has no link to the crash.",
+     "No provider has said so, and Atty. Thorne hasn't seen it."
+    ]
+   ]
+  }
+ },
+ "d1m4-tmap": {
+  "image": "medical-visit",
+  "hook": "Know where he **should be on the map**, and you'll see the drift before the adjuster.",
+  "points": [
+   "Locate him every check-in: **phase and week**, counted from the DOL",
+   "Not improving? **Name the variance**: clinical, psychosocial or systemic",
+   "Measure function: Oswestry/DASH, PHQ-9/GAD-7, FCE; **the provider orders them**",
+   "No gain by week 6? **Ask the provider now**, before a denial"
+  ],
+  "upl": "You track and ask; **the provider decides care**, Atty. Thorne what it means",
+  "job": [
+   [
+    "Every check-in",
+    "Locate phase and week; ask “improving?”",
+    "Case File → Treatment timeline",
+    "Phase, week, answer, date logged"
+   ],
+   [
+    "Not improving or stop skipped",
+    "Classify variance; ask provider's office",
+    "Medical Records Requests · Case Notes",
+    "Variance named; answer on file"
+   ],
+   [
+    "Variance that can cost claim",
+    "Report facts to Atty. Thorne",
+    "Case File → Risk Flags",
+    "Routed same day, facts only"
+   ]
+  ],
+  "dos": [
+   "Write **phase and week** at the top of every note",
+   "Report **what he can't do**, not just diagnoses",
+   "Request the objective measures **before the six-week mark**"
+  ],
+  "donts": [
+   "Letting care drift **with no reason on file**",
+   "Calling a systemic delay **client non-compliance**",
+   "**Waiting for a denial** before you course-correct"
+  ],
+  "theory": {
+   "lead": "Mastering the Standard Treatment Map separates a Case Manager who **observes a recovery from one who drives it**: deviations trigger denials and IMEs.",
+   "concepts": [
+    {
+     "term": "The Standard Treatment Map",
+     "text": "The usual route of care after a crash, from EMS to long-term pain management, read **stop by stop**",
+     "more": [
+      "Emergency response: EMS and the emergency room stabilize and assess",
+      "Diagnostics: MRI and radiology find the underlying injury",
+      "Rehabilitation: chiropractic care and physical therapy",
+      "Surgical interventions: orthopedics, pain management and, by severity, surgery and post-operative care",
+      "Long-term care: long-term pain management that sustains recovery and prevents relapse",
+      "A skipped or out-of-order stop needs **a documented clinical reason**"
+     ]
+    },
+    {
+     "term": "The Clinical Pathway",
+     "text": "At each check-in one question, **“Is the patient improving?”**: yes continues the map, no opens the variance loop",
+     "more": [
+      "Phase 1: verify PIP and put the mechanism of injury (MOI) on record",
+      "Phase 2: conservative care and imaging, with “Is the patient improving?” asked at every check-in",
+      "No: the variance loop. Medication or injections, an ortho or neuro referral, a psychological screen for yellow flags",
+      "Phase 3: work hardening, an FCE, and whether surgery is indicated",
+      "Phase 4, MMI: the impairment rating, final lien resolution, settlement support",
+      "Every branch is **the provider's decision**; you raise it and record the answer"
+     ]
+    },
+    {
+     "term": "Variance Analysis",
+     "text": "When care drifts off the map, **diagnose the why** before the insurer stops paying for it",
+     "more": [
+      "Clinical: a secondary complication, such as radiating nerve pain that wasn't in the first report",
+      "Psychosocial: yellow flags such as fear-avoidance, depression or no transport to therapy",
+      "Systemic: an insurer's delay authorizing an MRI or a specialist referral",
+      "The fix depends on the type: **a systemic delay is not non-compliance**"
+     ]
+    },
+    {
+     "term": "Reasonable and Necessary",
+     "text": "The utilization-review test: usual for the mechanism of injury, with **objective functional gain**, not pain alone",
+     "more": [
+      "Reasonable: is the treatment common for this mechanism of injury (MOI)?",
+      "Necessary: is there objective evidence, not just reported pain, that function is improving?",
+      "Necessity is **the provider's opinion**, argued by Atty. Thorne; you put the measures on file"
+     ]
+    },
+    {
+     "term": "The 6-Week Rule",
+     "text": "Adjusters look for a functional gap at week 6: expect **20–30% more range of motion** or less pain",
+     "more": [
+      "Count the six weeks from the first visit, not from the date of loss",
+      "Pain is scored on the VAS, from zero to ten",
+      "Still 10/10 after 12 PT sessions? **Raise it with the provider now**",
+      "Don't wait for the adjuster to deny the next six sessions"
+     ]
+    },
+    {
+     "term": "The Red Flag Rule",
+     "text": "No change in the disability index after 12 weeks of PT is **a plateau**: ask about a specialist",
+     "more": [
+      "The map's answer to a plateau is a specialist or a second opinion, not more of the same",
+      "Whether to refer is **the provider's call**; you ask and record the answer"
+     ]
+    },
+    {
+     "term": "Objective Metrics",
+     "text": "Standard measures that put recovery in numbers an insurer reads; **the provider chooses and orders them**",
+     "more": [
+      "Oswestry (low back) or DASH (arm, shoulder, hand): disability in daily activities, every 30 days",
+      "Gait analysis: mobility and fall risk, for lower-extremity injuries",
+      "PHQ-9 / GAD-7: depression and anxiety screens, when physical progress stalls",
+      "FCE, the Functional Capacity Evaluation: before return to work or at MMI",
+      "A screen that puts mental health in the record is **flagged to Atty. Thorne**"
+     ]
+    },
+    {
+     "term": "The Stakeholder Triad",
+     "text": "You route information between clinic, counsel and payer; **one broken loop** can stall a case for months",
+     "more": [
+      "Clinical loop: therapy notes match the physician's orders; “90% recovered” against “total disability” is a documentation crisis",
+      "Ask both providers to clarify a conflict and tell Atty. Thorne; **never resolve it yourself**",
+      "Legal loop: status reports to Atty. Thorne in functional terms, what he can't do at work and home",
+      "Financial loop: update the payer before a referral or authorization lapses, so a lapse isn't read as non-compliance"
+     ]
+    }
+   ],
+   "pages": [
+    "D1#40",
+    "D1#46"
+   ],
+   "framework": {
+    "title": "The Standard Treatment Map",
+    "kind": "table",
+    "head": [
+     "Phase",
+     "Timeline",
+     "Typical interventions",
+     "Case Management focus"
+    ],
+    "rows": [
+     [
+      "Acute",
+      "Days 1–14",
+      "ER or urgent care, imaging (MRI/CT), bracing, RICE, initial PT",
+      "Establishing causation (the MOI) and **PIP coverage**"
+     ],
+     [
+      "Sub-acute",
+      "Weeks 2–8",
+      "Active PT 2–3 times weekly, specialist follow-up",
+      "Monitoring functional gains: range of motion, weight-bearing"
+     ],
+     [
+      "Restorative",
+      "Weeks 9–24 (months 2–6)",
+      "Work hardening, injections, psychological adjustment",
+      "Identifying barriers to return to work"
+     ],
+     [
+      "Maintenance",
+      "6 months+",
+      "Home exercise program, as-needed (PRN) visits",
+      "Determining Maximum Medical Improvement (MMI)"
+     ],
+     [
+      "MMI / discharge",
+      "When the provider declares it",
+      "Permanent impairment rating; an FCE if ordered",
+      "Final lien resolution and settlement support for Atty. Thorne"
+     ]
+    ],
+    "note": "Every intervention is the provider's order; the Case Manager tracks the phase, spots the variance and asks."
+   }
+  },
+  "clues": {
+   "dos": [
+    [
+     "You open a fresh note after a call with John Doe.",
+     "A colleague reading it later needs to place him on the map.",
+     "The first line reads: acute, day 3 from the DOL."
+    ],
+    [
+     "Atty. Thorne asks for a status update on a client.",
+     "The provider's note lists a diagnosis and a pain score.",
+     "Your update says lifting at work and sleeping are now limited."
+    ],
+    [
+     "Care has started and the weeks of visits are adding up.",
+     "The adjuster will look for a functional gain at week 6.",
+     "At week 4 you ask the office for range of motion and pain scores."
+    ]
+   ],
+   "donts": [
+    [
+     "A client's visits taper off over a few weeks.",
+     "The chart shows the plan changed, but nobody asked the provider why.",
+     "Months later the defense finds the change and an empty note."
+    ],
+    [
+     "A referral for imaging sits waiting on an insurer's approval.",
+     "Visits stall for three weeks while the paperwork moves.",
+     "Your note puts the missed visits down to him."
+    ],
+    [
+     "Twelve therapy sessions in, the pain score still reads 10/10.",
+     "You note it and plan to see what the adjuster says.",
+     "The next six sessions are refused before anyone called the provider."
+    ]
+   ]
+  }
+ },
+ "d1m4-tcare": {
+  "image": "client-call",
+  "roadmap": {
+   "title": "Keeping Him in Care: the Roadmap",
+   "steps": [
+    {
+     "label": "Read the records",
+     "text": "Red flags by specialty: PT, surgery, medication, behavioral health"
+    },
+    {
+     "label": "Listen on the calls",
+     "text": "Yellow flags, written **in his own words**"
+    },
+    {
+     "label": "Talk with OARS",
+     "text": "Open questions, affirmations, reflections, summaries"
+    },
+    {
+     "label": "Work the plateau",
+     "text": "Re-engage him on his goal; ask whether the plan fits"
+    },
+    {
+     "label": "Route it",
+     "text": "Medical danger to the provider, legal to Atty. Thorne; A-C-T"
+    }
+   ]
+  },
+  "hook": "You read every record and hear every call: **spot the flag, route it**, keep him engaged.",
+  "points": [
+   "Red flags by specialty: **PT, surgery, medication, behavioral health**",
+   "Yellow flags: fear-avoidance, catastrophizing, litigation stress, **passive-care reliance**",
+   "Run every contact on **OARS**; roll with resistance, don't argue",
+   "At the plateau, **re-engage on his goal**; it's usually the plan"
+  ],
+  "upl": "Report flags; **the provider decides** care; MI is never medical or legal advice",
+  "job": [
+   [
+    "Record or bill arrives",
+    "Read it against red flags",
+    "CMS → Case File → Risk Flags",
+    "Flag logged with source, date"
+   ],
+   [
+    "Medical-danger flag spotted",
+    "Tell the provider today",
+    "Phone · CMS → Case Notes",
+    "Provider told same day"
+   ],
+   [
+    "Check-in once care starts",
+    "Run OARS; quote yellow flags",
+    "Call Simulator → AI John Doe",
+    "GIRP note same day"
+   ]
+  ],
+  "dos": [
+   "Ask **specific questions**: visits, pain score, function",
+   "Write yellow flags **in his own words**, dated",
+   "Raise medication facts with the provider, **never as accusations**"
+  ],
+  "donts": [
+   "**Arguing with resistance**, or warning him about his case",
+   "Reporting a yellow flag **with no plan**",
+   "Treating late head-injury symptoms **as proof** before validation"
+  ],
+  "theory": {
+   "lead": "Know the standard US treatment protocols so you can see **a deviation**: in the records as red flags, on the phone as yellow flags.",
+   "concepts": [
+    {
+     "term": "Red Flag",
+     "text": "A deviation from standard treatment that signals **medical danger**, a stagnating case, or over-treatment for billing",
+     "more": [
+      "Medical danger (fever, hardware failure) goes to the provider **the same day**",
+      "Legal danger (missed visits, generic notes) goes to Atty. Thorne",
+      "Once a flag is spotted, A-C-T runs: Assess, Coordinate, Track"
+     ]
+    },
+    {
+     "term": "PT & Conservative Care",
+     "text": "PT is **the baseline of treatment**; its flags signal a case stagnating or over-treated for billing",
+     "more": [
+      "Over 12 sessions with no range-of-motion or pain change, and no specialist or imaging suggested",
+      "Heat packs, TENS or massage with **no active exercise**: feel-good care adjusters discount",
+      "Two or more missed visits: the defense reads an injury not serious enough to treat"
+     ]
+    },
+    {
+     "term": "Surgical Protocols",
+     "text": "Surgery is a claim's most valuable element; its flags concern **safety and Standard of Care**",
+     "more": [
+      "Surgery such as a spinal fusion before PT or injections, outside an emergency: **a Reasonable Necessity flag**",
+      "Left and right switched in the records: credibility damage at trial",
+      "“Just wait until the follow-up” for fever or redness: a malpractice concern",
+      "Sharp or mechanical pain after surgery may mean a loose screw or retained sponge; the provider hears it today"
+     ]
+    },
+    {
+     "term": "Pain Management & Medication",
+     "text": "The most scrutinised area of care, under opioid regulations and **Medical Necessity audits**",
+     "more": [
+      "Opioid + muscle relaxant + sedative, “the Holy Trinity”: a safety risk, and a liability if he has an accident medicated",
+      "Doses rising with no change in diagnosis: failing treatment or forming dependency",
+      "A drug screen without the prescribed drug, or with an illicit one: **facts to the prescriber**, never an accusation"
+     ]
+    },
+    {
+     "term": "Behavioral Health / TBI",
+     "text": "High-value cases handled with **utmost discretion**: claims must be tied to the accident and validated",
+     "more": [
+      "Notes on “general life stress”, not the accident's trauma: rarely covered, and costs challenged as unreasonable",
+      "No memory loss at the ER, then significant symptoms months later: **the provider validates** before anyone relies on it",
+      "Record the date each symptom was first reported, and tell Atty. Thorne"
+     ]
+    },
+    {
+     "term": "Yellow Flags",
+     "text": "Psychosocial barriers that **derail the map**, heard in conversation more often than read in records",
+     "more": [
+      "Fear-avoidance: avoiding movement or therapy for fear of pain",
+      "Catastrophizing: “I will never walk again” despite minor clinical findings",
+      "Litigation stress: conflict with the defense side slowing recovery",
+      "Iatrogenic factors: reliance on opioids, or on passive care (ice, heat) over **active exercise**",
+      "Whether a PHQ-9 or GAD-7 screen is indicated is the provider's call"
+     ]
+    },
+    {
+     "term": "Motivational Interviewing",
+     "text": "Keeps a client committed when **the newness wears off**, by drawing out his own reasons to continue",
+     "more": [
+      "OARS: Open-ended questions, Affirmations, Reflective listening, Summaries",
+      "Developing discrepancy: the gap between what he does now and **his long-term goal**",
+      "Rolling with resistance: don't argue, pivot: “That clinic isn't a good fit for you. Let's look at why.”",
+      "Boundaries prevent burnout; active listening means he feels heard"
+     ]
+    },
+    {
+     "term": "The Mid-Treatment Plateau",
+     "text": "At the midpoint, excitement wanes and hard work begins; **adherence drops** unless someone re-engages him",
+     "more": [
+      "Course correction: Assess Response, Evaluate Efficacy, Adjust Intervention",
+      "A client not reaching his goals: **usually the plan**, not the person",
+      "A plan change is proactive management, not an admission; the change itself is the provider's"
+     ]
+    }
+   ],
+   "pages": [
+    "D1#34",
+    "D1#32"
+   ],
+   "framework": {
+    "title": "Treatment Red Flags by Specialty",
+    "kind": "table",
+    "head": [
+     "Specialty",
+     "Red flag",
+     "What it signals"
+    ],
+    "rows": [
+     [
+      "PT & Conservative Care",
+      "Over 12 sessions, no range-of-motion or pain gain, no referral",
+      "A stagnating case"
+     ],
+     [
+      "PT & Conservative Care",
+      "Heat, TENS or massage only; no active exercise",
+      "Over-treatment adjusters discount"
+     ],
+     [
+      "Surgical Protocols",
+      "Surgery advised before PT or injections, outside an emergency",
+      "A Reasonable Necessity flag"
+     ],
+     [
+      "Surgical Protocols",
+      "Post-op fever, redness or sharp pain left “until the follow-up”",
+      "Medical danger: the provider, today"
+     ],
+     [
+      "Pain Management & Medication",
+      "Opioid + relaxant + sedative; doses rising; a drug-screen mismatch",
+      "Safety risk, dependency or diversion"
+     ],
+     [
+      "Behavioral Health / TBI",
+      "“General life stress” notes; head-injury symptoms first reported months later",
+      "Costs challenged; needs the provider's validation"
+     ]
+    ],
+    "note": "Medical danger reaches the provider the same day; legal danger reaches Atty. Thorne. Then A-C-T runs."
+   }
+  },
+  "clues": {
+   "dos": [
+    [
+     "Once John Doe's care starts, you call him between visits.",
+     "“How are you?” gets “Fine” and nothing worth recording.",
+     "Visits kept, the pain score and lifting at work each get asked."
+    ],
+    [
+     "On a check-in, a client says, “I'm done lifting boxes, forever.”",
+     "Your GIRP note could say “catastrophizing”, or it could quote him.",
+     "The note keeps his exact sentence and the date he said it."
+    ],
+    [
+     "A drug screen comes back without the prescribed medication in it.",
+     "The prescriber's office gets a call with dates and one question.",
+     "The client hears no suspicion about it from the Case Manager."
+    ]
+   ],
+   "donts": [
+    [
+     "A client says the clinic is a waste of his time.",
+     "The Case Manager explains, point by point, why he is off base.",
+     "Then adds that missed visits will cost him at settlement."
+    ],
+    [
+     "A client sounds afraid to turn his neck at all.",
+     "An email to the provider reports the fear, and nothing more.",
+     "No question, no next step, no date to follow up."
+    ],
+    [
+     "Months into a case, headaches and memory lapses first appear.",
+     "The ER record from the collision mentions no memory loss.",
+     "The file already treats the new complaint as settled evidence."
+    ]
+   ]
+  }
+ },
+ "d1m4-emc": {
+  "image": "clock-deadline",
+  "hook": "On a Florida file, **the EMC rule** decides PIP within days of the accident.",
+  "points": [
+   "Florida PIP: **$10,000**, paying 80% medical, 60% lost income",
+   "Initial care **within 14 days** of the accident, or no medical benefits",
+   "Only MD, DO, dentist, PA or APRN finds **an EMC**",
+   "No EMC: **capped at $2,500**; Riverton has no EMC rule"
+  ],
+  "upl": "The provider decides the EMC; Atty. Thorne decides what it means",
+  "job": [
+   [
+    "Florida file opened",
+    "Calendar the 14-day deadline",
+    "CMS → Calendar",
+    "Docketed the same day"
+   ],
+   [
+    "First record arrives",
+    "Check date, provider, EMC",
+    "Medical Records Requests",
+    "EMC status logged"
+   ],
+   [
+    "EMC missing or late",
+    "Log bucket; flag Atty. Thorne",
+    "CMS → Insurance tab → PIP Log",
+    "Flag routed same day"
+   ]
+  ],
+  "dos": [
+   "Read **the file's state** before its PIP",
+   "Docket **the 14th day** at intake",
+   "Log **each provider's credential** beside every visit"
+  ],
+  "donts": [
+   "Applying **a $2,500 cap** to Riverton's PIP",
+   "Treating a chiropractor's note as **an EMC determination**",
+   "Telling a client to see a doctor **for the $10,000**"
+  ],
+  "theory": {
+   "lead": "PIP is written state by state. **The EMC rule is Florida's**: 14 days to initial care, and an EMC finding decides $2,500 or $10,000",
+   "concepts": [
+    {
+     "term": "Personal Injury Protection (PIP)",
+     "text": "First-party coverage paid regardless of fault, written **state by state**: limits, percentages and conditions change at the state line",
+     "more": [
+      "Florida PIP: $10,000, paying 80% of reasonable medical expenses and 60% of lost income",
+      "Riverton PIP, John Doe's file: Harbor Point $5,000, paying 100% of medical and 80% of lost income",
+      "Riverton has **no EMC rule** and no 14-day condition"
+     ]
+    },
+    {
+     "term": "Emergency Medical Condition (EMC)",
+     "text": "Acute symptoms, possibly severe pain, serious enough that **no immediate care** could seriously jeopardize health or bodily function",
+     "more": [
+      "Acute symptoms of sufficient severity, which may include severe pain",
+      "Absent immediate care, expected to cause serious jeopardy to health, impairment of bodily functions, or dysfunction of an organ or part",
+      "Whether it exists is **the provider's clinical judgment**"
+     ]
+    },
+    {
+     "term": "The 14-Day Rule",
+     "text": "Florida PIP pays no medical benefits unless initial care is received **within 14 days** after the accident",
+     "more": [
+      "Count from the date of loss and docket the 14th day at intake",
+      "Hypothetical: a 02/06/2026 date of loss puts day 14 on **02/20/2026**, John Doe's first visit"
+     ]
+    },
+    {
+     "term": "The Benefit Ceiling",
+     "text": "An MD, DO, dentist, PA or APRN's EMC finding opens **the full $10,000**; without it, $2,500",
+     "more": [
+      "A chiropractor may give initial care but **cannot make the finding**",
+      "Massage and acupuncture are not reimbursable under Florida PIP",
+      "Confirm the current statute: Florida has repeatedly considered repealing PIP"
+     ]
+    }
+   ],
+   "pages": [
+    "D1#27",
+    "D1#39"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "A new PIP file lands on your desk from intake.",
+     "Florida and Riverton write very different PIP rules.",
+     "You check where the crash happened before reading any limit."
+    ],
+    [
+     "A Florida client calls the firm the week of the crash.",
+     "The date of loss starts a short clock.",
+     "Before hanging up, the deadline goes on the calendar."
+    ],
+    [
+     "Treatment records start arriving from several offices.",
+     "MD, PA-C and DC look alike in a busy log.",
+     "Each visit line shows the letters after the treater's name."
+    ]
+   ],
+   "donts": [
+    [
+     "John Doe asks how much PIP he has left.",
+     "His claim sits under Harbor Point's $5,000 PIP in Riverton.",
+     "The answer quotes a Florida limit for a Riverton file."
+    ],
+    [
+     "A Florida client's first visit was at a chiropractic office.",
+     "The note reads severe neck pain, treated with an adjustment.",
+     "The PIP Log moves to the $10,000 bucket on that note."
+    ],
+    [
+     "A Florida client asks about his PIP benefits by phone.",
+     "The full medical benefit hangs on a provider's finding.",
+     "The call ends with advice to book a physician for the money."
     ]
    ]
   }
@@ -2813,7 +3562,7 @@ window.CM_CF_SLIDES = {
   "checks": [
    "Signed by John Doe and Atty. Thorne **before 02/24/2026**",
    "Baseline: 2021 visits **low back, resolved**; no prior neck",
-   "Rental ends 03/19/2026: **calendared as a treatment risk**",
+   "Rental end 03/19/2026 calendared: after it, **out of pocket**",
    "Decline proved: **$3,675.00 left**, enough for the $2,395.00 MRI",
    "**No payment promised** to either provider"
   ],
@@ -3257,6 +4006,120 @@ window.CM_CF_SLIDES = {
      "A carrier is stalling on a request that blocks therapy.",
      "The office manager and a written carrier notice both get skipped.",
      "The ladder is climbed from the top rung down."
+    ]
+   ]
+  }
+ },
+ "d2m2-pip": {
+  "image": "lien-scale",
+  "hook": "**Where PIP's $5,000 lands** decides what's left for John Doe's net.",
+  "points": [
+   "Spend PIP on **fixed costs**; negotiable care runs under LOPs",
+   "Forecast the shared limit; **routing choices are Atty. Thorne's**",
+   "No EMC finding can **cap PIP** in EMC states",
+   "Riverton's add-on PIP **doesn't reduce BI or UM**"
+  ],
+  "upl": "Forecast and report PIP; routing, set-off and severity arguments are Atty. Thorne's",
+  "job": [
+   [
+    "A PIP check clears",
+    "Record limit left, bills coming",
+    "CMS → PIP Log",
+    "Exhaustion date forecast"
+   ],
+   [
+    "Bill could go PIP or LOP",
+    "Lay out both routes' figures",
+    "Email Workspace",
+    "Atty. Thorne's decision logged"
+   ],
+   [
+    "First treating records arrive",
+    "Check EMC rule and finding",
+    "Medical Records Requests",
+    "Finding or absence flagged"
+   ]
+  ],
+  "dos": [
+   "Get set-off and reimbursement positions **in writing**",
+   "Keep billed and **PIP-paid on one line**",
+   "Check **the EMC rule** early in treatment"
+  ],
+  "donts": [
+   "Counting a PIP-paid bill **as unpaid**",
+   "Quoting the Specials **without the PIP Log**",
+   "Asking a provider **to make an EMC finding**"
+  ],
+  "theory": {
+   "lead": "PIP pays regardless of fault, so a BI settlement must account for it: **where PIP is spent**, how fast, and whether it is credited or repaid.",
+   "concepts": [
+    {
+     "term": "The Set-Off (The Credit)",
+     "text": "The law prevents double recovery: Gross Settlement Value − PIP Paid = **Defendant's Remaining Liability**, where set-off applies",
+     "more": [
+      "On a typical file: $60,000 − $10,000 PIP paid = $50,000 left for the defendant",
+      "Riverton is add-on: PIP **does not reduce BI or UM**",
+      "Harbor Point, 03/02/2026: no reimbursement right, no PIP non-duplication reduction",
+      "Whether a set-off is argued is Atty. Thorne's call"
+     ]
+    },
+    {
+     "term": "Speed of Exhaustion",
+     "text": "BI adjusters read PIP as **a severity signal**: a limit spent in days on ER bills reads as serious"
+    },
+    {
+     "term": "The EMC Benefit Ceiling",
+     "text": "In EMC states, PIP without an Emergency Medical Condition finding is **capped lower**, for example $2,500 of $10,000",
+     "more": [
+      "The finding is the treating physician's clinical judgment",
+      "Check the first treating records for it **early in treatment**",
+      "No finding: more bills fall to the Health Plan, LOPs and the BI settlement",
+      "John Doe's Harbor Point PIP has no EMC ceiling"
+     ]
+    },
+    {
+     "term": "Strategic Exhaustion",
+     "text": "PIP spent on **non-negotiable hard costs** first; LOP providers reduce at the end more readily than hospitals"
+    }
+   ],
+   "pages": [
+    "D2#22",
+    "D2#26"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Harbor Point's PIP adjuster explains its position by phone.",
+     "Whether PIP wants its money back changes John Doe's net.",
+     "On 03/02/2026 a signed letter from the carrier lands on the file."
+    ],
+    [
+     "Summit Imaging's MRI shows $2,395.00 in two places on the file.",
+     "The Specials need the charge; the balances need the payment.",
+     "A single CMS row carries both figures side by side."
+    ],
+    [
+     "A new file comes in from a state with a PIP cap.",
+     "Some PIP limits pay in full only with a physician's finding.",
+     "The first urgent-care records are on your desk this week."
+    ]
+   ],
+   "donts": [
+    [
+     "Lakeside's 03/05/2026 visit sits in the balances column.",
+     "Harbor Point's check for that visit cleared weeks ago.",
+     "The ledger still lists $640.00 owed on that date of service."
+    ],
+    [
+     "An adjuster asks for the total medical figure on a call.",
+     "The answer given is the billed total, nothing more.",
+     "Five Harbor Point checks go unmentioned, and credibility drops."
+    ],
+    [
+     "A file sits in a state with a PIP cap.",
+     "The first records carry no emergency medical condition note.",
+     "A call goes to the doctor suggesting what the chart could say."
     ]
    ]
   }
@@ -4850,6 +5713,133 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
+ "d3m1-pkg": {
+  "image": "documents-audit",
+  "hook": "A package that proves **every claim by function** leaves the adjuster no cheap way out.",
+  "points": [
+   "The Big Four, **flawless before Atty. Thorne reviews** the demand",
+   "Draft the Human Story **from John Doe's words** and records only",
+   "Final Scrub: overlaps, the prior disclosed, **every balance verified** by phone",
+   "Rebuild each UM package **by function**, never the BI re-addressed"
+  ],
+  "upl": "Assemble and draft for review; **figure, terms and causation** are Atty. Thorne's",
+  "job": [
+   [
+    "MMI declared (06/12/2026)",
+    "Request line-item bills; impact statement",
+    "CMS → Tasks · Medical Records Requests",
+    "Every provider requested"
+   ],
+   [
+    "The week of service",
+    "Run the Final Scrub",
+    "CMS → Financial Ledger → Specials",
+    "$16,401.40 ties out, balances confirmed"
+   ],
+   [
+    "Limited Release signed (08/28/2026)",
+    "Rebuild UM packages by function",
+    "Action Plan Editor → UM demand templates",
+    "Two complete packages, indexed"
+   ]
+  ],
+  "dos": [
+   "Write the story in **facts and dates**, not adjectives",
+   "Pair each Property Damage photo with **the injury it explains**",
+   "Keep future ESIs **in the narrative**, not the Specials"
+  ],
+  "donts": [
+   "A **300-page record dump** with no summary",
+   "A narrative that **says more than the records**",
+   "**Hiding the 2021 low-back visits** from the adjuster"
+  ],
+  "theory": {
+   "lead": "A Demand Package is **a presentation of proof by function**: each part answers one adjuster question, and a missing part is the adjuster's discount.",
+   "concepts": [
+    {
+     "term": "The Big Four",
+     "text": "Medical Specials, the Narrative, Liability Proof, Special Damages: **flawless before attorney review**, each with its document",
+     "more": [
+      "Medical Specials: one line per provider and date of service, reconciled to the audit: **$14,817.40**",
+      "The Narrative: the Human Story, how the injury changed his work and daily life",
+      "Liability Proof: RPD-26-018842, Ruth Calloway's statement, the doorbell clip, the Property Damage photos",
+      "Special Damages: Northgate's wage letter ($1,584.00) and out-of-pocket receipts, each tied to a line"
+     ]
+    },
+    {
+     "term": "The Human Story",
+     "text": "How the injury changed work, family and daily life, **told only from his words** and the records",
+     "more": [
+      "A Northgate warehouse shift lead since 01/12/2026; five shifts missed 02/09–02/13 citing neck pain",
+      "Numbness into his right hand from 02/18; his mother drove him to evening therapy from 04/21",
+      "At MMI (06/12/2026): residual intermittent right-arm paresthesia; repeat injections possible within 24 months",
+      "Drafted by the Case Manager for **Atty. Thorne's review**; nothing the records can't carry"
+     ]
+    },
+    {
+     "term": "Weak File vs. Legal Trap",
+     "text": "Raw charts and a casual letter invite a lowball; **a summary with a clock** makes refusing limits risky",
+     "more": [
+      "Weak: 300 pages of raw chiropractic charts. Trap: **a two-page summary** matching each diagnosis to its treatment",
+      "Weak: “Our client hurts, please pay.” Trap: a formal package with future care and a strict response clock",
+      "The clock, the figure and any bad-faith analysis are Atty. Thorne's; the record is yours"
+     ]
+    },
+    {
+     "term": "Documents by Function",
+     "text": "The UM package sorted by what each document proves: **five functions**, from coverage to release",
+     "more": [
+      "Threshold & Coverage: each UM carrier's coverage proof and Keystone's exhaustion proof",
+      "Liability & Causation: the Police Report, scene and Property Damage photos, the neutral witness, the video",
+      "Special Damages: line-item bills, Northgate's wage verification, Peach State's current $1,860.00 ledger",
+      "General Damages: the MRI, the Causation Letter and a **Whole Person Impairment rating**, if Atty. Thorne requests one",
+      "Final Pleading & Release: the formal UM letter; the carrier's Release and Trust Agreement, read for conflicts",
+      "Proof of uninsured status (DMV suspension, a carrier's denial, a phantom vehicle) is for a truly uninsured claim"
+     ]
+    }
+   ],
+   "pages": [
+    "D2#16",
+    "D3#7"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "The draft narrative reaches you for a final read.",
+     "One line calls John Doe's life “devastated.”",
+     "You swap it for five shifts missed, 02/09 to 02/13."
+    ],
+    [
+     "The Civic's teardown found a bent A-pillar.",
+     "The supplement came to $2,315.00, a structural repair.",
+     "Its photo sits beside the C5-C6 herniation on the MRI."
+    ],
+    [
+     "Dr. Reyes notes one or two repeat ESIs may follow.",
+     "Each would cost $3,400 within 24 months.",
+     "The Specials total stays at $16,401.40."
+    ]
+   ],
+   "donts": [
+    [
+     "Riverton Spine & Rehab sends every chart it has.",
+     "The stack runs to hundreds of pages.",
+     "It goes to Keystone with no summary on top."
+    ],
+    [
+     "The story draft is due to Atty. Thorne today.",
+     "It says John Doe can no longer lift anything.",
+     "No chart or note on the file says that."
+    ],
+    [
+     "Birch Avenue Chiropractic treated John Doe in 2021.",
+     "Three appointments, all for low-back stiffness.",
+     "The package leaves them out, hoping Keystone misses them."
+    ]
+   ]
+  }
+ },
  "d3m1-a2": {
   "image": "binder-exhibits",
   "situation": "File date 08/31/2026. Keystone tendered $10,000 limits 08/12; consents came 08/24 and 08/26; the **Limited Release was signed** 08/28. Keystone's **check hasn't arrived**. Keystone had called the MRI “degenerative.”",
@@ -5083,6 +6073,33 @@ window.CM_CF_SLIDES = {
    "Letting a gross that **nets below zero** go unchallenged"
   ]
  },
+ "d3m2-bins": {
+  "image": "money-ledger",
+  "situation": "File date 08/12/2026. Keystone **tendered the $10,000 BI limits** today. Atty. Thorne wants the BI settlement Net Sheet **before John Doe signs** anything; liens are still unreduced.",
+  "steps": [
+   "Enter Stream 1 in the LSH Net Sheet: **gross, fee, costs**",
+   "Enter both liens in the Net Sheet **as they stand today**",
+   "Run **the 25% projection**, labelled, in the Net Sheet",
+   "Run **the BI-alone math** in the Net Sheet: $6,179.92 against $7,965.00",
+   "Route it with **the trust-hold flag** via CMS → Tasks → Escalate"
+  ],
+  "deliver": "A Stream 1 Net Sheet, **projections labelled**, routed to Atty. Thorne on 08/12/2026",
+  "purpose": "Alone, the BI money **nets John Doe $0.00**; Atty. Thorne must see why",
+  "principle": "Today's liens, **labelled projections**; value and strategy stay with Atty. Thorne",
+  "checks": [
+   "Fee **$3,333.33**, not $3,333.00 from 33.33%",
+   "Liens **$7,965.00 unreduced**; reduction column left blank",
+   "Projection labelled: **Stream 1 net $4,553.73**",
+   "BI alone: **$6,179.92 against $7,965.00**, net $0.00",
+   "**Trust-hold flag** routed to Atty. Thorne 08/12/2026"
+  ],
+  "dos": [
+   "Label **every projection** with what it assumes"
+  ],
+  "donts": [
+   "Quoting John Doe **a BI figure** before Atty. Thorne"
+  ]
+ },
  "d3m2-l2": {
   "image": "coverage-check",
   "hook": "John Doe's own carriers will argue against him; **prove the gap above each layer**.",
@@ -5252,6 +6269,33 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Adding **PIP or property-damage payments** to the gross",
    "Depositing a UM check **before its release is signed**"
+  ]
+ },
+ "d3m2-umns": {
+  "image": "money-ledger",
+  "situation": "10/06/2026. Cardinal State tenders **$10,000 limits**; Harbor Point's $20,000 is in trust. Liens unreduced. Atty. Thorne wants the UM Net Sheet before he meets John Doe.",
+  "steps": [
+   "Post **$30,000.00 gross** to Stream 2 on the Recovery Ledger",
+   "Apply **the 33⅓% fee**, then costs at 75%",
+   "Enter liens **as asserted or audited**, each marked projection",
+   "**Tie Stream 2** to Stream 1 and the Trust Ledger",
+   "Escalate the sheet with **four questions** to Atty. Thorne"
+  ],
+  "deliver": "A Stream 2 Net Sheet projecting **$13,661.19**, flagged and routed to Atty. Thorne",
+  "purpose": "John Doe hears this from Atty. Thorne: **no projection may read as final**",
+  "principle": "Mark **every moving figure**; quote no net to John Doe",
+  "checks": [
+   "Fee: **$30,000.00 ÷ 3 = $10,000.00**",
+   "Costs $365.06; liens **$1,395.00 + $4,578.75**",
+   "Projected net **$13,661.19**, labelled projection",
+   "Streams tie: **$13,661.19 + $4,553.73 = $18,214.92**",
+   "Trust **$30,000.00**; Cardinal State $10,000.00 receivable"
+  ],
+  "dos": [
+   "Take Stream 2's share **as the remainder**"
+  ],
+  "donts": [
+   "Charging **all costs and liens** to the UM stream"
   ]
  },
  "d3m2-kc": {
@@ -6092,6 +7136,168 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
+ "d3m4-close": {
+  "image": "checklist-qa",
+  "hook": "A ledger at $0.00 opens the close; **four verified document sets** let it be archived.",
+  "points": [
+   "**No archive** until all four document sets are verified",
+   "Zero balance proved by **three records agreeing**, all checks cleared",
+   "Tag every document; **docket its disposition date**",
+   "Late bill: verify, classify, **route to Atty. Thorne** the same day"
+  ],
+  "upl": "Assemble, verify, draft and route; who owes a late bill is Atty. Thorne's.",
+  "job": [
+   [
+    "Ledger at $0.00 (10/22/2026)",
+    "Build money trail, zero-balance report",
+    "CMS → Financial Ledger → Trust",
+    "Three records agree at $0.00"
+   ],
+   [
+    "Closing memo (10/30/2026)",
+    "Tag documents; docket disposition dates",
+    "CMS → Case Summary · Calendar",
+    "Disposition 7 years from closing"
+   ],
+   [
+    "Bill after the closing letter",
+    "Verify, classify, route, tell John Doe",
+    "CMS → Tasks → Escalate",
+    "Routed and John told same day"
+   ]
+  ],
+  "dos": [
+   "Run **the audit-ready test** before asking to archive",
+   "Collect satisfactions and receipt **with the payment**",
+   "Ask first: missed lien, or **a bill nobody owes**?"
+  ],
+  "donts": [
+   "Archiving **without John Doe's signed receipt**",
+   "Telling John Doe a late bill is **“not our problem”**",
+   "Destroying financial records **before the retention date**"
+  ],
+  "theory": {
+   "lead": "Before a case is marked Archived, the Case Manager verifies **four critical document sets**; then the file is organized under a retention policy.",
+   "concepts": [
+    {
+     "term": "Final Case Reconciliation",
+     "text": "**Four document sets** verified present before a file is marked Archived, so an outsider can trace every dollar.",
+     "more": [
+      "Money trail: every check in and out, bank confirmation numbers, a zero-balance report",
+      "Proof of delivery: Peach State's and Riverton Spine & Rehab's satisfactions; John Doe's signed receipt",
+      "Compliance and identity: John Doe's signed payer disclosure; a current W-9, never the intake copy",
+      "Closing memo: the Case Manager's one-page internal summary, filed 10/30/2026",
+      "Zero balance proved three ways: **bank statement, trust journal, client ledger**"
+     ]
+    },
+    {
+     "term": "The Internal Closing Memo",
+     "text": "One page by the Case Manager: **how it started versus how it ended**, discrepancies and exceptions.",
+     "more": [
+      "Case summary: a passenger, a 14-Day Gap, a $3,500 offer, then a $40,000 three-layer stack",
+      "Discrepancy notes: Riverton Spine & Rehab $6,290.00 → $6,105.00 → $4,580.00; Peach State $1,860.00 → $1,240.00",
+      "Exception reports: any policy waiver granted, or **“none granted”**",
+      "What stays open: Margaret Doe's Property Damage claim with Keystone PD"
+     ]
+    },
+    {
+     "term": "Retention and Disposition",
+     "text": "Closing paperwork follows a retention policy: **each document tagged by type**, its disposition date docketed.",
+     "more": [
+      "Financial records: 7 years (standard), then digital deletion",
+      "Eligibility documents: 3–5 years, then archival or off-site storage",
+      "Correspondence: 3 years, then purged from the active server",
+      "The firm's schedule and any stricter rule control: this training file is kept **7 years from closing**",
+      "Never destroy financial records before their retention date"
+     ]
+    },
+    {
+     "term": "The Post-Closing Late Bill",
+     "text": "A bill arriving after the closing letter: verify it, classify it, **route it the same day**.",
+     "more": [
+      "Verify the bill and its link to the accident against the ledger, the EOBs and the Payoff Letters",
+      "Classify it: **a lien we missed**, or a bill nobody owes",
+      "Route it to Atty. Thorne; on his instruction, ask the provider in writing to correct its account",
+      "Tell John Doe that day what you are doing and when he will hear back",
+      "The release's indemnity clause is John's promise every lien was paid; who answers is Atty. Thorne's call",
+      "Drill: Crescent's $1,540.00 is a contractual write-off on Peach State's EOB, so no balance billing"
+     ]
+    }
+   ],
+   "pages": [
+    "D3#35",
+    "D3#39"
+   ],
+   "framework": {
+    "title": "The Final Case Reconciliation Checklist",
+    "kind": "table",
+    "head": [
+     "Document set",
+     "What it holds",
+     "On John Doe's file"
+    ],
+    "rows": [
+     [
+      "Money trail",
+      "Itemized payments, transaction IDs, zero-balance confirmation",
+      "Three deposits; five checks on 10/22/2026; **$0.00**"
+     ],
+     [
+      "Proof of delivery",
+      "Provider lien waivers; the client's signed acknowledgment of receipt",
+      "Peach State and Riverton Spine & Rehab satisfactions; John Doe's receipt"
+     ],
+     [
+      "Compliance and identity",
+      "Duplication-of-benefits statement; updated W-9 for 1099 reporting",
+      "Payer disclosure: PIP, Peach State, his own $312.40"
+     ],
+     [
+      "Closing memo",
+      "Case summary, discrepancy notes, exception reports",
+      "10/30/2026; Property Damage claim noted as open"
+     ]
+    ],
+    "note": "Before a case is marked Archived, all four sets are verified present; then each document is tagged for the retention schedule."
+   }
+  },
+  "clues": {
+   "dos": [
+    [
+     "The Trust Ledger reads $0.00 and the box is nearly packed.",
+     "A stranger picks up John Doe's file years from now.",
+     "Can one dollar be followed from Keystone's check to its payee?"
+    ],
+    [
+     "Peach State and Riverton Spine & Rehab each get their checks.",
+     "Weeks later, nobody answers requests for signed paperwork.",
+     "The satisfaction request travels in the same envelope as the check."
+    ],
+    [
+     "A statement arrives after the closing letter has gone out.",
+     "Peach State's EOB shows $1,540.00 as a contractual adjustment.",
+     "The first question sorts it into one of two kinds."
+    ]
+   ],
+   "donts": [
+    [
+     "All five checks went out on 10/22/2026.",
+     "The box is sealed and the file marked Archived.",
+     "Nothing in it shows John Doe got his $20,359.92."
+    ],
+    [
+     "John Doe calls, upset about a statement that came yesterday.",
+     "The money is gone and the file is closed.",
+     "He hears that it's his to sort out now."
+    ],
+    [
+     "Storage space is tight in the closed-file room.",
+     "The trust journal on John Doe's file is three years old.",
+     "The shredder takes it anyway."
+    ]
+   ]
+  }
+ },
  "d3m4-a2": {
   "image": "settlement-check",
   "situation": "Two file dates. 08/14/2026: Keystone's draft release arrives; **UM consents still pending**. 10/21/2026: $40,000.00 cleared by 10/20, statement signed, Payoff Letters in. **Disbursement is 10/22**.",
@@ -6481,6 +7687,33 @@ window.CM_CF_SLIDES = {
    "Calling Keystone or Robert Smith **to announce the suit**"
   ]
  },
+ "d4m1-efile": {
+  "image": "legal-filing",
+  "situation": "09/22/2026, Track B. Atty. Thorne approved **his Complaint** this morning. Filing target **09/24/2026**. A 09/15 draft, unsigned, sits in the CMS.",
+  "steps": [
+   "Tag Nadia Brooks in **CMS → Tasks**: cover sheet, summons",
+   "Check **every signature** before you upload",
+   "Submit the envelope in **Court E-Filing**: $218.00",
+   "Record **26-CV-04417** in the Pleadings Log and Documents",
+   "Calendar service, the conference and **answer: set on service**"
+  ],
+  "deliver": "A signed set filed as **26-CV-04417**, recorded and calendared",
+  "purpose": "An unsigned page or an uncalendared date can **sink the suit**",
+  "principle": "Nothing is filed **until Atty. Thorne signs**",
+  "checks": [
+   "Task names documents, source, **due date** and signer",
+   "The **09/15/2026 draft** never uploaded",
+   "Costs **$486.75 + $218.00 = $704.75**",
+   "Service deadline **01/22/2027 (Fri)** with alerts",
+   "CMC **12/10/2026, 9:00 a.m.**, Atty. Thorne attending"
+  ],
+  "dos": [
+   "Calendar from **the accepted filing**, not the target"
+  ],
+  "donts": [
+   "Docketing an answer date **before service**"
+  ]
+ },
  "d4m1-kc": {
   "image": "knowledge-check",
   "questions": [
@@ -6642,6 +7875,33 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Missing **what isn't on the screen**, like the RFAs",
    "Rolling 11/06/2027 **forward to Monday**"
+  ]
+ },
+ "d4m2-medcal": {
+  "image": "mediation-table",
+  "situation": "01/08/2027: the Notice of Mediation sets **03/18/2027 (Thu), 9:30 a.m.** before Hon. Carla Benton (Ret.). Statement and binder due 7 days before; mediation **completed by 03/31/2027**.",
+  "steps": [
+   "Verify the trigger and **link the 03/31/2027 deadline**",
+   "Enter the session with **its attendees** in the Calendaring Simulators",
+   "Count the binder and internal dates **back from the session**",
+   "Open the client and **$1,200.00 cost** tasks in CMS → Tasks",
+   "Conflict-check, then **route the UM consent flag** to Atty. Thorne"
+  ],
+  "deliver": "A trigger-counted mediation calendar and **a same-day summary** to Atty. Thorne",
+  "purpose": "One notice creates a dozen dates; **one missed date** costs the session",
+  "principle": "Count every date **from its own trigger**",
+  "checks": [
+   "Statement and binder **due 03/11/2027 (Thu)**",
+   "Binder QC 03/04; approval **by 03/09/2027**",
+   "Mediator's report watched **on 03/25/2027**",
+   "Fee **$1,200.00**, half of $2,400.00",
+   "**03/15/2027 overlap** flagged to Atty. Thorne"
+  ],
+  "dos": [
+   "Link to **the 12/10/2026 entries**, never re-key them"
+  ],
+  "donts": [
+   "Contacting **the UM carriers** without Atty. Thorne"
   ]
  },
  "d4m2-um": {
@@ -6981,6 +8241,33 @@ window.CM_CF_SLIDES = {
   "donts": [
    "A brief deadline that **lives only in an email**",
    "Treating the UM carriers **as friendly**"
+  ]
+ },
+ "d4m2-arbcal": {
+  "image": "clock-deadline",
+  "situation": "04/26/2027: Laura Whitcomb's letter sets the hearing **06/22/2027 (Tue), 9:00 a.m.** Exhibits 20 days before, brief 10. Calendar **every date hanging off it**.",
+  "steps": [
+   "Re-anchor hearing, exhibits and brief **to the letter** in the Docket System",
+   "Count back binder QC and **records-request dates** in Calendaring Simulators",
+   "Hold attendance, prep and **tech-check dates** on CMS → Calendar",
+   "Route the **$900.00 fee share** to accounting as a cost",
+   "Check the master calendar; **ask Atty. Thorne** about court dates"
+  ],
+  "deliver": "A letter-anchored calendar, **every date with its rule**, questions to Atty. Thorne",
+  "purpose": "Every arbitration task counts back from **one hearing date**",
+  "principle": "A date without **its trigger and rule** is a guess",
+  "checks": [
+   "Brief **06/11/2027 (Fri)**, exhibits 06/02/2027, from the letter",
+   "Records requests out by **05/03/2027 (Mon)**",
+   "Binder QC opens **05/17/2027 (Mon)**; draft index 05/14/2027",
+   "**$900.00 fee share** logged as a case cost",
+   "Court dates kept, **flagged for Atty. Thorne**; SOL dates unchanged"
+  ],
+  "dos": [
+   "Write **the trigger and rule** on every entry"
+  ],
+  "donts": [
+   "Deleting a court date **without Atty. Thorne's answer**"
   ]
  },
  "d4m2-a3": {
@@ -7379,6 +8666,131 @@ window.CM_CF_SLIDES = {
      "Materials from 03/18/2027 sit on the shelf beside the new tabs.",
      "Whatever Hon. Carla Benton (Ret.) saw is typically inadmissible later.",
      "Our brief to her lands in the set for Laura Whitcomb, Esq."
+    ]
+   ]
+  }
+ },
+ "d4m3-prior": {
+  "image": "mri-scan",
+  "hook": "Answer “it was already there” **from the certified record**, before the carriers raise it.",
+  "points": [
+   "Get the **complete certified 2021 chart**, never a summary",
+   "Prove resolution, **a different body region** and the symptom-free interval",
+   "Pair it with **Dr. Park's MRI read** and the Causation Letter",
+   "Flag every mismatch to Atty. Thorne; **never correct a record**"
+  ],
+  "upl": "Build and flag the record; causation, aggravation and experts are Atty. Thorne's.",
+  "job": [
+   [
+    "Arbitration invoked 04/05/2027",
+    "Request certified 2021 chart",
+    "Medical Records Requests",
+    "Every 2021 date certified"
+   ],
+   [
+    "Prior chart received",
+    "Build the side-by-side comparison",
+    "CMS → Litigation → Exhibit index",
+    "Every cell cites a record"
+   ],
+   [
+    "Mismatch or silent Causation Letter",
+    "Flag to Atty. Thorne",
+    "CMS → Tasks → Escalate",
+    "Flag dated; nothing altered"
+   ]
+  ],
+  "dos": [
+   "Put the prior in **your binder first**",
+   "**Name the body region** in every line",
+   "Use **the records' own words**, never adjectives"
+  ],
+  "donts": [
+   "Writing **“not degenerative”** in your own summary",
+   "**A summary** in place of the certified chart",
+   "**Correcting a conflicting history** instead of flagging it"
+  ],
+  "theory": {
+   "lead": "Defense counsel use prior records to argue “pre-existing degenerative conditions”; Tab 5, **the Prior Medical Shield**, answers with the baseline before they raise it.",
+   "concepts": [
+    {
+     "term": "The Pre-Existing Defense",
+     "text": "Three moves: it was already there, the imaging is degenerative, the injury is **a continuation**, not new",
+     "more": [
+      "Often a fourth: no baseline pre-accident imaging, so nothing proves the spine was healthy before",
+      "On this file: Keystone called the MRI “degenerative” on 08/05/2026; the 11/12/2026 Answer pleads causation on it",
+      "Defense counsel worked the 2021 low-back visits at **the 02/18/2027 deposition**",
+      "Expect Harbor Point and Cardinal State to press the same line before Laura Whitcomb, Esq."
+     ]
+    },
+    {
+     "term": "Pre-Morbid Baseline",
+     "text": "The client's condition before the crash: the line that separates **pre-existing from accident-related** harm",
+     "more": [
+      "Built from records, not memory: the prior chart, its discharge, the work history",
+      "John Doe's: three 2021 chiropractic visits for low-back stiffness, resolved; **no prior neck complaint**",
+      "Review 5–10 years of history, and find the prior before the defense does"
+     ]
+    },
+    {
+     "term": "Eggshell Plaintiff and Aggravation",
+     "text": "Generally, a defendant takes the plaintiff as found; an aggravated condition's **increase in disability** is compensable",
+     "more": [
+      "Even a more vulnerable plaintiff recovers for the harm the collision caused; confirm the governing rule",
+      "Proving aggravation means proving **the change**: before and after, in records and in function",
+      "On this file the prior is a different region, so the record shows the distinction first",
+      "Which doctrine is argued, and how, is Atty. Thorne's call; you build the record"
+     ]
+    },
+    {
+     "term": "Expert Medical Declaration",
+     "text": "A physician's sworn opinion tying the record together; **an unshielded prior** is an arbitration landmine",
+     "more": [
+      "The deck's QC: pair the prior record with an opinion that the past injury resolved before the crash",
+      "Dr. Reyes's Causation Letter (06/19/2026) is the opinion on file; check whether it addresses 2021",
+      "Seeking a supplemental declaration or retaining an expert is **Atty. Thorne's decision**",
+      "Arbitration is binding: a shield missing at the hearing cannot be added afterwards"
+     ]
+    }
+   ],
+   "pages": [
+    "D4#29",
+    "D4#34"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Defense counsel spent time on the 2021 visits at the deposition.",
+     "Laura Whitcomb, Esq. will see those visits one way or another.",
+     "Tab 5 opens with them, already set against the neck injury."
+    ],
+    [
+     "Tab 5 compares two sets of medical files, five years apart.",
+     "One set is about stiffness low in the spine.",
+     "Each comparison line says low back, or cervical spine and arm."
+    ],
+    [
+     "A line in Tab 5 describes how the 2021 care ended.",
+     "The chart itself says “resolved” and “released to full activity”.",
+     "Those exact phrases appear in Tab 5, in quotation marks."
+    ]
+   ],
+   "donts": [
+    [
+     "Your Tab 5 notes describe the condition of John Doe's spine.",
+     "Dr. Park's read already says what the scan showed.",
+     "Your draft adds your own medical conclusion about the neck."
+    ],
+    [
+     "Birch Avenue Chiropractic's file is slow to arrive.",
+     "John Doe remembers 2021 as a few back adjustments.",
+     "Tab 5 holds a typed paragraph from his memory instead."
+    ],
+    [
+     "The audit lines up every provider's intake form side by side.",
+     "One form disagrees with the others about the past.",
+     "You edit it to match before Atty. Thorne sees it."
     ]
    ]
   }
@@ -8105,6 +9517,133 @@ window.CM_CF_SLIDES = {
      "John Doe's deposition is set for 02/18/2027 at 10:00 a.m.",
      "The attorney-approved prep packet with the ground rules goes out.",
      "It hits his inbox on 02/17/2027, with no time to absorb it."
+    ]
+   ]
+  }
+ },
+ "d5m1-subp": {
+  "image": "legal-filing",
+  "hook": "A subpoena **reaches evidence outside the suit**; a careless one loses it.",
+  "points": [
+   "Notice **Atty. Mercer first**, then serve the custodian",
+   "Exhibit A: **one subject, exact dates**, named record types",
+   "Every production lands **before 05/28/2027**",
+   "Trial subpoenas only for **witnesses Atty. Thorne names**"
+  ],
+  "upl": "You draft, notice, serve and track; Atty. Thorne decides, signs and sets scope",
+  "job": [
+   [
+    "Request refused or custodian needed",
+    "Ask: “Do you want a subpoena?”",
+    "CMS → Tasks → Escalate",
+    "Routed before anything is drafted"
+   ],
+   [
+    "Subpoena approved",
+    "Notice Atty. Mercer, then serve",
+    "Action Plan Editor → Subpoena template",
+    "Notice dated before service"
+   ],
+   [
+    "Every 10 days, subpoena open",
+    "Review row; call 5 days out",
+    "CMS → Litigation → Subpoena log",
+    "Dated reading; misses routed"
+   ]
+  ],
+  "dos": [
+   "Count back **from 05/28/2027** before drafting",
+   "Route defense subpoena notices **the same day**",
+   "Keep trial witnesses' **contact details current**"
+  ],
+  "donts": [
+   "Serving the custodian **before Atty. Mercer has notice**",
+   "An Exhibit A asking for **“all records of any kind”**",
+   "A trial subpoena for **an unnamed witness**"
+  ],
+  "theory": {
+   "lead": "Litigation runs on **court-commanded evidence**: a subpoena makes a non-party produce records or a witness appear, and a careless one gets quashed.",
+   "concepts": [
+    {
+     "term": "Subpoena Duces Tecum",
+     "text": "Commands a non-party to **produce documents** when a hospital, cell provider or employer won't do it voluntarily",
+     "more": [
+      "“Duces tecum” means bring it with you: a command to produce documents",
+      "Drafted on the court-approved form: case style, target entity, production date, and a precise Exhibit A",
+      "Served by process server on the facility's **Registered Agent** or records custodian",
+      "Goes out only once Atty. Thorne decides, signs and issues it"
+     ]
+    },
+    {
+     "term": "Trial Subpoena",
+     "text": "Compels a witness to appear and testify, so fact witnesses, treating physicians and officers **legally show up**",
+     "more": [
+      "Drafted only for the witnesses **Atty. Thorne names**",
+      "This file's candidates: Ruth Calloway, Officer Thomas Garner #2217, Dr. Alana Reyes, Dr. Helen Park",
+      "Tasked against pretrial 08/12/2027 and the 09/13/2027 trial calendar",
+      "Service, timing and any witness fee: confirm the court's rules"
+     ]
+    },
+    {
+     "term": "The Scope Warning",
+     "text": "A blanket “all records” request is **a fishing expedition**; the defense or the third party moves to quash",
+     "more": [
+      "The deck's model wording, narrowed three ways:",
+      "“Any and all emergency room records, triage notes, and radiological imaging regarding [Client] for the treatment date of [Accident Date] only.”",
+      "One subject, an exact date range, **named record types**",
+      "Narrow is also faster: a custodian can comply with a request it can read"
+     ]
+    },
+    {
+     "term": "The Four-Step Pipeline",
+     "text": "Draft, notice opposing counsel, serve the custodian, track compliance: **notice comes first**, often 5–10 days before",
+     "more": [
+      "Draft on the court-approved form",
+      "Notice to opposing counsel before the third party; confirm **the governing rule**",
+      "Formal service by process server on the Registered Agent",
+      "Compliance call to the records or legal department 5 days before the deadline",
+      "Pay the custodian's copy invoice promptly; an unpaid invoice delays production"
+     ]
+    }
+   ],
+   "pages": [
+    "D5#28",
+    "D5#35"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "A records subpoena for John Doe's file is about to be drafted.",
+     "The Scheduling Order entered 12/10/2026 sits pinned at the front.",
+     "Notice period, service and production are counted against discovery's end."
+    ],
+    [
+     "Atty. Mercer's office notices a subpoena to one of John Doe's providers.",
+     "Any objection to it belongs to Atty. Thorne alone.",
+     "It is docketed and on his desk before the afternoon ends."
+    ],
+    [
+     "Ruth Calloway is one of the witnesses Atty. Thorne may name.",
+     "The trial calendar opens 09/13/2027, not on one fixed day.",
+     "Her phone number and address are rechecked and logged each review."
+    ]
+   ],
+   "donts": [
+    [
+     "A Subpoena Duces Tecum to Riverton Fire EMS is signed.",
+     "Allied Process Services reaches the records custodian on day one.",
+     "Defense counsel learns of it only when the production arrives."
+    ],
+    [
+     "A custodian receives a subpoena for John Doe's file.",
+     "Exhibit A names no dates and no document types.",
+     "The defense calls it a fishing expedition and moves to quash."
+    ],
+    [
+     "The 09/13/2027 trial calendar is getting close.",
+     "Paramedic J. Ortiz from Medic 7 seems a useful person to call.",
+     "The Case Manager drafts a subpoena for him unasked."
     ]
    ]
   }

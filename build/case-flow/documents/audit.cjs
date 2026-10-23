@@ -84,7 +84,7 @@ const NEED = {
   RS29: [/\$10,000/, /03\/09\/2026|March 9, 2026/, /Okafor/],
   RS30: [/03\/14\/2024|March 14, 2024/, /reject/i],
   RS31: [/\$5,000\.00/, /06\/26\/2026/, /80%/, /\$1,267\.20/],
-  RS65: [/02\/17\/2026/, /02\/24\/2026/, /\$5,000\.00/, /PIP rejected in writing/i, /passenger/i, /100%/, /80%/],
+  RS65: [/02\/17\/2026/, /02\/24\/2026/, /\$5,000\.00/, /passenger/i, /100%/, /80%/],
   RS32: [/03\/19\/2026|March 19, 2026/, /\$42\.00/],
   RS33: [/\$16,410\.40/, /08\/19\/2026|August 19, 2026/, /full and final release of all claims/i],
   RS34: [/07\/22\/2026|July 22, 2026/],
@@ -114,11 +114,17 @@ const NEED = {
   RS58: [/06\/22\/2027|June 22, 2027/, /June 12, 2027|06\/12\/2027/, /Whitcomb/],
   RS59: [/\$10,000/, /UM/],
   RS60: [/01\/04\/2027|January 4, 2027|4th day of January, 2027/],
+  // the corrected copies the pre-demand Amendment Requests bring back: each fixes its plant and changes nothing else
+  RS72: [/date of injury 02\/06\/2026/, /07\/15\/2026/, /no significant degenerative change at the adjacent levels/i, /unchanged/i],
+  RS73: [/Balance due \$0\.00/i, /\$1,540\.00/, /\$1,860\.00/, /07\/10\/2026/, /CPS-30442/],
 };
 for (const [id, list] of Object.entries(NEED)) if (text[id] !== undefined) list.forEach(re => { if (!has(id, re)) fails.push(`${id}: missing ${re}`); });
 // plants that must appear ONLY where planted
 const ONLY = [[/\$16,410\.40/, ["RS33"]], [/all other persons, firms, corporations and insurers/i, ["RS37"]], [/neck and back/i, ["RS02"]], [/2021 Ford Escape/i, ["RS07"]]];
 for (const [re, where] of ONLY) for (const id of Object.keys(text)) if (has(id, re) && !where.includes(id)) fails.push(`${id}: carries ${re}, which is planted only in ${where}`);
+
+// John Doe's complaint pleads no property damage (the Civic is Margaret Doe's claim), in the draft or as filed
+for (const id of ["RS50", "RS51"]) { const m = T(id).match(/property damage|loss of use|diminished value/i); if (text[id] !== undefined && m) fails.push(`${id}: “${m[0]}”: John Doe's suit pleads no property damage`); }
 
 // 4. RS23: 34 lines of $185.00 and 05/04/2026 twice; RS14: 33 attended visits
 if (text.RS23 !== undefined) {
