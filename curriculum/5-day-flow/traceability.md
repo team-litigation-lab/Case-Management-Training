@@ -24,10 +24,10 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#12` | Bottleneck: Conflict Check Delays | ✅ BUILT | d1m1-l1, d1m1-open, d1m1-kc |
 | `D1#13` | Bottleneck: Intake Form Errors | ✅ BUILT | d1m1-l1, d1m1-open |
 | `D1#14` | Bottleneck: Case Eligibility Uncertainty | ✅ BUILT | d1m4-l1 |
-| `D1#15` | Bottleneck: Communication Gaps | ✅ BUILT | d1m1-l1 |
+| `D1#15` | Bottleneck: Communication Gaps | ✅ BUILT | d1m1-l1, d2m1-first |
 | `D1#16` | Tools for Case Planning & the PI Case Lifecycle Strategy | ✅ BUILT | d1m1-case, d1m1-l1, d1m1-kc, d1m3-a2, d1m4-a1, d2m2-sum |
 | `D1#17` | Skill Building: Intake Decision Challenge & Applied Case Manager Actions | ✅ BUILT | d1m4-l1 |
-| `D1#18` | Claim Set-Up: Coverage Determination & Liability Assessment | ✅ BUILT | d1m1-l1, d1m4-a2, d1m1-a1, d2m1-l2, d2m1-a2, d2m1-kc, d2m1-cov, d5m4-kc |
+| `D1#18` | Claim Set-Up: Coverage Determination & Liability Assessment | ✅ BUILT | d1m1-l1, d1m4-a2, d1m1-a1, d2m1-l2, d2m1-liab, d2m1-a2, d2m1-kc, d2m1-cov, d5m4-kc |
 | `D1#19` | Claim Set-Up: Case Projection — Why the Three Work Together | ✅ BUILT | d1m1-case, d1m4-l1, d1m4-a2, d1m1-a1, d2m1-l2 |
 | `D1#20` | Case Study: John Doe v. Apex — Coverage Analysis | ✅ BUILT | d1m1-a1, d2m1-l2, d2m1-a2, d2m1-kc |
 | `D1#21` | Case Study: John Doe v. Apex — Liability Determination | ✅ BUILT | d1m4-l1, d2m1-l1, d2m1-a1 |
@@ -35,10 +35,10 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#23` | Case Planning Framework: The Three-Pillar Case Plan | ✅ BUILT | d1m4-l1, d1m4-a2, d1m4-kc, d2m2-eob, d1m1-l2, d2m2-sum |
 | `D1#24` | Case Planning Framework: Mandatory Disclosure & Compliance Tracking | ✅ BUILT | d1m4-emc, d1m4-l2, d1m4-kc, d2m2-l1, d2m2-a1, d1m1-a2 |
 | `D1#25` | The “Golden Rule” of US Claim Set-Up | ✅ BUILT | d1m4-l2, d1m4-kc |
-| `D1#26` | The Treatment Phase — Core Objectives | ✅ BUILT | d2m2-l1, d2m2-a2, d2m2-a3 |
+| `D1#26` | The Treatment Phase — Core Objectives | ✅ BUILT | d2m2-l1, d2m2-a2, d2m2-a3, d4m3-tx |
 | `D1#27` | Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention | ✅ BUILT | d2m2-l2, d2m2-a2 |
 | `D1#28` | Treatment Phase: Essential Client Communication Strategies | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a3, d1m4-tcare, d2m2-l2, d2m3-l1, d2m3-a1, d2m3-kc |
-| `D1#29` | Handling the Treatment Phase: Clinical Documentation (GIRP) | ✅ BUILT | d1m4-tcare, d2m2-l2, d2m2-a2, d2m2-a3, d2m3-a1, d2m3-kc |
+| `D1#29` | Handling the Treatment Phase: Clinical Documentation (GIRP) | ✅ BUILT | d1m4-tcare, d2m2-l2, d2m2-a2, d2m2-a3, d2m3-a1, d2m3-kc, d4m3-tx |
 | `D1#30` | Handling the Treatment Phase: Proactive Resource Coordination | ✅ BUILT | d2m2-l1, d2m2-a3 |
 | `D1#31` | Treatment Red Flags: PT & Conservative Care, Surgical Protocols | ✅ BUILT | d1m4-tcare, d2m2-l2 |
 | `D1#32` | Treatment Red Flags: Pain Management, Medication & Behavioral Health / TBI | ✅ BUILT | d1m4-tcare, d2m2-kc |
@@ -48,12 +48,12 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#36` | The Standard Treatment Map | ✅ BUILT | d1m4-tmap, d1m4-emc, d2m2-l2, d2m2-kc |
 | `D1#37` | Treatment Road Map Mastery & the Clinical Pathway Flowchart | ✅ BUILT | d1m4-tmap, d1m4-emc, d2m2-l2, d2m2-kc |
 | `D1#38` | Variance Analysis: Why the Map Fails | ✅ BUILT | d1m4-tmap, d2m2-l2, d2m2-a2 |
-| `D1#39` | Communication Loops: The “Stakeholder Triad” | ✅ BUILT | d1m4-tmap, d2m2-l1, d2m2-a3, d2m3-l2 |
+| `D1#39` | Communication Loops: The “Stakeholder Triad” | ✅ BUILT | d1m4-tmap, d2m1-first, d2m2-l1, d2m2-a3, d2m3-l2 |
 | `D1#40` | The “Golden Standard”: Reasonable and Necessary | ✅ BUILT | d1m4-tmap, d2m2-l2, d2m2-kc, d2m4-l1, d2m4-wage, d2m4-a1 |
 | `D1#41` | Immediate Action Protocol: A-C-T for Red Flags | ✅ BUILT | d2m2-l2, d2m2-a2 |
 | `D1#42` | Illustration & Course Correction: The 6-Week Rule and Objective Metrics | ✅ BUILT | d1m4-tmap, d2m2-l2, d2m2-kc |
 | `D1#43` | The “Yellow Flag” Warning System | ✅ BUILT | d1m4-tmap, d1m4-tcare, d2m2-l2 |
-| `D1#44` | Handling Treatment Gaps During the Treatment Phase | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a2, d1m3-a3, d1m3-kc, d1m4-a1, d1m4-a2, d1m4-kc, d2m2-a3, d2m2-sum, d2m3-l1, d2m3-a1, d2m3-l2, d2m3-a2, d2m3-kc, d5m4-kc |
+| `D1#44` | Handling Treatment Gaps During the Treatment Phase | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a2, d1m3-a3, d1m3-kc, d1m4-a1, d1m4-a2, d1m4-kc, d2m2-a3, d2m2-sum, d2m3-l1, d2m3-a1, d2m3-l2, d2m3-a2, d2m3-kc, d4m3-tx, d5m4-kc |
 | `D1#45` | Common Bottlenecks: Escalation Protocol & the Escalation Ladder | ✅ BUILT | d2m2-l2, d2m2-a2, d4m4-l2, d4m4-a2, d4m4-kc |
 | `D1#46` | Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain | ✅ BUILT | d2m2-a1, d2m2-kc, d2m3-cause, d4m3-prior |
 | `D1#47` | Skill Building: Handling Client Treatment — “The Transportation Wall” | ✅ BUILT | d2m2-a2 |
@@ -120,9 +120,9 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D3#10` | UM Settlement: Challenges | ✅ BUILT | d3m2-l2, d3m2-a2 |
 | `D3#11` | UM Settlement: The Final Payout Process | ✅ BUILT | d3m2-exec, d3m2-l2, d3m2-a2, d3m2-kc |
 | `D3#12` | Documents that Matter: Threshold & Coverage Documents | ✅ BUILT | d3m1-l2, d3m1-pkg, d3m1-a2, d3m1-kc |
-| `D3#13` | Documents that Matter: Liability & Causation Documents | ✅ BUILT | d2m3-cause, d3m1-pkg, d3m1-a2 |
-| `D3#14` | Documents that Matter: Special Damages Documents (Economic Hard Costs) | ✅ BUILT | d3m1-pkg, d3m1-a2 |
-| `D3#15` | Documents that Matter: General Damages Documents (Non-Economic Value) | ✅ BUILT | d2m3-cause, d3m1-pkg, d3m1-a2, d3m1-kc |
+| `D3#13` | Documents that Matter: Liability & Causation Documents | ✅ BUILT | d2m1-liab, d2m3-cause, d3m1-pkg, d3m1-a2 |
+| `D3#14` | Documents that Matter: Special Damages Documents (Economic Hard Costs) | ✅ BUILT | d3m1-pkg, d3m1-a2, d4m3-tx |
+| `D3#15` | Documents that Matter: General Damages Documents (Non-Economic Value) | ✅ BUILT | d2m3-cause, d3m1-pkg, d3m1-a2, d3m1-kc, d4m3-tx |
 | `D3#16` | Documents that Matter: Final Pleading & Release Documents (Closing Phase) | ✅ BUILT | d3m1-pkg, d3m1-a2, d3m2-umw, d3m2-rel |
 | `D3#17` | Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit | ✅ BUILT | d3m2-l2, d3m2-a2, d3m2-kc |
 | `D3#18` | Lien Negotiations/Reduction: Common Types of Liens | ✅ BUILT | d3m3-l1, d3m3-a1, d3m3-kc |
@@ -174,7 +174,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D4#21` | Arbitration Binders: Section 1 — The Arbitration Submissions | ✅ BUILT | d4m3-l2, d4m3-a2, d4m3-kc |
 | `D4#22` | Arbitration Binders: Section 2 — Core Litigation Pleadings | ✅ BUILT | d4m3-l2, d4m3-a2 |
 | `D4#23` | Arbitration Binders: Section 3 — Liabilities & Biomechanical Evidence | ✅ BUILT | d4m3-l2, d4m3-a2 |
-| `D4#24` | Arbitration Binders: Section 4 — Proving Bodily Accident Medical Damages | ✅ BUILT | d4m3-l2, d4m3-a2, d4m3-kc |
+| `D4#24` | Arbitration Binders: Section 4 — Proving Bodily Accident Medical Damages | ✅ BUILT | d4m3-l2, d4m3-tx, d4m3-a2, d4m3-kc |
 | `D4#25` | Arbitration Binders: Section 5 — The Prior Medical Shield | ✅ BUILT | d4m3-l2, d4m3-prior, d4m3-a2 |
 | `D4#26` | Arbitration Binders: Section 6 — Economic Losses & Lien Reconciliations | ✅ BUILT | d2m2-eob, d4m3-l2, d4m3-a2, d4m3-kc |
 | `D4#27` | Skill Building: The PI Critical Thinking Audit Challenge (Arbitration) | ✅ BUILT | d4m3-prior, d4m3-a2 |
@@ -243,7 +243,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - Case file: Keystone Mutual's claim correspondence, the rental authorization and the rental cutoff (RS32)
 - LSH Claims Specialist: rental coverage hierarchy, the rental reimbursement endorsement, rate cap and duration
 - LSH Claims Specialist: LOR Property Damage carve-out, rental coverage hierarchy, documents to support the claim
-- Newly authored: John Doe's Day 1 assessment and the draft SMART goal
+- Newly authored: John Doe's intake assessment and the draft SMART goal
 - Newly authored: Florida's EMC rule stated explicitly (Fla. Stat. § 627.736(1)(a): 14-day initial care, EMC by MD, DO, dentist, PA or APRN, $2,500 vs $10,000, 80% medical and 60% lost income, chiropractor cannot determine EMC, no massage or acupuncture) and contrasted with Riverton's add-on PIP, which has no EMC rule
 - LSH Claims Specialist: LOR purpose, recipients, drafting components and delivery
 - LSH Claims Specialist: claim set-up call, information protection on third-party claims, LOR acknowledgement and limits disclosure
@@ -254,6 +254,8 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: Declaration Pages, certified copy of policy, policy limits and limit types
 - LSH Claims Specialist: follow-up cadence, LOR acknowledgement, statement of insurance disclosure
 - Newly authored: verifying the UM form and PIP terms at set-up; the regulatory and policy deadline backstop
+- Newly authored: liability investigation at claim set-up — evidence, preservation and anticipating comparative fault
+- Newly authored: decision first — leading every note, email and brief to the attorney with the decision or action needed
 - LSH Claims Specialist: Declaration Pages, coverage verification and follow-up
 - Newly authored: verifying the UM form and PIP terms at set-up
 - LSH Claims Specialist: LOR components, information protection, acknowledgement and limits disclosure
@@ -322,6 +324,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - Newly authored: exhibit numbering, Bates ranges and the master index as the one source of truth
 - Newly authored: authentication, business-records certifications, relaxed evidence rules in arbitration, and mediation confidentiality at the hand-off
 - Newly authored: the five-component shield on this file, the body-region side-by-side, the consistency audit and the harm-to-timeline check
+- Newly authored: from treatment to demand — how the treatment record becomes the claim
 - LSH Claims Specialist: BI liability follow-ups (every 5 business days) and the escalation protocol
 - LSH Claims Specialist: BI liability follow-ups and the escalation protocol
 - LSH Claims Specialist: escalation protocol (supervisor review, internal flag, certified request for a written position)

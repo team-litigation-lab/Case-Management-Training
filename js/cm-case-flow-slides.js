@@ -1672,7 +1672,7 @@ window.CM_CF_SLIDES = {
      "term": "Clinical Evaluation",
      "text": "Physical, **cognitive and psychological** impairments, recorded as reported and documented, never diagnosed by you",
      "more": [
-      "John Doe today: “neck stiffness” on the EMS Run Report, and he **declined transport**",
+      "John Doe at intake: “neck stiffness” on the EMS Run Report, and he **declined transport**",
       "No treatment yet, so record his symptoms in his own words, with the date"
      ]
     },
@@ -2993,6 +2993,190 @@ window.CM_CF_SLIDES = {
      "A written request to Keystone has been out for a week.",
      "The calendar shows nothing coming up for that item.",
      "Nobody chases it, and it stays open forever."
+    ]
+   ]
+  }
+ },
+ "d2m1-liab": {
+  "image": "documents-audit",
+  "hook": "**Coverage says there is money**; liability says someone has to pay it.",
+  "points": [
+   "The Police Report first: **read every field**, citation and witness",
+   "**Preserve the video** and vehicle data before anything is lost",
+   "Anticipate **comparative fault**: out of turn, unbelted",
+   "PD acceptance is **not BI acceptance**: record each position"
+  ],
+  "upl": "Gather and preserve the evidence; **fault is Atty. Thorne's call**",
+  "job": [
+   [
+    "Claim set-up opens",
+    "Request and read the report",
+    "CMS → Police tab",
+    "Citation and witness recorded"
+   ],
+   [
+    "Video or vehicle data exists",
+    "Draft the preservation requests",
+    "Email Workspace",
+    "Signed, sent, custody logged"
+   ],
+   [
+    "A carrier states its position",
+    "Record it with its date",
+    "CMS → Insurance tab",
+    "Each position on file"
+   ]
+  ],
+  "dos": [
+   "Read the Police Report **line by line**",
+   "**Preserve first**: video, photos and vehicle data",
+   "Log every liability fact **with its source and date**"
+  ],
+  "donts": [
+   "Treating **PD acceptance** as a BI admission",
+   "Asking a witness **to sign your wording**",
+   "Correcting the file **to match the report** alone"
+  ],
+  "theory": {
+   "lead": "Liability assessment asks **who is legally responsible**, and to what degree, from evidence: the report, witnesses, video and vehicle data.",
+   "concepts": [
+    {
+     "term": "The Police Report",
+     "text": "The baseline: the crash mechanics, **citations issued** and the officer's scene observations"
+    },
+    {
+     "term": "Independent Witness",
+     "text": "A neutral account, the **strongest answer** to a disputed version of events"
+    },
+    {
+     "term": "Preservation",
+     "text": "Video and vehicle data are lost unless **preserved early**, with a chain of custody"
+    },
+    {
+     "term": "Comparative Negligence",
+     "text": "The defense moves fault toward the plaintiff; **each share** reduces the recovery"
+    }
+   ],
+   "pages": [
+    "D1#21",
+    "D3#15"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "The officer's diagram sits on page two of the report.",
+     "A witness name appears in a box near the narrative.",
+     "The unit year differs from what the policy lists."
+    ],
+    [
+     "A doorbell camera at the corner overwrites itself every week.",
+     "The Escape still holds data about the moment of impact.",
+     "On 02/19/2026 a copy left the house with a hash."
+    ],
+    [
+     "An adjuster later asks where a fact came from.",
+     "A note in the CMS reads only “witness saw it”.",
+     "Two months on, nobody remembers which call said what."
+    ]
+   ],
+   "donts": [
+    [
+     "Keystone's letter of 02/17/2026 concerns Margaret Doe's Civic.",
+     "The BI adjuster on John Doe's claim has said nothing yet.",
+     "A demand cites the letter as proof of fault."
+    ],
+    [
+     "Ruth Calloway gave a statement to Officer Garner on scene.",
+     "A typed page arrives for her to sign as written.",
+     "Her words and the page's words differ in two places."
+    ],
+    [
+     "Officer Garner's paperwork lists the Escape as a 2021.",
+     "Harbor Point's Declaration Page lists a 2020.",
+     "Someone edits the CMS to read 2021."
+    ]
+   ]
+  }
+ },
+ "d2m1-first": {
+  "image": "strategy-session",
+  "hook": "**The first line is the decision**; the facts come after it.",
+  "points": [
+   "Open with **the decision and its deadline**",
+   "Then why, then **the facts with their sources**",
+   "Give **every option** and what follows from each",
+   "**One note, one decision**, logged the same day"
+  ],
+  "upl": "You frame the decision; **Atty. Thorne makes it**",
+  "dos": [
+   "Put the decision in **the subject line** too",
+   "Give **each option** and its next step",
+   "Log the note and **his answer** the same day"
+  ],
+  "donts": [
+   "**Telling the story first**, the question last",
+   "A subject line of **“Update”**",
+   "Leaving out **the option you dislike**"
+  ],
+  "theory": {
+   "lead": "The Case Manager is **the central router** of information; a note to the attorney must make his decision quick and clear.",
+   "concepts": [
+    {
+     "term": "The Legal Loop",
+     "text": "Keeping the attorney informed so **decisions are made on time**"
+    },
+    {
+     "term": "Decision First",
+     "text": "The note opens with **the decision needed** and its deadline"
+    },
+    {
+     "term": "Options and Consequences",
+     "text": "Each option with **what follows from it**, so the choice stays his"
+    },
+    {
+     "term": "The Record",
+     "text": "The note and his answer **logged the same day** in the CMS"
+    }
+   ],
+   "pages": [
+    "D1#42",
+    "D2#10"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Atty. Thorne scans forty emails between two hearings.",
+     "Most of them are titled with a client's name alone.",
+     "One of them carries a date and a yes-or-no question."
+    ],
+    [
+     "Summit's LOP request could be approved or declined.",
+     "Each answer leads to a different task the same afternoon.",
+     "The note names what happens after a yes, and after a no."
+    ],
+    [
+     "He replied by text from the courthouse steps.",
+     "A week later the same question reaches him again.",
+     "The CMS shows the question but not his reply."
+    ]
+   ],
+   "donts": [
+    [
+     "The note begins with how Summit's call came in.",
+     "Four paragraphs describe the PIP payments in date order.",
+     "The request for approval appears in the last sentence."
+    ],
+    [
+     "His inbox shows fifteen messages with the same title.",
+     "None of them says what he is being asked.",
+     "The one with a deadline looks like all the others."
+    ],
+    [
+     "The note offers one path and its benefits.",
+     "The other path appears nowhere in the message.",
+     "He approves it without knowing a choice existed."
     ]
    ]
   }
@@ -5509,13 +5693,13 @@ window.CM_CF_SLIDES = {
    [
     "MMI declared (06/12/2026)",
     "Docket MMI + 30",
-    "Docket System · CMS → Tasks",
+    "Court E-Filing · CMS → Tasks",
     "07/12/2026 Sunday: work it Fri 07/10"
    ],
    [
     "Dana's written acknowledgement (07/22/2026)",
     "Docket the acceptance deadline",
-    "Docket System",
+    "Court E-Filing",
     "08/21/2026, from acknowledgement, not sending"
    ],
    [
@@ -5724,7 +5908,7 @@ window.CM_CF_SLIDES = {
    [
     "Keystone tenders $10,000 (08/12/2026)",
     "Prepare 30-Day Letters for signature",
-    "Consent-to-settle template · Docket System",
+    "Consent-to-settle template · Court E-Filing",
     "Both sent 08/13/2026; windows docketed"
    ],
    [
@@ -7922,7 +8106,7 @@ window.CM_CF_SLIDES = {
    [
     "Folders built",
     "Seed calendar with 48-hour audits",
-    "CMS → Calendar · Docket System",
+    "CMS → Calendar · Court E-Filing",
     "SOL, hard date, cutoff, audits calendared"
    ]
   ],
@@ -8139,7 +8323,7 @@ window.CM_CF_SLIDES = {
    [
     "Scheduling Order entered 12/10/2026",
     "Enter every date; read each verb",
-    "Docket System",
+    "Court E-Filing",
     "“Completed by” entered as deadline"
    ],
    [
@@ -8673,7 +8857,7 @@ window.CM_CF_SLIDES = {
   "image": "clock-deadline",
   "situation": "04/26/2027: Laura Whitcomb's letter sets the hearing **06/22/2027 (Tue), 9:00 a.m.** Exhibits 20 days before, brief 10. Calendar **every date hanging off it**.",
   "steps": [
-   "Re-anchor hearing, exhibits and brief **to the letter** in the Docket System",
+   "Re-anchor hearing, exhibits and brief **to the letter** in Court E-Filing",
    "Count back binder QC and **records-request dates** in Calendaring Simulators",
    "Hold attendance, prep and **tech-check dates** on CMS → Calendar",
    "Route the **$900.00 fee share** to accounting as a cost",
@@ -9234,6 +9418,108 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
+ "d4m3-tx": {
+  "image": "treatment-plan",
+  "hook": "**The treatment is the claim**; the record is the proof.",
+  "points": [
+   "The demand waits for **MMI**: the Specials final, the prognosis known",
+   "**Objective findings** carry the weight; describe nothing, quote the MRI",
+   "Every gap **answered on file** before an adjuster cites it",
+   "Future care goes in **the narrative**, never the Specials"
+  ],
+  "upl": "You build and source the record; **value and causation are argued by others**",
+  "job": [
+   [
+    "MMI is declared",
+    "Close chronology, audit the Specials",
+    "CMS → Medical · Net Sheet",
+    "Every bill tied to a record"
+   ],
+   [
+    "A gap is on record",
+    "Pair it with its reason",
+    "Gap Explanation Record",
+    "No break left unanswered"
+   ],
+   [
+    "Demand or binder assembled",
+    "Map each claim to its record",
+    "Packet Builder",
+    "Nothing without its source"
+   ]
+  ],
+  "dos": [
+   "Watch treatment **with the demand in mind**",
+   "Close the chronology **at MMI**",
+   "Keep future care **in the narrative**"
+  ],
+  "donts": [
+   "Describing pain **instead of the finding**",
+   "Putting future care **in the Specials**",
+   "Finding the gaps **in the offer letter**"
+  ],
+  "theory": {
+   "lead": "A claim is proved **visit by visit**: the treatment record decides the Specials, causation and every question an adjuster asks.",
+   "concepts": [
+    {
+     "term": "MMI as the Trigger",
+     "text": "Value needs an end point: at MMI the bills stop growing and **the prognosis is known**"
+    },
+    {
+     "term": "Objective Findings",
+     "text": "Imaging and measured findings carry weight that **complaints alone** do not"
+    },
+    {
+     "term": "Continuity of Care",
+     "text": "Steady care reads as a real injury; **each gap needs its answer**"
+    },
+    {
+     "term": "Special vs. General Damages",
+     "text": "Specials are billed hard costs; **pain, prognosis and future care** are the narrative"
+    }
+   ],
+   "pages": [
+    "D1#40",
+    "D3#16"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Each visit note lands in the file as it arrives.",
+     "Months later a carrier asks what one visit proved.",
+     "The note was read on the day it arrived."
+    ],
+    [
+     "The bills are still growing in early June.",
+     "Lakeside's 06/12/2026 note says improvement has leveled off.",
+     "The chronology is closed and totalled that week."
+    ],
+    [
+     "Dr. Reyes writes that injections may be repeated.",
+     "Nobody has paid for those injections yet.",
+     "The note is quoted under prognosis, with its date."
+    ]
+   ],
+   "donts": [
+    [
+     "The draft says John suffered terrible, constant pain.",
+     "The MRI line about the adjacent levels is missing.",
+     "An adjuster calls the injury minor soft tissue."
+    ],
+    [
+     "The damages total suddenly reads $23,201.40.",
+     "Two injections still in the future were added.",
+     "The audit can no longer tie to a single bill."
+    ],
+    [
+     "On 08/05/2026 Keystone cites the fourteen days at $3,500.",
+     "Nothing on file explains those days yet.",
+     "The answer is drafted only after Keystone writes."
+    ]
+   ]
+  }
+ },
  "d4m3-a2": {
   "image": "checklist-qa",
   "situation": "It is 05/17/2027. **Exchange 06/02/2027**, hearing 06/22/2027. The folder holds a pre-filing draft complaint, grayscale stills, the impasse memo and **a Lien Sheet** listing Harbor Point PIP and Summit Imaging.",
@@ -9667,7 +9953,7 @@ window.CM_CF_SLIDES = {
    [
     "Discovery or RFAs land",
     "Calendar; alert Atty. Thorne on RFAs",
-    "CMS → Calendar · Docket System",
+    "CMS → Calendar · Court E-Filing",
     "Weekend rolled; RFA alert time-stamped"
    ]
   ],
@@ -9833,7 +10119,7 @@ window.CM_CF_SLIDES = {
    [
     "Scheduling Order entered 12/10/2026",
     "Calendar six dates, three alerts each",
-    "CMS → Calendar · Docket System",
+    "CMS → Calendar · Court E-Filing",
     "18 alerts; order in 01_PLEADINGS"
    ],
    [
@@ -10484,7 +10770,7 @@ window.CM_CF_SLIDES = {
    [
     "Notice served 01/20/2027",
     "Calendar sessions, packet, day-before checklist",
-    "Docket System · CMS → Calendar",
+    "Court E-Filing · CMS → Calendar",
     "02/04, 02/11, 02/16, 02/17, 02/18/2027 calendared"
    ],
    [
@@ -11012,7 +11298,7 @@ window.CM_CF_SLIDES = {
    [
     "Affidavit filed 10/16/2026",
     "Docket answer date; weekly check",
-    "Docket System · CMS → Calendar",
+    "Court E-Filing · CMS → Calendar",
     "Answer due 11/13/2026 calendared"
    ],
    [

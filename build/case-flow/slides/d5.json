@@ -12,7 +12,7 @@
     "job": [
       ["Atty. Thorne authorizes suit", "Verify filing date and legal name", "CMS → Litigation → Pleadings Log", "Filed 09/24/2026, inside 02/04/2028 hard date"],
       ["A service attempt fails", "Log it; escalate at day 14", "CMS → Tasks → Escalate", "Each attempt logged, date and address"],
-      ["Discovery or RFAs land", "Calendar; alert Atty. Thorne on RFAs", "CMS → Calendar · Docket System", "Weekend rolled; RFA alert time-stamped"]
+      ["Discovery or RFAs land", "Calendar; alert Atty. Thorne on RFAs", "CMS → Calendar · Court E-Filing", "Weekend rolled; RFA alert time-stamped"]
     ],
     "dos": [
       "Write **trigger, service method, arithmetic** into every entry",
@@ -65,7 +65,7 @@
     ],
     "upl": "You schedule, assemble, track and relay; never agree an extension or coach testimony",
     "job": [
-      ["Scheduling Order entered 12/10/2026", "Calendar six dates, three alerts each", "CMS → Calendar · Docket System", "18 alerts; order in 01_PLEADINGS"],
+      ["Scheduling Order entered 12/10/2026", "Calendar six dates, three alerts each", "CMS → Calendar · Court E-Filing", "18 alerts; order in 01_PLEADINGS"],
       ["Extension agreed by phone", "Draft confirmation for Atty. Thorne's signature", "Email Workspace · CMS → Calendar", "Sent the same day"],
       ["Deposition noticed", "Book reporter, link, technology check", "CMS → Calendar · Communications Log", "Packet sent by 02/11/2027"]
     ],
@@ -242,7 +242,7 @@
     ],
     "upl": "Run the process; never tell John what to say. Substance goes to Atty. Thorne",
     "job": [
-      ["Notice served 01/20/2027", "Calendar sessions, packet, day-before checklist", "Docket System · CMS → Calendar", "02/04, 02/11, 02/16, 02/17, 02/18/2027 calendared"],
+      ["Notice served 01/20/2027", "Calendar sessions, packet, day-before checklist", "Court E-Filing · CMS → Calendar", "02/04, 02/11, 02/16, 02/17, 02/18/2027 calendared"],
       ["Test call, 02/16/2027", "Technology check on John's device", "CMS → Case Notes", "Each item logged pass or fail"],
       ["Day before, 02/17/2027", "Confirm with all three; finalize exhibits", "Email Workspace · CMS → Documents", "Three confirmations logged"]
     ],
@@ -411,7 +411,7 @@
     "upl": "Run authorized skip-traces and draft notices; never decide alternative service or threaten withdrawal",
     "job": [
       ["Third failed attempt, 10/08/2026", "Escalate for Skip-Trace authority", "CMS → Tasks → Escalate", "Result logged 10/09/2026"],
-      ["Affidavit filed 10/16/2026", "Docket answer date; weekly check", "Docket System · CMS → Calendar", "Answer due 11/13/2026 calendared"],
+      ["Affidavit filed 10/16/2026", "Docket answer date; weekly check", "Court E-Filing · CMS → Calendar", "Answer due 11/13/2026 calendared"],
       ["Client unreachable from 01/22/2027", "Run Steps 1–3; draft Step 4", "CMS → Communications Log", "Response date before 02/04/2027"]
     ],
     "dos": [

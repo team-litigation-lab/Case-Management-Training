@@ -240,6 +240,8 @@ if n != 20:
 s = re.sub(r'<script src="/js/days/day(?:[1-9]|10)/slides\.js[^"]*"></script>\n?', "", s)
 # ...and its illustrations for that copy (EAPA_ART, also read only if defined).
 s = re.sub(r'<script src="/js/eapa-deck-art\.js[^"]*"></script>\n?', "", s)
+# ...and its deck card for that copy (EA/PA's lesson slides; the Case Flow draws its own).
+s = re.sub(r'<script src="/js/eapa-deck-card\.js[^"]*"></script>\n?', "", s)
 
 # One hook — eapa-updates.js — becomes the CM run, in load order.
 s = re.sub(r'<script src="/js/eapa-updates\.js\?v=[^"]*"></script>', '<script src="/js/eapa-updates.js?v=z"></script>', s, count=1)

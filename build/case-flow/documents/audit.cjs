@@ -135,6 +135,7 @@ const NEED = {
   RS84: [/\$6,666\.67/, /07\/27\/2026/, /Margaret Doe/, /0\.6/],
   RS85: [/\$6,666\.67/, /02\/09\/2026/, /07\/27\/2026/, /hold/i],
   RS86: [/October 16, 2026/, /October 19, 2026/, /withdraws/i],
+  RS74: [/\$20,359\.92/, /\$13,333\.33/, /\$486\.75/, /\$1,240\.00/, /\$4,580\.00/, /10\/22\/2026|October 22, 2026/, /ENCLOSURE A/, /ENCLOSURE B/],
 };
 for (const [id, list] of Object.entries(NEED)) if (text[id] !== undefined) list.forEach(re => { if (!has(id, re)) fails.push(`${id}: missing ${re}`); });
 // plants that must appear ONLY where planted
