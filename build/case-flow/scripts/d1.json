@@ -193,6 +193,20 @@
       "ask": "{name}, where in your Case Notes would Atty. Thorne see why the date of birth changed?"
     }
   },
+  "d1m1-drive": {
+    "case": {
+      "say": "It's 02/09/2026, half past four. John Doe's matter went active in the CMS this afternoon, and his intake documents are filed there. Now picture tomorrow morning. You're out sick, and a colleague picks up John's file because Keystone is on the phone asking about the Police Report. Can they find it in seconds? Only if every file at this firm is laid out the same way. That's what the backup drive is for. Right now there's nothing on it for John Doe. {name}, quick guess: how long would you give a colleague to find one document on someone else's file before you'd call it lost?",
+      "ask": "{name}, what makes a folder easy for someone else to find, when they've never seen your file?"
+    },
+    "task": {
+      "say": "Here's your job. Open My Backup Drive from this slide and link your own Google Drive to the platform. It asks Google for one narrow permission: it can only see the folders and files it makes. Then build the firm's hierarchy by hand, exactly to the standard on the slide. 01 Clients first, with John's folder inside it, named Doe dash John, last name first, and its nine numbered folders in order, intake and retainer down to litigation. Then the firm folders: administration, templates, closed files. Submit it, and if the grade comes back with problems, read each reason, because every one is a firm rule. Then run Check my drive. Last, write in Case Notes where the signed retainer, the Police Report and the HIPAA authorization belong, and why. Lazy: a folder called Misc. High value: a drive anyone can read.",
+      "ask": "{name}, why do the medical records and the bills get two separate folders?"
+    },
+    "check": {
+      "say": "Before you move on, check yourself, and I'm calling on a few of you. Is your Google Drive linked, with that one narrow permission? Is every folder named and numbered exactly as the standard has it, nothing invented and nothing renamed? Is Doe dash John under 01 Clients, with all nine folders inside it and in order? Did the grade come back as built, and did Check my drive come back with nothing missing? And in Case Notes, the retainer and the HIPAA authorization in Intake and Retainer, the Police Report in Police, Witness and Video, each with its reason. Now the real test. {name}, I say HIPAA authorization. Go. Time it. That's the job: any document, in seconds, on any file, for anyone covering it.",
+      "ask": "{name}, if a folder goes missing from your drive next week, how will you know, and what do you do?"
+    }
+  },
   "d1m3-a1": {
     "case": {
       "say": "Before I play anything, a quick bet. {name}, how long do you think a client's voicemail usually is? Ten seconds? A minute? {name}, your guess? This one's longer than you'd like, and every second matters. John Doe's retainer is signed and his matter is open, but nothing has gone out to him yet. And a voicemail just landed on the file, dated 02/10/2026. Where you'd normally see documents beside it, you've got your Notes and Action Plan instead. Play the message and type it out exactly as he says it, start to finish. Not your summary, his words. When you hand it in, you'll see the transcript and every fact you should have caught. Then you write your plan, in the order you'd work it today, and that's graded too, with the answer key straight after. The lazy listener writes \"client called, wants update.\" The high-value listener catches the one sentence in the middle that changes today's to-do list. I once had a client leave a four-minute voicemail that was mostly about his dog, and buried at minute three was the line \"the other guy's insurance called me.\" Guess which part mattered.",

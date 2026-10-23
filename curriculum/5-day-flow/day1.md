@@ -39,18 +39,19 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 4. *Lesson* — Ingesting the Raw File
 5. *Lesson* — The Acceptance Decision & the Three-Pillar Case Plan
 6. *Skill Activity* — Opening John Doe's File in the CMS
-7. *Lesson* — Client Do's and Don'ts
-8. *Lesson* — Property Damage: Does It Touch Our Case?
-9. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet
-10. *Skill Activity* — Onboarding Direction Assignment in System
-11. *Skill Activity* — Does It Touch Our Case? Sorting the PD File
-12. *Lesson* — The No Contact Protocol — Steps 1 to 3
-13. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
-14. *Skill Activity* — Multi-Channel Outreach Logging
-15. *Skill Activity* — Final Warning Letter Drafting
-16. *Knowledge Check* — CM Fundamentals Knowledge Check
-17. *Knowledge Check* — Onboarding & Property Damage Check
-18. *Knowledge Check* — MIA Escalation Knowledge Check
+7. *Skill Activity* — Backup File Maintenance: the Firm's Folders and Hierarchy
+8. *Lesson* — Client Do's and Don'ts
+9. *Lesson* — Property Damage: Does It Touch Our Case?
+10. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet
+11. *Skill Activity* — Onboarding Direction Assignment in System
+12. *Skill Activity* — Does It Touch Our Case? Sorting the PD File
+13. *Lesson* — The No Contact Protocol — Steps 1 to 3
+14. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
+15. *Skill Activity* — Multi-Channel Outreach Logging
+16. *Skill Activity* — Final Warning Letter Drafting
+17. *Knowledge Check* — CM Fundamentals Knowledge Check
+18. *Knowledge Check* — Onboarding & Property Damage Check
+19. *Knowledge Check* — MIA Escalation Knowledge Check
 
 **End-of-day discussion (trainer):** Robert Smith's carrier has already called John Doe, and he needs a car to get to work. What do you tell him today, in what order, and what has to be on the file before tomorrow's claim set-up?
 
@@ -58,7 +59,7 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 
 ## Module 1 — Intake, Claims & Property Damage
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 1.1.1 Meet Your Case: John Doe v. Robert Smith
 
@@ -540,7 +541,80 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.7 Client Do's and Don'ts
+### 1.1.7 Backup File Maintenance: the Firm's Folders and Hierarchy
+
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Topic:** Skill Activity — link the drive and build the backup the way the firm keeps it  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · LSH firm standard: backup drive folder hierarchy
+
+#### 1 · Visual Layout Description
+
+A Google Drive folder tree as a large mock-up on the left two-thirds: LSH Case Backups at the root, then 01 Clients opened to Doe-John with its nine numbered sub-folders stacked in order, and below it 02 Firm Administration, 03 Templates and 04 Closed Files. Three document chips on orange leader lines drop into their folders: the signed retainer and the HIPAA authorization into 01 Intake & Retainer, the Police Report into 02 Police, Witness & Video. On the right, a stopwatch card reads FOUND IN SECONDS and a green ✓ CHECK MY DRIVE stamp.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** 02/09/2026, 4:30 p.m. John Doe's matter went active in the CMS this afternoon, and his intake documents are filed there. The firm keeps every case file on a backup drive as well, built to one standard, so that whoever covers the file can put a hand on any document in seconds: a Case Manager out sick, a colleague taking the call, Atty. Thorne in a hearing. Nothing is on the backup for John Doe yet.
+
+**Execution prompt.** Link your Google Drive to the platform from 📂 My Backup Drive, then build the firm's backup hierarchy exactly to the firm standard, by hand: every folder named and numbered as the standard has it, nested where it belongs and in order. The target is 01 Clients, holding the client folder Doe-John (last name first) with its nine folders, 01 Intake & Retainer, 02 Police, Witness & Video, 03 Medical Records, 04 Bills & Invoices, 05 Insurance, Demands & Negotiation, 06 Liens & Reimbursement, 07 Wages & Costs, 08 Property Damage and 09 Litigation & ADR; then 02 Firm Administration, holding 01 Policies & SOPs and 02 Compliance & CLE; then 03 Templates and 04 Closed Files. Submit it for grading, fix anything it returns, and confirm it with ✓ Check my drive. Then record in Case Notes where three of today's documents belong and why: the signed retainer, the Police Report and the HIPAA authorization.
+
+| | |
+|---|---|
+| **Tool / interface** | Backup Drive · CMS → Case Notes |
+| **Expected output** | A linked Google Drive holding the firm's hierarchy for John Doe's case, graded and confirmed by a clean drive check, and a Case Note placing the retainer, the Police Report and the HIPAA authorization in their folders. |
+
+**Verification checkpoints**
+
+- [ ] Google Drive linked to the platform, with the drive.file permission only
+- [ ] Every folder named and numbered exactly as the firm standard has it, nothing invented
+- [ ] The client folder named last name first (Doe-John) and nested under 01 Clients, its nine folders inside it
+- [ ] Folders in the standard's order, 01 to 09 and 01 to 04, with the firm folders after the client work
+- [ ] The hierarchy submitted and graded as built
+- [ ] ✓ Check my drive run with no folder missing
+- [ ] The signed retainer and the HIPAA authorization placed in 01 Intake & Retainer, the Police Report in 02 Police, Witness & Video, each with its reason in Case Notes
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Matter active in the CMS | Link your Google Drive to the platform | Backup Drive | Connected with drive.file only |
+| Drive linked, no structure yet | Build the firm's hierarchy, named, numbered, nested and in order | Backup Drive | Graded as built, nothing invented |
+| Structure built | Confirm it with ✓ Check my drive; put back anything missing | Backup Drive | No folder missing |
+| Documents filed in the CMS | Record where each belongs on the backup | CMS → Case Notes | Retainer, HIPAA, Police Report placed with reasons |
+
+**Best practices & pitfalls**
+
+- Build to the standard, not to taste: a covering Case Manager finds a document because every file is laid out the same way.
+- Run ✓ Check my drive whenever you file; a deleted folder is a document the firm has lost.
+- ⚠️ Pitfall: a folder named “Misc” or “New Folder”, which no colleague will ever look in.
+- ⚠️ Pitfall: keeping the medical records and the bills in one folder; liability reads the records and damages read the bills.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **10%** | Drive linked | Google Drive connected to the platform with the drive.file permission |
+| 🤖 AI | **30%** | Hierarchy to standard | Every folder named, numbered, nested and ordered as the firm standard has it; graded as built |
+| 🤖 AI | **20%** | Drive confirmed | ✓ Check my drive run with no folder missing |
+| 🧑‍🏫 Trainer | **25%** | Document placement | Retainer, HIPAA authorization and Police Report each placed in the right folder, with the reason |
+| 🧑‍🏫 Trainer | **15%** | Findability | Can find any named document on the backup in seconds when asked |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Show the target on the slide and let the room build it by hand. The panel does not prefill it; typing it is the skill.
+- When the grade comes back with problems, have them read the reasons aloud. Each one is a firm rule, not a typo.
+- The test is speed: call out a document (the HIPAA authorization, the Police Report) and time how long it takes to open its folder.
+- Delete a folder in your own demo drive and run ✓ Check my drive, so the room sees what a lost folder looks like and how to put it back.
+
+---
+
+### 1.1.8 Client Do's and Don'ts
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Protecting the claim from the client's own good intentions  
@@ -618,7 +692,7 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 ---
 
-### 1.1.8 Property Damage: Does It Touch Our Case?
+### 1.1.9 Property Damage: Does It Touch Our Case?
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** What from the PD side feeds John Doe's injury claim, and what stays on Margaret Doe's  
@@ -697,7 +771,7 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 ---
 
-### 1.1.9 Voicemails & Recorded Statements: the Action Plan and Direction Packet
+### 1.1.10 Voicemails & Recorded Statements: the Action Plan and Direction Packet
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Skill Activity 1 — work the voicemail, then send what the client gets on day one  
@@ -771,7 +845,7 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 ---
 
-### 1.1.10 Onboarding Direction Assignment in System
+### 1.1.11 Onboarding Direction Assignment in System
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Skill Activity 2 — turn directions into tracked tasks  
@@ -841,7 +915,7 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 ---
 
-### 1.1.11 Does It Touch Our Case? Sorting the PD File
+### 1.1.12 Does It Touch Our Case? Sorting the PD File
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Skill Activity 3 — sort the Property Damage items, decide refer, coordinate or handle, and say whether PD touches John Doe's case  
@@ -912,7 +986,7 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 ---
 
-### 1.1.12 The No Contact Protocol — Steps 1 to 3
+### 1.1.13 The No Contact Protocol — Steps 1 to 3
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Internal review, escalating contact attempts, team notification  
@@ -988,7 +1062,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ---
 
-### 1.1.13 Final Warning Letter & the Skip-Trace Trigger
+### 1.1.14 Final Warning Letter & the Skip-Trace Trigger
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** No Contact Protocol Steps 4 to 6, and when the search begins  
@@ -1062,7 +1136,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ---
 
-### 1.1.14 Multi-Channel Outreach Logging
+### 1.1.15 Multi-Channel Outreach Logging
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 1 — build a defensible record  
@@ -1136,7 +1210,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ---
 
-### 1.1.15 Final Warning Letter Drafting
+### 1.1.16 Final Warning Letter Drafting
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 2 — write the letter that gets answered  
@@ -1211,7 +1285,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ---
 
-### 1.1.16 CM Fundamentals Knowledge Check
+### 1.1.17 CM Fundamentals Knowledge Check
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1320,7 +1394,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 1.1.17 Onboarding & Property Damage Check
+### 1.1.18 Onboarding & Property Damage Check
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1418,7 +1492,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 ---
 
-### 1.1.18 MIA Escalation Knowledge Check
+### 1.1.19 MIA Escalation Knowledge Check
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

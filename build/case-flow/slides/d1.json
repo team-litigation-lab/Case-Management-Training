@@ -75,6 +75,33 @@
       "Accepting **a pre-filled field** unchecked"
     ]
   },
+  "d1m1-drive": {
+    "image": "documents-audit",
+    "situation": "02/09/2026, 4:30 p.m. John Doe's matter is **active in the CMS**, and nothing is on **the firm's backup drive** yet.",
+    "steps": [
+      "Link **your Google Drive** from 📂 My Backup Drive",
+      "Build the hierarchy **to the firm standard**, by hand",
+      "Name, number, nest and order **the whole hierarchy**",
+      "Confirm it with **✓ Check my drive**",
+      "Place **retainer, Police Report, HIPAA** in Case Notes"
+    ],
+    "deliver": "A linked drive **built to standard**, confirmed by a clean check",
+    "purpose": "A covering Case Manager must **find any document in seconds**",
+    "principle": "Every file is laid out **the same way, every time**",
+    "checks": [
+      "Drive linked with **drive.file only**",
+      "Every folder **named and numbered** to the standard",
+      "**Doe-John** under 01 Clients, nine folders inside",
+      "**✓ Check my drive**: no folder missing",
+      "Three documents **placed, with reasons**"
+    ],
+    "dos": [
+      "Run **✓ Check my drive** whenever you file"
+    ],
+    "donts": [
+      "A folder named **“Misc”** that nobody opens"
+    ]
+  },
   "d1m1-l1": {
     "image": "intake-interview",
     "roadmap": {

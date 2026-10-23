@@ -306,6 +306,7 @@ window.CM_CF_DOCS = [
 /* The documents each Case Flow Skill Activity works from (shown on the activity's slide as "📁 Work from"). */
 window.CM_CF_DOC_PACKETS = {
   "d1m1-open": ["RS01", "RS02", "RS03", "RS05", "RS06", "RS07"],
+  "d1m1-drive": ["RS05", "RS07", "RS06"],
   "d1m1-a1": ["RS01", "RS07"], "d1m1-a2": ["RS40", "RS01", "RS90", "RS25", "RS31"],
   "d1m2-a1": ["RS01", "RS05"], "d1m2-a2": ["RS05", "RS01"],
   "d1m3-a1": ["RS05", "RS06", "RS01"], "d1m3-a2": ["RS05", "RS01"], "d1m3-a3": ["RS07", "RS01", "RS02", "RS03"],

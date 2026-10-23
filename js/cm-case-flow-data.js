@@ -837,6 +837,60 @@ window.CM_CASE_FLOW = {
         ]
       },
 
+
+      {
+        kind: "activity", id: "d1m1-drive",
+        transition: "John Doe's matter is active in the CMS. Before the day's documents pile up, the file gets its backup: the firm's folders, built the firm's way.",
+        title: "Backup File Maintenance: the Firm's Folders and Hierarchy",
+        topic: "Skill Activity — link the drive and build the backup the way the firm keeps it",
+        visual: "A Google Drive folder tree as a large mock-up on the left two-thirds: LSH Case Backups at the root, then 01 Clients opened to Doe-John with its nine numbered sub-folders stacked in order, and below it 02 Firm Administration, 03 Templates and 04 Closed Files. Three document chips on orange leader lines drop into their folders: the signed retainer and the HIPAA authorization into 01 Intake & Retainer, the Police Report into 02 Police, Witness & Video. On the right, a stopwatch card reads FOUND IN SECONDS and a green ✓ CHECK MY DRIVE stamp.",
+        act: {
+          scenario: "02/09/2026, 4:30 p.m. John Doe's matter went active in the CMS this afternoon, and his intake documents are filed there. The firm keeps every case file on a backup drive as well, built to one standard, so that whoever covers the file can put a hand on any document in seconds: a Case Manager out sick, a colleague taking the call, Atty. Thorne in a hearing. Nothing is on the backup for John Doe yet.",
+          prompt: "Link your Google Drive to the platform from 📂 My Backup Drive, then build the firm's backup hierarchy exactly to the firm standard, by hand: every folder named and numbered as the standard has it, nested where it belongs and in order. The target is 01 Clients, holding the client folder Doe-John (last name first) with its nine folders, 01 Intake & Retainer, 02 Police, Witness & Video, 03 Medical Records, 04 Bills & Invoices, 05 Insurance, Demands & Negotiation, 06 Liens & Reimbursement, 07 Wages & Costs, 08 Property Damage and 09 Litigation & ADR; then 02 Firm Administration, holding 01 Policies & SOPs and 02 Compliance & CLE; then 03 Templates and 04 Closed Files. Submit it for grading, fix anything it returns, and confirm it with ✓ Check my drive. Then record in Case Notes where three of today's documents belong and why: the signed retainer, the Police Report and the HIPAA authorization.",
+          tool: "Backup Drive · CMS → Case Notes",
+          output: "A linked Google Drive holding the firm's hierarchy for John Doe's case, graded and confirmed by a clean drive check, and a Case Note placing the retainer, the Police Report and the HIPAA authorization in their folders.",
+          checkpoints: [
+            "Google Drive linked to the platform, with the drive.file permission only",
+            "Every folder named and numbered exactly as the firm standard has it, nothing invented",
+            "The client folder named last name first (Doe-John) and nested under 01 Clients, its nine folders inside it",
+            "Folders in the standard's order, 01 to 09 and 01 to 04, with the firm folders after the client work",
+            "The hierarchy submitted and graded as built",
+            "✓ Check my drive run with no folder missing",
+            "The signed retainer and the HIPAA authorization placed in 01 Intake & Retainer, the Police Report in 02 Police, Witness & Video, each with its reason in Case Notes"
+          ]
+        },
+        ops: [
+          ["Matter active in the CMS", "Link your Google Drive to the platform", "Backup Drive", "Connected with drive.file only"],
+          ["Drive linked, no structure yet", "Build the firm's hierarchy, named, numbered, nested and in order", "Backup Drive", "Graded as built, nothing invented"],
+          ["Structure built", "Confirm it with ✓ Check my drive; put back anything missing", "Backup Drive", "No folder missing"],
+          ["Documents filed in the CMS", "Record where each belongs on the backup", "CMS → Case Notes", "Retainer, HIPAA, Police Report placed with reasons"]
+        ],
+        best: [
+          "Build to the standard, not to taste: a covering Case Manager finds a document because every file is laid out the same way.",
+          "Run ✓ Check my drive whenever you file; a deleted folder is a document the firm has lost.",
+          "Pitfall: a folder named “Misc” or “New Folder”, which no colleague will ever look in.",
+          "Pitfall: keeping the medical records and the bills in one folder; liability reads the records and damages read the bills."
+        ],
+        sources: ["D1#12", "D1#13", "LSH firm standard: backup drive folder hierarchy"],
+        rubric: {
+          ai: [
+            ["Drive linked", 10, "Google Drive connected to the platform with the drive.file permission"],
+            ["Hierarchy to standard", 30, "Every folder named, numbered, nested and ordered as the firm standard has it; graded as built"],
+            ["Drive confirmed", 20, "✓ Check my drive run with no folder missing"]
+          ],
+          trainer: [
+            ["Document placement", 25, "Retainer, HIPAA authorization and Police Report each placed in the right folder, with the reason"],
+            ["Findability", 15, "Can find any named document on the backup in seconds when asked"]
+          ]
+        },
+        notes: [
+          "Show the target on the slide and let the room build it by hand. The panel does not prefill it; typing it is the skill.",
+          "When the grade comes back with problems, have them read the reasons aloud. Each one is a firm rule, not a typo.",
+          "The test is speed: call out a document (the HIPAA authorization, the Police Report) and time how long it takes to open its folder.",
+          "Delete a folder in your own demo drive and run ✓ Check my drive, so the room sees what a lost folder looks like and how to put it back."
+        ]
+      },
+
       {
         kind: "check", id: "d1m1-kc",
         title: "CM Fundamentals Knowledge Check",
@@ -11283,8 +11337,8 @@ window.CM_CASE_FLOW = {
 
   sequence: [
     {n: 1, phases: [
-      {title: "Intake, Claims & Property Damage", lead: "Module 1", blocks: ["d1m1-case", "d1m1-role", "d1m1-upl", "d1m1-l1", "d1m4-l1", "d1m1-open", "d1m3-l1", "d1m3-l2", "d1m3-a1", "d1m3-a2", "d1m3-a3", "d1m2-l1", "d1m2-l2", "d1m2-a1", "d1m2-a2", "d1m1-kc", "d1m3-kc", "d1m2-kc"],
-       headings: {"d1m1-case": "Meet Your Client: John Doe", "d1m1-role": "Introduction to Case Management", "d1m1-upl": "The UPL Line: Fact Sharing vs. Legal Advice", "d1m1-l1": "Intake", "d1m4-l1": "Intake", "d1m3-l1": "Client Directions", "d1m3-l2": "Property Damage: Does It Touch Our Case?", "d1m1-open": "Skill Building: Opening the File in the CMS", "d1m3-a1": "Skill Building: Client Directions", "d1m3-a2": "Skill Building: Client Directions", "d1m3-a3": "Skill Building: Does PD Touch Our Case?", "d1m2-l1": "Client Communications", "d1m2-l2": "Client Communications", "d1m2-a1": "Skill Building: Client Communications", "d1m2-a2": "Skill Building: Client Communications"}}
+      {title: "Intake, Claims & Property Damage", lead: "Module 1", blocks: ["d1m1-case", "d1m1-role", "d1m1-upl", "d1m1-l1", "d1m4-l1", "d1m1-open", "d1m1-drive", "d1m3-l1", "d1m3-l2", "d1m3-a1", "d1m3-a2", "d1m3-a3", "d1m2-l1", "d1m2-l2", "d1m2-a1", "d1m2-a2", "d1m1-kc", "d1m3-kc", "d1m2-kc"],
+       headings: {"d1m1-case": "Meet Your Client: John Doe", "d1m1-role": "Introduction to Case Management", "d1m1-upl": "The UPL Line: Fact Sharing vs. Legal Advice", "d1m1-l1": "Intake", "d1m4-l1": "Intake", "d1m3-l1": "Client Directions", "d1m3-l2": "Property Damage: Does It Touch Our Case?", "d1m1-open": "Skill Building: Opening the File in the CMS", "d1m1-drive": "Skill Building: Backup File Maintenance", "d1m3-a1": "Skill Building: Client Directions", "d1m3-a2": "Skill Building: Client Directions", "d1m3-a3": "Skill Building: Does PD Touch Our Case?", "d1m2-l1": "Client Communications", "d1m2-l2": "Client Communications", "d1m2-a1": "Skill Building: Client Communications", "d1m2-a2": "Skill Building: Client Communications"}}
     ]},
     {n: 2, phases: [
       {title: "Claim Set Up & Treatment", lead: "Module 2", lanes: {"d2m1-l1": "claims", "d2m1-l2": "claims", "d2m1-afd": "claims", "d2m1-liab": "claims", "d2m1-first": "claims", "d1m4-l2": "claims", "d1m1-a1": "claims", "d2m1-a1": "claims", "d2m1-a2": "claims", "d1m4-a1": "claims", "d1m4-a2": "claims", "d2m1-kc": "claims", "d1m4-kc": "claims", "d2m1-cov": "care", "d2m2-l1": "care", "d2m2-eob": "care", "d2m2-pip": "care", "d2m2-lop": "care", "d2m2-cost": "care", "d1m1-l2": "care", "d2m2-l2": "care", "d2m2-a1": "care", "d1m1-a2": "care", "d2m2-sum": "care", "d2m2-a2": "care", "d2m2-a3": "care", "d2m2-kc": "care", "d1m4-tplan": "claims", "d1m4-tmap": "claims", "d1m4-tcare": "claims", "d1m4-emc": "care"}, blocks: ["d2m1-l2", "d2m1-afd", "d2m1-liab", "d2m1-first", "d2m1-l1", "d1m1-a1", "d2m1-a1", "d2m1-a2", "d1m4-tplan", "d1m4-tmap", "d1m4-tcare", "d1m4-l2", "d1m4-a1", "d1m4-a2", "d2m1-cov", "d2m2-l1", "d2m2-eob", "d2m2-pip", "d1m4-emc", "d2m2-lop", "d2m2-cost", "d2m2-a1", "d2m2-a3", "d1m1-l2", "d1m1-a2", "d2m2-sum", "d2m2-l2", "d2m2-a2", "d2m1-kc", "d1m4-kc", "d2m2-kc"],

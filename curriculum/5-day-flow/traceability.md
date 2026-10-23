@@ -21,8 +21,8 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#9` | Common Intake Bottlenecks — Overview | ✅ BUILT | d1m2-l1 |
 | `D1#10` | Bottleneck: Incomplete Client Information | ✅ BUILT | d1m1-l1 |
 | `D1#11` | Bottleneck: Delayed Client Follow-Up | ✅ BUILT | d1m2-l1, d1m2-a1, d1m2-kc |
-| `D1#12` | Bottleneck: Conflict Check Delays | ✅ BUILT | d1m1-l1, d1m1-open, d1m1-kc |
-| `D1#13` | Bottleneck: Intake Form Errors | ✅ BUILT | d1m1-l1, d1m1-open |
+| `D1#12` | Bottleneck: Conflict Check Delays | ✅ BUILT | d1m1-l1, d1m1-open, d1m1-drive, d1m1-kc |
+| `D1#13` | Bottleneck: Intake Form Errors | ✅ BUILT | d1m1-l1, d1m1-open, d1m1-drive |
 | `D1#14` | Bottleneck: Case Eligibility Uncertainty | ✅ BUILT | d1m4-l1 |
 | `D1#15` | Bottleneck: Communication Gaps | ✅ BUILT | d1m1-l1, d2m1-first |
 | `D1#16` | Tools for Case Planning & the PI Case Lifecycle Strategy | ✅ BUILT | d1m1-case, d1m1-l1, d1m1-kc, d1m3-a2, d1m4-a1, d2m2-sum |
@@ -231,6 +231,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: communication skills and professionalism — clarity without jargon, calm reassurance
 - Newly authored: a dedicated, practical UPL lesson: fact sharing vs. legal advice, and the hear-log-route habit
 - LSH Claims Specialist: pre-claim data set, Declaration Page, coverage asymmetry
+- LSH firm standard: backup drive folder hierarchy
 - LSH Claims Specialist: No Contact Protocol, Steps 1–3
 - D5 agenda: MIA Clients
 - LSH Claims Specialist: No Contact Protocol, Step 2
