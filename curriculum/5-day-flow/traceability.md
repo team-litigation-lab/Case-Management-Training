@@ -254,6 +254,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: Declaration Pages, certified copy of policy, policy limits and limit types
 - LSH Claims Specialist: follow-up cadence, LOR acknowledgement, statement of insurance disclosure
 - Newly authored: verifying the UM form and PIP terms at set-up; the regulatory and policy deadline backstop
+- Newly authored: the affidavits a personal injury file relies on (no other insurance, residency and no owned vehicle, records and billing custodian, wage verification, service) and the Case Manager's request-and-check role
 - Newly authored: liability investigation at claim set-up — evidence, preservation and anticipating comparative fault
 - Newly authored: decision first — leading every note, email and brief to the attorney with the decision or action needed
 - LSH Claims Specialist: Declaration Pages, coverage verification and follow-up

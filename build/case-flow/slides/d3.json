@@ -259,6 +259,19 @@
   },
   "d3m2-umw": {
     "image": "coverage-check",
+    "document": {
+      "name": "UM Waiver of Subrogation",
+      "doc": "RS83",
+      "definition": "Each UM carrier's signed, **notarized** instrument giving up its right to recover from Robert Smith and Keystone.",
+      "purpose": "It lets John release Smith **without losing the UM claims**; Keystone pays only once both are in.",
+      "evidence": "Sworn and acknowledged, it **can be filed or offered** in court or arbitration without the adjuster.",
+      "handling": [
+        "Get the **waiver itself**, not only the consent letter",
+        "Check carrier, policy, claim and **Smith and Keystone only**",
+        "Confirm it is **signed and notarized**, UM claim kept open",
+        "What it waives is **Atty. Thorne's to explain**"
+      ]
+    },
     "hook": "Keystone's $10,000 can't close until **both UM carriers** consent and waive subrogation.",
     "points": ["Release Smith without consent and **the UM claims** can be lost", "Ask **Harbor Point and Cardinal State**; Bluewater has no UM", "The 30-Day Letter goes **the day after the tender**", "John Doe signs only **after both waivers** are in writing"],
     "upl": "Request, docket, chase and match; **never interpret** the consent clause",

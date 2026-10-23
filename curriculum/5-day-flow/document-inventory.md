@@ -6,7 +6,7 @@ packets, the exhibit audits and Amendment Requests (`build/case-flow/exhibits/`)
 document has no route to being caught and fixed, when the documents that prove it open too late for the activity that
 works it, or when a corrected copy has no request behind it.
 
-**92 documents** · **22 plant a challenge** · **2 corrected copies** come back from the trainee's Amendment Requests · D*n* = the Case Flow day.
+**93 documents** · **22 plant a challenge** · **2 corrected copies** come back from the trainee's Amendment Requests · D*n* = the Case Flow day.
 
 ## How the trainee fixes a challenge
 
@@ -147,6 +147,7 @@ with the reason; a complete one brings the provider's answer and the corrected c
 | RS80 | Keystone Limited Release — as approved (08/19/2026) | Insurance, Demands & Negotiation | D3 | Case Files | Carrier correspondence (Email Workspace · mail) | — | d3m2-exec (D3) |
 | RS81 | BI Settlement Packet — Executed, Transmitted & Funded (as filed 09/04/2026) | Insurance, Demands & Negotiation | D3 | Others | Carrier correspondence (Email Workspace · mail) | — | d3m2-a2 (D3), d3m4-a2 (D4) |
 | RS82 | Release Clause Review & Attorney Approval — Memorandum (as filed) | Insurance, Demands & Negotiation | D3 | Others | Carrier correspondence (Email Workspace · mail) | — | d3m2-exec (D3) |
+| RS83 | UM Subrogation Waivers — Harbor Point & Cardinal State (executed) | Insurance, Demands & Negotiation | D3 | Others | Carrier correspondence (Email Workspace · mail) | — | d3m1-a2 (D3), d3m2-exec (D3), d4m2-a3 (D4), d4m3-a2 (D4) |
 | RS84 | Vance & Kettering — Notice of Charging Lien & Fee-Division Demand (10/13/2026) | Liens & Reimbursement | D4 | Others | The lienholder's own writing | (what the investigation finds): the agreement (07/27/2026) is signed only by Margaret Doe, "mother"; John Doe's line is blank and no authority is attached; the … | d3m4-pal (D4) |
 | RS85 | Asserted Prior-Attorney Lien — Evidentiary Packet to Atty. Thorne (10/15/2026) | Liens & Reimbursement | D4 | Others | The lienholder's own writing | — | d3m4-a2 (D4) |
 | RS86 | Prior-Attorney Lien — Atty. Thorne's Repudiation (10/16) & Withdrawal (10/19/2026) | Liens & Reimbursement | D4 | Others | The lienholder's own writing | — | d3m4-a2 (D4) |

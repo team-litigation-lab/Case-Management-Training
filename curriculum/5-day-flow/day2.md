@@ -34,35 +34,36 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 **Module 2 — Claim Set Up & Treatment**
 
 1. *Lesson* — Coverage Verification Tracking & Follow-Up Deadlines
-2. *Lesson* — Liability Investigation: the Police Report, the Witness, the Video & Comparative Fault (condensed)
-3. *Lesson* — Decision First: Lead Every Note to Atty. Thorne with the Decision Needed (condensed)
-4. *Lesson* — LOR Drafting Mechanics & Three-Carrier Notification
-5. *Skill Activity* — Policy Stack & Coverage Verification
-6. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
-7. *Skill Activity* — CMS Coverage Matrix Audit
-8. *Lesson* — The Treatment Assessment, SMART Goals & the Care Coordination Plan
-9. *Lesson* — The Standard Treatment Map: Phases, Timelines & Course Correction
-10. *Lesson* — Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
-11. *Lesson* — The Action Plan Editor & Attorney Review Routing (condensed)
-12. *Skill Activity* — Identifying & Flagging the 14-Day Gap
-13. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
-14. *Lesson* — Coverages & the Payer-First Principle
-15. *Lesson* — LOP Issuance Guidelines, Provider Coordination & PIP Limits (condensed)
-16. *Lesson* — Explanation of Benefits (EOB) & PIP
-17. *Lesson* — PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement (condensed)
-18. *Lesson* — The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000 (condensed)
-19. *Lesson* — Letters of Protection & the Case Manager's Part in Provider Referrals (condensed)
-20. *Lesson* — Rental & Reimbursement of Costs (condensed)
-21. *Skill Activity* — Transmitting LOPs to Medical Providers
-22. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
-23. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check (condensed)
-24. *Skill Activity* — Health Plan Subrogation: Flag, Request & Audit the Lien
-25. *Lesson* — Coverage & Subrogation: the Treatment Phase Summary
-26. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
-27. *Skill Activity* — The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol
-28. *Knowledge Check* — Coverage Setup Verification Check
-29. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
-30. *Knowledge Check* — Treatment Monitoring Review
+2. *Lesson* — Affidavits on the File: No Other Insurance, Residency, Records & Service
+3. *Lesson* — Liability Investigation: the Police Report, the Witness, the Video & Comparative Fault (condensed)
+4. *Lesson* — Decision First: Lead Every Note to Atty. Thorne with the Decision Needed (condensed)
+5. *Lesson* — LOR Drafting Mechanics & Three-Carrier Notification
+6. *Skill Activity* — Policy Stack & Coverage Verification
+7. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+8. *Skill Activity* — CMS Coverage Matrix Audit
+9. *Lesson* — The Treatment Assessment, SMART Goals & the Care Coordination Plan
+10. *Lesson* — The Standard Treatment Map: Phases, Timelines & Course Correction
+11. *Lesson* — Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
+12. *Lesson* — The Action Plan Editor & Attorney Review Routing (condensed)
+13. *Skill Activity* — Identifying & Flagging the 14-Day Gap
+14. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
+15. *Lesson* — Coverages & the Payer-First Principle
+16. *Lesson* — LOP Issuance Guidelines, Provider Coordination & PIP Limits (condensed)
+17. *Lesson* — Explanation of Benefits (EOB) & PIP
+18. *Lesson* — PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement (condensed)
+19. *Lesson* — The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000 (condensed)
+20. *Lesson* — Letters of Protection & the Case Manager's Part in Provider Referrals (condensed)
+21. *Lesson* — Rental & Reimbursement of Costs (condensed)
+22. *Skill Activity* — Transmitting LOPs to Medical Providers
+23. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+24. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check (condensed)
+25. *Skill Activity* — Health Plan Subrogation: Flag, Request & Audit the Lien
+26. *Lesson* — Coverage & Subrogation: the Treatment Phase Summary
+27. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
+28. *Skill Activity* — The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol
+29. *Knowledge Check* — Coverage Setup Verification Check
+30. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
+31. *Knowledge Check* — Treatment Monitoring Review
 
 **End-of-day discussion (trainer):** It is 04/08/2026. Keystone confirmed its limit in writing on 03/20, Riverton Spine & Rehab reports John Doe has missed two visits, and Dana Whitfield has asked John for a Recorded Statement. What do you do first, second and third, and what does each protect?
 
@@ -70,7 +71,7 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 
 ## Module 2 — Claim Set Up & Treatment
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 2.1.1 Coverage Verification Tracking & Follow-Up Deadlines
 
@@ -156,7 +157,86 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.2 Liability Investigation: the Police Report, the Witness, the Video & Comparative Fault
+### 2.1.2 Affidavits on the File: No Other Insurance, Residency, Records & Service
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Topic:** Which sworn statements John Doe's file relies on, who swears each one, and where each is used  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** Newly authored: the affidavits a personal injury file relies on (no other insurance, residency and no owned vehicle, records and billing custodian, wage verification, service) and the Case Manager's request-and-check role
+
+#### 1 · Visual Layout Description
+
+A row of five document cards on a navy rail, each with a notary seal in its corner and a mono tag naming who swears it: NO OTHER INSURANCE · ROBERT SMITH; RESIDENCY & NO OWNED VEHICLE · JOHN DOE; RECORDS & BILLING · PROVIDER CUSTODIAN; WAGES · NORTHGATE HR; SERVICE · PROCESS SERVER. Under each card, an orange pill names where it is used: DEMAND CONDITION, RELATIVE UM, EVIDENCE, LOST WAGES, ANSWER CLOCK. Along the bottom, a magnifier over a jurat block with five ticks: affiant, numbers, dates, signature, seal. The argument: a fact the file relies on is proven by the person who knows it, under oath.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* A fact the file depends on is only as strong as its proof. Coverage, residency, the bills and service on Robert Smith are each proven by a sworn statement from the person who knows them: Smith swears he has no other insurance, a records custodian swears the bills are the provider's own, a process server swears Smith was served. Without the affidavit, the fact is an assertion a carrier, an arbitrator or a court can refuse.
+
+1. What an affidavit is: a written statement of facts, made on the signer's own personal knowledge and sworn under oath before a notary or other officer, ending in a jurat ("sworn to and subscribed before me"). A false affidavit is perjury. An acknowledgment, like the one on a UM Waiver of Subrogation, only confirms who signed.
+2. Coverage, the Affidavit of No Other Insurance: Robert Smith swears Keystone's policy is the only liability coverage for the collision, with no umbrella, business, employer's or household policy. It is a condition of settling at the $10,000 limit, and what Harbor Point and Cardinal State review before consenting (sworn 08/10/2026).
+3. Coverage, Residency and No Owned Vehicle: Relative UM depends on John living with Margaret Doe and owning no car. If a carrier asks for sworn proof, John signs an affidavit drafted for Atty. Thorne's review; on this file Cardinal State confirmed coverage in writing on 03/09/2026.
+4. Damages, the Records and Billing Custodian Affidavit: each provider's custodian swears the records and bills are true copies kept in the regular course of business. Ask for it with every certified records request: it is how bills and records get into evidence without calling each provider.
+5. Damages, Wage Verification: Northgate's signed wage-and-attendance letter proves the $1,584.00 in lost wages; once suit is filed, Atty. Thorne may ask for it in sworn form.
+6. Court, the Affidavit of Service: the process server swears when, where and how Robert Smith was served. It is filed with the court and starts the defendant's answer clock (filed 10/16/2026).
+7. Check every affidavit before it is filed or relied on: the affiant's name, the case and claim numbers, dates and figures against the file, the signature, and the jurat with the notary's name, commission and seal. A defect goes back to the sender, logged. You never sign, notarize or change an affiant's words.
+
+> ⚠️ **UPL boundary.** You request, track and check affidavits, and prepare drafts for Atty. Thorne's review. You never tell an affiant what to swear, never sign or notarize for anyone, and never tell John Doe what an affidavit means for his claim.
+
+#### 2 · Slide Body — Show Them
+
+*The affidavits on John Doe's file*
+
+| Affidavit | Who swears it | Used for | On this file |
+|---|---|---|---|
+| No Other Insurance | Robert Smith | Settling at the BI limit; the UM consents | Sworn 08/10/2026 |
+| Residency & no owned vehicle | John Doe | Relative UM eligibility, if a carrier asks | Cardinal State confirmed in writing 03/09/2026 |
+| Records & billing custodian | Each provider's records custodian | Bills and records into evidence | Requested with each certified records set |
+| Wage verification | Northgate Distribution HR | Lost wages, $1,584.00 | Signed letter 06/30/2026; sworn form if suit |
+| Affidavit of Service | The process server | Proof Smith was served; the answer clock | Filed 10/16/2026 |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Atty. Thorne approves a demand at the limit | Request Smith's affidavit of no other insurance through Keystone; docket it | CMS → Tasks · Docket System | Sworn 08/10/2026, a condition met before the tender |
+| A certified records request goes out | Ask for the custodian's records and billing affidavit in the same request | ChartSwap (Medical Records Requests) | Each set comes back sworn, ready for evidence |
+| An affidavit arrives | Check affiant, numbers, dates, signature, jurat and seal; route any defect | CMS → Documents · CMS → Tasks → Escalate | Filed where it will be used; defects logged and returned |
+
+**Best practices & pitfalls**
+
+- Ask for the custodian's affidavit in the same request as the records; a second request costs weeks.
+- Check every jurat: the affiant, the date, the notary's name, commission and seal.
+- File each affidavit where it will be relied on: the demand conditions, the UM packages, the trial binder.
+- ⚠️ Pitfall: accepting an unsigned or un-notarized “affidavit” as proof.
+- ⚠️ Pitfall: writing an affiant's words for them, or correcting a sworn statement yourself.
+- ⚠️ Pitfall: telling John Doe what his affidavit means for his claim.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Right affidavit, right affiant | Names who swears each affidavit and what it proves on John Doe's file |
+| 🤖 AI | **20%** | Defect check | Checks affiant, numbers, dates, signature, jurat and seal against the file |
+| 🤖 AI | **20%** | Where it is used | Files each where it will be relied on: the demand, the UM packages, the court |
+| 🧑‍🏫 Trainer | **20%** | Evidence judgment | Explains why a sworn statement proves what a letter only asserts |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | Never writes an affiant's words as theirs, signs, notarizes or interprets |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Start with the question the lesson answers: “How do we prove it?” Take three facts from the file (Smith has no other insurance, John lives with Margaret, Smith was served) and ask who would have to say so under oath.
+- Draw the line between a jurat and an acknowledgment. The affidavit's jurat says the signer swore the facts are true; the acknowledgment on the UM Waiver of Subrogation only says who signed.
+- Spend a minute on the custodian's affidavit. Asking for it with the records request is what lets the bills go into evidence without subpoenaing each provider.
+- Keep it practical: the Case Manager requests, tracks and checks. Drafts go to Atty. Thorne, and nobody at the firm swears, signs or notarizes for an affiant.
+
+---
+
+### 2.1.3 Liability Investigation: the Police Report, the Witness, the Video & Comparative Fault
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Proving who caused the collision while the evidence is fresh  
@@ -238,7 +318,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.3 Decision First: Lead Every Note to Atty. Thorne with the Decision Needed
+### 2.1.4 Decision First: Lead Every Note to Atty. Thorne with the Decision Needed
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Open with the decision or action needed, then the facts  
@@ -310,7 +390,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.4 LOR Drafting Mechanics & Three-Carrier Notification
+### 2.1.5 LOR Drafting Mechanics & Three-Carrier Notification
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** One template, five letters, and the rules that make each one different  
@@ -396,7 +476,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.5 Policy Stack & Coverage Verification
+### 2.1.6 Policy Stack & Coverage Verification
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — build the ladder to $40,000  
@@ -484,7 +564,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.6 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+### 2.1.7 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — five letters, each one right  
@@ -561,7 +641,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.7 CMS Coverage Matrix Audit
+### 2.1.8 CMS Coverage Matrix Audit
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 2 — find what the matrix gets wrong  
@@ -654,7 +734,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.8 The Treatment Assessment, SMART Goals & the Care Coordination Plan
+### 2.1.9 The Treatment Assessment, SMART Goals & the Care Coordination Plan
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Know the whole person before you plan the care  
@@ -739,7 +819,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.9 The Standard Treatment Map: Phases, Timelines & Course Correction
+### 2.1.10 The Standard Treatment Map: Phases, Timelines & Course Correction
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Where he should be on the map, and what you do when he isn't  
@@ -825,7 +905,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.10 Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
+### 2.1.11 Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** What you watch for in the records, what you listen for on the phone, and how you keep him in his plan  
@@ -914,7 +994,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.11 The Action Plan Editor & Attorney Review Routing
+### 2.1.12 The Action Plan Editor & Attorney Review Routing
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Drafting, routing, and the review loop  
@@ -992,7 +1072,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.12 Identifying & Flagging the 14-Day Gap
+### 2.1.13 Identifying & Flagging the 14-Day Gap
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 1 — find the fact that will decide this case  
@@ -1065,7 +1145,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.13 Live Case Plan Draft — John Doe v. Robert Smith
+### 2.1.14 Live Case Plan Draft — John Doe v. Robert Smith
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 2 — the full plan, routed for review  
@@ -1141,7 +1221,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.14 Coverages & the Payer-First Principle
+### 2.1.15 Coverages & the Payer-First Principle
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Every policy on John Doe's file, what it pays, and who pays first  
@@ -1230,7 +1310,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.15 LOP Issuance Guidelines, Provider Coordination & PIP Limits
+### 2.1.16 LOP Issuance Guidelines, Provider Coordination & PIP Limits
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays which bill, and what only counsel may promise  
@@ -1315,7 +1395,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.16 Explanation of Benefits (EOB) & PIP
+### 2.1.17 Explanation of Benefits (EOB) & PIP
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Reading what each payer paid, and what is still owed  
@@ -1402,7 +1482,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.17 PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement
+### 2.1.18 PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Where PIP's $5,000 lands, and what that means for the settlement later  
@@ -1488,7 +1568,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.18 The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000
+### 2.1.19 The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** A state-specific PIP rule: what Florida requires, who can make the finding, and why Riverton's file has no such rule  
@@ -1575,7 +1655,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.19 Letters of Protection & the Case Manager's Part in Provider Referrals
+### 2.1.20 Letters of Protection & the Case Manager's Part in Provider Referrals
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** What an LOP is, when it is used, and how you help John Doe reach care without steering it  
@@ -1652,7 +1732,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.20 Rental & Reimbursement of Costs
+### 2.1.21 Rental & Reimbursement of Costs
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** What treatment costs the client out of pocket, and how each dollar is documented for the demand  
@@ -1726,7 +1806,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.21 Transmitting LOPs to Medical Providers
+### 2.1.22 Transmitting LOPs to Medical Providers
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 1 — one LOP issued, one declined  
@@ -1808,7 +1888,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.22 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+### 2.1.23 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 3 — the Millbrook booking, 04/22/2026  
@@ -1910,7 +1990,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.23 Health Subrogation, Payer Order & the Regulatory Triple-Check
+### 2.1.24 Health Subrogation, Payer Order & the Regulatory Triple-Check
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays the bills now, and who gets paid back later  
@@ -1989,7 +2069,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.24 Health Plan Subrogation: Flag, Request & Audit the Lien
+### 2.1.25 Health Plan Subrogation: Flag, Request & Audit the Lien
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — register the claim before it can hurt you, then audit what the plan asserts  
@@ -2071,7 +2151,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.25 Coverage & Subrogation: the Treatment Phase Summary
+### 2.1.26 Coverage & Subrogation: the Treatment Phase Summary
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Every coverage, the Payer-First Principle, health subrogation, and exactly when the CMS flags go up  
@@ -2150,7 +2230,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.26 A-C-T Crisis Protocol & Treatment Monitoring Principles
+### 2.1.27 A-C-T Crisis Protocol & Treatment Monitoring Principles
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Is the plan working, and what you do the day it isn't  
@@ -2235,7 +2315,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.27 The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol
+### 2.1.28 The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — the silent client and the trauma-informed interview, 04/08–04/21/2026  
@@ -2325,7 +2405,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.28 Coverage Setup Verification Check
+### 2.1.29 Coverage Setup Verification Check
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2370,51 +2450,57 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (15 questions):
+**Auto-graded share of the day's Knowledge Check** (17 questions):
 
-1. Which coverages make up John Doe's $40,000 Recovery Stack?  
+1. Who swears the affidavit of no other insurance on John Doe's file, and why does the file need it?  
+   **✓ Robert Smith, to prove Keystone's $10,000 is his only liability coverage before settling at the limit** · John Doe, to prove he owns no car for Relative UM · Dana Whitfield at Keystone, to confirm the BI limit · Atty. Thorne, to certify the Demand Package  
+   *The at-fault driver swears it: Robert Smith, 08/10/2026. Settling at the $10,000 limit, and the UM carriers' consents, rely on sworn proof that nothing else covers him.*
+2. A provider's certified records arrive with no custodian's affidavit. What do you do?  
+   **✓ Ask the provider for its records and billing custodian's affidavit, and log the request** · Sign a statement yourself that the copies are true · Use the records as they are: certified copies don't need it · Ask John Doe to swear the bills are correct  
+   *The custodian's affidavit is what lets the bills and records into evidence without calling the provider. Only the provider's custodian can swear it; you request it, log it and check it.*
+3. Which coverages make up John Doe's $40,000 Recovery Stack?  
    **✓ Keystone BI, Harbor Point Host UM and Cardinal State Relative UM** · Keystone BI, Host UM, Relative UM and Harbor Point PIP · Keystone BI, Keystone PD and Host UM · Host UM, Relative UM and Margaret Doe's Bluewater UM  
    *Only the coverages that pay the claim stack: $10,000 BI + $20,000 Host UM + $10,000 Relative UM. PIP pays bills now (Payer Order), PD pays for the car, and Margaret Doe rejected UM on her Bluewater policy in writing on 03/14/2024.*
-2. On John Doe v. Robert Smith, in what order must the coverage layers be pursued?  
+4. On John Doe v. Robert Smith, in what order must the coverage layers be pursued?  
    Host UM → BI → Relative UM · **✓ BI → Host UM → Relative UM** · Relative UM → Host UM → BI · All three at once, in parallel  
    *BI pays first. Host UM opens once BI is exhausted or tendered, and Relative UM stacks behind Host UM.*
-3. Why can John Doe reach the $20,000 Host UM layer?  
+5. Why can John Doe reach the $20,000 Host UM layer?  
    He owns the host vehicle · **✓ He was a passenger in the host vehicle** · Robert Smith has no insurance · His Health Plan assigns it to him  
    *He reaches the host vehicle's UM because he was riding in that car. He owns no car and has no auto policy of his own, so his UM comes from the host vehicle and his mother's policy.*
-4. Cardinal State Mutual has no adjuster assigned when John Doe's LOR goes out on 02/17/2026. How is the letter addressed?  
+6. Cardinal State Mutual has no adjuster assigned when John Doe's LOR goes out on 02/17/2026. How is the letter addressed?  
    “Attn: Teresa Okafor”, to save re-addressing it later · **✓ “Attn: Claims Department”, with the claim number in the subject line** · To Margaret Doe, the insured, to forward to her carrier · Held back until Cardinal State assigns an adjuster  
    *With no adjuster assigned, the address line reads “Attn: Claims Department”. Teresa Okafor is not assigned until 03/03/2026, and holding the letter delays the UM notice.*
-5. Harbor Point's LOR goes out on 02/17/2026, long before BI can be exhausted. What should it do?  
+7. Harbor Point's LOR goes out on 02/17/2026, long before BI can be exhausted. What should it do?  
    Demand the $20,000 Host UM limits now, so the response clock starts running · Wait until Keystone tenders its $10,000 before writing to Harbor Point at all · Ask Harbor Point to pay the BI layer too, since Keystone is slow · **✓ Give notice of the Host UM claim, open the PIP claim with John Doe's signed PIP application and ask for its claim forms and proof-of-loss requirements, and ask for written confirmation of coverage, with no UM payment demand**  
    *UM policies carry notice conditions, so the carrier is noticed at set-up. Notice is not a demand: the UM layers owe nothing until BI is exhausted, so a UM payment demand now is premature. What puts the stack at risk is settling or releasing BI without the UM carriers' consent. PIP is different: it pays bills as they are submitted.*
-6. Keystone Mutual gave a figure on the set-up call but will not confirm Robert Smith's limits in writing or release its Declaration Page without a written request and authorizations. What do you do?  
+8. Keystone Mutual gave a figure on the set-up call but will not confirm Robert Smith's limits in writing or release its Declaration Page without a written request and authorizations. What do you do?  
    **✓ Send the written limits request Atty. Thorne signs, with only the documents or limited authorization he approves, keep BI preliminary, and calendar the follow-up** · Mark BI $10,000 confirmed from the set-up call, so the projection can be finished · Demand Host UM now, so that Harbor Point puts pressure on Keystone · Tell John Doe the limit is probably $10,000, and revisit it later  
    *Expect asymmetry: a third-party BI carrier often wants a written request and documents first. Until its Declaration Page arrives (03/20/2026 on this file), the set-up-call figure is a lead: BI stays preliminary and no limit is quoted to the client. What goes with the request is counsel's call: never a blanket Medical Authorization to an adverse carrier. Some states set what a limits request must contain; confirm the governing rule.*
-7. The Coverage Matrix lists Harbor Point PIP, $5,000, as stack layer 4 and totals the stack at $45,000. What is the correct treatment?  
+9. The Coverage Matrix lists Harbor Point PIP, $5,000, as stack layer 4 and totals the stack at $45,000. What is the correct treatment?  
    Leave it: PIP is first-party coverage from a stack carrier · Fold PIP into the Host UM limit, making it $25,000 · **✓ Move PIP out of the stack and restore it to $40,000** · Delete PIP from the file, since it is not part of the stack  
    *PIP pays bills now; it is not part of the Recovery Stack. It stays tracked (Harbor Point confirmed no reimbursement right on 03/02/2026), and the stack is $10,000 + $20,000 + $10,000 = $40,000.*
-8. Which insured does each LOR name?  
+10. Which insured does each LOR name?  
    John Doe on all three · Robert Smith on all three · **✓ Robert Smith (Keystone), Kevin Alvarez (Harbor Point), Margaret Doe (Cardinal State)** · Kevin Alvarez on all three  
    *The insured differs on each policy, and every LOR names the carrier's own insured.*
-9. What may the third-party LOR to Keystone Mutual give about John Doe?  
+11. What may the third-party LOR to Keystone Mutual give about John Doe?  
    **✓ His name only: never his phone, address, date of birth or employer** · His full contact details, so the adjuster can call him · His employer, for the wage claim · His medical providers  
    *Third-party correspondence protects the client's information; the first-party carriers may verify his details.*
-10. Which LOR carries the Property Damage carve-out?  
+12. Which LOR carries the Property Damage carve-out?  
    All three · **✓ Keystone's only: Leah Moran may discuss the Civic's damage claim with John Doe, nothing else** · Harbor Point's · None: the client handles Property Damage alone  
    *The carve-out goes only in Keystone's letter, which gives the PD adjuster 5 business days from the letter to inspect the Civic.*
-11. An LOR has had no acknowledgement. When do you follow up?  
+13. An LOR has had no acknowledgement. When do you follow up?  
    After 30 days · **✓ By the third business day** · Only when the adjuster calls · At the demand  
    *Expect an acknowledgement in 24–48 hours. None by the third business day: follow up, log it and set the next date.*
-12. Keystone gave its $10,000 limit by phone at set-up. How does the Coverage Matrix record it?  
+14. Keystone gave its $10,000 limit by phone at set-up. How does the Coverage Matrix record it?  
    Confirmed · **✓ Preliminary, with the set-up call as its source, until a Declaration Page or Coverage Letter confirms it** · Not at all until the demand · As $40,000  
    *A phone figure is a lead: record its source and keep it preliminary, and never quote it to John Doe.*
-13. Keystone accepted PD liability for Margaret Doe's Civic on 02/17/2026. What does that mean for John Doe's BI claim?  
+15. Keystone accepted PD liability for Margaret Doe's Civic on 02/17/2026. What does that mean for John Doe's BI claim?  
    Liability is settled on every claim from the collision · **✓ Nothing by itself: record Keystone's BI liability position separately, in writing, with its date** · The BI demand can go out now · The witness and the video are no longer needed  
    *PD acceptance on Margaret Doe's claim does not bind Keystone's BI adjuster on John Doe's. Each carrier's liability position is recorded in writing, and the evidence is preserved either way.*
-14. Margaret Doe's doorbell camera recorded the collision. What protects that video as evidence?  
+16. Margaret Doe's doorbell camera recorded the collision. What protects that video as evidence?  
    Trimming it to the 45 seconds that matter · **✓ A copy secured with its hash logged, the original kept unaltered and the chain of custody recorded** · Asking John Doe to post it so it can't be lost · Converting it to a smaller file for the CMS  
    *The firm secured a copy on 02/19/2026 with its SHA-256 hash logged. An unaltered original and a recorded chain of custody are what make it usable later.*
-15. You need Atty. Thorne to approve declining Summit Imaging's 03/11/2026 LOP request. How does your note open?  
+17. You need Atty. Thorne to approve declining Summit Imaging's 03/11/2026 LOP request. How does your note open?  
    With how Summit's call came in and what was said · **✓ With the decision needed and its deadline, then why, the facts and what follows from each answer** · With the full PIP payment history · With your view of whether Summit will reduce its bill  
    *Decision first: the first line, and the subject line, carry the decision and its deadline. Then why, the facts with their sources, and the options.*
 
@@ -2442,7 +2528,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 ---
 
-### 2.1.29 Case Plan Audit & the Claim Set Up Gate
+### 2.1.30 Case Plan Audit & the Claim Set Up Gate
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2561,7 +2647,7 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 ---
 
-### 2.1.30 Treatment Monitoring Review
+### 2.1.31 Treatment Monitoring Review
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
