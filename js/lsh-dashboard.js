@@ -148,7 +148,8 @@
   main.main-dash{display:flex;flex-direction:column;padding-bottom:14px !important;}
   main.main-dash > .dash-layout{flex:1 1 auto;display:flex !important;flex-direction:column;}
   main.main-dash .dash-main{flex:1 1 auto;display:flex;flex-direction:column;}
-  main.main-dash .module-grid{flex:1 1 0;grid-auto-rows:1fr;align-items:stretch;}
+  main.main-dash .module-grid{flex:1 1 0;grid-auto-rows:1fr;align-items:stretch;min-height:300px;}   /* never squeezed below this: the page scrolls instead */
+  main.main-dash .dash-top, main.main-dash .dash-side, main.main-dash .comp-strip, main.main-dash .bottom-actions{flex-shrink:0;}
   .dash-main .module-card.mc-clean .module-head{padding:10px 10px;min-height:58px;justify-content:center;}
   .dash-main .module-card.mc-clean .mh-day{font-size:11px;}
   .dash-main .module-card.mc-clean .mh-title{font-size:14px;line-height:1.25;}
