@@ -1970,6 +1970,7 @@ body.tap-moving [ondrop]{outline:2px dashed rgba(219,132,55,.55);outline-offset:
 .bottom-actions{justify-content:center;margin:22px 0 6px;padding:16px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.75);border-radius:14px;}
 .bottom-actions:empty{display:none;}
 .batch-folder-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;}
+.audit-batches{margin:0 0 14px;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;} .audit-batches .batch-folder{padding:12px 14px;} .batch-folder.on{border:2px solid var(--orange);background:#FFF6EC;}
 .batch-folder{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;padding:18px;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:pointer;font:inherit;box-shadow:0 1px 2px rgba(20,30,60,.05);transition:border-color .15s, box-shadow .15s;}
 .batch-folder:hover{border-color:var(--orange,#DB8437);box-shadow:0 4px 14px rgba(20,30,60,.10);}
 .batch-folder .bf-icon{font-size:30px;line-height:1;}
@@ -11443,11 +11444,12 @@ function renderAdmin(){
       </div>`;
   }
   if(state.adminTab==="cues") state.adminTab = "audit";   // the trainer's scripts are read and edited in Presenter view
+  // Batch Folders live inside the Trainee Audit now: an old link to the tab opens the audit on that batch
+  if(state.adminTab==="batches"){ state.adminTab = "audit"; if(state.batchFolder) state.adminBatchFilter = state.batchFolder; }
   const tab = state.adminTab || "audit";
   const tabBar = `
     <div class="admin-tabs" style="display:flex;gap:8px;margin-bottom:20px;border-bottom:1px solid var(--line);">
       <button class="admin-tab-btn ${tab==='audit'?'active':''}" onclick="setAdminTab('audit')">Trainee Audit</button>
-      <button class="admin-tab-btn ${tab==='batches'?'active':''}" onclick="setAdminTab('batches')">📁 Batch Folders</button>
       <button class="admin-tab-btn ${tab==='rankings'?'active':''}" onclick="setAdminTab('rankings')">Rankings</button>
       <button class="admin-tab-btn ${tab==='sop'?'active':''}" onclick="setAdminTab('sop')">SOP Reference</button>
       <button class="admin-tab-btn ${tab==='studio'?'active':''}" onclick="setAdminTab('studio')">Content Studio</button>
@@ -11461,7 +11463,6 @@ function renderAdmin(){
   if(tab==="studio") return tabBar + renderAdminStudio();
   if(tab==="tfeedback") return tabBar + renderAdminTraineeFeedback();
   if(tab==="rankings") return tabBar + renderAdminRankings();
-  if(tab==="batches") return tabBar + renderAdminBatchFolders();
 
   if(state.adminLoading || !state.adminData){
     return tabBar + `<div class="card" style="padding:40px;text-align:center;color:var(--ink-soft);">Loading trainee ledger…</div>`;
@@ -11553,7 +11554,6 @@ function renderAdmin(){
           <option value="name_asc" ${sort==="name_asc"?"selected":""}>Sort: Name (A–Z)</option>
           <option value="recent" ${sort==="recent"?"selected":""}>Sort: Most recently active</option>
         </select>
-        ${renderBatchFilter()}
         <label style="display:flex;align-items:center;gap:5px;font-size:12.5px;color:var(--ink-soft);cursor:pointer;">
           <input type="checkbox" ${state.adminShowArchived?"checked":""} onchange="setAdminShowArchived(this.checked)"> Show archived
         </label>
@@ -11563,8 +11563,35 @@ function renderAdmin(){
       </div>
     </div>
 
-    <div id="adminRowsWrap">${renderAdminRows()}</div>
+    ${renderAuditBatchView()}
   `;
+}
+/* The batch folders, inside the Trainee Audit: a card per batch picks the batch (the same filter the rows use, so
+   every row's buttons work as they do for all trainees); a picked batch adds its Rankings, Feedback and Activities. */
+function renderAuditBatchStrip(){
+  if(!state.tfbAdmin) setTimeout(()=>loadTraineeFeedbackAdmin(), 0);
+  const keys = Array.from(new Set(state.adminData.map(batchKey))).sort((a,b)=> a===NO_BATCH ? 1 : b===NO_BATCH ? -1 : a.localeCompare(b, undefined, {numeric:true}));
+  if(state.adminBatchFilter && !keys.includes(state.adminBatchFilter)) state.adminBatchFilter = "";
+  const cur = state.adminBatchFilter || "";
+  const card = (k, name, meta1, meta2)=>`<button type="button" class="batch-folder${cur===k?" on":""}" onclick="setAdminBatchFilter('${esc(k)}')">
+      <span class="bf-icon">📁</span><span class="bf-name">${esc(name)}</span><span class="bf-meta">${meta1}</span>${meta2?`<span class="bf-meta">${meta2}</span>`:""}</button>`;
+  const allActive = state.adminData.filter(r=>!r.archived).length;
+  return `<div class="batch-folder-grid audit-batches">${card("", "All batches", `${allActive} trainee${allActive===1?"":"s"}`, "")}${keys.map(k=>{
+    const all = state.adminData.filter(r=>batchKey(r)===k), active = all.filter(r=>!r.archived);
+    const done = active.length ? Math.round(active.reduce((a,r)=>a+adminDayStats(r).done,0)/active.length/DAYS.length*100) : 0;
+    const fb = batchFeedback(k).length;
+    return card(k, folderLabel(k), `${active.length} trainee${active.length===1?"":"s"}${all.length>active.length?` · ${all.length-active.length} archived`:""}`,
+      `${done}% avg completion · ${state.tfbAdmin&&!state.tfbAdmin.loading ? `${fb} feedback` : "feedback…"}`);
+  }).join("")}</div>`;
+}
+function renderAuditBatchView(){
+  const k = state.adminBatchFilter;
+  if(!k) return renderAuditBatchStrip() + `<div id="adminRowsWrap">${renderAdminRows()}</div>`;
+  state.batchFolder = k; state.batchShowArchived = !!state.adminShowArchived;
+  const sub = state.batchSub || "registry";
+  const tabs = [["registry","🗂 Registry"],["rankings","🏆 Rankings"],["feedback","💬 Feedback"],["activities","📈 Activities"]];
+  return renderAuditBatchStrip() + `<div class="bf-tabs">${tabs.map(([id,l])=>`<button type="button" class="${sub===id?"active":""}" onclick="setBatchSub('${id}')">${l}</button>`).join("")}</div>`
+    + (sub==="registry" ? `<div id="adminRowsWrap">${renderAdminRows()}</div>` : `<div id="batchFolderBody">${renderBatchFolderBody()}</div>`);
 }
 function renderBatchFilter(){
   const batches = Array.from(new Set(state.adminData.map(r=>cleanBatch(r.batch)).filter(Boolean))).sort();
@@ -11846,7 +11873,7 @@ async function loadAuditExtras(force){
     });
   }finally{ state.auditExtraLoading = false; }
   const wrap = document.getElementById("adminRowsWrap"); if(wrap && state.view==="admin" && !isTyping()) wrap.innerHTML = renderAdminRows();
-  const bwrap = document.getElementById("batchFolderBody"); if(bwrap && state.view==="admin" && state.adminTab==="batches" && !isTyping()) bwrap.innerHTML = renderBatchFolderBody();
+  const bwrap = document.getElementById("batchFolderBody"); if(bwrap && state.view==="admin" && (state.adminTab||"audit")==="audit" && !isTyping()) bwrap.innerHTML = renderBatchFolderBody();
 }
 function auditSummary(rec){
   const x = state.auditExtra[rec.id]; const data = (x && x.data) || {};
@@ -15860,7 +15887,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-data.js?v=58"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=1"></script>
-<script src="/js/cm-case-flow.js?v=109"></script>
+<script src="/js/cm-case-flow.js?v=110"></script>
 <script src="/js/cm-script-editor.js?v=12"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=4"></script>

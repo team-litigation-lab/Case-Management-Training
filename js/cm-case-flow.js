@@ -2147,7 +2147,7 @@ window.cmCaseFlow.back = function(){
    grouped as in Foundational Training: a row of sections, then the open section's tabs. A tab not listed goes under
    Admin Master Control. */
 const ADMIN_GROUPS = [
-  {id: "admin", label: "🛡 Admin Master Control", tabs: ["audit", "batches", "rankings", "tfeedback"]},
+  {id: "admin", label: "🛡 Admin Master Control", tabs: ["audit", "rankings", "tfeedback"]},
   {id: "modules", label: "📚 Training Modules", tabs: ["sop", "studio"]},
   {id: "activities", label: "📋 Activities", tabs: ["activities", "fbstyle"]}
 ];
