@@ -703,13 +703,13 @@ function toolButtons(tool, blockId){ return toolChips(toolsIn(tool, blockId), bl
 /* ---------- 3 Clues, 1 Rule: the Do & Don't slide as a game ----------
    Adapted from Foundational's "3 Clues, 1 Claim". Each round hides one of the lesson's Dos or Don'ts behind three
    clues (build/case-flow/slides/clues-dN.json), shown one at a time. The class calls it (✅ Do or ⚠️ Don't) and
-   names the rule; the rule is then revealed. A right call on the first clue scores 3, on the second 2, on the
-   third 1. The rounds are mixed so the order gives nothing away, and the full list closes the game. */
+   names the rule; the rule is then revealed. The score is the number of right calls, whichever clue each was made
+   on. The rounds are mixed so the order gives nothing away, and the full list closes the game. */
 const ddList = c => `<div class="cfx-dd"><div class="cfx-do"><h3>✅ Do</h3><ul>${c.dos.map(x => `<li>${hl(x)}</li>`).join("")}</ul></div>
       <div class="cfx-dont"><h3>⚠️ Don't</h3><ul>${c.donts.map(x => `<li>${hl(x)}</li>`).join("")}</ul></div></div>`;
 const blockById = id => { for(const d of CF.days) for(const m of d.modules){ const b = m.blocks.find(x => x.id === id); if(b) return b; } return null; };
 const CG_ROUNDS = 4;   // a short game: four rounds, two Dos and two Don'ts, the rest of the rules in the full list (📋)
-const CG = {};   // the game on each lesson's slide, for this visit: {round, shown, calls: {i: {pick, ok, pts}}, list}
+const CG = {};   // the game on each lesson's slide, for this visit: {round, shown, calls: {i: {pick, ok}}, list}
 function cgRounds(b){
   const c = copyOf(b), k = SLIDES[b.id].clues;
   let h = 0; for(const ch of b.id) h = (h * 31 + ch.charCodeAt(0)) >>> 0;   // a fixed mix per lesson: the same for the whole class
@@ -721,25 +721,24 @@ function cgRounds(b){
 }
 function clueGame(b){
   const g = CG[b.id] = CG[b.id] || {round: 0, shown: 1, calls: {}, list: false}, rounds = cgRounds(b);
-  const done = Object.keys(g.calls).length, pts = Object.values(g.calls).reduce((a, x) => a + x.pts, 0), over = done === rounds.length;
+  const done = Object.keys(g.calls).length, right = Object.values(g.calls).filter(x => x.ok).length, over = done === rounds.length;
   const head = `<div class="cfx-cg-head"><div class="cfx-cg-marq"><b>3 Clues, 1 Rule</b><span>Spot the clues. Make the call. Name the rule.</span></div>
       <div class="cfx-cg-tabs">${rounds.map((x, i) => { const k = g.calls[i]; return `<button type="button" class="cfx-cg-tab${i === g.round && !g.list ? " on" : ""}${k ? (k.ok ? " ok" : " miss") : ""}" onclick="cmCaseFlow.cg('${b.id}','round',${i})" aria-label="Round ${i + 1}">${k ? (x.side === "do" ? "✅" : "⚠️") : i + 1}</button>`; }).join("")}
         <button type="button" class="cfx-cg-tab list${g.list ? " on" : ""}" onclick="cmCaseFlow.cg('${b.id}','list')" title="The full Do & Don't list">📋</button></div>
-      <span class="cfx-cg-score">⭐ ${pts} pt${pts === 1 ? "" : "s"} · ${done}/${rounds.length} called</span></div>`;
-  if(g.list || g.ended) return `<div class="cfx-cg" id="cfxCg-${b.id}">${head}${g.ended && !g.list ? `<p class="cfx-cg-final">🏁 Game over: <b>${pts} of ${rounds.length * 3}</b> points. Here is the full list. <button type="button" class="btn btn-ghost btn-sm" onclick="cmCaseFlow.cg('${b.id}','again')">↻ Play again</button></p>` : ""}${ddList(copyOf(b))}</div>`;
+      <span class="cfx-cg-score">⭐ ${right} of ${done} right · ${done}/${rounds.length} called</span></div>`;
+  if(g.list || g.ended) return `<div class="cfx-cg" id="cfxCg-${b.id}">${head}${g.ended && !g.list ? `<p class="cfx-cg-final">🏁 Game over: <b>${right} of ${rounds.length}</b> right. Here is the full list. <button type="button" class="btn btn-ghost btn-sm" onclick="cmCaseFlow.cg('${b.id}','again')">↻ Play again</button></p>` : ""}${ddList(copyOf(b))}</div>`;
   const x = rounds[g.round], call = g.calls[g.round], shown = call ? 3 : g.shown;
   const cards = x.clues.map((t, j) => j < shown
     ? `<div class="cfx-cg-clue" style="animation-delay:${call ? 0 : .05}s"><small>Clue ${j + 1}</small><span>${E(t)}</span></div>`
     : `<div class="cfx-cg-clue hid"><small>Clue ${j + 1}</small><span>?</span></div>`).join("");
   const act = call
     ? `<div class="cfx-cg-reveal ${x.side}"><b>${x.side === "do" ? "✅ Do" : "⚠️ Don't"}</b><span>${hl(x.side === "dont" ? x.rule.replace(/^./, ch => ch.toUpperCase()) : x.rule)}</span>
-        <em>${call.ok ? `Right call, +${call.pts}` : `It's a ${x.side === "do" ? "Do" : "Don't"}: no points`}</em>
+        <em>${call.ok ? "✓ Right call" : `✗ It's a ${x.side === "do" ? "Do" : "Don't"}`}</em>
         <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.cg('${b.id}','${over ? "end" : "next"}')">${over ? "See the results 🏁" : "Next round →"}</button></div>`
     : `<div class="cfx-cg-act">${g.shown < 3 ? `<button type="button" class="btn btn-ghost btn-sm" onclick="cmCaseFlow.cg('${b.id}','clue')">🔎 Next clue (${3 - g.shown} left)</button>` : ""}
         <span>Name the rule, then call it:</span>
         <button type="button" class="btn btn-sm cfx-cg-do" onclick="cmCaseFlow.cg('${b.id}','call','do')">✅ It's a Do</button>
-        <button type="button" class="btn btn-sm cfx-cg-dont" onclick="cmCaseFlow.cg('${b.id}','call','dont')">⚠️ It's a Don't</button>
-        <small>${4 - g.shown} pt${g.shown === 3 ? "" : "s"} for a right call now</small></div>`;
+        <button type="button" class="btn btn-sm cfx-cg-dont" onclick="cmCaseFlow.cg('${b.id}','call','dont')">⚠️ It's a Don't</button></div>`;
   return `<div class="cfx-cg" id="cfxCg-${b.id}">${head}<div class="cfx-cg-stage">${cards}</div>${act}</div>`;
 }
 /* The game locks the slide: a trainee calls every round before Next moves on (a trainer, presenting, isn't held) */
@@ -770,7 +769,7 @@ window.cmCaseFlow.cg = function(id, act, arg){
   if(act === "round"){ g.round = arg; g.shown = 1; g.list = false; g.ended = false; }
   else if(act === "list"){ g.list = !g.list; if(!g.list) g.ended = false; }
   else if(act === "clue") g.shown = Math.min(3, g.shown + 1);
-  else if(act === "call" && !g.calls[g.round]){ const ok = arg === rounds[g.round].side; g.calls[g.round] = {pick: arg, ok, pts: ok ? 4 - g.shown : 0}; }
+  else if(act === "call" && !g.calls[g.round]){ const ok = arg === rounds[g.round].side; g.calls[g.round] = {pick: arg, ok}; }
   else if(act === "next"){ g.round = next(); g.shown = 1; }
   else if(act === "end"){ g.ended = true; g.list = false; }
   else if(act === "again"){ CG[id] = {round: 0, shown: 1, calls: {}, list: false}; }
