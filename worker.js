@@ -437,6 +437,59 @@ async function callGemini(env, rawBody, user) {
   return json({ error: { message: (keyProblem ? "the AI key was refused (Gemini): " : status === 429 ? "rate limit (Gemini free tier): " : "") + last.msg } }, status);
 }
 
+/* ---------- 📋 the trainee's Task Tracker and Monitoring Sheet, checked by the AI (admins only) ----------
+   A trainee saves the link to their own copy of the template (trainee:<id>.trackerLink, shared "Anyone with the link
+   can view"). /api/tracker-check reads it as CSV and asks Gemini how it stands; the result is kept on
+   trackerReview:<id>, which only admins read (canRead leaves it out for trainees). */
+const TRACKER_STATUSES = ["On track", "Behind", "Not updated", "Can't read the sheet — not shared"];
+export function trackerCsvUrl(link) {
+  let u; try { u = new URL(String(link || "").trim()); } catch (e) { return ""; }
+  if (u.protocol !== "https:" || !/^(docs|drive)\.google\.com$/i.test(u.hostname)) return "";
+  const m = /\/spreadsheets\/d\/([A-Za-z0-9_-]{10,})/.exec(u.pathname) || /\/file\/d\/([A-Za-z0-9_-]{10,})/.exec(u.pathname);
+  const id = m ? m[1] : (u.searchParams.get("id") || "");
+  if (!/^[A-Za-z0-9_-]{10,}$/.test(id)) return "";
+  const gid = (/[#&?]gid=(\d+)/.exec(u.hash + "&" + u.search) || [])[1];
+  return `https://docs.google.com/spreadsheets/d/${id}/export?format=csv${gid ? `&gid=${gid}` : ""}`;
+}
+async function trackerCheck(env, id) {
+  const kv = kvOf(env);
+  const rec = JSON.parse((await kv.get(`trainee:${id}`)) || "null");
+  if (!rec) return { error: "No such trainee" };
+  const link = String(rec.trackerLink || "").trim();
+  const out = { id, link, checkedAt: new Date().toISOString() };
+  const csvUrl = trackerCsvUrl(link);
+  if (!link) Object.assign(out, { status: "Not updated", notes: "No tracker link saved yet." });
+  else if (!csvUrl) Object.assign(out, { status: "Can't read the sheet — not shared", notes: "The saved link isn't a Google Sheets link." });
+  else {
+    let csv = "";
+    try {
+      const r = await fetch(csvUrl, { redirect: "follow" });
+      const type = r.headers.get("content-type") || "";
+      if (r.ok && !/text\/html/i.test(type)) csv = await r.text();
+    } catch (e) { /* unreachable: reported below */ }
+    if (!csv.trim()) Object.assign(out, { status: "Can't read the sheet — not shared", notes: "The sheet couldn't be opened. Ask the trainee to share it as \"Anyone with the link can view\"." });
+    else {
+      const prompt = `Today is ${new Date().toISOString().slice(0, 10)}. Below is a legal case-management trainee's Task Tracker and Monitoring Sheet exported as CSV.\n` +
+        `Count the tasks that are done, still open, and overdue (open with a due date before today), find the most recent date the trainee updated anything, and judge their progress.\n` +
+        `Return ONLY JSON: {"done":<int>,"open":<int>,"overdue":<int>,"lastUpdate":"YYYY-MM-DD or empty","status":"On track" | "Behind" | "Not updated","notes":"2-3 short lines for the trainer"}.\n` +
+        `Use "Not updated" when the sheet is still the empty template or nothing has changed in over 3 days.\n\nCSV:\n${csv.slice(0, 40000)}`;
+      try {
+        const res = await callGemini(env, JSON.stringify({ messages: [{ role: "user", content: prompt }], max_tokens: 600, feature: "tracker" }), id);
+        const j = await res.json().catch(() => ({}));
+        const text = ((j.content || [])[0] || {}).text || "";
+        const m = /\{[\s\S]*\}/.exec(text);
+        const v = m ? JSON.parse(m[0]) : null;
+        if (!v) throw new Error((j.error && (j.error.message || j.error)) || "no answer");
+        const n = (x) => Math.max(0, parseInt(x, 10) || 0);
+        Object.assign(out, { done: n(v.done), open: n(v.open), overdue: n(v.overdue), lastUpdate: String(v.lastUpdate || "").slice(0, 10),
+          status: TRACKER_STATUSES.includes(v.status) ? v.status : "Behind", notes: String(v.notes || "").slice(0, 600) });
+      } catch (e) { Object.assign(out, { status: "", error: "The AI check failed: " + String((e && e.message) || e).slice(0, 200) }); }
+    }
+  }
+  await kv.put(`trackerReview:${id}`, JSON.stringify(out));
+  return out;
+}
+
 async function listAll(env, prefix) {
   const kv = kvOf(env);
   const keys = []; let cursor;
@@ -1008,6 +1061,16 @@ export default {
         const id = tok.role === "t" ? tok.id : (!secure && typeof b.id === "string" ? b.id.slice(0, 100) : "");
         if (!id) return json({ ok: false, error: "Trainees only" }, 403);
         return json(await checkIn(kvOf(env), id, b.training));
+      }
+
+      /* ---------- 📋 Task Tracker check (admins only; see trackerCheck) ---------- */
+      if (path === "/api/tracker-check") {
+        if (tok.role !== "a") return json({ error: "Not allowed" }, 403);
+        const b = await request.json().catch(() => ({}));
+        const id = String(b.id || "").slice(0, 100);
+        if (!id) return json({ error: "Missing id" }, 400);
+        const r = await trackerCheck(env, id);
+        return r.error && !r.checkedAt ? json(r, 404) : json(r);
       }
 
       /* ---------- AI proxy (signed-in users only, so strangers can't spend your credits) ---------- */

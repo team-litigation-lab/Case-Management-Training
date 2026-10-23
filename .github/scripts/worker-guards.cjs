@@ -6,6 +6,8 @@
 //      issued, only by an approved trainee; a progress record is capped at 2 MB.
 //   4. A trainee's /api/ranking reads only their own record (not one read per trainee).
 //   5. A body that isn't JSON is a 400, and an unhandled error never sends its stack trace to the browser.
+//   6. trackerReview:<id> and /api/tracker-check are for admins only (Google and Gemini stubbed).
+//   7. A tracker link must be a Google Sheets / Drive link (worker.js trackerCsvUrl and js/cm-tracker-link.js validLink).
 // Usage: node .github/scripts/worker-guards.cjs   (no server, no browser needed)
 const path = require('path');
 const { pathToFileURL } = require('url');
@@ -81,6 +83,39 @@ async function ticketFor(payloadObj, secret) {
         const rk = await call('/api/ranking', {}, a.token);
         if (rk.status !== 200 || !rk.body || rk.body.trainees.length !== 1 || !rk.body.trainees[0].me) fail(`a trainee's ranking should be their own row: ${JSON.stringify(rk.body)}`);
         if (reads > 3) fail(`a trainee's ranking read ${reads} records (should read only their own)`);
+
+        // 6. 📋 the Task Tracker check: trainees can't read trackerReview:* or call the check; an admin can,
+        //    with Google and Gemini stubbed (no network)
+        store.set(`cm:trackerReview:${a.id}`, JSON.stringify({ status: 'Behind', notes: 'secret' }));
+        const peek = await call('/api/storage/get', { key: `trackerReview:${a.id}` }, a.token);
+        if (peek.status !== 403) fail(`a trainee should not read their trackerReview: ${JSON.stringify(peek)}`);
+        const many = await call('/api/storage/get-many', { keys: [`trackerReview:${a.id}`] }, a.token);
+        if (many.body && many.body.values && many.body.values[`trackerReview:${a.id}`]) fail('a trainee read trackerReview through get-many');
+        const tchk = await call('/api/tracker-check', { id: a.id }, a.token);
+        if (tchk.status !== 403) fail(`a trainee should not call /api/tracker-check: ${tchk.status}`);
+        // the trainee saves their own link (a field they may write), and it survives
+        const recA = kvGet(`trainee:${a.id}`) || {};
+        const link = 'https://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUv/edit#gid=42';
+        const sv = await call('/api/storage/set', { key: `trainee:${a.id}`, value: JSON.stringify(Object.assign({}, recA, { trackerLink: link })) }, a.token);
+        if (sv.status !== 200 || (kvGet(`trainee:${a.id}`) || {}).trackerLink !== link) fail(`a trainee should save their own trackerLink: ${JSON.stringify(sv)}`);
+        const adm = await call('/api/auth/admin', { passphrase: 'ci-pass' });
+        const realFetch = globalThis.fetch; const asked = [];
+        env.GEMINI_API_KEY = 'stub';
+        globalThis.fetch = async (u) => {
+            u = String(u && u.url || u); asked.push(u);
+            if (u.startsWith('https://docs.google.com/')) return new Response('Task,Status,Due Date\nRecords,Done,2026-10-01\nLien,Open,2026-10-02\n', { headers: { 'Content-Type': 'text/csv' } });
+            if (u.includes('generativelanguage')) return new Response(JSON.stringify({ candidates: [{ finishReason: 'STOP', content: { parts: [{ text: '{"done":1,"open":1,"overdue":1,"lastUpdate":"2026-10-02","status":"Behind","notes":"One task overdue."}' }] } }] }), { headers: { 'Content-Type': 'application/json' } });
+            return new Response('no', { status: 404 });
+        };
+        try {
+            if (!adm.body || !adm.body.token) fail(`admin sign-in failed: ${JSON.stringify(adm)}`);
+            else {
+                const ok = await call('/api/tracker-check', { id: a.id }, adm.body.token);
+                if (ok.status !== 200 || ok.body.status !== 'Behind' || ok.body.overdue !== 1) fail(`an admin's tracker check should return the AI's summary: ${JSON.stringify(ok)}`);
+                if (!asked.includes('https://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUv/export?format=csv&gid=42')) fail(`the sheet should be read as CSV with its gid: ${JSON.stringify(asked)}`);
+                if ((kvGet(`trackerReview:${a.id}`) || {}).status !== 'Behind') fail('the check should be stored on trackerReview:<id>');
+            }
+        } finally { globalThis.fetch = realFetch; delete env.GEMINI_API_KEY; }
     }
 
     // 5. a body that isn't JSON
@@ -91,6 +126,14 @@ async function ticketFor(payloadObj, secret) {
         if (j && /\n\s+at /.test(String(j.detail || ''))) fail(`${p} sent a stack trace to the browser`);
     }
 
+    // 7. link validation: only Google Sheets / Drive links, on the Worker and on the page
+    const { trackerCsvUrl } = await import(pathToFileURL(path.join(process.cwd(), 'worker.js')).href);
+    const good = ['https://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUv/edit?usp=sharing', 'https://drive.google.com/file/d/1AbCdEfGhIjKlMnOpQrStUv/view'];
+    const bad = ['http://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUv/edit', 'https://evil.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUv', 'https://docs.google.com.evil.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUv', 'not a link', ''];
+    const win = {}; require('vm').runInNewContext(require('fs').readFileSync(path.join(process.cwd(), 'js/cm-tracker-link.js'), 'utf8'), { window: win, URL, document: {}, setTimeout });
+    good.forEach((l) => { if (!trackerCsvUrl(l)) fail(`the Worker should accept ${l}`); if (!win.CMTracker.validLink(l)) fail(`the page should accept ${l}`); });
+    bad.forEach((l) => { if (trackerCsvUrl(l)) fail(`the Worker should refuse ${l}`); if (win.CMTracker.validLink(l)) fail(`the page should refuse ${l}`); });
+
     if (failures.length) { console.log(`${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-    console.log('Worker guards: a renewal stays on the trainee\'s own record, a trainee\'s review is the auto-review, certificates are their own, the ranking reads one record, and a bad body is a 400.');
+    console.log('Worker guards: a renewal stays on the trainee\'s own record, a trainee\'s review is the auto-review, certificates are their own, the ranking reads one record, a bad body is a 400, the tracker check is admin-only and only Google Sheets links are accepted.');
 })().catch(e => { console.error(e); process.exit(1); });

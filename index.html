@@ -5369,6 +5369,8 @@ function renderDashboard(){
     <div class="dash-main">
       <!-- 📂 Day 1's first job, and after that a line on whether the backup drive is still in order -->
       ${window.CMDrive ? CMDrive.slot() : ""}
+      <!-- 📋 the trainee links their Task Tracker and Monitoring Sheet (js/cm-tracker-link.js) -->
+      ${window.CMTracker ? CMTracker.slot() : ""}
       <div class="module-grid">
         ${DAYS.map(d=>moduleCard(d)).join("")}
       </div>
@@ -11833,6 +11835,7 @@ function renderAdminRankings(onlyBatch){
 }
 function renderAdminRows(){
   if(state.adminData && state.adminData.length && state.adminData.some(r=>!state.auditExtra[r.id] || Date.now()-state.auditExtra[r.id].at>60000)) setTimeout(()=>loadAuditExtras(), 0);
+  if(window.CMTracker && state.adminData && state.adminData.length) setTimeout(()=>CMTracker.autoCheck(state.adminData), 0);   // 📋 tracker sheets checked over 6 hours ago
   const search = (state.adminSearch||"").toLowerCase();
   const sort = state.adminSort || "completion_desc";
   let rows = state.adminData.filter(r=>!search || (r.name||"").toLowerCase().includes(search));
@@ -12451,6 +12454,7 @@ function renderAdminDetail(rec){
   const subs = rec.submissions||[];
   return `
     <div style="padding:6px 18px 20px;background:#F8F9FC;">
+      ${window.CMTracker ? CMTracker.adminBlock(rec) : ""}
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
         <div>
           <div class="sidebar-section-lbl" style="padding-left:0;">Day-by-Day</div>
@@ -15897,6 +15901,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-cms-upload.js?v=cm-2026.10.22-cms-upload"></script>
 <!-- 📂 the trainee's own Backup Drive: the firm's folder structure, built and graded on Day 1 -->
 <script src="/js/cm-drive.js?v=cm-2026.10.22-drive"></script>
+<script src="/js/cm-tracker-link.js?v=cm-2026.10.23-tracker"></script>
 <script src="/js/lsh-topbar.js?v=2"></script>
 <script src="/js/lsh-one-screen.js?v=1"></script>
 </body>
