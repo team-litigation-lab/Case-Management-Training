@@ -812,7 +812,8 @@ function presenterCues(d, slide){
   const out = [];
   if(slide.type==="topic"){
     const l = d.lessons[slide.lessonIndex];
-    out.push(`<h3>${esc(l.h)}${l.singleSlide ? "" : ` <small style="font-size:12px;color:var(--ink-soft);">Part ${slide.part} of 2</small>`}</h3>`);
+    const parts = l.cf && window.cmCaseFlow && cmCaseFlow.viewsOf ? cmCaseFlow.viewsOf(l.cf.block).length : (l.singleSlide ? 1 : 2);   // a Case Flow block has up to eight slides
+    out.push(`<h3>${esc(l.h)}${parts < 2 ? "" : ` <small style="font-size:12px;color:var(--ink-soft);">Part ${slide.part} of ${parts}</small>`}</h3>`);
     // The four-beat script, as in the EA/PA course: the why, talk it through, walk through it, ask the room.
     // Scripts: js/slide-scripts/dayN.js. A long slide split over pages gets the part for the page on screen.
     const pageInfo = state.presentSecsFor === (state.lessonSlide||0);
