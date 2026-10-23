@@ -1071,7 +1071,7 @@ window.CM_CF_EXHIBITS = {
      ],
      "forbid": [
       {
-       "match": "keystone|dana|recorded statement|fault|settle|lawsuit|\\bworth|\\bvalue",
+       "match": "keystone|dana|Recorded Statement|fault|settle|lawsuit|\\bworth|\\bvalue",
        "why": "The facility needs the patient, the date and the billing route, not the claim. Leave the carrier and the case out of it."
       }
      ],

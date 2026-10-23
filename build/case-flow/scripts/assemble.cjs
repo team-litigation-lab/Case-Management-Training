@@ -17,6 +17,10 @@ const out = {}, errors = [];
 // a block's slides, in order: the same as viewsOf() in js/cm-case-flow.js
 const TH_PER = 4, KC_PER = 4;
 function viewsOf(b){
+  const vs = viewsIn(b), t = vs.indexOf("theory");
+  return (SLIDES[b.id] || {}).theoryFirst && vs[0] === "why" && t > 0 ? ["theory", "why"].concat(vs.slice(1).filter(v => v !== "theory")) : vs;
+}
+function viewsIn(b){
   const t = (SLIDES[b.id] || {}).theory;
   const theory = !t ? [] : (t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]).concat(t.framework ? ["frame"] : []);
   const doc = (SLIDES[b.id] || {}).document ? ["doc"] : [];

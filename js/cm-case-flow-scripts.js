@@ -4,13 +4,13 @@
    Do not edit here: edit the JSON and assemble again. */
 window.CM_CF_SCRIPTS = {
  "d1m1-role": {
-  "why": {
-   "say": "I want to start with a question, and I want you to argue about it a little: whose file is it? Is it the client's? The attorney's? Yours? Go ahead, make your case. Here's where I land. It's the client's case, it's the attorney's judgment, and it's your movement. Every phase of this course runs through one person, and that person is you, the Case Manager. Once you know exactly what the role owns, and exactly where it stops, you can move John Doe's file fast without ever drifting into legal advice. That balance is what we'll practise all week.",
-   "ask": "So, whose file is it: the client's, Atty. Thorne's, or yours?"
-  },
   "theory": {
-   "say": "Let's put a definition on the table. Case Management is the end-to-end coordination of a case, from intake to resolution: tracking it, handling it and moving it, phase by phase. Every task on the file has to pass three tests. Is it moving on time? Is it properly documented and compliant? Is everyone hearing about it clearly? You'll carry the file through six stages, from Intake and Case Opening all the way to Billing, Resolution and Closing. Along the way you build the Case Plan and recommend next steps, but the strategy itself stays with Atty. Thorne. And you're always doing case health analysis, which just means reading the whole file for risk, not one task at a time, so you spot the weak point before it costs the client.",
+   "say": "Let's start with a definition. Case Management is the end-to-end coordination of a case, from intake to resolution: tracking it, handling it and moving it, phase by phase. Every task on the file has to pass three tests. Is it moving on time? Is it properly documented and compliant? Is everyone hearing about it clearly? You'll carry the file through six stages, from Intake and Case Opening all the way to Billing, Resolution and Closing. Along the way you build the Case Plan and recommend next steps, but the strategy itself stays with Atty. Thorne. And you're always doing case health analysis, which just means reading the whole file for risk, not one task at a time, so you spot the weak point before it costs the client.",
    "ask": "Which of these have you met before, and where do you think it'll show up on John Doe's file?"
+  },
+  "why": {
+   "say": "Now a question, and I want you to argue about it a little: whose file is it? Is it the client's? The attorney's? Yours? Go ahead, make your case. Here's where I land. It's the client's case, it's the attorney's judgment, and it's your movement. Every phase of this course runs through one person, and that person is you, the Case Manager. Once you know exactly what the role owns, and exactly where it stops, you can move John Doe's file fast without ever drifting into legal advice. That balance is what we'll practise all week.",
+   "ask": "So, whose file is it: the client's, Atty. Thorne's, or yours?"
   },
   "frame": {
    "say": "Here's the general process laid out end to end. It starts with intake and case opening: you verify the facts, run the Conflict Check and open the file in the CMS. Then planning, where you draft the Case Plan and recommend next steps while Atty. Thorne sets strategy. Documentation runs the whole way through; you request, name and file every document, because the CMS is the single source of truth. Communication means keeping the client, the carriers and the providers updated, and logging every contact the same day. Monitoring means every deadline is docketed and every risk goes to counsel the day you see it. And at the end, you support billing and the lien records through resolution, then close a complete file.",

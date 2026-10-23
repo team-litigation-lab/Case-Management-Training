@@ -3,6 +3,7 @@
    Do not edit here: edit the JSON and assemble again. */
 window.CM_CF_SLIDES = {
  "d1m1-role": {
+  "theoryFirst": true,
   "image": "team-huddle",
   "hook": "You own **the file's movement**; Atty. Thorne owns every legal judgment.",
   "points": [

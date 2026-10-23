@@ -480,6 +480,10 @@ const theoryViews = b => { const t = theoryOf(b); return !t ? [] : (t.concepts.l
    evidentiary role, how the Case Manager handles it) before anything asks the trainee to work with it */
 const docView = b => (SLIDES[b.id] || {}).document ? ["doc"] : [];
 function viewsOf(b){
+  const vs = viewsIn(b), t = vs.indexOf("theory");
+  return (SLIDES[b.id] || {}).theoryFirst && vs[0] === "why" && t > 0 ? ["theory", "why"].concat(vs.slice(1).filter(v => v !== "theory")) : vs;   // theoryFirst: the definition before the why (the course's opening lesson)
+}
+function viewsIn(b){
   if(b.kind === "lesson" && b.brief) return ["why"].concat(docView(b), ["rules"]).concat((b.ops || []).length ? ["job"] : []);   // brief: a condensed overview (Day 5's litigation)
   if(b.kind === "lesson" && b.compact) return ["why"].concat(docView(b), mapView(b), theoryViews(b).slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);   // compact: a full topic on fewer slides (Days 2, 4 and 5 keep to their slide budget)
   if(b.kind === "lesson") return ["why"].concat(docView(b), mapView(b), theoryViews(b), ["rules"],b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // noGame: the CM introduction (Meet Your Case comes before the first game)
@@ -507,7 +511,7 @@ function copyOf(b){   // the block's concise copy, or a condensed fallback from 
   const best = b.best || [], dos = best.filter(x => !/^pitfall/i.test(x)), donts = best.filter(x => /^pitfall/i.test(x)).map(x => x.replace(/^pitfall:\s*/i, ""));
   if(b.kind === "lesson") return {image: c.image, hook: c.hook || words(firstSentence(b.tell.why), 22), points: c.points || b.tell.rules.slice(0, 4).map(r => words(r, 16)),
     upl: c.upl !== undefined ? c.upl : ((b.tell.upl || [])[0] ? words(b.tell.upl[0], 18) : ""), job: c.job || (b.ops || []).slice(0, 3).map(r => r.map(x => words(x, 7))),
-    dos: c.dos || dos.slice(0, 3).map(x => words(x, 12)), donts: c.donts || donts.slice(0, 3).map(x => words(x, 12)), theory: c.theory || null};
+    dos: c.dos || dos.slice(0, 3).map(x => words(x, 12)), donts: c.donts || donts.slice(0, 3).map(x => words(x, 12)), theory: c.theory || null, document: c.document || null};
   if(b.kind === "activity") return {image: c.image, situation: c.situation || words(b.act.scenario, 36), steps: c.steps || [words(b.act.prompt, 30)],
     purpose: c.purpose || "", principle: c.principle || (c.dos || dos.map(x => words(x, 12)))[0] || "",
     deliver: c.deliver || words(b.act.output, 18), checks: c.checks || b.act.checkpoints.slice(0, 5).map(x => words(x, 12)),
@@ -3742,7 +3746,8 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-doc-c h3{margin:0 0 4px;font:800 14px var(--font-ui);color:var(--navy);text-transform:uppercase;letter-spacing:.04em;}
 .cfx-doc-c p{margin:0;font:500 17px/1.4 var(--font-ui);color:var(--ink);}
 .cfx-doc-c ul{margin:0;padding-left:20px;font:500 16px/1.35 var(--font-ui);color:var(--ink);}
-.cfx-doc-c li{list-style:disc;} .cfx-doc-c li::marker{color:var(--orange);}
+.cfx-doc-c li{list-style:disc;display:list-item;text-align:left;margin:0 0 3px;padding:0;position:static;} .cfx-doc-c li::before{content:none !important;display:none !important;} .cfx-doc-c li::marker{color:var(--orange);}
+.cfx-doc-f span{color:var(--ink) !important;font-weight:700;}
 .cfx-doc-pur{border-top-color:var(--navy);animation-delay:.05s;} .cfx-doc-ev{border-top-color:#2E8B57;animation-delay:.1s;} .cfx-doc-cm{background:#FFF6EC;animation-delay:.15s;}
 .cfx-doc-f{flex:0 0 170px;align-self:center;}
 @media (max-width:900px){.cfx-doc-w{flex-direction:column;}.cfx-doc-g{grid-template-columns:1fr;}.cfx-doc-f{align-self:flex-start;}}
@@ -3881,6 +3886,9 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 /* ---------- executed like the original deck: navy slide, logo + outlined phase title, the topic ribbon, white cards ---------- */
 .cfx-sepline{display:none !important;}
 .cfx.cfx-deck{background:#262B45 !important;color:#fff;border:0 !important;padding:16px 28px 22px !important;}
+/* the deck card carries its view as a class (cfx-theory, cfx-task…), the same names as the slide bodies inside it: their
+   layout (a grid, align-items:start) must never reach the deck, or the ribbon and title bar shrink to their text */
+.cfx.cfx-deck{display:block;align-items:stretch !important;grid-template-columns:none;}
 /* one card: the slide's design sits directly on the card (no second card inside it), the full width of the stage;
    Previous / Next sit under it, on the page (cfStage() builds this from the engine's stage); the presenter is in the side column */
 .lesson-stage:has(> .cf-stage-card){background:transparent !important;box-shadow:none !important;padding:0 !important;border-radius:0 !important;overflow:visible !important;
@@ -4192,15 +4200,15 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-ag-min{margin-left:auto;font:800 14px 'IBM Plex Mono',monospace;color:#F4B77A;white-space:nowrap;}
 .cfx-time{font:700 12px 'IBM Plex Mono',monospace;letter-spacing:.02em;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#F4B77A;cursor:pointer;white-space:nowrap;}
 .cfx-time.on{background:#DB8437;color:#fff;border-color:#DB8437;}.cfx-time.over{background:#B54A3F;border-color:#B54A3F;}
-.cfx-ag{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:22px;align-items:start;}
+.cfx-ag{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:22px;align-items:stretch;}
 .cfx-ag-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
 .cfx-ag-list li{text-align:left;display:flex;gap:16px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 16px;}
 .cfx-ag-list li::before{display:none !important;content:none !important;}
 .cfx-ag-n{flex:0 0 auto;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:#DB8437;color:#fff;font:800 18px 'Poppins','Inter',sans-serif;}
 .cfx-ag-list b{display:block;font:700 21px/1.25 'Poppins','Inter',sans-serif;color:#fff;}
 .cfx-ag-list small{display:block;margin-top:3px;font:500 14px/1.35 'Inter',sans-serif;color:#C9CFDD;}
-.cfx-ag-side{background:#FFFDF8;color:var(--ink);border:3px solid #DB8437;border-radius:20px;padding:16px 20px;font:500 16px/1.5 'Inter',sans-serif;}
-.cfx-ag-side .cfx-ag-day{margin:0 0 8px;font:800 22px/1.25 'Poppins','Inter',sans-serif;color:#262B45;}
+.cfx-ag-side{background:#FFFDF8;color:var(--ink);border:3px solid #DB8437;border-radius:20px;padding:30px 34px;font:500 31px/1.5 'Inter',sans-serif;display:flex;flex-direction:column;justify-content:center;gap:14px;}   /* as tall as the agenda beside it, its text read across the room */
+.cfx-ag-side .cfx-ag-day{margin:0 0 8px !important;font:800 24px/1.3 var(--font-ui) !important;padding:6px 14px !important;}
 .cfx-ag-side p{margin:0;}
 @media(max-width:760px){
   .cfx.cfx-deck{padding:14px 16px 18px !important;}
