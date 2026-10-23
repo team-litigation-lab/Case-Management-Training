@@ -55,7 +55,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#43` | The “Yellow Flag” Warning System | ✅ BUILT | d1m4-tmap, d1m4-tcare, d2m2-l2 |
 | `D1#44` | Handling Treatment Gaps During the Treatment Phase | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a2, d1m3-a3, d1m3-kc, d1m4-a1, d1m4-a2, d1m4-kc, d2m2-a3, d2m3-l1, d2m3-a1, d2m3-l2, d2m3-a2, d2m3-kc, d5m4-kc |
 | `D1#45` | Common Bottlenecks: Escalation Protocol & the Escalation Ladder | ✅ BUILT | d2m2-l2, d2m2-a2, d4m4-l2, d4m4-a2, d4m4-kc |
-| `D1#46` | Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain | ✅ BUILT | d2m2-a1, d2m2-kc, d4m3-prior |
+| `D1#46` | Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain | ✅ BUILT | d2m2-a1, d2m2-kc, d2m3-cause, d4m3-prior |
 | `D1#47` | Skill Building: Handling Client Treatment — “The Transportation Wall” | ✅ BUILT | d2m2-a2 |
 
 ## Existing Day 2 — Pre-Demand, BI Demand & BI Settlement
@@ -74,7 +74,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D2#10` | Skill Building: Pre-Demand Audit Challenges (John Doe File) | ✅ BUILT | d2m4-a2 |
 | `D2#11` | Case Phase: Demand — The Legal & Procedural Foundation | ✅ BUILT | d3m1-l1 |
 | `D2#12` | Demand: The Policy Limit Mindset | ✅ BUILT | d2m4-l1, d2m4-a2, d2m4-kc, d3m1-l1 |
-| `D2#13` | Treatment Gaps in the Demand Phase | ✅ BUILT | d1m4-a1, d1m4-kc, d2m3-l2, d2m3-a2, d2m3-kc, d3m1-l1, d3m1-a1, d3m1-kc |
+| `D2#13` | Treatment Gaps in the Demand Phase | ✅ BUILT | d1m4-a1, d1m4-kc, d2m3-l2, d2m3-cause, d2m3-a2, d2m3-kc, d3m1-l1, d3m1-a1, d3m1-kc |
 | `D2#14` | The Demand Packet Checklist: The “Big Four” | ✅ BUILT | d3m1-a1, d3m1-pkg |
 | `D2#15` | Demand: Quality Control — The “Final Scrub” | ✅ BUILT | d3m1-a1, d3m1-pkg, d3m1-kc |
 | `D2#16` | Negotiating the “First Call” (For Senior CMs) | ✅ BUILT | d3m2-l1, d3m2-a1 |
@@ -120,9 +120,9 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D3#10` | UM Settlement: Challenges | ✅ BUILT | d3m2-l2, d3m2-a2 |
 | `D3#11` | UM Settlement: The Final Payout Process | ✅ BUILT | d3m2-l2, d3m2-a2, d3m2-kc |
 | `D3#12` | Documents that Matter: Threshold & Coverage Documents | ✅ BUILT | d3m1-l2, d3m1-pkg, d3m1-a2, d3m1-kc |
-| `D3#13` | Documents that Matter: Liability & Causation Documents | ✅ BUILT | d3m1-pkg, d3m1-a2 |
+| `D3#13` | Documents that Matter: Liability & Causation Documents | ✅ BUILT | d2m3-cause, d3m1-pkg, d3m1-a2 |
 | `D3#14` | Documents that Matter: Special Damages Documents (Economic Hard Costs) | ✅ BUILT | d3m1-pkg, d3m1-a2 |
-| `D3#15` | Documents that Matter: General Damages Documents (Non-Economic Value) | ✅ BUILT | d3m1-pkg, d3m1-a2, d3m1-kc |
+| `D3#15` | Documents that Matter: General Damages Documents (Non-Economic Value) | ✅ BUILT | d2m3-cause, d3m1-pkg, d3m1-a2, d3m1-kc |
 | `D3#16` | Documents that Matter: Final Pleading & Release Documents (Closing Phase) | ✅ BUILT | d3m1-pkg, d3m1-a2 |
 | `D3#17` | Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit | ✅ BUILT | d3m2-l2, d3m2-a2, d3m2-kc |
 | `D3#18` | Lien Negotiations/Reduction: Common Types of Liens | ✅ BUILT | d3m3-l1, d3m3-a1, d3m3-kc |
@@ -272,6 +272,8 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - Newly authored: non-leading investigative interview technique (the funnel); recording consent and privilege on a client call
 - LSH Claims Specialist: attention to detail — cross-referencing facts and dates across documents
 - Newly authored: continuous-care documentation tests and record integrity (no altered, back-dated or to-order records; excuse notes cover only what the author saw)
+- Case file: Dr. Alana Reyes's Causation Letter, 06/19/2026 (RS19)
+- Newly authored: negligence and causation as the two halves of a personal injury claim; the Causation Letter's definition, legal purpose, evidentiary role and the Case Manager's handling of it
 - LSH Claims Specialist: policy limits (per person vs. per accident)
 - Newly authored: billed vs. paid and the collateral-source routing; future medical kept out of the Specials total
 - LSH Claims Specialist: attention to detail — cross-reference documents, double-check calculations and dates

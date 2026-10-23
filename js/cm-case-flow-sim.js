@@ -858,10 +858,10 @@ window.CM_CF_SIM = {
    "context": "02/10/2026. Retainer signed 02/09; the matter is open; no onboarding packet has reached him. John, 34, a Northgate warehouse shift lead, was the front-seat passenger in coworker Kevin Alvarez's Escape on 02/06. Last night a Keystone Mutual caller asked to record his account; he said he'd think about it, and she said she'd call back. His neck is stiff; he hasn't seen anyone. Margaret's Civic was towed from the scene and he has no car. Calms with clear steps; repeats instructions back if asked.",
    "opening": "Hey, it's John Doe, returning your call. So the other guy's insurance called me last night, a lady from Keystone, wanting to record what happened. She said she'd call back. What do I tell her?",
    "goals": [
-    "Route all Keystone contact to the firm; no Recorded Statement",
-    "Confirm he understood by having him repeat the instruction",
-    "State the packet's treatment direction, since treatment hasn't begun",
-    "Confirm Property Damage details and the packet's delivery method"
+    "Ask about the stiff neck and whether he has seen anyone yet",
+    "Outline next steps: get evaluated this week; the packet is on its way",
+    "No Recorded Statement: Keystone's calls go to the firm",
+    "Discuss the case with no one outside the firm; have him repeat it"
    ],
    "line": "Give the firm's instructions only; fault, claim value and legal effect go to Atty. Thorne."
   },

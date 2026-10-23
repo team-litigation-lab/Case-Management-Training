@@ -156,24 +156,24 @@
     ],
     "pages": ["D2#6"],
     "framework": {
-      "title": "Property Damage (PD) Deep Dive",
+      "title": "Property Damage Severity and the BI Roadmap",
       "kind": "table",
-      "head": ["Check", "What you audit", "Why it matters"],
+      "head": ["Case phase", "What the PD shows", "How it strengthens BI"],
       "rows": [
-        ["Photos", "Point-of-impact clarity, including the undercarriage and frame", "Physical proof of the impact behind the injury claim"],
-        ["Estimates vs. Actuals", "The insurance estimate against the final body shop bill", "**Supplementals prove hidden** structural damage"],
-        ["Total Loss/Value", "The CCC One or other Valuation Report, line by line", "So the client isn't lowballed on the vehicle's value"],
-        ["The Scene Audit", "Photos, video and damage against how the crash happened", "The physics of the claim must be possible"],
-        ["Rental", "Who authorizes, daily cap; 30 days max unless the Dec Page differs", "**Uncovered days are the client's cost**"]
+        ["Intake", "Tow from the scene, airbags, crush photos", "Flags a serious injury early; **preserve the evidence**"],
+        ["Treatment", "Major structural impact, frame or pillar damage", "The force matches the injuries the providers record"],
+        ["Demand", "Estimates, supplementals, repair cost, photos", "**Answers the low-impact defense** before it is raised"],
+        ["Negotiation", "The same photos and repair figures, on file", "Keeps the injury claim from being called minor"],
+        ["Litigation", "Preserved vehicle, photos, repair records", "Physical proof for experts and trial"]
       ],
-      "note": "Audit Property Damage as carefully as the medicals: it is physical evidence of how hard the impact was."
+      "note": "Audit Property Damage as carefully as the medicals: it is **physical evidence** of how hard the impact was."
     }
   },
   "d1m3-rent": {
     "lead": "A rental is part of **the Property Damage claim**: the owner's, paid only within what the policy authorizes.",
     "concepts": [
       {"term": "Whose Claim It Is", "text": "Rental follows the vehicle: it belongs to **the owner's PD claim**, not to a passenger's injury claim"},
-      {"term": "Whose Coverage Pays", "text": "3P Property Damage coverage first; if unavailable, the owner's **1P Collision and Rental coverage**; otherwise out of pocket", "more": ["First, 3P: on accepted liability, the adverse carrier's Property Damage coverage provides the rental. Here, Keystone's", "Unavailable when liability is denied or disputed, the at-fault driver has no PD coverage, or its limit is used up", "Then 1P: check the owner's **Collision or Comprehensive** for the vehicle, and Rental Reimbursement coverage on the Dec Page", "The 1P carrier pays, then pursues the at-fault party; the owner's deductible is claimed back the same way", "No coverage at all: the owner pays **out of pocket**. Keep every receipt for reimbursement in the PD claim", "Get each carrier's rental authorization in writing before the client collects a car"]},
+      {"term": "Whose Coverage Pays", "text": "3P Property Damage coverage first; if unavailable, the owner's **1P Collision and Rental coverage**; otherwise out of pocket", "more": ["First, 3P: on accepted liability, the adverse carrier's Property Damage coverage provides the rental. Here, Keystone's", "Unavailable when liability is denied or disputed, the at-fault driver has no PD coverage, or its limit is used up", "Then 1P: check the owner's **Collision or Comprehensive** for the vehicle, and Rental Reimbursement coverage on the Dec Page", "The 1P carrier pays, then pursues the at-fault party; the owner's deductible is claimed back the same way", "No coverage at all: the owner pays **out of pocket**. Keep every receipt for reimbursement in the PD claim", "Get each carrier's rental authorization in writing before pickup: the firm **coordinates it**, never provides or pays for it"]},
       {"term": "Rental Reimbursement Endorsement", "text": "Optional coverage on the owner's policy for a rental while the car is repaired: **check the Dec Page**"},
       {"term": "Rate Cap and Duration", "text": "The authorized daily rate and days, usually 30 at most: **anything beyond them** is the client's cost", "more": ["Record the authorized daily rate before the client collects a vehicle", "Coverage usually runs 30 days at most, unless the Dec Page says otherwise", "Calendar the last covered day and tell the client before it arrives", "A comparable vehicle, not an upgrade: the difference is the client's cost"]}
     ],

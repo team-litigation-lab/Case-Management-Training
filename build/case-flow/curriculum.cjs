@@ -140,13 +140,14 @@ else {
   const SLIDES = (() => { require(path.join(ROOT, "js/cm-case-flow-slides.js")); return global.window.CM_CF_SLIDES || {}; })();
   // an activity that audits a document set draws one more slide (build/case-flow/exhibits), so it counts here too
   const AUDITS = (() => { require(path.join(ROOT, "js/cm-case-flow-exhibits.js")); return (global.window.CM_CF_EXHIBITS || {}).audits || {}; })();
-  const SLIDE_CAP = 100, TH_PER = 4;
+  const SLIDE_CAP = 110, TH_PER = 4;   // 110: raised from 100 when Day 3 took the Causation Letter lesson
   const viewsOf = b => {
     const t = (SLIDES[b.id] || {}).theory, map = (SLIDES[b.id] || {}).roadmap && !(SLIDES[b.id] || {}).roadmap.merge ? ["map"] : [];
     const theory = !t ? [] : (t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]).concat(t.framework ? ["frame"] : []);
-    if(b.kind === "lesson" && b.brief) return ["why", "rules"].concat((b.ops || []).length ? ["job"] : []);
-    if(b.kind === "lesson" && b.compact) return ["why"].concat(map, theory.slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);
-    if(b.kind === "lesson") return ["why"].concat(map, theory, ["rules"], b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);
+    const doc = (SLIDES[b.id] || {}).document ? ["doc"] : [];
+    if(b.kind === "lesson" && b.brief) return ["why"].concat(doc, ["rules"]).concat((b.ops || []).length ? ["job"] : []);
+    if(b.kind === "lesson" && b.compact) return ["why"].concat(doc, map, theory.slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);
+    if(b.kind === "lesson") return ["why"].concat(doc, map, theory, ["rules"], b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);
     if(b.kind === "activity") return ["case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], ["task"], AUDITS[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);
     return [];   // a Knowledge Check is its own page, not slides
   };

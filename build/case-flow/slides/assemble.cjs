@@ -9,6 +9,8 @@ const ROOT = path.resolve(__dirname, "../../..");
 global.window = {};
 require(path.join(ROOT, "js/cm-case-flow-data.js"));
 const CF = window.CM_CASE_FLOW;
+require(path.join(ROOT, "js/cm-case-flow-docs.js"));
+const DOC_IDS = new Set((window.CM_CF_DOCS || []).map(x => x.id));
 // the original Canva decks' page text (build-time reference only; the course never shows the decks)
 const DECKS = JSON.parse(fs.readFileSync(path.join(__dirname, "deck-pages.json"), "utf8"));
 const CATALOG = fs.readFileSync(path.join(__dirname, "SLIDESPEC.md"), "utf8").split("## Image catalog")[1].split("\n").slice(1).join(" ").split("·").map(s => s.trim()).filter(Boolean);
@@ -118,6 +120,13 @@ for (const day of CF.days) {
           if(!x || typeof x.label !== "string" || !x.label.trim() || wc(x.label) > 5 || marks(x.label)) errors.push(`${b.id}.roadmap.steps[${i}].label: want ≤ 5 words, no highlight`);
           if(!x || typeof x.text !== "string" || !x.text.trim() || wc(x.text) > 12 || marks(x.text) > 1 || marks(x.text) % 1) errors.push(`${b.id}.roadmap.steps[${i}].text: want ≤ 12 words, at most one highlight`);
         });
+      }
+      if(c.document !== undefined){   // The Document: a legal or medical document broken down before any task asks the trainee to work with it
+        const d = c.document || {};
+        if(typeof d.name !== "string" || !d.name.trim() || wc(d.name) > 6 || marks(d.name)) errors.push(`${b.id}.document.name: want ≤ 6 words, no highlight`);
+        if(d.doc !== undefined && !DOC_IDS.has(d.doc)) errors.push(`${b.id}.document.doc: "${d.doc}" isn't a case document (js/cm-case-flow-docs.js)`);
+        for (const f of ["definition", "purpose", "evidence"]) line(b.id, `document.${f}`, d[f], 24);
+        list(b.id, "document.handling", d.handling, 2, 4, 12);
       }
       let k = null;
       if((b.best || []).length){ list(b.id, "dos", c.dos, 2, 3, 10); list(b.id, "donts", c.donts, 2, 3, 10); k = clues(b, c); }

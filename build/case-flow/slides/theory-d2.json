@@ -757,6 +757,51 @@
    "note": "Under A-C-T, raise medical flags with the provider and legal flags with Atty. Thorne; you never direct care"
   }
  },
+ "d2m3-cause": {
+  "lead": "Negligence is **only half the battle**: a personal injury claim must also prove causation and damages, and a Causation Letter is medicine's proof of the link.",
+  "concepts": [
+   {
+    "term": "The Two Halves",
+    "text": "Duty and breach prove negligence; **causation and damages** prove what it cost. A claim needs both halves proved.",
+    "more": [
+     "Negligence on this file: Robert Smith's citation for failure to stop, Ruth Calloway, the doorbell video",
+     "Causation: the collision caused the C5-C6 herniation, the treatment it needed and the residual right-arm symptoms",
+     "Damages: the expenses and limitations that follow, **proved by records**, not adjectives"
+    ]
+   },
+   {
+    "term": "Who Writes It",
+    "text": "A treating physician or surgeon who examined the patient, or **an independent medical expert** who reviews the records.",
+    "more": [
+     "Dr. Alana Reyes, orthopaedic spine surgeon at Lakeside Orthopedics, saw John Doe on 03/05, 03/27 and 06/12/2026",
+     "A treating doctor's opinion rests on her own exams; an expert's rests on **the records she reads**",
+     "Either way, Atty. Thorne requests it, with the client's written authorization"
+    ]
+   },
+   {
+    "term": "Reasonable Medical Probability",
+    "text": "The standard its opinions are held to: **more likely than not**. “Possibly” or “could be” generally falls short.",
+    "more": [
+     "Dr. Reyes holds each opinion “to a reasonable degree of medical probability”",
+     "The exact standard varies by state: **Atty. Thorne confirms** the governing rule",
+     "Weak wording is flagged to him; nobody asks the doctor to strengthen it"
+    ]
+   },
+   {
+    "term": "Aggravation and Prior Conditions",
+    "text": "A prior injury in the same region makes it an aggravation question; John Doe's 2021 care was **a different region**.",
+    "more": [
+     "Birch Avenue Chiropractic, 2021: three low-back visits, resolved; no prior neck complaint",
+     "Dr. Reyes: the 2021 care is unrelated and **has no bearing** on the cervical injury",
+     "Whether aggravation or the eggshell rule matters at all is Atty. Thorne's call"
+    ]
+   }
+  ],
+  "pages": [
+   "D3#17",
+   "D2#15"
+  ]
+ },
  "d2m4-l1": {
   "lead": "A full pre-demand audit is **the final stress test**: the move from collecting information to using it, leaving the defense zero easy outs.",
   "concepts": [

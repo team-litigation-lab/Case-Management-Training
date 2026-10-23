@@ -35,27 +35,28 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 1. *Lesson* — Interview Techniques & UPL Boundaries in Client Investigation
 2. *Lesson* — Medical Excuse Notes & Continuous-Care Documentation Rules
-3. *Lesson* — MMI, Special Damages & Policy-Limits Targets
-4. *Lesson* — Strategy Briefing Protocols with Lead Counsel
-5. *Lesson* — Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup
-6. *Lesson* — Secondary UM Demand Structuring & Policy Stacking Rules
-7. *Lesson* — Building the Demand Package: the Big Four, the Human Story & the Final Scrub
-8. *Lesson* — Countering Adjuster Delay Tactics & Gap Pushback
-9. *Lesson* — Securing Maximum Gross Policy-Limit Settlements
-10. *Skill Activity* — Probe the 14-Day Treatment Gap with AI John Doe
-11. *Skill Activity* — Gap Explanation Record Creation
-12. *Skill Activity* — Calculating Total Specials & the Special Damages Audit
-13. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne
-14. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package
-15. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
-16. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
-17. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender
-18. *Skill Activity* — Closing the $40,000 Gross Recovery
-19. *Skill Activity* — The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
-20. *Knowledge Check* — UPL & Investigation Review
-21. *Knowledge Check* — Pre-Demand Audit & Day 3 Gate
-22. *Knowledge Check* — Demand Execution Audit
-23. *Knowledge Check* — Negotiation Mastery Check
+3. *Lesson* — The Causation Letter: Proving the Collision Caused the Harm
+4. *Lesson* — MMI, Special Damages & Policy-Limits Targets
+5. *Lesson* — Strategy Briefing Protocols with Lead Counsel
+6. *Lesson* — Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup
+7. *Lesson* — Secondary UM Demand Structuring & Policy Stacking Rules
+8. *Lesson* — Building the Demand Package: the Big Four, the Human Story & the Final Scrub
+9. *Lesson* — Countering Adjuster Delay Tactics & Gap Pushback
+10. *Lesson* — Securing Maximum Gross Policy-Limit Settlements
+11. *Skill Activity* — Probe the 14-Day Treatment Gap with AI John Doe
+12. *Skill Activity* — Gap Explanation Record Creation
+13. *Skill Activity* — Calculating Total Specials & the Special Damages Audit
+14. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne
+15. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package
+16. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
+17. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
+18. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender
+19. *Skill Activity* — Closing the $40,000 Gross Recovery
+20. *Skill Activity* — The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
+21. *Knowledge Check* — UPL & Investigation Review
+22. *Knowledge Check* — Pre-Demand Audit & Day 3 Gate
+23. *Knowledge Check* — Demand Execution Audit
+24. *Knowledge Check* — Negotiation Mastery Check
 
 **End-of-day discussion (trainer):** It is 07/20/2026. The Specials are audited and Atty. Thorne has approved a policy-limits demand to Keystone. What must be true before the Time-Limited Demand goes out, and what would let Keystone say it never had a fair chance to settle?
 
@@ -63,7 +64,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 3 — Pre-Demand Audit, the Demand & Settlement Negotiation
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 3.1.1 Interview Techniques & UPL Boundaries in Client Investigation
 
@@ -237,7 +238,89 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 ---
 
-### 3.1.3 MMI, Special Damages & Policy-Limits Targets
+### 3.1.3 The Causation Letter: Proving the Collision Caused the Harm
+
+> **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
+> **Topic:** Negligence is only half the battle: what a Causation Letter is, what it proves, and how you request, check, file and track Dr. Reyes's  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D3#13` Documents that Matter: Liability & Causation Documents · `D3#15` Documents that Matter: General Damages Documents (Non-Economic Value) · `D2#13` Treatment Gaps in the Demand Phase · `D1#46` Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain · Case file: Dr. Alana Reyes's Causation Letter, 06/19/2026 (RS19) · Newly authored: negligence and causation as the two halves of a personal injury claim; the Causation Letter's definition, legal purpose, evidentiary role and the Case Manager's handling of it
+
+#### 1 · Visual Layout Description
+
+The slide is split into two halves of one case. Left, a navy card headed NEGLIGENCE · HALF THE BATTLE, with three ticked chips: DUTY · BREACH · CITED FOR FAILURE TO STOP. Right, an orange-bordered card headed CAUSATION & DAMAGES · THE OTHER HALF, where an orange arrow runs from a node 02/06/2026 COLLISION through C5-C6 HERNIATION and TREATMENT & EXPENSES to RESIDUAL RIGHT-ARM SYMPTOMS. Laid across the arrow, a white letter card: CAUSATION LETTER · DR. ALANA REYES · 06/19/2026, with three opinion tags in mono: DELAY CONSISTENT · MORE LIKELY THAN NOT · 2021 LOW BACK UNRELATED. Along the bottom, a red gate chip: “The doctor writes it. Atty. Thorne requests it. You track it.” The argument: fault without a medical link wins nothing.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Proving negligence is only half the battle in personal injury law. Robert Smith's citation for failure to stop shows fault; it does not show that the collision caused John Doe's C5-C6 herniation, his medical expenses or the right-arm symptoms that remain. Keystone will point to the 14-day gap and the 2021 chiropractic visits as other causes. A Causation Letter (a medical causation report or opinion letter) is the formal document in which a medical professional, a treating physician, a surgeon or an independent medical expert, links the accident to the specific injuries. On this file it is Dr. Alana Reyes's letter of 06/19/2026, and the demand, the rebuttal and every later binder lean on it.
+
+1. A claim has two halves, and both must be proved. Negligence: duty and breach (Robert Smith's citation, Ruth Calloway, the doorbell video). Causation and damages: the collision caused the specific injury, the medical expenses and the ongoing limitations claimed. A file that proves only fault proves nothing the carrier has to pay for.
+2. A Causation Letter is a medical professional's written opinion: a treating physician or surgeon who examined the patient, or an independent medical expert who reviews the records. Dr. Reyes, the orthopaedic spine surgeon at Lakeside Orthopedics who saw John Doe on 03/05, 03/27 and 06/12/2026, wrote his.
+3. Its opinions are held to a reasonable degree of medical probability: more likely than not. Wording such as “possibly” or “could be” generally falls short. Flag it to Atty. Thorne; never ask the doctor to strengthen it. The governing standard varies by state, and Atty. Thorne confirms it.
+4. A letter that holds up names the records reviewed, ties each injury to the mechanism, answers the other causes the defense will raise, and addresses treatment and future care. Dr. Reyes's covers all four: the delayed presentation is clinically consistent; the C5-C6 herniation was more likely than not caused by the 02/06/2026 collision; the 2021 care is unrelated; the treatment was reasonable and necessary, and future injections are reasonably anticipated.
+5. Atty. Thorne requests it, in his letter, with John Doe's written authorization. You assemble the record set the doctor needs, the prior records included (EMS report, the 02/20/2026 urgent-care note, Riverton Spine & Rehab's notes, the 03/13/2026 MRI report, Crescent's 05/15/2026 procedure note, Birch Avenue Chiropractic's 2021 records), docket the follow-up and track the reply.
+6. Check it against the file the day it arrives: the date of loss (02/06/2026), the injury level and side (C5-C6, right), the visit dates, the records listed, the prior history. A mismatch, like the 02/16/2026 injury date in the MRI's history line, goes to Atty. Thorne; only its author corrects a record, by a dated addendum.
+7. File it in CMS → Documents (Medical) as received, dated 06/19/2026, and cite it where the file needs it: the 14-day band of the Gap Explanation Record, the risks in the pre-demand audit, the Demand Package that went to Keystone on 07/20/2026, and the 08/06/2026 rebuttal Atty. Thorne approved.
+8. It is an opinion, not a business record: a records custodian does not certify it the way a provider's chart is certified. How it is used beyond the demand, as an exhibit or an expert's disclosure, is Atty. Thorne's call.
+9. You never draft, edit or suggest its words, never coach the doctor toward a conclusion, and never tell John Doe what causation means for his claim or its value.
+
+> ⚠️ **UPL boundary.** You request the records for Atty. Thorne's letter, track the reply, check the letter against the records and file it. You never draft the medical opinion, coach the doctor's conclusions, or tell John Doe what causation means for his claim's value: that is Atty. Thorne's.
+
+#### 2 · Slide Body — Show Them
+
+*Dr. Reyes's four opinions, and the defense each one answers*
+
+| Opinion (06/19/2026) | The defense it answers | The records behind it |
+|---|---|---|
+| The delayed presentation is clinically consistent with this injury | “He waited two weeks”: the 14-Day Gap | EMS report, neck stiffness 02/06/2026; urgent-care note 02/20/2026, numbness since 02/18 |
+| The C5-C6 herniation was more likely than not caused by the 02/06/2026 collision | “Degenerative”, or another cause | MRI 03/13/2026: no significant degenerative change at the adjacent levels |
+| The 2021 chiropractic care is unrelated | A pre-existing condition | Birch Avenue Chiropractic, 2021: three low-back visits, resolved; no neck complaint |
+| The treatment was reasonable and necessary; future care is reasonably anticipated | Over-treatment; no future medical | Lakeside Orthopedics' MMI note, 06/12/2026: 1–2 repeat injections within 24 months |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Atty. Thorne decides to request a causation opinion | Assemble the record set, prior records included, for his letter; docket the follow-up | Medical Records Requests · CMS → Calendar | Request goes under his signature with John Doe's authorization; follow-up dated |
+| The Causation Letter arrives (06/19/2026) | Check the date of loss, injury level and side, visit dates and records listed against the file | CMS → Documents → Medical | Each item logged as matching, or the mismatch quoted and flagged to Atty. Thorne |
+| The letter is checked | File it and cite it on the Gap Explanation Record and in the audit's risks | CMS → Case File → Gap Explanation Record · CMS → Tasks | Cited on the 14-day band; routed to Atty. Thorne |
+| The Demand Package is assembled | Place the letter with the MRI report and the EMS report | Action Plan Editor · CMS → Documents → Outgoing | The letter is in the package served on 07/20/2026 |
+
+**Best practices & pitfalls**
+
+- Treat causation as half the case: check that every injury and expense claimed has a medical link on paper.
+- Send the doctor the complete record set, the prior records included, so the opinion holds when the defense reads them.
+- Read the letter against the file the day it arrives: date of loss, level, side, visits, records.
+- ⚠️ Pitfall: drafting or suggesting the doctor's wording, or asking her to make the opinion stronger.
+- ⚠️ Pitfall: leaving the 2021 records out of the set, so the opinion never addresses them.
+- ⚠️ Pitfall: telling John Doe the letter means his case is worth more.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Two halves | Separates negligence (duty, breach) from causation and damages, and says why both must be proved |
+| 🤖 AI | **15%** | Document anatomy | Author, records reviewed, reasonable medical probability, the other causes answered, treatment and future care |
+| 🤖 AI | **15%** | File check | Date of loss 02/06/2026, C5-C6 right, visit dates and records listed checked against the file; mismatches flagged |
+| 🤖 AI | **15%** | Use on the file | Cited on the Gap Explanation Record; in the 07/20/2026 Demand Package and the 08/06/2026 rebuttal |
+| 🧑‍🏫 Trainer | **20%** | Evidentiary judgment | Treats the letter as an opinion that stands on the records it read; sends the complete set, prior records included |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | Never drafts, suggests or coaches the opinion; what causation means for value is left to Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open with the board split in two: “Robert Smith was cited for failure to stop. Does Keystone owe John Doe anything yet?” Let the room find the missing half: nothing yet links the crash to his neck.
+- Ask the room: “Who writes a Causation Letter, and who asks for it?” A treating physician, a surgeon or an independent medical expert writes it; Atty. Thorne requests it; the Case Manager assembles the records and tracks the reply.
+- Watch for trainees who want the letter “stronger”. Any request that shapes the doctor's words makes the letter worthless and can be misconduct; weak or unclear wording is flagged to Atty. Thorne, nothing more.
+- Legal nuance: the standard of proof for causation, whether an expert is required, and how a treating doctor's opinion is disclosed in litigation all vary by state. Teach the principle and say “confirm the governing rule”.
+
+---
+
+### 3.1.4 MMI, Special Damages & Policy-Limits Targets
 
 > **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** The audit that decides what the demand can claim  
@@ -320,7 +403,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ---
 
-### 3.1.4 Strategy Briefing Protocols with Lead Counsel
+### 3.1.5 Strategy Briefing Protocols with Lead Counsel
 
 > **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Briefing Atty. Thorne, live or in the AI strategy session  
@@ -405,7 +488,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ---
 
-### 3.1.5 Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup
+### 3.1.6 Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup
 
 > **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** What makes a $10,000 demand one Keystone has to answer  
@@ -489,7 +572,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.6 Secondary UM Demand Structuring & Policy Stacking Rules
+### 3.1.7 Secondary UM Demand Structuring & Policy Stacking Rules
 
 > **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Locking the escape hatches before Host UM and Relative UM open  
@@ -572,7 +655,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.7 Building the Demand Package: the Big Four, the Human Story & the Final Scrub
+### 3.1.8 Building the Demand Package: the Big Four, the Human Story & the Final Scrub
 
 > **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** What each part of the package proves, and the adjuster trap each one shuts  
@@ -657,7 +740,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.8 Countering Adjuster Delay Tactics & Gap Pushback
+### 3.1.9 Countering Adjuster Delay Tactics & Gap Pushback
 
 > **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** The battle map, the first call, and the stall rebuttals  
@@ -740,7 +823,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.9 Securing Maximum Gross Policy-Limit Settlements
+### 3.1.10 Securing Maximum Gross Policy-Limit Settlements
 
 > **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** The UM gap, the reductions that don't apply, and closing at limits  
@@ -825,7 +908,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.10 Probe the 14-Day Treatment Gap with AI John Doe
+### 3.1.11 Probe the 14-Day Treatment Gap with AI John Doe
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 1 — Call Simulator: the 14-Day Gap, in his words  
@@ -914,7 +997,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 ---
 
-### 3.1.11 Gap Explanation Record Creation
+### 3.1.12 Gap Explanation Record Creation
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 2 — every reason beside its proof, for both interruptions  
@@ -1003,7 +1086,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 ---
 
-### 3.1.12 Calculating Total Specials & the Special Damages Audit
+### 3.1.13 Calculating Total Specials & the Special Damages Audit
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity 1 — audit $15,002.40 down to the number that holds  
@@ -1084,7 +1167,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ---
 
-### 3.1.13 Pre-Demand Strategy Session with AI Atty. Elijah Thorne
+### 3.1.14 Pre-Demand Strategy Session with AI Atty. Elijah Thorne
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity 2 — present the audit; record his decisions  
@@ -1164,7 +1247,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ---
 
-### 3.1.14 Serving the $10,000 BI Time-Limit Demand Package
+### 3.1.15 Serving the $10,000 BI Time-Limit Demand Package
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 1 — audit it, serve it, prove it  
@@ -1245,7 +1328,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.15 QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
+### 3.1.16 QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 2 — two packages, exhaustion proof on page one  
@@ -1325,7 +1408,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.16 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
+### 3.1.17 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 1 — hold the Limits Demand on a recorded call  
@@ -1414,7 +1497,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.17 The BI Settlement Net Sheet: Stream 1 at the Tender
+### 3.1.18 The BI Settlement Net Sheet: Stream 1 at the Tender
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity — what Keystone's $10,000 does, and doesn't, do on its own  
@@ -1494,7 +1577,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.18 Closing the $40,000 Gross Recovery
+### 3.1.19 Closing the $40,000 Gross Recovery
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 2 — work both UM layers to limits, on the record  
@@ -1572,7 +1655,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.19 The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
+### 3.1.20 The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity — project the UM stream to the cent, mark what will move, ask Atty. Thorne  
@@ -1653,7 +1736,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.20 UPL & Investigation Review
+### 3.1.21 UPL & Investigation Review
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1669,6 +1752,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 1. Name the four reasons for John Doe's 14-day gap and, beside each, the document that corroborates it, with its date.
 2. Rewrite “Was it because you had no car?” so it could surface the same reason without suggesting it. Explain what the leading version costs the file.
 3. On the recorded call John Doe asks, “Is this gap going to wreck my case?” Give your answer word for word, then say what you do with the question.
+4. Robert Smith's citation proves fault. What else must John Doe's file prove, which document proves it, and what is your part, and not your part, in getting it?
 
 **Best practices & pitfalls**
 
@@ -1692,11 +1776,12 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 | Holding the UPL line when a client asks what a fact does to his case | ○ | ○ | ○ | ○ | ○ |
 | Writing a GIRP call note with the client's words and a dated plan | ○ | ○ | ○ | ○ | ○ |
 | Telling records made at the time from records made to order | ○ | ○ | ○ | ○ | ○ |
+| Requesting, checking and filing a Causation Letter without shaping its words | ○ | ○ | ○ | ○ | ○ |
 | Building a Gap Explanation Record that pairs every reason with a dated document | ○ | ○ | ○ | ○ | ○ |
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (5 questions):
+**Auto-graded share of the day's Knowledge Check** (8 questions):
 
 1. John Doe first treated on 02/20/2026, 14 days after the collision. Which question should open the investigation on the recorded call?  
    “Was it because you had no car?” · “You were feeling fine at first, weren't you?” · **✓ “Take me through the days after the crash, from that morning up to 02/20.”** · “The adjuster will use this gap against you, so I need the reason.”  
@@ -1713,6 +1798,15 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 5. A provider's note looks wrong about when John Doe's neck pain began. What do you do?  
    Ask the provider to correct it to match the file · **✓ Flag it to Atty. Thorne: a provider corrects its own record only by a dated addendum, and the original stays** · Fix it in the CMS copy · Leave it: records don't matter until the demand  
    *Never ask a provider to change, back-date or add to a record. Altering a record can be evidence tampering or insurance fraud.*
+6. Robert Smith was cited for failure to stop, and Ruth Calloway saw the collision. Why is that not enough for Keystone to owe John Doe his damages?  
+   It is enough: proving fault proves the whole claim · **✓ It proves negligence only; the file must also prove the collision caused his specific injuries, his medical expenses and his ongoing limitations** · Ruth Calloway must first give a Recorded Statement to Keystone · Keystone never pays a claim before a lawsuit is filed  
+   *Proving negligence is only half the battle. Causation and damages are the other half: the C5-C6 herniation, the treatment it needed and the residual right-arm symptoms must be linked to the 02/06/2026 collision, and Dr. Reyes's Causation Letter is the document that links them.*
+7. Dr. Reyes holds each opinion in her Causation Letter “to a reasonable degree of medical probability”. What does that mean?  
+   The collision is certainly the only cause · The collision is possibly one of several causes · **✓ More likely than not: the standard a causation opinion is generally held to** · The opinion stands only until Keystone orders an examination  
+   *Reasonable medical probability means more likely than not. Wording such as “possibly” or “could be” generally falls short: flag it to Atty. Thorne, never ask the doctor to change it. The exact standard varies by state, so Atty. Thorne confirms the governing rule.*
+8. Dr. Reyes's Causation Letter dated 06/19/2026 arrives at the firm. What is the Case Manager's part?  
+   Edit its wording so it answers the 14-Day Gap more strongly, then file it · **✓ Check it against the file (the date of loss, the injury level and side, the visit dates, the records she reviewed), file it, cite it on the Gap Explanation Record and flag any mismatch to Atty. Thorne** · Call John Doe to tell him the letter raises what his claim is worth · Ask Dr. Reyes to add that the gap happened because John Doe had no car  
+   *You request, track, check, file and cite. The opinion is the doctor's own: never draft, edit or coach it, and never suggest what it should say. What causation means for the claim's value is Atty. Thorne's to explain.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1738,7 +1832,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 ---
 
-### 3.1.21 Pre-Demand Audit & Day 3 Gate
+### 3.1.22 Pre-Demand Audit & Day 3 Gate
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1841,7 +1935,7 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 
 ---
 
-### 3.1.22 Demand Execution Audit
+### 3.1.23 Demand Execution Audit
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Demand Execution Audit + CM Learning Summary & Self-Scale  
@@ -1947,7 +2041,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 3.1.23 Negotiation Mastery Check
+### 3.1.24 Negotiation Mastery Check
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Knowledge Check + CM Learning Summary & Self-Scale  
