@@ -1,81 +1,649 @@
 # Jargon & processes: your explanations
 
-Every trainer script (`dN.json`) explains a term in one plain breath the first time it comes up on a slide. Send a fuller explanation for any term below and it goes into the scripts in place of mine.
+Every trainer script (`dN.json`) explains a term in one plain breath the first time it comes up on a slide. Change any wording here and in the scripts the same way, so the two keep saying the same thing.
 
-## Needs your explanation (68)
+## The terms, explained
 
-These are named in the scripts but not explained yet.
+The terms the scripts used to name without explaining. Each has a one-breath version in the scripts, where it comes up, and the full version here: the plain words, how to say it to the room, why it matters for the settlement, and a quick check to put to a trainee. Where a meaning depends on state law, it's Atty. Thorne's call, and **Confirm:** marks what to check.
 
-| Term | Block | Note | Day & module |
-|---|---|---|---|
-| Recorded statement | d1m1-kc | (Used in a war story, not explained: needs your explanation) | Day 1 · CM Fundamentals & CMS Initialization |
-| Lien | d1m1-l1 | (Mentioned, not explained in this module: needs your explanation) | Day 1 · CM Fundamentals & CMS Initialization |
-| Retainer | d1m1-l1, d1m1-open | (Mentioned, not explained: needs your explanation) | Day 1 · CM Fundamentals & CMS Initialization |
-| Medical danger vs. legal danger | d1m3-l1 | A medical danger threatens the client's health; a legal danger (like a gap in care) threatens the claim. (Posed as a guess; trainer to confirm.) | Day 1 · Property Damage & Onboarding |
-| Dugan v. Gotsopoulos | d1m3-l2 | Cited as the Nevada example for Loss of Use; not explained further. Needs your explanation. | Day 1 · Property Damage & Onboarding |
-| Diminished Value | d1m3-l2 | Named only as a Day 5 topic; not explained. | Day 1 · Property Damage & Onboarding |
-| Intake Sheet / Intake Supplement / CMS Intake Record | d1m3-a3 | Named as source documents; not explained. | Day 1 · Property Damage & Onboarding |
-| Regulatory Triple-Check | d1m4-l1 | A place held in the plan, cleared in the Treatment Phase (not explained further: needs your explanation) | Day 1 · The Case Plan & Treatment |
-| Policy limits | d1m4-l1 | Used as the example of a value statement a CM never writes (not defined) | Day 1 · The Case Plan & Treatment |
-| Impairment rating | d1m4-tmap | Mentioned at discharge (not defined: needs your explanation) | Day 1 · The Case Plan & Treatment |
-| A-C-T | d1m4-tmap, d1m4-tcare | Named only; taught on Day 2 (needs your explanation) | Day 1 · The Case Plan & Treatment |
-| Property damage carve-out | d2m1-l1 | Named only: Keystone's letter covers PD for Leah Moran with 5 business days to inspect (needs your explanation) | Day 2 · Claims Setup & Coverage Verification |
-| Other-insurance clause | d2m1-l2 | Named only (needs your explanation) | Day 2 · Claims Setup & Coverage Verification |
-| Bad faith | d2m1-l2 | Named only, as a question for Atty. Thorne (needs your explanation) | Day 2 · Claims Setup & Coverage Verification |
-| MMSEA | d1m1-l2 | Named as the law behind BCRC reporting and frozen settlements (needs your explanation) | Day 2 · Claims Setup & Coverage Verification |
-| Preliminary projection | d1m1-a1 | Named only: an estimate not yet backed by written limits | Day 2 · Claims Setup & Coverage Verification |
-| Set-off / add-on | d2m2-pip | Named only (defendant gets credit for PIP paid; add-on doesn't reduce BI or UM): needs your explanation | Day 2 · Treatment Phase, LOPs & Providers |
-| Transportation Wall | d2m2-a2 | Named only (the activity's ride problem and its three options): needs your explanation | Day 2 · Treatment Phase, LOPs & Providers |
-| Work hardening | d2m2-l2 | Named only (therapy that rebuilds job strength, per Day 1): needs your explanation | Day 2 · Treatment Phase, LOPs & Providers |
-| UM | d2m2-pip | Named only: needs your explanation | Day 2 · Treatment Phase, LOPs & Providers |
-| Communications Log | d1m2-l1, d1m2-a1 | (Used by name; each entry needs date, time, channel and outcome.) Needs your explanation. | Day 2 · Handling MIA Clients |
-| Process server | d1m2-l2 | (Mentioned for Day 5, not explained.) Needs your explanation. | Day 2 · Handling MIA Clients |
-| Triple-check / three pillars / BI, Host UM, Relative UM / LOR / Claim Set Up gate | d1m4-a2, d1m4-kc | Not explained in plain words in these scripts: named only. Needs your explanation | Day 2 · Action Plan & the Claim Set Up gate |
-| UM (Host UM, Relative UM) | d2m4-l1 | Uninsured or underinsured motorist coverage, which steps in when the at-fault driver's coverage isn't enough (Host vs. Relative not explained: needs your explanation) | Day 3 · Client Investigation, Gap Analysis & Pre-Demand |
-| Time-limited demand | d2m4-a2 | Named only: needs your explanation | Day 3 · Client Investigation, Gap Analysis & Pre-Demand |
-| A-pillar supplement | d2m4-l2, d2m4-a2 | Named only (extra repair to the car's front roof pillar): needs your explanation | Day 3 · Client Investigation, Gap Analysis & Pre-Demand |
-| Bad faith | d3m1-l1 | Named as Atty. Thorne's legal conclusion only: needs your explanation | Day 3 · BI & UM Demands & Negotiation |
-| Limited Release / consent to settle | d3m1-l2 | Named and used, not defined in plain words: needs your explanation | Day 3 · BI & UM Demands & Negotiation |
-| Impairment rating | d3m1-pkg, d3m1-a2 | Named only: needs your explanation | Day 3 · BI & UM Demands & Negotiation |
-| Final Scrub | d3m1-l1, d3m1-pkg | Described by what it catches (overlaps, prior visits, balances), not defined: needs your explanation | Day 3 · BI & UM Demands & Negotiation |
-| Coverage Matrix / Recovery Ledger / Negotiation Log | d3m1-l2, d3m2-a2 | CMS tools named only: needs your explanation | Day 3 · BI & UM Demands & Negotiation |
-| Fully insured plan | d3m3-l1 | (Named as easier to move than ERISA; why it matters legally is Atty. Thorne's call: needs your explanation) | Day 4 · Lien Negotiations, Net Sheet & Closing |
-| Made whole / common fund doctrines | d3m3-l1, d3m3-l2 | Common fund: a lienholder shouldn't ride free on the work and costs that created the money. Made whole: named only, needs your explanation | Day 4 · Lien Negotiations, Net Sheet & Closing |
-| Comparative fault | d3m3-l1 | (Named only, greyed out on this file: needs your explanation) | Day 4 · Lien Negotiations, Net Sheet & Closing |
-| Kickback Protocol | d3m4-l2 | (Named only: say what's missing and give a deadline. Needs your explanation) | Day 4 · Lien Negotiations, Net Sheet & Closing |
-| Redline memo | d3m4-l2, d3m4-a2 | (Named only: needs your explanation) | Day 4 · Lien Negotiations, Net Sheet & Closing |
-| Tender | d3m4-a2 | (Named only: needs your explanation) | Day 4 · Lien Negotiations, Net Sheet & Closing |
-| Chain of custody | d4m3-l2 | Named only: needs your explanation | Day 4 · Mediation vs. Arbitration & Binders |
-| Limited Release | d4m2-um, d4m3-a1 | Named only: needs your explanation | Day 4 · Mediation vs. Arbitration & Binders |
-| Comparative negligence / failure to mitigate | d4m3-l1 | Named only: needs your explanation | Day 4 · Mediation vs. Arbitration & Binders |
-| Conflict Resolver / Docket System | d4m2-l1, d4m2-a1 | Named as tools only: needs your explanation | Day 4 · Mediation vs. Arbitration & Binders |
-| Fee split (mediator) | d4m3-l1 | Named only: needs your explanation | Day 4 · Mediation vs. Arbitration & Binders |
-| 48-Hour Mandate | d4m4-l2, d4m4-a1 | Named and used (audit 48 hours before every hard date); needs your explanation | Day 5 · The Litigation Fork & Bottlenecks |
-| Track A / Track B | d4m1-l1 | Named only (the two versions of the case: Keystone pays vs. doesn't); needs your explanation | Day 5 · The Litigation Fork & Bottlenecks |
-| Host UM / Relative UM | d4m1-a1 | Named only; needs your explanation | Day 5 · The Litigation Fork & Bottlenecks |
-| Conflict Resolver / Bottleneck Log | d4m4-l1, d4m4-a2 | CMS tools named only; needs your explanation | Day 5 · The Litigation Fork & Bottlenecks |
-| OCR / searchable scans | d4m4-l2, d4m4-a2 | Said as "searchable scans"; needs your explanation | Day 5 · The Litigation Fork & Bottlenecks |
-| Interim ledger | d4m4-a1 | Named only; needs your explanation | Day 5 · The Litigation Fork & Bottlenecks |
-| Exhaustion | d4m1-l1 | Said as "used up"; the rules vary, so Atty. Thorne confirms; needs your explanation | Day 5 · The Litigation Fork & Bottlenecks |
-| Scheduling Order | d5m1-l2 | Named and described as the judge's page of absolute dates; not defined further. Needs your explanation | Day 5 · Litigation Support & PD Lab |
-| Skip-Trace | d5m1-l1 | Named only (escalate for Skip-Trace authority). Needs your explanation | Day 5 · Litigation Support & PD Lab |
-| Certificate of Service | d5m1-a1 | Named only. Needs your explanation | Day 5 · Litigation Support & PD Lab |
-| Affidavit of Service | d5m1-a1 | Named only. Needs your explanation | Day 5 · Litigation Support & PD Lab |
-| E-service by consent | d5m1-a1, d5m1-kc | Named only (no extra 3 mail days). Needs your explanation | Day 5 · Litigation Support & PD Lab |
-| Total Loss threshold (75%) | d5m2-l1 | Shown in the math but not explained as a rule. Needs your explanation | Day 5 · Litigation Support & PD Lab |
-| Property-damage-only release | d5m2-l2, d5m2-a2 | Contrasted with an all-claims release; not defined further. Needs your explanation | Day 5 · Litigation Support & PD Lab |
-| Track B | d5m1-a1, d5m2-l2 | Named only. Needs your explanation | Day 5 · Litigation Support & PD Lab |
-| Three review lenses (coverage, treatment, liability) | d5m1-a2 | Named only. Needs your explanation | Day 5 · Litigation Support & PD Lab |
-| Summons | d5m4-l2 | Named only: needs the trainer's explanation | Day 5 · Depositions, Liability & Skip-Tracing |
-| BI demand | d5m4-kc | Named only: needs the trainer's explanation | Day 5 · Depositions, Liability & Skip-Tracing |
-| No Contact Protocol, Step 4 | d5m4-l2, d5m4-a2 | Named only (taught Day 2): needs the trainer's explanation if a refresher is wanted | Day 5 · Depositions, Liability & Skip-Tracing |
-| Track A / Track B | d5m3-a1, d5m4-kc | Named only: needs the trainer's explanation | Day 5 · Depositions, Liability & Skip-Tracing |
-| Fee tier (40% / 33⅓%) | d5m5-l1, d5m5-a1 | Named only (the fee goes up once suit is filed): needs your explanation | Day 5 · The Award & Dropped Cases |
-| Reduction Request | d5m5-l1 | Named only: needs your explanation | Day 5 · The Award & Dropped Cases |
-| Tasks, Escalate (routing) | d5m5-l1, d5m5-a1 | Named only: needs your explanation | Day 5 · The Award & Dropped Cases |
-| No Contact Protocol | d5m6-l1 | Named only (taught Day 2): needs your explanation | Day 5 · The Award & Dropped Cases |
-| CRM notes | d5m6-l1, d5m6-a1 | Named only: needs your explanation | Day 5 · The Award & Dropped Cases |
-| Action Plan Editor | d5m6-l1, d5m6-a1 | Named only: needs your explanation | Day 5 · The Award & Dropped Cases |
+## Days 1–2
+
+### Recorded Statement
+**Plain words:** An insurance adjuster tapes the client telling their version of the crash, and every word can be used against the claim later.
+
+**Say it like this:** "Think of it like a group chat screenshot: you can't unsay it. The adjuster sounds friendly because friendly gets people talking. Our rule is simple: the client never gives one without Atty. Thorne's say-so."
+
+**Why it matters for the settlement:** One "I'm pretty much fine" on tape can cut an offer for the life of the case.
+
+**Quick check:** {name}, the other side's adjuster calls John Doe and asks to "just record a few quick questions." What does John say?
+
+
+### Lien
+**Plain words:** A bill that gets paid out of the settlement before the client gets their share.
+
+**Say it like this:** "A lien is a claim with a reservation at the table: when the settlement check shows up, it eats first. Health plans, providers who treated on an LOP, sometimes the government. If we miss one, it doesn't disappear. It shows up later, with an appetite."
+
+**Why it matters for the settlement:** Every lien we find and reduce is money that goes into the client's pocket instead of out of it.
+
+**Quick check:** {name}, if a lien is missed until after the check is cut, who ends up paying it?
+
+
+### Retainer
+**Plain words:** The signed agreement that hires the firm: it says we represent the client and how the fee works.
+
+**Say it like this:** "The retainer is the 'yes, you're my lawyers' paper. No signed retainer, no case, no matter how good the facts are. It's the wedding certificate, not the engagement party."
+
+**Why it matters for the settlement:** The fee and costs on the final Net Sheet come straight from what the retainer says.
+
+**Quick check:** {name}, where do we log John Doe's signed retainer, and what date goes with it?
+
+
+### Medical danger vs. legal danger
+**Plain words:** A medical danger threatens the client's health; a legal danger threatens the claim, like a gap in care or a missed deadline.
+
+**Say it like this:** "A fever after surgery is a medical danger: the doctor's office hears about it today. Three weeks with no therapy is a legal danger: Atty. Thorne hears about it today. Same urgency, different phone call."
+
+**Why it matters for the settlement:** Legal dangers left unexplained become the adjuster's reasons to pay less.
+
+**Quick check:** {name}, John Doe misses therapy because his ride ended. Medical danger, legal danger, or both?
+
+
+### Dugan v. Gotsopoulos
+**Plain words:** A Nevada court case the firm's LOR template cites to support Loss of Use, paying the client for the days they had no car.
+
+**Say it like this:** "It's the case we point to when an adjuster says 'we don't pay for that.' It's Nevada's rule; other states have their own. Which rule governs John Doe's file is Atty. Thorne's call, not ours."
+
+**Why it matters for the settlement:** Loss of Use is its own line of money, separate from the repair, and it's easy to leave behind.
+
+**Quick check:** {name}, who decides which state's rule on Loss of Use applies to this file?
+Confirm: that the firm still relies on this citation for its matters.
+
+
+### Diminished Value
+**Plain words:** The value a car still loses after a proper repair, because buyers pay less for a car with a crash history.
+
+**Say it like this:** "Two identical cars on the lot, one with a crash on its history report. Which one do you pay more for? Exactly. That gap is Diminished Value. Many places allow it against the at-fault driver; whether we claim it is Atty. Thorne's call."
+
+**Why it matters for the settlement:** It's money on the Property Damage side that clients almost never know to ask for.
+
+**Quick check:** {name}, why would a perfectly repaired car still be worth less?
+
+
+### Intake Sheet / Intake Supplement / CMS Intake Record
+**Plain words:** The Intake Sheet is the first form about the client and crash; the Intake Supplement adds details like who owns the car; the CMS Intake Record is what someone typed into our system from them.
+
+**Say it like this:** "Two are the originals and one is a copy somebody typed. When they don't match, the originals win, and the Police Report breaks the tie. Typing is where 1987 becomes 1978."
+
+**Why it matters for the settlement:** One wrong field, like the client's seat in the car, changes which insurance companies we can claim against.
+
+**Quick check:** {name}, the CMS Intake Record and the Intake Supplement disagree on who owns the Civic. Which do you trust, and what do you do?
+
+
+### Regulatory Triple-Check
+**Plain words:** Three checks before the first bill goes anywhere: HIPAA (permission to share medical records), Medicare/Medicaid reporting, and the Payer Order (who pays which bill first).
+
+**Say it like this:** "It's the pre-flight checklist. Privacy, government payers, and payment order. Pilots don't skip it because the weather looks nice, and neither do we."
+
+**Why it matters for the settlement:** Skipping it can mean federal penalties, a frozen settlement, or a bill paid by the wrong insurer that we have to unwind later.
+
+**Quick check:** {name}, John Doe is 34. Which part of the triple-check still needs an answer for him?
+
+
+### Policy limits
+**Plain words:** The most an insurance policy will ever pay on a claim, no matter how big the damages are.
+
+**Say it like this:** "It's the ceiling. A $10,000 policy pays up to $10,000, period, even if the bills are $80,000. Whether a case is 'worth limits' is a value call, and value is Atty. Thorne's, never ours."
+
+**Why it matters for the settlement:** The limits of every layer set the most money that can come in, which is why we confirm them in writing.
+
+**Quick check:** {name}, a client asks, "Is my case worth the full policy?" What do you say?
+
+
+### Impairment rating
+**Plain words:** A doctor's number for how much lasting loss of function the client has after treatment ends.
+
+**Say it like this:** "It's like a report card for the injury once healing has stopped: a percentage the doctor gives at the end. Only the doctor gives it. We can ask Atty. Thorne whether to request one; we never ask a doctor for a particular number."
+
+**Why it matters for the settlement:** A rating is strong proof of a permanent injury, especially against a "it was a pre-existing problem" defense.
+
+**Quick check:** {name}, who gives the impairment rating, and who decides whether we ask for one?
+
+
+### A-C-T
+**Plain words:** Our three-step response when a client's care goes off track: Assess (find out what's wrong), Coordinate (fix it with the clinic, the carrier, the family), Track (follow up until care is back on schedule).
+
+**Say it like this:** "A-C-T is our fire drill. Assess: call the client and find the barrier. Coordinate: line up the fix. Track: check the next visits actually happen. Spotting smoke and not calling anyone isn't a fire drill; it's a campfire."
+
+**Why it matters for the settlement:** Every documented A-C-T turns a gap the adjuster would use against us into a gap with a reason.
+
+**Quick check:** {name}, John Doe's ride ended and he missed two visits. What does Assess look like on day one?
+
+
+### Property Damage carve-out
+**Plain words:** The one exception in the LOR: the other driver's insurer may still talk to the client, but only about the car.
+
+**Say it like this:** "The LOR says 'talk to us, not our client,' with one side door: the car. The adjuster can schedule the inspection. The second they ask 'and how's your neck?', the call is over and it comes to us."
+
+**Why it matters for the settlement:** A Property Damage call that drifts into injuries is a free Recorded Statement for the other side.
+
+**Quick check:** {name}, the Keystone PD adjuster asks Leah Moran how John's feeling. What happens next?
+
+
+### Other-insurance clause
+**Plain words:** The part of a policy that says who pays first when more than one policy covers the same crash.
+
+**Say it like this:** "It's the 'after you, no after you' clause. Two policies, one crash, and each one wants to be second in line. We get the certified policy, and Atty. Thorne decides the order."
+
+**Why it matters for the settlement:** It decides which layer opens when, and a layer opened out of order can stall the money.
+
+**Quick check:** {name}, which document proves what Cardinal State's other-insurance clause says?
+
+
+### Bad faith
+**Plain words:** When an insurance company unreasonably refuses or delays paying a claim it should pay, which can expose it to more than its policy limit.
+
+**Say it like this:** "It's the insurance company breaking its own promise to the customer. We don't call it bad faith; Atty. Thorne does. Our job is the timeline: every request, every date, every non-answer, logged, so if he needs the argument, the proof is sitting there."
+
+**Why it matters for the settlement:** A clean, dated record of delay is what gives Atty. Thorne leverage when an insurer stalls.
+
+**Quick check:** {name}, an adjuster has ignored three written requests. What do you log, and who decides what it means?
+
+
+### MMSEA
+**Plain words:** A 2007 federal law that requires reporting a case when the client is on Medicare, so Medicare gets paid back for what it covered.
+
+**Say it like this:** "If the client is 65 or older or on SSDI, Medicare may have paid bills it wants back. MMSEA is the rule that says we report it to the Benefits Coordination and Recovery Center. Skip it and the settlement can freeze like a phone in the snow."
+
+**Why it matters for the settlement:** A missed Medicare report can mean penalties and a settlement that can't be paid out.
+
+**Quick check:** {name}, John Doe is 34. What do we still have to verify before we can mark the Medicare check done?
+
+
+### Preliminary projection
+**Plain words:** An early, rough read on the coverage available on the file, marked "preliminary" until every limit is confirmed in writing.
+
+**Say it like this:** "It's a weather forecast, not the weather. We write down what the stack looks like today, and we label it preliminary so nobody treats it like a promise. Value stays with Atty. Thorne."
+
+**Why it matters for the settlement:** A projection marked final too early leads to wrong expectations, for the client and for us.
+
+**Quick check:** {name}, what has to happen before we take the word "preliminary" off?
+
+
+### Set-off / add-on
+**Plain words:** Set-off means the at-fault driver's insurer gets credit for what PIP already paid; add-on means PIP sits on top and doesn't reduce the other coverage.
+
+**Say it like this:** "Set-off is the restaurant subtracting your gift card from the bill. Add-on is the gift card being a bonus. Riverton is add-on, so John's PIP doesn't shrink his BI or UM. If anyone argues set-off, that's Atty. Thorne's call."
+
+**Why it matters for the settlement:** Getting this wrong can make the money available look smaller, or bigger, than it really is.
+
+**Quick check:** {name}, Riverton is add-on. Does John's PIP reduce what Keystone owes on BI?
+
+
+### Transportation Wall
+**Plain words:** John Doe's real-life barrier on this file: his ride ended, so he couldn't get to therapy.
+
+**Say it like this:** "It's the day the treatment plan meets real life and real life wins. No car, no ride, no therapy. Our job is to get over the wall: a rental extension, a family ride, or evening slots, and log every step."
+
+**Why it matters for the settlement:** Every day on the wall without a documented reason looks like a client who stopped caring.
+
+**Quick check:** {name}, name the three ways over John Doe's Transportation Wall.
+
+
+### Work hardening
+**Plain words:** Therapy that rebuilds the strength and stamina a person needs for their specific job.
+
+**Say it like this:** "Regular therapy gets you moving; work hardening gets you working. If he lifts boxes all day, therapy practises lifting boxes. It's the gym, but your boss wrote the workout."
+
+**Why it matters for the settlement:** It shows the client is trying to get back to work, which supports the wage loss and the injury itself.
+
+**Quick check:** {name}, who orders work hardening, and when in the Treatment Map does it usually show up?
+
+
+### BI, Host UM and Relative UM
+**Plain words:** BI is the at-fault driver's policy; Host UM is the underinsured coverage on the car John rode in; Relative UM is the underinsured coverage on a relative's policy in his household.
+
+**Say it like this:** "Picture three buckets in a line. Bucket one, BI, is Keystone's, the other driver's. When it's empty, paid or offered at limits, bucket two opens, Host UM, $20,000. Then bucket three, Relative UM, $10,000. Total, $40,000. You can't skip to bucket three because it looks shinier."
+
+**Why it matters for the settlement:** The order and the confirmed limits decide how much money can be reached and when.
+
+**Quick check:** {name}, when does the Host UM bucket open?
+
+
+### Communications Log
+**Plain words:** The CMS record of every contact with anyone on the file: date, time, channel, who, and what happened.
+
+**Say it like this:** "It's the file's diary. Every call, text, email and voicemail goes in, with the time and the outcome. If you called and didn't log it, legally you just thought about calling."
+
+**Why it matters for the settlement:** It's our proof of what we did and when, for the client, the attorney and, if it comes to it, a judge.
+
+**Quick check:** {name}, the phone shows two calls to John Doe that aren't in the log. What do you do?
+
+
+### Process server
+**Plain words:** A person whose job is to hand court papers to someone in person and then swear it was done.
+
+**Say it like this:** "Think delivery driver, but the package is a lawsuit and the customer is hiding behind the curtains. Some are very creative. We'll go deep on them on Day 5."
+
+**Why it matters for the settlement:** A case can't move forward in court until the other side is properly served.
+
+**Quick check:** {name}, why can't we just email the defendant the lawsuit?
+
+
+### The three pillars
+**Plain words:** The three parts of the Case Plan: Clinical (the client's care), Functional (daily life and getting back to work), and Financial (who pays and what's owed).
+
+**Say it like this:** "Body, life, money. A plan with only the clinical pillar is a stool with one leg, and you know how that ends: on the floor."
+
+**Why it matters for the settlement:** Each pillar feeds a part of the demand: the injury, how it changed his life, and the bills.
+
+**Quick check:** {name}, John Doe can't get to therapy because his ride ended. Which pillar does that goal go in?
+
+
+### LOR
+**Plain words:** The Letter of Representation tells an insurance company the firm represents the client, so all contact now comes to us.
+
+**Say it like this:** "It's the 'talk to my lawyer' letter, on letterhead. Once it lands, the adjuster calls us, not John. The only side door is the Property Damage carve-out, for the car."
+
+**Why it matters for the settlement:** It protects the client from saying something on the phone that costs him money.
+
+**Quick check:** {name}, which carriers get an LOR on John Doe's file?
+
+
+### The Claim Set Up gate
+**Plain words:** The four things that must be done before the file moves to the Treatment Phase: LORs out and logged, the $40,000 stack confirmed, the gap flagged, and the Case Plan routed to Atty. Thorne.
+
+**Say it like this:** "It's the boarding gate. No boarding pass, no plane, and no amount of 'but I'm almost done' gets you on. Four items, all checked, then we fly."
+
+**Why it matters for the settlement:** A file that goes into treatment with a missing letter or an unconfirmed limit carries that hole all the way to the demand.
+
+**Quick check:** {name}, which of the four gate items is the easiest to think you've done when you haven't?
+
+## Days 3–4
+
+### Time-Limited Demand
+**Plain words:** A demand letter with a deadline: the insurance company must accept inside a set window, or the offer lapses.
+
+**Say it like this:** "Think of it like a coupon that expires at midnight. Show up at 12:01 and the price is gone. On John Doe's file the clock runs from Dana Whitfield's written receipt, not from the day we hit send, which is why we chase that receipt like it owes us money."
+
+**Why it matters for the settlement:** A clean, well-documented Time-Limited Demand pressures the carrier to pay its limit on time, and a sloppy one gives it an excuse to say no.
+
+**Quick check:** {name}, when does John Doe's acceptance window start counting: the day we send, or the day Dana confirms receipt?
+
+
+### A-pillar supplement
+**Plain words:** The A-pillar is the post of the car's frame on each side of the windshield; a supplement is an extra repair bill the body shop adds after finding hidden damage.
+
+**Say it like this:** "The A-pillar is the car's door frame up by the windshield, the part that's supposed to not bend. When the body shop opens the car up and finds that bent, they send a supplement, which is body-shop for 'surprise, it's worse.' The Civic's $2,315.00 supplement tells an adjuster this crash had real force."
+
+**Why it matters for the settlement:** Structural damage answers the "too minor to cause injury" argument, and that protects the bodily injury value; the Civic's property damage claim itself stays Margaret Doe's.
+
+**Quick check:** {name}, is the A-pillar supplement our claim for money, or our evidence of force?
+
+
+### Limited Release / consent to settle
+**Plain words:** A Limited Release ends only the named claim against the named people. A consent to settle is the UM carriers' written okay before we settle with the at-fault driver's insurer.
+
+**Say it like this:** "A regular release is like signing 'I forgive everyone for everything forever.' A Limited Release says 'I forgive Robert Smith and Keystone for this claim, and that's it.' And the UM carriers get to say 'okay' in writing first, because if we settle without asking, it's like returning a borrowed car with no gas and no permission: they can refuse to pay."
+
+**Why it matters for the settlement:** Signing a broad release, or settling without the UM carriers' written consent, can wipe out the $30,000 of UM coverage stacked behind Keystone's $10,000.
+
+**Quick check:** {name}, Keystone sends a General Release on 08/14. Who has to answer before John signs anything, and what kind of release do we need?
+
+
+### Final Scrub
+**Plain words:** The last line-by-line clean-up of the Demand Package before it goes out.
+
+**Say it like this:** "It's checking your teeth for spinach before the big meeting. Duplicate bills out, like the 05/04/2026 Riverton visit billed twice, every final balance confirmed with the provider by phone, and the 2021 low-back visits disclosed as resolved before the adjuster finds them and acts shocked."
+
+**Why it matters for the settlement:** Every error the adjuster finds first becomes a reason to cut the offer or doubt the whole package.
+
+**Quick check:** {name}, why do we disclose John's 2021 low-back visits ourselves instead of hoping nobody asks?
+
+
+### Coverage Matrix / Recovery Ledger / Negotiation Log
+**Plain words:** Three CMS records. The Coverage Matrix tracks every policy from reported to confirmed in writing; the Negotiation Log records every offer, counter and stated reason with dates; the Recovery Ledger (in the Net Sheet) adds up every dollar actually recovered.
+
+**Say it like this:** "The Coverage Matrix is the menu: what's available. The Negotiation Log is the receipt tape: every offer and counter, word for word, with a date. The Recovery Ledger is the final bill: $10,000 plus $20,000 plus $10,000, $40,000 gross. If the receipt tape lives in your head, the restaurant is closed."
+
+**Why it matters for the settlement:** If any one of the three is wrong, the Net Sheet is wrong, and the client's check is wrong.
+
+**Quick check:** {name}, does Harbor Point's $5,000 PIP belong in the $40,000 on the Recovery Ledger? Why or why not?
+
+
+### Fully insured plan
+**Plain words:** An employer health plan where the employer bought an insurance policy for its workers, instead of paying claims out of its own money.
+
+**Say it like this:** "Some employers buy insurance for their people, like renting an apartment. Others pay the bills themselves, like owning the house. Peach State is the rented apartment, fully insured, so state law, not the big federal ERISA rules, generally decides how much of its payback we can reduce. Mix them up and you overpay the plan with the client's money."
+
+**Why it matters for the settlement:** Calling a fully insured plan "untouchable ERISA" means paying it more than it's owed, out of John Doe's share.
+
+**Quick check:** {name}, Peach State paid $1,860.00. Who decides how the reduction is argued, and what fact about the plan do we confirm first?
+Confirm: which document in your files proves a plan's funding type (the Summary Plan Description, or Form 5500).
+
+
+### Made whole / common fund doctrines
+**Plain words:** Made whole: in many states, the insurer gets paid back only after the client is fully compensated. Common fund: a lienholder that did none of the work should share the cost of getting the money.
+
+**Say it like this:** "Made whole is 'the client eats first.' Common fund is the roommate who didn't cook, didn't shop and didn't wash up, but still wants a slice of pizza: fine, but chip in. Peach State did none of the work that created John's recovery, so Atty. Thorne asked it to bear a one-third share, $620.00. We can name these doctrines. We never pick which one to argue."
+
+**Why it matters for the settlement:** These doctrines are why liens get reduced, and every dollar off a lien goes into the client's pocket.
+
+**Quick check:** {name}, which of the two doctrines fits a lienholder that did none of the work to create the fund?
+Confirm: whether made whole applies to Peach State depends on the state and the plan language; that's Atty. Thorne's analysis.
+
+
+### Comparative fault / comparative negligence / failure to mitigate
+**Plain words:** Comparative fault (or comparative negligence) cuts the recovery by the client's own share of blame. Failure to mitigate means the defense says the client didn't do enough to get better.
+
+**Say it like this:** "Comparative fault is the other side saying 'sure, we hit you, but you were half asleep at the wheel.' Here they say the Escape turned out of turn and John was unbelted. Failure to mitigate is 'he'd be fine if he'd gone to therapy,' and they'll point straight at the gap. Our job is to have the answer in the binder before they finish the sentence."
+
+**Why it matters for the settlement:** Every percentage of blame the defense makes stick comes straight off the recovery.
+
+**Quick check:** {name}, which piece of evidence on John's file answers the failure-to-mitigate argument about his gap?
+Confirm: how fault is split, and whether a client's share can bar recovery, varies by state; that's Atty. Thorne's call.
+
+
+### Kickback Protocol
+**Plain words:** When paperwork comes back missing something, we say exactly what's missing and give a deadline. A change like a new address or payee name needs new documents signed by the client.
+
+**Say it like this:** "It's called a kickback because the paperwork gets kicked back to whoever sent it. Not 'something's wrong with this,' which is how you get the same wrong form back twice. It's 'line 4 is missing the payee's tax ID, please send by Friday.' Specific and dated, every time."
+
+**Why it matters for the settlement:** Vague kickbacks stall disbursement, and the client waits longer for money that's already been won.
+
+**Quick check:** {name}, John moves and gives us a new address after the settlement. What do we need from him before the check goes out?
+
+
+### Redline memo
+**Plain words:** A short memo to Atty. Thorne that quotes every over-broad line in a draft release, marks the fix, and says what it would cost the client.
+
+**Say it like this:** "It's the teacher's red pen. Keystone's draft release tries to sneak in extra parties and extra claims, the way a 'free trial' sneaks in a yearly subscription. You quote the line, flag it, and say what it would cost John Doe, and it goes to Atty. Thorne before John ever sees the draft."
+
+**Why it matters for the settlement:** One over-broad line in a release can give away the UM claims or the property damage claim the client still has.
+
+**Quick check:** {name}, Keystone's draft releases "all persons and entities." Why is that a red-pen line on John's file?
+
+
+### Tender
+**Plain words:** The insurance company formally offering to pay, here Keystone offering its full $10,000 policy limit.
+
+**Say it like this:** "A tender is the carrier putting its money on the table and saying 'this is everything we've got.' Keystone tendered its $10,000 limit on 08/12/2026. Exciting, but don't sign anything yet: a tender is the start of the paperwork, not the end."
+
+**Why it matters for the settlement:** A limits tender is what opens the UM layers behind it, so it has to be logged with its date and handled in the right order.
+
+**Quick check:** {name}, Keystone tenders on 08/12. What has to happen before John Doe signs Keystone's release?
+
+
+### Chain of custody
+**Plain words:** The written record of who had a piece of evidence, when, and what they did with it.
+
+**Say it like this:** "Think of it as the evidence's travel diary. The doorbell video stays in its original file, with a log of every hand it passed through since 02/19/2026. If the diary has a missing page, the other side says 'how do we know nobody edited it?' And nobody wants that fight over a doorbell."
+
+**Why it matters for the settlement:** Evidence the other side can attack is evidence a mediator discounts.
+
+**Quick check:** {name}, why do we keep the original video file instead of a clip someone saved to their phone?
+Confirm: what the forum's rules require to authenticate video; Atty. Thorne decides.
+
+
+### Conflict Resolver / Docket System
+**Plain words:** The Docket System is the firm's official calendar of deadlines, each with its rule, owner and reminders. The Case Docket & Calendar Conflict Resolver is the CMS screen where you check every calendar entry against the document it came from and fix the ones keyed wrong.
+
+**Say it like this:** "The Docket System is the calendar. The Conflict Resolver is the fact-checker for the calendar. A deadline someone typed from memory is a rumor; a deadline you recomputed from the 12/10/2026 Scheduling Order is a fact. Count 30, add 3 for mail, and if it lands on a Sunday, move it forward."
+
+**Why it matters for the settlement:** One wrong deadline can mean deemed-admitted requests or a missed filing, and that hands the other side leverage for free.
+
+**Quick check:** {name}, discovery was mailed 12/01/2026. Walk me through how you get to 01/04/2027.
+
+
+### Fee split (mediator)
+**Plain words:** Who pays what share of the mediator's bill.
+
+**Say it like this:** "Mediators are not volunteers, and somebody pays for the sandwiches. Many orders split the fee 50/50, but this file's order says what it says, so you read it in the mediation order or the parties' stipulation. Never assume. Assuming is how a Case Manager ends up explaining an invoice nobody budgeted for."
+
+**Why it matters for the settlement:** The client's share of the mediator's fee is a case cost that comes out of the Net Sheet, so it has to be right.
+
+**Quick check:** {name}, where do you find the mediator's fee split on John's file, and why can't you just assume it's 50/50?
+
+## Day 5
+
+### 48-Hour Mandate
+**Plain words:** Two timers in one rule. When someone goes silent, each step up the ladder gets 48 hours before the file climbs to the next one. And 48 hours before any hard date, you audit that everything is ready.
+
+**Say it like this:** "It's a kitchen timer for silence. Keystone ignored our second follow-up on 08/31, the supervisor got it 09/02, and when 09/04 came and went quiet, it went to Atty. Thorne. Same timer before a deadline: two days out, we check the binder, and if that day's a holiday we go earlier, never later. Nobody ever lost a case for being ready on Thursday."
+
+**Why it matters for the settlement:** Silence that's timed and logged becomes leverage; silence nobody timed becomes a missed deadline.
+
+**Quick check:** {name}, the hard date is a Tuesday and Monday is a holiday: when does the 48-hour audit happen?
+
+
+### Track A / Track B
+**Plain words:** The course's two endings for the same file. Track A: the case settles (Day 4). Track B: Keystone won't budge, so the case goes to suit (Day 4's ADR, then Day 5's litigation).
+
+**Say it like this:** "Same file, same 08/05/2026 offer, two roads. On Track A Keystone pays its limit and we close. On Track B Keystone sits tight, and we file. It's a choose-your-own-adventure book, except this one comes with a filing fee."
+
+**Why it matters for the settlement:** The work you did early is the same on both roads; Track B just tests whether it holds up in front of a judge.
+
+**Quick check:** {name}, what single thing made John Doe's file take Track B instead of Track A?
+
+
+### Conflict Resolver (Case Docket & Calendar Conflict Resolver)
+**Plain words:** The CMS calendar tool that checks every proposed date, and every date we key in, against the deadlines and every party's availability before anyone says yes.
+
+**Say it like this:** "Before you accept a mediation date, you run it through the Conflict Resolver. It's the friend who checks the group calendar before you book the restaurant. On this file, no mediation date after 03/31/2027 ever reaches Atty. Thorne as available."
+
+**Why it matters for the settlement:** One date accepted past the Scheduling Order can cost us the mediation, and the mediation is where the money moves.
+
+**Quick check:** {name}, a mediator offers 04/02/2027: what does the Conflict Resolver tell you?
+
+
+### Bottleneck Log
+**Plain words:** The list of everything on the file that's stuck waiting on someone else: what's blocking it, since when, and which hard date it threatens.
+
+**Say it like this:** "It's the 'still waiting' list. Every item gets a blocker, a start date and a hard date. Keystone's start date is 08/24/2026, the first request they ignored. Atty. Thorne gets the log weekly, so nothing stays stuck quietly."
+
+**Why it matters for the settlement:** A delay you can date is a delay Atty. Thorne can use; a delay nobody wrote down is just our problem.
+
+**Quick check:** {name}, what's the start date of a bottleneck: the first request or the second?
+
+
+### OCR / searchable scans
+**Plain words:** OCR is the step that turns a scanned picture of a page into text the computer can search. A searchable scan is a PDF where you can find a word instantly.
+
+**Say it like this:** "Without OCR, a 300-page scan is a photo album. With it, Atty. Thorne types 'Run Report' and lands on the page in two seconds. Every PDF in the binder gets OCR and bookmarks before it goes out."
+
+**Why it matters for the settlement:** At mediation, the side that finds its page first sounds like the side that knows its case.
+
+**Quick check:** {name}, how would you test whether a PDF is actually searchable?
+
+
+### Interim ledger
+**Plain words:** The running bill so far from a provider, built from what we can verify, used as a stand-in when the final itemized ledger hasn't arrived.
+
+**Say it like this:** "On this file, the interim ledger is $6,105.00: 33 visits at $185.00. If the final ledger is still missing at the 03/09/2027 audit, we mark the treatment 'Pending Final Verification,' send the interim one, and Atty. Thorne sets expectations. It's the 'I'll send the receipt later' of medical billing, except we actually do the math."
+
+**Why it matters for the settlement:** A gap in the specials is a gap in the number; the interim ledger keeps the number honest until the final arrives.
+
+**Quick check:** {name}, who decides how to explain an interim ledger to the other side?
+
+
+### Exhaustion (BI exhaustion)
+**Plain words:** The at-fault driver's BI coverage is "exhausted" when it's been paid, or offered, up to its limit. Only then does John Doe's own UM backup open.
+
+**Say it like this:** "Think of it as a line at the counter: BI goes first, then Host UM, then Relative UM. Nobody skips ahead. Send a UM demand before BI is used up and you've just mailed a letter to the back of the line."
+
+**Why it matters for the settlement:** Get the order wrong and the UM carriers have a reason to stall or deny.
+
+**Quick check:** {name}, what has to happen to Smith's $10,000 BI before Harbor Point's UM opens?
+
+
+### Scheduling Order
+**Plain words:** The judge's calendar for the case: every big deadline, from experts to trial. On this file, entered 12/10/2026, running to a 09/13/2027 trial calendar.
+
+**Say it like this:** "This isn't a suggestion; it's an order. Read each verb: mediation 'completed by 03/31/2027' means the session is over by then, not booked for that day. Get the verb wrong and you'll be the one explaining it to the judge, and nobody wants that meeting."
+
+**Why it matters for the settlement:** Missing a Scheduling Order date can knock out an expert or a claim, and the defense knows it.
+
+**Quick check:** {name}, does "completed by 03/31/2027" mean the session is on 03/31?
+
+
+### Skip-Trace
+**Plain words:** A paid professional search for someone's current address using public and commercial records. It needs Atty. Thorne's authority, and for a client it needs all three gate criteria met first.
+
+**Say it like this:** "When the defendant dodges service, or a client vanishes, we don't go knocking on doors like a TV detective. We ask Atty. Thorne for Skip-Trace authority, and a vendor finds the address. Smith's search on 10/09 found him at 4410 Quarry Ridge Ct, Millbrook."
+
+**Why it matters for the settlement:** No service, no lawsuit; no lawsuit on Track B, no pressure.
+
+**Quick check:** {name}, what are the three criteria before we Skip-Trace our own client?
+
+
+### Certificate of Service
+**Plain words:** Our signed statement, attached to papers we send, saying when and how we served them on the other side.
+
+**Say it like this:** "A due date proves we knew the deadline. The Certificate of Service proves we met it. Ours is dated 01/04/2027 and it was sitting in Documents with no log row, which is like doing your homework and leaving it on the bus."
+
+**Why it matters for the settlement:** If we can't prove we answered discovery on time, those answers can be treated as late, and late RFAs can be deemed admitted.
+
+**Quick check:** {name}, which proves compliance: the calendar row or the Certificate of Service?
+
+
+### Affidavit of Service
+**Plain words:** The process server's sworn statement that the defendant was handed the lawsuit papers, and when. It gets filed with the court.
+
+**Say it like this:** "Smith was served 10/14/2026 and the affidavit was filed 10/16. But ours was still sitting in an Allied Process Services email with no row. An affidavit in an inbox is a receipt in your coat pocket: real, but useless when you need it."
+
+**Why it matters for the settlement:** The answer deadline runs from service; no proof of service, no clock on the defense.
+
+**Quick check:** {name}, once the affidavit is filed, what date do you put on the calendar next?
+
+
+### E-service (by consent)
+**Plain words:** Serving papers electronically instead of by mail. "By consent" means both sides agreed in writing to trade papers that way. Whether it adds days to a deadline depends on the court's rules.
+
+**Say it like this:** "On this file, mail adds 3 days and e-service adds none: our 12/14/2026 e-served set is due back 01/13/2027. Other courts count it differently, so we teach the habit, not the number: confirm the rule, then count."
+
+**Why it matters for the settlement:** One wrong day on a discovery count can turn a request into an admission.
+**Confirm:** which court rules apply to e-service on your real files.
+
+**Quick check:** {name}, why do we confirm the court's rule instead of just adding 3 days?
+
+
+### Total Loss threshold (75%)
+**Plain words:** The line where repairs cost so much compared with the car's value that the insurer calls it totaled. On this file it's 75% of the ACV, and the percentage varies by state.
+
+**Say it like this:** "The Civic's ACV is $17,600.00, so 75% is $13,200.00. The final repair bill was $9,255.00, 52.6%, so it's repairable. Tell a client the car's 'basically totaled' before you do the math and you'll get a very long phone call about the new tires."
+
+**Why it matters for the settlement:** Repair or total decides which numbers go into the PD claim: repair cost, Loss of Use and Diminished Value, or the car's value.
+
+**Quick check:** {name}, if the repair bill hit $13,500.00, which side of the line are we on?
+
+
+### Property-damage-only release
+**Plain words:** A release that settles the car claim and nothing else, so the injury claim stays open. Atty. Thorne reviews it before anyone signs.
+
+**Say it like this:** "When an adjuster sends a release of 'all claims arising from the 02/06/2026 accident' to settle a Civic, that's like signing for a pizza and finding out you've sold the house. We want PD-only wording, and Atty. Thorne decides."
+
+**Why it matters for the settlement:** The wrong release can wipe out the injury claim, which is most of the case's value.
+
+**Quick check:** {name}, an adjuster emails an all-claims release for the car: what do you do with it?
+
+
+### The three review lenses (coverage, treatment, liability)
+**Plain words:** The three questions you read every file through: Is there money to pay (coverage)? Is the care documented and on track (treatment)? Can we prove who caused the crash (liability)?
+
+**Say it like this:** "Three pairs of glasses. Put on coverage and you see the limits and the consent-to-settle tasks. Put on treatment and you see the gaps. Put on liability and you see what the other side will argue. Wear all three, or you'll walk into a door."
+
+**Why it matters for the settlement:** A case is only as strong as its weakest lens.
+
+**Quick check:** {name}, which lens catches a missing UM consent-to-settle task?
+
+
+### Summons
+**Plain words:** The court's official notice telling the defendant he's been sued and how long he has to answer. The clerk issues it; the process server delivers it with the complaint.
+
+**Say it like this:** "The complaint says what we claim. The Summons says 'you have to show up.' Filed 09/24, served 10/14, affidavit 10/16/2026. You follow up with the process server every five days, politely, like checking on a pizza order."
+
+**Why it matters for the settlement:** Until he's served with the Summons, the lawsuit can't move, and neither can Keystone's pressure to settle.
+
+**Quick check:** {name}, after the complaint is filed, who issues the Summons?
+
+
+### BI demand
+**Plain words:** Our letter asking the at-fault driver's insurer to pay for the client's injuries, with the records and bills attached. On this file, sent 07/20/2026.
+
+**Say it like this:** "BI stands for bodily injury. The demand is our case in one envelope: what happened, what it cost, and what we're asking for, with a response window. The amount is Atty. Thorne's call; making the package bulletproof is ours."
+
+**Why it matters for the settlement:** The demand is the first number the adjuster sees, and a sloppy package invites a lowball.
+
+**Quick check:** {name}, what happens on the file when a demand's response window closes with no answer?
+
+
+### No Contact Protocol (and Step 4)
+**Plain words:** The firm's step-by-step plan for a client who goes quiet, every attempt logged. Steps 1–3 work every approved channel and escalate. Step 4 is the Final Warning Letter, sent by certified mail AND email, listing what we tried, setting a 7–14 day deadline, and warning we may withdraw. Step 5 is Atty. Thorne's decision.
+
+**Say it like this:** "It's not 'we called him a lot.' It's call, text, email, the emergency contact, each one dated. Then Step 4, the certified notice, by mail and email, both, not either. Nobody gets dropped on a vibe."
+
+**Why it matters for the settlement:** A silent client can sink a deposition or a deadline; a documented protocol protects the client and the firm.
+
+**Quick check:** {name}, Step 4 goes by certified mail or email: which one?
+
+
+### Fee tier (33⅓% / 40%)
+**Plain words:** The attorney's fee percentage in the retainer. On this file, one-third if the case settles before suit, 40% once suit is filed.
+
+**Say it like this:** "Suit was filed 09/24/2026, so this file is at the 40% tier: $16,000.00 on the recovery. More work, higher tier. And you confirm it from the retainer, not from memory, because 'I'm pretty sure it was a third' is not a Net Sheet."
+
+**Why it matters for the settlement:** The fee tier changes the client's net, so it has to be right before John signs anything.
+
+**Quick check:** {name}, where do you confirm the fee tier before you build the Net Sheet?
+
+
+### Reduction Request
+**Plain words:** Our letter, for Atty. Thorne's signature, asking a lienholder to accept less than it asserts, naming the reason (the doctrine) and showing the math.
+
+**Say it like this:** "Peach State asserts $1,860.00. The request names the doctrine, shows the one-third math to $1,240.00, and credits the work that built the fund. It's asking for a discount, but with receipts."
+
+**Why it matters for the settlement:** Every dollar a lien comes down goes straight into the client's pocket.
+
+**Quick check:** {name}, what two things must every Reduction Request show?
+
+
+### Tasks, Escalate
+**Plain words:** The CMS route that sends a task into Atty. Thorne's queue with a time stamp, so there's a record of what went up and when.
+
+**Say it like this:** "Escalate by channel, not by volume. Not a hallway shout, not a sticky note, not three emails titled 'URGENT!!!' Tasks, Escalate puts it in his queue with the date on it."
+
+**Why it matters for the settlement:** A decision that's routed is a decision that gets made in time.
+
+**Quick check:** {name}, why route the Settlement Statement through Tasks, Escalate instead of emailing it?
+
+
+### CRM notes
+**Plain words:** The contact records in our system: who each person is and how they prefer to be reached.
+
+**Say it like this:** "Granite Shield's adjuster, Paul Ostrander, takes email only. The CRM told you that. Fax him anyway and your letter goes to a machine nobody's checked since the office party."
+
+**Why it matters for the settlement:** A notice sent the wrong way may not count as received.
+
+**Quick check:** {name}, where do you check how a provider wants to receive a Withdrawal Letter?
+
+
+### Action Plan Editor
+**Plain words:** The CMS tool where the firm's letter templates live: warning letters, demands, Withdrawal Letters. You draft from the approved wording, for Atty. Thorne's signature.
+
+**Say it like this:** "You never start from a blank page or from a letter you found in someone's old email. You open the Action Plan Editor, pick the template, fill in the file's facts, and save it in Word and PDF."
+
+**Why it matters for the settlement:** Approved wording keeps us from promising, threatening or advising by accident.
+
+**Quick check:** {name}, which template do you open for a Step 4 notice?
+
+
+### Host UM / Relative UM
+**Plain words:** Backup coverage that pays when the at-fault driver's BI isn't enough. Host UM is on the car John Doe was riding in (Harbor Point, $20,000). Relative UM is on the policy of a relative he lives with (Cardinal State Mutual, $10,000). Host UM opens after BI; Relative UM stacks behind Host UM.
+
+**Say it like this:** "BI first, then Host UM, then Relative UM. It's a line, not a buffet. Smith's $10,000 BI goes first, then the car's $20,000, then the household's $10,000: $40,000 in all."
+
+**Why it matters for the settlement:** Knowing the stack is knowing how much money is actually on the table.
+
+**Quick check:** {name}, why does Relative UM wait behind Host UM?
 
 ## Explained in plain words: check my wording (480)
 
