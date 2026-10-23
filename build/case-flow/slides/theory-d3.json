@@ -66,6 +66,50 @@
       "note": "Built before the first call. The CM presents the record; every move on the number is Atty. Thorne's."
     }
   },
+  "d3m2-umw": {
+    "lead": "A UM carrier that pays steps into its insured's shoes, so **its consent and waiver** must come before any release of the at-fault driver.",
+    "concepts": [
+      {
+        "term": "Subrogation",
+        "text": "The paying carrier's right to recover **what it paid** from the at-fault driver.",
+        "more": [
+          "Harbor Point and Cardinal State each hold that right against Robert Smith",
+          "A release signed without their consent can **cut it off**",
+          "Whether the policy then lets a carrier deny the claim is Atty. Thorne's analysis"
+        ]
+      },
+      {
+        "term": "Consent to Settle",
+        "text": "The UM carrier's **written permission** to settle and release the at-fault driver.",
+        "more": [
+          "Requested by the 30-Day Letter, 08/13/2026, for Atty. Thorne's signature",
+          "Harbor Point consented 08/24; Cardinal State **08/26/2026**",
+          "Each consent covers a release of Smith and Keystone only"
+        ]
+      },
+      {
+        "term": "Waiver or substitution",
+        "text": "The carrier either **waives subrogation** or pays the tender itself to keep its claim.",
+        "more": [
+          "Both carriers waived and neither substituted its own check",
+          "A substitution offer goes **straight to Atty. Thorne**"
+        ]
+      },
+      {
+        "term": "The BI payment condition",
+        "text": "Keystone holds its check until **both waivers** arrive with the executed release.",
+        "more": [
+          "Stated in Dana Whitfield's cover letter of 08/14/2026",
+          "Bluewater is not asked: **UM rejected** in writing 03/14/2024",
+          "The waivers go to Keystone with the release on 08/28/2026"
+        ]
+      }
+    ],
+    "pages": [
+      "D2#33",
+      "D3#5"
+    ]
+  },
   "d3m2-l2": {
     "lead": "A UM settlement is won on paper: the package shows the other driver's fault and that **damages exceed what's collected**.",
     "concepts": [

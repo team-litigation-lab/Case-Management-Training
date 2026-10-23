@@ -47,18 +47,19 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 13. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab
 14. *Skill Activity* — Provider Balance Negotiation Exercises
 15. *Skill Activity* — Completing the Final Dual-Tab Net Sheet
-16. *Skill Activity* — Release Audit & Disbursement Command Triggering
-17. *Skill Activity* — Routing the UM Impasse: Arbitration or Court
-18. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs
-19. *Skill Activity* — Calendaring the Mediation: the Session and Every Date That Hangs Off It
-20. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping
-21. *Skill Activity* — Calendaring the Arbitration from the Scheduling Letter
-22. *Skill Activity* — Assembling the 6-Section Mediation Binder
-23. *Skill Activity* — Assembling the 6-Tab Arbitration Binder
-24. *Knowledge Check* — Lien Reduction Verification
-25. *Knowledge Check* — Final Accounting Check
-26. *Knowledge Check* — ADR & Calendar Compliance Check
-27. *Knowledge Check* — Binder Assembly Verification
+16. *Skill Activity* — Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold
+17. *Skill Activity* — Disbursement Command Triggering: Releases, Hold Cleared, Money Out
+18. *Skill Activity* — Routing the UM Impasse: Arbitration or Court
+19. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs
+20. *Skill Activity* — Calendaring the Mediation: the Session and Every Date That Hangs Off It
+21. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping
+22. *Skill Activity* — Calendaring the Arbitration from the Scheduling Letter
+23. *Skill Activity* — Assembling the 6-Section Mediation Binder
+24. *Skill Activity* — Assembling the 6-Tab Arbitration Binder
+25. *Knowledge Check* — Lien Reduction Verification
+26. *Knowledge Check* — Final Accounting Check
+27. *Knowledge Check* — ADR & Calendar Compliance Check
+28. *Knowledge Check* — Binder Assembly Verification
 
 **End-of-day discussion (trainer):** Keystone's draft release arrives on 08/14/2026 releasing “all other persons, firms, corporations and insurers.” Harbor Point hasn't answered the consent request, and Atty. Thorne is out of the office until Monday. What do you do, and what must not happen before he is back?
 
@@ -66,7 +67,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 4 — Reductions, Lien Negotiation & ADR
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 4.1.1 Statutory Liens, Health Subrogation & Provider Balances
 
@@ -91,7 +92,7 @@ A reducibility ladder fills the left two-thirds: horizontal bars stacked from MO
 6. That work was real: the carriers used the 14-Day Gap to call the injury unrelated; the MRI and Dr. Reyes's Causation Letter answered it. Peach State did none of it.
 7. Made whole: in many jurisdictions a subrogated insurer takes nothing until the client is fully compensated. John Doe's recovery was capped by coverage; whether he was made whole is Atty. Thorne's analysis.
 8. Comparative fault: if the recovery was cut for the client's fault, the lien takes the same cut (20% at fault, 20% off). On Track A no layer took a fault reduction.
-9. Quantum meruit: a client may fire a lawyer at any time; the lawyer is then generally owed the reasonable value of the work done, not the contingency fee. Get the time records; strip clerical hours. No prior attorney here: verify and record it.
+9. Quantum meruit: a client may fire a lawyer at any time; the lawyer is then generally owed the reasonable value of the work done, not the contingency fee. Get the time records; strip clerical hours. Never assume none: John Doe knows of no other lawyer at the 10/06 inventory, yet an outside firm asserts a charging lien on 10/14/2026, worked at closing.
 
 > ⚠️ **UPL boundary.** You classify, gather the plan documents, audit and draft the request with its math. The doctrine, the governing law and any figure offered or accepted are Atty. Thorne's: no lien is compromised without his express authority.
 
@@ -107,7 +108,7 @@ A reducibility ladder fills the left two-thirds: horizontal bars stacked from MO
 | Peach State Health Plan | Contract, fully insured · moderate | $1,860.00 asserted |
 | Medicare · Medicaid | Statute · low, formula-bound | Medicare: none (Day 2 SSDI/BCRC check); Medicaid: none (verify, record) |
 | Hospital · workers' comp | Statute | None asserted: verify, record |
-| Prior attorney | Quantum meruit | None: verify with John Doe |
+| Prior attorney | Quantum meruit | None known to John Doe at 10/06; Vance & Kettering asserts one 10/14 (worked at closing) |
 | Harbor Point PIP | Not a lien | No reimbursement right |
 
 **Operational mapping**
@@ -117,7 +118,7 @@ A reducibility ladder fills the left two-thirds: horizontal bars stacked from MO
 | Gross recovery reaches $40,000.00 (10/06/2026) | Run the final inventory, re-verifying the Day 2 lien register, asserted and absent, and classify each as statutory or contractual | CMS → Financial Ledger → Net Sheet → Lien Tracker | Two liens open; Medicare, Medicaid, hospital, workers' comp, prior attorney and PIP each recorded “none” with a source |
 | Health Plan lien classified | Obtain the plan documents and route the funding status to Atty. Thorne | CMS → Tasks → Escalate | Fully insured status on file; the governing-law call recorded as his |
 | Atty. Thorne chooses the reduction basis | Draft the request naming the doctrine, with the math | CMS → Documents → Outgoing | Doctrine named; $1,860.00 – $620.00 = $1,240.00 shown; held for his approval |
-| Prior-attorney question open | Ask John Doe and check the intake record; record the answer | CMS → Case Notes | “No prior attorney — verified” logged with its date |
+| Prior-attorney question open | Ask John Doe and check the intake record; record the answer | CMS → Case Notes | “No other lawyer known to John Doe” logged with its date and source |
 
 **Best practices & pitfalls**
 
@@ -150,7 +151,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 4) and that day
 - Open with the inventory, not the negotiation: “How many liens are on John Doe's $40,000?” Most trainees say two. The right answer is two asserted and five checked, each recorded with its source.
 - Ask the room: “Peach State paid $1,860.00 on a $3,400.00 injection. Who can come after John Doe for the other $1,540.00?” Nobody: Crescent Pain & Spine took the contract rate and cannot balance-bill.
 - Watch for trainees arguing made whole or comparative fault on their own. Naming the doctrines is the Case Manager's job; choosing one is Atty. Thorne's. The same goes for “he was riding to work in Kevin Alvarez's carpool, so is it workers' comp?”: that is a coverage question for him; the Case Manager records that no claim was filed and no lien asserted.
-- Quantum meruit is taught, not triggered, on this file. Make them say why it still gets a line in the Lien Tracker: a prior attorney found after disbursement is found too late.
+- Quantum meruit gets a line even when the client knows of no other lawyer. On 10/14/2026 Vance & Kettering asserts a charging lien on John Doe's recovery; it is caught before disbursement because the Lien Tracker already has a row for it. A prior attorney found after disbursement is found too late.
 
 ---
 
@@ -1103,7 +1104,7 @@ A two-panel lab bench. Left panel: a white CMS Lien Tracker card with a navy hea
 1. **Match** — Plan ledger to the treatment record: one charge, 05/15/2026, $1,860.00 paid.
 2. **Classify** — Contractual reimbursement; fully insured plan; governing law to Atty. Thorne.
 3. **Calculate** — $1,860.00 × ⅓ = $620.00 → $1,240.00.
-4. **Clear** — Medicare, Medicaid, hospital, workers' comp, prior attorney, PIP: none, each sourced.
+4. **Clear** — Medicare, Medicaid, hospital, workers' comp, PIP: none; prior attorney: none known. Each sourced.
 5. **Hold, then confirm** — Sent on his approval; final on the plan's written acceptance.
 
 **Verification checkpoints**
@@ -1116,7 +1117,7 @@ A two-panel lab bench. Left panel: a white CMS Lien Tracker card with a navy hea
 - [ ] Made whole flagged for Atty. Thorne; comparative fault recorded as not applicable (no fault reduction on Track A)
 - [ ] Request held in Documents → Outgoing until Atty. Thorne's written approval is logged
 - [ ] Medicare recorded as none, citing the Day 2 check (34, not on SSDI), so no MSPRP final demand to reconcile; Medicaid recorded as none, verified separately with John Doe (the BCRC answers for Medicare only)
-- [ ] Hospital, workers' comp and prior attorney each “none — verified” with date and source; PIP recorded as not a lien: Harbor Point asserted no reimbursement right against John Doe (03/02/2026); whether it reserves PIP subrogation against Robert Smith asked in writing and routed to Atty. Thorne, no outcome recorded
+- [ ] Hospital and workers' comp each “none — verified” with date and source; prior attorney “none known to John Doe” with date and source; PIP recorded as not a lien: Harbor Point asserted no reimbursement right against John Doe (03/02/2026); whether it reserves PIP subrogation against Robert Smith asked in writing and routed to Atty. Thorne, no outcome recorded
 - [ ] PIP-paid providers (Riverton Urgent Care, Lakeside Orthopedics, Summit Imaging) at a zero balance; Summit's 03/11/2026 LOP request was declined, so it holds no lien
 - [ ] Acceptance logged 10/09/2026 at $1,240.00 only with Peach State's written confirmation and Atty. Thorne's approval attached
 
@@ -1317,35 +1318,108 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.16 Release Audit & Disbursement Command Triggering
+### 4.1.16 Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
-> **Topic:** Skill Activity 2 — catch the line that costs $30,000, then move the money  
+> **Topic:** Skill Activity 2 — the lien you didn't see coming, worked as evidence  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D3#20` Quantum Meruit Principle — Prior Attorney Liens · `D2#38` The Execution: W-9 & Comparison of Key Post-Settlement Documents · `D3#29` Case Phase: Disbursement — Core Objectives · Newly authored: the prior-attorney charging lien worked as a factual investigation (signature comparison, engagement timeline, work-product audit, client statement), a temporary administrative hold on the disputed amount, and escalation to the attorney
+
+#### 1 · Visual Layout Description
+
+Centre: Vance & Kettering's notice as a cream letter with a red stamp, CHARGING LIEN · $6,666.67, and beneath it their fee agreement with two signature lines: MARGARET DOE (signed) and JOHN DOE (blank, circled in orange). Left: a vertical timeline in mono pills, 02/09 LSH RETAINED · 07/20 DEMAND SERVED · 07/27 MARGARET SIGNS · 10/14 NOTICE ARRIVES. Right: three evidence cards with orange badges: ① SIGNATURE COMPARISON (RS05 · RS06) ② TIME RECORD 0.6 H ③ NO CARRIER NOTICE. Bottom: a navy CMS strip, TRUST HOLD $6,666.67 · ACTION PLAN UPDATED · DRIVE ARCHIVED, and an arrow to ATTY. THORNE · DECIDES. A red chip by the letter: NO REPLY FROM THE CM. The argument: the Case Manager builds the record; the attorney answers the lawyer.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** File date 10/14/2026 (Wed). $40,000.00 is in trust; both liens are reduced in writing and disbursement is set for 10/22. Vance & Kettering Injury Law emails a notice of attorney's charging lien: retained 07/27/2026, it demands one-half of the fee, $6,666.67, asks the firm to hold the whole settlement, and wants the case manager to confirm the split by 10/16.
+
+**Execution prompt.** Log the notice on receipt and route it to Atty. Thorne the same day; send nothing to Vance & Kettering. On his instruction, place a temporary administrative hold on the disputed $6,666.67 in the CMS and update the Action Plan. Then investigate the facts in the audit workbench: retrieve the fee agreement, compare its signatures with John Doe's, cross-reference its date against the firm's engagement milestones, and audit what work the firm claims against the record. Call John Doe in the Call Simulator to ask, without opinion, whether he ever retained the firm. Deliver an objective evidentiary packet to Atty. Thorne and archive every piece of correspondence in the CMS and Drive.
+
+| | |
+|---|---|
+| **Tool / interface** | Call Simulator → AI Client: John Doe · CMS → Communications Log · CMS → Financial Ledger → Trust · Action Plan Editor · CMS → Tasks → Escalate |
+| **Expected output** | A logged and routed notice, a $6,666.67 hold, an evidentiary packet on Atty. Thorne's desk, and the correspondence archived in the CMS and Drive. |
+
+**Verification checkpoints**
+
+- [ ] Notice logged 10/14/2026 on receipt and routed to Atty. Thorne the same day; nothing sent to Vance & Kettering
+- [ ] Hold of $6,666.67 placed in the CMS on Atty. Thorne's instruction; the Action Plan shows the 10/22 disbursement depends on it
+- [ ] Signatures compared: the 07/27/2026 agreement is signed only by Margaret Doe; John Doe's 02/09/2026 fee agreement and HIPAA authorization are the exemplars
+- [ ] Timeline cross-referenced: LSH engaged 02/09/2026 and served the demand 07/20/2026, before the 07/27 agreement; no discharge or substitution on file
+- [ ] Work-product audit: the firm's own record shows 0.6 hours with Margaret Doe; no letter of representation, records, filing or carrier notice
+- [ ] John Doe's account recorded in his words from the 10/15/2026 call, with no view on the lien given to him
+- [ ] The packet states facts only: unauthorized retention, no client signature, zero work; validity, quantum meruit and any response flagged for Atty. Thorne
+- [ ] No fee division confirmed, negotiated or discussed with Vance & Kettering
+- [ ] Correspondence archived in CMS → Doc Hub and kept on the Backup Drive; the 10/19/2026 withdrawal and the hold's release logged when they come
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| A notice of charging lien arrives (10/14/2026) | Log it on receipt; route to Atty. Thorne; on his instruction, hold the disputed amount | CMS → Communications Log · CMS → Tasks → Escalate · CMS → Financial Ledger → Trust | Routed the same day; $6,666.67 on hold; nothing sent to the claiming firm |
+| Investigation (10/15/2026) | Compare signatures, cross-reference dates, audit the work, take John Doe's account | CMS → Documents · Call Simulator → AI Client: John Doe | Each finding tied to a document on the file |
+| Packet delivered | Deliver the evidentiary packet; update the Action Plan; archive everything | CMS → Tasks → Escalate · Action Plan Editor · CMS → Documents | Atty. Thorne repudiates 10/16; withdrawal 10/19; hold released by him |
+
+**Best practices & pitfalls**
+
+- Write the packet so Atty. Thorne could send it unedited: dates, documents, quotations, no adjectives.
+- Hold only what Atty. Thorne tells you to hold; the rest of the file keeps moving.
+- ⚠️ Pitfall: replying to the claiming lawyer, even to say the claim is baseless.
+- ⚠️ Pitfall: telling John Doe his mother's agreement “doesn't count.”
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **25%** | Investigation findings | Margaret Doe's signature only; dates after the 02/09 engagement and the 07/20 demand; 0.6 hours; no carrier notice |
+| 🤖 AI | **15%** | Hold and records | $6,666.67 held on instruction; Action Plan updated; correspondence in the CMS and Drive |
+| 🤖 AI | **20%** | Packet objectivity | Facts only, each sourced; legal questions listed for Atty. Thorne |
+| 🧑‍🏫 Trainer | **15%** | Client call | Neutral questions; John Doe's account recorded in his words; no opinion on the lien |
+| 🧑‍🏫 Trainer | **25%** | UPL boundary | No contact or negotiation with the claiming firm; no validity call; every decision Atty. Thorne's |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open on the notice and ask: “Who answers Mr. Vance?” Atty. Thorne. The Case Manager logs it, holds the money he says to hold, and builds the record.
+- The signature comparison is the moment. Put the 07/27 agreement beside the 02/09 retainer: one signer is Margaret Doe, the other John Doe. Let the room say what it shows, then stop them before they say what it means.
+- Quantum meruit is taught on Day 3's lien lesson. Here the question is whether there was ever an engagement to value. That is Atty. Thorne's call; the trainee's job is to make the call easy.
+- Run the John Doe call live. He will be embarrassed when it turns out to be his mother. A good Case Manager stays neutral and kind, and never says the agreement is void.
+
+---
+
+### 4.1.17 Disbursement Command Triggering: Releases, Hold Cleared, Money Out
+
+> **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
+> **Topic:** Skill Activity 3 — confirm every gate, then move the money to $0.00  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · `D2#38` The Execution: W-9 & Comparison of Key Post-Settlement Documents · `D2#41` Skill Building: BI Settlement — Caught in an Operational Pincer Movement · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · `D3#29` Case Phase: Disbursement — Core Objectives · `D3#30` Disbursement: The Workflow · `D3#31` Disbursement: Documentation Checklist · `D3#32` Disbursement: Common Challenges & Mitigation · `D3#34` Final Case Reconciliation Checklist: Proof of Delivery/Completion
 
 #### 1 · Visual Layout Description
 
-Two panels joined by a dated orange arrow, 08/14 → 10/21. Left: Keystone's draft release as a white document page, one clause highlighted in red with a leader line to a margin flag: “all other persons, firms, corporations and insurers” → RELEASES $30,000 OF UM. Three orange-badged margin checks below it: ① parties ② claims (PD stays open) ③ indemnity → Lien Tracker. Right: the CMS Trust screen as a navy-header table of five disbursement commands, payee and mono amount on each, each with an empty ATTY. THORNE · APPROVE chip, and a running-balance column ending in a green $0.00. The argument: the audit on the left is what makes the commands on the right safe.
+Two panels joined by an orange arrow dated 10/21 → 10/22. Left: a navy-header checklist card, CONDITIONS PRECEDENT, with green ticks: LIMITED RELEASE EXECUTED 08/28 · UM RELEASES FILED · FUNDS CLEARED 10/20 · STATEMENT SIGNED 10/21 · PAYOFF LETTERS · LIEN HOLD RELEASED 10/19 (a struck-through red chip beneath it reads VANCE & KETTERING $6,666.67 — WITHDRAWN). Right: the CMS Trust screen as a table of five disbursement commands, payee and mono amount on each, each with an empty ATTY. THORNE · APPROVE chip, and a running-balance column ending in a green $0.00. The argument: the checklist on the left is what makes the commands on the right safe.
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** Two file dates. 08/14/2026: Keystone's draft release has arrived, two days after its $10,000 tender; the consents requested from Harbor Point and Cardinal State on 08/13 are still pending. 10/21/2026: all three checks ($40,000.00) had cleared in the IOLTA trust account by 10/20 (the last, Cardinal State's, deposited 10/13); John Doe signed the Settlement Statement this morning; the Peach State and Riverton Spine & Rehab Payoff Letters are in Documents; disbursement is set for 10/22.
+**Scenario.** File date 10/21/2026. All three checks ($40,000.00) had cleared in the IOLTA trust account by 10/20 (the last, Cardinal State's, deposited 10/13); John Doe signed the Settlement Statement this morning; the Peach State and Riverton Spine & Rehab Payoff Letters are in Documents; Vance & Kettering withdrew its lien in writing on 10/19 and Atty. Thorne released the hold; disbursement is set for 10/22.
 
-**Execution prompt.** Part 1 (08/14): audit Keystone's draft line by line in the release audit log: parties released, claims released, indemnity and hold-harmless, non-admission. Flag every line that reaches past Robert Smith, Keystone or the BI claim, state what it would cost John Doe, and route a redline memo to Atty. Thorne. Part 2 (10/21): confirm every condition precedent, then queue one disbursement command per Net Sheet line in the Trust Ledger for Atty. Thorne's approval, each matching its Net Sheet line, and show the ledger reaching $0.00.
+**Execution prompt.** Confirm every condition precedent against the documents: Keystone's executed Limited Release and both UM releases, cleared funds, the signed statement, the Payoff Letters, and the prior-attorney lien withdrawn with the hold released by Atty. Thorne. Then queue one disbursement command per Net Sheet line in the Trust Ledger for Atty. Thorne's approval, each matching its line, and show the ledger reaching $0.00.
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Documents → Release audit · CMS → Financial Ledger → Trust |
-| **Expected output** | A redline memo routed to Atty. Thorne before John Doe sees Keystone's draft, and five approval-ready disbursement commands that take the Trust Ledger from $40,000.00 to $0.00. |
+| **Tool / interface** | CMS → Documents · CMS → Financial Ledger → Trust |
+| **Expected output** | A confirmed checklist of conditions precedent and five approval-ready disbursement commands that take the Trust Ledger from $40,000.00 to $0.00. |
 
 **Verification checkpoints**
 
-- [ ] The “all other persons, firms, corporations and insurers” line quoted and flagged: it would release Harbor Point ($20,000) and Cardinal State ($10,000), $30,000 of the $40,000 stack
-- [ ] Claims released checked: bodily injury only, so the open property-damage claim with Keystone PD (adjuster Leah Moran) survives; any wording that reaches it flagged
-- [ ] Indemnity and hold-harmless clause tied to the Lien Tracker: Peach State and Riverton Spine & Rehab both registered, so John Doe's promise can be kept
-- [ ] Memo routed to Atty. Thorne on 08/14; no wording discussed with Dana Whitfield; draft not sent to John Doe; signature chase held until both UM consents are in
-- [ ] Conditions precedent confirmed for 10/22: Limited Release signed 08/28; both UM releases filed as approved, Harbor Point's checked for any line reaching Cardinal State before John Doe signed; all funds cleared by 10/20; statement signed 10/21; Payoff Letters in hand; no cooling-off period configured for this training file (confirm the governing rule)
+- [ ] Keystone's Limited Release executed 08/28/2026 on file (Smith and Keystone only, the UM claims and the Civic's claim reserved), with both UM consents and waivers
+- [ ] Both UM releases filed as approved; Harbor Point's checked for any line reaching Cardinal State before John Doe signed it
+- [ ] All funds cleared by 10/20; statement signed 10/21; Payoff Letters in hand; no cooling-off period configured for this training file (confirm the governing rule)
+- [ ] Vance & Kettering's written withdrawal (10/19/2026) on file and the $6,666.67 hold released by Atty. Thorne, not by the CM
 - [ ] Five commands matching the Net Sheet: to the firm, fee $13,333.33 and costs reimbursed $486.75; Peach State Health Plan $1,240.00; Riverton Spine & Rehab $4,580.00; John Doe $20,359.92
 - [ ] Ledger arithmetic shown: $40,000.00 – $13,333.33 – $486.75 – $1,240.00 – $4,580.00 – $20,359.92 = $0.00
 - [ ] Each command's packet complete: payee identity, Payoff Letter or receipts with date, description and tax ID, a current W-9, payment details verified by phone to a number on file, and John Doe's signed Settlement Statement as his payment authorization
@@ -1357,17 +1431,17 @@ Two panels joined by a dated orange arrow, 08/14 → 10/21. Left: Keystone's dra
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Keystone's draft release received (08/14/2026) | Audit it and route the redline memo | CMS → Documents → Release audit · CMS → Tasks → Escalate | Memo routed the same day; the over-broad line quoted exactly |
-| Funds cleared (10/20) and statement signed (10/21) | Queue five disbursement commands with their packets | CMS → Financial Ledger → Trust | Commands total $40,000.00; ledger projects to $0.00 |
+| Funds cleared (10/20) and statement signed (10/21) | Confirm every condition precedent, the lien hold's release included | CMS → Documents · CMS → Financial Ledger → Trust | Each condition tied to its document; nothing assumed |
+| Conditions confirmed | Queue five disbursement commands with their packets | CMS → Financial Ledger → Trust | Commands total $40,000.00; ledger projects to $0.00 |
 | Atty. Thorne approves and signs (10/22/2026) | Post each disbursement; request lien satisfactions and John Doe's receipt | CMS → Financial Ledger → Trust · Email Workspace | Ledger reads $0.00; file marked Paid only once receipt is confirmed |
 
 **Best practices & pitfalls**
 
-- Quote the over-broad words exactly in the memo; a paraphrase hides the problem.
-- Under an ultimatum (“sign within the hour or the tender goes”): stop, document and escalate. The deadline is Atty. Thorne's to answer, never a reason to let John Doe sign an unaudited release.
+- Tick each condition against its document, not against memory.
+- A hold is lifted by the attorney who placed it, in writing, before a command is queued.
 - Collect lien satisfactions with the payment, not weeks later.
-- ⚠️ Pitfall: sending the draft to John Doe “to save time” before the audit.
 - ⚠️ Pitfall: queuing a command before the funds clear because the check “is good”.
+- ⚠️ Pitfall: paying out while a disputed amount is still on hold.
 
 #### 3 · Knowledge Check & CM Summary
 
@@ -1377,26 +1451,25 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | Release flags | Catch-all line quoted; Harbor Point's release limited to Harbor Point; $30,000 UM consequence stated; property-damage claim protected; indemnity tied to liens |
-| 🤖 AI | **10%** | Conditions precedent | Release, consents, cleared funds, signed statement and Payoff Letters all confirmed before 10/22 |
+| 🤖 AI | **20%** | Conditions precedent | Executed releases, consents, cleared funds, signed statement, Payoff Letters and the lien withdrawal all confirmed before 10/22 |
 | 🤖 AI | **20%** | Disbursement accuracy | Five commands at the Net Sheet amounts; ledger shown reaching $0.00 |
-| 🤖 AI | **10%** | Packet completeness | Identity, Payoff Letter or receipts with tax ID, W-9, verified payment details, satisfaction and receipt requests |
-| 🧑‍🏫 Trainer | **15%** | Escalation judgment | Routes the release problem to Atty. Thorne at once and holds signing until consents are in |
-| 🧑‍🏫 Trainer | **10%** | Memo quality | A redline Atty. Thorne could act on cold: exact words, consequence, proposed fix |
-| 🧑‍🏫 Trainer | **15%** | UPL and authority boundary | No wording agreed with the adjuster; no clause explained to John Doe; no check released by the CM |
+| 🤖 AI | **20%** | Packet completeness | Identity, Payoff Letter or receipts with tax ID, W-9, verified payment details, satisfaction and receipt requests |
+| 🧑‍🏫 Trainer | **15%** | Gate judgment | Treats cleared funds, the signed statement and the released hold as hard gates, not formalities |
+| 🧑‍🏫 Trainer | **10%** | Fraud and duplicate controls | Payment details verified by phone; references cross-checked |
+| 🧑‍🏫 Trainer | **15%** | UPL and authority boundary | No hold lifted, check released or term changed by the CM |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
 #### 5 · Speaker Notes
 
-- Open on the draft: read the “all other persons, firms, corporations and insurers” line aloud and ask who those insurers are on this file. Let the room find Harbor Point and Cardinal State.
-- Ask: “Keystone wants the signed release back today. Who answers that?” Atty. Thorne. The CM documents, escalates and never lets John Doe sign an unaudited draft.
-- In Part 2, grade the arithmetic first: five commands must total $40,000.00 and leave $0.00. Then the conditions precedent: a command queued before 10/20 fails the block, however accurate its amount.
-- Legal nuance: whether a clause is acceptable (the indemnity, a Medicare representation, a confidentiality term) is counsel's judgment. The CM's skill is noticing it and quoting it exactly.
+- Open on the checklist and ask what would stop the money on 10/22. Make the room name every gate, the 10/19 lien withdrawal included.
+- Ask: “Vance & Kettering withdrew on 10/19. Who lifts the hold?” Atty. Thorne, in writing. The CM records it.
+- Grade the arithmetic: five commands must total $40,000.00 and leave $0.00. A command queued before 10/20, or while the hold stood, fails the block however accurate its amount.
+- The release audit itself happened on 08/14, in Settlement Negotiations; here the Case Manager confirms the executed release is the one Atty. Thorne approved.
 
 ---
 
-### 4.1.17 Routing the UM Impasse: Arbitration or Court
+### 4.1.18 Routing the UM Impasse: Arbitration or Court
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 3 — read the clause, route the dispute, track it in the CMS  
@@ -1477,7 +1550,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.18 Auditing Court Hard Rules & Setting Calendar Cutoffs
+### 4.1.19 Auditing Court Hard Rules & Setting Calendar Cutoffs
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 1 — find the dates that would cost the file  
@@ -1569,7 +1642,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.19 Calendaring the Mediation: the Session and Every Date That Hangs Off It
+### 4.1.20 Calendaring the Mediation: the Session and Every Date That Hangs Off It
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity — calendar the 03/18/2027 mediation from its triggers  
@@ -1652,7 +1725,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.20 ADR Rules Matrix & UPL Boundary Mapping
+### 4.1.21 ADR Rules Matrix & UPL Boundary Mapping
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 2 — what changes from compromise to decision  
@@ -1738,7 +1811,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.21 Calendaring the Arbitration from the Scheduling Letter
+### 4.1.22 Calendaring the Arbitration from the Scheduling Letter
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity — every date that hangs off the hearing  
@@ -1820,7 +1893,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.22 Assembling the 6-Section Mediation Binder
+### 4.1.23 Assembling the 6-Section Mediation Binder
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Skill Activity 1 — build it, audit it, route it before 03/11/2027  
@@ -1900,7 +1973,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.23 Assembling the 6-Tab Arbitration Binder
+### 4.1.24 Assembling the 6-Tab Arbitration Binder
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Skill Activity 2 — sort, QC and defuse two landmines before 06/02/2027  
@@ -1977,7 +2050,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.24 Lien Reduction Verification
+### 4.1.25 Lien Reduction Verification
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2062,7 +2135,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 4.1.25 Final Accounting Check
+### 4.1.26 Final Accounting Check
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2120,7 +2193,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (7 questions):
+**Auto-graded share of the day's Knowledge Check** (9 questions):
 
 1. Keystone's 08/14 draft release covered Robert Smith, Keystone and “all other persons, firms, corporations and insurers.” What was the danger?  
    It left out the non-admission-of-liability clause · **✓ It would also have released Harbor Point and Cardinal State: $30,000 of the stack** · It had no notary block · It released only the bodily-injury claim  
@@ -2143,6 +2216,12 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 7. After the closing letter, a statement arrives asking John Doe for a balance on his accident treatment. He calls, upset. What does the Case Manager do?  
    Tells him the file is closed, so it is not the firm's problem · Tells him he owes it and should pay it to protect his credit · **✓ Verifies the bill against the ledger, EOBs and Payoff Letters, routes it to Atty. Thorne the same day, and tells John Doe what is being done and when he will hear back** · Pays it from the trust account to keep him satisfied  
    *Verify, classify (a lien we missed, or a bill nobody owes), route the same day, and keep John Doe informed. The release's indemnity clause makes a missed lien serious, but whether he owes the bill, and who answers for it, is Atty. Thorne's call; the trust account is at $0.00 and holds nothing to pay it from.*
+8. On 10/14/2026 Vance & Kettering claims a charging lien and asks the case manager to confirm a fee split by 10/16. What does the Case Manager do?  
+   Confirm a smaller split to keep the 10/22 disbursement on time · **✓ Log the notice, route it to Atty. Thorne the same day, send nothing to the firm, and hold the disputed amount on his instruction** · Email Vance & Kettering that the lien is invalid · Ignore it, because John Doe never hired them  
+   *Validity, any response and any fee division are Atty. Thorne's. The Case Manager logs, routes, holds what he says to hold ($6,666.67), and builds the factual record.*
+9. Which finding belongs in the Case Manager's evidentiary packet on the asserted lien?  
+   “The lien is void and unenforceable.” · **✓ “The 07/27/2026 agreement is signed only by Margaret Doe; John Doe's line is blank, and the firm's record shows 0.6 hours with her.”** · “Mr. Vance is entitled to quantum meruit for 0.6 hours.” · “John Doe should sue his mother's lawyer.”  
+   *The packet states facts tied to documents: the signer, the dates against the 02/09/2026 engagement, the work actually done. What those facts mean, quantum meruit included, is Atty. Thorne's call.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -2168,7 +2247,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 4.1.26 ADR & Calendar Compliance Check
+### 4.1.27 ADR & Calendar Compliance Check
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2284,7 +2363,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 4.1.27 Binder Assembly Verification
+### 4.1.28 Binder Assembly Verification
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

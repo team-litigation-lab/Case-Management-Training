@@ -155,6 +155,21 @@
       "ask": "{name}, what's the difference between holding the demand and softening it to seem reasonable?"
     }
   },
+  "d3m2-umw": {
+    "why": {
+      "say": "Here's the problem with Keystone's $10,000. The moment Harbor Point or Cardinal State pays John Doe, it steps into his shoes against Robert Smith. That right is called subrogation. If John releases Smith before those carriers agree, their right against Smith is gone, and the policy may let them refuse to pay. That's $30,000 of a $40,000 stack riding on two letters. So Keystone won't cut its check, and John won't sign anything, until both UM carriers consent in writing and waive subrogation. Bluewater, by the way, is not on that list. Margaret rejected UM on the Civic back on 03/14/2024, so there's nothing there to waive.",
+      "ask": "Why would Keystone, the BI carrier, care whether the UM carriers waive subrogation?"
+    },
+    "theory": {
+      "say": "Let me give you the four ideas behind this. Subrogation is the paying carrier's right to recover what it paid from the at-fault driver. The consent to settle is the UM carrier's written permission for John to settle with Smith and release him. Each carrier then has a choice: waive subrogation, or pay the $10,000 itself to keep its claim against Smith. On our file both waived and neither substituted, Harbor Point on 08/24 and Cardinal State on 08/26. And the fourth idea is Keystone's own payment condition: Dana Whitfield's 08/14 cover letter holds the check until both waivers arrive with the executed release."
+    },
+    "rules": {
+      "say": "The rules are short. Ask the right carriers, which on this file means Harbor Point and Cardinal State, never Bluewater. The 30-Day Letter goes out the day after the tender, 08/13/2026, for Atty. Thorne's signature, with the tender letter and Smith's affidavit, and you docket each window. When a consent comes back, read what it covers: Smith and Keystone only, subrogation waived, no substitution. Anything wider, or a substitution offer, goes straight to Atty. Thorne. And John Doe signs nothing until both are in writing and Atty. Thorne has approved the release and gone through it with him. You request, docket, chase and match. You never explain the consent clause to anyone."
+    },
+    "job": {
+      "say": "On the job it runs in three beats. Keystone tenders on 08/12/2026, and you prepare both consent requests for Atty. Thorne's signature and docket the windows; they go out 08/13 with the reason Bluewater isn't asked written on the file. On 08/14 Keystone's cover letter makes payment conditional on the waivers, so you log that condition and hold the signing task against it. Then the consents land, Harbor Point on 08/24 and Cardinal State on 08/26, and you match each one's scope to the release. Both cover Smith and Keystone only, so both go into the transmittal packet and the front of each UM package."
+    }
+  },
   "d3m2-l2": {
     "why": {
       "say": "Treasure hunt. I've got Harbor Point's 03/02/2026 letter up, and somewhere in it is the sentence worth $10,000 to John Doe. {name}, you've had since the last lesson. Where is it? Give it a second. It's the add-on clause. Add-on means Harbor Point pays on top of what Keystone pays. On a reduction policy, Keystone's $10,000 would have come straight off the top of the $20,000. One sentence, ten thousand dollars. That's why we read insurance letters the way a detective reads a ransom note. Once Keystone tenders, the money that makes John Doe whole sits with two first-party carriers that insure him, and both of them will argue against him. We reach $40,000 by proving the gap above each layer, closing every reduction in writing first, and papering every single move.",
@@ -201,6 +216,34 @@
     "check": {
       "say": "Before you log the call, check yourself. {name}, did you run the math before dialing? $3,500 minus the $1,166.67 fee and $486.75 in costs leaves $1,846.58 against $7,965.00 of liens, so John Doe nets $0.00. If you dialed without knowing that, you were negotiating blind. Did you pause and ask what data supports $3,500? Did you answer the gap with dated documents, and degenerative with Dr. Park's own sentence? Did you restate $10,000 and 08/21/2026 with no new figure? If you said “let me see what I can do,” or named a number, that's a fail, because the authority was written down so nobody improvises it. Is the offer logged in her exact words, reported on 08/05, with the rebuttal drafted for 08/06? Now your mystery for the next practice. Weeks from now, one of John Doe's own carriers makes the same gap argument, plus a brand-new one. Guess the new one.",
       "ask": "{name}, if Dana Whitfield raises the April break, which record answers the 19-day disruption?"
+    }
+  },
+  "d3m2-rel": {
+    "case": {
+      "say": "It's Friday, 08/14/2026. Keystone tendered its $10,000 on Wednesday, and our consent requests went to Harbor Point and Cardinal State yesterday. Today Dana Whitfield sends Keystone's own release form for John Doe's notarized signature. Her cover letter says the check won't issue until both UM carriers' consents and subrogation waivers arrive with it. Our demand asked for a Limited Release of Robert Smith and Keystone only. What landed is called a Release of All Claims. Before John Doe sees a word of it, we read every clause against what was promised and what's still open on this file.",
+      "ask": "What's the first difference you'd expect between a Release of All Claims and the Limited Release we demanded?"
+    },
+    "task": {
+      "say": "Here's your job. Open the audit workbench and call every clause of Keystone's draft: keep, replace, pull, add, or flag for Atty. Thorne. For each one, write what it would do on this file and the amendment you'd propose. Then email your review to Atty. Thorne for approval, with the clauses that are his to decide clearly flagged. Don't send the draft to John Doe. When Dana Whitfield writes asking whether John can just sign the standard form now, you'll route that, not answer it. Finally, convert the whole exchange into a memorandum and file it in the CMS and on your Backup Drive."
+    },
+    "audit": {
+      "say": "This is the audit itself, fifteen items. Some are the easy keeps: the parties, the $10,000.00, non-admission, the notary block. Then the ones that cost money. The catch-all reaching all other insurers would release Harbor Point and Cardinal State, $30,000. Property Damage and Loss of Use reaches the Civic's claim, which is Margaret's and still open, handled by Leah Moran. There's no UM reservation, a confidentiality clause nobody agreed to, an indemnity clause with no ceiling, and no payment date. And three clauses aren't yours at all: unknown injuries, the Medicare representation, and governing law. Those you flag.",
+      "ask": "Why can't the release stay confidential on this particular file?"
+    },
+    "check": {
+      "say": "Check yourself before you hand it in. Did you replace the catch-all and say exactly what it would release? Did you cut the claims back to bodily injury and add a reservation of both UM claims by claim number? Did you pull confidentiality, narrow the indemnity to the liens on the file paid from trust, and add a payment date for Atty. Thorne to set? Did you flag unknown injuries, Medicare and governing law, with the Medicare facts verified from the file? Is his 08/17 approval filed, and did you keep the draft away from John Doe the whole time? Then you're done."
+    }
+  },
+  "d3m2-exec": {
+    "case": {
+      "say": "It's Wednesday, 08/26/2026. Cardinal State's consent and waiver came in today, joining Harbor Point's from Monday. Keystone issued its Limited Release on 08/19, exactly as Atty. Thorne approved it. Keystone wants three things before it pays: a notarized wet-ink original, both waivers, and our W-9, and then it pays within 14 days. John Doe hasn't seen the release yet. This is the part of the file where everything is logistics, and logistics done perfectly is what gets John's money into trust. Every legal question still leaves your desk.",
+      "ask": "Why isn't this release going out for e-signature like the rest of John's paperwork?"
+    },
+    "task": {
+      "say": "First, the live call with John Doe. Schedule the signing for Friday, 08/28, at the office. Tell him to bring government photo ID in the name John Doe, that he signs only in front of the notary, and that Atty. Thorne will go through the release with him first. When he asks what a paragraph means, and he will, that question goes to Atty. Thorne. After the session, confirm the execution requirements and upload the release to the CMS and his portal copy. Then email Dana Whitfield the executed packet and ask her to confirm receipt and the check date. Route her payee question, deposit the check on 09/04, and file the record."
+    },
+    "check": {
+      "say": "Run your checks. Was the signing scheduled only after both consents were in writing? On the call, did you stick to date, place, ID and the notary, and route every question about meaning? Does the ID match John Doe exactly, is the original wet-ink and notarized, every page initialed? Did the packet go to Keystone on 08/28 with both waivers and the W-9, and did you ask for written confirmation of receipt and the check date? Did her question about adding Peach State as a payee go to Atty. Thorne with no promise from you? And is check 0048213 in trust on 09/04/2026, with the record filed?"
     }
   },
   "d3m2-a2": {
@@ -253,12 +296,11 @@
       "ask": "{name}, why do you think the comparative fault card is greyed out on John Doe's file?"
     },
     "job": {
-      "say": "On the job, it runs like this. When the gross reaches $40,000.00 on 10/06/2026, you run the final inventory in the Lien Tracker, re-checking the Day 2 register, asserted and absent, and sorting each claim as statutory or contractual. Two stay open; Medicare, Medicaid, hospital, workers' comp, prior attorney and PIP each get “none” with a source. Once the Health Plan lien is classified, you get the plan documents and escalate the funding status to Atty. Thorne. When he picks the reduction basis, you draft the request naming the doctrine and showing $1,860.00 minus $620.00 equals $1,240.00, held for his approval. And for the prior-attorney question, ask John Doe, check intake, and log “no prior attorney, verified” with its date. Why so careful? I once watched a hospital lien nobody had checked for walk in at the disbursement table like an uninvited wedding guest. The money sat in trust three extra weeks, and the client called every single morning asking, so when's my check?",
-      "ask": "{name}, which “none” on John Doe's list would you be most nervous about skipping, and why?"
+      "say": "Let's put it on the job. When the gross reaches $40,000.00 on 10/06/2026, you run the final inventory in the Lien Tracker, re-verifying the Day 2 register, asserted and absent, and classifying each claim as statutory or contractual. Two stay open; Medicare, Medicaid, hospital, workers' comp and PIP each get “none” with a source, and the prior attorney gets “none known to John Doe”. Once the Health Plan lien is classified, you get the plan documents and escalate the funding status to Atty. Thorne. Fully insured goes on file, and the governing-law call is recorded as his. When he picks the reduction basis, you draft the request naming the doctrine and showing $1,860.00 minus $620.00 equals $1,240.00, held for his approval. And for the prior-attorney question, ask John Doe, check intake, and log “no other lawyer known to John Doe” with its date and source."
     },
     "dodont": {
-      "say": "Here comes Three Clues, One Rule. I reveal three clues, you call Do or Don't, then name the rule. {name}, you're scorekeeper. The rules in play: work the most negotiable lien first to build momentum, but resolve every one in writing before disbursement. Record a verified “none” the way you'd record a lien, with its source and date. Name the doctrine and show the math in every Reduction Request. And the traps: treating an ERISA plan like a provider LOP, asking for a courtesy discount with no legal basis, paying a prior attorney a percentage he's no longer owed. One heads-up: someone will ask whether riding in Kevin Alvarez's carpool makes this workers' comp. That's a coverage question for Atty. Thorne; we record that no claim was filed and no lien asserted. Now your mystery for the next lesson. Riverton Spine & Rehab's ledger has a charge on it that shouldn't be there. {name}, before I show you, how would you go hunting for it?",
-      "ask": "{name}, with no prior attorney on this file, why does quantum meruit still get a line in the Lien Tracker?"
+      "say": "Here comes Three Clues, One Rule. I reveal three clues, you call Do or Don't, then name the rule. The rules in play: work the most negotiable lien first to build momentum, but resolve every one in writing before disbursement. Record a verified “none” the way you'd record a lien, with its source and date. Name the doctrine and show the math in every Reduction Request. And the traps: treating an ERISA plan like a provider LOP, asking for a courtesy discount with no legal basis, paying a prior attorney a percentage he's no longer owed. One heads-up. Someone will ask whether riding in Kevin Alvarez's carpool makes this workers' comp. That's a coverage question for Atty. Thorne. We record that no claim was filed and no lien asserted.",
+      "ask": "{name}, john Doe knows of no other lawyer. Why does quantum meruit still get a line in the Lien Tracker?"
     }
   },
   "d3m3-l2": {
@@ -305,8 +347,8 @@
       "ask": "{name}, what has to happen before that red hold tag comes off the request?"
     },
     "check": {
-      "say": "Before you log it, check yourself, and I'm calling on people. {name}, is the plan ledger matched to the one accident-related charge, the 05/15/2026 injection, $3,400.00 billed and $1,860.00 paid? The lien is what the plan paid, not what was billed. Is Crescent's $1,540.00 write-off recorded as not owed? Is the lien classified contractual, with fully insured status from the plan documents and the governing law recorded as Atty. Thorne's call? Is the common-fund math shown, citing the MRI and the 06/19/2026 Causation Letter? Are the absences complete, Medicare, Medicaid, hospital, workers' comp and prior attorney, each with date and source, and PIP recorded as not a lien? And did you log $1,240.00 as final only with Peach State's written confirmation and Atty. Thorne's approval attached? That's where people trip. Now a mystery. Way back on 03/11/2026, a provider asked us for an LOP. That's a lien that could appear out of nowhere at the last minute.",
-      "ask": "{name}, who checked Summit Imaging, which asked for an LOP on 03/11/2026, and where's the proof?"
+      "say": "Before you log it, check yourself. Is the plan ledger matched to the one accident-related charge, the 05/15/2026 injection, $3,400.00 billed and $1,860.00 paid? The lien is what the plan paid, not what was billed. Is Crescent's $1,540.00 write-off recorded as not owed? Is the lien classified contractual, with fully insured status from the plan documents and the governing law recorded as Atty. Thorne's call? Is the common-fund math shown, citing the MRI and the 06/19/2026 Causation Letter? Are the absences complete, Medicare, Medicaid, hospital and workers' comp, each with date and source, the prior attorney as none known to John Doe, and PIP recorded as not a lien? And did you log $1,240.00 as final only with Peach State's written confirmation and Atty. Thorne's approval attached? That's where people trip.",
+      "ask": "{name}, who checked Summit Imaging, which asked for an LOP on 03/11/2026?"
     }
   },
   "d3m3-l3": {
@@ -435,16 +477,30 @@
   },
   "d3m4-a2": {
     "case": {
-      "say": "This activity has two dates, so pay attention. Here's the first landing, 08/14/2026, from Keystone on KM-26-440871: the release to conclude the bodily injury claim on its $10,000.00 tender. A tender is the insurance company formally putting its money on the table, here Keystone's full policy limit. They want Mr. Doe to sign before a notary and return the original, and the check issues once they have it. The consents requested from Harbor Point and Cardinal State on 08/13 are still pending. Let me read you one line from the draft, slowly: “all other persons, firms, corporations and insurers.” Who are those insurers on this file? {name}, think about it while I jump ahead. Now it's 10/21/2026. All $40,000.00 had cleared by 10/20, John Doe signed the Settlement Statement this morning, both Payoff Letters are in Documents, and disbursement is set for 10/22. And yes, John has already called twice today to ask when his check is coming. That's how you know you're close.",
-      "ask": "{name}, on John Doe's file, which carriers are hiding inside “all other … insurers”?"
+      "say": "It's 10/21/2026, the day before the money moves. All three checks, $40,000.00, had cleared trust by yesterday, the last being Cardinal State's from 10/13. John Doe signed the Settlement Statement this morning. Both Payoff Letters are in Documents. And on Monday, 10/19, Vance & Kettering withdrew its lien in writing and Atty. Thorne released the hold. Disbursement is tomorrow. Your job today is to make sure that every gate behind the money is genuinely closed, and then to line up five commands that take the ledger to zero.",
+      "ask": "{name}, who lifts a hold on trust money, and how do you prove it on the file?"
     },
     "task": {
-      "say": "Part one is dated 08/14. Audit Keystone's draft line by line in the release audit log: parties released, claims released, indemnity and hold-harmless, non-admission. Flag every line that reaches past Robert Smith, Keystone or the BI claim, say what it would cost John Doe, and route a redline memo to Atty. Thorne before John Doe sees anything. That's the red-pen note on every bad line. Part two is 10/21. Confirm every condition precedent, then queue one disbursement command per Net Sheet line in the Trust Ledger for his approval, and show the ledger reaching $0.00. You'll also take a live call with John Doe. Explain each Settlement Statement line down to $20,359.92 as plain facts, show both reductions and Payoff Letters, route fee and future-injection questions to Atty. Thorne, and get his signed acknowledgment. {name}, you're on the release. {name}, you're taking John's call. Fair warning, his first question will be, “Why is my number smaller than forty thousand?”",
-      "ask": "{name}, Keystone wants the signed release back today. Who answers that, and what do you do in the meantime?"
+      "say": "Start with the conditions precedent, and check each one against its document, not your memory. Keystone's executed Limited Release and both UM releases. Cleared funds. The signed statement. The Payoff Letters. The prior-attorney lien withdrawn, with the hold released by Atty. Thorne. Then queue one disbursement command per Net Sheet line in the Trust Ledger for his approval: the fee and costs to the firm, Peach State, Riverton Spine & Rehab, and John Doe. Show the ledger reaching $0.00, and request the lien satisfactions and John's receipt with the payments. You'll also take John's call about his check."
     },
     "check": {
-      "say": "Before you log, check both parts. {name}, part one: is the “all other … insurers” line quoted and flagged as reaching Harbor Point's $20,000 and Cardinal State's $10,000, $30,000 of the stack? Is the release limited to bodily injury, so Leah Moran's property-damage claim survives? Is the indemnity clause tied to the Lien Tracker? Memo routed 08/14, nothing discussed with Dana Whitfield, nothing sent to John Doe? Part two: arithmetic first. Five commands, fee $13,333.33, costs $486.75, Peach State $1,240.00, Riverton $4,580.00, John Doe $20,359.92, totaling $40,000.00 and leaving $0.00. Then the conditions precedent. A command queued before 10/20 fails the block, however accurate. Every packet complete, W-9s current, payment details checked by phone, and every command left for Atty. Thorne to sign. Now a pressure test. A carrier calls with an ultimatum: sign within the hour or lose the tender. Your heart's racing. What does a great Case Manager do?",
-      "ask": "{name}, under an ultimatum to sign within the hour or lose the tender, what do you do first?"
+      "say": "Check it all before anything goes to Atty. Thorne. Are the executed Limited Release and both UM releases on file? Did funds clear by 10/20, and did John sign the statement on 10/21? Is the 10/19 withdrawal there, and the hold's release recorded as Atty. Thorne's? Do the five commands match the Net Sheet exactly: $13,333.33 fee, $486.75 costs, $1,240.00 to Peach State, $4,580.00 to Riverton Spine & Rehab and $20,359.92 to John Doe, totaling $40,000.00 and leaving $0.00? Is every packet complete, and is every command waiting for his signature, not yours?",
+      "ask": "{name}, what would you do if the hold had not been released by 10/21?"
+    }
+  },
+  "d3m4-pal": {
+    "case": {
+      "say": "It's Wednesday, 10/14/2026. The $40,000.00 is in trust, both liens are reduced in writing, and disbursement is set for 10/22. Then an email arrives from a firm none of us has heard of, Vance & Kettering Injury Law. It says it was retained on 07/27/2026, claims a charging lien, wants one-half of the fee, $6,666.67, asks us to hold the whole settlement, and wants the case manager to confirm the split by Friday. Nobody on this file has ever mentioned another lawyer. So the question isn't whether to argue with them. It's what you do in the next hour.",
+      "ask": "{name}, who answers Mr. Vance?"
+    },
+    "task": {
+      "say": "Here's the work. Log the notice the moment it arrives and route it to Atty. Thorne the same day, and send nothing back to Vance & Kettering, not even to say no. On his instruction, put a temporary hold on the disputed $6,666.67 in the CMS and update the Action Plan so everyone sees the 10/22 disbursement depends on it. Then investigate. Pull their agreement, compare its signatures with John's own, line its date up against our engagement, and audit the work they claim. Call John Doe and ask, neutrally, whether he ever hired them. Deliver the packet to Atty. Thorne and archive everything in the CMS and Drive."
+    },
+    "audit": {
+      "say": "In the workbench you'll test each claim in their notice against the file. Their agreement is the key exhibit, so you keep it whole, and it shows something important: the only signature is Margaret Doe's, as mother, and John's line is blank. You add what the notice leaves out: John's own signatures from 02/09/2026, a timeline showing we were engaged and had served the demand before 07/27, his account in his own words, and the hold record. You replace their claims of substantial services and carrier notice with what the record actually shows: 0.6 hours with Margaret and no carrier contact. And you flag the fee, the lien and their request for your confirmation."
+    },
+    "check": {
+      "say": "Before you hand the packet over, check it. Was the notice logged and routed on 10/14, with nothing sent to the firm? Is the $6,666.67 hold in place on Atty. Thorne's instruction, and does the Action Plan show it? Did you compare the signatures and cross-reference the dates against 02/09 and 07/20? Did you quote their time record rather than characterize it? Is John Doe's account in his words, with no view from you on the lien? And does every sentence in the packet state a fact tied to a document, with validity, quantum meruit and any reply left on Atty. Thorne's list?"
     }
   },
   "d3m4-kc": {

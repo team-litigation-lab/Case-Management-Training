@@ -207,11 +207,12 @@ window.CM_CASE_FLOW = {
       "This is the fork. Track A (Case Flow Day 4): the file settles. Track B (Day 4's ADR, then Day 5's litigation): Keystone stonewalls and the case goes to suit."
     ]},
     {after: "d3m4-a2", title: "Track A: The File Settles", group: "money", items: [
-      "08/12/2026 Keystone tenders $10,000 · UM consents 08/24 (Harbor Point) and 08/26 (Cardinal State) · Keystone's General Release (08/14) revised to a Limited Release, signed 08/28 · check into IOLTA 09/04",
+      "08/12/2026 Keystone tenders $10,000, its check held until both UM waivers arrive · consents and waivers 08/24 (Harbor Point) and 08/26 (Cardinal State) · Keystone's General Release (08/14) amended on Atty. Thorne's approval to a Limited Release, signed before a notary 08/28 · check no. 0048213 into IOLTA 09/04",
       "08/31 Host UM and Relative UM demands, emailed to Marcus Bell and Teresa Okafor · Harbor Point offers $8,000 (09/14), pays $20,000 limits 09/29 · Cardinal State offers $6,000 (10/01), tenders $10,000 limits 10/06",
       "Gross recovery $40,000.00",
       "Liens: Peach State (fully insured plan) $1,860.00 → $1,240.00 (10/09) · Riverton Spine & Rehab $6,290.00 billed → $6,105.00 audited → $4,580.00 (10/12)",
       "Net Sheet: fee $13,333.33 · costs $486.75 · liens $5,820.00 · net to John Doe $20,359.92 (BI stream $5,089.98, UM stream $15,269.94)",
+      "Vance & Kettering's charging lien (10/14, $6,666.67; agreement signed only by Margaret Doe): held, repudiated 10/16, withdrawn 10/19",
       "John signs the Settlement Statement 10/21 · disbursement 10/22/2026 · Trust Ledger to $0.00 · closing memo 10/30/2026"
     ]},
     {after: "d4m1-a1", title: "Track B: The Stonewall", group: "suit", items: [
@@ -393,6 +394,8 @@ window.CM_CASE_FLOW = {
     ["The net-floor gross-up for a percentage fee, and PIP valuation doctrine carried over to PIP", "Day 3 · Module 2"],
     ["The 'verified none' lien inventory and pro-rata distribution worked on the BI-only illustration", "Day 3 · Module 3"],
     ["Trust handling (cleared funds, disputed shares held) and the UM release audit points", "Day 3 · Module 4"],
+    ["The BI release workflow: the clause audit with proposed amendments routed to counsel, the UM consent and subrogation waiver the BI carrier makes a payment condition, the client signing session within the UPL line, and the executed packet transmitted and funded", "Day 3 · Module 2 — the Settlement Release (Track A)"],
+    ["The prior-attorney charging lien worked as a factual investigation with a temporary administrative hold and escalation to counsel", "Day 3 · Module 4 — Disbursement & Closing (Track A)"],
     ["The Track B close-out: the 07/06/2027 arbitration award, liens reduced at the 40% tier and the litigated LSH Net Sheet", "Day 5 · Module 5 — the case file had stopped at the hearing; written so the litigation track ends in a disbursement"],
     ["The five impasse triggers and the decision-only impasse memo", "Day 4 · Module 1"],
     ["Backward-counted deadlines move to the earlier business day; the SOL's internal hard date and cutoff", "Day 4 · Module 2"],
@@ -4125,7 +4128,7 @@ window.CM_CASE_FLOW = {
       blocks: [
 
       {
-        kind: "lesson", id: "d2m3-l1",
+        kind: "lesson", id: "d2m3-l1", compact: true,
         title: "Interview Techniques & UPL Boundaries in Client Investigation",
         topic: "Asking so that the answer is his, not yours",
         visual: "A matched-pairs board fills the upper two-thirds: a green-bordered left column headed ASK IT OPEN and a red-bordered right column headed NEVER LIKE THIS, each open question on the same line as the leading or opinion-laden version it replaces, so the eye reads across. The last red row carries a small red UPL chip. Lower third: a navy funnel narrowing left to right in three orange-numbered stages — ① OPEN ② FOLLOW HIS WORDS ③ PIN DATES & DOCUMENTS — with a mono pill at its mouth: RECORDED · CONSENT ON THE RECORD. The argument: the same fact, asked two ways, produces two different cases.",
@@ -5169,7 +5172,7 @@ window.CM_CASE_FLOW = {
       },
 
       {
-        kind: "lesson", id: "d3m1-l2",
+        kind: "lesson", id: "d3m1-l2", compact: true,
         title: "Secondary UM Demand Structuring & Policy Stacking Rules",
         topic: "Locking the escape hatches before Host UM and Relative UM open",
         visual: "A six-station horizontal timeline across the slide, stations numbered in orange circles on a navy rail: ① TENDER 08/12 ② CONSENT REQUESTS 08/13 ③ CONSENTS 08/24 · 08/26 ④ LIMITED RELEASE 08/28 ⑤ UM DEMANDS 08/31 ⑥ CHECK 09/04, each date in a mono pill. Between stations ③ and ④ a heavy orange gate bar labelled NO RELEASE BEFORE BOTH CONSENTS. Above the rail, a small three-rung ladder on a cream card shows BI $10,000 → HOST UM $20,000 (ADD-ON) → RELATIVE UM $10,000 (EXCESS). Bottom-left, a red danger card quotes Keystone's 08/14 draft: “all other persons, firms, corporations and insurers,” struck through. The argument: sequence is protection.",
@@ -5504,12 +5507,24 @@ window.CM_CASE_FLOW = {
          a: 0, r: "$30,000.00 – $10,000.00 fee – $365.06 costs (75%) – $1,395.00 – $4,578.75 (liens at 75%) = $13,661.19. $15,269.94 assumes reductions nobody has agreed to; $11,548.25 charges all costs and liens to the UM stream; $13,522.44 uses Riverton's billed $6,290.00, duplicate included."},
         {q: "John Doe calls on 10/07/2026: “So I'm getting about $13,600 from the UM money?” What does the Case Manager say?",
          opts: ["“Yes, $13,661.19, to the cent.”", "“More than that: the liens always come down, so expect around $15,000.”", "“The sheet is a projection: some figures are still moving. Atty. Thorne will go through it with you,” and the call is logged and routed to him.", "“Less than that: the BI money has to cover the fee first.”"],
-         a: 2, r: "The figure is a projection with the liens unreduced, and explaining it to John Doe is Atty. Thorne's. The CM quotes no net, predicts no reduction and routes the call."}
+         a: 2, r: "The figure is a projection with the liens unreduced, and explaining it to John Doe is Atty. Thorne's. The CM quotes no net, predicts no reduction and routes the call."},
+        {q: "Keystone's 08/14/2026 cover letter holds its check until each UM carrier's consent and subrogation waiver arrives. Which carriers do you ask?",
+         opts: ["Harbor Point and Cardinal State: John Doe's Host UM and Relative UM layers", "Harbor Point, Cardinal State and Bluewater Auto", "Bluewater Auto only, because it insures the Doe household's car", "None: Keystone asks the UM carriers itself"],
+         a: 0, r: "Harbor Point ($20,000) and Cardinal State ($10,000) are the UM layers; both were asked 08/13 and answered 08/24 and 08/26/2026. Bluewater is Margaret's Civic policy with UM rejected in writing (03/14/2024): there is no UM layer to waive."},
+        {q: "Auditing Keystone's draft release, which clause do you call “pull”?",
+         opts: ["The $10,000.00 consideration", "The confidentiality clause: no term of the demand, and it would bar proof of exhaustion to the UM carriers", "The non-admission of liability", "The notary block"],
+         a: 1, r: "Confidentiality was never a term of the demand, and the UM carriers need the release as proof of exhaustion. The consideration, non-admission and notary block match the demand and are kept; the decision on every amendment is Atty. Thorne's."},
+        {q: "Dana Whitfield asks whether Mr. Doe can sign Keystone's standard form now, with the changes in a side letter. What do you do?",
+         opts: ["Agree, if she confirms the side letter by email", "Send John Doe the form so the check is not delayed", "Tell her nothing goes to the client for signature but the release Atty. Thorne approves, and route her email to him the same day", "Tell her the catch-all clause is unenforceable anyway"],
+         a: 2, r: "Release wording and the timing of signature are Atty. Thorne's. The Case Manager neither agrees nor argues the law; the request is logged and routed the same day."},
+        {q: "At the 08/28/2026 signing session John Doe asks, “What am I giving up by signing paragraph 3?” What does the Case Manager say?",
+         opts: ["“Nothing important; it's standard.”", "“It means you can't come back for more money later.”", "“Atty. Thorne will go through every paragraph with you before you sign; I'll make sure you have that time.”", "“Sign now and ask him later.”"],
+         a: 2, r: "Explaining a clause is legal advice. The Case Manager confirms the logistics (ID, notary, initials, original) and makes sure Atty. Thorne goes through the release with John Doe before he signs."}
       ],
       blocks: [
 
       {
-        kind: "lesson", id: "d3m2-l1",
+        kind: "lesson", id: "d3m2-l1", compact: true,
         title: "Countering Adjuster Delay Tactics & Gap Pushback",
         topic: "The battle map, the first call, and the stall rebuttals",
         visual: "A battle map across the full slide width: four orange-numbered stations on a navy rail, left to right — ① NET FLOOR ② VALUE DRIVERS ③ THEIR TOP TWO ④ REBUTTAL READY. Station ① carries a mono pill, $12,677.63 GROSS, with a small red note: KEYSTONE LIMIT $10,000. Under station ③ hang two red-bordered danger cards, 14-DAY GAP and “DEGENERATIVE” MRI; under station ④, two cream cards answer them, each with mono source pills: EMS REPORT · CAUSATION LETTER 06/19/2026, and SUMMIT MRI 03/13/2026. Top-right, a navy chip: DEMAND EXPIRES 08/21/2026. The argument: every attack on this file is answered before the phone rings.",
@@ -5729,7 +5744,180 @@ window.CM_CASE_FLOW = {
        },
 
       {
-        kind: "lesson", id: "d3m2-l2",
+        kind: "lesson", id: "d3m2-umw", compact: true,
+        title: "The BI Settlement and the UM Consent to Settle & Subrogation Waiver",
+        topic: "Why Keystone's $10,000 can't close until Harbor Point and Cardinal State sign off",
+        visual: "Three linked cards across the slide on a navy rail. Left: KEYSTONE · BI $10,000 · TENDERED 08/12, with a red padlock chip CHECK HELD UNTIL WAIVERS. Centre: two stacked cream cards, HARBOR POINT · HOST UM · CONSENT + WAIVER 08/24 and CARDINAL STATE · RELATIVE UM · CONSENT + WAIVER 08/26, each with an orange tick and a mono pill SUBROGATION AGAINST SMITH WAIVED. Right: a signature card, LIMITED RELEASE · SIGNED 08/28, unlocked only once both centre cards are ticked. Far left, greyed and struck through: BLUEWATER · UM REJECTED 03/14/2024 · NOT A UM LAYER. The argument: the BI money and the UM claims are tied together, and the waiver is the knot.",
+        tell: {
+          why: "A UM carrier that pays John Doe steps into his shoes against Robert Smith. Release Smith first and that right is gone, and the policy lets the carrier refuse to pay: $30,000 of John Doe's $40,000. So Keystone will not pay, and John Doe must not sign, until both UM carriers consent in writing and waive subrogation.",
+          rules: [
+            "Subrogation: a UM carrier that pays its insured may recover what it paid from the at-fault driver. A release of Robert Smith signed without the UM carrier's consent can destroy that right, and the policy's consent clause can let the carrier deny the UM claim. Confirm the governing rule.",
+            "Ask the right carriers. John Doe's UM layers are Harbor Point (Host UM, $20,000) and Cardinal State (Relative UM, $10,000). Bluewater Auto is Margaret's policy on the parked Civic, with UM rejected in writing (03/14/2024): it is not a UM layer and is not asked.",
+            "The 30-Day Letter goes the day after the tender (08/13/2026), for Atty. Thorne's signature: Keystone's $10,000 offer, the tender letter, Smith's affidavit, a request for written consent and a waiver of subrogation against Smith. Each carrier may instead substitute its own check to keep its claim against Smith. Docket each window.",
+            "The BI adjuster asks for the same paper. Keystone's 08/14/2026 cover letter makes payment conditional on each UM carrier's written consent and waiver: it does not want its insured exposed to a later subrogation claim. Send the waivers with the executed release.",
+            "Read each consent for what it covers: Harbor Point (08/24) and Cardinal State (08/26) consent to a release of Robert Smith and Keystone only, waive subrogation against Smith, will not substitute a check, and keep the UM claims open. A consent that reaches further, or a substitution, goes to Atty. Thorne.",
+            "No signature before both. John Doe signs the Limited Release (08/28/2026) only after both consents are in writing and Atty. Thorne has approved the release and gone through it with him.",
+            "File the consents where the UM claims will need them: the front of each UM Demand Package, beside the tender, Keystone's Dec Page, Smith's affidavit and the signed Limited Release."
+          ],
+          upl: [
+            "You identify the UM carriers, prepare the consent requests for Atty. Thorne's signature, docket the windows, chase the replies and match each consent to the release. You never tell John Doe or a carrier what the consent clause means, whether a substitution is good or bad for him, or whether he may sign."
+          ]
+        },
+        show: {
+          caption: "Who must sign off before Keystone's $10,000 moves",
+          type: "table",
+          head: ["Carrier", "Layer", "On this file"],
+          rows: [
+            ["Harbor Point", "Host UM $20,000 (HP-26-7741)", "Requested 08/13; consent and waiver 08/24/2026; no substitution"],
+            ["Cardinal State", "Relative UM $10,000 (CS-26-20355)", "Requested 08/13; consent and waiver 08/26/2026; no substitution"],
+            ["Bluewater Auto", "None: UM rejected 03/14/2024", "Not asked; Margaret's Civic policy is not a UM layer"],
+            ["Keystone", "BI $10,000 (KM-26-440871)", "Check held until both waivers arrive with the executed release"]
+          ]
+        },
+        ops: [
+          ["Keystone tenders the $10,000 (08/12/2026)", "Prepare both consent-and-waiver requests for Atty. Thorne's signature; docket each window", "Action Plan Editor → Consent-to-settle template · Docket System", "Sent 08/13/2026 to Marcus Bell and Teresa Okafor; Bluewater not asked, with the reason recorded"],
+          ["Keystone's cover letter conditions payment on the waivers (08/14/2026)", "Log the condition; tie it to the signing task", "CMS → Case Notes · CMS → Tasks", "Signing task held until both waivers are in writing"],
+          ["Each consent arrives (08/24, 08/26/2026)", "Match its scope to the release; route anything wider, or a substitution, to Atty. Thorne", "CMS → Documents · CMS → Tasks → Escalate", "Both cover Smith and Keystone only; filed for the UM packages and the transmittal"]
+        ],
+        best: [
+          "Name the UM layers from the Coverage Matrix before you write a single request; a request to the wrong carrier wastes the window.",
+          "Put the waivers at the front of each UM package with the tender and the signed Limited Release.",
+          "Chase each consent before its window closes, in writing, and tell Atty. Thorne the day one goes quiet.",
+          "Pitfall: asking Bluewater Auto for a consent it has no UM layer to give.",
+          "Pitfall: scheduling John Doe's signing before the second consent arrives.",
+          "Pitfall: telling the client the consent is “just a formality.”"
+        ],
+        sources: ["D2#31", "D3#3", "D3#16", "Newly authored: the BI carrier's own demand for the UM carriers' consents and subrogation waivers before payment; Bluewater Auto excluded as a rejected-UM policy that is not a UM layer"],
+        rubric: {
+          ai: [
+            ["Subrogation logic", 20, "Explains why releasing Smith without consent can cost the UM claims: the UM carrier's right against Smith"],
+            ["Right carriers", 20, "Harbor Point and Cardinal State asked; Bluewater excluded because UM was rejected 03/14/2024"],
+            ["Sequence and dates", 20, "Tender 08/12, requests 08/13, consents 08/24 and 08/26, signing 08/28/2026, waivers sent with the release"]
+          ],
+          trainer: [
+            ["Consequence reasoning", 20, "Connects Keystone's payment condition to the UM carriers' rights and John Doe's net"],
+            ["UPL boundary", 20, "No interpretation of the consent clause or substitution offered to the client or a carrier"]
+          ]
+        },
+        notes: [
+          "Ask the room: “John Doe's mother has Bluewater on the Civic. Do we ask Bluewater for a waiver?” No: UM was rejected in writing on 03/14/2024, so there is no UM layer to waive.",
+          "Put Keystone's 08/14 cover letter on the board. Why does the BI carrier care about the UM carriers' subrogation? Because a UM carrier that keeps its right can sue Keystone's insured later.",
+          "Watch for trainees who treat the consent as a courtesy. It is the knot that ties the BI money to $30,000 of UM coverage. Whether the consent clause would let a carrier deny the claim is Atty. Thorne's analysis; the rule varies."
+        ]
+      },
+
+      {
+        kind: "activity", id: "d3m2-rel",
+        transition: "Keystone has tendered its $10,000. Before John Doe signs anything, we audit Keystone's release and route it to Atty. Thorne.",
+        title: "Settlement Release Clause Review & Attorney Approval",
+        topic: "Skill Activity 2 — audit Keystone's release clause by clause, then route it",
+        visual: "Left two-thirds: Keystone's Release of All Claims as a white page with margin flags in orange numbered badges: ① the catch-all “all other … insurers” struck in red with –$30,000 beside it, ② PROPERTY DAMAGE AND LOSS OF USE circled, ③ CONFIDENTIALITY struck, ④ INDEMNIFY · DEFEND · FEES boxed, ⑤ a blank margin labelled UM RESERVATION — MISSING, ⑥ PAYMENT DATE — MISSING. Three grey chips sit beside §2, §5 and §6: FOR ATTY. THORNE. Right third: an email card to ELIJAH THORNE, subject FOR YOUR REVIEW AND APPROVAL, with a green APPROVED 08/17 stamp, and beneath it a red-bordered card: NOT SENT TO JOHN DOE. The argument: every clause is read, the fixes are proposed, and the decision is the attorney's.",
+        act: {
+          scenario: "File date 08/14/2026 (Fri). Keystone tendered its $10,000 BI limits on 08/12; the consent-and-waiver requests went to Harbor Point and Cardinal State on 08/13. Today Dana Whitfield sends Keystone's Release of All Claims for John Doe's notarized signature, and her cover letter says no check issues until each UM carrier's written consent and subrogation waiver arrives. The demand's terms were a Limited Release of Robert Smith and Keystone only.",
+          prompt: "Audit Keystone's draft release clause by clause in the audit workbench against the demand's approved terms and the open claims on the file: who is released, which claims, what is missing, and what John Doe would promise. Call each clause keep, replace, pull, add or flag, and write the proposed amendment. Then email your clause review to Atty. Thorne for his approval, with the clauses he must decide flagged. Do not send the draft to John Doe. When the adjuster asks to have the standard form signed first, route it. Convert the exchange into a memorandum and file it in the CMS and on your Backup Drive.",
+          tool: "CMS → Documents → Release audit · Email Workspace · CMS → Tasks → Escalate",
+          output: "An audited release with proposed amendments, Atty. Thorne's written approval on file, and the review memorandum filed in the CMS and Drive.",
+          checkpoints: [
+            "The catch-all “all other … insurers” quoted and replaced: it would release Harbor Point ($20,000) and Cardinal State ($10,000)",
+            "Claims released limited to bodily injury: “Property Damage and Loss of Use” reaches the Civic's claim, which is Margaret Doe's (KM-26-440871-PD, Leah Moran)",
+            "An express reservation of the UM/UIM claims (HP-26-7741, CS-26-20355) added",
+            "The confidentiality clause pulled: no term of the demand, and it would bar proof of exhaustion to the UM carriers",
+            "The indemnify, defend and hold-harmless clause narrowed to the liens on the file paid from trust, no defense, no attorney's fees",
+            "A payment date added, as Atty. Thorne sets it",
+            "Unknown injuries, the Medicare representation and governing law flagged for Atty. Thorne; Medicare status verified from the file, not assumed",
+            "Kept: the parties, $10,000.00, non-admission, the signature and notary block; Keystone's demand for the UM waivers logged as a payment condition",
+            "Review emailed to Atty. Thorne 08/14/2026; his written approval of 08/17/2026 filed; nothing sent to John Doe",
+            "The adjuster's request to sign the standard form first routed to Atty. Thorne the same day, not answered",
+            "Memorandum filed in CMS → Doc Hub under the firm's naming convention and kept on the Backup Drive"
+          ]
+        },
+        ops: [
+          ["Keystone's draft release arrives (08/14/2026)", "Audit every clause against the demand's terms and the open claims", "CMS → Documents → Release audit", "Every clause called with a reason; amendments drafted"],
+          ["Audit complete", "Email the clause review to Atty. Thorne for approval", "Email Workspace · CMS → Tasks → Escalate", "Sent 08/14/2026; three clauses flagged for his decision"],
+          ["Atty. Thorne approves (08/17/2026)", "File the approval; hold the signing task until Keystone reissues and both consents arrive", "CMS → Documents · CMS → Tasks", "Limited Release issued 08/19/2026; signing scheduled only after 08/26"]
+        ],
+        best: [
+          "Quote every over-broad word exactly; a paraphrase hides the problem.",
+          "Measure the release against the demand's terms, not against what is usual.",
+          "Pitfall: sending the draft to John Doe “to save time” before the audit.",
+          "Pitfall: agreeing release wording with the adjuster yourself."
+        ],
+        sources: ["D2#31", "D2#33", "D3#16", "D3#26", "Newly authored: the clause-by-clause release audit as a keep, replace, pull, add or flag call, with proposed amendments routed to the attorney before the client sees the release"],
+        rubric: {
+          ai: [
+            ["Problem clauses found", 25, "Catch-all, Property Damage, confidentiality, indemnity found; UM reservation and payment date added"],
+            ["Flags and keeps", 15, "Unknown injuries, Medicare and governing law flagged; parties, $10,000.00, non-admission, signature block kept"],
+            ["Routing record", 20, "Review emailed 08/14/2026; approval 08/17 filed; memorandum filed in the CMS and Drive"]
+          ],
+          trainer: [
+            ["Amendment quality", 15, "Each proposed fix is precise enough for Atty. Thorne to approve cold"],
+            ["UPL and authority boundary", 25, "No wording agreed with the adjuster; no clause explained to John Doe; the side-letter request routed"]
+          ]
+        },
+        notes: [
+          "Read the catch-all aloud and ask who “insurers” are on this file. Let the room find Harbor Point and Cardinal State, then put –$30,000 on the board.",
+          "Ask: “Why can't the release stay confidential?” Because the UM carriers need it as proof of exhaustion, and confidentiality was never a term of the demand.",
+          "Grade the flags. A trainee who decides the Medicare clause or the unknown-injuries clause has made Atty. Thorne's call; a trainee who checks the Medicare facts and flags the clause has done the job.",
+          "The press question is the test: Dana Whitfield wants the standard form signed now with a side letter. The right answer routes it; nothing reaches John Doe but the release Atty. Thorne approves."
+        ]
+      },
+
+      {
+        kind: "activity", id: "d3m2-exec",
+        transition: "Both consents are in and Atty. Thorne has approved the Limited Release. John Doe signs, the packet goes to Keystone, and the check comes in.",
+        title: "Client Execution, Transmittal to Keystone & Check Confirmation",
+        topic: "Skill Activity 3 — the signing session, the executed packet and the money into trust",
+        visual: "A five-station horizontal workflow on a navy rail, each station a cream card with an orange numbered badge and a mono date pill: ① SIGNING CALL 08/26 (a phone icon, LOGISTICS ONLY) ② SIGNING SESSION 08/28 · NOTARY · ID MATCHES “JOHN DOE” ③ TRANSMITTAL 08/28 · RELEASE + 2 WAIVERS + W-9 ④ ACKNOWLEDGED 08/31 · CHECK 0048213 ISSUES 09/01 ⑤ IOLTA 09/04 · CMS + DRIVE. Under station ②, a red-bordered note: ATTY. THORNE EXPLAINS THE RELEASE; YOU CONFIRM SIGNATURES. Under station ④, a grey question card, ADD PEACH STATE AS PAYEE?, with an arrow to ATTY. THORNE. The argument: execution is logistics done perfectly, and every legal question leaves the Case Manager's desk.",
+        act: {
+          scenario: "File date 08/26/2026 (Wed). Cardinal State's consent and waiver arrived today, joining Harbor Point's of 08/24. Keystone issued its Limited Release on 08/19, as Atty. Thorne approved it. Keystone wants a notarized wet-ink original, both waivers and the firm's W-9 before its check issues, within 14 days of receipt. John Doe has not seen the release yet.",
+          prompt: "Call John Doe in the Call Simulator and schedule the signing session for 08/28/2026 at the office: what to bring (government photo ID in the name “John Doe”), that he signs only before the notary, and that Atty. Thorne will go through the release with him first. Answer logistics; route every question about what a clause means to Atty. Thorne. After the session, confirm the execution requirements, upload the executed release to the CMS and his portal copy, then email the executed packet to Dana Whitfield and ask her to confirm receipt and the check date. Route her payee question. Confirm the check into trust on 09/04 and file the settlement record in the CMS and Drive.",
+          tool: "Call Simulator → AI Client: John Doe · Email Workspace · CMS → Documents · CMS → Financial Ledger → Trust",
+          output: "An executed, notarized Limited Release sent with both waivers and the W-9, the check confirmed into trust, and the settlement record filed in the CMS and Drive.",
+          checkpoints: [
+            "Signing scheduled only after both consents are in writing (08/24, 08/26/2026) and Atty. Thorne approved the release",
+            "On the call: date, place, photo ID in the name “John Doe”, sign only before the notary; no clause explained",
+            "Every question about what the release means routed to Atty. Thorne, who goes through it with John Doe before he signs",
+            "Execution confirmed: notarized wet-ink original, notary's commission current, ID matches, every page initialed; the release is not e-signed",
+            "Executed release scanned to the CMS and John Doe's portal copy the same day",
+            "Transmittal emailed to Dana Whitfield 08/28/2026: executed release, both waivers, the W-9; original by courier; written acknowledgement and check date requested",
+            "Her 08/31/2026 acknowledgement filed; check no. 0048213 issues 09/01, inside the 14 days",
+            "Her question about adding Peach State as a payee routed to Atty. Thorne; no lien assurance given",
+            "Check of $10,000.00 received and deposited to IOLTA 09/04/2026; copies to Marcus Bell and Teresa Okafor",
+            "Settlement record filed in CMS → Doc Hub and kept on the Backup Drive"
+          ]
+        },
+        ops: [
+          ["Both consents in writing (08/26/2026)", "Call John Doe to schedule the signing; log the call", "Call Simulator → AI Client: John Doe · CMS → Communications Log", "Session set for 08/28/2026; logistics only"],
+          ["Release executed (08/28/2026)", "Confirm execution, upload it, and email the packet to Keystone", "CMS → Documents · Email Workspace", "Release, both waivers and the W-9 sent 08/28; original by courier"],
+          ["Keystone's check arrives (09/04/2026)", "Deposit to trust the same day; file the settlement record", "CMS → Financial Ledger → Trust · CMS → Documents", "$10,000.00 in IOLTA; record in the CMS and Drive"]
+        ],
+        best: [
+          "Check the name on the ID, the release and the claim before the notary arrives.",
+          "Send the waivers with the executed release: Keystone made them a payment condition.",
+          "Pitfall: answering “what does this paragraph mean?” yourself.",
+          "Pitfall: promising the adjuster anything about the liens or the payee."
+        ],
+        sources: ["D2#31", "D2#33", "D2#38", "D2#39", "D3#11", "Newly authored: the client signing session within the UPL line (signatures, notary and ID requirements, never a clause), and the executed packet transmitted with the UM waivers Keystone made a payment condition"],
+        rubric: {
+          ai: [
+            ["Execution requirements", 20, "Notary, wet-ink original, ID matching “John Doe”, Atty. Thorne's review before signing"],
+            ["Transmittal completeness", 20, "Executed release, both waivers and the W-9 sent 08/28; acknowledgement and check date requested"],
+            ["Money and filing", 20, "Check 0048213 deposited 09/04/2026; settlement record filed in the CMS and Drive"]
+          ],
+          trainer: [
+            ["Client communication", 15, "Clear, calm logistics; John Doe knows exactly what to bring and what happens"],
+            ["UPL boundary", 25, "No clause explained to the client; the payee question routed; no lien assurance to the adjuster"]
+          ]
+        },
+        notes: [
+          "Run the call live. The AI John Doe will ask “what am I giving up by signing this?” The right answer is that Atty. Thorne will go through every paragraph with him before he signs, and the Case Manager will make sure he has that time.",
+          "Ask the room why the release is not e-signed. Keystone's form requires a notarized wet-ink original; the Case Manager confirms the requirement from the carrier's own letter.",
+          "The press question: Dana Whitfield asks whether Peach State should be a payee. A payee change is a settlement term. It goes to Atty. Thorne, and the check stays as issued until he says otherwise."
+        ]
+      },
+
+      {
+        kind: "lesson", id: "d3m2-l2", compact: true,
         title: "Securing Maximum Gross Policy-Limit Settlements",
         topic: "The UM gap, the reductions that don't apply, and closing at limits",
         visual: "Three rungs build left to right: BI $10,000 (navy, ticked TENDERED 08/12), HOST UM $20,000 (navy-soft), RELATIVE UM $10,000 (orange), with a running-total pill above each ($10,000 → $30,000 → $40,000) ending in a large Fraunces $40,000 GROSS. Under the Host UM rung sit three struck-through red chips, the reductions that do not apply here (BI OFFSET · PIP NON-DUPLICATION · PIP LIEN), tied by one mono pill: HARBOR POINT LETTER 03/02/2026. A grey chip, PIP IS ADD-ON: NO SET-OFF, sits apart. Bottom strip: a cream card, CONFIRM SCOPE · RELEASE · LIENS · PAYEE · CHECK DATE → CONFIRMING EMAIL. The argument: the gross is protected by documents checked before the negotiation.",
@@ -5802,7 +5990,7 @@ window.CM_CASE_FLOW = {
       {
         kind: "activity", id: "d3m2-a2",
         title: "Closing the $40,000 Gross Recovery",
-        topic: "Skill Activity 2 — work both UM layers to limits, on the record",
+        topic: "Skill Activity 4 — work both UM layers to limits, on the record",
         visual: "A Negotiation Log fills the slide: two carrier swimlanes on a shared date axis from 09/14 to 10/06/2026, HARBOR POINT · HOST UM · HP-26-7741 · MARCUS BELL above and CARDINAL STATE · RELATIVE UM · CS-26-20355 · TERESA OKAFOR below. Offers sit as grey chips, the 09/16 counter-package as an orange chip, limits tenders as navy chips with a green tick, each tender badged CLIENT DECISION · VIA ATTY. THORNE. A red-bordered note under the Harbor Point lane quotes “BI already compensated him” beside the 03/02/2026 letter that answers it. At the right edge a running total climbs $10,000 → $30,000 → $40,000.00 in Fraunces.",
         act: {
           scenario: "File date 09/14/2026. Keystone's $10,000 is in trust (received 09/04). The Host UM ($20,000) and Relative UM ($10,000) demands went out 08/31. Today Marcus Bell offers $8,000 for Harbor Point, citing the gap and “BI already compensated him.” Ahead: counter-package 09/16; Harbor Point pays its $20,000 limits 09/29; Cardinal State (Teresa Okafor) offers $6,000 on 10/01 and tenders its $10,000 limits 10/06.",
@@ -6055,7 +6243,7 @@ window.CM_CASE_FLOW = {
             "That work was real: the carriers used the 14-Day Gap to call the injury unrelated; the MRI and Dr. Reyes's Causation Letter answered it. Peach State did none of it.",
             "Made whole: in many jurisdictions a subrogated insurer takes nothing until the client is fully compensated. John Doe's recovery was capped by coverage; whether he was made whole is Atty. Thorne's analysis.",
             "Comparative fault: if the recovery was cut for the client's fault, the lien takes the same cut (20% at fault, 20% off). On Track A no layer took a fault reduction.",
-            "Quantum meruit: a client may fire a lawyer at any time; the lawyer is then generally owed the reasonable value of the work done, not the contingency fee. Get the time records; strip clerical hours. No prior attorney here: verify and record it."
+            "Quantum meruit: a client may fire a lawyer at any time; the lawyer is then generally owed the reasonable value of the work done, not the contingency fee. Get the time records; strip clerical hours. Never assume none: John Doe knows of no other lawyer at the 10/06 inventory, yet an outside firm asserts a charging lien on 10/14/2026, worked at closing."
           ],
           upl: [
             "You classify, gather the plan documents, audit and draft the request with its math. The doctrine, the governing law and any figure offered or accepted are Atty. Thorne's: no lien is compromised without his express authority.",
@@ -6071,7 +6259,7 @@ window.CM_CASE_FLOW = {
             ["Peach State Health Plan", "Contract, fully insured · moderate", "$1,860.00 asserted"],
             ["Medicare · Medicaid", "Statute · low, formula-bound", "Medicare: none (Day 2 SSDI/BCRC check); Medicaid: none (verify, record)"],
             ["Hospital · workers' comp", "Statute", "None asserted: verify, record"],
-            ["Prior attorney", "Quantum meruit", "None: verify with John Doe"],
+            ["Prior attorney", "Quantum meruit", "None known to John Doe at 10/06; Vance & Kettering asserts one 10/14 (worked at closing)"],
             ["Harbor Point PIP", "Not a lien", "No reimbursement right"]
           ]
         },
@@ -6079,7 +6267,7 @@ window.CM_CASE_FLOW = {
           ["Gross recovery reaches $40,000.00 (10/06/2026)", "Run the final inventory, re-verifying the Day 2 lien register, asserted and absent, and classify each as statutory or contractual", "CMS → Financial Ledger → Net Sheet → Lien Tracker", "Two liens open; Medicare, Medicaid, hospital, workers' comp, prior attorney and PIP each recorded “none” with a source"],
           ["Health Plan lien classified", "Obtain the plan documents and route the funding status to Atty. Thorne", "CMS → Tasks → Escalate", "Fully insured status on file; the governing-law call recorded as his"],
           ["Atty. Thorne chooses the reduction basis", "Draft the request naming the doctrine, with the math", "CMS → Documents → Outgoing", "Doctrine named; $1,860.00 – $620.00 = $1,240.00 shown; held for his approval"],
-          ["Prior-attorney question open", "Ask John Doe and check the intake record; record the answer", "CMS → Case Notes", "“No prior attorney — verified” logged with its date"]
+          ["Prior-attorney question open", "Ask John Doe and check the intake record; record the answer", "CMS → Case Notes", "“No other lawyer known to John Doe” logged with its date and source"]
         ],
         best: [
           "Work the most negotiable lien first to build momentum, but resolve every one in writing before disbursement.",
@@ -6106,7 +6294,7 @@ window.CM_CASE_FLOW = {
           "Open with the inventory, not the negotiation: “How many liens are on John Doe's $40,000?” Most trainees say two. The right answer is two asserted and five checked, each recorded with its source.",
           "Ask the room: “Peach State paid $1,860.00 on a $3,400.00 injection. Who can come after John Doe for the other $1,540.00?” Nobody: Crescent Pain & Spine took the contract rate and cannot balance-bill.",
           "Watch for trainees arguing made whole or comparative fault on their own. Naming the doctrines is the Case Manager's job; choosing one is Atty. Thorne's. The same goes for “he was riding to work in Kevin Alvarez's carpool, so is it workers' comp?”: that is a coverage question for him; the Case Manager records that no claim was filed and no lien asserted.",
-          "Quantum meruit is taught, not triggered, on this file. Make them say why it still gets a line in the Lien Tracker: a prior attorney found after disbursement is found too late."
+          "Quantum meruit gets a line even when the client knows of no other lawyer. On 10/14/2026 Vance & Kettering asserts a charging lien on John Doe's recovery; it is caught before disbursement because the Lien Tracker already has a row for it. A prior attorney found after disbursement is found too late."
         ]
       },
 
@@ -6130,7 +6318,7 @@ window.CM_CASE_FLOW = {
             "Made whole flagged for Atty. Thorne; comparative fault recorded as not applicable (no fault reduction on Track A)",
             "Request held in Documents → Outgoing until Atty. Thorne's written approval is logged",
             "Medicare recorded as none, citing the Day 2 check (34, not on SSDI), so no MSPRP final demand to reconcile; Medicaid recorded as none, verified separately with John Doe (the BCRC answers for Medicare only)",
-            "Hospital, workers' comp and prior attorney each “none — verified” with date and source; PIP recorded as not a lien: Harbor Point asserted no reimbursement right against John Doe (03/02/2026); whether it reserves PIP subrogation against Robert Smith asked in writing and routed to Atty. Thorne, no outcome recorded",
+            "Hospital and workers' comp each “none — verified” with date and source; prior attorney “none known to John Doe” with date and source; PIP recorded as not a lien: Harbor Point asserted no reimbursement right against John Doe (03/02/2026); whether it reserves PIP subrogation against Robert Smith asked in writing and routed to Atty. Thorne, no outcome recorded",
             "PIP-paid providers (Riverton Urgent Care, Lakeside Orthopedics, Summit Imaging) at a zero balance; Summit's 03/11/2026 LOP request was declined, so it holds no lien",
             "Acceptance logged 10/09/2026 at $1,240.00 only with Peach State's written confirmation and Atty. Thorne's approval attached"
           ]
@@ -6142,7 +6330,7 @@ window.CM_CASE_FLOW = {
             ["Match", "Plan ledger to the treatment record: one charge, 05/15/2026, $1,860.00 paid."],
             ["Classify", "Contractual reimbursement; fully insured plan; governing law to Atty. Thorne."],
             ["Calculate", "$1,860.00 × ⅓ = $620.00 → $1,240.00."],
-            ["Clear", "Medicare, Medicaid, hospital, workers' comp, prior attorney, PIP: none, each sourced."],
+            ["Clear", "Medicare, Medicaid, hospital, workers' comp, PIP: none; prior attorney: none known. Each sourced."],
             ["Hold, then confirm", "Sent on his approval; final on the plan's written acceptance."]
           ]
         },
@@ -6434,7 +6622,13 @@ window.CM_CASE_FLOW = {
          a: 2, r: "$0.00 starts the close; it does not finish it. The file is archived only when an outsider could trace every dollar from it: confirmation numbers and the three-way zero-balance proof, the lien satisfactions and John Doe's signed receipt, his payer disclosure and a current W-9, and the closing memo of 10/30/2026."},
         {q: "After the closing letter, a statement arrives asking John Doe for a balance on his accident treatment. He calls, upset. What does the Case Manager do?",
          opts: ["Tells him the file is closed, so it is not the firm's problem", "Tells him he owes it and should pay it to protect his credit", "Verifies the bill against the ledger, EOBs and Payoff Letters, routes it to Atty. Thorne the same day, and tells John Doe what is being done and when he will hear back", "Pays it from the trust account to keep him satisfied"],
-         a: 2, r: "Verify, classify (a lien we missed, or a bill nobody owes), route the same day, and keep John Doe informed. The release's indemnity clause makes a missed lien serious, but whether he owes the bill, and who answers for it, is Atty. Thorne's call; the trust account is at $0.00 and holds nothing to pay it from."}
+         a: 2, r: "Verify, classify (a lien we missed, or a bill nobody owes), route the same day, and keep John Doe informed. The release's indemnity clause makes a missed lien serious, but whether he owes the bill, and who answers for it, is Atty. Thorne's call; the trust account is at $0.00 and holds nothing to pay it from."},
+        {q: "On 10/14/2026 Vance & Kettering claims a charging lien and asks the case manager to confirm a fee split by 10/16. What does the Case Manager do?",
+         opts: ["Confirm a smaller split to keep the 10/22 disbursement on time", "Log the notice, route it to Atty. Thorne the same day, send nothing to the firm, and hold the disputed amount on his instruction", "Email Vance & Kettering that the lien is invalid", "Ignore it, because John Doe never hired them"],
+         a: 1, r: "Validity, any response and any fee division are Atty. Thorne's. The Case Manager logs, routes, holds what he says to hold ($6,666.67), and builds the factual record."},
+        {q: "Which finding belongs in the Case Manager's evidentiary packet on the asserted lien?",
+         opts: ["“The lien is void and unenforceable.”", "“The 07/27/2026 agreement is signed only by Margaret Doe; John Doe's line is blank, and the firm's record shows 0.6 hours with her.”", "“Mr. Vance is entitled to quantum meruit for 0.6 hours.”", "“John Doe should sue his mother's lawyer.”"],
+         a: 1, r: "The packet states facts tied to documents: the signer, the dates against the 02/09/2026 engagement, the work actually done. What those facts mean, quantum meruit included, is Atty. Thorne's call."}
       ],
       blocks: [
 
@@ -6783,21 +6977,74 @@ window.CM_CASE_FLOW = {
        },
 
       {
-        kind: "activity", id: "d3m4-a2",
-        title: "Release Audit & Disbursement Command Triggering",
-        topic: "Skill Activity 2 — catch the line that costs $30,000, then move the money",
-        visual: "Two panels joined by a dated orange arrow, 08/14 → 10/21. Left: Keystone's draft release as a white document page, one clause highlighted in red with a leader line to a margin flag: “all other persons, firms, corporations and insurers” → RELEASES $30,000 OF UM. Three orange-badged margin checks below it: ① parties ② claims (PD stays open) ③ indemnity → Lien Tracker. Right: the CMS Trust screen as a navy-header table of five disbursement commands, payee and mono amount on each, each with an empty ATTY. THORNE · APPROVE chip, and a running-balance column ending in a green $0.00. The argument: the audit on the left is what makes the commands on the right safe.",
+        kind: "activity", id: "d3m4-pal",
+        transition: "Six days before disbursement, an outside firm claims part of the fee. We investigate the facts, hold the disputed money, and put the file in Atty. Thorne's hands.",
+        title: "Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold",
+        topic: "Skill Activity 2 — the lien you didn't see coming, worked as evidence",
+        visual: "Centre: Vance & Kettering's notice as a cream letter with a red stamp, CHARGING LIEN · $6,666.67, and beneath it their fee agreement with two signature lines: MARGARET DOE (signed) and JOHN DOE (blank, circled in orange). Left: a vertical timeline in mono pills, 02/09 LSH RETAINED · 07/20 DEMAND SERVED · 07/27 MARGARET SIGNS · 10/14 NOTICE ARRIVES. Right: three evidence cards with orange badges: ① SIGNATURE COMPARISON (RS05 · RS06) ② TIME RECORD 0.6 H ③ NO CARRIER NOTICE. Bottom: a navy CMS strip, TRUST HOLD $6,666.67 · ACTION PLAN UPDATED · DRIVE ARCHIVED, and an arrow to ATTY. THORNE · DECIDES. A red chip by the letter: NO REPLY FROM THE CM. The argument: the Case Manager builds the record; the attorney answers the lawyer.",
         act: {
-          scenario: "Two file dates. 08/14/2026: Keystone's draft release has arrived, two days after its $10,000 tender; the consents requested from Harbor Point and Cardinal State on 08/13 are still pending. 10/21/2026: all three checks ($40,000.00) had cleared in the IOLTA trust account by 10/20 (the last, Cardinal State's, deposited 10/13); John Doe signed the Settlement Statement this morning; the Peach State and Riverton Spine & Rehab Payoff Letters are in Documents; disbursement is set for 10/22.",
-          prompt: "Part 1 (08/14): audit Keystone's draft line by line in the release audit log: parties released, claims released, indemnity and hold-harmless, non-admission. Flag every line that reaches past Robert Smith, Keystone or the BI claim, state what it would cost John Doe, and route a redline memo to Atty. Thorne. Part 2 (10/21): confirm every condition precedent, then queue one disbursement command per Net Sheet line in the Trust Ledger for Atty. Thorne's approval, each matching its Net Sheet line, and show the ledger reaching $0.00.",
-          tool: "CMS → Documents → Release audit · CMS → Financial Ledger → Trust",
-          output: "A redline memo routed to Atty. Thorne before John Doe sees Keystone's draft, and five approval-ready disbursement commands that take the Trust Ledger from $40,000.00 to $0.00.",
+          scenario: "File date 10/14/2026 (Wed). $40,000.00 is in trust; both liens are reduced in writing and disbursement is set for 10/22. Vance & Kettering Injury Law emails a notice of attorney's charging lien: retained 07/27/2026, it demands one-half of the fee, $6,666.67, asks the firm to hold the whole settlement, and wants the case manager to confirm the split by 10/16.",
+          prompt: "Log the notice on receipt and route it to Atty. Thorne the same day; send nothing to Vance & Kettering. On his instruction, place a temporary administrative hold on the disputed $6,666.67 in the CMS and update the Action Plan. Then investigate the facts in the audit workbench: retrieve the fee agreement, compare its signatures with John Doe's, cross-reference its date against the firm's engagement milestones, and audit what work the firm claims against the record. Call John Doe in the Call Simulator to ask, without opinion, whether he ever retained the firm. Deliver an objective evidentiary packet to Atty. Thorne and archive every piece of correspondence in the CMS and Drive.",
+          tool: "Call Simulator → AI Client: John Doe · CMS → Communications Log · CMS → Financial Ledger → Trust · Action Plan Editor · CMS → Tasks → Escalate",
+          output: "A logged and routed notice, a $6,666.67 hold, an evidentiary packet on Atty. Thorne's desk, and the correspondence archived in the CMS and Drive.",
           checkpoints: [
-            "The “all other persons, firms, corporations and insurers” line quoted and flagged: it would release Harbor Point ($20,000) and Cardinal State ($10,000), $30,000 of the $40,000 stack",
-            "Claims released checked: bodily injury only, so the open property-damage claim with Keystone PD (adjuster Leah Moran) survives; any wording that reaches it flagged",
-            "Indemnity and hold-harmless clause tied to the Lien Tracker: Peach State and Riverton Spine & Rehab both registered, so John Doe's promise can be kept",
-            "Memo routed to Atty. Thorne on 08/14; no wording discussed with Dana Whitfield; draft not sent to John Doe; signature chase held until both UM consents are in",
-            "Conditions precedent confirmed for 10/22: Limited Release signed 08/28; both UM releases filed as approved, Harbor Point's checked for any line reaching Cardinal State before John Doe signed; all funds cleared by 10/20; statement signed 10/21; Payoff Letters in hand; no cooling-off period configured for this training file (confirm the governing rule)",
+            "Notice logged 10/14/2026 on receipt and routed to Atty. Thorne the same day; nothing sent to Vance & Kettering",
+            "Hold of $6,666.67 placed in the CMS on Atty. Thorne's instruction; the Action Plan shows the 10/22 disbursement depends on it",
+            "Signatures compared: the 07/27/2026 agreement is signed only by Margaret Doe; John Doe's 02/09/2026 fee agreement and HIPAA authorization are the exemplars",
+            "Timeline cross-referenced: LSH engaged 02/09/2026 and served the demand 07/20/2026, before the 07/27 agreement; no discharge or substitution on file",
+            "Work-product audit: the firm's own record shows 0.6 hours with Margaret Doe; no letter of representation, records, filing or carrier notice",
+            "John Doe's account recorded in his words from the 10/15/2026 call, with no view on the lien given to him",
+            "The packet states facts only: unauthorized retention, no client signature, zero work; validity, quantum meruit and any response flagged for Atty. Thorne",
+            "No fee division confirmed, negotiated or discussed with Vance & Kettering",
+            "Correspondence archived in CMS → Doc Hub and kept on the Backup Drive; the 10/19/2026 withdrawal and the hold's release logged when they come"
+          ]
+        },
+        ops: [
+          ["A notice of charging lien arrives (10/14/2026)", "Log it on receipt; route to Atty. Thorne; on his instruction, hold the disputed amount", "CMS → Communications Log · CMS → Tasks → Escalate · CMS → Financial Ledger → Trust", "Routed the same day; $6,666.67 on hold; nothing sent to the claiming firm"],
+          ["Investigation (10/15/2026)", "Compare signatures, cross-reference dates, audit the work, take John Doe's account", "CMS → Documents · Call Simulator → AI Client: John Doe", "Each finding tied to a document on the file"],
+          ["Packet delivered", "Deliver the evidentiary packet; update the Action Plan; archive everything", "CMS → Tasks → Escalate · Action Plan Editor · CMS → Documents", "Atty. Thorne repudiates 10/16; withdrawal 10/19; hold released by him"]
+        ],
+        best: [
+          "Write the packet so Atty. Thorne could send it unedited: dates, documents, quotations, no adjectives.",
+          "Hold only what Atty. Thorne tells you to hold; the rest of the file keeps moving.",
+          "Pitfall: replying to the claiming lawyer, even to say the claim is baseless.",
+          "Pitfall: telling John Doe his mother's agreement “doesn't count.”"
+        ],
+        sources: ["D3#20", "D2#38", "D3#29", "Newly authored: the prior-attorney charging lien worked as a factual investigation (signature comparison, engagement timeline, work-product audit, client statement), a temporary administrative hold on the disputed amount, and escalation to the attorney"],
+        rubric: {
+          ai: [
+            ["Investigation findings", 25, "Margaret Doe's signature only; dates after the 02/09 engagement and the 07/20 demand; 0.6 hours; no carrier notice"],
+            ["Hold and records", 15, "$6,666.67 held on instruction; Action Plan updated; correspondence in the CMS and Drive"],
+            ["Packet objectivity", 20, "Facts only, each sourced; legal questions listed for Atty. Thorne"]
+          ],
+          trainer: [
+            ["Client call", 15, "Neutral questions; John Doe's account recorded in his words; no opinion on the lien"],
+            ["UPL boundary", 25, "No contact or negotiation with the claiming firm; no validity call; every decision Atty. Thorne's"]
+          ]
+        },
+        notes: [
+          "Open on the notice and ask: “Who answers Mr. Vance?” Atty. Thorne. The Case Manager logs it, holds the money he says to hold, and builds the record.",
+          "The signature comparison is the moment. Put the 07/27 agreement beside the 02/09 retainer: one signer is Margaret Doe, the other John Doe. Let the room say what it shows, then stop them before they say what it means.",
+          "Quantum meruit is taught on Day 3's lien lesson. Here the question is whether there was ever an engagement to value. That is Atty. Thorne's call; the trainee's job is to make the call easy.",
+          "Run the John Doe call live. He will be embarrassed when it turns out to be his mother. A good Case Manager stays neutral and kind, and never says the agreement is void."
+        ]
+      },
+
+      {
+        kind: "activity", id: "d3m4-a2",
+        title: "Disbursement Command Triggering: Releases, Hold Cleared, Money Out",
+        topic: "Skill Activity 3 — confirm every gate, then move the money to $0.00",
+        visual: "Two panels joined by an orange arrow dated 10/21 → 10/22. Left: a navy-header checklist card, CONDITIONS PRECEDENT, with green ticks: LIMITED RELEASE EXECUTED 08/28 · UM RELEASES FILED · FUNDS CLEARED 10/20 · STATEMENT SIGNED 10/21 · PAYOFF LETTERS · LIEN HOLD RELEASED 10/19 (a struck-through red chip beneath it reads VANCE & KETTERING $6,666.67 — WITHDRAWN). Right: the CMS Trust screen as a table of five disbursement commands, payee and mono amount on each, each with an empty ATTY. THORNE · APPROVE chip, and a running-balance column ending in a green $0.00. The argument: the checklist on the left is what makes the commands on the right safe.",
+        act: {
+          scenario: "File date 10/21/2026. All three checks ($40,000.00) had cleared in the IOLTA trust account by 10/20 (the last, Cardinal State's, deposited 10/13); John Doe signed the Settlement Statement this morning; the Peach State and Riverton Spine & Rehab Payoff Letters are in Documents; Vance & Kettering withdrew its lien in writing on 10/19 and Atty. Thorne released the hold; disbursement is set for 10/22.",
+          prompt: "Confirm every condition precedent against the documents: Keystone's executed Limited Release and both UM releases, cleared funds, the signed statement, the Payoff Letters, and the prior-attorney lien withdrawn with the hold released by Atty. Thorne. Then queue one disbursement command per Net Sheet line in the Trust Ledger for Atty. Thorne's approval, each matching its line, and show the ledger reaching $0.00.",
+          tool: "CMS → Documents · CMS → Financial Ledger → Trust",
+          output: "A confirmed checklist of conditions precedent and five approval-ready disbursement commands that take the Trust Ledger from $40,000.00 to $0.00.",
+          checkpoints: [
+            "Keystone's Limited Release executed 08/28/2026 on file (Smith and Keystone only, the UM claims and the Civic's claim reserved), with both UM consents and waivers",
+            "Both UM releases filed as approved; Harbor Point's checked for any line reaching Cardinal State before John Doe signed it",
+            "All funds cleared by 10/20; statement signed 10/21; Payoff Letters in hand; no cooling-off period configured for this training file (confirm the governing rule)",
+            "Vance & Kettering's written withdrawal (10/19/2026) on file and the $6,666.67 hold released by Atty. Thorne, not by the CM",
             "Five commands matching the Net Sheet: to the firm, fee $13,333.33 and costs reimbursed $486.75; Peach State Health Plan $1,240.00; Riverton Spine & Rehab $4,580.00; John Doe $20,359.92",
             "Ledger arithmetic shown: $40,000.00 – $13,333.33 – $486.75 – $1,240.00 – $4,580.00 – $20,359.92 = $0.00",
             "Each command's packet complete: payee identity, Payoff Letter or receipts with date, description and tax ID, a current W-9, payment details verified by phone to a number on file, and John Doe's signed Settlement Statement as his payment authorization",
@@ -6807,36 +7054,35 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Keystone's draft release received (08/14/2026)", "Audit it and route the redline memo", "CMS → Documents → Release audit · CMS → Tasks → Escalate", "Memo routed the same day; the over-broad line quoted exactly"],
-          ["Funds cleared (10/20) and statement signed (10/21)", "Queue five disbursement commands with their packets", "CMS → Financial Ledger → Trust", "Commands total $40,000.00; ledger projects to $0.00"],
+          ["Funds cleared (10/20) and statement signed (10/21)", "Confirm every condition precedent, the lien hold's release included", "CMS → Documents · CMS → Financial Ledger → Trust", "Each condition tied to its document; nothing assumed"],
+          ["Conditions confirmed", "Queue five disbursement commands with their packets", "CMS → Financial Ledger → Trust", "Commands total $40,000.00; ledger projects to $0.00"],
           ["Atty. Thorne approves and signs (10/22/2026)", "Post each disbursement; request lien satisfactions and John Doe's receipt", "CMS → Financial Ledger → Trust · Email Workspace", "Ledger reads $0.00; file marked Paid only once receipt is confirmed"]
         ],
         best: [
-          "Quote the over-broad words exactly in the memo; a paraphrase hides the problem.",
-          "Under an ultimatum (“sign within the hour or the tender goes”): stop, document and escalate. The deadline is Atty. Thorne's to answer, never a reason to let John Doe sign an unaudited release.",
+          "Tick each condition against its document, not against memory.",
+          "A hold is lifted by the attorney who placed it, in writing, before a command is queued.",
           "Collect lien satisfactions with the payment, not weeks later.",
-          "Pitfall: sending the draft to John Doe “to save time” before the audit.",
-          "Pitfall: queuing a command before the funds clear because the check “is good”."
+          "Pitfall: queuing a command before the funds clear because the check “is good”.",
+          "Pitfall: paying out while a disputed amount is still on hold."
         ],
         sources: ["D2#33", "D2#35", "D2#38", "D2#41", "D3#26", "D3#29", "D3#30", "D3#31", "D3#32", "D3#34"],
         rubric: {
           ai: [
-            ["Release flags", 20, "Catch-all line quoted; Harbor Point's release limited to Harbor Point; $30,000 UM consequence stated; property-damage claim protected; indemnity tied to liens"],
-            ["Conditions precedent", 10, "Release, consents, cleared funds, signed statement and Payoff Letters all confirmed before 10/22"],
+            ["Conditions precedent", 20, "Executed releases, consents, cleared funds, signed statement, Payoff Letters and the lien withdrawal all confirmed before 10/22"],
             ["Disbursement accuracy", 20, "Five commands at the Net Sheet amounts; ledger shown reaching $0.00"],
-            ["Packet completeness", 10, "Identity, Payoff Letter or receipts with tax ID, W-9, verified payment details, satisfaction and receipt requests"]
+            ["Packet completeness", 20, "Identity, Payoff Letter or receipts with tax ID, W-9, verified payment details, satisfaction and receipt requests"]
           ],
           trainer: [
-            ["Escalation judgment", 15, "Routes the release problem to Atty. Thorne at once and holds signing until consents are in"],
-            ["Memo quality", 10, "A redline Atty. Thorne could act on cold: exact words, consequence, proposed fix"],
-            ["UPL and authority boundary", 15, "No wording agreed with the adjuster; no clause explained to John Doe; no check released by the CM"]
+            ["Gate judgment", 15, "Treats cleared funds, the signed statement and the released hold as hard gates, not formalities"],
+            ["Fraud and duplicate controls", 10, "Payment details verified by phone; references cross-checked"],
+            ["UPL and authority boundary", 15, "No hold lifted, check released or term changed by the CM"]
           ]
         },
         notes: [
-          "Open on the draft: read the “all other persons, firms, corporations and insurers” line aloud and ask who those insurers are on this file. Let the room find Harbor Point and Cardinal State.",
-          "Ask: “Keystone wants the signed release back today. Who answers that?” Atty. Thorne. The CM documents, escalates and never lets John Doe sign an unaudited draft.",
-          "In Part 2, grade the arithmetic first: five commands must total $40,000.00 and leave $0.00. Then the conditions precedent: a command queued before 10/20 fails the block, however accurate its amount.",
-          "Legal nuance: whether a clause is acceptable (the indemnity, a Medicare representation, a confidentiality term) is counsel's judgment. The CM's skill is noticing it and quoting it exactly."
+          "Open on the checklist and ask what would stop the money on 10/22. Make the room name every gate, the 10/19 lien withdrawal included.",
+          "Ask: “Vance & Kettering withdrew on 10/19. Who lifts the hold?” Atty. Thorne, in writing. The CM records it.",
+          "Grade the arithmetic: five commands must total $40,000.00 and leave $0.00. A command queued before 10/20, or while the hold stood, fails the block however accurate its amount.",
+          "The release audit itself happened on 08/14, in Settlement Negotiations; here the Case Manager confirms the executed release is the one Atty. Thorne approved."
         ]
       },
 
@@ -10675,6 +10921,13 @@ window.CM_CASE_FLOW = {
       "Done right, the sequence is audit, Atty. Thorne's approved written request, his target on the call, and a signed **Payoff Letter**. Here that produced $1,240.00 for Peach State and $4,580.00 for Riverton Spine & Rehab, $5,820.00 paid against $7,965.00 audited: $2,145.00 negotiated, plus the $185.00 duplicate removed before negotiation began. Done wrong, the costs are real. Pay from a statement instead of a payoff figure and a later balance can surface. Pay without a letter saying full and final, no balance billing, no collections, and John can be sent to collections after disbursement. Argue a false fund and you lose credibility with a provider you will face again.",
       "You audit, calculate and draft, and inside Atty. Thorne's written authority you make the ask. You never offer or accept a figure outside it, never promise a provider payment, and never tell John a bill is invalid. A counter outside the target goes back to Atty. Thorne, and a reduction is final only on his approval and a signed Payoff Letter. Update the ledger the day it is confirmed and show John the savings in his net. Ask the room: if Riverton's billing office offers 20% off the $6,290.00 bill “today only”, what is wrong with that offer before you even consider the percentage?"
     ],
+    "d3m2-umw": [
+      "Uninsured and underinsured motorist coverage pays when the at-fault driver's insurance runs out, and a carrier that pays its own insured generally steps into that insured's shoes against the driver who caused the loss. That right is called **subrogation**. It is why UM policies carry a consent clause: if the client releases the at-fault driver without the UM carrier's agreement, the carrier's right against him is gone, and the policy may let the carrier refuse to pay. The governing rule varies by state and by policy, so the rule itself is Atty. Thorne's to confirm; the record that protects the client is the Case Manager's to build.",
+      "On John Doe's file the stakes are concrete. Keystone tendered Robert Smith's $10,000 limit on 08/12/2026, but $30,000 of John's $40,000 sits behind it in two UM layers: Harbor Point's Host UM ($20,000, HP-26-7741) and Cardinal State's Relative UM ($10,000, CS-26-20355). Bluewater Auto is not one of them. It insures Margaret's parked Civic, and Margaret rejected UM in writing on 03/14/2024, so there is no UM layer there to consent or to waive. Asking the wrong carrier wastes a window the file does not have.",
+      "The request goes out the day after the tender, for Atty. Thorne's signature: the 30-Day Letter of 08/13/2026 to Marcus Bell and Teresa Okafor, enclosing Keystone's tender letter and Smith's affidavit of no other insurance, asking each carrier to consent in writing and waive subrogation against Smith, or to substitute its own check for Keystone's and keep its claim against him. Harbor Point answered on 08/24 and Cardinal State on 08/26: both consented, both waived subrogation against Smith, neither substituted, and both kept John's UM claims open.",
+      "The BI adjuster wants the same paper for her own reasons. Dana Whitfield's 08/14/2026 cover letter holds Keystone's check until each UM carrier's written consent and waiver arrives with the executed release, because a UM carrier that keeps its subrogation right can later sue Keystone's insured. So the waivers do two jobs at once: they let Keystone pay, and they let John sign without putting his UM claims at risk. That is why his signing session waited until 08/28/2026, after both were in writing and Atty. Thorne had approved the Limited Release.",
+      "Your lane is the record, not the meaning. You identify the layers from the Coverage Matrix, prepare the requests, docket the windows, chase the replies, match each consent's scope to the release, and file the waivers at the front of each UM package. You never tell John Doe or a carrier what the consent clause does to his claim, whether a substitution would help him, or whether he may sign. For the room: if Cardinal State had offered to substitute its own $10,000 check instead of consenting, who decides what happens next, and what would you put in front of him?"
+    ],
     "d3m3-l3": [
       "A lien reduction is won on paper before it is won on the phone. A billing office cannot agree to less without a reason it can show its own supervisor, so the written **Reduction Request** is what gives it that reason: the audited balance, what was recovered, what it cost to recover, who else holds a claim, and the share of procurement costs the lienholder is being asked to bear. The call that follows confirms and closes what the paper already argued. Then the **Payoff Letter** turns an agreement on the phone into a binding statement that the bill is satisfied.",
       "On John Doe's file the request starts from audited figures only: Riverton Spine & Rehab $6,105.00 and Peach State $1,860.00, $7,965.00 in all, never the $6,290.00 originally billed. It shows the $40,000.00 recovery, the $13,333.33 fee and $486.75 in costs, the other lien, and the common-fund share, and it goes out only with Atty. Thorne's written authority on file. Your calls go to the people the file names: Tammy Greer, Riverton's office manager who handles billing and the LOP, and Dion Carver, Peach State's recovery analyst. You make Atty. Thorne's ask and nothing outside it.",
@@ -10905,12 +11158,12 @@ window.CM_CASE_FLOW = {
        headings: {"d2m1-l1": "Claim Set Up", "d2m1-l2": "Claim Set Up", "d1m4-l2": "Claim Set Up: Case Strategy", "d2m1-cov": "Treatment: Who Pays the Bills", "d2m2-l1": "Treatment: Who Pays the Bills", "d2m2-eob": "Treatment: Who Pays the Bills", "d2m2-pip": "Treatment: Who Pays the Bills", "d2m2-lop": "Treatment: Who Pays the Bills", "d2m2-cost": "Treatment: Who Pays the Bills", "d1m1-l2": "Treatment: Liens & the Regulatory Triple-Check", "d2m2-sum": "Treatment: Coverage & Subrogation Summary", "d2m2-l2": "Treatment: Monitoring the Care", "d1m2-l1": "Treatment: Client Communications", "d1m2-l2": "Treatment: Client Communications", "d1m1-a1": "Skill Building: CMS Case File Setup", "d2m1-a1": "Skill Building: Draft, Transmit & Log the LORs", "d2m1-a2": "Skill Building: Receive Carrier Claim Correspondence", "d1m4-a1": "Skill Building: Case Strategy", "d1m4-a2": "Skill Building: Case Strategy", "d1m2-a1": "Skill Building: Client Communications", "d1m2-a2": "Skill Building: Client Communications", "d2m2-a1": "Skill Building: Treatment", "d1m1-a2": "Skill Building: Liens", "d2m2-a2": "Skill Building: Treatment", "d2m2-a3": "Skill Building: Treatment"}}
     ]},
     {n: 3, phases: [
-      {title: "Pre-Demand Audit, the Demand & Settlement Negotiation", lead: "Module 3", lanes: {"d2m3-l1": "care", "d2m3-l2": "care", "d2m3-cause": "care", "d2m3-a1": "care", "d2m3-a2": "care", "d2m3-kc": "care"}, blocks: ["d2m3-l1", "d2m3-l2", "d2m3-cause", "d2m4-l1", "d2m4-l2", "d3m1-l1", "d3m1-l2", "d3m1-pkg", "d3m2-l1", "d3m2-l2", "d2m3-a1", "d2m3-a2", "d2m4-wage", "d2m4-a1", "d2m4-a2", "d3m1-a1", "d3m1-a2", "d3m2-a1", "d3m2-bins", "d3m2-a2", "d3m2-umns", "d2m3-kc", "d2m4-kc", "d3m1-kc", "d3m2-kc"],
-       headings: {"d2m3-l1": "Pre-Demand: the Gap Explanation Record", "d2m3-l2": "Pre-Demand: the Gap Explanation Record", "d2m3-cause": "Pre-Demand: the Causation Letter", "d2m3-a1": "Skill Building: the Gap Explanation Record", "d2m3-a2": "Skill Building: the Gap Explanation Record", "d2m4-l1": "Pre-Demand Case Auditing", "d2m4-l2": "Pre-Demand Case Auditing", "d3m1-l1": "Demand", "d3m1-l2": "Demand", "d3m1-pkg": "Demand", "d2m4-wage": "Skill Building: Pre-Demand Case Auditing", "d2m4-a1": "Skill Building: Pre-Demand Case Auditing", "d2m4-a2": "Skill Building: Pre-Demand Case Auditing", "d3m1-a1": "Skill Building: Demand", "d3m1-a2": "Skill Building: Demand", "d3m2-l1": "Settlement Negotiations", "d3m2-l2": "Settlement Negotiations", "d3m2-a1": "Skill Building: Settlement Negotiations", "d3m2-bins": "Skill Building: Settlement Negotiations", "d3m2-a2": "Skill Building: Settlement Negotiations", "d3m2-umns": "Skill Building: Settlement Negotiations"}}
+      {title: "Pre-Demand Audit, the Demand & Settlement Negotiation", lead: "Module 3", lanes: {"d2m3-l1": "care", "d2m3-l2": "care", "d2m3-cause": "care", "d2m3-a1": "care", "d2m3-a2": "care", "d2m3-kc": "care"}, blocks: ["d2m3-l1", "d2m3-l2", "d2m3-cause", "d2m4-l1", "d2m4-l2", "d3m1-l1", "d3m1-l2", "d3m1-pkg", "d3m2-l1", "d3m2-umw", "d3m2-l2", "d2m3-a1", "d2m3-a2", "d2m4-wage", "d2m4-a1", "d2m4-a2", "d3m1-a1", "d3m1-a2", "d3m2-a1", "d3m2-rel", "d3m2-exec", "d3m2-bins", "d3m2-a2", "d3m2-umns", "d2m3-kc", "d2m4-kc", "d3m1-kc", "d3m2-kc"],
+       headings: {"d2m3-l1": "Pre-Demand: the Gap Explanation Record", "d2m3-l2": "Pre-Demand: the Gap Explanation Record", "d2m3-cause": "Pre-Demand: the Causation Letter", "d2m3-a1": "Skill Building: the Gap Explanation Record", "d2m3-a2": "Skill Building: the Gap Explanation Record", "d2m4-l1": "Pre-Demand Case Auditing", "d2m4-l2": "Pre-Demand Case Auditing", "d3m1-l1": "Demand", "d3m1-l2": "Demand", "d3m1-pkg": "Demand", "d2m4-wage": "Skill Building: Pre-Demand Case Auditing", "d2m4-a1": "Skill Building: Pre-Demand Case Auditing", "d2m4-a2": "Skill Building: Pre-Demand Case Auditing", "d3m1-a1": "Skill Building: Demand", "d3m1-a2": "Skill Building: Demand", "d3m2-l1": "Settlement Negotiations", "d3m2-umw": "Settlement Negotiations: the UM Consent & Waiver", "d3m2-l2": "Settlement Negotiations", "d3m2-rel": "Skill Building: the Settlement Release", "d3m2-exec": "Skill Building: the Settlement Release", "d3m2-a1": "Skill Building: Settlement Negotiations", "d3m2-bins": "Skill Building: Settlement Negotiations", "d3m2-a2": "Skill Building: Settlement Negotiations", "d3m2-umns": "Skill Building: Settlement Negotiations"}}
     ]},
     {n: 4, phases: [
-      {title: "Reductions, Lien Negotiation & ADR", lead: "Module 4", blocks: ["d3m3-l1", "d3m3-l2", "d3m3-l3", "d3m4-l1", "d3m4-l2", "d3m4-close", "d4m2-l1", "d4m2-um", "d4m2-l2", "d4m3-l1", "d4m3-l2", "d4m3-prior", "d3m3-a1", "d3m3-a2", "d3m4-a1", "d3m4-a2", "d4m2-a3", "d4m2-a1", "d4m2-medcal", "d4m2-a2", "d4m2-arbcal", "d4m3-a1", "d4m3-a2", "d3m3-kc", "d3m4-kc", "d4m2-kc", "d4m3-kc"],
-       headings: {"d3m3-l1": "Lien Negotiations & Reduction", "d3m3-l2": "Lien Negotiations & Reduction", "d3m4-l1": "Disbursement & Closing a Case", "d3m4-l2": "Disbursement & Closing a Case", "d3m4-close": "Disbursement & Closing a Case", "d4m2-l1": "ADR: UM Disputes, Mediation & Arbitration", "d4m2-um": "ADR: UM Disputes, Mediation & Arbitration", "d4m2-l2": "ADR: UM Disputes, Mediation & Arbitration", "d4m3-l1": "ADR: The Binders", "d4m3-l2": "ADR: The Binders", "d4m3-prior": "ADR: The Binders", "d3m3-a1": "Skill Building: Lien Negotiations", "d3m3-a2": "Skill Building: Lien Negotiations", "d3m4-a1": "Skill Building: Disbursement & Closing", "d3m4-a2": "Skill Building: Disbursement & Closing", "d4m2-a1": "Skill Building: ADR", "d4m2-medcal": "Skill Building: ADR", "d4m2-a2": "Skill Building: ADR", "d4m2-arbcal": "Skill Building: ADR", "d4m2-a3": "Skill Building: UM/UIM Coverage Disputes", "d4m3-a1": "Skill Building: ADR", "d4m3-a2": "Skill Building: ADR"}}
+      {title: "Reductions, Lien Negotiation & ADR", lead: "Module 4", blocks: ["d3m3-l1", "d3m3-l2", "d3m3-l3", "d3m4-l1", "d3m4-l2", "d3m4-close", "d4m2-l1", "d4m2-um", "d4m2-l2", "d4m3-l1", "d4m3-l2", "d4m3-prior", "d3m3-a1", "d3m3-a2", "d3m4-a1", "d3m4-pal", "d3m4-a2", "d4m2-a3", "d4m2-a1", "d4m2-medcal", "d4m2-a2", "d4m2-arbcal", "d4m3-a1", "d4m3-a2", "d3m3-kc", "d3m4-kc", "d4m2-kc", "d4m3-kc"],
+       headings: {"d3m3-l1": "Lien Negotiations & Reduction", "d3m3-l2": "Lien Negotiations & Reduction", "d3m4-l1": "Disbursement & Closing a Case", "d3m4-l2": "Disbursement & Closing a Case", "d3m4-close": "Disbursement & Closing a Case", "d4m2-l1": "ADR: UM Disputes, Mediation & Arbitration", "d4m2-um": "ADR: UM Disputes, Mediation & Arbitration", "d4m2-l2": "ADR: UM Disputes, Mediation & Arbitration", "d4m3-l1": "ADR: The Binders", "d4m3-l2": "ADR: The Binders", "d4m3-prior": "ADR: The Binders", "d3m3-a1": "Skill Building: Lien Negotiations", "d3m3-a2": "Skill Building: Lien Negotiations", "d3m4-pal": "Skill Building: the Prior-Attorney Lien", "d3m4-a1": "Skill Building: Disbursement & Closing", "d3m4-a2": "Skill Building: Disbursement & Closing", "d4m2-a1": "Skill Building: ADR", "d4m2-medcal": "Skill Building: ADR", "d4m2-a2": "Skill Building: ADR", "d4m2-arbcal": "Skill Building: ADR", "d4m2-a3": "Skill Building: UM/UIM Coverage Disputes", "d4m3-a1": "Skill Building: ADR", "d4m3-a2": "Skill Building: ADR"}}
     ]},
     {n: 5, phases: [
       {title: "Litigation & Dropped Cases", lead: "Module 5", blocks: ["d4m1-l1", "d4m1-l2", "d4m4-l1", "d4m4-l2", "d5m1-l1", "d5m1-l2", "d5m1-subp", "d5m2-l1", "d5m2-l2", "d5m3-l1", "d5m3-l2", "d5m4-l1", "d5m4-l2", "d5m5-l1", "d5m6-l1", "d4m1-a1", "d4m1-a2", "d4m1-efile", "d4m4-a1", "d4m4-a2", "d5m1-a1", "d5m1-a2", "d5m2-a1", "d5m2-a2", "d5m3-a1", "d5m3-a2", "d5m4-a1", "d5m4-a2", "d5m5-a1", "d5m6-a1", "d4m1-kc", "d4m4-kc", "d5m1-kc", "d5m2-kc", "d5m3-kc", "d5m4-kc", "d5m5-kc", "d5m6-kc"],

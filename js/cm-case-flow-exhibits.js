@@ -623,6 +623,418 @@ window.CM_CF_EXHIBITS = {
     "Receipt acknowledged in writing 07/22/2026, so the acceptance window closes 08/21/2026, docketed with reminders."
    ]
   },
+  "d3m2-rel": {
+   "title": "Release Clause Audit — Keystone's draft release",
+   "kicker": "Call every clause before John Doe sees a word of it.",
+   "source": "RS37",
+   "reveal": "RS80",
+   "due": "08/14/2026",
+   "intro": "Keystone tendered its $10,000 limits on 08/12/2026 and sent its own release form today, with a cover letter holding the check until both UM carriers consent and waive subrogation. Measure every clause against the demand's terms and the claims still open on this file, propose the fix, and leave every decision to Atty. Thorne.",
+   "columns": {
+    "ref": "Clause",
+    "as": "As Keystone drafted it"
+   },
+   "items": [
+    {
+     "ref": "Cover",
+     "what": "Keystone's payment condition: each UM carrier's consent and subrogation waiver",
+     "as": "No check issues until Harbor Point's and Cardinal State's written consents and waivers arrive with the executed release and the W-9.",
+     "verdict": "keep",
+     "kind": "gap",
+     "issue": "A fair condition: a UM carrier that keeps its subrogation right could later pursue Robert Smith. It also matches what John Doe needs before signing, so the two tasks run together.",
+     "fix": "Log it as a payment condition, tie the signing task to both consents (requested 08/13/2026), and send the waivers with the executed release.",
+     "proof": [
+      "RS37",
+      "RS36"
+     ]
+    },
+    {
+     "ref": "Caption",
+     "what": "Claimant, insured, policy and date of accident",
+     "as": "John Doe; Robert Smith; policy KMI-PA-7731045; claim KM-26-440871; accident 02/06/2026 at Maple Hollow Road and Birch Avenue.",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Every identifier matches Keystone's Declaration Page and the tender letter, so the release attaches to the right claim and nothing has to be reissued for a typo.",
+     "fix": "Confirm each number against the Declaration Page and the tender letter before the release is routed.",
+     "proof": [
+      "RS36",
+      "RS32"
+     ]
+    },
+    {
+     "ref": "Recital",
+     "what": "Consideration: $10,000.00",
+     "as": "Ten thousand and 00/100 dollars ($10,000.00), the sole consideration.",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "The figure is Keystone's full BI limit as tendered on 08/12/2026 and as the demand asked; a release for less would be a different settlement.",
+     "fix": "Confirm the amount against the tender letter; any change is Atty. Thorne's.",
+     "proof": [
+      "RS36",
+      "RS67"
+     ]
+    },
+    {
+     "ref": "Recital",
+     "what": "Parties released: Robert Smith and Keystone Mutual",
+     "as": "Robert Smith and Keystone Mutual Insurance, and their agents, employees, heirs, successors and assigns.",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "These are the parties the demand offered to release, and the parties both UM carriers consented to John Doe releasing.",
+     "fix": "Keep the named parties exactly as written; confirm against the demand's Limited Release term.",
+     "proof": [
+      "RS67",
+      "RS37"
+     ]
+    },
+    {
+     "ref": "Recital",
+     "what": "Catch-all discharge of every other person and insurer",
+     "as": "“and all other persons, firms, corporations and insurers, whether herein named or not”.",
+     "verdict": "replace",
+     "kind": "loophole",
+     "issue": "Harbor Point and Cardinal State are insurers. Signed as drafted, the release would discharge both UM claims: $30,000 of John Doe's $40,000 stack, gone for a $10,000 check.",
+     "fix": "Propose: Robert Smith and Keystone only, “and no other person, firm, corporation or insurer”. Quote the words exactly in the review to Atty. Thorne.",
+     "proof": [
+      "RS37",
+      "RS28",
+      "RS29"
+     ]
+    },
+    {
+     "ref": "Recital",
+     "what": "Claims released: bodily injury, Property Damage and Loss of Use",
+     "as": "“including all claims for bodily injury, Property Damage and Loss of Use”.",
+     "verdict": "replace",
+     "kind": "loophole",
+     "issue": "The Civic's Property Damage and loss-of-use claim is Margaret Doe's, open with Leah Moran on KM-26-440871-PD. John Doe cannot release it, and Keystone PD would cite the wording against it.",
+     "fix": "Propose: the bodily injury claim only, with the Civic's claim expressly reserved. Route to Atty. Thorne.",
+     "proof": [
+      "RS32",
+      "RS37"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "Reservation of the UM/UIM claims",
+     "as": "Nothing in the release preserves John Doe's claims against Harbor Point or Cardinal State.",
+     "verdict": "add",
+     "kind": "gap",
+     "issue": "Even with the catch-all struck, a silent release invites Harbor Point or Cardinal State to argue the UM claims were compromised. The protection should sit on the face of the document.",
+     "fix": "Propose a clause reserving the UM/UIM claims by carrier, policy and claim number: HP-26-7741 and CS-26-20355. Atty. Thorne approves the wording.",
+     "proof": [
+      "RS28",
+      "RS29"
+     ]
+    },
+    {
+     "ref": "§1",
+     "what": "No admission of liability",
+     "as": "The payment compromises a disputed claim and is not an admission of liability by the released parties.",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Standard: Keystone pays to end the claim, not to admit fault. It costs John Doe nothing and is in every release of this kind.",
+     "fix": "Keep as drafted.",
+     "proof": [
+      "RS37"
+     ]
+    },
+    {
+     "ref": "§2",
+     "what": "Unknown injuries",
+     "as": "Injuries may be permanent and progressive; the releasor relies on his own judgment of their nature and extent.",
+     "verdict": "flag",
+     "kind": "gap",
+     "issue": "Dr. Reyes noted possible repeat injections ($3,400–$6,800). Whether this clause stands, and how it is explained to John Doe, is legal advice.",
+     "fix": "Flag it for Atty. Thorne with the future-care note attached; he decides and goes through it with John Doe before signing.",
+     "proof": [
+      "RS37",
+      "RS67"
+     ]
+    },
+    {
+     "ref": "§3",
+     "what": "Confidentiality of the settlement and the release",
+     "as": "Terms, amount and the release itself not to be disclosed to any person, firm or insurer, with narrow exceptions.",
+     "verdict": "pull",
+     "kind": "loophole",
+     "issue": "Confidentiality was never a term of the demand, and the UM carriers need the signed release as proof of exhaustion. Signed, it would put the UM demands of 08/31/2026 in breach.",
+     "fix": "Propose striking the clause; route to Atty. Thorne with the demand's terms beside it.",
+     "proof": [
+      "RS67",
+      "RS37"
+     ]
+    },
+    {
+     "ref": "§4",
+     "what": "Liens: indemnify, defend and hold harmless",
+     "as": "Releasor warrants every lien is paid and will indemnify, defend and hold harmless, including attorney's fees and costs.",
+     "verdict": "replace",
+     "kind": "loophole",
+     "issue": "An open-ended duty to defend and pay fees on any lien, unlimited in amount, when the file's liens are known: Peach State and Riverton Spine & Rehab.",
+     "fix": "Propose: the liens on the file paid from the firm's trust account; hold harmless limited to the settlement proceeds; no duty to defend, no fees. Atty. Thorne decides.",
+     "proof": [
+      "RS37",
+      "RS67"
+     ]
+    },
+    {
+     "ref": "§5",
+     "what": "Medicare representation",
+     "as": "Releasor is not and has never been a Medicare beneficiary; no conditional payments.",
+     "verdict": "flag",
+     "kind": "gap",
+     "issue": "John Doe signs it as a statement of fact. The facts must come from the file, not from assumption: born 08/14/1991, employed at Northgate, no Medicare.",
+     "fix": "Verify the facts from the intake and the Day 2 check, attach them, and flag the clause for Atty. Thorne's approval.",
+     "proof": [
+      "RS01",
+      "RS37"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "Payment date",
+     "as": "The release says nothing about when Keystone must pay after it is signed.",
+     "verdict": "add",
+     "kind": "calendar",
+     "issue": "Without a date the check can drift while John Doe's release is already signed, and the UM demands wait on proof of payment.",
+     "fix": "Propose a payment term for Atty. Thorne to set; docket it once Keystone agrees.",
+     "proof": [
+      "RS67",
+      "RS37"
+     ]
+    },
+    {
+     "ref": "§6",
+     "what": "Entire agreement; governing law",
+     "as": "Governed by “the laws of the state in which it is signed”.",
+     "verdict": "flag",
+     "kind": "gap",
+     "issue": "Which law governs a release is a legal question, and a vague choice-of-law line can matter if the release is ever disputed.",
+     "fix": "Flag for Atty. Thorne; record his decision on the redline.",
+     "proof": [
+      "RS37"
+     ]
+    },
+    {
+     "ref": "Execution",
+     "what": "Signature, witness and notary block",
+     "as": "John Doe, Releasor; witness; notary jurat; approved as to form by Atty. Thorne.",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Keystone requires a notarized wet-ink original, and the block provides for it. Nothing is signed until the amended release and both consents are in.",
+     "fix": "Keep. Plan the signing: notary, photo ID in the name John Doe, Atty. Thorne's review first.",
+     "proof": [
+      "RS37"
+     ]
+    }
+   ],
+   "revealNote": "The release as Atty. Thorne approved it on 08/17/2026 and Keystone reissued it on 08/19/2026, ready for John Doe's signature. Every later step on this file works from it, and the executed copy follows.",
+   "revealPoints": [
+    "Robert Smith and Keystone only, “and no other person, firm, corporation or insurer”: the UM claims are safe.",
+    "The bodily injury claim only; HP-26-7741, CS-26-20355 and the Civic's claim KM-26-440871-PD reserved.",
+    "Confidentiality struck; the lien clause limited to the liens on the file, paid from trust, no defense or fees.",
+    "Payment within 14 days of Keystone's receipt of the executed release and the W-9.",
+    "Unknown injuries kept, Medicare kept as verified, State of Riverton law: Atty. Thorne's decisions."
+   ]
+  },
+  "d3m4-pal": {
+   "title": "Lien Investigation — Vance & Kettering's charging lien",
+   "kicker": "Test every claim in the notice against the file; leave every conclusion to Atty. Thorne.",
+   "source": "RS84",
+   "reveal": "RS85",
+   "due": "10/15/2026",
+   "intro": "Six days before disbursement an outside firm claims a charging lien and $6,666.67 of the fee, on an agreement dated 07/27/2026. Work its notice, agreement and time record item by item against the file, decide what goes into the evidentiary packet for Atty. Thorne, and what is his alone to decide.",
+   "columns": {
+    "ref": "Claim",
+    "as": "As Vance & Kettering puts it"
+   },
+   "items": [
+    {
+     "ref": "Notice",
+     "what": "Notice of charging lien, dated 10/13/2026",
+     "as": "Emailed to Atty. Thorne and the case manager; received 10/14/2026.",
+     "verdict": "keep",
+     "kind": "calendar",
+     "issue": "The notice itself is the trigger: its receipt date starts the file's response and sets what is held before the 10/22/2026 disbursement.",
+     "fix": "Log it on receipt in the Communications Log, route it to Atty. Thorne the same day, and send nothing to the firm.",
+     "proof": [
+      "RS84"
+     ]
+    },
+    {
+     "ref": "Agreement",
+     "what": "The Contingency Fee Agreement of 07/27/2026",
+     "as": "33⅓% of any gross recovery; binding when signed by the client or the client's representative.",
+     "verdict": "keep",
+     "kind": "gap",
+     "issue": "The firm's own document is the core exhibit: it shows exactly who signed, when, and with what authority attached.",
+     "fix": "Keep the complete copy as received, every page, in the packet and the CMS.",
+     "proof": [
+      "RS84"
+     ]
+    },
+    {
+     "ref": "Client",
+     "what": "Who the client is said to be",
+     "as": "“John Doe (by Margaret Doe, mother)”.",
+     "verdict": "replace",
+     "kind": "gap",
+     "issue": "John Doe is an adult, born 08/14/1991. The agreement attaches no power of attorney or other authority for his mother to act for him; the framing assumes what it must prove.",
+     "fix": "State the facts in the packet instead: adult client, signer Margaret Doe, no authority attached. No conclusion.",
+     "proof": [
+      "RS84",
+      "RS01"
+     ]
+    },
+    {
+     "ref": "Signatures",
+     "what": "Signature lines on the agreement",
+     "as": "Margaret Doe signed as “mother”; the line for John Doe is blank.",
+     "verdict": "keep",
+     "kind": "gap",
+     "issue": "The blank client line is the single most important fact in the dispute, and the copy shows it plainly.",
+     "fix": "Keep it, and put it beside John Doe's own signatures for comparison.",
+     "proof": [
+      "RS84"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "John Doe's signature exemplars",
+     "as": "The notice offers nothing to compare the agreement against.",
+     "verdict": "add",
+     "kind": "gap",
+     "issue": "Without exemplars the packet asserts rather than shows. John Doe signed the firm's fee agreement and HIPAA authorization on 02/09/2026.",
+     "fix": "Add both 02/09/2026 documents to a signature comparison table in the packet.",
+     "proof": [
+      "RS05",
+      "RS06"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "The representation timeline",
+     "as": "The notice gives only its own date of retention, 07/27/2026.",
+     "verdict": "add",
+     "kind": "calendar",
+     "issue": "LSH Law Group was engaged 02/09/2026 and served the demand 07/20/2026, before the agreement existed, with no discharge or substitution anywhere on the file.",
+     "fix": "Add a dated timeline cross-referencing the agreement against the firm's engagement milestones, each line sourced.",
+     "proof": [
+      "RS05",
+      "RS34"
+     ]
+    },
+    {
+     "ref": "Services",
+     "what": "“Substantial services”: investigation, consultation, evaluation",
+     "as": "The firm says it performed substantial services and helped obtain the $40,000.00.",
+     "verdict": "replace",
+     "kind": "loophole",
+     "issue": "Its own time record shows 0.6 hours: an intake with Margaret Doe and a welcome letter to her. Nothing on the claim, and no document on the file is theirs.",
+     "fix": "Replace the claim in the packet with the work-product audit: the time record's entries quoted, against the file's own work.",
+     "proof": [
+      "RS84",
+      "RS44"
+     ]
+    },
+    {
+     "ref": "Carriers",
+     "what": "“Placed the responsible carriers on notice”",
+     "as": "Asserted in the notice, with no letter or date given.",
+     "verdict": "replace",
+     "kind": "loophole",
+     "issue": "Every carrier letter on the file is addressed to LSH Law Group; Keystone, Harbor Point and Cardinal State show no notice from Vance & Kettering.",
+     "fix": "Replace with what the carrier correspondence shows, each letter cited by date.",
+     "proof": [
+      "RS32",
+      "RS38",
+      "RS39"
+     ]
+    },
+    {
+     "ref": "Time record",
+     "what": "Enclosure 2: the firm's time record",
+     "as": "0.4 hours on 07/27/2026 and 0.2 hours on 07/29/2026, both with Margaret Doe; no other entries.",
+     "verdict": "keep",
+     "kind": "gap",
+     "issue": "The firm's own record of what it did. It is the best evidence of the work actually done, in its own words.",
+     "fix": "Keep it whole in the packet; quote it, never characterize it.",
+     "proof": [
+      "RS84"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "John Doe's own account",
+     "as": "The notice speaks for the client without his word.",
+     "verdict": "add",
+     "kind": "gap",
+     "issue": "Only John Doe can say whether he ever retained the firm. Without his account the packet rests on documents alone.",
+     "fix": "On Atty. Thorne's instruction, ask him neutrally on a recorded call, log his words, and give no view on the lien.",
+     "proof": [
+      "RS05"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "The settlement hold and the Action Plan",
+     "as": "The notice asks the firm to hold the entire settlement.",
+     "verdict": "add",
+     "kind": "calendar",
+     "issue": "The 10/22/2026 disbursement depends on this dispute. A hold no one recorded is a hold no one releases.",
+     "fix": "Place the hold Atty. Thorne directs, $6,666.67, in the CMS Trust Ledger; update the Action Plan; record who may release it.",
+     "proof": [
+      "RS84",
+      "RS44"
+     ]
+    },
+    {
+     "ref": "Demand",
+     "what": "One-half of the fee: $6,666.67",
+     "as": "Half of the one-third fee on a $40,000.00 gross.",
+     "verdict": "flag",
+     "kind": "gap",
+     "issue": "Whether any fee is owed, and how much, is a legal determination between lawyers.",
+     "fix": "Flag for Atty. Thorne. The Case Manager never discusses, accepts or counters a fee division.",
+     "proof": [
+      "RS84"
+     ]
+    },
+    {
+     "ref": "Lien",
+     "what": "The charging lien and any quantum meruit claim",
+     "as": "A charging lien against the settlement proceeds.",
+     "verdict": "flag",
+     "kind": "gap",
+     "issue": "Validity, and whether quantum meruit applies at all where no engagement may exist, are Atty. Thorne's calls.",
+     "fix": "List them in the packet as questions for Atty. Thorne, beside the facts that bear on them.",
+     "proof": [
+      "RS84"
+     ]
+    },
+    {
+     "ref": "Ask",
+     "what": "“Your case manager” to confirm the fee division by 10/16",
+     "as": "The notice asks the case manager to confirm the split in writing.",
+     "verdict": "flag",
+     "kind": "loophole",
+     "issue": "Any reply from the Case Manager, even a refusal, is the firm speaking on a fee dispute, and could be quoted back.",
+     "fix": "No reply. Flag the request to Atty. Thorne; he answers the lawyer.",
+     "proof": [
+      "RS84"
+     ]
+    }
+   ],
+   "revealNote": "The evidentiary packet as delivered to Atty. Thorne on 10/15/2026: facts only, each sourced. He repudiated the lien on 10/16; Vance & Kettering withdrew it on 10/19/2026, and he released the hold.",
+   "revealPoints": [
+    "The agreement of 07/27/2026 is signed only by Margaret Doe; John Doe's line is blank and no authority is attached.",
+    "LSH Law Group was engaged 02/09/2026 and served the demand 07/20/2026, before that agreement.",
+    "The firm's time record shows 0.6 hours with Margaret Doe; no carrier received notice from it.",
+    "John Doe's account of 10/15: he never contacted or signed with the firm.",
+    "$6,666.67 held in trust on Atty. Thorne's instruction; validity and any response left to him."
+   ]
+  },
   "d4m3-a1": {
    "title": "Section Audit — the Mediation Binder as drafted",
    "kicker": "Audit all six sections before Atty. Thorne approves delivery.",
@@ -1535,6 +1947,304 @@ window.CM_CF_EXHIBITS = {
      "The package is complete at 81 pages, Exhibits A–J, so \"we never got all of it\" is answered by her own email.",
      "The time frame was raised, flagged and routed to Atty. Thorne. It was not an extension and was not granted.",
      "No valuation, no view of the offer and no agreement to any term was given by the Case Manager."
+    ]
+   }
+  },
+  "d3m2-rel": {
+   "title": "Release Review — the clause audit routed to Atty. Thorne",
+   "kicker": "You propose the amendments. Atty. Thorne approves them, in writing, before anyone signs.",
+   "words": {
+    "label": "Release Review to Atty. Thorne",
+    "write": "Your clause review and amendments",
+    "send": "Send it to Atty. Thorne",
+    "reply": "Atty. Thorne's written approval"
+   },
+   "model": "RS82",
+   "sent": "08/14/2026",
+   "to": "Elijah Thorne <ethorne@lshlawgroup.example>",
+   "cc": "",
+   "subject": "For your review and approval: Keystone draft release — John Doe — KM-26-440871",
+   "attachment": "LSH-2026-MVA-770412_Doe-John_Release-Clause-Review_2026-08-14.pdf",
+   "brief": "Write the email that routes your clause review to Atty. Thorne. Say what the catch-all would release, what else the draft reaches or adds, list your proposed amendments, flag the clauses that are his to decide, and confirm nothing has gone to John Doe.",
+   "required": [
+    {
+     "id": "catchall",
+     "label": "Names the catch-all and the UM claims it would release",
+     "hint": "Quote the insurers line and say it would release Harbor Point and Cardinal State.",
+     "match": [
+      "insurer",
+      "harbor point|cardinal|\\bUM\\b|uninsured"
+     ]
+    },
+    {
+     "id": "property",
+     "label": "Says the release reaches the Civic's open Property Damage claim",
+     "hint": "The draft releases Property Damage and Loss of Use: the Civic's claim is Margaret's and still open.",
+     "match": [
+      "Property Damage|Loss of Use|civic"
+     ]
+    },
+    {
+     "id": "confidential",
+     "label": "Raises the confidentiality clause",
+     "hint": "Confidentiality was never a demand term, and the UM carriers need the release.",
+     "match": [
+      "confidential"
+     ]
+    },
+    {
+     "id": "amend",
+     "label": "Proposes the amendments for his approval",
+     "hint": "Say what you propose for each clause, and that the decision is his.",
+     "match": [
+      "amend|propos|redline|revis",
+      "approv|review|decid"
+     ]
+    },
+    {
+     "id": "flags",
+     "label": "Flags the clauses that are his to decide",
+     "hint": "Unknown injuries, Medicare and governing law: name them as his call.",
+     "match": [
+      "medicare|unknown injur|governing law"
+     ]
+    },
+    {
+     "id": "client",
+     "label": "Confirms nothing has gone to John Doe for signature",
+     "hint": "Say the draft has not been sent to the client and won't be until he approves.",
+     "match": [
+      "john|client|mr\\.? doe",
+      "not (been )?sent|haven't sent|have not sent|not gone|nothing (has )?(gone|been sent)|withheld|will not send|won't send|not (be )?(sent|shown)"
+     ]
+    }
+   ],
+   "reply": {
+    "from": "Elijah Thorne <ethorne@lshlawgroup.example>",
+    "date": "08/17/2026",
+    "time": "9:40 a.m.",
+    "subject": "RE: For your review and approval: Keystone draft release — John Doe — KM-26-440871",
+    "body": "Approved as you proposed. Payment within 14 days of Keystone's receipt of the executed release and our W-9. Keep the unknown-injuries clause; I will go through it with John. Keep the Medicare representation as verified. Riverton law.\n\nI have sent the redline to Dana Whitfield this morning. Do not send anything to John until Keystone issues the revised release and both consents are in."
+   },
+   "press": {
+    "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+    "date": "08/18/2026",
+    "subject": "RE: Doe release — side letter?",
+    "body": "Mr. Thorne's redline is with my unit manager and could take a while. To keep things moving, could your client sign our standard form now? We can paper the changes in a side letter afterwards, and I could get the check out next week.",
+    "choices": [
+     {
+      "label": "Send John Doe the standard form now so the check is not delayed.",
+      "ok": false,
+      "why": "John Doe would sign a release that discharges both UM carriers. A side letter promised later protects nothing he has already signed."
+     },
+     {
+      "label": "Agree to the side letter if she confirms it by email.",
+      "ok": false,
+      "why": "That is agreeing release terms with the adjuster, which is Atty. Thorne's alone, and on terms he has just rejected."
+     },
+     {
+      "label": "Reply that nothing goes to the client except the release Atty. Thorne approves, and forward her email to him the same day.",
+      "ok": true,
+      "why": "Correct. Nothing is agreed or argued; the request is logged and routed, and John Doe signs only the approved Limited Release."
+     },
+     {
+      "label": "Tell her the catch-all clause would be unenforceable anyway.",
+      "ok": false,
+      "why": "That is a legal opinion given to the other side. It is not the Case Manager's to give, and it invites her to say signing is harmless."
+     }
+    ]
+   },
+   "convert": {
+    "title": "Release Clause Review & Attorney Approval — memorandum to file",
+    "category": "Others",
+    "type": "Release-Review",
+    "folder": "insurance",
+    "sections": [
+     {
+      "h": "1 · What the review found",
+      "lines": [
+       "Keystone's Release of All Claims, Form KM-REL-100, received 08/14/2026 with Dana Whitfield's cover letter.",
+       "Catch-all: would release Harbor Point and Cardinal State, $30,000 of the stack. Property Damage and Loss of Use: the Civic's claim is Margaret Doe's.",
+       "No UM reservation; a confidentiality clause; an unlimited indemnify-and-defend clause; no payment date.",
+       "Unknown injuries, Medicare and governing law flagged for Atty. Thorne."
+      ]
+     },
+     {
+      "h": "2 · The confirmation email routing the review",
+      "lines": []
+     },
+     {
+      "h": "3 · Atty. Thorne's written approval",
+      "lines": [
+       "Approved 08/17/2026, 9:40 a.m.: amendments as proposed; payment within 14 days; Riverton law.",
+       "Redline sent to Dana Whitfield by Atty. Thorne the same morning."
+      ]
+     },
+     {
+      "h": "4 · What the approval establishes",
+      "lines": []
+     },
+     {
+      "h": "5 · Where this memorandum is filed",
+      "lines": [
+       "CMS → Doc Hub → Others, named the firm's way.",
+       "CMS → Tasks: signing held until both UM consents are in writing.",
+       "Your Backup Drive → Insurance, Demands & Negotiation — the same copy, kept with the filing."
+      ]
+     }
+    ],
+    "establishes": [
+     "Every amendment was Atty. Thorne's decision, in writing, before any term reached the adjuster or John Doe.",
+     "The UM claims and the Civic's claim are protected on the face of the release.",
+     "The request to sign the standard form first was routed, not answered by the Case Manager.",
+     "Keystone accepted the changes and issued its Limited Release on 08/19/2026."
+    ]
+   }
+  },
+  "d3m2-exec": {
+   "title": "Executed Release — the transmittal to Keystone and the check",
+   "kicker": "A complete packet once: release, both waivers, W-9. Then the check, in writing.",
+   "words": {
+    "label": "Executed Release to Keystone",
+    "write": "The email that transmits the release",
+    "send": "Send it to the adjuster",
+    "reply": "The adjuster's acknowledgment and check date"
+   },
+   "model": "RS81",
+   "sent": "08/28/2026",
+   "to": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+   "cc": "Elijah Thorne <ethorne@lshlawgroup.example>",
+   "subject": "Executed Limited Release, UM consents and W-9 — John Doe / Robert Smith — Claim KM-26-440871",
+   "attachment": "LSH-2026-MVA-770412_Doe-John_Executed-Limited-Release_2026-08-28.pdf (with both UM consents and the W-9)",
+   "brief": "Write the email that sends the executed packet to the adjuster. List what is attached, say the original follows by courier, point to the payment term, and ask her to confirm receipt and the check date in writing. Terms and payee questions go to Atty. Thorne.",
+   "required": [
+    {
+     "id": "release",
+     "label": "Says the Limited Release is attached, signed and notarized",
+     "hint": "Name the executed Limited Release and that it was signed before a notary on 08/28.",
+     "match": [
+      "release",
+      "sign|execut",
+      "notar"
+     ]
+    },
+    {
+     "id": "waivers",
+     "label": "Encloses both UM consents and subrogation waivers",
+     "hint": "Keystone made both waivers a payment condition: name Harbor Point and Cardinal State.",
+     "match": [
+      "harbor point",
+      "cardinal",
+      "waiver|consent"
+     ]
+    },
+    {
+     "id": "w9",
+     "label": "Encloses the firm's W-9",
+     "hint": "Keystone asked for the W-9 with the release.",
+     "match": [
+      "w-?9"
+     ]
+    },
+    {
+     "id": "original",
+     "label": "Says the wet-ink original follows by courier",
+     "hint": "Keystone requires the original; say how and when it is coming.",
+     "match": [
+      "original",
+      "courier|overnight|mail"
+     ]
+    },
+    {
+     "id": "ask",
+     "label": "Asks her to confirm receipt and the check date in writing",
+     "hint": "Ask for written confirmation of receipt and when the check issues.",
+     "match": [
+      "confirm",
+      "check",
+      "date|when|issue"
+     ]
+    },
+    {
+     "id": "upl",
+     "label": "Routes terms and payee questions to Atty. Thorne",
+     "hint": "Point any question about terms or the payee to Atty. Thorne, by name.",
+     "match": [
+      "thorne",
+      "term|payee|question"
+     ]
+    }
+   ],
+   "reply": {
+    "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+    "date": "08/31/2026",
+    "time": "9:12 a.m.",
+    "subject": "RE: Executed Limited Release, UM consents and W-9 — John Doe / Robert Smith — Claim KM-26-440871",
+    "body": "Received your email of August 28 with the executed Limited Release, both UM consents and waivers, and the W-9. The original release arrived by courier this morning, August 31. The file is complete for payment.\n\nThe $10,000.00 check will issue tomorrow, 09/01, payable to John Doe and LSH Law Group, by mail to your office."
+   },
+   "press": {
+    "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+    "date": "09/01/2026",
+    "subject": "RE: Doe settlement check 0048213",
+    "body": "Check no. 0048213 issued this morning. One thing from our payment unit: Peach State's reimbursement notice is in our file. Should we have added Peach State as a payee, or can you just confirm in writing that your firm will protect Keystone on that lien? Either way I'd like to close this out today.",
+    "choices": [
+     {
+      "label": "Confirm in writing that the firm will protect Keystone on the Peach State lien.",
+      "ok": false,
+      "why": "That is a new term of the settlement, given by the Case Manager. The lien terms are in §4 of the release, and only Atty. Thorne speaks to them."
+     },
+     {
+      "label": "Ask her to reissue the check with Peach State as a co-payee.",
+      "ok": false,
+      "why": "Changing the payee changes the settlement and can stall John Doe's money for weeks. It is Atty. Thorne's decision."
+     },
+     {
+      "label": "Reply that payee and lien questions are Atty. Thorne's, forward her email to him the same day, and log it.",
+      "ok": true,
+      "why": "Correct. Nothing is promised or changed; the question reaches the person who can answer it, and the check stays as issued until he says otherwise."
+     }
+    ]
+   },
+   "convert": {
+    "title": "BI Settlement Record — executed release, transmittal and check",
+    "category": "Others",
+    "type": "BI-Settlement-Record",
+    "folder": "insurance",
+    "sections": [
+     {
+      "h": "1 · The settlement packet, as executed and sent",
+      "lines": [
+       "Limited Release, Form KM-REL-100-L, signed by John Doe 08/28/2026 before notary Renee Castillo, after Atty. Thorne went through it with him.",
+       "Harbor Point consent and waiver 08/24/2026; Cardinal State consent and waiver 08/26/2026; the firm's W-9.",
+       "Original by overnight courier, received by Keystone 08/31/2026."
+      ]
+     },
+     {
+      "h": "2 · The confirmation email that transmitted the release",
+      "lines": []
+     },
+     {
+      "h": "3 · The adjuster's acknowledgment and check confirmation",
+      "lines": []
+     },
+     {
+      "h": "4 · What the exchange establishes",
+      "lines": []
+     },
+     {
+      "h": "5 · The money and where the record is filed",
+      "lines": [
+       "Keystone check no. 0048213, $10,000.00, issued 09/01/2026; received and deposited to IOLTA 09/04/2026.",
+       "Check copy to Marcus Bell and Teresa Okafor, 09/04/2026.",
+       "CMS → Doc Hub → Others, named the firm's way; your Backup Drive → Insurance, Demands & Negotiation."
+      ]
+     }
+    ],
+    "establishes": [
+     "Keystone received the executed release, both UM waivers and the W-9 on 08/31/2026, in its adjuster's own words.",
+     "Keystone's payment condition, each UM carrier's consent and waiver, was met in full.",
+     "Check no. 0048213 issued 09/01/2026, inside the 14 days of §6, and reached trust 09/04/2026.",
+     "The payee question went to Atty. Thorne; the Case Manager gave no lien assurance."
     ]
    }
   }

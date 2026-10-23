@@ -42,22 +42,25 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 7. *Lesson* — Secondary UM Demand Structuring & Policy Stacking Rules
 8. *Lesson* — Building the Demand Package: the Big Four, the Human Story & the Final Scrub
 9. *Lesson* — Countering Adjuster Delay Tactics & Gap Pushback
-10. *Lesson* — Securing Maximum Gross Policy-Limit Settlements
-11. *Skill Activity* — Probe the 14-Day Treatment Gap with AI John Doe
-12. *Skill Activity* — Gap Explanation Record Creation
-13. *Skill Activity* — Wage Loss Verification & the Medical Nexus
-14. *Skill Activity* — Calculating Total Specials & the Special Damages Audit
-15. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne
-16. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package
-17. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
-18. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
-19. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender
-20. *Skill Activity* — Closing the $40,000 Gross Recovery
-21. *Skill Activity* — The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
-22. *Knowledge Check* — UPL & Investigation Review
-23. *Knowledge Check* — Pre-Demand Audit & Day 3 Gate
-24. *Knowledge Check* — Demand Execution Audit
-25. *Knowledge Check* — Negotiation Mastery Check
+10. *Lesson* — The BI Settlement and the UM Consent to Settle & Subrogation Waiver
+11. *Lesson* — Securing Maximum Gross Policy-Limit Settlements
+12. *Skill Activity* — Probe the 14-Day Treatment Gap with AI John Doe
+13. *Skill Activity* — Gap Explanation Record Creation
+14. *Skill Activity* — Wage Loss Verification & the Medical Nexus
+15. *Skill Activity* — Calculating Total Specials & the Special Damages Audit
+16. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne
+17. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package
+18. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
+19. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
+20. *Skill Activity* — Settlement Release Clause Review & Attorney Approval
+21. *Skill Activity* — Client Execution, Transmittal to Keystone & Check Confirmation
+22. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender
+23. *Skill Activity* — Closing the $40,000 Gross Recovery
+24. *Skill Activity* — The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
+25. *Knowledge Check* — UPL & Investigation Review
+26. *Knowledge Check* — Pre-Demand Audit & Day 3 Gate
+27. *Knowledge Check* — Demand Execution Audit
+28. *Knowledge Check* — Negotiation Mastery Check
 
 **End-of-day discussion (trainer):** It is 07/20/2026. The Specials are audited and Atty. Thorne has approved a policy-limits demand to Keystone. What must be true before the Time-Limited Demand goes out, and what would let Keystone say it never had a fair chance to settle?
 
@@ -65,7 +68,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 3 — Pre-Demand Audit, the Demand & Settlement Negotiation
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 3.1.1 Interview Techniques & UPL Boundaries in Client Investigation
 
@@ -824,7 +827,84 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.10 Securing Maximum Gross Policy-Limit Settlements
+### 3.1.10 The BI Settlement and the UM Consent to Settle & Subrogation Waiver
+
+> **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
+> **Topic:** Why Keystone's $10,000 can't close until Harbor Point and Cardinal State sign off  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D2#31` BI Settlement — Phase II: The UM/UIM “Safety Check” · `D3#3` BI Exhaustion & Consent — Mechanic 1: Locking the Escape Hatches · `D3#16` Documents that Matter: Final Pleading & Release Documents (Closing Phase) · Newly authored: the BI carrier's own demand for the UM carriers' consents and subrogation waivers before payment; Bluewater Auto excluded as a rejected-UM policy that is not a UM layer
+
+#### 1 · Visual Layout Description
+
+Three linked cards across the slide on a navy rail. Left: KEYSTONE · BI $10,000 · TENDERED 08/12, with a red padlock chip CHECK HELD UNTIL WAIVERS. Centre: two stacked cream cards, HARBOR POINT · HOST UM · CONSENT + WAIVER 08/24 and CARDINAL STATE · RELATIVE UM · CONSENT + WAIVER 08/26, each with an orange tick and a mono pill SUBROGATION AGAINST SMITH WAIVED. Right: a signature card, LIMITED RELEASE · SIGNED 08/28, unlocked only once both centre cards are ticked. Far left, greyed and struck through: BLUEWATER · UM REJECTED 03/14/2024 · NOT A UM LAYER. The argument: the BI money and the UM claims are tied together, and the waiver is the knot.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* A UM carrier that pays John Doe steps into his shoes against Robert Smith. Release Smith first and that right is gone, and the policy lets the carrier refuse to pay: $30,000 of John Doe's $40,000. So Keystone will not pay, and John Doe must not sign, until both UM carriers consent in writing and waive subrogation.
+
+1. Subrogation: a UM carrier that pays its insured may recover what it paid from the at-fault driver. A release of Robert Smith signed without the UM carrier's consent can destroy that right, and the policy's consent clause can let the carrier deny the UM claim. Confirm the governing rule.
+2. Ask the right carriers. John Doe's UM layers are Harbor Point (Host UM, $20,000) and Cardinal State (Relative UM, $10,000). Bluewater Auto is Margaret's policy on the parked Civic, with UM rejected in writing (03/14/2024): it is not a UM layer and is not asked.
+3. The 30-Day Letter goes the day after the tender (08/13/2026), for Atty. Thorne's signature: Keystone's $10,000 offer, the tender letter, Smith's affidavit, a request for written consent and a waiver of subrogation against Smith. Each carrier may instead substitute its own check to keep its claim against Smith. Docket each window.
+4. The BI adjuster asks for the same paper. Keystone's 08/14/2026 cover letter makes payment conditional on each UM carrier's written consent and waiver: it does not want its insured exposed to a later subrogation claim. Send the waivers with the executed release.
+5. Read each consent for what it covers: Harbor Point (08/24) and Cardinal State (08/26) consent to a release of Robert Smith and Keystone only, waive subrogation against Smith, will not substitute a check, and keep the UM claims open. A consent that reaches further, or a substitution, goes to Atty. Thorne.
+6. No signature before both. John Doe signs the Limited Release (08/28/2026) only after both consents are in writing and Atty. Thorne has approved the release and gone through it with him.
+7. File the consents where the UM claims will need them: the front of each UM Demand Package, beside the tender, Keystone's Dec Page, Smith's affidavit and the signed Limited Release.
+
+> ⚠️ **UPL boundary.** You identify the UM carriers, prepare the consent requests for Atty. Thorne's signature, docket the windows, chase the replies and match each consent to the release. You never tell John Doe or a carrier what the consent clause means, whether a substitution is good or bad for him, or whether he may sign.
+
+#### 2 · Slide Body — Show Them
+
+*Who must sign off before Keystone's $10,000 moves*
+
+| Carrier | Layer | On this file |
+|---|---|---|
+| Harbor Point | Host UM $20,000 (HP-26-7741) | Requested 08/13; consent and waiver 08/24/2026; no substitution |
+| Cardinal State | Relative UM $10,000 (CS-26-20355) | Requested 08/13; consent and waiver 08/26/2026; no substitution |
+| Bluewater Auto | None: UM rejected 03/14/2024 | Not asked; Margaret's Civic policy is not a UM layer |
+| Keystone | BI $10,000 (KM-26-440871) | Check held until both waivers arrive with the executed release |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Keystone tenders the $10,000 (08/12/2026) | Prepare both consent-and-waiver requests for Atty. Thorne's signature; docket each window | Action Plan Editor → Consent-to-settle template · Docket System | Sent 08/13/2026 to Marcus Bell and Teresa Okafor; Bluewater not asked, with the reason recorded |
+| Keystone's cover letter conditions payment on the waivers (08/14/2026) | Log the condition; tie it to the signing task | CMS → Case Notes · CMS → Tasks | Signing task held until both waivers are in writing |
+| Each consent arrives (08/24, 08/26/2026) | Match its scope to the release; route anything wider, or a substitution, to Atty. Thorne | CMS → Documents · CMS → Tasks → Escalate | Both cover Smith and Keystone only; filed for the UM packages and the transmittal |
+
+**Best practices & pitfalls**
+
+- Name the UM layers from the Coverage Matrix before you write a single request; a request to the wrong carrier wastes the window.
+- Put the waivers at the front of each UM package with the tender and the signed Limited Release.
+- Chase each consent before its window closes, in writing, and tell Atty. Thorne the day one goes quiet.
+- ⚠️ Pitfall: asking Bluewater Auto for a consent it has no UM layer to give.
+- ⚠️ Pitfall: scheduling John Doe's signing before the second consent arrives.
+- ⚠️ Pitfall: telling the client the consent is “just a formality.”
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Subrogation logic | Explains why releasing Smith without consent can cost the UM claims: the UM carrier's right against Smith |
+| 🤖 AI | **20%** | Right carriers | Harbor Point and Cardinal State asked; Bluewater excluded because UM was rejected 03/14/2024 |
+| 🤖 AI | **20%** | Sequence and dates | Tender 08/12, requests 08/13, consents 08/24 and 08/26, signing 08/28/2026, waivers sent with the release |
+| 🧑‍🏫 Trainer | **20%** | Consequence reasoning | Connects Keystone's payment condition to the UM carriers' rights and John Doe's net |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | No interpretation of the consent clause or substitution offered to the client or a carrier |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Ask the room: “John Doe's mother has Bluewater on the Civic. Do we ask Bluewater for a waiver?” No: UM was rejected in writing on 03/14/2024, so there is no UM layer to waive.
+- Put Keystone's 08/14 cover letter on the board. Why does the BI carrier care about the UM carriers' subrogation? Because a UM carrier that keeps its right can sue Keystone's insured later.
+- Watch for trainees who treat the consent as a courtesy. It is the knot that ties the BI money to $30,000 of UM coverage. Whether the consent clause would let a carrier deny the claim is Atty. Thorne's analysis; the rule varies.
+
+---
+
+### 3.1.11 Securing Maximum Gross Policy-Limit Settlements
 
 > **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** The UM gap, the reductions that don't apply, and closing at limits  
@@ -909,7 +989,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.11 Probe the 14-Day Treatment Gap with AI John Doe
+### 3.1.12 Probe the 14-Day Treatment Gap with AI John Doe
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 1 — Call Simulator: the 14-Day Gap, in his words  
@@ -998,7 +1078,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 ---
 
-### 3.1.12 Gap Explanation Record Creation
+### 3.1.13 Gap Explanation Record Creation
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 2 — every reason beside its proof, for both interruptions  
@@ -1092,7 +1172,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 ---
 
-### 3.1.13 Wage Loss Verification & the Medical Nexus
+### 3.1.14 Wage Loss Verification & the Medical Nexus
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity — verify every missed shift with the employer and the treating providers  
@@ -1169,7 +1249,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ---
 
-### 3.1.14 Calculating Total Specials & the Special Damages Audit
+### 3.1.15 Calculating Total Specials & the Special Damages Audit
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity 1 — audit $15,002.40 down to the number that holds  
@@ -1250,7 +1330,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ---
 
-### 3.1.15 Pre-Demand Strategy Session with AI Atty. Elijah Thorne
+### 3.1.16 Pre-Demand Strategy Session with AI Atty. Elijah Thorne
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity 2 — present the audit; record his decisions  
@@ -1330,7 +1410,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ---
 
-### 3.1.16 Serving the $10,000 BI Time-Limit Demand Package
+### 3.1.17 Serving the $10,000 BI Time-Limit Demand Package
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 1 — audit it, serve it, prove it  
@@ -1411,7 +1491,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.17 QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
+### 3.1.18 QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 2 — two packages, exhaustion proof on page one  
@@ -1491,7 +1571,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.18 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
+### 3.1.19 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 1 — hold the Limits Demand on a recorded call  
@@ -1580,7 +1660,157 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.19 The BI Settlement Net Sheet: Stream 1 at the Tender
+### 3.1.20 Settlement Release Clause Review & Attorney Approval
+
+> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
+> **Topic:** Skill Activity 2 — audit Keystone's release clause by clause, then route it  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D2#31` BI Settlement — Phase II: The UM/UIM “Safety Check” · `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D3#16` Documents that Matter: Final Pleading & Release Documents (Closing Phase) · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · Newly authored: the clause-by-clause release audit as a keep, replace, pull, add or flag call, with proposed amendments routed to the attorney before the client sees the release
+
+#### 1 · Visual Layout Description
+
+Left two-thirds: Keystone's Release of All Claims as a white page with margin flags in orange numbered badges: ① the catch-all “all other … insurers” struck in red with –$30,000 beside it, ② PROPERTY DAMAGE AND LOSS OF USE circled, ③ CONFIDENTIALITY struck, ④ INDEMNIFY · DEFEND · FEES boxed, ⑤ a blank margin labelled UM RESERVATION — MISSING, ⑥ PAYMENT DATE — MISSING. Three grey chips sit beside §2, §5 and §6: FOR ATTY. THORNE. Right third: an email card to ELIJAH THORNE, subject FOR YOUR REVIEW AND APPROVAL, with a green APPROVED 08/17 stamp, and beneath it a red-bordered card: NOT SENT TO JOHN DOE. The argument: every clause is read, the fixes are proposed, and the decision is the attorney's.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** File date 08/14/2026 (Fri). Keystone tendered its $10,000 BI limits on 08/12; the consent-and-waiver requests went to Harbor Point and Cardinal State on 08/13. Today Dana Whitfield sends Keystone's Release of All Claims for John Doe's notarized signature, and her cover letter says no check issues until each UM carrier's written consent and subrogation waiver arrives. The demand's terms were a Limited Release of Robert Smith and Keystone only.
+
+**Execution prompt.** Audit Keystone's draft release clause by clause in the audit workbench against the demand's approved terms and the open claims on the file: who is released, which claims, what is missing, and what John Doe would promise. Call each clause keep, replace, pull, add or flag, and write the proposed amendment. Then email your clause review to Atty. Thorne for his approval, with the clauses he must decide flagged. Do not send the draft to John Doe. When the adjuster asks to have the standard form signed first, route it. Convert the exchange into a memorandum and file it in the CMS and on your Backup Drive.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → Documents → Release audit · Email Workspace · CMS → Tasks → Escalate |
+| **Expected output** | An audited release with proposed amendments, Atty. Thorne's written approval on file, and the review memorandum filed in the CMS and Drive. |
+
+**Verification checkpoints**
+
+- [ ] The catch-all “all other … insurers” quoted and replaced: it would release Harbor Point ($20,000) and Cardinal State ($10,000)
+- [ ] Claims released limited to bodily injury: “Property Damage and Loss of Use” reaches the Civic's claim, which is Margaret Doe's (KM-26-440871-PD, Leah Moran)
+- [ ] An express reservation of the UM/UIM claims (HP-26-7741, CS-26-20355) added
+- [ ] The confidentiality clause pulled: no term of the demand, and it would bar proof of exhaustion to the UM carriers
+- [ ] The indemnify, defend and hold-harmless clause narrowed to the liens on the file paid from trust, no defense, no attorney's fees
+- [ ] A payment date added, as Atty. Thorne sets it
+- [ ] Unknown injuries, the Medicare representation and governing law flagged for Atty. Thorne; Medicare status verified from the file, not assumed
+- [ ] Kept: the parties, $10,000.00, non-admission, the signature and notary block; Keystone's demand for the UM waivers logged as a payment condition
+- [ ] Review emailed to Atty. Thorne 08/14/2026; his written approval of 08/17/2026 filed; nothing sent to John Doe
+- [ ] The adjuster's request to sign the standard form first routed to Atty. Thorne the same day, not answered
+- [ ] Memorandum filed in CMS → Doc Hub under the firm's naming convention and kept on the Backup Drive
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Keystone's draft release arrives (08/14/2026) | Audit every clause against the demand's terms and the open claims | CMS → Documents → Release audit | Every clause called with a reason; amendments drafted |
+| Audit complete | Email the clause review to Atty. Thorne for approval | Email Workspace · CMS → Tasks → Escalate | Sent 08/14/2026; three clauses flagged for his decision |
+| Atty. Thorne approves (08/17/2026) | File the approval; hold the signing task until Keystone reissues and both consents arrive | CMS → Documents · CMS → Tasks | Limited Release issued 08/19/2026; signing scheduled only after 08/26 |
+
+**Best practices & pitfalls**
+
+- Quote every over-broad word exactly; a paraphrase hides the problem.
+- Measure the release against the demand's terms, not against what is usual.
+- ⚠️ Pitfall: sending the draft to John Doe “to save time” before the audit.
+- ⚠️ Pitfall: agreeing release wording with the adjuster yourself.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **25%** | Problem clauses found | Catch-all, Property Damage, confidentiality, indemnity found; UM reservation and payment date added |
+| 🤖 AI | **15%** | Flags and keeps | Unknown injuries, Medicare and governing law flagged; parties, $10,000.00, non-admission, signature block kept |
+| 🤖 AI | **20%** | Routing record | Review emailed 08/14/2026; approval 08/17 filed; memorandum filed in the CMS and Drive |
+| 🧑‍🏫 Trainer | **15%** | Amendment quality | Each proposed fix is precise enough for Atty. Thorne to approve cold |
+| 🧑‍🏫 Trainer | **25%** | UPL and authority boundary | No wording agreed with the adjuster; no clause explained to John Doe; the side-letter request routed |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Read the catch-all aloud and ask who “insurers” are on this file. Let the room find Harbor Point and Cardinal State, then put –$30,000 on the board.
+- Ask: “Why can't the release stay confidential?” Because the UM carriers need it as proof of exhaustion, and confidentiality was never a term of the demand.
+- Grade the flags. A trainee who decides the Medicare clause or the unknown-injuries clause has made Atty. Thorne's call; a trainee who checks the Medicare facts and flags the clause has done the job.
+- The press question is the test: Dana Whitfield wants the standard form signed now with a side letter. The right answer routes it; nothing reaches John Doe but the release Atty. Thorne approves.
+
+---
+
+### 3.1.21 Client Execution, Transmittal to Keystone & Check Confirmation
+
+> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
+> **Topic:** Skill Activity 3 — the signing session, the executed packet and the money into trust  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D2#31` BI Settlement — Phase II: The UM/UIM “Safety Check” · `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D2#38` The Execution: W-9 & Comparison of Key Post-Settlement Documents · `D2#39` Finalized Settlement: Boots-on-the-Ground Tasks — Administrative Document Control · `D3#11` UM Settlement: The Final Payout Process · Newly authored: the client signing session within the UPL line (signatures, notary and ID requirements, never a clause), and the executed packet transmitted with the UM waivers Keystone made a payment condition
+
+#### 1 · Visual Layout Description
+
+A five-station horizontal workflow on a navy rail, each station a cream card with an orange numbered badge and a mono date pill: ① SIGNING CALL 08/26 (a phone icon, LOGISTICS ONLY) ② SIGNING SESSION 08/28 · NOTARY · ID MATCHES “JOHN DOE” ③ TRANSMITTAL 08/28 · RELEASE + 2 WAIVERS + W-9 ④ ACKNOWLEDGED 08/31 · CHECK 0048213 ISSUES 09/01 ⑤ IOLTA 09/04 · CMS + DRIVE. Under station ②, a red-bordered note: ATTY. THORNE EXPLAINS THE RELEASE; YOU CONFIRM SIGNATURES. Under station ④, a grey question card, ADD PEACH STATE AS PAYEE?, with an arrow to ATTY. THORNE. The argument: execution is logistics done perfectly, and every legal question leaves the Case Manager's desk.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** File date 08/26/2026 (Wed). Cardinal State's consent and waiver arrived today, joining Harbor Point's of 08/24. Keystone issued its Limited Release on 08/19, as Atty. Thorne approved it. Keystone wants a notarized wet-ink original, both waivers and the firm's W-9 before its check issues, within 14 days of receipt. John Doe has not seen the release yet.
+
+**Execution prompt.** Call John Doe in the Call Simulator and schedule the signing session for 08/28/2026 at the office: what to bring (government photo ID in the name “John Doe”), that he signs only before the notary, and that Atty. Thorne will go through the release with him first. Answer logistics; route every question about what a clause means to Atty. Thorne. After the session, confirm the execution requirements, upload the executed release to the CMS and his portal copy, then email the executed packet to Dana Whitfield and ask her to confirm receipt and the check date. Route her payee question. Confirm the check into trust on 09/04 and file the settlement record in the CMS and Drive.
+
+| | |
+|---|---|
+| **Tool / interface** | Call Simulator → AI Client: John Doe · Email Workspace · CMS → Documents · CMS → Financial Ledger → Trust |
+| **Expected output** | An executed, notarized Limited Release sent with both waivers and the W-9, the check confirmed into trust, and the settlement record filed in the CMS and Drive. |
+
+**Verification checkpoints**
+
+- [ ] Signing scheduled only after both consents are in writing (08/24, 08/26/2026) and Atty. Thorne approved the release
+- [ ] On the call: date, place, photo ID in the name “John Doe”, sign only before the notary; no clause explained
+- [ ] Every question about what the release means routed to Atty. Thorne, who goes through it with John Doe before he signs
+- [ ] Execution confirmed: notarized wet-ink original, notary's commission current, ID matches, every page initialed; the release is not e-signed
+- [ ] Executed release scanned to the CMS and John Doe's portal copy the same day
+- [ ] Transmittal emailed to Dana Whitfield 08/28/2026: executed release, both waivers, the W-9; original by courier; written acknowledgement and check date requested
+- [ ] Her 08/31/2026 acknowledgement filed; check no. 0048213 issues 09/01, inside the 14 days
+- [ ] Her question about adding Peach State as a payee routed to Atty. Thorne; no lien assurance given
+- [ ] Check of $10,000.00 received and deposited to IOLTA 09/04/2026; copies to Marcus Bell and Teresa Okafor
+- [ ] Settlement record filed in CMS → Doc Hub and kept on the Backup Drive
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Both consents in writing (08/26/2026) | Call John Doe to schedule the signing; log the call | Call Simulator → AI Client: John Doe · CMS → Communications Log | Session set for 08/28/2026; logistics only |
+| Release executed (08/28/2026) | Confirm execution, upload it, and email the packet to Keystone | CMS → Documents · Email Workspace | Release, both waivers and the W-9 sent 08/28; original by courier |
+| Keystone's check arrives (09/04/2026) | Deposit to trust the same day; file the settlement record | CMS → Financial Ledger → Trust · CMS → Documents | $10,000.00 in IOLTA; record in the CMS and Drive |
+
+**Best practices & pitfalls**
+
+- Check the name on the ID, the release and the claim before the notary arrives.
+- Send the waivers with the executed release: Keystone made them a payment condition.
+- ⚠️ Pitfall: answering “what does this paragraph mean?” yourself.
+- ⚠️ Pitfall: promising the adjuster anything about the liens or the payee.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Execution requirements | Notary, wet-ink original, ID matching “John Doe”, Atty. Thorne's review before signing |
+| 🤖 AI | **20%** | Transmittal completeness | Executed release, both waivers and the W-9 sent 08/28; acknowledgement and check date requested |
+| 🤖 AI | **20%** | Money and filing | Check 0048213 deposited 09/04/2026; settlement record filed in the CMS and Drive |
+| 🧑‍🏫 Trainer | **15%** | Client communication | Clear, calm logistics; John Doe knows exactly what to bring and what happens |
+| 🧑‍🏫 Trainer | **25%** | UPL boundary | No clause explained to the client; the payee question routed; no lien assurance to the adjuster |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Run the call live. The AI John Doe will ask “what am I giving up by signing this?” The right answer is that Atty. Thorne will go through every paragraph with him before he signs, and the Case Manager will make sure he has that time.
+- Ask the room why the release is not e-signed. Keystone's form requires a notarized wet-ink original; the Case Manager confirms the requirement from the carrier's own letter.
+- The press question: Dana Whitfield asks whether Peach State should be a payee. A payee change is a settlement term. It goes to Atty. Thorne, and the check stays as issued until he says otherwise.
+
+---
+
+### 3.1.22 The BI Settlement Net Sheet: Stream 1 at the Tender
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity — what Keystone's $10,000 does, and doesn't, do on its own  
@@ -1660,10 +1890,10 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.20 Closing the $40,000 Gross Recovery
+### 3.1.23 Closing the $40,000 Gross Recovery
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
-> **Topic:** Skill Activity 2 — work both UM layers to limits, on the record  
+> **Topic:** Skill Activity 4 — work both UM layers to limits, on the record  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#26` Settlement Negotiations: The Bracketing Technique · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D3#7` UM Settlement: How the Settlement Is Calculated · `D3#8` UM Settlement: Negotiation & Settlement · `D3#10` UM Settlement: Challenges · `D3#11` UM Settlement: The Final Payout Process · `D3#17` Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit
 
@@ -1738,7 +1968,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.21 The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
+### 3.1.24 The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity — project the UM stream to the cent, mark what will move, ask Atty. Thorne  
@@ -1819,7 +2049,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.22 UPL & Investigation Review
+### 3.1.25 UPL & Investigation Review
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1918,7 +2148,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 ---
 
-### 3.1.23 Pre-Demand Audit & Day 3 Gate
+### 3.1.26 Pre-Demand Audit & Day 3 Gate
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2027,7 +2257,7 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 
 ---
 
-### 3.1.24 Demand Execution Audit
+### 3.1.27 Demand Execution Audit
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Demand Execution Audit + CM Learning Summary & Self-Scale  
@@ -2133,7 +2363,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 3.1.25 Negotiation Mastery Check
+### 3.1.28 Negotiation Mastery Check
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Knowledge Check + CM Learning Summary & Self-Scale  
@@ -2176,7 +2406,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (9 questions):
+**Auto-graded share of the day's Knowledge Check** (13 questions):
 
 1. Keystone offers $3,500 on 08/05/2026. On unreduced liens of $7,965.00, what does John Doe net after the one-third fee and $486.75 in costs?  
    $2,333.33 · $3,013.25 · **✓ $0.00: the $1,846.58 left cannot cover the liens** · $1,846.58  
@@ -2205,6 +2435,18 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 9. John Doe calls on 10/07/2026: “So I'm getting about $13,600 from the UM money?” What does the Case Manager say?  
    “Yes, $13,661.19, to the cent.” · “More than that: the liens always come down, so expect around $15,000.” · **✓ “The sheet is a projection: some figures are still moving. Atty. Thorne will go through it with you,” and the call is logged and routed to him.** · “Less than that: the BI money has to cover the fee first.”  
    *The figure is a projection with the liens unreduced, and explaining it to John Doe is Atty. Thorne's. The CM quotes no net, predicts no reduction and routes the call.*
+10. Keystone's 08/14/2026 cover letter holds its check until each UM carrier's consent and subrogation waiver arrives. Which carriers do you ask?  
+   **✓ Harbor Point and Cardinal State: John Doe's Host UM and Relative UM layers** · Harbor Point, Cardinal State and Bluewater Auto · Bluewater Auto only, because it insures the Doe household's car · None: Keystone asks the UM carriers itself  
+   *Harbor Point ($20,000) and Cardinal State ($10,000) are the UM layers; both were asked 08/13 and answered 08/24 and 08/26/2026. Bluewater is Margaret's Civic policy with UM rejected in writing (03/14/2024): there is no UM layer to waive.*
+11. Auditing Keystone's draft release, which clause do you call “pull”?  
+   The $10,000.00 consideration · **✓ The confidentiality clause: no term of the demand, and it would bar proof of exhaustion to the UM carriers** · The non-admission of liability · The notary block  
+   *Confidentiality was never a term of the demand, and the UM carriers need the release as proof of exhaustion. The consideration, non-admission and notary block match the demand and are kept; the decision on every amendment is Atty. Thorne's.*
+12. Dana Whitfield asks whether Mr. Doe can sign Keystone's standard form now, with the changes in a side letter. What do you do?  
+   Agree, if she confirms the side letter by email · Send John Doe the form so the check is not delayed · **✓ Tell her nothing goes to the client for signature but the release Atty. Thorne approves, and route her email to him the same day** · Tell her the catch-all clause is unenforceable anyway  
+   *Release wording and the timing of signature are Atty. Thorne's. The Case Manager neither agrees nor argues the law; the request is logged and routed the same day.*
+13. At the 08/28/2026 signing session John Doe asks, “What am I giving up by signing paragraph 3?” What does the Case Manager say?  
+   “Nothing important; it's standard.” · “It means you can't come back for more money later.” · **✓ “Atty. Thorne will go through every paragraph with you before you sign; I'll make sure you have that time.”** · “Sign now and ask him later.”  
+   *Explaining a clause is legal advice. The Case Manager confirms the logistics (ID, notary, initials, original) and makes sure Atty. Thorne goes through the release with John Doe before he signs.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 

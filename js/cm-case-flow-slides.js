@@ -6271,6 +6271,171 @@ window.CM_CF_SLIDES = {
    "Quoting John Doe **a BI figure** before Atty. Thorne"
   ]
  },
+ "d3m2-umw": {
+  "image": "coverage-check",
+  "hook": "Keystone's $10,000 can't close until **both UM carriers** consent and waive subrogation.",
+  "points": [
+   "Release Smith without consent and **the UM claims** can be lost",
+   "Ask **Harbor Point and Cardinal State**; Bluewater has no UM",
+   "The 30-Day Letter goes **the day after the tender**",
+   "John Doe signs only **after both waivers** are in writing"
+  ],
+  "upl": "Request, docket, chase and match; **never interpret** the consent clause",
+  "job": [
+   [
+    "Tender, 08/12/2026",
+    "Draft both consent requests",
+    "Consent-to-settle template",
+    "Sent 08/13, windows docketed"
+   ],
+   [
+    "Keystone holds its check",
+    "Log the payment condition",
+    "CMS → Case Notes",
+    "Signing task on hold"
+   ],
+   [
+    "Consents arrive 08/24, 08/26",
+    "Match scope to the release",
+    "CMS → Documents",
+    "Smith and Keystone only"
+   ]
+  ],
+  "dos": [
+   "Name **the UM layers** before writing any request",
+   "File the waivers **at the front** of each package"
+  ],
+  "donts": [
+   "Asking **Bluewater Auto** for a waiver",
+   "Scheduling the signing **before the second consent**"
+  ],
+  "theory": {
+   "lead": "A UM carrier that pays steps into its insured's shoes, so **its consent and waiver** must come before any release of the at-fault driver.",
+   "concepts": [
+    {
+     "term": "Subrogation",
+     "text": "The paying carrier's right to recover **what it paid** from the at-fault driver.",
+     "more": [
+      "Harbor Point and Cardinal State each hold that right against Robert Smith",
+      "A release signed without their consent can **cut it off**",
+      "Whether the policy then lets a carrier deny the claim is Atty. Thorne's analysis"
+     ]
+    },
+    {
+     "term": "Consent to Settle",
+     "text": "The UM carrier's **written permission** to settle and release the at-fault driver.",
+     "more": [
+      "Requested by the 30-Day Letter, 08/13/2026, for Atty. Thorne's signature",
+      "Harbor Point consented 08/24; Cardinal State **08/26/2026**",
+      "Each consent covers a release of Smith and Keystone only"
+     ]
+    },
+    {
+     "term": "Waiver or substitution",
+     "text": "The carrier either **waives subrogation** or pays the tender itself to keep its claim.",
+     "more": [
+      "Both carriers waived and neither substituted its own check",
+      "A substitution offer goes **straight to Atty. Thorne**"
+     ]
+    },
+    {
+     "term": "The BI payment condition",
+     "text": "Keystone holds its check until **both waivers** arrive with the executed release.",
+     "more": [
+      "Stated in Dana Whitfield's cover letter of 08/14/2026",
+      "Bluewater is not asked: **UM rejected** in writing 03/14/2024",
+      "The waivers go to Keystone with the release on 08/28/2026"
+     ]
+    }
+   ],
+   "pages": [
+    "D2#33",
+    "D3#5"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Read the Coverage Matrix before drafting a single letter.",
+     "Host coverage, then the household policy behind it.",
+     "Two names go on the request, no more."
+    ],
+    [
+     "Open the Host UM package and see the paper first.",
+     "Tender, consent, waiver, signed release, then the medicine.",
+     "The adjuster finds the trigger on page one."
+    ]
+   ],
+   "donts": [
+    [
+     "A letter goes to Margaret's Civic carrier.",
+     "Its UM coverage was turned down in writing long ago.",
+     "A window is spent waiting on a company with nothing to sign."
+    ],
+    [
+     "Harbor Point's letter arrived; Cardinal State's has not.",
+     "John is booked for Friday at ten.",
+     "The notary is waiting when the call comes."
+    ]
+   ]
+  }
+ },
+ "d3m2-rel": {
+  "image": "release-signature",
+  "situation": "File date 08/14/2026. Keystone sends its **Release of All Claims** for John Doe's notarized signature, and holds its check until **both UM waivers** arrive.",
+  "steps": [
+   "Audit **every clause** against the demand's terms in the workbench",
+   "Call each clause and **write the proposed amendment**",
+   "Email the review to **Atty. Thorne** for approval",
+   "Route the adjuster's **side-letter request**; send nothing to John",
+   "File the memorandum in **the CMS and Drive**"
+  ],
+  "deliver": "An audited release, **Atty. Thorne's written approval**, the memo filed",
+  "purpose": "One unread line would **cost John Doe $30,000** of UM",
+  "principle": "You propose the fixes; **Atty. Thorne decides** every term",
+  "checks": [
+   "Catch-all **“all other … insurers”** replaced",
+   "Property Damage cut; **UM claims reserved**",
+   "Confidentiality pulled; **indemnity narrowed**; payment date added",
+   "Unknown injuries, Medicare, governing law **flagged for Atty. Thorne**",
+   "Approved 08/17; **nothing sent to John Doe**"
+  ],
+  "dos": [
+   "**Quote the over-broad words** exactly in the review"
+  ],
+  "donts": [
+   "Agreeing **release wording** with the adjuster",
+   "Sending the draft to John Doe **“to save time”**"
+  ]
+ },
+ "d3m2-exec": {
+  "image": "client-call",
+  "situation": "File date 08/26/2026. **Both consents are in** and Keystone's Limited Release is approved. Keystone wants a notarized original, both waivers and **a W-9 before paying**.",
+  "steps": [
+   "Call John Doe to **schedule the 08/28 signing**",
+   "Confirm **notary, ID and original**; Atty. Thorne explains first",
+   "Email Dana Whitfield **the executed packet**; request acknowledgement",
+   "Route **her payee question** to Atty. Thorne",
+   "Deposit the check; **file the settlement record**"
+  ],
+  "deliver": "An executed release sent, **the check in trust**, the record filed",
+  "purpose": "Keystone pays only on **a complete, executed packet**",
+  "principle": "You confirm signatures; **Atty. Thorne explains** the release",
+  "checks": [
+   "Signing scheduled **after both consents**",
+   "ID matches **“John Doe”**; notarized wet-ink original",
+   "Packet sent 08/28 **with both waivers** and W-9",
+   "**Payee question routed**; no lien assurance given",
+   "Check 0048213 **into IOLTA 09/04/2026**"
+  ],
+  "dos": [
+   "Check **the name on the ID** before the notary arrives"
+  ],
+  "donts": [
+   "Explaining **what a paragraph means** to John Doe",
+   "Promising the adjuster **anything about liens**"
+  ]
+ },
  "d3m2-l2": {
   "image": "coverage-check",
   "hook": "John Doe's own carriers will argue against him; **prove the gap above each layer**.",
@@ -7495,32 +7660,60 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
- "d3m4-a2": {
-  "image": "settlement-check",
-  "situation": "Two file dates. 08/14/2026: Keystone's draft release arrives; **UM consents still pending**. 10/21/2026: $40,000.00 cleared by 10/20, statement signed, Payoff Letters in. **Disbursement is 10/22**.",
+ "d3m4-pal": {
+  "image": "escalation-alert",
+  "situation": "File date 10/14/2026. $40,000.00 sits in trust. Vance & Kettering claims **a charging lien** and demands **$6,666.67** of the fee.",
   "steps": [
-   "Part 1: audit Keystone's draft **line by line**",
-   "Flag every line that reaches **past Smith, Keystone or BI**",
-   "State its cost to John Doe; **route a redline memo**",
-   "Part 2: **confirm every condition precedent**",
-   "Queue **one command per Net Sheet line**; show $0.00"
+   "Log the notice; **route it to Atty. Thorne** today",
+   "On his instruction, **hold $6,666.67** and update the Action Plan",
+   "Compare signatures and **cross-reference the dates**",
+   "Ask John Doe, **without opinion**, whether he hired them",
+   "Deliver **the evidentiary packet**; archive in CMS and Drive"
   ],
-  "deliver": "A redline memo before John Doe sees the draft; **five commands to $0.00**",
-  "purpose": "An over-broad release could **cost John Doe $30,000** in UM",
-  "principle": "No command until **every condition precedent clears**",
+  "deliver": "A held amount and **a factual packet** on Atty. Thorne's desk",
+  "purpose": "The disbursement waits on **a dispute only counsel resolves**",
+  "principle": "You build the record; **the attorney answers** the lawyer",
   "checks": [
-   "**“All other … insurers”** quoted: $30,000 of the $40,000 stack",
-   "Memo routed 08/14; **draft withheld from John Doe**",
-   "Five commands **match the Net Sheet** exactly",
-   "Ledger arithmetic shown, **$40,000.00 to $0.00**",
-   "**None released by the CM**; all for Atty. Thorne's signature"
+   "Logged and routed 10/14; **nothing sent** to the firm",
+   "**$6,666.67 held** on Atty. Thorne's instruction",
+   "Agreement signed **only by Margaret Doe**",
+   "**0.6 hours** of work; no carrier notice",
+   "Packet states facts; **validity left to Atty. Thorne**"
   ],
   "dos": [
-   "**Quote the over-broad words** exactly in the memo"
+   "Tie **every finding to a document** on the file"
   ],
   "donts": [
-   "Sending the draft to John Doe **“to save time”**",
-   "Queuing a command **before the funds clear**"
+   "**Replying to the claiming lawyer** yourself",
+   "Telling John Doe the agreement **“doesn't count”**"
+  ]
+ },
+ "d3m4-a2": {
+  "image": "settlement-check",
+  "situation": "File date 10/21/2026. $40,000.00 cleared by 10/20, statement signed, Payoff Letters in, **lien withdrawn 10/19**. **Disbursement is 10/22**.",
+  "steps": [
+   "Confirm **every condition precedent** against its document",
+   "Confirm the **lien hold released** by Atty. Thorne",
+   "Queue **one command per Net Sheet line**",
+   "Show the Trust Ledger reaching **$0.00**",
+   "Request **lien satisfactions** and John Doe's receipt"
+  ],
+  "deliver": "A confirmed checklist and **five commands to $0.00**",
+  "purpose": "Money moves only when **every gate behind it** is closed",
+  "principle": "No command until **every condition precedent clears**",
+  "checks": [
+   "Executed **Limited Release and UM releases** on file",
+   "Funds cleared; **statement signed 10/21**",
+   "**Hold released** after the 10/19 withdrawal",
+   "Five commands **match the Net Sheet** exactly",
+   "**None released by the CM**; all for Atty. Thorne"
+  ],
+  "dos": [
+   "Tick each condition **against its document**"
+  ],
+  "donts": [
+   "Queuing a command **before the funds clear**",
+   "Paying out while **a hold still stands**"
   ]
  },
  "d3m4-kc": {

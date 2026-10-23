@@ -92,15 +92,15 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D2#28` | Close the Deal: The “Final-Final” and the Paper Trail | ✅ BUILT | d3m2-a1, d3m2-l2, d3m2-a2, d3m2-kc |
 | `D2#29` | Settlement Negotiations: The “Never” Rule | ✅ BUILT | d3m2-l1, d3m2-a1, d3m2-kc, d4m1-l1, d4m1-a1, d4m1-kc |
 | `D2#30` | Skill Building: The Math Check — Your Slam-Dunk Liability Case | ✅ BUILT | d3m2-a1, d3m2-bins, d3m2-kc |
-| `D2#31` | BI Settlement — Phase II: The UM/UIM “Safety Check” | ✅ BUILT | d3m1-l2, d3m1-kc |
+| `D2#31` | BI Settlement — Phase II: The UM/UIM “Safety Check” | ✅ BUILT | d3m1-l2, d3m1-kc, d3m2-umw, d3m2-rel, d3m2-exec |
 | `D2#32` | BI Settlement: Key Laws & Doctrines | ✅ BUILT | d3m1-l2 |
-| `D2#33` | The Execution: The Release of All Claims (The “Exit” Document) | ✅ BUILT | d3m4-l2, d3m4-a2, d4m2-um, d4m2-a3, d4m2-kc |
+| `D2#33` | The Execution: The Release of All Claims (The “Exit” Document) | ✅ BUILT | d3m2-rel, d3m2-exec, d3m4-l2, d3m4-a2, d4m2-um, d4m2-a3, d4m2-kc |
 | `D2#34` | The Execution: Settlement Disclosure Statement (The “Truth” Document) | ✅ BUILT | d3m4-l2 |
 | `D2#35` | The Execution: Lien Payoff Letters (The “Verification” Paperwork) | ✅ BUILT | d3m3-a1, d3m3-l2, d3m3-a2, d3m4-l1, d3m4-a1, d3m4-l2, d3m4-a2 |
 | `D2#36` | The Execution: The Settlement Statement (The “Net” Sheet) | ✅ BUILT | d3m2-umns, d3m4-l1, d3m4-a1, d3m4-l2 |
 | `D2#37` | The Execution: The Dismissal (The “Court” Filing) | ✅ BUILT | d3m4-l2, d3m4-kc |
-| `D2#38` | The Execution: W-9 & Comparison of Key Post-Settlement Documents | ✅ BUILT | d3m4-l2, d3m4-a2 |
-| `D2#39` | Finalized Settlement: Boots-on-the-Ground Tasks — Administrative Document Control | ✅ BUILT | d3m4-l2 |
+| `D2#38` | The Execution: W-9 & Comparison of Key Post-Settlement Documents | ✅ BUILT | d3m2-exec, d3m4-l2, d3m4-pal, d3m4-a2 |
+| `D2#39` | Finalized Settlement: Boots-on-the-Ground Tasks — Administrative Document Control | ✅ BUILT | d3m2-exec, d3m4-l2 |
 | `D2#40` | Finalized Settlement: Final Lien Mitigation (The “Reduction”) | ✅ BUILT | d3m3-a1, d3m3-l2, d3m3-a2, d3m3-kc |
 | `D2#41` | Skill Building: BI Settlement — Caught in an Operational Pincer Movement | ✅ BUILT | d3m4-a2, d3m4-kc |
 
@@ -110,7 +110,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 |---|---|---|---|
 | `D3#1` | Training Agenda & Why the UM Phase Matters | ✅ BUILT | d3m1-l2 |
 | `D3#2` | Beyond Organization: The UM Demand Strategy | ✅ BUILT | d3m1-l2 |
-| `D3#3` | BI Exhaustion & Consent — Mechanic 1: Locking the Escape Hatches | ✅ BUILT | d3m1-l2, d3m1-kc, d5m4-kc |
+| `D3#3` | BI Exhaustion & Consent — Mechanic 1: Locking the Escape Hatches | ✅ BUILT | d3m1-l2, d3m1-kc, d3m2-umw, d5m4-kc |
 | `D3#4` | The UM Demand Package: Turning Risk Management Against the Insurer | ✅ BUILT | d3m1-l2, d3m1-pkg, d3m1-a2 |
 | `D3#5` | UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap | ✅ BUILT | d3m1-l2, d3m1-pkg, d3m1-a2, d4m2-um, d4m2-a3 |
 | `D3#6` | UM Demand: The Demand Packet — Document Inclusions | ✅ BUILT | d3m1-pkg, d3m1-a2, d3m1-kc |
@@ -118,25 +118,25 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D3#8` | UM Settlement: Negotiation & Settlement | ✅ BUILT | d3m2-l2, d3m2-a2 |
 | `D3#9` | UM Settlement: The “Offset” Rule & the Timeline | ✅ BUILT | d3m1-l2, d3m1-kc, d3m2-l2, d3m2-kc |
 | `D3#10` | UM Settlement: Challenges | ✅ BUILT | d3m2-l2, d3m2-a2 |
-| `D3#11` | UM Settlement: The Final Payout Process | ✅ BUILT | d3m2-l2, d3m2-a2, d3m2-kc |
+| `D3#11` | UM Settlement: The Final Payout Process | ✅ BUILT | d3m2-exec, d3m2-l2, d3m2-a2, d3m2-kc |
 | `D3#12` | Documents that Matter: Threshold & Coverage Documents | ✅ BUILT | d3m1-l2, d3m1-pkg, d3m1-a2, d3m1-kc |
 | `D3#13` | Documents that Matter: Liability & Causation Documents | ✅ BUILT | d2m3-cause, d3m1-pkg, d3m1-a2 |
 | `D3#14` | Documents that Matter: Special Damages Documents (Economic Hard Costs) | ✅ BUILT | d3m1-pkg, d3m1-a2 |
 | `D3#15` | Documents that Matter: General Damages Documents (Non-Economic Value) | ✅ BUILT | d2m3-cause, d3m1-pkg, d3m1-a2, d3m1-kc |
-| `D3#16` | Documents that Matter: Final Pleading & Release Documents (Closing Phase) | ✅ BUILT | d3m1-pkg, d3m1-a2 |
+| `D3#16` | Documents that Matter: Final Pleading & Release Documents (Closing Phase) | ✅ BUILT | d3m1-pkg, d3m1-a2, d3m2-umw, d3m2-rel |
 | `D3#17` | Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit | ✅ BUILT | d3m2-l2, d3m2-a2, d3m2-kc |
 | `D3#18` | Lien Negotiations/Reduction: Common Types of Liens | ✅ BUILT | d3m3-l1, d3m3-a1, d3m3-kc |
 | `D3#19` | Key Legal Doctrines Used for Reduction | ✅ BUILT | d3m3-l1, d3m3-a1, d3m3-kc, d4m2-um, d4m2-a3, d4m2-kc |
-| `D3#20` | Quantum Meruit Principle — Prior Attorney Liens | ✅ BUILT | d3m3-l1, d3m3-kc |
+| `D3#20` | Quantum Meruit Principle — Prior Attorney Liens | ✅ BUILT | d3m3-l1, d3m3-kc, d3m4-pal |
 | `D3#21` | Increasing the Client's Net | ✅ BUILT | d3m3-l2, d3m3-l3, d3m3-a2, d3m3-kc, d5m5-l1, d5m5-a1 |
 | `D3#22` | Auditing the Billing Before Asking for a Discount | ✅ BUILT | d3m3-l2, d3m3-l3, d3m3-a2, d3m3-kc |
 | `D3#23` | The Net Sheet: Purpose of a Combined BI/UM Net Sheet | ✅ BUILT | d3m2-bins, d3m2-umns, d3m4-l1, d3m4-kc, d5m5-l1, d5m5-kc |
 | `D3#24` | The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) | ✅ BUILT | d3m2-bins, d3m2-umns, d3m4-l1, d3m4-kc, d5m4-kc, d5m5-l1, d5m5-kc |
 | `D3#25` | The Net Sheet: The LSH Corporate Net Sheet Ledger | ✅ BUILT | d2m2-eob, d3m2-umns, d3m4-l1, d3m4-a1, d5m5-l1, d5m5-a1 |
-| `D3#26` | The Net Sheet: Case Manager Protocols for Dual Settlements | ✅ BUILT | d3m2-bins, d3m2-umns, d3m4-l1, d3m4-l2, d3m4-a2 |
+| `D3#26` | The Net Sheet: Case Manager Protocols for Dual Settlements | ✅ BUILT | d3m2-bins, d3m2-rel, d3m2-umns, d3m4-l1, d3m4-l2, d3m4-a2 |
 | `D3#27` | Key Takeaway — The Value of a Case Manager | ✅ BUILT | d3m4-l1, d3m4-a1, d3m4-kc, d5m5-l1, d5m5-a1, d5m5-kc |
 | `D3#28` | Skill Building: The “Doe v. Apex” Final Net Challenge | ✅ BUILT | d3m4-a1, d5m5-a1 |
-| `D3#29` | Case Phase: Disbursement — Core Objectives | ✅ BUILT | d3m4-l2, d3m4-close, d3m4-a2 |
+| `D3#29` | Case Phase: Disbursement — Core Objectives | ✅ BUILT | d3m4-l2, d3m4-close, d3m4-pal, d3m4-a2 |
 | `D3#30` | Disbursement: The Workflow | ✅ BUILT | d3m4-l2, d3m4-a2 |
 | `D3#31` | Disbursement: Documentation Checklist | ✅ BUILT | d3m4-a2 |
 | `D3#32` | Disbursement: Common Challenges & Mitigation | ✅ BUILT | d3m4-l2, d3m4-a2 |
@@ -289,12 +289,16 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - Newly authored: the Demand Package taught by function, each part paired with the adjuster trap it shuts, and proof of exhaustion distinguished from proof of uninsured status on an underinsured file
 - LSH Claims Specialist: review the case reference sheet before any adjuster call; no backdoor contact with the client
 - Newly authored: the settlement-stage BI Net Sheet (Stream 1 at the tender, liens unreduced, projections labelled) and the BI-alone pro-rata fact pattern laid before Atty. Thorne
+- Newly authored: the BI carrier's own demand for the UM carriers' consents and subrogation waivers before payment; Bluewater Auto excluded as a rejected-UM policy that is not a UM layer
+- Newly authored: the clause-by-clause release audit as a keep, replace, pull, add or flag call, with proposed amendments routed to the attorney before the client sees the release
+- Newly authored: the client signing session within the UPL line (signatures, notary and ID requirements, never a clause), and the executed packet transmitted with the UM waivers Keystone made a payment condition
 - Newly authored: the settlement-stage Stream 2 Net Sheet on 10/06/2026, liens unreduced, every moving figure marked as a projection, and the written questions for Atty. Thorne
 - Newly authored: plan funding status (self-funded vs. fully insured) decides the law that governs a health-plan reduction; the verified-none inventory of absent lienholders
 - Newly authored: the pro-rata distribution rule worked on the BI-only illustration; the pro-rata argument restated on true facts for a fund that covers every lien
 - Newly authored: lien negotiation calls, from the Pre-Demand & Reduction File Review Protocols handout (LSH Knowledge Base, CM Training · Day 4)
 - Newly authored: trust-account handling (same-day IOLTA deposit once the release is signed, client endorsement, no disbursement against uncleared funds, disputed shares held in trust); the contingent-fee Settlement Statement (ABA Model Rule 1.5(c) as an example); the UM release's Medicare and confidentiality terms
 - Newly authored: the closing letter's contents; the three-way zero-balance proof (bank statement, trust journal, client ledger); the post-closing late-bill drill on Crescent Pain & Spine's contractual write-off
+- Newly authored: the prior-attorney charging lien worked as a factual investigation (signature comparison, engagement timeline, work-product audit, client statement), a temporary administrative hold on the disputed amount, and escalation to the attorney
 - LSH Claims Specialist: liability denial and disputes — the dispute path to litigation; duty, breach, causation and damages; ask for the denial's reasons and evidence in writing
 - Newly authored: the five impasse triggers, each proved from the file
 - LSH Claims Specialist: liability decisions — the escalation protocol: supervisor, dated contact, file flagged for legal review
@@ -381,6 +385,8 @@ Where neither source had the theory, it was written for this flow and is marked 
 - **The net-floor gross-up for a percentage fee, and PIP valuation doctrine carried over to PIP** — Day 3 · Module 2
 - **The 'verified none' lien inventory and pro-rata distribution worked on the BI-only illustration** — Day 3 · Module 3
 - **Trust handling (cleared funds, disputed shares held) and the UM release audit points** — Day 3 · Module 4
+- **The BI release workflow: the clause audit with proposed amendments routed to counsel, the UM consent and subrogation waiver the BI carrier makes a payment condition, the client signing session within the UPL line, and the executed packet transmitted and funded** — Day 3 · Module 2 — the Settlement Release (Track A)
+- **The prior-attorney charging lien worked as a factual investigation with a temporary administrative hold and escalation to counsel** — Day 3 · Module 4 — Disbursement & Closing (Track A)
 - **The Track B close-out: the 07/06/2027 arbitration award, liens reduced at the 40% tier and the litigated LSH Net Sheet** — Day 5 · Module 5 — the case file had stopped at the hearing; written so the litigation track ends in a disbursement
 - **The five impasse triggers and the decision-only impasse memo** — Day 4 · Module 1
 - **Backward-counted deadlines move to the earlier business day; the SOL's internal hard date and cutoff** — Day 4 · Module 2

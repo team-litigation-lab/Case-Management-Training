@@ -538,6 +538,31 @@ window.CM_CF_SIM = {
     "RS35"
    ]
   },
+  "d3m2-rel": {
+   "date": "08/14/2026",
+   "time": "3:18 p.m.",
+   "channel": "email",
+   "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
+   "to": "Case Manager, LSH Law Group",
+   "subject": "KM-26-440871 / John Doe: release for signature",
+   "body": "Attached is the release to conclude the bodily injury claim on Keystone's $10,000.00 tender. Please have Mr. Doe sign before a notary and return the original. Before the check issues we need each UM carrier's written consent and subrogation waiver, and your W-9. Cover letter attached.",
+   "attachments": [
+    "RS37"
+   ]
+  },
+  "d3m2-exec": {
+   "date": "08/26/2026",
+   "time": "2:05 p.m.",
+   "channel": "memo",
+   "from": "Atty. Elijah Thorne",
+   "to": "Case Manager",
+   "subject": "Doe: both consents in; schedule the signing",
+   "body": "Cardinal State's consent and waiver came in today; Harbor Point's on Monday. Keystone's Limited Release of 08/19 is approved. Set John's signing for Friday 08/28, 10:00 a.m., here, with Renee Castillo notarizing. I'll go through the release with him first. Then send Keystone the packet and get the check confirmed.",
+   "attachments": [
+    "RS80",
+    "RS38"
+   ]
+  },
   "d3m2-a2": {
    "date": "09/14/2026",
    "time": "11:40 a.m.",
@@ -590,16 +615,29 @@ window.CM_CF_SIM = {
     "RS44"
    ]
   },
-  "d3m4-a2": {
-   "date": "08/14/2026",
-   "time": "3:18 p.m.",
+  "d3m4-pal": {
+   "date": "10/14/2026",
+   "time": "11:47 a.m.",
    "channel": "email",
-   "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
-   "to": "Case Manager, LSH Law Group",
-   "subject": "KM-26-440871 / John Doe: release for signature",
-   "body": "Attached is the release to conclude the bodily injury claim on Keystone's $10,000.00 tender. Please have Mr. Doe sign before a notary and return the original to me. The check will be issued once we receive the executed release.",
+   "from": "Corbin Vance <cvance@vancekettering.example>",
+   "to": "Atty. Elijah Thorne; Case Manager, LSH Law Group",
+   "subject": "NOTICE OF CHARGING LIEN — John Doe, accident 02/06/2026",
+   "body": "This firm was retained 07/27/2026 to represent John Doe. We assert a charging lien and demand one-half of the fee, $6,666.67. Hold the entire settlement and disburse nothing until we are paid. Please have your case manager confirm the fee division in writing by Friday, 10/16. Agreement and time record attached.",
    "attachments": [
-    "RS37"
+    "RS84"
+   ]
+  },
+  "d3m4-a2": {
+   "date": "10/21/2026",
+   "time": "9:30 a.m.",
+   "channel": "alert",
+   "from": "CMS",
+   "to": "Case Manager",
+   "subject": "Disbursement scheduled 10/22/2026: confirm conditions precedent",
+   "body": "Trust: $40,000.00, all funds cleared 10/20. Settlement Statement signed by John Doe 10/21. Payoff Letters on file: Peach State $1,240.00, Riverton Spine & Rehab $4,580.00. Lien hold $6,666.67 released by Atty. Thorne 10/19 (withdrawal on file). Confirm every condition, then queue the commands for his approval.",
+   "attachments": [
+    "RS81",
+    "RS86"
    ]
   },
   "d4m1-a1": {
@@ -992,6 +1030,20 @@ window.CM_CF_SIM = {
    ],
    "line": "The CM never accepts, rejects, counters or values; the offer goes to Atty. Thorne to convey."
   },
+  "d3m2-exec": {
+   "who": "John Doe",
+   "role": "client",
+   "persona": "Relieved it's settling but nervous about legal papers; wants to know what he's giving up and whether he can just sign online from work.",
+   "context": "08/26/2026. Both UM consents are in; Keystone's Limited Release (08/19) is approved by Atty. Thorne. Signing set for Friday 08/28, 10:00 a.m., at LSH Law Group, notary Renee Castillo; Keystone requires a notarized wet-ink original. John works a shift that day and asks to e-sign instead, asks what paragraph 3 means, and whether this ends his case. Atty. Thorne will go through the release with him before he signs.",
+   "opening": "Hey, it's John. I got your message about signing something Friday. Can't you just email it and I'll sign on my phone? And what am I actually giving up?",
+   "goals": [
+    "Schedule 08/28, 10:00 a.m., at the office",
+    "Explain the notary, wet-ink original and photo ID in his name",
+    "Route every question about meaning to Atty. Thorne",
+    "Log the call and confirm the time in writing"
+   ],
+   "line": "Logistics only: signatures, notary and ID. Never what a clause means or whether to sign."
+  },
   "d3m3-a2": {
    "who": "Tammy Greer, Riverton Spine & Rehab",
    "role": "lienholder",
@@ -1005,6 +1057,20 @@ window.CM_CF_SIM = {
     "Request a signed Payoff Letter: full satisfaction, no balance billing"
    ],
    "line": "The CM negotiates only inside Atty. Thorne's written authority and never accepts a figure on the call."
+  },
+  "d3m4-pal": {
+   "who": "John Doe",
+   "role": "client",
+   "persona": "Confused, then embarrassed; never heard of the firm; protective of his mother once he learns she signed; wants to know if his money is at risk.",
+   "context": "10/15/2026. Vance & Kettering claims a charging lien ($6,666.67) on an agreement dated 07/27/2026, signed only by Margaret Doe. John never contacted or signed with them and didn't know. Asked neutrally, he says so; after calling his mother he calls back: she signed after a radio ad, to help. He asks whether he has to pay them and whether 10/22 is delayed.",
+   "opening": "Vance and what? I've never talked to any other lawyer. You guys are my lawyers. Is somebody trying to take my settlement?",
+   "goals": [
+    "Ask neutrally whether he ever contacted or signed with the firm",
+    "Record his account in his own words",
+    "Route whether he owes them anything to Atty. Thorne",
+    "Tell him what happens next and when he'll hear"
+   ],
+   "line": "Facts only. Never say the lien is invalid, never blame Margaret, never predict the outcome."
   },
   "d3m4-a2": {
    "who": "John Doe",

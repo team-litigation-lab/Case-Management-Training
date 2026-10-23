@@ -283,6 +283,62 @@ the MRI with its addendum) and Riverton Spine & Rehab's ledger audited to 33 vis
   Keystone's draft release (08/14) released "all other persons, firms, corporations and insurers" — which
   would have released the UM claims — and was revised to a Limited Release, **signed 08/28/2026**.
   Keystone's check received **09/04/2026** into the IOLTA trust account.
+- **The BI release workflow (Track A), step by step:**
+  - **08/14/2026 (Fri)** Dana Whitfield's cover letter sends Keystone's draft "Release of All Claims" (Form KM-REL-100)
+    for a notarized wet-ink signature, and states that **before payment issues Keystone requires written confirmation
+    that each UM carrier on notice (Harbor Point, Cardinal State) has consented to the settlement and waived
+    subrogation against Robert Smith** (the UM Subrogation Waiver / Consent to Settle). Bluewater Auto is not asked:
+    Margaret's Civic policy carries no UM (rejected in writing 03/14/2024), so it is not a UM layer.
+  - The draft's clauses as the Case Manager audits them: the catch-all discharge of "all other … insurers" (would release
+    Harbor Point and Cardinal State, $30,000 of the stack); "Property Damage and Loss of Use" among the claims released
+    (the Civic's claim, KM-26-440871-PD, is Margaret's, open with Leah Moran); a **confidentiality** clause (no term of the
+    demand, and it would bar showing the release to the UM carriers as proof of exhaustion); a lien warranty with an
+    **indemnify, defend and hold harmless** obligation including attorney's fees; no reservation of the UM/UIM claims; no
+    payment date. Kept: the parties, the $10,000.00 consideration, non-admission of liability, the signature and notary
+    block. For Atty. Thorne to decide: the unknown-injuries clause, the Medicare representation (John is not a Medicare
+    beneficiary: the Day 2 check) and the governing-law clause.
+  - **08/14/2026** the Case Manager's clause review and proposed amendments go to Atty. Thorne (4:21 p.m.); nothing goes
+    to John Doe. **08/17/2026 (Mon)** Atty. Thorne approves the amendments in writing and sends the redline to Dana
+    Whitfield. **08/19/2026 (Wed)** Keystone accepts them and issues the **Limited Release** (Form KM-REL-100-L): Robert
+    Smith and Keystone only, the BI claim only, the UM/UIM claims and the Civic's claim expressly reserved, no
+    confidentiality term, the lien clause limited to the liens on the file paid from the firm's trust account (no duty
+    to defend, no attorney's fees), the Medicare representation as Atty. Thorne approved it, governed by Riverton law, and
+    payment within 14 days of Keystone's receipt of the executed release and the firm's Form W-9.
+  - **08/26/2026 (Wed)** with both consents in, the Case Manager calls John Doe to schedule the signing session (logistics
+    only: date, place, government photo ID in the name "John Doe", sign only before the notary, Atty. Thorne explains the
+    release first). **08/28/2026 (Fri), 10:00 a.m.**, at LSH Law Group: Atty. Thorne goes through the release with John;
+    John signs before notary **Renee Castillo** (Notary Public, Riverton County; Riverton driver's license, name matching
+    "John Doe"); the executed release is scanned to the CMS and to John's client-portal copy the same day. Keystone's form
+    requires a notarized wet-ink original, so the release itself is not e-signed.
+  - **08/28/2026, 4:21 p.m.** the Case Manager emails Dana Whitfield the executed Limited Release, both UM consents and
+    subrogation waivers (08/24, 08/26) and the firm's W-9; the original goes by overnight courier. **08/31/2026 (Mon)** she
+    acknowledges receipt in writing (9:12 a.m.) and confirms the check will issue 09/01. **09/01/2026** Keystone check
+    **no. 0048213**, $10,000.00, payable to John Doe and LSH Law Group, issues; she asks whether Peach State should be
+    added as a payee (routed to Atty. Thorne; payee unchanged). **09/04/2026** the check is received and deposited to IOLTA;
+    copies go to Marcus Bell and Teresa Okafor; the settlement record (transmittal, acknowledgement, check copy) is filed
+    in the CMS and kept on the Backup Drive.
+- **The prior-attorney lien (Track A, before disbursement):**
+  - **07/27/2026 (Mon)**, during the demand phase, Margaret Doe, without John's knowledge, signed a contingency fee
+    agreement (33⅓%) with **Vance & Kettering Injury Law, LLC** (Atty. **Corbin Vance**, cvance@vancekettering.example)
+    naming "John Doe (by Margaret Doe, mother)" as the client. John, an adult (DOB 08/14/1991), never signed it and gave
+    no power of attorney or authorization. Vance & Kettering's own time record shows a 0.4-hour intake call with Margaret
+    (07/27) and a 0.2-hour welcome letter to her (07/29): no letter of representation, no records request, no filing, no
+    contact with John or any carrier.
+  - **10/14/2026 (Wed)** Vance & Kettering's "Notice of Attorney's Charging Lien and Demand for Division of Fee" (dated
+    10/13) arrives by email: it claims one-half of the fee on a $40,000.00 gross, **$6,666.67**, and asks the firm to hold
+    the settlement funds. The Case Manager logs receipt and routes it to Atty. Thorne the same day, and sends nothing to
+    Vance & Kettering. On Atty. Thorne's instruction a **temporary administrative hold** is placed in the CMS on
+    $6,666.67 of the trust funds and the Action Plan is updated.
+  - **10/15/2026 (Thu)** the Case Manager's investigation: the agreement is signed only by Margaret Doe (John's
+    signatures on the 02/09/2026 fee agreement and HIPAA authorization do not appear on it); LSH Law Group was engaged
+    02/09/2026 and served the demand 07/20/2026, before the 07/27 agreement; no carrier file holds any notice from Vance &
+    Kettering. On a call that day John says he never contacted or signed with the firm and did not know of it; he calls
+    back after speaking with his mother, who confirms she signed it after hearing a radio advertisement. The evidentiary
+    packet (factual summary, timeline, signature comparison, work-product audit, hold record) goes to Atty. Thorne.
+  - **10/16/2026 (Fri)** Atty. Thorne's letter repudiates the lien and asks for its written withdrawal by 10/20. **10/19/2026 (Mon)**
+    Vance & Kettering withdraws the notice of lien in writing and claims no fee. Atty. Thorne releases the hold the same
+    day; all correspondence is filed in the CMS and kept on the Backup Drive. Every later date and figure stands: funds
+    cleared 10/20, Settlement Statement 10/21, disbursement 10/22, net $20,359.92.
 - **08/31/2026** Host UM demand to Harbor Point ($20,000) and Relative UM demand to Cardinal State ($10,000, as
   excess over Host UM), each emailed to its adjuster (Marcus Bell; Teresa Okafor), logged, with written
   acknowledgement of receipt requested.
@@ -421,4 +477,6 @@ the facts above. Fictional throughout; no real carrier, provider or firm.
 | Witness | **Ruth Calloway**, 2209 Maple Hollow Rd · signed statement to Officer Garner on scene |
 | Doorbell video | Margaret Doe's camera at 2214 Maple Hollow Rd · clip 07:09:41–07:10:26 · copy secured 02/19/2026 (USB, SHA-256 logged) |
 | Property Damage | **Riverton Collision Center** (estimator Paul Diaz) · tow and storage **Riverton Towing** · rental **Rivergate Rentals** · DV appraisal **Riverton Auto Appraisal** (Carl Benning) |
+| Settlement execution (Track A) | Notary **Renee Castillo**, Notary Public, Riverton County (LSH Law Group office; commission no. NP-0522190, expires 03/31/2030) · Keystone release forms KM-REL-100 (draft) and KM-REL-100-L (Limited Release) · Keystone check **no. 0048213** |
+| Outside firm (Track A lien) | **Vance & Kettering Injury Law, LLC**, 88 Foundry Row, Millbrook · (555) 010-8800 · Atty. **Corbin Vance**, cvance@vancekettering.example · intake coordinator Paige Lusk · never retained by John Doe |
 | Litigation | Process server **Allied Process Services** (Miguel Santos) · Skip-Trace **TraceLine Investigations** · defense **Atty. Grant Mercer, Mercer & Hale LLP**, 10 Court Sq, Riverton · court reporter **Riverton Court Reporting** |
