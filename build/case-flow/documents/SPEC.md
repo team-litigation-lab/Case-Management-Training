@@ -182,10 +182,12 @@ was low back (contrast RS02).
 
 **RS14 · Riverton Spine & Rehab — Visit Notes & Attendance Log** · Day 1 · Medical · `RS_14_Spine_Rehab_Visit_Notes_and_Attendance.pdf`
 Attendance log with every visit date (spec list) and short SOAP lines (pain scores trending down, ROM improving),
-the missed visits 04/03, 04/07, 04/09, 04/14 marked "No show — transportation" / "No show", the missed-visit alert
-sent to LSH Law Group 04/08/2026, return 04/21/2026 (evening slot), discharge 06/05/2026 (plateau, home program).
-*Plant:* none. *Key:* 33 attended visits. The 19-day disruption (04/02 → 04/21) is documented with its cause
-(transportation) — the A-C-T record answers "failure to mitigate".
+the missed visits 04/03, 04/07, 04/09, 04/14 marked "No show" (no call; the clinic's voicemails and texts unanswered),
+the missed-visit alert sent to LSH Law Group 04/08/2026, the front-desk log (04/08 the firm's call; 04/17 evening slots
+booked with the patient on the line), return 04/21/2026 (evening slot, mother driving; the patient's own report of panic
+and avoiding car rides since 04/02), discharge 06/05/2026 (plateau, home program).
+*Plant:* none. *Key:* 33 attended visits. The 19-day disruption (04/02 → 04/21) is documented: the near-drop, then the
+patient's own report on 04/21; with RS75–RS78 it answers "failure to mitigate".
 
 **RS15 · Lakeside Orthopedics — Consult & Follow-up** · Day 2 · Medical · `RS_15_Lakeside_Orthopedics_Consult_and_Followup.pdf`
 Dr. Alana Reyes, MD. 03/05/2026 consult (history, exam: right C6 dermatomal paresthesia, Spurling positive right;
@@ -209,7 +211,8 @@ pick one and keep it), medication, tolerance, post-procedure plan; payer Peach S
 
 **RS18 · Lakeside Orthopedics — MMI Note (06/12/2026)** · Day 2 · Medical · `RS_18_Lakeside_MMI_Note.pdf`
 Dr. Alana Reyes: MMI declared; residual intermittent right-arm paresthesia; future care: possibly 1–2 repeat ESIs
-within 24 months at $3,400 each.
+within 24 months at $3,400 each. Interval history: therapy interrupted 04/02–04/21/2026 while he avoided car travel
+after a panic episode at the collision site (telephone encounter 04/20; EAP counseling since 04/24).
 *Plant:* none. *Key:* MMI = the demand clock. Future medical $3,400–$6,800 is narrative, not specials.
 
 **RS19 · Dr. Alana Reyes — Causation Letter (06/19/2026)** · Day 2 · Medical · `RS_19_Reyes_Causation_Letter.pdf`
@@ -296,7 +299,7 @@ its LOP); an activity log through 07/06/2026, when it was reconciled to RS31.
 02/17/2026 Leah Moran: PD liability accepted; 02/18 rental authorized at Rivergate Rentals, $42.00/day, max 30 days;
 02/24 Dana Whitfield: BI acknowledgment; the $10,000 limit given on the set-up call will be confirmed in writing (declarations page) only on a written request with signed authorizations;
 03/16 Leah Moran: rental ends 03/19 (30 days); 04/10 Leah Moran: extension refused ("shop delay is not covered").
-*Key:* The rental cutoff starts the disruption (A-C-T). The limits request is how the BI layer was verified.
+*Key:* The 03/19 rental cutoff is Property Damage (Margaret's Loss of Use), background to the April disruption, not its cause. The limits request is how the BI layer was verified.
 
 **RS33 · BI Time-Limited Demand — DRAFT for audit** · Day 3 · Others · `RS_33_BI_Time_Limited_Demand_DRAFT.pdf`
 The demand specialist's draft (dated 07/20/2026) to Dana Whitfield, KM-26-440871, by email:
@@ -471,6 +474,44 @@ responses to requests for admission served by U.S. mail on Atty. Grant Mercer 01
 **RS65 · Harbor Point — PIP Application & Claim Acknowledgement** · Day 2 · Others · `RS_65_Harbor_Point_PIP_Application.pdf`
 John Doe's PIP application, signed 02/17/2026 and sent with the Harbor Point LOR (passenger in Kevin Alvarez's 2020 Ford Escape), and Harbor Point's 02/24/2026 acknowledgement: PIP opened under HPA-4402917, $5,000 each person, 100% medical / 80% lost income, bills to be sent with the claim number; wage loss needs an employer verification.
 *Key:* Whose PIP: the vehicle he rode in, because no household policy carries PIP. Riverton's add-on rule: no BI or UM set-off, no reimbursement from the recovery.
+
+### The near-drop: the 19-day disruption (RS75–RS79)
+
+The April disruption's record (case-file §2, "Why the disruption happened"). No plants. None adds a bill: the
+Specials stay $16,401.40.
+
+**RS75 · Client Outreach Log & Re-engagement Notices (04/08–04/20/2026)** · Day 2 · Case Files · folder `intake` · `RS_75_Client_Outreach_Log_and_Notices.pdf`
+LSH CMS Communications Log export, printed 04/20/2026: 18 entries from the last contact (03/31 check-in) through the
+04/08 alert, Step 1 review, Notices 1–3 (call + text 04/08, call + email 04/09, text 04/13), Margaret Doe 04/10, Step 3
+escalation, the Final Warning Letter and Drop Warning status (04/10), the certified receipt (04/13), the 14-day
+no-visit trigger (04/16), John's call 04/17 (declined recording; privileged GIRP note filed separately), Atty.
+Thorne's approval, and the restoration 04/20. Page 2: the text of each notice as sent.
+*Plant:* none. *Key:* the finished protocol record; it is the model for d2m2-a2, so it is not in that activity's packet.
+
+**RS76 · Final Warning Letter — 10-Day (04/10/2026)** · Day 2 · Case Files · folder `intake` · `RS_76_Final_Warning_Letter_10_Day.pdf`
+Atty. Thorne to John Doe, by certified mail 7026 0410 0001 3382 5590 and email: the five attempts itemized, respond
+by April 20, 2026, withdrawal possible under section 7 of the retainer and not decided, how to respond. Page 2: return
+receipt signed "M. Doe" 04/13/2026 and the email delivery record.
+*Plant:* none. *Key:* the 10-day date is a response date; RS05 §7 needs 30 days of documented attempts before withdrawal.
+
+**RS77 · Dr. Alana Reyes — Telephone Encounter & Counseling Referral (04/20/2026)** · Day 2 · Medical · folder `medical` · `RS_77_Reyes_Telephone_Encounter_and_Counseling_Referral.pdf`
+Lakeside telephone encounter 04/20/2026, 20 minutes, not billed ($0.00), scheduled 04/17 at the patient's request
+(scheduling only): the 04/02 panic episode at the collision corner, avoidance of car travel, sleep, low mood, denies
+self-harm; assessment anxiety with avoidance after the MVA (provisional, not a psychiatric evaluation); referral to
+Stonebridge EAP Services (Northgate's EAP); PT to resume. Page 2: the faxed referral letter.
+*Plant:* none.
+
+**RS78 · Stonebridge EAP — Counseling Summary (06/10/2026)** · Day 2 · Medical · folder `medical` · `RS_78_Stonebridge_EAP_Counseling_Summary.pdf`
+Renee Castillo, LPC, to Atty. Thorne (his letter 05/27; authorization 05/06): six video sessions 04/24, 05/01, 05/08,
+05/22, 05/29, 06/05/2026 at no charge; his words; GAD-7 15 → 7, PHQ-9 12 → 5; impression consistent with an
+adjustment disorder with mixed anxiety and depressed mood, related by history to the 02/06/2026 collision; progress
+and recommendations. Treatment summary only, no psychotherapy notes.
+*Plant:* none.
+
+**RS79 · John Doe — Personal Impact Statement (06/15/2026)** · Day 2 · Others · folder `insurance` · `RS_79_Personal_Impact_Statement.pdf`
+John's own words on the firm's open-prompt form: work, basketball, the corner, 04/02, the silence, the counseling,
+what remains. Signed 06/15/2026.
+*Plant:* none. *Key:* his account: "account only" in the Gap Explanation Record; use in the demand is Atty. Thorne's call.
 
 ### The audited sets and their finished counterparts
 
