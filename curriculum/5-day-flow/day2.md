@@ -170,7 +170,7 @@ An evidence board fills the slide. Centre, a small diagram of the all-way stop a
 *Why:* Coverage answers whether there is money; liability answers whether anyone has to pay it. Evidence of fault is freshest in the first days: a witness's memory fades, a doorbell camera records over itself, and an event data recorder stays with the car. A Case Manager who gathers and preserves the liability evidence at claim set-up gives Atty. Thorne a case he can prove, and an answer ready for the comparative-fault argument the defense is likely to raise.
 
 1. Liability is investigated, not assumed. The client's account is where it starts; the Police Report, an independent witness, video and vehicle data are what prove it. Record each piece with its source and the date it reached the file.
-2. The Police Report comes first: Riverton PD report RPD-26-018842, Officer Thomas Garner #2217. Read it line by line: the narrative, the diagram, each unit's driver, vehicle and insurer, citations issued and witnesses named. Robert Smith was cited for failure to stop at a stop sign.
+2. The Police Report comes first: Riverton PD report RPD-26-018842, Officer Thomas Garner #2217. Read it line by line: the narrative, the diagram, each unit's driver, vehicle and insurer, citations issued and witnesses named. Robert Smith was cited for failure to stop at a stop sign; whether the citation itself can be used later varies by state, and that is Atty. Thorne's call.
 3. Reconcile the report against the file, never the other way round. The report lists the Escape as a 2021; Harbor Point's Declaration Page shows a 2020. Record the discrepancy with both sources; correct our own record from the Declaration Page.
 4. An independent witness is the strongest answer to a disputed version. Ruth Calloway, 2209 Maple Hollow Rd, gave Officer Garner a signed statement on scene. Log her contact details, and flag a follow-up statement to Atty. Thorne while her memory is fresh.
 5. Preserve video before it is lost. Margaret Doe's doorbell camera at 2214 Maple Hollow Rd recorded the collision (07:09:41–07:10:26). John Doe was told to preserve it on 02/17/2026; the firm secured a copy on 02/19/2026, with its SHA-256 hash logged. Keep the original unaltered and record the chain of custody.
@@ -619,6 +619,7 @@ A full-width CMS Coverage Matrix in a white card with a navy header bar: six row
 
 **Best practices & pitfalls**
 
+- Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).
 - Audit against documents, not memory: open the letter before you change the cell.
 - A correct row left alone is part of the grade.
 - ⚠️ Pitfall: fixing the total without finding why it was wrong.
@@ -1780,6 +1781,7 @@ The CMS Tasks board fills the slide as a white card with a navy header, JOHN DOE
 
 **Best practices & pitfalls**
 
+- Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).
 - Read the referral before you redirect it: Dr. Reyes's 03/27/2026 note already names Crescent Pain & Spine.
 - Verify network status with the plan yourself. What John Doe heard at work is a reason to check, not a fact.
 - Book while the client is on the line. A callback is where a new gap starts.

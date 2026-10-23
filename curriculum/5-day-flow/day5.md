@@ -291,6 +291,7 @@ A single memo page on white letterhead, a navy header band reading IMPASSE MEMO 
 
 **Best practices & pitfalls**
 
+- Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).
 - Write the memo so Atty. Thorne can decide from it in five minutes, without opening another document.
 - Quote Keystone's grounds as Keystone stated them; don't re-argue them in the memo. The rebuttal already did.
 - The 48-Hour Mandate: when the escalation window closes unanswered, escalate to Atty. Thorne with the record you have. Don't wait for a perfect one.
@@ -1022,6 +1023,7 @@ A CMS Pleadings Log screen fills the left two-thirds: a white card with a navy h
 
 **Best practices & pitfalls**
 
+- Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).
 - One row per discovery set, so no deadline hides inside another.
 - Link every row to its source document, so the log can be re-checked without you.
 - Record a late filing as late. A log that hides its own misses can't be audited.
@@ -1353,6 +1355,7 @@ An annotated CMS Property Damage worksheet fills the left two-thirds: a white ca
 
 **Best practices & pitfalls**
 
+- Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).
 - Correct a wrong figure with a dated note; never overwrite the history.
 - Evidence each period, not just the total: the defense attacks periods.
 - ⚠️ Pitfall: producing a worksheet that still says $3,276.00; one double count lets the defense attack every other number.
@@ -1833,7 +1836,7 @@ Two zones. Left 60%: the four-row regime table on a cream card, regime names in 
 *Why:* After suit, the defense argued fault and mitigation: the car he rode in and his seatbelt (comparative fault), his missed visits (failure to mitigate). Fault can reduce or bar recovery; mitigation cuts only the damages the missed care caused. The counter-package answers each from this file, with evidence that can come in.
 
 1. Comparative negligence apportions fault. Pure: damages fall by John's share, however large. Modified: they fall, but recovery is barred once his share reaches 50% in some states or 51% in others. Contributory, in a handful of jurisdictions: any fault bars recovery. Confirm the governing rule.
-2. Record where liability stands, with its source: accepted, partial or denied. Keystone accepted PD liability on 02/17/2026 and argued causation before suit; the Answer now pleads comparative fault. Its weight is Atty. Thorne's call.
+2. Record where liability stands, with its source: accepted, partial or denied, each carrier's position kept in writing since claim set-up (Liability Investigation). Keystone accepted PD liability on 02/17/2026 and argued causation before suit; the Answer now pleads comparative fault. Its weight is Atty. Thorne's call.
 3. Allegation 1, “the Escape entered the all-way stop out of turn,” targets Kevin Alvarez's driving, not John's. Whether a driver's fault can be charged to a passenger, or apportioned to a non-party, is Atty. Thorne's analysis. Your job is the evidence.
 4. Never add anything to the stack because the defense blames Kevin Alvarez. Whether his alleged fault touches coverage is a coverage question for Atty. Thorne; the file's verified stack stays $40,000, BI → Host UM → Relative UM.
 5. Allegation 2, “John was unbelted,” is answered twice: the Escape's event data recorder shows the front-passenger belt buckled, and the EMS Run Report reads “restrained front-seat passenger.” Seatbelt evidence is barred in some states and limited in others: confirm the governing rule.
@@ -2104,6 +2107,7 @@ Split slide. Left half, PART 1 — SERVICE: a vertical log card (date · time ·
 
 **Best practices & pitfalls**
 
+- Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).
 - Log the process server's attempts with date, time and result, exactly as you log your own client attempts.
 - Calendar the notice's response date beside the deposition, so one cannot slip past the other.
 - A return receipt signed at 2214 Maple Hollow Rd proves delivery to the house, not that John read it: that is why the email goes too.

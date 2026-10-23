@@ -2721,7 +2721,7 @@ window.CM_CASE_FLOW = {
           why: "Coverage answers whether there is money; liability answers whether anyone has to pay it. Evidence of fault is freshest in the first days: a witness's memory fades, a doorbell camera records over itself, and an event data recorder stays with the car. A Case Manager who gathers and preserves the liability evidence at claim set-up gives Atty. Thorne a case he can prove, and an answer ready for the comparative-fault argument the defense is likely to raise.",
           rules: [
             "Liability is investigated, not assumed. The client's account is where it starts; the Police Report, an independent witness, video and vehicle data are what prove it. Record each piece with its source and the date it reached the file.",
-            "The Police Report comes first: Riverton PD report RPD-26-018842, Officer Thomas Garner #2217. Read it line by line: the narrative, the diagram, each unit's driver, vehicle and insurer, citations issued and witnesses named. Robert Smith was cited for failure to stop at a stop sign.",
+            "The Police Report comes first: Riverton PD report RPD-26-018842, Officer Thomas Garner #2217. Read it line by line: the narrative, the diagram, each unit's driver, vehicle and insurer, citations issued and witnesses named. Robert Smith was cited for failure to stop at a stop sign; whether the citation itself can be used later varies by state, and that is Atty. Thorne's call.",
             "Reconcile the report against the file, never the other way round. The report lists the Escape as a 2021; Harbor Point's Declaration Page shows a 2020. Record the discrepancy with both sources; correct our own record from the Declaration Page.",
             "An independent witness is the strongest answer to a disputed version. Ruth Calloway, 2209 Maple Hollow Rd, gave Officer Garner a signed statement on scene. Log her contact details, and flag a follow-up statement to Atty. Thorne while her memory is fresh.",
             "Preserve video before it is lost. Margaret Doe's doorbell camera at 2214 Maple Hollow Rd recorded the collision (07:09:41–07:10:26). John Doe was told to preserve it on 02/17/2026; the firm secured a copy on 02/19/2026, with its SHA-256 hash logged. Keep the original unaltered and record the chain of custody.",
@@ -2886,6 +2886,7 @@ window.CM_CASE_FLOW = {
           ["Audit complete", "Route the audit note", "CMS → Tasks → Escalate", "Note separates confirmed, preliminary and escalated items"]
         ],
         best: [
+          "Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).",
           "Audit against documents, not memory: open the letter before you change the cell.",
           "A correct row left alone is part of the grade.",
           "Pitfall: fixing the total without finding why it was wrong.",
@@ -3761,6 +3762,7 @@ window.CM_CASE_FLOW = {
           ["Downstream work", "Do each task or delegate it with an owner and a due date; report to Atty. Thorne", "CMS → Tasks · ChartSwap · CMS → Liens · Email Workspace", "Every task Done or Delegated; none without an owner"]
         ],
         best: [
+          "Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).",
           "Read the referral before you redirect it: Dr. Reyes's 03/27/2026 note already names Crescent Pain & Spine.",
           "Verify network status with the plan yourself. What John Doe heard at work is a reason to check, not a fact.",
           "Book while the client is on the line. A callback is where a new gap starts.",
@@ -4526,7 +4528,7 @@ window.CM_CASE_FLOW = {
         tell: {
           why: "Atty. Thorne makes the strategy calls from your brief. A brief that opens with the chronology buries the decision; one that hides a risk misleads him; one that makes the call for him crosses a line.",
           rules: [
-            "Bottom line first, in one sentence: where the file stands and what you need. Here: MMI 06/12/2026; $16,401.40 in audited Specials against a $10,000 BI limit; decisions needed before any demand is drafted.",
+            "Bottom line first, in one sentence (the Decision First habit from Claim Set Up, now for the strategy brief): where the file stands and what you need. Here: MMI 06/12/2026; $16,401.40 in audited Specials against a $10,000 BI limit; decisions needed before any demand is drafted.",
             "Facts next, audited and sourced. The trinity must agree: the narrative (John Doe's account), the physicality (the force of the impact), the medicals (the C5-C6 herniation). If one is out of line, say so first: that is the defense's easy out.",
             "Liability proof in final form: the final Riverton PD report RPD-26-018842 (Smith cited for failure to stop), checked for a contributory-negligence note; Ruth Calloway's contact re-confirmed and her account checked for drift; the doorbell video squared with the scene.",
             "Property Damage proves force, in final figures. Lead with John Doe's door, the Escape's, struck at about 28 mph (request photos if not on file). Then the Civic: $6,940.00 → $9,255.00 with a $2,315.00 A-pillar supplement, 52.6% of its $17,600.00 ACV: repairable under this file's 75% threshold (it varies by state).",
@@ -4621,6 +4623,7 @@ window.CM_CASE_FLOW = {
           ["Plan changed", "Mark the plan superseded and re-route it", "Action Plan Editor → Version", "New version routed the same day"]
         ],
         best: [
+          "Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).",
           "Read back every decision before the session ends; a decision you can't quote isn't recorded.",
           "Use objective facts, never adjectives: a citation, a speed, a supplement, an MRI finding.",
           "Pitfall: apologizing for the gap instead of explaining it with documentation.",
@@ -5341,6 +5344,7 @@ window.CM_CASE_FLOW = {
           ["Keystone tenders the $10,000 limits (08/12/2026)", "Log the tender and route it to Atty. Thorne the same day; draft, for his signature, the written confirmation that it is BI only (the Civic's property-damage claim stays open), on the demand's terms: Limited Release, Smith's 08/10 affidavit of no other insurance", "CMS → Insurance tab → Negotiation Log · Email Workspace", "Tender dated inside the 08/21/2026 window; no release signed before the UM consent-to-settle requests (08/13/2026) are answered"]
         ],
         best: [
+          "Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).",
           "Review the case reference sheet before you dial, and never give the BI carrier a way to reach John Doe directly.",
           "Have every document open before the call; read quotes, don't paraphrase them.",
           "Pitfall: answering “degenerative” with an opinion instead of the radiologist's own sentence.",
@@ -5468,6 +5472,7 @@ window.CM_CASE_FLOW = {
           ["Last layer closes (10/06/2026)", "Post all three layers to the Recovery Ledger", "CMS → Financial Ledger → Net Sheet → Recovery Ledger", "Gross = $40,000.00 exactly; nothing outside the stack added"]
         ],
         best: [
+          "Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).",
           "Write each log entry so Atty. Thorne could defend the file from it cold.",
           "Quote the carrier; never paraphrase its reasons.",
           "If an adjuster says the number is above their authority, ask who holds it and get that person involved.",
@@ -6586,6 +6591,7 @@ window.CM_CASE_FLOW = {
           ["Memo complete", "Route it to Atty. Thorne for decision", "CMS → Tasks → Escalate", "Routed Tue 09/08/2026, the first business day after Labor Day; no recommendation in the text"]
         ],
         best: [
+          "Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).",
           "Write the memo so Atty. Thorne can decide from it in five minutes, without opening another document.",
           "Quote Keystone's grounds as Keystone stated them; don't re-argue them in the memo. The rebuttal already did.",
           "The 48-Hour Mandate: when the escalation window closes unanswered, escalate to Atty. Thorne with the record you have. Don't wait for a perfect one.",
@@ -7357,6 +7363,7 @@ window.CM_CASE_FLOW = {
           why: "Keystone's stonewall on the 14-Day Gap is why John Doe's file is in suit. At the 03/18/2027 mediation Atty. Thorne will have minutes to answer it, so every record, figure and quote must sit in a known place. A binder he must hunt through costs momentum, and can cost a concession.",
           rules: [
             "The Mediation Binder is Atty. Thorne's and the mediator's road map: critical records, verified Specials and liability exhibits, indexed and bookmarked so any one is found in five seconds.",
+            "The liability exhibits are the evidence gathered and preserved at claim set-up (Liability Investigation): the Police Report, Ruth Calloway's statement, the doorbell video with its logged hash and chain of custody, and the event data recorder download added in litigation. Index each with its source and its custody record.",
             "Six numbered sections in fixed order, each tab matching the master index. Each document sits in one section; others cite its exhibit number.",
             "One master index in the CMS is the single source of truth: section, exhibit number, description, date, source, Bates range and status for each document. The binder prints from the index, never the reverse.",
             "Exhibit numbers belong to the proceeding (4-1, 4-2…): a late document takes the next number; a set others hold is never renumbered. Bates numbers belong to the page: stamped once at production (DOE 000001).",
@@ -8263,6 +8270,7 @@ window.CM_CASE_FLOW = {
           ["A deadline found passed without proof of compliance", "Escalate to Atty. Thorne the same day; contact no one on the other side", "CMS → Tasks → Escalate", "Escalation dated 01/05/2027 and names the missing document"]
         ],
         best: [
+          "Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).",
           "One row per discovery set, so no deadline hides inside another.",
           "Link every row to its source document, so the log can be re-checked without you.",
           "Record a late filing as late. A log that hides its own misses can't be audited.",
@@ -8732,6 +8740,7 @@ window.CM_CASE_FLOW = {
           ["Worksheet corrected", "Assemble the PD evidence set for Atty. Thorne's production review", "CMS → Documents", "Every period evidenced; nothing produced before his review"]
         ],
         best: [
+          "Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).",
           "Correct a wrong figure with a dated note; never overwrite the history.",
           "Evidence each period, not just the total: the defense attacks periods.",
           "Pitfall: producing a worksheet that still says $3,276.00; one double count lets the defense attack every other number.",
@@ -9335,7 +9344,7 @@ window.CM_CASE_FLOW = {
           why: "After suit, the defense argued fault and mitigation: the car he rode in and his seatbelt (comparative fault), his missed visits (failure to mitigate). Fault can reduce or bar recovery; mitigation cuts only the damages the missed care caused. The counter-package answers each from this file, with evidence that can come in.",
           rules: [
             "Comparative negligence apportions fault. Pure: damages fall by John's share, however large. Modified: they fall, but recovery is barred once his share reaches 50% in some states or 51% in others. Contributory, in a handful of jurisdictions: any fault bars recovery. Confirm the governing rule.",
-            "Record where liability stands, with its source: accepted, partial or denied. Keystone accepted PD liability on 02/17/2026 and argued causation before suit; the Answer now pleads comparative fault. Its weight is Atty. Thorne's call.",
+            "Record where liability stands, with its source: accepted, partial or denied, each carrier's position kept in writing since claim set-up (Liability Investigation). Keystone accepted PD liability on 02/17/2026 and argued causation before suit; the Answer now pleads comparative fault. Its weight is Atty. Thorne's call.",
             "Allegation 1, “the Escape entered the all-way stop out of turn,” targets Kevin Alvarez's driving, not John's. Whether a driver's fault can be charged to a passenger, or apportioned to a non-party, is Atty. Thorne's analysis. Your job is the evidence.",
             "Never add anything to the stack because the defense blames Kevin Alvarez. Whether his alleged fault touches coverage is a coverage question for Atty. Thorne; the file's verified stack stays $40,000, BI → Host UM → Relative UM.",
             "Allegation 2, “John was unbelted,” is answered twice: the Escape's event data recorder shows the front-passenger belt buckled, and the EMS Run Report reads “restrained front-seat passenger.” Seatbelt evidence is barred in some states and limited in others: confirm the governing rule.",
@@ -9556,6 +9565,7 @@ window.CM_CASE_FLOW = {
           ["John unreachable from 01/22/2027", "Run Steps 1–3, then dispatch the Step 4 notice", "CMS → Communications Log · CMS → Documents → Outgoing", "Both deliveries logged; response date before 02/04/2027"]
         ],
         best: [
+          "Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).",
           "Log the process server's attempts with date, time and result, exactly as you log your own client attempts.",
           "Calendar the notice's response date beside the deposition, so one cannot slip past the other.",
           "A return receipt signed at 2214 Maple Hollow Rd proves delivery to the house, not that John read it: that is why the email goes too.",

@@ -511,7 +511,7 @@ A single brief page fills the centre of the slide, a white card with five horizo
 
 *Why:* Atty. Thorne makes the strategy calls from your brief. A brief that opens with the chronology buries the decision; one that hides a risk misleads him; one that makes the call for him crosses a line.
 
-1. Bottom line first, in one sentence: where the file stands and what you need. Here: MMI 06/12/2026; $16,401.40 in audited Specials against a $10,000 BI limit; decisions needed before any demand is drafted.
+1. Bottom line first, in one sentence (the Decision First habit from Claim Set Up, now for the strategy brief): where the file stands and what you need. Here: MMI 06/12/2026; $16,401.40 in audited Specials against a $10,000 BI limit; decisions needed before any demand is drafted.
 2. Facts next, audited and sourced. The trinity must agree: the narrative (John Doe's account), the physicality (the force of the impact), the medicals (the C5-C6 herniation). If one is out of line, say so first: that is the defense's easy out.
 3. Liability proof in final form: the final Riverton PD report RPD-26-018842 (Smith cited for failure to stop), checked for a contributory-negligence note; Ruth Calloway's contact re-confirmed and her account checked for drift; the doorbell video squared with the scene.
 4. Property Damage proves force, in final figures. Lead with John Doe's door, the Escape's, struck at about 28 mph (request photos if not on file). Then the Civic: $6,940.00 → $9,255.00 with a $2,315.00 A-pillar supplement, 52.6% of its $17,600.00 ACV: repairable under this file's 75% threshold (it varies by state).
@@ -709,6 +709,7 @@ A two-pane Call Simulator screen. Left pane: the session transcript as alternati
 
 **Best practices & pitfalls**
 
+- Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).
 - Read back every decision before the session ends; a decision you can't quote isn't recorded.
 - Use objective facts, never adjectives: a citation, a speed, a supplement, an MRI finding.
 - ⚠️ Pitfall: apologizing for the gap instead of explaining it with documentation.
@@ -1380,6 +1381,7 @@ A call-simulator screen across two-thirds of the slide: a navy header bar readin
 
 **Best practices & pitfalls**
 
+- Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).
 - Review the case reference sheet before you dial, and never give the BI carrier a way to reach John Doe directly.
 - Have every document open before the call; read quotes, don't paraphrase them.
 - ⚠️ Pitfall: answering “degenerative” with an opinion instead of the radiologist's own sentence.
@@ -1457,6 +1459,7 @@ A Negotiation Log fills the slide: two carrier swimlanes on a shared date axis f
 
 **Best practices & pitfalls**
 
+- Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).
 - Write each log entry so Atty. Thorne could defend the file from it cold.
 - Quote the carrier; never paraphrase its reasons.
 - If an adjuster says the number is above their authority, ask who holds it and get that person involved.
