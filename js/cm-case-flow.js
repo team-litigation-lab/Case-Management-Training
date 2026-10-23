@@ -1106,13 +1106,12 @@ function agendaNotes(d){
   const n = d.cf.n, w = AGENDA_NOTES[n] || {}, sc = daySchedule(d), parts = lectureParts(d);
   const acts = d.lessons.filter(l => l.cf.block.kind === "activity").length, q = (d.quiz || []).length, next = cfDayByN(n + 1);
   const lectures = parts.map(p => `${p.title} for about ${p.mins} minutes`);
-  const say = [w.open || `Welcome, everyone. Let's pick John Doe's file up where we left it.`,
-    `Here's how today runs, and it's all on the slide. We start with the lectures: ${andList(lectures)}.`
+  const run = [`Here's how today runs, and it's all on the slide. We start with the lectures: ${andList(lectures)}.`
       + (parts.length > 1 && sc.buffer >= 10 ? " We'll take a ten-minute break about halfway through." : ""),
     `Then it's Practice: ${acts} Skill Activit${acts === 1 ? "y" : "ies"} on John Doe's file, about ${sc.practice} minutes, worked in the CMS and the tools, not on paper.`,
     `We finish with the Knowledge Check, ${q} question${q === 1 ? "" : "s"} in about ${sc.kc} minutes, and you need 70% ${next || n < 5 ? `to open Day ${n + 1}` : "to finish the Case Flow"}.`,
     `By the end of today you'll ${firstAim(d)}.`].join(" ");
-  return {say, ask: w.ask || ""};
+  return {say: `${w.open || "Welcome, everyone. Let's pick John Doe's file up where we left it."} ${run}`, ask: w.ask || "", run};
 }
 
 /* ---------- the live call: the course's own roleplay engine, on John Doe v. Robert Smith ---------- */
@@ -2345,16 +2344,23 @@ window.cmCaseFlow.labGo = function(dayId, li){
   const idx = slides.findIndex(sl => sl.type === "topic" && sl.lessonIndex === li && sl.part === 1);
   if(idx >= 0 && typeof goToSlide === "function") goToSlide(idx);
 };
-if(typeof presenterCues === "function"){   // Presenter view: the trainer's notes for the Training Agenda and the Practice Lab slides
+/* The day's own slides, outside any block: the opening Training Agenda, the Practice Lab, and the End-of-Day
+   Discussion before the Knowledge Check (build/case-flow/scripts/days.json, under CM_CF_SCRIPTS._days), read aloud
+   like a block's slides, {name} filled from the batch. */
+const dayScript = (d, k) => { const x = (((window.CM_CF_SCRIPTS || {})._days || {})[d && d.cf && d.cf.n] || {})[k]; return x && {say: named(x.say, `${d.id}::_${k}`), ask: named(x.ask || "", `${d.id}::_${k}?`)}; };
+const dayScriptHtml = x => `<div class="pn"><div class="script-block"><div class="script-head"><span>🎙 Script — read aloud</span></div>
+  <p class="script-say">${E(x.say)}</p>${x.ask ? `<p class="script-say script-ask">${E(x.ask)}</p>` : ""}</div></div>`;
+const dayScriptLines = (x, label) => [`SLIDE: ${label.toUpperCase()}`, x.say].concat(x.ask ? [`ASK: ${x.ask}`] : []);
+if(typeof presenterCues === "function"){   // Presenter view: the trainer's note for the Training Agenda and Practice Lab slides
   const __cues = presenterCues;
   presenterCues = function(d, slide){
-    if(slide && slide.type === "taskOverview" && cfDay(d && d.id)){
-      const a = agendaNotes(d);
-      return `<h3>Training Agenda</h3><div class="pn-part">🎙 Script — read aloud</div><p>${E(a.say)}</p>${a.ask ? `<p><b>Ask:</b> ${E(a.ask)}</p>` : ""}`;
-    }
-    if(!(slide && slide.type === "practiceLab" && cfDay(d && d.id))) return __cues.apply(this, arguments);
-    const n = d.lessons.filter(l => l.cf.block.kind === "activity").length;
-    return `<h3>Practice Lab</h3><p>Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. Then run today's ${n} Skill Activities in order: each opens with Your Case, then Your Task and Check Your Work. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
+    if(!(slide && (slide.type === "practiceLab" || slide.type === "taskOverview") && cfDay(d && d.id))) return __cues.apply(this, arguments);
+    if(slide.type === "taskOverview"){ const x = dayScript(d, "agenda"), a = agendaNotes(d);
+      return x ? `<h3>Training Agenda</h3>${dayScriptHtml(x)}<div class="pn-on pn-cue"><b>The run of the day, from the slide</b><p>${E(a.run)}</p></div>`
+        : `<h3>Training Agenda</h3><div class="pn-part">🎙 Script — read aloud</div><p>${E(a.say)}</p>${a.ask ? `<p><b>Ask:</b> ${E(a.ask)}</p>` : ""}`; }
+    const n = d.lessons.filter(l => l.cf.block.kind === "activity").length, x = dayScript(d, "lab");
+    const how = `<p>Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. Then run today's ${n} Skill Activities in order: each opens with Your Case, then Your Task and Check Your Work. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
+    return x ? `<h3>Practice Lab</h3>${dayScriptHtml(x)}<div class="pn-on pn-cue"><b>Trainer note — not read aloud</b>${how}</div>` : `<h3>Practice Lab</h3>${how}`;
   };
 }
 if(typeof renderDaySlideContent === "function"){
@@ -2587,9 +2593,11 @@ if(typeof window.renderAdminTrainerCues === "function"){
   window.renderAdminTrainerCues = function(){
     const d = cfDay(state.cuesDay) || DAYS[0]; if(!d || !d.cf) return __cues.apply(this, arguments);
     let k = -1;
+    const lab = dayScript(d, "lab"), firstAct = d.lessons.findIndex(l => l.cf.block.kind === "activity");
     const phases = d.cf.phases.map(ph => {
       const items = d.lessons.map((l, i) => [l, i]).filter(([l]) => l.cf.phase === ph).map(([l, i]) => { k++; const vs = viewsOf(l.cf.block);
-        return `<details class="cue-item" ${k === 0 ? "open" : ""}>
+        return (lab && i === firstAct ? `<details class="cue-item"><summary><span class="cue-num">🧪</span>Practice Lab<span class="cue-steps">before the Skill Activities</span></summary>
+          <div class="cue-body">${dayScriptHtml(lab)}</div></details>` : "") + `<details class="cue-item" ${k === 0 ? "open" : ""}>
           <summary><span class="cue-num">${String(i + 1).padStart(2, "0")}</span>${E(titleCase(l.cf.block.title))}<span class="cue-steps">${slideLabel(d, i)}</span></summary>
           <div class="cue-body">${vs.map((v, j) => `<div class="pn-part">${slideName(v)}</div>${renderPresenterNote(d, l, j + 1)}`).join("")}</div>
         </details>`; }).join("");
@@ -2605,12 +2613,12 @@ if(typeof window.renderAdminTrainerCues === "function"){
         <h2 style="color:var(--navy);font-size:19px;margin:0;">${E(d.title)}</h2>
         <button class="btn btn-navy btn-sm" onclick="downloadDayScriptsPdf(${d.id})">⬇ Download the Speaker Notes (PDF)</button>
       </div>
-      ${(a => `<div class="card" style="padding:14px 18px;margin-bottom:12px;"><div class="pn-part">📅 Training Agenda — read aloud</div><p style="margin:6px 0;">${E(a.say)}</p>${a.ask ? `<p style="margin:6px 0 0;"><b>Ask:</b> ${E(a.ask)}</p>` : ""}</div>`)(agendaNotes(d))}
-      ${d.cf.n === 1 && typeof renderMeetClientTrainerGuide === "function" ? `<div class="card" style="padding:14px 18px;margin-bottom:12px;">${renderMeetClientTrainerGuide()}</div>` : ""}
+      ${(x => x ? `<div class="card" style="padding:14px 18px;margin-bottom:12px;"><div class="discussion-tag">📅 Opening: Training Agenda</div>${dayScriptHtml(x)}<p class="discussion-note"><b>The run of the day, from the slide:</b> ${E(agendaNotes(d).run)}</p></div>`
+        : (a => `<div class="card" style="padding:14px 18px;margin-bottom:12px;"><div class="pn-part">📅 Training Agenda — read aloud</div><p style="margin:6px 0;">${E(a.say)}</p>${a.ask ? `<p style="margin:6px 0 0;"><b>Ask:</b> ${E(a.ask)}</p>` : ""}</div>`)(agendaNotes(d)))(dayScript(d, "agenda"))}
       ${d.discussionQuestion ? `<div class="card discussion-card" style="margin-bottom:12px;">
         <div class="discussion-tag">💬 End-of-Day Discussion</div>
         <p class="discussion-q">${E(d.discussionQuestion)}</p>
-        <p class="discussion-note"><b>Say:</b> “Before the Knowledge Check, let's step back and talk about this together.” Then ask the question above, take two or three answers, and tie each one to a moment on John Doe's file from today.</p>
+        ${dayScript(d, "wrap") ? dayScriptHtml(dayScript(d, "wrap")) : `<p class="discussion-note"><b>Say:</b> “Before the Knowledge Check, let's step back and talk about this together.” Then ask the question above, take two or three answers, and tie each one to a moment on John Doe's file from today.</p>`}
       </div>` : ""}
       <div class="card" style="padding:6px 0;margin-bottom:18px;">${phases || `<p style="padding:14px 18px;color:var(--ink-soft);">No scripts for this day.</p>`}</div>`;
   };
@@ -2626,15 +2634,15 @@ if(typeof window.buildDayScriptLines === "function"){
   const __lines = window.buildDayScriptLines;
   window.buildDayScriptLines = function(d){
     if(!d || !d.cf) return __lines.apply(this, arguments);
-    const lines = [`## ${d.title}: Trainer Speaker Notes`];
-    const ag = agendaNotes(d);
-    lines.push("## Training Agenda", "SLIDE: TRAINING AGENDA", ag.say);
-    if(ag.ask) lines.push(`ASK: ${ag.ask}`);
-    lines.push("---");
+    const lines = [`## ${d.title}: Trainer Speaker Notes`], agenda = dayScript(d, "agenda"), lab = dayScript(d, "lab"), wrap = dayScript(d, "wrap");
+    const firstAct = d.lessons.findIndex(l => l.cf.block.kind === "activity"), ag = agendaNotes(d);
+    if(agenda) lines.push("## Opening: Training Agenda", ...dayScriptLines(agenda, "Training Agenda"), `RUN OF THE DAY: ${ag.run}`, "---");
+    else { lines.push("## Training Agenda", "SLIDE: TRAINING AGENDA", ag.say); if(ag.ask) lines.push(`ASK: ${ag.ask}`); lines.push("---"); }
     d.cf.phases.forEach(ph => {
       const ls = d.lessons.map((l, i) => [l, i]).filter(([l]) => l.cf.phase === ph); if(!ls.length) return;
       lines.push(`## ${ph.lead === "Case Phase" ? `Case Phase ${ph.n}` : ph.lead}: ${ph.title}`);
       ls.forEach(([l, i]) => {
+        if(lab && i === firstAct) lines.push("## Practice Lab", ...dayScriptLines(lab, "Practice Lab"), "---");
         lines.push(`## ${String(i + 1).padStart(2, "0")}. ${titleCase(l.cf.block.title)}  ·  ${slideLabel(d, i)}`);
         viewsOf(l.cf.block).forEach((v, j) => {
           const sc = slideScript(d, l, j + 1), paras = scriptProse(sc);
@@ -2646,7 +2654,8 @@ if(typeof window.buildDayScriptLines === "function"){
         lines.push("---");
       });
     });
-    if(d.discussionQuestion){ lines.push("## End-of-Day Discussion"); lines.push(`SAY: “Before the Knowledge Check, let's step back and talk about this together.”`); lines.push(`ASK: “${d.discussionQuestion}”`); lines.push(`WRAP: “Thanks, everyone. Hold onto those examples: we'll pick John Doe's file up from here tomorrow.”`); }
+    if(d.discussionQuestion && wrap) lines.push("## End-of-Day Discussion", `QUESTION: ${d.discussionQuestion}`, wrap.say, ...(wrap.ask ? [`ASK: ${wrap.ask}`] : []));
+    else if(d.discussionQuestion){ lines.push("## End-of-Day Discussion"); lines.push(`SAY: “Before the Knowledge Check, let's step back and talk about this together.”`); lines.push(`ASK: “${d.discussionQuestion}”`); lines.push(`WRAP: “Thanks, everyone. Hold onto those examples: we'll pick John Doe's file up from here tomorrow.”`); }
     return lines;
   };
 }
