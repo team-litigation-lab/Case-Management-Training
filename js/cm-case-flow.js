@@ -2636,6 +2636,17 @@ if(typeof renderDay === "function"){
   const __day = renderDay;
   renderDay = function(id){ const d = cfDay(id); const html = __day.apply(this, arguments); return d ? relabel(html, d) : html; };
 }
+/* The "+ N more topics" window names the day too ("Day 11 · 20 topics", "Start Day 11"): it is put on the page,
+   not returned, so it is relabelled once it is there. */
+if(typeof showDayTopics === "function"){
+  const __topics = showDayTopics;
+  showDayTopics = window.showDayTopics = function(id){
+    const r = __topics.apply(this, arguments), d = cfDay(id);
+    const ov = d && [...document.querySelectorAll(".topics-overlay")].pop();
+    if(ov) ov.innerHTML = relabel(ov.innerHTML, d);   // the overlay's own listeners (click outside, Escape) are kept
+    return r;
+  };
+}
 if(typeof renderQuizNextStep === "function"){
   const __next = renderQuizNextStep;
   renderQuizNextStep = function(d, passed){
