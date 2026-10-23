@@ -2444,7 +2444,16 @@ window.CM_CASE_FLOW = {
          a: 1, r: "Expect an acknowledgement in 24–48 hours. None by the third business day: follow up, log it and set the next date."},
         {q: "Keystone gave its $10,000 limit by phone at set-up. How does the Coverage Matrix record it?",
          opts: ["Confirmed", "Preliminary, with the set-up call as its source, until a Declaration Page or Coverage Letter confirms it", "Not at all until the demand", "As $40,000"],
-         a: 1, r: "A phone figure is a lead: record its source and keep it preliminary, and never quote it to John Doe."}
+         a: 1, r: "A phone figure is a lead: record its source and keep it preliminary, and never quote it to John Doe."},
+        {q: "Keystone accepted PD liability for Margaret Doe's Civic on 02/17/2026. What does that mean for John Doe's BI claim?",
+         opts: ["Liability is settled on every claim from the collision", "Nothing by itself: record Keystone's BI liability position separately, in writing, with its date", "The BI demand can go out now", "The witness and the video are no longer needed"],
+         a: 1, r: "PD acceptance on Margaret Doe's claim does not bind Keystone's BI adjuster on John Doe's. Each carrier's liability position is recorded in writing, and the evidence is preserved either way."},
+        {q: "Margaret Doe's doorbell camera recorded the collision. What protects that video as evidence?",
+         opts: ["Trimming it to the 45 seconds that matter", "A copy secured with its hash logged, the original kept unaltered and the chain of custody recorded", "Asking John Doe to post it so it can't be lost", "Converting it to a smaller file for the CMS"],
+         a: 1, r: "The firm secured a copy on 02/19/2026 with its SHA-256 hash logged. An unaltered original and a recorded chain of custody are what make it usable later."},
+        {q: "You need Atty. Thorne to approve declining Summit Imaging's 03/11/2026 LOP request. How does your note open?",
+         opts: ["With how Summit's call came in and what was said", "With the decision needed and its deadline, then why, the facts and what follows from each answer", "With the full PIP payment history", "With your view of whether Summit will reduce its bill"],
+         a: 1, r: "Decision first: the first line, and the subject line, carry the decision and its deadline. Then why, the facts with their sources, and the options."}
       ],
       blocks: [
 
@@ -2699,6 +2708,137 @@ window.CM_CASE_FLOW = {
           "Ask the room: “What is the difference between a follow-up you made and one you scheduled?” A date in the past with nothing logged is the second kind.",
           "Keep regulatory deadlines generic. The rule differs by state; the CM's job is to have Atty. Thorne confirm it and to docket it, never to quote it at an adjuster.",
           "Spend a minute on Harbor Point's add-on confirmation. Had its UM been reduced by the BI payment, Host UM would have shown $20,000 minus $10,000 = $10,000, and the stack $30,000, not $40,000, assuming Cardinal State's form is add-on, which is verified the same way. That is why the form is verified, not assumed."
+        ]
+      },
+
+      {
+        kind: "lesson", id: "d2m1-liab",
+        brief: true,
+        title: "Liability Investigation: the Police Report, the Witness, the Video & Comparative Fault",
+        topic: "Proving who caused the collision while the evidence is fresh",
+        visual: "An evidence board fills the slide. Centre, a small diagram of the all-way stop at Maple Hollow Rd & Birch Ave: the Escape stopped eastbound, the Silverado's arrow running the stop into the Escape's front passenger door. Around it, four evidence cards pinned with orange tacks, each with a status chip: POLICE REPORT RPD-26-018842 · Officer Thomas Garner #2217 · citation: failure to stop (OBTAINED) · WITNESS · Ruth Calloway, 2209 Maple Hollow Rd · signed on scene (FOLLOW-UP) · DOORBELL VIDEO · 07:09:41–07:10:26 · copy secured 02/19/2026, SHA-256 logged (PRESERVED) · EVENT DATA RECORDER · the Escape · preservation request for Atty. Thorne's signature (OPEN). Along the bottom, a grey band labelled THE DEFENSE WILL SAY: out of turn · unbelted, with a thin navy rule beneath: “Gather and preserve the facts; Atty. Thorne evaluates fault.”",
+        tell: {
+          why: "Coverage answers whether there is money; liability answers whether anyone has to pay it. Evidence of fault is freshest in the first days: a witness's memory fades, a doorbell camera records over itself, and an event data recorder stays with the car. A Case Manager who gathers and preserves the liability evidence at claim set-up gives Atty. Thorne a case he can prove, and an answer ready for the comparative-fault argument the defense is likely to raise.",
+          rules: [
+            "Liability is investigated, not assumed. The client's account is where it starts; the Police Report, an independent witness, video and vehicle data are what prove it. Record each piece with its source and the date it reached the file.",
+            "The Police Report comes first: Riverton PD report RPD-26-018842, Officer Thomas Garner #2217. Read it line by line: the narrative, the diagram, each unit's driver, vehicle and insurer, citations issued and witnesses named. Robert Smith was cited for failure to stop at a stop sign.",
+            "Reconcile the report against the file, never the other way round. The report lists the Escape as a 2021; Harbor Point's Declaration Page shows a 2020. Record the discrepancy with both sources; correct our own record from the Declaration Page.",
+            "An independent witness is the strongest answer to a disputed version. Ruth Calloway, 2209 Maple Hollow Rd, gave Officer Garner a signed statement on scene. Log her contact details, and flag a follow-up statement to Atty. Thorne while her memory is fresh.",
+            "Preserve video before it is lost. Margaret Doe's doorbell camera at 2214 Maple Hollow Rd recorded the collision (07:09:41–07:10:26). John Doe was told to preserve it on 02/17/2026; the firm secured a copy on 02/19/2026, with its SHA-256 hash logged. Keep the original unaltered and record the chain of custody.",
+            "Vehicle data needs a written preservation request. The Escape's event data recorder belongs to Kevin Alvarez's vehicle; a preservation request to him and Harbor Point goes out for Atty. Thorne's signature. Never ask anyone to download or alter it.",
+            "Anticipate comparative fault. Expect the defense to argue the Escape entered the all-way stop out of turn, or that John Doe was unbelted. Note what already answers each: the citation, Ms. Calloway's statement, the video, and the EMS report's “restrained front-seat passenger”.",
+            "PD acceptance is not BI acceptance. Keystone accepted PD liability on 02/17/2026 for Margaret Doe's Civic; that does not bind its BI adjuster on John Doe's claim. Record each carrier's liability position in writing, with its date."
+          ],
+          upl: [
+            "You gather, log and preserve the liability evidence and record each carrier's written position. Evaluating fault, comparative negligence and what the evidence is worth, and contacting a witness for a new statement, are Atty. Thorne's calls."
+          ]
+        },
+        show: {
+          caption: "John Doe's liability evidence at claim set-up",
+          type: "table",
+          head: ["Evidence", "What it shows", "Status on the file"],
+          rows: [
+            ["Police Report RPD-26-018842", "Smith cited for failure to stop; diagram; witness named", "On file; the Escape's year to reconcile (2020)"],
+            ["Ruth Calloway's statement", "The SUV stopped; the pickup didn't", "Signed on scene; follow-up flagged to Atty. Thorne"],
+            ["Doorbell video, 2214 Maple Hollow Rd", "The Escape stopped; Smith rolling through", "Copy secured 02/19/2026; hash logged; original unaltered"],
+            ["The Escape's event data recorder", "Speed and belt status at impact", "Preservation request for Atty. Thorne's signature"],
+            ["EMS Run Report", "“Restrained front-seat passenger”", "On file: answers the unbelted argument"],
+            ["Keystone's position", "PD liability accepted 02/17/2026", "BI liability position still to be confirmed in writing"]
+          ]
+        },
+        ops: [
+          ["Claim set-up opens", "Request the Police Report; read every field", "CMS → Police tab", "Report logged; citation and witness recorded"],
+          ["Video or vehicle data exists", "Draft preservation requests for Atty. Thorne", "Email Workspace", "Request signed and sent; chain of custody logged"],
+          ["A carrier states its liability position", "Record it with its date and source", "CMS → Insurance tab", "Each carrier's position on file in writing"]
+        ],
+        best: [
+          "Read the Police Report line by line, and reconcile it against the Declaration Pages.",
+          "Preserve first: video, photographs and vehicle data before anything else is asked.",
+          "Log every liability fact with its source and date.",
+          "Keep the original video unaltered; work from a copy with a logged hash.",
+          "Pitfall: treating PD acceptance as an admission on the BI claim.",
+          "Pitfall: asking a witness to sign a statement you wrote.",
+          "Pitfall: correcting the file to match the Police Report without a second source."
+        ],
+        sources: ["D1#18", "D3#13", "Newly authored: liability investigation at claim set-up — evidence, preservation and anticipating comparative fault"],
+        rubric: {
+          ai: [
+            ["Evidence gathered", 20, "Names the Police Report, the witness, the video and the vehicle data, with what each proves on John Doe's file"],
+            ["Preservation and custody", 20, "Video copy secured with its hash and the original unaltered; the event data recorder preservation request routed for signature"],
+            ["Comparative fault anticipated", 20, "Names the out-of-turn and unbelted arguments and the evidence on file that answers each"]
+          ],
+          trainer: [
+            ["Grasps the consequence", 25, "Explains why liability evidence is gathered at set-up, before memories fade and recordings are lost"],
+            ["UPL boundary", 15, "Fault, comparative negligence and witness contact left to Atty. Thorne"]
+          ]
+        },
+        notes: [
+          "Draw the intersection on the board and ask the room who had the right of way. Then ask what proves it, and write each answer as an evidence card.",
+          "Spend a minute on the Escape's year: the Police Report says 2021, the Declaration Page says 2020. Ask which document the CMS follows, and why the other is never quietly changed.",
+          "Ask what the defense will say. Let the room find both arguments, out of turn and unbelted, then find the evidence on file that answers each.",
+          "Close on the boundary: you gather and preserve; Atty. Thorne decides what the evidence is worth and who speaks to the witness."
+        ]
+      },
+
+      {
+        kind: "lesson", id: "d2m1-first",
+        brief: true,
+        title: "Decision First: Lead Every Note to Atty. Thorne with the Decision Needed",
+        topic: "Open with the decision or action needed, then the facts",
+        visual: "A single email card fills the slide, addressed TO: Atty. Elijah Thorne. Its first line is boxed in orange and labelled THE DECISION: “Decision needed by 03/12/2026: approve declining Summit Imaging's LOP request; the MRI goes to Harbor Point PIP.” Beneath, three navy bands in order, each with a small label on the left: WHY (PIP applies first; $3,675.00 left) · THE FACTS (Summit's request of 03/11/2026; the $2,395.00 MRI) · IF YES / IF NO (what you will do either way). To the right, a faded second email with the same facts in story order and its decision buried in the last paragraph, struck through in grey. Bottom, a thin navy rule: “Decision first. Then the facts.”",
+        tell: {
+          why: "Atty. Thorne reads dozens of notes a day, often between hearings. A note that tells the story first and asks its question last makes him dig for what he needs to decide, and a buried question waits. Leading with the decision turns every note into a yes, a no or an instruction, and a deadline that arrives on time instead of after the window closes.",
+          rules: [
+            "The first line is the decision or action needed, with its deadline: “Decision needed by 03/12/2026: approve declining Summit Imaging's LOP request.” If nothing is needed, say so first: “For your information, no action needed.”",
+            "Then why, in one or two lines: the rule or fact that drives it. Then the facts he needs to decide, each with its source and date. The story of how you found it comes last, or not at all.",
+            "Give him the options and what follows from each: “If yes, I send the decline and route the bill to PIP today; if no, I draft the LOP for your signature.” Never decide for him by leaving one option out.",
+            "One note, one decision. Two decisions are two notes, or two numbered items, each with its own deadline, so neither is lost in the other.",
+            "The subject line carries the decision too: “DECISION by 03/12 — Summit LOP request (John Doe v. Robert Smith)”. A subject line of “Update” or “Question” tells him nothing.",
+            "Facts, not adjectives. Quote figures and dates exactly as the documents give them, and mark anything unconfirmed as unconfirmed. Your recommendation, if you give one, is labelled as yours.",
+            "Log the note and his answer in the CMS the same day, and act on the answer. A decision that is not logged has to be asked for again."
+          ],
+          upl: [
+            "You frame the decision, lay out the facts and the options, and carry out his answer. The decision itself, and any legal judgment behind it, is Atty. Thorne's."
+          ]
+        },
+        show: {
+          caption: "The same note, two ways",
+          type: "table",
+          head: ["", "Story first", "Decision first"],
+          rows: [
+            ["First line", "“Summit Imaging called yesterday about John Doe's MRI…”", "“Decision needed by 03/12/2026: approve declining Summit's LOP request.”"],
+            ["Why", "Buried in the third paragraph", "PIP applies first, and Harbor Point PIP has $3,675.00 left"],
+            ["Facts", "In the order they happened", "Summit's request of 03/11/2026; the $2,395.00 MRI"],
+            ["Options", "Missing", "If yes: decline sent, bill to PIP today. If no: LOP drafted for signature"],
+            ["Subject line", "“Update”", "“DECISION by 03/12 — Summit LOP request”"]
+          ]
+        },
+        best: [
+          "Put the decision and its deadline in the first line, and in the subject line.",
+          "Give the options and what you will do after each answer.",
+          "One decision per note, or numbered, each with its own deadline.",
+          "Log the note and the answer in the CMS the same day.",
+          "Pitfall: telling the story first and asking the question last.",
+          "Pitfall: a subject line of “Update”.",
+          "Pitfall: leaving out the option you don't recommend."
+        ],
+        sources: ["D1#15", "D1#39", "Newly authored: decision first — leading every note, email and brief to the attorney with the decision or action needed"],
+        rubric: {
+          ai: [
+            ["Decision in the first line", 20, "The note opens with the decision or action needed and its deadline, and the subject line carries it"],
+            ["Facts and options", 20, "Why in one or two lines, the facts with sources and dates, and what follows from each option"],
+            ["Logged and acted on", 20, "The note and the answer logged in the CMS the same day, and the answer carried out"]
+          ],
+          trainer: [
+            ["Grasps the consequence", 25, "Explains how a buried question delays a decision and can cost a deadline"],
+            ["UPL boundary", 15, "Frames the decision without making it; recommendations labelled as the Case Manager's own"]
+          ]
+        },
+        notes: [
+          "Read the room a story-first note aloud and stop before the last paragraph. Ask what Atty. Thorne is being asked to do. Then show the decision-first version.",
+          "Have everyone rewrite one sentence: the first line of a note about Summit's 03/11/2026 LOP request. Check that it names the decision and the deadline.",
+          "Ask what happens when one note carries two decisions. Let the room find that the second one is usually missed.",
+          "Close on the boundary: you frame the decision and carry out the answer; the decision is Atty. Thorne's."
         ]
       },
 
@@ -3237,7 +3377,7 @@ window.CM_CASE_FLOW = {
       },
 
       {
-        kind: "lesson", id: "d2m2-cost", compact: true,
+        kind: "lesson", id: "d2m2-cost", brief: true,
         title: "Rental & Reimbursement of Costs",
         topic: "What treatment costs the client out of pocket, and how each dollar is documented for the demand",
         visual: "A receipt ledger fills the slide: rows for TREATMENT MILEAGE (date · provider · round-trip miles · rate per the governing state's rules), RIDES AND PARKING, PRESCRIPTIONS AND CO-PAYS, MEDICAL EQUIPMENT and RENTAL THE OWNER PAID, each with a receipt thumbnail or a trip-log icon. Right, an orange arrow into a cream card headed DEMAND · SPECIALS, with a red tag on an empty receipt slot: “no receipt, no claim.”",
@@ -9527,8 +9667,8 @@ window.CM_CASE_FLOW = {
   ],
 
   /* The order the course teaches the blocks in, day by day. Each day is ONE module of the five (Intake & Property Damage, Claim Set Up, the Treatment Phase, Pre-Demand Audit & the Demand, Closing & Settlement), all on John Doe's
-     one file, and every module runs the same lifecycle: Lectures (its lessons, uninterrupted) → Practice (its Skill
-     Activities, in the order the work happens on the file) → Knowledge Check. Day 1 opens with the Case Manager's
+     one file, and every module runs the same lifecycle: Lesson → Skill Building → Lesson → Skill Building → … →
+     Knowledge Check (each topic's lessons, then straight away the Skill Activities that practise them). Day 1 opens with the Case Manager's
      introduction, then the client (Meet Your Case), then the lessons proper; Days 2–5 go straight into lessons
      anchored on where the file stands. Claim Set Up runs CMS case file setup → draft the LORs and notices →
      transmit and log them → receive the carriers' claim correspondence. The advanced theory (the Payer-First
@@ -9608,6 +9748,20 @@ window.CM_CASE_FLOW = {
       "What each letter says is deliberately thin. It states that John Doe was injured, that a Demand Package with records and bills will follow, and that all contact now goes to the firm. Keystone, the adverse carrier, gets his name and nothing that reaches him: no phone, address, date of birth or employer. Its letter alone carries the **Property Damage carve-out**, letting its PD adjuster, Leah Moran, discuss the damage to the Civic, nothing else, and inspect it within 5 business days. Every letter asks for limits, additional coverage, Declaration Pages, and preservation of photos, statements, video and the vehicle's event data recorder data, because liability is not final yet.",
       "Each rule exists because of what goes wrong without it. A letter naming the wrong insured cannot be matched to a policy and sits unprocessed. A UM carrier never noticed can later point to its notice condition and argue late notice, which puts $30,000 of UM coverage at risk. A UM letter that reads like a demand is premature, because UM opens only after the BI tender is documented. An extra sentence about how the collision happened is quoted back at the demand table. And a missing acknowledgement that nobody chases by the third business day leaves the file assuming a notice landed when it may not have.",
       "Your lane is the mechanics: you draft on the firm's template, assemble the set, route it to Atty. Elijah Thorne for signature, send each letter by the recipient's preferred method, log the delivery and calendar the acknowledgement check. He signs every letter; you never sign one for him. When an adjuster calls back and asks what the claim is worth, who caused the collision, or what the UM policy owes, those are questions for Atty. Thorne, and you say so. Ask the room: why does the LOR to Keystone tell it less about John Doe than the letters to Harbor Point and Cardinal State do?"
+    ],
+    "d2m1-liab": [
+      "Every injury claim rests on two questions asked in a fixed order: is there money to pay it, and does anyone have to pay it? Coverage answers the first; liability answers the second. A carrier pays a bodily injury claim only when its insured is legally responsible, so a file with three coverage layers and no proof of fault is a file with nothing to collect. That is why liability is investigated at claim set-up, alongside coverage, and not left until the demand.",
+      "Evidence of fault decays. A witness's memory fades within weeks; a doorbell camera records over itself; a vehicle's event data recorder stays with the car, which may be repaired, sold or scrapped. Preservation is therefore the first move, before anyone argues about what the evidence shows. On John Doe's file, Margaret Doe's camera at 2214 Maple Hollow Rd captured the collision from 07:09:41 to 07:10:26. John Doe was told to preserve it on 02/17/2026, and the firm secured a copy on 02/19/2026 with its SHA-256 hash logged, so the copy can be shown to match the original.",
+      "The Police Report is the baseline, read line by line rather than skimmed for the citation. Riverton PD report RPD-26-018842, by Officer Thomas Garner #2217, cites Robert Smith for failure to stop at a stop sign and names an independent witness, Ruth Calloway of 2209 Maple Hollow Rd, who gave a signed statement on scene. Reports are also wrong in small ways: this one lists the Escape as a 2021 while Harbor Point's Declaration Page shows a 2020. The Case Manager records the discrepancy with both sources and corrects the firm's own record from the policy document; the report itself is never quietly treated as the truth.",
+      "A defendant who cannot deny the collision usually argues about shares of fault. Comparative negligence reduces a recovery by the injured person's share, and in some states bars it past a threshold, so the defense looks for anything that moves fault toward the plaintiff's side. On this file the likely arguments are that the Escape entered the all-way stop out of turn, and that John Doe was not wearing his belt. The evidence that answers them is already on the file: the citation, Ms. Calloway's statement, the video, and the EMS Run Report's “restrained front-seat passenger”.",
+      "Carriers also take positions on liability, and each one is recorded separately. Keystone accepted PD liability for Margaret Doe's Civic on 02/17/2026; that decision on a property claim does not bind its BI adjuster on John Doe's injury claim. The Case Manager's lane is to gather, log and preserve: request the report, record each fact with its source, secure the video, and draft the event data recorder preservation request for Atty. Thorne's signature. Evaluating fault, deciding what the evidence is worth and contacting a witness for a new statement are his."
+    ],
+    "d2m1-first": [
+      "An attorney's attention is the scarcest resource in a law firm. Atty. Thorne carries many files, reads notes between hearings and calls, and decides quickly when he can see what he is deciding. Notes written in the order things happened make him read to the end to find the question, and the question that is found late is answered late. Decision first is the habit of opening every note, email and brief with the decision or action needed, so the reader knows from the first line what is being asked.",
+      "The structure follows from what the reader needs. First the decision and its deadline; then why, in a line or two, naming the rule or fact that drives it; then the facts, each with its source and date; then the options and what the Case Manager will do after each answer. The story of how the facts were found, if it matters at all, comes last. When nothing is needed, the first line says that too: “For your information, no action needed” saves him from reading for a question that isn't there.",
+      "On John Doe's file the pattern is easy to see. On 03/11/2026 Summit Imaging asked for a Letter of Protection for the $2,395.00 MRI, with Harbor Point PIP still holding $3,675.00. Written story first, the note opens with Summit's call and asks its question in the last paragraph. Written decision first, it opens: “Decision needed by 03/12/2026: approve declining Summit Imaging's LOP request; the MRI goes to Harbor Point PIP, which applies first.” Everything else in the note supports that one line.",
+      "Options keep the decision his. A note that offers only the path the Case Manager prefers has quietly made the decision for him. Laying out each option and its consequence, labelling any recommendation as the Case Manager's own, and giving each decision its own note or its own numbered item with its own deadline lets him answer in a word. One note with two decisions usually gets one of them answered.",
+      "The habit ends in the record. The note and his answer are logged in the CMS the same day, and the answer is carried out, so the file shows who decided what and when. This is the same discipline as the strategy briefing protocol taught before the demand; on Day 2 it starts with the everyday notes of claim set-up. The Case Manager frames the decision and executes the answer; the decision, and any legal judgment behind it, is Atty. Thorne's."
     ],
     "d2m1-l2": [
       "Insurance coverage is a contract, and the only reliable statement of what a contract says is the contract itself. A limit given over the phone, a carrier name on a Police Report or a client's memory of “full coverage” are leads, not facts: people misremember, adjusters quote the wrong policy, and policies carry exclusions, limit types and endorsements that change what a number means. That is why the firm separates a coverage fact that has been **confirmed in writing** from one that has only been reported. Everything built later, from the recovery projection to the demand, rests on that row of the Coverage Matrix, so a guess at set-up becomes an error at the demand table.",
@@ -9974,8 +10128,8 @@ window.CM_CASE_FLOW = {
        headings: {"d1m1-role": "Introduction to Case Management", "d1m1-case": "Meet Your Client: John Doe", "d1m1-upl": "The UPL Line: Fact Sharing vs. Legal Advice", "d1m1-l1": "Intake", "d1m4-l1": "Intake & the Claims", "d1m4-tplan": "Case Planning: Treatment", "d1m4-tmap": "Case Planning: Treatment", "d1m4-tcare": "Case Planning: Treatment", "d1m3-l1": "Property Damage", "d1m3-l2": "Property Damage", "d1m3-rent": "Property Damage", "d1m1-open": "Skill Building: Opening the File in the CMS", "d1m3-a1": "Skill Building: Property Damage", "d1m3-a2": "Skill Building: Property Damage", "d1m3-a3": "Skill Building: Property Damage"}}
     ]},
     {n: 2, phases: [
-      {title: "Claim Set Up & Treatment", lead: "Module 2", lanes: {"d2m1-l1": "claims", "d2m1-l2": "claims", "d1m4-l2": "claims", "d1m1-a1": "claims", "d2m1-a1": "claims", "d2m1-a2": "claims", "d1m4-a1": "claims", "d1m4-a2": "claims", "d2m1-kc": "claims", "d1m4-kc": "claims", "d2m1-cov": "care", "d2m2-l1": "care", "d2m2-eob": "care", "d2m2-pip": "care", "d2m2-lop": "care", "d2m2-cost": "care", "d1m1-l2": "care", "d2m2-l2": "care", "d1m2-l1": "care", "d1m2-l2": "care", "d1m2-a1": "care", "d1m2-a2": "care", "d2m2-a1": "care", "d1m1-a2": "care", "d2m2-a2": "care", "d2m2-a3": "care", "d2m2-kc": "care", "d1m2-kc": "care"}, blocks: ["d2m1-l2", "d2m1-l1", "d1m1-a1", "d2m1-a1", "d2m1-a2", "d1m4-l2", "d1m4-a1", "d1m4-a2", "d2m1-cov", "d2m2-l1", "d2m2-eob", "d2m2-pip", "d2m2-lop", "d2m2-cost", "d2m2-a1", "d2m2-a3", "d1m1-l2", "d1m1-a2", "d2m2-l2", "d2m2-a2", "d1m2-l1", "d1m2-l2", "d1m2-a1", "d1m2-a2", "d2m1-kc", "d1m4-kc", "d2m2-kc", "d1m2-kc"],
-       headings: {"d2m1-l1": "Claim Set Up", "d2m1-l2": "Claim Set Up", "d1m4-l2": "Claim Set Up: Case Strategy", "d2m1-cov": "Treatment: Who Pays the Bills", "d2m2-l1": "Treatment: Who Pays the Bills", "d2m2-eob": "Treatment: Who Pays the Bills", "d2m2-pip": "Treatment: Who Pays the Bills", "d2m2-lop": "Treatment: Who Pays the Bills", "d2m2-cost": "Treatment: Who Pays the Bills", "d1m1-l2": "Treatment: Liens & the Regulatory Triple-Check", "d2m2-l2": "Treatment: Monitoring the Care", "d1m2-l1": "Treatment: Client Communications", "d1m2-l2": "Treatment: Client Communications", "d1m1-a1": "Skill Building: CMS Case File Setup", "d2m1-a1": "Skill Building: Draft, Transmit & Log the LORs", "d2m1-a2": "Skill Building: Receive Carrier Claim Correspondence", "d1m4-a1": "Skill Building: Case Strategy", "d1m4-a2": "Skill Building: Case Strategy", "d1m2-a1": "Skill Building: Client Communications", "d1m2-a2": "Skill Building: Client Communications", "d2m2-a1": "Skill Building: Treatment", "d1m1-a2": "Skill Building: Liens", "d2m2-a2": "Skill Building: Treatment", "d2m2-a3": "Skill Building: Treatment"}}
+      {title: "Claim Set Up & Treatment", lead: "Module 2", lanes: {"d2m1-l1": "claims", "d2m1-l2": "claims", "d2m1-liab": "claims", "d2m1-first": "claims", "d1m4-l2": "claims", "d1m1-a1": "claims", "d2m1-a1": "claims", "d2m1-a2": "claims", "d1m4-a1": "claims", "d1m4-a2": "claims", "d2m1-kc": "claims", "d1m4-kc": "claims", "d2m1-cov": "care", "d2m2-l1": "care", "d2m2-eob": "care", "d2m2-pip": "care", "d2m2-lop": "care", "d2m2-cost": "care", "d1m1-l2": "care", "d2m2-l2": "care", "d1m2-l1": "care", "d1m2-l2": "care", "d1m2-a1": "care", "d1m2-a2": "care", "d2m2-a1": "care", "d1m1-a2": "care", "d2m2-a2": "care", "d2m2-a3": "care", "d2m2-kc": "care", "d1m2-kc": "care"}, blocks: ["d2m1-l2", "d2m1-liab", "d2m1-first", "d2m1-l1", "d1m1-a1", "d2m1-a1", "d2m1-a2", "d1m4-l2", "d1m4-a1", "d1m4-a2", "d2m1-cov", "d2m2-l1", "d2m2-eob", "d2m2-pip", "d2m2-lop", "d2m2-cost", "d2m2-a1", "d2m2-a3", "d1m1-l2", "d1m1-a2", "d2m2-l2", "d2m2-a2", "d1m2-l1", "d1m2-l2", "d1m2-a1", "d1m2-a2", "d2m1-kc", "d1m4-kc", "d2m2-kc", "d1m2-kc"],
+       headings: {"d2m1-l1": "Claim Set Up", "d2m1-l2": "Claim Set Up", "d2m1-liab": "Claim Set Up", "d2m1-first": "Claim Set Up", "d1m4-l2": "Claim Set Up: Case Strategy", "d2m1-cov": "Treatment: Who Pays the Bills", "d2m2-l1": "Treatment: Who Pays the Bills", "d2m2-eob": "Treatment: Who Pays the Bills", "d2m2-pip": "Treatment: Who Pays the Bills", "d2m2-lop": "Treatment: Who Pays the Bills", "d2m2-cost": "Treatment: Who Pays the Bills", "d1m1-l2": "Treatment: Liens & the Regulatory Triple-Check", "d2m2-l2": "Treatment: Monitoring the Care", "d1m2-l1": "Treatment: Client Communications", "d1m2-l2": "Treatment: Client Communications", "d1m1-a1": "Skill Building: CMS Case File Setup", "d2m1-a1": "Skill Building: Draft, Transmit & Log the LORs", "d2m1-a2": "Skill Building: Receive Carrier Claim Correspondence", "d1m4-a1": "Skill Building: Case Strategy", "d1m4-a2": "Skill Building: Case Strategy", "d1m2-a1": "Skill Building: Client Communications", "d1m2-a2": "Skill Building: Client Communications", "d2m2-a1": "Skill Building: Treatment", "d1m1-a2": "Skill Building: Liens", "d2m2-a2": "Skill Building: Treatment", "d2m2-a3": "Skill Building: Treatment"}}
     ]},
     {n: 3, phases: [
       {title: "Pre-Demand Audit, the Demand & Settlement Negotiation", lead: "Module 3", lanes: {"d2m3-l1": "care", "d2m3-l2": "care", "d2m3-a1": "care", "d2m3-a2": "care", "d2m3-kc": "care"}, blocks: ["d2m3-l1", "d2m3-l2", "d2m3-a1", "d2m3-a2", "d2m4-l1", "d2m4-l2", "d2m4-a1", "d2m4-a2", "d3m1-l1", "d3m1-l2", "d3m1-pkg", "d3m1-a1", "d3m1-a2", "d3m2-l1", "d3m2-l2", "d3m2-a1", "d3m2-a2", "d2m3-kc", "d2m4-kc", "d3m1-kc", "d3m2-kc"],

@@ -24,10 +24,10 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#12` | Bottleneck: Conflict Check Delays | ✅ BUILT | d1m1-l1, d1m1-open, d1m1-kc |
 | `D1#13` | Bottleneck: Intake Form Errors | ✅ BUILT | d1m1-l1, d1m1-open |
 | `D1#14` | Bottleneck: Case Eligibility Uncertainty | ✅ BUILT | d1m4-l1 |
-| `D1#15` | Bottleneck: Communication Gaps | ✅ BUILT | d1m1-l1 |
+| `D1#15` | Bottleneck: Communication Gaps | ✅ BUILT | d1m1-l1, d2m1-first |
 | `D1#16` | Tools for Case Planning & the PI Case Lifecycle Strategy | ✅ BUILT | d1m1-case, d1m1-l1, d1m1-kc, d1m3-a2, d1m4-a1 |
 | `D1#17` | Skill Building: Intake Decision Challenge & Applied Case Manager Actions | ✅ BUILT | d1m4-l1 |
-| `D1#18` | Claim Set-Up: Coverage Determination & Liability Assessment | ✅ BUILT | d1m1-l1, d1m4-a2, d1m1-a1, d2m1-l2, d2m1-a2, d2m1-kc, d2m1-cov, d5m4-kc |
+| `D1#18` | Claim Set-Up: Coverage Determination & Liability Assessment | ✅ BUILT | d1m1-l1, d1m4-a2, d1m1-a1, d2m1-l2, d2m1-liab, d2m1-a2, d2m1-kc, d2m1-cov, d5m4-kc |
 | `D1#19` | Claim Set-Up: Case Projection — Why the Three Work Together | ✅ BUILT | d1m1-case, d1m4-l1, d1m4-a2, d1m1-a1, d2m1-l2 |
 | `D1#20` | Case Study: John Doe v. Apex — Coverage Analysis | ✅ BUILT | d1m1-a1, d2m1-l2, d2m1-a2, d2m1-kc |
 | `D1#21` | Case Study: John Doe v. Apex — Liability Determination | ✅ BUILT | d1m4-l1, d2m1-l1, d2m1-a1 |
@@ -48,7 +48,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#36` | The Standard Treatment Map | ✅ BUILT | d1m4-tmap, d2m2-l2, d2m2-kc |
 | `D1#37` | Treatment Road Map Mastery & the Clinical Pathway Flowchart | ✅ BUILT | d1m4-tmap, d2m2-l2, d2m2-kc |
 | `D1#38` | Variance Analysis: Why the Map Fails | ✅ BUILT | d1m4-tmap, d2m2-l2, d2m2-a2 |
-| `D1#39` | Communication Loops: The “Stakeholder Triad” | ✅ BUILT | d1m4-tmap, d2m2-l1, d2m2-a3, d2m3-l2 |
+| `D1#39` | Communication Loops: The “Stakeholder Triad” | ✅ BUILT | d1m4-tmap, d2m1-first, d2m2-l1, d2m2-a3, d2m3-l2 |
 | `D1#40` | The “Golden Standard”: Reasonable and Necessary | ✅ BUILT | d1m4-tmap, d2m2-l2, d2m2-kc, d2m4-l1, d2m4-a1 |
 | `D1#41` | Immediate Action Protocol: A-C-T for Red Flags | ✅ BUILT | d2m2-l2, d2m2-a2 |
 | `D1#42` | Illustration & Course Correction: The 6-Week Rule and Objective Metrics | ✅ BUILT | d1m4-tmap, d2m2-l2, d2m2-kc |
@@ -120,7 +120,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D3#10` | UM Settlement: Challenges | ✅ BUILT | d3m2-l2, d3m2-a2 |
 | `D3#11` | UM Settlement: The Final Payout Process | ✅ BUILT | d3m2-l2, d3m2-a2, d3m2-kc |
 | `D3#12` | Documents that Matter: Threshold & Coverage Documents | ✅ BUILT | d3m1-l2, d3m1-pkg, d3m1-a2, d3m1-kc |
-| `D3#13` | Documents that Matter: Liability & Causation Documents | ✅ BUILT | d3m1-pkg, d3m1-a2 |
+| `D3#13` | Documents that Matter: Liability & Causation Documents | ✅ BUILT | d2m1-liab, d3m1-pkg, d3m1-a2 |
 | `D3#14` | Documents that Matter: Special Damages Documents (Economic Hard Costs) | ✅ BUILT | d3m1-pkg, d3m1-a2 |
 | `D3#15` | Documents that Matter: General Damages Documents (Non-Economic Value) | ✅ BUILT | d3m1-pkg, d3m1-a2, d3m1-kc |
 | `D3#16` | Documents that Matter: Final Pleading & Release Documents (Closing Phase) | ✅ BUILT | d3m1-pkg, d3m1-a2 |
@@ -253,6 +253,8 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: Declaration Pages, certified copy of policy, policy limits and limit types
 - LSH Claims Specialist: follow-up cadence, LOR acknowledgement, statement of insurance disclosure
 - Newly authored: verifying the UM form and PIP terms at set-up; the regulatory and policy deadline backstop
+- Newly authored: liability investigation at claim set-up — evidence, preservation and anticipating comparative fault
+- Newly authored: decision first — leading every note, email and brief to the attorney with the decision or action needed
 - LSH Claims Specialist: Declaration Pages, coverage verification and follow-up
 - Newly authored: verifying the UM form and PIP terms at set-up
 - LSH Claims Specialist: LOR components, information protection, acknowledgement and limits disclosure

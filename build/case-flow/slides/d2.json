@@ -899,5 +899,67 @@
       "Quoting the Specials **without the PIP Log**",
       "Asking a provider **to make an EMC finding**"
     ]
-  }
+  },
+ "d2m1-liab": {
+  "image": "documents-audit",
+  "hook": "**Coverage says there is money**; liability says someone has to pay it.",
+  "points": [
+   "The Police Report first: **read every field**, citation and witness",
+   "**Preserve the video** and vehicle data before anything is lost",
+   "Anticipate **comparative fault**: out of turn, unbelted",
+   "PD acceptance is **not BI acceptance**: record each position"
+  ],
+  "upl": "Gather and preserve the evidence; **fault is Atty. Thorne's call**",
+  "job": [
+   [
+    "Claim set-up opens",
+    "Request and read the report",
+    "CMS → Police tab",
+    "Citation and witness recorded"
+   ],
+   [
+    "Video or vehicle data exists",
+    "Draft the preservation requests",
+    "Email Workspace",
+    "Signed, sent, custody logged"
+   ],
+   [
+    "A carrier states its position",
+    "Record it with its date",
+    "CMS → Insurance tab",
+    "Each position on file"
+   ]
+  ],
+  "dos": [
+   "Read the Police Report **line by line**",
+   "**Preserve first**: video, photos and vehicle data",
+   "Log every liability fact **with its source and date**"
+  ],
+  "donts": [
+   "Treating **PD acceptance** as a BI admission",
+   "Asking a witness **to sign your wording**",
+   "Correcting the file **to match the report** alone"
+  ]
+ },
+ "d2m1-first": {
+  "image": "strategy-session",
+  "hook": "**The first line is the decision**; the facts come after it.",
+  "points": [
+   "Open with **the decision and its deadline**",
+   "Then why, then **the facts with their sources**",
+   "Give **every option** and what follows from each",
+   "**One note, one decision**, logged the same day"
+  ],
+  "upl": "You frame the decision; **Atty. Thorne makes it**",
+  "dos": [
+   "Put the decision in **the subject line** too",
+   "Give **each option** and its next step",
+   "Log the note and **his answer** the same day"
+  ],
+  "donts": [
+   "**Telling the story first**, the question last",
+   "A subject line of **“Update”**",
+   "Leaving out **the option you dislike**"
+  ]
+ }
 }

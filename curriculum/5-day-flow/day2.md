@@ -34,33 +34,35 @@ The day is one module, on John Doe's one file: Lesson → Skill Building → Les
 **Module 2 — Claim Set Up & Treatment**
 
 1. *Lesson* — Coverage Verification Tracking & Follow-Up Deadlines
-2. *Lesson* — LOR Drafting Mechanics & Three-Carrier Notification
-3. *Skill Activity* — Policy Stack & Coverage Verification
-4. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
-5. *Skill Activity* — CMS Coverage Matrix Audit
-6. *Lesson* — The Action Plan Editor & Attorney Review Routing (condensed)
-7. *Skill Activity* — Identifying & Flagging the 14-Day Gap
-8. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
-9. *Lesson* — Coverages & the Payer-First Principle
-10. *Lesson* — LOP Issuance Guidelines, Provider Coordination & PIP Limits
-11. *Lesson* — Explanation of Benefits (EOB) & PIP
-12. *Lesson* — PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement (condensed)
-13. *Lesson* — Letters of Protection & the Case Manager's Part in Provider Referrals
-14. *Lesson* — Rental & Reimbursement of Costs
-15. *Skill Activity* — Transmitting LOPs to Medical Providers
-16. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
-17. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check
-18. *Skill Activity* — Subrogation Lien Flagging in the CMS
-19. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
-20. *Skill Activity* — Executing the A-C-T Crisis Protocol for Disrupted Care
-21. *Lesson* — The No Contact Protocol — Steps 1 to 3
-22. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
-23. *Skill Activity* — Multi-Channel Outreach Logging
-24. *Skill Activity* — Final Warning Letter Drafting
-25. *Knowledge Check* — Coverage Setup Verification Check
-26. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
-27. *Knowledge Check* — Treatment Monitoring Review
-28. *Knowledge Check* — MIA Escalation Knowledge Check
+2. *Lesson* — Liability Investigation: the Police Report, the Witness, the Video & Comparative Fault (condensed)
+3. *Lesson* — Decision First: Lead Every Note to Atty. Thorne with the Decision Needed (condensed)
+4. *Lesson* — LOR Drafting Mechanics & Three-Carrier Notification
+5. *Skill Activity* — Policy Stack & Coverage Verification
+6. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+7. *Skill Activity* — CMS Coverage Matrix Audit
+8. *Lesson* — The Action Plan Editor & Attorney Review Routing (condensed)
+9. *Skill Activity* — Identifying & Flagging the 14-Day Gap
+10. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
+11. *Lesson* — Coverages & the Payer-First Principle
+12. *Lesson* — LOP Issuance Guidelines, Provider Coordination & PIP Limits
+13. *Lesson* — Explanation of Benefits (EOB) & PIP
+14. *Lesson* — PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement (condensed)
+15. *Lesson* — Letters of Protection & the Case Manager's Part in Provider Referrals
+16. *Lesson* — Rental & Reimbursement of Costs (condensed)
+17. *Skill Activity* — Transmitting LOPs to Medical Providers
+18. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+19. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check
+20. *Skill Activity* — Subrogation Lien Flagging in the CMS
+21. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
+22. *Skill Activity* — Executing the A-C-T Crisis Protocol for Disrupted Care
+23. *Lesson* — The No Contact Protocol — Steps 1 to 3
+24. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
+25. *Skill Activity* — Multi-Channel Outreach Logging
+26. *Skill Activity* — Final Warning Letter Drafting
+27. *Knowledge Check* — Coverage Setup Verification Check
+28. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
+29. *Knowledge Check* — Treatment Monitoring Review
+30. *Knowledge Check* — MIA Escalation Knowledge Check
 
 **End-of-day discussion (trainer):** It is 04/08/2026. Keystone confirmed its limit in writing on 03/20, Riverton Spine & Rehab reports John Doe has missed two visits, and Dana Whitfield has asked John for a Recorded Statement. What do you do first, second and third, and what does each protect?
 
@@ -68,7 +70,7 @@ The day is one module, on John Doe's one file: Lesson → Skill Building → Les
 
 ## Module 2 — Claim Set Up & Treatment
 
-**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 2.1.1 Coverage Verification Tracking & Follow-Up Deadlines
 
@@ -154,7 +156,161 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.2 LOR Drafting Mechanics & Three-Carrier Notification
+### 2.1.2 Liability Investigation: the Police Report, the Witness, the Video & Comparative Fault
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Topic:** Proving who caused the collision while the evidence is fresh  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D3#13` Documents that Matter: Liability & Causation Documents · Newly authored: liability investigation at claim set-up — evidence, preservation and anticipating comparative fault
+
+#### 1 · Visual Layout Description
+
+An evidence board fills the slide. Centre, a small diagram of the all-way stop at Maple Hollow Rd & Birch Ave: the Escape stopped eastbound, the Silverado's arrow running the stop into the Escape's front passenger door. Around it, four evidence cards pinned with orange tacks, each with a status chip: POLICE REPORT RPD-26-018842 · Officer Thomas Garner #2217 · citation: failure to stop (OBTAINED) · WITNESS · Ruth Calloway, 2209 Maple Hollow Rd · signed on scene (FOLLOW-UP) · DOORBELL VIDEO · 07:09:41–07:10:26 · copy secured 02/19/2026, SHA-256 logged (PRESERVED) · EVENT DATA RECORDER · the Escape · preservation request for Atty. Thorne's signature (OPEN). Along the bottom, a grey band labelled THE DEFENSE WILL SAY: out of turn · unbelted, with a thin navy rule beneath: “Gather and preserve the facts; Atty. Thorne evaluates fault.”
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Coverage answers whether there is money; liability answers whether anyone has to pay it. Evidence of fault is freshest in the first days: a witness's memory fades, a doorbell camera records over itself, and an event data recorder stays with the car. A Case Manager who gathers and preserves the liability evidence at claim set-up gives Atty. Thorne a case he can prove, and an answer ready for the comparative-fault argument the defense is likely to raise.
+
+1. Liability is investigated, not assumed. The client's account is where it starts; the Police Report, an independent witness, video and vehicle data are what prove it. Record each piece with its source and the date it reached the file.
+2. The Police Report comes first: Riverton PD report RPD-26-018842, Officer Thomas Garner #2217. Read it line by line: the narrative, the diagram, each unit's driver, vehicle and insurer, citations issued and witnesses named. Robert Smith was cited for failure to stop at a stop sign.
+3. Reconcile the report against the file, never the other way round. The report lists the Escape as a 2021; Harbor Point's Declaration Page shows a 2020. Record the discrepancy with both sources; correct our own record from the Declaration Page.
+4. An independent witness is the strongest answer to a disputed version. Ruth Calloway, 2209 Maple Hollow Rd, gave Officer Garner a signed statement on scene. Log her contact details, and flag a follow-up statement to Atty. Thorne while her memory is fresh.
+5. Preserve video before it is lost. Margaret Doe's doorbell camera at 2214 Maple Hollow Rd recorded the collision (07:09:41–07:10:26). John Doe was told to preserve it on 02/17/2026; the firm secured a copy on 02/19/2026, with its SHA-256 hash logged. Keep the original unaltered and record the chain of custody.
+6. Vehicle data needs a written preservation request. The Escape's event data recorder belongs to Kevin Alvarez's vehicle; a preservation request to him and Harbor Point goes out for Atty. Thorne's signature. Never ask anyone to download or alter it.
+7. Anticipate comparative fault. Expect the defense to argue the Escape entered the all-way stop out of turn, or that John Doe was unbelted. Note what already answers each: the citation, Ms. Calloway's statement, the video, and the EMS report's “restrained front-seat passenger”.
+8. PD acceptance is not BI acceptance. Keystone accepted PD liability on 02/17/2026 for Margaret Doe's Civic; that does not bind its BI adjuster on John Doe's claim. Record each carrier's liability position in writing, with its date.
+
+> ⚠️ **UPL boundary.** You gather, log and preserve the liability evidence and record each carrier's written position. Evaluating fault, comparative negligence and what the evidence is worth, and contacting a witness for a new statement, are Atty. Thorne's calls.
+
+#### 2 · Slide Body — Show Them
+
+*John Doe's liability evidence at claim set-up*
+
+| Evidence | What it shows | Status on the file |
+|---|---|---|
+| Police Report RPD-26-018842 | Smith cited for failure to stop; diagram; witness named | On file; the Escape's year to reconcile (2020) |
+| Ruth Calloway's statement | The SUV stopped; the pickup didn't | Signed on scene; follow-up flagged to Atty. Thorne |
+| Doorbell video, 2214 Maple Hollow Rd | The Escape stopped; Smith rolling through | Copy secured 02/19/2026; hash logged; original unaltered |
+| The Escape's event data recorder | Speed and belt status at impact | Preservation request for Atty. Thorne's signature |
+| EMS Run Report | “Restrained front-seat passenger” | On file: answers the unbelted argument |
+| Keystone's position | PD liability accepted 02/17/2026 | BI liability position still to be confirmed in writing |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Claim set-up opens | Request the Police Report; read every field | CMS → Police tab | Report logged; citation and witness recorded |
+| Video or vehicle data exists | Draft preservation requests for Atty. Thorne | Email Workspace | Request signed and sent; chain of custody logged |
+| A carrier states its liability position | Record it with its date and source | CMS → Insurance tab | Each carrier's position on file in writing |
+
+**Best practices & pitfalls**
+
+- Read the Police Report line by line, and reconcile it against the Declaration Pages.
+- Preserve first: video, photographs and vehicle data before anything else is asked.
+- Log every liability fact with its source and date.
+- Keep the original video unaltered; work from a copy with a logged hash.
+- ⚠️ Pitfall: treating PD acceptance as an admission on the BI claim.
+- ⚠️ Pitfall: asking a witness to sign a statement you wrote.
+- ⚠️ Pitfall: correcting the file to match the Police Report without a second source.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Evidence gathered | Names the Police Report, the witness, the video and the vehicle data, with what each proves on John Doe's file |
+| 🤖 AI | **20%** | Preservation and custody | Video copy secured with its hash and the original unaltered; the event data recorder preservation request routed for signature |
+| 🤖 AI | **20%** | Comparative fault anticipated | Names the out-of-turn and unbelted arguments and the evidence on file that answers each |
+| 🧑‍🏫 Trainer | **25%** | Grasps the consequence | Explains why liability evidence is gathered at set-up, before memories fade and recordings are lost |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | Fault, comparative negligence and witness contact left to Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Draw the intersection on the board and ask the room who had the right of way. Then ask what proves it, and write each answer as an evidence card.
+- Spend a minute on the Escape's year: the Police Report says 2021, the Declaration Page says 2020. Ask which document the CMS follows, and why the other is never quietly changed.
+- Ask what the defense will say. Let the room find both arguments, out of turn and unbelted, then find the evidence on file that answers each.
+- Close on the boundary: you gather and preserve; Atty. Thorne decides what the evidence is worth and who speaks to the witness.
+
+---
+
+### 2.1.3 Decision First: Lead Every Note to Atty. Thorne with the Decision Needed
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Topic:** Open with the decision or action needed, then the facts  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#15` Bottleneck: Communication Gaps · `D1#39` Communication Loops: The “Stakeholder Triad” · Newly authored: decision first — leading every note, email and brief to the attorney with the decision or action needed
+
+#### 1 · Visual Layout Description
+
+A single email card fills the slide, addressed TO: Atty. Elijah Thorne. Its first line is boxed in orange and labelled THE DECISION: “Decision needed by 03/12/2026: approve declining Summit Imaging's LOP request; the MRI goes to Harbor Point PIP.” Beneath, three navy bands in order, each with a small label on the left: WHY (PIP applies first; $3,675.00 left) · THE FACTS (Summit's request of 03/11/2026; the $2,395.00 MRI) · IF YES / IF NO (what you will do either way). To the right, a faded second email with the same facts in story order and its decision buried in the last paragraph, struck through in grey. Bottom, a thin navy rule: “Decision first. Then the facts.”
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Atty. Thorne reads dozens of notes a day, often between hearings. A note that tells the story first and asks its question last makes him dig for what he needs to decide, and a buried question waits. Leading with the decision turns every note into a yes, a no or an instruction, and a deadline that arrives on time instead of after the window closes.
+
+1. The first line is the decision or action needed, with its deadline: “Decision needed by 03/12/2026: approve declining Summit Imaging's LOP request.” If nothing is needed, say so first: “For your information, no action needed.”
+2. Then why, in one or two lines: the rule or fact that drives it. Then the facts he needs to decide, each with its source and date. The story of how you found it comes last, or not at all.
+3. Give him the options and what follows from each: “If yes, I send the decline and route the bill to PIP today; if no, I draft the LOP for your signature.” Never decide for him by leaving one option out.
+4. One note, one decision. Two decisions are two notes, or two numbered items, each with its own deadline, so neither is lost in the other.
+5. The subject line carries the decision too: “DECISION by 03/12 — Summit LOP request (John Doe v. Robert Smith)”. A subject line of “Update” or “Question” tells him nothing.
+6. Facts, not adjectives. Quote figures and dates exactly as the documents give them, and mark anything unconfirmed as unconfirmed. Your recommendation, if you give one, is labelled as yours.
+7. Log the note and his answer in the CMS the same day, and act on the answer. A decision that is not logged has to be asked for again.
+
+> ⚠️ **UPL boundary.** You frame the decision, lay out the facts and the options, and carry out his answer. The decision itself, and any legal judgment behind it, is Atty. Thorne's.
+
+#### 2 · Slide Body — Show Them
+
+*The same note, two ways*
+
+|  | Story first | Decision first |
+|---|---|---|
+| First line | “Summit Imaging called yesterday about John Doe's MRI…” | “Decision needed by 03/12/2026: approve declining Summit's LOP request.” |
+| Why | Buried in the third paragraph | PIP applies first, and Harbor Point PIP has $3,675.00 left |
+| Facts | In the order they happened | Summit's request of 03/11/2026; the $2,395.00 MRI |
+| Options | Missing | If yes: decline sent, bill to PIP today. If no: LOP drafted for signature |
+| Subject line | “Update” | “DECISION by 03/12 — Summit LOP request” |
+
+**Best practices & pitfalls**
+
+- Put the decision and its deadline in the first line, and in the subject line.
+- Give the options and what you will do after each answer.
+- One decision per note, or numbered, each with its own deadline.
+- Log the note and the answer in the CMS the same day.
+- ⚠️ Pitfall: telling the story first and asking the question last.
+- ⚠️ Pitfall: a subject line of “Update”.
+- ⚠️ Pitfall: leaving out the option you don't recommend.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Decision in the first line | The note opens with the decision or action needed and its deadline, and the subject line carries it |
+| 🤖 AI | **20%** | Facts and options | Why in one or two lines, the facts with sources and dates, and what follows from each option |
+| 🤖 AI | **20%** | Logged and acted on | The note and the answer logged in the CMS the same day, and the answer carried out |
+| 🧑‍🏫 Trainer | **25%** | Grasps the consequence | Explains how a buried question delays a decision and can cost a deadline |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | Frames the decision without making it; recommendations labelled as the Case Manager's own |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Read the room a story-first note aloud and stop before the last paragraph. Ask what Atty. Thorne is being asked to do. Then show the decision-first version.
+- Have everyone rewrite one sentence: the first line of a note about Summit's 03/11/2026 LOP request. Check that it names the decision and the deadline.
+- Ask what happens when one note carries two decisions. Let the room find that the second one is usually missed.
+- Close on the boundary: you frame the decision and carry out the answer; the decision is Atty. Thorne's.
+
+---
+
+### 2.1.4 LOR Drafting Mechanics & Three-Carrier Notification
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** One template, five letters, and the rules that make each one different  
@@ -240,7 +396,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.3 Policy Stack & Coverage Verification
+### 2.1.5 Policy Stack & Coverage Verification
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — build the ladder to $40,000  
@@ -328,7 +484,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.4 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+### 2.1.6 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — five letters, each one right  
@@ -405,7 +561,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.5 CMS Coverage Matrix Audit
+### 2.1.7 CMS Coverage Matrix Audit
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 2 — find what the matrix gets wrong  
@@ -496,7 +652,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.6 The Action Plan Editor & Attorney Review Routing
+### 2.1.8 The Action Plan Editor & Attorney Review Routing
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Drafting, routing, and the review loop  
@@ -574,7 +730,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.7 Identifying & Flagging the 14-Day Gap
+### 2.1.9 Identifying & Flagging the 14-Day Gap
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 1 — find the fact that will decide this case  
@@ -647,7 +803,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.8 Live Case Plan Draft — John Doe v. Robert Smith
+### 2.1.10 Live Case Plan Draft — John Doe v. Robert Smith
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 2 — the full plan, routed for review  
@@ -723,7 +879,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.9 Coverages & the Payer-First Principle
+### 2.1.11 Coverages & the Payer-First Principle
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Every policy on John Doe's file, what it pays, and who pays first  
@@ -812,7 +968,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.10 LOP Issuance Guidelines, Provider Coordination & PIP Limits
+### 2.1.12 LOP Issuance Guidelines, Provider Coordination & PIP Limits
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays which bill, and what only counsel may promise  
@@ -897,7 +1053,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.11 Explanation of Benefits (EOB) & PIP
+### 2.1.13 Explanation of Benefits (EOB) & PIP
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Reading what each payer paid, and what is still owed  
@@ -984,7 +1140,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.12 PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement
+### 2.1.14 PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Where PIP's $5,000 lands, and what that means for the settlement later  
@@ -1070,7 +1226,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.13 Letters of Protection & the Case Manager's Part in Provider Referrals
+### 2.1.15 Letters of Protection & the Case Manager's Part in Provider Referrals
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** What an LOP is, when it is used, and how you help John Doe reach care without steering it  
@@ -1147,9 +1303,9 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.14 Rental & Reimbursement of Costs
+### 2.1.16 Rental & Reimbursement of Costs
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** What treatment costs the client out of pocket, and how each dollar is documented for the demand  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** Case file: Keystone Mutual's rental cutoff (RS32) and John Doe's transport to treatment · IRS IR-2025-128: the standard mileage rates when this course was written, 20.5 cents medical and 72.5 cents business · Newly authored: reimbursement of out-of-pocket treatment costs and the trip log
@@ -1221,7 +1377,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.15 Transmitting LOPs to Medical Providers
+### 2.1.17 Transmitting LOPs to Medical Providers
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 1 — one LOP issued, one declined  
@@ -1298,7 +1454,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.16 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+### 2.1.18 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 3 — the Millbrook booking, 04/22/2026  
@@ -1398,7 +1554,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.17 Health Subrogation, Payer Order & the Regulatory Triple-Check
+### 2.1.19 Health Subrogation, Payer Order & the Regulatory Triple-Check
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays the bills now, and who gets paid back later  
@@ -1477,7 +1633,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.18 Subrogation Lien Flagging in the CMS
+### 2.1.20 Subrogation Lien Flagging in the CMS
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — register the claim before it can hurt you  
@@ -1549,7 +1705,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.19 A-C-T Crisis Protocol & Treatment Monitoring Principles
+### 2.1.21 A-C-T Crisis Protocol & Treatment Monitoring Principles
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Is the plan working, and what you do the day it isn't  
@@ -1632,7 +1788,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.20 Executing the A-C-T Crisis Protocol for Disrupted Care
+### 2.1.22 Executing the A-C-T Crisis Protocol for Disrupted Care
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — the Transportation Wall, 04/08/2026  
@@ -1720,7 +1876,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.21 The No Contact Protocol — Steps 1 to 3
+### 2.1.23 The No Contact Protocol — Steps 1 to 3
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Internal review, escalating contact attempts, team notification  
@@ -1796,7 +1952,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.22 Final Warning Letter & the Skip-Trace Trigger
+### 2.1.24 Final Warning Letter & the Skip-Trace Trigger
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** No Contact Protocol Steps 4 to 6, and when the search begins  
@@ -1870,7 +2026,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.23 Multi-Channel Outreach Logging
+### 2.1.25 Multi-Channel Outreach Logging
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 1 — build a defensible record  
@@ -1944,7 +2100,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.24 Final Warning Letter Drafting
+### 2.1.26 Final Warning Letter Drafting
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 2 — write the letter that gets answered  
@@ -2019,7 +2175,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.25 Coverage Setup Verification Check
+### 2.1.27 Coverage Setup Verification Check
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2064,7 +2220,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (12 questions):
+**Auto-graded share of the day's Knowledge Check** (15 questions):
 
 1. Which coverages make up John Doe's $40,000 Recovery Stack?  
    **✓ Keystone BI, Harbor Point Host UM and Cardinal State Relative UM** · Keystone BI, Host UM, Relative UM and Harbor Point PIP · Keystone BI, Keystone PD and Host UM · Host UM, Relative UM and Margaret Doe's Bluewater UM  
@@ -2102,6 +2258,15 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 12. Keystone gave its $10,000 limit by phone at set-up. How does the Coverage Matrix record it?  
    Confirmed · **✓ Preliminary, with the set-up call as its source, until a Declaration Page or Coverage Letter confirms it** · Not at all until the demand · As $40,000  
    *A phone figure is a lead: record its source and keep it preliminary, and never quote it to John Doe.*
+13. Keystone accepted PD liability for Margaret Doe's Civic on 02/17/2026. What does that mean for John Doe's BI claim?  
+   Liability is settled on every claim from the collision · **✓ Nothing by itself: record Keystone's BI liability position separately, in writing, with its date** · The BI demand can go out now · The witness and the video are no longer needed  
+   *PD acceptance on Margaret Doe's claim does not bind Keystone's BI adjuster on John Doe's. Each carrier's liability position is recorded in writing, and the evidence is preserved either way.*
+14. Margaret Doe's doorbell camera recorded the collision. What protects that video as evidence?  
+   Trimming it to the 45 seconds that matter · **✓ A copy secured with its hash logged, the original kept unaltered and the chain of custody recorded** · Asking John Doe to post it so it can't be lost · Converting it to a smaller file for the CMS  
+   *The firm secured a copy on 02/19/2026 with its SHA-256 hash logged. An unaltered original and a recorded chain of custody are what make it usable later.*
+15. You need Atty. Thorne to approve declining Summit Imaging's 03/11/2026 LOP request. How does your note open?  
+   With how Summit's call came in and what was said · **✓ With the decision needed and its deadline, then why, the facts and what follows from each answer** · With the full PIP payment history · With your view of whether Summit will reduce its bill  
+   *Decision first: the first line, and the subject line, carry the decision and its deadline. Then why, the facts with their sources, and the options.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -2127,7 +2292,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 ---
 
-### 2.1.26 Case Plan Audit & the Claim Set Up Gate
+### 2.1.28 Case Plan Audit & the Claim Set Up Gate
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2240,7 +2405,7 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 ---
 
-### 2.1.27 Treatment Monitoring Review
+### 2.1.29 Treatment Monitoring Review
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2363,7 +2528,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 
 ---
 
-### 2.1.28 MIA Escalation Knowledge Check
+### 2.1.30 MIA Escalation Knowledge Check
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

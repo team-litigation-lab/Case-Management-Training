@@ -451,5 +451,77 @@
         "A call goes to the doctor suggesting what the chart could say."
       ]
     ]
-  }
+  },
+ "d2m1-liab": {
+  "dos": [
+   [
+    "The officer's diagram sits on page two of the report.",
+    "A witness name appears in a box near the narrative.",
+    "The unit year differs from what the policy lists."
+   ],
+   [
+    "A doorbell camera at the corner overwrites itself every week.",
+    "The Escape still holds data about the moment of impact.",
+    "On 02/19/2026 a copy left the house with a hash."
+   ],
+   [
+    "An adjuster later asks where a fact came from.",
+    "A note in the CMS reads only “witness saw it”.",
+    "Two months on, nobody remembers which call said what."
+   ]
+  ],
+  "donts": [
+   [
+    "Keystone's letter of 02/17/2026 concerns Margaret Doe's Civic.",
+    "The BI adjuster on John Doe's claim has said nothing yet.",
+    "A demand cites the letter as proof of fault."
+   ],
+   [
+    "Ruth Calloway gave a statement to Officer Garner on scene.",
+    "A typed page arrives for her to sign as written.",
+    "Her words and the page's words differ in two places."
+   ],
+   [
+    "Officer Garner's paperwork lists the Escape as a 2021.",
+    "Harbor Point's Declaration Page lists a 2020.",
+    "Someone edits the CMS to read 2021."
+   ]
+  ]
+ },
+ "d2m1-first": {
+  "dos": [
+   [
+    "Atty. Thorne scans forty emails between two hearings.",
+    "Most of them are titled with a client's name alone.",
+    "One of them carries a date and a yes-or-no question."
+   ],
+   [
+    "Summit's LOP request could be approved or declined.",
+    "Each answer leads to a different task the same afternoon.",
+    "The note names what happens after a yes, and after a no."
+   ],
+   [
+    "He replied by text from the courthouse steps.",
+    "A week later the same question reaches him again.",
+    "The CMS shows the question but not his reply."
+   ]
+  ],
+  "donts": [
+   [
+    "The note begins with how Summit's call came in.",
+    "Four paragraphs describe the PIP payments in date order.",
+    "The request for approval appears in the last sentence."
+   ],
+   [
+    "His inbox shows fifteen messages with the same title.",
+    "None of them says what he is being asked.",
+    "The one with a deadline looks like all the others."
+   ],
+   [
+    "The note offers one path and its benefits.",
+    "The other path appears nowhere in the message.",
+    "He approves it without knowing a choice existed."
+   ]
+  ]
+ }
 }

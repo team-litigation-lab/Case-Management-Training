@@ -2875,6 +2875,190 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
+ "d2m1-liab": {
+  "image": "documents-audit",
+  "hook": "**Coverage says there is money**; liability says someone has to pay it.",
+  "points": [
+   "The Police Report first: **read every field**, citation and witness",
+   "**Preserve the video** and vehicle data before anything is lost",
+   "Anticipate **comparative fault**: out of turn, unbelted",
+   "PD acceptance is **not BI acceptance**: record each position"
+  ],
+  "upl": "Gather and preserve the evidence; **fault is Atty. Thorne's call**",
+  "job": [
+   [
+    "Claim set-up opens",
+    "Request and read the report",
+    "CMS → Police tab",
+    "Citation and witness recorded"
+   ],
+   [
+    "Video or vehicle data exists",
+    "Draft the preservation requests",
+    "Email Workspace",
+    "Signed, sent, custody logged"
+   ],
+   [
+    "A carrier states its position",
+    "Record it with its date",
+    "CMS → Insurance tab",
+    "Each position on file"
+   ]
+  ],
+  "dos": [
+   "Read the Police Report **line by line**",
+   "**Preserve first**: video, photos and vehicle data",
+   "Log every liability fact **with its source and date**"
+  ],
+  "donts": [
+   "Treating **PD acceptance** as a BI admission",
+   "Asking a witness **to sign your wording**",
+   "Correcting the file **to match the report** alone"
+  ],
+  "theory": {
+   "lead": "Liability assessment asks **who is legally responsible**, and to what degree, from evidence: the report, witnesses, video and vehicle data.",
+   "concepts": [
+    {
+     "term": "The Police Report",
+     "text": "The baseline: the crash mechanics, **citations issued** and the officer's scene observations"
+    },
+    {
+     "term": "Independent Witness",
+     "text": "A neutral account, the **strongest answer** to a disputed version of events"
+    },
+    {
+     "term": "Preservation",
+     "text": "Video and vehicle data are lost unless **preserved early**, with a chain of custody"
+    },
+    {
+     "term": "Comparative Negligence",
+     "text": "The defense moves fault toward the plaintiff; **each share** reduces the recovery"
+    }
+   ],
+   "pages": [
+    "D1#21",
+    "D3#15"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "The officer's diagram sits on page two of the report.",
+     "A witness name appears in a box near the narrative.",
+     "The unit year differs from what the policy lists."
+    ],
+    [
+     "A doorbell camera at the corner overwrites itself every week.",
+     "The Escape still holds data about the moment of impact.",
+     "On 02/19/2026 a copy left the house with a hash."
+    ],
+    [
+     "An adjuster later asks where a fact came from.",
+     "A note in the CMS reads only “witness saw it”.",
+     "Two months on, nobody remembers which call said what."
+    ]
+   ],
+   "donts": [
+    [
+     "Keystone's letter of 02/17/2026 concerns Margaret Doe's Civic.",
+     "The BI adjuster on John Doe's claim has said nothing yet.",
+     "A demand cites the letter as proof of fault."
+    ],
+    [
+     "Ruth Calloway gave a statement to Officer Garner on scene.",
+     "A typed page arrives for her to sign as written.",
+     "Her words and the page's words differ in two places."
+    ],
+    [
+     "Officer Garner's paperwork lists the Escape as a 2021.",
+     "Harbor Point's Declaration Page lists a 2020.",
+     "Someone edits the CMS to read 2021."
+    ]
+   ]
+  }
+ },
+ "d2m1-first": {
+  "image": "strategy-session",
+  "hook": "**The first line is the decision**; the facts come after it.",
+  "points": [
+   "Open with **the decision and its deadline**",
+   "Then why, then **the facts with their sources**",
+   "Give **every option** and what follows from each",
+   "**One note, one decision**, logged the same day"
+  ],
+  "upl": "You frame the decision; **Atty. Thorne makes it**",
+  "dos": [
+   "Put the decision in **the subject line** too",
+   "Give **each option** and its next step",
+   "Log the note and **his answer** the same day"
+  ],
+  "donts": [
+   "**Telling the story first**, the question last",
+   "A subject line of **“Update”**",
+   "Leaving out **the option you dislike**"
+  ],
+  "theory": {
+   "lead": "The Case Manager is **the central router** of information; a note to the attorney must make his decision quick and clear.",
+   "concepts": [
+    {
+     "term": "The Legal Loop",
+     "text": "Keeping the attorney informed so **decisions are made on time**"
+    },
+    {
+     "term": "Decision First",
+     "text": "The note opens with **the decision needed** and its deadline"
+    },
+    {
+     "term": "Options and Consequences",
+     "text": "Each option with **what follows from it**, so the choice stays his"
+    },
+    {
+     "term": "The Record",
+     "text": "The note and his answer **logged the same day** in the CMS"
+    }
+   ],
+   "pages": [
+    "D1#42",
+    "D2#10"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Atty. Thorne scans forty emails between two hearings.",
+     "Most of them are titled with a client's name alone.",
+     "One of them carries a date and a yes-or-no question."
+    ],
+    [
+     "Summit's LOP request could be approved or declined.",
+     "Each answer leads to a different task the same afternoon.",
+     "The note names what happens after a yes, and after a no."
+    ],
+    [
+     "He replied by text from the courthouse steps.",
+     "A week later the same question reaches him again.",
+     "The CMS shows the question but not his reply."
+    ]
+   ],
+   "donts": [
+    [
+     "The note begins with how Summit's call came in.",
+     "Four paragraphs describe the PIP payments in date order.",
+     "The request for approval appears in the last sentence."
+    ],
+    [
+     "His inbox shows fifteen messages with the same title.",
+     "None of them says what he is being asked.",
+     "The one with a deadline looks like all the others."
+    ],
+    [
+     "The note offers one path and its benefits.",
+     "The other path appears nowhere in the message.",
+     "He approves it without knowing a choice existed."
+    ]
+   ]
+  }
+ },
  "d2m1-a2": {
   "image": "insurance-stack",
   "situation": "File date 03/11/2026. A colleague's Coverage Matrix **totals $45,000**. The file holds Harbor Point's 03/02/2026 confirmation, Cardinal State's 03/09/2026 letter and **no Keystone Declaration Page** yet.",

@@ -536,5 +536,28 @@
     "job": {
       "say": "Three moments on the job. When a PIP check clears, you post it in the PIP Log and record what's left, what's still coming and the wage claim, so you can see the exhaustion date before it arrives. When a bill could go to PIP or to an LOP, you lay out both routes with the figures in an email to Atty. Thorne, and you log his decision; you never re-route a claim another payer has already paid. And on a file in an EMC state, when the first treating records arrive, you check the rule and look for the finding. If it's missing, Atty. Thorne hears about it that day."
     }
+  },
+  "d2m1-liab": {
+    "why": {
+      "say": "Here's the thing about coverage: it only tells you there's money. Whether anyone has to pay it is a different question, and that's liability. John Doe's file has three coverage layers, but none of them pays a cent unless Robert Smith is legally responsible. And the evidence that proves it is freshest right now. Ruth Calloway's memory fades, Margaret Doe's doorbell camera records over itself, and the Escape's data recorder goes wherever the car goes. So we investigate liability at claim set-up, right beside coverage, not at the demand.",
+      "ask": "Which piece of John Doe's liability evidence would you lose first if nobody did anything this week?"
+    },
+    "rules": {
+      "say": "Start with the Police Report, RPD-26-018842, and read every field, not just the citation. Officer Garner cited Smith for failure to stop, and he named a witness, Ruth Calloway, who signed a statement on scene. The report also lists the Escape as a 2021, while Harbor Point's Declaration Page says 2020, so you record both and correct our record from the policy. Then preserve: the doorbell copy was secured on 02/19/2026 with its hash logged, and the data recorder needs a preservation request Atty. Thorne signs. And remember, Keystone accepting PD liability on Margaret's Civic doesn't bind its BI adjuster on John's claim.",
+      "ask": "The defense says John Doe wasn't wearing his belt. What on the file already answers that?"
+    },
+    "job": {
+      "say": "Three moments on the job. When claim set-up opens, you request the Police Report and read it field by field, logging the citation and the witness in the CMS. When you learn that video or vehicle data exists, you draft the preservation requests for Atty. Thorne's signature and log the chain of custody once a copy is secured. And whenever a carrier states its liability position, you record it in the Insurance tab with its date and its source, one carrier at a time."
+    }
+  },
+  "d2m1-first": {
+    "why": {
+      "say": "Picture Atty. Thorne between two hearings with forty emails open. The ones that start with a story make him read to the end to find out what he's being asked, and the question found last gets answered last. So we flip it. Every note, email and brief to him opens with the decision or the action needed, and its deadline. Then why, then the facts, then what happens after each answer. It sounds small, but it's the difference between a yes by lunchtime and a deadline that slips past while the note waits.",
+      "ask": "Think of the last long email you received. How far did you read before you knew what was being asked?"
+    },
+    "rules": {
+      "say": "The first line is the decision and its deadline, and the subject line carries it too. Something like: decision needed by 03/12/2026, approve declining Summit Imaging's LOP request, because the MRI goes to Harbor Point PIP, which applies first and still has $3,675.00 left. Then the facts with their sources, then the options: if yes, you send the decline and route the bill today; if no, you draft the LOP for his signature. One decision per note. And once he answers, you log the note and his answer in the CMS that same day and carry it out.",
+      "ask": "Your note holds two decisions with different deadlines. How do you send it so neither one is missed?"
+    }
   }
 }

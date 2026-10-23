@@ -604,6 +604,29 @@ window.CM_CF_SCRIPTS = {
    "say": "Here's the rhythm on the job. A written coverage confirmation arrives, and you enter the limit, form and terms on the Coverage Matrix with source and date, marking it confirmed in writing only with the document attached. On 03/03/2026, Teresa Okafor is assigned at Cardinal State, so you replace “not yet assigned” with her name and direct contact in the Insurance tab and Parties, and re-address correspondence. When a follow-up date arrives and the item's still open, you follow up, log the result and set the next date, so no open item carries a past date. And when you spot a regulatory or policy deadline, you escalate it so Atty. Thorne confirms the rule, then docket it with its source."
   }
  },
+ "d2m1-liab": {
+  "why": {
+   "say": "Here's the thing about coverage: it only tells you there's money. Whether anyone has to pay it is a different question, and that's liability. John Doe's file has three coverage layers, but none of them pays a cent unless Robert Smith is legally responsible. And the evidence that proves it is freshest right now. Ruth Calloway's memory fades, Margaret Doe's doorbell camera records over itself, and the Escape's data recorder goes wherever the car goes. So we investigate liability at claim set-up, right beside coverage, not at the demand.",
+   "ask": "Which piece of John Doe's liability evidence would you lose first if nobody did anything this week?"
+  },
+  "rules": {
+   "say": "Start with the Police Report, RPD-26-018842, and read every field, not just the citation. Officer Garner cited Smith for failure to stop, and he named a witness, Ruth Calloway, who signed a statement on scene. The report also lists the Escape as a 2021, while Harbor Point's Declaration Page says 2020, so you record both and correct our record from the policy. Then preserve: the doorbell copy was secured on 02/19/2026 with its hash logged, and the data recorder needs a preservation request Atty. Thorne signs. And remember, Keystone accepting PD liability on Margaret's Civic doesn't bind its BI adjuster on John's claim.",
+   "ask": "The defense says John Doe wasn't wearing his belt. What on the file already answers that?"
+  },
+  "job": {
+   "say": "Three moments on the job. When claim set-up opens, you request the Police Report and read it field by field, logging the citation and the witness in the CMS. When you learn that video or vehicle data exists, you draft the preservation requests for Atty. Thorne's signature and log the chain of custody once a copy is secured. And whenever a carrier states its liability position, you record it in the Insurance tab with its date and its source, one carrier at a time."
+  }
+ },
+ "d2m1-first": {
+  "why": {
+   "say": "Picture Atty. Thorne between two hearings with forty emails open. The ones that start with a story make him read to the end to find out what he's being asked, and the question found last gets answered last. So we flip it. Every note, email and brief to him opens with the decision or the action needed, and its deadline. Then why, then the facts, then what happens after each answer. It sounds small, but it's the difference between a yes by lunchtime and a deadline that slips past while the note waits.",
+   "ask": "Think of the last long email you received. How far did you read before you knew what was being asked?"
+  },
+  "rules": {
+   "say": "The first line is the decision and its deadline, and the subject line carries it too. Something like: decision needed by 03/12/2026, approve declining Summit Imaging's LOP request, because the MRI goes to Harbor Point PIP, which applies first and still has $3,675.00 left. Then the facts with their sources, then the options: if yes, you send the decline and route the bill today; if no, you draft the LOP for his signature. One decision per note. And once he answers, you log the note and his answer in the CMS that same day and carry it out.",
+   "ask": "Your note holds two decisions with different deadlines. How do you send it so neither one is missed?"
+  }
+ },
  "d2m1-a2": {
   "case": {
    "say": "It's 03/11/2026. A colleague has been keeping John Doe's Coverage Matrix, and the CMS has flagged it. The Keystone BI follow-up for the Declaration Page was due 03/05/2026, and nothing's logged. The matrix total reads $45,000, while the Case Plan target is $40,000. And since the matrix was last edited, new documents arrived: Harbor Point's letter of 03/02/2026, Cardinal State's assignment on 03/03/2026, and its Coverage Letter on 03/09/2026. Keystone's written request with authorizations was sent, but no Declaration Page yet. And this morning, Summit Imaging asked for an LOP, which was declined because PIP applies first. You've got the staged matrix and the file documents. I'm not telling you how many errors there are.",
@@ -751,10 +774,6 @@ window.CM_CF_SCRIPTS = {
   "why": {
    "say": "Picture John Doe's week once the rental's gone. He still has physical therapy three times a week. Somebody drives him, or he pays for a ride. There's a prescription, maybe a brace. None of that shows up on a provider's bill, but every dollar of it is a cost of the crash. And here's the catch: it's recoverable only if somebody wrote it down when it happened. That somebody is you. You keep the log; what the demand claims, and at what rate, is Atty. Thorne's call under the governing state's rules.",
    "ask": "What costs do you think John Doe is paying out of his own pocket right now?"
-  },
-  "theory": {
-   "say": "Four ideas. Out-of-pocket costs: mileage, rides, parking, prescriptions, co-pays, equipment, and any rental the owner paid, each with its receipt. The trip log: the date, the provider and the round-trip miles for every visit, kept from the first appointment, never rebuilt from memory. The mileage rate is whatever the governing state's rules allow, and Atty. Thorne confirms it; for reference, when this course was written the IRS rates were twenty and a half cents a mile medical and seventy-two and a half business. Rental reimbursement: days past the cutoff or a rate above the cap are the owner's cost, routed with the Property Damage claim. And into the demand: every cost goes in the Specials ledger the day its receipt arrives.",
-   "ask": "Why does a trip log kept as treatment happens beat a list rebuilt at the demand?"
   },
   "rules": {
    "say": "Here are the rules. Out-of-pocket costs are Specials, and each one needs its receipt or its log. Start the trip log at the first visit: date, provider, round-trip miles. The rate comes from the governing state's rules, confirmed by Atty. Thorne. A rental the carrier didn't pay is the owner's out-of-pocket cost; keep the receipt and route it with the Property Damage claim. When the rental ends, transport becomes a barrier to care, so plan the rides before a visit is missed. Check every payer first, so nothing is claimed twice. Enter each cost the day its receipt arrives, then total the log and route it to Atty. Thorne before the demand. And never promise the client he'll be repaid.",
