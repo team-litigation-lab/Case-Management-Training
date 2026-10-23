@@ -2355,7 +2355,13 @@ em.warn{font-style:normal;color:var(--danger);}
 .sm-here{font-size:11px;font-weight:800;color:#DB8437;white-space:nowrap;}
 /* the dashboard hero's 🗺 Roadmap button (top right) and its pop-up */
 .dash-hero{position:relative;}
-.dash-roadmap-btn{position:absolute;top:0;right:0;z-index:2;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff;border-radius:999px;padding:6px 14px;font:inherit;font-size:12.5px;font-weight:800;cursor:pointer;}
+/* top right of the hero: ▶ Continue where you left off (the day and slide named), then 🗺 Roadmap */
+.dash-hero-btns{position:absolute;top:0;right:0;z-index:2;display:flex;gap:8px;align-items:center;max-width:58%;}
+.dash-resume-btn{display:flex;align-items:baseline;gap:8px;min-width:0;max-width:100%;border:0;border-radius:999px;background:#DB8437;color:#fff;padding:7px 16px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(219,132,55,.45);white-space:nowrap;}
+.dash-resume-btn span{font-size:12px;font-weight:600;opacity:.92;overflow:hidden;text-overflow:ellipsis;min-width:0;}
+.dash-resume-btn span::before{content:"· ";}
+.dash-resume-btn:hover{background:#B5651F;}
+.dash-roadmap-btn{flex:0 0 auto;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff;border-radius:999px;padding:6px 14px;font:inherit;font-size:12.5px;font-weight:800;cursor:pointer;}
 .dash-roadmap-btn:hover{background:#E8833A;border-color:#E8833A;}
 .rm-modal{position:fixed;inset:0;z-index:1000;background:rgba(15,20,40,.55);display:flex;align-items:center;justify-content:center;padding:16px;}
 .rm-box{position:relative;background:#fff;border-radius:16px;padding:22px 24px;max-width:1100px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 20px 50px rgba(0,0,0,.3);}
@@ -5349,7 +5355,7 @@ function renderDashboard(){
   <div class="dash-top">
       ${renderSurpriseTaskCard()}
       <div class="dash-hero">
-        <button type="button" class="dash-roadmap-btn" onclick="openRoadmap()" title="See all ${DAYS.length} days at a glance">🗺 Roadmap</button>
+        <div class="dash-hero-btns">${resumeLabel() ? `<button type="button" class="dash-resume-btn" onclick="resumeWhereLeftOff()" title="Back to ${esc(resumeLabel())}">▶ Continue where you left off<span>${esc(String(resumeLabel()).replace(/^Case Flow /, ""))}</span></button>` : ""}<button type="button" class="dash-roadmap-btn" onclick="openRoadmap()" title="See all ${DAYS.length} days at a glance">🗺 Roadmap</button></div>
         <div class="dash-hero-text">
           <p class="eyebrow">LEGAL CASE MANAGEMENT ACCELERATOR</p>
           <h1><span class="hl"><svg class="hero-spark hero-spark-lead" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 L24.5 15.5 L38 20 L24.5 24.5 L20 38 L15.5 24.5 L2 20 L15.5 15.5 Z" fill="#F0C08A"/><path d="M33 3 L34.6 7.4 L39 9 L34.6 10.6 L33 15 L31.4 10.6 L27 9 L31.4 7.4 Z" fill="#fff"/><circle cx="6" cy="33" r="2.4" fill="#B5651F"/></svg>Case Management Professional Development Workshop<svg class="hero-spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 L24.5 15.5 L38 20 L24.5 24.5 L20 38 L15.5 24.5 L2 20 L15.5 15.5 Z" fill="#F0C08A"/><path d="M33 3 L34.6 7.4 L39 9 L34.6 10.6 L33 15 L31.4 10.6 L27 9 L31.4 7.4 Z" fill="#fff"/><circle cx="6" cy="33" r="2.4" fill="#B5651F"/></svg></span></h1>
@@ -5383,7 +5389,6 @@ function renderDashboard(){
         ${DAYS.map(d=>moduleCard(d)).join("")}
       </div>
           <div class="hero-actions bottom-actions">${[
-            resumeLabel() ? `<button class="btn btn-primary resume-btn" onclick="resumeWhereLeftOff()">▶ Resume where you left off <span>${esc(resumeLabel())}</span></button>` : "",
             (()=>{ if(!state.traineeId) return ""; const c = certData();
               return c.eligible
                 ? `<button class="btn cert-hero-btn" onclick="downloadCertificatePdf(null)">🎓 Download my Certificate</button><button class="btn btn-ghost cert-hero-view" onclick="openCertificate()">View</button>`
