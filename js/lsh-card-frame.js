@@ -48,6 +48,11 @@ main .card:not(.card .card):not(.stat):not(.module-card):not(.topics-modal):not(
 .dash-main .module-card.mc-clean .mc-grid > button:not(.module-start-btn){grid-column:span 2;padding:9px 6px;font-size:12.5px;background:rgba(255,255,255,.34);color:#4A5070;font-weight:600;border-top:1px solid ${line} !important;}
 .dash-main .module-card.mc-clean .mc-grid.mc-n2 > button:not(.module-start-btn){grid-column:span 1;}
 .dash-main .module-card.mc-clean .mc-grid.mc-n2 > button:not(.module-start-btn):not(:last-child){border-right:1px solid ${line} !important;}
+/* three small buttons (☰ Topics, 👁 Review Score, 🔁 Retake): Topics keeps its row, the other two share the one under it */
+.dash-main .module-card.mc-clean .mc-grid.mc-n3 > button:not(.module-start-btn):nth-last-child(-n+2){grid-column:span 1;}
+.dash-main .module-card.mc-clean .mc-grid.mc-n3 > button:not(.module-start-btn):nth-last-child(2){border-right:1px solid ${line} !important;}
+/* a completed day: no big Review row in the middle; ☰ Topics, 👁 Review Score and 🔁 Retake stay */
+.dash-main .module-card.mc-done .mc-grid > .module-start-btn{display:none;}
 .dash-main .module-card.mc-clean .mc-grid > .module-start-btn:not(:disabled):hover, .dash-main .module-card.mc-clean:hover .mc-grid > .module-start-btn:not(:disabled){background:#353B57;color:#fff;}
 .dash-main .module-card.mc-clean .mc-grid > button:not(.module-start-btn):not(:disabled):hover{background:#F3F4F8;color:var(--navy);}
 .dash-main .module-card.mc-clean .mc-grid > button:disabled{background:rgba(247,248,251,.30);color:#9AA0B4;cursor:not-allowed;}
