@@ -9057,6 +9057,108 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
+ "d4m3-tx": {
+  "image": "treatment-plan",
+  "hook": "**The treatment is the claim**; the record is the proof.",
+  "points": [
+   "The demand waits for **MMI**: the Specials final, the prognosis known",
+   "**Objective findings** carry the weight; describe nothing, quote the MRI",
+   "Every gap **answered on file** before an adjuster cites it",
+   "Future care goes in **the narrative**, never the Specials"
+  ],
+  "upl": "You build and source the record; **value and causation are argued by others**",
+  "job": [
+   [
+    "MMI is declared",
+    "Close chronology, audit the Specials",
+    "CMS → Medical · Net Sheet",
+    "Every bill tied to a record"
+   ],
+   [
+    "A gap is on record",
+    "Pair it with its reason",
+    "Gap Explanation Record",
+    "No break left unanswered"
+   ],
+   [
+    "Demand or binder assembled",
+    "Map each claim to its record",
+    "Packet Builder",
+    "Nothing without its source"
+   ]
+  ],
+  "dos": [
+   "Watch treatment **with the demand in mind**",
+   "Close the chronology **at MMI**",
+   "Keep future care **in the narrative**"
+  ],
+  "donts": [
+   "Describing pain **instead of the finding**",
+   "Putting future care **in the Specials**",
+   "Finding the gaps **in the offer letter**"
+  ],
+  "theory": {
+   "lead": "A claim is proved **visit by visit**: the treatment record decides the Specials, causation and every question an adjuster asks.",
+   "concepts": [
+    {
+     "term": "MMI as the Trigger",
+     "text": "Value needs an end point: at MMI the bills stop growing and **the prognosis is known**"
+    },
+    {
+     "term": "Objective Findings",
+     "text": "Imaging and measured findings carry weight that **complaints alone** do not"
+    },
+    {
+     "term": "Continuity of Care",
+     "text": "Steady care reads as a real injury; **each gap needs its answer**"
+    },
+    {
+     "term": "Special vs. General Damages",
+     "text": "Specials are billed hard costs; **pain, prognosis and future care** are the narrative"
+    }
+   ],
+   "pages": [
+    "D1#40",
+    "D3#16"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Each visit note lands in the file as it arrives.",
+     "Months later a carrier asks what one visit proved.",
+     "The note was read on the day it arrived."
+    ],
+    [
+     "The bills are still growing in early June.",
+     "Lakeside's 06/12/2026 note says improvement has leveled off.",
+     "The chronology is closed and totalled that week."
+    ],
+    [
+     "Dr. Reyes writes that injections may be repeated.",
+     "Nobody has paid for those injections yet.",
+     "The note is quoted under prognosis, with its date."
+    ]
+   ],
+   "donts": [
+    [
+     "The draft says John suffered terrible, constant pain.",
+     "The MRI line about the adjacent levels is missing.",
+     "An adjuster calls the injury minor soft tissue."
+    ],
+    [
+     "The damages total suddenly reads $23,201.40.",
+     "Two injections still in the future were added.",
+     "The audit can no longer tie to a single bill."
+    ],
+    [
+     "On 08/05/2026 Keystone cites the fourteen days at $3,500.",
+     "Nothing on file explains those days yet.",
+     "The answer is drafted only after Keystone writes."
+    ]
+   ]
+  }
+ },
  "d4m3-a2": {
   "image": "checklist-qa",
   "situation": "It is 05/17/2027. **Exchange 06/02/2027**, hearing 06/22/2027. The folder holds a pre-filing draft complaint, grayscale stills, the impasse memo and **a Lien Sheet** listing Harbor Point PIP and Summit Imaging.",

@@ -53,12 +53,13 @@ The day is one module, on John Doe's one file: Lesson → Skill Building → Les
 19. *Lesson* — The Mediation Binder & Exhibit Indexing
 20. *Lesson* — Arbitration Exhibits & Evidentiary Rules
 21. *Lesson* — The Prior Medical Shield: Answering the Pre-Existing-Condition Defense from the Record
-22. *Skill Activity* — Assembling the 6-Section Mediation Binder
-23. *Skill Activity* — Assembling the 6-Tab Arbitration Binder
-24. *Knowledge Check* — Lien Reduction Verification
-25. *Knowledge Check* — Final Accounting Check
-26. *Knowledge Check* — ADR & Calendar Compliance Check
-27. *Knowledge Check* — Binder Assembly Verification
+22. *Lesson* — From Treatment to Demand: How the Treatment Record Becomes the Claim (condensed)
+23. *Skill Activity* — Assembling the 6-Section Mediation Binder
+24. *Skill Activity* — Assembling the 6-Tab Arbitration Binder
+25. *Knowledge Check* — Lien Reduction Verification
+26. *Knowledge Check* — Final Accounting Check
+27. *Knowledge Check* — ADR & Calendar Compliance Check
+28. *Knowledge Check* — Binder Assembly Verification
 
 **End-of-day discussion (trainer):** Keystone's draft release arrives on 08/14/2026 releasing “all other persons, firms, corporations and insurers.” Harbor Point hasn't answered the consent request, and Atty. Thorne is out of the office until Monday. What do you do, and what must not happen before he is back?
 
@@ -66,7 +67,7 @@ The day is one module, on John Doe's one file: Lesson → Skill Building → Les
 
 ## Module 4 — Reductions, Lien Negotiation & ADR
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 4.1.1 Statutory Liens, Health Subrogation & Provider Balances
 
@@ -1820,7 +1821,89 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.22 Assembling the 6-Section Mediation Binder
+### 4.1.22 From Treatment to Demand: How the Treatment Record Becomes the Claim
+
+> **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR (condensed) · scored with Binder Assembly Verification (`d4m3`)  
+> **Topic:** Every stop on the treatment map, and what it becomes in the demand and the binders  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#26` The Treatment Phase — Core Objectives · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#44` Handling Treatment Gaps During the Treatment Phase · `D3#14` Documents that Matter: Special Damages Documents (Economic Hard Costs) · `D3#15` Documents that Matter: General Damages Documents (Non-Economic Value) · `D4#24` Arbitration Binders: Section 4 — Proving Bodily Accident Medical Damages · Newly authored: from treatment to demand — how the treatment record becomes the claim
+
+#### 1 · Visual Layout Description
+
+A two-lane board. The top lane is the treatment timeline in navy: EMS 02/06/2026 (neck stiffness) · a hollow orange 14-DAY GAP · urgent care 02/20/2026 · chiropractic and PT from 02/24/2026 · MRI 03/13/2026 (C5-C6 herniation) · a hollow orange 19-DAY DISRUPTION 04/02–04/21 · injection 05/15/2026 · MMI 06/12/2026. The bottom lane is the demand in orange, with arrows dropping from each stop to what it becomes: SPECIALS $14,817.40 + WAGES $1,584.00 = $16,401.40 · CAUSATION (Dr. Reyes, 06/19/2026) · OBJECTIVE FINDING (the MRI) · THE GAP ANSWERED (Gap Explanation Record) · THE DISRUPTION ANSWERED (A-C-T record) · PROGNOSIS (residual paresthesia, future care in the narrative). A thin rule at the bottom: “The treatment is the claim. The record is the proof.”
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Everything a carrier pays for an injury is argued from the treatment record. How John Doe was treated, how steadily, and what the doctors found decide the Specials, the causation story and the questions an adjuster or an arbitrator asks. A Case Manager who watched the treatment phase with the demand in mind arrives at the demand with every stop documented and every gap already answered; one who did not finds the gaps in the adjuster's offer letter.
+
+1. MMI is the trigger. The demand waits for Maximum Medical Improvement because only then are the Specials final and the prognosis known. John Doe reached MMI at Lakeside Orthopedics on 06/12/2026; the audit, the Causation Letter (06/19/2026) and the 07/20/2026 BI demand followed.
+2. Every stop on the treatment map becomes a line in the demand: a dated record, a bill and what it proves. Build the chronology from the records, in date order, with each visit, its provider, its finding and its charge.
+3. Objective findings carry the weight. John Doe's 03/13/2026 MRI shows a C5-C6 herniation with “no significant degenerative change at the adjacent levels”: that line, not a description of pain, is what answers “minor soft tissue” and “degenerative”.
+4. Continuity is credibility. A gap or a disruption is the first thing an adjuster cites: Keystone's $3,500 offer (08/05/2026) and Harbor Point's $8,000 offer (09/14/2026) both leaned on the gap. Each break needs its answer on file before the demand: the Gap Explanation Record for the 14 days, the A-C-T record for 04/02–04/21/2026.
+5. Causation is the doctor's, in writing. The demand quotes Dr. Reyes's 06/19/2026 Causation Letter and the EMS report's neck complaint on the date of loss; the Case Manager never writes that the collision caused the injury.
+6. The Specials are what was billed, audited: $14,817.40 medical after removing Riverton Spine & Rehab's duplicate, plus $1,584.00 in wages, $16,401.40. What PIP or the Health Plan paid stays in the Specials; what they paid decides the liens and the net.
+7. Future care is narrative, not Specials. Dr. Reyes's note of 06/12/2026 (possibly one or two repeat injections within 24 months, $3,400 each) goes into the prognosis section with its source, never into the Specials total.
+8. The same record is the binders' damages tab. In mediation and arbitration the treatment chronology, the Specials ledger, the MRI and the Causation Letter are indexed together, so the damages story reads in one place.
+
+> ⚠️ **UPL boundary.** You build the chronology, the Specials and the record behind each gap from the documents. How severe the injury is, what it is worth, and how causation and future care are argued are Atty. Thorne's calls; the medical opinions are the doctors'.
+
+#### 2 · Slide Body — Show Them
+
+*John Doe's treatment, stop by stop, and what each became in the demand*
+
+| Treatment | What the record says | In the demand |
+|---|---|---|
+| EMS, 02/06/2026 | “Complains of neck stiffness”; declined transport | The injury on the date of loss |
+| No care, 02/06–02/20/2026 | Transport, cost worry, symptoms escalating | The Gap Explanation Record and the Causation Letter |
+| MRI, 03/13/2026 | C5-C6 herniation; no significant adjacent degeneration | The objective finding |
+| Disrupted care, 04/02–04/21/2026 | Ride lost; A-C-T call 04/08; care resumed 04/21 | The A-C-T record: failure to mitigate answered |
+| Injection, 05/15/2026 | Cervical epidural steroid injection | Escalating care, in the Specials at $3,400.00 billed |
+| MMI, 06/12/2026 | Residual intermittent right-arm paresthesia; 1–2 repeat injections possible | The prognosis and future care, in the narrative |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| MMI is declared | Close the chronology and audit the Specials | CMS → Medical · Net Sheet | Every bill tied to a dated record |
+| A gap or missed visit is on the record | Pair it with its documented reason | CMS → Case Notes · Gap Explanation Record | No break left unanswered before the demand |
+| The demand or a binder is assembled | Map each claim to the record that proves it | Packet Builder | No figure or finding without its source |
+
+**Best practices & pitfalls**
+
+- Watch treatment with the demand in mind: every visit is a future exhibit.
+- Close the chronology at MMI, before anyone values the claim.
+- Answer each gap in writing before an adjuster raises it.
+- Keep future care in the narrative, with its source.
+- ⚠️ Pitfall: describing pain instead of quoting the objective finding.
+- ⚠️ Pitfall: putting future care in the Specials total.
+- ⚠️ Pitfall: finding the gaps in the adjuster's offer letter.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Treatment mapped to the demand | Each stop on John Doe's treatment tied to what it becomes in the demand: Specials, causation, objective finding, prognosis |
+| 🤖 AI | **20%** | Gaps answered from the record | The 14-day gap and the 04/02–04/21/2026 disruption each paired with its record before the demand |
+| 🤖 AI | **20%** | Specials and future care kept apart | $16,401.40 Specials as billed and audited; future care in the narrative with its source |
+| 🧑‍🏫 Trainer | **25%** | Grasps the consequence | Explains how the way treatment was watched decides what the demand can prove |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | Severity, value, causation and future care argued by Atty. Thorne and the doctors, never by the Case Manager |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Draw the two lanes on the board: treatment on top, the demand underneath. Ask the room to draw the arrow from each stop to what it becomes.
+- Read Keystone's 08/05/2026 offer reason aloud (the gap) and ask what had to be on file months earlier to answer it.
+- Spend a minute on future care: ask whether the $3,400 to $6,800 belongs in the Specials, and let the room find that it is narrative.
+- Close on the boundary: you build the record; Atty. Thorne argues what it is worth.
+
+---
+
+### 4.1.23 Assembling the 6-Section Mediation Binder
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Skill Activity 1 — build it, audit it, route it before 03/11/2027  
@@ -1900,7 +1983,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.23 Assembling the 6-Tab Arbitration Binder
+### 4.1.24 Assembling the 6-Tab Arbitration Binder
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Skill Activity 2 — sort, QC and defuse two landmines before 06/02/2027  
@@ -1977,7 +2060,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.24 Lien Reduction Verification
+### 4.1.25 Lien Reduction Verification
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2062,7 +2145,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 4.1.25 Final Accounting Check
+### 4.1.26 Final Accounting Check
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2168,7 +2251,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 4.1.26 ADR & Calendar Compliance Check
+### 4.1.27 ADR & Calendar Compliance Check
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2284,7 +2367,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 4.1.27 Binder Assembly Verification
+### 4.1.28 Binder Assembly Verification
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2327,7 +2410,7 @@ The standard knowledge-check split: the question panel on the warm cream card wi
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (7 questions):
+**Auto-graded share of the day's Knowledge Check** (8 questions):
 
 1. The 11/12/2026 answer pleads that John Doe was unbelted. Which exhibits in Section 4 of the Mediation Binder answer it?  
    **✓ The event data recorder (belt buckled) and the EMS Run Report** · The MRI read and Dr. Reyes's Causation Letter · The Police Report's citation and Ruth Calloway's statement · The Northgate Attendance Record and the 02/07/2026 pharmacy receipt  
@@ -2350,6 +2433,9 @@ The standard knowledge-check split: the question panel on the warm cream card wi
 7. On a typical file, the consistency audit finds one provider's intake form that contradicts the rest of the client's prior history. What does the Case Manager do?  
    Correct the form so it matches the other records · Leave the form out of the Arbitration Binder · Ask the client to sign a corrected form · **✓ Flag it to Atty. Thorne with the conflicting records attached, and change nothing**  
    *A mismatch is a credibility question only counsel can decide how to handle. Altering, dropping or re-signing a record could look like concealment; the Case Manager flags it, dated, with both records attached.*
+8. Dr. Reyes's 06/12/2026 note says John Doe may need one or two repeat injections within 24 months at $3,400 each. Where does that go in the demand?  
+   Into the Specials, as $6,800.00 · **✓ Into the prognosis narrative, with its source, and not into the Specials** · Nowhere, since it has not happened · Into the Specials at the average, $5,100.00  
+   *The Specials are what was billed and audited, $16,401.40. Future care is part of the damages story, quoted from Dr. Reyes's note in the narrative; how it is argued is Atty. Thorne's call.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 

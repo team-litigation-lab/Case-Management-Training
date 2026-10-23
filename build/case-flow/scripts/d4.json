@@ -558,5 +558,23 @@
       "say": "Check your entries, and {name}, you're reading yours aloud. Hearing 06/22/2027 at 9:00 a.m., exchange 06/02/2027, and the brief on Friday 06/11/2027, because 10 days back is a Saturday and a backward count moves earlier, never to Monday 06/14. Counting back to a weekend and rolling forward is the calendar version of showing up a day after the party. Binder QC opens Monday 05/17/2027, 16 days before the exchange, with the draft index due Friday 05/14. Records requests out by Monday 05/03/2027, which is 05/17 less the 14-day custodian window, with a chase tickler on each. John confirmed by 04/21, the prep session proposed for 06/15 and the tech check 06/21. The $900.00 is a case cost. The SOL hard date 02/04/2028 and the 11/05/2027 cutoff are untouched, and the court dates are kept, marked and asked about. And here's the mystery: there's no award date anywhere. Every other date in this arbitration is on the calendar. So why not that one?",
       "ask": "{name}, why is there no entry for the award, when every other date in this arbitration is on the calendar?"
     }
+  },
+  "d4m3-tx": {
+    "why": {
+      "say": "{name}, quick question. When does a carrier start valuing John Doe's injury? At the demand? Wrong. It starts the day he walks into urgent care, because everything the carrier will ever pay gets argued from the treatment record. How he was treated, how steadily, and what the doctors found. So the Case Manager who watched the treatment phase with the demand in mind shows up with every visit documented and every gap already answered. The one who didn't finds out about the gaps from the adjuster's offer letter. Ask me how I know.",
+      "ask": "{name}, which stop on John Doe's treatment do you think the adjuster reads first, and why?"
+    },
+    "theory": {
+      "say": "Four ideas. First, MMI is the trigger: value needs an end point, and at MMI the bills stop growing and the prognosis is known. Second, objective findings carry the weight. An MRI line beats a paragraph about pain every time. Third, continuity of care: steady treatment reads as a real injury, and every gap needs its answer on file. Fourth, the split between special damages, the billed hard costs, and everything else: pain, prognosis and future care, which live in the narrative.",
+      "ask": "{name}, which of those four would you say John Doe's file was weakest on before the pre-demand audit?"
+    },
+    "rules": {
+      "say": "Here's how it lands on John's file. MMI came on 06/12/2026, then Dr. Reyes's Causation Letter on 06/19, then the BI demand on 07/20. The MRI from 03/13 shows the C5-C6 herniation with no significant degeneration next to it, and that's the line we quote. The fourteen-day gap and the April disruption each had their answer on file before Keystone's offer cited them. The Specials are $16,401.40, billed and audited. And the repeat injections Dr. Reyes mentioned? Narrative, with the note quoted, never in the Specials.",
+      "ask": "{name}, the adjuster says it's minor soft tissue. What one line on the file answers that?"
+    },
+    "job": {
+      "say": "Three moments on the job. When MMI is declared, you close the chronology and audit the Specials in the CMS and the Net Sheet, every bill tied to a dated record. When a gap or a missed visit shows up, you pair it with its documented reason the same week, in Case Notes and the Gap Explanation Record. And when the demand or a binder is assembled, you map each claim to the record that proves it in the Packet Builder, so no figure or finding goes out without its source.",
+      "ask": "{name}, what would you check first if a binder's damages tab didn't tie to the Specials?"
+    }
   }
 }

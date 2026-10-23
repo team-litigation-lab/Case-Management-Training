@@ -739,5 +739,46 @@
     "donts": [
       "Deleting a court date **without Atty. Thorne's answer**"
     ]
+  },
+  "d4m3-tx": {
+    "image": "treatment-plan",
+    "hook": "**The treatment is the claim**; the record is the proof.",
+    "points": [
+      "The demand waits for **MMI**: the Specials final, the prognosis known",
+      "**Objective findings** carry the weight; describe nothing, quote the MRI",
+      "Every gap **answered on file** before an adjuster cites it",
+      "Future care goes in **the narrative**, never the Specials"
+    ],
+    "upl": "You build and source the record; **value and causation are argued by others**",
+    "job": [
+      [
+        "MMI is declared",
+        "Close chronology, audit the Specials",
+        "CMS → Medical · Net Sheet",
+        "Every bill tied to a record"
+      ],
+      [
+        "A gap is on record",
+        "Pair it with its reason",
+        "Gap Explanation Record",
+        "No break left unanswered"
+      ],
+      [
+        "Demand or binder assembled",
+        "Map each claim to its record",
+        "Packet Builder",
+        "Nothing without its source"
+      ]
+    ],
+    "dos": [
+      "Watch treatment **with the demand in mind**",
+      "Close the chronology **at MMI**",
+      "Keep future care **in the narrative**"
+    ],
+    "donts": [
+      "Describing pain **instead of the finding**",
+      "Putting future care **in the Specials**",
+      "Finding the gaps **in the offer letter**"
+    ]
   }
 }

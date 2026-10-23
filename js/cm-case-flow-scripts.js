@@ -1980,6 +1980,20 @@ window.CM_CF_SCRIPTS = {
    "ask": "{name}, why does the prior chart request go out the week arbitration is invoked, not once the binder is built?"
   }
  },
+ "d4m3-tx": {
+  "why": {
+   "say": "{name}, quick question. When does a carrier start valuing John Doe's injury? At the demand? Wrong. It starts the day he walks into urgent care, because everything the carrier will ever pay gets argued from the treatment record. How he was treated, how steadily, and what the doctors found. So the Case Manager who watched the treatment phase with the demand in mind shows up with every visit documented and every gap already answered. The one who didn't finds out about the gaps from the adjuster's offer letter. Ask me how I know.",
+   "ask": "{name}, which stop on John Doe's treatment do you think the adjuster reads first, and why?"
+  },
+  "rules": {
+   "say": "Here's how it lands on John's file. MMI came on 06/12/2026, then Dr. Reyes's Causation Letter on 06/19, then the BI demand on 07/20. The MRI from 03/13 shows the C5-C6 herniation with no significant degeneration next to it, and that's the line we quote. The fourteen-day gap and the April disruption each had their answer on file before Keystone's offer cited them. The Specials are $16,401.40, billed and audited. And the repeat injections Dr. Reyes mentioned? Narrative, with the note quoted, never in the Specials.",
+   "ask": "{name}, the adjuster says it's minor soft tissue. What one line on the file answers that?"
+  },
+  "job": {
+   "say": "Three moments on the job. When MMI is declared, you close the chronology and audit the Specials in the CMS and the Net Sheet, every bill tied to a dated record. When a gap or a missed visit shows up, you pair it with its documented reason the same week, in Case Notes and the Gap Explanation Record. And when the demand or a binder is assembled, you map each claim to the record that proves it in the Packet Builder, so no figure or finding goes out without its source.",
+   "ask": "{name}, what would you check first if a binder's damages tab didn't tie to the Specials?"
+  }
+ },
  "d4m3-a2": {
   "case": {
    "say": "Countdown game. I'll say a number of days, you shout what you could get done in that time. Sixteen days. {name}, go. Renovate a kitchen? Plan a wedding? Here's what landed on 05/17/2027: exhibit exchange in 16 days, and the Arbitration Binder isn't started. Zero of six tabs. The hard date is 06/02/2027, before Laura Whitcomb, Esq., on HP-26-7741 and CS-26-20355. Robert Smith was dismissed after Keystone tendered its $10,000 at the 03/18/2027 mediation, and the carriers are disputing damages over the gap. The unsorted folder holds a pre-filing draft of the Complaint, grayscale doorbell stills, the 09/08/2026 impasse memo, and a Lien Sheet listing Harbor Point PIP at $5,000.00 and Summit Imaging at $2,395.00. Crescent Pain & Spine's certified records, requested 05/05/2027, haven't come in. I'm putting four red traps on the board, then covering them before anyone sorts. Sixteen days, and the deadline doesn't care that one of them is Memorial Day weekend.",

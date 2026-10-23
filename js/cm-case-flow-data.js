@@ -8071,7 +8071,10 @@ window.CM_CASE_FLOW = {
          a: 1, r: "The Case Manager states dated facts in the records' own words. Whether the injury is new, degenerative or an aggravation is a medical opinion or Atty. Thorne's argument, and the eggshell rule is his to argue under the governing law."},
         {q: "On a typical file, the consistency audit finds one provider's intake form that contradicts the rest of the client's prior history. What does the Case Manager do?",
          opts: ["Correct the form so it matches the other records", "Leave the form out of the Arbitration Binder", "Ask the client to sign a corrected form", "Flag it to Atty. Thorne with the conflicting records attached, and change nothing"],
-         a: 3, r: "A mismatch is a credibility question only counsel can decide how to handle. Altering, dropping or re-signing a record could look like concealment; the Case Manager flags it, dated, with both records attached."}
+         a: 3, r: "A mismatch is a credibility question only counsel can decide how to handle. Altering, dropping or re-signing a record could look like concealment; the Case Manager flags it, dated, with both records attached."},
+        {q: "Dr. Reyes's 06/12/2026 note says John Doe may need one or two repeat injections within 24 months at $3,400 each. Where does that go in the demand?",
+         opts: ["Into the Specials, as $6,800.00", "Into the prognosis narrative, with its source, and not into the Specials", "Nowhere, since it has not happened", "Into the Specials at the average, $5,100.00"],
+         a: 1, r: "The Specials are what was billed and audited, $16,401.40. Future care is part of the damages story, quoted from Dr. Reyes's note in the narrative; how it is argued is Atty. Thorne's call."}
       ],
       blocks: [
 
@@ -8399,6 +8402,75 @@ window.CM_CASE_FLOW = {
            "The eggshell rule (generally, the defendant takes the plaintiff as he finds him; an aggravation is compensable) is Atty. Thorne's to argue, and the governing rule must be confirmed. The Case Manager's work is the record both arguments rest on."
          ]
        },
+
+      {
+         kind: "lesson", id: "d4m3-tx",
+         brief: true,
+         title: "From Treatment to Demand: How the Treatment Record Becomes the Claim",
+         topic: "Every stop on the treatment map, and what it becomes in the demand and the binders",
+         visual: "A two-lane board. The top lane is the treatment timeline in navy: EMS 02/06/2026 (neck stiffness) · a hollow orange 14-DAY GAP · urgent care 02/20/2026 · chiropractic and PT from 02/24/2026 · MRI 03/13/2026 (C5-C6 herniation) · a hollow orange 19-DAY DISRUPTION 04/02–04/21 · injection 05/15/2026 · MMI 06/12/2026. The bottom lane is the demand in orange, with arrows dropping from each stop to what it becomes: SPECIALS $14,817.40 + WAGES $1,584.00 = $16,401.40 · CAUSATION (Dr. Reyes, 06/19/2026) · OBJECTIVE FINDING (the MRI) · THE GAP ANSWERED (Gap Explanation Record) · THE DISRUPTION ANSWERED (A-C-T record) · PROGNOSIS (residual paresthesia, future care in the narrative). A thin rule at the bottom: “The treatment is the claim. The record is the proof.”",
+         tell: {
+           why: "Everything a carrier pays for an injury is argued from the treatment record. How John Doe was treated, how steadily, and what the doctors found decide the Specials, the causation story and the questions an adjuster or an arbitrator asks. A Case Manager who watched the treatment phase with the demand in mind arrives at the demand with every stop documented and every gap already answered; one who did not finds the gaps in the adjuster's offer letter.",
+           rules: [
+             "MMI is the trigger. The demand waits for Maximum Medical Improvement because only then are the Specials final and the prognosis known. John Doe reached MMI at Lakeside Orthopedics on 06/12/2026; the audit, the Causation Letter (06/19/2026) and the 07/20/2026 BI demand followed.",
+             "Every stop on the treatment map becomes a line in the demand: a dated record, a bill and what it proves. Build the chronology from the records, in date order, with each visit, its provider, its finding and its charge.",
+             "Objective findings carry the weight. John Doe's 03/13/2026 MRI shows a C5-C6 herniation with “no significant degenerative change at the adjacent levels”: that line, not a description of pain, is what answers “minor soft tissue” and “degenerative”.",
+             "Continuity is credibility. A gap or a disruption is the first thing an adjuster cites: Keystone's $3,500 offer (08/05/2026) and Harbor Point's $8,000 offer (09/14/2026) both leaned on the gap. Each break needs its answer on file before the demand: the Gap Explanation Record for the 14 days, the A-C-T record for 04/02–04/21/2026.",
+             "Causation is the doctor's, in writing. The demand quotes Dr. Reyes's 06/19/2026 Causation Letter and the EMS report's neck complaint on the date of loss; the Case Manager never writes that the collision caused the injury.",
+             "The Specials are what was billed, audited: $14,817.40 medical after removing Riverton Spine & Rehab's duplicate, plus $1,584.00 in wages, $16,401.40. What PIP or the Health Plan paid stays in the Specials; what they paid decides the liens and the net.",
+             "Future care is narrative, not Specials. Dr. Reyes's note of 06/12/2026 (possibly one or two repeat injections within 24 months, $3,400 each) goes into the prognosis section with its source, never into the Specials total.",
+             "The same record is the binders' damages tab. In mediation and arbitration the treatment chronology, the Specials ledger, the MRI and the Causation Letter are indexed together, so the damages story reads in one place."
+           ],
+           upl: [
+             "You build the chronology, the Specials and the record behind each gap from the documents. How severe the injury is, what it is worth, and how causation and future care are argued are Atty. Thorne's calls; the medical opinions are the doctors'."
+           ]
+         },
+         show: {
+           caption: "John Doe's treatment, stop by stop, and what each became in the demand",
+           type: "table",
+           head: ["Treatment", "What the record says", "In the demand"],
+           rows: [
+             ["EMS, 02/06/2026", "“Complains of neck stiffness”; declined transport", "The injury on the date of loss"],
+             ["No care, 02/06–02/20/2026", "Transport, cost worry, symptoms escalating", "The Gap Explanation Record and the Causation Letter"],
+             ["MRI, 03/13/2026", "C5-C6 herniation; no significant adjacent degeneration", "The objective finding"],
+             ["Disrupted care, 04/02–04/21/2026", "Ride lost; A-C-T call 04/08; care resumed 04/21", "The A-C-T record: failure to mitigate answered"],
+             ["Injection, 05/15/2026", "Cervical epidural steroid injection", "Escalating care, in the Specials at $3,400.00 billed"],
+             ["MMI, 06/12/2026", "Residual intermittent right-arm paresthesia; 1–2 repeat injections possible", "The prognosis and future care, in the narrative"]
+           ]
+         },
+         ops: [
+           ["MMI is declared", "Close the chronology and audit the Specials", "CMS → Medical · Net Sheet", "Every bill tied to a dated record"],
+           ["A gap or missed visit is on the record", "Pair it with its documented reason", "CMS → Case Notes · Gap Explanation Record", "No break left unanswered before the demand"],
+           ["The demand or a binder is assembled", "Map each claim to the record that proves it", "Packet Builder", "No figure or finding without its source"]
+         ],
+         best: [
+           "Watch treatment with the demand in mind: every visit is a future exhibit.",
+           "Close the chronology at MMI, before anyone values the claim.",
+           "Answer each gap in writing before an adjuster raises it.",
+           "Keep future care in the narrative, with its source.",
+           "Pitfall: describing pain instead of quoting the objective finding.",
+           "Pitfall: putting future care in the Specials total.",
+           "Pitfall: finding the gaps in the adjuster's offer letter."
+         ],
+         sources: ["D1#26", "D1#29", "D1#44", "D3#14", "D3#15", "D4#24", "Newly authored: from treatment to demand — how the treatment record becomes the claim"],
+         rubric: {
+           ai: [
+             ["Treatment mapped to the demand", 20, "Each stop on John Doe's treatment tied to what it becomes in the demand: Specials, causation, objective finding, prognosis"],
+             ["Gaps answered from the record", 20, "The 14-day gap and the 04/02–04/21/2026 disruption each paired with its record before the demand"],
+             ["Specials and future care kept apart", 20, "$16,401.40 Specials as billed and audited; future care in the narrative with its source"]
+           ],
+           trainer: [
+             ["Grasps the consequence", 25, "Explains how the way treatment was watched decides what the demand can prove"],
+             ["UPL boundary", 15, "Severity, value, causation and future care argued by Atty. Thorne and the doctors, never by the Case Manager"]
+           ]
+         },
+         notes: [
+           "Draw the two lanes on the board: treatment on top, the demand underneath. Ask the room to draw the arrow from each stop to what it becomes.",
+           "Read Keystone's 08/05/2026 offer reason aloud (the gap) and ask what had to be on file months earlier to answer it.",
+           "Spend a minute on future care: ask whether the $3,400 to $6,800 belongs in the Specials, and let the room find that it is narrative.",
+           "Close on the boundary: you build the record; Atty. Thorne argues what it is worth."
+         ]
+      },
 
       {
         kind: "activity", id: "d4m3-a2",
@@ -10847,6 +10919,13 @@ window.CM_CASE_FLOW = {
       "The closing memo of 10/30/2026 is one page a stranger can read in two minutes: a passenger with a 14-Day Gap and a 19-day disruption, and a $3,500 offer that became a $40,000 three-layer stack. Its discrepancy notes explain every figure that moved (Riverton Spine & Rehab $6,290.00 billed, $6,105.00 after the 05/04/2026 duplicate was audited out, $4,580.00 paid; Peach State $1,860.00 asserted, $1,240.00 paid), it records any exception or “none granted”, and it notes that Margaret Doe's Property Damage claim runs separately and is not closed. The closing letter, drafted by the CM and signed by Atty. Thorne, tells John what was received, what was paid and to whom, and which satisfactions came back. Then every document is tagged by type and its disposition docketed: on this training file the closed file is kept 7 years from closing, and where a stricter rule applies, it controls.",
       "The most common complaint after closing is a bill that arrives once the money is gone. The first question is whether it is a lien we missed or a bill nobody owes. Had a statement for Crescent Pain & Spine's $1,540.00 come in after the closing letter, Peach State's EOB would already answer it: a contractual write-off that an in-network provider cannot balance-bill. Either way, the CM verifies the bill against the ledger, the EOBs and the Payoff Letters, routes it to Atty. Thorne the same day, asks the provider in writing to correct its account on his instruction, and tells John that day what is being done and when he will hear back. The CM never tells him it is “not our problem” and never tells him whether he owes it: that, and anything the closing letter says about his obligations, is Atty. Thorne's. For the room: John Doe calls, angry, holding a bill. What are the first three things you say?"
     ],
+    "d4m3-tx": [
+      "A personal injury claim is, at bottom, a claim about treatment. The collision happened once; the injury is proved over months, one visit at a time, in records written by people who were not thinking about a demand. That is why the Case Manager watches the treatment phase with the demand in mind: by the time the claim is valued, the record is what it is, and everything a carrier will pay is argued from it.",
+      "The demand waits for Maximum Medical Improvement because value needs an end point. Until a doctor says the client has improved as far as treatment will take him, the bills are still growing and the prognosis is unknown. John Doe reached MMI at Lakeside Orthopedics on 06/12/2026, with residual intermittent right-arm paresthesia and the possibility of one or two repeat injections; the pre-demand audit, Dr. Reyes's Causation Letter of 06/19/2026 and the 07/20/2026 time-limited BI demand all followed from that date.",
+      "Carriers read a treatment record for two things: what was found, and how steadily care followed. Objective findings carry weight that complaints do not; John Doe's MRI of 03/13/2026 shows a C5-C6 herniation with no significant degenerative change at the adjacent levels, which is the line that answers both “minor soft tissue” and “degenerative”. Continuity is the second test: Keystone's $3,500 offer of 08/05/2026 and Harbor Point's $8,000 offer of 09/14/2026 both leaned on the 14-day gap, and the 04/02–04/21/2026 disruption invites a failure-to-mitigate argument.",
+      "The answers have to be on file before they are needed. The 14 days are answered by John Doe's own documented reasons in the Gap Explanation Record and by the EMS report's neck complaint on the date of loss; the disruption by the A-C-T record of the 04/08 call, the evening slots and his return on 04/21. The Specials come from the same record, as billed and audited: $14,817.40 in Medical Bills after Riverton Spine & Rehab's duplicate was removed, plus $1,584.00 in wages, $16,401.40. Future care is different: it belongs in the prognosis narrative with its source, never in the Specials total.",
+      "The same chronology carries into the binders. In mediation and arbitration the damages tab holds the treatment summary, the Specials ledger, the MRI and the Causation Letter together, beside the Prior Medical Shield that answers the 2021 records. The Case Manager builds and sources all of it; how severe the injury is, what it is worth and how causation and future care are argued are Atty. Thorne's calls, and the medical opinions belong to the doctors."
+    ],
     "d4m3-prior": [
       "Damages law generally compensates the harm a defendant caused, not every ache a person has ever had. That is why a prior condition invites the **pre-existing defense**: the injury was already there, the imaging shows degeneration, and the current complaint is a continuation of the old one, often with the extra line that no pre-accident imaging proves otherwise. Two ideas answer it. The pre-morbid baseline is the client's condition before the collision, the line that separates what came before from what the collision did. The eggshell rule says, generally, that a defendant takes the plaintiff as he finds him: even a more vulnerable person recovers for the harm caused, and where a prior condition is aggravated, the aggravation is compensable. The governing rule must be confirmed, and both are Atty. Thorne's arguments. Both rest on records.",
       "On John Doe's file the prior is small and documented: three chiropractic visits at Birch Avenue Chiropractic with Dr. Lena Ford, DC, on 05/04, 05/11 and 05/18/2021, for low-back stiffness, resolved, released to full activity, and no prior neck complaint. The injury since 02/06/2026 is a different region: a cervical strain and a C5-C6 right paracentral herniation, with a neck complaint recorded by EMS on the date of loss. Dr. Helen Park read the 03/13/2026 MRI as showing “no significant degenerative change at the adjacent levels”, and Dr. Alana Reyes's Causation Letter of 06/19/2026 states the injury was more likely than not caused by the collision. Yet the defense has used the prior idea throughout: Keystone's “degenerative” reading on 08/05/2026, the causation defense in the 11/12/2026 Answer, and the 2021 visits at the 02/18/2027 deposition.",
@@ -10885,8 +10964,8 @@ window.CM_CASE_FLOW = {
        headings: {"d2m3-l1": "Pre-Demand: the Gap Explanation Record", "d2m3-l2": "Pre-Demand: the Gap Explanation Record", "d2m3-a1": "Skill Building: the Gap Explanation Record", "d2m3-a2": "Skill Building: the Gap Explanation Record", "d2m3-cause": "Pre-Demand Case Auditing", "d2m4-l1": "Pre-Demand Case Auditing", "d2m4-l2": "Pre-Demand Case Auditing", "d3m1-l1": "Demand", "d3m1-l2": "Demand", "d3m1-pkg": "Demand", "d2m4-a1": "Skill Building: Pre-Demand Case Auditing", "d2m4-a2": "Skill Building: Pre-Demand Case Auditing", "d3m1-a1": "Skill Building: Demand", "d3m1-a2": "Skill Building: Demand", "d3m2-l1": "Settlement Negotiations", "d3m2-l2": "Settlement Negotiations", "d3m2-a1": "Skill Building: Settlement Negotiations", "d3m2-bins": "Skill Building: Settlement Negotiations", "d3m2-a2": "Skill Building: Settlement Negotiations", "d3m2-umns": "Skill Building: Settlement Negotiations"}}
     ]},
     {n: 4, phases: [
-      {title: "Reductions, Lien Negotiation & ADR", lead: "Module 4", blocks: ["d3m3-l1", "d3m3-l2", "d3m3-l3", "d3m3-a1", "d3m3-a2", "d3m4-l1", "d3m4-l2", "d3m4-close", "d3m4-a1", "d3m4-a2", "d4m2-l1", "d4m2-um", "d4m2-l2", "d4m2-a3", "d4m2-a1", "d4m2-medcal", "d4m2-a2", "d4m2-arbcal", "d4m3-l1", "d4m3-l2", "d4m3-prior", "d4m3-a1", "d4m3-a2", "d3m3-kc", "d3m4-kc", "d4m2-kc", "d4m3-kc"],
-       headings: {"d3m3-l1": "Lien Negotiations & Reduction", "d3m3-l2": "Lien Negotiations & Reduction", "d3m3-l3": "Lien Negotiations & Reduction", "d3m4-l1": "Disbursement & Closing a Case", "d3m4-l2": "Disbursement & Closing a Case", "d3m4-close": "Disbursement & Closing a Case", "d4m2-l1": "ADR: UM Disputes, Mediation & Arbitration", "d4m2-um": "ADR: UM Disputes, Mediation & Arbitration", "d4m2-l2": "ADR: UM Disputes, Mediation & Arbitration", "d4m3-l1": "ADR: The Binders", "d4m3-l2": "ADR: The Binders", "d4m3-prior": "ADR: The Binders", "d3m3-a1": "Skill Building: Lien Negotiations", "d3m3-a2": "Skill Building: Lien Negotiations", "d3m4-a1": "Skill Building: Disbursement & Closing", "d3m4-a2": "Skill Building: Disbursement & Closing", "d4m2-a1": "Skill Building: UM Disputes, Mediation & Arbitration", "d4m2-medcal": "Skill Building: UM Disputes, Mediation & Arbitration", "d4m2-a2": "Skill Building: UM Disputes, Mediation & Arbitration", "d4m2-arbcal": "Skill Building: UM Disputes, Mediation & Arbitration", "d4m2-a3": "Skill Building: UM Disputes, Mediation & Arbitration", "d4m3-a1": "Skill Building: The Binders", "d4m3-a2": "Skill Building: The Binders"}}
+      {title: "Reductions, Lien Negotiation & ADR", lead: "Module 4", blocks: ["d3m3-l1", "d3m3-l2", "d3m3-l3", "d3m3-a1", "d3m3-a2", "d3m4-l1", "d3m4-l2", "d3m4-close", "d3m4-a1", "d3m4-a2", "d4m2-l1", "d4m2-um", "d4m2-l2", "d4m2-a3", "d4m2-a1", "d4m2-medcal", "d4m2-a2", "d4m2-arbcal", "d4m3-l1", "d4m3-l2", "d4m3-prior", "d4m3-tx", "d4m3-a1", "d4m3-a2", "d3m3-kc", "d3m4-kc", "d4m2-kc", "d4m3-kc"],
+       headings: {"d3m3-l1": "Lien Negotiations & Reduction", "d3m3-l2": "Lien Negotiations & Reduction", "d3m3-l3": "Lien Negotiations & Reduction", "d3m4-l1": "Disbursement & Closing a Case", "d3m4-l2": "Disbursement & Closing a Case", "d3m4-close": "Disbursement & Closing a Case", "d4m2-l1": "ADR: UM Disputes, Mediation & Arbitration", "d4m2-um": "ADR: UM Disputes, Mediation & Arbitration", "d4m2-l2": "ADR: UM Disputes, Mediation & Arbitration", "d4m3-l1": "ADR: The Binders", "d4m3-l2": "ADR: The Binders", "d4m3-prior": "ADR: The Binders", "d4m3-tx": "ADR: The Binders", "d3m3-a1": "Skill Building: Lien Negotiations", "d3m3-a2": "Skill Building: Lien Negotiations", "d3m4-a1": "Skill Building: Disbursement & Closing", "d3m4-a2": "Skill Building: Disbursement & Closing", "d4m2-a1": "Skill Building: UM Disputes, Mediation & Arbitration", "d4m2-medcal": "Skill Building: UM Disputes, Mediation & Arbitration", "d4m2-a2": "Skill Building: UM Disputes, Mediation & Arbitration", "d4m2-arbcal": "Skill Building: UM Disputes, Mediation & Arbitration", "d4m2-a3": "Skill Building: UM Disputes, Mediation & Arbitration", "d4m3-a1": "Skill Building: The Binders", "d4m3-a2": "Skill Building: The Binders"}}
     ]},
     {n: 5, phases: [
       {title: "Litigation & Dropped Cases", lead: "Module 5", blocks: ["d4m1-l1", "d4m1-l2", "d4m1-a1", "d4m1-a2", "d4m1-efile", "d4m4-l1", "d4m4-l2", "d4m4-a1", "d4m4-a2", "d5m1-l1", "d5m1-l2", "d5m1-subp", "d5m1-a1", "d5m1-a2", "d5m2-l1", "d5m2-l2", "d5m2-a1", "d5m2-a2", "d5m3-l1", "d5m3-l2", "d5m3-a1", "d5m3-a2", "d5m4-l1", "d5m4-l2", "d5m4-a1", "d5m4-a2", "d5m5-l1", "d5m5-a1", "d5m6-l1", "d5m6-a1", "d4m1-kc", "d4m4-kc", "d5m1-kc", "d5m2-kc", "d5m3-kc", "d5m4-kc", "d5m5-kc", "d5m6-kc"],
