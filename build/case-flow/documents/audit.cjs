@@ -117,6 +117,11 @@ const NEED = {
   // the corrected copies the pre-demand Amendment Requests bring back: each fixes its plant and changes nothing else
   RS72: [/date of injury 02\/06\/2026/, /07\/15\/2026/, /no significant degenerative change at the adjacent levels/i, /unchanged/i],
   RS73: [/Balance due \$0\.00/i, /\$1,540\.00/, /\$1,860\.00/, /07\/10\/2026/, /CPS-30442/],
+  RS75: [/04\/08\/2026/, /04\/10\/2026/, /04\/17\/2026/, /Drop Warning/, /Margaret Doe/],
+  RS76: [/April 20, 2026/, /certified mail/i, /may withdraw/i, /February 6, 2026/],
+  RS77: [/04\/20\/2026/, /04\/02\/2026/, /\$0\.00/, /Stonebridge/],
+  RS78: [/Castillo/, /06\/05\/2026/, /no charge/i, /02\/06\/2026/],
+  RS79: [/06\/15\/2026/, /April 2/],
 };
 for (const [id, list] of Object.entries(NEED)) if (text[id] !== undefined) list.forEach(re => { if (!has(id, re)) fails.push(`${id}: missing ${re}`); });
 // plants that must appear ONLY where planted
