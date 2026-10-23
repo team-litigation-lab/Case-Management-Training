@@ -47,14 +47,16 @@ async function workerChecks() {
     const rec = await page.evaluate(async (key) => JSON.parse((await fetch('/api/storage/get', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key }) }).then(r => r.json())).value || '{}'), 'trainee:' + id);
     rec.approved = true; await put('trainee:' + id, rec);
     // the dashboard (a first visit can land on another page, e.g. the client profile)
-    const stat = async () => { await page.evaluate(() => { if (state.view !== 'dashboard' && typeof goto === 'function') goto('dashboard'); }); await page.waitForTimeout(1500);
+    // waits for the card (and, when given, for the text it should reach): a slow runner draws the band after a fixed pause
+    const stat = async (want) => { await page.evaluate(() => { if (state.view !== 'dashboard' && typeof goto === 'function') goto('dashboard'); });
+        await page.waitForFunction((w) => { const c = document.querySelector('.graded-calls-stat'); return c && (!w || new RegExp(w).test(c.innerText)); }, want || '', { timeout: 15000 }).catch(() => {});
         return page.evaluate(() => { const c = document.querySelector('.graded-calls-stat'); return c ? { text: c.innerText, tip: c.getAttribute('title') || '' } : null; }); };
     await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(2500);
-    const none = await stat();
+    const none = await stat('0 lines');
     if (!none || !/—/.test(none.text) || !/0 lines/i.test(none.text)) fail(`without graded calls the dashboard band should show — and 0 lines: ${JSON.stringify(none)}`);
     await put('callsim:' + id, { traineeId: id, calls: [{}, {}, {}], best: { 'line:Intake Calls': { score: 90, calls: 1, line: 'Intake Calls' }, 'line:Client Communication': { score: 70, calls: 2, line: 'Client Communication' } } });
     await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(2500);
-    const two = await stat();
+    const two = await stat('80%');
     if (!two || !/80%/.test(two.text) || !/2 lines/i.test(two.text) || !/3 calls/i.test(two.text)) fail(`the dashboard band's graded calls: ${JSON.stringify(two)} (expected 80%, 2 lines, 3 calls)`);
     if (two && (!/Intake Calls: best 90% \(1 call\)/.test(two.tip) || !/Client Communication: best 70% \(2 calls\)/.test(two.tip))) fail(`the card's tooltip doesn't list each line's best: ${two.tip}`);
     await browser.close();
