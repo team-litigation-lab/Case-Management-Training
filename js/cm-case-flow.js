@@ -701,11 +701,6 @@ function toolChip(id, blockId, big){
   return `<button type="button" class="${big ? "btn btn-navy btn-sm" : "cfx-tool"}" data-tool="${id}" onclick="cmCaseFlow.tool('${id}','${blockId || ""}')" title="Open ${E(name)}">${t.icon} ${E(live ? "Live Call" : big ? t.name.replace(/^(the|your) /, "").replace(/^./, c => c.toUpperCase()) : t.short)}</button>`;
 }
 const toolChips = (ids, blockId, big) => ids.map(id => toolChip(id, blockId, big)).join("");
-function rowTools(b, cell, ri){
-  for(const t of [cell, ((b.ops || [])[ri] || [])[2]]){ const ids = toolsIn(t, b.id); if(ids.length) return ids; }
-  return blockTools(b).slice(0, 1);
-}
-function toolButtons(tool, blockId){ return toolChips(toolsIn(tool, blockId), blockId, true); }
 /* ---------- 3 Clues, 1 Rule: the Do & Don't slide as a game ----------
    Adapted from Foundational's "3 Clues, 1 Claim". Each round hides one of the lesson's Dos or Don'ts behind three
    clues (build/case-flow/slides/clues-dN.json), shown one at a time. The class calls it (✅ Do or ⚠️ Don't) and
