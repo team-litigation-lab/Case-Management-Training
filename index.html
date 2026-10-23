@@ -250,6 +250,7 @@ button{font-family:inherit;cursor:pointer;}
 
 
 main{flex:1;max-width:1400px;margin:0 auto;padding:36px 20px 80px;width:100%;animation:pageIn .35s ease both;}
+main.no-page-in{animation:none;}
 @keyframes pageIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
 
 .footer-note{
@@ -2522,7 +2523,11 @@ body::before{opacity:.40;}
   .topbar,.btn-primary,.btn-navy{background-image:none;box-shadow:none;}
 }
 </style>
-<script src="/js/portal-gate.js?v=2026.10.21-dashboard"></script>
+<script src="/js/portal-gate.js?v=2026.10.23-dashboard"></script>
+<!-- The page stays hidden until startup has drawn the page you land on, so it appears once, complete: no blank shell, top bar
+     alone or half-drawn dashboard first (the background photo shows meanwhile). bootShown() lifts it; 4 seconds at most. -->
+<style>html.lsh-booting #app{visibility:hidden;}</style>
+<script>document.documentElement.classList.add("lsh-booting");setTimeout(function(){document.documentElement.classList.remove("lsh-booting");},4000);</script>
 </head>
 <body>
 <div id="app"></div>
@@ -3223,7 +3228,7 @@ const ELIAS_VOICE_NOTE_AUDIO_SRC = ELIAS_VOICE_NOTE_AUDIO_DATAURI;
 const CLIENT_AVATAR_SRC = "";
 
 const state = {
-  view:"clientprofile",
+  view:"dashboard",
   dayId:null,
   toolId:null,
   quizAnswers:{},
@@ -5965,7 +5970,9 @@ function render(){
   else if(state.view==="activities") body = typeof renderActivitiesPage==="function" ? renderActivitiesPage() : "";
   else if(state.view==="orientation") body = state.isAdmin ? renderOrientation() : renderDashboard();
   const presenterView = false;   // the presenter now lives inside the lesson stage
-  app.innerHTML = renderTopbar() + `<main class="${state.view==="dashboard"?"main-dash":""}${presenterView?" has-presenter":""}"><div id="navBackSlot"></div>${body}</main>` + (presenterView ? `<img class="slide-presenter" src="${PRESENTER_IMG}" alt="" aria-hidden="true">` : "")
+  // the page fades in only when you move to another page: a redraw of the same page (startup draws it a few times) stays still
+  const pageKey = [state.view, state.dayId, state.toolId].join("|"), samePage = pageKey === window.__lshPageKey; window.__lshPageKey = pageKey;
+  app.innerHTML = renderTopbar() + `<main class="${state.view==="dashboard"?"main-dash":""}${presenterView?" has-presenter":""}${samePage?" no-page-in":""}"><div id="navBackSlot"></div>${body}</main>` + (presenterView ? `<img class="slide-presenter" src="${PRESENTER_IMG}" alt="" aria-hidden="true">` : "")
     + ((state.traineeId && !state.isAdmin && !["login","pendingApproval","registrationDenied","dashboard","day"].includes(state.view)) ? `<button type="button" class="tfb-fab" onclick="openTraineeFeedback(${state.view==="day"?state.dayId:"null"})" title="Share feedback about the platform, lessons or facilitator" aria-label="Share feedback">💬<span class="fab-label"> Feedback</span></button>` : "")
     + renderFooter();
   afterRender();
@@ -6019,7 +6026,14 @@ function routeHash(){
 }
 // The address this tab opened with (a duplicated tab, or ⧉ "open in new tab"). Nothing may
 // overwrite it until start-up has opened that page (state.routeReady).
-const BOOT_ROUTE_HASH = String(location.hash||"");
+/* Every visit lands on the dashboard. Only ⧉ Open in new tab (?nt=1) opens a page by its address; anything else in the
+   address (a refresh, a bookmark, the Portal's link) is dropped, so nothing opens on one page and then jumps to another. */
+const BOOT_NEW_TAB = /[?&]nt=1(&|$)/.test(location.search);
+const BOOT_ROUTE_HASH = BOOT_NEW_TAB ? String(location.hash||"") : "";
+try{
+  const q = location.search.replace(/([?&])nt=1(&|$)/, (m, a, b)=> b ? a : "").replace(/[?&]$/, "");
+  if(BOOT_NEW_TAB || String(location.hash).indexOf("#/")===0) history.replaceState(history.state, "", location.pathname + q + BOOT_ROUTE_HASH);
+}catch(e){}
 function restoreBootRouteHash(){
   if(BOOT_ROUTE_HASH.indexOf("#/")===0 && location.hash!==BOOT_ROUTE_HASH){ try{ history.replaceState(history.state, "", location.pathname + location.search + BOOT_ROUTE_HASH); }catch(e){} }
 }
@@ -6075,7 +6089,11 @@ function fillNavBack(){
   const slot = document.getElementById("navBackSlot"); if(!slot) return;
   const prev = ["login","pendingApproval","registrationDenied","dashboard"].includes(state.view) ? "" : navBackTarget();
   const label = prev && routeLabel(prev);
-  slot.innerHTML = label ? `<div class="nav-back-row"><button type="button" class="nav-back" onclick="navBack()" title="Go back to the page you were on">← Back to ${esc(label)}</button></div>` : "";
+  const btn = label ? `<button type="button" class="nav-back" onclick="navBack()" title="Go back to the page you were on">← Back to ${esc(label)}</button>` : "";
+  // the Case File fills the screen to the last line: its Back sits at the start of its own tab row instead of a row of its own
+  const row = document.querySelector("#app > main .cf-file-tabs");
+  if(row){ slot.innerHTML = ""; const old = row.querySelector(":scope > .nav-back"); if(old) old.remove(); if(btn) row.insertAdjacentHTML("afterbegin", btn); return; }
+  slot.innerHTML = btn ? `<div class="nav-back-row">${btn}</div>` : "";
 }
 function navBack(){ if(routeDepth()>0) history.back(); else goto("dashboard"); }
 window.navBack = navBack;
@@ -6094,8 +6112,9 @@ function openRouteFromHash(){
   goto(r.view, r.id);
   return true;
 }
-function openInNewTab(){ syncRouteHash(); window.open(location.href, "_blank"); }
-function openRouteInNewTab(hash){ window.open(location.pathname + location.search + hash, "_blank"); }
+const newTabUrl = (hash)=> location.pathname + (location.search ? location.search + "&" : "?") + "nt=1" + hash;   // ?nt=1: this tab opens the page it was asked for
+function openInNewTab(){ syncRouteHash(); window.open(newTabUrl(routeHash() || ""), "_blank"); }
+function openRouteInNewTab(hash){ window.open(newTabUrl(hash), "_blank"); }
 window.addEventListener("hashchange", ()=>{
   if(!(state.traineeId || state.isAdmin) || ["login","pendingApproval","registrationDenied"].includes(state.view)) return;
   if(location.hash && location.hash!==routeHash()) openRouteFromHash();
@@ -6349,9 +6368,8 @@ async function submitLoginInner(){
   await syncToLedger(true);
   const status = await getApprovalStatus(state.traineeId);
   if(status==="approved"){
-    state.view = "clientprofile";
+    state.view = "dashboard";   // every sign-in lands on the dashboard; "Resume where you left off" is there
     startApprovalPolling(state.traineeId);
-    if(state.lastView && RESUMABLE_VIEWS.includes(state.lastView.view) && state.lastView.view!=="clientprofile"){ const lv = state.lastView; resumeWhereLeftOff(lv); toast("Welcome back — picking up where you left off."); return; }
   }else if(status==="rejected"){
     state.view = "registrationDenied";
   }else{
@@ -6730,6 +6748,7 @@ function startUpdateChecks(){
 }
 window.applyUpdate = applyUpdate;
 /* ---------- boot ---------- */
+function bootShown(){ requestAnimationFrame(()=>document.documentElement.classList.remove("lsh-booting")); }
 (async function init(){
   startLiveUpdates();
   startUpdateChecks();
@@ -6738,7 +6757,7 @@ window.applyUpdate = applyUpdate;
   if(state.adminToken && (await authStatus())) state.isAdmin = true;
   if(state.isAdmin && !state.adminToken && (await authStatus())){ state.isAdmin = false; setTimeout(()=>{ toast("Secure mode is on — please sign in to Admin again with the admin password."); }, 600); }
   if(state.traineeId && (await authStatus()) && !state.authToken){
-    if(!(await reauthTrainee())){ state.traineeId = ""; await storeSet("trainee-id", ""); state.view = "login"; render(); return; }
+    if(!(await reauthTrainee())){ state.traineeId = ""; await storeSet("trainee-id", ""); state.view = "login"; render(); bootShown(); return; }
   }
   if(state.traineeId && await cloudRestore(state.traineeId)) await loadAll();
   loadPublishedContent().then(()=>{ if(["day","dashboard","admin"].includes(state.view)) render(); });
@@ -6752,8 +6771,9 @@ window.applyUpdate = applyUpdate;
       // Returning trainee: reopen the page they were on (refresh / closed tab).
       // A page address in the URL (a duplicated tab, or ⧉ "open in new tab") wins over the bookmark.
       restoreBootRouteHash();
-      if(parseRouteHash()){ state.resumePending = true; setTimeout(()=>{ state.resumePending = false; if(!openRouteFromHash()) resumeWhereLeftOff(state.lastView); state.routeReady = true; syncRouteHash(); fillNavBack(); }, 0); }
-      else if(state.lastView && RESUMABLE_VIEWS.includes(state.lastView.view) && state.lastView.view!=="clientprofile"){ const lv = state.lastView; state.resumePending = true; setTimeout(()=>{ resumeWhereLeftOff(lv); state.routeReady = true; syncRouteHash(); fillNavBack(); }, 0); }
+      // the dashboard (its "Resume where you left off" button reopens the last page); a ⧉ new tab opens its own page
+      state.view = "dashboard";
+      if(parseRouteHash()){ state.resumePending = true; setTimeout(()=>{ state.resumePending = false; openRouteFromHash(); state.routeReady = true; syncRouteHash(); fillNavBack(); }, 0); }
       try{
         const rec = await sharedGet("trainee:"+state.traineeId);
         if(rec) state.assignedRoleplay = rec.assignedRoleplay || null;
@@ -6767,6 +6787,7 @@ window.applyUpdate = applyUpdate;
   }
   if(!state.resumePending) state.routeReady = true;
   render();
+  setTimeout(bootShown, 0);   // after a ⧉ new tab's page (queued just before) has been opened
 })();
 
 /* ============================================================
@@ -15868,7 +15889,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-data.js?v=55"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=1"></script>
-<script src="/js/cm-case-flow.js?v=97"></script>
+<script src="/js/cm-case-flow.js?v=98"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=4"></script>
 <script src="/js/lsh-tool-links.js?v=cm-2026.10.23-trainer-sso"></script>

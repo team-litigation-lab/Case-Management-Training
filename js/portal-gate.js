@@ -94,7 +94,7 @@ window.portalGate = {
         window.resumeWhereLeftOff = resumeOrig;
         state.resumePending = false;
         if(state.view === "login" || state.view === "pendingApproval") return;
-        state.view = "clientprofile";
+        state.view = "dashboard";
         render();
       };
     }

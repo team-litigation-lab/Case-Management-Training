@@ -3651,12 +3651,14 @@ function fileTabs(shown, pos){
     ${cur === "now" ? caseTimeline(pos) : `<div class="cf-file-cols">${secs.map(x => `<div class="cf-file-sec"><h3>${E(x.title)}</h3><ul>${x.items.map(i => `<li>${E(i)}</li>`).join("")}</ul></div>`).join("")}</div>`}</div>`;
 }
 /* the file's text at the largest size that still fits the screen (15px down to 11px) */
-function fitFileCols(){
+function fitFileCols(again){
   const c = document.querySelector(".cf-file-page .cf-file-cols"); if(!c) return;
+  // and once more after the page around it has settled (the one-screen fit sizes it a frame later)
+  if(!again){ requestAnimationFrame(() => fitFileCols(true)); clearTimeout(state.cfFileFitLate); state.cfFileFitLate = setTimeout(() => fitFileCols(true), 180); }
   let f = 15; c.style.fontSize = f + "px";
   while(c.scrollHeight > c.clientHeight + 1 && f > 11){ f -= 0.5; c.style.fontSize = f + "px"; }
 }
-window.addEventListener("resize", () => { clearTimeout(state.cfFileFitT); state.cfFileFitT = setTimeout(() => { try{ fitFileCols(); }catch(e){} }, 120); });
+window.addEventListener("resize", () => { clearTimeout(state.cfFileFitT); state.cfFileFitT = setTimeout(() => { try{ fitFileCols(true); }catch(e){} }, 120); });
 window.cmCaseFlow.fileTab = function(id){ state.cfFileTab = id; if(typeof render === "function") render(); };
 
 /* ---------- the day's intro ("Before you start"): one screen ----------
