@@ -122,6 +122,13 @@ const NEED = {
   RS77: [/04\/20\/2026/, /04\/02\/2026/, /\$0\.00/, /Stonebridge/],
   RS78: [/Castillo/, /06\/05\/2026/, /no charge/i, /02\/06\/2026/],
   RS79: [/06\/15\/2026/, /April 2/],
+  RS90: [/\$3,618\.00/, /SRU-26-03318/, /INTERIM/, /Vision/],
+  RS91: [/\$1,860\.00/, /06\/24\/2026|June 24, 2026/, /SRU-26-03318/],
+  RS92: [/\$3,618\.00/, /\$1,860\.00/],
+  RS93: [/\$1,584\.00/, /NGD-20417/, /overtime/i, /50 lb/],
+  RS94: [/\$1,760\.00/, /02\/18\/2026/, /03\/12\/2026/],
+  RS95: [/\$1,584\.00/, /07\/01\/2026/, /05\/15–05\/18\/2026/],
+  RS96: [/\$1,584\.00/, /06\/22\/2026/],
 };
 for (const [id, list] of Object.entries(NEED)) if (text[id] !== undefined) list.forEach(re => { if (!has(id, re)) fails.push(`${id}: missing ${re}`); });
 // plants that must appear ONLY where planted

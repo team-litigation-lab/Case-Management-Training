@@ -117,6 +117,45 @@ passenger door at about 28 mph; the Escape was pushed into Margaret's Civic, par
   its UM is **add-on (excess)** — not reduced by the BI payment — and has **no PIP non-duplication reduction**.
 - PIP's 80% wage benefit (9 shifts, $1,584.00 × 80% = $1,267.20) was never paid: the Medical Bills used the $5,000 limit by 06/26/2026, and Northgate's wage-and-attendance letter came 06/30/2026. The full $1,584.00 stays in the Specials.
 - Cardinal State confirmed in writing (03/09/2026) that John is covered as a resident relative occupying a non-owned vehicle.
+- **Peach State's lien, itemized and audited (Day 2).** The plan's notice (02/27/2026, RS40) was flagged the day it
+  arrived; Dion Carver's 03/12/2026 email (recovery file **SRU-26-03318**) said accident-related claims were in process,
+  and the CM answered in writing asking for an itemized ledger of accident-related claims once any were paid. Peach
+  State's **first itemized ledger (06/10/2026, RS90)** asserted **$3,618.00**: the Crescent Pain & Spine ESI (claim
+  PS-2605-449021) carried at the **billed $3,400.00** instead of the $1,860.00 the plan paid, plus three lines that are not
+  the collision's: 02/03/2026 Riverton Vision Center, routine eye exam (Z01.00), $95.00, before the DOL; 03/18/2026 Peach
+  State Virtual Care, acute sinusitis (J01.90), $49.00; 05/06/2026 Riverton Allergy & Asthma Clinic, established-patient
+  allergic rhinitis visit (J30.2), a pre-existing condition, $74.00. Summit Imaging's 03/13/2026 MRI claim is on it at
+  $0.00 (denied: other coverage primary, PIP). The ledger is marked "interim", and its cover letter asks the firm to remit
+  the full amount within 30 days of any settlement, without reduction. The CM's line-by-line dispute went to Dion Carver
+  by email on **06/12/2026**; Peach State's **corrected itemization (06/24/2026, RS91)** confirms the reimbursement claim
+  at **$1,860.00** in writing, removes the three unrelated lines, keeps Summit at $0.00, reports no other accident-related
+  claims in process and encloses the certificate's reimbursement provision (Section 11). Any reduction comes later, at
+  the lien stage, on Atty. Thorne's authority (§3). The exchange is filed as a memorandum (RS92).
+- **The LOP endorsement call (02/23/2026).** After Riverton Spine & Rehab's email, the CM calls Tammy Greer, its office
+  manager, before the 02/24/2026 evaluation: the LOP signed 02/23/2026 is accepted, the evaluation is confirmed, and her
+  questions are answered inside the line (insurance status: Harbor Point PIP HP-26-7741 is open and paid urgent care, the
+  clinic is out of network for Peach State; treatment cadence: the plan of care is the provider's, 2–3 visits a week for
+  12 weeks per RS13; records and billing: itemized statements every 30 days to the firm, a missed-visit alert, records on
+  the claim-specific HIPAA authorization). Payment amounts, reductions and dates are never promised; those questions go
+  to Atty. Thorne.
+- **Lost wages, verified with the employer (Day 3, pre-demand).** John signed Northgate's employee authorization on
+  06/22/2026, and the CM's verification request went to Angela Ruiz the same day. Northgate replied **06/30/2026** with
+  the wage-and-attendance letter (RS43) and its **Wage Loss Verification Form and payroll records (RS93)**: $22.00/hour,
+  8-hour day shifts, 40 hours a week; the nine unpaid shifts (72 hours, $1,584.00) fall in three biweekly pay periods,
+  02/02–02/15/2026 (40 unpaid hours), 03/02–03/15/2026 (16) and 05/11–05/24/2026 (16); **no overtime was scheduled on any
+  missed shift, so none is claimed**; the work restrictions (urgent care 02/20/2026: no lifting over 25 lb or overhead
+  work for 2 weeks; Lakeside 03/05/2026: no lifting over 30 lb overhead) were worked at full shifts with no lost hours;
+  physical demands: lifting to 50 lb, forklift, on his feet the full shift; no Northgate W-2 exists for 2025 (hired
+  01/12/2026), so his 2025 W-2 comes from his prior employer, Riverton Freight Services. Each missed shift is reconciled
+  to the record that supports it: 03/05 the Lakeside consult (RS15), 03/13 the Summit MRI (RS16), 05/15 the ESI (RS17),
+  05/18 Crescent's work note, off work 05/15–05/18/2026 (RS17). The five shifts 02/09–02/13 predate treatment and carry
+  no provider note: Northgate's call-out record (neck pain), the EMS report and the 02/07/2026 pharmacy receipt support
+  them, and they are **flagged to Atty. Thorne, kept in the claim, never dropped or hidden**. A draft wage worksheet built
+  from John's own recollection (06/23/2026, RS94: it counted 02/18 and 02/19, which he worked, put the MRI on 03/12, added
+  overtime and light-duty hours that never happened, and left out 02/09–02/13) was audited to the **Lost Wage
+  Verification Record (07/01/2026, RS95)** at $1,584.00. At MMI (06/12/2026) Dr. Reyes released him to full duty; any
+  loss-of-earning-capacity claim is Atty. Thorne's to assess with the treating physician. The exchange with Northgate is
+  filed as a memorandum (RS96).
 - Keystone gave its $10,000 BI limit verbally on the set-up call but would not confirm it in writing (no Declaration Page) before a written request with signed authorizations; BI limit $10,000 confirmed in writing by Keystone's Declaration Page on 03/20/2026.
 
 **Medical Specials** billed: $15,002.40 before audit → **$14,817.40** after removing the duplicate.
@@ -365,7 +404,8 @@ the facts above. Fictional throughout; no real carrier, provider or firm.
 | Harbor Point Insurance | 77 Harbor Point Blvd, Riverton · Kevin Alvarez's policy **HPA-4402917** (2020 Ford Escape) · claim HP-26-7741 (Marcus Bell) · UM $20,000 / $40,000; PIP $5,000 |
 | Cardinal State Mutual | 1200 Cardinal Way, Millbrook · Margaret Doe's policy **CSM-AU-5580213** (2018 Toyota Camry) · claim CS-26-20355 (Teresa Okafor) · UM $10,000 / $20,000 |
 | Bluewater Auto Insurance | Margaret Doe's policy **BWA-209-66184** (2019 Honda Civic LX) · liability 25/50/25 + collision ($500 deductible) · UM/UIM rejected in writing by Margaret 03/14/2024 |
-| Peach State Health Plan | Subrogation & Recovery Unit, P.O. Box 2210, Riverton · member PSH-55017742 · group GRP-41208 (Northgate Distribution; **fully insured** group plan) · recovery analyst **Dion Carver** · first notice of reimbursement rights **02/27/2026** |
+| Peach State Health Plan | Subrogation & Recovery Unit, P.O. Box 2210, Riverton · member PSH-55017742 · group GRP-41208 (Northgate Distribution; **fully insured** group plan) · recovery analyst **Dion Carver** · first notice of reimbursement rights **02/27/2026** · recovery file **SRU-26-03318** · dcarver@peachstatehealth.example |
+| Not the collision's care (on Peach State's first ledger only) | **Riverton Vision Center** (routine eye exam 02/03/2026) · **Peach State Virtual Care** (telehealth, 03/18/2026) · **Riverton Allergy & Asthma Clinic** (established patient, 05/06/2026) |
 | Riverton PD | Officer **Thomas Garner #2217** · report RPD-26-018842 |
 | Riverton Fire EMS | Medic 7 · run RF-26-0206-114 · paramedic **J. Ortiz** · on scene 07:18 |
 | Riverton Urgent Care | 1450 Birch Ave · **Nina Patel, PA-C** |
@@ -375,7 +415,7 @@ the facts above. Fictional throughout; no real carrier, provider or firm.
 | Crescent Pain & Spine | 41 Crescent Ct · **Dr. Omar Haddad, MD** · in network with Peach State · Patient Billing: **Renee Halvorsen**, Billing Lead (billing@crescentpainspine.example), account CPS-30442 |
 | Prior care (2021) | **Birch Avenue Chiropractic**, Dr. Lena Ford, DC · three visits 05/04, 05/11, 05/18/2021 · low-back stiffness, resolved, released to full activity |
 | Riverton Drug | 1500 Birch Ave · total $312.40 (OTC receipt 02/07/2026 $38.60; prescriptions and OTC through 06/2026) |
-| Northgate Distribution | 900 Industrial Pkwy, Riverton · HR: **Angela Ruiz**, HR manager · wage-and-attendance letter 06/30/2026 |
+| Northgate Distribution | 900 Industrial Pkwy, Riverton · HR: **Angela Ruiz**, HR manager, (555) 010-6600, aruiz@northgatedistribution.example · employee ID NGD-20417 · biweekly pay, Friday pay dates · wage-and-attendance letter and Wage Loss Verification Form 06/30/2026 · prior employer **Riverton Freight Services** (warehouse associate, 06/2019–12/2025) |
 | Northgate EAP | Employer-paid Employee Assistance Program, six sessions a concern at no cost to the employee · administered by **Stonebridge EAP Services**, 410 Granite Way, Suite 300, Riverton · (555) 010-7700 · counselor **Renee Castillo, LPC** · EAP case SEAP-26-1187 |
 | The near-drop record | Outreach log and notices (RS75) · Final Warning Letter 04/10/2026, certified mail 7026 0410 0001 3382 5590, receipt signed "M. Doe" 04/13/2026 (RS76) · Dr. Reyes's telephone encounter 04/20/2026, 20 minutes, not billed, referral faxed to Stonebridge the same day (RS77) · counseling summary 06/10/2026 (RS78) · Personal Impact Statement signed 06/15/2026 (RS79) · Margaret Doe's phone (555) 010-2291 |
 | Witness | **Ruth Calloway**, 2209 Maple Hollow Rd · signed statement to Officer Garner on scene |

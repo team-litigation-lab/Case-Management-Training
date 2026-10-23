@@ -1,0 +1,697 @@
+{
+ "audits": {
+  "d1m1-a2": {
+   "title": "Peach State Lien Ledger Audit",
+   "kicker": "Call every line: the collision's care, unrelated, pre-existing, or claimed above what was paid",
+   "source": "RS90",
+   "reveal": "RS91",
+   "due": "06/12/2026",
+   "intro": "06/10/2026. Peach State's interim itemization asserts $3,618.00 against John Doe's recovery. Before any figure goes into the lien register or the demand, every line is checked against the treatment record, the PIP Log and what the plan actually paid.",
+   "columns": {
+    "ref": "Line",
+    "as": "As the plan itemized it"
+   },
+   "items": [
+    {
+     "ref": "Header",
+     "what": "Member ID, group and recovery file",
+     "as": "PSH-55017742 · GRP-41208 · SRU-26-03318; member John Doe; date of incident 02/06/2026",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "The identifiers match the plan's 02/27/2026 notice and the lien register, so every later letter, the reduction request and the final payoff tie to one recovery file.",
+     "fix": "Confirm the three numbers against the notice and the lien register before the dispute goes out; no change.",
+     "proof": [
+      "RS40"
+     ]
+    },
+    {
+     "ref": "Header",
+     "what": "Plan funding",
+     "as": "Fully insured group policy issued to Northgate Distribution",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Funding status decides which law governs any reduction later. It matches the plan's notice, so the lien register records it as stated.",
+     "fix": "Record fully insured in the lien register; which law governs a reduction is Atty. Thorne's call, at the lien stage.",
+     "proof": [
+      "RS40"
+     ]
+    },
+    {
+     "ref": "Header",
+     "what": "Status of the itemization",
+     "as": "INTERIM ITEMIZATION — subject to change as claims are processed",
+     "verdict": "replace",
+     "kind": "gap",
+     "issue": "An interim figure is not a lien amount. Carried into the lien register or the demand, it lets Peach State move the number at disbursement, and the Net Sheet will not tie.",
+     "fix": "Ask in the dispute for a corrected itemization confirmed in writing, stating that no other accident-related claims are in process; Case Manager, by email.",
+     "proof": [
+      "RS90"
+     ]
+    },
+    {
+     "ref": "#1",
+     "what": "Riverton Vision Center, 02/03/2026, Z01.00",
+     "as": "Routine eye exam; paid $95.00 on 02/17/2026; claimed $95.00",
+     "verdict": "pull",
+     "kind": "loophole",
+     "issue": "The date of service is before the 02/06/2026 collision. Left in, Peach State recovers from John Doe's settlement for care that has nothing to do with the claim.",
+     "fix": "Dispute the line in writing as before the loss and unrelated; Case Manager, in the dispute email.",
+     "proof": [
+      "RS90",
+      "RS40"
+     ]
+    },
+    {
+     "ref": "#2",
+     "what": "Summit Imaging Center MRI, 03/13/2026",
+     "as": "Billed $2,395.00; denied 03/27/2026, other coverage primary (PIP); claimed $0.00",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Correct as stated: Harbor Point PIP paid the MRI in full on 03/25/2026, so the plan paid nothing and claims nothing.",
+     "fix": "Confirm against the PIP Log and Summit's invoice; note in the register that the line stays at $0.00.",
+     "proof": [
+      "RS31",
+      "RS25"
+     ]
+    },
+    {
+     "ref": "#3",
+     "what": "Peach State Virtual Care, 03/18/2026, J01.90",
+     "as": "Telehealth visit for acute sinusitis; paid $49.00; claimed $49.00",
+     "verdict": "pull",
+     "kind": "loophole",
+     "issue": "A sinus infection is not a collision injury. Left in, the plan's claim against the settlement grows for care the treatment record never ties to the crash.",
+     "fix": "Dispute the line as unrelated by its diagnosis code; Case Manager, in writing.",
+     "proof": [
+      "RS90"
+     ]
+    },
+    {
+     "ref": "#4",
+     "what": "Riverton Allergy & Asthma Clinic, 05/06/2026, J30.2",
+     "as": "Established-patient visit for allergic rhinitis; paid $74.00; claimed $74.00",
+     "verdict": "pull",
+     "kind": "loophole",
+     "issue": "An established-patient visit for a condition he had before the collision: pre-existing, and unrelated to the neck injury the claim is built on.",
+     "fix": "Dispute the line as a pre-existing, unrelated condition; Case Manager, in writing.",
+     "proof": [
+      "RS90"
+     ]
+    },
+    {
+     "ref": "#5",
+     "what": "Crescent Pain & Spine ESI, 05/15/2026, PS-2605-449021",
+     "as": "Billed $3,400.00; allowed and paid $1,860.00 on 06/03/2026; claimed $3,400.00",
+     "verdict": "replace",
+     "kind": "arithmetic",
+     "issue": "The ledger's own paid column shows $1,860.00. Claiming the billed $3,400.00 would take the $1,540.00 in-network write-off, which the plan never paid, out of John Doe's net.",
+     "fix": "Ask Peach State to correct the line to the $1,860.00 it paid: a plan's reimbursement claim is what it paid.",
+     "proof": [
+      "RS90",
+      "RS15"
+     ]
+    },
+    {
+     "ref": "Total",
+     "what": "Reimbursement claim asserted",
+     "as": "$3,618.00, interim, as of 06/10/2026",
+     "verdict": "replace",
+     "kind": "arithmetic",
+     "issue": "With the three unrelated lines out and Crescent at what was paid, the related claim is $1,860.00. Carried at $3,618.00, the lien register and the Net Sheet overstate what John Doe owes the plan.",
+     "fix": "Show $3,618.00 asserted and under dispute; change the register only when Peach State confirms the corrected figure in writing.",
+     "proof": [
+      "RS90"
+     ]
+    },
+    {
+     "ref": "Cover letter",
+     "what": "Repayment term",
+     "as": "Reimbursed first, in full, without reduction for attorney fees or costs; remit within 30 days of any settlement",
+     "verdict": "flag",
+     "kind": "loophole",
+     "issue": "Agreeing, or answering as if agreed, could give up a reduction for procurement costs that state law may allow on a fully insured plan. That is a legal position, not a filing task.",
+     "fix": "Flag to Atty. Thorne with the plan's notice and, once received, the certificate's provision; commit to nothing on repayment, amount or timing.",
+     "proof": [
+      "RS90",
+      "RS40"
+     ]
+    },
+    {
+     "ref": "Cover letter",
+     "what": "Notice before settlement",
+     "as": "Notify the plan in writing before any settlement is reached",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "The same condition as the plan's 02/27/2026 notice. Honoring it costs nothing and keeps the plan from claiming its rights were prejudiced.",
+     "fix": "Calendar it against the settlement steps; the notice is sent, never a promise of payment.",
+     "proof": [
+      "RS40"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "The plan's reimbursement provision",
+     "as": "Not enclosed: plan documents available on written request",
+     "verdict": "add",
+     "kind": "gap",
+     "issue": "Without the certificate's own language no one can test what the plan may claim or how it can be reduced, and Atty. Thorne needs it before the lien stage.",
+     "fix": "Request the certificate's reimbursement provision in the dispute email; Case Manager.",
+     "proof": [
+      "RS90",
+      "RS40"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "Riverton Spine & Rehab",
+     "as": "Not on the itemization",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Correctly absent: Riverton Spine & Rehab is out of network and treats under the LOP signed 02/23/2026, so the plan paid nothing and has nothing to claim.",
+     "fix": "Confirm that the LOP balance is tracked in its own register entry, never on Peach State's lien.",
+     "proof": [
+      "RS13"
+     ]
+    }
+   ],
+   "revealNote": "Peach State's corrected itemization of 06/24/2026: the reimbursement claim confirmed in writing at $1,860.00. The pre-demand audit, the demand and the lien stage all work from this figure.",
+   "revealPoints": [
+    "Reimbursement claim confirmed in writing: $1,860.00 as of 06/24/2026",
+    "Three lines removed: 02/03/2026 before the loss; 03/18/2026 and 05/06/2026 unrelated",
+    "Crescent Pain & Spine corrected from the billed $3,400.00 to the $1,860.00 paid",
+    "Summit Imaging stays at $0.00: denied, PIP primary",
+    "No other accident-related claims in process; the certificate's Section 11 enclosed",
+    "Any reduction is Atty. Thorne's, at the lien stage"
+   ]
+  },
+  "d2m4-wage": {
+   "title": "Lost Wage Worksheet Audit",
+   "kicker": "Match every missed shift to the employer's record and the treating provider's note",
+   "source": "RS94",
+   "reveal": "RS95",
+   "due": "07/01/2026",
+   "intro": "07/01/2026, the day the Specials audit is due. Northgate's records came on 06/30/2026; the draft worksheet was built from John Doe's memory a week earlier. Call every row against the employer's records and the treating providers' notes, so no absence is left unexcused.",
+   "columns": {
+    "ref": "Row",
+    "as": "As the draft has it"
+   },
+   "items": [
+    {
+     "ref": "Header",
+     "what": "Employer and rate",
+     "as": "Northgate Distribution, $22.00 per hour",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Matches Northgate's letter and its Wage Loss Verification Form: the rate the whole wage claim multiplies.",
+     "fix": "Confirm against the employer's letter and form; no change.",
+     "proof": [
+      "RS43",
+      "RS93"
+     ]
+    },
+    {
+     "ref": "Header",
+     "what": "Shift length",
+     "as": "8 hours",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Northgate records 8-hour day shifts, 40 hours a week, so each missed shift is 8 hours at $22.00, $176.00.",
+     "fix": "Confirm against the payroll records; no change.",
+     "proof": [
+      "RS93"
+     ]
+    },
+    {
+     "ref": "Excluded",
+     "what": "02/09–02/13/2026, five shifts",
+     "as": "Excluded: before first treatment, no doctor's note",
+     "verdict": "flag",
+     "kind": "gap",
+     "issue": "Northgate records all five unpaid as call-outs for neck pain. Dropped, the claim loses $880.00 and the file hides the gap's best corroboration; Keystone will find the call-outs anyway.",
+     "fix": "Restore the five shifts and flag them to Atty. Thorne with the call-out record, the EMS report and the 02/07/2026 receipt; how they are presented is his call.",
+     "proof": [
+      "RS43",
+      "RS11",
+      "RS21",
+      "RS12"
+     ]
+    },
+    {
+     "ref": "1–2",
+     "what": "02/18 and 02/19/2026",
+     "as": "Missed, neck pain; client's account; $176.00 each",
+     "verdict": "pull",
+     "kind": "gap",
+     "issue": "He worked both shifts, as the urgent-care history and Northgate's records show. An adjuster who checks payroll would discredit the whole wage claim on these two rows.",
+     "fix": "Remove both rows, noting the record that disproves them; Case Manager.",
+     "proof": [
+      "RS12",
+      "RS43"
+     ]
+    },
+    {
+     "ref": "3",
+     "what": "03/05/2026",
+     "as": "Orthopedic consult, Lakeside Orthopedics",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "Northgate records a medical appointment, and Dr. Reyes's consult note dates the visit: the absence is excused by the record.",
+     "fix": "Attach the consult note as the shift's support.",
+     "proof": [
+      "RS15",
+      "RS43"
+     ]
+    },
+    {
+     "ref": "4",
+     "what": "03/12/2026",
+     "as": "MRI; client's account",
+     "verdict": "replace",
+     "kind": "calendar",
+     "issue": "The MRI was 03/13/2026, and Northgate's unpaid shift is 03/13. A date that matches neither record invites the adjuster to call the shift unsupported.",
+     "fix": "Correct the row to 03/13/2026 and attach Summit's MRI report.",
+     "proof": [
+      "RS16",
+      "RS43"
+     ]
+    },
+    {
+     "ref": "5",
+     "what": "05/15/2026",
+     "as": "Injection, Crescent Pain & Spine",
+     "verdict": "keep",
+     "kind": "qc",
+     "issue": "The procedure note and Northgate's record agree on the date: the injection excuses the shift.",
+     "fix": "Attach the procedure note as the shift's support.",
+     "proof": [
+      "RS17",
+      "RS43"
+     ]
+    },
+    {
+     "ref": "6",
+     "what": "05/18/2026",
+     "as": "Doctor said rest; client's account; no note attached",
+     "verdict": "replace",
+     "kind": "gap",
+     "issue": "A recollection is not support. Crescent's work note puts him off work 05/15–05/18/2026, and Northgate holds it on file; without it the shift reads as unexcused.",
+     "fix": "Replace the support with Crescent's work note; Case Manager.",
+     "proof": [
+      "RS17",
+      "RS43"
+     ]
+    },
+    {
+     "ref": "Other",
+     "what": "Light duty, 02/20/2026–03/06/2026",
+     "as": "Reduced hours under the urgent-care restrictions, about 20 hours, $440.00",
+     "verdict": "pull",
+     "kind": "arithmetic",
+     "issue": "Northgate accommodated the restrictions at full shifts and full pay; no hours were lost. Claimed, it is a figure the employer's own form contradicts.",
+     "fix": "Strike the line and note that the restrictions were worked at full shifts.",
+     "proof": [
+      "RS93",
+      "RS12"
+     ]
+    },
+    {
+     "ref": "Other",
+     "what": "Overtime lost",
+     "as": "4 hours a week for 2 weeks: 8 hours at $33.00, $264.00",
+     "verdict": "pull",
+     "kind": "arithmetic",
+     "issue": "No overtime was scheduled on any missed shift. Overtime is claimed only when the employer confirms it was scheduled and lost.",
+     "fix": "Strike the line, citing Northgate's form.",
+     "proof": [
+      "RS93"
+     ]
+    },
+    {
+     "ref": "Total",
+     "what": "Lost wages claimed",
+     "as": "$1,760.00",
+     "verdict": "replace",
+     "kind": "arithmetic",
+     "issue": "Nine verified shifts at 8 hours and $22.00 come to $1,584.00. Any other total puts a figure in the Specials the employer will not support.",
+     "fix": "Replace with $1,584.00 and carry it to the Specials and the Net Sheet.",
+     "proof": [
+      "RS43",
+      "RS93"
+     ]
+    },
+    {
+     "ref": "Note",
+     "what": "PIP lost-income benefit",
+     "as": "80% of $1,760.00 = $1,408.00, to be claimed from Harbor Point",
+     "verdict": "replace",
+     "kind": "gap",
+     "issue": "PIP was exhausted on 06/26/2026, so the 80% benefit was never payable. Recording a pending PIP payment would net money out of the Specials that will never come.",
+     "fix": "Record the benefit as not payable; the full $1,584.00 stays in the Specials.",
+     "proof": [
+      "RS31"
+     ]
+    },
+    {
+     "ref": "Note",
+     "what": "2025 W-2",
+     "as": "Request from Northgate",
+     "verdict": "replace",
+     "kind": "gap",
+     "issue": "Northgate hired him on 01/12/2026 and has no 2025 W-2. The request would stall: his 2025 earnings were with Riverton Freight Services.",
+     "fix": "Ask John Doe for his 2025 W-2 from Riverton Freight Services.",
+     "proof": [
+      "RS93",
+      "RS02"
+     ]
+    },
+    {
+     "ref": "Note",
+     "what": "Loss of earning capacity",
+     "as": "Yes, permanent: residual arm numbness (client)",
+     "verdict": "flag",
+     "kind": "loophole",
+     "issue": "Dr. Reyes released him to full duty at MMI on 06/12/2026. Earning capacity is a medical and legal opinion; asserted by staff, it is the first line defense counsel tests.",
+     "fix": "Flag to Atty. Thorne with the MMI note; the Case Manager records facts only.",
+     "proof": [
+      "RS18"
+     ]
+    },
+    {
+     "ref": "—",
+     "what": "Employer verification and job demands",
+     "as": "Requested 06/22/2026, pending: no employer form, payroll records or job description behind any row",
+     "verdict": "add",
+     "kind": "gap",
+     "issue": "Without the employer's form and payroll records every row rests on memory, and the physical demands (lifting to 50 lb, forklift) are what tie the restrictions to the job.",
+     "fix": "Add Northgate's Wage Loss Verification Form, payroll records and letter as the worksheet's sources; Case Manager.",
+     "proof": [
+      "RS93",
+      "RS43"
+     ]
+    }
+   ],
+   "revealNote": "The Lost Wage Verification Record of 07/01/2026: nine shifts, each matched to Northgate's record and, after 02/20/2026, a provider's note: $1,584.00. The Specials audit and the demand work from it.",
+   "revealPoints": [
+    "Lost wages verified: 9 shifts × 8 h × $22.00 = $1,584.00",
+    "02/09–02/13/2026 kept and flagged to Atty. Thorne, with the call-out record",
+    "03/05, 03/13, 05/15 and 05/18/2026 each matched to a provider record",
+    "No overtime and no light-duty hours lost; the draft's $1,760.00 struck",
+    "PIP's 80% wage benefit not payable: exhausted 06/26/2026"
+   ]
+  }
+ },
+ "emails": {
+  "d1m1-a2": {
+   "title": "Lien Dispute & Written Confirmation — Peach State",
+   "kicker": "Send the line-by-line dispute, get the corrected balance in writing, and file the exchange",
+   "model": "RS92",
+   "sent": "06/12/2026",
+   "to": "Dion Carver, Peach State Health Plan (dcarver@peachstatehealth.example)",
+   "cc": "Atty. Elijah Thorne (ethorne@lshlawgroup.example)",
+   "subject": "Member PSH-55017742 · Recovery file SRU-26-03318 — itemized lien dispute",
+   "attachment": "Peach State's interim itemization of 06/10/2026, marked line by line",
+   "brief": "Dispute the interim itemization in writing, line by line: the three lines that are not the collision's, and Crescent claimed above what the plan paid. Ask for a corrected itemization confirmed in writing and the plan's reimbursement provision. Commit to nothing on repayment or reduction: that is Atty. Thorne's.",
+   "required": [
+    {
+     "id": "ids",
+     "label": "Names the member ID or the recovery file",
+     "hint": "Name PSH-55017742 or SRU-26-03318 so the plan finds the file.",
+     "match": [
+      "PSH-55017742|SRU-26-03318"
+     ]
+    },
+    {
+     "id": "unrelated",
+     "label": "Names the three unrelated lines by date",
+     "hint": "Name 02/03, 03/18 and 05/06, and say why each is not the collision's care.",
+     "match": [
+      "02/03",
+      "03/18",
+      "05/06"
+     ]
+    },
+    {
+     "id": "paid",
+     "label": "Puts Crescent at what the plan paid",
+     "hint": "The plan's claim is what it paid: $1,860.00, not the $3,400.00 billed.",
+     "match": [
+      "1,?860"
+     ]
+    },
+    {
+     "id": "writing",
+     "label": "Asks for a corrected itemization, confirmed in writing",
+     "hint": "Ask for the corrected balance in writing, not by phone.",
+     "match": [
+      "writ",
+      "correct|revis|confirm"
+     ]
+    },
+    {
+     "id": "counsel",
+     "label": "Routes repayment and terms to Atty. Thorne",
+     "hint": "Questions on what the plan will accept go to Atty. Thorne, by name.",
+     "match": [
+      "thorne"
+     ]
+    }
+   ],
+   "reply": {
+    "from": "Dion Carver, Peach State Health Plan (dcarver@peachstatehealth.example)",
+    "date": "06/24/2026",
+    "time": "10:15 a.m.",
+    "subject": "RE: Member PSH-55017742 · Recovery file SRU-26-03318 — itemized lien dispute",
+    "body": "Thank you for your email of June 12. We have reviewed the claim records and agree with your findings. The Riverton Vision Center, Peach State Virtual Care and Riverton Allergy & Asthma Clinic claims are removed as unrelated, and the Crescent Pain & Spine line is corrected to the $1,860.00 the Plan paid. Summit Imaging remains at $0.00.\n\nThe Plan's reimbursement claim is $1,860.00 as of today, and no other accident-related claims are in process. Our corrected itemization and Section 11 of the certificate are attached. Please notify us before any settlement and request a final amount before disbursement.\n\nDion Carver · Recovery Analyst · Peach State Health Plan · SRU-26-03318"
+   },
+   "press": {
+    "from": "Dion Carver, Peach State Health Plan",
+    "date": "06/24/2026",
+    "subject": "RE: RE: Member PSH-55017742 — one more thing",
+    "body": "One more thing so I can close my review. Can you confirm in writing that Mr. Doe will repay the $1,860.00 in full from his settlement, without reduction? And what are the liability carrier's limits, and when do you expect the case to settle? It would help us plan.",
+    "choices": [
+     {
+      "label": "Confirm full repayment: the figure is now right, so agreeing costs nothing",
+      "ok": false,
+      "why": "A written promise of full repayment can waive a reduction Atty. Thorne may seek at the lien stage. Repayment terms are his."
+     },
+     {
+      "label": "Acknowledge the $1,860.00, confirm notice before any settlement, and route the repayment and limits questions to Atty. Thorne",
+      "ok": true,
+      "why": "The facts are acknowledged, the plan's notice condition is honored, and every legal position and disclosure stays with the attorney, routed the same day."
+     },
+     {
+      "label": "Give him Keystone's $10,000 limit and a likely settlement month so he can plan",
+      "ok": false,
+      "why": "What a lienholder is told is counsel's call, and a settlement date is a prediction the Case Manager never makes."
+     }
+    ]
+   },
+   "convert": {
+    "title": "Peach State Lien Audit & Confirmation — memorandum to file",
+    "category": "Others",
+    "type": "Others",
+    "folder": "liens",
+    "sections": [
+     {
+      "h": "1 · The audit and the dispute",
+      "lines": [
+       "Interim itemization of 06/10/2026 audited line by line: $3,618.00 asserted.",
+       "Three lines disputed as unrelated (02/03, 03/18, 05/06/2026); Crescent Pain & Spine corrected to the $1,860.00 paid; Summit Imaging at $0.00."
+      ]
+     },
+     {
+      "h": "2 · The confirmation email as sent",
+      "lines": []
+     },
+     {
+      "h": "3 · The reply as received",
+      "lines": []
+     },
+     {
+      "h": "4 · What the confirmation establishes",
+      "lines": []
+     },
+     {
+      "h": "5 · Filed and updated",
+      "lines": [
+       "CMS → Liens: $3,618.00 asserted → $1,860.00 confirmed 06/24/2026; flag kept.",
+       "CMS → Doc Hub → Others under the firm's naming convention; Communications Log; a copy on the Backup Drive in Liens & Reimbursement.",
+       "Repayment and limits questions routed to Atty. Thorne 06/24/2026. Task: request the final amount before disbursement."
+      ]
+     }
+    ],
+    "establishes": [
+     "The reimbursement claim is $1,860.00, in the plan's own writing, before the demand is drafted",
+     "The plan claims only what it paid, for the collision's care; the three unrelated lines are gone",
+     "No other accident-related claim is in process as of 06/24/2026",
+     "Nothing is compromised: any reduction is Atty. Thorne's, at the lien stage"
+    ]
+   },
+   "labels": {
+    "write": "The dispute email to Peach State",
+    "reply": "Peach State's written confirmation",
+    "send": "Send it to Dion Carver",
+    "who": "Dion Carver",
+    "sentTime": "9:30 a.m.",
+    "sentToast": "Sent. His written confirmation is in the thread.",
+    "warn": "Audit the itemization first: the dispute is built from your calls.",
+    "why": "A thread in a mailbox is not on the case file: a colleague covering the file cannot find it, and it is not in the backup. Converted, filed and backed up, the plan's own confirmation of its lien is part of the case.",
+    "folderNote": "every lien and reimbursement document on the case",
+    "aria": "Your dispute email to Peach State",
+    "original": "Peach-State-Lien-Confirmation.pdf",
+    "rightToast": "Right: acknowledged, routed, and nothing agreed for Atty. Thorne."
+   }
+  },
+  "d2m4-wage": {
+   "title": "Employer Wage Verification — Northgate Distribution",
+   "kicker": "Request the employer's own verification, answer its follow-up, and file the exchange",
+   "model": "RS96",
+   "sent": "06/22/2026",
+   "to": "Angela Ruiz, HR Manager, Northgate Distribution (aruiz@northgatedistribution.example)",
+   "cc": "",
+   "subject": "John Doe (Employee ID NGD-20417) — wage and attendance verification request",
+   "attachment": "Employee authorization signed by John Doe 06/22/2026",
+   "brief": "Ask Northgate for its own records: the Wage Loss Verification Form, payroll records and his W-2, and confirmation of his rate, shift hours, each missed date, any overtime lost and the job's physical demands. Share no medical records and nothing about the claim's value.",
+   "required": [
+    {
+     "id": "dates",
+     "label": "Lists the missed dates to verify",
+     "hint": "Name 02/09 through 02/13, 03/05, 03/13, 05/15 and 05/18 so each is confirmed or corrected.",
+     "match": [
+      "02/09",
+      "03/05",
+      "03/13",
+      "05/15",
+      "05/18"
+     ]
+    },
+    {
+     "id": "rate",
+     "label": "Asks for his hourly rate and shift hours",
+     "hint": "The claim multiplies the rate by the hours: ask for both.",
+     "match": [
+      "rate|hourly",
+      "hours|shift"
+     ]
+    },
+    {
+     "id": "overtime",
+     "label": "Asks whether any overtime was lost",
+     "hint": "Overtime is claimed only if the employer confirms it was scheduled and lost.",
+     "match": [
+      "overtime"
+     ]
+    },
+    {
+     "id": "payroll",
+     "label": "Asks for payroll records or paystubs, and the W-2",
+     "hint": "Ask for paystubs or payroll records for the affected pay periods, and his W-2.",
+     "match": [
+      "paystub|pay stub|payroll",
+      "w-?2"
+     ]
+    },
+    {
+     "id": "demands",
+     "label": "Asks for the physical demands of his job",
+     "hint": "The job's physical demands tie the doctors' restrictions to the work.",
+     "match": [
+      "physical|job duties|job description|demands"
+     ]
+    },
+    {
+     "id": "form",
+     "label": "Asks for the Wage Loss Verification Form",
+     "hint": "Ask the employer to complete the verification form, not just to write back.",
+     "match": [
+      "verification form|wage loss.{0,20}form"
+     ]
+    }
+   ],
+   "reply": {
+    "from": "Angela Ruiz, Northgate Distribution (aruiz@northgatedistribution.example)",
+    "date": "06/30/2026",
+    "time": "2:40 p.m.",
+    "subject": "RE: John Doe (NGD-20417) — wage and attendance verification",
+    "body": "Attached are our wage and attendance letter and the completed Wage Loss Verification Form with payroll records for the three pay periods. To summarize: Mr. Doe is paid $22.00 an hour on 8-hour day shifts. Payroll shows nine unpaid shifts, 72 hours, $1,584.00: 02/09 through 02/13, 03/05, 03/13, 05/15 and 05/18/2026. No overtime was scheduled on any of them. The restrictions from 02/20 and 03/05/2026 were handled within his role at full shifts, with no hours lost. The job requires lifting to 50 lb, forklift work and being on his feet all shift. We have no 2025 W-2 for him; he started 01/12/2026.\n\nAngela Ruiz · HR Manager · Northgate Distribution · (555) 010-6600"
+   },
+   "press": {
+    "from": "Angela Ruiz, Northgate Distribution",
+    "date": "06/30/2026",
+    "subject": "RE: one more question",
+    "body": "One more question from our benefits coordinator. Will John's settlement pay him back for those days, so we know how to code them? And could you send us his MRI and his doctors' notes so we can update his restrictions file?",
+    "choices": [
+     {
+      "label": "Send the MRI and the notes: Northgate has cooperated, and the records are already on file",
+      "ok": false,
+      "why": "His authorization lets Northgate give records to the firm, not the reverse. Sending his medical records to his employer breaches his privacy."
+     },
+     {
+      "label": "Tell her yes: lost wages are part of the claim, so he will be repaid at settlement",
+      "ok": false,
+      "why": "That predicts a recovery and discusses his claim with a third party. What the claim recovers is Atty. Thorne's to discuss, with John Doe."
+     },
+     {
+      "label": "Thank her, send no records, say work-status notes come from John and his providers, and route the claim question to Atty. Thorne",
+      "ok": true,
+      "why": "His privacy is kept, Northgate still gets restrictions from the proper source, and the claim question reaches the attorney the same day."
+     }
+    ]
+   },
+   "convert": {
+    "title": "Employer Wage Verification — memorandum to file",
+    "category": "Others",
+    "type": "Others",
+    "folder": "settlement",
+    "sections": [
+     {
+      "h": "1 · What was asked, and of whom",
+      "lines": [
+       "Angela Ruiz, HR Manager, Northgate Distribution, 06/22/2026, with John Doe's signed authorization."
+      ]
+     },
+     {
+      "h": "2 · The confirmation email as sent",
+      "lines": []
+     },
+     {
+      "h": "3 · The reply as received",
+      "lines": []
+     },
+     {
+      "h": "4 · What the confirmation establishes",
+      "lines": []
+     },
+     {
+      "h": "5 · Filed and updated",
+      "lines": [
+       "CMS → Doc Hub → Others under the firm's naming convention; Communications Log; a copy on the Backup Drive in Wages & Costs.",
+       "Claim question routed to Atty. Thorne 06/30/2026; no medical records sent.",
+       "Tasks: audit the draft wage worksheet (due 07/01/2026); ask John Doe for his 2025 W-2."
+      ]
+     }
+    ],
+    "establishes": [
+     "The rate, hours and nine unpaid shifts come from Northgate's own business records: $1,584.00",
+     "No overtime and no light-duty hours were lost",
+     "The 02/09–02/13/2026 call-outs for neck pain are on the employer's record, flagged to Atty. Thorne",
+     "The 2025 W-2 must come from John Doe (Riverton Freight Services)"
+    ]
+   },
+   "labels": {
+    "write": "The verification request to Northgate HR",
+    "reply": "Northgate's written verification",
+    "send": "Send it to Angela Ruiz",
+    "who": "Angela Ruiz",
+    "sentTime": "9:05 a.m.",
+    "sentToast": "Sent. Her reply and records are in the thread.",
+    "warn": "",
+    "why": "A reply in a mailbox is not on the case file: a colleague covering the file cannot find it, and it is not in the backup. Converted, filed and backed up, the employer's own verification is part of the case.",
+    "folderNote": "every wage and cost document on the case",
+    "aria": "Your verification request to Northgate",
+    "original": "Employer-Wage-Verification.pdf",
+    "rightToast": "Right: no records out, nothing said about the claim, and the question routed."
+   }
+  }
+ }
+}

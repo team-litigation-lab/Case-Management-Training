@@ -124,7 +124,14 @@ window.CM_CASE_FLOW = {
     ]},
     {after: "d1m1-a2", title: "Health Plan and Payer Order", group: "cover", items: [
       "Peach State Health Plan · member PSH-55017742 · group GRP-41208 · reimbursement right asserted on first notice",
-      "Payer Order (who pays the Medical Bills while the claim is open) is a different question from the stack: PIP/MedPay → private health insurance → LOP/provider liens"
+      "Payer Order (who pays the Medical Bills while the claim is open) is a different question from the stack: PIP/MedPay → private health insurance → LOP/provider liens",
+      "Peach State's interim itemization (06/10/2026) asserted $3,618.00; audited line by line (three unrelated lines, Crescent claimed at billed), the plan confirmed $1,860.00 in writing on 06/24/2026 · recovery file SRU-26-03318"
+    ]},
+    {after: "d2m4-wage", title: "Lost Wages, Verified", group: "money", items: [
+      "Northgate (Angela Ruiz, HR) verified 06/30/2026: $22.00/hour × 72 unpaid hours = $1,584.00; no overtime lost",
+      "Each shift matched to its record: 03/05 consult · 03/13 MRI · 05/15 injection · 05/18 off-work note",
+      "02/09–02/13/2026: five call-outs before first treatment, no provider note: kept and flagged to Atty. Thorne",
+      "Job: lifting to 50 lb, forklift, on his feet all shift · full duty at MMI (06/12/2026)"
     ]},
     {after: "d1m1-open", title: "People and Vehicles", group: "file", items: [
       "Host driver: Kevin Alvarez, John's coworker (separate household); they carpool on alternate weeks and 02/06/2026 was Kevin's week. He owns the host vehicle, a 2020 Ford Escape, insured by Harbor Point (Host UM $20,000; PIP $5,000).",
@@ -375,6 +382,10 @@ window.CM_CASE_FLOW = {
     ["The two-track fork: one file settling on Day 3 (Track A) and going to suit on Days 4–5 (Track B) from the same 08/05/2026 negotiation", "Days 3–5 — the brief's day order, made one coherent file"],
     ["UM notice at claim set-up (notice is not a demand) and verifying each UM form and PIP's terms in writing", "Day 2 · Module 1"],
     ["LOP issuance guidelines and the PIP exhaustion ledger", "Day 2 · Module 2"],
+    ["The Treatment Phase's coverage and subrogation summary, with the exact CMS flag rules for subrogation liens (first notice, before any demand) and Treatment Gaps (the day the records show it, facts only)", "Day 2 · Module 2 — Coverage & Subrogation: the Treatment Phase Summary"],
+    ["The Health Plan's itemized lien audited line by line (unrelated, pre-existing and pre-loss lines; amounts claimed above what was paid) and confirmed in writing before the demand", "Day 2 · Module 2 — Health Plan Subrogation (the lien-ledger audit and confirmation)"],
+    ["The LOP endorsement call with the treating provider's office, converted into a case note, tasks and a filed record", "Day 2 · Module 2 — Transmitting LOPs to Medical Providers"],
+    ["Employer wage verification and the medical-nexus reconciliation of every missed shift before the BI demand", "Day 3 · Pre-Demand Case Auditing — Wage Loss Verification & the Medical Nexus"],
     ["Redirecting a referral to the client's choice of facility, and the downstream task list: each task done or delegated with an owner and a due date", "Day 2 · Module 2"],
     ["The non-leading gap interview, recording a client call with consent stated, and the Gap Explanation Record format", "Day 2 · Module 3"],
     ["Billed vs. paid Specials routed to counsel, and the strategy-briefing protocol for Lead Counsel", "Day 2 · Module 4"],
@@ -3042,7 +3053,16 @@ window.CM_CASE_FLOW = {
          a: 1, r: "Without the finding, an EMC state can cap PIP (for example, $2,500 of a $10,000 limit), pushing bills onto the Health Plan, LOPs and the BI settlement. The finding is the physician's clinical judgment, never yours to suggest; you check, ask whether it was documented and flag the consequence to Atty. Thorne. John Doe's Harbor Point PIP has no EMC ceiling."},
         {q: "Harbor Point PIP paid Summit Imaging's $2,395.00 MRI, while John Doe's chiropractic and PT ran under Riverton Spine & Rehab's LOP. Why does that pattern protect a client's net on a typical file?",
          opts: ["Imaging and hospital bills are fixed and rarely reduced at the end, while an LOP balance can still be negotiated, so less of the recovery goes to bills", "PIP pays imaging at a higher rate than chiropractic care", "LOP bills are left out of the Specials", "Harbor Point repays the LOP provider at settlement"],
-         a: 0, r: "Strategic exhaustion: PIP spent on non-negotiable hard costs leaves the negotiable LOP balance behind, which preserves more of the BI money for the client. The LOP bills stay in the Specials at their billed amounts; any reduction is Atty. Thorne's to negotiate, and you never promise a provider one."}
+         a: 0, r: "Strategic exhaustion: PIP spent on non-negotiable hard costs leaves the negotiable LOP balance behind, which preserves more of the BI money for the client. The LOP bills stay in the Specials at their billed amounts; any reduction is Atty. Thorne's to negotiate, and you never promise a provider one."},
+        {q: "Peach State's notice of reimbursement rights arrives on 02/27/2026, before the plan has paid any accident-related bill. When is the lien flagged in the CMS?",
+         opts: ["Once the plan's first payment posts", "That day: the right is known, so it is flagged in CMS → Liens, dated, before any demand", "At the pre-demand audit, when every lien is listed", "At disbursement, when the final amount is known"],
+         a: 1, r: "The exact rule: flag the day a reimbursement right is first known (or the day a plan's first accident payment posts, if no notice came first), and always before the first demand. Registering a lien is not conceding it."},
+        {q: "Peach State's 06/10/2026 interim itemization asserts $3,618.00, including a 02/03/2026 eye exam and the Crescent injection claimed at the billed $3,400.00. What does the lien register show after your audit?",
+         opts: ["$3,618.00, the plan's figure, until the demand", "$1,860.00 as soon as you finish the audit", "$3,618.00 asserted and under dispute until Peach State confirms the corrected figure in writing; then $1,860.00 confirmed (06/24/2026)", "Nothing: a disputed lien is removed from the register"],
+         a: 2, r: "A plan claims only what it paid, for the collision's care: the three unrelated lines come off and Crescent is $1,860.00. The register changes only to a figure the plan confirms in writing; any reduction is Atty. Thorne's, at the lien stage."},
+        {q: "On the endorsement call, Riverton Spine & Rehab's office manager asks whether the firm guarantees her bill in full and when it will be paid. What do you say?",
+         opts: ["“Yes, the LOP guarantees full payment at settlement.”", "“The LOP's terms are what protect the bill; payment amounts and timing are Atty. Thorne's, and I'll put you in touch with him”", "“Bill Peach State instead and we'll sort it out later.”", "“Probably within six months, once the case settles.”"],
+         a: 1, r: "You confirm acceptance, secure the appointment and set the billing protocol. Payment amounts, reductions and dates are never promised by the Case Manager: they are Atty. Thorne's."}
       ],
       blocks: [
 
@@ -3122,7 +3142,7 @@ window.CM_CASE_FLOW = {
       },
 
       {
-        kind: "lesson", id: "d2m2-l1", compact: true,
+        kind: "lesson", id: "d2m2-l1", brief: true,
         title: "LOP Issuance Guidelines, Provider Coordination & PIP Limits",
         topic: "Who pays which bill, and what only counsel may promise",
         visual: "Centre-right, a cream ledger card with a navy header bar, PIP · HARBOR POINT · $5,000, its five rows in mono type. Above it a horizontal fuel gauge drains from navy to empty in five orange-numbered steps, the last landing on $0.00 at 06/12/2026 in a red danger chip. Left third, a vertical payer rail with orange badges ① PIP ② PEACH STATE ③ LOP; the LOP step is a navy card stamped COUNSEL-APPROVED TERMS. Bottom strip, two provider chips side by side: RIVERTON SPINE & REHAB · LOP ✓ and SUMMIT IMAGING · LOP ✗ → PIP. The argument: an LOP is the last rung of the Payer Order, not the first answer to a provider who asks.",
@@ -3273,15 +3293,17 @@ window.CM_CASE_FLOW = {
         visual: "Two dated envelopes side by side, each a white card with a navy header. Left, 02/23/2026 → RIVERTON SPINE & REHAB: an outgoing LOP with three orange numbered badges, ① payer check: out of network ② Atty. Thorne's approval and signature ③ receipt confirmed, and a green ✓ transmit stamp. Right, 03/11/2026 → SUMMIT IMAGING CENTER: a decline letter carrying a mono pill PIP LEFT $3,675.00 ≥ MRI $2,395.00 and an orange arrow routing the bill to Harbor Point. Beneath both, a slim cream baseline card: 2021 · LOW BACK · RESOLVED beside 2026 · NECK, two separate outlined zones. A red callout bottom-right: “No amount promised.”",
         act: {
           scenario: "02/23/2026: John Doe's first treatment was at Riverton Urgent Care on 02/20/2026 ($685.00, to Harbor Point PIP). Chiropractic and PT at Riverton Spine & Rehab begin 02/24/2026; it is out of network for Peach State. Atty. Thorne has approved the firm's LOP template. John Doe had three chiropractic visits in 2021, for low-back stiffness. 03/11/2026: Summit Imaging Center, booked for the cervical MRI Dr. Reyes ordered on 03/05/2026, asks for an LOP.",
-          prompt: "Work both dates. First run the Payer Order for each provider and record the result. On 02/23/2026, prepare Riverton Spine & Rehab's LOP on the approved template, route it to Atty. Thorne for approval and signature, transmit it with the claim-specific HIPAA authorization, and ask for itemized statements and a missed-visit alert; confirm receipt and open the LOP register entry. Record John Doe's assessment, including his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing, naming Harbor Point PIP as the payer, with the ledger to prove it. Graded: no payment promised to either provider.",
-          tool: "CMS → Liens → LOP register · CMS → Documents → Outgoing · Email Workspace · CMS → Insurance tab → PIP Log",
-          output: "One counsel-approved LOP transmitted and confirmed, one LOP request declined with the payer named, a current PIP Log, and a documented pre-morbid baseline.",
+          prompt: "Work both dates. First run the Payer Order for each provider and record the result. On 02/23/2026, prepare Riverton Spine & Rehab's LOP on the approved template, route it to Atty. Thorne for approval and signature, transmit it with the claim-specific HIPAA authorization, and ask for itemized statements and a missed-visit alert; confirm receipt and open the LOP register entry. Then take the live call with Tammy Greer, the office manager, before the 02/24/2026 evaluation: introduce John Doe's case, confirm the clinic accepts the LOP, secure the endorsed appointment, and answer her questions on insurance status, treatment cadence and medical records and billing inside your lane. After the call, convert it into a dated case note, open the follow-up tasks (the 30-day itemized statement, the missed-visit alert, the records request on the HIPAA authorization), and file the LOP and the call note in the CMS so a copy is kept on the Backup Drive. Record John Doe's assessment, including his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing, naming Harbor Point PIP as the payer, with the ledger to prove it. Graded: no payment promised to either provider.",
+          tool: "CMS → Liens → LOP register · CMS → Documents → Outgoing · Email Workspace · Call Simulator · CMS → Case Notes · CMS → Tasks · CMS → Insurance tab → PIP Log",
+          output: "One counsel-approved LOP transmitted, confirmed and endorsed by call with the appointment secured, one LOP request declined with the payer named, a current PIP Log, and a documented pre-morbid baseline.",
           checkpoints: [
             "Payer Order run and recorded for each provider: PIP → Peach State → LOP",
             "Riverton Spine & Rehab's LOP justified: out of network for Peach State, and a full course of care PIP's balance can't carry",
             "LOP explained to John Doe by Atty. Thorne and signed by John Doe and by Atty. Thorne on 02/23/2026, before the first visit on 02/24/2026, so the handoff from urgent care opens no new gap; nothing signed by the CM on his behalf",
             "Transmittal carries the claim-specific HIPAA authorization and asks for itemized statements and a missed-visit alert; receipt confirmed and logged",
             "LOP register entry: provider, date signed, out-of-network status, a running balance field",
+            "Endorsement call with Tammy Greer: John Doe's case introduced (LSH-2026-MVA-770412, DOL 02/06/2026), LOP acceptance confirmed and the 02/24/2026 evaluation secured; insurance status answered with facts (Harbor Point PIP HP-26-7741 open; out of network for Peach State); cadence left to the provider's plan of care; itemized statements every 30 days, a missed-visit alert and records on the HIPAA authorization agreed",
+            "Call converted into a dated case note; follow-up tasks opened with an owner and a date (30-day itemized statement, missed-visit alert, records request); the LOP and the call note filed in the CMS and kept on the Backup Drive (Medical Records)",
             "Assessment recorded: clinical (neck pain; right-hand numbness since 02/18; the urgent-care note puts onset at the 02/06/2026 MVA), social (rental authorized 02/18/2026, capped at 30 days, so it ends 03/19/2026: calendared as a treatment risk), vocational (Northgate Distribution shift lead)",
             "Pre-morbid baseline: three 2021 chiropractic visits for low-back stiffness, resolved; no prior neck complaints; body region distinguished, records requested",
             "Summit Imaging's 03/11/2026 request declined in writing with the reason stated (PIP applies first) and Harbor Point PIP named as the payer",
@@ -3292,6 +3314,7 @@ window.CM_CASE_FLOW = {
         ops: [
           ["02/23/2026: Riverton Spine & Rehab needs an LOP before the 02/24/2026 visit", "Run the Payer Order, prepare the LOP on the approved template, route it for approval", "CMS → Documents → Outgoing → Route for approval", "Approved and signed before the first visit"],
           ["LOP signed", "Transmit it with the HIPAA authorization; confirm receipt; open the register entry", "Email Workspace · CMS → Liens → LOP register", "Receipt confirmed and dated in the Communications Log"],
+          ["LOP received by the clinic", "Call the office manager: confirm acceptance, secure the evaluation, set the billing protocol; then note, task and file it", "Call Simulator · CMS → Case Notes · CMS → Tasks", "Appointment confirmed; note dated; tasks owned and dated; nothing promised"],
           ["03/11/2026: Summit Imaging asks for an LOP", "Decline in writing, naming Harbor Point PIP as the payer; post the ledger", "Email Workspace · CMS → Insurance tab → PIP Log", "Reason stated; ledger shows $3,675.00 left before the MRI"]
         ],
         best: [
@@ -3306,7 +3329,7 @@ window.CM_CASE_FLOW = {
           ai: [
             ["Payer-order decisions", 20, "LOP to Riverton Spine & Rehab (out of network for Peach State); Summit declined because PIP applies first"],
             ["Ledger arithmetic", 15, "$3,675.00 left on 03/11/2026; $1,280.00 after the $2,395.00 MRI"],
-            ["LOP file completeness", 15, "Signed 02/23/2026, transmitted with the HIPAA authorization, receipt confirmed, register entry opened"],
+            ["LOP file completeness", 15, "Signed 02/23/2026, transmitted with the HIPAA authorization, receipt confirmed, register entry opened; the endorsement call noted, tasked and filed"],
             ["Assessment and baseline", 10, "Clinical, social, vocational and pre-morbid fields recorded; 03/19/2026 rental end calendared; 2021 low back distinguished from the neck"]
           ],
           trainer: [
@@ -3317,6 +3340,7 @@ window.CM_CASE_FLOW = {
         notes: [
           "Run it in two passes, one per date. On 02/23/2026 the trainee must say why Riverton gets an LOP before opening the template.",
           "Put to the room: “Summit says it won't do the MRI without an LOP. What do you say, and who do you tell?” Give the PIP details; if Summit still refuses, Atty. Thorne hears before the 03/13/2026 appointment, so the MRI doesn't slip.",
+          "The call with Tammy Greer is the provider endorsement: she will ask why not Peach State, how often he will come, and whether the firm guarantees payment. Facts and logistics pass; cadence is the provider's, payment terms are Atty. Thorne's. Then check the note, the tasks and the filing: a call nobody can find is a call that never happened.",
           "Grade the language. “Your bill is protected on the LOP's terms; for anything beyond them I'll put you in touch with Atty. Thorne” passes. “Don't worry, you'll be paid in full” fails, however friendly.",
           "The baseline checkpoint is the eggshell skill in miniature: the trainee records the prior and the difference in body region. Whether aggravation law matters at all is Atty. Thorne's call."
         ]
@@ -3810,7 +3834,7 @@ window.CM_CASE_FLOW = {
       },
 
       {
-        kind: "lesson", id: "d1m1-l2", compact: true,
+        kind: "lesson", id: "d1m1-l2", brief: true,
         title: "Health Subrogation, Payer Order & the Regulatory Triple-Check",
         topic: "Who pays the bills now, and who gets paid back later",
         visual: "A two-lane swimlane running left to right. Upper lane, navy, labelled PAYS THE BILLS NOW — PAYER ORDER: an arrow through PIP/MedPay → Peach State Health Plan → LOP/provider liens. Lower lane, orange, labelled PAYS THE CLAIM LATER — RECOVERY STACK: an arrow through BI → Host UM → Relative UM ending at a SETTLEMENT node. A bold orange return arrow curves from the Health Plan in the upper lane down into the settlement node, labelled REIMBURSEMENT CLAIM. The curve is the heaviest line on the slide. Top-right, three stacked chips form the Regulatory Triple-Check: HIPAA · BCRC · PAYER ORDER, each with a tick box. Bottom-left, a danger-bordered callout: “Flagged late = paid twice.”",
@@ -3882,53 +3906,128 @@ window.CM_CASE_FLOW = {
       },
 
       {
-        kind: "activity", id: "d1m1-a2",
-        title: "Subrogation Lien Flagging in the CMS",
-        topic: "Skill Activity 2 — register the claim before it can hurt you",
-        visual: "A single annotated CMS Liens screen filling two-thirds of the slide, a white card with a navy header bar. Five fields are called out with orange numbered badges and leader lines to short labels in the right margin: ① Plan carrier ② Member ID ③ Group number ④ Payer Order position ⑤ Reimbursement flag. Below the screen, a slim two-state timeline: a green node, FLAGGED NOW · before demand, and a red node, FOUND AT DISBURSEMENT · client's net is hit, crossed out. Keep the red state on the slide: trainees need to see the failure they are avoiding.",
-        act: {
-          scenario: "Peach State Health Plan has begun paying John Doe's accident-related treatment. No lien record exists on the matter yet, and the pre-demand audit is still ahead.",
-          prompt: "Register Peach State Health Plan's reimbursement claim in John Doe's lien register and flag it against the matter. Record the carrier, member ID and group number, its position in the Payer Order, the basis on which reimbursement is asserted, and the date of the flag. Record the Regulatory Triple-Check results alongside it. Then state in one line what must happen before this lien can be compromised.",
-          tool: "CMS → Liens",
-          output: "A dated, flagged lien record complete enough to negotiate from on Day 4.",
-          checkpoints: [
-            "Lien record created against the John Doe matter",
-            "Carrier recorded as Peach State Health Plan",
-            "Member ID PSH-55017742 and group GRP-41208 both entered",
-            "Payer-order position recorded: after PIP/MedPay, before LOP/provider liens",
-            "Reimbursement basis noted",
-            "Flag dated before any demand is drafted",
-            "Triple-Check recorded: HIPAA authorization, BCRC answer, Payer Order",
-            "Escalation noted: compromise requires Atty. Thorne's authority"
+        kind: "lesson", id: "d2m2-sum", compact: true,
+        title: "Coverage & Subrogation: the Treatment Phase Summary",
+        topic: "Every coverage, the Payer-First Principle, health subrogation, and exactly when the CMS flags go up",
+        visual: "A one-page summary board in four quadrants on a cream card, each a context card with a ＋ More tab. Top-left, EVERY COVERAGE, SORTED: a mini coverage map with only BI, HOST UM and RELATIVE UM bracketed as RECOVERY STACK $40,000. Top-right, PAYER-FIRST: a three-step staircase PIP → PEACH STATE → LOP. Bottom-left, HEALTH SUBROGATION: a curved return arrow from the Health Plan to a settlement node, a mono pill $3,618.00 ASSERTED struck through beside $1,860.00 CONFIRMED 06/24/2026, and three ticked chips HIPAA · BCRC · PAYER ORDER. Bottom-right, THE TWO CMS FLAGS: two orange flag icons on a date rail, LIEN · 02/27/2026 · BEFORE ANY DEMAND and GAP · 02/06 → 02/20/2026 · 14 DAYS, with a dashed WATCH strip running on to 04/02 → 04/21 · 19 DAYS. The flags are the brightest marks on the slide.",
+        tell: {
+          why: "The Treatment Phase puts three money questions on the file at once: who pays each bill now, who will want paying back from the recovery, and which facts must be flagged in the CMS before anyone argues about them. A Case Manager who can say all three on one page catches the lien and the gap while there is still time to work them, instead of meeting them at the demand or at disbursement.",
+          rules: [
+            "Sort every coverage twice: whose it is (third-party, first-party, health) and what it pays (the claim, the bills, the car). Only BI, Host UM and Relative UM make the $40,000 Recovery Stack; PIP, PD and collision sit outside it.",
+            "Route every bill by the Payer-First Principle: Harbor Point PIP first (no reimbursement right, confirmed 03/02/2026), Peach State next at the contract rate, a Letter of Protection last and only for care the earlier payers can't carry.",
+            "Clear the Regulatory Triple-Check before clinical planning: the claim-specific HIPAA authorization, the BCRC answer (John Doe is 34: his SSDI status verified and recorded) and the Payer Order.",
+            "A Health Plan claims back only what it paid, for the collision's care. Peach State's interim itemization (06/10/2026) asserted $3,618.00; audited line by line, its claim is $1,860.00, confirmed in writing on 06/24/2026.",
+            "Lien flag, the exact rule: flag the subrogation lien in CMS → Liens → Flag the day a reimbursement right is first known (Peach State's notice, 02/27/2026), or the day a plan's first accident-related payment posts if no notice came first, and always before the first demand is drafted. Record carrier, member ID, group number, Payer Order position, the basis asserted and the date of the flag.",
+            "Re-verify the lien when its itemization arrives: audit each line against the treatment record and the payers' ledgers, dispute unrelated, pre-existing and pre-loss lines and any amount above what was paid, and change the register only to a figure the plan confirms in writing.",
+            "Gap flag, the exact rule: flag the initial Treatment Gap the day the records show it (date of loss 02/06/2026, first treatment 02/20/2026: 14 days, counted exactly) in CMS → Case File → Risk Flags and the Case Plan's risks band, in facts only (the dates, the count, explanation pending), route it to Atty. Thorne, and set a watch for any later break in care.",
+            "Flag every later break in care the day you learn of it, from the provider's missed-visit alert: its exact dates and count (04/02 → 04/21/2026, 19 days), then run A-C-T the same day.",
+            "Neither flag is a judgment. You record and route the facts; what a lien or a gap means for the claim is Atty. Thorne's."
+          ],
+          upl: [
+            "You may flag, record, audit and request in writing, and report what a payer asserts. Whether a lien is enforceable or reducible, what to agree with a lienholder, and what a gap does to the claim's value are Atty. Thorne's."
+          ]
+        },
+        show: {
+          caption: "The two CMS flags: when each one goes up",
+          type: "table",
+          head: ["Flag", "When it goes up", "Where in the CMS", "What it records"],
+          rows: [
+            ["Subrogation lien", "The day a reimbursement right is first known (02/27/2026), or a plan's first accident payment posts; always before the first demand", "CMS → Liens → Flag", "Carrier, member ID, group, Payer Order position, basis, flag date"],
+            ["Lien re-verified", "The day the plan's itemization arrives (06/10/2026)", "CMS → Liens", "Each line audited; only the figure confirmed in writing ($1,860.00, 06/24/2026)"],
+            ["14-Day Gap", "The day the records show first care 14 days after the loss (02/06 → 02/20/2026)", "CMS → Case File → Risk Flags · Action Plan Editor → Risks", "Dates, count, explanation pending; routed to Atty. Thorne; watch set"],
+            ["Later break in care", "The day a missed-visit alert arrives (04/08/2026)", "CMS → Case File → Treatment timeline", "04/02 → 04/21/2026, 19 days; A-C-T the same day"]
           ]
         },
         ops: [
-          ["Plan's first payment posts", "Create and flag the lien record", "CMS → Liens", "Record dated; flag set"],
-          ["Lien record created", "Attach the Triple-Check results", "CMS → Case Notes", "HIPAA, BCRC and Payer Order all recorded"],
-          ["Any request to compromise", "Route to Atty. Thorne", "CMS → Tasks → Escalate", "No compromise discussed without counsel's authority"]
+          ["A reimbursement right is first noticed", "Flag the lien and record its identifiers", "CMS → Liens → Flag", "Flag dated before any demand is drafted"],
+          ["The plan's itemized ledger arrives", "Audit each line; dispute in writing", "CMS → Liens · Email Workspace", "Register changed only to the figure confirmed in writing"],
+          ["Records show first care 02/20/2026", "Flag the 14-Day Gap in facts only; route it; set the watch", "CMS → Case File → Risk Flags · Action Plan Editor → Risks", "Dates and count recorded; routed to Atty. Thorne"]
         ],
         best: [
-          "Registering a lien is not conceding it; Day 4 is where it gets reduced.",
-          "Keep the LOP provider list current with balances, so no bill surprises the policy limits.",
-          "Pitfall: finding the lien at disbursement, when there is no time to negotiate from strength."
+          "Flag a reimbursement right the day it is known, and before the first demand.",
+          "Audit every itemized lien ledger line by line against the records.",
+          "Keep the Payer Order and the Recovery Stack on separate lines of the file.",
+          "Pitfall: waiting for the demand, or the disbursement, to flag a lien.",
+          "Pitfall: recording what the gap does to the claim's value, instead of its facts."
         ],
-        sources: ["D1#22", "D1#24"],
+        sources: ["D1#22", "D1#23", "D1#16", "D1#44", "Newly authored: the Treatment Phase's coverage and subrogation summary, with the exact CMS flag rules for subrogation liens and Treatment Gaps"],
         rubric: {
           ai: [
-            ["Record created", 15, "Lien exists against the correct matter"],
-            ["Identifier accuracy", 25, "Member ID and group number entered exactly"],
-            ["Flag timing", 20, "Dated and placed pre-demand"]
+            ["Coverages and Payer Order", 20, "Each coverage sorted by whose and what it pays; PIP → Peach State → LOP with the reason for each step"],
+            ["Lien flag rule", 20, "Flagged on first notice and before any demand, with its identifiers; re-verified line by line to the figure confirmed in writing"],
+            ["Gap flag rule", 20, "14 days counted exactly, facts only, routed, watch set; the 19-day break flagged the day the alert arrives"]
           ],
           trainer: [
-            ["Documentation quality", 25, "A lien negotiator could work from the record cold"],
-            ["Authority boundary", 15, "Recognised that compromise needs counsel's authority"]
+            ["Grasps the consequence", 25, "Explains what a late lien flag or an unflagged gap costs the client's net and the file"],
+            ["UPL boundary", 15, "Enforceability, compromise and value left to Atty. Thorne"]
           ]
         },
         notes: [
-          "Have trainees say the date aloud as they set the flag. Timing is the graded element, and it is the one they will be tempted to defer.",
-          "Point at the crossed-out red node: a lien found at disbursement is found too late to negotiate from strength.",
-          "Read one trainee's record to the room as if you were the lien negotiator receiving it on Day 4. Gaps show at once.",
-          "Remind them that registering a lien is not conceding it."
+          "This is the one-page recap of the Treatment Phase's money lessons: open each ＋ More card in turn and let the room say the rule before you show it.",
+          "Ask for the two flag rules word for word. A trainee who says “when I get to it” for the lien, or “about two weeks” for the gap, hasn't got them yet.",
+          "Peach State's interim itemization is the bridge to the next activity: $3,618.00 asserted, $1,860.00 confirmed. The difference is the audit.",
+          "Close on the line: you flag, record and request; Atty. Thorne decides what any of it means."
+        ]
+      },
+
+      {
+        kind: "activity", id: "d1m1-a2",
+        title: "Health Plan Subrogation: Flag, Request & Audit the Lien",
+        topic: "Skill Activity 2 — register the claim before it can hurt you, then audit what the plan asserts",
+        visual: "Left half: a CMS Liens screen on a white card with a navy header bar, five fields called out with orange numbered badges — ① Plan carrier ② Member ID ③ Group number ④ Payer Order position ⑤ Reimbursement flag, dated 03/12/2026. Right half: Peach State's interim itemization as a five-row ledger strip, each row stamped with the trainee's call — three rows struck through in red (02/03 · 03/18 · 05/06), the Crescent row's $3,400.00 crossed out and replaced by $1,860.00, the Summit row ticked at $0.00. Beneath the strip, a mono pill: $3,618.00 ASSERTED → $1,860.00 CONFIRMED IN WRITING 06/24/2026. Bottom, a slim two-state timeline: a green node, FLAGGED AND AUDITED · before demand, and a red node, FOUND AT DISBURSEMENT · client's net is hit, crossed out.",
+        act: {
+          scenario: "03/12/2026: Dion Carver at Peach State Health Plan (recovery file SRU-26-03318) writes that accident-related claims are in process; the plan asserted its reimbursement right on 02/27/2026. No lien record exists on the matter yet. 06/10/2026: Peach State's interim itemization arrives, asserting $3,618.00 across five claim lines. The pre-demand audit is still ahead.",
+          prompt: "Work both dates. On 03/12/2026, register Peach State Health Plan's reimbursement claim in John Doe's lien register and flag it against the matter: the carrier, member ID and group number, its position in the Payer Order, the basis on which reimbursement is asserted, and the date of the flag, with the Regulatory Triple-Check results beside it. Answer Dion Carver in the Email Workspace: the claim is noted, and the firm asks for an itemized ledger of accident-related claims once any are paid. On 06/10/2026, audit the interim itemization line by line in the audit workbench against the treatment record and the PIP Log: what is the collision's care, what is unrelated, pre-existing or before the loss, and what is claimed above what the plan paid. Then send the dispute, get the corrected balance confirmed in writing, convert the exchange into a memorandum, file it in the CMS and on the Backup Drive, and change the lien register only to the confirmed figure. State in one line what must happen before this lien can be compromised.",
+          tool: "CMS → Liens · Email Workspace · CMS → Case Notes · CMS → Insurance tab → PIP Log",
+          output: "A dated, flagged lien record; an audited itemization; $1,860.00 confirmed in writing and filed.",
+          checkpoints: [
+            "Lien record created against the John Doe matter, carrier recorded as Peach State Health Plan",
+            "Member ID PSH-55017742 and group GRP-41208 both entered",
+            "Payer-order position recorded: after PIP/MedPay, before LOP/provider liens",
+            "Reimbursement basis noted: a fully insured group plan, notice of 02/27/2026",
+            "Flag dated before any demand is drafted",
+            "Triple-Check recorded: HIPAA authorization, BCRC answer, Payer Order",
+            "03/12/2026 reply to Dion Carver: the claim noted, an itemized ledger of accident-related claims requested once any are paid",
+            "Interim itemization audited: 02/03/2026 Riverton Vision Center ($95.00, before the loss), 03/18/2026 Peach State Virtual Care ($49.00) and 05/06/2026 Riverton Allergy & Asthma Clinic ($74.00, pre-existing) disputed as unrelated",
+            "Crescent Pain & Spine (PS-2605-449021) corrected from the billed $3,400.00 to the $1,860.00 the plan paid; Summit Imaging confirmed at $0.00 (denied, PIP primary)",
+            "Dispute emailed 06/12/2026; Peach State's corrected itemization of 06/24/2026 confirms $1,860.00 in writing; the register shows $3,618.00 asserted → $1,860.00 confirmed",
+            "Exchange converted into a memorandum, filed in the CMS under the naming convention and kept on the Backup Drive (Liens & Reimbursement)",
+            "Escalation noted: any compromise, the plan's “without reduction” demand and any disclosure of limits need Atty. Thorne's authority"
+          ]
+        },
+        ops: [
+          ["Plan's notice or first payment", "Create and flag the lien record", "CMS → Liens", "Record dated; flag set"],
+          ["Lien record created", "Attach the Triple-Check results; request the itemized ledger", "CMS → Case Notes · Email Workspace", "HIPAA, BCRC and Payer Order recorded; request logged"],
+          ["Interim itemization arrives", "Audit each line; dispute in writing; get the corrected figure confirmed", "CMS → Liens · Email Workspace", "Register shows only the figure confirmed in writing"],
+          ["Any request to compromise or to commit to repayment", "Route to Atty. Thorne", "CMS → Tasks → Escalate", "Nothing agreed without counsel's authority"]
+        ],
+        best: [
+          "Registering a lien is not conceding it; the lien stage is where it gets reduced.",
+          "Audit an itemized lien line by line: a plan claims only what it paid, for the collision's care.",
+          "Keep the LOP provider list current with balances, so no bill surprises the policy limits.",
+          "Pitfall: finding the lien at disbursement, when there is no time to negotiate from strength.",
+          "Pitfall: entering the plan's asserted figure as the lien without auditing it."
+        ],
+        sources: ["D1#22", "D1#24", "Newly authored: the Health Plan's itemized lien audited line by line (unrelated, pre-existing and pre-loss lines; amounts claimed above what was paid) and confirmed in writing before the demand"],
+        rubric: {
+          ai: [
+            ["Record created", 10, "Lien exists against the correct matter"],
+            ["Identifier accuracy", 15, "Member ID and group number entered exactly"],
+            ["Flag timing", 15, "Dated and placed pre-demand"],
+            ["Ledger audit", 20, "Three unrelated lines disputed, Crescent at the $1,860.00 paid, Summit at $0.00; register changed only to the written confirmation"]
+          ],
+          trainer: [
+            ["Documentation quality", 15, "A lien negotiator could work from the record and the filed memorandum cold"],
+            ["Lienholder communication", 10, "A clear, line-by-line dispute that asks for the corrected figure in writing"],
+            ["Authority boundary", 15, "No repayment, reduction or limits disclosure agreed; routed to Atty. Thorne"]
+          ]
+        },
+        notes: [
+          "Run it in two passes, one per date. On 03/12/2026 have trainees say the flag date aloud: timing is the graded element, and the one they will be tempted to defer.",
+          "On 06/10/2026 the audit is the lesson: a plan's recovery vendor pulls every claim from the coverage date, and the Case Manager's job is to send back everything that isn't the collision's care, in writing.",
+          "The Crescent line is the subtle one: the ledger's own paid column says $1,860.00, but the claim column says $3,400.00. Ask the room which number a plan may claim.",
+          "Dion Carver's follow-up asks for full repayment and the limits. Grade the answer: acknowledge, honor the notice, route the rest to Atty. Thorne.",
+          "The results arrive in minutes for training; on a real file a corrected itemization takes weeks. Say so, so nobody expects a plan to answer in a day."
         ]
       },
 
@@ -4489,7 +4588,13 @@ window.CM_CASE_FLOW = {
          a: 1, r: "Bottom line first. A brief that opens with the chronology buries the decision, and the demand figure is his call."},
         {q: "After the strategy session, how are Atty. Thorne's decisions recorded?",
          opts: ["From memory at the end of the week", "The same day, in his words and dated, with a task for each and the Case Plan re-routed", "Only in an email", "In the demand letter"],
-         a: 1, r: "Record the decisions the same day, attributed and dated; a task for each with an owner and a date; the Case Plan marked superseded and re-routed."}
+         a: 1, r: "Record the decisions the same day, attributed and dated; a task for each with an owner and a date; the Case Plan marked superseded and re-routed."},
+        {q: "Northgate's records show nine unpaid shifts; the draft worksheet from John Doe's memory claims 02/18 and 02/19/2026, light duty and overtime, $1,760.00. What goes into the Specials?",
+         opts: ["$1,760.00: the client knows his own hours", "$1,584.00: nine shifts verified by Northgate, each matched to its record; 02/18 and 02/19 were worked, and no overtime or light-duty hours were lost", "$704.00: only the four shifts with a doctor's note", "Nothing until Keystone asks for it"],
+         a: 1, r: "The employer's records, not memory, fix the wage claim: 9 × 8 h × $22.00 = $1,584.00. The five pre-treatment shifts stay in, flagged to Atty. Thorne."},
+        {q: "Northgate's HR manager asks for John Doe's MRI and doctors' notes to update his restrictions file, and whether his settlement will repay the missed days. What do you do?",
+         opts: ["Send the records: Northgate has been cooperative", "Tell her lost wages are part of the claim and he will be repaid", "Send no records, say work-status notes come from John and his providers, and route the claim question to Atty. Thorne", "Ignore the email"],
+         a: 2, r: "His authorization lets Northgate give records to the firm, not the reverse. Nothing about the claim or its value goes to a third party; that question is Atty. Thorne's, with John Doe."}
       ],
       blocks: [
 
@@ -4563,13 +4668,70 @@ window.CM_CASE_FLOW = {
       },
 
       {
+        kind: "activity", id: "d2m4-wage",
+        transition: "MMI is declared and the wage claim is still John Doe's memory. Before the Specials audit, we get the employer's own records and match every missed shift to the doctor's.",
+        title: "Wage Loss Verification & the Medical Nexus",
+        topic: "Skill Activity — verify every missed shift with the employer and the treating providers",
+        visual: "A two-column reconciliation board. Left column, NORTHGATE'S RECORD: nine shift tiles in mono type (02/09 · 02/10 · 02/11 · 02/12 · 02/13 · 03/05 · 03/13 · 05/15 · 05/18), each with its reason code. Right column, THE MEDICAL RECORD: a provider chip joined to each tile by an orange leader line — LAKESIDE CONSULT, SUMMIT MRI, CRESCENT ESI, CRESCENT WORK NOTE 05/15–05/18. The first five tiles have no chip; they carry an orange FLAGGED · ATTY. THORNE tag and three small corroboration chips: EMS 02/06 · RECEIPT 02/07 · CALL-OUT, NECK PAIN. Top-right, an envelope icon marked EMPLOYER VERIFICATION · 06/22 → 06/30/2026. Bottom, a totals rail: $1,760.00 DRAFT struck through in grey, then 9 × 8 h × $22.00 = $1,584.00 in large type. The flagged tiles are the focal point: kept, never dropped.",
+        act: {
+          scenario: "06/22/2026, ten days after MMI (06/12/2026). John Doe signed Northgate Distribution's employee authorization this morning. A draft wage worksheet built from his own account by telephone claims $1,760.00 and is unverified. Northgate's HR manager is Angela Ruiz. The Specials audit is due 07/01/2026.",
+          prompt: "Verify John Doe's lost wages before they reach the Specials. First write the Employer Verification email to Angela Ruiz at Northgate HR in the Email Workspace, with his signed authorization: ask for the Wage Loss Verification Form, the payroll records for the pay periods with missed shifts and his W-2, and the employer's confirmation of his hourly rate, his shift hours, each missed shift, any overtime lost and the physical demands of his job. When Northgate replies, answer its follow-up inside the line. Then reconcile every missed date against the treating providers' visit and off-work notes in the audit workbench, so no absence is left unexcused, and audit the draft worksheet into the Lost Wage Verification Record. Flag any shift with no provider note to Atty. Thorne: never drop it or hide it. Record the verified total in CMS → Financial Ledger → Specials and the Net Sheet, update the Case Plan's financial pillar in the Action Plan Editor, and file the employer correspondence in the CMS so it is kept on the Backup Drive.",
+          tool: "Email Workspace · CMS → Financial Ledger → Specials · CMS → Financial Ledger → Net Sheet · Action Plan Editor · CMS → Documents",
+          output: "Northgate's verification on file, every missed shift matched to its record, and $1,584.00 verified in the Specials.",
+          checkpoints: [
+            "Employer Verification email sent 06/22/2026 with John Doe's signed authorization: rate, shift hours, the nine dates, overtime and physical demands asked; the Wage Loss Verification Form, payroll records and W-2 requested",
+            "Northgate's reply of 06/30/2026 logged: $22.00/hour, 8-hour shifts, nine unpaid shifts (72 hours), no overtime scheduled on a missed shift, restrictions worked at full shifts, lifting to 50 lb, forklift, on his feet the full shift",
+            "Follow-up answered inside the line: no medical records sent to the employer, nothing said about what the claim recovers; the question routed to Atty. Thorne",
+            "Each later shift matched: 03/05 the Lakeside consult, 03/13 the Summit MRI, 05/15 the injection, 05/18 Crescent's off-work note (05/15–05/18/2026)",
+            "02/09–02/13/2026 (five shifts, before first treatment) kept and flagged to Atty. Thorne with Northgate's call-out record, the EMS report and the 02/07/2026 receipt",
+            "Draft corrected: 02/18 and 02/19 removed (he worked them), 03/12 corrected to 03/13, light duty and overtime struck: $1,760.00 → $1,584.00",
+            "PIP's 80% wage benefit recorded as not payable (PIP exhausted 06/26/2026); the full $1,584.00 stays in the Specials",
+            "2025 W-2 requested from John Doe (Riverton Freight Services), not from Northgate",
+            "Earning capacity: released to full duty at MMI 06/12/2026; any claim flagged to Atty. Thorne, never asserted by the Case Manager",
+            "$1,584.00 entered in the Specials and the Net Sheet; Case Plan updated; employer correspondence filed in the CMS and kept on the Backup Drive (Wages & Costs)"
+          ]
+        },
+        ops: [
+          ["MMI declared; authorization signed", "Request the employer's verification and records in writing", "Email Workspace", "Request dated; authorization attached; the six items asked"],
+          ["Northgate replies", "Match each missed shift to a provider record; flag the rest", "Audit workbench · CMS → Case Notes", "No unexcused absence; 02/09–02/13 flagged to Atty. Thorne"],
+          ["Verified total reached", "Enter it; update the plan; file the correspondence", "CMS → Financial Ledger → Specials · Action Plan Editor · CMS → Documents", "$1,584.00 entered; correspondence filed and kept on the Backup Drive"]
+        ],
+        best: [
+          "Ask the employer for records, not recollection: the form, the payroll records and the letter.",
+          "Match every missed shift to a provider's visit or work note before it reaches the Specials.",
+          "Pitfall: dropping shifts that have no doctor's note instead of flagging them.",
+          "Pitfall: sending an employer medical records or talking about the claim's value."
+        ],
+        sources: ["D2#4", "D2#7", "D1#40", "LSH Claims Specialist: attention to detail — cross-reference documents, double-check calculations and dates", "Newly authored: employer wage verification and the medical-nexus reconciliation of every missed shift before the BI demand"],
+        rubric: {
+          ai: [
+            ["Employer request complete", 15, "Rate, hours, dates, overtime, job demands; the form, payroll records and W-2 requested with the authorization"],
+            ["Medical nexus", 20, "03/05, 03/13, 05/15 and 05/18 each matched to a provider record; 02/09–02/13 kept and flagged"],
+            ["Verified total", 15, "$1,760.00 audited to $1,584.00: 9 × 8 h × $22.00"],
+            ["PIP and W-2", 10, "PIP wage benefit not payable; 2025 W-2 from Riverton Freight Services via John Doe"]
+          ],
+          trainer: [
+            ["Flag judgment", 20, "Flags the pre-treatment shifts and the earning-capacity question instead of dropping or deciding them"],
+            ["Privacy and UPL", 10, "No medical records to the employer; nothing on the claim's value"],
+            ["File continuity", 10, "Totals in the Specials and Net Sheet; correspondence filed and kept on the Backup Drive"]
+          ]
+        },
+        notes: [
+          "Start with the draft worksheet on the screen and ask what in it came from a record. The answer is nothing: it is John Doe's memory, five months on.",
+          "Northgate's reply arrives in minutes here; on a real file an employer can take weeks. That is why the request goes out the day MMI is declared.",
+          "The five February shifts are the trap. A trainee who drops them because there is no doctor's note has hidden the gap's best corroboration; one who claims them without a flag has hidden the risk. Keep them, flag them.",
+          "Angela Ruiz's follow-up is the privacy test: the authorization runs one way, from the employer to the firm."
+        ]
+      },
+
+      {
         kind: "activity", id: "d2m4-a1",
         transition: "Treatment is over: Lakeside Orthopedics declared MMI on 06/12/2026, and every bill is in. We are pre-auditing this file for the demand.",
         title: "Calculating Total Specials & the Special Damages Audit",
         topic: "Skill Activity 1 — audit $15,002.40 down to the number that holds",
         visual: "A full-width Specials ledger on a cream card, provider rows in mono under five columns: Date · Provider · Billed · Paid by · Status. The Riverton Spine & Rehab row is expanded into its 34 billed lines as a dense strip of small tiles; one tile, 05/04/2026, is outlined in red with a DUPLICATE tag and an orange badge, –$185.00. Right margin: a vertical totals rail — $15,002.40 struck through in grey, then $14,817.40 medical, + $1,584.00 wages, = $16,401.40 in large Fraunces. Below the ledger, two narrow cards: BILLED vs PAID in two mono columns, and FUTURE MEDICAL · NARRATIVE ONLY, set outside the totals rail. The red tile is the focal point.",
         act: {
-          scenario: "File date: early July 2026. Lakeside Orthopedics declared MMI on 06/12/2026; Dr. Reyes's Causation Letter arrived 06/19/2026. Every bill is in: Riverton Urgent Care $685.00; Riverton Spine & Rehab's statement, 34 lines × $185.00 = $6,290.00, with its visit notes; Lakeside Orthopedics three visits at $640.00; Summit Imaging $2,395.00; Crescent Pain & Spine $3,400.00 (Peach State paid $1,860.00); Riverton Drug $312.40. Northgate's HR letter verifies 9 missed shifts at 8 h × $22.00.",
+          scenario: "File date: early July 2026. Lakeside Orthopedics declared MMI on 06/12/2026; Dr. Reyes's Causation Letter arrived 06/19/2026. Every bill is in: Riverton Urgent Care $685.00; Riverton Spine & Rehab's statement, 34 lines × $185.00 = $6,290.00, with its visit notes; Lakeside Orthopedics three visits at $640.00; Summit Imaging $2,395.00; Crescent Pain & Spine $3,400.00 (Peach State paid $1,860.00); Riverton Drug $312.40. Your Lost Wage Verification Record (07/01/2026) verifies 9 missed shifts at 8 h × $22.00 from Northgate's records.",
           prompt: "Build John Doe's audited Specials ledger in the CMS. Start with the first-party medical-payment ledger, here Harbor Point's PIP ledger: match each payment to its bill and confirm whether the limit is exhausted. Enter each provider's charges with dates, billed amount and who paid. Reconcile Riverton Spine & Rehab's billed lines against its visit notes and remove any line no visit supports. Total the medical, add the verified wages, and show billed beside paid. Put future medical in the narrative, not the ledger. List every lien with its amount, and re-verify the three policy-limits targets in order. Graded judgment: what you flag for Atty. Thorne instead of deciding it yourself.",
           tool: "CMS → Financial Ledger → Specials · CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Insurance tab",
           output: "An audited Specials ledger at $16,401.40 with billed and paid side by side, a lien list, the targets in order, and a flag list routed to Atty. Thorne.",
@@ -4577,7 +4739,7 @@ window.CM_CASE_FLOW = {
             "First-party ledger audited (Harbor Point's PIP ledger): five payments matched to five bills ($685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00), the limit exhausted by the payment for the 06/12/2026 visit (paid 06/26/2026), nothing billed to PIP after exhaustion, and the 80% wage benefit unpaid because the limit ran out before Northgate's 06/30/2026 letter, so the full $1,584.00 stays in the Specials",
             "Riverton Spine & Rehab reconciled: 33 visits in the notes (16 from 02/24 to 04/02/2026, 17 from 04/21 to 06/05/2026) against 34 lines; the 05/04/2026 duplicate ($185.00) removed: $6,290.00 → $6,105.00. A corrected itemized statement requested from Riverton Spine & Rehab (a billing correction, not a reduction). Until it arrives, the Lien Tracker shows $6,290.00 claimed and $6,105.00 audited; any reduction is Atty. Thorne's to negotiate.",
             "Medical: $685.00 + $6,105.00 + $640.00 + $2,395.00 + $640.00 + $3,400.00 + $640.00 + $312.40 = $14,817.40 (down from $15,002.40)",
-            "Wages: 9 shifts × 8 h × $22.00 = $1,584.00, Northgate HR letter attached; total Specials $14,817.40 + $1,584.00 = $16,401.40",
+            "Wages: 9 shifts × 8 h × $22.00 = $1,584.00, the Lost Wage Verification Record and Northgate HR letter attached; total Specials $14,817.40 + $1,584.00 = $16,401.40",
             "Wage proof: each missed shift matched to a visit record or provider work note; the five shifts 02/09–02/13/2026, before first treatment, flagged with Northgate's Attendance Record (called out citing neck pain) as their support",
             "Billed beside paid: PIP $5,000.00 on its five bills; Peach State $1,860.00 on Crescent's $3,400.00 (write-off $3,400.00 – $1,860.00 = $1,540.00, no balance billing); LOP $6,105.00 owed; $312.40 paid by John Doe; paid-and-owed column $5,000.00 + $1,860.00 + $6,105.00 + $312.40 = $13,277.40 ($14,817.40 – $1,540.00)",
             "Billed-vs-paid choice routed to Atty. Thorne under the governing collateral-source rule, not made in the ledger",
@@ -4624,7 +4786,7 @@ window.CM_CASE_FLOW = {
       },
 
       {
-        kind: "lesson", id: "d2m4-l2",
+        kind: "lesson", id: "d2m4-l2", compact: true,
         title: "Strategy Briefing Protocols with Lead Counsel",
         topic: "Briefing Atty. Thorne, live or in the AI strategy session",
         visual: "A single brief page fills the centre of the slide, a white card with five horizontal bands in fixed order, each with an orange numbered badge: ① BOTTOM LINE in navy, one line in the largest type; ② FACTS · AUDITED, split into NARRATIVE · PHYSICALITY · MEDICALS with a green ✓ on each; ③ RISKS in danger red, four chips (14-DAY GAP · DISRUPTION · 2021 LOW BACK · “DEGENERATIVE”), each tethered to a small document chip; ④ DECISIONS NEEDED, orange-bordered, each item a question; ⑤ OPTIONS → CONSEQUENCES in two columns. Along the right edge a navy rail, ATTY. ELIJAH THORNE DECIDES, ends in a card: DECISION RECORD · dated · tasked. The page is ordered for the reader who decides.",
@@ -10408,6 +10570,13 @@ window.CM_CASE_FLOW = {
       "The costs of skipping a check are concrete. A reimbursement claim discovered after the demand has gone out still has to be paid, and it comes out of the client's net. An unreported Medicare or SSDI beneficiary risks federal penalties and a settlement that cannot be disbursed until the government is satisfied. A generic release can leave providers refusing records, delaying the file. And a payment promise made to a provider or plan early, before anyone knows the final numbers, gives away the room Atty. Thorne will need when liens are negotiated. Verify now; negotiate later, and only with his authority.",
       "Your lane is documentation: obtain the authorization, verify the SSDI status, confirm the payers, gather lien paperwork and report exactly what a plan asserts. You do not advise John Doe on whether a lien is enforceable, and you do not negotiate or promise a compromise without Atty. Thorne's authority. Questions like which law governs a plan's reimbursement claim belong to him. Ask the room: why does the firm want Peach State's member and group numbers in the lien register in February, when nobody will negotiate a lien for months?"
     ],
+    "d2m2-sum": [
+      "By the time John Doe's treatment is under way, three money questions sit on the file at once. Who pays each Medical Bill while the claim is open? Who will want to be paid back out of the recovery at the end? And which facts have to be flagged in the CMS now, before anyone argues about them? This lesson puts the Treatment Phase's answers on one page, with the detail behind each in its context card.",
+      "**Every coverage, sorted.** Each policy is sorted twice: whose it is and what it pays. Robert Smith's Keystone BI ($10,000) and PD ($25,000) are third-party; Harbor Point's Host UM ($20,000) and PIP ($5,000), Cardinal State's Relative UM ($10,000) and Margaret Doe's Bluewater collision are first-party; Peach State is John's own Health Plan. Only BI, Host UM and Relative UM pay the claim, and only they make the $40,000 Recovery Stack. Margaret rejected UM on her Bluewater policy in writing on 03/14/2024, so it adds nothing.",
+      "**The Payer-First Principle.** Each bill goes first to the payer that must pay it. Harbor Point PIP pays regardless of fault and confirmed in writing on 03/02/2026 that it has no reimbursement right, so every PIP dollar is a bill that never becomes a lien. Peach State comes next, paying in-network providers at the contract rate: Crescent Pain & Spine billed $3,400.00 and the plan paid $1,860.00. A Letter of Protection comes last, only for care the earlier payers can't carry: Riverton Spine & Rehab, out of network. Summit Imaging's 03/11/2026 request was declined because PIP had $3,675.00 left.",
+      "**Health subrogation.** A plan that pays accident bills claims them back from the recovery, but only what it paid, and only for the collision's care. The Regulatory Triple-Check comes first: the claim-specific HIPAA authorization, the BCRC answer (John is 34, so his SSDI status is verified and recorded) and the Payer Order. Peach State's interim itemization of 06/10/2026 asserted $3,618.00; audited line by line, three lines were not the collision's and the Crescent line was claimed at billed, and on 06/24/2026 the plan confirmed $1,860.00 in writing. Peach State is a fully insured plan, so any reduction turns on state law: Atty. Thorne's call, at the lien stage.",
+      "**The two CMS flags, exactly.** The lien is flagged in CMS → Liens → Flag the day a reimbursement right is first known (Peach State's notice, 02/27/2026), or the day a plan's first accident payment posts if no notice came first, and always before the first demand, with the carrier, member ID PSH-55017742, group GRP-41208, Payer Order position, basis and flag date. The 14-Day Gap is flagged the day the records show it: date of loss 02/06/2026, first treatment 02/20/2026, 14 days counted exactly, in the risks band in facts only, routed to Atty. Thorne, with a watch for any later break. The 19-day break (04/02 → 04/21/2026) was flagged the day the missed-visit alert arrived, 04/08/2026. Neither flag is a judgment: what a lien or a gap means for the claim is Atty. Thorne's."
+    ],
     "d2m2-l2": [
       "On a Letter of Protection, nobody reviews John Doe's care in real time. A Health Plan or PIP carrier might question a visit as it is billed, but under an LOP the first real review happens at the demand, when Keystone looks back over the whole course of treatment and argues that the care was unnecessary or the injury minor. Missed visits, a plateau and unexplained gaps all become material for that argument. That makes the Case Manager the only **real-time check** that the plan is working, and the person who acts on the day it stops. Monitoring outcomes, not attendance alone, is how you do that job.",
       "Recovery follows a map: acute (days 1–14, where causation and PIP matter and where this file's 14-Day Gap sits), sub-acute (weeks 2–8: chiropractic and PT, Dr. Alana Reyes, the MRI), restorative (weeks 9–24: injections, return to work), then MMI. On 04/08/2026, day 61, John Doe is in week 9. The six-week rule gives a checkpoint: by week 6 you expect 20–30% more range of motion or a lower pain score, and his six-week mark (02/24/2026 + 42 days) fell on 04/07/2026. Every check-in asks “Is he improving?” with specific questions about visits, pain and what he cannot do, then records question, answer and date.",
@@ -10732,12 +10901,12 @@ window.CM_CASE_FLOW = {
        headings: {"d1m1-case": "Meet Your Client: John Doe", "d1m1-role": "Introduction to Case Management", "d1m1-upl": "The UPL Line: Fact Sharing vs. Legal Advice", "d1m1-l1": "Intake", "d1m4-l1": "Intake & the Claims", "d1m4-tplan": "Case Planning: Treatment", "d1m4-tmap": "Case Planning: Treatment", "d1m4-tcare": "Case Planning: Treatment", "d1m4-emc": "Case Planning: Treatment", "d1m3-l1": "Property Damage", "d1m3-l2": "Property Damage", "d1m3-rent": "Property Damage", "d1m1-open": "Skill Building: Opening the File in the CMS", "d1m3-a1": "Skill Building: Property Damage", "d1m3-a2": "Skill Building: Property Damage", "d1m3-a3": "Skill Building: Property Damage"}}
     ]},
     {n: 2, phases: [
-      {title: "Claim Set Up & Treatment", lead: "Module 2", lanes: {"d2m1-l1": "claims", "d2m1-l2": "claims", "d1m4-l2": "claims", "d1m1-a1": "claims", "d2m1-a1": "claims", "d2m1-a2": "claims", "d1m4-a1": "claims", "d1m4-a2": "claims", "d2m1-kc": "claims", "d1m4-kc": "claims", "d2m1-cov": "care", "d2m2-l1": "care", "d2m2-eob": "care", "d2m2-pip": "care", "d2m2-lop": "care", "d2m2-cost": "care", "d1m1-l2": "care", "d2m2-l2": "care", "d1m2-l1": "care", "d1m2-l2": "care", "d1m2-a1": "care", "d1m2-a2": "care", "d2m2-a1": "care", "d1m1-a2": "care", "d2m2-a2": "care", "d2m2-a3": "care", "d2m2-kc": "care", "d1m2-kc": "care"}, blocks: ["d2m1-l1", "d2m1-l2", "d1m4-l2", "d2m1-cov", "d2m2-l1", "d2m2-eob", "d2m2-pip", "d2m2-lop", "d2m2-cost", "d1m1-l2", "d2m2-l2", "d1m2-l1", "d1m2-l2", "d1m1-a1", "d2m1-a1", "d2m1-a2", "d1m4-a1", "d1m4-a2", "d1m2-a1", "d1m2-a2", "d2m2-a1", "d1m1-a2", "d2m2-a2", "d2m2-a3", "d2m1-kc", "d1m4-kc", "d2m2-kc", "d1m2-kc"],
-       headings: {"d2m1-l1": "Claim Set Up", "d2m1-l2": "Claim Set Up", "d1m4-l2": "Claim Set Up: Case Strategy", "d2m1-cov": "Treatment: Who Pays the Bills", "d2m2-l1": "Treatment: Who Pays the Bills", "d2m2-eob": "Treatment: Who Pays the Bills", "d2m2-pip": "Treatment: Who Pays the Bills", "d2m2-lop": "Treatment: Who Pays the Bills", "d2m2-cost": "Treatment: Who Pays the Bills", "d1m1-l2": "Treatment: Liens & the Regulatory Triple-Check", "d2m2-l2": "Treatment: Monitoring the Care", "d1m2-l1": "Treatment: Client Communications", "d1m2-l2": "Treatment: Client Communications", "d1m1-a1": "Skill Building: CMS Case File Setup", "d2m1-a1": "Skill Building: Draft, Transmit & Log the LORs", "d2m1-a2": "Skill Building: Receive Carrier Claim Correspondence", "d1m4-a1": "Skill Building: Case Strategy", "d1m4-a2": "Skill Building: Case Strategy", "d1m2-a1": "Skill Building: Client Communications", "d1m2-a2": "Skill Building: Client Communications", "d2m2-a1": "Skill Building: Treatment", "d1m1-a2": "Skill Building: Liens", "d2m2-a2": "Skill Building: Treatment", "d2m2-a3": "Skill Building: Treatment"}}
+      {title: "Claim Set Up & Treatment", lead: "Module 2", lanes: {"d2m1-l1": "claims", "d2m1-l2": "claims", "d1m4-l2": "claims", "d1m1-a1": "claims", "d2m1-a1": "claims", "d2m1-a2": "claims", "d1m4-a1": "claims", "d1m4-a2": "claims", "d2m1-kc": "claims", "d1m4-kc": "claims", "d2m1-cov": "care", "d2m2-l1": "care", "d2m2-eob": "care", "d2m2-pip": "care", "d2m2-lop": "care", "d2m2-cost": "care", "d1m1-l2": "care", "d2m2-sum": "care", "d2m2-l2": "care", "d1m2-l1": "care", "d1m2-l2": "care", "d1m2-a1": "care", "d1m2-a2": "care", "d2m2-a1": "care", "d1m1-a2": "care", "d2m2-a2": "care", "d2m2-a3": "care", "d2m2-kc": "care", "d1m2-kc": "care"}, blocks: ["d2m1-l1", "d2m1-l2", "d1m4-l2", "d2m1-cov", "d2m2-l1", "d2m2-eob", "d2m2-pip", "d2m2-lop", "d2m2-cost", "d1m1-l2", "d2m2-sum", "d2m2-l2", "d1m2-l1", "d1m2-l2", "d1m1-a1", "d2m1-a1", "d2m1-a2", "d1m4-a1", "d1m4-a2", "d1m2-a1", "d1m2-a2", "d2m2-a1", "d1m1-a2", "d2m2-a2", "d2m2-a3", "d2m1-kc", "d1m4-kc", "d2m2-kc", "d1m2-kc"],
+       headings: {"d2m1-l1": "Claim Set Up", "d2m1-l2": "Claim Set Up", "d1m4-l2": "Claim Set Up: Case Strategy", "d2m1-cov": "Treatment: Who Pays the Bills", "d2m2-l1": "Treatment: Who Pays the Bills", "d2m2-eob": "Treatment: Who Pays the Bills", "d2m2-pip": "Treatment: Who Pays the Bills", "d2m2-lop": "Treatment: Who Pays the Bills", "d2m2-cost": "Treatment: Who Pays the Bills", "d1m1-l2": "Treatment: Liens & the Regulatory Triple-Check", "d2m2-sum": "Treatment: Coverage & Subrogation Summary", "d2m2-l2": "Treatment: Monitoring the Care", "d1m2-l1": "Treatment: Client Communications", "d1m2-l2": "Treatment: Client Communications", "d1m1-a1": "Skill Building: CMS Case File Setup", "d2m1-a1": "Skill Building: Draft, Transmit & Log the LORs", "d2m1-a2": "Skill Building: Receive Carrier Claim Correspondence", "d1m4-a1": "Skill Building: Case Strategy", "d1m4-a2": "Skill Building: Case Strategy", "d1m2-a1": "Skill Building: Client Communications", "d1m2-a2": "Skill Building: Client Communications", "d2m2-a1": "Skill Building: Treatment", "d1m1-a2": "Skill Building: Liens", "d2m2-a2": "Skill Building: Treatment", "d2m2-a3": "Skill Building: Treatment"}}
     ]},
     {n: 3, phases: [
-      {title: "Pre-Demand Audit, the Demand & Settlement Negotiation", lead: "Module 3", lanes: {"d2m3-l1": "care", "d2m3-l2": "care", "d2m3-cause": "care", "d2m3-a1": "care", "d2m3-a2": "care", "d2m3-kc": "care"}, blocks: ["d2m3-l1", "d2m3-l2", "d2m3-cause", "d2m4-l1", "d2m4-l2", "d3m1-l1", "d3m1-l2", "d3m1-pkg", "d3m2-l1", "d3m2-l2", "d2m3-a1", "d2m3-a2", "d2m4-a1", "d2m4-a2", "d3m1-a1", "d3m1-a2", "d3m2-a1", "d3m2-bins", "d3m2-a2", "d3m2-umns", "d2m3-kc", "d2m4-kc", "d3m1-kc", "d3m2-kc"],
-       headings: {"d2m3-l1": "Pre-Demand: the Gap Explanation Record", "d2m3-l2": "Pre-Demand: the Gap Explanation Record", "d2m3-cause": "Pre-Demand: the Causation Letter", "d2m3-a1": "Skill Building: the Gap Explanation Record", "d2m3-a2": "Skill Building: the Gap Explanation Record", "d2m4-l1": "Pre-Demand Case Auditing", "d2m4-l2": "Pre-Demand Case Auditing", "d3m1-l1": "Demand", "d3m1-l2": "Demand", "d3m1-pkg": "Demand", "d2m4-a1": "Skill Building: Pre-Demand Case Auditing", "d2m4-a2": "Skill Building: Pre-Demand Case Auditing", "d3m1-a1": "Skill Building: Demand", "d3m1-a2": "Skill Building: Demand", "d3m2-l1": "Settlement Negotiations", "d3m2-l2": "Settlement Negotiations", "d3m2-a1": "Skill Building: Settlement Negotiations", "d3m2-bins": "Skill Building: Settlement Negotiations", "d3m2-a2": "Skill Building: Settlement Negotiations", "d3m2-umns": "Skill Building: Settlement Negotiations"}}
+      {title: "Pre-Demand Audit, the Demand & Settlement Negotiation", lead: "Module 3", lanes: {"d2m3-l1": "care", "d2m3-l2": "care", "d2m3-cause": "care", "d2m3-a1": "care", "d2m3-a2": "care", "d2m3-kc": "care"}, blocks: ["d2m3-l1", "d2m3-l2", "d2m3-cause", "d2m4-l1", "d2m4-l2", "d3m1-l1", "d3m1-l2", "d3m1-pkg", "d3m2-l1", "d3m2-l2", "d2m3-a1", "d2m3-a2", "d2m4-wage", "d2m4-a1", "d2m4-a2", "d3m1-a1", "d3m1-a2", "d3m2-a1", "d3m2-bins", "d3m2-a2", "d3m2-umns", "d2m3-kc", "d2m4-kc", "d3m1-kc", "d3m2-kc"],
+       headings: {"d2m3-l1": "Pre-Demand: the Gap Explanation Record", "d2m3-l2": "Pre-Demand: the Gap Explanation Record", "d2m3-cause": "Pre-Demand: the Causation Letter", "d2m3-a1": "Skill Building: the Gap Explanation Record", "d2m3-a2": "Skill Building: the Gap Explanation Record", "d2m4-l1": "Pre-Demand Case Auditing", "d2m4-l2": "Pre-Demand Case Auditing", "d3m1-l1": "Demand", "d3m1-l2": "Demand", "d3m1-pkg": "Demand", "d2m4-wage": "Skill Building: Pre-Demand Case Auditing", "d2m4-a1": "Skill Building: Pre-Demand Case Auditing", "d2m4-a2": "Skill Building: Pre-Demand Case Auditing", "d3m1-a1": "Skill Building: Demand", "d3m1-a2": "Skill Building: Demand", "d3m2-l1": "Settlement Negotiations", "d3m2-l2": "Settlement Negotiations", "d3m2-a1": "Skill Building: Settlement Negotiations", "d3m2-bins": "Skill Building: Settlement Negotiations", "d3m2-a2": "Skill Building: Settlement Negotiations", "d3m2-umns": "Skill Building: Settlement Negotiations"}}
     ]},
     {n: 4, phases: [
       {title: "Reductions, Lien Negotiation & ADR", lead: "Module 4", blocks: ["d3m3-l1", "d3m3-l2", "d3m3-l3", "d3m4-l1", "d3m4-l2", "d3m4-close", "d4m2-l1", "d4m2-um", "d4m2-l2", "d4m3-l1", "d4m3-l2", "d4m3-prior", "d3m3-a1", "d3m3-a2", "d3m4-a1", "d3m4-a2", "d4m2-a3", "d4m2-a1", "d4m2-medcal", "d4m2-a2", "d4m2-arbcal", "d4m3-a1", "d4m3-a2", "d3m3-kc", "d3m4-kc", "d4m2-kc", "d4m3-kc"],

@@ -361,6 +361,26 @@ Tammy Greer, 10/12/2026: accepts **$4,580.00** in full satisfaction of the LOP a
 release of lien on payment; payment instructions.
 *Key:* $6,290.00 billed → $6,105.00 audited (duplicate removed) → $4,580.00 accepted.
 
+**RS90 · Peach State — Interim Lien Itemization (06/10/2026)** · Day 2 · Others · `RS_90_Peach_State_Interim_Lien_Itemization.pdf`
+Dion Carver, recovery file SRU-26-03318, answering the firm's 03/12/2026 request: a cover letter (reimbursed "first, in full ...
+without reduction for attorney fees or costs"; remit within 30 days of any settlement; notice before settlement) and the
+itemization, marked INTERIM, of every claim with a date of service from 02/01/2026: Riverton Vision Center 02/03/2026 eye exam
+(Z01.00) $95.00; Summit Imaging Center 03/13/2026 MRI, denied (other coverage primary, PIP) $0.00; Peach State Virtual Care
+03/18/2026 acute sinusitis (J01.90) $49.00; Riverton Allergy & Asthma Clinic 05/06/2026 established patient (J30.2) $74.00;
+Crescent Pain & Spine 05/15/2026 (PS-2605-449021) billed $3,400.00, paid $1,860.00, **claimed $3,400.00**. Asserted **$3,618.00**.
+*Plants:* three lines not the collision's (one before the DOL, one unrelated, one pre-existing) and the Crescent line claimed at
+billed. *Key:* audited line by line to $1,860.00, confirmed in writing in RS91; the "without reduction" demand is Atty. Thorne's.
+
+**RS91 · Peach State — Corrected Itemization & Lien Confirmation (06/24/2026)** · Day 2 · Others · `RS_91_Peach_State_Corrected_Itemization.pdf`
+Dion Carver to the Case Manager (cc Atty. Thorne), answering the 06/12/2026 dispute: the three lines removed, Crescent corrected
+to the $1,860.00 paid, Summit $0.00; reimbursement claim **$1,860.00** as of 06/24/2026; no other accident-related claims in
+process; Section 11 of the certificate (as RS41). *Plant:* none. *Key:* the completed set for the d1m1-a2 audit.
+
+**RS92 · Peach State Lien Audit & Written Confirmation — Memorandum (as filed)** · Day 2 · Others · `RS_92_Peach_State_Lien_Audit_Memo.pdf`
+The model memorandum (06/24/2026): the audit table ($3,618.00 → $1,860.00), the 06/12/2026 dispute email, the reply, the
+follow-up (full repayment, limits, settlement date) routed to Atty. Thorne, what the confirmation establishes, where it is filed.
+*Plant:* none.
+
 ### Settlement & wages (folder `settlement`)
 
 **RS43 · Northgate Distribution — Wage & Attendance Verification** · Day 2 · Others · `RS_43_Northgate_Wage_and_Attendance_Letter.pdf`
@@ -372,6 +392,27 @@ missed shifts (spec list) with reason codes (02/09–02/13 "called out — neck 
 **RS44 · LSH Law Group — Case Cost Ledger** · Day 3 · Case Files · `RS_44_Case_Cost_Ledger.pdf`
 Costs advanced through settlement (spec list) = $486.75, each with date, payee and receipt reference.
 *Key:* $486.75 on the net sheet; costs come from the client's share after the fee (RS05).
+
+**RS93 · Northgate Distribution — Wage Loss Verification Form & Payroll Records** · Day 3 · Others · `RS_93_Northgate_Wage_Loss_Verification_Form_and_Payroll.pdf`
+Angela Ruiz, 06/30/2026, with RS43: employee ID NGD-20417; $22.00/h; 8-hour day shifts, 40 h a week; the nine unpaid shifts
+(72 h, $1,584.00); no overtime scheduled on a missed shift; the 02/20 and 03/05/2026 restrictions accommodated at full shifts;
+physical demands (lifting to 50 lb, forklift, on his feet the full shift); no Northgate W-2 for 2025 (hired 01/12/2026);
+payroll for 02/02–02/15 (40 unpaid hours), 03/02–03/15 (16) and 05/11–05/24/2026 (16). *Plant:* none.
+
+**RS94 · Lost Wage Worksheet — DRAFT for audit (06/23/2026)** · Day 3 · Case Files · `RS_94_Lost_Wage_Worksheet_DRAFT.pdf`
+A working paper from John Doe's own account by telephone, before Northgate's records came. *Plants:* 02/18 and 02/19/2026
+claimed (he worked them); 02/09–02/13 excluded; the MRI on 03/12; 05/18 with no note; light duty $440.00 and overtime $264.00;
+total $1,760.00; a PIP wage claim of $1,408.00; the 2025 W-2 asked of Northgate; "loss of earning capacity: permanent".
+*Key:* audited to $1,584.00 in RS95.
+
+**RS95 · Lost Wage Verification Record — FINAL (07/01/2026)** · Day 3 · Case Files · `RS_95_Lost_Wage_Verification_Record_FINAL.pdf`
+Each missed shift matched to Northgate's record and the provider's note (03/05 RS15, 03/13 RS16, 05/15 and 05/18 RS17);
+02/09–02/13 kept and flagged (RS11, RS21, RS12 corroborate); $1,584.00; the changes from RS94 and why. *Plant:* none.
+
+**RS96 · Employer Wage Verification — Memorandum (as filed)** · Day 3 · Others · `RS_96_Employer_Wage_Verification_Memo.pdf`
+The model memorandum (06/30/2026): the 06/22/2026 request to Angela Ruiz, her reply, the follow-up (will the settlement repay
+him; send his MRI) answered with nothing about the claim and no medical records, what it establishes, where it is filed.
+*Plant:* none.
 
 ### Property damage (folder `property`)
 

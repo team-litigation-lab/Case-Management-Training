@@ -45,18 +45,19 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 10. *Lesson* — Securing Maximum Gross Policy-Limit Settlements
 11. *Skill Activity* — Probe the 14-Day Treatment Gap with AI John Doe
 12. *Skill Activity* — Gap Explanation Record Creation
-13. *Skill Activity* — Calculating Total Specials & the Special Damages Audit
-14. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne
-15. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package
-16. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
-17. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
-18. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender
-19. *Skill Activity* — Closing the $40,000 Gross Recovery
-20. *Skill Activity* — The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
-21. *Knowledge Check* — UPL & Investigation Review
-22. *Knowledge Check* — Pre-Demand Audit & Day 3 Gate
-23. *Knowledge Check* — Demand Execution Audit
-24. *Knowledge Check* — Negotiation Mastery Check
+13. *Skill Activity* — Wage Loss Verification & the Medical Nexus
+14. *Skill Activity* — Calculating Total Specials & the Special Damages Audit
+15. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne
+16. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package
+17. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
+18. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
+19. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender
+20. *Skill Activity* — Closing the $40,000 Gross Recovery
+21. *Skill Activity* — The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
+22. *Knowledge Check* — UPL & Investigation Review
+23. *Knowledge Check* — Pre-Demand Audit & Day 3 Gate
+24. *Knowledge Check* — Demand Execution Audit
+25. *Knowledge Check* — Negotiation Mastery Check
 
 **End-of-day discussion (trainer):** It is 07/20/2026. The Specials are audited and Atty. Thorne has approved a policy-limits demand to Keystone. What must be true before the Time-Limited Demand goes out, and what would let Keystone say it never had a fair chance to settle?
 
@@ -64,7 +65,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 3 — Pre-Demand Audit, the Demand & Settlement Negotiation
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 3.1.1 Interview Techniques & UPL Boundaries in Client Investigation
 
@@ -1091,7 +1092,84 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 ---
 
-### 3.1.13 Calculating Total Specials & the Special Damages Audit
+### 3.1.13 Wage Loss Verification & the Medical Nexus
+
+> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
+> **Topic:** Skill Activity — verify every missed shift with the employer and the treating providers  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D2#4` Master Audit Checklist: Financial & Lien Verification · `D2#7` Master Audit Checklist: Medical & Billing Audit · `D1#40` The “Golden Standard”: Reasonable and Necessary · LSH Claims Specialist: attention to detail — cross-reference documents, double-check calculations and dates · Newly authored: employer wage verification and the medical-nexus reconciliation of every missed shift before the BI demand
+
+#### 1 · Visual Layout Description
+
+A two-column reconciliation board. Left column, NORTHGATE'S RECORD: nine shift tiles in mono type (02/09 · 02/10 · 02/11 · 02/12 · 02/13 · 03/05 · 03/13 · 05/15 · 05/18), each with its reason code. Right column, THE MEDICAL RECORD: a provider chip joined to each tile by an orange leader line — LAKESIDE CONSULT, SUMMIT MRI, CRESCENT ESI, CRESCENT WORK NOTE 05/15–05/18. The first five tiles have no chip; they carry an orange FLAGGED · ATTY. THORNE tag and three small corroboration chips: EMS 02/06 · RECEIPT 02/07 · CALL-OUT, NECK PAIN. Top-right, an envelope icon marked EMPLOYER VERIFICATION · 06/22 → 06/30/2026. Bottom, a totals rail: $1,760.00 DRAFT struck through in grey, then 9 × 8 h × $22.00 = $1,584.00 in large type. The flagged tiles are the focal point: kept, never dropped.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** 06/22/2026, ten days after MMI (06/12/2026). John Doe signed Northgate Distribution's employee authorization this morning. A draft wage worksheet built from his own account by telephone claims $1,760.00 and is unverified. Northgate's HR manager is Angela Ruiz. The Specials audit is due 07/01/2026.
+
+**Execution prompt.** Verify John Doe's lost wages before they reach the Specials. First write the Employer Verification email to Angela Ruiz at Northgate HR in the Email Workspace, with his signed authorization: ask for the Wage Loss Verification Form, the payroll records for the pay periods with missed shifts and his W-2, and the employer's confirmation of his hourly rate, his shift hours, each missed shift, any overtime lost and the physical demands of his job. When Northgate replies, answer its follow-up inside the line. Then reconcile every missed date against the treating providers' visit and off-work notes in the audit workbench, so no absence is left unexcused, and audit the draft worksheet into the Lost Wage Verification Record. Flag any shift with no provider note to Atty. Thorne: never drop it or hide it. Record the verified total in CMS → Financial Ledger → Specials and the Net Sheet, update the Case Plan's financial pillar in the Action Plan Editor, and file the employer correspondence in the CMS so it is kept on the Backup Drive.
+
+| | |
+|---|---|
+| **Tool / interface** | Email Workspace · CMS → Financial Ledger → Specials · CMS → Financial Ledger → Net Sheet · Action Plan Editor · CMS → Documents |
+| **Expected output** | Northgate's verification on file, every missed shift matched to its record, and $1,584.00 verified in the Specials. |
+
+**Verification checkpoints**
+
+- [ ] Employer Verification email sent 06/22/2026 with John Doe's signed authorization: rate, shift hours, the nine dates, overtime and physical demands asked; the Wage Loss Verification Form, payroll records and W-2 requested
+- [ ] Northgate's reply of 06/30/2026 logged: $22.00/hour, 8-hour shifts, nine unpaid shifts (72 hours), no overtime scheduled on a missed shift, restrictions worked at full shifts, lifting to 50 lb, forklift, on his feet the full shift
+- [ ] Follow-up answered inside the line: no medical records sent to the employer, nothing said about what the claim recovers; the question routed to Atty. Thorne
+- [ ] Each later shift matched: 03/05 the Lakeside consult, 03/13 the Summit MRI, 05/15 the injection, 05/18 Crescent's off-work note (05/15–05/18/2026)
+- [ ] 02/09–02/13/2026 (five shifts, before first treatment) kept and flagged to Atty. Thorne with Northgate's call-out record, the EMS report and the 02/07/2026 receipt
+- [ ] Draft corrected: 02/18 and 02/19 removed (he worked them), 03/12 corrected to 03/13, light duty and overtime struck: $1,760.00 → $1,584.00
+- [ ] PIP's 80% wage benefit recorded as not payable (PIP exhausted 06/26/2026); the full $1,584.00 stays in the Specials
+- [ ] 2025 W-2 requested from John Doe (Riverton Freight Services), not from Northgate
+- [ ] Earning capacity: released to full duty at MMI 06/12/2026; any claim flagged to Atty. Thorne, never asserted by the Case Manager
+- [ ] $1,584.00 entered in the Specials and the Net Sheet; Case Plan updated; employer correspondence filed in the CMS and kept on the Backup Drive (Wages & Costs)
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| MMI declared; authorization signed | Request the employer's verification and records in writing | Email Workspace | Request dated; authorization attached; the six items asked |
+| Northgate replies | Match each missed shift to a provider record; flag the rest | Audit workbench · CMS → Case Notes | No unexcused absence; 02/09–02/13 flagged to Atty. Thorne |
+| Verified total reached | Enter it; update the plan; file the correspondence | CMS → Financial Ledger → Specials · Action Plan Editor · CMS → Documents | $1,584.00 entered; correspondence filed and kept on the Backup Drive |
+
+**Best practices & pitfalls**
+
+- Ask the employer for records, not recollection: the form, the payroll records and the letter.
+- Match every missed shift to a provider's visit or work note before it reaches the Specials.
+- ⚠️ Pitfall: dropping shifts that have no doctor's note instead of flagging them.
+- ⚠️ Pitfall: sending an employer medical records or talking about the claim's value.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Employer request complete | Rate, hours, dates, overtime, job demands; the form, payroll records and W-2 requested with the authorization |
+| 🤖 AI | **20%** | Medical nexus | 03/05, 03/13, 05/15 and 05/18 each matched to a provider record; 02/09–02/13 kept and flagged |
+| 🤖 AI | **15%** | Verified total | $1,760.00 audited to $1,584.00: 9 × 8 h × $22.00 |
+| 🤖 AI | **10%** | PIP and W-2 | PIP wage benefit not payable; 2025 W-2 from Riverton Freight Services via John Doe |
+| 🧑‍🏫 Trainer | **20%** | Flag judgment | Flags the pre-treatment shifts and the earning-capacity question instead of dropping or deciding them |
+| 🧑‍🏫 Trainer | **10%** | Privacy and UPL | No medical records to the employer; nothing on the claim's value |
+| 🧑‍🏫 Trainer | **10%** | File continuity | Totals in the Specials and Net Sheet; correspondence filed and kept on the Backup Drive |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Start with the draft worksheet on the screen and ask what in it came from a record. The answer is nothing: it is John Doe's memory, five months on.
+- Northgate's reply arrives in minutes here; on a real file an employer can take weeks. That is why the request goes out the day MMI is declared.
+- The five February shifts are the trap. A trainee who drops them because there is no doctor's note has hidden the gap's best corroboration; one who claims them without a flag has hidden the risk. Keep them, flag them.
+- Angela Ruiz's follow-up is the privacy test: the authorization runs one way, from the employer to the firm.
+
+---
+
+### 3.1.14 Calculating Total Specials & the Special Damages Audit
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity 1 — audit $15,002.40 down to the number that holds  
@@ -1104,7 +1182,7 @@ A full-width Specials ledger on a cream card, provider rows in mono under five c
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** File date: early July 2026. Lakeside Orthopedics declared MMI on 06/12/2026; Dr. Reyes's Causation Letter arrived 06/19/2026. Every bill is in: Riverton Urgent Care $685.00; Riverton Spine & Rehab's statement, 34 lines × $185.00 = $6,290.00, with its visit notes; Lakeside Orthopedics three visits at $640.00; Summit Imaging $2,395.00; Crescent Pain & Spine $3,400.00 (Peach State paid $1,860.00); Riverton Drug $312.40. Northgate's HR letter verifies 9 missed shifts at 8 h × $22.00.
+**Scenario.** File date: early July 2026. Lakeside Orthopedics declared MMI on 06/12/2026; Dr. Reyes's Causation Letter arrived 06/19/2026. Every bill is in: Riverton Urgent Care $685.00; Riverton Spine & Rehab's statement, 34 lines × $185.00 = $6,290.00, with its visit notes; Lakeside Orthopedics three visits at $640.00; Summit Imaging $2,395.00; Crescent Pain & Spine $3,400.00 (Peach State paid $1,860.00); Riverton Drug $312.40. Your Lost Wage Verification Record (07/01/2026) verifies 9 missed shifts at 8 h × $22.00 from Northgate's records.
 
 **Execution prompt.** Build John Doe's audited Specials ledger in the CMS. Start with the first-party medical-payment ledger, here Harbor Point's PIP ledger: match each payment to its bill and confirm whether the limit is exhausted. Enter each provider's charges with dates, billed amount and who paid. Reconcile Riverton Spine & Rehab's billed lines against its visit notes and remove any line no visit supports. Total the medical, add the verified wages, and show billed beside paid. Put future medical in the narrative, not the ledger. List every lien with its amount, and re-verify the three policy-limits targets in order. Graded judgment: what you flag for Atty. Thorne instead of deciding it yourself.
 
@@ -1118,7 +1196,7 @@ A full-width Specials ledger on a cream card, provider rows in mono under five c
 - [ ] First-party ledger audited (Harbor Point's PIP ledger): five payments matched to five bills ($685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00), the limit exhausted by the payment for the 06/12/2026 visit (paid 06/26/2026), nothing billed to PIP after exhaustion, and the 80% wage benefit unpaid because the limit ran out before Northgate's 06/30/2026 letter, so the full $1,584.00 stays in the Specials
 - [ ] Riverton Spine & Rehab reconciled: 33 visits in the notes (16 from 02/24 to 04/02/2026, 17 from 04/21 to 06/05/2026) against 34 lines; the 05/04/2026 duplicate ($185.00) removed: $6,290.00 → $6,105.00. A corrected itemized statement requested from Riverton Spine & Rehab (a billing correction, not a reduction). Until it arrives, the Lien Tracker shows $6,290.00 claimed and $6,105.00 audited; any reduction is Atty. Thorne's to negotiate.
 - [ ] Medical: $685.00 + $6,105.00 + $640.00 + $2,395.00 + $640.00 + $3,400.00 + $640.00 + $312.40 = $14,817.40 (down from $15,002.40)
-- [ ] Wages: 9 shifts × 8 h × $22.00 = $1,584.00, Northgate HR letter attached; total Specials $14,817.40 + $1,584.00 = $16,401.40
+- [ ] Wages: 9 shifts × 8 h × $22.00 = $1,584.00, the Lost Wage Verification Record and Northgate HR letter attached; total Specials $14,817.40 + $1,584.00 = $16,401.40
 - [ ] Wage proof: each missed shift matched to a visit record or provider work note; the five shifts 02/09–02/13/2026, before first treatment, flagged with Northgate's Attendance Record (called out citing neck pain) as their support
 - [ ] Billed beside paid: PIP $5,000.00 on its five bills; Peach State $1,860.00 on Crescent's $3,400.00 (write-off $3,400.00 – $1,860.00 = $1,540.00, no balance billing); LOP $6,105.00 owed; $312.40 paid by John Doe; paid-and-owed column $5,000.00 + $1,860.00 + $6,105.00 + $312.40 = $13,277.40 ($14,817.40 – $1,540.00)
 - [ ] Billed-vs-paid choice routed to Atty. Thorne under the governing collateral-source rule, not made in the ledger
@@ -1172,7 +1250,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ---
 
-### 3.1.14 Pre-Demand Strategy Session with AI Atty. Elijah Thorne
+### 3.1.15 Pre-Demand Strategy Session with AI Atty. Elijah Thorne
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity 2 — present the audit; record his decisions  
@@ -1252,7 +1330,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ---
 
-### 3.1.15 Serving the $10,000 BI Time-Limit Demand Package
+### 3.1.16 Serving the $10,000 BI Time-Limit Demand Package
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 1 — audit it, serve it, prove it  
@@ -1333,7 +1411,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.16 QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
+### 3.1.17 QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 2 — two packages, exhaustion proof on page one  
@@ -1413,7 +1491,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.17 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
+### 3.1.18 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 1 — hold the Limits Demand on a recorded call  
@@ -1502,7 +1580,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.18 The BI Settlement Net Sheet: Stream 1 at the Tender
+### 3.1.19 The BI Settlement Net Sheet: Stream 1 at the Tender
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity — what Keystone's $10,000 does, and doesn't, do on its own  
@@ -1582,7 +1660,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.19 Closing the $40,000 Gross Recovery
+### 3.1.20 Closing the $40,000 Gross Recovery
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 2 — work both UM layers to limits, on the record  
@@ -1660,7 +1738,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.20 The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
+### 3.1.21 The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
 
 > **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity — project the UM stream to the cent, mark what will move, ask Atty. Thorne  
@@ -1741,7 +1819,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.21 UPL & Investigation Review
+### 3.1.22 UPL & Investigation Review
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1840,7 +1918,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 ---
 
-### 3.1.22 Pre-Demand Audit & Day 3 Gate
+### 3.1.23 Pre-Demand Audit & Day 3 Gate
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1883,7 +1961,7 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (11 questions):
+**Auto-graded share of the day's Knowledge Check** (13 questions):
 
 1. Before the demand, which first-party ledger do you audit on John Doe's file, and what must it show?  
    Peach State's EOBs: the Health Plan pays before PIP · **✓ Harbor Point's PIP ledger, reconciled to the PIP Log: each payment matched to its bill, the $5,000.00 limit exhausted, and the 80% wage benefit checked** · Peach State's EOBs only · None: first-party payments never touch the demand  
@@ -1918,6 +1996,12 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 11. After the strategy session, how are Atty. Thorne's decisions recorded?  
    From memory at the end of the week · **✓ The same day, in his words and dated, with a task for each and the Case Plan re-routed** · Only in an email · In the demand letter  
    *Record the decisions the same day, attributed and dated; a task for each with an owner and a date; the Case Plan marked superseded and re-routed.*
+12. Northgate's records show nine unpaid shifts; the draft worksheet from John Doe's memory claims 02/18 and 02/19/2026, light duty and overtime, $1,760.00. What goes into the Specials?  
+   $1,760.00: the client knows his own hours · **✓ $1,584.00: nine shifts verified by Northgate, each matched to its record; 02/18 and 02/19 were worked, and no overtime or light-duty hours were lost** · $704.00: only the four shifts with a doctor's note · Nothing until Keystone asks for it  
+   *The employer's records, not memory, fix the wage claim: 9 × 8 h × $22.00 = $1,584.00. The five pre-treatment shifts stay in, flagged to Atty. Thorne.*
+13. Northgate's HR manager asks for John Doe's MRI and doctors' notes to update his restrictions file, and whether his settlement will repay the missed days. What do you do?  
+   Send the records: Northgate has been cooperative · Tell her lost wages are part of the claim and he will be repaid · **✓ Send no records, say work-status notes come from John and his providers, and route the claim question to Atty. Thorne** · Ignore the email  
+   *His authorization lets Northgate give records to the firm, not the reverse. Nothing about the claim or its value goes to a third party; that question is Atty. Thorne's, with John Doe.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1943,7 +2027,7 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 
 ---
 
-### 3.1.23 Demand Execution Audit
+### 3.1.24 Demand Execution Audit
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Demand Execution Audit + CM Learning Summary & Self-Scale  
@@ -2049,7 +2133,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 3.1.24 Negotiation Mastery Check
+### 3.1.25 Negotiation Mastery Check
 
 > **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Knowledge Check + CM Learning Summary & Self-Scale  

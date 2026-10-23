@@ -25,14 +25,14 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#13` | Bottleneck: Intake Form Errors | ✅ BUILT | d1m1-l1, d1m1-open |
 | `D1#14` | Bottleneck: Case Eligibility Uncertainty | ✅ BUILT | d1m4-l1 |
 | `D1#15` | Bottleneck: Communication Gaps | ✅ BUILT | d1m1-l1 |
-| `D1#16` | Tools for Case Planning & the PI Case Lifecycle Strategy | ✅ BUILT | d1m1-case, d1m1-l1, d1m1-kc, d1m3-a2, d1m4-a1 |
+| `D1#16` | Tools for Case Planning & the PI Case Lifecycle Strategy | ✅ BUILT | d1m1-case, d1m1-l1, d1m1-kc, d1m3-a2, d1m4-a1, d2m2-sum |
 | `D1#17` | Skill Building: Intake Decision Challenge & Applied Case Manager Actions | ✅ BUILT | d1m4-l1 |
 | `D1#18` | Claim Set-Up: Coverage Determination & Liability Assessment | ✅ BUILT | d1m1-l1, d1m4-a2, d1m1-a1, d2m1-l2, d2m1-a2, d2m1-kc, d2m1-cov, d5m4-kc |
 | `D1#19` | Claim Set-Up: Case Projection — Why the Three Work Together | ✅ BUILT | d1m1-case, d1m4-l1, d1m4-a2, d1m1-a1, d2m1-l2 |
 | `D1#20` | Case Study: John Doe v. Apex — Coverage Analysis | ✅ BUILT | d1m1-a1, d2m1-l2, d2m1-a2, d2m1-kc |
 | `D1#21` | Case Study: John Doe v. Apex — Liability Determination | ✅ BUILT | d1m4-l1, d2m1-l1, d2m1-a1 |
-| `D1#22` | Case Planning Framework: Regulatory Intake & Verification | ✅ BUILT | d1m4-l1, d1m4-a2, d1m1-l2, d1m1-a2, d5m4-kc |
-| `D1#23` | Case Planning Framework: The Three-Pillar Case Plan | ✅ BUILT | d1m4-l1, d1m4-a2, d1m4-kc, d2m2-eob, d1m1-l2 |
+| `D1#22` | Case Planning Framework: Regulatory Intake & Verification | ✅ BUILT | d1m4-l1, d1m4-a2, d1m1-l2, d2m2-sum, d1m1-a2, d5m4-kc |
+| `D1#23` | Case Planning Framework: The Three-Pillar Case Plan | ✅ BUILT | d1m4-l1, d1m4-a2, d1m4-kc, d2m2-eob, d1m1-l2, d2m2-sum |
 | `D1#24` | Case Planning Framework: Mandatory Disclosure & Compliance Tracking | ✅ BUILT | d1m4-emc, d1m4-l2, d1m4-kc, d2m2-l1, d2m2-a1, d1m1-a2 |
 | `D1#25` | The “Golden Rule” of US Claim Set-Up | ✅ BUILT | d1m4-l2, d1m4-kc |
 | `D1#26` | The Treatment Phase — Core Objectives | ✅ BUILT | d2m2-l1, d2m2-a2, d2m2-a3 |
@@ -49,11 +49,11 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#37` | Treatment Road Map Mastery & the Clinical Pathway Flowchart | ✅ BUILT | d1m4-tmap, d1m4-emc, d2m2-l2, d2m2-kc |
 | `D1#38` | Variance Analysis: Why the Map Fails | ✅ BUILT | d1m4-tmap, d2m2-l2, d2m2-a2 |
 | `D1#39` | Communication Loops: The “Stakeholder Triad” | ✅ BUILT | d1m4-tmap, d2m2-l1, d2m2-a3, d2m3-l2 |
-| `D1#40` | The “Golden Standard”: Reasonable and Necessary | ✅ BUILT | d1m4-tmap, d2m2-l2, d2m2-kc, d2m4-l1, d2m4-a1 |
+| `D1#40` | The “Golden Standard”: Reasonable and Necessary | ✅ BUILT | d1m4-tmap, d2m2-l2, d2m2-kc, d2m4-l1, d2m4-wage, d2m4-a1 |
 | `D1#41` | Immediate Action Protocol: A-C-T for Red Flags | ✅ BUILT | d2m2-l2, d2m2-a2 |
 | `D1#42` | Illustration & Course Correction: The 6-Week Rule and Objective Metrics | ✅ BUILT | d1m4-tmap, d2m2-l2, d2m2-kc |
 | `D1#43` | The “Yellow Flag” Warning System | ✅ BUILT | d1m4-tmap, d1m4-tcare, d2m2-l2 |
-| `D1#44` | Handling Treatment Gaps During the Treatment Phase | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a2, d1m3-a3, d1m3-kc, d1m4-a1, d1m4-a2, d1m4-kc, d2m2-a3, d2m3-l1, d2m3-a1, d2m3-l2, d2m3-a2, d2m3-kc, d5m4-kc |
+| `D1#44` | Handling Treatment Gaps During the Treatment Phase | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a2, d1m3-a3, d1m3-kc, d1m4-a1, d1m4-a2, d1m4-kc, d2m2-a3, d2m2-sum, d2m3-l1, d2m3-a1, d2m3-l2, d2m3-a2, d2m3-kc, d5m4-kc |
 | `D1#45` | Common Bottlenecks: Escalation Protocol & the Escalation Ladder | ✅ BUILT | d2m2-l2, d2m2-a2, d4m4-l2, d4m4-a2, d4m4-kc |
 | `D1#46` | Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain | ✅ BUILT | d2m2-a1, d2m2-kc, d2m3-cause, d4m3-prior |
 | `D1#47` | Skill Building: Handling Client Treatment — “The Transportation Wall” | ✅ BUILT | d2m2-a2 |
@@ -65,10 +65,10 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D2#1` | Training Agenda: From Pre-Demand to Settlement | ✅ BUILT | d2m4-l1 |
 | `D2#2` | Pre-Demand Case Auditing: Core Objectives | ✅ BUILT | d2m4-l1, d2m4-kc |
 | `D2#3` | The Auditing Checklist: The Trinity of Case Alignment | ✅ BUILT | d2m4-l2, d2m4-a2 |
-| `D2#4` | Master Audit Checklist: Financial & Lien Verification | ✅ BUILT | d2m4-l1, d2m4-a1, d2m4-kc |
+| `D2#4` | Master Audit Checklist: Financial & Lien Verification | ✅ BUILT | d2m4-l1, d2m4-wage, d2m4-a1, d2m4-kc |
 | `D2#5` | Master Audit Checklist: Liability & Liability Proof | ✅ BUILT | d2m4-l2 |
 | `D2#6` | Master Audit Checklist: Property Damage (PD) Deep Dive | ✅ BUILT | d1m3-l2, d1m3-kc, d2m4-l2, d2m4-a2, d5m2-l1, d5m2-a1, d5m2-kc |
-| `D2#7` | Master Audit Checklist: Medical & Billing Audit | ✅ BUILT | d2m4-l1, d2m4-a1, d2m4-kc, d4m3-prior |
+| `D2#7` | Master Audit Checklist: Medical & Billing Audit | ✅ BUILT | d2m4-l1, d2m4-wage, d2m4-a1, d2m4-kc, d4m3-prior |
 | `D2#8` | The “Defense-Eye” Audit (Red Flag Detection) | ✅ BUILT | d2m3-a2, d2m4-l2, d2m4-a2, d2m4-kc |
 | `D2#9` | Pre-Demand: Final Package Readiness | ✅ BUILT | d2m4-l1, d2m4-a1, d2m4-l2, d2m4-a2, d2m4-kc |
 | `D2#10` | Skill Building: Pre-Demand Audit Challenges (John Doe File) | ✅ BUILT | d2m4-a2 |
@@ -268,6 +268,8 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: No Contact Protocol, Steps 1–4; Final Warning Letter
 - Newly authored: the near-drop (the No Contact Protocol inside A-C-T's Assess), the trauma-informed client interview within the UPL line, and restoring a file from Drop Warning
 - Newly authored: redirecting a referral to the client's choice of facility, and the downstream task list (each task done or delegated with an owner and a due date)
+- Newly authored: the Treatment Phase's coverage and subrogation summary, with the exact CMS flag rules for subrogation liens and Treatment Gaps
+- Newly authored: the Health Plan's itemized lien audited line by line (unrelated, pre-existing and pre-loss lines; amounts claimed above what was paid) and confirmed in writing before the demand
 - LSH Claims Specialist: communication skills and professionalism — clarity without jargon, empathy, active listening, paraphrasing, calm reassurance
 - LSH Claims Specialist: LOR — all carrier communication through the firm
 - Newly authored: non-leading investigative interview technique (the funnel); recording consent and privilege on a client call; reassurance about process, never outcome
@@ -279,6 +281,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: policy limits (per person vs. per accident)
 - Newly authored: billed vs. paid and the collateral-source routing; future medical kept out of the Specials total
 - LSH Claims Specialist: attention to detail — cross-reference documents, double-check calculations and dates
+- Newly authored: employer wage verification and the medical-nexus reconciliation of every missed shift before the BI demand
 - LSH Claims Specialist: communication skills — clear, professional, no jargon; well-organized files for attorneys
 - Newly authored: the strategy briefing protocol (bottom line, facts, risks, decisions, options, record)
 - Newly authored: the elements of a Time-Limited Demand that can support a later failure-to-settle claim (within limits, clear and reasonable terms, sufficient documentation, a stated window with proof of delivery)
@@ -367,6 +370,10 @@ Where neither source had the theory, it was written for this flow and is marked 
 - **The two-track fork: one file settling on Day 3 (Track A) and going to suit on Days 4–5 (Track B) from the same 08/05/2026 negotiation** — Days 3–5 — the brief's day order, made one coherent file
 - **UM notice at claim set-up (notice is not a demand) and verifying each UM form and PIP's terms in writing** — Day 2 · Module 1
 - **LOP issuance guidelines and the PIP exhaustion ledger** — Day 2 · Module 2
+- **The Treatment Phase's coverage and subrogation summary, with the exact CMS flag rules for subrogation liens (first notice, before any demand) and Treatment Gaps (the day the records show it, facts only)** — Day 2 · Module 2 — Coverage & Subrogation: the Treatment Phase Summary
+- **The Health Plan's itemized lien audited line by line (unrelated, pre-existing and pre-loss lines; amounts claimed above what was paid) and confirmed in writing before the demand** — Day 2 · Module 2 — Health Plan Subrogation (the lien-ledger audit and confirmation)
+- **The LOP endorsement call with the treating provider's office, converted into a case note, tasks and a filed record** — Day 2 · Module 2 — Transmitting LOPs to Medical Providers
+- **Employer wage verification and the medical-nexus reconciliation of every missed shift before the BI demand** — Day 3 · Pre-Demand Case Auditing — Wage Loss Verification & the Medical Nexus
 - **Redirecting a referral to the client's choice of facility, and the downstream task list: each task done or delegated with an owner and a due date** — Day 2 · Module 2
 - **The non-leading gap interview, recording a client call with consent stated, and the Gap Explanation Record format** — Day 2 · Module 3
 - **Billed vs. paid Specials routed to counsel, and the strategy-briefing protocol for Lead Counsel** — Day 2 · Module 4

@@ -1080,5 +1080,58 @@
       "D2#22",
       "D2#26"
     ]
+  },
+  "d2m2-sum": {
+    "lead": "One page for the Treatment Phase's money: **who pays which bill**, who wants paying back, and the two flags that must go up on time.",
+    "concepts": [
+      {
+        "term": "Every Coverage, Sorted",
+        "text": "Each policy sorted by **whose it is** and what it pays: the claim, the bills or the car",
+        "more": [
+          "Third-party: Robert Smith's Keystone BI $10,000 and PD $25,000",
+          "First-party: Host UM $20,000, Relative UM $10,000, Harbor Point PIP $5,000, Bluewater collision",
+          "Health: Peach State Health Plan, through Northgate, effective 02/01/2026",
+          "Only **BI, Host UM and Relative UM** make the $40,000 Recovery Stack",
+          "Margaret Doe rejected UM on her Bluewater policy in writing on 03/14/2024: it adds nothing"
+        ]
+      },
+      {
+        "term": "The Payer-First Principle",
+        "text": "Each bill goes first to the payer that must pay it: **PIP, then Peach State, then an LOP**",
+        "more": [
+          "PIP pays regardless of fault, and Harbor Point has **no reimbursement right** (03/02/2026)",
+          "Peach State pays at the contract rate: Crescent billed $3,400.00, the plan paid $1,860.00",
+          "An LOP last, for care earlier payers can't carry: Riverton Spine & Rehab, out of network",
+          "Summit Imaging's 03/11/2026 LOP request declined: PIP had $3,675.00 left",
+          "Providers bill whom they bill: track every ledger, never re-route a paid claim"
+        ]
+      },
+      {
+        "term": "Health Subrogation and Triple-Check",
+        "text": "A plan that pays accident bills claims them back from the recovery: **only what it paid**",
+        "more": [
+          "Triple-Check first: HIPAA authorization, BCRC (John Doe is 34: SSDI verified), **the Payer Order**",
+          "The Payer Order pays the bills now; the $40,000 stack pays the claim later",
+          "Peach State's interim ledger asserted $3,618.00; audited, it confirmed **$1,860.00** on 06/24/2026",
+          "Unrelated, pre-existing or pre-loss lines, and billed-not-paid amounts, come off in writing",
+          "A fully insured plan: any reduction turns on state law, Atty. Thorne's call at the lien stage"
+        ]
+      },
+      {
+        "term": "The Two CMS Flags",
+        "text": "A lien and a gap are flagged **the day you know**, in facts only, and routed",
+        "more": [
+          "Lien: CMS → Liens → Flag on first notice (02/27/2026), and **before any demand**",
+          "Record carrier, member ID PSH-55017742, group GRP-41208, Payer Order position, basis and flag date",
+          "Gap: flag the day records show first care 02/20/2026, **14 days** after the 02/06/2026 loss",
+          "Risks band holds facts only: dates, count, explanation pending; routed to Atty. Thorne",
+          "Watch for any later break: the 04/08/2026 alert flagged 04/02 → 04/21/2026, 19 days"
+        ]
+      }
+    ],
+    "pages": [
+      "D2#25",
+      "D1#22"
+    ]
   }
 }
