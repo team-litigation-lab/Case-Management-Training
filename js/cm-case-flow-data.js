@@ -152,7 +152,9 @@ window.CM_CASE_FLOW = {
       "03/13/2026 Summit Imaging Center, cervical MRI (Dr. Helen Park): C5-C6 herniation, \"no significant degenerative change at the adjacent levels\" · $2,395.00 (PIP)",
       "03/27/2026 Lakeside Orthopedics follow-up, referral to pain management · $640.00 (PIP)",
       "04/02 → 04/21/2026: disrupted care, 19 days with no visits (missed 04/03, 04/07, 04/09, 04/14)",
+      "04/20/2026 Lakeside Orthopedics, Dr. Reyes: telephone encounter, no charge · anxiety and avoidance of car travel after the collision; referral to counseling through Northgate's EAP",
       "04/21–06/05/2026 Riverton Spine & Rehab: 17 visits, care resumed (LOP)",
+      "04/24–06/05/2026 Stonebridge EAP Services (Northgate's EAP), Renee Castillo, LPC: six counseling sessions by video, no charge",
       "05/15/2026 Crescent Pain & Spine, Dr. Omar Haddad: cervical epidural steroid injection · billed $3,400.00, Peach State paid $1,860.00 at contract rate (no balance billing)",
       "06/12/2026 Lakeside Orthopedics: MMI · residual intermittent right-arm paresthesia · possible 1–2 repeat ESIs within 24 months ($3,400–$6,800 future medical) · $640.00 (PIP, now exhausted)",
       "02/07–06/2026 Riverton Drug: prescriptions and OTC · $312.40, John out of pocket"]},
@@ -162,8 +164,9 @@ window.CM_CASE_FLOW = {
       "Keystone disclosed nothing before a written request with authorizations; BI $10,000 confirmed by its Declaration Page 03/20/2026"
     ]},
     {after: "d2m2-a2", title: "The Disruption", group: "care", items: [
-      "Keystone ended Margaret's rental 03/19/2026 (30-day cap) while the Civic waited for parts; Kevin's shift changed 04/01/2026, ending the carpool.",
-      "John missed PT visits from 04/03; the CM learned of it 04/08/2026 from Riverton Spine & Rehab's missed-visit alert."
+      "John missed PT from 04/03 and answered no one; the CM learned of it 04/08/2026 from Riverton Spine & Rehab's missed-visit alert and ran the No Contact Protocol: notices 04/08 and 04/09, Margaret Doe 04/10, a 10-day Final Warning Letter 04/10 (respond by 04/20), status Drop Warning.",
+      "John called 04/17, the last business day before the deadline: on 04/02, stopped at the collision corner by his house, he had panicked in the car, and since then he had avoided riding in cars, slept badly and felt low. Not willful non-compliance: crash-related anxiety.",
+      "Background, not the cause: Keystone ended Margaret's rental 03/19/2026 (30-day cap) while the Civic waited for parts; Kevin's shift changed 04/01/2026, ending the carpool."
     ]},
     {after: "d5m2-a2", title: "Property Damage: Margaret's Civic", group: "cover", items: [
       "A separate claim with Keystone PD (adjuster Leah Moran), outside the $40,000 stack · PD liability accepted 02/17/2026",
@@ -180,7 +183,8 @@ window.CM_CASE_FLOW = {
       "Riverton Spine & Rehab billed 34 lines × $185.00 = $6,290.00, but 05/04/2026 is a duplicate: 33 visits = $6,105.00 after audit",
       "PIP paid in date order $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00 (exhausted 06/2026)",
       "Medical specials: $15,002.40 billed → $14,817.40 after the audit · lost wages: 9 shifts × 8 h × $22.00 = $1,584.00 (Northgate HR letter) · total Specials $16,401.40",
-      "A-C-T: Assess, called John 04/08 · Coordinate, asked Keystone PD to extend the rental (refused 04/10), then moved John to evening slots so Margaret could drive him (first open slot 04/21) · Track, attendance confirmed 04/21 and 04/23 · the Civic came back 04/24"
+      "A-C-T: Assess, the No Contact Protocol from 04/08 until John called 04/17 (trauma-informed interview) · Coordinate, Dr. Reyes by phone 04/20 (no charge; referral to Northgate's EAP), evening slots under the LOP with Margaret driving (from 04/21) · Track, file restored 04/20 (Drop Warning cleared, 14-day trigger reset, Action Plan updated), attendance confirmed 04/21 and 04/23",
+      "Mental anguish, documented for the non-economic damages: Dr. Reyes's 04/20/2026 note; six EAP counseling sessions 04/24–06/05/2026 at no charge, summary 06/10/2026; John's Personal Impact Statement 06/15/2026. No new bills: Specials stay $16,401.40"
     ]},
     {after: "d2m3-a2", title: "Why the 14-Day Gap Happened", group: "care", items: [
       "No transportation: the Civic was towed from the scene, Kevin's Escape was in the shop, and no rental was authorized until 02/18/2026",
@@ -2849,9 +2853,15 @@ window.CM_CASE_FLOW = {
         {q: "Harbor Point PIP has paid $685.00, $640.00, $2,395.00 and $640.00 in date order. How much is left for Lakeside Orthopedics' 06/12/2026 MMI visit?",
          opts: ["$640.00", "$1,280.00", "$0.00", "$4,360.00"],
          a: 0, r: "$685.00 + $640.00 + $2,395.00 + $640.00 = $4,360.00; $5,000.00 – $4,360.00 = $640.00. The 06/12/2026 visit uses it, and PIP is exhausted at exactly $5,000.00."},
-        {q: "Riverton Spine & Rehab's missed-visit alert reaches you on 04/08/2026. Under A-C-T, what comes first?",
-         opts: ["Ask Keystone PD to extend the rental", "Call John Doe to assess the barrier, and whether it is a medical or a legal danger", "Write the GIRP note and close the alert", "Tell Atty. Thorne that John Doe is non-compliant"],
-         a: 1, r: "Assess comes first: the 04/08/2026 call finds the barrier (no transport). Coordinate (the rental request, the evening slots) and Track (attendance on 04/21 and 04/23/2026) follow from what the call finds."},
+        {q: "Riverton Spine & Rehab's missed-visit alert reaches you on 04/08/2026, and John Doe isn't answering anyone. Under A-C-T, what comes first?",
+         opts: ["Tell Atty. Thorne that John Doe is non-compliant", "Assess: the Step 1 review, then reach him through the No Contact Protocol, one channel after another, logging each attempt", "Send the Final Warning Letter today", "Ask the clinic to discharge him until he calls"],
+         a: 1, r: "Assess comes first, and a silent client is assessed by reaching him: the Step 1 review, then call and text, call and email, the emergency contact, Atty. Thorne, and only then the Final Warning Letter. Silence is a symptom; on this file its cause was crash-related anxiety, which only John could tell you."},
+        {q: "John Doe calls on 04/17/2026 and says he panicked in the car at the corner where the crash happened and hasn't been able to ride to therapy since. What do you say?",
+         opts: ["“That sounds like PTSD. You should see a therapist.”", "“That will add to your pain and suffering, so it's good for your case.”", "“I'm glad you told me. Would it help to tell Dr. Reyes about this yourself? I can set up a call with her office.”", "“You need to get back to therapy this week or the file closes.”"],
+         a: 2, r: "Record his words and offer a choice. A label is a diagnosis, “see a therapist” is direction of care, “good for your case” is a value statement, and the deadline is a threat. He tells Dr. Reyes; you schedule. What it means for the claim is Atty. Thorne's."},
+        {q: "The Final Warning Letter of 04/10/2026 asks John Doe to respond by 04/20/2026. If he hadn't, when could the file have been closed?",
+         opts: ["On 04/20/2026, automatically", "Only when Atty. Thorne decides, and his retainer needs at least 30 days of documented attempts first (04/08 → 05/08/2026)", "On 04/16/2026, when the 14-day no-visit trigger fired", "Whenever the Case Manager sets the status to Dropped"],
+         a: 1, r: "The letter's date is a response date, not a closure date. Section 7 of the retainer (RS05) requires documented attempts over at least 30 days, and withdrawal is always Atty. Thorne's decision. John Doe's case is never dropped: he called on 04/17."},
         {q: "Keystone will point to John Doe's three chiropractic visits in 2021. The Case Manager's job is to:",
          opts: ["Leave them out of the file, since they are unrelated", "Tell John Doe the eggshell rule means they can't hurt his claim", "Argue to the adjuster that a prior injury doesn't matter", "Document the baseline (low back, resolved, no prior neck complaints), distinguish it from the neck injury, and route it to Atty. Thorne"],
          a: 3, r: "Highlight the prior, never hide it. The CM documents the pre-morbid baseline and the difference in body region; whether aggravation or the eggshell rule matters at all is Atty. Thorne's call."},
@@ -3310,6 +3320,8 @@ window.CM_CASE_FLOW = {
             "“Reasonable and necessary” is the utilization-review lens (usual for this injury; objective functional gain), not the legal test of what John Doe recovers: confirm that rule. Necessity is the provider's opinion, argued by Atty. Thorne. No disability-index change by week 12 is a plateau: ask the provider about a specialist.",
             "Name the variance before you fix it: clinical (a new complication), psychosocial (yellow flags such as fear-avoidance, catastrophizing, no transport to therapy), systemic (an authorization or referral delay).",
             "A-C-T for every red flag. Assess: medical danger to the provider now, legal danger (missed visits, generic notes) to Atty. Thorne. Coordinate: clarify with the office, remove the barrier. Track: record every fix attempt; that is counsel's why.",
+            "A client who goes silent can't be assessed until he is reached: Assess runs through the No Contact Protocol (progressive notices by channel, the emergency contact, Atty. Thorne, a Final Warning Letter). Silence is a symptom; look for its cause before anyone calls it non-compliance.",
+            "Mental anguish is a yellow flag you document, never diagnose: his words, what has changed in his days, dated. Whether a screen or a referral is indicated is the provider's call, and he tells the provider himself; anything that puts his mental health in the record is flagged to Atty. Thorne.",
             "In a crisis, adjust the plan first: it is usually the plan, not the client. That is management, not an admission.",
             "Climb the ladder one documented rung at a time: 1 clinical (the office manager), 2 administrative (written notice to the carrier causing the barrier, copied to Atty. Thorne; to Keystone PD, the adverse carrier, property facts only), 3 legal (Atty. Thorne's call, such as an LOP to bypass a stalling payer).",
             "Write every intervention as a GIRP note (Goal, Intervention, Response, Plan): factual, never “this will help the case.” The defense may read it."
@@ -3323,21 +3335,21 @@ window.CM_CASE_FLOW = {
           type: "process",
           steps: [
             ["Monitor", "Attendance, pain, function every contact; week-6 measures due 04/07/2026."],
-            ["Detect and classify", "Clinical, psychosocial or systemic. Visits missed from 04/03/2026 for want of transport: psychosocial."],
-            ["Assess", "Medical danger → the provider today; legal danger → Atty. Thorne. Here: the 04/08/2026 call to John Doe."],
-            ["Coordinate", "Clarify with the clinic, remove the barrier, climb the ladder: rental request, evening slots, Margaret Doe driving."],
-            ["Track", "GIRP note; attendance confirmed 04/21 and 04/23/2026; the why on file for counsel."]
+            ["Detect and classify", "Clinical, psychosocial or systemic. Visits missed from 04/03/2026 and John silent: psychosocial (crash-related anxiety, found once he was reached)."],
+            ["Assess", "Medical danger → the provider today; legal danger → Atty. Thorne. Here: the No Contact Protocol from 04/08/2026 until John called on 04/17."],
+            ["Coordinate", "With his consent: Dr. Reyes by phone 04/20, evening slots under the LOP, Margaret Doe driving a route that avoids the corner."],
+            ["Track", "GIRP note; file restored 04/20; attendance confirmed 04/21 and 04/23/2026; the why on file for counsel."]
           ]
         },
         ops: [
-          ["Provider's missed-visit alert", "Run A-C-T the same day: call John Doe, classify the variance, record it", "Call Simulator → AI John Doe · CMS → Case Notes", "Call and GIRP note dated the day the alert arrives"],
+          ["Provider's missed-visit alert", "Run A-C-T the same day: reach John Doe (the No Contact Protocol if he is silent), classify the variance, record it", "Call Simulator → AI John Doe · CMS → Communications Log · CMS → Case Notes", "First attempt and note dated the day the alert arrives"],
           ["Week 6 of care (04/07/2026)", "Ask the provider for the re-evaluation measures: range of motion, pain score, disability index. Whether a PHQ-9/GAD-7 screen is indicated is the provider's call; anything putting John Doe's mental health in the record is flagged to Atty. Thorne", "Medical Records Requests · CMS → Case File → Treatment timeline", "Measures on file, or the missed re-evaluation flagged"],
           ["Barrier not fixed at the clinical rung", "Climb one rung: written notice to the carrier causing it, copied to Atty. Thorne (Keystone PD: property facts only)", "Email Workspace · CMS → Tasks → Escalate", "Each rung dated in the Communications Log"],
           ["A red flag that can cost the claim (missed visits, generic notes, passive-only care)", "Report it to Atty. Thorne with the fix attempted", "CMS → Case File → Risk Flags", "Flag routed with the GIRP note attached"]
         ],
         best: [
           "Red flags to raise with the provider: more than 12 sessions with no gain and no specialist or imaging suggested; passive-only care (heat, TENS, massage) with no active exercise; two or more missed visits, which the defense reads as an injury not serious enough to treat.",
-          "Yellow flags (catastrophizing, litigation stress, reliance on passive care or medication) are reported with a plan, in the map's language: “John Doe is in the restorative phase. Psychosocial variance: no transport since 04/01/2026, four visits missed. Plan: evening slots from 04/21/2026 with family transport; attendance tracked.”",
+          "Yellow flags (catastrophizing, litigation stress, reliance on passive care or medication) are reported with a plan, in the map's language: “John Doe is in the restorative phase. Psychosocial variance: crash-related anxiety and avoidance of car travel since 04/02/2026, four visits missed. Plan: Dr. Reyes by phone 04/20/2026; evening slots from 04/21/2026 with family transport; attendance tracked.”",
           "When progress stalls, re-engage John Doe on his own goal (a full warehouse shift at Northgate without right-arm numbness), with active listening and without pressure.",
           "The 14-Day Gap is documented after the fact, from John Doe's own explanation on a recorded call and the dated records that support it. The disruption must never need that reconstruction: record it the day it happens.",
           "Proofread laterality in every summary: everything on this file is right-sided (right hand, right paracentral herniation). A left/right switch damages credibility.",
@@ -3349,20 +3361,20 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Map and six-week rule", 15, "Week 9 on 04/08/2026 (day 61); week 6 of care on 04/07/2026 (02/24/2026 + 42 days); 20–30% expectation stated"],
-            ["Variance and red flags", 15, "Clinical, psychosocial and systemic named; lost transport classed psychosocial; the three PT red flags named"],
+            ["Variance and red flags", 15, "Clinical, psychosocial and systemic named; crash-related anxiety and avoidance classed psychosocial; the three PT red flags named"],
             ["A-C-T sequence", 20, "Assess → Coordinate → Track, with medical danger to the provider and legal danger to Atty. Thorne"],
             ["Escalation ladder", 10, "Three rungs in order, each documented"]
           ],
           trainer: [
-            ["Monitoring mindset", 20, "Treats “Is the plan working?” as an outcomes question and revises the plan, not the client"],
-            ["UPL boundary", 20, "No treatment direction to John Doe, no clinical second-guessing, no value talk about missed visits"]
+            ["Monitoring mindset", 20, "Treats “Is the plan working?” as an outcomes question, looks for the cause of a silence, and revises the plan, not the client"],
+            ["UPL boundary", 20, "No treatment direction to John Doe, no clinical second-guessing or diagnosis, no value talk about missed visits"]
           ]
         },
         notes: [
           "Open with a date: 04/07/2026. Ask what was due that day (John Doe's week-6 mark of care), then tell the room he wasn't there.",
           "Put to the room: “On an LOP file, who denies unnecessary care, and when?” Keystone, at the demand. Let them work out what that makes the Case Manager.",
           "The course's earlier A-C-T names the middle step Clarify. On this file it is Coordinate, and it still opens with the clarifying call to the provider's office. Watch for trainees who skip that call and go straight to fixing.",
-          "Legal nuance: the A-C-T record is what later answers a failure-to-mitigate argument. Facts, dates and fix attempts; no adjectives about John Doe."
+          "Legal nuance: the A-C-T record is what later answers a failure-to-mitigate argument. Facts, dates and fix attempts; no adjectives about John Doe. On this file the record holds a documented cause (Dr. Reyes's 04/20/2026 note, the counselor's summary), which a note calling him non-compliant would have undercut."
         ]
       },
       {
@@ -3496,69 +3508,70 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "activity", id: "d2m2-a2", compact: true,
-        title: "Executing the A-C-T Crisis Protocol for Disrupted Care",
-        topic: "Skill Activity 2 — the Transportation Wall, 04/08/2026",
-        visual: "A horizontal treatment timeline across the slide from 04/02/2026 to 04/24/2026. A hollow red band spans 04/02 → 04/21, labelled 19 DAYS · NO VISITS, with four red ✗ markers at 04/03, 04/07, 04/09 and 04/14. Above the band, the A-C-T steps as three orange-badged navy cards pinned to their dates: ① ASSESS 04/08 ② COORDINATE 04/08 → 04/10 rental refused → 04/21 evening slot ③ TRACK 04/21 · 04/23 with green ✓ markers. A grey mono pill at 04/24 reads CIVIC RETURNED. Below, the three Transportation Wall options as cream cards, A · B · C. The empty red band is the argument: every day of it needs a documented reason.",
+        title: "The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol",
+        topic: "Skill Activity 2 — the silent client and the trauma-informed interview, 04/08–04/21/2026",
+        visual: "A horizontal treatment timeline from 04/02/2026 to 04/21/2026. A hollow red band spans 04/02 → 04/21, labelled 19 DAYS · NO VISITS, with four red ✗ markers at 04/03, 04/07, 04/09 and 04/14. Above the band, an orange escalation rail of dated notices: ① CALL + TEXT 04/08 ② CALL + EMAIL 04/09 ③ EMERGENCY CONTACT 04/10 ④ FINAL WARNING LETTER 04/10 · RESPOND BY 04/20, with a grey DROP WARNING chip hanging from ④. At 04/17 a green phone icon breaks the rail: JOHN CALLS. Below the band, three navy cards: SAFETY · CHOICE · HIS WORDS (the interview), then a green RESTORED · 04/20 chip and ✓ marks at 04/21 and 04/23. The argument: the silence had a cause, and the record shows the firm looked for it.",
         act: {
-          scenario: "04/08/2026: Riverton Spine & Rehab's missed-visit alert. John Doe missed 04/03 and 04/07; his last visit was 04/02/2026. As you work, the file moves: Keystone PD (Leah Moran) answers your rental request on 04/10/2026, the clinic's first open evening slot is 04/21/2026, John Doe misses 04/09 and 04/14 meanwhile, and the Civic comes back from the shop on 04/24/2026.",
-          prompt: "Execute A-C-T on the Transportation Wall. Assess: call John Doe on 04/08/2026, find the barrier, classify the variance, and decide whether it is a medical or a legal danger. Coordinate: clarify with the clinic, request a rental extension from Keystone PD in writing, and build a transport plan from one of the three Transportation Wall options, saying why. Track: write the GIRP note, report to Atty. Thorne, and confirm attendance once care resumes. Graded: exact dates and the 19-day count; no treatment advice; no talk of what missed visits do to the claim.",
-          tool: "Call Simulator → AI John Doe · Email Workspace · CMS → Case Notes · CMS → Case File → Treatment timeline",
-          output: "A complete A-C-T record: the call, the variance, each coordination attempt and its result, a GIRP note, the report to Atty. Thorne, and attendance confirmed on 04/21 and 04/23/2026.",
+          scenario: "04/08/2026: Riverton Spine & Rehab's missed-visit alert. John Doe missed 04/03 and 04/07 with no call and answers no one; his last visit was 04/02/2026, his last contact with you 03/31. As you work, the file moves: no reply to your notices on 04/08 and 04/09, Margaret Doe says on 04/10 he is safe but “keeping to himself”, he misses 04/09 and 04/14, the CMS 14-day no-visit trigger fires 04/16, and on 04/17 at 4:48 p.m. John calls you.",
+          prompt: "Run A-C-T on a client who has gone silent. Assess: do the Step 1 review, then send progressive notices (call and text, then call and email, then the emergency contact), escalate to Atty. Thorne, send the 10-day Final Warning Letter by certified mail AND email, and set the Drop Warning status. When John calls on 04/17, run a trauma-informed, UPL-compliant interview: record his own words, his distress and what has changed in his days, without diagnosing or advising. Coordinate, with his consent: a telephone appointment with Dr. Reyes (scheduling only) and evening visits under the existing LOP. Track: the GIRP note, the report to Atty. Thorne, the file restored, attendance on 04/21 and 04/23/2026.",
+          tool: "Call Simulator → AI John Doe · Email Workspace · CMS → Communications Log · CMS → Case Notes · CMS → Case Status · CMS → Calendar",
+          output: "A complete near-drop record: dated notices, the Final Warning Letter, the interview's GIRP note in his words, the file restored and attendance confirmed 04/21 and 04/23/2026.",
           checkpoints: [
-            "Assess dated 04/08/2026, the day the alert arrived; barrier recorded: Keystone ended the rental on 03/19/2026 (30-day cap), the carpool ended with Kevin Alvarez's shift change on 04/01/2026, the Civic is awaiting parts",
-            "Symptoms asked about on the call; anything new or worse routed to the provider at once",
-            "Classified: an external barrier (transport), a psychosocial variance, and a legal danger (missed visits); reported to Atty. Thorne",
-            "Rental extension requested in writing from Keystone PD (Leah Moran), property facts only (Civic awaiting parts; repair not complete); nothing about John Doe's treatment or missed visits; the 04/10/2026 refusal (“shop delay”) logged",
-            "Transport option chosen and justified; plan: evening slots so Margaret Doe can drive John Doe after her shift, booked with the clinic while John Doe is on the line",
-            "Missed visits recorded exactly: 04/03, 04/07, 04/09 and 04/14/2026, four in all",
-            "Disruption computed: 04/02/2026 → 04/21/2026 = 19 days without a visit",
-            "GIRP note complete (Goal, Intervention, Response, Plan), factual, no opinion on the claim",
-            "Ladder documented rung by rung: the clinic, the written request to Keystone PD, Atty. Thorne told of the refusal",
-            "Track: attendance confirmed 04/21 and 04/23/2026; the Civic's return on 04/24/2026 noted",
-            "No advice to add, skip or stop treatment; nothing said about what missed visits do to the claim's value"
+            "Step 1 review dated 04/08/2026, before any outreach: SOL 02/06/2028, care stopped since 04/02, week-6 re-evaluation missed 04/07, last contact 03/31",
+            "Notices escalate by channel and are logged with date, time, channel and outcome: call and text 04/08, call and email 04/09, Margaret Doe 04/10 (no case details shared)",
+            "Step 3 escalation to Atty. Thorne 04/10; Final Warning Letter by certified mail AND email, response date 04/20/2026, withdrawal possible, not decided, nothing about the claim",
+            "The retainer's 30 days of documented attempts (04/08 → 05/08/2026) noted: the 10-day date is a response date, and any withdrawal is Atty. Thorne's decision",
+            "Drop Warning status set with 04/20 on the calendar; the 04/16 14-day no-visit trigger logged and flagged",
+            "Interview: safety asked first, his pace, choice offered (he declines recording), no “why didn't you” questions, no blame; his account read back and corrected",
+            "His words recorded: the 04/02 panic at the Maple Hollow Rd & Birch Ave corner, avoiding car rides, sleep, low mood, why he stopped answering; neck and arm symptoms asked about",
+            "No diagnosis or label (never “PTSD” or “depression”), no advice to see a counselor, nothing on what this means for the claim; those questions routed to Atty. Thorne",
+            "Coordinated with his consent: Dr. Reyes's office asked for a telephone appointment, scheduling only (he tells her himself); evening slots Tue/Thu from 04/21 under the 02/23/2026 LOP, Margaret driving a route that avoids the corner",
+            "Privileged GIRP note filed 04/17/2026; Atty. Thorne told the same day; file restored 04/20: Drop Warning cleared, 14-day trigger reset, Action Plan updated",
+            "Missed visits exact (04/03, 04/07, 04/09, 04/14); 04/02 → 04/21/2026 = 19 days; attendance confirmed 04/21 and 04/23/2026"
           ]
         },
         show: {
-          caption: "The Transportation Wall: three ways through, and their trade-offs",
+          caption: "The trauma-informed interview: three moves, and the line",
           type: "threebox",
           items: [
-            ["Option A · Problem Solver", "You find the ride: a rental extension from the carrier, bus routes, ride vouchers from a non-profit or community program. Never a ride, rental or voucher paid for by the firm: that is financial assistance to a client, Atty. Thorne's call under the governing ethics rule. Fast, but John Doe depends on you."],
-            ["Option B · Empowerer", "John Doe finds it with you: who in his household can drive, and when. Slower to start, but it lasts."],
-            ["Option C · Clinical Pivot", "Ask the clinic whether an interim home program fits while transport is fixed. The provider decides."]
+            ["Safety first", "Thank him for calling, say there is no trouble in calling late, ask whether he is safe. If he mentions harming himself: the 988 Suicide & Crisis Lifeline, and Atty. Thorne at once."],
+            ["His choice, his pace", "Ask before recording or before going into the crash. Open questions: “What's been happening since the 2nd?” Let silences run. Never “why didn't you call?”"],
+            ["His words, not your labels", "Quote him: “every time I get in a car my chest goes tight.” Never “sounds like PTSD.” What it is, is for Dr. Reyes; what it means for the claim, for Atty. Thorne."]
           ]
         },
         ops: [
-          ["04/08/2026: missed-visit alert", "Assess: call John Doe, classify the variance, write the GIRP note", "Call Simulator → AI John Doe · CMS → Case Notes", "Call and note dated 04/08/2026"],
-          ["Barrier is transport", "Coordinate: written rental request to Keystone PD; evening slots with the clinic", "Email Workspace · CMS → Property Damage → Correspondence · CMS → Calendar", "Request dated; 04/10/2026 refusal logged; 04/21/2026 slot on the calendar"],
-          ["Care resumes 04/21/2026", "Track: confirm attendance with the clinic; report to Atty. Thorne", "CMS → Case File → Treatment timeline · CMS → Tasks → Escalate", "Attendance on 04/21 and 04/23/2026 confirmed; 19-day disruption recorded with its cause"]
+          ["04/08/2026: missed-visit alert, client silent", "Step 1 review; Notices 1 and 2 by different channels", "CMS → Case Summary · Call Simulator · Email Workspace · CMS → Communications Log", "Each notice logged with date, time, channel, outcome"],
+          ["04/10/2026: emergency contact reached, still no word", "Escalate; send the 10-day Final Warning Letter; set Drop Warning", "CMS → Tasks → Escalate · CMS → Documents → Outgoing · CMS → Case Status", "Certified mail and email logged; 04/20 calendared"],
+          ["04/17/2026: John calls", "Trauma-informed interview; coordinate with his consent; restore the file", "Call Simulator → AI John Doe · CMS → Case Notes · CMS → Calendar", "GIRP note same day; Drop Warning cleared 04/20; visits 04/21 and 04/23 confirmed"]
         ],
         best: [
-          "Facilitation is the treatment phase's first job: a client who can't reach the clinic isn't in treatment, whatever the plan says.",
-          "Act the day the alert lands. Every day without a plan is another missed visit.",
-          "Calendar known transport risks: a rental capped at 30 days has an end date (03/19/2026) you could see on 02/18/2026.",
-          "Log Keystone PD's 04/10/2026 refusal in full. It is part of why care stopped, and part of the loss-of-use claim Atty. Thorne decides how to pursue.",
-          "Pitfall: accepting “I'll just wait until the car's back” without a plan.",
-          "Pitfall: telling John Doe that missing therapy “will hurt your case.” It is a value statement, and it pushes treatment for the claim's sake."
+          "Silence is a symptom until you know otherwise: look for the cause before you write the client off.",
+          "Escalate by channel, not volume, and log every attempt when you make it.",
+          "When he resurfaces, lead with relief, not the deadline: “I'm glad you called.”",
+          "Offer choices he can say no to; a client who feels in control keeps talking.",
+          "Keep the Final Warning Letter's response date apart from any withdrawal: the retainer needs 30 days of documented attempts, and the decision is Atty. Thorne's.",
+          "Pitfall: diagnosing (“that's PTSD”) or prescribing (“you need a therapist”); both are outside your lane.",
+          "Pitfall: telling him the anxiety “adds to his case.” It is a value statement, and he may repeat it in a deposition.",
+          "Pitfall: passing what he told you to the clinic or Dr. Reyes. He tells his providers himself; you schedule."
         ],
-        sources: ["D1#26", "D1#27", "D1#29", "D1#30", "D1#38", "D1#41", "D1#45", "D1#47"],
+        sources: ["D1#26", "D1#27", "D1#29", "D1#38", "D1#41", "D1#45", "LSH Claims Specialist: No Contact Protocol, Steps 1–4; Final Warning Letter", "Newly authored: the near-drop (the No Contact Protocol inside A-C-T's Assess), the trauma-informed client interview within the UPL line, and restoring a file from Drop Warning"],
         rubric: {
           ai: [
-            ["Dates exact", 20, "Alert and call 04/08/2026; refusal 04/10/2026; missed 04/03, 04/07, 04/09, 04/14; resumed 04/21/2026; 19 days"],
-            ["A-C-T complete", 20, "Assess, Coordinate and Track each recorded with its date and result"],
-            ["GIRP structure", 10, "All four parts present, factual and clinical"],
-            ["Ladder documented", 10, "Clinic, written request to Keystone PD, report to Atty. Thorne, in that order"]
+            ["Protocol record", 20, "Step 1 before outreach; notices by escalating channel 04/08, 04/09, 04/10; escalation; Final Warning Letter by certified mail and email with 04/20/2026; Drop Warning set"],
+            ["Dates exact", 10, "Missed 04/03, 04/07, 04/09, 04/14; 19 days 04/02 → 04/21/2026; call 04/17; restored 04/20; attendance 04/21 and 04/23"],
+            ["Interview record", 20, "His words quoted: the 04/02 panic at the corner, avoidance, sleep, mood, why he went silent; symptoms asked; read back"],
+            ["Restoration", 10, "Drop Warning cleared, 14-day trigger reset, Action Plan updated, visits booked under the existing LOP"]
           ],
           trainer: [
-            ["Crisis judgment", 15, "Chooses and justifies a transport option that keeps John Doe in care, balancing empowerment and speed"],
-            ["Client communication", 10, "Active listening; motivates without pressure or blame"],
-            ["UPL boundary", 15, "No treatment advice, no value talk, no firm-funded transport offered, nothing told to Keystone beyond property facts"]
+            ["Trauma-informed judgment", 20, "Safety first, choice offered, no blame; the client keeps talking"],
+            ["UPL boundary", 20, "No diagnosis or label, no advice to seek counseling, no value talk, withdrawal never announced, nothing passed to providers"]
           ]
         },
         notes: [
-          "Start the clock at 04/08/2026 and release each update only when the trainee earns it: Keystone PD's refusal after the written request, the evening slot after they ask the clinic.",
-          "Put to the room: “Which option did the file actually use, and why did Option B outlast Option A?” The rental request failed on 04/10/2026; Margaret driving after her shift got John Doe back in care on 04/21/2026, three days before the Civic came back.",
-          "Watch the call for value talk. “If you miss more therapy your case is worth less” fails the UPL row, however well meant.",
-          "Nuance: Keystone also holds the BI claim. Keep the rental request to the property facts; what Keystone hears about John Doe's treatment is Atty. Thorne's call."
+          "Start the clock at 04/08/2026 and release each update only when it is earned: Margaret's call after two genuine channels, the letter after the escalation, John's call only once the Drop Warning is on the calendar.",
+          "Before the call, ask the room: “He's been silent two weeks. What's the first thing you say?” Most say the deadline. Model the other answer: “I'm glad you called. Are you okay?”",
+          "Watch for the kind diagnosis. “That sounds like PTSD” is meant as empathy and fails the UPL row; so does “a therapist would help”. The referral came from Dr. Reyes, after John told her himself.",
+          "Legal nuance: the defense will plead failure to mitigate on these 19 days. A record that shows a documented clinical cause, and a firm that looked for it, is what Atty. Thorne answers with; the word “non-compliant” in a note does the defense's work for it."
         ]
       },
 
@@ -3839,6 +3852,9 @@ window.CM_CASE_FLOW = {
         {q: "John Doe's Gap Explanation Record must cover:",
          opts: ["Only the 14-day initial gap, because that is the one the adjuster will raise", "The 14-day gap (02/06–02/20/2026) and the 19-day disruption (04/02–04/21/2026), every reason paired with its document", "Only the reasons that can be proved from Medical Records", "The 14-day gap, with the firm's argument for why it doesn't matter"],
          a: 1, r: "Both interruptions, each reason beside its dated document. Facts and citations only; the argument is Atty. Thorne's."},
+        {q: "In John Doe's Gap Explanation Record, what corroborates the reason for the 19-day disruption (04/02–04/21/2026)?",
+         opts: ["Keystone's rental record and its 04/10/2026 refusal", "Dr. Reyes's 04/20/2026 telephone note and counseling referral, and the counselor's 06/10/2026 summary", "John Doe's Personal Impact Statement, as documented proof", "The privileged 04/17/2026 interview note, quoted"],
+         a: 1, r: "The cause is crash-related anxiety and avoidance after the 04/02 panic at the collision corner, documented by Dr. Reyes and the EAP counselor. The rental's end is background; his statement is his account (“account only”); the interview note is privileged and never cited outward."},
         {q: "A provider's note looks wrong about when John Doe's neck pain began. What do you do?",
          opts: ["Ask the provider to correct it to match the file", "Flag it to Atty. Thorne: a provider corrects its own record only by a dated addendum, and the original stays", "Fix it in the CMS copy", "Leave it: records don't matter until the demand"],
          a: 1, r: "Never ask a provider to change, back-date or add to a record. Altering a record can be evidence tampering or insurance fraud."}
@@ -4077,12 +4093,12 @@ window.CM_CASE_FLOW = {
         kind: "activity", id: "d2m3-a2",
         title: "Gap Explanation Record Creation",
         topic: "Skill Activity 2 — every reason beside its proof, for both interruptions",
-        visual: "A white CMS record card with a navy header, GAP EXPLANATION RECORD · JOHN DOE, split into two horizontal bands of equal weight: 14-DAY GAP · 02/06–02/20/2026 and 19-DAY DISRUPTION · 04/02–04/21/2026. Each band has three columns, REASON · CORROBORATING DOCUMENT · DATE, with orange numbered badges on the reasons and mono date pills. A grey ACCOUNT ONLY tag marks any row without an independent document. Bottom-right, a ROUTE TO ATTY. THORNE control. The argument: every reason sits beside its proof, and the second interruption gets the same room as the first.",
+        visual: "A white CMS record card with a navy header, GAP EXPLANATION RECORD · JOHN DOE, split into two horizontal bands of equal weight: 14-DAY GAP · 02/06–02/20/2026 and 19-DAY DISRUPTION · 04/02–04/21/2026 (ANXIETY AFTER THE CRASH). Each band has three columns, REASON · CORROBORATING DOCUMENT · DATE, with orange numbered badges on the reasons and mono date pills. A grey ACCOUNT ONLY tag marks any row without an independent document. Bottom-right, a ROUTE TO ATTY. THORNE control. The argument: every reason sits beside its proof, and the second interruption gets the same room as the first.",
         act: {
-          scenario: "06/22/2026. John Doe reached MMI on 06/12/2026. Dr. Alana Reyes's Causation Letter of 06/19/2026 is in: delayed presentation is clinically consistent with a disc injury whose radicular symptoms evolve over days to weeks, and the injury was more likely than not caused by the collision. The 03/04 call note, the 04/08 A-C-T log and every record are in the CMS. Atty. Thorne wants the record before the pre-demand strategy session.",
-          prompt: "Build John Doe's Gap Explanation Record in the CMS. Cover both interruptions, the 14-day gap (02/06–02/20/2026) and the 19-day disruption (04/02–04/21/2026), with exact dates. Pair every reason with the dated document that corroborates it; mark a reason with no independent document “account only”. Cite the complaints before and after each interruption, and the firm's follow-up during the disruption. Write facts and citations only: no argument, no valuation, nothing quoted from the privileged call. Run a defense-eye pass, then route it to Atty. Thorne.",
+          scenario: "06/22/2026. John Doe reached MMI on 06/12/2026. Dr. Alana Reyes's Causation Letter of 06/19/2026 is in: delayed presentation is clinically consistent with a disc injury whose radicular symptoms evolve over days to weeks, and the injury was more likely than not caused by the collision. The 03/04 call note, the near-drop record of 04/08–04/21 (the outreach log, the Final Warning Letter, the 04/17 interview note), Dr. Reyes's 04/20 telephone note, the counselor's 06/10 summary and John Doe's 06/15 Personal Impact Statement are in. Atty. Thorne wants the record before the pre-demand strategy session.",
+          prompt: "Build John Doe's Gap Explanation Record in the CMS. Cover both interruptions, the 14-day gap (02/06–02/20/2026) and the 19-day disruption (04/02–04/21/2026), with exact dates. Pair every reason with the dated document that corroborates it; mark a reason with no independent document “account only”. Cite the complaints before and after each interruption, and the firm's follow-up during the disruption. Write facts and citations only: no argument, no valuation, nothing quoted from the privileged calls. Run a defense-eye pass, then route it to Atty. Thorne. Then file the non-economic damages records (the referral, the counseling summary, his statement) in the CMS and the Drive folder, logged for his demand decision.",
           tool: "CMS → Case File → Gap Explanation Record · Tasks",
-          output: "A routed record covering both interruptions, every reason beside a dated document, ready for Atty. Thorne to decide how it is used in the demand.",
+          output: "A routed record covering both interruptions, every reason beside a dated document, and the non-economic damages records filed and logged for Atty. Thorne's demand decision.",
           checkpoints: [
             "Initial gap: 14 days, 02/06/2026 → 02/20/2026. Disruption: 19 days, 04/02/2026 → 04/21/2026, missed visits 04/03, 04/07, 04/09 and 04/14",
             "No transportation → the tow and storage record (Civic towed from the scene 02/06/2026); Keystone's rental authorization, from 02/18/2026; Kevin Alvarez's Escape being in the shop marked “account only”",
@@ -4090,8 +4106,10 @@ window.CM_CASE_FLOW = {
             "Cost worry → Peach State eligibility, effective 02/01/2026 (five days before the collision: 02/01 → 02/06), through a Northgate job begun 01/12/2026; the worry itself marked “account only”",
             "Escalation → urgent-care note 02/20/2026, quoted exactly: “onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18”; Northgate's Attendance Record (worked 02/18–02/19; 02/20 his first day off)",
             "Continuity across the 14 days → EMS report 02/06/2026; Northgate call-outs 02/09–02/13 citing neck pain; Dr. Reyes's Causation Letter 06/19/2026",
-            "Disruption → Keystone's rental record (30-day cap, 02/18–03/19/2026, Civic waiting on parts); its refusal of an extension, 04/10/2026; repair completed 04/24/2026; the carpool ending 04/01/2026 marked “account only”, a statement from Kevin Alvarez flagged for Atty. Thorne's decision",
-            "Follow-up dated: missed-visit alert and A-C-T call 04/08/2026, extension refused 04/10, evening slots with Margaret driving from 04/21, attendance confirmed 04/21 and 04/23",
+            "Disruption → crash-related anxiety and avoidance of car travel after the 04/02/2026 panic at the collision corner: Dr. Reyes's telephone note and referral 04/20/2026; the counseling summary 06/10/2026 (six sessions 04/24–06/05, no charge); his own report in the clinic's 04/21 note; his Personal Impact Statement 06/15/2026 marked “account only”; a statement from Margaret Doe, who was in the car, flagged for Atty. Thorne's decision",
+            "Background kept apart from the cause: the rental's end 03/19/2026 and the carpool's 04/01/2026 are on the file but are not the reason he stopped",
+            "Follow-up dated: missed-visit alert 04/08/2026, notices 04/08–04/13, Final Warning Letter 04/10, his call 04/17, file restored 04/20, evening slots with Margaret driving from 04/21, attendance confirmed 04/21 and 04/23",
+            "Non-economic records filed in the CMS and the Drive folder under the firm's naming: the 04/20 note and referral, the 06/10 counseling summary, the 06/15 statement; obtained on the 05/06 authorization; logged for Atty. Thorne's demand decision; no new bill, Specials still $16,401.40",
             "Complaints before and after each interruption cited from the EMS report and the provider notes, quoted, never strengthened",
             "Facts and citations only; defense-eye pass logged: John Doe's public social media for both windows checked, nothing deleted or advised deleted; record routed to Atty. Thorne with a timestamp",
             "Two layers: the internal record (account-only tags, the Kevin Alvarez flag, the defense-eye and social-media pass) is labelled attorney work product and stays in the CMS. If Atty. Thorne decides the gap goes to Keystone, an outward-facing gap timeline (dates, reasons, documents only) is drafted from it for his approval."
@@ -4103,13 +4121,14 @@ window.CM_CASE_FLOW = {
           head: ["Interruption", "Reason (his account)", "Corroborating document"],
           rows: [
             ["14 days · 02/06–02/20/2026", "Thought it would pass; self-treated", "Riverton Drug receipt, 02/07/2026"],
-            ["19 days · 04/02–04/21/2026", "No car: rental over, Civic awaiting parts", "Keystone rental record, 02/18–03/19/2026; extension refused 04/10/2026"]
+            ["19 days · 04/02–04/21/2026", "Panic at the collision corner on 04/02; avoided riding in cars", "Dr. Reyes's telephone note and referral, 04/20/2026; counseling summary, 06/10/2026"]
           ]
         },
         ops: [
           ["Causation Letter received", "Log it; cite it beside the expected-to-pass and escalation reasons", "CMS → Documents · Case File → Gap Explanation Record", "Letter dated 06/19/2026 cited on the 14-day band"],
           ["Record drafted", "Pair every reason with a dated document; mark account-only reasons", "CMS → Case File → Gap Explanation Record", "No reason without a document or an “account only” tag"],
-          ["Record complete", "Run the defense-eye pass and route to Atty. Thorne", "CMS → Tasks", "Routed with a timestamp before the pre-demand strategy session"]
+          ["Record complete", "Run the defense-eye pass and route to Atty. Thorne", "CMS → Tasks", "Routed with a timestamp before the pre-demand strategy session"],
+          ["Mental-anguish records received", "File and log the referral, the counseling summary and his statement for the demand", "CMS → Documents · Drive → Medical Records", "Each filed under the naming convention and flagged for Atty. Thorne"]
         ],
         best: [
           "One reason per row, one dated document per reason.",
@@ -4117,6 +4136,7 @@ window.CM_CASE_FLOW = {
           "Show the firm's follow-up, not only the client's reasons: the A-C-T steps show the disruption was managed, not ignored.",
           "Record each explanation exactly as John Doe gave it and as the document shows it; what it means for the claim is Atty. Thorne's to judge.",
           "Keep one story across claims: the no-car days 02/06–02/17 are the same 12 days claimed as Loss of Use on the Civic's property-damage claim.",
+          "Keep background apart from cause: the rental and the carpool ended before April, but the documented reason for the 19 days is the anxiety.",
           "Pitfall: documenting the 14-day gap and forgetting the 19-day disruption.",
           "Pitfall: presenting a reason that rests on the client's word as if it were documented."
         ],
@@ -4124,7 +4144,8 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Both interruptions", 15, "14 days (02/06–02/20/2026) and 19 days (04/02–04/21/2026), exact dates and the four missed visits"],
-            ["Reason–document pairing", 25, "Every reason beside its dated corroborating document; account-only reasons tagged"],
+            ["Reason–document pairing", 20, "Every reason beside its dated corroborating document (the disruption: the 04/20 note and the 06/10 counseling summary); account-only reasons tagged"],
+            ["Non-economic records", 5, "Referral, counseling summary and statement filed in the CMS and Drive and logged for the demand"],
             ["Continuity and follow-up", 10, "Complaints before and after each interruption cited; A-C-T steps dated"],
             ["Defense-eye and routing", 10, "Social-media pass logged; routed to Atty. Thorne with a timestamp"]
           ],
@@ -4135,8 +4156,8 @@ window.CM_CASE_FLOW = {
         },
         notes: [
           "Put the adjuster's four arguments on the board first: not serious, recovered early, treatment unnecessary, another cause. Tell the room the record answers each with a document, not a sentence.",
-          "Ask the room: “Which reason on this file has the weakest document, and what do you do about it?” The cost worry and the carpool's end rest mostly on John Doe's account. Tag them and flag them to Atty. Thorne; never shore them up with a note made to order.",
-          "Watch for trainees who stop at the 14-day gap. The 19-day disruption is the one the defense will call a failure to keep up with care; it needs its own rows and the firm's follow-up beside them.",
+          "Ask the room: “Which reason on this file has the weakest document, and what do you do about it?” The cost worry rests mostly on John Doe's account, and so does his Personal Impact Statement. Tag them and flag them to Atty. Thorne; never shore them up with a note made to order.",
+          "Watch for trainees who stop at the 14-day gap. The 19-day disruption is the one the defense will call a failure to keep up with care; it needs its own rows, its clinical documents and the firm's follow-up beside them.",
           "Disclosure nuance: Atty. Thorne may send a version of this record with the demand or rebuttal. Keep the work-product layer out of anything that leaves the firm, and the privileged call out of all of it."
         ]
       },
@@ -5170,7 +5191,7 @@ window.CM_CASE_FLOW = {
             "Offer logged: 08/05/2026, $3,500, reasons in Dana Whitfield's exact words",
             "Reported to Atty. Thorne on 08/05/2026; he, not the CM, conveys the offer to John Doe",
             "Written rebuttal drafted for Atty. Thorne's approval, ready to send 08/06/2026",
-            "If Dana Whitfield raises the April break, the 19-day disruption (04/02–04/21/2026) is answered from the Gap Explanation Record's A-C-T entry (rental ended 03/19, carpool ended 04/01, evening slots from 04/21, attendance confirmed 04/21 and 04/23), not conceded as non-compliance"
+            "If Dana Whitfield raises the April break, the 19-day disruption (04/02–04/21/2026) is answered from the Gap Explanation Record (crash-related anxiety after the 04/02 panic at the collision corner: Dr. Reyes's 04/20/2026 note, the 06/10/2026 counseling summary; the firm's follow-up 04/08–04/21, attendance confirmed 04/21 and 04/23), not conceded as non-compliance; what goes to Keystone is Atty. Thorne's call"
           ]
         },
         show: {
@@ -9188,7 +9209,7 @@ window.CM_CASE_FLOW = {
             "Allegation 1, “the Escape entered the all-way stop out of turn,” targets Kevin Alvarez's driving, not John's. Whether a driver's fault can be charged to a passenger, or apportioned to a non-party, is Atty. Thorne's analysis. Your job is the evidence.",
             "Never add anything to the stack because the defense blames Kevin Alvarez. Whether his alleged fault touches coverage is a coverage question for Atty. Thorne; the file's verified stack stays $40,000, BI → Host UM → Relative UM.",
             "Allegation 2, “John was unbelted,” is answered twice: the Escape's event data recorder shows the front-passenger belt buckled, and the EMS Run Report reads “restrained front-seat passenger.” Seatbelt evidence is barred in some states and limited in others: confirm the governing rule.",
-            "Defense 3, failure to mitigate, is not crash fault: if proved, it trims only damages reasonable care would have avoided. It targets 19 days without visits (04/02 → 04/21/2026). The A-C-T record answers: the 04/08 call, extension refused 04/10, evening slots, attendance 04/21 and 04/23. Burden: generally the defense's; confirm.",
+            "Defense 3, failure to mitigate, is not crash fault: if proved, it trims only damages reasonable care would have avoided. It targets 19 days without visits (04/02 → 04/21/2026). The record answers: a documented clinical cause (crash-related anxiety: Dr. Reyes's 04/20 note, the 06/10 counseling summary) and the firm's A-C-T follow-up from 04/08, care resumed 04/21 and 04/23. Burden: generally the defense's; confirm.",
             "Evidence counts only if it can come in. For every item record its source, who can authenticate it and its chain of custody. The doorbell video: Margaret Doe's camera, preservation asked 02/17/2026, copy secured 02/19/2026, the native file unaltered, every transfer logged.",
             "Don't rest liability on report RPD-26-018842: whether Smith's citation, or his plea or payment of it, is admissible varies by state. Ruth Calloway, the video and the point of impact (the Escape's front passenger door) carry it; the EDR's 11 mph corroborates.",
             "The Answer also pleads causation (the 14-Day Gap; the “degenerative” MRI). The Gap Record joins the package in deposition prep: the four reasons, the EMS neck complaint, Dr. Reyes's 06/19/2026 letter."
@@ -9257,8 +9278,8 @@ window.CM_CASE_FLOW = {
             "Two comparative-fault allegations and the failure-to-mitigate defense listed as separate rows: out of turn, unbelted, failure to mitigate",
             "Out of turn answered by report RPD-26-018842 (Smith cited for failure to stop), Ruth Calloway of 2209 Maple Hollow Rd, the doorbell video and the point of impact, with the EDR's 11 mph as corroboration only",
             "Unbelted answered by the EDR (front-passenger belt buckled) and the EMS Run Report (“restrained front-seat passenger”)",
-            "Failure to mitigate answered by the A-C-T record: alert and call 04/08/2026, extension refused 04/10, evening slots from 04/21, attendance confirmed 04/21 and 04/23",
-            "Disruption stated exactly: 19 days without visits, 04/02 → 04/21/2026, four missed visits, caused by the rental ending and the carpool ending",
+            "Failure to mitigate answered by the A-C-T record and its clinical cause: alert 04/08/2026, notices and the Final Warning Letter, John reached 04/17, Dr. Reyes's 04/20 note, the 06/10 counseling summary, attendance confirmed 04/21 and 04/23",
+            "Disruption stated exactly: 19 days without visits, 04/02 → 04/21/2026, four missed visits, caused by crash-related anxiety and avoidance of car travel after the 04/02 panic at the collision corner",
             "Video chain of custody: Margaret Doe's camera, preservation 02/17/2026, copy secured 02/19/2026, native file unaltered, each transfer logged",
             "An authenticating witness named for every item (for example Margaret Doe or Ruth Calloway for the video, a records custodian for the EMS report); whether a signed statement from Ruth Calloway exists is recorded, and taking one is routed to Atty. Thorne",
             "Draft Exhibit A limited to John Doe's 02/06/2026 Riverton Fire EMS run and named record types, never “all records”; routing note: notice to Atty. Grant Mercer before the custodian is served",
@@ -9659,9 +9680,9 @@ window.CM_CASE_FLOW = {
     "d2m2-l2": [
       "On a Letter of Protection, nobody reviews John Doe's care in real time. A Health Plan or PIP carrier might question a visit as it is billed, but under an LOP the first real review happens at the demand, when Keystone looks back over the whole course of treatment and argues that the care was unnecessary or the injury minor. Missed visits, a plateau and unexplained gaps all become material for that argument. That makes the Case Manager the only **real-time check** that the plan is working, and the person who acts on the day it stops. Monitoring outcomes, not attendance alone, is how you do that job.",
       "Recovery follows a map: acute (days 1–14, where causation and PIP matter and where this file's 14-Day Gap sits), sub-acute (weeks 2–8: chiropractic and PT, Dr. Alana Reyes, the MRI), restorative (weeks 9–24: injections, return to work), then MMI. On 04/08/2026, day 61, John Doe is in week 9. The six-week rule gives a checkpoint: by week 6 you expect 20–30% more range of motion or a lower pain score, and his six-week mark (02/24/2026 + 42 days) fell on 04/07/2026. Every check-in asks “Is he improving?” with specific questions about visits, pain and what he cannot do, then records question, answer and date.",
-      "Then the plan broke. Keystone ended the rental on 03/19/2026 at its 30-day cap while Margaret Doe's Civic waited for parts, and Kevin Alvarez's shift changed on 04/01/2026, ending the carpool. John missed PT on 04/03, 04/07, 04/09 and 04/14, and you learned of it on 04/08/2026 from Riverton Spine & Rehab's missed-visit alert. The barrier was transport, not motivation. Naming the **variance** first (clinical, psychosocial or systemic) matters because it tells you what to fix: here, getting him to therapy, not questioning his commitment to it.",
-      "A-C-T turns that into action. Assess: you called John on 04/08. Coordinate: you asked Keystone PD to extend the rental (refused 04/10), giving the adverse carrier property facts only, then moved him to evening slots so Margaret could drive him after her shift; the first opened on 04/21. Track: you confirmed attendance on 04/21 and 04/23. Adjusting the plan is management, not an admission. Written as GIRP notes (Goal, Intervention, Response, Plan), each step becomes the record that explains 19 days without visits. Left undocumented, the same 19 days read as a client who lost interest, and the defense will say so.",
-      "Your lane is coordinating care, never directing it. Medical danger goes to the provider; legal danger, such as missed visits or generic notes, goes to Atty. Thorne; and anything requiring a legal step, like an LOP to bypass a stalling payer, is his call on the escalation ladder. Never tell John to add, skip or stop treatment, never second-guess a provider, and never tell him missed visits will cut what his claim is worth. Ask the room: on 04/08/2026, what is the first question you ask John, and what would change if his answer were “I just didn't feel like going”?"
+      "Then the plan broke. John missed PT on 04/03 and 04/07, and you learned of it on 04/08/2026 from Riverton Spine & Rehab's missed-visit alert, with a second problem: he was answering no one. A silent client cannot be assessed, so Assess ran through the **No Contact Protocol**: a call and a text on 04/08, a call and an email on 04/09, his mother Margaret on 04/10, then Atty. Thorne and a 10-day Final Warning Letter, with the file flagged Drop Warning. The rental's end (03/19) and the carpool's (04/01) were on the file, and it would have been easy to assume transport. The cause was something else, and only John could tell you.",
+      "He called on 04/17, three days before the letter's date. On 04/02, stopped at the corner of his own house where the crash happened, he had panicked in the car, and since then he had avoided riding in cars, slept badly, felt low and been too ashamed to call back. Naming the **variance** (psychosocial: crash-related anxiety) told you what to fix: getting him seen and getting him back to therapy, not questioning his commitment. With his consent you set up a telephone appointment with Dr. Reyes, who referred him to counseling through his employer's EAP, and booked evening slots under the existing LOP with Margaret driving a route that avoids the corner. You restored the file on 04/20 and confirmed attendance on 04/21 and 04/23. Written as GIRP notes, each step is the record that explains 19 days without visits; left undocumented, they read as a client who lost interest, and the defense will say so.",
+      "Your lane is coordinating care, never directing it. Medical danger goes to the provider; legal danger, such as missed visits or generic notes, goes to Atty. Thorne; and anything requiring a legal step, like an LOP to bypass a stalling payer, is his call on the escalation ladder. Never tell John to add, skip or stop treatment, never second-guess a provider, and never tell him missed visits will cut what his claim is worth. Ask the room: on 04/17/2026, after two weeks of silence, what is the first thing you say to John, and what would change if you opened with the deadline?"
     ],
     "d1m2-l1": [
       "A client who stops answering does not stop the file. Deadlines keep running, carriers keep asking for things, and the firm still owes the client its duty to protect their interests. At the same time, a firm cannot act on a client's behalf forever without instructions, and if it ever has to step away, it must be able to show that it tried, properly, to reach them first. The **No Contact Protocol** exists to serve all three needs at once: it tracks unresponsiveness formally, it builds the record of due diligence that any later withdrawal depends on, and it protects the firm from the claim that it simply let the file lapse.",
@@ -9875,7 +9896,7 @@ window.CM_CASE_FLOW = {
     ],
     "d5m4-l1": [
       "Fault in a negligence case is not always all-or-nothing. **Comparative negligence** apportions it among the people whose conduct contributed to a loss. Under a pure system, a plaintiff's damages fall by his share of fault, however large. Under a modified system, they fall by his share but recovery is barred once that share reaches 50% in some states or 51% in others. A handful of jurisdictions still use contributory negligence, where any fault bars recovery. These rules exist to match responsibility to conduct, and which one governs is always confirmed by counsel. A separate doctrine, failure to mitigate, does not touch fault at all: it trims only the damages that reasonable care would have avoided.",
-      "The 11/12/2026 Answer makes three allegations. The first, that the Escape entered the all-way stop out of turn, targets Kevin Alvarez's driving, not John's; whether a driver's fault can be charged to a passenger or apportioned to a non-party is Atty. Thorne's analysis. The second, that John was unbelted, is answered twice: the Escape's event data recorder shows the front-passenger belt buckled, and the EMS Run Report reads “restrained front-seat passenger.” The third, failure to mitigate, targets the 19 days without visits from 04/02 to 04/21/2026, and the A-C-T record answers it: the 04/08 call, the rental extension refused 04/10, the move to evening slots, attendance confirmed 04/21 and 04/23.",
+      "The 11/12/2026 Answer makes three allegations. The first, that the Escape entered the all-way stop out of turn, targets Kevin Alvarez's driving, not John's; whether a driver's fault can be charged to a passenger or apportioned to a non-party is Atty. Thorne's analysis. The second, that John was unbelted, is answered twice: the Escape's event data recorder shows the front-passenger belt buckled, and the EMS Run Report reads “restrained front-seat passenger.” The third, failure to mitigate, targets the 19 days without visits from 04/02 to 04/21/2026, and the record answers it: the firm's A-C-T follow-up from the 04/08 alert, John's account once he was reached on 04/17, Dr. Reyes's 04/20 note and the counselor's 06/10 summary documenting crash-related anxiety as the cause, and attendance confirmed 04/21 and 04/23.",
       "Evidence counts only if it can come in, so for every item you record its source, who can authenticate it, and its **chain of custody**. The doorbell video is the model: Margaret Doe's camera, preservation asked 02/17/2026, copy secured 02/19/2026, the native file unaltered and every transfer logged. Liability is not rested on report RPD-26-018842, because whether Smith's citation, or his plea or payment of it, is admissible varies by state. Ruth Calloway, the video and the point of impact, the Escape's front passenger door, carry it, and the EDR's 11 mph reading corroborates them. The Answer also pleads causation, so the Gap Record joins the package: the four reasons, the EMS neck complaint and Dr. Reyes's 06/19/2026 letter.",
       "Cause and effect is about admissibility and discipline. An exhibit with a gap in its custody record can be challenged or excluded, and a strong fact that cannot be proved is worth little at a hearing. Seatbelt evidence is barred in some states and limited in others, so you gather it and let Atty. Thorne decide its use. The defense's blame of Kevin Alvarez also creates a tempting error: adding something to the recovery stack because of it. Whether his alleged fault touches coverage is a coverage question for Atty. Thorne; the verified stack stays $40,000, BI then Host UM then Relative UM. Changing it on a hunch would put a wrong number into every document that follows.",
       "You may gather, authenticate and index the evidence against each allegation, record where liability stands with its source, and tell John what the Answer says. You may not tell John his share of fault, whether seatbelt evidence will come in, or what Kevin Alvarez's alleged fault means for coverage. If John asks “Are they saying it's my fault?”, you can read him the allegation and tell him Atty. Thorne will discuss what it means. Ask the room: for the doorbell video, who could authenticate it, and what in the custody log would you point to if its integrity were challenged?"
