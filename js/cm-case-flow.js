@@ -2148,7 +2148,7 @@ window.cmCaseFlow.back = function(){
    Admin Master Control. */
 const ADMIN_GROUPS = [
   {id: "admin", label: "🛡 Admin Master Control", tabs: ["audit", "batches", "rankings", "tfeedback"]},
-  {id: "modules", label: "📚 Training Modules", tabs: ["sop", "cues", "studio"]},
+  {id: "modules", label: "📚 Training Modules", tabs: ["sop", "studio"]},
   {id: "activities", label: "📋 Activities", tabs: ["activities", "fbstyle"]}
 ];
 const adminGroupOf = tab => (ADMIN_GROUPS.find(g => g.tabs.includes(tab)) || ADMIN_GROUPS[0]).id;

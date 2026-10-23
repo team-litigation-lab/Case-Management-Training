@@ -4155,9 +4155,9 @@ function renderFacilitatorGuide(){
       <h3>Recommended Session Structure (per day)</h3>
       <ul>
         <li><b>~75–120 minutes,</b> depending on the day's topic count. Each day's timing plan is in <b>Admin → SOP Reference</b> (every day now has one, auto-built from the live content).</li>
-        <li><b>Screen-share the trainee view</b> while you keep <b>Admin → Trainer Cues</b> open in a second window: each topic has a Trainer Cue, an Applied Discussion Case and a <b>🎙 Verbal Discussion Script</b> (open, ask, listen for, probe, correct, wrap). Use "✨ Write a short speaker script" for a 7–10 minute word-for-word version, or download the day's scripts as a PDF.</li>
+        <li><b>Screen-share the trainee view</b> in <b>Presenter view</b>, which shows your notes beside the slide (✏️ Edit script changes them there): each topic has a Trainer Cue, an Applied Discussion Case and a <b>🎙 Verbal Discussion Script</b> (open, ask, listen for, probe, correct, wrap). Use "✨ Write a short speaker script" for a 7–10 minute word-for-word version, or download the day's scripts as a PDF.</li>
         <li><b>Skill Builders is where the learning sticks.</b> Have trainees complete it live, then debrief. Their work auto-saves (💾) and they can resume after a refresh.</li>
-        <li><b>End-of-day discussion</b> is in Trainer Cues for each day — raise it live before the Knowledge Check.</li>
+        <li><b>End-of-day discussion</b> is in Presenter view's notes for each day — raise it live before the Knowledge Check.</li>
         <li><b>Knowledge Check:</b> 70% marks the day complete ✓. Failing doesn't block progress — trainees see a clear "cleared to proceed / retake optional" message.</li>
       </ul>
     </div>
@@ -4176,7 +4176,7 @@ function renderFacilitatorGuide(){
       <h3>Your Daily Trainer Workflow</h3>
       <ol>
         <li><b>Approve new registrations</b> in Trainee Audit (registration is name + batch).</li>
-        <li><b>Run the session</b> using the SOP plan, Trainer Cues and scripts.</li>
+        <li><b>Run the session</b> using the SOP plan and Presenter view's notes and scripts.</li>
         <li><b>Review daily feedback:</b> when a trainee finishes a day's Knowledge Check or Skill Builders, a review is auto-drafted (setting: <b>💬 Daily reviews</b> at the top of Trainee Audit). Open <b>View Detail → Day-by-Day Feedback</b>, edit, and <b>Send</b> — or use <b>✨ Draft for all active days</b> and <b>📤 Send all drafts</b>. Trainees see it on the day card and in <b>🎯 Focus</b>.</li>
         <li><b>Set personal Focus items</b> in View Detail → <b>🎯 Trainer focus</b> (priority + day). They're pinned at the top of the trainee's Focus panel; you'll see when they're seen and marked done.</li>
         <li><b>Check Rankings</b> and each trainee's competency picture; trainees see their own rank within their batch and a 7-skill Competency Profile.</li>
@@ -11178,7 +11178,7 @@ function sopLiveSections(d){
   const sec = [];
   sec.push({h:"Session plan (auto-built from the portal)", type:"table", headers:["Segment","Time","What happens"], rows:[
     ["Open & recap", "5 min", `Welcome, recap yesterday's Focus items, state today's objective: ${d.objective||d.title}.`],
-    ["Topics 1–"+lessons.length, `~${Math.round(lessons.length*2.5)} min`, "Screen-share the lesson slides; use each topic's Trainer Cue and Verbal Discussion Script (Admin → Trainer Cues)."],
+    ["Topics 1–"+lessons.length, `~${Math.round(lessons.length*2.5)} min`, "Screen-share the lesson slides; use each topic's Trainer Cue and Verbal Discussion Script (Presenter view)."],
     ["Skill Builders", "15–20 min", tools.length ? `${tools.map(t=>t.title).join(", ")} — trainees complete it live; debrief afterwards.` : "No Skill Builders for this day."],
     ["End-of-day discussion", "5–10 min", d.discussionQuestion || "Open discussion on the day's hardest topic."],
     ["Knowledge Check", "10 min", `${d.quiz.length} questions · 70% marks the day complete (not required to move on).`]
@@ -11442,6 +11442,7 @@ function renderAdmin(){
         <p style="color:var(--ink-soft);font-size:14px;">Use the Admin button in the top navigation to sign in.</p>
       </div>`;
   }
+  if(state.adminTab==="cues") state.adminTab = "audit";   // the trainer's scripts are read and edited in Presenter view
   const tab = state.adminTab || "audit";
   const tabBar = `
     <div class="admin-tabs" style="display:flex;gap:8px;margin-bottom:20px;border-bottom:1px solid var(--line);">
@@ -11449,7 +11450,6 @@ function renderAdmin(){
       <button class="admin-tab-btn ${tab==='batches'?'active':''}" onclick="setAdminTab('batches')">📁 Batch Folders</button>
       <button class="admin-tab-btn ${tab==='rankings'?'active':''}" onclick="setAdminTab('rankings')">Rankings</button>
       <button class="admin-tab-btn ${tab==='sop'?'active':''}" onclick="setAdminTab('sop')">SOP Reference</button>
-      <button class="admin-tab-btn ${tab==='cues'?'active':''}" onclick="setAdminTab('cues')">Trainer Cues</button>
       <button class="admin-tab-btn ${tab==='studio'?'active':''}" onclick="setAdminTab('studio')">Content Studio</button>
       <button class="admin-tab-btn ${tab==='tfeedback'?'active':''}" onclick="setAdminTab('tfeedback')">Trainee Feedback</button>
       <button class="admin-tab-btn ${tab==='activities'?'active':''}" onclick="setAdminTab('activities')">📋 Activities</button>
@@ -11458,7 +11458,6 @@ function renderAdmin(){
   if(tab==="activities") return tabBar + (typeof renderAdminActivities==="function" ? renderAdminActivities() : "");
   if(tab==="fbstyle") return tabBar + (typeof renderAdminFeedbackStyle==="function" ? renderAdminFeedbackStyle() : "");
   if(tab==="sop") return tabBar + renderAdminSOP();
-  if(tab==="cues") return tabBar + renderAdminTrainerCues();
   if(tab==="studio") return tabBar + renderAdminStudio();
   if(tab==="tfeedback") return tabBar + renderAdminTraineeFeedback();
   if(tab==="rankings") return tabBar + renderAdminRankings();
@@ -15833,7 +15832,7 @@ window.addEventListener("unhandledrejection", (ev)=>{ const e = ev.reason; if(e 
 window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message && !/ResizeObserver|Script error/.test(ev.message)) showActionError(new Error(ev.message), ""); });
 
 </script>
-<script src="/js/cm-updates.js?v=32"></script>
+<script src="/js/cm-updates.js?v=33"></script>
 <script src="/js/cm-documents.js?v=3"></script>
 <script src="/js/cm-skillbuilders.js?v=cm-2026.10.23-efiling"></script>
 <script src="/js/cm-lor-data.js?v=1"></script>
@@ -15847,7 +15846,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/checkin.js?v=1"></script>
 <script src="/js/portal-link.js?v=3"></script>
 <!-- 🧭 Blueprints: the Trainer blueprint (blueprint-content.js) and the Trainee blueprint (Orientation, /blueprint.pdf) rebuilt after every deploy -->
-<script src="/js/blueprint-content.js?v=6"></script>
+<script src="/js/blueprint-content.js?v=7"></script>
 <script src="/js/lsh-blueprint-course.js?v=2"></script>
 <script src="/js/lsh-blueprint.js?v=2"></script>
 <script src="/js/lsh-dashboard.js?v=6"></script>
@@ -15861,8 +15860,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-data.js?v=58"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=1"></script>
-<script src="/js/cm-case-flow.js?v=107"></script>
-<script src="/js/cm-script-editor.js?v=4"></script>
+<script src="/js/cm-case-flow.js?v=108"></script>
+<script src="/js/cm-script-editor.js?v=5"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=4"></script>
 <script src="/js/lsh-tool-links.js?v=cm-2026.10.23-trainer-sso"></script>
