@@ -38,7 +38,7 @@ A person talking to the room, not notes about it, built on the trainer's trainin
 
 ## The training DNA
 
-Every block carries all seven; every slide carries the ones that fit it.
+Every block carries all of them; every slide carries the ones that fit it.
 
 1. **Interactive icebreaker.** The block's first slide opens with a quick game (30–90 seconds): a
    show of hands, true or false, guess the number, would you rather, two truths and a lie, finish the
@@ -64,6 +64,13 @@ Every block carries all seven; every slide carries the ones that fit it.
    composite from the field ("I once had a client who…", "a Case Manager I trained…"). Composites
    only: no real client, firm or carrier names, and never one that changes John Doe's facts. Keep the
    room laughing while the lesson lands.
+9. **Jokes from the job.** Two or three short jokes per block, one or two sentences each, about the
+   Case Manager's world or the real-life moments everyone in the room will recognize: the client
+   whose "I'll send it tonight" means next Tuesday, the adjuster on a vacation that never ends, the
+   fax machine that outlived three office managers, the voicemail box that's always full. Clean and
+   workplace-safe: laugh with clients, never at their injuries, money troubles, or who they are; no
+   real carriers, firms or people. Each joke still points at the lesson, and no premise repeats
+   across blocks.
 
 Where each fits best: a lesson's **why** is the icebreaker and the teaser; **map**, **theory**,
 **frame** and **model** tease and reveal in plain words; **rules** and **dodont** draw the lazy vs.
