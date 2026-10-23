@@ -1,24 +1,37 @@
-/* ✏️ Script editor (trainers): the slides aren't edited, the trainer's script for each slide is. In Presenter view,
-   ✏️ Edit script under the notes turns them into the editor in place (read aloud, then the question for the room),
-   beside the slide the room sees. Saved edits are shared by every trainer (the admin-only shared record scripts:edits)
-   and read everywhere a script is: Presenter view and the Speaker Notes PDF. */
+/* ✏️ Edit Speaker Notes (trainers): the slides aren't edited, the trainer's script for each slide is. In Presenter view
+   the top bar carries ✏️ Edit Speaker Notes for the slide on screen, with its status (Original, Edited, or no script on
+   this slide); it turns the notes into the editor in place (read aloud, then the question for the room), beside the
+   slide the room sees. A lesson slide's script and the day's own scripts (the Training Agenda, the Practice Lab) can be
+   edited. Saved edits are shared by every trainer (the admin-only shared record scripts:edits) and read everywhere a
+   script is: Presenter view and the Speaker Notes PDF. */
 (function(){
 "use strict";
 const KEY = "scripts:edits";
 const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
 let edits = {}, loaded = false, loading = false;
-const ORIG = {};   // the course's own script, under each edit: "<day>::<lesson title>::p<n>" → {why, talk, walk, ask, scenario}
-const slotOf = id => { const m = /^(.*)::(p\d+)$/.exec(id); return m && {key: m[1], p: m[2]}; };
+// the course's own script under each edit, for laying a newer save over it:
+// a lesson slide "<day>::<lesson title>::p<n>" → its SLIDE_SCRIPTS part; a day script "<day>::_<agenda|lab>" → {say, ask}
+const ORIG = {};
+const DAY_KEYS = {taskOverview: "agenda", practiceLab: "lab"};
 const isAdmin = () => typeof state !== "undefined" && !!state.isAdmin;
-function apply(){
+const dayOf = id => (typeof DAYS !== "undefined" ? DAYS : []).find(x => String(x.id) === String(id));
+const dayScripts = d => { const all = (window.CM_CF_SCRIPTS = window.CM_CF_SCRIPTS || {}); all._days = all._days || {}; return (all._days[d.cf.n] = all._days[d.cf.n] || {}); };
+function slotOf(id){   // where an edit lives in the course's scripts
+  let m = /^(.*)::_(agenda|lab)$/.exec(id);
+  if(m){ const d = dayOf(m[1]); return d && d.cf ? {get: () => dayScripts(d)[m[2]], set: v => { dayScripts(d)[m[2]] = v; }, day: true} : null; }
+  m = /^(.*)::(p\d+)$/.exec(id); if(!m) return null;
   const S = window.SLIDE_SCRIPTS = window.SLIDE_SCRIPTS || {};
+  return {get: () => (S[m[1]] || {})[m[2]], set: v => { (S[m[1]] = S[m[1]] || {})[m[2]] = v; }, day: false};
+}
+function apply(){
   // put back anything edited before (another trainer's newer save), then lay the edits over
-  Object.keys(ORIG).forEach(id => { const s = slotOf(id); (S[s.key] = S[s.key] || {})[s.p] = ORIG[id]; if(!edits[id]) delete ORIG[id]; });
+  Object.keys(ORIG).forEach(id => { const s = slotOf(id); if(s) s.set(ORIG[id]); if(!edits[id]) delete ORIG[id]; });
   Object.keys(edits).forEach(id => {
     const s = slotOf(id), e = edits[id]; if(!s || !e) return;
-    const cur = (S[s.key] = S[s.key] || {})[s.p];
+    const cur = s.get();
     if(!(id in ORIG)) ORIG[id] = cur;
-    S[s.key][s.p] = {why: "", talk: e.say || "", walk: [], ask: e.ask || "", scenario: (cur && cur.scenario) || ""};
+    s.set(s.day ? Object.assign({}, cur, {say: e.say || "", ask: e.ask || ""})
+      : {why: "", talk: e.say || "", walk: [], ask: e.ask || "", scenario: (cur && cur.scenario) || ""});
   });
 }
 async function load(){
@@ -26,121 +39,99 @@ async function load(){
   loading = true;
   try{ const v = await sharedGet(KEY); edits = (v && typeof v === "object") ? v : {}; }catch(e){ edits = {}; }
   loading = false; loaded = true; apply();
-  if(Object.keys(edits).length && typeof render === "function") render();
-}
-// the script as written (with its {name} calls still in it), for the editor
-function current(d, l, part){
-  const id = `${d.id}::${l.h}::p${part}`;
-  if(edits[id]) return {say: edits[id].say || "", ask: edits[id].ask || "", edited: true};
-  const h = ((window.SLIDE_SCRIPTS || {})[`${d.id}::${l.h}`] || {})["p" + part];
-  if(h) return {say: [h.why, String(h.talk || "").replace(/\s*\n+\s*/g, " "), (h.walk || []).join(" ")].filter(Boolean).join(" "), ask: h.ask || "", edited: false};
-  const s = typeof slideScript === "function" ? slideScript(d, l, part) : {};
-  return {say: [s.why, String(s.talk || "").replace(/\s*\n+\s*/g, " "), (s.walk || []).join(" ")].filter(Boolean).join(" "), ask: s.ask || "", edited: false};
-}
-if(typeof window.renderPresenterNote === "function"){
-  const __note = window.renderPresenterNote;
-  window.renderPresenterNote = function(d, l, part){
-    const h = __note.apply(this, arguments);
-    if(!isAdmin() || !d || !l || !(typeof state !== "undefined" && state.presenting)) return h;   // edited in Presenter view only
-    load();
-    const i = (d.lessons || []).indexOf(l); if(i < 0) return h;
-    const ed = !!edits[`${d.id}::${l.h}::p${part || 1}`];
-    // at the top of the notes, where the trainer looks first (under a long script it scrolled out of sight)
-    return `<div class="se-row">${ed ? `<span class="se-tag">✏️ Edited</span>` : ""}<button type="button" class="btn btn-navy btn-sm se-edit" onclick="cmScriptEditor.open(${JSON.stringify(d.id)},${i},${part || 1},this)">✏️ Edit script</button></div>` + h;
-  };
-}
-function close(){
-  const o = document.getElementById("se-over"); if(o) o.remove(); document.removeEventListener("keydown", onKey);
-  // the in-place editor in Presenter view's notes goes back to the script
-  const f = document.getElementById("se-inline"); if(f){ f.remove(); const cu = document.getElementById("pvCues"); if(cu) cu.dataset.slide = ""; if(typeof presenterRefresh === "function") try{ presenterRefresh(); }catch(e){} }
-}
-function onKey(e){ if(e.key === "Escape") close(); }
-// Presenter view: the script is edited in place in the notes, so the slide on the console stays in view
-function openInline(d, l, li, part, btn){
-  const cur = current(d, l, part), row = btn.closest(".se-row"), note = row && row.nextElementSibling;
-  if(!row) return false;
-  const f = document.createElement("div");
-  f.id = "se-inline"; f.className = "se-form se-inline";
-  f.innerHTML = `<label>🎙 Read aloud<textarea id="se-say" rows="10">${E(cur.say)}</textarea></label>
-    <label>❓ Ask the room<textarea id="se-ask" rows="3">${E(cur.ask)}</textarea></label>
-    <small>Write <code>{name}</code> where you call on a trainee. Saved for every trainer.</small>
-    <div class="se-msg" id="se-msg" aria-live="polite"></div>
-    <div class="se-btns"><button type="button" class="btn btn-ghost btn-sm" onclick="cmScriptEditor.close()">Cancel</button>
-      <button type="button" class="btn btn-navy btn-sm" onclick="cmScriptEditor.save(${JSON.stringify(d.id)},${li},${part})">Save script</button></div>`;
-  if(note && note.classList.contains("pn")) note.style.display = "none";
-  row.style.display = "none"; row.insertAdjacentElement("afterend", f);
-  document.addEventListener("keydown", onKey);
-  f.querySelector("#se-say").focus();
-  return true;
-}
-function open(dayId, li, part, btn){
-  const d = (typeof DAYS !== "undefined" ? DAYS : []).find(x => String(x.id) === String(dayId)), l = d && d.lessons[li]; if(!l) return;
-  close();
-  if(btn && btn.closest("#pvCues") && openInline(d, l, li, part, btn)) return;
-  const cur = current(d, l, part);
-  let slide = "";
-  try{ slide = typeof renderDaySlideContent === "function" ? renderDaySlideContent(d, {type: "topic", lessonIndex: li, part}, 0) : ""; }catch(e){ slide = ""; }
-  const n = l.cf && window.cmCaseFlow && cmCaseFlow.viewsOf ? cmCaseFlow.viewsOf(l.cf.block).length : (l.singleSlide ? 1 : 2);
-  const o = document.createElement("div");
-  o.id = "se-over"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "Edit the script");
-  o.innerHTML = `<div class="se-box">
-    <div class="se-head"><b>✏️ Edit script</b><span>${E(l.h)} · slide ${part} of ${n}</span><button type="button" class="se-x" aria-label="Close" onclick="cmScriptEditor.close()">✕</button></div>
-    <div class="se-split">
-      <div class="se-slide" aria-label="The slide (not editable)"><div class="se-slide-in">${slide || `<p class="se-none">No preview for this slide.</p>`}</div></div>
-      <div class="se-form">
-        <label>🎙 Read aloud<textarea id="se-say" rows="12">${E(cur.say)}</textarea></label>
-        <label>❓ Ask the room<textarea id="se-ask" rows="3">${E(cur.ask)}</textarea></label>
-        <small>Write <code>{name}</code> where you call on a trainee: it becomes a first name from the batch you teach. Saved for every trainer.</small>
-        <div class="se-msg" id="se-msg" aria-live="polite"></div>
-        <div class="se-btns">
-          <button type="button" class="btn btn-ghost btn-sm" onclick="cmScriptEditor.close()">Cancel</button>
-          <button type="button" class="btn btn-navy btn-sm" onclick="cmScriptEditor.save(${JSON.stringify(d.id)},${li},${part})">Save script</button></div>
-      </div>
-    </div></div>`;
-  o.addEventListener("click", e => { if(e.target === o) close(); });
-  document.body.appendChild(o); document.addEventListener("keydown", onKey);
-  // the slide stays a picture of the slide: nothing in it is clicked or typed into here
-  o.querySelectorAll(".se-slide input, .se-slide textarea, .se-slide select, .se-slide button").forEach(x => { x.disabled = true; x.tabIndex = -1; });
-  o.querySelector("#se-say").focus();
-}
-async function store(dayId, li, part, val){
-  const d = DAYS.find(x => String(x.id) === String(dayId)), l = d.lessons[li], id = `${d.id}::${l.h}::p${part}`;
-  const msg = document.getElementById("se-msg");
-  // the newest shared copy first, so two trainers editing different slides don't undo each other
-  let all = edits; try{ const v = await sharedGet(KEY); if(v && typeof v === "object") all = v; }catch(e){}
-  all = Object.assign({}, all);
-  if(val) all[id] = val; else delete all[id];
-  const ok = await sharedSet(KEY, all);
-  if(!ok){ if(msg){ msg.className = "se-msg bad"; msg.textContent = "Not saved: check your connection and try again."; } return; }
-  edits = all; apply(); close();
-  if(typeof toast === "function") toast("Script saved for every trainer.");
-  // Presenter view keeps its notes until the slide changes: redraw them now
   const cu = document.getElementById("pvCues"); if(cu) cu.dataset.slide = "";
-  if(typeof render === "function") render();
   if(typeof presenterRefresh === "function") try{ presenterRefresh(); }catch(e){}
 }
-function save(dayId, li, part){
+// the script behind the slide on screen: a lesson slide's part, or the day's agenda / lab script; null when it has none
+function slotFor(d, slide){
+  if(!d || !slide) return null;
+  if(slide.type === "topic"){ const l = d.lessons[slide.lessonIndex]; return l ? {id: `${d.id}::${l.h}::p${slide.part || 1}`, d, l, part: slide.part || 1} : null; }
+  const k = DAY_KEYS[slide.type];
+  return k && d.cf && dayScripts(d)[k] ? {id: `${d.id}::_${k}`, d, k} : null;
+}
+const flat = x => [x.why, String(x.talk || "").replace(/\s*\n+\s*/g, " "), (x.walk || []).join(" ")].filter(Boolean).join(" ");
+// the script as written (with its {name} calls still in it), for the editor
+function current(slot){
+  if(edits[slot.id]) return {say: edits[slot.id].say || "", ask: edits[slot.id].ask || ""};
+  if(slot.k){ const x = dayScripts(slot.d)[slot.k] || {}; return {say: x.say || "", ask: x.ask || ""}; }
+  const h = ((window.SLIDE_SCRIPTS || {})[`${slot.d.id}::${slot.l.h}`] || {})["p" + slot.part];
+  const x = h || (typeof slideScript === "function" ? slideScript(slot.d, slot.l, slot.part) : {}) || {};
+  return {say: flat(x), ask: x.ask || ""};
+}
+function here(){
+  const d = typeof DAYS !== "undefined" && DAYS.find(x => x.id === state.dayId); if(!d) return null;
+  const slides = typeof buildDaySlides === "function" ? buildDaySlides(d) : [];
+  return slotFor(d, slides[state.lessonSlide || 0]);
+}
+// the top bar's button and status, for the slide on screen
+function paintBar(){
+  if(!isAdmin() || !state.presenting) return;
+  const bar = document.querySelector(".pv-actions"); if(!bar) return;
+  load();
+  let b = document.getElementById("seBar");
+  if(!b){ b = document.createElement("span"); b.id = "seBar"; b.className = "se-bar"; bar.insertBefore(b, bar.firstChild); }
+  const slot = here(), editing = !!document.getElementById("se-inline");
+  const status = !slot ? "No script on this slide" : edits[slot.id] ? "✏️ Edited" : "Original";
+  const key = (slot ? slot.id : "-") + "|" + status + "|" + editing;
+  if(b.dataset.key === key) return;
+  b.dataset.key = key;
+  b.innerHTML = `<button type="button" class="btn btn-navy btn-sm" ${slot && !editing ? "" : "disabled"} onclick="cmScriptEditor.open()" title="${slot ? "Edit this slide's speaker notes: saved for every trainer" : "This slide has no speaker notes to edit"}">✏️ Edit Speaker Notes</button><span class="se-status${slot && edits[slot.id] ? " on" : ""}">${status}</span>`;
+}
+if(typeof window.presenterRefresh === "function"){
+  const __refresh = window.presenterRefresh;
+  window.presenterRefresh = function(){
+    // the notes stay the editor while it is open: a refresh mid-edit would wipe what the trainer is typing
+    if(document.getElementById("se-inline")){ paintBar(); return; }
+    const r = __refresh.apply(this, arguments); paintBar(); return r;
+  };
+}
+function onKey(e){ if(e.key === "Escape") close(); }
+function close(){
+  document.removeEventListener("keydown", onKey);
+  const f = document.getElementById("se-inline"); if(!f) return;
+  f.remove();
+  const cu = document.getElementById("pvCues"); if(cu){ [...cu.children].forEach(x => { x.style.display = ""; }); cu.dataset.slide = ""; }
+  if(typeof presenterRefresh === "function") try{ presenterRefresh(); }catch(e){}
+}
+// the notes become the editor, in place: the slide on the console stays in view
+function open(){
+  const slot = here(), cu = document.getElementById("pvCues"); if(!slot || !cu || document.getElementById("se-inline")) return;
+  const cur = current(slot);
+  const f = document.createElement("div");
+  f.id = "se-inline"; f.className = "se-form se-inline"; f.dataset.slot = slot.id;
+  f.innerHTML = `<label>🎙 Read aloud<textarea id="se-say" rows="12">${E(cur.say)}</textarea></label>
+    <label>❓ Ask the room<textarea id="se-ask" rows="3">${E(cur.ask)}</textarea></label>
+    <small>Write <code>{name}</code> where you call on a trainee: it becomes a first name from the batch you teach. Saved for every trainer.</small>
+    <div class="se-msg" id="se-msg" aria-live="polite"></div>
+    <div class="se-btns"><button type="button" class="btn btn-ghost btn-sm" onclick="cmScriptEditor.close()">Cancel</button>
+      <button type="button" class="btn btn-navy btn-sm" onclick="cmScriptEditor.save()">Save speaker notes</button></div>`;
+  [...cu.children].forEach(x => { x.style.display = "none"; });
+  cu.insertBefore(f, cu.firstChild); cu.parentElement.scrollTop = 0;
+  document.addEventListener("keydown", onKey);
+  paintBar();
+  f.querySelector("#se-say").focus();
+}
+async function save(){
+  const f = document.getElementById("se-inline"); if(!f) return;
+  const id = f.dataset.slot, msg = document.getElementById("se-msg");
   const say = document.getElementById("se-say").value.trim(), ask = document.getElementById("se-ask").value.trim();
-  if(!say){ const m = document.getElementById("se-msg"); m.className = "se-msg bad"; m.textContent = "The script can't be empty."; return; }
-  return store(dayId, li, part, {say, ask, by: (typeof state !== "undefined" && state.adminName) || "", at: new Date().toISOString()});
+  if(!say){ msg.className = "se-msg bad"; msg.textContent = "The speaker notes can't be empty."; return; }
+  // the newest shared copy first, so two trainers editing different slides don't undo each other
+  let all = edits; try{ const v = await sharedGet(KEY); if(v && typeof v === "object") all = v; }catch(e){}
+  all = Object.assign({}, all, {[id]: {say, ask, by: state.adminName || "", at: new Date().toISOString()}});
+  if(!(await sharedSet(KEY, all))){ msg.className = "se-msg bad"; msg.textContent = "Not saved: check your connection and try again."; return; }
+  edits = all; apply(); close();
+  if(typeof toast === "function") toast("Speaker notes saved for every trainer.");
 }
 const css = document.createElement("style");
-css.textContent = `.se-row{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin:2px 0 8px;}
-.se-tag{font:700 11px 'Inter',sans-serif;color:#B5651F;background:#FFF3E3;border-radius:999px;padding:2px 8px;}
-#se-over{position:fixed;inset:0;z-index:2147483000;background:rgba(20,24,40,.55);display:flex;align-items:center;justify-content:center;padding:18px;}
-.se-box{background:#fff;border-radius:14px;width:min(1400px,100%);height:min(860px,100%);display:flex;flex-direction:column;box-shadow:0 20px 50px rgba(0,0,0,.3);overflow:hidden;}
-.se-head{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #E2E6EF;font:600 14px 'Inter',sans-serif;color:#262B45;}
-.se-head span{color:#5B6579;font-weight:500;flex:1;} .se-x{border:0;background:none;font-size:18px;cursor:pointer;color:#5B6579;}
-.se-split{flex:1;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);min-height:0;}
-.se-slide{overflow:auto;background:#F2F4F8;border-right:1px solid #E2E6EF;padding:14px;}
-.se-slide-in{pointer-events:none;user-select:none;zoom:.8;} .se-none{color:#5B6579;}
-.se-form{display:flex;flex-direction:column;gap:10px;padding:16px;overflow:auto;}
+css.textContent = `.se-bar{display:inline-flex;align-items:center;gap:8px;margin-right:4px;}
+.se-status{font:700 11.5px 'Inter',sans-serif;color:#C9D0E0;} .se-status.on{color:#FFC98F;}
+.se-form{display:flex;flex-direction:column;gap:10px;}
 .se-form label{display:flex;flex-direction:column;gap:6px;font:700 13px 'Inter',sans-serif;color:#262B45;}
-.se-form textarea{font:500 14.5px/1.55 'Inter',sans-serif;border:1px solid #CBD2E0;border-radius:10px;padding:10px 12px;resize:vertical;}
+.se-form textarea{font:500 15px/1.55 'Inter',sans-serif;border:1px solid #CBD2E0;border-radius:10px;padding:10px 12px;resize:vertical;}
 .se-form small{color:#5B6579;font-size:12px;} .se-msg.bad{color:#B42318;font-weight:600;font-size:13px;}
-.se-btns{display:flex;justify-content:flex-end;gap:8px;margin-top:auto;}
-.se-inline{padding:4px 0 8px;} .se-inline textarea{font-size:15px;}
-@media(max-width:900px){.se-split{grid-template-columns:1fr;grid-template-rows:45% 55%;}.se-slide{border-right:0;border-bottom:1px solid #E2E6EF;}}`;
+.se-btns{display:flex;justify-content:flex-end;gap:8px;}
+.se-inline{padding:4px 0 8px;}`;
 document.head.appendChild(css);
 window.cmScriptEditor = {open, close, save, load, edits: () => edits};
 })();
