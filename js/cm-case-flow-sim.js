@@ -796,20 +796,6 @@ window.CM_CF_SIM = {
    ]
   },
   "d5m2-a1": {
-   "date": "12/03/2026",
-   "time": "9:40 a.m.",
-   "channel": "memo",
-   "from": "Atty. Elijah Thorne",
-   "to": "Case Manager",
-   "subject": "RFPs ask for every PD document: audit the Civic first",
-   "body": "Mercer's requests came in the mail today; responses are due 01/04/2027. They ask for every document supporting the Property Damage claim, and the PD screen hasn't been touched since April. Audit the Civic's numbers before anything is produced, and flag what Keystone will argue about the unpaid days. Nothing goes out without my review.",
-   "attachments": [
-    "RS54",
-    "RS45",
-    "RS46"
-   ]
-  },
-  "d5m2-a2": {
    "date": "12/10/2026",
    "time": "10:05 a.m.",
    "channel": "email",
@@ -1156,19 +1142,19 @@ window.CM_CF_SIM = {
    ],
    "line": "The CM never argues the rules or concedes anything to opposing counsel; Atty. Thorne answers."
   },
-  "d5m2-a2": {
+  "d5m2-a1": {
    "who": "Leah Moran",
    "role": "adjuster",
-   "persona": "Cheerful, efficient PD adjuster closing files before year-end; calls the formula “company standard”; wants a yes today.",
-   "context": "12/10/2026. KM-26-440871-PD, Margaret Doe's 2019 Honda Civic LX: repair $9,255.00; ACV $17,600.00. Keystone offers $792.00 Diminished Value (10% × $17,600.00 × 0.75 × 0.60) and $0 Loss of Use (claimed 48 days × $42.00 = $2,016.00). Independent appraisal: $3,600.00 (05/06/2026). Her emailed release covers “all claims arising from the 02/06/2026 accident.” She asks whether John will take it and insists it is final.",
-   "opening": "Hi, Leah Moran with Keystone, Property Damage, following up my email. Seven ninety-two on the Diminished Value is final. Will Mr. Doe sign so I can get his check out before the holidays?",
+   "persona": "Cheerful, efficient PD adjuster closing files before year-end; calls the formula “company standard”; wants a yes and a signature today.",
+   "context": "12/10/2026. KM-26-440871-PD, Margaret Doe's 2019 Honda Civic LX, on her separate PD file; John Doe's BI suit (26-CV-04417) is in discovery. Keystone's final PD position: $792.00 Diminished Value and $0 Loss of Use. Her emailed release covers “all claims arising from the 02/06/2026 accident” and asks “Mr. Doe” to sign. She asks whether he'll take it and sign, and insists it is final.",
+   "opening": "Hi, Leah Moran with Keystone, Property Damage, following up my email. Seven ninety-two on the Diminished Value is final. Will Mr. Doe sign so I can get the check out before the holidays?",
    "goals": [
-    "Tell her the offer is with Atty. Thorne; nothing accepted or rejected",
+    "Tell her the position is with Atty. Thorne; nothing accepted or rejected",
     "Make no counter and quote no figure",
-    "Note the “all claims” release scope; route it to Atty. Thorne",
+    "Note the “all claims” release scope and claim number; route it to Atty. Thorne",
     "Log the call and her exact words"
    ],
-   "line": "The CM never accepts, rejects or counters; a release goes to Atty. Thorne, never to John to sign."
+   "line": "The CM never accepts, rejects or counters; a PD release goes to Atty. Thorne, and John Doe signs nothing."
   },
   "d5m3-a1": {
    "who": "John Doe",

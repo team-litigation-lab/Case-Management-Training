@@ -593,7 +593,7 @@ const EMAIL_NEED = {
   // Negotiating
   "d3m1-a1": "cm_adjuster_statement",         // serving the BI time-limit demand: the adjuster's demands back
   "d3m2-a1": "cm_adjuster_statement",         // MRI findings against the 14-day gap
-  "d5m2-a2": "cm_adjuster_statement",         // diminished value, argued with the carrier
+  "d5m2-a1": "cm_adjuster_statement",         // Keystone PD presses for a yes: the PD position stays with counsel
   "d3m3-a1": "cm_hospital_lien",              // statutory lien reduction: the hospital's $45,000 notice
   "d3m3-a2": "cm_lop_provider",               // provider balance negotiation
   "d2m2-a1": "cm_lop_provider",               // transmitting LOPs: the provider's balance question

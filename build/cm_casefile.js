@@ -125,7 +125,7 @@ const CLIENT_PROFILE_DOC = [
   ]},
   {section:"Track B: From Impasse to Suit", items:[
     "09/08 impasse memo to Atty. Thorne · 09/09 suit authorized, 40% fee tier discussed with John · 09/10 CMS status → Litigation; Harbor Point and Cardinal State notified",
-    "09/24/2026 complaint filed: John Doe v. Robert Smith, State Court of Riverton County, Civil Action No. 26-CV-04417 (medical Specials, wages, future medical, pain and suffering, the Civic's Loss of Use and Diminished Value)",
+    "09/24/2026 complaint filed: John Doe v. Robert Smith, State Court of Riverton County, Civil Action No. 26-CV-04417 (medical Specials, wages, future medical, pain and suffering; no Property Damage is pleaded: the Civic's Loss of Use and Diminished Value stay on Margaret's own PD claim)",
     "Mediation 03/18/2027, Hon. Carla Benton (Ret.) · statement and binder due 03/11 · consolidated binding UM arbitration 06/22/2027, Laura Whitcomb, Esq. (exhibits 06/02, brief docketed 06/11)",
     "SOL: 02/06/2028 is a Sunday; never rely on a weekend roll-forward. Internal hard date 02/04/2028; internal filing cutoff 11/05/2027"
   ]},
@@ -138,7 +138,7 @@ const CLIENT_PROFILE_DOC = [
     "12/10/2026 scheduling order: plaintiff's experts 03/15/2027 · defense experts 04/15 · mediation by 03/31 · discovery closes 05/28 · pretrial 08/12 · trial calendar 09/13/2027",
     "John's deposition noticed 01/20/2027 for 02/18/2027, 10:00 a.m., by videoconference (Riverton Court Reporting)",
     "John unreachable from 01/22/2027 (lost phone, new number) · Margaret Doe is the emergency contact",
-    "Property Damage still disputed: Loss of Use $2,016.00 vs $0; Diminished Value $3,600.00 vs $792.00; any proposal needs Atty. Thorne's authority"
+    "Margaret's separate PD claim still disputed (Loss of Use $2,016.00 vs $0; Diminished Value $3,600.00 vs $792.00): it stays on her file and moves none of John Doe's figures; any PD release is checked so it cannot reach his BI claim"
   ]},
   {section:"Track B: Where the Suit Stands", items:[
     "Skip-Trace 10/09 → 4410 Quarry Ridge Ct, Millbrook · served 10/14/2026 by Allied Process Services · affidavit filed 10/16 · answer was due 11/13",

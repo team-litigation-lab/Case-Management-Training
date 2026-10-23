@@ -92,7 +92,7 @@ Calls for **Days 3–5** (in `days345.json`):
 | D4 · Mediation & Arbitration Binders | `d4m3-a2` | A provider's records department — certified records stuck before the binder deadline |
 | D4 · Common Bottlenecks | `d4m4-a2` | Dana Whitfield, non-responsive, finally calls back |
 | D5 · Litigation | `d5m1-a1` | Defense counsel's office — discovery responses and the deadline |
-| D5 · Property Damage in Litigation | `d5m2-a2` | The PD adjuster (Leah Moran) — diminished value |
+| D5 · Does PD Touch Our Case? | `d5m2-a1` | The PD adjuster (Leah Moran) — Keystone's final PD position and its “all claims” release |
 | D5 · Deposition Preparation | `d5m3-a1` | John Doe — deposition prep |
 | D5 · Deposition Preparation (second) | `d5m3-a2` | Defense counsel Atty. Grant Mercer — mock cross |
 | D5 · Liability Disputes & Skip-Tracing | `d5m4-a2` | Margaret Doe — John has gone quiet before his deposition |

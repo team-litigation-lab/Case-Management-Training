@@ -2,9 +2,9 @@
 
 **Phase:** Intake, claims & Property Damage · **Focus case:** John Doe v. Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
 
-**Objective.** Know the Case Manager's role and the six stages of a file; meet John Doe and his case; hold the UPL line; read the raw file, make the acceptance decision and see which claims the file will carry; open the matter correctly in the CMS with the Conflict Check first; set up the Property Damage side (the client's do's and don'ts, the rental, the repair or total-loss path); and keep John Doe reachable from the first week (the No Contact Protocol and the Final Warning Letter).
+**Objective.** Know the Case Manager's role and the six stages of a file; meet John Doe and his case; hold the UPL line; read the raw file, make the acceptance decision and see which claims the file will carry; open the matter correctly in the CMS with the Conflict Check first; deliver the client's do's and don'ts and onboarding directions; sort the Property Damage side to see what touches John Doe's case (the severity evidence, the rental's last day for his rides) and what stays on Margaret Doe's separate claim; and keep John Doe reachable from the first week (the No Contact Protocol and the Final Warning Letter).
 
-**Gate to the next day.** Matter opened in the CMS with the Conflict Check documented · acceptance decision recorded · the claims the file carries identified · PD onboarding directions delivered and assigned in the system · outreach to John Doe logged across channels, and the Final Warning Letter drafted
+**Gate to the next day.** Matter opened in the CMS with the Conflict Check documented · acceptance decision recorded · the claims the file carries identified · onboarding directions delivered and assigned in the system · the Property Damage items sorted: severity evidence indexed on John Doe's file, Margaret Doe's PD questions referred · outreach to John Doe logged across channels, and the Final Warning Letter drafted
 
 **The file as this day opens.**
 
@@ -40,18 +40,17 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 5. *Lesson* — The Acceptance Decision & the Three-Pillar Case Plan
 6. *Skill Activity* — Opening John Doe's File in the CMS
 7. *Lesson* — Client Do's and Don'ts
-8. *Lesson* — Repair Estimates, Total Loss & Loss of Use
-9. *Lesson* — Rental Authorization
-10. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet
-11. *Skill Activity* — Onboarding Direction Assignment in System
-12. *Skill Activity* — Whose Rental Is It? The Civic Investigation
-13. *Lesson* — The No Contact Protocol — Steps 1 to 3
-14. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
-15. *Skill Activity* — Multi-Channel Outreach Logging
-16. *Skill Activity* — Final Warning Letter Drafting
-17. *Knowledge Check* — CM Fundamentals Knowledge Check
-18. *Knowledge Check* — PD & Onboarding Knowledge Audit
-19. *Knowledge Check* — MIA Escalation Knowledge Check
+8. *Lesson* — Property Damage: Does It Touch Our Case?
+9. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet
+10. *Skill Activity* — Onboarding Direction Assignment in System
+11. *Skill Activity* — Does It Touch Our Case? Sorting the PD File
+12. *Lesson* — The No Contact Protocol — Steps 1 to 3
+13. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
+14. *Skill Activity* — Multi-Channel Outreach Logging
+15. *Skill Activity* — Final Warning Letter Drafting
+16. *Knowledge Check* — CM Fundamentals Knowledge Check
+17. *Knowledge Check* — Onboarding & Property Damage Check
+18. *Knowledge Check* — MIA Escalation Knowledge Check
 
 **End-of-day discussion (trainer):** Robert Smith's carrier has already called John Doe, and he needs a car to get to work. What do you tell him today, in what order, and what has to be on the file before tomorrow's claim set-up?
 
@@ -59,7 +58,7 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 
 ## Module 1 — Intake, Claims & Property Damage
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 1.1.1 Meet Your Case: John Doe v. Robert Smith
 
@@ -543,7 +542,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ### 1.1.7 Client Do's and Don'ts
 
-> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Protecting the claim from the client's own good intentions  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#44` Handling Treatment Gaps During the Treatment Phase · LSH Claims Specialist: LOR Property Damage carve-out, documents to support the claim
@@ -596,7 +595,7 @@ A balanced two-column DO / DON'T board on the upper two-thirds, green-bordered l
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that day's auto-graded questions.
+Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -619,175 +618,88 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.8 Repair Estimates, Total Loss & Loss of Use
+### 1.1.8 Property Damage: Does It Touch Our Case?
 
-> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
-> **Topic:** Repair, or total? And what the client is owed either way  
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
+> **Topic:** What from the PD side feeds John Doe's injury claim, and what stays on Margaret Doe's  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · `D5#35` Property Damage: Calculating the Value of the Claim · LSH Claims Specialist: 5-day inspection window, Loss of Use, tow and storage
+> **Theory extracted from:** `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · `D5#35` Property Damage: Calculating the Value of the Claim · LSH Claims Specialist: LOR Property Damage carve-out, Property Damage severity as evidence for the injury claim
 
 #### 1 · Visual Layout Description
 
-A horizontal threshold gauge dominates: a long bar running from pale on the left to orange and then navy on the right, with a bold vertical THRESHOLD marker about three-quarters along. Left of the marker, REPAIR — carrier pays to fix; right of it, TOTAL LOSS — carrier pays ACV. A repair-estimate chip and an ACV chip sit above the bar to show the comparison. Below, a three-step strip: ① Estimate vs. final bill ② Compare against ACV ③ Confirm the carrier's basis in writing. Bottom-right, a navy card lists what is owed either way: storage, towing, Loss of Use.
+A two-lane sorting board fills the upper two-thirds. Left lane, navy-bordered, headed FEEDS JOHN DOE'S BI CLAIM: chips for the damage photos, the Repair Estimate and supplement, the tow from the scene and the Police Report's units. Right lane, cream, headed STAYS ON MARGARET DOE'S PD CLAIM: chips for her rental, Loss of Use, Diminished Value and the repair negotiation. Between them a narrow orange column headed COORDINATE holds one chip: the rental's last covered day, which ends John Doe's rides to treatment. Lower third: a strip of three tags, INDEX · COORDINATE · REFER, and the line “Our case is John Doe's injury. PD is evidence, not our claim.”
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* Property Damage settles long before the injury claim, and it is the client's first test of whether the firm is competent. It is also physical evidence of how hard the impact was, so audit it as carefully as the medicals.
+*Why:* John Doe was the Escape's front-seat passenger and owns no car, so he has no Property Damage claim. The damaged car is Margaret Doe's Civic, on her own claim with Keystone's PD adjuster, Leah Moran. PD still touches our file in two ways: as evidence of how hard the impact was, and where its dates reach his care. Everything else stays on Margaret's claim, and whether the firm helps her with it is Atty. Thorne's decision, not the Case Manager's.
 
-1. The process runs end to end in six steps: liability acceptance, inspection and estimates, towing and storage, Total Loss valuation, personal contents, rental coordination.
-2. Verify liability acceptance first: the carrier's written acceptance of Property Damage liability (Keystone accepted it 02/17/2026) is what lets repair, storage and rental be paid.
-3. Get the written Repair Estimate before discussing any outcome with the client. No estimate, no position.
-4. Give the carrier a defined window to inspect the vehicle (the firm's standard is 5 days from the letter) and record the date it opens.
-5. Compare the insurance estimate with the final body shop bill. Supplementals are often the best proof of hidden structural damage.
-6. Audit the photos for a clear point of impact, including the undercarriage and frame.
-7. A vehicle is a Total Loss when the cost to repair reaches the carrier's threshold measured against its actual cash value. Confirm the threshold basis the carrier is applying, in writing.
-8. Actual cash value is the pre-loss market value: not what is owed on the loan, and not the cost of a new replacement. Verify the Valuation Report (e.g. CCC One) so the client isn't lowballed.
-9. Courts value Property Damage on the “lesser of” rule: the cost of repair, or the drop in market value from before to after the loss.
-10. Storage and towing accrue daily. Settle the disposition quickly or the charges eat the recovery. Confirm in writing who pays them (on this file Keystone paid the $185.00 tow and six days' storage, $455.00 in all).
-11. Personal contents inside the vehicle (a phone, tools, a child seat) are claimed on the Property Damage claim: list each item with photos and receipts or a value.
-12. Property Damage severity feeds the injury claim in every phase: structural damage and supplementals are physical proof of the force behind the injuries, and they answer the low-impact defense.
-13. Loss of Use is claimable for each day the client is without a vehicle, measured by a comparable rental, separately from the repair or ACV payment. The authority is state law (for example, Nevada: Dugan v. Gotsopoulos, 117 Nev. 285 (2001), cited in the firm's own LOR template); confirm the governing rule for the file.
-14. Document and escalate a disputed valuation; don't argue it ad hoc with the adjuster.
+1. Start from the records: the Police Report's unit boxes and the Intake Supplement show who drove, who rode and who owns each vehicle. John Doe rode in the Escape; the Civic is Margaret Doe's.
+2. Our case is John Doe's bodily-injury (BI) claim, Keystone claim KM-26-440871. The Civic's claim is Margaret Doe's, under Keystone's $25,000 PD liability, which sits outside the $40,000 stack.
+3. Feeds the BI claim: the vehicle damage severity, photos with a clear point of impact, the Repair Estimate and any supplement as proof of impact force, the tow from the scene, and the Police Report's units. Index them on John Doe's file as evidence.
+4. Stays on Margaret Doe's PD claim: her rental, Loss of Use, Diminished Value, storage and towing, and the repair or total-loss negotiation. They are not the firm's BI work, and none of them changes John Doe's figures.
+5. Coordinate where a PD date touches his care: the rental's last covered day ends his rides to treatment, so it goes on John Doe's calendar as a treatment risk, with his rides planned before it.
+6. Keystone accepted PD liability on 02/17/2026. Record it as a fact on the file; what it means for the injury claim is Atty. Thorne's to say.
+7. The LOR's PD carve-out stays: the adverse carrier may discuss the Property Damage claim with the owner, nothing else. A PD call that turns to John Doe's injuries stops and routes to the firm.
+8. Refer, don't handle: when Margaret Doe or John Doe asks about the PD claim, its rental, its value or its negotiation, log the question and route it to Atty. Thorne the same day.
 
-> ⚠️ **UPL boundary.** You may gather estimates, report figures and explain the process. You may not advise the client whether to accept a valuation or tell them what their vehicle is legally worth. Asserting the loss-of-use claim is counsel's position.
+> ⚠️ **UPL boundary.** You may sort the facts, index the PD evidence on John Doe's file and coordinate his rides. You may not advise Margaret Doe on her PD claim, value it, or tell either client what a PD fact does to the injury claim; that is Atty. Thorne's.
 
 #### 2 · Slide Body — Show Them
 
-*Repair or total, and what the client is owed either way*
+*Sort it: does it touch our case?*
 
-| Question | What you verify | What it changes |
+| From the PD side | Touches John Doe's case? | What the CM does |
 |---|---|---|
-| Is there a written estimate? | The estimate exists and is in the file | Without it, nothing is discussed with the client |
-| Estimate vs. final bill | Supplementals on the body shop's final bill | Hidden structural damage; impact severity for the injury claim |
-| Repair cost vs. ACV | The repair figure against pre-loss market value | Whether the carrier repairs or declares a Total Loss |
-| What basis is the carrier using? | The threshold and the Valuation Report, in writing | Which side of the line the vehicle falls on |
-| How long in storage? | Daily storage and towing | Delay erodes the recovery |
-| Is the client without transport? | The dates without a vehicle | Loss of Use, claimed separately |
+| Photos with the point of impact | Yes: evidence of the force | Index on John Doe's file |
+| Repair Estimate and any supplement | Yes: proof of impact severity | Index as severity evidence |
+| The Police Report's units | Yes: who rode, who owns | Cite in the Case Note |
+| Margaret Doe's rental | Only its last covered day, for his rides | Calendar it; plan his rides |
+| Loss of Use, Diminished Value | No: Margaret Doe's PD claim | Refer to Atty. Thorne |
+| Repair or total-loss negotiation | No: Margaret Doe's PD claim | Refer; never negotiate it |
 
 **Operational mapping**
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Repair Estimate received | Log it; compare with ACV and, later, the final bill | CMS → Property Damage | Estimate on file; comparison recorded |
-| Carrier states a disposition | Confirm the threshold basis and the Valuation Report in writing | CMS → Property Damage → Correspondence | Basis confirmed, not assumed |
-| Client is without a vehicle | Record the dates and open the loss-of-use claim | CMS → Property Damage → Loss of Use | Dates recorded; claimed separately |
+| A PD document arrives (photos, estimate, supplement) | Index it on John Doe's file as severity evidence | CMS → Documents | Filed as BI evidence, not opened as a PD claim |
+| Anyone asks about the Civic's rental, Loss of Use or repair figure | Log the question and refer it to Atty. Thorne | CMS → Case Notes · CMS → Tasks | Referred the same day; no advice given |
+| A PD date touches John Doe's care | Calendar it as a treatment risk; plan his rides | Calendar · CMS → Tasks | Rides planned before the date |
 
 **Best practices & pitfalls**
 
-- Supplementals are often the best proof of hidden structural damage.
-- Verify the Valuation Report so the client isn't lowballed on the vehicle's value.
-- ⚠️ Pitfall: working only from the initial estimate.
-- ⚠️ Pitfall: treating Property Damage as “just the car”; it is evidence for the injury claim.
+- Ask of every PD fact: does it prove the impact, or reach his care? If neither, it stays on Margaret Doe's claim.
+- Index the photos, the estimate and any supplement on John Doe's file the day they arrive.
+- ⚠️ Pitfall: opening a rental or Loss of Use claim in John Doe's name.
+- ⚠️ Pitfall: treating Property Damage as “just the car”; its severity is evidence for the injury claim.
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that day's auto-graded questions.
+Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **15%** | Estimate logged | Written estimate recorded before any client discussion; inspection window dated |
-| 🤖 AI | **25%** | ACV comparison | Repair figure against pre-loss market value, not the loan balance |
-| 🤖 AI | **20%** | Loss of Use opened | Dates recorded and claimed separately from the repair or ACV payment |
-| 🧑‍🏫 Trainer | **25%** | Threshold reasoning | Knows what ACV is and is not, and confirms the basis rather than assuming it |
-| 🧑‍🏫 Trainer | **15%** | Client handling | Explained the process without advising on acceptance or legal value |
+| 🤖 AI | **20%** | Records first | Who rode and who owns each vehicle taken from the Police Report and the Intake Supplement |
+| 🤖 AI | **25%** | Sort accuracy | Severity evidence placed on John Doe's file; rental, Loss of Use, Diminished Value and the repair negotiation left on Margaret Doe's claim |
+| 🤖 AI | **15%** | Coordination | The rental's last covered day calendared as a treatment risk, with rides planned |
+| 🧑‍🏫 Trainer | **25%** | Transition judgment | Can say in one line whether and how PD touches John Doe's case |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | Refers Margaret Doe's PD questions without advising or valuing |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
 #### 5 · Speaker Notes
 
-- The recurring misconception is that ACV equals the loan balance. Correct it the moment it appears.
-- Storage is the silent cost. Ask: “Who is paying for every day this car sits?”
-- Loss of Use is the most often forgotten item. On this file it is not John Doe's to claim: ask the room whose car the Civic is, and make them prove it from the Police Report and the intake. His own need is a ride to treatment he hasn't started.
-- Day 5 reopens this with Diminished Value and the Property Damage dispute lab. Today is the threshold; Day 5 is the fight.
+- Open with the question in the title and take a show of hands: does Property Damage touch our case? Most say no. The answer is “yes, but not as his claim.”
+- Make the room prove ownership from the Police Report's unit boxes and the Intake Supplement before anyone sorts a single item.
+- Run the sort as a game: read each item, the room calls BI evidence, Margaret's claim, or coordinate. The rental's last covered day is the trap; it is hers, but it reaches his care.
+- This is a transition, not PD handling. Anyone who starts computing Loss of Use or arguing a repair figure has left John Doe's file; bring them back.
 
 ---
 
-### 1.1.9 Rental Authorization
+### 1.1.9 Voicemails & Recorded Statements: the Action Plan and Direction Packet
 
-> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
-> **Topic:** A rental the policy actually pays for, confirmed before the client collects a car  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** Case file: Keystone Mutual's claim correspondence, the rental authorization and the rental cutoff (RS32) · LSH Claims Specialist: rental coverage hierarchy, the rental reimbursement endorsement, rate cap and duration
-
-#### 1 · Visual Layout Description
-
-A four-chip flow across the upper half: WHOSE COVERAGE PAYS? → WHO AUTHORIZES? → DAILY RATE CAP → DURATION LIMIT, with “usually 30 days unless the Dec Page says otherwise” under the last chip. Lower half, left: Keystone's Form KM-PD 210 rental authorization (RS32) with the rate and the covered days circled in orange. Right: a cream card headed WHOSE CLAIM? naming the Civic's owner, Margaret Doe, with John Doe struck through as a passenger. An orange tag along the bottom: “uncovered days are the client's cost.”
-
-#### 2 · Slide Body — Tell Them
-
-*Why:* A rental is the first money question a client asks, and the easiest place for them to get hurt: a car collected on a promise, at a rate or for days nobody authorized, becomes a bill that lands on the client. Rental belongs to the Property Damage claim, so it is the vehicle owner's to make. On this file that is Margaret Doe, the Civic's owner, not John Doe, who was her passenger.
-
-1. Rental is part of the Property Damage claim, and it belongs to the vehicle's owner. John Doe was a passenger; the Civic is Margaret Doe's, so the rental is hers to claim.
-2. The law firm never provides or pays for a rental. It is part of the Property Damage claim, paid by the carrier; the firm coordinates it with the carrier and records every parameter.
-3. Find whose coverage pays, in order. First the adverse carrier's Property Damage coverage (3P), here Keystone's, on accepted liability.
-4. If 3P coverage is unavailable (liability denied or still disputed, no PD coverage on the at-fault driver, or its limit used up), check the owner's own policy (1P): Collision or Comprehensive for the vehicle, and Rental Reimbursement coverage for the rental, on the Dec Page. The 1P carrier pays and then pursues the at-fault party; the owner's deductible is claimed back the same way.
-5. If no coverage applies at all, the rental and the repair are the owner's out-of-pocket cost. Tell the owner before they collect a car, keep every receipt and invoice in CMS → Documents, and log each amount for reimbursement in the Property Damage claim.
-6. Confirm who authorizes the rental (the adverse carrier on accepted liability, or the owner's own carrier) and check the Dec Page for a rental reimbursement endorsement.
-7. Record the authorized daily rate cap before the client collects a vehicle. Anything above the cap is the client's cost.
-8. Record the duration limit: coverage usually runs 30 days at most, unless the Dec Page says otherwise. Calendar the last covered day and tell the client before it arrives.
-9. A comparable vehicle, not an upgrade: the class of car the client lost. An upgrade's difference is the client's cost.
-10. Get it in writing: Keystone's rental authorization (Form KM-PD 210) is filed in CMS → Documents, and every parameter goes in CMS → Property Damage before collection.
-11. The Property Damage carve-out lets the adverse carrier discuss the rental with the owner. If the call moves to injuries or the facts of the loss, it stops and routes to the firm.
-
-> ⚠️ **UPL boundary.** You confirm coverage facts and explain the process. Whether to dispute a cutoff or a rate, and what the owner should accept, is Atty. Thorne's call.
-
-#### 2 · Slide Body — Show Them
-
-*The rental call, answered both ways*
-
-| ✅ Do | ❌ Don't |
-|---|---|
-| “Before you pick it up, I'll confirm the rate and the days in writing.” | “Go ahead and grab a car; they'll pay for it.” |
-| “Keystone's letter covers a car like yours; an upgrade would be your cost.” | “Get whatever you need; we'll sort out the rate later.” |
-| “Coverage ends on the date in the letter; I'll remind you three days before.” | “Keep it as long as you need it.” |
-| “The rental is on Margaret's Property Damage claim, as the Civic's owner.” | “Your rental is part of your injury case.” |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| The owner asks about a rental | Confirm whose coverage pays, the authorizer, the endorsement, the rate cap and the duration | CMS → Property Damage | All five recorded before collection |
-| The carrier's rental authorization arrives | File it; calendar the last covered day | CMS → Documents · Calendar | Authorization filed; cutoff calendared |
-| The rental cutoff nears | Tell the owner in writing; plan John Doe's rides to treatment | CMS → Case Notes · Tasks | Owner told; rides to treatment planned |
-
-**Best practices & pitfalls**
-
-- Confirm every rental parameter in writing before the client collects a car.
-- Calendar the last covered day and warn the client before it.
-- ⚠️ Pitfall: sending a client to pick up a car before the authorization is confirmed.
-- ⚠️ Pitfall: treating the rental as the passenger's claim instead of the owner's.
-- Keep every out-of-pocket rental and repair receipt: it is the proof for reimbursement.
-- ⚠️ Pitfall: telling the owner there is no rental before checking their own policy for Rental Reimbursement.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **25%** | Whose coverage pays | In order: the adverse carrier's Property Damage coverage; if unavailable, the owner's Collision or Comprehensive and Rental Reimbursement; if none, out of pocket with every receipt kept for reimbursement |
-| 🤖 AI | **20%** | Rental parameters | Authorizer, endorsement, rate cap and duration recorded before collection |
-| 🤖 AI | **15%** | Whose claim | The rental placed on the owner's Property Damage claim, not the passenger's |
-| 🧑‍🏫 Trainer | **25%** | Client-facing clarity | Limits explained so the client is never surprised by a bill |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | Coverage facts only; disputes and acceptance routed to Atty. Thorne |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Rental is where clients get hurt financially. Uncovered days come out of their pocket, and they will blame the firm if nobody told them the limit.
-- Ask the room whose rental this is on John Doe's file. Let them find Margaret Doe; the Civic Investigation activity proves it from the documents.
-- Show RS32: the authorization, and later the cutoff. The cutoff is what starts John Doe's transport problem in the Treatment Phase.
-
----
-
-### 1.1.10 Voicemails & Recorded Statements: the Action Plan and Direction Packet
-
-> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Skill Activity 1 — work the voicemail, then send what the client gets on day one  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#44` Handling Treatment Gaps During the Treatment Phase · LSH Claims Specialist: client communication protocol
@@ -835,7 +747,7 @@ An exploded packet: a central navy folder with six document cards fanned around 
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that day's auto-graded questions.
+Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -859,9 +771,9 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.11 Onboarding Direction Assignment in System
+### 1.1.10 Onboarding Direction Assignment in System
 
-> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Skill Activity 2 — turn directions into tracked tasks  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#3` Key Duties of a Case Manager · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#44` Handling Treatment Gaps During the Treatment Phase
@@ -907,7 +819,7 @@ A CMS task board in three columns — ASSIGNED · DUE · VERIFIED — with direc
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that day's auto-graded questions.
+Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -929,78 +841,78 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.12 Whose Rental Is It? The Civic Investigation
+### 1.1.11 Does It Touch Our Case? Sorting the PD File
 
-> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
-> **Topic:** Skill Activity 3 — investigate the PD and rental claim from the records  
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
+> **Topic:** Skill Activity 3 — sort the Property Damage items, decide refer, coordinate or handle, and say whether PD touches John Doe's case  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#44` Handling Treatment Gaps During the Treatment Phase · LSH Claims Specialist: LOR Property Damage carve-out, rental coverage hierarchy, documents to support the claim
+> **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · LSH Claims Specialist: LOR Property Damage carve-out, Property Damage severity as evidence for the injury claim
 
 #### 1 · Visual Layout Description
 
-An evidence board: four document cards (Police Report, Intake Sheet, Intake Supplement, Keystone PD letter) pinned in a row, each with one highlighted field and a red string running to a central card that reads OWNER · CLAIMANT · OUR CLIENT? with three blank lines.
+A sorting tray: six item cards (damage photos, the tow record, the Police Report, Leah Moran's rental email, Margaret Doe's Loss of Use question, her request for a higher repair figure) above three drop zones: navy JOHN DOE'S BI FILE, orange COORDINATE, cream MARGARET DOE'S PD CLAIM. Each card carries a blank tag for REFER, COORDINATE or HANDLE. A bottom bar holds an empty line headed THE ANSWER, which the trainee completes.
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** 02/11/2026. Keystone PD (Leah Moran) emails the firm to confirm the claimant on the 2019 Honda Civic so a rental can be set up once liability is decided. John Doe calls: he needs a car to get to his first appointment and asks whether the rental is his. Nobody has yet written down whose claim it is.
+**Scenario.** 02/11/2026. Keystone PD (Leah Moran) emails the firm to confirm the Civic's claimant and a rental contact, so a rental can be set up once its liability decision is made. Five more items sit in the firm's PD tray: the scene and damage photos, the tow record from the scene, the Police Report, Margaret Doe's question about Loss of Use, and her request that the firm push Keystone for a higher repair figure. John Doe calls asking whether the rental can be his.
 
-**Execution prompt.** Before anyone answers John Doe, investigate. From the Police Report, the Intake Sheet, the Intake Supplement and the CMS Intake Record, establish where John Doe was in the collision, who owns the Civic and who the PD and rental claimant is. Write the finding as a CMS Case Note that cites each source, decide whether John Doe has a Property Damage or rental claim of his own, and report it to Atty. Thorne. Then answer John Doe's call within the UPL line and solve his real problem: a ride to treatment.
+**Execution prompt.** Sort each item: does it feed John Doe's bodily-injury claim, stay on Margaret Doe's separate PD claim, or touch his care and need coordinating? Mark each refer, coordinate or handle, and record the sort in one CMS Case Note that cites the Police Report's units. Index what feeds the BI claim on John Doe's file, set the follow-up that puts the rental's last covered day on his calendar as a treatment risk, refer Margaret's items and Leah Moran's claimant question to Atty. Thorne, and answer John Doe's call within the UPL line. End the note with one line: does Property Damage touch our case, and how?
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Case Notes · CMS → Property Damage · Call Simulator |
-| **Expected output** | A sourced Case Note naming the Civic's owner and the PD and rental claimant, a report to Atty. Thorne, and a logged call with John Doe that arranges his transportation without advising anyone on the claim. |
+| **Tool / interface** | CMS → Case Notes · CMS → Documents · Calendar · Call Simulator → AI John Doe |
+| **Expected output** | A sorted, sourced Case Note ending in its one-line answer, the BI evidence indexed, the rental follow-up set, Margaret Doe's items referred and the call logged. |
 
 **Verification checkpoints**
 
-- [ ] John Doe's position in the collision taken from the Police Report, not assumed
-- [ ] The Civic's owner named from the Police Report and the Intake Supplement
-- [ ] The PD and rental claimant named from the owner, with the Intake Record's carrier line
-- [ ] Conclusion recorded: John Doe has no PD or rental claim of his own
-- [ ] Each finding cites its source document and page
-- [ ] Atty. Thorne told the same day; the owner's claim left to the owner and the attorney
-- [ ] No advice to John Doe or the owner about the PD claim or its value
-- [ ] John Doe's transportation to treatment arranged or escalated
+- [ ] Positions taken from the Police Report's units: John Doe the Escape's passenger, the Civic Margaret Doe's
+- [ ] The photos, the tow record and the Police Report sorted as BI evidence and indexed on John Doe's file
+- [ ] The rental, Loss of Use and the repair figure sorted to Margaret Doe's PD claim, not handled on John Doe's file; the claimant question referred, not answered for her
+- [ ] Each item marked refer, coordinate or handle
+- [ ] A follow-up set to calendar the rental's last covered day as a treatment risk once Keystone authorizes it, with John Doe's rides planned before it
+- [ ] Margaret Doe's two questions referred to Atty. Thorne the same day, with no advice on her claim
+- [ ] John Doe told the rental is not his, and his ride to treatment solved
+- [ ] The note ends with the answer: PD touches John Doe's case as evidence of the impact and through his rides, never as a claim of his
 
 **Operational mapping**
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Rental authorization arrives | Read the records before answering anyone | CMS → Documents | Owner and claimant found in the file |
-| Ownership established | Write the sourced Case Note | CMS → Case Notes | Each fact cites its document |
-| Client asks about the rental | State the fact, route the claim question to Atty. Thorne, solve the ride | Call Simulator · CMS → Tasks | Call logged; transportation task dated |
+| PD items reach the file | Sort each one: BI evidence, coordinate, or Margaret's claim | CMS → Case Notes | Sort recorded with the Police Report cited |
+| Severity evidence identified | Index it on John Doe's file | CMS → Documents | Photos and estimate indexed as BI evidence |
+| Margaret Doe asks about her PD claim | Refer to Atty. Thorne; plan John Doe's rides | CMS → Tasks · Calendar | Referred the same day; rental follow-up dated |
 
 **Best practices & pitfalls**
 
-- Read the Police Report's vehicle and occupant boxes before you set up any PD claim.
-- Ask of every claim: who owns it, and is that person our client?
-- ⚠️ Pitfall: setting up a rental in the client's name because he is the one who called.
+- Sort before you act: the records say whose each item is.
+- End every PD note with the answer to “does it touch our case?”
+- ⚠️ Pitfall: handling Margaret Doe's Loss of Use or repair figure on John Doe's file.
 
 #### 3 · Knowledge Check & CM Summary
 
-Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that day's auto-graded questions.
+Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and that day's auto-graded questions.
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **25%** | Evidence | Position, owner and claimant each taken from a named record |
-| 🤖 AI | **20%** | Conclusion | No PD or rental claim for John Doe; whose claim it is, stated |
-| 🤖 AI | **15%** | UPL boundary | Nothing said to John Doe or the owner about the claim's merits or value |
-| 🧑‍🏫 Trainer | **25%** | Investigative reasoning | Reconciles the records and notices what the client's call assumes |
-| 🧑‍🏫 Trainer | **15%** | Client care | Solves the real need, a ride to treatment, the same day |
+| 🤖 AI | **25%** | Sort | Every item placed correctly: BI evidence, coordinate, or Margaret Doe's claim |
+| 🤖 AI | **20%** | Evidence and follow-up | Severity items indexed; the rental's last day set to be calendared as a treatment risk |
+| 🤖 AI | **15%** | The answer | One line saying whether and how PD touches John Doe's case |
+| 🧑‍🏫 Trainer | **25%** | Refer or handle | Knows what the CM handles on John Doe's file and what goes to Atty. Thorne |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | No advice to John Doe or Margaret Doe on the PD claim or its value |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
 #### 5 · Speaker Notes
 
-- Don't tell the room whose car it is. The Police Report's Unit 3 box and the Intake Supplement settle it; make them find both.
-- The trap is the call: John Doe asks for the rental and a helpful trainee books it in his name. Grade that as the failure it is.
-- The finding goes to Atty. Thorne; whether the firm helps the owner is his decision, not the CM's.
+- Don't sort the first card for them. The Police Report settles who rode and who owns; make them find it.
+- Leah Moran's rental email is the card to watch: the rental is Margaret Doe's, but its last day will take away John Doe's ride to treatment. Trainees who file it as “not ours” miss the coordinate lane.
+- Read the closing lines aloud. The answer you want: PD touches our case as evidence and through his rides, never as his claim.
 
 ---
 
-### 1.1.13 The No Contact Protocol — Steps 1 to 3
+### 1.1.12 The No Contact Protocol — Steps 1 to 3
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Internal review, escalating contact attempts, team notification  
@@ -1076,7 +988,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ---
 
-### 1.1.14 Final Warning Letter & the Skip-Trace Trigger
+### 1.1.13 Final Warning Letter & the Skip-Trace Trigger
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** No Contact Protocol Steps 4 to 6, and when the search begins  
@@ -1150,7 +1062,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ---
 
-### 1.1.15 Multi-Channel Outreach Logging
+### 1.1.14 Multi-Channel Outreach Logging
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 1 — build a defensible record  
@@ -1224,7 +1136,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ---
 
-### 1.1.16 Final Warning Letter Drafting
+### 1.1.15 Final Warning Letter Drafting
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 2 — write the letter that gets answered  
@@ -1299,7 +1211,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ---
 
-### 1.1.17 CM Fundamentals Knowledge Check
+### 1.1.16 CM Fundamentals Knowledge Check
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1408,22 +1320,22 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 1.1.18 PD & Onboarding Knowledge Audit
+### 1.1.17 Onboarding & Property Damage Check
 
-> **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
+> **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · `D5#35` Property Damage: Calculating the Value of the Claim · `D1#44` Handling Treatment Gaps During the Treatment Phase
 
 #### 1 · Visual Layout Description
 
-The standard knowledge-check split (cream question panel, navy Self-Summary card, 1–5 ladder, 60/40 strip with the separate red UPL gate). Module-specific addition: a PD AUDIT STRIP between the panels, a five-cell horizontal checklist — Estimate · Final bill · ACV comparison · Storage/towing · Loss of Use — that the trainee ticks as a self-audit before answering.
+The standard knowledge-check split (cream question panel, navy Self-Summary card, 1–5 ladder, 60/40 strip with the separate red UPL gate). Module-specific addition: a SORT STRIP between the panels, three cells — BI evidence · Coordinate · Margaret Doe's PD claim — that the trainee fills from memory before answering.
 
 #### 2 · Slide Body — Knowledge verification
 
 1. List the firm's standing instructions for a new personal injury client and, for each, the specific harm it prevents.
-2. Before anyone collects a rental, what must be confirmed, and whose coverage provides the rental? On John Doe's file, whose rental is it, and how do the records tell you?
-3. Explain what actual cash value means, what it does not mean, and why confusing it with the loan balance misleads the client.
+2. Sort the PD side of John Doe's file: name two items that feed his injury claim and two that stay on Margaret Doe's claim, and why.
+3. John Doe asks whether Margaret Doe's rental can be his. What do the records show, what do you tell him, and what do you coordinate?
 
 **Best practices & pitfalls**
 
@@ -1435,7 +1347,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 **Case Manager Self-Summary**
 
 - Summarize what you learned about protecting a claim in its first two weeks, and whose job that protection is.
-- Articulate your strategy: John Doe has the packet, the adverse carrier has already called him, and he hasn't started treatment. What do you do next and why?
+- Answer in one line: does Property Damage touch John Doe's case, and how? Then say what you would do the next time Margaret Doe calls about her claim.
 - Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
 
 **Skill Scale — self-rate 1–5**
@@ -1443,75 +1355,56 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 | Competency | 1 | 2 | 3 | 4 | 5 |
 |---|---|---|---|---|---|
 | Delivering client instructions a layperson will follow | ○ | ○ | ○ | ○ | ○ |
-| Confirming rental coverage, authorization, rate cap and duration | ○ | ○ | ○ | ○ | ○ |
-| Comparing a Repair Estimate and final bill against ACV | ○ | ○ | ○ | ○ | ○ |
-| Identifying storage, towing and loss-of-use entitlements | ○ | ○ | ○ | ○ | ○ |
 | Turning directions into tracked, verifiable tasks | ○ | ○ | ○ | ○ | ○ |
-| Holding the UPL boundary while explaining Property Damage | ○ | ○ | ○ | ○ | ○ |
+| Reading the records to find whose claim each item is | ○ | ○ | ○ | ○ | ○ |
+| Sorting Property Damage items into BI evidence and the owner's claim | ○ | ○ | ○ | ○ | ○ |
+| Coordinating a PD date that reaches the client's care | ○ | ○ | ○ | ○ | ○ |
+| Referring PD questions without advising on the claim | ○ | ○ | ○ | ○ | ○ |
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (16 questions):
+**Auto-graded share of the day's Knowledge Check** (10 questions):
 
 1. The Property Damage carve-out in the LOR lets the adverse carrier talk to the client about:  
    Injuries and treatment · **✓ The Property Damage claim only** · Anything except settlement figures · A Recorded Statement  
    *Only the resolution of the Property Damage claim. Anything else routes to the firm.*
-2. On a rental vehicle, whose coverage provides it?  
-   The rental company's self-insurance · **✓ The adverse carrier's Property Damage coverage** · The client's own personal auto policy · The client's Health Plan  
-   *The 3P rental comes from the adverse carrier's Property Damage coverage first. The owner's own policy is the fallback, only where 3P coverage is unavailable.*
-3. The adverse carrier denies liability, so its Property Damage coverage won't pay the rental. What do you check next?  
-   Nothing: the owner pays and the rental is lost for good · **✓ The owner's own policy: Collision or Comprehensive for the vehicle, and Rental Reimbursement coverage** · The passenger's injury claim · The client's Health Plan  
-   *The owner's 1P coverage is next: Collision or Comprehensive for the vehicle, and Rental Reimbursement on the Dec Page. If there is none, the owner pays out of pocket and keeps every receipt, claimed for reimbursement in the Property Damage claim.*
-4. Actual cash value (ACV) is:  
-   What is still owed on the loan · **✓ The vehicle's pre-loss market value** · The cost of a new replacement · The Repair Estimate plus storage  
-   *Pre-loss market value, not the loan balance and not replacement with new.*
-5. Which document best proves hidden structural damage?  
-   The initial insurance estimate · **✓ The body shop's supplementals on the final bill** · The client's photos of the interior · The tow receipt  
-   *Compare the estimate with the final bill: supplementals are often the best proof of hidden structural damage.*
-6. Before any Property Damage outcome is discussed with John Doe, what must be in the file?  
-   The carrier's verbal offer · **✓ The written Repair Estimate** · The rental agreement · The client's own estimate  
-   *No estimate, no position: get the written Repair Estimate before discussing any outcome with the client.*
-7. Keystone Mutual's adjuster asks John Doe for a Recorded Statement about the crash. What has the firm told him to do?  
+2. Keystone Mutual's adjuster asks John Doe for a Recorded Statement about the crash. What has the firm told him to do?  
    Give it, briefly · Give it, but only about the Civic · **✓ Give no Recorded Statement: all adverse contact routes through the firm** · Give it if the adjuster promises a quick settlement  
    *The client gives no Recorded Statement to the adverse carrier. Only the Property Damage claim is carved out; injuries and the facts of the loss route to the firm.*
-8. A vehicle is a Total Loss when:  
-   The client no longer wants it · **✓ The cost to repair reaches the carrier's threshold measured against its actual cash value** · Any frame damage is found · The repair takes longer than 30 days  
-   *Confirm the threshold basis the carrier is applying, in writing. Actual cash value is the pre-loss market value.*
-9. Keystone asks the firm to confirm the claimant on the parked 2019 Honda Civic. From the records, whose Property Damage and rental claim is it?  
+3. Keystone asks the firm to confirm the claimant on the parked 2019 Honda Civic. From the records, whose Property Damage and rental claim is it?  
    John Doe's: he called about the rental first · **✓ The owner's, as the Police Report and the intake records show; John Doe, a passenger who owns no car, has none** · Kevin Alvarez's, as host driver · Robert Smith's carrier decides whose it is  
    *The claim belongs to the vehicle's owner, found in the Police Report's Unit 3 box and the Intake Supplement. A passenger who owns no car has no PD or rental claim; the CM records the finding and tells the attorney.*
-10. An owner is without her car while it is in the shop. Loss of Use is:  
-   Included in the repair payment · **✓ Claimable for each day without a vehicle, measured by a comparable rental, separately from the repair or ACV payment** · Owed only if the car is a Total Loss · Paid by her Health Plan  
-   *Loss of Use is a separate claim. Asserting it is counsel's position, and the governing rule is confirmed for the file.*
-11. The Civic sits in storage while its valuation is disputed. Why settle its disposition quickly?  
-   **✓ Storage and towing accrue daily and eat the recovery** · Property Damage must be claimed within 30 days · The body shop will sell it · The carrier stops paying the rental at once  
-   *Storage and towing charges accrue daily. Document and escalate a disputed valuation; don't argue it ad hoc with the adjuster.*
-12. On 02/18/2026 Keystone authorizes a rental on the Civic. John Doe calls: he needs a car to get to treatment and asks to pick it up. What do you do?  
+4. Which of these from the Property Damage side belongs in John Doe's bodily-injury file?  
+   Margaret Doe's rental agreement and its daily rate · **✓ The damage photos, the Repair Estimate and any supplement, as proof of how hard the impact was** · Margaret Doe's Loss of Use claim · The repair negotiation with Keystone's PD adjuster  
+   *PD severity is evidence for the injury claim: photos with a clear point of impact, the estimate and any supplement show the force. The rental, Loss of Use and the repair negotiation stay on Margaret Doe's PD claim.*
+5. Margaret Doe asks you to push Keystone for a higher repair figure on the Civic. What do you do?  
+   Negotiate it: it is the same crash as John Doe's case · **✓ Log her request and refer it to Atty. Thorne: her PD claim is separate from John Doe's case, and whether the firm helps with it is his decision** · Tell her the figure is fair · Tell her to accept whatever Keystone offers  
+   *The Civic's repair figure is Margaret Doe's Property Damage claim, not the firm's bodily-injury work on John Doe's file. Refer, don't handle: log it and route it to Atty. Thorne, with no advice on the figure.*
+6. Keystone's Property Damage liability limit is $25,000. How does it relate to John Doe's $40,000 stack?  
+   It is added to the stack · **✓ It sits outside the stack: what the Civic's claim is paid neither adds to nor reduces John Doe's recovery** · It reduces Keystone's BI limit · It pays John Doe's Medical Bills first  
+   *PD liability is separate coverage for the property, outside the $40,000 stack of BI, Host UM and Relative UM. John Doe's figures don't move with the Civic's claim.*
+7. The Police Report lists three units. Why does the Case Manager read them on a Property Damage question?  
+   To find the repair shop · **✓ The unit boxes show who drove, who rode and who owns each vehicle, which decides whose claim each PD item is** · To value the Civic · They don't matter on a PD question  
+   *Records first: the units show John Doe rode in the Escape and Margaret Doe owns the Civic, so the PD and rental claim is hers, and his case is the injury claim.*
+8. On 02/18/2026 Keystone authorizes a rental on the Civic. John Doe calls: he needs a car to get to treatment and asks to pick it up. What do you do?  
    Set the rental up in his name: he was in the crash and he is the client · Ask Keystone to open a second rental for him under the BI claim · **✓ Explain that the rental belongs to the Civic's owner, Margaret Doe; as a passenger who owns no car he has no PD or rental claim. Then solve his real problem: his rides to treatment** · Tell him to use his mother's rental as his own until she needs it  
    *Rental follows the vehicle. The Police Report's Unit 3 box names Margaret Doe as the Civic's owner, and John Doe was the Escape's front-seat passenger who owns no car, so the PD and rental claim is hers. Record the finding, tell Atty. Thorne, and treat his need as what it is: transport to care, planned and logged.*
-13. Margaret Doe's rental from Keystone starts 02/18/2026, and her Dec Page sets no longer period. John Doe rides with her to treatment. What goes on the calendar, and why?  
+9. Margaret Doe's rental from Keystone starts 02/18/2026, and her Dec Page sets no longer period. John Doe rides with her to treatment. What goes on his calendar, and why?  
    Nothing: the rental is her claim, so its end is no concern of John Doe's file · **✓ The rental's last covered day, 03/19/2026 (usually 30 days at most), as a treatment risk, with John Doe's rides planned before it** · A request to extend the rental in John Doe's name · The rental's end at settlement  
-   *Coverage usually runs 30 days at most unless the Dec Page says otherwise. The rental is Margaret Doe's, not John Doe's, but its cutoff takes away his ride to care, so the Case Plan calendars 03/19/2026 as a treatment risk and the rides are planned before it.*
-14. Keystone authorizes a compact car for the Civic; Margaret Doe picks up an SUV. Who pays the difference?  
-   Keystone, as the adverse carrier · **✓ The owner: the authorization covers a comparable vehicle, not an upgrade** · The firm, from its costs · Harbor Point, under John Doe's PIP  
-   *The authorization covers a comparable vehicle at the authorized daily rate; an upgrade's difference is the owner's cost. Confirm the vehicle class before pickup.*
-15. Margaret Doe asks whether the law firm will rent her a car while the Civic is repaired. What do you tell her?  
-   Yes: the firm advances it and recovers it at settlement · **✓ No: a rental is part of the Property Damage claim, paid by the carrier; the firm coordinates it with Keystone and never provides or pays for it** · Yes, but only for 30 days · No: rentals are never covered after a collision  
-   *Rental falls under the Property Damage claim. The carrier's PD coverage pays it on accepted liability; the firm's part is to coordinate it with the carrier and record the authorization, rate and days.*
-16. Keystone's teardown supplement on the Civic adds $2,315.00 for A-pillar structural damage. Why does it matter beyond the repair bill?  
-   It doesn't: Property Damage and the injury claim never touch · It raises the firm's fee · **✓ Structural damage is physical proof of how hard the impact was, which answers a low-impact defense to the injury claim** · It makes the Civic a Total Loss  
-   *Property Damage severity feeds the injury claim in every phase: the supplemental proves hidden structural damage, the physical evidence of the force. At $9,255.00 against a $13,200.00 threshold the Civic is still repairable.*
+   *This is where PD touches his case without being his claim: the rental is Margaret Doe's, but its cutoff takes away his ride to care. Coordinate, don't handle: calendar 03/19/2026 as a treatment risk and plan the rides before it.*
+10. Keystone's teardown supplement on the Civic adds $2,315.00 for A-pillar structural damage. Why does it matter to John Doe's case?  
+   It doesn't: Property Damage and the injury claim never touch · It raises the firm's fee · **✓ Structural damage is physical proof of how hard the impact was, which answers a low-impact defense to the injury claim** · It makes John Doe the Civic's claimant  
+   *Property Damage severity feeds the injury claim in every phase: the supplement is physical evidence of the force. It goes in John Doe's file as evidence; the repair claim itself stays Margaret Doe's.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Instruction recall | Standing instructions listed with the harm each prevents |
-| 🤖 AI | **15%** | Rental | Whose coverage provides it, authorization, rate cap and duration named |
-| 🤖 AI | **15%** | ACV definition | Pre-loss market value, expressly not the loan balance |
-| 🤖 AI | **10%** | Entitlement completeness | Storage, towing and Loss of Use all identified |
+| 🤖 AI | **20%** | The sort | Two BI evidence items and two of Margaret Doe's PD items, each with its reason |
+| 🤖 AI | **20%** | Whose rental | Ownership from the records; the rental is Margaret Doe's; his rides coordinated |
 | 🧑‍🏫 Trainer | **15%** | Scenario handling | Routes the contact correctly and logs it, without legal explanation to the client |
-| 🧑‍🏫 Trainer | **15%** | Strategic articulation | Prioritises treatment, given the forming gap |
+| 🧑‍🏫 Trainer | **15%** | Strategic articulation | Prioritises treatment, and answers the PD question in one clear line |
 | 🧑‍🏫 Trainer | **5%** | Self-Summary quality | Specific and honest |
 | 🧑‍🏫 Trainer | **5%** | Self-rating calibration | Defensible against the score |
 
@@ -1519,13 +1412,13 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 #### 5 · Speaker Notes
 
-- Question 3 separates trainees who memorised the term from those who understand it. Expect the loan-balance error.
-- Question 6 should surface the treatment direction: an untracked treatment instruction is exactly how a 14-day gap happens.
-- The strategy prompt has one right priority, treatment. Anyone who leads with the rental has mis-ranked the risks.
+- Question 2 is the transition in miniature. Expect someone to put Loss of Use on John Doe's side; ask them whose car was without use.
+- The one-line answer in the Self-Summary is the module's goal: PD touches the case as evidence and through his rides, never as his claim.
+- The strategy has one right priority, treatment. Anyone who leads with the rental has mis-ranked the risks.
 
 ---
 
-### 1.1.19 MIA Escalation Knowledge Check
+### 1.1.18 MIA Escalation Knowledge Check
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

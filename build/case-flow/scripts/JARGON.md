@@ -677,7 +677,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Declaration Page (Dec Page) | d1m1-l1 | The insurance company's own statement of who's insured, which cars, what coverage and what limits |
 | HIPAA authorization | d1m1-l1, d1m1-open | The client's signed permission for us to get his medical records |
 
-### Day 1 · Property Damage & Onboarding
+### Day 1 · Onboarding & the Property Damage Question
 
 | Term | Block | The plain explanation in the script |
 |---|---|---|
@@ -687,28 +687,20 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Barrier to care | d1m3-l1 | Anything that stops a client getting to an appointment, like rides, money or work. |
 | CMS Onboarding / Case Notes / Communications Log | d1m3-l1 | Where you log that instructions were delivered, where costs go, and where every contact goes. |
 | Direction Packet | d1m3-a1 | The welcome package that tells a new client exactly what to do and what not to do. |
-| Property Damage (PD) | d1m3-l2 | The car part of the claim, separate from the injury part; it settles much sooner. |
-| Repair Estimate | d1m3-l2 | The shop's price to fix the car. |
+| Property Damage (PD) | d1m3-l2 | The car part of the crash; on this file it is Margaret's claim, not John's. |
+| Bodily injury (BI) claim | d1m3-l2 | John's claim for his injuries: our case. |
+| Repair Estimate | d1m3-l2 | The shop's price to fix the car; for us, proof of how hard the hit was. |
 | Supplemental estimate | d1m3-l2 | A second estimate written after the shop opens the car up and finds more damage. |
-| Total Loss | d1m3-l2 | The car isn't worth fixing, so the insurer pays its value instead. |
-| Actual cash value (ACV) | d1m3-l2 | What the car was worth the day before the crash. Not the loan, not a new car. |
-| Valuation Report | d1m3-l2 | The insurance company's write-up of what the car was worth, checked line by line. |
-| Repair-to-ACV threshold | d1m3-l2 | The line the insurer draws: repair cost below it means repair, above it means Total Loss. |
-| Loss of Use | d1m3-l2 | Money for each day the client has no car, measured by a comparable rental. |
-| Inspection window | d1m3-l2 | The set time (firm standard: 5 days from the letter) the insurer gets to inspect the car. |
-| Scene audit | d1m3-l2 | Checking that photos, video and damage match how the crash happened. |
-| Dec Page | d1m3-l2, d1m3-rent | The policy's one-page summary. |
-| Rental reimbursement endorsement | d1m3-rent | An optional add-on on the owner's policy that pays for a rental while the car's in the shop. |
-| Third-party coverage | d1m3-rent | Said as "the other driver's insurance pays first". |
-| Comparable car | d1m3-rent | A car like the one that was damaged, not an upgrade. |
+| Loss of Use | d1m3-l2 | Money for each day the owner has no car; Margaret's, not John's. |
+| Diminished Value | d1m3-l2 | What a repaired car still loses in resale value; Margaret's, not John's. |
+| Unit boxes | d1m3-l2, d1m3-a3 | The Police Report's section for each vehicle: who drove, who rode, who owns it. |
+| Coordinate vs. handle | d1m3-l2, d1m3-a3 | Coordinate: plan around something that reaches our client. Handle: do the work ourselves. |
 | Task card / verification method | d1m3-a2 | A to-do with a name on it; it can't go live without an owner, a due date and a way to check it got done. |
 | Gap in care / gap in treatment | d1m3-a2 | Time with no treatment; adjusters read it as "the client wasn't that hurt". |
-| Liability | d1m3-a3 | Who's at fault. |
 | Claimant | d1m3-a3 | The person who gets to make the claim. |
 | Self-Summary / Skill Scale | d1m3-kc | Principles in your own words; a 1–5 self-rating compared with the score. |
 | Recorded Statement | d1m3-a1 | A taped account the other side can use against the claim later. |
-| PD liability acceptance | d1m3-l2 | Keystone agrees in writing that it owes for the car. |
-| Personal contents | d1m3-l2 | Things left in the car, listed with photos and receipts and claimed on the PD claim. |
+| PD liability acceptance | d1m3-l2 | Keystone agrees in writing that it owes for the car; a fact we record, nothing more. |
 | Low-impact defense | d1m3-l2 | The adjuster's line that a small dent means a small injury. |
 
 ### Day 1 · The Case Plan & Treatment
@@ -1146,22 +1138,16 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Trial preparation | d5m1-l2 | Gathering the final pieces so the attorney walks into court fully armed |
 | Subpoena | d5m1-l2, d5m1-subp | The court's order that makes someone produce records or show up |
 | Trial binder | d5m1-l2 | Every exhibit indexed and tabbed so the attorney can find any document in seconds |
-| Subpoena Duces Tecum | d5m1-subp, d5m2-l2 | Latin for "bring it with you": orders someone outside the lawsuit to produce documents |
+| Subpoena Duces Tecum | d5m1-subp | Latin for "bring it with you": orders someone outside the lawsuit to produce documents |
 | Trial subpoena | d5m1-subp | Orders a witness to show up and testify |
 | Fishing expedition | d5m1-subp | A request for "all records of any kind" |
-| Motion to Quash | d5m1-subp, d5m2-l2 | A request asking the court to cancel a subpoena |
-| ACV | d5m2-l1 | The car's actual cash value before the crash |
-| Special damages | d5m2-l1 | Losses you can count and prove with documents |
-| General damages | d5m2-l1 | Losses you can't put a receipt on, like pain and suffering |
-| Diminution in value | d5m2-l1 | What the car was worth before minus what it's worth after, weighed against the repair cost, whichever is less |
-| Loss of consortium | d5m2-l1 | Harm to a family relationship |
-| Punitive damages | d5m2-l1 | Damages that punish truly reckless conduct and warn others |
-| Make whole / windfall | d5m2-l1 | Back where she was before the crash, never more than she lost |
-| A-pillar | d5m2-l1 | The post beside the windshield |
-| Fair market value | d5m2-l2 | What a normal buyer would pay |
-| Diminished Value | d5m2-l2 | The value a car still loses after a proper repair, because buyers pay less for a crash history |
-| Carrier formula (17c) | d5m2-l2 | The carrier's own claims habit, not the law |
-| Lesser-of rule | d5m2-l2 | The owner gets the lesser of the repair cost or the drop in market value |
+| Motion to Quash | d5m1-subp | A request asking the court to cancel a subpoena |
+| PD-only release | d5m2-l1, d5m2-a1 | A release that settles the car claim and nothing else, never the injury claim |
+| Release scope | d5m2-l1, d5m2-a1 | Exactly which claims a release gives up; “all claims” is the red flag |
+| Claim number | d5m2-l1 | The carrier's file number: KM-26-440871-PD for the car, KM-26-440871 for John |
+| Severity set | d5m2-l1 | The photos, estimate and supplement that show how hard the impact was |
+| Diminished Value | d5m2-l1 | The value a car still loses after a proper repair; Margaret's claim, not John's |
+| Outside the stack | d5m2-l1 | Paid from Keystone's separate $25,000 PD limit, so John's $40,000 stack doesn't move |
 | UPL | d5m1-kc | Giving legal advice when you're not a lawyer |
 
 ### Day 5 · Depositions, Liability & Skip-Tracing

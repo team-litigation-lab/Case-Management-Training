@@ -194,52 +194,26 @@
   "d1m3-l2": {
     "dos": [
       [
-        "The Escape comes back from the body shop with a final bill.",
-        "The bill runs higher than the insurer's first written figure.",
-        "Those extra line items reveal structural harm nobody saw at inspection."
+        "Keystone's PD adjuster sends the Civic's damage photos to the firm.",
+        "Before filing them, you check what they prove about John Doe.",
+        "They show the force his body took, so they go in his file."
       ],
       [
-        "The carrier declares the vehicle a Total Loss.",
-        "Its offer rests on a CCC One figure for pre-loss value.",
-        "You check the comparables before John Doe hears any number."
+        "A body shop's estimate for the Civic lands in the firm's inbox.",
+        "It lists crushed panels and a bent pillar on the passenger side.",
+        "Within the hour it is indexed as severity evidence for John."
       ]
     ],
     "donts": [
       [
-        "The carrier's appraiser writes up the Escape the week after the crash.",
-        "That first figure goes straight into the file as final.",
-        "Nobody compares it against the body shop's closing bill or supplementals."
+        "John Doe calls; he needs a way to get to treatment.",
+        "Keystone has offered Margaret a car while the Civic is repaired.",
+        "A new PD file opens with John Doe listed as owner."
       ],
       [
-        "The repair photos show a crushed door on one side.",
-        "Frame photos could show how hard the impact really was.",
-        "The vehicle file is treated as fender paperwork, apart from the injury claim."
-      ]
-    ]
-  },
-  "d1m3-rent": {
-    "dos": [
-      [
-        "Margaret Doe's Civic is in the shop after the crash.",
-        "Leah Moran says Keystone will cover a rental car.",
-        "You wait for Form KM-PD 210 before sending her anywhere."
-      ],
-      [
-        "Keystone's letter gives Margaret Doe a fixed number of rental days.",
-        "You put the final day on the CMS calendar.",
-        "Three days ahead of it, you call her with the date."
-      ]
-    ],
-    "donts": [
-      [
-        "Margaret Doe needs a car to get to work tomorrow.",
-        "Keystone has not yet confirmed a rate or any days.",
-        "You tell her to go pick one up anyway."
-      ],
-      [
-        "John Doe rode in the front seat of the Civic.",
-        "He calls asking for a rental of his own.",
-        "You open a rental file in his name."
+        "The Civic's repair photos come in with the tow bill.",
+        "They get filed with the car paperwork, far from the medical records.",
+        "At demand time, nobody shows the adjuster how hard the hit was."
       ]
     ]
   },
